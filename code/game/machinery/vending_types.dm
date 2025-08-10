@@ -87,6 +87,7 @@
 		/obj/item/reagent_containers/food/drinks/bottle/guinness = 4,
 		/obj/item/reagent_containers/food/drinks/bottle/absinthe = 2,
 		/obj/item/reagent_containers/food/drinks/bottle/bluecuracao = 2,
+		/obj/item/reagent_containers/food/drinks/bottle/limoncello = 2,
 		/obj/item/reagent_containers/food/drinks/bottle/kahlua = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/triplesec = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/sarezhiwine = 2,

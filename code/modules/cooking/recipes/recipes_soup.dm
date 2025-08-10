@@ -101,6 +101,14 @@
 	reagents = list(/singleton/reagent/water = 10)
 	result = /obj/item/reagent_containers/food/snacks/soup/pea
 
+/singleton/recipe/gazpacho
+	appliance = MIX
+	reagents = list(/singleton/reagent/sodiumchloride = 1, /singleton/reagent/blackpepper = 1)
+	fruit = list("tomato" = 1, "bellpepper" = 1) //if cucumbers are added to the game please add them to this recipe
+	reagents = list(/singleton/reagent/water = 10)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/soup/gazpacho
+
 // Stews
 /singleton/recipe/stew
 	appliance = POT

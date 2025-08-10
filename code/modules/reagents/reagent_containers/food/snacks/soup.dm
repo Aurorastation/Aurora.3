@@ -203,6 +203,16 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("peas" = 5, "vegetables" = 4))
 	bitesize = 2
 
+/obj/item/reagent_containers/food/snacks/soup/gazpacho
+	name = "gazpacho"
+	desc = "Excuse me, waiter, my tomato soup is cold! Wha- They serve it like this in spain?! Well... uh... I knew that! I just meant it should be colder! Of course it's supposed to be cold! Everyone knows they don't have stoves back in Sol!... Right?"
+	icon = 'icons/obj/item/reagent_containers/food/soup.dmi'
+	icon_state = "gazpacho"
+	filling_color = "#e2520f"
+	bitesize = 2
+	reagents_to_add = list(/singleton/reagent/drink/tomatojuice = 5, /singleton/reagent/nutriment = 5)
+	reagent_data = list(/singleton/reagent/nutriment = list("tomato soup" = 5, "peppers" = 4, "cold zest" = 3))
+
 // Stew
 
 /obj/item/reagent_containers/food/snacks/stew

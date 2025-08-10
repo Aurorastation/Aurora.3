@@ -308,9 +308,9 @@
 	pickup_sound = 'sound/items/pickup/glass.ogg'
 
 /obj/item/trash/shakshouka
-	name = "empty shakshouka pan"
+	name = "large messy pan"
 	icon_state = "shakshouka"
-	desc = "It looks like the murder scene... Of a delicious Shakshouka. Trash or recycle."
+	desc = "It looks like the murder scene... of a delicious, saucy dish. Trash or recycle."
 	drop_sound = 'sound/items/drop/bottle.ogg'
 	pickup_sound = 'sound/items/pickup/bottle.ogg'
 

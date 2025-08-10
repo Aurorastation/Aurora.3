@@ -909,3 +909,65 @@
 		else if(contents.len <= 10)
 			item_state = "heartbox_open"
 			icon_state = "heartbox_full"
+
+/obj/item/storage/box/fancy/food/sliced_bread
+	name = "sliced bread"
+	desc = "The best thing since... ever, basically! This store-bought bread might not have the heart and soul of a fresh loaf of bread baked at home, but it's... uh... Well, at least it's supsiciously square!"
+	icon = 'icons/obj/item/reagent_containers/food/bread.dmi'
+	icon_state = "slicedbread_full"
+	icon_type = "bread slice"
+	use_sound = 'sound/items/storage/wrapper.ogg'
+	drop_sound = 'sound/items/drop/wrapper.ogg'
+	pickup_sound = 'sound/items/pickup/wrapper.ogg'
+	storage_type = "bag"
+	storage_slots = 8
+	max_storage_space = 8
+	can_hold = list(
+		/obj/item/reagent_containers/food/snacks/breadslice/filled
+	)
+	starts_with = list(/obj/item/reagent_containers/food/snacks/breadslice/filled = 8)
+	opened = TRUE
+	closable = FALSE
+	throwforce = 1
+
+/obj/item/storage/box/fancy/food/sliced_bread/update_icon()
+	. = ..()
+	if(contents.len == 0) //this isn't marked as trash so items can still be put back into the container once removed
+		icon_state = "slicedbread_empty"
+	else if(contents.len <= 2)
+		icon_state = "slicedbread_last"
+	else if(contents.len <= 4)
+		icon_state = "slicedbread_half"
+	else if(contents.len <= 7)
+		icon_state = "slicedbread_nearfull"
+	else if(contents.len <= 8)
+		icon_state = "slicedbread_full"
+
+
+/obj/item/storage/box/fancy/food/packaged_shrimp
+	name = "packaged shrimp"
+	desc = "A package containing raw shrimp, as fresh as packaged shellfish shipped halfway across the universe can be!"
+	icon = 'icons/obj/item/reagent_containers/food/meat.dmi'
+	icon_state = "shrimp_pack"
+	icon_type = "raw shrimp"
+	use_sound = 'sound/items/storage/wrapper.ogg'
+	drop_sound = 'sound/items/drop/wrapper.ogg'
+	pickup_sound = 'sound/items/pickup/wrapper.ogg'
+	storage_slots = 4
+	max_storage_space = 4
+	can_hold = list(
+		/obj/item/reagent_containers/food/snacks/fish/raw_shrimp
+	)
+	starts_with = list(/obj/item/reagent_containers/food/snacks/fish/raw_shrimp = 4)
+	opened = TRUE
+	closable = FALSE
+	throwforce = 1
+
+/obj/item/storage/box/fancy/food/packaged_shrimp/update_icon()
+	. = ..()
+	if(contents.len == 0) //this isn't marked as trash so items can still be put back into the container once removed
+		icon_state = "shrimp_pack_empty"
+	else if(contents.len <= 2)
+		icon_state = "shrimp_pack_half"
+	else if(contents.len <= 4)
+		icon_state = "shrimp_pack"
