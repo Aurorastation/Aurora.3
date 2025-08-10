@@ -10,7 +10,7 @@
 	var/drop_amount = 2 // How many times can this item be used?
 
 	var/tileoffset = 8 // How far can you zoom with these binocular targeters
-	var/viewsize = 7 // How large the view is when you zoom
+	var/viewsize = 8 // How large the view is when you zoom
 
 	var/paint_distance = 14 // From how far away can you paint a target?
 

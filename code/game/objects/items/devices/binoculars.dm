@@ -14,10 +14,10 @@
 	throw_speed = 3
 
 	var/tileoffset = 14
-	var/viewsize = 7
+	var/viewsize = 8
 
 /obj/item/device/binoculars/attack_self(mob/user)
-	zoom(user,tileoffset,viewsize, show_zoom_message = FALSE)
+	zoom(user, tileoffset, viewsize, show_zoom_message = FALSE)
 
 /obj/item/device/binoculars/high_power
 	name = "high power binoculars"
