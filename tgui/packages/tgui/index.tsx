@@ -4,6 +4,9 @@
  * @license MIT
  */
 
+// Themes
+import './styles/main.scss';
+
 import { perf } from 'common/perf';
 import { setupGlobalEvents } from 'tgui-core/events';
 import { setupHotKeys } from 'tgui-core/hotkeys';

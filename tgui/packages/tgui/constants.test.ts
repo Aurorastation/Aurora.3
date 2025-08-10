@@ -1,4 +1,11 @@
-import { getGasColor, getGasFromId, getGasFromPath, getGasLabel } from './constants';
+import { describe, expect, it } from 'bun:test';
+
+import {
+  getGasColor,
+  getGasFromId,
+  getGasFromPath,
+  getGasLabel,
+} from './constants';
 
 describe('gas helper functions', () => {
   it('should get the proper gas label', () => {
