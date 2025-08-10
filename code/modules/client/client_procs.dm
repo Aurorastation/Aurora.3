@@ -1024,7 +1024,7 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 /client/proc/acquire_dpi()
 	window_scaling = text2num(winget(src, null, "dpi"))
 
-/mob/verb/set_icon_size()
+/client/verb/set_icon_size()
 	set name = "Set View Zoom"
 	set desc = "Lets you zoom in."
 	set category = "OOC"
