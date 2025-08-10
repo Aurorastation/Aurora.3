@@ -5,7 +5,8 @@
 	icon_state = "landmine"
 	throwforce = 0
 	var/deployed = FALSE
-	var/deactivated = FALSE // add wire to re-activate
+	/// Add wire to re-activate
+	var/deactivated = FALSE
 
 /obj/item/landmine/Initialize()
 	. = ..()

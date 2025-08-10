@@ -1,5 +1,8 @@
 // fun if you want to typecast humans/monkeys/etc without writing long path-filled lines.
 
+/**
+ * Returns mob_size <= MOB_SMALL if used on a /mob/living.
+ */
 /proc/issmall(A)
 	if(A && istype(A, /mob/living))
 		var/mob/living/L = A
@@ -38,7 +41,6 @@
 
 /mob/living/carbon/human/isMonkey()
 	return istype(species, /datum/species/monkey)
-
 
 /proc/ishuman_species(A)
 	if(istype(A, /mob/living/carbon/human))
@@ -148,7 +150,10 @@
 /mob/living/carbon/alien/diona/is_diona()
 	return DIONA_NYMPH
 
-/proc/is_mob_special(A) // determines special mobs. has restrictions on certain things, like welderbombing
+/**
+ * Determines special mobs; places restrictions on certain things, like welderbombing.
+ */
+/proc/is_mob_special(A)
 	if(isrevenant(A))
 		return TRUE
 	if(iszombie(A))
@@ -288,7 +293,9 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 	BP_R_FOOT = 10
 ))
 
-///Find the mob at the bottom of a buckle chain
+/**
+ * Find the mob at the bottom of a buckle chain.
+ */
 /mob/proc/lowest_buckled_mob()
 	. = src
 	//buckled -> buckled_to from TG
@@ -321,9 +328,11 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 		zone = pick_weight(weighted_list ? weighted_list : GLOB.organ_rel_size) //Slightly different from TG, we have a list with organ sizes
 	return zone
 
-/// Emulates targetting a specific body part, and miss chances
-/// May return null if missed
-/// miss_chance_mod may be negative.
+/**
+ * Emulates targetting a specific body part, and miss chances.
+ * May return null if missed.
+ * miss_chance_mod can be negative.
+ */
 /proc/get_zone_with_miss_chance(zone, var/mob/target, var/miss_chance_mod = 0, var/ranged_attack=0, var/point_blank = FALSE)
 	zone = check_zone(zone)
 
@@ -351,7 +360,9 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 		return pick(GLOB.base_miss_chance)
 	return zone
 
-// never a chance to miss, but you might not hit what you want to hit
+/**
+ * No a chance to miss, but you might not hit what you want to hit.
+ */
 /mob/living/heavy_vehicle/calculate_zone_with_miss_chance(zone, miss_chance_mod)
 	var/miss_chance = 10
 	if(zone in GLOB.base_miss_chance)
@@ -380,6 +391,9 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 		chars[i] = "*"
 	return sanitize(jointext(chars, ""))
 
+/**
+ * The speech impediment, not the other thing.
+ */
 /proc/slur(phrase, strength = 100)
 	phrase = html_decode(phrase)
 	var/leng = length_char(phrase)
@@ -408,13 +422,18 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 				if (7)
 					newletter += "'"
 				else
-					. = null // For dreamchecker, does nothing
+					. = null // For dreamchecker, does nothing.
 		newphrase += "[newletter]"
 		counter -= 1
 	return newphrase
 
-/proc/Gibberish(t, p)//t is the inputted message, and any value higher than 70 for p will cause letters to be replaced instead of added
-	/* Turn text into complete gibberish! */
+/**
+ * Turns text into complete gibberish.
+ *
+ * * t - inputted message
+ * * p - higher than 70 cause letters to be replaced instead of added
+ */
+/proc/Gibberish(t, p)
 	var/returntext = ""
 	for(var/i = 1, i <= length(t), i++)
 
@@ -430,13 +449,14 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 
 	return returntext
 
-
+/**
+ * Stuttering. Is this even used anywhere???
+ *
+ * The difference with stutter is that this proc can stutter more than 1 letter
+ * The issue here is that anything that does not have a space is treated as one word (in many instances). For instance, "LOOKING," is a word, including the comma.
+ * It's fairly easy to fix if dealing with single letters but not so much with compounds of letters.
+ */
 /proc/ninjaspeak(n)
-/*
-The difference with stutter is that this proc can stutter more than 1 letter
-The issue here is that anything that does not have a space is treated as one word (in many instances). For instance, "LOOKING," is a word, including the comma.
-It's fairly easy to fix if dealing with single letters but not so much with compounds of letters./N
-*/
 	var/te = html_decode(n)
 	var/t = ""
 	n = length(n)
@@ -458,7 +478,6 @@ It's fairly easy to fix if dealing with single letters but not so much with comp
 		t = "[t][n_letter]"
 		p=p+n_mod
 	return sanitize(t)
-
 
 #define TICKS_PER_RECOIL_ANIM 2
 #define PIXELS_PER_STRENGTH_VAL 16
