@@ -3007,6 +3007,7 @@
 #include "code\modules\movespeed\modifiers\mobs.dm"
 #include "code\modules\movespeed\modifiers\reagents.dm"
 #include "code\modules\movespeed\modifiers\spells.dm"
+#include "code\modules\movespeed\modifiers\synthetics.dm"
 #include "code\modules\multiz\_stubs.dm"
 #include "code\modules\multiz\basic.dm"
 #include "code\modules\multiz\hoist.dm"
