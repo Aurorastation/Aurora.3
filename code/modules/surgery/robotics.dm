@@ -618,7 +618,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	for(var/obj/item/organ/internal/machine/I in affected.internal_organs)
 		if(I && (I.plating.get_status() < 100))
-			user.visible_message(SPAN_NOTICE("[user] begins cutting apart the old plating arund [target]'s [I] and replacing it with new plates..."))
+			user.visible_message(SPAN_NOTICE("[user] begins cutting apart the old plating around [target]'s [I] and replacing it with new plates..."))
 	..()
 
 /singleton/surgery_step/internal/replace_internal_plating/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)

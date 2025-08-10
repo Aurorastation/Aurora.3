@@ -534,7 +534,8 @@
 
 	return
 
-/datum/species/proc/handle_post_spawn(var/mob/living/carbon/human/H, var/kpg = 0) //Handles anything not already covered by basic species assignment. Keepgene value should only be used by genetics.
+/// Handles anything not already covered by basic species assignment. Keepgene (kpg) value should only be used by genetics.
+/datum/species/proc/handle_post_spawn(mob/living/carbon/human/H, kpg = 0)
 	add_inherent_verbs(H)
 	H.mob_bump_flag = bump_flag
 	H.mob_swap_flags = swap_flags
