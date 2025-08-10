@@ -1,8 +1,8 @@
 /* Two-handed Weapons
  * Contains:
- * 		Twohanded
- *		Fireaxe
- *		Double-Bladed Energy Swords
+ * * Twohanded
+ * * Fireaxe
+ * * Double-Bladed Energy Swords
  */
 
 /*##################################################################

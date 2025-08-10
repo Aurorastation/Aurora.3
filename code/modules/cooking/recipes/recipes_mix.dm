@@ -51,6 +51,7 @@
 /singleton/recipe/aesirsalad
 	fruit = list("goldapple" = 1, "ambrosiadeus" = 1)
 	result = /obj/item/reagent_containers/food/snacks/salad/aesirsalad
+
 /singleton/recipe/validsalad
 	fruit = list("potato" = 1, "ambrosia" = 3)
 	items = list(/obj/item/reagent_containers/food/snacks/meatball)

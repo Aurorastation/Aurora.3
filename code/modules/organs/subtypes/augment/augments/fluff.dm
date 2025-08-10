@@ -35,3 +35,22 @@
 	desc = "An augment installed inside the left hand of someone."
 	parent_organ = BP_L_HAND
 
+/obj/item/organ/internal/augment/bioaug/head_fluff
+	name = "head bioaug"
+	desc = "A bioaug installed inside the head of someone."
+	parent_organ = BP_HEAD
+
+/obj/item/organ/internal/augment/bioaug/head_fluff/chest_fluff
+	name = "chest bioaug"
+	desc = "A bioaug installed inside the chest of someone."
+	parent_organ = BP_CHEST
+
+/obj/item/organ/internal/augment/bioaug/head_fluff/rhand_fluff
+	name = "right hand bioaug"
+	desc = "A bioaug installed inside the right hand of someone."
+	parent_organ = BP_R_HAND
+
+/obj/item/organ/internal/augment/bioaug/head_fluff/lhand_fluff
+	name = "left hand bioaug"
+	desc = "A bioaug installed inside the left hand of someone."
+	parent_organ = BP_L_HAND

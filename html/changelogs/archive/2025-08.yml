@@ -85,3 +85,83 @@
   - rscadd: Adds a Europa music cartridge and tracks to go with it.
   - bugfix: Fixes the 'Spacer Classics' music cartridge loadout selection not working.
   - qol: Reduces volume of most recently added music tracks.
+2025-08-05:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Remove reagent feedback message spam by correcting delay time (debug value).
+  Hellfirejag:
+  - refactor: Gently refactored organ code in preparation for Galatean BioAugs.
+  - rscadd: Added Auxiliary Heart as a new loadout implant available to Galateans
+  - rscadd: Added Platelet Factories and Subdermal Carapace as new loadout implants
+      available only to Galatean Consulars.
+  - rscadd: Auxiliary Heart, Mind Blankers (both types), Platelet Factories, and Subdermal
+      Carapace are now available to antagonists via their uplink.
+  Wowzewow (Wezzy):
+  - rscadd: Readds microwaves. They've got most of their old recipes, give or take.
+      They've been remapped in where appropriate.
+  - imageadd: Resprites the small oven.
+2025-08-06:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Fixed obj path name for Spark APC.
+  - bugfix: Updated magazine area assignments to include turret controller obj.
+  ChangeMe:
+  - rscadd: Offworlder slowdown is now removed by all hardsuits instead of just the
+      exostellar skeleton.
+  CometBlaze:
+  - rscadd: Exo-stellar skeletons now come with a storage module by default.
+2025-08-07:
+  Batrachophrenoboocosmomachia:
+  - rscadd: Grants Odyssey Storytellers access to 22 different moderator/admin/debug
+      commands to make their lives easier.
+  ElorgRHG:
+  - rscadd: Added colorable versions of some Tajara cloaks to the loadout.
+  - rscadd: Added colorable versions of Tajara fur scarf to the loadout.
+  Hellfirejag:
+  - rscadd: Added missing recipes for mounted Teargas and Smoke grenade launchers
+      to the mechatronic fabricator.
+  - rscadd: Added the falcata exoskeleton as a new low-tier 'combat hardsuit' for
+      machinists to make.
+  MattAtlas:
+  - bugfix: Wall leaning now properly updates mob density, meaning that you can walk
+      through tiles where there are people leaning on walls.
+  - bugfix: Medical items like bandages and ATKs can no longer be used on robotic
+      limbs.
+  - bugfix: Look Up will now follow the user around until they go under a solid tile.
+  - bugfix: TGUI Say Light Mode preference will now actually save.
+  - experiment: Increased the lobby roundstart time.
+  Wowzewow (Wezzy):
+  - bugfix: Hopefully fixes Schlorrgos from breaking unit tests.
+  hazelmouse:
+  - rscadd: Renames cyborg recharging stations to synthetic recharging stations.
+2025-08-08:
+  ElorgRHG:
+  - bugfix: Fixes tajaran earrings not displaying properly.
+  Hellfirejag:
+  - bugfix: Fixed augments failing to spawn.
+  - rscadd: Added mechanics examine text for mech modules. Uniquely, examining a mech
+      lets you see the mechanics of its equipped modules.
+  - rscadd: Mech ore summoners can now be linked to warp extraction ore boxes.
+  - refactor: Removed all lag-inducing hard deletes from mech code.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes icecream cart icon2html.
+2025-08-09:
+  Kano:
+  - bugfix: Fixed shuttles not being able to dock with Horizon's docking arms.
+2025-08-10:
+  AlaunusLux:
+  - bugfix: '''Weakened'' hivebot beacons will no longer be summoned by golden slime
+      extracts.'
+  Batrachophrenoboocosmomachia:
+  - code_imp: Unit test added for debugging flag on away sites.
+  - code_imp: DMdocs comment/documentation conversion progress.
+  Ben10083:
+  - bugfix: AI core display change verb fixed.
+  - code_imp: Improvements to ai.dm, mostly documentation.
+  Hellfirejag:
+  - balance: Changed the falcata to give a slight slowdown even when powered, instead
+      of unintentionally speeding up the user. Its still less encumbering than heavy
+      armor.
+  - rscadd: Added missing recipes needed to make a falcata exoskeleton.
+  Kano:
+  - qol: Tweaked cargo package spawning logic for the hidden off-ships. It'll now
+      be available after the ship is visible on overmap.
+  - rscadd: Added an engineering cart. Its sprites are ported from Paradise Station.

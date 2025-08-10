@@ -104,3 +104,16 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/bacon_flatbread
 
+/singleton/recipe/bacon_flatbreadflatbread
+	appliance = OVEN | MICROWAVE
+	fruit = list("tomato" = 2)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/flatbread,
+		/obj/item/reagent_containers/food/snacks/cheesewedge,
+		/obj/item/reagent_containers/food/snacks/bacon,
+		/obj/item/reagent_containers/food/snacks/bacon,
+		/obj/item/reagent_containers/food/snacks/bacon,
+		/obj/item/reagent_containers/food/snacks/bacon
+	)
+	result = /obj/item/reagent_containers/food/snacks/bacon_flatbread
+
