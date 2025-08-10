@@ -12,6 +12,7 @@ export type VendingData = {
   sel_icon: string;
   message: string;
   message_err: string;
+  display_ad: string;
 
   products: Product[];
   coin: string;
@@ -38,6 +39,7 @@ export const Vending = (props, context) => {
   return (
     <Window resizable width={425} height={500} theme={data.manufacturer}>
       <Window.Content scrollable>
+        <Box textAlign="center">{data.display_ad}</Box>
         <Section>
           {data.vending_item && data.sel_price !== 0 ? (
             <ShowVendingItem />
