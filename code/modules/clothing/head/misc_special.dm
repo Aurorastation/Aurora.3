@@ -1,11 +1,11 @@
 /*
  * Contents:
- *		Welding mask
- *		Cakehat
- *		Ushanka
- *		Pumpkin head
- *		Chicken mask
- *		Warning cone
+ * * Welding mask
+ * * Cakehat
+ * * Ushanka
+ * * Pumpkin head
+ * * Chicken mask
+ * * Warning cone
  */
 
 /*

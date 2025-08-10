@@ -146,3 +146,22 @@
 2025-08-09:
   Kano:
   - bugfix: Fixed shuttles not being able to dock with Horizon's docking arms.
+2025-08-10:
+  AlaunusLux:
+  - bugfix: '''Weakened'' hivebot beacons will no longer be summoned by golden slime
+      extracts.'
+  Batrachophrenoboocosmomachia:
+  - code_imp: Unit test added for debugging flag on away sites.
+  - code_imp: DMdocs comment/documentation conversion progress.
+  Ben10083:
+  - bugfix: AI core display change verb fixed.
+  - code_imp: Improvements to ai.dm, mostly documentation.
+  Hellfirejag:
+  - balance: Changed the falcata to give a slight slowdown even when powered, instead
+      of unintentionally speeding up the user. Its still less encumbering than heavy
+      armor.
+  - rscadd: Added missing recipes needed to make a falcata exoskeleton.
+  Kano:
+  - qol: Tweaked cargo package spawning logic for the hidden off-ships. It'll now
+      be available after the ship is visible on overmap.
+  - rscadd: Added an engineering cart. Its sprites are ported from Paradise Station.

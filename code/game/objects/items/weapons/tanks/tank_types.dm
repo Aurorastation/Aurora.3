@@ -1,11 +1,11 @@
 /* Types of tanks!
  * Contains:
- *		Oxygen
- *		Anesthetic
- *		Air
- *		Phoron
- *		Hydrogen
- *		Emergency Oxygen
+ * * Oxygen
+ * * Anesthetic
+ * * Air
+ * * Phoron
+ * * Hydrogen
+ * * Emergency Oxygen
  */
 
 /*
