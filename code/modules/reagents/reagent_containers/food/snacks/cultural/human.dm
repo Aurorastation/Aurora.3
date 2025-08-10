@@ -296,6 +296,24 @@
 	icon_state = "mozzarella_stick"
 	filling_color = "#fabe17"
 
+/obj/item/reagent_containers/food/snacks/jambalaya
+	name = "jambalaya"
+	desc = "A Creole/Cajun-American dish popularized in Louisiana with origins in Africa and Asia. It is a flavorful mixture of seafood, meats, rice, spices and vegetables. A real celebration of all that is food."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "jambalaya"
+	trash = /obj/item/trash/shakshouka
+	reagents_to_add = list(/singleton/reagent/nutriment/protein = 6, /singleton/reagent/nutriment = 6)
+	reagent_data = list(/singleton/reagent/nutriment/protein = list("chicken" = 5, "shrimp" = 5, "sausage" = 4), /singleton/reagent/nutriment = list("rice" = 5, "rich spicy flavors" = 5))
+	filling_color = "#c06917"
+
+/obj/item/reagent_containers/food/snacks/jambalaya/update_icon()
+	var/percent = round((reagents.total_volume / 12) * 100)
+	switch(percent)
+		if(0 to 49)
+			icon_state = "jambalaya_half"
+		else
+			icon_state = "jambalaya"
+
 // Konyang
 
 /obj/item/reagent_containers/food/snacks/mossbowl

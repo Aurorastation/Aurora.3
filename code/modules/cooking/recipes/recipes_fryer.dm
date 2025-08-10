@@ -70,7 +70,7 @@
 	result = /obj/item/reagent_containers/food/snacks/sweet_and_sour
 
 /singleton/recipe/wingfangchu
-	appliance = FRYER | MICROWAVE
+	appliance = FRYER
 	reagents = list(/singleton/reagent/nutriment/soysauce = 5)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/xenomeat
@@ -86,7 +86,7 @@
 	result = /obj/item/reagent_containers/food/snacks/roefritters
 
 /singleton/recipe/fries_olympia_cheesy
-	appliance = FRYER | MICROWAVE
+	appliance = FRYER
 	reagents = list(/singleton/reagent/spacespice = 3)
 	fruit = list("potato" = 1)
 	items = list(
@@ -96,7 +96,7 @@
 	result = /obj/item/reagent_containers/food/snacks/fries_olympia_with_cheese
 
 /singleton/recipe/fries_olympia_no_cheese
-	appliance = FRYER | MICROWAVE
+	appliance = FRYER
 	reagents = list(/singleton/reagent/spacespice = 3)
 	fruit = list("potato" = 1)
 	reagent_mix = RECIPE_REAGENT_REPLACE //So we don't end up with a ton of potato juice
@@ -187,7 +187,9 @@
 
 /singleton/recipe/north60squid
 	appliance = FRYER
-	items = list(/obj/item/reagent_containers/food/snacks/squidmeat = 1)
+	items = list(/obj/item/reagent_containers/food/snacks/squidmeat = 1,
+		/obj/item/reagent_containers/food/snacks/fish/raw_shrimp = 1
+	)
 	reagents = list(/singleton/reagent/drink/lemonjuice = 5 , /singleton/reagent/drink/applejuice = 5, /singleton/reagent/nutriment/garlicsauce = 10)
 	coating = /singleton/reagent/nutriment/coating/beerbatter
 	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product

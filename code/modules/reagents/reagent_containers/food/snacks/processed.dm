@@ -827,3 +827,149 @@
 	reagents_to_add = list(/singleton/reagent/nutriment = 0.5)
 	reagent_data = list(/singleton/reagent/nutriment = list("light cocoa" = 2))
 	bitesize = 1
+
+//Microwave food packages
+
+/obj/item/storage/box/fancy/quick_microwave_pizza
+	name = "quick-e-meals microwave pizza"
+	desc = "A package containing one microwavable 'quick-e-meals' brand pizza. Remove from packaging then heat for 2 minutes for best results. Oh wow, it says it contains 5 times your recommended daily intake of sodium! 5 times what's healthy?! This must be SUPER healthy! Who knew pizza is health food?"
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "pizza_plain_box"
+	icon_type = "pizza"
+	storage_type = "packaging"
+	starts_with = list(/obj/item/reagent_containers/food/snacks/frozen_microwave_pizza = 1)
+	can_hold = list(/obj/item/reagent_containers/food/snacks/frozen_microwave_pizza)
+	make_exact_fit = TRUE
+	opened_icon_state = "microwave_trash"
+
+	use_sound = 'sound/items/storage/wrapper.ogg'
+	drop_sound = 'sound/items/drop/wrapper.ogg'
+	pickup_sound = 'sound/items/pickup/wrapper.ogg'
+
+	trash = /obj/item/trash/microwave_package
+	closable = FALSE
+	icon_overlays = FALSE
+
+/obj/item/storage/box/fancy/quick_microwave_pizza/olive
+	name = "quick-e-meals microwave olive pizza"
+	desc = "A package containing one microwavable 'quick-e-meals' brand pizza. Remove from packaging then heat for 2 minutes for best results. Yum, olives!... (Psst, hey, what's an olive?)" //If olives get added to the game one day please change this joke.
+	icon_state = "pizza_olive_box"
+	starts_with = list(/obj/item/reagent_containers/food/snacks/frozen_microwave_pizza/olive = 1)
+
+/obj/item/storage/box/fancy/quick_microwave_pizza/district6
+	name = "quick-e-meals microwave district 6 pizza"
+	desc = "A package containing one microwavable 'quick-e-meals' brand pizza. Remove from packaging then heat for 2 minutes for best results. This one has Earthenroot and ground dirtberries on it. They look so plump, plentiful and tasty, surely they look just as good inside."
+	icon_state = "pizza_district6_box"
+	starts_with = list(/obj/item/reagent_containers/food/snacks/frozen_microwave_pizza/district6 = 1)
+
+/obj/item/storage/box/fancy/quick_microwave_pizza/pepperoni
+	name = "quick-e-meals microwave pepperoni pizza"
+	desc = "A package containing one microwavable 'quick-e-meals' brand pizza. Remove from packaging then heat for 2 minutes for best results. This one has a lovely pepperoni pizza on the package, covered in lots of slices and glistening temptingly in the light."
+	icon_state = "pizza_pepperoni_box"
+	starts_with = list(/obj/item/reagent_containers/food/snacks/frozen_microwave_pizza/pepperoni = 1)
+
+/obj/item/reagent_containers/food/snacks/packaged_microwave_mac_and_cheeze
+	name = "microwave mac and cheeze"
+	desc = "Is it a typo? Is it just a cool way to brand your product? Is it a legal distinction from anything that can be legally referred to as cheese in Tau Ceti? You decide! Instructions: Add 5u. of water and heat up for 2 minutes in the microwave. This hasn't been prepared yet."
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "mac_pack"
+	trash = /obj/item/trash/mac_cheeze
+	filling_color = "#E8C31E"
+	reagents_to_add = list(/singleton/reagent/nutriment = 5)
+	reagent_data = list(/singleton/reagent/nutriment = list("uncooked pasta" = 5, "dry cheeze powder" = 5))
+
+/obj/item/reagent_containers/food/snacks/quick_microwave_mac_and_cheeze/update_icon()
+	var/percent_mac_cheeze = round((reagents.total_volume / 5) * 100)
+	switch(percent_mac_cheeze)
+		if(0 to 95)
+			icon_state = "mac_pack_open"
+		if(96 to INFINITY)
+			icon_state = "mac_pack"
+
+/obj/item/reagent_containers/food/snacks/instant_mac
+	name = "mac and cheeze"
+	desc = "Is it a typo? Is it just a cool way to brand your product? Is it a legal distinction from anything that can be legally referred to as cheese in Tau Ceti? You decide! It seems someone already prepared this one."
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "mac_pack_open"
+	filling_color = "#E8C31E"
+	trash = /obj/item/trash/mac_cheeze
+	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/nutriment/protein/cheese = 3)
+	reagent_data = list(/singleton/reagent/nutriment = list("pasta" = 5), /singleton/reagent/nutriment/protein/cheese = list("cheezy flavoring" = 5))
+
+/obj/item/reagent_containers/food/snacks/packaged_microwave_fiery_mac_and_cheeze
+	name = "microwave fiery hot mac and cheeze"
+	desc = "The fire adorning the package invites you to get ready for delicious pain. It hasn't been prepared yet, though."
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "mac_fiery"
+	trash = /obj/item/trash/mac_fiery
+	filling_color = "#e40000"
+	reagents_to_add = list(/singleton/reagent/nutriment = 5, /singleton/reagent/capsaicin = 2)
+	reagent_data = list(/singleton/reagent/nutriment = list("uncooked pasta" = 5, "mouth pain powder" = 5))
+
+/obj/item/reagent_containers/food/snacks/packaged_microwave_fiery_mac_and_cheeze/update_icon()
+	var/percent_mac_fiery = round((reagents.total_volume / 7) * 100)
+	switch(percent_mac_fiery)
+		if(0 to 95)
+			icon_state = "mac_fiery_open"
+		if(96 to INFINITY)
+			icon_state = "mac_fiery"
+
+/obj/item/reagent_containers/food/snacks/instant_mac_fiery
+	name = "fiery hot mac and cheeze"
+	desc = "Oh wow, that is red. That is very, very red. Is it supposed to be this neon shade red? Everything about this screams that you shouldn't eat it... You're absolutely going to eat it, aren't you?"
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "mac_fiery_open"
+	filling_color = "#e40000"
+	trash = /obj/item/trash/mac_fiery
+	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/capsaicin = 2, /singleton/reagent/nutriment/protein/cheese = 3)
+	reagent_data = list(/singleton/reagent/nutriment = list("pasta" = 5), /singleton/reagent/nutriment/protein/cheese = list("delicious pain" = 5))
+
+/obj/item/storage/box/fancy/packaged_burger
+	name = "\improper quick-e-meals instaburger"
+	desc = "'Mama, mama! Can we stop at quick-e-burger?!' -'No, dears! We have quick-e-burger at home!' Quick-e-burger at home: is... surprisingly accurate, actually."
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "burger_box"
+	icon_type = "burger"
+	storage_type = "packaging"
+	starts_with = list(/obj/item/reagent_containers/food/snacks/frozen_burger = 1)
+	can_hold = list(/obj/item/reagent_containers/food/snacks/quick_e_burger)
+	make_exact_fit = TRUE
+	opened_icon_state = "microwave_trash"
+
+	use_sound = 'sound/items/storage/wrapper.ogg'
+	drop_sound = 'sound/items/drop/wrapper.ogg'
+	pickup_sound = 'sound/items/pickup/wrapper.ogg'
+
+	trash = /obj/item/trash/microwave_package
+	closable = FALSE
+	icon_overlays = FALSE
+
+/obj/item/reagent_containers/food/snacks/quick_curry
+	name = "\improper quick-e-meals mild curry"
+	desc = "A microwave curry dish boasting a mixture of rice and curry with a spiciness rating of 'mild'. The instructions recommend heating it up for 2 minutes without removing it from the packaging."
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "curry_box"
+	trash = /obj/item/trash/microwave_package
+	filling_color = "#ad6a32"
+	reagents_to_add = list(/singleton/reagent/nutriment = 7)
+	reagent_data = list(/singleton/reagent/nutriment = list("frozen solid rice" = 10, "regrets" = 8))
+
+/obj/item/reagent_containers/food/snacks/quick_curry_prepared
+	name = "\improper quick-e-meals mild curry"
+	desc = "A fair amount of rice with sitting in a disposable container with a small bit of brown sauce sitting next to it, separated. There's mysterious chunks floating around in the sauce, but it's okay. According to the picture on the box, they're supposed to be there."
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "curry_box"
+	trash = /obj/item/trash/microwave_package
+	filling_color = "#ad6a32"
+	reagents_to_add = list(/singleton/reagent/nutriment = 7)
+	reagent_data = list(/singleton/reagent/nutriment = list("rice" = 5, "mild curry sauce" = 5, "probably potatoes" = 3))
+
+/obj/item/reagent_containers/food/snacks/quick_curry_prepared/update_icon()
+	var/percent_curry = round((reagents.total_volume / 7) * 100)
+	switch(percent_curry)
+		if(0 to 49)
+			icon_state = "curry_half"
+		else if(50 to 95)
+			icon_state = "curry"
+		else
+			icon_state = "curry_box"
