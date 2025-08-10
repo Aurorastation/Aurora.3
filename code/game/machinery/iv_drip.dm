@@ -40,6 +40,9 @@
 	/// Matrix stuff
 	var/matrix/iv_matrix
 
+	/// The beam drawn from the IV to the patient.
+	var/datum/beam/patient_beam
+
 	/// What we accept as a container for IV transfers. Prevents attaching food and organs to IVs.
 	var/list/accepted_containers = list(
 		/obj/item/reagent_containers/blood,
@@ -108,8 +111,7 @@
 
 /obj/machinery/iv_drip/Destroy()
 	if(attached)
-		attached = null
-		vein = null
+		clear_attached()
 	QDEL_NULL(beaker)
 	if(breather)
 		breath_mask_rip()
@@ -287,8 +289,7 @@
 				if((beaker.reagents.has_reagent(/singleton/reagent/blood) || beaker.reagents.has_reagent(/singleton/reagent/saline)) && attached.get_blood_volume() >= 100)
 					visible_message("\The <b>[src]</b> flashes a warning light, disengaging from [attached]'s [vein.name] automatically!")
 					playsound(src, 'sound/machines/buzz-two.ogg', 100, extrarange = SILENCED_SOUND_EXTRARANGE)
-					vein = null
-					attached = null
+					clear_attached()
 					blood_message_sent = FALSE
 					update_icon()
 					return
@@ -330,25 +331,22 @@
 			if("IV drip")
 				if(attached)
 					visible_message("[user] detaches \the [src] from [attached]'s [vein.name].")
-					vein = null
-					attached = null
+					clear_attached()
 					blood_message_sent = FALSE
 					update_icon()
 					return
-				attached = over
+				set_attached(over)
 				vein = attached.get_organ(user.zone_sel.selecting)
 				var/checking = attached.can_inject(user, TRUE, user.zone_sel.selecting, armor_check)
 				if(!checking)
-					attached = null
-					vein = null
+					clear_attached()
 					return
 				if(armor_check)
 					var/attach_time = attach_delay
 					attach_time *= checking
 					if(!do_mob(user, attached, attach_time))
 						to_chat(user, SPAN_DANGER("Failed to insert \the [src]. You and [attached] must stay still!"))
-						attached = null
-						vein = null
+						clear_attached()
 						return
 				visible_message("[user][armor_check ? "" : " swiftly"] inserts \the [src] in \the [attached]'s [vein.name].")
 				update_icon()
@@ -593,8 +591,7 @@
 /obj/machinery/iv_drip/proc/iv_rip()
 	attached.visible_message(SPAN_WARNING("The needle is ripped out of [attached]'s [vein.name]."), SPAN_DANGER("The needle <B>painfully</B> rips out of your [vein.name]."))
 	vein.take_damage(brute = 5, damage_flags = DAMAGE_FLAG_SHARP)
-	vein = null
-	attached = null
+	clear_attached()
 
 /obj/machinery/iv_drip/proc/breath_mask_rip()
 	if(valve_open)
@@ -746,3 +743,20 @@
 		armor_check = FALSE
 	if(scanner >= 2)
 		adv_scan = TRUE
+
+/**
+ * Wrapper for setting the attached variable.
+ */
+/obj/machinery/iv_drip/proc/set_attached(mob/attachee)
+	attached = attachee
+	patient_beam = Beam(attached, "iv_beam", 'icons/effects/beam.dmi', -1, 2)
+
+/**
+ * Wrapper for clearing the attached variable.
+ */
+/obj/machinery/iv_drip/proc/clear_attached()
+	attached = null
+	vein = null
+	if(patient_beam)
+		patient_beam.End()
+		patient_beam = null
