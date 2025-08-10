@@ -1,0 +1,4 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - balance: "Changed the falcata to give a slight slowdown even when powered, instead of unintentionally speeding up the user. Its still less encumbering than heavy armor."
