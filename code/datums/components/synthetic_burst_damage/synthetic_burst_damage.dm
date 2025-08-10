@@ -39,7 +39,8 @@
 /datum/component/synthetic_burst_damage/Destroy(force)
 	synthetic_owner = null
 	posibrain = null
-	deltimer(burst_damage_timer)
+	if(burst_damage_timer)
+		deltimer(burst_damage_timer)
 	return ..()
 
 /datum/component/synthetic_burst_damage/proc/receive_internal_damage(mob/target, amount)
@@ -47,7 +48,7 @@
 	if(!burst_damage_hit_time)
 		burst_damage_hit_time = world.time
 	burst_damage_counter += amount
-	burst_damage_timer = addtimer(CALLBACK(src, PROC_REF(clear_burst_damage)), burst_damage_hit_grace_period, TIMER_UNIQUE|TIMER_OVERRIDE)
+	burst_damage_timer = addtimer(CALLBACK(src, PROC_REF(clear_burst_damage)), burst_damage_hit_grace_period, TIMER_UNIQUE|TIMER_OVERRIDE|TIMER_STOPPABLE)
 	if(burst_damage_counter >= burst_damage_maximum)
 		burst_damage_effects()
 		burst_damage_hit_time = null
