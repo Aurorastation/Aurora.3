@@ -196,7 +196,7 @@
 	dir = 4
 	},
 /obj/structure/table/rack/folding_table,
-/obj/item/toy/plushie/greimorian{
+/obj/item/toy/plushie/gremorian{
 	color = "#b04b60";
 	name = "retainer plushie";
 	desc = "A lovable plushie of a type AA worker! This one seems to be of Zoleth's brood, going off the colour and the ferocity in its eyes!";

@@ -160,9 +160,9 @@
 			return TRUE
 	return FALSE
 
-/datum/language/greimorian
-	name = LANGUAGE_GREIMORIAN
-	desc = "The method which greimorians use to communicate with one another."
+/datum/language/gremorian
+	name = LANGUAGE_GREMORIAN
+	desc = "The method which Gremorian use to communicate with one another."
 	speech_verb = list("chitters")
 	ask_verb = list("hisses")
 	exclaim_verb = list("shrieks")
@@ -172,9 +172,9 @@
 	syllables = list("sksk", "chch", "ss", "kh", "shsh", "sh", "gh", "ch", "tt")
 	flags = RESTRICTED
 
-/datum/language/greimorian/hivemind
-	name = LANGUAGE_GREIMORIAN_HIVEMIND
-	desc = "A way for greimorians to communicate with one another even when seperated."
+/datum/language/gremorian/hivemind
+	name = LANGUAGE_GREMORIAN_HIVEMIND
+	desc = "A way for Gremorian to communicate with one another even when seperated."
 	key = "gh"
 	flags = RESTRICTED | HIVEMIND
 
