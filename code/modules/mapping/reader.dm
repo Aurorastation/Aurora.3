@@ -41,7 +41,7 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
  * WORKING :
  *
  * 1) Makes an associative mapping of model_keys with model
- *		e.g aa = /turf/unsimulated/wall{icon_state = "rock"}
+ * 		e.g aa = /turf/unsimulated/wall{icon_state = "rock"}
  * 2) Read the map line by line, parsing the result (using parse_grid)
  *
  */

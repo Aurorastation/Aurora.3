@@ -10,20 +10,21 @@
 	var/last_full // Spam check
 	var/last_warning
 
-	// Blood Stuff
+	/// Blood Stuff
 	var/mob/living/carbon/human/attached = null
 	var/obj/item/organ/external/vein = null
 	var/obj/item/reagent_containers/beaker = null
 	var/transfer_amount = REM
 	var/transfer_limit = 4
-	var/mode = TRUE // TRUE is injecting, FALSE is taking blood.
+	/// TRUE is injecting, FALSE is taking blood.
+	var/mode = TRUE
 	var/toggle_stop = TRUE
 	var/blood_message_sent = FALSE
 	var/attach_delay = 5
 	var/armor_check = TRUE
 	var/adv_scan = FALSE
 
-	// Supplemental Gas Stuff
+	/// Supplemental Gas Stuff
 	var/mob/living/carbon/human/breather = null
 	var/obj/item/clothing/mask/breath/breath_mask = null
 	var/obj/item/tank/tank = null
@@ -32,16 +33,17 @@
 	var/list/tank_blacklist = list(/obj/item/tank/emergency_oxygen, /obj/item/tank/jetpack)
 	var/valve_open = FALSE
 	var/tank_active = FALSE
-	var/epp = TRUE // Emergency Positive Pressure system. Can be toggled if you want to turn it off
+	/// Emergency Positive Pressure system. Can be toggled if you want to turn it off
+	var/epp = TRUE
 	var/epp_active = FALSE
 
-	//Matrix stuff
+	/// Matrix stuff
 	var/matrix/iv_matrix
 
 	/// The beam drawn from the IV to the patient.
 	var/datum/beam/patient_beam
 
-	//What we accept as a container for IV transfers. Prevents attaching food and organs to IVs.
+	/// What we accept as a container for IV transfers. Prevents attaching food and organs to IVs.
 	var/list/accepted_containers = list(
 		/obj/item/reagent_containers/blood,
 		/obj/item/reagent_containers/glass/beaker,

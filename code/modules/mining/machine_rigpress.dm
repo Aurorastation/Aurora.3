@@ -33,7 +33,7 @@
 		icon_state = "coinpress0"
 
 /**
- *	If a compatible item is fed into the machine, begin conversion. Only allow one at a time.
+ * If a compatible item is fed into the machine, begin conversion. Only allow one at a time.
  */
 /obj/machinery/mineral/rigpress/attackby(obj/item/attacking_item, mob/user)
 	if(!pressing)

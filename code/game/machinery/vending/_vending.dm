@@ -4,18 +4,24 @@
 /datum/data/vending_product
 	/// Display name for the product
 	var/product_name = "generic"
+	/// Typepath of the product that is created when this record "sells"
 	var/product_path = null
 	/// Amount held in the vending machine
 	var/amount = 0
+	/// How many we can store at maximum
 	var/max_amount = 0
 	/// Price to buy one
 	var/price = 0
+	/// Whether crew with an ID with an age below AGE_MINOR (20 by default) can buy this item
+	/// Imported from TG during rework and not implemented, but if we decided on this how FUNNY would that be.
+	// var/age_restricted = FALSE
 	/// Display color for vending machine listing
 	var/display_color = null
 	/// `CAT_HIDDEN` for contraband, `CAT_COIN` for premium
 	var/category = CAT_NORMAL
 	var/icon/product_icon
 	var/icon/icon_state
+	name = "generic"
 
 /datum/data/vending_product/New(var/path, var/name = null, var/amount = 1, var/price = 0, var/color = null, var/category = CAT_NORMAL)
 	. = ..()
@@ -43,10 +49,12 @@
 	QDEL_NULL(A)
 
 /**
- *  A vending machine
+ * Vending machine.
+ *
+ * Captalism in the year 2467: everything in a vending machine. Even love.
  */
 /obj/machinery/vending
-	name = "Vendomat"
+	name = "\improper Vendomat"
 	desc = "A generic vending machine."
 	icon = 'icons/obj/vending.dmi'
 	icon_state = "generic"
@@ -57,11 +65,19 @@
 	manufacturer = "idris"
 	z_flags = ZMM_MANGLE_PLANES
 
-	/// `icon_state` when vending
+	// Every vending machine has one of these.
+	/// `icon_state` when off. Defined on init.
+	var/icon_off
+	/// `icon_state` when vending. Defined on init.
 	var/icon_vend
-	/// `icon_state` when denying
-	var/icon_deny
+	/// 'icon_state' when broken. Defined on init.
+	var/icon_broken
+
+	/// 'icon_state' when on, if overlay exists.
 	var/icon_screen
+	/// `icon_state` when denying.
+	var/icon_deny
+
 
 	// Power
 	idle_power_usage = 10
@@ -86,19 +102,22 @@
 	/// Set to 1 if status_message is an error
 	var/status_error = 0
 
-	/*
-		Variables used to initialize the product list
-		These are used for initialization only, and so are optional if
-		product_records is specified
-	*/
-	var/list/products	= list() // For each, use the following pattern:
-	var/list/contraband	= list() // list(/type/path = amount,/type/path2 = amount2)
-	var/list/premium 	= list() // No specified amount = only one in stock
-	var/list/prices     = list() // Prices for each item, list(/type/path = price), items not in the list don't have a price.
+	/**
+	 *	Variables used to initialize the product list These are used for initialization only, and so are
+	 *	optional if product_records is specified.
+	 *
+	 *	For each, use the following pattern:
+	 *	list(/type/path = amount,/type/path2 = amount2)
+	 *	No specified amount = only one in stock
+	 *	Prices for each item, list(/type/path = price), items not in the list don't have a price.
+	**/
+	var/list/products	= list()
+	var/list/contraband	= list()
+	var/list/premium 	= list()
+	var/list/prices     = list()
 
 	/// List of vending_product items available.
 	var/list/product_records = list()
-
 
 	// Variables used to initialize advertising
 	/// String of slogans spoken out loud, separated by semicolons
@@ -109,6 +128,12 @@
 	var/product_ads = ""
 	/// Set on init. Populated by `product_ads`
 	var/list/ads_list = list()
+	/// Currently displayed avertisement
+	var/display_ad = ""
+	/// When did we last update the displayed ad?
+	var/last_ad = 0
+	/// How long until we refresh our ad?
+	var/ad_delay = 10 SECONDS
 	/// String of messages spoken when item is vended, seperated by semicolons
 	var/vend_reply = ""
 	/// Set on init. Populated by `vend_reply`
@@ -122,7 +147,7 @@
 	/// When did we last pitch?
 	var/last_slogan = 0
 	/// How long until we can pitch again?
-	var/slogan_delay = 10 MINUTES
+	var/slogan_delay = 20 MINUTES
 
 	// Things that can go wrong
 	/// Ignores if somebody doesn't have card access to that machine.
@@ -140,7 +165,7 @@
 
 	/// If you can wrench the machine out of place
 	var/can_move = TRUE
-	/// Id of the refill cartridge that has to be used
+	/// ID of the refill cartridge that has to be used
 	var/vend_id = "generic"
 	/// If items can be restocked into the vending machine
 	var/restock_items = FALSE
@@ -161,24 +186,61 @@
 	/// Sound made when an item is vended
 	var/vending_sound = 'sound/machines/vending/vending_drop.ogg'
 
-	/// Lighting mask for vending machine
-	var/light_mask
-
 	/// This is for scaling the ui buttons - i've settled on 80x80 for machines with prices, and 60x60 for those without and with large inventories (boozeomat)
 	var/ui_size = 80
 	var/datum/asset/spritesheet/vending/v_asset
 
+	// Null/set to 0 for vending machines that shouldn't glow for some reason (Horizon recovery ward)
+	/// Lighting mask for vending machine
+	var/light_mask
 	light_range = 2
 	light_power = 0.9
+
+	/**
+	 *	Is this item on station or not
+	 *
+	 *	if it doesn't originate from off-station during mapload, all_products_free gets automatically set to TRUE if it was unset previously.
+	 *	if it's off-station during mapload, it's also safe from the brand intelligence event
+	 */
+	var/onstation = TRUE
+
+	/**
+	 *	DO NOT APPLY THIS GLOBALLY. For mapping var edits only.
+	 *	A variable to change on a per instance basis that allows the instance to avoid having onstation set for them during mapload.
+	 *	Setting this to TRUE means that the vending machine is treated as if it were still onstation if it spawns off-station during mapload.
+	 *	Useful to specify an off-station machine that will still have costs for any given reason.
+	 */
+	var/onstation_override = FALSE
+
+	/**
+	 *	If this is set to TRUE, all products sold by the vending machine are free (cost nothing).
+	 *	Takes precedence over any price setting.
+	 *	If unset, this will get automatically set to TRUE during init if the machine originates from off-station during mapload.
+	 *	Defaults to null, set it to TRUE or FALSE explicitly on a per-machine basis if you want to force it to be a certain value.
+	 */
+	var/all_products_free
+
+	/**
+	 *	Recommended to set multipliers on these for a given vending machine's parent obj, to make things broadly more or less expensive.
+	 *	Vending machine products with no price explicitly set will use the defined prices- otherwise, an explicit price will override.
+	 *	If all_products_free is TRUE, all of this will be ignored.
+	 *	NOT YET IMPLEMENTED
+	 */
+	/// Default price of items if not overridden
+	var/default_price = 20
+	/// Default price of premium items if not overridden
+	var/extra_price = 50
 
 /obj/machinery/vending/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "A vending machine infected with a launcher virus can be fixed by using a debugger on it. This takes longer than using a wiring panel."
 	. += "All vending machines can be hacked to obtain some contraband items from them, and some can be fed with coins to gain access to premium items."
 
+
 /obj/machinery/vending/Initialize(mapload)
 	. = ..()
 	wires = new(src)
+
 	if(src.product_slogans)
 		src.slogan_list += text2list(src.product_slogans, ";")
 
@@ -189,14 +251,29 @@
 
 	if(src.product_ads)
 		src.ads_list += text2list(src.product_ads, ";")
+		src.last_ad = world.time + rand(0, ad_delay)
 
 	if(src.vend_reply)
 		src.reply_list += text2list(src.vend_reply, ";")
+
+	icon_vend = "[initial(icon_state)]-vend"
+	icon_broken = "[initial(icon_state)]-broken"
+	icon_off = "[initial(icon_state)]-off"
 
 	reset_light()
 	build_products()
 	build_inventory()
 	power_change()
+
+	// Check if we were created off-station during mapload. Non-station vending machines are always free.
+	var/turf/T = get_turf(src)
+	if(mapload && T)
+		if(!is_station_level(T.z))
+			if(!onstation_override)
+				onstation = FALSE
+				// Only auto-set the free products var if we haven't explicitly assigned a value to it yet.
+				if(isnull(all_products_free))
+					all_products_free = TRUE
 
 	return INITIALIZE_HINT_LATELOAD
 
@@ -233,7 +310,7 @@
  *  products that the vending machine is to carry without manually populating
  *  src.product_records.
  */
-/obj/machinery/vending/proc/build_inventory()
+/obj/machinery/vending/proc/build_inventory(list/productlist, list/recordlist, list/categories, start_empty = FALSE, premium = FALSE)
 	var/list/all_products = list(
 		list(src.products, CAT_NORMAL),
 		list(src.contraband, CAT_HIDDEN),
@@ -586,6 +663,7 @@
 	data["manufacturer"] = manufacturer
 	data["products"] = list()
 	data["ui_size"] = ui_size
+	data["display_ad"] = display_ad
 
 	if(currently_vending || !vend_ready)
 		data["vending_item"] = TRUE
@@ -633,12 +711,6 @@
 		data["coin"] = coin.name
 	else
 		data["coin"] = null
-
-	if(src.panel_open)
-		data["panel"] = TRUE
-		data["speaker"] = shut_up ? FALSE : TRUE
-	else
-		data["panel"] = FALSE
 
 	return data
 
@@ -711,7 +783,6 @@
 		add_fingerprint(usr)
 
 /obj/machinery/vending/proc/vend(datum/data/vending_product/R, mob/user)
-
 	if (!R || R.amount < 1)
 		return
 
@@ -808,10 +879,15 @@
 		src.seconds_electrified--
 
 	//Pitch to the people!  Really sell it!
-	if(((src.last_slogan + src.slogan_delay) <= world.time) && (src.slogan_list.len > 0) && (!src.shut_up) && prob(5))
-		var/slogan = pick(src.slogan_list)
-		src.speak(slogan)
+
+	if(((src.last_ad + src.ad_delay) <= world.time) && length(ads_list))
+		display_ad = pick(ads_list)
+		src.last_ad = world.time
+
+	if(((src.last_slogan + src.slogan_delay) <= world.time) && length(slogan_list) && !src.shut_up && prob(2))
+		var/slogan = pick(slogan_list)
 		src.last_slogan = world.time
+		src.speak(slogan)
 
 	if(src.shoot_inventory && prob(shoot_inventory_chance))
 		src.throw_item()
@@ -834,14 +910,14 @@
 	if(!anchored)
 		stat |= NOPOWER
 	if(stat & BROKEN)
-		icon_state = "[initial(icon_state)]-broken"
+		icon_state = icon_broken
 		ClearOverlays()
 		set_light(0)
 	else if(!(stat & NOPOWER))
 		icon_state = initial(icon_state)
 		update_icon()
 	else
-		icon_state = "[initial(icon_state)]-off"
+		icon_state = icon_off
 		ClearOverlays()
 		set_light(0)
 
@@ -861,7 +937,7 @@
 		break
 
 	stat |= BROKEN
-	src.icon_state = "[initial(icon_state)]-broken"
+	src.icon_state = icon_broken
 	return
 
 /// Somebody cut an important wire and now we're following a new definition of "pitch."
@@ -890,7 +966,48 @@
 	src.visible_message(SPAN_WARNING("[src] launches [throw_item.name] at [target.name]!"))
 	return TRUE
 
-// screens go over the lighting layer, so googly eyes go under them
+/// Screens go over the lighting layer. Sorry.
 /obj/machinery/vending/can_attach_sticker(var/mob/user, var/obj/item/sticker/S)
 	to_chat(user, SPAN_WARNING("\The [src]'s non-stick surface prevents you from attaching a sticker to it!"))
 	return FALSE
+
+/**
+ * Refill a vending machine from a refill canister
+ *
+ * This takes the products from the refill canister and then fills the products, contraband and premium product categories
+ *
+ * Arguments:
+ * * canister - the vending canister we are refilling from
+ */
+/obj/item/device/vending_refill
+	name = "resupply canister"
+	desc = "A vending machine restock cart."
+	icon = 'icons/obj/assemblies/electronic_setups.dmi'
+	icon_state = "setup_medium-open"
+	item_state = "restock_unit"
+	force = 16
+	throwforce = 10
+	throw_speed = 1
+	throw_range = 7
+	w_class = WEIGHT_CLASS_NORMAL
+	var/vend_id = "generic"
+	var/charges = 0
+
+/obj/item/device/vending_refill/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(charges > 0)
+		. +=  "It can restock [charges] item(s)."
+	else
+		. += SPAN_WARNING("It's empty!")
+
+/obj/item/device/vending_refill/proc/restock_inventory(var/obj/machinery/vending/vendor)
+	if(vendor)
+		for(var/datum/data/vending_product/product in vendor.product_records)
+			if(product.amount < product.max_amount)
+				var/expense = product.max_amount - product.amount
+				if(charges < expense)
+					expense = charges
+				product.amount += expense
+				charges -= expense
+				if(!charges)
+					break

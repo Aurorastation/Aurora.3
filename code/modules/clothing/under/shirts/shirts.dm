@@ -112,16 +112,18 @@
 	item_state = "longshirt"
 
 /obj/item/clothing/under/dressshirt/longsleeve_s
-	name = "black striped long-sleeved shirt"
-	desc = "A long-sleeved shirt made of light fabric. This one is striped in black."
+	name = "striped long-sleeved shirt"
+	desc = "A long-sleeved shirt made of light fabric. This one has some stripes."
 	icon_state = "longshirt_s"
 	item_state = "longshirt_s"
+	has_accents = TRUE
 
-/obj/item/clothing/under/dressshirt/longsleeve_sb
-	name = "blue striped long-sleeved shirt"
-	desc = "A long-sleeved shirt made of light fabric. This one is striped in blue."
-	icon_state = "longshirt_sb"
-	item_state = "longshirt_sb"
+/obj/item/clothing/under/dressshirt/tshirt_s
+	name = "striped t-shirt"
+	desc = "A t-shirt made of light fabric. This one has some stripes."
+	icon_state = "tshirt_s"
+	item_state = "tshirt_s"
+	has_accents = TRUE
 
 // T-shirt
 
@@ -180,77 +182,13 @@
 	desc = "A stylish polo shirt."
 	icon_state = "polo"
 	item_state = "polo"
+	has_accents = TRUE
 
 /obj/item/clothing/under/dressshirt/polo/polo_fem
 	desc = "A stylish polo shirt with a waist fit."
 	icon_state = "polo_fem"
 	item_state = "polo_fem"
-
-/obj/item/clothing/under/dressshirt/polo/polo_blue
-	name = "blue polo shirt"
-	desc = "A blue, stylish polo shirt."
-	icon_state = "polo_blue"
-	item_state = "polo_blue"
-
-/obj/item/clothing/under/dressshirt/polo/polo_blue_fem
-	name = "blue polo shirt"
-	desc = "A blue, stylish polo shirt with a waist fit."
-	icon_state = "polo_blue_fem"
-	item_state = "polo_blue_fem"
-
-/obj/item/clothing/under/dressshirt/polo/polo_red
-	name = "red polo shirt"
-	desc = "A red, stylish polo shirt."
-	icon_state = "polo_red"
-	item_state = "polo_red"
-
-/obj/item/clothing/under/dressshirt/polo/polo_red_fem
-	name = "red polo shirt"
-	desc = "A red, stylish polo shirt with a waist fit."
-	icon_state = "polo_red_fem"
-	item_state = "polo_red_fem"
-
-/obj/item/clothing/under/dressshirt/polo/polo_grayyellow
-	name = "tan polo shirt"
-	desc = "A tan, stylish polo shirt."
-	icon_state = "polo_grayyellow"
-	item_state = "polo_grayyellow"
-
-/obj/item/clothing/under/dressshirt/polo/polo_grayyellow_fem
-	name = "tan polo shirt"
-	desc = "A tan, stylish polo shirt with a waist fit."
-	icon_state = "polo_grayyellow_fem"
-	item_state = "polo_grayyellow_fem"
-
-/obj/item/clothing/under/dressshirt/polo/polo_greenstrip
-	desc = "A stylish polo shirt with a green strip around the collar."
-	icon_state = "polo_corp"
-	item_state = "polo_corp"
-
-/obj/item/clothing/under/dressshirt/polo/polo_greenstrip_fem
-	desc = "A stylish polo shirt with a green strip around the collar and a waist fit."
-	icon_state = "polo_corp_fem"
-	item_state = "polo_corp_fem"
-
-/obj/item/clothing/under/dressshirt/polo/polo_bluestrip
-	desc = "A stylish polo shirt with a blue strip around the collar."
-	icon_state = "polo_dais"
-	item_state = "polo_dais"
-
-/obj/item/clothing/under/dressshirt/polo/polo_bluestrip_fem
-	desc = "A stylish polo shirt with a blue strip around the collar and a waist fit."
-	icon_state = "polo_dais_fem"
-	item_state = "polo_dais_fem"
-
-/obj/item/clothing/under/dressshirt/polo/polo_redstrip
-	desc = "A stylish polo shirt with a red strip around the collar."
-	icon_state = "polo_nt"
-	item_state = "polo_nt"
-
-/obj/item/clothing/under/dressshirt/polo/polo_redstrip_fem
-	desc = "A stylish polo shirt with a red strip around the collar and a waist fit."
-	icon_state = "polo_nt_fem"
-	item_state = "polo_nt_fem"
+	has_accents = TRUE
 
 // Silversun
 

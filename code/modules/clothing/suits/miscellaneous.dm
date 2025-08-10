@@ -1,7 +1,7 @@
 /*
  * Contains:
- *		Costume
- *		Misc
+ * * Costume
+ * * Misc
  */
 
 /*

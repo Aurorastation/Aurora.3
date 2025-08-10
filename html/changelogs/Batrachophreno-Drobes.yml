@@ -44,7 +44,7 @@
 #################################
 
 # Your name.
-author: CometBlaze
+author: Batrachophrenoboocosmomachia
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -55,4 +55,8 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Exo-stellar skeletons now come with a storage module by default."
+  - rscadd: "Added 13 new 'Drobe' vending machines, containing stock for associated departments/jobs, throughout the ship."
+  - rscdel: "Removed old wardrobe lockers where a Drobe machine existed to replace them."
+  - rscadd: "Updated all Vending machine product ads, made them display at random on the purchase screen."
+  - code_imp: "Split vending machine prefab code for readability, added documentation."
+  - bugfix: "Added floor 'hatch' markings to existing SCCV Horizon vending machines that were missing them."
