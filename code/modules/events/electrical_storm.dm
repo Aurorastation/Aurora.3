@@ -36,7 +36,7 @@
 			valid_apcs += valid_apc
 	for(var/mob/living/carbon/human/victim_ipc in GLOB.human_mob_list)
 		if(!(victim_ipc.z in affecting_z))
-				continue
+			continue
 		if(!isipc(victim_ipc))
 			continue
 		var/obj/item/organ/internal/machine/posibrain/brain = victim_ipc.internal_organs_by_name[BP_BRAIN]
