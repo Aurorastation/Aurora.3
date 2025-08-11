@@ -1985,6 +1985,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	// adding the hand to the child here means only the arm has to be added to the DB
 	// since the hand will be attached automatically
 	LAZYADD(children, new /obj/item/organ/external/hand/fluff/gracia_autakh(src))
+	internal_organs += new /obj/item/organ/internal/machine/actuators/left(src)
 
 /obj/item/organ/external/hand/fluff/gracia_autakh // gracia's aut'akh left hand - Gracia Hiza - cometblaze
 	robotize_type = PROSTHETIC_AUTAKH

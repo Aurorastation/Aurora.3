@@ -10,11 +10,13 @@
 	name = "left arm actuators"
 	organ_tag = BP_ACTUATORS_LEFT
 	parent_organ = BP_L_ARM
+	organ_tag = BP_ACTUATORS_LEFT
 
 /obj/item/organ/internal/machine/actuators/right
 	name = "right arm actuators"
 	organ_tag = BP_ACTUATORS_RIGHT
 	parent_organ = BP_R_ARM
+	organ_tag = BP_ACTUATORS_RIGHT
 
 /obj/item/organ/internal/machine/actuators/high_integrity_damage(integrity)
 	if(prob(get_integrity_damage_probability()))
