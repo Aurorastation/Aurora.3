@@ -18,11 +18,6 @@
 	var/maxhealth = 70
 	var/neighbor_status = 0
 
-	/// If the object shouldn't inherit a material, set this to True.
-	var/non_material_object = FALSE
-	var/can_wrench = TRUE
-	var/can_screwdriver = TRUE
-
 	can_astar_pass = CANASTARPASS_ALWAYS_PROC
 
 /obj/structure/railing/condition_hints(mob/user, distance, is_adjacent)
@@ -77,20 +72,19 @@
 /obj/structure/railing/Initialize()
 	. = ..()
 
-	if(!non_material_object)
-		if(!isnull(material) && !istype(material))
-			material = SSmaterials.get_material_by_name(material)
-		if(!istype(material))
-			return INITIALIZE_HINT_QDEL
+	if(!isnull(material) && !istype(material))
+		material = SSmaterials.get_material_by_name(material)
+	if(!istype(material))
+		return INITIALIZE_HINT_QDEL
 
-		name = "[material.display_name] [initial(name)]"
-		desc = "A simple [material.display_name] railing designed to protect against careless trespass."
-		maxhealth = round(material.integrity / 5)
-		health = maxhealth
-		color = material.icon_colour
+	name = "[material.display_name] [initial(name)]"
+	desc = "A simple [material.display_name] railing designed to protect against careless trespass."
+	maxhealth = round(material.integrity / 5)
+	health = maxhealth
+	color = material.icon_colour
 
-		if(material.products_need_process())
-			START_PROCESSING(SSprocessing, src)
+	if(material.products_need_process())
+		START_PROCESSING(SSprocessing, src)
 	if(anchored)
 		update_icon(FALSE)
 
@@ -252,9 +246,6 @@
 
 	// Dismantle
 	if(attacking_item.iswrench())
-		if(!can_wrench)
-			to_chat(user, SPAN_WARNING("This [src] cannot be adjusted."))
-			return
 		if(!anchored)
 			user.visible_message(SPAN_NOTICE("\The [user] starts dismantling \the [src]..."), SPAN_NOTICE("You start dismantling \the [src]..."))
 			if(attacking_item.use_tool(src, user, 20, volume = 50))
@@ -292,9 +283,6 @@
 
 	// Install
 	if(attacking_item.isscrewdriver())
-		if(!can_screwdriver)
-			to_chat(user, SPAN_WARNING("This [src] cannot be adjusted."))
-			return
 		if(!density)
 			to_chat(user, SPAN_NOTICE("You need to wrench \the [src] from back into place first."))
 			return
@@ -377,67 +365,3 @@
 /obj/structure/railing/fence/New(var/newloc, var/material_key = MATERIAL_WOOD)
 	material = material_key
 	..(newloc)
-
-/obj/structure/railing/retractable
-	name = "\improper retractable railing"
-	icon = 'icons/obj/doors/retractable_railing.dmi'
-	icon_state = "railing1"
-	anchored = TRUE
-	health = 150
-	maxhealth = 150
-	non_material_object = TRUE
-	can_wrench = FALSE
-	can_screwdriver = FALSE
-
-	var/closed_layer = ABOVE_DOOR_LAYER
-	var/open_layer = OPEN_DOOR_LAYER
-	var/icon_state_open = "railing0"
-	var/icon_state_opening = "railingc0"
-	var/icon_state_closed = "railing1"
-	var/icon_state_closing = "railingc1"
-	var/operating
-
-/obj/structure/railing/retractable/Initialize()
-	. = ..()
-	if(dir == SOUTH)
-		closed_layer = ABOVE_HUMAN_LAYER
-	if(density)//Allows preset-open to work
-		layer = closed_layer
-
-	set_opacity(initial(opacity))
-
-/obj/structure/railing/retractable/update_icon()
-	if(density)
-		icon_state = icon_state_closed
-	else
-		icon_state = icon_state_open
-
-/obj/structure/railing/retractable/proc/toggle()
-	if(operating)
-		return
-
-	operating = TRUE
-	flick(density ? icon_state_opening : icon_state_closing, src)
-	playsound(get_turf(src), 'sound/machines/retractable_railing_openclose.ogg', 40)
-	if(density)
-		icon_state = icon_state_open
-		layer = open_layer
-	else
-		icon_state = icon_state_closed
-		layer = closed_layer
-
-	addtimer(CALLBACK(src, PROC_REF(finish_toggling)), 1.2 SECONDS, TIMER_UNIQUE|TIMER_OVERRIDE|TIMER_NO_HASH_WAIT)
-	return TRUE
-
-/obj/structure/railing/retractable/proc/finish_toggling()
-	density = !density
-	operating = FALSE
-
-/obj/structure/railing/retractable/NeighborsCheck()
-	return
-
-/obj/structure/railing/retractable/flip()
-	return
-
-/obj/structure/railing/retractable/open
-	density = FALSE
