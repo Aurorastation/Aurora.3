@@ -239,6 +239,7 @@
 						"That memory cannot be accessed."
 					)
 					to_chat(owner, SPAN_MACHINE_DANGER(pick(extreme_fragmentation_messages)))
+		sound_to(owner, 'sound/species/synthetic/fragmentation.ogg')
 
 /**
  * Handles burst damage effects. See code\datums\components\synthetic_burst_damage\synthetic_burst_damage.dm
@@ -350,6 +351,7 @@
 	if(prob(1))
 		// no metagaming these ones :^)
 		// they're on the server config
+		sound_to(owner, 'sound/effects/eas_beep_fadeinout.ogg')
 		to_chat(owner, SPAN_MACHINE_VISION(FONT_LARGE(pick(GLOB.low_integrity_messages))))
 	. = ..()
 

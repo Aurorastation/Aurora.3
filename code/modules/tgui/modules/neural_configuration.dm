@@ -47,11 +47,13 @@
 			var/obj/item/organ/internal/machine/posibrain/posibrain = owner.internal_organs_by_name[BP_BRAIN]
 			if(istype(posibrain))
 				posibrain.toggle_firewall()
+				. = TRUE
 
 		if("toggle_p2p")
 			var/obj/item/organ/internal/machine/posibrain/posibrain = owner.internal_organs_by_name[BP_BRAIN]
 			if(istype(posibrain))
 				posibrain.toggle_p2p()
+				. = TRUE
 
 		if("talk_p2p")
 			var/obj/item/organ/internal/machine/access_port/port = owner.internal_organs_by_name[BP_ACCESS_PORT]
@@ -71,3 +73,7 @@
 							var/p2p_message = SPAN_ITALIC("Virtual Communication, ") + SPAN_BOLD("[owner.real_name] transmits: ") + SPAN_MACHINE_WARNING(message)
 							to_chat(connected_ipc, p2p_message)
 							log_say("VIRTUAL COMMUNICATION: [owner]/[owner.client.ckey] to [connected_ipc]/[connected_ipc.client.ckey]: [message]")
+							. = TRUE
+
+	if(.)
+		sound_to(owner, 'sound/effects/neural_config.ogg')

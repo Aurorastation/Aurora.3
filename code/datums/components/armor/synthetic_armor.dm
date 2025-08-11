@@ -35,6 +35,7 @@
 				if(LAZYACCESS(last_reported_damage, k) != visible[k])
 					LAZYSET(last_reported_damage, k, visible[k])
 					to_chat(M, SPAN_WARNING("Your external plating has [visible[k]] damage now!"))
+					playsound(M, 'sound/effects/synth_armor_break.ogg', 50)
 
 /datum/component/armor/synthetic/proc/get_damage()
 	for(var/key in armor_values)
