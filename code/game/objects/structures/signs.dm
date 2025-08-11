@@ -45,9 +45,6 @@
 	w_class = WEIGHT_CLASS_HUGE
 	var/sign_state = ""
 
-	/// Used in a check to determine what type of item sign we're fastening and store this data in the structure sign.
-	var/heavy_type = FALSE
-
 /obj/item/sign/heavy
 	throw_speed = 3
 	throw_range = 3
@@ -55,7 +52,6 @@
 	throwforce = 10
 	drop_sound = 'sound/items/drop/axe.ogg'
 	pickup_sound = 'sound/items/pickup/axe.ogg'
-	heavy_type = TRUE
 
 /obj/item/sign/attackby(obj/item/attacking_item, mob/user) // Construction.
 	if(attacking_item.isscrewdriver() && isturf(user.loc))
@@ -77,8 +73,7 @@
 		S.name = name
 		S.desc = desc
 		S.icon_state = sign_state
-		if(heavy_type)
-			S.sign_type = /obj/item/sign/heavy
+		S.sign_type = src.type
 		to_chat(user, "You fasten \the [S] with your [attacking_item].")
 		qdel(src)
 	else ..()
