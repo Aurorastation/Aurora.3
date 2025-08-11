@@ -401,7 +401,7 @@
 
 /obj/item/clothing/under/dominia/lyodsuit/hoodie/proc/toggle_mask()
 	set name = "Toggle Lyodsuit Mask"
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in usr
 
 	if(use_check_and_message(usr))
@@ -564,7 +564,7 @@
 /obj/item/clothing/accessory/poncho/dominia/red/verb/roll_up_mantle()
 	set name = "Roll Up Cape Mantle"
 	set desc = "Roll up your cape's mantle. Doesn't work with some capes."
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in usr
 
 	if(use_check_and_message(usr))

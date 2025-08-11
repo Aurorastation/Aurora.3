@@ -312,7 +312,7 @@
 /obj/item/device/paint_sprayer/verb/choose_colour()
 	set name = "Choose Colour"
 	set desc = "Choose a paintgun colour."
-	set category = "Object"
+	set category = "Object.Held"
 	set src in usr
 
 	if(usr.incapacitated())
@@ -323,7 +323,7 @@
 /obj/item/device/paint_sprayer/verb/choose_preset_colour()
 	set name = "Choose Preset Colour"
 	set desc = "Choose a paintgun colour."
-	set category = "Object"
+	set category = "Object.Held"
 	set src in usr
 
 	if(usr.incapacitated())
@@ -337,7 +337,7 @@
 /obj/item/device/paint_sprayer/verb/choose_decal()
 	set name = "Choose Decal"
 	set desc = "Choose a paintgun decal."
-	set category = "Object"
+	set category = "Object.Held"
 	set src in usr
 
 	if(usr.incapacitated())
@@ -351,7 +351,7 @@
 /obj/item/device/paint_sprayer/verb/choose_direction()
 	set name = "Choose Direction"
 	set desc = "Choose a paintgun direction."
-	set category = "Object"
+	set category = "Object.Held"
 	set src in usr
 
 	if(usr.incapacitated())

@@ -49,7 +49,7 @@
 /obj/item/storage/backpack/proc/adjust_backpack_straps()
 	set name = "Adjust Bag Straps"
 	set desc = "Adjust your bag straps."
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in usr
 	if(use_check_and_message(usr))
 		return 0
@@ -974,7 +974,7 @@
 /obj/item/storage/backpack/cloak/verb/toggle_cloak_hood()
 	set name = "Toggle Cloak Hood"
 	set desc = "Toggle your cloak hood."
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in usr
 	if(use_check_and_message(usr))
 		return 0

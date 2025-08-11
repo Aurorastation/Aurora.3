@@ -48,7 +48,7 @@ BLIND     // can't see anything
 	return 0 // return 1 to cancel attack_hand/RangedAttack()
 
 /obj/item/clothing/glasses/verb/change_layer()
-	set category = "Object"
+	set category = "Object.Equipped"
 	set name = "Change Glasses Layer"
 	set src in usr
 
@@ -143,8 +143,8 @@ BLIND     // can't see anything
 	prescription = 7
 
 /obj/item/clothing/glasses/meson/aviator/verb/toggle()
-	set category = "Object"
-	set name = "Toggle Aviators"
+	set category = "Object.Equipped"
+	set name = "Toggle Meson Mode"
 	set src in usr
 
 	attack_self(usr)
@@ -154,14 +154,14 @@ BLIND     // can't see anything
 	desc = "Modified aviator glasses with a toggled health HUD. Comes with bonus prescription overlay."
 	icon_state = "aviator_med"
 	item_state = "aviator_med"
-	action_button_name = "Toggle Mode"
+	action_button_name = "Toggle HUD"
 	toggleable = 1
 	activation_sound = 'sound/effects/pop.ogg'
 	prescription = 7
 
 /obj/item/clothing/glasses/hud/health/aviator/verb/toggle()
-	set category = "Object"
-	set name = "Toggle Aviators"
+	set category = "Object.Equipped"
+	set name = "Toggle HUD mode"
 	set src in usr
 
 	attack_self(usr)
@@ -243,8 +243,8 @@ BLIND     // can't see anything
 	prescription = 7
 
 /obj/item/clothing/glasses/night/aviator/verb/toggle()
-	set category = "Object"
-	set name = "Toggle Aviators"
+	set category = "Object.Equipped"
+	set name = "Toggle Nightvision Mode"
 	set src in usr
 
 	attack_self(usr)
@@ -286,8 +286,8 @@ BLIND     // can't see anything
 	toggle()
 
 /obj/item/clothing/glasses/safety/goggles/verb/toggle()
-	set category = "Object"
-	set name = "Adjust goggles"
+	set category = "Object.Equipped"
+	set name = "Adjust Goggles"
 	set src in usr
 
 	if(use_check_and_message(usr))
@@ -315,7 +315,7 @@ BLIND     // can't see anything
 	return
 
 /obj/item/clothing/glasses/safety/goggles/change_layer()
-	set category = "Object"
+	set category = "Object.Equipped"
 	set name = "Change Glasses Layer"
 	set src in usr
 
@@ -489,8 +489,8 @@ BLIND     // can't see anything
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
 
 /obj/item/clothing/glasses/eyepatch/verb/flip_patch()
-	set name = "Flip Patch"
-	set category = "Object"
+	set name = "Flip Eyepatch"
+	set category = "Object.Equipped"
 	set src in usr
 
 	if(use_check_and_message(usr))
@@ -537,7 +537,7 @@ BLIND     // can't see anything
 	prescription = 7
 
 /obj/item/clothing/glasses/material/aviator/verb/toggle()
-	set category = "Object"
+	set category = "Object.Equipped"
 	set name = "Toggle Aviators"
 	set src in usr
 
@@ -753,8 +753,8 @@ BLIND     // can't see anything
 	toggle()
 
 /obj/item/clothing/glasses/welding/verb/toggle()
-	set category = "Object"
-	set name = "Adjust welding goggles"
+	set category = "Object.Equipped"
+	set name = "Adjust Welding Goggles"
 	set src in usr
 
 	if(usr.canmove && !usr.stat && !usr.restrained())
@@ -990,7 +990,7 @@ BLIND     // can't see anything
 		item_state = "[initial(item_state)]_off"
 
 /obj/item/clothing/glasses/sunglasses/sechud/aviator/verb/toggle()
-	set category = "Object"
+	set category = "Object.Equipped"
 	set name = "Toggle Aviators"
 	set src in usr
 
@@ -1118,7 +1118,7 @@ BLIND     // can't see anything
 	. += "Modified aviator glasses with a toggled thermal-vision mode."
 
 /obj/item/clothing/glasses/thermal/aviator/verb/toggle()
-	set category = "Object"
+	set category = "Object.Equipped"
 	set name = "Toggle Aviators"
 	set src in usr
 
@@ -1293,9 +1293,8 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses/spiffygogs/attack_self()
 	toggle()
 
-
 /obj/item/clothing/glasses/spiffygogs/verb/toggle()
-	set category = "Object"
+	set category = "Object.Equipped"
 	set name = "Adjust Goggles"
 	set src in usr
 

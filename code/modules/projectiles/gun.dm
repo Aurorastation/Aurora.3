@@ -718,7 +718,8 @@
 
 /obj/item/gun/verb/toggle_safety_verb()
 	set src in usr
-	set category = "Object"
+	set category = "Object.Held"
+	set desc = "Shortcut is Ctrl-click."
 	set name = "Toggle Gun Safety"
 	if(has_safety && usr == loc)
 		toggle_safety(usr)

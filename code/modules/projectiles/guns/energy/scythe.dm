@@ -52,7 +52,7 @@
 	. = ..()
 
 /obj/item/gun/energy/scythe/verb/scope()
-	set category = "Object"
+	set category = "Object.Held"
 	set name = "Use Scope"
 	set src in usr
 
