@@ -36,6 +36,8 @@
 	var/burst_damage_counter = 0
 	/// Maximum burst damage points we can have. See See code\datums\components\synthetic_burst_damage\synthetic_burst_damage.dm
 	var/burst_damage_maximum = 3
+	/// The amount of seconds the brain should be scrambled for, while this is above 0, it'll add a flat 2 evaluate_damage()'s damage points
+	var/brain_scrambling = 0
 
 /obj/item/organ/internal/machine/posibrain/Initialize(mapload)
 	stored_mmi = new robotic_brain_type(src)
@@ -195,7 +197,7 @@
 
 	handle_fragmentation()
 
-	evaluate_damage()
+	evaluate_damage(seconds_per_tick)
 
 	..()
 
@@ -262,7 +264,7 @@
  * This is the proc in charge of showing the robot pain textures to the IPC.
  * To do so, it tries to dynamically evaluate how fucked the IPC is to set the appropriate icon_state.
  */
-/obj/item/organ/internal/machine/posibrain/proc/evaluate_damage()
+/obj/item/organ/internal/machine/posibrain/proc/evaluate_damage(seconds_per_tick)
 	if(!owner.robot_pain)
 		return //no pain texture, how did we even get here?
 
@@ -278,6 +280,10 @@
 		damage_points += 2
 	if(integrity <= 25)
 		damage_points += 2
+
+	if(brain_scrambling)
+		damage_points += 2
+		brain_scrambling = max(brain_scrambling - seconds_per_tick, 0)
 
 	if(burst_damage_counter)
 		switch(burst_damage_counter)
