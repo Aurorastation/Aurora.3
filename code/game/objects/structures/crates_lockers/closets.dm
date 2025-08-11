@@ -233,9 +233,7 @@
 		animate_door_alt(TRUE)
 	update_icon()
 
-	if(linked_teleporter)
-		if(linked_teleporter.last_use + 600 > world.time)
-			return
+	if(linked_teleporter && linked_teleporter.last_use + 600 < world.time)
 		var/did_teleport = FALSE
 		for(var/mob/M in contents)
 			if(linked_teleporter.do_teleport(M))
