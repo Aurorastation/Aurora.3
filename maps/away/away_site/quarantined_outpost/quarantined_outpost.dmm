@@ -99,9 +99,8 @@
 /obj/machinery/door/firedoor{
 	dir = 4
 	},
-/obj/machinery/door/airlock/medical{
-	dir = 4
-	},
+/obj/effect/decal/cleanable/floor_damage/random_broken,
+/obj/effect/decal/cleanable/molten_item,
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
 "aiI" = (
@@ -147,13 +146,18 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/quarantined_outpost/engineering)
+"alm" = (
+/obj/structure/girder,
+/turf/simulated/floor/plating,
+/area/quarantined_outpost/elevator_hallway)
 "aly" = (
-/obj/random/dirt_75,
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 8
+/obj/effect/floor_decal/corner/black{
+	dir = 9
 	},
-/turf/simulated/floor/tiled/dark/airless,
-/area/quarantined_outpost/exterior)
+/obj/structure/table/standard,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/quarantined_outpost/central_hallway)
 "ame" = (
 /turf/simulated/wall/shuttle/dark/cardinal/coalition,
 /area/quarantined_outpost/cargo_bay)
@@ -172,10 +176,10 @@
 /turf/simulated/floor/tiled/white,
 /area/space)
 "anj" = (
-/obj/structure/railing/mapped,
-/obj/structure/flora/rock/random,
-/turf/simulated/floor/exoplanet/basalt/airless,
-/area/quarantined_outpost/exterior)
+/obj/effect/decal/cleanable/molten_item,
+/obj/effect/decal/cleanable/floor_damage/random_broken,
+/turf/simulated/floor/plating,
+/area/space)
 "aoe" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
@@ -318,7 +322,7 @@
 	pixel_y = -1
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/reinforced/airless,
+/turf/simulated/floor/reinforced,
 /area/quarantined_outpost/security)
 "avM" = (
 /obj/structure/platform_stairs/full/east_west_cap{
@@ -567,14 +571,9 @@
 /turf/simulated/floor/tiled/rust,
 /area/quarantined_outpost/elevator_hallway)
 "aHT" = (
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/turf/simulated/floor/exoplanet/basalt/airless,
-/area/quarantined_outpost/exterior)
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow,
+/turf/simulated/floor/exoplanet/abyss,
+/area/space)
 "aIy" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 1
@@ -589,11 +588,11 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/quarantined_outpost/engineering)
 "aJo" = (
-/obj/structure/lattice/catwalk,
 /obj/effect/decal/cleanable/cobweb,
 /obj/machinery/light/small/decayed{
 	dir = 1
 	},
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/quarantined_outpost/cargo_bay)
 "aKx" = (
@@ -681,7 +680,7 @@
 	name = "\improper WARNING: FIRING RANGE sign";
 	pixel_y = -32
 	},
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled,
 /area/quarantined_outpost/security)
 "aOQ" = (
 /turf/simulated/floor/tiled/ramp{
@@ -823,11 +822,10 @@
 /turf/simulated/floor/plating,
 /area/quarantined_outpost/engineering)
 "aWb" = (
-/obj/machinery/light/small/maybe_broken{
-	dir = 8
-	},
-/turf/simulated/floor/exoplanet/basalt/airless,
-/area/quarantined_outpost/exterior/powered)
+/obj/structure/lattice,
+/obj/machinery/atmospherics/pipe/manifold/hidden/yellow,
+/turf/simulated/floor/exoplanet/abyss,
+/area/space)
 "aWF" = (
 /obj/effect/decal/cleanable/cobweb,
 /turf/simulated/floor/tiled/dark/full,
@@ -1180,13 +1178,12 @@
 /turf/simulated/floor/tiled/rust,
 /area/quarantined_outpost/lobby)
 "bpb" = (
-/obj/structure/railing/mapped,
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_straight/yellow{
+/obj/structure/table/standard,
+/obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark/full/airless,
-/area/quarantined_outpost/exterior)
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "bpu" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -1208,6 +1205,15 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/cargo_bay)
+"bre" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 9
+	},
+/obj/structure/flora/pottedplant/dead2{
+	pixel_y = 13
+	},
+/turf/simulated/floor/tiled,
+/area/quarantined_outpost/central_hallway)
 "bro" = (
 /obj/structure/lattice/catwalk/indoor/grate/old,
 /obj/effect/map_effect/marker/airlock/quarantined_outpost/entrance,
@@ -1286,11 +1292,13 @@
 /turf/simulated/floor/reinforced,
 /area/quarantined_outpost/engineering)
 "byW" = (
-/obj/machinery/light/small/maybe_broken{
-	dir = 4
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped,
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+	dir = 8
 	},
-/turf/simulated/floor/exoplanet/basalt/airless,
-/area/quarantined_outpost/exterior/powered)
+/turf/simulated/floor/exoplanet/abyss,
+/area/space)
 "bzf" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
@@ -1366,10 +1374,9 @@
 /turf/simulated/floor/lino,
 /area/quarantined_outpost/lobby)
 "bDO" = (
-/obj/random/dirt_75,
-/obj/abstract/footprint_spawner/oil,
-/turf/simulated/floor/exoplanet/basalt/airless,
-/area/quarantined_outpost/exterior)
+/obj/structure/lattice/catwalk/indoor/grate/damaged,
+/turf/simulated/floor/plating,
+/area/quarantined_outpost/security)
 "bEv" = (
 /obj/structure/table/reinforced/steel,
 /obj/machinery/door/window/desk/northleft,
@@ -1381,6 +1388,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/ridged,
 /area/quarantined_outpost/science)
+"bFa" = (
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/flora/rock/pile/random,
+/turf/simulated/floor/exoplanet/basalt,
+/area/space)
 "bFD" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 9
@@ -1448,12 +1462,9 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/quarantined_outpost/engineering)
 "bJe" = (
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 6
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark/airless,
-/area/quarantined_outpost/exterior)
+/obj/structure/table/standard,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
 "bJq" = (
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 9
@@ -1464,12 +1475,12 @@
 /turf/simulated/floor/tiled/white,
 /area/space)
 "bKx" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
 /obj/structure/railing/mapped,
 /obj/structure/bed/stool/chair/folding,
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/quarantined_outpost/cargo_bay)
 "bKz" = (
@@ -1632,13 +1643,13 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/quarantined_outpost/engineering)
 "bSX" = (
-/obj/structure/platform{
-	dir = 1
-	},
 /obj/effect/floor_decal/corner/black{
 	dir = 10
 	},
 /obj/random/dirt_75,
+/obj/structure/platform{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/quarantined_outpost/entrance_lobby)
 "bTH" = (
@@ -1757,11 +1768,15 @@
 /turf/simulated/mineral/lava,
 /area/quarantined_outpost/cargo_bay)
 "cdO" = (
-/obj/effect/floor_decal/corner/mauve{
-	dir = 6
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
 	},
-/obj/structure/structural_support,
-/turf/simulated/floor/tiled/light,
+/obj/structure/sign/securearea{
+	desc = "A warning sign which reads 'WARNING: FIRING RANGE'.";
+	name = "\improper WARNING: FIRING RANGE sign";
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "cfq" = (
 /obj/machinery/door/firedoor/multi_tile,
@@ -1807,12 +1822,11 @@
 /turf/simulated/floor/carpet/rubber,
 /area/space)
 "cjB" = (
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_straight/yellow{
+/obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark/full/airless,
-/area/quarantined_outpost/exterior)
+/turf/simulated/floor/plating,
+/area/space)
 "cjX" = (
 /obj/effect/floor_decal/corner/dark_blue,
 /turf/simulated/floor/tiled/dark,
@@ -1826,6 +1840,9 @@
 /area/quarantined_outpost/engineering)
 "clf" = (
 /obj/effect/decal/cleanable/cobweb,
+/obj/structure/platform_stairs/full/south_north_cap/half{
+	dir = 8
+	},
 /obj/structure/platform{
 	dir = 1
 	},
@@ -2006,13 +2023,12 @@
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/lobby)
 "cud" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing/mapped{
-	dir = 4
+/obj/structure/bed/stool/chair/folding{
+	dir = 8
 	},
-/obj/structure/railing/mapped,
-/turf/simulated/abyss/airless,
-/area/quarantined_outpost/exterior)
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/quarantined_outpost/cafeteria)
 "cun" = (
 /obj/effect/decal/cleanable/blood,
 /turf/simulated/floor/exoplanet/basalt,
@@ -2439,12 +2455,17 @@
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/cargo_bay)
 "cKb" = (
-/obj/structure/railing/mapped,
-/obj/structure/lattice/catwalk,
-/turf/simulated/floor/exoplanet/basalt/airless,
-/area/quarantined_outpost/exterior)
+/obj/effect/decal/cleanable/molten_item,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/floor_damage/random_broken,
+/obj/effect/decal/cleanable/floor_damage/random_burned,
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow,
+/turf/simulated/floor/plating,
+/area/space)
 "cKc" = (
-/obj/structure/platform_stairs/full{
+/obj/structure/platform_stairs/full/south_north_cap{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/gunmetal,
@@ -2525,12 +2546,12 @@
 /turf/simulated/floor/plating,
 /area/quarantined_outpost/cargo_bay)
 "cOg" = (
-/obj/structure/table/rack/folding_table,
-/obj/random/dirt_75,
-/obj/effect/floor_decal/spline/plain/black,
-/obj/random/junk,
-/turf/simulated/floor/tiled/dark/airless,
-/area/quarantined_outpost/exterior)
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/obj/effect/decal/cleanable/floor_damage/random_burned,
+/turf/simulated/floor/reinforced,
+/area/space)
 "cOA" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/firedoor,
@@ -2881,9 +2902,6 @@
 /turf/simulated/floor/plating,
 /area/quarantined_outpost/engineering)
 "diI" = (
-/obj/structure/mirror{
-	pixel_x = 32
-	},
 /obj/structure/sink{
 	dir = 4;
 	pixel_x = 12
@@ -2891,6 +2909,9 @@
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/structure/mirror{
+	pixel_x = 27
+	},
 /turf/simulated/floor/tiled/white,
 /area/quarantined_outpost/central_hallway)
 "diK" = (
@@ -3242,6 +3263,13 @@
 /obj/effect/floor_decal/corner_wide/paleblue,
 /turf/simulated/floor/tiled/airless,
 /area/quarantined_outpost/security)
+"dCs" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_straight/yellow{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/quarantined_outpost/central_hallway)
 "dCL" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
@@ -3329,7 +3357,7 @@
 /area/quarantined_outpost/security)
 "dGc" = (
 /obj/structure/target_stake,
-/turf/simulated/floor/exoplanet/basalt/airless,
+/turf/simulated/floor/exoplanet/basalt,
 /area/quarantined_outpost/exterior)
 "dGM" = (
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -3466,11 +3494,11 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/quarantined_outpost/engineering)
 "dMb" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped,
 /obj/structure/decor/ladder{
 	pixel_y = 11
 	},
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/quarantined_outpost/cargo_bay)
 "dMe" = (
@@ -3527,6 +3555,15 @@
 /obj/effect/decal/cleanable/floor_damage/random_broken,
 /turf/simulated/floor/airless,
 /area/quarantined_outpost/security)
+"dOL" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 9
+	},
+/obj/structure/bed/stool/chair/folding{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/quarantined_outpost/central_hallway)
 "dPu" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 5
@@ -3535,9 +3572,9 @@
 /turf/simulated/floor/tiled/white,
 /area/quarantined_outpost/science)
 "dPz" = (
-/obj/structure/flora/rock/pile/random,
-/turf/simulated/floor/exoplanet/basalt/airless,
-/area/quarantined_outpost/exterior)
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
 "dPX" = (
 /turf/simulated/wall,
 /area/quarantined_outpost/engineering)
@@ -3556,8 +3593,11 @@
 /area/quarantined_outpost/engineering)
 "dRt" = (
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/basalt/airless,
-/area/quarantined_outpost/exterior)
+/obj/effect/floor_decal/industrial/outline_straight/yellow{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/rust,
+/area/quarantined_outpost/elevator_hallway)
 "dRX" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 5
@@ -3623,6 +3663,9 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_straight/yellow{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/central_hallway)
 "dVF" = (
@@ -3696,6 +3739,14 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/quarantined_outpost/security)
+"dZq" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped,
+/obj/machinery/atmospherics/pipe/manifold/hidden/yellow{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/abyss,
+/area/space)
 "eas" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
@@ -3894,8 +3945,15 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/quarantined_outpost/cafeteria)
 "ehy" = (
-/turf/simulated/floor/exoplanet/basalt/airless,
-/area/quarantined_outpost/exterior)
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
+	},
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_straight/yellow{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/rust,
+/area/quarantined_outpost/elevator_hallway)
 "ehN" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 10
@@ -4087,9 +4145,8 @@
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 5
 	},
-/obj/random/dirt_75,
 /obj/machinery/alarm/north,
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled,
 /area/quarantined_outpost/security)
 "eqp" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -4097,17 +4154,20 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
-/obj/effect/map_effect/marker/airlock/quarantined_outpost/mining,
-/obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/quarantined_outpost/cargo_bay)
 "erI" = (
-/obj/effect/landmark/quarantined_outpost_e_helper,
-/turf/simulated/abyss/airless,
-/area/quarantined_outpost/exterior)
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 9
+	},
+/obj/machinery/computer/terminal/inactive{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "erM" = (
 /obj/structure/platform_deco/ledge{
 	dir = 8
@@ -4185,9 +4245,11 @@
 /turf/simulated/floor/tiled/airless,
 /area/quarantined_outpost/security)
 "evD" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/floor/airless,
-/area/quarantined_outpost/exterior)
+/obj/structure/lattice/catwalk/indoor,
+/obj/machinery/air_sensor,
+/obj/effect/decal/cleanable/floor_damage/random_burned,
+/turf/simulated/floor/plating,
+/area/space)
 "evH" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
@@ -4290,13 +4352,14 @@
 /turf/simulated/floor/tiled/light,
 /area/space)
 "ezR" = (
-/obj/machinery/light/small/decayed,
-/obj/item/clothing/head/cone{
-	pixel_y = -4;
-	pixel_x = 6
+/obj/machinery/door/blast/regular{
+	dir = 4
 	},
-/turf/simulated/floor/exoplanet/basalt/airless,
-/area/quarantined_outpost/exterior/powered)
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/space)
 "eAw" = (
 /obj/machinery/door/airlock/maintenance_hatch{
 	dir = 1
@@ -4359,10 +4422,10 @@
 /turf/simulated/floor/plating,
 /area/quarantined_outpost/engineering)
 "eBW" = (
-/obj/structure/platform_stairs/full{
-	dir = 1
-	},
 /obj/random/dirt_75,
+/obj/structure/platform_stairs/full/south_north_cap{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/quarantined_outpost/entrance_lobby)
 "eCe" = (
@@ -4372,9 +4435,9 @@
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/entrance_lobby)
 "eCr" = (
-/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/effect/floor_decal/spline/plain/black,
 /obj/structure/inflatable/wall,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/gunmetal,
 /area/space)
 "eCU" = (
 /obj/structure/flora/pottedplant/dead2{
@@ -4440,6 +4503,12 @@
 	},
 /turf/simulated/floor/exoplanet/basalt,
 /area/quarantined_outpost/engineering)
+"eGI" = (
+/obj/effect/floor_decal/corner/black/full,
+/obj/structure/flora/pottedplant/dead,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/quarantined_outpost/central_hallway)
 "eHd" = (
 /obj/structure/cable/orange{
 	icon_state = "4-8"
@@ -4720,14 +4789,10 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/quarantined_outpost/engineering)
 "eWX" = (
-/obj/structure/railing/mapped,
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_straight/yellow{
-	dir = 1
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark/full/airless,
-/area/quarantined_outpost/exterior)
+/obj/structure/lattice/catwalk,
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow,
+/turf/simulated/floor/exoplanet/abyss,
+/area/space)
 "eXg" = (
 /obj/effect/shuttle_landmark/quarantined_outpost/asteroid/landing_1b,
 /turf/simulated/floor/exoplanet/plating/asteroid/airless,
@@ -4783,9 +4848,13 @@
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/quarantined_outpost/exterior)
 "eZa" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/floor/exoplanet/basalt/airless,
-/area/quarantined_outpost/exterior)
+/obj/effect/floor_decal/corner/black{
+	dir = 9
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/quarantined_outpost/central_hallway)
 "eZl" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
@@ -4837,9 +4906,17 @@
 /turf/simulated/floor/plating,
 /area/quarantined_outpost/elevator_hallway)
 "fcc" = (
-/obj/abstract/footprint_spawner/oil,
-/turf/simulated/floor/exoplanet/basalt/airless,
-/area/quarantined_outpost/exterior)
+/obj/effect/floor_decal/corner/black/full{
+	dir = 4
+	},
+/obj/structure/bed/padded,
+/obj/structure/sign/flag/old_visegrad{
+	pixel_x = 32
+	},
+/obj/random/dirt_75,
+/obj/item/bedsheet/grey,
+/turf/simulated/floor/tiled,
+/area/quarantined_outpost/central_hallway)
 "fcv" = (
 /obj/structure/bed/padded,
 /obj/structure/bed/padded{
@@ -4851,6 +4928,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/airless,
 /area/quarantined_outpost/security)
+"fcz" = (
+/obj/effect/floor_decal/corner/black/full{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/quarantined_outpost/central_hallway)
 "fcA" = (
 /obj/structure/table,
 /turf/simulated/floor/tiled/bitile{
@@ -4865,10 +4949,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/quarantined_outpost/engineering)
 "fcS" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/table/rack/folding_table,
-/turf/simulated/floor/airless,
-/area/quarantined_outpost/exterior)
+/obj/machinery/door/firedoor,
+/obj/effect/floor_decal/industrial/hatch_door/yellow{
+	dir = 1
+	},
+/obj/machinery/door/airlock/highsecurity,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
 "fdf" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -4958,8 +5045,8 @@
 /turf/simulated/floor/plating,
 /area/quarantined_outpost/maintennace)
 "ffj" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped,
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/quarantined_outpost/cargo_bay)
 "fgs" = (
@@ -5093,14 +5180,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/quarantined_outpost/engineering)
 "fpi" = (
-/obj/effect/floor_decal/corner/black{
-	dir = 6
-	},
-/obj/random/dirt_75,
 /obj/structure/table/standard,
 /obj/machinery/light/small/decayed/quarantined_outpost{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/central_hallway)
 "fpj" = (
@@ -5199,6 +5283,9 @@
 	dir = 4
 	},
 /obj/structure/flora/rock/pile/random,
+/obj/structure/platform{
+	dir = 4
+	},
 /turf/simulated/floor/exoplanet/basalt,
 /area/space)
 "fuB" = (
@@ -5324,14 +5411,9 @@
 /turf/simulated/floor/tiled/dark/airless,
 /area/quarantined_outpost/security)
 "fCk" = (
-/obj/random/dirt_75,
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 10
-	},
-/obj/structure/closet/crate/miningcart,
-/obj/random/survival_weapon,
-/turf/simulated/floor/tiled/dark/airless,
-/area/quarantined_outpost/exterior)
+/obj/structure/grille/broken,
+/turf/simulated/floor/plating,
+/area/quarantined_outpost/elevator_hallway)
 "fCo" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
@@ -5481,11 +5563,9 @@
 /area/quarantined_outpost/cafeteria)
 "fLc" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/random/dirt_75,
-/obj/structure/closet/crate/miningcart,
-/obj/random/survival_weapon,
-/turf/simulated/floor/tiled/dark/full/airless,
-/area/quarantined_outpost/exterior/powered)
+/obj/machinery/portable_atmospherics/canister/empty/hydrogen/tritium,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
 "fLk" = (
 /obj/structure/bed/stool/padded/red{
 	dir = 1
@@ -5634,12 +5714,9 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
 "fTi" = (
-/obj/abstract/footprint_spawner/oil{
-	dir = 8
-	},
-/obj/abstract/footprint_spawner_turn_helper,
-/turf/simulated/floor/exoplanet/basalt/airless,
-/area/quarantined_outpost/exterior)
+/obj/structure/lattice/catwalk,
+/turf/simulated/floor/exoplanet/abyss,
+/area/space)
 "fTT" = (
 /obj/structure/bed/stool/chair,
 /obj/effect/floor_decal/corner_wide/lime{
@@ -5685,20 +5762,32 @@
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/quarantined_outpost/engineering)
 "fZl" = (
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_straight/yellow{
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"gad" = (
+/obj/effect/floor_decal/corner/black/full{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark/full/airless,
-/area/quarantined_outpost/exterior)
-"gbo" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light/floor/decayed,
+/obj/structure/closet/cabinet,
 /obj/random/dirt_75,
-/obj/structure/ore_box,
-/turf/simulated/floor/tiled/dark/full/airless,
-/area/quarantined_outpost/exterior/powered)
+/obj/outfit/admin/generic,
+/turf/simulated/floor/tiled,
+/area/quarantined_outpost/central_hallway)
+"gbo" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 5
+	},
+/obj/machinery/light/floor/decayed/brighter{
+	dir = 1
+	},
+/obj/structure/sign/flag/sol/old{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled,
+/area/quarantined_outpost/central_hallway)
 "gbD" = (
 /obj/machinery/power/smes/buildable/main_engine{
 	charge = 0
@@ -5781,7 +5870,6 @@
 /turf/simulated/floor/plating,
 /area/quarantined_outpost/maintennace)
 "gfH" = (
-/obj/effect/map_effect/marker/airlock/quarantined_outpost/mining,
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 10
 	},
@@ -5902,9 +5990,8 @@
 /turf/simulated/floor/tiled/light,
 /area/space)
 "goA" = (
-/obj/item/hullbeacon/red,
-/turf/simulated/floor/exoplanet/basalt/airless,
-/area/quarantined_outpost/exterior)
+/turf/simulated/floor/tiled,
+/area/quarantined_outpost/security)
 "goT" = (
 /obj/effect/floor_decal/spline/plain/black,
 /obj/effect/floor_decal/corner/dark_green{
@@ -5978,6 +6065,9 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_door/yellow{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/quarantined_outpost/engineering)
 "grv" = (
@@ -6216,15 +6306,11 @@
 /turf/simulated/floor/tiled/ridged,
 /area/quarantined_outpost/science)
 "gFO" = (
-/obj/structure/railing/mapped,
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_straight/yellow{
-	dir = 1
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 5
 	},
-/turf/simulated/floor/tiled/dark/full/airless,
-/area/quarantined_outpost/exterior)
+/turf/simulated/floor/tiled,
+/area/quarantined_outpost/security)
 "gFZ" = (
 /obj/effect/floor_decal/corner/brown/full,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -6672,15 +6758,14 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/quarantined_outpost/engineering)
 "hdl" = (
-/obj/structure/railing/mapped{
+/obj/effect/decal/cleanable/molten_item,
+/obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/outline_straight/yellow,
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/item/hullbeacon/red,
-/turf/simulated/floor/tiled/dark/full/airless,
-/area/quarantined_outpost/exterior)
+/obj/effect/decal/cleanable/floor_damage/random_broken,
+/obj/effect/decal/cleanable/floor_damage/random_burned,
+/turf/simulated/floor/plating,
+/area/space)
 "hdr" = (
 /obj/effect/decal/cleanable/blood,
 /obj/random/dirt_75,
@@ -6730,13 +6815,11 @@
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/cafeteria)
 "hgD" = (
-/obj/structure/railing/mapped{
+/obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/outline_straight/yellow,
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark/full/airless,
-/area/quarantined_outpost/exterior)
+/turf/simulated/floor/plating,
+/area/space)
 "hgP" = (
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 1
@@ -6791,6 +6874,9 @@
 /obj/effect/floor_decal/corner/dark_blue,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/structure/sign/nosmoking_1{
+	pixel_y = -32
+	},
 /turf/simulated/floor/tiled/dark,
 /area/quarantined_outpost/engineering)
 "hic" = (
@@ -6819,9 +6905,13 @@
 /turf/simulated/floor/exoplanet/basalt,
 /area/quarantined_outpost/engineering)
 "hiQ" = (
-/obj/structure/structural_support,
-/turf/simulated/floor/exoplanet/basalt/airless,
-/area/quarantined_outpost/exterior)
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/secure_closet/guncabinet,
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "hkx" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -6880,14 +6970,15 @@
 /turf/simulated/floor/reinforced,
 /area/quarantined_outpost/engineering)
 "hnw" = (
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/random/dirt_75,
-/obj/structure/railing/retractable/quarantined_outpost{
+/obj/effect/floor_decal/corner/black{
+	dir = 9
+	},
+/obj/structure/bed/stool/chair/folding{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark/full/airless,
-/area/quarantined_outpost/exterior)
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/quarantined_outpost/central_hallway)
 "hnC" = (
 /obj/structure/sink/kitchen{
 	name = "water fountain";
@@ -7017,7 +7108,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/quarantined_outpost/engineering)
 "huC" = (
-/obj/structure/platform_stairs/full{
+/obj/structure/platform_stairs/full/south_north_cap{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
@@ -7152,6 +7243,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/airless,
 /area/quarantined_outpost/security)
+"hCa" = (
+/obj/structure/platform_deco{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/basalt,
+/area/space)
 "hDO" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
@@ -7178,18 +7275,21 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_door/yellow{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/quarantined_outpost/cafeteria)
 "hEZ" = (
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/effect/floor_decal/spline/plain/black{
+/obj/machinery/door/airlock/generic,
+/obj/machinery/door/firedoor,
+/obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 1
 	},
-/obj/structure/closet/crate/miningcart,
-/obj/random/junk,
-/turf/simulated/floor/tiled/dark/airless,
-/area/quarantined_outpost/exterior)
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/full,
+/area/quarantined_outpost/central_hallway)
 "hFT" = (
 /obj/effect/floor_decal/corner_wide/paleblue/full{
 	dir = 1
@@ -7268,19 +7368,11 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/quarantined_outpost/engineering)
 "hIm" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/airlock/external{
-	dir = 4
+/obj/effect/floor_decal/corner/dark_blue/full{
+	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock/quarantined_outpost/mining,
-/obj/machinery/access_button{
-	dir = 4;
-	pixel_x = 8;
-	pixel_y = 32
-	},
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/turf/simulated/floor/tiled/dark/full,
-/area/quarantined_outpost/cargo_bay)
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "hIn" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -7415,6 +7507,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/cargo_bay)
+"hMg" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 9
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/quarantined_outpost/central_hallway)
 "hMH" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -7428,14 +7527,12 @@
 /turf/simulated/floor/wood,
 /area/quarantined_outpost/cargo_bay)
 "hPp" = (
-/obj/structure/railing/mapped,
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_straight/yellow{
+/obj/effect/floor_decal/corner_wide/paleblue/full{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark/full/airless,
-/area/quarantined_outpost/exterior)
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/quarantined_outpost/security)
 "hPx" = (
 /obj/structure/platform_deco/dark{
 	dir = 1
@@ -7498,10 +7595,12 @@
 /turf/simulated/floor/tiled/white,
 /area/space)
 "hTb" = (
-/obj/structure/railing/mapped,
-/obj/structure/flora/rock/pile/random,
-/turf/simulated/floor/exoplanet/basalt/airless,
-/area/quarantined_outpost/exterior)
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/abyss,
+/area/space)
 "hTi" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -7550,12 +7649,11 @@
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/cargo_bay)
 "hVu" = (
-/obj/item/clothing/head/cone{
-	pixel_y = -7;
-	pixel_x = 3
+/obj/effect/floor_decal/industrial/outline_straight/yellow{
+	dir = 1
 	},
-/turf/simulated/floor/exoplanet/basalt/airless,
-/area/quarantined_outpost/exterior)
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "hVI" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
@@ -7672,13 +7770,9 @@
 /turf/simulated/floor/tiled/full/airless,
 /area/quarantined_outpost/security)
 "iho" = (
-/obj/random/dirt_75,
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 1
-	},
-/obj/structure/ore_box,
-/turf/simulated/floor/tiled/dark/airless,
-/area/quarantined_outpost/exterior)
+/obj/structure/flora/rock/random,
+/turf/simulated/floor/exoplanet/basalt,
+/area/quarantined_outpost/cargo_bay)
 "ihG" = (
 /obj/structure/filingcabinet/filingcabinet,
 /obj/structure/filingcabinet/filingcabinet{
@@ -7875,7 +7969,7 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark/full/airless,
+/turf/simulated/floor/tiled/dark/full,
 /area/quarantined_outpost/security)
 "its" = (
 /obj/effect/floor_decal/corner/dark_green/diagonal,
@@ -7906,11 +8000,12 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/quarantined_outpost/central_hallway)
 "ivo" = (
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/effect/landmark/quarantined_outpost_elevator,
-/turf/simulated/floor/tiled/dark/full/airless,
-/area/quarantined_outpost/exterior/powered)
+/obj/effect/decal/cleanable/floor_damage/random_burned,
+/obj/machinery/atmospherics/unary/outlet_injector{
+	dir = 1
+	},
+/turf/simulated/floor/reinforced,
+/area/space)
 "ixx" = (
 /obj/random/civgun,
 /obj/effect/decal/cleanable/blood,
@@ -8182,6 +8277,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/quarantined_outpost/engineering)
+"iJJ" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 6
+	},
+/obj/random/dirt_75,
+/obj/structure/bed/stool/chair/folding,
+/turf/simulated/floor/tiled,
+/area/quarantined_outpost/central_hallway)
 "iKv" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
@@ -8239,6 +8342,13 @@
 	},
 /turf/simulated/floor/tiled/airless,
 /area/quarantined_outpost/security)
+"iNV" = (
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 5
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/quarantined_outpost/security)
 "iOb" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/platform/dark{
@@ -8275,14 +8385,13 @@
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/entrance_lobby)
 "iPm" = (
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 5
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped,
+/obj/machinery/computer/terminal/inactive{
+	dir = 1
 	},
-/obj/structure/structural_support,
-/turf/simulated/floor/tiled/dark/airless,
-/area/quarantined_outpost/exterior)
+/turf/simulated/floor/exoplanet/abyss,
+/area/space)
 "iPR" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -8382,13 +8491,12 @@
 /turf/simulated/floor/tiled,
 /area/space)
 "iUe" = (
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/railing/retractable/quarantined_outpost{
-	dir = 4
+/obj/structure/railing/mapped{
+	dir = 8
 	},
-/turf/simulated/floor/tiled/dark/full/airless,
-/area/quarantined_outpost/exterior)
+/obj/structure/lattice/catwalk/indoor,
+/turf/simulated/floor/plating,
+/area/quarantined_outpost/cargo_bay)
 "iUy" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -8500,11 +8608,12 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/quarantined_outpost/engineering)
 "iZS" = (
-/obj/random/dirt_75,
-/obj/machinery/computer/terminal/inactive,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark/full/airless,
-/area/quarantined_outpost/exterior)
+/obj/structure/lattice/catwalk,
+/obj/structure/stairs_railing{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/abyss,
+/area/space)
 "jaq" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
@@ -8529,7 +8638,7 @@
 	pixel_y = 5
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/reinforced/airless,
+/turf/simulated/floor/reinforced,
 /area/quarantined_outpost/security)
 "jaT" = (
 /obj/effect/floor_decal/corner/mauve{
@@ -8649,6 +8758,10 @@
 /turf/simulated/floor/exoplanet/plating/asteroid/airless,
 /area/quarantined_outpost/exterior)
 "jfY" = (
+/obj/effect/floor_decal/industrial/outline_door/yellow{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_segment/yellow,
 /turf/simulated/floor/tiled/gunmetal,
 /area/quarantined_outpost/cafeteria)
 "jga" = (
@@ -8730,10 +8843,10 @@
 /turf/simulated/floor/exoplanet/plating/asteroid/airless,
 /area/quarantined_outpost/exterior)
 "jin" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/sign/emergency/exit/stairs{
 	pixel_y = 32
 	},
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/quarantined_outpost/cargo_bay)
 "jjG" = (
@@ -9020,7 +9133,7 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/reinforced/airless,
+/turf/simulated/floor/reinforced,
 /area/quarantined_outpost/security)
 "jyS" = (
 /turf/space,
@@ -9036,15 +9149,14 @@
 /turf/simulated/floor/tiled/bitile,
 /area/space)
 "jzF" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/airlock/external{
-	dir = 4
+/obj/effect/floor_decal/corner/black{
+	dir = 6
 	},
+/obj/structure/closet/cabinet,
 /obj/random/dirt_75,
-/obj/effect/map_effect/marker/airlock/quarantined_outpost/mining,
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/turf/simulated/floor/tiled/dark/full,
-/area/quarantined_outpost/cargo_bay)
+/obj/outfit/admin/generic,
+/turf/simulated/floor/tiled,
+/area/quarantined_outpost/central_hallway)
 "jzV" = (
 /obj/machinery/door/airlock/maintenance_hatch{
 	dir = 4
@@ -9077,10 +9189,11 @@
 /turf/simulated/floor/plating,
 /area/quarantined_outpost/engineering)
 "jDg" = (
-/obj/random/dirt_75,
-/obj/effect/floor_decal/spline/plain/black,
-/turf/simulated/floor/tiled/dark/airless,
-/area/quarantined_outpost/exterior)
+/obj/effect/floor_decal/industrial/outline_door/yellow{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/gunmetal/full,
+/area/quarantined_outpost/engineering)
 "jDi" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
@@ -9212,7 +9325,7 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled,
 /area/quarantined_outpost/security)
 "jJk" = (
 /obj/structure/table/standard,
@@ -9237,6 +9350,7 @@
 	dir = 1
 	},
 /obj/structure/closet/secure_closet/guncabinet,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "jJI" = (
@@ -9458,6 +9572,18 @@
 /obj/item/stack/barricade/wood,
 /turf/simulated/floor/tiled/white,
 /area/quarantined_outpost/science)
+"jWI" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 6
+	},
+/obj/structure/bed/padded,
+/obj/random/dirt_75,
+/obj/item/bedsheet/yellow,
+/obj/structure/sign/flag/venus{
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled,
+/area/quarantined_outpost/central_hallway)
 "jYe" = (
 /obj/structure/tank_wall/oxygen{
 	icon_state = "o2-7"
@@ -9504,14 +9630,13 @@
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/quarantined_outpost/engineering)
 "jZl" = (
-/obj/machinery/light/small/decayed{
-	dir = 1
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 6
 	},
 /obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/computer/terminal/inactive,
-/turf/simulated/floor/tiled/dark/full/airless,
-/area/quarantined_outpost/exterior/powered)
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/quarantined_outpost/security)
 "jZD" = (
 /obj/machinery/atmospherics/pipe/manifold/visible,
 /obj/machinery/meter,
@@ -9568,7 +9693,7 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/reinforced/airless,
+/turf/simulated/floor/reinforced,
 /area/quarantined_outpost/security)
 "kcg" = (
 /obj/structure/platform_deco,
@@ -9846,15 +9971,10 @@
 /turf/simulated/floor/plating,
 /area/quarantined_outpost/engineering)
 "krf" = (
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_straight/yellow{
-	dir = 8
-	},
-/obj/machinery/light/floor/decayed/brighter{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark/full/airless,
-/area/quarantined_outpost/exterior/powered)
+/obj/item/material/shard,
+/obj/structure/window_frame/empty,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
 "krz" = (
 /obj/structure/bed/stool/chair/office/dark,
 /turf/simulated/floor/tiled/dark/full,
@@ -10015,10 +10135,10 @@
 /area/quarantined_outpost/security)
 "kwz" = (
 /obj/structure/railing/mapped{
-	dir = 1
+	dir = 8
 	},
-/turf/simulated/floor/exoplanet/basalt/airless,
-/area/quarantined_outpost/exterior)
+/turf/simulated/floor/exoplanet/basalt,
+/area/space)
 "kwB" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/random/dirt_75,
@@ -10085,11 +10205,11 @@
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/quarantined_outpost/engineering)
 "kBg" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/table/rack/folding_table,
-/obj/random/custom_ka,
-/turf/simulated/floor/airless,
-/area/quarantined_outpost/exterior)
+/obj/structure/sign/nosmoking_1{
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
 "kBk" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/corner/yellow{
@@ -10132,10 +10252,12 @@
 /area/quarantined_outpost/entrance_lobby)
 "kDb" = (
 /obj/structure/lattice/catwalk,
-/obj/structure/table/rack,
-/obj/item/hoist_kit,
-/turf/simulated/floor/airless,
-/area/quarantined_outpost/exterior)
+/obj/structure/stairs_railing{
+	dir = 4;
+	pixel_x = -32
+	},
+/turf/simulated/floor/exoplanet/abyss,
+/area/space)
 "kDj" = (
 /obj/structure/table,
 /obj/item/material/shard{
@@ -10268,13 +10390,17 @@
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/quarantined_outpost/engineering)
 "kIu" = (
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/structure/railing/mapped{
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/outline_straight/yellow{
 	dir = 4
 	},
-/obj/structure/railing/mapped,
-/turf/simulated/floor/airless,
-/area/quarantined_outpost/exterior/powered)
+/obj/structure/sign/nosmoking_1{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "kIL" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/firedoor{
@@ -10356,13 +10482,13 @@
 /turf/simulated/floor/plating,
 /area/space)
 "kMh" = (
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 9
+/obj/structure/lattice,
+/obj/structure/stairs_railing{
+	dir = 4;
+	pixel_x = -32
 	},
-/obj/random/dirt_75,
-/obj/structure/structural_support,
-/turf/simulated/floor/tiled/dark/airless,
-/area/quarantined_outpost/exterior)
+/turf/simulated/floor/exoplanet/abyss,
+/area/space)
 "kML" = (
 /obj/machinery/portable_atmospherics/canister/hydrogen,
 /obj/machinery/atmospherics/portables_connector{
@@ -10398,6 +10524,15 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/entrance_lobby)
+"kNZ" = (
+/obj/machinery/door/firedoor,
+/obj/effect/floor_decal/industrial/hatch_door/yellow{
+	dir = 1
+	},
+/obj/machinery/door/airlock/highsecurity,
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
 "kOc" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/firedoor,
@@ -10418,13 +10553,13 @@
 	pixel_y = 30;
 	pixel_x = -1
 	},
-/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
 /obj/structure/bed/stool/chair/folding{
 	dir = 8
 	},
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/quarantined_outpost/cargo_bay)
 "kPz" = (
@@ -10535,13 +10670,14 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/quarantined_outpost/security)
 "kSA" = (
-/obj/structure/railing/mapped{
-	dir = 4
+/obj/structure/bed/stool/chair/office/light{
+	dir = 8
 	},
-/obj/structure/railing/mapped,
-/obj/structure/flora/rock/random,
-/turf/simulated/floor/exoplanet/basalt/airless,
-/area/quarantined_outpost/exterior)
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "kSH" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/quarantined_outpost/entrance_lobby)
@@ -10552,15 +10688,9 @@
 /turf/simulated/floor/tiled/rust,
 /area/quarantined_outpost/lobby)
 "kUd" = (
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/outline_straight/yellow,
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark/full/airless,
-/area/quarantined_outpost/exterior)
+/obj/structure/lattice,
+/turf/simulated/floor/exoplanet/abyss,
+/area/space)
 "kUl" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
@@ -10639,8 +10769,12 @@
 /turf/simulated/floor/tiled/airless,
 /area/quarantined_outpost/security)
 "kXd" = (
-/turf/simulated/abyss/airless,
-/area/quarantined_outpost/exterior)
+/obj/structure/lattice,
+/obj/structure/stairs_railing{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/abyss,
+/area/space)
 "kXh" = (
 /obj/machinery/conveyor{
 	dir = 1
@@ -10727,6 +10861,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/quarantined_outpost/science)
+"lcJ" = (
+/obj/structure/platform_stairs/full/south_north_cap{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/basalt,
+/area/space)
 "ldE" = (
 /obj/structure/lattice/catwalk,
 /turf/simulated/floor/exoplanet/abyss,
@@ -10743,6 +10883,9 @@
 /turf/simulated/floor/plating,
 /area/space)
 "len" = (
+/obj/effect/floor_decal/spline/plain/corner/black{
+	dir = 8
+	},
 /obj/structure/inflatable/wall,
 /turf/simulated/floor/tiled/gunmetal,
 /area/space)
@@ -10857,6 +11000,10 @@
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/quarantined_outpost/engineering)
+"loe" = (
+/obj/effect/decal/cleanable/cobweb2,
+/turf/simulated/floor/plating,
+/area/quarantined_outpost/elevator_hallway)
 "loq" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
@@ -10896,11 +11043,10 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
-/obj/structure/bed/stool/padded/red{
-	dir = 8;
-	pixel_y = 8
-	},
 /obj/structure/platform/dark{
+	dir = 8
+	},
+/obj/structure/bed/stool/padded/black{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -11037,14 +11183,12 @@
 /turf/simulated/floor/plating,
 /area/quarantined_outpost/security)
 "lyF" = (
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/material/stool/chair/folding{
-	pixel_y = 4
+/obj/structure/bed/stool/chair,
+/obj/structure/window/reinforced{
+	dir = 4
 	},
-/turf/simulated/floor/tiled/dark/full/airless,
-/area/quarantined_outpost/exterior)
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "lyP" = (
 /obj/effect/floor_decal/industrial/loading/research{
 	dir = 4
@@ -11162,12 +11306,16 @@
 /turf/simulated/floor/tiled/white,
 /area/space)
 "lFa" = (
-/obj/abstract/footprint_spawner/oil,
-/obj/abstract/footprint_spawner_turn_helper{
-	dir = 8
+/obj/effect/floor_decal/corner/black/full{
+	dir = 1
 	},
-/turf/simulated/floor/exoplanet/basalt/airless,
-/area/quarantined_outpost/exterior)
+/obj/structure/bed/padded,
+/obj/item/bedsheet/grey,
+/obj/structure/sign/flag/silversun{
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled,
+/area/quarantined_outpost/central_hallway)
 "lFd" = (
 /obj/structure/table/reinforced/steel,
 /obj/structure/window/reinforced,
@@ -11180,13 +11328,13 @@
 /obj/machinery/door/firedoor{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark/full/airless,
+/turf/simulated/floor/tiled/dark/full,
 /area/quarantined_outpost/security)
 "lFP" = (
 /obj/effect/floor_decal/spline/plain/grey,
 /obj/structure/closet/crate,
 /obj/random/dirt_75,
-/turf/simulated/floor/reinforced/airless,
+/turf/simulated/floor/reinforced,
 /area/quarantined_outpost/security)
 "lGS" = (
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -11403,9 +11551,11 @@
 /turf/simulated/floor/tiled/rust,
 /area/quarantined_outpost/elevator_hallway)
 "lRX" = (
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor/airless,
-/area/quarantined_outpost/exterior/powered)
+/obj/effect/floor_decal/industrial/outline_straight/yellow{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
 "lSj" = (
 /obj/structure/bed/stool/chair,
 /obj/effect/floor_decal/corner_wide/paleblue{
@@ -11515,12 +11665,13 @@
 /turf/simulated/floor/tiled/light,
 /area/space)
 "lVM" = (
-/obj/structure/railing/mapped{
-	dir = 1
+/obj/effect/floor_decal/corner/black{
+	dir = 6
 	},
-/obj/structure/flora/rock/pile/random,
-/turf/simulated/floor/exoplanet/basalt/airless,
-/area/quarantined_outpost/exterior)
+/obj/random/dirt_75,
+/obj/structure/table/standard,
+/turf/simulated/floor/tiled,
+/area/quarantined_outpost/central_hallway)
 "lVN" = (
 /obj/structure/platform_deco{
 	dir = 1
@@ -11858,17 +12009,13 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/quarantined_outpost/cargo_bay)
 "mqa" = (
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/outline_straight/yellow,
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark/full/airless,
-/area/quarantined_outpost/exterior)
+/obj/effect/floor_decal/corner/black/full,
+/obj/structure/table/standard,
+/turf/simulated/floor/tiled,
+/area/quarantined_outpost/central_hallway)
 "mqX" = (
-/obj/structure/lattice/catwalk,
 /obj/effect/decal/cleanable/cobweb2,
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/quarantined_outpost/cargo_bay)
 "mrI" = (
@@ -12437,15 +12584,9 @@
 /turf/simulated/floor/tiled/white,
 /area/quarantined_outpost/science)
 "mWv" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/turf/simulated/abyss/airless,
-/area/quarantined_outpost/exterior)
+/obj/structure/bed/stool/chair,
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "mWy" = (
 /obj/machinery/vending/cola,
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -12552,7 +12693,7 @@
 /area/quarantined_outpost/security)
 "nca" = (
 /obj/structure/mirror{
-	pixel_x = 32
+	pixel_x = 27
 	},
 /obj/structure/sink{
 	dir = 4;
@@ -12994,9 +13135,10 @@
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/quarantined_outpost/engineering)
 "ntp" = (
-/obj/structure/flora/rock/random,
-/turf/simulated/floor/exoplanet/basalt/airless,
-/area/quarantined_outpost/exterior)
+/obj/structure/bed/stool/chair/folding,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/quarantined_outpost/central_hallway)
 "ntS" = (
 /obj/structure/tank_wall/air,
 /obj/effect/floor_decal/industrial/warning{
@@ -13123,13 +13265,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "nyi" = (
-/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
-	dir = 8
+	dir = 4
 	},
-/obj/structure/railing/mapped,
-/turf/simulated/floor/airless,
-/area/quarantined_outpost/exterior/powered)
+/turf/simulated/floor/exoplanet/abyss,
+/area/space)
 "nyl" = (
 /obj/effect/decal/cleanable/blood,
 /obj/random/dirt_75,
@@ -13384,12 +13525,11 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/quarantined_outpost/cargo_bay)
 "nJV" = (
-/obj/effect/map_effect/marker/airlock/quarantined_outpost/mining,
-/obj/random/dirt_75,
-/obj/effect/floor_decal/spline/plain/cee/black,
-/obj/machinery/atmospherics/pipe/manifold/hidden,
-/turf/simulated/floor/tiled/dark/airless,
-/area/quarantined_outpost/cargo_bay)
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/space)
 "nKb" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -13460,9 +13600,16 @@
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/quarantined_outpost/security)
 "nRy" = (
-/obj/structure/railing/mapped,
-/turf/simulated/floor/exoplanet/basalt/airless,
-/area/quarantined_outpost/exterior)
+/obj/effect/floor_decal/corner/black{
+	dir = 9
+	},
+/obj/structure/bed/padded,
+/obj/item/bedsheet/purple,
+/obj/structure/sign/flag/venus{
+	pixel_x = -32
+	},
+/turf/simulated/floor/tiled,
+/area/quarantined_outpost/central_hallway)
 "nRW" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -13473,13 +13620,13 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/quarantined_outpost/cargo_bay)
 "nSo" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/corner/black{
+	dir = 9
+	},
+/obj/structure/flora/pottedplant/dead,
 /obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/structure/closet/crate/miningcart,
-/obj/random/loot,
-/turf/simulated/floor/tiled/dark/full/airless,
-/area/quarantined_outpost/exterior/powered)
+/turf/simulated/floor/tiled,
+/area/quarantined_outpost/central_hallway)
 "nSW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/door/firedoor/noid,
@@ -13872,9 +14019,7 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
-/obj/structure/bed/stool/chair/folding{
-	dir = 1
-	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/cafeteria)
 "ojv" = (
@@ -13939,22 +14084,21 @@
 /turf/simulated/floor/tiled/full/airless,
 /area/quarantined_outpost/security)
 "onx" = (
-/obj/structure/railing/mapped{
+/obj/machinery/door/airlock/generic,
+/obj/machinery/door/firedoor,
+/obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 1
 	},
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/item/hullbeacon/red,
-/turf/simulated/floor/tiled/dark/full/airless,
-/area/quarantined_outpost/exterior)
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/full,
+/area/quarantined_outpost/central_hallway)
 "ooF" = (
 /obj/effect/floor_decal/spline/plain/grey{
 	dir = 6
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/reinforced/airless,
+/turf/simulated/floor/reinforced,
 /area/quarantined_outpost/security)
 "ooM" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -14203,11 +14347,15 @@
 /turf/simulated/floor/tiled/white,
 /area/quarantined_outpost/science)
 "oAk" = (
-/obj/effect/floor_decal/corner/mauve{
-	dir = 6
+/obj/effect/floor_decal/corner/black{
+	dir = 9
 	},
-/turf/simulated/floor/tiled/light,
-/area/space)
+/obj/random/dirt_75,
+/obj/structure/bed/stool/chair/folding{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/quarantined_outpost/central_hallway)
 "oAr" = (
 /obj/structure/bed/stool/chair{
 	dir = 8
@@ -14216,10 +14364,17 @@
 /turf/simulated/floor/tiled/white,
 /area/space)
 "oAD" = (
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark/full/airless,
-/area/quarantined_outpost/exterior)
+/obj/machinery/door/firedoor{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch_door/yellow{
+	dir = 4
+	},
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
 "oAI" = (
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -14361,9 +14516,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/quarantined_outpost/engineering)
 "oGk" = (
-/obj/structure/mirror{
-	pixel_x = 32
-	},
 /obj/structure/sink{
 	dir = 4;
 	pixel_x = 12
@@ -14372,6 +14524,9 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/cobweb2,
+/obj/structure/mirror{
+	pixel_x = 27
+	},
 /turf/simulated/floor/tiled/white,
 /area/space)
 "oGy" = (
@@ -14493,6 +14648,13 @@
 /obj/structure/flora/rock/random,
 /turf/simulated/floor/exoplanet/basalt,
 /area/quarantined_outpost/exterior)
+"oMu" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 6
+	},
+/obj/structure/bed/stool/chair/office/light,
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "oNj" = (
 /obj/effect/overmap/visitable/sector/quarantined_outpost,
 /turf/simulated/floor/tiled,
@@ -14624,14 +14786,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/quarantined_outpost/engineering)
 "oTf" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light/floor/decayed{
-	dir = 1
+/obj/structure/lattice,
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+	dir = 6
 	},
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark/full/airless,
-/area/quarantined_outpost/exterior/powered)
+/turf/simulated/floor/exoplanet/abyss,
+/area/space)
 "oTo" = (
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 1
@@ -14706,17 +14866,16 @@
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/lobby)
 "oXi" = (
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/rotating_alarm{
-	dir = 1
-	},
-/obj/structure/railing/retractable/quarantined_outpost{
+/obj/effect/floor_decal/corner/black/full{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark/full/airless,
-/area/quarantined_outpost/exterior)
+/obj/structure/bed/padded,
+/obj/item/bedsheet/black,
+/obj/structure/sign/flag/pluto{
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled,
+/area/quarantined_outpost/central_hallway)
 "oXp" = (
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 8
@@ -14738,10 +14897,10 @@
 /turf/simulated/floor/tiled/ridged,
 /area/quarantined_outpost/science)
 "oXV" = (
-/obj/structure/lattice/catwalk,
 /obj/machinery/light/small/decayed{
 	dir = 1
 	},
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/quarantined_outpost/cargo_bay)
 "oYu" = (
@@ -14984,14 +15143,11 @@
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/cafeteria)
 "pij" = (
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/structure/railing/mapped,
-/obj/structure/lattice/catwalk,
-/obj/structure/closet/crate/miningcart,
-/turf/simulated/floor/exoplanet/basalt/airless,
-/area/quarantined_outpost/exterior)
+/obj/structure/table/reinforced/steel,
+/obj/machinery/door/window/desk/eastright,
+/obj/structure/window/reinforced,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
 "piC" = (
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/random/dirt_75,
@@ -15180,10 +15336,15 @@
 /turf/simulated/floor/tiled/rust,
 /area/quarantined_outpost/lobby)
 "pua" = (
+/obj/effect/floor_decal/corner/dark_blue/full{
+	dir = 4
+	},
+/obj/machinery/computer/terminal/inactive{
+	dir = 1
+	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark/full/airless,
-/area/quarantined_outpost/exterior/powered)
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "puo" = (
 /obj/machinery/computer/terminal/inactive{
 	dir = 8
@@ -15210,10 +15371,10 @@
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/cafeteria)
 "pxN" = (
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/effect/landmark/corpse/quarantined_outpost,
-/turf/simulated/floor/airless,
-/area/quarantined_outpost/exterior/powered)
+/obj/effect/floor_decal/industrial/hatch/custodial,
+/obj/machinery/door/window/eastleft,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
 "pyK" = (
 /obj/machinery/door/airlock/generic{
 	dir = 4
@@ -15387,23 +15548,12 @@
 /turf/simulated/floor/plating,
 /area/quarantined_outpost/engineering)
 "pHj" = (
-/obj/structure/table/rack/retail_shelf,
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 1
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
 	},
-/obj/item/storage/bag/ore{
-	pixel_y = 7;
-	pixel_x = -7
-	},
-/obj/item/storage/bag/ore{
-	pixel_y = 7;
-	pixel_x = 7
-	},
-/obj/machinery/light/floor/decayed/brighter{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark/airless,
-/area/quarantined_outpost/exterior)
+/obj/effect/decal/cleanable/floor_damage/random_burned,
+/turf/simulated/floor/reinforced,
+/area/space)
 "pHz" = (
 /obj/effect/floor_decal/spline/plain/corner/black{
 	dir = 1
@@ -15411,7 +15561,7 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/space)
 "pHO" = (
-/obj/structure/platform_stairs/full{
+/obj/structure/platform_stairs/full/south_north_cap{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -15571,14 +15721,17 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/quarantined_outpost/cargo_bay)
 "pQr" = (
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 8
+/obj/structure/railing/mapped{
+	dir = 1
 	},
-/obj/structure/ore_box,
-/turf/simulated/floor/tiled/dark/airless,
-/area/quarantined_outpost/exterior)
+/obj/structure/platform{
+	dir = 1
+	},
+/obj/structure/platform_deco{
+	dir = 6
+	},
+/turf/simulated/floor/exoplanet/basalt,
+/area/space)
 "pQD" = (
 /obj/structure/bed/stool/chair/office/dark,
 /obj/effect/decal/cleanable/blood,
@@ -15732,11 +15885,14 @@
 /turf/simulated/floor/exoplanet/plating/asteroid/airless,
 /area/quarantined_outpost/exterior)
 "pXN" = (
-/obj/machinery/door/airlock/generic,
+/obj/machinery/door/airlock/generic{
+	welded = 1
+	},
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 1
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/full,
 /area/quarantined_outpost/central_hallway)
 "pXV" = (
@@ -15744,13 +15900,11 @@
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock/quarantined_outpost/mining,
 /obj/machinery/access_button{
 	dir = 1;
 	pixel_x = -28;
 	pixel_y = -20
 	},
-/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/dark/full,
 /area/quarantined_outpost/cargo_bay)
 "pYa" = (
@@ -16067,6 +16221,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/central_hallway)
+"qoZ" = (
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/plating,
+/area/space)
 "qpF" = (
 /obj/abstract/footprint_spawner_turn_helper{
 	dir = 4
@@ -16165,17 +16323,12 @@
 /turf/simulated/floor/plating,
 /area/quarantined_outpost/maintennace)
 "quz" = (
-/obj/structure/railing/mapped,
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_straight/yellow{
-	dir = 1
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
 	},
-/obj/item/hullbeacon/red{
-	pixel_y = 6
-	},
-/turf/simulated/floor/tiled/dark/full/airless,
-/area/quarantined_outpost/exterior)
+/obj/effect/decal/cleanable/floor_damage/random_burned,
+/turf/simulated/floor/reinforced,
+/area/space)
 "quO" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -16327,19 +16480,14 @@
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/cargo_bay)
 "qzI" = (
-/obj/structure/table/rack/retail_shelf,
-/obj/random/dirt_75,
-/obj/effect/floor_decal/spline/plain/black,
-/obj/random/custom_ka{
-	pixel_y = 9
+/obj/machinery/door/firedoor,
+/obj/effect/floor_decal/industrial/hatch_door/research{
+	dir = 8
 	},
-/obj/item/storage/bag/ore{
-	pixel_y = -8;
-	pixel_x = -5
-	},
-/obj/machinery/light/floor/decayed/brighter,
-/turf/simulated/floor/tiled/dark/airless,
-/area/quarantined_outpost/exterior)
+/obj/effect/decal/cleanable/floor_damage/random_broken,
+/obj/effect/decal/cleanable/molten_item,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
 "qzO" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 9
@@ -16492,16 +16640,14 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/quarantined_outpost/engineering)
 "qGW" = (
-/obj/structure/railing/mapped{
-	dir = 4
+/obj/machinery/computer/terminal/inactive{
+	dir = 8
 	},
-/obj/structure/railing/mapped,
-/obj/item/hullbeacon/red{
-	pixel_y = 6
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/bitile{
+	dir = 1
 	},
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark/full/airless,
-/area/quarantined_outpost/exterior)
+/area/space)
 "qGZ" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/structure/bed/stool/chair/sofa/corner/concave/brown{
@@ -16601,6 +16747,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/quarantined_outpost/entrance_lobby)
+"qJM" = (
+/obj/machinery/computer/terminal/inactive{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/bitile,
+/area/space)
 "qKD" = (
 /obj/structure/platform_deco{
 	dir = 8
@@ -16876,16 +17029,12 @@
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/cargo_bay)
 "qXV" = (
-/obj/structure/railing/mapped{
-	dir = 4
+/obj/item/material/shard{
+	pixel_x = -1;
+	pixel_y = 2
 	},
-/obj/structure/railing/mapped,
-/obj/structure/road_sign/yield{
-	pixel_y = 5;
-	pixel_x = 5
-	},
-/turf/simulated/floor/exoplanet/basalt/airless,
-/area/quarantined_outpost/exterior)
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "qYt" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 1
@@ -16913,10 +17062,13 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark/full/airless,
+/turf/simulated/floor/tiled/dark/full,
 /area/quarantined_outpost/security)
 "raZ" = (
-/turf/unsimulated/marker/green,
+/obj/structure/table/standard,
+/obj/random/dirt_75,
+/obj/random/junk,
+/turf/simulated/floor/tiled,
 /area/quarantined_outpost/central_hallway)
 "rbd" = (
 /obj/effect/floor_decal/corner/dark_blue{
@@ -17012,15 +17164,15 @@
 /turf/simulated/wall/r_wall,
 /area/quarantined_outpost/security)
 "rhf" = (
-/obj/structure/mirror{
-	pixel_x = 32
-	},
 /obj/structure/sink{
 	dir = 4;
 	pixel_x = 12
 	},
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/random/dirt_75,
+/obj/structure/mirror{
+	pixel_x = 27
+	},
 /turf/simulated/floor/tiled/white,
 /area/quarantined_outpost/central_hallway)
 "rhn" = (
@@ -17104,12 +17256,12 @@
 /turf/simulated/floor/tiled,
 /area/space)
 "rmT" = (
-/obj/effect/floor_decal/corner/mauve{
-	dir = 4
-	},
 /obj/item/paper/crumpled{
 	pixel_x = -7;
 	pixel_y = 4
+	},
+/obj/effect/floor_decal/corner/mauve{
+	dir = 5
 	},
 /turf/simulated/floor/tiled/light,
 /area/space)
@@ -17258,7 +17410,7 @@
 	dir = 10
 	},
 /obj/structure/table/rack,
-/turf/simulated/floor/reinforced/airless,
+/turf/simulated/floor/reinforced,
 /area/quarantined_outpost/security)
 "rrz" = (
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
@@ -17495,10 +17647,19 @@
 /turf/simulated/floor/exoplanet/abyss,
 /area/quarantined_outpost/chasm)
 "rCY" = (
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/structure/closet/crate/miningcart,
-/turf/simulated/floor/airless,
-/area/quarantined_outpost/exterior/powered)
+/obj/effect/floor_decal/corner/black/full{
+	dir = 1
+	},
+/obj/structure/closet/cabinet,
+/obj/outfit/admin/generic,
+/obj/random/loot,
+/turf/simulated/floor/tiled,
+/area/quarantined_outpost/central_hallway)
+"rDl" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/empty/hydrogen/deuterium,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
 "rEx" = (
 /turf/simulated/floor/tiled/full,
 /area/quarantined_outpost/cargo_bay)
@@ -17839,6 +18000,18 @@
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/quarantined_outpost/engineering)
+"rUI" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 6
+	},
+/obj/structure/bed/padded,
+/obj/random/dirt_75,
+/obj/item/bedsheet/brown,
+/obj/structure/sign/flag/old_xanu{
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled,
+/area/quarantined_outpost/central_hallway)
 "rVh" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/full,
@@ -18110,11 +18283,11 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/quarantined_outpost/cargo_bay)
 "sjJ" = (
-/obj/effect/floor_decal/industrial/outline_straight/yellow{
-	dir = 8
+/obj/structure/platform_stairs/full/south_north_cap{
+	dir = 1
 	},
-/turf/simulated/floor/tiled/dark/full/airless,
-/area/quarantined_outpost/exterior)
+/turf/simulated/floor/exoplanet/basalt,
+/area/space)
 "sjS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
@@ -18134,14 +18307,13 @@
 /turf/simulated/floor/plating,
 /area/quarantined_outpost/engineering)
 "sla" = (
-/obj/structure/railing/mapped{
-	dir = 4
+/obj/item/material/shard{
+	pixel_y = -4;
+	pixel_x = 4
 	},
-/obj/machinery/light/small/decayed{
-	dir = 8
-	},
-/turf/simulated/floor/exoplanet/basalt/airless,
-/area/quarantined_outpost/exterior/powered)
+/obj/effect/decal/cleanable/floor_damage/random_broken,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
 "smB" = (
 /obj/machinery/conveyor{
 	dir = 8
@@ -18220,11 +18392,13 @@
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/cafeteria)
 "ssp" = (
-/obj/random/dirt_75,
-/obj/structure/table/rack/folding_table,
-/obj/random/loot,
-/turf/simulated/floor/tiled/dark/airless,
-/area/quarantined_outpost/exterior)
+/obj/structure/sign/securearea{
+	desc = "A warning sign which reads 'WARNING: FIRING RANGE'.";
+	name = "\improper WARNING: FIRING RANGE sign";
+	pixel_y = -32
+	},
+/turf/simulated/floor/exoplanet/abyss,
+/area/space)
 "sss" = (
 /obj/effect/floor_decal/corner/dark_blue,
 /obj/effect/floor_decal/corner/yellow{
@@ -18278,6 +18452,17 @@
 	},
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/central_hallway)
+"sxf" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 6
+	},
+/obj/structure/bed/padded,
+/obj/item/bedsheet/yellow,
+/obj/structure/sign/flag/nhp{
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled,
+/area/quarantined_outpost/central_hallway)
 "sxs" = (
 /obj/structure/closet/body_bag,
 /turf/simulated/floor/tiled/white,
@@ -18308,15 +18493,15 @@
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/entrance_lobby)
 "szA" = (
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/structure/railing/mapped{
-	dir = 1
+/obj/effect/floor_decal/industrial/outline_door/yellow,
+/obj/effect/floor_decal/industrial/outline_segment/yellow{
+	dir = 10
 	},
-/obj/structure/railing/mapped{
+/obj/effect/floor_decal/industrial/outline_segment/yellow{
 	dir = 4
 	},
-/turf/simulated/floor/airless,
-/area/quarantined_outpost/exterior/powered)
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
 "sAv" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 4
@@ -18413,14 +18598,11 @@
 /turf/simulated/floor/tiled/ridged,
 /area/quarantined_outpost/science)
 "sFh" = (
-/obj/structure/railing/mapped{
-	dir = 4
+/obj/structure/platform_stairs/full/south_north_cap{
+	dir = 8
 	},
-/obj/machinery/floodlight/randomcharge{
-	dir = 4
-	},
-/turf/simulated/floor/exoplanet/basalt/airless,
-/area/quarantined_outpost/exterior)
+/turf/simulated/floor/tiled/gunmetal,
+/area/space)
 "sFo" = (
 /obj/effect/floor_decal/spline/plain/black,
 /obj/structure/railing/mapped,
@@ -18628,11 +18810,10 @@
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/quarantined_outpost/exterior)
 "sQc" = (
-/obj/machinery/light/small/maybe_broken{
-	dir = 1
-	},
-/turf/simulated/floor/exoplanet/basalt/airless,
-/area/quarantined_outpost/exterior/powered)
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/quarantined_outpost/security)
 "sQw" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/loot,
@@ -18790,6 +18971,10 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/lobby)
+"sWL" = (
+/obj/structure/grille/broken,
+/turf/simulated/floor/plating,
+/area/quarantined_outpost/central_hallway)
 "sXf" = (
 /obj/structure/filingcabinet/filingcabinet{
 	pixel_x = -8
@@ -18856,16 +19041,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/quarantined_outpost/cargo_bay)
 "sYL" = (
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/structure/railing/mapped{
-	dir = 1
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 9
 	},
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/structure/closet/crate/loot,
-/turf/simulated/floor/airless,
-/area/quarantined_outpost/exterior/powered)
+/obj/structure/table,
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "sZI" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
@@ -19174,7 +19355,7 @@
 "tmp" = (
 /obj/structure/target_stake,
 /obj/item/target,
-/turf/simulated/floor/exoplanet/basalt/airless,
+/turf/simulated/floor/exoplanet/basalt,
 /area/quarantined_outpost/exterior)
 "tmq" = (
 /obj/effect/floor_decal/corner/yellow{
@@ -19524,11 +19705,11 @@
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/lobby)
 "tDF" = (
-/obj/machinery/light/small/decayed{
+/obj/structure/platform_stairs/full/south_north_cap{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/basalt/airless,
-/area/quarantined_outpost/exterior/powered)
+/turf/simulated/floor/tiled/white,
+/area/space)
 "tEG" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 4
@@ -19560,7 +19741,7 @@
 /obj/effect/floor_decal/corner_wide/paleblue,
 /obj/structure/table/standard,
 /obj/random/loot,
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled,
 /area/quarantined_outpost/security)
 "tGw" = (
 /obj/effect/floor_decal/corner/yellow{
@@ -19688,6 +19869,16 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/quarantined_outpost/science)
+"tOA" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 6
+	},
+/obj/structure/closet/cabinet,
+/obj/random/dirt_75,
+/obj/outfit/admin/generic,
+/obj/random/loot,
+/turf/simulated/floor/tiled,
+/area/quarantined_outpost/central_hallway)
 "tOI" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -19759,16 +19950,11 @@
 /turf/simulated/floor/carpet/brown,
 /area/quarantined_outpost/cargo_bay)
 "tRU" = (
-/obj/random/dirt_75,
-/obj/effect/map_effect/marker/airlock/quarantined_outpost/mining,
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 6
-	},
-/obj/structure/bed/stool/chair/shuttle,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume,
-/turf/simulated/floor/tiled/dark/airless,
-/area/quarantined_outpost/cargo_bay)
+/obj/effect/decal/cleanable/floor_damage/random_burned,
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
 "tSe" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 8
@@ -19847,6 +20033,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/quarantined_outpost/entrance_lobby)
+"tVW" = (
+/obj/structure/lattice,
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/abyss,
+/area/space)
 "tWy" = (
 /obj/random/dirt_75,
 /obj/machinery/light/small/emergency{
@@ -19873,8 +20066,14 @@
 /turf/simulated/floor/exoplanet/barren,
 /area/quarantined_outpost/elevator_hallway)
 "tXr" = (
-/turf/simulated/abyss/airless,
-/area/quarantined_outpost/chasm)
+/obj/effect/floor_decal/industrial/outline_straight/yellow{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_straight/yellow{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
 "tXJ" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
@@ -20010,6 +20209,13 @@
 	},
 /turf/simulated/floor/tiled/full/airless,
 /area/quarantined_outpost/security)
+"uei" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 9
+	},
+/obj/structure/bed/stool/chair/folding,
+/turf/simulated/floor/tiled,
+/area/quarantined_outpost/central_hallway)
 "uet" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 1
@@ -20063,13 +20269,10 @@
 /turf/simulated/floor/carpet/rubber,
 /area/quarantined_outpost/engineering)
 "uhe" = (
-/obj/effect/map_effect/marker/airlock/quarantined_outpost/mining,
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9
-	},
-/turf/simulated/floor/plating,
-/area/quarantined_outpost/cargo_bay)
+/obj/structure/lattice,
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow,
+/turf/simulated/floor/exoplanet/abyss,
+/area/space)
 "uhI" = (
 /obj/structure/railing/mapped{
 	dir = 1;
@@ -20139,13 +20342,17 @@
 /turf/simulated/floor/tiled/white,
 /area/quarantined_outpost/science)
 "uka" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/random/dirt_75,
-/obj/structure/railing/retractable/quarantined_outpost{
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/obj/structure/platform/dark{
+	dir = 8
+	},
+/obj/item/material/stool{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark/full/airless,
-/area/quarantined_outpost/exterior)
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "uki" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/abstract/footprint_spawner{
@@ -20235,6 +20442,7 @@
 	},
 /obj/structure/closet/cabinet,
 /obj/outfit/admin/generic,
+/obj/random/loot,
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/central_hallway)
 "uoB" = (
@@ -20451,11 +20659,9 @@
 /turf/simulated/floor/tiled/full,
 /area/quarantined_outpost/cargo_bay)
 "uBu" = (
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/turf/simulated/floor/exoplanet/basalt/airless,
-/area/quarantined_outpost/exterior)
+/obj/effect/decal/cleanable/floor_damage/random_burned,
+/turf/simulated/floor/reinforced,
+/area/space)
 "uCp" = (
 /obj/structure/table/reinforced/steel,
 /obj/structure/window/reinforced{
@@ -20582,8 +20788,8 @@
 /obj/effect/floor_decal/corner/mauve{
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/outline_segment/research{
-	dir = 4
+/obj/structure/platform_stairs/full/south_north_cap/half{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/light,
 /area/space)
@@ -20734,9 +20940,12 @@
 /turf/simulated/floor/tiled/ridged,
 /area/quarantined_outpost/science)
 "uSw" = (
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark/airless,
-/area/quarantined_outpost/exterior)
+/obj/structure/lattice/catwalk,
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/abyss,
+/area/space)
 "uTF" = (
 /obj/structure/grille/broken,
 /turf/simulated/floor/plating,
@@ -20811,8 +21020,8 @@
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/engineering)
 "uVN" = (
-/obj/effect/map_effect/marker/airlock/quarantined_outpost/mining,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/structure/flora/rock/pile/random,
 /turf/simulated/floor/plating,
 /area/quarantined_outpost/cargo_bay)
 "uWa" = (
@@ -20862,12 +21071,12 @@
 /turf/simulated/floor/tiled/white,
 /area/quarantined_outpost/science)
 "uZv" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing/mapped{
-	dir = 4
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
 	},
-/turf/simulated/abyss/airless,
-/area/quarantined_outpost/exterior)
+/obj/effect/decal/cleanable/floor_damage/random_burned,
+/turf/simulated/floor/reinforced,
+/area/space)
 "uZA" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
@@ -21009,7 +21218,6 @@
 /turf/simulated/floor/plating,
 /area/quarantined_outpost/elevator_hallway)
 "vge" = (
-/obj/effect/map_effect/marker/airlock/quarantined_outpost/mining,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor/plating,
@@ -21098,12 +21306,12 @@
 /turf/simulated/floor/reinforced,
 /area/quarantined_outpost/engineering)
 "vjJ" = (
-/obj/random/dirt_75,
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 4
+/obj/structure/lattice/catwalk,
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+	dir = 10
 	},
-/turf/simulated/floor/tiled/dark/airless,
-/area/quarantined_outpost/exterior)
+/turf/simulated/floor/exoplanet/abyss,
+/area/space)
 "vjS" = (
 /obj/structure/tank_wall/hydrogen{
 	icon_state = "h4"
@@ -21204,6 +21412,9 @@
 	},
 /obj/structure/table/standard/flipped{
 	dir = 8
+	},
+/obj/structure/sign/flag/sol/old{
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/central_hallway)
@@ -21616,6 +21827,13 @@
 	},
 /turf/simulated/floor/tiled/light,
 /area/space)
+"vOF" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/flora/rock/pile/random,
+/turf/simulated/floor/exoplanet/basalt,
+/area/space)
 "vOQ" = (
 /obj/random/dirt_75,
 /obj/item/hullbeacon/red,
@@ -21971,9 +22189,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/quarantined_outpost/cargo_bay)
 "wfm" = (
-/obj/machinery/light/small/decayed,
-/turf/simulated/abyss/airless,
-/area/quarantined_outpost/exterior/powered)
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_straight/yellow{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/quarantined_outpost/elevator_hallway)
 "wfJ" = (
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/elevator_hallway)
@@ -22202,7 +22425,7 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled,
 /area/quarantined_outpost/security)
 "wtu" = (
 /obj/structure/closet/secure_closet/personal,
@@ -22302,6 +22525,9 @@
 /area/quarantined_outpost/engineering)
 "wBA" = (
 /obj/effect/decal/cleanable/cobweb2,
+/obj/structure/platform_stairs/full/south_north_cap/half{
+	dir = 4
+	},
 /obj/structure/platform{
 	dir = 1
 	},
@@ -22379,20 +22605,20 @@
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/lobby)
 "wDF" = (
-/obj/effect/map_effect/marker/airlock/quarantined_outpost/mining,
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	pixel_y = 23;
-	pixel_x = 5
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 8
 	},
-/obj/machinery/airlock_sensor{
-	pixel_y = 25;
-	pixel_x = -7
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow,
+/turf/simulated/floor/exoplanet/abyss,
+/area/space)
+"wDG" = (
+/obj/structure/lattice/catwalk,
+/obj/machinery/atmospherics/pipe/manifold/hidden/yellow{
+	dir = 1
 	},
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume,
-/turf/simulated/floor/tiled/dark/airless,
-/area/quarantined_outpost/cargo_bay)
+/turf/simulated/floor/exoplanet/abyss,
+/area/space)
 "wEg" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -22499,6 +22725,15 @@
 /obj/effect/floor_decal/spline/plain/corner/black,
 /turf/simulated/floor/tiled/ridged,
 /area/quarantined_outpost/science)
+"wKu" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 6
+	},
+/obj/structure/closet/cabinet,
+/obj/outfit/admin/generic,
+/obj/random/loot,
+/turf/simulated/floor/tiled,
+/area/quarantined_outpost/central_hallway)
 "wKE" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/firedoor/noid/closed,
@@ -22644,8 +22879,8 @@
 /area/quarantined_outpost/engineering)
 "wRg" = (
 /obj/effect/floor_decal/corner/mauve,
-/obj/effect/floor_decal/industrial/outline_segment/research{
-	dir = 10
+/obj/structure/platform_stairs/full/south_north_cap/half{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/light,
 /area/space)
@@ -22655,12 +22890,12 @@
 /turf/simulated/floor/plating,
 /area/quarantined_outpost/engineering)
 "wSk" = (
-/obj/structure/mirror{
-	pixel_x = 32
-	},
 /obj/structure/sink{
 	dir = 4;
 	pixel_x = 12
+	},
+/obj/structure/mirror{
+	pixel_x = 27
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
@@ -22669,6 +22904,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/quarantined_outpost/entrance_lobby)
+"wTt" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/quarantined_outpost/central_hallway)
 "wTA" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8
@@ -22998,6 +23239,12 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/quarantined_outpost/cafeteria)
+"xpG" = (
+/obj/effect/floor_decal/industrial/outline_straight/yellow{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "xpJ" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
@@ -23044,28 +23291,30 @@
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/entrance_lobby)
 "xtp" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/random/dirt_75,
-/obj/machinery/floodlight/randomcharge{
-	dir = 1
+/obj/structure/sign/securearea{
+	desc = "A warning sign which reads 'WARNING: FIRING RANGE'.";
+	name = "\improper WARNING: FIRING RANGE sign";
+	pixel_y = -32
 	},
-/turf/simulated/floor/tiled/dark/full/airless,
-/area/quarantined_outpost/exterior/powered)
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "xtI" = (
 /obj/structure/table/standard,
 /obj/item/material/shard,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "xuB" = (
-/obj/structure/table/rack/folding_table,
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 4
+/obj/structure/bed/stool/chair/office/light{
+	dir = 8
 	},
-/obj/random/loot,
-/turf/simulated/floor/tiled/dark/airless,
-/area/quarantined_outpost/exterior)
+/obj/effect/floor_decal/corner/dark_blue/full{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "xuT" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 10
@@ -23074,7 +23323,7 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled,
 /area/quarantined_outpost/security)
 "xvc" = (
 /obj/structure/platform_deco,
@@ -23120,19 +23369,18 @@
 /turf/simulated/floor/plating,
 /area/quarantined_outpost/cargo_bay)
 "xyx" = (
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/structure/bed/stool/chair/folding{
+/obj/effect/floor_decal/spline/plain/black{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark/airless,
-/area/quarantined_outpost/exterior)
+/obj/structure/inflatable/wall,
+/turf/simulated/floor/tiled/gunmetal,
+/area/space)
 "xzI" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
 /obj/structure/railing/mapped,
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/quarantined_outpost/cargo_bay)
 "xAc" = (
@@ -23163,10 +23411,10 @@
 /turf/simulated/floor/tiled/full,
 /area/quarantined_outpost/entrance_lobby)
 "xBd" = (
-/obj/effect/floor_decal/corner/mauve{
-	dir = 8
-	},
 /obj/structure/window/reinforced,
+/obj/effect/floor_decal/corner/mauve{
+	dir = 10
+	},
 /turf/simulated/floor/tiled/light,
 /area/space)
 "xBf" = (
@@ -23293,12 +23541,13 @@
 /turf/simulated/floor/plating,
 /area/quarantined_outpost/engineering)
 "xHa" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing/mapped{
-	dir = 4
+/obj/structure/table/standard/flipped,
+/obj/structure/bed/stool/chair/folding{
+	dir = 1
 	},
-/turf/simulated/floor/exoplanet/basalt/airless,
-/area/quarantined_outpost/exterior)
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/quarantined_outpost/central_hallway)
 "xHl" = (
 /obj/structure/cable{
 	icon_state = "2-4"
@@ -23461,7 +23710,15 @@
 /turf/simulated/floor/plating,
 /area/quarantined_outpost/cargo_bay)
 "xRu" = (
-/turf/unsimulated/marker/red,
+/obj/effect/floor_decal/corner/black{
+	dir = 6
+	},
+/obj/structure/bed/padded,
+/obj/item/bedsheet/red,
+/obj/structure/sign/flag/sancolette{
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled,
 /area/quarantined_outpost/central_hallway)
 "xRF" = (
 /obj/effect/floor_decal/corner/dark_blue{
@@ -23701,7 +23958,7 @@
 	},
 /obj/structure/filingcabinet/chestdrawer,
 /obj/random/dirt_75,
-/turf/simulated/floor/reinforced/airless,
+/turf/simulated/floor/reinforced,
 /area/quarantined_outpost/security)
 "ybF" = (
 /obj/effect/shuttle_landmark/quarantined_outpost/space/north_2,
@@ -23813,7 +24070,7 @@
 /obj/item/device/pin_extractor{
 	pixel_x = 3
 	},
-/turf/simulated/floor/reinforced/airless,
+/turf/simulated/floor/reinforced,
 /area/quarantined_outpost/security)
 "yjc" = (
 /obj/effect/floor_decal/corner/yellow{
@@ -23862,19 +24119,10 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/quarantined_outpost/engineering)
 "ylh" = (
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/rotating_alarm,
-/obj/structure/railing/retractable/quarantined_outpost{
-	dir = 4
-	},
-/obj/item/clothing/head/cone{
-	pixel_y = 9;
-	pixel_x = -7
-	},
-/turf/simulated/floor/tiled/dark/full/airless,
-/area/quarantined_outpost/exterior)
+/obj/structure/table/reinforced/steel,
+/obj/machinery/door/window/desk/eastleft,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
 "ylO" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 8
@@ -48938,7 +49186,7 @@ dPX
 ppT
 tzg
 aww
-bAQ
+jDg
 grm
 dPX
 rQp
@@ -49707,7 +49955,7 @@ kEp
 eJG
 vWu
 kPz
-sqa
+ojk
 luk
 dki
 ena
@@ -49964,7 +50212,7 @@ kEp
 lEA
 aKJ
 ilJ
-ojk
+sqa
 fRM
 fRM
 fRM
@@ -50220,7 +50468,7 @@ api
 kEp
 vbN
 bNB
-ilJ
+cud
 ojk
 luk
 cCY
@@ -55863,7 +56111,7 @@ rQE
 rQE
 rQE
 vUe
-mTK
+azM
 mTK
 dbM
 dbM
@@ -56120,7 +56368,7 @@ rQE
 iEN
 rQE
 vUe
-mTK
+azM
 mTK
 dbM
 mnI
@@ -56377,7 +56625,7 @@ rQp
 iEN
 iEN
 iEN
-mTK
+azM
 mTK
 qTb
 xEk
@@ -56634,7 +56882,7 @@ mGP
 iEN
 iEN
 iEN
-mTK
+azM
 mTK
 dbM
 dbM
@@ -56891,7 +57139,7 @@ iEN
 iEN
 iEN
 iEN
-mTK
+azM
 mTK
 mTK
 dbM
@@ -57148,18 +57396,18 @@ wyB
 iEN
 iEN
 iEN
+azM
 mTK
 mTK
-mTK
 dbM
 dbM
 dbM
 dbM
 dbM
-raZ
-raZ
-raZ
-raZ
+gad
+nRy
+eZa
+oAk
 dbM
 hxS
 tPi
@@ -57169,10 +57417,10 @@ dbM
 axJ
 siR
 dbM
-xRu
-xRu
-xRu
-xRu
+bre
+hMg
+hnw
+mqa
 dbM
 xXY
 iNm
@@ -57405,31 +57653,31 @@ pBD
 iEN
 iEN
 iEN
-mTK
-mTK
-mTK
-mTK
-mTK
-mTK
+azM
+azM
+azM
+azM
+azM
+azM
 mTK
 dbM
 raZ
-raZ
-raZ
-raZ
-pXN
+nqW
+dJU
+nqW
+onx
 nqW
 vhI
 dbM
-tzG
+sWL
 urS
 axJ
 nqW
-pXN
-xRu
-xRu
-xRu
-xRu
+hEZ
+nqW
+hlp
+dJU
+nqW
 dbM
 xXY
 mTK
@@ -57661,19 +57909,19 @@ sKB
 mGP
 iEN
 iEN
+azM
+azM
 mTK
 mTK
 mTK
 mTK
-mTK
-mTK
-mTK
+azM
 mTK
 dbM
-raZ
-raZ
-raZ
-raZ
+rCY
+jWI
+iJJ
+lVM
 dbM
 gPH
 fnM
@@ -57683,10 +57931,10 @@ dbM
 vEJ
 pjT
 dbM
-xRu
-xRu
-xRu
-xRu
+jzF
+sxf
+tOA
+oXi
 dbM
 mTK
 mTK
@@ -57918,21 +58166,21 @@ sKB
 pBD
 iEN
 mGP
-mTK
+azM
 mTK
 mGP
 mGP
 mGP
 mGP
+azM
 mTK
-mTK
 dbM
 dbM
 dbM
 dbM
 dbM
 dbM
-ucP
+gbo
 hlK
 pPq
 pPq
@@ -58181,13 +58429,13 @@ mGP
 txY
 txY
 mGP
-mTK
+azM
 mTK
 dbM
-raZ
-raZ
-raZ
-raZ
+fcz
+wTt
+wTt
+nSo
 dbM
 dAF
 leC
@@ -58438,13 +58686,13 @@ tie
 giw
 qzl
 mGP
-mTK
+azM
 mTK
 dbM
-raZ
-raZ
-raZ
-raZ
+ntp
+hlp
+nqW
+xHa
 pXN
 mJq
 sub
@@ -58695,22 +58943,22 @@ xbI
 dDH
 gOR
 mGP
-mTK
+azM
 mTK
 dbM
-raZ
-raZ
-raZ
-raZ
+lFa
+wKu
+rUI
+tOA
 dbM
 tcg
 sIw
 siR
 dbM
-xRu
-xRu
-xRu
-xRu
+uei
+aly
+dOL
+eGI
 dbM
 mTK
 mTK
@@ -58952,7 +59200,7 @@ jAL
 rhE
 dFN
 mGP
-mTK
+azM
 mGP
 dbM
 dbM
@@ -58962,12 +59210,12 @@ dbM
 dbM
 dVm
 sIw
+dCs
+onx
 nqW
-pXN
-xRu
-xRu
-xRu
-xRu
+hlp
+dJU
+nqW
 dbM
 mTK
 mTK
@@ -59196,10 +59444,10 @@ aNX
 cNL
 ttr
 ttr
-huC
+tDF
 ePE
 pHz
-cKc
+sFh
 tyv
 tej
 uEM
@@ -59221,10 +59469,10 @@ evW
 vLs
 vLs
 dbM
+tOA
 xRu
-xRu
-xRu
-xRu
+jzF
+fcc
 dbM
 mGP
 mGP
@@ -59417,12 +59665,12 @@ voR
 voR
 sGO
 voR
-buG
-buG
-buG
-buG
-buG
-buG
+voR
+voR
+voR
+voR
+voR
+voR
 buG
 gcP
 nKt
@@ -59474,9 +59722,9 @@ tyv
 vnC
 osA
 osA
-bMY
-vQE
-rhn
+wfm
+dRt
+ehy
 dbM
 dbM
 dbM
@@ -59674,12 +59922,12 @@ voR
 sGO
 sGO
 voR
-buG
-sYL
-lRX
-lRX
-lRX
-nyi
+voR
+voR
+voR
+voR
+voR
+voR
 buG
 gcP
 gcP
@@ -59931,12 +60179,12 @@ sGO
 sGO
 voR
 voR
-buG
-lRX
-pua
-pxN
-nSo
-lRX
+voR
+voR
+voR
+voR
+voR
+voR
 buG
 iEN
 gcP
@@ -60026,8 +60274,8 @@ qjx
 qjx
 fFr
 kPj
-fSa
-fSa
+iUe
+iUe
 xzI
 sPG
 dIJ
@@ -60188,12 +60436,12 @@ sGO
 sGO
 voR
 voR
-buG
-lRX
-oTf
-ivo
-gbo
-lRX
+voR
+voR
+voR
+voR
+voR
+voR
 buG
 iEN
 gcP
@@ -60445,12 +60693,12 @@ voR
 sGO
 voR
 voR
-buG
-lRX
-fLc
-lRX
-xtp
-rCY
+voR
+voR
+voR
+voR
+voR
+voR
 buG
 iEN
 gcP
@@ -60507,8 +60755,8 @@ nfa
 nfa
 vfw
 vfw
-vfw
-vfw
+fCk
+wfJ
 nfa
 vSw
 iqo
@@ -60702,12 +60950,12 @@ voR
 sGO
 voR
 voR
-buG
-szA
-lRX
-lRX
-lRX
-kIu
+voR
+voR
+voR
+voR
+voR
+voR
 buG
 gcP
 gcP
@@ -60762,8 +61010,8 @@ vSw
 iqo
 toC
 nfa
-vfw
-vfw
+wfJ
+wfJ
 vfw
 vfw
 nfa
@@ -61019,7 +61267,7 @@ vSw
 btw
 xdp
 nfa
-vfw
+wfJ
 vfw
 vfw
 nfa
@@ -61229,7 +61477,7 @@ geE
 xdN
 rmT
 gIB
-wrT
+cYr
 vLB
 fpk
 geE
@@ -61278,7 +61526,7 @@ xdp
 nfa
 vfw
 vfw
-vfw
+alm
 nfa
 rWz
 wfJ
@@ -61494,7 +61742,7 @@ mDr
 tPu
 kov
 kov
-mDr
+qzI
 ksX
 azM
 qUD
@@ -61535,7 +61783,7 @@ nfa
 nfa
 vfw
 vfw
-vfw
+wfJ
 nfa
 rWz
 wfJ
@@ -61570,7 +61818,7 @@ fFr
 fFr
 fFr
 fFr
-mTK
+azM
 cqL
 cqL
 cqL
@@ -61754,7 +62002,7 @@ wrT
 gcP
 vEm
 nlt
-lqA
+uka
 lqA
 rzC
 gcP
@@ -61767,9 +62015,9 @@ grd
 jVy
 mGP
 iEN
-jkh
-fQe
-fQe
+bFa
+sXZ
+sKB
 rgv
 wvo
 uXQ
@@ -61789,9 +62037,9 @@ rgv
 bSy
 nEa
 nfa
+wfJ
 vfw
-vfw
-vfw
+fCk
 nfa
 nfa
 nfa
@@ -61827,10 +62075,10 @@ mTK
 mTK
 mTK
 mTK
-mTK
+azM
 mTK
 voR
-voR
+buG
 voR
 voR
 voR
@@ -62010,22 +62258,22 @@ gIB
 cYr
 gcP
 gcP
-fTe
-fTe
+krf
+sla
 fTe
 gcP
 gcP
+iEN
+iEN
+iEN
+iEN
+iEN
+iEN
+iEN
 mGP
-mGP
-mGP
-mGP
-mGP
-mGP
-mGP
-mGP
-rQE
-fQe
-fQe
+pQr
+qzO
+hgR
 eCr
 rgv
 rgv
@@ -62047,8 +62295,8 @@ neu
 cAU
 rgv
 rgv
-vfw
-vfw
+loe
+wfJ
 nfa
 jSD
 cHX
@@ -62080,14 +62328,14 @@ rKi
 eas
 oVw
 jKI
-mTK
-mTK
-mTK
-mTK
-mTK
+azM
+azM
+azM
+azM
+azM
 voR
 voR
-voR
+buG
 voR
 voR
 voR
@@ -62268,21 +62516,21 @@ geE
 gcP
 aBp
 yfo
-yfo
-yfo
+sYL
+erI
 mkn
 gcP
-sGO
-sGO
-sGO
-sGO
-sGO
+iEN
+iEN
+vOF
+kwz
 mGP
-fQe
-fQe
-fQe
-fQe
-fQe
+kwz
+kwz
+kwz
+sjJ
+hgR
+azM
 len
 uPH
 uTL
@@ -62344,7 +62592,7 @@ mTK
 mTK
 voR
 voR
-voR
+buG
 voR
 voR
 voR
@@ -62529,18 +62777,18 @@ eeV
 eeV
 qEh
 gcP
-sGO
-sGO
-sGO
-sGO
-sGO
-mGP
-fQe
-fQe
-azM
-fQe
-fQe
-len
+iEN
+iEN
+rQE
+rQE
+rQE
+rQE
+rQE
+rQE
+lcJ
+ePE
+ePE
+xyx
 neu
 uXQ
 ake
@@ -62601,7 +62849,7 @@ voR
 voR
 voR
 voR
-voR
+buG
 voR
 voR
 voR
@@ -62786,15 +63034,15 @@ azM
 cjX
 lqL
 gcP
-sGO
-sGO
-sGO
-sGO
-sGO
-mGP
-fQe
-fQe
+iEN
+iEN
+iEN
 rQE
+rQE
+rQE
+rQE
+rQE
+hCa
 ftv
 iEN
 rgv
@@ -62859,14 +63107,14 @@ voR
 voR
 buG
 buG
-buG
-buG
-buG
-buG
-buG
-buG
-buG
-buG
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
 voR
 voR
 voR
@@ -63043,15 +63291,15 @@ coX
 lqL
 gcP
 gcP
-sGO
-sGO
-sGO
-sGO
-sGO
-mGP
-fQe
-fQe
-mGP
+gcP
+gcP
+gcP
+gcP
+gcP
+rQp
+rQE
+rQE
+rQE
 iEN
 iEN
 rgv
@@ -63123,12 +63371,12 @@ voR
 voR
 voR
 voR
-buG
-buG
-buG
-buG
-buG
-buG
+voR
+voR
+voR
+voR
+voR
+voR
 voR
 mTH
 mTH
@@ -63290,25 +63538,25 @@ quO
 fTe
 gcP
 gcP
-sGO
-sGO
-sGO
-sGO
+mWv
+owa
+iqj
+bJe
+gcP
+gcP
+anj
+anj
+gcP
+iEN
+vYY
+vYY
+iEN
+iEN
 gcP
 gcP
 gcP
 gcP
 gcP
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-mGP
-fQe
-fQe
-pBD
 iEN
 iEN
 rgv
@@ -63375,7 +63623,6 @@ buG
 voR
 voR
 voR
-ehy
 voR
 voR
 voR
@@ -63385,7 +63632,8 @@ voR
 voR
 voR
 voR
-buG
+voR
+voR
 voR
 voR
 voR
@@ -63547,25 +63795,25 @@ jaT
 mWO
 sid
 gcP
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-mGP
-fQe
-fQe
-pBD
+mWv
+txY
+iqj
+bJe
+gcP
+iEN
+vYY
+kUd
+vYY
+vYY
+vYY
+vYY
+fTi
+iZS
+ezR
+quz
+uBu
+cOg
+gcP
 iEN
 iEN
 rgv
@@ -63632,17 +63880,17 @@ buG
 voR
 voR
 voR
-ehy
-ehy
-ehy
-ehy
 voR
 voR
-dPz
-ehy
 voR
 voR
-buG
+voR
+voR
+voR
+voR
+voR
+voR
+voR
 voR
 voR
 voR
@@ -63804,31 +64052,31 @@ fqh
 nrY
 uIl
 gcP
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-mGP
-fQe
-fQe
-pBD
+lyF
+azM
+iqj
+gcP
+gcP
+vYY
+vYY
+hTb
+oTf
+aHT
+uhe
+uhe
+eWX
+tRU
+cKb
+ivo
+evD
+uBu
+gcP
 iEN
 rgv
 rgv
 epO
-hIM
-hPP
+goA
+sQc
 nDb
 tuA
 eIU
@@ -63888,18 +64136,18 @@ voR
 buG
 voR
 voR
-ehy
-ehy
-ehy
-ehy
-ehy
-ehy
-ehy
-ehy
-ehy
-ehy
 voR
-buG
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
 voR
 voR
 voR
@@ -64061,30 +64309,30 @@ pKf
 tuu
 xrx
 mDr
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-mGP
-fQe
-fQe
-mGP
-iEN
+owa
+txY
+xtp
+gcP
+gcP
+vYY
+vYY
+hTb
+uSw
+vYY
+vYY
+kUd
+kUd
+kDb
+hdl
+pHj
+uBu
+uZv
+gcP
+gcP
 rgv
 sRj
 jIK
-wBG
+goA
 tFN
 rgv
 gZo
@@ -64145,33 +64393,33 @@ voR
 buG
 voR
 voR
-ehy
-ehy
 voR
 voR
-ehy
-ehy
 voR
-ehy
 voR
-ehy
 voR
-buG
-buG
-buG
-buG
-buG
-buG
-buG
-buG
-buG
-buG
-buG
-buG
-buG
-buG
-buG
-buG
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
 voR
 voR
 voR
@@ -64318,30 +64566,30 @@ hwM
 ttI
 wRg
 gcP
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-mGP
-fQe
-fQe
-pBD
-iEN
+hIm
+cBy
+owa
+gcP
+gcP
+vYY
+vYY
+kUd
+byW
+vYY
+vYY
+vYY
+vYY
+vYY
+gcP
+gcP
+gcP
+gcP
+gcP
+gcP
 rgv
 otk
-aAL
-dee
+iNV
+bDO
 xuT
 rgv
 kvQ
@@ -64401,17 +64649,6 @@ buG
 buG
 buG
 voR
-hiQ
-ehy
-voR
-voR
-voR
-ehy
-ehy
-voR
-voR
-voR
-ehy
 voR
 voR
 voR
@@ -64428,7 +64665,18 @@ voR
 voR
 voR
 voR
-buG
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
 voR
 voR
 voR
@@ -64564,9 +64812,9 @@ exi
 uNa
 tJm
 gcP
-oAk
-cdO
-oAk
+sVG
+sVG
+ezs
 kgL
 sVG
 orV
@@ -64575,30 +64823,30 @@ pRx
 sVG
 ojv
 gcP
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-mGP
-fQe
-fQe
-pBD
-iEN
+ylh
+pij
+oAD
+gcP
+gcP
+kUd
+kXd
+hTb
+byW
+kUd
+vYY
+vYY
+vYY
+kUd
+iZS
+hdl
+quz
+uBu
+cOg
+gcP
 rgv
 kkJ
-aAL
-hPP
+gFO
+sQc
 wsi
 rgv
 tIa
@@ -64622,8 +64870,8 @@ mTK
 mTK
 mTK
 mTK
-mTK
-mTK
+azM
+fZl
 mGP
 wtu
 sXt
@@ -64650,42 +64898,42 @@ gfH
 vge
 uVN
 pLe
-dPz
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-sQc
-ehy
-voR
-voR
-voR
-voR
-ehy
-ehy
-voR
-dPz
-ehy
-voR
-voR
-hiQ
-ehy
-voR
-voR
-voR
-ehy
-hiQ
-voR
-voR
-voR
-ehy
-ehy
-voR
-voR
 buG
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
 voR
 voR
 voR
@@ -64811,9 +65059,9 @@ bOj
 kgg
 kgg
 buG
-voR
-voR
-voR
+iEN
+iEN
+iEN
 rQE
 rQE
 rQE
@@ -64821,8 +65069,8 @@ gcP
 gcP
 gcP
 gcP
-gcP
-gcP
+pxN
+fuB
 gcP
 gcP
 oAr
@@ -64832,30 +65080,30 @@ bTH
 xtI
 gcP
 gcP
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-mGP
-fQe
-fQe
-pBD
-iEN
+xuB
+kSA
+txY
+iqj
+gcP
+vYY
+kUd
+hTb
+wDG
+eWX
+eWX
+aHT
+uhe
+eWX
+tRU
+cKb
+ivo
+evD
+uBu
+gcP
 rgv
 xSe
-jgR
-ake
+hPp
+jZl
 aOp
 rgv
 sNz
@@ -64870,17 +65118,17 @@ dEA
 nhR
 nhR
 rgv
-mTK
-mTK
-mTK
-mTK
-mTK
-mTK
-mTK
-mTK
-mTK
-mTK
-mTK
+qoZ
+azM
+azM
+azM
+azM
+azM
+azM
+azM
+azM
+azM
+fZl
 mGP
 dhD
 cxP
@@ -64903,46 +65151,46 @@ voR
 voR
 voR
 pLe
-wDF
-nJV
-uVN
+cdf
+cdf
+iho
 pLe
-ehy
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-ehy
-voR
-ehy
-voR
-voR
-voR
-ehy
-voR
-voR
-ehy
-voR
-ehy
-ehy
-ehy
-ehy
-ehy
-ehy
-ehy
-ehy
-ehy
-voR
-ehy
-ehy
-ehy
-ehy
-voR
 buG
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
 voR
 voR
 voR
@@ -65068,18 +65316,18 @@ kgg
 kgg
 kgg
 buG
-voR
-voR
-voR
-voR
+iEN
+iEN
+iEN
+iEN
 rQE
 rQE
 wzi
-voR
-voR
-voR
-voR
-voR
+iEN
+iEN
+fLc
+hVu
+qXV
 gcP
 gcP
 dyT
@@ -65089,26 +65337,26 @@ uKt
 dlu
 gcP
 gcP
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-mGP
-fQe
-fQe
-mGP
-iEN
+kIu
+lRX
+txY
+szA
+kNZ
+wDF
+wDF
+eWX
+aWb
+fTi
+kUd
+kUd
+kUd
+fTi
+kDb
+ezR
+pHj
+uBu
+uZv
+gcP
 rgv
 rgv
 lFd
@@ -65127,17 +65375,17 @@ vnk
 ylO
 sJy
 rgv
-mTK
-mTK
-mTK
-mTK
-mTK
-mTK
-mTK
-mTK
-mTK
-mTK
-mTK
+nJV
+cjB
+cjB
+cjB
+cjB
+cjB
+cjB
+cjB
+cjB
+cjB
+hgD
 mGP
 jQR
 mGW
@@ -65158,47 +65406,12 @@ voR
 voR
 voR
 voR
-dPz
+voR
 pLe
-tRU
-uhe
-uVN
+cdf
+cdf
+cdf
 pLe
-ehy
-ehy
-voR
-voR
-voR
-voR
-voR
-voR
-ehy
-ehy
-voR
-ehy
-ehy
-ehy
-ehy
-ehy
-voR
-voR
-ehy
-ehy
-ehy
-ehy
-hiQ
-ehy
-ehy
-byW
-voR
-voR
-ehy
-ehy
-ehy
-voR
-voR
-ehy
-voR
 buG
 voR
 voR
@@ -65207,6 +65420,41 @@ voR
 voR
 voR
 voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+sGO
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+sGO
+sGO
 voR
 voR
 voR
@@ -65325,18 +65573,18 @@ buG
 buG
 buG
 buG
-voR
-voR
-voR
-voR
-voR
+iEN
+iEN
+iEN
+iEN
+iEN
 rQE
 rQE
 rQE
-voR
-voR
-voR
-voR
+iEN
+rDl
+hVu
+kBg
 gcP
 gcP
 ric
@@ -65346,31 +65594,31 @@ nqT
 aUe
 gcP
 gcP
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-mGP
-fQe
-fQe
-pBD
+qGW
+qJM
+azM
+cdO
+gcP
+fTi
+fTi
+fTi
+uSw
+iPm
+vYY
+vYY
+vYY
+vYY
+ssp
+gcP
+gcP
+gcP
+gcP
+gcP
 voR
 voR
-voR
-ehy
-ehy
-ehy
+mfM
+mfM
+mfM
 rgv
 nFh
 uTL
@@ -65384,14 +65632,14 @@ vnk
 oHv
 gss
 rgv
+voR
 mTK
 mTK
-iEN
-iEN
-iEN
-iEN
-iEN
-iEN
+voR
+voR
+voR
+voR
+voR
 mTK
 mTK
 mTK
@@ -65413,49 +65661,14 @@ mGP
 voR
 voR
 voR
-dPz
-ehy
-ehy
+voR
+voR
+voR
 pLe
 pLe
-hIm
-jzF
+cdf
+cdf
 pLe
-dPz
-ehy
-ehy
-voR
-voR
-voR
-voR
-voR
-dPz
-ehy
-voR
-voR
-voR
-ehy
-ehy
-voR
-voR
-hiQ
-ehy
-dPz
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-ehy
-ehy
-voR
-voR
-voR
-voR
 buG
 voR
 voR
@@ -65464,6 +65677,41 @@ voR
 voR
 voR
 voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+sGO
+sGO
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+sGO
+sGO
 voR
 voR
 voR
@@ -65581,19 +65829,19 @@ voR
 voR
 voR
 voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
+buG
+iEN
+iEN
+iEN
+iEN
+iEN
+iEN
+iEN
+iEN
+iEN
+dPz
+hVu
+azM
 gcP
 owL
 ric
@@ -65603,31 +65851,31 @@ iAW
 mvF
 ddk
 gcP
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-mGP
-fQe
-fQe
-pBD
+hiQ
+tXr
+txY
+szA
+fcS
+nyi
+nyi
+fTi
+uSw
+fTi
+vYY
+vYY
+kUd
+fTi
+iZS
+hdl
+quz
+uBu
+cOg
+gcP
 voR
-voR
-ehy
-ehy
-ehy
-ehy
+mfM
+mfM
+mfM
+mfM
 rgv
 glm
 hIM
@@ -65641,15 +65889,15 @@ xcz
 kWZ
 vJg
 rgv
-mTK
-mTK
-iEN
-sGO
-sGO
-sGO
-iEN
-iEN
-iEN
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
 mTK
 mTK
 mGP
@@ -65667,52 +65915,17 @@ wSk
 mtq
 mGP
 mGP
-voR
-voR
-ehy
-ehy
-uBu
-ehy
-tDF
-ehy
-eZa
-eZa
-sla
-ehy
-ehy
-dPz
-voR
-voR
-voR
-hiQ
-voR
-voR
-ehy
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-ehy
-ehy
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
+buG
+buG
+buG
+buG
+buG
+buG
+buG
+buG
+buG
+buG
+buG
 buG
 voR
 voR
@@ -65721,6 +65934,41 @@ voR
 voR
 voR
 voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+sGO
+sGO
+voR
+voR
+sGO
+voR
+voR
+sGO
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
 voR
 voR
 voR
@@ -65838,19 +66086,19 @@ voR
 voR
 voR
 voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
+buG
+iEN
+iEN
+iEN
+iEN
+iEN
+iEN
+iEN
+iEN
+iEN
+dPz
+xpG
+txY
 gcP
 uCx
 mhI
@@ -65860,28 +66108,28 @@ khI
 eMU
 dpX
 gcP
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-mGP
-mGP
-mGP
-mGP
-voR
-ehy
-ehy
+bpb
+coX
+oMu
+pua
+gcP
+vYY
+kUd
+hTb
+dZq
+uhe
+aHT
+uhe
+uhe
+eWX
+tRU
+cKb
+ivo
+evD
+uBu
+gcP
+mfM
+mfM
 tmp
 dGc
 dGc
@@ -65898,15 +66146,15 @@ nnj
 hYH
 mUP
 rgv
-iEN
-iEN
-iEN
-sGO
-sGO
-sGO
-sGO
-sGO
-iEN
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
 mTK
 mTK
 mGP
@@ -65923,53 +66171,7 @@ mGP
 mGP
 vFQ
 mGP
-voR
-voR
-ehy
-ehy
-kSA
-eZa
-eZa
-eZa
-eZa
-eZa
-eZa
-eZa
-aHT
-ehy
-ehy
-dRt
-dRt
-dRt
-dRt
-aWb
-voR
-ehy
-ehy
-voR
-voR
-ehy
-voR
-fTi
-fcc
-ehy
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
+iEN
 buG
 voR
 voR
@@ -65978,6 +66180,52 @@ voR
 voR
 voR
 voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+sGO
+sGO
+sGO
+voR
+sGO
+sGO
+sGO
+sGO
+sGO
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
 voR
 voR
 sGO
@@ -66095,19 +66343,19 @@ voR
 voR
 voR
 voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
+buG
+buG
+buG
+buG
+buG
+buG
+buG
+buG
+buG
+iEN
+gcP
+dPz
+hVu
 gcP
 gHm
 ric
@@ -66117,31 +66365,31 @@ eQs
 cYr
 cCr
 gcP
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-voR
-ehy
-ehy
-ehy
-ehy
-ehy
+gcP
+gcP
+gcP
+gcP
+gcP
+kUd
+kMh
+hTb
+byW
+kUd
+vYY
+vYY
+vYY
+kUd
+kDb
+hdl
+pHj
+uBu
+uZv
+gcP
+mfM
+mfM
+mfM
+mfM
+mfM
 rgv
 eHu
 rru
@@ -66155,16 +66403,16 @@ hIM
 kWZ
 ehN
 rgv
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-iEN
-iEN
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
 mTK
 mGP
 mGP
@@ -66180,53 +66428,7 @@ voR
 mGP
 oct
 mGP
-voR
-voR
-ehy
-ehy
-eZa
-eZa
-eZa
-ehy
-ehy
-ehy
-eZa
-eZa
-eZa
-dRt
-bDO
-bDO
-bDO
-bDO
-dRt
-dRt
-fcc
-fcc
-ehy
-ehy
-fcc
-fcc
-fcc
-lFa
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-buG
-buG
-buG
-buG
-buG
-buG
-buG
-buG
-buG
-buG
-buG
-buG
+iEN
 buG
 voR
 voR
@@ -66235,6 +66437,52 @@ voR
 voR
 voR
 voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+voR
+voR
+voR
+voR
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
 sGO
 sGO
 sGO
@@ -66360,11 +66608,11 @@ voR
 voR
 voR
 voR
-voR
-voR
-voR
-voR
-voR
+buG
+iEN
+gcP
+gcP
+jzV
 gcP
 gcP
 vOu
@@ -66374,31 +66622,31 @@ wrT
 tUf
 gcP
 gcP
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
 voR
-ehy
-ehy
-ehy
-ehy
-ehy
+voR
+voR
+buG
+voR
+vYY
+vYY
+fTi
+tVW
+vYY
+vYY
+vYY
+vYY
+vYY
+gcP
+gcP
+gcP
+gcP
+gcP
+gcP
+mfM
+mfM
+mfM
+mfM
+voR
 rgv
 cDb
 lXq
@@ -66412,23 +66660,23 @@ kWZ
 fwt
 scP
 rgv
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-iEN
-iEN
-iEN
-iEN
-iEN
-iEN
-iEN
-iEN
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
 voR
 voR
 voR
@@ -66437,41 +66685,7 @@ voR
 mGP
 mGP
 mGP
-voR
-ehy
-ehy
-kMh
-aly
-evD
-pQr
-fCk
-ehy
-ehy
-ntp
-eZa
-eZa
-dRt
-dRt
-dRt
-dPz
-voR
-voR
-ehy
-ehy
-ehy
-voR
-hiQ
-ehy
-voR
-byW
-ehy
-voR
-buG
-buG
-buG
-buG
-buG
-buG
+iEN
 buG
 voR
 voR
@@ -66492,6 +66706,40 @@ voR
 voR
 voR
 voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+voR
+voR
+voR
+voR
+voR
+voR
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
 sGO
 sGO
 sGO
@@ -66617,11 +66865,11 @@ voR
 voR
 voR
 voR
-voR
-voR
-voR
-voR
-voR
+buG
+iEN
+iEN
+mTK
+mTK
 gcP
 gcP
 tIL
@@ -66631,30 +66879,30 @@ iaj
 gcP
 gcP
 gcP
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
 voR
 voR
-ehy
-ehy
-ehy
+voR
+buG
+voR
+vYY
+vYY
+fTi
+uSw
+vYY
+kUd
+kUd
+fTi
+iZS
+ezR
+quz
+uBu
+cOg
+gcP
+voR
+voR
+mfM
+mfM
+voR
 voR
 rgv
 wDu
@@ -66669,60 +66917,32 @@ unB
 wQU
 blJ
 rgv
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
 voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-ehy
-hTb
-hEZ
-kDb
-evD
-evD
-cOg
-lVM
-ehy
-uBu
-eZa
-lyF
-kwz
-ehy
-ehy
-ehy
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
+buG
+buG
+buG
+buG
+buG
+buG
+buG
+buG
+buG
+buG
+buG
+buG
+buG
+buG
+buG
+buG
+buG
+buG
+buG
+buG
+buG
+buG
+buG
+buG
+buG
 buG
 voR
 voR
@@ -66749,6 +66969,34 @@ voR
 voR
 voR
 voR
+voR
+voR
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+voR
+voR
+voR
+voR
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
 sGO
 sGO
 sGO
@@ -66874,44 +67122,44 @@ voR
 voR
 voR
 voR
+buG
+iEN
+iEN
+mTK
+mTK
+gcP
+gcP
+gcP
+gcP
+gcP
+gcP
+gcP
+gcP
+gcP
 voR
 voR
 voR
+buG
 voR
 voR
+vYY
+kUd
+vjJ
+uhe
+aHT
+uhe
+uhe
+tRU
+cKb
+ivo
+evD
+uBu
 gcP
-gcP
-gcP
-gcP
-gcP
-gcP
-gcP
-gcP
-gcP
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
 voR
 voR
 voR
-ehy
-ehy
+mfM
+mfM
 voR
 rgv
 uxP
@@ -66926,84 +67174,84 @@ rgv
 rgv
 rgv
 rgv
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-voR
-voR
-voR
-tXr
-tXr
-voR
-voR
-tXr
-tXr
-ehy
-anj
-pHj
-kBg
-evD
-evD
-qzI
-kwz
-nRy
-ssp
-eZa
-oAD
-kwz
-ehy
-ehy
-ehy
-voR
-voR
-voR
-voR
-voR
-voR
-voR
 voR
 buG
-buG
-buG
-buG
-buG
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
 voR
 voR
 voR
 voR
 sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
 voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
 sGO
 sGO
 sGO
@@ -67131,44 +67379,44 @@ voR
 voR
 voR
 voR
+buG
+iEN
+iEN
+mTK
+mTK
+mTK
+mTK
+mTK
+mTK
+mTK
+mTK
+mTK
+mTK
+mfM
+oMo
+voR
+voR
+buG
+voR
+voR
+vYY
+vYY
+kUd
+vYY
+vYY
+kUd
+fTi
+kDb
+hdl
+pHj
+uBu
+uZv
+gcP
 voR
 voR
 voR
-voR
-voR
-voR
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-voR
-voR
-voR
-ehy
-ehy
+oMo
+mfM
 voR
 rgv
 oYL
@@ -67177,55 +67425,6 @@ ePj
 evp
 rgv
 rgv
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-voR
-voR
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-ehy
-nRy
-iho
-fcS
-evD
-evD
-jDg
-kwz
-iZS
-xyx
-eZa
-oAD
-kwz
-ehy
-dPz
-voR
-voR
 voR
 voR
 voR
@@ -67241,26 +67440,75 @@ voR
 voR
 voR
 voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
 sGO
 sGO
+sGO
+sGO
+sGO
+sGO
+sGO
 voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
-voR
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
 sGO
 sGO
 sGO
@@ -67388,44 +67636,44 @@ voR
 voR
 voR
 voR
+buG
+iEN
+iEN
+iEN
+mTK
+mTK
+mTK
+mTK
+mTK
+mTK
+mTK
+mTK
+mTK
+mfM
+mfM
+mfM
+voR
+buG
 voR
 voR
 voR
 voR
 voR
+vYY
+vYY
+vYY
 voR
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
 voR
-ehy
-ehy
+gcP
+gcP
+gcP
+gcP
+gcP
 voR
+voR
+mfM
+mfM
+mfM
 voR
 rgv
 rgv
@@ -67433,59 +67681,10 @@ rgv
 rgv
 rgv
 rgv
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-voR
-voR
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-kwz
-ehy
-ehy
-iPm
-vjJ
-evD
-xuB
-bJe
-uyB
-jZl
-uSw
-eZa
-eZa
-ehy
-ezR
-uyB
 voR
 voR
 voR
 voR
-tXr
 voR
 voR
 voR
@@ -67498,21 +67697,70 @@ voR
 voR
 voR
 voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+sGO
+sGO
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+sGO
+sGO
+sGO
+sGO
 sGO
 sGO
 voR
 voR
 sGO
 voR
-voR
 sGO
-voR
-voR
-voR
-voR
-voR
-voR
-voR
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
 sGO
 sGO
 sGO
@@ -67644,109 +67892,28 @@ voR
 voR
 voR
 voR
-sGO
-sGO
 voR
+buG
+buG
+buG
+iEN
+iEN
+iEN
+iEN
+iEN
+mTK
+mTK
+mTK
+mTK
+mfM
+mfM
+mfM
+mfM
 voR
-voR
-voR
-voR
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-voR
-voR
-voR
-voR
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-voR
-iOH
-tXr
-tXr
-tXr
-tXr
-tXr
-wfm
-uyB
-ehy
-ehy
-ehy
-ehy
-ehy
-ehy
-ehy
-eZa
-eZa
-eZa
-eZa
-eZa
-eZa
-eZa
-eZa
-cKb
-voR
-tXr
-tXr
-tXr
-tXr
-tXr
-voR
-voR
+buG
+buG
+buG
+buG
 buG
 voR
 voR
@@ -67754,9 +67921,55 @@ voR
 voR
 voR
 voR
-sGO
-sGO
-sGO
+voR
+voR
+voR
+voR
+buG
+voR
+voR
+mfM
+mfM
+mfM
+mfM
+voR
+buG
+buG
+buG
+buG
+buG
+buG
+buG
+buG
+buG
+buG
+buG
+buG
+buG
+buG
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
 voR
 sGO
 sGO
@@ -67770,6 +67983,41 @@ voR
 voR
 voR
 voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+sGO
+voR
+voR
+voR
+sGO
+sGO
+sGO
+sGO
+sGO
+voR
+voR
+voR
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
 sGO
 sGO
 sGO
@@ -67900,115 +68148,107 @@ sGO
 sGO
 voR
 voR
-sGO
-sGO
-sGO
-sGO
-sGO
 voR
 voR
 voR
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
 voR
-iOH
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-lVM
-ehy
-ehy
-ehy
-ehy
-ehy
-hVu
-sFh
-xHa
-uyB
-ylh
-iUe
-hnw
-uka
-oXi
-uyB
-pij
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
+buG
+buG
+buG
+buG
+iEN
+iEN
+iEN
+iEN
+iEN
+iEN
 voR
+voR
+mfM
+mfM
+voR
+iEN
+iEN
+iEN
+iEN
+buG
+buG
+buG
+buG
+buG
+buG
+buG
+buG
+buG
+buG
+buG
+buG
+voR
+voR
+mfM
+mfM
+mfM
+mfM
 voR
 buG
 voR
 voR
 voR
 voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+sGO
+voR
+voR
+voR
+voR
+voR
+voR
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+sGO
+sGO
+sGO
+sGO
+sGO
 sGO
 sGO
 sGO
@@ -68024,6 +68264,14 @@ voR
 voR
 voR
 voR
+voR
+sGO
+voR
+sGO
+sGO
+sGO
+sGO
+sGO
 sGO
 sGO
 sGO
@@ -68136,10 +68384,10 @@ voR
 voR
 voR
 voR
-sGO
-sGO
-sGO
-sGO
+iEN
+iEN
+iEN
+iEN
 sGO
 sGO
 sGO
@@ -68157,114 +68405,108 @@ voR
 sGO
 sGO
 sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
 voR
 voR
-iOH
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-goA
-ehy
-ntp
-ehy
-ehy
-qXV
-tXr
-tXr
-mqa
-kXd
-kXd
-kXd
-kXd
-kXd
-eWX
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
 voR
 voR
+voR
+voR
+voR
+buG
+buG
+buG
+buG
+buG
+buG
+buG
+buG
+voR
+mfM
+mfM
+mfM
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+mfM
+mfM
+mfM
+mfM
+oMo
 voR
 buG
 voR
 voR
 voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
 sGO
 sGO
 sGO
@@ -68280,7 +68522,13 @@ voR
 voR
 voR
 voR
-voR
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
 sGO
 sGO
 sGO
@@ -68391,8 +68639,8 @@ voR
 voR
 voR
 voR
-sGO
-sGO
+iEN
+iEN
 sGO
 sGO
 sGO
@@ -68414,114 +68662,108 @@ voR
 voR
 sGO
 sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
 voR
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-hgD
-kXd
-kXd
-kXd
-kXd
-kXd
-bpb
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+buG
+voR
+oMo
+mfM
+mfM
+mfM
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+mfM
+mfM
+oMo
+mfM
+mfM
+voR
 voR
 buG
 voR
 voR
 voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
 sGO
 sGO
 sGO
@@ -68536,7 +68778,13 @@ sGO
 voR
 voR
 voR
-voR
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
 sGO
 sGO
 sGO
@@ -68671,127 +68919,127 @@ sGO
 sGO
 sGO
 sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
 voR
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-hdl
-kXd
-kXd
-erI
-kXd
-kXd
-quz
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
 voR
 voR
 buG
 voR
 voR
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
+mfM
+mfM
+mfM
+wzP
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+oMo
+mfM
+voR
+voR
+voR
+oMo
+mfM
+mfM
+mfM
+oMo
+mfM
+mfM
+voR
+voR
+buG
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
 sGO
 sGO
 sGO
 voR
+voR
+voR
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
 sGO
 sGO
 sGO
@@ -68929,112 +69177,112 @@ sGO
 sGO
 sGO
 sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
 voR
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-kUd
-kXd
-kXd
-kXd
-kXd
-kXd
-gFO
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
 voR
 voR
 buG
 voR
 voR
+mfM
+mfM
+mfM
+mfM
+voR
+voR
+voR
+voR
+voR
+wzP
+mfM
+mfM
+mfM
+mfM
+mfM
+mfM
+mfM
+mfM
+mfM
+oMo
+mfM
+mfM
+voR
+voR
+voR
+buG
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
 sGO
 sGO
 sGO
@@ -69186,112 +69434,112 @@ sGO
 sGO
 sGO
 sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
 voR
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-hgD
-kXd
-kXd
-kXd
-kXd
-kXd
-hPp
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
 voR
 voR
 buG
 voR
 voR
+voR
+mfM
+mfM
+mfM
+mfM
+voR
+voR
+voR
+mfM
+mfM
+mfM
+mfM
+mfM
+mfM
+mfM
+mfM
+mfM
+mfM
+mfM
+mfM
+mfM
+voR
+voR
+voR
+voR
+buG
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
 sGO
 sGO
 sGO
@@ -69444,111 +69692,111 @@ sGO
 sGO
 sGO
 sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
 voR
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-onx
-cjB
-fZl
-krf
-sjJ
-cjB
-qGW
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
 voR
 voR
 buG
 voR
 voR
+voR
+voR
+mfM
+mfM
+mfM
+mfM
+mfM
+mfM
+mfM
+mfM
+mfM
+mfM
+mfM
+mfM
+mfM
+mfM
+mfM
+mfM
+mfM
+mfM
+voR
+voR
+voR
+voR
+voR
+buG
+voR
+voR
+voR
+voR
+voR
+voR
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
 sGO
 sGO
 sGO
@@ -69701,111 +69949,111 @@ sGO
 sGO
 sGO
 sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
 voR
 voR
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-mWv
-uZv
-uZv
-uZv
-cud
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
 voR
 voR
 buG
 voR
 voR
+voR
+voR
+wzP
+mfM
+mfM
+mfM
+mfM
+mfM
+mfM
+mfM
+voR
+voR
+voR
+voR
+voR
+oMo
+mfM
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+buG
+voR
+voR
+voR
+voR
+voR
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
 sGO
 sGO
 sGO
@@ -69958,111 +70206,111 @@ sGO
 sGO
 sGO
 sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
 voR
 voR
 voR
 voR
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
+voR
+voR
+voR
+voR
+voR
+voR
 voR
 voR
 buG
 voR
 voR
+voR
+voR
+voR
+oMo
+mfM
+mfM
+mfM
+mfM
+mfM
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+buG
+voR
+voR
+voR
+voR
+voR
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
 sGO
 sGO
 sGO
@@ -70215,78 +70463,6 @@ sGO
 sGO
 sGO
 sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
 voR
 voR
 voR
@@ -70296,30 +70472,102 @@ voR
 voR
 voR
 voR
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
+voR
+voR
 voR
 buG
 voR
 voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+buG
+voR
+voR
+voR
+voR
+voR
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
 sGO
 sGO
 sGO
@@ -70474,108 +70722,108 @@ sGO
 sGO
 sGO
 sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
 voR
 voR
 voR
 voR
 voR
 voR
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
+voR
+voR
+voR
 voR
 buG
+buG
+buG
+buG
+buG
+buG
+buG
+buG
+buG
+buG
+buG
+buG
+buG
+buG
+buG
+buG
+buG
+buG
+buG
+buG
+buG
+buG
+buG
+buG
+buG
+buG
+buG
+buG
+buG
 voR
+voR
+voR
+voR
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
 sGO
 sGO
 sGO
@@ -70733,106 +70981,106 @@ sGO
 sGO
 sGO
 sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
 voR
 voR
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
 voR
-buG
 voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
 sGO
 sGO
 sGO
@@ -70990,107 +71238,107 @@ sGO
 sGO
 sGO
 sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
 voR
 voR
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
-tXr
 voR
 voR
-buG
 voR
 voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
 sGO
 sGO
 sGO
@@ -71248,94 +71496,35 @@ sGO
 sGO
 sGO
 sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
 voR
 voR
 voR
 voR
 voR
-tXr
-tXr
-tXr
-tXr
-tXr
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
 voR
 voR
 voR
@@ -71345,9 +71534,68 @@ voR
 voR
 voR
 sGO
-buG
-voR
-voR
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
 sGO
 sGO
 sGO
@@ -71505,88 +71753,6 @@ sGO
 sGO
 sGO
 sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
 voR
 voR
 voR
@@ -71594,6 +71760,88 @@ voR
 voR
 voR
 voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
+sGO
 sGO
 sGO
 sGO
@@ -71762,41 +72010,41 @@ sGO
 sGO
 sGO
 sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
 sGO
 sGO
 sGO
@@ -72020,38 +72268,38 @@ sGO
 sGO
 sGO
 sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
 sGO
 sGO
 sGO
@@ -72278,35 +72526,35 @@ sGO
 sGO
 sGO
 sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
 sGO
 sGO
 sGO
@@ -72536,26 +72784,26 @@ sGO
 sGO
 sGO
 sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
 sGO
 sGO
 sGO
@@ -72800,15 +73048,15 @@ sGO
 sGO
 sGO
 sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
-sGO
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
+voR
 sGO
 sGO
 sGO

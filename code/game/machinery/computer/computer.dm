@@ -80,7 +80,7 @@
 
 	if(dir != SOUTH)
 		layer = BELOW_WINDOW_LAYER
-
+	ClearOverlays()
 	if(stat & NOPOWER)
 		set_light(0)
 		return

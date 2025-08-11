@@ -16,7 +16,8 @@
 		/obj/structure/platform,
 		/obj/structure/platform_deco,
 		/obj/structure/extinguisher_cabinet,
-		/obj/structure/sign
+		/obj/structure/sign,
+		/obj/machinery/atmospherics/pipe
 		))
 
 /turf/simulated/abyss/Initialize()
