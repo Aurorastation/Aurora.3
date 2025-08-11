@@ -312,6 +312,7 @@ Frequency:
 			user.client.eye = user.client.mob
 			user.client.perspective = MOB_PERSPECTIVE
 		user.visible_message(SPAN_NOTICE("\The [user] steps out of the back of \the [target_closet]."), SPAN_NOTICE("You teleport into the linked closet, stepping out of it."))
+		user.set_fullscreen(FALSE, "closet_impaired", /atom/movable/screen/fullscreen/closet_impaired)
 	else
 		if(user.client)
 			user.client.eye = target_closet
