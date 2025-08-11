@@ -144,7 +144,7 @@
 	return "around [user.get_pronoun("his")] neck"
 
 /obj/item/clothing/wrists/watch/pocketwatch/adhomai/checktime(mob/user)
-	set category = "Object"
+	set category = "Object.Equipped"
 	set name = "Check Time"
 	set src in usr
 

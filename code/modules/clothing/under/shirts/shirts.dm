@@ -18,9 +18,9 @@
 		M.update_inv_wear_suit()
 
 /obj/item/clothing/under/dressshirt/verb/roll_up_shirt_sleeves()
-	set name = "Roll Up Shirt Sleeves"
+	set name = "Roll Up Sleeves"
 	set desc = "Roll up your shirt sleeves. Doesn't work with some shirts."
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in usr
 
 	if(use_check_and_message(usr))
@@ -201,8 +201,8 @@
 	var/open = FALSE
 
 /obj/item/clothing/under/dressshirt/silversun/verb/unbutton()
-	set name = "Unbutton Shirt"
-	set category = "Object"
+	set name = "Toggle Shirt Buttons"
+	set category = "Object.Equipped"
 	set src in usr
 
 	if(!istype(usr, /mob/living))

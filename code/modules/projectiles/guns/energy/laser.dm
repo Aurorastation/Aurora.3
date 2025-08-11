@@ -170,7 +170,7 @@
 	. += "To use the scope, use the appropriate verb in the object tab."
 
 /obj/item/gun/energy/sniperrifle/verb/scope()
-	set category = "Object"
+	set category = "Object.Held"
 	set name = "Use Scope"
 	set src in usr
 

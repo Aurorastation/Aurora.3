@@ -49,7 +49,7 @@
 
 /obj/item/storage/belt/verb/toggle_layer()
 	set name = "Switch Belt Layer"
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in usr
 
 	if(show_above_suit == -1)
@@ -71,7 +71,7 @@
 		verbs += /obj/item/storage/belt/proc/flipbelt
 
 /obj/item/storage/belt/proc/flipbelt(mob/user, var/self = TRUE)
-	set category = "Object"
+	set category = "Object.Equipped"
 	set name = "Flip Belt"
 	set src in usr
 

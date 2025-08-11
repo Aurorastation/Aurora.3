@@ -639,7 +639,7 @@
 	update_icon()
 
 /obj/machinery/iv_drip/verb/toggle_mode()
-	set category = "Object"
+	set category = "Object.IV Drip"
 	set name = "Toggle Mode"
 	set src in view(1)
 
@@ -651,7 +651,7 @@
 	update_icon()
 
 /obj/machinery/iv_drip/verb/toggle_stop()
-	set category = "Object"
+	set category = "Object.IV Drip"
 	set name = "Toggle Stop"
 	set src in view(1)
 
@@ -662,7 +662,7 @@
 	playsound(usr, 'sound/machines/click.ogg', 50, extrarange = SILENCED_SOUND_EXTRARANGE)
 
 /obj/machinery/iv_drip/verb/toggle_valve()
-	set category = "Object"
+	set category = "Object.IV Drip"
 	set name = "Toggle Valve"
 	set src in view(1)
 
@@ -690,7 +690,7 @@
 		return
 
 /obj/machinery/iv_drip/verb/toggle_epp()
-	set category = "Object"
+	set category = "Object.IV Drip"
 	set name = "Toggle EPP"
 	set src in view(1)
 
@@ -707,7 +707,7 @@
 	playsound(usr, 'sound/machines/click.ogg', 50, extrarange = SILENCED_SOUND_EXTRARANGE)
 
 /obj/machinery/iv_drip/verb/transfer_rate()
-	set category = "Object"
+	set category = "Object.IV Drip"
 	set name = "Set Transfer Rate"
 	set src in view(1)
 
