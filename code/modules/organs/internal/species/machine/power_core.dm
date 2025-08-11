@@ -86,14 +86,8 @@
 
 /obj/item/organ/internal/machine/power_core/emp_act(severity)
 	. = ..()
-
 	if(electronics.get_status() > 0)
 		to_chat(owner, SPAN_MACHINE_WARNING("Power core electronics damaged. Caution. Caution."))
-		electronics.take_damage(severity * 10)
-		return
-
-	if(cell)
-		cell.emp_act(severity)
 
 /obj/item/organ/internal/machine/power_core/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.isscrewdriver())

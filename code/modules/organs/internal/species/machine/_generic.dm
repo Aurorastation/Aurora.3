@@ -98,6 +98,14 @@
 
 	. = ..()
 
+/obj/item/organ/internal/machine/emp_act(severity)
+	. = ..()
+	switch(severity)
+		if(EMP_HEAVY)
+			take_internal_damage(15 * emp_coeff)
+		if(EMP_LIGHT)
+			take_internal_damage(10 * emp_coeff)
+
 /**
  * Called when prefs are synced to the organ to set the proper synthetic organ preset. Turns the pref into a preset singleton.
  * Remember that the base type is the default, AKA when no prefs are set that organ will spawn.
