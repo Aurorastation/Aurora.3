@@ -150,7 +150,9 @@
 /obj/item/access_cable/Initialize(mapload, atom/movable/new_source, atom/movable/override_beam_source)
 	. = ..()
 	if(!new_source)
-		crash_with("Access cable spawned without a source: [x] [y] [z]")
+		log_debug("Access cable spawned without a source: [x] [y] [z]")
+		qdel_self()
+		return
 
 	source = new_source
 	if(override_beam_source)

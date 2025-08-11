@@ -16,11 +16,7 @@
 /datum/synthetic_internal/New(obj/item/organ/internal/machine/attached_organ)
 	. = ..()
 	if(istype(attached_organ))
-		if(isipc(attached_organ.owner))
-			organ = attached_organ
-		else
-			LOG_DEBUG("Synthetic internal [type] generated on organ [attached_organ] with invalid owner [attached_organ.owner]. Aborting.")
-			qdel(src)
+		organ = attached_organ
 	else
 		LOG_DEBUG("Synthetic internal [type] generated on invalid organ [attached_organ]. Aborting.")
 		qdel(src)

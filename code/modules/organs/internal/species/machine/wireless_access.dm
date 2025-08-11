@@ -75,7 +75,9 @@
 			crash_with("Something terrible happened in synthetic internal PDA init! Loc: [loc]")
 
 /obj/item/modular_computer/handheld/pda/synthetic_internal/Destroy()
-	QDEL_NULL(access_point)
+	if(access_point)
+		access_point.internal_pda = null
+		access_point = null
 	return ..()
 
 /obj/item/modular_computer/handheld/pda/synthetic_internal/ui_status(mob/user, datum/ui_state/state)
