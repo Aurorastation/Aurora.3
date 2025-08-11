@@ -116,7 +116,7 @@
 
 /singleton/cargo_item/bloodpack_ominus
 	category = "medical"
-	name = "O- blood pack (x1)"
+	name = "O- blood pack (x2)"
 	supplier = "zeng_hu"
 	description = "A blood pack filled with universally-compatible O- Blood."
 	price = 800
@@ -126,7 +126,7 @@
 	access = ACCESS_MEDICAL
 	container_type = "freezer"
 	groupable = TRUE
-	spawn_amount = 1
+	spawn_amount = 2
 
 /singleton/cargo_item/bloodpack_sbs
 	category = "medical"
@@ -156,53 +156,53 @@
 	groupable = TRUE
 	spawn_amount = 1
 
-/singleton/cargo_item/dexplus_autoinjector
+/singleton/cargo_item/dexplus_vial
 	category = "medical"
-	name = "dexalin plus autoinjector"
+	name = "dexalin plus vial"
 	supplier = "nanotrasen"
-	description = "An autoinjector designed to treat oxygen deprivation."
-	price = 550
+	description = "A vial that comes with 15 units of Dexalin Plus, an advanced chemical used to rapidly oxygenate blood cells."
+	price = 900
 	items = list(
-		/obj/item/reagent_containers/hypospray/autoinjector/oxygen
+		/obj/item/reagent_containers/glass/beaker/vial/dexalin_plus
 	)
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
-/singleton/cargo_item/peridaxonautoinjector
+/singleton/cargo_item/peridaxon_vial
 	category = "medical"
-	name = "peridaxon autoinjector"
+	name = "peridaxon vial"
 	supplier = "nanotrasen"
-	description = "An autoinjector designed to treat broad-spectrum organ damage."
-	price = 725
+	description = "A vial that comes with 15 units of Peridaxon, an advanced organ regenerative compound."
+	price = 1300
 	items = list(
-		/obj/item/reagent_containers/hypospray/autoinjector/peridaxon
+		/obj/item/reagent_containers/glass/beaker/vial/peridaxon
 	)
 	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
-/singleton/cargo_item/pneumalin_inhaler
+/singleton/cargo_item/pneumalin_inhalers
 	category = "medical"
-	name = "pneumalin autoinhaler"
+	name = "pneumalin autoinhaler kit (x3)"
 	supplier = "nanotrasen"
-	description = "An autoinhaler used to treat lung damage."
-	price = 450
+	description = "A kit of autoinhalers used to treat lung damage."
+	price = 750
 	items = list(
 		/obj/item/reagent_containers/inhaler/pneumalin
 	)
 	access = ACCESS_MEDICAL
 	container_type = "crate"
 	groupable = TRUE
-	spawn_amount = 1
+	spawn_amount = 3
 
 /singleton/cargo_item/bodybags
 	category = "medical"
-	name = "body bags boxes (x3)"
+	name = "body bag boxes (x3)"
 	supplier = "nanotrasen"
-	description = "This box contains body bags."
+	description = "A kit of three boxes of body bags."
 	price = 35
 	items = list(
 		/obj/item/storage/box/bodybags
@@ -210,7 +210,7 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
-	spawn_amount = 1
+	spawn_amount = 3
 
 /singleton/cargo_item/injectors_box
 	category = "medical"
@@ -282,14 +282,14 @@
 	groupable = TRUE
 	spawn_amount = 1
 
-/singleton/cargo_item/dermaline_bottle
+/singleton/cargo_item/kelotane_bottle
 	category = "medical"
-	name = "dermaline bottle"
+	name = "kelotane bottle"
 	supplier = "nanotrasen"
-	description = "A bottle of dermaline, a medicine used to treat severe burns."
+	description = "A bottle of kelotane, a medicine used to treat severe burns."
 	price = 250
 	items = list(
-		/obj/item/reagent_containers/glass/bottle/dermaline
+		/obj/item/reagent_containers/glass/bottle/kelotane
 	)
 	access = 0
 	container_type = "crate"
@@ -324,11 +324,25 @@
 	groupable = TRUE
 	spawn_amount = 1
 
+/singleton/cargo_item/arithrazine_vial
+	category = "medical"
+	name = "arithrazine vial"
+	supplier = "nanotrasen"
+	description = "A bottle containing Arithrazine, a potent anti-radiation medication."
+	price = 750
+	items = list(
+		/obj/item/reagent_containers/glass/beaker/vial/arithrazine
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
 /singleton/cargo_item/inaprovaline_bottle
 	category = "medical"
 	name = "inaprovaline bottle"
 	supplier = "nanotrasen"
-	description = "A bottle of inaprovaline, a broad-spectrum stimulant and cardiac stabilizer."
+	description = "A bottle of inaprovaline, a broad-spectrum stabilizer.."
 	price = 205
 	items = list(
 		/obj/item/reagent_containers/glass/bottle/inaprovaline
@@ -360,6 +374,20 @@
 	price = 455
 	items = list(
 		/obj/item/reagent_containers/glass/bottle/mortaphenyl
+	)
+	access = ACCESS_MEDICAL
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/thetamycin_bottle
+	category = "medical"
+	name = "thetamycin bottle"
+	supplier = "nanotrasen"
+	description = "A bottle of thetamycin, a broad-spectrum antibiotic."
+	price = 350
+	items = list(
+		/obj/item/reagent_containers/glass/bottle/thetamycin
 	)
 	access = ACCESS_MEDICAL
 	container_type = "crate"
