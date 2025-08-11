@@ -18,9 +18,9 @@
 	var/chamber_offset = 0 //how many empty chambers in the cylinder until you hit a round
 
 /obj/item/gun/projectile/revolver/verb/spin_cylinder()
-	set name = "Spin cylinder"
+	set name = "Spin Cylinder"
 	set desc = "Fun when you're bored out of your skull."
-	set category = "Object"
+	set category = "Object.Held"
 	set src in usr
 
 	chamber_offset = 0
@@ -110,7 +110,7 @@
 
 /obj/item/gun/projectile/revolver/detective/verb/rename_gun()
 	set name = "Name Gun"
-	set category = "Object"
+	set category = "Object.Held"
 	set desc = "Click to rename your gun. If you're the detective."
 	set src in usr
 
@@ -241,9 +241,9 @@
 		flipped_firing = 0
 
 /obj/item/gun/projectile/revolver/lemat/spin_cylinder()
-	set name = "Spin cylinder"
+	set name = "Spin Cylinder"
 	set desc = "Fun when you're bored out of your skull."
-	set category = "Object"
+	set category = "Object.Held"
 	set src in usr
 
 	chamber_offset = 0

@@ -44,7 +44,7 @@
 #################################
 
 # Your name.
-author: Ben10083
+author: CatsinHD
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -55,4 +55,6 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - experiment: "Greimorian bombardiers now shoot an acid instead of capsaicin."
+  - rscadd: "Added uniforms for Security and Medical roles for Kazarrhaldiye Operations Group."
+  - rscadd: "Added jackets for Security Officers, Wardens, Heads of Security, and Medical roles for Kazarrhaldiye Operations Group."
+  - rscadd: "Added shoulder tabs for PRA, DPRA/ALA, and NKA members of Kazarrhaldiye Operations Group."

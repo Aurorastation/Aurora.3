@@ -754,7 +754,7 @@
 	scoped_accuracy = 2
 
 /obj/item/gun/projectile/automatic/terminator/verb/scope()
-	set category = "Object"
+	set category = "Object.Held"
 	set name = "Use Scope"
 	set src in usr
 
