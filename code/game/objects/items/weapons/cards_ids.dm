@@ -188,9 +188,9 @@
 		chat_user.username = chat_user.generateUsernameIdCard(src)
 
 /obj/item/card/id/proc/set_id_photo(var/mob/M)
-	front = getFlatIcon(M, SOUTH)
+	front = getFlatIcon(M, SOUTH, no_anim = TRUE)
 	front.Scale(128, 128)
-	side = getFlatIcon(M, WEST)
+	side = getFlatIcon(M, WEST, no_anim = TRUE)
 	side.Scale(128, 128)
 
 /mob/proc/set_id_info(var/obj/item/card/id/id_card)
