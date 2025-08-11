@@ -348,6 +348,7 @@
 		/obj/item/device/laser_pointer,
 		/obj/item/device/camera,
 		/obj/item/clipboard,
+		/obj/item/journal/notepad
 		)
 	content_overlays = TRUE
 
@@ -387,6 +388,14 @@
 		/obj/item/device/flash = 1,
 		/obj/item/gun/projectile/sec = 1,
 		/obj/item/ammo_magazine/c45m/rubber = 2,
+	)
+
+/obj/item/storage/belt/security/full/investigator
+	starts_with = list(
+		/obj/item/taperoll/police = 1,
+		/obj/item/device/flash = 1,
+		/obj/item/device/camera/detective = 1,
+		/obj/item/device/taperecorder = 1
 	)
 
 /obj/item/storage/belt/security/vestbelt
