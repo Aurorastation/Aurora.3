@@ -44,7 +44,7 @@
 #################################
 
 # Your name.
-author: MattAtlas (Porting), CM Developers (original code)
+author: MattAtlas (Code), Geeves (Code), Noble Row (Sprites)
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -55,5 +55,8 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Replaced Runechat with Langchat from CM for better functionality and clearer text."
-  - rscadd: "Ported screen text from CM."
+  - rscadd: "IPCs have been given unique, brainmed-compliant mechanics from the ground up!"
+  - rscadd: "IPCs have been given many new organs, all with their unique purpose, and functioning."
+  - rscadd: "Each IPC organ now has its own damage subsystem. IPCs are now vulnerable to long damage as well."
+  - rscadd: "IPCs now have a unique vulnerability to burst damage."
+  - rscadd: "Added weight and strength mechanics for mobs."
