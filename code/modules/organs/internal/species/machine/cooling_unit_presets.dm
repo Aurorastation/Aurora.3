@@ -26,7 +26,7 @@
 	name = "air cooling unit"
 	desc = "One of the most complex and vital components of a synthetic. It regulates its internal temperature through the use of chassis-mounted fans and prevents the frame from overheating."
 
-	passive_temp_change = 20
+	passive_temp_change = 2
 	plating_max_health = 50
 
 /obj/item/organ/internal/machine/cooling_unit/air

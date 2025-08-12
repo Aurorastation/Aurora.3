@@ -59,4 +59,5 @@ changes:
   - rscadd: "IPCs have been given many new organs, all with their unique purpose, and functioning."
   - rscadd: "Each IPC organ now has its own damage subsystem. IPCs are now vulnerable to long damage as well."
   - rscadd: "IPCs now have a unique vulnerability to burst damage."
+  - rscadd: "Industrial IPCs can now be Security again."
   - rscadd: "Added weight and strength mechanics for mobs."
