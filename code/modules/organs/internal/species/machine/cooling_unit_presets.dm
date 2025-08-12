@@ -38,7 +38,7 @@
 	icon_state = "ipc_liquid_cooler"
 
 	passive_temp_change = 3
-	base_power_consumption = 2
+	base_power_consumption = 15
 	plating_max_health = 20
 
 /obj/item/organ/internal/machine/cooling_unit/liquid
@@ -51,7 +51,7 @@
 
 	passive_temp_change = 1
 	base_power_consumption = 5
-	plating_max_health = 120
+	plating_max_health = 100
 
 
 
@@ -64,8 +64,9 @@
 	desc = "A very complex air cooling setup, with high-grade laminar plasteel fans and integrated space-proof heatsinks to allow the frame to still be cooled in space."
 	icon_state = "ipc_xion_fans"
 
-	passive_temp_change = 10
-	plating_max_health = 25
+	passive_temp_change = 2
+	base_power_consumption = 12
+	plating_max_health = 70
 
 /obj/item/organ/internal/machine/cooling_unit/air/xion
 	forced_preset = /singleton/synthetic_organ_preset/cooling_unit/air_xion
@@ -75,8 +76,9 @@
 	desc = "An extremely complex cryo-cooling setup. It uses advanced coolant to allow the frame to still function in space - but its laminar super-flow piping is extremely fragile."
 	icon_state = "ipc_xion_liquid_cooler"
 
-	passive_temp_change = 20
-	plating_max_health = 25
+	passive_temp_change = 3
+	base_power_consumption = 17
+	plating_max_health = 35
 
 /obj/item/organ/internal/machine/cooling_unit/liquid/xion
 	forced_preset = /singleton/synthetic_organ_preset/cooling_unit/liquid_xion
@@ -86,8 +88,9 @@
 	desc = "The simplicity of this cooling design betrays its efficiency: an extremely durable array of laminar plasteel fins, supplemented with an expensive coating that allows the synthetic to be cooled even in space."
 	icon_state = "ipc_heatsink"
 
-	passive_temp_change = 5
-	plating_max_health = 200
+	passive_temp_change = 1
+	base_power_consumption = 7
+	plating_max_health = 120
 
 /obj/item/organ/internal/machine/cooling_unit/passive/xion
 	forced_preset = /singleton/synthetic_organ_preset/cooling_unit/passive_xion
@@ -98,8 +101,9 @@
 	desc = "A sleek and luxurious air cooling system invented by Zeng-Hu for their house-made synthetic frames. It uses a patented and exclusive type of penta-fin fan. More efficient than standard air cooling solutions, but it will not allow cooling in space."
 	icon_state = "ipc_zeng_fans"
 
-	passive_temp_change = 3
-	plating_max_health = 40
+	passive_temp_change = 4
+	base_power_consumption = 15
+	plating_max_health = 25
 
 /obj/item/organ/internal/machine/cooling_unit/air/zenghu
 	forced_preset = /singleton/synthetic_organ_preset/cooling_unit/air_zenghu
@@ -110,7 +114,8 @@
 			the lamellar pipes are impossible to reproduce or find through a third-party solution due to their extremely complex and exclusive Zeng-Hu make."
 	icon_state = "ipc_zeng_cooling"
 
-	passive_temp_change = 4
+	passive_temp_change = 5
+	base_power_consumption = 20
 	plating_max_health = 15
 
 /obj/item/organ/internal/machine/cooling_unit/liquid/zenghu
@@ -122,7 +127,8 @@
 	icon_state = "ipc_zeng_cooling_passive"
 
 	passive_temp_change = 2
-	plating_max_health = 130
+	base_power_consumption = 8
+	plating_max_health = 75
 
 /obj/item/organ/internal/machine/cooling_unit/passive/zenghu
 	forced_preset = /singleton/synthetic_organ_preset/cooling_unit/passive_zenghu
