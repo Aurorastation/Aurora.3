@@ -79,7 +79,7 @@
 		crash_with("Insert_item with [jack] on access port called with [internal_port] of [owner] already present!")
 
 	internal_port = jack
-	jack.dropInto(src)
+	jack.forceMove(src)
 	RegisterSignal(internal_port, COMSIG_QDELETING, PROC_REF(clear_port))
 	to_chat(owner, SPAN_MACHINE_WARNING("Internal firewall notice: [internal_port] inserted into [src]."))
 
@@ -112,6 +112,7 @@
 /obj/item/organ/internal/machine/access_port/insert_cable(obj/item/access_cable/cable, mob/user)
 	. = ..()
 	insert_item(cable)
+	cable.create_cable(user, owner)
 
 /obj/item/organ/internal/machine/access_port/cable_interact(obj/item/access_cable/cable, mob/user)
 	var/obj/item/organ/internal/machine/internal_diagnostics/diagnostics_unit = owner.internal_organs_by_name[BP_DIAGNOSTICS_SUITE]
@@ -283,7 +284,7 @@
 		else
 			user.visible_message(SPAN_WARNING("[user] jacks \the [src] into their access port!"), SPAN_WARNING("You jack \the [src] into your access port!"))
 
-		create_cable(beam_source, human)
+		user.drop_from_inventory(src, get_turf(user))
 		access_port.insert_cable(src, user)
 	else
 		. = ..()

@@ -31,12 +31,13 @@
 		var/obj/item/organ/internal/machine/access_port/port = owner.internal_organs_by_name[BP_ACCESS_PORT]
 		if(istype(port) && !port.is_broken())
 			data["port"] = TRUE
-			if(port.access_cable && isipc(port.access_cable.target))
-				var/mob/living/carbon/human/connected_ipc = port.access_cable.target
-				data["port_connected"] = connected_ipc.real_name
-				var/obj/item/organ/internal/machine/access_port/other_port = connected_ipc.internal_organs_by_name[BP_ACCESS_PORT]
-				if(other_port && !other_port.is_broken())
-					data["port_can_communicate"] = TRUE
+			if(port.access_cable && istype(port.access_cable.target, /obj/item/organ/internal/machine/access_port))
+				var/obj/item/organ/internal/machine/access_port/other_port = port.access_cable.target
+				if(isipc(other_port.owner))
+					var/mob/living/carbon/human/connected_ipc = other_port.owner
+					data["port_connected"] = connected_ipc.real_name
+					if(other_port && !other_port.is_broken())
+						data["port_can_communicate"] = TRUE
 
 	return data
 
@@ -58,22 +59,30 @@
 		if("talk_p2p")
 			var/obj/item/organ/internal/machine/access_port/port = owner.internal_organs_by_name[BP_ACCESS_PORT]
 			if(istype(port) && !port.is_broken())
-				if(port.access_cable && isipc(port.access_cable.target))
-					var/mob/living/carbon/human/connected_ipc = port.access_cable.target
-					var/obj/item/organ/internal/machine/access_port/other_port = connected_ipc.internal_organs_by_name[BP_ACCESS_PORT]
-					if(other_port && !other_port.is_broken() && connected_ipc.client)
-						var/obj/item/organ/internal/machine/posibrain/other_posibrain = connected_ipc.internal_organs_by_name[BP_BRAIN]
-						if(!other_posibrain.p2p_communication_allowed)
-							to_chat(owner, SPAN_MACHINE_WARNING("[connected_ipc.real_name]'s Virtual Communication ports are not open."))
-							return
+				if(port.access_cable && istype(port.access_cable.target, /obj/item/organ/internal/machine/access_port))
+					var/obj/item/organ/internal/machine/access_port/other_port = port.access_cable.target
+					if(isipc(other_port.owner))
+						var/mob/living/carbon/human/connected_ipc = other_port.owner
+						if(other_port && !other_port.is_broken())
+							if(connected_ipc.client)
+								var/obj/item/organ/internal/machine/posibrain/other_posibrain = connected_ipc.internal_organs_by_name[BP_BRAIN]
+								if(!other_posibrain.p2p_communication_allowed)
+									to_chat(owner, SPAN_MACHINE_WARNING("[connected_ipc.real_name]'s Virtual Communication ports are not open."))
+									return
 
-						var/message = sanitize_tg(tgui_input_text(owner, "Enter a peer-to-peer message to send to [connected_ipc.real_name].", "Virtual Communication", max_length = MAX_MESSAGE_LEN))
-						// re-do all the checks just in case. bit ass but oh well
-						if(message && !port.is_broken() && (port.access_cable.target && port.access_cable.target == connected_ipc && !other_port.is_broken()))
-							var/p2p_message = SPAN_ITALIC("Virtual Communication, ") + SPAN_BOLD("[owner.real_name] transmits: ") + SPAN_MACHINE_WARNING(message)
-							to_chat(connected_ipc, p2p_message)
-							log_say("VIRTUAL COMMUNICATION: [owner]/[owner.client.ckey] to [connected_ipc]/[connected_ipc.client.ckey]: [message]")
-							. = TRUE
+								var/message = sanitize_tg(tgui_input_text(owner, "Enter a peer-to-peer message to send to [connected_ipc.real_name].", "Virtual Communication", max_length = MAX_MESSAGE_LEN))
+								// re-do all the checks just in case. bit ass but oh well
+								if(message && !port.is_broken() && (port.access_cable.target && port.access_cable.target == connected_ipc && !other_port.is_broken()))
+									var/p2p_message = SPAN_ITALIC("Virtual Communication, ") + SPAN_BOLD("[owner.real_name] transmits: ") + SPAN_MACHINE_WARNING(message)
+									to_chat(connected_ipc, p2p_message)
+									log_say("VIRTUAL COMMUNICATION: [owner]/[owner.client.ckey] to [connected_ipc]/[connected_ipc.client.ckey]: [message]")
+									. = TRUE
+							else
+								to_chat(owner, SPAN_WARNING("That posibrain seems to be in deep sleep."))
+								. = FALSE
+						else
+							to_chat(owner, SPAN_WARNING("The other port isn't responding at all!"))
+							. = FALSE
 
 	if(.)
 		sound_to(owner, 'sound/effects/neural_config.ogg')

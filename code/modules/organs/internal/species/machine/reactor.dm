@@ -56,11 +56,14 @@
 			generate_power(power_generation)
 
 	if(power_supply_type & POWER_SUPPLY_BIOLOGICAL)
-		var/nutriment_amount = REAGENT_VOLUME(bio_reagents, /singleton/reagent/nutriment)
-		if(nutriment_amount)
-			var/reagents_to_process = min(rand(0.1, 0.3), nutriment_amount)
-			bio_reagents.remove_reagent(/singleton/reagent/nutriment, reagents_to_process)
-			generate_power(reagents_to_process * 1000)
+		// Nutriment has a lot of subtypes that are not accounted for by just using REAGENT_VOLUME.
+		for(var/reagent_type in bio_reagents.reagent_volumes)
+			if(ispath(reagent_type, /singleton/reagent/nutriment))
+				var/nutriment_amount = REAGENT_VOLUME(bio_reagents, reagent_type)
+				if(nutriment_amount)
+					var/reagents_to_process = min(rand(0.1, 0.3), nutriment_amount)
+					bio_reagents.remove_reagent(reagent_type, reagents_to_process)
+					generate_power(reagents_to_process * 500)
 
 /obj/item/organ/internal/machine/reactor/proc/generate_power(amount)
 	var/obj/item/organ/internal/machine/power_core/cell = owner.internal_organs_by_name[BP_CELL]
@@ -90,5 +93,15 @@
 	. = "Last Power Generated: [round(last_power_generated, 1)] W | Total Power Generated: [round(total_power_generated, 1)] W"
 
 	if(power_supply_type & POWER_SUPPLY_BIOLOGICAL)
-		var/nutriment_amount = REAGENT_VOLUME(bio_reagents, /singleton/reagent/nutriment)
-		. += "| Processing Biomass: [nutriment_amount ? round(nutriment_amount, 1) : 0]u"
+		var/total_processing_amount = 0
+		var/extraneous_amount = 0
+		for(var/reagent_type in bio_reagents.reagent_volumes)
+			var/reagent_amount = REAGENT_VOLUME(bio_reagents, reagent_type)
+			if(ispath(reagent_type, /singleton/reagent/nutriment))
+				if(reagent_amount)
+					total_processing_amount += reagent_amount
+			else
+				extraneous_amount += reagent_amount
+		. += " | Processing Biomass: [total_processing_amount ? round(total_processing_amount, 1) : 0]u"
+		if(extraneous_amount)
+			. += " | Extraneous Reagents: [round(extraneous_amount, 1)]u"
