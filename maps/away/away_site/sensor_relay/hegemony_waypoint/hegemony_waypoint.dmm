@@ -944,10 +944,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_waypoint/hallway)
 "sB" = (
-/obj/effect/map_effect/map_helper/ruler_tiles_3,
-/obj/effect/overmap/visitable/sector/hegemony_waypoint,
-/turf/template_noop,
-/area/space)
+/obj/structure/lattice/catwalk/indoor,
+/obj/effect/overmap/visitable/ship/stationary/hegemony_waypoint,
+/turf/simulated/floor/airless,
+/area/hegemony_waypoint/exterior)
 "sJ" = (
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 6
@@ -32198,7 +32198,7 @@ OV
 OV
 OV
 OV
-sB
+mT
 jq
 jq
 jq
@@ -32983,7 +32983,7 @@ jq
 KX
 mp
 xw
-jq
+sB
 jq
 jq
 jq

@@ -30,8 +30,7 @@
 	color = COLOR_STEEL
 	designer = "Solarian Alliance"
 	sizeclass = "Sensor Installation"
-	vessel_mass = "Muy Gordo"
-	volume = "so much volume wow"
+	volume = "32 meters length, 48 meters beam/width, 20 meters vertical height"
 	desc = "A ring-shaped installation with a powerful sensor suite. These stations were originally built during the pre-Interstellar War era by the Solarian Alliance's \
 	Department of Colonization as a method of making interstellar travel safer. Thousands of these 'beacon stations' were built by the Alliance and many were abandoned during the \
 	Interstellar War and its aftermath. While they have been mostly replaced in more developed sectors, such as Liberty's Cradle and the Jewel Worlds, beacon stations are still \
