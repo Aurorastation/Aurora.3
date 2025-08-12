@@ -5,13 +5,14 @@
 	prefix = "ships/coc/coc_surveyor/"
 	suffix = "coc_surveyor.dmm"
 
-	sectors = list(SECTOR_BADLANDS, ALL_COALITION_SECTORS, ALL_VOID_SECTORS, SECTOR_CRESCENT_EXPANSE_EAST)
+	sectors = list(SECTOR_BADLANDS, ALL_COALITION_SECTORS, ALL_VOID_SECTORS, SECTOR_CRESCENT_EXPANSE_EAST, SECTOR_UUEOAESA)
 	spawn_weight_sector_dependent = list(ALL_BADLAND_SECTORS = 0.3)
 	sectors_blacklist = list(SECTOR_HANEUNIM, SECTOR_BURZSIA, SECTOR_XANU)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "coc_surveyor"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/coc_survey_shuttle)
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 	unit_test_groups = list(1)
 
