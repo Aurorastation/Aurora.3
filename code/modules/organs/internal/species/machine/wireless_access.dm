@@ -8,6 +8,7 @@
 
 	action_button_name = "Access Internal Computer"
 
+	max_damage = 20 //frail
 	relative_size = 20
 
 	/// This frame's internal PDA.

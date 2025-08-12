@@ -17,6 +17,7 @@
 	default_preset = /singleton/synthetic_organ_preset/cooling_unit/air
 	action_button_name = "Regulate Thermostat"
 
+	max_damage = 70
 	relative_size = 50
 
 	/// The power consumed when we are cooling down.

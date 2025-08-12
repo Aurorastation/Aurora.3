@@ -8,6 +8,7 @@
 
 	action_button_name = "Extend or Retract Cable"
 
+	max_damage = 30
 	relative_size = 15
 
 	/// Our access cable, which can be extended to connect into things.

@@ -5,9 +5,9 @@
 	icon_state = "ipc_battery"
 	organ_tag = BP_CELL
 	parent_organ = BP_CHEST
-	max_damage = 80
 	robotic_sprite = FALSE
 
+	max_damage = 80
 	relative_size = 25
 
 	/// If the power core's hatch is open. Battery can be removed if TRUE.

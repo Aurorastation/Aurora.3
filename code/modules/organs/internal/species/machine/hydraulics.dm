@@ -7,6 +7,7 @@
 	organ_tag = BP_HYDRAULICS
 	parent_organ = BP_GROIN
 
+	max_damage = 40
 	relative_size = 70
 
 /obj/item/organ/internal/machine/hydraulics/Initialize()

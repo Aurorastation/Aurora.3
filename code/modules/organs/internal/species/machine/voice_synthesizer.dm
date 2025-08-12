@@ -7,3 +7,4 @@
 	parent_organ = BP_HEAD
 
 	relative_size = 10
+	max_damage = 30

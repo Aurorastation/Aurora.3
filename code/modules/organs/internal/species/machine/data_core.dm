@@ -8,6 +8,8 @@
 	emp_coeff = 0.1
 	robotic_sprite = FALSE
 
+	max_damage = 30
+
 /obj/item/organ/internal/machine/data/Initialize()
 	robotize()
 	. = ..()

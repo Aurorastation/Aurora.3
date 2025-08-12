@@ -7,6 +7,7 @@
 	parent_organ = BP_CHEST
 	action_button_name = "Internal Diagnostics"
 
+	max_damage = 40
 	relative_size = 25
 
 /obj/item/organ/internal/machine/internal_diagnostics/attack_self(var/mob/user)

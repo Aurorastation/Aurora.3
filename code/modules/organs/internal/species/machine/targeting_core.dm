@@ -7,6 +7,9 @@
 	organ_tag = BP_TARGETING_CORE
 	parent_organ = BP_HEAD
 
+	max_damage = 30
+	relative_size = 15
+
 /obj/item/organ/internal/machine/targeting_core/Initialize()
 	. = ..()
 	if(owner)

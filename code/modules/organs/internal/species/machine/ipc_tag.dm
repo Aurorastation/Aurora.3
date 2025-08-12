@@ -8,6 +8,9 @@
 	dead_icon = "ipc_tag_dead"
 	contained_sprite = TRUE
 	robotic_sprite = FALSE
+
+	max_damage = 30
+
 	var/auto_generate = TRUE
 	var/serial_number = ""
 	var/ownership_info = IPC_OWNERSHIP_COMPANY

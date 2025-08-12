@@ -19,6 +19,7 @@
 	)
 	default_preset = /singleton/synthetic_organ_preset/reactor/electric
 
+	max_damage = 50
 	relative_size = 25
 
 	/// What kind of power supply this is. Bitfield.

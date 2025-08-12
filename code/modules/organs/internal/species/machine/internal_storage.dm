@@ -8,6 +8,7 @@
 
 	action_button_name = "Access Internal Storage"
 
+	max_damage = 35
 	relative_size = 25
 
 	/// The actual, physical storage item.

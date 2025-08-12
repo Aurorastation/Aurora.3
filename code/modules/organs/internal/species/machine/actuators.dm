@@ -4,6 +4,7 @@
 	icon = 'icons/obj/organs/ipc_organs.dmi'
 	icon_state = "ipc_actuator"
 
+	max_damage = 40
 	relative_size = 50
 
 /obj/item/organ/internal/machine/actuators/left

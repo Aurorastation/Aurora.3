@@ -8,6 +8,7 @@
 	vital = FALSE
 	robotic_sprite = FALSE
 
+	max_damage = 30
 	relative_size = 30
 
 	var/surge_left = 0
