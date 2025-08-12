@@ -132,6 +132,7 @@
 
 	current_preset = preset
 	preset.apply_preset(src)
+	owner.update_action_buttons()
 
 /**
  * This is a function used to return an overall integrity number that takes
