@@ -246,7 +246,7 @@
 		. += "Battery Charge: [IC.get_charge()]/[IC.cell.maxcharge]"
 
 	var/obj/item/organ/internal/machine/internal_diagnostics/diagnostics = internal_organs_by_name[BP_DIAGNOSTICS_SUITE]
-	if(diagnostics && (!(diagnostics.get_integrity() < IPC_INTEGRITY_THRESHOLD_HIGH) || diagnostics.is_broken()))
+	if(diagnostics && ((diagnostics.get_integrity() < IPC_INTEGRITY_THRESHOLD_HIGH) || diagnostics.is_broken()))
 		. += "Temperature: [bodytemperature - T0C]°C"
 	else
 		. += "Temperature: E#RR"
