@@ -39,3 +39,6 @@
 
 /// For loss of limbs.
 #define COMSIG_LIMB_LOSS "lost_limb"
+
+/// From /mob/living/verb/execute_resist(). Resisting.
+#define COMSIG_MOB_RESISTED "mob_resist"

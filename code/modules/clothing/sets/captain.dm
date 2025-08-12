@@ -41,7 +41,7 @@
 
 /obj/item/clothing/under/rank/captain/verb/fold_open()
 	set name = "Fold Collar"
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in usr
 
 	if(use_check_and_message(usr))
@@ -75,7 +75,7 @@
 
 /obj/item/clothing/under/dress/dress_cap/verb/fold_open()
 	set name = "Fold Collar"
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in usr
 
 	if(use_check_and_message(usr))

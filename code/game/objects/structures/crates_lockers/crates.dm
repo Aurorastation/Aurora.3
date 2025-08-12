@@ -601,6 +601,7 @@
 	new /obj/item/beehive_assembly(src)
 	new /obj/item/bee_net(src)
 	new /obj/item/bee_smoker(src)
+	new /obj/item/crowbar(src)
 
 // Includes everything you need to run your own horticultural medicinal operation. Or something more nefarious, if you prefer.
 /obj/structure/closet/crate/hydroponics/herbalism

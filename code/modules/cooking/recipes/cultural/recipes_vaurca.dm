@@ -1,15 +1,15 @@
 /singleton/recipe/friedkois
-	appliance = SKILLET
+	appliance = SKILLET | MICROWAVE
 	fruit = list("koisspore" = 1)
 	result = /obj/item/reagent_containers/food/snacks/friedkois
 
 /singleton/recipe/koiswaffles
-	appliance = SKILLET
+	appliance = SKILLET | MICROWAVE
 	items = list(/obj/item/reagent_containers/food/snacks/soup/kois)
 	result = /obj/item/reagent_containers/food/snacks/koiswaffles
 
 /singleton/recipe/koisjelly
-	appliance = SAUCEPAN
+	appliance = SAUCEPAN | MICROWAVE
 	fruit = list("koisspore" = 2)
 	items = list(/obj/item/reagent_containers/food/snacks/soup/kois)
 	result = /obj/item/reagent_containers/food/snacks/koisjelly

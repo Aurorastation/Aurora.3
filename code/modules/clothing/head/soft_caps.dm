@@ -17,7 +17,7 @@
 
 /obj/item/clothing/head/softcap/verb/ToggleHat()
 	set name = "Flip Hat"
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in usr
 
 	if(use_check_and_message(usr))

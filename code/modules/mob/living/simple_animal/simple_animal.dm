@@ -774,7 +774,7 @@
 /mob/living/simple_animal/death(gibbed, deathmessage = "dies!")
 	GLOB.move_manager.stop_looping(src)
 	movement_target = null
-	density = FALSE
+	ADD_TRAIT(src, TRAIT_UNDENSE, TRAIT_SOURCE_MOB_DEATH)
 	if (isopenturf(loc))
 		ADD_FALLING_ATOM(src)
 	. = ..(gibbed, deathmessage)
@@ -837,7 +837,7 @@
 /mob/living/simple_animal/verb/change_name()
 	set name = "Name Animal"
 	set desc = "Rename an animal."
-	set category = "IC"
+	set category = "IC.Critters"
 	set src in view(1)
 
 	var/mob/living/carbon/M = usr

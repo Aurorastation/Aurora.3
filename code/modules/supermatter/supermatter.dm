@@ -21,7 +21,7 @@
 #define DECAY_FACTOR 700			//Affects how fast the supermatter power decays
 #define CRITICAL_TEMPERATURE 5000	//K
 #define CHARGING_FACTOR 0.05
-#define DAMAGE_RATE_LIMIT 2			//damage rate cap at power = 300, scales linearly with power
+#define DAMAGE_RATE_LIMIT 4			//damage rate cap at power = 300, scales linearly with power
 #define SPACED_DAMAGE_FACTOR 0.5	//multiplier for damage taken in a vacuum, but on a tile. Used to prevent/configure near-instant explosions when vented
 
 //These would be what you would get at point blank, decreases with distance
@@ -241,9 +241,9 @@
 	if(last_accent_sound < world.time && prob(20))
 		var/aggression = min(((damage / 800) * (power / 2500)), 1.0) * 100
 		if(damage >= 300)
-			playsound(src, /singleton/sound_category/supermatter_delam, max(50, aggression), FALSE, 10)
+			playsound(src, /singleton/sound_category/supermatter_delam, clamp(aggression, 50, 75), FALSE, 10)
 		else
-			playsound(src, /singleton/sound_category/supermatter_calm, max(50, aggression), FALSE, 10)
+			playsound(src, /singleton/sound_category/supermatter_calm, clamp(aggression, 50, 75), FALSE, 10)
 		var/next_sound = round((100 - aggression) * 5)
 		last_accent_sound = world.time + max(SUPERMATTER_ACCENT_SOUND_MIN_COOLDOWN, next_sound)
 

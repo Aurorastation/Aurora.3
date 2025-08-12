@@ -4466,6 +4466,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"es-toolkit@npm:^1.39.3":
+  version: 1.39.9
+  resolution: "es-toolkit@npm:1.39.9"
+  dependenciesMeta:
+    "@trivago/prettier-plugin-sort-imports@4.3.0":
+      unplugged: true
+    prettier-plugin-sort-re-exports@0.0.1:
+      unplugged: true
+  checksum: 7cd3adc281f7e27f277577de95fa8acc15bd5efe1276ef0d0e69e8ce1426b17e8fb14584f6af2227325d88d19f15c555e94dc4ffd0132aee3683cb6570066fd2
+  languageName: node
+  linkType: hard
+
 "es5-ext@npm:^0.10.35, es5-ext@npm:^0.10.46, es5-ext@npm:^0.10.50, es5-ext@npm:^0.10.51, es5-ext@npm:^0.10.53, es5-ext@npm:^0.10.62, es5-ext@npm:~0.10.14, es5-ext@npm:~0.10.2, es5-ext@npm:~0.10.46":
   version: 0.10.63
   resolution: "es5-ext@npm:0.10.63"
@@ -9912,6 +9924,7 @@ resolve@^2.0.0-next.3:
     common: "workspace:*"
     dateformat: ^4.5.1
     dompurify: ^2.5.4
+    es-toolkit: ^1.39.3
     highlight.js: ^11.5.1
     inferno: ^7.4.8
     inferno-vnode-flags: ^7.4.8

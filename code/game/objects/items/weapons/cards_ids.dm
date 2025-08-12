@@ -1,9 +1,9 @@
 /* Cards
  * Contains:
- *		DATA CARD
- *		ID CARD
- *		FINGERPRINT CARD HOLDER
- *		FINGERPRINT CARD
+ * * DATA CARD
+ * * ID CARD
+ * * FINGERPRINT CARD HOLDER
+ * * FINGERPRINT CARD
  */
 
 
@@ -22,7 +22,8 @@
 	w_class = WEIGHT_CLASS_TINY
 	var/associated_account_number = 0
 	var/list/files = list(  )
-	var/last_flash = 0 //Spam limiter.
+	/// Spam limiter.
+	var/last_flash = 0
 	drop_sound = 'sound/items/drop/card.ogg'
 	pickup_sound = 'sound/items/pickup/card.ogg'
 
@@ -119,7 +120,8 @@
 	overlay_state = "id"
 
 	var/list/access = list()
-	var/registered_name = ID_CARD_UNSET // The name registered_name on the card
+	/// The name registered_name on the card.
+	var/registered_name = ID_CARD_UNSET
 	var/datum/weakref/mob_id
 	slot_flags = SLOT_ID
 
@@ -131,7 +133,8 @@
 	var/sex = ID_CARD_UNSET
 	var/icon/front
 	var/icon/side
-	var/mining_points //miners gotta eat
+	/// Miners gotta eat.
+	var/mining_points
 
 	var/can_copy_access = FALSE
 	var/access_copy_msg
@@ -139,9 +142,13 @@
 	var/flipped = 0
 	var/wear_over_suit = 0
 
-	//alt titles are handled a bit weirdly in order to unobtrusively integrate into existing ID system
-	var/assignment = null	//can be alt title or the actual job
-	var/rank = null			//actual job
+	/**
+	 * Alt titles are handled a bit weirdly in order to unobtrusively integrate into existing ID system
+	 * Can be alt title or the actual job.
+	 */
+	var/assignment = null
+	/// Actual job.
+	var/rank = null
 	var/employer_faction = null
 	var/datum/ntnet_user/chat_user
 
@@ -159,7 +166,8 @@
 
 /obj/item/card/id/on_slotmove(var/mob/living/user, slot)
 	. = ..(user, slot)
-	BITSET(user.hud_updateflag, ID_HUD) //Update ID HUD if an ID is ever moved
+	// Update ID HUD if an ID is ever moved
+	BITSET(user.hud_updateflag, ID_HUD)
 
 /obj/item/card/id/proc/prevent_tracking()
 	return 0
@@ -248,7 +256,8 @@
 	return
 
 /obj/item/card/id/proc/id_flash(var/mob/user, var/add_text = "", var/blind_add_text = "")
-	var/list/id_viewers = viewers(3, user) // or some other distance - this distance could be defined as a var on the ID
+	/// Or some other distance - could be defined as a var on the ID.
+	var/list/id_viewers = viewers(3, user)
 	var/message = "<b>[user]</b> flashes [user.get_pronoun("his")] [icon2html(src, id_viewers)] [src.name]."
 	var/blind_message = "You flash your [icon2html(src, id_viewers)] [src.name]."
 	if(add_text != "")
@@ -258,16 +267,13 @@
 	user.visible_message(message, blind_message)
 
 /obj/item/card/id/attack(mob/living/target_mob, mob/living/user, target_zone)
-
 	if(user.zone_sel.selecting == BP_R_HAND || user.zone_sel.selecting == BP_L_HAND)
-
 		if(!ishuman(target_mob))
 			return ..()
 
 		if (dna_hash == ID_CARD_UNSET && ishuman(user))
 			var/response = alert(user, "This ID card has not been imprinted with biometric data. Would you like to imprint [target_mob]'s now?", "Biometric Imprinting", "Yes", "No")
 			if (response == "Yes")
-
 				if (!user.Adjacent(target_mob) || user.restrained() || user.lying || user.stat)
 					to_chat(user, SPAN_WARNING("You must remain adjacent to [target_mob] to scan their biometric data."))
 					return
@@ -328,8 +334,8 @@
 		M.update_inv_wear_id()
 
 /obj/item/card/id/verb/flip_side()
-	set name = "Flip ID card"
-	set category = "Object"
+	set name = "Flip ID Card"
+	set category = "Object.Equipped"
 	set src in usr
 	if(use_check_and_message(usr, use_flags = USE_DISALLOW_SILICONS))
 		return
@@ -344,7 +350,7 @@
 
 /obj/item/card/id/verb/toggle_icon_layer()
 	set name = "Switch ID Layer"
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in usr
 
 	if(use_check_and_message(usr, use_flags = USE_DISALLOW_SILICONS))
@@ -594,7 +600,6 @@
 	..()
 
 // Contractor cards
-
 /obj/item/card/id/idris
 	name = "\improper Idris Incorporated identification card"
 	desc = "A high-tech holocard, designed to project information about a sub-contractor from Idris Incorporated."

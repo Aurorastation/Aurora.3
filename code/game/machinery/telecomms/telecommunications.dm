@@ -61,6 +61,9 @@
 	/// Overmap ranges in terms of map tile distance, used by receivers, relays, and broadcasters (and AIOs)
 	var/overmap_range = 0
 
+	/// Is this device currently scrambling all comms? Used for random events.
+	var/ion_storm = FALSE
+
 	///Looping sounds for any servers
 //	var/datum/looping_sound/server/soundloop
 
@@ -170,21 +173,20 @@
 	else
 		STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 
-/obj/machinery/telecomms/emp_act(severity)
-	. = ..()
+/**
+ * Previous implementation was to run EMP proc then restore, but was very buggy. This is a rudimentary alternate implementation, just flags processors to crap out.
+ */
+/obj/machinery/telecomms/proc/ion_storm()
+	var/duration = 270 + rand(1,60)
+	ion_storm = TRUE
+	addtimer(CALLBACK(src, PROC_REF(post_ion_storm_act)), duration SECONDS)
 
-	if(stat & EMPED || !prob(100/severity))
-		return
+/obj/machinery/telecomms/proc/post_ion_storm_act()
+	ion_storm = FALSE
 
-	stat |= EMPED
-	addtimer(CALLBACK(src, PROC_REF(post_emp_act)), (300 SECONDS) / severity)
-
-/obj/machinery/telecomms/proc/emp_damage()
+/obj/machinery/telecomms/proc/ion_storm_damage()
 	integrity = between(0, integrity - (rand(5,15)), 100)
 
-/obj/machinery/telecomms/proc/post_emp_act()
-	stat &= ~EMPED
-	toggle_power(POWER_USE_IDLE)
 
 /obj/machinery/telecomms/proc/check_heat()
 	// Checks heat from the environment and applies any integrity damage
@@ -288,8 +290,8 @@
 	return signal && (!freq_listening.len || (signal.frequency in freq_listening))
 
 /*
- *	Reception range of telecomms machines is limited via overmap_range
- *	Returns distance, not a boolean value, so don't do !get_reception or so help me god
+ * Reception range of telecomms machines is limited via overmap_range
+ * Returns distance, not a boolean value, so don't do !get_reception or so help me god
  */
 /obj/machinery/telecomms/proc/get_signal_dist(datum/signal/subspace/signal)
 	if(!SSatlas.current_map.use_overmap || !istype(linked) || !istype(signal.sector))

@@ -42,10 +42,11 @@ ABSTRACT_TYPE(/obj/item/rfd)
 	 */
 	var/list/radial_modes = list()
 
-	var/stored_matter = 30 // Starts of full.
+	/// Starts off full.
+	var/stored_matter = 30
 	var/working = FALSE
 
-	///The mode the RFD is currently operating in
+	/// The mode the RFD is currently operating in
 	var/mode = RFD_FLOORS_AND_WALL
 
 	var/number_of_modes = 1
@@ -77,13 +78,19 @@ ABSTRACT_TYPE(/obj/item/rfd)
 /obj/item/rfd/proc/can_use(var/mob/user,var/turf/T)
 	return (user.Adjacent(T) && user.get_active_hand() == src && !user.stat && !user.restrained())
 
+/**
+ * Changes RFD mode.
+ */
 /obj/item/rfd/attack_self(mob/user)
-	//Change the mode
+	// Change the mode
 	if(++mode > number_of_modes)
 		mode = RFD_FLOORS_AND_WALL
 	to_chat(user, SPAN_NOTICE("The mode selection dial is now at [modes[mode]]."))
 	playsound(get_turf(src), 'sound/weapons/laser_safetyon.ogg', 50, FALSE)
 
+/**
+ * If attacked with a Compressed Matter Cartridge, refill the RFD by 10.
+ */
 /obj/item/rfd/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/rfd_ammo))
 		if((stored_matter + 10) > 30)
@@ -97,7 +104,8 @@ ABSTRACT_TYPE(/obj/item/rfd)
 		update_icon()
 		return TRUE
 
-	if(attacking_item.isscrewdriver())  // Turning it into a crossbow
+	// Turning it into a crossbow, as you do.
+	if(attacking_item.isscrewdriver())
 		crafting = !crafting
 		if(!crafting)
 			to_chat(user, SPAN_NOTICE("You reassemble the RFD."))
@@ -107,7 +115,8 @@ ABSTRACT_TYPE(/obj/item/rfd)
 		return TRUE
 
 	if(crafting)
-		var/obj/item/crossbow // the thing we're gonna add, check what it is below
+		// The thing we're gonna add, check what it is below
+		var/obj/item/crossbow
 		if(istype(attacking_item, /obj/item/crossbowframe))
 			var/obj/item/crossbowframe/F = attacking_item
 			if(F.buildstate != 5)
@@ -126,7 +135,8 @@ ABSTRACT_TYPE(/obj/item/rfd)
 
 		if(crossbow)
 			qdel(crossbow)
-			var/obj/item/gun/launcher/crossbow/RFD/CB = new(get_turf(user)) // Can be found in "crossbow.dm".
+			// Can be found in "crossbow.dm".
+			var/obj/item/gun/launcher/crossbow/RFD/CB = new(get_turf(user))
 			forceMove(CB)
 			CB.stored_matter = src.stored_matter
 			user.drop_from_inventory(src)
@@ -143,11 +153,16 @@ ABSTRACT_TYPE(/obj/item/rfd)
 	update_icon()
 	return TRUE
 
-/obj/item/rfd/update_icon()	// For the fancy "ammo" counter.
+	// For the fancy "ammo" counter.
+/**
+ * Adds a fancy ammo counter.
+ */
+/obj/item/rfd/update_icon()
 	CutOverlays()
 
 	var/ratio = 0
-	ratio = stored_matter / 30	//30 is the hardcoded max capacity of the RFD
+	/// 30 is the hardcoded max capacity of the RFD
+	ratio = stored_matter / 30
 	ratio = max(round(ratio, 0.10) * 100, 10)
 
 	AddOverlays("[icon_state]-[ratio]")
@@ -184,7 +199,7 @@ ABSTRACT_TYPE(/obj/item/rfd)
 	var/can_rwall = FALSE
 	var/disabled = FALSE
 
-	///A list of types that will be sent to the alter_atom proc if we click on them, rather than their turf.
+	/// A list of types that will be sent to the alter_atom proc if we click on them, rather than their turf.
 	var/list/valid_atoms = list(
 		/obj/machinery/door/airlock,
 		/obj/structure/window_frame,
@@ -239,7 +254,8 @@ ABSTRACT_TYPE(/obj/item/rfd)
 	if(working)
 		return FALSE
 
-	var/turf/T = isturf(A) ? A : null // the lower istypes will return false if T is null, which means we don't have to check whether it's an atom or a turf
+	// The lower istypes will return false if T is null, which means we don't have to check whether it's an atom or a turf
+	var/turf/T = isturf(A) ? A : null
 	if(mode == RFD_FLOORS_AND_WALL)
 		if(istype(T, /turf/space) || istype(T, T.baseturf))
 			build_cost = 1
@@ -354,7 +370,8 @@ ABSTRACT_TYPE(/obj/item/rfd)
 	build_cost = null
 	build_delay = null
 	build_type = null
-	build_atom = null // So that it resets and any unintended functionality is avoided.
+	/// So that it resets and any unintended functionality is avoided.
+	build_atom = null
 	return TRUE
 
 /obj/item/rfd/construction/borg
@@ -380,7 +397,8 @@ ABSTRACT_TYPE(/obj/item/rfd)
 	return (user.Adjacent(T) && !user.stat)
 
 /obj/item/rfd/construction/mounted/useResource(var/amount, var/mob/user)
-	var/cost = (amount * 130) // So that a rig with default powercell can build ~2.5x the stuff a fully-loaded RFD-C can.
+	/// So that a rig with default powercell can build ~2.5x the stuff a fully-loaded RFD-C can.
+	var/cost = (amount * 130)
 	if(istype(loc, /obj/item/rig_module))
 		var/obj/item/rig_module/module = loc
 		if(module.holder && module.holder.cell)
@@ -692,9 +710,12 @@ ABSTRACT_TYPE(/obj/item/rfd)
 	item_state = "rfd-p"
 	modes = list(STANDARD_PIPE, SUPPLY_PIPE, SCRUBBER_PIPE, FUEL_PIPE, AUX_PIPE, DEVICES)
 	var/selected_mode = STANDARD_PIPE
-	var/pipe_examine = "Pipe" // used in the examine proc to see what you're putting down at a glance
-	var/selected_pipe = 0 // default is standard pipe, used for the new pipe creation
-	build_cost = 1 // this RFD only uses 1 unit of power per pipe, but can be modified if need be in future
+	/// Used in the examine proc to see what you're putting down at a glance
+	var/pipe_examine = "Pipe"
+	/// Default is standard pipe, used for the new pipe creation
+	var/selected_pipe = 0
+	/// This RFD only uses 1 unit of power per pipe, but can be modified if need be in future.
+	build_cost = 1
 	build_delay = 10
 
 	// The numbers below refer to the numberized designator for each pipe, which is used in obj/item/pipe's new

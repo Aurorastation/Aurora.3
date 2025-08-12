@@ -202,7 +202,6 @@
 	name = "\improper Drying Rack"
 	desc = "A machine for drying plants."
 	icon_state = "drying_rack"
-	opacity = TRUE
 	accepted_items = list(/obj/item/reagent_containers/food/snacks)
 	contents_path = null
 

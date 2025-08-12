@@ -50,7 +50,7 @@
 
 /mob/living/simple_animal/hostile/commanded/dog/verb/befriend()
 	set name = "Befriend Dog"
-	set category = "IC"
+	set category = "IC.Critters"
 	set src in view(1)
 
 	if(!master)

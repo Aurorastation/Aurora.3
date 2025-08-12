@@ -2,9 +2,9 @@
 	name = "soil"
 	desc = "A mound of earth. You could plant some seeds here."
 	icon_state = "soil"
-	density = 0
+	density = FALSE
 	use_power = POWER_USE_OFF
-	mechanical = 0
+	mechanical = FALSE
 	tray_light = 0
 	/// Water level begins at zero.
 	waterlevel = 0
@@ -13,6 +13,7 @@
 	/// Retains the ability for soil to grow weeds, as it should.
 	maxWeedLevel = 10
 
+/// TODO: Really need to just merge this with its parent proc, this is all duplicated.
 /obj/machinery/portable_atmospherics/hydroponics/soil/attackby(obj/item/attacking_item, mob/user)
 	//A special case for if the container has only water, for manual watering with buckets
 	if (istype(attacking_item, /obj/item/reagent_containers))
@@ -24,6 +25,7 @@
 					RC.reagents.remove_reagent(/singleton/reagent/water, amountToRemove, 1)
 					waterlevel += amountToRemove
 					user.visible_message("[user] pours [amountToRemove]u of water into the soil."," You pour [amountToRemove]u of water into the soil.")
+					playsound(src, /singleton/sound_category/generic_pour_sound, 25, 1)
 				else
 					to_chat(user, "The soil is saturated with water already.")
 				return 1
