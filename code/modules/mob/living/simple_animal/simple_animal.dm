@@ -116,6 +116,7 @@
 	//LETTING SIMPLE ANIMALS ATTACK? WHAT COULD GO WRONG. Defaults to zero so Ian can still be cuddly
 	var/melee_damage_lower = 0
 	var/melee_damage_upper = 0
+	var/melee_reach = 1
 	var/armor_penetration = 0
 	var/attack_flags = 0
 	var/attacktext = "attacked"
@@ -1078,6 +1079,17 @@
 /mob/living/simple_animal/proc/derez()
 	visible_message(SPAN_NOTICE("\The [src] fades away!"))
 	qdel(src)
+
+//Taken from /obj/item/proc/attack_can_reach
+/mob/living/simple_animal/proc/attack_can_reach(var/atom/us, var/atom/them, var/range)
+	if(us.Adjacent(them))
+		return TRUE // Already adjacent.
+	else if(range <= 1)
+		return FALSE
+	if(AStar(get_turf(us), get_turf(them), /turf/proc/AdjacentTurfsRanged, /turf/proc/Distance, max_nodes=25, max_node_depth=range))
+		return TRUE
+	return FALSE
+
 
 #undef BLOOD_NONE
 #undef BLOOD_LIGHT
