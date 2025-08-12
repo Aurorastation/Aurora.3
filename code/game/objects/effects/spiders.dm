@@ -74,7 +74,7 @@
 		return TRUE
 	if(mover?.movement_type & PHASING)
 		return TRUE
-	if(istype(mover, /mob/living/simple_animal/hostile/giant_spider))
+	if(istype(mover, /mob/living/simple_animal/hostile/giant_spider) || (mover.pulledby && istype(mover.pulledby, /mob/living/simple_animal/hostile/giant_spider)))
 		return TRUE
 	else if(istype(mover, /mob/living))
 		if(prob(50))
