@@ -185,6 +185,13 @@
 	if(cell)
 		cell.emp_act(severity)
 
+/obj/machinery/recharge_station/attack_hand(mob/user)
+	. = ..()
+	if(occupant && (user != occupant))
+		if(do_after(user, 1 SECOND, src))
+			user.visible_message(SPAN_NOTICE("[user] lowers the manual release lever on \the [src]."), SPAN_NOTICE("You lower the manual release lever on \the [src]."))
+			go_out()
+
 /obj/machinery/recharge_station/attackby(obj/item/attacking_item, mob/user)
 	if(!occupant)
 		if(default_deconstruction_screwdriver(user, attacking_item))

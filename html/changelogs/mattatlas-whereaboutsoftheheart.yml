@@ -61,3 +61,4 @@ changes:
   - rscadd: "IPCs now have a unique vulnerability to burst damage."
   - rscadd: "Industrial IPCs can now be Security again."
   - rscadd: "Added weight and strength mechanics for mobs."
+  - rscadd: "You can now force eject mobs out of a synthetic recharging station by clicking it."

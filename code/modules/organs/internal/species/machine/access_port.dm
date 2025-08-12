@@ -122,7 +122,7 @@
 
 	var/obj/item/organ/internal/machine/posibrain/posibrain = owner.internal_organs_by_name[BP_BRAIN]
 	if(istype(posibrain))
-		if(posibrain.firewall)
+		if(posibrain.firewall && !user.stat)
 			to_chat(user, SPAN_MACHINE_WARNING("Firewall block detected. Aborting."))
 			to_chat(diagnostics_unit.owner, SPAN_MACHINE_WARNING("Your firewall has blocked an unrecognized access attempt."))
 			return
