@@ -60,7 +60,17 @@ export const SyntheticFabricator = (props, context) => {
       <Window.Content scrollable>
         <Flex fontSize="1.2rem" wrap>
           <Flex.Item>
-            <Section title="Materials" fill>
+            <Section
+              title="Materials"
+              fill
+              buttons={
+                <Button
+                  content="Sync"
+                  icon="sync"
+                  color="green"
+                  onClick={() => act('sync')}
+                />
+              }>
               <LabeledControls>
                 {data.materials.map((material) => (
                   <LabeledControls.Item
