@@ -1,8 +1,3 @@
-// Global lists for this ruin
-GLOBAL_LIST_EMPTY(light_group_1)
-GLOBAL_LIST_EMPTY(light_group_2)
-GLOBAL_LIST_EMPTY(light_group_3)
-
 /**
  * Storytelling Holograms
  * Compatible to use in any maps. Ported and adapted from Paradise Station.
@@ -103,47 +98,19 @@ GLOBAL_LIST_EMPTY(light_group_3)
 ######################################*/
 
 //---- Lights
+
 /obj/machinery/light/small/decayed/quarantined_outpost
-	brightness_range = 6
-	brightness_power = 0.45
-	brightness_color = LIGHT_COLOR_DECAYED
-	randomize_color = FALSE
 
-/obj/machinery/light/small/decayed/quarantined_outpost/dramatic // Used in this ruin for "dramatic" intoruction
-
-/obj/machinery/light/small/decayed/quarantined_outpost/dramatic/Initialize()
+/obj/machinery/light/small/decayed/quarantined_outpost/Initialize()
 	. = ..()
 	stat |= POWEROFF
 
-/obj/machinery/light/small/decayed/quarantined_outpost/dramatic/group_1
+// Used in some rooms in the ruin, triggered to be turned on introductions
+/obj/machinery/light/small/decayed/quarantined_outpost/group_1
 
-/obj/machinery/light/small/decayed/quarantined_outpost/dramatic/group_1/Initialize(mapload)
-	. = ..()
-	GLOB.light_group_1 += src
+/obj/machinery/light/small/decayed/quarantined_outpost/group_2
 
-/obj/machinery/light/small/decayed/quarantined_outpost/dramatic/group_1/Destroy()
-	. = ..()
-	GLOB.light_group_1 -= src
-
-/obj/machinery/light/small/decayed/quarantined_outpost/dramatic/group_2
-
-/obj/machinery/light/small/decayed/quarantined_outpost/dramatic/group_2/Initialize(mapload)
-	. = ..()
-	GLOB.light_group_2 += src
-
-/obj/machinery/light/small/decayed/quarantined_outpost/dramatic/group_2/Destroy()
-	. = ..()
-	GLOB.light_group_2 -= src
-
-/obj/machinery/light/small/decayed/quarantined_outpost/dramatic/group_3
-
-/obj/machinery/light/small/decayed/quarantined_outpost/dramatic/group_3/Initialize(mapload)
-	. = ..()
-	GLOB.light_group_3 += src
-
-/obj/machinery/light/small/decayed/quarantined_outpost/dramatic/group_3/Destroy()
-	. = ..()
-	GLOB.light_group_3 -= src
+/obj/machinery/light/small/decayed/quarantined_outpost/group_3
 
 //---- Main player detector
 
@@ -190,14 +157,7 @@ GLOBAL_LIST_EMPTY(light_group_3)
 
 	loop_again:
 	sleep(2 SECONDS)
-	switch(I)
-		if(1)
-			target_list = GLOB.light_group_1
-		if(2)
-			target_list = GLOB.light_group_2
-		if(3)
-			target_list = GLOB.light_group_3
-
+	// note for self, put your group lights here
 	for(var/obj/machinery/light/small/decayed/quarantined_outpost/O in target_list)
 		O.stat &= ~POWEROFF
 		O.update()

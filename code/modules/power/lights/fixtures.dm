@@ -32,7 +32,7 @@
 	var/obj/item/light/inserted_light = /obj/item/light/tube
 	var/fitting = "tube"
 	var/must_start_working = FALSE // Whether the bulb can break during Initialize or not
-	/// If set true, light sources have 50% chance to be broken after Initialize.
+	/// If true, light sources have 50% chance to be broken instead after Initialize.
 	var/maybe_broken = FALSE
 	var/switchcount = 0			// count of number of times switched on/off
 								// this is used to calc the probability the light burns out
@@ -658,6 +658,10 @@
 	maybe_broken = TRUE
 	icon_state = "tube_maybe_broken_preview"
 
+/obj/machinery/light/maybe_broken/decayed
+	brightness_color = LIGHT_COLOR_DECAYED
+	randomize_color = FALSE
+
 /obj/machinery/light/skrell
 	base_state = "skrell"
 	icon_state = "skrell_empty"
@@ -726,6 +730,10 @@
 	maybe_broken = TRUE
 	icon_state = "floortube_maybe_broken_preview"
 
+/obj/machinery/light/floor/maybe_broken/decayed
+	brightness_color = LIGHT_COLOR_DECAYED
+	randomize_color = FALSE
+
 /obj/machinery/light/floor/maybe_broken
 	maybe_broken = TRUE
 	icon_state = "floortube_maybe_broken"
@@ -765,6 +773,10 @@
 	maybe_broken = TRUE
 	icon_state = "bulb_maybe_broken_preview"
 
+/obj/machinery/light/small/maybe_broken/decayed
+	brightness_color = LIGHT_COLOR_DECAYED
+	randomize_color = FALSE
+
 /obj/machinery/light/small/floor
 	name = "small floor lighting fixture"
 	icon_state = "floor_example"
@@ -793,3 +805,8 @@
 	brightness_color = LIGHT_COLOR_RED
 	randomize_color = FALSE
 
+/obj/machinery/light/small/decayed
+	brightness_range = 6
+	brightness_power = 0.45
+	brightness_color = LIGHT_COLOR_DECAYED
+	randomize_color = FALSE
