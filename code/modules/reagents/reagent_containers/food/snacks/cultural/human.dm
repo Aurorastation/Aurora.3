@@ -307,12 +307,41 @@
 	filling_color = "#c06917"
 
 /obj/item/reagent_containers/food/snacks/jambalaya/update_icon()
-	var/percent = round((reagents.total_volume / 12) * 100)
-	switch(percent)
-		if(0 to 49)
+	var/percent_jambalaya = round((reagents.total_volume / 12) * 100)
+	switch(percent_jambalaya)
+		if(0 to 50)
 			icon_state = "jambalaya_half"
-		else if(50 to INFINITY)
+		else
 			icon_state = "jambalaya"
+
+/obj/item/reagent_containers/food/snacks/bowl/pop_shrimp_bowl
+	name = "bowl of pop shrimp" //Popcorn shrimp were invented in the 70's (after the timeline divergence date) so I figured I'd call them something similar but different in this universe.
+	gender = PLURAL
+	desc = "A bowl of fried shrimp so small and crunchy you can just pop them right in your mouth!"
+	icon = 'icons/obj/item/reagent_containers/food/fryer.dmi'
+	icon_state = "popshrimp_full"
+	unitname = "pop shrimp"
+	filling_color = "#be7017"
+	trash = /obj/item/trash/snack_bowl
+	vendingobject = /obj/item/reagent_containers/food/snacks/pop_shrimp
+	bitesize = 1
+	reagents_to_add = list(/singleton/reagent/nutriment/protein/seafood = 5, /singleton/reagent/nutriment = 1)
+	reagent_data = list(/singleton/reagent/nutriment/protein/seafood = list("crunchy fried shrimp" = 5), /singleton/reagent/nutriment = list("seasoning" = 5))
+
+/obj/item/reagent_containers/food/snacks/bowl/pop_shrimp_bowl/update_icon()
+	switch(reagents.total_volume)
+		if(1 to 3)
+			icon_state = "popshrimp_half"
+		if(4 to INFINITY)
+			icon_state = "popshrimp_full"
+
+/obj/item/reagent_containers/food/snacks/pop_shrimp
+	name = "pop shrimp"
+	desc = "A handful of crunchy, fried shrampies!"
+	icon = 'icons/obj/item/reagent_containers/food/fryer.dmi'
+	icon_state = "popshrimp"
+	bitesize = 10
+	filling_color = "#be7017"
 
 // Konyang
 

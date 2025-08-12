@@ -172,6 +172,21 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/stuffing
 
+/singleton/recipe/stuffing_alt
+	appliance = OVEN
+	reagents = list(/singleton/reagent/water = 5, /singleton/reagent/sodiumchloride = 1, /singleton/reagent/blackpepper = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/breadslice,
+		/obj/item/reagent_containers/food/snacks/breadslice,
+		/obj/item/reagent_containers/food/snacks/breadslice,
+		/obj/item/reagent_containers/food/snacks/breadslice,
+		/obj/item/reagent_containers/food/snacks/breadslice,
+		/obj/item/reagent_containers/food/snacks/breadslice,
+		/obj/item/reagent_containers/food/snacks/breadslice,
+		/obj/item/reagent_containers/food/snacks/breadslice
+	)
+	result = /obj/item/reagent_containers/food/snacks/stuffing
+
 /singleton/recipe/angry_bread
 	appliance = OVEN
 	fruit = list("carrot" = 1)

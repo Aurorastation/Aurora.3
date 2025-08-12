@@ -109,6 +109,13 @@
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/soup/gazpacho
 
+/singleton/recipe/pumpkinsoup
+	appliance = SAUCEPAN | POT
+	fruit = list("pumpkin" = 1)
+	reagents = list(/singleton/reagent/water = 5, /singleton/reagent/drink/milk/cream = 5)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/soup/pumpkin
+
 // Stews
 /singleton/recipe/stew
 	appliance = POT

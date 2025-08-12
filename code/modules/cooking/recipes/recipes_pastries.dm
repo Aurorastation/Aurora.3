@@ -141,7 +141,7 @@
 	appliance = OVEN
 	reagents = list(/singleton/reagent/sugar = 5)
 	items = list(
-		/obj/item/reagent_containers/food/snacks/doughslice,
+			/obj/item/reagent_containers/food/snacks/doughslice,
 		/obj/item/paper
 	)
 	result = /obj/item/reagent_containers/food/snacks/fortunecookie
@@ -209,7 +209,9 @@
 	appliance = OVEN
 	fruit = list("cranberries" = 1, "orange"  = 1)
 	items = list(
-		/obj/item/reagent_containers/food/snacks/sliceable/flatdough
+		/obj/item/reagent_containers/food/snacks/doughslice,
+		/obj/item/reagent_containers/food/snacks/doughslice,
+		/obj/item/reagent_containers/food/snacks/doughslice
 	)
 	reagents = list(/singleton/reagent/sugar = 5, /singleton/reagent/drink/milk/cream = 5)
 	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify and replace
