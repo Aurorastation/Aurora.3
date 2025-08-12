@@ -145,7 +145,7 @@
 		// The lower our thermostat setting, the more power we consume.
 		var/extra_power_consumption = 0
 		if(thermostat < initial(thermostat))
-			extra_power_consumption = ((initial(thermostat) - thermostat) + T0C) * 0.2
+			extra_power_consumption = ((initial(thermostat) - thermostat) + T0C) * 0.1
 
 		var/temperature_change = passive_temp_change
 		if(thermostat < owner.bodytemperature)
