@@ -55,9 +55,10 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Added 8 new food dishes (including 5 new Konyanger dishes) and 1 new sauce (sweet chili)."
-  - rscadd: "Added macarons to the custom foods you can make with the oven."
-  - rscadd: "Waffles and fries now visually change based on some specific syrups or condiments you might pour onto them."
-  - rscdel: "Removed the feature of batter (and by extention, a lot of fried foods) making people throw up."
-  - code_imp: "Moved a few foods around in the code to be in the correct food categories (such as Elotes being listed with other Mictlani food now)."
-  - qol: "Made produce boxes sometimes spawn garlic as random produce, and made onions a bit more likely to spawn as well, now that more recipes require them."
+  - rscadd: "Added 13 new food dishes (6 of them are pizzas)."
+  - rscadd: "Added 2 new drinks."
+  - rscadd: "Added raw shrimp as a new ingredient that can be ordered from cargo."
+  - rscadd: "Added sliced bread that can either randomly spawn in the kitchen fridge at the start of a shift or be ordered from cargo."
+  - rscadd: "Added raw shrimp to the requirements for making north 60 squid."
+  - code_imp: "Set a defined color for S'th berry juice as it was not defined preivously."
+  - qol: "Renamed the 'empty shakshouka pan' trash item to be something more generic so other dishes can use it as well."
