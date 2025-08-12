@@ -12,7 +12,7 @@
 	 */
 	var/burst_damage_counter = 0
 	/// The breaking point to trigger a burst damage event.
-	var/burst_damage_maximum = 50
+	var/burst_damage_maximum = 30
 	/// The world.time of the first shot to start the burst damage counter.
 	var/burst_damage_hit_time
 	/// This grace period starts when burst_damage_hit_time is set, and will automatically clear that variable after 10 seconds.

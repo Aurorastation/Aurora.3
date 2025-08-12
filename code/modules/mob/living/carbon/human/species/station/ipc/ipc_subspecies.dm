@@ -331,7 +331,7 @@
 
 	unarmed_types = list(/datum/unarmed_attack/industrial/heavy, /datum/unarmed_attack/palm/industrial)
 
-	slowdown = 6
+	slowdown = 2
 	brute_mod = 0.7
 	grab_mod = 0.7 // Bulkier and bigger than the G1
 	resist_mod = 12 // Overall stronger than G1
