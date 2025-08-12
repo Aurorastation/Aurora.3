@@ -220,3 +220,19 @@
   nauticall:
   - imageadd: Resprited vents, scrubbers, and the disposal system sprites to be sleeker/more
       industrial/less dated.
+2025-08-12:
+  Batrachophrenoboocosmomachia:
+  - qol: Verb organization improvements.
+  CatsinHD:
+  - rscadd: Added uniforms for Security and Medical roles for Kazarrhaldiye Operations
+      Group.
+  - rscadd: Added jackets for Security Officers, Wardens, Heads of Security, and Medical
+      roles for Kazarrhaldiye Operations Group.
+  - rscadd: Added shoulder tabs for PRA, DPRA/ALA, and NKA members of Kazarrhaldiye
+      Operations Group.
+  TheGreyWolf:
+  - rscadd: The security belt in the investigator locker now starts with some of their
+      equipment already in it.
+  - rscadd: The security belt can now hold notepads.
+  notagonk:
+  - rscadd: Allows Human Offworlders to play as Heads of Security.
