@@ -77,7 +77,7 @@
 /// Parent object for stationary objects that still need to access ship systems (such as the Sensor Relays)
 /obj/effect/overmap/visitable/ship/stationary
 	name = "generic station"
-	desc = "A general space station, see if you can find the other twelve."
+	desc = "A generic space station, see if you can find the other twelve."
 	obfuscated_name = "unidentified stationary object"
 	unknown_id = "Unknown artificial structure"
 	static_vessel = TRUE
