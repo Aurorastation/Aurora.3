@@ -7,7 +7,6 @@
 	parent_organ = BP_CHEST
 	possible_modifications = list(
 		"Electric",
-		"Kinetic",
 		"Biological",
 		"Solar"
 	)
