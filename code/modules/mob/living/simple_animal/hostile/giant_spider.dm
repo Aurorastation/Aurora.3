@@ -166,6 +166,8 @@
 	get_light_and_color(parent)
 	add_language(LANGUAGE_GREIMORIAN)
 	add_language(LANGUAGE_GREIMORIAN_HIVEMIND)
+	remove_language(LANGUAGE_TCB)
+	default_language = GLOB.all_languages[LANGUAGE_GREIMORIAN]
 
 /mob/living/simple_animal/hostile/giant_spider/nurse/servant/Initialize()
 	. = ..()
