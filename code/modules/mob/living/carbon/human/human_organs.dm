@@ -37,7 +37,7 @@
 			internal_organs -= I
 			continue
 
-		I.process()
+		I.process(seconds_per_tick)
 
 	handle_stance()
 	handle_grasp()
