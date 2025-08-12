@@ -1,0 +1,4302 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/obj/structure/closet/walllocker{
+	pixel_x = -32
+	},
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/item/clothing/accessory/flagpatch/sol,
+/obj/item/clothing/accessory/flagpatch/sol,
+/obj/item/clothing/head/sol/army,
+/obj/item/clothing/head/sol/army,
+/obj/item/clothing/under/rank/sol/army,
+/obj/item/clothing/under/rank/sol/army,
+/obj/item/melee/energy/sword/knife/sol,
+/obj/effect/decal/fake_object{
+	icon = 'icons/obj/monitors.dmi';
+	icon_state = "camera1";
+	name = "old security camera";
+	desc = "It's used to monitor rooms. This one is far too old, and has decayed to such a condition that it's no longer usable."
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 10
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"ae" = (
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/floor_damage,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"aZ" = (
+/obj/structure/filingcabinet/chestdrawer{
+	pixel_x = -6
+	},
+/obj/structure/filingcabinet/filingcabinet{
+	pixel_x = 9
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"bb" = (
+/obj/effect/floor_decal/snowdrift/large/random,
+/turf/simulated/floor/exoplanet/snow/cold,
+/area/space)
+"bm" = (
+/obj/effect/decal/fake_object{
+	icon = 'icons/obj/item/landmine/mine.dmi';
+	icon_state = "landmine";
+	desc = "An anti-personnel explosive device used for area denial. This one seems to be inactive after so many years.";
+	name = "old land mine"
+	},
+/turf/simulated/floor/exoplanet/snow/cold,
+/area/space)
+"bD" = (
+/obj/machinery/porta_turret/ballistic{
+	light_range = 1
+	},
+/obj/machinery/light/small/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/effect/floor_decal/industrial/outline/red,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"bG" = (
+/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/airlock/highsecurity{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"ct" = (
+/obj/effect/floor_decal/industrial/outline_straight/security{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"cD" = (
+/obj/structure/sign/flag/sol/old{
+	pixel_y = 32
+	},
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/floor_damage,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"cJ" = (
+/obj/structure/filingcabinet/filingcabinet{
+	pixel_x = 7
+	},
+/obj/structure/filingcabinet/filingcabinet{
+	pixel_x = -7
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"cO" = (
+/obj/machinery/light/colored/decayed{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"cP" = (
+/obj/machinery/turretid/lethal{
+	dir = 8;
+	name = "Bunker Turrets Control";
+	pixel_x = 32;
+	req_access = null
+	},
+/obj/machinery/button/remote/blast_door{
+	dir = 1;
+	pixel_x = -6;
+	id = "sol_artic_bunker_inner";
+	name = "Inner Checkpoint";
+	pixel_y = 32
+	},
+/obj/machinery/button/remote/blast_door{
+	dir = 1;
+	pixel_x = 6;
+	id = "sol_artic_bunker_outer";
+	name = "Outer Checkpoint";
+	pixel_y = 32
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"cR" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"cY" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"db" = (
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 1
+	},
+/obj/structure/reagent_dispensers/watertank,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"dd" = (
+/obj/machinery/light/broken{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"dq" = (
+/obj/machinery/photocopier,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"dx" = (
+/obj/effect/floor_decal/corner/beige/full{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"dQ" = (
+/obj/structure/barricade/liquid/wired{
+	dir = 1;
+	pixel_y = 7
+	},
+/turf/simulated/floor/exoplanet/snow/cold,
+/area/space)
+"eZ" = (
+/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/structure/sink{
+	pixel_y = 22
+	},
+/obj/structure/mirror{
+	pixel_y = 36
+	},
+/obj/structure/closet/walllocker{
+	pixel_x = -32
+	},
+/obj/item/soap/cyan_soap,
+/obj/item/reagent_containers/toothpaste,
+/obj/item/reagent_containers/toothbrush,
+/obj/item/reagent_containers/toothbrush/green,
+/obj/item/towel/random,
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 10
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"fw" = (
+/obj/structure/barricade/liquid/wired{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/snow/cold,
+/area/space)
+"fz" = (
+/obj/structure/flora/pottedplant/dead,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 5
+	},
+/obj/machinery/firealarm/north,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"fG" = (
+/obj/structure/bed/roller,
+/obj/effect/floor_decal/corner_wide/green/full{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"fO" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/structure/toilet{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"gj" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/obj/machinery/light/small/floor{
+	brightness_color = "#fabd6d";
+	randomize_color = 0
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"hP" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/reagent_containers/food/drinks/waterbottle{
+	pixel_y = 2;
+	pixel_x = 6
+	},
+/obj/item/material/ashtray/plastic{
+	pixel_y = 7;
+	pixel_x = -6
+	},
+/obj/effect/floor_decal/corner/dark_blue/full{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"im" = (
+/obj/effect/floor_decal/corner_wide/green/diagonal,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"is" = (
+/obj/structure/table/reinforced/steel,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"iK" = (
+/turf/simulated/floor/exoplanet/snow/cold,
+/area/space)
+"iN" = (
+/obj/structure/platform/ledge/dark,
+/obj/structure/platform/ledge/dark{
+	dir = 8
+	},
+/obj/structure/platform_deco/ledge/dark{
+	dir = 9
+	},
+/obj/effect/floor_decal/snow/corner{
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/tiled/dark,
+/area/space)
+"iP" = (
+/obj/structure/bed/padded,
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 5
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"jc" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"ji" = (
+/obj/structure/platform/ledge/dark{
+	dir = 1
+	},
+/obj/structure/platform/ledge/dark{
+	dir = 8
+	},
+/obj/structure/platform_deco/ledge/dark{
+	dir = 6
+	},
+/turf/simulated/floor/exoplanet/snow/cold,
+/area/space)
+"jo" = (
+/obj/structure/table/reinforced/steel,
+/obj/effect/floor_decal/corner/dark_blue/full{
+	dir = 8
+	},
+/obj/item/clothing/head/helmet/sol{
+	pixel_x = 5;
+	pixel_y = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"jw" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"ka" = (
+/obj/structure/sign/securearea{
+	desc = "A warning sign which reads 'KEEP CLEAR OF DOCKING AREA'.";
+	name = "SECURE AREA: MINE FIELD"
+	},
+/turf/simulated/wall/r_wall,
+/area/space)
+"kj" = (
+/obj/machinery/sleeper{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/beige/full,
+/obj/effect/floor_decal/industrial/hatch/security,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"kq" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-4"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/space)
+"kt" = (
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/floor_damage,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"kz" = (
+/obj/machinery/power/rtg,
+/obj/structure/cable/yellow{
+	icon_state = "0-8"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/plating,
+/area/space)
+"kH" = (
+/obj/machinery/door/airlock/silver{
+	name = "Toilet";
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"kU" = (
+/obj/machinery/iv_drip,
+/obj/effect/floor_decal/corner_wide/green{
+	dir = 6
+	},
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"lj" = (
+/obj/structure/closet/secure_closet/guncabinet,
+/obj/item/gun/projectile/automatic/c20r/sol,
+/obj/item/ammo_magazine/a10mm,
+/obj/item/ammo_magazine/a10mm,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"lq" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-4"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-8"
+	},
+/obj/machinery/light/colored/decayed,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/plating,
+/area/space)
+"lw" = (
+/turf/simulated/floor/tiled/ramp,
+/area/space)
+"lM" = (
+/obj/machinery/power/rtg,
+/obj/structure/cable/yellow{
+	icon_state = "0-4"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/plating,
+/area/space)
+"lR" = (
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 9
+	},
+/obj/structure/sign/flag/sol/old/large/north{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"lY" = (
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/machinery/porta_turret/ballistic{
+	light_range = 1;
+	health = 0
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"ma" = (
+/obj/effect/floor_decal/snow/surround{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/tiled/dark,
+/area/space)
+"mg" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"mu" = (
+/obj/item/landmine/frag{
+	layer = 2.029
+	},
+/obj/effect/floor_decal/snowdrift/large/random,
+/turf/simulated/floor/exoplanet/snow/cold,
+/area/space)
+"mU" = (
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"nD" = (
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/machinery/light/small/floor{
+	brightness_color = "#fabd6d";
+	randomize_color = 0
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"nN" = (
+/obj/effect/decal/fake_object{
+	icon = 'icons/obj/monitors.dmi';
+	icon_state = "camera1";
+	name = "old security camera";
+	desc = "It's used to monitor rooms. This one is far too old, and has decayed to such a condition that it's no longer usable.";
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/floor_damage,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"nV" = (
+/obj/structure/blocker/steel/fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/snow/cold,
+/area/space)
+"om" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/heart{
+	pixel_x = 6;
+	pixel_y = 4
+	},
+/obj/item/reagent_containers/food/drinks/carton/applejuice{
+	pixel_y = 8;
+	pixel_x = -6
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"ox" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille,
+/turf/simulated/floor/plating,
+/area/space)
+"oH" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/generic,
+/obj/effect/decal/cleanable/floor_damage,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"pd" = (
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"pN" = (
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"pR" = (
+/obj/structure/platform/ledge/dark,
+/obj/structure/platform/ledge/dark{
+	dir = 4
+	},
+/obj/structure/platform_deco/ledge/dark{
+	dir = 5
+	},
+/obj/structure/platform/ledge/dark{
+	dir = 8
+	},
+/obj/structure/platform_deco/ledge/dark{
+	dir = 9
+	},
+/turf/simulated/floor/exoplanet/snow/cold,
+/area/space)
+"pU" = (
+/obj/machinery/computer/terminal/inactive{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_corner/medical{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"pW" = (
+/obj/structure/reagent_dispensers/water_cooler{
+	pixel_x = 7
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"qa" = (
+/obj/structure/bed/roller,
+/obj/effect/floor_decal/corner_wide/green{
+	dir = 6
+	},
+/obj/machinery/light/colored/decayed{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"qh" = (
+/obj/machinery/door/blast/shutters{
+	name = "Inner Checkpoint Shutter";
+	id = "sol_artic_bunker_inner"
+	},
+/obj/effect/floor_decal/industrial/hatch_door/red,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techmaint,
+/area/space)
+"qM" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner_wide/green/diagonal,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"qX" = (
+/obj/effect/floor_decal/corner_wide/green{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"rt" = (
+/obj/machinery/computer/terminal/inactive{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_corner/yellow{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"sc" = (
+/obj/machinery/light/broken,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/floor_damage,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"si" = (
+/obj/structure/platform/ledge/dark{
+	dir = 1
+	},
+/obj/effect/floor_decal/snow/surround{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/tiled/dark,
+/area/space)
+"so" = (
+/obj/effect/floor_decal/snowdrift/random,
+/turf/simulated/floor/exoplanet/snow/cold,
+/area/space)
+"sA" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/barren,
+/area/space)
+"sD" = (
+/obj/machinery/door/blast/shutters{
+	name = "Inner Checkpoint Shutter";
+	id = "sol_artic_bunker_inner"
+	},
+/obj/effect/floor_decal/industrial/hatch_door/red,
+/turf/simulated/floor/tiled/techmaint,
+/area/space)
+"sK" = (
+/obj/effect/decal/fake_object{
+	icon = 'icons/obj/monitors.dmi';
+	icon_state = "camera1";
+	name = "old security camera";
+	desc = "It's used to monitor rooms. This one is far too old, and has decayed to such a condition that it's no longer usable."
+	},
+/turf/simulated/floor/exoplanet/snow/cold,
+/area/space)
+"sW" = (
+/obj/structure/flora/pottedplant/dead,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"tq" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/floor_damage,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"tr" = (
+/obj/machinery/porta_turret/ballistic{
+	light_range = 1;
+	health = 0
+	},
+/obj/machinery/light/small/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/effect/floor_decal/industrial/outline/red,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"ul" = (
+/obj/machinery/bodyscanner{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/beige/full{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch/medical,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"uu" = (
+/turf/simulated/mineral/random/exoplanet,
+/area/space)
+"uv" = (
+/obj/structure/sign/electricshock{
+	pixel_x = -32
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"uQ" = (
+/obj/structure/bed/stool/chair/office/dark,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"uW" = (
+/obj/machinery/computer/terminal/inactive{
+	dir = 4
+	},
+/obj/machinery/light/colored/decayed{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_corner/security{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"vf" = (
+/obj/structure/bed/stool{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"vD" = (
+/obj/structure/flora/bush,
+/turf/simulated/floor/exoplanet/snow/cold,
+/area/space)
+"wc" = (
+/obj/structure/flora/tree/pine,
+/turf/simulated/floor/exoplanet/snow/cold,
+/area/space)
+"wm" = (
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/floor_damage,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"wp" = (
+/obj/structure/bedsheetbin{
+	pixel_x = 4;
+	pixel_y = 16
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"ws" = (
+/obj/structure/platform/ledge/dark{
+	dir = 1
+	},
+/obj/effect/floor_decal/snow/corner{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/tiled/dark,
+/area/space)
+"wB" = (
+/turf/simulated/floor/exoplanet/barren,
+/area/space)
+"wR" = (
+/obj/machinery/door/firedoor/noid,
+/obj/effect/floor_decal/industrial/hatch_door/red,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"wV" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"xe" = (
+/obj/structure/closet/walllocker/medical/firstaid{
+	pixel_x = 32
+	},
+/obj/effect/floor_decal/industrial/outline/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/effect/floor_decal/industrial/outline_segment/red,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"xv" = (
+/obj/structure/platform/ledge/dark,
+/obj/structure/platform/ledge/dark{
+	dir = 4
+	},
+/obj/structure/platform_deco/ledge/dark{
+	dir = 5
+	},
+/obj/effect/floor_decal/snow/corner{
+	dir = 6
+	},
+/turf/simulated/floor/exoplanet/tiled/dark,
+/area/space)
+"xC" = (
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 4
+	},
+/obj/structure/flora/pottedplant/dead,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"yT" = (
+/obj/structure/platform/ledge/dark{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/snow/cold,
+/area/space)
+"zb" = (
+/obj/effect/floor_decal/industrial/outline_straight/security{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"ze" = (
+/obj/machinery/computer/terminal/inactive{
+	dir = 4
+	},
+/obj/machinery/light/colored/decayed{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_corner/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"zq" = (
+/obj/structure/filingcabinet/filingcabinet{
+	pixel_x = -7
+	},
+/obj/structure/filingcabinet/filingcabinet{
+	pixel_x = 7
+	},
+/obj/effect/floor_decal/corner/dark_blue/full{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/cobweb,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"zr" = (
+/obj/structure/table/reinforced/steel,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"zD" = (
+/obj/structure/blocker/steel/fence,
+/turf/simulated/floor/exoplanet/snow/cold,
+/area/space)
+"zG" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/generic,
+/obj/effect/decal/cleanable/floor_damage,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"AQ" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"AU" = (
+/obj/machinery/firealarm/north,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"Bg" = (
+/obj/structure/bed/stool{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"Bn" = (
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/obj/machinery/door/airlock/highsecurity{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"Bu" = (
+/obj/structure/bed/padded{
+	name = "bottom bunk"
+	},
+/obj/structure/bed/padded{
+	pixel_y = 14;
+	name = "top bunk"
+	},
+/obj/item/bedsheet/black,
+/obj/item/bedsheet/black{
+	pixel_y = 13
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"BD" = (
+/obj/machinery/computer/terminal/inactive,
+/obj/effect/floor_decal/industrial/outline_corner/security,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"BG" = (
+/obj/effect/floor_decal/corner_wide/green{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/floor_damage,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"BH" = (
+/obj/machinery/computer/terminal/inactive,
+/obj/effect/floor_decal/industrial/outline_corner/grey,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 5
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"BS" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"Ca" = (
+/obj/structure/sign/greencross{
+	pixel_x = 32
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"Cq" = (
+/obj/effect/decal/fake_object{
+	icon = 'icons/obj/monitors.dmi';
+	icon_state = "camera1";
+	name = "old security camera";
+	desc = "It's used to monitor rooms. This one is far too old, and has decayed to such a condition that it's no longer usable."
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 6
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"Dv" = (
+/obj/structure/sign/flag/sol/old{
+	pixel_y = 32
+	},
+/turf/simulated/floor/exoplanet/snow/cold,
+/area/space)
+"DO" = (
+/obj/structure/flora/rock/snow,
+/turf/simulated/floor/exoplanet/snow/cold,
+/area/space)
+"DV" = (
+/obj/machinery/door/airlock/highsecurity{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"Ej" = (
+/obj/effect/floor_decal/corner_wide/green/diagonal,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"ET" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"EU" = (
+/obj/structure/bed/stool/padded/black,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"Fg" = (
+/obj/structure/bed/padded{
+	name = "bottom bunk"
+	},
+/obj/structure/bed/padded{
+	pixel_y = 14;
+	name = "top bunk"
+	},
+/obj/item/bedsheet/black,
+/obj/item/bedsheet/black{
+	pixel_y = 13
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"Fh" = (
+/obj/item/landmine/frag,
+/turf/simulated/floor/exoplanet/snow/cold,
+/area/space)
+"Fm" = (
+/obj/effect/decal/cleanable/floor_damage,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"Fv" = (
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 6
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"FJ" = (
+/obj/structure/platform/ledge/dark{
+	dir = 1
+	},
+/obj/effect/floor_decal/snow/corner{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/tiled/dark,
+/area/space)
+"Gd" = (
+/obj/machinery/power/rtg,
+/obj/structure/cable/yellow{
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/space)
+"Gj" = (
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"GA" = (
+/obj/structure/foamedmetal,
+/turf/simulated/floor/plating,
+/area/space)
+"GP" = (
+/obj/effect/floor_decal/corner_wide/green{
+	dir = 5
+	},
+/obj/structure/closet/walllocker/medical/secure{
+	name = "Stabilization Kit";
+	req_access = list(203);
+	pixel_y = 32
+	},
+/obj/item/tank/oxygen,
+/obj/item/tank/oxygen,
+/obj/item/bodybag/cryobag,
+/obj/item/bodybag/cryobag,
+/obj/item/auto_cpr,
+/obj/item/auto_cpr,
+/obj/item/clothing/mask/breath/medical,
+/obj/item/clothing/mask/breath/medical,
+/obj/item/reagent_containers/inhaler/pneumalin,
+/obj/item/reagent_containers/inhaler/pneumalin,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Hm" = (
+/obj/structure/barricade/liquid/wired{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/snow/cold,
+/area/space)
+"HD" = (
+/obj/effect/floor_decal/industrial/hatch_door/red,
+/obj/machinery/door/blast/shutters{
+	name = "Outer Checkpoint Shutter";
+	id = "sol_artic_bunker_outer"
+	},
+/turf/simulated/floor/tiled/techmaint,
+/area/space)
+"HE" = (
+/obj/structure/barricade/liquid/wired{
+	dir = 4
+	},
+/obj/effect/floor_decal/snowdrift/random,
+/turf/simulated/floor/exoplanet/snow/cold,
+/area/space)
+"HG" = (
+/obj/structure/bed/stool{
+	pixel_y = 19
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal{
+	pixel_x = 3;
+	pixel_y = 16
+	},
+/obj/item/storage/box/fancy/mrebag/menu2{
+	pixel_x = -7
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"HP" = (
+/obj/structure/sink{
+	dir = 8;
+	pixel_x = -12;
+	pixel_y = 7
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"Ie" = (
+/obj/machinery/door/firedoor/noid,
+/obj/effect/floor_decal/industrial/hatch_door/red,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"IC" = (
+/obj/effect/floor_decal/corner_wide/green/full{
+	dir = 4
+	},
+/obj/structure/closet/crate/bin{
+	name = "trashbin"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"IZ" = (
+/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/floor_damage,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Jc" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/pen{
+	pixel_x = 7;
+	pixel_y = -3
+	},
+/obj/item/paper_bin{
+	pixel_x = -6
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 9
+	},
+/obj/item/clothing/accessory/sol_pin{
+	pixel_y = 14;
+	pixel_x = 7
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"Js" = (
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"Jx" = (
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"JW" = (
+/obj/effect/floor_decal/snowdrift/large/random,
+/obj/item/landmine/frag{
+	layer = 2.029
+	},
+/turf/simulated/floor/exoplanet/snow/cold,
+/area/space)
+"Kb" = (
+/obj/structure/closet/crate/freezer/rations,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/floor_damage,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"Kd" = (
+/obj/effect/floor_decal/snowrocks,
+/turf/simulated/floor/exoplanet/snow/cold,
+/area/space)
+"Kt" = (
+/obj/structure/sign/flag/sol/old{
+	pixel_y = 32;
+	ripped = 1
+	},
+/turf/simulated/floor/exoplanet/snow/cold,
+/area/space)
+"Kw" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 6
+	},
+/obj/effect/decal/fake_object{
+	icon = 'icons/obj/monitors.dmi';
+	icon_state = "camera1";
+	name = "old security camera";
+	desc = "It's used to monitor rooms. This one is far too old, and has decayed to such a condition that it's no longer usable.";
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"KA" = (
+/obj/structure/platform/ledge/dark,
+/obj/structure/platform/ledge/dark{
+	dir = 8
+	},
+/obj/structure/platform_deco/ledge/dark{
+	dir = 9
+	},
+/obj/effect/floor_decal/snow/corner{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/tiled/dark,
+/area/space)
+"KJ" = (
+/obj/effect/floor_decal/corner_wide/green/full{
+	dir = 8
+	},
+/obj/structure/sink/kitchen{
+	pixel_y = 23;
+	name = "sink"
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Lt" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/reagent_containers/glass/beaker/pitcher/coffee{
+	pixel_x = -4;
+	pixel_y = 10
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/green/dark{
+	pixel_x = 9;
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/sol{
+	pixel_x = -9
+	},
+/obj/effect/floor_decal/corner/dark_blue/full,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"Lv" = (
+/obj/effect/floor_decal/corner_wide/green{
+	dir = 6
+	},
+/obj/structure/sign/flag/sol/old{
+	pixel_x = 32;
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/floor_damage,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"LI" = (
+/obj/effect/floor_decal/industrial/outline_straight/security{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"LS" = (
+/obj/structure/platform/ledge/dark{
+	dir = 1
+	},
+/obj/effect/floor_decal/snow/corner{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/tiled/dark,
+/area/space)
+"LV" = (
+/obj/structure/table/reinforced/steel,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"Mj" = (
+/turf/template_noop,
+/area/space)
+"MA" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"MK" = (
+/obj/effect/floor_decal/corner_wide/green{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/light/colored/decayed{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"MV" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"NG" = (
+/obj/structure/platform/ledge/dark,
+/obj/structure/platform/ledge/dark{
+	dir = 4
+	},
+/obj/structure/platform/ledge/dark{
+	dir = 8
+	},
+/obj/structure/platform_deco/ledge/dark{
+	dir = 9
+	},
+/obj/structure/platform_deco/ledge/dark{
+	dir = 5
+	},
+/obj/effect/floor_decal/snow/corner,
+/turf/simulated/floor/exoplanet/tiled/dark,
+/area/space)
+"NX" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/storage/box/fancy/donut{
+	pixel_y = 8
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"Os" = (
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 5
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"Ov" = (
+/obj/structure/closet/secure_closet/guncabinet,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
+	},
+/obj/item/gun/projectile/pistol/sol,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/machinery/light/colored/decayed{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/floor_damage,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"OH" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"Py" = (
+/obj/machinery/porta_turret/ballistic{
+	light_range = 1
+	},
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"PA" = (
+/turf/simulated/floor/tiled/ramp/bottom,
+/area/space)
+"PB" = (
+/obj/machinery/computer/terminal/inactive,
+/obj/effect/floor_decal/industrial/outline_corner/grey,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"PT" = (
+/obj/machinery/door/airlock/engineering{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/hatch_door/yellow{
+	dir = 8
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"PV" = (
+/obj/effect/floor_decal/corner/beige/full{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_corner/medical{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/medical{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/outline_segment/medical{
+	dir = 4
+	},
+/obj/machinery/body_scanconsole,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"PX" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/light/small{
+	dir = 8;
+	must_start_working = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"Qd" = (
+/obj/machinery/light/small/red{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/snow/cold,
+/area/space)
+"Qj" = (
+/obj/machinery/light/small/red{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/snow/cold,
+/area/space)
+"Ql" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"Qo" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 6
+	},
+/obj/machinery/vending/security,
+/obj/effect/floor_decal/industrial/outline_segment/red,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"Qx" = (
+/obj/structure/table/reinforced/steel,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/item/device/gps{
+	pixel_y = 12;
+	pixel_x = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"QL" = (
+/obj/effect/floor_decal/corner_wide/green/diagonal,
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"QS" = (
+/obj/structure/closet/secure_closet/guncabinet,
+/obj/item/gun/projectile/automatic/c20r/sol,
+/obj/item/ammo_magazine/a10mm,
+/obj/item/ammo_magazine/a10mm,
+/obj/effect/floor_decal/corner/dark_blue/full,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"QT" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"Rc" = (
+/obj/structure/filingcabinet/chestdrawer{
+	pixel_x = -7
+	},
+/obj/structure/filingcabinet/filingcabinet{
+	pixel_x = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"Rh" = (
+/obj/effect/floor_decal/industrial/outline_straight/security{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"Rx" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"RK" = (
+/obj/effect/floor_decal/industrial/outline_straight/security{
+	dir = 10
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/floor_damage,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"RM" = (
+/obj/machinery/power/terminal{
+	dir = 8
+	},
+/obj/structure/cable/yellow{
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc/high/north,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/floor_damage,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"RV" = (
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"So" = (
+/obj/machinery/computer/terminal/inactive,
+/obj/effect/floor_decal/corner/dark_blue/full{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_corner/security,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"SA" = (
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"SH" = (
+/obj/structure/table/reinforced/steel,
+/obj/random/smokable{
+	pixel_y = 3;
+	pixel_x = 3
+	},
+/obj/item/flame/lighter{
+	pixel_y = 10;
+	pixel_x = -6
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 5
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"Tm" = (
+/obj/machinery/door/blast/shutters{
+	name = "Outer Checkpoint Shutter";
+	id = "sol_artic_bunker_outer"
+	},
+/obj/effect/floor_decal/industrial/hatch_door/red,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techmaint,
+/area/space)
+"TD" = (
+/obj/effect/decal/fake_object{
+	icon = 'icons/obj/monitors.dmi';
+	icon_state = "camera1";
+	name = "old security camera";
+	desc = "It's used to monitor rooms. This one is far too old, and has decayed to such a condition that it's no longer usable."
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"TQ" = (
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/machinery/light/colored/decayed{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"TS" = (
+/obj/machinery/door/airlock/highsecurity{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/hatch_door/yellow{
+	dir = 8
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"Ug" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 10
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"Uw" = (
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/decal/cleanable/floor_damage,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"UV" = (
+/obj/structure/table/reinforced/steel,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 5
+	},
+/obj/item/trash/cigbutt{
+	pixel_y = 2;
+	pixel_x = 9
+	},
+/obj/item/trash/cigbutt{
+	pixel_y = 8;
+	pixel_x = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/vending/wallmed2{
+	pixel_x = -7;
+	pixel_y = 30;
+	req_access = null
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"UX" = (
+/obj/effect/floor_decal/corner_wide/green{
+	dir = 5
+	},
+/obj/structure/closet/walllocker/medical{
+	name = "blood closet";
+	pixel_y = 32
+	},
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Vj" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/obj/effect/decal/fake_object{
+	icon = 'icons/obj/monitors.dmi';
+	icon_state = "camera1";
+	name = "old security camera";
+	desc = "It's used to monitor rooms. This one is far too old, and has decayed to such a condition that it's no longer usable.";
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"Vk" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 6
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"Vr" = (
+/obj/machinery/door/airlock/highsecurity,
+/obj/effect/floor_decal/industrial/hatch_door/yellow,
+/obj/machinery/door/firedoor/noid,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"VB" = (
+/obj/machinery/light/broken{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"VT" = (
+/obj/structure/bed/stool/padded/black,
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 5
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"VW" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/floor_damage,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"Wy" = (
+/obj/structure/platform_stairs,
+/turf/simulated/floor/exoplanet/snow/cold,
+/area/space)
+"WA" = (
+/obj/item/storage/toolbox/mechanical,
+/obj/structure/closet/crate/tool,
+/obj/item/clothing/head/welding,
+/obj/item/clothing/gloves/yellow,
+/obj/item/device/multitool,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"WD" = (
+/obj/structure/window{
+	layer = 3
+	},
+/obj/machinery/shower{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/techmaint,
+/area/space)
+"WL" = (
+/obj/effect/decal/fake_object{
+	icon = 'icons/obj/monitors.dmi';
+	icon_state = "camera1";
+	name = "old security camera";
+	desc = "It's used to monitor rooms. This one is far too old, and has decayed to such a condition that it's no longer usable.";
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"WV" = (
+/obj/structure/closet/walllocker/firecloset{
+	pixel_y = 32
+	},
+/obj/item/storage/bag/inflatable/emergency,
+/obj/effect/floor_decal/industrial/outline/firefighting_closet,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"WX" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-4"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-8"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/plating,
+/area/space)
+"Xt" = (
+/obj/machinery/power/smes/buildable,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"XE" = (
+/obj/effect/decal/fake_object{
+	icon = 'icons/obj/monitors.dmi';
+	icon_state = "camera1";
+	name = "old security camera";
+	desc = "It's used to monitor rooms. This one is far too old, and has decayed to such a condition that it's no longer usable.";
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_straight/security{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"Yp" = (
+/obj/machinery/light/colored/decayed{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/floor_damage,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"YC" = (
+/obj/machinery/washing_machine{
+	pixel_x = -8
+	},
+/obj/machinery/washing_machine{
+	pixel_x = 6
+	},
+/obj/structure/sign/flag/sol/old{
+	pixel_y = 32
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/cobweb2,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"YO" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/device/flashlight/lamp,
+/obj/effect/floor_decal/corner/dark_blue/full,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"Zu" = (
+/obj/effect/floor_decal/industrial/outline_straight/security,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"Zx" = (
+/turf/simulated/wall/r_wall,
+/area/space)
+
+(1,1,1) = {"
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+uu
+uu
+uu
+uu
+iK
+iK
+wc
+iK
+iK
+iK
+iK
+Kd
+iK
+iK
+iK
+DO
+iK
+iK
+iK
+vD
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+wc
+iK
+Kd
+iK
+"}
+(2,1,1) = {"
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+Kd
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+so
+iK
+"}
+(3,1,1) = {"
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+Kd
+iK
+iK
+iK
+ka
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+ka
+iK
+iK
+iK
+Kd
+iK
+iK
+iK
+ka
+iK
+iK
+"}
+(4,1,1) = {"
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+"}
+(5,1,1) = {"
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+iK
+iK
+iK
+JW
+iK
+iK
+iK
+wc
+iK
+iK
+iK
+iK
+Kd
+iK
+Fh
+iK
+iK
+iK
+iK
+iK
+"}
+(6,1,1) = {"
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+iK
+iK
+iK
+iK
+iK
+iK
+Fh
+iK
+iK
+DO
+iK
+iK
+iK
+iK
+iK
+iK
+Fh
+iK
+"}
+(7,1,1) = {"
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+"}
+(8,1,1) = {"
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+iK
+vD
+iK
+bm
+iK
+iK
+iK
+iK
+iK
+iK
+bm
+iK
+iK
+iK
+iK
+iK
+iK
+Kd
+"}
+(9,1,1) = {"
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+Zx
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+Zx
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+iK
+iK
+iK
+iK
+iK
+iK
+Kd
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+wc
+iK
+iK
+"}
+(10,1,1) = {"
+Mj
+Mj
+Mj
+Mj
+Mj
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+Zx
+Zx
+GA
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+GA
+Zx
+Zx
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+iK
+wc
+iK
+iK
+iK
+iK
+iK
+vD
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+"}
+(11,1,1) = {"
+Mj
+Mj
+Mj
+Mj
+Mj
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+Zx
+GA
+GA
+Zx
+hP
+uW
+NX
+Jc
+ze
+Lt
+Zx
+GA
+GA
+Zx
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+iK
+iK
+iK
+iK
+iK
+iK
+bm
+iK
+iK
+iK
+iK
+iK
+bm
+iK
+iK
+iK
+"}
+(12,1,1) = {"
+Mj
+Mj
+Mj
+Mj
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+Zx
+GA
+Zx
+Zx
+fz
+pd
+VW
+VW
+pd
+sW
+Zx
+Zx
+GA
+Zx
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+iK
+DO
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+vD
+"}
+(13,1,1) = {"
+Mj
+Mj
+Mj
+Mj
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+Zx
+GA
+Zx
+zq
+MA
+LI
+Rh
+ct
+RK
+ET
+QS
+Zx
+GA
+Zx
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+Zx
+zD
+zD
+zD
+zD
+Zx
+iK
+Hm
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+"}
+(14,1,1) = {"
+Mj
+Mj
+Mj
+Mj
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+Zx
+GA
+Zx
+PB
+Gj
+zb
+Jx
+Ql
+Zu
+uQ
+rt
+Zx
+GA
+Zx
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+iK
+iK
+iK
+wc
+nV
+iK
+iK
+yT
+dQ
+iK
+iK
+iK
+iK
+iK
+"}
+(15,1,1) = {"
+Mj
+Mj
+Mj
+Mj
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+Zx
+Zx
+GA
+Zx
+BH
+Ql
+zb
+jw
+Ql
+Zu
+Ql
+pU
+Zx
+GA
+Zx
+Zx
+Zx
+Zx
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+iK
+iK
+iK
+iK
+nV
+iK
+ma
+ws
+dQ
+iK
+iK
+iK
+iK
+iK
+"}
+(16,1,1) = {"
+Mj
+Mj
+Mj
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+Zx
+GA
+GA
+Zx
+SH
+VB
+XE
+Fm
+Jx
+Zu
+cO
+om
+Zx
+GA
+GA
+GA
+GA
+Zx
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+iK
+vD
+iK
+iK
+iK
+iK
+iK
+LS
+dQ
+iK
+Kd
+iK
+bb
+iK
+"}
+(17,1,1) = {"
+Mj
+Mj
+Mj
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+Zx
+GA
+Zx
+Zx
+Zx
+Zx
+Zx
+RV
+RV
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+GA
+Zx
+uu
+uu
+uu
+uu
+uu
+uu
+Zx
+Zx
+iK
+iK
+iK
+iK
+iK
+iK
+KA
+FJ
+dQ
+iK
+iK
+iK
+iK
+iK
+"}
+(18,1,1) = {"
+Mj
+Mj
+Mj
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+Zx
+GA
+Zx
+nN
+HP
+Zx
+dq
+Ql
+Ql
+lY
+Zx
+Xt
+lM
+lM
+lM
+Zx
+GA
+Zx
+uu
+uu
+uu
+Zx
+Zx
+Zx
+Zx
+bD
+iK
+iK
+iK
+iK
+nV
+iK
+Wy
+yT
+iK
+iK
+vD
+iK
+iK
+iK
+"}
+(19,1,1) = {"
+Mj
+Mj
+Mj
+uu
+uu
+uu
+uu
+uu
+Zx
+Zx
+Zx
+Zx
+Zx
+GA
+Zx
+HG
+sc
+Zx
+Rc
+zG
+Ql
+Ql
+Zx
+RM
+kq
+WX
+lq
+Zx
+GA
+Zx
+Zx
+Zx
+Zx
+Zx
+iK
+Qd
+iK
+iK
+iK
+iK
+iK
+iK
+nV
+iK
+pR
+iK
+dQ
+iK
+iK
+iK
+iK
+iK
+"}
+(20,1,1) = {"
+Mj
+Mj
+Mj
+uu
+uu
+uu
+uu
+uu
+Zx
+GA
+GA
+GA
+GA
+GA
+Zx
+OH
+iP
+Zx
+cJ
+Jx
+VW
+pW
+Zx
+cR
+kz
+kz
+Gd
+Zx
+GA
+GA
+GA
+GA
+GA
+Zx
+sK
+iK
+Kd
+iK
+iK
+so
+iK
+iK
+Zx
+iK
+fw
+fw
+iK
+iK
+iK
+iK
+wc
+iK
+"}
+(21,1,1) = {"
+Mj
+Mj
+Mj
+uu
+uu
+uu
+uu
+uu
+Zx
+GA
+Zx
+Zx
+Zx
+Zx
+Zx
+DV
+Zx
+Zx
+Zx
+RV
+RV
+Zx
+Zx
+PT
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Dv
+wB
+iK
+iK
+iK
+iK
+DO
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+"}
+(22,1,1) = {"
+Mj
+Mj
+uu
+uu
+uu
+uu
+uu
+uu
+Zx
+GA
+Zx
+jo
+Qx
+lj
+Ug
+jc
+Zx
+WA
+Jx
+Ql
+Ql
+wR
+uv
+AQ
+QT
+Yp
+lw
+PA
+VW
+TQ
+sD
+Vj
+nD
+HD
+sA
+iK
+iK
+iK
+wB
+iK
+wB
+wB
+iK
+iK
+iK
+wB
+iK
+wB
+iK
+vD
+iK
+iK
+"}
+(23,1,1) = {"
+Mj
+Mj
+uu
+uu
+uu
+uu
+uu
+uu
+Zx
+GA
+Zx
+UV
+Ql
+jw
+VW
+Fv
+Zx
+db
+Ql
+Ql
+Ql
+Ie
+jw
+jw
+Ql
+Ql
+lw
+PA
+VW
+Uw
+qh
+MV
+pN
+Tm
+sA
+iK
+iK
+wB
+wB
+wB
+iK
+iK
+wB
+wB
+iK
+iK
+wB
+iK
+iK
+iK
+iK
+iK
+"}
+(24,1,1) = {"
+Mj
+Mj
+uu
+uu
+uu
+uu
+uu
+uu
+Zx
+GA
+Zx
+BD
+kt
+VW
+Ql
+Js
+bG
+Rx
+Jx
+VW
+Ql
+wR
+Ql
+zG
+Ql
+Ql
+lw
+PA
+Ql
+ae
+qh
+mg
+pN
+Tm
+sA
+wB
+iK
+wB
+iK
+iK
+wB
+wB
+iK
+iK
+wB
+wB
+wB
+iK
+iK
+wB
+iK
+iK
+"}
+(25,1,1) = {"
+Mj
+Mj
+uu
+uu
+uu
+uu
+uu
+uu
+Zx
+GA
+Zx
+So
+BS
+Kw
+Vk
+Qo
+Zx
+lR
+Ql
+Ql
+Ql
+wR
+Ca
+wV
+Os
+dd
+lw
+PA
+Ql
+ae
+sD
+gj
+pN
+Tm
+sA
+iK
+iK
+iK
+vD
+wB
+iK
+wB
+wB
+iK
+iK
+iK
+vD
+wB
+wB
+iK
+iK
+iK
+"}
+(26,1,1) = {"
+Mj
+Mj
+uu
+uu
+uu
+uu
+uu
+uu
+Zx
+GA
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+TD
+Ql
+Ql
+vf
+Zx
+Zx
+TS
+Zx
+Zx
+Zx
+Zx
+Py
+Ql
+Zx
+ox
+ox
+Zx
+Kt
+iK
+wB
+wB
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+"}
+(27,1,1) = {"
+Mj
+Mj
+uu
+uu
+uu
+uu
+uu
+uu
+Zx
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+Zx
+WV
+VW
+Ql
+LV
+Zx
+KJ
+BG
+MK
+dx
+kj
+Zx
+Zx
+Cq
+Zx
+is
+YO
+ox
+so
+iK
+iK
+iK
+iK
+iK
+Kd
+iK
+Zx
+iK
+HE
+Hm
+iK
+iK
+iK
+iK
+iK
+iK
+"}
+(28,1,1) = {"
+Mj
+Mj
+uu
+uu
+uu
+uu
+uu
+uu
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+GA
+Zx
+AU
+zG
+jw
+Bg
+Zx
+GP
+Ej
+QL
+PV
+ul
+Zx
+Zx
+cD
+Vr
+wm
+aZ
+ox
+Kd
+Qj
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+NG
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+"}
+(29,1,1) = {"
+Mj
+Mj
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+Zx
+GA
+Zx
+Ql
+Jx
+Ql
+Ql
+Zx
+UX
+Ej
+qM
+im
+qX
+Zx
+Zx
+xe
+Zx
+cP
+Ov
+Zx
+Zx
+Zx
+Zx
+tr
+iK
+iK
+iK
+iK
+nV
+iK
+Wy
+iK
+iK
+iK
+Kd
+iK
+iK
+iK
+"}
+(30,1,1) = {"
+Mj
+Mj
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+Zx
+GA
+Zx
+xC
+wV
+Os
+Py
+Zx
+fG
+kU
+qa
+Lv
+IC
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+uu
+uu
+Zx
+Zx
+iK
+iK
+iK
+iK
+nV
+iK
+xv
+iK
+dQ
+iK
+iK
+iK
+vD
+iK
+"}
+(31,1,1) = {"
+Mj
+Mj
+Mj
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+Zx
+GA
+Zx
+Zx
+Bn
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+GA
+GA
+GA
+GA
+Zx
+uu
+uu
+uu
+uu
+uu
+iK
+wc
+iK
+iK
+nV
+iK
+iK
+si
+dQ
+iK
+iK
+iK
+iK
+iK
+"}
+(32,1,1) = {"
+Mj
+Mj
+Mj
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+Zx
+GA
+Zx
+Kb
+cY
+SA
+Ql
+WL
+Fm
+LV
+zr
+Zx
+GA
+GA
+GA
+Zx
+Zx
+Zx
+Zx
+uu
+uu
+uu
+uu
+uu
+iK
+iK
+iK
+iK
+nV
+vD
+iK
+yT
+dQ
+iK
+iK
+iK
+iK
+DO
+"}
+(33,1,1) = {"
+Mj
+Mj
+Mj
+Mj
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+Zx
+GA
+Zx
+wp
+Ql
+Ql
+Ql
+Ql
+Ql
+EU
+LV
+Zx
+GA
+Zx
+Zx
+Zx
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+Kd
+iK
+iK
+iK
+nV
+iK
+iN
+ji
+dQ
+iK
+iK
+iK
+iK
+iK
+"}
+(34,1,1) = {"
+Mj
+Mj
+Mj
+Mj
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+Zx
+GA
+Zx
+YC
+Ql
+wV
+tq
+mU
+wV
+VT
+LV
+Zx
+GA
+Zx
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+Zx
+zD
+iK
+zD
+zD
+Zx
+iK
+iK
+fw
+iK
+iK
+iK
+iK
+wc
+iK
+"}
+(35,1,1) = {"
+Mj
+Mj
+Mj
+Mj
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+Zx
+GA
+Zx
+Zx
+Zx
+kH
+Zx
+Zx
+DV
+Zx
+Zx
+Zx
+GA
+Zx
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+iK
+iK
+Kd
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+"}
+(36,1,1) = {"
+Mj
+Mj
+Mj
+Mj
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+Zx
+GA
+GA
+Zx
+eZ
+IZ
+Zx
+aa
+oH
+PX
+Zx
+GA
+GA
+Zx
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+iK
+iK
+iK
+iK
+iK
+bm
+iK
+iK
+DO
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+"}
+(37,1,1) = {"
+Mj
+Mj
+Mj
+Mj
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+Zx
+Zx
+GA
+Zx
+WD
+fO
+Zx
+Fg
+Bu
+Bu
+Zx
+GA
+Zx
+Zx
+uu
+uu
+uu
+uu
+uu
+uu
+iK
+Fh
+iK
+iK
+iK
+iK
+iK
+vD
+iK
+iK
+iK
+iK
+Kd
+iK
+bm
+iK
+iK
+iK
+"}
+(38,1,1) = {"
+Mj
+Mj
+Mj
+Mj
+Mj
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+Zx
+GA
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+GA
+Zx
+uu
+uu
+uu
+uu
+uu
+uu
+wc
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+"}
+(39,1,1) = {"
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+Zx
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+GA
+Zx
+uu
+uu
+uu
+uu
+uu
+uu
+iK
+Kd
+iK
+iK
+Fh
+iK
+Kd
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+"}
+(40,1,1) = {"
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+Zx
+uu
+uu
+uu
+uu
+uu
+iK
+iK
+Fh
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+Kd
+iK
+iK
+mu
+iK
+iK
+iK
+iK
+Fh
+iK
+"}
+(41,1,1) = {"
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+"}
+(42,1,1) = {"
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+vD
+iK
+iK
+iK
+iK
+"}
+(43,1,1) = {"
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+Kd
+iK
+iK
+iK
+wc
+iK
+iK
+iK
+bm
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+"}
+(44,1,1) = {"
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+uu
+iK
+iK
+iK
+iK
+wc
+Kd
+iK
+ka
+so
+iK
+iK
+iK
+iK
+iK
+iK
+ka
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+ka
+iK
+iK
+"}
+(45,1,1) = {"
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+Mj
+uu
+uu
+uu
+uu
+Kd
+iK
+iK
+iK
+vD
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+Kd
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+iK
+DO
+"}
