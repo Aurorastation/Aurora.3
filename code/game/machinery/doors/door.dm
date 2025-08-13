@@ -194,7 +194,7 @@
 			else
 				do_animate("deny")
 		return
-	if(istype(bumped_atom, /obj/structure/janitorialcart))
+	if(istype(bumped_atom, /obj/structure/janitorialcart) || istype(bumped_atom, /obj/structure/engineeringcart))
 		var/obj/structure/janitorialcart/cart = bumped_atom
 		if(density)
 			if(cart.pulling && (src.allowed(cart.pulling)))

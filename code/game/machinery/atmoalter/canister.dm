@@ -386,7 +386,8 @@ update_flag
 	else
 		can_label = 0
 
-	air_contents.react() //cooking up air cans - add phoron and oxygen, then heat above PHORON_MINIMUM_BURN_TEMPERATURE
+	// Cooking up air cans - add phoron and oxygen, then heat above PHORON_MINIMUM_BURN_TEMPERATURE
+	air_contents.react()
 
 /obj/machinery/portable_atmospherics/canister/return_air()
 	return air_contents
@@ -454,7 +455,7 @@ update_flag
 		var/datum/gas_mixture/thejetpack = jetpack.air_contents
 		var/env_pressure = thejetpack.return_pressure()
 		var/pressure_delta = min(10*ONE_ATMOSPHERE - env_pressure, (air_contents.return_pressure() - env_pressure)/2)
-		//Can not have a pressure delta that would cause environment pressure > tank pressure
+		// Cannot have a pressure delta that would cause environment pressure > tank pressure
 		var/transfer_moles = 0
 		if((air_contents.temperature > 0) && (pressure_delta > 0))
 			transfer_moles = pressure_delta*thejetpack.volume/(air_contents.temperature * R_IDEAL_GAS_EQUATION)//Actually transfer the gas
@@ -570,7 +571,9 @@ update_flag
 	if(valve_open)
 		log_open_userless("a signaler")
 
-//Dirty way to fill room with gas. However it is a bit easier to do than creating some floor/engine/n2o -rastaf0
+/**
+ * Dirty way to fill room with gas. However it is a bit easier to do than creating some floor/engine/n2o -rastaf0
+ */
 /obj/machinery/portable_atmospherics/canister/sleeping_agent/roomfiller/Initialize()
 	. = ..()
 	air_contents.gas[GAS_N2O] = 9*4000
@@ -609,7 +612,8 @@ update_flag
 	. = ..()
 	src.air_contents.temperature = 303.15
 
-/obj/machinery/portable_atmospherics/canister/chlorine/antag // Keeping the chlorine canister with the skull on it seems fun for antags.
+/// Keeping the chlorine canister with the skull on it seems fun for antags.
+/obj/machinery/portable_atmospherics/canister/chlorine/antag
 	name = "Canister: \[Cl2\]"
 	icon_state = "poisonous"
 	canister_color = "poisonous"

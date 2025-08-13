@@ -3,11 +3,10 @@
 	description = "The worship of the twin Adhomai suns, S'rendarr and Messa has a long-standing tradition among the Tajara people and has archaeologically been regarded, with the \
 	exclusion of other minor sects, as one of the oldest known religion along with the worship of Ma'ta'ke. The religion itself created by Njarir'Akhran, it has changed hands and forms, \
 	eventually transforming into what it is today. The religion holds onto very traditional values, promoting collectivism, sharing, helping those in need."
-	book_name = "holy scrolls"
-	book_sprite = "holylight"
 	nulloptions = list(
 		"Tajaran charm" = /obj/item/nullrod/charm
 	)
+	unique_book_path = /obj/item/device/versebook/twinsuns
 
 /datum/religion/matake
 	name = RELIGION_MATAKE
@@ -16,7 +15,6 @@
 	animals. He was revered as a fierce warrior capable of fighting a platoon of men by himself, but also as a kind soul for the records of his dealings with other tribes show \
 	understanding and kindness. He is upheld to be the ultimate Tajara- powerful, wise, and magnanimous. Followers of Mata'ke himself endeavor to emulate his grandeur, while others \
 	attempt to emulate the other gods."
-	book_name = "ma'ta'ke legends"
 	nulloptions = list(
 		"Tajaran charm" = /obj/item/nullrod/charm,
 		"Mata'ke Sword" = /obj/item/nullrod/matake,
@@ -25,6 +23,7 @@
 		"Zhukamir Ladle" = /obj/item/nullrod/zhukamir,
 		"Azubarre Torch" = /obj/item/nullrod/azubarre
 	)
+	unique_book_path = /obj/item/device/versebook/matake
 
 /datum/religion/raskara
 	name = RELIGION_RASKARA

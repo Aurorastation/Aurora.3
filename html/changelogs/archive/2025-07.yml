@@ -445,3 +445,49 @@
       after buckling.
   hellfirejag:
   - bugfix: Fixed brain damage being inconsistent under high or low server load.
+2025-07-29:
+  Batrachophrenoboocosmomachia:
+  - rscadd: Added 39 additional options for Horizon warehouse submaps.
+  - rscadd: Added 14 additional regular cargo item spawns (flag boxes- each contain
+      sets of flags associated with a given nation, race, etc.)
+  - rscdel: Removed 'Russian' gimmick closet from warehouse spawn, increased spawn
+      rate of 'Tacticool' gimmick closet.
+  - balance: Warehouse rare RFD random spawn chance slightly increased, includes one
+      compressed matter block.
+  - balance: Warehouse rare clothing spawn now will spawn 1-4 items (increased from
+      1-2).
+  - balance: Warehouse 'unusual container' spawn chance slightly increased.
+  - balance: Warehouse chemical dispenser spawn pool now includes coffee makers, spawn
+      chance slightly increased.
+  - balance: Warehouse uncommon phoron sheets spawn chance slightly decreased.
+  - refactor: Updated radioactive greenglow decal to use ssRadiation proc instead
+      of old direct damage application.
+  ChangeMe:
+  - rscadd: Adds some new mission options for the shuttle manifest app.
+  TheGreyWolf:
+  - bugfix: Fixes the miner's bowman headset sprite.
+  - bugfix: Silicons can no longer open unpowered windoors from a distance.
+  nauticall:
+  - experiment: Reworked prices, wages and balances of (almost) everything ingame.
+  - rscadd: Added coinage and decimal support to cash, ruthlessly sanitized to avoid
+      floating-point errors. Reflected in cash-related things like ATMs.
+  - code_imp: Tweaked how cash bundles are made and distributed to support decimalization.
+  - balance: Adjusted the starting money individuals and departments receive in their
+      accounts.
+  - balance: Adjusted the funding Tajara, Unathi, Diona, Vaurca, and IPCs receive
+      in their accounts. Should earn more on average than they used to.
+2025-07-30:
+  TheGreyWolf:
+  - bugfix: Fixed the south-facing variant of the closed labcoat.
+  - bugfix: Vending machines no longer have a light overlay when losing power.
+2025-07-31:
+  AlaunusLux:
+  - bugfix: Mechs will no longer trample themselves when using a Phazon Bluespace
+      Transmission System.
+  Batrachophrenoboocosmomachia:
+  - bugfix: Fixed inconsistent behavior with gravity generator turning on/shutting
+      off, as well as associated inertial behaviors (throwing objects in zero g, etc.)
+  MattAtlas:
+  - qol: Tradeband and Encoded Audio Language are now more readable in dark mode (bright
+      purple and bright green).
+  - qol: Adjusted the dark mode colour for devsay and incoming admin messages.

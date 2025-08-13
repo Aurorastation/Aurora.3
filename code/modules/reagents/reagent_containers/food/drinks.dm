@@ -471,7 +471,7 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	return ..()
 
 /obj/item/reagent_containers/food/drinks/shaker/verb/toggle_twist()
-	set category = "Object"
+	set category = "Object.Held"
 	set name = "Twist Cap"
 	set src in usr
 
@@ -483,7 +483,7 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	update_icon()
 
 /obj/item/reagent_containers/food/drinks/shaker/verb/toggle_top()
-	set category = "Object"
+	set category = "Object.Held"
 	set name = "Remove Top"
 	set src in usr
 

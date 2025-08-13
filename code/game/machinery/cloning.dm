@@ -439,7 +439,7 @@
 	to_chat(user, "You flip the write-protect tab to [read_only ? "protected" : "unprotected"].")
 
 /*
- *	Diskette Box
+ * Diskette Box
  */
 
 /obj/item/storage/box/disks
@@ -456,7 +456,7 @@
 	new /obj/item/disk/data(src)
 
 /*
- *	Manual -- A big ol' manual.
+ * Manual -- A big ol' manual.
  */
 
 /obj/item/paper/Cloning

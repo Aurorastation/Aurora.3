@@ -41,6 +41,7 @@
 	name = "Gravity Generator"
 	icon_state = "engine"
 	horizon_deck = 1
+	area_flags = AREA_FLAG_RAD_SHIELDED
 	area_blurb = "The air in here tastes like copper, sour sugar, and smoke; none of the angles seem right. That probably means everything is working."
 	area_blurb_category = "engi_breakroom"
 
@@ -58,7 +59,7 @@
 	horizon_deck = 1
 
 /area/horizon/engineering/aft_airlock
-	name = "Aft Service Airlock"
+	name = "Aft Stowage Airlock"
 	horizon_deck = 2
 
 /area/horizon/engineering/bluespace_drive
@@ -160,7 +161,7 @@
 	name = "Supermatter Reactor Chamber"
 	area_blurb = "The air throbs with subdued lethality. Phoronic science breaks the laws of thermodynamics in this chamber, and the laws of thermodynamics seem angry."
 
-/area/horizon/engineering/smes
+/area/horizon/engineering/reactor/supermatter/smes
 	name = "Supermatter Reactor SMES"
 	icon_state = "engine_smes"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED

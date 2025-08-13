@@ -84,6 +84,18 @@
 	build_path = /obj/item/mecha_equipment/mounted_system/combat/grenadestinger
 	materials = list(DEFAULT_WALL_MATERIAL = 20000, MATERIAL_GOLD = 3000, MATERIAL_SILVER = 3000)
 
+/datum/design/item/mechfab/exosuit_equipment/tear
+	name = "Mounted Teargas Launcher"
+	req_tech = list(TECH_COMBAT = 3)
+	build_path = /obj/item/mecha_equipment/mounted_system/combat/grenadetear
+	materials = list(DEFAULT_WALL_MATERIAL = 20000, MATERIAL_GOLD = 3000, MATERIAL_SILVER = 3000)
+
+/datum/design/item/mechfab/exosuit_equipment/smoke
+	name = "Mounted Smoke Launcher"
+	req_tech = list(TECH_COMBAT = 2)
+	build_path = /obj/item/mecha_equipment/mounted_system/combat/grenadesmoke
+	materials = list(DEFAULT_WALL_MATERIAL = 20000, MATERIAL_GLASS = 10000)
+
 /datum/design/item/mechfab/exosuit_equipment/cleaner
 	name = "Mounted Cleaner Grenade Launcher"
 	req_tech = list(TECH_MATERIAL = 2)

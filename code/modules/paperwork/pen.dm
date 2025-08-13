@@ -1,11 +1,11 @@
 /* Pens!
  * Contains:
- *		Pens
- *		PDA Pens
- *		Sleepy Pens
- *		Coloured Pens
- *		Parapens
- *		Fountain Pens
+ * * Pens
+ * * PDA Pens
+ * * Sleepy Pens
+ * * Coloured Pens
+ * * Parapens
+ * * Fountain Pens
  */
 
 
@@ -262,7 +262,7 @@
 
 /obj/item/pen/chameleon/verb/set_colour()
 	set name = "Change Pen Colour"
-	set category = "Object"
+	set category = "Object.Held"
 	set src in usr
 
 	var/list/possible_colours = list ("Yellow", "Green", "Pink", "Blue", "Orange", "Cyan", "Red", "Invisible", "Black")

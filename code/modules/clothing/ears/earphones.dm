@@ -188,8 +188,8 @@
 */
 
 /obj/item/clothing/ears/earphones/verb/play_stop()
-	set name = "Earphones - Play/Stop"
-	set category = "Object"
+	set name = "Play/Stop"
+	set category = "Object.Earphones"
 	set src in usr
 
 	if(use_check_and_message(usr))
@@ -208,8 +208,8 @@
 			StartPlaying(usr)
 
 /obj/item/clothing/ears/earphones/verb/change_volume()
-	set name = "Earphones - Change Volume"
-	set category = "Object"
+	set name = "Change Volume"
+	set category = "Object.Earphones"
 	set src in usr
 
 	if(use_check_and_message(usr))
@@ -234,8 +234,8 @@
 		soundplayer_token.SetVolume(volume)
 
 /obj/item/clothing/ears/earphones/verb/pause_unpause()
-	set name = "Earphones - Pause/Unpause"
-	set category = "Object"
+	set name = "Pause/Unpause"
+	set category = "Object.Earphones"
 	set src in usr
 
 	if(use_check_and_message(usr))
@@ -267,8 +267,8 @@
 			play_stop() //No soundtoken? They probably meant to use the other verb instead.
 
 /obj/item/clothing/ears/earphones/verb/next_song_verb()
-	set name = "Earphones - Next Song"
-	set category = "Object"
+	set name = "Next Song"
+	set category = "Object.Earphones"
 	set src in usr
 
 	usr.visible_message(SPAN_NOTICE("[usr] clicks a button on [usr.get_pronoun("his")] [src]."))
@@ -276,8 +276,8 @@
 	next_song(usr)
 
 /obj/item/clothing/ears/earphones/verb/previous_song_verb()
-	set name = "Earphones - Previous Song"
-	set category = "Object"
+	set name = "Previous Song"
+	set category = "Object.Earphones"
 	set src in usr
 
 	usr.visible_message(SPAN_NOTICE("[usr] clicks a button on [usr.get_pronoun("his")] [src]."))
@@ -285,8 +285,8 @@
 	previous_song(usr)
 
 /obj/item/clothing/ears/earphones/verb/eject_music_cartridge_verb()
-	set name = "Earphones - Eject Music Cartridge"
-	set category = "Object"
+	set name = "Eject Music Cartridge"
+	set category = "Object.Earphones"
 	set src in usr
 
 	eject_music_cartridge(usr)
@@ -435,3 +435,18 @@ Earphone Variants
 		new/datum/track("Le Swing", 'sound/music/phonograph/le_swing.ogg'),
 		new/datum/track("Posin", 'sound/music/phonograph/posin.ogg')
 	)
+
+/obj/item/music_cartridge/europa_various
+	name = "Europa: Best of the 50s"
+	desc = "A music cartridge storing the best tracks to listen to on a submarine dive."
+	icon_state = "generic"
+
+	tracks = list(
+		new/datum/track("Where The Rays Leap", 'sound/music/regional/europa/where_the_dusks_rays_leap.ogg'),
+		new/datum/track("Casting Faint Shadows", 'sound/music/regional/europa/casting_faint_shadows.ogg'),
+		new/datum/track("Weedance", 'sound/music/regional/europa/weedance.ogg'),
+		new/datum/track("Instrumental Park", 'sound/music/regional/europa/instrumental_park.ogg'),
+		new/datum/track("Way Between The Shadows", 'sound/music/regional/europa/way_between_the_shadows.ogg'),
+		new/datum/track("Deep Beneath the Solemn Waves a Vast Underwater Landscape, Brimming With Bizarre, Eerily Gleaming Cyclopean Structures of, What Must Surely Be, Non-Human Origin, Stretched Out Across the Ocean Floor", 'sound/music/regional/europa/deep_beneath-.ogg'),
+	)
+

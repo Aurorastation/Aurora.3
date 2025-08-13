@@ -56,6 +56,8 @@
 
 	/// How many eggs the Schlorrgo is able to lay
 	var/eggs_left = 0
+	/// How many eggs the Schlorrgo has made. When it reaches max, schlorrgo will stop producing eggs.
+	var/eggs_total = 0
 	/// Bigger Schlorrgos can lay more eggs. Starts to increase after schlorrgo becomes fat. When set to 0, Schlorrgo will never lay eggs
 	var/max_eggs = 0
 
@@ -112,11 +114,11 @@
 	else
 		..()
 
-/mob/living/simple_animal/schlorrgo/turf_collision(var/turf/T, var/speed = THROWFORCE_SPEED_DIVISOR)
+/mob/living/simple_animal/schlorrgo/turf_collision(var/turf/T, speed = THROWFORCE_SPEED_DIVISOR, sound_to_play = 'sound/effects/bangtaper.ogg')
 	visible_message(SPAN_WARNING("[src] harmlessly bounces off \the [T]!"))
-	playsound(T, 'sound/effects/bangtaper.ogg', 50, 1, 1)
+	playsound(T, sound_to_play, 50, 1, 1)
 
-/mob/living/simple_animal/schlorrgo/fall_impact()
+/mob/living/simple_animal/schlorrgo/fall_impact(levels_fallen, stopped_early = FALSE, var/damage_mod = 1)
 	visible_message(SPAN_NOTICE("\The [src] bounces after landing!"))
 	playsound(src, 'sound/effects/bangtaper.ogg', 50, 1, 1)
 	audible_emote("[pick(emote_hear)].",0)
@@ -126,8 +128,9 @@
 
 /mob/living/simple_animal/schlorrgo/process_food()
 	..()
-	if(prob(4) && eggs_left < max_eggs && current_size >= FAT_SCHLORRGO) // Change to add egg when fat
+	if(prob(1) && eggs_total < max_eggs && current_size >= FAT_SCHLORRGO)
 		eggs_left += 1 // only +1 since this can proc often
+		eggs_total += 1
 	check_wideness_change()
 
 /mob/living/simple_animal/schlorrgo/proc/check_wideness_change()
@@ -186,7 +189,7 @@
 			icon_living = "schlorrgo_fat"
 			icon_dead = "schlorrgo_fat_dead"
 			holder_type = /obj/item/holder/schlorrgo/fat
-			max_eggs = 3
+			max_eggs = 10
 
 		if(FAT_SCHLORRGO)
 			if(!named)
@@ -214,7 +217,7 @@
 			a_intent = I_HURT
 			emote_sounds = list('sound/effects/creatures/schlorrgo_scream.ogg')
 			holder_type = null
-			max_eggs = 6
+			max_eggs = 20
 
 		if(WIDE_SCHLORRGO)
 			if(!named)
@@ -247,7 +250,7 @@
 			a_intent = I_HURT
 			emote_sounds = list('sound/effects/creatures/schlorrgo_scream.ogg')
 			holder_type = null
-			max_eggs = 9
+			max_eggs = 40
 
 	update_icon()
 

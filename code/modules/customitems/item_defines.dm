@@ -1491,7 +1491,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/clothing/accessory/poncho/tajarancloak/fluff/dekel_smock/verb/change_hood()
 	set name = "Toggle Hood"
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in usr
 
 	if(use_check_and_message(usr))

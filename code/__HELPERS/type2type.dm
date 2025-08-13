@@ -1,11 +1,11 @@
 /*
  * Holds procs designed to change one type of value, into another.
  * Contains:
- *			text2list & list2text
- *			file2list
- *			angle2dir
- *			angle2text
- *			worldtime2text
+ * * text2list & list2text
+ * * file2list
+ * * angle2dir
+ * * angle2text
+ * * worldtime2text
  */
 
 // Splits the text of a file at seperator and returns them in a list.

@@ -159,6 +159,7 @@
 	allow_borgs_to_leave = TRUE
 
 	warehouse_basearea = /area/horizon/operations/warehouse
+	warehouse_packagearea = /area/horizon/operations/package_conveyors
 
 	shuttle_manifests = list(
 		"SCCV Canary" = list("color" = "blue", "icon" = "binoculars"),
@@ -166,7 +167,7 @@
 		"SCCV Spark" = list("color" = "brown", "icon" = "gem"),
 		"SCCV Quark" = list("color" = "purple", "icon" = "microscope"),
 	)
-	shuttle_missions = list("Exploration", "Research", "Prospecting", "Transport", "Combat", "Rescue", "Training")
+	shuttle_missions = list("Exploration", "Research", "Prospecting", "Salvaging", "Transport", "Combat", "Rescue", "Training", "Humanitarian", "Expedition", "Recreation", "Other")
 
 /datum/map/sccv_horizon/send_welcome()
 	var/obj/effect/overmap/visitable/ship/horizon = SSshuttle.ship_by_type(overmap_visitable_type)

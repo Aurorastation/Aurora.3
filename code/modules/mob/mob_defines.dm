@@ -1,5 +1,5 @@
 /mob
-	density = 1
+	density = TRUE
 	layer = MOB_LAYER
 	animate_movement = 2
 	movable_flags = MOVABLE_FLAG_PROXMOVE

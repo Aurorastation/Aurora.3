@@ -6,7 +6,7 @@
 	result = /obj/item/reagent_containers/food/snacks/fries
 
 /singleton/recipe/cheesyfries
-	appliance = SKILLET | MIX // You can reheat it or mix it cold, like some sort of monster.
+	appliance = SKILLET | MIX | MICROWAVE // You can reheat it or mix it cold, like some sort of monster.
 	items = list(
 		/obj/item/reagent_containers/food/snacks/fries,
 		/obj/item/reagent_containers/food/snacks/cheesewedge
@@ -14,7 +14,7 @@
 	result = /obj/item/reagent_containers/food/snacks/cheesyfries
 
 /singleton/recipe/chilicheesefries
-	appliance = SKILLET | SAUCEPAN | MIX // you can reheat it if you'd like
+	appliance = SKILLET | SAUCEPAN | MIX | MICROWAVE // you can reheat it if you'd like
 	items = list(
 		/obj/item/reagent_containers/food/snacks/fries,
 		/obj/item/reagent_containers/food/snacks/cheesewedge,
@@ -70,7 +70,7 @@
 	result = /obj/item/reagent_containers/food/snacks/sweet_and_sour
 
 /singleton/recipe/wingfangchu
-	appliance = FRYER
+	appliance = FRYER | MICROWAVE
 	reagents = list(/singleton/reagent/nutriment/soysauce = 5)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/xenomeat
@@ -86,7 +86,7 @@
 	result = /obj/item/reagent_containers/food/snacks/roefritters
 
 /singleton/recipe/fries_olympia_cheesy
-	appliance = FRYER
+	appliance = FRYER | MICROWAVE
 	reagents = list(/singleton/reagent/spacespice = 3)
 	fruit = list("potato" = 1)
 	items = list(
@@ -96,7 +96,7 @@
 	result = /obj/item/reagent_containers/food/snacks/fries_olympia_with_cheese
 
 /singleton/recipe/fries_olympia_no_cheese
-	appliance = FRYER
+	appliance = FRYER | MICROWAVE
 	reagents = list(/singleton/reagent/spacespice = 3)
 	fruit = list("potato" = 1)
 	reagent_mix = RECIPE_REAGENT_REPLACE //So we don't end up with a ton of potato juice

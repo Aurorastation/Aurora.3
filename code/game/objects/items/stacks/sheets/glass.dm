@@ -1,11 +1,11 @@
 /* Glass stack types
  * Contains:
- *		Glass sheets
- *		Reinforced glass sheets
- *		Wired glass sheets
- *		Phoron Glass Sheets
- *		Reinforced Phoron Glass Sheets (AKA Holy fuck strong windows)
- *		Glass shards - TODO: Move this into code/game/object/item/weapons
+ * * Glass sheets
+ * * Reinforced glass sheets
+ * * Wired glass sheets
+ * * Phoron Glass Sheets
+ * * Reinforced Phoron Glass Sheets (AKA Holy fuck strong windows)
+ * * Glass shards - TODO: Move this into code/game/object/item/weapons
  */
 
 /*

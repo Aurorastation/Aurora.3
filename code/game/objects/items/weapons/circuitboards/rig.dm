@@ -55,6 +55,14 @@
 	name = "combat hardsuit control and targeting board"
 	origin_tech = list(TECH_DATA = 7, TECH_COMBAT = 6)
 
+/obj/item/circuitboard/rig_assembly/combat/falcata
+	name = "falcata exoskeleton central circuit board"
+	origin_tech = list(TECH_COMBAT = 1)
+
+/obj/item/circuitboard/rig_assembly/combat/targeting/falcata
+	name = "falcata exoskeleton control and targeting board"
+	origin_tech = list(TECH_COMBAT = 1)
+
 //////////////////////
 ////ILLEGAL BOARDS////
 //////////////////////
