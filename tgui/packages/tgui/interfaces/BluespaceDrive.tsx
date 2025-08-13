@@ -1,5 +1,5 @@
 import { useBackend } from '../backend';
-import { Button, Knob, LabeledControls } from '../components';
+import { Button, Knob, LabeledControls, Section, LabeledList, Box, Flex} from '../components';
 import { Window } from '../layouts';
 import { BooleanLike } from '../../common/react';
 
@@ -8,13 +8,16 @@ export type BluespaceDriveData = {
   charge: BooleanLike;
   rotation: number;
   jumping: BooleanLike;
+  jump_power: number;
+  fuel_gas: number;
 };
 
 export const BluespaceDrive = (props, context) => {
   const { act, data } = useBackend<BluespaceDriveData>(context);
   return (
-    <Window>
+    <Window width="382" height="277" theme="hephaestus">
       <Window.Content>
+        <Section title="Drive Configuration">
         <LabeledControls>
           <LabeledControls.Item>
             <Button
@@ -55,6 +58,17 @@ export const BluespaceDrive = (props, context) => {
             />
           </LabeledControls.Item>
         </LabeledControls>
+        </Section>
+        <Section title="Drive Status">
+          <LabeledList>
+            <LabeledList.Item label="Jump Distance">
+              {data.jump_power}
+            </LabeledList.Item>
+            <LabeledList.Item label="Phoron Amount">
+              {data.fuel_gas} mol / 1000
+            </LabeledList.Item>
+          </LabeledList>
+        </Section>
       </Window.Content>
     </Window>
   );
