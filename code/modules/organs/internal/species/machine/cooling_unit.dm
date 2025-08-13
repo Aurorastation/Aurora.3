@@ -135,8 +135,8 @@
 			take_internal_damage(owner.bodytemperature * 0.01)
 
 	var/temperature_change = passive_temp_change
-	if(H.wear_suit)
-		if(!spaceproof && istype(H.wear_suit, /obj/item/clothing/suit/space))
+	if(owner.wear_suit)
+		if(!spaceproof && istype(owner.wear_suit, /obj/item/clothing/suit/space))
 			//cooling is going to SUCK if you have heat-regulating clothes
 			if(owner.bodytemperature < species.heat_level_3)
 				owner.bodytemperature += 5
