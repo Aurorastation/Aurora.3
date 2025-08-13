@@ -11,7 +11,7 @@
 /area/horizon/medical/paramedic
 	name = "Paramedic Equipment Storage"
 	icon_state = "medbay"
-	horizon_deck = 2
+	horizon_deck = 3
 
 /area/horizon/medical/reception
 	name = "Reception"
@@ -72,13 +72,13 @@
 /area/horizon/medical/ward
 	name = "Recovery Ward"
 	icon_state = "patients"
-	horizon_deck = 3
+	horizon_deck = 2
 
 /area/horizon/medical/ward/isolation
 	name = "Isolation Ward"
 	area_blurb = "This seldom-used ward somehow smells sterile and musty at the same time."
 	area_blurb_category = "medical_isolation"
-	horizon_deck = 2
+	horizon_deck = 3
 
 /area/horizon/medical/emergency_storage
 	name = "Emergency Storage"
