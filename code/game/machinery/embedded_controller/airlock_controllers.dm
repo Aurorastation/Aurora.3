@@ -44,7 +44,7 @@
 
 /obj/machinery/embedded_controller/radio/airlock/attack_hand(mob/user)
 	if(!allowed(user))
-		to_chat(user, SPAN_WARNING("Access Denied"))
+		to_chat(user, SPAN_WARNING("Access denied."))
 		return FALSE
 	return ..()
 
