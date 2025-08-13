@@ -1,5 +1,5 @@
 import { useBackend } from '../backend';
-import { Button, Knob, LabeledControls, Section, LabeledList, Box, Flex} from '../components';
+import { Button, Knob, LabeledControls, Section, LabeledList} from '../components';
 import { Window } from '../layouts';
 import { BooleanLike } from '../../common/react';
 
