@@ -17,7 +17,6 @@
 		)
 
 	unit_test_groups = list(1)
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 /singleton/submap_archetype/sensor_relay
 	map = "sensor_relay"
