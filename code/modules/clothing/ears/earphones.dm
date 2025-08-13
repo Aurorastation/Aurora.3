@@ -435,3 +435,18 @@ Earphone Variants
 		new/datum/track("Le Swing", 'sound/music/phonograph/le_swing.ogg'),
 		new/datum/track("Posin", 'sound/music/phonograph/posin.ogg')
 	)
+
+/obj/item/music_cartridge/europa_various
+	name = "Europa: Best of the 50s"
+	desc = "A music cartridge storing the best tracks to listen to on a submarine dive."
+	icon_state = "generic"
+
+	tracks = list(
+		new/datum/track("Where The Rays Leap", 'sound/music/regional/europa/where_the_dusks_rays_leap.ogg'),
+		new/datum/track("Casting Faint Shadows", 'sound/music/regional/europa/casting_faint_shadows.ogg'),
+		new/datum/track("Weedance", 'sound/music/regional/europa/weedance.ogg'),
+		new/datum/track("Instrumental Park", 'sound/music/regional/europa/instrumental_park.ogg'),
+		new/datum/track("Way Between The Shadows", 'sound/music/regional/europa/way_between_the_shadows.ogg'),
+		new/datum/track("Deep Beneath the Solemn Waves a Vast Underwater Landscape, Brimming With Bizarre, Eerily Gleaming Cyclopean Structures of, What Must Surely Be, Non-Human Origin, Stretched Out Across the Ocean Floor", 'sound/music/regional/europa/deep_beneath-.ogg'),
+	)
+
