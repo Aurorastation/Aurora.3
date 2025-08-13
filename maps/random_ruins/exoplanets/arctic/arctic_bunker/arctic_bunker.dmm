@@ -45,7 +45,7 @@
 "bb" = (
 /obj/effect/floor_decal/snowdrift/large/random,
 /turf/simulated/floor/exoplanet/snow/cold,
-/area/space)
+/area/template_noop)
 "bm" = (
 /obj/effect/decal/fake_object{
 	icon = 'icons/obj/item/landmine/mine.dmi';
@@ -54,7 +54,7 @@
 	name = "old land mine"
 	},
 /turf/simulated/floor/exoplanet/snow/cold,
-/area/space)
+/area/template_noop)
 "bD" = (
 /obj/machinery/porta_turret/ballistic{
 	light_range = 1
@@ -178,7 +178,7 @@
 	pixel_y = 7
 	},
 /turf/simulated/floor/exoplanet/snow/cold,
-/area/space)
+/area/template_noop)
 "eZ" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/structure/sink{
@@ -206,7 +206,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/snow/cold,
-/area/space)
+/area/template_noop)
 "fz" = (
 /obj/structure/flora/pottedplant/dead,
 /obj/effect/floor_decal/corner/dark_blue{
@@ -285,7 +285,7 @@
 /area/arctic_bunker)
 "iK" = (
 /turf/simulated/floor/exoplanet/snow/cold,
-/area/space)
+/area/template_noop)
 "iN" = (
 /obj/structure/platform/ledge/dark,
 /obj/structure/platform/ledge/dark{
@@ -298,7 +298,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/exoplanet/tiled/dark,
-/area/space)
+/area/template_noop)
 "iP" = (
 /obj/structure/bed/padded,
 /obj/effect/floor_decal/industrial/outline_segment/red{
@@ -328,7 +328,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/exoplanet/snow/cold,
-/area/space)
+/area/template_noop)
 "jo" = (
 /obj/structure/table/reinforced/steel,
 /obj/effect/floor_decal/corner/dark_blue/full{
@@ -351,7 +351,7 @@
 	name = "SECURE AREA: MINE FIELD"
 	},
 /turf/simulated/wall/r_wall,
-/area/space)
+/area/template_noop)
 "kj" = (
 /obj/machinery/sleeper{
 	dir = 1
@@ -463,7 +463,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/tiled/dark,
-/area/space)
+/area/template_noop)
 "mg" = (
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 1
@@ -471,13 +471,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/arctic_bunker)
-"mu" = (
-/obj/item/landmine/frag{
-	layer = 2.029
-	},
-/obj/effect/floor_decal/snowdrift/large/random,
-/turf/simulated/floor/exoplanet/snow/cold,
-/area/space)
 "mU" = (
 /obj/effect/floor_decal/industrial/outline_segment/red{
 	dir = 4
@@ -512,7 +505,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/snow/cold,
-/area/space)
+/area/template_noop)
 "om" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/heart{
@@ -570,7 +563,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/exoplanet/snow/cold,
-/area/space)
+/area/template_noop)
 "pU" = (
 /obj/machinery/computer/terminal/inactive{
 	dir = 1
@@ -655,17 +648,17 @@
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/tiled/dark,
-/area/space)
+/area/template_noop)
 "so" = (
 /obj/effect/floor_decal/snowdrift/random,
 /turf/simulated/floor/exoplanet/snow/cold,
-/area/space)
+/area/template_noop)
 "sA" = (
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/barren,
-/area/space)
+/area/template_noop)
 "sD" = (
 /obj/machinery/door/blast/shutters{
 	name = "Inner Checkpoint Shutter";
@@ -682,7 +675,7 @@
 	desc = "It's used to monitor rooms. This one is far too old, and has decayed to such a condition that it's no longer usable."
 	},
 /turf/simulated/floor/exoplanet/snow/cold,
-/area/space)
+/area/template_noop)
 "sW" = (
 /obj/structure/flora/pottedplant/dead,
 /obj/effect/floor_decal/corner/dark_blue{
@@ -760,11 +753,11 @@
 "vD" = (
 /obj/structure/flora/bush,
 /turf/simulated/floor/exoplanet/snow/cold,
-/area/space)
+/area/template_noop)
 "wc" = (
 /obj/structure/flora/tree/pine,
 /turf/simulated/floor/exoplanet/snow/cold,
-/area/space)
+/area/template_noop)
 "wm" = (
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 8
@@ -793,10 +786,10 @@
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/tiled/dark,
-/area/space)
+/area/template_noop)
 "wB" = (
 /turf/simulated/floor/exoplanet/barren,
-/area/space)
+/area/template_noop)
 "wR" = (
 /obj/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch_door/red,
@@ -835,7 +828,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/exoplanet/tiled/dark,
-/area/space)
+/area/template_noop)
 "xC" = (
 /obj/effect/floor_decal/industrial/outline_segment/red{
 	dir = 4
@@ -849,7 +842,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/snow/cold,
-/area/space)
+/area/template_noop)
 "zb" = (
 /obj/effect/floor_decal/industrial/outline_straight/security{
 	dir = 1
@@ -893,7 +886,7 @@
 "zD" = (
 /obj/structure/blocker/steel/fence,
 /turf/simulated/floor/exoplanet/snow/cold,
-/area/space)
+/area/template_noop)
 "zG" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
@@ -1004,14 +997,14 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/exoplanet/snow/cold,
-/area/space)
+/area/template_noop)
 "DK" = (
 /turf/simulated/wall/r_wall,
 /area/arctic_bunker)
 "DO" = (
 /obj/structure/flora/rock/snow,
 /turf/simulated/floor/exoplanet/snow/cold,
-/area/space)
+/area/template_noop)
 "DV" = (
 /obj/machinery/door/airlock/highsecurity{
 	dir = 8
@@ -1053,7 +1046,7 @@
 "Fh" = (
 /obj/item/landmine/frag,
 /turf/simulated/floor/exoplanet/snow/cold,
-/area/space)
+/area/template_noop)
 "Fm" = (
 /obj/effect/decal/cleanable/floor_damage,
 /turf/simulated/floor/tiled/dark,
@@ -1073,7 +1066,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/tiled/dark,
-/area/space)
+/area/template_noop)
 "Gd" = (
 /obj/machinery/power/rtg,
 /obj/structure/cable/yellow{
@@ -1119,7 +1112,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/snow/cold,
-/area/space)
+/area/template_noop)
 "HD" = (
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/machinery/door/blast/shutters{
@@ -1134,7 +1127,7 @@
 	},
 /obj/effect/floor_decal/snowdrift/random,
 /turf/simulated/floor/exoplanet/snow/cold,
-/area/space)
+/area/template_noop)
 "HG" = (
 /obj/structure/bed/stool{
 	pixel_y = 19
@@ -1211,13 +1204,6 @@
 "Jx" = (
 /turf/simulated/floor/tiled/dark,
 /area/arctic_bunker)
-"JW" = (
-/obj/effect/floor_decal/snowdrift/large/random,
-/obj/item/landmine/frag{
-	layer = 2.029
-	},
-/turf/simulated/floor/exoplanet/snow/cold,
-/area/space)
 "Kb" = (
 /obj/structure/closet/crate/freezer/rations,
 /obj/effect/decal/cleanable/dirt,
@@ -1227,14 +1213,14 @@
 "Kd" = (
 /obj/effect/floor_decal/snowrocks,
 /turf/simulated/floor/exoplanet/snow/cold,
-/area/space)
+/area/template_noop)
 "Kt" = (
 /obj/structure/sign/flag/sol/old{
 	pixel_y = 32;
 	ripped = 1
 	},
 /turf/simulated/floor/exoplanet/snow/cold,
-/area/space)
+/area/template_noop)
 "Kw" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
@@ -1262,7 +1248,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/tiled/dark,
-/area/space)
+/area/template_noop)
 "KJ" = (
 /obj/effect/floor_decal/corner_wide/green/full{
 	dir = 8
@@ -1321,7 +1307,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/tiled/dark,
-/area/space)
+/area/template_noop)
 "LV" = (
 /obj/structure/table/reinforced/steel,
 /obj/effect/decal/cleanable/dirt,
@@ -1329,7 +1315,7 @@
 /area/arctic_bunker)
 "Mj" = (
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "MA" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 1
@@ -1375,7 +1361,7 @@
 	},
 /obj/effect/floor_decal/snow/corner,
 /turf/simulated/floor/exoplanet/tiled/dark,
-/area/space)
+/area/template_noop)
 "NX" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/storage/box/fancy/donut{
@@ -1483,13 +1469,13 @@
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/snow/cold,
-/area/space)
+/area/template_noop)
 "Qj" = (
 /obj/machinery/light/small/red{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/snow/cold,
-/area/space)
+/area/template_noop)
 "Ql" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
@@ -1766,7 +1752,7 @@
 "Wy" = (
 /obj/structure/platform_stairs,
 /turf/simulated/floor/exoplanet/snow/cold,
-/area/space)
+/area/template_noop)
 "WA" = (
 /obj/item/storage/toolbox/mechanical,
 /obj/structure/closet/crate/tool,
@@ -1777,13 +1763,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/arctic_bunker)
 "WD" = (
-/obj/structure/window{
-	layer = 3
-	},
 /obj/machinery/shower{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/window,
 /turf/simulated/floor/tiled/techmaint,
 /area/arctic_bunker)
 "WL" = (
@@ -1838,6 +1822,9 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/arctic_bunker)
+"Yk" = (
+/turf/simulated/mineral/random/exoplanet,
+/area/template_noop)
 "Yp" = (
 /obj/machinery/light/colored/decayed{
 	dir = 8
@@ -1874,7 +1861,7 @@
 /area/arctic_bunker)
 "Zx" = (
 /turf/simulated/wall/r_wall,
-/area/space)
+/area/template_noop)
 
 (1,1,1) = {"
 Mj
@@ -1897,10 +1884,10 @@ Mj
 Mj
 Mj
 Mj
-uu
-uu
-uu
-uu
+Yk
+Yk
+Yk
+Yk
 iK
 iK
 wc
@@ -1946,18 +1933,18 @@ Mj
 Mj
 Mj
 Mj
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
 iK
 iK
 iK
@@ -1998,22 +1985,22 @@ Mj
 Mj
 Mj
 Mj
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
 Kd
 iK
 iK
@@ -2050,26 +2037,26 @@ Mj
 Mj
 Mj
 Mj
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
 iK
 iK
 iK
@@ -2102,33 +2089,33 @@ Mj
 Mj
 Mj
 Mj
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
 iK
 iK
-iK
-JW
+Fh
+bb
 iK
 iK
 iK
@@ -2155,32 +2142,32 @@ Mj
 Mj
 Mj
 Mj
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
 iK
 iK
 iK
@@ -2208,33 +2195,33 @@ Mj
 Mj
 Mj
 Mj
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
 iK
 iK
 iK
@@ -2261,8 +2248,8 @@ Mj
 Mj
 Mj
 Mj
-uu
-uu
+Yk
+Yk
 uu
 uu
 uu
@@ -2281,14 +2268,14 @@ DK
 DK
 DK
 DK
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
 iK
 vD
 iK
@@ -2315,8 +2302,8 @@ Mj
 Mj
 Mj
 Mj
-uu
-uu
+Yk
+Yk
 uu
 uu
 uu
@@ -2335,15 +2322,15 @@ GA
 GA
 GA
 DK
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
 iK
 iK
 iK
@@ -2368,9 +2355,9 @@ Mj
 Mj
 Mj
 Mj
-uu
-uu
-uu
+Yk
+Yk
+Yk
 uu
 uu
 uu
@@ -2390,15 +2377,15 @@ DK
 GA
 DK
 DK
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
 iK
 wc
 iK
@@ -2422,9 +2409,9 @@ Mj
 Mj
 Mj
 Mj
-uu
-uu
-uu
+Yk
+Yk
+Yk
 uu
 uu
 uu
@@ -2444,15 +2431,15 @@ DK
 GA
 GA
 DK
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
 iK
 iK
 iK
@@ -2475,10 +2462,10 @@ Mj
 Mj
 Mj
 Mj
-uu
-uu
-uu
-uu
+Yk
+Yk
+Yk
+Yk
 uu
 uu
 uu
@@ -2498,16 +2485,16 @@ DK
 DK
 GA
 DK
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
 iK
 DO
 iK
@@ -2529,10 +2516,10 @@ Mj
 Mj
 Mj
 Mj
-uu
-uu
-uu
-uu
+Yk
+Yk
+Yk
+Yk
 uu
 uu
 uu
@@ -2552,16 +2539,16 @@ QS
 DK
 GA
 DK
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
 Zx
 zD
 zD
@@ -2583,10 +2570,10 @@ Mj
 Mj
 Mj
 Mj
-uu
-uu
-uu
-uu
+Yk
+Yk
+Yk
+Yk
 uu
 uu
 uu
@@ -2606,17 +2593,17 @@ rt
 DK
 GA
 DK
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
 iK
 iK
 iK
@@ -2637,10 +2624,10 @@ Mj
 Mj
 Mj
 Mj
-uu
-uu
-uu
-uu
+Yk
+Yk
+Yk
+Yk
 uu
 uu
 uu
@@ -2663,14 +2650,14 @@ DK
 DK
 DK
 DK
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
 iK
 iK
 iK
@@ -2690,11 +2677,11 @@ iK
 Mj
 Mj
 Mj
-uu
-uu
-uu
-uu
-uu
+Yk
+Yk
+Yk
+Yk
+Yk
 uu
 uu
 uu
@@ -2717,14 +2704,14 @@ GA
 GA
 GA
 DK
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
 iK
 vD
 iK
@@ -2744,11 +2731,11 @@ iK
 Mj
 Mj
 Mj
-uu
-uu
-uu
-uu
-uu
+Yk
+Yk
+Yk
+Yk
+Yk
 uu
 uu
 uu
@@ -2771,12 +2758,12 @@ DK
 DK
 GA
 DK
-uu
-uu
-uu
-uu
-uu
-uu
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
 DK
 DK
 iK
@@ -2798,11 +2785,11 @@ iK
 Mj
 Mj
 Mj
-uu
-uu
-uu
-uu
-uu
+Yk
+Yk
+Yk
+Yk
+Yk
 uu
 uu
 uu
@@ -2825,9 +2812,9 @@ lM
 DK
 GA
 DK
-uu
-uu
-uu
+Yk
+Yk
+Yk
 DK
 DK
 DK
@@ -2852,11 +2839,11 @@ iK
 Mj
 Mj
 Mj
-uu
-uu
-uu
-uu
-uu
+Yk
+Yk
+Yk
+Yk
+Yk
 DK
 DK
 DK
@@ -2906,11 +2893,11 @@ iK
 Mj
 Mj
 Mj
-uu
-uu
-uu
-uu
-uu
+Yk
+Yk
+Yk
+Yk
+Yk
 DK
 GA
 GA
@@ -2960,11 +2947,11 @@ iK
 Mj
 Mj
 Mj
-uu
-uu
-uu
-uu
-uu
+Yk
+Yk
+Yk
+Yk
+Yk
 DK
 GA
 DK
@@ -3013,12 +3000,12 @@ iK
 (22,1,1) = {"
 Mj
 Mj
-uu
-uu
-uu
-uu
-uu
-uu
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
 DK
 GA
 DK
@@ -3067,12 +3054,12 @@ iK
 (23,1,1) = {"
 Mj
 Mj
-uu
-uu
-uu
-uu
-uu
-uu
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
 DK
 GA
 DK
@@ -3121,12 +3108,12 @@ iK
 (24,1,1) = {"
 Mj
 Mj
-uu
-uu
-uu
-uu
-uu
-uu
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
 DK
 GA
 DK
@@ -3175,12 +3162,12 @@ iK
 (25,1,1) = {"
 Mj
 Mj
-uu
-uu
-uu
-uu
-uu
-uu
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
 DK
 GA
 DK
@@ -3229,12 +3216,12 @@ iK
 (26,1,1) = {"
 Mj
 Mj
-uu
-uu
-uu
-uu
-uu
-uu
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
 DK
 GA
 DK
@@ -3283,12 +3270,12 @@ iK
 (27,1,1) = {"
 Mj
 Mj
-uu
-uu
-uu
-uu
-uu
-uu
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
 DK
 GA
 GA
@@ -3337,12 +3324,12 @@ iK
 (28,1,1) = {"
 Mj
 Mj
-uu
-uu
-uu
-uu
-uu
-uu
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
 DK
 DK
 DK
@@ -3391,12 +3378,12 @@ iK
 (29,1,1) = {"
 Mj
 Mj
-uu
-uu
-uu
-uu
-uu
-uu
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
 uu
 uu
 uu
@@ -3445,12 +3432,12 @@ iK
 (30,1,1) = {"
 Mj
 Mj
-uu
-uu
-uu
-uu
-uu
-uu
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
 uu
 uu
 uu
@@ -3477,8 +3464,8 @@ DK
 DK
 DK
 DK
-uu
-uu
+Yk
+Yk
 DK
 DK
 iK
@@ -3500,11 +3487,11 @@ iK
 Mj
 Mj
 Mj
-uu
-uu
-uu
-uu
-uu
+Yk
+Yk
+Yk
+Yk
+Yk
 uu
 uu
 uu
@@ -3530,11 +3517,11 @@ GA
 GA
 GA
 DK
-uu
-uu
-uu
-uu
-uu
+Yk
+Yk
+Yk
+Yk
+Yk
 iK
 wc
 iK
@@ -3554,11 +3541,11 @@ iK
 Mj
 Mj
 Mj
-uu
-uu
-uu
-uu
-uu
+Yk
+Yk
+Yk
+Yk
+Yk
 uu
 uu
 uu
@@ -3584,11 +3571,11 @@ DK
 DK
 DK
 DK
-uu
-uu
-uu
-uu
-uu
+Yk
+Yk
+Yk
+Yk
+Yk
 iK
 iK
 iK
@@ -3609,10 +3596,10 @@ Mj
 Mj
 Mj
 Mj
-uu
-uu
-uu
-uu
+Yk
+Yk
+Yk
+Yk
 uu
 uu
 uu
@@ -3635,14 +3622,14 @@ GA
 DK
 DK
 DK
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
 Kd
 iK
 iK
@@ -3663,10 +3650,10 @@ Mj
 Mj
 Mj
 Mj
-uu
-uu
-uu
-uu
+Yk
+Yk
+Yk
+Yk
 uu
 uu
 uu
@@ -3687,15 +3674,15 @@ LV
 DK
 GA
 DK
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
 Zx
 zD
 iK
@@ -3717,10 +3704,10 @@ Mj
 Mj
 Mj
 Mj
-uu
-uu
-uu
-uu
+Yk
+Yk
+Yk
+Yk
 uu
 uu
 uu
@@ -3741,14 +3728,14 @@ DK
 DK
 GA
 DK
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
 iK
 iK
 Kd
@@ -3771,10 +3758,10 @@ Mj
 Mj
 Mj
 Mj
-uu
-uu
-uu
-uu
+Yk
+Yk
+Yk
+Yk
 uu
 uu
 uu
@@ -3795,13 +3782,13 @@ DK
 GA
 GA
 DK
-uu
-uu
-uu
-uu
-uu
-uu
-uu
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
 iK
 iK
 iK
@@ -3825,10 +3812,10 @@ Mj
 Mj
 Mj
 Mj
-uu
-uu
-uu
-uu
+Yk
+Yk
+Yk
+Yk
 uu
 uu
 uu
@@ -3849,12 +3836,12 @@ DK
 GA
 DK
 DK
-uu
-uu
-uu
-uu
-uu
-uu
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
 iK
 Fh
 iK
@@ -3880,9 +3867,9 @@ Mj
 Mj
 Mj
 Mj
-uu
-uu
-uu
+Yk
+Yk
+Yk
 uu
 uu
 uu
@@ -3902,12 +3889,12 @@ DK
 DK
 GA
 DK
-uu
-uu
-uu
-uu
-uu
-uu
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
 wc
 iK
 iK
@@ -3935,8 +3922,8 @@ Mj
 Mj
 Mj
 Mj
-uu
-uu
+Yk
+Yk
 uu
 uu
 uu
@@ -3956,12 +3943,12 @@ GA
 GA
 GA
 DK
-uu
-uu
-uu
-uu
-uu
-uu
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
 iK
 Kd
 iK
@@ -3974,7 +3961,7 @@ iK
 iK
 iK
 iK
-iK
+Fh
 iK
 iK
 iK
@@ -3990,7 +3977,7 @@ Mj
 Mj
 Mj
 Mj
-uu
+Yk
 uu
 uu
 uu
@@ -4010,11 +3997,11 @@ DK
 DK
 DK
 DK
-uu
-uu
-uu
-uu
-uu
+Yk
+Yk
+Yk
+Yk
+Yk
 iK
 iK
 Fh
@@ -4028,7 +4015,7 @@ iK
 Kd
 iK
 iK
-mu
+bb
 iK
 iK
 iK
@@ -4045,30 +4032,30 @@ Mj
 Mj
 Mj
 Mj
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
 iK
 iK
 iK
@@ -4103,25 +4090,25 @@ Mj
 Mj
 Mj
 Mj
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
 iK
 iK
 iK
@@ -4158,21 +4145,21 @@ Mj
 Mj
 Mj
 Mj
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
 iK
 iK
 iK
@@ -4217,14 +4204,14 @@ Mj
 Mj
 Mj
 Mj
-uu
-uu
-uu
-uu
-uu
-uu
-uu
-uu
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
+Yk
 iK
 iK
 iK
@@ -4272,10 +4259,10 @@ Mj
 Mj
 Mj
 Mj
-uu
-uu
-uu
-uu
+Yk
+Yk
+Yk
+Yk
 Kd
 iK
 iK
