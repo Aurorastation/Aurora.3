@@ -86,7 +86,10 @@
 		estimated_power_consumption = rand(-50, 100 + (100 - integrity))
 
 	if(thermostat < initial(thermostat))
-		estimated_power_consumption = ((initial(thermostat) - thermostat) - T0C)
+		estimated_power_consumption = ((initial(thermostat) - thermostat) + T0C) * 0.1
+	else if(thermostat > initial(thermostat))
+		// higher thermostat = less power usage
+		estimated_power_consumption = -(thermostat_max / thermostat)
 
 	data["estimated_power_consumption"] = estimated_power_consumption
 	data["safety_burnt"] = safety_burnt
@@ -152,7 +155,7 @@
 	// The lower our thermostat setting, the more power we consume.
 	var/extra_power_consumption = 0
 	if(thermostat < initial(thermostat))
-		extra_power_consumption = ((initial(thermostat) - thermostat) - T0C)
+		extra_power_consumption = ((initial(thermostat) - thermostat) + T0C) * 0.1
 	else if(thermostat > initial(thermostat))
 		// higher thermostat = less power usage
 		extra_power_consumption = -(thermostat_max / thermostat)
