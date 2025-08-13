@@ -258,3 +258,28 @@ GLOBAL_LIST_INIT(possible_changeling_IDs, list("Alpha","Beta","Gamma","Delta","E
 		to_chat(src, SPAN_WARNING("We cannot find a path to sting \the [M] by!"))
 		return FALSE
 	return TRUE
+
+/obj/item/changeling_jumpstarter
+	name = "changeling jumpstarter"
+	desc = "Use this to morph into a changeling. This won't work on synthetics! This item is definitely not canon."
+	icon = 'icons/obj/clothing/hats.dmi'
+	icon_state = "amp"
+	contained_sprite = FALSE
+
+/obj/item/changeling_jumpstarter/attack_self(mob/user)
+	. = ..()
+	if(!ishuman(user))
+		return
+	var/mob/living/carbon/human/H = user
+	if(isipc(H)) //should this check for diona?
+		to_chat(H, SPAN_WARNING("You don't have any changeling potential."))
+		return
+
+	var/datum/changeling/changeling = H.mind.antag_datums[MODE_CHANGELING]
+	if(changeling)
+		to_chat(H, SPAN_WARNING("You've already awakened your changeling potential!"))
+		return
+
+	GLOB.changelings.add_antagonist(H.mind)
+	to_chat(H, SPAN_NOTICE("You've awakened your changeling potential!"))
+	qdel(src)
