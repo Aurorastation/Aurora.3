@@ -80,10 +80,13 @@
 	data["bodytemperature"] = owner.bodytemperature - 273.15
 	data["temperature_safety"] = temperature_safety
 
-	var/estimated_power_consumption = base_power_consumption + (((initial(thermostat) - thermostat) + T0C) * 0.2)
+	var/estimated_power_consumption = base_power_consumption
 	var/integrity = get_integrity()
 	if(integrity < IPC_INTEGRITY_THRESHOLD_MEDIUM)
 		estimated_power_consumption = rand(-50, 100 + (100 - integrity))
+
+	if(thermostat < initial(thermostat))
+		estimated_power_consumption = ((initial(thermostat) - thermostat) - T0C)
 
 	data["estimated_power_consumption"] = estimated_power_consumption
 	data["safety_burnt"] = safety_burnt
@@ -135,7 +138,7 @@
 			owner.bodytemperature += 5
 			temperature_change *= 0.1
 
-	// Check if there is somehow no gas, or if we are in an ambient without enough air to properly cool us.
+	// Check if there is somehow no air, or if we are in an ambient without enough air to properly cool us.
 	if((!ambient || (ambient && owner.calculate_affecting_pressure(ambient.return_pressure()) < owner.species.warning_low_pressure)) && !spaceproof)
 		temperature_change *= 0
 		return
@@ -150,12 +153,15 @@
 	var/extra_power_consumption = 0
 	if(thermostat < initial(thermostat))
 		extra_power_consumption = ((initial(thermostat) - thermostat) - T0C)
+	else if(thermostat > initial(thermostat))
+		// higher thermostat = less power usage
+		extra_power_consumption = -(thermostat_max / thermostat)
 
 	if(thermostat < owner.bodytemperature)
 		if((owner.bodytemperature - temperature_change) < thermostat)
 			temperature_change = owner.bodytemperature - thermostat
 		owner.bodytemperature = max(owner.bodytemperature - temperature_change, thermostat)
-		cell.use(base_power_consumption + extra_power_consumption)
+		cell.use(max(0, base_power_consumption + extra_power_consumption))
 	else
 		if((owner.bodytemperature + temperature_change) > thermostat)
 			temperature_change = thermostat - owner.bodytemperature
