@@ -15,6 +15,7 @@
 
 /obj/effect/overmap/visitable/ship/stationary/hegemony_waypoint
 	name = "hegemony waypoint"
+	class = "IHSS"
 	icon = 'icons/obj/overmap/overmap_stationary.dmi'
 	icon_state = "waypoint"
 	color = COLOR_CHESTNUT

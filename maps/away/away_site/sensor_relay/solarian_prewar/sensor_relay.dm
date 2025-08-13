@@ -25,6 +25,7 @@
 
 /obj/effect/overmap/visitable/ship/stationary/sensor_relay
 	name = "sensor relay"
+	class = "SASS"
 	icon = 'icons/obj/overmap/overmap_stationary.dmi'
 	icon_state = "sensor_relay"
 	color = COLOR_STEEL
