@@ -1778,11 +1778,6 @@
 /obj/structure/extinguisher_cabinet/south,
 /turf/simulated/floor/tiled/full,
 /area/sensor_relay/dining)
-"aDR" = (
-/obj/machinery/iff_beacon,
-/turf/simulated/floor/airless,
-/turf/space/dynamic,
-/area/sensor_relay)
 "aDS" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
@@ -2743,6 +2738,7 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
 	},
+/obj/machinery/iff_beacon,
 /turf/simulated/floor/airless,
 /area/sensor_relay)
 "deH" = (
@@ -27349,7 +27345,7 @@ vmy
 vmy
 vmy
 vmy
-aDR
+vmy
 vmy
 vmy
 vmy
