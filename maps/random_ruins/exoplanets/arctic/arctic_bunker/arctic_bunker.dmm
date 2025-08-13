@@ -22,13 +22,13 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "ae" = (
 /obj/effect/floor_decal/industrial/outline_door/red,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/floor_damage,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "aZ" = (
 /obj/structure/filingcabinet/chestdrawer{
 	pixel_x = -6
@@ -41,7 +41,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "bb" = (
 /obj/effect/floor_decal/snowdrift/large/random,
 /turf/simulated/floor/exoplanet/snow/cold,
@@ -65,21 +65,21 @@
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/arctic_bunker)
 "bG" = (
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/door/airlock/highsecurity{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/arctic_bunker)
 "ct" = (
 /obj/effect/floor_decal/industrial/outline_straight/security{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "cD" = (
 /obj/structure/sign/flag/sol/old{
 	pixel_y = 32
@@ -88,7 +88,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/floor_damage,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "cJ" = (
 /obj/structure/filingcabinet/filingcabinet{
 	pixel_x = 7
@@ -97,14 +97,14 @@
 	pixel_x = -7
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "cO" = (
 /obj/machinery/light/colored/decayed{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "cP" = (
 /obj/machinery/turretid/lethal{
 	dir = 8;
@@ -131,21 +131,21 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "cR" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "cY" = (
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "db" = (
 /obj/effect/floor_decal/industrial/outline_segment/red{
 	dir = 1
@@ -153,7 +153,7 @@
 /obj/structure/reagent_dispensers/watertank,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "dd" = (
 /obj/machinery/light/broken{
 	dir = 4
@@ -161,17 +161,17 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "dq" = (
 /obj/machinery/photocopier,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "dx" = (
 /obj/effect/floor_decal/corner/beige/full{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "dQ" = (
 /obj/structure/barricade/liquid/wired{
 	dir = 1;
@@ -200,7 +200,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/arctic_bunker)
 "fw" = (
 /obj/structure/barricade/liquid/wired{
 	dir = 8
@@ -215,7 +215,7 @@
 /obj/machinery/firealarm/north,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "fG" = (
 /obj/structure/bed/roller,
 /obj/effect/floor_decal/corner_wide/green/full{
@@ -223,7 +223,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/arctic_bunker)
 "fO" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -235,7 +235,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/arctic_bunker)
 "gj" = (
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 1
@@ -246,7 +246,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/arctic_bunker)
 "hP" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/reagent_containers/food/drinks/waterbottle{
@@ -262,16 +262,15 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "im" = (
 /obj/effect/floor_decal/corner_wide/green/diagonal,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/arctic_bunker)
 "is" = (
-/obj/structure/table/reinforced/steel,
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
 	},
@@ -279,8 +278,11 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/computer/terminal/inactive{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "iK" = (
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/space)
@@ -304,7 +306,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "jc" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
@@ -314,7 +316,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "ji" = (
 /obj/structure/platform/ledge/dark{
 	dir = 1
@@ -337,12 +339,12 @@
 	pixel_y = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "jw" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "ka" = (
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'KEEP CLEAR OF DOCKING AREA'.";
@@ -358,7 +360,7 @@
 /obj/effect/floor_decal/industrial/hatch/security,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "kq" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
@@ -370,7 +372,7 @@
 	icon_state = "1-8"
 	},
 /turf/simulated/floor/exoplanet/plating,
-/area/space)
+/area/arctic_bunker)
 "kt" = (
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 1
@@ -378,7 +380,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/floor_damage,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "kz" = (
 /obj/machinery/power/rtg,
 /obj/structure/cable/yellow{
@@ -386,7 +388,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/plating,
-/area/space)
+/area/arctic_bunker)
 "kH" = (
 /obj/machinery/door/airlock/silver{
 	name = "Toilet";
@@ -394,7 +396,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/arctic_bunker)
 "kU" = (
 /obj/machinery/iv_drip,
 /obj/effect/floor_decal/corner_wide/green{
@@ -403,7 +405,7 @@
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/arctic_bunker)
 "lj" = (
 /obj/structure/closet/secure_closet/guncabinet,
 /obj/item/gun/projectile/automatic/c20r/sol,
@@ -414,7 +416,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "lq" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-4"
@@ -425,10 +427,10 @@
 /obj/machinery/light/colored/decayed,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/plating,
-/area/space)
+/area/arctic_bunker)
 "lw" = (
 /turf/simulated/floor/tiled/ramp,
-/area/space)
+/area/arctic_bunker)
 "lM" = (
 /obj/machinery/power/rtg,
 /obj/structure/cable/yellow{
@@ -436,7 +438,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/plating,
-/area/space)
+/area/arctic_bunker)
 "lR" = (
 /obj/effect/floor_decal/industrial/outline_segment/red{
 	dir = 9
@@ -445,7 +447,7 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "lY" = (
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/effect/floor_decal/industrial/outline/red,
@@ -455,7 +457,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/arctic_bunker)
 "ma" = (
 /obj/effect/floor_decal/snow/surround{
 	dir = 1
@@ -468,7 +470,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/arctic_bunker)
 "mu" = (
 /obj/item/landmine/frag{
 	layer = 2.029
@@ -482,7 +484,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "nD" = (
 /obj/effect/floor_decal/industrial/outline_door/red,
 /obj/machinery/light/small/floor{
@@ -491,7 +493,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/arctic_bunker)
 "nN" = (
 /obj/effect/decal/fake_object{
 	icon = 'icons/obj/monitors.dmi';
@@ -504,7 +506,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/floor_damage,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "nV" = (
 /obj/structure/blocker/steel/fence{
 	dir = 8
@@ -525,11 +527,11 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "ox" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille,
 /turf/simulated/floor/plating,
-/area/space)
+/area/arctic_bunker)
 "oH" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/industrial/outline_door/red{
@@ -540,19 +542,19 @@
 /obj/effect/decal/cleanable/generic,
 /obj/effect/decal/cleanable/floor_damage,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "pd" = (
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "pN" = (
 /obj/effect/floor_decal/industrial/outline_door/red,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/arctic_bunker)
 "pR" = (
 /obj/structure/platform/ledge/dark,
 /obj/structure/platform/ledge/dark{
@@ -581,13 +583,13 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "pW" = (
 /obj/structure/reagent_dispensers/water_cooler{
 	pixel_x = 7
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "qa" = (
 /obj/structure/bed/roller,
 /obj/effect/floor_decal/corner_wide/green{
@@ -598,7 +600,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/arctic_bunker)
 "qh" = (
 /obj/machinery/door/blast/shutters{
 	name = "Inner Checkpoint Shutter";
@@ -607,7 +609,7 @@
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
-/area/space)
+/area/arctic_bunker)
 "qM" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
@@ -615,7 +617,7 @@
 /obj/effect/floor_decal/corner_wide/green/diagonal,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/arctic_bunker)
 "qX" = (
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 10
@@ -625,7 +627,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/arctic_bunker)
 "rt" = (
 /obj/machinery/computer/terminal/inactive{
 	dir = 1
@@ -638,13 +640,13 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "sc" = (
 /obj/machinery/light/broken,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/floor_damage,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "si" = (
 /obj/structure/platform/ledge/dark{
 	dir = 1
@@ -671,7 +673,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /turf/simulated/floor/tiled/techmaint,
-/area/space)
+/area/arctic_bunker)
 "sK" = (
 /obj/effect/decal/fake_object{
 	icon = 'icons/obj/monitors.dmi';
@@ -687,13 +689,13 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "tq" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/floor_damage,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "tr" = (
 /obj/machinery/porta_turret/ballistic{
 	light_range = 1;
@@ -705,7 +707,7 @@
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/arctic_bunker)
 "ul" = (
 /obj/machinery/bodyscanner{
 	dir = 1
@@ -715,7 +717,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/medical,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "uu" = (
 /turf/simulated/mineral/random/exoplanet,
 /area/space)
@@ -728,11 +730,11 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "uQ" = (
 /obj/structure/bed/stool/chair/office/dark,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "uW" = (
 /obj/machinery/computer/terminal/inactive{
 	dir = 4
@@ -748,13 +750,13 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "vf" = (
 /obj/structure/bed/stool{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "vD" = (
 /obj/structure/flora/bush,
 /turf/simulated/floor/exoplanet/snow/cold,
@@ -774,7 +776,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/floor_damage,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "wp" = (
 /obj/structure/bedsheetbin{
 	pixel_x = 4;
@@ -782,7 +784,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "ws" = (
 /obj/structure/platform/ledge/dark{
 	dir = 1
@@ -800,14 +802,14 @@
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/arctic_bunker)
 "wV" = (
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "xe" = (
 /obj/structure/closet/walllocker/medical/firstaid{
 	pixel_x = 32
@@ -820,7 +822,7 @@
 /obj/effect/floor_decal/industrial/outline_segment/red,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "xv" = (
 /obj/structure/platform/ledge/dark,
 /obj/structure/platform/ledge/dark{
@@ -841,7 +843,7 @@
 /obj/structure/flora/pottedplant/dead,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "yT" = (
 /obj/structure/platform/ledge/dark{
 	dir = 1
@@ -854,7 +856,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "ze" = (
 /obj/machinery/computer/terminal/inactive{
 	dir = 4
@@ -870,7 +872,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "zq" = (
 /obj/structure/filingcabinet/filingcabinet{
 	pixel_x = -7
@@ -883,11 +885,11 @@
 	},
 /obj/effect/decal/cleanable/cobweb,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "zr" = (
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "zD" = (
 /obj/structure/blocker/steel/fence,
 /turf/simulated/floor/exoplanet/snow/cold,
@@ -897,25 +899,25 @@
 /obj/effect/decal/cleanable/generic,
 /obj/effect/decal/cleanable/floor_damage,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "AQ" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "AU" = (
 /obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "Bg" = (
 /obj/structure/bed/stool{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "Bn" = (
 /obj/machinery/door/firedoor/noid{
 	dir = 4
@@ -924,7 +926,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/arctic_bunker)
 "Bu" = (
 /obj/structure/bed/padded{
 	name = "bottom bunk"
@@ -939,7 +941,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/arctic_bunker)
 "BD" = (
 /obj/machinery/computer/terminal/inactive,
 /obj/effect/floor_decal/industrial/outline_corner/security,
@@ -947,7 +949,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "BG" = (
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 9
@@ -958,7 +960,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/floor_damage,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/arctic_bunker)
 "BH" = (
 /obj/machinery/computer/terminal/inactive,
 /obj/effect/floor_decal/industrial/outline_corner/grey,
@@ -967,13 +969,13 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "BS" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "Ca" = (
 /obj/structure/sign/greencross{
 	pixel_x = 32
@@ -983,7 +985,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "Cq" = (
 /obj/effect/decal/fake_object{
 	icon = 'icons/obj/monitors.dmi';
@@ -996,13 +998,16 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "Dv" = (
 /obj/structure/sign/flag/sol/old{
 	pixel_y = 32
 	},
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/space)
+"DK" = (
+/turf/simulated/wall/r_wall,
+/area/arctic_bunker)
 "DO" = (
 /obj/structure/flora/rock/snow,
 /turf/simulated/floor/exoplanet/snow/cold,
@@ -1013,24 +1018,24 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/arctic_bunker)
 "Ej" = (
 /obj/effect/floor_decal/corner_wide/green/diagonal,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/arctic_bunker)
 "ET" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "EU" = (
 /obj/structure/bed/stool/padded/black,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "Fg" = (
 /obj/structure/bed/padded{
 	name = "bottom bunk"
@@ -1044,7 +1049,7 @@
 	pixel_y = 13
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/arctic_bunker)
 "Fh" = (
 /obj/item/landmine/frag,
 /turf/simulated/floor/exoplanet/snow/cold,
@@ -1052,14 +1057,14 @@
 "Fm" = (
 /obj/effect/decal/cleanable/floor_damage,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "Fv" = (
 /obj/effect/floor_decal/industrial/outline_segment/red{
 	dir = 6
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "FJ" = (
 /obj/structure/platform/ledge/dark{
 	dir = 1
@@ -1075,18 +1080,18 @@
 	icon_state = "0-8"
 	},
 /turf/simulated/floor/exoplanet/plating,
-/area/space)
+/area/arctic_bunker)
 "Gj" = (
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "GA" = (
 /obj/structure/foamedmetal,
 /turf/simulated/floor/plating,
-/area/space)
+/area/arctic_bunker)
 "GP" = (
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 5
@@ -1108,7 +1113,7 @@
 /obj/item/reagent_containers/inhaler/pneumalin,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/arctic_bunker)
 "Hm" = (
 /obj/structure/barricade/liquid/wired{
 	dir = 4
@@ -1122,7 +1127,7 @@
 	id = "sol_artic_bunker_outer"
 	},
 /turf/simulated/floor/tiled/techmaint,
-/area/space)
+/area/arctic_bunker)
 "HE" = (
 /obj/structure/barricade/liquid/wired{
 	dir = 4
@@ -1143,7 +1148,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "HP" = (
 /obj/structure/sink{
 	dir = 8;
@@ -1152,14 +1157,14 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "Ie" = (
 /obj/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/arctic_bunker)
 "IC" = (
 /obj/effect/floor_decal/corner_wide/green/full{
 	dir = 4
@@ -1169,7 +1174,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/arctic_bunker)
 "IZ" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/effect/floor_decal/industrial/outline_door/red{
@@ -1178,7 +1183,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/floor_damage,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/arctic_bunker)
 "Jc" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/pen{
@@ -1197,15 +1202,15 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "Js" = (
 /obj/effect/floor_decal/industrial/outline_door/red,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "Jx" = (
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "JW" = (
 /obj/effect/floor_decal/snowdrift/large/random,
 /obj/item/landmine/frag{
@@ -1218,7 +1223,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/floor_damage,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "Kd" = (
 /obj/effect/floor_decal/snowrocks,
 /turf/simulated/floor/exoplanet/snow/cold,
@@ -1244,7 +1249,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "KA" = (
 /obj/structure/platform/ledge/dark,
 /obj/structure/platform/ledge/dark{
@@ -1269,8 +1274,9 @@
 /obj/effect/floor_decal/industrial/outline_segment/red{
 	dir = 10
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/arctic_bunker)
 "Lt" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/reagent_containers/glass/beaker/pitcher/coffee{
@@ -1287,7 +1293,7 @@
 /obj/effect/floor_decal/corner/dark_blue/full,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "Lv" = (
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 6
@@ -1299,14 +1305,14 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/floor_damage,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/arctic_bunker)
 "LI" = (
 /obj/effect/floor_decal/industrial/outline_straight/security{
 	dir = 9
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "LS" = (
 /obj/structure/platform/ledge/dark{
 	dir = 1
@@ -1320,7 +1326,7 @@
 /obj/structure/table/reinforced/steel,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "Mj" = (
 /turf/template_noop,
 /area/space)
@@ -1330,7 +1336,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "MK" = (
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 9
@@ -1344,7 +1350,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/arctic_bunker)
 "MV" = (
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 1
@@ -1352,7 +1358,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/arctic_bunker)
 "NG" = (
 /obj/structure/platform/ledge/dark,
 /obj/structure/platform/ledge/dark{
@@ -1380,14 +1386,14 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "Os" = (
 /obj/effect/floor_decal/industrial/outline_segment/red{
 	dir = 5
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "Ov" = (
 /obj/structure/closet/secure_closet/guncabinet,
 /obj/effect/floor_decal/corner/dark_blue{
@@ -1402,7 +1408,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/floor_damage,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "OH" = (
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 4
@@ -1410,7 +1416,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "Py" = (
 /obj/machinery/porta_turret/ballistic{
 	light_range = 1
@@ -1419,10 +1425,10 @@
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/arctic_bunker)
 "PA" = (
 /turf/simulated/floor/tiled/ramp/bottom,
-/area/space)
+/area/arctic_bunker)
 "PB" = (
 /obj/machinery/computer/terminal/inactive,
 /obj/effect/floor_decal/industrial/outline_corner/grey,
@@ -1430,7 +1436,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "PT" = (
 /obj/machinery/door/airlock/engineering{
 	dir = 8
@@ -1442,7 +1448,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/arctic_bunker)
 "PV" = (
 /obj/effect/floor_decal/corner/beige/full{
 	dir = 1
@@ -1459,7 +1465,7 @@
 /obj/machinery/body_scanconsole,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "PX" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/light/small{
@@ -1471,7 +1477,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "Qd" = (
 /obj/machinery/light/small/red{
 	dir = 8
@@ -1487,7 +1493,7 @@
 "Ql" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "Qo" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
@@ -1496,7 +1502,7 @@
 /obj/effect/floor_decal/industrial/outline_segment/red,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "Qx" = (
 /obj/structure/table/reinforced/steel,
 /obj/effect/floor_decal/corner/dark_blue{
@@ -1508,14 +1514,14 @@
 	pixel_x = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "QL" = (
 /obj/effect/floor_decal/corner_wide/green/diagonal,
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/arctic_bunker)
 "QS" = (
 /obj/structure/closet/secure_closet/guncabinet,
 /obj/item/gun/projectile/automatic/c20r/sol,
@@ -1524,14 +1530,14 @@
 /obj/effect/floor_decal/corner/dark_blue/full,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "QT" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "Rc" = (
 /obj/structure/filingcabinet/chestdrawer{
 	pixel_x = -7
@@ -1541,21 +1547,21 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "Rh" = (
 /obj/effect/floor_decal/industrial/outline_straight/security{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "Rx" = (
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "RK" = (
 /obj/effect/floor_decal/industrial/outline_straight/security{
 	dir = 10
@@ -1563,7 +1569,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/floor_damage,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "RM" = (
 /obj/machinery/power/terminal{
 	dir = 8
@@ -1575,7 +1581,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/floor_damage,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "RV" = (
 /obj/machinery/door/firedoor/noid{
 	dir = 4
@@ -1585,7 +1591,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/arctic_bunker)
 "So" = (
 /obj/machinery/computer/terminal/inactive,
 /obj/effect/floor_decal/corner/dark_blue/full{
@@ -1593,7 +1599,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline_corner/security,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "SA" = (
 /obj/effect/floor_decal/industrial/outline_segment/red{
 	dir = 8
@@ -1601,7 +1607,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "SH" = (
 /obj/structure/table/reinforced/steel,
 /obj/random/smokable{
@@ -1617,7 +1623,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "Tm" = (
 /obj/machinery/door/blast/shutters{
 	name = "Outer Checkpoint Shutter";
@@ -1626,7 +1632,7 @@
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
-/area/space)
+/area/arctic_bunker)
 "TD" = (
 /obj/effect/decal/fake_object{
 	icon = 'icons/obj/monitors.dmi';
@@ -1636,7 +1642,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "TQ" = (
 /obj/effect/floor_decal/industrial/outline_door/red,
 /obj/machinery/light/colored/decayed{
@@ -1644,7 +1650,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "TS" = (
 /obj/machinery/door/airlock/highsecurity{
 	dir = 8
@@ -1657,7 +1663,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/arctic_bunker)
 "Ug" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
@@ -1667,12 +1673,12 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "Uw" = (
 /obj/effect/floor_decal/industrial/outline_door/red,
 /obj/effect/decal/cleanable/floor_damage,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "UV" = (
 /obj/structure/table/reinforced/steel,
 /obj/effect/floor_decal/corner/dark_blue{
@@ -1693,7 +1699,7 @@
 	req_access = null
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "UX" = (
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 5
@@ -1709,7 +1715,7 @@
 /obj/item/reagent_containers/blood/OMinus,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/arctic_bunker)
 "Vj" = (
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 1
@@ -1723,27 +1729,27 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/arctic_bunker)
 "Vk" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "Vr" = (
 /obj/machinery/door/airlock/highsecurity,
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
 /obj/machinery/door/firedoor/noid,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/arctic_bunker)
 "VB" = (
 /obj/machinery/light/broken{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "VT" = (
 /obj/structure/bed/stool/padded/black,
 /obj/effect/floor_decal/industrial/outline_segment/red{
@@ -1751,12 +1757,12 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "VW" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/floor_damage,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "Wy" = (
 /obj/structure/platform_stairs,
 /turf/simulated/floor/exoplanet/snow/cold,
@@ -1769,7 +1775,7 @@
 /obj/item/device/multitool,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "WD" = (
 /obj/structure/window{
 	layer = 3
@@ -1779,7 +1785,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/techmaint,
-/area/space)
+/area/arctic_bunker)
 "WL" = (
 /obj/effect/decal/fake_object{
 	icon = 'icons/obj/monitors.dmi';
@@ -1790,7 +1796,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "WV" = (
 /obj/structure/closet/walllocker/firecloset{
 	pixel_y = 32
@@ -1799,7 +1805,7 @@
 /obj/effect/floor_decal/industrial/outline/firefighting_closet,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "WX" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
@@ -1812,12 +1818,12 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/plating,
-/area/space)
+/area/arctic_bunker)
 "Xt" = (
 /obj/machinery/power/smes/buildable,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "XE" = (
 /obj/effect/decal/fake_object{
 	icon = 'icons/obj/monitors.dmi';
@@ -1831,7 +1837,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "Yp" = (
 /obj/machinery/light/colored/decayed{
 	dir = 8
@@ -1839,7 +1845,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/floor_damage,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "YC" = (
 /obj/machinery/washing_machine{
 	pixel_x = -8
@@ -1853,19 +1859,19 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/cobweb2,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "YO" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/device/flashlight/lamp,
 /obj/effect/floor_decal/corner/dark_blue/full,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "Zu" = (
 /obj/effect/floor_decal/industrial/outline_straight/security,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/arctic_bunker)
 "Zx" = (
 /turf/simulated/wall/r_wall,
 /area/space)
@@ -2263,18 +2269,18 @@ uu
 uu
 uu
 uu
-Zx
-Zx
-Zx
-Zx
-Zx
-Zx
-Zx
-Zx
-Zx
-Zx
-Zx
-Zx
+DK
+DK
+DK
+DK
+DK
+DK
+DK
+DK
+DK
+DK
+DK
+DK
 uu
 uu
 uu
@@ -2317,7 +2323,7 @@ uu
 uu
 uu
 uu
-Zx
+DK
 GA
 GA
 GA
@@ -2328,7 +2334,7 @@ GA
 GA
 GA
 GA
-Zx
+DK
 uu
 uu
 uu
@@ -2370,20 +2376,20 @@ uu
 uu
 uu
 uu
-Zx
-Zx
+DK
+DK
 GA
-Zx
-Zx
-Zx
-Zx
-Zx
-Zx
-Zx
-Zx
+DK
+DK
+DK
+DK
+DK
+DK
+DK
+DK
 GA
-Zx
-Zx
+DK
+DK
 uu
 uu
 uu
@@ -2424,20 +2430,20 @@ uu
 uu
 uu
 uu
-Zx
+DK
 GA
 GA
-Zx
+DK
 hP
 uW
 NX
 Jc
 ze
 Lt
-Zx
+DK
 GA
 GA
-Zx
+DK
 uu
 uu
 uu
@@ -2478,20 +2484,20 @@ uu
 uu
 uu
 uu
-Zx
+DK
 GA
-Zx
-Zx
+DK
+DK
 fz
 pd
 VW
 VW
 pd
 sW
-Zx
-Zx
+DK
+DK
 GA
-Zx
+DK
 uu
 uu
 uu
@@ -2532,9 +2538,9 @@ uu
 uu
 uu
 uu
-Zx
+DK
 GA
-Zx
+DK
 zq
 MA
 LI
@@ -2543,9 +2549,9 @@ ct
 RK
 ET
 QS
-Zx
+DK
 GA
-Zx
+DK
 uu
 uu
 uu
@@ -2586,9 +2592,9 @@ uu
 uu
 uu
 uu
-Zx
+DK
 GA
-Zx
+DK
 PB
 Gj
 zb
@@ -2597,9 +2603,9 @@ Ql
 Zu
 uQ
 rt
-Zx
+DK
 GA
-Zx
+DK
 uu
 uu
 uu
@@ -2639,10 +2645,10 @@ uu
 uu
 uu
 uu
-Zx
-Zx
+DK
+DK
 GA
-Zx
+DK
 BH
 Ql
 zb
@@ -2651,12 +2657,12 @@ Ql
 Zu
 Ql
 pU
-Zx
+DK
 GA
-Zx
-Zx
-Zx
-Zx
+DK
+DK
+DK
+DK
 uu
 uu
 uu
@@ -2693,10 +2699,10 @@ uu
 uu
 uu
 uu
-Zx
+DK
 GA
 GA
-Zx
+DK
 SH
 VB
 XE
@@ -2705,12 +2711,12 @@ Jx
 Zu
 cO
 om
-Zx
+DK
 GA
 GA
 GA
 GA
-Zx
+DK
 uu
 uu
 uu
@@ -2747,32 +2753,32 @@ uu
 uu
 uu
 uu
-Zx
+DK
 GA
-Zx
-Zx
-Zx
-Zx
-Zx
+DK
+DK
+DK
+DK
+DK
 RV
 RV
-Zx
-Zx
-Zx
-Zx
-Zx
-Zx
-Zx
+DK
+DK
+DK
+DK
+DK
+DK
+DK
 GA
-Zx
+DK
 uu
 uu
 uu
 uu
 uu
 uu
-Zx
-Zx
+DK
+DK
 iK
 iK
 iK
@@ -2801,31 +2807,31 @@ uu
 uu
 uu
 uu
-Zx
+DK
 GA
-Zx
+DK
 nN
 HP
-Zx
+DK
 dq
 Ql
 Ql
 lY
-Zx
+DK
 Xt
 lM
 lM
 lM
-Zx
+DK
 GA
-Zx
+DK
 uu
 uu
 uu
-Zx
-Zx
-Zx
-Zx
+DK
+DK
+DK
+DK
 bD
 iK
 iK
@@ -2851,32 +2857,32 @@ uu
 uu
 uu
 uu
-Zx
-Zx
-Zx
-Zx
-Zx
+DK
+DK
+DK
+DK
+DK
 GA
-Zx
+DK
 HG
 sc
-Zx
+DK
 Rc
 zG
 Ql
 Ql
-Zx
+DK
 RM
 kq
 WX
 lq
-Zx
+DK
 GA
-Zx
-Zx
-Zx
-Zx
-Zx
+DK
+DK
+DK
+DK
+DK
 iK
 Qd
 iK
@@ -2905,32 +2911,32 @@ uu
 uu
 uu
 uu
-Zx
+DK
 GA
 GA
 GA
 GA
 GA
-Zx
+DK
 OH
 iP
-Zx
+DK
 cJ
 Jx
 VW
 pW
-Zx
+DK
 cR
 kz
 kz
 Gd
-Zx
+DK
 GA
 GA
 GA
 GA
 GA
-Zx
+DK
 sK
 iK
 Kd
@@ -2959,32 +2965,32 @@ uu
 uu
 uu
 uu
-Zx
+DK
 GA
-Zx
-Zx
-Zx
-Zx
-Zx
+DK
+DK
+DK
+DK
+DK
 DV
-Zx
-Zx
-Zx
+DK
+DK
+DK
 RV
 RV
-Zx
-Zx
+DK
+DK
 PT
-Zx
-Zx
-Zx
-Zx
-Zx
-Zx
-Zx
-Zx
-Zx
-Zx
+DK
+DK
+DK
+DK
+DK
+DK
+DK
+DK
+DK
+DK
 Dv
 wB
 iK
@@ -3013,15 +3019,15 @@ uu
 uu
 uu
 uu
-Zx
+DK
 GA
-Zx
+DK
 jo
 Qx
 lj
 Ug
 jc
-Zx
+DK
 WA
 Jx
 Ql
@@ -3067,15 +3073,15 @@ uu
 uu
 uu
 uu
-Zx
+DK
 GA
-Zx
+DK
 UV
 Ql
 jw
 VW
 Fv
-Zx
+DK
 db
 Ql
 Ql
@@ -3121,9 +3127,9 @@ uu
 uu
 uu
 uu
-Zx
+DK
 GA
-Zx
+DK
 BD
 kt
 VW
@@ -3175,15 +3181,15 @@ uu
 uu
 uu
 uu
-Zx
+DK
 GA
-Zx
+DK
 So
 BS
 Kw
 Vk
 Qo
-Zx
+DK
 lR
 Ql
 Ql
@@ -3229,32 +3235,32 @@ uu
 uu
 uu
 uu
-Zx
+DK
 GA
-Zx
-Zx
-Zx
-Zx
-Zx
-Zx
-Zx
+DK
+DK
+DK
+DK
+DK
+DK
+DK
 TD
 Ql
 Ql
 vf
-Zx
-Zx
+DK
+DK
 TS
-Zx
-Zx
-Zx
-Zx
+DK
+DK
+DK
+DK
 Py
 Ql
-Zx
+DK
 ox
 ox
-Zx
+DK
 Kt
 iK
 wB
@@ -3283,7 +3289,7 @@ uu
 uu
 uu
 uu
-Zx
+DK
 GA
 GA
 GA
@@ -3291,21 +3297,21 @@ GA
 GA
 GA
 GA
-Zx
+DK
 WV
 VW
 Ql
 LV
-Zx
+DK
 KJ
 BG
 MK
 dx
 kj
-Zx
-Zx
+DK
+DK
 Cq
-Zx
+DK
 is
 YO
 ox
@@ -3337,27 +3343,27 @@ uu
 uu
 uu
 uu
-Zx
-Zx
-Zx
-Zx
-Zx
-Zx
-Zx
+DK
+DK
+DK
+DK
+DK
+DK
+DK
 GA
-Zx
+DK
 AU
 zG
 jw
 Bg
-Zx
+DK
 GP
 Ej
 QL
 PV
 ul
-Zx
-Zx
+DK
+DK
 cD
 Vr
 wm
@@ -3397,29 +3403,29 @@ uu
 uu
 uu
 uu
-Zx
+DK
 GA
-Zx
+DK
 Ql
 Jx
 Ql
 Ql
-Zx
+DK
 UX
 Ej
 qM
 im
 qX
-Zx
-Zx
+DK
+DK
 xe
-Zx
+DK
 cP
 Ov
-Zx
-Zx
-Zx
-Zx
+DK
+DK
+DK
+DK
 tr
 iK
 iK
@@ -3451,30 +3457,30 @@ uu
 uu
 uu
 uu
-Zx
+DK
 GA
-Zx
+DK
 xC
 wV
 Os
 Py
-Zx
+DK
 fG
 kU
 qa
 Lv
 IC
-Zx
-Zx
-Zx
-Zx
-Zx
-Zx
-Zx
+DK
+DK
+DK
+DK
+DK
+DK
+DK
 uu
 uu
-Zx
-Zx
+DK
+DK
 iK
 iK
 iK
@@ -3505,25 +3511,25 @@ uu
 uu
 uu
 uu
-Zx
+DK
 GA
-Zx
-Zx
+DK
+DK
 Bn
-Zx
-Zx
-Zx
-Zx
-Zx
-Zx
-Zx
-Zx
-Zx
+DK
+DK
+DK
+DK
+DK
+DK
+DK
+DK
+DK
 GA
 GA
 GA
 GA
-Zx
+DK
 uu
 uu
 uu
@@ -3559,9 +3565,9 @@ uu
 uu
 uu
 uu
-Zx
+DK
 GA
-Zx
+DK
 Kb
 cY
 SA
@@ -3570,14 +3576,14 @@ WL
 Fm
 LV
 zr
-Zx
+DK
 GA
 GA
 GA
-Zx
-Zx
-Zx
-Zx
+DK
+DK
+DK
+DK
 uu
 uu
 uu
@@ -3613,9 +3619,9 @@ uu
 uu
 uu
 uu
-Zx
+DK
 GA
-Zx
+DK
 wp
 Ql
 Ql
@@ -3624,11 +3630,11 @@ Ql
 Ql
 EU
 LV
-Zx
+DK
 GA
-Zx
-Zx
-Zx
+DK
+DK
+DK
 uu
 uu
 uu
@@ -3667,9 +3673,9 @@ uu
 uu
 uu
 uu
-Zx
+DK
 GA
-Zx
+DK
 YC
 Ql
 wV
@@ -3678,9 +3684,9 @@ mU
 wV
 VT
 LV
-Zx
+DK
 GA
-Zx
+DK
 uu
 uu
 uu
@@ -3721,20 +3727,20 @@ uu
 uu
 uu
 uu
-Zx
+DK
 GA
-Zx
-Zx
-Zx
+DK
+DK
+DK
 kH
-Zx
-Zx
+DK
+DK
 DV
-Zx
-Zx
-Zx
+DK
+DK
+DK
 GA
-Zx
+DK
 uu
 uu
 uu
@@ -3775,20 +3781,20 @@ uu
 uu
 uu
 uu
-Zx
+DK
 GA
 GA
-Zx
+DK
 eZ
 IZ
-Zx
+DK
 aa
 oH
 PX
-Zx
+DK
 GA
 GA
-Zx
+DK
 uu
 uu
 uu
@@ -3829,20 +3835,20 @@ uu
 uu
 uu
 uu
-Zx
-Zx
+DK
+DK
 GA
-Zx
+DK
 WD
 fO
-Zx
+DK
 Fg
 Bu
 Bu
-Zx
+DK
 GA
-Zx
-Zx
+DK
+DK
 uu
 uu
 uu
@@ -3884,18 +3890,18 @@ uu
 uu
 uu
 uu
-Zx
+DK
 GA
-Zx
-Zx
-Zx
-Zx
-Zx
-Zx
-Zx
-Zx
+DK
+DK
+DK
+DK
+DK
+DK
+DK
+DK
 GA
-Zx
+DK
 uu
 uu
 uu
@@ -3938,7 +3944,7 @@ uu
 uu
 uu
 uu
-Zx
+DK
 GA
 GA
 GA
@@ -3949,7 +3955,7 @@ GA
 GA
 GA
 GA
-Zx
+DK
 uu
 uu
 uu
@@ -3992,18 +3998,18 @@ uu
 uu
 uu
 uu
-Zx
-Zx
-Zx
-Zx
-Zx
-Zx
-Zx
-Zx
-Zx
-Zx
-Zx
-Zx
+DK
+DK
+DK
+DK
+DK
+DK
+DK
+DK
+DK
+DK
+DK
+DK
 uu
 uu
 uu
