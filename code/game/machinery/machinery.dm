@@ -315,7 +315,7 @@ Class Procs:
 		return TRUE
 	if(user.lying || user.stat)
 		return TRUE
-	if (!istype(usr, /mob/living/carbon/human) || istype(usr, /mob/living/silicon))
+	if (!istype(usr, /mob/living/carbon/human) && !istype(usr, /mob/living/silicon))
 		to_chat(usr, SPAN_WARNING("You don't have the dexterity to do this!"))
 		return TRUE
 

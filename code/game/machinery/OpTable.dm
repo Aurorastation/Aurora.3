@@ -357,6 +357,10 @@
 	/// The access cable linked to this table.
 	var/obj/item/access_cable/access_cable
 
+/obj/machinery/optable/robotics/Initialize()
+	. = ..()
+	access_cable = new(src, src, src)
+
 /obj/machinery/optable/robotics/mechanics_hints(mob/user, distance, is_adjacent)
 	. = ..()
 	. += list("Use a <b>non-help</b> intent to unbuckle.")
@@ -374,10 +378,6 @@
 	. = ..()
 	if(.)
 		playsound(src, 'sound/effects/metal_close.ogg', 20)
-
-/obj/machinery/optable/robotics/Initialize()
-	. = ..()
-	access_cable = new(src, src)
 
 /obj/machinery/optable/robotics/attack_hand(mob/user)
 	if(access_cable?.target && user.a_intent == I_GRAB)

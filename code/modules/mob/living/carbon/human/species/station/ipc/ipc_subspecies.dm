@@ -145,7 +145,7 @@
 	grab_mod = 0.8 // Big, easy to grab onto
 	resist_mod = 10 // Good luck wrestling against this powerhouse.
 
-	slowdown = 4
+	slowdown = 2
 
 	blurb = "The first commercialized attempt Hephaestus Industries made at an industrial-type IPC. Designed for extra durability and increased weight loads, the first generation Industrial was considered a success, though it possessed some issues. A limited power cell and actuators designed for heavy lifting and not locomotion resulted in a slow and frequently charging machine. A special addition to the chassis makes up for these drawbacks - the ability to simply slot a suit cooling unit onto the model's back and make use of its built-in heat transferal conduits, allowing the Industrial to perform EVA without any extra peripherals such as a voidsuit."
 
@@ -190,6 +190,21 @@
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/check_tag
 		)
+	has_organ = list(
+		BP_BRAIN   = /obj/item/organ/internal/machine/posibrain,
+		BP_VOICE_SYNTHESIZER = /obj/item/organ/internal/machine/voice_synthesizer,
+		BP_DIAGNOSTICS_SUITE = /obj/item/organ/internal/machine/internal_diagnostics,
+		BP_HYDRAULICS = /obj/item/organ/internal/machine/hydraulics,
+		BP_ACTUATORS_LEFT = /obj/item/organ/internal/machine/actuators/left,
+		BP_ACTUATORS_RIGHT = /obj/item/organ/internal/machine/actuators/right,
+		BP_COOLING_UNIT = /obj/item/organ/internal/machine/cooling_unit,
+		BP_REACTOR = /obj/item/organ/internal/machine/reactor,
+		BP_ACCESS_PORT = /obj/item/organ/internal/machine/access_port,
+		BP_CELL    = /obj/item/organ/internal/machine/power_core,
+		BP_EYES  = /obj/item/organ/internal/eyes/optical_sensor,
+		BP_IPCTAG = /obj/item/organ/internal/machine/ipc_tag,
+		BP_INTERNAL_STORAGE = /obj/item/organ/internal/machine/internal_storage,
+	)
 
 	machine_ui_theme = "hephaestus"
 
@@ -377,7 +392,6 @@
 		BP_COOLING_UNIT = /obj/item/organ/internal/machine/cooling_unit,
 		BP_REACTOR = /obj/item/organ/internal/machine/reactor,
 		BP_ACCESS_PORT = /obj/item/organ/internal/machine/access_port,
-		BP_INTERNAL_STORAGE = /obj/item/organ/internal/machine/internal_storage,
 		BP_CELL    = /obj/item/organ/internal/machine/power_core,
 		BP_EYES  = /obj/item/organ/internal/eyes/optical_sensor,
 		BP_IPCTAG = /obj/item/organ/internal/machine/ipc_tag

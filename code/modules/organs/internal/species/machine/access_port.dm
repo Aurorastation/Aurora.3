@@ -135,6 +135,7 @@
 	icon = 'icons/obj/organs/ipc_organs.dmi'
 	icon_state = "cable"
 	pickup_sound = 'sound/species/synthetic/access_cable_out.ogg'
+	w_class = WEIGHT_CLASS_NO_CONTAINER
 
 	/// Where this cable is extending from.
 	var/obj/source
