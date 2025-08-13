@@ -236,3 +236,17 @@
   - rscadd: The security belt can now hold notepads.
   notagonk:
   - rscadd: Allows Human Offworlders to play as Heads of Security.
+2025-08-13:
+  Ben10083:
+  - bugfix: Tajara, Unathi and other mobs with animated parts should now be properly
+      shown in records and other UI.
+  - qol: Orion Express station now has stationary gps units and are linked to each
+      other.
+  - balance: Orion Express station engine airlocks now have access requirements
+  Geeves:
+  - bugfix: Fixes Falcata sprite handling and emissives.
+  - bugfix: Fixes telescience portals not working correctly, causing an infinite loop.
+  MattAtlas:
+  - rscdel: 'Removed attack animations from health scanners, breath analyzers, '
+  Snowy1237:
+  - rscadd: Adds the loadout hoplan clothing to diplomatic bodyguards.
