@@ -443,25 +443,38 @@
 	icon_state = "raskara_amulet"
 	item_state = "raskara_amulet"
 	overlay_state = "raskara_amulet"
-
-/obj/item/clothing/accessory/tajaran/charm/raskariim/doorandkey
-	name = "key amulet"
-	desc = "An key turned into a charm, held by a string."
-
-/obj/item/clothing/accessory/tajaran/charm/raskariim/kingofmaggots
-	name = "rusted amulet"
-	desc = "An amulet made of rusted metal."
-
-/obj/item/clothing/accessory/tajaran/charm/raskariim/blackmirror
-	name = "obsidian coin charm"
-	desc = "an obsidian coin turned into an amulet by attaching it to a string."
+	var/raskara_text = null
 
 /obj/item/clothing/accessory/tajaran/charm/raskariim/get_examine_text(mob/user, distance, is_adjacent, infix, suffix, get_extended)
     . = ..()
-    if(ishuman(user))
+    if(raskara_text && ishuman(user))
         var/mob/living/carbon/human/U = user
         if(U.religion == RELIGION_RASKARA || U.religion == RELIGION_RASKARA_ALT)
-            . += SPAN_CULT("\The [src] belongs to a raskariim.")
+            . += SPAN_CULT("\The [src] [raskara_text]")
+
+/obj/item/clothing/accessory/tajaran/charm/raskariim/doorandkey
+	name = "key charm"
+	desc = "An old, rustic key turned into a charm."
+	icon_state = "doorandkey_talisman"
+	item_state = "doorandkey_talisman"
+	overlay_state = null
+	raskara_text = "is the key to the door of Raskara's embrace."
+
+/obj/item/clothing/accessory/tajaran/charm/raskariim/kingofmaggots
+	name = "coin charm"
+	desc = "A charm made out of an adhomian knuckle coin, also known as a traditional way to carry them."
+	icon_state = "kingofmaggots_talisman"
+	item_state = "kingofmaggots_talisman"
+	overlay_state = null
+	raskara_text = "is from the bank of the King of Maggots."
+
+/obj/item/clothing/accessory/tajaran/charm/raskariim/blackmirror
+	name = "glass charm"
+	desc = "A charm made from a shard of black glass. The edges appear to have been blunted to prevent cutting oneself on it."
+	icon_state = "blackmirror_talisman"
+	item_state = "blackmirror_talisman"
+	overlay_state = null
+	raskara_text = "reflects The Stranger, it gazes coldly."
 
 /obj/item/clothing/accessory/tajaran/tanker_pin
 	name = "golden sun pin"

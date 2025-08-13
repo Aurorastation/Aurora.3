@@ -497,18 +497,19 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 
 /datum/gear/accessory/tajara_raskariim_charm
 	display_name = "raskariim charms and talismans"
-	description = "Charms and talismans often thought of to bring good luck, or of religious significance. These should only be taken by raskariim, and can be identified by other raskariim."
+	description = "Charms and talismans often thought of to bring good luck, or of religious significance. These should only be taken by true raskariim, and can be identified by other raskariim."
 	path = /obj/item/clothing/accessory/tajaran/charm/raskariim
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	sort_category = "Xenowear - Tajara"
 	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_NAME_SELECTION
+	religion = list(RELIGION_RASKARA, RELIGION_RASKARA_ALT)
 
 /datum/gear/accessory/tajara_raskariim_charm/New()
 	..()
 	var/list/charm = list()
-	charm["key amulet (door and key)"] = /obj/item/clothing/accessory/tajaran/charm/raskariim/doorandkey
-	charm["rusted amulet (king of maggots)"] = /obj/item/clothing/accessory/tajaran/charm/raskariim/kingofmaggots
-	charm["obsidian coin (black mirror)"] = /obj/item/clothing/accessory/tajaran/charm/raskariim/blackmirror
+	charm["key charm (door and key)"] = /obj/item/clothing/accessory/tajaran/charm/raskariim/doorandkey
+	charm["coin charm (king of maggots)"] = /obj/item/clothing/accessory/tajaran/charm/raskariim/kingofmaggots
+	charm["glass charm (black mirror)"] = /obj/item/clothing/accessory/tajaran/charm/raskariim/blackmirror
 	gear_tweaks += new /datum/gear_tweak/path(charm)
 
 /datum/gear/tail_cloth
