@@ -110,6 +110,7 @@
 /area/horizon/medical/washroom
 	name = "Washroom"
 	horizon_deck = 3
+	area_flags = AREA_FLAG_RAD_SHIELDED
 
 /area/horizon/medical/hallway
 	name = "Atrium"
