@@ -5,7 +5,7 @@
 	icon_state = "small"
 	},
 /turf/simulated/floor/exoplanet/snow/cold,
-/area/space)
+/area/template_noop)
 "dF" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider,
 /obj/machinery/door/blast/regular/open{
@@ -14,18 +14,19 @@
 	id = "sol_interceptor_lockdown"
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/template_noop)
 "dN" = (
 /obj/effect/floor_decal/snow/corner{
 	dir = 10
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/floor_damage/broken6,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/template_noop)
 "fo" = (
 /obj/structure/flora/rock/snow,
 /turf/simulated/floor/exoplanet/snow/cold,
-/area/space)
+/area/template_noop)
 "hc" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/yellow,
@@ -34,13 +35,13 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/template_noop)
 "hT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 5
 	},
 /turf/simulated/wall/shuttle/raider,
-/area/space)
+/area/template_noop)
 "il" = (
 /obj/effect/floor_decal/corner/orange/full{
 	dir = 8
@@ -53,15 +54,22 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/template_noop)
+"jv" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/snow/corner{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/barren,
+/area/template_noop)
 "jR" = (
 /turf/simulated/wall/shuttle/raider,
-/area/space)
+/area/template_noop)
 "mk" = (
 /turf/simulated/wall/shuttle/raider{
 	color = "#ff8c00"
 	},
-/area/space)
+/area/template_noop)
 "mw" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider,
 /obj/machinery/door/blast/regular/open{
@@ -70,7 +78,10 @@
 	id = "sol_interceptor_lockdown"
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/template_noop)
+"mA" = (
+/turf/simulated/floor/exoplanet/barren,
+/area/template_noop)
 "mS" = (
 /obj/effect/floor_decal/corner/orange/full{
 	dir = 1
@@ -90,7 +101,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/template_noop)
 "nH" = (
 /obj/machinery/atmospherics/pipe/tank/carbon_dioxide{
 	dir = 8
@@ -102,29 +113,32 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/template_noop)
 "nU" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "pB" = (
 /obj/effect/decal/cleanable/liquid_fuel,
+/obj/effect/floor_decal/snow/corner{
+	dir = 9
+	},
 /turf/simulated/floor/exoplanet/barren,
-/area/space)
+/area/template_noop)
 "qe" = (
 /obj/item/material/shard{
 	icon_state = "small"
 	},
 /turf/simulated/floor/exoplanet/snow/cold,
-/area/space)
+/area/template_noop)
 "qw" = (
 /obj/machinery/atmospherics/unary/engine,
 /obj/structure/rod_railing{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/template_noop)
 "rA" = (
 /obj/effect/floor_decal/corner/orange/full{
 	dir = 8
@@ -138,13 +152,13 @@
 	name = "Air Connector Port"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/template_noop)
 "rV" = (
 /turf/simulated/floor/exoplanet/snow/cold,
-/area/space)
+/area/template_noop)
 "sC" = (
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/template_noop)
 "tI" = (
 /obj/machinery/door/airlock/hatch{
 	name = "cockpit"
@@ -153,7 +167,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/template_noop)
 "ux" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
@@ -166,13 +180,13 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/template_noop)
 "vv" = (
 /obj/effect/floor_decal/snow/corner{
 	dir = 9
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/template_noop)
 "wv" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 8;
@@ -183,7 +197,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/template_noop)
 "xV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 5
@@ -191,18 +205,18 @@
 /turf/simulated/wall/shuttle/raider{
 	color = "#ff8c00"
 	},
-/area/space)
+/area/template_noop)
 "zq" = (
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "zs" = (
 /obj/structure/flora/bush,
 /turf/simulated/floor/exoplanet/snow/cold,
-/area/space)
+/area/template_noop)
 "zv" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "Af" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 9
@@ -211,11 +225,9 @@
 	pixel_x = 32
 	},
 /obj/effect/floor_decal/industrial/warning/full,
-/obj/structure/cable{
-	dir = 1
-	},
+/obj/effect/decal/cleanable/floor_damage/broken1,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/template_noop)
 "BT" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
@@ -225,7 +237,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/template_noop)
 "CY" = (
 /obj/effect/floor_decal/corner/orange/diagonal,
 /obj/structure/bed/handrail{
@@ -235,7 +247,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/template_noop)
 "Dg" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 8
@@ -245,7 +257,7 @@
 	},
 /obj/effect/floor_decal/corner/orange/diagonal,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/template_noop)
 "DR" = (
 /obj/structure/table/rack,
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
@@ -266,7 +278,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/template_noop)
 "EC" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/manifold/hidden/yellow{
@@ -274,24 +286,24 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/plating,
-/area/space)
+/area/template_noop)
 "Gu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 8
 	},
 /turf/simulated/wall/shuttle/raider,
-/area/space)
+/area/template_noop)
 "GH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow,
 /turf/simulated/wall/shuttle/raider,
-/area/space)
+/area/template_noop)
 "GJ" = (
 /obj/item/material/shard{
 	pixel_x = 10;
 	pixel_y = -10
 	},
 /turf/simulated/floor/exoplanet/snow/cold,
-/area/space)
+/area/template_noop)
 "Ia" = (
 /obj/effect/decal/fake_object{
 	icon = 'icons/obj/machinery/ship_guns/ship_weapon_attachments.dmi';
@@ -301,7 +313,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/template_noop)
 "Is" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
@@ -309,10 +321,13 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/plating,
-/area/space)
+/area/template_noop)
 "It" = (
+/obj/effect/floor_decal/snow/corner{
+	dir = 4
+	},
 /turf/simulated/floor/exoplanet/barren,
-/area/space)
+/area/template_noop)
 "IH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 9
@@ -320,7 +335,7 @@
 /turf/simulated/wall/shuttle/raider{
 	color = "#ff8c00"
 	},
-/area/space)
+/area/template_noop)
 "Jb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 8
@@ -335,15 +350,22 @@
 /obj/item/device/oxycandle,
 /obj/item/stack/material/steel/full,
 /obj/effect/floor_decal/corner/orange/diagonal,
-/obj/machinery/power/apc/super/south,
 /obj/structure/cable,
+/obj/effect/decal/cleanable/floor_damage/broken7,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/template_noop)
 "Km" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/barren,
-/area/space)
+/area/template_noop)
+"KO" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/snow/corner{
+	dir = 9
+	},
+/turf/simulated/floor/exoplanet/barren,
+/area/template_noop)
 "LB" = (
 /obj/effect/floor_decal/spline/plain/yellow{
 	dir = 4
@@ -356,7 +378,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/reinforced,
-/area/space)
+/area/template_noop)
 "LO" = (
 /obj/effect/floor_decal/corner/orange/diagonal,
 /obj/item/material/shard{
@@ -371,7 +393,7 @@
 	},
 /obj/effect/decal/cleanable/floor_damage/broken2,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/template_noop)
 "Mq" = (
 /obj/effect/floor_decal/snow/corner{
 	dir = 10
@@ -381,17 +403,17 @@
 	pixel_x = 10
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/template_noop)
 "Mv" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/snow/cold,
-/area/space)
+/area/template_noop)
 "MM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 9
 	},
 /turf/simulated/wall/shuttle/raider,
-/area/space)
+/area/template_noop)
 "Ow" = (
 /obj/effect/floor_decal/corner/orange/diagonal,
 /obj/item/material/shard{
@@ -401,60 +423,60 @@
 	},
 /obj/effect/decal/cleanable/floor_damage/broken2,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/template_noop)
 "QK" = (
 /obj/effect/floor_decal/snowrocks,
 /turf/simulated/floor/exoplanet/snow/cold,
-/area/space)
+/area/template_noop)
 "Ri" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/barren,
-/area/space)
+/area/template_noop)
 "Ue" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/exoplanet/snow/cold,
-/area/space)
+/area/template_noop)
 "Vv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 6
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/wall/shuttle/raider,
-/area/space)
+/area/template_noop)
 "Wz" = (
 /obj/machinery/atmospherics/unary/engine,
 /turf/simulated/floor/plating,
-/area/space)
+/area/template_noop)
 "WF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 10
 	},
 /turf/simulated/wall/shuttle/raider,
-/area/space)
+/area/template_noop)
 "WW" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel{
 	dir = 10
 	},
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/exoplanet/barren,
-/area/space)
+/area/template_noop)
 "XE" = (
 /obj/machinery/atmospherics/unary/engine,
 /obj/structure/rod_railing{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/template_noop)
 "YD" = (
 /obj/machinery/door/airlock/external,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/template_noop)
 "YJ" = (
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/exoplanet/snow/cold,
-/area/space)
+/area/template_noop)
 "ZV" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /obj/machinery/light/small{
@@ -464,7 +486,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/template_noop)
 
 (1,1,1) = {"
 zv
@@ -478,7 +500,7 @@ zv
 zq
 zq
 zq
-It
+mA
 zq
 zq
 rV
@@ -507,7 +529,7 @@ zq
 zv
 jR
 jR
-It
+mA
 Mv
 rV
 zs
@@ -558,12 +580,12 @@ zv
 zv
 zq
 zq
-It
+mA
 jR
 WF
 YJ
 Ue
-Ri
+KO
 jR
 jR
 DR
@@ -578,7 +600,7 @@ rV
 Ri
 Km
 zq
-It
+mA
 zq
 zv
 zq
@@ -613,7 +635,7 @@ zv
 zv
 zq
 zq
-It
+mA
 rV
 vv
 sC
@@ -633,7 +655,7 @@ zq
 zv
 zv
 zq
-It
+mA
 zv
 Ri
 Ri
@@ -657,18 +679,18 @@ Mv
 "}
 (8,1,1) = {"
 zv
-It
+mA
 zv
 Ri
 zq
 zq
 zq
-It
+mA
 Ri
 Ri
 nU
 Mv
-Ri
+KO
 Wz
 MM
 mk
@@ -695,7 +717,7 @@ zv
 zv
 zq
 Mv
-Ri
+jv
 jR
 jR
 It
@@ -727,7 +749,7 @@ Mv
 Mv
 Mv
 Mv
-Ri
+jv
 XE
 IH
 Mv

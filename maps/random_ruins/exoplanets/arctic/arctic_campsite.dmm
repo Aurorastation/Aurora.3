@@ -1,0 +1,154 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/item/tent/mining{
+	pixel_y = 12;
+	pixel_x = 9
+	},
+/obj/item/pickaxe,
+/turf/simulated/floor/exoplanet/snow/cold,
+/area/template_noop)
+"i" = (
+/obj/structure/bed/stool{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/snow/cold,
+/area/template_noop)
+"j" = (
+/obj/structure/bed/stool{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/snow/cold,
+/area/template_noop)
+"k" = (
+/obj/structure/flora/tree/pine,
+/turf/simulated/floor/exoplanet/snow/cold,
+/area/template_noop)
+"m" = (
+/obj/structure/bonfire,
+/turf/simulated/floor/exoplanet/snow/cold,
+/area/template_noop)
+"n" = (
+/turf/simulated/floor/exoplanet/snow/cold,
+/area/template_noop)
+"o" = (
+/obj/structure/closet/crate/freezer/rations,
+/turf/simulated/floor/exoplanet/snow/cold,
+/area/template_noop)
+"r" = (
+/obj/item/trash/cigbutt,
+/obj/item/trash/cigbutt{
+	pixel_y = -4;
+	pixel_x = 9
+	},
+/obj/structure/table/wood,
+/obj/item/flame/lighter{
+	pixel_x = -7
+	},
+/obj/item/device/flashlight/lantern/on{
+	pixel_y = 16;
+	pixel_x = 11
+	},
+/turf/simulated/floor/exoplanet/snow/cold,
+/area/template_noop)
+"z" = (
+/obj/structure/table/wood,
+/obj/item/stack/rods,
+/obj/item/stack/rods{
+	pixel_x = -8
+	},
+/obj/item/stack/rods{
+	pixel_x = -4;
+	pixel_y = 4
+	},
+/turf/simulated/floor/exoplanet/snow/cold,
+/area/template_noop)
+"A" = (
+/obj/effect/floor_decal/snowrocks,
+/turf/simulated/floor/exoplanet/snow/cold,
+/area/template_noop)
+"T" = (
+/obj/structure/flora/rock/snow,
+/turf/simulated/floor/exoplanet/snow/cold,
+/area/template_noop)
+"W" = (
+/obj/item/stack/material/wood,
+/obj/item/stack/material/wood{
+	pixel_x = 8
+	},
+/obj/item/stack/material/wood{
+	pixel_x = -8
+	},
+/obj/item/stack/material/wood{
+	pixel_x = -4;
+	pixel_y = 3
+	},
+/obj/item/stack/material/wood{
+	pixel_x = 4;
+	pixel_y = 3
+	},
+/obj/item/stack/material/wood{
+	pixel_y = 6
+	},
+/turf/simulated/floor/exoplanet/snow/cold,
+/area/template_noop)
+"Y" = (
+/obj/structure/table/wood,
+/obj/item/storage/box/fancy/cigarettes{
+	pixel_x = -8;
+	pixel_y = 1
+	},
+/obj/item/storage/bag/ore{
+	pixel_x = 8
+	},
+/turf/simulated/floor/exoplanet/snow/cold,
+/area/template_noop)
+
+(1,1,1) = {"
+n
+T
+n
+n
+n
+"}
+(2,1,1) = {"
+n
+n
+a
+n
+A
+"}
+(3,1,1) = {"
+k
+i
+n
+n
+n
+"}
+(4,1,1) = {"
+n
+m
+n
+n
+n
+"}
+(5,1,1) = {"
+r
+j
+n
+n
+o
+"}
+(6,1,1) = {"
+Y
+n
+A
+n
+W
+"}
+(7,1,1) = {"
+z
+n
+n
+n
+n
+"}
