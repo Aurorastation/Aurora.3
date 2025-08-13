@@ -71,7 +71,7 @@
 	heat_level_3 = 2400
 
 	body_temperature = null
-	passive_temp_gain = 2
+	passive_temp_gain = 10
 
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/change_monitor,
@@ -167,11 +167,13 @@
 	)
 
 /datum/species/machine/handle_temperature_regulation(mob/living/carbon/human/human)
-	. = ..()
 	// No cooling unit = you're cooking. Broken cooling unit effects are handled by the organ itself.
 	// Here we just want to check if it's been removed.
 	// 500K is about 226 degrees. Spicy!
-	human.bodytemperature = min(human.bodytemperature + rand(1, 5), heat_level_3)
+	var/base_heat_gain = passive_temp_gain
+	if(!human.internal_organs_by_name[BP_COOLING_UNIT])
+		base_heat_gain *= 2 //uh oh
+	human.bodytemperature += passive_temp_gain
 
 /datum/species/machine/handle_stance_damage(mob/living/carbon/human/H, damage_only)
 	var/obj/item/organ/internal/machine/hydraulics/hydraulics = H.internal_organs_by_name[BP_HYDRAULICS]

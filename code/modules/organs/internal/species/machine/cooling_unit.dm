@@ -127,14 +127,14 @@
 		owner.bodytemperature =  max(owner.bodytemperature + passive_temp_change, 500)
 	else
 		var/datum/gas_mixture/ambient = T.return_air()
-		if(!ambient) //huh?
-			owner.bodytemperature =  max(owner.bodytemperature + passive_temp_change, 500)
-			return
-
 		// Too much heat is bad for the cooling unit.
 		if(owner.bodytemperature > species.heat_level_1)
 			if(prob(owner.bodytemperature * 0.1))
 				take_internal_damage(owner.bodytemperature * 0.01)
+
+		if(!ambient) //huh?
+			owner.bodytemperature =  max(owner.bodytemperature + passive_temp_change, 500)
+			return
 
 		// Now let's start cooling down!
 		// No power, no party.
@@ -148,6 +148,12 @@
 			extra_power_consumption = ((initial(thermostat) - thermostat) + T0C) * 0.1
 
 		var/temperature_change = passive_temp_change
+		if((owner.wear_suit?.heat_protection & UPPER_TORSO) && !spaceproof)
+			//cooling is going to SUCK if you have heat-regulating clothes
+			if(owner.bodytemperature < species.heat_level_3)
+				owner.bodytemperature += 3
+			return
+
 		if(thermostat < owner.bodytemperature)
 			if((owner.bodytemperature - temperature_change) < thermostat)
 				temperature_change = owner.bodytemperature - thermostat

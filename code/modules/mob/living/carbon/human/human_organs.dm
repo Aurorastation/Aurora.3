@@ -37,6 +37,9 @@
 			internal_organs -= I
 			continue
 
+		if(I.status & ORGAN_DEAD)
+			continue
+
 		I.process()
 
 	handle_stance()

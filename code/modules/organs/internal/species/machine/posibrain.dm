@@ -254,7 +254,7 @@
 				to_chat(owner, FONT_LARGE(SPAN_DANGER("The severed power wires cause a voltage spike in your cooling unit, messing up the settings! You'll need to fix it!")))
 				cooling.thermostat = cooling.thermostat_max
 		if(2)
-			to_chat(owner, FONT_LARGE(SPAN_DANGER("Your hydraulics creak and stagger against the impacts! Your frame can't take much more!")))
+			to_chat(owner, FONT_LARGE(SPAN_DANGER("Your hydraulics creak and stagger under the stress! Your frame can't take much more!")))
 			owner.Stun(5)
 		if(3)
 			to_chat(owner, FONT_LARGE(SPAN_MACHINE_WARNING("Your software errors out as your frame is ripped apart!")))
