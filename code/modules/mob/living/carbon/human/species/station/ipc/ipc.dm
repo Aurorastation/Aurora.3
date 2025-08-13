@@ -148,7 +148,7 @@
 	possible_speech_bubble_types = list("robot", "default")
 
 	// Special snowflake machine vars.
-	var/sprint_temperature_factor = 1.15
+	var/sprint_temperature_factor = 1.05
 	var/move_charge_factor = 1
 	/// The theme of the IPC's personal UIs, if not broken.
 	var/machine_ui_theme = "hackerman"
@@ -171,7 +171,8 @@
 	// Here we just want to check if it's been removed.
 	// 500K is about 226 degrees. Spicy!
 	var/base_heat_gain = passive_temp_gain
-	if(!human.internal_organs_by_name[BP_COOLING_UNIT])
+	var/obj/item/organ/internal/machine/cooling_unit/cooling = human.internal_organs_by_name[BP_COOLING_UNIT]
+	if(!cooling || (cooling?.status & ORGAN_DEAD))
 		base_heat_gain *= 2 //uh oh
 	human.bodytemperature += passive_temp_gain
 

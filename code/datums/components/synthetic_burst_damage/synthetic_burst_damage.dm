@@ -54,6 +54,8 @@
 		burst_damage_hit_time = null
 
 /datum/component/synthetic_burst_damage/proc/clear_burst_damage()
+	burst_damage_hit_time = null
+	burst_damage_counter = 0
 	posibrain.clear_burst_damage_counter()
 
 /datum/component/synthetic_burst_damage/proc/burst_damage_effects()

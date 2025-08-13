@@ -180,7 +180,7 @@
 
 	if(owner.bodytemperature > species.heat_level_2)
 		// placeholder values
-		take_internal_damage(min(owner.bodytemperature * 0.001, 2))
+		take_internal_damage(min(owner.bodytemperature * 0.01, 2))
 		if(heat_alarm_cooldown < world.time)
 			to_chat(owner, SPAN_DANGER("Your sensors light up: extreme heat detected! Warning! Unsafe operating temperature!"))
 			sound_to(owner, 'sound/effects/heat_alarm.ogg')
@@ -259,6 +259,7 @@
 		if(3)
 			to_chat(owner, FONT_LARGE(SPAN_MACHINE_WARNING("Your software errors out as your frame is ripped apart!")))
 			owner.Weaken(5)
+			clear_burst_damage_counter()
 
 /**
  * This is the proc in charge of showing the robot pain textures to the IPC.

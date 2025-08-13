@@ -122,47 +122,44 @@
 		// Some odd scenarios can cause there to be no turf. Like getting teleported into the game from lobby.
 		return
 
-	if(isspaceturf(T) && !spaceproof)
-		// Uh oh! No cooling here...
-		owner.bodytemperature =  max(owner.bodytemperature + passive_temp_change, 500)
+	var/datum/gas_mixture/ambient = T.return_air()
+	// Too much heat is bad for the cooling unit.
+	if(owner.bodytemperature > species.heat_level_1)
+		if(prob(owner.bodytemperature * 0.1))
+			take_internal_damage(owner.bodytemperature * 0.01)
+
+	var/temperature_change = passive_temp_change
+	if((owner.wear_suit?.heat_protection & UPPER_TORSO) && !spaceproof)
+		//cooling is going to SUCK if you have heat-regulating clothes
+		if(owner.bodytemperature < species.heat_level_3)
+			owner.bodytemperature += 5
+			temperature_change *= 0.1
+
+	// Check if there is somehow no gas, or if we are in an ambient without enough air to properly cool us.
+	if((!ambient || (ambient && owner.calculate_affecting_pressure(ambient.return_pressure()) < owner.species.warning_low_pressure)) && !spaceproof)
+		temperature_change *= 0
+		return
+
+	// Now let's start cooling down!
+	// No power, no party.
+	var/obj/item/organ/internal/machine/power_core/cell = owner.internal_organs_by_name[BP_CELL]
+	if(!istype(cell))
+		return
+
+	// The lower our thermostat setting, the more power we consume.
+	var/extra_power_consumption = 0
+	if(thermostat < initial(thermostat))
+		extra_power_consumption = ((initial(thermostat) - thermostat) - T0C)
+
+	if(thermostat < owner.bodytemperature)
+		if((owner.bodytemperature - temperature_change) < thermostat)
+			temperature_change = owner.bodytemperature - thermostat
+		owner.bodytemperature = max(owner.bodytemperature - temperature_change, thermostat)
+		cell.use(base_power_consumption + extra_power_consumption)
 	else
-		var/datum/gas_mixture/ambient = T.return_air()
-		// Too much heat is bad for the cooling unit.
-		if(owner.bodytemperature > species.heat_level_1)
-			if(prob(owner.bodytemperature * 0.1))
-				take_internal_damage(owner.bodytemperature * 0.01)
-
-		if(!ambient) //huh?
-			owner.bodytemperature =  max(owner.bodytemperature + passive_temp_change, 500)
-			return
-
-		// Now let's start cooling down!
-		// No power, no party.
-		var/obj/item/organ/internal/machine/power_core/cell = owner.internal_organs_by_name[BP_CELL]
-		if(!istype(cell))
-			return
-
-		// The lower our thermostat setting, the more power we consume.
-		var/extra_power_consumption = 0
-		if(thermostat < initial(thermostat))
-			extra_power_consumption = ((initial(thermostat) - thermostat) + T0C) * 0.1
-
-		var/temperature_change = passive_temp_change
-		if((owner.wear_suit?.heat_protection & UPPER_TORSO) && !spaceproof)
-			//cooling is going to SUCK if you have heat-regulating clothes
-			if(owner.bodytemperature < species.heat_level_3)
-				owner.bodytemperature += 3
-			return
-
-		if(thermostat < owner.bodytemperature)
-			if((owner.bodytemperature - temperature_change) < thermostat)
-				temperature_change = owner.bodytemperature - thermostat
-			owner.bodytemperature = max(owner.bodytemperature - temperature_change, thermostat)
-			cell.use(base_power_consumption + extra_power_consumption)
-		else
-			if((owner.bodytemperature + temperature_change) > thermostat)
-				temperature_change = thermostat - owner.bodytemperature
-			owner.bodytemperature = min(owner.bodytemperature + temperature_change, thermostat)
+		if((owner.bodytemperature + temperature_change) > thermostat)
+			temperature_change = thermostat - owner.bodytemperature
+		owner.bodytemperature = min(owner.bodytemperature + temperature_change, thermostat)
 
 /obj/item/organ/internal/machine/cooling_unit/low_integrity_damage(integrity)
 	if(get_integrity_damage_probability() / 2)

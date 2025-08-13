@@ -70,7 +70,7 @@
 
 	character_color_presets = list("Dark" = "#000000", "Warm" = "#250302", "Cold" = "#1e1e29", "Rubber" = "#000f36")
 
-	sprint_temperature_factor = 1.3
+	sprint_temperature_factor = 1.15
 	move_charge_factor = 0.85
 
 	inherent_verbs = list(
