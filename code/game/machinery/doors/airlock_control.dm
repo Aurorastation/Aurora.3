@@ -164,7 +164,7 @@
 /obj/machinery/airlock_sensor/attack_hand(mob/user)
 	add_fingerprint(usr)
 	if(!allowed(user))
-		to_chat(user, SPAN_WARNING("Access Denied"))
+		to_chat(user, SPAN_WARNING("Access denied."))
 		return FALSE
 
 	var/datum/signal/signal = new
