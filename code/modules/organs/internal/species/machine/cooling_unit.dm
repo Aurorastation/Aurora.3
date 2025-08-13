@@ -91,7 +91,7 @@
 		// higher thermostat = less power usage
 		estimated_power_consumption = -(thermostat_max / thermostat)
 
-	data["estimated_power_consumption"] = estimated_power_consumption
+	data["estimated_power_consumption"] = max(0, base_power_consumption + estimated_power_consumption)
 	data["safety_burnt"] = safety_burnt
 	return data
 
