@@ -358,18 +358,28 @@
 /turf/simulated/floor/reinforced,
 /area/space)
 "LO" = (
-/obj/structure/bed/stool/chair/shuttle,
 /obj/effect/floor_decal/corner/orange/diagonal,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
-	dir = 1
+/obj/item/material/shard{
+	icon_state = "small";
+	pixel_x = 12;
+	pixel_y = 7
 	},
+/obj/item/material/shard{
+	icon_state = "small";
+	pixel_x = -6;
+	pixel_y = -16
+	},
+/obj/effect/decal/cleanable/floor_damage/broken2,
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "Mq" = (
 /obj/effect/floor_decal/snow/corner{
 	dir = 10
 	},
-/obj/item/clothing/head/sol/marine,
+/obj/item/clothing/head/sol/marine{
+	pixel_y = 10;
+	pixel_x = 10
+	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "Mv" = (
@@ -383,8 +393,13 @@
 /turf/simulated/wall/shuttle/raider,
 /area/space)
 "Ow" = (
-/obj/structure/bed/stool/chair/shuttle,
 /obj/effect/floor_decal/corner/orange/diagonal,
+/obj/item/material/shard{
+	icon_state = "small";
+	pixel_x = 7;
+	pixel_y = -13
+	},
+/obj/effect/decal/cleanable/floor_damage/broken2,
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "QK" = (
