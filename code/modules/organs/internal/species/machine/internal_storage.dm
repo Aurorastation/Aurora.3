@@ -45,3 +45,4 @@
 	max_w_class = WEIGHT_CLASS_NORMAL
 	max_storage_space = DEFAULT_LARGEBOX_STORAGE
 	allow_quick_empty = FALSE
+	care_about_storage_depth = FALSE
