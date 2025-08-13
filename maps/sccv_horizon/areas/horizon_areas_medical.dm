@@ -69,8 +69,10 @@
 	icon_state = "exam_room"
 	horizon_deck = 2
 
+// Contains a player spawn area = rad-shielded
 /area/horizon/medical/ward
 	name = "Recovery Ward"
+	area_flags = AREA_FLAG_RAD_SHIELDED
 	icon_state = "patients"
 	horizon_deck = 3
 
