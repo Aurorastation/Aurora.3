@@ -241,7 +241,6 @@
 						"That memory cannot be accessed."
 					)
 					to_chat(owner, SPAN_MACHINE_DANGER(pick(extreme_fragmentation_messages)))
-		sound_to(owner, 'sound/species/synthetic/fragmentation.ogg')
 
 /**
  * Handles burst damage effects. See code\datums\components\synthetic_burst_damage\synthetic_burst_damage.dm
@@ -325,8 +324,9 @@
 /obj/item/organ/internal/machine/posibrain/high_integrity_damage(integrity)
 	var/damage_probability = get_integrity_damage_probability(integrity)
 	if(prob(damage_probability))
-		var/damage_roll = rand(1, 100)
+		var/damage_roll = rand(1, 50)
 		switch(damage_roll)
+			sound_to(owner, 'sound/species/synthetic/fragmentation.ogg')
 			if(1 to 10)
 				patching_cooldown += 5 SECONDS
 				to_chat(owner, SPAN_MACHINE_WARNING("Your neural pathway software corrupts further. Rebooting won't fix it this time."))
