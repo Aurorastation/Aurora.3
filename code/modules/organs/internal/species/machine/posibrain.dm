@@ -326,7 +326,6 @@
 	if(prob(damage_probability))
 		var/damage_roll = rand(1, 50)
 		switch(damage_roll)
-			sound_to(owner, 'sound/species/synthetic/fragmentation.ogg')
 			if(1 to 10)
 				patching_cooldown += 5 SECONDS
 				to_chat(owner, SPAN_MACHINE_WARNING("Your neural pathway software corrupts further. Rebooting won't fix it this time."))
