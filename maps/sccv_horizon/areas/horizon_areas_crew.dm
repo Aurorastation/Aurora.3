@@ -240,9 +240,11 @@
 	horizon_deck = 1
 	area_blurb = "A discrete compartment frequented by the ship's many synthetics and IPCs."
 
+// Rad shielded because common afk area.
 /area/horizon/crew/washroom
 	name = "Horizon - Washroom (PARENT AREA - DON'T USE)"
 	icon_state = "washroom"
+	area_flags = AREA_FLAG_RAD_SHIELDED
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/horizon/crew/washroom/deck_2

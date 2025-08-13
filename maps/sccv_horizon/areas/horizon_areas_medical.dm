@@ -19,9 +19,11 @@
 	ambience = list('sound/ambience/signal.ogg')
 	horizon_deck = 2
 
+// Rad-shielded because its annoying as fuck
 /area/horizon/medical/psych
 	name = "Psych Office"
 	icon_state = "medbay3"
+	area_flags = AREA_FLAG_RAD_SHIELDED
 	area_blurb = "Featuring wood floors and soft carpets, this room has a warmer feeling compared to the sterility of the rest of the medical department."
 	area_blurb_category = "psych"
 	horizon_deck = 2
