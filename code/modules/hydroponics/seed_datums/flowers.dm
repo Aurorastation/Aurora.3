@@ -35,7 +35,6 @@
 	set_trait(TRAIT_PRODUCT_ICON,"flower3")
 	set_trait(TRAIT_PRODUCT_COLOUR,"#B33715")
 	set_trait(TRAIT_PLANT_ICON,"flower3")
-	set_trait(TRAIT_IDEAL_LIGHT, 6)
 	set_trait(TRAIT_WATER_CONSUMPTION, 0.5)
 	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.15)
 
@@ -53,7 +52,7 @@
 	set_trait(TRAIT_PRODUCT_ICON,"flower2")
 	set_trait(TRAIT_PRODUCT_COLOUR,"#FFF700")
 	set_trait(TRAIT_PLANT_ICON,"flower2")
-	set_trait(TRAIT_IDEAL_LIGHT, 7)
+	set_trait(TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_HIGH)
 	set_trait(TRAIT_WATER_CONSUMPTION, 6)
 	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.15)
 

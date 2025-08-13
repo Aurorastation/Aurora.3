@@ -2,10 +2,6 @@
 	name = "wrapping paper"
 	desc = "You can use this to wrap items in."
 	icon = 'icons/obj/item/stacks/wrap.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/stacks/lefthand_wrap.dmi',
-		slot_r_hand_str = 'icons/mob/items/stacks/righthand_wrap.dmi',
-		)
 	icon_state = "wrap_paper"
 	singular_name = "square unit"
 	amount = 20
@@ -97,10 +93,6 @@
 /obj/item/stack/packageWrap
 	name = "package wrapper"
 	icon = 'icons/obj/item/stacks/wrap.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/stacks/lefthand_wrap.dmi',
-		slot_r_hand_str = 'icons/mob/items/stacks/righthand_wrap.dmi',
-		)
 	icon_state = "deliveryPaper"
 	desc = "A roll of paper used to enclose an object for delivery."
 	singular_name = "length"
@@ -210,10 +202,6 @@
 	name = "cardboard tube"
 	desc = "A tube of cardboard."
 	icon = 'icons/obj/item/stacks/wrap.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/stacks/lefthand_wrap.dmi',
-		slot_r_hand_str = 'icons/mob/items/stacks/righthand_wrap.dmi',
-		)
 	icon_state = "c_tube"
 	throwforce = 1
 	w_class = WEIGHT_CLASS_SMALL

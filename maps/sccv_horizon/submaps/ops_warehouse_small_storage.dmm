@@ -111,6 +111,10 @@
 /obj/machinery/portable_atmospherics/hydroponics,
 /turf/template_noop,
 /area/template_noop)
+"cn" = (
+/obj/structure/automobile_filler,
+/turf/template_noop,
+/area/template_noop)
 "cE" = (
 /obj/structure/closet/crate/trashcart,
 /obj/random/junk,
@@ -137,23 +141,11 @@
 /turf/template_noop,
 /area/template_noop)
 "cQ" = (
-/obj/item/storage/box/snack{
-	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
-	name = "corporate care package"
-	},
-/obj/item/storage/box/snack{
-	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
-	name = "corporate care package"
-	},
-/obj/item/storage/box/snack{
-	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
-	name = "corporate care package"
-	},
-/obj/item/storage/box/snack{
-	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
-	name = "corporate care package"
-	},
-/obj/structure/table/rack/no_cargo,
+/obj/structure/table/rack/folding_table,
+/obj/item/storage/box/donkpockets,
+/obj/item/storage/box/donkpockets,
+/obj/item/storage/box/donkpockets,
+/obj/item/storage/box/donkpockets,
 /turf/template_noop,
 /area/template_noop)
 "cU" = (
@@ -514,9 +506,8 @@
 /turf/template_noop,
 /area/template_noop)
 "lO" = (
-/obj/item/storage/box/candy,
-/obj/item/storage/box/candy,
-/obj/structure/table/rack/no_cargo,
+/obj/structure/table/rack/folding_table,
+/obj/machinery/appliance/cooker/microwave,
 /turf/template_noop,
 /area/template_noop)
 "lP" = (
@@ -684,6 +675,12 @@
 /area/template_noop)
 "pQ" = (
 /obj/item/material/shard/wood,
+/turf/template_noop,
+/area/template_noop)
+"pT" = (
+/obj/structure/table/rack/folding_table,
+/obj/item/storage/box/candy,
+/obj/item/storage/box/candy,
 /turf/template_noop,
 /area/template_noop)
 "qo" = (
@@ -2422,7 +2419,7 @@ Gz
 Gz
 Gz
 sW
-Gz
+pT
 Gz
 Gz
 Gz
@@ -3865,11 +3862,11 @@ Gz
 Gz
 Gz
 Gz
+cn
 Gz
 Gz
 Gz
-Gz
-Gz
+cn
 Gz
 Gz
 Gz
@@ -3911,11 +3908,11 @@ nn
 Gz
 Gz
 sW
+cn
 Gz
 Gz
 Gz
-Gz
-Gz
+cn
 nn
 sW
 gp

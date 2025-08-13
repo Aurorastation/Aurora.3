@@ -88,8 +88,8 @@
 
 /obj/structure/proc/climb_on()
 
-	set name = "Climb structure"
-	set desc = "Climbs onto a structure."
+	set name = "Climb Structure"
+	set desc = "Climbs onto a structure. Shortcut middle-mouse click."
 	set category = "Object"
 	set src in oview(1)
 
