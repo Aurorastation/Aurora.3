@@ -2032,11 +2032,12 @@ All custom items with worn sprites must follow the contained sprite system: http
 	robotize_children = FALSE
 
 /obj/item/material/knife/raskariim/fluff/tulkir_knife
-	name = "adhomian ritual dagger"
-	desc = "An adhomian knife used in occult rituals."
+	name = "broken amohdan dagger"
+	desc = "An old amohdan heirloom dagger. the broken blade makes it almost useless for fighting."
 	icon = 'icons/obj/tajara_items.dmi'
-	icon_state = "raskariim_dagger"
-	item_state = "raskariim_dagger"
+	icon_state = "amohdan_tulkir_knife"
+	item_state = "amohdan_tulkir_knife"
+	force_divisor = 0.01
 	contained_sprite = TRUE
 	applies_material_colour = FALSE
 	use_material_name = FALSE
