@@ -250,3 +250,10 @@
   - rscdel: 'Removed attack animations from health scanners, breath analyzers, '
   Snowy1237:
   - rscadd: Adds the loadout hoplan clothing to diplomatic bodyguards.
+2025-08-14:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Update move-down hotkey defs missed after verb renamed to Move-Downwards.
+  Ben10083:
+  - qol: Headmaster ship now has GPS network.
+  - qol: Additional access requirements added to certain Headmaster equipment, such
+      as airlocks
