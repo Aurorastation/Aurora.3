@@ -220,3 +220,40 @@
   nauticall:
   - imageadd: Resprited vents, scrubbers, and the disposal system sprites to be sleeker/more
       industrial/less dated.
+2025-08-12:
+  Batrachophrenoboocosmomachia:
+  - qol: Verb organization improvements.
+  CatsinHD:
+  - rscadd: Added uniforms for Security and Medical roles for Kazarrhaldiye Operations
+      Group.
+  - rscadd: Added jackets for Security Officers, Wardens, Heads of Security, and Medical
+      roles for Kazarrhaldiye Operations Group.
+  - rscadd: Added shoulder tabs for PRA, DPRA/ALA, and NKA members of Kazarrhaldiye
+      Operations Group.
+  TheGreyWolf:
+  - rscadd: The security belt in the investigator locker now starts with some of their
+      equipment already in it.
+  - rscadd: The security belt can now hold notepads.
+  notagonk:
+  - rscadd: Allows Human Offworlders to play as Heads of Security.
+2025-08-13:
+  Ben10083:
+  - bugfix: Tajara, Unathi and other mobs with animated parts should now be properly
+      shown in records and other UI.
+  - qol: Orion Express station now has stationary gps units and are linked to each
+      other.
+  - balance: Orion Express station engine airlocks now have access requirements
+  Geeves:
+  - bugfix: Fixes Falcata sprite handling and emissives.
+  - bugfix: Fixes telescience portals not working correctly, causing an infinite loop.
+  MattAtlas:
+  - rscdel: 'Removed attack animations from health scanners, breath analyzers, '
+  Snowy1237:
+  - rscadd: Adds the loadout hoplan clothing to diplomatic bodyguards.
+2025-08-14:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Update move-down hotkey defs missed after verb renamed to Move-Downwards.
+  Ben10083:
+  - qol: Headmaster ship now has GPS network.
+  - qol: Additional access requirements added to certain Headmaster equipment, such
+      as airlocks

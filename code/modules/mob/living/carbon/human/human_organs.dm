@@ -21,7 +21,7 @@
 	last_dam = damage_this_tick
 
 // Takes care of organ related updates, such as broken and missing limbs
-/mob/living/carbon/human/proc/handle_organs()
+/mob/living/carbon/human/proc/handle_organs(seconds_per_tick)
 	number_wounds = 0
 	var/force_process = recheck_bad_external_organs()
 
@@ -40,7 +40,7 @@
 		if(I.status & ORGAN_DEAD)
 			continue
 
-		I.process()
+		I.process(seconds_per_tick)
 
 	handle_stance()
 	handle_grasp()

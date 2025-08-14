@@ -56,7 +56,7 @@
 		handle_changeling()
 
 		//Organs
-		handle_organs()
+		handle_organs(seconds_per_tick)
 		stabilize_body_temperature() //Body temperature adjusts itself (self-regulation)
 
 		//Random events (vomiting etc)
