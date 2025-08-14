@@ -283,7 +283,7 @@
 		var/list/choices = pref.GetValidTitles(job)
 		if(!LAZYLEN(choices))
 			return ..()// should never happen
-		var/choice = input("Choose a title for [job.title].", "Choose Title", pref.GetPlayerAltTitle(job)) as anything in choices|null
+		var/choice = input("Choose a title for [job.title]. Be aware that choosing an alternative title does not absolve you from the job's regular duties!", "Choose Title", pref.GetPlayerAltTitle(job)) as anything in choices|null
 		if(choice && CanUseTopic(user))
 			SetPlayerAltTitle(job, choice)
 			return TOPIC_REFRESH_UPDATE_PREVIEW
