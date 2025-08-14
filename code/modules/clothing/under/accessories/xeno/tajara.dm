@@ -446,11 +446,11 @@
 	var/raskara_text = null
 
 /obj/item/clothing/accessory/tajaran/charm/raskariim/get_examine_text(mob/user, distance, is_adjacent, infix, suffix, get_extended)
-    . = ..()
-    if(raskara_text && ishuman(user))
-        var/mob/living/carbon/human/U = user
-        if(U.religion == RELIGION_RASKARA || U.religion == RELIGION_RASKARA_ALT)
-            . += SPAN_CULT("\The [src] [raskara_text]")
+	. = ..()
+	if(raskara_text && ishuman(user))
+		var/mob/living/carbon/human/U = user
+		if(U.religion == RELIGION_RASKARA || U.religion == RELIGION_RASKARA_ALT)
+			. += SPAN_CULT("\The [src] [raskara_text]")
 
 /obj/item/clothing/accessory/tajaran/charm/raskariim/doorandkey
 	name = "key charm"
