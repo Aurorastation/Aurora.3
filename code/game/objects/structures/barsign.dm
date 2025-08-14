@@ -9,6 +9,7 @@
 	var/lit = 0
 	var/id = null
 	var/on_icon = "sign"
+	var/active = TRUE
 
 /obj/structure/sign/double/barsign/attackby(obj/item/attacking_item, mob/user)
 	if(cult)
@@ -61,41 +62,15 @@
 	icon_state = "Off"
 	req_access = list(ACCESS_CARGO, ACCESS_JANITOR, ACCESS_ROBOTICS, ACCESS_MINING, ACCESS_PARAMEDIC, ACCESS_HYDROPONICS, ACCESS_BAR, ACCESS_KITCHEN, ACCESS_LIBRARY)
 	choice_types = /singleton/sign/double/market
-	var/on_icon = "sign"
 
-// For the marketsigns's on and off states.
-/obj/structure/sign/double/marketsign/update_icon()
-	if(!lit)
-		icon_state = "[on_icon]_off"
-	else
-		icon_state = on_icon
-
-//The button to switch the market sign on and off.
-/obj/machinery/button/switch/holosign/marketsign
-	name = "marketsign switch"
-	desc = "A remote control switch for the marketsign."
-	icon_state = "light0"
-
-/obj/machinery/button/switch/holosign/marketsign/attack_hand(mob/user)
-	if(..())
-		return
-	add_fingerprint(user)
-
-	use_power_oneoff(5)
-
-	active = !active
-	update_icon()
-	for(var/obj/machinery/holosign/M in SSmachinery.machinery)
-		if (M.id == src.id)
-			INVOKE_ASYNC(M, TYPE_PROC_REF(/obj/machinery/holosign, toggle))
-
-	return
+/obj/structure/sign/double/barsign/marketsign/mirrored // Visible from the other end of the sign.
+	pixel_x = -32
 
 /singleton/sign/double
 	var/name = "Holographic Projector"
 	var/icon_state = "Off"
 	var/desc = "A holographic projector, displaying different saved themes. It is turned off right now."
-	var/desc_extended = "To change the displayed theme, use your bartender's or chef's ID on it and select something from the menu. There are two different selections for the bar and the kitchen."
+	var/desc_extended = "To change the displayed theme, use your bartender's or chef's or other applicable ID on it and select something from the menu. There are three different selections for the bar, kitchen and commissiary."
 
 /singleton/sign/double/off // Here start the different bar signs. To add any new ones, just copy the format, make sure its in the .dmi and write away. -KingOfThePing
 	name = "Holgraphic Projector"
@@ -197,7 +172,6 @@
 	icon_state = "Free Drinks!"
 	desc = "Either the XO or the Captain were in a really good mood, someone's pranking the crew, or it is your lucky day. Cheers!"
 
-
 /singleton/sign/double/kitchen/event_horizon // Start of the kitchen signs. Don't mix it up.
 	name = "Event Horizon"
 	icon_state = "Event Horizon"
@@ -220,7 +194,6 @@
 	desc = "NT-Mart is a relatively common convenience store chain. Usually smaller in scale and with more limited selection you can still get pretty much everything here."
 	desc_extended = "Before the SCC merged to one Conglomerate, NanoTrasen already tried to reel in as much revenue as possible. One of the easiest markets was retail. After some time, the NT-Mart could be seen on many corners \
 	in many places, selling a limited selection of basic items, usually with a markup."
-	on_icon = "ntmart"
 /singleton/sign/double/market/gm24
 	name ="GetMore24"
 	icon_state = "gm24"
@@ -228,4 +201,3 @@
 	desc_extended = "Getmore was always a big player in the food industry. A logical follow-up would be to get big into retail and cut out the middle-man in distribution. Thus, the king of convenience stores was born: \
 	GMG24. Usually open 24 hours, 7 days a week there aren't many places in the galaxy where you aren't in walking distance of a GM24. Selling everything you need for your daily life, the selection is surprisingly big \
 	and affordable. This strategy catapulted Getmore into the big league of convenience stores."
-	on_icon = "gm24"
