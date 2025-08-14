@@ -76,7 +76,7 @@
 		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/yellow(H), slot_gloves)
 
 /datum/job/engineer
-	title = "Engineer"
+	title = "Ship Engineer"
 	flag = ENGINEER
 	departments = SIMPLEDEPT(DEPARTMENT_ENGINEERING)
 	department_flag = ENGSEC
