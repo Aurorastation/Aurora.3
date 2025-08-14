@@ -63,7 +63,7 @@
 
 /datum/citizenship/orepit
 	name = CITIZENSHIP_OREPIT
-	description = "With the arrival of the Church of the Trinary Perfection in 2419, the Ecclesiarchy of Orepit has now organized into a theocratic regime under the rule of \
+	description = "With the arrival of the Church of the Trinary Perfection in 2419, the Ecclesiarchy of Orepit is a theocratic regime under the rule of \
 	ARM-1DRIL, former follower of Gregol Corkfell. Prominent locations include Providence, Orepit's capital and base of operations for the Church, and the Twenty Parishes, \
 	home to the planet's original native human population, who remain divided on conversion to the faith. Orepit was one of the main signatories to the Open Doors memorandum, \
 	allowing its populace to work, study, and travel abroad in the Coalition and beyond, primarily in the All-Xanu Republic, utilizing Xanan documents."
