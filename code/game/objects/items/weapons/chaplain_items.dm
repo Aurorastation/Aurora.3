@@ -221,6 +221,17 @@
 	light_power = 2
 	light_color = LIGHT_COLOR_BLUE
 
+/obj/item/nullrod/clockworkstave
+	name = "\improper Clockwork Stave"
+	desc = "A long, wooden stave with a gear and triangle at the top, utilized by the clergy of the Trinary Perfection. The ornate pieces atop the stave are often delicately \
+	hand-crafted by synthetics from the monastic Society of Pitters and exported off the planet of Orepit."
+	icon = 'icons/obj/trinary_stave.dmi'
+	icon_state = "trinary_stave"
+	item_state = "trinary_stave"
+	contained_sprite = TRUE
+
+	w_class = WEIGHT_CLASS_BULKY
+
 /obj/item/nullrod/verb/change(mob/living/user)
 	set name = "Reassemble Null Item"
 	set category = "Object"
