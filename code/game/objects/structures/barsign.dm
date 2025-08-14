@@ -6,9 +6,9 @@
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/cult = 0
 	var/choice_types = /singleton/sign/double/bar
-	var/id = null
 	var/currently_on = FALSE
 	var/on_icon_state
+	var/off_icon_state = "off"
 
 /obj/structure/sign/double/barsign/attackby(obj/item/attacking_item, mob/user)
 	if(cult)
@@ -32,8 +32,7 @@
 		currently_on = TRUE
 		icon_state = on_icon_state
 		return
-	on_icon_state = icon_state
-	icon_state = "off"
+	icon_state = off_icon_state
 	currently_on = FALSE
 
 /obj/structure/sign/double/barsign/proc/get_sign_choices()
@@ -57,8 +56,9 @@
 	desc = signselect.desc
 	desc_extended = signselect.desc_extended
 	icon_state = signselect.icon_state
-	update_icon()
 	currently_on = TRUE
+	on_icon_state = icon_state
+	update_icon()
 
 /obj/structure/sign/double/barsign/kitchensign
 	icon = 'icons/obj/kitchensigns.dmi'
@@ -75,10 +75,9 @@
 	req_access = list(ACCESS_CARGO, ACCESS_JANITOR, ACCESS_ROBOTICS, ACCESS_MINING, ACCESS_PARAMEDIC, ACCESS_HYDROPONICS, ACCESS_BAR, ACCESS_KITCHEN, ACCESS_LIBRARY)
 	choice_types = /singleton/sign/double/market
 
-/obj/structure/sign/double/barsign/marketsign/AltClick(mob/user) // Alt-click a sign with an empty hand to power or depower it, if it has the associated "[name]-off" state in the .dmi file.
+/obj/structure/sign/double/barsign/marketsign/set_sign()
 	. = ..()
-	icon_state = "[icon_state]-off"
-
+	off_icon_state = "[icon_state]-off"
 
 /obj/structure/sign/double/barsign/marketsign/mirrored // Visible from the other end of the sign.
 	pixel_x = -32
@@ -219,4 +218,3 @@
 	desc_extended = "Getmore was always a big player in the food industry. A logical follow-up would be to get big into retail and cut out the middle-man in distribution. Thus, the king of convenience stores was born: \
 	GMG24. Usually open 24 hours, 7 days a week there aren't many places in the galaxy where you aren't in walking distance of a GM24. Selling everything you need for your daily life, the selection is surprisingly big \
 	and affordable. This strategy catapulted Getmore into the big league of convenience stores."
-
