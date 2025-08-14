@@ -158,7 +158,7 @@
 	// The lower our thermostat setting, the more power we consume.
 	var/extra_power_consumption = 0
 	if(thermostat < initial(thermostat))
-		extra_power_consumption = ((initial(thermostat) - thermostat) + T0C) * 0.1
+		extra_power_consumption = 1 //TODOMATT: fix this shit
 	else if(thermostat > initial(thermostat))
 		// higher thermostat = less power usage
 		extra_power_consumption = -(thermostat_max / thermostat)
