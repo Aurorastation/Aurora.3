@@ -29,7 +29,7 @@
 	name = RELIGION_RASKARA
 	description = "Raskariim, commonly known as The Cult of Raskara are a prolific cult on Adhomai. The religion has been created on Adhomai but with the free commerce, a few human \
 	members have been recorded. While Raskara may seem like a single deity it is in fact split into three aspects, each one leading down a different path and seemingly every path \
-	subverting something S'rendarr and Messa stands for.This faith will appear as Ma'ta'ke in the records. Note: This faith indicates a char is a true raskariim, rather than a rebel."
+	subverting something S'rendarr and Messa stands for.This faith will appear as Ma'ta'ke in the records."
 	book_name = "ma'ta'ke legends"
 	nulloptions = list(
 		"Tajaran charm" = /obj/item/nullrod/charm,
@@ -47,7 +47,7 @@
 	name = RELIGION_RASKARA_ALT
 	description = "Raskariim, commonly known as The Cult of Raskara are a prolific cult on Adhomai. The religion has been created on Adhomai but with the free commerce, a few human \
 	members have been recorded. While Raskara may seem like a single deity it is in fact split into three aspects, each one leading down a different path and seemingly every path \
-	subverting something S'rendarr and Messa stands for. This faith will appear as S'rendarr and Messa in the records. Note: This faith indicates a char is a true raskariim, rather than a rebel."
+	subverting something S'rendarr and Messa stands for. This faith will appear as S'rendarr and Messa in the records."
 	book_name = "holy scrolls"
 	book_sprite = "holylight"
 	nulloptions = list(
