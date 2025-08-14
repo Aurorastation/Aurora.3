@@ -9,10 +9,6 @@ Contains:
 	name = "medical pack"
 	singular_name = "medical pack"
 	icon = 'icons/obj/item/stacks/medical.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/stacks/lefthand_medical.dmi',
-		slot_r_hand_str = 'icons/mob/items/stacks/righthand_medical.dmi',
-		)
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
 	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
 	amount = 5

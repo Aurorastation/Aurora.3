@@ -1194,6 +1194,7 @@
 	/// Imparts hallucination effects scaling with bac.
 	var/alchohol_affected = TRUE
 	var/messagedelay = MEDICATION_MESSAGE_DELAY
+
 	/// Generic fluff messages for anyone who takes it.
 	var/list/goodmessage = list()
 	/// Species-specific fluff messages- will override the generic version for the given species. See following comment/example for implementation details.

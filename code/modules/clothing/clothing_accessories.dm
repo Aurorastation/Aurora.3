@@ -152,7 +152,7 @@
 
 /obj/item/clothing/proc/remove_accessory_verb()
 	set name = "Remove Accessory"
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in usr
 
 	remove_accessory_handler(usr, FALSE)

@@ -27,7 +27,7 @@
 
 /obj/item/clothing/under/skrell/qeblak/verb/toggle_lights()
 	set name = "Toggle Ceremonial Garment Lights"
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in usr
 
 	if (use_check_and_message(usr))

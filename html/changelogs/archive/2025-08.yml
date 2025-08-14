@@ -146,3 +146,114 @@
 2025-08-09:
   Kano:
   - bugfix: Fixed shuttles not being able to dock with Horizon's docking arms.
+2025-08-10:
+  AlaunusLux:
+  - bugfix: '''Weakened'' hivebot beacons will no longer be summoned by golden slime
+      extracts.'
+  Batrachophrenoboocosmomachia:
+  - code_imp: Unit test added for debugging flag on away sites.
+  - code_imp: DMdocs comment/documentation conversion progress.
+  Ben10083:
+  - bugfix: AI core display change verb fixed.
+  - code_imp: Improvements to ai.dm, mostly documentation.
+  Hellfirejag:
+  - balance: Changed the falcata to give a slight slowdown even when powered, instead
+      of unintentionally speeding up the user. Its still less encumbering than heavy
+      armor.
+  - rscadd: Added missing recipes needed to make a falcata exoskeleton.
+  Kano:
+  - qol: Tweaked cargo package spawning logic for the hidden off-ships. It'll now
+      be available after the ship is visible on overmap.
+  - rscadd: Added an engineering cart. Its sprites are ported from Paradise Station.
+2025-08-11:
+  Batrachophrenoboocosmomachia:
+  - balance: Double SM maximum damage rate.
+  - qol: Reduced maximum delamination sound volume from 100 to 75.
+  - rscadd: Added colorable scrubs and scrubs selection to the allowed loadout items
+      list for Medical Orderlies.
+  - bugfix: Simple mobs no longer allowed to move at hyper-speed when chasing targets.
+  - bugfix: Objects thrown onto Open Space turfs should more reliably drop down remaining
+      Z-level (if there is gravity).
+  - bugfix: Area adjustments to fix D3 bunker turret controls.
+  - bugfix: Fixed naming convention for scuttling device compartment.
+  - bugfix: Replaced parent stairwell area with correct child.
+  - bugfix: Replaces misleading AI shell exosuit charger with synthetic recharger.
+  - qol: Replaces the Engi break room stripped-down soda dispenser with stripped-down
+      coffee dispenser.
+  - qol: APCs in the Power Monitor app now listed in alphabetical order.
+  - code_imp: es-toolkit 1.39.3 added to TGUI dependencies for sorting funcs.
+  - rscadd: Added 13 new 'Drobe' vending machines, containing stock for associated
+      departments/jobs, throughout the ship.
+  - rscdel: Removed old wardrobe lockers where a Drobe machine existed to replace
+      them.
+  - rscadd: Updated all Vending machine product ads, made them display at random on
+      the purchase screen.
+  - code_imp: Split vending machine prefab code for readability, added documentation.
+  - bugfix: Added floor 'hatch' markings to existing SCCV Horizon vending machines
+      that were missing them.
+  Ben10083:
+  - experiment: Greimorian bombardiers now shoot an acid instead of capsaicin.
+  - balance: Schlorrgos now have a max amount of eggs they will produce before they
+      stop, to help prevent singularity.
+  - balance: Schlorrgos egg making chance reduced.
+  ChangeMe:
+  - code_imp: Added support for reagent/mental to return different feedback text strings
+      based on species.
+  - bugfix: Koko Reed Juice now only returns drug feedback messages to Unathi.
+  CometBlaze:
+  - rscadd: Updated the shirt and polo selection to the new palette and tweaked the
+      sprites a little.
+  - rscdel: Removed the generic polo selection as its superseded by the colourable
+      polos.
+  ElorgRHG:
+  - imageadd: Resprited the tajara laborer, al'mariist laborer clothes, the PRA medical
+      coat and the naval coat.
+  Geeves:
+  - bugfix: Ported an alt-click statpanel fix.
+  MattAtlas:
+  - rscadd: IVs now have a visible beam leading to their attached patient.
+  Wowzewow (Wezzy):
+  - imageadd: Updates stack inhand sprites, makes them use contained sprites, and
+      touches up the tile sprites to be more accurate.
+  meep109:
+  - bugfix: Fixes Himean patrol ship APC accceses
+  nauticall:
+  - imageadd: Resprited vents, scrubbers, and the disposal system sprites to be sleeker/more
+      industrial/less dated.
+2025-08-12:
+  Batrachophrenoboocosmomachia:
+  - qol: Verb organization improvements.
+  CatsinHD:
+  - rscadd: Added uniforms for Security and Medical roles for Kazarrhaldiye Operations
+      Group.
+  - rscadd: Added jackets for Security Officers, Wardens, Heads of Security, and Medical
+      roles for Kazarrhaldiye Operations Group.
+  - rscadd: Added shoulder tabs for PRA, DPRA/ALA, and NKA members of Kazarrhaldiye
+      Operations Group.
+  TheGreyWolf:
+  - rscadd: The security belt in the investigator locker now starts with some of their
+      equipment already in it.
+  - rscadd: The security belt can now hold notepads.
+  notagonk:
+  - rscadd: Allows Human Offworlders to play as Heads of Security.
+2025-08-13:
+  Ben10083:
+  - bugfix: Tajara, Unathi and other mobs with animated parts should now be properly
+      shown in records and other UI.
+  - qol: Orion Express station now has stationary gps units and are linked to each
+      other.
+  - balance: Orion Express station engine airlocks now have access requirements
+  Geeves:
+  - bugfix: Fixes Falcata sprite handling and emissives.
+  - bugfix: Fixes telescience portals not working correctly, causing an infinite loop.
+  MattAtlas:
+  - rscdel: 'Removed attack animations from health scanners, breath analyzers, '
+  Snowy1237:
+  - rscadd: Adds the loadout hoplan clothing to diplomatic bodyguards.
+2025-08-14:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Update move-down hotkey defs missed after verb renamed to Move-Downwards.
+  Ben10083:
+  - qol: Headmaster ship now has GPS network.
+  - qol: Additional access requirements added to certain Headmaster equipment, such
+      as airlocks
