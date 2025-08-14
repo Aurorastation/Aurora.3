@@ -6,8 +6,6 @@
 	area_blurb_category = "mecical"
 	department = LOC_MEDICAL
 
-//Medbay is a large area, these additional areas help level out APC load.
-
 /area/horizon/medical/paramedic
 	name = "Paramedic Equipment Storage"
 	icon_state = "medbay"
@@ -47,7 +45,6 @@
 	name = "Intensive Care Unit"
 	icon_state = "cryo"
 	area_blurb = "The sounds of pumps and cooling equipment can be heard within the room."
-	area_blurb_category = "icu"
 	horizon_deck = 2
 
 /area/horizon/medical/main_storage
