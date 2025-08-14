@@ -348,17 +348,38 @@
 		I.AddOverlays(emissive_overlay)
 	return I
 
+/obj/item/rig/light/falcata/set_vision(var/active)
+	if(helmet)
+		// don't tint the vision if the suit isn't sealed, the sprite doesn't cover the face
+		// this does however still tint the vision if it's sealed and the battery dies though
+		helmet.tint = (active || canremove ? vision_restriction : offline_vision_restriction)
+
+/obj/item/rig/light/falcata/set_piece_adaptation(var/obj/item/clothing/piece)
+	// the suit doesn't need to differ by-species
+	if(istype(piece, /obj/item/clothing/suit/space/rig/light/falcata))
+		return
+	return ..()
+
+/obj/item/rig/light/falcata/update_sealed_piece_icon(var/obj/item/clothing/piece, var/seal_target)
+	if(istype(piece, /obj/item/clothing/head/helmet/space/rig/light/falcata))
+		if(!seal_target)
+			piece.flags_inv = HIDEEARS|HIDEEYES|HIDEFACE|BLOCKHAIR // if we're sealing the helmet, hide the hair
+		else
+			piece.flags_inv = 0 // otherwise, show it all
+	return ..()
+
 /obj/item/clothing/suit/space/rig/light/falcata
 	name = "myomer frame"
 	body_parts_covered = null
 	breach_threshold = 45 // We aren't a real hardsuit, rather a very thick torso plate.
+	flags_inv = 0 // Don't hide jumpsuit or tail
 
 /obj/item/clothing/suit/space/rig/light/falcata/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
 	var/image/I = ..()
 	if(slot != slot_wear_suit_str)
 		return I
 
-	var/obj/item/rig/rigcontroller = H.get_equipped_item(slot_wear_suit)
+	var/obj/item/rig/rigcontroller = H.get_equipped_item(slot_back)
 	if(!istype(rigcontroller, /obj/item/rig) || rigcontroller.offline)
 		return I
 
@@ -378,3 +399,4 @@
 		BOMB = ARMOR_BOMB_RESISTANT,
 		BIO = ARMOR_BIO_SHIELDED,
 	)
+	flags_inv = 0 // before being sealed, ears eyes etc should not be hidden
