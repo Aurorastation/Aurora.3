@@ -74,7 +74,8 @@
 		die()
 
 /obj/item/organ/internal/machine/die()
-	to_chat(owner, SPAN_MACHINE_WARNING("Some of your sensors go dark - you've lost connection to your [src]!"))
+	if(!vital)
+		to_chat(owner, FONT_LARGE(SPAN_MACHINE_WARNING("Some of your sensors go dark - you've lost connection to your [src]!")))
 	diagnostics_suite_visible = FALSE
 	damage = max_damage
 	status |= ORGAN_DEAD

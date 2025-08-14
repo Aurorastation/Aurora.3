@@ -178,13 +178,13 @@
 	if(!owner)
 		return
 
-	if(owner.bodytemperature > species.heat_level_2)
+	if(owner.bodytemperature > species.heat_level_1)
 		// placeholder values
-		take_internal_damage(min(owner.bodytemperature * 0.01, 2))
+		take_internal_damage(1 + min(owner.bodytemperature * 0.001, 0.5))
 		if(heat_alarm_cooldown < world.time)
 			to_chat(owner, SPAN_DANGER("Your sensors light up: extreme heat detected! Warning! Unsafe operating temperature!"))
 			sound_to(owner, 'sound/effects/heat_alarm.ogg')
-			heat_alarm_cooldown = world.time + 15 SECONDS
+			heat_alarm_cooldown = world.time + 7 SECONDS
 
 	if(damage)
 		if(damage < max_damage * 0.5)

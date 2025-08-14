@@ -72,27 +72,29 @@
 	// K = C + 273.15 | C = K – 273.15
 	// we want to pass celsius for readability,
 	// the average american can't figure out celsius, let alone kelvin
-	data["broken"] = is_broken()
-	data["thermostat"] = thermostat - 273.15
-	data["thermostat_min"] = thermostat_min - 273.15
-	data["thermostat_max"] = thermostat_max - 273.15
-	data["passive_temp_change"] = passive_temp_change
-	data["bodytemperature"] = owner.bodytemperature - 273.15
-	data["temperature_safety"] = temperature_safety
+	var/broken = is_broken()
+	data["broken"] = broken
+	if(!broken)
+		data["thermostat"] = thermostat - 273.15
+		data["thermostat_min"] = thermostat_min - 273.15
+		data["thermostat_max"] = thermostat_max - 273.15
+		data["passive_temp_change"] = passive_temp_change
+		data["bodytemperature"] = owner.bodytemperature - 273.15
+		data["temperature_safety"] = temperature_safety
 
-	var/estimated_power_consumption = base_power_consumption
-	var/integrity = get_integrity()
-	if(integrity < IPC_INTEGRITY_THRESHOLD_MEDIUM)
-		estimated_power_consumption = rand(-50, 100 + (100 - integrity))
+		var/estimated_power_consumption = base_power_consumption
+		var/integrity = get_integrity()
+		if(integrity < IPC_INTEGRITY_THRESHOLD_MEDIUM)
+			estimated_power_consumption = rand(-50, 100 + (100 - integrity))
 
-	if(thermostat < initial(thermostat))
-		estimated_power_consumption = ((initial(thermostat) - thermostat) + T0C) * 0.1
-	else if(thermostat > initial(thermostat))
-		// higher thermostat = less power usage
-		estimated_power_consumption = -(thermostat_max / thermostat)
+		if(thermostat < initial(thermostat))
+			estimated_power_consumption = ((initial(thermostat) - thermostat) + T0C) * 0.1
+		else if(thermostat > initial(thermostat))
+			// higher thermostat = less power usage
+			estimated_power_consumption = -(thermostat_max / thermostat)
 
-	data["estimated_power_consumption"] = max(0, base_power_consumption + estimated_power_consumption)
-	data["safety_burnt"] = safety_burnt
+		data["estimated_power_consumption"] = max(0, base_power_consumption + estimated_power_consumption)
+		data["safety_burnt"] = safety_burnt
 	return data
 
 /obj/item/organ/internal/machine/cooling_unit/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)

@@ -173,8 +173,8 @@
 	var/base_heat_gain = passive_temp_gain
 	var/obj/item/organ/internal/machine/cooling_unit/cooling = human.internal_organs_by_name[BP_COOLING_UNIT]
 	if(!cooling || (cooling?.status & ORGAN_DEAD))
-		base_heat_gain *= 2 //uh oh
-	human.bodytemperature += passive_temp_gain
+		base_heat_gain *= 4 //uh oh
+	human.bodytemperature += base_heat_gain
 
 /datum/species/machine/handle_stance_damage(mob/living/carbon/human/H, damage_only)
 	var/obj/item/organ/internal/machine/hydraulics/hydraulics = H.internal_organs_by_name[BP_HYDRAULICS]
