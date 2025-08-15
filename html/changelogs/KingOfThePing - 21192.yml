@@ -57,4 +57,4 @@ delete-after: True
 changes:
   - imageadd: "Added new sprites for a new subtype of signs."
   - rscadd: "Added a new type of sign to the commissary."
-  - rscdel: "Refactored some things around in the associated .dm file for technical debt reduction."
+  - refactor: "Refactored some things around in the associated .dm file for technical debt reduction."
