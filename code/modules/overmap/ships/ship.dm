@@ -108,6 +108,8 @@
 
 /obj/effect/overmap/visitable/ship/get_scan_data(mob/user)
 	. = ..()
+	if (static_vessel) // full data already acquired from parent proc
+		return
 	if(!is_still())
 		. += "<br>Heading: [dir2angle(get_heading())], speed [get_speed() * 1000]"
 	if(instant_contact)
