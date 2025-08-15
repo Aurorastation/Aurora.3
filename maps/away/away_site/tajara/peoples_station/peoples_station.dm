@@ -20,6 +20,7 @@
 /obj/effect/overmap/visitable/ship/stationary/peoples_station
 	name = "People's Space Station"
 	class = "PRASS"
+	designation = "People's Space Station"
 	desc = "Built in the interwar period, the People's Space Station bears the prestige of being the first space installation designed, constructed, and manned by Tajara."
 	icon = 'icons/obj/overmap/overmap_stationary.dmi'
 	icon_state = "battlestation"
