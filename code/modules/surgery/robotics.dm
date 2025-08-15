@@ -578,7 +578,8 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	for(var/obj/item/organ/internal/machine/I in affected.internal_organs)
 		if(I && (I.plating.get_status() < 100))
-			user.visible_message(SPAN_NOTICE("[user] begins melding steel to the [pick("damage", "kinks", "gashes", "holes")] on the plating around [target]'s [I]..."))
+			var/damage_type = pick("damage", "kinks", "gashes", "holes")
+			user.visible_message(SPAN_NOTICE("[user] begins melding steel to the [damage_type] on the plating around [target]'s [I]..."), "You begin melding steel to the [damage_type] on the plating around [target]'s [I]...")
 	..()
 
 /singleton/surgery_step/internal/fix_internal_plating/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -586,7 +587,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	for(var/obj/item/organ/internal/machine/I in affected.internal_organs)
 		if(I && (I.plating.get_status() < 100))
-			user.visible_message(SPAN_NOTICE("[user] mends the plating around [target]'s [affected]."))
+			user.visible_message(SPAN_NOTICE("[user] mends the plating around [target]'s [affected]."), SPAN_NOTICE("You mend the plating around [target]'s [affected]."))
 			I.plating.heal_damage(I.plating.max_health)
 
 /singleton/surgery_step/internal/replace_internal_plating
@@ -630,3 +631,48 @@
 			user.remove_from_mob(tool)
 			qdel(tool)
 			I.plating.heal_damage(I.plating.max_health)
+
+/singleton/surgery_step/internal/degunk
+	name = "Remove Bio-Reactor Waste"
+	allowed_tools = list(
+		/obj/item/reagent_containers/glass = 100,
+	)
+
+	min_duration = 100
+	max_duration = 150
+
+/singleton/surgery_step/internal/degunk/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
+
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	var/obj/item/organ/internal/machine/reactor/bio_reactor = target.internal_organs_by_name[BP_REACTOR]
+	var/limb_can_operate = (affected && affected.open == ORGAN_ENCASED_RETRACTED && target_zone == BP_CHEST)
+	if(limb_can_operate)
+		if(bio_reactor && (bio_reactor.power_supply_type & POWER_SUPPLY_BIOLOGICAL))
+			var/extraneous_amount = 0
+			for(var/reagent_type in bio_reactor.bio_reagents.reagent_volumes)
+				var/reagent_amount = REAGENT_VOLUME(bio_reactor.bio_reagents, reagent_type)
+				if(!ispath(reagent_type, /singleton/reagent/nutriment))
+					extraneous_amount += reagent_amount
+			if(extraneous_amount)
+				return TRUE
+	return FALSE
+
+/singleton/surgery_step/internal/degunk/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
+	user.visible_message(SPAN_NOTICE("[user] begins draining the waste and gristle inside of [target]'s biological reactor..."), SPAN_NOTICE("You begin draining the waste and gristle inside of [target]'s biological reactor."))
+	..()
+
+/singleton/surgery_step/internal/degunk/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	. = ..()
+	var/obj/item/organ/internal/machine/reactor/bio_reactor = target.internal_organs_by_name[BP_REACTOR]
+	var/obj/item/reagent_containers/glass/container = tool
+	var/extraneous_amount = 0
+	for(var/reagent_type in bio_reactor.bio_reagents.reagent_volumes)
+		var/reagent_amount = REAGENT_VOLUME(bio_reactor.bio_reagents, reagent_type)
+		if(!ispath(reagent_type, /singleton/reagent/nutriment))
+			bio_reactor.bio_reagents.trans_type_to(tool, reagent_type, reagent_amount)
+	playsound(target, 'sound/effects/drain_blood.ogg', 50)
+	user.visible_message(SPAN_NOTICE("[user] extracts the waste and gristle in [target]'s biological reactor."), SPAN_NOTICE("You drain the waste and gristle in [target]'s biological reactor to [tool]."))

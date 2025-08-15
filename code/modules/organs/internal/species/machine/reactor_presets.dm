@@ -45,7 +45,7 @@
 /singleton/synthetic_organ_preset/reactor/biological/apply_preset(obj/item/organ/internal/machine/organ)
 	. = ..()
 	var/obj/item/organ/internal/machine/reactor/reactor = organ
-	reactor.bio_reagents = new(30, reactor)
+	reactor.bio_reagents = new(45, reactor)
 
 /singleton/synthetic_organ_preset/reactor/solar
 	name = "solar power generator"

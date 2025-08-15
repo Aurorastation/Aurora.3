@@ -103,7 +103,7 @@ export const DiagnosticsWindow = (props, context) => {
         {data.armor_data.length ? (
           <Box>
             <Divider />
-            Internal armor plating condition:{' '}
+            External armor plating condition:{' '}
             <LabeledList>
               {data.armor_data.map((armor) => (
                 <LabeledList.Item label={capitalize(armor.key)} key={armor.key}>
