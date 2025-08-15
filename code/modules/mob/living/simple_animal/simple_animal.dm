@@ -1090,7 +1090,6 @@
 		return TRUE
 	return FALSE
 
-
 #undef BLOOD_NONE
 #undef BLOOD_LIGHT
 #undef BLOOD_MEDIUM
