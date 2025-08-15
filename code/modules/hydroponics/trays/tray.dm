@@ -472,7 +472,7 @@
 /obj/machinery/portable_atmospherics/hydroponics/CtrlClick(var/mob/user)
 	if(usr.incapacitated())
 		return
-	if(ishuman(usr) || istype(usr, /mob/living/silicon/robot))
+	if(ishuman(usr) && Adjacent(usr) || issilicon(usr))
 		change_lighting(user)
 
 /// Verifies that all values are what they should be.
