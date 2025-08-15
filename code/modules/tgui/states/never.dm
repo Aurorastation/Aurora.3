@@ -6,7 +6,7 @@
 /**
  * tgui state: never_state
  *
- * Always closes the UI, no matter what.
+ * Always closes the UI, no matter what. See the ui_state in religious_tool.dm to see an example
  */
 
 GLOBAL_DATUM_INIT(never_state, /datum/ui_state/never_state, new)

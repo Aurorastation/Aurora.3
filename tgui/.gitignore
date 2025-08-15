@@ -5,4 +5,3 @@ node_modules
 ## Build artifacts
 /public/**/*
 !/public/*.html
-!/public/tgui-polyfill.min.js

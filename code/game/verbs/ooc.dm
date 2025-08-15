@@ -265,14 +265,6 @@
 	else //Delayed to avoid wingets from Login calls.
 		addtimer(CALLBACK(src, VERB_REF(fit_viewport), 1 SECONDS))
 
-/client/verb/refresh_tgui()
-	set name = "Refresh TGUI"
-	set category = "OOC"
-
-	for(var/window_id in tgui_windows)
-		var/datum/tgui_window/window = tgui_windows[window_id]
-		window.reinitialize()
-
 /client/verb/fix_stat_panel()
 	set name = "Fix-Stat-Panel"
 	set hidden = TRUE

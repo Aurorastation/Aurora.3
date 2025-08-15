@@ -13,34 +13,6 @@
 
 // Tgui core bulk imports
 @include meta.load-css('~tgui-core/styles/all-atomic.scss');
-@include meta.load-css('~tgui-core/styles/all-themes.scss');
-
-// Themes
-@include meta.load-css('./themes/abductor.scss');
-@include meta.load-css('./themes/cardtable.scss');
-@include meta.load-css('./themes/spookyconsole.scss');
-@include meta.load-css('./themes/hackerman.scss');
-@include meta.load-css('./themes/malfunction.scss');
-@include meta.load-css('./themes/neutral.scss');
-@include meta.load-css('./themes/ntos.scss');
-@include meta.load-css('./themes/ntos_cat.scss');
-@include meta.load-css('./themes/ntos_darkmode.scss');
-@include meta.load-css('./themes/ntos_lightmode.scss');
-@include meta.load-css('./themes/ntOS95.scss');
-@include meta.load-css('./themes/ntos_terminal.scss');
-@include meta.load-css('./themes/ntos_spooky.scss');
-@include meta.load-css('./themes/paper.scss');
-@include meta.load-css('./themes/retro.scss');
-@include meta.load-css('./themes/syndicate.scss');
-@include meta.load-css('./themes/wizard.scss');
-@include meta.load-css('./themes/admin.scss');
-@include meta.load-css('./themes/zavodskoi.scss');
-@include meta.load-css('./themes/idris.scss');
-@include meta.load-css('./themes/nanotrasen.scss');
-@include meta.load-css('./themes/zenghu.scss');
-@include meta.load-css('./themes/hephaestus.scss');
-@include meta.load-css('./themes/sol.scss');
-@include meta.load-css('./themes/vaurca.scss');
 
 // Interfaces
 @include meta.load-css('./interfaces/ListInput.scss');
