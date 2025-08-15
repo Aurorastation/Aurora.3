@@ -88,10 +88,12 @@
 			estimated_power_consumption = rand(-50, 100 + (100 - integrity))
 
 		if(thermostat < initial(thermostat))
-			estimated_power_consumption = ((initial(thermostat) - thermostat) + T0C) * 0.1
+			// The higher the distance between the maximum thermostat setting and what we're actually at, the harder the cooling unit will work to cool us.
+			var/temperature_distance = round(thermostat_max - thermostat, 1)
+			estimated_power_consumption = temperature_distance * 0.5
 		else if(thermostat > initial(thermostat))
 			// higher thermostat = less power usage
-			estimated_power_consumption = -(thermostat_max / thermostat)
+			estimated_power_consumption = -(thermostat_max / thermostat) - 0.5
 
 		data["estimated_power_consumption"] = max(0, base_power_consumption + estimated_power_consumption)
 		data["safety_burnt"] = safety_burnt
@@ -106,7 +108,7 @@
 
 		var/new_thermostat = params["change_thermostat"]
 		// remember we are getting passed celsius here
-		new_thermostat += 273.15
+		new_thermostat += T0C
 		if(new_thermostat >= thermostat_min && new_thermostat <= thermostat_max)
 			thermostat = new_thermostat
 		. = TRUE
@@ -156,22 +158,20 @@
 		return
 
 	// The lower our thermostat setting, the more power we consume.
+	var/extra_efficiency_multiplier = 1
 	var/extra_power_consumption = 0
 	if(thermostat < initial(thermostat))
-		extra_power_consumption = 1 //TODOMATT: fix this shit
+		// The higher the distance between the maximum thermostat setting and what we're actually at, the harder the cooling unit will work to cool us.
+		var/temperature_distance = round(thermostat_max - thermostat, 1)
+		extra_power_consumption = temperature_distance * 0.5
+		extra_efficiency_multiplier = temperature_distance * 0.05
 	else if(thermostat > initial(thermostat))
 		// higher thermostat = less power usage
-		extra_power_consumption = -(thermostat_max / thermostat)
+		extra_power_consumption = -(thermostat_max / thermostat) - 0.5
 
 	if(thermostat < owner.bodytemperature)
-		if((owner.bodytemperature - temperature_change) < thermostat)
-			temperature_change = owner.bodytemperature - thermostat
-		owner.bodytemperature = max(owner.bodytemperature - temperature_change, thermostat)
+		owner.bodytemperature = max(owner.bodytemperature - temperature_change * extra_efficiency_multiplier, thermostat)
 		cell.use(max(0, base_power_consumption + extra_power_consumption))
-	else
-		if((owner.bodytemperature + temperature_change) > thermostat)
-			temperature_change = thermostat - owner.bodytemperature
-		owner.bodytemperature = min(owner.bodytemperature + temperature_change, thermostat)
 
 /obj/item/organ/internal/machine/cooling_unit/low_integrity_damage(integrity)
 	if(get_integrity_damage_probability() / 2)
@@ -196,6 +196,7 @@
 			to_chat(owner, SPAN_DANGER(FONT_LARGE("Your laminar cooling stratum has melted. Your cooling unit will not work in space anymore!")))
 			spaceproof = FALSE
 		else if(thermostat_min < (initial(thermostat_min) + 100))
+			playsound(owner, pick(SOUNDS_LASER_METAL), 50)
 			to_chat(owner, SPAN_DANGER(FONT_LARGE("Parts of your cooling unit melt away...!")))
 			update_thermostat(thermostat_min + round(rand(10, 50)))
 	. = ..()

@@ -254,9 +254,9 @@
 				cooling.thermostat = cooling.thermostat_max
 		if(2)
 			to_chat(owner, FONT_LARGE(SPAN_DANGER("Your hydraulics creak and stagger under the stress! Your frame can't take much more!")))
-			owner.Stun(5)
+			owner.Stun(3)
 		if(3)
-			to_chat(owner, FONT_LARGE(SPAN_MACHINE_WARNING("Your software errors out as your frame is ripped apart!")))
+			to_chat(owner, FONT_LARGE(SPAN_MACHINE_WARNING("Your software errors out under the stress!!")))
 			owner.Weaken(5)
 			clear_burst_damage_counter()
 
