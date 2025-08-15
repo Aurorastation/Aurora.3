@@ -106,7 +106,7 @@
 
 /obj/machinery/computer/cloning/attack_hand(mob/user as mob)
 	if(!allowed(user))
-		to_chat(user, SPAN_WARNING("Access Denied."))
+		to_chat(user, SPAN_WARNING("Access denied."))
 		return
 
 	user.set_machine(src)
@@ -276,7 +276,7 @@
 					src.temp = "Record deleted."
 					src.menu = 2
 				else
-					src.temp = "Access Denied."
+					src.temp = "Access denied."
 
 	else if (href_list["disk"]) //Load or eject.
 		switch(href_list["disk"])

@@ -119,7 +119,7 @@ pixel_x = 8;
 
 	if (istype(attacking_item, /obj/item/modular_computer))
 		if(!check_access(attacking_item))
-			to_chat(user, SPAN_WARNING("Access Denied."))
+			to_chat(user, SPAN_WARNING("Access denied."))
 			return TRUE
 		else if (attacking_item in rings_pdas)
 			to_chat(user, SPAN_NOTICE("You unlink \the [attacking_item] from \the [src]."))
