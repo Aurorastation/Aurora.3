@@ -517,7 +517,7 @@
 	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
 	icon_state = "dynpozole"
 	reagent_data = list(/singleton/reagent/nutriment = list("peppermint" = 2, "salad" = 4, "hot stew" = 2))
-	reagents_to_add = list(/singleton/reagent/nutriment = 8, /singleton/reagent/water = 5, /singleton/reagent/drink/dynjuice =2)
+	reagents_to_add = list(/singleton/reagent/nutriment/protein = 5, /singleton/reagent/nutriment = 4, /singleton/reagent/water = 5, /singleton/reagent/drink/dynjuice =2)
 
 /obj/item/reagent_containers/food/snacks/elotes
 	name = "elotes"

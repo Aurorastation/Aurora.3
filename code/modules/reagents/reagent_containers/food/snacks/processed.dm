@@ -926,13 +926,33 @@
 
 /obj/item/storage/box/fancy/packaged_burger
 	name = "\improper quick-e-meals instaburger"
-	desc = "'Mama, mama! Can we stop at quick-e-burger?!' -'No, dears! We have quick-e-burger at home!' Quick-e-burger at home: is... surprisingly accurate, actually."
+	desc = "'Mama, mama! Can we stop at quick-e-burger?!' -'No, dears! We have quick-e-burger at home!' Quick-e-burger at home: is... surprisingly accurate, actually. The instructions recommend removing the burger from the package and heating it for 2 minutes."
 	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
 	icon_state = "burger_box"
 	icon_type = "burger"
 	storage_type = "packaging"
-	starts_with = list(/obj/item/reagent_containers/food/snacks/frozen_burger = 1)
-	can_hold = list(/obj/item/reagent_containers/food/snacks/quick_e_burger)
+	starts_with = list(/obj/item/reagent_containers/food/snacks/frozen_burger = 1, /obj/item/reagent_containers/food/condiment/small/packet/ketchup =1)
+	can_hold = list(/obj/item/reagent_containers/food/snacks/frozen_burger, /obj/item/reagent_containers/food/condiment/small/packet/ketchup)
+	make_exact_fit = TRUE
+	opened_icon_state = "microwave_trash"
+
+	use_sound = 'sound/items/storage/wrapper.ogg'
+	drop_sound = 'sound/items/drop/wrapper.ogg'
+	pickup_sound = 'sound/items/pickup/wrapper.ogg'
+
+	trash = /obj/item/trash/microwave_package
+	closable = FALSE
+	icon_overlays = FALSE
+
+/obj/item/storage/box/fancy/packaged_mossburger
+	name = "\improper UP! burger microwave burger"
+	desc = "A microwave-friendly version of the famous UP! Burger for you to take home. They typically only sell these in Konyang. All the text on the package is in sol common. There is a little drawing of a clock with the number 2 next to it, though."
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "burger_box_moss"
+	icon_type = "burger"
+	storage_type = "packaging"
+	starts_with = list(/obj/item/reagent_containers/food/snacks/frozen_mossburger = 1, /obj/item/reagent_containers/food/condiment/small/packet/ketchup =1)
+	can_hold = list(/obj/item/reagent_containers/food/snacks/frozen_mossburger, /obj/item/reagent_containers/food/condiment/small/packet/ketchup)
 	make_exact_fit = TRUE
 	opened_icon_state = "microwave_trash"
 
@@ -951,14 +971,14 @@
 	icon_state = "curry_box"
 	trash = /obj/item/trash/microwave_package
 	filling_color = "#ad6a32"
-	reagents_to_add = list(/singleton/reagent/nutriment = 7)
+	reagents_to_add = list(/singleton/reagent/nutriment = 5, /singleton/reagent/drink/ice = 2)
 	reagent_data = list(/singleton/reagent/nutriment = list("frozen solid rice" = 10, "regrets" = 8))
 
 /obj/item/reagent_containers/food/snacks/quick_curry_prepared
 	name = "\improper quick-e-meals mild curry"
 	desc = "A fair amount of rice with sitting in a disposable container with a small bit of brown sauce sitting next to it, separated. There's mysterious chunks floating around in the sauce, but it's okay. According to the picture on the box, they're supposed to be there."
 	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
-	icon_state = "curry_box"
+	icon_state = "curry"
 	trash = /obj/item/trash/microwave_package
 	filling_color = "#ad6a32"
 	reagents_to_add = list(/singleton/reagent/nutriment = 7)
@@ -967,9 +987,92 @@
 /obj/item/reagent_containers/food/snacks/quick_curry_prepared/update_icon()
 	var/percent_curry = round((reagents.total_volume / 7) * 100)
 	switch(percent_curry)
-		if(0 to 49)
+		if(0 to 50)
 			icon_state = "curry_half"
-		else if(50 to 95)
-			icon_state = "curry"
 		else
-			icon_state = "curry_box"
+			icon_state = "curry"
+
+/obj/item/reagent_containers/food/snacks/hv_dinner
+	name = "\improper quick-e-meals HV dinner"
+	desc = "These used to be called TV dinners for the longest time even after the invention of holovision. They finally rebranded them a few years ago. The instructions read: 'Heat package in microwave for 2 minutes before opening.' It's still cold."
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "hv_dinner_box"
+	trash = /obj/item/trash/microwave_package
+	filling_color = "#805532"
+	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/nutriment/protein = 3, /singleton/reagent/drink/ice = 2)
+	reagent_data = list(/singleton/reagent/nutriment = list("regret" = 5), /singleton/reagent/nutriment/protein = list("poor life choices" = 5))
+
+/obj/item/reagent_containers/food/snacks/hv_dinner_prepared
+	name = "\improper quick-e-meals HV dinner"
+	desc = "Some kind of meat, a thing of mashed potatoes, and some peas with small chunks of carrot mixed in, everything you need to convince yourself that this is a balanced meal and you're definitely a functional adult."
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "hv_dinner"
+	trash = /obj/item/trash/microwave_package
+	filling_color = "#805532"
+	reagents_to_add = list(/singleton/reagent/nutriment = 5, /singleton/reagent/nutriment/protein = 3)
+	reagent_data = list(/singleton/reagent/nutriment = list("mashed potatoes" = 5, "peas" = 5), /singleton/reagent/nutriment/protein = list("some kind of protein" = 6))
+
+/obj/item/reagent_containers/food/snacks/hv_dinner_prepared/update_icon()
+	var/percent_hvdinner = round((reagents.total_volume / 7) * 100)
+	switch(percent_hvdinner)
+		if(0 to 49)
+			icon_state = "hv_dinner_half"
+		else
+			icon_state = "hv_dinner"
+
+/obj/item/storage/box/fancy/toptart_strawberry
+	name = "\improper toptart supreme strawberry"
+	desc = "A box containing four Getmore brand Toptarts. These ones are strawberry flavored! There are instructions on the box recommending you remove them from the box and heat them up for one minute per pastry."
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "toptart_strawberry_box"
+	icon_type = "toptart"
+	storage_type = "box"
+	starts_with = list(/obj/item/reagent_containers/food/snacks/toptart_strawberry_raw = 4)
+	can_hold = list(
+		/obj/item/reagent_containers/food/snacks/toptart_strawberry_raw,
+		/obj/item/reagent_containers/food/snacks/toptart_chocolate_peanutbutter_raw,
+		/obj/item/reagent_containers/food/snacks/toptart_blueberry_raw
+	)
+	make_exact_fit = TRUE
+	use_sound = 'sound/items/storage/wrapper.ogg'
+	drop_sound = 'sound/items/drop/wrapper.ogg'
+	pickup_sound = 'sound/items/pickup/wrapper.ogg'
+	icon_overlays = FALSE
+
+/obj/item/storage/box/fancy/toptart_chocolate_peanutbutter
+	name = "\improper toptart chocolate peanutbutter pow-wow"
+	desc = "A box containing four Getmore brand Toptarts. These ones are chocolate-peanutbutter flavored! There are instructions on the box recommending you remove them from the box and heat them up for one minute per pastry."
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "toptart_chocolate_box"
+	icon_type = "toptart"
+	storage_type = "box"
+	starts_with = list(/obj/item/reagent_containers/food/snacks/toptart_chocolate_peanutbutter_raw = 4)
+	can_hold = list(
+		/obj/item/reagent_containers/food/snacks/toptart_strawberry_raw,
+		/obj/item/reagent_containers/food/snacks/toptart_chocolate_peanutbutter_raw,
+		/obj/item/reagent_containers/food/snacks/toptart_blueberry_raw
+	)
+	make_exact_fit = TRUE
+	use_sound = 'sound/items/storage/wrapper.ogg'
+	drop_sound = 'sound/items/drop/wrapper.ogg'
+	pickup_sound = 'sound/items/pickup/wrapper.ogg'
+	icon_overlays = FALSE
+
+/obj/item/storage/box/fancy/toptart_blueberry
+	name = "\improper toptart bursting blueberry"
+	desc = "A box containing four Getmore brand Toptarts. These ones are blueberry flavored! There are instructions on the box recommending you remove them from the box and heat them up for one minute per pastry."
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "toptart_blueberry_box"
+	icon_type = "toptart"
+	storage_type = "box"
+	starts_with = list(/obj/item/reagent_containers/food/snacks/toptart_blueberry_raw = 4)
+	can_hold = list(
+		/obj/item/reagent_containers/food/snacks/toptart_strawberry_raw,
+		/obj/item/reagent_containers/food/snacks/toptart_chocolate_peanutbutter_raw,
+		/obj/item/reagent_containers/food/snacks/toptart_blueberry_raw
+	)
+	make_exact_fit = TRUE
+	use_sound = 'sound/items/storage/wrapper.ogg'
+	drop_sound = 'sound/items/drop/wrapper.ogg'
+	pickup_sound = 'sound/items/pickup/wrapper.ogg'
+	icon_overlays = FALSE

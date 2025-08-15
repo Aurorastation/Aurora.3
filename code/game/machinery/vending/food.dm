@@ -71,3 +71,46 @@
 		/obj/item/reagent_containers/food/snacks/aoyama_ramen = 8.25
 	)
 	light_color = COLOR_GUNMETAL
+
+/obj/machinery/vending/quick_e_meals
+	name = "\improper quick-e-meals vendor"
+	desc = "Shelves of affordable microwave-ready meals by Orion and Getmore just waiting to be deployed into the battle against hunger!"
+	icon_state = "quick_e"
+	icon_screen = "quick_e-screen"
+	icon_vend = "quick_e-vend"
+	icon_deny = "quick_e-deny"
+	light_mask = "quick_e-lightmask"
+
+	product_slogans = ";Good eats at low prices!;Quick meals in a variety of flavors!"
+	idle_power_usage = 211
+	light_color = COLOR_BABY_BLUE
+	products = list(
+		/obj/item/storage/box/fancy/quick_microwave_pizza = 3,
+		/obj/item/storage/box/fancy/quick_microwave_pizza/olive = 3,
+		/obj/item/storage/box/fancy/quick_microwave_pizza/pepperoni = 3,
+		/obj/item/storage/box/fancy/quick_microwave_pizza/district6 = 3,
+		/obj/item/reagent_containers/food/snacks/packaged_microwave_mac_and_cheeze = 3,
+		/obj/item/reagent_containers/food/snacks/packaged_microwave_fiery_mac_and_cheeze = 3,
+		/obj/item/storage/box/fancy/packaged_burger = 3,
+		/obj/item/reagent_containers/food/snacks/quick_curry = 3,
+		/obj/item/reagent_containers/food/snacks/hv_dinner = 3,
+		/obj/item/storage/box/fancy/toptart_strawberry = 3,
+		/obj/item/storage/box/fancy/toptart_chocolate_peanutbutter = 3,
+		/obj/item/storage/box/fancy/toptart_blueberry = 3,
+		/obj/item/storage/box/donkpockets = 3
+	)
+	premium = list(
+		/obj/item/storage/box/fancy/packaged_mossburger = 2
+	)
+	prices = list(
+		/obj/item/storage/box/fancy/quick_microwave_pizza = 25.00,
+		/obj/item/storage/box/fancy/quick_microwave_pizza/olive = 28.00,
+		/obj/item/storage/box/fancy/quick_microwave_pizza/pepperoni = 28.00,
+		/obj/item/storage/box/fancy/quick_microwave_pizza/district6 = 28.00,
+		/obj/item/reagent_containers/food/snacks/packaged_microwave_mac_and_cheeze = 10.00,
+		/obj/item/reagent_containers/food/snacks/packaged_microwave_fiery_mac_and_cheeze = 11.00,
+		/obj/item/storage/box/fancy/packaged_burger = 25.00,
+		/obj/item/reagent_containers/food/snacks/quick_curry = 25.00,
+		/obj/item/reagent_containers/food/snacks/hv_dinner = 25.00,
+		/obj/item/storage/box/donkpockets = 30.00
+	)
