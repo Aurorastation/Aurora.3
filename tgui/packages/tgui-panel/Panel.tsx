@@ -100,3 +100,26 @@ export const Panel = (props) => {
     </Pane>
   );
 };
+
+const HoboPanel = (props) => {
+  const settings = useSettings();
+  return (
+    <Pane theme={settings.theme}>
+      <Pane.Content scrollable>
+        <Button
+          style={{
+            position: 'fixed',
+            top: '1em',
+            right: '2em',
+          }}
+          selected={settings.visible}
+          onClick={() => settings.toggle()}>
+          Settings
+        </Button>
+        {(settings.visible && <SettingsPanel />) || (
+          <ChatPanel lineHeight={settings.lineHeight} />
+        )}
+      </Pane.Content>
+    </Pane>
+  );
+};
