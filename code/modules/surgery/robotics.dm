@@ -662,17 +662,15 @@
 /singleton/surgery_step/internal/degunk/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
 		return FALSE
-	user.visible_message(SPAN_NOTICE("[user] begins draining the waste and gristle inside of [target]'s biological reactor..."), SPAN_NOTICE("You begin draining the waste and gristle inside of [target]'s biological reactor."))
+	user.visible_message(SPAN_NOTICE("[user] begins draining the refuse inside of [target]'s biological reactor..."), SPAN_NOTICE("You begin draining the refuse inside of [target]'s biological reactor."))
 	..()
 
 /singleton/surgery_step/internal/degunk/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	. = ..()
 	var/obj/item/organ/internal/machine/reactor/bio_reactor = target.internal_organs_by_name[BP_REACTOR]
-	var/obj/item/reagent_containers/glass/container = tool
-	var/extraneous_amount = 0
 	for(var/reagent_type in bio_reactor.bio_reagents.reagent_volumes)
 		var/reagent_amount = REAGENT_VOLUME(bio_reactor.bio_reagents, reagent_type)
 		if(!ispath(reagent_type, /singleton/reagent/nutriment))
 			bio_reactor.bio_reagents.trans_type_to(tool, reagent_type, reagent_amount)
 	playsound(target, 'sound/effects/drain_blood.ogg', 50)
-	user.visible_message(SPAN_NOTICE("[user] extracts the waste and gristle in [target]'s biological reactor."), SPAN_NOTICE("You drain the waste and gristle in [target]'s biological reactor to [tool]."))
+	user.visible_message(SPAN_NOTICE("[user] extracts the refuse in [target]'s biological reactor."), SPAN_NOTICE("You drain the refuse in [target]'s biological reactor to [tool]."))
