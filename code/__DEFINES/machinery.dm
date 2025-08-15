@@ -104,14 +104,14 @@ GLOBAL_LIST_INIT(restricted_camera_networks, list(NETWORK_ERT,NETWORK_MERCENARY,
 #define STATUS_DISABLED 0 // RED Visability
 #define STATUS_CLOSE -1 // Close the interface
 
-/*
- *	Atmospherics Machinery.
-*/
+/**
+ * Atmospherics Machinery.
+ */
 
-///Maximum flowrate, in L/s, that the scrubbers use when siphoning. Anything higher than `CELL_VOLUME` has no effect.
+/// Maximum flowrate, in L/s, that the scrubbers use when siphoning. Anything higher than `CELL_VOLUME` has no effect.
 #define MAX_SIPHON_FLOWRATE   5000
 
-///Maximum flowrate, in L/s, that the scrubbers use when scrubbing from a turf.
+/// Maximum flowrate, in L/s, that the scrubbers use when scrubbing from a turf.
 #define MAX_SCRUBBER_FLOWRATE 400
 
 #define ATMOS_PUMP_MAX_PRESSURE 15000

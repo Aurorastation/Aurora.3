@@ -138,11 +138,15 @@ Class Procs:
 
 	var/clicksound //played sound on usage
 	var/clickvol = 40 //volume
-	var/obj/item/device/assembly/signaler/signaler // signaller attached to the machine
-	var/obj/effect/overmap/visitable/linked // overmap sector the machine is linked to
+	/// Signaller attached to the machine
+	var/obj/item/device/assembly/signaler/signaler
+	/// Overmap sector the machine is linked to
+	var/obj/effect/overmap/visitable/linked
 
-	/// Manufacturer of this machine. Used for TGUI themes, when you have a base type and subtypes with different themes (like the coffee machine).
-	/// Pass the manufacturer in ui_data and then use it in the UI.
+	/**
+	 * Manufacturer of this machine. Used for TGUI themes, when you have a base type and subtypes with different themes (like the coffee machine).
+	 * Pass the manufacturer in ui_data and then use it in the UI.
+	 */
 	var/manufacturer = null
 
 /obj/machinery/feedback_hints(mob/user, distance, is_adjacent)

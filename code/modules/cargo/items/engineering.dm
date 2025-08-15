@@ -895,3 +895,17 @@
 	container_type = "crate"
 	groupable = FALSE
 	spawn_amount = 1
+
+/singleton/cargo_item/engineeringcart
+	category = "engineering"
+	name = "engineering cart"
+	supplier = "hephaestus"
+	description = "A cart for your engineering-related storage needs."
+	price = 100
+	items = list(
+		/obj/structure/engineeringcart
+	)
+	access = ACCESS_ENGINE
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1

@@ -227,7 +227,7 @@
 	. += "This radio can be heard by people standing next to the one wearing it."
 
 /obj/item/device/radio/headset/wrist/verb/change_layer()
-	set category = "Object"
+	set category = "Object.Equipped"
 	set name = "Change Wrist Layer"
 	set src in usr
 
@@ -255,7 +255,7 @@
 	slot_flags = SLOT_WRISTS | SLOT_EARS
 
 /obj/item/device/radio/headset/wrist/clip/verb/flip_radio()
-	set category = "Object"
+	set category = "Object.Equipped"
 	set name = "Flip Radio"
 	set src in usr
 
@@ -574,7 +574,7 @@
 
 /obj/item/device/radio/headset/headset_sci
 	name = "science radio headset"
-	desc = "A sciency headset. Like usual."
+	desc = "A science-y headset. Like usual."
 	icon_state = "sci_headset"
 	ks2type = /obj/item/device/encryptionkey/headset_sci
 
@@ -601,40 +601,40 @@
 	item_state = "clip_sci"
 	ks2type = /obj/item/device/encryptionkey/headset_sci
 
-/obj/item/device/radio/headset/headset_xenoarch
-	name = "xenoarchaeology radio headset"
-	desc = "A sciency headset for Xenoarchaeologists."
+/obj/item/device/radio/headset/headset_xenology
+	name = "xenologist radio headset"
+	desc = "A science-y headset for Xenologists."
 	icon_state = "sci_headset"
-	ks2type = /obj/item/device/encryptionkey/headset_xenoarch
+	ks2type = /obj/item/device/encryptionkey/headset_xenology
 
-/obj/item/device/radio/headset/headset_xenoarch/alt
-	name = "xenoarchaeology bowman headset"
+/obj/item/device/radio/headset/headset_xenology/alt
+	name = "xenologist bowman headset"
 	icon = 'icons/obj/item/device/radio/headset_alt.dmi'
 	icon_state = "sci_headset_alt"
 
-/obj/item/device/radio/headset/alt/double/xenoarch
-	name = "soundproof xenoarchaeology headset"
+/obj/item/device/radio/headset/alt/double/xenology
+	name = "soundproof xenologist headset"
 	icon_state = "earset_sci"
 	item_state = "earset_sci"
-	ks2type = /obj/item/device/encryptionkey/headset_xenoarch
+	ks2type = /obj/item/device/encryptionkey/headset_xenology
 
-/obj/item/device/radio/headset/wrist/xenoarch
-	name = "wristbound xenoarchaeology radio"
+/obj/item/device/radio/headset/wrist/xenology
+	name = "wristbound xenologist radio"
 	icon_state = "wristset_sci"
 	item_state = "wristset_sci"
-	ks2type = /obj/item/device/encryptionkey/headset_xenoarch
+	ks2type = /obj/item/device/encryptionkey/headset_xenology
 
-/obj/item/device/radio/headset/wrist/clip/xenoarch
-	name = "clip-on xenoarchaeology radio"
+/obj/item/device/radio/headset/wrist/clip/xenology
+	name = "clip-on xenologist radio"
 	icon_state = "clip_sci"
 	item_state = "clip_sci"
-	ks2type = /obj/item/device/encryptionkey/headset_xenoarch
+	ks2type = /obj/item/device/encryptionkey/headset_xenology
 
 /obj/item/device/radio/headset/headset_anom
 	name = "anomalist radio headset"
-	desc = "A sciency headset for Anomalists."
+	desc = "A science-y headset for Anomalists."
 	icon_state = "sci_headset"
-	ks2type = /obj/item/device/encryptionkey/headset_xenoarch
+	ks2type = /obj/item/device/encryptionkey/headset_xenology
 
 /obj/item/device/radio/headset/headset_anom/alt
 	name = "anomalist bowman headset"
@@ -645,19 +645,19 @@
 	name = "soundproof anomalist headset"
 	icon_state = "earset_sci"
 	item_state = "earset_sci"
-	ks2type = /obj/item/device/encryptionkey/headset_xenoarch
+	ks2type = /obj/item/device/encryptionkey/headset_xenology
 
 /obj/item/device/radio/headset/wrist/anom
 	name = "wristbound anomalist radio"
 	icon_state = "wristset_sci"
 	item_state = "wristset_sci"
-	ks2type = /obj/item/device/encryptionkey/headset_xenoarch
+	ks2type = /obj/item/device/encryptionkey/headset_xenology
 
 /obj/item/device/radio/headset/wrist/clip/anom
 	name = "clip-on anomalist radio"
 	icon_state = "clip_sci"
 	item_state = "clip_sci"
-	ks2type = /obj/item/device/encryptionkey/headset_xenoarch
+	ks2type = /obj/item/device/encryptionkey/headset_xenology
 
 /obj/item/device/radio/headset/headset_rob
 	name = "robotics radio headset"

@@ -140,7 +140,7 @@
 	var/res = owner.species ? owner.species.ethanol_resistance : 1
 	var/blackout_effects = (bac >= INTOX_BLACKOUT * res) ? blackout_booze_filtering_modifier : booze_filtering_modifier
 
-	owner.intoxication -= min(owner.intoxication, filter_strength * filter_effect * blackout_effects)
+	owner.intoxication -= min(owner.intoxication, filter_strength * (filter_effect / base_filter_effect) * blackout_effects * seconds_per_tick)
 
 	if(!owner.intoxication)
 		owner.handle_intoxication()

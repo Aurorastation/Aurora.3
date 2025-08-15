@@ -7,7 +7,7 @@
  */
 /mob/verb/up()
 	set name = "Move Upwards"
-	set category = "IC"
+	set category = "IC.Maneuver"
 
 	if(zMove(UP))
 		visible_message(SPAN_NOTICE("[src] has moved upwards."), SPAN_NOTICE("You move upwards."))
@@ -16,8 +16,8 @@
  * Verb for the mob to move down a z-level if possible.
  */
 /mob/verb/down()
-	set name = "Move Down"
-	set category = "IC"
+	set name = "Move Downwards"
+	set category = "IC.Maneuver"
 
 	if(zMove(DOWN))
 		visible_message(SPAN_NOTICE("[src] has moved downwards."), SPAN_NOTICE("You move downwards."))
@@ -804,10 +804,10 @@
 /atom/movable/z_observer/proc/follow()
 
 /atom/movable/z_observer/z_up/follow()
-	forceMove(get_step(target_turf, UP))
+	forceMove(get_step(owner, UP))
 	if(isturf(src.loc))
 		var/turf/T = src.loc
-		if((T && TURF_IS_MIMICING(T)) && (get_turf(owner) == get_step(src, DOWN)))
+		if(T && TURF_IS_MIMICING(T))
 			return
 	owner.reset_view(null)
 	owner.z_eye = null
@@ -818,7 +818,7 @@
 	/// If we move down more than 1 step, don't move down again.
 	if((GET_Z(owner) - down_step.z) < 2)
 		forceMove(down_step)
-	if(owner.Adjacent(target_turf) && (owner.dir == get_dir(owner, target_turf)))
+	if(owner.Adjacent(target_turf) && (get_dir(owner, target_turf) & owner.dir))
 		return
 	owner.reset_view(null)
 	owner.z_eye = null

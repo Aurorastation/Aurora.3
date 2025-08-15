@@ -84,20 +84,24 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 	var/area/area
 	var/areastring = null
 	var/obj/item/cell/cell
-	var/chargelevel = 0.0005  // Cap for how fast APC cells charge, as a percentage-per-tick (0.01 means cellcharge is capped to 1% per second)
+	/// Cap for how fast APC cells charge, as a percentage-per-tick (0.01 means cellcharge is capped to 1% per second)
+	var/chargelevel = 0.0005
 	var/cellused = 0
-	var/start_charge = 90				// initial cell charge %
+	/// Initial cell charge %
+	var/start_charge = 90
 	var/cell_type = /obj/item/cell/apc
 	var/opened = COVER_CLOSED
 	var/shorted = FALSE
-	var/night_mode = FALSE// Determines if the light level is set to dimmed or not
+	/// Determines if the light level is set to dimmed or not
+	var/night_mode = FALSE
 	var/lighting = CHANNEL_ON_AUTO
 	var/equipment = CHANNEL_ON_AUTO
 	var/environ = CHANNEL_ON_AUTO
 	var/infected = FALSE
 	var/operating = TRUE
 	var/charging = CHARGING_OFF
-	var/chargemode = TRUE // whether we're trying to charge
+	// Whether we're trying to charge
+	var/chargemode = TRUE
 	var/chargecount = 0
 	var/locked = TRUE
 	var/coverlocked = TRUE
@@ -110,11 +114,14 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 	var/lastused_charging = 0
 	var/lastused_total = 0
 	var/main_status = 0
-	var/mob/living/silicon/ai/hacker = null // Malfunction var. If set AI hacked the APC and has full control.
-	powernet = 0		// set so that APCs aren't found as powernet nodes //Hackish, Horrible, was like this before I changed it :c
+	/// Malfunction var. If set AI hacked the APC and has full control.
+	var/mob/living/silicon/ai/hacker = null
+	/// Set so that APCs aren't found as powernet nodes. Hackish, Horrible, was like this before I changed it :c
+	powernet = 0
 	var/autoflag = AUTOFLAG_OFF
 	var/has_electronics = HAS_ELECTRONICS_NONE
-	var/beenhit = 0 // used for counting how many times it has been hit, used for Aliens at the moment
+	/// Used for counting how many times it has been hit, used for Aliens at the moment
+	var/beenhit = 0
 	var/longtermpower = 10
 	var/datum/wires/apc/wires = null
 	var/update_state = -1
@@ -133,7 +140,8 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 	var/emergency_lights = FALSE
 
 	var/time = 0
-	var/charge_mode = CHARGE_MODE_CHARGE // if we're actually able to charge
+	/// If we're actually able to charge
+	var/charge_mode = CHARGE_MODE_CHARGE
 	var/last_time = 1
 
 /obj/machinery/power/apc/mechanics_hints(mob/user, distance, is_adjacent)

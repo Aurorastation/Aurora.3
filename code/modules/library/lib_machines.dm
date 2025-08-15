@@ -1,11 +1,11 @@
 /* Library Machines
  *
  * Contains:
- *		Borrowbook datum
- *		Library Public Computer
- *		Library Computer
- *		Library Scanner
- *		Book Binder
+ * * Borrowbook datum
+ * * Library Public Computer
+ * * Library Computer
+ * * Library Scanner
+ * * Book Binder
  */
 
 /*

@@ -1,8 +1,8 @@
 /* Two-handed Weapons
  * Contains:
- * 		Twohanded
- *		Fireaxe
- *		Double-Bladed Energy Swords
+ * * Twohanded
+ * * Fireaxe
+ * * Double-Bladed Energy Swords
  */
 
 /*##################################################################
@@ -160,8 +160,8 @@
 		attack_self(usr)
 
 /obj/item/material/twohanded/verb/wield_twohanded()
-	set name = "Wield two-handed weapon"
-	set category = "Object"
+	set name = "Wield Two-Handed Weapon"
+	set category = "Object.Held"
 	set src in usr
 
 	attack_self(usr)
@@ -539,8 +539,8 @@
 	// Just an override.
 
 /obj/item/material/twohanded/chainsaw/verb/toggle_power()
-	set name = "Toggle power"
-	set category = "Object"
+	set name = "Toggle Chainsaw Power"
+	set category = "Object.Held"
 	set src in usr
 
 	AltClick(usr)
@@ -607,7 +607,7 @@
 
 /obj/item/material/twohanded/pike/flag/verb/plant()
 	set name = "Plant Flag"
-	set category = "Object"
+	set category = "Object.Held"
 	set src in usr
 
 	if(ishuman(usr))

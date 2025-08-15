@@ -1,12 +1,12 @@
 /* Surgery Tools
  * Contains:
- *		Retractor
- *		Hemostat
- *		Cautery
- *		Surgical Drill
- *		Scalpel
- *		Circular Saw
- *   	Tray
+ * * Retractor
+ * * Hemostat
+ * * Cautery
+ * * Surgical Drill
+ * * Scalpel
+ * * Circular Saw
+ * * Tray
  */
 /obj/item/surgery
 	name = "surgery tool parent item"

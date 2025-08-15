@@ -13,11 +13,6 @@ jobs:
     - name: Install Bun
       uses: ./.github/actions/setup_bun
 
-    - name: Checkout Repository
-      uses: actions/checkout@v4
-      with:
-        token: ${{ secrets.BOT_TOKEN_AURORA }}
-
     - name: Update TGUI
       run: |
         tools/bootstrap/javascript tools/build/build.sh tgui

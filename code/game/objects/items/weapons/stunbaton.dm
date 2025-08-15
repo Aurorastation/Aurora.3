@@ -1,4 +1,3 @@
-//replaces our stun baton code with /tg/station's code
 /obj/item/melee/baton
 	name = "stunbaton"
 	desc = "A stun baton for incapacitating people with."
@@ -16,11 +15,13 @@
 	attack_verb = list("beaten")
 	var/stunforce = 0
 	var/agonyforce = 60
-	var/status = 0		//whether the thing is on or not
+	/// Whether the thing is on or not
+	var/status = 0
 	var/obj/item/cell/bcell
 	var/hitcost = 1000
 	var/baton_color = "#FF6A00"
-	var/sheathed = 1 //electrocutes only on harm intent
+	/// Electrocutes only on harm intent
+	var/sheathed = 1
 
 /obj/item/melee/baton/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -42,7 +43,10 @@
 	. = ..()
 	update_icon()
 
-/obj/item/melee/baton/loaded/Initialize() //this one starts with a cell pre-installed.
+/**
+ * This one starts with a cell pre-installed.
+ */
+/obj/item/melee/baton/loaded/Initialize()
 	bcell = new/obj/item/cell/high(src)
 	. = ..()
 
