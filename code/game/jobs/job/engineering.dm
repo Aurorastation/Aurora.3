@@ -86,7 +86,7 @@
 	supervisors = "the chief engineer"
 	selection_color = "#c67519"
 	economic_modifier = 5
-	alt_titles = list("Reactor Technician", "Maintenance Technician", "Shipboard Systems Engineer")
+	alt_titles = list("Reactor Technician", "Maintenance Technician", "Systems Engineer")
 
 	minimum_character_age = list(
 		SPECIES_HUMAN = 25,
@@ -161,7 +161,7 @@
 	supervisors = "the chief engineer"
 	selection_color = "#c67519"
 	economic_modifier = 5
-	alt_titles = list("Life Support Engineer", "Drive Systems Engineer")
+	alt_titles = list("Life Support Engineer", "Drive Systems Engineer", "Fire Control Technician")
 
 	minimum_character_age = list(
 		SPECIES_HUMAN = 25,
