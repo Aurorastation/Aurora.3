@@ -110,7 +110,7 @@
 	fuel_consumption = 2
 	logging_home_tag = "nav_voidtamer_shuttle_dock"
 	defer_initialisation = TRUE
-	dock_target = "nav_voidtamer_shuttle_dock"
+	dock_target = "voidtamer_trade_ship_shuttle"
 
 /obj/effect/map_effect/marker/airlock/shuttle/voidtamer_trade_ship_shuttle
 	name = "Voidtamer Shuttle"
