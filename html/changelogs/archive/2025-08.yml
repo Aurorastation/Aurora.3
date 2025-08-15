@@ -257,3 +257,9 @@
   - qol: Headmaster ship now has GPS network.
   - qol: Additional access requirements added to certain Headmaster equipment, such
       as airlocks
+2025-08-15:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Space heater gets env data on init for safety, to avoid TGUI edge case
+      crash from attempting to round a null value.
+  Maxspells:
+  - bugfix: Fixed alcohol not making you drunk.
