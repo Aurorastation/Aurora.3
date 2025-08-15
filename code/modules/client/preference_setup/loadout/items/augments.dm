@@ -231,7 +231,7 @@
 	display_name = "retractable glare dampeners"
 	description = "A subdermal implant installed just above the brow line that deploys a thin sheath of hyperpolycarbonate that protects from eye damage associated with arc flash."
 	path = /obj/item/organ/internal/augment/tool/correctivelens/glare_dampener
-	allowed_roles = list("Chief Engineer", "Engineer", "Atmospheric Technician", "Engineering Apprentice", "Machinist", "Engineering Personnel", "Operations Personnel")
+	allowed_roles = list("Chief Engineer", "Ship Engineer", "Atmospheric Technician", "Engineering Apprentice", "Machinist", "Engineering Personnel", "Operations Personnel")
 	cost = 2
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 

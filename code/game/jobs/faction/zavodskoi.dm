@@ -59,7 +59,7 @@
 		"Research Intern" = /obj/outfit/job/intern_sci/zavodskoi,
 		"Xenoarchaeologist"= /obj/outfit/job/scientist/xenoarchaeologist/zavodskoi,
 		"Anomalist"= /obj/outfit/job/scientist/anomalist/zavodskoi,
-		"Engineer" = /obj/outfit/job/engineer/zavodskoi,
+		"Ship Engineer" = /obj/outfit/job/engineer/zavodskoi,
 		"Atmospheric Technician" = /obj/outfit/job/atmos/zavodskoi,
 		"Engineering Apprentice" = /obj/outfit/job/intern_eng/zavodskoi,
 		"Atmospherics Apprentice" = /obj/outfit/job/intern_atmos/zavodskoi,

@@ -105,7 +105,7 @@
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
 /obj/outfit/job/engineer
-	name = "Engineer"
+	name = "Ship Engineer"
 	jobtype = /datum/job/engineer
 	box = /obj/item/storage/box/survival/engineer
 

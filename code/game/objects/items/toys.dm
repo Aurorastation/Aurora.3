@@ -872,7 +872,7 @@
 /obj/item/toy/figure/engineer
 	name = "engineer action figure"
 	desc = "A \"Space Life\" brand engineer action figure."
-	icon_state = "engineer"
+	icon_state = "Ship Engineer"
 
 /obj/item/toy/figure/geneticist
 	name = "geneticist action figure"

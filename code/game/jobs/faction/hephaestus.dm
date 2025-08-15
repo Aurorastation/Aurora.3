@@ -43,7 +43,7 @@
 		"Hangar Technician" = /obj/outfit/job/hangar_tech/hephaestus,
 		"Shaft Miner" = /obj/outfit/job/mining/hephaestus,
 		"Machinist" = /obj/outfit/job/machinist/hephaestus,
-		"Engineer" = /obj/outfit/job/engineer/hephaestus,
+		"Ship Engineer" = /obj/outfit/job/engineer/hephaestus,
 		"Atmospheric Technician" = /obj/outfit/job/atmos/hephaestus,
 		"Engineering Apprentice" = /obj/outfit/job/intern_eng/hephaestus,
 		"Atmospherics Apprentice" = /obj/outfit/job/intern_atmos/hephaestus,

@@ -97,7 +97,7 @@
 /datum/gear/head/hardhat
 	display_name = "hard hat selection"
 	path = /obj/item/clothing/head/hardhat
-	allowed_roles = list("Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice", "Operations Manager", "Hangar Technician", "Shaft Miner", "Xenoarchaeologist", "Engineering Personnel", "Operations Personnel")
+	allowed_roles = list("Ship Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice", "Operations Manager", "Hangar Technician", "Shaft Miner", "Xenoarchaeologist", "Engineering Personnel", "Operations Personnel")
 
 /datum/gear/head/hardhat/New()
 	..()
