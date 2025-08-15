@@ -101,6 +101,9 @@
 /atom/movable/screen/fullscreen/impaired
 	icon_state = "impairedoverlay"
 
+/atom/movable/screen/fullscreen/closet_impaired
+	icon_state = "impairedoverlay2"
+
 /atom/movable/screen/fullscreen/blurry
 	icon = 'icons/mob/screen/effects.dmi'
 	screen_loc = "WEST,SOUTH to EAST,NORTH"
