@@ -42,7 +42,7 @@
 		"nav_voidtamer_trade_ship_4"
 	)
 	initial_restricted_waypoints = list(
-		"Voidtamer Shuttle" = list("nav_voidtamer_trade_ship_shuttle")
+		"Voidtamer Shuttle" = list("nav_voidtamer_shuttle_dock")
 	)
 	//invisible_until_ghostrole_spawn = TRUE
 
