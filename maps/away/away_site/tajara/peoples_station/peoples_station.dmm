@@ -124,9 +124,9 @@
 /area/peoples_station)
 "aF" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
-	req_access = list(209);
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(209)
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -379,9 +379,9 @@
 	dir = 4
 	},
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
-	req_access = list(209);
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(209)
 	},
 /turf/simulated/floor/tiled/full,
 /area/shuttle/peoples_station_transport)
@@ -1152,7 +1152,9 @@
 "er" = (
 /obj/machinery/mech_recharger,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/mob/living/heavy_vehicle/premade/ripley/loader,
+/mob/living/heavy_vehicle/premade/ripley/loader{
+	faction = "PRA"
+	},
 /obj/structure/sign/flag/pra/large/north{
 	pixel_y = 32
 	},
@@ -1744,6 +1746,12 @@
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector/aux{
 	dir = 8
+	},
+/obj/item/device/gps/stationary{
+	gps_prefix = "PEOPLE";
+	gpstag = "PEOPLEFANG";
+	pixel_y = 28;
+	pixel_x = -4
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -2361,9 +2369,9 @@
 /area/peoples_station/solars)
 "iD" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
-	req_access = list(209);
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(209)
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -2373,6 +2381,12 @@
 /obj/structure/bed/stool/chair/office/bridge/generic,
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 1
+	},
+/obj/item/device/gps/stationary{
+	gps_prefix = "PEOPLE";
+	gpstag = "PEOPLESTATION";
+	pixel_y = 28;
+	pixel_x = -26
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -4155,9 +4169,9 @@
 /area/peoples_station/training)
 "oU" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
-	req_access = list(209);
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(209)
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -4454,9 +4468,9 @@
 /area/peoples_station/armory)
 "pZ" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
-	req_access = list(209);
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(209)
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -4616,9 +4630,9 @@
 	dir = 4
 	},
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
-	req_access = list(209);
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(209)
 	},
 /turf/simulated/floor/tiled/full,
 /area/shuttle/peoples_station_transport)
@@ -5507,9 +5521,9 @@
 /area/peoples_station/fang)
 "tS" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
-	req_access = list(209);
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(209)
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -6751,6 +6765,12 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/decal/cleanable/dirt,
+/obj/item/device/gps/stationary{
+	gps_prefix = "PEOPLE";
+	gpstag = "PEOPLETRANSPORT";
+	pixel_x = 22;
+	pixel_y = -6
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/peoples_station_transport)
 "ze" = (
@@ -7126,9 +7146,9 @@
 /area/peoples_station/training)
 "AB" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
-	req_access = list(209);
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(209)
 	},
 /turf/simulated/floor/tiled/full,
 /area/shuttle/fang)
@@ -7990,9 +8010,9 @@
 /area/peoples_station/training)
 "DM" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
-	req_access = list(209);
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(209)
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -8316,9 +8336,9 @@
 /area/peoples_station/solars)
 "Fe" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
-	req_access = list(209);
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(209)
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -8535,6 +8555,22 @@
 /obj/item/tank/jetpack/oxygen,
 /obj/item/tank/jetpack/oxygen,
 /obj/item/tank/jetpack/oxygen,
+/obj/item/device/gps{
+	gps_prefix = "PEOPLE";
+	gpstag = "PEOPLE0"
+	},
+/obj/item/device/gps{
+	gps_prefix = "PEOPLE";
+	gpstag = "PEOPLE0"
+	},
+/obj/item/device/gps{
+	gps_prefix = "PEOPLE";
+	gpstag = "PEOPLE0"
+	},
+/obj/item/device/gps{
+	gps_prefix = "PEOPLE";
+	gpstag = "PEOPLE0"
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -9875,6 +9911,22 @@
 /obj/item/tank/jetpack/oxygen,
 /obj/item/tank/jetpack/oxygen,
 /obj/machinery/light,
+/obj/item/device/gps{
+	gps_prefix = "PEOPLE";
+	gpstag = "PEOPLE0"
+	},
+/obj/item/device/gps{
+	gps_prefix = "PEOPLE";
+	gpstag = "PEOPLE0"
+	},
+/obj/item/device/gps{
+	gps_prefix = "PEOPLE";
+	gpstag = "PEOPLE0"
+	},
+/obj/item/device/gps{
+	gps_prefix = "PEOPLE";
+	gpstag = "PEOPLE0"
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -9915,9 +9967,9 @@
 /area/shuttle/fang)
 "LH" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
-	req_access = list(209);
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(209)
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -10526,9 +10578,9 @@
 /area/peoples_station/solars)
 "Ok" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
-	req_access = list(209);
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(209)
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -11224,9 +11276,9 @@
 	id = "peoples_station_transport_blast"
 	},
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
-	req_access = list(209);
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(209)
 	},
 /turf/simulated/floor/tiled/full,
 /area/shuttle/peoples_station_transport)
@@ -11444,9 +11496,9 @@
 /area/peoples_station/training)
 "RM" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
-	req_access = list(209);
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(209)
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -12995,7 +13047,8 @@
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1380;
 	id_tag = "peoples_station_transport_dock";
-	pixel_y = 25
+	pixel_y = 25;
+	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
