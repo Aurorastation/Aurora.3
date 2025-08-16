@@ -165,6 +165,101 @@
 	disguise(clothing_choices[picked])
 	update_clothing_icon()	//so our overlays update.
 
+//*******************
+//**Chameleon Armored Trenchcoat**
+//*******************
+
+/obj/item/clothing/suit/chameleonfullarmor
+	name = "trenchcoat"
+	icon_state = "trench"
+	item_state = "trench"
+	desc = "Upon closer inspection it appears to be a trenchcoat that is embedded with a hidden holographic cloaker, allowing it to change it's appearance, while offering some protection thanks to the tough kevlar fibers its made out of, It seems to have a small dial inside."
+	origin_tech = list(TECH_ILLEGAL = 3)
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
+	armor = list(
+		MELEE = ARMOR_MELEE_KEVLAR,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_KEVLAR,
+		ENERGY = ARMOR_ENERGY_SMALL,
+		BOMB = ARMOR_BOMB_PADDED
+	)
+	var/global/list/clothing_choices
+
+/obj/item/clothing/suit/chameleon/Initialize()
+	. = ..()
+	if(!clothing_choices)
+		var/blocked = list(src.type, /obj/item/clothing/suit/cyborg_suit, /obj/item/clothing/suit/justice)
+		clothing_choices = generate_chameleon_choices(/obj/item/clothing/suit, blocked)
+
+/obj/item/clothing/suit/chameleon/emp_act(severity) //Because we don't have psych for all slots right now but still want a downside to EMP.  In this case your cover's blown.
+	. = ..()
+
+	name = "trenchcoat"
+	desc = "A regular trenchcoat."
+	icon_state = "trench"
+	update_icon()
+	update_clothing_icon()
+
+/obj/item/clothing/suit/chameleon/verb/change()
+	set name = "Change Oversuit Appearance"
+	set category = "Chameleon Items"
+	set src in usr
+
+	var/picked = tgui_input_list(usr, "Select disguise.", "Disguise", clothing_choices)
+
+	if(!picked)
+		return
+
+	disguise(clothing_choices[picked])
+	update_clothing_icon()	//so our overlays update.
+
+//*******************
+//**Chameleon Armored Helmet**
+//*******************
+
+/obj/item/clothing/head/chameleonhelmet
+	name = "standard helmet"
+	desc = "A generic helmet that upon closer inspection, appears to have an embedded holographic cloaker that allows it to change it's appearance, it seems to have a small dial on the side."
+	icon = 'icons\obj\item\clothing\head\modular_armor_helmets.dmi'
+	icon_state = "helm_generic"
+	item_state = "helm_generic"
+	origin_tech = list(TECH_ILLEGAL = 3)
+	armor = list(
+		MELEE = ARMOR_MELEE_KEVLAR,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_KEVLAR,
+		ENERGY = ARMOR_ENERGY_SMALL,
+		BOMB = ARMOR_BOMB_PADDED
+	)
+	var/global/list/clothing_choices
+
+/obj/item/clothing/head/chameleon/Initialize()
+	. = ..()
+	if(!clothing_choices)
+		var/blocked = list(src.type, /obj/item/clothing/head/justice,)//Prevent infinite loops and bad hats.
+		clothing_choices = generate_chameleon_choices(/obj/item/clothing/head, blocked)
+
+/obj/item/clothing/head/chameleon/emp_act(severity) //Because we don't have psych for all slots right now but still want a downside to EMP.  In this case your cover's blown.
+	. = ..()
+
+	name = initial(name)
+	desc = "It's a baseball hat in a tasteful grey colour."
+	icon_state = initial(icon_state)
+	update_icon()
+	update_clothing_icon()
+
+/obj/item/clothing/head/chameleon/verb/change()
+	set name = "Change Hat/Helmet Appearance"
+	set category = "Chameleon Items"
+	set src in usr
+
+	var/picked = tgui_input_list(usr, "Select disguise.", "Disguise", clothing_choices)
+
+	if(!picked)
+		return
+
+	disguise(clothing_choices[picked])
+	update_clothing_icon()	//so our overlays update.
 
 //*******************
 //**Chameleon Shoes**
