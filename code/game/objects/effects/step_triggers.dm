@@ -27,9 +27,10 @@
 		return
 	if(!ismob(H) && mobs_only)
 		return
-	var/mob/living/L = H
-	if(!L.client && players_only)
-		return
+	if(ismob(H))
+		var/mob/living/L = H
+		if(!L.client && players_only)
+			return
 	INVOKE_ASYNC(src, PROC_REF(Trigger), H)
 
 
