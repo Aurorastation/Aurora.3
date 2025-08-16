@@ -96,7 +96,7 @@ var/list/command_support_positions = list(
 
 var/list/engineering_positions = list(
 	"Chief Engineer",
-	"Engineer",
+	"Ship Engineer",
 	"Atmospheric Technician",
 	"Engineering Apprentice",
 	"Engineering Personnel"
