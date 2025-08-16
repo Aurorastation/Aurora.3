@@ -282,7 +282,7 @@
 /obj/structure/sign/directions/deck3
 	name = "\improper DECK4 sign"
 	desc = "A sign, telling you, that you're on the fourth deck."
-	icon_state = "deck3"
+	icon_state = "deck4"
 
 /obj/structure/sign/directions/restricted
 	name = "\improper RESTRICTED sign"
