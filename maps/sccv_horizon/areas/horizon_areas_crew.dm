@@ -167,6 +167,7 @@
 /// Residential Deck (access)
 /area/horizon/crew/resdeck/living_quarters_lift
 	name = "Living Quarters Lift"
+	area_flags = AREA_FLAG_RAD_SHIELDED
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 	horizon_deck = 1
 	subdepartment = SUBLOC_RESDECK
