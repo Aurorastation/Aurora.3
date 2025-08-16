@@ -190,6 +190,7 @@
 		if(M.client)
 			M.client.eye = M.client.mob
 			M.client.perspective = MOB_PERSPECTIVE
+			M.set_fullscreen(FALSE, "closet_impaired", /atom/movable/screen/fullscreen/closet_impaired)
 
 /obj/structure/closet/proc/open()
 	if(opened)
@@ -232,9 +233,7 @@
 		animate_door_alt(TRUE)
 	update_icon()
 
-	if(linked_teleporter)
-		if(linked_teleporter.last_use + 600 > world.time)
-			return
+	if(linked_teleporter && linked_teleporter.last_use + 600 < world.time)
 		var/did_teleport = FALSE
 		for(var/mob/M in contents)
 			if(linked_teleporter.do_teleport(M))
@@ -279,6 +278,7 @@
 		if(M.client)
 			M.client.perspective = EYE_PERSPECTIVE
 			M.client.eye = src
+			M.set_fullscreen(TRUE, "closet_impaired", /atom/movable/screen/fullscreen/closet_impaired)
 		M.forceMove(src)
 		added_units += M.mob_size
 		if(mob_limit) //We only want to store one valid mob

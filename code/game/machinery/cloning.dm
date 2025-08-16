@@ -222,7 +222,7 @@
 			return TRUE
 	if(attacking_item.GetID())
 		if(!check_access(attacking_item.GetID()))
-			to_chat(user, SPAN_WARNING("Access Denied."))
+			to_chat(user, SPAN_WARNING("Access denied."))
 			return TRUE
 		if((!locked) || (isnull(occupant)))
 			return TRUE
