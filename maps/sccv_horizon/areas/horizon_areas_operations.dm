@@ -5,7 +5,7 @@
 	ambience = AMBIENCE_ENGINEERING
 	holomap_color = HOLOMAP_AREACOLOR_OPERATIONS
 	department = LOC_OPERATIONS
-	area_blurb = "While mighty Cargonia may never reign supreme, the halls of Operations ever resound with the clamor of pallets and materiel and rustling paper."
+	area_blurb = "The halls of Operations ever resound with the clamor of pallets and materiel and rustling paper."
 
 /area/horizon/operations/warehouse
 	name = "Warehouse"
@@ -54,6 +54,7 @@
 /area/horizon/operations/commissary
 	name = "Commissary"
 	horizon_deck = 2
+	area_blurb = "Even here, all the way out into the depths of space, retail work is found. The commissary room is eerily bare when not run— with empty shelves being such a rarity in the 25th century for most worlds, seeing them here is almost unnatural. Where are your treats?"
 
 /area/horizon/operations/secure_ammunition_storage
 	name = "Secure Ammunitions Storage"
