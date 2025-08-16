@@ -1,0 +1,6 @@
+author: Kano
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed mobs ignoring their speed value."
