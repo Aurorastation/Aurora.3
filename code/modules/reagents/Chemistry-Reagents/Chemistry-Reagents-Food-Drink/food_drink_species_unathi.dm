@@ -31,7 +31,7 @@
 /singleton/reagent/drink/sthberryjuice
 	name = "S'th Berry Juice"
 	description = "The sweet, delectable juice of the S'th berry, a Moghresian fruit found in the Izweski Heartland"
-	color = ""
+	color = "#880029"
 	taste_description = "sweet berry juice"
 	glass_icon_state = "berryjuice"
 	glass_name = "glass of S'th berry juice"

@@ -147,3 +147,14 @@
 	items = list(/obj/item/reagent_containers/food/snacks/meat)
 	result = /obj/item/reagent_containers/food/snacks/steak_tartare
 	reagent_mix = RECIPE_REAGENT_REPLACE
+
+/singleton/recipe/meatloaf
+	appliance = OVEN
+	fruit = list("onion" = 1)
+	reagents = list(/singleton/reagent/nutriment/protein/egg = 3, /singleton/reagent/nutriment/ketchup = 5)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/meat,
+		/obj/item/reagent_containers/food/snacks/meat
+	)
+	result = /obj/item/reagent_containers/food/snacks/sliceable/meatloaf
+	reagent_mix = RECIPE_REAGENT_REPLACE

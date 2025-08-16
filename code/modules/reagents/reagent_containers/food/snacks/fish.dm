@@ -50,6 +50,12 @@
 	fish_type = "cosmozoan"
 	reagents_to_add = list(/singleton/reagent/nutriment/protein/seafood/cosmozoan = 3)
 
+/obj/item/reagent_containers/food/snacks/fish/raw_shrimp
+	name = "raw shrimp"
+	desc = "They're so small! Shrimpy, even."
+	icon_state = "shrimp_raw"
+	fish_type = "shrimp"
+
 // Molluscs!
 /obj/item/trash/mollusc_shell
 	name = "mollusc shell"
