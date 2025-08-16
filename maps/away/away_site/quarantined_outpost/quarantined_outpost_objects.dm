@@ -568,7 +568,7 @@ GLOBAL_LIST_EMPTY(quarantined_outpost_creatures)
 	return ..()
 
 /*######################################
-			  HORDE LOGIC (partially copied over `phoron_deposit_objects.dm`)
+		HORDE LOGIC (partially copied over `phoron_deposit_objects.dm`)
 ######################################*/
 
 /obj/structure/quarantined_outpost_extractor
