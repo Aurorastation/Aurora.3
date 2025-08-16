@@ -5,7 +5,7 @@
 	icon = 'icons/mob/mob.dmi'
 	icon_state = "harvester"
 	icon_living = "harvester"
-	maxHealth = 150
+	maxHealth = 300
 	health_prefix = "harvester"
 	melee_damage_lower = 25
 	melee_damage_upper = 25
@@ -14,6 +14,13 @@
 	organ_names = list("core", "harvesting array")
 	speed = -1
 	environment_smash = 1
+	natural_armor = list(
+		MELEE = ARMOR_MELEE_KNIVES,
+		BULLET = ARMOR_BALLISTIC_PISTOL,
+		LASER = ARMOR_LASER_SMALL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_PADDED
+	)
 	attack_sound = 'sound/weapons/pierce.ogg'
 	can_repair = TRUE
 	construct_spells = list(
