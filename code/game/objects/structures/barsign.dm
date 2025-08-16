@@ -1,11 +1,14 @@
 /obj/structure/sign/double/barsign
 	icon = 'icons/obj/barsigns.dmi'
-	icon_state = "Off"
+	icon_state = "off"
 	anchored = TRUE
 	req_access = list(ACCESS_BAR) //Has to initalize at first, this is updated by instance's req_access
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/cult = 0
 	var/choice_types = /singleton/sign/double/bar
+	var/currently_on = FALSE
+	var/on_icon_state
+	var/off_icon_state = "off"
 
 /obj/structure/sign/double/barsign/attackby(obj/item/attacking_item, mob/user)
 	if(cult)
@@ -20,6 +23,17 @@
 		return
 
 	return ..()
+
+/obj/structure/sign/double/barsign/AltClick(mob/user) // Alt-click a sign with an empty hand to power or depower it, if it has the associated "[name]-off" state in the .dmi file.
+	if(!on_icon_state)
+		to_chat(user, SPAN_WARNING("The sign is already off!"))
+		return
+	if(!currently_on)
+		currently_on = TRUE
+		icon_state = on_icon_state
+		return
+	icon_state = off_icon_state
+	currently_on = FALSE
 
 /obj/structure/sign/double/barsign/proc/get_sign_choices()
 	var/list/sign_choices = GET_SINGLETON_SUBTYPE_MAP(choice_types)
@@ -42,26 +56,41 @@
 	desc = signselect.desc
 	desc_extended = signselect.desc_extended
 	icon_state = signselect.icon_state
+	currently_on = TRUE
+	on_icon_state = icon_state
 	update_icon()
 
 /obj/structure/sign/double/barsign/kitchensign
 	icon = 'icons/obj/kitchensigns.dmi'
-	icon_state = "Off"
+	icon_state = "off"
 	req_access = list(ACCESS_KITCHEN)
 	choice_types = /singleton/sign/double/kitchen
 
 /obj/structure/sign/double/barsign/kitchensign/mirrored // Visible from the other end of the sign.
 	pixel_x = -32
 
+/obj/structure/sign/double/barsign/marketsign
+	icon = 'icons/obj/marketsigns.dmi'
+	icon_state = "off"
+	req_access = list(ACCESS_CARGO, ACCESS_JANITOR, ACCESS_ROBOTICS, ACCESS_MINING, ACCESS_PARAMEDIC, ACCESS_HYDROPONICS, ACCESS_BAR, ACCESS_KITCHEN, ACCESS_LIBRARY)
+	choice_types = /singleton/sign/double/market
+
+/obj/structure/sign/double/barsign/marketsign/set_sign()
+	. = ..()
+	off_icon_state = "[icon_state]-off"
+
+/obj/structure/sign/double/barsign/marketsign/mirrored // Visible from the other end of the sign.
+	pixel_x = -32
+
 /singleton/sign/double
 	var/name = "Holographic Projector"
-	var/icon_state = "Off"
+	var/icon_state = "off"
 	var/desc = "A holographic projector, displaying different saved themes. It is turned off right now."
-	var/desc_extended = "To change the displayed theme, use your bartender's or chef's ID on it and select something from the menu. There are two different selections for the bar and the kitchen."
+	var/desc_extended = "To change the displayed theme, use your bartender's or chef's or other applicable ID on it and select something from the menu. There are three different selections for the bar, kitchen and commissiary."
 
 /singleton/sign/double/off // Here start the different bar signs. To add any new ones, just copy the format, make sure its in the .dmi and write away. -KingOfThePing
 	name = "Holgraphic Projector"
-	icon_state = "Off"
+	icon_state = "off"
 	desc = "A holographic projector, displaying different saved themes. It is turned off right now."
 	desc_extended = "To change the displayed theme, use your bartender's or chef's ID on it and select something from the menu. There are two different selections for the bar and the kitchen."
 
@@ -174,3 +203,18 @@
 	icon_state = "City Alive"
 	desc = "City Alive is another popular restaurant chain, originating from Eridani I. It is famous for its light shows."
 	desc_extended = "City Alive is a high class restaurant chain, dotted all over Eridani I and III. Especially on Eridani I they are also famous for their light shows in the evenings. These lights look like pulsating veins, making the city seem alive, especially when observed from orbit."
+
+/singleton/sign/double/market/ntmart // Start of the marketsigns for the commissiary.
+	name = "NT-Mart"
+	icon_state = "ntmart"
+	desc = "NT-Mart is a relatively common convenience store chain. Usually smaller in scale and with more limited selection you can still get pretty much everything here."
+	desc_extended = "Before the SCC merged to one Conglomerate, NanoTrasen already tried to reel in as much revenue as possible. One of the easiest markets was retail. After some time, the NT-Mart could be seen on many corners \
+	in many places, selling a limited selection of basic items, usually with a markup."
+
+/singleton/sign/double/market/gm24
+	name ="GetMore24"
+	icon_state = "gm24"
+	desc = "The GetMore24, usually shortened to GM24, is the de-facto flagship of convenience stores. Whatever you need, whereever you need it, wheneever you need it. Get more, with Getmore."
+	desc_extended = "Getmore was always a big player in the food industry. A logical follow-up would be to get big into retail and cut out the middle-man in distribution. Thus, the king of convenience stores was born: \
+	GMG24. Usually open 24 hours, 7 days a week there aren't many places in the galaxy where you aren't in walking distance of a GM24. Selling everything you need for your daily life, the selection is surprisingly big \
+	and affordable. This strategy catapulted Getmore into the big league of convenience stores."
