@@ -157,6 +157,16 @@
 	target_board_type = /obj/item/circuitboard/rig_assembly/combat/targeting/combat
 	origin_tech = list(TECH_MATERIAL = 6, TECH_ENGINEERING = 5, TECH_MAGNET = 4, TECH_POWER = 4, TECH_COMBAT = 6)
 
+/obj/item/rig_assembly/combat/falcata
+	name = "falcata exoskeleton control module"
+	desc = "The assembly frame for a security exoskeleton."
+	icon = 'icons/obj/item/clothing/rig/falcata.dmi'
+	icon_base = "falcata"
+	icon_state = "falcata1"
+	rig_type = /obj/item/rig/light/falcata
+	board_type = /obj/item/circuitboard/rig_assembly/combat/falcata
+	target_board_type = /obj/item/circuitboard/rig_assembly/combat/targeting/falcata
+
 ////////////////////////
 ////ILLEGAL ASSEMBLY////
 ////////////////////////

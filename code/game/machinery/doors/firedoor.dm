@@ -15,16 +15,21 @@
 	opacity = 0
 	density = 0
 	layer = OPEN_DOOR_LAYER
-	open_layer = OPEN_DOOR_LAYER // Just below doors when open
-	closed_layer = ABOVE_DOOR_LAYER // Just above doors when closed
+	/// Just below doors when open
+	open_layer = OPEN_DOOR_LAYER
+	/// Just above doors when closed
+	closed_layer = ABOVE_DOOR_LAYER
 
-	//These are frequenly used with windows, so make sure zones can pass.
-	//Generally if a firedoor is at a place where there should be a zone boundery then there will be a regular door underneath it.
+	/*
+	 * These are frequently used with windows, so make sure zones can pass.
+	 * Generally if a firedoor is at a place where there should be a zone boundary then there will be a regular door underneath it.
+	 */
 	block_air_zones = 0
 	hashatch = 1
 
 	var/blocked = 0
-	var/lockdown = 0 // When the door has detected a problem, it locks.
+	/// When the door has detected a problem, it locks.
+	var/lockdown = 0
 	var/pdiff_alert = 0
 	var/pdiff = 0
 	var/nextstate = null
@@ -39,16 +44,19 @@
 	idle_power_usage = 5
 	dir = SOUTH
 
-	turf_hand_priority = 2 //Lower priority than normal doors to prevent interference
+	/// Lower priority than normal doors to prevent interference
+	turf_hand_priority = 2
 
-	/// Enables smart generation of firedoor dir.
-	/// So it automatically aligns to face same dir as the door above it, etc.
+	/**
+	 * Enables smart generation of firedoor dir.
+	 * Makes it automatically aligns to face same dir as the door above it, etc.
+	 */
 	var/enable_smart_generation = TRUE
 
 	var/list/tile_info[4]
 	var/list/dir_alerts[4] // 4 dirs, bitflags
 
-	// MUST be in same order as FIREDOOR_ALERT_*
+	/// MUST be in same order as FIREDOOR_ALERT_*
 	var/list/ALERT_STATES=list(
 		"hot",
 		"cold"
@@ -170,7 +178,7 @@
 		dir = SOUTH
 		return .
 
-	// face same dir as door if on the same tile
+	/// Face same dir as door if on the same tile
 	var/obj/machinery/door/airlock/door = locate(/obj/machinery/door/airlock, current_turf)
 	if(istype(door))
 		dir = door.dir
@@ -207,15 +215,17 @@
 
 /obj/machinery/door/firedoor/attack_hand(mob/user as mob)
 	add_fingerprint(user)
+	// Already doing something.
 	if(operating)
-		return//Already doing something.
+		return
 
 	if(blocked)
 		to_chat(user, SPAN_WARNING("\The [src] is welded solid!"))
 		return
 
 	var/alarmed = lockdown
-	for(var/area/A in areas_added)		//Checks if there are fire alarms in any areas associated with that firedoor
+	// Checks if there are fire alarms in any areas associated with that firedoor
+	for(var/area/A in areas_added)
 		if(A.fire || A.air_doors_activated)
 			alarmed = 1
 	if(user.incapacitated() || (get_dist(src, user) > 1  && !issilicon(user)))
@@ -232,7 +242,8 @@
 				close(1)
 			return
 
-	if(density && (stat & (BROKEN|NOPOWER))) //can still close without power
+	// Can still close without power
+	if(density && (stat & (BROKEN|NOPOWER)))
 		to_chat(user, "\The [src] is not functioning, you'll have to force it open manually.")
 		return
 
@@ -273,8 +284,9 @@
 /obj/machinery/door/firedoor/attackby(obj/item/attacking_item, mob/user)
 	if(!istype(attacking_item, /obj/item/forensics))
 		add_fingerprint(user)
+	// Already doing something.
 	if(operating)
-		return TRUE // Already doing something.
+		return TRUE
 	if(attacking_item.iswelder() && !repairing)
 		var/obj/item/weldingtool/WT = attacking_item
 		if(WT.isOn())
@@ -365,9 +377,13 @@
 	return ..()
 
 // CHECK PRESSURE
+/**
+ * Regular pressure checks. Has a +10s delay between each check.
+ */
 /obj/machinery/door/firedoor/process()
 	if(density && next_process_time <= world.time)
-		next_process_time = world.time + 100		// 10 second delays between process updates
+		// 10 second delays between process updates.
+		next_process_time = world.time + 100
 		var/changed = 0
 		lockdown=0
 		// Pressure alerts
@@ -377,18 +393,21 @@
 			lockdown = 1
 			if(!pdiff_alert)
 				pdiff_alert = 1
-				changed = 1 // update_icon()
+				// update_icon()
+				changed = 1
 		else
 			if(pdiff_alert)
 				pdiff_alert = 0
-				changed = 1 // update_icon()
+				// update_icon()
+				changed = 1
 
 		tile_info = getCardinalAirInfo(src.loc,list("temperature","pressure"))
 		var/old_alerts = dir_alerts
 		for(var/index = 1; index <= 4; index++)
 			var/list/tileinfo=tile_info[index]
+			// Bad data.
 			if(tileinfo==null)
-				continue // Bad data.
+				continue
 			var/celsius = convert_k2c(tileinfo[1])
 
 			var/alerts = 0
@@ -447,8 +466,9 @@
 		update_icon()
 
 	if(!forced)
+		// Needs power to open unless it was forced
 		if(stat & (BROKEN|NOPOWER))
-			return //needs power to open unless it was forced
+			return
 		else
 			use_power_oneoff(360)
 	else

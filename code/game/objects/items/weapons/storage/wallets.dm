@@ -184,7 +184,7 @@
 
 /obj/item/storage/wallet/lanyard/verb/toggle_icon_layer()
 	set name = "Switch Lanyard Layer"
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in usr
 
 	if(use_check_and_message(usr, use_flags = USE_DISALLOW_SILICONS))

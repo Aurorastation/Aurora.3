@@ -23,19 +23,19 @@
 	var/malfunction_probability = 10
 
 /**
- *	Default handling of hardware enable/disable. Override for specific functionality.
+ * Default handling of hardware enable/disable. Override for specific functionality.
  */
 /obj/item/computer_hardware/proc/enable()
 	. = enabled = TRUE
 
 /**
- *	Default handling of hardware enable/disable. Override for specific functionality.
+ * Default handling of hardware enable/disable. Override for specific functionality.
  */
 /obj/item/computer_hardware/proc/disable()
 	. = enabled = FALSE
 
 /**
- *	Default handling of hardware enable/disable. Override for specific functionality.
+ * Default handling of hardware enable/disable. Override for specific functionality.
  */
 /obj/item/computer_hardware/proc/toggle()
 	if(enabled)
@@ -71,7 +71,7 @@
 	return ..()
 
 /**
- *	Called on multitool click, prints diagnostic information to the user.
+ * Called on multitool click, prints diagnostic information to the user.
  */
 /obj/item/computer_hardware/proc/diagnostics(var/mob/user)
 	to_chat(user, SPAN_NOTICE("Hardware Integrity Test... (Physical Damage: [damage]/[max_damage]) [damage > damage_failure ? "FAIL" : damage > damage_malfunction ? "WARN" : "PASS"]"))
@@ -88,7 +88,7 @@
 	return ..()
 
 /**
- *	Handles damage checks
+ * Handles damage checks
  */
 /obj/item/computer_hardware/proc/check_functionality()
 	/// Turned off
@@ -114,7 +114,7 @@
 		. += SPAN_WARNING("It seems to be slightly damaged.")
 
 /**
- *	Damages the component. Contains necessary checks. Negative damage "heals" the component.
+ * Damages the component. Contains necessary checks. Negative damage "heals" the component.
  */
 /obj/item/computer_hardware/proc/take_damage(var/amount)
 	damage += round(amount)						/// We want nice rounded numbers here.

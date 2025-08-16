@@ -8,7 +8,8 @@
 * Categories *
 *************/
 /datum/category_group/underwear
-	var/sort_order = 5		// Lower sort order is applied as icons first
+	// Lower sort order is applied as icons first
+	var/sort_order = 5
 	var/display_name
 	var/gender = NEUTER
 
@@ -36,7 +37,8 @@
 
 /datum/category_group/underwear/undershirt
 	name = "Undershirt"
-	sort_order = 4		// Undershirts currently have the lowest sort order because they may cover both underwear and socks.
+	/// Undershirts currently have the lowest sort order because they may cover both underwear and socks.
+	sort_order = 4
 	display_name = "undershirt"
 	category_item_type = /datum/category_item/underwear/undershirt
 
@@ -44,11 +46,16 @@
 * Category entries *
 *******************/
 /datum/category_item/underwear
-	var/always_last = FALSE          // Should this entry be sorted last?
-	var/is_default = FALSE           // Should this entry be considered the default for its type?
-	var/icon = 'icons/mob/underwear.dmi' // Which icon to get the underwear from
-	var/icon_state                   // And the particular item state
-	var/list/tweaks = list()         // Underwear customisation
+	/// Should this entry be sorted last?
+	var/always_last = FALSE
+	/// Should this entry be considered the default for its type?
+	var/is_default = FALSE
+	/// Which icon to get the underwear from
+	var/icon = 'icons/mob/underwear.dmi'
+	/// And the particular item state
+	var/icon_state
+	/// Underwear customisation
+	var/list/tweaks = list()
 	var/has_color = FALSE
 
 /datum/category_item/underwear/New()

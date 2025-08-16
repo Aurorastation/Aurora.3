@@ -88,7 +88,7 @@
 		usr.visible_message(SPAN_NOTICE("[usr] taps their foot on the floor, arrogantly pointing at the [src] in their hand with a look of derision in their eyes."), SPAN_NOTICE("You point down at the [src], an arrogant look about your eyes."))
 
 /obj/item/clothing/wrists/watch/verb/checktime()
-	set category = "Object"
+	set category = "Object.Equipped"
 	set name = "Check Time"
 	set src in usr
 
@@ -102,7 +102,7 @@
 		to_chat(usr, "You check your watch as it dawns on you that it's broken.")
 
 /obj/item/clothing/wrists/watch/verb/pointatwatch()
-	set category = "Object"
+	set category = "Object.Equipped"
 	set name = "Point At Watch"
 	set src in usr
 

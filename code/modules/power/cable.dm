@@ -513,6 +513,7 @@ By design, d1 is the smallest direction and d2 is the highest
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
 	surgerysound = 'sound/items/surgery/fixovein.ogg'
+	contained_sprite = TRUE
 	build_from_parts = TRUE
 	worn_overlay = "end"
 
