@@ -1,7 +1,0 @@
-author: Hellfirejag
-delete-after: True
-changes:
-  - balance: "Many mech recipes now require new materials such as Aluminium or Lead, and have had their build time tripled. Hoverthrusters of both kinds now require rare materials."
-  - balance: "Light hoverthrusters are somewhat less fragile (from 45 to 75 health), while their power consumption has been significantly increased. Heavy hoverthrusters also now draw more power."
-  - balance: "Most hardsuits now require new materials such as Aluminium or Lead."
-  - balance: "To help encourage more experimenting with mech parts, quad-legged mechs no longer require research to build."
