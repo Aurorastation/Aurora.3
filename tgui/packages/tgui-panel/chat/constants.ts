@@ -61,13 +61,7 @@ export const MESSAGE_TYPES = [
     name: 'Radio',
     description: 'All departments of radio messages',
     selector:
-      '.alert, .minorannounce, .syndradio, .centcomradio, .aiprivradio, .comradio, .secradio, .gangradio, .engradio, .medradio, .sciradio, .suppradio, .servradio, .radio, .deptradio, .binarysay, .resonate, .abductor, .alien, .changeling',
-  },
-  {
-    type: MESSAGE_TYPE_ENTERTAINMENT,
-    name: 'Entertainment',
-    description: 'Entertainment and newscaster broadcasts',
-    selector: '.enteradio, .newscaster',
+      '.alert, .minorannounce, .syndradio, .centradio, .aiprivradio, .comradio, .entradio, .hailradio, .shipradio, .secradio, .engradio, .medradio, .sciradio, .supradio, .srvradio, .radio, .deptradio, .binarysay, .newscaster, .alien, .changeling, .coalitionradio, .expradio',
   },
   {
     type: MESSAGE_TYPE_INFO,
@@ -150,6 +144,7 @@ export const MESSAGE_TYPES = [
     type: MESSAGE_TYPE_DEBUG,
     name: 'Debug Log',
     description: 'DEBUG: SSPlanets subsystem Recover().',
+    selector: '.debug',
     admin: true,
   },
 ];
