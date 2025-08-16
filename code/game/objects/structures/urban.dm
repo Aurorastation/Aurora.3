@@ -203,7 +203,7 @@
 	desc = "A stop sign to direct traffic. Sometimes a demand."
 	icon = 'icons/obj/structure/urban/road_signs.dmi'
 	icon_state = "stop"
-	layer = 9
+	layer = STRUCTURE_LAYER
 	anchored = TRUE
 
 /obj/structure/road_sign/yield
