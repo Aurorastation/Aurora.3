@@ -1,4 +1,3 @@
-/*
 /datum/map/runtime
 	name = "Runtime Ship"
 	full_name = "Runtime Debugging Ship"
@@ -222,4 +221,3 @@ ABSTRACT_TYPE(/obj/item/paper/fluff/runtime)
 /obj/item/paper/fluff/runtime/dontforgetuseovermap
 	name = "Don't Forget use_overmap!"
 	info = SPAN_BOLD("Don't forget to remove the conditional preprocessor definition for use_overmap = TRUE in maps\\runtime\\code\\runtime.dm if you want to test overmap things, it's off to load even faster!")
-*/
