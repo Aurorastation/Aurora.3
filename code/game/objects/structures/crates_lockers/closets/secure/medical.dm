@@ -126,6 +126,7 @@
 	new /obj/item/clothing/mask/gas/alt(src)
 	new /obj/item/clothing/mask/gas/half(src)
 	new /obj/item/auto_cpr(src)
+	new /obj/item/defibrillator/compact/loaded(src)
 	new /obj/item/clothing/suit/storage/toggle/para_jacket(src)
 	new /obj/item/clothing/suit/storage/toggle/para_jacket/zeng(src)
 	new /obj/item/clothing/suit/storage/toggle/para_jacket/pmc(src)
