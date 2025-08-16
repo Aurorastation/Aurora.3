@@ -2,7 +2,6 @@ import { chunk } from 'es-toolkit';
 import { BooleanLike } from 'tgui-core/react';
 import { useBackend, useLocalState } from '../backend';
 import { Box, Button, Input, Section, Table, Tabs, Tooltip } from 'tgui-core/components';
-import { TableCell, TableRow } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type SpawnerData = {
@@ -43,7 +42,7 @@ const ManifestTable = function (act, spawner: Spawner) {
         ) {
           if (spawned_mob_name) {
             return (
-              <TableCell>
+              <Table.Cell>
                 {' - ' + spawned_mob_name + ' '}
                 {spawner.can_jump_to ? (
                   <Tooltip content="Follow mob">
@@ -60,7 +59,7 @@ const ManifestTable = function (act, spawner: Spawner) {
                 ) : (
                   ''
                 )}
-              </TableCell>
+              </Table.Cell>
             );
           } else {
             return '';
@@ -68,10 +67,10 @@ const ManifestTable = function (act, spawner: Spawner) {
         };
 
         return (
-          <TableRow pb={1} key={page} overflow="hidden">
+          <Table.Row pb={1} key={page} overflow="hidden">
             {ManifestCell(act, spawner, spawned_mob_name_1)}
             {ManifestCell(act, spawner, spawned_mob_name_2)}
-          </TableRow>
+          </Table.Row>
         );
       })}
     </Table>
