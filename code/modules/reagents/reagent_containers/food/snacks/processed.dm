@@ -878,7 +878,7 @@
 	reagents_to_add = list(/singleton/reagent/nutriment = 5)
 	reagent_data = list(/singleton/reagent/nutriment = list("uncooked pasta" = 5, "dry cheeze powder" = 5))
 
-/obj/item/reagent_containers/food/snacks/quick_microwave_mac_and_cheeze/update_icon()
+/obj/item/reagent_containers/food/snacks/packaged_microwave_mac_and_cheeze/update_icon()
 	var/percent_mac_cheeze = round((reagents.total_volume / 5) * 100)
 	switch(percent_mac_cheeze)
 		if(0 to 90)

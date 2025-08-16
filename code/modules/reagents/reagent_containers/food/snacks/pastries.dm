@@ -362,7 +362,7 @@
 	filling_color = "#c43934"
 	bitesize = 1
 
-/obj/item/reagent_containers/food/snacks/cranberry_orange_roll/filled/update_icon()
+/obj/item/reagent_containers/food/snacks/cranberry_orange_roll/update_icon()
 	var/expected_initial_reagent_volume
 	for(var/k in src.reagents_to_add)
 		expected_initial_reagent_volume += reagents_to_add[k]
