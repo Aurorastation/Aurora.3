@@ -316,7 +316,6 @@
 
 /obj/item/reagent_containers/food/snacks/bowl/pop_shrimp_bowl
 	name = "bowl of pop shrimp" //Popcorn shrimp were invented in the 70's (after the timeline divergence date) so I figured I'd call them something similar but different in this universe.
-	gender = PLURAL
 	desc = "A bowl of fried shrimp so small and crunchy you can just pop them right in your mouth!"
 	icon = 'icons/obj/item/reagent_containers/food/fryer.dmi'
 	icon_state = "popshrimp_full"
@@ -337,6 +336,7 @@
 
 /obj/item/reagent_containers/food/snacks/pop_shrimp
 	name = "pop shrimp"
+	gender = PLURAL
 	desc = "A handful of crunchy, fried shrampies!"
 	icon = 'icons/obj/item/reagent_containers/food/fryer.dmi'
 	icon_state = "popshrimp"
