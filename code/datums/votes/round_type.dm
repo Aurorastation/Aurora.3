@@ -15,6 +15,7 @@
 	//Put Odyssey and Secret as the first options
 	default_choices.Add("Odyssey")
 	default_choices.Add("Secret")
+	default_choices.Add("Mercenary")
 
 	//Sort the gamemodes
 	for(var/votable_mode_name in GLOB.config.votable_modes)
