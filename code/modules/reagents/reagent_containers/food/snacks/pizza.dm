@@ -274,7 +274,7 @@ ABSTRACT_TYPE(/obj/item/reagent_containers/food/snacks/sliceable/pizza/deepdish/
 
 /obj/item/reagent_containers/food/snacks/deepdish/district6_slice
 	name = "deep dish district 6 pizza slice"
-	desc = "A slice of deep dish pizza with earthenroot slices and roast dirtberries on it. A mahsup of Tajaran and Human cuisine that could only come from the cultural hub that is Mendell."
+	desc = "A slice of deep dish pizza with earthenroot slices and roast dirtberries on it. A mashup of Tajaran and Human cuisine that could only come from the cultural hub that is Mendell."
 	icon = 'icons/obj/item/reagent_containers/food/pizza.dmi'
 	icon_state = "deepdish_district6_slice"
 	filling_color = "#b36813"
