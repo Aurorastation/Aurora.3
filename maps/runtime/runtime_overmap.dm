@@ -1,4 +1,4 @@
-/obj/effect/overmap/visitable/ship/runtime
+/*/obj/effect/overmap/visitable/ship/runtime
 	name = "NSS Runtime"
 	class = "NSS"
 	designation = "Runtime"
@@ -51,4 +51,4 @@
 
 /obj/effect/shuttle_landmark/runtime/transit
 	name = "In transit"
-	landmark_tag = "nav_transit_runtime"
+	landmark_tag = "nav_transit_runtime"*/
