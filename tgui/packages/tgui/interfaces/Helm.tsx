@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Box, Button, Section, Table } from '../components';
+import { Box, Button, Section, Table } from 'tgui-core/components';
 import { NtosWindow } from '../layouts';
 
 export type HelmData = {
@@ -414,11 +414,11 @@ const PosSection = function (act, data) {
   );
 };
 
-export const Helm = (props, context) => {
-  const { act, data } = useBackend<HelmData>(context);
+export const Helm = (props) => {
+  const { act, data } = useBackend<HelmData>();
 
   return (
-    <NtosWindow resizable>
+    <NtosWindow>
       <NtosWindow.Content scrollable>
         <Table>
           <Table.Row>

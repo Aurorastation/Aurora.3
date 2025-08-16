@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Box, Button, LabeledList, NoticeBox, Section, Table } from '../components';
+import { Box, Button, LabeledList, NoticeBox, Section, Table } from 'tgui-core/components';
 import { NtosWindow } from '../layouts';
 import { sortBy } from 'es-toolkit';
 
@@ -36,11 +36,11 @@ type APCData = {
   name: string;
 };
 
-export const PowerMonitor = (props, context) => {
-  const { act, data } = useBackend<PowerData>(context);
+export const PowerMonitor = (props) => {
+  const { act, data } = useBackend<PowerData>();
 
   return (
-    <NtosWindow resizable width={800}>
+    <NtosWindow width={800}>
       <NtosWindow.Content scrollable>
         {data.focus ? <SensorMonitoring /> : <ShowMasterList />}
       </NtosWindow.Content>
@@ -48,8 +48,8 @@ export const PowerMonitor = (props, context) => {
   );
 };
 
-export const ShowMasterList = (props, context) => {
-  const { act, data } = useBackend<PowerData>(context);
+export const ShowMasterList = (props) => {
+  const { act, data } = useBackend<PowerData>();
 
   return (
     <Section
@@ -72,13 +72,12 @@ export const ShowMasterList = (props, context) => {
   );
 };
 
-export const SensorMonitoring = (props, context) => {
-  const { act, data } = useBackend<PowerData>(context);
+export const SensorMonitoring = (props) => {
+  const { act, data } = useBackend<PowerData>();
   const { apc_data = [] } = data.focus;
   const apcs_sorted: APCData[] = sortBy(apc_data, [
     (APCData: APCData) => APCData.name,
   ]);
-
   return (
     <Section
       title={'Network Information: ' + data.focus.name}

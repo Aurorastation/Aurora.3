@@ -1,8 +1,7 @@
-import { paginate } from 'common/collections';
-import { BooleanLike } from '../../common/react';
+import { chunk } from 'es-toolkit';
+import { BooleanLike } from 'tgui-core/react';
 import { useBackend, useLocalState } from '../backend';
-import { Box, Button, Input, Section, Table, Tabs, Tooltip } from '../components';
-import { TableCell, TableRow } from '../components/Table';
+import { Box, Button, Input, Section, Table, Tabs, Tooltip } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type SpawnerData = {
@@ -32,7 +31,7 @@ type Spawner = {
 const ManifestTable = function (act, spawner: Spawner) {
   return (
     <Table>
-      {paginate(spawner.manifest, 2).map((page) => {
+      {chunk(spawner.manifest, 2).map((page) => {
         const spawned_mob_name_1 = page[0];
         const spawned_mob_name_2 = page[1];
 
@@ -43,7 +42,7 @@ const ManifestTable = function (act, spawner: Spawner) {
         ) {
           if (spawned_mob_name) {
             return (
-              <TableCell>
+              <Table.Cell>
                 {' - ' + spawned_mob_name + ' '}
                 {spawner.can_jump_to ? (
                   <Tooltip content="Follow mob">
@@ -60,7 +59,7 @@ const ManifestTable = function (act, spawner: Spawner) {
                 ) : (
                   ''
                 )}
-              </TableCell>
+              </Table.Cell>
             );
           } else {
             return '';
@@ -68,22 +67,21 @@ const ManifestTable = function (act, spawner: Spawner) {
         };
 
         return (
-          <TableRow pb={1} key={page} overflow="hidden">
+          <Table.Row pb={1} key={page} overflow="hidden">
             {ManifestCell(act, spawner, spawned_mob_name_1)}
             {ManifestCell(act, spawner, spawned_mob_name_2)}
-          </TableRow>
+          </Table.Row>
         );
       })}
     </Table>
   );
 };
 
-export const GhostSpawner = (props, context) => {
-  const { act, data } = useBackend<SpawnerData>(context);
+export const GhostSpawner = (props) => {
+  const { act, data } = useBackend<SpawnerData>();
 
-  const [tab, setTab] = useLocalState(context, 'tab', 'All');
+  const [tab, setTab] = useLocalState('tab', 'All');
   const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
     `searchTerm`,
     ``
   );
@@ -122,7 +120,7 @@ export const GhostSpawner = (props, context) => {
   }
 
   return (
-    <Window resizable width={1000} height={700}>
+    <Window width={1000} height={700}>
       <Window.Content scrollable>
         <Section
           title="Spawners"

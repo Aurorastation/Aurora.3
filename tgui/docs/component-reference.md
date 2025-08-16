@@ -9,7 +9,7 @@ Make sure to add new items to this list if you document new components.
 -->
 
 - [General Concepts](#general-concepts)
-- [`tgui/components`](#tguicomponents)
+- [`tgui-core/components`](#tguicomponents)
   - [`AnimatedNumber`](#animatednumber)
   - [`BlockQuote`](#blockquote)
   - [`Box`](#box)
@@ -77,7 +77,7 @@ to understand what this is about.
 for example when you need an explicit IE8 support. **DO NOT** use
 lowercase event handlers unless you really know what you are doing.
 
-## `tgui/components`
+## `tgui-core/components`
 
 ### `AnimatedNumber`
 

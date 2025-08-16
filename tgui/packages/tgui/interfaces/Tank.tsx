@@ -1,8 +1,8 @@
 import { useBackend } from '../backend';
 import { useLocalState } from '../backend';
-import { Button, Section, LabeledList, ProgressBar, Slider } from '../components';
+import { Button, Section, LabeledList, ProgressBar, Slider } from 'tgui-core/components';
 import { Window } from '../layouts';
-import { BooleanLike } from '../../common/react';
+import { BooleanLike } from 'tgui-core/react';
 
 export type TankData = {
   tankPressure: number;
@@ -13,10 +13,10 @@ export type TankData = {
   maskConnected: BooleanLike;
 };
 
-export const Tank = (props, context) => {
-  const { act, data } = useBackend<TankData>(context);
+export const Tank = (props) => {
+  const { act, data } = useBackend<TankData>();
 
-  const [tank_color, setColor] = useLocalState(context, 'color', '');
+  const [tank_color, setColor] = useLocalState('color', '');
 
   const tank_presure_color = tank_color
     ? { color: tank_color }
@@ -29,7 +29,7 @@ export const Tank = (props, context) => {
     };
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section title="Gas Tank">
           <LabeledList>

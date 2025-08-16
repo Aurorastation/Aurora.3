@@ -1,5 +1,5 @@
 import { useBackend } from '../backend';
-import { Section, Table } from '../components';
+import { Section, Table } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type CargoPackData = {
@@ -13,11 +13,11 @@ export type PackageData = {
   delivery_point_id: string;
 };
 
-export const CargoPack = (props, context) => {
-  const { act, data } = useBackend<CargoPackData>(context);
+export const CargoPack = (props) => {
+  const { act, data } = useBackend<CargoPackData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section>
           <Table>

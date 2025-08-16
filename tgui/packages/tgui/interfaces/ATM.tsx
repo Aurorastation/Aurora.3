@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import { BooleanLike } from 'tgui-core/react';
 import { useBackend, useLocalState, useSharedState } from '../backend';
-import { Box, Button, Divider, Input, LabeledList, NoticeBox, NumberInput, Section, Stack, Table } from '../components';
+import { Box, Button, Divider, Input, LabeledList, NoticeBox, NumberInput, Section, Stack, Table } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type ATMData = {
@@ -27,11 +27,11 @@ type Transaction = {
   source_terminal: string;
 };
 
-export const ATM = (props, context) => {
-  const { act, data } = useBackend<ATMData>(context);
+export const ATM = (props) => {
+  const { act, data } = useBackend<ATMData>();
 
   return (
-    <Window resizable theme="idris">
+    <Window theme="idris">
       <Window.Content scrollable>
         <Section
           title={
@@ -63,10 +63,10 @@ export const ATM = (props, context) => {
   );
 };
 
-export const LoginWindow = (props, context) => {
-  const { act, data } = useBackend<ATMData>(context);
-  const [acc, setAcc] = useSharedState<string>(context, 'acc', '');
-  const [pin, setPin] = useLocalState<string>(context, 'pin', '');
+export const LoginWindow = (props) => {
+  const { act, data } = useBackend<ATMData>();
+  const [acc, setAcc] = useSharedState<string>('acc', '');
+  const [pin, setPin] = useLocalState<string>('pin', '');
 
   return (
     <Section>
@@ -110,27 +110,24 @@ export const LoginWindow = (props, context) => {
   );
 };
 
-export const AuthenticatedWindow = (props, context) => {
-  const { act, data } = useBackend<ATMData>(context);
-  const [withdraw, setWithdraw] = useLocalState<number>(context, 'withdraw', 0);
+export const AuthenticatedWindow = (props) => {
+  const { act, data } = useBackend<ATMData>();
+  const [withdraw, setWithdraw] = useLocalState<number>('withdraw', 0);
   const [security, setSecurity] = useLocalState<boolean>(
-    context,
     'security',
     false
   );
   const [transfer, setTransfer] = useLocalState<boolean>(
-    context,
     'transfer',
     false
   );
-  const [target, setTarget] = useLocalState<string>(context, 'target', '');
-  const [funds, setFunds] = useLocalState<number>(context, 'funds', 0);
+  const [target, setTarget] = useLocalState<string>('target', '');
+  const [funds, setFunds] = useLocalState<number>('funds', 0);
   const [purpose, setPurpose] = useLocalState<string>(
-    context,
     'purpose',
     'Funds transfer'
   );
-  const [logs, setLogs] = useLocalState<boolean>(context, 'logs', false);
+  const [logs, setLogs] = useLocalState<boolean>('logs', false);
 
   return (
     <Section>

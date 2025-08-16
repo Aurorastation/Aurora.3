@@ -1,11 +1,11 @@
-import { classes } from 'common/react';
+import { classes } from 'tgui-core/react';
 import dateformat from 'dateformat';
 import yaml from 'js-yaml';
-import { Component, Fragment } from 'inferno';
+import { Component, Fragment } from 'react';
 
 import { resolveAsset } from '../assets';
 import { useBackend } from '../backend';
-import { Box, Button, Dropdown, Icon, Section, Stack, Table } from '../components';
+import { Box, Button, Dropdown, Icon, Section, Stack, Table } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 const icons = {
@@ -59,7 +59,7 @@ export class Changelog extends Component {
   }
 
   getData = (date, attemptNumber = 1) => {
-    const { act } = useBackend(this.context);
+    const { act } = useBackend(this);
     const self = this;
     const maxAttempts = 6;
 
@@ -91,7 +91,7 @@ export class Changelog extends Component {
   componentDidMount() {
     const {
       data: { dates = [] },
-    } = useBackend(this.context);
+    } = useBackend(this);
 
     if (dates) {
       dates.forEach((date) =>
@@ -106,7 +106,7 @@ export class Changelog extends Component {
     const { data, selectedDate, selectedIndex } = this.state;
     const {
       data: { dates },
-    } = useBackend(this.context);
+    } = useBackend(this);
     const { dateChoices } = this;
 
     const dateDropdown = dateChoices.length > 0 && (

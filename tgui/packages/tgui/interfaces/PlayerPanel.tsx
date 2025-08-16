@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import { BooleanLike } from 'tgui-core/react';
 import { useBackend, useLocalState } from '../backend';
-import { Input, Box, Button, Section, Table } from '../components';
+import { Input, Box, Button, Section, Table } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type PanelData = {
@@ -22,17 +22,16 @@ type Player = {
   age: any; // string or number
 };
 
-export const PlayerPanel = (props, context) => {
-  const { act, data } = useBackend<PanelData>(context);
+export const PlayerPanel = (props) => {
+  const { act, data } = useBackend<PanelData>();
 
   const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
     `searchTerm`,
     ``
   );
 
   return (
-    <Window resizable theme="admin">
+    <Window theme="admin">
       <Window.Content scrollable>
         <Section
           title="Players"

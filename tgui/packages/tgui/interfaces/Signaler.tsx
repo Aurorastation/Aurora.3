@@ -1,6 +1,6 @@
-import { toFixed } from '../../common/math';
+import { toFixed } from 'tgui-core/math';
 import { useBackend } from '../backend';
-import { Button, NumberInput, Section, LabeledList } from '../components';
+import { Button, NumberInput, Section, LabeledList } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type SignalerData = {
@@ -8,11 +8,11 @@ export type SignalerData = {
   code: number;
 };
 
-export const Signaler = (props, context) => {
-  const { act, data } = useBackend<SignalerData>(context);
+export const Signaler = (props) => {
+  const { act, data } = useBackend<SignalerData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section
           title="Frequency"

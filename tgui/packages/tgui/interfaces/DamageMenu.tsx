@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Button, Section, Table } from '../components';
+import { Button, Section, Table } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type DamageData = {
@@ -13,11 +13,11 @@ type Organ = {
   present: BooleanLike;
 };
 
-export const DamageMenu = (props, context) => {
-  const { act, data } = useBackend<DamageData>(context);
+export const DamageMenu = (props) => {
+  const { act, data } = useBackend<DamageData>();
 
   return (
-    <Window resizable theme="admin">
+    <Window theme="admin">
       <Window.Content scrollable>
         <Section title="Limbs">
           <Table>

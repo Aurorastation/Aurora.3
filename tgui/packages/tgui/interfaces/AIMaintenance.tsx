@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Button, LabeledList, NoticeBox, ProgressBar, Section, Table } from '../components';
+import { Button, LabeledList, NoticeBox, ProgressBar, Section, Table } from 'tgui-core/components';
 import { NtosWindow } from '../layouts';
 
 export type AIData = {
@@ -18,11 +18,11 @@ type Law = {
   text: string;
 };
 
-export const AIMaintenance = (props, context) => {
-  const { act, data } = useBackend<AIData>(context);
+export const AIMaintenance = (props) => {
+  const { act, data } = useBackend<AIData>();
 
   return (
-    <NtosWindow resizable>
+    <NtosWindow>
       <NtosWindow.Content scrollable>
         {data.error ? (
           <NoticeBox>No AI card inserted.</NoticeBox>
@@ -34,8 +34,8 @@ export const AIMaintenance = (props, context) => {
   );
 };
 
-export const MaintenanceWindow = (props, context) => {
-  const { act, data } = useBackend<AIData>(context);
+export const MaintenanceWindow = (props) => {
+  const { act, data } = useBackend<AIData>();
 
   return (
     <>

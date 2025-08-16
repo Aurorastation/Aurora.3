@@ -5,16 +5,16 @@
  */
 
 import { useLocalState } from '../backend';
-import { Box, DraggableControl, Icon, Input, Knob, LabeledList, NumberInput, Section, Slider } from '../components';
+import { Box, DraggableControl, Icon, Input, Knob, LabeledList, NumberInput, Section, Slider } from 'tgui-core/components';
 
 export const meta = {
   title: 'Input',
   render: () => <Story />,
 };
 
-const Story = (props, context) => {
-  const [number, setNumber] = useLocalState(context, 'number', 0);
-  const [text, setText] = useLocalState(context, 'text', 'Sample text');
+const Story = (props) => {
+  const [number, setNumber] = useLocalState('number', 0);
+  const [text, setText] = useLocalState('text', 'Sample text');
   return (
     <Section>
       <LabeledList>

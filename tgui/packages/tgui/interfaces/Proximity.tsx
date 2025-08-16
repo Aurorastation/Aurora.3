@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Button, NumberInput, Section, LabeledList } from '../components';
+import { Button, NumberInput, Section, LabeledList } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type ProximityData = {
@@ -10,11 +10,11 @@ export type ProximityData = {
   time: number;
 };
 
-export const Proximity = (props, context) => {
-  const { act, data } = useBackend<ProximityData>(context);
+export const Proximity = (props) => {
+  const { act, data } = useBackend<ProximityData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section
           title="Timing Unit"

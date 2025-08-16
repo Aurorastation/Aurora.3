@@ -5,9 +5,6 @@ PROCESSING_SUBSYSTEM_DEF(nanoui)
 	priority = SS_PRIORITY_NANOUI
 	stat_tag = "A"
 
-	// NanoUI stuff.
-	var/list/open_uis = list()
-
 /**
  * Get an open /nanoui ui for the current user, src_object and ui_key and try to update it with data
  *

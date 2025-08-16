@@ -35,6 +35,3 @@
  */
 /datum/proc/nanoui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/nanoui/master_ui = null, var/datum/ui_state/state = GLOB.default_state)
 	return
-
-// Used by the Nano UI Manager (/datum/SSnanoui) to track UIs opened by this mob
-/mob/var/list/open_uis = list()
