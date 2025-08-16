@@ -4381,4 +4381,5 @@
 #include "maps\sccv_horizon\code\sccv_horizon_unittest.dm"
 #include "maps\templates\distress\distress_equipment.dm"
 #include "maps\templates\orbital\orbital_templates.dm"
+#include "_maps\sccv_horizon.dm"
 // END_INCLUDE
