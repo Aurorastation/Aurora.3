@@ -86,11 +86,11 @@ SUBSYSTEM_DEF(persistence)
 					found = TRUE // Prevent expiration of track
 					var/changed = FALSE
 					var/turf/T = get_turf(track)
-					if (T.x != record["x"])
+					if (T && T.x != record["x"])
 						changed = TRUE
-					else if (T.y != record["y"])
+					else if (T && T.y != record["y"])
 						changed = TRUE
-					else if (T.z != record["z"])
+					else if (T && T.z != record["z"])
 						changed = TRUE
 					else if (track_get_content(track) != record["content"])
 						changed = TRUE
@@ -207,7 +207,7 @@ SUBSYSTEM_DEF(persistence)
 			return
 
 		var/turf/T = get_turf(track)
-		if(!is_station_level(T.z)) // The persistence system only supports objects from the main map levels for multiple reasons, e.g. Z level value, mapping support
+		if(!T || !is_station_level(T.z)) // The persistence system only supports objects from the main map levels for multiple reasons, e.g. Z level value, mapping support
 			return
 
 		var/datum/db_query/insert_query = SSdbcore.NewQuery(
@@ -241,7 +241,7 @@ SUBSYSTEM_DEF(persistence)
 			return
 
 		var/turf/T = get_turf(track)
-		if(!is_station_level(T.z)) // The persistence system only supports objects from the main map levels for multiple reasons, e.g. Z level value, mapping support
+		if(!T || !is_station_level(T.z)) // The persistence system only supports objects from the main map levels for multiple reasons, e.g. Z level value, mapping support
 			return
 
 		var/datum/db_query/update_query = SSdbcore.NewQuery(
@@ -292,7 +292,7 @@ SUBSYSTEM_DEF(persistence)
 		return
 
 	var/turf/T = get_turf(new_track)
-	if(!is_station_level(T.z)) // The persistence system only supports objects from the main map levels for multiple reasons, e.g. Z level value, mapping support
+	if(!T || !is_station_level(T.z)) // The persistence system only supports objects from the main map levels for multiple reasons, e.g. Z level value, mapping support
 		return
 
 	new_track.persistence_track_active = TRUE
