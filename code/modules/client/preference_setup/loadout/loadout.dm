@@ -613,8 +613,15 @@ GLOBAL_LIST_INIT(gear_datums, list())
 
 // arg should be a religion name string
 /datum/gear/proc/check_religion(var/religion_)
-	if((religion && religion_) && (religion != religion_))
-		return FALSE
+	if((religion && religion_))
+		if(islist(religion))
+			var/result = FALSE
+			for(var/religion_path in religion)
+				if(religion_path == religion_)
+					result = TRUE
+			return result
+		else if (religion != religion_)
+			return FALSE
 	return TRUE
 
 // arg should be a role name string
