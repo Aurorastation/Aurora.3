@@ -94,9 +94,9 @@
 		/obj/item/storage/box/fancy/packaged_burger = 3,
 		/obj/item/reagent_containers/food/snacks/quick_curry = 3,
 		/obj/item/reagent_containers/food/snacks/hv_dinner = 3,
-		/obj/item/storage/box/fancy/toptart_strawberry = 3,
-		/obj/item/storage/box/fancy/toptart_chocolate_peanutbutter = 3,
-		/obj/item/storage/box/fancy/toptart_blueberry = 3,
+		/obj/item/storage/box/fancy/toptarts_strawberry = 3,
+		/obj/item/storage/box/fancy/toptarts_chocolate_peanutbutter = 3,
+		/obj/item/storage/box/fancy/toptarts_blueberry = 3,
 		/obj/item/storage/box/donkpockets = 3
 	)
 	premium = list(

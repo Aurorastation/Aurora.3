@@ -200,3 +200,13 @@
 	fruit = list("chickpeas" = 2)
 	result = /obj/item/reagent_containers/food/snacks/falafelballs
 
+/singleton/recipe/pop_shrimp
+	appliance = FRYER
+	reagents = list(/singleton/reagent/spacespice = 2)
+	coating = /singleton/reagent/nutriment/coating/batter
+	items = list(
+		/obj/item/reagent_containers/food/snacks/fish/raw_shrimp,
+		/obj/item/reagent_containers/food/snacks/fish/raw_shrimp
+	)
+	result = /obj/item/reagent_containers/food/snacks/bowl/pop_shrimp_bowl
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product

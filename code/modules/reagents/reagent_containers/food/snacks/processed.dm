@@ -881,9 +881,9 @@
 /obj/item/reagent_containers/food/snacks/quick_microwave_mac_and_cheeze/update_icon()
 	var/percent_mac_cheeze = round((reagents.total_volume / 5) * 100)
 	switch(percent_mac_cheeze)
-		if(0 to 95)
+		if(0 to 90)
 			icon_state = "mac_pack_open"
-		if(96 to INFINITY)
+		else
 			icon_state = "mac_pack"
 
 /obj/item/reagent_containers/food/snacks/instant_mac
@@ -1020,8 +1020,8 @@
 		else
 			icon_state = "hv_dinner"
 
-/obj/item/storage/box/fancy/toptart_strawberry
-	name = "\improper toptart supreme strawberry"
+/obj/item/storage/box/fancy/toptarts_strawberry
+	name = "\improper toptarts supreme strawberry"
 	desc = "A box containing four Getmore brand Toptarts. These ones are strawberry flavored! There are instructions on the box recommending you remove them from the box and heat them up for one minute per pastry."
 	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
 	icon_state = "toptart_strawberry_box"
@@ -1039,8 +1039,8 @@
 	pickup_sound = 'sound/items/pickup/wrapper.ogg'
 	icon_overlays = FALSE
 
-/obj/item/storage/box/fancy/toptart_chocolate_peanutbutter
-	name = "\improper toptart chocolate peanutbutter pow-wow"
+/obj/item/storage/box/fancy/toptarts_chocolate_peanutbutter
+	name = "\improper toptarts chocolate peanutbutter pow-wow"
 	desc = "A box containing four Getmore brand Toptarts. These ones are chocolate-peanutbutter flavored! There are instructions on the box recommending you remove them from the box and heat them up for one minute per pastry."
 	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
 	icon_state = "toptart_chocolate_box"
@@ -1058,8 +1058,8 @@
 	pickup_sound = 'sound/items/pickup/wrapper.ogg'
 	icon_overlays = FALSE
 
-/obj/item/storage/box/fancy/toptart_blueberry
-	name = "\improper toptart bursting blueberry"
+/obj/item/storage/box/fancy/toptarts_blueberry
+	name = "\improper toptarts bursting blueberry"
 	desc = "A box containing four Getmore brand Toptarts. These ones are blueberry flavored! There are instructions on the box recommending you remove them from the box and heat them up for one minute per pastry."
 	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
 	icon_state = "toptart_blueberry_box"

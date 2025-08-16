@@ -362,7 +362,18 @@
 	filling_color = "#c43934"
 	bitesize = 1
 
-/obj/item/reagent_containers/food/snacks/cranberry_orange_roll/filled //If you gotta spawn one out of nowhere, spawn the filled one so it's not an empty shell.
+/obj/item/reagent_containers/food/snacks/cranberry_orange_roll/filled/update_icon()
+	var/expected_initial_reagent_volume
+	for(var/k in src.reagents_to_add)
+		expected_initial_reagent_volume += reagents_to_add[k]
+	var/percent_cranberry_orange_roll = round((reagents.total_volume / expected_initial_reagent_volume) * 100)
+	switch(percent_cranberry_orange_roll)
+		if(0 to 80)
+			icon_state = "cranberryroll_half"
+		if(81 to INFINITY)
+			icon_state = "cranberryroll"
+
+/obj/item/reagent_containers/food/snacks/cranberry_orange_roll/filled
 	reagents_to_add = list(/singleton/reagent/nutriment = 3)
 	reagent_data = list(/singleton/reagent/nutriment = list("cranberry" = 5, "orange" = 5, "sweet dough" = 5))
 
@@ -768,6 +779,12 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("cranberry" = 4, "crumbly pie dough" = 4))
 	bitesize = 3
 
+/obj/item/reagent_containers/food/snacks/sliceable/cranberry_pie/Initialize() //Couldn't decide which sprite I like better (and asking people didn't help), so you're getting both.
+	. = ..()
+	var/shape = pick("cranberry_pie", "cranberry_pie2")
+	icon = 'icons/obj/item/reagent_containers/food/pastries.dmi'
+	src.icon_state = "[shape]"
+
 /obj/item/reagent_containers/food/snacks/cranberry_pie_slice
 	name = "slice of cranberry pie"
 	desc = "A delightful sweet and tangy slice of cranberry pie in a crumbly crust."
@@ -775,7 +792,7 @@
 	icon_state = "cranberry_pie_slice"
 	trash = /obj/item/trash/plate
 	filling_color = "#9e0057"
-	bitesize = 3
+	bitesize = 1
 	center_of_mass = list("x"=16, "y"=12)
 
 /obj/item/reagent_containers/food/snacks/amanita_pie
