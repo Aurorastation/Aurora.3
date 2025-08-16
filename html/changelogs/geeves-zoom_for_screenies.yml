@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Added the option to set your view zoom in the OOC tab. Use this for screenshots or cheating at melee fights."
