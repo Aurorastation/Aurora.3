@@ -1,3 +1,7 @@
+// Global lists used in this ruin
+/// List of ruin creatures that exists.
+GLOBAL_LIST_EMPTY(quarantined_outpost_creatures)
+
 /**
  * Storytelling Holograms
  * Compatible to use in any maps. Ported and adapted from Paradise Station.
@@ -221,7 +225,6 @@
 	icon_dead = "abomination_dead"
 	tameable = FALSE
 	blood_type = "#490d0d"
-	faction = "abominations"
 
 	maxHealth = 300
 	health = 300
@@ -238,17 +241,13 @@
 	/// Did we yell at our unfortunate victim the moment we spot them? This prevents yell spams.
 	var/recently_yelled = FALSE
 	/// The mob will yell at its targets with the sound path set here. Leave as null to disable.
-	var/mob_soundblock_yell
+	var/mob_soundblock_yell = "/singleton/sound_category/bear_loud"
 	/// Changes the mobs description after death if set.
 	var/desc_after_death = "One might wonder if the evolution ever had a hand in its creation. Whatever it was, it's now dead, hopefully..."
-	/// Where the mob stores its original desc. Leave this null.
-	var/original_desc
 
 /mob/living/simple_animal/hostile/revivable/death()
 	. = ..()
 	if(desc_after_death)
-		if(!original_desc)
-			original_desc = desc
 		desc = desc_after_death
 	playsound(loc, 'sound/effects/creatures/siro_shriek.ogg', 60, 1)
 	START_PROCESSING(SSprocessing, src)
@@ -275,7 +274,7 @@
 /mob/living/simple_animal/hostile/revivable/revive()
 	. = ..()
 	update_icon()
-	desc = original_desc
+	desc = initial(desc)
 	src.visible_message((SPAN_DANGER("\improper [src] abruptly rises with a deafening shriek!")))
 	playsound(loc, 'sound/effects/creatures/siro_shriek.ogg', 60, 1)
 	revive_timer = null // timer served its purpose for one loop, getting it ready if our mob dies again
@@ -300,53 +299,79 @@
 	if(recently_yelled)
 		recently_yelled = FALSE
 
+// Husked creature
+/mob/living/simple_animal/hostile/revivable/husked_creature
+	name = "husked creature"
+	desc = "This eerie figure is unusually pale, its body parts difficult to discern. The blade that the creature has as an arm looks sharp and menacing."
+	icon = 'icons/mob/npc/human.dmi'
+	icon_state = "the_thing_1"
+	icon_living = "the_thing_1"
+	icon_dead = ""
+	faction = "abominations"
+	maxHealth = 250
+	health = 250
+	speed = 6
+
+/mob/living/simple_animal/hostile/revivable/husked_creature/Initialize()
+	. = ..()
+	if(prob(50))
+		icon_state = "the_thing_2"
+		icon_living = "the_thing_2"
+
+		maxHealth = 350 // chitinous armor
+		health = 350
+		speed = 7 // armor heavy
+
 // Abomination
 /mob/living/simple_animal/hostile/revivable/abomination
 	name = "abomination"
-	desc = "Its ominous presence is enough to make even the calmest soul shudder. It seems agitated and you probably shouldn't get close to it."
 	icon = 'icons/mob/npc/animal.dmi'
 	icon_state = "abomination"
 	icon_living = "abomination"
 	icon_dead = "abomination_dead"
+	faction = "abominations"
 
-	mob_soundblock_yell = "/singleton/sound_category/bear_loud"
-	desc_after_death = "One might wonder if the evolution ever had a hand in its creation. Whatever it was, it's now dead, hopefully..."
 
-	/// If set True, will split into lesser creatures if someone approaches the corpse. Has a chance to be set to True in Init.
+	/// If true, will split into lesser creatures if someone approaches to the corpse. Has a chance to be set to true in Init.
 	var/trap_split = FALSE
-	/// Has a chance to be set to True in Init, makes the mob appear in disguise. If the mob attacks to someone or gets attacked, the disguise is blown.
+	/// Makes the mob appear in disguise. If the mob attacks to someone or gets attacked, the disguise is blown.
+	/// If true, it will adjust mobs attack reactions and make them pacifist until it reaches someone. Has a chance to be set to True in Init.
 	var/mob_in_disguise = FALSE
 	/// Used to store `talk_to_prey()` cooldown.
 	var/last_time_spoken
+	/// Used for disabling some abilities for horde subtype.
+	var/horde = FALSE
 	bypass_blood_overlay = TRUE
 
 /mob/living/simple_animal/hostile/revivable/abomination/Initialize()
 	. = ..()
-	if(prob(100))
+	if(horde)
+		if(prob(7))
+			trap_split = TRUE
+		return
+	if(prob(40))
 		trap_split = TRUE
-	//if(prob(30))
-	mob_in_disguise = TRUE
-
-	maxHealth = 400 // the mob in disguise makes it easy target for a few bullets. This should even the odds.
-	health = 400
-	speed = 15
-	melee_damage_upper = 60 // punishment for clueless preys.
-		//icon_state = ""
-	mob_soundblock_yell = null // letting us skip the check in `AttackTarget()`
-	break_stuff_probability = 0 // we don't punch stufff around when we're in disguise!
-	destroy_surroundings = 0
-	new /obj/effect/landmark/corpse/quarantined_outpost(get_turf(src))
-	addtimer(CALLBACK(src, PROC_REF(copy_appearance)), 1 SECONDS)
+	if(prob(30))
+		mob_in_disguise = TRUE
+		maxHealth = 400 // the mob in disguise makes it easy target for a few bullets. This should even the odds.
+		health = 400
+		speed = 15
+		melee_damage_upper = 60 // punishment for clueless preys.
+		mob_soundblock_yell = null // letting us skip the check in `AttackTarget()`
+		break_stuff_probability = 0 // we don't punch stufff around when we're in disguise!
+		destroy_surroundings = FALSE
+		new /obj/effect/landmark/corpse/quarantined_outpost(get_turf(src)) // janky way to steal identity, but it works...
+		addtimer(CALLBACK(src, PROC_REF(copy_appearance)), 1 SECONDS)
 
 /mob/living/simple_animal/hostile/revivable/abomination/proc/copy_appearance()
-	var/mob/living/carbon/human/H = locate() in range(2, src)
-	if(H)
-		H.lying = FALSE
-		H.update_icon()
-		appearance = H.appearance
-		name = "Unknown"
-		desc = "The way they move is rather rigid and limping. Their blank eyes are locked on you, the monotonous expression is making your skin crawl. Who is this person?"
-		qdel(H)
+	for(var/mob/living/carbon/human/H in range(2, src))
+		if(H && !H.client) // safety check, so we don't accidentally delete players if the mob happen to spawn near for some reason.
+			H.lying = FALSE
+			H.update_icon()
+			appearance = H.appearance
+			name = "Unknown"
+			desc = "The way they move is rather rigid and limping. Their blank eyes are locked on you, the monotonous expression is making your skin crawl. Who is this person?"
+			qdel(H)
 
 /mob/living/simple_animal/hostile/revivable/abomination/process()
 	. = ..()
@@ -407,8 +432,10 @@
 
 /mob/living/simple_animal/hostile/revivable/abomination/proc/disregard_the_disguise()
 	mob_in_disguise = FALSE
-	break_stuff_probability = 10
-	destroy_surroundings = 1
+	speed = initial(speed)
+	melee_damage_upper = initial(melee_damage_upper)
+	break_stuff_probability = initial(break_stuff_probability)
+	destroy_surroundings = TRUE
 	speed = initial(speed)
 	icon = 'icons/mob/npc/animal.dmi'
 	icon_state = "abomination"
@@ -449,6 +476,133 @@
 	new /obj/effect/gibspawner/generic(get_turf(src))
 	qdel()
 
+// ---- Ruin specific mobs, don't spawn these outside of the ruin. Use the parent types instead!
+
+/mob/living/simple_animal/hostile/revivable/husked_creature/quarantined_outpost
+
+/mob/living/simple_animal/hostile/revivable/husked_creature/quarantined_outpost/Initialize()
+	. = ..()
+	GLOB.quarantined_outpost_creatures += src
+
+/mob/living/simple_animal/hostile/revivable/husked_creature/quarantined_outpost/Destroy()
+	GLOB.quarantined_outpost_creatures -= src
+	return ..()
+
+/mob/living/simple_animal/hostile/revivable/abomination/quarantined_outpost
+
+/mob/living/simple_animal/hostile/revivable/abomination/quarantined_outpost/Initialize()
+	. = ..()
+	GLOB.quarantined_outpost_creatures += src
+
+/mob/living/simple_animal/hostile/revivable/abomination/quarantined_outpost/Destroy()
+	GLOB.quarantined_outpost_creatures -= src
+	return ..()
+
+// ---- special types used in horde spawner (shamelessly copied and adjusted from phoron_deposit_objects.dm)
+
+/mob/living/simple_animal/hostile/revivable/husked_creature/quarantined_outpost/horde
+	var/tmp/breaking_wall = FALSE
+
+/mob/living/simple_animal/hostile/revivable/husked_creature/quarantined_outpost/horde/Move(NewLoc)
+	if(!breaking_wall)
+		var/obj/structure/quarantined_outpost_extractor/EX = locate(/obj/structure/quarantined_outpost_extractor) in NewLoc
+		if(istype(NewLoc, /turf/simulated/wall) || EX)
+			var/turf/T = NewLoc
+			breaking_wall = TRUE
+			spawn(0)
+
+				if(QDELETED(src) || get_dist(src, T) != 1)
+					breaking_wall = FALSE
+					return
+
+				if(EX && !QDELETED(EX)) // ---- is it an extractor
+					visible_message(SPAN_DANGER("\the [src] is attempting to break down the extractor!"))
+					sleep(10 SECONDS)
+					if(!QDELETED(EX))
+						qdel(EX)
+						visible_message(SPAN_DANGER("With a loud thud, \the [src] breaks down the [EX]!"))
+						playsound(src.loc, 'sound/effects/meteorimpact.ogg', 50, 1)
+
+				if(istype(T, /turf/simulated/wall)) // ---- is it a wall
+					sleep(5 SECONDS)
+					visible_message(SPAN_DANGER("With a loud thud, \the [src] breaks down the [T]!"))
+					playsound(src.loc, 'sound/effects/meteorimpact.ogg', 50, 1)
+					T.ChangeTurf(/turf/simulated/floor/exoplanet/asteroid/ash/rocky)
+					new /obj/effect/decal/cleanable/floor_damage/broken6(T)
+
+				breaking_wall = FALSE
+			return FALSE
+	return ..()
+
+/mob/living/simple_animal/hostile/revivable/abomination/quarantined_outpost/horde
+	horde = TRUE
+	var/tmp/breaking_wall = FALSE
+/mob/living/simple_animal/hostile/revivable/abomination/quarantined_outpost/horde/think()
+/mob/living/simple_animal/hostile/revivable/abomination/quarantined_outpost/horde/Move(NewLoc)
+	if(!breaking_wall)
+		var/obj/structure/quarantined_outpost_extractor/EX = locate(/obj/structure/quarantined_outpost_extractor) in NewLoc
+		if(istype(NewLoc, /turf/simulated/wall) || EX)
+			var/turf/T = NewLoc
+			breaking_wall = TRUE
+			spawn(0)
+
+				if(EX && !QDELETED(EX)) // ---- is it an extractor
+					visible_message(SPAN_DANGER("\the [src] is attempting to break down the extractor!"))
+					sleep(10 SECONDS)
+					if(!QDELETED(EX) && !QDELETED(src) && get_dist(src, T) == 1)
+						qdel(EX)
+						visible_message(SPAN_DANGER("With a loud thud, \the [src] breaks down the [EX]!"))
+						playsound(src.loc, 'sound/effects/meteorimpact.ogg', 50, 1)
+					else
+						breaking_wall = FALSE
+
+				if(istype(T, /turf/simulated/wall)) // ---- is it a wall
+					sleep(5 SECONDS)
+					visible_message(SPAN_DANGER("With a loud thud, \the [src] breaks down the [T]!"))
+					playsound(src.loc, 'sound/effects/meteorimpact.ogg', 50, 1)
+					T.ChangeTurf(/turf/simulated/floor/exoplanet/asteroid/ash/rocky)
+					new /obj/effect/decal/cleanable/floor_damage/broken6(T)
+
+				breaking_wall = FALSE
+			return FALSE
+	return ..()
+
+/*######################################
+			  HORDE LOGIC (partially copied over `phoron_deposit_objects.dm`)
+######################################*/
+
+/obj/structure/quarantined_outpost_extractor
+	name = "HPMER Mk. I"
+	desc = "A peculiar machine. Its alloy construction appears more pristine than its surroundings."
+	desc_extended = "\
+	Also known as the 'High-Pressure Matter Extraction Rig', it's renowned as one of the loudest non-explosive contraptions ever created. Due to its \
+	high operating pressure, this machine can generate vibrations at volumes far beyond what one would expect from a device of this size. This is practically \
+	a relic. \
+	"
+	icon = 'icons/obj/kinetic_harvester.dmi'
+	icon_state = "off"
+	anchored = TRUE
+	density = TRUE
+
+/obj/structure/quarantined_outpost_extractor/Destroy() // game over man, it's game over...
+	return ..()
+
+/obj/structure/quarantined_outpost_extractor/proc/begin_extraction()
+	icon_state = "on"
+	for(var/mob/M in range(50, src))
+		if(M.client)
+			to_chat(M, SPAN_DANGER("After a long mechanical hiss, the machine starts up with a jolt. Heavy thumps and the grind of hydraulics fill the air. \
+			Through the noise, you catch something else: a faint sound outside the windows, echoing from deep within the abyss. The air grows tense as the screeches draw closer, \
+			<i>this can't be good...</i>"))
+			playsound(M, 'sound/music/quarantined_outpost.ogg', 30, FALSE)
+			sleep(38 SECONDS) // just before the beat begins, this HAS to be done with style
+			activate_fauna_spawners(src.z)
+
+/*######################################
+				MISC
+######################################*/
+
+/// Mainly used by abominations to copy human appearance.
 /obj/effect/landmark/corpse/quarantined_outpost
 	outfit = list(
 		/obj/outfit/admin/sol_private,
@@ -457,6 +611,28 @@
 		/obj/outfit/admin/generic/security,
 		/obj/outfit/admin/generic/medical
 	)
+
+/obj/effect/landmark/corpse/husk
+	name = "Decayed Corpse"
+	corpseid = FALSE
+	species = SPECIES_HUMAN
+
+/obj/effect/landmark/corpse/husk/do_extra_customization(mob/living/carbon/human/M)
+	M.ChangeToSkeleton()
+	M.dir = pick(GLOB.cardinals)
+
+/obj/effect/landmark/corpse/husk/engineer
+	name = "Decayed Engineer"
+	corpsehelmet = /obj/item/clothing/head/helmet/space/void/engineering
+	corpsesuit = /obj/item/clothing/suit/space/void/engineering
+	corpseuniform = /obj/item/clothing/under/color/brown
+	corpsegloves = /obj/item/clothing/gloves/yellow
+	corpsebelt = /obj/item/storage/belt/utility/full
+	corpseshoes = /obj/item/clothing/shoes/magboots
+	corpseid = TRUE
+	corpseidjob = "Facility Engineer"
+	corpseidaccess = ACCESS_QUARANTINED_OUTPOST_ENGINEER
+	corpseidicon = "dark"
 
 /obj/outfit/admin/sol_private
 	name = "Solarian Army Personnel"
@@ -502,3 +678,23 @@
 		/obj/item/storage/backpack/messenger,
 		/obj/item/storage/backpack/satchel/pocketbook
 	)
+
+/*######################################
+				PAPERS
+######################################*/
+
+/obj/item/paper/fluff/quarantined_outpost/engineers_note
+	name = "crumpled instructions"
+	info = {"
+	<center><img src = solflag.png><br>
+	<h2>SSF Nemora</h2>
+	<small><i>'Research Rooted in Discovery.'</i></small></center>
+	<br><hr>
+	<br><small><b>From:</b> Directorate Office - Facility Operations
+	<br><b>To:</b> Engineering Desk - Main Deck
+	<br><b>Subject:</b> Immediate Action Required, Quarantine Protocols
+	<br><br>Current security issues necessitate the quarantine measures, which are now to be enacted.
+	<br><br>Ongoing situation intervenes the automated systems and it has to be enforced manually. Personnels who aren't occupied with highest priority tasks
+	are required to perform EVA and toggle the locking systems in Auxiliary Power Compartment. Attending personnels will be let back inside once the situation
+	settles down, estimatedly in two hours. Prepare in consideration of a long duration EVA duty.
+	"}

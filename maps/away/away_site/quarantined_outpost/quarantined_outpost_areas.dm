@@ -52,6 +52,11 @@
 	name = "Residential Lift Hallway"
 	icon_state = "hallS"
 
+/area/quarantined_outpost/gym
+	name = "Gym"
+	icon_state = "gym"
+
+
 /area/quarantined_outpost/auxiliary_power
 	name = "Auxiliary Power Storage"
 	icon_state = "storage"
@@ -59,3 +64,21 @@
 /area/quarantined_outpost/security
 	name = "Security Wing"
 	icon_state = "security"
+
+/area/quarantined_outpost/medbay
+	name = "Medical Ward"
+	icon_state = "medbay3"
+
+/area/quarantined_outpost/research
+	name = "Research Laboratory"
+	icon_state = "research"
+
+/area/quarantined_outpost/east_hallway
+	name = "East Hallway"
+	icon_state = "dk_yellow"
+
+/area/quarantined_outpost/east_cavern
+	name = "East Caverns"
+	icon_state = "dark128"
+	requires_power = FALSE
+	always_unpowered = FALSE

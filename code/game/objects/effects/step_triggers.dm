@@ -4,6 +4,8 @@
 	var/affect_ghosts = 0
 	var/stopper = 1 // stops throwers
 	var/mobs_only = FALSE
+	/// If true, only players will trigger this.
+	var/players_only = FALSE
 	invisibility = INVISIBILITY_ABSTRACT // nope cant see this shit
 	anchored = TRUE
 
@@ -24,6 +26,9 @@
 	if(isghost(H) && !affect_ghosts)
 		return
 	if(!ismob(H) && mobs_only)
+		return
+	var/mob/living/L = H
+	if(!L.client && players_only)
 		return
 	INVOKE_ASYNC(src, PROC_REF(Trigger), H)
 

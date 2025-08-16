@@ -40,19 +40,21 @@
 
 	initial_generic_waypoints = list(
 		// asteroid landing marks
-		"nav_quarantined_outpost_asteroid_south_1",
-		"nav_quarantined_outpost_asteroid_east_1",
-		"nav_quarantined_outpost_asteroid_west_1",
-		"nav_quarantined_outpost_asteroid_south_2",
-		"nav_quarantined_outpost_asteroid_east_2",
-		"nav_quarantined_outpost_asteroid_west_2",
+		"nav_quarantined_outpost_asteroid_1a",
+		"nav_quarantined_outpost_asteroid_1b",
+		"nav_quarantined_outpost_asteroid_1c",
+		"nav_quarantined_outpost_asteroid_1d",
+		"nav_quarantined_outpost_asteroid_2a",
+		"nav_quarantined_outpost_asteroid_2b",
+		"nav_quarantined_outpost_asteroid_2c",
+		"nav_quarantined_outpost_asteroid_2d",
 		// space
-		"nav_quarantined_outpost_space_south_1",
-		"nav_quarantined_outpost_space_south_2",
-		"nav_quarantined_outpost_space_north_1",
-		"nav_quarantined_outpost_space_north_2",
-		"nav_quarantined_outpost_space_east_1",
-		"nav_quarantined_outpost_space_east_2",
-		"nav_quarantined_outpost_space_west_1",
-		"nav_quarantined_outpost_space_west_2"
+		"nav_quarantined_outpost_space_1a",
+		"nav_quarantined_outpost_space_1b",
+		"nav_quarantined_outpost_space_1c",
+		"nav_quarantined_outpost_space_1d",
+		"nav_quarantined_outpost_space_2a",
+		"nav_quarantined_outpost_space_2b",
+		"nav_quarantined_outpost_space_2c",
+		"nav_quarantined_outpost_space_2d"
 	)

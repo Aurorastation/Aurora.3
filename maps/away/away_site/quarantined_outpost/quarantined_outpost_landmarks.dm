@@ -14,85 +14,95 @@
 	base_turf = /turf/space/transit/north
 	dir = NORTH
 
-//---- Inner docking zones
+// ---- Inner docking zones
 
-// left side
+// ---- left side
+
 /obj/effect/shuttle_landmark/quarantined_outpost/asteroid/landing_1a
-	name = "Asteroid, Landing Zone, South 1"
-	landmark_tag = "nav_quarantined_outpost_asteroid_south_1"
+	name = "Asteroid, Landing Zone, 1a"
+	landmark_tag = "nav_quarantined_outpost_asteroid_1a"
 	dir = NORTH
 
 /obj/effect/shuttle_landmark/quarantined_outpost/asteroid/landing_1b
-	name = "Asteroid, Landing Zone, East 1"
-	landmark_tag = "nav_quarantined_outpost_asteroid_east_1"
-	dir = WEST
+	name = "Asteroid, Landing Zone, 1b"
+	landmark_tag = "nav_quarantined_outpost_asteroid_1b"
+	dir = SOUTH
 
 /obj/effect/shuttle_landmark/quarantined_outpost/asteroid/landing_1c
-	name = "Asteroid, Landing Zone, West 1"
-	landmark_tag = "nav_quarantined_outpost_asteroid_west_1"
+	name = "Asteroid, Landing Zone, 1c"
+	landmark_tag = "nav_quarantined_outpost_asteroid_1c"
 	dir = EAST
 
-// right side
+/obj/effect/shuttle_landmark/quarantined_outpost/asteroid/landing_1d
+	name = "Asteroid, Landing Zone, 1d"
+	landmark_tag = "nav_quarantined_outpost_asteroid_1d"
+	dir = WEST
+
+// ---- right side
+
 /obj/effect/shuttle_landmark/quarantined_outpost/asteroid/landing_2a
-	name = "Asteroid, Landing Zone, South 2"
-	landmark_tag = "nav_quarantined_outpost_asteroid_south_2"
+	name = "Asteroid, Landing Zone, 2a"
+	landmark_tag = "nav_quarantined_outpost_asteroid_2a"
 	dir = NORTH
 
 /obj/effect/shuttle_landmark/quarantined_outpost/asteroid/landing_2b
-	name = "Asteroid, Landing Zone, East 2"
-	landmark_tag = "nav_quarantined_outpost_asteroid_east_2"
-	dir = WEST
+	name = "Asteroid, Landing Zone, 2b"
+	landmark_tag = "nav_quarantined_outpost_asteroid_2b"
+	dir = SOUTH
 
 /obj/effect/shuttle_landmark/quarantined_outpost/asteroid/landing_2c
-	name = "Asteroid, Landing Zone, West 2"
-	landmark_tag = "nav_quarantined_outpost_asteroid_west_2"
+	name = "Asteroid, Landing Zone, 2c"
+	landmark_tag = "nav_quarantined_outpost_asteroid_2c"
 	dir = EAST
 
-//--- Space
-
-//south
-/obj/effect/shuttle_landmark/quarantined_outpost/space/south_1
-	name = "Space, South, 1"
-	landmark_tag = "nav_quarantined_outpost_space_south_1"
-	dir = NORTH
-
-/obj/effect/shuttle_landmark/quarantined_outpost/space/south_2
-	name = "Space, South, 2"
-	landmark_tag = "nav_quarantined_outpost_space_south_2"
-	dir = NORTH
-
-//north
-/obj/effect/shuttle_landmark/quarantined_outpost/space/north_1
-	name = "Space, North, 1"
-	landmark_tag = "nav_quarantined_outpost_space_north_1"
-	dir = SOUTH
-
-/obj/effect/shuttle_landmark/quarantined_outpost/space/north_2
-	name = "Space, North, 2"
-	landmark_tag = "nav_quarantined_outpost_space_north_2"
-	dir = SOUTH
-
-//east
-/obj/effect/shuttle_landmark/quarantined_outpost/space/east_1
-	name = "Space, East, 1"
-	landmark_tag = "nav_quarantined_outpost_space_east_1"
+/obj/effect/shuttle_landmark/quarantined_outpost/asteroid/landing_2d
+	name = "Asteroid, Landing Zone, 2d"
+	landmark_tag = "nav_quarantined_outpost_asteroid_2d"
 	dir = WEST
 
-/obj/effect/shuttle_landmark/quarantined_outpost/space/east_2
-	name = "Space, East, 2"
-	landmark_tag = "nav_quarantined_outpost_space_east_2"
+// ---- Space
+
+/obj/effect/shuttle_landmark/quarantined_outpost/space/space_1a
+	name = "Space, 1a"
+	landmark_tag = "nav_quarantined_outpost_space_1a"
+	dir = NORTH
+
+/obj/effect/shuttle_landmark/quarantined_outpost/space/space_1b
+	name = "Space, 1b"
+	landmark_tag = "nav_quarantined_outpost_space_1b"
+	dir = SOUTH
+
+/obj/effect/shuttle_landmark/quarantined_outpost/space/space_1c
+	name = "Space, 1c"
+	landmark_tag = "nav_quarantined_outpost_space_1c"
+	dir = EAST
+
+/obj/effect/shuttle_landmark/quarantined_outpost/space/space_1d
+	name = "Space, 1d"
+	landmark_tag = "nav_quarantined_outpost_space_1d"
 	dir = WEST
 
-//west
-/obj/effect/shuttle_landmark/quarantined_outpost/space/west_1
-	name = "Space, West, 1"
-	landmark_tag = "nav_quarantined_outpost_space_west_1"
+// ----
+
+/obj/effect/shuttle_landmark/quarantined_outpost/space/space_2a
+	name = "Space, 2a"
+	landmark_tag = "nav_quarantined_outpost_space_2a"
+	dir = NORTH
+
+/obj/effect/shuttle_landmark/quarantined_outpost/space/space_2b
+	name = "Space, 2b"
+	landmark_tag = "nav_quarantined_outpost_space_2b"
+	dir = SOUTH
+
+/obj/effect/shuttle_landmark/quarantined_outpost/space/space_2c
+	name = "Space, 2c"
+	landmark_tag = "nav_quarantined_outpost_space_2c"
 	dir = EAST
 
-/obj/effect/shuttle_landmark/quarantined_outpost/space/west_2
-	name = "Space, West, 2"
-	landmark_tag = "nav_quarantined_outpost_space_west_2"
-	dir = EAST
+/obj/effect/shuttle_landmark/quarantined_outpost/space/space_2d
+	name = "Space, 2d"
+	landmark_tag = "nav_quarantined_outpost_space_2d"
+	dir = WEST
 
 // Airlocks
 

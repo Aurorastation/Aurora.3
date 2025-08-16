@@ -257,6 +257,8 @@
 	GC_TEMPORARY_HARDDEL
 
 /mob/living/simple_animal/Move(NewLoc, direct)
+	if(ischasm(NewLoc) && !istype(NewLoc, /obj/structure/lattice)) // this is a janky way to prevent mobs wandering into chasms
+		return
 	. = ..()
 	if(.)
 		if(src.nutrition && src.stat != DEAD && hunger_enabled)
