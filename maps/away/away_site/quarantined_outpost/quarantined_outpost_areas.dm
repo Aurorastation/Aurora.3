@@ -54,8 +54,7 @@
 
 /area/quarantined_outpost/gym
 	name = "Gym"
-	icon_state = "gym"
-
+	icon_state = "fitness_gym"
 
 /area/quarantined_outpost/auxiliary_power
 	name = "Auxiliary Power Storage"
