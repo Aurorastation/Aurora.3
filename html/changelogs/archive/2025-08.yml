@@ -263,3 +263,46 @@
       crash from attempting to round a null value.
   Maxspells:
   - bugfix: Fixed alcohol not making you drunk.
+2025-08-16:
+  AlaunusLux:
+  - balance: Adds an overlay to reduce vision while in a trash pile or closed locker.
+  - bugfix: Fixed vision not updating when using closet teleporters.
+  - bugfix: Fixed closet density and closet closing sound being lost while closets
+      with teleporters were on cooldown.
+  Batrachophrenoboocosmomachia:
+  - qol: Unifies headsets of Xenoarchaeology, Xenobiology, and Xenobotany in 'Xenology
+      Headsets' so they all share appropriate hailing access.
+  Ben10083:
+  - bugfix: Adds missing access checks for airlock equipment.
+  - spellcheck: Fixes improper capitalization with 'Access denied' messages.
+  ChangeMe:
+  - rscadd: Adds GPS units to Himean Patrol Ship.
+  - rscadd: Slight remap of Himean Patrol Ship shuttle to provide exterior vents.
+  - qol: Access requirements added to airlocks for Himean Patrol Ship.
+  - qol: Adds proper access requirements to Himean Patrol Ship fireshutters and other
+      equipment.
+  CourierBravo:
+  - imageadd: Added a new title screen to the IPC title screen rotation, depicting
+      Hazel IPCs
+  Hellfirejag:
+  - balance: Many mech recipes now require new materials such as Aluminium or Lead,
+      and have had their build time tripled. Hoverthrusters of both kinds now require
+      rare materials.
+  - balance: Light hoverthrusters are somewhat less fragile (from 45 to 75 health),
+      while their power consumption has been significantly increased. Heavy hoverthrusters
+      also now draw more power.
+  - balance: Most hardsuits now require new materials such as Aluminium or Lead.
+  - balance: To help encourage more experimenting with mech parts, quad-legged mechs
+      no longer require research to build.
+  Kano:
+  - qol: Floor plaques can now be examined and interacted such as signs.
+  SimpleMaroon:
+  - rscdel: Removed the blurbs relating to the Orepit origins for both humans and
+      IPCs due to lore developments.
+  UltraBigRat:
+  - rscadd: Lowers higher than usual prices of NT, Imperial army and TCAF gearloadouts.
+  meep109:
+  - bugfix: Minor fixes and tweaks to the COC surveyor ship and shuttle.
+  nauticall:
+  - spellcheck: Renamed the NTCC Odin's AI from 'Bubble' to 'Huginn' to comply with
+      recent lore changes.

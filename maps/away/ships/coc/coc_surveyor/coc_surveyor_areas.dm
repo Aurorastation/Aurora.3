@@ -87,3 +87,5 @@
 
 /area/shuttle/coc_survey_shuttle
 	name = "Coalition Survey Shuttle"
+	area_flags = AREA_FLAG_RAD_SHIELDED
+	requires_power = TRUE
