@@ -20,7 +20,7 @@
 	req_one_access = null
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/plating,
 /area/ship/sadar_scout/eva)
 "az" = (
@@ -103,7 +103,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/sadar_shuttle)
 "aQ" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /obj/effect/map_effect/marker/airlock{
 	frequency = 4524;
 	master_tag = "airlock_sadar_scout_port_2";
@@ -131,17 +131,11 @@
 /turf/simulated/floor/airless,
 /area/shuttle/sadar_shuttle)
 "aX" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/light/floor/decayed{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
-	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/bed/handrail{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/plating,
 /area/ship/sadar_scout/wep)
 "aY" = (
 /obj/machinery/atmospherics/pipe/simple/visible/red{
@@ -153,14 +147,14 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/sadar_scout/atmos)
 "ba" = (
-/obj/effect/floor_decal/corner_wide/lime{
-	dir = 9
-	},
 /obj/machinery/portable_atmospherics/hydroponics{
 	closed_system = 1
 	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/atmospherics/portables_connector/supply{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/service,
+/turf/simulated/floor/plating,
 /area/ship/sadar_scout/hydro)
 "bf" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
@@ -217,9 +211,9 @@
 /obj/machinery/alarm/east{
 	req_one_access = null
 	},
-/obj/effect/floor_decal/industrial/outline,
+/obj/effect/floor_decal/industrial/outline/blue,
 /obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/atmospherics/portables_connector{
+/obj/machinery/atmospherics/portables_connector/aux{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -254,6 +248,13 @@
 	},
 /turf/simulated/floor/airless,
 /area/ship/sadar_scout/bridge)
+"bC" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/ship/sadar_scout/hydro)
 "bE" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/alarm/north{
@@ -262,8 +263,8 @@
 /turf/simulated/floor/plating,
 /area/ship/sadar_scout/eva)
 "bG" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 10
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
 	},
 /obj/machinery/power/apc/north{
 	req_access = null
@@ -290,7 +291,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/sadar_scout/forehall)
 "cb" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
 /obj/structure/cable/yellow{
@@ -350,7 +351,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sadar_scout/thrusters)
 "cp" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
 	},
 /obj/machinery/light/small/emergency{
@@ -452,14 +453,11 @@
 /turf/simulated/floor/plating,
 /area/ship/sadar_scout/crew)
 "cJ" = (
-/obj/effect/floor_decal/corner_wide/lime{
-	dir = 9
-	},
-/obj/machinery/portable_atmospherics/hydroponics{
-	closed_system = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/sadar_scout/hydro)
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
+/area/ship/sadar_scout/wep)
 "cK" = (
 /obj/machinery/biogenerator{
 	icon_state = "biogen-empty"
@@ -597,7 +595,7 @@
 /area/ship/sadar_scout/exterior)
 "dI" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 10
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -690,7 +688,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 9
 	},
 /obj/machinery/recharger/wallcharger{
@@ -741,6 +739,11 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/sadar_scout/atmos)
+"fg" = (
+/obj/structure/dispenser/oxygen,
+/obj/effect/floor_decal/industrial/outline/blue,
+/turf/simulated/floor/plating,
+/area/ship/sadar_scout/eva)
 "fm" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -762,9 +765,7 @@
 	},
 /area/space)
 "fw" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5
-	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
@@ -792,8 +793,8 @@
 /obj/structure/bed/handrail{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/ship/sadar_scout/cic)
@@ -818,8 +819,8 @@
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sadar_scout/eva)
@@ -949,6 +950,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sadar_scout/atmos)
+"hh" = (
+/obj/structure/ship_weapon_dummy/barrel,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/ship/sadar_scout/wep)
 "hi" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -978,8 +986,8 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -1023,7 +1031,7 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /turf/simulated/floor/plating,
 /area/ship/sadar_scout/eva)
 "hO" = (
@@ -1037,9 +1045,6 @@
 /turf/simulated/floor/plating,
 /area/ship/sadar_scout/wep)
 "hP" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
@@ -1066,9 +1071,6 @@
 /turf/simulated/floor/plating,
 /area/ship/sadar_scout/eva)
 "hW" = (
-/obj/machinery/vending/engivend{
-	req_access = null
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
@@ -1077,6 +1079,9 @@
 	dir = 1;
 	id = "sadar_tool_blast";
 	name = "Tool Storage Window Shutters"
+	},
+/obj/machinery/vending/engineering{
+	req_access = null
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/sadar_scout/tools)
@@ -1100,6 +1105,13 @@
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/sadar_scout/mainhall)
+"id" = (
+/obj/structure/ship_weapon_dummy,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/ship/sadar_scout/wep)
 "ie" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable{
@@ -1119,7 +1131,8 @@
 "ik" = (
 /obj/machinery/atmospherics/binary/pump/on{
 	dir = 1;
-	name = "Scrubbers to Waste"
+	name = "Scrubbers to Waste";
+	target_pressure = 15000
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -1148,7 +1161,9 @@
 	dir = 1;
 	name = "Fuel to Thrusters"
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sadar_scout/thrusters)
 "it" = (
@@ -1325,8 +1340,8 @@
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
 	},
 /obj/machinery/access_button{
 	dir = 8;
@@ -1352,17 +1367,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sadar_scout/atmos)
 "jK" = (
-/obj/structure/table/rack,
-/obj/effect/floor_decal/industrial/outline/red,
+/obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/tank/jetpack/carbondioxide,
-/obj/item/clothing/glasses/spiffygogs/offworlder{
-	color = "#4d4d4d"
+/obj/machinery/suit_cycler/freelancer/prepared{
+	req_access = list();
+	name = "armored suit cycler";
+	mask = /obj/item/clothing/mask/breath/offworlder/jagmask
 	},
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/mask/breath/offworlder/jagmask,
-/obj/item/clothing/suit/space/void/freelancer,
-/obj/item/clothing/head/helmet/space/void/freelancer,
 /turf/simulated/floor/plating,
 /area/ship/sadar_scout/eva)
 "jO" = (
@@ -1401,9 +1412,6 @@
 /turf/simulated/floor/reinforced/airless,
 /area/ship/sadar_scout/thrusters)
 "ki" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
@@ -1457,11 +1465,10 @@
 /turf/simulated/floor/reinforced/airless,
 /area/ship/sadar_scout/wep)
 "kS" = (
-/obj/structure/ship_weapon_dummy,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 6
+/obj/machinery/ammunition_loader/blaster{
+	weapon_id = "USF Scout Blaster"
 	},
-/turf/simulated/floor/reinforced/airless,
+/turf/simulated/floor/reinforced,
 /area/ship/sadar_scout/wep)
 "lc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1552,7 +1559,7 @@
 /turf/simulated/floor/reinforced/airless,
 /area/shuttle/sadar_shuttle)
 "lT" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
 /obj/structure/cable/yellow{
@@ -1578,8 +1585,15 @@
 /obj/structure/cable/yellow,
 /turf/simulated/floor/airless,
 /area/ship/sadar_scout/exterior)
+"lW" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/ship/sadar_scout/hydro)
 "lY" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
@@ -1626,9 +1640,7 @@
 /turf/simulated/floor/reinforced/airless,
 /area/shuttle/sadar_shuttle)
 "mj" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 1
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
@@ -1667,7 +1679,7 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/sadar_scout/mess)
 "mq" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
 	},
 /obj/structure/cable/yellow{
@@ -1741,8 +1753,12 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/sadar_scout/utility)
 "nh" = (
-/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/railing/mapped,
+/obj/machinery/atmospherics/binary/passive_gate/supply{
+	dir = 8;
+	target_pressure = 250
+	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/sadar_scout/hydro)
 "nj" = (
@@ -1812,7 +1828,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden{
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -1834,7 +1850,7 @@
 /turf/simulated/floor/reinforced/airless,
 /area/ship/sadar_scout/thrusters)
 "nB" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock{
@@ -1928,7 +1944,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 8
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
@@ -1956,7 +1972,7 @@
 	dir = 8;
 	pixel_x = 20
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 9
 	},
 /obj/structure/lattice/catwalk/indoor,
@@ -1970,7 +1986,7 @@
 /turf/simulated/floor/plating,
 /area/ship/sadar_scout/forehall)
 "oz" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock{
@@ -1988,7 +2004,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
@@ -2245,13 +2261,13 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/sadar_scout/med)
 "qG" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/reinforced/airless,
 /area/ship/sadar_scout/exterior)
 "qJ" = (
@@ -2290,16 +2306,12 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/sadar_scout/med)
 "qM" = (
-/obj/structure/table/rack,
-/obj/effect/floor_decal/industrial/outline/red,
-/obj/item/tank/jetpack/carbondioxide,
-/obj/item/clothing/glasses/spiffygogs/offworlder{
-	color = "#4d4d4d"
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/suit_cycler/freelancer/prepared{
+	req_access = list();
+	name = "armored suit cycler";
+	mask = /obj/item/clothing/mask/breath/offworlder/jagmask
 	},
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/mask/breath/offworlder/jagmask,
-/obj/item/clothing/suit/space/void/merc,
-/obj/item/clothing/head/helmet/space/void/merc,
 /turf/simulated/floor/plating,
 /area/ship/sadar_scout/eva)
 "qR" = (
@@ -2330,15 +2342,12 @@
 /turf/simulated/floor/tiled,
 /area/ship/sadar_scout/mess)
 "qU" = (
-/obj/structure/ship_weapon_dummy,
-/obj/structure/window/reinforced{
+/obj/machinery/door/firedoor/noid,
+/obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 9
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/ship/sadar_scout/wep)
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/sadar_scout/eva)
 "ra" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -2398,7 +2407,9 @@
 	dir = 4;
 	name = "Connector to Fuel Tank"
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/ship/sadar_scout/thrusters)
 "rJ" = (
@@ -2449,7 +2460,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/sadar_scout/mainhall)
 "rS" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /obj/effect/map_effect/marker/airlock{
 	frequency = 4523;
 	master_tag = "airlock_sadar_scout_starboard_2";
@@ -2478,8 +2489,8 @@
 /turf/simulated/floor/plating,
 /area/ship/sadar_scout/thrusters)
 "sd" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
 	},
 /obj/machinery/access_button{
 	dir = 4;
@@ -2509,7 +2520,7 @@
 /turf/simulated/floor/plating,
 /area/ship/sadar_scout/thrusters)
 "sl" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock{
@@ -2557,11 +2568,12 @@
 	req_access = null;
 	pixel_x = 24
 	},
+/obj/effect/floor_decal/industrial/outline/grey,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/sadar_shuttle)
 "sE" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /obj/effect/map_effect/marker/airlock{
 	frequency = 4524;
 	master_tag = "airlock_sadar_scout_port_2";
@@ -2589,12 +2601,41 @@
 	},
 /area/space)
 "tp" = (
-/obj/effect/floor_decal/industrial/outline/blue,
-/obj/machinery/portable_atmospherics/canister/oxygen,
-/obj/effect/decal/cleanable/dirt,
 /obj/structure/railing/mapped{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/table/rack,
+/obj/item/tank/jetpack/oxygen,
+/obj/item/tank/jetpack/oxygen,
+/obj/item/tank/jetpack/oxygen,
+/obj/item/tank/jetpack/oxygen,
+/obj/item/tank/jetpack/oxygen,
+/obj/item/clothing/glasses/spiffygogs/offworlder{
+	color = "#4d4d4d"
+	},
+/obj/item/clothing/glasses/spiffygogs/offworlder{
+	color = "#4d4d4d"
+	},
+/obj/item/clothing/glasses/spiffygogs/offworlder{
+	color = "#4d4d4d"
+	},
+/obj/item/clothing/glasses/spiffygogs/offworlder{
+	color = "#4d4d4d"
+	},
+/obj/item/clothing/glasses/spiffygogs/offworlder{
+	color = "#4d4d4d"
+	},
+/obj/item/device/gps,
+/obj/item/device/gps,
+/obj/item/device/gps,
+/obj/item/device/gps,
+/obj/item/device/gps,
+/obj/item/tank/emergency_oxygen/double,
+/obj/item/tank/emergency_oxygen/double,
+/obj/item/tank/emergency_oxygen/double,
+/obj/item/tank/emergency_oxygen/double,
+/obj/item/tank/emergency_oxygen/double,
 /turf/simulated/floor/plating,
 /area/ship/sadar_scout/eva)
 "tq" = (
@@ -2615,9 +2656,9 @@
 /turf/simulated/floor/plating,
 /area/ship/sadar_scout/crew)
 "tr" = (
-/obj/effect/floor_decal/industrial/outline,
+/obj/effect/floor_decal/industrial/outline/blue,
 /obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/atmospherics/portables_connector{
+/obj/machinery/atmospherics/portables_connector/aux{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -2698,12 +2739,12 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/plating,
 /area/ship/sadar_scout/eva)
 "tY" = (
-/obj/machinery/atmospherics/portables_connector,
-/obj/effect/floor_decal/industrial/outline,
+/obj/machinery/atmospherics/portables_connector/aux,
+/obj/effect/floor_decal/industrial/outline/blue,
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/structure/railing/mapped,
 /obj/machinery/light/small/emergency{
@@ -2723,7 +2764,7 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/sadar_scout/wep)
 "un" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock{
@@ -2790,15 +2831,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/sadar_shuttle)
 "uD" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/machinery/atmospherics/portables_connector/aux{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/outline,
+/obj/effect/floor_decal/industrial/outline/blue,
 /obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/door/window/northleft,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
 /turf/simulated/floor/plating,
 /area/ship/sadar_scout/forehall)
 "uE" = (
@@ -2824,6 +2861,9 @@
 	pixel_x = -4;
 	pixel_y = 16;
 	name = "railing handbar"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/ship/sadar_scout/hydro)
@@ -2909,8 +2949,8 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -2941,11 +2981,11 @@
 /obj/machinery/door/window/southleft{
 	name = "Mass Driver Interior Windoor"
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/effect/floor_decal/industrial/warning{
+/obj/effect/floor_decal/industrial/warning/cee{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark/full,
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/reinforced,
 /area/ship/sadar_scout/med)
 "vI" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -3008,13 +3048,11 @@
 	pixel_y = 24;
 	pixel_x = 4
 	},
+/obj/item/gun/energy/blaster/himeo,
 /obj/item/gun/energy/rifle,
-/obj/item/gun/energy/rifle/laser,
-/obj/item/gun/projectile/automatic/mini_uzi,
-/obj/item/gun/projectile/shotgun/doublebarrel/pellet,
-/obj/item/gun/projectile/shotgun/pump/rifle,
-/obj/item/grenade/frag,
-/obj/item/grenade/smokebomb,
+/obj/item/gun/projectile/automatic/rifle/shotgun/xanan,
+/obj/item/gun/projectile/automatic/xanusmg,
+/obj/item/gun/projectile/automatic/rifle/shorty,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/sadar_scout/mainhall)
 "vX" = (
@@ -3064,7 +3102,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sadar_scout/cic)
 "ww" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock{
@@ -3098,6 +3136,9 @@
 	pixel_y = -6;
 	name = "railing handbar"
 	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/ship/sadar_scout/hydro)
 "wK" = (
@@ -3124,13 +3165,11 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/sadar_scout/utility)
 "wN" = (
-/obj/machinery/ammunition_loader/blaster{
-	weapon_id = "USF Scout Blaster"
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 8
 	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor/reinforced,
+/turf/space,
 /area/ship/sadar_scout/wep)
 "wQ" = (
 /obj/machinery/optable,
@@ -3158,9 +3197,6 @@
 /turf/simulated/floor/plating,
 /area/ship/sadar_scout/atmos)
 "wS" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 1
-	},
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
@@ -3173,8 +3209,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sadar_scout/solars)
 "wX" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable{
@@ -3202,9 +3238,6 @@
 /area/ship/sadar_scout/bridge)
 "xg" = (
 /obj/structure/ship_weapon_dummy,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
@@ -3237,7 +3270,7 @@
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 6
 	},
 /obj/machinery/access_button{
@@ -3266,13 +3299,9 @@
 /turf/simulated/floor/plating,
 /area/ship/sadar_scout/forehall)
 "xH" = (
-/obj/machinery/atmospherics/portables_connector,
+/obj/machinery/atmospherics/portables_connector/aux,
 /obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/door/window/southleft,
-/obj/effect/floor_decal/industrial/outline,
+/obj/effect/floor_decal/industrial/outline/blue,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/ship/sadar_scout/mainhall)
@@ -3354,8 +3383,9 @@
 /turf/simulated/floor/airless,
 /area/ship/sadar_scout/exterior)
 "yx" = (
-/obj/effect/decal/cleanable/dirt,
 /obj/structure/bed/stool/chair/shuttle,
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/sadar_shuttle)
 "yz" = (
@@ -3504,7 +3534,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sadar_scout/forehall)
 "zw" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
 	},
 /obj/machinery/light/small/emergency{
@@ -3558,7 +3588,7 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/plating,
 /area/ship/sadar_scout/eva)
 "zW" = (
@@ -3607,7 +3637,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden{
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -3619,6 +3649,9 @@
 	},
 /obj/structure/cable{
 	icon_state = "0-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
 	},
 /turf/simulated/floor/plating,
 /area/ship/sadar_scout/hydro)
@@ -3694,13 +3727,16 @@
 /obj/item/clothing/accessory/storage/pouches/black,
 /obj/item/clothing/accessory/storage/pouches/brown,
 /obj/item/clothing/accessory/storage/pouches/brown,
+/obj/item/clothing/accessory/storage/pouches/brown,
 /obj/machinery/light/colored/decayed/dimmed{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sadar_scout/crew)
 "Bj" = (
-/obj/machinery/vending/hydronutrients,
+/obj/machinery/vending/hydronutrients{
+	all_products_free = 1
+	},
 /obj/effect/floor_decal/industrial/outline/service,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/sadar_scout/hydro)
@@ -3758,9 +3794,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sadar_scout/eva)
 "BW" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 1
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
@@ -3811,9 +3845,9 @@
 /turf/simulated/floor/plating,
 /area/shuttle/sadar_shuttle)
 "Cd" = (
-/obj/effect/floor_decal/industrial/outline,
+/obj/effect/floor_decal/industrial/outline/blue,
 /obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/atmospherics/portables_connector{
+/obj/machinery/atmospherics/portables_connector/aux{
 	dir = 8
 	},
 /obj/structure/railing/mapped{
@@ -3862,9 +3896,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 8
-	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sadar_scout/hydro)
 "Co" = (
@@ -3979,17 +4011,16 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/sadar_scout/med)
 "CC" = (
-/obj/effect/floor_decal/industrial/outline/blue,
-/obj/structure/dispenser/oxygen,
 /obj/structure/railing/mapped{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/plating,
 /area/ship/sadar_scout/eva)
 "CN" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 1
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
@@ -4030,8 +4061,8 @@
 /turf/simulated/floor/lino,
 /area/ship/sadar_scout/mess)
 "Da" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
 	},
 /obj/machinery/door/airlock/external{
 	dir = 4
@@ -4052,7 +4083,7 @@
 /area/ship/sadar_scout/mainhall)
 "De" = (
 /obj/structure/lattice/catwalk/indoor,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 8
 	},
 /obj/machinery/light/small/emergency{
@@ -4067,7 +4098,7 @@
 /turf/simulated/floor/plating,
 /area/ship/sadar_scout/eva)
 "Dq" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 8
 	},
 /obj/structure/cable/yellow{
@@ -4111,8 +4142,8 @@
 /turf/space,
 /area/ship/sadar_scout/exterior)
 "DK" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 6
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 1
 	},
 /obj/structure/cable{
 	icon_state = "2-8"
@@ -4226,8 +4257,8 @@
 /turf/simulated/floor/airless,
 /area/shuttle/sadar_shuttle)
 "Ff" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
 	},
 /obj/machinery/alarm/south{
 	req_one_access = null
@@ -4252,7 +4283,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/plating,
 /area/ship/sadar_scout/eva)
 "Fn" = (
@@ -4299,11 +4330,11 @@
 /turf/simulated/floor/plating,
 /area/ship/sadar_scout/thrusters)
 "Fv" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 9
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sadar_scout/eva)
@@ -4358,6 +4389,9 @@
 	id = "sadar_hydro_blast";
 	name = "Hydroponics Window Shutters"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
 /turf/simulated/floor/plating,
 /area/ship/sadar_scout/hydro)
 "Gq" = (
@@ -4387,10 +4421,9 @@
 /turf/simulated/floor/plating,
 /area/ship/sadar_scout/forehall)
 "GJ" = (
-/obj/effect/floor_decal/corner_wide/red{
-	dir = 9
+/obj/machinery/light/floor/decayed{
+	dir = 8
 	},
-/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sadar_scout/eva)
 "GN" = (
@@ -4420,6 +4453,8 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/sadar_scout/tools)
 "GX" = (
@@ -4525,12 +4560,7 @@
 	name = "\improper DANGER: MASS EJECTOR PATH sign"
 	},
 /obj/structure/lattice/catwalk,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
+/obj/effect/floor_decal/industrial/warning/cee,
 /turf/simulated/floor/reinforced/airless,
 /area/ship/sadar_scout/exterior)
 "Ii" = (
@@ -4567,7 +4597,7 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 6
 	},
 /turf/simulated/floor/plating,
@@ -4650,7 +4680,9 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/machinery/autolathe,
+/obj/machinery/autolathe{
+	hacked = 1
+	},
 /obj/machinery/button/remote/blast_door{
 	pixel_y = 28;
 	dir = 1;
@@ -4661,18 +4693,18 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/sadar_scout/utility)
 "Js" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/floor_decal/industrial/loading/yellow,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/effect/floor_decal/industrial/loading/red,
 /turf/simulated/floor/reinforced/airless,
 /area/ship/sadar_scout/exterior)
 "JC" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 8
 	},
 /obj/machinery/light/small/emergency{
@@ -4726,7 +4758,9 @@
 	dir = 4;
 	name = "Fuel to Connector"
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/ship/sadar_scout/thrusters)
 "JS" = (
@@ -4751,7 +4785,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/sadar_scout/cic)
 "JZ" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock{
@@ -4817,8 +4851,7 @@
 /turf/space,
 /area/ship/sadar_scout/exterior)
 "Kl" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
@@ -4826,12 +4859,11 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/bed/handrail{
-	dir = 8
+/obj/machinery/door/firedoor/noid,
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 1
 	},
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/ship/sadar_scout/eva)
 "Kn" = (
 /obj/machinery/door/airlock/external{
@@ -4844,7 +4876,7 @@
 /obj/machinery/access_button{
 	pixel_x = 28
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock{
 	frequency = 4527;
@@ -4870,7 +4902,7 @@
 /obj/structure/bed/handrail{
 	dir = 1
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -4940,20 +4972,33 @@
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/storage/box/shotgunshells,
-/obj/item/storage/box/shotgunshells,
-/obj/item/ammo_magazine/c45uzi,
-/obj/item/ammo_magazine/c45uzi,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/c38,
-/obj/item/ammo_magazine/c38,
-/obj/item/ammo_magazine/mc9mm,
-/obj/item/ammo_magazine/mc9mm,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/a357,
+/obj/item/ammo_magazine/a357,
+/obj/item/ammo_magazine/c46m,
+/obj/item/ammo_magazine/c46m,
+/obj/item/ammo_magazine/c46m/extended,
+/obj/item/ammo_magazine/c46m/extended,
+/obj/item/ammo_magazine/c46m/extended,
+/obj/item/ammo_magazine/c46m/extended,
+/obj/item/ammo_magazine/mc10mm,
+/obj/item/ammo_magazine/mc10mm,
+/obj/item/ammo_magazine/mc10mm,
+/obj/item/ammo_magazine/mc10mm,
+/obj/item/ammo_magazine/c762,
+/obj/item/ammo_magazine/c762,
+/obj/item/ammo_magazine/xanan_shotgun/slugs,
+/obj/item/ammo_magazine/xanan_shotgun/shells,
+/obj/item/ammo_magazine/xanan_shotgun/shells,
+/obj/item/ammo_magazine/xanan_shotgun/shells,
+/obj/item/ammo_magazine/xanan_shotgun/shells,
+/obj/item/cell/hydrogen,
+/obj/item/cell/hydrogen,
+/obj/item/cell/hydrogen,
+/obj/item/cell/hydrogen,
+/obj/item/cell/hydrogen,
+/obj/item/cell/hydrogen,
+/obj/item/cell/hydrogen,
+/obj/item/cell/hydrogen,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/sadar_scout/mainhall)
 "La" = (
@@ -5032,8 +5077,8 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
 	},
 /obj/machinery/door/airlock/hatch{
 	dir = 4;
@@ -5109,7 +5154,7 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/plating,
 /area/ship/sadar_scout/eva)
 "Ma" = (
@@ -5118,7 +5163,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -5137,7 +5182,9 @@
 	dir = 1;
 	name = "Fuel to Thrusters"
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow{
+	dir = 4
+	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sadar_scout/thrusters)
@@ -5213,7 +5260,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 5
 	},
 /obj/structure/cable{
@@ -5246,14 +5293,15 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/sadar_scout/cic)
 "Ni" = (
-/obj/effect/floor_decal/corner_wide/lime{
-	dir = 9
-	},
 /obj/machinery/portable_atmospherics/hydroponics{
 	closed_system = 1
 	},
 /obj/machinery/light/colored/decayed/dimmed,
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/atmospherics/portables_connector/supply{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/service,
+/turf/simulated/floor/plating,
 /area/ship/sadar_scout/hydro)
 "Nk" = (
 /obj/structure/grille,
@@ -5328,7 +5376,7 @@
 	name = "airlock_sadar_scout_dock_fore"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/sadar_scout/forehall)
@@ -5447,13 +5495,13 @@
 /turf/simulated/floor/plating,
 /area/ship/sadar_scout/solars)
 "OQ" = (
-/obj/machinery/vending/engineering{
-	req_access = null
-	},
 /obj/machinery/alarm/north{
 	req_one_access = null
 	},
 /obj/effect/floor_decal/industrial/warning,
+/obj/machinery/vending/engivend{
+	req_access = null
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/sadar_scout/tools)
 "OS" = (
@@ -5523,13 +5571,11 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/sadar_scout/atmos)
 "Pm" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/machinery/atmospherics/portables_connector/aux{
 	dir = 4
 	},
-/obj/machinery/door/window/eastleft,
-/obj/structure/window/reinforced,
 /obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/effect/floor_decal/industrial/outline,
+/obj/effect/floor_decal/industrial/outline/blue,
 /turf/simulated/floor/plating,
 /area/ship/sadar_scout/solars)
 "Px" = (
@@ -5550,8 +5596,8 @@
 /turf/simulated/floor/airless,
 /area/shuttle/sadar_shuttle)
 "PL" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
 	},
 /obj/machinery/door/airlock/external{
 	dir = 4
@@ -5577,8 +5623,17 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/shuttle/sadar_shuttle)
+"PR" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/light/floor/decayed{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/sadar_scout/wep)
 "PT" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /obj/effect/map_effect/marker/airlock{
 	frequency = 4523;
 	master_tag = "airlock_sadar_scout_starboard_2";
@@ -5617,7 +5672,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/sadar_shuttle)
 "PV" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
@@ -5715,6 +5770,7 @@
 /obj/machinery/recharger/wallcharger{
 	pixel_x = 32
 	},
+/obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/sadar_shuttle)
 "QB" = (
@@ -5748,9 +5804,6 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/walllocker/emerglocker/north,
-/obj/structure/bed/handrail{
-	dir = 4
-	},
 /obj/item/storage/bag/inflatable/emergency,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sadar_scout/eva)
@@ -5792,7 +5845,7 @@
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock/docking{
 	landmark_tag = "nav_hangar_sadar_scout";
@@ -5822,7 +5875,7 @@
 /turf/simulated/floor/plating,
 /area/ship/sadar_scout/eva)
 "RA" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /obj/effect/map_effect/marker/airlock{
 	frequency = 4524;
 	master_tag = "airlock_sadar_scout_port_2";
@@ -5877,8 +5930,8 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
 	},
 /obj/structure/bed/handrail{
 	dir = 1
@@ -5900,7 +5953,7 @@
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 5
 	},
 /turf/simulated/floor/plating,
@@ -5988,21 +6041,22 @@
 /area/ship/sadar_scout/bridge)
 "SH" = (
 /obj/effect/floor_decal/industrial/warning,
-/obj/machinery/power/portgen/basic{
-	anchored = 1
-	},
+/obj/machinery/power/portgen/basic,
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/item/stack/material/graphite{
-	amount = 30;
-	pixel_x = -6;
-	pixel_y = 8
+/obj/item/stack/material/graphite/full{
+	pixel_y = 6;
+	pixel_x = -7
 	},
 /obj/structure/sign/nosmoking_1{
 	pixel_y = 28
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/item/stack/material/graphite/full{
+	pixel_y = 5;
+	pixel_x = 5
+	},
 /turf/simulated/floor/redgrid,
 /area/ship/sadar_scout/utility)
 "SO" = (
@@ -6048,7 +6102,7 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/sadar_scout/atmos)
 "Tg" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
@@ -6092,7 +6146,7 @@
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
 /obj/structure/cable/yellow{
@@ -6125,7 +6179,8 @@
 /obj/machinery/vending/dinnerware{
 	density = 0;
 	pixel_x = 32;
-	pixel_y = -6
+	pixel_y = -6;
+	all_products_free = 1
 	},
 /obj/structure/sink/kitchen{
 	dir = 8;
@@ -6144,8 +6199,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
@@ -6196,11 +6251,11 @@
 /obj/machinery/light/colored/decayed/dimmed{
 	dir = 8
 	},
-/obj/item/device/radio/off{
-	pixel_y = 10
+/obj/item/device/radio/hailing{
+	pixel_y = 8
 	},
-/obj/item/device/radio/off{
-	pixel_y = 10
+/obj/item/device/radio{
+	pixel_y = 8
 	},
 /obj/item/device/binoculars,
 /obj/item/device/binoculars{
@@ -6219,7 +6274,7 @@
 	dir = 8;
 	pixel_x = 20
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden{
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor,
@@ -6271,7 +6326,7 @@
 	dir = 9
 	},
 /obj/machinery/hologram/holopad/long_range,
-/obj/effect/floor_decal/industrial/outline/grey,
+/obj/effect/floor_decal/industrial/outline/security,
 /obj/effect/overmap/visitable/ship/landable/sadar_shuttle,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/sadar_shuttle)
@@ -6294,13 +6349,13 @@
 	name = "Mass Driver Exterior Blast Door";
 	id = "mass_driver_exterior"
 	},
-/obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/reinforced/airless,
 /area/ship/sadar_scout/med)
 "UE" = (
@@ -6378,7 +6433,7 @@
 "Ve" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped,
-/obj/machinery/iff_beacon{
+/obj/machinery/iff_beacon/name_change{
 	pixel_y = 4
 	},
 /turf/simulated/floor/airless,
@@ -6423,14 +6478,14 @@
 /obj/machinery/portable_atmospherics/hydroponics{
 	closed_system = 1
 	},
-/obj/effect/floor_decal/corner_wide/lime{
-	dir = 9
-	},
-/obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/colored/decayed/dimmed{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/atmospherics/portables_connector/supply{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/service,
+/turf/simulated/floor/plating,
 /area/ship/sadar_scout/hydro)
 "VH" = (
 /obj/machinery/atmospherics/binary/pump{
@@ -6474,7 +6529,6 @@
 /turf/template_noop,
 /area/space)
 "VZ" = (
-/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
@@ -6484,6 +6538,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/sadar_scout/mainhall)
 "Wi" = (
@@ -6681,13 +6736,11 @@
 	},
 /area/space)
 "Xa" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/machinery/atmospherics/portables_connector/aux{
 	dir = 8
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/door/window/westright,
-/obj/structure/window/reinforced,
-/obj/effect/floor_decal/industrial/outline,
+/obj/effect/floor_decal/industrial/outline/blue,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/ship/sadar_scout/solars)
@@ -6770,11 +6823,11 @@
 	},
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/gun/energy/captain,
-/obj/item/gun/energy/retro,
-/obj/item/gun/projectile/revolver/lemat,
-/obj/item/gun/projectile/colt,
-/obj/item/gun/projectile/pistol,
+/obj/item/gun/projectile/xanupistol,
+/obj/item/gun/projectile/revolver,
+/obj/item/gun/projectile/tanto,
+/obj/item/gun/energy/blaster/himeo/pistol,
+/obj/item/gun/energy/pistol,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/sadar_scout/mainhall)
 "XJ" = (
@@ -6788,7 +6841,7 @@
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sadar_scout/cic)
@@ -6886,11 +6939,16 @@
 /obj/machinery/mass_driver{
 	id = "mass_driver"
 	},
-/obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/window/southleft{
 	name = "Mass Driver Exterior Windoor"
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/reinforced,
 /area/ship/sadar_scout/med)
 "YU" = (
@@ -6965,7 +7023,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/sadar_scout/med)
 "ZC" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /obj/effect/map_effect/marker/airlock{
 	frequency = 4523;
 	master_tag = "airlock_sadar_scout_starboard_2";
@@ -6989,7 +7047,7 @@
 /turf/simulated/floor/plating,
 /area/ship/sadar_scout/hydro)
 "ZV" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux,
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 9
 	},
@@ -35405,12 +35463,12 @@ ro
 jt
 ds
 ds
+wN
 ds
 ds
 ds
 ds
 oC
-Zo
 Zo
 Zo
 Zo
@@ -35664,11 +35722,11 @@ vy
 vy
 vy
 vy
+vy
 Xt
 ro
 ds
 pZ
-Zo
 Zo
 Zo
 Zo
@@ -35919,13 +35977,13 @@ VK
 SO
 gC
 RK
-qU
+jb
+id
 cd
 eF
 eF
 kO
 Vj
-Zo
 Zo
 Zo
 Zo
@@ -36176,13 +36234,13 @@ lB
 SO
 dr
 ze
+jb
 xg
 Ga
 Ga
 Ga
-kS
+hh
 Vj
-Zo
 Zo
 Zo
 Zo
@@ -36433,7 +36491,8 @@ Wk
 vy
 cf
 kl
-wN
+ug
+kS
 Lu
 Lu
 eM
@@ -36441,7 +36500,6 @@ Vj
 Kj
 dG
 ro
-Zo
 Zo
 Zo
 Zo
@@ -36690,13 +36748,13 @@ MT
 bm
 NC
 iQ
+cJ
 cr
 jg
 Wo
 jb
 kF
 ro
-dG
 dG
 dG
 dG
@@ -36948,11 +37006,11 @@ ug
 vr
 hO
 aX
+PR
 IA
 nJ
 jb
 kF
-ro
 ro
 ro
 ro
@@ -37208,8 +37266,8 @@ ug
 ug
 ug
 ug
+ug
 kF
-Zo
 Zo
 Zo
 ro
@@ -37464,9 +37522,9 @@ Zo
 Sl
 Zo
 Zo
+Zo
 ro
 kF
-Zo
 Zo
 Zo
 Zo
@@ -37722,8 +37780,8 @@ jh
 ro
 ro
 ro
+ro
 kF
-Zo
 Zo
 Ds
 ds
@@ -38499,8 +38557,8 @@ NX
 Zv
 Zv
 VG
-cJ
-cJ
+ba
+ba
 ba
 Ni
 Zv
@@ -38755,10 +38813,10 @@ Zv
 WT
 cQ
 rj
-rj
+bC
 uP
 wE
-rj
+lW
 Gn
 Zv
 DP
@@ -39502,7 +39560,7 @@ fd
 On
 gJ
 Ea
-Ea
+fg
 CC
 tp
 Ea
@@ -39766,7 +39824,7 @@ WV
 oY
 fW
 GJ
-WV
+qU
 OS
 li
 YG
