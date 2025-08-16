@@ -18,7 +18,7 @@
 	mob = /mob/abstract/new_player
 	turf = /turf/space
 	area = /area/space
-	view = "15x15"
+	view = "17x17"
 	hub = "Exadv1.spacestation13"
 	hub_password = "kMZy3U5jJHSiBQjr"
 	name = "Space Station 13"

@@ -15,7 +15,7 @@
 	if(!.)
 		return FALSE
 
-	zoom(owner, 7, 7, FALSE, FALSE)
+	zoom(owner, world.view, world.view, FALSE, FALSE)
 	owner.visible_message(
 		zoom ? "<b>[owner]</b>'s pupils narrow..." : "<b>[owner]</b>'s pupils return to normal.",
 		range = 3
