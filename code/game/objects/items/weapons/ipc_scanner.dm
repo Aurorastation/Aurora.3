@@ -40,7 +40,7 @@
 			to_chat(user, SPAN_WARNING("You analyze \the [target_mob], but find that they're not an IPC at all!"))
 			return
 		var/mob/living/carbon/human/IPC = target_mob
-		var/obj/item/organ/internal/ipc_tag/tag = IPC.internal_organs_by_name[BP_IPCTAG]
+		var/obj/item/organ/internal/machine/ipc_tag/tag = IPC.internal_organs_by_name[BP_IPCTAG]
 		if(isnull(tag) || !tag)
 			to_chat(user, SPAN_WARNING("Error: Serial Identification Missing."))
 			return

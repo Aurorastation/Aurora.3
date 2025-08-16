@@ -36,11 +36,11 @@
 		return
 	switch(href_list["info"])
 		if("radio")
-			to_chat(usr, SPAN_NOTICE("A radio can be created at a mechatronic fabricator."))
+			to_chat(usr, SPAN_NOTICE("A radio can be created at a synthetic fabricator."))
 		if("camera")
-			to_chat(usr, SPAN_NOTICE("A camera can be created at a mechatronic fabricator."))
+			to_chat(usr, SPAN_NOTICE("A camera can be created at a synthetic fabricator."))
 		if("module")
-			to_chat(usr, SPAN_NOTICE("An exosuit control module can be created at a mechatronic fabricator, while the software chips it uses can be printed at the circuit imprinter."))
+			to_chat(usr, SPAN_NOTICE("An exosuit control module can be created at a synthetic fabricator, while the software chips it uses can be printed at the circuit imprinter."))
 
 /obj/item/mech_component/sensors/return_diagnostics(mob/user)
 	..()
