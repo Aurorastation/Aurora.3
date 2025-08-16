@@ -377,7 +377,7 @@
 /obj/structure/sign/waste_station
 	name = "\improper WASTE STATION sign"
 	desc = "A danger sign which reads \"WASTE GAS COLLECTION\" and some smaller printed warnings: \"DANGER: EXERCISE CAUTION. WASTE MAY BE TOXIC. PRESSURIZED GASSES.\"."
-	icon_state = "crush"
+	icon_state = "waste"
 //
 // Emergency Signs
 //
