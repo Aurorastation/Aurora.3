@@ -69,6 +69,7 @@
 
 /area/horizon/engineering/bluespace_drive/monitoring
 	name = "Bluespace Drive Monitoring"
+	area_flags = AREA_FLAG_RAD_SHIELDED
 	icon_state = "engineering"
 	horizon_deck = 1
 
@@ -170,6 +171,7 @@
 /area/horizon/engineering/reactor/supermatter/monitoring
 	name = "Supermatter Reactor Monitoring"
 	icon_state = "engine_monitoring"
+	area_flags = AREA_FLAG_RAD_SHIELDED
 	area_blurb = "This compartment provides a fairly convincing illusion of safety and control."
 
 /area/horizon/engineering/reactor/supermatter/waste
@@ -195,6 +197,7 @@
 /area/horizon/engineering/reactor/indra/monitoring
 	name = "INDRA Reactor Monitoring"
 	icon_state = "engine_monitoring"
+	area_flags = AREA_FLAG_RAD_SHIELDED
 	area_blurb = "Where atoms are consigned to be smashed and the pretty lights beheld."
 
 /area/horizon/engineering/reactor/indra/office

@@ -13,6 +13,7 @@
 	ambience = AMBIENCE_AI
 	horizon_deck = 3
 	department = LOC_AI
+	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_HIDE_FROM_HOLOMAP
 	area_blurb = "Ticking, beeping, and buzzing. Great tides of invisible signal traffic across the electromagnetic spectrum, flowing in both directions. Otherwise, the silence and stillness of a tomb."
 
 /area/horizon/ai/chamber
