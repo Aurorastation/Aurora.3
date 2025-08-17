@@ -4,9 +4,6 @@
 /obj/machinery/atmospherics/unary/freezer
 	name = "gas cooling system"
 	desc = "Cools gas when connected to pipe network."
-	desc_info = "Cools down the gas of the pipe it is connected to.  It uses massive amounts of electricity while on. \
-	It can be upgraded by replacing the capacitors, manipulators, and matter bins.  It can be deconstructed by screwing the maintenance panel open with a \
-	screwdriver, and then using a crowbar."
 	icon = 'icons/obj/machinery/sleeper.dmi'
 	icon_state = "freezer_0"
 	density = 1
@@ -30,6 +27,18 @@
 		/obj/item/stock_parts/manipulator,
 		/obj/item/stack/cable_coil{amount = 2}
 	)
+
+	parts_power_mgmt = FALSE
+
+/obj/machinery/atmospherics/unary/freezer/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Cools down the gas of the pipe it is connected to. It uses massive amounts of electricity while on."
+
+/obj/machinery/atmospherics/unary/freezer/upgrade_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Upgraded <b>matter bins</b> will improve cooling efficiency and increase the volume of air it can cool at once."
+	. += "Upgraded <b>capacitors</b> will increase maximum power setting."
+	. += "Upgraded <b>manipulators</b> will improve cooling efficiency."
 
 /obj/machinery/atmospherics/unary/freezer/Initialize()
 	initialize_directions = dir
@@ -180,8 +189,3 @@
 		return TRUE
 
 	return ..()
-
-/obj/machinery/atmospherics/unary/freezer/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(panel_open)
-		. += "The maintenance hatch is open."

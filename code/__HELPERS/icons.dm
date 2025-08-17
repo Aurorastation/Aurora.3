@@ -618,7 +618,8 @@ world
 			else
 				render_icon = FALSE
 
-	var/base_icon_dir //We'll use this to get the icon state to display if not null BUT NOT pass it to overlays as the dir we have
+	// We'll use this to get the icon state to display if not null BUT NOT pass it to overlays as the dir we have
+	var/base_icon_dir
 
 	//Try to remove/optimize this section ASAP, CPU hog.
 	//Determines if there's directionals.
@@ -651,7 +652,8 @@ world
 		PROCESS_OVERLAYS_OR_UNDERLAYS(flat, appearance.underlays, 0)
 		PROCESS_OVERLAYS_OR_UNDERLAYS(flat, appearance.overlays, 1)
 
-		var/icon/add // Icon of overlay being added
+		// Icon of overlay being added
+		var/icon/add
 
 		var/flatX1 = 1
 		var/flatX2 = flat.Width()
@@ -1108,9 +1110,11 @@ lighting determines lighting capturing (optional), suppress_errors suppreses err
 
 	icon2collapse = icon(icon2collapse, icon_state, dir, frame, moving)
 
-	var/list/name_and_ref = generate_and_hash_rsc_file(icon2collapse, icon_path)//pretend that tuples exist
+	// Pretend that tuples exist
+	var/list/name_and_ref = generate_and_hash_rsc_file(icon2collapse, icon_path)
 
-	var/rsc_ref = name_and_ref[1] //weird object thats not even readable to the debugger, represents a reference to the icons rsc entry
+	// Weird object thats not even readable to the debugger, represents a reference to the icons rsc entry
+	var/rsc_ref = name_and_ref[1]
 	var/file_hash = name_and_ref[2]
 	key = "[name_and_ref[3]].png"
 
@@ -1211,16 +1215,30 @@ lighting determines lighting capturing (optional), suppress_errors suppreses err
 	sleep(duration)
 	CutOverlays(overlay_image)
 
-/// Perform a shake on an atom, resets its position afterwards
+/**
+ * Perform a shake on an atom, resets its position afterwards
+ *
+ * * pixelshiftx - x-axis pixel shift, default 2
+ * * pixelshifty - y-axis pixel shift, default 2
+ * * duration - how long to shake, default 2.5s
+ * * shake_interval = time between shakes, default 0.02 SECONDS
+ */
 /atom/proc/Shake(pixelshiftx = 2, pixelshifty = 2, duration = 2.5 SECONDS, shake_interval = 0.02 SECONDS)
 	var/initialpixelx = pixel_x
 	var/initialpixely = pixel_y
 	animate(src, pixel_x = initialpixelx + rand(-pixelshiftx,pixelshiftx), pixel_y = initialpixelx + rand(-pixelshifty,pixelshifty), time = shake_interval, flags = ANIMATION_PARALLEL)
-	for (var/i in 3 to ((duration / shake_interval))) // Start at 3 because we already applied one, and need another to reset
+	// Start at 3 because we already applied one, and need another to reset.
+	for (var/i in 3 to ((duration / shake_interval)))
 		animate(pixel_x = initialpixelx + rand(-pixelshiftx,pixelshiftx), pixel_y = initialpixely + rand(-pixelshifty,pixelshifty), time = shake_interval)
 	animate(pixel_x = initialpixelx, pixel_y = initialpixely, time = shake_interval)
 
-///Checks if the given iconstate exists in the given file, caching the result. Setting scream to TRUE will print a stack trace ONCE.
+/**
+ * Checks if the given iconstate exists in the given file, caching the result.
+ *
+ * * file - icon .dmi file
+ * * state - which state within the .dmi
+ * * scream - if TRUE, will print a stack trace ONCE
+ */
 /proc/icon_exists(file, state, scream)
 	var/static/list/icon_states_cache = list()
 	if(icon_states_cache[file]?[state])
@@ -1274,7 +1292,9 @@ lighting determines lighting capturing (optional), suppress_errors suppreses err
 /// Cache of the width and height of icon files, to avoid repeating the same expensive operation
 GLOBAL_LIST_EMPTY(icon_dimensions)
 
-/// Returns a list containing the width and height of an icon file
+/**
+ * Returns a list containing the width and height of an icon file
+ */
 /proc/get_icon_dimensions(icon_path)
 	// Icons can be a real file(), a rsc backed file(), a dynamic rsc (dyn.rsc) reference (known as a cache reference in byond docs), or an /icon which is pointing to one of those.
 	// Runtime generated dynamic icons are an unbounded concept cache identity wise, the same icon can exist millions of ways and holding them in a list as a key can lead to unbounded memory usage if called often by consumers.

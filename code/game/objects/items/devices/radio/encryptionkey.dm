@@ -10,7 +10,7 @@
 	var/translate_hivenet = FALSE
 	var/syndie = FALSE // Signifies that it de-crypts Syndicate transmissions
 	var/independent = FALSE // Signifies that it lets you talk on the spicy channel
-	var/list/channels = list(CHANNEL_COMMON = TRUE, CHANNEL_ENTERTAINMENT = TRUE)
+	var/list/channels = list(CHANNEL_COMMON = TRUE, CHANNEL_ENTERTAINMENT = TRUE, CHANNEL_EXPED = TRUE)
 	var/list/additional_channels = list()
 
 /obj/item/device/encryptionkey/attackby(obj/item/attacking_item, mob/user)
@@ -67,12 +67,11 @@
 	icon_state = "cypherkey"
 	additional_channels = list(CHANNEL_MERCENARY = TRUE, CHANNEL_HAILING = TRUE)
 	origin_tech = list(TECH_ILLEGAL = 3)
-	desc_antag = "An encryption key that allows you to intercept comms and speak on private non-station channels. Use :t to access the private channel."
 	syndie = TRUE
 
-/obj/item/device/encryptionkey/syndicate/New()
-	..()
-	desc_antag = "An encryption key that allows you to intercept comms and speak on private non-[station_name(TRUE)] channels. Use :t to access the private channel."
+/obj/item/device/encryptionkey/syndicate/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "An encryption key that allows you to intercept comms and speak on private non-standard channels. Use :t to access the private channel."
 
 /obj/item/device/encryptionkey/raider
 	icon_state = "cypherkey"
@@ -153,8 +152,8 @@
 	icon_state = "sci_cypherkey"
 	channels = list(CHANNEL_SCIENCE = TRUE)
 
-/obj/item/device/encryptionkey/headset_xenoarch
-	name = "xenoarchaeology radio encryption key"
+/obj/item/device/encryptionkey/headset_xenology
+	name = "xenology radio encryption key"
 	icon_state = "sci_cypherkey"
 	channels = list(CHANNEL_SCIENCE = TRUE, CHANNEL_HAILING = TRUE)
 
@@ -232,11 +231,10 @@
 	desc = "An encryption key for a radio headset. Contains cypherkeys."
 	additional_channels = list(CHANNEL_RAIDER = TRUE)
 	origin_tech = list(TECH_ILLEGAL = 2)
-	desc_antag = "An encryption key that allows you to speak on private non-station channels. Use :x to access the private channel."
 
-/obj/item/device/encryptionkey/rev/New()
-	..()
-	desc_antag = "An encryption key that allows you to intercept comms and speak on private non-[station_name(TRUE)] channels. Use :t to access the private channel."
+/obj/item/device/encryptionkey/rev/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "An encryption key that allows you to intercept private comms speak on private non-ship channels. Use :x to access the private channel."
 
 /obj/item/device/encryptionkey/eng_spare
 	name = "spare engineering radio encryption key"

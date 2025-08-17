@@ -1,7 +1,7 @@
 /* Beds... get your mind out of the gutter, they're for sleeping!
  * Contains:
- * 		Beds
- *		Roller beds
+ * * Beds
+ * * Roller beds
  */
 
 /*
@@ -18,9 +18,6 @@
 /obj/structure/bed
 	name = "bed"
 	desc = "This is used to lie in, sleep in or strap on."
-	desc_info = "Click and drag yourself (or anyone) to this to buckle in. Click on this with an empty hand to undo the buckles.<br>\
-	Anyone with restraints, such as handcuffs, will not be able to unbuckle themselves. They must use the Resist button, or verb, to break free of \
-	the buckles, instead. \ To unbuckle people as a stationbound, click the bed with an empty gripper."
 	icon = 'icons/obj/structure/beds.dmi'
 	icon_state = "bed"
 	anchored = TRUE
@@ -47,18 +44,36 @@
 	var/mob/living/pulling = null
 	var/propelled = 0 // Check for fire-extinguisher-driven chairs
 
+/obj/structure/bed/mechanics_hints()
+	. = list()
+	. += ..()
+	. += "Click and drag yourself (or anyone) to this to buckle in."
+	. += "Click on this with an empty hand to undo the buckles."
+	. += "Anyone with restraints, such as handcuffs, will not be able to unbuckle themselves. They must use the Resist button, or verb, to break free of \
+	the buckles instead."
+	. += "To unbuckle people as a stationbound, click the bed with an empty gripper."
+	if(held_item)
+		. += "Click and drag this onto yourself to pick it up."
+
+/obj/structure/bed/assembly_hints()
+	. = list()
+	. += ..()
+	if(!padding_material)
+		. += "It could be padded with <b>cloth or leather</b>."
+
+/obj/structure/bed/disassembly_hints()
+	. = list()
+	. += ..()
+	if(padding_material)
+		. += "Its padding has visible seams that could be <b>cut</b>."
+	. += "It is held together by a couple of <b>bolts</b>."
+
 /obj/structure/bed/Initialize()
 	. = ..()
 	LAZYADD(can_buckle, /mob/living)
 
 /obj/structure/bed/New(newloc, new_material = MATERIAL_STEEL, new_padding_material, new_painted_colour)
 	..(newloc)
-	if(can_buckle)
-		desc_info = "Click and drag yourself (or anyone) to this to buckle in. Click on this with an empty hand to undo the buckles.<br>\
-	Anyone with restraints, such as handcuffs, will not be able to unbuckle themselves. They must use the Resist button, or verb, to break free of \
-	the buckles instead. "
-	if(held_item)
-		desc_info += "Click and drag this onto yourself to pick it up. "
 	material = SSmaterials.get_material_by_name(new_material)
 	if(!istype(material))
 		qdel(src)
@@ -657,6 +672,14 @@
 	 */
 	var/initial_beds = 4
 
+/obj/structure/roller_rack/feedback_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += "[initial(desc)] \nIt is holding [LAZYLEN(held)] beds."
+
+/obj/structure/roller_rack/assembly_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += "It [anchored ? "is" : "could be"] anchored to the floor with a couple of <b>screws</b>."
+
 /obj/structure/roller_rack/Initialize()
 	. = ..()
 	for(var/_ in 1 to initial_beds)
@@ -677,10 +700,6 @@
 		I.pixel_x = (5 * beds)
 		beds++
 		AddOverlays(I)
-
-/obj/structure/roller_rack/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
-	desc = "[initial(desc)] \nIt is holding [LAZYLEN(held)] beds."
-	. = ..()
 
 /obj/structure/roller_rack/attack_hand(mob/user)
 	if(!LAZYLEN(held))

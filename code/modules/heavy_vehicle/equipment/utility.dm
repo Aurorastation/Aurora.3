@@ -9,6 +9,13 @@
 	var/list/obj/carrying = list()
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 2)
 	var/list/afterattack_types = list(/obj/structure/closet, /obj/machinery/door/airlock)
+	module_hints = list(
+		"<b>Attack(Harm):</b> Swing the claw at a target to deal damage.",
+		"<b>Attack(Non-Harm):</b> Shove the target backwards,",
+		"<b>Left Click(Door):</b> Force open any door, even bolted and/or welded airlocks.",
+		"<b>Left Click(Any other nonliving object):</b> Pick up the object, storing it inside the clamp. Each clamp can hold up to 5 objects.",
+		"<b>Alt Click(Clamp):</b> Drop a selected held item.",
+	)
 
 /obj/item/mecha_equipment/clamp/resolve_attackby(atom/A, mob/user, click_params)
 	if(is_type_in_list(A, afterattack_types) && owner)
@@ -172,6 +179,10 @@
 /obj/item/weldingtool/get_hardpoint_maptext()
 	return "[get_fuel()]/[max_fuel]"
 
+/obj/item/mecha_equipment/clamp/Destroy()
+	QDEL_NULL_LIST(carrying)
+	return ..()
+
 /obj/item/mecha_equipment/mounted_system/plasmacutter
 	name = "mounted plasma cutter"
 	desc = "An industrial plasma cutter mounted onto the chassis of the mech. "
@@ -180,6 +191,11 @@
 	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND)
 	restricted_software = list(MECH_SOFTWARE_UTILITY)
 	origin_tech = list(TECH_MATERIAL = 4, TECH_PHORON = 4, TECH_ENGINEERING = 6, TECH_COMBAT = 3)
+	module_hints = list(
+		"<b>Left Click(Target):</b> Fire a plasma cutting beam in the target direction.",
+		"In addition to dealing damage, the plasma cutter can also mine through rocks at a time.",
+		"It also pierces through the target, striking an additional object behind the first one.",
+	)
 
 /obj/item/gun/energy/plasmacutter/mounted/mech
 	use_external_power = TRUE
@@ -197,6 +213,9 @@
 	light_color = LIGHT_COLOR_TUNGSTEN
 	light_wedge = LIGHT_WIDE
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
+	module_hints = list(
+		"<b>Alt Click(Icon):</b> Light up a large area in front of the mech.",
+	)
 
 /obj/item/mecha_equipment/light/attack_self(var/mob/user)
 	. = ..()
@@ -370,27 +389,27 @@
 	desc = "A replaceable drill head usually used in exosuit drills."
 	icon_state = "drill_head"
 
+/obj/item/material/drill_head/condition_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	var/percentage = get_durability_percentage()
+	var/descriptor = SPAN_DANGER("It looks close to breaking")
+	if(percentage > 10)
+		descriptor = SPAN_ALERT("It is very worn")
+	if(percentage > 50)
+		descriptor = SPAN_ALERT("It is fairly worn")
+	if(percentage > 75)
+		descriptor = SPAN_ALERT("It shows some signs of wear")
+	if(percentage > 95)
+		descriptor = SPAN_NOTICE("It shows no wear")
+
+	. += descriptor
+
 /obj/item/material/drill_head/Initialize(newloc, material_key)
 	. = ..()
 	durability = 2 * material.integrity
 
 /obj/item/material/drill_head/proc/get_durability_percentage()
 	return (durability * 100) / (2 * material.integrity)
-
-/obj/item/material/drill_head/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	var/percentage = get_durability_percentage()
-	var/descriptor = "looks close to breaking"
-	if(percentage > 10)
-		descriptor = "is very worn"
-	if(percentage > 50)
-		descriptor = "is fairly worn"
-	if(percentage > 75)
-		descriptor = "shows some signs of wear"
-	if(percentage > 95)
-		descriptor = "shows no wear"
-
-	. += SPAN_NOTICE("It [descriptor].")
 
 /obj/item/mecha_equipment/drill
 	name = "drill"
@@ -403,6 +422,12 @@
 	//Drill can have a head
 	var/obj/item/material/drill_head/drill_head
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 2)
+
+	module_hints = list(
+		"<b>Left Click(Target):</b> Attack the target with a drill.",
+		"The drill is capable of destroying almost any structure, and can also destroy floors.",
+		"Using the drill consumes some of its durability. When it runs out, a new drill head will have to be placed in the module.",
+	)
 
 /obj/item/mecha_equipment/drill/Initialize()
 	. = ..()
@@ -516,6 +541,10 @@
 	holding_type = /obj/item/gun/launcher/mech/flarelauncher
 	restricted_hardpoints = list(HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
 	restricted_software = list(MECH_SOFTWARE_UTILITY)
+	module_hints = list(
+		"<b>Left Click(Target):</b> Fire an illuminating signal flare at the target location.",
+		"This weapon passively regenerates its ammunition using the mech's power supply.",
+	)
 
 /obj/item/gun/launcher/mech/flarelauncher
 	name = "mounted flare launcher"
@@ -558,6 +587,10 @@
 	restricted_software = null
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 2)
 	passive_power_use = 15
+	module_hints = list(
+		"<b>Left Click(Living Target):</b> Load the target into the mech's onboard passenger compartment.",
+		"<b>Alt Click(Icon):</b> Eject the contents of the compartment.",
+	)
 
 /obj/item/mecha_equipment/sleeper/passenger_compartment/uninstalled()
 	. = ..()
@@ -592,6 +625,10 @@
 	restricted_software = list(MECH_SOFTWARE_UTILITY)
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 2)
 	var/obj/machinery/autolathe/mounted/lathe
+	module_hints = list(
+		"<b>Left Click (Target Materials):</b> Load materials into the autolathe.",
+		"<b>Alt Click (Icon):</b> Open the autolathe's UI.",
+	)
 
 /obj/item/mecha_equipment/autolathe/get_hardpoint_maptext()
 	if(lathe?.currently_printing)
@@ -651,6 +688,11 @@
 	var/obj/item/powerdrill/mech/mounted_tool
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 2)
 
+	module_hints = list(
+		"<b>Alt Click (Icon):</b> Open a radial menu for selecting any desired tool.",
+		"<b>Left Click (Target):</b> Use the currently selected tool on the target.",
+	)
+
 /obj/item/mecha_equipment/toolset/Initialize()
 	. = ..()
 	mounted_tool = new/obj/item/powerdrill/mech(src)
@@ -708,10 +750,14 @@
 	restricted_hardpoints = list(HARDPOINT_BACK)
 	w_class = WEIGHT_CLASS_HUGE
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 3)
+	var/entry_speed_divisor = 6
+	module_hints = list(
+		"Allows a user to enter the mech 6 times faster.",
+	)
 
 /obj/item/mecha_equipment/quick_enter/installed()
 	..()
-	owner.entry_speed = 5
+	owner.entry_speed /= entry_speed_divisor
 
 /obj/item/mecha_equipment/quick_enter/uninstalled()
 	owner.entry_speed = initial(owner.entry_speed)
@@ -726,7 +772,6 @@
 /obj/item/mecha_equipment/phazon
 	name = "phazon bluespace transmission system"
 	desc = "A large back-mounted device that grants the exosuit it's mounted to the ability to semi-shift into bluespace, allowing it to pass through dense objects."
-	desc_info = "It needs an anomaly core to function. You can install some simply by using a core on it."
 	icon_state = "mecha_phazon"
 	restricted_hardpoints = list(HARDPOINT_BACK)
 	w_class = WEIGHT_CLASS_HUGE
@@ -736,6 +781,21 @@
 	var/obj/item/anomaly_core/AC
 	var/image/anomaly_overlay
 
+	module_hints = list(
+		"<b>Alt Click (Icon):</b> Become incorporeal, gaining the ability to move through walls unimpeded.",
+		"This system consumes 88 kilowatts of power while active.",
+	)
+
+/obj/item/mecha_equipment/phazon/assembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(!AC)
+		. += "It needs an anomaly core to function. You can install one by using a core on it."
+
+/obj/item/mecha_equipment/phazon/disassembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(AC)
+		. += "The anomaly core could be extracted if the securing <b>bolts</b> are undone."
+
 /obj/item/mecha_equipment/phazon/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/anomaly_core))
 		if(AC)
@@ -744,7 +804,6 @@
 		user.drop_from_inventory(attacking_item, src)
 		AC = attacking_item
 		to_chat(user, SPAN_NOTICE("You insert \the [AC] into \the [src]."))
-		desc_info = "\The [src] has an anomaly core installed! You can use a wrench to remove it."
 		anomaly_overlay = image(AC.icon, null, AC.icon_state)
 		anomaly_overlay.pixel_y = 3
 		AddOverlays(anomaly_overlay)
@@ -795,3 +854,7 @@
 	holding_type = /obj/item/gun/launcher/mech/mountedgl/cl
 	restricted_hardpoints = list(HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
 	restricted_software = list(MECH_SOFTWARE_UTILITY)
+	module_hints = list(
+		"<b>Left Click(Target):</b> Fire an cleaning grenade at the target location.",
+		"This weapon passively regenerates its ammunition using the mech's power supply.",
+	)

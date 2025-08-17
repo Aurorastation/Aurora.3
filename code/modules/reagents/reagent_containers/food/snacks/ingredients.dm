@@ -242,7 +242,7 @@
 	filling_color = "#EDDD00"
 	center_of_mass = list("x"=16, "y"=11)
 
-	reagents_to_add = list(/singleton/reagent/nutriment = 4)
+	reagents_to_add = list(/singleton/reagent/nutriment = 6)
 	reagent_data = list(/singleton/reagent/nutriment = list("mashed potatoes" = 4))
 	bitesize = 2
 

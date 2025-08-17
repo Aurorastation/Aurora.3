@@ -7,17 +7,18 @@ jobs:
     concurrency: tgui
     runs-on: ubuntu-24.04
     steps:
+    
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.BOT_TOKEN_AURORA }}
+        
     - name: Install Node
       uses: actions/setup-node@v3
       with:
         node-version: 14
         cache: 'yarn'
         cache-dependency-path: tgui/yarn.lock
-
-    - name: Checkout Repository
-      uses: actions/checkout@v4
-      with:
-        token: ${{ secrets.BOT_TOKEN_AURORA }}
 
     - name: Update TGUI
       run: |

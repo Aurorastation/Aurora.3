@@ -1,7 +1,6 @@
 /obj/structure/extinguisher_cabinet
 	name = "extinguisher cabinet"
 	desc = "A small wall mounted cabinet designed to hold a fire extinguisher."
-	desc_info = "Alt-click to close the door."
 	icon = 'icons/obj/wallmounts.dmi'
 	icon_state = "cabinet"
 	anchored = 1
@@ -9,6 +8,10 @@
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/obj/item/extinguisher/has_extinguisher
 	var/opened = 0
+
+/obj/structure/extinguisher_cabinet/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Alt-click to close the door."
 
 /obj/structure/extinguisher_cabinet/north
 	dir = NORTH

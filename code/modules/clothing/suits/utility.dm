@@ -1,8 +1,8 @@
 /*
  * Contains:
- *		Fire protection
- *		Bomb protection
- *		Radiation protection
+ * * Fire protection
+ * * Bomb protection
+ * * Radiation protection
  */
 
 /*
@@ -12,7 +12,7 @@
 /obj/item/clothing/suit/fire
 	name = "firesuit"
 	desc = "A suit that protects against fire and heat."
-	icon = 'icons/clothing/kit/firefighter.dmi'
+	icon = 'icons/obj/item/clothing/suit/firefighter.dmi'
 	icon_state = "firesuit"
 	item_state = "firesuit"
 	sprite_sheets = list(
@@ -202,7 +202,7 @@
 /obj/item/clothing/head/radiation
 	name = "radiation hood"
 	desc = "A hood with radiation protective properties. Label: Made with lead, do not eat insulation."
-	icon = 'icons/clothing/kit/radsuit.dmi'
+	icon = 'icons/obj/item/clothing/head/radsuit.dmi'
 	item_icons = null
 	icon_state = "radhood"
 	item_state = "radhood"
@@ -221,7 +221,7 @@
 /obj/item/clothing/suit/radiation
 	name = "radiation suit"
 	desc = "A suit that protects against radiation. Label: Made with lead, do not eat insulation."
-	icon = 'icons/clothing/kit/radsuit.dmi'
+	icon = 'icons/obj/item/clothing/suit/radsuit.dmi'
 	item_icons = null
 	icon_state = "radsuit"
 	item_state = "radsuit"

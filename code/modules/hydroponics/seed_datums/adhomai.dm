@@ -20,7 +20,8 @@
 	set_trait(TRAIT_PRODUCT_COLOUR,"#378C61")
 	set_trait(TRAIT_PLANT_COLOUR,"#378C61")
 	set_trait(TRAIT_PLANT_ICON,"tree5")
-	set_trait(TRAIT_IDEAL_HEAT, 283)
+	set_trait(TRAIT_IDEAL_HEAT, IDEAL_HEAT_ADHOMAI)
+	set_trait(TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_DIM)
 	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.15)
 
 /obj/item/seeds/shandseed
@@ -45,7 +46,8 @@
 	set_trait(TRAIT_PRODUCT_COLOUR,"#4CC5C7")
 	set_trait(TRAIT_PLANT_COLOUR,"#4CC789")
 	set_trait(TRAIT_PLANT_ICON,"bush7")
-	set_trait(TRAIT_IDEAL_HEAT, 283)
+	set_trait(TRAIT_IDEAL_HEAT, IDEAL_HEAT_ADHOMAI)
+	set_trait(TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_DIM)
 	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.15)
 
 /obj/item/seeds/mtearseed
@@ -70,7 +72,8 @@
 	set_trait(TRAIT_PRODUCT_COLOUR,"#87CEEB")
 	set_trait(TRAIT_PLANT_COLOUR,"#4D8F53")
 	set_trait(TRAIT_PLANT_ICON,"alien2")
-	set_trait(TRAIT_IDEAL_HEAT, 283)
+	set_trait(TRAIT_IDEAL_HEAT, IDEAL_HEAT_ADHOMAI)
+	set_trait(TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_DIM)
 	set_trait(TRAIT_WATER_CONSUMPTION, 8)
 
 /obj/item/seeds/earthenroot
@@ -97,9 +100,10 @@
 	set_trait(TRAIT_PRODUCT_COLOUR,"#C4AE7A")
 	set_trait(TRAIT_PLANT_COLOUR,"#4D8F53")
 	set_trait(TRAIT_PLANT_ICON,"bush4")
-	set_trait(TRAIT_IDEAL_HEAT, 283)
+	set_trait(TRAIT_IDEAL_HEAT, IDEAL_HEAT_ADHOMAI)
 	set_trait(TRAIT_WATER_CONSUMPTION, 6)
 	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.15)
+	set_trait(TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_DIM)
 
 /obj/item/seeds/dirtberries
 	seed_type = "dirtberries"
@@ -127,8 +131,8 @@
 	set_trait(TRAIT_PLANT_COLOUR,"#31331c")
 	set_trait(TRAIT_PLANT_ICON,"nfrihi")
 	set_trait(TRAIT_WATER_CONSUMPTION, 4)
-	set_trait(TRAIT_IDEAL_LIGHT, 3)
-	set_trait(TRAIT_IDEAL_HEAT, 253)
+	set_trait(TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_DIM)
+	set_trait(TRAIT_IDEAL_HEAT, IDEAL_HEAT_ADHOMAI)
 
 /obj/item/seeds/blizzard
 	seed_type = "nfrihi"
@@ -137,7 +141,7 @@
 	name = "sugar tree"
 	seed_name = "sugar tree"
 	display_name = "sugar trees"
-	product_desc = "the fruit of the Sugar Tree, native to Adhomai. It is sweet and commonly used in candies."
+	product_desc = "The fruit of the Sugar Tree, native to Adhomai. It is sweet and commonly used in candies."
 	product_desc_extended = "Sugar Tree, or Nm'shaan, are hardy snow bamboo invaluable for sugar production on the planet. They are unique in that on every stem it bears a single spherical fruit at the very top, surrounded by a white woolly rind. Short stems which end in thick-leafed fronds grow along the length of the 'trunk', giving it an appearance like Terran bamboo. The stalks tend to be as thick as one's thigh with very hard, protective woody shells around its vulnerable interior."
 	seed_noun = SEED_NOUN_SEEDS
 	mutants = null
@@ -150,13 +154,13 @@
 	set_trait(TRAIT_MATURATION, 9)
 	set_trait(TRAIT_PRODUCTION, 5)
 	set_trait(TRAIT_YIELD, 2)
-	set_trait(TRAIT_PRODUCT_ICON,"sugartree")
+	set_trait(TRAIT_PRODUCT_ICON,"nmshaan")
 	set_trait(TRAIT_PRODUCT_COLOUR,"#fffdf7")
 	set_trait(TRAIT_PLANT_COLOUR,"#31331c")
-	set_trait(TRAIT_PLANT_ICON,"sugartree")
-	set_trait(TRAIT_IDEAL_HEAT, 253)
+	set_trait(TRAIT_PLANT_ICON,"nmshaan")
+	set_trait(TRAIT_IDEAL_HEAT, IDEAL_HEAT_ADHOMAI)
 	set_trait(TRAIT_WATER_CONSUMPTION, 4)
-	set_trait(TRAIT_IDEAL_LIGHT, 3)
+	set_trait(TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_DIM)
 
 /obj/item/seeds/sugartree
-	seed_type = "sugartree"
+	seed_type = "sugar tree"

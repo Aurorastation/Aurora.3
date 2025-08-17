@@ -36,7 +36,7 @@
 	return
 
 /*
- *	Radio Cartridge, essentially a signaler.
+ * Radio Cartridge, essentially a signaler.
  */
 
 

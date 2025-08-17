@@ -43,8 +43,6 @@
 /obj/item/gun
 	name = "gun"
 	desc = "It's a gun. It's pretty terrible, though."
-	desc_info = "This is a gun.  To fire the weapon, ensure your intent is *not* set to 'help', have your gun mode set to 'fire', \
-	then click where you want to fire."
 	icon = 'icons/obj/guns/pistol.dmi'
 	var/gun_gui_icons = 'icons/obj/guns/gun_gui.dmi'
 	icon_state = "pistol"
@@ -157,6 +155,31 @@
 	var/image/safety_overlay
 
 	var/iff_capable = FALSE // if true, applies the user's ID iff_faction to the projectile
+
+/obj/item/gun/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(has_safety)
+		. += "To fire, toggle the safety with CTRL-click (or enable HARM intent), then click where you want to shoot."
+	else
+		. += "To fire, because this weapon has no safety, just click where you want to shoot."
+
+/obj/item/gun/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(distance > 1)
+		return
+	if(markings)
+		. += SPAN_NOTICE("It has [markings] [markings == 1 ? "notch" : "notches"] carved into the stock.")
+	if(needspin)
+		if(pin)
+			. += "\The [pin] is installed in the trigger mechanism."
+			pin.examine_info(user) // Allows people to check the current firemode of their wireless-control firing pin. Returns nothing if there's no wireless-control firing pin.
+		else
+			. += "It doesn't have a firing pin installed, and won't fire."
+	if(firemodes.len > 1)
+		var/datum/firemode/current_mode = firemodes[sel_mode]
+		. += "The fire selector is set to [current_mode.name]."
+	if(has_safety)
+		. += "The safety is [safety() ? "on" : "off"]."
 
 /obj/item/gun/Initialize(mapload)
 	. = ..()
@@ -659,24 +682,6 @@
 	suppressor = null
 	update_icon()
 
-/obj/item/gun/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(distance > 1)
-		return
-	if(markings)
-		. += SPAN_NOTICE("It has [markings] [markings == 1 ? "notch" : "notches"] carved into the stock.")
-	if(needspin)
-		if(pin)
-			. += "\The [pin] is installed in the trigger mechanism."
-			pin.examine_info(user) // Allows people to check the current firemode of their wireless-control firing pin. Returns nothing if there's no wireless-control firing pin.
-		else
-			. += "It doesn't have a firing pin installed, and won't fire."
-	if(firemodes.len > 1)
-		var/datum/firemode/current_mode = firemodes[sel_mode]
-		. += "The fire selector is set to [current_mode.name]."
-	if(has_safety)
-		. += "The safety is [safety() ? "on" : "off"]."
-
 /obj/item/gun/proc/switch_firemodes()
 	if(!firemodes.len)
 		return null
@@ -713,7 +718,8 @@
 
 /obj/item/gun/verb/toggle_safety_verb()
 	set src in usr
-	set category = "Object"
+	set category = "Object.Held"
+	set desc = "Shortcut is Ctrl-click."
 	set name = "Toggle Gun Safety"
 	if(has_safety && usr == loc)
 		toggle_safety(usr)

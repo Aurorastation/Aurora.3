@@ -2,6 +2,27 @@
 #define STOCK_PART_ADVANCED 2
 #define STOCK_PART_SUPER 3
 
+/*
+	Stock parts (as of 2025/06) are only able to be installed in machinery objects.
+
+	They improve the functionality of the machine in various ways, scaling with their rating. The
+	impact any given part type has on a machine should be described in a var/hint_[parttype].
+
+	By default, higher-rated parts will also increase machine power usage- refer to energy_rating()
+	to see the multiplier the total energy rating will apply to power usage.
+
+	By assigning a machinery the variable "parts_power_mgmt = FALSE", bespoke power usage code can
+	be applied (i.e. upgrades that reduce power usage). This should be modified in the future to
+	accommodate more flexible and intuitive power draw changes due to stock parts, but was implemented
+	this way by Bat just to accommodate existing machine upgrades. Future changes will entail a more
+	in-depth balance pass.
+
+	Tcomms stock parts are somewhat weirder, not following the same 'rank' behavior as the standard
+	cluster of ranked five. They are also no longer used exclusively in Tcomms machinery- for example,
+	the Hull Shield Generator requires both standard and Tcomms stock parts. This should also be
+	addressed in future.
+*/
+
 /obj/item/storage/bag/stockparts_box
 	name = "stock parts box"
 	desc = "A low-tech method of storing stock parts used in machinery."
@@ -82,6 +103,17 @@
 	. = ..()
 	randpixel_xy()
 
+/obj/item/stock_parts/proc/energy_rating()
+	switch(rating)
+		if(STOCK_PART_BASIC)
+			return 1
+		if(STOCK_PART_ADVANCED)
+			return 3
+		if(STOCK_PART_SUPER)
+			return 5
+		else
+			return 0
+
 //Rank 1
 
 /obj/item/stock_parts/console_screen
@@ -112,7 +144,7 @@
 /obj/item/stock_parts/manipulator
 	name = "micro-manipulator"
 	parent_stock_name = "micro-manipulator"
-	desc = "A tiny little manipulator used in the construction of certain devices."
+	desc = "A tiny micrometer-scale manipulator used in the construction of certain devices."
 	icon_state = "micro_mani"
 	origin_tech = list(TECH_MATERIAL = 1, TECH_DATA = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 30)
@@ -141,7 +173,7 @@
 
 /obj/item/stock_parts/capacitor/adv
 	name = "advanced capacitor"
-	desc = "An advanced capacitor used in the construction of a variety of devices."
+	desc = "A compact, ultra-high resolution scanning module used in the construction of certain devices."
 	icon_state = "adv_capacitor"
 	origin_tech = list(TECH_POWER = 3)
 	rating = STOCK_PART_ADVANCED
@@ -157,6 +189,7 @@
 
 /obj/item/stock_parts/manipulator/nano
 	name = "nano-manipulator"
+	desc = "A tiny nanometer-scale manipulator used in the construction of certain devices."
 	icon_state = "nano_mani"
 	origin_tech = list(TECH_MATERIAL = 3, TECH_DATA = 2)
 	rating = STOCK_PART_ADVANCED
@@ -164,6 +197,7 @@
 
 /obj/item/stock_parts/micro_laser/high
 	name = "high-power micro-laser"
+	desc = "A tiny, high-powered laser used in certain devices."
 	icon_state = "high_micro_laser"
 	origin_tech = list(TECH_MAGNET = 3)
 	rating = STOCK_PART_ADVANCED
@@ -188,7 +222,7 @@
 
 /obj/item/stock_parts/scanning_module/phasic
 	name = "phasic scanning module"
-	desc = "A compact, high resolution phasic scanning module used in the construction of certain devices."
+	desc = "A compact, ultra-high resolution phasic scanning module used in the construction of certain devices."
 	icon_state = "super_scan_module"
 	origin_tech = list(TECH_MAGNET = 5)
 	rating = STOCK_PART_SUPER
@@ -196,6 +230,7 @@
 
 /obj/item/stock_parts/manipulator/pico
 	name = "pico-manipulator"
+	desc = "A tiny picometer-scale manipulator used in the construction of certain devices."
 	icon_state = "pico_mani"
 	origin_tech = list(TECH_MATERIAL = 5, TECH_DATA = 2)
 	rating = STOCK_PART_SUPER
@@ -203,6 +238,7 @@
 
 /obj/item/stock_parts/micro_laser/ultra
 	name = "ultra-high-power micro-laser"
+	desc = "A tiny, alarmingly high-powered laser used in certain devices."
 	icon_state = "ultra_high_micro_laser"
 	origin_tech = list(TECH_MAGNET = 5)
 	rating = STOCK_PART_SUPER
@@ -210,6 +246,7 @@
 
 /obj/item/stock_parts/matter_bin/super
 	name = "super matter bin"
+	desc = "A container for holding compressed matter awaiting reconstruction. Fortunately, this is a super 'matter bin', not a 'super matter' bin."
 	icon_state = "super_matter_bin"
 	origin_tech = list(TECH_MATERIAL = 5)
 	rating = STOCK_PART_SUPER

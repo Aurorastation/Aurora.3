@@ -9,17 +9,17 @@
 	var/obj/item/organ/augment_type
 	var/new_augment
 
+/obj/item/device/augment_implanter/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(augment_type)
+		. += SPAN_NOTICE("\The [augment_type] can be seen floating inside \the [src]'s biogel.")
+	else
+		. += SPAN_WARNING("It is spent.")
+
 /obj/item/device/augment_implanter/Initialize()
 	. = ..()
 	if(!augment_type)
 		augment_type = new new_augment(src)
-
-/obj/item/device/augment_implanter/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(augment_type)
-		. += FONT_SMALL(SPAN_NOTICE("\The [augment_type] can be seen floating inside \the [src]'s biogel."))
-	else
-		. += FONT_SMALL(SPAN_WARNING("It is spent."))
 
 /obj/item/device/augment_implanter/afterattack(mob/living/L, mob/user, proximity)
 	if(!proximity)
@@ -76,3 +76,18 @@
 
 /obj/item/device/augment_implanter/hivenet_warfare
 	new_augment =	/obj/item/organ/internal/augment/hiveshield/warfare
+
+/obj/item/device/augment_implanter/auxiliary_heart
+	new_augment =	/obj/item/organ/internal/augment/bioaug/auxiliary_heart
+
+/obj/item/device/augment_implanter/mind_blanker
+	new_augment =	/obj/item/organ/internal/augment/bioaug/mind_blanker
+
+/obj/item/device/augment_implanter/mind_blanker_lethal
+	new_augment =	/obj/item/organ/internal/augment/bioaug/mind_blanker_lethal
+
+/obj/item/device/augment_implanter/platelet_factories
+	new_augment =	/obj/item/organ/internal/augment/bioaug/platelet_factories
+
+/obj/item/device/augment_implanter/subdermal_carapace
+	new_augment =	/obj/item/organ/internal/augment/bioaug/subdermal_carapace

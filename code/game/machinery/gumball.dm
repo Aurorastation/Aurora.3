@@ -10,9 +10,14 @@
 	var/initialicon = "gumball"
 	var/amountleft = 20
 	var/vendingtype = /obj/item/clothing/mask/chewable/candy/gum
-	var/gumprice = 5
+	var/gumprice = 0.25
 	var/on = 1
 	var/broken = 0
+
+/obj/machinery/gumballmachine/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "\The [src] costs [gumprice] credits to use."
+
 
 /obj/machinery/gumballmachine/Initialize()
 	. = ..()
@@ -26,11 +31,6 @@
 		update_power()
 
 		update_icon()
-
-
-/obj/machinery/gumballmachine/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += SPAN_NOTICE("\The [src] costs [gumprice] credits to use.")
 
 /obj/machinery/gumballmachine/update_icon()
 	switch(amountleft)
@@ -99,7 +99,7 @@
 	playsound(get_turf(src), /singleton/sound_category/glass_break_sound, 75, 1)
 	if(amountleft)
 		var/amountleftinside = amountleft
-		for(var/i = 1;i<=amountleftinside,i++)
+		for(var/i = 1; i<=amountleftinside; i++)
 			new vendingtype(src.loc)
 		src.visible_message("\The [src] shatters and [typeofcandy] fall out on the floor.", "You hear glass shatter!")
 	stat |= BROKEN
@@ -115,4 +115,4 @@
 	initialicon = "sucker"
 	amountleft = 25
 	vendingtype = /obj/item/clothing/mask/chewable/candy/lolli
-	gumprice = 10
+	gumprice = 0.50

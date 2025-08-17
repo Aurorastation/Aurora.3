@@ -1,4 +1,4 @@
-//Refreshes the icon and sets the luminosity
+/// Refreshes the icon and sets the luminosity.
 /obj/machinery/portable_atmospherics/hydroponics/update_icon()
 	// Update name.
 	if(seed)
@@ -69,11 +69,14 @@
 		if(stasis)
 			AddOverlays("stasis")
 
+	// Apply density and opacity if a large plant is growing in the plot. Exempt mechanical trays from density alterations, since they're always dense.
 	if(seed && seed.get_trait(TRAIT_LARGE))
-		density = TRUE
+		if(!mechanical)
+			density = TRUE
 		opacity = TRUE
 	else
-		density = FALSE
+		if(!mechanical)
+			density = FALSE
 		opacity = FALSE
 
 	// Update bioluminescence.

@@ -1,8 +1,6 @@
 /obj/machinery/atmospherics/unary/vent_scrubber
 	name = "air scrubber"
 	desc = "Has a valve and pump attached to it."
-	desc_info = "This filters the atmosphere of harmful gas.  Filtered gas goes to the pipes connected to it, typically a scrubber pipe. \
-	It can be controlled from an Air Alarm.  It can be configured to drain all air rapidly with a 'panic syphon' from an air alarm."
 	icon = 'icons/atmos/vent_scrubber.dmi'
 	icon_state = "map_scrubber_off"
 
@@ -32,6 +30,21 @@
 	var/welded = 0
 
 	var/broadcast_status_next_process = FALSE
+
+/obj/machinery/atmospherics/unary/vent_scrubber/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This filters the atmosphere of harmful gas. Filtered gas goes to the pipes connected to it, typically a scrubber pipe."
+	. += "It can be controlled from an Air Alarm."
+	. += "It can be configured to drain all air rapidly with a 'panic siphon' from an air alarm."
+
+/obj/machinery/atmospherics/unary/vent_scrubber/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(distance <= 1)
+		. += "A small gauge in the corner reads [round(last_flow_rate, 0.1)] L/s at [round(last_power_draw)] W."
+	else
+		. += "You are too far away to read the gauge."
+	if(welded)
+		. += "It seems welded shut."
 
 /obj/machinery/atmospherics/unary/vent_scrubber/on
 	use_power = POWER_USE_IDLE
@@ -416,12 +429,3 @@
 		return TRUE
 
 	return ..()
-
-/obj/machinery/atmospherics/unary/vent_scrubber/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(distance <= 1)
-		. += "A small gauge in the corner reads [round(last_flow_rate, 0.1)] L/s at [round(last_power_draw)] W."
-	else
-		. += "You are too far away to read the gauge."
-	if(welded)
-		. +=  "It seems welded shut."
