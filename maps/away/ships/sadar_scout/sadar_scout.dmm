@@ -63,6 +63,10 @@
 	dir = 8;
 	pixel_x = -7
 	},
+/obj/effect/ghostspawpoint{
+	identifier = "sadar_crew";
+	name = "igs - usf crewman"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/sadar_scout/crew)
 "aD" = (
@@ -238,7 +242,13 @@
 /area/ship/sadar_scout/mainhall)
 "bx" = (
 /obj/structure/ship_weapon_dummy,
-/turf/simulated/wall/shuttle/space_ship,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
 /area/shuttle/sadar_shuttle)
 "bA" = (
 /obj/structure/lattice/catwalk,
@@ -442,10 +452,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
-/obj/effect/ghostspawpoint{
-	identifier = "sadar_crew";
-	name = "igs - usf crewman"
-	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -569,6 +575,10 @@
 	},
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
+	},
+/obj/effect/ghostspawpoint{
+	identifier = "sadar_crew";
+	name = "igs - usf crewman"
 	},
 /turf/simulated/floor/tiled,
 /area/ship/sadar_scout/mess)
@@ -1632,11 +1642,8 @@
 /turf/simulated/floor/plating,
 /area/ship/sadar_scout/forehall)
 "mh" = (
-/obj/structure/ship_weapon_dummy,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
 /obj/structure/ship_weapon_dummy/barrel,
+/obj/effect/floor_decal/industrial/warning/cee,
 /turf/simulated/floor/reinforced/airless,
 /area/shuttle/sadar_shuttle)
 "mj" = (
@@ -2649,10 +2656,6 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/effect/ghostspawpoint{
-	identifier = "sadar_crew";
-	name = "igs - usf crewman"
-	},
 /turf/simulated/floor/plating,
 /area/ship/sadar_scout/crew)
 "tr" = (
@@ -2691,25 +2694,14 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/sadar_scout/atmos)
 "tH" = (
-/obj/machinery/ship_weapon/francisca{
-	pixel_y = -160;
-	pixel_x = -32;
-	dir = 8;
-	weapon_id = "Raiding Skiff Francisca Rotary Gun"
-	},
-/obj/machinery/door/firedoor/noid,
-/obj/structure/window_frame{
-	color = "#bdb6ae";
-	name = "francisca mount frame"
-	},
-/obj/structure/window/full/reinforced{
-	name = "francisca viewport window"
-	},
-/obj/machinery/door/blast/regular/open{
-	id = "sadar_shuttle_shutters"
-	},
 /obj/structure/ship_weapon_dummy,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
 /area/shuttle/sadar_shuttle)
 "tI" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
@@ -2807,6 +2799,10 @@
 	dir = 4;
 	pixel_x = 6
 	},
+/obj/effect/ghostspawpoint{
+	identifier = "sadar_crew";
+	name = "igs - usf crewman"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/sadar_scout/crew)
 "us" = (
@@ -2880,10 +2876,6 @@
 	req_access = null
 	},
 /obj/structure/cable,
-/obj/effect/ghostspawpoint{
-	identifier = "sadar_crew_captain";
-	name = "igs - usf captain"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sadar_scout/crew)
 "vf" = (
@@ -3431,10 +3423,7 @@
 "yN" = (
 /obj/structure/ship_weapon_dummy,
 /obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/obj/effect/landmark/entry_point/port{
-	name = "port, weaponry"
+	dir = 10
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/shuttle/sadar_shuttle)
@@ -3715,10 +3704,6 @@
 /obj/item/clothing/suit/storage/toggle/leather_jacket/military/old/alt,
 /obj/item/clothing/suit/storage/toggle/leather_jacket/designer,
 /obj/item/clothing/suit/storage/toggle/bomber,
-/obj/item/clothing/pants/tacticool,
-/obj/item/clothing/pants/track,
-/obj/item/clothing/pants/jeansblack,
-/obj/item/clothing/pants/designer,
 /obj/item/clothing/gloves/fingerless,
 /obj/item/clothing/gloves/fingerless,
 /obj/item/clothing/gloves/brown,
@@ -3731,6 +3716,7 @@
 /obj/machinery/light/colored/decayed/dimmed{
 	dir = 4
 	},
+/obj/item/clothing/suit/storage/toggle/greatcoat/brown,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sadar_scout/crew)
 "Bj" = (
@@ -4484,7 +4470,7 @@
 	pixel_x = -23;
 	id = "sadar_cic_lockdown";
 	name = "Auxillary CIC Lockdown";
-	pixel_y = 13
+	pixel_y = 4
 	},
 /obj/machinery/light/colored/decayed/dimmed{
 	dir = 1
@@ -4507,10 +4493,6 @@
 	pixel_y = -2;
 	name = "table handrail";
 	buckle_dir = 2
-	},
-/obj/effect/ghostspawpoint{
-	identifier = "sadar_crew";
-	name = "igs - usf crewman"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sadar_scout/crew)
@@ -4649,10 +4631,11 @@
 	dir = 1
 	},
 /obj/machinery/button/remote/blast_door{
-	pixel_x = 24;
+	pixel_x = 22;
 	dir = 4;
 	id = "sadar_weapon_blast";
-	name = "Weapon Control Shield"
+	name = "Weapon Control Shield";
+	pixel_y = 3
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -4972,8 +4955,8 @@
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/ammo_magazine/a357,
-/obj/item/ammo_magazine/a357,
+/obj/item/ammo_magazine/c38,
+/obj/item/ammo_magazine/c38,
 /obj/item/ammo_magazine/c46m,
 /obj/item/ammo_magazine/c46m,
 /obj/item/ammo_magazine/c46m/extended,
@@ -4999,6 +4982,7 @@
 /obj/item/cell/hydrogen,
 /obj/item/cell/hydrogen,
 /obj/item/cell/hydrogen,
+/obj/item/storage/box/shotgunshells,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/sadar_scout/mainhall)
 "La" = (
@@ -5015,10 +4999,6 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
-	},
-/obj/effect/ghostspawpoint{
-	identifier = "sadar_crew";
-	name = "igs - usf crewman"
 	},
 /turf/simulated/floor/plating,
 /area/ship/sadar_scout/crew)
@@ -5471,9 +5451,16 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/sadar_scout/atmos)
 "OI" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 6
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 1
 	},
+/obj/machinery/ship_weapon/francisca{
+	pixel_y = -160;
+	pixel_x = -32;
+	dir = 8;
+	weapon_id = "Raiding Skiff Francisca Rotary Gun"
+	},
+/obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/reinforced/airless,
 /area/shuttle/sadar_shuttle)
 "OM" = (
@@ -5617,11 +5604,8 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/sadar_scout/mainhall)
 "PP" = (
-/obj/structure/ship_weapon_dummy,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/turf/simulated/floor/reinforced/airless,
+/obj/structure/lattice/catwalk,
+/turf/space,
 /area/shuttle/sadar_shuttle)
 "PR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -6039,9 +6023,24 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/sadar_scout/bridge)
+"Sn" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, weaponry"
+	},
+/obj/structure/ship_weapon_dummy,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/shuttle/sadar_shuttle)
 "SH" = (
 /obj/effect/floor_decal/industrial/warning,
-/obj/machinery/power/portgen/basic,
+/obj/machinery/power/portgen/basic{
+	anchored = 1
+	},
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
@@ -6557,6 +6556,10 @@
 /obj/structure/bed/handrail{
 	dir = 8
 	},
+/obj/effect/ghostspawpoint{
+	identifier = "sadar_crew";
+	name = "igs - usf crewman"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/sadar_scout/tools)
 "Wk" = (
@@ -6746,6 +6749,10 @@
 /area/ship/sadar_scout/solars)
 "Xb" = (
 /obj/structure/bed/stool/chair/office/bridge/generic,
+/obj/effect/ghostspawpoint{
+	identifier = "sadar_crew_captain";
+	name = "igs - usf captain"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/sadar_scout/bridge)
 "Xe" = (
@@ -6824,7 +6831,7 @@
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/gun/projectile/xanupistol,
-/obj/item/gun/projectile/revolver,
+/obj/item/gun/projectile/revolver/lemat,
 /obj/item/gun/projectile/tanto,
 /obj/item/gun/energy/blaster/himeo/pistol,
 /obj/item/gun/energy/pistol,
@@ -6861,7 +6868,8 @@
 	pixel_x = -4;
 	id = "sadar_bridge_blast";
 	name = "Bridge Blast Shield";
-	pixel_y = 8
+	pixel_y = 8;
+	dir = 10
 	},
 /obj/item/device/radio/intercom/hailing{
 	dir = 1;
@@ -6984,6 +6992,10 @@
 /obj/structure/railing/mapped{
 	dir = 4;
 	pixel_x = 6
+	},
+/obj/effect/ghostspawpoint{
+	identifier = "sadar_crew";
+	name = "igs - usf crewman"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/sadar_scout/crew)
@@ -44194,9 +44206,9 @@ ro
 Zo
 Zo
 XB
-tH
-bx
-bx
+XB
+XB
+XB
 XB
 YU
 PF
@@ -44450,13 +44462,13 @@ Zo
 jh
 Zo
 Zo
-Zo
-Or
 PP
+OI
+bx
 yN
 PP
-mh
-OI
+PP
+Zo
 Zo
 Zo
 Zo
@@ -44707,12 +44719,12 @@ Zo
 Zo
 Zo
 Zo
-Zo
-Zo
-Zo
-Zo
-Zo
-Zo
+PP
+PP
+Or
+Sn
+tH
+mh
 Zo
 Zo
 Zo
@@ -44965,11 +44977,11 @@ Zo
 Zo
 Zo
 Zo
-Zo
-Zo
-Zo
-Zo
-Zo
+PP
+PP
+PP
+PP
+PP
 Zo
 Zo
 Zo
