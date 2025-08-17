@@ -1,0 +1,6 @@
+author: KingOfThePing
+
+delete-after: True
+
+changes:
+  - rscadd: "Added a reminder header to the gun reload sounds .dm to remind people that there are a variety of sounds available."
