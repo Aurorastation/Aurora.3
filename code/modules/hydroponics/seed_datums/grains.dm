@@ -15,7 +15,6 @@
 	set_trait(TRAIT_PRODUCT_COLOUR,"#DBD37D")
 	set_trait(TRAIT_PLANT_COLOUR,"#BFAF82")
 	set_trait(TRAIT_PLANT_ICON,"stalk2")
-	set_trait(TRAIT_IDEAL_LIGHT, 6)
 	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.15)
 
 /obj/item/seeds/wheatseed
@@ -39,8 +38,8 @@
 	set_trait(TRAIT_PRODUCT_COLOUR,"#FFF23B")
 	set_trait(TRAIT_PLANT_COLOUR,"#87C969")
 	set_trait(TRAIT_PLANT_ICON,"corn")
-	set_trait(TRAIT_IDEAL_HEAT, 298)
-	set_trait(TRAIT_IDEAL_LIGHT, 6)
+	set_trait(TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_HIGH)
+	set_trait(TRAIT_IDEAL_HEAT, IDEAL_HEAT_TROPICAL)
 	set_trait(TRAIT_WATER_CONSUMPTION, 6)
 
 /obj/item/seeds/cornseed
@@ -64,6 +63,8 @@
 	set_trait(TRAIT_PLANT_COLOUR,"#8ED17D")
 	set_trait(TRAIT_PLANT_ICON,"stalk2")
 	set_trait(TRAIT_WATER_CONSUMPTION, 6)
+	set_trait(TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_HIGH)
+	set_trait(TRAIT_IDEAL_HEAT, IDEAL_HEAT_TROPICAL)
 	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.15)
 
 /obj/item/seeds/riceseed

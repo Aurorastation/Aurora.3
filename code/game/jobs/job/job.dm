@@ -70,8 +70,9 @@
 	/// A blacklist of citizenships that can't be this job.
 	var/list/blacklisted_citizenship = list()
 
-	/// The job name of the aide slot. Used for consulars and representatives.
+	/// The job name of the aide and bodyguard slots. Used for consulars and representatives.
 	var/aide_job
+	var/bodyguard_job
 
 //Only override this proc
 /datum/job/proc/pre_spawn(mob/abstract/new_player/player)
@@ -140,7 +141,7 @@
 		var/datum/species/human_species = GLOB.all_species[SPECIES_HUMAN]
 		species_modifier = human_species.economic_modifier
 
-	var/money_amount = initial_funds_override ? initial_funds_override : (rand(5,50) + rand(5, 50)) * econ_status * economic_modifier * species_modifier
+	var/money_amount = initial_funds_override ? initial_funds_override : (rand(5,10) + rand(5, 10)) * econ_status * economic_modifier * species_modifier + (rand(0,99) / 100)
 	var/datum/money_account/account = SSeconomy.create_and_assign_account(H, null, money_amount, public_account)
 	to_chat(H, SPAN_BOLD(SPAN_NOTICE("Your account number is: [account.account_number], your account pin is: [account.remote_access_pin]")))
 
@@ -282,12 +283,65 @@
  */
 /mob/living/carbon/human/proc/summon_aide()
 	set name = "Open Aide Slot"
-	set desc = "Allows an aide to join you as an assistant, companion, or bodyguard."
+	set desc = "Allows an aide to join you as an assistant or companion."
 	set category = "IC"
 
 	var/datum/job/J = SSjobs.GetJob(job)
 	if(J.open_aide_slot(src))
 		remove_verb(src, /mob/living/carbon/human/proc/summon_aide)
+
+/**
+ * This is the proc responsible for actually opening the bodyguard slot.
+ * The `bodyguard_job` on the job datum must be a valid, existing job. Blame the fact that we don't have job defines. Or singletons.
+ */
+/datum/job/proc/open_bodyguard_slot(mob/living/carbon/human/representative)
+	if(!bodyguard_job)
+		log_debug("Generic Open Bodyguard Slot called without an bodyguard job.")
+		return FALSE
+
+	if(!representative)
+		log_debug("Generic Open Bodyguard Slot called without a mob.")
+		return FALSE
+
+	var/confirm = tgui_alert(representative, "Are you sure you want to open a bodyguard slot? This can only be used once.", "Open Bodyguard Slot", list("Yes", "No"))
+	if(confirm != "Yes")
+		return FALSE
+	var/datum/job/J = SSjobs.GetJob(bodyguard_job)
+
+	// At this point, we add the relevant blacklists in the proc below.
+	post_open_bodyguard_slot(representative, J)
+
+	// Now that the blacklists are applied, open the job.
+	J.total_positions++
+	to_chat(representative, SPAN_NOTICE("A slot for a [bodyguard_job] has been opened."))
+	return TRUE
+
+/**
+ * This proc is called when a job opens a bodyguard slot. It MUST be called manually.
+ * It is responsible for adding any relevant blacklists to the bodyguard job datum.
+ */
+/datum/job/proc/post_open_bodyguard_slot(mob/living/carbon/human/representative, datum/job/bodyguard)
+	return
+
+/**
+ * This proc is called when a bodyguard slot is closed (cryoing or leaving the game).
+ * It is responsible for cleaning up existing slots and wiping any applied blacklists to the bodyguard's job datum.
+ */
+/datum/job/proc/close_bodyguard_slot(mob/living/carbon/human/representative, datum/job/bodyguard)
+	return
+
+/**
+ * This is the verb you should give to a mob to allow it to summon an bodyguard.
+ */
+/mob/living/carbon/human/proc/summon_bodyguard()
+	set name = "Open Bodyguard Slot"
+	set desc = "Allows a bodyguard to join you to help protect you."
+	set category = "IC"
+
+	var/datum/job/J = SSjobs.GetJob(job)
+	if(J.open_bodyguard_slot(src))
+		remove_verb(src, /mob/living/carbon/human/proc/summon_bodyguard)
+
 
 /obj/outfit/job
 	name = "Standard Gear"

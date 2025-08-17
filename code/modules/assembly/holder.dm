@@ -15,6 +15,14 @@
 	var/obj/item/device/assembly/a_right = null
 	var/obj/special_assembly = null
 
+/obj/item/device/assembly_holder/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(distance <= 1 || src.loc == user)
+		if (src.secured)
+			. += SPAN_NOTICE("\The [src] is ready!")
+		else
+			. += SPAN_NOTICE("\The [src] can be attached!")
+
 /obj/item/device/assembly_holder/Initialize(mapload, ...)
 	. = ..()
 	become_hearing_sensitive()
@@ -81,14 +89,6 @@
 			AddOverlays("[O]_r")
 	if(master)
 		master.update_icon()
-
-/obj/item/device/assembly_holder/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(distance <= 1 || src.loc == user)
-		if (src.secured)
-			. += SPAN_NOTICE("\The [src] is ready!")
-		else
-			. += SPAN_NOTICE("\The [src] can be attached!")
 
 /obj/item/device/assembly_holder/HasProximity(atom/movable/AM as mob|obj)
 	if(a_left)
@@ -232,7 +232,7 @@
 
 /obj/item/device/assembly_holder/timer_igniter/verb/configure()
 	set name = "Set Timer"
-	set category = "Object"
+	set category = "Object.Held"
 	set src in usr
 
 	if(!(usr.stat || usr.restrained()))

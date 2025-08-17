@@ -8,7 +8,9 @@
 	use_power = POWER_USE_OFF
 	clicksound = /singleton/sound_category/switch_sound
 	var/on = FALSE
+	/// Currently heating or cooling the environment, if on.
 	var/active = 0
+	/// Force it to at least somewhat obey thermodynamics.
 	var/heating_power = 40 KILO WATTS
 	var/current_temperature
 	var/set_temperature = T0C + 20
@@ -17,9 +19,19 @@
 	var/datum/gas_mixture/env
 	var/obj/item/cell/apc/cell
 
+/obj/machinery/space_heater/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "The unit is <b>[on ? "on" : "off"]</b> and the hatch is <b>[panel_open ? "open" : "closed"]</b>."
+	if(panel_open)
+		. += "The power cell is <b>[cell ? "installed" : "missing"]</b>."
+	else
+		. += "The charge meter reads <b>[cell ? round(cell.percent(),1) : 0]%</b>."
+
 /obj/machinery/space_heater/Initialize()
 	. = ..()
 	cell = new(src)
+	/// Ensure env exists so TGUI doesn't attempt to round null for display.
+	env = loc.return_air()
 	update_icon()
 
 /obj/machinery/space_heater/update_icon()
@@ -38,15 +50,6 @@
 		set_light(0)
 	if(panel_open)
 		AddOverlays("sheater-open")
-
-/obj/machinery/space_heater/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += "The unit is [on ? "on" : "off"] and the hatch is [panel_open ? "open" : "closed"]."
-	if(panel_open)
-		. += "The power cell is [cell ? "installed" : "missing"]."
-	else
-		. += "The charge meter reads [cell ? round(cell.percent(),1) : 0]%"
-	return
 
 /obj/machinery/space_heater/powered()
 	if(cell && cell.charge)
@@ -113,13 +116,15 @@
 /obj/machinery/space_heater/ui_data(mob/user)
 	var/list/data = list()
 
+	current_temperature = round(env.temperature - T0C, 0.1)
+
 	data["power_cell_inserted"] = cell
 	data["power_cell_charge"] = cell?.percent()
 	data["is_on"] = on
 	data["is_active"] = active
 	data["panel_open"] = panel_open
 	data["heating_power"] = heating_power
-	data["current_temperature"] = round(env.temperature - T0C, 0.1)
+	data["current_temperature"] = current_temperature
 	data["set_temperature"] = set_temperature - T0C
 	data["set_temperature_max"] = set_temperature_max - T0C
 	data["set_temperature_min"] = set_temperature_min - T0C

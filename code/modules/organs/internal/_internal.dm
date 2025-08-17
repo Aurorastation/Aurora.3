@@ -7,7 +7,12 @@
 	var/unknown_pain_location = TRUE // if TRUE, pain messages will point to the parent organ, otherwise it will print the organ name
 	var/toxin_type = "undefined"
 	var/relative_size = 25 //Used for size calcs
+	/// The icon state to overlay on the mob
 	var/on_mob_icon
+	/// If the icon state has an active overlay
+	var/active_overlay = FALSE
+	/// If the icon state has an active emissive overlay
+	var/active_emissive = FALSE
 	var/list/possible_modifications = list("Normal","Assisted","Mechanical") //this is used in the character setup
 
 	min_broken_damage = 10 //Internal organs are frail, man.
@@ -141,17 +146,16 @@
 /obj/item/organ/internal/process(seconds_per_tick)
 	..()
 	if(istype(owner) && (toxin_type in owner.chem_effects))
-		take_damage(owner.chem_effects[toxin_type] * 0.1 * PROCESS_ACCURACY, SPT_PROB(1, seconds_per_tick))
-	handle_regeneration()
+		take_damage(owner.chem_effects[toxin_type] * seconds_per_tick)
+	handle_regeneration(seconds_per_tick)
 	tick_surge_damage() //Yes, this is intentional.
 
-/obj/item/organ/internal/proc/handle_regeneration()
+/obj/item/organ/internal/proc/handle_regeneration(seconds_per_tick)
 	SHOULD_CALL_PARENT(TRUE)
-	if(damage && !BP_IS_ROBOTIC(src) && istype(owner))
-		if(!owner.is_asystole())
-			if(!(owner.chem_effects[CE_TOXIN] || (toxin_type in owner.chem_effects)))
-				var/repair_modifier = owner.chem_effects[CE_ORGANREPAIR] || 0.1
-				if(damage < repair_modifier*max_damage)
-					heal_damage(repair_modifier)
-				return TRUE // regeneration is allowed
-	return FALSE // regeneration is prevented
+	if(!damage || BP_IS_ROBOTIC(src) || !istype(owner) || owner.is_asystole() || (owner.chem_effects[CE_TOXIN] || (toxin_type in owner.chem_effects)))
+		return FALSE
+
+	var/repair_modifier = owner.chem_effects[CE_ORGANREPAIR] || 0.1
+	if(damage < repair_modifier*max_damage)
+		heal_damage(repair_modifier)
+	return TRUE // regeneration is allowed

@@ -49,7 +49,7 @@
 
 /obj/item/storage/belt/verb/toggle_layer()
 	set name = "Switch Belt Layer"
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in usr
 
 	if(show_above_suit == -1)
@@ -71,7 +71,7 @@
 		verbs += /obj/item/storage/belt/proc/flipbelt
 
 /obj/item/storage/belt/proc/flipbelt(mob/user, var/self = TRUE)
-	set category = "Object"
+	set category = "Object.Equipped"
 	set name = "Flip Belt"
 	set src in usr
 
@@ -348,6 +348,7 @@
 		/obj/item/device/laser_pointer,
 		/obj/item/device/camera,
 		/obj/item/clipboard,
+		/obj/item/journal/notepad
 		)
 	content_overlays = TRUE
 
@@ -388,6 +389,22 @@
 		/obj/item/gun/projectile/sec = 1,
 		/obj/item/ammo_magazine/c45m/rubber = 2,
 	)
+
+/obj/item/storage/belt/security/full/investigator
+	starts_with = list(
+		/obj/item/taperoll/police = 1,
+		/obj/item/device/flash = 1,
+		/obj/item/device/camera/detective = 1,
+		/obj/item/device/taperecorder = 1
+	)
+
+/obj/item/storage/belt/security/vestbelt
+	name = "security chestrig"
+	desc = "A chestrig designed to hold vital security equipment, like handcuffs and flashes."
+	icon_state = "securityvestbelt"
+	item_state = "securityvestbelt"
+	content_overlays = FALSE
+	show_above_suit = TRUE
 
 /obj/item/storage/belt/soulstone
 	name = "soul stone belt"
@@ -570,7 +587,7 @@
 	max_w_class = WEIGHT_CLASS_BULKY
 	can_hold = list(
 		/obj/item/reagent_containers/glass,
-		/obj/item/grenade/chem_grenade, //weed killer grenades mostly, or water-pottassium if you grow the bannanas!
+		/obj/item/grenade/chem_grenade,
 		/obj/item/bee_smoker, //will this ever get used? Probally not.
 		/obj/item/plantspray/pests,
 		/obj/item/storage/bag/plants,
@@ -583,8 +600,21 @@
 		/obj/item/reagent_containers/spray, //includes if you ever wish to get a spraybottle full of other chemicals, Like water
 		/obj/item/device/analyzer/plant_analyzer,
 		/obj/item/clothing/gloves/botanic_leather,
-		/obj/item/device/radio
+		/obj/item/device/radio,
+		/obj/item/crowbar,
+		/obj/item/device/analyzer,
+		/obj/item/device/t_scanner,
 	)
+
+/obj/item/storage/belt/hydro/full
+	starts_with = list(
+		/obj/item/material/minihoe = 1,
+		/obj/item/material/hatchet = 1,
+		/obj/item/wirecutters/clippers = 1,
+		/obj/item/device/analyzer/plant_analyzer = 1,
+		/obj/item/storage/bag/plants = 1
+	)
+
 
 /obj/item/storage/belt/ninja //credits to BurgerBB
 	name = "advanced combat belt"
@@ -629,7 +659,7 @@
 /obj/item/storage/belt/fannypack
 	name = "fannypack"
 	desc = "A dorky fannypack for keeping small items in."
-	icon = 'icons/clothing/belts/fannypacks.dmi'
+	icon = 'icons/obj/item/clothing/belts/fannypacks.dmi'
 	icon_state = "fannypack"
 	item_state = "fannypack"
 	max_w_class = WEIGHT_CLASS_SMALL

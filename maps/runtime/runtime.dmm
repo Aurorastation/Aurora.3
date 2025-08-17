@@ -572,7 +572,7 @@
 /area/engineering)
 "bv" = (
 /turf/simulated/wall/r_wall,
-/area/hallway/secondary/entry)
+/area/hallway/primary/central_two)
 "bw" = (
 /obj/machinery/light{
 	brightness_range = 16;
@@ -719,7 +719,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/hallway/secondary/entry)
+/area/hallway/primary/central_two)
 "bR" = (
 /obj/machinery/light{
 	brightness_range = 16;
@@ -734,7 +734,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/hallway/secondary/entry)
+/area/hallway/primary/central_two)
 "bS" = (
 /obj/structure/closet/secure_closet/hos,
 /obj/effect/floor_decal/corner/dark_blue{
@@ -744,7 +744,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/hallway/secondary/entry)
+/area/hallway/primary/central_two)
 "bT" = (
 /obj/structure/closet/emcloset,
 /obj/effect/floor_decal/corner/dark_blue{
@@ -754,7 +754,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/hallway/secondary/entry)
+/area/hallway/primary/central_two)
 "bU" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/plating,
@@ -883,7 +883,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/wall/r_wall,
-/area/hallway/secondary/entry)
+/area/hallway/primary/central_two)
 "ch" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -897,17 +897,17 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/hallway/secondary/entry)
+/area/hallway/primary/central_two)
 "ci" = (
 /turf/simulated/floor/tiled,
-/area/hallway/secondary/entry)
+/area/hallway/primary/central_two)
 "cj" = (
 /obj/machinery/door/airlock/maintenance{
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
-/area/hallway/secondary/entry)
+/area/hallway/primary/central_two)
 "ck" = (
 /obj/machinery/light{
 	brightness_range = 16;
@@ -982,22 +982,22 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
-/area/hallway/secondary/entry)
+/area/hallway/primary/central_two)
 "cu" = (
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/hallway/secondary/entry)
+/area/hallway/primary/central_two)
 "cv" = (
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/hallway/secondary/entry)
+/area/hallway/primary/central_two)
 "cw" = (
 /turf/simulated/floor/plating,
-/area/hallway/secondary/entry)
+/area/hallway/primary/central_two)
 "cx" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1066,7 +1066,7 @@
 	dir = 4
 	},
 /turf/simulated/wall/r_wall,
-/area/hallway/secondary/entry)
+/area/hallway/primary/central_two)
 "cE" = (
 /obj/machinery/atmospherics/unary/vent_pump{
 	dir = 8
@@ -1078,7 +1078,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/hallway/secondary/entry)
+/area/hallway/primary/central_two)
 "cF" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 1
@@ -1088,7 +1088,7 @@
 	},
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
-/area/hallway/secondary/entry)
+/area/hallway/primary/central_two)
 "cG" = (
 /obj/item/storage/box/fancy/donut,
 /obj/effect/floor_decal/corner/dark_blue{
@@ -1100,7 +1100,7 @@
 	},
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
-/area/hallway/secondary/entry)
+/area/hallway/primary/central_two)
 "cH" = (
 /obj/item/stack/material/glass{
 	amount = 50
@@ -1118,7 +1118,7 @@
 	},
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
-/area/hallway/secondary/entry)
+/area/hallway/primary/central_two)
 "cI" = (
 /obj/item/paper_bin{
 	pixel_x = -3;
@@ -1130,7 +1130,7 @@
 	},
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
-/area/hallway/secondary/entry)
+/area/hallway/primary/central_two)
 "cJ" = (
 /obj/item/device/healthanalyzer,
 /obj/effect/floor_decal/corner/dark_blue,
@@ -1139,7 +1139,7 @@
 	},
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
-/area/hallway/secondary/entry)
+/area/hallway/primary/central_two)
 "cK" = (
 /turf/simulated/wall/r_wall,
 /area/construction)
@@ -2464,7 +2464,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/hallway/secondary/entry)
+/area/hallway/primary/central_two)
 "uQ" = (
 /obj/structure/sink,
 /turf/simulated/floor/tiled,
@@ -3853,7 +3853,7 @@
 	},
 /obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled,
-/area/hallway/secondary/entry)
+/area/hallway/primary/central_two)
 "Yc" = (
 /obj/effect/landmark{
 	name = "carpspawn"

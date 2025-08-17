@@ -32,7 +32,7 @@
 #define SOUND_ADMINHELP 0x1
 #define SOUND_MIDI      0x2
 // 0x4 is free.
-#define SOUND_LOBBY				0x8
+// 0x8 is free.
 #define CHAT_OOC				0x10
 #define CHAT_DEAD				0x20
 #define CHAT_GHOSTEARS			0x40
@@ -57,7 +57,7 @@
 #define ACCENT_TAG_TEXT BITFLAG(8)
 #define CLIENT_PREFERENCE_HIDE_MENU BITFLAG(9)
 
-#define TOGGLES_DEFAULT (SOUND_ADMINHELP | SOUND_MIDI | SOUND_LOBBY | CHAT_OOC | CHAT_DEAD | CHAT_GHOSTEARS | CHAT_GHOSTSIGHT | CHAT_PRAYER | CHAT_RADIO | CHAT_ATTACKLOGS | CHAT_LOOC | CHAT_GHOSTLOOC)
+#define TOGGLES_DEFAULT (SOUND_ADMINHELP | SOUND_MIDI | CHAT_OOC | CHAT_DEAD | CHAT_GHOSTEARS | CHAT_GHOSTSIGHT | CHAT_PRAYER | CHAT_RADIO | CHAT_ATTACKLOGS | CHAT_LOOC | CHAT_GHOSTLOOC)
 
 // ASFX and SFX Toggles
 // (ASFX = Ambient Sound Effects; SFX = Sound Effects)
@@ -122,7 +122,7 @@
 #define EVENT_LEVEL_MODERATE 2
 #define EVENT_LEVEL_MAJOR    3
 
-//General-purpose life speed define for plants.
+/// General-purpose life speed define for plants.
 #define HYDRO_SPEED_MULTIPLIER 1
 
 #define DEFAULT_JOB_TYPE /datum/job/assistant
@@ -406,6 +406,7 @@ example:
 #define SAUCEPAN			1 << 4
 #define POT					1 << 5
 #define GRILL				1 << 6
+#define MICROWAVE			1 << 7
 
 // Cooking misc.
 // can_insert return values

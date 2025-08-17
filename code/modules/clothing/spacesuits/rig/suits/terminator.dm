@@ -2,7 +2,7 @@
 	name = "\improper Purpose combat layer"
 	desc = "An unknown, sleek mechanical construction that doesn't conform to any technology, culture, or even creature you know. \
 			It seems largely impervious to any wear and tear."
-	icon = 'icons/clothing/rig/hunter_killer.dmi'
+	icon = 'icons/obj/item/clothing/rig/hunter_killer.dmi'
 	icon_state = "hunterkiller_rig"
 	suit_type = "synthetic exoskeleton"
 	armor = list(

@@ -21,7 +21,7 @@
 
 /obj/item/clothing/suit/storage/hooded/verb/ToggleHood()
 	set name = "Toggle Coat Hood"
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in usr
 
 	if(use_check_and_message(usr))
@@ -38,7 +38,7 @@
 /obj/item/clothing/suit/storage/hooded/wintercoat
 	name = "winter coat"
 	desc = "A heavy jacket made from animal furs."
-	icon = 'icons/obj/clothing/hoodies.dmi'
+	icon = 'icons/obj/item/clothing/suit/storage/toggle/hoodies.dmi'
 	icon_state = "coatwinter"
 	item_state = "coatwinter"
 	contained_sprite = TRUE
@@ -54,7 +54,7 @@
 /obj/item/clothing/head/winterhood
 	name = "winter hood"
 	desc = "A hood attached to a heavy winter jacket."
-	icon = 'icons/obj/clothing/hoodies.dmi'
+	icon = 'icons/obj/item/clothing/suit/storage/toggle/hoodies.dmi'
 	icon_state = "coatwinter_hood"
 	contained_sprite = TRUE
 	body_parts_covered = HEAD
@@ -287,7 +287,7 @@
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/verb/Toggle()
 	set name = "Toggle Coat Zipper"
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in usr
 	if(use_check_and_message(usr))
 		return 0

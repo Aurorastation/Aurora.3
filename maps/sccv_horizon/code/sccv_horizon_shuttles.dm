@@ -106,7 +106,7 @@
 /datum/shuttle/autodock/overmap/intrepid
 	name = "Intrepid"
 	move_time = 20
-	shuttle_area = list(/area/shuttle/intrepid/main_compartment, /area/shuttle/intrepid/port_compartment, /area/shuttle/intrepid/starboard_compartment, /area/shuttle/intrepid/junction_compartment, /area/shuttle/intrepid/buffet, /area/shuttle/intrepid/medical, /area/shuttle/intrepid/engineering, /area/shuttle/intrepid/port_storage, /area/shuttle/intrepid/flight_deck)
+	shuttle_area = list(/area/horizon/shuttle/intrepid/main_compartment, /area/horizon/shuttle/intrepid/port_compartment, /area/horizon/shuttle/intrepid/starboard_compartment, /area/horizon/shuttle/intrepid/junction_compartment, /area/horizon/shuttle/intrepid/buffet, /area/horizon/shuttle/intrepid/medical, /area/horizon/shuttle/intrepid/engineering, /area/horizon/shuttle/intrepid/port_storage, /area/horizon/shuttle/intrepid/flight_deck)
 	dock_target = "airlock_shuttle_intrepid"
 	current_location = "nav_hangar_intrepid"
 	landmark_transition = "nav_transit_intrepid"
@@ -118,7 +118,7 @@
 	name = "First Deck Intrepid Hangar Bay"
 	landmark_tag = "nav_hangar_intrepid"
 	docking_controller = "intrepid_dock"
-	base_area = /area/hangar/intrepid
+	base_area = /area/horizon/hangar/intrepid
 	base_turf = /turf/simulated/floor/plating
 
 /obj/effect/shuttle_landmark/intrepid/transit
@@ -130,7 +130,7 @@
 /datum/shuttle/autodock/overmap/canary
 	name = "Canary"
 	move_time = 20
-	shuttle_area = list(/area/shuttle/canary)
+	shuttle_area = list(/area/horizon/shuttle/canary)
 	dock_target = "canary_shuttle"
 	current_location = "nav_hangar_canary"
 	landmark_transition = "nav_transit_canary"
@@ -142,7 +142,7 @@
 	name = "First Deck Canary Hangar Bay"
 	landmark_tag = "nav_hangar_canary"
 	docking_controller = "canary_dock"
-	base_area = /area/hangar/auxiliary
+	base_area = /area/horizon/hangar/auxiliary
 	base_turf = /turf/simulated/floor/plating
 
 /obj/effect/shuttle_landmark/canary/transit
@@ -154,7 +154,7 @@
 /datum/shuttle/autodock/overmap/quark
 	name = "Quark"
 	move_time = 20
-	shuttle_area = list(/area/shuttle/quark/cockpit, /area/shuttle/quark/cargo_hold)
+	shuttle_area = list(/area/horizon/shuttle/quark/cockpit, /area/horizon/shuttle/quark/cargo_hold)
 	dock_target = "airlock_shuttle_quark"
 	current_location = "nav_hangar_quark"
 	landmark_transition = "nav_transit_quark"
@@ -166,7 +166,7 @@
 	name = "First Deck Quark Hangar Bay"
 	landmark_tag = "nav_hangar_quark"
 	docking_controller = "quark_dock"
-	base_area = /area/hangar/auxiliary
+	base_area = /area/horizon/hangar/auxiliary
 	base_turf = /turf/simulated/floor/plating
 
 /obj/effect/shuttle_landmark/quark/transit
@@ -178,7 +178,7 @@
 /datum/shuttle/autodock/overmap/mining
 	name = "Spark"
 	move_time = 20
-	shuttle_area = /area/shuttle/mining
+	shuttle_area = /area/horizon/shuttle/mining
 	dock_target = "airlock_shuttle_spark"
 	current_location = "nav_hangar_mining"
 	landmark_transition = "nav_transit_mining"
@@ -191,7 +191,7 @@
 	landmark_tag = "nav_hangar_mining"
 	docking_controller = "mining_shuttle_dock"
 	base_turf = /turf/simulated/floor/airless
-	base_area = /area/hangar/operations
+	base_area = /area/horizon/hangar/operations
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/mining/transit
@@ -220,7 +220,7 @@
 	landmark_tag = "nav_cargo_shuttle_dock"
 	docking_controller = "cargo_shuttle_dock"
 	base_turf = /turf/simulated/floor/plating/cargo_elevator
-	base_area = /area/hangar/operations
+	base_area = /area/horizon/hangar/operations
 
 //-// Admin Corvette //-//
 /datum/shuttle/autodock/multi/crescent

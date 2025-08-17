@@ -3505,11 +3505,7 @@
 /turf/simulated/wall,
 /area/city/nouvelle)
 "oN" = (
-/obj/effect/floor_decal/plaque{
-	name = "Fancy Plaque";
-	desc = "Infinity Bridge";
-	desc_extended = "You're currently standing on the Infinity Bridge. This bridge is over 150 floors high!"
-	},
+/obj/structure/sign/floor_plaque/halloween_event/bridge,
 /turf/simulated/floor/tiled,
 /area/city/outside)
 "oP" = (
@@ -3796,10 +3792,6 @@
 /obj/item/clothing/suit/storage/target_costume,
 /obj/item/clothing/suit/storage/target_costume,
 /obj/item/clothing/suit/storage/target_costume,
-/obj/item/clothing/head/feathertrilby{
-	pixel_x = 6;
-	pixel_y = 12
-	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
@@ -8262,11 +8254,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/city/dining)
 "GV" = (
-/obj/effect/floor_decal/plaque{
-	name = "Fancy Plaque";
-	desc = "Welcome to the  Infinity Reach Towers ";
-	desc_extended = "Welcome to the Infinity Reach Towers, a jewel of Nouvelle-Rochelle. We have several attractions here setup just for you! A haunted house, the renowned Ethereal Nexus Lounge, and so much more! Have a wonderful stay, and remember.. Happy Halloween!"
-	},
+/obj/structure/sign/floor_plaque/halloween_event/entrance,
 /turf/simulated/floor/tiled/dark/full,
 /area/city/port)
 "GX" = (

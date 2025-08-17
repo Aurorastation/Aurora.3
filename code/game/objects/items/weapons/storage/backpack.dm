@@ -6,7 +6,6 @@
 /obj/item/storage/backpack
 	name = "backpack"
 	desc = "You wear this on your back and put items into it."
-	desc_antag = "As a Cultist, this item can be reforged to become a cult backpack. Any stored items will be transferred."
 	icon = 'icons/obj/storage/backpack.dmi'
 	icon_state = "backpack"
 	item_state = "backpack"
@@ -33,6 +32,10 @@
 	 */
 	var/attached_icon = "backpack"
 
+/obj/item/storage/backpack/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "As a Cultist, this item can be reforged to become a cult backpack. Any stored items will be transferred."
+
 /obj/item/storage/backpack/Initialize()
 	. = ..()
 	if(straps == TRUE)
@@ -46,7 +49,7 @@
 /obj/item/storage/backpack/proc/adjust_backpack_straps()
 	set name = "Adjust Bag Straps"
 	set desc = "Adjust your bag straps."
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in usr
 	if(use_check_and_message(usr))
 		return 0
@@ -160,7 +163,6 @@
 /obj/item/storage/backpack/cultpack
 	name = "trophy rack"
 	desc = "It's useful for both carrying extra gear and proudly declaring your insanity."
-	desc_antag = null // It's already been forged once.
 	icon_state = "cultpack"
 	item_state = "cultpack"
 
@@ -972,7 +974,7 @@
 /obj/item/storage/backpack/cloak/verb/toggle_cloak_hood()
 	set name = "Toggle Cloak Hood"
 	set desc = "Toggle your cloak hood."
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in usr
 	if(use_check_and_message(usr))
 		return 0
@@ -1089,7 +1091,6 @@
 /obj/item/storage/backpack/kala
 	name = "skrell backpack"
 	desc = "A lightly padded, waterproof backpack worn by Skrell."
-	icon = 'icons/clothing/kit/skrell_armor.dmi'
 	icon_state = "kala_backpack"
 	item_state = "kala_backpack"
 	contained_sprite = TRUE
