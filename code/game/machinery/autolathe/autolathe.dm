@@ -43,6 +43,11 @@
 		/obj/item/stock_parts/console_screen
 	)
 
+/obj/machinery/autolathe/upgrade_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Upgraded <b>matter bins</b> will increase material storage capacity."
+	. += "Upgraded <b>manipulators</b> will improve material use efficiency and increase fabrication speed."
+
 /obj/machinery/autolathe/Initialize()
 	..()
 	wires = new(src)

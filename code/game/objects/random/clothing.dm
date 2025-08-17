@@ -225,7 +225,6 @@
 	icon_state = "beret"
 	problist = list(
 		/obj/item/clothing/head/beret/colorable/random = 5,
-		/obj/item/clothing/head/beret/peaked/colourable/random = 5,
 		/obj/item/clothing/head/beret/engineering = 3,
 		/obj/item/clothing/head/beret/atmos = 3,
 		/obj/item/clothing/head/beret/medical = 3,

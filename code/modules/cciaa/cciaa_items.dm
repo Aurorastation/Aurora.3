@@ -3,7 +3,6 @@
 	name = "Human Resources Recorder"
 	desc = "A modified recorder used for interviews by human resources personnel around the galaxy."
 	desc_extended = "This recorder is a modified version of a standard universal recorder. It features additional audit-proof records keeping, access controls and is tied to a central management system."
-	desc_info = "This recorder records the fingerprints of the interviewee, to do so, interact with this recorder when asked."
 	w_class = WEIGHT_CLASS_TINY
 	timestamp = list()	//This actually turns timestamp into a string later on
 
@@ -31,6 +30,10 @@
 	var/interviewee_name = null
 	var/date_string = null
 
+/obj/item/device/taperecorder/cciaa/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This recorder records the fingerprints of the interviewee, to do so, interact with this recorder when asked."
+
 /obj/item/device/taperecorder/cciaa/hear_talk(mob/living/M as mob, msg, var/verb="says")
 	if(recording && !paused)
 		timestamp = "[get_time()]"
@@ -43,7 +46,7 @@
 
 /obj/item/device/taperecorder/cciaa/record()
 	set name = "Start Recording"
-	set category = "Recorder"
+	set category = "Object.Tape Recorder"
 
 	if(!check_rights(R_CCIAA,FALSE))
 		to_chat(usr, SPAN_NOTICE("The device beeps and flashes \"Unauthorised user.\"."))
@@ -128,7 +131,7 @@
 
 /obj/item/device/taperecorder/cciaa/stop()
 	set name = "Stop Recording"
-	set category = "Recorder"
+	set category = "Object.Tape Recorder"
 
 	if(use_check_and_message(usr))
 		return
@@ -189,7 +192,7 @@
 
 /obj/item/device/taperecorder/cciaa/verb/reset_recorder()
 	set name = "Reset Recorder"
-	set category = "Recorder"
+	set category = "Object.Tape Recorder"
 
 	if(!check_rights(R_CCIAA,FALSE))
 		to_chat(usr, SPAN_NOTICE("The device beeps and flashes \"Unauthorised user.\"."))
@@ -229,7 +232,7 @@
 
 /obj/item/device/taperecorder/cciaa/print_transcript()
 	set name = "Print Transcript"
-	set category = "Recorder"
+	set category = "Object.Tape Recorder"
 
 	if(use_check_and_message(usr))
 		return
@@ -247,7 +250,7 @@
 
 /obj/item/device/taperecorder/cciaa/verb/pause_recording()
 	set name = "Pause Recording"
-	set category = "Recorder"
+	set category = "Object.Tape Recorder"
 
 	if(use_check_and_message(usr))
 		return

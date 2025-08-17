@@ -38,7 +38,7 @@ In short:
 /datum/universal_state/hell/OnEnter()
 	SSgarbage.can_fire = FALSE	// Yeah, fuck it. No point hard-deleting stuff now.
 
-	GLOB.escape_list = get_area_turfs(locate(/area/hallway/secondary/exit))
+	GLOB.escape_list = get_area_turfs(locate(/area/horizon/shuttle/escape_pod))
 
 	//Separated into separate procs for profiling
 	AreaSet()

@@ -18,9 +18,9 @@
 	var/chamber_offset = 0 //how many empty chambers in the cylinder until you hit a round
 
 /obj/item/gun/projectile/revolver/verb/spin_cylinder()
-	set name = "Spin cylinder"
+	set name = "Spin Cylinder"
 	set desc = "Fun when you're bored out of your skull."
-	set category = "Object"
+	set category = "Object.Held"
 	set src in usr
 
 	chamber_offset = 0
@@ -60,7 +60,6 @@
 /obj/item/gun/projectile/revolver/mateba/captain
 	name = "\improper SCC command autorevolver"
 	desc = "A ludicrously powerful .454 autorevolver with equally ludicrous recoil which is issued by the SCC to the administrators of critical facilities and vessels. While revolvers may be a thing of the past, the stopping power displayed by this weapon is second to none."
-	desc_info = "In order to accurately fire this revolver, it must be wielded. Additionally, if you fire this revolver unwielded and you are not a G2 or Unathi, you will drop it."
 	desc_extended = "A Zavodskoi Interstellar design from the mid 2450s intended for export to the Eridani Corporate Federation and the Republic of Biesel, the Protektor \
 	revolver was never designed with practicality in mind. The .454 rounds fired from this weapon are liable to snap the wrist of an unprepared shooter and \
 	any following shots will be difficult to place onto a human-sized target due to the recoil, let alone a skrell. But nobody buys a Protektor for the purpose of \
@@ -77,6 +76,10 @@
 	force = 15
 	recoil = 10
 	recoil_wielded = 5
+
+/obj/item/gun/projectile/revolver/mateba/captain/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "In order to accurately fire this revolver, it must be wielded with both hands. Additionally, if you fire this revolver unwielded and you are not a G2 or Unathi, you will drop it."
 
 /obj/item/gun/projectile/revolver/mateba/captain/handle_post_fire(mob/user)
 	..()
@@ -107,7 +110,7 @@
 
 /obj/item/gun/projectile/revolver/detective/verb/rename_gun()
 	set name = "Name Gun"
-	set category = "Object"
+	set category = "Object.Held"
 	set desc = "Click to rename your gun. If you're the detective."
 	set src in usr
 
@@ -185,12 +188,13 @@
 	var/list/tertiary_loaded = list()
 	fire_delay = ROF_INTERMEDIATE
 
+/obj/item/gun/projectile/revolver/lemat/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This is a unique ballistic weapon. It fires .38 ammunition, but may also load shotgun shells into a secondary barrel."
+	. += "By using the Unique-Action macro, you can switch from one barrel to the other."
 
 /obj/item/gun/projectile/revolver/lemat/Initialize()
 	. = ..()
-	desc_info = "This is a unique ballistic weapon. It fires .38 ammunition, but may also load shotgun shells into a secondary barrel. To fire the weapon, toggle the safety \
-	with ctrl-click (or enable HARM intent), then click where you want to fire. By using the Unique-Action macro, you can switch from one barrel to the other. To reload, click the gun \
-	with an empty hand to remove any spent casings or shells, then insert new ones."
 	for(var/i in 1 to secondary_max_shells)
 		secondary_loaded += new secondary_ammo_type(src)
 
@@ -237,9 +241,9 @@
 		flipped_firing = 0
 
 /obj/item/gun/projectile/revolver/lemat/spin_cylinder()
-	set name = "Spin cylinder"
+	set name = "Spin Cylinder"
 	set desc = "Fun when you're bored out of your skull."
-	set category = "Object"
+	set category = "Object.Held"
 	set src in usr
 
 	chamber_offset = 0
@@ -251,8 +255,9 @@
 		if(rand(1,max_shells) > loaded.len)
 			chamber_offset = rand(0,max_shells - loaded.len)
 
-/obj/item/gun/projectile/revolver/lemat/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/gun/projectile/revolver/lemat/feedback_hints(mob/user, distance, is_adjacent, infix, suffix)
+	. = list()
+	. += ..()
 	if(secondary_loaded)
 		var/to_print
 		for(var/round in secondary_loaded)

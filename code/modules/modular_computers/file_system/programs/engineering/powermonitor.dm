@@ -82,6 +82,7 @@
 
 /datum/computer_file/program/power_monitor/process_tick()
 	..()
+	refresh_sensors()
 	if(has_alarm())
 		if(!has_alert)
 			program_icon_state = "power_monitor_warn"

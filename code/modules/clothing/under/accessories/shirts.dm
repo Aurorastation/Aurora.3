@@ -127,7 +127,7 @@
 
 /obj/item/clothing/accessory/wcoat_rec/det_vest/verb/unbutton()
 	set name = "Unbutton Waistcoat"
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in usr
 
 	if(!istype(usr, /mob/living))

@@ -1,7 +1,7 @@
 /obj/item/clothing/head/helmet/pilot
 	name = "flight helmet"
 	desc = "A helmet with a toggleable pilot visor attached. The visor feeds its wearer in-flight information via an integrated heads-up display."
-	icon = 'icons/clothing/head/pilot_helmets.dmi'
+	icon = 'icons/obj/item/clothing/head/pilot_helmets.dmi'
 	icon_state = "pilot_helmet"
 	item_state = "pilot_helmet"
 	contained_sprite = TRUE
@@ -65,7 +65,7 @@
 
 /obj/item/clothing/head/helmet/pilot/verb/visor_toggled()
 	set name = "Toggle Visor"
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in usr
 
 	var/mob/living/carbon/human/user = usr
@@ -157,6 +157,12 @@
 	icon_state = "legion_pilot"
 	item_state = "legion_pilot"
 	camera = /obj/machinery/camera/network/tcfl
+
+/obj/item/clothing/head/helmet/pilot/himeo
+	name = "himean naval flight helmet"
+	desc = "A helmet with a pilots visor attached, painted in the drab tan colours of the Himean navy uniform. The visor feeds its wearer in-flight information via an integrated heads-up display."
+	icon_state = "pilot_helmet_himeo"
+	item_state = "pilot_helmet_himeo"
 
 /obj/pilot_overlay_holder
 	name = null

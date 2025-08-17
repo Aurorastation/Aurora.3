@@ -1,0 +1,1422 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ab" = (
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"am" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/random/dirt_75,
+/obj/machinery/alarm/south{
+	req_access = list(253);
+	req_one_access = null
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1;
+	level = 2
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"ay" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/trash_pile,
+/obj/random/dirt_75,
+/obj/machinery/alarm/south{
+	req_access = list(253);
+	req_one_access = null
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1;
+	level = 2
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"az" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate/loot,
+/obj/random/dirt_75,
+/obj/machinery/alarm/south{
+	req_one_access = null;
+	req_access = list(253)
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1;
+	level = 2
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"aA" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"aE" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/random/pottedplant,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"aH" = (
+/obj/machinery/power/apc/north{
+	req_access = list(253)
+	},
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/obj/machinery/optable,
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"aZ" = (
+/obj/structure/bed/stool/chair/folding{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/plain/red{
+	dir = 5
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"bp" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/portable_atmospherics/canister/hydrogen,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"cH" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/vending/security,
+/obj/random/dirt_75,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"cL" = (
+/obj/structure/bed/stool/bar{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/plain/red{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"dn" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate/loot,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"dD" = (
+/obj/random/junk,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"ea" = (
+/obj/random/junk,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"eg" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/largecrate/animal/adhomai/schlorrgo,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"fb" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"fU" = (
+/obj/structure/table/rack/folding_table,
+/obj/item/weldingtool/hugetank,
+/obj/item/device/robotanalyzer{
+	pixel_y = 13
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"gm" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/vending/cigarette/hacked,
+/obj/random/dirt_75,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"gx" = (
+/obj/machinery/vending/dinnerware/bar,
+/obj/random/dirt_75,
+/turf/simulated/floor/lino,
+/area/template_noop)
+"gR" = (
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/obj/random/junk,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"ho" = (
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"hQ" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/random/junk,
+/obj/random/dirt_75,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"iK" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate/loot,
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"iO" = (
+/obj/random/dirt_75,
+/obj/machinery/alarm/east{
+	req_one_access = null;
+	req_access = list(253)
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"jn" = (
+/obj/effect/map_effect/marker/mapmanip/submap/extract/himeo_patrol_ship/storage_2,
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"jr" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"kf" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"kp" = (
+/obj/structure/closet/crate/loot,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"kE" = (
+/obj/structure/bed/stool/chair/folding{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/plain/red,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"kG" = (
+/obj/effect/floor_decal/spline/plain/red{
+	dir = 1
+	},
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"la" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/machinery/alarm/east{
+	req_one_access = null;
+	req_access = list(253)
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"lJ" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate/loot,
+/obj/structure/sign/poster{
+	pixel_y = 32
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"mg" = (
+/turf/template_noop,
+/area/template_noop)
+"mx" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/table/rack/no_cargo,
+/obj/machinery/alarm/south{
+	req_one_access = null;
+	req_access = list(253)
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1;
+	level = 2
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"mI" = (
+/obj/effect/map_effect/marker/mapmanip/submap/extract/himeo_patrol_ship/storage_1,
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate/secure/large/rats,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"mW" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/trash_pile,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"nx" = (
+/obj/effect/floor_decal/spline/plain/red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"nN" = (
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc/north{
+	req_access = list(253)
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/table/rack/no_cargo,
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"og" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"oK" = (
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"oL" = (
+/obj/effect/floor_decal/spline/plain/red,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"py" = (
+/obj/machinery/mecha_part_fabricator{
+	req_access = null;
+	dir = 1
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"qb" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/portable_atmospherics/canister/phoron,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"qm" = (
+/obj/structure/closet/crate/loot,
+/obj/random/dirt_75,
+/obj/machinery/alarm/south{
+	req_access = list(253);
+	req_one_access = null
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1;
+	level = 2
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"qx" = (
+/obj/random/junk,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"rf" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"rv" = (
+/obj/effect/map_effect/marker/mapmanip/submap/extract/himeo_patrol_ship/storage_2,
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate/loot,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"sg" = (
+/obj/machinery/chemical_dispenser/bar_soft/full{
+	dir = 8;
+	pixel_x = 3
+	},
+/obj/structure/table/rack/folding_table,
+/obj/item/storage/box/fancy/candle_box{
+	pixel_y = 6;
+	pixel_x = -12
+	},
+/turf/simulated/floor/lino,
+/area/template_noop)
+"sB" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/largecrate/animal/adhomai/schlorrgo,
+/obj/random/dirt_75,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"tI" = (
+/obj/effect/floor_decal/spline/plain/red{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"vb" = (
+/obj/structure/bed/stool/chair/folding{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/plain/red{
+	dir = 6
+	},
+/obj/machinery/alarm/east{
+	req_one_access = null;
+	req_access = list(253)
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"vm" = (
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"vn" = (
+/obj/structure/closet/crate/loot,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"vu" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"vA" = (
+/obj/structure/table/rack/folding_table,
+/obj/effect/floor_decal/spline/plain/red,
+/obj/item/material/ashtray/plastic{
+	pixel_y = 7;
+	pixel_x = -8
+	},
+/obj/item/storage/box/fancy/cigarettes{
+	pixel_y = 3;
+	pixel_x = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"wg" = (
+/obj/effect/floor_decal/spline/plain/red{
+	dir = 9
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"xB" = (
+/obj/structure/bed/stool/chair/folding{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/plain/red{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"xM" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/trash_pile,
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"xN" = (
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"xO" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/table/rack/no_cargo,
+/obj/item/ammo_display,
+/obj/item/ammo_display,
+/obj/item/stack/liquidbags/half_full,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"yp" = (
+/obj/random/junk,
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"yF" = (
+/obj/machinery/vending/boozeomat/abandoned,
+/obj/random/dirt_75,
+/turf/simulated/floor/lino,
+/area/template_noop)
+"yS" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate/secure/large/rats,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"zx" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"zC" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate/loot,
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"zQ" = (
+/obj/structure/bed/stool/bar{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/plain/red{
+	dir = 10
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"zU" = (
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc/north{
+	req_access = list(253)
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"Ab" = (
+/obj/structure/reagent_dispensers/fueltank,
+/obj/random/dirt_75,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"Ae" = (
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"As" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/trash_pile,
+/obj/random/dirt_75,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"AZ" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/random/pottedplant,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"Br" = (
+/obj/effect/map_effect/marker/mapmanip/submap/extract/himeo_patrol_ship/storage_2,
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/table/rack/no_cargo,
+/obj/random/dirt_75,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"BA" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/portable_atmospherics/canister/hydrogen,
+/obj/random/dirt_75,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"BR" = (
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"CR" = (
+/obj/structure/closet/crate/loot,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"DL" = (
+/obj/structure/table/rack/folding_table,
+/obj/effect/floor_decal/spline/plain/red{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/obj/item/flame/candle,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"DX" = (
+/obj/effect/map_effect/marker/mapmanip/submap/extract/himeo_patrol_ship/storage_1,
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/item/cargo_package/offship,
+/obj/item/cargo_package/offship{
+	pixel_x = 3;
+	pixel_y = 9
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"DZ" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"Es" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"EF" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate/loot,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"Fd" = (
+/obj/effect/map_effect/marker/mapmanip/submap/extract/himeo_patrol_ship/storage_2,
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/random/junk,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"FT" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/random/pottedplant,
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"Gs" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate/trashcart,
+/obj/random/junk,
+/obj/random/dirt_75,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"Gv" = (
+/obj/structure/closet/crate/loot,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"GX" = (
+/obj/effect/floor_decal/spline/plain/red{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"Hq" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/random/junk,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"Ht" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/random/junk,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"HD" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"HF" = (
+/obj/machinery/chemical_dispenser/bar_alc/full{
+	dir = 8;
+	pixel_x = 3
+	},
+/obj/structure/table/rack/folding_table,
+/turf/simulated/floor/lino,
+/area/template_noop)
+"Ic" = (
+/obj/random/dirt_75,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/himeo_patrol_ship/storage_1,
+/turf/simulated/floor/lino,
+/area/template_noop)
+"IU" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"Ja" = (
+/obj/effect/map_effect/marker/mapmanip/submap/extract/himeo_patrol_ship/storage_1,
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate/loot,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"Jl" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/table/rack/no_cargo,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"Jp" = (
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"Jz" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/random/dirt_75,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"JK" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/table/rack/no_cargo,
+/obj/random/dirt_75,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"Kk" = (
+/obj/structure/closet/crate/loot,
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"Mi" = (
+/obj/structure/table/rack/folding_table,
+/obj/item/storage/firstaid/empty{
+	pixel_y = -2;
+	pixel_x = 6
+	},
+/obj/item/ipc_tag_scanner{
+	pixel_y = 6;
+	pixel_x = -3
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"Nw" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/table/rack/no_cargo,
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"NH" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"Oe" = (
+/obj/effect/map_effect/marker/mapmanip/submap/extract/himeo_patrol_ship/storage_2,
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/item/cargo_package/offship,
+/obj/item/cargo_package/offship{
+	pixel_x = 3;
+	pixel_y = 9
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"Oh" = (
+/obj/effect/map_effect/marker/mapmanip/submap/extract/himeo_patrol_ship/storage_2,
+/obj/structure/closet/crate/drop/grey,
+/obj/item/organ/external/arm/ipc/unbranded,
+/obj/item/organ/external/arm/right/ipc/unbranded,
+/obj/item/organ/external/foot/ipc/unbranded,
+/obj/item/organ/external/leg/ipc/unbranded,
+/obj/item/organ/external/leg/right/ipc/unbranded,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"OP" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/random/pottedplant,
+/obj/random/dirt_75,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"OZ" = (
+/turf/simulated/floor/lino,
+/area/template_noop)
+"PG" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"PI" = (
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc/north{
+	req_access = list(253)
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate/loot,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"Rl" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate/trashcart,
+/obj/random/junk,
+/obj/random/junk,
+/obj/random/junk,
+/obj/random/dirt_75,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"RW" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"SB" = (
+/obj/random/junk,
+/obj/random/junk,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"SN" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate/loot,
+/obj/random/dirt_75,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"Tc" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate/loot,
+/obj/random/dirt_75,
+/obj/machinery/alarm/south{
+	req_access = list(253);
+	req_one_access = null
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1;
+	level = 2
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"Te" = (
+/obj/structure/table/rack/folding_table,
+/obj/item/reagent_containers/spray/cleaner{
+	pixel_x = -6
+	},
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 1
+	},
+/obj/item/clothing/head/welding{
+	pixel_y = 7;
+	pixel_x = 7
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"Tz" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/sign/poster{
+	pixel_y = 32
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"TV" = (
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"Ua" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"Un" = (
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc/north{
+	req_access = list(253)
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate/trashcart,
+/obj/random/junk,
+/obj/random/junk,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"Uw" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"Vn" = (
+/obj/structure/closet/crate/drop,
+/obj/item/device/paint_sprayer,
+/obj/item/device/mmi/digital/posibrain,
+/obj/item/stack/nanopaste,
+/obj/item/stack/nanopaste,
+/obj/item/stack/nanopaste,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"Wv" = (
+/obj/random/dirt_75,
+/obj/random/junk,
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"Ya" = (
+/obj/machinery/alarm/east{
+	req_one_access = null;
+	req_access = list(253)
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"Yf" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"YL" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/random/dirt_75,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+
+(1,1,1) = {"
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+"}
+(2,1,1) = {"
+mg
+mg
+mg
+mg
+yF
+OZ
+OZ
+Ic
+mg
+qb
+og
+yp
+Ja
+mg
+JK
+og
+og
+mI
+mg
+OP
+HD
+og
+DX
+mg
+YL
+og
+og
+Ja
+mg
+"}
+(3,1,1) = {"
+mg
+mg
+mg
+mg
+gx
+OZ
+sg
+HF
+mg
+zC
+HD
+HD
+EF
+mg
+iK
+dD
+og
+iK
+mg
+FT
+HD
+dD
+EF
+mg
+zC
+HD
+Gv
+BA
+mg
+"}
+(4,1,1) = {"
+mg
+mg
+mg
+mg
+wg
+nx
+cL
+zQ
+mg
+bp
+yp
+Uw
+ab
+mg
+lJ
+og
+HD
+ab
+mg
+EF
+og
+og
+zx
+mg
+EF
+dD
+HD
+zx
+mg
+"}
+(5,1,1) = {"
+mg
+mg
+mg
+mg
+kG
+Wv
+og
+oL
+mg
+EF
+og
+Gv
+ab
+mg
+mW
+yp
+Gv
+ab
+mg
+DZ
+yp
+Gv
+zx
+mg
+EF
+Kk
+NH
+ab
+mg
+"}
+(6,1,1) = {"
+mg
+mg
+mg
+mg
+xB
+xN
+Wv
+kE
+mg
+EF
+xN
+Gv
+ab
+mg
+EF
+xN
+HD
+ab
+mg
+dn
+xN
+HD
+ab
+mg
+As
+qx
+Uw
+zx
+mg
+"}
+(7,1,1) = {"
+mg
+mg
+mg
+mg
+DL
+BR
+PG
+vA
+mg
+SN
+vu
+Es
+TV
+mg
+AZ
+BR
+ea
+TV
+mg
+SN
+CR
+Es
+Ua
+mg
+sB
+BR
+vm
+aA
+mg
+"}
+(8,1,1) = {"
+mg
+mg
+mg
+mg
+aZ
+tI
+GX
+vb
+mg
+EF
+vn
+ho
+Ya
+mg
+EF
+IU
+ho
+iO
+mg
+rf
+RW
+ho
+la
+mg
+Jl
+IU
+Jp
+Ya
+mg
+"}
+(9,1,1) = {"
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+"}
+(10,1,1) = {"
+mg
+Mi
+og
+Oh
+mg
+As
+HD
+Fd
+mg
+SN
+dD
+Br
+mg
+yS
+yp
+Oe
+mg
+rf
+og
+jn
+mg
+kf
+yp
+rv
+mg
+rf
+og
+jn
+mg
+"}
+(11,1,1) = {"
+mg
+Te
+HD
+py
+mg
+xM
+SB
+Rl
+mg
+zC
+og
+hQ
+mg
+Yf
+HD
+SN
+mg
+zC
+dD
+bp
+mg
+zC
+HD
+mW
+mg
+Nw
+dD
+SN
+mg
+"}
+(12,1,1) = {"
+mg
+aH
+Ae
+qm
+mg
+Un
+oK
+ay
+mg
+nN
+Ae
+Tc
+mg
+PI
+oK
+ay
+mg
+PI
+oK
+am
+mg
+zU
+gR
+az
+mg
+PI
+gR
+mx
+mg
+"}
+(13,1,1) = {"
+mg
+fU
+fb
+Ab
+mg
+rf
+Ht
+As
+mg
+rf
+Ht
+SN
+mg
+YL
+Hq
+SN
+mg
+gm
+Hq
+SN
+mg
+Tz
+jr
+cH
+mg
+EF
+Ht
+AZ
+mg
+"}
+(14,1,1) = {"
+mg
+Vn
+fb
+kp
+mg
+As
+Ht
+Gs
+mg
+mW
+fb
+aE
+mg
+SN
+jr
+YL
+mg
+eg
+jr
+aE
+mg
+Jz
+Hq
+xO
+mg
+rf
+jr
+qb
+mg
+"}
+(15,1,1) = {"
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+mg
+"}

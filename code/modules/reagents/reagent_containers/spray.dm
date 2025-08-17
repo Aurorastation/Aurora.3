@@ -25,6 +25,11 @@
 	var/safety = 0
 	var/spray_sound = 'sound/effects/spray2.ogg'
 
+/obj/item/reagent_containers/spray/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(is_adjacent)
+		. += "[round(reagents.total_volume)] units left."
+
 /obj/item/reagent_containers/spray/Initialize()
 	. = ..()
 	src.verbs -= /obj/item/reagent_containers/verb/set_APTFT
@@ -113,15 +118,10 @@
 	spray_size = next_in_list(spray_size, spray_sizes)
 	to_chat(user, SPAN_NOTICE("You adjusted the pressure nozzle. You'll now use [amount_per_transfer_from_this] units per spray, with a [spray_size] lane spray."))
 
-/obj/item/reagent_containers/spray/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(is_adjacent)
-		. += "[round(reagents.total_volume)] units left."
-
 /obj/item/reagent_containers/spray/verb/empty()
 
 	set name = "Empty Spray Bottle"
-	set category = "Object"
+	set category = "Object.Held"
 	set src in usr
 
 	if (alert(usr, "Are you sure you want to empty that?", "Empty Bottle:", "Yes", "No") != "Yes")
@@ -178,8 +178,8 @@
 	safety = 1
 	reagents_to_add = list(/singleton/reagent/capsaicin/condensed = 40)
 
-/obj/item/reagent_containers/spray/pepper/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/reagent_containers/spray/pepper/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(is_adjacent)
 		. += "The safety is [safety ? "on" : "off"]."
 

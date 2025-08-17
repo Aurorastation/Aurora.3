@@ -45,7 +45,7 @@
 	icon = 'icons/obj/guns/bolt_scope.dmi'
 
 /obj/item/gun/projectile/shotgun/pump/rifle/scope/verb/scope()
-	set category = "Object"
+	set category = "Object.Held"
 	set name = "Use Scope"
 	set src in usr
 
@@ -105,8 +105,9 @@
 
 	jam_chance = -10
 
-/obj/item/gun/projectile/shotgun/pump/rifle/magazine_fed/pipegun/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/gun/projectile/shotgun/pump/rifle/magazine_fed/pipegun/condition_hints(mob/user, distance, is_adjacent, infix, suffix)
+	. = list()
+	. += ..()
 	switch(jam_chance)
 		if(10 to 20)
 			. += SPAN_NOTICE("\The [src] is starting to accumulate fouling. Might want to grab a rag.")
@@ -147,7 +148,7 @@
 	load_method = SPEEDLOADER
 
 /obj/item/gun/projectile/shotgun/pump/rifle/dominia/verb/scope()
-	set category = "Object"
+	set category = "Object.Held"
 	set name = "Use Scope"
 	set src in usr
 

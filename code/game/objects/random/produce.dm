@@ -47,21 +47,51 @@
 
 /obj/random_produce/box // produce for spawning in chef produce boxes. better suited for the job
 	produce_list = list(
-						"chili" = 1,
-						"tomato" = 2,
-						"eggplant" = 0.5,
-						"mushrooms" = 0.25,
-						"cabbage" = 2,
-						"corn" = 2,
-						"potato" = 2,
-						"soybean" = 0.5,
-						"carrot" = 1,
-						"whitebeet" = 1,
-						"pumpkin" = 0.1,
-						"onion" = 0.5,
-						"garlic" = 0.5,
-						"bellpepper" = 0.25
-					)
+		"chili" = 1,
+		"tomato" = 2,
+		"eggplant" = 0.5,
+		"mushrooms" = 0.25,
+		"cabbage" = 2,
+		"corn" = 2,
+		"potato" = 2,
+		"soybean" = 0.5,
+		"carrot" = 1,
+		"whitebeet" = 1,
+		"pumpkin" = 0.1,
+		"onion" = 0.5,
+		"garlic" = 0.5,
+		"bellpepper" = 0.25
+	)
+
+/obj/random_produce/box/adhomai
+	produce_list = list(
+		"nfrihi" = 1,
+		"dirtberries" = 1,
+		"earthenroot" = 1,
+		"sugar tree" = 1,
+		"shand" = 1,
+		"mtear" = 1
+	)
+
+/obj/random_produce/box/nralakk
+	produce_list = list(
+		"dyn" = 1,
+		"qlort" = 1,
+		"guami" = 1,
+		"eki" = 1,
+		"ylpha" = 1,
+		"fjylozyn" = 1
+	)
+
+/obj/random_produce/box/moghes
+	produce_list = list(
+		"xuizi" = 1,
+		"sarezhi" = 1,
+		"gukhe" = 1,
+		"aghrassh" = 1,
+		"sthberry" = 1,
+		"serkiflower" = 1
+	)
 
 /obj/random/seed
 	name = "random seed"

@@ -146,7 +146,8 @@
 	surgerysound = 'sound/items/surgery/hemostat.ogg'
 	drop_sound = 'sound/items/drop/wirecutter.ogg'
 	pickup_sound = 'sound/items/pickup/wirecutter.ogg'
-	var/bomb_defusal_chance = 30 // 30% chance to safely defuse a bomb
+	/// 30% chance to safely defuse a bomb
+	var/bomb_defusal_chance = 30
 	build_from_parts = TRUE
 	worn_overlay = "head"
 
@@ -256,6 +257,11 @@
 	var/change_icons = TRUE
 	var/produces_flash = TRUE
 
+/obj/item/weldingtool/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(distance <= 0)
+		. += "It contains [get_fuel()]/[max_fuel] units of fuel."
+
 /obj/item/weldingtool/iswelder()
 	return TRUE
 
@@ -348,11 +354,6 @@
 /obj/item/weldingtool/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
-
-/obj/item/weldingtool/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(distance <= 0)
-		. += "It contains [get_fuel()]/[max_fuel] units of fuel."
 
 /obj/item/weldingtool/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.isscrewdriver())
@@ -664,21 +665,26 @@
 /obj/item/eyeshield
 	name = "experimental eyeshield"
 	desc = "An advanced eyeshield capable of dampening the welding glare produced when working on modern super-materials, removing the need for user-worn welding gear."
-	desc_info = "This can be attached to an experimental welder to give it welding protection, removing the need for welding goggles or masks."
 	icon = 'icons/obj/item/welding_tools.dmi'
 	icon_state = "eyeshield"
 	item_state = "eyeshield"
 	contained_sprite = TRUE
 
+/obj/item/eyeshield/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This can be attached to an experimental welder to give it welding protection, removing the need for welding goggles or masks."
+
 /obj/item/overcapacitor
 	name = "experimental overcapacitor"
 	desc = "An advanced capacitor that injects a current into the welding stream, doubling the speed of welding tasks without sacrificing quality. Excess current burns up welding fuel, reducing fuel efficiency, however."
-	desc_info = "This can be attached to an experimental welder to double the speed it works at, at the cost of tripling the fuel cost of using it."
 	icon = 'icons/obj/item/welding_tools.dmi'
 	icon_state = "overcap"
 	item_state = "overcap"
 	contained_sprite = TRUE
 
+/obj/item/overcapacitor/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This can be attached to an experimental welder to double the speed it works at, at the cost of tripling the fuel cost of using it."
 
 /*
  * Crowbar
@@ -813,16 +819,17 @@
 		)
 	var/current_tool = 1
 
+/obj/item/combitool/feedback_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. = ..()
+	if(tools.len)
+		. += "It has the following fittings: <b>[english_list(tools)]</b>."
+
 /obj/item/combitool/Initialize()
 	desc = "[initial(desc)] It has [tools.len] possibilit[tools.len == 1 ? "y" : "ies"]."
 	for(var/tool in tools)
 		tools[tool] = image('icons/obj/tools.dmi', icon_state = "[icon_state]-[tool]")
 	. = ..()
-
-/obj/item/combitool/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(tools.len)
-		. += "It has the following fittings: <b>[english_list(tools)]</b>."
 
 /obj/item/combitool/iswrench()
 	return current_tool == "wrench"
@@ -883,9 +890,13 @@
 	usesound = 'sound/items/drill_use.ogg'
 	var/current_tool = 1
 	var/list/tools = list(
-		"screwdriverbit",
-		"wrenchbit"
+		"screwdriver bit",
+		"wrench bit"
 		)
+
+/obj/item/powerdrill/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Left-click \the [src] in-hand to cycle through the active bits."
 
 /obj/item/powerdrill/Initialize()
 	. = ..()
@@ -893,13 +904,6 @@
 
 /obj/item/powerdrill/set_initial_maptext()
 	held_maptext = SMALL_FONTS(7, "S")
-
-/obj/item/powerdrill/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(tools.len)
-		. += "It has the following fittings:"
-		for(var/tool in tools)
-			. += "- [tool][tools[current_tool] == tool ? " (selected)" : ""]"
 
 /obj/item/powerdrill/MouseEntered(location, control, params)
 	. = ..()
@@ -913,10 +917,10 @@
 	closeToolTip(usr)
 
 /obj/item/powerdrill/iswrench()
-	return tools[current_tool] == "wrenchbit"
+	return tools[current_tool] == "wrench bit"
 
 /obj/item/powerdrill/isscrewdriver()
-	return tools[current_tool] == "screwdriverbit"
+	return tools[current_tool] == "screwdriver bit"
 
 /obj/item/powerdrill/proc/update_tool()
 	if(isscrewdriver())

@@ -86,6 +86,11 @@
 
 	var/make_exact_fit = FALSE
 
+/obj/item/storage/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(isghost(user) || isstoryteller(user))
+		. += "It contains: [counting_english_list(contents)]"
+
 /obj/item/storage/Destroy()
 	close_all()
 	QDEL_NULL(boxes)
@@ -165,10 +170,10 @@
  * * detail_insertions - A boolean, if `TRUE`, `can_be_inserted()` will be told to give feedbacks
  */
 /obj/item/storage/proc/pickup_items_from_loc(mob/user, turf/location, detail_insertions = TRUE)
+	RETURN_TYPE(/list)
 
 	//In the format of list(SUCCESS, FAILURE)
 	var/list/return_status = list(FALSE, FALSE)
-	RETURN_TYPE(return_status)
 
 	var/list/rejections = list()
 
@@ -197,12 +202,6 @@
 		handle_storage_deferred(user)
 
 	return return_status
-
-
-/obj/item/storage/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(isghost(user))
-		. += "It contains: [counting_english_list(contents)]"
 
 /obj/item/storage/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	. = ..()

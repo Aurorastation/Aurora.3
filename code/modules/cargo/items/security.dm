@@ -61,7 +61,7 @@
 	name = "maglight"
 	supplier = "nanotrasen"
 	description = "A heavy flashlight designed for security personnel."
-	price = 150
+	price = 75
 	items = list(
 		/obj/item/device/flashlight/maglight
 	)
@@ -75,7 +75,7 @@
 	name = "magnetic door lock - security"
 	supplier = "nanotrasen"
 	description = "A large, ID locked device used for completely locking down airlocks. It is painted with Security colors."
-	price = 135
+	price = 50
 	items = list(
 		/obj/item/device/magnetic_lock/security
 	)
@@ -89,7 +89,7 @@
 	name = "box of handcuffs"
 	supplier = "nanotrasen"
 	description = "A box full of handcuffs."
-	price = 345
+	price = 145
 	items = list(
 		/obj/item/storage/box/handcuffs
 	)
@@ -103,7 +103,7 @@
 	name = "box of zipties"
 	supplier = "nanotrasen"
 	description = "A box full of zipties."
-	price = 145
+	price = 88
 	items = list(
 		/obj/item/storage/box/zipties
 	)
@@ -117,7 +117,7 @@
 	name = "Shield Generator"
 	supplier = "nanotrasen"
 	description = "A shield generator."
-	price = 1500
+	price = 550
 	items = list(
 		/obj/machinery/shieldwallgen
 	)
@@ -131,7 +131,7 @@
 	name = "box of pepperspray grenades"
 	supplier = "zavodskoi"
 	description = "A box containing 7 tear gas grenades. A gas mask is printed on the label. WARNING: Exposure carries risk of serious injuries."
-	price = 750
+	price = 450
 	items = list(
 		/obj/item/storage/box/teargas
 	)
@@ -159,7 +159,7 @@
 	name = "box of EMP grenades"
 	supplier = "zavodskoi"
 	description = "A box containing 5 military grade EMP grenades. WARNING: Do not use near unshielded electronics or biomechanical augmentations."
-	price = 4395
+	price = 1450
 	items = list(
 		/obj/item/storage/box/emps
 	)
@@ -173,7 +173,7 @@
 	name = "deployable barrier"
 	supplier = "zavodskoi"
 	description = "A deployable barrier. Swipe your ID card to lock/unlock it."
-	price = 750
+	price = 440
 	items = list(
 		/obj/machinery/deployable/barrier
 	)
@@ -329,7 +329,7 @@
 	name = "security voidsuit"
 	supplier = "zavodskoi"
 	description = "A special suit that protects against hazardous, low pressure environments. Has an additional layer of armor."
-	price = 1500
+	price = 900
 	items = list(
 		/obj/item/clothing/suit/space/void/security
 	)
@@ -343,7 +343,7 @@
 	name = "security voidsuit helmet"
 	supplier = "zavodskoi"
 	description = "A special helmet designed for work in a hazardous, low pressure environment. Has an additional layer of armor."
-	price = 900
+	price = 550
 	items = list(
 		/obj/item/clothing/head/helmet/space/void/security
 	)

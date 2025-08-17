@@ -19,38 +19,11 @@
 /area/outpost
 	ambience = AMBIENCE_EXPOUTPOST
 
-/area/outpost/mining_north
-	name = "North Mining"
-	icon_state = "outpost_mine_north"
-
-/area/outpost/mining_west
-	name = "West Mining"
-	icon_state = "outpost_mine_west"
-
-/area/outpost/abandoned
-	name = "Abandoned"
-	icon_state = "dark"
-
 // Main mining
 /area/outpost/mining_main
 	icon_state = "outpost_mine_main"
 	station_area = TRUE
 	holomap_color = HOLOMAP_AREACOLOR_OPERATIONS
-
-/area/outpost/mining_main/dorms
-	name = "Mining Dormitory"
-
-/area/outpost/mining_main/medbay
-	name = "Mining Medical"
-
-/area/outpost/mining_main/maintenance
-	name = "Mining Maintenance"
-
-/area/outpost/mining_main/west_hall
-	name = "Mining West Hallway"
-
-/area/outpost/mining_main/east_hall
-	name = "Mining East Hallway"
 
 /area/outpost/mining_main/eva
 	name = "Mining EVA storage"
@@ -123,18 +96,6 @@
 
 /area/outpost/research/lab
 	name = "Research - Sublevel Laboratory"
-
-/area/outpost/research/emergency_storage
-	name = "Research - Sublevel Emergency Storage"
-
-/area/outpost/research/anomaly_harvest
-	name = "Research - Exotic Energy Harvesting"
-
-/area/outpost/research/anomaly_storage
-	name = "Research - Artifact Storage"
-
-/area/outpost/research/anomaly_analysis
-	name = "Research - Anomaly Analysis"
 
 /area/outpost/research/kitchen
 	name = "Research - Kitchen"

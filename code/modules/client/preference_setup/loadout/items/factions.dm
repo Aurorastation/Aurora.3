@@ -144,8 +144,8 @@
 	zavodskoi_headwear["zavodskoi cap, alt"] = /obj/item/clothing/head/softcap/zavod/alt
 	zavodskoi_headwear["zavodskoi woolen hat"] = /obj/item/clothing/head/wool/zavod
 	zavodskoi_headwear["zavodskoi woolen hat, alt"] = /obj/item/clothing/head/wool/zavod/alt
-	zavodskoi_headwear["zavodskoi pilotka cap"] = /obj/item/clothing/head/sidecap/zavod
-	zavodskoi_headwear["zavodskoi pilotka cap, alt"] = /obj/item/clothing/head/sidecap/zavod/alt
+	zavodskoi_headwear["zavodskoi side cap"] = /obj/item/clothing/head/sidecap/zavod
+	zavodskoi_headwear["zavodskoi side cap, alt"] = /obj/item/clothing/head/sidecap/zavod/alt
 	gear_tweaks += new /datum/gear_tweak/path(zavodskoi_headwear)
 
 /datum/gear/faction/zavod_sec_uniforms
@@ -363,7 +363,7 @@
 	pmcg_headwear["EPMC softcap"] = /obj/item/clothing/head/softcap/pmc/epmc
 	pmcg_headwear["PMCG woolen hat"] = /obj/item/clothing/head/wool/pmc
 	pmcg_headwear["EPMC woolen hat"] = /obj/item/clothing/head/wool/pmc/alt
-	pmcg_headwear["PMCG garrison cap"] = /obj/item/clothing/head/sidecap/pmcg
+	pmcg_headwear["PMCG side cap"] = /obj/item/clothing/head/sidecap/pmcg
 	pmcg_headwear["Grupo Amapola utility cover"] = /obj/item/clothing/head/grupo_amapola/ute
 	gear_tweaks += new /datum/gear_tweak/path(pmcg_headwear)
 
@@ -452,6 +452,53 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 	gear_tweaks += new /datum/gear_tweak/path(pmcg_sec_uniforms)
 	gear_tweaks += list(GLOB.gear_tweak_uniform_rolled_state)
 
+/datum/gear/faction/kog_sec_uniform
+	display_name = "Kazarrhaldiye Operations Group security uniform"
+	path = /obj/item/clothing/under/rank/security/pmc/kog/uniform
+	slot = slot_w_uniform
+	faction = "Private Military Contracting Group"
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	allowed_roles = list("Security Officer", "Warden", "Head of Security", "Security Personnel")
+
+/datum/gear/faction/kog_jacket_officer
+	display_name = "Kazarrhaldiye Operations Group officer jacket"
+	path = /obj/item/clothing/suit/storage/toggle/armor/kog/officer
+	slot = slot_wear_suit
+	faction = "Private Military Contracting Group"
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	allowed_roles = list("Security Officer", "Security Personnel")
+
+/datum/gear/faction/kog_jacket_warden
+	display_name = "Kazarrhaldiye Operations Group warden jacket"
+	path = /obj/item/clothing/suit/storage/toggle/armor/kog/warden
+	slot = slot_wear_suit
+	faction = "Private Military Contracting Group"
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	allowed_roles = list("Warden", "Security Personnel")
+
+/datum/gear/faction/kog_jacket_commander
+	display_name = "Kazarrhaldiye Operations Group head of security jacket"
+	path = /obj/item/clothing/suit/storage/toggle/armor/kog/commander
+	slot = slot_wear_suit
+	faction = "Private Military Contracting Group"
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_MSAI)
+	allowed_roles = list("Head of Security", "Security Personnel")
+
+/datum/gear/faction/kog_tabs
+	display_name = "KOG Shoulder Tabs"
+	path = /obj/item/clothing/accessory/sleevepatch/kog
+	slot = slot_tie
+	faction = "Private Military Contracting Group"
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+
+/datum/gear/faction/kog_tabs/New()
+	..()
+	var/list/kog_tabs = list()
+	kog_tabs["Motorheads, PRA"] = /obj/item/clothing/accessory/sleevepatch/kog/pra
+	kog_tabs["Last Chancers, DPRA/ALA"] = /obj/item/clothing/accessory/sleevepatch/kog/ala
+	kog_tabs["Starry Knights, NKA"] = /obj/item/clothing/accessory/sleevepatch/kog/nka
+	gear_tweaks += new /datum/gear_tweak/path(kog_tabs)
+
 /datum/gear/faction/erisec_patch
 	display_name = "EPMC sleeve patch"
 	path = /obj/item/clothing/accessory/sleevepatch/erisec
@@ -519,6 +566,22 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 	slot = slot_w_uniform
 	faction = "Private Military Contracting Group"
 	allowed_roles = list("Medical Intern", "Medical Personnel")
+
+/datum/gear/faction/kog_uniform_med
+	display_name = "Kazarrhaldiye Operations Group medical uniform"
+	path = /obj/item/clothing/under/rank/medical/pmc/kog/medical
+	slot = slot_w_uniform
+	faction = "Private Military Contracting Group"
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	allowed_roles = list("Medical Intern", "Paramedic","Physician","Surgeon", "Psychiatrist", "Medical Personnel")
+
+/datum/gear/faction/kog_jacket_med
+	display_name = "Kazarrhaldiye Operations Group medical jacket"
+	path = /obj/item/clothing/suit/storage/toggle/labcoat/kog
+	slot = slot_wear_suit
+	faction = "Private Military Contracting Group"
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	allowed_roles = list("Medical Intern", "Paramedic","Physician","Surgeon", "Psychiatrist", "Medical Personnel")
 
 /datum/gear/faction/epmc_uniform_para_med
 	display_name = "PMCG/EPMC paramedic uniform"
@@ -847,8 +910,10 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 	..()
 	var/list/scc_headwear = list()
 	scc_headwear["beret, SCC"] = /obj/item/clothing/head/beret/scc
-	scc_headwear["SCC woolen hat"] = /obj/item/clothing/head/wool/scc
-	scc_headwear["SCC woolen hat, alt"] = /obj/item/clothing/head/wool/scc/alt
+	scc_headwear["woolen hat, SCC"] = /obj/item/clothing/head/wool/scc
+	scc_headwear["woolen hat, SCC, alt"] = /obj/item/clothing/head/wool/scc/alt
+	scc_headwear["bridge crew hat, SCC"] = /obj/item/clothing/head/caphat/bridge_crew
+	scc_headwear["bridge crew hat, SCC, alt"] = /obj/item/clothing/head/caphat/bridge_crew/alt
 	gear_tweaks += new /datum/gear_tweak/path(scc_headwear)
 
 /datum/gear/faction/scc_notepad

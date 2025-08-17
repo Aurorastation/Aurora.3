@@ -10,7 +10,12 @@
 		max_z = max(z, max_z)
 	return max_z
 
-/proc/get_area_name(N) //get area by its name
+/**
+ * Get area by its name.
+ *
+ * * N - Exact name being searched
+ */
+/proc/get_area_name(N)
 	for(var/area/A in get_sorted_areas())
 		if(A.name == N)
 			return A
@@ -21,13 +26,58 @@
 	if (isarea(A))
 		return A
 
+/**
+ * For use only on the Horizon.
+ * Prepends a given area's name with its department and deck # for presentation. Returns a string.
+ * Example of a fully configured area name output:
+ * Engineering (Atmospherics) - Deck 1 - Combustion Turbine - Port Amidships, Aft
+ */
+/proc/get_area_display_name(var/area/A, var/show_dept = TRUE, var/show_subdept = TRUE, var/show_deck = TRUE, var/show_location = TRUE, var/show_hidden_depts = FALSE)
+	if(!is_station_area(A))
+		return A.name
+	var/horizon_deck = A.horizon_deck
+	var/location_ew = A.location_ew
+	var/location_ns = A.location_ns
+	var/department = A.department
+	var/subdepartment = A.subdepartment
+	var/output = ""
+
+	// All maintenance areas should, by name, be self-identifying as being maints. We usually don't care to see it.
+	// Likewise public areas are self-evident.
+	if(horizon_deck && show_deck)
+		output += "Deck [num2text(horizon_deck)] - "
+	if(!show_hidden_depts && (department == LOC_MAINTENANCE || department == LOC_PUBLIC))
+		department = null
+	if(department && show_dept)
+		output += "[department]"
+		if(subdepartment && show_subdept)
+			output += " ([subdepartment])"
+		output += " - "
+
+	output += "[A.name]"
+
+	if((location_ew || location_ns) && show_location)
+		output += " ("
+		if(location_ew)
+			output += "[location_ew]"
+			if(location_ns)
+				output += ", "
+		if(location_ns)
+			output += "[location_ns]"
+		output += ")"
+
+	return output
+
 /proc/in_range(source, user)
 	if(get_dist(source, user) <= 1)
 		return 1
 
-	return 0 //not in range and not telekinetic
+	// Not in range and not telekinetic
+	return 0
 
-// Will recursively loop through an atom's locs until it finds the atom loc above a turf or its target_atom
+/**
+ * Will recursively loop through an atom's locs until it finds the atom loc above a turf or its target_atom
+ */
 /proc/recursive_loc_turf_check(var/atom/O, var/recursion_limit = 3, var/atom/target_atom)
 	if(recursion_limit <= 0 || isturf(O.loc) || O == target_atom)
 		return O
@@ -67,11 +117,15 @@
 
 	return last_atom_before_turf
 
-/proc/get_cardinal_step_away(atom/start, atom/finish) //returns the position of a step from start away from finish, in one of the cardinal directions
-	//returns only NORTH, SOUTH, EAST, or WEST
+/**
+ * Returns the position of a step from start away from finish, in one of the cardinal directions
+ */
+/proc/get_cardinal_step_away(atom/start, atom/finish)
+	// Returns only NORTH, SOUTH, EAST, or WEST
 	var/dx = finish.x - start.x
 	var/dy = finish.y - start.y
-	if(abs(dy) > abs (dx)) //slope is above 1:1 (move horizontally in a tie)
+	// Slope is above 1:1 (move horizontally in a tie)
+	if(abs(dy) > abs (dx))
 		if(dy > 0)
 			return get_step(start, SOUTH)
 		else
@@ -281,25 +335,35 @@
 	else
 		return (GLOB.cult.current_antagonists.len > spookiness_threshold)
 
-/// Adds an image to a client's `.images`. Useful as a callback.
+/**
+ * Adds an image to a client's `.images`. Useful as a callback.
+ */
 /proc/add_image_to_client(image/image_to_remove, client/add_to)
 	add_to?.images += image_to_remove
 
-/// Like add_image_to_client, but will add the image from a list of clients
+/**
+ * Like add_image_to_client, but will add the image from a list of clients
+ */
 /proc/add_image_to_clients(image/image_to_remove, list/show_to)
 	for(var/client/add_to in show_to)
 		add_to.images += image_to_remove
 
-/// Removes an image from a client's `.images`. Useful as a callback.
+/**
+ * Removes an image from a client's `.images`. Useful as a callback.
+ */
 /proc/remove_image_from_client(image/image_to_remove, client/remove_from)
 	remove_from?.images -= image_to_remove
 
-/// Like remove_image_from_client, but will remove the image from a list of clients
+/**
+ * Like remove_image_from_client, but will remove the image from a list of clients
+ */
 /proc/remove_image_from_clients(image/image_to_remove, list/hide_from)
 	for(var/client/remove_from in hide_from)
 		remove_from.images -= image_to_remove
 
-/// Add an image to a list of clients and calls a proc to remove it after a duration
+/**
+ * Add an image to a list of clients and calls a proc to remove it after a duration
+ */
 /proc/flick_overlay_global(image/image_to_show, list/show_to, duration)
 	if(!show_to || !length(show_to) || !image_to_show)
 		return
@@ -309,9 +373,10 @@
 
 /**
  * Helper atom that copies an appearance and exists for a period
-*/
+ * A list of `/atom/movable` this visual was or will be added into the `vis_contents` of
+ */
 /atom/movable/flick_visual
-	///A list of `/atom/movable` this visual was or will be added into the `vis_contents` of
+
 	VAR_PROTECTED/list/atom/movable/owners = null
 
 /atom/movable/flick_visual/New(loc, list/atom/movable/owners)
@@ -321,19 +386,20 @@
 
 	src.owners = owners
 
-
+/**
+ * Remove us from the vis_contents of the owners, so we can be garbage collected
+ * "As anything" is important here, as our "atom/movable" could also be a turf, as per https://secure.byond.com/docs/ref/index.html#/atom/var/vis_contents
+ */
 /atom/movable/flick_visual/Destroy(force)
-
-	//Remove us from the vis_contents of the owners, so we can be garbage collected
-	//"As anything" is important here, as our "atom/movable" could also be a turf, as per https://secure.byond.com/docs/ref/index.html#/atom/var/vis_contents
 	for(var/atom/movable/an_owner as anything in src.owners)
 		an_owner.vis_contents -= src
 	src.owners = null
 
 	. = ..()
 
-
-///Flicks a certain overlay onto an atom, handling icon_state strings
+/**
+ * Flicks a certain overlay onto an atom, handling icon_state strings
+ */
 /atom/proc/flick_overlay(image_to_show, list/show_to, duration, layer)
 	var/image/passed_image = \
 		istext(image_to_show) \
@@ -342,8 +408,10 @@
 
 	flick_overlay_global(passed_image, show_to, duration)
 
-/// Takes the passed in MA/icon_state, mirrors it onto ourselves, and displays that in world for duration seconds
-/// Returns the displayed object, you can animate it and all, but you don't own it, we'll delete it after the duration
+/**
+ * Takes the passed in MA/icon_state, mirrors it onto ourselves, and displays that in world for duration seconds
+ * Returns the displayed object, you can animate it and all, but you don't own it, we'll delete it after the duration
+ */
 /atom/proc/flick_overlay_view(mutable_appearance/display, duration)
 	if(!display)
 		return null
@@ -360,7 +428,7 @@
 
 	var/atom/movable/lies_to_children = src
 
-	// This is faster then pooling. I promise
+	/// This is faster then pooling. I promise
 	var/atom/movable/flick_visual/visual = new(null, list(lies_to_children))
 	visual.appearance = passed_appearance
 	visual.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
@@ -372,7 +440,9 @@
 /area/flick_overlay_view(mutable_appearance/display, duration)
 	return
 
-// makes peoples byond icon flash on the taskbar
+/**
+ * Makes people's byond icon flash on the taskbar.
+ */
 /proc/window_flash(client/C)
 	if(ismob(C))
 		var/mob/M = C

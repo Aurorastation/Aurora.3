@@ -68,7 +68,7 @@ Class Procs:
 		contained in the component_parts list. (example: glass and material amounts for
 		the autolathe)
 
-		Default definition does nothing.
+		Default definition handles power usage only (all parts contribute based on energy_rating).
 
 	assign_uid()               'game/machinery/machine.dm'
 		Called by machine to assign a value to the uid variable.
@@ -121,6 +121,11 @@ Class Procs:
 	var/list/component_types
 	/// List of all the parts used to build it, if made from certain kinds of frames.
 	var/list/component_parts = null
+	/// Use the generic power rating mechanics for parts, or bespoke.
+	var/parts_power_mgmt = TRUE
+	/// The total power rating of all parts serves as a power usage multiplier.
+	var/parts_power_usage = 0
+
 	var/uid
 	var/panel_open = 0
 	var/global/gl_uid = 1
@@ -133,12 +138,27 @@ Class Procs:
 
 	var/clicksound //played sound on usage
 	var/clickvol = 40 //volume
-	var/obj/item/device/assembly/signaler/signaler // signaller attached to the machine
-	var/obj/effect/overmap/visitable/linked // overmap sector the machine is linked to
+	/// Signaller attached to the machine
+	var/obj/item/device/assembly/signaler/signaler
+	/// Overmap sector the machine is linked to
+	var/obj/effect/overmap/visitable/linked
 
-	/// Manufacturer of this machine. Used for TGUI themes, when you have a base type and subtypes with different themes (like the coffee machine).
-	/// Pass the manufacturer in ui_data and then use it in the UI.
+	/**
+	 * Manufacturer of this machine. Used for TGUI themes, when you have a base type and subtypes with different themes (like the coffee machine).
+	 * Pass the manufacturer in ui_data and then use it in the UI.
+	 */
 	var/manufacturer = null
+
+/obj/machinery/feedback_hints(mob/user, distance, is_adjacent)
+	. = list()
+	if(signaler && is_adjacent)
+		. += SPAN_WARNING("\The [src] has a hidden signaler attached to it. You might or might not notice this.")
+	// Still needs some work- must be able to be distinguish between thinobjectsgs that are anchored that can be casually
+	// unanchored (i.e. vending machines) vs. objects that are anchored but require other steps to unanchor (i.e. airlocks).
+	/*
+	if(anchored)
+		. += SPAN_NOTICE("\The [src] is anchored to the floor by a couple of <b>bolts</b>.")
+	*/
 
 /obj/machinery/Initialize(mapload, d = 0, populate_components = TRUE, is_internal = FALSE)
 	//Stupid macro used in power usage
@@ -187,11 +207,6 @@ Class Procs:
 	component_parts = null
 
 	return ..()
-
-/obj/machinery/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(signaler && is_adjacent)
-		. += SPAN_WARNING("\The [src] has a hidden signaler attached to it.")
 
 // /obj/machinery/proc/process_all()
 // 	/* Uncomment this if/when you need component processing
@@ -361,6 +376,24 @@ Class Procs:
 	return S
 
 /obj/machinery/proc/RefreshParts()
+	/*
+	if(parts_power_mgmt)
+		var/new_idle_power
+		var/new_active_power
+
+		if(!component_parts || !component_parts.len)
+			return
+		var/parts_energy_rating = 0
+
+		for(var/obj/item/stock_parts/part in component_parts)
+			parts_energy_rating += part.energy_rating()
+
+		new_idle_power = initial(idle_power_usage) * (1 + parts_energy_rating)
+		new_active_power = initial(active_power_usage) * (1 + parts_energy_rating)
+
+		change_power_consumption(new_idle_power)
+		change_power_consumption(new_active_power, POWER_USE_ACTIVE)
+	*/
 
 /obj/machinery/proc/assign_uid()
 	uid = gl_uid
@@ -425,56 +458,56 @@ Class Procs:
 	return TRUE
 
 /obj/machinery/proc/default_part_replacement(var/mob/user, var/obj/item/storage/part_replacer/R)
-	if(!istype(R))
-		return FALSE
 	if(!LAZYLEN(component_parts))
 		return FALSE
-	var/parts_replaced = FALSE
-	if(panel_open)
-		var/obj/item/circuitboard/CB = locate(/obj/item/circuitboard) in component_parts
-		var/P
-		for(var/obj/item/reagent_containers/glass/G in component_parts)
-			for(var/D in CB.req_components)
-				var/T = text2path(D)
-				if(ispath(G.type, T))
-					P = T
-					break
-			for(var/obj/item/reagent_containers/glass/B in R.contents)
-				if(B.reagents && B.reagents.total_volume > 0) continue
-				if(istype(B, P) && istype(G, P))
-					if(B.volume > G.volume)
-						R.remove_from_storage(B, src)
-						R.handle_item_insertion(G, 1)
-						component_parts -= G
-						component_parts += B
-						B.forceMove(src)
-						to_chat(user, SPAN_NOTICE("[G.name] replaced with [B.name]."))
+	else if(istype(R))
+		var/parts_replaced = FALSE
+		if(panel_open)
+			var/obj/item/circuitboard/CB = locate(/obj/item/circuitboard) in component_parts
+			var/P
+			for(var/obj/item/reagent_containers/glass/G in component_parts)
+				for(var/D in CB.req_components)
+					var/T = text2path(D)
+					if(ispath(G.type, T))
+						P = T
 						break
-		for(var/obj/item/stock_parts/A in component_parts)
-			for(var/D in CB.req_components)
-				var/T = text2path(D)
-				if(ispath(A.type, T))
-					P = T
-					break
-			for(var/obj/item/stock_parts/B in R.contents)
-				if(istype(B, P) && istype(A, P))
-					if(B.rating > A.rating)
-						R.remove_from_storage(B, src)
-						R.handle_item_insertion(A, 1)
-						component_parts -= A
-						component_parts += B
-						B.forceMove(src)
-						to_chat(user, SPAN_NOTICE("[A.name] replaced with [B.name]."))
-						parts_replaced = TRUE
+				for(var/obj/item/reagent_containers/glass/B in R.contents)
+					if(B.reagents && B.reagents.total_volume > 0) continue
+					if(istype(B, P) && istype(G, P))
+						if(B.volume > G.volume)
+							R.remove_from_storage(B, src)
+							R.handle_item_insertion(G, 1)
+							component_parts -= G
+							component_parts += B
+							B.forceMove(src)
+							to_chat(user, SPAN_NOTICE("[G.name] replaced with [B.name]."))
+							break
+			for(var/obj/item/stock_parts/A in component_parts)
+				for(var/D in CB.req_components)
+					var/T = text2path(D)
+					if(ispath(A.type, T))
+						P = T
 						break
-		RefreshParts()
-		update_icon()
-	else
-		to_chat(user, SPAN_NOTICE("The following parts have been detected in \the [src]:"))
-		to_chat(user, counting_english_list(component_parts))
-	if(parts_replaced) //only play sound when RPED actually replaces parts
-		playsound(src, 'sound/items/rped.ogg', 40, TRUE)
-	return 1
+				for(var/obj/item/stock_parts/B in R.contents)
+					if(istype(B, P) && istype(A, P))
+						if(B.rating > A.rating)
+							R.remove_from_storage(B, src)
+							R.handle_item_insertion(A, 1)
+							component_parts -= A
+							component_parts += B
+							B.forceMove(src)
+							to_chat(user, SPAN_NOTICE("[A.name] replaced with [B.name]."))
+							parts_replaced = TRUE
+							break
+			RefreshParts()
+			update_icon()
+			if(parts_replaced) //only play sound when RPED actually replaces parts
+				playsound(src, 'sound/items/rped.ogg', 40, TRUE)
+			return TRUE
+		else
+			to_chat(user, SPAN_NOTICE("The following parts have been detected in \the [src]:"))
+			to_chat(user, counting_english_list(component_parts))
+	else return FALSE
 
 /obj/machinery/proc/dismantle()
 	playsound(loc, /singleton/sound_category/crowbar_sound, 50, 1)
@@ -548,10 +581,6 @@ Class Procs:
 		if(H.can_feel_pain())
 			H.emote("scream")
 			H.apply_damage(45, DAMAGE_PAIN)
-
-/obj/machinery/proc/do_signaler() // override this to customize effects
-	return
-
 
 // A late init operation called in SSshuttle for ship computers and holopads, used to attach the thing to the right ship.
 /obj/machinery/proc/attempt_hook_up(var/obj/effect/overmap/visitable/sector)
