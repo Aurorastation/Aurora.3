@@ -1,6 +1,6 @@
 /obj/structure/noticeboard
 	name = "notice board"
-	desc = "A board for pinning important notices upon."
+	desc = "A board for pinning probably not-so-important notices upon."
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "nboard00"
 	density = 0
@@ -14,7 +14,7 @@
 
 /obj/structure/noticeboard/proc/add_papers_from_turf()
 	for(var/obj/item/I in loc)
-		if(notices > 4) break
+		if(notices > 18) break
 		if(istype(I, /obj/item/paper))
 			I.forceMove(src)
 			notices++
@@ -23,7 +23,7 @@
 //attaching papers!!
 /obj/structure/noticeboard/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/paper))
-		if(notices < 5)
+		if(notices < 19)
 			attacking_item.add_fingerprint(user)
 			add_fingerprint(user)
 			user.drop_from_inventory(attacking_item,src)
@@ -85,3 +85,93 @@
 			usr << browse("<HTML><HEAD><TITLE>[P.name]</TITLE></HEAD><BODY><TT>[P.info]</TT></BODY></HTML>", "window=[P.name]")
 			onclose(usr, "[P.name]")
 	return
+
+/obj/structure/noticeboard/command
+	name = "command notice board"
+	desc = "A board for command to pin actually important information on. As if. Can be locked and unlocked with an appropiate ID."
+	icon = 'icons/obj/stationobjs.dmi'
+	icon_state = "comboard00"
+	var/open
+	var/unlocked
+
+/obj/structure/noticeboard/command/update_icon()
+	ClearOverlays()
+	if(unlocked)
+		AddOverlays("unlocked")
+	else
+		AddOverlays("locked")
+	if(open)
+		AddOverlays("glass_open")
+	else
+		AddOverlays("glass")
+
+/obj/structure/noticeboard/command/attack_generic(var/mob/user, var/damage, var/attack_verb, var/wallbreaker)
+	user.do_attack_animation(src)
+	playsound(user, 'sound/effects/glass_hit.ogg', 50, 1)
+	visible_message(SPAN_WARNING("\The [user] [attack_verb] \the [src]!"))
+	to_chat(user, SPAN_WARNING("Your strike is deflected by the reinforced glass!"))
+	return
+	unlocked = TRUE
+	open = TRUE
+	playsound(user, /singleton/sound_category/glass_break_sound, 100, 1)
+	update_icon()
+
+/obj/structure/noticeboard/command/proc/add_papers_from_turf()
+	for(var/obj/item/I in loc)
+		if(notices > 5) break
+		if(istype(I, /obj/item/paper))
+			I.forceMove(src)
+			notices++
+	icon_state = "comboard0[notices]"
+
+/obj/structure/noticeboard/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/paper))
+		if(notices < 6)
+			attacking_item.add_fingerprint(user)
+			add_fingerprint(user)
+			user.drop_from_inventory(attacking_item,src)
+			notices++
+			icon_state = "comboard0[notices]"	//update sprite
+			SSpersistence.register_track(attacking_item, ckey(usr.key)) // Add paper to persistent tracker
+			to_chat(user, SPAN_NOTICE("You pin the paper to the noticeboard."))
+		else
+			to_chat(user, SPAN_NOTICE("You reach to pin your paper to the board but hesitate. You are certain your paper will not be seen among the many others already attached."))
+
+/obj/structure/noticeboard/command/attack_ai(var/mob/user)
+	if(!ai_can_interact(user))
+		return
+	toggle_lock(user)
+
+/obj/structure/noticeboard/command/attack_hand(var/mob/user)
+	if(!unlocked)
+		to_chat(user, SPAN_NOTICE("\The [src] is locked."))
+		return
+	toggle_open(user)
+
+/obj/structure/noticeboard/command/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.GetID())
+		if(open)
+			to_chat(user, SPAN_WARNING("You need to close it first."))
+			return
+		toggle_lock(user)
+		return
+	return ..()
+
+/obj/structure/noticeboard/command/proc/toggle_open(var/mob/user)
+	open = !open
+	to_chat(user, SPAN_NOTICE("You [open ? "open" : "close"] \the [src]."))
+	update_icon()
+
+/obj/structure/noticeboard/command/proc/toggle_lock(var/mob/user)
+	if(open)
+		return
+	else
+		to_chat(user, SPAN_NOTICE("You [unlocked ? "enable" : "disable"] \the [src]'s maglock."))
+
+		if(!do_after(user, 20))
+			return
+
+		unlocked = !unlocked
+		to_chat(user, SPAN_NOTICE("You [unlocked ? "disable" : "enable"] the maglock."))
+
+	update_icon()
