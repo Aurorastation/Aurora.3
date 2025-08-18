@@ -98,7 +98,7 @@ export const FusionCoreControl = (props, context) => {
                     value={core.field_strength}
                     unit="tesla"
                     minValue={0}
-                    maxValue={100}
+                    maxValue={300}
                     stepPixelSize={15}
                     onDrag={(e, value) =>
                       act('strength', {

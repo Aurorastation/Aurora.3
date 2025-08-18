@@ -23,10 +23,12 @@
 	var/radiation_oldest = 0
 	/// Debug multiplier
 	var/radiation_mult = 3.0
-	/// The currently configured Field Strength (0.01 = 1 Tesla).
+	/// The currently configured Field Strength (0.01 = 1 Tesla). Locked to 300.
 	var/field_strength = 0.01
+	/// Edit this for a GIANT PLASMA TORUS (3 = 300 Tesla).
+	var/field_strength_max = 3
 	/// Radius of the EM field. Scales with Field Strength.
-	var/size = 1
+	var/size = 3
 	var/tick_instability = 0
 	/// Ranges from 0-1. At or over 1, boom.
 	var/percent_unstable = 0
@@ -397,18 +399,16 @@
  * This currently does nothing mechanically, and the UI locks us to 100 max strength anyway.
  */
 /obj/effect/fusion_em_field/proc/ChangeFieldStrength(new_strength)
-	var/calc_size = 1
+	var/calc_size = 3
 	if(new_strength <= 50)
-		calc_size = 1
-	else if(new_strength <= 200)
 		calc_size = 3
-	else if(new_strength <= 500)
+	else if(new_strength <= 250)
 		calc_size = 5
-	else if(new_strength <= 1000)
+	else if(new_strength <= 500)
 		calc_size = 7
-	else if(new_strength <= 2000)
+	else if(new_strength <= 1000)
 		calc_size = 9
-	else if(new_strength <= 5000)
+	else if(new_strength <= 2000)
 		calc_size = 11
 	else
 		calc_size = 13
