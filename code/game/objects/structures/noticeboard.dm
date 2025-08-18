@@ -116,7 +116,7 @@
 	playsound(user, /singleton/sound_category/glass_break_sound, 100, 1)
 	update_icon()
 
-/obj/structure/noticeboard/command/proc/add_papers_from_turf()
+/obj/structure/noticeboard/command/add_papers_from_turf()
 	for(var/obj/item/I in loc)
 		if(notices > 5) break
 		if(istype(I, /obj/item/paper))
