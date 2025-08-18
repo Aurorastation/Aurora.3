@@ -1,7 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - rscadd: "Raskariim can now pick between if their records show they follow the ma'ta'ke or the twin suns religion. As a result, all raskariim will need to re-select their religion."
-  - rscadd: "A set of raskariim charms were added to the tajaran loadout. They can be identified by any other tajara who selected raskariim as their religion."
