@@ -1714,6 +1714,17 @@
 
 	return
 
+/obj/item/trash/pipe_eject(var/direction)
+	// Trash becomes persistent only when it's not dropped in a maint or disposals, otherwise it gets deregistered
+	var/turf/T = get_turf(src)
+	if(T)
+		var/area/A = get_area(T)
+		if(A)
+			if(!findtext(lowertext(A.name), "maint") && A.name != "Disposals and Recycling")
+				SSpersistence.register_track(src, src.persistence_author_ckey)
+				return
+	SSpersistence.deregister_track(src)
+
 /obj/effect/decal/cleanable/blood/gibs/pipe_eject(var/direction)
 	var/list/dirs
 	if(direction)
