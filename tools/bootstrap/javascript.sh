@@ -30,4 +30,3 @@ fi
 
 echo "Using Bun $(bun --version)"
 exec bun "$@"
-
