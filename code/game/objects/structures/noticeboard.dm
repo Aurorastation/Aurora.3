@@ -124,7 +124,7 @@
 			notices++
 	icon_state = "comboard0[notices]"
 
-/obj/structure/noticeboard/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/noticeboard/command/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/paper))
 		if(notices < 6)
 			attacking_item.add_fingerprint(user)
