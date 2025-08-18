@@ -1,8 +1,14 @@
 GLOBAL_LIST(fusion_reactions)
 
 /singleton/fusion_reaction
-	var/p_react = "" // Primary reactant.
-	var/s_react = "" // Secondary reactant.
+	/// Primary reactant.
+	var/p_react = ""
+	/// How much of the primary reactant to consume per reaction (multiplier).
+	var/p_react_count = 1
+	/// Secondary reactant.
+	var/s_react = ""
+	// How much of the secondary reactant to consume per reaction (multiplier).
+	var/s_react_count = 1
 	var/minimum_energy_level = 1
 	var/energy_consumption = 0
 	var/energy_production = 0
@@ -65,6 +71,7 @@ GLOBAL_LIST(fusion_reactions)
 /singleton/fusion_reaction/deuterium_helium
 	p_react = GAS_DEUTERIUM
 	s_react = GAS_HELIUM
+	s_react_count = 2
 	energy_consumption = 1
 	energy_production = 5
 	radiation = 2

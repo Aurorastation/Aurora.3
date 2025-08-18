@@ -15,6 +15,14 @@
 	var/energy = 0
 	var/plasma_temperature = 0
 	var/radiation = 0
+	/// Radiation of the previous three ticks averaged out (if != 0).
+	var/radiation_avg = 0
+	/// Archived radiation. Used for averaging out new SSradiation.radiate() source creation.
+	var/radiation_old = 0
+	var/radiation_older = 0
+	var/radiation_oldest = 0
+	/// Debug multiplier
+	var/radiation_mult = 3.0
 	/// The currently configured Field Strength (0.01 = 1 Tesla).
 	var/field_strength = 0.01
 	/// Radius of the EM field. Scales with Field Strength.
@@ -33,7 +41,8 @@
 		/obj/effect,
 		/obj/structure/cable,
 		/obj/machinery/atmospherics,
-		/obj/machinery/air_sensor
+		/obj/machinery/air_sensor,
+		/obj/machinery/camera
 		)
 
 	var/light_min_range = 2
@@ -67,7 +76,7 @@
 	particles.position = generator("circle", radius - size, radius + size, NORMAL_RAND)
 
 	//Radiation affects drift
-	var/radiationfactor = clamp((radiation * 0.001), 0, 0.5)
+	var/radiationfactor = clamp((radiation_old * 0.001), 0, 0.75)
 	particles.drift = generator("circle", (0.2 + radiationfactor), NORMAL_RAND)
 
 	particles.spawning = last_reactants * 0.9 + Interpolate(0, 200, clamp(plasma_temperature / 70000, 0, 1))
@@ -200,7 +209,9 @@
 		if(added_particles)
 			uptake_gas.update_values()
 
-	// Let the particles inside the field react.
+	// Let the particles inside the field react a few times.
+	React()
+	React()
 	React()
 
 	// Dump power to our powernet.
@@ -218,7 +229,7 @@
 		if(amount < 1)
 			reactants.Remove(reactant)
 		else if(amount >= FUSION_REACTANT_CAP)
-			var/radiate = rand(3 * amount / 4, amount / 4)
+			var/radiate = rand(amount / 12, 3 * amount / 12)
 			reactants[reactant] -= radiate
 			radiation += radiate
 
@@ -229,8 +240,6 @@
 			warning()
 
 	Radiate()
-	if(radiation)
-		SSradiation.radiate(src, round(radiation*0.001))
 	return 1
 
 /**
@@ -453,7 +462,7 @@
 	radiation += plasma_temperature/2
 	plasma_temperature = 0
 
-	SSradiation.radiate(src, round(radiation*0.001))
+	SSradiation.radiate(src, radiation)
 	Radiate()
 
 /**
@@ -496,7 +505,18 @@
 		// Putting an upper bound on it to stop it being used in a TEG.
 		if(environment && environment.temperature < (T0C+1000))
 			environment.add_thermal_energy(plasma_temperature*20000)
-	radiation = 0
+
+		// Radiation levels can spike unpredictably based on how many reagents we're throwing out, which reactions ran this cycle, etc.
+		// And while we like some unpredictability, it gets a little excessive with the INDRA. Use these vars to balance out actual rad output.
+		radiation_oldest = radiation_older
+		radiation_older = radiation_old
+		radiation_old = radiation
+
+		if(radiation >= 10)
+			radiation_avg = ((radiation_old + radiation_older + radiation_oldest) / 3)
+			SSradiation.radiate(src, radiation_avg * radiation_mult)
+
+		radiation = 0
 
 /obj/effect/fusion_em_field/proc/change_size(newsize = 1)
 	var/changed = 0
@@ -526,7 +546,6 @@
 	// Can't have any reactions if there aren't any reactants present
 	if(length(react_pool))
 		//determine a random amount to actually react this cycle, and remove it from the standard pool
-		//this is a hack, and quite nonrealistic :(
 		for(var/reactant in react_pool)
 			react_pool[reactant] = rand(FLOOR(react_pool[reactant]/2, 1),react_pool[reactant])
 			reactants[reactant] -= react_pool[reactant]
