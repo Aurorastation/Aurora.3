@@ -202,6 +202,7 @@
 	new /obj/item/clothing/glasses/sunglasses/sechud(src)
 	new /obj/item/taperoll/police(src)
 	new /obj/item/gun/energy/disruptorpistol(src)
+	new /obj/item/device/breath_analyzer(src)
 	//Belts
 	new /obj/item/clothing/accessory/storage/black_vest(src)
 	new /obj/item/clothing/accessory/holster/hip(src)
@@ -273,6 +274,7 @@
 	new /obj/item/taperoll/police(src)
 	new /obj/item/device/hailer(src)
 	new /obj/item/device/flashlight/flare/glowstick/red(src)
+	new /obj/item/device/breath_analyzer(src)
 	//Belts
 	new /obj/item/clothing/accessory/storage/black_vest(src)
 	new /obj/item/clothing/accessory/holster/hip(src)
