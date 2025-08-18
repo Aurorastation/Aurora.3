@@ -229,8 +229,6 @@
 	else
 		new /obj/item/storage/backpack/satchel/sec(src)
 	new /obj/item/storage/backpack/duffel/sec(src)
-	new /obj/item/clothing/head/beret/security(src)
-	new /obj/item/clothing/head/softcap/security(src)
 	new /obj/item/clothing/suit/storage/hazardvest/security(src)
 	new /obj/item/clothing/under/rank/cadet(src)
 	//Tools
@@ -292,10 +290,6 @@
 	//Appearance
 	new /obj/item/storage/backpack/satchel/leather/recolorable(src)
 	new /obj/item/clothing/suit/storage/toggle/labcoat(src)
-	new /obj/item/clothing/under/det(src)
-	new /obj/item/clothing/under/det/idris(src)
-	new /obj/item/clothing/under/det/pmc(src)
-	new /obj/item/clothing/under/det/zavod(src)
 	new /obj/item/clothing/accessory/badge/investigator(src)
 	new /obj/item/clothing/shoes/laceup(src)
 	new /obj/item/clothing/mask/gas/half(src)
