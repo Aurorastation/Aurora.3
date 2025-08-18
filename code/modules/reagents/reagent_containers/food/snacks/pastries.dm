@@ -363,15 +363,10 @@
 	bitesize = 1
 
 /obj/item/reagent_containers/food/snacks/cranberry_orange_roll/update_icon()
-	var/expected_initial_reagent_volume
-	for(var/k in src.reagents_to_add)
-		expected_initial_reagent_volume += reagents_to_add[k]
-	var/percent_cranberry_orange_roll = round((reagents.total_volume / expected_initial_reagent_volume) * 100)
-	switch(percent_cranberry_orange_roll)
-		if(0 to 80)
-			icon_state = "cranberryroll_half"
-		if(81 to INFINITY)
-			icon_state = "cranberryroll"
+	if(bitecount>=1)
+		icon_state = "cranberryroll_half"
+	else
+		icon_state = "cranberryroll"
 
 /obj/item/reagent_containers/food/snacks/cranberry_orange_roll/filled
 	reagents_to_add = list(/singleton/reagent/nutriment = 3)
