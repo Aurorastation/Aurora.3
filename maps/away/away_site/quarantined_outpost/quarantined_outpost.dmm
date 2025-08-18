@@ -1,7 +1,7 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aad" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
-/obj/effect/floor_decal/industrial/loading/engineering{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -295,6 +295,15 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/quarantined_outpost/medbay)
+"ati" = (
+/obj/effect/floor_decal/industrial/outline_door/yellow{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/yellow{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/quarantined_outpost/entrance_lobby)
 "atq" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/corner/yellow{
@@ -332,7 +341,8 @@
 /obj/structure/cable/orange{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating/asteroid/airless,
 /area/quarantined_outpost/exterior/powered)
 "auA" = (
 /obj/structure/table/reinforced,
@@ -486,6 +496,9 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/abstract/footprint_spawner{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/east_hallway)
 "azq" = (
@@ -631,6 +644,7 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/quarantined_outpost/engineering)
 "aHN" = (
@@ -690,7 +704,7 @@
 /obj/structure/cable/orange,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
+/turf/simulated/floor/plating/asteroid/airless,
 /area/quarantined_outpost/exterior)
 "aLN" = (
 /obj/effect/floor_decal/corner/brown{
@@ -707,7 +721,7 @@
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/light/small/decayed/quarantined_outpost/group_2,
+/obj/machinery/light/small/decayed,
 /turf/simulated/floor/plating,
 /area/quarantined_outpost/research)
 "aMS" = (
@@ -833,7 +847,7 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/quarantined_outpost/engineering)
 "aSj" = (
-/obj/structure/flora/rock/pile/random,
+/obj/structure/flora/rock/stalagmite/random,
 /turf/simulated/floor/exoplanet/basalt,
 /area/quarantined_outpost/east_hallway)
 "aSn" = (
@@ -983,7 +997,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/portable_atmospherics/canister/empty/hydrogen/tritium,
-/obj/machinery/light/small/decayed/quarantined_outpost/group_2,
+/obj/machinery/light/small/decayed,
 /turf/simulated/floor/plating,
 /area/quarantined_outpost/research)
 "aZg" = (
@@ -1005,6 +1019,9 @@
 "aZA" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/ramp{
 	dir = 4
@@ -1053,6 +1070,13 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/quarantined_outpost/research)
+"bbF" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/plating/asteroid/airless,
+/area/quarantined_outpost/exterior)
 "bbG" = (
 /obj/structure/platform/dark{
 	dir = 4
@@ -1203,11 +1227,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/quarantined_outpost/engineering)
-"bhg" = (
-/obj/effect/floor_decal/spline/plain/black,
-/obj/structure/railing/mapped,
-/turf/simulated/floor/tiled/white,
-/area/quarantined_outpost/science)
 "bhK" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 1
@@ -1246,6 +1265,16 @@
 	},
 /obj/effect/floor_decal/industrial/outline/research,
 /turf/simulated/floor/tiled/dark,
+/area/quarantined_outpost/research)
+"bkw" = (
+/obj/machinery/light/floor/maybe_broken/decayed{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_segment/grey{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/quarantined_outpost/research)
 "bkz" = (
 /obj/random/dirt_75,
@@ -1356,8 +1385,8 @@
 /obj/effect/floor_decal/corner/black{
 	dir = 9
 	},
-/obj/structure/flora/pottedplant/dead2{
-	pixel_y = 13
+/obj/structure/bunk_bed{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/central_hallway)
@@ -1367,11 +1396,15 @@
 /obj/structure/bed/handrail{
 	dir = 8
 	},
-/obj/machinery/light/small/maybe_broken{
+/obj/machinery/light/small/maybe_broken/decayed{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/quarantined_outpost/entrance_lobby)
+"bsm" = (
+/obj/structure/flora/rock/stalagmite/random,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
+/area/quarantined_outpost/exterior)
 "bsw" = (
 /obj/structure/sink{
 	dir = 8;
@@ -1390,7 +1423,7 @@
 "bsT" = (
 /obj/random/dirt_75,
 /obj/structure/structural_support,
-/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
+/turf/simulated/floor/plating/asteroid/airless,
 /area/quarantined_outpost/exterior)
 "btw" = (
 /obj/effect/floor_decal/corner/dark_blue{
@@ -1769,6 +1802,14 @@
 /obj/structure/lattice/catwalk,
 /turf/simulated/floor/plating,
 /area/quarantined_outpost/engineering)
+"bPY" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 6
+	},
+/turf/simulated/floor/plating/asteroid/airless,
+/area/quarantined_outpost/exterior)
 "bPZ" = (
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 10
@@ -1888,6 +1929,9 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/ramp{
 	dir = 8
 	},
@@ -1945,7 +1989,6 @@
 /turf/simulated/floor/tiled/white,
 /area/quarantined_outpost/medbay)
 "bZD" = (
-/obj/structure/flora/rock/random,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
@@ -1993,12 +2036,6 @@
 /obj/structure/platform,
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/floor_damage/rust,
-/turf/simulated/floor/tiled/ridged,
-/area/quarantined_outpost/science)
-"cbA" = (
-/obj/structure/platform_deco{
-	dir = 4
-	},
 /turf/simulated/floor/tiled/ridged,
 /area/quarantined_outpost/science)
 "ccv" = (
@@ -2137,6 +2174,9 @@
 /obj/structure/flora/grass/desert{
 	name = "withered grass"
 	},
+/obj/abstract/footprint_spawner{
+	dir = 8
+	},
 /turf/simulated/floor/exoplanet/barren,
 /area/quarantined_outpost/east_hallway)
 "clD" = (
@@ -2175,6 +2215,9 @@
 	},
 /obj/structure/flora/grass/desert/bush{
 	name = "withered grass"
+	},
+/obj/abstract/footprint_spawner{
+	dir = 8
 	},
 /turf/simulated/floor/exoplanet/barren,
 /area/quarantined_outpost/east_hallway)
@@ -2589,6 +2632,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/elevator_hallway)
+"cCm" = (
+/obj/effect/floor_decal/asteroid,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
+/area/quarantined_outpost/exterior)
 "cCr" = (
 /obj/structure/bookcase/libraryspawn/reference,
 /turf/simulated/floor/tiled/bitile{
@@ -2791,6 +2839,15 @@
 /obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/white,
 /area/quarantined_outpost/medbay)
+"cHp" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 8
+	},
+/obj/abstract/footprint_spawner{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/quarantined_outpost/elevator_hallway)
 "cHG" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
@@ -2810,6 +2867,7 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
+/obj/structure/flora/rock/stalagmite/random,
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/quarantined_outpost/exterior)
 "cIu" = (
@@ -3033,11 +3091,7 @@
 /area/quarantined_outpost/gym)
 "cRl" = (
 /obj/effect/shuttle_landmark/quarantined_outpost/asteroid/landing_1a,
-/turf/simulated/floor/exoplanet/plating/asteroid/airless,
-/area/quarantined_outpost/exterior)
-"cRs" = (
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/plating/asteroid/airless,
+/turf/simulated/floor/plating/asteroid/airless,
 /area/quarantined_outpost/exterior)
 "cSp" = (
 /obj/effect/floor_decal/spline/plain/black{
@@ -3265,14 +3319,11 @@
 /turf/simulated/floor/tiled/airless,
 /area/quarantined_outpost/security)
 "dcT" = (
-/obj/structure/platform,
-/obj/structure/platform{
-	dir = 4
-	},
-/obj/structure/platform_deco{
-	dir = 5
-	},
 /obj/random/dirt_75,
+/obj/structure/platform_stairs/full/east_west_cap{
+	dir = 8
+	},
+/obj/structure/platform/cutout,
 /turf/simulated/floor/tiled/ridged,
 /area/quarantined_outpost/science)
 "dcW" = (
@@ -3470,7 +3521,7 @@
 /area/quarantined_outpost/engineering)
 "dkd" = (
 /obj/structure/lattice/catwalk,
-/obj/machinery/light/small/decayed/quarantined_outpost/group_1{
+/obj/machinery/light/small/decayed{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -3485,6 +3536,11 @@
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/quarantined_outpost/cafeteria)
+"dkv" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating/asteroid/airless,
+/area/quarantined_outpost/exterior)
 "dkK" = (
 /obj/structure/platform/ledge,
 /obj/random/dirt_75,
@@ -3512,9 +3568,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/quarantined_outpost/cafeteria)
-"dme" = (
-/turf/simulated/floor/exoplanet/plating/asteroid/airless,
-/area/quarantined_outpost/exterior)
 "dmw" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
@@ -3688,6 +3741,10 @@
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/elevator_hallway)
+"dva" = (
+/obj/structure/flora/rock/stalagmite/random,
+/turf/simulated/floor/exoplanet/basalt,
+/area/quarantined_outpost/chasm)
 "dvB" = (
 /obj/structure/tank_wall/hydrogen{
 	icon_state = "h14"
@@ -3701,11 +3758,11 @@
 /obj/effect/floor_decal/corner/purple/full{
 	dir = 8
 	},
-/obj/structure/closet/secure_closet/custodial,
 /obj/effect/floor_decal/industrial/outline/custodial,
 /obj/machinery/light/small/decayed{
 	dir = 1
 	},
+/obj/structure/closet/secure_closet/custodial/offship,
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/central_hallway)
 "dwn" = (
@@ -3800,11 +3857,16 @@
 /area/quarantined_outpost/central_hallway)
 "dAU" = (
 /obj/structure/quarantined_outpost_extractor,
-/obj/effect/floor_decal/concrete/gutter,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/landmark/mob_waypoint,
 /obj/effect/fauna_spawner/organized/quarantined_outpost,
-/turf/simulated/floor/plating,
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+	dir = 8
+	},
+/turf/simulated/floor/plating{
+	icon_state = "elevatorshaft";
+	icon = 'icons/turf/flooring/tiles.dmi'
+	},
 /area/quarantined_outpost/science)
 "dBB" = (
 /obj/effect/floor_decal/corner_wide/paleblue,
@@ -3814,6 +3876,14 @@
 /obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/plating,
 /area/quarantined_outpost/engineering)
+"dCi" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/barricade/wooden/road{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
+/area/quarantined_outpost/exterior)
 "dCs" = (
 /obj/structure/grille/broken,
 /obj/structure/lattice,
@@ -4091,6 +4161,13 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/quarantined_outpost/medbay)
+"dMI" = (
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
+/obj/structure/flora/rock/stalagmite/random,
+/turf/simulated/floor/exoplanet/basalt,
+/area/quarantined_outpost/science)
 "dMQ" = (
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 8
@@ -4176,6 +4253,13 @@
 /obj/random/canister/filled,
 /turf/simulated/floor/tiled/dark/full,
 /area/quarantined_outpost/research)
+"dPH" = (
+/obj/effect/map_effect/map_helper/ruler_tiles_3{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
+/area/quarantined_outpost/exterior)
 "dPX" = (
 /turf/simulated/wall,
 /area/quarantined_outpost/engineering)
@@ -4249,7 +4333,7 @@
 /area/quarantined_outpost/research)
 "dUA" = (
 /obj/effect/shuttle_landmark/quarantined_outpost/asteroid/landing_2a,
-/turf/simulated/floor/exoplanet/plating/asteroid/airless,
+/turf/simulated/floor/plating/asteroid/airless,
 /area/quarantined_outpost/exterior)
 "dUV" = (
 /obj/effect/floor_decal/corner/dark_blue,
@@ -4801,20 +4885,14 @@
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/cargo_bay)
 "eoZ" = (
-/obj/structure/railing/mapped{
-	dir = 8
-	},
 /obj/machinery/light/small/emergency{
 	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning/dust{
-	dir = 9
 	},
 /obj/structure/cable/orange{
 	icon_state = "2-4"
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/plating/asteroid/airless,
+/turf/simulated/floor/plating/asteroid/airless,
 /area/quarantined_outpost/exterior/powered)
 "epO" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
@@ -4898,12 +4976,12 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/quarantined_outpost/engineering)
 "eui" = (
-/obj/effect/floor_decal/spline/plain/corner/black{
-	dir = 8
+/obj/random/dirt_75,
+/obj/structure/platform_stairs/full/east_west_cap,
+/obj/structure/platform/cutout{
+	dir = 4
 	},
-/obj/machinery/light/small/floor/emergency,
-/obj/structure/structural_support,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/ridged,
 /area/quarantined_outpost/science)
 "euv" = (
 /obj/effect/floor_decal/corner/dark_blue{
@@ -5057,7 +5135,7 @@
 /area/quarantined_outpost/research)
 "ezZ" = (
 /obj/effect/shuttle_landmark/quarantined_outpost/asteroid/landing_1d,
-/turf/simulated/floor/exoplanet/plating/asteroid/airless,
+/turf/simulated/floor/plating/asteroid/airless,
 /area/quarantined_outpost/exterior)
 "eAw" = (
 /obj/machinery/door/airlock/maintenance_hatch{
@@ -5090,6 +5168,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/entrance_lobby)
+"eBe" = (
+/obj/effect/floor_decal/industrial/hatch_small/yellow,
+/obj/machinery/atmospherics/portables_connector/quarantined_outpost{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/ridged,
+/area/quarantined_outpost/science)
 "eBs" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -5132,6 +5217,9 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/outline_door/yellow,
+/obj/effect/floor_decal/industrial/outline_segment/yellow{
+	dir = 10
+	},
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/entrance_lobby)
 "eCr" = (
@@ -5307,11 +5395,13 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/quarantined_outpost/engineering)
 "eLM" = (
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 253.15
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 4
 	},
-/area/quarantined_outpost/research)
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood,
+/turf/simulated/floor/tiled/gunmetal,
+/area/quarantined_outpost/east_hallway)
 "eLR" = (
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 1
@@ -5437,7 +5527,7 @@
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
 /obj/item/hullbeacon/red,
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/plating/asteroid/airless,
+/turf/simulated/floor/plating/asteroid/airless,
 /area/quarantined_outpost/exterior)
 "eTe" = (
 /obj/effect/floor_decal/corner/yellow{
@@ -5536,9 +5626,15 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/exoplanet/abyss,
 /area/quarantined_outpost/research)
+"eXc" = (
+/obj/structure/flora/rock/random,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
+/area/quarantined_outpost/exterior)
 "eXg" = (
 /obj/effect/shuttle_landmark/quarantined_outpost/asteroid/landing_1b,
-/turf/simulated/floor/exoplanet/plating/asteroid/airless,
+/turf/simulated/floor/plating/asteroid/airless,
 /area/quarantined_outpost/exterior)
 "eXr" = (
 /obj/effect/floor_decal/corner_wide/lime{
@@ -5618,8 +5714,7 @@
 	},
 /turf/simulated/floor/plating{
 	icon_state = "elevatorshaft";
-	icon = 'icons/turf/flooring/tiles.dmi';
-	name = "elevator machinery"
+	icon = 'icons/turf/flooring/tiles.dmi'
 	},
 /area/quarantined_outpost/central_hallway)
 "eZl" = (
@@ -5654,6 +5749,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/airless,
 /area/quarantined_outpost/security)
+"fbb" = (
+/obj/structure/barricade/wooden/road{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/basalt,
+/area/quarantined_outpost/east_cavern)
 "fbm" = (
 /obj/structure/railing/mapped,
 /obj/effect/decal/cleanable/floor_damage/rust,
@@ -5667,6 +5768,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/cafeteria)
+"fbz" = (
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
+/area/quarantined_outpost/exterior)
 "fbP" = (
 /obj/structure/table/standard,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/europa{
@@ -5687,12 +5795,8 @@
 /obj/effect/floor_decal/corner/black/full{
 	dir = 4
 	},
-/obj/structure/bed/padded,
-/obj/structure/sign/flag/old_visegrad{
-	pixel_x = 32
-	},
 /obj/random/dirt_75,
-/obj/item/bedsheet/grey,
+/obj/structure/bunk_bed/blue,
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/central_hallway)
 "fcv" = (
@@ -5711,6 +5815,7 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
+/obj/structure/bed/stool/chair/folding,
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/central_hallway)
 "fcA" = (
@@ -6005,7 +6110,7 @@
 /obj/machinery/light/small/emergency{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/plating/asteroid/airless,
+/turf/simulated/floor/plating/asteroid/airless,
 /area/quarantined_outpost/exterior/powered)
 "foU" = (
 /obj/machinery/light/small/decayed/quarantined_outpost,
@@ -6319,6 +6424,8 @@
 	dir = 6
 	},
 /obj/machinery/pipedispenser/disposal,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/quarantined_outpost/engineering)
 "fCp" = (
@@ -6328,10 +6435,10 @@
 "fCr" = (
 /obj/effect/floor_decal/industrial/hatch/custodial,
 /obj/machinery/door/firedoor,
-/obj/structure/plasticflaps,
 /obj/abstract/footprint_spawner{
 	dir = 1
 	},
+/obj/structure/plasticflaps/airtight,
 /turf/simulated/floor/tiled/dark/full,
 /area/quarantined_outpost/research)
 "fCZ" = (
@@ -6442,6 +6549,15 @@
 /obj/machinery/power/apc/south,
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/elevator_hallway)
+"fIl" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 9
+	},
+/obj/abstract/footprint_spawner{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/quarantined_outpost/east_hallway)
 "fJS" = (
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/closet,
@@ -6564,6 +6680,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/elevator_hallway)
+"fNG" = (
+/obj/structure/barricade/wooden/road{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/basalt,
+/area/quarantined_outpost/east_cavern)
 "fNZ" = (
 /obj/structure/table/standard,
 /obj/random/powercell{
@@ -6594,6 +6716,12 @@
 /obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/gunmetal,
 /area/quarantined_outpost/east_hallway)
+"fQm" = (
+/obj/structure/barricade/wooden/road{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
+/area/quarantined_outpost/exterior)
 "fQn" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
@@ -6673,6 +6801,13 @@
 /obj/structure/platform_deco/ledge/dark,
 /turf/simulated/floor/exoplanet/abyss,
 /area/quarantined_outpost/chasm)
+"fTc" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/abstract/footprint_spawner{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/quarantined_outpost/east_hallway)
 "fTe" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark/full,
@@ -6711,6 +6846,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/quarantined_outpost/cafeteria)
+"fXa" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/plating/asteroid/airless,
+/area/quarantined_outpost/exterior)
 "fXS" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -6952,7 +7091,8 @@
 /obj/structure/cable/orange{
 	icon_state = "1-4"
 	},
-/turf/simulated/floor/exoplanet/plating/asteroid/airless,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating/asteroid/airless,
 /area/quarantined_outpost/exterior)
 "gkA" = (
 /obj/effect/floor_decal/corner/lime,
@@ -7002,6 +7142,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/gunmetal,
 /area/quarantined_outpost/east_hallway)
+"gmc" = (
+/obj/effect/floor_decal/industrial/outline_straight/grey{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/ridged,
+/area/quarantined_outpost/research)
 "gmg" = (
 /obj/machinery/computer/terminal/inactive{
 	dir = 4
@@ -7013,7 +7160,7 @@
 "gmy" = (
 /obj/effect/floor_decal/spline/plain/black,
 /obj/structure/railing/mapped,
-/obj/machinery/floodlight/randomcharge,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/quarantined_outpost/science)
 "gnu" = (
@@ -7043,6 +7190,14 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/light,
 /area/quarantined_outpost/research)
+"gnG" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/abstract/footprint_spawner{
+	dir = 8
+	},
+/obj/abstract/footprint_spawner_turn_helper,
+/turf/simulated/floor/plating,
+/area/quarantined_outpost/east_hallway)
 "gnW" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -7332,7 +7487,7 @@
 	dir = 4
 	},
 /obj/structure/railing/mapped,
-/turf/simulated/floor/exoplanet/plating/asteroid/airless,
+/turf/simulated/floor/plating/asteroid/airless,
 /area/quarantined_outpost/exterior)
 "gBM" = (
 /obj/effect/floor_decal/spline/plain/black{
@@ -7504,6 +7659,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/gym)
+"gJJ" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline/security,
+/turf/simulated/floor/tiled/dark/full,
+/area/quarantined_outpost/research)
 "gKi" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
@@ -7550,11 +7710,14 @@
 /obj/machinery/light/small/decayed/quarantined_outpost{
 	dir = 4
 	},
-/obj/structure/table/rack,
 /obj/effect/floor_decal/corner/dark_blue,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 4
 	},
+/obj/machinery/power/emitter{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/quarantined_outpost/engineering)
 "gMB" = (
@@ -7817,6 +7980,10 @@
 	},
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/machinery/iv_drip,
+/obj/structure/dressing_divider/hospital{
+	pixel_y = -14;
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/quarantined_outpost/medbay)
 "gVo" = (
@@ -8109,6 +8276,9 @@
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 10
 	},
+/obj/structure/trash_pile,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/quarantined_outpost/science)
 "hmJ" = (
@@ -8395,11 +8565,9 @@
 /turf/simulated/floor/lino,
 /area/quarantined_outpost/lobby)
 "hBl" = (
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 6
-	},
 /obj/structure/railing/mapped,
-/obj/structure/reagent_dispensers/water_cooler,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/quarantined_outpost/science)
 "hBo" = (
@@ -8411,6 +8579,9 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/floor_damage/rust,
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/ridged,
 /area/quarantined_outpost/science)
 "hBp" = (
@@ -8547,16 +8718,13 @@
 /turf/simulated/floor/tiled/light/full,
 /area/quarantined_outpost/research)
 "hHg" = (
-/obj/structure/platform{
-	dir = 4
+/obj/structure/platform_stairs/full/east_west_cap{
+	dir = 8
 	},
 /obj/structure/platform{
 	dir = 1
 	},
-/obj/structure/platform_deco{
-	dir = 10
-	},
-/obj/effect/decal/cleanable/floor_damage/rust,
+/obj/structure/platform/cutout,
 /turf/simulated/floor/tiled/ridged,
 /area/quarantined_outpost/science)
 "hHl" = (
@@ -8828,6 +8996,9 @@
 /obj/effect/floor_decal/industrial/outline_door/yellow{
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/outline_segment/yellow{
+	dir = 5
+	},
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/entrance_lobby)
 "hPP" = (
@@ -8853,6 +9024,7 @@
 "hSI" = (
 /obj/effect/floor_decal/spline/plain/black,
 /obj/machinery/power/apc/south,
+/obj/effect/decal/cleanable/blood,
 /turf/simulated/floor/tiled/gunmetal,
 /area/quarantined_outpost/east_hallway)
 "hTb" = (
@@ -8865,7 +9037,6 @@
 "hTi" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/structure/structural_support,
 /turf/simulated/floor/tiled/ridged,
 /area/quarantined_outpost/science)
 "hTm" = (
@@ -9043,6 +9214,14 @@
 	},
 /turf/simulated/floor/lino,
 /area/quarantined_outpost/cafeteria)
+"ifA" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 6
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood,
+/turf/simulated/floor/tiled,
+/area/quarantined_outpost/east_hallway)
 "ifT" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/airlock/multi_tile/glass{
@@ -9054,6 +9233,13 @@
 	},
 /turf/simulated/floor/tiled/full/airless,
 /area/quarantined_outpost/security)
+"igP" = (
+/obj/effect/floor_decal/industrial/hatch_small/yellow,
+/obj/machinery/atmospherics/portables_connector/quarantined_outpost{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/ridged,
+/area/quarantined_outpost/science)
 "ihg" = (
 /obj/structure/table/standard,
 /turf/simulated/floor/plating,
@@ -9245,6 +9431,13 @@
 /obj/structure/flora/rock/pile/random,
 /turf/simulated/floor/exoplanet/basalt,
 /area/quarantined_outpost/chasm)
+"ism" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/quarantined_outpost/science)
 "isr" = (
 /obj/machinery/door/firedoor{
 	dir = 4
@@ -9302,6 +9495,11 @@
 /obj/effect/decal/cleanable/blood,
 /turf/simulated/floor/tiled/airless,
 /area/quarantined_outpost/security)
+"iuw" = (
+/obj/effect/map_effect/map_helper/ruler_tiles_3,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
+/area/quarantined_outpost/exterior)
 "iva" = (
 /obj/vehicle/train/cargo/engine/pussywagon,
 /obj/random/dirt_75,
@@ -9339,6 +9537,9 @@
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/quarantined_outpost/engineering)
+"iwi" = (
+/turf/unsimulated/wall/steel,
+/area/quarantined_outpost/research)
 "ixx" = (
 /obj/random/civgun,
 /obj/effect/decal/cleanable/blood,
@@ -9548,6 +9749,7 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/effect/floor_decal/industrial/outline_segment/yellow,
 /turf/simulated/floor/plating,
 /area/quarantined_outpost/entrance_lobby)
 "iEq" = (
@@ -9641,7 +9843,7 @@
 "iJx" = (
 /obj/effect/floor_decal/industrial/warning/corner,
 /obj/random/dirt_75,
-/obj/machinery/light/small/decayed/quarantined_outpost/group_3{
+/obj/machinery/light/small/decayed{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -9670,6 +9872,14 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/rust,
 /area/quarantined_outpost/lobby)
+"iKX" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 9
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood,
+/turf/simulated/floor/tiled,
+/area/quarantined_outpost/elevator_hallway)
 "iLb" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 8
@@ -9699,6 +9909,9 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/firedoor,
 /obj/random/dirt_75,
+/obj/abstract/footprint_spawner{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/full,
 /area/quarantined_outpost/east_hallway)
 "iNm" = (
@@ -10182,7 +10395,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/plating/asteroid/airless,
+/turf/simulated/floor/plating/asteroid/airless,
 /area/quarantined_outpost/exterior)
 "jfY" = (
 /obj/effect/floor_decal/industrial/outline_door/yellow{
@@ -10273,7 +10486,7 @@
 	dir = 1
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/plating/asteroid/airless,
+/turf/simulated/floor/plating/asteroid/airless,
 /area/quarantined_outpost/exterior)
 "jif" = (
 /obj/effect/floor_decal/corner_wide/lime{
@@ -10335,7 +10548,7 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/plating/asteroid/airless,
+/turf/simulated/floor/plating/asteroid/airless,
 /area/quarantined_outpost/exterior)
 "jlG" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -10408,7 +10621,7 @@
 	icon_state = "2-4"
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
+/turf/simulated/floor/plating/asteroid/airless,
 /area/quarantined_outpost/exterior)
 "jpJ" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -10524,6 +10737,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/cafeteria)
+"jxj" = (
+/obj/structure/barricade/wooden/road{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/basalt,
+/area/quarantined_outpost/research)
 "jxB" = (
 /obj/random/junk,
 /turf/simulated/floor/plating,
@@ -10554,7 +10773,7 @@
 /obj/structure/cable/orange{
 	icon_state = "2-4"
 	},
-/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
+/turf/simulated/floor/plating/asteroid/airless,
 /area/quarantined_outpost/exterior)
 "jyf" = (
 /obj/effect/floor_decal/spline/plain/corner/black{
@@ -10613,6 +10832,9 @@
 /obj/structure/closet/cabinet,
 /obj/random/dirt_75,
 /obj/outfit/admin/generic,
+/obj/structure/sign/flag/nhp{
+	pixel_x = 32
+	},
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/central_hallway)
 "jzV" = (
@@ -10691,6 +10913,14 @@
 /obj/machinery/vending/snack,
 /turf/simulated/floor/tiled/white,
 /area/quarantined_outpost/medbay)
+"jEv" = (
+/obj/random/dirt_75,
+/obj/item/reagent_containers/food/drinks/waterbottle{
+	pixel_y = 8;
+	pixel_x = -9
+	},
+/turf/simulated/floor/tiled,
+/area/quarantined_outpost/central_hallway)
 "jEO" = (
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 1
@@ -10891,7 +11121,7 @@
 /obj/structure/cable/orange{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
+/turf/simulated/floor/plating/asteroid/airless,
 /area/quarantined_outpost/exterior/powered)
 "jNg" = (
 /obj/structure/sink/kitchen{
@@ -10981,10 +11211,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/quarantined_outpost/east_hallway)
 "jSC" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/hatch_small/yellow,
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
@@ -11003,7 +11229,7 @@
 /obj/machinery/light/small/emergency{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/plating/asteroid/airless,
+/turf/simulated/floor/plating/asteroid/airless,
 /area/quarantined_outpost/exterior)
 "jTc" = (
 /obj/random/dirt_75,
@@ -11468,7 +11694,7 @@
 "kob" = (
 /obj/random/dirt_75,
 /obj/effect/shuttle_landmark/quarantined_outpost/asteroid/landing_2d,
-/turf/simulated/floor/exoplanet/plating/asteroid/airless,
+/turf/simulated/floor/plating/asteroid/airless,
 /area/quarantined_outpost/exterior)
 "kov" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
@@ -11481,6 +11707,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/cargo_bay)
+"koT" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 6
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/quarantined_outpost/central_hallway)
 "kpg" = (
 /obj/effect/decal/cleanable/floor_damage/random_broken,
 /obj/structure/girder,
@@ -11646,6 +11879,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/cargo_bay)
+"kvo" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 9
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/cobweb2,
+/turf/simulated/floor/tiled/dark,
+/area/quarantined_outpost/research)
 "kvs" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner_wide/paleblue/full{
@@ -12330,7 +12572,7 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
 	},
-/obj/machinery/light/small/decayed/quarantined_outpost/group_2{
+/obj/machinery/light/small/decayed{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -12975,6 +13217,11 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/quarantined_outpost/engineering)
+"lAq" = (
+/obj/structure/flora/rock/pile/random,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
+/area/quarantined_outpost/exterior)
 "lAv" = (
 /obj/structure/table/reinforced/steel,
 /obj/machinery/door/window/desk/eastleft,
@@ -13049,6 +13296,9 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/outline_segment/yellow{
+	dir = 10
+	},
 /turf/simulated/floor/plating,
 /area/quarantined_outpost/entrance_lobby)
 "lCV" = (
@@ -13102,11 +13352,12 @@
 /obj/effect/floor_decal/corner/black/full{
 	dir = 1
 	},
-/obj/structure/bed/padded,
-/obj/item/bedsheet/grey,
 /obj/structure/sign/flag/silversun{
 	pixel_x = 32
 	},
+/obj/structure/closet/cabinet,
+/obj/outfit/admin/generic,
+/obj/random/loot,
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/central_hallway)
 "lFd" = (
@@ -13155,7 +13406,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/blood/oil,
-/obj/machinery/light/small/decayed/quarantined_outpost/group_3{
+/obj/machinery/light/small/decayed{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -13308,6 +13559,14 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
+/area/quarantined_outpost/research)
+"lPK" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 6
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/cobweb,
+/turf/simulated/floor/tiled/dark,
 /area/quarantined_outpost/research)
 "lPP" = (
 /obj/abstract/footprint_spawner/body{
@@ -13489,6 +13748,9 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/effect/floor_decal/industrial/outline_segment/yellow{
+	dir = 9
+	},
 /turf/simulated/floor/plating,
 /area/quarantined_outpost/entrance_lobby)
 "lUH" = (
@@ -13606,7 +13868,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/plating/asteroid/airless,
+/turf/simulated/floor/plating/asteroid/airless,
 /area/quarantined_outpost/exterior)
 "mas" = (
 /obj/random/dirt_75,
@@ -13652,7 +13914,7 @@
 /obj/structure/cable/orange{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
+/turf/simulated/floor/plating/asteroid/airless,
 /area/quarantined_outpost/exterior)
 "mcA" = (
 /obj/structure/table/standard/flipped{
@@ -13854,6 +14116,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/quarantined_outpost/engineering)
+"mjR" = (
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/blood,
+/turf/simulated/floor/tiled/gunmetal,
+/area/quarantined_outpost/east_hallway)
 "mjV" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
@@ -14112,7 +14381,8 @@
 /obj/structure/cable/orange{
 	icon_state = "1-8"
 	},
-/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
+/obj/effect/floor_decal/industrial/warning/dust,
+/turf/simulated/floor/plating/asteroid/airless,
 /area/quarantined_outpost/exterior)
 "myf" = (
 /obj/effect/floor_decal/industrial/outline_door/emergency_closet,
@@ -14182,6 +14452,7 @@
 /obj/structure/sign/flag/sol/old{
 	pixel_y = 32
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/quarantined_outpost/science)
 "mBr" = (
@@ -14243,6 +14514,7 @@
 /obj/machinery/light/small/emergency{
 	dir = 1
 	},
+/obj/structure/flora/rock/stalagmite/random,
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/quarantined_outpost/exterior/powered)
 "mCd" = (
@@ -14445,14 +14717,24 @@
 /turf/simulated/floor/tiled/dark,
 /area/quarantined_outpost/research)
 "mLo" = (
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 9
-	},
 /obj/structure/railing/mapped{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/quarantined_outpost/science)
+"mLD" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 9
+	},
+/obj/random/dirt_75,
+/obj/abstract/footprint_spawner{
+	dir = 1
+	},
+/obj/abstract/footprint_spawner_turn_helper{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/quarantined_outpost/east_hallway)
 "mMc" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 8
@@ -14492,11 +14774,9 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/structure/platform{
+/turf/simulated/floor/tiled/ramp{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/visible/universal,
-/turf/simulated/floor/reinforced,
 /area/quarantined_outpost/science)
 "mNj" = (
 /obj/effect/floor_decal/spline/plain/black,
@@ -14556,6 +14836,12 @@
 	},
 /turf/simulated/floor/exoplanet/barren,
 /area/quarantined_outpost/elevator_hallway)
+"mPg" = (
+/obj/structure/barricade/wooden/road{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
+/area/quarantined_outpost/exterior)
 "mPr" = (
 /obj/structure/bed/stool/chair/office/light,
 /obj/effect/floor_decal/corner/mauve/full,
@@ -14615,6 +14901,9 @@
 "mSJ" = (
 /turf/simulated/wall/r_wall,
 /area/quarantined_outpost/auxiliary_power)
+"mTc" = (
+/turf/simulated/floor/plating/asteroid/airless,
+/area/quarantined_outpost/exterior)
 "mTH" = (
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/quarantined_outpost/exterior)
@@ -14631,7 +14920,7 @@
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/plating/asteroid/airless,
+/turf/simulated/floor/plating/asteroid/airless,
 /area/quarantined_outpost/exterior)
 "mUP" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
@@ -14654,9 +14943,7 @@
 /area/quarantined_outpost/elevator_hallway)
 "mWk" = (
 /obj/random/dirt_75,
-/obj/structure/railing/mapped{
-	dir = 1
-	},
+/obj/structure/barricade/wooden/road,
 /turf/simulated/floor/exoplanet/basalt,
 /area/quarantined_outpost/east_cavern)
 "mWv" = (
@@ -14928,11 +15215,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/elevator_hallway)
-"ngk" = (
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/plating/asteroid/airless,
-/area/quarantined_outpost/exterior)
 "ngA" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -15034,7 +15316,7 @@
 "nkm" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/map_effect/marker/airlock/quarantined_outpost/entrance,
-/obj/machinery/light/small/maybe_broken,
+/obj/machinery/light/small/maybe_broken/decayed,
 /turf/simulated/floor/plating,
 /area/quarantined_outpost/entrance_lobby)
 "nks" = (
@@ -15167,6 +15449,16 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/quarantined_outpost/elevator_hallway)
+"nop" = (
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/plating/asteroid/airless,
+/area/quarantined_outpost/exterior)
 "not" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
@@ -15225,9 +15517,15 @@
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/central_hallway)
 "nrs" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/floor/exoplanet/basalt,
-/area/quarantined_outpost/east_cavern)
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/obj/abstract/footprint_spawner{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/quarantined_outpost/east_hallway)
 "nrv" = (
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
@@ -15262,7 +15560,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/plating/asteroid/airless,
+/turf/simulated/floor/plating/asteroid/airless,
 /area/quarantined_outpost/exterior)
 "nsO" = (
 /obj/structure/table/standard/flipped,
@@ -15288,11 +15586,12 @@
 /turf/simulated/floor/tiled/white,
 /area/quarantined_outpost/medbay)
 "ntp" = (
-/obj/structure/bed/stool/chair/folding,
 /obj/random/dirt_75,
 /obj/machinery/light/maybe_broken/decayed{
 	dir = 1
 	},
+/obj/effect/decal/remains,
+/obj/random/civgun/rifle,
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/central_hallway)
 "ntS" = (
@@ -15775,7 +16074,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/random/junk,
+/obj/machinery/floodlight/randomcharge,
 /turf/simulated/floor/tiled/white,
 /area/quarantined_outpost/science)
 "nOW" = (
@@ -15793,6 +16092,14 @@
 /obj/item/material/knife/butterfly/switchblade,
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/central_hallway)
+"nQb" = (
+/obj/random/dirt_75,
+/obj/structure/dressing_divider/hospital{
+	pixel_y = -14;
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/quarantined_outpost/medbay)
 "nRb" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /obj/machinery/door/blast/regular{
@@ -16009,7 +16316,7 @@
 /area/quarantined_outpost/science)
 "nZx" = (
 /obj/structure/lattice/catwalk,
-/obj/machinery/light/small/decayed/quarantined_outpost/group_1{
+/obj/machinery/light/small/decayed{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -16088,6 +16395,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/quarantined_outpost/medbay)
+"oeN" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_straight/grey{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/ridged,
+/area/quarantined_outpost/research)
 "oeS" = (
 /obj/structure/lattice/catwalk,
 /obj/machinery/light/small/emergency{
@@ -16236,8 +16550,7 @@
 /area/quarantined_outpost/east_cavern)
 "ohQ" = (
 /obj/effect/floor_decal/spline/plain/black,
-/obj/machinery/atmospherics/portables_connector,
-/obj/effect/floor_decal/industrial/hatch_small/yellow,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/ridged,
 /area/quarantined_outpost/science)
 "ohW" = (
@@ -16515,6 +16828,7 @@
 /area/quarantined_outpost/engineering)
 "ouA" = (
 /obj/effect/floor_decal/spline/plain/black,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/quarantined_outpost/science)
 "ouI" = (
@@ -16602,6 +16916,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/quarantined_outpost/engineering)
 "oxk" = (
@@ -16655,7 +16970,7 @@
 /area/quarantined_outpost/lobby)
 "ozl" = (
 /obj/effect/shuttle_landmark/quarantined_outpost/asteroid/landing_2b,
-/turf/simulated/floor/exoplanet/plating/asteroid/airless,
+/turf/simulated/floor/plating/asteroid/airless,
 /area/quarantined_outpost/exterior)
 "oAd" = (
 /obj/effect/floor_decal/spline/plain/black{
@@ -16674,6 +16989,9 @@
 /obj/random/dirt_75,
 /obj/structure/bed/stool/chair/folding{
 	dir = 4
+	},
+/obj/structure/mirror{
+	pixel_x = -27
 	},
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/central_hallway)
@@ -17035,12 +17353,24 @@
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/entrance_lobby)
 "oNu" = (
-/obj/effect/floor_decal/industrial/hatch/grey,
-/obj/structure/table/reinforced/steel,
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 253.15
+/obj/structure/platform{
+	dir = 4
 	},
+/obj/structure/platform{
+	dir = 1
+	},
+/obj/structure/platform_deco{
+	dir = 10
+	},
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_segment/grey{
+	dir = 5
+	},
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/quarantined_outpost/research)
 "oNy" = (
 /obj/effect/floor_decal/corner_wide/lime/full{
@@ -17182,6 +17512,9 @@
 /obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/dark,
 /area/quarantined_outpost/engineering)
+"oSj" = (
+/turf/simulated/floor/tiled/ridged,
+/area/quarantined_outpost/research)
 "oTf" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
@@ -17269,11 +17602,7 @@
 /obj/effect/floor_decal/corner/black/full{
 	dir = 4
 	},
-/obj/structure/bed/padded,
-/obj/item/bedsheet/black,
-/obj/structure/sign/flag/pluto{
-	pixel_x = 32
-	},
+/obj/structure/flora/pottedplant/dead2,
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/central_hallway)
 "oXj" = (
@@ -17295,16 +17624,13 @@
 /turf/simulated/mineral/lava,
 /area/quarantined_outpost/east_cavern)
 "oXR" = (
-/obj/structure/platform{
-	dir = 8
+/obj/structure/platform_stairs/full/east_west_cap,
+/obj/structure/platform/cutout{
+	dir = 4
 	},
 /obj/structure/platform{
 	dir = 1
 	},
-/obj/structure/platform_deco{
-	dir = 6
-	},
-/obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/ridged,
 /area/quarantined_outpost/science)
 "oXV" = (
@@ -17521,6 +17847,11 @@
 	},
 /turf/simulated/floor/tiled/rust,
 /area/quarantined_outpost/elevator_hallway)
+"peM" = (
+/obj/effect/floor_decal/asteroid_dug,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
+/area/quarantined_outpost/exterior)
 "pfd" = (
 /obj/effect/floor_decal/corner/black{
 	dir = 5
@@ -17627,9 +17958,7 @@
 /area/quarantined_outpost/central_hallway)
 "pkx" = (
 /obj/effect/floor_decal/industrial/warning,
-/obj/structure/platform,
-/obj/machinery/atmospherics/pipe/simple/visible/universal,
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/tiled/ramp,
 /area/quarantined_outpost/science)
 "pld" = (
 /obj/effect/floor_decal/corner/mauve{
@@ -17703,7 +18032,7 @@
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/plating/asteroid/airless,
+/turf/simulated/floor/plating/asteroid/airless,
 /area/quarantined_outpost/exterior)
 "ppd" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
@@ -17712,7 +18041,7 @@
 /turf/simulated/floor/reinforced/airless,
 /area/quarantined_outpost/engineering)
 "ppk" = (
-/obj/structure/flora/rock/pile/random,
+/obj/structure/flora/rock/stalagmite/random,
 /turf/simulated/floor/exoplanet/basalt,
 /area/quarantined_outpost/east_cavern)
 "ppn" = (
@@ -17783,10 +18112,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/quarantined_outpost/elevator_hallway)
-"pqE" = (
-/obj/structure/flora/rock/random,
-/turf/simulated/floor/exoplanet/basalt,
-/area/quarantined_outpost/chasm)
 "prj" = (
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/floor_decal/industrial/loading/operations{
@@ -18014,7 +18339,7 @@
 	dir = 8
 	},
 /obj/structure/railing/mapped,
-/turf/simulated/floor/exoplanet/plating/asteroid/airless,
+/turf/simulated/floor/plating/asteroid/airless,
 /area/quarantined_outpost/exterior)
 "pEi" = (
 /turf/simulated/floor/exoplanet/basalt,
@@ -18202,6 +18527,11 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/cargo_bay)
+"pNJ" = (
+/obj/random/dirt_75,
+/obj/structure/flora/rock/stalagmite/random,
+/turf/simulated/floor/exoplanet/basalt,
+/area/quarantined_outpost/east_cavern)
 "pNK" = (
 /obj/effect/floor_decal/corner/dark_blue,
 /turf/simulated/floor/tiled,
@@ -18410,6 +18740,10 @@
 /obj/structure/inflatable/wall,
 /turf/simulated/floor/tiled/airless,
 /area/quarantined_outpost/security)
+"pVO" = (
+/obj/structure/barricade/wooden/road,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
+/area/quarantined_outpost/exterior)
 "pWj" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
@@ -18426,13 +18760,25 @@
 /obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/gunmetal,
 /area/quarantined_outpost/engineering)
+"pXn" = (
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 4
+	},
+/obj/machinery/door/firedoor{
+	dir = 4
+	},
+/obj/abstract/footprint_spawner{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/quarantined_outpost/east_hallway)
 "pXE" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/ridged,
 /area/quarantined_outpost/science)
 "pXH" = (
 /obj/item/hullbeacon/red,
-/turf/simulated/floor/exoplanet/plating/asteroid/airless,
+/turf/simulated/floor/plating/asteroid/airless,
 /area/quarantined_outpost/exterior)
 "pXN" = (
 /obj/machinery/door/airlock/generic{
@@ -18506,6 +18852,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/quarantined_outpost/engineering)
 "pZp" = (
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/bitile/light/middle,
 /area/quarantined_outpost/research)
 "pZC" = (
@@ -18600,6 +18947,12 @@
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/quarantined_outpost/engineering)
+"qdf" = (
+/obj/effect/floor_decal/industrial/outline_straight/grey{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/ridged,
+/area/quarantined_outpost/research)
 "qdl" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
@@ -18719,9 +19072,6 @@
 /turf/simulated/floor/plating,
 /area/quarantined_outpost/elevator_hallway)
 "qiQ" = (
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 5
-	},
 /obj/structure/railing/mapped{
 	dir = 1
 	},
@@ -18898,9 +19248,9 @@
 /turf/simulated/floor/tiled/white,
 /area/quarantined_outpost/research)
 "qsh" = (
-/obj/effect/floor_decal/spline/plain/corner/black,
 /obj/machinery/light/small/floor/emergency,
 /obj/structure/structural_support,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/quarantined_outpost/science)
 "qsm" = (
@@ -19272,6 +19622,9 @@
 /area/quarantined_outpost/engineering)
 "qFk" = (
 /obj/effect/floor_decal/industrial/outline_door/yellow,
+/obj/effect/floor_decal/industrial/outline_segment/yellow{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/entrance_lobby)
 "qFq" = (
@@ -19428,10 +19781,10 @@
 /obj/effect/floor_decal/corner/black{
 	dir = 8
 	},
-/obj/effect/decal/cleanable/generic,
 /obj/effect/floor_decal/industrial/outline_door/yellow{
 	dir = 1
 	},
+/obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/tiled/dark,
 /area/quarantined_outpost/entrance_lobby)
 "qJM" = (
@@ -19462,6 +19815,15 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/quarantined_outpost/entrance_lobby)
+"qMD" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 9
+	},
+/obj/structure/table/reinforced/steel,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/quarantined_outpost/research)
 "qNd" = (
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/floor_decal/industrial/loading/operations{
@@ -19488,7 +19850,7 @@
 /obj/machinery/light/small/emergency{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/plating/asteroid/airless,
+/turf/simulated/floor/plating/asteroid/airless,
 /area/quarantined_outpost/exterior)
 "qNH" = (
 /obj/random/dirt_75,
@@ -19888,7 +20250,7 @@
 "rdZ" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
 /obj/item/hullbeacon/red,
-/turf/simulated/floor/exoplanet/plating/asteroid/airless,
+/turf/simulated/floor/plating/asteroid/airless,
 /area/quarantined_outpost/exterior)
 "reL" = (
 /obj/effect/floor_decal/corner/dark_blue,
@@ -20002,6 +20364,14 @@
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/quarantined_outpost/engineering)
+"riC" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/abstract/footprint_spawner,
+/obj/abstract/footprint_spawner_turn_helper{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/quarantined_outpost/east_hallway)
 "rjl" = (
 /obj/effect/floor_decal/spline/plain/black,
 /obj/random/dirt_75,
@@ -20101,6 +20471,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/cafeteria)
+"roE" = (
+/obj/structure/barricade/wooden/road{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
+/area/quarantined_outpost/exterior)
 "roY" = (
 /obj/structure/closet/secure_closet/personal,
 /obj/effect/floor_decal/corner/dark_green{
@@ -20126,14 +20502,33 @@
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/cafeteria)
 "rpF" = (
-/obj/effect/floor_decal/industrial/hatch/grey,
-/obj/structure/closet/crate/freezer{
-	name = "Fridge"
+/obj/structure/platform{
+	dir = 8
 	},
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 253.15
+/obj/structure/platform{
+	dir = 1
 	},
+/obj/structure/platform_deco{
+	dir = 6
+	},
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_segment/grey{
+	dir = 8
+	},
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/quarantined_outpost/research)
+"rpR" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 6
+	},
+/obj/structure/table/reinforced/steel,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
 /area/quarantined_outpost/research)
 "rpT" = (
 /obj/effect/floor_decal/corner/yellow/full{
@@ -20319,11 +20714,12 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/quarantined_outpost/lobby)
 "rvB" = (
-/obj/effect/floor_decal/asteroid,
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 6
+	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
+/turf/simulated/floor/plating/asteroid/airless,
 /area/quarantined_outpost/exterior)
 "rvV" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -20355,10 +20751,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/warning/dust{
-	dir = 1
-	},
-/turf/simulated/floor/exoplanet/plating/asteroid/airless,
+/turf/simulated/floor/plating/asteroid/airless,
 /area/quarantined_outpost/exterior)
 "ryh" = (
 /obj/effect/floor_decal/spline/plain/black{
@@ -20459,6 +20852,16 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/quarantined_outpost/medbay)
+"rBt" = (
+/obj/machinery/light/floor/maybe_broken/decayed{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_segment/grey{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/quarantined_outpost/research)
 "rBH" = (
 /obj/random/dirt_75,
 /obj/structure/bed/stool/chair{
@@ -20616,6 +21019,7 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 8
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/quarantined_outpost/engineering)
 "rHo" = (
@@ -20742,11 +21146,6 @@
 /obj/effect/decal/cleanable/floor_damage/random_broken,
 /turf/simulated/floor/tiled/gunmetal,
 /area/quarantined_outpost/engineering)
-"rLU" = (
-/obj/structure/platform_deco,
-/obj/effect/decal/cleanable/floor_damage/rust,
-/turf/simulated/floor/tiled/ridged,
-/area/quarantined_outpost/science)
 "rMm" = (
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 5
@@ -20918,12 +21317,8 @@
 /obj/effect/floor_decal/corner/black{
 	dir = 6
 	},
-/obj/structure/bed/padded,
 /obj/random/dirt_75,
-/obj/item/bedsheet/brown,
-/obj/structure/sign/flag/old_xanu{
-	pixel_x = 32
-	},
+/obj/random/junk,
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/central_hallway)
 "rVh" = (
@@ -21076,6 +21471,9 @@
 	},
 /obj/item/gun/energy/retro,
 /obj/item/gun/energy/retro,
+/obj/item/gun/energy/laser{
+	desc = "A G40E carbine, designed to kill with concentrated energy blasts."
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/quarantined_outpost/security)
 "sfO" = (
@@ -21095,7 +21493,7 @@
 "sfX" = (
 /obj/item/hullbeacon/red,
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/plating/asteroid/airless,
+/turf/simulated/floor/plating/asteroid/airless,
 /area/quarantined_outpost/exterior)
 "sgl" = (
 /obj/effect/floor_decal/industrial/outline_door/red{
@@ -21119,12 +21517,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/quarantined_outpost/cargo_bay)
-"sgS" = (
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/plating/asteroid/airless,
-/area/quarantined_outpost/exterior)
 "shb" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
@@ -21279,14 +21671,18 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/full,
 /area/quarantined_outpost/cargo_bay)
-"snB" = (
-/obj/effect/floor_decal/spline/plain/corner/black{
+"snq" = (
+/obj/structure/platform{
 	dir = 1
 	},
-/obj/machinery/light/small/floor/emergency,
-/obj/structure/structural_support,
-/turf/simulated/floor/tiled/white,
-/area/quarantined_outpost/science)
+/obj/effect/floor_decal/corner/grey{
+	dir = 6
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/railing/mapped,
+/turf/simulated/floor/tiled/dark,
+/area/quarantined_outpost/research)
 "snC" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
@@ -21308,6 +21704,8 @@
 	pixel_y = -7;
 	pixel_x = -9
 	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/quarantined_outpost/exterior)
 "soc" = (
@@ -21344,8 +21742,10 @@
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/cafeteria)
 "sqk" = (
-/obj/structure/flora/rock/random,
-/turf/simulated/floor/exoplanet/basalt,
+/obj/effect/floor_decal/industrial/outline_straight/grey{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/ridged,
 /area/quarantined_outpost/research)
 "sqv" = (
 /obj/effect/floor_decal/corner/dark_blue{
@@ -21468,11 +21868,7 @@
 /obj/effect/floor_decal/corner/black{
 	dir = 6
 	},
-/obj/structure/bed/padded,
-/obj/item/bedsheet/yellow,
-/obj/structure/sign/flag/nhp{
-	pixel_x = 32
-	},
+/obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/central_hallway)
 "sxs" = (
@@ -21758,7 +22154,7 @@
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/plating/asteroid/airless,
+/turf/simulated/floor/plating/asteroid/airless,
 /area/quarantined_outpost/exterior)
 "sKs" = (
 /obj/effect/floor_decal/spline/plain/corner/black,
@@ -21829,18 +22225,16 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/quarantined_outpost/security)
 "sOv" = (
-/obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch_door/research{
 	dir = 8
 	},
-/obj/machinery/door/airlock/medical{
-	name = "Cold Storage"
+/obj/machinery/door/firedoor,
+/obj/structure/plasticflaps/airtight,
+/obj/machinery/door/blast/regular{
+	dir = 4;
+	name = "High Security Vault"
 	},
-/obj/structure/plasticflaps,
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 253.15
-	},
+/turf/simulated/floor/tiled/dark/full,
 /area/quarantined_outpost/research)
 "sOF" = (
 /obj/structure/platform{
@@ -21878,7 +22272,8 @@
 /obj/structure/cable/orange{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
+/obj/effect/floor_decal/industrial/warning/dust/corner,
+/turf/simulated/floor/plating/asteroid/airless,
 /area/quarantined_outpost/exterior)
 "sQc" = (
 /obj/random/dirt_75,
@@ -22089,7 +22484,8 @@
 /obj/structure/sign/staff_only{
 	pixel_y = 32
 	},
-/turf/simulated/floor/exoplanet/plating/asteroid/airless,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating/asteroid/airless,
 /area/quarantined_outpost/exterior)
 "sXK" = (
 /obj/structure/lattice/catwalk,
@@ -22130,6 +22526,11 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/quarantined_outpost/cargo_bay)
+"sYI" = (
+/obj/structure/flora/rock/stalagmite/random,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
+/area/quarantined_outpost/exterior)
 "sYL" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
@@ -22219,6 +22620,16 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/light,
 /area/quarantined_outpost/research)
+"tcr" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 9
+	},
+/obj/random/dirt_75,
+/obj/abstract/footprint_spawner{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/quarantined_outpost/east_hallway)
 "tdH" = (
 /obj/structure/platform/dark{
 	dir = 1
@@ -22279,7 +22690,7 @@
 /area/quarantined_outpost/engineering)
 "tgR" = (
 /obj/effect/shuttle_landmark/quarantined_outpost/asteroid/landing_1c,
-/turf/simulated/floor/exoplanet/plating/asteroid/airless,
+/turf/simulated/floor/plating/asteroid/airless,
 /area/quarantined_outpost/exterior)
 "thw" = (
 /obj/structure/lattice,
@@ -22519,7 +22930,7 @@
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/plating/asteroid/airless,
+/turf/simulated/floor/plating/asteroid/airless,
 /area/quarantined_outpost/exterior)
 "toC" = (
 /obj/effect/floor_decal/spline/plain/black{
@@ -22840,11 +23251,8 @@
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/lobby)
 "tBx" = (
-/obj/structure/table/rack/retail_shelf,
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 253.15
-	},
+/obj/structure/flora/rock/stalagmite/random,
+/turf/simulated/floor/exoplanet/basalt,
 /area/quarantined_outpost/research)
 "tCF" = (
 /obj/effect/floor_decal/spline/plain/corner/black,
@@ -23097,6 +23505,9 @@
 /obj/random/dirt_75,
 /obj/outfit/admin/generic,
 /obj/random/loot,
+/obj/structure/sign/flag/old_visegrad{
+	pixel_x = 32
+	},
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/central_hallway)
 "tOI" = (
@@ -23166,6 +23577,10 @@
 /obj/structure/flora/rock/pile/random,
 /turf/simulated/floor/exoplanet/basalt,
 /area/quarantined_outpost/research)
+"tQH" = (
+/obj/structure/flora/rock/stalagmite/random,
+/turf/simulated/floor/exoplanet/basalt,
+/area/quarantined_outpost/engineering)
 "tRf" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
@@ -23245,11 +23660,10 @@
 "tUS" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/random/dirt_75,
 /obj/structure/cable/orange{
 	icon_state = "1-8"
 	},
-/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
+/turf/simulated/floor/plating/asteroid/airless,
 /area/quarantined_outpost/exterior)
 "tVi" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -23281,6 +23695,9 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/outline_segment/yellow{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/quarantined_outpost/entrance_lobby)
 "tVW" = (
@@ -23303,7 +23720,7 @@
 /obj/machinery/light/small/emergency{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/plating/asteroid/airless,
+/turf/simulated/floor/plating/asteroid/airless,
 /area/quarantined_outpost/exterior/powered)
 "tWJ" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -23421,6 +23838,8 @@
 /area/quarantined_outpost/gym)
 "uct" = (
 /obj/effect/landmark/corpse/husk/engineer,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/quarantined_outpost/exterior)
 "ucv" = (
@@ -23704,7 +24123,7 @@
 /obj/item/hullbeacon/red,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/plating/asteroid/airless,
+/turf/simulated/floor/plating/asteroid/airless,
 /area/quarantined_outpost/exterior)
 "unh" = (
 /obj/structure/platform_deco/dark{
@@ -23812,6 +24231,11 @@
 /obj/machinery/door/airlock/hatch,
 /turf/simulated/floor/plating,
 /area/quarantined_outpost/central_hallway)
+"usA" = (
+/obj/random/dirt_75,
+/obj/structure/flora/rock/stalagmite/random,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
+/area/quarantined_outpost/exterior)
 "usH" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
@@ -23831,6 +24255,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/quarantined_outpost/research)
+"utl" = (
+/obj/structure/barricade/wooden/road,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
+/area/quarantined_outpost/exterior)
 "uts" = (
 /obj/random/dirt_75,
 /obj/structure/bed/stool/chair{
@@ -23867,13 +24296,10 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/warning/dust{
-	dir = 1
-	},
 /obj/structure/cable/orange{
 	icon_state = "1-8"
 	},
-/turf/simulated/floor/exoplanet/plating/asteroid/airless,
+/turf/simulated/floor/plating/asteroid/airless,
 /area/quarantined_outpost/exterior)
 "uuS" = (
 /obj/effect/floor_decal/spline/plain/black{
@@ -24106,10 +24532,10 @@
 /turf/simulated/floor/plating,
 /area/quarantined_outpost/engineering)
 "uGw" = (
-/obj/structure/platform_deco{
+/obj/effect/decal/cleanable/floor_damage/rust,
+/obj/structure/platform{
 	dir = 1
 	},
-/obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/ridged,
 /area/quarantined_outpost/science)
 "uHd" = (
@@ -24297,14 +24723,14 @@
 /area/quarantined_outpost/cargo_bay)
 "uRr" = (
 /obj/random/dirt_75,
-/obj/random/dirt_75,
 /obj/structure/cable/orange{
 	icon_state = "4-8"
 	},
 /obj/structure/sign/electricshock{
 	pixel_y = 32
 	},
-/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating/asteroid/airless,
 /area/quarantined_outpost/exterior)
 "uSa" = (
 /obj/effect/floor_decal/spline/plain/black{
@@ -24409,7 +24835,7 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/plating/asteroid/airless,
+/turf/simulated/floor/plating/asteroid/airless,
 /area/quarantined_outpost/exterior)
 "uWA" = (
 /obj/effect/floor_decal/spline/plain/black{
@@ -24449,9 +24875,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/quarantined_outpost/lobby)
 "uZr" = (
-/obj/effect/floor_decal/spline/plain/corner/black{
-	dir = 4
-	},
 /obj/machinery/light/small/floor/emergency,
 /obj/structure/structural_support,
 /turf/simulated/floor/tiled/white,
@@ -24509,7 +24932,7 @@
 /area/quarantined_outpost/engineering)
 "vbz" = (
 /obj/machinery/light/small/emergency,
-/turf/simulated/floor/exoplanet/plating/asteroid/airless,
+/turf/simulated/floor/plating/asteroid/airless,
 /area/quarantined_outpost/exterior/powered)
 "vbN" = (
 /obj/effect/floor_decal/corner/dark_blue{
@@ -24605,7 +25028,7 @@
 "vef" = (
 /obj/effect/floor_decal/industrial/hatch/custodial,
 /obj/machinery/door/firedoor,
-/obj/structure/plasticflaps,
+/obj/structure/plasticflaps/airtight,
 /turf/simulated/floor/tiled/dark/full,
 /area/quarantined_outpost/research)
 "vew" = (
@@ -24964,15 +25387,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/quarantined_outpost/research)
-"vxD" = (
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 10
+"vxw" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 6
 	},
-/obj/structure/railing/mapped,
+/obj/structure/table/reinforced/steel,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/dirt_75,
-/obj/structure/trash_pile,
-/turf/simulated/floor/tiled/white,
-/area/quarantined_outpost/science)
+/obj/item/folder/envelope/quarantined_outpost/research_note,
+/turf/simulated/floor/tiled/dark,
+/area/quarantined_outpost/research)
 "vxP" = (
 /obj/structure/toilet{
 	dir = 4;
@@ -25045,18 +25469,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/gym)
-"vAO" = (
-/obj/structure/bed/stool/chair/office/light{
-	dir = 1
-	},
-/obj/effect/floor_decal/corner/mauve/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/quarantined_outpost/science)
 "vCl" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 1
 	},
 /obj/random/dirt_75,
+/obj/abstract/footprint_spawner{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/east_hallway)
 "vCr" = (
@@ -25069,6 +25489,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/quarantined_outpost/entrance_lobby)
+"vCF" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/warning/dust/corner,
+/turf/simulated/floor/plating/asteroid/airless,
+/area/quarantined_outpost/exterior)
 "vCQ" = (
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 10
@@ -25086,7 +25511,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/effect/shuttle_landmark/quarantined_outpost/asteroid/landing_2c,
-/turf/simulated/floor/exoplanet/plating/asteroid/airless,
+/turf/simulated/floor/plating/asteroid/airless,
 /area/quarantined_outpost/exterior)
 "vEm" = (
 /obj/structure/closet/hazmat/general,
@@ -25363,7 +25788,7 @@
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/plating/asteroid/airless,
+/turf/simulated/floor/plating/asteroid/airless,
 /area/quarantined_outpost/exterior)
 "vOS" = (
 /obj/effect/floor_decal/corner/lime{
@@ -25900,6 +26325,7 @@
 	dir = 5
 	},
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood,
 /turf/simulated/floor/plating,
 /area/quarantined_outpost/east_hallway)
 "wmE" = (
@@ -25987,6 +26413,10 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/quarantined_outpost/cargo_bay)
+"wqN" = (
+/obj/structure/flora/rock/stalagmite/random,
+/turf/simulated/floor/exoplanet/basalt,
+/area/quarantined_outpost/exterior)
 "wqO" = (
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/structure/closet/secure_closet/guncabinet,
@@ -26123,7 +26553,7 @@
 /area/quarantined_outpost/cargo_bay)
 "wyB" = (
 /obj/structure/railing/mapped,
-/obj/structure/flora/rock/pile/random,
+/obj/structure/flora/rock/stalagmite/random,
 /turf/simulated/floor/exoplanet/basalt,
 /area/quarantined_outpost/east_hallway)
 "wyR" = (
@@ -26370,6 +26800,9 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/spline/plain/corner/black,
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/ridged,
 /area/quarantined_outpost/science)
 "wKa" = (
@@ -26383,9 +26816,9 @@
 /obj/effect/floor_decal/corner/black{
 	dir = 6
 	},
-/obj/structure/closet/cabinet,
-/obj/outfit/admin/generic,
-/obj/random/loot,
+/obj/structure/bunk_bed/prison{
+	dir = 9
+	},
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/central_hallway)
 "wKE" = (
@@ -26422,6 +26855,11 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/quarantined_outpost/engineering)
+"wMh" = (
+/obj/random/dirt_75,
+/obj/structure/flora/rock/random,
+/turf/simulated/floor/exoplanet/basalt,
+/area/quarantined_outpost/east_cavern)
 "wMy" = (
 /obj/structure/closet,
 /obj/random/dirt_75,
@@ -26517,7 +26955,9 @@
 /obj/structure/cable/orange{
 	icon_state = "0-8"
 	},
-/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating/asteroid/airless,
 /area/quarantined_outpost/exterior)
 "wQK" = (
 /obj/abstract/footprint_spawner/oil,
@@ -26601,6 +27041,7 @@
 /obj/effect/floor_decal/corner/black{
 	dir = 9
 	},
+/obj/random/junk,
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/central_hallway)
 "wTA" = (
@@ -26872,6 +27313,13 @@
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/quarantined_outpost/entrance_lobby)
+"xir" = (
+/obj/random/dirt_75,
+/obj/structure/barricade/wooden/road{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
+/area/quarantined_outpost/exterior)
 "xjO" = (
 /obj/abstract/footprint_spawner/oil{
 	dir = 4
@@ -27481,6 +27929,17 @@
 	},
 /turf/simulated/floor/plating,
 /area/quarantined_outpost/engineering)
+"xPw" = (
+/obj/structure/platform{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/grey{
+	dir = 9
+	},
+/obj/random/dirt_75,
+/obj/structure/railing/mapped,
+/turf/simulated/floor/tiled/dark,
+/area/quarantined_outpost/research)
 "xPD" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 1
@@ -27526,11 +27985,11 @@
 /obj/effect/floor_decal/corner/black{
 	dir = 6
 	},
-/obj/structure/bed/padded,
-/obj/item/bedsheet/red,
 /obj/structure/sign/flag/sancolette{
 	pixel_x = 32
 	},
+/obj/structure/closet/cabinet,
+/obj/outfit/admin/generic,
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/central_hallway)
 "xRF" = (
@@ -27572,6 +28031,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/quarantined_outpost/entrance_lobby)
+"xTw" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating/asteroid/airless,
+/area/quarantined_outpost/exterior)
 "xUc" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/warning{
@@ -27755,13 +28220,18 @@
 /turf/simulated/floor/tiled,
 /area/quarantined_outpost/cafeteria)
 "yaV" = (
-/obj/effect/floor_decal/industrial/hatch/grey,
-/obj/structure/closet/secure_closet/freezer,
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 253.15
+/obj/effect/floor_decal/corner/black{
+	dir = 6
 	},
-/area/quarantined_outpost/research)
+/obj/structure/closet/cabinet,
+/obj/random/dirt_75,
+/obj/outfit/admin/generic,
+/obj/random/loot,
+/obj/structure/sign/flag/pluto{
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled,
+/area/quarantined_outpost/central_hallway)
 "ybh" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 1
@@ -27811,11 +28281,11 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
 	},
-/obj/machinery/light/small/decayed/quarantined_outpost/group_2{
-	dir = 8
-	},
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/floor_damage/rust,
+/obj/machinery/light/small/decayed{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/quarantined_outpost/research)
 "ydi" = (
@@ -27865,6 +28335,19 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/light,
 /area/quarantined_outpost/research)
+"yfE" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 6
+	},
+/obj/random/dirt_75,
+/obj/structure/closet/cabinet,
+/obj/outfit/admin/generic,
+/obj/random/loot,
+/obj/structure/sign/flag/old_xanu{
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled,
+/area/quarantined_outpost/central_hallway)
 "yfG" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/reagent_containers/food/snacks/meat/bat{
@@ -44530,7 +45013,7 @@ iOH
 iOH
 iOH
 nky
-ish
+dva
 ish
 jrc
 ueu
@@ -44821,8 +45304,8 @@ euh
 euh
 jrc
 jrc
-ish
-ish
+dva
+dva
 iOH
 iOH
 iOH
@@ -45078,7 +45561,7 @@ nqk
 kjH
 jrc
 jrc
-ish
+dva
 iOH
 iOH
 iOH
@@ -45335,7 +45818,7 @@ ltc
 voC
 pbW
 jrc
-ish
+dva
 iOH
 iOH
 iOH
@@ -45595,8 +46078,8 @@ jrc
 pgg
 iOH
 iOH
-ish
-ish
+dva
+dva
 iOH
 iOH
 vfs
@@ -45853,7 +46336,7 @@ pgg
 iOH
 iOH
 iOH
-ish
+dva
 iOH
 iOH
 vfs
@@ -47389,7 +47872,7 @@ irw
 jrc
 qga
 qga
-iWw
+tQH
 cET
 qrQ
 cET
@@ -47920,7 +48403,7 @@ buG
 voR
 voR
 voR
-mfM
+wqN
 mfM
 mfM
 mfM
@@ -48450,7 +48933,7 @@ oMo
 mfM
 mfM
 mfM
-wzP
+wqN
 voR
 voR
 voR
@@ -48653,7 +49136,7 @@ cET
 cET
 cET
 qga
-iWw
+tQH
 qrQ
 qJq
 wvB
@@ -48685,7 +49168,7 @@ qga
 qga
 cET
 cET
-iWw
+tQH
 qga
 buG
 voR
@@ -48912,7 +49395,7 @@ qga
 qga
 qga
 qga
-iWw
+tQH
 cET
 cET
 qga
@@ -48920,7 +49403,7 @@ qga
 iWw
 qrQ
 cET
-cET
+tQH
 qga
 kIq
 fYy
@@ -49434,7 +49917,7 @@ qga
 yjA
 yjA
 qga
-iWw
+tQH
 cET
 vUa
 kXu
@@ -49707,7 +50190,7 @@ vrx
 vrx
 vrx
 cET
-iWw
+tQH
 qga
 qga
 qga
@@ -49959,7 +50442,7 @@ mjm
 bhK
 aEU
 gPr
-iWw
+tQH
 cET
 cET
 vrx
@@ -49967,7 +50450,7 @@ vrx
 vrx
 qga
 qga
-iWw
+tQH
 cET
 cET
 qga
@@ -50238,7 +50721,7 @@ voR
 voR
 voR
 voR
-wzP
+wqN
 mfM
 mfM
 mfM
@@ -51014,7 +51497,7 @@ voR
 voR
 voR
 mfM
-wzP
+wqN
 voR
 mfM
 mfM
@@ -51206,7 +51689,7 @@ iOH
 iOH
 iOH
 iOH
-ish
+dva
 pvf
 cwy
 ldE
@@ -51278,7 +51761,7 @@ mfM
 voR
 voR
 wzP
-wzP
+wqN
 voR
 voR
 mfM
@@ -51472,7 +51955,7 @@ trG
 iOH
 hVF
 mlX
-ish
+dva
 iOH
 iOH
 iOH
@@ -51777,7 +52260,7 @@ otT
 jrc
 voR
 voR
-wzP
+wqN
 voR
 voR
 voR
@@ -51819,7 +52302,7 @@ mTH
 mTH
 mTH
 mTH
-mTH
+uEN
 mTH
 mTH
 mTH
@@ -52069,17 +52552,17 @@ mTH
 mTH
 mTH
 mTH
-qXS
-qXS
+sYI
+lAq
 mTH
 mTH
 qnr
 mTH
 mTH
-mTH
-mTH
-mTH
-mTH
+uEN
+uEN
+uEN
+uEN
 mTH
 mTH
 voR
@@ -52296,7 +52779,7 @@ voR
 voR
 mfM
 mfM
-wzP
+wqN
 voR
 voR
 voR
@@ -52325,19 +52808,19 @@ mTH
 mTH
 mTH
 mTH
-mTH
-qXS
-mTH
-mTH
-mTH
+uEN
+lAq
+uEN
 mTH
 mTH
 mTH
 mTH
 mTH
 mTH
-bmA
+sYI
 mTH
+cCm
+uEN
 mTH
 qXS
 mTH
@@ -52492,7 +52975,7 @@ dUW
 tNO
 nzs
 lTM
-lTM
+gPE
 fKc
 jLa
 inE
@@ -52501,7 +52984,7 @@ lTM
 lTM
 dHX
 dUW
-ish
+mlX
 iOH
 iOH
 iOH
@@ -52562,7 +53045,7 @@ voR
 voR
 voR
 mfM
-wzP
+wqN
 mfM
 voR
 voR
@@ -52582,6 +53065,7 @@ xaQ
 mTH
 mTH
 qXS
+uEN
 mTH
 mTH
 mTH
@@ -52589,9 +53073,8 @@ mTH
 mTH
 mTH
 mTH
-mTH
-mTH
-qXS
+mPg
+mPg
 mTH
 mTH
 mTH
@@ -52743,7 +53226,7 @@ iOH
 iOH
 iOH
 iOH
-ish
+dva
 dUW
 dUW
 mBf
@@ -52839,26 +53322,26 @@ voR
 mTH
 mTH
 mTH
-mTH
-mTH
-mTH
+mPg
+mPg
+mPg
 mTH
 bmA
 mTH
 pXH
-dme
-dme
-dme
-dme
+mTc
+mTc
+mTc
+mTc
 pXH
 mTH
+bsm
 mTH
 mTH
 mTH
-mTH
-mTH
-mTH
-mTH
+uEN
+uEN
+uEN
 mTH
 mTH
 voR
@@ -53005,7 +53488,7 @@ dUW
 xPZ
 lTM
 lTM
-bhg
+gmy
 vhy
 hrb
 hrb
@@ -53093,30 +53576,30 @@ voR
 voR
 voR
 voR
-cRs
-cRs
-cRs
-dme
-ngk
-dme
-dme
-dme
-dme
-ngk
-cRs
-dme
-dme
-cRs
-ngk
-dme
-cRs
-gxx
+fXa
+fXa
+fXa
+mTc
+dkv
+mTc
+mTc
+mTc
+mTc
+dkv
+fXa
+mTc
+mTc
+fXa
+dkv
+mTc
+fXa
+roE
 mTH
 mTH
-mTH
-mTH
-qXS
-mTH
+uEN
+uEN
+sYI
+uEN
 mTH
 mTH
 mTH
@@ -53269,7 +53752,7 @@ mop
 sFg
 sOF
 qiQ
-snB
+uZr
 lTM
 rcY
 npa
@@ -53349,25 +53832,25 @@ voR
 voR
 voR
 voR
-dme
-dme
-dme
-dme
-dme
-dme
-dme
-dme
-cRs
-sgS
-ngk
-dme
-dme
-cRs
-dme
-cRs
-cRs
-dme
-gxx
+mTc
+mTc
+mTc
+mTc
+mTc
+mTc
+mTc
+mTc
+fXa
+xTw
+dkv
+mTc
+mTc
+fXa
+mTc
+fXa
+fXa
+mTc
+roE
 mTH
 mTH
 mTH
@@ -53520,9 +54003,9 @@ biP
 lTM
 lbw
 dcT
-cbA
+dwn
 oUu
-oUu
+igP
 oUu
 uGw
 hHg
@@ -53605,7 +54088,7 @@ voR
 mTH
 mTH
 voR
-ngk
+dkv
 pXH
 mTH
 eYI
@@ -53617,10 +54100,10 @@ mTH
 eYI
 mTH
 pCQ
-dme
+mTc
 ezZ
-dme
-dme
+mTc
+mTc
 nsA
 mTH
 eYI
@@ -53777,9 +54260,9 @@ rPe
 gPE
 wnx
 dwn
-sFg
 pXE
-mop
+pXE
+ism
 oUu
 hTi
 pbI
@@ -53787,7 +54270,7 @@ jWB
 dqg
 wks
 dUW
-lIw
+dMI
 iOH
 iOH
 iOH
@@ -53861,8 +54344,8 @@ voR
 mTH
 mTH
 mTH
-cRs
-ngk
+fXa
+dkv
 mTH
 mTH
 mTH
@@ -53893,9 +54376,9 @@ mTH
 bmA
 mTH
 mTH
-mTH
-mTH
-mTH
+uEN
+uEN
+uEN
 mTH
 sGO
 sGO
@@ -54108,7 +54591,7 @@ voR
 voR
 voR
 voR
-mTH
+uEN
 voR
 voR
 voR
@@ -54118,8 +54601,8 @@ voR
 mTH
 qXS
 mTH
-cRs
-dme
+fXa
+mTc
 qCz
 mTH
 mTH
@@ -54149,11 +54632,11 @@ mTH
 mTH
 mTH
 qCz
-mTH
-mTH
-mTH
-mTH
-mTH
+bsm
+cXz
+cXz
+uEN
+uEN
 mTH
 sGO
 sGO
@@ -54364,19 +54847,19 @@ voR
 voR
 voR
 voR
-mTH
-mTH
-mTH
+bsm
+uEN
+uEN
 voR
 voR
 voR
 voR
 mTH
+uEN
 mTH
 mTH
-mTH
-dme
-dme
+mTc
+mTc
 mTH
 mTH
 mTH
@@ -54404,12 +54887,12 @@ mTH
 mTH
 mTH
 mTH
-qXS
-mTH
-hyN
-hyN
 mTH
 mTH
+mPg
+mPg
+cXz
+uEN
 mTH
 mTH
 mTH
@@ -54542,7 +55025,7 @@ iOH
 iOH
 iOH
 iOH
-pqE
+mlX
 dUW
 xCk
 kkl
@@ -54622,18 +55105,18 @@ mSJ
 mSJ
 mSJ
 mSJ
-mTH
+cCm
 mTH
 voR
 voR
 voR
 mTH
+uEN
+usA
+uEN
 mTH
-mTH
-mTH
-mTH
-dme
-dme
+mTc
+mTc
 mTH
 mTH
 mTH
@@ -54663,8 +55146,8 @@ mTH
 mTH
 mTH
 mTH
-dme
-dme
+mTc
+mTc
 mTH
 mTH
 mTH
@@ -54805,7 +55288,7 @@ xPZ
 kkl
 fee
 qKD
-mNj
+ohQ
 bkl
 bUL
 hDO
@@ -54880,17 +55363,17 @@ dNx
 jLe
 mSJ
 mTH
+bsm
+pVO
 mTH
 mTH
 mTH
+usA
+usA
 mTH
 mTH
-mTH
-mTH
-mTH
-mTH
-dme
-dme
+mTc
+mTc
 qCz
 mTH
 mTH
@@ -54917,14 +55400,14 @@ mTH
 mTH
 mTH
 mTH
-bmA
+mTH
 mTH
 qCz
-dme
-dme
+mTc
+mTc
 mTH
 mTH
-mTH
+bsm
 mTH
 mTH
 sGO
@@ -55138,16 +55621,16 @@ ngA
 mSJ
 mTH
 mTH
+pVO
 mTH
 mTH
-mTH
-mTH
-mTH
-mTH
+bsm
+qnr
+bsm
 mTH
 gZu
 tWy
-dme
+mTc
 mTH
 mTH
 mTH
@@ -55177,7 +55660,7 @@ mTH
 mTH
 mTH
 mTH
-dme
+mTc
 vbz
 gZu
 mTH
@@ -55316,14 +55799,14 @@ iOH
 vUH
 dUW
 krO
-vAO
+fKc
 ouA
 bEL
-sFg
-oUu
-mop
 pXE
-sFg
+oUu
+ism
+pXE
+pXE
 sOF
 sJZ
 dqg
@@ -55399,12 +55882,12 @@ mBX
 uEN
 mTH
 mTH
-mTH
+bsm
 mTH
 mTH
 pAh
-cRs
-dme
+fXa
+mTc
 mTH
 mTH
 mTH
@@ -55434,8 +55917,8 @@ mTH
 mTH
 mTH
 mTH
-dme
-dme
+mTc
+mTc
 gxx
 mTH
 mTH
@@ -55575,12 +56058,12 @@ npa
 gkG
 lTM
 ouA
-jDm
-qKD
+eui
+dwn
 oUu
+eBe
 oUu
-oUu
-rLU
+uGw
 oXR
 jmB
 vol
@@ -55655,13 +56138,13 @@ mSJ
 voR
 hfy
 uEN
-qXS
+mTH
 mTH
 bmA
 mTH
 fRd
-dme
-dme
+mTc
+mTc
 rdZ
 mTH
 mTH
@@ -55691,8 +56174,8 @@ mTH
 mTH
 mTH
 rdZ
-dme
-dme
+mTc
+mTc
 gxx
 mTH
 mTH
@@ -55831,8 +56314,8 @@ hVF
 qkM
 xPZ
 lTM
-eui
-vxD
+qsh
+hBl
 hUM
 bNs
 mop
@@ -55917,9 +56400,9 @@ mTH
 mTH
 fRd
 pXH
-dme
-dme
-dme
+mTc
+mTc
+mTc
 mTH
 mTH
 uEN
@@ -55947,11 +56430,11 @@ mTH
 mTH
 mTH
 mTH
-dme
-dme
-dme
+mTc
+mTc
+mTc
 mTH
-mTH
+bsm
 mTH
 mTH
 mTH
@@ -56084,7 +56567,7 @@ iOH
 iOH
 iOH
 iOH
-ish
+mlX
 dUW
 dRX
 knf
@@ -56167,16 +56650,16 @@ lHl
 wLM
 vCr
 sXI
-ngk
-cRs
-cRs
-dme
-dme
-dme
-dme
-dme
-dme
-cRs
+dkv
+fXa
+fXa
+mTc
+mTc
+mTc
+mTc
+mTc
+mTc
+fXa
 mTH
 mTH
 uEN
@@ -56205,11 +56688,11 @@ mTH
 mTH
 mTH
 eXg
-dme
-dme
+mTc
+mTc
 mTH
-mTH
-mTH
+uEN
+uEN
 mTH
 sGO
 sGO
@@ -56424,15 +56907,15 @@ nDL
 bfx
 kJg
 gkx
-cRs
-dme
-dme
-dme
-dme
-cRs
-cRs
-dme
-dme
+fXa
+mTc
+mTc
+mTc
+mTc
+fXa
+fXa
+mTc
+mTc
 cRl
 mTH
 mTH
@@ -56461,11 +56944,11 @@ uEN
 mTH
 mTH
 mTH
-dme
-dme
-dme
+mTc
+mTc
+mTc
 mTH
-mTH
+uEN
 mTH
 mTH
 sGO
@@ -56688,9 +57171,9 @@ mTH
 mTH
 gty
 sfX
-cRs
-dme
-dme
+fXa
+mTc
+mTc
 mTH
 mTH
 mTH
@@ -56718,11 +57201,11 @@ mTH
 mTH
 mTH
 mTH
-dme
-dme
-dme
+mTc
+mTc
+mTc
 mTH
-mTH
+uEN
 mTH
 sGO
 sGO
@@ -56939,14 +57422,14 @@ mSJ
 uyB
 uRr
 cXz
-uEN
+mTH
 mTH
 mTH
 bmA
 mTH
 tCI
-dme
-cRs
+mTc
+fXa
 rdZ
 mTH
 mTH
@@ -56976,8 +57459,8 @@ mTH
 mTH
 mTH
 rdZ
-dme
-dme
+mTc
+mTc
 gxx
 mTH
 mTH
@@ -57195,15 +57678,15 @@ mSJ
 mSJ
 jxT
 tUS
-mTH
+uEN
 voR
 voR
-qXS
+bsm
 mTH
 mTH
 pAh
-dme
-ngk
+mTc
+dkv
 mTH
 mTH
 uEN
@@ -57233,8 +57716,8 @@ mTH
 mTH
 mTH
 mTH
-dme
-dme
+mTc
+mTc
 gxx
 mTH
 mTH
@@ -57451,7 +57934,7 @@ voR
 voR
 voR
 jMM
-uEN
+fXa
 voR
 voR
 voR
@@ -57460,7 +57943,7 @@ mTH
 mTH
 gZu
 tWy
-dme
+mTc
 mTH
 mTH
 mTH
@@ -57490,7 +57973,7 @@ mTH
 mTH
 mTH
 mTH
-dme
+mTc
 vbz
 gZu
 mTH
@@ -57631,13 +58114,13 @@ iOH
 mlX
 mlX
 hVF
-ish
+dva
 wje
 jgl
 rjs
 dUV
 wje
-ish
+dva
 hVF
 mlX
 iOH
@@ -57716,8 +58199,8 @@ voR
 voR
 mTH
 mTH
-dme
-dme
+mTc
+mTc
 qCz
 mTH
 mTH
@@ -57747,8 +58230,8 @@ mTH
 mTH
 mTH
 qCz
-dme
-dme
+mTc
+mTc
 mTH
 mTH
 mTH
@@ -57966,15 +58449,15 @@ joW
 mbX
 mye
 rRL
-xaQ
+peM
 voR
 voR
 voR
 mTH
 bmA
 mTH
-cRs
-dme
+fXa
+mTc
 mTH
 mTH
 mTH
@@ -58004,8 +58487,8 @@ mTH
 mTH
 mTH
 mTH
-dme
-dme
+mTc
+mTc
 mTH
 mTH
 mTH
@@ -58218,20 +58701,20 @@ wcb
 kSH
 kSH
 maP
-vwc
+nop
 wQp
-uEN
+vCF
 rvB
+uEN
 cXz
-mTH
-qnr
+eXc
 uct
-mTH
+uEN
 mTH
 xQX
 gZu
 tWy
-dme
+mTc
 mTH
 mTH
 mTH
@@ -58260,8 +58743,8 @@ mTH
 mTH
 mTH
 mTH
-mTH
-dme
+uEN
+mTc
 vbz
 gZu
 mTH
@@ -58476,19 +58959,19 @@ nkm
 kSH
 eoZ
 aKK
-mTH
-cXz
-hfy
+bbF
+bPY
+usA
 mTH
 mTH
 snQ
-mTH
+uEN
 mTH
 mTH
 mTH
 voR
-dme
-dme
+mTc
+mTc
 qCz
 mTH
 mTH
@@ -58516,13 +58999,13 @@ mTH
 mTH
 mTH
 mTH
-mTH
-qCz
-dme
-dme
+uEN
+iuw
+mTc
+mTc
 gxx
 mTH
-qXS
+bsm
 voR
 voR
 mTH
@@ -58720,7 +59203,7 @@ emz
 qDU
 eCe
 cfq
-udx
+ati
 sAW
 oNj
 cEi
@@ -58732,8 +59215,8 @@ oiH
 lCU
 xBf
 uuI
-uEN
-uEN
+fXa
+xir
 cXz
 mTH
 mTH
@@ -58744,8 +59227,8 @@ mTH
 mTH
 voR
 voR
-dme
-dme
+mTc
+mTc
 mTH
 mTH
 mTH
@@ -58773,10 +59256,10 @@ mTH
 mTH
 bmA
 mTH
-mTH
-mTH
-dme
-dme
+uEN
+cXz
+mTc
+mTc
 qDV
 mTH
 voR
@@ -58989,8 +59472,8 @@ qXN
 tVV
 rfu
 rye
-hfy
-cXz
+xTw
+dCi
 cXz
 uEN
 hyN
@@ -59001,8 +59484,8 @@ mTH
 mTH
 rRd
 sfX
-dme
-dme
+mTc
+mTc
 pXH
 mTH
 qtR
@@ -59014,10 +59497,10 @@ mTH
 eYI
 mTH
 gAT
-cRs
-cRs
+fXa
+fXa
 tgR
-dme
+mTc
 jfJ
 mTH
 eYI
@@ -59029,11 +59512,11 @@ mTH
 eYI
 mTH
 mTH
-eYI
-mTH
+dPH
+uEN
 pXH
-dme
-dme
+mTc
+mTc
 pXH
 gxx
 voR
@@ -59246,58 +59729,58 @@ mGz
 eio
 kSH
 uWa
-ngk
-ngk
-sgS
-cRs
-cRs
-dme
-dme
-dme
-cRs
-cRs
-cRs
-dme
-dme
-dme
-dme
-dme
-dme
-dme
-cRs
-ngk
-dme
-dme
-dme
-cRs
-cRs
-ngk
-dme
-dme
-dme
-dme
-cRs
-dme
-ngk
-cRs
-dme
-dme
-dme
-dme
-cRs
-dme
-dme
-dme
-dme
-dme
-dme
-dme
+dkv
+dkv
+xTw
+fXa
+fXa
+mTc
+mTc
+mTc
+fXa
+fXa
+fXa
+mTc
+mTc
+mTc
+mTc
+mTc
+mTc
+mTc
+fXa
+dkv
+mTc
+mTc
+mTc
+fXa
+fXa
+dkv
+mTc
+mTc
+mTc
+mTc
+fXa
+mTc
+dkv
+fXa
+mTc
+mTc
+mTc
+mTc
+fXa
+mTc
+mTc
+mTc
+mTc
+mTc
+mTc
+mTc
 gxx
 voR
 voR
 voR
 voR
-mTH
+bsm
 sGO
 sGO
 sGO
@@ -59504,51 +59987,51 @@ cqL
 cqL
 cqL
 jhW
-ngk
-cRs
-cRs
-dme
-cRs
-cRs
-cRs
-dme
-dme
-dme
-dme
-dme
-dme
-ngk
-cRs
-dme
-dme
-dme
-cRs
-cRs
-cRs
-dme
-dme
-dme
-dme
-dme
-dme
-dme
-ngk
-ngk
-cRs
-dme
-dme
-dme
-dme
-dme
-cRs
-ngk
-dme
-dme
-dme
-dme
-dme
-dme
-dme
+dkv
+fXa
+fXa
+mTc
+fXa
+fXa
+fXa
+mTc
+mTc
+mTc
+mTc
+mTc
+mTc
+dkv
+fXa
+mTc
+mTc
+mTc
+fXa
+fXa
+fXa
+mTc
+mTc
+mTc
+mTc
+mTc
+mTc
+mTc
+dkv
+dkv
+fXa
+mTc
+mTc
+mTc
+mTc
+mTc
+fXa
+dkv
+mTc
+mTc
+mTc
+mTc
+mTc
+mTc
+mTc
 gxx
 voR
 voR
@@ -59700,7 +60183,7 @@ ymg
 kaG
 wtq
 kaG
-kaG
+aSj
 ymg
 ymg
 ymg
@@ -59760,8 +60243,8 @@ pPg
 pPg
 boo
 pov
-dme
-bmA
+mTc
+bsm
 mTH
 mTH
 kZa
@@ -59772,11 +60255,11 @@ mTH
 mTH
 gty
 pXH
-dme
-cRs
+mTc
+fXa
 sfX
-mTH
-eYI
+uEN
+dPH
 mTH
 mTH
 eYI
@@ -59785,10 +60268,10 @@ mTH
 eYI
 mTH
 pCQ
-cRs
+fXa
 kob
-dme
-dme
+mTc
+mTc
 nsA
 mTH
 eYI
@@ -59803,8 +60286,8 @@ mTH
 eYI
 mTH
 pXH
-dme
-dme
+mTc
+mTc
 pXH
 gxx
 qXS
@@ -60029,8 +60512,10 @@ mTH
 mTH
 mTH
 tCI
-dme
-dme
+mTc
+mTc
+uEN
+cXz
 mTH
 mTH
 mTH
@@ -60058,12 +60543,10 @@ mTH
 mTH
 mTH
 mTH
-mTH
-mTH
-dme
-dme
+mTc
+mTc
 vwc
-mTH
+uEN
 mTH
 voR
 voR
@@ -60208,7 +60691,7 @@ czy
 lXI
 wje
 qzO
-nwg
+mjR
 bQm
 qvF
 qVC
@@ -60286,9 +60769,9 @@ mTH
 mTH
 mTH
 pAh
-dme
-dme
-qCz
+mTc
+mTc
+iuw
 mTH
 mTH
 mTH
@@ -60317,12 +60800,12 @@ mTH
 mTH
 mTH
 qCz
-dme
-dme
-gxx
-mTH
-mTH
-mTH
+mTc
+mTc
+fbz
+cXz
+uEN
+uEN
 voR
 voR
 qXS
@@ -60544,8 +61027,8 @@ mTH
 mTH
 gZu
 tWy
-dme
-mTH
+mTc
+uEN
 mTH
 mTH
 mTH
@@ -60574,11 +61057,11 @@ mTH
 mTH
 mTH
 mTH
-dme
+mTc
 vbz
 gZu
-mTH
-mTH
+uEN
+uEN
 mTH
 mTH
 qnr
@@ -60800,8 +61283,8 @@ mTH
 mTH
 mTH
 mTH
-ngk
-dme
+dkv
+mTc
 mTH
 mTH
 mTH
@@ -60831,11 +61314,11 @@ mTH
 mTH
 mTH
 mTH
-dme
-dme
-mTH
-bmA
-mTH
+mTc
+mTc
+cXz
+cCm
+uEN
 mTH
 mTH
 mTH
@@ -60973,7 +61456,7 @@ lKv
 fQe
 dWo
 vli
-cSp
+eLM
 xaB
 ymg
 ymg
@@ -61057,8 +61540,8 @@ mTH
 mTH
 mTH
 mTH
-dme
-cRs
+mTc
+fXa
 qCz
 mTH
 mTH
@@ -61088,10 +61571,10 @@ mTH
 mTH
 bmA
 qCz
-dme
-dme
-mTH
-mTH
+mTc
+mTc
+uEN
+uEN
 mTH
 mTH
 mTH
@@ -61315,7 +61798,7 @@ mTH
 mTH
 gZu
 foH
-dme
+mTc
 mTH
 mTH
 mTH
@@ -61345,11 +61828,11 @@ mTH
 mTH
 mTH
 mTH
-dme
+mTc
 vbz
 gZu
 mTH
-mTH
+bsm
 mTH
 mTH
 sGO
@@ -61478,7 +61961,7 @@ ebk
 kmX
 ygZ
 lEY
-aeW
+nQb
 qhy
 gUN
 dMB
@@ -61501,7 +61984,7 @@ pBD
 ymg
 ymg
 ymg
-qVC
+fTc
 qVC
 qVC
 qVC
@@ -61571,8 +62054,8 @@ mTH
 mTH
 mTH
 pAh
-dme
-dme
+mTc
+mTc
 mTH
 mTH
 mTH
@@ -61602,8 +62085,8 @@ mTH
 mTH
 mTH
 mTH
-dme
-dme
+mTc
+mTc
 gxx
 mTH
 mTH
@@ -61757,8 +62240,8 @@ ofv
 tKy
 ymg
 ymg
-qVC
-qVC
+gnG
+riC
 rci
 xgH
 wrw
@@ -61781,7 +62264,7 @@ pjT
 dbM
 jzF
 sxf
-tOA
+yaV
 oXi
 nfa
 tMh
@@ -61828,8 +62311,8 @@ mTH
 mTH
 mTH
 fRd
-cRs
-dme
+fXa
+mTc
 rdZ
 mTH
 mTH
@@ -61859,8 +62342,8 @@ mTH
 mTH
 mTH
 rdZ
-dme
-dme
+mTc
+mTc
 gxx
 mTH
 mTH
@@ -62014,7 +62497,7 @@ sKB
 pBD
 ymg
 tKy
-qVC
+fTc
 dlI
 tKy
 tKy
@@ -62073,10 +62556,10 @@ kXb
 pPg
 boo
 vOQ
-dme
+mTc
 mTH
 mTH
-mTH
+bsm
 hyN
 hyN
 hyN
@@ -62085,9 +62568,9 @@ mTH
 bmA
 fRd
 unf
-ngk
-dme
-dme
+dkv
+mTc
+mTc
 mTH
 mTH
 mTH
@@ -62115,9 +62598,9 @@ mTH
 mTH
 mTH
 mTH
-dme
-dme
-dme
+mTc
+mTc
+mTc
 mTH
 mTH
 mTH
@@ -62271,7 +62754,7 @@ qVC
 tKy
 tKy
 tKy
-fjz
+pXn
 tKy
 tKy
 whm
@@ -62331,20 +62814,20 @@ cqL
 cqL
 cqL
 jkP
-dme
-cRs
-dme
-dme
-dme
-dme
-dme
-dme
-dme
-dme
-cRs
-dme
-dme
-dme
+mTc
+fXa
+mTc
+mTc
+mTc
+mTc
+mTc
+mTc
+mTc
+mTc
+fXa
+mTc
+mTc
+mTc
 mTH
 mTH
 mTH
@@ -62373,8 +62856,8 @@ mTH
 mTH
 mTH
 ozl
-dme
-dme
+mTc
+mTc
 mTH
 mTH
 mTH
@@ -62539,7 +63022,7 @@ uLV
 dbM
 ntp
 hlp
-nqW
+jEv
 xHa
 pXN
 mJq
@@ -62587,20 +63070,20 @@ qeB
 nJS
 cqL
 mah
-dme
-dme
-dme
-dme
-cRs
-cRs
-cRs
-dme
-dme
-dme
-dme
-dme
-dme
-dme
+mTc
+mTc
+mTc
+mTc
+fXa
+fXa
+fXa
+mTc
+mTc
+mTc
+mTc
+mTc
+mTc
+mTc
 dUA
 mTH
 mTH
@@ -62629,9 +63112,9 @@ mTH
 mTH
 mTH
 mTH
-dme
-dme
-dme
+mTc
+mTc
+mTc
 mTH
 mTH
 mTH
@@ -62785,7 +63268,7 @@ aWY
 tKy
 iTM
 cMG
-ogB
+ifA
 xbI
 xbI
 dDH
@@ -62797,7 +63280,7 @@ dbM
 lFa
 wKu
 rUI
-tOA
+yfE
 dbM
 tcg
 sIw
@@ -62843,8 +63326,8 @@ sHP
 nJS
 cBp
 cqL
-dme
-mTH
+mTc
+bsm
 mTH
 mTH
 mTH
@@ -62856,9 +63339,9 @@ mTH
 mTH
 gty
 pXH
-dme
-dme
-cRs
+mTc
+mTc
+fXa
 mTH
 mTH
 uEN
@@ -62886,9 +63369,9 @@ mTH
 mTH
 mTH
 mTH
-dme
-dme
-dme
+mTc
+mTc
+mTc
 mTH
 mTH
 mTH
@@ -63106,15 +63589,15 @@ mTH
 mTH
 mTH
 mTH
-mTH
-mTH
-mTH
+uEN
+uEN
+uEN
 mTH
 mTH
 mTH
 gty
-dme
-ngk
+mTc
+dkv
 eSN
 mTH
 mTH
@@ -63144,8 +63627,8 @@ mTH
 mTH
 mTH
 rdZ
-dme
-dme
+mTc
+mTc
 gxx
 mTH
 mTH
@@ -63319,7 +63802,7 @@ vLs
 dbM
 tOA
 xRu
-jzF
+koT
 fcc
 dbM
 nfa
@@ -63362,16 +63845,16 @@ mTH
 mTH
 bmA
 mTH
-mTH
-mTH
-mTH
+uEN
+uEN
+cXz
 voR
 mTH
 mTH
 mTH
 pAh
-dme
-cRs
+mTc
+fXa
 mTH
 mTH
 mTH
@@ -63401,12 +63884,12 @@ mTH
 mTH
 mTH
 qXS
-dme
-dme
+mTc
+mTc
 gxx
 mTH
 mTH
-mTH
+uEN
 mTH
 mTH
 mTH
@@ -63556,19 +64039,19 @@ pGY
 tKy
 mcN
 wZh
-lYi
-lYi
-giw
+mLD
+tcr
+fIl
 mOb
-wZh
-giw
-giw
+nrs
+fIl
+fIl
 lYi
-giw
+fIl
 vCl
 iLA
-vnC
-rEI
+cHp
+iKX
 osA
 bMY
 gqn
@@ -63619,8 +64102,8 @@ mTH
 mTH
 mTH
 mTH
-mTH
-qXS
+uEN
+lAq
 voR
 voR
 voR
@@ -63628,7 +64111,7 @@ mTH
 mTH
 gZu
 qNr
-dme
+mTc
 mTH
 mTH
 mTH
@@ -63658,13 +64141,13 @@ mTH
 mTH
 mTH
 mTH
-dme
+mTc
 vbz
 gZu
 mTH
-mTH
-mTH
-mTH
+uEN
+uEN
+uEN
 qXS
 mTH
 sGO
@@ -63884,8 +64367,8 @@ voR
 voR
 mTH
 mTH
-dme
-dme
+mTc
+mTc
 qCz
 mTH
 mTH
@@ -63915,13 +64398,13 @@ mTH
 mTH
 mTH
 qCz
-dme
-dme
+mTc
+mTc
 mTH
-mTH
-mTH
-mTH
-mTH
+uEN
+uEN
+cXz
+sYI
 mTH
 mTH
 mTH
@@ -64133,7 +64616,7 @@ mTH
 mTH
 mTH
 mTH
-mTH
+bsm
 voR
 voR
 voR
@@ -64141,8 +64624,8 @@ voR
 voR
 mTH
 mTH
-cRs
-dme
+fXa
+mTc
 mTH
 mTH
 mTH
@@ -64172,12 +64655,12 @@ mTH
 mTH
 mTH
 mTH
-dme
-dme
+mTc
+mTc
 mTH
-mTH
-mTH
-mTH
+uEN
+cXz
+uEN
 mTH
 mTH
 mTH
@@ -64391,7 +64874,7 @@ mTH
 mTH
 mTH
 mTH
-xaQ
+peM
 voR
 voR
 voR
@@ -64399,7 +64882,7 @@ mTH
 mTH
 gZu
 jTb
-dme
+mTc
 mTH
 mTH
 mTH
@@ -64429,11 +64912,11 @@ mTH
 mTH
 mTH
 mTH
-kZa
-kZa
+fQm
+fQm
 mTH
-mTH
-mTH
+uEN
+uEN
 mTH
 qXS
 mTH
@@ -64648,15 +65131,15 @@ mTH
 mTH
 mTH
 mTH
-mTH
-mTH
-mTH
-mTH
-bmA
+uEN
+uEN
+utl
+cXz
+cCm
 mTH
 pAh
-dme
-dme
+mTc
+mTc
 qCz
 mTH
 mTH
@@ -64690,7 +65173,7 @@ bmA
 mTH
 mTH
 mTH
-mTH
+uEN
 mTH
 mTH
 mTH
@@ -64902,18 +65385,18 @@ cqL
 voR
 mTH
 mTH
-qXS
+bsm
 mTH
-mTH
-mTH
-mTH
-mTH
-mTH
+uEN
+sYI
+cXz
+utl
+uEN
 mTH
 mTH
 fRd
-dme
-dme
+mTc
+mTc
 mTH
 mTH
 mTH
@@ -65157,20 +65640,20 @@ oMg
 kHu
 cqL
 voR
-mTH
+bsm
 voR
 voR
 qXS
-qXS
 mTH
-mTH
+uEN
+uEN
 voR
-qXS
+bsm
 mTH
 pAh
 pXH
-dme
-ngk
+mTc
+dkv
 pXH
 mTH
 eYI
@@ -65182,10 +65665,10 @@ mTH
 eYI
 mTH
 gAT
-dme
-dme
+mTc
+mTc
 vDM
-cRs
+fXa
 jfJ
 mTH
 eYI
@@ -65313,13 +65796,13 @@ sGO
 voR
 voR
 buG
-ydi
-ydi
-ydi
-ydi
-ydi
-ydi
-ydi
+oRp
+iwi
+iwi
+iwi
+iwi
+iwi
+iwi
 xKv
 toN
 xdN
@@ -65425,23 +65908,23 @@ voR
 voR
 mTH
 pAh
-dme
-dme
-dme
-dme
-dme
-dme
-dme
-dme
-cRs
-ngk
-cRs
-ngk
-dme
-dme
-dme
-dme
-cRs
+mTc
+mTc
+mTc
+mTc
+mTc
+mTc
+mTc
+mTc
+fXa
+dkv
+fXa
+dkv
+mTc
+mTc
+mTc
+mTc
+fXa
 voR
 voR
 voR
@@ -65570,13 +66053,13 @@ sGO
 voR
 voR
 buG
-ydi
-ydi
-eLM
-eLM
-eLM
-yaV
-ydi
+oRp
+iwi
+lPK
+vxw
+rpR
+snq
+iwi
 pLb
 lCq
 hGX
@@ -65675,23 +66158,23 @@ voR
 voR
 voR
 voR
-mTH
+bsm
 mTH
 voR
 voR
 voR
 mTH
 pAh
-cRs
-dme
-dme
-dme
-dme
-dme
-cRs
-cRs
-ngk
-sgS
+fXa
+mTc
+mTc
+mTc
+mTc
+mTc
+fXa
+fXa
+dkv
+xTw
 voR
 voR
 voR
@@ -65827,13 +66310,13 @@ voR
 voR
 voR
 buG
-ydi
-tBx
-eLM
-tBx
-eLM
+oRp
+iwi
+bkw
+gmc
+qdf
 rpF
-ydi
+iwi
 cny
 lvv
 vkN
@@ -65940,10 +66423,10 @@ mTH
 mTH
 pAh
 unf
-cRs
-dme
+fXa
+mTc
 pXH
-mTH
+bsm
 mTH
 mTH
 mTH
@@ -66084,12 +66567,12 @@ voR
 voR
 voR
 buG
-ydi
-tBx
-eLM
-eLM
-eLM
-eLM
+oRp
+iwi
+gJJ
+oSj
+oSj
+gVo
 sOv
 pGO
 gIB
@@ -66197,8 +66680,8 @@ qXS
 mTH
 mTH
 mTH
-mTH
-mTH
+fQm
+fQm
 mTH
 mTH
 mTH
@@ -66341,13 +66824,13 @@ voR
 voR
 voR
 buG
-ydi
-tBx
-eLM
-tBx
-eLM
+oRp
+iwi
+rBt
+sqk
+oeN
 oNu
-ydi
+iwi
 lSz
 jaT
 mPr
@@ -66457,9 +66940,9 @@ voR
 mTH
 mTH
 mTH
-mTH
-mTH
-mTH
+uEN
+sYI
+uEN
 mTH
 mTH
 voR
@@ -66598,13 +67081,13 @@ voR
 buG
 buG
 buG
-ydi
-ydi
-eLM
-eLM
-eLM
-yaV
-ydi
+oRp
+iwi
+kvo
+qMD
+qMD
+xPw
+iwi
 ksC
 kjl
 tuu
@@ -66712,11 +67195,11 @@ mTH
 voR
 voR
 qXS
-qXS
-mTH
-mTH
-mTH
-bmA
+sYI
+uEN
+uEN
+cXz
+cCm
 mTH
 xaQ
 voR
@@ -66855,13 +67338,13 @@ buG
 buG
 oRp
 oRp
-ydi
-ydi
-ydi
-ydi
-ydi
-ydi
-ydi
+oRp
+iwi
+iwi
+iwi
+iwi
+iwi
+iwi
 rqC
 gbV
 ecM
@@ -66971,7 +67454,7 @@ voR
 voR
 qXS
 qXS
-mTH
+uEN
 mTH
 mTH
 voR
@@ -67369,7 +67852,7 @@ oRp
 oRp
 oRp
 oRp
-pEi
+jxj
 kcg
 ydi
 ydi
@@ -67625,7 +68108,7 @@ ydi
 ydi
 ydi
 ydi
-tQr
+tBx
 pEi
 rGC
 eyR
@@ -69168,7 +69651,7 @@ oRp
 oRp
 oRp
 oRp
-pEi
+tBx
 pEi
 wzi
 oRp
@@ -70748,8 +71231,8 @@ cOg
 ydi
 oXH
 oXH
-nrs
-nrs
+fbb
+fbb
 oXH
 oXH
 rgv
@@ -71234,7 +71717,7 @@ gXF
 gWD
 ezY
 pJk
-sqk
+pEi
 tQr
 gWD
 gWD
@@ -71242,7 +71725,7 @@ gWD
 bUT
 oeS
 bZD
-xyK
+fNG
 oXH
 buG
 oRp
@@ -71263,7 +71746,7 @@ ydi
 oXH
 oXH
 oXH
-cBX
+ppk
 dRt
 oXH
 rgv
@@ -71778,8 +72261,8 @@ oXH
 oXH
 dRt
 dRt
-dRt
-xyK
+pNJ
+ppk
 oXH
 buG
 buG
@@ -72033,10 +72516,10 @@ buG
 buG
 oXH
 oXH
+pNJ
 dRt
 dRt
-dRt
-xyK
+ppk
 oXH
 buG
 voR
@@ -72293,7 +72776,7 @@ xyK
 dRt
 dRt
 xyK
-cBX
+xyK
 oXH
 buG
 voR
@@ -72547,7 +73030,7 @@ oXH
 oXH
 xyK
 dRt
-cBX
+xyK
 xyK
 xyK
 oXH
@@ -72795,16 +73278,16 @@ oXH
 dFo
 oXH
 oXH
-cBX
+ppk
 wgD
 oXH
 oXH
 oXH
-cBX
+ppk
 xyK
 xyK
-dRt
-cBX
+wMh
+ppk
 xyK
 aWF
 oXH
@@ -73041,7 +73524,7 @@ voR
 buG
 oXH
 oXH
-xyK
+fbb
 dRt
 ehy
 xyK
@@ -73060,7 +73543,7 @@ xyK
 dRt
 dRt
 dRt
-cBX
+ppk
 xyK
 jVI
 oXH
@@ -73311,7 +73794,7 @@ xyK
 dRt
 ehy
 dRt
-dRt
+pNJ
 dRt
 dRt
 dRt
@@ -73827,7 +74310,7 @@ dFo
 dFo
 oXH
 oXH
-cBX
+ppk
 xyK
 oXH
 oXH

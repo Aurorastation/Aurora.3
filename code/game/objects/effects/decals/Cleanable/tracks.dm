@@ -215,7 +215,7 @@
 	coming_state = "trail1"
 	going_state  = "trail2"
 
-/// Spawns footprints. A mapping helper.
+/// Spawns footprints, a mapping helper. An example of its use can be seen at: `quarantined_outpost.dmm`.
 /obj/abstract/footprint_spawner
 	name = "blood footprint"
 	icon = 'icons/effects/map_effects.dmi'

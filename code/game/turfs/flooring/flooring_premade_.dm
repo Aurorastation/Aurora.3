@@ -123,6 +123,10 @@
 /turf/simulated/floor/plating/asteroid
 	icon_state = "asteroidplating"
 
+/turf/simulated/floor/plating/asteroid/airless
+	initial_gas = null
+	temperature = TCMB
+
 /turf/simulated/floor/tiled/white
 	name = "white floor"
 	icon_state = "white"

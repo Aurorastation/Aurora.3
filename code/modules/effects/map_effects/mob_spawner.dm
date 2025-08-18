@@ -120,22 +120,22 @@
 	name = "Organized mob spawner"
 	desc = "You are not supposed to see this!"
 	icon = 'icons/effects/map_effects.dmi'
-	icon_state = "screen_shaker"
+	icon_state = "beam_point"
 
 	anchored = TRUE
 	unacidable = TRUE
 	simulated = FALSE
 	invisibility = 101
 
-	min_spawn_cooldown = 15
-	max_spawn_cooldown = 20
+	min_spawn_cooldown = 20
+	max_spawn_cooldown = 25
 	max_active_mobs = 15
 
 	/// Integer, fixed number of mobs that'll be spawned before spawner enters cooldown.
 	var/spawn_points_to_pick
 
 	/// The number range of mobs that can spawn before spawner enters cooldown. Ignored if 'spawn_points_to_pick' isn't null.
-	var/min_spawn = 1
+	var/min_spawn = 2
 	var/max_spawn = 3
 
 	/// If true, object will avoid spawning multiple mobs on the same point.
@@ -184,14 +184,16 @@
 
 /obj/effect/fauna_spawner/organized/quarantined_outpost
 	name = "Quarantined Outpost Spawner"
-	max_active_mobs = 15
 	mob_choices = list(
 		list(type = /mob/living/simple_animal/hostile/revivable/husked_creature/quarantined_outpost/horde, speed = 5),
 		list(type = /mob/living/simple_animal/hostile/revivable/abomination/quarantined_outpost/horde, speed = 5)
 	)
+	one_spawn_per_point = TRUE
 
 /obj/effect/landmark/organized_spawn_point
 	name = "spawn point"
+	icon = 'icons/effects/map_effects.dmi'
+	icon_state = "ghostspawpoint"
 
 /obj/effect/landmark/organized_spawn_point/Initialize()
 	. = ..()

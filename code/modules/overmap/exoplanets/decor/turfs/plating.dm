@@ -8,10 +8,5 @@
 /turf/simulated/floor/exoplanet/plating/asteroid
 	icon_state = "asteroidplating"
 
-/turf/simulated/floor/exoplanet/plating/asteroid/airless
-	name = "airless plating"
-	initial_gas = null
-	temperature = TCMB
-
 /turf/simulated/floor/exoplanet/plating/asteroid/crystal
 	color = "#95c2d9"

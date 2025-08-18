@@ -2,6 +2,9 @@
 /// List of ruin creatures that exists.
 GLOBAL_LIST_EMPTY(quarantined_outpost_creatures)
 
+#define BREAK_WALL_COOLDOWN 5 SECONDS
+#define BREAK_EXTRACTOR_COOLDOWN 10 SECONDS
+
 /**
  * Storytelling Holograms
  * Compatible to use in any maps. Ported and adapted from Paradise Station.
@@ -504,76 +507,86 @@ GLOBAL_LIST_EMPTY(quarantined_outpost_creatures)
 	var/tmp/breaking_wall = FALSE
 
 /mob/living/simple_animal/hostile/revivable/husked_creature/quarantined_outpost/horde/Move(NewLoc)
-	if(!breaking_wall)
-		var/obj/structure/quarantined_outpost_extractor/EX = locate(/obj/structure/quarantined_outpost_extractor) in NewLoc
-		if(istype(NewLoc, /turf/simulated/wall) || EX)
-			var/turf/T = NewLoc
-			breaking_wall = TRUE
-			spawn(0)
+	if(breaking_wall)
+		return FALSE // we're breaking something and we need to stand still
 
-				if(QDELETED(src) || get_dist(src, T) != 1)
-					breaking_wall = FALSE
-					return
+	var/turf/target_turf = NewLoc
+	var/obj/structure/quarantined_outpost_extractor/EX = locate(/obj/structure/quarantined_outpost_extractor) in target_turf
+	if(istype(target_turf, /turf/simulated/wall) || EX)
+		breaking_wall = TRUE
+		spawn(0)
 
-				if(EX && !QDELETED(EX)) // ---- is it an extractor
-					visible_message(SPAN_DANGER("\the [src] is attempting to break down the extractor!"))
-					sleep(10 SECONDS)
-					if(!QDELETED(EX))
-						qdel(EX)
-						visible_message(SPAN_DANGER("With a loud thud, \the [src] breaks down the [EX]!"))
-						playsound(src.loc, 'sound/effects/meteorimpact.ogg', 50, 1)
-
-				if(istype(T, /turf/simulated/wall)) // ---- is it a wall
-					sleep(5 SECONDS)
-					visible_message(SPAN_DANGER("With a loud thud, \the [src] breaks down the [T]!"))
+			if(EX && !QDELETED(EX)) // ---- is it an extractor
+				visible_message(SPAN_DANGER("\the [src] is attempting to break down the [EX]!"))
+				playsound(src.loc, 'sound/effects/meteorimpact.ogg', 50, 1)
+				sleep(BREAK_EXTRACTOR_COOLDOWN)
+				if(!QDELETED(EX) && !QDELETED(src) && get_dist(src, target_turf) == 1) // check again if conditions are still valid after sleep
+					qdel(EX)
+					visible_message(SPAN_DANGER("With a loud thud, \the [src] breaks down \the [EX]!"))
 					playsound(src.loc, 'sound/effects/meteorimpact.ogg', 50, 1)
-					T.ChangeTurf(/turf/simulated/floor/exoplanet/asteroid/ash/rocky)
-					new /obj/effect/decal/cleanable/floor_damage/broken6(T)
 
 				breaking_wall = FALSE
-			return FALSE
+
+			if(istype(target_turf, /turf/simulated/wall)) // ---- is it a wall
+				visible_message(SPAN_DANGER("\the [src] is attempting to break down \the [target_turf]!"))
+				playsound(src.loc, 'sound/effects/meteorimpact.ogg', 50, 1)
+				sleep(BREAK_WALL_COOLDOWN)
+				if(istype(target_turf, /turf/simulated/wall) && !QDELETED(src) && get_dist(src, target_turf) == 1) // we check again
+					visible_message(SPAN_DANGER("With a loud thud, \the [src] breaks down the [target_turf]!"))
+					playsound(src.loc, 'sound/effects/meteorimpact.ogg', 50, 1)
+					target_turf.ChangeTurf(/turf/simulated/floor/exoplanet/asteroid/ash/rocky)
+					new /obj/effect/decal/cleanable/floor_damage/broken6(target_turf)
+
+				breaking_wall = FALSE
+		return FALSE
 	return ..()
 
 /mob/living/simple_animal/hostile/revivable/abomination/quarantined_outpost/horde
 	horde = TRUE
 	var/tmp/breaking_wall = FALSE
-/mob/living/simple_animal/hostile/revivable/abomination/quarantined_outpost/horde/think()
+
 /mob/living/simple_animal/hostile/revivable/abomination/quarantined_outpost/horde/Move(NewLoc)
-	if(!breaking_wall)
-		var/obj/structure/quarantined_outpost_extractor/EX = locate(/obj/structure/quarantined_outpost_extractor) in NewLoc
-		if(istype(NewLoc, /turf/simulated/wall) || EX)
-			var/turf/T = NewLoc
-			breaking_wall = TRUE
-			spawn(0)
+	if(breaking_wall)
+		return FALSE // we're breaking something and we need to stand still
 
-				if(EX && !QDELETED(EX)) // ---- is it an extractor
-					visible_message(SPAN_DANGER("\the [src] is attempting to break down the extractor!"))
-					sleep(10 SECONDS)
-					if(!QDELETED(EX) && !QDELETED(src) && get_dist(src, T) == 1)
-						qdel(EX)
-						visible_message(SPAN_DANGER("With a loud thud, \the [src] breaks down the [EX]!"))
-						playsound(src.loc, 'sound/effects/meteorimpact.ogg', 50, 1)
-					else
-						breaking_wall = FALSE
+	var/turf/target_turf = NewLoc
+	var/obj/structure/quarantined_outpost_extractor/EX = locate(/obj/structure/quarantined_outpost_extractor) in target_turf
+	if(istype(target_turf, /turf/simulated/wall) || EX)
+		breaking_wall = TRUE
+		spawn(0)
 
-				if(istype(T, /turf/simulated/wall)) // ---- is it a wall
-					sleep(5 SECONDS)
-					visible_message(SPAN_DANGER("With a loud thud, \the [src] breaks down the [T]!"))
+			if(EX && !QDELETED(EX)) // ---- is it an extractor
+				visible_message(SPAN_DANGER("\the [src] is attempting to break down the [EX]!"))
+				playsound(src.loc, 'sound/effects/meteorimpact.ogg', 50, 1)
+				sleep(BREAK_EXTRACTOR_COOLDOWN)
+				if(!QDELETED(EX) && !QDELETED(src) && get_dist(src, target_turf) == 1) // check again if conditions are still valid after sleep
+					qdel(EX)
+					visible_message(SPAN_DANGER("With a loud thud, \the [src] breaks down \the [EX]!"))
 					playsound(src.loc, 'sound/effects/meteorimpact.ogg', 50, 1)
-					T.ChangeTurf(/turf/simulated/floor/exoplanet/asteroid/ash/rocky)
-					new /obj/effect/decal/cleanable/floor_damage/broken6(T)
 
 				breaking_wall = FALSE
-			return FALSE
+
+			if(istype(target_turf, /turf/simulated/wall)) // ---- is it a wall
+				visible_message(SPAN_DANGER("\the [src] is attempting to break down \the [target_turf]!"))
+				playsound(src.loc, 'sound/effects/meteorimpact.ogg', 50, 1)
+				sleep(BREAK_WALL_COOLDOWN)
+				if(istype(target_turf, /turf/simulated/wall) && !QDELETED(src) && get_dist(src, target_turf) == 1) // we check again
+					visible_message(SPAN_DANGER("With a loud thud, \the [src] breaks down the [target_turf]!"))
+					playsound(src.loc, 'sound/effects/meteorimpact.ogg', 50, 1)
+					target_turf.ChangeTurf(/turf/simulated/floor/exoplanet/asteroid/ash/rocky)
+					new /obj/effect/decal/cleanable/floor_damage/broken6(target_turf)
+
+				breaking_wall = FALSE
+		return FALSE
 	return ..()
 
 /*######################################
-		HORDE LOGIC (partially copied over `phoron_deposit_objects.dm`)
+		HORDE LOGIC (partially copied over from `phoron_deposit_objects.dm`)
 ######################################*/
 
 /obj/structure/quarantined_outpost_extractor
 	name = "HPMER Mk. I"
-	desc = "A peculiar machine. Its alloy construction appears more pristine than its surroundings."
+	desc = "A peculiar machine. Its alloy construction appears slightly less corroded than its surroundings."
 	desc_extended = "\
 	Also known as the 'High-Pressure Matter Extraction Rig', it's renowned as one of the loudest non-explosive contraptions ever created. Due to its \
 	high operating pressure, this machine can generate vibrations at volumes far beyond what one would expect from a device of this size. This is practically \
@@ -583,8 +596,16 @@ GLOBAL_LIST_EMPTY(quarantined_outpost_creatures)
 	icon_state = "off"
 	anchored = TRUE
 	density = TRUE
+	var/obj/effect/fauna_spawner/organized/quarantined_outpost/spawner
+	var/obj/effect/map_effect/interval/screen_shaker/quarantined_outpost/shaker_effect
+
+/obj/structure/quarantined_outpost_extractor/Initialize()
+	. = ..()
+	spawner = locate(/obj/effect/fauna_spawner/organized/quarantined_outpost) in get_turf(src)
 
 /obj/structure/quarantined_outpost_extractor/Destroy() // game over man, it's game over...
+	qdel(spawner)
+	qdel(shaker_effect)
 	return ..()
 
 /obj/structure/quarantined_outpost_extractor/proc/begin_extraction()
@@ -592,15 +613,103 @@ GLOBAL_LIST_EMPTY(quarantined_outpost_creatures)
 	for(var/mob/M in range(50, src))
 		if(M.client)
 			to_chat(M, SPAN_DANGER("After a long mechanical hiss, the machine starts up with a jolt. Heavy thumps and the grind of hydraulics fill the air. \
-			Through the noise, you catch something else: a faint sound outside the windows, echoing from deep within the abyss. The air grows tense as the screeches draw closer, \
-			<i>this can't be good...</i>"))
-			playsound(M, 'sound/music/quarantined_outpost.ogg', 30, FALSE)
+			Through the noise, you catch something else: a faint sound outside the windows, echoing from deep within the abyss. The air grows tense as the screeches draw closer. \
+			You have a <i>really bad</i> feeling about this..."))
+			playsound(M, 'sound/mecha/powerup.ogg', 50, FALSE)
+			sleep(4 SECONDS)
+			playsound(M, 'sound/music/quarantined_outpost.ogg', 25, FALSE)
 			sleep(38 SECONDS) // just before the beat begins, this HAS to be done with style
+			shaker_effect = new /obj/effect/map_effect/interval/screen_shaker/quarantined_outpost(get_turf(src))
 			activate_fauna_spawners(src.z)
+
+/obj/machinery/atmospherics/portables_connector/quarantined_outpost
+	name = "connector port"
+	desc = "Doesn't seem to be designed for regular atmospheric components."
+	icon_state = "map_connector-fuel"
+	icon_connect_type = "-fuel"
+
+/obj/machinery/atmospherics/portables_connector/quarantined_outpost/attackby(obj/item/attacking_item, mob/user) // no interacting with this subtype
+	if(attacking_item.iswrench())
+		to_chat(user, SPAN_WARNING("You struggle, but \the [src] is fastened too firmly to detach it."))
+	return
+
+/obj/machinery/portable_atmospherics/canister/quarantined_outpost
+	name = "NEMORA labelled canister"
+	desc = "A fuel canister with an unique connector port."
+	icon_state = "brown"
+	canister_color = "brown"
+	density = TRUE
+
+	var/percentage = 0
+
+/obj/machinery/portable_atmospherics/canister/quarantined_outpost/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(distance <= 1)
+		. += "[icon2html(src, user)] This canister is [percentage]% full!"
+
+/obj/machinery/portable_atmospherics/canister/quarantined_outpost/check_change()
+	var/old_flag = update_flag
+	update_flag = 0
+	if(holding)
+		update_flag |= 1
+	if(connected_port)
+		update_flag |= 2
+
+	if(percentage < 10)
+		update_flag |= 4
+	else if(percentage < 25)
+		update_flag |= 8
+	else if(percentage < 100)
+		update_flag |= 16
+	else
+		update_flag |= 32
+
+	if(update_flag == old_flag)
+		return 1
+	else
+		return 0
+
+/obj/machinery/portable_atmospherics/canister/quarantined_outpost/attackby(obj/item/attacking_item, mob/user) // this needs to be overriden to get rid of unwanted functions
+	if(attacking_item.iswrench())
+		if(connected_port)
+			disconnect()
+			to_chat(user, SPAN_NOTICE("You disconnect \the [src] from the port."))
+			attacking_item.play_tool_sound(get_turf(src), 50)
+			update_icon()
+			SStgui.update_uis(src)
+			return TRUE
+		else
+			var/obj/machinery/atmospherics/portables_connector/quarantined_outpost/possible_port = locate(/obj/machinery/atmospherics/portables_connector/quarantined_outpost/) in get_turf(src)
+			if(possible_port)
+				if(connect(possible_port))
+					to_chat(user, SPAN_NOTICE("You connect \the [src] to the port."))
+					attacking_item.play_tool_sound(get_turf(src), 50)
+					update_icon()
+					SStgui.update_uis(src)
+					return TRUE
+				else
+					to_chat(user, SPAN_NOTICE("\The [src] failed to connect to the port."))
+					return TRUE
+			else
+				to_chat(user, SPAN_NOTICE("Nothing happens."))
+				return TRUE
+
+/obj/machinery/portable_atmospherics/canister/quarantined_outpost/attack_hand() // we don't want the UI to appear in this frankenstein
+	return
+
+/obj/effect/map_effect/interval/screen_shaker/quarantined_outpost
+	interval_lower_bound = 10 SECOND
+	interval_upper_bound = 30 SECONDS
+
+	shake_radius = 14
+	shake_strength = 2
+	play_rumble_sound = TRUE
 
 /*######################################
 				MISC
 ######################################*/
+
+/obj/structure/fluff/
 
 /// Mainly used by abominations to copy human appearance.
 /obj/effect/landmark/corpse/quarantined_outpost
@@ -698,3 +807,43 @@ GLOBAL_LIST_EMPTY(quarantined_outpost_creatures)
 	are required to perform EVA and toggle the locking systems in Auxiliary Power Compartment. Attending personnels will be let back inside once the situation
 	settles down, estimatedly in two hours. Prepare in consideration of a long duration EVA duty.
 	"}
+
+/obj/item/folder/envelope/quarantined_outpost/research_note
+	name = "Summarized Research Log - 'Experiment Site Nemora'"
+	desc = "A small envelope with Solarian Alliance's emblem on the front. Right beneath it, 'CONFIDENTIAL' is written in bold text."
+
+/obj/item/folder/envelope/quarantined_outpost/research_note/Initialize()
+	. = ..()
+
+	var/obj/item/paper/fluff/reward/research_note/R = new(src)
+	R.update_icon()
+	var/image/stampoverlay = image('icons/obj/bureaucracy.dmi')
+	stampoverlay.icon_state = "paper_stamp-sol"
+	if(!R.stamped)
+		R.stamped = new
+	R.ico += "paper_stamp-sol"
+	R.stamped += /obj/item/stamp
+	R.AddOverlays(stampoverlay)
+	R.stamps += "<hr><i>This paper has been stamped as \"TOP SECRET\".</i>"
+
+/obj/item/paper/fluff/reward/research_note
+	name = "research article"
+	var/static/list/possible_techs = list(
+		TECH_MATERIAL, TECH_ENGINEERING, TECH_POWER, TECH_BIO,
+		TECH_COMBAT, TECH_MAGNET, TECH_DATA, TECH_ARCANE
+	) // illegals, phoron and bluespace isn't included for this instance, given this ruin is a pre-war solarian ruin, two of these things weren't discovered at the time
+
+/obj/item/paper/fluff/reward/research_note/Initialize()
+	. = ..()
+
+	origin_tech = list(pick(possible_techs) = 5)
+	info = {"
+	\[after briefly skimming its contents, this article presents [origin_tech[1]]-related findings. All sensitive sections are encrypted. Maybe a decrypting tool \
+	could get you through it.\]"}
+
+/obj/item/paper/fluff/reward/research_note/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "You can put this paper in a deconstructive analyzer to obtain research levels hidden in it!"
+
+#undef BREAK_WALL_COOLDOWN
+#undef BREAK_EXTRACTOR_COOLDOWN

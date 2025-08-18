@@ -393,6 +393,12 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 	icon_state = "divider1"
 	anchored = TRUE
 
+/obj/structure/dressing_divider/hospital
+	name = "hospital curtain"
+	desc = "Usually comes with hospital beds."
+	icon_state = "hospitalcurtain"
+	layer = ABOVE_HUMAN_LAYER
+
 /obj/structure/neon_sign
 	name = "large neon sign"
 	desc = "A bright neon sign, an advertisement of some dystopian sort."
@@ -510,6 +516,26 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 			return TRUE
 		return FALSE
 	return TRUE
+
+/obj/structure/bunk_bed
+	name = "bunk bed"
+	desc = "A space-saving solution for living space problems. A symbol of roommate concept."
+	icon = 'icons/obj/structure/urban/bunk_beds.dmi'
+	icon_state = "zbunkbed"
+	density = TRUE
+	anchored = TRUE
+
+/obj/structure/bunk_bed/blue
+	icon_state = "zbunkbed2"
+
+/obj/structure/bunk_bed/green
+	icon_state = "zbunkbed3"
+
+/obj/structure/bunk_bed/black
+	icon_state = "zbunkbed4"
+
+/obj/structure/bunk_bed/prison
+	icon_state = "prisonbed"
 
 /obj/structure/chainlink_fence
 	name = "chainlink industrial fencing"

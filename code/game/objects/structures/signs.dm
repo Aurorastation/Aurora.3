@@ -685,4 +685,4 @@
 /obj/structure/sign/floor_plaque/quarantined_outpost
 	name = "SSF Nemora plaque"
 	desc = "On the plaque's bronze surface, the old emblem of the Alliance of Sovereign Solarian Nations is engraved. Just below it, the text reads: <i>'SSF Nemora: Research Rooted in Discovery'</i>."
-	desc_extended = "At the bottom, there is an engraved text stained in dried blood that reads: <i>'Department of Colonization. Charting the Future, Reaching Beyond'</i>."
+	desc_extended = "At the bottom, there is an engraved text stained in dried blood that reads: <i>'Department of Colonization. Taking necessary steps today, charting the future.'</i>."
