@@ -217,7 +217,7 @@
 	update_clothing_icon()	//so our overlays update.
 
 //*******************
-//**Chameleon Armored Helmet**
+//**Chameleon Helmet**
 //*******************
 
 /obj/item/clothing/head/helmet/chameleon
