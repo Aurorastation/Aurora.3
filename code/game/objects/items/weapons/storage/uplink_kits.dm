@@ -68,7 +68,7 @@
 
 /obj/item/storage/box/syndie_kit/chameleonarmor
 	name = "chameleon armor kit"
-	desc = "Comes with a plate-carrier and a helmet, both capable of mimicking other clothing items while offering protection."
+	desc = "Comes with a full armor-kit that is capable of mimicking other clothing items while also offering protection."
 	worn_overlay = "syndiesuit"
 	starts_with = list(
 		/obj/item/clothing/head/helmet/chameleon = 1,
