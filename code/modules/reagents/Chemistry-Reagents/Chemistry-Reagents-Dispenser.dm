@@ -78,6 +78,23 @@
 		to_chat(M, SPAN_WARNING(pick("Your skin burns!", "The chemical is melting your skin!", "Wash it off, wash it off!")))
 		remove_self(REAGENT_VOLUME(holder, type), holder)
 
+/singleton/reagent/boron
+	name = "Boron"
+	description = "A dark, silvery metalloid with a small handful of industrial applications."
+	reagent_state = SOLID
+	color = "#888888"
+	taste_description = "metal"
+	taste_mult = 1.1
+	fallback_specific_heat = 0.811
+	value = 0.02
+
+/**
+ * Boron has very little affect on mammals, but is moderately toxic to arthopods and commonly used in insecticides. Hi Varuca.
+ */
+/singleton/reagent/boron/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	if (alien == IS_VAURCA)
+		M.adjustToxLoss(2 * removed))
+
 /singleton/reagent/carbon
 	name = "Carbon"
 	description = "A chemical element, the building block of life."
@@ -335,7 +352,6 @@ ABSTRACT_TYPE(/singleton/reagent/alcohol)
 	reagent_state = SOLID
 	color = COLOR_GRAY
 	taste_description = "metal"
-
 	fallback_specific_heat = 0.633
 	value = 6
 

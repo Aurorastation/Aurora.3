@@ -1,6 +1,7 @@
 /singleton/xgm_gas/oxygen
 	id = GAS_OXYGEN
 	name = "Oxygen"
+	desc = "The gas most life forms need to be able to survive. The most famous oxidizer."
 	specific_heat = 20	// J/(mol*K)
 	molar_mass = 0.032	// kg/mol
 
@@ -9,18 +10,21 @@
 /singleton/xgm_gas/nitrogen
 	id = GAS_NITROGEN
 	name = "Nitrogen"
+	desc = "A very common, largely inert gas commonly used as a buffer gas to pad artificial atmospheres to habitable pressures."
 	specific_heat = 20	// J/(mol*K)
 	molar_mass = 0.028	// kg/mol
 
 /singleton/xgm_gas/carbon_dioxide
 	id = GAS_CO2
 	name = "Carbon Dioxide"
+	desc = "What the fuck is carbon dioxide?"
 	specific_heat = 30	// J/(mol*K)
 	molar_mass = 0.044	// kg/mol
 
 /singleton/xgm_gas/phoron
 	id = GAS_PHORON
 	name = "Phoron"
+	desc = "A highly toxic, highly flammable, and extremely rare substance with curious, nigh-miraculous properties. More precious and more dangerous than even time."
 
 	//Note that this has a significant impact on TTV yield.
 	//Because it is so high, any leftover phoron soaks up a lot of heat and drops the yield pressure.
@@ -39,6 +43,7 @@
 /singleton/xgm_gas/hydrogen
 	id = GAS_HYDROGEN
 	name = "Hydrogen"
+	desc = "A highly flammable gas. Starstuff. 75% of the universe is made of this."
 	specific_heat = 100
 	molar_mass = 0.002
 	flags = XGM_GAS_FUEL|XGM_GAS_FUSION_FUEL
@@ -46,6 +51,7 @@
 /singleton/xgm_gas/sleeping_agent
 	id = GAS_N2O
 	name = "Nitrous Oxide"
+	desc = "Causes drowsiness, euphoria, and eventually unconsciousness."
 	specific_heat = 40	// J/(mol*K)
 	molar_mass = 0.044	// kg/mol. N2O
 	tile_overlay = "sleeping_agent"
@@ -55,21 +61,31 @@
 /singleton/xgm_gas/hydrogen/deuterium
 	id = GAS_DEUTERIUM
 	name = "Deuterium"
-	specific_heat = 80
-	molar_mass = 0.004
+	desc = "A stable isotope of hydrogen. That extra neutron is damned handy."
+	specific_heat = 80	// J/(mol*K)
+	molar_mass = 0.004	// kg/mol
 
 /singleton/xgm_gas/hydrogen/tritium
 	id = GAS_TRITIUM
 	name = "Tritium"
-	molar_mass = 0.006
-	specific_heat = 60
+	desc = "An unstable, short-lived isotope of hydrogen. Supremely useful as a fuel source for nuclear fusion. Insanely valuable (and dangerous; it's radioactive gas after all)."
+	specific_heat = 60	// J/(mol*K)
+	molar_mass = 0.006	// kg/mol
 
 /singleton/xgm_gas/helium
 	id = GAS_HELIUM
 	name = "Helium"
+	desc = "An inert gas that makes your voice squeaky. This is Helium-4, the commonplace stuff. Its lightweight cousin, Helium-3, is ten-thousand times rarer."
 	specific_heat = 80	// J/(mol*K)
 	molar_mass = 0.004	// kg/mol
 	flags = XGM_GAS_FUSION_FUEL
+
+/singleton/xgm_gas/helium/fuel
+	id = GAS_HELIUMFUEL
+	name = "Helium-3"
+	desc = "Helium-3 is a stable helium isotope valued for its use in fusion power; it fuses without dangerous neutron radiation and at much lower temperatures. Insanely valuable."
+	specific_heat = 80	// J/(mol*K)
+	molar_mass = 0.003	// kg/mol
 
 /singleton/xgm_gas/alium
 	id = GAS_ALIEN
@@ -102,26 +118,20 @@
 /singleton/xgm_gas/sulfurdioxide
 	id = GAS_SULFUR
 	name = "Sulfur Dioxide"
-
+	desc = "Volcano breath. Also the smell of burnt matches. Venus' atmosphere is full of this stuff."
 	specific_heat = 30	// J/(mol*K)
 	molar_mass = 0.044	// kg/mol
 
 /singleton/xgm_gas/chlorine
 	id = GAS_CHLORINE
 	name = "Chlorine"
+	desc = "Fucks up your lungs AND your eyes AND your skin. Maybe try to avoid it."
 	tile_color = "#c5f72d"
 	tile_overlay = "chlorine"
 	overlay_limit = 0.5
 	specific_heat = 5	// J/(mol*K)
 	molar_mass = 0.017	// kg/mol
 	flags = XGM_GAS_CONTAMINANT
-
-/singleton/xgm_gas/boron
-	id = GAS_BORON
-	name = "Boron"
-	specific_heat = 11
-	molar_mass = 0.011
-	flags = XGM_GAS_FUSION_FUEL
 
 /singleton/xgm_gas/nitrogendioxide
 	id = GAS_NO2

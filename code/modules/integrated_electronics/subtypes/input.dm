@@ -532,7 +532,7 @@
 		GAS_DEUTERIUM      = IC_PINTYPE_NUMBER,
 		GAS_TRITIUM        = IC_PINTYPE_NUMBER,
 		GAS_HELIUM 	       = IC_PINTYPE_NUMBER,
-		GAS_BORON          = IC_PINTYPE_NUMBER,
+		GAS_HELIUMFUEL          = IC_PINTYPE_NUMBER,
 		GAS_SULFUR         = IC_PINTYPE_NUMBER,
 		GAS_NO2 	       = IC_PINTYPE_NUMBER,
 		GAS_CHLORINE       = IC_PINTYPE_NUMBER,
@@ -642,7 +642,7 @@
 		var/deuterium_level = environment.gas[GAS_DEUTERIUM]/total_moles
 		var/tritium_level = environment.gas[GAS_TRITIUM]/total_moles
 		var/helium_level = environment.gas[GAS_HELIUM]/total_moles
-		var/boron_level = environment.gas[GAS_BORON]/total_moles
+		var/heliumfuel_level = environment.gas[GAS_HELIUMFUEL]/total_moles
 		var/sulfurdioxide_level = environment.gas[GAS_SULFUR]/total_moles
 		var/nitrogendioxide_level = environment.gas[GAS_NO2]/total_moles
 		var/chlorine_level = environment.gas[GAS_CHLORINE]/total_moles
@@ -659,7 +659,7 @@
 		set_pin_data(IC_OUTPUT, 8, round(deuterium_level*100,0.01))
 		set_pin_data(IC_OUTPUT, 9, round(tritium_level*100,0.01))
 		set_pin_data(IC_OUTPUT, 10, round(helium_level*100,0.01))
-		set_pin_data(IC_OUTPUT, 11, round(boron_level*100,0.01))
+		set_pin_data(IC_OUTPUT, 11, round(heliumfuel_level*100,0.01))
 		set_pin_data(IC_OUTPUT, 12, round(sulfurdioxide_level*100,0.01))
 		set_pin_data(IC_OUTPUT, 13, round(nitrogendioxide_level*100,0.01))
 		set_pin_data(IC_OUTPUT, 14, round(chlorine_level*100,0.01))
@@ -786,11 +786,11 @@
 
 /obj/item/integrated_circuit/input/gas_sensor/co2
 	gas_name = GAS_CO2
-	gas_display_name = "carbon dioxide"
+	gas_display_name = GAS_CO2
 
 /obj/item/integrated_circuit/input/gas_sensor/nitrogen
 	gas_name = GAS_NITROGEN
-	gas_display_name = "nitrogen"
+	gas_display_name = GAS_NITROGEN
 
 /obj/item/integrated_circuit/input/gas_sensor/phoron
 	gas_name = GAS_PHORON
@@ -812,9 +812,9 @@
 	gas_name = GAS_HELIUM
 	gas_display_name = GAS_HELIUM
 
-/obj/item/integrated_circuit/input/gas_sensor/boron_level
-	gas_name = GAS_BORON
-	gas_display_name = GAS_BORON
+/obj/item/integrated_circuit/input/gas_sensor/heliumfuel_level
+	gas_name = GAS_HELIUMFUEL
+	gas_display_name = GAS_HELIUMFUEL
 
 /obj/item/integrated_circuit/input/gas_sensor/sulfurdioxide_level
 	gas_name = GAS_SULFUR

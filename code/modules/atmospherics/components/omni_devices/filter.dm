@@ -165,9 +165,9 @@
 		if(ATM_3H)
 			return "Tritium"
 		if(ATM_HE)
-			return "Helium"
-		if(ATM_B)
-			return "Boron"
+			return "Helium-4"
+		if(ATM_H3)
+			return "Helium-3"
 		if(ATM_SO2)
 			return "Sulfur Dioxide"
 		if(ATM_NO2)
@@ -201,7 +201,7 @@
 			if("switch_mode")
 				switch_mode(dir_flag(href_list["dir"]), mode_return_switch(href_list["mode"]))
 			if("switch_filter")
-				var/new_filter = input(usr,"Select filter mode:","Change filter",href_list["mode"]) in list("None", "Oxygen", "Nitrogen", "Carbon Dioxide", "Phoron", "Nitrous Oxide", "Hydrogen", "Deuterium", "Tritium", "Helium", "Boron", "Sulfur Dioxide", "Nitrogen Dioxide", "Chlorine", "Steam")
+				var/new_filter = input(usr,"Select filter mode:","Change filter",href_list["mode"]) in list("None", "Oxygen", "Nitrogen", "Carbon Dioxide", "Phoron", "Nitrous Oxide", "Hydrogen", "Deuterium", "Tritium", "Helium-4", "Helium-3", "Sulfur Dioxide", "Nitrogen Dioxide", "Chlorine", "Steam")
 				switch_filter(dir_flag(href_list["dir"]), mode_return_switch(new_filter))
 
 	update_icon()
@@ -226,10 +226,10 @@
 			return ATM_2H
 		if("Tritium")
 			return ATM_3H
-		if("Helium")
+		if("Helium-4")
 			return ATM_HE
-		if("Boron")
-			return ATM_B
+		if("Helium-3")
+			return ATM_H3
 		if("Sulfur Dioxide")
 			return ATM_SO2
 		if("Nitrogen Dioxide")

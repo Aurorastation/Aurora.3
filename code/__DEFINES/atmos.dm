@@ -122,9 +122,9 @@
 #define GAS_SULFUR				"sulfur_dioxide"
 #define GAS_CHLORINE			"chlorine"
 #define GAS_HELIUM				"helium"
+#define GAS_HELIUMFUEL			"helium-3"
 #define GAS_DEUTERIUM			"deuterium"
 #define GAS_TRITIUM				"tritium"
-#define GAS_BORON				"boron"
 #define GAS_HEAT                "heat" //Not a real gas, used for visual effects
 #define GAS_COLD                "cold" //Not a real gas, used for visual effects
 

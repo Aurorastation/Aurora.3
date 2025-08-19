@@ -82,14 +82,14 @@
 	groupable = FALSE
 	spawn_amount = 1
 
-/singleton/cargo_item/canister_bo
+/singleton/cargo_item/canister_h3
 	category = "atmos"
-	name = "Canister (Boron)"
+	name = "Canister (Helium-3)"
 	supplier = "hephaestus"
-	description = "Holds boron gas. Has a built-in valve to allow for filling portable tanks."
-	price = 380
+	description = "Holds precious Helium-3 gas. Has a built-in valve to allow for filling portable tanks."
+	price = 3800
 	items = list(
-		/obj/machinery/portable_atmospherics/canister/boron
+		/obj/machinery/portable_atmospherics/canister/helium_fuel
 	)
 	access = ACCESS_ENGINE
 	container_type = "box"
@@ -126,9 +126,9 @@
 
 /singleton/cargo_item/canister_he
 	category = "atmos"
-	name = "Canister (Helium)"
+	name = "Canister (Helium-4)"
 	supplier = "hephaestus"
-	description = "Holds voice-changing helium. Has a built-in valve to allow for filling portable tanks."
+	description = "Holds voice-changing helium-4 gas. Has a built-in valve to allow for filling portable tanks."
 	price = 320
 	items = list(
 		/obj/machinery/portable_atmospherics/canister/helium

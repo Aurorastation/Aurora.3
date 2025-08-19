@@ -51,14 +51,14 @@
 		GAS_NITROGEN = 0.3,
 		GAS_CO2 = 0.24,
 		GAS_N2O = 0.5,
+		GAS_HELIUM = 0.2,
 
-		/* Uncommon gasses, if you work out to get them, you deserve better power */
+		/* Uncommon gasses, if you work out to get them, you deserve better power. Except for Helium-3. Its still inert, doofus.*/
 		GAS_SULFUR = 1.2,
 		GAS_CHLORINE = 1,
-		GAS_HELIUM = 1.6,
-		GAS_DEUTERIUM = 1.67,
-		GAS_TRITIUM = 1.68,
-		GAS_BORON = 1.69
+		GAS_DEUTERIUM = 1.4,
+		GAS_TRITIUM = 1.6,
+		GAS_HELIUMFUEL = 0.19
 	)
 
 	/**

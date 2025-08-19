@@ -279,11 +279,11 @@
 		/obj/machinery/portable_atmospherics/canister/empty/nitrogen = 1,
 		/obj/machinery/portable_atmospherics/canister/empty/oxygen = 1,
 		/obj/machinery/portable_atmospherics/canister/empty/oxygen = 1,
+		/obj/machinery/portable_atmospherics/canister/empty/helium = 0.75,
 		/obj/machinery/portable_atmospherics/canister/empty/sleeping_agent = 1,
 		// rare:
-		/obj/machinery/portable_atmospherics/canister/empty/boron = 0.1,
+		/obj/machinery/portable_atmospherics/canister/empty/helium/fuel = 0.1,
 		/obj/machinery/portable_atmospherics/canister/empty/chlorine = 0.1,
-		/obj/machinery/portable_atmospherics/canister/empty/helium = 0.1,
 		/obj/machinery/portable_atmospherics/canister/empty/nitrogen_dioxide = 0.1,
 		/obj/machinery/portable_atmospherics/canister/empty/phoron = 0.1,
 	)
@@ -300,12 +300,12 @@
 		/obj/machinery/portable_atmospherics/canister/nitrogen = 1,
 		/obj/machinery/portable_atmospherics/canister/oxygen = 1,
 		/obj/machinery/portable_atmospherics/canister/oxygen = 1,
+		/obj/machinery/portable_atmospherics/canister/helium = 0.75,
 		/obj/machinery/portable_atmospherics/canister/sleeping_agent = 1,
 		// rare:
-		/obj/machinery/portable_atmospherics/canister/boron = 0.1,
-		/obj/machinery/portable_atmospherics/canister/chlorine = 0.1,
-		/obj/machinery/portable_atmospherics/canister/helium = 0.1,
-		/obj/machinery/portable_atmospherics/canister/nitrogen_dioxide = 0.1,
+		/obj/machinery/portable_atmospherics/canister/helium/fuel = 0.1,
+		/obj/machinery/portable_atmospherics/canister/chlorine = 0.3,
+		/obj/machinery/portable_atmospherics/canister/nitrogen_dioxide = 0.2,
 		/obj/machinery/portable_atmospherics/canister/phoron_scarce = 0.1,
 		// extra rare:
 		/obj/machinery/portable_atmospherics/canister/phoron = 0.01,

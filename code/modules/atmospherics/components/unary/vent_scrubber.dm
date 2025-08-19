@@ -160,10 +160,10 @@
 		"filter_phoron" = (GAS_PHORON in scrubbing_gas),
 		"filter_n2o" = (GAS_N2O in scrubbing_gas),
 		"filter_h" = (GAS_HYDROGEN in scrubbing_gas),
-		"filter_2h" = (GAS_DEUTERIUM in scrubbing_gas),
-		"filter_3h" = (GAS_TRITIUM in scrubbing_gas),
-		"filter_he" = (GAS_HELIUM in scrubbing_gas),
-		"filter_b" = (GAS_BORON in scrubbing_gas),
+		"filter_h-2" = (GAS_DEUTERIUM in scrubbing_gas),
+		"filter_h-3" = (GAS_TRITIUM in scrubbing_gas),
+		"filter_he-4" = (GAS_HELIUM in scrubbing_gas),
+		"filter_he-3" = (GAS_HELIUMFUEL in scrubbing_gas),
 		"filter_so2" = (GAS_SULFUR in scrubbing_gas),
 		"filter_no2" = (GAS_NO2 in scrubbing_gas),
 		"filter_cl" = (GAS_CHLORINE in scrubbing_gas),
@@ -312,10 +312,10 @@
 	else if(signal.data["toggle_he_scrub"])
 		toggle += GAS_HELIUM
 
-	if(!isnull(signal.data["b_scrub"]) && text2num(signal.data["b_scrub"]) != (GAS_BORON in scrubbing_gas))
-		toggle += GAS_BORON
+	if(!isnull(signal.data["b_scrub"]) && text2num(signal.data["b_scrub"]) != (GAS_HELIUMFUEL in scrubbing_gas))
+		toggle += GAS_HELIUMFUEL
 	else if(signal.data["toggle_b_scrub"])
-		toggle += GAS_BORON
+		toggle += GAS_HELIUMFUEL
 
 	if(!isnull(signal.data["so2_scrub"]) && text2num(signal.data["so2_scrub"]) != (GAS_SULFUR in scrubbing_gas))
 		toggle += GAS_SULFUR

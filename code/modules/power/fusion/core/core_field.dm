@@ -57,6 +57,11 @@
 
 	var/last_reactants = 0
 
+	/// Managed by ReactPool()
+	var/list/possible_reactions
+	/// Managed by ReactPool()
+	var/singleton/fusion_reaction/cur_reaction
+
 	particles = new/particles/fusion
 
 	var/animating_ripple = FALSE
@@ -184,7 +189,7 @@
 /**
  * What are we doing every tick? A lot.
  * * Grab some gas from the env and convert it to reactants for the pool.
- * * Run react(), which updates a ton of vars for us to respond to here.
+ * * Run ReactPool(), which updates a ton of vars for us to respond to.
  * * Based on our updated heat values, dump power into the power net.
  * * Calculate what sort of entropy tax we're going to pay.
  * * Run check_instability() and decide how sad/angry we are.
@@ -212,11 +217,18 @@
 			uptake_gas.update_values()
 
 	// Let the particles inside the field react a few times.
-	React()
-	React()
-	React()
+	ReactPool()
 
-	// Dump power to our powernet.
+	/**
+	 * Dump power to our powernet, in watts.
+	 * Quick reference, for FUSION_ENERGY_PER_K = 20:
+	 * 2500 K    = 50 KW
+	 * 10000 K   = 200 KW
+	 * 50000 K   = 1 MW
+	 * 250000 K  = 4 MW
+	 * 1 mil K   = 20 MW
+	 * 100 mil K = 2000 MW
+	 */
 	owned_core.add_avail(FUSION_ENERGY_PER_K * plasma_temperature)
 
 	// Energy decay (entropy tax).
@@ -538,7 +550,7 @@
  * * Reactions follow a priority list- IE deut+trit before deut+deut.
  * *
  */
-/obj/effect/fusion_em_field/proc/React()
+/obj/effect/fusion_em_field/proc/ReactPool()
 	// Loop through the reactants in random order
 	var/list/react_pool = reactants.Copy()
 	last_reactants = 0
@@ -568,11 +580,10 @@
 				possible_s_reacts.Remove(cur_p_react)
 
 			//loop through and work out all the possible reactions
-			var/list/possible_reactions
 			for(var/cur_s_react in possible_s_reacts)
 				if(possible_s_reacts[cur_s_react] < 1)
 					continue
-				var/singleton/fusion_reaction/cur_reaction = get_fusion_reaction(cur_p_react, cur_s_react)
+				cur_reaction = get_fusion_reaction(cur_p_react, cur_s_react)
 				if(cur_reaction && plasma_temperature >= cur_reaction.minimum_energy_level)
 					LAZYDISTINCTADD(possible_reactions, cur_reaction)
 
@@ -654,6 +665,8 @@
 			AddParticles(reactant, react_pool[reactant])
 
 	UpdateVisuals()
+
+/obj/effect/fusion_em_field/proc/React(singleton/fusion_reaction/A, singleton/fusion_reaction/B)
 
 /obj/effect/fusion_em_field/Destroy()
 	set_light(0)
