@@ -58,3 +58,4 @@ changes:
   - balance: "Updated fire_burn_temperature() calculations so that being on fire will no longer arbitrarily return temperatures hotter than most stars."
   - balance: "Modified engineering voidsuit to have low-level thermal protection (similar to atmos voidsuit having low-level radiation protection)."
   - bugfix: "Fixed cases where you ought to have been set on fire, but weren't."
+  - code_imp: "Cleaned up function names, booleans; added more dmdocs."
