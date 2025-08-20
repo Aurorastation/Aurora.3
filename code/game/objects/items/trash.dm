@@ -416,6 +416,7 @@
 
 /obj/item/trash/microwave_package
 	name = "empty microwave food package"
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
 	icon_state = "microwave_trash"
 
 /obj/item/trash/mac_cheeze
