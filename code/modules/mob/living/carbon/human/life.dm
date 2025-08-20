@@ -1415,7 +1415,14 @@
 			hud_list[SPECIALROLE_HUD] = holder
 	hud_updateflag = 0
 
-/mob/living/carbon/human/handle_fire()
+/**
+ * If parent proc returns TRUE, this entity is no longer on fire (nothing to see here, in that case).
+ * Otherwise, we first get burn temperature, calculated from the entity's current fire stacks.
+ * This has a minimum of 700 K (approx. temp of a cool flame). The maximum temperature of the air
+ * to which a burning creature is exposed, at any point during its fiery adventure, is the base
+ * temperature of the fire, scaling upwards with fire_stacks.
+ */
+/mob/living/carbon/human/handle_fire(var/datum/gas_mixture/environment)
 	if(..())
 		return
 

@@ -154,7 +154,7 @@
 	else
 		if (fire) fire.icon_state = "fire0"
 
-/mob/living/carbon/alien/handle_fire()
+/mob/living/carbon/alien/handle_fire(var/datum/gas_mixture/environment)
 	if(..())
 		return
 	bodytemperature += BODYTEMP_HEATING_MAX //If you're on fire, you heat up!
