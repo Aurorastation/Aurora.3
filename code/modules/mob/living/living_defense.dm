@@ -364,6 +364,9 @@
 
 	return TRUE
 
+/**
+ * Adds fire_stacks to a mob.
+ */
 /mob/living/proc/IgniteMob(var/fire_stacks_to_add = 0)
 
 	if(fire_stacks_to_add)

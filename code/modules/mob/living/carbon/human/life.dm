@@ -464,7 +464,13 @@
 		var/recovery_amt = min((body_temperature_difference / BODYTEMP_AUTORECOVERY_DIVISOR), -BODYTEMP_AUTORECOVERY_MINIMUM)	//We're dealing with negative numbers
 		bodytemperature += recovery_amt
 
-	//This proc returns a number made up of the flags for body parts which you are protected on. (such as HEAD, UPPER_TORSO, LOWER_TORSO, etc. See setup.dm for the full list)
+/**
+ * Returns a bitflag for the body parts currently heat-protected. Called and used by get_heat_protection()
+ * If the passed temperature is less than the item's max_heat_protection_temperature, then the flag is added to the associated body part(s).
+ * Refer to 'code/__DEFINES/item_clothing.dm' for details.
+ *
+ * * temperature - the temperature the living/carbon/human is being exposed to.
+ */
 /mob/living/carbon/human/proc/get_heat_protection_flags(temperature) //Temperature is the temperature you're being exposed to.
 	var/thermal_protection_flags = 0
 	//Handle normal clothing
@@ -489,7 +495,14 @@
 
 	return thermal_protection_flags
 
-/mob/living/carbon/human/get_heat_protection(temperature) //Temperature is the temperature you're being exposed to.
+/**
+ * Returns a bitflag for the body parts currently heat-protected. Called by get_heat_protection()
+ * If the passed temperature is less than the item's max_heat_protection_temperature, then the flag is added to the associated body part(s).
+ * Refer to 'code/__DEFINES/item_clothing.dm' for details.
+ *
+ * * temperature - the temperature the living/carbon/human is being exposed to.
+ */
+/mob/living/carbon/human/get_heat_protection(temperature)
 	var/thermal_protection_flags = get_heat_protection_flags(temperature)
 
 	var/thermal_protection = 0.0
