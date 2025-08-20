@@ -471,8 +471,6 @@
  * The temperature of the environment in which the fire is currently located should moderate the temperature of the fire_stacks. Our
  * lower limit is ~700 K (roughly your average cool match flame).
  *
- *
- *
  * Parameters:
  * * environment - mob's loc's gas_mixture, inherited from /mob/living/proc/handle_fire(), which is inherited from /mob/living/life()
  *
@@ -480,7 +478,6 @@
  * * max(2.25*round(FIRESUIT_MAX_HEAT_PROTECTION_TEMPERATURE*(fire_stacks/FIRE_MAX_FIRESUIT_STACKS)**2), 700)
  * Which resulted in crazy things like fires burning at 100000+ Kelvin, if the user just stood around long enough.
  */
-//Finds the effective temperature that the mob is burning at.
 /mob/living/proc/fire_burn_temperature(var/datum/gas_mixture/environment)
 	if (fire_stacks <= 0)
 		return 0
