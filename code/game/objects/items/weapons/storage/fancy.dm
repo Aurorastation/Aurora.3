@@ -970,5 +970,5 @@
 		icon_state = "shrimp_pack_empty"
 	else if(contents.len <= 0.5 * max_storage_space)
 		icon_state = "shrimp_pack_half"
-	else if(contents.len <= 4)
+	else if(contents.len <= max_storage_space)
 		icon_state = "shrimp_pack"
