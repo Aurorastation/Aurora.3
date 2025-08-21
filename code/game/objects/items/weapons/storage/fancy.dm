@@ -968,7 +968,7 @@
 	. = ..()
 	if(contents.len == 0) //this isn't marked as trash so items can still be put back into the container once removed
 		icon_state = "shrimp_pack_empty"
-	else if(contents.len <= 2)
+	else if(contents.len <= 0.5 * max_storage_space)
 		icon_state = "shrimp_pack_half"
 	else if(contents.len <= 4)
 		icon_state = "shrimp_pack"
