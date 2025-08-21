@@ -103,14 +103,17 @@
 		/obj/item/storage/box/fancy/packaged_mossburger = 2
 	)
 	prices = list(
-		/obj/item/storage/box/fancy/quick_microwave_pizza = 25.00,
-		/obj/item/storage/box/fancy/quick_microwave_pizza/olive = 28.00,
-		/obj/item/storage/box/fancy/quick_microwave_pizza/pepperoni = 28.00,
-		/obj/item/storage/box/fancy/quick_microwave_pizza/district6 = 28.00,
-		/obj/item/reagent_containers/food/snacks/packaged_microwave_mac_and_cheeze = 10.00,
-		/obj/item/reagent_containers/food/snacks/packaged_microwave_fiery_mac_and_cheeze = 11.00,
-		/obj/item/storage/box/fancy/packaged_burger = 25.00,
-		/obj/item/reagent_containers/food/snacks/quick_curry = 25.00,
-		/obj/item/reagent_containers/food/snacks/hv_dinner = 25.00,
-		/obj/item/storage/box/donkpockets = 30.00
+		/obj/item/storage/box/fancy/quick_microwave_pizza = 9.00,
+		/obj/item/storage/box/fancy/quick_microwave_pizza/olive = 10.00,
+		/obj/item/storage/box/fancy/quick_microwave_pizza/pepperoni = 10.00,
+		/obj/item/storage/box/fancy/quick_microwave_pizza/district6 = 10.00,
+		/obj/item/reagent_containers/food/snacks/packaged_microwave_mac_and_cheeze = 3.00,
+		/obj/item/reagent_containers/food/snacks/packaged_microwave_fiery_mac_and_cheeze = 3.25,
+		/obj/item/storage/box/fancy/packaged_burger = 9.00,
+		/obj/item/reagent_containers/food/snacks/quick_curry = 9.00,
+		/obj/item/reagent_containers/food/snacks/hv_dinner = 9.00,
+		/obj/item/storage/box/fancy/toptarts_strawberry = 5.00,
+		/obj/item/storage/box/fancy/toptarts_chocolate_peanutbutter = 5.00,
+		/obj/item/storage/box/fancy/toptarts_blueberry = 5.00,
+		/obj/item/storage/box/donkpockets = 11.00
 	)
