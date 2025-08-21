@@ -20,6 +20,7 @@
 		BIO = ARMOR_BIO_SHIELDED,
 		RAD = ARMOR_RAD_RESISTANT
 	)
+    // Protects from up to 7500 degrees Kelvin.
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE + 2500
 	max_pressure_protection = ENG_VOIDSUIT_MAX_PRESSURE
 	light_overlay = "helmet_light_dual_low"
