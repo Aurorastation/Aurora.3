@@ -57,3 +57,4 @@ delete-after: True
 changes:
   - rscadd: "Adds empty versions of most hardsuits to be buyable in the uplink."
   - rscadd: "Combat Actuator module to the uplink, slight price rebalances to uplink modules."
+  - rscadd: "Changed hardsuit modules section of the uplink, into Hardsuits And Modules."
