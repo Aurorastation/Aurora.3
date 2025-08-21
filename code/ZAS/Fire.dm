@@ -435,7 +435,11 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 	var/mx = 5 * firelevel/GLOB.vsc.fire_firelevel_multiplier * min(pressure / ONE_ATMOSPHERE, 1)
 	apply_damage(2.5*mx, DAMAGE_BURN)
 
-
+/**
+ * Applies direct damage to human mobs to fire.
+ * On the chopping block depending on how we feel.
+ * We can decide its fate in future reworks.
+ */
 /mob/living/carbon/human/FireBurn(var/firelevel, var/last_temperature, var/pressure)
 	//Burns mobs due to fire. Respects heat transfer coefficients on various body parts.
 	//Due to TG reworking how fireprotection works, this is kinda less meaningful.
@@ -475,7 +479,6 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 	apply_damage(0.6*mx*legs_exposure, DAMAGE_BURN, BP_R_LEG, used_weapon = "Fire")
 	apply_damage(0.4*mx*arms_exposure, DAMAGE_BURN, BP_L_ARM, used_weapon = "Fire")
 	apply_damage(0.4*mx*arms_exposure, DAMAGE_BURN, BP_R_ARM, used_weapon = "Fire")
-
 
 #undef FIRE_LIGHT_1
 #undef FIRE_LIGHT_2
