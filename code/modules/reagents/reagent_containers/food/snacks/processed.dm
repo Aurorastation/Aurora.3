@@ -1041,7 +1041,7 @@
 
 /obj/item/storage/box/fancy/toptarts_chocolate_peanutbutter
 	name = "\improper toptarts chocolate peanutbutter pow-wow"
-	desc = "A box containing four Getmore brand Toptarts. These ones are chocolate-peanutbutter flavored! There are instructions on the box recommending you remove them from the box and heat them up for one minute per pastry."
+	desc = "A box containing four Getmore brand Toptarts. These ones are chocolate-peanut butter flavored! There are instructions on the box recommending you remove them from the box and heat them up for one minute per pastry."
 	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
 	icon_state = "toptart_chocolate_box"
 	icon_type = "toptart"
