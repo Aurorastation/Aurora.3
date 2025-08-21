@@ -1,5 +1,5 @@
 import { useBackend } from '../backend';
-import { Section, Box, Button, LabeledList, Flex } from '../components';
+import { Section, Button, LabeledList, Flex } from '../components';
 import { Window } from '../layouts';
 
 export type MobTrackerData = {
