@@ -127,7 +127,7 @@
 	simulated = FALSE
 	invisibility = 101
 
-	min_spawn_cooldown = 20
+	min_spawn_cooldown = 15
 	max_spawn_cooldown = 25
 	max_active_mobs = 15
 
@@ -150,7 +150,7 @@
 	if(LAZYLEN(available_points))
 		var/loop_amount
 		var/obj/effect/spawn_point
-		loop_amount = !spawn_points_to_pick ? rand(1, 3) : spawn_points_to_pick // if no value is set we will randomly pick a number for each spawn time
+		loop_amount = !spawn_points_to_pick ? rand(min_spawn, max_spawn) : spawn_points_to_pick // if no value is set we will randomly pick a number for each spawn time
 		for(var/i in 1 to loop_amount)
 			spawn_point = one_spawn_per_point ? pick_n_take(available_points) : pick(available_points)
 			if(spawn_point.z == src.z)

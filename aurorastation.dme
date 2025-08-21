@@ -3948,6 +3948,7 @@
 #include "maps\away\away_site\pirate_base\pirate_base_items.dm"
 #include "maps\away\away_site\quarantined_outpost\quarantined_outpost.dm"
 #include "maps\away\away_site\quarantined_outpost\quarantined_outpost_areas.dm"
+#include "maps\away\away_site\quarantined_outpost\quarantined_outpost_holopads.dm"
 #include "maps\away\away_site\quarantined_outpost\quarantined_outpost_landmarks.dm"
 #include "maps\away\away_site\quarantined_outpost\quarantined_outpost_objects.dm"
 #include "maps\away\away_site\racers\racers.dm"

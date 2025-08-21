@@ -2,103 +2,14 @@
 /// List of ruin creatures that exists.
 GLOBAL_LIST_EMPTY(quarantined_outpost_creatures)
 
+/// List of ruin canisters. Used in multiple systems.
+GLOBAL_LIST_EMPTY(quarantined_outpost_canisters)
+
+/// Global list used in '/obj/machinery/computer/terminal/mob_tracker'.
+GLOBAL_LIST_EMPTY(trackables_pool)
+
 #define BREAK_WALL_COOLDOWN 5 SECONDS
 #define BREAK_EXTRACTOR_COOLDOWN 10 SECONDS
-
-/**
- * Storytelling Holograms
- * Compatible to use in any maps. Ported and adapted from Paradise Station.
- *
- * How does it work?
- * * Once a player crosses a '/obj/abstract/player_detector', it activates any holopads in perimeter of 7 tiles.
- * * Hologram repeats the things written in 'list/things_to_say' in a loop.
- * * Detector object deletes every detector of its kind in a 3 tiles radius to avoid signal spam.
- */
-/obj/structure/environmental_storytelling_holopad
-	name = "holopad"
-	desc = "It's a floor-mounted device for projecting holographic images."
-	icon = 'icons/obj/holopad.dmi'
-	icon_state = "holopad0"
-	anchored = TRUE
-	layer = ABOVE_TILE_LAYER
-	/// Have we been activated? If we have, we do not activate again.
-	var/activated = FALSE
-	/// Tied effect to kill when we die.
-	var/obj/effect/overlay/our_holo
-	/// Name of who we are speaking as.
-	var/speaking_name = "placeholder"
-	/// Appearance of the hologram.
-	var/mob/holo_icon
-	/// List of things to say.
-	var/list/things_to_say = list("Hi future coders.", "Welcome to real lore hologram hours.", "People should have fun with these!")
-	/// The sounds our hologram makes when it speaks. Use singleton sound categories. Null by default.
-	var/list/soundblock = "/singleton/sound_category/hivebot_wail" //change this
-	/// How long do we sleep between messages? 5 seconds by default.
-	var/loop_sleep_time = 5 SECONDS
-	/// Seconds integer. If set, the hologram will wait the set amount of seconds before making its speech. This applied only once and is null by default.
-	var/sleep_before_speak = 5 SECONDS
-	/// Should the hologram turn off once it's done its speech? True by default.
-	var/turn_off_after_speech = TRUE
-
-/obj/structure/environmental_storytelling_holopad/Destroy()
-	QDEL_NULL(our_holo)
-	return ..()
-
-/obj/structure/environmental_storytelling_holopad/proc/start_message()
-	if(activated)
-		return
-
-	activated = TRUE
-	holo_icon = new /mob/abstract(src)
-	holo_icon.set_invisibility(0)
-	holo_icon.icon = icon('icons/mob/AI.dmi', "schlorrgo")
-	icon_state = "holopad2"
-	update_icon()
-	var/obj/effect/overlay/hologram = new(get_turf(src))
-	our_holo = hologram
-	hologram.appearance = holo_icon.appearance
-	hologram.alpha = 100
-	hologram.color = rgb(214, 217, 221)
-	hologram.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-	hologram.layer = FLY_LAYER
-	hologram.anchored = TRUE
-	hologram.set_light(2, 1, rgb(214, 217, 221))
-	hologram.pixel_y = 16
-	hologram.name = speaking_name
-	var/sound_to_play // apparently this is useless, remove after confirming it
-	if(!sound_to_play && soundblock)
-		sound_to_play = text2path(soundblock)
-	var/datum/asset/spritesheet/S = get_asset_datum(/datum/asset/spritesheet/chat)
-	var/datum/accent/a = SSrecords.accents[ACCENT_SOL]
-	var/final_icon = "accent-[a.tag_icon]"
-	for(var/I in things_to_say)
-		if(sleep_before_speak)
-			sleep(sleep_before_speak)
-			sleep_before_speak = null
-		hologram.langchat_speech("[I]", get_hearers_in_view(7, src), skip_language_check = TRUE)
-		to_chat(get_hearers_in_view(7, src), "[{"<span onclick="window.location.href='byond://?src=[REF(src)];accent_tag=[url_encode(SSrecords.accents[ACCENT_SOL])]'">[S.icon_tag(final_icon)]</span>"} + " "]<span class='game say'><span class='name'>[speaking_name]</span> says, <span class='message'><span class='body'>\"[I]\"</span></span></span>")
-		if(soundblock)
-			playsound(loc, soundblock, 100, FALSE, 7)
-		sleep(loop_sleep_time)
-	if(turn_off_after_speech)
-		QDEL_NULL(our_holo)
-		icon_state = "holopad0"
-
-/// Runs a proc when a player steps on it. Useful for mapping!
-/obj/effect/player_detector
-	name = "player detector"
-
-/obj/effect/player_detector/Initialize()
-	. = ..()
-	var/static/list/loc_connections = list(
-		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
-	)
-
-	AddElement(/datum/element/connect_loc, loc_connections)
-	RegisterSignal(src, COMSIG_ATOM_ENTERED, PROC_REF(on_entered))
-
-/obj/effect/player_detector/proc/on_entered(datum/source, atom/movable/entered) // --------------- CHECK EFFECT/STEP_TRIGGER !!!!!! and replace it with it please
-	SIGNAL_HANDLER
 
 /*######################################
 				RUIN STUFF
@@ -119,68 +30,6 @@ GLOBAL_LIST_EMPTY(quarantined_outpost_creatures)
 
 /obj/machinery/light/small/decayed/quarantined_outpost/group_3
 
-//---- Main player detector
-
-/obj/effect/player_detector/quarantined_outpost
-	name = "main player detector"
-	var/started = FALSE
-
-/obj/effect/player_detector/quarantined_outpost/main
-	name = "main player detector"
-
-/obj/effect/player_detector/quarantined_outpost/main/on_entered(datum/source, atom/movable/entered)
-	. = ..()
-	if(ishuman(entered) || isrobot(entered))
-		for(var/obj/structure/environmental_storytelling_holopad/H in range(3, src.loc))
-			INVOKE_ASYNC(H, TYPE_PROC_REF(/obj/structure/environmental_storytelling_holopad, start_message))
-		for(var/obj/effect/player_detector/quarantined_outpost/D in range(7, loc))
-			//if(D.started)
-				//continue
-			qdel(D)
-		qdel(src)
-	return
-
-//---- Reactor room stuff
-
-/obj/effect/player_detector/quarantined_outpost/briefer
-	name = "briefer player detector"
-
-/obj/effect/player_detector/quarantined_outpost/briefer/on_entered(datum/source, atom/movable/entered)
-	. = ..()
-	if(ishuman(entered) || isrobot(entered))
-		INVOKE_ASYNC(src, PROC_REF(dramatic_lights))
-	return
-
-/obj/effect/player_detector/quarantined_outpost/briefer/proc/dramatic_lights()
-	if(started)
-		return
-	started = TRUE
-	for(var/obj/effect/player_detector/quarantined_outpost/D in range(7, loc))
-		if(D.started)
-			continue
-		qdel(D)
-	var/target_list
-	var/I = 1
-
-	loop_again:
-	sleep(2 SECONDS)
-	// note for self, put your group lights here
-	for(var/obj/machinery/light/small/decayed/quarantined_outpost/O in target_list)
-		O.stat &= ~POWEROFF
-		O.update()
-	I++
-	playsound(loc, 'sound/effects/light_heavy_on.ogg', 50)
-	if(I <= 3)
-		goto loop_again
-	sleep(2 SECONDS)
-	for(var/obj/structure/environmental_storytelling_holopad/reactor/H in range(3, src.loc))
-		H.start_message()
-	qdel(src)
-
-/obj/structure/environmental_storytelling_holopad/reactor
-	speaking_name = "Strom's #1 Fan"
-	things_to_say = list("Hey gamers.", "Today we'll talk about why Sol is the best origin.", "Thank you for coming to my Ted Talk!")
-
 //---- Bluespace portal
 
 /obj/structure/bluespace_portal_device
@@ -190,24 +39,6 @@ GLOBAL_LIST_EMPTY(quarantined_outpost_creatures)
 	icon_state = "bluespace_tap"
 	pixel_x = -32
 	pixel_y = -32
-
-/obj/structure/filler
-	name = "invisible wall"
-	desc = "I cast barrier!"
-	density = TRUE
-	anchored = TRUE
-	invisibility = 101
-
-/obj/structure/filler/ex_act()
-	return
-
-/obj/structure/decor/ladder
-	name = "ladder"
-	icon = 'icons/obj/structures.dmi'
-	icon_state = "ladder01"
-
-/obj/structure/decor/ladder/up
-	icon_state = "ladder10"
 
 /*######################################
 			RUIN CREATURES
@@ -240,7 +71,7 @@ GLOBAL_LIST_EMPTY(quarantined_outpost_creatures)
 	/// Used on deleting revive timer if the mob is burning while being dead.
 	var/revive_timer
 	/// The amount of time it takes for this mob to revive. 5 minutes by default.
-	var/revival_countdown = 15 SECONDS
+	var/revival_countdown = 3 MINUTES
 	/// Did we yell at our unfortunate victim the moment we spot them? This prevents yell spams.
 	var/recently_yelled = FALSE
 	/// The mob will yell at its targets with the sound path set here. Leave as null to disable.
@@ -256,10 +87,12 @@ GLOBAL_LIST_EMPTY(quarantined_outpost_creatures)
 	START_PROCESSING(SSprocessing, src)
 
 /mob/living/simple_animal/hostile/revivable/process() // we check every process cycle if our mob is burning, if not we revive it
-	if(locate(/obj/item/device/flashlight/flare) in get_turf(src))
-		for(var/obj/item/device/flashlight/flare/F in get_turf(src))
+	var/turf/T = get_turf(src)
+	if(locate(/obj/item/device/flashlight/flare) in T)
+		for(var/obj/item/device/flashlight/flare/F in T)
 			if(F.on)
 				src.IgniteMob(2)
+				F.on = FALSE // one flare per mob, otherwise this would make flamethrower mechanic obsolete
 
 	if(on_fire || QDELETED(src))
 		if(revive_timer)
@@ -305,7 +138,7 @@ GLOBAL_LIST_EMPTY(quarantined_outpost_creatures)
 // Husked creature
 /mob/living/simple_animal/hostile/revivable/husked_creature
 	name = "husked creature"
-	desc = "This eerie figure is unusually pale, its body parts difficult to discern. The blade that the creature has as an arm looks sharp and menacing."
+	desc = "This eerie figure is unusually pale, its body parts are difficult to discern. The blade that the creature has as an arm looks sharp and menacing."
 	icon = 'icons/mob/npc/human.dmi'
 	icon_state = "the_thing_1"
 	icon_living = "the_thing_1"
@@ -486,9 +319,11 @@ GLOBAL_LIST_EMPTY(quarantined_outpost_creatures)
 /mob/living/simple_animal/hostile/revivable/husked_creature/quarantined_outpost/Initialize()
 	. = ..()
 	GLOB.quarantined_outpost_creatures += src
+	GLOB.trackables_pool += src
 
 /mob/living/simple_animal/hostile/revivable/husked_creature/quarantined_outpost/Destroy()
 	GLOB.quarantined_outpost_creatures -= src
+	GLOB.trackables_pool -= src
 	return ..()
 
 /mob/living/simple_animal/hostile/revivable/abomination/quarantined_outpost
@@ -505,6 +340,8 @@ GLOBAL_LIST_EMPTY(quarantined_outpost_creatures)
 
 /mob/living/simple_animal/hostile/revivable/husked_creature/quarantined_outpost/horde
 	var/tmp/breaking_wall = FALSE
+	maxHealth = 200
+	health = 200
 
 /mob/living/simple_animal/hostile/revivable/husked_creature/quarantined_outpost/horde/Move(NewLoc)
 	if(breaking_wall)
@@ -544,6 +381,8 @@ GLOBAL_LIST_EMPTY(quarantined_outpost_creatures)
 /mob/living/simple_animal/hostile/revivable/abomination/quarantined_outpost/horde
 	horde = TRUE
 	var/tmp/breaking_wall = FALSE
+	maxHealth = 250
+	health = 250
 
 /mob/living/simple_animal/hostile/revivable/abomination/quarantined_outpost/horde/Move(NewLoc)
 	if(breaking_wall)
@@ -559,7 +398,7 @@ GLOBAL_LIST_EMPTY(quarantined_outpost_creatures)
 				visible_message(SPAN_DANGER("\the [src] is attempting to break down the [EX]!"))
 				playsound(src.loc, 'sound/effects/meteorimpact.ogg', 50, 1)
 				sleep(BREAK_EXTRACTOR_COOLDOWN)
-				if(!QDELETED(EX) && !QDELETED(src) && get_dist(src, target_turf) == 1) // check again if conditions are still valid after sleep
+				if(!QDELETED(EX) && !QDELETED(src) && stat != DEAD && get_dist(src, target_turf) == 1) // check again if conditions are still valid after sleep
 					qdel(EX)
 					visible_message(SPAN_DANGER("With a loud thud, \the [src] breaks down \the [EX]!"))
 					playsound(src.loc, 'sound/effects/meteorimpact.ogg', 50, 1)
@@ -570,7 +409,7 @@ GLOBAL_LIST_EMPTY(quarantined_outpost_creatures)
 				visible_message(SPAN_DANGER("\the [src] is attempting to break down \the [target_turf]!"))
 				playsound(src.loc, 'sound/effects/meteorimpact.ogg', 50, 1)
 				sleep(BREAK_WALL_COOLDOWN)
-				if(istype(target_turf, /turf/simulated/wall) && !QDELETED(src) && get_dist(src, target_turf) == 1) // we check again
+				if(istype(target_turf, /turf/simulated/wall) && !QDELETED(src) && stat != DEAD && get_dist(src, target_turf) == 1) // we check again
 					visible_message(SPAN_DANGER("With a loud thud, \the [src] breaks down the [target_turf]!"))
 					playsound(src.loc, 'sound/effects/meteorimpact.ogg', 50, 1)
 					target_turf.ChangeTurf(/turf/simulated/floor/exoplanet/asteroid/ash/rocky)
@@ -599,16 +438,39 @@ GLOBAL_LIST_EMPTY(quarantined_outpost_creatures)
 	var/obj/effect/fauna_spawner/organized/quarantined_outpost/spawner
 	var/obj/effect/map_effect/interval/screen_shaker/quarantined_outpost/shaker_effect
 
+	/// Local reference of special empty canisters. Used in percentage check. If full, they're removed from the list.
+	var/list/empty_canisters = list()
+	var/list/connector_locations_list = list()
+	var/working = FALSE
+
 /obj/structure/quarantined_outpost_extractor/Initialize()
 	. = ..()
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/structure/quarantined_outpost_extractor/LateInitialize()
 	spawner = locate(/obj/effect/fauna_spawner/organized/quarantined_outpost) in get_turf(src)
+	var/obj/effect/landmark/quarantined_outpost/canister_spawn/CS
+	var/obj/structure/quarantined_outpost/fluff_connector/connector
+	var/list/possible_locations = list()
+	var/turf/T = get_turf(src)
+	for(CS in world) // canister locations
+		if(CS.z == T.z)
+			possible_locations += get_turf(CS)
+	for(var/i in 1 to 5) // only 5 canisters needed for this map
+		empty_canisters += new /obj/structure/quarantined_outpost/fluff_canister(pick_n_take(possible_locations))
+
+	for(connector in world) // getting connector locations
+		if(connector.z == T.z)
+			connector_locations_list += get_turf(connector)
+
 
 /obj/structure/quarantined_outpost_extractor/Destroy() // game over man, it's game over...
 	qdel(spawner)
 	qdel(shaker_effect)
+	empty_canisters.Cut()
 	return ..()
 
-/obj/structure/quarantined_outpost_extractor/proc/begin_extraction()
+/obj/structure/quarantined_outpost_extractor/proc/start_extraction()
 	icon_state = "on"
 	for(var/mob/M in range(50, src))
 		if(M.client)
@@ -616,86 +478,108 @@ GLOBAL_LIST_EMPTY(quarantined_outpost_creatures)
 			Through the noise, you catch something else: a faint sound outside the windows, echoing from deep within the abyss. The air grows tense as the screeches draw closer. \
 			You have a <i>really bad</i> feeling about this..."))
 			playsound(M, 'sound/mecha/powerup.ogg', 50, FALSE)
-			sleep(4 SECONDS)
-			playsound(M, 'sound/music/quarantined_outpost.ogg', 25, FALSE)
-			sleep(38 SECONDS) // just before the beat begins, this HAS to be done with style
-			shaker_effect = new /obj/effect/map_effect/interval/screen_shaker/quarantined_outpost(get_turf(src))
-			activate_fauna_spawners(src.z)
+			spawn(4 SECONDS) // I put my hopes that this thing captures the ref variable that started the process...
+				playsound(M, 'sound/music/quarantined_outpost.ogg', 25, FALSE)
 
-/obj/machinery/atmospherics/portables_connector/quarantined_outpost
+	sleep(40 SECONDS) // just before the beat begins, this HAS to be done with style
+	shaker_effect = new /obj/effect/map_effect/interval/screen_shaker/quarantined_outpost(get_turf(src))
+	activate_fauna_spawners(src.z)
+	working = TRUE
+	var/obj/structure/quarantined_outpost/fluff_canister/canister
+	spawn()
+		while(working && src)
+			for(var/turf/connector_turf in connector_locations_list)
+				canister = locate(/obj/structure/quarantined_outpost/fluff_canister) in connector_turf
+				if(canister && canister.connected)
+					canister.percentage = min(canister.percentage + 10, 100) // make sure it doesn't exceed 100
+					canister.update_icon()
+					if(canister.percentage == 100) // we don't check if the canister was already removed from the list, but i think it should be fine
+						empty_canisters -= canister
+			if(!LAZYLEN(empty_canisters)) // mission successful, shutting down the monster magnet
+				working = FALSE
+				spawner.stop_spawning()
+				qdel(shaker_effect)
+				icon_state = "off"
+				for(var/mob/M in view(7, src))
+					playsound(M, 'sound/mecha/mech-shutdown.ogg', 50, FALSE)
+					to_chat(M, SPAN_DANGER("\The [src]'s hydraulics beginning to slow down, the machine releases one long hiss for one last time."))
+				return
+			sleep(12 SECONDS) // it takes 2 minutes to completely fill a canister
+
+/obj/structure/quarantined_outpost/fluff_connector
 	name = "connector port"
 	desc = "Doesn't seem to be designed for regular atmospheric components."
-	icon_state = "map_connector-fuel"
-	icon_connect_type = "-fuel"
+	icon = 'icons/atmos/connector.dmi'
+	icon_state = "connector-fuel"
+	anchored = TRUE
 
-/obj/machinery/atmospherics/portables_connector/quarantined_outpost/attackby(obj/item/attacking_item, mob/user) // no interacting with this subtype
-	if(attacking_item.iswrench())
-		to_chat(user, SPAN_WARNING("You struggle, but \the [src] is fastened too firmly to detach it."))
-	return
-
-/obj/machinery/portable_atmospherics/canister/quarantined_outpost
+/obj/structure/quarantined_outpost/fluff_canister
 	name = "NEMORA labelled canister"
 	desc = "A fuel canister with an unique connector port."
+	icon = 'icons/obj/atmos.dmi'
 	icon_state = "brown"
-	canister_color = "brown"
 	density = TRUE
+	anchored = FALSE
 
+	var/connected = FALSE
 	var/percentage = 0
 
-/obj/machinery/portable_atmospherics/canister/quarantined_outpost/feedback_hints(mob/user, distance, is_adjacent)
+/obj/structure/quarantined_outpost/fluff_canister/Initialize()
+	. = ..()
+	GLOB.quarantined_outpost_canisters += src
+	GLOB.trackables_pool += src
+	update_icon()
+
+/obj/structure/quarantined_outpost/fluff_canister/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if(distance <= 1)
-		. += "[icon2html(src, user)] This canister is [percentage]% full!"
+		. += "[icon2html(src, user)] The pressure indicator on \the [src] reads: [percentage]% full!"
 
-/obj/machinery/portable_atmospherics/canister/quarantined_outpost/check_change()
-	var/old_flag = update_flag
-	update_flag = 0
-	if(holding)
-		update_flag |= 1
-	if(connected_port)
-		update_flag |= 2
+/obj/structure/quarantined_outpost/fluff_canister/Destroy()
+	GLOB.quarantined_outpost_canisters -= src
+	GLOB.trackables_pool -= src
+	return ..()
 
-	if(percentage < 10)
-		update_flag |= 4
-	else if(percentage < 25)
-		update_flag |= 8
-	else if(percentage < 100)
-		update_flag |= 16
-	else
-		update_flag |= 32
-
-	if(update_flag == old_flag)
-		return 1
-	else
-		return 0
-
-/obj/machinery/portable_atmospherics/canister/quarantined_outpost/attackby(obj/item/attacking_item, mob/user) // this needs to be overriden to get rid of unwanted functions
+/obj/structure/quarantined_outpost/fluff_canister/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.iswrench())
-		if(connected_port)
-			disconnect()
-			to_chat(user, SPAN_NOTICE("You disconnect \the [src] from the port."))
-			attacking_item.play_tool_sound(get_turf(src), 50)
-			update_icon()
-			SStgui.update_uis(src)
+		if(!locate(/obj/structure/quarantined_outpost/fluff_connector) in get_turf(src))
+			to_chat(user, SPAN_WARNING("There is no suitable port to secure \the [src]."))
 			return TRUE
-		else
-			var/obj/machinery/atmospherics/portables_connector/quarantined_outpost/possible_port = locate(/obj/machinery/atmospherics/portables_connector/quarantined_outpost/) in get_turf(src)
-			if(possible_port)
-				if(connect(possible_port))
-					to_chat(user, SPAN_NOTICE("You connect \the [src] to the port."))
-					attacking_item.play_tool_sound(get_turf(src), 50)
-					update_icon()
-					SStgui.update_uis(src)
-					return TRUE
-				else
-					to_chat(user, SPAN_NOTICE("\The [src] failed to connect to the port."))
-					return TRUE
-			else
-				to_chat(user, SPAN_NOTICE("Nothing happens."))
-				return TRUE
+		connected = !connected
+		anchored = !anchored
+		to_chat(user, SPAN_NOTICE("You [connected ? "secure" : "unsecure"] \the [src]."))
+		attacking_item.play_tool_sound(get_turf(src), 50)
+		update_icon()
+		return TRUE
 
-/obj/machinery/portable_atmospherics/canister/quarantined_outpost/attack_hand() // we don't want the UI to appear in this frankenstein
-	return
+	if(istype(attacking_item, /obj/item/device/analyzer) && Adjacent(user))
+		to_chat(user, "[icon2html(src, user)] The pressure indicator on \the [src] reads: [percentage]% full!")
+		return TRUE
+	return ..()
+
+/obj/structure/quarantined_outpost/fluff_canister/update_icon()
+	ClearOverlays()
+	set_light(FALSE)
+
+	if(connected)
+		AddOverlays("can-connector")
+	switch(percentage)
+		if(0 to 10)
+			var/mutable_appearance/indicator_overlay = mutable_appearance(icon, "can-o0", plane = EFFECTS_ABOVE_LIGHTING_PLANE)
+			AddOverlays(indicator_overlay)
+			set_light(1.4, 1, COLOR_RED_LIGHT)
+		if(11 to 30)
+			var/mutable_appearance/indicator_overlay = mutable_appearance(icon, "can-o1", plane = EFFECTS_ABOVE_LIGHTING_PLANE)
+			AddOverlays(indicator_overlay)
+			set_light(1.4, 1, COLOR_RED_LIGHT)
+		if(31 to 99)
+			var/mutable_appearance/indicator_overlay = mutable_appearance(icon, "can-o2", plane = EFFECTS_ABOVE_LIGHTING_PLANE)
+			AddOverlays(indicator_overlay)
+			set_light(1.4, 1, COLOR_YELLOW)
+		if(100)
+			var/mutable_appearance/indicator_overlay = mutable_appearance(icon, "can-o3", plane = EFFECTS_ABOVE_LIGHTING_PLANE)
+			AddOverlays(indicator_overlay)
+			set_light(1.4, 1, COLOR_BRIGHT_GREEN)
 
 /obj/effect/map_effect/interval/screen_shaker/quarantined_outpost
 	interval_lower_bound = 10 SECOND
@@ -705,11 +589,158 @@ GLOBAL_LIST_EMPTY(quarantined_outpost_creatures)
 	shake_strength = 2
 	play_rumble_sound = TRUE
 
+/// Used for location information, some are randomly choosen throughout the map to spawn certain things.
+/obj/effect/landmark/quarantined_outpost
+	name = "object location"
+	icon = 'icons/effects/map_effects.dmi'
+	icon_state = "ghostspawpoint"
+
+/obj/effect/landmark/quarantined_outpost/canister_spawn
+	name = "canister location"
+	icon = 'icons/obj/random.dmi'
+	icon_state = "canister"
+
+/*######################################
+				CONSOLES
+######################################*/
+
+/**
+ * Tracker Consoles
+ * Used for tracking mobs and objects that exists in the same Z level as the console is.
+ * How to use it?
+ * * Define a subtype of this and put the types you need to have tracked in `types_to_track` list.
+ * * Add your mobs/objects to `GLOB.trackables_pool`. For example, see: `/mob/living/simple_animal/hostile/revivable/abomination/quarantined_outpost`
+ */
+/obj/machinery/computer/terminal/mob_tracker
+	name = "tracking terminal"
+	icon_screen = "command"
+	icon_keyboard = "atmos_key"
+	icon_keyboard_emis = "atmos_key_mask"
+
+	/// Lists of type paths used to check tagging mobs to track. Put your types here.
+	var/list/types_to_track
+
+	/// Leave as null if you wish to use default theme.
+	var/tgui_theme
+
+	var/list/areas_with_mobs
+	var/list/areas_with_objects
+
+	/// Last time we have used the console's refresh function.
+	var/cooldown_until
+	var/cooldown = 3 MINUTE
+
+	/// A text that'll be displayed on top of the UI. It also supports strings in html format.
+	var/description_text
+
+/obj/machinery/computer/terminal/mob_tracker/proc/categorize_trackables(mob/user)
+	playsound(get_turf(src), /singleton/sound_category/keyboard_sound, 30, TRUE)
+	if(cooldown_until > world.time)
+		to_chat(user, SPAN_WARNING("Terminal declines your input. Bio-scanners are still preparing for the queries, you may try again in [time2text(cooldown_until - world.time, "mm:ss")] seconds."))
+		return
+
+	// this both ensures the type exists as a key in the list, and cleans it for every requested refresh
+	LAZYNULL(areas_with_mobs)
+	LAZYNULL(areas_with_objects)
+
+	for(var/I in GLOB.trackables_pool) // actual categorizing starts here
+		var/turf/T = get_turf(I)
+		if(!T || T.z != src.z || !is_type_in_list(I, types_to_track))
+			continue
+		var/area_name = get_area(T)
+		if(ismob(I)) // mobs categorized here
+			LAZYOR(areas_with_mobs, area_name) // if we don't have the area name in the list present, we create a new one
+			areas_with_mobs[area_name]++
+		else // anything else categorized here
+			LAZYOR(areas_with_objects, area_name) // if we don't have the area name in the list present, we create a new one
+			areas_with_objects[area_name]++
+	cooldown_until = world.time + cooldown
+
+/obj/machinery/computer/terminal/mob_tracker/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "MobTracker", capitalize_first_letters(name))
+		ui.open()
+
+/obj/machinery/computer/terminal/mob_tracker/ui_data(mob/user)
+	var/list/data = list()
+
+	data["areas_containing_mobs"] = areas_with_mobs
+	data["areas_containing_objects"] = areas_with_objects
+	data["tgui_theme"] = tgui_theme
+	data["description_text"] = description_text
+
+	return data
+
+/obj/machinery/computer/terminal/mob_tracker/ui_act(action, params)
+	. = ..()
+	if(.)
+		return
+	if(action)
+		categorize_trackables(usr)
+
+/obj/machinery/computer/terminal/mob_tracker/attack_hand(mob/user)
+	if(..())
+		return
+	ui_interact(user)
+
+/obj/machinery/computer/terminal/mob_tracker/quarantined_outpost
+	name = "obsolete terminal"
+	types_to_track = list(
+		/mob/living/simple_animal/hostile/revivable/husked_creature/quarantined_outpost,
+		/obj/structure/quarantined_outpost/fluff_canister
+	)
+
+	tgui_theme = "sol"
+	var/console_location_name
+
+/obj/machinery/computer/terminal/mob_tracker/quarantined_outpost/Initialize()
+	. = ..()
+	console_location_name = get_area(get_turf(src))
+	description_text = {"
+	<hr>
+	LINK ESTABLISHED --------- VER 216.152156
+	<br><br>
+	ERR:0xDEAD: TIME SERVICE TIMEOUT (NO RESPONSE). CONTACT AN ADMINISTRATOR.
+	<br><br>
+	ACTUAL TIME: 9 DEC 2278 <br>
+	LOCATION: [console_location_name]
+	<br><br>
+	AWAITING INPUT_
+	"}
+
+// Ruin specific consoles
+
+/obj/machinery/computer/terminal/quarantined_outpost/extraction
+	name = "extraction terminal"
+	icon_screen = "forensic"
+	icon_keyboard = "atmos_key"
+	icon_keyboard_emis = "atmos_key_mask"
+
+	var/used = FALSE
+
+/obj/machinery/computer/terminal/quarantined_outpost/extraction/attack_hand(mob/user)
+	if(used)
+		to_chat(user, SPAN_WARNING("You cannot interact with \the [src] right now."))
+		return
+	used = TRUE
+	if(LAZYLEN(GLOB.quarantined_outpost_creatures))
+		to_chat(user, SPAN_WARNING("\The [src] doesn't notice your input. The notice on the screen informs you about a present lockdown and quarantine protocols."))
+		playsound(get_turf(src), /singleton/sound_category/keyboard_sound, 30, TRUE)
+		used = FALSE
+		return
+	if(tgui_alert(user, "\The [src] initiates necessary systems, you are one button away from kickstarting the extraction. Before you do so, a wave doubt washes over you \
+	This machine hasn't been maintained for a <i>long</i> time. This may be the only chance you have got.", "Warning!", list("Confirm", "I changed my mind")) != "Confirm")
+		used = FALSE
+		return
+
+	var/obj/structure/quarantined_outpost_extractor/EX = locate(/obj/structure/quarantined_outpost_extractor) in world
+	EX.start_extraction()
+
+
 /*######################################
 				MISC
 ######################################*/
-
-/obj/structure/fluff/
 
 /// Mainly used by abominations to copy human appearance.
 /obj/effect/landmark/corpse/quarantined_outpost
@@ -788,6 +819,24 @@ GLOBAL_LIST_EMPTY(quarantined_outpost_creatures)
 		/obj/item/storage/backpack/satchel/pocketbook
 	)
 
+/obj/structure/filler
+	name = "invisible wall"
+	desc = "I cast barrier!"
+	density = TRUE
+	anchored = TRUE
+	invisibility = 101
+
+/obj/structure/filler/ex_act()
+	return
+
+/obj/structure/decor/ladder
+	name = "ladder"
+	icon = 'icons/obj/structures.dmi'
+	icon_state = "ladder01"
+
+/obj/structure/decor/ladder/up
+	icon_state = "ladder10"
+
 /*######################################
 				PAPERS
 ######################################*/
@@ -828,7 +877,7 @@ GLOBAL_LIST_EMPTY(quarantined_outpost_creatures)
 
 /obj/item/paper/fluff/reward/research_note
 	name = "research article"
-	var/static/list/possible_techs = list(
+	var/list/possible_techs = list(
 		TECH_MATERIAL, TECH_ENGINEERING, TECH_POWER, TECH_BIO,
 		TECH_COMBAT, TECH_MAGNET, TECH_DATA, TECH_ARCANE
 	) // illegals, phoron and bluespace isn't included for this instance, given this ruin is a pre-war solarian ruin, two of these things weren't discovered at the time
