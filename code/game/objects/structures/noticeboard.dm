@@ -2,7 +2,7 @@
 	name = "notice board"
 	desc = "A board for pinning probably not-so-important notices upon."
 	icon = 'icons/obj/stationobjs.dmi'
-	icon_state = "nboard00"
+	icon_state = "nboard"
 	density = 0
 	anchored = 1
 	var/notices = 0
@@ -18,7 +18,7 @@
 		if(istype(I, /obj/item/paper))
 			I.forceMove(src)
 			notices++
-	icon_state = "nboard0[notices]"
+	icon_state = "nboard[notices]"
 
 //attaching papers!!
 /obj/structure/noticeboard/attackby(obj/item/attacking_item, mob/user)
@@ -28,7 +28,7 @@
 			add_fingerprint(user)
 			user.drop_from_inventory(attacking_item,src)
 			notices++
-			icon_state = "nboard0[notices]"	//update sprite
+			icon_state = "nboard[notices]"	//update sprite
 			SSpersistence.register_track(attacking_item, ckey(usr.key)) // Add paper to persistent tracker
 			to_chat(user, SPAN_NOTICE("You pin the paper to the noticeboard."))
 		else
@@ -62,7 +62,7 @@
 			P.add_fingerprint(usr)
 			add_fingerprint(usr)
 			notices--
-			icon_state = "nboard0[notices]"
+			icon_state = "nboard[notices]"
 			SSpersistence.deregister_track(P) // Remove paper from persistent tracker
 	if(href_list["write"])
 		if((usr.stat || usr.restrained())) //For when a player is handcuffed while they have the notice window open
@@ -90,7 +90,7 @@
 	name = "command notice board"
 	desc = "A board for command to pin actually important information on. As if. Can be locked and unlocked with an appropiate ID."
 	icon = 'icons/obj/stationobjs.dmi'
-	icon_state = "comboard00"
+	icon_state = "comboard"
 	req_access = list(ACCESS_CAPTAIN, ACCESS_CMO, ACCESS_HOS, ACCESS_QM, ACCESS_HOS, ACCESS_CE)
 	var/open
 	var/unlocked
@@ -130,7 +130,7 @@
 		if(istype(I, /obj/item/paper))
 			I.forceMove(src)
 			notices++
-	icon_state = "comboard0[notices]"
+	icon_state = "comboard[notices]"
 
 /obj/structure/noticeboard/command/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/paper))
@@ -139,7 +139,7 @@
 			add_fingerprint(user)
 			user.drop_from_inventory(attacking_item,src)
 			notices++
-			icon_state = "comboard0[notices]"	//Updates the sprite.
+			icon_state = "comboard[notices]"	//Updates the sprite.
 			SSpersistence.register_track(attacking_item, ckey(usr.key)) // Add paper to persistent tracker.
 			to_chat(user, SPAN_NOTICE("You pin the paper to the noticeboard."))
 		else
