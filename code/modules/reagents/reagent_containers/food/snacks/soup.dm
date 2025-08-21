@@ -205,7 +205,7 @@
 
 /obj/item/reagent_containers/food/snacks/soup/gazpacho
 	name = "gazpacho"
-	desc = "Excuse me, waiter, my tomato soup is cold! Wha- They serve it like this in spain?! Well... uh... I knew that! I just meant it should be colder! Everyone knows they don't have stoves back in Sol!... Right?"
+	desc = "Excuse me, waiter, my tomato soup is cold! Wha- They serve it like this in Spain?! Well... uh... I knew that! I just meant it should be colder! Everyone knows they don't have stoves back in Sol!... Right?"
 	icon = 'icons/obj/item/reagent_containers/food/soup.dmi'
 	icon_state = "gazpacho"
 	filling_color = "#e2520f"
