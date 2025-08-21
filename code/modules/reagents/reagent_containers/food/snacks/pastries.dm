@@ -356,7 +356,7 @@
 
 /obj/item/reagent_containers/food/snacks/cranberry_orange_roll
 	name = "cranberry orange roll"
-	desc = "A lovely glazed sweet roll full of cranberry-orange flavor. A delicious treat whether for a thanksgiving meal on sol, or a nice walk through Xanu Prime's many pastry shops."
+	desc = "A lovely glazed sweet roll full of cranberry-orange flavor. A delicious treat whether for a thanksgiving meal in Sol, or a nice walk through Xanu Prime's many pastry shops."
 	icon = 'icons/obj/item/reagent_containers/food/pastries.dmi'
 	icon_state = "cranberryroll"
 	filling_color = "#c43934"
