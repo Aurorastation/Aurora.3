@@ -93,9 +93,17 @@
 	icon_state = "comboard00"
 	var/open
 	var/unlocked
+	req_access = ACCESS_COMMAND
+	var/damage_threshold = 10 // Damage needed to shatter the glass, same as the fireaxe cabinet.
+	var/open
+	var/unlocked
+	var/shattered
+
 
 /obj/structure/noticeboard/command/update_icon()
 	ClearOverlays()
+	if(shattered)
+		AddOverlays("glass_destroyed")
 	if(unlocked)
 		AddOverlays("unlocked")
 	else
@@ -167,8 +175,7 @@
 		return
 	else
 		to_chat(user, SPAN_NOTICE("You [unlocked ? "enable" : "disable"] \the [src]'s maglock."))
-
-		if(!do_after(user, 20))
+		if(!do_after(user, 5))
 			return
 
 		unlocked = !unlocked
