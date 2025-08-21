@@ -941,7 +941,7 @@
 		icon_state = "slicedbread_half"
 	else if(contents.len <= 7)
 		icon_state = "slicedbread_nearfull"
-	else if(contents.len <= 8)
+	else if(contents.len <= max_storage_space)
 		icon_state = "slicedbread_full"
 
 
