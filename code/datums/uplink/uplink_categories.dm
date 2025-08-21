@@ -52,7 +52,7 @@
 	name = "Medical"
 
 /datum/uplink_category/hardsuit_modules
-	name = "Hardsuit Modules"
+	name = "Hardsuits And Modules"
 
 /datum/uplink_category/services
 	name = "Services"

@@ -593,7 +593,7 @@
 #include "code\datums\uplink\exosuit_equipment.dm"
 #include "code\datums\uplink\gear loadout.dm"
 #include "code\datums\uplink\grenades.dm"
-#include "code\datums\uplink\hardsuit_modules.dm"
+#include "code\datums\uplink\hardsuits and modules.dm"
 #include "code\datums\uplink\highly visible and dangerous weapons.dm"
 #include "code\datums\uplink\implants.dm"
 #include "code\datums\uplink\martial_arts.dm"

@@ -52,6 +52,11 @@
 		/obj/item/rig_module/actuators/combat // What the dude above me said.
 		)
 
+/obj/item/rig/merc/trulyempty
+	initial_modules = list(
+
+		)
+
 /obj/item/rig/merc/ninja
 	initial_modules = list(
 		/obj/item/rig_module/mounted,
@@ -155,3 +160,8 @@
 		/obj/item/rig_module/ai_container,
 		/obj/item/rig_module/chem_dispenser/combat
 	)
+
+/obj/item/rig/merc/einstein/empty
+	initial_modules = list(
+
+		)
