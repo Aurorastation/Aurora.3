@@ -314,7 +314,7 @@
 
 /obj/item/reagent_containers/food/snacks/sth_fish
 	name = "S'th fish"
-	desc = "A high-end, flavorful dish fit for Unathi nobility. It is made of a few strips of well-seasoned, pan-fried fish served in or next to a bowl of hot S'th-berry soup. You dip the fish strips in the soup and eat them. It is intentionally big but not very filling, as if to say 'i am wealthy enough that this is not my only meal today'. Noble Unathi will likely avoid finishing the soup once they've already eaten the fish, as it is considered to be lower-class behavior unbefitting of the well-fed nobility, akin to licking your plate clean."
+	desc = "A high-end, flavorful dish fit for Unathi nobility. It is made of a few strips of well-seasoned, pan-fried fish served in or next to a bowl of hot S'th-berry soup. You dip the fish strips in the soup and eat them. It is intentionally big but not very filling, as if to say 'I am wealthy enough that this is not my only meal today'. Noble Unathi will likely avoid finishing the soup once they've already eaten the fish, as it is considered to be lower-class behavior unbefitting of the well-fed nobility, akin to licking your plate clean."
 	icon = 'icons/obj/item/reagent_containers/food/cultural/unathi.dmi'
 	icon_state = "sthfish"
 	trash = /obj/item/trash/snack_bowl
