@@ -11,11 +11,14 @@ export type MobTrackerData = {
 export const MobTracker = (props, context) => {
   const { act, data } = useBackend<MobTrackerData>(context);
 
-  const total_entities = Object.values(data.areas_containing_mobs || {})
-    .reduce((sum, count) => sum + count, 0);
+  const total_entities = Object.values(data.areas_containing_mobs || {}).reduce(
+    (sum, count) => sum + count,
+    0
+  );
 
-  const total_objects = Object.values(data.areas_containing_objects || {})
-    .reduce((sum, count) => sum + count, 0);
+  const total_objects = Object.values(
+    data.areas_containing_objects || {}
+  ).reduce((sum, count) => sum + count, 0);
 
   return (
     <Window resizable theme={data.tgui_theme || 'default'}>
@@ -23,13 +26,13 @@ export const MobTracker = (props, context) => {
         <Flex direction="row" align="stretch">
           <Flex.Item grow={1}>
             <Section
-              fill title="System Status"
+              fill
+              title="System Status"
               fontFamily="monospace"
               style={{
                 padding: '8px',
                 lineHeight: '1.2',
-              }}
-            >
+              }}>
               <LabeledList>
                 <LabeledList.Item label="SCANNED AREAS">
                   {Object.keys(data.areas_containing_mobs || {}).length}
@@ -45,7 +48,8 @@ export const MobTracker = (props, context) => {
           </Flex.Item>
           <Flex.Item grow={2}>
             <Section
-              fill title="Facility-wide Sensors"
+              fill
+              title="Facility-wide Sensors"
               fontFamily="monospace"
               style={{
                 padding: '8px',
@@ -59,13 +63,16 @@ export const MobTracker = (props, context) => {
                 />
               }>
               <LabeledList>
-                {Object.entries(data.areas_containing_mobs || {}).map(([area_name, count]) => (
-                  <LabeledList.Item
-                    key={area_name} label={area_name.toUpperCase().padEnd(20)} color={count >= 5 ? 'red' : 'yellow'}
-                  >
-                    {count} ENTITY(S) FOUND
-                  </LabeledList.Item>
-                ))}
+                {Object.entries(data.areas_containing_mobs || {}).map(
+                  ([area_name, count]) => (
+                    <LabeledList.Item
+                      key={area_name}
+                      label={area_name.toUpperCase().padEnd(20)}
+                      color={count >= 5 ? 'red' : 'yellow'}>
+                      {count} ENTITY(S) FOUND
+                    </LabeledList.Item>
+                  )
+                )}
               </LabeledList>
             </Section>
           </Flex.Item>
@@ -74,13 +81,13 @@ export const MobTracker = (props, context) => {
         <Flex direction="row" align="stretch">
           <Flex.Item grow={1}>
             <Section
-              fill title="System Status"
+              fill
+              title="System Status"
               fontFamily="monospace"
               style={{
                 padding: '8px',
                 lineHeight: '1.2',
-              }}
-            >
+              }}>
               <LabeledList>
                 <LabeledList.Item label="SCANNED AREAS">
                   {Object.keys(data.areas_containing_objects || {}).length}
@@ -96,20 +103,23 @@ export const MobTracker = (props, context) => {
           </Flex.Item>
           <Flex.Item grow={2}>
             <Section
-              fill title="Tracking Sensors"
+              fill
+              title="Tracking Sensors"
               fontFamily="monospace"
               style={{
                 padding: '8px',
                 lineHeight: '1.2',
               }}>
               <LabeledList>
-                {Object.entries(data.areas_containing_objects || {}).map(([area_name, count]) => (
-                  <LabeledList.Item
-                    key={area_name} label={area_name.toUpperCase().padEnd(20)}
-                  >
-                    {count} OBJECT(S) FOUND
-                  </LabeledList.Item>
-                ))}
+                {Object.entries(data.areas_containing_objects || {}).map(
+                  ([area_name, count]) => (
+                    <LabeledList.Item
+                      key={area_name}
+                      label={area_name.toUpperCase().padEnd(20)}>
+                      {count} OBJECT(S) FOUND
+                    </LabeledList.Item>
+                  )
+                )}
               </LabeledList>
             </Section>
           </Flex.Item>
