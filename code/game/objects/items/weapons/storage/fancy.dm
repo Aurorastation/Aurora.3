@@ -939,7 +939,7 @@
 		icon_state = "slicedbread_last"
 	else if(contents.len <= 0.5 * max_storage_space)
 		icon_state = "slicedbread_half"
-	else if(contents.len <= 7)
+	else if(contents.len <= 0.875 * max_storage_space)
 		icon_state = "slicedbread_nearfull"
 	else if(contents.len <= max_storage_space)
 		icon_state = "slicedbread_full"
