@@ -283,7 +283,7 @@ ABSTRACT_TYPE(/obj/item/reagent_containers/food/snacks/sliceable/pizza/deepdish/
 
 /obj/item/reagent_containers/food/snacks/sliceable/pizza/deepdish/mendell
 	name = "deep dish mendell style pizza"
-	desc = "If a pizza place anywhere in the universe has a sign reading 'mendell style pizza' but the pizza doesn't have bell peppers and anchovies on it, you need to leave."
+	desc = "If a pizza place anywhere in the universe has a sign reading 'Mendell style pizza' but the pizza doesn't have bell peppers and anchovies on it, you need to leave."
 	icon_state = "deepdish_mendell"
 	slice_path = /obj/item/reagent_containers/food/snacks/deepdish/mendell_slice
 	filling_color = "#b32b13"
