@@ -52,11 +52,11 @@ export const MobTracker = (props, context) => {
                 lineHeight: '1.2',
               }}
               buttons={
-                  <Button
-                    content="Refresh"
-                    icon="refresh"
-                    onClick={() => act('refresh_the_ui')}
-                  />
+                <Button
+                  content="Refresh"
+                  icon="refresh"
+                  onClick={() => act('refresh_the_ui')}
+                />
               }>
               <LabeledList>
                 {Object.entries(data.areas_containing_mobs || {}).map(([area_name, count]) => (
