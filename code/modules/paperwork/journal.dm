@@ -110,6 +110,24 @@
 	LAZYREMOVE(indices, E.name)
 	update_icon()
 
+/obj/item/journal/filled
+
+/obj/item/journal/filled/Initialize()
+	. = ..()
+	var/obj/item/folder/embedded/E = new /obj/item/folder/embedded(src)
+	var/index_name = "Papers"
+	E.name = index_name
+	LAZYSET(indices, E.name, E)
+	RegisterSignal(E, COMSIG_QDELETING, PROC_REF(remove_index))
+
+	E = indices[1]
+	new /obj/item/paper(E)
+	new /obj/item/paper(E)
+	new /obj/item/paper(E)
+	new /obj/item/paper(E)
+	new /obj/item/paper(E)
+	update_icon()
+
 /obj/item/journal/notepad
 	name = "notepad"
 	desc = "A notepad for jotting down notes in meetings or interrogations."
@@ -140,6 +158,31 @@
 
 	if(closed_desc)
 		desc = open ? initial(desc) + closed_desc : initial(desc)
+
+/obj/item/journal/notepad/filled
+
+/obj/item/journal/notepad/filled/Initialize()
+	. = ..()
+	var/obj/item/folder/embedded/E = new /obj/item/folder/embedded(src)
+	var/index_name = "Papers"
+	E.name = index_name
+	LAZYSET(indices, E.name, E)
+	RegisterSignal(E, COMSIG_QDELETING, PROC_REF(remove_index))
+
+	var/selected_folder = indices[1]
+	if(isnull(selected_folder))
+		return
+	else
+		E = indices[selected_folder]
+	if(!E)
+		return
+	new /obj/item/paper(E)
+	new /obj/item/paper(E)
+	new /obj/item/paper(E)
+	new /obj/item/paper(E)
+	new /obj/item/paper(E)
+	update_icon()
+	return
 
 /obj/item/journal/notepad/scc
 	name = "scc notepad"
