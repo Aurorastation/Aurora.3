@@ -91,14 +91,25 @@
 	desc = "A board for command to pin actually important information on. As if. Can be locked and unlocked with an appropiate ID."
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "comboard00"
+	req_access = list(ACCESS_CAPTAIN, ACCESS_CMO, ACCESS_HOS, ACCESS_OM, ACCESS_XO, ACCESS_CE)
 	var/open
 	var/unlocked
-	req_access = ACCESS_COMMAND
 	var/damage_threshold = 10 // Damage needed to shatter the glass, same as the fireaxe cabinet.
-	var/open
-	var/unlocked
 	var/shattered
 
+/obj/structure/noticeboard/command/attack_generic(var/mob/user, var/damage, var/attack_verb, var/wallbreaker)
+	user.do_attack_animation(src)
+	playsound(user, 'sound/effects/glass_hit.ogg', 50, 1)
+	visible_message(SPAN_WARNING("\The [user] [attack_verb] \the [src]!"))
+	if(damage_threshold >= damage)
+		to_chat(user, SPAN_WARNING("Your strike is deflected by the reinforced glass!"))
+		return
+	if(shattered)
+		return
+	unlocked = TRUE
+	open = TRUE
+	playsound(user, /singleton/sound_category/glass_break_sound, 100, 1)
+	update_icon()
 
 /obj/structure/noticeboard/command/update_icon()
 	ClearOverlays()
@@ -113,17 +124,6 @@
 	else
 		AddOverlays("glass")
 
-/obj/structure/noticeboard/command/attack_generic(var/mob/user, var/damage, var/attack_verb, var/wallbreaker)
-	user.do_attack_animation(src)
-	playsound(user, 'sound/effects/glass_hit.ogg', 50, 1)
-	visible_message(SPAN_WARNING("\The [user] [attack_verb] \the [src]!"))
-	to_chat(user, SPAN_WARNING("Your strike is deflected by the reinforced glass!"))
-	return
-	unlocked = TRUE
-	open = TRUE
-	playsound(user, /singleton/sound_category/glass_break_sound, 100, 1)
-	update_icon()
-
 /obj/structure/noticeboard/command/add_papers_from_turf()
 	for(var/obj/item/I in loc)
 		if(notices > 5) break
@@ -134,18 +134,18 @@
 
 /obj/structure/noticeboard/command/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/paper))
-		if(notices < 6)
+		if(notices < 6) // Command boards have less space so people are incentivized to pin actually important stuff.
 			attacking_item.add_fingerprint(user)
 			add_fingerprint(user)
 			user.drop_from_inventory(attacking_item,src)
 			notices++
-			icon_state = "comboard0[notices]"	//update sprite
-			SSpersistence.register_track(attacking_item, ckey(usr.key)) // Add paper to persistent tracker
+			icon_state = "comboard0[notices]"	//Updates the sprite.
+			SSpersistence.register_track(attacking_item, ckey(usr.key)) // Add paper to persistent tracker.
 			to_chat(user, SPAN_NOTICE("You pin the paper to the noticeboard."))
 		else
 			to_chat(user, SPAN_NOTICE("You reach to pin your paper to the board but hesitate. You are certain your paper will not be seen among the many others already attached."))
 
-/obj/structure/noticeboard/command/attack_ai(var/mob/user)
+/obj/structure/noticeboard/command/attack_ai(var/mob/user) // AI can interact with the maglock on the noticeboard, if a fringe case where this needed ever happens.
 	if(!ai_can_interact(user))
 		return
 	toggle_lock(user)
@@ -175,7 +175,7 @@
 		return
 	else
 		to_chat(user, SPAN_NOTICE("You [unlocked ? "enable" : "disable"] \the [src]'s maglock."))
-		if(!do_after(user, 5))
+		if(!do_after(user, 5)) // So you can't spam it.
 			return
 
 		unlocked = !unlocked
