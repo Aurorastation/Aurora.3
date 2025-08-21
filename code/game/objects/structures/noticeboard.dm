@@ -91,7 +91,7 @@
 	desc = "A board for command to pin actually important information on. As if. Can be locked and unlocked with an appropiate ID."
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "comboard00"
-	req_access = list(ACCESS_CAPTAIN, ACCESS_CMO, ACCESS_HOS, ACCESS_OM, ACCESS_XO, ACCESS_CE)
+	req_access = list(ACCESS_CAPTAIN, ACCESS_CMO, ACCESS_HOS, ACCESS_QM, ACCESS_HOS, ACCESS_CE)
 	var/open
 	var/unlocked
 	var/damage_threshold = 10 // Damage needed to shatter the glass, same as the fireaxe cabinet.
