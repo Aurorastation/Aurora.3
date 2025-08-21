@@ -326,15 +326,37 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 	GLOB.trackables_pool -= src
 	return ..()
 
+/mob/living/simple_animal/hostile/revivable/husked_creature/quarantined_outpost/death()
+	. = ..()
+	GLOB.quarantined_outpost_creatures -= src
+	GLOB.trackables_pool -= src
+
+/mob/living/simple_animal/hostile/revivable/husked_creature/quarantined_outpost/revive()
+	. = ..()
+	GLOB.quarantined_outpost_creatures += src
+	GLOB.trackables_pool += src
+
 /mob/living/simple_animal/hostile/revivable/abomination/quarantined_outpost
 
 /mob/living/simple_animal/hostile/revivable/abomination/quarantined_outpost/Initialize()
 	. = ..()
 	GLOB.quarantined_outpost_creatures += src
+	GLOB.trackables_pool += src
 
 /mob/living/simple_animal/hostile/revivable/abomination/quarantined_outpost/Destroy()
 	GLOB.quarantined_outpost_creatures -= src
+	GLOB.trackables_pool -= src
 	return ..()
+
+/mob/living/simple_animal/hostile/revivable/abomination/quarantined_outpost/death()
+	. = ..()
+	GLOB.quarantined_outpost_creatures -= src
+	GLOB.trackables_pool -= src
+
+/mob/living/simple_animal/hostile/revivable/abomination/quarantined_outpost/revive()
+	. = ..()
+	GLOB.quarantined_outpost_creatures += src
+	GLOB.trackables_pool += src
 
 // ---- special types used in horde spawner (shamelessly copied and adjusted from phoron_deposit_objects.dm)
 
@@ -630,9 +652,6 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 	var/cooldown_until
 	var/cooldown = 3 MINUTE
 
-	/// A text that'll be displayed on top of the UI. It also supports strings in html format.
-	var/description_text
-
 /obj/machinery/computer/terminal/mob_tracker/proc/categorize_trackables(mob/user)
 	playsound(get_turf(src), /singleton/sound_category/keyboard_sound, 30, TRUE)
 	if(cooldown_until > world.time)
@@ -668,7 +687,6 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 	data["areas_containing_mobs"] = areas_with_mobs
 	data["areas_containing_objects"] = areas_with_objects
 	data["tgui_theme"] = tgui_theme
-	data["description_text"] = description_text
 
 	return data
 
@@ -688,26 +706,11 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 	name = "obsolete terminal"
 	types_to_track = list(
 		/mob/living/simple_animal/hostile/revivable/husked_creature/quarantined_outpost,
+		/mob/living/simple_animal/hostile/revivable/abomination/quarantined_outpost,
 		/obj/structure/quarantined_outpost/fluff_canister
 	)
 
 	tgui_theme = "sol"
-	var/console_location_name
-
-/obj/machinery/computer/terminal/mob_tracker/quarantined_outpost/Initialize()
-	. = ..()
-	console_location_name = get_area(get_turf(src))
-	description_text = {"
-	<hr>
-	LINK ESTABLISHED --------- VER 216.152156
-	<br><br>
-	ERR:0xDEAD: TIME SERVICE TIMEOUT (NO RESPONSE). CONTACT AN ADMINISTRATOR.
-	<br><br>
-	ACTUAL TIME: 9 DEC 2278 <br>
-	LOCATION: [console_location_name]
-	<br><br>
-	AWAITING INPUT_
-	"}
 
 // Ruin specific consoles
 
