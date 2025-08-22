@@ -937,7 +937,7 @@
 	for(var/obj/item/I in contents)
 		storage_space_used += I.get_storage_cost()
 
-	if(!storage_		space_used)
+	if(!storage_space_used)
 		icon_state = "slicedbread_empty"
 	else if(storage_space_used <= 0.25 * max_storage_space)
 		icon_state = "slicedbread_last"
