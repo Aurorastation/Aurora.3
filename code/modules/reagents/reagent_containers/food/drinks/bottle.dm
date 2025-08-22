@@ -581,7 +581,7 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/limoncello
 	name = "Limoncello Mediterraneo"
-	desc = "A lemon liquor popular in southern Italy and in Assunzione"
+	desc = "A lemon liquor popular in Italy and in Assunzione."
 	desc_extended = DRINK_FLUFF_SILVERPORT
 	icon_state = "limoncello"
 	center_of_mass = list("x"=16, "y"=6)

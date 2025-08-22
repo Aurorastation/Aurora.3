@@ -1796,7 +1796,7 @@
 
 /singleton/reagent/alcohol/limoncello
 	name = "Limoncello"
-	description = "A lemon liquor beloved in southern Italy and Assunzione alike."
+	description = "A lemon liquor beloved in Italy and Assunzione alike."
 	color = "#ffef16"
 	strength = 24
 	taste_description = "lemon liquor"
