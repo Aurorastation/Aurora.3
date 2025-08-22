@@ -652,6 +652,11 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 	var/cooldown_until
 	var/cooldown = 3 MINUTE
 
+	/// If true, the console won't display the scan readings. Useful for cases if this object needs a conditional use.
+	var/disabled = FALSE
+	/// The text that'll be displayed in disabled console screen.
+	var/no_data_description
+
 /obj/machinery/computer/terminal/mob_tracker/proc/categorize_trackables(mob/user)
 	playsound(get_turf(src), /singleton/sound_category/keyboard_sound, 30, TRUE)
 	if(cooldown_until > world.time)
@@ -687,6 +692,8 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 	data["areas_containing_mobs"] = areas_with_mobs
 	data["areas_containing_objects"] = areas_with_objects
 	data["tgui_theme"] = tgui_theme
+	data["disabled"] = disabled
+	data["no_data_description"] = no_data_description
 
 	return data
 
@@ -711,6 +718,8 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 	)
 
 	tgui_theme = "sol"
+	disabled = TRUE
+	no_data_description = "ERR:0xDEAD UNABLE TO LINK WITH SENSORS RELAY"
 
 // Ruin specific consoles
 
@@ -744,6 +753,26 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 /*######################################
 				MISC
 ######################################*/
+
+/// A mapping tool. Has a chance to cut a cable and pry the flooring of the tile this landmark is placed upon.
+/obj/effect/landmark/maybe_cut_cable
+	name = "cut cable helper"
+	icon_state = "x"
+
+/obj/effect/landmark/maybe_cut_cable/Initialize()
+	..()
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/effect/landmark/maybe_cut_cable/LateInitialize()
+	if(prob(25))
+		var/turf/simulated/floor/T = get_turf(src)
+		var/obj/structure/cable/C = locate(/obj/structure/cable) in T
+		if(C)
+			new/obj/item/stack/cable_coil(T, 1, C.color)
+			qdel(C)
+			if(T.flooring && T.flooring.flags & TURF_REMOVE_CROWBAR)
+				T.make_plating(1)
+	qdel(src)
 
 /// Mainly used by abominations to copy human appearance.
 /obj/effect/landmark/corpse/quarantined_outpost
