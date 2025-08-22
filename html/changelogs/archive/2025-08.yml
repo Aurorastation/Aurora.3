@@ -306,3 +306,34 @@
   nauticall:
   - spellcheck: Renamed the NTCC Odin's AI from 'Bubble' to 'Huginn' to comply with
       recent lore changes.
+2025-08-17:
+  FabianK3:
+  - rscadd: Added subsystem for persistent data between rounds. The framework includes
+      the subsystem responsible for managing persistent data and provides functionality
+      for objects to be added to said system. See PR and GitHub Wiki documentation
+      for more technical details.
+  - config: Added new log type for the persistence subsystem.
+  - experiment: Added papers and noticeboards to the persistence subsystem. Papers
+      and their contents (title and text) will now be persistent across rounds when
+      they get pinned to noticeboards. They will loose persistence when they either
+      get unpinned during a round or after no changes within 30 days. Unpinning and
+      re-pinning will keep them persistent but not update the 30 days expiration date;
+      Unpinning, editing and re-pinning them will reset the 30 days expiration date.
+2025-08-18:
+  Kano:
+  - bugfix: Fixed mobs ignoring their speed value.
+  KingOfThePing:
+  - rscadd: Added a reminder header to the gun reload sounds .dm to remind people
+      that there are a variety of sounds available.
+  TheGreyWolf:
+  - rscadd: Raskariim can now pick between if their records show they follow the ma'ta'ke
+      or the twin suns religion. As a result, all raskariim will need to re-select
+      their religion.
+  - rscadd: A set of raskariim charms were added to the tajaran loadout. They can
+      be identified by any other tajara who selected raskariim as their religion.
+  UltraBigRat:
+  - rscadd: Gave all cult constructs armor, and increased their health.
+  hazelmouse:
+  - rscadd: Remapped medical by shuffling the positions of the psychiatric office,
+      paramedics' quarters, and recovery room. This is primarily intended to make
+      recovery a more appealing and visible spot.
