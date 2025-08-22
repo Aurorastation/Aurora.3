@@ -370,6 +370,7 @@
 
 	else
 		visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] \The [src] flashes: Insufficient materials to complete build: [D.name]."))
+		remove_from_queue(1)
 
 	update_icon()
 
@@ -409,7 +410,7 @@
 
 /obj/machinery/mecha_part_fabricator/proc/get_queue_names()
 	. = list()
-	for(var/i = 2 to queue.len)
+	for(var/i = 1 to queue.len)
 		var/datum/design/D = queue[i]
 		. += list(list("name" = D.name, "time" = get_design_time(D), "index" = i))
 
