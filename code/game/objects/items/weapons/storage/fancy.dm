@@ -932,17 +932,21 @@
 	throwforce = 1
 
 /obj/item/storage/box/fancy/food/sliced_bread/update_icon()
-	. = ..()
-	if(contents.len == 0) //this isn't marked as trash so items can still be put back into the container once removed
-		icon_state = "slicedbread_empty"
-	else if(contents.len <= 0.25 * max_storage_space)
-		icon_state = "slicedbread_last"
-	else if(contents.len <= 0.5 * max_storage_space)
-		icon_state = "slicedbread_half"
-	else if(contents.len <= 0.875 * max_storage_space)
-		icon_state = "slicedbread_nearfull"
-	else if(contents.len <= max_storage_space)
-		icon_state = "slicedbread_full"
+    . = ..()
+    var/storage_space_used
+    for(var/obj/item/I in contents)
+        storage_space_used += I.get_storage_cost()
+
+    if(!storage_space_used)
+        icon_state = "slicedbread_empty"
+    else if(storage_space_used <= 0.25 * max_storage_space)
+        icon_state = "slicedbread_last"
+    else if(storage_space_used <= 0.5 * max_storage_space)
+        icon_state = "slicedbread_half"
+    else if(storage_space_used <= 0.875 * max_storage_space)
+        icon_state = "slicedbread_nearfull"
+    else if(storage_space_used <= max_storage_space)
+        icon_state = "slicedbread_full"
 
 
 /obj/item/storage/box/fancy/food/packaged_shrimp
@@ -966,9 +970,13 @@
 
 /obj/item/storage/box/fancy/food/packaged_shrimp/update_icon()
 	. = ..()
-	if(contents.len == 0) //this isn't marked as trash so items can still be put back into the container once removed
+	var/storage_space_used
+	for(var/obj/item/I in contents)
+		storage_space_used += I.get_storage_cost()
+
+	if(!storage_space_used)
 		icon_state = "shrimp_pack_empty"
-	else if(contents.len <= 0.5 * max_storage_space)
+	else if(storage_space_used <= 0.5 * max_storage_space)
 		icon_state = "shrimp_pack_half"
-	else if(contents.len <= max_storage_space)
+	else if(storage_space_used <= max_storage_space)
 		icon_state = "shrimp_pack"
