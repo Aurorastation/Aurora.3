@@ -116,7 +116,7 @@
 	possible_religions = RELIGIONS_COALITION
 
 /singleton/origin_item/origin/orepit
-	name = "Orepit"
+	name = "Ecclesiarchy of Orepit"
 	desc = "The human population of Orepit includes the Native Orepitters, who descend from Hephaestus employees following the abandoned mining mission on the planet, as well as immigrants and pilgrims of the Trinary religion."
 	possible_accents = list(ACCENT_OREPIT, ACCENT_PROVIDENCE)
 	possible_citizenships = list(CITIZENSHIP_OREPIT, CITIZENSHIP_COALITION)
