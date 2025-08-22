@@ -43,7 +43,7 @@
 
 	hud_type = /datum/hud_data/ipc
 
-	brute_mod = 1.0
+	brute_mod = 1
 	burn_mod = 1.2
 
 	grab_mod = 1.1 // Smooth, no real edges to grab onto
@@ -123,7 +123,7 @@
 
 	heat_discomfort_level = 500 //This will be 100 below the first heat level
 	heat_discomfort_strings = list(
-		"Your CPU temperature probes warn you that you are approaching critical heat levels!"
+		"Your positronic's temperature probes warn you that you are approaching critical heat levels!"
 		)
 	stamina = -1	// Machines use power and generate heat, stamina is not a thing
 	sprint_speed_factor = 1  // About as capable of speed as a human
@@ -146,13 +146,6 @@
 
 	alterable_internal_organs = list(BP_COOLING_UNIT, BP_REACTOR)
 	possible_speech_bubble_types = list("robot", "default")
-
-	// Special snowflake machine vars.
-	var/sprint_temperature_factor = 1.05
-	var/move_charge_factor = 1
-	/// The theme of the IPC's personal UIs, if not broken.
-	var/machine_ui_theme = "hackerman"
-
 	use_alt_hair_layer = TRUE
 	psi_deaf = TRUE
 
@@ -165,6 +158,14 @@
 		ballistic = ARMOR_BALLISTIC_MINOR,
 		melee = ARMOR_MELEE_KNIVES
 	)
+
+	// Special snowflake machine vars.
+	var/sprint_temperature_factor = 1.05
+	/// Species-based multiplier to movement power costs in the power core.
+	var/move_charge_factor = 1.2
+	/// The theme of the IPC's personal UIs, if not broken.
+	var/machine_ui_theme = "hackerman"
+
 
 /datum/species/machine/handle_temperature_regulation(mob/living/carbon/human/human)
 	// No cooling unit = you're cooking. Broken cooling unit effects are handled by the organ itself.

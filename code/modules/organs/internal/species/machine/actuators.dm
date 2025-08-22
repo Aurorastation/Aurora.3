@@ -5,7 +5,7 @@
 	icon_state = "ipc_actuator"
 
 	max_damage = 40
-	relative_size = 50
+	relative_size = 70
 
 /obj/item/organ/internal/machine/actuators/left
 	name = "left arm actuators"

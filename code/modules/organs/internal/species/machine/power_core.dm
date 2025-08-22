@@ -8,7 +8,7 @@
 	robotic_sprite = FALSE
 
 	max_damage = 80
-	relative_size = 25
+	relative_size = 40
 
 	/// If the power core's hatch is open. Battery can be removed if TRUE.
 	var/open = FALSE
@@ -73,9 +73,8 @@
 
 	var/cost = get_power_drain()
 	if(world.time - owner.l_move_time < 15)
-		cost *= 2
+		cost *= move_charge_factor
 
-	cost *= move_charge_factor
 	use(cost)
 
 /**

@@ -19,7 +19,7 @@
 	default_preset = /singleton/synthetic_organ_preset/reactor/electric
 
 	max_damage = 50
-	relative_size = 25
+	relative_size = 50
 
 	/// What kind of power supply this is. Bitfield.
 	var/power_supply_type = POWER_SUPPLY_ELECTRIC
@@ -52,7 +52,8 @@
 		var/turf/T = get_turf(src)
 		if(T)
 			var/power_generation = T.get_uv_lumcount(1, 2) * base_power_generation
-			generate_power(power_generation)
+			if(power_generation)
+				generate_power(power_generation)
 
 	if(power_supply_type & POWER_SUPPLY_BIOLOGICAL)
 		// Nutriment has a lot of subtypes that are not accounted for by just using REAGENT_VOLUME.

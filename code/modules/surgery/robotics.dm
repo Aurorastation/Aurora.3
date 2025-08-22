@@ -632,6 +632,48 @@
 			qdel(tool)
 			I.plating.heal_damage(I.plating.max_health)
 
+
+/singleton/surgery_step/internal/replace_external_plating
+	name = "Replace External Plating"
+	allowed_tools = list(
+		/obj/item/synth_plating = 100,
+	)
+
+	min_duration = 170
+	max_duration = 200
+
+	var/fast_repair = FALSE
+
+/singleton/surgery_step/internal/replace_external_plating/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
+
+	if(fast_repair)
+		if(!istype(target.species, /datum/species/machine/industrial/hephaestus))
+			return FALSE
+
+	var/armor_damaged = FALSE
+	var/datum/component/armor/synthetic/synth_armor = user.GetComponent(/datum/component/armor/synthetic)
+	if(synth_armor)
+		var/list/damage = synth_armor.get_damage()
+		if(length(damage))
+			armor_damaged = TRUE
+	return armor_damaged
+
+/singleton/surgery_step/internal/replace_external_plating/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
+	user.visible_message(SPAN_NOTICE("[user] begins stripping [target]'s old armour plating and replacing it with new plates."), SPAN_NOTICE("You begin stripping off [target]'s old armour plating and replacing it with new plates."))
+	..()
+
+/singleton/surgery_step/internal/replace_external_plating/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	. = ..()
+	user.visible_message(SPAN_NOTICE("[user] finished replacing [target]'s old armour plating with new plates."), SPAN_NOTICE("You finish replacing [target]'s old armour plating with new plates."))
+	var/datum/component/armor/synthetic/synth_armor = user.GetComponent(/datum/component/armor/synthetic)
+	for(var/key in synth_armor.armor_values)
+		synth_armor.armor_values[key] = synth_armor.max_armor_values[key]
+	qdel(tool)
+
 /singleton/surgery_step/internal/degunk
 	name = "Remove Bio-Reactor Waste"
 	allowed_tools = list(
@@ -640,6 +682,12 @@
 
 	min_duration = 100
 	max_duration = 150
+
+/singleton/surgery_step/internal/replace_external_plating/g2
+	name = "Replace G2 External Armour Plating"
+	min_duration = 90
+	max_duration = 100
+	fast_repair = TRUE
 
 /singleton/surgery_step/internal/degunk/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
