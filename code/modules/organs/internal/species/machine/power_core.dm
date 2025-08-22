@@ -85,7 +85,7 @@
 
 /obj/item/organ/internal/machine/power_core/emp_act(severity)
 	. = ..()
-	if(electronics.get_status() > 0)
+	if(electronics.get_status() < 100)
 		to_chat(owner, SPAN_MACHINE_WARNING("Power core electronics damaged. Caution. Caution."))
 
 /obj/item/organ/internal/machine/power_core/attackby(obj/item/attacking_item, mob/user)
@@ -119,13 +119,13 @@
 			to_chat(user, SPAN_WARNING("You need to unscrew the battery panel first."))
 
 /obj/item/organ/internal/machine/power_core/low_integrity_damage(integrity)
-	to_chat(owner, SPAN_WARNING("Your [src]'s wiring fizzles."))
+	to_chat(owner, SPAN_WARNING("The excess voltage causes your [src]'s wires to burn!"))
 	electronics.take_damage(10)
 	. = ..()
 
 /obj/item/organ/internal/machine/power_core/medium_integrity_damage(integrity)
 	if(prob(get_integrity_damage_probability()))
-		to_chat(owner, SPAN_DANGER("Your [src]'s power conduits burn!"))
+		to_chat(owner, SPAN_DANGER("Your [src]'s power conduits burn away!"))
 		servo_cost *= 1.25
 	. = ..()
 

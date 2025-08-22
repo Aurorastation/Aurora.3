@@ -994,7 +994,7 @@
 					nut_icon = 2
 				else if (nut_factor >= CREW_NUTRITION_HUNGRY)
 					nut_icon = 3
-				else if (nut_factor >= CREW_NUTRITION_VERYHUNGRY )
+				else if (nut_factor >= CREW_NUTRITION_VERYHUNGRY)
 					nut_icon = 4
 				var/new_val = "[isSynthetic() ? "charge" : "nutrition"][nut_icon]"
 				if (nutrition_icon.icon_state != new_val)

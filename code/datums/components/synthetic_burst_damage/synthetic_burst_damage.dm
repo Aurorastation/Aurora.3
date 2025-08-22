@@ -57,6 +57,7 @@
 	burst_damage_hit_time = null
 	burst_damage_counter = 0
 	posibrain.clear_burst_damage_counter()
+	synthetic_owner.remove_movespeed_modifier(/datum/movespeed_modifier/burst_damage)
 
 /datum/component/synthetic_burst_damage/proc/burst_damage_effects()
 	posibrain.add_burst_damage_counter()

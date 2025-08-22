@@ -9,6 +9,8 @@
 	robotic_sprite = FALSE
 	diagnostics_suite_visible = FALSE
 
+	emp_coeff = 0.5
+
 	action_button_name = "Neural Configuration"
 
 	relative_size = 85
@@ -62,6 +64,15 @@
 
 
 	open_neural_configuration(user)
+
+/obj/item/organ/internal/machine/posibrain/emp_act(severity)
+	. = ..()
+	playsound(owner, 'sound/species/synthetic/heavy_electric_discharge.ogg', severity == EMP_LIGHT ? 50 : 100)
+	brain_scrambling = min(brain_scrambling + (severity == EMP_LIGHT ? 50 : 75), 100)
+	shake_camera(owner, 1 SECOND, 3)
+	to_chat(owner, FONT_LARGE(SPAN_MACHINE_DANGER("Your internal connections seize up and snap at the surge of electromagnetic current!")))
+	burst_damage_counter++
+	spark(owner, rand(3, 5), GLOB.alldirs)
 
 /**
  * Helper proc to add fragmentation.
@@ -195,6 +206,17 @@
 				add_fragmentation(damage_healed / 2)
 				last_patch_time = world.time
 
+	if(brain_scrambling)
+		if(prob(5))
+			var/list/brain_scrambling_messages = list(
+				"Your vision clouds for a moment.",
+				"Your pathways seem to be slightly less responsive.",
+				"You notice some higher-than-normal lag in your internal requests.",
+				"Your sensation simulation system is somewhat fuzzy.",
+				"Your probes pick up a slight voltage spike."
+			)
+			to_chat(owner, SPAN_MACHINE_WARNING(pick(brain_scrambling_messages)))
+
 	handle_fragmentation()
 
 	evaluate_damage(seconds_per_tick)
@@ -237,7 +259,7 @@
 						"...",
 						"The pathway to that memory is broken.",
 						"Your positronic is running on overtime just to decrypt your memories.",
-						"Who is it you were speaking to...?",
+						"Who is it you were speaking to?",
 						"That memory cannot be accessed."
 					)
 					to_chat(owner, SPAN_MACHINE_DANGER(pick(extreme_fragmentation_messages)))
@@ -246,18 +268,26 @@
  * Handles burst damage effects. See code\datums\components\synthetic_burst_damage\synthetic_burst_damage.dm
  */
 /obj/item/organ/internal/machine/posibrain/proc/handle_burst_damage()
+	playsound(owner, 'sound/species/synthetic/synthetic_shock.ogg')
 	switch(burst_damage_counter)
 		if(1)
 			var/obj/item/organ/internal/machine/cooling_unit/cooling = owner.internal_organs_by_name[BP_COOLING_UNIT]
 			if(istype(cooling))
 				to_chat(owner, FONT_LARGE(SPAN_DANGER("The severed power wires cause a voltage spike in your cooling unit, messing up the settings! You'll need to fix it!")))
 				cooling.thermostat = cooling.thermostat_max
+			shake_camera(owner, 0.5 SECONDS, 1)
+			owner.add_movespeed_modifier(/datum/movespeed_modifier/burst_damage/level_1)
 		if(2)
-			to_chat(owner, FONT_LARGE(SPAN_DANGER("Your hydraulics creak and stagger under the stress! Your frame can't take much more!")))
+			to_chat(owner, FONT_LARGE(SPAN_DANGER("Your hydraulics creak and stagger under the stress!")))
 			owner.Stun(3)
+			owner.add_movespeed_modifier(/datum/movespeed_modifier/burst_damage/level_2)
+			shake_camera(owner, 0.5 SECONDS, 3)
 		if(3)
-			to_chat(owner, FONT_LARGE(SPAN_MACHINE_WARNING("Your software errors out under the stress!!")))
+			to_chat(owner, FONT_LARGE(SPAN_MACHINE_WARNING("Your software errors out under the stress!")))
 			owner.Weaken(5)
+			owner.add_movespeed_modifier(/datum/movespeed_modifier/burst_damage/level_3)
+			shake_camera(owner, 1 SECONDS, 5)
+
 			clear_burst_damage_counter()
 
 /**
@@ -354,6 +384,8 @@
 					cooling_unit.thermostat = rand(100, 150) + T0C
 					addtimer(CALLBACK(src, PROC_REF(recover_cooling_fault), previous_thermostat), 4 SECONDS)
 		take_internal_damage(2)
+		playsound(owner, 'sound/species/synthetic/light_electric_discharge.ogg')
+		spark(owner, rand(2, 3), GLOB.alldirs)
 	if(prob(1))
 		// no metagaming these ones :^)
 		// they're on the server config
@@ -399,8 +431,8 @@
 	robotic_brain_type = /obj/item/device/mmi/digital/robot
 
 /obj/item/organ/internal/machine/posibrain/terminator
-	name = BP_BRAIN
-	organ_tag = BP_BRAIN
-	parent_organ = BP_CHEST
-	vital = TRUE
+	name = "advanced positronic brain"
+	desc = "A cube of shining metal, four inches to a side and covered in shallow grooves. <span class='danger'>It seems to be different than usual...</span>"
+	relative_size = 60
 	emp_coeff = 0.1
+	color = COLOR_RED
