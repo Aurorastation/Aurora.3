@@ -178,7 +178,7 @@
 	new /obj/item/clothing/under/rank/sol/marine(src)
 	new /obj/item/clothing/under/rank/sol/marine(src)
 	new /obj/item/clothing/under/rank/sol/marine(src)
-	new /obj/item/rig/military/fsf(src) // This is the balanced equipped version, the main one has a pulse rifle for some reason?
+	new /obj/item/rig/military/equipped(src)
 	new /obj/item/clothing/head/helmet/space/void/sol(src)
 	new /obj/item/clothing/head/helmet/space/void/sol(src)
 	new /obj/item/clothing/head/helmet/space/void/sol(src)
