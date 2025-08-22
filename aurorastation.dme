@@ -2867,6 +2867,7 @@
 #include "code\modules\mob\living\simple_animal\friendly\ratking.dm"
 #include "code\modules\mob\living\simple_animal\friendly\schlorrgo.dm"
 #include "code\modules\mob\living\simple_animal\friendly\slime.dm"
+#include "code\modules\mob\living\simple_animal\friendly\snake.dm"
 #include "code\modules\mob\living\simple_animal\friendly\spiderbot.dm"
 #include "code\modules\mob\living\simple_animal\friendly\tomato.dm"
 #include "code\modules\mob\living\simple_animal\hostile\adhomai.dm"
