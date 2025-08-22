@@ -53,9 +53,7 @@
 		)
 
 /obj/item/rig/merc/trulyempty
-	initial_modules = list(
-
-		)
+	initial_modules = list()
 
 /obj/item/rig/merc/ninja
 	initial_modules = list(
@@ -162,6 +160,4 @@
 	)
 
 /obj/item/rig/merc/einstein/empty
-	initial_modules = list(
-
-		)
+	initial_modules = list()

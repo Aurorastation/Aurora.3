@@ -7,7 +7,6 @@
 /datum/uplink_item/item/hardsuit_modules/thermal
 	name = "Thermal Scanner"
 	telecrystal_cost = 2
-	bluecrystal_cost = 2 // Regular thermals cost 2 BC
 	path = /obj/item/rig_module/vision/thermal
 
 /datum/uplink_item/item/hardsuit_modules/energy_net
@@ -64,8 +63,7 @@
 
 /datum/uplink_item/item/hardsuit_modules/combat_actuators // These come stock with pretty much all equipped suits.
 	name = "Combat Actuators"
-	telecrystal_cost = 1
-	bluecrystal_cost = 1
+	telecrystal_cost = 3
 	path = /obj/item/rig_module/actuators/combat
 	desc = "Actuators that allow a hardsuit to jump long distances, and to fall safely."
 
@@ -146,18 +144,6 @@
 	bluecrystal_cost = 8
 	path = /obj/item/rig/skrell
 	desc = "A Nralakk-manufactured combat hardsuit, designed for use by elite operatives of the Qukala. Due to their expense and classified design, these suits are rarely seen outside of Qukala hands. Only wearable by skrell."
-
-/datum/uplink_item/item/hardsuit_modules/suit/breacher // These three suits, have better armor than the others, so are priced at 10 tc. The highest possible cost to still allow buying their factions kit.
-	name = "Unathi Breacher Hardsuit"
-	telecrystal_cost = 10
-	path = /obj/item/rig/unathi/fancy
-	desc = "An authentic Unathi breacher chassis. Huge, bulky and absurdly heavy. It must be like wearing a tank. Only wearable by unathi."
-
-/datum/uplink_item/item/hardsuit_modules/suit/redsnout
-	name = "TCAF Redsnout Hardsuit"
-	telecrystal_cost = 10
-	path = /obj/item/rig/unathi/redsnout
-	desc = "A variation on the Unathi breacher chassis design, fielded by the elite unit of the Tau Ceti Armed Forces known as the Redsnouts. Only wearable by unathi."
 
 /datum/uplink_item/item/hardsuit_modules/suit/vaurca
 	name = "Vaurca Combat Exoskeleton"
