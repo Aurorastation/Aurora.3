@@ -184,7 +184,7 @@
 		ENERGY = ARMOR_ENERGY_SMALL,
 		BOMB = ARMOR_BOMB_PADDED
 	)
-	desc = "A standard plate carrier that upon closer inspection reveal a holographic cloaker that allows it to change it's appearance, it seems to have a small dial inside."
+	desc = "A standard plate carrier that upon closer inspection reveal a holographic cloaker that allows it to change its appearance. It seems to have a small dial inside."
 	origin_tech = list(TECH_ILLEGAL = 3)
 	var/global/list/clothing_choices
 
