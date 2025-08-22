@@ -212,7 +212,7 @@
 	category = "hospitality"
 	name = "packaged shrimp"
 	supplier = "getmore"
-	description = "Frozen shrimp available at reasonable prices for any place in the spur that can't get them fresh! Each pack contains 4 servings worth of shrimp."
+	description = "Frozen shrimp available at reasonable prices for any place in the Spur that can't get them fresh! Each pack contains 4 servings' worth of shrimp."
 	price = 90
 	items = list(
 		/obj/item/storage/box/fancy/food/packaged_shrimp
