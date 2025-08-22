@@ -1,9 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - rscadd: "Added breath analyzers to the warden and security officer lockers."
-  - rscadd: "Security belts can now hold breath analyzers."
-  - rscadd: "Added a gas mask to the investigator locker."
-  - rscdel: "Removed the uniforms from the investigator locker, and the cap and beret from the cadet locker, which can be found in the security drobe."

@@ -27,7 +27,7 @@
 
 #define CITIZENSHIP_NONE "None"
 #define CITIZENSHIP_GOLDEN "Golden Deep"
-#define CITIZENSHIP_OREPIT "Ecclesiarchy of Orepit"
+#define CITIZENSHIP_OREPIT "Orepit"
 
 //religion defines
 #define RELIGION_NONE "None"

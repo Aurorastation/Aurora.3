@@ -249,7 +249,6 @@
 		/obj/structure/largecrate/animal/corgi = 3,
 		/obj/structure/largecrate/animal/cow = 4,
 		/obj/structure/largecrate/animal/goat = 3,
-		/obj/structure/largecrate/animal/snake = 3,
 		/obj/structure/largecrate/animal/cat = 2,
 		/obj/structure/largecrate/animal/chick = 4,
 		/obj/structure/largecrate/animal/adhomai = 0.5,
