@@ -774,12 +774,6 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("cranberry" = 4, "crumbly pie dough" = 4))
 	bitesize = 3
 
-/obj/item/reagent_containers/food/snacks/sliceable/cranberry_pie/Initialize() //Couldn't decide which sprite I like better (and asking people didn't help), so you're getting both.
-	. = ..()
-	var/shape = pick("cranberry_pie", "cranberry_pie2")
-	icon = 'icons/obj/item/reagent_containers/food/pastries.dmi'
-	src.icon_state = "[shape]"
-
 /obj/item/reagent_containers/food/snacks/cranberry_pie_slice
 	name = "slice of cranberry pie"
 	desc = "A delightful sweet and tangy slice of cranberry pie in a crumbly crust."

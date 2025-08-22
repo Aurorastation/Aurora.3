@@ -111,7 +111,7 @@
 	name = "frozen hamburger"
 	desc = "Millions of these are being shipped to branches of quick-e-burger all across the spur right at this moment. Isn't it amazing? Wait... Weren't there fries on the wrapper? I thought there'd be fries."
 	icon = 'icons/obj/item/reagent_containers/food/microwave.dmi'
-	icon_state = "burger_frozen"
+	icon_state = "quick_e_burger_frozen"
 	w_class = WEIGHT_CLASS_SMALL
 	center_of_mass = list("x"=16, "y"=11)
 	filling_color = "#7e603e"
@@ -138,21 +138,15 @@
 	var/percent_quickeburger = round((reagents.total_volume / expected_initial_reagent_volume) * 100)
 	switch(percent_quickeburger)
 		if(0 to 50)
-			if(reagents.has_reagent(/singleton/reagent/nutriment/ketchup))
-				icon_state = "quick_e_burger_half_ketchup"
-			else
-				icon_state = "quick_e_burger_half"
+			icon_state = "quick_e_burger_half"
 		if(51 to INFINITY)
-			if(reagents.has_reagent(/singleton/reagent/nutriment/ketchup))
-				icon_state = "quick_e_burger_ketchup"
-			else
-				icon_state = "quick_e_burger"
+			icon_state = "quick_e_burger"
 
 /obj/item/reagent_containers/food/snacks/frozen_mossburger
 	name = "frozen mossburger"
 	desc = "A small frozen burger with a bit of limp moss on it, waiting to be heated up in a microwave so it can gain some semblence of normality."
 	icon = 'icons/obj/item/reagent_containers/food/microwave.dmi'
-	icon_state = "burger_moss_frozen"
+	icon_state = "quick_e_burger_moss_frozen"
 	w_class = WEIGHT_CLASS_SMALL
 	filling_color = "#7e603e"
 	center_of_mass = list("x"=16, "y"=11)
