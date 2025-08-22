@@ -138,7 +138,7 @@
 	var/percent_quickeburger = round((reagents.total_volume / expected_initial_reagent_volume) * 100)
 	switch(percent_quickeburger)
 		if(0 to 50)
-			icon_state = "quick_e_burger_half"
+			icon_state = "quick_e_burger_half"//
 		if(51 to INFINITY)
 			icon_state = "quick_e_burger"
 
