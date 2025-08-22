@@ -198,7 +198,7 @@
 	category = "hospitality"
 	name = "sliced bread"
 	supplier = "getmore"
-	description = "Factory-grade, machine-baked, machine-sliced, machine-bagged bread. Just like mama use to make."
+	description = "Factory-grade, machine-baked, machine-sliced, machine-bagged bread. Just like mama used to make."
 	price = 8
 	items = list(
 		/obj/item/storage/box/fancy/food/sliced_bread
