@@ -222,7 +222,7 @@
 
 /obj/item/clothing/head/helmet/chameleon
 	name = "standard helmet"
-	desc = "A standard helmet that upon closer inspection reveal a holographic cloaker that allows it to change it's appearance, it seems to have a small dial on the inside"
+	desc = "A standard helmet that upon closer inspection reveal a holographic cloaker that allows it to change its appearance. It seems to have a small dial on the inside."
 	icon = 'icons/obj/item/clothing/head/modular_armor_helmets.dmi'
 	icon_state = "helm_generic"
 	item_state = "helm_generic"
