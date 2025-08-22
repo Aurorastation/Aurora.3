@@ -932,10 +932,10 @@
 	throwforce = 1
 
 /obj/item/storage/box/fancy/food/sliced_bread/update_icon()
-    . = ..()
-    var/storage_space_used
-    for(var/obj/item/I in contents)
-        storage_space_used += I.get_storage_cost()
+	. = ..()
+	var/storage_space_used
+	for(var/obj/item/I in contents)
+		storage_space_used += I.get_storage_cost()
 
 	if(!storage_		space_used)
 		icon_state = "slicedbread_empty"
