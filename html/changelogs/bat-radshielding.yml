@@ -1,0 +1,16 @@
+# Your name.
+author: Batrachophrenoboocosmomachia
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+# Any changes you've made.  See valid prefix list above.
+# INDENT WITH TWO SPACES.  NOT TABS.  SPACES.
+# SCREW THIS UP AND IT WON'T WORK.
+# Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
+# Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
+changes:
+  - qol: "Radstorm shielding added to the following areas: ResDeck lifts, changing room, recovery ward, psych office, ALL washrooms, AI rooms, self-destruct room, INDRA monitoring, SM monitoring, C-Goliath monitoring."
+  - qol: "In-game stairwell names clarified (I.E. the starboard-side stairwell updated from 'Stairwell' to 'Starboard Stairwell', etc.)"
+  - qol: "Deck 1 recharging compartment renamed from 'Mech Bay' to 'Charge Bay'."
+  - rscadd: "More areas given custom blurbs (cheers to Stripes for the Commissary blurb!)"

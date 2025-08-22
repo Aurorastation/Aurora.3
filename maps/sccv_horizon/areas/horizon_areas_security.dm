@@ -30,6 +30,7 @@
 	name = "Washroom"
 	icon_state = "security"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+	area_flags = AREA_FLAG_RAD_SHIELDED
 	horizon_deck = 2
 
 /area/horizon/security/brig
