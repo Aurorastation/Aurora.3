@@ -937,16 +937,16 @@
     for(var/obj/item/I in contents)
         storage_space_used += I.get_storage_cost()
 
-    if(!storage_space_used)
-        icon_state = "slicedbread_empty"
-    else if(storage_space_used <= 0.25 * max_storage_space)
-        icon_state = "slicedbread_last"
-    else if(storage_space_used <= 0.5 * max_storage_space)
-        icon_state = "slicedbread_half"
-    else if(storage_space_used <= 0.875 * max_storage_space)
-        icon_state = "slicedbread_nearfull"
-    else if(storage_space_used <= max_storage_space)
-        icon_state = "slicedbread_full"
+	if(!storage_		space_used)
+		icon_state = "slicedbread_empty"
+	else if(storage_space_used <= 0.25 * max_storage_space)
+		icon_state = "slicedbread_last"
+	else if(storage_space_used <= 0.5 * max_storage_space)
+		icon_state = "slicedbread_half"
+	else if(storage_space_used <= 0.875 * max_storage_space)
+		icon_state = "slicedbread_nearfull"
+	else if(storage_space_used <= max_storage_space)
+		icon_state = "slicedbread_full"
 
 
 /obj/item/storage/box/fancy/food/packaged_shrimp
