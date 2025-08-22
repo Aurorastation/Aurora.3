@@ -155,7 +155,7 @@
 	// 	return WrapAdminProcCall(object, delegate, calling_arguments)
 	if (object == GLOBAL_PROC)
 		return call(delegate)(arglist(calling_arguments))
- 	return call(object, delegate)(arglist(calling_arguments))
+	return call(object, delegate)(arglist(calling_arguments))
 
 /**
 	Helper datum for the select callbacks proc
