@@ -319,3 +319,70 @@
       get unpinned during a round or after no changes within 30 days. Unpinning and
       re-pinning will keep them persistent but not update the 30 days expiration date;
       Unpinning, editing and re-pinning them will reset the 30 days expiration date.
+2025-08-18:
+  Kano:
+  - bugfix: Fixed mobs ignoring their speed value.
+  KingOfThePing:
+  - rscadd: Added a reminder header to the gun reload sounds .dm to remind people
+      that there are a variety of sounds available.
+  TheGreyWolf:
+  - rscadd: Raskariim can now pick between if their records show they follow the ma'ta'ke
+      or the twin suns religion. As a result, all raskariim will need to re-select
+      their religion.
+  - rscadd: A set of raskariim charms were added to the tajaran loadout. They can
+      be identified by any other tajara who selected raskariim as their religion.
+  UltraBigRat:
+  - rscadd: Gave all cult constructs armor, and increased their health.
+  hazelmouse:
+  - rscadd: Remapped medical by shuffling the positions of the psychiatric office,
+      paramedics' quarters, and recovery room. This is primarily intended to make
+      recovery a more appealing and visible spot.
+2025-08-23:
+  ASmallCuteCat:
+  - rscadd: Adds snakes to the game
+  - imageadd: Ports the snake sprites over from Baystation.
+  - qol: Swapped the pair of roller beds in the Intrepid's Medbay for a roller bed
+      holder that spawns with two beds.
+  - qol: Moved a handrail in the Intrepid's Medbay to a less cluttered part of the
+      area.
+  Batrachophrenoboocosmomachia:
+  - qol: 'Radstorm shielding added to the following areas: ResDeck lifts, changing
+      room, recovery ward, psych office, ALL washrooms, AI rooms, self-destruct room,
+      INDRA monitoring, SM monitoring, C-Goliath monitoring.'
+  - qol: In-game stairwell names clarified (I.E. the starboard-side stairwell updated
+      from 'Stairwell' to 'Starboard Stairwell', etc.)
+  - qol: Deck 1 recharging compartment renamed from 'Mech Bay' to 'Charge Bay'.
+  - rscadd: More areas given custom blurbs (cheers to Stripes for the Commissary blurb!)
+  CactusMouth:
+  - rscadd: Added the SIIB weapons alongside SIIB Outfits for Admins to use.
+  - imageadd: Adds SIIB Weapons based off standard Sol weapons. (SMG and Pistol)
+  - rscadd: 'Added new desert exoplanet ruin: Abandoned Solarian Relay Station'
+  ElorgRHG:
+  - imageadd: Resprited the sun priest robe, and the sun sister robe and veil.
+  Fyni:
+  - rscadd: Added the Zhurong accent, available to core world dominians.
+  KingOfThePing:
+  - soundadd: Added a variety of sounds for ballistic guns reloads. Includes rifles,
+      pistols, SMGs and racking shotguns.
+  - sounddel: 'Deleted rifle reload sound #3, because it was quite bad. It has been
+      replaced with a better sound.'
+  SimpleMaroon:
+  - rscadd: Added the Clockwork Stave, a Trinary Perfection variant of the null rod.
+  - qol: Renamed the 'Orepit' citizenship to 'Ecclesiarchy of Orepit', as well as
+      made a mention of the Ecclesiarchy in its description.
+  Snowy1237:
+  - qol: Overhauled the Bluespace Drive control UI to be generally nicer.
+  - rscadd: Added a navigation console to the Bluespace Drive chamber and added more
+      information to be displayed on the Bluespace Drive control UI.
+  TheGreyWolf:
+  - rscadd: Added breath analyzers to the warden and security officer lockers.
+  - rscadd: Security belts can now hold breath analyzers.
+  - rscadd: Added a gas mask to the investigator locker.
+  - rscdel: Removed the uniforms from the investigator locker, and the cap and beret
+      from the cadet locker, which can be found in the security drobe.
+  - bugfix: Paper bundles can now be read while next to them.
+  - bugfix: It is now possible to remove accessories on other people again.
+  UltraBigRat:
+  - balance: Changes berserk injector cost from 4 BC to 3 TC.
+  edomite-tricknology:
+  - qol: Removes reference to singularity in solar instructions and cleans up syntax/wording.

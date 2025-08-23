@@ -249,6 +249,7 @@
 		/obj/structure/largecrate/animal/corgi = 3,
 		/obj/structure/largecrate/animal/cow = 4,
 		/obj/structure/largecrate/animal/goat = 3,
+		/obj/structure/largecrate/animal/snake = 3,
 		/obj/structure/largecrate/animal/cat = 2,
 		/obj/structure/largecrate/animal/chick = 4,
 		/obj/structure/largecrate/animal/adhomai = 0.5,
@@ -540,6 +541,7 @@
 		/obj/item/reagent_containers/food/condiment/syrup_simple = 1,
 		/obj/item/reagent_containers/food/condiment/vanilla = 1,
 		/obj/item/reagent_containers/food/condiment/rice = 1,
+		/obj/item/storage/box/fancy/food/sliced_bread = 1,
 		/obj/item/reagent_containers/food/condiment/cocoa = 1
 	)
 

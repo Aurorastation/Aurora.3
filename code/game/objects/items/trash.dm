@@ -348,9 +348,9 @@
 	pickup_sound = 'sound/items/pickup/glass.ogg'
 
 /obj/item/trash/shakshouka
-	name = "empty shakshouka pan"
+	name = "large messy pan"
 	icon_state = "shakshouka"
-	desc = "It looks like the murder scene... Of a delicious Shakshouka. Trash or recycle."
+	desc = "It looks like the murder scene... of a delicious, saucy dish. Trash or recycle."
 	drop_sound = 'sound/items/drop/bottle.ogg'
 	pickup_sound = 'sound/items/pickup/bottle.ogg'
 
@@ -453,3 +453,16 @@
 	icon_state = "bowl_brown"
 	drop_sound = 'sound/items/drop/glass.ogg'
 	pickup_sound = 'sound/items/pickup/glass.ogg'
+
+/obj/item/trash/microwave_package
+	name = "empty microwave food package"
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "microwave_trash"
+
+/obj/item/trash/mac_cheeze
+	name = "empty mac and cheeze container"
+	icon_state = "mac_trash"
+
+/obj/item/trash/mac_fiery
+	name = "empty fiery hot mac and cheeze container"
+	icon_state = "mac_trash_fiery"
