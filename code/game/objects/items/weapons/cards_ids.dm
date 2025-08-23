@@ -24,6 +24,7 @@
 	var/list/files = list(  )
 	/// Spam limiter.
 	var/last_flash = 0
+	var/vertical_card = 0
 	drop_sound = 'sound/items/drop/card.ogg'
 	pickup_sound = 'sound/items/pickup/card.ogg'
 
@@ -44,12 +45,13 @@
 	update_icon()
 
 /obj/item/card/update_icon()
-	var/matrix/tf = matrix()
-	var/obj/item/storage/S = loc
-	if(istype(S, /obj/item/storage) && !S.storage_slots)
-		tf.Turn(-90) //Vertical for storing compactly
-		tf.Translate(-1, 0) //Could do this with pixel_x but let's just update the appearance once.
-	transform = tf
+	if(!vertical_card)
+		var/matrix/tf = matrix()
+		var/obj/item/storage/S = loc
+		if(istype(S, /obj/item/storage) && !S.storage_slots)
+			tf.Turn(-90) //Vertical for storing compactly
+			tf.Translate(-1, 0) //Could do this with pixel_x but let's just update the appearance once.
+		transform = tf
 
 /obj/item/card/data
 	name = "data disk"
@@ -461,6 +463,7 @@
 	icon_state = "centcom"
 	overlay_state = "centcom"
 	access = list(ACCESS_MERCHANT)
+	vertical_card = 1
 
 /obj/item/card/id/synthetic
 	name = "\improper SCC equipment identification card"
@@ -502,6 +505,7 @@
 	overlay_state = "centcom"
 	registered_name = "Central Command"
 	assignment = "General"
+	vertical_card = 1
 
 /obj/item/card/id/centcom/New()
 	access = get_all_centcom_access()
@@ -514,6 +518,7 @@
 	overlay_state = "ccia"
 	drop_sound = /singleton/sound_category/generic_drop_sound
 	pickup_sound = /singleton/sound_category/generic_pickup_sound
+	vertical_card = 1
 
 /obj/item/card/id/ccia/update_icon()
 	return
@@ -527,12 +532,14 @@
 	name = "\improper Biesel Security Services Bureau identification card"
 	desc = "A synthleather ID straight from the Biesel Security Services Bureau."
 	icon_state = "bssb"
+	vertical_card = 0
 
 /obj/item/card/id/ert
 	name = "\improper NanoTrasen Emergency Response Team identification card"
 	icon_state = "centcom"
 	overlay_state = "centcom"
 	assignment = "Emergency Response Team"
+	vertical_card = 1
 
 /obj/item/card/id/ert/New()
 	access = get_all_station_access() + get_centcom_access("Emergency Response Team")
@@ -546,6 +553,7 @@
 	icon_state = "centcom"
 	overlay_state = "centcom"
 	assignment = "Asset Protection"
+	vertical_card = 1
 
 /obj/item/card/id/asset_protection/New()
 	access = get_all_accesses()
@@ -575,6 +583,7 @@
 	desc = "An old-fashioned, practical plastic card. Cheaply produced for Tau Ceti's finest."
 	assignment = "Tau Ceti Foreign Legion Volunteer"
 	icon_state = "legion"
+	vertical_card = 1
 
 /obj/item/card/id/distress/legion/New()
 	access = list(ACCESS_LEGION, ACCESS_MAINT_TUNNELS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_SECURITY, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_MEDICAL, ACCESS_RESEARCH, ACCESS_ATMOSPHERICS, ACCESS_MEDICAL_EQUIP)
@@ -590,6 +599,7 @@
 	assignment = "EPMC Asset Protection"
 	icon_state = "pmc_card"
 	overlay_state = "pmc_card"
+	vertical_card = 1
 
 /obj/item/card/distress/ap_eridani/update_icon()
 	return
@@ -602,6 +612,7 @@
 	name = "\improper Interstellar Aid Corps identification card"
 	assignment = "Interstellar Aid Corps Responder"
 	icon_state = "centcom"
+	vertical_card = 1
 
 /obj/item/card/id/distress/iac/New()
 	access = get_distress_access()
@@ -615,6 +626,7 @@
 	overlay_state = "data"
 	registered_name = "Administrator"
 	assignment = "Administrator"
+	vertical_card = 1
 
 /obj/item/card/id/all_access/New()
 	access = get_access_ids()
@@ -626,6 +638,7 @@
 	desc = "A high-tech holocard, designed to project information about a sub-contractor from Idris Incorporated."
 	icon_state = "idris_card"
 	overlay_state = "idris_card"
+	vertical_card = 1
 
 /obj/item/card/id/idris/update_icon()
 	return
@@ -648,6 +661,7 @@
 	desc = "A high-tech holobadge, identifying the owner as a contractor from one of the many PMCs from the Private Military Contracting Group."
 	icon_state = "pmc_card"
 	overlay_state = "pmc_card"
+	vertical_card = 1
 
 /obj/item/card/id/pmc/update_icon()
 	return
@@ -657,6 +671,7 @@
 	desc = "A synthleather card, belonging to one of the highly skilled members of Zeng-Hu."
 	icon_state = "zhu_card"
 	overlay_state = "zhu_card"
+	vertical_card = 1
 
 /obj/item/card/zeng_hu/update_icon()
 	return
@@ -690,6 +705,7 @@
 	desc = "A well-worn identification pass, retrofitted with wireless transmission technology."
 	icon_state = "orion_card"
 	overlay_state = "orion_card"
+	vertical_card = 1
 
 /obj/item/card/id/coalition
 	name = "\improper coalition identification card"
@@ -708,12 +724,14 @@
 	desc = "An old-fashioned, practical plastic card. Cheaply produced for Tau Ceti's finest."
 	icon_state = "legion"
 	overlay_state = "nothing"
+	vertical_card = 1
 
 /obj/item/card/id/bluespace
 	name = "bluespace identification card"
 	desc = "A bizarre imitation of an ID card; shifting and moving."
 	icon_state = "crystalid"
 	iff_faction = IFF_BLUESPACE
+	vertical_card = 1
 
 /obj/item/card/id/bluespace/antagonist_hints(mob/user, distance, is_adjacent)
 	. += ..()
