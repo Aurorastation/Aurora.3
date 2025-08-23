@@ -96,7 +96,6 @@
 	than anything else in the game, atoms have separate procs
 	for AI shift, ctrl, and alt clicking.
 */
-
 /mob/living/silicon/ai/ShiftClickOn(var/atom/A)
 	if(!control_disabled && A.AIShiftClick(src))
 		return
@@ -120,20 +119,31 @@
 	The following criminally helpful code is just the previous code cleaned up;
 	I have no idea why it was in atoms.dm instead of respective files.
 */
-
 /atom/proc/AICtrlShiftClick()
 	return
 
 /atom/proc/AIShiftClick(var/mob/user)
 	return
 
-/obj/machinery/door/airlock/AIShiftClick(var/mob/user)  // Opens and closes doors!
+/**
+ * Opens and closes doors!
+ *
+ * * mob/user - The mob doing it.
+ *
+ * Returns TRUE
+ */
+/obj/machinery/door/airlock/AIShiftClick(var/mob/user)
 	open_interact(user, density)
 	return TRUE
 
 /atom/proc/AICtrlClick(mob/user)
 	return
 
+/**
+ * Toggles airlock bolts.
+ *
+ * Returns TRUE
+ */
 /obj/machinery/door/airlock/AICtrlClick(mob/user) // Bolts doors
 	if(player_is_antag(user.mind))
 		bolts_override(user, !locked, FALSE, player_is_antag(user.mind))
@@ -141,11 +151,21 @@
 		bolts_interact(user, !locked, FALSE, player_is_antag(user.mind))
 	return TRUE
 
-/obj/machinery/power/apc/AICtrlClick() // turns off/on APCs.
+/**
+ * Turns on/off an APC (breaker toggle).
+ *
+ * Returns TRUE
+ */
+/obj/machinery/power/apc/AICtrlClick()
 	toggle_breaker()
 	return TRUE
 
-/obj/machinery/turretid/AICtrlClick() //turns off/on Turrets
+/**
+ * Turns on/off a turret.
+ *
+ * Returns TRUE
+ */
+/obj/machinery/turretid/AICtrlClick()
 	enabled = !enabled
 	updateTurrets()
 	return TRUE
@@ -153,7 +173,14 @@
 /atom/proc/AIAltClick(var/mob/living/silicon/user)
 	return AltClick(user)
 
-/obj/machinery/door/airlock/AIAltClick(var/mob/living/silicon/user) // Electrifies doors.
+/**
+ * Electrifies doors; non-antag silicons get a private IC 'naughty naughty' msg and nothing happens
+ *
+ * * /mob/living/silicon/user - The mob doing it.
+ *
+ * Returns TRUE or FALSE
+ */
+/obj/machinery/door/airlock/AIAltClick(var/mob/living/silicon/user)
 	var/antag = player_is_antag(user.mind)
 	if(!antag && (electrified_until == 0))
 		to_chat(user, SPAN_WARNING("Your programming prevents you from electrifying the door."))
@@ -173,9 +200,9 @@
 
 /atom/proc/AIMiddleClick(var/mob/living/silicon/user)
 	return FALSE
-//
-// Override AdjacentQuick for AltClicking
-//
 
+/**
+ * Override AdjacentQuick for AltClicking
+ */
 /mob/living/silicon/ai/TurfAdjacent(var/turf/T)
 	return (GLOB.cameranet && GLOB.cameranet.is_turf_visible(T))

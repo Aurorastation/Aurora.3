@@ -1,24 +1,25 @@
 /*
- *	Everything derived from the common cardboard box.
- *	Basically everything except the original is a kit (starts full).
+ * Everything derived from the common cardboard box.
+ * Basically everything except the original is a kit (starts full).
  *
- *	Contains:
- *		Empty box, starter boxes (survival/engineer),
- *		Latex glove and sterile mask boxes,
- *		Syringe, beaker, dna injector boxes,
- *		Blanks, flashbangs, and EMP grenade boxes,
- *		Tracking and chemical implant boxes,
- *		Prescription glasses and drinking glass boxes,
- *		Condiment bottle and silly cup boxes,
- *		Donkpocket and monkeycube boxes,
- *		ID boxes,
- *		Handcuff, mousetrap, and pillbottle boxes,
- *		Snap-pops,
- *		Replacement light boxes.
- *		Kitchen utensil box
- * 		Random preserved snack box
- *		For syndicate call-ins see uplink_kits.dm
- *		Firing pin boxes - Testing and Normal. one for sec, one for science.
+ * Contains:
+ * * Empty box, starter boxes (survival/engineer)
+ * * Latex glove and sterile mask boxes
+ * * Syringe, beaker, dna injector boxes
+ * * Blanks, flashbangs, and EMP grenade boxes
+ * * Tracking and chemical implant boxes
+ * * Prescription glasses and drinking glass boxes
+ * * Condiment bottle and silly cup boxes
+ * * Donkpocket and monkeycube boxes
+ * * ID boxes
+ * * Handcuff, mousetrap, and pillbottle boxes
+ * * Snap-pops
+ * * Replacement light boxes.
+ * * Kitchen utensil box
+ * * Random preserved snack box
+ * * For syndicate call-ins see uplink_kits.dm
+ * * Firing pin boxes - Testing and Normal. one for sec, one for science.
+ * * Flag boxes (various national/corporate flag collections)
  */
 
 /obj/item/storage/box
@@ -924,6 +925,20 @@
 	starts_with = list(/obj/random_produce/box = 15)
 	make_exact_fit = TRUE
 
+/obj/item/storage/box/produce/adhomai
+	name = "adhomian produce box"
+	desc = "A large box of produce originating from the frigid world of Adhomai."
+	starts_with = list(/obj/random_produce/box/adhomai = 15)
+
+/obj/item/storage/box/produce/nralakk
+	name = "nralakk produce box"
+	desc = "A large box of produce originating from the Nralakk Federation."
+	starts_with = list(/obj/random_produce/box/nralakk = 15)
+
+/obj/item/storage/box/produce/moghes
+	name = "moghresian produce box"
+	desc = "A large box of produce originating from Moghes, home of the Izweski Hegemony."
+	starts_with = list(/obj/random_produce/box/moghes = 15)
 
 /obj/item/storage/box/candy
 	name = "candy box"
@@ -1337,7 +1352,7 @@
 	illustration = null
 	icon_state = "sharpsbox"
 	use_sound = 'sound/items/storage/briefcase.ogg'
-	max_storage_space = DEFAULT_LARGEBOX_STORAGE
+	max_storage_space = DEFAULT_BOX_STORAGE
 	chewable = FALSE
 	foldable = null
 

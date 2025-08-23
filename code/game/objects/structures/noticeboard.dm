@@ -7,8 +7,12 @@
 	anchored = 1
 	var/notices = 0
 
-/obj/structure/noticeboard/Initialize()
+/obj/structure/noticeboard/Initialize(mapload)
+	if (mapload)
+		add_papers_from_turf()
 	. = ..()
+
+/obj/structure/noticeboard/proc/add_papers_from_turf()
 	for(var/obj/item/I in loc)
 		if(notices > 4) break
 		if(istype(I, /obj/item/paper))
@@ -25,6 +29,7 @@
 			user.drop_from_inventory(attacking_item,src)
 			notices++
 			icon_state = "nboard0[notices]"	//update sprite
+			SSpersistence.register_track(attacking_item, ckey(usr.key)) // Add paper to persistent tracker
 			to_chat(user, SPAN_NOTICE("You pin the paper to the noticeboard."))
 		else
 			to_chat(user, SPAN_NOTICE("You reach to pin your paper to the board but hesitate. You are certain your paper will not be seen among the many others already attached."))
@@ -58,6 +63,7 @@
 			add_fingerprint(usr)
 			notices--
 			icon_state = "nboard0[notices]"
+			SSpersistence.deregister_track(P) // Remove paper from persistent tracker
 	if(href_list["write"])
 		if((usr.stat || usr.restrained())) //For when a player is handcuffed while they have the notice window open
 			return

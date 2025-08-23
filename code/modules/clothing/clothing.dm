@@ -624,7 +624,7 @@
 
 /obj/item/clothing/head/proc/toggle_block_hair()
 	set name = "Toggle Hair Coverage"
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in usr
 
 	if(allow_hair_covering)
@@ -838,7 +838,7 @@
 
 /obj/item/clothing/mask/proc/adjust_mask(mob/user, var/self = TRUE)
 	set name = "Adjust Mask"
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in usr
 
 	if(!adjustable)
@@ -922,7 +922,7 @@
 /obj/item/clothing/shoes/proc/draw_knife()
 	set name = "Draw Boot Knife"
 	set desc = "Pull out your boot knife."
-	set category = "Object"
+	set category = "Object.Held"
 	set src in usr
 
 	if(use_check_and_message(usr))
@@ -962,7 +962,7 @@
 
 /obj/item/clothing/shoes/verb/toggle_layer()
 	set name = "Switch Shoe Layer"
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in usr
 
 	if(use_check_and_message(usr))
@@ -1332,13 +1332,13 @@
 
 /obj/item/clothing/under/proc/toggle()
 	set name = "Toggle Suit Sensors"
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in usr
 	set_sensors(usr)
 
 /obj/item/clothing/under/proc/rollsuit()
 	set name = "Roll Up/Down Jumpsuit"
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in usr
 	if(!istype(usr, /mob/living)) return
 	if(usr.stat) return
@@ -1379,7 +1379,7 @@
 
 /obj/item/clothing/under/proc/rollsleeves()
 	set name = "Roll Up/Down Sleeves"
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in usr
 	if(!istype(usr, /mob/living)) return
 	if(usr.stat) return

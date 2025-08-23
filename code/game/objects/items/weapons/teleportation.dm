@@ -1,9 +1,9 @@
 /* Teleportation devices.
  * Contains:
- *		Locator
- *		Hand-tele
- *		Closet Teleporter
- *		Inhibitor handling proc for above
+ * * Locator
+ * * Hand-tele
+ * * Closet Teleporter
+ * * Inhibitor handling proc for above
  */
 
 /*
@@ -308,8 +308,14 @@ Frequency:
 	var/obj/structure/closet/target_closet = linked_teleporter.attached_closet
 	user.forceMove(target_closet.opened ? get_turf(target_closet) : target_closet)
 	if(target_closet.opened)
+		if(user.client)
+			user.client.eye = user.client.mob
+			user.client.perspective = MOB_PERSPECTIVE
 		user.visible_message(SPAN_NOTICE("\The [user] steps out of the back of \the [target_closet]."), SPAN_NOTICE("You teleport into the linked closet, stepping out of it."))
+		user.set_fullscreen(FALSE, "closet_impaired", /atom/movable/screen/fullscreen/closet_impaired)
 	else
+		if(user.client)
+			user.client.eye = target_closet
 		target_closet.visible_message(SPAN_WARNING("\The [target_closet] rattles."))
 		to_chat(user, SPAN_NOTICE("You teleport into the target closet, bumping into the closed door."))
 		target_closet.shake_animation()

@@ -202,6 +202,7 @@
 	new /obj/item/clothing/glasses/sunglasses/sechud(src)
 	new /obj/item/taperoll/police(src)
 	new /obj/item/gun/energy/disruptorpistol(src)
+	new /obj/item/device/breath_analyzer(src)
 	//Belts
 	new /obj/item/clothing/accessory/storage/black_vest(src)
 	new /obj/item/clothing/accessory/holster/hip(src)
@@ -228,8 +229,6 @@
 	else
 		new /obj/item/storage/backpack/satchel/sec(src)
 	new /obj/item/storage/backpack/duffel/sec(src)
-	new /obj/item/clothing/head/beret/security(src)
-	new /obj/item/clothing/head/softcap/security(src)
 	new /obj/item/clothing/suit/storage/hazardvest/security(src)
 	new /obj/item/clothing/under/rank/cadet(src)
 	//Tools
@@ -273,6 +272,7 @@
 	new /obj/item/taperoll/police(src)
 	new /obj/item/device/hailer(src)
 	new /obj/item/device/flashlight/flare/glowstick/red(src)
+	new /obj/item/device/breath_analyzer(src)
 	//Belts
 	new /obj/item/clothing/accessory/storage/black_vest(src)
 	new /obj/item/clothing/accessory/holster/hip(src)
@@ -290,22 +290,15 @@
 	//Appearance
 	new /obj/item/storage/backpack/satchel/leather/recolorable(src)
 	new /obj/item/clothing/suit/storage/toggle/labcoat(src)
-	new /obj/item/clothing/under/det(src)
-	new /obj/item/clothing/under/det/idris(src)
-	new /obj/item/clothing/under/det/pmc(src)
-	new /obj/item/clothing/under/det/zavod(src)
 	new /obj/item/clothing/accessory/badge/investigator(src)
 	new /obj/item/clothing/shoes/laceup(src)
-	new /obj/item/clothing/shoes/laceup(src)
+	new /obj/item/clothing/mask/gas/half(src)
 	//Tools
 	new /obj/item/device/radio/headset/headset_sec(src)
 	new /obj/item/device/radio/headset/headset_sec/alt(src)
 	new /obj/item/clothing/suit/armor/carrier/officer(src)
 	new /obj/item/gun/energy/disruptorpistol/miniature/security(src)
-	new /obj/item/taperoll/police(src)
-	new /obj/item/device/flash(src)
 	new /obj/item/device/laser_pointer/blue(src)
-	new /obj/item/device/camera/detective(src)
 	new /obj/item/device/camera_film(src)
 	new /obj/item/stamp/investigations(src)
 	new /obj/item/clothing/glasses/sunglasses/sechud/aviator(src)
@@ -313,7 +306,7 @@
 	//Belts
 	new /obj/item/clothing/accessory/holster/waist(src)
 	new /obj/item/clothing/accessory/storage/pouches/black(src)
-	new /obj/item/storage/belt/security(src)
+	new /obj/item/storage/belt/security/full/investigator(src)
 
 /obj/structure/closet/secure_closet/injection
 	name = "lethal injections locker"

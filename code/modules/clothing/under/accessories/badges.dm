@@ -85,8 +85,8 @@
 								SPAN_DANGER("You invade [target_mob]'s personal space, thrusting [src] into their face insistently."))
 
 /obj/item/clothing/accessory/badge/verb/flip_side()
-	set category = "Object"
-	set name = "Flip badge"
+	set category = "Object.Equipped"
+	set name = "Flip Badge"
 	set src in usr
 
 	if (use_check_and_message(usr))

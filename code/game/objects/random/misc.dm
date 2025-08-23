@@ -249,6 +249,7 @@
 		/obj/structure/largecrate/animal/corgi = 3,
 		/obj/structure/largecrate/animal/cow = 4,
 		/obj/structure/largecrate/animal/goat = 3,
+		/obj/structure/largecrate/animal/snake = 3,
 		/obj/structure/largecrate/animal/cat = 2,
 		/obj/structure/largecrate/animal/chick = 4,
 		/obj/structure/largecrate/animal/adhomai = 0.5,
@@ -540,6 +541,7 @@
 		/obj/item/reagent_containers/food/condiment/syrup_simple = 1,
 		/obj/item/reagent_containers/food/condiment/vanilla = 1,
 		/obj/item/reagent_containers/food/condiment/rice = 1,
+		/obj/item/storage/box/fancy/food/sliced_bread = 1,
 		/obj/item/reagent_containers/food/condiment/cocoa = 1
 	)
 
@@ -616,3 +618,26 @@
 		/obj/item/toy/comic/magazine/horticulturetoday/issue6
 	)
 
+/obj/random/hydroponics
+	name = "random hydroponics item"
+	desc = "This is a hydroponics thing."
+	icon_state = "tech_supply"
+	spawnlist = list(
+		/obj/item/material/scythe/sickle = 1,
+		/obj/item/material/scythe = 1,
+		/obj/item/reagent_containers/glass/bottle/mutagen = 1,
+		/obj/item/reagent_containers/glass/fertilizer/rh = 1,
+		/obj/item/reagent_containers/glass/fertilizer/l4z = 1,
+		/obj/item/reagent_containers/glass/fertilizer/ez = 1,
+		/obj/item/crowbar = 1,
+		/obj/item/shovel = 1,
+		/obj/item/shovel/spade = 1,
+		/obj/item/wrench = 1,
+		/obj/random/condiment = 3,
+		/obj/random/kitchen_staples = 3,
+		/obj/random/smokable = 1,
+		/obj/random/seed = 3,
+		/obj/random/plushie = 1,
+		/obj/random/med_stack = 1,
+		/obj/item/reagent_containers/glass/bottle/ammonia = 1,
+	)

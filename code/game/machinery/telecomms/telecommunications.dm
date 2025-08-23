@@ -174,7 +174,7 @@
 		STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 
 /**
- *	Previous implementation was to run EMP proc then restore, but was very buggy. This is a rudimentary alternate implementation, just flags processors to crap out.
+ * Previous implementation was to run EMP proc then restore, but was very buggy. This is a rudimentary alternate implementation, just flags processors to crap out.
  */
 /obj/machinery/telecomms/proc/ion_storm()
 	var/duration = 270 + rand(1,60)
@@ -290,8 +290,8 @@
 	return signal && (!freq_listening.len || (signal.frequency in freq_listening))
 
 /*
- *	Reception range of telecomms machines is limited via overmap_range
- *	Returns distance, not a boolean value, so don't do !get_reception or so help me god
+ * Reception range of telecomms machines is limited via overmap_range
+ * Returns distance, not a boolean value, so don't do !get_reception or so help me god
  */
 /obj/machinery/telecomms/proc/get_signal_dist(datum/signal/subspace/signal)
 	if(!SSatlas.current_map.use_overmap || !istype(linked) || !istype(signal.sector))

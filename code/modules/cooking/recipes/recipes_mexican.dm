@@ -16,7 +16,7 @@
 // Tacos
 //=========================
 /singleton/recipe/taco
-	appliance = SKILLET | MIX
+	appliance = SKILLET | MIX | MICROWAVE
 	items = list(
 		/obj/item/reagent_containers/food/snacks/tortilla,
 		/obj/item/reagent_containers/food/snacks/cutlet,
@@ -25,7 +25,7 @@
 	result = /obj/item/reagent_containers/food/snacks/taco
 
 /singleton/recipe/fish_taco
-	appliance = MIX | SKILLET
+	appliance = MIX | SKILLET | MICROWAVE
 	fruit = list("chili" = 1, "lemon" = 1)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/fish,
@@ -37,7 +37,7 @@
 //=========================
 
 /singleton/recipe/chips
-	appliance = SKILLET | FRYER
+	appliance = SKILLET | FRYER | MICROWAVE
 	reagents = list(/singleton/reagent/sodiumchloride = 1)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/tortilla
@@ -45,7 +45,7 @@
 	result = /obj/item/reagent_containers/food/snacks/chipplate
 
 /singleton/recipe/nachos
-	appliance = SKILLET // melt the cheese!
+	appliance = SKILLET | MICROWAVE // melt the cheese!
 	items = list(
 		/obj/item/reagent_containers/food/snacks/chipplate,
 		/obj/item/reagent_containers/food/snacks/cheesewedge
@@ -68,7 +68,7 @@
 	reagent_mix = RECIPE_REAGENT_REPLACE //Ingredients are mixed together.
 
 /singleton/recipe/cheesesauce
-	appliance = SKILLET | SAUCEPAN // melt the cheese
+	appliance = SKILLET | SAUCEPAN | MICROWAVE // melt the cheese
 	fruit = list("chili" = 1, "tomato" = 1)
 	reagents = list(/singleton/reagent/spacespice = 1, /singleton/reagent/blackpepper = 1,/singleton/reagent/sodiumchloride = 1)
 	items = list(
@@ -86,13 +86,13 @@
 // Peanuts
 //=========================
 /singleton/recipe/peanuts_bowl
-	appliance = OVEN
+	appliance = OVEN | MICROWAVE
 	fruit = list("peanut" = 10)
 	result = /obj/item/reagent_containers/food/snacks/chipplate/peanuts_bowl
 	reagent_mix = RECIPE_REAGENT_REPLACE // So the output isn't 40u total
 
 /singleton/recipe/peanuts_bowl_dry
-	appliance = OVEN
+	appliance = OVEN | MICROWAVE
 	fruit = list("dried peanut" = 10)
 	result = /obj/item/reagent_containers/food/snacks/chipplate/peanuts_bowl
 	reagent_mix = RECIPE_REAGENT_REPLACE

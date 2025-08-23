@@ -2,9 +2,9 @@
 	name = "soil"
 	desc = "A mound of earth. You could plant some seeds here."
 	icon_state = "soil"
-	density = 0
+	density = FALSE
 	use_power = POWER_USE_OFF
-	mechanical = 0
+	mechanical = FALSE
 	tray_light = 0
 	/// Water level begins at zero.
 	waterlevel = 0

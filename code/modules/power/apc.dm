@@ -84,20 +84,24 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 	var/area/area
 	var/areastring = null
 	var/obj/item/cell/cell
-	var/chargelevel = 0.0005  // Cap for how fast APC cells charge, as a percentage-per-tick (0.01 means cellcharge is capped to 1% per second)
+	/// Cap for how fast APC cells charge, as a percentage-per-tick (0.01 means cellcharge is capped to 1% per second)
+	var/chargelevel = 0.0005
 	var/cellused = 0
-	var/start_charge = 90				// initial cell charge %
+	/// Initial cell charge %
+	var/start_charge = 90
 	var/cell_type = /obj/item/cell/apc
 	var/opened = COVER_CLOSED
 	var/shorted = FALSE
-	var/night_mode = FALSE// Determines if the light level is set to dimmed or not
+	/// Determines if the light level is set to dimmed or not
+	var/night_mode = FALSE
 	var/lighting = CHANNEL_ON_AUTO
 	var/equipment = CHANNEL_ON_AUTO
 	var/environ = CHANNEL_ON_AUTO
 	var/infected = FALSE
 	var/operating = TRUE
 	var/charging = CHARGING_OFF
-	var/chargemode = TRUE // whether we're trying to charge
+	// Whether we're trying to charge
+	var/chargemode = TRUE
 	var/chargecount = 0
 	var/locked = TRUE
 	var/coverlocked = TRUE
@@ -110,11 +114,14 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 	var/lastused_charging = 0
 	var/lastused_total = 0
 	var/main_status = 0
-	var/mob/living/silicon/ai/hacker = null // Malfunction var. If set AI hacked the APC and has full control.
-	powernet = 0		// set so that APCs aren't found as powernet nodes //Hackish, Horrible, was like this before I changed it :c
+	/// Malfunction var. If set AI hacked the APC and has full control.
+	var/mob/living/silicon/ai/hacker = null
+	/// Set so that APCs aren't found as powernet nodes. Hackish, Horrible, was like this before I changed it :c
+	powernet = 0
 	var/autoflag = AUTOFLAG_OFF
 	var/has_electronics = HAS_ELECTRONICS_NONE
-	var/beenhit = 0 // used for counting how many times it has been hit, used for Aliens at the moment
+	/// Used for counting how many times it has been hit, used for Aliens at the moment
+	var/beenhit = 0
 	var/longtermpower = 10
 	var/datum/wires/apc/wires = null
 	var/update_state = -1
@@ -133,7 +140,8 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 	var/emergency_lights = FALSE
 
 	var/time = 0
-	var/charge_mode = CHARGE_MODE_CHARGE // if we're actually able to charge
+	/// If we're actually able to charge
+	var/charge_mode = CHARGE_MODE_CHARGE
 	var/last_time = 1
 
 /obj/machinery/power/apc/mechanics_hints(mob/user, distance, is_adjacent)
@@ -1543,87 +1551,87 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 	dir = SOUTH
 	pixel_y = -4
 
-/obj/machinery/power/apc/intrepid
+/obj/machinery/power/apc/shuttle/intrepid
 	cell_type = /obj/item/cell/high
 	req_access = null
-	req_one_access = list(ACCESS_INTREPID,ACCESS_ENGINE_EQUIP)
+	req_one_access = list(ACCESS_ENGINE_EQUIP, ACCESS_INTREPID)
 
-/obj/machinery/power/apc/intrepid/north
+/obj/machinery/power/apc/shuttle/intrepid/north
 	dir = NORTH
 	pixel_y = 22
 
-/obj/machinery/power/apc/intrepid/east
+/obj/machinery/power/apc/shuttle/intrepid/east
 	dir = EAST
 	pixel_x = 12
 
-/obj/machinery/power/apc/intrepid/west
+/obj/machinery/power/apc/shuttle/intrepid/west
 	dir = WEST
 	pixel_x = -12
 
-/obj/machinery/power/apc/intrepid/south
+/obj/machinery/power/apc/shuttle/intrepid/south
 	dir = SOUTH
 	pixel_y = -4
 
-/obj/machinery/power/apc/canary
+/obj/machinery/power/apc/shuttle/canary
 	cell_type = /obj/item/cell/high
 	req_access = null
-	req_one_access = list(ACCESS_INTREPID,ACCESS_ENGINE_EQUIP)
+	req_one_access = list(ACCESS_ENGINE_EQUIP, ACCESS_CANARY)
 
-/obj/machinery/power/apc/canary/north
+/obj/machinery/power/apc/shuttle/canary/north
 	dir = NORTH
 	pixel_y = 22
 
-/obj/machinery/power/apc/canary/east
+/obj/machinery/power/apc/shuttle/canary/east
 	dir = EAST
 	pixel_x = 12
 
-/obj/machinery/power/apc/canary/west
+/obj/machinery/power/apc/shuttle/canary/west
 	dir = WEST
 	pixel_x = -12
 
-/obj/machinery/power/apc/canary/south
+/obj/machinery/power/apc/shuttle/canary/south
 	dir = SOUTH
 	pixel_y = -4
 
-ABSTRACT_TYPE(/obj/machinery/power/apc/quark)
+ABSTRACT_TYPE(/obj/machinery/power/apc/shuttle/quark)
 	cell_type = /obj/item/cell/high
 	req_access = null
-	req_one_access = list(ACCESS_XENOARCH, ACCESS_RESEARCH, ACCESS_BRIDGE_CREW)
+	req_one_access = list(ACCESS_ENGINE_EQUIP, ACCESS_QUARK)
 
-/obj/machinery/power/apc/quark/north
+/obj/machinery/power/apc/shuttle/quark/north
 	dir = NORTH
 	pixel_y = 22
 
-/obj/machinery/power/apc/quark/east
+/obj/machinery/power/apc/shuttle/quark/east
 	dir = EAST
 	pixel_x = 12
 
-/obj/machinery/power/apc/quark/west
+/obj/machinery/power/apc/shuttle/quark/west
 	dir = WEST
 	pixel_x = -12
 
-/obj/machinery/power/apc/quark/south
+/obj/machinery/power/apc/shuttle/quark/south
 	dir = SOUTH
 	pixel_y = -4
 
-/obj/machinery/power/apc/mining_shuttle
+/obj/machinery/power/apc/shuttle/spark
 	cell_type = /obj/item/cell/high
 	req_access = null
-	req_one_access = list(ACCESS_MINING,ACCESS_ENGINE_EQUIP)
+	req_one_access = list(ACCESS_ENGINE_EQUIP, ACCESS_SPARK)
 
-/obj/machinery/power/apc/mining_shuttle/north
+/obj/machinery/power/apc/shuttle/spark/north
 	dir = NORTH
 	pixel_y = 22
 
-/obj/machinery/power/apc/mining_shuttle/east
+/obj/machinery/power/apc/shuttle/spark/east
 	dir = EAST
 	pixel_x = 12
 
-/obj/machinery/power/apc/mining_shuttle/west
+/obj/machinery/power/apc/shuttle/spark/west
 	dir = WEST
 	pixel_x = -12
 
-/obj/machinery/power/apc/mining_shuttle/south
+/obj/machinery/power/apc/shuttle/spark/south
 	dir = SOUTH
 	pixel_y = -4
 
@@ -1636,23 +1644,6 @@ ABSTRACT_TYPE(/obj/machinery/power/apc/quark)
 	locked = FALSE
 	coverlocked = FALSE
 	start_charge = 100
-
-/obj/machinery/power/apc/canary/north
-	dir = NORTH
-	pixel_y = 22
-
-/obj/machinery/power/apc/canary/east
-	dir = EAST
-	pixel_x = 12
-
-/obj/machinery/power/apc/canary/west
-	dir = WEST
-	pixel_x = -12
-
-/obj/machinery/power/apc/canary/south
-	dir = SOUTH
-	pixel_y = -4
-
 
 /obj/machinery/power/apc/super
 	cell_type = /obj/item/cell/super

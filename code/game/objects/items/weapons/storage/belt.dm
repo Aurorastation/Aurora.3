@@ -49,7 +49,7 @@
 
 /obj/item/storage/belt/verb/toggle_layer()
 	set name = "Switch Belt Layer"
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in usr
 
 	if(show_above_suit == -1)
@@ -344,6 +344,8 @@
 		/obj/item/device/laser_pointer,
 		/obj/item/device/camera,
 		/obj/item/clipboard,
+		/obj/item/journal/notepad,
+		/obj/item/device/breath_analyzer
 		)
 	content_overlays = TRUE
 
@@ -383,6 +385,14 @@
 		/obj/item/device/flash = 1,
 		/obj/item/gun/projectile/sec = 1,
 		/obj/item/ammo_magazine/c45m/rubber = 2,
+	)
+
+/obj/item/storage/belt/security/full/investigator
+	starts_with = list(
+		/obj/item/taperoll/police = 1,
+		/obj/item/device/flash = 1,
+		/obj/item/device/camera/detective = 1,
+		/obj/item/device/taperecorder = 1
 	)
 
 /obj/item/storage/belt/security/vestbelt
@@ -588,7 +598,9 @@
 		/obj/item/device/analyzer/plant_analyzer,
 		/obj/item/clothing/gloves/botanic_leather,
 		/obj/item/device/radio,
-		/obj/item/crowbar
+		/obj/item/crowbar,
+		/obj/item/device/analyzer,
+		/obj/item/device/t_scanner,
 	)
 
 /obj/item/storage/belt/hydro/full

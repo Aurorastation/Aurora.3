@@ -81,7 +81,7 @@
 
 /obj/item/clothing/head/helmet/proc/toggle_camera()
 	set name = "Toggle Helmet Camera"
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in usr
 
 	if(ispath(camera))

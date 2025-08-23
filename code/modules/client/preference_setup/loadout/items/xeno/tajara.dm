@@ -495,6 +495,23 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	charm["Kin of S'rendarr rosette"] = /obj/item/clothing/accessory/tajaran/kin_srendarr
 	gear_tweaks += new /datum/gear_tweak/path(charm)
 
+/datum/gear/accessory/tajara_raskariim_charm
+	display_name = "raskariim charms and talismans"
+	description = "Charms and talismans often thought of to bring good luck, or of religious significance. These should only be taken by true raskariim, and can be identified by other raskariim."
+	path = /obj/item/clothing/accessory/tajaran/charm/raskariim
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	sort_category = "Xenowear - Tajara"
+	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_NAME_SELECTION
+	religion = list(RELIGION_RASKARA, RELIGION_RASKARA_ALT)
+
+/datum/gear/accessory/tajara_raskariim_charm/New()
+	..()
+	var/list/charm = list()
+	charm["key charm (door and key)"] = /obj/item/clothing/accessory/tajaran/charm/raskariim/doorandkey
+	charm["coin charm (king of maggots)"] = /obj/item/clothing/accessory/tajaran/charm/raskariim/kingofmaggots
+	charm["glass charm (black mirror)"] = /obj/item/clothing/accessory/tajaran/charm/raskariim/blackmirror
+	gear_tweaks += new /datum/gear_tweak/path(charm)
+
 /datum/gear/tail_cloth
 	display_name = "tail cloth"
 	path = /obj/item/clothing/tail_accessory/tail_cloth
@@ -748,3 +765,29 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	sort_category = "Xenowear - Tajara"
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/accessory/tajara_colorable_fur_scarf
+	display_name = "fur scarf (colorable)"
+	path = /obj/item/clothing/accessory/tajaran/colorable
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	sort_category = "Xenowear - Tajara"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/suit/colorable_tajara_cloak
+	display_name = "tajara cloaks selection (colorable)"
+	description = "A selection of colorable tajaran native cloaks."
+	path = /obj/item/clothing/accessory/poncho/tajarancloak/colorable
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	sort_category = "Xenowear - Tajara"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
+
+/datum/gear/suit/colorable_tajara_cloak/New()
+	..()
+	var/list/colorable_cloaks = list()
+	colorable_cloaks["gruff cloak"] = /obj/item/clothing/suit/storage/hooded/tajaran/colorable
+	colorable_cloaks["fancy cloak"] = /obj/item/clothing/accessory/poncho/tajarancloak/colorable
+	colorable_cloaks["fancy cloak (hooded)"] = /obj/item/clothing/suit/storage/hooded/tajaran/colorable/fancy
+	colorable_cloaks["royal cloak"] = /obj/item/clothing/accessory/poncho/tajarancloak/colorable/royal
+	colorable_cloaks["royal cloak (hooded)"] = /obj/item/clothing/suit/storage/hooded/tajaran/colorable/royal
+	colorable_cloaks["amohda cloak"] = /obj/item/clothing/suit/storage/hooded/tajaran/colorable/amohda
+	gear_tweaks += new /datum/gear_tweak/path(colorable_cloaks)

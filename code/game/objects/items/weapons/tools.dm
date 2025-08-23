@@ -146,7 +146,8 @@
 	surgerysound = 'sound/items/surgery/hemostat.ogg'
 	drop_sound = 'sound/items/drop/wirecutter.ogg'
 	pickup_sound = 'sound/items/pickup/wirecutter.ogg'
-	var/bomb_defusal_chance = 30 // 30% chance to safely defuse a bomb
+	/// 30% chance to safely defuse a bomb
+	var/bomb_defusal_chance = 30
 	build_from_parts = TRUE
 	worn_overlay = "head"
 
