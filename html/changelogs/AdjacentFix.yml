@@ -1,7 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - bugfix: "Paper bundles can now be read while next to them."
-  - bugfix: "It is now possible to remove accessories on other people again."
