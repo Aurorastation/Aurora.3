@@ -1794,6 +1794,32 @@
 	glass_desc = "A relatively sweet and fruity 46 proof liquor."
 	glass_center_of_mass = list("x"=16, "y"=5)
 
+/singleton/reagent/alcohol/limoncello
+	name = "Limoncello"
+	description = "A lemon liquor beloved in Italy and Assunzione alike."
+	color = "#ffef16"
+	strength = 24
+	taste_description = "lemon liquor"
+
+	value = 0.15
+
+	glass_icon_state = "limoncello"
+	glass_name = "glass of Limoncello"
+	glass_desc = "A citrusy sweet and sour liquor originating in southern Italy."
+
+/singleton/reagent/alcohol/bon_bon
+	name = "Bon Bon"
+	description = "A citrusy, sweet and sour blast from the past."
+	color = "#fff891"
+	strength = 32
+	taste_description = "sour candy"
+
+	value = 0.17
+
+	glass_icon_state = "bonbon"
+	glass_name = "glass of Bon Bon"
+	glass_desc = "Candy is dandy but liquor is quicker!"
+
 /singleton/reagent/alcohol/rum
 	name = "Rum"
 	description = "Yohoho and all that."
