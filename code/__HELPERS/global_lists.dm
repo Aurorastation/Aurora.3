@@ -92,7 +92,7 @@ GLOBAL_LIST_EMPTY(chargen_disabilities_list)
 GLOBAL_LIST_INIT(valid_player_genders, list(MALE, FEMALE, NEUTER, PLURAL))
 
 /// List of possible backpack shapes for the loadout.
-GLOBAL_LIST_INIT(backbaglist, list("Nothing", "Backpack", "Satchel", "Leather Satchel", "Duffel Bag", "Messenger Bag", "Rucksack", "Pocketbook"))
+GLOBAL_LIST_INIT(backbaglist, list("Nothing", "Backpack", "Satchel", "Leather Satchel", "Duffel Bag", "Messenger Bag", "Rucksack", "Pocketbook", "Chest Pouch"))
 /// List of possible backpack styles for the loadout.
 GLOBAL_LIST_INIT(backbagstyles, list("Job-specific", "Generic", "Faction-specific"))
 /// List of possible backpack colors for the loadout.
