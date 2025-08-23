@@ -113,12 +113,24 @@
 			if(material)
 				var/sheet_cost = (SHEET_MATERIAL_AMOUNT * 1.5)
 				var/sheets = FLOOR(stored[mat]/sheet_cost, 1)
+				var/obj/item/stack/material/M
 				if(sheets > 0)
-					var/obj/item/stack/material/M = new material.stack_type(get_turf(src), sheets)
-					M.update_icon()
-					stored[mat] -= sheets * sheet_cost
-					if(stored[mat] <= 0)
-						stored -= mat
+					// Split up sheet drops so you don't get weird negative stacks.
+					while(sheets > 0)
+						// More than 50 (max stack size)? Drop a stack of 50.
+						if(sheets >= 50)
+							M = new material.stack_type(get_turf(src), 50)
+							M.update_icon()
+							stored[mat] -= 50 * sheet_cost
+							if(stored[mat] <= 0)
+								stored -= mat
+						// Less than 50? Drop the stack size we have.
+						else
+							M = new material.stack_type(get_turf(src), sheets)
+							M.update_icon()
+							stored[mat] -= sheets * sheet_cost
+							if(stored[mat] <= 0)
+								stored -= mat
 					return TRUE
 
 		if("toggle_power")
