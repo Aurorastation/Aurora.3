@@ -6,12 +6,10 @@
 	area_blurb_category = "mecical"
 	department = LOC_MEDICAL
 
-//Medbay is a large area, these additional areas help level out APC load.
-
 /area/horizon/medical/paramedic
 	name = "Paramedic Equipment Storage"
 	icon_state = "medbay"
-	horizon_deck = 2
+	horizon_deck = 3
 
 /area/horizon/medical/reception
 	name = "Reception"
@@ -19,9 +17,11 @@
 	ambience = list('sound/ambience/signal.ogg')
 	horizon_deck = 2
 
+// Rad-shielded because its annoying as fuck
 /area/horizon/medical/psych
 	name = "Psych Office"
 	icon_state = "medbay3"
+	area_flags = AREA_FLAG_RAD_SHIELDED
 	area_blurb = "Featuring wood floors and soft carpets, this room has a warmer feeling compared to the sterility of the rest of the medical department."
 	area_blurb_category = "psych"
 	horizon_deck = 2
@@ -45,7 +45,6 @@
 	name = "Intensive Care Unit"
 	icon_state = "cryo"
 	area_blurb = "The sounds of pumps and cooling equipment can be heard within the room."
-	area_blurb_category = "icu"
 	horizon_deck = 2
 
 /area/horizon/medical/main_storage
@@ -69,16 +68,18 @@
 	icon_state = "exam_room"
 	horizon_deck = 2
 
+// Contains a player spawn area = rad-shielded
 /area/horizon/medical/ward
 	name = "Recovery Ward"
+	area_flags = AREA_FLAG_RAD_SHIELDED
 	icon_state = "patients"
-	horizon_deck = 3
+	horizon_deck = 2
 
 /area/horizon/medical/ward/isolation
 	name = "Isolation Ward"
 	area_blurb = "This seldom-used ward somehow smells sterile and musty at the same time."
 	area_blurb_category = "medical_isolation"
-	horizon_deck = 2
+	horizon_deck = 3
 
 /area/horizon/medical/emergency_storage
 	name = "Emergency Storage"
@@ -106,6 +107,7 @@
 /area/horizon/medical/washroom
 	name = "Washroom"
 	horizon_deck = 3
+	area_flags = AREA_FLAG_RAD_SHIELDED
 
 /area/horizon/medical/hallway
 	name = "Atrium"

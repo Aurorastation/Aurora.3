@@ -209,6 +209,18 @@
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/bowl/mozzarella_sticks
 
+/singleton/recipe/jambalaya
+	appliance = SKILLET
+	fruit = list("tomato" = 1)
+	reagents = list(/singleton/reagent/spacespice = 3, /singleton/reagent/nutriment/rice = 5)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/meat/chicken,
+		/obj/item/reagent_containers/food/snacks/fish/raw_shrimp,
+		/obj/item/reagent_containers/food/snacks/sausage
+	)
+	result = /obj/item/reagent_containers/food/snacks/jambalaya
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
+
 // Konyang
 
 /singleton/recipe/mossbowl
@@ -293,6 +305,7 @@
 	reagents = list(/singleton/reagent/water = 10)
 	items = list(/obj/item/reagent_containers/food/snacks/meat)
 	result = /obj/item/reagent_containers/food/snacks/soup/pozole
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
 
 /singleton/recipe/elotes
 	appliance = OVEN | GRILL
