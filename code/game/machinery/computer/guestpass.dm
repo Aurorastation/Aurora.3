@@ -6,7 +6,7 @@
 	desc = "Allows temporary access to workplace areas."
 	icon_state = "guest"
 	overlay_state = "guest"
-	vertical_card = 1
+	vertical_card = TRUE
 
 	var/temp_access = list() //to prevent agent cards stealing access as permanent
 	var/expiration_time = 0
