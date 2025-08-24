@@ -9,8 +9,8 @@
 	min_brig_time = 3
 	max_brig_time = 10
 
-	min_fine = 50
-	max_fine = 100
+	min_fine = 120
+	max_fine = 145
 
 /datum/law/low_severity/petty_theft
 	name = "i102 - Petty Theft"
@@ -20,8 +20,8 @@
 	min_brig_time = 3
 	max_brig_time = 10
 
-	min_fine = 75
-	max_fine = 150
+	min_fine = 60
+	max_fine = 85
 
 /datum/law/low_severity/minor_assault
 	name = "i103 - Minor Assault"
@@ -31,8 +31,8 @@
 	min_brig_time = 4
 	max_brig_time = 10
 
-	min_fine = 100
-	max_fine = 300
+	min_fine = 175
+	max_fine = 245
 
 /datum/law/low_severity/battery
 	name = "i104 - Battery"
@@ -42,8 +42,8 @@
 	min_brig_time = 2
 	max_brig_time = 8
 
-	min_fine = 75
-	max_fine = 175
+	min_fine = 120
+	max_fine = 155
 
 /datum/law/low_severity/hooliganism
 	name = "i105 - Indecent Exposure or Hooliganism"
@@ -53,8 +53,8 @@
 	min_brig_time = 5
 	max_brig_time = 8
 
-	min_fine = 50
-	max_fine = 125
+	min_fine = 85
+	max_fine = 120
 
 /datum/law/low_severity/radio_misuse
 	name = "i107 - Misuse of Public Radio Channels"
@@ -64,8 +64,8 @@
 	min_brig_time = 3
 	max_brig_time = 3
 
-	min_fine = 35
-	max_fine = 75
+	min_fine = 60
+	max_fine = 85
 
 /datum/law/low_severity/violating_injunction
 	name = "i108 - Violation of Injunction"
@@ -75,8 +75,8 @@
 	min_brig_time = 5
 	max_brig_time = 10
 
-	min_fine = 150
-	max_fine = 250
+	min_fine = 145
+	max_fine = 180
 
 /datum/law/low_severity/slander_hos
 	name = "i109 - Slandering a Head of Staff"
@@ -86,8 +86,8 @@
 	min_brig_time = 5
 	max_brig_time = 10
 
-	min_fine = 100
-	max_fine = 175
+	min_fine = 85
+	max_fine = 145
 
 /datum/law/low_severity/slander
 	name = "i110 - Slander or Verbal Abuse"
@@ -97,8 +97,8 @@
 	min_brig_time = 3
 	max_brig_time = 5
 
-	min_fine = 50
-	max_fine = 100
+	min_fine = 25 //Fine is applied as this number per minute of verbal abuse.
+	max_fine = 250
 
 /datum/law/low_severity/failure_execute
 	name = "i111 - Failure to Execute an Order"
@@ -108,8 +108,8 @@
 	min_brig_time = 5
 	max_brig_time = 15
 
-	min_fine = 150
-	max_fine = 300
+	min_fine = 180
+	max_fine = 200
 
 /datum/law/low_severity/animal_cruelty
 	name = "i113 - Animal Cruelty"
@@ -119,8 +119,8 @@
 	min_brig_time = 5
 	max_brig_time = 10
 
-	min_fine = 150
-	max_fine = 350
+	min_fine = 0
+	max_fine = 0
 
 /datum/law/low_severity/vandalism
 	name = "i114 - Vandalism"
@@ -130,8 +130,8 @@
 	min_brig_time = 3
 	max_brig_time = 10
 
-	min_fine = 175
-	max_fine = 300
+	min_fine = 120
+	max_fine = 180
 
 /datum/law/low_severity/threat_murder
 	name = "i115 - Threat of Murder or Serious Injury"
@@ -141,8 +141,8 @@
 	min_brig_time = 3
 	max_brig_time = 10
 
-	min_fine = 250
-	max_fine = 500
+	min_fine = 175
+	max_fine = 200
 
 /datum/law/low_severity/necrophilia
 	name = "i116 - Disrespect to the Dead"
@@ -152,8 +152,8 @@
 	min_brig_time = 5
 	max_brig_time = 10
 
-	min_fine = 150
-	max_fine = 250
+	min_fine = 20
+	max_fine = 180
 
 /datum/law/low_severity/excessive_detainment
 	name = "i117 - Excessive Use of Force in Detainment"
@@ -163,8 +163,8 @@
 	min_brig_time = 5
 	max_brig_time = 10
 
-	min_fine = 150
-	max_fine = 300
+	min_fine = 120
+	max_fine = 180
 
 /datum/law/low_severity/violation_privacy
 	name = "i118 - Violation of Privacy Laws"
@@ -174,8 +174,8 @@
 	min_brig_time = 3
 	max_brig_time = 10
 
-	min_fine = 250
-	max_fine = 500
+	min_fine = 145
+	max_fine = 180
 
 /datum/law/low_severity/illegal_search
 	name = "i119 - Illegal Search"
@@ -185,5 +185,16 @@
 	min_brig_time = 3
 	max_brig_time = 10
 
-	min_fine = 200
-	max_fine = 400
+	min_fine = 145
+	max_fine = 180
+
+/datum/law/low_severity/illegal_search
+	name = "i120 - Littering"
+	desc = "To discard waste improperly in public areas."
+	id = "i119"
+
+	min_brig_time = 3
+	max_brig_time = 7
+
+	min_fine = 40
+	max_fine = 150
