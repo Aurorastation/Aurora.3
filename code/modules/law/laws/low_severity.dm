@@ -191,7 +191,7 @@
 /datum/law/low_severity/illegal_search
 	name = "i120 - Littering"
 	desc = "To discard waste improperly in public areas."
-	id = "i119"
+	id = "i120"
 
 	min_brig_time = 3
 	max_brig_time = 7
