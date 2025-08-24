@@ -10,25 +10,10 @@
 	desc = "General waste material, refuse or litter. Dispose responsibly."
 	drop_sound = 'sound/items/drop/wrapper.ogg'
 	pickup_sound = 'sound/items/pickup/wrapper.ogg'
-	persistance_expiration_time_days = 3
+	persistency_considered_trash = TRUE
 
 /obj/item/trash/attack(mob/living/target_mob, mob/living/user, target_zone)
 	return
-
-/obj/item/trash/dropped(mob/user)
-	..()
-	// Trash becomes persistent only when it's not dropped in a maint or disposals, otherwise it gets deregistered
-	var/turf/T = get_turf(src)
-	if(T)
-		var/area/A = get_area(T)
-		if(A && !(A.area_flags & AREA_FLAG_PREVENT_PERSISTENT_TRASH))
-			SSpersistence.register_track(src, usr == null ? null : ckey(usr.key))
-			return
-	SSpersistence.deregister_track(src)
-
-/obj/item/trash/equipped(mob/user, slot, initial = FALSE)
-	..()
-	SSpersistence.deregister_track(src) // The moment trash gets picked up it's no longer persistent
 
 /obj/item/trash/persistence_get_content()
 	var/list/content = list()
