@@ -500,7 +500,7 @@
 /obj/item/pipe_eject(var/direction)
 	SHOULD_CALL_PARENT(TRUE)
 	..()
-	try_make_persistent_trash()
+	try_make_persistent_trash() // Trash that gets thrown into disposal bins and ends up in the disposal areas shouldn't be persistent after all
 
 /obj/item/proc/try_make_persistent_trash()
 	SHOULD_NOT_OVERRIDE(TRUE)
