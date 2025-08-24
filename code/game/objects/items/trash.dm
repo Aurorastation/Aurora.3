@@ -21,10 +21,9 @@
 	var/turf/T = get_turf(src)
 	if(T)
 		var/area/A = get_area(T)
-		if(A)
-			if(!findtext(lowertext(A.name), "maint") && A.name != "Disposals and Recycling")
-				SSpersistence.register_track(src, usr == null ? null : ckey(usr.key))
-				return
+		if(A && !(A.area_flags & AREA_FLAG_PREVENT_PERSISTENT_TRASH))
+			SSpersistence.register_track(src, usr == null ? null : ckey(usr.key))
+			return
 	SSpersistence.deregister_track(src)
 
 /obj/item/trash/equipped(mob/user, slot, initial = FALSE)
