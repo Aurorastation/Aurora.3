@@ -150,7 +150,7 @@
 	groupable = TRUE
 	spawn_amount = 1
 
-/singleton/cargo_item/circuitboard_hullshield
+/* /singleton/cargo_item/circuitboard_hullshield
 	category = "engineering"
 	name = "circuit board (hull shield generator)"
 	supplier = "hephaestus"
@@ -163,7 +163,7 @@
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
-
+*/
 /singleton/cargo_item/circuitboard_shieldcapacitor
 	category = "engineering"
 	name = "circuit board (shield capacitor)"
