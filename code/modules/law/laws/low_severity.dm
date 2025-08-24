@@ -152,7 +152,7 @@
 	min_brig_time = 5
 	max_brig_time = 10
 
-	min_fine = 20
+	min_fine = 120
 	max_fine = 180
 
 /datum/law/low_severity/excessive_detainment
@@ -175,7 +175,7 @@
 	max_brig_time = 10
 
 	min_fine = 145
-	max_fine = 180
+	max_fine = 190
 
 /datum/law/low_severity/illegal_search
 	name = "i119 - Illegal Search"
@@ -186,7 +186,7 @@
 	max_brig_time = 10
 
 	min_fine = 145
-	max_fine = 180
+	max_fine = 190
 
 /datum/law/low_severity/illegal_search
 	name = "i120 - Littering"
@@ -196,5 +196,5 @@
 	min_brig_time = 3
 	max_brig_time = 7
 
-	min_fine = 40
-	max_fine = 150
+	min_fine = 15
+	max_fine = 75
