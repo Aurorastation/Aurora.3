@@ -188,7 +188,7 @@
 	min_fine = 145
 	max_fine = 190
 
-/datum/law/low_severity/illegal_search
+/datum/law/low_severity/littering
 	name = "i120 - Littering"
 	desc = "To discard waste improperly in public areas."
 	id = "i120"
