@@ -1,0 +1,9 @@
+author: SleepyGemmy
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed custodians not having access to the engineering meeting room maintenance doors."
+  - bugfix: "Fixed custodians not having access to the library maintenance door."
+  - bugfix: "Fixed the main maintenance door behind the commissary not having the regular maintenance access along its other access requirements."
+  - bugfix: "Added a light to the hallway outside the commissary."
