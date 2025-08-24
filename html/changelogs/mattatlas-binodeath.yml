@@ -55,5 +55,6 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Binoculars have been severely nerfed in view offset."
+  - balance: "Binoculars have been severely nerfed in view offset."
+  - balance: "Zeng-Hu and Aut'akh zoom augments have been nerfed to match."
   - balance: "Binoculars now have a 1.5 second windup."
