@@ -27,6 +27,35 @@
 	. += "If it's empty, you can crush it on your forehead by selecting your head and clicking on yourself with harm intent."
 	. += "You can also crush cans on other people's foreheads as well."
 
+/obj/item/reagent_containers/food/drinks/cans/standard_feed_mob(var/mob/user, var/mob/living/target)
+	..()
+	if(!reagents || reagents.total_volume == 0)
+		persistency_considered_trash = TRUE
+
+/obj/item/reagent_containers/food/drinks/cans/standard_pour_into(var/mob/user, var/atom/target)
+	..()
+	if(reagents && reagents.total_volume > 0)
+		persistency_considered_trash = FALSE
+
+/obj/item/reagent_containers/food/drinks/cans/persistence_get_content()
+	var/list/content = list()
+	content["name"] = name
+	content["desc"] = desc
+	content["icon_state"] = icon_state
+	content["item_state"] = item_state
+	content["center_of_mass"] = center_of_mass
+	return content
+
+/obj/item/reagent_containers/food/drinks/cans/persistence_apply_content(content, x, y, z)
+	name = content["name"]
+	desc =  content["desc"]
+	icon_state =  content["icon_state"]
+	item_state =  content["item_state"]
+	center_of_mass = content["center_of_mass"]
+	src.x = x
+	src.y = y
+	src.z = z
+
 /obj/item/reagent_containers/food/drinks/cans/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if(iscarbon(target_mob) && !reagents.total_volume && user.a_intent == I_HURT && target_zone == BP_HEAD)
 		if(target_mob == user)
