@@ -1,8 +1,10 @@
 GLOBAL_LIST(fusion_reactions)
 
 /singleton/fusion_reaction
-	var/p_react = "" // Primary reactant.
-	var/s_react = "" // Secondary reactant.
+	/// Primary reactant.
+	var/p_react = ""
+	/// Secondary reactant.
+	var/s_react = ""
 	var/minimum_energy_level = 1
 	var/energy_consumption = 0
 	var/energy_production = 0
@@ -42,7 +44,7 @@ GLOBAL_LIST(fusion_reactions)
 // hydrogen
 //  helium
 //  lithium
-//  boron
+//  helium-3
 
 // Basic power production reactions.
 // This is not necessarily realistic, but it makes a basic failure more spectacular.
@@ -100,7 +102,7 @@ GLOBAL_LIST(fusion_reactions)
 /singleton/fusion_reaction/iron_iron
 	p_react = "iron"
 	s_react = "iron"
-	products = list("silver" = 10, "gold" = 10, "platinum" = 10) // Not realistic but w/e
+	products = list("silver" = 6, "gold" = 6, "platinum" = 6, "lead" = 6, ) // Not realistic but w/e
 	energy_consumption = 10
 	energy_production = 0
 	instability = 2
@@ -156,8 +158,8 @@ GLOBAL_LIST(fusion_reactions)
 
 
 // High end reactions.
-/singleton/fusion_reaction/boron_hydrogen
-	p_react = GAS_BORON
+/singleton/fusion_reaction/helium3_hydrogen
+	p_react = GAS_HELIUMFUEL
 	s_react = GAS_HYDROGEN
 	minimum_energy_level = 15000
 	energy_consumption = 3
@@ -175,4 +177,4 @@ GLOBAL_LIST(fusion_reactions)
 	energy_production = 4
 	radiation = 30
 	instability = 5
-	products = list("uranium" = 10, "lead" = 10, "borosilicate glass" = 10) // Psuedoscience but here we are
+	products = list("uranium" = 20, "borosilicate glass" = 80) // Psuedoscience but here we are

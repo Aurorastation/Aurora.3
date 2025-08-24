@@ -72,7 +72,7 @@
 	category = "atmos"
 	name = "Canister (Air)"
 	supplier = "hephaestus"
-	description = "Holds nitrogen-oxygen breatheable air. Has a built-in valve to allow for filling portable tanks."
+	description = "Holds a nitrogen-oxygen mixture of breathable air. Has a built-in valve to allow for filling portable tanks."
 	price = 180
 	items = list(
 		/obj/machinery/portable_atmospherics/canister/air
@@ -82,14 +82,14 @@
 	groupable = FALSE
 	spawn_amount = 1
 
-/singleton/cargo_item/canister_bo
+/singleton/cargo_item/canister_3he
 	category = "atmos"
-	name = "Canister (Boron)"
+	name = "Canister (Helium-3)"
 	supplier = "hephaestus"
-	description = "Holds boron gas. Has a built-in valve to allow for filling portable tanks."
-	price = 380
+	description = "Holds Helium-3 gas, a valuable fusion fuel. Has a built-in valve to allow for filling portable tanks."
+	price = 3800
 	items = list(
-		/obj/machinery/portable_atmospherics/canister/boron
+		/obj/machinery/portable_atmospherics/canister/helium/fuel
 	)
 	access = ACCESS_ENGINE
 	container_type = "box"
@@ -100,7 +100,7 @@
 	category = "atmos"
 	name = "Canister (CO2)"
 	supplier = "hephaestus"
-	description = "Holds heavy CO2 gas. Has a built-in valve to allow for filling portable tanks."
+	description = "Holds heavy CO2 gas, whatever that is. Has a built-in valve to allow for filling portable tanks."
 	price = 300
 	items = list(
 		/obj/machinery/portable_atmospherics/canister/carbon_dioxide
