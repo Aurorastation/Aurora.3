@@ -97,7 +97,7 @@
 	min_brig_time = 3
 	max_brig_time = 5
 
-	min_fine = 25 //Fine is applied as this number per minute of verbal abuse.
+	min_fine = 25
 	max_fine = 250
 
 /datum/law/low_severity/failure_execute
