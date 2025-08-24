@@ -204,8 +204,11 @@ SUBSYSTEM_DEF(persistence)
 	else
 		var/content = track_get_content(track)
 		if (!content)
-			log_subsystem_persistence("Empty content found for track while trying to add track to database. This might indicate a missing implementation! Type: [track.type]")
-			return
+			if (istype(track,/obj/item/)) // Content can be empty, like in the case of generic trash, otherwise it might hint to missing implementation, warn about it and continue
+				var/obj/item/item = track
+				if (!item.persistency_considered_trash)
+					log_subsystem_persistence("Empty content found for track while trying to add track to database. This might indicate a missing implementation! Type: [track.type]")
+			content = json_decode(list())
 
 		var/turf/T = get_turf(track)
 		if(!T || !is_station_level(T.z)) // The persistence system only supports objects from the main map levels for multiple reasons, e.g. Z level value, mapping support
@@ -239,7 +242,11 @@ SUBSYSTEM_DEF(persistence)
 	else
 		var/content = track_get_content(track)
 		if (!content)
-			return
+			if (istype(track,/obj/item/)) // Content can be empty, like in the case of generic trash, otherwise it might hint to missing implementation, warn about it and continue
+				var/obj/item/item = track
+				if (!item.persistency_considered_trash)
+					log_subsystem_persistence("Empty content found for track while trying to update track in database. This might indicate a missing implementation! Type: [track.type]")
+			content = json_decode(list())
 
 		var/turf/T = get_turf(track)
 		if(!T || !is_station_level(T.z)) // The persistence system only supports objects from the main map levels for multiple reasons, e.g. Z level value, mapping support
