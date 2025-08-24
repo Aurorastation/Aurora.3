@@ -1,18 +1,23 @@
 /obj/machinery/fusion_fuel_injector
-	name = "fuel injector"
+	name = "solid-fuel injector"
 	icon = 'icons/obj/machinery/fusion.dmi'
 	icon_state = "injector0"
 	density = TRUE
 	anchored = FALSE
 	req_access = list(ACCESS_ENGINE)
-	idle_power_usage = 10
-	active_power_usage = 500
+	idle_power_usage = 1000
+	active_power_usage = 50000
 
 	var/fuel_usage = 0.001
 	var/initial_id_tag
 	var/injecting = 0
 	var/obj/item/fuel_assembly/cur_assembly
+	/// Between 0.0 and 1.0, controlled by linked console.
 	var/injection_rate = 1
+
+/obj/machinery/fusion_fuel_injector/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Use a multitool on this to read or change the ID of the fusion reactor 'network' with which it is associated."
 
 /obj/machinery/fusion_fuel_injector/Initialize()
 	AddComponent(/datum/component/local_network_member, initial_id_tag)

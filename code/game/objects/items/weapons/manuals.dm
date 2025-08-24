@@ -204,6 +204,72 @@
 				</body>
 			</html>"}
 
+/obj/item/book/manual/fusion_reactor
+	name = "INDRA Fusion Reactor Operating Manual"
+	icon_state = "bookParticleAccelerator"
+	item_state = "book2"
+	author = "Engineering Encyclopedia"
+	title = "INDRA Fusion Reactor Operating Manual"
+
+/obj/item/book/manual/supermatter_engine/Initialize()
+	. = ..()
+	dat = {"<html>
+				<head>
+				<style>
+				h1 {font-size: 18px; margin: 15px 0px 5px;}
+				h2 {font-size: 15px; margin: 15px 0px 5px;}
+				li {margin: 2px 0px 2px 15px;}
+				ul {margin: 5px; padding: 0px;}
+				ol {margin: 5px; padding: 0px 15px;}
+				body {font-size: 13px; font-family: Verdana;}
+				</style>
+				</head>
+				<body>
+				<h1>OPERATING MANUAL FOR INDRA TOKAMAK-STYLE FUSION BOTTLE & REACTOR ASSEMBLY</h1>
+				<br>
+				<h2>OPERATING PRINCIPLES</h2>
+				<br>
+				<li>Tokamaks have been in continuous development since their invention on Earth in the 20th century, and are generally safe and simple to operate by any trained professional. While the INDRA has additional capabilities and design advantages over many traditional 24th century reactor designs, a trained operator can safely maintain traditional proton-proton fusion reaction chains without any significant risk to meet basic power production requirements.</li>
+				<br>
+				<li>Fusion reactants are injected into the INDRA reaction chamber either via gas canister connections or solid-fuel injectors. Gas canister connections are configured </li>
+				<br>
+				<li>XYZ</li>
+				<br>
+				<h2>SUPERMATTER HANDLING</h2>
+				<li>XYZ</li>
+				<br>
+				<h2>STARTUP PROCEDURE</h2>
+				<ol>
+				<li>XYZ</li>
+				</ol>
+				<br>
+				<h2>OPERATION AND MAINTENANCE</h2>
+				<ol>
+				<li>XYZ</li>
+				</ol>
+				<br>
+				<h2>EMERGENCY COOLING PROCEDURE</h2>
+				<ol>
+				<li>XYZ</li>
+				</ol>
+				<br>
+				<h2>EJECTION PROCEDURE</h2>
+				<ol>
+				<li>XYZ</li>
+				</ol>
+				<h2>Frequently Asked Questions</h2>
+				<br>
+				<li><b>Q:</b> XYZ</li>
+				<br>
+				<li><b>A:</b> XYZ</li>
+				<br>
+				<li><b>Q:</b> XYZ</li>
+				<br>
+				<li><b>A:</b> XYZ</li>
+				<br>
+				</body>
+			</html>"}
+
 /obj/item/book/manual/wiki/engineering_hacking
 	name = "Hacking"
 	icon_state ="bookHacking"

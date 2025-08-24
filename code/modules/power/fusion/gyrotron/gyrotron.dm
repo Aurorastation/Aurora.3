@@ -10,6 +10,10 @@
 	var/rate = 3
 	var/mega_energy = 1
 
+/obj/machinery/power/emitter/gyrotron/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Use a multitool on this to read or change the ID of the fusion reactor 'network' with which it is associated."
+
 /obj/machinery/power/emitter/gyrotron/anchored
 	anchored = TRUE
 

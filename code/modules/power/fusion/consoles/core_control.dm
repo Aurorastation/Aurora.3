@@ -38,8 +38,8 @@
 				C.Shutdown()
 			return TRUE
 
-		if("strength")
-			C.set_strength(params["strength"])
+		if("magnitude")
+			C.set_magnitude(params["magnitude"])
 			return TRUE
 
 /obj/machinery/computer/fusion/core_control/ui_data(mob/user)
@@ -56,8 +56,8 @@
 			core["id"] = "#[i]"
 			core["ref"] = "[REF(C)]"
 			core["field"] = !isnull(C.owned_field)
-			core["power"] = "[C.field_strength / 10]"
-			core["field_strength"] = C.field_strength
+			core["power"] = "[C.field_magnitude / 10]"
+			core["field_magnitude"] = C.field_magnitude
 			core["size"] =  C.owned_field ? C.owned_field.size : 0
 			core["instability"] = C.owned_field ? C.owned_field.percent_unstable * 100 : -1 //%
 			core["temperature"] = C.owned_field ? C.owned_field.plasma_temperature + 295 : -1 //K

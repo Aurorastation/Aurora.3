@@ -9,6 +9,10 @@
 	var/ui_template
 	var/initial_id_tag
 
+/obj/machinery/computer/fusion/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Use a multitool on this to read or change the ID of the fusion reactor 'network' with which it is associated."
+
 /obj/machinery/computer/fusion/Initialize()
 	AddComponent(/datum/component/local_network_member, initial_id_tag)
 	. = ..()

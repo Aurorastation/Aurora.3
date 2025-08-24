@@ -1,8 +1,8 @@
-#define FUSION_ENERGY_PER_K        20
-#define FUSION_INSTABILITY_DIVISOR 50000
-#define FUSION_RUPTURE_THRESHOLD   10000
-#define FUSION_REACTANT_CAP        10000
-#define FUSION_WARNING_DELAY 20
+#define FUSION_ENERGY_PER_K			20
+#define FUSION_INSTABILITY_DIVISOR	50000
+#define FUSION_RUPTURE_THRESHOLD	10000
+#define FUSION_REACTANT_CAP			10000
+#define FUSION_WARNING_DELAY		20
 
 /obj/effect/fusion_em_field
 	name = "electromagnetic field"
@@ -12,8 +12,11 @@
 	light_color = COLOR_RED
 	mouse_opacity = MOUSE_OPACITY_ICON
 
+	/// The temporary pool of energy being added to the core via gyrotron shots.
 	var/energy = 0
+	/// The actual energy of the ongoing fusion reaction.
 	var/plasma_temperature = 0
+	/// The current 'dirtiness' of the ongoing fusion reactions. Neutrinos, neutrons, emag, whatever; it's SSradiation baby.
 	var/radiation = 0
 	/// Radiation of the previous three ticks averaged out (if != 0).
 	var/radiation_avg = 0
@@ -23,11 +26,11 @@
 	var/radiation_oldest = 0
 	/// Debug multiplier
 	var/radiation_mult = 3.0
-	/// The currently configured Field Strength (0.01 = 1 Tesla). Locked to 300.
-	var/field_strength = 0.01
-	/// Edit this for a GIANT PLASMA TORUS (3 = 300 Tesla).
-	var/field_strength_max = 3
-	/// Radius of the EM field. Scales with Field Strength.
+	/// Field Magnitude describes the extra energy added to the field to modify its size.
+	var/field_magnitude = 0.01
+	/// Edit this for a GIANT PLASMA TORUS.
+	var/field_magnitude_max = 3
+	/// Radius of the EM field. Scales with Field Magnitude. Modifies reaction temperature thresholes & instability
 	var/size = 3
 	var/tick_instability = 0
 	/// Ranges from 0-1. At or over 1, boom.
@@ -87,7 +90,6 @@
 	particles.drift = generator("circle", (0.2 + radiationfactor), NORMAL_RAND)
 
 	particles.spawning = last_reactants * 0.9 + Interpolate(0, 200, clamp(plasma_temperature / 70000, 0, 1))
-
 
 /obj/effect/fusion_em_field/New(loc, obj/machinery/power/fusion_core/new_owned_core)
 	..()
@@ -222,12 +224,8 @@
 	/**
 	 * Dump power to our powernet, in watts.
 	 * Quick reference, for FUSION_ENERGY_PER_K = 20:
-	 * 2500 K    = 50 KW
-	 * 10000 K   = 200 KW
-	 * 50000 K   = 1 MW
-	 * 250000 K  = 4 MW
-	 * 1 mil K   = 20 MW
-	 * 100 mil K = 2000 MW
+	 * 1 mil K   = 2 MW
+	 * 100 mil K = 200 MW
 	 */
 	owned_core.add_avail(FUSION_ENERGY_PER_K * plasma_temperature)
 
@@ -392,7 +390,7 @@
 	animating_ripple = FALSE
 
 /obj/effect/fusion_em_field/proc/is_shutdown_safe()
-	return plasma_temperature < 1000
+	return plasma_temperature < 250000
 
 /**
  * EMP, rads, and a big fuckoff explosion.
@@ -400,7 +398,7 @@
 /obj/effect/fusion_em_field/proc/Rupture()
 	visible_message(SPAN_DANGER("\The [src] shudders like a dying animal before flaring to eye-searing brightness and rupturing!"))
 	set_light(1, 0.1, 15, 2, "#ccccff")
-	empulse(get_turf(src), Ceil(plasma_temperature/1000), Ceil(plasma_temperature/300))
+	empulse(get_turf(src), Ceil(plasma_temperature/1000000), Ceil(plasma_temperature/300000))
 	sleep(5)
 	RadiateAll()
 	explosion(get_turf(owned_core), 8, 8)
@@ -410,7 +408,7 @@
  * Sets field strength in Tesla, and corresponding field size.
  * This currently does nothing mechanically, and the UI locks us to 100 max strength anyway.
  */
-/obj/effect/fusion_em_field/proc/ChangeFieldStrength(new_strength)
+/obj/effect/fusion_em_field/proc/ChangeFieldMagnitude(new_strength)
 	var/calc_size = 3
 	if(new_strength <= 50)
 		calc_size = 3
@@ -424,17 +422,17 @@
 		calc_size = 11
 	else
 		calc_size = 13
-	field_strength = new_strength
+	field_magnitude = new_strength
 	change_size(calc_size)
 
 /obj/effect/fusion_em_field/proc/AddEnergy(a_energy, a_plasma_temperature)
-	energy += a_energy
+	energy += (a_energy * 1000)
 	plasma_temperature += a_plasma_temperature
 	if(a_energy && percent_unstable > 0)
 		percent_unstable = max(percent_unstable - (a_energy/10000), 0)
-	while(energy >= 100)
-		energy -= 100
-		plasma_temperature += 1
+	while(energy >= 10000)
+		energy -= 10000
+		plasma_temperature += 100
 	UpdateVisuals()
 
 /obj/effect/fusion_em_field/proc/AddParticles(name, quantity = 1)
@@ -557,29 +555,29 @@
 
 	// Can't have any reactions if there aren't any reactants present
 	if(length(react_pool))
-		//determine a random amount to actually react this cycle, and remove it from the standard pool
+		// Determine a random amount to actually react this cycle, and remove it from the standard pool
 		for(var/reactant in react_pool)
 			react_pool[reactant] = rand(FLOOR(react_pool[reactant]/2, 1),react_pool[reactant])
 			reactants[reactant] -= react_pool[reactant]
 			if(!react_pool[reactant])
 				react_pool -= reactant
 
-		//loop through all the reacting reagents, picking out random reactions for them
+		// Loop through all the reacting reagents, picking out random reactions for them
 		var/list/produced_reactants = new/list
 		var/list/p_react_pool = react_pool.Copy()
 		while(length(p_react_pool))
-			//pick one of the unprocessed reacting reagents randomly
+			// Pick one of the unprocessed reacting reagents randomly
 			var/cur_p_react = pick(p_react_pool)
 			p_react_pool.Remove(cur_p_react)
 
-			//grab all the possible reactants to have a reaction with
+			// Grab all the possible reactants to have a reaction with
 			var/list/possible_s_reacts = react_pool.Copy()
-			//if there is only one of a particular reactant, then it can not react with itself so remove it
+			// If there is only one of a particular reactant, then it can not react with itself so remove it
 			possible_s_reacts[cur_p_react] -= 1
 			if(possible_s_reacts[cur_p_react] < 1)
 				possible_s_reacts.Remove(cur_p_react)
 
-			//loop through and work out all the possible reactions
+			// Loop through and work out all the possible reactions
 			for(var/cur_s_react in possible_s_reacts)
 				if(possible_s_reacts[cur_s_react] < 1)
 					continue
@@ -587,14 +585,14 @@
 				if(cur_reaction && plasma_temperature >= cur_reaction.minimum_energy_level)
 					LAZYDISTINCTADD(possible_reactions, cur_reaction)
 
-			//if there are no possible reactions here, abandon this primary reactant and move on
+			// If there are no possible reactions here, abandon this primary reactant and move on
 			if(!LAZYLEN(possible_reactions))
 				continue
 
 			/// Sort based on reaction priority to avoid deut-deut eating all the deut before deut-trit can run etc.
 			sortTim(possible_reactions, /proc/cmp_fusion_reaction_des)
 
-			//split up the reacting atoms between the possible reactions
+			// Split up the reacting atoms between the possible reactions
 			while(length(possible_reactions))
 				var/singleton/fusion_reaction/cur_reaction = possible_reactions[1]
 				possible_reactions.Remove(cur_reaction)
@@ -634,7 +632,7 @@
 
 				plasma_temperature -= max_num_reactants * cur_reaction.energy_consumption  // Remove the consumed energy.
 				plasma_temperature += max_num_reactants * cur_reaction.energy_production   // Add any produced energy.
-				radiation +=   max_num_reactants * cur_reaction.radiation           // Add any produced radiation.
+				radiation += max_num_reactants * cur_reaction.radiation           // Add any produced radiation.
 				tick_instability += max_num_reactants * cur_reaction.instability
 				last_reactants += amount_reacting
 
@@ -667,6 +665,7 @@
 	UpdateVisuals()
 
 /obj/effect/fusion_em_field/proc/React(singleton/fusion_reaction/A, singleton/fusion_reaction/B)
+
 
 /obj/effect/fusion_em_field/Destroy()
 	set_light(0)

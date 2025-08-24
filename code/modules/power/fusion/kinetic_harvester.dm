@@ -12,6 +12,10 @@
 	var/list/harvesting = list()
 	var/obj/machinery/power/fusion_core/harvest_from
 
+/obj/machinery/kinetic_harvester/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Use a multitool on this to read or change the ID of the fusion reactor 'network' with which it is associated."
+
 /obj/machinery/kinetic_harvester/Initialize()
 	AddComponent(/datum/component/local_network_member, initial_id_tag)
 	find_core()

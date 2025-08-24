@@ -9,14 +9,19 @@
 	layer = ABOVE_HUMAN_LAYER
 	density = TRUE
 	use_power = POWER_USE_IDLE
-	idle_power_usage = 50
-	/// Gets multiplied by field strength
-	active_power_usage = 500
+	idle_power_usage = 5000
+	/// Gets multiplied by field magnitude and current temperatures
+	active_power_usage = 10000
 	anchored = FALSE
 
 	var/obj/effect/fusion_em_field/owned_field
-	var/field_strength = 1//0.01
+	var/field_magnitude = 1//0.01
+	var/field_constriction
 	var/initial_id_tag
+
+/obj/machinery/power/fusion_core/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Use a multitool on this to read or change the ID of the fusion reactor 'network' with which it is associated."
 
 /obj/machinery/power/fusion_core/mapped
 	anchored = TRUE
@@ -35,13 +40,13 @@
 		Shutdown()
 
 /**
- * Create a new owned_field of appropriate strength and update power usage.
+ * Create a new owned_field of appropriate magnitude and update power usage.
  */
 /obj/machinery/power/fusion_core/proc/Startup()
 	if(owned_field)
 		return
 	owned_field = new(loc, src)
-	owned_field.ChangeFieldStrength(field_strength)
+	owned_field.ChangeFieldMagnitude(field_magnitude)
 	icon_state = "core1"
 	update_use_power(POWER_USE_ACTIVE)
 	. = 1
@@ -73,12 +78,12 @@
 	if(owned_field)
 		. = owned_field.bullet_act(hitting_projectile)
 
-/obj/machinery/power/fusion_core/proc/set_strength(value)
+/obj/machinery/power/fusion_core/proc/set_magnitude(value)
 	value = clamp(value, MIN_FIELD_STR, MAX_FIELD_STR)
-	field_strength = value
+	field_magnitude = value
 	change_power_consumption(5 * value, POWER_USE_ACTIVE)
 	if(owned_field)
-		owned_field.ChangeFieldStrength(value)
+		owned_field.ChangeFieldMagnitude(value)
 
 /obj/machinery/power/fusion_core/attack_hand(mob/user)
 	. = ..()
@@ -115,7 +120,7 @@
 	return ..()
 
 /obj/machinery/power/fusion_core/proc/jumpstart(field_temperature)
-	field_strength = 501 // Generally a good size.
+	field_magnitude = 501 // Generally a good size.
 	Startup()
 	if(!owned_field)
 		return FALSE

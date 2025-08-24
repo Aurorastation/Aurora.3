@@ -14,7 +14,7 @@ type Core = {
   id: number;
   ref: string;
   field: BooleanLike;
-  field_strength: number; // backend only, user facing value is power
+  field_magnitude: number; // backend only, user facing value is power
   power: number;
   size: number;
   instability: number;
@@ -93,16 +93,16 @@ export const FusionCoreControl = (props, context) => {
                 <LabeledList.Item label="Power Status">
                   {core.power_status} W
                 </LabeledList.Item>
-                <LabeledList.Item label="Field Strength">
+                <LabeledList.Item label="Field Magnitude">
                   <NumberInput
-                    value={core.field_strength}
+                    value={core.field_magnitude}
                     unit="tesla"
                     minValue={0}
                     maxValue={300}
                     stepPixelSize={15}
                     onDrag={(e, value) =>
-                      act('strength', {
-                        strength: value,
+                      act('magnitude', {
+                        magnitude: value,
                         machine: core.ref,
                       })
                     }
