@@ -497,7 +497,7 @@
 	user?.update_equipment_speed_mods()
 	try_make_persistent_trash()
 
-/obj/item/proc/pipe_eject(var/direction)
+/obj/item/pipe_eject(var/direction)
 	SHOULD_CALL_PARENT(TRUE)
 	..()
 	try_make_persistent_trash()
