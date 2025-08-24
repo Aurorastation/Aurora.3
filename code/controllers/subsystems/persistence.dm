@@ -204,6 +204,7 @@ SUBSYSTEM_DEF(persistence)
 	else
 		var/content = track_get_content(track)
 		if (!content)
+			log_subsystem_persistence("Empty content found for track while trying to add track to database. This might indicate a missing implementation! Type: [track.type]")
 			return
 
 		var/turf/T = get_turf(track)
