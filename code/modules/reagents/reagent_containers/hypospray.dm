@@ -122,10 +122,24 @@
 	slot_flags = SLOT_EARS
 	var/name_label
 	var/spent = TRUE
+	persistency_considered_trash = FALSE
 	amount_per_transfer_from_this = 5
 	possible_transfer_amounts = null
 	volume = 5
 	time = 0
+
+/obj/item/reagent_containers/hypospray/autoinjector/persistence_get_content()
+	var/list/content = list()
+	content["name"] = name
+	content["desc"] = desc
+	return content
+
+/obj/item/reagent_containers/hypospray/autoinjector/persistence_apply_content(content, x, y, z)
+	name = content["name"]
+	desc = content["desc"]
+	src.x = x
+	src.y = y
+	src.z = z
 
 /obj/item/reagent_containers/hypospray/autoinjector/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -147,6 +161,8 @@
 	if(reagents_to_add)
 		atom_flags = 0
 		spent = FALSE
+	else
+		persistency_considered_trash = TRUE
 	update_icon()
 
 /obj/item/reagent_containers/hypospray/autoinjector/attack(mob/living/target_mob, mob/living/user, target_zone)
@@ -159,6 +175,7 @@
 	. = ..()
 	if(.)
 		spent = TRUE
+		persistency_considered_trash = TRUE
 		update_icon()
 
 /obj/item/reagent_containers/hypospray/autoinjector/attack_self(mob/user as mob)
@@ -173,6 +190,7 @@
 		if(LAZYLEN(reagents.reagent_volumes))
 			to_chat(user, SPAN_NOTICE("With a quick twist of \the [src]'s lid, you secure the reagents inside."))
 			spent = FALSE
+			persistency_considered_trash = FALSE
 			atom_flags &= ~ATOM_FLAG_OPEN_CONTAINER
 			update_icon()
 		else
