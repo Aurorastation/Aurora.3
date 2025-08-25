@@ -121,7 +121,7 @@
 			return GAS_TRITIUM
 		if(ATM_HE)
 			return GAS_HELIUM
-		if(ATM_B)
+		if(ATM_3HE)
 			return GAS_HELIUMFUEL
 		if(ATM_SO2)
 			return GAS_SULFUR

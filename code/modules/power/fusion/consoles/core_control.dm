@@ -64,6 +64,8 @@
 			core["power_status"] = "[C.avail()]/[C.active_power_usage]"
 			core["shutdown_safe"] = C.owned_field ? C.owned_field.is_shutdown_safe() : TRUE
 
+			core["radiation_avg"] =  C.owned_field ? C.owned_field.radiation_avg : 0
+
 			var/list/reactants = list()
 			if(C.owned_field && LAZYLEN(C.owned_field.reactants))
 				for(var/reactant in C.owned_field.reactants)

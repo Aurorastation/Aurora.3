@@ -22,6 +22,7 @@ type Core = {
   power_status: string;
   shutdown_safe: BooleanLike;
   reactants: Reactant[];
+  radiation_avg: number;
 };
 
 type Reactant = {
@@ -140,6 +141,13 @@ export const FusionCoreControl = (props, context) => {
                   )}
                 </LabeledList.Item>
               </LabeledList>
+              <Section title="Debug">
+                <LabeledList>
+                  <LabeledList.Item label="radiation_avg">
+                    {core.radiation_avg}
+                  </LabeledList.Item>
+                </LabeledList>
+              </Section>
               <Section title="Reactants">
                 {core.reactants && core.reactants.length ? (
                   core.reactants.map((reactant) => (

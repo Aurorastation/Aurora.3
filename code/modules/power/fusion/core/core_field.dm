@@ -12,11 +12,24 @@
 	light_color = COLOR_RED
 	mouse_opacity = MOUSE_OPACITY_ICON
 
+	/// Temporary pool for energy being added to the field from a Gyrotron.
 	var/energy = 0
+	/// Actual core field energy (temperature).
 	var/plasma_temperature = 0
+	/// Current excess radiation from ongoing reactions.
 	var/radiation = 0
-	/// The currently configured Field Strength (0.01 = 1 Tesla).
+	/// Radiation of the previous three ticks averaged out (if != 0).
+	var/radiation_avg = 0
+	/// Archived radiation. Used for averaging out new SSradiation.radiate() source creation.
+	var/radiation_archive_1 = 0
+	var/radiation_archive_2 = 0
+	var/radiation_archive_3 = 0
+	var/radiation_archive_4 = 0
+	var/radiation_archive_5 = 0
+	/// The currently configured Field Strength (0.01 = 1 Tesla). Capped by TGUI at 3.00 (300 Tesla).
 	var/field_strength = 0.01
+	/// Edit this for a GIANT PLASMA TORUS (3 = 300 Tesla).
+	var/field_strength_max = 3
 	/// Radius of the EM field. Scales with Field Strength.
 	var/size = 1
 	var/tick_instability = 0
@@ -33,7 +46,8 @@
 		/obj/effect,
 		/obj/structure/cable,
 		/obj/machinery/atmospherics,
-		/obj/machinery/air_sensor
+		/obj/machinery/air_sensor,
+		/obj/machinery/camera
 		)
 
 	var/light_min_range = 2
@@ -67,7 +81,7 @@
 	particles.position = generator("circle", radius - size, radius + size, NORMAL_RAND)
 
 	//Radiation affects drift
-	var/radiationfactor = clamp((radiation * 0.001), 0, 0.5)
+	var/radiationfactor = clamp((radiation_avg * 0.001), 0, 0.75)
 	particles.drift = generator("circle", (0.2 + radiationfactor), NORMAL_RAND)
 
 	particles.spawning = last_reactants * 0.9 + Interpolate(0, 200, clamp(plasma_temperature / 70000, 0, 1))
@@ -218,7 +232,7 @@
 		if(amount < 1)
 			reactants.Remove(reactant)
 		else if(amount >= FUSION_REACTANT_CAP)
-			var/radiate = rand(3 * amount / 4, amount / 4)
+			var/radiate = rand(amount / 12, 3 * amount / 12)
 			reactants[reactant] -= radiate
 			radiation += radiate
 
@@ -229,8 +243,6 @@
 			warning()
 
 	Radiate()
-	if(radiation)
-		SSradiation.radiate(src, round(radiation*0.001))
 	return 1
 
 /**
@@ -393,13 +405,13 @@
 		calc_size = 1
 	else if(new_strength <= 200)
 		calc_size = 3
-	else if(new_strength <= 500)
+	else if(new_strength <= 250)
 		calc_size = 5
-	else if(new_strength <= 1000)
+	else if(new_strength <= 500)
 		calc_size = 7
-	else if(new_strength <= 2000)
+	else if(new_strength <= 1000)
 		calc_size = 9
-	else if(new_strength <= 5000)
+	else if(new_strength <= 2000)
 		calc_size = 11
 	else
 		calc_size = 13
@@ -453,7 +465,7 @@
 	radiation += plasma_temperature/2
 	plasma_temperature = 0
 
-	SSradiation.radiate(src, round(radiation*0.001))
+	SSradiation.radiate(src, radiation)
 	Radiate()
 
 /**
@@ -496,6 +508,19 @@
 		// Putting an upper bound on it to stop it being used in a TEG.
 		if(environment && environment.temperature < (T0C+1000))
 			environment.add_thermal_energy(plasma_temperature*20000)
+
+	// Radiation levels can spike unpredictably based on how many reagents we're throwing out, which reactions ran this cycle, etc.
+	// And while we like some unpredictability, it gets a little excessive with the INDRA. Use these vars to balance out actual rad output.
+	radiation_archive_5 = radiation_archive_4
+	radiation_archive_4 = radiation_archive_3
+	radiation_archive_3 = radiation_archive_2
+	radiation_archive_2 = radiation_archive_1
+	radiation_archive_1 = radiation
+
+	if(radiation >= 10)
+		radiation_avg = ((radiation_archive_1 + radiation_archive_2 + radiation_archive_3 + radiation_archive_4 + radiation_archive_5 ) / 5)
+		SSradiation.radiate(src, radiation_avg)
+
 	radiation = 0
 
 /obj/effect/fusion_em_field/proc/change_size(newsize = 1)
@@ -519,36 +544,36 @@
  * *
  */
 /obj/effect/fusion_em_field/proc/React()
-	// Loop through the reactants in random order
+	// Loop through the reactants in random order.
 	var/list/react_pool = reactants.Copy()
 	last_reactants = 0
 
-	// Can't have any reactions if there aren't any reactants present
+	// Can't have any reactions if there aren't any reactants present.
 	if(length(react_pool))
-		//determine a random amount to actually react this cycle, and remove it from the standard pool
-		//this is a hack, and quite nonrealistic :(
+		// Determine a random amount to actually react this cycle, and remove it from the standard pool.
+		// This is a hack, and quite nonrealistic :(
 		for(var/reactant in react_pool)
 			react_pool[reactant] = rand(FLOOR(react_pool[reactant]/2, 1),react_pool[reactant])
 			reactants[reactant] -= react_pool[reactant]
 			if(!react_pool[reactant])
 				react_pool -= reactant
 
-		//loop through all the reacting reagents, picking out random reactions for them
+		// Loop through all the reacting reagents, picking out random reactions for them.
 		var/list/produced_reactants = new/list
 		var/list/p_react_pool = react_pool.Copy()
 		while(length(p_react_pool))
-			//pick one of the unprocessed reacting reagents randomly
+			// Pick one of the unprocessed reacting reagents randomly.
 			var/cur_p_react = pick(p_react_pool)
 			p_react_pool.Remove(cur_p_react)
 
-			//grab all the possible reactants to have a reaction with
+			// Grab all the possible reactants to have a reaction with.
 			var/list/possible_s_reacts = react_pool.Copy()
-			//if there is only one of a particular reactant, then it can not react with itself so remove it
+			// If there is only one of a particular reactant, then it can not react with itself so remove it.
 			possible_s_reacts[cur_p_react] -= 1
 			if(possible_s_reacts[cur_p_react] < 1)
 				possible_s_reacts.Remove(cur_p_react)
 
-			//loop through and work out all the possible reactions
+			// Loop through and work out all the possible reactions.
 			var/list/possible_reactions
 			for(var/cur_s_react in possible_s_reacts)
 				if(possible_s_reacts[cur_s_react] < 1)
@@ -557,25 +582,25 @@
 				if(cur_reaction && plasma_temperature >= cur_reaction.minimum_energy_level)
 					LAZYDISTINCTADD(possible_reactions, cur_reaction)
 
-			//if there are no possible reactions here, abandon this primary reactant and move on
+			// If there are no possible reactions here, abandon this primary reactant and move on.
 			if(!LAZYLEN(possible_reactions))
 				continue
 
-			/// Sort based on reaction priority to avoid deut-deut eating all the deut before deut-trit can run etc.
+			// Sort based on reaction priority to avoid deut-deut eating all the deut before deut-trit can run etc.
 			sortTim(possible_reactions, /proc/cmp_fusion_reaction_des)
 
-			//split up the reacting atoms between the possible reactions
+			// Split up the reacting atoms between the possible reactions.
 			while(length(possible_reactions))
 				var/singleton/fusion_reaction/cur_reaction = possible_reactions[1]
 				possible_reactions.Remove(cur_reaction)
 
-				//set the randmax to be the lower of the two involved reactants
+				// Set the randmax to be the lower of the two involved reactants.
 				var/max_num_reactants = react_pool[cur_reaction.p_react] > react_pool[cur_reaction.s_react] ? \
 				react_pool[cur_reaction.s_react] : react_pool[cur_reaction.p_react]
 				if(max_num_reactants < 1)
 					continue
 
-				//make sure we have enough energy
+				// Make sure we have enough energy.
 				if(plasma_temperature < cur_reaction.minimum_reaction_temperature)
 					continue
 
@@ -584,17 +609,17 @@
 					if(max_num_reactants < 1)
 						continue
 
-				//randomly determined amount to react
+				// Randomly determined amount to react.
 				var/amount_reacting = rand(1, max_num_reactants)
 
-				//removing the reacting substances from the list of substances that are primed to react this cycle
-				//if there aren't enough of that substance (there should be) then modify the reactant amounts accordingly
+				// Removing the reacting substances from the list of substances that are primed to react this cycle.
+				// If there aren't enough of that substance (there should be) then modify the reactant amounts accordingly.
 				if( react_pool[cur_reaction.p_react] - amount_reacting >= 0 )
 					react_pool[cur_reaction.p_react] -= amount_reacting
 				else
 					amount_reacting = react_pool[cur_reaction.p_react]
 					react_pool[cur_reaction.p_react] = 0
-				//same again for secondary reactant
+				// Same again for secondary reactant
 				if(react_pool[cur_reaction.s_react] - amount_reacting >= 0 )
 					react_pool[cur_reaction.s_react] -= amount_reacting
 				else

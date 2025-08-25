@@ -20,7 +20,7 @@ var/global/datum/xgm_gas_data/gas_data
 
 /singleton/xgm_gas
 	var/id = ""
-	var/name = "Unnamed Gas"s
+	var/name = "Unnamed Gas"
 	var/desc
 	var/specific_heat = 20	// J/(mol*K)
 	var/molar_mass = 0.032	// kg/mol
