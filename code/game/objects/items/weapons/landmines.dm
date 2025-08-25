@@ -219,7 +219,7 @@
  */
 /obj/item/landmine/frag/door_rigging
 	name = "door rigging landmine"
-	fragment_damage = 20
+	fragment_damage = 10
 
 	///The airlock that we are observing for when it opens, to explode
 	var/obj/machinery/door/airlock/door_rigged
