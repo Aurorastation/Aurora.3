@@ -3,4 +3,4 @@ author: FabianK3
 delete-after: True
 
 changes:
-  - rscadd: "Added trash (primarily from snacks) to the persistence system. Trash will become persistent when it's dropped unless it's in a maint, in the disposals room or gets picked up again. Persistent trash can be found up to three days later."
+  - rscadd: "Added multiple types of trash to the persistence system. Trash will become persistent when it's dropped unless it's in a maint, in the disposal areas or gets picked up again. Persistent trash can be found up to three days later."
