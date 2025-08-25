@@ -57,3 +57,4 @@ delete-after: True
 changes:
   - balance: "Red Nightshade no longer totally negates all pain. It now applies a grace period of 75 pain."
   - balance: "Red Nightshade no longer multiplies all melee damage by 1.25x. The multiplier has been reduced to 1.1x."
+  - balance: "Reduced Hulk melee damage modifier to 1.25x."
