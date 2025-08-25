@@ -55,6 +55,7 @@
 	src.x = x
 	src.y = y
 	src.z = z
+	reagents = null
 
 /obj/item/reagent_containers/food/drinks/cans/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if(iscarbon(target_mob) && !reagents.total_volume && user.a_intent == I_HURT && target_zone == BP_HEAD)
