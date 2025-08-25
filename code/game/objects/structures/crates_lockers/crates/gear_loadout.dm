@@ -178,7 +178,7 @@
 	new /obj/item/clothing/under/rank/sol/marine(src)
 	new /obj/item/clothing/under/rank/sol/marine(src)
 	new /obj/item/clothing/under/rank/sol/marine(src)
-	new /obj/item/rig/military(src)
+	new /obj/item/rig/military/equipped(src)
 	new /obj/item/clothing/head/helmet/space/void/sol(src)
 	new /obj/item/clothing/head/helmet/space/void/sol(src)
 	new /obj/item/clothing/head/helmet/space/void/sol(src)
@@ -580,6 +580,7 @@
 	new/obj/item/clothing/under/unathi/izweski(src)
 	new/obj/item/clothing/under/unathi/izweski(src)
 	new/obj/item/clothing/under/unathi/izweski/officer(src)
+	new /obj/item/rig/unathi/fancy/equipped(src) // Knights get this so why not they?
 	new /obj/item/clothing/head/helmet/space/void/hegemony(src)
 	new /obj/item/clothing/head/helmet/space/void/hegemony(src)
 	new /obj/item/clothing/head/helmet/space/void/hegemony(src)
@@ -693,6 +694,7 @@
 	new /obj/item/clothing/under/unathi(src)
 	new /obj/item/clothing/under/unathi(src)
 	new /obj/item/clothing/under/unathi(src)
+	new /obj/item/rig/merc(src) // Courtesy of Hammertail
 	new /obj/item/clothing/head/helmet/space/void/unathi_pirate(src)
 	new /obj/item/clothing/suit/space/void/unathi_pirate(src)
 	new /obj/item/clothing/head/helmet/space/void/unathi_pirate(src)
@@ -845,6 +847,7 @@
 		new /obj/item/gun/projectile/automatic/rifle/sts35(src)
 		new /obj/item/ammo_magazine/c762(src)
 	new /obj/item/storage/box/species_modkit(src) //species modkits for switching on the fly
+	new /obj/item/rig/merc(src) // Im pretty sure they invented this thing.
 
 /obj/structure/closet/crate/secure/gear_loadout/hammertail/single/fill()
 	new /obj/item/clothing/under/syndicate/hammertail(src) //1 outfit
@@ -909,7 +912,7 @@
 	new /obj/item/clothing/head/helmet/space/void/kala(src)
 	new /obj/item/clothing/shoes/jackboots/kala(src)
 
-/obj/structure/closet/crate/secure/gear_loadout/imperial_army/fill()
+/obj/structure/closet/crate/secure/gear_loadout/imperial_army/fill() // Was told the Jinxiang is only for the marines, so no rig
 	new /obj/item/gun/projectile/automatic/rifle/dominia(src)
 	new /obj/item/ammo_magazine/a556(src)
 	new /obj/item/ammo_magazine/a556(src)
@@ -977,6 +980,7 @@
 	new /obj/item/clothing/shoes/jackboots/toeless(src)
 	new /obj/item/clothing/shoes/jackboots/toeless(src)
 	new /obj/item/clothing/shoes/jackboots/toeless(src)
+	new /obj/item/rig/combat/legionnaire/equipped(src)
 	new /obj/item/clothing/gloves/tcaf(src)
 	new /obj/item/clothing/gloves/tcaf(src)
 	new /obj/item/clothing/gloves/tcaf(src)

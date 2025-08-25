@@ -44,7 +44,7 @@
 #################################
 
 # Your name.
-author: Snowy1237
+author: MattAtlas
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -55,5 +55,6 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - qol: "Overhauled the Bluespace Drive control UI to be generally nicer."
-  - rscadd: "Added a navigation console to the Bluespace Drive chamber and added more information to be displayed on the Bluespace Drive control UI."
+  - balance: "Red Nightshade no longer totally negates all pain. It now applies a grace period of 75 pain."
+  - balance: "Red Nightshade no longer multiplies all melee damage by 1.25x. The multiplier has been reduced to 1.1x."
+  - balance: "Reduced Hulk melee damage modifier to 1.25x."

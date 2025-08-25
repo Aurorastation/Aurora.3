@@ -44,7 +44,7 @@
 #################################
 
 # Your name.
-author: SimpleMaroon
+author: UltraBigRat
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -55,4 +55,6 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - qol: "Renamed the 'Orepit' citizenship to 'Ecclesiarchy of Orepit', as well as made a mention of the Ecclesiarchy in its description."
+  - rscadd: "Adds empty versions of most hardsuits to be buyable in the uplink."
+  - rscadd: "Combat Actuator module to the uplink, slight price rebalances to uplink modules."
+  - rscadd: "Changed hardsuit modules section of the uplink, into Hardsuits and Modules."

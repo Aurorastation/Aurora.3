@@ -170,9 +170,9 @@ avoid code duplication. This includes items that may sometimes act as a standard
 /obj/item/proc/apply_hit_effect(mob/living/target, mob/living/user, var/hit_zone)
 	var/power = force
 	if((user.mutations & HULK))
-		power *= 2
+		power *= 1.25
 	if(user.is_berserk())
-		power *= 1.5
+		power *= 1.1
 	if(ishuman(user))
 		var/mob/living/carbon/human/X = user
 		if(ishuman(target))
