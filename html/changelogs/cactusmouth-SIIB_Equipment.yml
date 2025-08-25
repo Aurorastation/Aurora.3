@@ -1,9 +1,0 @@
-author: CactusMouth
-
-delete-after: True
-
-
-changes:
-  - rscadd: "Added the SIIB weapons alongside SIIB Outfits for Admins to use."
-  - imageadd: "Adds SIIB Weapons based off standard Sol weapons. (SMG and Pistol)"
-

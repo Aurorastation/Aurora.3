@@ -74,7 +74,7 @@
 	light_overlay = "helmet_light_dual_green"
 	light_color = "#3e7c3e"
 
-/obj/item/rig/military/equipped
+/obj/item/rig/military/event
 	initial_modules = list(
 		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/mounted/pulse,
@@ -97,6 +97,16 @@
 		/obj/item/rig_module/chem_dispenser/combat,
 		/obj/item/rig_module/grenade_launcher/frag,
 		/obj/item/rig_module/grenade_launcher,
+		/obj/item/rig_module/vision/nvg
+		)
+
+/obj/item/rig/military/equipped
+	initial_modules = list(
+		/obj/item/rig_module/actuators/combat,
+		/obj/item/rig_module/power_sink,
+		/obj/item/rig_module/maneuvering_jets,
+		/obj/item/rig_module/chem_dispenser/combat,
+		/obj/item/rig_module/grenade_launcher/frag,
 		/obj/item/rig_module/vision/nvg
 		)
 
