@@ -10,18 +10,55 @@
 	build_path = /obj/item/organ/internal/machine/cooling_unit/air
 	materials = list(DEFAULT_WALL_MATERIAL = 10000, MATERIAL_GLASS = 5000)
 
+/datum/design/item/synthetic/zenghu_air_cooling_unit
+	name = "Zeng-Hu Penta-Fan Air Cooling System"
+	desc = "Parts to assemble a Zeng-Hu penta-fan air cooling system."
+	build_path = /obj/item/organ/internal/machine/cooling_unit/air/zenghu
+	materials = list(DEFAULT_WALL_MATERIAL = 10000, MATERIAL_GLASS = 5000, MATERIAL_DIAMOND = 5000, MATERIAL_PLASTEEL = 2500)
+
+/datum/design/item/synthetic/xion_air_cooling_unit
+	name = "Xion Advanced Air Cooling Unit"
+	desc = "Parts to assemble a Xion advanced air cooling unitw."
+	build_path = /obj/item/organ/internal/machine/cooling_unit/air/xion
+	materials = list(DEFAULT_WALL_MATERIAL = 10000, MATERIAL_GLASS = 5000, MATERIAL_DIAMOND = 1000, MATERIAL_PLASTEEL = 7500)
+
 /datum/design/item/synthetic/liquid_cooling_unit
 	name = "Standard Liquid Cooling Unit"
 	desc = "Parts to assemble a retail liquid cooling unit."
 	build_path = /obj/item/organ/internal/machine/cooling_unit/liquid
 	materials = list(MATERIAL_PLASTEEL = 5000, MATERIAL_GLASS = 5000, MATERIAL_ALUMINIUM = 5000)
 
+/datum/design/item/synthetic/zenghu_liquid_cooling_unit
+	name = "Zeng-Hu Lamellar Liquid Cooling System"
+	desc = "Parts to assemble a Zeng-Hu lamellar liquid cooling system."
+	build_path = /obj/item/organ/internal/machine/cooling_unit/liquid/zenghu
+	materials = list(MATERIAL_PLASTEEL = 5000, MATERIAL_GLASS = 5000, MATERIAL_ALUMINIUM = 5000, MATERIAL_URANIUM = 2500, MATERIAL_DIAMOND = 2500)
+	req_tech = list(TECH_MATERIAL = 5, TECH_POWER = 4)
+
+/datum/design/item/synthetic/xion_liquid_cooling_unit
+	name = "Xion Advanced Cryo-Cooling System"
+	desc = "Parts to assemble a Xion cryo-cooling pump and radiator array."
+	build_path = /obj/item/organ/internal/machine/cooling_unit/liquid/xion
+	materials = list(MATERIAL_PLASTEEL = 5000, MATERIAL_GLASS = 5000, MATERIAL_ALUMINIUM = 5000, MATERIAL_DIAMOND = 5000)
+	req_tech = list(TECH_MATERIAL = 5, TECH_POWER = 4)
 
 /datum/design/item/synthetic/passive_cooling_unit
 	name = "Standard Passive Cooling Unit"
 	desc = "Parts to assemble a retail passive cooling unit."
 	build_path = /obj/item/organ/internal/machine/cooling_unit/passive
 	materials = list(MATERIAL_STEEL = 10000)
+
+/datum/design/item/synthetic/zenghu_passive_cooling_unit
+	name = "Zeng-Hu Suprafin Cooling Fins"
+	desc = "Parts to assemble a Zeng-Hu passive cooling unit."
+	build_path = /obj/item/organ/internal/machine/cooling_unit/passive/zenghu
+	materials = list(MATERIAL_STEEL = 10000, MATERIAL_DIAMOND = 2500, MATERIAL_PLASTEEL = 5000)
+
+/datum/design/item/synthetic/zenghu_passive_cooling_unit
+	name = "Xion Passive Intra-fin Array"
+	desc = "Parts to assemble a Zeng-Hu passive cooling unit."
+	build_path = /obj/item/organ/internal/machine/cooling_unit/passive/xion
+	materials = list(MATERIAL_STEEL = 10000, MATERIAL_DIAMOND = 1000, MATERIAL_PLASTEEL = 7500)
 
 /datum/design/item/synthetic/diagnostics_unit
 	name = "Diagnostics Unit"
@@ -84,7 +121,7 @@
 	materials = list(MATERIAL_STEEL = 2000, MATERIAL_ALUMINIUM = 2000, MATERIAL_GLASS = 1000)
 
 /datum/design/item/synthetic/access_port
-	name = "Internal Synthetic Plating"
-	desc = "Specially lathed steel plates to replace destroyed plating around a synthetic's internal components."
+	name = "Synthetic Plating"
+	desc = "Specially lathed steel plates to replace destroyed plating around a synthetic's internal components, or to substitute their external armour plating altogether."
 	build_path = /obj/item/synth_plating
 	materials = list(MATERIAL_STEEL = 40000)

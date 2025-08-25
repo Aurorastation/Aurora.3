@@ -120,7 +120,7 @@
 	forced_preset = /singleton/synthetic_organ_preset/cooling_unit/liquid_zenghu
 
 /singleton/synthetic_organ_preset/cooling_unit/passive_zenghu
-	name = "suprafin cooling fins"
+	name = "zeng-hu suprafin cooling fins"
 	desc = "A sleek set of engraved, plasteel fins patented by Zeng-Hu as 'suprafins'. The engravings help increase thermal area to the maximum possible, and a specialized cooling solution is imprinted onto the fins to improve their cooling ability."
 	icon_state = "ipc_zeng_cooling_passive"
 

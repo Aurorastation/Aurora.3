@@ -13,10 +13,14 @@
 	var/burst_damage_counter = 0
 	/// The breaking point to trigger a burst damage event.
 	var/burst_damage_maximum = 30
-	/// The world.time of the first shot to start the burst damage counter.
-	var/burst_damage_hit_time
-	/// This grace period starts when burst_damage_hit_time is set, and will automatically clear that variable after 10 seconds.
-	var/burst_damage_hit_grace_period = 7 SECONDS
+	/// This is how long it takes to clear the burst damage timer.
+	var/burst_damage_clear_time = 7 SECONDS
+	/// Once the damage is cleared, we have this long to go without suffering burst damage effects.
+	var/burst_damage_grace_period = 5 SECONDS
+	/// If the grace period is on or not.
+	var/burst_damage_grace_period_granted = FALSE
+	/// When our grace period starts.
+	var/burst_damage_grace_period_start_time = 0
 	/// Timer ID of the burst damage clearing timer.
 	var/burst_damage_timer
 
@@ -35,6 +39,7 @@
 		qdel_self()
 
 	RegisterSignal(synthetic_owner, COMSIG_MACHINE_INTERNAL_DAMAGE, PROC_REF(receive_internal_damage))
+	RegisterSignal(synthetic_owner, COMSIG_SYNTH_BURST_DAMAGE_CLEARED, PROC_REF(posibrain_clear_burst_damage))
 
 /datum/component/synthetic_burst_damage/Destroy(force)
 	synthetic_owner = null
@@ -45,19 +50,33 @@
 
 /datum/component/synthetic_burst_damage/proc/receive_internal_damage(mob/target, amount)
 	SIGNAL_HANDLER
-	if(!burst_damage_hit_time)
-		burst_damage_hit_time = world.time
+	if(burst_damage_grace_period_granted && (burst_damage_grace_period_start_time > world.time + burst_damage_grace_period))
+		return
 	burst_damage_counter += amount
-	burst_damage_timer = addtimer(CALLBACK(src, PROC_REF(clear_burst_damage)), burst_damage_hit_grace_period, TIMER_UNIQUE|TIMER_OVERRIDE|TIMER_STOPPABLE)
+	burst_damage_timer = addtimer(CALLBACK(src, PROC_REF(clear_burst_damage)), burst_damage_clear_time, TIMER_UNIQUE|TIMER_OVERRIDE|TIMER_STOPPABLE)
 	if(burst_damage_counter >= burst_damage_maximum)
 		burst_damage_effects()
-		burst_damage_hit_time = null
 
 /datum/component/synthetic_burst_damage/proc/clear_burst_damage()
-	burst_damage_hit_time = null
 	burst_damage_counter = 0
 	posibrain.clear_burst_damage_counter()
+	begin_grace_period()
 	synthetic_owner.remove_movespeed_modifier(/datum/movespeed_modifier/burst_damage)
 
 /datum/component/synthetic_burst_damage/proc/burst_damage_effects()
+	if(!posibrain && synthetic_owner)
+		var/obj/item/organ/internal/machine/posibrain/possible_brain = synthetic_owner.internal_organs_by_name[BP_BRAIN]
+		if(!istype(possible_brain))
+			log_debug("Synthetic burst damage component somehow could not find a brain. Deleting.")
+			qdel_self()
+		else
+			posibrain = possible_brain
 	posibrain.add_burst_damage_counter()
+
+/datum/component/synthetic_burst_damage/proc/posibrain_clear_burst_damage()
+	SIGNAL_HANDLER
+	begin_grace_period()
+
+/datum/component/synthetic_burst_damage/proc/begin_grace_period()
+	burst_damage_grace_period_granted = TRUE
+	burst_damage_grace_period_start_time = world.time

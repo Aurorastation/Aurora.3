@@ -40,6 +40,8 @@
 	var/burst_damage_maximum = 3
 	/// The amount of seconds the brain should be scrambled for, while this is above 0, it'll add a flat 2 evaluate_damage()'s damage points
 	var/brain_scrambling = 0
+	/// The looping sound played when an IPC is sizzling from burn damage.
+	var/datum/looping_sound/ipc_sizzling/sizzle
 
 /obj/item/organ/internal/machine/posibrain/Initialize(mapload)
 	stored_mmi = new robotic_brain_type(src)
@@ -49,9 +51,11 @@
 		set_max_damage(species.total_health)
 	else
 		set_max_damage(200)
+	sizzle = new(owner)
 
 /obj/item/organ/internal/machine/posibrain/Destroy()
 	QDEL_NULL(stored_mmi)
+	QDEL_NULL(sizzle)
 	return ..()
 
 /obj/item/organ/internal/machine/posibrain/attack_self(mob/user)
@@ -79,7 +83,7 @@
  */
 /obj/item/organ/internal/machine/posibrain/proc/add_fragmentation(amount)
 	fragmentation = min(fragmentation + amount, 100)
-	set_max_damage(initial(max_damage) * ((100 - fragmentation) / 100))
+	set_max_damage(species.total_health * ((100 - fragmentation) / 100))
 
 /**
  * Helper proc to remove fragmentation.
@@ -88,9 +92,9 @@
 	fragmentation = max(fragmentation - amount, 0)
 	// Fragmentation of 0 means multiplying max_damage by 0.
 	if(fragmentation > 0 || fragmentation >= 100)
-		set_max_damage(initial(max_damage) * ((100 - fragmentation) / 100))
+		set_max_damage(species.total_health * ((100 - fragmentation) / 100))
 	else
-		set_max_damage(initial(max_damage))
+		set_max_damage(species.total_health)
 
 /**
  * Helper proc to remove fragmentation.
@@ -149,6 +153,7 @@
  */
 /obj/item/organ/internal/machine/posibrain/proc/clear_burst_damage_counter()
 	burst_damage_counter = 0
+	SEND_SIGNAL(owner, COMSIG_SYNTH_BURST_DAMAGE_CLEARED)
 
 /**
  * This proc adds to the burst damage counter. The more burst damage we sustain, the greater debilitation we suffer, and the more time it takes to recover.
@@ -190,12 +195,15 @@
 		return
 
 	if(owner.bodytemperature > species.heat_level_1)
+		sizzle.start()
 		// placeholder values
 		take_internal_damage(1 + min(owner.bodytemperature * 0.001, 0.5))
 		if(heat_alarm_cooldown < world.time)
 			to_chat(owner, SPAN_DANGER("Your sensors light up: extreme heat detected! Warning! Unsafe operating temperature!"))
 			sound_to(owner, 'sound/effects/heat_alarm.ogg')
 			heat_alarm_cooldown = world.time + 7 SECONDS
+	else
+		sizzle.stop()
 
 	if(damage)
 		if(damage < max_damage * 0.5)
@@ -279,12 +287,12 @@
 			owner.add_movespeed_modifier(/datum/movespeed_modifier/burst_damage/level_1)
 		if(2)
 			to_chat(owner, FONT_LARGE(SPAN_DANGER("Your hydraulics creak and stagger under the stress!")))
-			owner.Stun(3)
+			owner.Stun(2)
 			owner.add_movespeed_modifier(/datum/movespeed_modifier/burst_damage/level_2)
 			shake_camera(owner, 0.5 SECONDS, 3)
 		if(3)
 			to_chat(owner, FONT_LARGE(SPAN_MACHINE_WARNING("Your software errors out under the stress!")))
-			owner.Weaken(5)
+			owner.Stun(3)
 			owner.add_movespeed_modifier(/datum/movespeed_modifier/burst_damage/level_3)
 			shake_camera(owner, 1 SECONDS, 5)
 

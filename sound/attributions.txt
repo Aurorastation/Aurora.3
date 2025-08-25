@@ -190,4 +190,5 @@ sound/species/synthetic/access_cable_in.ogg -- https://freesound.org/s/15545/ --
 sound/species/synthetic/access_cable_out.ogg -- https://freesound.org/s/15545/ -- License: Sampling+
 sound/species/synthetic/synthetic_shock.ogg -- https://freesound.org/s/488665/ -- License: Creative Commons 0
 sound/species/synthetic/fragmentation.ogg -- https://freesound.org/s/390531/ -- License: Creative Commons 0
+sound/species/synthetic/sizzle_*.ogg -- https://freesound.org/s/35872/ -- License: Attribution NonCommercial 3.0
 ATTRIBUTIONS SECTION END

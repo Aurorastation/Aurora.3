@@ -504,6 +504,7 @@
 #include "code\datums\langchat\langchat.dm"
 #include "code\datums\looping_sounds\_looping_sound.dm"
 #include "code\datums\looping_sounds\machinery_sounds.dm"
+#include "code\datums\looping_sounds\mobs.dm"
 #include "code\datums\looping_sounds\revenant_rift.dm"
 #include "code\datums\looping_sounds\thermal_drill.dm"
 #include "code\datums\observation\_debug.dm"

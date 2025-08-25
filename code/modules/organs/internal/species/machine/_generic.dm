@@ -87,8 +87,8 @@
 /obj/item/organ/internal/machine/take_internal_damage(amount, silent)
 	// Plating defends the internal bits. First, you have to get through it.
 	if(plating.get_status() > 0)
-		amount -= plating.take_damage(amount)
-		if(!amount)
+		plating.take_damage(amount)
+		if(plating.get_status())
 			return
 
 	// After that, it's open season.

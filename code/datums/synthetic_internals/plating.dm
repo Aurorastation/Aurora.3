@@ -9,9 +9,7 @@
 	var/health = 50
 
 /datum/synthetic_internal/plating/take_damage(amount)
-	var/difference = max(amount - health, 0)
 	health = max(health - amount, 0)
-	return difference
 
 /datum/synthetic_internal/plating/heal_damage(amount)
 	health = min(health + amount, max_health)

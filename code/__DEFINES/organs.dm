@@ -45,3 +45,6 @@
 
 /// Raised when an internal organ of subtype /machine takes internal damage. Used for the synthetic_burst_damage component.
 #define COMSIG_MACHINE_INTERNAL_DAMAGE "machine_internal_damage"
+
+/// Sent when the burst damage is cleared by the posibrain.
+#define COMSIG_SYNTH_BURST_DAMAGE_CLEARED "burst_damage_cleared"
