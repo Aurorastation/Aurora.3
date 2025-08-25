@@ -172,6 +172,22 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/stuffing
 
+/singleton/recipe/stuffing_alt
+	appliance = OVEN | MICROWAVE
+	reagents = list(/singleton/reagent/water = 5, /singleton/reagent/sodiumchloride = 1, /singleton/reagent/blackpepper = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/breadslice,
+		/obj/item/reagent_containers/food/snacks/breadslice,
+		/obj/item/reagent_containers/food/snacks/breadslice,
+		/obj/item/reagent_containers/food/snacks/breadslice,
+		/obj/item/reagent_containers/food/snacks/breadslice,
+		/obj/item/reagent_containers/food/snacks/breadslice,
+		/obj/item/reagent_containers/food/snacks/breadslice,
+		/obj/item/reagent_containers/food/snacks/breadslice
+	)
+	result = /obj/item/reagent_containers/food/snacks/stuffing
+
+
 /singleton/recipe/angry_bread
 	appliance = OVEN
 	fruit = list("carrot" = 1)
@@ -359,7 +375,7 @@
 	result = /obj/item/reagent_containers/food/snacks/grilled_triple_cheese_crunch_sandwich
 
 /singleton/recipe/crab_leg_grilled_cheese_sandwich
-	appliance = SKILLET | MICROWAVE
+	appliance = SKILLET
 	items = list(
 		/obj/item/reagent_containers/food/snacks/breadslice,
 		/obj/item/reagent_containers/food/snacks/breadslice,

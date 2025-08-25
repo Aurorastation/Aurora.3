@@ -340,6 +340,38 @@
 	reagents_to_add = list(/singleton/reagent/nutriment = 1, /singleton/reagent/browniemix = 1, /singleton/reagent/drugs/ambrosia_extract = 1, /singleton/reagent/bicaridine = 1, /singleton/reagent/kelotane = 1, /singleton/reagent/toxin = 1)
 	reagent_data = list(/singleton/reagent/nutriment = list("brownies" = 2))
 
+/obj/item/reagent_containers/food/snacks/sliceable/cranberry_orange_rolls
+	name = "cranberry orange rolls"
+	desc = "A tray full of one big, gooey pastry, ready to become a bunch of lovely individual sweet rolls once you slice them apart."
+	icon = 'icons/obj/item/reagent_containers/food/pastries.dmi'
+	icon_state = "cranberryrolls"
+	slice_path = /obj/item/reagent_containers/food/snacks/cranberry_orange_roll
+	slices_num = 5
+	trash = /obj/item/trash/brownies
+	filling_color = "#c43934"
+	center_of_mass = list("x"=15, "y"=9)
+	reagents_to_add = list(/singleton/reagent/nutriment = 15)
+	reagent_data = list(/singleton/reagent/nutriment = list("cranberry" = 5, "orange" = 5, "sweet dough" = 5))
+	bitesize = 3
+
+/obj/item/reagent_containers/food/snacks/cranberry_orange_roll
+	name = "cranberry orange roll"
+	desc = "A lovely glazed sweet roll full of cranberry-orange flavor. A delicious treat whether for a thanksgiving meal in Sol, or a nice walk through Xanu Prime's many pastry shops."
+	icon = 'icons/obj/item/reagent_containers/food/pastries.dmi'
+	icon_state = "cranberryroll"
+	filling_color = "#c43934"
+	bitesize = 1
+
+/obj/item/reagent_containers/food/snacks/cranberry_orange_roll/update_icon()
+	if(bitecount>=1)
+		icon_state = "cranberryroll_half"
+	else
+		icon_state = "cranberryroll"
+
+/obj/item/reagent_containers/food/snacks/cranberry_orange_roll/filled
+	reagents_to_add = list(/singleton/reagent/nutriment = 3)
+	reagent_data = list(/singleton/reagent/nutriment = list("cranberry" = 5, "orange" = 5, "sweet dough" = 5))
+
 // Cakes.
 //============
 /obj/item/reagent_containers/food/snacks/sliceable/cake
@@ -727,6 +759,30 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("sweetness" = 2, "cherry" = 2, "pie" = 2))
 	bitesize = 3
 
+/obj/item/reagent_containers/food/snacks/sliceable/cranberry_pie
+	name = "cranberry pie"
+	desc = "A perfectly delicious pie to be divided and shared among friends and family... Or secretly scarfed down all by yourself! Don't worry, I won't tell, I'm just a food description!"
+	icon = 'icons/obj/item/reagent_containers/food/pastries.dmi'
+	icon_state = "cranberry_pie"
+	item_state = "pie"
+	filling_color = "#9e0057"
+	slice_path = /obj/item/reagent_containers/food/snacks/cranberry_pie_slice
+	slices_num = 3
+	trash = /obj/item/trash/plate
+	center_of_mass = list("x"=16, "y"=11)
+	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/drink/cranberryjuice = 3, /singleton/reagent/nutriment/glucose = 2)
+	reagent_data = list(/singleton/reagent/nutriment = list("cranberry" = 4, "crumbly pie dough" = 4))
+	bitesize = 3
+
+/obj/item/reagent_containers/food/snacks/cranberry_pie_slice
+	name = "slice of cranberry pie"
+	desc = "A delightful sweet and tangy slice of cranberry pie in a crumbly crust."
+	icon = 'icons/obj/item/reagent_containers/food/pastries.dmi'
+	icon_state = "cranberry_pie_slice"
+	trash = /obj/item/trash/plate
+	filling_color = "#9e0057"
+	bitesize = 1
+	center_of_mass = list("x"=16, "y"=12)
 
 /obj/item/reagent_containers/food/snacks/amanita_pie
 	name = "amanita pie"

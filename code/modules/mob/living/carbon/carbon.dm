@@ -508,8 +508,6 @@
 /mob/living/carbon/proc/can_feel_pain()
 	if (species && (species.flags & NO_PAIN))
 		return FALSE
-	if (is_berserk())
-		return FALSE
 	if ((mutations & HULK))
 		return FALSE
 	if (analgesic > 100)

@@ -82,7 +82,7 @@
 				user.visible_message(SPAN_DANGER("\The [user] tears off \the [A] from [src]'s [suit.name]!"))
 			attack_log += "\[[time_stamp()]\] <font color='orange'>Has had \the [A] removed by [user.name] ([user.ckey])</font>"
 			user.attack_log += "\[[time_stamp()]\] <span class='warning'>Attempted to remove [name]'s ([ckey]) [A.name]</span>"
-			suit.remove_accessory(user, A)
+			suit.remove_accessory(src, A)
 			return 1
 
 	// Are we placing or stripping?
