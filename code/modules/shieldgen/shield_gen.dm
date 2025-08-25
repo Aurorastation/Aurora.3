@@ -68,14 +68,15 @@
 			E.Stress(amount_to_dissipate)
 			E.update_icon()
 
-/obj/machinery/shield_gen/proc/generate_field(var/s_renwicks, var/c_renwicks, var/m_renwicks)
-	if(!(s_renwicks || c_renwicks))
+/obj/machinery/shield_gen/proc/generate_field(var/strength_renwicks, var/charge_renwicks, var/modulation_renwicks)
+	if(!(strength_renwicks || charge_renwicks))
 		return
 	var/list/covered_turfs = get_shielded_turfs()
 	var/turf/T = get_turf(parent_matrix)
 	for(var/turf/O as anything in covered_turfs - T)
 		var/obj/effect/energy_field/F = locate(/obj/effect/energy_field) in O
 		if(!F)
+			to_chat(world, "Generating energy field.")
 			var/obj/effect/energy_field/E = new(O)
 			E.parent_gen = src
 			LAZYADD(field, E)
@@ -88,9 +89,9 @@
 	if(!field.len)
 		return
 
-	strength = min(s_renwicks / LAZYLEN(field), shield_max)
-	charge = min(c_renwicks / LAZYLEN(field), shield_max)
-	modulation = min(m_renwicks / LAZYLEN(field), shield_max)
+	strength = min(strength_renwicks / LAZYLEN(field), shield_max)
+	charge = min(charge_renwicks / LAZYLEN(field), shield_max)
+	modulation = min(modulation_renwicks / LAZYLEN(field), shield_max)
 
 	for(var/obj/effect/energy_field/E in field)
 		E.Strengthen(charge / 10)

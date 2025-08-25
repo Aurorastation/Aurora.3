@@ -165,12 +165,11 @@ var/global/list/default_shield_boards = list(/obj/item/modulator_board/hyperkine
 	return ui_interact(user)
 
 /obj/machinery/shield_matrix/process()
-	if(active)
-		if(!anchored)
-			toggle()
-		if(stat & BROKEN)
-			toggle()
-			return PROCESS_KILL
+	if(!active)
+		return
+	if(!anchored || stat & BROKEN)
+		toggle()
+		return PROCESS_KILL
 	if(!owned_capacitor)
 		return
 
@@ -193,13 +192,13 @@ var/global/list/default_shield_boards = list(/obj/item/modulator_board/hyperkine
 			continue
 		P.shield_max = SHIELD_STRENGTH_MAX * projector_power[D]
 
-	var/s_renwicks_per_projector = (renwicks * strength_ratio)
-	var/c_renwicks_per_projector = (renwicks * charge_ratio)
-	var/m_renwicks_per_projector = (renwicks * modulator_ratio)
+	var/strength_renwicks_per_projector = (renwicks * strength_ratio)
+	var/charge_renwicks_per_projector = (renwicks * charge_ratio)
+	var/modulation_renwicks_per_projector = (renwicks * modulator_ratio)
 
 	for(var/D in owned_projectors)
 		var/obj/machinery/shield_gen/P = owned_projectors[D]
-		P.generate_field(s_renwicks_per_projector * projector_power[D], c_renwicks_per_projector * projector_power[D], m_renwicks_per_projector * projector_power[D])
+		P.generate_field(strength_renwicks_per_projector * projector_power[D], charge_renwicks_per_projector * projector_power[D], modulation_renwicks_per_projector * projector_power[D])
 
 /obj/machinery/shield_matrix/ex_act(var/severity)
 	if(active)
