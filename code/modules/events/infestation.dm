@@ -18,8 +18,8 @@
 	var/list/chosen_mob_types = list()
 	var/chosen_scan_type = "Bioscans"
 	var/list/possible_mobs = list(
-		//INFESTATION_RATS = 1,
-		//INFESTATION_LIZARDS = 1,
+		INFESTATION_RATS = 1,
+		INFESTATION_LIZARDS = 1,
 		INFESTATION_SNAKES = 1
 	)
 
