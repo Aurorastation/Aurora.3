@@ -4,6 +4,7 @@
 #define INFESTATION_SPIDERLINGS "greimorian larva"
 #define INFESTATION_HIVEBOTS "hivebots"
 #define INFESTATION_SLIMES "slimes"
+#define INFESTATION_SNAKES "snakes"
 
 /datum/event/infestation
 	startWhen = 1
@@ -17,8 +18,9 @@
 	var/list/chosen_mob_types = list()
 	var/chosen_scan_type = "Bioscans"
 	var/list/possible_mobs = list(
-		INFESTATION_RATS = 1,
-		INFESTATION_LIZARDS = 1
+		//INFESTATION_RATS = 1,
+		//INFESTATION_LIZARDS = 1,
+		INFESTATION_SNAKES = 1
 	)
 
 /datum/event/infestation/moderate
@@ -93,6 +95,12 @@
 			for(var/i = 1, i < rand(6,8),i++)
 				chosen_mob_types += /mob/living/simple_animal/lizard
 
+		if(INFESTATION_SNAKES)
+			event_name = "Snake Nest"
+			chosen_verb = "have been breeding in"
+			for(var/i = 1, i < rand(2,5),i++)
+				chosen_mob_types += /mob/living/simple_animal/snake
+
 		if(INFESTATION_RATS)
 			event_name = "Rat Nest"
 			chosen_verb = "have been breeding in"
@@ -154,3 +162,4 @@
 #undef INFESTATION_SPIDERLINGS
 #undef INFESTATION_HIVEBOTS
 #undef INFESTATION_SLIMES
+#undef INFESTATION_SNAKES
