@@ -18,4 +18,3 @@
 	#define COMPONENT_BULLET_PIERCED (1<<2)
 ///from base of atom/bullet_act(): (/obj/projectile, def_zone)
 #define COMSIG_ATOM_BULLET_ACT "atom_bullet_act"
-

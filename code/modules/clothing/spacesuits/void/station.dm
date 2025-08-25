@@ -20,7 +20,7 @@
 		BIO = ARMOR_BIO_SHIELDED,
 		RAD = ARMOR_RAD_RESISTANT
 	)
-    // Protects from up to 7500 degrees Kelvin.
+	// Protects from up to 7500 degrees Kelvin.
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE + 2500
 	max_pressure_protection = ENG_VOIDSUIT_MAX_PRESSURE
 	light_overlay = "helmet_light_dual_low"
@@ -47,7 +47,7 @@
 		BIO = ARMOR_BIO_SHIELDED,
 		RAD = ARMOR_RAD_RESISTANT
 	)
-    // Protects from up to 7500 degrees kelvin.
+	// Protects from up to 7500 degrees kelvin.
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE + 2500
 	max_pressure_protection = ENG_VOIDSUIT_MAX_PRESSURE
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/storage/bag/ore,/obj/item/device/t_scanner,/obj/item/pickaxe,/obj/item/material/twohanded/fireaxe,/obj/item/rfd/construction,/obj/item/storage/bag/inflatable)
