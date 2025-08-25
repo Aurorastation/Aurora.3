@@ -405,3 +405,9 @@
       eating.
   - code_imp: Defined a color for S'th berry juice.
   - code_imp: Created new pages and files for microwave foods.
+2025-08-25:
+  Ben10083:
+  - qol: Various tweaks to People's Station such as GPS network.
+  Geeves:
+  - admin: Added a 'Create Portals' tool under the Admin tab, allowing admins to configure
+      one- or two-way portals easily.
