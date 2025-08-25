@@ -1,3 +1,15 @@
+/* A reminder for all new additions:
+Gun reload sounds under insert_sound have different kinds of usable sounds, depending on the gun and material of the gun. The actual reload sound is tied to the magazine, because of how the game handles guns.
+There are the following options (to be found under code/game/sound):
+"metal_slide_reload" - for all pistols or SMGs that have a metal slide.
+"polymer_slide_reload" - for all pistols or SMGs that are mostly made out of polymer material.
+"rifle_slide_reload" - for all bigger magazine-fed rifle type weapons that rack a charging handle after reloading.
+"revolver_reload" - for guns that have a drum you reload bullet by bullet and can be spun.
+"shotgun_reload" - for all tube-fed guns that are reloaded shell by shell.
+"heavy_machine_gun_reload" - for all heavy duty guns, that rack a charging handle when reloaded and/or have multi stage reloads.
+
+If nothing is chosen, reload sounds revert to the default, which is metal_slide_reload.*/
+
 // Revolvos //
 /obj/item/ammo_magazine/a357
 	name = "speed loader (.357)"
@@ -211,6 +223,15 @@
 
 /obj/item/ammo_magazine/mc9mm/empty
 	initial_ammo = 0
+
+/obj/item/ammo_magazine/mc9mm/polymer
+	name = "magazine (9mm polymer)"
+	icon_state = "9x19AP"
+	mag_type = MAGAZINE
+	caliber = "9mm"
+	ammo_type = /obj/item/ammo_casing/c9mm/polymer
+	max_ammo = 12
+	multiple_sprites = 1
 
 /obj/item/ammo_magazine/mc9mm/flash
 	name = "magazine (9mm flash)"

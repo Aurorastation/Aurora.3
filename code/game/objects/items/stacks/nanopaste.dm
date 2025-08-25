@@ -1,18 +1,26 @@
+// Repairs robotic limbs and silicon mobs, with a limited number of uses.
 /obj/item/stack/nanopaste
 	name = "nanopaste"
 	singular_name = "nanite swarm"
 	desc = "A tube of paste containing swarms of repair nanites. Very effective in repairing robotic machinery."
 	icon = 'icons/obj/item/stacks/nanopaste.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/stacks/lefthand_nanopaste.dmi',
-		slot_r_hand_str = 'icons/mob/items/stacks/righthand_nanopaste.dmi',
-		)
 	icon_state = "tube"
+	item_state = "tube"
+	contained_sprite = TRUE
 	origin_tech = list(TECH_MATERIAL = 4, TECH_ENGINEERING = 3)
 	amount = 10
 	surgerysound = 'sound/items/surgery/bonegel.ogg'
 
+	desc_extended = "It takes significantly longer to apply nanopaste to yourself than it does to apply it to others. Nanites are best enjoyed with a friend!"
+
+	/// What materials does it take to fabricate nanopaste?
 	var/list/construction_cost = list(DEFAULT_WALL_MATERIAL = 7000, MATERIAL_GLASS = 7000)
+	/// How long does it take to apply nanopaste?
+	var/time_to_apply = 2 SECONDS
+	/// Multiplier applied to time_to_apply, if we want it to take longer in some situations.
+	var/application_multiplier = 5
+	/// Used to prevent applying nanopaste multiple times at once.
+	var/application_in_progress = FALSE
 
 /obj/item/stack/nanopaste/update_icon()
 	var/amount = round(get_amount() / 2)
@@ -25,6 +33,8 @@
 	check_maptext(SMALL_FONTS(7, amount))
 
 /obj/item/stack/nanopaste/attack(mob/living/target_mob, mob/living/user, target_zone)
+	var/application_time = time_to_apply // Local variant declared inside the proc so changes to it do not persist.
+
 	if(!ismob(target_mob) || !istype(user))
 		return 0
 	if (!can_use(1, user))
@@ -33,14 +43,26 @@
 	if (isrobot(target_mob))	//Repairing cyborgs
 		var/mob/living/silicon/robot/R = target_mob
 		if (R.getBruteLoss() || R.getFireLoss() )
-			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-			if(do_mob(user, target_mob, 7))
-				R.adjustBruteLoss(-15)
-				R.adjustFireLoss(-15)
-				R.updatehealth()
-				use(1)
-				user.visible_message(SPAN_NOTICE("\The [user] applied some [src] at [R]'s damaged areas."),\
-										SPAN_NOTICE("You apply some [src] at [R]'s damaged areas."))
+
+			if(target_mob == user)
+				application_time *= application_multiplier // It takes longer to apply nanopaste to yourself than to someone else.
+
+			if (application_in_progress == FALSE)
+				application_in_progress = TRUE
+				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+				user.visible_message(SPAN_NOTICE("\The [user] begins to apply some [src] to \the [target_mob]."),\
+										SPAN_NOTICE("You begin to apply some [src] to \the [target_mob]."))
+				if(do_mob(user, target_mob, application_time))
+					R.adjustBruteLoss(-15)
+					R.adjustFireLoss(-15)
+					R.updatehealth()
+					use(1)
+					user.visible_message(SPAN_NOTICE("\The [user] successfully applies some [src] at [R]'s damaged areas."),\
+											SPAN_NOTICE("You successfully apply some [src] at [R]'s damaged areas."))
+				application_in_progress = FALSE
+			else
+				to_chat(user, SPAN_WARNING("You are too focused applying \the [src] to do it multiple times simultaneously!"))
+
 		else
 			to_chat(user, SPAN_NOTICE("All [R]'s systems are nominal."))
 
@@ -60,13 +82,23 @@
 					if(H.wear_suit && istype(H.wear_suit,/obj/item/clothing/suit/space))
 						to_chat(user, SPAN_WARNING("You can't apply [src] through [H.wear_suit]!"))
 						return
+				if(target_mob == user)
+					application_time *= application_multiplier // It takes longer to apply nanopaste to yourself than to someone else.
 
-				if(do_mob(user, target_mob, 7))
-					S.heal_damage(15, 15, robo_repair = 1)
-					H.updatehealth()
-					use(1)
-					user.visible_message(SPAN_NOTICE("\The [user] applies some nanite paste at[user != target_mob ? " \the [target_mob]'s" : " \the [user]"] [S.name] with \the [src]."),\
-											SPAN_NOTICE("You apply some nanite paste at [user == target_mob ? "your" : "[target_mob]'s"] [S.name]."))
+				if (application_in_progress == FALSE)
+					application_in_progress = TRUE
+					user.visible_message(SPAN_NOTICE("\The [user] begins to apply some nanite paste at[user != target_mob ? " \the [target_mob]'s" : " \the [user]"] [S.name] with \the [src]."),\
+											SPAN_NOTICE("You begin to apply some nanite paste at[user != target_mob ? " \the [target_mob]'s" : " \the [user]"] [S.name] with \the [src]."))
+					if(do_mob(user, target_mob, application_time))
+						S.heal_damage(15, 15, robo_repair = 1)
+						H.updatehealth()
+						use(1)
+						user.visible_message(SPAN_NOTICE("\The [user] successfully applies some nanite paste at[user != target_mob ? " \the [target_mob]'s" : " \the [user]"] [S.name] with \the [src]."),\
+												SPAN_NOTICE("You successfully apply some nanite paste at [user == target_mob ? "your" : "[target_mob]'s"] [S.name]."))
+					application_in_progress = FALSE
+				else
+					to_chat(user, SPAN_WARNING("You are too focused applying \the [src] to do it multiple times simultaneously!"))
+
 			else
 				to_chat(user, SPAN_NOTICE("Nothing to fix here."))
 		else
@@ -77,11 +109,14 @@
 				to_chat(user, SPAN_NOTICE("Nothing to fix in here."))
 
 
+// Antagonist-specific nanopaste. Functions similarly to usual nanopaste, except that it also applies a surge protection organ to the target.
+// This organ protects the target from a specific number of EMPs. Intended to provide antagonist IPCs counterplay to ions.
 /obj/item/stack/nanopaste/surge
 	name = "modified nanopaste"
 	singular_name = "nanite swarm"
 	desc = "A tube of paste containing swarms of repair nanites. This one appears to contain different nanites."
 	icon_state = "tube-surge"
+	item_state = "tube-surge"
 	origin_tech = list(TECH_MATERIAL = 4, TECH_ENGINEERING = 4, TECH_MAGNET = 5, TECH_POWER = 5, TECH_COMBAT = 3, TECH_ILLEGAL = 4)
 	amount = 20
 	var/used = FALSE

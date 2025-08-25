@@ -43,6 +43,11 @@
 		/obj/item/stock_parts/console_screen
 	)
 
+/obj/machinery/autolathe/upgrade_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Upgraded <b>matter bins</b> will increase material storage capacity."
+	. += "Upgraded <b>manipulators</b> will improve material use efficiency and increase fabrication speed."
+
 /obj/machinery/autolathe/Initialize()
 	..()
 	wires = new(src)
@@ -170,15 +175,6 @@
 	if(stat)
 		return TRUE
 
-	if(panel_open)
-		//Don't eat multitools or wirecutters used on an open lathe.
-		if(attacking_item.ismultitool() || attacking_item.iswirecutter())
-			if(panel_open)
-				wires.interact(user)
-			else
-				to_chat(user, SPAN_WARNING("\The [src]'s wires aren't exposed."))
-			return TRUE
-
 	if(attacking_item.loc != user && !istype(attacking_item, /obj/item/stack))
 		return FALSE
 
@@ -189,6 +185,8 @@
 	return TRUE
 
 /obj/machinery/autolathe/attack_hand(mob/user)
+	if(panel_open)
+		wires.interact(user)
 	user.set_machine(src)
 	ui_interact(user)
 

@@ -12,7 +12,7 @@
 
 
 /mob/living/carbon/human/proc/setup_gestalt()
-	composition_reagent = /singleton/reagent/nutriment //Dionae are plants, so eating them doesn't give animal protein
+	composition_reagent = /singleton/reagent/nutriment //Dionae aren't animals, so eating them doesn't give animal protein
 	setup_dionastats()
 	add_verb(src, /mob/living/carbon/human/proc/check_light)
 	add_verb(src, /mob/living/carbon/human/proc/diona_split_nymph)
@@ -70,10 +70,12 @@
 //Environmental Functions
 //================================
 
-//This function is called when a gestalt is cold enough to take damage from icy temperatures
-//It will also deal damage to contained nymphs, making them much less likely to survive and split if the diona dies of cold
-//Damage is slightly randomised for each nymph, some will live longer than others, but in the long run all will die eventually
-//Nymphs are slightly insulated from the cold within a gestalt. The temperature to hurt a nymph is 40k lower than what hurts the gestalt
+/**
+This function is called when a gestalt is cold enough to take damage from icy temperatures.
+It will also deal damage to contained nymphs, making them much less likely to survive and split if the diona dies of cold.
+Damage is slightly randomised for each nymph, some will live longer than others, but in the long run all will die eventually.
+Nymphs are slightly insulated from the cold within a gestalt. The temperature to hurt a nymph is 40k lower than what hurts the gestalt.
+*/
 /mob/living/carbon/human/proc/diona_contained_cold_damage()
 	if (bodytemperature < (species.cold_level_1-40))
 		var/damage
@@ -89,11 +91,13 @@
 			D.updatehealth()
 
 
-//This is called when a gestalt is hit by an explosion. Nymphs will take damage too
-//Damage to nymphs depends on the severity of the blast, and on explosive-resistant armor worn by the gestalt
-//A severity 1 explosion without armor will usually kill all nymphs in the gestalt
-//Damage is randomised for each nymph, often some will survive and others wont
-//Nymphs have 100 health, so without armor there is a small possibility for each nymph to survive a severity 1 blast
+/**
+This is called when a gestalt is hit by an explosion. Nymphs will take damage too!
+Damage to nymphs depends on the severity of the blast, and on explosive-resistant armor worn by the gestalt.
+A severity 1 explosion without armor will usually kill all nymphs in the gestalt.
+Damage is randomised for each nymph, often some will survive and others wont.
+Nymphs have 100 health, so without armor there is a small possibility for each nymph to survive a severity 1 blast.
+*/
 /mob/living/carbon/human/proc/diona_contained_explosion_damage(var/severity)
 	var/damage = 0
 	var/damage_factor = 0.1 //Safety value
@@ -132,14 +136,17 @@
 //1.5 is the maximum energy that can be lost per proc
 //2.1 is the approximate delay between procs
 /mob/living/carbon/human/proc/setup_dionastats()
-	//Diona time variables, these differ slightly between a gestalt and a nymph. All values are times in seconds
-	var/energy_duration = 120//How long this diona can exist in total darkness before its energy runs out
-	var/dark_consciousness = 120//How long this diona can stay on its feet and keep moving in darkness after energy is gone.
-	var/dark_survival = 180//How long this diona can survive in darkness after energy is gone, before it dies
+	// Diona time variables. These differ slightly between a gestalt and a nymph. All values are times in seconds.
 
+	/// How long this diona can exist in total darkness before its energy runs out.
+	var/energy_duration = 120
+	/// How long this diona can stay on its feet and keep moving in darkness after energy is gone.
+	var/dark_consciousness = 120
+	/// How long this diona can survive in darkness after energy is gone, before it dies.
+	var/dark_survival = 180
 
-
-	var/MLS = (1.5 / 2.1)//Maximum (energy) lost per second, in total darkness
+	/// Maximum (energy) lost per second, in total darkness.
+	var/MLS = (1.5 / 2.1)
 	DS = new/datum/dionastats()
 	DS.max_energy = energy_duration * MLS
 	DS.max_health = maxHealth*2
@@ -151,6 +158,7 @@
 //Splitting functions
 //====================
 
+/// A verb accessible to Diona players, calls the split proc.
 /mob/living/carbon/human/proc/diona_split_nymph()
 	set name = "Split"
 	set desc = "Split your humanoid form into its constituent nymphs."
@@ -161,8 +169,7 @@
 
 	diona_split_into_nymphs()
 
-
-//This function allows a reformed gestalt to set its name, once only
+/// Allows a newly reformed gestalt to set their name, but only once. This isn't available to gestalts that haven't reformed.
 /mob/living/carbon/human/proc/gestalt_set_name()
 	set name = "Set Gestalt Name"
 	set desc = "Choose a name for your new collective."
@@ -186,7 +193,7 @@
 		to_chat(src, "<span class=notice>Our collective shall now be known as [real_name] !</span>")
 		verbs.Remove(/mob/living/carbon/human/proc/gestalt_set_name)
 
-
+/// Halts regeneration, so you don't grow a new limb when you don't wish to.
 /mob/living/carbon/human/proc/pause_regen_process()
 	set name = "Halt Metabolism"
 	set desc = "Allows you to pause any regeneration process."
@@ -196,6 +203,7 @@
 		DS.pause_regen = !DS.pause_regen
 		to_chat(usr, SPAN_NOTICE("You have [!DS.pause_regen ? "started" : "paused"] regeneration process."))
 
+/// Allows the player to detach a single nymph from their head or hands and control it seperately.
 /mob/living/carbon/human/proc/diona_detach_nymph()
 	set name = "Detach Nymph"
 	set desc = "Allows you to detach specific nymph, and control it."
@@ -267,6 +275,7 @@
 	diona_handle_regeneration(DS)
 	playsound(src, 'sound/species/diona/gestalt_grow.ogg', 30, 1)
 
+/// Allows the player to switch between their gestalt and a nymph they've split off.
 /mob/living/carbon/human/proc/switch_to_nymph()
 	set name = "Switch to Nymph"
 	set desc = "Allows you to switch control back to your detached Nymph."
@@ -358,6 +367,68 @@
 
 	visible_message(SPAN_WARNING("\The [src] quivers slightly, then splits apart with a wet slithering noise."))
 	qdel(src)
+
+// Miscellaneous abilities
+//================================
+
+/**
+This verb lets the Diona anchor themselves to the ground, giving them magboot properties.
+Slows you down while being used, and will be automatically retracted if both feet are severed.
+*/
+/mob/living/carbon/human/proc/root_to_ground()
+	set name = "Extend Roots"
+	set desc = "Extend your roots to keep yourself upright in case of pressure changes."
+	set category = "Abilities"
+
+	if(use_check_and_message(src))
+		return
+	if(last_special > world.time)
+		to_chat(src, SPAN_WARNING("You've used an ability too recently! Wait a bit."))
+		return
+	if(!has_organ(BP_R_FOOT) && !has_organ(BP_L_FOOT))
+		to_chat(src, SPAN_WARNING("You have no supporting limbs to extend your roots from!"))
+		return
+
+	last_special = world.time + 2 SECONDS
+
+	// Checks whether we want to disable or enable the ability with this call.
+	if(HAS_TRAIT_FROM(src, TRAIT_SHOE_GRIP, TRAIT_SOURCE_SPECIES_VERB))
+		root_disable()
+	else
+		root_enable()
+
+/// Movespeed modifier used in the root_to_ground proc. This determines how much the ability slows you down by.
+/datum/movespeed_modifier/root_to_ground
+	multiplicative_slowdown = 1.5
+
+/// Engages Diona magboot roots.
+/mob/living/carbon/human/proc/root_enable()
+	RegisterSignal(src, COMSIG_LIMB_LOSS, PROC_REF(check_roots))
+
+	visible_message(SPAN_NOTICE("[src] extends an array of roots out from their feet, clutching at any available surface!")
+	, SPAN_NOTICE("You extend strong roots from your feet, serving as natural braces to keep your footing secure."))
+	ADD_TRAIT(src, TRAIT_SHOE_GRIP, TRAIT_SOURCE_SPECIES_VERB)
+	add_movespeed_modifier(/datum/movespeed_modifier/root_to_ground)
+	playsound(src, 'sound/species/diona/gestalt_grow.ogg', 30, extrarange = SILENCED_SOUND_EXTRARANGE)
+
+/// Disables Diona magboot roots.
+/mob/living/carbon/human/proc/root_disable()
+	UnregisterSignal(src, COMSIG_LIMB_LOSS)
+
+	visible_message(SPAN_NOTICE("[src] retracts the roots growing from their body.")
+	, SPAN_NOTICE("You retract your roots back into your body."))
+	REMOVE_TRAIT(src, TRAIT_SHOE_GRIP, TRAIT_SOURCE_SPECIES_VERB)
+	remove_movespeed_modifier(/datum/movespeed_modifier/root_to_ground)
+	playsound(src, 'sound/species/diona/gestalt_split.ogg', 20, extrarange = SILENCED_SOUND_EXTRARANGE)
+
+/**
+Checks if the roots should still be enabled or not, proccing whenever any limb is lost. The roots will retract if you have neither foot.
+*/
+/mob/living/carbon/human/proc/check_roots()
+	SIGNAL_HANDLER
+
+	if(!has_organ(BP_R_FOOT) && !has_organ(BP_L_FOOT))
+		root_disable()
 
 #undef COLD_DAMAGE_LEVEL_1
 #undef COLD_DAMAGE_LEVEL_2

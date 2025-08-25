@@ -34,4 +34,5 @@ export const RADIO_PREFIXES = {
   ':f ': 'Uncom',
   ':q ': 'Pen',
   ':t ': 'Merc',
+  ':d ': 'Exped',
 } as const;

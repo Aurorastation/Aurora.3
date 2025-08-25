@@ -188,7 +188,7 @@
 	name = "water balloons (x10)"
 	supplier = "nanotrasen"
 	description = "Ten empty water balloons for water balloon fights."
-	price = 100
+	price = 3.25
 	items = list(
 		/obj/item/toy/waterballoon
 	)
@@ -202,7 +202,7 @@
 	name = "balloons (x10)"
 	supplier = "nanotrasen"
 	description = "Ten empty regular balloons. Can be filled using a tank of air or other gas. Warranty void if filled with hydrogen."
-	price = 80
+	price = 2.50
 	items = list(
 		/obj/item/toy/balloon
 	)
@@ -216,7 +216,7 @@
 	name = "toy sword"
 	supplier = "nanotrasen"
 	description = "A cheap, plastic replica of a blue energy sword. Realistic sounds and colors! Ages 8 and up."
-	price = 200
+	price = 12
 	items = list(
 		/obj/item/toy/sword
 	)
@@ -230,7 +230,7 @@
 	name = "replica katana"
 	supplier = "nanotrasen"
 	description = "A cheap plastic katana. Useful for pretending you're a samurai or for tabletop roleplaying sessions."
-	price = 200
+	price = 16
 	items = list(
 		/obj/item/toy/katana
 	)
@@ -244,7 +244,7 @@
 	name = "foam darts (x5)"
 	supplier = "nanotrasen"
 	description = "It's some foam darts, for use in foam weaponry. Ages 8 and up."
-	price = 20
+	price = 3.50
 	items = list(
 		/obj/item/toy/ammo/crossbow
 	)
@@ -258,7 +258,7 @@
 	name = "foam dart crossbow"
 	supplier = "nanotrasen"
 	description = "A weapon favored by many overactive children. Ages 8 and up."
-	price = 200
+	price = 20
 	items = list(
 		/obj/item/toy/crossbow
 	)
@@ -272,7 +272,7 @@
 	name = "gravitational singularity toy"
 	supplier = "getmore"
 	description = "'Singulo' brand spinning toy. Certified mesmerizing since 2440."
-	price = 100
+	price = 8
 	items = list(
 		/obj/item/toy/spinningtoy
 	)
@@ -286,7 +286,7 @@
 	name = "random plushies (x4)"
 	supplier = "nanotrasen"
 	description = "Four random surplus plushies from a local toy store's clearance sale. People grow old, apparently."
-	price = 250
+	price = 45
 	items = list(
 		/obj/random/plushie
 	)
@@ -300,7 +300,7 @@
 	name = "therapy doll"
 	supplier = "virgo"
 	description = "A toy for therapeutic and recreational purposes."
-	price = 120
+	price = 22
 	items = list(
 		/obj/item/toy/plushie/therapy
 	)
@@ -314,7 +314,7 @@
 	name = "snap pop (x5)"
 	supplier = "nanotrasen"
 	description = "A number of snap pops."
-	price = 200
+	price = 12
 	items = list(
 		/obj/item/toy/snappop
 	)
@@ -328,7 +328,7 @@
 	name = "red laser tag equipment set"
 	supplier = "nanotrasen"
 	description = "A two-player set of red-team laser tag equipment consisting of a helmet, armor, and a gun."
-	price = 200
+	price = 150
 	items = list(
 		/obj/item/clothing/head/helmet/riot/laser_tag,
 		/obj/item/clothing/suit/armor/riot/laser_tag,
@@ -344,7 +344,7 @@
 	name = "blue laser tag equipment set"
 	supplier = "nanotrasen"
 	description = "A two-player set of blue-team laser blue equipment consisting of a helmet, armor, and a gun."
-	price = 200
+	price = 150
 	items = list(
 		/obj/item/clothing/head/helmet/riot/laser_tag/blue,
 		/obj/item/clothing/suit/armor/riot/laser_tag/blue,
@@ -354,3 +354,17 @@
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 2
+
+/singleton/cargo_item/lyodiicards
+	category = "recreation"
+	name = "lyodii fatesayer cards"
+	supplier = "orion"
+	description = "A lyodii Fatesayer card deck. Exported from Moroz, used to tell your fate."
+	price = 120 //It's a niche novelty thing made in relatively small export quantities
+	items = list(
+		/obj/item/storage/box/lyodii
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1

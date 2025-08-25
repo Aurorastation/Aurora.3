@@ -417,9 +417,9 @@
 /area/tajara_safehouse)
 "lO" = (
 /obj/structure/closet/cabinet,
-/obj/item/reagent_containers/food/drinks/bottle/nmshaan_liquor,
-/obj/item/reagent_containers/food/drinks/bottle/nmshaan_liquor,
-/obj/item/reagent_containers/food/drinks/bottle/nmshaan_liquor,
+/obj/item/reagent_containers/food/drinks/bottle/sugartree_liquor,
+/obj/item/reagent_containers/food/drinks/bottle/sugartree_liquor,
+/obj/item/reagent_containers/food/drinks/bottle/sugartree_liquor,
 /turf/simulated/floor/wood,
 /area/tajara_safehouse)
 "mt" = (

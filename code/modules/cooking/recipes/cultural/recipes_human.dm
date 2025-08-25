@@ -1,6 +1,6 @@
 
 /singleton/recipe/redcurry
-	appliance = SKILLET
+	appliance = SKILLET | MICROWAVE
 	reagents = list(/singleton/reagent/drink/milk/cream = 5, /singleton/reagent/spacespice = 2, /singleton/reagent/nutriment/rice = 5)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/cutlet,
@@ -10,7 +10,7 @@
 	result = /obj/item/reagent_containers/food/snacks/redcurry
 
 /singleton/recipe/greencurry
-	appliance = SKILLET
+	appliance = SKILLET | MICROWAVE
 	reagents = list(/singleton/reagent/drink/milk/cream = 5, /singleton/reagent/spacespice = 2, /singleton/reagent/nutriment/rice = 5)
 	fruit = list("chili" = 1)
 	items = list(
@@ -21,7 +21,7 @@
 	result = /obj/item/reagent_containers/food/snacks/greencurry
 
 /singleton/recipe/yellowcurry
-	appliance = SKILLET
+	appliance = SKILLET | MICROWAVE
 	reagents = list(/singleton/reagent/drink/milk/cream = 5, /singleton/reagent/spacespice = 2, /singleton/reagent/nutriment/rice = 5)
 	fruit = list("peanut" = 2, "potato" = 1)
 	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
@@ -35,31 +35,31 @@
 	result = /obj/item/reagent_containers/food/snacks/chana_masala
 
 /singleton/recipe/friedrice
-	appliance = SKILLET | SAUCEPAN
+	appliance = SKILLET | SAUCEPAN | MICROWAVE
 	reagents = list(/singleton/reagent/water = 5, /singleton/reagent/nutriment/rice = 10, /singleton/reagent/nutriment/soysauce = 5)
 	fruit = list("carrot" = 1, "cabbage" = 1)
 	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
 	result = /obj/item/reagent_containers/food/snacks/friedrice
 
 /singleton/recipe/risotto
-	appliance = SAUCEPAN | POT
+	appliance = SAUCEPAN | POT | MICROWAVE
 	reagents = list(/singleton/reagent/alcohol/wine = 5, /singleton/reagent/nutriment/rice = 10, /singleton/reagent/spacespice = 1)
 	fruit = list("mushroom" = 1)
 	reagent_mix = RECIPE_REAGENT_REPLACE //Get that rice and wine outta here
 	result = /obj/item/reagent_containers/food/snacks/risotto
 
 /singleton/recipe/boiledrice
-	appliance = SAUCEPAN | POT
+	appliance = SAUCEPAN | POT | MICROWAVE
 	reagents = list(/singleton/reagent/water = 5, /singleton/reagent/nutriment/rice = 10)
 	result = /obj/item/reagent_containers/food/snacks/boiledrice
 
 /singleton/recipe/ricepudding
-	appliance = SAUCEPAN | POT
+	appliance = SAUCEPAN | POT | MICROWAVE
 	reagents = list(/singleton/reagent/drink/milk = 5, /singleton/reagent/nutriment/rice = 10)
 	result = /obj/item/reagent_containers/food/snacks/ricepudding
 
 /singleton/recipe/bibimbap
-	appliance = SAUCEPAN | POT
+	appliance = SAUCEPAN | POT | MICROWAVE
 	fruit = list("carrot" = 1, "cabbage" = 1, "mushroom" = 1)
 	reagents = list(/singleton/reagent/nutriment/rice = 5, /singleton/reagent/spacespice = 2)
 	items = list(
@@ -70,7 +70,7 @@
 	result = /obj/item/reagent_containers/food/snacks/bibimbap
 
 /singleton/recipe/stewedsoymeat
-	appliance = SAUCEPAN
+	appliance = SAUCEPAN | MICROWAVE
 	fruit = list("carrot" = 1, "tomato" = 1)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/soydope,
@@ -112,7 +112,7 @@
 	result = /obj/item/reagent_containers/food/snacks/meatbun
 
 /singleton/recipe/custardbun
-	appliance = SAUCEPAN | POT
+	appliance = SAUCEPAN | POT | MICROWAVE
 	reagents = list(/singleton/reagent/spacespice = 1, /singleton/reagent/water = 5, /singleton/reagent/nutriment/protein/egg = 3)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/doughslice
@@ -121,7 +121,7 @@
 	result = /obj/item/reagent_containers/food/snacks/custardbun
 
 /singleton/recipe/chickenmomo
-	appliance = SAUCEPAN | POT
+	appliance = SAUCEPAN | POT | MICROWAVE
 	reagents = list(/singleton/reagent/spacespice = 2, /singleton/reagent/water = 5)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/doughslice,
@@ -133,7 +133,7 @@
 	result = /obj/item/reagent_containers/food/snacks/chickenmomo
 
 /singleton/recipe/veggiemomo
-	appliance = SAUCEPAN | POT
+	appliance = SAUCEPAN | POT | MICROWAVE
 	reagents = list(/singleton/reagent/spacespice = 2, /singleton/reagent/water = 5)
 	fruit = list("carrot" = 1, "cabbage" = 1)
 	items = list(
@@ -145,7 +145,7 @@
 	result = /obj/item/reagent_containers/food/snacks/veggiemomo
 
 /singleton/recipe/porkbowl
-	appliance = SAUCEPAN
+	appliance = SAUCEPAN | MICROWAVE
 	reagents = list(/singleton/reagent/water = 5, /singleton/reagent/nutriment/rice = 10)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	items = list(
@@ -154,7 +154,7 @@
 	result = /obj/item/reagent_containers/food/snacks/porkbowl
 
 /singleton/recipe/crab_legs
-	appliance = SAUCEPAN | POT
+	appliance = SAUCEPAN | POT | MICROWAVE
 	reagents = list(/singleton/reagent/water = 10, /singleton/reagent/sodiumchloride = 1)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/crabmeat,
@@ -208,6 +208,18 @@
 	coating = /singleton/reagent/nutriment/coating/batter
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/bowl/mozzarella_sticks
+
+/singleton/recipe/jambalaya
+	appliance = SKILLET
+	fruit = list("tomato" = 1)
+	reagents = list(/singleton/reagent/spacespice = 3, /singleton/reagent/nutriment/rice = 5)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/meat/chicken,
+		/obj/item/reagent_containers/food/snacks/fish/raw_shrimp,
+		/obj/item/reagent_containers/food/snacks/sausage
+	)
+	result = /obj/item/reagent_containers/food/snacks/jambalaya
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
 
 // Konyang
 
@@ -293,6 +305,7 @@
 	reagents = list(/singleton/reagent/water = 10)
 	items = list(/obj/item/reagent_containers/food/snacks/meat)
 	result = /obj/item/reagent_containers/food/snacks/soup/pozole
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
 
 /singleton/recipe/elotes
 	appliance = OVEN | GRILL

@@ -149,6 +149,7 @@
 
 // - SSjobs --
 // departments
+// If we rename any of these, also change them in ship_locations.dm define.
 #define DEPARTMENT_COMMAND "Command"
 #define DEPARTMENT_COMMAND_SUPPORT "Command Support"
 #define DEPARTMENT_SECURITY "Security"
@@ -226,7 +227,8 @@
 #define INIT_ORDER_EARLY_ASSETS 48
 #define INIT_ORDER_SPATIAL_GRID 43
 #define INIT_ORDER_ECONOMY 40
-#define INIT_ORDER_MAPFINALIZE 31 //Asteroid generation, another aurora snowflake, must run before the atoms init
+#define INIT_ORDER_MAPFINALIZE 32 // Asteroid generation, another aurora snowflake, must run before the atoms init
+#define INIT_ORDER_PERSISTENCE 31 // Persistence subsystem, requires map load
 #define INIT_ORDER_ATOMS 30
 #define INIT_ORDER_MACHINES 20
 #define INIT_ORDER_DEFAULT 0

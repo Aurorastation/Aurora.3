@@ -14,6 +14,14 @@
 	var/geiger_volume = 0
 	var/sound_id
 
+/obj/item/device/geiger/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	var/msg = "[scanning ? "ambient" : "stored"] Radiation level: <b>[radiation_count ? radiation_count : "0"] IU/s</b>."
+	if(radiation_count > RAD_LEVEL_LOW)
+		. += SPAN_WARNING("[msg]")
+	else
+		. += SPAN_NOTICE("[msg]")
+
 /obj/item/device/geiger/Initialize()
 	. = ..()
 	sound_id = "[type]_[sequential_id(type)]"
@@ -34,14 +42,6 @@
 		return
 	radiation_count = SSradiation.get_rads_at_turf(get_turf(src))
 	update_icon()
-
-/obj/item/device/geiger/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	var/msg = "[scanning ? "ambient" : "stored"] Radiation level: [radiation_count ? radiation_count : "0"] IU/s."
-	if(radiation_count > RAD_LEVEL_LOW)
-		. += SPAN_WARNING("[msg]")
-	else
-		. += SPAN_NOTICE("[msg]")
 
 /obj/item/device/geiger/attack_self(mob/user)
 	scanning = !scanning

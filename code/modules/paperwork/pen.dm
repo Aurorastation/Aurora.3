@@ -1,11 +1,11 @@
 /* Pens!
  * Contains:
- *		Pens
- *		PDA Pens
- *		Sleepy Pens
- *		Coloured Pens
- *		Parapens
- *		Fountain Pens
+ * * Pens
+ * * PDA Pens
+ * * Sleepy Pens
+ * * Coloured Pens
+ * * Parapens
+ * * Fountain Pens
  */
 
 
@@ -15,7 +15,7 @@
 /obj/item/pen
 	name = "pen"
 	desc = "An instrument for writing or drawing. This one is in black."
-	desc_info = {"This is an item for writing down your thoughts, on paper or elsewhere. The following special commands are available:
+	desc_extended = {"This is an item for writing down your thoughts, on paper or elsewhere. The following special commands are available:
 		<br>
 		Pen and crayon commands
 		\[br\] : Creates a linebreak.
@@ -262,7 +262,7 @@
 
 /obj/item/pen/chameleon/verb/set_colour()
 	set name = "Change Pen Colour"
-	set category = "Object"
+	set category = "Object.Held"
 	set src in usr
 
 	var/list/possible_colours = list ("Yellow", "Green", "Pink", "Blue", "Orange", "Cyan", "Red", "Invisible", "Black")

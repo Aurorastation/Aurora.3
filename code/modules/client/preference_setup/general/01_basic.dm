@@ -17,6 +17,8 @@
 		S["ipc_tag_status"] >> pref.machine_tag_status
 		S["ipc_serial_number"] >> pref.machine_serial_number
 		S["ipc_ownership_status"] >> pref.machine_ownership_status
+	if(istype(GLOB.all_species[pref.species], /datum/species/machine/shell))
+		S["hidden_shell_status"] >> pref.hidden_shell_status
 
 /datum/category_item/player_setup_item/general/basic/save_character(var/savefile/S)
 	S["real_name"]  << pref.real_name
@@ -33,6 +35,8 @@
 		S["ipc_tag_status"] << pref.machine_tag_status
 		S["ipc_serial_number"] << pref.machine_serial_number
 		S["ipc_ownership_status"] << pref.machine_ownership_status
+	if(istype(GLOB.all_species[pref.species], /datum/species/machine/shell))
+		S["hidden_shell_status"] << pref.hidden_shell_status
 
 // if table_name and pref.var_name is different, then do it like
 // "table_name" = "pref.var_name", as below
@@ -57,7 +61,8 @@
 			"vars" = list(
 				"tag_status" = "machine_tag_status",
 				"serial_number" = "machine_serial_number",
-				"ownership_status" = "machine_ownership_status"
+				"ownership_status" = "machine_ownership_status",
+				"hidden_status" = "hidden_shell_status"
 				),
 			"args" = list("char_id")
 		)
@@ -91,6 +96,7 @@
 			"tag_status",
 			"serial_number",
 			"ownership_status",
+			"hidden_status",
 			"char_id" = 1 // = 1 signifies argument
 		)
 	)
@@ -108,6 +114,7 @@
 		"tag_status" = pref.machine_tag_status,
 		"serial_number" = pref.machine_serial_number,
 		"ownership_status" = pref.machine_ownership_status,
+		"hidden_status" = pref.hidden_shell_status,
 		"id" = pref.current_character,
 		"char_id" = pref.current_character,
 		"floating_chat_color" = pref.floating_chat_color,
@@ -155,6 +162,7 @@
 		pref.real_name      = random_name(pref.gender, pref.species)
 	pref.spawnpoint         = sanitize_inlist(pref.spawnpoint, SSatlas.spawn_locations, initial(pref.spawnpoint))
 	pref.machine_tag_status = text2num(pref.machine_tag_status) // SQL queries return as text, so make this a num
+	pref.hidden_shell_status = text2num(pref.hidden_shell_status) // this too
 	pref.floating_chat_color = sanitize_hexcolor(pref.floating_chat_color, get_random_colour(0, 160, 230))
 	var/datum/species/S = GLOB.all_species[pref.species]
 	if(!pref.speech_bubble_type || !(pref.speech_bubble_type in S.possible_speech_bubble_types))
@@ -197,6 +205,8 @@
 			else
 				dat += "<b>Serial Number:</b> [pref.machine_serial_number] (<a href='byond://?src=[REF(src)];namehelp=1'>?</a>)<br>"
 				dat += "<b>Ownership Status:</b> [pref.machine_ownership_status] (<a href='byond://?src=[REF(src)];namehelp=1'>?</a>)<br>"
+		if(istype(S, /datum/species/machine/shell))
+			dat += "<b>Is Hidden Shell:</b> <a href='byond://?src=[REF(src)];hidden_status=1'>[pref.hidden_shell_status ? "Hidden" : "Not Hidden"]</a><br>"
 	if(GLOB.config.allow_Metadata)
 		dat += "<b>OOC Notes:</b> <a href='byond://?src=[REF(src)];metadata=1'> Edit </a>" \
 			+ "<a href='byond://?src=[REF(src)];clear_metadata=1'>Clear</a>" + "<br>"
@@ -252,7 +262,7 @@
 			pref.floating_chat_color = new_fc_color
 			var/mob/living/carbon/human/H = preference_mob()
 			if(ishuman(H))
-				H.set_floating_chat_color(new_fc_color)
+				H.langchat_color = pref.floating_chat_color
 			return TOPIC_REFRESH
 
 	else if(href_list["speech_bubble_type"])
@@ -320,7 +330,7 @@
 		if(!pref.can_edit_ipc_tag)
 			to_chat(usr, SPAN_WARNING("You are unable to edit your IPC tag due to a timelock restriction. If you got here, it is either a hack or a bug."))
 			return
-		var/choice = alert(user, "Do you wish for your IPC to have a tag?\n\nWARNING: Being an untagged IPC in Tau space is highly illegal!", "IPC Tag", "Yes", "No")
+		var/choice = alert(user, "Do you wish for your IPC to have a tag?\n\nWARNING: Being an untagged IPC in the Republic of Biesel is highly illegal!", "IPC Tag", "Yes", "No")
 		if(CanUseTopic(user))
 			if(choice == "Yes")
 				pref.machine_tag_status = TRUE
@@ -333,7 +343,7 @@
 			to_chat(usr, SPAN_WARNING("You are unable to edit your IPC tag due to a timelock restriction. If you got here, it is either a hack or a bug."))
 			return
 		var/new_serial_number = sanitize(input(user, "Enter what you want to set your serial number to.", "IPC Serial Number", pref.machine_serial_number) as message|null)
-		new_serial_number = uppertext(dd_limittext(new_serial_number, 12))
+		new_serial_number = uppertext(dd_limittext(new_serial_number, 20))
 		if(new_serial_number && CanUseTopic(user))
 			pref.machine_serial_number = sanitize(new_serial_number)
 			return TOPIC_REFRESH
@@ -355,6 +365,15 @@
 		var/new_ownership_status = input(user, "Choose your IPC's ownership status.", "IPC Ownership Status") as null|anything in ownership_options
 		if(new_ownership_status && CanUseTopic(user))
 			pref.machine_ownership_status = new_ownership_status
+			return TOPIC_REFRESH
+
+	else if(href_list["hidden_status"])
+		var/choice = alert(user, "Do you want to be a hidden Shell? This will label your Shell as a Human in their records.\n\n WARNING: This would involve forging of records or some other form of fraud, and is highly illegal in the Republic of Biesel", "Hidden Shell Status", "Yes", "No")
+		if(CanUseTopic(user))
+			if(choice == "Yes")
+				pref.hidden_shell_status = TRUE
+			else
+				pref.hidden_shell_status = FALSE
 			return TOPIC_REFRESH
 
 	else if (href_list["clear_metadata"])

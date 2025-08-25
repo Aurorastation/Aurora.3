@@ -1,17 +1,21 @@
 /obj/item/stack/wrapping_paper
 	name = "wrapping paper"
 	desc = "You can use this to wrap items in."
-	desc_info = "To wrap something into a gift, click on the wrapping paper that's not in your hands with the object you wish to wrap."
 	icon = 'icons/obj/item/stacks/wrap.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/stacks/lefthand_wrap.dmi',
-		slot_r_hand_str = 'icons/mob/items/stacks/righthand_wrap.dmi',
-		)
 	icon_state = "wrap_paper"
 	singular_name = "square unit"
 	amount = 20
 	drop_sound = 'sound/items/drop/wrapper.ogg'
 	pickup_sound = 'sound/items/pickup/wrapper.ogg'
+
+/obj/item/stack/wrapping_paper/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "To wrap something into a gift, click on the wrapping paper that's not in your hands with the object you wish to wrap."
+
+/obj/item/stack/wrapping_paper/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(distance <= 1)
+		. += "There [amount == 1 ? "is" : "are"] about [amount] [singular_name]\s of paper left!"
 
 /obj/item/stack/wrapping_paper/attackby(obj/item/attacking_item, mob/user)
 	..()
@@ -61,11 +65,6 @@
 		to_chat(user, SPAN_WARNING("This object is far too large to wrap!"))
 	return
 
-/obj/item/stack/wrapping_paper/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(distance <= 1)
-		. += "There [amount == 1 ? "is" : "are"] about [amount] [singular_name]\s of paper left!"
-
 /obj/item/stack/wrapping_paper/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if(!ishuman(target_mob))
 		return
@@ -94,19 +93,18 @@
 /obj/item/stack/packageWrap
 	name = "package wrapper"
 	icon = 'icons/obj/item/stacks/wrap.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/stacks/lefthand_wrap.dmi',
-		slot_r_hand_str = 'icons/mob/items/stacks/righthand_wrap.dmi',
-		)
 	icon_state = "deliveryPaper"
 	desc = "A roll of paper used to enclose an object for delivery."
-	desc_info = "To package wrap the object for delivery, use the package wrapper on the object."
 	singular_name = "length"
 	w_class = WEIGHT_CLASS_NORMAL
 	amount = 30
 	var/wrapping_tag = "Sorting Office"
 	drop_sound = 'sound/items/drop/wrapper.ogg'
 	pickup_sound = 'sound/items/pickup/wrapper.ogg'
+
+/obj/item/stack/packageWrap/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "To package wrap the object for delivery, use the package wrapper on the object."
 
 /obj/item/stack/packageWrap/afterattack(var/obj/target, mob/user, proximity) // VTD: Need to make it ask if you want to wrap boxes
 	if(!proximity)
@@ -204,10 +202,6 @@
 	name = "cardboard tube"
 	desc = "A tube of cardboard."
 	icon = 'icons/obj/item/stacks/wrap.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/stacks/lefthand_wrap.dmi',
-		slot_r_hand_str = 'icons/mob/items/stacks/righthand_wrap.dmi',
-		)
 	icon_state = "c_tube"
 	throwforce = 1
 	w_class = WEIGHT_CLASS_SMALL

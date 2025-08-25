@@ -52,7 +52,7 @@
 	name = "atmospheric firefighter helmet"
 	desc = "An atmospheric firefighter's helmet, able to keep the user protected from heat and fire."
 	max_heat_protection_temperature = FIRE_HELMET_MAX_HEAT_PROTECTION_TEMPERATURE + 15000
-	icon = 'icons/clothing/kit/firefighter.dmi'
+	icon = 'icons/obj/item/clothing/head/firefighter.dmi'
 	sprite_sheets = list(
 		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/fire.dmi'
 	)
@@ -65,6 +65,23 @@
 	min_pressure_protection = FIRESUIT_MIN_PRESSURE
 	heat_protection = HEAD
 
+	///Initial name of the fire helmet's emissive overlay. Will be changed based on [icon_supported_species_tags], above
+	var/initial_emissive_state = "atmos_fire_emissive"
+	///Special variable to handle the fire helmet's emissive overlay
+	var/emissive_state
+
+/obj/item/clothing/head/hardhat/atmos/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
+	var/image/I = ..()
+	emissive_state = initial_emissive_state
+	if(icon_auto_adapt)
+		if(H && length(icon_supported_species_tags))
+			if(H.species.short_name in icon_supported_species_tags)
+				emissive_state = "[H.species.short_name]_[initial_emissive_state]"
+	if(slot == slot_head_str)
+		var/image/emissive_overlay = emissive_appearance(mob_icon, emissive_state, alpha = src.alpha)
+		I.AddOverlays(emissive_overlay)
+	return I
+
 /obj/item/clothing/head/hardhat/paramedic
 	name = "medical helmet"
 	desc = "A polymer helmet worn by paramedics throughout human space to protect their heads. This one comes with an attached flashlight and has green crosses on the sides."
@@ -75,7 +92,7 @@
 /obj/item/clothing/head/hardhat/firefighter
 	name = "firefighter helmet"
 	desc = "A complete, face covering helmet specially designed for firefighting. It is airtight and has a port for internals."
-	icon = 'icons/clothing/kit/firefighter.dmi'
+	icon = 'icons/obj/item/clothing/head/firefighter.dmi'
 	icon_state = "helmet_firefighter"
 	item_state = "helmet_firefighter"
 	sprite_sheets = list(

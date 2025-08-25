@@ -3,32 +3,31 @@
 	announceWhen	= 75
 
 	var/releaseWhen = 60
-	var/list/area/areas = list()		//List of areas to affect. Filled by start()
+	//List of areas to affect. Filled by start()
+	var/list/area/areas = list()
 	ic_name = "an imprisonment system virus"
 	no_fake = 1
 
-	var/eventDept = "Security"			//Department name in announcement
-	var/list/areaName = list("Brig")	//Names of areas mentioned in AI and Engineering announcements
-	var/list/areaType = list(/area/security/prison, /area/security/brig)	//Area types to include.
-	var/list/areaNotType = list()		//Area types to specifically exclude.
+	//Department name in announcement
+	var/eventDept = "Security"
+	//Names of areas mentioned in AI and Engineering announcements
+	var/list/areaName = list("Security")
+	//Area types to include.
+	var/list/areaType = list(/area/horizon/security)
+	//Area types to specifically exclude.
+	var/list/areaNotType = list(/area/horizon/security/checkpoint, /area/horizon/security/checkpoint2)
 
 /datum/event/prison_break/xenobiology
 	eventDept = "Science"
 	areaName = list("Xenobiology")
-	areaType = list(/area/rnd/xenobiology)
-	areaNotType = list(/area/rnd/xenobiology/xenoflora, /area/rnd/xenobiology/xenoflora_storage)
-
-/datum/event/prison_break/station
-	eventDept = "Station"
-	areaName = list("Brig","Xenobiology")
-	areaType = list(/area/security/prison, /area/security/brig, /area/rnd/xenobiology)
-	areaNotType = list(/area/rnd/xenobiology/xenoflora, /area/rnd/xenobiology/xenoflora_storage)
+	areaType = list(/area/horizon/rnd/xenobiology)
+	areaNotType = list(/area/horizon/rnd/xenobiology/xenoflora)
 
 /datum/event/prison_break/bridge
 	eventDept = "Bridge"
 	areaName = list("Bridge")
-	areaType = list(/area/bridge, /area/teleporter, /area/crew_quarters/heads/cryo, /area/maintenance/maintcentral)
-	areaNotType = list(/area/bridge/aibunker, /area/bridge/levela, /area/bridge/selfdestruct)
+	areaType = list(/area/horizon/command/bridge, /area/horizon/command/teleporter, /area/horizon/maintenance/deck_3/bridge)
+	areaNotType = list(/area/horizon/command/bridge/aibunker, /area/horizon/command/bridge/selfdestruct)
 
 /datum/event/prison_break/setup()
 	announceWhen = rand(75, 105)
@@ -39,7 +38,7 @@
 
 /datum/event/prison_break/announce()
 	if(areas && areas.len > 0)
-		command_announcement.Announce("[pick("Gr3y.T1d3 virus","Malignant trojan")] detected in [station_name()] [(eventDept == "Security")? "imprisonment":"containment"] subroutines. Secure any compromised areas immediately. AI involvement is recommended.", "[eventDept] Alert", zlevels = affecting_z)
+		command_announcement.Announce("[pick("Gr3y.T1d3 virus","Malignant trojan")] detected in [station_name()] containment subroutines. Secure any compromised areas immediately. AI involvement is recommended.", "[eventDept] Alert", zlevels = affecting_z)
 
 
 /datum/event/prison_break/start()

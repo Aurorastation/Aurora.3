@@ -13,6 +13,7 @@ import { rebuildChat, saveChatToDisk, clearChatMessages } from '../chat/actions'
 import { THEMES } from '../themes';
 import { changeSettingsTab, updateSettings, addHighlightSetting, removeHighlightSetting, updateHighlightSetting } from './actions';
 import { SETTINGS_TABS, FONTS, MAX_HIGHLIGHT_SETTINGS } from './constants';
+import { resetPaneSplitters, setEditPaneSplitters } from './scaling';
 import { selectActiveTab, selectSettings, selectHighlightSettings, selectHighlightSettingById } from './selectors';
 import { IMPL_IFRAME_INDEXED_DB, storage } from 'common/storage';
 
@@ -57,6 +58,11 @@ export const SettingsGeneral = (props, context) => {
   );
   const dispatch = useDispatch(context);
   const [freeFont, setFreeFont] = useLocalState(context, 'freeFont', false);
+  const [editingPanes, setEditingPanes] = useLocalState(
+    context,
+    'uiScaling',
+    false
+  );
   return (
     <Section>
       <LabeledList>
@@ -72,6 +78,28 @@ export const SettingsGeneral = (props, context) => {
               )
             }
           />
+        </LabeledList.Item>
+        <LabeledList.Item label="UI sizes">
+          <Stack>
+            <Stack.Item>
+              <Button
+                onClick={() =>
+                  setEditingPanes((val) => {
+                    setEditPaneSplitters(!val);
+                    return !val;
+                  })
+                }
+                color={editingPanes ? 'red' : undefined}
+                icon={editingPanes ? 'save' : undefined}>
+                {editingPanes ? 'Save' : 'Adjust UI Sizes'}
+              </Button>
+            </Stack.Item>
+            <Stack.Item>
+              <Button onClick={resetPaneSplitters} icon="refresh" color="red">
+                Reset
+              </Button>
+            </Stack.Item>
+          </Stack>
         </LabeledList.Item>
         <LabeledList.Item label="Font style">
           <Stack inline align="baseline">
@@ -239,6 +267,8 @@ const TextHighlightSetting = (props, context) => {
     highlightColor,
     highlightText,
     highlightWholeMessage,
+    backgroundHighlightColor,
+    backgroundHighlightOpacity,
     matchWord,
     matchCase,
   } = highlightSettingById[id];
@@ -260,10 +290,57 @@ const TextHighlightSetting = (props, context) => {
           />
         </Flex.Item>
         <Flex.Item>
+          {highlightWholeMessage && (
+            <>
+              <label>Opacity: </label>
+              <NumberInput
+                width="4em"
+                step={1}
+                stepPixelSize={5}
+                minValue={1}
+                maxValue={100}
+                unit="%"
+                value={backgroundHighlightOpacity}
+                format={(value) => toFixed(value)}
+                onDrag={(e, value) =>
+                  dispatch(
+                    updateHighlightSetting({
+                      id: id,
+                      backgroundHighlightOpacity: value,
+                    })
+                  )
+                }
+              />
+            </>
+          )}
+        </Flex.Item>
+        <Flex.Item shrink={0}>
+          {highlightWholeMessage && (
+            <>
+              <ColorBox mr={1} color={backgroundHighlightColor} />
+              <Input
+                mr={1}
+                width="5em"
+                monospace
+                placeholder="#ffdd44"
+                value={backgroundHighlightColor}
+                onInput={(e, value) =>
+                  dispatch(
+                    updateHighlightSetting({
+                      id: id,
+                      backgroundHighlightColor: value,
+                    })
+                  )
+                }
+              />
+            </>
+          )}
+        </Flex.Item>
+        <Flex.Item>
           <Button.Checkbox
             checked={highlightWholeMessage}
             content="Whole Message"
-            tooltip="If this option is selected, the entire message will be highlighted in yellow."
+            tooltip="If this option is selected, the entire message will be highlighted in the color defined to the left."
             mr="5px"
             onClick={() =>
               dispatch(

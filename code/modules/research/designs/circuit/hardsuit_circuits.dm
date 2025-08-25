@@ -63,3 +63,11 @@
 	name = "Cybersuit Hardsuit Control And Targeting Board"
 	req_tech = list(TECH_DATA = 6, TECH_COMBAT = 3, TECH_ILLEGAL = 3)
 	build_path = /obj/item/circuitboard/rig_assembly/illegal/targeting/hacker
+
+/datum/design/circuit/hardsuit/falcata
+	name = "Falcata Exoskeleton Central Circuit Board"
+	build_path = /obj/item/circuitboard/rig_assembly/combat/falcata
+
+/datum/design/circuit/hardsuit/falcata_target
+	name = "Falcata Exoskeleton Control And Targeting Board"
+	build_path = /obj/item/circuitboard/rig_assembly/combat/targeting/falcata

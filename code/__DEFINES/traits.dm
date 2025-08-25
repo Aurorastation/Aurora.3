@@ -182,6 +182,9 @@
 /// This trait makes Check_Shoegrip return TRUE. Used for magboot-like behaviour.
 #define TRAIT_SHOE_GRIP "shoe_grip"
 
+/// Trait is added from a species verb.
+#define TRAIT_SOURCE_SPECIES_VERB "species_verb"
+
 // DISABILITY TRAITS
 
 /// Causes the mob to take twice as long to clot their wounds
@@ -196,3 +199,20 @@
 #define TRAIT_UNHITTABLE_BY_PROJECTILES "unhittable_by_projectiles"
 ///This mob is currently blocking a projectile.
 #define TRAIT_BLOCKING_PROJECTILES "blocking_projectiles"
+
+/// This trait is used for double shuttle seats in a single tile, used in handling occupant density.
+#define TRAIT_DOUBLE_SEATS "double_seats"
+/// Apply this to make a mob passable by other mobs.
+#define TRAIT_UNDENSE "undense"
+
+/// Trait comes from leaning on a wall.
+#define TRAIT_SOURCE_WALL_LEANING "wall_leaning"
+
+/// Phoron worm burrow.
+#define TRAIT_SOURCE_WORM_BURROW "worm_burrow"
+
+/// Trait given on mob death.
+#define TRAIT_SOURCE_MOB_DEATH "mob_death"
+
+/// Trait given when the mob lies down.
+#define TRAIT_SOURCE_LYING_DOWN "lying_down"

@@ -31,8 +31,22 @@ ABSTRACT_TYPE(/obj/structure/engineer_maintenance)
 	/// The key-value list of tools that can be used on the panel once it's been opened. The key is the typepath of the item, and the value is a singleton which holds some data to be used
 	var/list/panel_tools
 
-	/// The list of tool names that can be used on the panel once it's open, but in name format, to be used in get_examine_text
+	/// The list of tool names that can be used on the panel once it's open, but in name format, to be used in mechanics_hints
 	var/list/panel_tool_names = list()
+
+/obj/structure/engineer_maintenance/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += SPAN_NOTICE("Any wrench, or an impact drill with the wrenchbit selected, can be used to open/close the panel.")
+	if(panel_open)
+		. += SPAN_NOTICE("The following tools can be used to interact with the panel:")
+	for(var/tool_name in panel_tool_names)
+		. += SPAN_NOTICE("- [tool_name]")
+
+/obj/structure/engineer_maintenance/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(panel_open)
+		. += SPAN_NOTICE(detailed_desc)
+	. += SPAN_ITALIC("OOC NOTE: This object is purely a fluff item, and has no mechanical effect.")
 
 /obj/structure/engineer_maintenance/Initialize(mapload)
 	. = ..()
@@ -50,21 +64,6 @@ ABSTRACT_TYPE(/obj/structure/engineer_maintenance)
 	SIGNAL_HANDLER
 	qdel(src)
 
-/obj/structure/engineer_maintenance/get_examine_text(mob/user, distance, is_adjacent, infix, suffix, get_extended)
-	. = ..()
-	if(panel_open)
-		. += SPAN_NOTICE("---")
-		. += SPAN_NOTICE(detailed_desc)
-		. += SPAN_NOTICE("---")
-	. += SPAN_NOTICE("An impact wrench with the wrenchbit selected can be used to open/close the panel.")
-	if(panel_open)
-		. += SPAN_NOTICE("---")
-		. += SPAN_NOTICE("The following tools can be used to interact with the panel:")
-		for(var/tool_name in panel_tool_names)
-			. += SPAN_NOTICE("- [tool_name]")
-	. += SPAN_ITALIC("OOC NOTE: This object is purely a fluff item, and has no mechanical effect.")
-
-
 /obj/structure/engineer_maintenance/update_icon()
 	if(!panel_open)
 		icon_state = initial(icon_state)
@@ -72,15 +71,22 @@ ABSTRACT_TYPE(/obj/structure/engineer_maintenance)
 	icon_state = "[panel_location]_[panel_type]_[icon_number]"
 
 /obj/structure/engineer_maintenance/attackby(obj/item/attacking_item, mob/user, params)
-	if(istype(attacking_item, /obj/item/powerdrill)) // these will always open the panel
+	if(attacking_item.iswrench()) // Any wrench is good, but we explicltly include the impact drill to send a helpful msg if they just have the screwdriver bit attached.
 		if(!attacking_item.iswrench())
 			to_chat(user, SPAN_WARNING("\The [attacking_item] must have its wrenchbit inserted to remove \the [src]'s bolts!"))
 			return
-		user.visible_message("[SPAN_BOLD("[user]")] starts [panel_open ? "closing" : "opening"] \the [src]...", SPAN_NOTICE("You start [panel_open ? "closing" : "opening"] \the [src]..."), SPAN_NOTICE("You hear the whirr of an impact wrench..."))
+		if (istype(attacking_item, /obj/item/powerdrill))
+			user.visible_message("[SPAN_BOLD("[user]")] starts [panel_open ? "closing" : "opening"] \the [src]...", SPAN_NOTICE("You start [panel_open ? "closing" : "opening"] \the [src]..."), SPAN_NOTICE("You hear the whirr of an impact drill..."))
+		else
+			user.visible_message("[SPAN_BOLD("[user]")] starts manually [panel_open ? "closing" : "opening"] \the [src]...", SPAN_NOTICE("You start manually [panel_open ? "closing" : "opening"] \the [src]..."))
 		if(attacking_item.usesound)
 			playsound(get_turf(src), attacking_item.usesound, 30, TRUE)
-		if(!do_after(user, rand(2, 3) SECONDS, src))
-			return
+		if (istype(attacking_item, /obj/item/powerdrill))
+			if(!do_after(user, rand(2, 3) SECONDS, src))
+				return
+		else
+			if(!do_after(user, rand(5, 7) SECONDS, src))
+				return
 		user.visible_message("[SPAN_BOLD("[user]")] [panel_open ? "closes" : "opens"] \the [src]!", SPAN_NOTICE("You [panel_open ? "close" : "open"] \the [src]!"))
 		panel_open = !panel_open
 		update_icon()
@@ -106,7 +112,6 @@ ABSTRACT_TYPE(/obj/structure/engineer_maintenance)
 		"4" = "A high-pressure pipe, together with an electrical flow meter and a keypad can be seen in this hatch. High pressure pipes like these usually carry gases around the place. Probably in higher quantities than usual. The interface allows the user to adjust the flow rate or to close the pipe completely."
 	)
 	panel_tools = list(
-		/obj/item/wrench = /singleton/engineer_maintenance_tool/steam_pipe,
 		/obj/item/pipewrench = /singleton/engineer_maintenance_tool/steam_pipe,
 		/obj/item/hammer = /singleton/engineer_maintenance_tool/steam_pipe,
 		/obj/item/device/multitool = /singleton/engineer_maintenance_tool/steam_pipe
@@ -213,14 +218,11 @@ ABSTRACT_TYPE(/obj/structure/engineer_maintenance)
 	if(finish_sound)
 		playsound(get_turf(target), finish_sound, 30, TRUE)
 
-
 /singleton/engineer_maintenance_tool/steam_pipe
 	finish_sound = /singleton/sound_category/steam_pipe
 
-
 /singleton/engineer_maintenance_tool/electrical_hum
 	finish_sound = /singleton/sound_category/electrical_hum
-
 
 /singleton/engineer_maintenance_tool/electrical_spark
 	finish_sound = /singleton/sound_category/electrical_spark

@@ -10,18 +10,20 @@
 
 	switch(severity)
 		if(EVENT_LEVEL_MAJOR)
-			victim_apc.overload_lighting(50, TRUE)
+			victim_apc.overload_lighting(100, TRUE)
 			victim_apc.set_broken()
 			if(!QDELETED(victim_apc.cell))
 				victim_apc.cell.corrupt()
 
 		if(EVENT_LEVEL_MODERATE)
+			victim_apc.overload_lighting(85, TRUE)
 			victim_apc.set_broken()
 			if(!QDELETED(victim_apc.cell))
 				victim_apc.cell.corrupt()
 
 		//EVENT_LEVEL_MUNDANE and if someone fucked up the config
 		else
+			victim_apc.overload_lighting(60, TRUE)
 			victim_apc.emagged = TRUE
 			victim_apc.flicker_all()
 

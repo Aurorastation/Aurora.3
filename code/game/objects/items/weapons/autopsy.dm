@@ -18,8 +18,10 @@
 	var/timeofdeath = null
 
 /datum/autopsy_data_scanner
-	var/weapon = null // this is the DEFINITE weapon type that was used
-	var/list/organs_scanned = list() // this maps a number of scanned organs to the wounds to those organs with this data's weapon type
+	/// The DEFINITE weapon type that was used.
+	var/weapon = null
+	/// This maps a number of scanned organs to the wounds to those organs with this data's weapon type.
+	var/list/organs_scanned = list()
 	var/organ_names = ""
 
 /datum/autopsy_data
@@ -84,7 +86,8 @@
 		var/datum/autopsy_data_scanner/D = wdata[wdata_idx]
 		var/total_hits = 0
 		var/total_score = 0
-		var/list/weapon_chances = list() // maps weapon names to a score
+		// Maps weapon names to a score
+		var/list/weapon_chances = list()
 		var/age = 0
 
 		for(var/wound_idx in D.organs_scanned)
@@ -105,7 +108,7 @@
 
 		var/damaging_weapon = (total_score != 0)
 
-		// total score happens to be the total damage
+		// Total score happens to be the total damage
 		switch(total_score)
 			if(0)
 				damage_desc = "Unknown"

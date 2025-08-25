@@ -9,7 +9,7 @@
 	slot_flags = SLOT_BELT|SLOT_BACK
 	accuracy = 1
 	w_class = WEIGHT_CLASS_NORMAL
-	force = 15
+	force = 20
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 	projectile_type = /obj/projectile/beam/midlaser
@@ -60,8 +60,6 @@
 	name = "antique laser gun"
 	icon = 'icons/obj/guns/caplaser.dmi'
 	desc = "This is an antique laser gun. All craftsmanship is of the highest quality. The object menaces with spikes of energy."
-	desc_info = "This is an energy weapon.  To fire the weapon, ensure your intent is *not* set to 'help', have your gun mode set to 'fire', \
-	then click where you want to fire.  Most energy weapons can fire through windows harmlessly. Unlike most weapons, this weapon recharges itself."
 	icon_state = "caplaser"
 	item_state = "caplaser"
 	has_item_ratio = FALSE
@@ -77,6 +75,10 @@
 	can_turret = 1
 	turret_is_lethal = 1
 	turret_sprite_set = "captain"
+
+/obj/item/gun/energy/captain/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Unlike most energy weapons, this weapon recharges itself."
 
 /obj/item/gun/energy/lasercannon
 	name = "laser cannon"
@@ -139,9 +141,6 @@
 /obj/item/gun/energy/sniperrifle
 	name = "marksman energy rifle"
 	desc = "The HI L.W.A.P. is an older NanoTrasen design. A designated marksman rifle capable of shooting powerful ionized beams, this is a weapon to kill from a distance."
-	desc_info = "This is an energy weapon.  To fire the weapon, ensure your intent is *not* set to 'help', have your gun mode set to 'fire', \
-	then click where you want to fire.  Most energy weapons can fire through windows harmlessly.  To recharge this weapon, use a weapon recharger. \
-	To use the scope, use the appropriate verb in the object tab."
 	icon = 'icons/obj/guns/sniper.dmi'
 	icon_state = "sniper"
 	item_state = "sniper"
@@ -166,8 +165,12 @@
 	fire_delay_wielded = 35
 	accuracy_wielded = 0
 
+/obj/item/gun/energy/sniperrifle/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "To use the scope, use the appropriate verb in the object tab."
+
 /obj/item/gun/energy/sniperrifle/verb/scope()
-	set category = "Object"
+	set category = "Object.Held"
 	set name = "Use Scope"
 	set src in usr
 
@@ -193,7 +196,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 	origin_tech = list(TECH_COMBAT = 4, TECH_MAGNET = 2)
 	projectile_type = /obj/projectile/beam/shotgun
-	max_shots = 20
+	max_shots = 28
 	sel_mode = 1
 	is_wieldable = TRUE
 	burst = 4

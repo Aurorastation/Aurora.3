@@ -1,5 +1,6 @@
 /datum/gear/cane
-	display_name = "cane"
+	display_name = "cane and crutch selection"
+	description = "A selection of canes and crutches."
 	path = /obj/item/cane
 
 /datum/gear/cane/New()
@@ -8,7 +9,10 @@
 	cane["cane"] = /obj/item/cane
 	cane["telescopic cane"] = /obj/item/cane/telecane
 	cane["crutch"] = /obj/item/cane/crutch
-	cane["white cane"] = /obj/item/cane/white
+	cane["forearm crutch"] = /obj/item/cane/crutch/forearm
+	cane["white cane"] = /obj/item/cane/telecane/white
+	cane["pair of crutches"] = /obj/item/storage/box/crutch_pair
+	cane["pair of forearm crutches"] = /obj/item/storage/box/forearm_crutch_pair
 	gear_tweaks += new /datum/gear_tweak/path(cane)
 
 /datum/gear/flask
@@ -294,7 +298,7 @@
 
 /datum/gear/flag
 	display_name = "flag selection"
-	cost = 2
+	cost = 1
 	path = /obj/item/flag
 	flags = GEAR_HAS_DESC_SELECTION
 
@@ -371,8 +375,9 @@
 	flags["flag, Northern Solarian Reconstruction Mandate"] = /obj/item/flag/nsrm/l
 	flags["flag, Provisional Government of Mars"] = /obj/item/flag/mars/l
 	flags["flag, Pluto"] = /obj/item/flag/pluto/l
-	flags["flag, Antique Visegrad"] = /obj/item/flag/old_visegrad
-	flags["flag, Visegrad"] = /obj/item/flag/visegrad
+	flags["flag, Antique Visegrad"] = /obj/item/flag/old_visegrad/l
+	flags["flag, Visegrad"] = /obj/item/flag/visegrad/l
+	flags["flag, Burzsia"] = /obj/item/flag/burzsia/l
 	flags["flag, HPS Narrows"] = /obj/item/flag/narrows/l
 	gear_tweaks += new /datum/gear_tweak/path(flags)
 
@@ -410,15 +415,15 @@
 	gear_tweaks += new /datum/gear_tweak/path(comics)
 
 /datum/gear/toothpaste
-	display_name = "toothpaste and toothbrush"
+	display_name = "dental hygiene kit"
 	path = /obj/item/storage/box/toothpaste
 
 /datum/gear/toothpaste/New()
 	..()
 	var/list/toothpaste = list()
-	toothpaste["toothpaste and blue toothbrush"] = /obj/item/storage/box/toothpaste
-	toothpaste["toothpaste and green toothbrush"] = /obj/item/storage/box/toothpaste/green
-	toothpaste["toothpaste and red toothbrush"] = /obj/item/storage/box/toothpaste/red
+	toothpaste["dental hygiene kit, blue toothbrush"] = /obj/item/storage/box/toothpaste
+	toothpaste["dental hygiene kit, green toothbrush"] = /obj/item/storage/box/toothpaste/green
+	toothpaste["dental hygiene kit, red toothbrush"] = /obj/item/storage/box/toothpaste/red
 	gear_tweaks += new /datum/gear_tweak/path(toothpaste)
 
 /datum/gear/photo

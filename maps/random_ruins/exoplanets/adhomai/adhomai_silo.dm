@@ -27,7 +27,7 @@
 /area/adhomai_silo/cabin
 	name = "Adhomian Missile Silo Cabin"
 	icon_state = "security"
-	is_outside = FALSE
+	is_outside = OUTSIDE_NO
 
 //ghost roles
 

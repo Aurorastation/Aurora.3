@@ -22,6 +22,12 @@
 		/obj/item/stock_parts/manipulator = 2
 	)
 
+/obj/machinery/mech_recharger/upgrade_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Upgraded <b>capacitors</b> will increase charging rate."
+	. += "Upgraded <b>scanning modules</b> will increase both charging rate and repair speed."
+	. += "Upgraded <b>manipulators</b> will increase repair speed."
+
 /obj/machinery/mech_recharger/Initialize(mapload)
 	. = ..()
 

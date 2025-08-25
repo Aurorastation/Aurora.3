@@ -11,11 +11,11 @@
 
 /obj/machinery/icecream_vat
 	name = "icecream vat"
-	desc = "Ding-aling ding dong. Get your SCC-approved ice cream!"
+	desc = "Ding-aling ding dong. Get your corporate-approved ice cream!"
 	icon = 'icons/obj/machinery/cooking_machines.dmi'
 	icon_state = "icecream_vat"
-	density = 1
-	anchored = 0
+	density = TRUE
+	anchored = FALSE
 	use_power = POWER_USE_OFF
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER | ATOM_FLAG_NO_REACT
 
@@ -107,7 +107,7 @@
 		var/obj/item/reagent_containers/food/snacks/icecream/I = attacking_item
 		if(!I.ice_creamed)
 			if(product_types[dispense_flavour] > 0)
-				visible_message("\icon[src] <b>[user]</b> scoops [flavour_name] icecream into [I].")
+				visible_message("[icon2html(src, viewers(get_turf(src)))] <b>[user]</b> scoops [flavour_name] icecream into [I].")
 				product_types[dispense_flavour]--
 				I.add_ice_cream(flavour_name)
 			//	if(beaker)

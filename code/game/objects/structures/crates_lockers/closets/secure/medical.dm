@@ -126,6 +126,7 @@
 	new /obj/item/clothing/mask/gas/alt(src)
 	new /obj/item/clothing/mask/gas/half(src)
 	new /obj/item/auto_cpr(src)
+	new /obj/item/defibrillator/compact/loaded(src)
 	new /obj/item/clothing/suit/storage/toggle/para_jacket(src)
 	new /obj/item/clothing/suit/storage/toggle/para_jacket/zeng(src)
 	new /obj/item/clothing/suit/storage/toggle/para_jacket/pmc(src)
@@ -234,3 +235,10 @@
 	new /obj/item/toy/plushie/bee(src)
 	new /obj/item/device/flashlight/pen(src)
 	new /obj/item/storage/box/stressball(src)
+
+// Empty
+/obj/structure/closet/secure_closet/medical/empty
+	name = "medicine closet"
+	desc = "A medical locker."
+	icon_state = "med"
+	req_access = list(ACCESS_MEDICAL_EQUIP)

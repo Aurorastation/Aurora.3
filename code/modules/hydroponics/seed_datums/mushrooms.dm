@@ -25,8 +25,7 @@
 	set_trait(TRAIT_PLANT_COLOUR,"#D9C94E")
 	set_trait(TRAIT_PLANT_ICON,"mushroom")
 	set_trait(TRAIT_WATER_CONSUMPTION, 6)
-	set_trait(TRAIT_IDEAL_HEAT, 288)
-	set_trait(TRAIT_LIGHT_TOLERANCE, 6)
+	set_trait(TRAIT_IDEAL_HEAT, IDEAL_HEAT_COLD)
 
 /datum/seed/koisspore
 	name = "koisspore"
@@ -49,10 +48,9 @@
 	set_trait(TRAIT_YIELD,3)
 	set_trait(TRAIT_POTENCY,60)
 	set_trait(TRAIT_BIOLUM,1)
-	set_trait(TRAIT_IDEAL_LIGHT,1)
 	set_trait(TRAIT_REQUIRES_NUTRIENTS,0)
 	set_trait(TRAIT_REQUIRES_WATER,0)
-	set_trait(TRAIT_LIGHT_TOLERANCE,2)
+	set_trait(TRAIT_LIGHT_TOLERANCE,10)
 	set_trait(TRAIT_ENDURANCE,50)
 	set_trait(TRAIT_BIOLUM_COLOUR,"#E6E600")
 	set_trait(TRAIT_PRODUCT_ICON,"alien3")
@@ -75,8 +73,6 @@
 	set_trait(TRAIT_BIOLUM_PWR,-1.5)
 	set_trait(TRAIT_POTENCY,80)
 	set_trait(TRAIT_ENDURANCE,75)
-	set_trait(TRAIT_IDEAL_LIGHT,0)
-	set_trait(TRAIT_LIGHT_TOLERANCE,8)
 	set_trait(TRAIT_BIOLUM_COLOUR,"#FFFFFF")
 	set_trait(TRAIT_PRODUCT_COLOUR,"#31004A")
 	set_trait(TRAIT_PLANT_COLOUR,"#31004A")

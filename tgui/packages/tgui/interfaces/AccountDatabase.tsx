@@ -48,7 +48,7 @@ export const AccountDatabase = (props, context) => {
             </LabeledList.Item>
             {data.access_level ? (
               <LabeledList.Item label="Assigned Conglomerate Funds">
-                {data.station_account_money}电
+                {data.station_account_money.toFixed(2)}电
               </LabeledList.Item>
             ) : (
               ''
@@ -223,7 +223,7 @@ export const SpecificAccountData = (props, context) => {
                 {account.owner}
               </LabeledList.Item>
               <LabeledList.Item label="Balance">
-                {account.money}电
+                {account.money.toFixed(2)}电
               </LabeledList.Item>
               <LabeledList.Item label="Status">
                 <Box as="span" color={account.suspended ? 'red' : 'good'}>
@@ -312,7 +312,7 @@ export const SpecificAccountData = (props, context) => {
                     </Table.Cell>
                     <Table.Cell>{transaction.target_name}</Table.Cell>
                     <Table.Cell>{transaction.purpose}</Table.Cell>
-                    <Table.Cell>{transaction.amount}电</Table.Cell>
+                    <Table.Cell>{transaction.amount.toFixed(2)}电</Table.Cell>
                     <Table.Cell>{transaction.source_terminal}</Table.Cell>
                   </Table.Row>
                 ))}

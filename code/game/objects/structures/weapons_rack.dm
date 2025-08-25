@@ -17,6 +17,17 @@
 
 	VAR_PRIVATE/obj/effect/visual_holder
 
+/obj/structure/weapons_rack/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+
+	if(locate(/obj/item/gun) in src)
+		. += "<br/>It contains:<br/>"
+	for(var/obj/item/gun/G in src.contents)
+		. += "\A [G.name]"
+
+	if(locked)
+		. += SPAN_WARNING("It is locked.")
+
 /obj/structure/weapons_rack/Initialize(mapload)
 	..()
 	visual_holder = new()
@@ -77,27 +88,29 @@
 	else if(istype(attacking_item, /obj/item/card/id))
 		var/obj/item/card/id/identification_card = attacking_item
 		if(!forced_open && has_access(req_one_access = src.req_one_access, accesses = identification_card.access))
-			balloon_alert_to_viewers("[user] [locked ? "unlocks" : "locks"] \the [src]!")
+			balloon_alert_to_viewers("[locked ? "unlocked" : "locked"]")
 			playsound(src, 'sound/items/metal_shutter.ogg', 50, TRUE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 			toggle_lock(user)
 
 		else
+			balloon_alert(user, "it won't budge!")
 			to_chat(user, SPAN_WARNING("You lack the required access to operate this rack's lock, or the lock mechanism is broken."))
 
 	else if(locked && attacking_item.iswelder())
 		var/obj/item/weldingtool/WT = attacking_item
 
-		balloon_alert_to_viewers("[user] starts to cut through the lock on \the [src]!")
+		balloon_alert_to_viewers("cutting through the lock...")
 
 		if(WT.use_tool(src, user, 20 SECONDS, extra_checks = CALLBACK(src, PROC_REF(can_be_opened))))
 			//Last check because use_tool() is shitcoded
 			if(forced_open || !can_be_opened())
 				return
 			toggle_lock(user)
+			balloon_alert_to_viewers("lock cut")
 			forced_open = TRUE
 
 		else
-			balloon_alert_to_viewers("[src] was unlocked while you was working on it!")
+			to_chat(user, SPAN_NOTICE("\The [src] was unlocked while you were working on it!"))
 
 
 /obj/structure/weapons_rack/attack_hand(mob/living/user)
@@ -156,17 +169,6 @@
 
 #undef BASE_OFFSET_RIFLE_SLOT
 #undef INTER_OFFSET_RIFLE_SLOT
-
-/obj/structure/weapons_rack/get_examine_text(mob/user, distance, is_adjacent, infix, suffix, get_extended)
-	. = ..()
-
-	if(locate(/obj/item/gun) in src)
-		. += "<br/>It contains:<br/>"
-	for(var/obj/item/gun/G in src.contents)
-		. += "\A [G.name]"
-
-	if(locked)
-		. += SPAN_WARNING("It is locked.")
 
 /obj/structure/weapons_rack/emag_act(remaining_charges, mob/user, emag_source)
 	. = ..()

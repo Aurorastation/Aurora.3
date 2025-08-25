@@ -1,7 +1,6 @@
 /obj/item/bee_smoker
 	name = "bee smoker"
 	desc = "An archaic contraption that slowly burns welding fuel to create thick clouds of smoke, and directs it with attached bellows, used to control angry bees and calm them before harvesting honey."
-	desc_antag = "This device can be used to blind people in short range."
 	icon = 'icons/obj/beekeeping.dmi'
 	icon_state = "bee_smoker"
 	item_state = "bee_smoker"
@@ -9,8 +8,16 @@
 	w_class = WEIGHT_CLASS_BULKY
 	var/max_fuel = 60
 
-/obj/item/bee_smoker/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/bee_smoker/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Use this to pacify bees before extracting frames from a hive!"
+
+/obj/item/bee_smoker/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This device can be used to blind people in short range."
+
+/obj/item/bee_smoker/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(is_adjacent)
 		. += SPAN_NOTICE("It has <b>[get_fuel()]/[max_fuel]</b> welding fuel left.")
 

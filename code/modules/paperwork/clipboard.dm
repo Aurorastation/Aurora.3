@@ -1,7 +1,6 @@
 /obj/item/clipboard
 	name = "clipboard"
 	desc = "When other writing surfaces are unavailable."
-	desc_info = "You can store a pen in this."
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "clipboard"
 	item_state = "clipboard"
@@ -14,6 +13,10 @@
 	var/list/r_contents = list()
 	var/ui_open = FALSE
 	slot_flags = SLOT_BELT
+
+/obj/item/clipboard/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "You can store a pen in this."
 
 /obj/item/clipboard/Initialize()
 	. = ..()

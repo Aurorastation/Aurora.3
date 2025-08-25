@@ -51,6 +51,11 @@
 	icon_state = "furscarf_cream"
 	item_state = "furscarf_cream"
 
+/obj/item/clothing/accessory/tajaran/colorable
+	desc = "A furred scarf, a common tajaran vanity item."
+	icon_state = "furscarf_colorable"
+	item_state = "furscarf_colorable"
+
 /obj/item/clothing/accessory/tajaran/summershirt
 	name = "adhomian summerwear shirt"
 	desc = "A simple piece of adhomian summerwear made with linen."
@@ -115,6 +120,22 @@
 	desc = "A fancy black Adhomian cloak."
 	icon_state = "hb_cloak"
 	item_state = "hb_cloak"
+
+/obj/item/clothing/accessory/poncho/tajarancloak/colorable
+	name = "fancy adhomian cloak"
+	desc = "A fancy Adhomian cloak."
+	icon_state = "hb_cloak_colorable"
+	item_state = "hb_cloak_colorable"
+	worn_overlay =  "adornment"
+	build_from_parts = TRUE
+	has_accents = TRUE
+
+/obj/item/clothing/accessory/poncho/tajarancloak/colorable/royal
+	name = "adhomian royal cloak"
+	desc = "An Adhomian cloak with an asymmetric design."
+	icon_state = "royal_cloak_colorable"
+	item_state = "royal_cloak_colorable"
+	worn_overlay =  "adornment"
 
 /obj/item/clothing/accessory/tajaran_wrap
 	name = "marriage wrap"
@@ -422,6 +443,38 @@
 	icon_state = "raskara_amulet"
 	item_state = "raskara_amulet"
 	overlay_state = "raskara_amulet"
+	var/raskara_text = null
+
+/obj/item/clothing/accessory/tajaran/charm/raskariim/get_examine_text(mob/user, distance, is_adjacent, infix, suffix, get_extended)
+	. = ..()
+	if(raskara_text && ishuman(user))
+		var/mob/living/carbon/human/U = user
+		if(U.religion == RELIGION_RASKARA || U.religion == RELIGION_RASKARA_ALT)
+			. += SPAN_CULT("\The [src] [raskara_text]")
+
+/obj/item/clothing/accessory/tajaran/charm/raskariim/doorandkey
+	name = "key charm"
+	desc = "An old, rustic key turned into a charm."
+	icon_state = "doorandkey_talisman"
+	item_state = "doorandkey_talisman"
+	overlay_state = null
+	raskara_text = "is the key to the door of Raskara's embrace."
+
+/obj/item/clothing/accessory/tajaran/charm/raskariim/kingofmaggots
+	name = "coin charm"
+	desc = "A charm made out of an adhomian knuckle coin, also known as a traditional way to carry them."
+	icon_state = "kingofmaggots_talisman"
+	item_state = "kingofmaggots_talisman"
+	overlay_state = null
+	raskara_text = "is from the bank of the King of Maggots."
+
+/obj/item/clothing/accessory/tajaran/charm/raskariim/blackmirror
+	name = "glass charm"
+	desc = "A charm made from a shard of black glass. The edges appear to have been blunted to prevent cutting oneself on it."
+	icon_state = "blackmirror_talisman"
+	item_state = "blackmirror_talisman"
+	overlay_state = null
+	raskara_text = "reflects The Stranger, it gazes coldly."
 
 /obj/item/clothing/accessory/tajaran/tanker_pin
 	name = "golden sun pin"

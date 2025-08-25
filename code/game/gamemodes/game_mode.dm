@@ -392,7 +392,7 @@ GLOBAL_LIST_EMPTY(additional_antag_types)
 	if(GLOB.evacuation_controller.evacuation_type == TRANSFER_EMERGENCY)
 		escape_text = "escaped"
 	else
-		escape_text = "transfered"
+		escape_text = "transferred"
 	if(surviving_total > 0)
 		text += "<br>There [surviving_total>1 ? "were <b>[surviving_total] survivors</b>" : "was <b>one survivor</b>"]"
 		text += " (<b>[escaped_total>0 ? escaped_total : "none"] [escape_text]</b>) and <b>[ghosts] ghosts</b>.<br>"
@@ -596,7 +596,7 @@ GLOBAL_LIST_EMPTY(additional_antag_types)
 
 /mob/verb/check_round_info()
 	set name = "Check Round Info"
-	set category = "OOC"
+	set category = "OOC.Round"
 
 	if(!SSticker.mode)
 		to_chat(usr, "Something is terribly wrong; there is no gametype.")
@@ -614,7 +614,7 @@ GLOBAL_LIST_EMPTY(additional_antag_types)
 
 /mob/verb/check_gamemode_probability()
 	set name = "Check Gamemode Probability"
-	set category = "OOC"
+	set category = "OOC.Round"
 
 	if(GLOB.config.show_game_type_odd)
 		to_chat(src, "<b>Secret Mode Odds:</b>")

@@ -24,17 +24,17 @@
 	var/datum/track/current_track
 	var/list/datum/track/tracks = list(
 		new/datum/track("Beyond", 'sound/music/ambispace.ogg'),
-		new/datum/track("Clouds of Fire", 'sound/music/lobby/clouds.s3m'),
-		new/datum/track("D`Bert", 'sound/music/lobby/title2.ogg'),
+		new/datum/track("Clouds of Fire", 'sound/music/clouds.s3m'),
+		new/datum/track("D`Bert", 'sound/music/title2.ogg'),
+		new/datum/track("Uplift", 'sound/music/title3.ogg'),
+		new/datum/track("Uplift II", 'sound/music/title3mk2.ogg'),
 		new/datum/track("D`Fort", 'sound/music/song_game.ogg'),
 		new/datum/track("Floating", 'sound/music/main.ogg'),
-		new/datum/track("Endless Space", 'sound/music/lobby/space.ogg'),
+		new/datum/track("Endless Space", 'sound/music/space.ogg'),
 		new/datum/track("Scratch", 'sound/music/title1.ogg'),
-		new/datum/track("Suspenseful", 'sound/music/lobby/traitor.ogg'),
-		new/datum/track("Thunderdome", 'sound/music/THUNDERDOME.ogg'),
-		new/datum/track("Velvet Rose", 'sound/music/velvet_rose.ogg')
+		new/datum/track("Suspenseful", 'sound/music/traitor.ogg'),
+		new/datum/track("Thunderdome", 'sound/music/THUNDERDOME.ogg')
 	)
-
 
 /obj/machinery/media/jukebox/Destroy()
 	StopPlaying()
@@ -232,6 +232,14 @@
 	state_base = "audioconsole"
 	anchored = FALSE
 	tracks = list(
+		new/datum/track("Konyang Chill A", 'sound/music/lobby/konyang/konyang-1.ogg'),
+		new/datum/track("Konyang Chill B", 'sound/music/lobby/konyang/konyang-2.ogg'),
+		new/datum/track("Konyang Chill C", 'sound/music/lobby/konyang/konyang-3.ogg'),
+		new/datum/track("Konyang Chill D", 'sound/music/lobby/konyang/konyang-4.ogg'),
+		new/datum/track("Synthetic Future A", 'sound/music/lobby/adhomai/adhomai-1.ogg'),
+		new/datum/track("Synthetic Future B", 'sound/music/lobby/adhomai/adhomai-2.ogg'),
+		new/datum/track("Synthetic Future C", 'sound/music/lobby/adhomai/adhomai-3.ogg'),
+		new/datum/track("Synthetic Future D", 'sound/music/lobby/adhomai/adhomai-4.ogg'),
 		new/datum/track("Butterflies", 'sound/music/audioconsole/Butterflies.ogg'),
 		new/datum/track("That Ain't Chopin", 'sound/music/audioconsole/ThatAintChopin.ogg'),
 		new/datum/track("Don't Rush", 'sound/music/audioconsole/DontRush.ogg'),
