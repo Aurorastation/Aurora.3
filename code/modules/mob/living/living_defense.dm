@@ -433,7 +433,7 @@
  *
  * Returns boolean TRUE if fire is extinguished for any reason.
  */
-/mob/living/proc/handle_fire(var/datum/gas_mixture/environment)
+/mob/living/proc/handle_fire(var/seconds_per_tick, var/datum/gas_mixture/environment)
 	if(!loc)
 		ExtinguishMobCompletely()
 		return TRUE

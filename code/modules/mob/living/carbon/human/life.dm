@@ -1422,15 +1422,16 @@
  * to which a burning creature is exposed, at any point during its fiery adventure, is the base
  * temperature of the fire, scaling upwards with fire_stacks.
  */
-/mob/living/carbon/human/handle_fire(var/datum/gas_mixture/environment)
+/mob/living/carbon/human/handle_fire(var/seconds_per_tick, var/datum/gas_mixture/environment)
 	if(..())
 		return
 
 	var/burn_temperature = fire_burn_temperature()
 	var/thermal_protection = get_heat_protection(burn_temperature)
 
+	// Increment bodytemp up by up to BODYTEMP_HEATING_MAX C / sec, as modified by thermal protection.
 	if (thermal_protection < 1 && bodytemperature < burn_temperature)
-		bodytemperature += round(BODYTEMP_HEATING_MAX*(1-thermal_protection), 1)
+		bodytemperature += round(BODYTEMP_HEATING_MAX * (1-thermal_protection) * 20 * seconds_per_tick, 1)
 
 /mob/living/carbon/human/rejuvenate()
 	restore_blood()

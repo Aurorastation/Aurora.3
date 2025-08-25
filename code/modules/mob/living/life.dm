@@ -28,7 +28,7 @@
 			handle_mutations_and_radiation()
 
 	//Check if we're on fire
-	handle_fire(environment)
+	handle_fire(seconds_per_tick, environment)
 
 	update_pulling()
 
