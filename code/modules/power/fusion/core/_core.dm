@@ -9,13 +9,16 @@
 	layer = ABOVE_HUMAN_LAYER
 	density = TRUE
 	use_power = POWER_USE_IDLE
-	idle_power_usage = 50
+	idle_power_usage = 10000
 	/// Gets multiplied by field strength
-	active_power_usage = 500
+	active_power_usage = 50000
 	anchored = FALSE
 
 	var/obj/effect/fusion_em_field/owned_field
-	var/field_strength = 1//0.01
+	/// The currently configured Field Strength (0.01 = 1 Tesla).
+	var/field_strength = 0.01
+	/// This is for the INDRA, allowing a maximum 5-radius field. Change this for larger/smaller reactors.
+	var/field_strength_max = 3
 	var/initial_id_tag
 
 /obj/machinery/power/fusion_core/mapped

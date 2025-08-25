@@ -28,8 +28,6 @@
 	var/radiation_archive_5 = 0
 	/// The currently configured Field Strength (0.01 = 1 Tesla). Capped by TGUI at 3.00 (300 Tesla).
 	var/field_strength = 0.01
-	/// Edit this for a GIANT PLASMA TORUS (3 = 300 Tesla).
-	var/field_strength_max = 3
 	/// Radius of the EM field. Scales with Field Strength.
 	var/size = 1
 	var/tick_instability = 0
@@ -71,6 +69,18 @@
 	var/warning_alert = "WARNING: INDRA reactor destabilizing!"
 	var/emergency_alert = "DANGER: INDRA REACTOR MELTDOWN IMMINENT!"
 	var/lastwarning = 0
+
+	/// Power output. We average this like we do radiation for player-presenting data.
+	var/output
+	/// Power of the previous five ticks averaged out (if != 0).
+	var/output_avg = 0
+	/// Archived power. Used for averaging out the power dumped into the powernet for players to see.
+	var/output_archive_1 = 0
+	var/output_archive_2 = 0
+	var/output_archive_3 = 0
+	var/output_archive_4 = 0
+	var/output_archive_5 = 0
+
 
 /obj/effect/fusion_em_field/proc/UpdateVisuals()
 	//Take the particle system and edit it
@@ -214,7 +224,8 @@
 		if(added_particles)
 			uptake_gas.update_values()
 
-	// Let the particles inside the field react.
+	// Let the particles inside the field react, iterated twice per process()
+	React()
 	React()
 
 	// Dump power to our powernet.
