@@ -28,14 +28,14 @@
 	. += "You can also crush cans on other people's foreheads as well."
 
 /obj/item/reagent_containers/food/drinks/cans/standard_feed_mob(var/mob/user, var/mob/living/target)
-	..()
 	if(!reagents || reagents.total_volume == 0)
 		persistency_considered_trash = TRUE
+	..()
 
 /obj/item/reagent_containers/food/drinks/cans/standard_pour_into(var/mob/user, var/atom/target)
-	..()
 	if(reagents && reagents.total_volume > 0)
 		persistency_considered_trash = FALSE
+	..()
 
 /obj/item/reagent_containers/food/drinks/cans/persistence_get_content()
 	var/list/content = list()
