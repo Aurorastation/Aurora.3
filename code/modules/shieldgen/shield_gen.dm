@@ -53,20 +53,19 @@
 
 /obj/machinery/shield_gen/process()
 	update_icon()
-	if(!anchored)
+	if(!anchored || !parent_matrix.active)
 		for(var/obj/effect/energy_field/E as anything in field)
 			qdel(E)
-		LAZYCLEARLIST(field)
+		LAZYNULL(field)
 		return
-	if(field.len)
-		for(var/obj/effect/energy_field/E as anything in field)
-			if(!E)
-				LAZYREMOVE(field, E)
-				continue
-			var/amount_to_dissipate = max(E.strength * SHIELD_DISCHARGE_RATE, SHIELD_DISCHARGE_MINIMUM)
+	for(var/obj/effect/energy_field/E as anything in field)
+		if(!E)
+			LAZYREMOVE(field, E)
+			continue
+		var/amount_to_dissipate = max(E.strength * SHIELD_DISCHARGE_RATE, SHIELD_DISCHARGE_MINIMUM)
 
-			E.Stress(amount_to_dissipate)
-			E.update_icon()
+		E.Stress(amount_to_dissipate)
+		E.update_icon()
 
 /obj/machinery/shield_gen/proc/generate_field(var/strength_renwicks, var/charge_renwicks, var/modulation_renwicks)
 	if(!(strength_renwicks || charge_renwicks))
@@ -76,7 +75,6 @@
 	for(var/turf/O as anything in covered_turfs - T)
 		var/obj/effect/energy_field/F = locate(/obj/effect/energy_field) in O
 		if(!F)
-			to_chat(world, "Generating energy field.")
 			var/obj/effect/energy_field/E = new(O)
 			E.parent_gen = src
 			LAZYADD(field, E)

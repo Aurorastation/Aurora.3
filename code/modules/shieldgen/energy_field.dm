@@ -191,36 +191,27 @@
 		. = !parent_gen.parent_matrix.has_modulator(MODEFLAG_ATMOSPHERIC)
 
 	if(mover)
-		if(ishuman(mover) && !isipc(mover))
-			check_overcharge(mover)
-			var/datum/shield_mode/humanoids/M = parent_gen.parent_matrix.get_modulator_by_flag(MODEFLAG_HUMANOIDS)
-			if(istype(M))
-				mover.visible_message(SPAN_NOTICE("[mover] starts pushing through \the [src]."), SPAN_NOTICE("You start pushing through \the [src]"))
-				if(do_after(mover, M.delay))
-					mover.visible_message(SPAN_NOTICE("[mover] pushes through \the [src]!"), SPAN_NOTICE("You push through \the [src]!"))
-					. = TRUE
-				. = FALSE
-			. = TRUE
-		else if((ishuman(mover) && isipc(mover)) || isbot(mover) || isrobot(mover) || ispAI(mover) || isDrone(mover))
-			check_overcharge(mover)
-			var/datum/shield_mode/humanoids/M = parent_gen.parent_matrix.get_modulator_by_flag(MODEFLAG_INORGANIC)
-			if(istype(M))
-				mover.visible_message(SPAN_NOTICE("[mover] starts pushing through \the [src]."), SPAN_NOTICE("You start pushing through \the [src]"))
-				if(do_after(mover, M.delay))
-					mover.visible_message(SPAN_NOTICE("[mover] pushes through \the [src]!"), SPAN_NOTICE("You push through \the [src]!"))
-					. = TRUE
-				. = FALSE
-			. = TRUE
-		else if(isanimal(mover))
-			check_overcharge(mover)
-			var/datum/shield_mode/mobs/M = parent_gen.parent_matrix.get_modulator_by_flag(MODEFLAG_NONHUMANS)
-			if(istype(M))
-				mover.visible_message(SPAN_NOTICE("[mover] starts pushing through \the [src]."), SPAN_NOTICE("You start pushing through \the [src]"))
-				if(do_after(mover, M.delay))
-					mover.visible_message(SPAN_NOTICE("[mover] pushes through \the [src]!"), SPAN_NOTICE("You push through \the [src]!"))
-					. = TRUE
-				. = FALSE
-			. = TRUE
+		var/datum/shield_mode/humanoids/modulator_flag_humans
+		var/datum/shield_mode/mobs/modulator_flag_inorganic
+		var/datum/shield_mode/mobs/modulator_flag_mobs
+		modulator_flag_humans = parent_gen.parent_matrix.get_modulator_by_flag(MODEFLAG_HUMANOIDS)
+		modulator_flag_inorganic = parent_gen.parent_matrix.get_modulator_by_flag(MODEFLAG_INORGANIC)
+		modulator_flag_mobs = parent_gen.parent_matrix.get_modulator_by_flag(MODEFLAG_NONHUMANS)
+		// By default, we assume anyone can pass through unless the matrix config indicates otherwise.
+		. = TRUE
+		// Ghost or storyteller or otherwise abstract, fuckoff. is_helpers.dm is amazing for shit like this.
+		if(isghost(mover) || isstoryteller(mover) || isabstractmob(mover))
+			// A solitary 'return' will always return the current value of '.' Since we set it to TRUE just above, this is the same as `return TRUE`
+			return
 
-	if(. && istype(mover))
-		mover.forceMove(get_turf(src))
+		if((ishuman(mover) && !isipc(mover)) && istype(modulator_flag_humans))
+			. = FALSE
+
+		else if(((ishuman(mover) && isipc(mover)) || isbot(mover) || isrobot(mover) || ispAI(mover) || isDrone(mover)) && istype(modulator_flag_inorganic))
+			. = FALSE
+
+		else if(isanimal(mover) && istype(modulator_flag_mobs))
+		. = FALSE
+
+		check_overcharge(mover)
+		return
