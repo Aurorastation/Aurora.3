@@ -159,7 +159,7 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 		germ_level = 0
 		return
 
-	if((status & ORGAN_ASSISTED) && surge_damage)
+	if(BP_IS_ROBOTIC(src) && surge_damage)
 		tick_surge_damage()
 
 	if(!owner)
@@ -416,7 +416,7 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 
 #define MAXIMUM_SURGE_DAMAGE 100
 /obj/item/organ/proc/take_surge_damage(var/surge)
-	if(!(status & ORGAN_ASSISTED))
+	if(!BP_IS_ROBOTIC(src))
 		return //We check earlier, but just to make sure.
 
 	surge_damage = clamp(0, surge + surge_damage, MAXIMUM_SURGE_DAMAGE) //We want X seconds at most of hampered movement or what have you.
