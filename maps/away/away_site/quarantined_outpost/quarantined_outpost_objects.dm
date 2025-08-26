@@ -504,15 +504,15 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 		/mob/living/simple_animal/hostile/revivable/husked_creature/quarantined_outpost
 	)
 	var/chosen_ruin_creature
-	var/list/possible_locations
+	var/list/possible_locations = list()
 	var/turf/T = get_turf(src)
 
 	for(CS in GLOB.landmarks_list) // canister locations
 		if(CS.z == T.z)
-			LAZYADD(possible_locations, get_turf(CS))
+			possible_locations += get_turf(CS)
 	for(var/i in 1 to 5) // only 5 canisters needed for this map
 		new /obj/structure/quarantined_outpost/fluff_canister(pick_n_take(possible_locations))
-	LAZYNULL(possible_locations)
+	possible_locations.Cut()
 
 	for(connector in world) // getting connector locations
 		if(connector.z == T.z)
@@ -520,7 +520,7 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 
 	for(creature_spawn in GLOB.landmarks_list) // non-horde ruin creatures
 		if(creature_spawn.z == T.z)
-			LAZYADD(possible_locations, get_turf(creature_spawn))
+			possible_locations += get_turf(creature_spawn)
 	for(var/i in 1 to rand(20, 25)) // 20-25 creatures
 		chosen_ruin_creature = pick(ruin_creatures)
 		new chosen_ruin_creature(pick_n_take(possible_locations))
