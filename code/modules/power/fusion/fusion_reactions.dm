@@ -102,7 +102,7 @@ GLOBAL_LIST(fusion_reactions)
 /singleton/fusion_reaction/iron_iron
 	p_react = "iron"
 	s_react = "iron"
-	products = list("silver" = 6, "gold" = 6, "platinum" = 6, "lead" = 6, ) // Not realistic but w/e
+	products = list("silver" = 15, "gold" = 15, "platinum" = 15, "lead" = 15, ) // Not realistic but w/e
 	energy_consumption = 10
 	energy_production = 0
 	instability = 2
@@ -155,7 +155,6 @@ GLOBAL_LIST(fusion_reactions)
 	explosion(origin, 8)
 
 	return 1
-
 
 // High end reactions.
 /singleton/fusion_reaction/helium3_hydrogen

@@ -1,0 +1,22 @@
+# Your name.
+author: Batrachophrenoboocosmomachia
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+# Any changes you've made.  See valid prefix list above.
+# INDENT WITH TWO SPACES.  NOT TABS.  SPACES.
+# SCREW THIS UP AND IT WON'T WORK.
+# Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
+# Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
+changes:
+  - refactor: "'Boron' gas renamed to 'Helium-3'. Boron is not a gas. Deal with it."
+  - refactor: "'Steam' gas renamed to 'Water Vapor'."
+  - rscadd: "Boron added as a singleton/reagent. Poisonous to vaurca, still usable in nuclear fusion as fuel assembly rods."
+  - code_imp: "Descriptions added to gas singletons for future use."
+  - qol: "Standardized gas canister naming conventions."
+  - qol: "Updated INDRA-related TGUI menus to use kW, MW abbreviations for high wattages."
+  - balance: "INDRA Field Strength maximum value increased from 100 to 200."
+  - bugfix: "INDRA Kinetic Harvester no longer rapidly deselects materials for harvest when too many are being generated at once."
+  - bugfix: "INDRA EM Field effect no longer considers the camera within its reactor chamber a destabilizing influence."
+  - bugfix: "INDRA reactor core now produces radiation as intended."
