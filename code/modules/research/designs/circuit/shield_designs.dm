@@ -48,12 +48,13 @@
 	desc = "A module for altering the behaviour of produced force fields. This mode blocks various other non-humanoid and non-silicon lifeforms. Typical uses include blocking carps."
 	build_path = /obj/item/modulator_board/mobs
 
+/* Doesn't work nicely with ZAS, if you're from a ZAS-free future, maybe it's time to make this work?
 /datum/design/circuit/shield/modulator/atmosphere
 	name = "Atmospheric Containment Shield Module"
 	desc = "A module for altering the behaviour of produced force fields. This mode blocks air flow and acts as atmosphere containment."
 	req_tech = list(TECH_ENGINEERING = 5)
 	build_path = /obj/item/modulator_board/atmosphere
-
+*/
 /datum/design/circuit/shield/modulator/hull
 	name = "Hull Shielding Shield Module"
 	desc = "A module for altering the behaviour of produced force fields. This mode recalibrates the field to cover surface of the installation instead of projecting a bubble shaped field."

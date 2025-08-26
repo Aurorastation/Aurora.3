@@ -165,7 +165,7 @@
 				if (istype(turf_t, /turf/space) || isopenturf(turf_t) || istype(turf_t, /turf/simulated/floor/reinforced))
 					for (var/turf_uu in RANGE_TURFS(1, turf_t))
 						turf_u = turf_uu
-						if (turf_t == turf_t)
+						if (turf_t == turf_u)
 							continue
 
 						if (is_station_area(turf_u.loc) || istype(turf_u, /turf/simulated/mineral/surface))

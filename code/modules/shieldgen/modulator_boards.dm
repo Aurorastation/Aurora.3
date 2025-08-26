@@ -41,12 +41,12 @@
 	mod = new /datum/shield_mode/mobs(src)
 	. = ..()
 
-/obj/item/modulator_board/atmosphere/Initialize()
+/*/obj/item/modulator_board/atmosphere/Initialize()
 	name += " - atmospheric containment"
 	origin_tech = list(TECH_ENGINEERING = 5)
 	mod = new /datum/shield_mode/atmosphere(src)
 	. = ..()
-
+*/
 /obj/item/modulator_board/hull/Initialize()
 	name += " - hull shielding"
 	origin_tech = list(TECH_ENGINEERING = 2)

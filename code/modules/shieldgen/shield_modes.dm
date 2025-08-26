@@ -119,13 +119,14 @@
 /datum/shield_mode/mobs/use_excess(renwicks)
 	delay = (5 + (10 * renwicks)) SECONDS
 
+/* Doesn't work well with ZAS, once ZAS is replaced we can make it work.
 /datum/shield_mode/atmosphere
 	mode_name = "Atmospheric Containment"
 	mode_desc = "This mode blocks air flow and acts as atmosphere containment."
 	mode_flag = MODEFLAG_ATMOSPHERIC
 	renwicks = 2
 	greedy = FALSE
-
+*/
 /datum/shield_mode/hull
 	mode_name = "Hull Shielding"
 	mode_desc = "This mode recalibrates the field to cover surface of the installation instead of projecting a bubble shaped field."
