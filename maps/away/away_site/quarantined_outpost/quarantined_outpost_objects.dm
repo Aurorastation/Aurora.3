@@ -995,8 +995,7 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 /obj/effect/landmark/trapped_vent/maybe/Initialize()
 	if(prob(80))
 		return INITIALIZE_HINT_QDEL
-	else
-		..()
+	return ..()
 
 /obj/effect/landmark/trapped_vent/maybe/quarantined_outpost
 	mobs_to_spawn = list(
