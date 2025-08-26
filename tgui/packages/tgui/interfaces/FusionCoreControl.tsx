@@ -99,7 +99,7 @@ export const FusionCoreControl = (props, context) => {
                   <NumberInput
                     value={core.field_strength}
                     unit="tesla"
-                    minValue={0}
+                    minValue={20}
                     maxValue={core.field_strength_max * 100}
                     stepPixelSize={15}
                     onDrag={(e, value) =>

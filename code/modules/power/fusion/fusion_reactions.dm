@@ -79,6 +79,7 @@ GLOBAL_LIST(fusion_reactions)
 	products = list(GAS_HELIUM = 1)
 	instability = 0.5
 	radiation = 3
+	priority = 20
 
 /singleton/fusion_reaction/deuterium_lithium
 	p_react = GAS_DEUTERIUM
@@ -127,7 +128,6 @@ GLOBAL_LIST(fusion_reactions)
 	instability = 20
 
 /singleton/fusion_reaction/phoron_supermatter/handle_reaction_special(obj/effect/fusion_em_field/holder)
-
 	wormhole_event(GetConnectedZlevels(holder))
 
 	var/turf/origin = get_turf(holder)
@@ -166,6 +166,7 @@ GLOBAL_LIST(fusion_reactions)
 	radiation = 3
 	instability = 2.5
 	products = list(GAS_HELIUM = 1)
+	priority = 15
 
 // Any now we go even further beyond!!!!
 /singleton/fusion_reaction/iron_phoron

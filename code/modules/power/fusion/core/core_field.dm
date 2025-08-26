@@ -1,14 +1,14 @@
-#define FUSION_ENERGY_PER_K        20
-#define FUSION_INSTABILITY_DIVISOR 50000
-#define FUSION_RUPTURE_THRESHOLD   25000
-#define FUSION_REACTANT_CAP        15000
-#define FUSION_WARNING_DELAY 20
+#define FUSION_ENERGY_PER_K				20
+#define FUSION_INSTABILITY_DIVISOR		50000
+#define FUSION_RUPTURE_THRESHOLD		25000
+#define FUSION_REACTANT_CAP				15000
+#define FUSION_WARNING_DELAY 			20
 
 /obj/effect/fusion_em_field
 	name = "electromagnetic field"
 	desc = "A coruscating, barely visible field of energy. It is shaped like a slightly flattened torus."
 	alpha = 30
-	layer = 4
+	layer = ABOVE_ABOVE_HUMAN_LAYER
 	light_color = COLOR_RED
 	mouse_opacity = MOUSE_OPACITY_ICON
 
@@ -16,6 +16,8 @@
 	var/energy = 0
 	/// Actual core field energy (temperature).
 	var/plasma_temperature = 0
+	/// Effective core field energy (temperature) as modified by field magnitude constriction or relaxation.
+	var/plasma_temperature_effective
 	/// Current excess radiation from ongoing reactions.
 	var/radiation = 0
 	/// Radiation of the previous three ticks averaged out (if != 0).
@@ -26,8 +28,8 @@
 	var/radiation_archive_3 = 0
 	var/radiation_archive_4 = 0
 	var/radiation_archive_5 = 0
-	/// The currently configured Field Strength (0.01 = 1 Tesla). Capped by TGUI at 3.00 (300 Tesla).
-	var/field_strength = 0.01
+	/// The currently configured Field Strength (0.2 = 20 Tesla). Capped by TGUI at 1.2 (120 Tesla).
+	var/field_strength = 0.2
 	/// Radius of the EM field. Scales with Field Strength.
 	var/size = 1
 	var/tick_instability = 0
@@ -81,19 +83,28 @@
 	var/output_archive_4 = 0
 	var/output_archive_5 = 0
 
+	var/vfx_pause_update = FALSE
+	var/vfx_radius_actual
+	// var/vfx_radius_visual
+	var/pause_rupture = TRUE
 
 /obj/effect/fusion_em_field/proc/UpdateVisuals()
 	//Take the particle system and edit it
 
 	//size
-	var/radius = ((size-1) / 2) * WORLD_ICON_SIZE
+	vfx_radius_actual = ((size-1) / 2) * WORLD_ICON_SIZE
+	/*
+	var/vfx_radius_next = ((size+1) / 2) * WORLD_ICON_SIZE
+	var/percent_to_next_size = round(((field_strength + (size * 50)) - (size * 50)) / (((size + 1) / 2) * 50),0.01)
+	var/radius_add = round(percent_to_next_size * WORLD_ICON_SIZE, 1)
+	vfx_radius_visual = min(max(vfx_radius_actual + radius_add, vfx_radius_actual), vfx_radius_next)
+	*/
 
-	particles.position = generator("circle", radius - size, radius + size, NORMAL_RAND)
+	particles.position = generator("circle", vfx_radius_actual - (size * 3), vfx_radius_actual + (size), NORMAL_RAND)
 
 	//Radiation affects drift
 	var/radiationfactor = clamp((radiation_avg * 0.001), 0, 0.75)
 	particles.drift = generator("circle", (0.2 + radiationfactor), NORMAL_RAND)
-
 	particles.spawning = last_reactants * 0.9 + Interpolate(0, 200, clamp(plasma_temperature / 70000, 0, 1))
 
 
@@ -102,7 +113,7 @@
 
 	filters = list(filter(type = "ripple", size = 4, "radius" = 1, "falloff" = 1)
 	, filter(type="outline", size = 2, color =  COLOR_RED)
-	, filter(type="bloom", size=3, offset = 0.5, alpha = 235))
+	, filter(type="bloom", size = 3, offset = 0.5, alpha = 235))
 
 	set_light(light_min_power, light_min_range / 10, light_min_range)
 	last_range = light_min_range
@@ -150,49 +161,6 @@
 	. = ..()
 	addtimer(CALLBACK(src, PROC_REF(update_light_colors)), 10 SECONDS, TIMER_LOOP)
 	radio = new /obj/item/device/radio{channels=list("Engineering")}(src)
-
-/**
- * Not blackbody radiation- with these colors, is some sort of space magic?
- */
-/obj/effect/fusion_em_field/proc/update_light_colors()
-	var/use_range
-	var/use_power = 0
-	var/temp_mod = ((plasma_temperature-5000)/20000)
-	use_range = light_min_range + Ceil((light_max_range-light_min_range)*temp_mod)
-	use_power = light_min_power + Ceil((light_max_power-light_min_power)*temp_mod)
-	switch (plasma_temperature)
-		if (-INFINITY to 1000)
-			light_color = COLOR_RED
-			alpha = 30
-		if (1000 to 6000)
-			light_color = COLOR_ORANGE
-			alpha = 50
-		if (6000 to 20000)
-			light_color = COLOR_YELLOW
-			alpha = 80
-		if (20000 to 50000)
-			light_color = COLOR_GREEN
-			alpha = 120
-		if (50000 to 70000)
-			light_color = COLOR_CYAN
-			alpha = 160
-		if (70000 to 100000)
-			light_color = COLOR_BLUE
-			alpha = 200
-		if (100000 to INFINITY)
-			light_color = COLOR_VIOLET
-			alpha = 230
-
-	if (last_range != use_range || last_power != use_power || color != light_color)
-		set_light(use_range / 6, use_power ? 6 : 0, light_color)
-		last_range = use_range
-		last_power = use_power
-		//Temperature based color
-		particles.gradient = list(0, COLOR_WHITE, 0.85, light_color)
-		UNLINT(var/dm_filter/outline = filters[2])
-		UNLINT(outline.color = light_color)
-		UNLINT(var/dm_filter/bloom = filters[3])
-		UNLINT(bloom.alpha = alpha)
 
 /**
  * What are we doing every tick? A lot.
@@ -289,7 +257,7 @@
 		owned_core.Shutdown(force_rupture=1)
 	else
 		if(percent_unstable > 0.5 && prob(percent_unstable*100))
-			var/ripple_radius = (((size-1) / 2) * WORLD_ICON_SIZE) + WORLD_ICON_SIZE
+			var/ripple_radius = ((size-1) / 2) + WORLD_ICON_SIZE
 			var/wave_size = 4
 			if(plasma_temperature < FUSION_RUPTURE_THRESHOLD)
 				visible_message(SPAN_DANGER("\The [src] ripples uneasily, like a disturbed pond."))
@@ -398,12 +366,13 @@
  * EMP, rads, and a big fuckoff explosion.
  */
 /obj/effect/fusion_em_field/proc/Rupture()
-	visible_message(SPAN_DANGER("\The [src] shudders like a dying animal before flaring to eye-searing brightness and rupturing!"))
-	set_light(1, 0.1, 15, 2, "#ccccff")
-	empulse(get_turf(src), Ceil(plasma_temperature/1000), Ceil(plasma_temperature/300))
-	sleep(5)
-	RadiateAll()
-	explosion(get_turf(owned_core), 8, 8)
+	if(!pause_rupture)
+		visible_message(SPAN_DANGER("\The [src] shudders like a dying animal before flaring to eye-searing brightness and rupturing!"))
+		set_light(1, 0.1, 15, 2, "#ccccff")
+		empulse(get_turf(src), Ceil(plasma_temperature/1000), Ceil(plasma_temperature/300))
+		sleep(5)
+		RadiateAll()
+		explosion(get_turf(owned_core), 8, 8)
 	return
 
 /**
@@ -414,15 +383,15 @@
 	var/calc_size = 1
 	if(new_strength <= 50)
 		calc_size = 1
-	else if(new_strength <= 200)
+	else if(new_strength <= 100)
 		calc_size = 3
-	else if(new_strength <= 250)
+	else if(new_strength <= 150)
 		calc_size = 5
-	else if(new_strength <= 500)
+	else if(new_strength <= 200)
 		calc_size = 7
-	else if(new_strength <= 1000)
+	else if(new_strength <= 250)
 		calc_size = 9
-	else if(new_strength <= 2000)
+	else if(new_strength <= 300)
 		calc_size = 11
 	else
 		calc_size = 13
@@ -640,7 +609,7 @@
 
 				plasma_temperature -= max_num_reactants * cur_reaction.energy_consumption  // Remove the consumed energy.
 				plasma_temperature += max_num_reactants * cur_reaction.energy_production   // Add any produced energy.
-				radiation +=   max_num_reactants * cur_reaction.radiation           // Add any produced radiation.
+				radiation += max_num_reactants * cur_reaction.radiation           // Add any produced radiation.
 				tick_instability += max_num_reactants * cur_reaction.instability
 				last_reactants += amount_reacting
 
@@ -693,6 +662,108 @@
 
 /obj/effect/fusion_em_field/add_point_filter()
 	return
+
+/**
+ * Accurate(ish***) black-body radiation colors. Fuck you purple light; save it for a phoronics update!
+ */
+/obj/effect/fusion_em_field/proc/update_light_colors()
+	var/use_range
+	var/use_power = 0
+	var/temp_mod = ((plasma_temperature-5000)/28000)
+
+	// Using real values for black-body radiation means the fusion reactor will almost always zip to top temp color.
+	// This multiplier scales the below temperatures to better match intended range of temps in gameplay.
+	var/blackbody_multiplier = 8
+	var/effective_plasma_temperature = plasma_temperature / blackbody_multiplier
+
+	use_range = light_min_range + Ceil((light_max_range-light_min_range)*temp_mod)
+	use_power = light_min_power + Ceil((light_max_power-light_min_power)*temp_mod)
+	switch (effective_plasma_temperature)
+		if (-INFINITY to 1000)
+			light_color = "#ff5800"
+			alpha = 30
+		if (1000 to 1400)
+			light_color = "#ff6500"
+			alpha = 40
+		if (1400 to 1800)
+			light_color = "#ff7e00"
+			alpha = 50
+		if (1800 to 2200)
+			light_color = "#ff932c"
+			alpha = 60
+		if (2200 to 2600)
+			light_color = "#ffa54f"
+			alpha = 70
+		if (2600 to 3000)
+			light_color = "#ffb46b"
+			alpha = 80
+		if (3000 to 4000)
+			light_color = "#ffd1a3"
+			alpha = 90
+		if (4000 to 5400)
+			light_color = "#ffebdc"
+			alpha = 100
+		if (5400 to 6200)
+			light_color = "#fff5f5"
+			alpha = 110
+		if (6200 to 7000)
+			light_color = "#f5f3ff"
+			alpha = 120
+		if (7000 to 8000)
+			light_color = "#e3e9ff"
+			alpha = 130
+		if (8000 to 9000)
+			light_color = "#d6e1ff"
+			alpha = 140
+		if (9000 to 10000)
+			light_color = "#ccdbff"
+			alpha = 150
+		if (1000 to 11000)
+			light_color = "#c4d7ff"
+			alpha = 160
+		if (11000 to 12000)
+			light_color = "#bfd3ff"
+			alpha = 170
+		if (12000 to 13000)
+			light_color = "#bad0ff"
+			alpha = 180
+		if (13000 to 14000)
+			light_color = "#b6ceff"
+			alpha = 190
+		if (14000 to 15000)
+			light_color = "#b3ccff"
+			alpha = 200
+		if (15000 to 16000)
+			light_color = "#b0caff"
+			alpha = 210
+		if (16000 to 17000)
+			light_color = "#aec8ff"
+			alpha = 220
+		if (17000 to 18000)
+			light_color = "#acc7ff"
+			alpha = 230
+		if (18000 to 20000)
+			light_color = "#a8c5ff"
+			alpha = 230
+		if (20000 to 23000)
+			light_color = "#94c2ff"
+			alpha = 230
+		if (23000 to INFINITY)
+			light_color = "#74a2ff"
+			alpha = 240
+
+	if (last_range != use_range || last_power != use_power || color != light_color)
+		set_light(use_range / 6, use_power ? 6 : 0, light_color)
+		last_range = use_range
+		last_power = use_power
+		//Temperature based color
+
+		if(!vfx_pause_update)
+			particles.gradient = list(0, COLOR_WHITE, 0.85, light_color)
+		UNLINT(var/dm_filter/outline = filters[2])
+		UNLINT(outline.color = light_color)
+		UNLINT(var/dm_filter/bloom = filters[3])
+		UNLINT(bloom.alpha = alpha)
 
 /particles/fusion
 	width = 500
