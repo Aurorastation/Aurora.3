@@ -163,8 +163,6 @@
 		power_draw = PN.draw_power(power_draw) //what we actually get
 		stored_charge += power_draw
 
-	stored_charge = max_charge //If this is still here when I PR this, someone scream profanities at me
-
 	time_since_fail++
 	if(stored_charge < last_stored_charge)
 		time_since_fail = 0 //losing charge faster than we can draw from PN

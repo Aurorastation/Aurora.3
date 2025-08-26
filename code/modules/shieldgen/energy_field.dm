@@ -178,25 +178,52 @@
 
 	diffuse_check()
 
-//Doesn't handle atmos, but I have been advised to let it go until ZAS is replaced. If you're from the future where ZAS has ben abolished, looks like there's some work to do!
-/obj/effect/energy_field/CollidedWith(var/mob/interloper)
-	. = ..()
+/obj/effect/energy_field/CanPass(atom/movable/mover, turf/target, height=1.5, air_group = 0)
 	if(!parent_gen)
 		qdel(src)
+		. = TRUE
 
 	diffuse_check()
-	check_overcharge(interloper)
+	if(!density)
+		. = TRUE
+
+	/*ZAS scares me
+	if(air_group)
+		. = !parent_gen.parent_matrix.has_modulator(MODEFLAG_ATMOSPHERIC)
+	*/
+
+	var/datum/shield_mode/hyperkinetic/modulator_flag_hyperkinetic
+	var/datum/shield_mode/photonic/modulator_flag_photonic
 	var/datum/shield_mode/humanoids/modulator_flag_humans
-	var/datum/shield_mode/mobs/modulator_flag_inorganic
 	var/datum/shield_mode/mobs/modulator_flag_mobs
+	var/datum/shield_mode/silicon/modulator_flag_silicon
+	modulator_flag_hyperkinetic = parent_gen.parent_matrix.get_modulator_by_flag(MODEFLAG_HYPERKINETIC)
+	modulator_flag_photonic = parent_gen.parent_matrix.get_modulator_by_flag(MODEFLAG_PHOTONIC)
 	modulator_flag_humans = parent_gen.parent_matrix.get_modulator_by_flag(MODEFLAG_HUMANOIDS)
-	modulator_flag_inorganic = parent_gen.parent_matrix.get_modulator_by_flag(MODEFLAG_INORGANIC)
+	modulator_flag_silicon = parent_gen.parent_matrix.get_modulator_by_flag(MODEFLAG_INORGANIC)
 	modulator_flag_mobs = parent_gen.parent_matrix.get_modulator_by_flag(MODEFLAG_NONHUMANS)
-	if((ishuman(interloper) && !isipc(interloper)) && istype(modulator_flag_humans))
+	// By default, we assume anyone can pass through unless the matrix config indicates otherwise.
+	. = TRUE
+	if(isghost(mover) || isstoryteller(mover) || isabstractmob(mover))
 		return
-	else if(((ishuman(interloper) && isipc(interloper)) || isbot(interloper) || isrobot(interloper) || ispAI(interloper) || isDrone(interloper)) && istype(modulator_flag_inorganic))
+
+	if(mover?.movement_type & PHASING)
 		return
-	else if(isanimal(interloper) && istype(modulator_flag_mobs))
-		return
-	else
-		interloper.forceMove(get_turf(src))
+
+	if(isobj(mover) && !ishuman(mover) && istype(modulator_flag_hyperkinetic))
+		. = FALSE
+
+	if(isbeam(mover) && istype(modulator_flag_photonic))
+		. = FALSE
+
+	if((ishuman(mover) && !isipc(mover)) && istype(modulator_flag_humans))
+		. = FALSE
+
+	else if(((ishuman(mover) && isipc(mover)) || isbot(mover) || isrobot(mover) || ispAI(mover) || isDrone(mover)) && istype(modulator_flag_silicon))
+		. = FALSE
+
+	else if(isanimal(mover) && istype(modulator_flag_mobs))
+		. = FALSE
+
+	check_overcharge(mover)
+	return
