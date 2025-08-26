@@ -931,16 +931,22 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 	var/list/step_trigger_group = list()
 	var/activated = FALSE
 
+	/// Probability of the vent chosen as trapped after initialize.
+	var/spawn_chance = 100
+
 /obj/effect/landmark/trapped_vent/Initialize(mapload)
 	. = ..()
 	my_vent = WEAKREF(locate(/obj/machinery/atmospherics/unary/vent_pump) in get_turf(src))
 	if(!my_vent)
 		return INITIALIZE_HINT_QDEL // Object wasn't placed on a vent, abort!
 
-	if(mapload) // make sure everything is loaded before we set the `step_trigger` group, so we'll avoid random objects triggering this while main initialize process
-		addtimer(CALLBACK(src, PROC_REF(set_the_trap)), 3 MINUTE)
+	if(prob(spawn_chance))
+		if(mapload) // make sure everything is loaded before we set the `step_trigger` group, so we'll avoid random objects triggering this while main initialize process
+			addtimer(CALLBACK(src, PROC_REF(set_the_trap)), 3 MINUTE)
+		else
+			set_the_trap()
 	else
-		set_the_trap()
+		return INITIALIZE_HINT_QDEL
 
 /obj/effect/landmark/trapped_vent/proc/set_the_trap()
 	for(var/turf/I in range(1, src))
@@ -972,6 +978,15 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 	else
 		activated = FALSE
 
+/// Has a 20% chance to make set a trap.
+/obj/effect/landmark/trapped_vent/maybe
+	spawn_chance = 20
+
+/obj/effect/landmark/trapped_vent/maybe/quarantined_outpost
+	mobs_to_spawn = list(
+		/mob/living/simple_animal/hostile/revivable/abomination/quarantined_outpost/disguiseless,
+		/mob/living/simple_animal/hostile/revivable/husked_creature/quarantined_outpost
+	)
 
 /obj/effect/step_trigger/trapped_vent
 	players_only = TRUE
@@ -990,18 +1005,6 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 		spawner_trap.activate_trap(20)
 		return
 	spawner_trap.activate_trap(100, TRUE)
-
-/// Has a 20% chance to make set a trap.
-/obj/effect/landmark/trapped_vent/maybe/Initialize()
-	if(prob(80))
-		return INITIALIZE_HINT_QDEL
-	return ..()
-
-/obj/effect/landmark/trapped_vent/maybe/quarantined_outpost
-	mobs_to_spawn = list(
-		/mob/living/simple_animal/hostile/revivable/abomination/quarantined_outpost/disguiseless,
-		/mob/living/simple_animal/hostile/revivable/husked_creature/quarantined_outpost
-	)
 
 /// Mainly used by abominations to copy human appearance.
 /obj/effect/landmark/corpse/quarantined_outpost
