@@ -33,7 +33,7 @@
 	var/blood_overlay_icon = 'icons/mob/npc/blood_overlay.dmi'
 	var/blood_state = BLOOD_NONE
 	var/image/blood_overlay
-	/// If set True, `handle_blood()` will run without handling blood overlays. Useful for the cases when Byond's blend_mode doesn't support your non-32x32 sprites but still need your mob to be able to bleed.
+	/// If true, `handle_blood()` will run without handling blood overlays. Useful for the cases if Byond unable to handle overlay shenanigans happening in your mob.
 	var/bypass_blood_overlay = FALSE
 
 	/// If the animal is bleeding.
@@ -257,8 +257,11 @@
 	GC_TEMPORARY_HARDDEL
 
 /mob/living/simple_animal/Move(NewLoc, direct)
-	if(ischasm(NewLoc) && !istype(NewLoc, /obj/structure/lattice)) // this is a janky way to prevent mobs wandering into chasms
-		return
+	// this is a janky way to prevent mobs wandering into chasms, but allows them to be thrown into it by someone else if the mob is dead
+	if(ischasm(NewLoc))
+		var/obj/structure/lattice/L = locate(/obj/structure/lattice) in NewLoc
+		if(!L && stat != DEAD)
+			return
 	. = ..()
 	if(.)
 		if(src.nutrition && src.stat != DEAD && hunger_enabled)

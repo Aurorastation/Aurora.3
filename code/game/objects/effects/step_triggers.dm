@@ -4,7 +4,7 @@
 	var/affect_ghosts = 0
 	var/stopper = 1 // stops throwers
 	var/mobs_only = FALSE
-	/// If true, only players will trigger this.
+	/// If true, excludes clientless mobs.
 	var/players_only = FALSE
 	invisibility = INVISIBILITY_ABSTRACT // nope cant see this shit
 	anchored = TRUE

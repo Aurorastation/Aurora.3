@@ -8,9 +8,7 @@
 	prefix = "away_site/quarantined_outpost/"
 	suffix = "quarantined_outpost.dmm"
 
-	sectors = list(ALL_POSSIBLE_SECTORS)
-	//template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED // delete this
-	//sectors_blacklist = list(SECTOR_BURZSIA, SECTOR_HANEUNIM)
+	sectors = list(ALL_CRESCENT_EXPANSE_SECTORS, ALL_VOID_SECTORS, SECTOR_WEEPING_STARS, SECTOR_BADLANDS, SECTOR_VALLEY_HALE)
 	spawn_weight = 1
 	spawn_cost = 2 // chonky ruin
 	id = "quarantined_outpost"
@@ -31,8 +29,9 @@
 		Outpost transponders are connected to an auxiliary power source and are transmitting a corrupted distress signal, details unknown. \
 		The facility has been under quarantine protocols for \[unknown\] amount of time. \
 		Multiple unidentified life forms are detected within. \
-		Caution is advised.\
 		"
+
+	static_vessel = TRUE
 	generic_object = FALSE
 	icon = 'icons/obj/overmap/overmap_stationary.dmi'
 	icon_state = "outpost2"

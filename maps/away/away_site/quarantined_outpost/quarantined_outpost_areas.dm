@@ -1,6 +1,7 @@
 
 /area/quarantined_outpost
 	name = "base type"
+	ambience = list(AMBIENCE_FOREBODING, AMBIENCE_LAVA)
 
 /area/quarantined_outpost/exterior
 	name = "Exterior"
@@ -133,3 +134,15 @@
 /area/quarantined_outpost/gym
 	name = "Gym"
 	icon_state = "fitness_gym"
+
+/area/quarantined_outpost/server_relay
+	icon_state = "dark128"
+
+/area/quarantined_outpost/server_relay/south_east
+	name = "Server Relay Room - South East"
+
+/area/quarantined_outpost/server_relay/north_east
+	name = "Server Relay Room - North East"
+
+/area/quarantined_outpost/server_relay/north_west
+	name = "Server Relay Room - North West"

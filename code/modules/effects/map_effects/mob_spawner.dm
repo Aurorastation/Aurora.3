@@ -127,7 +127,7 @@
 	simulated = FALSE
 	invisibility = 101
 
-	min_spawn_cooldown = 15
+	min_spawn_cooldown = 20
 	max_spawn_cooldown = 25
 	max_active_mobs = 15
 

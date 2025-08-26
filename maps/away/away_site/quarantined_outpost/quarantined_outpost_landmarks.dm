@@ -5,7 +5,7 @@
 	base_turf = /turf/space
 
 /obj/effect/shuttle_landmark/quarantined_outpost/asteroid
-	base_area = /area/space
+	base_area = /area/quarantined_outpost/exterior
 	base_turf = /turf/simulated/floor/exoplanet/asteroid/ash/rocky
 
 /obj/effect/shuttle_landmark/quarantined_outpost/shuttle_transit
