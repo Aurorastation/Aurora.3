@@ -19,7 +19,7 @@
 	var/age_max = 85
 	var/economic_modifier = 0
 	var/list/default_genders = list(MALE, FEMALE)
-	var/list/selectable_pronouns = list(MALE, FEMALE, PLURAL)
+	var/list/selectable_pronouns = list(MALE, FEMALE, PLURAL, NEUTER)
 
 	// Icon/appearance vars.
 	var/canvas_icon = 'icons/mob/base_32.dmi'                  // Used to blend parts and icons onto this, to avoid clipping issues.
