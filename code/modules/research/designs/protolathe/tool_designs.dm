@@ -179,3 +179,9 @@
 	req_tech = list(TECH_BLUESPACE = 4, TECH_MAGNET = 3, TECH_DATA = 2)
 	materials = list(DEFAULT_WALL_MATERIAL = 1000, MATERIAL_GLASS = 1000, MATERIAL_PHORON = 400)
 	build_path = /obj/item/device/spaceflare
+
+/datum/design/item/tool/shield_diffuser
+	name = "portable shield diffuser"
+	req_tech = list(TECH_MAGNET = 5, TECH_POWER = 5)
+	materials = list(DEFAULT_WALL_MATERIAL = 5000, MATERIAL_GLASS = 2500)
+	build_path = /obj/item/device/shield_diffuser
