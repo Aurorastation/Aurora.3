@@ -919,7 +919,7 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 	name = "trapped vent"
 	icon = 'icons/effects/map_effects.dmi'
 	icon_state = "rigged_vent"
-	invisibility = INVISIBILITY_MAXIMUM // not abstract level, because this landmark needs to be detected by a range location checks
+	invisibility = INVISIBILITY_MAXIMUM // not abstract level, because this landmark needs to be detected by a range location check
 
 	/// List of mob type paths that will be spawned on trigger. Put your types here.
 	var/list/mobs_to_spawn
