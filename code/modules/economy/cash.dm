@@ -1,3 +1,5 @@
+#define LOTTO_MAXROLL 1000000
+
 /obj/item/spacecash
 	name = "0 credit chip"
 	desc = "It's worth 0 credits."
@@ -318,13 +320,19 @@
 	worth = 10000
 
 /obj/item/spacecash/ewallet/lotto
-	name = "space lottery card"
+	name = "lottery card"
 	icon = 'icons/obj/lottocard.dmi'
 	icon_state = "lottocard"
-	desc = "A virtual scratch-action charge card that contains a variable amount of money."
+	desc = "A virtual scratch-action charge card which users can use to participate in a lottery. Pays best of 3."
+	desc_extended = "This lottery card gives three chances to 'scratch', netting a prize (or no prize) each time. At the end of the scratching session, the best prize of the three scratches is finalized as the reward on the ticket. \
+	Prizes do not stack. If you win two 100-credit prizes on a single ticket, for example, you will only get 100 credits, not 200. \
+	Once expended, this card can be redeemed at any Idris Self-Serv ATM for the money inside."
 	worth = 0
 	var/scratches_remaining = 3
 	var/next_scratch = 0
+	var/best = 0
+	var/mult = 10
+	var/win_state = 0
 
 /obj/item/spacecash/ewallet/lotto/attack_self(mob/user)
 
@@ -336,56 +344,120 @@
 		to_chat(user, SPAN_WARNING("The card flashes: \"Please wait!\""))
 		return
 
-	next_scratch = world.time + 6 SECONDS
+	next_scratch = world.time + 1.2 SECONDS //CHANGE
 
 	to_chat(user, SPAN_NOTICE("You initiate the simulated scratch action process on the [src]..."))
-	playsound(src.loc, 'sound/items/drumroll.ogg', 20, 0, -4)
-	if(do_after(user,4.5 SECONDS))
+	playsound(src.loc, 'sound/items/drumroll.ogg', 10, 0, -4)
+	if(do_after(user,1 SECONDS)) //CHANGE
 		var/won = 0
-		var/mult = 1
-		var/result = rand(1,100000)
+		var/result = rand(1, LOTTO_MAXROLL)
+		win_state = 0 // How good the win was
+
+		//DEBUG
+		speak("DEBUG: Rolled [result].")
 
 		switch(result)
-        if(1 to 74614)        // ~74.6% lose
-            won = 0
-			speak("You won: 0 credits. Better luck next time!")
-        if(74615 to 94614)    // 20.0%
-            won = 2 * mult
-			speak("You won: [won] credits. Better than nothing!")
-        if(94615 to 99614)    // 5.0%
-            won = 5 * mult
-			speak("You won: [won] credits. Not bad!")
-        if(99615 to 99914)    // 0.3%
-            won = 10 * mult
-			speak("You won: [won] credits. Nice hit!")
-        if(99915 to 99994)    // 0.08%
-            won = 20 * mult
-			speak("You won: [won] credits. Solid score!")
-        if(99995 to 99999)    // 0.005%
-            won = 50 * mult
-			speak("You won: [won] credits. BIG WINNER!")
-        if(100000)            // 0.001%
-            won = 100 * mult
-			speak("You won: [won] credits. MONSTER WIN!")
+			if(1 to 692340)        // 69.2340% lose
+				won = 0
+				win_state = 0
+				speak("Scratch: 0 credits. Better luck next time!", "buzz")
+
+			if(692341 to 972340)   // 28% -> 1x break-even
+				won = 1 * mult
+				win_state = 1
+				speak("Scratch: [won] credits. Broke even!", "ping")
+
+			if(972341 to 992340)   // 2%
+				won = 2 * mult
+				win_state = 1
+				speak("Scratch: [won] credits (2x). Keep rolling!", "ping")
+
+			if(992341 to 997340)   // 0.5%
+				won = 5 * mult
+				win_state = 1
+				speak("Scratch: [won] credits (5x). Nice!", "ping")
+
+			if(997341 to 999340)   // 0.2%
+				won = 10 * mult
+				win_state = 2
+				speak("Scratch: [won] credits (10x). Solid!", "ping")
+
+			if(999341 to 999840)   // 0.05%
+				won = 20 * mult
+				win_state = 2
+				speak("Scratch: [won] credits (20x). Spicy!", "ping")
+
+			if(999841 to 999940)   // 0.01%
+				won = 50 * mult
+				win_state = 3
+				speak("Scratch: [won] credits (50x). Big hit!", "ping")
+
+			if(999941 to 999990)   // 0.005%
+				won = 100 * mult
+				win_state = 3
+				speak("Scratch: [won] credits (100x). Huge!", "3ping")
+
+			if(999991 to 1000000)  // 0.001%
+				won = 1000 * mult
+				win_state = 4
+				speak("Scratch: [won] CREDITS. JACKPOT!", "jackpot")
 
 		scratches_remaining -= 1
 		update_icon()
-		worth += won
+
+		// Get the best score
+		if(won > best)
+			best = won
+
 		sleep(1 SECONDS)
 		if(scratches_remaining > 0)
-			to_chat(user, SPAN_NOTICE("The card flashes: You have: [scratches_remaining] SCRATCHES remaining! Scratch again!"))
+			speak("You have: [scratches_remaining] SCRATCHES remaining! Your current top prize is: [best] credits. Scratch again!")
 		else
-			to_chat(user, SPAN_NOTICE("The card flashes: You have: [scratches_remaining] SCRATCHES remaining! You won a total of: [worth] CREDITS. Thanks for playing the space lottery!"))
+			// Finalize the deal
+			worth = best
+			speak("You have: [scratches_remaining] SCRATCHES remaining! Your best prize was: [worth] CREDITS. Thanks for playing!")
+			sleep(0.5 SECONDS)
+			speak("This card can be redeemed at any participating ATM or purchasing apparatus for [worth] credits.")
 
 		owner_name = user.name
 
-/obj/item/spacecash/ewallet/lotto/proc/speak(var/message = "Hello!")
+/obj/item/spacecash/ewallet/lotto/proc/speak(var/message = "Hello!", sound = "click")
 	for(var/mob/O in hearers(src.loc, null))
 		O.show_message("<span class='game say'><span class='name'>\The [src]</span> pings, \"[message]\"</span>",2)
-	playsound(src.loc, 'sound/machines/ping.ogg', 20, 0, -4)
+	if(sound == "jackpot")
+		playsound(src.loc, 'sound/arcade/sloto_jackpot.ogg', 30, 0, -4)
+	if(sound == "buzz")
+		playsound(src.loc, 'sound/machines/buzz-sigh.ogg',  10, 0, -4)
+	if(sound == "3ping")
+		playsound(src.loc, 'sound/machines/pingx3.ogg', 20, 0, -4)
+	if(sound == "ping")
+		playsound(src.loc, 'sound/machines/ping.ogg', 20, 0, -4)
+	if(sound == "click")
+		playsound(src.loc, 'sound/machines/pda_click.ogg', 10, 0, -4)
 
 
 /obj/item/spacecash/ewallet/lotto/update_icon()
-	icon_state = "lottocard_[scratches_remaining]"
+	..()
+	var/image/lotto_overlay = null
+	var/image/emissive_overlay = null
 
-/obj/item/spacecash/ewallet/lotto/big
+	if(isnum(scratches_remaining) && scratches_remaining >= 0 && scratches_remaining <= 3)
+		lotto_overlay = image(icon, "scratch_[scratches_remaining]")
+		emissive_overlay = emissive_appearance(lotto_overlay)
+
+		switch(win_state)
+			if(1)
+				lotto_overlay.color = COLOR_CIVIE_GREEN
+			if(2)
+				lotto_overlay.color = COLOR_SKY_BLUE
+			if(3)
+				lotto_overlay.color = COLOR_DISPLAY_PURPLE
+			if(4)
+				lotto_overlay.color = COLOR_GOLD
+			else
+				lotto_overlay.color = COLOR_GRAY
+
+		AddOverlays(lotto_overlay)
+		AddOverlays(emissive_overlay)
+
+#undef LOTTO_MAXROLL
