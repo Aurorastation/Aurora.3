@@ -72,8 +72,9 @@
 	icon = 'icons/obj/machinery/shielding.dmi'
 	icon_state = "hdiffuser_off"
 	origin_tech = list(TECH_MAGNET = 5, TECH_POWER = 5)
-	var/obj/item/cell/device/cell
+	var/obj/item/cell/device/high/cell
 	var/enabled = 0
+	var/diffuser_range = 1
 
 /obj/item/device/shield_diffuser/update_icon()
 	if(enabled)
@@ -96,12 +97,11 @@
 	if(!enabled)
 		return
 
-	for(var/direction in GLOB.cardinals)
-		var/turf/simulated/shielded_tile = get_step(get_turf(src), direction)
-		for(var/obj/effect/energy_field/S in shielded_tile)
-			// 10kJ per pulse, but gap in the shield lasts for longer than regular diffusers.
-			if(istype(S) && !S.diffused_for && cell.checked_use(10000 * CELLRATE))
-				S.diffuse(20)
+	for(var/obj/effect/energy_field/S in range(diffuser_range, src))
+		// 5kJ per pulse, but gap in the shield lasts for longer than regular diffusers.
+		if(!S.diffused_for && cell.checked_use(5000 * CELLRATE))
+			to_chat(world, "Diffusing shield.")
+			S.diffuse(20)
 
 /obj/item/device/shield_diffuser/attack_self()
 	enabled = !enabled
