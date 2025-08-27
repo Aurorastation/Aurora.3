@@ -219,7 +219,7 @@
 /obj/abstract/footprint_spawner
 	name = "blood footprint"
 	icon = 'icons/effects/map_effects.dmi'
-	icon_state = "portal_side_a"
+	icon_state = "footprint_helper"
 	/// String. Object path for the track type the spawner will use.
 	var/trail_path = "footprints"
 	var/going_dir

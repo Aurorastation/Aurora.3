@@ -671,12 +671,11 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 /obj/effect/landmark/quarantined_outpost
 	name = "base type"
 	icon = 'icons/effects/map_effects.dmi'
-	icon_state = "ghostspawpoint"
+	icon_state = "mob_spawn"
 
 /obj/effect/landmark/quarantined_outpost/canister_spawn
 	name = "possible canister location"
-	icon = 'icons/obj/random.dmi'
-	icon_state = "canister"
+	icon_state = "object_spawn"
 
 /obj/effect/landmark/quarantined_outpost/creature
 	name = "possible creature location"
@@ -919,6 +918,7 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 /obj/effect/landmark/trapped_vent
 	name = "trapped vent"
 	icon = 'icons/effects/map_effects.dmi'
+	icon_state = "rigged_vent"
 	invisibility = INVISIBILITY_MAXIMUM // not abstract level, because this landmark needs to be detected by a range location checks
 
 	/// List of mob type paths that will be spawned on trigger. Put your types here.

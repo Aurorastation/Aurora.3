@@ -119,8 +119,7 @@
 /obj/effect/fauna_spawner/organized
 	name = "Organized mob spawner"
 	desc = "You are not supposed to see this!"
-	icon = 'icons/effects/map_effects.dmi'
-	icon_state = "beam_point"
+	icon_state = "master_spawner"
 
 	anchored = TRUE
 	unacidable = TRUE
@@ -193,7 +192,7 @@
 /obj/effect/landmark/organized_spawn_point
 	name = "spawn point"
 	icon = 'icons/effects/map_effects.dmi'
-	icon_state = "ghostspawpoint"
+	icon_state = "spawner_spawnpoint"
 
 /obj/effect/landmark/organized_spawn_point/Initialize()
 	. = ..()
