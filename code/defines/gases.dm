@@ -79,7 +79,7 @@
 	molar_mass = 0.004	// kg/mol
 	flags = XGM_GAS_FUSION_FUEL
 
-/singleton/xgm_gas/helium/fuel
+/singleton/xgm_gas/heliumfuel
 	id = GAS_HELIUMFUEL
 	name = "Helium-3"
 	desc = "Helium-3 is a stable helium isotope valued for its use in fusion power; it fuses without dangerous neutron radiation and at much lower temperatures. Insanely valuable."

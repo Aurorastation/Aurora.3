@@ -1197,7 +1197,7 @@
 /turf/template_noop,
 /area/template_noop)
 "Dl" = (
-/obj/machinery/portable_atmospherics/canister/helium/fuel,
+/obj/machinery/portable_atmospherics/canister/heliumfuel,
 /turf/template_noop,
 /area/template_noop)
 "Dv" = (

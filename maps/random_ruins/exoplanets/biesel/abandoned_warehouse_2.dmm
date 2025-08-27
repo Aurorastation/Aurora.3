@@ -188,7 +188,7 @@
 "GK" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/dirt_75,
-/obj/machinery/portable_atmospherics/canister/empty/helium/fuel,
+/obj/machinery/portable_atmospherics/canister/empty/heliumfuel,
 /turf/simulated/floor/exoplanet/concrete,
 /area/template_noop)
 "GS" = (

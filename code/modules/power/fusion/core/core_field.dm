@@ -192,8 +192,7 @@
 		if(added_particles)
 			uptake_gas.update_values()
 
-	// Let the particles inside the field react, iterated twice per process()
-	React()
+	// Let the particles inside the field react.
 	React()
 
 	// Dump power to our powernet.
@@ -366,13 +365,12 @@
  * EMP, rads, and a big fuckoff explosion.
  */
 /obj/effect/fusion_em_field/proc/Rupture()
-	if(!pause_rupture)
-		visible_message(SPAN_DANGER("\The [src] shudders like a dying animal before flaring to eye-searing brightness and rupturing!"))
-		set_light(1, 0.1, 15, 2, "#ccccff")
-		empulse(get_turf(src), Ceil(plasma_temperature/1000), Ceil(plasma_temperature/300))
-		sleep(5)
-		RadiateAll()
-		explosion(get_turf(owned_core), 8, 8)
+	visible_message(SPAN_DANGER("\The [src] shudders like a dying animal before flaring to eye-searing brightness and rupturing!"))
+	set_light(1, 0.1, 15, 2, "#ccccff")
+	empulse(get_turf(src), Ceil(plasma_temperature/1000), Ceil(plasma_temperature/300))
+	sleep(5)
+	RadiateAll()
+	explosion(get_turf(owned_core), 8, 8)
 	return
 
 /**

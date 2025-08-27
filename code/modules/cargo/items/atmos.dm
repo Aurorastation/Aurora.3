@@ -89,7 +89,7 @@
 	description = "Holds Helium-3 gas, a valuable fusion fuel. Has a built-in valve to allow for filling portable tanks."
 	price = 3800
 	items = list(
-		/obj/machinery/portable_atmospherics/canister/helium/fuel
+		/obj/machinery/portable_atmospherics/canister/heliumfuel
 	)
 	access = ACCESS_ENGINE
 	container_type = "box"

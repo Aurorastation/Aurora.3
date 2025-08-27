@@ -103,7 +103,7 @@ GLOBAL_LIST(fusion_reactions)
 /singleton/fusion_reaction/iron_iron
 	p_react = "iron"
 	s_react = "iron"
-	products = list("silver" = 15, "gold" = 15, "platinum" = 15, "lead" = 15, ) // Not realistic but w/e
+	products = list("silver" = 12, "gold" = 12, "platinum" = 12, "lead" = 12, ) // Not realistic but w/e
 	energy_consumption = 10
 	energy_production = 0
 	instability = 2
@@ -178,3 +178,4 @@ GLOBAL_LIST(fusion_reactions)
 	radiation = 30
 	instability = 5
 	products = list("uranium" = 20, "borosilicate glass" = 80) // Psuedoscience but here we are
+	priority = 5

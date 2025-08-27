@@ -17,6 +17,7 @@ changes:
   - qol: "Standardized gas canister naming conventions."
   - qol: "Updated INDRA-related TGUI menus to use kW, MW abbreviations for high wattages."
   - balance: "INDRA Field Strength maximum value increased from 100 to 200."
+  - rscdel: "Removed one of the Helium-3 cans from the Horizon's INDRA storage compartment."
   - bugfix: "INDRA Kinetic Harvester no longer rapidly deselects materials for harvest when too many are being generated at once."
   - bugfix: "INDRA EM Field effect no longer considers the camera within its reactor chamber a destabilizing influence."
   - bugfix: "INDRA reactor core now produces radiation as intended."

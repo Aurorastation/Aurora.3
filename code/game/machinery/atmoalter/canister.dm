@@ -130,12 +130,12 @@
 	. = ..()
 	air_contents.adjust_gas(GAS_HELIUM, MolesForPressure())
 
-/obj/machinery/portable_atmospherics/canister/helium/fuel
+/obj/machinery/portable_atmospherics/canister/heliumfuel
 	name = "\improper Helium-3 \[3He\]"
 	icon_state = "lightblue"
 	canister_color = "lightblue"
 	can_label = 0
-/obj/machinery/portable_atmospherics/canister/helium/fuel/Initialize()
+/obj/machinery/portable_atmospherics/canister/heliumfuel/Initialize()
 	. = ..()
 	air_contents.adjust_gas(GAS_HELIUMFUEL, MolesForPressure())
 
@@ -236,7 +236,7 @@
 	name = "\improper Helium \[He\]"
 	icon_state = "green"
 	canister_color = "green"
-/obj/machinery/portable_atmospherics/canister/empty/helium/fuel
+/obj/machinery/portable_atmospherics/canister/empty/heliumfuel
 	name = "\improper Helium-3 \[3He\]"
 	icon_state = "lightblue"
 	canister_color = "lightblue"
