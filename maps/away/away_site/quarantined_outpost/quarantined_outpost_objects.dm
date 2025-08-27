@@ -167,6 +167,8 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 	var/mob_in_disguise = FALSE
 	/// Used to store `talk_to_prey()` cooldown.
 	var/last_time_spoken
+	/// Used in `talk_to_prey()`.
+	var/language = LANGUAGE_TCB
 	/// Used for disabling some abilities for horde and a few other subtypes.
 	var/disguise_disabled = FALSE
 	bypass_blood_overlay = TRUE
@@ -243,7 +245,7 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 	var/chosen_sentence = pick(mimic_sentences)
 	langchat_speech("[chosen_sentence]", get_hearers_in_view(7, src), skip_language_check = TRUE)
 	for(var/mob/living/L in get_hearers_in_view(7, src))
-		L.hear_say("[chosen_sentence]", "says", speaker = src)
+		L.hear_say("[chosen_sentence]", "says", GLOB.all_languages[language], speaker = src)
 
 /mob/living/simple_animal/hostile/revivable/abomination/on_attack_mob(var/mob/hit_mob, var/obj/item/organ/external/limb)
 	. = ..()
