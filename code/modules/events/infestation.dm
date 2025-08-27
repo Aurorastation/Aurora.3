@@ -11,6 +11,7 @@
 	endWhen = 11
 	no_fake = 1
 	var/area/chosen_area
+	var/location_name
 	var/event_name = "Slime Leak"
 	var/chosen_mob = INFESTATION_SLIMES
 	var/chosen_verb = "have leaked into"
@@ -145,7 +146,8 @@
 			to_chat(H, SPAN_CULT("Suddenly, an anomalous pinging makes itself known in your internals. It rises to a shrill high, setting your mind on edge, and it then disappears just as abruptly..."))
 
 /datum/event/infestation/announce()
-	command_announcement.Announce("[chosen_scan_type] indicate that [chosen_mob] [chosen_verb] [chosen_area]. Clear them out before this starts to affect productivity.", event_name, new_sound = 'sound/AI/vermin.ogg', zlevels = affecting_z)
+	location_name = get_area_display_name(chosen_area)
+	command_announcement.Announce("[chosen_scan_type] indicate that [chosen_mob] [chosen_verb] [location_name]. Clear them out before this starts to affect productivity.", event_name, new_sound = 'sound/AI/vermin.ogg', zlevels = affecting_z)
 
 
 #undef INFESTATION_RATS
