@@ -319,7 +319,8 @@
 
 /obj/item/spacecash/ewallet/lotto
 	name = "space lottery card"
-	icon_state = "lottocard_3"
+	icon = 'icons/obj/lottocard.dmi'
+	icon_state = "lottocard"
 	desc = "A virtual scratch-action charge card that contains a variable amount of money."
 	worth = 0
 	var/scratches_remaining = 3
@@ -341,37 +342,31 @@
 	playsound(src.loc, 'sound/items/drumroll.ogg', 20, 0, -4)
 	if(do_after(user,4.5 SECONDS))
 		var/won = 0
-		var/result = rand(1,10000)
-		if(result <= 4000) // 40% chance to not earn anything at all.
-			won = 0
-			speak("You've won: [won] credits. Better luck next time!")
-		else if (result <= 8000) // 40% chance
-			won = 10
-			speak("You've won: [won] credits. Better than nothing!")
-		else if (result <= 9000) // 10% chance
-			won = 50
-			speak("You've won: [won] credits. Try again!")
-		else if (result <= 9500) // 5% chance
-			won = 100
-			speak("You've won: [won] credits. Halfway there!")
-		else if (result <= 9750) // 2.5% chance
-			won = 200
-			speak("You've won: [won] credits. You're even!")
-		else if (result <= 9900) // 1.5% chance
-			won = 500
-			speak("You've won: [won] CREDITS. WINNER! You're lucky!")
-		else if (result <= 9950) // 0.5% chance
-			won = 1000
-			speak("You've won: [won] CREDITS. SUPER WINNER! You're super lucky!")
-		else if (result <= 9975) // 0.25% chance
-			won = 1500
-			speak("You've won: [won] CREDITS. MEGA WINNER! You're mega lucky!")
-		else if (result <= 9999) // 0.24% chance
-			won = 2500
-			speak("You've won: [won] CREDITS. ULTIMATE WINNER! You're ultra lucky!")
-		else // 0.01% chance
-			won = 5000
-			speak("You've won: [won] CREDITS. JACKPOT WINNER! You're JACKPOT lucky!")
+		var/mult = 1
+		var/result = rand(1,100000)
+
+		switch(result)
+        if(1 to 74614)        // ~74.6% lose
+            won = 0
+			speak("You won: 0 credits. Better luck next time!")
+        if(74615 to 94614)    // 20.0%
+            won = 2 * mult
+			speak("You won: [won] credits. Better than nothing!")
+        if(94615 to 99614)    // 5.0%
+            won = 5 * mult
+			speak("You won: [won] credits. Not bad!")
+        if(99615 to 99914)    // 0.3%
+            won = 10 * mult
+			speak("You won: [won] credits. Nice hit!")
+        if(99915 to 99994)    // 0.08%
+            won = 20 * mult
+			speak("You won: [won] credits. Solid score!")
+        if(99995 to 99999)    // 0.005%
+            won = 50 * mult
+			speak("You won: [won] credits. BIG WINNER!")
+        if(100000)            // 0.001%
+            won = 100 * mult
+			speak("You won: [won] credits. MONSTER WIN!")
 
 		scratches_remaining -= 1
 		update_icon()
@@ -392,3 +387,5 @@
 
 /obj/item/spacecash/ewallet/lotto/update_icon()
 	icon_state = "lottocard_[scratches_remaining]"
+
+/obj/item/spacecash/ewallet/lotto/big
