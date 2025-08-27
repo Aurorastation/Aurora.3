@@ -435,3 +435,14 @@
   - rscadd: Changed hardsuit modules section of the uplink, into Hardsuits and Modules.
   - balance: Gave faction hardsuits to group gear loadouts that were missing them.
   - balance: Solarian loadout hardsuit now gets modules like the others.
+2025-08-27:
+  ElorgRHG:
+  - imageadd: Resprited the unathi jizixi dress, and added a colorable version of
+      it.
+  - imageadd: Added a blank, unpatterned version of the unathi jizixi dress.
+  - rscdel: Removed the ability to change the colors of the jizixi dress due to a
+      colorable version now existing.
+  Greenjoe:
+  - bugfix: The Stargazer now has an icon for sectors without a specific one set.
+  nauticall:
+  - imageadd: Adds missing icon states for new scrubber and vent sprites.
