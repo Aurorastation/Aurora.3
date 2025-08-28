@@ -48,9 +48,11 @@
 		// Opens the interface for the given air alarm.
 		if("alarm")
 			var/obj/machinery/alarm/alarm = locate(params["alarm"]) in (monitored_alarms.len ? monitored_alarms : SSmachinery.processing)
+			/*
 			if(alarm)
 				var/datum/ui_state/TS = generate_state(alarm)
 				alarm.ui_interact(usr, state = TS) //what the fuck?
+			*/
 			return TRUE
 		// Manually clear and repopulate the alarm list.
 		if("refresh")
