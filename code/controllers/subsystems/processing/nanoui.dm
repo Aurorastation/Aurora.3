@@ -58,7 +58,9 @@ PROCESSING_SUBSYSTEM_DEF(nanoui)
  * Returns the number of UIs updated
  */
 /datum/controller/subsystem/processing/nanoui/proc/update_uis(src_object)
+	LOG_DEBUG("/datum/controller/subsystem/processing/nanoui/proc/update_uis([src_object])")
 	var/src_object_key = REF(src_object)
+	LOG_DEBUG("got [src_object_key]")
 	if (!LAZYLEN(open_uis[src_object_key]))
 		return 0
 
