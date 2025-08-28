@@ -1,5 +1,3 @@
-#define LOTTO_MAXROLL 1000000
-
 /obj/item/spacecash
 	name = "0 credit chip"
 	desc = "It's worth 0 credits."
