@@ -184,7 +184,7 @@
 /atom/movable/openspace/turf_proxy/attack_hand(mob/user as mob)
 	loc.attack_hand(user)
 
-/atom/movable/openspace/turf_proxy/attack_generic(mob/user as mob)
+/atom/movable/openspace/turf_proxy/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	loc.attack_generic(user)
 
 /atom/movable/openspace/turf_proxy/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
@@ -212,7 +212,7 @@
 /atom/movable/openspace/turf_mimic/attack_hand(mob/user as mob)
 	to_chat(user, SPAN_NOTICE("You cannot reach \the [src] from here."))
 
-/atom/movable/openspace/turf_mimic/attack_generic(mob/user as mob)
+/atom/movable/openspace/turf_mimic/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	to_chat(user, SPAN_NOTICE("You cannot reach \the [src] from here."))
 
 /atom/movable/openspace/turf_mimic/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
