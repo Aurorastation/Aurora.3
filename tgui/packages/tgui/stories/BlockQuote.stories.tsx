@@ -5,6 +5,7 @@
  */
 
 import { BlockQuote, Section } from 'tgui-core/components';
+
 import { BoxWithSampleText } from './common';
 
 export const meta = {
@@ -12,7 +13,7 @@ export const meta = {
   render: () => <Story />,
 };
 
-const Story = (props) => {
+function Story() {
   return (
     <Section>
       <BlockQuote>
@@ -20,4 +21,4 @@ const Story = (props) => {
       </BlockQuote>
     </Section>
   );
-};
+}

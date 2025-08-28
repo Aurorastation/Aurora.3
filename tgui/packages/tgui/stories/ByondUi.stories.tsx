@@ -4,8 +4,9 @@
  * @license MIT
  */
 
-import { useLocalState } from '../backend';
-import { Box, Button, ByondUi, Section } from 'tgui-core/components';
+import { useState } from 'react';
+import { Button, ByondUi, Section, TextArea } from 'tgui-core/components';
+
 import { logger } from '../logging';
 
 export const meta = {
@@ -13,11 +14,11 @@ export const meta = {
   render: () => <Story />,
 };
 
-const Story = (props) => {
-  const [code, setCode] = useLocalState(
-    'byondUiEvalCode',
-    `Byond.winset('${Byond.windowId}', {\n  'is-visible': true,\n})`
+function Story() {
+  const [code, setCode] = useState(
+    `Byond.winset('${Byond.windowId}', {\n  'is-visible': true,\n})`,
   );
+
   return (
     <>
       <Section title="Button">
@@ -34,10 +35,10 @@ const Story = (props) => {
           <Button
             icon="chevron-right"
             onClick={() =>
-              setImmediate(() => {
+              setTimeout(() => {
                 try {
-                  const result = new Function('return (' + code + ')')();
-                  if (result && result.then) {
+                  const result = new Function(`return (${code})`)();
+                  if (result?.then) {
                     logger.log('Promise');
                     result.then(logger.log);
                   } else {
@@ -47,18 +48,16 @@ const Story = (props) => {
                   logger.log(err);
                 }
               })
-            }>
+            }
+          >
             Evaluate
           </Button>
-        }>
-        <Box
-          as="textarea"
-          width="100%"
-          height="10em"
-          onChange={(e) => setCode(e.target.value)}>
+        }
+      >
+        <TextArea fluid height="10em" onChange={setCode}>
           {code}
-        </Box>
+        </TextArea>
       </Section>
     </>
   );
-};
+}

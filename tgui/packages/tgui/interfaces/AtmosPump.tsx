@@ -77,7 +77,7 @@ export const AtmosPump = (props) => {
                   minValue={0}
                   maxValue={max_pressure}
                   step={10}
-                  onChange={(value) =>
+                  onChange={(_, value) =>
                     act('pressure', {
                       pressure: value,
                     })
