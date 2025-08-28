@@ -7,7 +7,7 @@
  */
 
 import Bun from "bun";
-import fs from "fs";
+import fs from "node:fs";
 import Juke from "./juke/index.js";
 import { bun, bunRoot } from "./lib/bun";
 import { DreamDaemon, DreamMaker, NamedVersionFile } from "./lib/byond";
@@ -219,7 +219,7 @@ export const BiomeInstallTarget = new Juke.Target({
     return Juke.glob('node_modules/@biomejs/**').length === 0;
   },
   executes: () => {
-    return bunRoot('install');
+    return bun('install');
   },
 });
 
