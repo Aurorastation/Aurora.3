@@ -79,16 +79,14 @@ export const LoginWindow = (props) => {
           <Input
             value={acc}
             placeholder="Account"
-            onInput={(e, v) => setAcc(v)}
-            onChange={(e, v) => setAcc(v)}
+            onChange={(value) => setAcc(value)}
           />
         </LabeledList.Item>
         <LabeledList.Item label="PIN">
           <Input
             value={pin}
             placeholder="PIN"
-            onInput={(e, v) => setPin(v)}
-            onChange={(e, v) => setPin(v)}
+            onChange={(value) => setPin(value)}
           />
         </LabeledList.Item>
         <LabeledList.Item label="Card">
@@ -150,7 +148,7 @@ export const AuthenticatedWindow = (props) => {
             unit="电"
             step={5}
             stepPixelSize={5}
-            onChange={(e, v) => setWithdraw(v)}
+            onChange={(value) => setWithdraw(value)}
           />
           &nbsp;
           <Button
@@ -222,8 +220,7 @@ export const AuthenticatedWindow = (props) => {
                   <Input
                     value={target}
                     placeholder="Account number"
-                    onChange={(e, v) => setTarget(v)}
-                    onInput={(e, v) => setTarget(v)}
+                    onChange={(value) => setTarget(value)}
                   />
                 </LabeledList.Item>
                 <LabeledList.Item label="Funds">
@@ -236,15 +233,14 @@ export const AuthenticatedWindow = (props) => {
                     unit="电"
                     step={5}
                     stepPixelSize={5}
-                    onChange={(e, v) => setFunds(v)}
+                    onChange={(value) => setFunds(value)}
                   />
                 </LabeledList.Item>
                 <LabeledList.Item label="Purpose">
                   <Input
                     value={purpose}
                     placeholder="Transaction"
-                    onChange={(e, v) => setPurpose(v)}
-                    onInput={(e, v) => setPurpose(v)}
+                    onChange={(value) => setPurpose(value)}
                   />
                 </LabeledList.Item>
                 <LabeledList.Item label="Confirm">
