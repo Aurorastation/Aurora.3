@@ -82,13 +82,13 @@
 	name = "General Storage"
 	icon_state = "purple"
 
-/area/horizon/rnd/xenoarch/Xenoarchaeology Presentation
+/area/horizon/rnd/xenoarch/presentation
 	name = "Xenoarchaeology Presentation"
 
-/area/horizon/rnd/xenoarch/Xenoarchaeology Hallway
+/area/horizon/rnd/xenoarch/hallway/elevator
 	name = "Xenoarchaeology Hallway"
 
-/area/horizon/rnd/xenoarch/Xenoarchaeology Hanger Hallway
+/area/horizon/rnd/xenoarch/hallway/hangar
 	name = "Xenoarchaeology Hanger Hallway"
 
 /area/horizon/rnd/xenoarch/anomaly_storage

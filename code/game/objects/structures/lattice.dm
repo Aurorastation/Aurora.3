@@ -199,6 +199,9 @@
 /obj/structure/lattice/catwalk/indoor/grate/slate
 	color = COLOR_SLATE
 
+/obj/structure/lattice/catwalk/indoor/grate/rndwhite
+	color = "#FFFFFF"
+
 /obj/structure/lattice/catwalk/indoor/urban
 	name = "grate"
 	desc = "A metal grate."
