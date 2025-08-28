@@ -152,8 +152,8 @@
 	icon_state = "sci_cypherkey"
 	channels = list(CHANNEL_SCIENCE = TRUE)
 
-/obj/item/device/encryptionkey/headset_xenoarch
-	name = "xenoarchaeology radio encryption key"
+/obj/item/device/encryptionkey/headset_xenology
+	name = "xenology radio encryption key"
 	icon_state = "sci_cypherkey"
 	channels = list(CHANNEL_SCIENCE = TRUE, CHANNEL_HAILING = TRUE)
 

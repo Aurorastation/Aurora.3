@@ -579,6 +579,14 @@
 	center_of_mass = list("x"=16, "y"=7)
 	reagents_to_add = list(/singleton/reagent/alcohol/absinthe = 100)
 
+/obj/item/reagent_containers/food/drinks/bottle/limoncello
+	name = "Limoncello Mediterraneo"
+	desc = "A lemon liquor popular in Italy and in Assunzione."
+	desc_extended = DRINK_FLUFF_SILVERPORT
+	icon_state = "limoncello"
+	center_of_mass = list("x"=16, "y"=6)
+	reagents_to_add = list(/singleton/reagent/alcohol/limoncello = 100)
+
 /obj/item/reagent_containers/food/drinks/bottle/melonliquor
 	name = "Emeraldine melon liquor"
 	desc = "A bottle of 46 proof Emeraldine Melon Liquor, made from a Silversun-grown variety of melon. Sweet and light, and surprisingly cheap considering the manufacturer."
