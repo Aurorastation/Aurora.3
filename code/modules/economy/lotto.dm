@@ -40,32 +40,32 @@
 		win_state = 0
 
 		switch(result)
-			// 78.4700% lose
-			if(1 to 784700)
+			// 89.495% lose
+			if(1 to 894950)
 				won = 0
 				win_state = 0
 				speak("Scratch: 0 credits. Better luck next time!", "buzz")
 
-			// 15.0000% -> 1x
-			if(784701 to 934700)
+			// 8.70% -> 1x
+			if(894951 to 981950)
 				won = 1 * mult
 				win_state = 1
 				speak("Scratch: [won] credits. Broke even!", "ping")
 
-			// 5.0000% -> 1.25x
-			if(934701 to 984700)
+			// 1.15% -> 1.25x
+			if(981951 to 993450)
 				won = round(1.25 * mult)
 				win_state = 1
 				speak("Scratch: [won] credits (1.25x). Nice hit!", "ping")
 
-			// 1.2000% -> 2x
-			if(984701 to 996700)
+			// 0.48% -> 2x
+			if(993451 to 998250)
 				won = 2 * mult
 				win_state = 2
 				speak("Scratch: [won] credits (2x). Solid!", "ping")
 
-			// 0.2500% -> 5x
-			if(996701 to 999200)
+			// 0.095% -> 5x
+			if(998251 to 999200)
 				won = 5 * mult
 				win_state = 2
 				speak("Scratch: [won] credits (5x). Big hit!", "ping")
@@ -83,10 +83,15 @@
 				speak("Scratch: [won] credits (100x). MONSTER HIT!", "3ping")
 
 			// 0.0100% -> 1000x JACKPOT
-			if(999901 to LOTTO_MAXROLL)
+			if(999901 to 999999)
 				won = 1000 * mult
 				win_state = 4
 				speak("Scratch: [won] CREDITS. JACKPOT!", "jackpot")
+
+			if(LOTTO_MAXROLL)
+				won = 10000 * mult
+				win_state = 4
+				speak("Scratch: [won] CREDITS. SUPER JACKPOT!!!!", "jackpot")
 
 		scratches_remaining -= 1
 		update_icon()
@@ -101,7 +106,12 @@
 		else
 			// Finalize the deal
 			worth = best
-			speak("You have: [scratches_remaining] SCRATCHES remaining! Your best prize was: [worth] CREDITS. Thanks for playing!")
+
+			if(worth > 50)
+				speak("You have: [scratches_remaining] SCRATCHES remaining! Your best prize was: [worth] CREDITS. Congratulations on a BIG WIN!")
+			else
+				speak("You have: [scratches_remaining] SCRATCHES remaining! Your best prize was: [worth] CREDITS. Thanks for playing!")
+
 			sleep(1 SECONDS)
 			speak("This card can be redeemed at any participating ATM or purchasing apparatus for [worth] credits.")
 
