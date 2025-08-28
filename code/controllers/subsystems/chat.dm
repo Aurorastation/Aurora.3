@@ -1,5 +1,3 @@
-var/regex/is_http_protocol = regex("^https?://")
-
 /*!
  * Copyright (c) 2020 Aleksej Komarov
  * SPDX-License-Identifier: MIT
@@ -10,7 +8,7 @@ SUBSYSTEM_DEF(chat)
 	flags = SS_TICKER | SS_NO_INIT
 	wait = 1
 	priority = FIRE_PRIORITY_CHAT
-	init_order = INITSTAGE_LAST
+	init_stage = INITSTAGE_LAST
 
 	/// Assosciates a ckey with a list of messages to send to them.
 	var/list/list/datum/chat_payload/client_to_payloads = list()
@@ -34,7 +32,7 @@ SUBSYSTEM_DEF(chat)
 	var/list/client_history = client_to_reliability_history[target.ckey]
 	client_history["[sequence]"] = payload
 
-	if(length(client_history) > 5)
+	if(length(client_history) > CHAT_RELIABILITY_HISTORY_SIZE)
 		var/oldest = text2num(client_history[1])
 		for(var/index in 2 to length(client_history))
 			var/test = text2num(client_history[index])
@@ -84,8 +82,17 @@ SUBSYSTEM_DEF(chat)
 		return
 
 	var/datum/chat_payload/payload = client_history[sequence]
-	if(payload.resends > 3)
+	if(payload.resends > CHAT_RELIABILITY_MAX_RESENDS)
 		return // we tried but byond said no
 
 	payload.resends += 1
 	send_payload_to_client(client, client_history[sequence])
+	SSblackbox.record_feedback(
+		"nested tally",
+		"chat_resend_byond_version",
+		1,
+		list(
+			"[client.byond_version]",
+			"[client.byond_build]",
+		),
+	)
