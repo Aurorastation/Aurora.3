@@ -44,7 +44,7 @@
 #################################
 
 # Your name.
-author: nauticall
+author: UltraBigRat
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -55,4 +55,6 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - spellcheck: "Renamed the NTCC Odin's AI from 'Bubble' to 'Huginn' to comply with recent lore changes."
+  - rscadd: "Added ninja version for bunker suit, aswell aswell as a lighter bunker suit version."
+  - rscadd: "Added ceres lance gear loadouts to the uplink, aswell as a nerfed bunker suit to the uplink."
+  - rscadd: "Added a modkit for ceres lance voidsuits."

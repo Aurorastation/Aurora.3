@@ -1,5 +1,5 @@
 import { useBackend } from '../backend';
-import { Button, Knob, LabeledControls } from 'tgui-core/components';
+import { Button, Knob, LabeledControls, Section, LabeledList } from 'tgui-core/components';
 import { Window } from '../layouts';
 import { BooleanLike } from 'tgui-core/react';
 
@@ -8,53 +8,64 @@ export type BluespaceDriveData = {
   charge: BooleanLike;
   rotation: number;
   jumping: BooleanLike;
+  jump_power: number;
+  fuel_gas: number;
 };
 
 export const BluespaceDrive = (props) => {
   const { act, data } = useBackend<BluespaceDriveData>();
   return (
-    <Window>
+    <Window theme="hephaestus">
       <Window.Content>
-        <LabeledControls>
-          <LabeledControls.Item>
-            <Button
-              name="Energize"
-              content={data.energized ? 'Energized' : 'Energize'}
-              color={data.energized ? 'green' : 'red'}
-              onClick={() => act('toggle_energized')}
-            />
-          </LabeledControls.Item>
-          <LabeledControls.Item>
-            <Button
-              name="Purge Charge"
-              content="Purge Charge"
-              color="red"
-              disabled={!data.charge || data.jumping}
-              onClick={() => act('purge_charge')}
-            />
-          </LabeledControls.Item>
-          <LabeledControls.Item>
-            <Knob
-              name="Rotation"
-              animated
-              value={data.rotation}
-              unit="°"
-              minValue={0}
-              maxValue={359}
-              disabled={!data.charge}
-              onChange={(e, value) => act('set_rotation', { rotation: value })}
-            />
-          </LabeledControls.Item>
-          <LabeledControls.Item>
-            <Button
-              name="Jump"
-              content="Jump"
-              color="green"
-              disabled={!data.charge || data.jumping}
-              onClick={() => act('jump')}
-            />
-          </LabeledControls.Item>
-        </LabeledControls>
+        <Section title="Drive Configuration">
+          <LabeledControls>
+            <LabeledControls.Item label="Energize">
+              <Button
+                content={data.energized ? 'Energized' : 'Energize'}
+                color={data.energized ? 'green' : 'red'}
+                onClick={() => act('toggle_energized')}
+              />
+            </LabeledControls.Item>
+            <LabeledControls.Item label="Purge Charge">
+              <Button
+                content="Purge Charge"
+                color="red"
+                disabled={!data.charge || data.jumping}
+                onClick={() => act('purge_charge')}
+              />
+            </LabeledControls.Item>
+            <LabeledControls.Item label="Rotation">
+              <Knob
+                animated
+                value={data.rotation}
+                unit="°"
+                minValue={0}
+                maxValue={359}
+                onChange={(e, value) =>
+                  act('set_rotation', { rotation: value })
+                }
+              />
+            </LabeledControls.Item>
+            <LabeledControls.Item label="Jump">
+              <Button
+                content="Jump"
+                color="green"
+                disabled={!data.charge || data.jumping}
+                onClick={() => act('jump')}
+              />
+            </LabeledControls.Item>
+          </LabeledControls>
+        </Section>
+        <Section title="Drive Status">
+          <LabeledList>
+            <LabeledList.Item label="Jump Distance">
+              {data.jump_power}
+            </LabeledList.Item>
+            <LabeledList.Item label="Phoron Amount">
+              {data.fuel_gas} mol / 1000
+            </LabeledList.Item>
+          </LabeledList>
+        </Section>
       </Window.Content>
     </Window>
   );
