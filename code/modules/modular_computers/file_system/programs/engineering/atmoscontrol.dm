@@ -47,8 +47,8 @@
 	switch(action)
 		// Opens the interface for the given air alarm.
 		if("alarm")
-			var/obj/machinery/alarm/alarm = locate(params["alarm"]) in (monitored_alarms.len ? monitored_alarms : SSmachinery.processing)
 			/*
+			var/obj/machinery/alarm/alarm = locate(params["alarm"]) in (monitored_alarms.len ? monitored_alarms : SSmachinery.processing)
 			if(alarm)
 				var/datum/ui_state/TS = generate_state(alarm)
 				alarm.ui_interact(usr, state = TS) //what the fuck?
