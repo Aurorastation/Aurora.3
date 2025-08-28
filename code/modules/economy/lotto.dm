@@ -125,11 +125,9 @@
 /obj/item/spacecash/ewallet/lotto/update_icon()
 	..()
 	var/image/lotto_overlay = null
-	var/image/emissive_overlay = null
 
 	if(isnum(scratches_remaining) && scratches_remaining >= 0 && scratches_remaining <= 3)
 		lotto_overlay = image(icon, "scratch_[scratches_remaining]")
-		emissive_overlay = emissive_appearance(lotto_overlay)
 
 		switch(win_state)
 			if(1)
@@ -144,6 +142,5 @@
 				lotto_overlay.color = COLOR_GRAY
 
 		AddOverlays(lotto_overlay)
-		AddOverlays(emissive_overlay)
 
 #undef LOTTO_MAXROLL
