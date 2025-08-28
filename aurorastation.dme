@@ -151,6 +151,7 @@
 #include "code\__DEFINES\targeting.dm"
 #include "code\__DEFINES\technomancer.dm"
 #include "code\__DEFINES\text.dm"
+#include "code\__DEFINES\tgs.config.dm"
 #include "code\__DEFINES\tgs.dm"
 #include "code\__DEFINES\tgui.dm"
 #include "code\__DEFINES\time.dm"
