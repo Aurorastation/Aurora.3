@@ -1,8 +1,0 @@
-author: SleepyGemmy
-
-delete-after: True
-
-changes:
-  - rscadd: "Tweaked the security checkpoint on deck 1 by removing the lockdown \"cage\"."
-  - rscadd: "Added more evacuation route signs in the deck 1 hangars."
-  - rscadd: "Added and tweaked some decals in the deck 1 hangar."

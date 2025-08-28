@@ -1421,6 +1421,7 @@
 #include "code\game\objects\structures\barsign.dm"
 #include "code\game\objects\structures\bedsheet_bin.dm"
 #include "code\game\objects\structures\bonfire.dm"
+#include "code\game\objects\structures\cargo_elevator.dm"
 #include "code\game\objects\structures\coastal.dm"
 #include "code\game\objects\structures\coatrack.dm"
 #include "code\game\objects\structures\crystals.dm"

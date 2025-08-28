@@ -431,6 +431,45 @@
 		/obj/item/rig_module/fabricator/energy_net
 		)
 
+/obj/item/rig/bunker/ninja // Ninjas have breachers, so it was approved they can have the unnerfed version.
+	initial_modules = list(
+		/obj/item/rig_module/actuators/combat,
+		/obj/item/rig_module/vision/thermal,
+		/obj/item/rig_module/maneuvering_jets,
+		/obj/item/rig_module/recharger,
+		/obj/item/rig_module/mounted/ion,
+		/obj/item/rig_module/fabricator/energy_net,
+		/obj/item/rig_module/device/drill,
+		)
+
+/obj/item/rig/bunker/nerfed
+	name = "bunker suit control module"
+	desc = "A powerful niche-function hardsuit utilized by Ceres' Lance to apprehend synthetics. This is a lighter version with more standard hardsuit plating."
+	armor = list(
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_MAJOR,
+		LASER = ARMOR_LASER_MEDIUM,
+		ENERGY = ARMOR_ENERGY_SMALL,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SMALL
+	)
+	offline_vision_restriction = TINT_HEAVY
+	slowdown = 1
+
+	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+
+	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY | MODULE_VAURCA
+
+/obj/item/rig/bunker/nerfed/equipped
+	initial_modules = list(
+		/obj/item/rig_module/actuators/combat,
+		/obj/item/rig_module/vision/thermal,
+		/obj/item/rig_module/maneuvering_jets,
+		/obj/item/rig_module/recharger,
+		/obj/item/rig_module/mounted/ion
+		)
+
 /obj/item/rig/jinxiang
 	name = "jinxiang-pattern combat suit control module"
 	desc = "An off-shoot of the core Bunker Suit design, utilized by the Imperial Dominian military and painted accordingly. This is a powerful suit specializing in melee confrontations."
