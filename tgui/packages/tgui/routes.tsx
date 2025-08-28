@@ -74,6 +74,7 @@ export function getRoutedComponent() {
   const interfacePathBuilders = [
     (name: string) => `./${name}.tsx`,
     (name: string) => `./${name}.jsx`,
+    (name: string) => `./${name}.js`,
     (name: string) => `./${name}/index.tsx`,
     (name: string) => `./${name}/index.jsx`,
   ];
