@@ -1,6 +1,6 @@
 import { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Button, LabeledList, ProgressBar, NumberInput, Section } from 'tgui-core/components';
+import { AnimatedNumber, Button, LabeledList, ProgressBar, NumberInput, Section } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 type Data = {
@@ -77,7 +77,7 @@ export const AtmosPump = (props) => {
                   minValue={0}
                   maxValue={max_pressure}
                   step={10}
-                  onChange={(_, value) =>
+                  onChange={(value) =>
                     act('pressure', {
                       pressure: value,
                     })
@@ -99,7 +99,6 @@ export const AtmosPump = (props) => {
             {max_power_draw ? (
               <LabeledList.Item label="Load">
                 <ProgressBar
-                  animated
                   color={(() => {
                     if (power_draw > (max_power_draw / 3) * 2) {
                       return 'red';
@@ -113,6 +112,7 @@ export const AtmosPump = (props) => {
                   maxValue={max_power_draw}
                   value={power_draw}>
                   {power_draw} W
+                  <AnimatedNumber value={power_draw} />
                 </ProgressBar>
               </LabeledList.Item>
             ) : (
