@@ -13,7 +13,7 @@
 	planet_types = PLANET_SNOW
 	ruin_tags = RUIN_LOWPOP|RUIN_HOSTILE
 
-	unit_test_groups = list(4)
+	unit_test_groups = list(2)
 
 /area/arctic_bunker
 	name = "Pre-War Auxiliary Bunker"
