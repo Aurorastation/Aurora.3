@@ -70,14 +70,14 @@
 				win_state = 2
 				speak("Scratch: [won] credits (5x). Big hit!", "ping")
 
-			// 0.0200% -> 50x
-			if(999201 to 999400)
+			// 0.0500% -> 50x
+			if(999201 to 999700)
 				won = 50 * mult
 				win_state = 3
 				speak("Scratch: [won] credits (50x). HUGE HIT!", "3ping")
 
-			// 0.0500% -> 100x
-			if(999401 to 999900)
+			// 0.0200% -> 100x
+			if(999701 to 999900)
 				won = 100 * mult
 				win_state = 3
 				speak("Scratch: [won] credits (100x). MONSTER HIT!", "3ping")
