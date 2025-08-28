@@ -219,7 +219,7 @@ export const BiomeInstallTarget = new Juke.Target({
     return Juke.glob('node_modules/@biomejs/**').length === 0;
   },
   executes: () => {
-    return bun('install');
+    return bunRoot('install');
   },
 });
 
@@ -248,7 +248,7 @@ export const TgFontTarget = new Juke.Target({
 });
 
 export const TguiTarget = new Juke.Target({
-  dependsOn: [BunTarget],
+  dependsOn: [BunTarget, BiomeInstallTarget],
   inputs: [
     "tgui/rspack.config.mjs",
     "tgui/**/package.json",
