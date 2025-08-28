@@ -34,7 +34,7 @@
 	else
 		to_chat(user, SPAN_WARNING("\The [src] only accepts used swabs."))
 		return
-
+/*
 /obj/machinery/dnaforensics/ui_interact(mob/user, ui_key = "main",var/datum/nanoui/ui = null)
 	if(stat & (NOPOWER)) return
 	if(user.stat || user.restrained()) return
@@ -51,7 +51,7 @@
 		ui.set_initial_data(data)
 		ui.open()
 		ui.set_auto_update(1)
-
+*/
 /obj/machinery/dnaforensics/Topic(href, href_list)
 
 	if(..()) return 1

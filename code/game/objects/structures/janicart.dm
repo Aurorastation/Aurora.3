@@ -268,9 +268,9 @@
 	update_icon()
 
 /obj/structure/janitorialcart/attack_hand(mob/user)
-	ui_interact(user)
+	// ui_interact(user)
 	return
-
+/*
 /obj/structure/janitorialcart/ui_interact(var/mob/user, var/ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	var/data[0]
 	data["name"] = capitalize(name)
@@ -286,7 +286,7 @@
 		ui = new(user, src, ui_key, "janitorcart.tmpl", "Janitorial cart", 240, 160)
 		ui.set_initial_data(data)
 		ui.open()
-
+*/
 /obj/structure/janitorialcart/Topic(href, href_list)
 	if(!in_range(src, usr))
 		return

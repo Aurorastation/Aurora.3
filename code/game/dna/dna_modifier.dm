@@ -287,7 +287,7 @@
 			user.drop_from_inventory(attacking_item, src)
 			src.disk = attacking_item
 			to_chat(user, "You insert [attacking_item].")
-			SSnanoui.update_uis(src) // update all UIs attached to src
+			// SSnanoui.update_uis(src) // update all UIs attached to src
 			return TRUE
 	else
 		return ..()
@@ -326,7 +326,7 @@
 		return
 	return
 */
-
+/*
 /obj/machinery/computer/scan_consolenew/attack_ai(user as mob)
 	if(!ai_can_interact(user))
 		return
@@ -429,7 +429,7 @@
 			data["beakerVolume"] += connected.beaker.reagents.reagent_volumes[_R]
 
 	// update the ui if it exists, returns null if no ui is passed/found
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
+	// ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		// the ui does not exist, so we'll create a new() one
 		// for a list of parameters and their descriptions see the code docs in \code\modules\nano\nanoui.dm
@@ -440,7 +440,7 @@
 		ui.open()
 		// auto update every Master Controller tick
 		ui.set_auto_update(1)
-
+*/
 /obj/machinery/computer/scan_consolenew/Topic(href, href_list)
 	if(..())
 		return 0 // don't update uis
@@ -466,7 +466,7 @@
 		irradiating = src.radiation_duration
 		var/lock_state = src.connected.locked
 		src.connected.locked = 1//lock it
-		SSnanoui.update_uis(src) // update all UIs attached to src
+		// SSnanoui.update_uis(src) // update all UIs attached to src
 
 		sleep(10*src.radiation_duration) // sleep for radiation_duration seconds
 
@@ -567,7 +567,7 @@
 		irradiating = src.radiation_duration
 		var/lock_state = src.connected.locked
 		src.connected.locked = 1//lock it
-		SSnanoui.update_uis(src) // update all UIs attached to src
+		// SSnanoui.update_uis(src) // update all UIs attached to src
 
 		sleep(10*src.radiation_duration) // sleep for radiation_duration seconds
 
@@ -625,7 +625,7 @@
 		irradiating = src.radiation_duration
 		var/lock_state = src.connected.locked
 		src.connected.locked = 1 //lock it
-		SSnanoui.update_uis(src) // update all UIs attached to src
+		// SSnanoui.update_uis(src) // update all UIs attached to src
 
 		sleep(10*src.radiation_duration) // sleep for radiation_duration seconds
 
@@ -752,7 +752,7 @@
 			irradiating = 2
 			var/lock_state = src.connected.locked
 			src.connected.locked = 1//lock it
-			SSnanoui.update_uis(src) // update all UIs attached to src
+			// SSnanoui.update_uis(src) // update all UIs attached to src
 
 			sleep(10*2) // sleep for 2 seconds
 

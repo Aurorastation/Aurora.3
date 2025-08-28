@@ -44,7 +44,7 @@
 	show_archived = FALSE
 
 /datum/computer_file/program/newsbrowser/ui_data(mob/user)
-	var/list/data = initial_data()
+	var/list/data = list()
 
 	data["message"] = message
 	if(loaded_article && !downloading) 	// Viewing an article.

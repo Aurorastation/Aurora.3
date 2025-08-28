@@ -34,7 +34,7 @@
 	return temp
 
 /datum/computer_file/program/comm/ui_data(mob/user)
-	var/list/data = initial_data()
+	var/list/data = list()
 
 	data["emagged"] = computer_emagged
 	data["net_comms"] = !!get_signal(NTNET_COMMUNICATION) //Double !! is needed to get 1 or 0 answer

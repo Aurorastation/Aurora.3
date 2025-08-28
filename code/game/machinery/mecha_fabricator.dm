@@ -101,8 +101,9 @@
 		to_chat(user, SPAN_WARNING("Access denied."))
 		return
 	do_hair_pull(user)
-	ui_interact(user)
+	// ui_interact(user)
 
+/*
 /obj/machinery/mecha_part_fabricator/ui_interact(var/mob/user, var/ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	var/data[0]
 
@@ -170,6 +171,7 @@
 
 	return 1
 
+*/
 /obj/machinery/mecha_part_fabricator/attackby(obj/item/attacking_item, mob/user)
 	if(build_callback_timer)
 		to_chat(user, SPAN_NOTICE("\The [src] is busy. Please wait for completion of previous operation."))

@@ -127,7 +127,7 @@
 			output.network.update = 1
 
 	return 1
-
+/*
 /obj/machinery/atmospherics/omni/mixer/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	user.set_machine(src)
 
@@ -142,7 +142,7 @@
 		ui.set_initial_data(data)
 
 		ui.open()
-
+*/
 /obj/machinery/atmospherics/omni/mixer/proc/build_uidata()
 	var/list/data = new()
 
@@ -206,7 +206,7 @@
 				con_lock(dir_flag(href_list["dir"]))
 
 	update_icon()
-	SSnanoui.update_uis(src)
+	// SSnanoui.update_uis(src)
 	return
 
 /obj/machinery/atmospherics/omni/mixer/proc/switch_mode(var/port = NORTH, var/mode = ATM_NONE)

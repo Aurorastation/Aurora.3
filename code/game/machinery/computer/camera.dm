@@ -45,7 +45,7 @@
 	if (viewflag < 0) //camera doesn't work
 		return FALSE
 	return TRUE
-
+/*
 /obj/machinery/computer/security/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1)
 	if(..())
 		return
@@ -71,7 +71,7 @@
 
 		ui.set_initial_data(data)
 		ui.open()
-
+*/
 /obj/machinery/computer/security/proc/can_access_network(var/mob/user, var/network_access)
 	// No access passed, or 0 which is considered no access requirement. Allow it.
 	if(!network_access)
@@ -208,7 +208,7 @@
 /obj/machinery/computer/security/process()
 	if(cache_id != GLOB.camera_repository.camera_cache_id)
 		cache_id = GLOB.camera_repository.camera_cache_id
-		SSnanoui.update_uis(src)
+		// SSnanoui.update_uis(src)
 
 /obj/machinery/computer/security/proc/can_access_camera(var/obj/machinery/camera/C)
 	var/list/shared_networks = src.network & C.network

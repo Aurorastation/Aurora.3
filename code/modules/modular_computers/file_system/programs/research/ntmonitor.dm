@@ -17,7 +17,7 @@
 /datum/computer_file/program/ntnetmonitor/ui_data(mob/user)
 	if(!GLOB.ntnet_global)
 		return
-	var/list/data = initial_data()
+	var/list/data = list()
 
 	data["ntnetstatus"] = GLOB.ntnet_global.check_function()
 	data["ntnetrelays"] = GLOB.ntnet_global.relays.len

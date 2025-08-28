@@ -101,7 +101,7 @@
 
 /datum/computer_file/program/alarm_monitor/ui_data(mob/user)
 	. = ..()
-	var/list/data = initial_data()
+	var/list/data = list()
 
 	var/list/categories = list()
 	for(var/datum/alarm_handler/AH in alarm_handlers)

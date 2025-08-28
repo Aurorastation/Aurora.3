@@ -58,7 +58,7 @@
 			get_alarms()
 
 /datum/computer_file/program/atmos_control/ui_data(mob/user)
-	var/list/data = initial_data()
+	var/list/data = list()
 
 	/// It is possible that a program may have a null computer at roundstart... somehow.
 	if(!length(monitored_alarms))

@@ -18,7 +18,7 @@
 	var/list/shipment_details = list() //Shipment Details for a selected shipment
 
 /datum/computer_file/program/civilian/cargocontrol/ui_data(mob/user)
-	var/list/data = initial_data()
+	var/list/data = list()
 
 	post_signal("supply")
 

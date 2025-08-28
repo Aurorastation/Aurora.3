@@ -172,7 +172,7 @@
 
 	//Setup the appearance
 	if(allow_appearance_change)
-		M.change_appearance(allow_appearance_change, M, culture_restriction = src.culture_restriction, origin_restriction = src.origin_restriction, update_id = TRUE)
+		// M.change_appearance(allow_appearance_change, M, culture_restriction = src.culture_restriction, origin_restriction = src.origin_restriction, update_id = TRUE)
 	else //otherwise randomize
 		M.client.prefs.randomize_appearance_for(M, FALSE, culture_restriction, origin_restriction)
 

@@ -87,7 +87,7 @@
 		restoring = FALSE
 
 /datum/computer_file/program/aidiag/ui_data(mob/user)
-	var/list/data = initial_data()
+	var/list/data = list()
 	var/mob/living/silicon/ai/A = get_ai()
 
 	if(!A)
