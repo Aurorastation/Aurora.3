@@ -1,4 +1,4 @@
-/datum/map_template/ruin/exoplanet/arctic/bunker
+/datum/map_template/ruin/exoplanet/arctic_bunker
 	name = "Pre-War Auxiliary Bunker"
 	id = "prewar bunker"
 	description = "A relitively small bunker used Pre-Interstellar War for local operations and sector management."
@@ -23,7 +23,7 @@
 	no_light_control = FALSE
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP | AREA_FLAG_INDESTRUCTIBLE_TURFS
 
-/datum/map_template/ruin/exoplanet/arctic/crashed_fighter
+/datum/map_template/ruin/exoplanet/arctic_crashed_fighter
 	name = "Crashed CR-80 VOLT"
 	id = "crashed fighter"
 	description = "An old Pre-War design interceptor, crashed into the arctic terrain."
@@ -40,7 +40,7 @@
 
 	unit_test_groups = list(2)
 
-/datum/map_template/ruin/exoplanet/arctic/mining_camp
+/datum/map_template/ruin/exoplanet/arctic_mining_camp
 	name = "Abandoned Mining Camp"
 	id = "mining camp"
 	description = "An abandoned mining camp on the snowy terrain, with some things left behind still."
