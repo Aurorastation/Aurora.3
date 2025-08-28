@@ -1,6 +1,6 @@
 import { useBackend } from '../backend';
 import { Window } from '../layouts';
-import { BooleanLike } from 'tgui-core/react';
+import type { BooleanLike } from 'tgui-core/react';
 import { Button, LabeledList, NoticeBox, Section } from 'tgui-core/components';
 
 export type AccessTerminalData = {

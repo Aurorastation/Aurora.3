@@ -2,7 +2,7 @@ import { useBackend } from '../backend';
 import { useLocalState } from '../backend';
 import { Button, Section, LabeledList, ProgressBar, Slider } from 'tgui-core/components';
 import { Window } from '../layouts';
-import { BooleanLike } from 'tgui-core/react';
+import type { BooleanLike } from 'tgui-core/react';
 
 export type AtmoScrubberData = {
   portConnected: BooleanLike;

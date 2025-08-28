@@ -1,5 +1,5 @@
 import { useBackend } from '../backend';
-import { BooleanLike } from 'tgui-core/react';
+import type { BooleanLike } from 'tgui-core/react';
 import { round } from 'tgui-core/math';
 import { capitalizeAll } from 'tgui-core/string';
 import { Section, Box, Button, BlockQuote, Dropdown, LabeledList } from 'tgui-core/components';

@@ -1,5 +1,5 @@
 import { round } from 'tgui-core/math';
-import { BooleanLike } from 'tgui-core/react';
+import type { BooleanLike } from 'tgui-core/react';
 import { capitalize } from 'tgui-core/string';
 import { useBackend, useSharedState } from '../backend';
 import { Box, Button, Dimmer, Divider, LabeledList, NoticeBox, NumberInput, ProgressBar, Section } from 'tgui-core/components';

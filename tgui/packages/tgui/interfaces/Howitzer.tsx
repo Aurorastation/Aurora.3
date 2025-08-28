@@ -1,7 +1,7 @@
 import { useBackend } from '../backend';
 import { Button, Knob, LabeledControls } from 'tgui-core/components';
 import { Window } from '../layouts';
-import { BooleanLike } from 'tgui-core/react';
+import type { BooleanLike } from 'tgui-core/react';
 import { Box } from 'tgui-core/components';
 
 export type HowitzerData = {

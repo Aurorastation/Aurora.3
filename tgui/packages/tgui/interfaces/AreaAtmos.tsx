@@ -1,6 +1,6 @@
 import { useBackend } from '../backend';
 import { Section, Table, Button, NoticeBox } from 'tgui-core/components';
-import { BooleanLike } from 'tgui-core/react';
+import type { BooleanLike } from 'tgui-core/react';
 import { Window } from '../layouts';
 
 export type AreaAtmosScrubberData = {

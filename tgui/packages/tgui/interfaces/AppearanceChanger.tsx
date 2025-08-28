@@ -1,4 +1,4 @@
-import { BooleanLike } from 'tgui-core/react';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
 import { capitalize } from 'tgui-core/string';
 import { Button, Collapsible, NumberInput, Section } from 'tgui-core/components';

@@ -1,7 +1,7 @@
 import { useBackend } from '../backend';
 import { Button, Section, LabeledList, Flex } from 'tgui-core/components';
 import { Window } from '../layouts';
-import { BooleanLike } from 'tgui-core/react';
+import type { BooleanLike } from 'tgui-core/react';
 
 export type TransferValveData = {
   tankOne: String[];
