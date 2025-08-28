@@ -136,6 +136,3 @@
 
 /datum/ui_state/proc/href_list(mob/user)
 	return list()
-
-/datum/proc/nano_container()
-	return src
