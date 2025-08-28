@@ -118,7 +118,7 @@
 	var/melee_damage_upper = 0
 	var/armor_penetration = 0
 	var/attack_flags = 0
-	var/attacktext = "attacked"
+	var/attacktext = "attacks"
 	var/attack_sound = /singleton/sound_category/swing_hit_sound
 	var/friendly = "nuzzles"
 	var/environment_smash = 0

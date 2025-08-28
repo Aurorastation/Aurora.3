@@ -12,7 +12,7 @@
 
 		//make vine zero start off fully matured
 		var/obj/effect/plant/vine = new(T,seed)
-		vine.health = vine.max_health
+		vine.health = vine.maxhealth
 		vine.mature_time = 0
 		vine.process()
 		var/area_display_name = get_area_display_name(get_area(T))
@@ -49,8 +49,8 @@
 	pass_flags = PASSTABLE
 	mouse_opacity = MOUSE_OPACITY_OPAQUE
 
-	var/health = 10
-	var/max_health = 100
+	health = 10
+	maxhealth = 100
 	var/growth_threshold = 0
 	var/growth_type = 0
 
@@ -101,15 +101,15 @@
 		return
 
 	name = seed.display_name
-	max_health = round(seed.get_trait(TRAIT_ENDURANCE)/2)
+	maxhealth = round(seed.get_trait(TRAIT_ENDURANCE)/2)
 	if(seed.get_trait(TRAIT_SPREAD) == 2)
 		mouse_opacity = 2
 		max_growth = VINE_GROWTH_STAGES
-		growth_threshold = max_health/VINE_GROWTH_STAGES
+		growth_threshold = maxhealth/VINE_GROWTH_STAGES
 		growth_type = seed.get_growth_type()
 	else
 		max_growth = seed.growth_stages
-		growth_threshold = max_health/seed.growth_stages
+		growth_threshold = maxhealth/seed.growth_stages
 
 	if(max_growth > 2 && prob(50))
 		max_growth-- //Ensure some variation in final sprite, makes the carpet of crap look less wonky.
@@ -304,7 +304,7 @@
 		die_off()
 
 /obj/effect/plant/proc/is_mature()
-	return (health >= (max_health/3) && world.time > mature_time)
+	return (health >= (maxhealth/3) && world.time > mature_time)
 
 
 #undef DEFAULT_SEED

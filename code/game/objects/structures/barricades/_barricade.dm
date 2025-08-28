@@ -5,11 +5,11 @@
 	density = TRUE
 	atom_flags = ATOM_FLAG_CHECKS_BORDER
 
+	maxhealth = 100
+
 	var/stack_type //The type of stack the barricade dropped when disassembled if any.
 	var/stack_amount = 5 //The amount of stack dropped when disassembled at full health
 	var/destroyed_stack_amount //to specify a non-zero amount of stack to drop when destroyed
-	var/health = 100 //Pretty tough. Changes sprites at 300 and 150
-	var/maxhealth = 100 //Basic code functions
 
 	///Used for calculating some stuff related to maxhealth as it constantly changes due to e.g. barbed wire. set to 100 to avoid possible divisions by zero
 	var/starting_maxhealth = 100
@@ -173,7 +173,7 @@
 				SPAN_NOTICE("You set up [attacking_item.name] on [src]."))
 
 				maxhealth += 50
-				update_health(-50)
+				add_health(50)
 				can_wire = FALSE
 				is_wired = TRUE
 				climbable = FALSE
@@ -187,12 +187,11 @@
 			if(do_after(user, 20, src, DO_REPAIR_CONSTRUCT))
 				if(!is_wired)
 					return
-
 				playsound(src.loc, 'sound/items/Wirecutter.ogg', 25, 1)
 				user.visible_message(SPAN_NOTICE("[user] removes the barbed wire on [src]."),
 				SPAN_NOTICE("You remove the barbed wire on [src]."))
 				maxhealth -= 50
-				update_health(50)
+				add_health(50)
 				can_wire = TRUE
 				is_wired = FALSE
 				climbable = TRUE
@@ -233,7 +232,7 @@
 	for(var/obj/structure/barricade/B in get_step(src,dir)) //discourage double-stacking barricades by removing health from opposing barricade
 		if(B.dir == REVERSE_DIR(dir))
 			INVOKE_ASYNC(B, TYPE_PROC_REF(/atom, ex_act), severity, direction)
-	update_health(round(severity))
+	add_damage(round(severity))
 
 // This proc is called whenever the cade is moved, so I thought it was appropriate,
 // especially since the barricade's direction needs to be handled when moving
@@ -263,21 +262,17 @@
 /obj/structure/barricade/proc/take_damage(var/damage)
 	for(var/obj/structure/barricade/B in get_step(src,dir)) //discourage double-stacking barricades by removing health from opposing barricade
 		if(B.dir == REVERSE_DIR(dir))
-			B.update_health(damage)
-	update_health(damage)
+			B.add_damage(damage)
 
-/obj/structure/barricade/proc/update_health(damage, nomessage)
-	health -= damage
-	health = clamp(health, 0, maxhealth)
+/obj/structure/barricade/add_damage(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
+	if(..())
+		update_damage_state()
+		update_icon()
 
+/obj/structure/barricade/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
 	if(!health)
-		if(!nomessage)
-			visible_message(SPAN_DANGER("[src] falls apart!"))
+		visible_message(SPAN_DANGER("[src] falls apart!"))
 		barricade_deconstruct()
-		return
-
-	update_damage_state()
-	update_icon()
 
 /obj/structure/barricade/proc/update_damage_state()
 	var/health_percent = round(health/maxhealth * 100)
@@ -300,7 +295,7 @@
 	if(WT.use_tool(src, user, 7 SECONDS, volume = 40))
 		user.visible_message(SPAN_NOTICE("[user] repairs some damage on [src]."),
 		SPAN_NOTICE("You repair \the [src]."))
-		update_health(-200)
+		add_health(200)
 
 	return TRUE
 

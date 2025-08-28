@@ -5,9 +5,10 @@
 	icon_state = "scattered"
 	anchored = TRUE
 	density = FALSE
+	health = 100
+
 	var/singleton/reagent/reagent_id
 	var/state = 0
-	var/health = 100
 	var/mine_rate = 1 // how fast you can mine it
 
 	var/obj/machinery/power/crystal_agitator/creator // used to re-add dense turfs to agitation list when destroyed

@@ -10,7 +10,6 @@
 	var/randpixel = 6
 	var/abstract = 0
 	var/r_speed = 1.0
-	var/health
 	var/burn_point
 	var/burning
 

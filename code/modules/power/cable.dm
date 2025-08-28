@@ -33,19 +33,21 @@ If d1 = dir1 and d2 = dir2, it's a full X-X cable, getting from dir1 to dir2
 By design, d1 is the smallest direction and d2 is the highest
 */
 /obj/structure/cable
-	level = 1
-	anchored =1
-	var/datum/powernet/powernet
 	name = "power cable"
 	desc = "A flexible superconducting cable for heavy-duty power transfer."
 	icon = 'icons/obj/power_cond_white.dmi'
 	icon_state = "0-1"
+	level = 1
+	anchored =1
+	maxhealth = null //why is this even a structure?
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
-	var/d1 = 0
-	var/d2 = 1
 	layer = EXPOSED_WIRE_LAYER
 	color = COLOR_RED
+
+	var/datum/powernet/powernet
 	var/obj/machinery/power/breakerbox/breaker_box
+	var/d1 = 0
+	var/d2 = 1
 
 /obj/structure/cable/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()

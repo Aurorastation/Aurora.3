@@ -12,8 +12,8 @@
 
 	layer = BLOB_SHIELD_LAYER
 
-	var/maxHealth = 30
-	var/health
+	maxhealth = 30
+
 	var/regen_rate = 5
 
 	// damage gets divided by these modifiers, based on damage type
@@ -35,7 +35,7 @@
 
 /obj/effect/blob/Initialize()
 	. = ..()
-	health = maxHealth
+	health = maxhealth
 	update_icon()
 	START_PROCESSING(SSprocessing, src)
 
@@ -56,14 +56,14 @@
 			take_damage(rand(20, 60) / brute_resist)
 
 /obj/effect/blob/update_icon()
-	if(health > maxHealth / 2)
+	if(health > maxhealth / 2)
 		icon_state = "blob"
 	else
 		icon_state = "blob_damaged"
 
 /obj/effect/blob/process()
 	if(!parent_core || QDELETED(parent_core))
-		take_damage(maxHealth / 4) // four processes to die if main core is deddo
+		take_damage(maxhealth / 4) // four processes to die if main core is deddo
 		return
 	regen()
 	if(world.time < (attack_time + attack_cooldown))
@@ -79,7 +79,7 @@
 		update_icon()
 
 /obj/effect/blob/proc/regen()
-	health = min(health + regen_rate, maxHealth)
+	health = min(health + regen_rate, maxhealth)
 	update_icon()
 
 /obj/effect/blob/proc/expand(var/turf/T)
@@ -244,7 +244,7 @@
 	name = "master nucleus"
 	desc = "A massive, fragile nucleus guarded by a shield of thick tendrils."
 	icon_state = "blob_core"
-	maxHealth = 450
+	maxhealth = 450
 	damage_min = 25
 	damage_max = 35
 	expandType = /obj/effect/blob/shield
@@ -260,7 +260,7 @@
 	var/times_to_pulse = 4
 
 /obj/effect/blob/core/proc/get_health_percent()
-	return ((health / maxHealth) * 100)
+	return ((health / maxhealth) * 100)
 
 /obj/effect/blob/core/proc/process_core_health()
 	var/health_percent = get_health_percent()
@@ -308,7 +308,7 @@
 	name = "auxiliary nucleus"
 	desc = "An interwoven mass of tendrils. A glowing nucleus pulses at its center."
 	icon_state = "blob_node"
-	maxHealth = 125
+	maxhealth = 125
 	regen_rate = 1
 	damage_min = 15
 	damage_max = 20
@@ -319,7 +319,7 @@
 
 /obj/effect/blob/core/secondary/process()
 	if(!parent_core || QDELETED(parent_core))
-		take_damage(maxHealth / 4) // four processes to die if main core is deddo
+		take_damage(maxhealth / 4) // four processes to die if main core is deddo
 		return
 	..()
 
@@ -327,13 +327,13 @@
 	return
 
 /obj/effect/blob/core/secondary/update_icon()
-	icon_state = (health / maxHealth >= 0.5) ? "blob_node" : "blob_factory"
+	icon_state = (health / maxhealth >= 0.5) ? "blob_node" : "blob_factory"
 
 /obj/effect/blob/shield
 	name = "shielding mass"
 	desc = "A pulsating mass of interwoven tendrils. These seem particularly robust, but not quite as active."
 	icon_state = "blob_idle"
-	maxHealth = 120
+	maxhealth = 120
 	damage_min = 15
 	damage_max = 25
 	attack_cooldown = 45
@@ -352,9 +352,9 @@
 	return ..()
 
 /obj/effect/blob/shield/update_icon()
-	if(health > maxHealth * 2 / 3)
+	if(health > maxhealth * 2 / 3)
 		icon_state = "blob_idle"
-	else if(health > maxHealth / 3)
+	else if(health > maxhealth / 3)
 		icon_state = "blob"
 	else
 		icon_state = "blob_damaged"
@@ -367,7 +367,7 @@
 /obj/effect/blob/ravaging
 	name = "ravaging mass"
 	desc = "A mass of interwoven tendrils. They thrash around haphazardly at anything in reach."
-	maxHealth = 20
+	maxhealth = 20
 	damage_min = 20
 	damage_max = 25
 	attack_cooldown = 30

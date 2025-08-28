@@ -318,9 +318,8 @@
 				return
 		remove_verb(owner, /mob/living/carbon/human/proc/undislocate)
 
-/obj/item/organ/external/update_health()
+/obj/item/organ/external/update_organ_health()
 	damage = min(max_damage, (brute_dam + burn_dam))
-	return
 
 /obj/item/organ/external/Initialize(mapload)
 	if(robotize_type)

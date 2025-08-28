@@ -11,6 +11,9 @@
 	density = 1
 	layer = CLOSED_DOOR_LAYER
 	dir = SOUTH
+
+	maxhealth = 300
+
 	var/open_layer = OPEN_DOOR_LAYER
 	var/closed_layer = CLOSED_DOOR_LAYER
 
@@ -35,8 +38,6 @@
 	var/air_properties_vary_with_direction = 0
 	/// Integer. Corresponds to dirs. If opened from this dir, no access is required.
 	var/unres_dir = null
-	var/maxhealth = 300
-	var/health
 	/// Integer. How many strong hits it takes to destroy the door.
 	var/destroy_hits = 10
 	/// Integer. Minimum amount of force needed to damage the door with a melee weapon.

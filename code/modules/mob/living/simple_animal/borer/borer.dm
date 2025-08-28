@@ -16,7 +16,7 @@
 	a_intent = I_HURT
 	stop_automated_movement = 1
 	status_flags = CANPUSH
-	attacktext = "nipped"
+	attacktext = "nips"
 	friendly = "prods"
 	wander = 0
 	maxHealth = 40

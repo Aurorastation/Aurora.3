@@ -9,7 +9,7 @@
 	health_prefix = "wraith"
 	melee_damage_lower = 25
 	melee_damage_upper = 25
-	attacktext = "slashed"
+	attacktext = "slashes"
 	organ_names = list("core", "right arm", "left arm")
 	speed = -1
 	environment_smash = TRUE

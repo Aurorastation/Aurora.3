@@ -7,8 +7,8 @@
 	w_class = WEIGHT_CLASS_HUGE
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	pass_flags_self = PASSTABLE
+	maxhealth = 200
 	var/state = 0
-	var/health = 200
 	var/cover = 50 //how much cover the girder provides against projectiles.
 	build_amt = 2
 	var/material/reinf_material

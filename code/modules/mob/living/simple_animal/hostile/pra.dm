@@ -35,7 +35,7 @@
 	melee_damage_upper = 15
 	mob_size = 5
 
-	attacktext = "slashed"
+	attacktext = "slashes"
 	attack_sound = 'sound/weapons/bladeslice.ogg'
 
 	speed = 2

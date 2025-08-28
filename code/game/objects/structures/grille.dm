@@ -9,7 +9,7 @@
 	obj_flags = OBJ_FLAG_CONDUCTABLE | OBJ_FLAG_MOVES_UNSUPPORTED
 	explosion_resistance = 1
 	layer = BELOW_WINDOW_LAYER
-	var/health = 10
+	health = 10
 	var/destroyed = 0
 
 /obj/structure/grille/condition_hints(mob/user, distance, is_adjacent)

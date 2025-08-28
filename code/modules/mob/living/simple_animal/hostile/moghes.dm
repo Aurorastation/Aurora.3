@@ -28,7 +28,7 @@
 	resist_mod = 10
 	mob_size = 30
 	environment_smash = 2
-	attacktext = "chomped"
+	attacktext = "chomps"
 	attack_sound = 'sound/weapons/bloodyslice.ogg'
 
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
@@ -158,7 +158,7 @@
 
 	melee_damage_lower = 5
 	melee_damage_upper = 8
-	attacktext = "rammed"
+	attacktext = "rams"
 	attack_sound = 'sound/weapons/punch4_bass.ogg'
 
 	environment_smash = 1

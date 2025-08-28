@@ -13,9 +13,10 @@
 	obj_flags = OBJ_FLAG_ROTATABLE|OBJ_FLAG_MOVES_UNSUPPORTED
 
 	build_amt = 2
+
+	maxhealth = 35
+
 	var/broken = FALSE
-	var/health = 70
-	var/maxhealth = 70
 	var/neighbor_status = 0
 
 	can_astar_pass = CANASTARPASS_ALWAYS_PROC

@@ -47,12 +47,12 @@
 	var/turf/simulated/T = get_turf(src)
 	if(istype(T))
 		health -= seed.handle_environment(T,T.return_air(),null,1)
-	if(health < max_health)
+	if(health < maxhealth)
 		health += rand(3,5)
 		refresh_icon()
-		if(health > max_health)
-			health = max_health
-	else if(health == max_health && !plant)
+		if(health > maxhealth)
+			health = maxhealth
+	else if(health == maxhealth && !plant)
 		plant = new(T,seed)
 		plant.dir = src.dir
 		plant.transform = src.transform
@@ -90,7 +90,7 @@
 
 	// We shouldn't have spawned if the controller doesn't exist.
 	check_health()
-	if(neighbors.len || health != max_health || buckled || !is_mature())
+	if(neighbors.len || health != maxhealth || buckled || !is_mature())
 		SSplants.add_plant(src)
 
 /obj/effect/plant/proc/do_spread(spread_chance, max_spread)

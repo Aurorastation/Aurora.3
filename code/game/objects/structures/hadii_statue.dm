@@ -6,11 +6,11 @@
 	density = TRUE
 	anchored = TRUE
 	layer = ABOVE_HUMAN_LAYER
+	maxhealth = 100
 	var/toppled = FALSE
 	var/outside = FALSE
 	var/already_toppled = FALSE
 	var/toppling_sound = 'sound/effects/metalhit.ogg'
-	var/health = 100
 
 /obj/structure/hadii_statue/stone
 	icon_state = "stone"

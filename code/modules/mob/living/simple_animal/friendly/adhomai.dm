@@ -85,7 +85,7 @@
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "kicks"
-	attacktext = "kicked"
+	attacktext = "kicks"
 	health = 200
 	maxHealth = 200
 	mob_size = 15
@@ -130,7 +130,7 @@
 	melee_damage_lower = 15
 	melee_damage_upper = 15
 	armor_penetration = 20
-	attacktext = "gored"
+	attacktext = "gores"
 	attack_sound = 'sound/weapons/bite.ogg'
 
 	hostile_nameable = TRUE
@@ -272,7 +272,7 @@
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "kicks"
-	attacktext = "kicked"
+	attacktext = "kicks"
 
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/adhomai
 
@@ -343,7 +343,7 @@
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "kicks"
-	attacktext = "kicked"
+	attacktext = "kicks"
 	health = 450
 	maxHealth = 452
 	mob_size = 30

@@ -7,8 +7,6 @@
 	use_power = POWER_USE_OFF
 	var/obj/item/card/id/botcard			// the ID card that the bot "holds"
 	var/on = 1
-	var/health = 0 //do not forget to set health for your bot!
-	var/maxhealth = 0
 	var/fire_dam_coeff = 1.0
 	var/brute_dam_coeff = 1.0
 	var/open = 0//Maint panel

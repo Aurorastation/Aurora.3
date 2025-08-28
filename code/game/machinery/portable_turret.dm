@@ -19,6 +19,9 @@
 	active_power_usage = 300	//when active, this turret takes up constant 300 Equipment power
 	power_channel = AREA_USAGE_EQUIP	//drains power from the EQUIPMENT channel
 
+	health = 80
+	maxhealth = 80
+
 	req_one_access = list(ACCESS_SECURITY, ACCESS_HEADS)
 
 	light_range = 3
@@ -26,8 +29,7 @@
 
 	var/raised = 0			//if the turret cover is "open" and the turret is raised
 	var/raising= 0			//if the turret is currently opening or closing its cover
-	var/health = 80			//the turret's health
-	var/maxhealth = 80		//turrets maximal health.
+
 	var/auto_repair = 0		//if 1 the turret slowly repairs itself.
 	var/locked = 1			//if the turret's behaviour control access is locked
 	var/controllock = 0		//if the turret responds to control panels
