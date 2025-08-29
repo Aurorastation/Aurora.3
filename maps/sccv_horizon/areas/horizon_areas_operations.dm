@@ -74,6 +74,13 @@
 	horizon_deck = 1
 	department = LOC_HANGAR
 
+/area/horizon/hangar/airstation
+	name = "Hangar Air Station"
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+	ambience = list(AMBIENCE_ENGINEERING, AMBIENCE_ATMOS)
+	area_blurb = "A small area of the hangar serving the shuttles with fresh air and \
+	giving the access to dispose of any bad air the shuttles brought back during their expeditions."
+
 /area/horizon/hangar/control
 	name = "Hangar Control Room"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
