@@ -118,7 +118,7 @@
 	if(maxhealth)
 		if(!health)
 			// Allows you to set dynamic health states on initialize.
-			maxhealth = health
+			health = maxhealth
 
 /obj/Destroy()
 	if(persistence_track_active) // Prevent hard deletion of references in the persistence register by removing it preemptively
@@ -183,7 +183,7 @@
  */
 /obj/proc/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
 	if(destroy_sound)
-		playsound(src, destroy_sound)
+		playsound(src, destroy_sound, 75)
 	qdel(src)
 
 /**

@@ -7,7 +7,7 @@
 	anchored = TRUE
 	unacidable = TRUE
 	req_access = list(ACCESS_CAPTAIN)
-	health = 30
+	maxhealth = 30
 	var/obj/held_obj
 	var/open = FALSE
 	var/destroyed = FALSE

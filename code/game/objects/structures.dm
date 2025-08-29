@@ -6,6 +6,8 @@
 	pass_flags_self = PASSSTRUCTURE
 	destroy_sound = 'sound/effects/metalhit.ogg'
 
+	maxhealth = 50
+
 	var/material_alteration = MATERIAL_ALTERATION_ALL // Overrides for material shit. Set them manually if you don't want colors etc. See wood chairs/office chairs.
 	var/climbable
 	var/parts
@@ -39,6 +41,14 @@
 	climbers = null
 
 	return ..()
+
+/obj/structure/attackby(obj/item/attacking_item, mob/user, params)
+	. = ..()
+	if(user?.a_intent == I_HURT && maxhealth)
+		user.do_attack_animation(src)
+		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+		add_damage(attacking_item.force, attacking_item.damage_flags(), attacking_item.damtype, attacking_item.armor_penetration, attacking_item)
+		playsound(user, attacking_item.hitsound, attacking_item.get_clamped_volume())
 
 /obj/structure/attack_hand(mob/living/user)
 	if((user.mutations & HULK) && !(user.isSynthetic()) && !(isvaurca(user)))

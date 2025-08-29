@@ -17,7 +17,7 @@ Deployable Kits
 	build_amt = 5
 	anchored = TRUE
 	density = TRUE
-	health = 100
+	maxhealth = 100
 
 	var/force_material
 
@@ -145,7 +145,6 @@ Deployable Kits
 	anchored = 0.0
 	density = 1.0
 	icon_state = "barrier"
-	health = 100
 	maxhealth = 100
 	var/locked = 0.0
 //	req_access = list(ACCESS_MAINT_TUNNELS)
