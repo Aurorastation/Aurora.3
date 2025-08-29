@@ -169,6 +169,8 @@
 	health = max(health - damage, 0)
 	update_health()
 	if(!health)
+		if(destroy_sound)
+			playsound(src, destroy_sound, 75)
 		on_death()
 	return TRUE
 
@@ -182,8 +184,6 @@
  * This proc is called by update_health() when the health of the object hits zero. Handles the destruction of the object, or you can override it to do different effects.
  */
 /obj/proc/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
-	if(destroy_sound)
-		playsound(src, destroy_sound, 75)
 	qdel(src)
 
 /**

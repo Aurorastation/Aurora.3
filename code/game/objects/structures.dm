@@ -249,5 +249,8 @@
 	add_damage(damage)
 	return TRUE
 
+/obj/structure/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
+	dismantle()
+
 /obj/structure/get_material()
 	return material
