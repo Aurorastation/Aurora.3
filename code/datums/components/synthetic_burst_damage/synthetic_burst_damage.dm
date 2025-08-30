@@ -14,7 +14,7 @@
 	/// The breaking point to trigger a burst damage event.
 	var/burst_damage_maximum = 30
 	/// This is how long it takes to clear the burst damage timer.
-	var/burst_damage_clear_time = 7 SECONDS
+	var/burst_damage_clear_time = 10 SECONDS
 	/// Once the damage is cleared, we have this long to go without suffering burst damage effects.
 	var/burst_damage_grace_period = 5 SECONDS
 	/// If the grace period is on or not.

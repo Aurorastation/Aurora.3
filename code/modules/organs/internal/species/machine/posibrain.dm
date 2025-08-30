@@ -292,11 +292,9 @@
 			shake_camera(owner, 0.5 SECONDS, 3)
 		if(3)
 			to_chat(owner, FONT_LARGE(SPAN_MACHINE_WARNING("Your software errors out under the stress!")))
-			owner.Stun(3)
+			owner.Weaken(3)
 			owner.add_movespeed_modifier(/datum/movespeed_modifier/burst_damage/level_3)
 			shake_camera(owner, 1 SECONDS, 5)
-
-			clear_burst_damage_counter()
 
 /**
  * This is the proc in charge of showing the robot pain textures to the IPC.
