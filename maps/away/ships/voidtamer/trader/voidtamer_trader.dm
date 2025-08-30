@@ -105,7 +105,7 @@
 	move_time = 20
 	shuttle_area = list(/area/shuttle/voidtamer_trade_ship_shuttle)
 	current_location = "nav_voidtamer_shuttle_dock"
-	landmark_transition = "nav_transit_voidtamer_trade_ship_shuttle"
+	landmark_transition = "nav_transit_voidtamer_shuttle"
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_voidtamer_shuttle_dock"
