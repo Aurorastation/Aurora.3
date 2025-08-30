@@ -147,9 +147,11 @@
 				temperature_change *= 0.1
 
 	// Check if there is somehow no air, or if we are in an ambient without enough air to properly cool us.
-	if((!ambient || (ambient && owner.calculate_affecting_pressure(ambient.return_pressure()) < owner.species.warning_low_pressure)) && !spaceproof)
-		temperature_change *= 0
-		return
+	if((!ambient || (ambient && owner.calculate_affecting_pressure(ambient.return_pressure()) < owner.species.warning_low_pressure)))
+		if(!spaceproof)
+			temperature_change *= 0
+		else
+			temperature_change = min(temperature_change * 3, 10) //give it a little boost to counteract temp gain in space
 
 	// Now let's start cooling down!
 	// No power, no party.
