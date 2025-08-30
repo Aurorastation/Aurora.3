@@ -14,6 +14,8 @@
 	ship_cost = 0.5 // halved from 1 as this is a variation
 	spawn_weight = 0.5
 
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED //for an event, remove if this is somehow still here when youre reading this
+
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/freebooter_salvager, /datum/shuttle/autodock/multi/lift/freebooter_salvager)
 	sectors = list(ALL_POSSIBLE_SECTORS)
 	ban_ruins = list(/datum/map_template/ruin/away_site/freebooter_ship)
