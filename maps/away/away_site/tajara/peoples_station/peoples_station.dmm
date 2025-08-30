@@ -1677,6 +1677,7 @@
 /area/peoples_station/hangar)
 "fX" = (
 /obj/structure/lattice/catwalk,
+/obj/effect/overmap/visitable/ship/stationary/peoples_station,
 /turf/template_noop,
 /area/peoples_station/bridge)
 "fY" = (
@@ -12339,12 +12340,6 @@
 /obj/effect/floor_decal/spline/plain/cee/grey,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/peoples_station_transport)
-"UP" = (
-/obj/effect/overmap/visitable/sector/peoples_station,
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station/bridge)
 "UQ" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -13513,7 +13508,9 @@
 /area/peoples_station/atmos)
 "Zs" = (
 /obj/structure/lattice/catwalk,
-/obj/machinery/iff_beacon/name_change,
+/obj/machinery/iff_beacon/name_change{
+	can_change_name = 0
+	},
 /obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/airless,
 /area/peoples_station/bridge)
@@ -50277,7 +50274,7 @@ Ox
 bL
 sA
 bs
-UP
+DJ
 Gz
 DJ
 YG
