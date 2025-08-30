@@ -441,12 +441,12 @@ emp_act
 		Weaken(3)
 		visible_message(SPAN_WARNING("[src] get knocked over by [H]!"), SPAN_WARNING("You get knocked over by [H]!"))
 
-/mob/living/carbon/human/embed(var/obj/O, var/def_zone=null)
+/mob/living/carbon/human/embed(obj/O, def_zone=null, datum/wound/supplied_wound)
 	if(!def_zone) ..()
 
 	var/obj/item/organ/external/affecting = get_organ(def_zone)
 	if(affecting)
-		affecting.embed(O)
+		affecting.embed(O, supplied_wound = supplied_wound)
 
 
 /mob/living/carbon/human/proc/bloody_hands(var/mob/living/source, var/amount = 2)
