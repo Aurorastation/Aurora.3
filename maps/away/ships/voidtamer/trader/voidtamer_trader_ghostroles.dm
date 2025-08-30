@@ -11,6 +11,7 @@
 
 	outfit = /obj/outfit/admin/voidtamer_crew
 	possible_species = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	uses_species_whitelist = FALSE
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Voidtamer Crew"
@@ -35,12 +36,12 @@
 /obj/outfit/admin/voidtamer/get_id_access()
 	return list(ACCESS_VOIDTAMER_SHIP, ACCESS_EXTERNAL_AIRLOCKS)
 
-/datum/ghostspawner/human/voidtamer/captain
+/datum/ghostspawner/human/voidtamer_crew/captain
 	short_name = "voidtamer_captain"
 	name = "Voidtamer Captain"
 	desc = "Captain of a voidtamer vessel"
 	tags = list("External")
-
+	uses_species_whitelist = TRUE
 	spawnpoints = list("voidtamer_captain")
 	max_count = 1
 

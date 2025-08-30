@@ -9,9 +9,8 @@
 	ship_cost = 1
 	spawn_weight = 1
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/voidtamer_trade_ship_shuttle)
-	sectors = list(ALL_TAU_CETI_SECTORS, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_TABITI, SECTOR_AEMAQ, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, SECTOR_GAKAL, SECTOR_UUEOAESA, ALL_COALITION_SECTORS)
+	sectors = list(ALL_TAU_CETI_SECTORS, ALL_BADLAND_SECTORS, ALL_COALITION_SECTORS, ALL_CRESCENT_EXPANSE_SECTORS)
 	unit_test_groups = list(1)
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 /singleton/submap_archetype/voidtamer_trade_ship
 	map = "Voidtamer Trade Ship"
@@ -24,14 +23,13 @@
 	icon_state = "asteroid_cluster"
 	moving_state = "asteroid_cluster_moving"
 	colors = list("#9900FF")
-	scanimage = "hno_data.png"
 	designer = "Obfuscated, hull origin uncertain"
-	volume = "37 meters length, 24 meters beam/width, 11 meters vertical height"
-	drive = "Low-Speed Warp Acceleration FTL Drive"
-	weapons = "Dual bow-mounted extruding low-caliber rotary ballistic armament, port obscured flight craft bay"
-	sizeclass = "Hailstorm-type Retrofitted Skipjack"
-	shiptype = "Short-distance military tasking, low-level naval interdiction"
-	vessel_mass = 10000
+	volume = "Unknown."
+	drive = "Unknown."
+	weapons = "Unknown."
+	sizeclass = "Unknown.k"
+	shiptype = "Unknown."
+	vessel_mass = 5000
 	max_speed = 1/(2 SECONDS)
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_SMALL

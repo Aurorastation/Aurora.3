@@ -171,6 +171,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 9
 	},
+/obj/machinery/hologram/holopad/long_range,
+/obj/effect/overmap/visitable/ship/voidtamer_trade_ship,
 /turf/simulated/floor/tiled/gunmetal,
 /area/voidtamer/trader/bridge)
 "bs" = (
@@ -419,6 +421,10 @@
 /obj/random/dirt_75,
 /obj/structure/bed/roller/hover,
 /obj/item/trash/meatsnack,
+/obj/effect/ghostspawpoint{
+	identifier = "voidtamer_crew";
+	name = "igs - voidtamer_crew"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/crew)
 "dv" = (
@@ -595,6 +601,10 @@
 "eD" = (
 /obj/random/dirt_75,
 /obj/structure/bed/roller/hover,
+/obj/effect/ghostspawpoint{
+	identifier = "voidtamer_crew";
+	name = "igs - voidtamer_crew"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/crew)
 "eJ" = (
@@ -1081,8 +1091,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/dock)
 "iT" = (
-/obj/machinery/hologram/holopad/long_range,
-/obj/effect/overmap/visitable/ship/voidtamer_trade_ship,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/red,
 /obj/structure/cable{
@@ -1319,6 +1327,10 @@
 	icon_state = "4-8"
 	},
 /obj/random/dirt_75,
+/obj/effect/ghostspawpoint{
+	identifier = "voidtamer_captain";
+	name = "igs - voidtamer_captain"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/crew)
 "lj" = (
@@ -2423,6 +2435,10 @@
 "vv" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/structure/bed/roller/hover,
+/obj/effect/ghostspawpoint{
+	identifier = "voidtamer_crew";
+	name = "igs - voidtamer_crew"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/crew)
 "vA" = (
@@ -2649,7 +2665,7 @@
 "xm" = (
 /obj/random/dirt_75,
 /obj/machinery/door/airlock/hatch,
-/turf/simulated/wall/shuttle/dark,
+/turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/crew)
 "xp" = (
 /obj/structure/cable{
@@ -3819,15 +3835,6 @@
 	},
 /turf/simulated/floor/diona,
 /area/voidtamer/trader/dock)
-"HW" = (
-/obj/machinery/hologram/holopad/long_range,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/diona,
-/area/voidtamer/trader/temple)
 "Ia" = (
 /obj/item/flag/xanu/l,
 /obj/machinery/recharger{
@@ -4371,6 +4378,10 @@
 	dir = 8
 	},
 /obj/structure/bed/roller/hover,
+/obj/effect/ghostspawpoint{
+	identifier = "voidtamer_crew";
+	name = "igs - voidtamer_crew"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/crew)
 "Nb" = (
@@ -5324,7 +5335,6 @@
 /area/voidtamer/trader/dock)
 "Wm" = (
 /obj/effect/overmap/visitable/ship/landable/voidtamer_trade_ship_shuttle,
-/obj/machinery/hologram/holopad/long_range,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/voidtamer_trade_ship_shuttle)
 "Wn" = (
@@ -31909,7 +31919,7 @@ Aa
 Sc
 oi
 iT
-HW
+gG
 gG
 Bu
 Vi
