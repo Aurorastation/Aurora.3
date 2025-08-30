@@ -1380,13 +1380,13 @@
 // Dominian Standards
 
 /obj/item/flag/diona
-	name = "\improper Imperial Diona standard"
+	name = "\improper Strange Imperial standard"
 	desc = "A strange green flag in Imperial style. What House could it represent?"
 	flag_path = "diona"
 	flag_structure = /obj/structure/sign/flag/diona
 
 /obj/structure/sign/flag/diona
-	name = "\improper Imperial Diona standard"
+	name = "\improper Strange Imperial standard"
 	desc = "A strange green flag in Imperial style. What House could it represent?"
 	flag_path = "diona"
 	icon_state = "diona"
