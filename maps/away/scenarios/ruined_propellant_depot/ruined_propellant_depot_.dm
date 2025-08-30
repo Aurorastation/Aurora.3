@@ -2,6 +2,7 @@
 	name = "Ruined Propellant Depot"
 	description = "Ruined Propellant Depot."
 	id = "ruined_propellant_depot"
+	template_flags = TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 
 	prefix = "scenarios/ruined_propellant_depot/"
 	suffix = "ruined_propellant_depot.dmm"

@@ -5,6 +5,7 @@
 	description = "A small wooden village within a valley in an arctic environment."
 	prefix = "scenarios/nuclear_silo/"
 	suffix = "nuclear_silo.dmm"
+	template_flags = TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 
 	traits = list(
 		// Bunker Level

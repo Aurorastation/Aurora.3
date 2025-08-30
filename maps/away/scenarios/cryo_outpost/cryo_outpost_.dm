@@ -5,6 +5,7 @@
 	name = "Desert Oasis Planet"
 	description = "Desert Oasis Planet."
 	id = "cryo_outpost"
+	template_flags = TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 
 	prefix = "scenarios/cryo_outpost/"
 	suffix = "cryo_outpost.dmm"

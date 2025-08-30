@@ -5,6 +5,7 @@
 	name = "Environmental Testing Facility"
 	description = "Environmental Testing Facility."
 	id = "enviro_testing_facility"
+	template_flags = TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 
 	prefix = "scenarios/enviro_testing_facility/"
 	suffix = "enviro_testing_facility.dmm"
