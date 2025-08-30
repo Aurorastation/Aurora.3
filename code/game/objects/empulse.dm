@@ -40,55 +40,55 @@
 	if(heavy_range > light_range)
 		light_range = heavy_range
 
+	#ifdef EMPDEBUG
+	log_and_message_admins("EMPDEBUG: Heavy range for explosion at Z-level [z] is [heavy_range]")
+	log_and_message_admins("EMPDEBUG: Light range for explosion at Z-level [z] is [light_range]")
+	#endif //EMPDEBUG
+
+	if(light_range < 0 && heavy_range < 0)
+		return
+
+	if(heavy_range > 1)
+		for(var/mob/M in range(heavy_range, epicenter))
+			sound_to(M, 'sound/effects/EMPulse.ogg')
+			CHECK_TICK
+
+	for(var/atom/A in spiral_range(max(light_range, heavy_range)))
+
 		#ifdef EMPDEBUG
-		log_and_message_admins("EMPDEBUG: Heavy range for explosion at Z-level [z] is [heavy_range]")
-		log_and_message_admins("EMPDEBUG: Light range for explosion at Z-level [z] is [light_range]")
-		#endif //EMPDEBUG
+		var/time = world.timeofday
+		#endif
 
-		if(light_range < 0 && heavy_range < 0)
-			return
+		if(exclude && length(exclude)) //We have a list with at least one element to exclude
 
-		if(heavy_range > 1)
-			for(var/mob/M in range(heavy_range, epicenter))
-				sound_to(M, 'sound/effects/EMPulse.ogg')
-				CHECK_TICK
-
-		for(var/atom/A in spiral_range(max(light_range, heavy_range)))
-
-			#ifdef EMPDEBUG
-			var/time = world.timeofday
-			#endif
-
-			if(exclude && length(exclude)) //We have a list with at least one element to exclude
-
-				for(var/element in exclude)
-					if(ispath(element))
-						if(istype(A, element))
-							continue
-					else
-						if(A == element)
-							continue
-
-			var/distance = get_dist(epicenter, A)
-			if(distance < 0)
-				distance = 0
-
-
-			if(distance < heavy_range)
-				A.emp_act(EMP_HEAVY)
-
-			else if(distance == heavy_range)
-				if(prob(50)) //50% probability it's heavy or light, at the exact heavy range
-					A.emp_act(EMP_HEAVY)
+			for(var/element in exclude)
+				if(ispath(element))
+					if(istype(A, element))
+						continue
 				else
-					A.emp_act(EMP_LIGHT)
+					if(A == element)
+						continue
 
-			else if(distance <= light_range)
+		var/distance = get_dist(epicenter, A)
+		if(distance < 0)
+			distance = 0
+
+
+		if(distance < heavy_range)
+			A.emp_act(EMP_HEAVY)
+
+		else if(distance == heavy_range)
+			if(prob(50)) //50% probability it's heavy or light, at the exact heavy range
+				A.emp_act(EMP_HEAVY)
+			else
 				A.emp_act(EMP_LIGHT)
 
-			#ifdef EMPDEBUG
-			if((world.timeofday - time) >= EMPDEBUG)
-				log_and_message_admins("EMPDEBUG: [A.name] - [A.type] - took [world.timeofday - time]ds to process emp_act()!")
-			#endif //EMPDEBUG
+		else if(distance <= light_range)
+			A.emp_act(EMP_LIGHT)
+
+		#ifdef EMPDEBUG
+		if((world.timeofday - time) >= EMPDEBUG)
+			log_and_message_admins("EMPDEBUG: [A.name] - [A.type] - took [world.timeofday - time]ds to process emp_act()!")
+		#endif //EMPDEBUG
 
 	return TRUE
