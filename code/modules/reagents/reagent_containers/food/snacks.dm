@@ -110,7 +110,7 @@
 
 		if(ishuman(user))
 			var/mob/living/carbon/human/H = user
-			if (H.species && H.species.bypass_food_fullness())
+			if (H.species && H.species.bypass_food_fullness(H))
 				is_full = FALSE
 
 		if(user == target)

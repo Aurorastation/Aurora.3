@@ -436,7 +436,7 @@
 		SPAN_NOTICE("You have installed \the [tool] into [target]'s [affected.name]."))
 
 	var/obj/item/device/mmi/M = tool
-	var/obj/item/organ/internal/mmi_holder/holder = new(target, 1)
+	var/obj/item/organ/internal/machine/posibrain/holder = new(target, 1)
 	target.internal_organs_by_name[BP_BRAIN] = holder
 	user.drop_from_inventory(tool,holder)
 	holder.stored_mmi = tool
@@ -448,3 +448,277 @@
 /singleton/surgery_step/robotics/install_mmi/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips."), \
 		SPAN_WARNING("Your hand slips."))
+
+/singleton/surgery_step/internal/fix_internal_wiring
+	name = "Repair Internal Wiring"
+	allowed_tools = list(
+		/obj/item/stack/cable_coil = 100,
+		/obj/item/stack/cable_coil/cyborg = 100
+	)
+
+	min_duration = 50
+	max_duration = 70
+
+/singleton/surgery_step/internal/fix_internal_wiring/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
+
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	var/obj/item/stack/cable_coil/C = tool
+	var/is_organ_damaged = FALSE
+	var/limb_can_operate = (affected && affected.open == ORGAN_ENCASED_RETRACTED && target_zone != BP_MOUTH)
+	if(limb_can_operate)
+		for(var/obj/item/organ/internal/machine/I in affected.internal_organs)
+			if(I.wiring.get_status() < 100)
+				if(istype(C))
+					var/needed_wires = I.wiring.max_wires - I.wiring.wires
+					if(needed_wires)
+						if(!(C.get_amount() >= (needed_wires * 10)))
+							to_chat(user, SPAN_WARNING("You need [needed_wires * 10] or more cable pieces to repair this damage."))
+							return SURGERY_FAILURE
+						is_organ_damaged = TRUE
+						C.use(needed_wires * 10)
+	return is_organ_damaged
+
+/singleton/surgery_step/internal/fix_internal_wiring/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
+
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	for(var/obj/item/organ/internal/machine/I in affected.internal_organs)
+		if(I && (I.wiring.get_status() < 100))
+			user.visible_message(SPAN_NOTICE("[user] begins splitting and connecting new wiring in [target]'s [I]..."))
+	..()
+
+/singleton/surgery_step/internal/fix_internal_wiring/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	. = ..()
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	for(var/obj/item/organ/internal/machine/I in affected.internal_organs)
+		if(I && (I.wiring.get_status() < 100))
+			var/needed_wires = I.wiring.max_wires - I.wiring.wires
+			user.visible_message(SPAN_NOTICE("[user] fixes the wiring in [target]'s [affected]."))
+			I.wiring.heal_damage(needed_wires)
+
+/singleton/surgery_step/internal/fix_internal_electronics
+	name = "Repair Internal Electronics"
+	allowed_tools = list(
+		/obj/item/device/multitool = 100,
+	)
+
+	min_duration = 100
+	max_duration = 200
+
+/singleton/surgery_step/internal/fix_internal_electronics/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
+
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	var/is_organ_damaged = FALSE
+	var/limb_can_operate = (affected && affected.open == ORGAN_ENCASED_RETRACTED && target_zone != BP_MOUTH)
+	if(limb_can_operate)
+		for(var/obj/item/organ/internal/machine/I in affected.internal_organs)
+			if(I.electronics.get_status() < 100)
+				is_organ_damaged = TRUE
+	return is_organ_damaged
+
+/singleton/surgery_step/internal/fix_internal_electronics/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
+
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	for(var/obj/item/organ/internal/machine/I in affected.internal_organs)
+		if(I && (I.electronics.get_status() < 100))
+			user.visible_message(SPAN_NOTICE("[user] begins replacing the electronics in [target]'s [I] and reconfiguring them..."))
+	..()
+
+/singleton/surgery_step/internal/fix_internal_electronics/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	. = ..()
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	for(var/obj/item/organ/internal/machine/I in affected.internal_organs)
+		if(I && (I.electronics.get_status() < 100))
+			user.visible_message(SPAN_NOTICE("[user] repairs the electronics in [target]'s [affected]."))
+			I.electronics.heal_damage(I.electronics.max_integrity)
+
+/singleton/surgery_step/internal/fix_internal_plating
+	name = "Repair Internal Plating"
+	allowed_tools = list(
+		/obj/item/stack/material/steel = 100,
+	)
+
+	min_duration = 75
+	max_duration = 120
+
+/singleton/surgery_step/internal/fix_internal_plating/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
+
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	var/obj/item/stack/material/steel/steel = tool
+	var/is_organ_damaged = FALSE
+	var/limb_can_operate = (affected && affected.open == ORGAN_ENCASED_RETRACTED && target_zone != BP_MOUTH)
+	if(limb_can_operate)
+		for(var/obj/item/organ/internal/machine/I in affected.internal_organs)
+			if(I.plating.get_status() < 100)
+				if(I.plating.get_status() <= 0)
+					to_chat(user, SPAN_WARNING("That plating is too far gone! You'll need to totally replace it with new plates!"))
+					return FALSE
+				var/needed_plates = I.plating.max_health / 10
+				if(istype(steel))
+					if(!(steel.get_amount() >= (needed_plates)))
+						to_chat(user, SPAN_WARNING("You need [round(needed_plates) / 10] or more steel plates to repair this damage."))
+						return SURGERY_FAILURE
+					is_organ_damaged = TRUE
+					steel.use(needed_plates)
+	return is_organ_damaged
+
+/singleton/surgery_step/internal/fix_internal_plating/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
+
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	for(var/obj/item/organ/internal/machine/I in affected.internal_organs)
+		if(I && (I.plating.get_status() < 100))
+			var/damage_type = pick("damage", "kinks", "gashes", "holes")
+			user.visible_message(SPAN_NOTICE("[user] begins melding steel to the [damage_type] on the plating around [target]'s [I]..."), "You begin melding steel to the [damage_type] on the plating around [target]'s [I]...")
+	..()
+
+/singleton/surgery_step/internal/fix_internal_plating/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	. = ..()
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	for(var/obj/item/organ/internal/machine/I in affected.internal_organs)
+		if(I && (I.plating.get_status() < 100))
+			user.visible_message(SPAN_NOTICE("[user] mends the plating around [target]'s [affected]."), SPAN_NOTICE("You mend the plating around [target]'s [affected]."))
+			I.plating.heal_damage(I.plating.max_health)
+
+/singleton/surgery_step/internal/replace_internal_plating
+	name = "Replace Internal Plating"
+	allowed_tools = list(
+		/obj/item/synth_plating = 100,
+	)
+
+	min_duration = 100
+	max_duration = 150
+
+/singleton/surgery_step/internal/replace_internal_plating/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
+
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	var/is_plating_destroyed = FALSE
+	var/limb_can_operate = (affected && affected.open == ORGAN_ENCASED_RETRACTED && target_zone != BP_MOUTH)
+	if(limb_can_operate)
+		for(var/obj/item/organ/internal/machine/I in affected.internal_organs)
+			if(I.plating.get_status() <= 0)
+				is_plating_destroyed = TRUE
+	return is_plating_destroyed
+
+/singleton/surgery_step/internal/replace_internal_plating/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
+
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	for(var/obj/item/organ/internal/machine/I in affected.internal_organs)
+		if(I && (I.plating.get_status() < 100))
+			user.visible_message(SPAN_NOTICE("[user] begins cutting apart the old plating around [target]'s [I] and replacing it with new plates..."))
+	..()
+
+/singleton/surgery_step/internal/replace_internal_plating/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	. = ..()
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	for(var/obj/item/organ/internal/machine/I in affected.internal_organs)
+		if(I && (I.plating.get_status() <= 0))
+			user.visible_message(SPAN_NOTICE("[user] fully replaces the plating in [target]'s [affected]."))
+			user.remove_from_mob(tool)
+			qdel(tool)
+			I.plating.heal_damage(I.plating.max_health)
+
+
+/singleton/surgery_step/internal/replace_external_plating
+	name = "Replace External Plating"
+	allowed_tools = list(
+		/obj/item/synth_plating = 100,
+	)
+
+	min_duration = 170
+	max_duration = 200
+
+	var/fast_repair = FALSE
+
+/singleton/surgery_step/internal/replace_external_plating/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
+
+	if(fast_repair)
+		if(!istype(target.species, /datum/species/machine/industrial/hephaestus))
+			return FALSE
+
+	var/armor_damaged = FALSE
+	var/datum/component/armor/synthetic/synth_armor = user.GetComponent(/datum/component/armor/synthetic)
+	if(synth_armor)
+		var/list/damage = synth_armor.get_damage()
+		if(length(damage))
+			armor_damaged = TRUE
+	return armor_damaged
+
+/singleton/surgery_step/internal/replace_external_plating/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
+	user.visible_message(SPAN_NOTICE("[user] begins stripping [target]'s old armour plating and replacing it with new plates."), SPAN_NOTICE("You begin stripping off [target]'s old armour plating and replacing it with new plates."))
+	..()
+
+/singleton/surgery_step/internal/replace_external_plating/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	. = ..()
+	user.visible_message(SPAN_NOTICE("[user] finished replacing [target]'s old armour plating with new plates."), SPAN_NOTICE("You finish replacing [target]'s old armour plating with new plates."))
+	var/datum/component/armor/synthetic/synth_armor = user.GetComponent(/datum/component/armor/synthetic)
+	for(var/key in synth_armor.armor_values)
+		synth_armor.armor_values[key] = synth_armor.max_armor_values[key]
+	qdel(tool)
+
+/singleton/surgery_step/internal/degunk
+	name = "Remove Bio-Reactor Waste"
+	allowed_tools = list(
+		/obj/item/reagent_containers/glass = 100,
+	)
+
+	min_duration = 100
+	max_duration = 150
+
+/singleton/surgery_step/internal/replace_external_plating/g2
+	name = "Replace G2 External Armour Plating"
+	min_duration = 90
+	max_duration = 100
+	fast_repair = TRUE
+
+/singleton/surgery_step/internal/degunk/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
+
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	var/obj/item/organ/internal/machine/reactor/bio_reactor = target.internal_organs_by_name[BP_REACTOR]
+	var/limb_can_operate = (affected && affected.open == ORGAN_ENCASED_RETRACTED && target_zone == BP_CHEST)
+	if(limb_can_operate)
+		if(bio_reactor && (bio_reactor.power_supply_type & POWER_SUPPLY_BIOLOGICAL))
+			var/extraneous_amount = 0
+			for(var/reagent_type in bio_reactor.bio_reagents.reagent_volumes)
+				var/reagent_amount = REAGENT_VOLUME(bio_reactor.bio_reagents, reagent_type)
+				if(!ispath(reagent_type, /singleton/reagent/nutriment))
+					extraneous_amount += reagent_amount
+			if(extraneous_amount)
+				return TRUE
+	return FALSE
+
+/singleton/surgery_step/internal/degunk/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
+	user.visible_message(SPAN_NOTICE("[user] begins draining the refuse inside of [target]'s biological reactor..."), SPAN_NOTICE("You begin draining the refuse inside of [target]'s biological reactor."))
+	..()
+
+/singleton/surgery_step/internal/degunk/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	. = ..()
+	var/obj/item/organ/internal/machine/reactor/bio_reactor = target.internal_organs_by_name[BP_REACTOR]
+	for(var/reagent_type in bio_reactor.bio_reagents.reagent_volumes)
+		var/reagent_amount = REAGENT_VOLUME(bio_reactor.bio_reagents, reagent_type)
+		if(!ispath(reagent_type, /singleton/reagent/nutriment))
+			bio_reactor.bio_reagents.trans_type_to(tool, reagent_type, reagent_amount)
+	playsound(target, 'sound/effects/drain_blood.ogg', 50)
+	user.visible_message(SPAN_NOTICE("[user] extracts the refuse in [target]'s biological reactor."), SPAN_NOTICE("You drain the refuse in [target]'s biological reactor to [tool]."))
