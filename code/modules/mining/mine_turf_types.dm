@@ -67,6 +67,10 @@
 
 	footstep_sound = /singleton/sound_category/asteroid_footstep
 
+/turf/simulated/floor/exoplanet/basalt/airless
+	initial_gas = null
+	temperature = TCMB
+
 /turf/simulated/floor/exoplanet/basalt/cave
 	name = "dense basalt"
 
