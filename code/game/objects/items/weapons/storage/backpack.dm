@@ -907,6 +907,20 @@
 	icon_state = "rucksack_tan"
 	item_state = "rucksack_tan"
 
+/*
+ * Chest pouch
+ */
+
+/obj/item/storage/backpack/chestpouch
+	name = "chest pouch"
+	desc = "A small pouch that straps across your chest."
+	icon = 'icons/obj/storage/chestpouch.dmi'
+	icon_state = "chestpouch"
+	item_state = "chestpouch"
+	w_class = WEIGHT_CLASS_HUGE // to avoid recursive backpacks
+	max_w_class = WEIGHT_CLASS_NORMAL
+	max_storage_space = DEFAULT_LARGEBOX_STORAGE
+
 // Vaurca stuff.
 
 /obj/item/storage/backpack/typec

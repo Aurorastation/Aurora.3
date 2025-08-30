@@ -75,6 +75,8 @@
 	var/rucksack_faction
 	var/pocketbook = /obj/item/storage/backpack/satchel/pocketbook
 	var/pocketbook_faction
+	var/chestpouch = /obj/item/storage/backpack/chestpouch
+	var/chestpouch_faction
 
 	var/allow_pda_choice = FALSE
 	var/tab_pda = /obj/item/modular_computer/handheld/pda/civilian
@@ -235,6 +237,14 @@
 						back = /obj/item/storage/backpack/satchel/pocketbook
 					if (OUTFIT_FACTIONSPECIFIC)
 						back = pocketbook_faction ? pocketbook_faction : pocketbook
+			if (OUTFIT_CHESTPOUCH)
+				switch(H.backbag_style)
+					if (OUTFIT_JOBSPECIFIC)
+						back = chestpouch
+					if (OUTFIT_GENERIC)
+						back = /obj/item/storage/backpack/chestpouch
+					if (OUTFIT_FACTIONSPECIFIC)
+						back = chestpouch_faction ? chestpouch_faction : chestpouch
 			else
 				// Department backpack
 				back = backpack

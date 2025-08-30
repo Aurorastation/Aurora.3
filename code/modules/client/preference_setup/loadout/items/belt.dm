@@ -40,3 +40,15 @@
 	path = /obj/item/storage/belt/security/vestbelt
 	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Investigator", "Security Personnel")
 	flags = null
+
+/datum/gear/belt/waistpack
+	display_name = "waist pack"
+	description = "A small, waist-mounted pack for... well, storing stuff!"
+	cost = 2
+	path = /obj/item/storage/belt/fannypack/waistpack
+
+/datum/gear/belt/pouchbelt
+	display_name = "belt with pouches"
+	description = "A belt coated from front to back in pouches."
+	cost = 2
+	path = /obj/item/storage/belt/fannypack/pouchbelt
