@@ -2874,7 +2874,6 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
-/obj/item/trash/pistachios,
 /obj/machinery/light/voidtamer,
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/engineering)
@@ -3068,7 +3067,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/diona,
 /turf/simulated/floor/diona,
 /area/voidtamer/trader/temple)
 "Bv" = (
@@ -3508,7 +3507,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/red,
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/diona,
 /turf/simulated/floor/diona,
 /area/voidtamer/trader/temple)
 "Ft" = (
@@ -3814,8 +3813,8 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/airlock/hatch,
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/obj/machinery/door/airlock/diona,
+/turf/simulated/floor/diona,
 /area/voidtamer/trader/autocannon_gun)
 "HR" = (
 /obj/structure/cable{
@@ -3936,10 +3935,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 8
 	},
-/obj/machinery/door/airlock/hatch{
-	dir = 4;
-	name = "Airlock";
-	req_access = list(201)
+/obj/machinery/door/airlock/diona{
+	dir = 8
 	},
 /turf/simulated/floor/diona,
 /area/voidtamer/trader/kitchen)
@@ -4906,7 +4903,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/red,
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/diona,
 /turf/simulated/floor/diona,
 /area/voidtamer/trader/dock)
 "Rz" = (
@@ -5560,7 +5557,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/crew)
 "XU" = (
-/obj/structure/inflatable/door,
+/obj/machinery/door/airlock/glass_command,
 /turf/simulated/floor/diona,
 /area/voidtamer/trader/supermatter)
 "XV" = (
