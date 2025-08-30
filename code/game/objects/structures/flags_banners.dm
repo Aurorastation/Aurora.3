@@ -1381,13 +1381,13 @@
 
 /obj/item/flag/diona
 	name = "\improper Imperial Diona standard"
-	desc = "A green Dominian standard which represents the Dionae within the Empire."
+	desc = "A strange green flag in Imperial style. What House could it represent?"
 	flag_path = "diona"
 	flag_structure = /obj/structure/sign/flag/diona
 
 /obj/structure/sign/flag/diona
 	name = "\improper Imperial Diona standard"
-	desc = "A green Dominian standard which represents the Dionae within the Empire."
+	desc = "A strange green flag in Imperial style. What House could it represent?"
 	flag_path = "diona"
 	icon_state = "diona"
 	flag_item = /obj/item/flag/diona
@@ -1424,14 +1424,14 @@
 
 /obj/item/flag/kazhkz
 	name = "\improper House Kazhkz standard"
-	desc = "A red-and-orange standard with a circular chevron which represents House Kazhkz-Han'san, one of the great houses of the \
+	desc = "A red-and-orange standard with a circular chevron which represents House Kazhkz-Han'san, one of the unathi houses of the \
 	Empire of Dominia. They are known for their more modernist nature and aversion to augmentation."
 	flag_path = "kazhkz"
 	flag_structure = /obj/structure/sign/flag/kazhkz
 
 /obj/structure/sign/flag/kazhkz
 	name = "\improper House Kazhkz standard"
-	desc = "A red-and-orange standard with a circular chevron which represents House Kazhkz-Han'san, one of the great houses of the \
+	desc = "A red-and-orange standard with a circular chevron which represents House Kazhkz-Han'san, one of the unathi houses of the \
 	Empire of Dominia. They are known for their more modernist nature and aversion to augmentation."
 	flag_path = "kazhkz"
 	icon_state = "kazhkz"
@@ -1440,14 +1440,14 @@
 /obj/item/flag/hansan
 	name = "\improper House Han'san standard"
 	desc = "A green standard with a circular chevron which represents the Clan Han'san, currently sidelined in the \
-	great House Kazhkz-Han'san. They are known for their conservative and militant nature."
+	unathi House Kazhkz-Han'san. They are known for their conservative and militant nature."
 	flag_path = "hansan"
 	flag_structure = /obj/structure/sign/flag/hansan
 
 /obj/structure/sign/flag/hansan
 	name = "\improper House Han'san standard"
 	desc = "A green standard with a circular chevron which represents the Clan Han'san, currently sidelined in the \
-	great House Kazhkz-Han'san. They are known for their conservative and militant nature."
+	unathi House Kazhkz-Han'san. They are known for their conservative and militant nature."
 	flag_path = "hansan"
 	icon_state = "hansan"
 	flag_item = /obj/item/flag/hansan
@@ -4017,4 +4017,47 @@
 	. = ..(mapload, EAST)
 
 /obj/structure/sign/flag/narrows/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
+// Zhurong
+
+/obj/item/flag/zhurong
+	name = "\improper Zhurong flag"
+	desc = "The white-and-gray flag of Zhurong. Long live the Empire, the Fleet, and House Zhao!"
+	desc_extended = "Commonly seen across Zhurong and in Zhao buildings, this flag is often regarded as the unofficial symbol of the Imperial Fleet. Zhurong shipbuilders have a tradition of carving this flag into supporting beams in ships, signifying their belief Zhurong’s steel will endure whatever is thrown at it."
+	flag_path = "zhurong"
+	flag_structure = /obj/structure/sign/flag/zhurong
+
+/obj/structure/sign/flag/zhurong
+	name = "\improper Zhurong flag"
+	desc = "The white-and-gray flag of Zhurong. Long live the Empire, the Fleet, and House Zhao!"
+	desc_extended = "Commonly seen across Zhurong and in Zhao buildings, this flag is often regarded as the unofficial symbol of the Imperial Fleet. Zhurong shipbuilders have a tradition of carving this flag into supporting beams in ships, signifying their belief Zhurong’s steel will endure whatever is thrown at it."
+	flag_path = "zhurong"
+	icon_state = "zhurong"
+	flag_item = /obj/flag/zhurong
+
+/obj/structure/sign/flag/zhurong/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/zhurong/l
+	name = "large Zhurong flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/zhurong/large
+
+/obj/structure/sign/flag/zhurong/large
+	icon_state = "zhurong_l"
+	flag_path = "zhurong"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/zhurong/l
+
+/obj/structure/sign/flag/zhurong/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/zhurong/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/zhurong/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/zhurong/large/west/Initialize(mapload)
 	. = ..(mapload, WEST)
