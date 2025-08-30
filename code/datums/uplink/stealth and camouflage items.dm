@@ -35,6 +35,13 @@
 	bluecrystal_cost = 1
 	path = /obj/item/storage/box/syndie_kit/chameleon
 
+/datum/uplink_item/item/stealth_items/chameleonarmor_kit
+	name = "Chameleon Armor Kit"
+	desc = "Comes with a full chameleon armor-kit, offers slightly worse protection than heavy armor."
+	telecrystal_cost = 2
+	bluecrystal_cost = 2
+	path = /obj/item/storage/box/syndie_kit/chameleonarmor
+
 /datum/uplink_item/item/stealth_items/voice
 	name = "Voice Changer"
 	telecrystal_cost = 1
