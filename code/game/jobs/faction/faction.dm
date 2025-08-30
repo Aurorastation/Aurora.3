@@ -7,6 +7,7 @@
 	var/list/allowed_role_types
 	var/list/allowed_species_types
 	var/list/job_species_blacklist //will override the normal job species list for a member of this faction
+	var/list/blacklisted_citizenship_types
 
 	var/is_default = FALSE
 
@@ -22,6 +23,16 @@
 			l[path] = TRUE
 
 	allowed_species_types = l
+
+	var/list/b = list()
+
+	for(var/path in blacklisted_citizenship_types)
+		if(blacklisted_citizenship_types[path] != TRUE)
+			b |= typecacheof(path, FALSE)
+		else
+			b[path] = TRUE
+
+	blacklisted_citizenship_types = b
 
 /datum/faction/proc/get_occupations()
 	. = list()
@@ -50,16 +61,25 @@
 			. += role
 
 /datum/faction/proc/get_selection_error(datum/preferences/prefs, var/mob/user)
-	if (!length(allowed_species_types))
-		return null
+	if(length(allowed_species_types))
 
-	var/datum/species/S = prefs.get_species_datum()
+		var/datum/species/S = prefs.get_species_datum()
 
-	if (!S)
-		return "No valid species selected."
+		if(!S)
+			return "No valid species selected."
 
-	if (!is_type_in_typecache(S, allowed_species_types))
-		return "Invalid species selected."
+		if(!is_type_in_typecache(S, allowed_species_types))
+			return "Invalid species selected."
+
+	if(length(blacklisted_citizenship_types))
+
+		var/datum/citizenship/C = SSrecords.citizenships[prefs.citizenship]
+
+		if(!C)
+			return "No valid nation selected."
+
+		if(is_type_in_typecache(C, blacklisted_citizenship_types))
+			return "Invalid nation selected."
 
 	if (!is_visible(user))
 		return "This faction is not available to you."
