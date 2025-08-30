@@ -2,5 +2,5 @@
 	name = "supermatter growth tray"
 	icon = 'icons/obj/diona.dmi'
 	icon_state = "smtray"
-	anchored = 1
+	anchored = 0
 	density = 1
