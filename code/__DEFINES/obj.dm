@@ -28,6 +28,13 @@
 /obj/proc/ispen()
 	return FALSE
 
+/// You have to be at least this tall to ride... meaning, this is the minimum damage a weapon must be able to inflict to damage a structure.
+#define MINIMUM_DAMAGE_TO_HIT_STRUCTURES 15
+#define STRUCTURE_LOW_HEALTH 25
+#define STRUCTURE_NORMAL_HEALTH 50
+#define STRUCTURE_HIGH_HEALTH 100
+#define STRUCTURE_VERY_HIGH_HEALTH 200
+
 // If delay between the start and the end of tool operation is less than MIN_TOOL_SOUND_DELAY,
 // tool sound is only played when op is started. If not, it's played twice.
 #define MIN_TOOL_SOUND_DELAY 20

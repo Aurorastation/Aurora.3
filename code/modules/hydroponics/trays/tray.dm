@@ -58,8 +58,8 @@
 	var/tray_light = 5
 
 	// Mechanical concerns.
-	/// Plant health.
-	var/health = 0
+	/// Plant plant_health.
+	var/plant_health = 0
 	/// Last time tray was harvested
 	var/lastproduce = 0
 	/// Cycle timing/tracking var.
@@ -291,7 +291,7 @@
 
 /// If the plant should be dead, kill it. Otherwise, don't.
 /obj/machinery/portable_atmospherics/hydroponics/proc/check_health()
-	if(seed && !dead && health <= 0)
+	if(seed && !dead && plant_health <= 0)
 		die()
 	check_level_sanity()
 	update_icon()
@@ -331,9 +331,9 @@
 			if(pestkiller_reagents[_R])
 				pestlevel += pestkiller_reagents[_R] * reagent_total
 
-			// Beneficial reagents have a few impacts along with health buffs.
+			// Beneficial reagents have a few impacts along with plant_health buffs.
 			if(beneficial_reagents[_R])
-				health += beneficial_reagents[_R][1]       * reagent_total
+				plant_health += beneficial_reagents[_R][1]       * reagent_total
 				yield_mod += beneficial_reagents[_R][2]    * reagent_total
 				mutation_mod += beneficial_reagents[_R][3] * reagent_total
 
@@ -422,7 +422,7 @@
 
 	dead = FALSE
 	age = 0
-	health = seed.get_trait(TRAIT_ENDURANCE)
+	plant_health = seed.get_trait(TRAIT_ENDURANCE)
 	lastcycle = world.time
 	stunted = FALSE
 	harvest = FALSE
@@ -478,9 +478,9 @@
 /// Verifies that all values are what they should be.
 /obj/machinery/portable_atmospherics/hydroponics/proc/check_level_sanity()
 	if(seed)
-		health =     max(0,min(seed.get_trait(TRAIT_ENDURANCE),health))
+		plant_health =     max(0,min(seed.get_trait(TRAIT_ENDURANCE),plant_health))
 	else
-		health = 0
+		plant_health = 0
 		dead = FALSE
 
 	mutation_level = max(0,min(mutation_level,100))
@@ -501,7 +501,7 @@
 	dead = FALSE
 	mutate(1)
 	age = 0
-	health = seed.get_trait(TRAIT_ENDURANCE)
+	plant_health = seed.get_trait(TRAIT_ENDURANCE)
 	lastcycle = world.time
 	harvest = FALSE
 	weedlevel = 0
@@ -551,7 +551,7 @@
 		if(do_after(user, 1 SECOND))
 			playsound(src, 'sound/items/Wirecutter.ogg', 25, 1)
 			seed.harvest(user,yield_mod,1)
-			health -= (rand(3,5)*10)
+			plant_health -= (rand(3,5)*10)
 
 			if(prob(30))
 				sampled = 1
@@ -601,7 +601,7 @@
 			dead = 0
 			age = 1
 			//Snowflakey, maybe move this to the seed datum
-			health = (istype(S, /obj/item/seeds/cutting) ? round(seed.get_trait(TRAIT_ENDURANCE)/rand(2,5)) : seed.get_trait(TRAIT_ENDURANCE))
+			plant_health = (istype(S, /obj/item/seeds/cutting) ? round(seed.get_trait(TRAIT_ENDURANCE)/rand(2,5)) : seed.get_trait(TRAIT_ENDURANCE))
 			lastcycle = world.time
 
 			qdel(attacking_item)
@@ -627,7 +627,7 @@
 
 	// Hatchets can uproot the contents of trays to kill the plant with one click.
 	else if (istype(attacking_item, /obj/item/material/hatchet) && !closed_system)
-		if(health > 0)
+		if(plant_health > 0)
 			user.visible_message(SPAN_DANGER("[user] begins uprooting the contents of \the [src]."),
 				SPAN_DANGER("You begin to uproot the contents of \the [src]."))
 
@@ -635,7 +635,7 @@
 				playsound(src, /singleton/sound_category/shovel_sound, 25, 1)
 				user.visible_message(SPAN_DANGER("[user] uproots the contents of \the [src]!"),
 					SPAN_DANGER("You successfully uproot the contents of \the [src]."))
-				health = 0
+				plant_health = 0
 				check_health()
 		else
 			to_chat(user, SPAN_DANGER("There is nothing in this plot for you to uproot!"))
@@ -677,7 +677,7 @@
 			var/total_damage = attacking_item.force
 			if ((attacking_item.sharp) || (attacking_item.damtype == "fire")) //fire and sharp things are more effective when dealing with plants
 				total_damage = 2*attacking_item.force
-			health -= total_damage
+			plant_health -= total_damage
 			check_health()
 	return
 
@@ -795,7 +795,7 @@
 	if(seed)
 		if(dead)
 			. += SPAN_DANGER("The plant is dead.")
-		else if(health <= (seed.get_trait(TRAIT_ENDURANCE)/ 2))
+		else if(plant_health <= (seed.get_trait(TRAIT_ENDURANCE)/ 2))
 			. += SPAN_BAD("The plant looks unhealthy.")
 		if(stunted)
 			. += SPAN_BAD("This harvest is stunted due to improper growing conditions, reducing yield.")

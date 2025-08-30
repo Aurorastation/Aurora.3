@@ -23,7 +23,7 @@
 	sad_emote = list("whines")
 	emote_sounds = list('sound/effects/creatures/dog_bark.ogg', 'sound/effects/creatures/dog_bark2.ogg', 'sound/effects/creatures/dog_bark3.ogg')
 
-	attacktext = "bitten"
+	attacktext = "bites"
 	attack_sound = 'sound/effects/creatures/dog_bark.ogg'
 	harm_intent_damage = 5
 	melee_damage_lower = 15

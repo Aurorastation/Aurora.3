@@ -131,7 +131,7 @@
 		data["on"] = sensors.use_power
 		data["range"] = sensors.range
 		data["health"] = sensors.health
-		data["max_health"] = sensors.max_health
+		data["max_health"] = sensors.maxhealth //todomatt: fix this BULLSHIT
 		data["deep_scan_name"] = sensors.deep_scan_sensor_name
 		data["deep_scan_range"] = sensors.deep_scan_range
 		data["deep_scan_toggled"] = sensors.deep_scan_toggled
@@ -401,8 +401,8 @@
 	icon = 'icons/obj/machinery/sensors.dmi'
 	icon_state = "sensors"
 	anchored = 1
-	var/max_health = 200
-	var/health = 200
+	health = 200
+	var/max_health
 	var/critical_heat = 50 // sparks and takes damage when active & above this heat
 	var/heat_reduction = 1.7 // mitigates this much heat per tick - can sustain range 4
 	var/heat = 0

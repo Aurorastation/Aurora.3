@@ -23,7 +23,7 @@
 	blood_type = "#006666"
 	melee_damage_lower = 10
 	melee_damage_upper = 10
-	attacktext = "chomped"
+	attacktext = "chomps"
 	attack_sound = 'sound/weapons/bite.ogg'
 	speed = 4
 	projectiletype = /obj/projectile/beam/cavern

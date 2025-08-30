@@ -4,10 +4,12 @@
 	layer = STRUCTURE_LAYER
 	blocks_emissive = EMISSIVE_BLOCK_GENERIC
 	pass_flags_self = PASSSTRUCTURE
+	destroy_sound = 'sound/effects/metalhit.ogg'
+
+	maxhealth = 50
 
 	var/material_alteration = MATERIAL_ALTERATION_ALL // Overrides for material shit. Set them manually if you don't want colors etc. See wood chairs/office chairs.
 	var/climbable
-	var/breakable
 	var/parts
 	var/list/climbers
 	var/list/footstep_sound	//footstep sounds when stepped on
@@ -40,15 +42,22 @@
 
 	return ..()
 
+/obj/structure/attackby(obj/item/attacking_item, mob/user, params)
+	. = ..()
+	if(user?.a_intent == I_HURT && maxhealth)
+		user.do_attack_animation(src)
+		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+		add_damage(attacking_item.force, attacking_item.damage_flags(), attacking_item.damtype, attacking_item.armor_penetration, attacking_item)
+		playsound(user, attacking_item.hitsound, attacking_item.get_clamped_volume())
+
 /obj/structure/attack_hand(mob/living/user)
-	if(breakable)
-		if((user.mutations & HULK) && !(user.isSynthetic()) && !(isvaurca(user)))
-			user.say(pick(";RAAAAAAAARGH!", ";HNNNNNNNNNGGGGGGH!", ";GWAAAAAAAARRRHHH!", "NNNNNNNNGGGGGGGGHH!", ";AAAAAAARRRGH!" ))
-			attack_generic(user,1,"smashes")
-		else if(istype(user,/mob/living/carbon/human))
-			var/mob/living/carbon/human/H = user
-			if(H.species.can_shred(user))
-				attack_generic(user,1,"slices")
+	if((user.mutations & HULK) && !(user.isSynthetic()) && !(isvaurca(user)))
+		user.say(pick(";RAAAAAAAARGH!", ";HNNNNNNNNNGGGGGGH!", ";GWAAAAAAAARRRHHH!", "NNNNNNNNGGGGGGGGHH!", ";AAAAAAARRRGH!" ))
+		attack_generic(user, 25, "smashes")
+	else if(istype(user,/mob/living/carbon/human))
+		var/mob/living/carbon/human/H = user
+		if(H.species.can_shred(user))
+			attack_generic(user, 25, "slices")
 
 	if(LAZYLEN(climbers) && !(user in climbers))
 		user.visible_message(SPAN_WARNING("[user] shakes \the [src]."), \
@@ -232,12 +241,16 @@
 	return 1
 
 /obj/structure/attack_generic(var/mob/user, var/damage, var/attack_verb, var/wallbreaker)
-	if(!breakable || !damage || !wallbreaker)
-		return 0
-	visible_message(SPAN_DANGER("[user] [attack_verb] the [src] apart!"))
+	if(!maxhealth)
+		return FALSE
+
 	user.do_attack_animation(src)
-	qdel(src)
-	return 1
+	visible_message(SPAN_DANGER("[user] [attack_verb] \the [src]!"))
+	add_damage(damage)
+	return TRUE
+
+/obj/structure/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
+	dismantle()
 
 /obj/structure/get_material()
 	return material

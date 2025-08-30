@@ -8,7 +8,6 @@
 	pass_flags_self = PASSTABLE | LETPASSTHROW
 	climbable = TRUE
 	layer = TABLE_LAYER
-	breakable = TRUE
 	build_amt = 1
 
 	//Preset shit
@@ -17,8 +16,7 @@
 	var/no_cargo
 
 	var/flipped = 0
-	var/maxhealth = 10
-	var/health = 10
+	health = 10
 
 	// For racks (which cannot be either of these things)
 	var/can_reinforce = 1
@@ -138,8 +136,6 @@
 		material = SSmaterials.get_material_by_name(table_mat)
 	if(table_reinf)
 		reinforced = SSmaterials.get_material_by_name(table_reinf)
-	if(reinforced)
-		breakable = FALSE
 
 	. = ..()
 
@@ -174,6 +170,7 @@
 		T.queue_icon_update()
 	return ..()
 
+//todomatt: make reinforced tables add armour
 /obj/structure/table/proc/reinforce_table(obj/item/stack/material/S, mob/user)
 	if(reinforced)
 		to_chat(user, SPAN_WARNING("\The [src] is already reinforced!"))
@@ -193,7 +190,6 @@
 
 	reinforced = common_material_add(S, user, "reinforc")
 	if(reinforced)
-		breakable = FALSE
 		update_desc()
 		queue_icon_update()
 		update_material()
@@ -253,7 +249,6 @@
 
 /obj/structure/table/proc/remove_reinforced(obj/item/screwdriver/S, mob/user)
 	reinforced = common_material_remove(user, reinforced, 40, "reinforcements", "screws", 'sound/items/Screwdriver.ogg')
-	breakable = TRUE
 
 /obj/structure/table/proc/remove_material(obj/item/wrench/W, mob/user)
 	material = common_material_remove(user, material, 20, "plating", "bolts", W.usesound)

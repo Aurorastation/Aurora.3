@@ -209,7 +209,7 @@
 			response_help = "rubs [name]'s belly"
 			melee_damage_lower = 15
 			melee_damage_upper = 15
-			attacktext = "crushed"
+			attacktext = "crushes"
 			environment_smash = 1
 			resistance = 2
 			mob_swap_flags = HUMAN|ROBOT
@@ -343,7 +343,7 @@
 
 	melee_damage_lower = 10
 	melee_damage_upper = 10
-	attacktext = "sawed"
+	attacktext = "saws"
 	attack_sound = 'sound/weapons/saw/circsawhit.ogg'
 
 	mob_size = MOB_SMALL
