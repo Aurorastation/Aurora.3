@@ -6,6 +6,8 @@
 	density = 0
 	anchored = 1
 	var/notices = 0
+	var/notice_limit = 19
+	var/base_icon = "nboard"
 
 /obj/structure/noticeboard/Initialize(mapload)
 	if (mapload)
@@ -14,7 +16,7 @@
 
 /obj/structure/noticeboard/proc/add_papers_from_turf()
 	for(var/obj/item/I in loc)
-		if(notices > 18) break
+		if(notice_limit > 19) break
 		if(istype(I, /obj/item/paper))
 			I.forceMove(src)
 			notices++
@@ -23,7 +25,7 @@
 //attaching papers!!
 /obj/structure/noticeboard/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/paper))
-		if(notices < 19)
+		if(notice_limit < 19)
 			attacking_item.add_fingerprint(user)
 			add_fingerprint(user)
 			user.drop_from_inventory(attacking_item,src)
@@ -96,6 +98,8 @@
 	var/unlocked
 	var/damage_threshold = 10 // Damage needed to shatter the glass, same as the fireaxe cabinet.
 	var/shattered
+	var/notice_limit = 6
+	var/base_icon = "comboard"
 
 /obj/structure/noticeboard/command/attack_generic(var/mob/user, var/damage, var/attack_verb, var/wallbreaker)
 	user.do_attack_animation(src)
@@ -126,7 +130,7 @@
 
 /obj/structure/noticeboard/command/add_papers_from_turf()
 	for(var/obj/item/I in loc)
-		if(notices > 5) break
+		if(notice_limit > 5) break
 		if(istype(I, /obj/item/paper))
 			I.forceMove(src)
 			notices++
@@ -134,7 +138,7 @@
 
 /obj/structure/noticeboard/command/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/paper))
-		if(notices < 6) // Command boards have less space so people are incentivized to pin actually important stuff.
+		if(notice_limit < 6) // Command boards have less space so people are incentivized to pin actually important stuff.
 			attacking_item.add_fingerprint(user)
 			add_fingerprint(user)
 			user.drop_from_inventory(attacking_item,src)
