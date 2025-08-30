@@ -607,6 +607,14 @@
 "abE" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/item/clothing/glasses/thermal{
+	pixel_y = 5;
+	pixel_x = 6
+	},
+/obj/item/device/binoculars{
+	pixel_y = -9;
+	pixel_x = -3
+	},
 /turf/simulated/floor/plating/asteroid,
 /area/cult_base/asteroid)
 "abJ" = (
@@ -1961,9 +1969,11 @@
 /area/cult_base/hallways_west)
 "agx" = (
 /obj/structure/table/steel,
-/obj/random/tool{
-	pixel_x = 5;
-	pixel_y = 5
+/obj/item/paper_bin{
+	pixel_y = 3
+	},
+/obj/item/pen{
+	pixel_y = 3
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/engineering)
@@ -4114,9 +4124,11 @@
 "atH" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/structure/table/steel,
-/obj/item/device/flashlight{
-	pixel_x = 2;
-	pixel_y = 4
+/obj/item/paper_bin{
+	pixel_y = 3
+	},
+/obj/item/pen{
+	pixel_y = 3
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/bridge)
@@ -4880,13 +4892,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/item/reagent_containers/food/drinks/waterbottle{
-	pixel_x = 8;
-	pixel_y = 5
+/obj/item/paper_bin{
+	pixel_y = 3
 	},
-/obj/random/pottedplant_small{
-	pixel_x = -5;
-	pixel_y = 6
+/obj/item/pen{
+	pixel_y = 3
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/crew_quarters)
@@ -5781,6 +5791,14 @@
 /area/cult_base/atmos_waste)
 "aEo" = (
 /obj/random/dirt_75,
+/obj/item/device/binoculars{
+	pixel_y = -5;
+	pixel_x = 3
+	},
+/obj/item/clothing/glasses/thermal{
+	pixel_y = 10;
+	pixel_x = -3
+	},
 /turf/simulated/floor/plating/asteroid,
 /area/cult_base/asteroid_inside)
 "aEy" = (
@@ -8176,6 +8194,10 @@
 /obj/item/crowbar/red{
 	pixel_y = -8
 	},
+/obj/random/pottedplant_small{
+	pixel_x = 7;
+	pixel_y = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/crew_quarters)
 "aSu" = (
@@ -8295,6 +8317,12 @@
 /area/cult_base/hallways_west)
 "aTa" = (
 /obj/structure/table/steel,
+/obj/item/paper_bin{
+	pixel_y = 3
+	},
+/obj/item/pen{
+	pixel_y = 3
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/docks_south)
 "aTb" = (
@@ -8509,6 +8537,12 @@
 /area/shuttle/cult_base/crew)
 "aUm" = (
 /obj/structure/table/steel,
+/obj/item/paper_bin{
+	pixel_y = 3
+	},
+/obj/item/pen{
+	pixel_y = 3
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/docks_west)
 "aUw" = (
@@ -9606,6 +9640,19 @@
 /obj/effect/gibspawner/robot,
 /turf/simulated/floor/exoplanet/barren,
 /area/cult_base/asteroid_inside)
+"cbY" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 9
+	},
+/obj/structure/table/steel,
+/obj/item/paper_bin{
+	pixel_y = 3
+	},
+/obj/item/pen{
+	pixel_y = 3
+	},
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/hallways_west)
 "ccS" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 6
@@ -9934,6 +9981,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/cult_base/docks_south)
+"ePl" = (
+/obj/structure/table/standard,
+/obj/item/paper_bin{
+	pixel_y = 3
+	},
+/obj/item/pen{
+	pixel_y = 3
+	},
+/turf/simulated/floor/cult,
+/area/cult_base/lounge)
 "ePV" = (
 /obj/effect/landmark/entry_point/port{
 	name = "port, cockpit";
@@ -9945,6 +10002,14 @@
 /obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/arrow/yellow{
 	dir = 4
+	},
+/obj/item/device/binoculars{
+	pixel_y = -5;
+	pixel_x = 3
+	},
+/obj/item/clothing/glasses/thermal{
+	pixel_y = 10;
+	pixel_x = -3
 	},
 /turf/simulated/floor/exoplanet/barren,
 /area/cult_base/asteroid)
@@ -10186,6 +10251,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_south)
+"grq" = (
+/obj/random/dirt_75,
+/obj/random/loot,
+/obj/structure/table/steel,
+/turf/simulated/floor/exoplanet/barren,
+/area/cult_base/asteroid_inside)
 "gvs" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -10315,6 +10386,18 @@
 /obj/random/junk,
 /turf/simulated/floor/plating,
 /area/cult_base/engineering)
+"gVr" = (
+/obj/random/dirt_75,
+/obj/item/clothing/glasses/thermal{
+	pixel_y = 6;
+	pixel_x = 5
+	},
+/obj/item/device/binoculars{
+	pixel_y = -7;
+	pixel_x = -5
+	},
+/turf/simulated/floor/exoplanet/barren,
+/area/cult_base/asteroid)
 "heE" = (
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, center";
@@ -10322,6 +10405,18 @@
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/cult_base/cargo)
+"hfy" = (
+/obj/random/dirt_75,
+/obj/item/clothing/glasses/thermal{
+	pixel_y = 6;
+	pixel_x = 3
+	},
+/obj/item/device/binoculars{
+	pixel_y = -10;
+	pixel_x = -4
+	},
+/turf/simulated/floor/exoplanet/barren,
+/area/cult_base/asteroid)
 "hfH" = (
 /obj/random/dirt_75,
 /obj/effect/shuttle_landmark/cult_base/space/south_close,
@@ -10380,6 +10475,17 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/docks_south)
+"hvQ" = (
+/obj/random/dirt_75,
+/obj/structure/table/steel,
+/obj/item/paper_bin{
+	pixel_y = 3
+	},
+/obj/item/pen{
+	pixel_y = 3
+	},
+/turf/simulated/floor/exoplanet/barren,
+/area/cult_base/asteroid_inside)
 "hxy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -10526,6 +10632,19 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/docks_south)
+"itP" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/clothing/glasses/thermal{
+	pixel_y = 5;
+	pixel_x = 6
+	},
+/obj/item/device/binoculars{
+	pixel_y = -6;
+	pixel_x = -8
+	},
+/turf/simulated/floor/exoplanet/barren,
+/area/cult_base/asteroid)
 "ivn" = (
 /obj/machinery/shipsensors/weak,
 /obj/effect/floor_decal/industrial/warning{
@@ -10965,6 +11084,19 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/docks_west)
+"llr" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/device/binoculars{
+	pixel_y = -5;
+	pixel_x = 3
+	},
+/obj/item/clothing/glasses/thermal{
+	pixel_y = 10;
+	pixel_x = -3
+	},
+/turf/simulated/floor/exoplanet/barren,
+/area/cult_base/asteroid)
 "llS" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 4
@@ -11725,6 +11857,18 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/docks_south)
+"qpW" = (
+/obj/random/dirt_75,
+/obj/item/device/binoculars{
+	pixel_y = -7;
+	pixel_x = -5
+	},
+/obj/item/clothing/glasses/thermal{
+	pixel_y = 6;
+	pixel_x = 5
+	},
+/turf/simulated/floor/exoplanet/barren,
+/area/cult_base/asteroid_inside)
 "qut" = (
 /obj/random/dirt_75,
 /obj/random/loot,
@@ -11735,6 +11879,14 @@
 /obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/arrow/yellow{
 	dir = 8
+	},
+/obj/item/device/binoculars{
+	pixel_y = -7;
+	pixel_x = -5
+	},
+/obj/item/clothing/glasses/thermal{
+	pixel_y = 6;
+	pixel_x = 5
 	},
 /turf/simulated/floor/exoplanet/barren,
 /area/cult_base/asteroid)
@@ -11750,6 +11902,19 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/docks_west)
+"qKL" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/arrow/yellow,
+/obj/item/device/binoculars{
+	pixel_y = -5;
+	pixel_x = 3
+	},
+/obj/item/clothing/glasses/thermal{
+	pixel_y = 6;
+	pixel_x = 5
+	},
+/turf/simulated/floor/plating/asteroid,
+/area/cult_base/asteroid)
 "qLi" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -12016,6 +12181,18 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/docks_west)
+"svP" = (
+/obj/random/dirt_75,
+/obj/item/device/binoculars{
+	pixel_y = -7;
+	pixel_x = -5
+	},
+/obj/item/clothing/glasses/thermal{
+	pixel_y = 6;
+	pixel_x = 5
+	},
+/turf/simulated/floor/exoplanet/barren,
+/area/cult_base/asteroid)
 "sxu" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
@@ -12146,6 +12323,18 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cult_base/crew)
+"sYg" = (
+/obj/random/dirt_75,
+/obj/item/clothing/glasses/thermal{
+	pixel_y = 10;
+	pixel_x = -3
+	},
+/obj/item/device/binoculars{
+	pixel_y = -5;
+	pixel_x = 3
+	},
+/turf/simulated/floor/exoplanet/barren,
+/area/cult_base/asteroid)
 "thD" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 6
@@ -12408,6 +12597,18 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cult_base/crew)
+"uQf" = (
+/obj/random/dirt_75,
+/obj/item/device/binoculars{
+	pixel_y = -5;
+	pixel_x = 3
+	},
+/obj/item/clothing/glasses/thermal{
+	pixel_y = 10;
+	pixel_x = -3
+	},
+/turf/simulated/floor/exoplanet/barren,
+/area/cult_base/asteroid)
 "uTw" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 9
@@ -12613,6 +12814,19 @@
 	},
 /turf/simulated/floor/plating,
 /area/cult_base/docks_west)
+"wtJ" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/device/binoculars{
+	pixel_y = -7;
+	pixel_x = -5
+	},
+/obj/item/clothing/glasses/thermal{
+	pixel_y = 6;
+	pixel_x = 5
+	},
+/turf/simulated/floor/exoplanet/barren,
+/area/cult_base/asteroid)
 "wEh" = (
 /obj/random/dirt_75,
 /obj/machinery/alarm/west{
@@ -46357,7 +46571,7 @@ aCb
 aCb
 aCb
 aCb
-axk
+svP
 aCb
 aCb
 abJ
@@ -46622,7 +46836,7 @@ akP
 alu
 hxy
 akP
-axk
+uQf
 aLb
 aCb
 aCb
@@ -47368,7 +47582,7 @@ azt
 aNz
 aUg
 ahD
-aCT
+wtJ
 apX
 aiE
 ahg
@@ -47614,7 +47828,7 @@ aCb
 aCb
 aCb
 aLb
-axk
+hfy
 aBN
 aNz
 aNz
@@ -47633,7 +47847,7 @@ ala
 apX
 aCb
 aLb
-awF
+qKL
 apZ
 aUi
 azO
@@ -49197,7 +49411,7 @@ akP
 aok
 alb
 sRK
-alb
+cbY
 aDI
 akP
 aCb
@@ -49715,7 +49929,7 @@ aJu
 aGn
 akP
 aLj
-axk
+svP
 aCb
 alx
 ast
@@ -52789,8 +53003,8 @@ aIZ
 aIZ
 aAz
 aIZ
-amB
-cKD
+hvQ
+grq
 aGQ
 aGQ
 alK
@@ -53037,7 +53251,7 @@ abp
 aYY
 aGp
 vxY
-amB
+qpW
 aGQ
 aGQ
 alK
@@ -55619,7 +55833,7 @@ aQo
 ajS
 aAa
 aQo
-aQo
+ePl
 kbT
 aje
 ckf
@@ -56143,7 +56357,7 @@ ang
 aai
 aZN
 aCT
-axk
+sYg
 aCb
 aCb
 aUe
@@ -57680,7 +57894,7 @@ aMi
 ake
 aOJ
 aLb
-axk
+gVr
 aCb
 aCb
 aCb
@@ -59218,7 +59432,7 @@ aKN
 rKT
 ajt
 aKN
-aCT
+itP
 aCb
 aCb
 aWD
@@ -59461,7 +59675,7 @@ aCb
 aCb
 aCb
 qut
-aCT
+llr
 aCb
 awF
 ake
