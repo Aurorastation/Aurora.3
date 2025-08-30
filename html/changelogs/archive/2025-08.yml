@@ -472,3 +472,13 @@
   - rscadd: Added ceres lance gear loadouts to the uplink, aswell as a nerfed bunker
       suit to the uplink.
   - rscadd: Added a modkit for ceres lance voidsuits.
+2025-08-30:
+  ASmallCuteCat:
+  - rscadd: Added snakes to the list of animals that can infest the ship.
+  FabianK3:
+  - rscadd: Added a new area, the Hangar Air Station. The hallway in front of the
+      pilot room on deck one has been repurposed to an air station allowing the hanger
+      crew to handle refilling shuttles with air and allowing them to dispose of waste
+      air safely.
+  Fyni:
+  - rscadd: Nerfs door rigged mines.
