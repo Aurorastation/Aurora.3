@@ -886,3 +886,8 @@
 #define ACCESS_HIMEO_PATROL_SHIP 253
 	id = ACCESS_HIMEO_PATROL_SHIP
 	desc = "Himean Military Patrol Vessel"
+
+#define ACCESS_VOIDTAMER_SHIP 254
+/datum/access/voidtamer_ship
+	id = ACCESS_VOIDTAMER_SHIP
+	access_type = ACCESS_TYPE_CENTCOM
