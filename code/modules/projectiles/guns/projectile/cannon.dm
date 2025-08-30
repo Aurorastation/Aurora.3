@@ -133,6 +133,7 @@
 	is_wieldable = TRUE
 
 	max_shells = 1
+	var/cooling_down = FALSE
 
 /obj/item/gun/projectile/peac/update_icon()
 	..()
@@ -151,3 +152,21 @@
 
 /obj/item/gun/projectile/peac/unloaded
 	ammo_type = null
+
+/obj/item/gun/projectile/peac/Fire(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0, accuracy_decrease=0, is_offhand=0)
+	if(cooling_down)
+		to_chat(user, SPAN_WARNING("The capacitors of \the [src] are still cooling down!"))
+		return FALSE
+	var/ammo_before = get_ammo() //We check ammo so the cooldown doesn't trigger on dry firing
+	var/check = ..()
+	if(check == FALSE)
+		return FALSE
+	var/ammo_after = get_ammo()
+	if(ammo_after >= ammo_before)
+		return check
+	cooling_down = TRUE
+	playsound(src, 'sound/weapons/peac_recharge.ogg', 30, 1)
+	spawn(0)
+		sleep(9 SECONDS)
+		cooling_down = FALSE
+	return TRUE
