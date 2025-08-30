@@ -230,7 +230,7 @@ var/global/list/default_interrogation_channels = list(
 		wires.interact(user)
 
 	return ui_interact(user)
-
+/*
 /obj/item/device/radio/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	var/data[0]
 
@@ -256,7 +256,7 @@ var/global/list/default_interrogation_channels = list(
 		ui = new(user, src, ui_key, "radio_basic.tmpl", "[name]", 400, 430)
 		ui.set_initial_data(data)
 		ui.open()
-
+*/
 /obj/item/device/radio/proc/setupRadioDescription(var/additional_radio_desc)
 	var/radio_text = ""
 	var/found_first_department = FALSE
@@ -385,7 +385,7 @@ var/global/list/default_interrogation_channels = list(
 		return TRUE
 
 	if(.)
-		SSnanoui.update_uis(src)
+		// SSnanoui.update_uis(src)
 		update_icon()
 
 /obj/item/device/radio/proc/autosay(var/message, var/from, var/channel) //BS12 EDIT
@@ -703,9 +703,9 @@ var/global/list/default_interrogation_channels = list(
 				to_chat(usr, SPAN_NOTICE("Loadspeaker enabled."))
 		. = 1
 
-	if(.)
-		SSnanoui.update_uis(src)
-
+	// if(.)
+		// SSnanoui.update_uis(src)
+/*
 /obj/item/device/radio/borg/interact(mob/user as mob)
 	if(!on)
 		return
@@ -739,8 +739,9 @@ var/global/list/default_interrogation_channels = list(
 		ui = new(user, src, ui_key, "radio_basic.tmpl", "[name]", 400, 430)
 		ui.set_initial_data(data)
 		ui.open()
+*/
+/obj/item/device/radio/proc/config(var/op)
 
-/obj/item/device/radio/proc/config(op)
 	if(SSradio)
 		for (var/ch_name in channels)
 			SSradio.remove_object(src, radiochannels[ch_name])
@@ -749,8 +750,8 @@ var/global/list/default_interrogation_channels = list(
 	if(SSradio)
 		for (var/ch_name in op)
 			secure_radio_connections[ch_name] = SSradio.add_object(src, radiochannels[ch_name],  RADIO_CHAT)
-	return
 
+	return
 //
 // Radio Variants
 //

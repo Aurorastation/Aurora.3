@@ -745,10 +745,10 @@ pixel_x = 10;
 	return interact(user)
 
 /obj/machinery/alarm/interact(mob/user)
-	ui_interact(user)
+	// ui_interact(user)
 	if (panel_open)
 		wires.interact(user)
-
+/*
 /obj/machinery/alarm/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, var/master_ui = null, var/datum/ui_state/state = GLOB.default_state)
 	var/data = list()
 	var/remote_connection = 0
@@ -777,7 +777,7 @@ pixel_x = 10;
 		ui.set_initial_data(data)
 		ui.open()
 		ui.set_auto_update(1)
-
+*/
 /obj/machinery/alarm/proc/populate_status(var/data)
 	var/turf/location = get_turf(src)
 	if(!istype(location)) return

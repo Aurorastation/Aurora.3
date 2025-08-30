@@ -1,8 +1,8 @@
 import { useBackend } from '../backend';
-import { Button, Knob, LabeledControls } from '../components';
+import { Button, Knob, LabeledControls } from 'tgui-core/components';
 import { Window } from '../layouts';
-import { BooleanLike } from '../../common/react';
-import { Box } from '../components';
+import type { BooleanLike } from 'tgui-core/react';
+import { Box } from 'tgui-core/components';
 
 export type HowitzerData = {
   loaded_shot: BooleanLike;
@@ -10,8 +10,8 @@ export type HowitzerData = {
   vertical_angle: number;
 };
 
-export const Howitzer = (props, context) => {
-  const { act, data } = useBackend<HowitzerData>(context);
+export const Howitzer = (props) => {
+  const { act, data } = useBackend<HowitzerData>();
   return (
     <Window>
       <Window.Content>

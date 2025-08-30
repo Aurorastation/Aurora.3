@@ -1,7 +1,7 @@
 import { useBackend } from '../backend';
-import { Button, Knob, LabeledControls, Section, LabeledList } from '../components';
+import { Button, Knob, LabeledControls, Section, LabeledList } from 'tgui-core/components';
 import { Window } from '../layouts';
-import { BooleanLike } from '../../common/react';
+import type { BooleanLike } from 'tgui-core/react';
 
 export type BluespaceDriveData = {
   energized: BooleanLike;
@@ -12,47 +12,42 @@ export type BluespaceDriveData = {
   fuel_gas: number;
 };
 
-export const BluespaceDrive = (props, context) => {
-  const { act, data } = useBackend<BluespaceDriveData>(context);
+export const BluespaceDrive = (props) => {
+  const { act, data } = useBackend<BluespaceDriveData>();
   return (
-    <Window width="382" height="277" theme="hephaestus">
+    <Window theme="hephaestus">
       <Window.Content>
         <Section title="Drive Configuration">
           <LabeledControls>
-            <LabeledControls.Item>
+            <LabeledControls.Item label="Energize">
               <Button
-                name="Energize"
                 content={data.energized ? 'Energized' : 'Energize'}
                 color={data.energized ? 'green' : 'red'}
                 onClick={() => act('toggle_energized')}
               />
             </LabeledControls.Item>
-            <LabeledControls.Item>
+            <LabeledControls.Item label="Purge Charge">
               <Button
-                name="Purge Charge"
                 content="Purge Charge"
                 color="red"
                 disabled={!data.charge || data.jumping}
                 onClick={() => act('purge_charge')}
               />
             </LabeledControls.Item>
-            <LabeledControls.Item>
+            <LabeledControls.Item label="Rotation">
               <Knob
-                name="Rotation"
                 animated
                 value={data.rotation}
                 unit="°"
                 minValue={0}
                 maxValue={359}
-                disabled={!data.charge}
                 onChange={(e, value) =>
                   act('set_rotation', { rotation: value })
                 }
               />
             </LabeledControls.Item>
-            <LabeledControls.Item>
+            <LabeledControls.Item label="Jump">
               <Button
-                name="Jump"
                 content="Jump"
                 color="green"
                 disabled={!data.charge || data.jumping}

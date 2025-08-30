@@ -1,8 +1,8 @@
 import { Loader } from './common/Loader';
 import { InputButtons } from './common/InputButtons';
 import { useBackend, useLocalState } from '../backend';
-import { KEY_ENTER, KEY_ESCAPE } from '../../common/keycodes';
-import { Box, Section, Stack, TextArea } from '../components';
+import { KEY_ENTER, KEY_ESCAPE } from 'tgui-core/keycodes';
+import { Box, Section, Stack, TextArea } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 type TextInputData = {
@@ -23,8 +23,8 @@ export const removeAllSkiplines = (toSanitize: string) => {
   return toSanitize.replace(/[\r\n]+/, '');
 };
 
-export const TextInputModal = (props, context) => {
-  const { act, data } = useBackend<TextInputData>(context);
+export const TextInputModal = (props) => {
+  const { act, data } = useBackend<TextInputData>();
   const {
     large_buttons,
     max_length,
@@ -35,7 +35,6 @@ export const TextInputModal = (props, context) => {
     title,
   } = data;
   const [input, setInput] = useLocalState<string>(
-    context,
     'input',
     placeholder || ''
   );
@@ -92,8 +91,8 @@ export const TextInputModal = (props, context) => {
 };
 
 /** Gets the user input and invalidates if there's a constraint. */
-const InputArea = (props, context) => {
-  const { act, data } = useBackend<TextInputData>(context);
+const InputArea = (props) => {
+  const { act, data } = useBackend<TextInputData>();
   const { max_length, multiline } = data;
   const { input, onType } = props;
 

@@ -1,5 +1,5 @@
 import { useBackend } from '../backend';
-import { Button, Section, Box, LabeledList } from '../components';
+import { Button, Section, Box, LabeledList } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type ShuttleControlConsoleMultiAntagData = {
@@ -18,12 +18,12 @@ export type ShuttleControlConsoleMultiAntagData = {
   destination_name: string;
 };
 
-export const ShuttleControlConsoleMultiAntag = (props, context) => {
+export const ShuttleControlConsoleMultiAntag = (props) => {
   const { act, data } =
-    useBackend<ShuttleControlConsoleMultiAntagData>(context);
+    useBackend<ShuttleControlConsoleMultiAntagData>();
 
   return (
-    <Window resizable theme="syndicate">
+    <Window theme="syndicate">
       <Window.Content scrollable>
         <Section title="Shuttle Status">
           <Box pb={2}>{data.shuttle_status}</Box>

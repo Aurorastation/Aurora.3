@@ -42,7 +42,7 @@
 				enabled_services -= service
 
 	working = hard_drive && processor_unit && damage < broken_damage && computer_use_power()
-	check_update_ui_need()
+	// check_update_ui_need()
 
 	if(looping_sound && working && enabled && world.time > ambience_last_played_time + 30 SECONDS && prob(3))
 		playsound(get_turf(src), /singleton/sound_category/computerbeep_sound, 30, 1, 10, required_preferences = ASFX_AMBIENCE)
@@ -411,16 +411,16 @@
 		ui_interact(user)
 		update_icon()
 	return TRUE
-
+/*
 /obj/item/modular_computer/proc/update_uis()
 	if(active_program) //Should we update program ui or computer ui?
-		SSnanoui.update_uis(active_program)
+		// SSnanoui.update_uis(active_program)
 		SStgui.update_uis(src)
 		if(active_program.NM)
-			SSnanoui.update_uis(active_program.NM)
+			// SSnanoui.update_uis(active_program.NM)
 	else
 		SStgui.update_uis(src)
-		SSnanoui.update_uis(src)
+		// SSnanoui.update_uis(src)
 
 /obj/item/modular_computer/proc/check_update_ui_need()
 	var/ui_update_needed = FALSE
@@ -455,7 +455,7 @@
 
 	if(ui_update_needed)
 		update_uis()
-
+*/
 // Used by camera monitor program
 /obj/item/modular_computer/check_eye(var/mob/user)
 	if(active_program)

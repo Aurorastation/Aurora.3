@@ -1,7 +1,6 @@
-import { BooleanLike } from '../../../common/react';
+import { BooleanLike } from '../tgui-core/react';
 import { useBackend } from '../../backend';
-import { Button, Icon, Section, Table, Tooltip } from '../../components';
-import { TableCell, TableRow } from '../../components/Table';
+import { Button, Icon, Section, Table, Tooltip } from 'tgui-core/components';
 
 type ManifestData = {
   manifest: { department: Crew[] };
@@ -15,8 +14,8 @@ type Crew = {
   head: BooleanLike;
 };
 
-export const ManifestSection = (props, context) => {
-  const { act, data } = useBackend<ManifestData>(context);
+export const ManifestSection = (props) => {
+  const { act, data } = useBackend<ManifestData>();
   const manifest = data.manifest || {};
   const allow_follow = data.allow_follow;
   return (
@@ -34,22 +33,22 @@ export const ManifestSection = (props, context) => {
             <Table>
               {deptCrew.map((crewmate) => {
                 return (
-                  <TableRow
+                  <Table.Row
                     key={crewmate.name}
                     bold={crewmate.head}
                     overflow="hidden">
-                    <TableCell width="50%" textAlign="center" pt="10px" nowrap>
+                    <Table.Cell width="50%" textAlign="center" pt="10px" nowrap>
                       {crewmate.name}
-                    </TableCell>
-                    <TableCell
+                    </Table.Cell>
+                    <Table.Cell
                       width="45%"
                       textAlign="right"
                       pr="2%"
                       pt="10px"
                       nowrap>
                       {crewmate.rank}
-                    </TableCell>
-                    <TableCell textAlign="right" width="5%" pr="3%" pt="10px">
+                    </Table.Cell>
+                    <Table.Cell textAlign="right" width="5%" pr="3%" pt="10px">
                       <Tooltip content={crewmate.active}>
                         <Icon
                           name="circle"
@@ -63,9 +62,9 @@ export const ManifestSection = (props, context) => {
                           }
                         />
                       </Tooltip>
-                    </TableCell>
+                    </Table.Cell>
                     {allow_follow ? (
-                      <TableCell textAlign="right">
+                      <Table.Cell textAlign="right">
                         <Tooltip content="Follow Mob">
                           <Button
                             content="F"
@@ -74,11 +73,11 @@ export const ManifestSection = (props, context) => {
                             }
                           />
                         </Tooltip>
-                      </TableCell>
+                      </Table.Cell>
                     ) : (
                       ''
                     )}
-                  </TableRow>
+                  </Table.Row>
                 );
               })}
             </Table>

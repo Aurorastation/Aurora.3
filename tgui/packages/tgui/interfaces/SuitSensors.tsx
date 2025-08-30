@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Button, Section, Table } from '../components';
+import { Button, Section, Table } from 'tgui-core/components';
 import { NtosWindow } from '../layouts';
 
 export type SensorsData = {
@@ -28,11 +28,11 @@ type CrewMember = {
   z: number;
 };
 
-export const SuitSensors = (props, context) => {
-  const { act, data } = useBackend<SensorsData>(context);
+export const SuitSensors = (props) => {
+  const { act, data } = useBackend<SensorsData>();
 
   return (
-    <NtosWindow resizable width={900}>
+    <NtosWindow width={900}>
       <NtosWindow.Content scrollable>
         <Section title="Suit Sensors">
           <Table>

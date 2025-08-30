@@ -1,5 +1,5 @@
 import { useBackend } from '../backend';
-import { BlockQuote, Box, Button, Input, Section } from '../components';
+import { BlockQuote, Box, Button, Input, Section } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type pAIData = {
@@ -9,11 +9,11 @@ export type pAIData = {
   comments: string;
 };
 
-export const pAIRecruitment = (props, context) => {
-  const { act, data } = useBackend<pAIData>(context);
+export const pAIRecruitment = (props) => {
+  const { act, data } = useBackend<pAIData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section
           title="pAI Recruitment"

@@ -46,12 +46,12 @@
 		id_tag = null
 		lan = null
 	return lan
-
+/*
 /datum/component/local_network_member/nano_host()
 	if(parent)
 		return parent.nano_host()
 	. = ..()
-
+*/
 /datum/component/local_network_member/proc/get_new_tag(mob/user)
 	var/new_ident = input(user, "Enter a new ident tag.", "[parent]", id_tag) as null|text
 	if(new_ident && parent && user.Adjacent(parent) && CanInteract(user, GLOB.physical_state))

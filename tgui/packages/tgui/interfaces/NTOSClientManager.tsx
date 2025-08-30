@@ -1,6 +1,6 @@
-import { BooleanLike } from 'common/react';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend, useLocalState } from '../backend';
-import { BlockQuote, Box, Button, Dropdown, LabeledList, NoticeBox, Section, Tabs } from '../components';
+import { BlockQuote, Box, Button, Dropdown, LabeledList, NoticeBox, Section, Tabs } from 'tgui-core/components';
 import { NtosWindow } from '../layouts';
 
 type NTOSClientData = {
@@ -9,16 +9,14 @@ type NTOSClientData = {
   ntnet_status: BooleanLike;
 };
 
-const DeviceEnrollment = (props, context) => {
-  const { act, data } = useBackend<NTOSClientData>(context);
+const DeviceEnrollment = (props) => {
+  const { act, data } = useBackend<NTOSClientData>();
   const { available_presets, ntnet_status } = data;
   const [deviceType, setDeviceType] = useLocalState(
-    context,
     'setDeviceType',
     1
   );
   const [devicePreset, setDevicePreset] = useLocalState(
-    context,
     'setDevicePreset',
     ''
   );
@@ -82,8 +80,8 @@ const DeviceEnrollment = (props, context) => {
   }
 };
 
-export const NTOSClientManager = (props, context) => {
-  const { act, data } = useBackend<NTOSClientData>(context);
+export const NTOSClientManager = (props) => {
+  const { act, data } = useBackend<NTOSClientData>();
   const { enrollment } = data;
   return (
     <NtosWindow>

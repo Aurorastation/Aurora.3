@@ -16,8 +16,7 @@
         },
         "problemMatcher": [
             "$dreammaker",
-            "$tsc",
-            "$eslint-stylish"
+            "$tsc"
         ],
         "group": {
             "kind": "build",
@@ -61,8 +60,7 @@
 				"command": ".\\bin\\tgui-build.cmd"
 			},
 			"problemMatcher": [
-				"$tsc",
-				"$eslint-stylish"
+				"$tsc"
 			],
 			"group": "build",
 			"label": "tgui: build"
@@ -74,37 +72,10 @@
 				"command": ".\\bin\\tgui-dev.cmd"
 			},
 			"problemMatcher": [
-				"$tsc",
-				"$eslint-stylish"
+				"$tsc"
 			],
 			"group": "build",
 			"label": "tgui: dev server"
-		},
-		{
-			"type": "shell",
-			"command": "bin/tgui-bench",
-			"windows": {
-				"command": ".\\bin\\tgui-bench.cmd"
-			},
-			"problemMatcher": [
-				"$tsc",
-				"$eslint-stylish"
-			],
-			"group": "build",
-			"label": "tgui: bench"
-		},
-		{
-			"type": "shell",
-			"command": "bin/tgui-sonar",
-			"windows": {
-				"command": ".\\bin\\tgui-sonar.cmd"
-			},
-			"problemMatcher": [
-				"$tsc",
-				"$eslint-stylish"
-			],
-			"group": "build",
-			"label": "tgui: sonar"
 		},
 		{
 			"type": "shell",
@@ -113,8 +84,7 @@
 				"command": ".\\bin\\tgfont.cmd"
 			},
 			"problemMatcher": [
-				"$tsc",
-				"$eslint-stylish"
+				"$tsc"
 			],
 			"group": "build",
 			"label": "tgui: rebuild tgfont"
