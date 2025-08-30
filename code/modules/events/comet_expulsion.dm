@@ -62,9 +62,12 @@
 /obj/effect/meteor/comet_expulsion
 	heavy = TRUE
 	ignore_shield_destruction = TRUE
-	hitpwr = 2
+	hitpwr = 3
 
 /obj/effect/meteor/comet_expulsion/Collide(atom/A)
+	// Low chance that its a big boi
+	if(prob(3))
+		hitpwr = 5
 	//If there's shields and it's strong enough, the power of the explosion is reduced, but it won't stop it
 	if(istype(A, /obj/effect/energy_field))
 		var/obj/effect/energy_field/impacted_energy_field = A
@@ -76,7 +79,6 @@
 
 /obj/effect/meteor/comet_expulsion/meteor_effect()
 	. = ..()
-
 	explosion(get_turf(src), ROUND_UP(hitpwr), ROUND_UP(hitpwr*1.2), ROUND_UP(hitpwr*1.4))
 
 
@@ -87,12 +89,15 @@
 /datum/event/comet_expulsion
 	severity = EVENT_LEVEL_MAJOR
 	startWhen = 30
+	/// Number of meteors aimed directly at Horizon (few)
+	var/meteors_aimed = 0
+	/// Number of meteors traveling on random trajectories on the overmap (lots)
+	var/meteors_random = 0
 
 /datum/event/comet_expulsion/setup()
 	if(!SSatlas.current_map.use_overmap)
 		qdel(src)
 		return
-
 
 /datum/event/comet_expulsion/start()
 	. = ..()
@@ -105,10 +110,35 @@
 	var/obj/effect/overmap/visitable/target = GLOB.map_sectors["[pick(possible_station_levels)]"]
 
 	if(!istype(target))
+		log_and_message_admins("Comet Expulsion failed to find a viable overmap target.")
 		qdel(src)
 		return
+	/**
+	 * These numbers may seem high, but the overmap is a Big Place. Meteors aimed at the Horizon will impact along its outer hull, if they manage to strike.
+	 * Huddling crew in the Central Ring is the easiest way to keep them safe. The overwhelming majority of unaimed meteors will almost never come close; they
+	 * just need to ensure there's stuff to dodge in most directions.
+	 */
+	meteors_aimed = (rand(2,5))
+	meteors_random = (rand(12,24))
 
+	// Rocks aimed directly at us.
+	for(var/x in 1 to meteors_aimed)
+		fire_comet(target, TRUE)
+	// Rocks flying around nearby to dodge.
+	for(var/y in 1 to meteors_random)
+		fire_comet(target)
+
+	log_and_message_admins("Comet Expulsion has spawned meteors: [meteors_aimed] aimed at Horizon, [meteors_random] traveling random directions")
+
+/**
+ * Generate a meteor and fire it from the overmap edge in the general direction of, but not directly at, the Horizon.
+ *
+ * Parameter:
+ * * aimed - aim DIRECTLY at the horizon: guaranteed collision if no action is taken.
+ */
+/datum/event/comet_expulsion/proc/fire_comet(var/obj/effect/overmap/visitable/target, var/aimed = FALSE)
 	var/list/turf/unsimulated/map/edge/overmap_edges = list()
+	var/projectile_angle
 
 	for(var/turf/unsimulated/map/edge/E in block(locate(1,1,SSatlas.current_map.overmap_z), locate(SSatlas.current_map.overmap_size,SSatlas.current_map.overmap_size,SSatlas.current_map.overmap_z)))
 		overmap_edges += E
@@ -121,12 +151,19 @@
 	var/obj/projectile/comet_expulsion/our_comet = new(source)
 	our_comet.preparePixelProjectile(target, source)
 	our_comet.original = target
-	our_comet.fire(get_angle(source, target))
 
+	// Get the angle to hit our target directly.
+	projectile_angle = get_angle(source, target)
+	// If we're not aiming, introduce random deviation.
+	if(!aimed)
+		var/random_deviation = rand(-75, 75)
+		projectile_angle = abs((projectile_angle + random_deviation) % 360)
+
+	our_comet.fire(projectile_angle)
 
 /datum/event/comet_expulsion/announce_start()
 	. = ..()
-	command_announcement.Announce("Warning, long range field scanners have detected an unforseen comet mass expulsion in collision route with [location_name()].\n\
+	command_announcement.Announce("Warning, long range field scanners have detected an unforeseen comet expulsion in collision route with [location_name()].\n\
 									All hands, assume defense condition, perform evasive maneuvers to avoid collision with the debris cloud. Damage control teams prepare to respond to breaches of the \
 									vessel perimeter.",
 									"[location_name()] Long Range Field Objects Sensor Array", new_sound = 'sound/effects/Evacuation.ogg', zlevels = affecting_z)
