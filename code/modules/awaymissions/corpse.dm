@@ -186,7 +186,7 @@
 	corpseidaccess = "Physician"
 
 /obj/effect/landmark/corpse/engineer
-	name = "Engineer"
+	name = "Ship Engineer"
 	corpseradio = /obj/item/device/radio/headset/headset_eng
 	corpseuniform = /obj/item/clothing/under/rank/engineer
 	corpseback = /obj/item/storage/backpack/industrial
