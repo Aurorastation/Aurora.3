@@ -299,7 +299,7 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile/commanded)
 		if(M in friends)
 			friends -= M
 
-/mob/living/simple_animal/hostile/commanded/attack_generic(var/mob/user, var/damage, var/attack_message)
+/mob/living/simple_animal/hostile/commanded/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	..()
 
 	// We forgive our master

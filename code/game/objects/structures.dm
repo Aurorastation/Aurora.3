@@ -231,8 +231,8 @@
 		return 0
 	return 1
 
-/obj/structure/attack_generic(var/mob/user, var/damage, var/attack_verb, var/wallbreaker)
-	if(!breakable || !damage || !wallbreaker)
+/obj/structure/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
+	if(!breakable || !damage || !environment_smash)
 		return 0
 	visible_message(SPAN_DANGER("[user] [attack_verb] the [src] apart!"))
 	user.do_attack_animation(src)

@@ -70,7 +70,7 @@
 	else if(src.health < src.maxhealth * 3/4)
 		. += SPAN_WARNING("\The [src] shows signs of damage!")
 
-/obj/machinery/door/attack_generic(var/mob/user, var/damage)
+/obj/machinery/door/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	if(damage >= 10)
 		visible_message(SPAN_DANGER("\The [user] smashes into the [src]!"))
 		playsound(src.loc, hitsound, 60, 1)

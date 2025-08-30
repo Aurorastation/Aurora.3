@@ -393,7 +393,7 @@
 	else
 		return light_range != brightness_range || light_power != brightness_power || light_color != brightness_color
 
-/obj/machinery/light/attack_generic(var/mob/user, var/damage)
+/obj/machinery/light/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	if(!damage)
 		return
 	if(status == LIGHT_EMPTY)

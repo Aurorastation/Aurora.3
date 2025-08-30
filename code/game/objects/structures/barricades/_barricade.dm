@@ -141,7 +141,7 @@
 				var/attack_verb = pick("mangles", "slices", "slashes", "shreds")
 				attack_generic(user, UA.damage, attack_verb)
 
-/obj/structure/barricade/attack_generic(mob/user, damage, attack_verb, wallbreaker)
+/obj/structure/barricade/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	if(!damage)
 		return FALSE
 	if(!isliving(user))

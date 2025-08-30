@@ -62,7 +62,7 @@
 		CHECK_TICK
 	T.ChangeTurf(type)
 
-/turf/unsimulated/wall/supermatter/attack_generic(mob/user as mob)
+/turf/unsimulated/wall/supermatter/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	return attack_hand(user)
 
 /turf/unsimulated/wall/supermatter/attack_robot(mob/user as mob)

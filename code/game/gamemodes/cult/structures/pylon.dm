@@ -367,7 +367,7 @@
 	else
 		attackpylon(user, 4, user)
 
-/obj/structure/cult/pylon/attack_generic(mob/user, damage)
+/obj/structure/cult/pylon/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 
 	//Artificiers maintain pylons

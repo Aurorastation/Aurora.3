@@ -722,8 +722,8 @@
 			var/obj/O = A
 			O.hear_talk(M, text, verb, speaking)
 
-/obj/structure/closet/attack_generic(var/mob/user, var/damage, var/attack_message = "attacks", var/wallbreaker)
-	if(!damage || !wallbreaker)
+/obj/structure/closet/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
+	if(!damage || !environment_smash)
 		return
 	user.do_attack_animation(src)
 	visible_message(SPAN_DANGER("[user] [attack_message] \the [src]!"))

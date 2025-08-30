@@ -20,7 +20,7 @@
 		return
 	attack_hand(user)
 
-/obj/structure/droppod_door/attack_generic(var/mob/user)
+/obj/structure/droppod_door/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	attack_hand(user)
 
 /obj/structure/droppod_door/attack_hand(var/mob/user)

@@ -189,7 +189,7 @@
 		A.all_doors.Remove(src)
 	. = ..()
 
-/obj/machinery/door/firedoor/attack_generic(var/mob/user, var/damage)
+/obj/machinery/door/firedoor/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	if(stat & (BROKEN|NOPOWER))
 		if(damage >= 10)
 			if(src.density)
