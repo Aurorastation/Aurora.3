@@ -1,14 +1,3 @@
-/datum/hud/proc/ipcvirus_hud()
-	other = list()
-
-	var/obj/living/carbon/human/ipc = mymob
-
-	adding = list(
-		new pick(typesof(/atom/movable/screen/virus)),
-	)
-
-	mymob.client.screen += adding + other
-
 /atom/movable/screen/virus
 	icon = 'icons/mob/screen/ipc_virus.dmi'
 	icon_state = "norinori"
