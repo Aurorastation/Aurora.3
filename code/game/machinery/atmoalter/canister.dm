@@ -103,21 +103,21 @@
 	. = ..()
 	air_contents.adjust_gas(GAS_HYDROGEN, MolesForPressure())
 
-/obj/machinery/portable_atmospherics/canister/hydrogen/deuterium
+/obj/machinery/portable_atmospherics/canister/deuterium
 	name = "\improper Deuterium \[2H\]"
 	icon_state = "teal"
 	canister_color = "teal"
 	can_label = 0
-/obj/machinery/portable_atmospherics/canister/hydrogen/deuterium/Initialize()
+/obj/machinery/portable_atmospherics/canister/deuterium/Initialize()
 	. = ..()
 	air_contents.adjust_gas(GAS_DEUTERIUM, MolesForPressure())
 
-/obj/machinery/portable_atmospherics/canister/hydrogen/tritium
+/obj/machinery/portable_atmospherics/canister/tritium
 	name = "\improper Tritium \[3H\]"
 	icon_state = "pink"
 	canister_color = "pink"
 	can_label = 0
-/obj/machinery/portable_atmospherics/canister/hydrogen/tritium/Initialize()
+/obj/machinery/portable_atmospherics/canister/tritium/Initialize()
 	. = ..()
 	air_contents.adjust_gas(GAS_TRITIUM, MolesForPressure())
 

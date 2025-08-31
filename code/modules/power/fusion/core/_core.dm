@@ -15,8 +15,8 @@
 	anchored = FALSE
 
 	var/obj/effect/fusion_em_field/owned_field
-	/// The currently configured Field Strength (0.2 = 20 Tesla).
-	var/field_strength = 0.2
+	/// The currently configured Field Strength (1 = 100 Tesla).
+	var/field_strength = 1
 	/// This is for the INDRA, allowing a maximum 5-radius field. Change this for larger/smaller reactors.
 	var/field_strength_max = 1.2
 	var/initial_id_tag
@@ -81,7 +81,7 @@
 /obj/machinery/power/fusion_core/proc/set_strength(value)
 	value = clamp(value, MIN_FIELD_STR, MAX_FIELD_STR)
 	field_strength = value
-	change_power_consumption(5 * value, POWER_USE_ACTIVE)
+	change_power_consumption(1500 * value, POWER_USE_ACTIVE)
 	if(owned_field)
 		owned_field.ChangeFieldStrength(value)
 

@@ -1,8 +1,9 @@
-#define FUSION_ENERGY_PER_K				20
+#define FUSION_ENERGY_PER_K				5
 #define FUSION_INSTABILITY_DIVISOR		50000
 #define FUSION_RUPTURE_THRESHOLD		25000
-#define FUSION_REACTANT_CAP				15000
+#define FUSION_REACTANT_CAP				10000
 #define FUSION_WARNING_DELAY 			20
+#define FUSION_BLACKBODY_MULTIPLIER		24
 
 /obj/effect/fusion_em_field
 	name = "electromagnetic field"
@@ -29,7 +30,7 @@
 	var/radiation_archive_4 = 0
 	var/radiation_archive_5 = 0
 	/// The currently configured Field Strength (0.2 = 20 Tesla). Capped by TGUI at 1.2 (120 Tesla).
-	var/field_strength = 0.2
+	var/field_strength = 1
 	/// Radius of the EM field. Scales with Field Strength.
 	var/size = 1
 	var/tick_instability = 0
@@ -83,30 +84,26 @@
 	var/output_archive_4 = 0
 	var/output_archive_5 = 0
 
-	var/vfx_pause_update = FALSE
 	var/vfx_radius_actual
-	// var/vfx_radius_visual
-	var/pause_rupture = TRUE
+	var/vfx_radius_visual
+	var/pause_rupture = FALSE
 
 /obj/effect/fusion_em_field/proc/UpdateVisuals()
 	//Take the particle system and edit it
 
 	//size
 	vfx_radius_actual = ((size-1) / 2) * WORLD_ICON_SIZE
-	/*
 	var/vfx_radius_next = ((size+1) / 2) * WORLD_ICON_SIZE
 	var/percent_to_next_size = round(((field_strength + (size * 50)) - (size * 50)) / (((size + 1) / 2) * 50),0.01)
 	var/radius_add = round(percent_to_next_size * WORLD_ICON_SIZE, 1)
 	vfx_radius_visual = min(max(vfx_radius_actual + radius_add, vfx_radius_actual), vfx_radius_next)
-	*/
 
-	particles.position = generator("circle", vfx_radius_actual - (size * 3), vfx_radius_actual + (size), NORMAL_RAND)
+	particles.position = generator("circle", vfx_radius_visual - size, vfx_radius_visual, NORMAL_RAND)
 
 	//Radiation affects drift
 	var/radiationfactor = clamp((radiation_avg * 0.001), 0, 0.75)
 	particles.drift = generator("circle", (0.2 + radiationfactor), NORMAL_RAND)
 	particles.spawning = last_reactants * 0.9 + Interpolate(0, 200, clamp(plasma_temperature / 70000, 0, 1))
-
 
 /obj/effect/fusion_em_field/New(loc, obj/machinery/power/fusion_core/new_owned_core)
 	..()
@@ -200,7 +197,7 @@
 
 	// Energy decay (entropy tax).
 	if(plasma_temperature >= 1)
-		var/lost = plasma_temperature*0.01
+		var/lost = plasma_temperature*0.001
 		radiation += lost
 		plasma_temperature -= lost
 
@@ -397,7 +394,7 @@
 	change_size(calc_size)
 
 /obj/effect/fusion_em_field/proc/AddEnergy(a_energy, a_plasma_temperature)
-	energy += a_energy
+	energy += (a_energy * 32)
 	plasma_temperature += a_plasma_temperature
 	if(a_energy && percent_unstable > 0)
 		percent_unstable = max(percent_unstable - (a_energy/10000), 0)
@@ -440,7 +437,7 @@
 	for(var/particle in reactants)
 		radiation += reactants[particle]
 		reactants.Remove(particle)
-	radiation += plasma_temperature/2
+	radiation += plasma_temperature/8
 	plasma_temperature = 0
 
 	SSradiation.radiate(src, radiation)
@@ -671,8 +668,7 @@
 
 	// Using real values for black-body radiation means the fusion reactor will almost always zip to top temp color.
 	// This multiplier scales the below temperatures to better match intended range of temps in gameplay.
-	var/blackbody_multiplier = 8
-	var/effective_plasma_temperature = plasma_temperature / blackbody_multiplier
+	var/effective_plasma_temperature = plasma_temperature / FUSION_BLACKBODY_MULTIPLIER
 
 	use_range = light_min_range + Ceil((light_max_range-light_min_range)*temp_mod)
 	use_power = light_min_power + Ceil((light_max_power-light_min_power)*temp_mod)
@@ -756,8 +752,7 @@
 		last_power = use_power
 		//Temperature based color
 
-		if(!vfx_pause_update)
-			particles.gradient = list(0, COLOR_WHITE, 0.85, light_color)
+		particles.gradient = list(0, COLOR_WHITE, 0.85, light_color)
 		UNLINT(var/dm_filter/outline = filters[2])
 		UNLINT(outline.color = light_color)
 		UNLINT(var/dm_filter/bloom = filters[3])
@@ -782,3 +777,5 @@
 #undef FUSION_INSTABILITY_DIVISOR
 #undef FUSION_RUPTURE_THRESHOLD
 #undef FUSION_REACTANT_CAP
+#undef FUSION_WARNING_DELAY
+#undef FUSION_BLACKBODY_MULTIPLIER

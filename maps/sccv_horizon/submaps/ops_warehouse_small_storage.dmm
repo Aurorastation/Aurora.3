@@ -1120,7 +1120,7 @@
 /turf/template_noop,
 /area/template_noop)
 "AK" = (
-/obj/machinery/portable_atmospherics/canister/hydrogen/deuterium,
+/obj/machinery/portable_atmospherics/canister/deuterium,
 /turf/template_noop,
 /area/template_noop)
 "AW" = (
