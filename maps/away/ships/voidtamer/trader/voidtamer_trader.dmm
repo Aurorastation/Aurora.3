@@ -632,6 +632,7 @@
 /turf/simulated/floor,
 /area/voidtamer/trader/engineering)
 "eW" = (
+/obj/structure/lattice/catwalk,
 /turf/template_noop,
 /area/voidtamer/trader/bridge)
 "eX" = (
@@ -787,6 +788,9 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/docking/voidtamer_trader/dock/west_hangar,
+/obj/effect/shuttle_landmark/voidtamer_trader/dock/west_hangar{
+	dir = 4
+	},
 /turf/simulated/floor/diona,
 /area/voidtamer/trader/dock)
 "go" = (
@@ -1584,7 +1588,7 @@
 "nL" = (
 /obj/machinery/iff_beacon/name_change,
 /obj/structure/railing/mapped,
-/turf/simulated/floor/diona,
+/turf/simulated/floor/diona/airless,
 /area/voidtamer/trader/bridge)
 "nO" = (
 /obj/structure/cable{
@@ -1632,13 +1636,6 @@
 /obj/effect/floor_decal/industrial/warning/dust,
 /turf/simulated/floor/tiled/dark,
 /area/voidtamer/trader/dock)
-"oo" = (
-/obj/structure/lattice/catwalk,
-/obj/effect/shuttle_landmark/voidtamer_trader/dock/west_hangar{
-	dir = 4
-	},
-/turf/template_noop,
-/area/voidtamer/trader/exterior)
 "op" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 4
@@ -2356,7 +2353,8 @@
 /area/voidtamer/trader/mining_blaster)
 "uG" = (
 /obj/structure/ship_weapon_dummy,
-/turf/simulated/floor/airless,
+/obj/structure/lattice/catwalk,
+/turf/template_noop,
 /area/space)
 "uL" = (
 /obj/structure/cable{
@@ -2768,8 +2766,10 @@
 /turf/simulated/floor,
 /area/voidtamer/trader/mining_blaster)
 "yZ" = (
+/obj/structure/ship_weapon_dummy,
+/obj/structure/lattice/catwalk,
 /turf/template_noop,
-/area/voidtamer/trader/engineering)
+/area/voidtamer/trader/autocannon_gun)
 "za" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -2842,7 +2842,7 @@
 "zy" = (
 /obj/structure/railing/mapped,
 /obj/structure/diona/bulb,
-/turf/simulated/floor/diona,
+/turf/simulated/floor/diona/airless,
 /area/voidtamer/trader/bridge)
 "zD" = (
 /obj/random/dirt_75,
@@ -5258,7 +5258,7 @@
 "VY" = (
 /obj/machinery/shipsensors/strong,
 /obj/structure/railing/mapped,
-/turf/simulated/floor/diona,
+/turf/simulated/floor/diona/airless,
 /area/voidtamer/trader/bridge)
 "Wb" = (
 /obj/structure/railing/mapped{
@@ -28794,7 +28794,7 @@ Jg
 Jg
 On
 Dl
-oo
+Dl
 Dl
 QB
 Dl
@@ -31609,7 +31609,7 @@ Wc
 Wc
 Wc
 Wc
-yZ
+Wc
 Zy
 tg
 dT
@@ -31866,7 +31866,7 @@ Wc
 Wc
 Wc
 Wc
-yZ
+Wc
 wN
 pn
 Yj
@@ -32123,7 +32123,7 @@ Wc
 Wc
 Wc
 Wc
-yZ
+Wc
 Zy
 xb
 pn
@@ -34751,8 +34751,8 @@ vp
 Rn
 Rn
 QD
-QD
-QD
+yZ
+yZ
 Wc
 Wc
 Wc
@@ -35008,8 +35008,8 @@ sF
 Rn
 Rn
 fo
-QD
-QD
+yZ
+yZ
 Wc
 Wc
 Wc
@@ -35265,8 +35265,8 @@ eN
 Rn
 lT
 QD
-QD
-QD
+yZ
+yZ
 Wc
 Wc
 Wc
