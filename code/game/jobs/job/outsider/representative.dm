@@ -414,8 +414,10 @@
 
 /datum/job/corporate_aide/get_outfit(mob/living/carbon/human/H, alt_title = null)
 	var/datum/faction/aide_faction = SSjobs.name_factions[H.employer_faction]
-	if(aide_faction)
+	if(aide_faction && aide_faction != "NanoTrasen") // NanoTrasen is default
 		return aide_faction.titles_to_loadout["Corporate Aide"]
+	else
+		return outfit
 
 /obj/outfit/job/corporate_aide
 	name = "Corporate Aide"
