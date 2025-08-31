@@ -1,3 +1,17 @@
+/singleton/cargo_item/aluminiumsheets
+	category = "engineering"
+	name = "aluminium sheets"
+	supplier = "hephaestus"
+	description = "50 sheets of aluminium."
+	price = 75
+	items = list(
+		/obj/item/stack/material/aluminium/full
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
 /singleton/cargo_item/glasssheets
 	category = "engineering"
 	name = "glass sheets"
@@ -10,6 +24,20 @@
 	access = 0
 	container_type = "crate"
 	groupable = TRUE
+
+/singleton/cargo_item/leadsheets
+	category = "engineering"
+	name = "lead sheets"
+	supplier = "hephaestus"
+	description = "50 sheets of lead."
+	price = 105
+	items = list(
+		/obj/item/stack/material/lead/full
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
 
 /singleton/cargo_item/plasteelsheets
 	category = "engineering"
