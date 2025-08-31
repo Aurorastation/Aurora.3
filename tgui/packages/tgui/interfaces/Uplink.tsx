@@ -334,7 +334,10 @@ const ExploitRecordSection = function (act: any, data: UplinkData) {
           </LabeledList.Item>
           <LabeledList.Item label="Acquired Information" />
         </LabeledList>
-        <span style="white-space: pre-line;">
+        <span
+          style={{
+            'white-space': 'pre-line',
+          }}>
           {exploit.tgui_exploit_record
             ? exploit.tgui_exploit_record
             : 'No additional information acquired.'}
