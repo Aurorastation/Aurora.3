@@ -368,6 +368,7 @@
 	. = ..()
 	// TODO have virus variable do something (norinori around the screen?)
 
+// TODO Proc so if debugger is used, fixes the ipc
 
 
 // STORAGE BOX
