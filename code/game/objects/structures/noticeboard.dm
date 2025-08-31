@@ -144,13 +144,13 @@
 	toggle_open(user)
 
 /obj/structure/noticeboard/command/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.GetID())
+	if(attacking_item.GetID() && allowed(usr))
 		if(open)
 			to_chat(user, SPAN_WARNING("You need to close it first."))
 			return
 		toggle_lock(user)
 		return
-	else is(open)
+	else if(open)
 		return ..()
 
 /obj/structure/noticeboard/command/proc/toggle_open(var/mob/user)
@@ -170,3 +170,9 @@
 		to_chat(user, SPAN_NOTICE("You [unlocked ? "disable" : "enable"] the maglock."))
 
 	update_icon()
+
+/obj/structure/noticeboard/command/Topic(href, href_list)
+	if("read" in href_list)
+		..()
+	else if(open)
+		..()
