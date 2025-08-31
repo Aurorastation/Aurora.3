@@ -27,7 +27,7 @@
 
 #define CITIZENSHIP_NONE "None"
 #define CITIZENSHIP_GOLDEN "Golden Deep"
-#define CITIZENSHIP_OREPIT "Orepit"
+#define CITIZENSHIP_OREPIT "Ecclesiarchy of Orepit"
 
 //religion defines
 #define RELIGION_NONE "None"
@@ -98,6 +98,7 @@
 #define ACCENT_DOMINIA_NOVIJADRAN "Novi Jadranic"
 #define ACCENT_DOMINIA_LYODII "Lyodii"
 #define ACCENT_DOMINIA_SUNREACH "Sun Reach"
+#define ACCENT_DOMINIA_ZHURONG "Zhurong"
 #define ACCENT_JUPITER "Jovian"
 #define ACCENT_CALLISTO "Callistean"
 #define ACCENT_EUROPA "Europan"

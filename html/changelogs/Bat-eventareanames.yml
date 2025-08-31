@@ -44,7 +44,7 @@
 #################################
 
 # Your name.
-author: UltraBigRat
+author: Batrachophrenoboocosmomachia
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -55,4 +55,6 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Gave all cult constructs armor, and increased their health."
+  - bugfix: "Alarm Monitoring app now correctly provides full area names."
+  - bugfix: "Infestation event announcement now correctly provides full area name."
+  - bugfix: "Supply Drop event announcement now correctly provides full area name."

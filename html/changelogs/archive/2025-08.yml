@@ -319,3 +319,185 @@
       get unpinned during a round or after no changes within 30 days. Unpinning and
       re-pinning will keep them persistent but not update the 30 days expiration date;
       Unpinning, editing and re-pinning them will reset the 30 days expiration date.
+2025-08-18:
+  Kano:
+  - bugfix: Fixed mobs ignoring their speed value.
+  KingOfThePing:
+  - rscadd: Added a reminder header to the gun reload sounds .dm to remind people
+      that there are a variety of sounds available.
+  TheGreyWolf:
+  - rscadd: Raskariim can now pick between if their records show they follow the ma'ta'ke
+      or the twin suns religion. As a result, all raskariim will need to re-select
+      their religion.
+  - rscadd: A set of raskariim charms were added to the tajaran loadout. They can
+      be identified by any other tajara who selected raskariim as their religion.
+  UltraBigRat:
+  - rscadd: Gave all cult constructs armor, and increased their health.
+  hazelmouse:
+  - rscadd: Remapped medical by shuffling the positions of the psychiatric office,
+      paramedics' quarters, and recovery room. This is primarily intended to make
+      recovery a more appealing and visible spot.
+2025-08-23:
+  ASmallCuteCat:
+  - rscadd: Adds snakes to the game
+  - imageadd: Ports the snake sprites over from Baystation.
+  - qol: Swapped the pair of roller beds in the Intrepid's Medbay for a roller bed
+      holder that spawns with two beds.
+  - qol: Moved a handrail in the Intrepid's Medbay to a less cluttered part of the
+      area.
+  Batrachophrenoboocosmomachia:
+  - qol: 'Radstorm shielding added to the following areas: ResDeck lifts, changing
+      room, recovery ward, psych office, ALL washrooms, AI rooms, self-destruct room,
+      INDRA monitoring, SM monitoring, C-Goliath monitoring.'
+  - qol: In-game stairwell names clarified (I.E. the starboard-side stairwell updated
+      from 'Stairwell' to 'Starboard Stairwell', etc.)
+  - qol: Deck 1 recharging compartment renamed from 'Mech Bay' to 'Charge Bay'.
+  - rscadd: More areas given custom blurbs (cheers to Stripes for the Commissary blurb!)
+  CactusMouth:
+  - rscadd: Added the SIIB weapons alongside SIIB Outfits for Admins to use.
+  - imageadd: Adds SIIB Weapons based off standard Sol weapons. (SMG and Pistol)
+  - rscadd: 'Added new desert exoplanet ruin: Abandoned Solarian Relay Station'
+  ElorgRHG:
+  - imageadd: Resprited the sun priest robe, and the sun sister robe and veil.
+  Fyni:
+  - rscadd: Added the Zhurong accent, available to core world dominians.
+  KingOfThePing:
+  - soundadd: Added a variety of sounds for ballistic guns reloads. Includes rifles,
+      pistols, SMGs and racking shotguns.
+  - sounddel: 'Deleted rifle reload sound #3, because it was quite bad. It has been
+      replaced with a better sound.'
+  SimpleMaroon:
+  - rscadd: Added the Clockwork Stave, a Trinary Perfection variant of the null rod.
+  - qol: Renamed the 'Orepit' citizenship to 'Ecclesiarchy of Orepit', as well as
+      made a mention of the Ecclesiarchy in its description.
+  Snowy1237:
+  - qol: Overhauled the Bluespace Drive control UI to be generally nicer.
+  - rscadd: Added a navigation console to the Bluespace Drive chamber and added more
+      information to be displayed on the Bluespace Drive control UI.
+  TheGreyWolf:
+  - rscadd: Added breath analyzers to the warden and security officer lockers.
+  - rscadd: Security belts can now hold breath analyzers.
+  - rscadd: Added a gas mask to the investigator locker.
+  - rscdel: Removed the uniforms from the investigator locker, and the cap and beret
+      from the cadet locker, which can be found in the security drobe.
+  - bugfix: Paper bundles can now be read while next to them.
+  - bugfix: It is now possible to remove accessories on other people again.
+  UltraBigRat:
+  - balance: Changes berserk injector cost from 4 BC to 3 TC.
+  edomite-tricknology:
+  - qol: Removes reference to singularity in solar instructions and cleans up syntax/wording.
+2025-08-24:
+  KingOfThePing:
+  - imageadd: Added a few miscellaneous (direction) signs for general use on ships
+      and away sites.
+  Tomixcomics:
+  - rscadd: Added many new food dishes and ingredients (many of them pizzas).
+  - rscadd: Added some of the new ingredients to the Cargo order form.
+  - rscadd: Added 2 new drinks and a drink bottle for one of them.
+  - rscadd: Created new vending machine that sells microwave/instant foods.
+  - rscadd: Added shrimp to the required ingredients for North 60 squid.
+  - rscdel: Nerfed a few dishes that require cooking seafood or frying so that you
+      can no longer make them with the microwave (Before adding a bunch of new microwave
+      foods to make up for it).
+  - qol: Renamed empty Shakshouka pan to be something more generic so it can be used
+      for other dishes.
+  - qol: Adjusted the contents of Dyn Pozole so it doesn't take five years to finish
+      eating.
+  - code_imp: Defined a color for S'th berry juice.
+  - code_imp: Created new pages and files for microwave foods.
+2025-08-25:
+  Ben10083:
+  - qol: Various tweaks to People's Station such as GPS network.
+  Geeves:
+  - admin: Added a 'Create Portals' tool under the Admin tab, allowing admins to configure
+      one- or two-way portals easily.
+2025-08-26:
+  Geeves:
+  - rscadd: Added the option to set your view zoom in the OOC tab. Use this for screenshots
+      or cheating at melee fights.
+  MattAtlas:
+  - balance: Red Nightshade no longer totally negates all pain. It now applies a grace
+      period of 75 pain.
+  - balance: Red Nightshade no longer multiplies all melee damage by 1.25x. The multiplier
+      has been reduced to 1.1x.
+  - balance: Reduced Hulk melee damage modifier to 1.25x.
+  - balance: Binoculars have been severely nerfed in view offset.
+  - balance: Zeng-Hu and Aut'akh zoom augments have been nerfed to match.
+  - balance: Binoculars now have a 1.5 second windup.
+  SleepyGemmy:
+  - rscadd: Tweaked the security checkpoint on deck 1 by removing the lockdown "cage".
+  - rscadd: Added more evacuation route signs in the deck 1 hangars.
+  - rscadd: Added and tweaked some decals in the deck 1 hangar.
+  UltraBigRat:
+  - rscadd: Adds empty versions of most hardsuits to be buyable in the uplink.
+  - rscadd: Combat Actuator module to the uplink, slight price rebalances to uplink
+      modules.
+  - rscadd: Changed hardsuit modules section of the uplink, into Hardsuits and Modules.
+  - balance: Gave faction hardsuits to group gear loadouts that were missing them.
+  - balance: Solarian loadout hardsuit now gets modules like the others.
+2025-08-27:
+  ElorgRHG:
+  - imageadd: Resprited the unathi jizixi dress, and added a colorable version of
+      it.
+  - imageadd: Added a blank, unpatterned version of the unathi jizixi dress.
+  - rscdel: Removed the ability to change the colors of the jizixi dress due to a
+      colorable version now existing.
+  Greenjoe:
+  - bugfix: The Stargazer now has an icon for sectors without a specific one set.
+  nauticall:
+  - imageadd: Adds missing icon states for new scrubber and vent sprites.
+2025-08-29:
+  4000daniel1:
+  - rscadd: Added thermals and binoculars to the cultist spawn areas on the cult base
+      away site.
+  - rscadd: Also added more paper bins and pencils throughout the site.
+  CatsinHD:
+  - bugfix: Vertical ID cards no longer turn sideways in storage.
+  - bugfix: Fixes firing pins not turning vertical in storage.
+  - rscadd: Returns resprites for Command, CCIA, TCFL/TCAF IDs and Guest passes.
+  - rscadd: Adds regulation i120 Littering.
+  - balance: Adjusts fine values to CCIA approved ranges.
+  FlamingLily:
+  - rscadd: Increased the amount of syllables in Nral'malic for more diverse speech
+      and more notable use of the non-standard syllables.
+  Fyni:
+  - rscadd: Removes the apostrophes from the Zhurongese accent description.
+  MattAtlas:
+  - bugfix: Fixes surge damage not ticking properly on prosthetics.
+  SleepyGemmy:
+  - rscadd: Changed the cargo shuttle into a cargo elevator.
+  UltraBigRat:
+  - rscadd: Added ninja version for bunker suit, aswell aswell as a lighter bunker
+      suit version.
+  - rscadd: Added ceres lance gear loadouts to the uplink, aswell as a nerfed bunker
+      suit to the uplink.
+  - rscadd: Added a modkit for ceres lance voidsuits.
+2025-08-30:
+  ASmallCuteCat:
+  - rscadd: Added snakes to the list of animals that can infest the ship.
+  FabianK3:
+  - rscadd: Added a new area, the Hangar Air Station. The hallway in front of the
+      pilot room on deck one has been repurposed to an air station allowing the hanger
+      crew to handle refilling shuttles with air and allowing them to dispose of waste
+      air safely.
+  Fyni:
+  - rscadd: Nerfs door rigged mines.
+2025-08-31:
+  ElorgRHG:
+  - imageadd: Resprited the himean voidsuits and its tajaran variants.
+  - rscdel: Removed the mention of a flagpatch on the himean voidsuits to reflect
+      the appearance of the actual sprites.
+  Hellfirejag:
+  - bugfix: Fixed mobs having an unintended high time delta. Things like organs should
+      no longer work several dozen times faster than expected.
+  - bugfix: You can now actually get drunk again(The unexpectedly high time delta
+      was the culprit here).
+  - rscadd: Stasis sources(Such as cryogenics, stasis bags, and stasis beds) now decrease
+      the rate at which brain damage is both healed and accumulated. Thus, they now
+      properly buy time for medics.
+  MattAtlas:
+  - bugfix: Fixes energy shields and energy swords blocking everything regardless
+      of block chance.
+  - balance: EMPs no longer travel through Z-levels.
+  hazelmouse:
+  - rscdel: Removed departmental cloaks from wardrobe vendors.

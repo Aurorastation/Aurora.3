@@ -18,20 +18,25 @@
 	starlight_power = 2
 	starlight_range = 4
 	cargo_price_coef = list( //very high coefs due to distance from civilised spur
+		"arisi" = 20.0,
+		"bishop" = 20.0,
+		"blam" = 20.0,
+		"eckharts" = 20.0,
+		"einstein" = 20.0,
+		"getmore" = 20.0,
+		"hephaestus" = 20.0,
+		"iac" = 20.0,
+		"idris" = 20.0,
+		"molinaris" = 20.0,
 		"nanotrasen" = 20.0,
 		"orion" = 15.0,
-		"hephaestus" = 20.0,
-		"zeng_hu" = 20.0,
-		"eckharts" = 20.0,
-		"getmore" = 20.0,
-		"arizi" = 20.0,
-		"blam" = 20.0,
-		"iac" = 20.0,
-		"zharkov" = 20.0,
 		"virgo" = 20.0,
-		"bishop" = 20.0,
+		"vysoka" = 20.0,
 		"xion" = 20.0,
 		"zavodskoi" = 20.0,
+		"zeng_hu" = 20.0,
+		"zharkov" = 20.0,
+		"zora" = 20.0,
 		)
 
 	lore_radio_stations = list(
@@ -48,20 +53,25 @@
 	name = SECTOR_CRESCENT_EXPANSE_FAR
 
 	cargo_price_coef = list( //even higher, we are very far away!
+		"arisi" = 200.0,
+		"bishop" = 200.0,
+		"blam" = 200.0,
+		"eckharts" = 200.0,
+		"einstein" = 200.0,
+		"getmore" = 200.0,
+		"hephaestus" = 200.0,
+		"iac" = 200.0,
+		"idris" = 200.0,
+		"molinaris" = 200.0,
 		"nanotrasen" = 200.0,
 		"orion" = 150.0,
-		"hephaestus" = 200.0,
-		"zeng_hu" = 200.0,
-		"eckharts" = 200.0,
-		"getmore" = 200.0,
-		"arizi" = 200.0,
-		"blam" = 200.0,
-		"iac" = 200.0,
-		"zharkov" = 200.0,
 		"virgo" = 200.0,
-		"bishop" = 200.0,
+		"vysoka" = 200.0,
 		"xion" = 200.0,
 		"zavodskoi" = 200.0,
+		"zeng_hu" = 200.0,
+		"zharkov" = 200.0,
+		"zora" = 200.0,
 		)
 
 	ccia_link = FALSE
