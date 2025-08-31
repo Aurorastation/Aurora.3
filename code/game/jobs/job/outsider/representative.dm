@@ -75,8 +75,8 @@
 	departments = SIMPLEDEPT(DEPARTMENT_COMMAND_SUPPORT)
 	department_flag = SERVICE
 	faction = "Station"
-	total_positions = 20
-	spawn_positions = 20
+	total_positions = 2
+	spawn_positions = 2
 	supervisors = "company officials"
 	selection_color = "#6186cf"
 	economic_modifier = 15
@@ -412,17 +412,11 @@
 	minimal_access = list(ACCESS_LAWYER)
 	outfit = /obj/outfit/job/corporate_aide
 
-/datum/job/corporate_aide/get_outfit(mob/living/carbon/human/H, alt_title = null)
-	var/datum/faction/aide_faction = SSjobs.name_factions[H.employer_faction]
-	if(aide_faction && aide_faction != "NanoTrasen") // NanoTrasen is default
-		return aide_faction.titles_to_loadout["Corporate Aide"]
-	else
-		return outfit
-
 /obj/outfit/job/corporate_aide
-	name = "Corporate Aide"
+	name = "NanoTrasen Corporate Aide"
 	jobtype = /datum/job/corporate_aide
 
+	hat = /obj/item/clothing/head/beret/corporate
 	uniform = /obj/item/clothing/under/dressshirt
 	suit = /obj/item/clothing/suit/storage/toggle/corp/nt
 	pants = /obj/item/clothing/pants/khaki
@@ -431,7 +425,6 @@
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/lawyer
 	tablet = /obj/item/modular_computer/handheld/preset/civilian/lawyer
 	shoes = /obj/item/clothing/shoes/laceup
-	glasses = /obj/item/clothing/glasses/sunglasses/big
 	headset = /obj/item/device/radio/headset/representative
 	bowman = /obj/item/device/radio/headset/representative/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/command/representative
