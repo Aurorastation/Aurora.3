@@ -152,7 +152,7 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 				set_last_found_target(tmp_target_mob)
 			change_stance(HOSTILE_STANCE_ATTACK)
 
-/mob/living/simple_animal/hostile/attack_generic(var/mob/user, var/damage, var/attack_message)
+/mob/living/simple_animal/hostile/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	..()
 	if(last_found_target != user)
 		set_last_found_target(user)
