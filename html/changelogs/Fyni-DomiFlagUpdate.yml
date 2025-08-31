@@ -57,5 +57,5 @@ delete-after: True
 changes:
   - rscadd: "Adds a Zhurong flag and large flag, available in the loadout."
   - rscadd: "Removes Kazhkz and Han'san flags from loadout, per request of unathi lore"
-  - rscadd: "Change the Kazhkz and Han'san flags descriptions to be in line with "new" Unathi in Dominia lore, in case they are still present on maps or spawn as random loot."
+  - rscadd: "Change the Kazhkz and Han'san flags descriptions to be in line with new Unathi in Dominia lore, in case they are still present on maps or spawn as random loot."
   - rscadd: "Changes the Diona imperial flag to remove all references to diona, in case they are still present on maps or spawn as random loot."
