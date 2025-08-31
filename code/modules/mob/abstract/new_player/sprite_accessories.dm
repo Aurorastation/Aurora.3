@@ -3386,7 +3386,7 @@ Follow by example and make good judgement based on length which list to include 
 	length = 3
 	chatname = "curly mane"
 
-/datum/sprite_accessory/hair/msai_ears/msai_ears_curls
+/datum/sprite_accessory/hair/msai_ears/msai_ears_curlsalt
 	name = "M'sai Curly Alt"
 	icon_state = "msai_curlyalt"
 	length = 3
