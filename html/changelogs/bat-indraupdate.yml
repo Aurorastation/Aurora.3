@@ -21,3 +21,4 @@ changes:
   - bugfix: "INDRA Kinetic Harvester no longer rapidly deselects materials for harvest when too many are being generated at once."
   - bugfix: "INDRA EM Field effect no longer considers the camera within its reactor chamber a destabilizing influence."
   - bugfix: "INDRA reactor core now produces radiation as intended."
+  - bugfix: "Deuterium and Tritium canisters no longer contain 50% standard hydrogen (inheritance issue)."
