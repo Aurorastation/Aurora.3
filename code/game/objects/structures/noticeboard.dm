@@ -2,11 +2,11 @@
 	name = "notice board"
 	desc = "A board for pinning probably not-so-important notices upon."
 	icon = 'icons/obj/stationobjs.dmi'
-	icon_state = "nboard"
+	icon_state = "nboard0"
 	density = 0
 	anchored = 1
 	var/notices = 0
-	var/notice_limit = 19
+	var/notice_limit = 20
 	var/base_icon = "nboard"
 
 /obj/structure/noticeboard/Initialize(mapload)
@@ -16,21 +16,25 @@
 
 /obj/structure/noticeboard/proc/add_papers_from_turf()
 	for(var/obj/item/I in loc)
-		if(notice_limit > 19) break
+		if(notice_limit <= notices) break
 		if(istype(I, /obj/item/paper))
 			I.forceMove(src)
 			notices++
-	icon_state = "nboard[notices]"
+	update_icon()
+
+/obj/structure/noticeboard/update_icon()
+	..()
+	icon_state = "[base_icon][notices]"
 
 //attaching papers!!
 /obj/structure/noticeboard/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/paper))
-		if(notice_limit < 19)
+		if(notice_limit > notices)
 			attacking_item.add_fingerprint(user)
 			add_fingerprint(user)
 			user.drop_from_inventory(attacking_item,src)
 			notices++
-			icon_state = "nboard[notices]"	//update sprite
+			update_icon()
 			SSpersistence.register_track(attacking_item, ckey(usr.key)) // Add paper to persistent tracker
 			to_chat(user, SPAN_NOTICE("You pin the paper to the noticeboard."))
 		else
@@ -64,7 +68,7 @@
 			P.add_fingerprint(usr)
 			add_fingerprint(usr)
 			notices--
-			icon_state = "nboard[notices]"
+			update_icon()
 			SSpersistence.deregister_track(P) // Remove paper from persistent tracker
 	if(href_list["write"])
 		if((usr.stat || usr.restrained())) //For when a player is handcuffed while they have the notice window open
@@ -92,14 +96,18 @@
 	name = "command notice board"
 	desc = "A board for command to pin actually important information on. As if. Can be locked and unlocked with an appropiate ID."
 	icon = 'icons/obj/stationobjs.dmi'
-	icon_state = "comboard"
+	icon_state = "comboard0"
 	req_access = list(ACCESS_CAPTAIN, ACCESS_CMO, ACCESS_HOS, ACCESS_QM, ACCESS_HOS, ACCESS_CE)
+	base_icon = "comboard"
+	notice_limit = 6
 	var/open
 	var/unlocked
 	var/damage_threshold = 10 // Damage needed to shatter the glass, same as the fireaxe cabinet.
 	var/shattered
-	var/notice_limit = 6
-	var/base_icon = "comboard"
+
+/obj/structure/noticeboard/command/New()
+	..()
+	update_icon()
 
 /obj/structure/noticeboard/command/attack_generic(var/mob/user, var/damage, var/attack_verb, var/wallbreaker)
 	user.do_attack_animation(src)
@@ -116,6 +124,7 @@
 	update_icon()
 
 /obj/structure/noticeboard/command/update_icon()
+	..()
 	ClearOverlays()
 	if(shattered)
 		AddOverlays("glass_destroyed")
@@ -127,32 +136,6 @@
 		AddOverlays("glass_open")
 	else
 		AddOverlays("glass")
-
-/obj/structure/noticeboard/command/add_papers_from_turf()
-	for(var/obj/item/I in loc)
-		if(notice_limit > 5) break
-		if(istype(I, /obj/item/paper))
-			I.forceMove(src)
-			notices++
-	icon_state = "comboard[notices]"
-
-/obj/structure/noticeboard/command/attackby(obj/item/attacking_item, mob/user)
-	if(istype(attacking_item, /obj/item/paper))
-		if(notice_limit < 6) // Command boards have less space so people are incentivized to pin actually important stuff.
-			attacking_item.add_fingerprint(user)
-			add_fingerprint(user)
-			user.drop_from_inventory(attacking_item,src)
-			notices++
-			icon_state = "comboard[notices]"	//Updates the sprite.
-			SSpersistence.register_track(attacking_item, ckey(usr.key)) // Add paper to persistent tracker.
-			to_chat(user, SPAN_NOTICE("You pin the paper to the noticeboard."))
-		else
-			to_chat(user, SPAN_NOTICE("You reach to pin your paper to the board but hesitate. You are certain your paper will not be seen among the many others already attached."))
-
-/obj/structure/noticeboard/command/attack_ai(var/mob/user) // AI can interact with the maglock on the noticeboard, if a fringe case where this needed ever happens.
-	if(!ai_can_interact(user))
-		return
-	toggle_lock(user)
 
 /obj/structure/noticeboard/command/attack_hand(var/mob/user)
 	if(!unlocked)
@@ -167,7 +150,8 @@
 			return
 		toggle_lock(user)
 		return
-	return ..()
+	else is(open)
+		return ..()
 
 /obj/structure/noticeboard/command/proc/toggle_open(var/mob/user)
 	open = !open
