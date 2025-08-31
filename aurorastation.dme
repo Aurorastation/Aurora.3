@@ -304,6 +304,7 @@
 #include "code\_onclick\hud\gun_mode.dm"
 #include "code\_onclick\hud\hud.dm"
 #include "code\_onclick\hud\human.dm"
+#include "code\_onclick\hud\ipc_overloader.dm"
 #include "code\_onclick\hud\morph.dm"
 #include "code\_onclick\hud\movable_screen_objects.dm"
 #include "code\_onclick\hud\nymph_hud.dm"
