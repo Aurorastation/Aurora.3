@@ -171,7 +171,7 @@
 
 	update_icon()
 
-/obj/structure/noticeboard/command/Topic(href, href_list)
+/obj/structure/noticeboard/command/Topic(href, href_list) // Allows to read through the closed glass of the board, but disallows removing and writing.
 	if("read" in href_list)
 		..()
 	else if(open)
