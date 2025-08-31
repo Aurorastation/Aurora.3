@@ -416,7 +416,7 @@
 	name = "NanoTrasen Corporate Aide"
 	jobtype = /datum/job/corporate_aide
 
-	hat = /obj/item/clothing/head/beret/corporate
+	head = /obj/item/clothing/head/beret/corporate
 	uniform = /obj/item/clothing/under/dressshirt
 	suit = /obj/item/clothing/suit/storage/toggle/corp/nt
 	pants = /obj/item/clothing/pants/khaki
