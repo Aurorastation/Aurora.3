@@ -55,5 +55,6 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
+  - rscadd: "Adds Corporate Aide outfits for each megacorporation."
   - imageadd: "Adds missing job HUD sprites for consular and liason aide/bodyguards."
   - spellcheck: "Fixes typo of corporate liason HUD sprite."

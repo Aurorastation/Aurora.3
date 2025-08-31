@@ -75,8 +75,8 @@
 	departments = SIMPLEDEPT(DEPARTMENT_COMMAND_SUPPORT)
 	department_flag = SERVICE
 	faction = "Station"
-	total_positions = 2
-	spawn_positions = 2
+	total_positions = 20
+	spawn_positions = 20
 	supervisors = "company officials"
 	selection_color = "#6186cf"
 	economic_modifier = 15
@@ -364,7 +364,7 @@
 
 	access = list(ACCESS_CONSULAR, ACCESS_MAINT_TUNNELS)
 	minimal_access = list(ACCESS_CONSULAR)
-	outfit = /obj/outfit/job/diplomatic_aide
+	outfit = /obj/outfit/job/diplomatic_bodyguard
 	blacklisted_citizenship = ALL_CITIZENSHIPS //removed based on consular citizensihp
 
 /datum/job/diplomatic_bodyguard/get_outfit(mob/living/carbon/human/H, alt_title = null)
@@ -410,18 +410,21 @@
 
 	access = list(ACCESS_LAWYER, ACCESS_MAINT_TUNNELS)
 	minimal_access = list(ACCESS_LAWYER)
-	outfit = /obj/outfit/job/diplomatic_aide
+	outfit = /obj/outfit/job/corporate_aide
 
 /datum/job/corporate_aide/get_outfit(mob/living/carbon/human/H, alt_title = null)
 	var/datum/faction/aide_faction = SSjobs.name_factions[H.employer_faction]
 	if(aide_faction)
-		return aide_faction.titles_to_loadout["Off-Duty Crew Member"]
+		return aide_faction.titles_to_loadout["Corporate Aide"]
 
 /obj/outfit/job/corporate_aide
 	name = "Corporate Aide"
 	jobtype = /datum/job/corporate_aide
 
-	uniform = /obj/item/clothing/under/suit_jacket/navy
+	uniform = /obj/item/clothing/under/dressshirt
+	suit = /obj/item/clothing/suit/storage/toggle/corp/nt
+	pants = /obj/item/clothing/pants/khaki
+
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/lawyer
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/lawyer
 	tablet = /obj/item/modular_computer/handheld/preset/civilian/lawyer
