@@ -352,7 +352,7 @@
 
 /obj/item/ipc_overloader/unlabeled/Initialize()
 	. = ..()
-	if(prob(10))
+	if(prob(100))
 		infected = TRUE // Uh oh...
 	return
 
@@ -371,6 +371,7 @@
 
 	// TODO Random delay + additional feedback (the virus hits) (bc its funny)
 	ADD_TRAIT(target, TRAIT_OVERLOADER_OD_EFFECT, TRAIT_SOURCE_OVERLOADER) //instant overdose
+	target.client.screen += new(pick(typesof(/atom/movable/screen/virus)))
 	. = ..()
 	// TODO have virus variable do something (norinori around the screen?)
 
