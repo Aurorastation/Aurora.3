@@ -102,32 +102,14 @@
 	notice_limit = 6
 	var/open
 	var/unlocked
-	var/damage_threshold = 10 // Damage needed to shatter the glass, same as the fireaxe cabinet.
-	var/shattered
 
 /obj/structure/noticeboard/command/New()
 	..()
 	update_icon()
 
-/obj/structure/noticeboard/command/attack_generic(var/mob/user, var/damage, var/attack_verb, var/wallbreaker)
-	user.do_attack_animation(src)
-	playsound(user, 'sound/effects/glass_hit.ogg', 50, 1)
-	visible_message(SPAN_WARNING("\The [user] [attack_verb] \the [src]!"))
-	if(damage_threshold >= damage)
-		to_chat(user, SPAN_WARNING("Your strike is deflected by the reinforced glass!"))
-		return
-	if(shattered)
-		return
-	unlocked = TRUE
-	open = TRUE
-	playsound(user, /singleton/sound_category/glass_break_sound, 100, 1)
-	update_icon()
-
 /obj/structure/noticeboard/command/update_icon()
 	..()
 	ClearOverlays()
-	if(shattered)
-		AddOverlays("glass_destroyed")
 	if(unlocked)
 		AddOverlays("unlocked")
 	else
