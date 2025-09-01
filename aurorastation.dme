@@ -1449,6 +1449,7 @@
 #include "code\game\objects\structures\mop_bucket.dm"
 #include "code\game\objects\structures\morgue.dm"
 #include "code\game\objects\structures\noticeboard.dm"
+#include "code\game\objects\structures\parcelcart.dm"
 #include "code\game\objects\structures\plasticflaps.dm"
 #include "code\game\objects\structures\railing.dm"
 #include "code\game\objects\structures\safe.dm"
