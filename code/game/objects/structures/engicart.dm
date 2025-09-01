@@ -7,7 +7,7 @@
 	density = TRUE
 	climbable = TRUE
 	build_amt = 15
-	material = DEFAULT_TABLE_REINF_MATERIAL
+	material = DEFAULT_WALL_MATERIAL
 	slowdown = 0
 	var/has_items = FALSE
 
