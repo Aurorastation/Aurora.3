@@ -118,6 +118,8 @@
 					if(prob(reflectchance))
 						user.visible_message(SPAN_DANGER("\The [user] blocks [attack_text] with \the [src]!"))
 						return BULLET_ACT_BLOCK
+			else
+				return BULLET_ACT_HIT
 
 /obj/item/melee/energy/get_print_info()
 	. = ..()

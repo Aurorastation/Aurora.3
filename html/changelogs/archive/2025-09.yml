@@ -1,0 +1,11 @@
+2025-09-01:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Alarm Monitoring app now correctly provides full area names.
+  - bugfix: Infestation event announcement now correctly provides full area name.
+  - bugfix: Supply Drop event announcement now correctly provides full area name.
+  Ben10083:
+  - bugfix: Adds missing cargo supplier coefficents to Crescent Expanse (everything
+      is unaffordable, just like real life).
+  MattAtlas:
+  - bugfix: Fixes armour penetration not working on mechs when hit with a melee weapon
+      or by simple mobs.
