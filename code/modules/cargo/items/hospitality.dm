@@ -842,6 +842,20 @@
 	groupable = TRUE
 	spawn_amount = 1
 
+/singleton/cargo_item/pizzabox_pepperoni
+	category = "hospitality"
+	name = "pizza box, pepperoni"
+	supplier = "orion"
+	description = "Traditional Orion Express Pizza, delivered across the galaxy piping hot and ready to eat."
+	price = 10
+	items = list(
+		/obj/item/pizzabox/pepperoni
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
 /singleton/cargo_item/pizzabox_random
 	category = "hospitality"
 	name = "pizza box, random"
