@@ -371,7 +371,9 @@
 
 	// TODO Random delay + additional feedback (the virus hits) (bc its funny)
 	ADD_TRAIT(target, TRAIT_OVERLOADER_OD_EFFECT, TRAIT_SOURCE_OVERLOADER) //instant overdose
-	target.client.screen += new(pick(typesof(/atom/movable/screen/virus)))
+	var/atom/movable/screen/virus/program = pick(typesof(/atom/movable/screen/virus))
+	target.client.screen += new program
+
 	. = ..()
 	// TODO have virus variable do something (norinori around the screen?)
 
