@@ -41,15 +41,13 @@
 /obj/structure/closet/secure_closet/hangar_tech/fill()
 	..()
 	new /obj/item/clothing/under/rank/hangar_technician(src)
-	new /obj/item/clothing/shoes/sneakers/black(src)
 	new /obj/item/device/radio/headset/headset_cargo(src)
 	new /obj/item/device/radio/headset/headset_cargo/alt(src)
-	new /obj/item/clothing/gloves/black(src)
-	new /obj/item/clothing/head/softcap/cargo(src)
-	new /obj/item/clothing/head/bandana/cargo(src)
-	new /obj/item/clothing/head/beret/cargo(src)
 	new /obj/item/modular_computer/handheld/preset/supply/cargo_delivery(src)
 	new /obj/item/export_scanner(src)
+	new /obj/item/device/price_scanner(src)
+	new /obj/item/device/cratescanner(src)
+	new /obj/item/clipboard(src)
 	new /obj/item/device/flashlight/marshallingwand(src)
 
 // Machinist
