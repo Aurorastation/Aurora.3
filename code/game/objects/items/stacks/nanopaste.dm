@@ -66,6 +66,32 @@
 		else
 			to_chat(user, SPAN_NOTICE("All [R]'s systems are nominal."))
 
+	else if(isAI(target_mob))	//Repairing AIs (same as above)
+		var/mob/living/silicon/ai/A = target_mob
+		if (A.getBruteLoss() || A.getFireLoss() )
+
+			if(target_mob == user)
+				application_time *= application_multiplier // It takes longer to apply nanopaste to yourself than to someone else.
+
+			if (application_in_progress == FALSE)
+				application_in_progress = TRUE
+				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+				user.visible_message(SPAN_NOTICE("\The [user] begins to apply some [src] to \the [target_mob]."),\
+										SPAN_NOTICE("You begin to apply some [src] to \the [target_mob]."))
+				if(do_mob(user, target_mob, application_time))
+					A.adjustBruteLoss(-15)
+					A.adjustFireLoss(-15)
+					A.updatehealth()
+					use(1)
+					user.visible_message(SPAN_NOTICE("\The [user] successfully applies some [src] at [A]'s damaged areas."),\
+											SPAN_NOTICE("You successfully apply some [src] at [A]'s damaged areas."))
+				application_in_progress = FALSE
+			else
+				to_chat(user, SPAN_WARNING("You are too focused applying \the [src] to do it multiple times simultaneously!"))
+
+		else
+			to_chat(user, SPAN_NOTICE("All [A]'s systems are nominal."))
+
 	else if(ishuman(target_mob))		//Repairing robolimbs
 		var/mob/living/carbon/human/H = target_mob
 		var/obj/item/organ/external/S = H.get_organ(target_zone)
