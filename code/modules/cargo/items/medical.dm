@@ -717,3 +717,17 @@
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
+
+/singleton/cargo_item/organcooler
+	category = "medical"
+	name = "organ cooler"
+	supplier = "zeng_hu"
+	description = "A sealed, cooled container to keep organs from decaying."
+	price = 300
+	items = list(
+		/obj/item/storage/box/freezer/organcooler
+	)
+	access = ACCESS_MEDICAL
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
