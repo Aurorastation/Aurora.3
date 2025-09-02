@@ -4,7 +4,7 @@
 #define FUSION_REACTANT_CAP				10000
 #define FUSION_WARNING_DELAY 			20
 #define FUSION_BLACKBODY_MULTIPLIER		24
-#define FUSION_INTEGRITY_RATE_LIMIT		8
+#define FUSION_INTEGRITY_RATE_LIMIT		17
 
 /obj/effect/fusion_em_field
 	name = "electromagnetic field"
@@ -200,16 +200,16 @@
 	// Let the particles inside the field react.
 	React()
 
-	var/field_strength_power_multiplier = owned_core.field_strength ** 1.67
+	var/field_strength_power_multiplier = max((owned_core.field_strength ** 1.025) / 100, 1)
 	// Dump power to our powernet.
 	owned_core.add_avail(FUSION_ENERGY_PER_K * plasma_temperature * field_strength_power_multiplier)
 
-	var/field_strength_entropy_multiplier = max((((owned_core.field_strength) ** 1.1) / 90), 1)
+	var/field_strength_entropy_multiplier = max((((owned_core.field_strength) ** 1.05) / 90), 1)
 	// Energy decay (entropy tax).
 	if(plasma_temperature >= 1)
-		var/lost = plasma_temperature * 0.005 * field_strength_entropy_multiplier
+		var/lost = plasma_temperature * 0.002
 		radiation += lost
-		plasma_temperature -= lost
+		plasma_temperature -= lost * 20 * field_strength_entropy_multiplier
 
 	// Handle some reactants formatting.
 	for(var/reactant in reactants)
@@ -217,7 +217,7 @@
 		if(amount < 1)
 			reactants.Remove(reactant)
 		else if(amount >= FUSION_REACTANT_CAP)
-			var/radiate = rand(amount / 12, 3 * amount / 12)
+			var/radiate = rand(amount / 16, 3 * amount / 16)
 			reactants[reactant] -= radiate
 			radiation += radiate
 
@@ -407,8 +407,8 @@
 
 /obj/effect/fusion_em_field/proc/AddEnergy(a_energy, a_plasma_temperature)
 	// Boost gyro effects at low temperatures for faster startup
-	if(plasma_temperature < 15000)
-		a_energy = a_energy * 32
+	if(plasma_temperature < 5500)
+		a_energy = a_energy * 8
 	energy += a_energy
 	plasma_temperature += a_plasma_temperature
 	if(a_energy && percent_unstable > 0)
@@ -507,9 +507,9 @@
 	radiation_archive_2 = radiation_archive_1
 	radiation_archive_1 = radiation
 
-	if(radiation >= 10)
+	if(radiation >= 1000)
 		radiation_avg = ((radiation_archive_1 + radiation_archive_2 + radiation_archive_3 + radiation_archive_4 + radiation_archive_5 ) / 5)
-		SSradiation.radiate(src, radiation_avg)
+		SSradiation.radiate(src, radiation_avg * 0.01)
 
 	radiation = 0
 
@@ -600,7 +600,7 @@
 						continue
 
 				// Randomly determined amount to react.
-				var/amount_reacting = rand(1, (max_num_reactants / 2))
+				var/amount_reacting = rand(1, (max_num_reactants / 3))
 
 				// Removing the reacting substances from the list of substances that are primed to react this cycle.
 				// If there aren't enough of that substance (there should be) then modify the reactant amounts accordingly.
