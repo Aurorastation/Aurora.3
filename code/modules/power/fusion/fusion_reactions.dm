@@ -34,13 +34,7 @@ GLOBAL_LIST(fusion_reactions)
 		if(secondary_reactions.Find(s_react))
 			return GLOB.fusion_reactions[p_react][s_react]
 
-/**
- * Proton-Proton Branch I Chain
- * * Low minimum temperature
- * * Minimal power output
- * * Moderate radiation output
- */
-/singleton/fusion_reaction/ppi_hydrogen_hydrogen
+/singleton/fusion_reaction/hydrogen_hydrogen
 	p_react = GAS_HYDROGEN
 	s_react = GAS_HYDROGEN
 	energy_consumption = 1
@@ -49,7 +43,7 @@ GLOBAL_LIST(fusion_reactions)
 	radiation = 3
 	priority = 1
 
-/singleton/fusion_reaction/ppi_hydrogen_deuterium
+/singleton/fusion_reaction/hydrogen_deuterium
 	p_react = GAS_HYDROGEN
 	s_react = GAS_DEUTERIUM
 	energy_consumption = 2
@@ -58,32 +52,26 @@ GLOBAL_LIST(fusion_reactions)
 	radiation = 4
 	priority = 2
 
-/singleton/fusion_reaction/ppi_helium3_helium3
+/singleton/fusion_reaction/helium3_helium3
 	p_react = GAS_HELIUMFUEL
 	s_react = GAS_HELIUMFUEL
 	energy_consumption = 2
-	energy_production = 3
+	energy_production = 8
 	products = list(GAS_HELIUM = 1, GAS_HYDROGEN = 2)
 	radiation = 1
 	priority = 3
 
-/**
- * Proton-Proton Branch II Chain
- * * Low-moderate minimum temperature
- * * Low power output
- * * High radiation output
- */
-/singleton/fusion_reaction/ppii_helium3_helium
+/singleton/fusion_reaction/helium3_helium
 	p_react = GAS_HELIUMFUEL
 	s_react = GAS_HELIUM
 	energy_consumption = 3
-	energy_production = 4
+	energy_production = 7
 	products = list("beryllium" = 1)
 	radiation = 6
 	minimum_reaction_temperature = 36000
 	priority = 13
 
-/singleton/fusion_reaction/ppii_beryllium_decay
+/singleton/fusion_reaction/beryllium_decay
 	p_react = "beryllium"
 	s_react = "beryllium"
 	energy_consumption = 4
@@ -94,13 +82,14 @@ GLOBAL_LIST(fusion_reactions)
 	minimum_reaction_temperature = 36000
 	priority = 13
 
-/singleton/fusion_reaction/ppii_lithium_hydrogen
+/singleton/fusion_reaction/lithium_hydrogen
 	p_react = "lithium"
 	s_react = GAS_HYDROGEN
 	energy_consumption = 3
 	energy_production = 5
 	products = list(GAS_HELIUM = 2)
 	radiation = 2
+	instability = 0.5
 	minimum_reaction_temperature = 36000
 	priority = 15
 
@@ -110,25 +99,26 @@ GLOBAL_LIST(fusion_reactions)
  * * Moderate power output
  * * Low radiation output
  */
-/singleton/fusion_reaction/ppiii_beryllium_hydrogen
+/singleton/fusion_reaction/beryllium_hydrogen
 	p_react = "beryllium"
 	s_react = GAS_HYDROGEN
 	energy_consumption = 3
 	energy_production = 8
 	products = list("boron" = 1)
 	radiation = 3
+	instability = 0.5
 	minimum_reaction_temperature = 72000
 	priority = 20
 
-/singleton/fusion_reaction/ppii_boron_decay
+/singleton/fusion_reaction/boron_decay
 	p_react = "boron"
 	s_react = "boron"
 	energy_consumption = 3
-	energy_production = 5
+	energy_production = 16
 	products = list("beryllium" = 2)
 	radiation = 4
 	instability = 3
-	minimum_reaction_temperature = 48000
+	minimum_reaction_temperature = 72000
 	priority = 24
 
 /singleton/fusion_reaction/deuterium_lithium
@@ -148,11 +138,22 @@ GLOBAL_LIST(fusion_reactions)
 	energy_consumption = 1
 	energy_production = 6
 	products = list(GAS_HELIUM = 1)
-	instability = 0.5
+	instability = 8.5
 	radiation = 8
-	priority = 25
+	priority = 20
 
-// Unideal/material production reactions
+// Temperature mitigation reaction
+/singleton/fusion_reaction/boron_decay
+	p_react = "boron"
+	s_react = "boron"
+	energy_consumption = 3
+	energy_production = 16
+	products = list("beryllium" = 2)
+	radiation = 4
+	instability = 3
+	minimum_reaction_temperature = 300000
+	priority = 24
+
 /singleton/fusion_reaction/oxygen_oxygen
 	p_react = GAS_OXYGEN
 	s_react = GAS_OXYGEN
@@ -180,6 +181,17 @@ GLOBAL_LIST(fusion_reactions)
 	instability = 5
 	products = list("mhydrogen" = 1)
 	minimum_reaction_temperature = 8000
+	priority = 90
+
+/singleton/fusion_reaction/phoron_mhydrogen
+	p_react = "mhydrogen"
+	s_react = GAS_PHORON
+	energy_consumption = 0
+	energy_production = 50
+	instability = -5
+	radiation = 10
+	products = list("mhydrogen" = 1)
+	minimum_reaction_temperature = 250000
 
 // VERY UNIDEAL REACTIONS.
 /singleton/fusion_reaction/phoron_supermatter

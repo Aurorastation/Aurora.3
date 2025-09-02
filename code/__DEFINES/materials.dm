@@ -38,6 +38,7 @@
 #define MATERIAL_SUPERMATTER				"supermatter"
 #define MATERIAL_ALUMINIUM					"aluminium"
 #define MATERIAL_LEAD						"lead"
+#define MATERIAL_BORON						"boron"
 
 // Leathers and related.
 #define MATERIAL_RESIN                   "resin"

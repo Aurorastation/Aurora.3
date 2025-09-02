@@ -85,6 +85,7 @@
 	desc = "Helium-3 is a stable helium isotope valued for its use in fusion power; it fuses without dangerous neutron radiation and at much lower temperatures. Insanely valuable."
 	specific_heat = 80	// J/(mol*K)
 	molar_mass = 0.003	// kg/mol
+	flags = XGM_GAS_FUSION_FUEL
 
 /singleton/xgm_gas/vapor
 	id = GAS_WATERVAPOR

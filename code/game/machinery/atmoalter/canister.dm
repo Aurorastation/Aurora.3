@@ -132,8 +132,8 @@
 
 /obj/machinery/portable_atmospherics/canister/heliumfuel
 	name = "\improper Helium-3 \[3He\]"
-	icon_state = "lightblue"
-	canister_color = "lightblue"
+	icon_state = "helium3"
+	canister_color = "helium3"
 	can_label = 0
 /obj/machinery/portable_atmospherics/canister/heliumfuel/Initialize()
 	. = ..()
@@ -238,8 +238,8 @@
 	canister_color = "green"
 /obj/machinery/portable_atmospherics/canister/empty/heliumfuel
 	name = "\improper Helium-3 \[3He\]"
-	icon_state = "lightblue"
-	canister_color = "lightblue"
+	icon_state = "helium3"
+	canister_color = "helium3"
 /obj/machinery/portable_atmospherics/canister/empty/sulfur_dioxide
 	name = "\improper Sulfur Dioxide \[SO2\]"
 	icon_state = "lightgreen"
@@ -558,7 +558,7 @@ update_flag
 					"\[Deuterium\]" = "teal",
 					"\[Tritium\]" = "pink",
 					"\[Helium\]" = "green",
-					"\[Helium-3\]" = "lightblue",
+					"\[Helium-3\]" = "helium3",
 					"\[Sulfur Dioxide\]" = "lightgreen",
 					"\[Nitrogen Dioxide\]" = "brown",
 					"\[Chlorine\]" = "darkyellow",

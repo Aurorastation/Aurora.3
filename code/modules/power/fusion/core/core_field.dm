@@ -4,6 +4,7 @@
 #define FUSION_REACTANT_CAP				10000
 #define FUSION_WARNING_DELAY 			20
 #define FUSION_BLACKBODY_MULTIPLIER		24
+#define FUSION_INTEGRITY_RATE_LIMIT		8
 
 /obj/effect/fusion_em_field
 	name = "electromagnetic field"
@@ -29,7 +30,13 @@
 	var/radiation_archive_3 = 0
 	var/radiation_archive_4 = 0
 	var/radiation_archive_5 = 0
-	/// The currently configured Field Strength (0.2 = 20 Tesla). Capped by TGUI at 1.2 (120 Tesla).
+	/**
+	 * The currently configured Field Strength (0.2 = 20 Tesla). Capped by TGUI at 1.2 (120 Tesla).
+	 *
+	 * Field Strength scales plasma temperature entropy. With higher field strength, each tick will lose more temp and produce more radiation.
+	 * Field Strength scales power output per temperature. With higher field strength, each degree Kelvin will produce more electricity.
+	 * Field Strength scales instability increase. With higher field strength, more instability for a given reaction will be produced each tick.
+	 */
 	var/field_strength = 1
 	/// Radius of the EM field. Scales with Field Strength.
 	var/size = 1
@@ -85,7 +92,7 @@
 	var/output_archive_5 = 0
 
 	var/vfx_radius_actual
-	var/vfx_radius_visual
+	//var/vfx_radius_visual
 	var/pause_rupture = FALSE
 
 /obj/effect/fusion_em_field/proc/UpdateVisuals()
@@ -93,12 +100,13 @@
 
 	//size
 	vfx_radius_actual = ((size-1) / 2) * WORLD_ICON_SIZE
+	/*
 	var/vfx_radius_next = ((size+1) / 2) * WORLD_ICON_SIZE
 	var/percent_to_next_size = round(((field_strength + (size * 50)) - (size * 50)) / (((size + 1) / 2) * 50),0.01)
 	var/radius_add = round(percent_to_next_size * WORLD_ICON_SIZE, 1)
 	vfx_radius_visual = min(max(vfx_radius_actual + radius_add, vfx_radius_actual), vfx_radius_next)
-
-	particles.position = generator("circle", vfx_radius_visual - size, vfx_radius_visual, NORMAL_RAND)
+	*/
+	particles.position = generator("circle", vfx_radius_actual - size, vfx_radius_actual, NORMAL_RAND)
 
 	//Radiation affects drift
 	var/radiationfactor = clamp((radiation_avg * 0.001), 0, 0.75)
@@ -192,12 +200,14 @@
 	// Let the particles inside the field react.
 	React()
 
+	var/field_strength_power_multiplier = owned_core.field_strength ** 1.67
 	// Dump power to our powernet.
-	owned_core.add_avail(FUSION_ENERGY_PER_K * plasma_temperature)
+	owned_core.add_avail(FUSION_ENERGY_PER_K * plasma_temperature * field_strength_power_multiplier)
 
+	var/field_strength_entropy_multiplier = max((((owned_core.field_strength) ** 1.1) / 90), 1)
 	// Energy decay (entropy tax).
 	if(plasma_temperature >= 1)
-		var/lost = plasma_temperature*0.001
+		var/lost = plasma_temperature * 0.005 * field_strength_entropy_multiplier
 		radiation += lost
 		plasma_temperature -= lost
 
@@ -234,9 +244,11 @@
  * document details later.
  */
 /obj/effect/fusion_em_field/proc/check_instability()
+	var/field_strength_instability_multiplier = max((owned_core.field_strength ** 1.1)/20, 1)
 	if(tick_instability > 0)
 		percent_unstable_archive = percent_unstable
-		percent_unstable += (tick_instability*size)/FUSION_INSTABILITY_DIVISOR
+		// Apply any modifiers to instability imparted by current field strength, but only apply up to FUSION_INTEGRITY_RATE_LIMIT additional instability.
+		percent_unstable += min(((tick_instability * field_strength_instability_multiplier)/FUSION_INSTABILITY_DIVISOR), FUSION_INTEGRITY_RATE_LIMIT)
 		tick_instability = 0
 		UpdateVisuals()
 	else
@@ -394,7 +406,10 @@
 	change_size(calc_size)
 
 /obj/effect/fusion_em_field/proc/AddEnergy(a_energy, a_plasma_temperature)
-	energy += (a_energy * 32)
+	// Boost gyro effects at low temperatures for faster startup
+	if(plasma_temperature < 15000)
+		a_energy = a_energy * 32
+	energy += a_energy
 	plasma_temperature += a_plasma_temperature
 	if(a_energy && percent_unstable > 0)
 		percent_unstable = max(percent_unstable - (a_energy/10000), 0)
@@ -585,7 +600,7 @@
 						continue
 
 				// Randomly determined amount to react.
-				var/amount_reacting = rand(1, max_num_reactants)
+				var/amount_reacting = rand(1, (max_num_reactants / 2))
 
 				// Removing the reacting substances from the list of substances that are primed to react this cycle.
 				// If there aren't enough of that substance (there should be) then modify the reactant amounts accordingly.
@@ -605,7 +620,7 @@
 				plasma_temperature -= max_num_reactants * cur_reaction.energy_consumption  // Remove the consumed energy.
 				plasma_temperature += max_num_reactants * cur_reaction.energy_production   // Add any produced energy.
 				radiation += max_num_reactants * cur_reaction.radiation           // Add any produced radiation.
-				tick_instability += max_num_reactants * cur_reaction.instability
+				tick_instability += min(max_num_reactants * cur_reaction.instability, FUSION_INTEGRITY_RATE_LIMIT)
 				last_reactants += amount_reacting
 
 				// Create the reaction products.
@@ -779,3 +794,4 @@
 #undef FUSION_REACTANT_CAP
 #undef FUSION_WARNING_DELAY
 #undef FUSION_BLACKBODY_MULTIPLIER
+#undef FUSION_INTEGRITY_RATE_LIMIT

@@ -45,7 +45,7 @@ export const FusionGyrotronControl = (props, context) => {
                   <NumberInput
                     value={gyrotron.energy}
                     minValue={1}
-                    maxValue={50}
+                    maxValue={250}
                     unit="x"
                     stepPixelSize={15}
                     onDrag={(e, value) =>

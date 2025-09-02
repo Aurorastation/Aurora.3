@@ -34,7 +34,7 @@
 
 	switch(action)
 		if("modifypower")
-			G.mega_energy = clamp(params["modifypower"], 1, 50)
+			G.mega_energy = clamp(params["modifypower"], 1, 250)
 			G.change_power_consumption(G.mega_energy * GYRO_POWER, POWER_USE_ACTIVE)
 			return TRUE
 

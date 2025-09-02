@@ -81,7 +81,7 @@
 /obj/machinery/power/fusion_core/proc/set_strength(value)
 	value = clamp(value, MIN_FIELD_STR, MAX_FIELD_STR)
 	field_strength = value
-	change_power_consumption(1500 * value, POWER_USE_ACTIVE)
+	change_power_consumption(1500 * (value ** 1.25), POWER_USE_ACTIVE)
 	if(owned_field)
 		owned_field.ChangeFieldStrength(value)
 
