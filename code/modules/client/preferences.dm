@@ -495,7 +495,7 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 		else
 			all_underwear -= underwear_category_name
 
-	if(backbag > OUTFIT_CHESTPOUCH|| backbag < OUTFIT_NOTHING)
+	if(backbag > OUTFIT_CHESTPOUCH || backbag < OUTFIT_NOTHING)
 		backbag = OUTFIT_NOTHING //Same as above
 	character.backbag = backbag
 	character.backbag_style = backbag_style

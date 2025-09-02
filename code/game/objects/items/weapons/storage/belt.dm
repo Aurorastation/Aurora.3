@@ -81,7 +81,7 @@
 	flipped = !flipped
 	icon_state = "[initial(icon_state)][flipped ? "_flip" : ""]"
 	item_state = "[initial(item_state)][flipped ? "_flip" : ""]"
-	to_chat(usr, SPAN_NOTICE("You adjust how \the [src] is worn."))
+	to_chat(usr, SPAN_NOTICE("You adjust \the [src] [src.flipped ? "to the other side" : "back"]."))
 	update_clothing_icon()
 
 /obj/item/storage/belt/utility
@@ -660,6 +660,7 @@
 	icon_state = "fannypack"
 	item_state = "fannypack"
 	max_w_class = WEIGHT_CLASS_SMALL
+	w_class = WEIGHT_CLASS_HUGE
 	contained_sprite = TRUE
 	storage_slots = null
 	max_storage_space = 8
@@ -672,7 +673,7 @@
 
 /obj/item/storage/belt/fannypack/pouchbelt
 	name = "belt with pouches"
-	desc ="A belt coated from front to back in pouches."
+	desc = "A belt coated from front to back in pouches."
 	icon_state = "pouchbelt"
 	item_state = "pouchbelt"
 	max_storage_space = 10
