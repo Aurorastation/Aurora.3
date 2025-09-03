@@ -143,7 +143,7 @@
 		if(!spaceproof && istype(owner.wear_suit, /obj/item/clothing/suit/space))
 			//cooling is going to SUCK if you have heat-regulating clothes
 			if(owner.bodytemperature < species.heat_level_3)
-				owner.bodytemperature += 5
+				owner.bodytemperature = min(owner.bodytemperature + 5, owner.species.heat_level_2)
 				temperature_change *= 0.1
 
 	// Check if there is somehow no air, or if we are in an ambient without enough air to properly cool us.
@@ -178,7 +178,7 @@
 /obj/item/organ/internal/machine/cooling_unit/low_integrity_damage(integrity)
 	if(get_integrity_damage_probability() / 2)
 		to_chat(owner, SPAN_WARNING("Your temperature sensors pick up a spike in temperature."))
-		owner.bodytemperature += 10
+		owner.bodytemperature = min(owner.bodytemperature + 10, owner.species.heat_level_2)
 	. = ..()
 
 /obj/item/organ/internal/machine/cooling_unit/medium_integrity_damage(integrity)
