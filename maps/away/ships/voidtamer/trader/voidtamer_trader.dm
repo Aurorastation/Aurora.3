@@ -19,7 +19,7 @@
 /obj/effect/overmap/visitable/ship/voidtamer_trade_ship
 	name = "Voidtamer Trade Ship"
 	desc = "A trade ship of the Voidtamer Conflux. While far from being built for combat, the vessel is outfited for self-defense against space fauna and potentialy hostile ships. The vessel is loaded for trade, looking for various ports and ships to trade at."
-	class = "VCV"
+	class = "VCV" //Pending
 	icon_state = "asteroid_cluster"
 	moving_state = "asteroid_cluster_moving"
 	colors = list("#9900FF")
@@ -45,7 +45,7 @@
 	//invisible_until_ghostrole_spawn = TRUE
 
 /obj/effect/overmap/visitable/ship/voidtamer_trade_ship/New()
-	designation = "[pick("Vessel of the Great Expanse", "Embrace of the Void", "Home Amongst Endless Space")]"
+	designation = "[pick("Test", "Embrace of the Void")]"
 	..()
 
 /obj/effect/overmap/visitable/ship/voidtamer_trade_ship/get_skybox_representation()
