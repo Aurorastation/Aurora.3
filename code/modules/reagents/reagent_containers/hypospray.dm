@@ -161,8 +161,6 @@
 	if(reagents_to_add)
 		atom_flags = 0
 		spent = FALSE
-	else
-		persistency_considered_trash = TRUE
 	update_icon()
 
 /obj/item/reagent_containers/hypospray/autoinjector/attack(mob/living/target_mob, mob/living/user, target_zone)
