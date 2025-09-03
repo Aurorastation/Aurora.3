@@ -350,7 +350,13 @@
 	var/trans = reagents.trans_to(target, amount_per_transfer_from_this)
 	to_chat(user, SPAN_NOTICE("You transfer [trans] units of the solution to [target]."))
 	on_pour()
+	if (istype(target, /obj/item/reagent_containers))
+		var/obj/item/reagent_containers/container = target
+		container.on_receiving_pour()
 	return 1
 
 /obj/item/reagent_containers/proc/on_pour()
 	playsound(src, /singleton/sound_category/generic_pour_sound, 25, 1)
+
+/obj/item/reagent_containers/proc/on_receiving_pour()
+	return

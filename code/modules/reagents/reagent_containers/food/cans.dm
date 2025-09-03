@@ -28,14 +28,25 @@
 	. += "You can also crush cans on other people's foreheads as well."
 
 /obj/item/reagent_containers/food/drinks/cans/standard_feed_mob(var/mob/user, var/mob/living/target)
-	if(!reagents || reagents.total_volume == 0)
-		persistency_considered_trash = TRUE
 	..()
+	if(reagents && reagents.total_volume > 0) // Handle trash persistency when drinking
+		persistency_considered_trash = TRUE
+	else
+		persistency_considered_trash = FALSE
 
 /obj/item/reagent_containers/food/drinks/cans/standard_pour_into(var/mob/user, var/atom/target)
-	if(reagents && reagents.total_volume > 0)
-		persistency_considered_trash = FALSE
 	..()
+	if(reagents && reagents.total_volume > 0) // Handle trash persistency when pouring out
+		persistency_considered_trash = TRUE
+	else
+		persistency_considered_trash = FALSE
+
+/obj/item/reagent_containers/food/drinks/cans/on_receiving_pour()
+	..()
+	if(reagents && reagents.total_volume > 0) // Handle trash persistency when receiving new liquid
+		persistency_considered_trash = TRUE
+	else
+		persistency_considered_trash = FALSE
 
 /obj/item/reagent_containers/food/drinks/cans/persistence_get_content()
 	var/list/content = list()
