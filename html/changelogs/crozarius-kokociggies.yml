@@ -5,4 +5,4 @@ delete-after: True
 changes:
   - rscadd: "Added Sinta'Unathi cigarettes containing Koko reed, an Unathi-specific drug."
   - imageadd: "Adds sprites for Koko reed cigarettes."
-  - rscqol: "Corrected the Ha'zana chewing koko sprite to no longer have the K'ois bar colour scheme."
+  - qol: "Corrected the Ha'zana chewing koko sprite to no longer have the K'ois bar colour scheme."
