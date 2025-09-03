@@ -104,7 +104,7 @@
 	var/unlocked
 
 /obj/structure/noticeboard/command/Initialize()
-	..()
+	return ..()
 	update_icon()
 
 /obj/structure/noticeboard/command/update_icon()
