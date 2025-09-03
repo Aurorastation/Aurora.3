@@ -34,6 +34,9 @@
 /datum/shuttle/autodock/ferry/supply/New(var/_name, var/obj/effect/shuttle_landmark/start_waypoint)
 	..(_name, start_waypoint)
 	SScargo.shuttle = src
+	addtimer(CALLBACK(src, PROC_REF(prepare_elevator)), 1 MINUTE) // pseudo initialize. We give mapload some time before initializing rest of the properties
+
+/datum/shuttle/autodock/ferry/supply/proc/prepare_elevator()
 
 	elevator_animation = new /obj/effect/elevator/animation_overlay()
 	elevator_animation.pixel_x = 224 // 7 tiles
@@ -146,7 +149,7 @@
 			elevator_animation.vis_contents += T
 
 	if(!returning_to_CC) // coming to Horizon
-		playsound(locate(hatch.x + 3, hatch.y - 1, hatch.z), 'sound/machines/industrial_lift_up.ogg', 100, FALSE)
+		playsound(locate(hatch.x + 3, hatch.y - 1, hatch.z), 'sound/machines/industrial_lift_raising.ogg', 100, FALSE)
 		flick("hatch-opening", hatch)
 		hatch.icon_state = "hatch-opened"
 		for(CE in step_trigger_group) // checking for the things standing on top of the hatch, then we send them to falling
@@ -173,7 +176,7 @@
 		// checking for standers is redundant here, since the elevator won't leave if a forbidden type is standing
 		CE = step_trigger_group[1]
 		CE.safe_to_walk = FALSE
-		playsound(locate(hatch.x + 4, hatch.y - 2, hatch.z), 'sound/machines/industrial_lift_up.ogg', 100, FALSE)
+		playsound(locate(hatch.x + 4, hatch.y - 2, hatch.z), 'sound/machines/industrial_lift_lowering.ogg', 100, FALSE)
 		animate(elevator_animation, pixel_x = animation_move_x, pixel_y = animation_move_y, time = 4 SECONDS)
 		sleep(4.2 SECONDS)
 
@@ -181,14 +184,14 @@
 		flip_rotating_alarms()
 
 	if(elevator_animation.pixel_y == 0) // prepare the animation for lowering for next time
-		animation_movel_x = 224
+		animation_move_x = 224
 		animation_move_y = -96
 	else // vice-versa
 		animation_move_x = 0
 		animation_move_y = 0
 
 	elevator_animation.vis_contents.Cut()
-	// we move the elevators away to avoid layering issues, since elevator platform uses platings and they have the lowest layer value
+	// we move the elevators away to avoid layering issues, since elevator platform uses platings and they have the lowest layer value and won't work well with the animated layer
 	NW.moveToNullspace()
 	NE.moveToNullspace()
 
@@ -197,8 +200,8 @@
 		RA.toggle_state()
 
 /datum/shuttle/autodock/ferry/supply/proc/toggle_railings()
-	for(var/obj/structure/railing/retractable/cargo_elevator/QO in horizon_elevator_area)
-		QO.toggle_state()
+	for(var/obj/structure/railing/retractable/R in horizon_elevator_area)
+		R.toggle_state()
 
 /obj/effect/cargo_elevator_hatch
 	name = "elevator hatch"
