@@ -217,7 +217,7 @@
 	if(response == "Yes")
 		harvest()
 
-/obj/machinery/portable_atmospherics/hydroponics/attack_generic(var/mob/user)
+/obj/machinery/portable_atmospherics/hydroponics/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	// Why did I ever think this was a good idea. TODO: move this onto the nymph mob.
 	if(istype(user,/mob/living/carbon/alien/diona))
 		var/mob/living/carbon/alien/diona/nymph = user

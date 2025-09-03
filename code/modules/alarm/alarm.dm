@@ -85,7 +85,7 @@
 
 /datum/alarm/proc/alarm_name()
 	if(!origin)
-		return last_name
+		return get_area_display_name(last_area)
 
 	last_name = origin.get_alarm_name()
 	return last_name
@@ -137,13 +137,18 @@
 	return display_name
 
 /area/get_alarm_name()
-	return name
+	var/display_name = get_area_display_name(src)
+	return display_name
 
 /mob/get_alarm_name()
-	return name
+	var/area/A = get_area(src)
+	var/display_name = get_area_display_name(A)
+	return display_name
 
 /atom/proc/get_source_name()
-	return name
+	var/area/A = get_area(src)
+	var/display_name = get_area_display_name(A)
+	return display_name
 
 /obj/machinery/camera/get_source_name()
 	return c_tag
