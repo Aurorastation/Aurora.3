@@ -4,7 +4,6 @@
 #define FUSION_REACTANT_CAP				10000
 #define FUSION_WARNING_DELAY 			20
 #define FUSION_BLACKBODY_MULTIPLIER		24
-#define FUSION_INTEGRITY_RATE_LIMIT		17
 
 /obj/effect/fusion_em_field
 	name = "electromagnetic field"
@@ -204,12 +203,12 @@
 	// Dump power to our powernet.
 	owned_core.add_avail(FUSION_ENERGY_PER_K * plasma_temperature * field_strength_power_multiplier)
 
-	var/field_strength_entropy_multiplier = max((((owned_core.field_strength) ** 1.05) / 90), 1)
+	var/field_strength_entropy_multiplier = max((((owned_core.field_strength - 18) ** 1.1) / 90), 1)
 	// Energy decay (entropy tax).
 	if(plasma_temperature >= 1)
-		var/lost = plasma_temperature * 0.002
+		var/lost = plasma_temperature * 0.001
 		radiation += lost
-		plasma_temperature -= lost * 20 * field_strength_entropy_multiplier
+		plasma_temperature -= lost * field_strength_entropy_multiplier
 
 	// Handle some reactants formatting.
 	for(var/reactant in reactants)
@@ -244,11 +243,11 @@
  * document details later.
  */
 /obj/effect/fusion_em_field/proc/check_instability()
-	var/field_strength_instability_multiplier = max((owned_core.field_strength ** 1.1)/20, 1)
+	var/field_strength_instability_multiplier = max((owned_core.field_strength ** 1.25)/20, 1)
 	if(tick_instability > 0)
 		percent_unstable_archive = percent_unstable
 		// Apply any modifiers to instability imparted by current field strength, but only apply up to FUSION_INTEGRITY_RATE_LIMIT additional instability.
-		percent_unstable += min(((tick_instability * field_strength_instability_multiplier)/FUSION_INSTABILITY_DIVISOR), FUSION_INTEGRITY_RATE_LIMIT)
+		percent_unstable += (tick_instability * field_strength_instability_multiplier)/FUSION_INSTABILITY_DIVISOR
 		tick_instability = 0
 		UpdateVisuals()
 	else
@@ -600,7 +599,7 @@
 						continue
 
 				// Randomly determined amount to react.
-				var/amount_reacting = rand(1, (max_num_reactants / 3))
+				var/amount_reacting = rand(1, (max_num_reactants * (2/3)))
 
 				// Removing the reacting substances from the list of substances that are primed to react this cycle.
 				// If there aren't enough of that substance (there should be) then modify the reactant amounts accordingly.
@@ -620,7 +619,7 @@
 				plasma_temperature -= max_num_reactants * cur_reaction.energy_consumption  // Remove the consumed energy.
 				plasma_temperature += max_num_reactants * cur_reaction.energy_production   // Add any produced energy.
 				radiation += max_num_reactants * cur_reaction.radiation           // Add any produced radiation.
-				tick_instability += min(max_num_reactants * cur_reaction.instability, FUSION_INTEGRITY_RATE_LIMIT)
+				tick_instability += max_num_reactants * cur_reaction.instability
 				last_reactants += amount_reacting
 
 				// Create the reaction products.
@@ -794,4 +793,3 @@
 #undef FUSION_REACTANT_CAP
 #undef FUSION_WARNING_DELAY
 #undef FUSION_BLACKBODY_MULTIPLIER
-#undef FUSION_INTEGRITY_RATE_LIMIT
