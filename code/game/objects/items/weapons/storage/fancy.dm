@@ -441,9 +441,9 @@
 
 /obj/item/storage/box/fancy/cigarettes/koko
 	name = "\improper Koko Reed cigarette packet"
-	desc = "A sweet cigarette made exclusively on the Compact ruled world of Ha'zana. A good pick-me-up for Unathi, but has no effect on other species."
-	icon_state = "Epacket"
-	item_state = "Epacket"
+	desc = "Made exclusively on the Compact ruled world of Ha'zana, these cigarettes make a good pick-me-up for Unathi, but have no effect on other species."
+	icon_state = "kokopacket"
+	item_state = "kokopacket"
 	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/koko
 
 /obj/item/storage/box/fancy/cigarettes/case
