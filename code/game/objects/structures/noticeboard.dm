@@ -103,7 +103,7 @@
 	var/open
 	var/unlocked
 
-/obj/structure/noticeboard/command/New()
+/obj/structure/noticeboard/command/Initialize()
 	..()
 	update_icon()
 
