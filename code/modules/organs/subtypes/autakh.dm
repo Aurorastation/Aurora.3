@@ -187,7 +187,7 @@
 			return
 		owner.visible_message("<b>[user]'s</b> eyes clicks loudly as they focus ahead.", range = 3)
 
-	zoom(owner, 7, 7, FALSE, FALSE)
+	zoom(owner, 6, 7, FALSE, FALSE)
 
 /obj/item/organ/internal/augment/eye_flashlight
 	name = "eye flashlight"

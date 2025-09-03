@@ -46,7 +46,7 @@
 	var/filter_effect_from_critical_toxin = 2
 
 	/// Modifier on how efficiently this liver eliminates booze.
-	var/booze_filtering_modifier = 1
+	var/booze_filtering_modifier = 0.03
 
 	/// How much the liver being bruised contributes to filter effect.
 	var/filter_effect_from_bruise = 1
@@ -55,7 +55,7 @@
 	var/filter_effect_from_broken = 2
 
 	/// Modifier on how efficiently this liver eliminates booze while blackout drunk.
-	var/blackout_booze_filtering_modifier = 0.5
+	var/blackout_booze_filtering_modifier = 0.015
 
 	/// Message to play in chat to a liver-haver when they have an infection.
 	var/infection_level_one_warning = "Your skin itches."
@@ -140,7 +140,7 @@
 	var/res = owner.species ? owner.species.ethanol_resistance : 1
 	var/blackout_effects = (bac >= INTOX_BLACKOUT * res) ? blackout_booze_filtering_modifier : booze_filtering_modifier
 
-	owner.intoxication -= min(owner.intoxication, filter_strength * filter_effect * blackout_effects)
+	owner.intoxication -= min(owner.intoxication, filter_strength * (filter_effect / base_filter_effect) * blackout_effects * seconds_per_tick)
 
 	if(!owner.intoxication)
 		owner.handle_intoxication()
@@ -168,5 +168,5 @@
 	base_filter_strength = 1.5
 	base_filter_effect = 5
 	toxin_critical_mass = 90
-	booze_filtering_modifier = 100 // "Impossible to get drunk", this should make it impossible. :)
-	blackout_booze_filtering_modifier = 1
+	booze_filtering_modifier = 0.5 // "Impossible to get drunk", this should make it impossible. :)
+	blackout_booze_filtering_modifier = 0.25

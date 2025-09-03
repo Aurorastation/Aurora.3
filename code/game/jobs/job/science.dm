@@ -41,7 +41,7 @@
 	uniform = /obj/item/clothing/under/rank/research_director
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/science
 	shoes = /obj/item/clothing/shoes/sneakers/brown
-	id = /obj/item/card/id/silver
+	id = /obj/item/card/id/scc/silver
 	l_hand = /obj/item/clipboard
 
 	headset = /obj/item/device/radio/headset/heads/rd
@@ -145,11 +145,11 @@
 
 	uniform = /obj/item/clothing/under/rank/scientist/xenoarchaeologist
 
-	headset = /obj/item/device/radio/headset/headset_xenoarch
-	bowman = /obj/item/device/radio/headset/headset_xenoarch/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/xenoarch
-	wrist_radio = /obj/item/device/radio/headset/wrist/xenoarch
-	clipon_radio = /obj/item/device/radio/headset/wrist/clip/xenoarch
+	headset = /obj/item/device/radio/headset/headset_xenology
+	bowman = /obj/item/device/radio/headset/headset_xenology/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/xenology
+	wrist_radio = /obj/item/device/radio/headset/wrist/xenology
+	clipon_radio = /obj/item/device/radio/headset/wrist/clip/xenology
 
 /obj/outfit/job/scientist/anomalist
 	name = "Anomalist"
@@ -195,6 +195,12 @@
 
 	uniform = /obj/item/clothing/under/rank/scientist/xenobio
 
+	headset = /obj/item/device/radio/headset/headset_xenology
+	bowman = /obj/item/device/radio/headset/headset_xenology/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/xenology
+	wrist_radio = /obj/item/device/radio/headset/wrist/xenology
+	clipon_radio = /obj/item/device/radio/headset/wrist/clip/xenology
+
 /datum/job/xenobotanist
 	title = "Xenobotanist"
 	flag = XENOBOTANIST
@@ -227,6 +233,12 @@
 	jobtype = /datum/job/xenobotanist
 
 	uniform = /obj/item/clothing/under/rank/scientist/botany
+
+	headset = /obj/item/device/radio/headset/headset_xenology
+	bowman = /obj/item/device/radio/headset/headset_xenology/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/xenology
+	wrist_radio = /obj/item/device/radio/headset/wrist/xenology
+	clipon_radio = /obj/item/device/radio/headset/wrist/clip/xenology
 
 /datum/job/intern_sci
 	title = "Research Intern"
