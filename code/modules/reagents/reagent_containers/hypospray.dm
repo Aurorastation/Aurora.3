@@ -122,7 +122,6 @@
 	slot_flags = SLOT_EARS
 	var/name_label
 	var/spent = TRUE
-	persistency_considered_trash = FALSE
 	amount_per_transfer_from_this = 5
 	possible_transfer_amounts = null
 	volume = 5
