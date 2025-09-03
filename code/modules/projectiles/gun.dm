@@ -602,7 +602,7 @@
 	P.fired_from = src
 	P.def_zone = target_zone
 
-	return !P.fire()
+	return !P.fire(null, target)
 
 //Suicide handling.
 /obj/item/gun/var/mouthshoot = FALSE //To stop people from suiciding twice... >.>
