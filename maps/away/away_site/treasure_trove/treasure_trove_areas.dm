@@ -11,4 +11,4 @@
 
 /area/trove/jungle
 	name = "Treasure Trove Jungle"
-	icon_state = "red2"
+	icon_state = "green"

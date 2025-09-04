@@ -10,6 +10,11 @@
 	spawn_cost = 1
 	id = "trove"
 
+	traits = list(
+		list(ZTRAIT_AWAY = TRUE, ZTRAIT_UP = TRUE, ZTRAIT_DOWN = FALSE),
+		list(ZTRAIT_AWAY = TRUE, ZTRAIT_UP = FALSE, ZTRAIT_DOWN = TRUE),
+	)
+
 	unit_test_groups = list(1)
 
 /singleton/submap_archetype/treasure_trove
