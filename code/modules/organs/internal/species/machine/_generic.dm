@@ -91,8 +91,9 @@
 		if(amount <= 0)
 			return
 
+	var/list/component_list = list(wiring, electronics)
 	// After that, it's open season.
-	for(var/datum/synthetic_internal/internal in list(wiring, electronics))
+	for(var/datum/synthetic_internal/internal in shuffle(component_list))
 		if(internal.get_status())
 			internal.take_damage(amount)
 			if(internal.get_status())

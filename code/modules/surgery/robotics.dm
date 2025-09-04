@@ -471,7 +471,7 @@
 		for(var/obj/item/organ/internal/machine/I in affected.internal_organs)
 			if(I.wiring.get_status() < 100)
 				if(istype(C))
-					var/needed_wires = (I.wiring.max_wires - I.wiring.wires) / 10
+					var/needed_wires = (I.wiring.max_wires - I.wiring.wires) / 2
 					if(needed_wires)
 						if(!(C.get_amount() >= (needed_wires)))
 							to_chat(user, SPAN_WARNING("You need [needed_wires] or more cable pieces to repair this damage."))
