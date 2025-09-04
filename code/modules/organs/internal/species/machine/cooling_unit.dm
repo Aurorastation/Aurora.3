@@ -153,6 +153,11 @@
 		else
 			temperature_change = min(temperature_change * 3, 10) //give it a little boost to counteract temp gain in space
 
+	if(is_broken())
+		temperature_change *= 0.2 //uh oh
+	else if(is_bruised())
+		temperature_change *= 0.75
+
 	// Now let's start cooling down!
 	// No power, no party.
 	var/obj/item/organ/internal/machine/power_core/cell = owner.internal_organs_by_name[BP_CELL]
@@ -176,13 +181,13 @@
 		cell.use(max(0, base_power_consumption + extra_power_consumption))
 
 /obj/item/organ/internal/machine/cooling_unit/low_integrity_damage(integrity)
-	if(get_integrity_damage_probability() / 2)
+	if(get_integrity_damage_probability())
 		to_chat(owner, SPAN_WARNING("Your temperature sensors pick up a spike in temperature."))
 		owner.bodytemperature = min(owner.bodytemperature + 10, owner.species.heat_level_2)
 	. = ..()
 
 /obj/item/organ/internal/machine/cooling_unit/medium_integrity_damage(integrity)
-	if(get_integrity_damage_probability() / 3)
+	if(get_integrity_damage_probability())
 		to_chat(owner, SPAN_WARNING("Your thermostat's temperature setting goes haywire!"))
 		thermostat = rand(thermostat_min, thermostat_max)
 
@@ -192,7 +197,7 @@
 	. = ..()
 
 /obj/item/organ/internal/machine/cooling_unit/high_integrity_damage(integrity)
-	if(get_integrity_damage_probability() / 5)
+	if(get_integrity_damage_probability())
 		if(spaceproof)
 			playsound(owner, pick(SOUNDS_LASER_METAL), 50)
 			to_chat(owner, SPAN_DANGER(FONT_LARGE("Your laminar cooling stratum has melted. Your cooling unit will not work in space anymore!")))

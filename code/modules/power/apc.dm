@@ -834,7 +834,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 
-		if(isipc(H) && H.a_intent == I_GRAB)
+		if(isipc(H) && H.a_intent == I_GRAB && Adjacent(user))
 			if(emagged || stat & BROKEN)
 				spark(src, 5, GLOB.alldirs)
 				to_chat(H, SPAN_DANGER("The APC power currents surge eratically, damaging your chassis!"))

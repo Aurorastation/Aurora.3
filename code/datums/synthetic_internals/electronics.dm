@@ -5,9 +5,9 @@
 	name = "internal electronics"
 	desc = "The electronics and the code responsible for many internal functions."
 	/// The maximum integrity percentage of the internals. Represents code coherence and physical damage.
-	var/max_integrity = 50
+	var/max_integrity = 30
 	/// The integrity of the internals in percentage. Represents code coherence and physical damage.
-	var/integrity = 50
+	var/integrity = 30
 
 /datum/synthetic_internal/electronics/get_status()
 	return (integrity / max_integrity) * 100
