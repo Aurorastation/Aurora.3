@@ -509,8 +509,11 @@
 
 	organ_hit_chance += 5 * damage_amt / organ_damage_threshold
 
-	if(encased && !(status & ORGAN_BROKEN)) //ribs protect
-		organ_hit_chance *= 0.2
+	if(!BP_IS_ROBOTIC(src))
+		if(encased && !(status & ORGAN_BROKEN)) //ribs protect
+			organ_hit_chance *= 0.2
+	else
+		organ_hit_chance *= 0.8 // robots should not have the same advantage
 
 	organ_hit_chance = min(organ_hit_chance, 100)
 	if(prob(organ_hit_chance))

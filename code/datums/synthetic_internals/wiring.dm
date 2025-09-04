@@ -4,9 +4,9 @@
 	name = "internal wiring"
 	desc = "The wiring that connects components together and allows them to talk to eachother."
 	/// The maximum wires on this organ. Wires represent physical connections between components. They are less plentiful than plating, but they are worse to lose.
-	var/max_wires = 100
+	var/max_wires = 50
 	/// The wires left on this organ. Wires represent physical connections between components. They are less plentiful than plating, but they are worse to lose.
-	var/wires = 100
+	var/wires = 50
 
 /datum/synthetic_internal/wiring/get_status()
 	return (wires / max_wires) * 100

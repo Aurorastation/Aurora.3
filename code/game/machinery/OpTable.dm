@@ -361,6 +361,9 @@
 	. = ..()
 	access_cable = new(src, src, src)
 
+/obj/machinery/optable/robotics/remove_cable(obj/item/access_cable/cable)
+	access_cable = null
+
 /obj/machinery/optable/robotics/mechanics_hints(mob/user, distance, is_adjacent)
 	. = ..()
 	. += list("Use a <b>non-help</b> intent to unbuckle.")
