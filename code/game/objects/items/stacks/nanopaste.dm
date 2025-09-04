@@ -65,14 +65,14 @@
 					R.adjustBruteLoss(-15)
 					R.adjustFireLoss(-15)
 					R.updatehealth()
-				if(isAI(target_mob))
+				else if(isAI(target_mob))
 					var/mob/living/silicon/ai/A = target_mob
 					A.adjustBruteLoss(-15)
 					A.adjustFireLoss(-15)
 					A.updatehealth()
 				use(1)
-				user.visible_message(SPAN_NOTICE("\The [user] successfully applies some [src] at [target_mob]'s damaged areas."),\
-										SPAN_NOTICE("You successfully apply some [src] at [target_mob]'s damaged areas."))
+				user.visible_message(SPAN_NOTICE("\The [user] successfully applies some [src] on [target_mob]'s damaged areas."),\
+										SPAN_NOTICE("You successfully apply some [src] on [target_mob]'s damaged areas."))
 			application_in_progress = FALSE
 		else
 			to_chat(user, SPAN_WARNING("You are too focused applying \the [src] to do it multiple times simultaneously!"))
