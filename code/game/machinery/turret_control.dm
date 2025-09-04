@@ -93,19 +93,23 @@
 
 	return ..()
 
-/obj/machinery/turretid/attackby(obj/item/attacking_item, mob/user)
-	if(stat & BROKEN)
-		return
-
-	if(attacking_item.GetID())
-		if(src.allowed(usr))
-			if(emagged)
-				to_chat(user, SPAN_NOTICE("The turret control is unresponsive."))
+/obj/machinery/turretid/AltClick(mob/user)
+	if(Adjacent(user))
+		add_fingerprint(user)
+		if(emagged)
+			to_chat(user, SPAN_NOTICE("The turret control is unresponsive."))
+		else if(allowed(user))
+			locked = !locked
+			if(locked)
+				playsound(src, 'sound/machines/terminal/terminal_button03.ogg', 35, FALSE)
 			else
-				locked = !locked
-				to_chat(user, SPAN_NOTICE("You [ locked ? "lock" : "unlock"] the panel."))
-		return TRUE
-	return ..()
+				playsound(src, 'sound/machines/terminal/terminal_button01.ogg', 35, FALSE)
+			balloon_alert(user, locked ? "locked" : "unlocked")
+		else
+			to_chat(user, SPAN_WARNING("Access denied."))
+			playsound(src, 'sound/machines/terminal/terminal_error.ogg', 25, FALSE)
+			balloon_alert(user, "access denied!")
+	return
 
 /obj/machinery/turretid/emag_act(var/remaining_charges, var/mob/user)
 	if(!emagged)

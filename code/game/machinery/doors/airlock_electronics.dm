@@ -131,17 +131,24 @@
 		src.last_configurator = A.last_configurator
 		to_chat(user, SPAN_NOTICE("Configuration settings copied successfully."))
 		return TRUE
-	else if(attacking_item.GetID())
-		var/obj/item/card/id/I = attacking_item.GetID()
-		if(check_access(I))
-			locked = !locked
-			last_configurator = I.registered_name
-			to_chat(user, SPAN_NOTICE("You swipe your ID over \the [src], [locked ? "locking" : "unlocking"] it."))
-		else
-			to_chat(user, SPAN_WARNING("Access denied."))
-		return TRUE
 	else
 		return ..()
+
+/obj/item/airlock_electronics/AltClick(mob/user)
+	if(Adjacent(user))
+		add_fingerprint(user)
+		if(allowed(user))
+			locked = !locked
+			if(locked)
+				playsound(src, 'sound/machines/terminal/terminal_button03.ogg', 35, FALSE)
+			else
+				playsound(src, 'sound/machines/terminal/terminal_button01.ogg', 35, FALSE)
+			balloon_alert(user, locked ? "locked" : "unlocked")
+		else
+			to_chat(user, SPAN_WARNING("Access denied."))
+			playsound(src, 'sound/machines/terminal/terminal_error.ogg', 25, FALSE)
+			balloon_alert(user, "access denied!")
+		return
 
 /obj/item/airlock_electronics/secure
 	name = "secure airlock electronics"

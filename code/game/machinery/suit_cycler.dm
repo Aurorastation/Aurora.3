@@ -193,14 +193,6 @@
 		if(src.shock(user, 100))
 			return
 
-	if(attacking_item.GetID())
-		if(allowed(user))
-			locked = !locked
-			to_chat(user, SPAN_NOTICE("You [locked ? "" : "un"]lock \the [src]."))
-		else
-			to_chat(user, SPAN_WARNING("Access denied."))
-		return
-
 	//Other interface stuff.
 	if(istype(attacking_item, /obj/item/grab))
 		var/obj/item/grab/G = attacking_item
@@ -242,6 +234,7 @@
 			updateUsrDialog()
 			update_icon()
 		return
+
 	else if(attacking_item.isscrewdriver())
 		panel_open = !panel_open
 		to_chat(user, SPAN_NOTICE("You [panel_open ? "open" : "close"] the maintenance panel."))
@@ -255,6 +248,26 @@
 	TRY_INSERT_SUIT_PIECE(mask, clothing/mask)
 
 	..()
+
+/obj/machinery/suit_cycler/AltClick(mob/user)
+	if(Adjacent(user))
+		add_fingerprint(user)
+		if(electrified != 0)
+			if(src.shock(user, 100))
+				return
+
+		if(allowed(user))
+			locked = !locked
+			if(locked)
+				playsound(src, 'sound/machines/terminal/terminal_button03.ogg', 35, FALSE)
+			else
+				playsound(src, 'sound/machines/terminal/terminal_button01.ogg', 35, FALSE)
+			balloon_alert(user, locked ? "locked" : "unlocked")
+		else
+			to_chat(user, SPAN_WARNING("Access denied."))
+			playsound(src, 'sound/machines/terminal/terminal_error.ogg', 25, FALSE)
+			balloon_alert(user, "access denied!")
+	return
 
 /obj/machinery/suit_cycler/emag_act(var/remaining_charges, mob/user)
 	if(emagged)

@@ -246,23 +246,31 @@
 				else
 					to_chat(user, SPAN_WARNING("You need more welding fuel to complete this task."))
 		return
+	..()
+	return
 
-	if(attacking_item.GetID())
+/obj/machinery/power/emitter/AltClick(mob/user)
+	if(Adjacent(user))
+		add_fingerprint(user)
 		if(emagged)
 			to_chat(user, SPAN_WARNING("The lock seems to be broken."))
 			return
 		if(allowed(user))
 			if(active)
 				locked = !locked
-				to_chat(user, SPAN_NOTICE("The controls are now [locked ? "locked." : "unlocked."]"))
+				if(locked)
+					playsound(src, 'sound/machines/terminal/terminal_button03.ogg', 35, FALSE)
+				else
+					playsound(src, 'sound/machines/terminal/terminal_button01.ogg', 35, FALSE)
+				balloon_alert(user, locked ? "locked" : "unlocked")
 			else
 				locked = FALSE //just in case it somehow gets locked
 				to_chat(user, SPAN_WARNING("The controls can only be locked when \the [src] is online."))
 		else
 			to_chat(user, SPAN_WARNING("Access denied."))
+			playsound(src, 'sound/machines/terminal/terminal_error.ogg', 25, FALSE)
+			balloon_alert(user, "access denied!")
 		return
-	..()
-	return
 
 /obj/machinery/power/emitter/emag_act(remaining_charges, mob/user)
 	if(!emagged)

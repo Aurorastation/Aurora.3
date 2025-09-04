@@ -1063,18 +1063,6 @@ pixel_x = 10;
 				update_icon()
 				return TRUE
 
-			if (attacking_item.GetID())// trying to unlock the interface with an ID card
-				if(stat & (NOPOWER|BROKEN))
-					to_chat(user, SPAN_NOTICE("Nothing happens."))
-					return TRUE
-				else
-					if(allowed(usr) && !wires.is_cut(WIRE_IDSCAN))
-						locked = !locked
-						to_chat(user, SPAN_NOTICE("You [ locked ? "lock" : "unlock"] the Air Alarm interface."))
-					else
-						to_chat(user, SPAN_WARNING("Access denied."))
-				return TRUE
-
 		if(1)
 			if(attacking_item.iscoil())
 				var/obj/item/stack/cable_coil/C = attacking_item
@@ -1114,6 +1102,27 @@ pixel_x = 10;
 				return TRUE
 
 	return ..()
+
+/obj/machinery/alarm/AltClick(mob/user)
+	if(Adjacent(user))
+		if(stat & (NOPOWER|BROKEN))
+			to_chat(user, SPAN_NOTICE("Nothing happens."))
+			return TRUE
+
+		else if(allowed(user))
+			locked = !locked
+			if(locked)
+				playsound(src, 'sound/machines/terminal/terminal_button03.ogg', 35, FALSE)
+			else
+				playsound(src, 'sound/machines/terminal/terminal_button01.ogg', 35, FALSE)
+			balloon_alert(user, locked ? "locked" : "unlocked")
+			updateUsrDialog()
+
+		else
+			to_chat(user, SPAN_NOTICE("Access denied."))
+			playsound(src, 'sound/machines/terminal/terminal_error.ogg', 25, FALSE)
+			balloon_alert(user, "access denied!")
+		return TRUE
 
 /obj/machinery/alarm/power_change()
 	..()

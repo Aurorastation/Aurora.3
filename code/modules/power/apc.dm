@@ -373,7 +373,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 	if(update & 2)
 		ClearOverlays()
 		if(!(stat & (BROKEN|MAINT)) && update_state & UPDATE_ALLGOOD)
-			AddOverlays(status_overlays_lock[locked+coverlocked+1])
+			AddOverlays(status_overlays_lock[locked+1])
 			AddOverlays(status_overlays_charging[charging+1])
 			AddOverlays(emissive_appearance(icon, "apc-cover-0"))
 			AddOverlays(emissive_appearance(icon, "apc-charge-0"))
@@ -585,26 +585,6 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 			to_chat(user, "The wires have been [panel_open ? "exposed" : "unexposed"]")
 			update_icon()
 
-	// ID CARD: Attempt to unlock the interface if you have sufficient access.
-	else if (attacking_item.GetID())
-		if(emagged)
-			to_chat(user, "The interface is broken.")
-		else if(opened != COVER_CLOSED)
-			to_chat(user, "You must close the cover to swipe an ID card.")
-		else if(panel_open)
-			to_chat(user, "You must close the wiring panel to swipe an ID card.")
-		else if(stat & (BROKEN|MAINT))
-			to_chat(user, "Nothing happens.")
-		else if(hacker)
-			to_chat(user, SPAN_WARNING("Access denied."))
-		else
-			if(allowed(usr) && !isWireCut(WIRE_IDSCAN))
-				locked = !locked
-				to_chat(user, "You [ locked ? "lock" : "unlock"] the APC interface.")
-				update_icon()
-			else
-				to_chat(user, SPAN_WARNING("Access denied."))
-
 	// CABLE COIL: Install the power terminal (wire stuff on the floor in front of the APC).
 	else if (attacking_item.iscoil() && !terminal && opened != COVER_CLOSED && has_electronics != HAS_ELECTRONICS_SECURED)
 		var/turf/T = loc
@@ -798,6 +778,33 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 				SPAN_DANGER("You hit the [name] with your [attacking_item.name]!"), \
 				"You hear a loud metallic bang")
 
+/obj/machinery/power/apc/AltClick(mob/user)
+	if(Adjacent(user))
+		add_fingerprint(user)
+		if(emagged)
+			to_chat(user, "The interface is broken.")
+		else if(opened != COVER_CLOSED)
+			to_chat(user, "You must close the cover to swipe an ID card.")
+		else if(panel_open)
+			to_chat(user, "You must close the wiring panel to swipe an ID card.")
+		else if(stat & (BROKEN|MAINT))
+			to_chat(user, "Nothing happens.")
+		else if(hacker)
+			to_chat(user, SPAN_WARNING("Access denied."))
+		else
+			if(allowed(usr) && !isWireCut(WIRE_IDSCAN))
+				locked = !locked
+				if(locked)
+					playsound(src, 'sound/machines/terminal/terminal_button03.ogg', 35, FALSE)
+				else
+					playsound(src, 'sound/machines/terminal/terminal_button01.ogg', 35, FALSE)
+				balloon_alert(user, locked ? "locked" : "unlocked")
+				update_icon()
+			else
+				to_chat(user, SPAN_WARNING("Access denied."))
+				playsound(src, 'sound/machines/terminal/terminal_error.ogg', 25, FALSE)
+				balloon_alert(user, "access denied!")
+
 /obj/machinery/power/apc/emag_act(var/remaining_charges, var/mob/user)
 	if(emagged && !infected)
 		to_chat(user, SPAN_WARNING("You start sliding your cryptographic device into the charging slot. This will take a few seconds..."))
@@ -957,10 +964,12 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 		area.power_light = (lighting > 1)
 		area.power_equip = (equipment > 1)
 		area.power_environ = (environ > 1)
+
 	else
 		area.power_light = FALSE
 		area.power_equip = FALSE
 		area.power_environ = FALSE
+		playsound(src.loc, 'sound/machines/terminal/terminal_off.ogg', 50, FALSE)
 	area.power_change()
 
 /obj/machinery/power/apc/proc/isWireCut(var/wireIndex)
@@ -1070,6 +1079,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 				if("Environment")
 					environ = setsubsystem(val)
 			intent_message(BUTTON_FLICK, 5)
+			playsound(src, 'sound/machines/terminal/terminal_select.ogg', 18, TRUE)
 			update_icon()
 			update()
 			. = TRUE
@@ -1090,6 +1100,10 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 
 /obj/machinery/power/apc/proc/toggle_breaker()
 	operating = !operating
+	if(operating)
+		playsound(src, 'sound/machines/terminal/terminal_on.ogg', 35, FALSE)
+	else
+		playsound(src, 'sound/machines/terminal/terminal_off.ogg', 35, FALSE)
 	update()
 	update_icon()
 	intent_message(BUTTON_FLICK)

@@ -156,17 +156,23 @@
 		var/self_msg = wrenched ? "You secure the external reinforcing bolts to the floor." : "You unsecure the external reinforcing bolts."
 		user.visible_message(others_msg, SPAN_NOTICE(self_msg), SPAN_NOTICE("You hear a ratcheting noise."))
 		return
+	return ..()
 
-	if(attacking_item.GetID())
+/obj/machinery/shieldwallgen/AltClick(mob/user)
+	if(Adjacent(user))
 		add_fingerprint(user)
 		if(allowed(user))
 			locked = !locked
-			var/msg = "The controls are now [locked ? "locked" : "unlocked"]."
-			to_chat(user, SPAN_NOTICE(msg))
+			if(locked)
+				playsound(src, 'sound/machines/terminal/terminal_button03.ogg', 35, FALSE)
+			else
+				playsound(src, 'sound/machines/terminal/terminal_button01.ogg', 35, FALSE)
+			balloon_alert(user, locked ? "locked" : "unlocked")
 		else
 			to_chat(user, SPAN_WARNING("Access denied."))
+			playsound(src, 'sound/machines/terminal/terminal_error.ogg', 25, FALSE)
+			balloon_alert(user, "access denied!")
 		return
-	return ..()
 
 /obj/machinery/shieldwallgen/proc/alldir_cleanup()
 	for(var/dir in list(NORTH, SOUTH, EAST, WEST))

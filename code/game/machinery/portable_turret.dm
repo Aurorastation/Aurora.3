@@ -92,6 +92,10 @@
 	else
 		. += "\The [src] is in perfect condition."
 
+/obj/machinery/porta_turret/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "ALT-click the [src] to lock or unlock it."
+
 /obj/machinery/porta_turret/assembly_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "It [anchored ? "is" : "could be"] anchored to the floor with some <b>bolts</b>."
@@ -376,16 +380,6 @@
 		wrenching = 0
 		return TRUE
 
-	else if(attacking_item.GetID())
-		//Behavior lock/unlock mangement
-		if(allowed(user))
-			locked = !locked
-			to_chat(user, SPAN_NOTICE("Controls are now [locked ? "locked" : "unlocked"]."))
-			updateUsrDialog()
-		else
-			to_chat(user, SPAN_NOTICE("Access denied."))
-		return TRUE
-
 	else if(attacking_item.iswelder())
 		var/obj/item/weldingtool/WT = attacking_item
 		if (!WT.welding)
@@ -415,6 +409,22 @@
 				attacked = 1
 				addtimer(CALLBACK(src, PROC_REF(reset_attacked)), 1 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE)
 		return ..()
+
+/obj/machinery/porta_turret/AltClick(mob/user)
+	if(Adjacent(user))
+		if(allowed(user))
+			locked = !locked
+			if(locked)
+				playsound(src, 'sound/machines/terminal/terminal_button03.ogg', 35, FALSE)
+			else
+				playsound(src, 'sound/machines/terminal/terminal_button01.ogg', 35, FALSE)
+			balloon_alert(user, locked ? "locked" : "unlocked")
+			updateUsrDialog()
+		else
+			to_chat(user, SPAN_NOTICE("Access denied."))
+			playsound(src, 'sound/machines/terminal/terminal_error.ogg', 25, FALSE)
+			balloon_alert(user, "access denied!")
+		return TRUE
 
 /obj/machinery/porta_turret/proc/reset_attacked()
 	attacked = FALSE

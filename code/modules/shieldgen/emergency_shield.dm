@@ -352,16 +352,24 @@
 			to_chat(user, SPAN_NOTICE("You secure the [src] to the floor!"))
 			anchored = TRUE
 
-
-	else if(attacking_item.GetID())
-		if(src.allowed(user))
-			src.locked = !src.locked
-			to_chat(user, "The controls are now [src.locked ? "locked." : "unlocked."]")
-		else
-			to_chat(user, SPAN_WARNING("Access denied."))
-
 	else
 		..()
+
+/obj/machinery/shieldgen/AltClick(mob/user)
+	if(Adjacent(user))
+		add_fingerprint(user)
+		if(allowed(user))
+			locked = !locked
+			if(locked)
+				playsound(src, 'sound/machines/terminal/terminal_button03.ogg', 35, FALSE)
+			else
+				playsound(src, 'sound/machines/terminal/terminal_button01.ogg', 35, FALSE)
+			balloon_alert(user, locked ? "locked" : "unlocked")
+		else
+			to_chat(user, SPAN_WARNING("Access denied."))
+			playsound(src, 'sound/machines/terminal/terminal_error.ogg', 25, FALSE)
+			balloon_alert(user, "access denied!")
+		return
 
 
 /obj/machinery/shieldgen/update_icon()

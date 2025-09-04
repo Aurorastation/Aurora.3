@@ -149,17 +149,24 @@
 
 				hide(!T.is_plating())
 
-	else if (attacking_item.GetID())
+/obj/machinery/navbeacon/AltClick(mob/user)
+	if(Adjacent(user))
 		if(open)
-			if (src.allowed(user))
-				src.locked = !src.locked
-				to_chat(user, "Controls are now [src.locked ? "locked." : "unlocked."]")
+			add_fingerprint(user)
+			if(allowed(user))
+				locked = !locked
+				if(locked)
+					playsound(src, 'sound/machines/terminal/terminal_button03.ogg', 35, FALSE)
+				else
+					playsound(src, 'sound/machines/terminal/terminal_button01.ogg', 35, FALSE)
+				balloon_alert(user, locked ? "locked" : "unlocked")
 			else
 				to_chat(user, SPAN_WARNING("Access denied."))
-			updateDialog()
+				playsound(src, 'sound/machines/terminal/terminal_error.ogg', 25, FALSE)
+				balloon_alert(user, "access denied!")
 		else
 			to_chat(user, "You must open the cover first!")
-		return TRUE
+	return
 
 /obj/machinery/navbeacon/attack_ai(var/mob/user)
 	if(!ai_can_interact(user))
