@@ -57,6 +57,27 @@
 	else
 		return 0
 
+// Proc: reading_to_text()
+// Parameters: 1 (amount - Power in Watts to be converted to W, kW or MW)
+// Description: Helper proc that converts reading in Watts to kW or MW (returns string version of amount parameter)
+/obj/machinery/proc/reading_to_text(var/amount = 0)
+	var/units = ""
+	// 10kW and less - Watts
+	if(amount < 10000)
+		units = "W"
+	// 10MW and less - KiloWatts
+	else if(amount < 10000000)
+		units = "kW"
+		amount = (round(amount/100) / 10)
+	// More than 10MW - MegaWatts
+	else
+		units = "MW"
+		amount = (round(amount/10000) / 100)
+	if (units == "W")
+		return "[amount] W"
+	else
+		return "[amount] [units]"
+
 /obj/machinery/power/proc/disconnect_terminal() // machines without a terminal will just return, no harm no fowl.
 	return
 

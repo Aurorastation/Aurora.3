@@ -85,7 +85,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 	var/areastring = null
 	var/obj/item/cell/cell
 	/// Cap for how fast APC cells charge, as a percentage-per-tick (0.01 means cellcharge is capped to 1% per second)
-	var/chargelevel = 0.0005
+	var/chargelevel = 0.005
 	var/cellused = 0
 	/// Initial cell charge %
 	var/start_charge = 90

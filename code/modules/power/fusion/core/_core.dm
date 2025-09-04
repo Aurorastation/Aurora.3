@@ -9,13 +9,16 @@
 	layer = ABOVE_HUMAN_LAYER
 	density = TRUE
 	use_power = POWER_USE_IDLE
-	idle_power_usage = 50
+	idle_power_usage = 10000
 	/// Gets multiplied by field strength
-	active_power_usage = 500
+	active_power_usage = 50000
 	anchored = FALSE
 
 	var/obj/effect/fusion_em_field/owned_field
-	var/field_strength = 1//0.01
+	/// The currently configured Field Strength (1 = 100 Tesla).
+	var/field_strength = 1
+	/// This is for the INDRA, allowing a maximum 5-radius field. Change this for larger/smaller reactors.
+	var/field_strength_max = 1.2
 	var/initial_id_tag
 
 /obj/machinery/power/fusion_core/mapped
@@ -44,6 +47,7 @@
 	owned_field.ChangeFieldStrength(field_strength)
 	icon_state = "core1"
 	update_use_power(POWER_USE_ACTIVE)
+	set_light(3, 0.7, COLOR_PALE_BLUE_GRAY)
 	. = 1
 
 /**
@@ -59,6 +63,7 @@
 		qdel(owned_field)
 		owned_field = null
 	update_use_power(POWER_USE_IDLE)
+	set_light(0)
 
 /obj/machinery/power/fusion_core/proc/AddParticles(name, quantity = 1)
 	if(owned_field)
@@ -76,7 +81,7 @@
 /obj/machinery/power/fusion_core/proc/set_strength(value)
 	value = clamp(value, MIN_FIELD_STR, MAX_FIELD_STR)
 	field_strength = value
-	change_power_consumption(5 * value, POWER_USE_ACTIVE)
+	change_power_consumption(1500 * (value ** 1.25), POWER_USE_ACTIVE)
 	if(owned_field)
 		owned_field.ChangeFieldStrength(value)
 
@@ -115,7 +120,7 @@
 	return ..()
 
 /obj/machinery/power/fusion_core/proc/jumpstart(field_temperature)
-	field_strength = 501 // Generally a good size.
+	field_strength = 120 // Generally a good size.
 	Startup()
 	if(!owned_field)
 		return FALSE
@@ -130,3 +135,7 @@
 	if(idle_power_usage > avail())
 		return FALSE
 	. = TRUE
+
+/obj/machinery/power/fusion_core/Destroy()
+	set_light(0)
+	..()

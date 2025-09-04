@@ -77,9 +77,13 @@
 #define LIQUIDFUEL_AMOUNT_TO_MOL		0.45  //mol/volume unit
 
 // XGM gas flags.
+/// Used by combustion reactions.
 #define XGM_GAS_FUEL        1
+/// Used by combustion reactions.
 #define XGM_GAS_OXIDIZER    2
+/// Attaches itself to certain objects/atoms.
 #define XGM_GAS_CONTAMINANT 4
+/// Used by nuclear fusion reactions.
 #define XGM_GAS_FUSION_FUEL 8
 
 #define TANK_LEAK_PRESSURE     (30.*ONE_ATMOSPHERE) // Tank starts leaking.
@@ -118,13 +122,13 @@
 #define GAS_PHORON				"phoron"
 #define GAS_HYDROGEN            "hydrogen"
 #define GAS_ALIEN				"aliether"
-#define GAS_STEAM				"water"
+#define GAS_WATERVAPOR			"water_vapor"
 #define GAS_SULFUR				"sulfur_dioxide"
 #define GAS_CHLORINE			"chlorine"
 #define GAS_HELIUM				"helium"
+#define GAS_HELIUMFUEL			"helium-3"
 #define GAS_DEUTERIUM			"deuterium"
 #define GAS_TRITIUM				"tritium"
-#define GAS_BORON				"boron"
 #define GAS_HEAT                "heat" //Not a real gas, used for visual effects
 #define GAS_COLD                "cold" //Not a real gas, used for visual effects
 

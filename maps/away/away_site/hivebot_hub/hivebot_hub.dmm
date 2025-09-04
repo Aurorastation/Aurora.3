@@ -6666,7 +6666,7 @@
 "SI" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/portable_atmospherics/canister/hydrogen/tritium,
+/obj/machinery/portable_atmospherics/canister/tritium,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/secure)
 "SY" = (
@@ -6954,7 +6954,7 @@
 "UY" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/portable_atmospherics/canister/hydrogen/deuterium,
+/obj/machinery/portable_atmospherics/canister/deuterium,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/secure)
 "Va" = (

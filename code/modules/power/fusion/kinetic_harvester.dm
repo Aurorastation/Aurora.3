@@ -69,7 +69,7 @@
 	for(var/mat in stored)
 		var/material/material = SSmaterials.get_material_by_name(mat)
 		if(material)
-			var/sheets = FLOOR(stored[mat]/(SHEET_MATERIAL_AMOUNT * 1.5), 1)
+			var/sheets = FLOOR(stored[mat]/(SHEET_MATERIAL_AMOUNT * 2), 1)
 			data["materials"] += list(list("material" = mat, "rawamount" = stored[mat], "amount" = sheets, "harvest" = harvesting[mat]))
 	return data
 
@@ -87,7 +87,8 @@
 					harvesting -= mat
 				else
 					var/harvest = min(harvest_from.owned_field.reactants[mat], rand(100,200))
-					harvest_from.owned_field.reactants[mat] -= harvest
+					// Leave a few counts of the reactant to avoid deactivating harvest mode
+					harvest_from.owned_field.reactants[mat] -= (harvest - rand(0,5))
 					if(harvest_from.owned_field.reactants[mat] <= 0)
 						harvest_from.owned_field.reactants -= mat
 					stored[mat] += harvest
@@ -112,7 +113,7 @@
 			var/material/material = SSmaterials.get_material_by_name(mat)
 			if(material)
 				var/sheet_cost = (SHEET_MATERIAL_AMOUNT * 1.5)
-				var/sheets = FLOOR(stored[mat]/sheet_cost, 1)
+				var/sheets = min(FLOOR(stored[mat]/sheet_cost, 1), 50)
 				if(sheets > 0)
 					var/obj/item/stack/material/M = new material.stack_type(get_turf(src), sheets)
 					M.update_icon()

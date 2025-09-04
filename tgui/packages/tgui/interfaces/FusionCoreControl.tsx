@@ -14,7 +14,8 @@ type Core = {
   id: number;
   ref: string;
   field: BooleanLike;
-  field_strength: number; // backend only, user facing value is power
+  field_strength: number;
+  field_strength_max: number;
   power: number;
   size: number;
   instability: number;
@@ -22,6 +23,7 @@ type Core = {
   power_status: string;
   shutdown_safe: BooleanLike;
   reactants: Reactant[];
+  radiation_avg: number;
 };
 
 type Reactant = {
@@ -91,14 +93,14 @@ export const FusionCoreControl = (props, context) => {
               <Divider />
               <LabeledList>
                 <LabeledList.Item label="Power Status">
-                  {core.power_status} W
+                  {core.power_status}
                 </LabeledList.Item>
                 <LabeledList.Item label="Field Strength">
                   <NumberInput
                     value={core.field_strength}
                     unit="tesla"
-                    minValue={0}
-                    maxValue={100}
+                    minValue={20}
+                    maxValue={core.field_strength_max * 100}
                     stepPixelSize={15}
                     onDrag={(e, value) =>
                       act('strength', {
@@ -140,13 +142,20 @@ export const FusionCoreControl = (props, context) => {
                   )}
                 </LabeledList.Item>
               </LabeledList>
+              <Section title="Debug">
+                <LabeledList>
+                  <LabeledList.Item label="radiation_avg">
+                    {core.radiation_avg}
+                  </LabeledList.Item>
+                </LabeledList>
+              </Section>
               <Section title="Reactants">
                 {core.reactants && core.reactants.length ? (
                   core.reactants.map((reactant) => (
                     <Section key={reactant.name}>
                       <Dimmer>
                         {capitalize(reactant.name)} (
-                        {round(reactant.amount, 0.1)} cubic units)
+                        {round(reactant.amount / 100, 0.01)}%)
                       </Dimmer>
                     </Section>
                   ))
