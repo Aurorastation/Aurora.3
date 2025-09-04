@@ -308,7 +308,6 @@
 	var/base_icon_state = "ipcdamageoverlay"
 	var/damage_points = 0
 
-
 	var/integrity = get_integrity()
 	if(integrity <= 75)
 		damage_points++
@@ -396,6 +395,7 @@
 		// no metagaming these ones :^)
 		// they're on the server config
 		sound_to(owner, 'sound/effects/eas_beep_fadeinout.ogg')
+		owner.play_screen_text(pick(GLOB.low_integrity_messages), /atom/movable/screen/text/screen_text/low_integrity_message, COLOR_CYAN)
 		to_chat(owner, SPAN_MACHINE_VISION(FONT_LARGE(pick(GLOB.low_integrity_messages))))
 	. = ..()
 
@@ -438,7 +438,7 @@
 
 /obj/item/organ/internal/machine/posibrain/terminator
 	name = "advanced positronic brain"
-	desc = "A cube of shining metal, four inches to a side and covered in shallow grooves. <span class='danger'>It seems to be different than usual...</span>"
+	desc = "A cube of shining metal, four inches to a side and covered in shallow grooves. <span class='danger'>It seems to be different from a regular positronic brain...</span>"
 	relative_size = 60
 	emp_coeff = 0.1
 	color = COLOR_RED

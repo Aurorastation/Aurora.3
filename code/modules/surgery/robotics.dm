@@ -471,13 +471,13 @@
 		for(var/obj/item/organ/internal/machine/I in affected.internal_organs)
 			if(I.wiring.get_status() < 100)
 				if(istype(C))
-					var/needed_wires = I.wiring.max_wires - I.wiring.wires
+					var/needed_wires = (I.wiring.max_wires - I.wiring.wires) / 10
 					if(needed_wires)
-						if(!(C.get_amount() >= (needed_wires * 10)))
-							to_chat(user, SPAN_WARNING("You need [needed_wires * 10] or more cable pieces to repair this damage."))
+						if(!(C.get_amount() >= (needed_wires)))
+							to_chat(user, SPAN_WARNING("You need [needed_wires] or more cable pieces to repair this damage."))
 							return SURGERY_FAILURE
 						is_organ_damaged = TRUE
-						C.use(needed_wires * 10)
+						C.use(needed_wires)
 	return is_organ_damaged
 
 /singleton/surgery_step/internal/fix_internal_wiring/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)

@@ -85,15 +85,18 @@
 		owner.death()
 
 /obj/item/organ/internal/machine/take_internal_damage(amount, silent)
-	// Plating defends the internal bits. First, you have to get through it. todomatt: fix tis
+	// Plating defends the internal bits. First, you have to get through it.
 	if(plating.get_status() > 0)
 		amount = plating.take_damage(amount)
 		if(amount <= 0)
 			return
 
 	// After that, it's open season.
-	var/datum/synthetic_internal/bits_to_hit = pick(wiring, electronics)
-	bits_to_hit.take_damage(amount)
+	for(var/datum/synthetic_internal/internal in list(wiring, electronics))
+		if(internal.get_status())
+			internal.take_damage(amount)
+			if(internal.get_status())
+				break
 
 	SEND_SIGNAL(owner, COMSIG_MACHINE_INTERNAL_DAMAGE, amount)
 
