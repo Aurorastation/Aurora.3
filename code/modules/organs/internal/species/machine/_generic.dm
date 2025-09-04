@@ -140,23 +140,15 @@
 
 /**
  * This is a function used to return an overall integrity number that takes
- * the average of wiring + electronics. Those are the soft bits - plating is what defends them.
+ * the average of wiring + electronics, and then subtracts current damage from them. Those are the soft bits - plating is what defends them.
  * Returns a percentage.
  */
 /obj/item/organ/internal/machine/proc/get_integrity()
 	var/wiring_status = wiring ? wiring.get_status() : 0
 	var/electronics_status = electronics ? electronics.get_status() : 0
-	return (wiring_status + electronics_status) / 2
-
-/**
- * This function returns the damage level of an organ, only calculating its damage and max_damage.
- * Returns a percentage.
- */
-/obj/item/organ/internal/machine/proc/get_damage_percent()
-	if(!damage)
-		return 0
-
-	return (damage / max_damage) * 100
+	var/internal_component_status = (wiring_status + electronics_status) / 2
+	var/damage_status = damage / 2
+	return max(internal_component_status - damage_status, 0)
 
 /**
  * This function returns a damage multiplier, starting from 1 and dropping to 0, depending on damage.
