@@ -84,12 +84,13 @@
 	if(owner && vital)
 		owner.death()
 
-/obj/item/organ/internal/machine/take_internal_damage(amount, silent)
+/obj/item/organ/internal/machine/take_internal_damage(amount, silent, internal = FALSE)
 	// Plating defends the internal bits. First, you have to get through it.
-	if(plating.get_status() > 0)
-		amount = plating.take_damage(amount)
-		if(amount <= 0)
-			return
+	if(!internal)
+		if(plating.get_status() > 0)
+			amount = plating.take_damage(amount)
+			if(amount <= 0)
+				return
 
 	var/list/component_list = list(wiring, electronics)
 	component_list = shuffle(component_list)
@@ -177,11 +178,11 @@
 	// The cooldowns are handled in the other procs because feasibly we might want to add different cooldowns for different organs and different thresholds.
 	if(can_do_integrity_damage())
 		switch(integrity)
-			if(50 to 75)
+			if(IPC_INTEGRITY_THRESHOLD_LOW to IPC_INTEGRITY_THRESHOLD_MEDIUM)
 				low_integrity_damage(integrity)
-			if(25 to 50)
+			if(IPC_INTEGRITY_THRESHOLD_HIGH to IPC_INTEGRITY_THRESHOLD_MEDIUM)
 				medium_integrity_damage(integrity)
-			if(0 to 25)
+			if(IPC_INTEGRITY_THRESHOLD_VERY_HIGH to IPC_INTEGRITY_THRESHOLD_HIGH)
 				high_integrity_damage(integrity)
 
 /**
