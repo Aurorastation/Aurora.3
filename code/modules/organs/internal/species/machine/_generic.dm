@@ -84,9 +84,9 @@
 	if(owner && vital)
 		owner.death()
 
-/obj/item/organ/internal/machine/take_internal_damage(amount, silent, internal = FALSE)
+/obj/item/organ/internal/machine/take_internal_damage(amount, silent, forced_damage = FALSE)
 	// Plating defends the internal bits. First, you have to get through it.
-	if(!internal)
+	if(!forced_damage)
 		if(plating.get_status() > 0)
 			amount = plating.take_damage(amount)
 			if(amount <= 0)
@@ -178,7 +178,7 @@
 	// The cooldowns are handled in the other procs because feasibly we might want to add different cooldowns for different organs and different thresholds.
 	if(can_do_integrity_damage())
 		switch(integrity)
-			if(IPC_INTEGRITY_THRESHOLD_LOW to IPC_INTEGRITY_THRESHOLD_MEDIUM)
+			if(IPC_INTEGRITY_THRESHOLD_MEDIUM to IPC_INTEGRITY_THRESHOLD_LOW)
 				low_integrity_damage(integrity)
 			if(IPC_INTEGRITY_THRESHOLD_HIGH to IPC_INTEGRITY_THRESHOLD_MEDIUM)
 				medium_integrity_damage(integrity)

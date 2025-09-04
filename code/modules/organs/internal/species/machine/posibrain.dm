@@ -143,7 +143,7 @@
 		qdel(src)
 
 /obj/item/organ/internal/machine/posibrain/proc/damage_integrity(integrity_damage)
-	take_internal_damage(integrity_damage, internal = TRUE)
+	take_internal_damage(integrity_damage, forced_damage = TRUE)
 	if(integrity_alarm_cooldown < world.time)
 		to_chat(owner, SPAN_DANGER("Your internal software throws exceptions at you: faulty systems detected! Warning! Warning!"))
 
