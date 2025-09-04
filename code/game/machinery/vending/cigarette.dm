@@ -92,7 +92,7 @@
 		/obj/item/storage/cigfilters = 1.25,
 		/obj/item/storage/box/fancy/cigpaper = 2.50,
 		/obj/item/storage/box/fancy/cigpaper/fine = 3.50,
-		/obj/item/spacecash/ewallet/lotto = 5.00,
+		/obj/item/spacecash/ewallet/lotto = 10.00,
 		/obj/item/clothing/mask/smokable/ecig/simple = 25.00,
 		/obj/item/clothing/mask/smokable/ecig/util = 35.00,
 		/obj/item/reagent_containers/ecig_cartridge/med_nicotine = 4.50,
