@@ -42,12 +42,12 @@
 	if(isrobot(target_mob) || isAI(target_mob))
 		if (isrobot(target_mob))	//Repairing cyborgs
 			var/mob/living/silicon/robot/R = target_mob
-			if (!R.getBruteLoss() || !R.getFireLoss())
+			if (!R.getBruteLoss() && !R.getFireLoss())
 				to_chat(user, SPAN_NOTICE("All [R]'s systems are nominal."))
 				return FALSE
 		else if (isAI(target_mob))  //Repairing AIs
 			var/mob/living/silicon/ai/A = target_mob
-			if (!A.getBruteLoss() || !A.getFireLoss())
+			if (!A.getBruteLoss() && !A.getFireLoss())
 				to_chat(user, SPAN_NOTICE("All [A]'s systems are nominal."))
 				return FALSE
 
