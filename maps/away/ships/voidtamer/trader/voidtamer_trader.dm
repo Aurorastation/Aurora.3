@@ -42,7 +42,7 @@
 	initial_restricted_waypoints = list(
 		"Voidtamer Shuttle" = list("nav_voidtamer_shuttle_dock")
 	)
-	//invisible_until_ghostrole_spawn = TRUE
+	invisible_until_ghostrole_spawn = TRUE
 
 /obj/effect/overmap/visitable/ship/voidtamer_trade_ship/New()
 	designation = "[pick("Test", "Embrace of the Void")]"
