@@ -1,7 +1,7 @@
 /datum/ghostspawner/human/voidtamer_crew
 	short_name = "voidtamer_crew"
 	name = "Voidtamer Crew"
-	desc = "Dionae crew of a voidtamer vessel"
+	desc = "Crew of a voidtamer vessel, entirely made up of Dionae from the Voidtamer's Conflux, a mysterious group of traders, hunters, and occasional asteroid farmers living out in space."
 	tags = list("External")
 
 	spawnpoints = list("voidtamer_crew")
@@ -55,5 +55,6 @@
 /obj/item/card/id/voidtamer
 	name = "voidtamer ship id"
 	access = list(ACCESS_VOIDTAMER_SHIP, ACCESS_EXTERNAL_AIRLOCKS)
+
 
 
