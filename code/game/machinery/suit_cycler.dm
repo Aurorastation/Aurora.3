@@ -36,21 +36,27 @@
 
 	req_access = list(ACCESS_CAPTAIN, ACCESS_HEADS)
 	z_flags = ZMM_MANGLE_PLANES
-
-	var/active = FALSE		// PLEASE HOLD.
-	var/safeties = TRUE		// The cycler won't start with a living thing inside it unless safeties are off.
-	var/irradiating = 0		// If this is > 0, the cycler is decontaminating whatever is inside it.
-	var/radiation_level = 2	// 1 is removing germs, 2 is removing blood, 3 is removing phoron.
-	var/model_text = ""		// Some flavour text for the topic box.
-	var/locked = TRUE		// If locked, nothing can be taken from or added to the cycler.
-	var/can_repair			// If set, the cycler can repair voidsuits.
+	/// PLEASE HOLD.
+	var/active = FALSE
+	/// The cycler won't start with a living thing inside it unless safeties are off.
+	var/safeties = TRUE
+	/// If this is > 0, the cycler is decontaminating whatever is inside it.
+	var/irradiating = 0
+	/// 1 is removing germs, 2 is removing blood, 3 is removing phoron.
+	var/radiation_level = 2
+	/// Some flavour text for the topic box.
+	var/model_text = ""
+	/// If locked, nothing can be taken from or added to the cycler.
+	var/locked = TRUE
+	/// If set, the cycler can repair voidsuits.
+	var/can_repair
 	var/electrified = FALSE
 
-	//Will it change the suit name to "refitted [x]" on refit
+	/// Will it change the suit name to "refitted [x]" on refit
 	var/rename_on_refit = TRUE
-	//Departments that the cycler can paint suits to look like.
+	/// Departments that the cycler can paint suits to look like.
 	var/list/departments = list("Engineering", "Mining", "Medical", "Security", "Atmos")
-	//Species that the suits can be configured to fit.
+	/// Species that the suits can be configured to fit.
 	var/list/species = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_UNATHI, BODYTYPE_TAJARA, BODYTYPE_IPC)
 
 	var/target_department
@@ -63,6 +69,10 @@
 	var/obj/item/clothing/mask/breath/mask
 
 	var/datum/wires/suit_storage_unit/wires
+
+/obj/machinery/suit_cycler/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "ALT-click the [src] to lock or unlock it (if you have the appropriate ID access)."
 
 /obj/machinery/suit_cycler/Initialize(mapload, d = 0, populate_parts = TRUE)
 	. = ..()

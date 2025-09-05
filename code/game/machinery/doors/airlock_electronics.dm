@@ -7,18 +7,21 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 50)
 
 	req_access = list(ACCESS_ENGINE)
-
-	var/secure = FALSE //if set, then wires will be randomized and bolts will drop if the door is broken
+	/// If set, then wires will be randomized and bolts will drop if the door is broken
+	var/secure = FALSE
 	var/list/conf_access
-	var/one_access = FALSE //if set to TRUE, door would receive req_one_access instead of req_access
+	/// If set to TRUE, door would receive req_one_access instead of req_access
+	var/one_access = FALSE
 	var/last_configurator
 	var/locked = TRUE
-	var/is_installed = FALSE // no double-spending
+	/// No double-spending
+	var/is_installed = FALSE
 	var/unres_dir = null
 
 /obj/item/airlock_electronics/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	. += "Access control can be configured by using your ID on the circuitboard to unlock it, then using the circuitboard on yourself."
+	. += "ALT-click the [src] to lock or unlock it (if you have the appropriate ID access)."
+	. += "Once unlocked, use the airlock electronics on yourself to program different access rights."
 	. += "You can copy the settings from one circuitboard to another by clicking the source board with the target board. Be mindful of directional access settings!"
 
 /obj/item/airlock_electronics/attack_self(mob/user)

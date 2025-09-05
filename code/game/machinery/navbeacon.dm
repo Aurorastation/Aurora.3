@@ -7,18 +7,29 @@
 	icon_state = null
 	name = "navigation beacon"
 	desc = "A radio beacon used for bot navigation."
-	level = 1		// underfloor
+	// underfloor
+	level = 1
 	layer = ABOVE_WIRE_LAYER
 	anchored = 1
 
-	var/open = 0		// true if cover is open
-	var/locked = 1		// true if controls are locked
-	var/freq = BEACONS_FREQ		// radio frequency
-	var/location = ""	// location response text
-	var/list/codes		// assoc. list of transponder codes
-	var/codes_txt = ""	// codes as set on map: "tag1;tag2" or "tag1=value;tag2=value"
+	/// true if cover is open
+	var/open = FALSE
+	/// true if controls are locked
+	var/locked = TRUE
+	/// radio frequency
+	var/freq = BEACONS_FREQ
+	/// location response text
+	var/location = ""
+	/// assoc. list of transponder codes
+	var/list/codes
+	/// codes as set on map: "tag1;tag2" or "tag1=value;tag2=value"
+	var/codes_txt = ""
 
 	req_one_access = list(ACCESS_ENGINE, ACCESS_ROBOTICS)
+
+/obj/machinery/navbeacon/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "ALT-click the [src] to lock or unlock it (if you have the appropriate ID access)."
 
 /obj/machinery/navbeacon/Initialize(mapload)
 	. = ..()

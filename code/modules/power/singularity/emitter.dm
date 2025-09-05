@@ -12,9 +12,10 @@
 	req_access = list(ACCESS_ENGINE_EQUIP)
 	obj_flags = OBJ_FLAG_ROTATABLE | OBJ_FLAG_SIGNALER
 	var/id
-
-	use_power = POWER_USE_OFF	//uses powernet power, not APC power
-	active_power_usage = 30000	//30 kW laser. I guess that means 30 kJ per shot.
+	/// uses powernet power, not APC power
+	use_power = POWER_USE_OFF
+	/// 30 kW laser. I guess that means 30 kJ per shot.
+	active_power_usage = 30000
 
 	var/active = FALSE
 	var/powered = FALSE
@@ -27,8 +28,8 @@
 	var/shot_counter = 0
 	var/state = EMITTER_LOOSE
 	var/locked = FALSE
-
-	var/special_emitter = FALSE // special emitters notify admins if something happens to them, to prevent grief
+	/// special emitters notify admins if something happens to them, to prevent grief
+	var/special_emitter = FALSE
 
 	var/_wifi_id
 	var/datum/wifi/receiver/button/emitter/wifi_receiver
@@ -38,7 +39,7 @@
 /obj/machinery/power/emitter/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Standing next to \the [src] and examining it will let you see how many shots it has fired since last being turned on."
-	. += "Using an Engineering ID on \the [src] will toggle its control locks."
+	. += "ALT-click the [src] to lock or unlock it (if you have the appropriate ID access)."
 	. += "You can attach a signaler to \the [src] to remotely toggle it on and off (so long as its controls are not locked)."
 
 /obj/machinery/power/emitter/assembly_hints(mob/user, distance, is_adjacent)

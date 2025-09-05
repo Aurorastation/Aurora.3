@@ -23,7 +23,12 @@
 	///How much power is drawn from powernet. Increase this to allow the generator to sustain longer shields, at the cost of more power draw.
 	var/power_draw = 30 KILO WATTS
 	var/max_stored_power = 50 KILO WATTS
-	use_power = POWER_USE_OFF //Draws directly from power net. Does not use APC power.
+	/// Draws directly from power net. Does not use APC power.
+	use_power = POWER_USE_OFF
+
+/obj/machinery/shield/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "ALT-click the [src] to lock or unlock it (if you have the appropriate ID access)."
 
 /obj/machinery/shieldwallgen/update_icon()
 	if(power_state >= POWER_STARTING)
