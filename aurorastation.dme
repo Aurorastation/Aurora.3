@@ -3983,6 +3983,7 @@
 #include "maps\away\away_site\tajara\taj_safehouse\tajara_safehouse_ghostroles.dm"
 #include "maps\away\away_site\treasure_trove\treasure_trove.dm"
 #include "maps\away\away_site\treasure_trove\treasure_trove_areas.dm"
+#include "maps\away\away_site\treasure_trove\treasure_trove_landmarks.dm"
 #include "maps\away\away_site\uueoaesa\omgolo\omgolo_smuggler.dm"
 #include "maps\away\away_site\uueoaesa\omgolo\omgolo_tourist.dm"
 #include "maps\away\away_site\uueoaesa\reclamation\ihss_reclamation.dm"

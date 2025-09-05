@@ -26,3 +26,18 @@
 	desc = "A hidden but beautiful planetoid; breathable air, lush vegetation, a thriving biosphere and pristine oceans make it seem too good to be true."
 	icon_state = "globe"
 	color = "#25666b"
+
+
+// ----- Map Effects and Assets
+
+/obj/effect/step_trigger/teleport_fancy/trove/to_ocean
+	uses = 0
+	locationx = 12
+	locationy = 235
+	icon_state = "wave3"
+
+/obj/effect/step_trigger/teleport_fancy/trove/to_beach
+	uses = 0
+	locationx = 23
+	locationy = 14
+	icon_state = "wave3"

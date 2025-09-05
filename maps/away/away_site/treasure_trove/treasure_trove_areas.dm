@@ -35,3 +35,7 @@
 	is_outside = OUTSIDE_YES
 
 // ----- Interior
+
+/area/trove/tunnels
+	name = "Treasure Trove Tunnels"
+	icon_state = "blue"
