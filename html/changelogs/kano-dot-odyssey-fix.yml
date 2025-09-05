@@ -1,7 +1,0 @@
-
-author: Kano
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed Odyssey maps spawning in non-Odyssey rounds."
