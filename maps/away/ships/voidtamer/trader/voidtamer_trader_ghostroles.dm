@@ -55,6 +55,3 @@
 /obj/item/card/id/voidtamer
 	name = "voidtamer ship id"
 	access = list(ACCESS_VOIDTAMER_SHIP, ACCESS_EXTERNAL_AIRLOCKS)
-
-
-
