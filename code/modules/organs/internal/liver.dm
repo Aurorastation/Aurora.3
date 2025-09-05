@@ -76,6 +76,9 @@
 	if(!owner)
 		return
 
+	if(owner.stasis_value > 0) // Decrease the effective tickrate when in stasis.
+		seconds_per_tick /= owner.stasis_value
+
 	if(germ_level > INFECTION_LEVEL_ONE)
 		owner.notify_message(SPAN_WARNING(infection_level_one_warning), 2 MINUTES)
 	if(germ_level > INFECTION_LEVEL_TWO && prob(1))
@@ -160,6 +163,7 @@
 		return TRUE
 	return FALSE
 
+// Galatean bioaugmented liver. Dramatically enhanced over a base human liver.
 /obj/item/organ/internal/liver/boosted_liver
 	name = "boosted liver"
 	desc = "Designed primarily for diplomats or Galateans abroad, the boosted liver improves toxin filtering, giving a resistance to toxin damage. As a consequence, it makes it impossible for the user to get drunk."
@@ -170,3 +174,15 @@
 	toxin_critical_mass = 90
 	booze_filtering_modifier = 0.5 // "Impossible to get drunk", this should make it impossible. :)
 	blackout_booze_filtering_modifier = 0.25
+
+// Dominian geneboosted liver. A significant improvement over a base human liver, but not quite to the level of Galatean bioengineering.
+/obj/item/organ/internal/liver/geneboosted_liver
+	name = "geneboosted liver"
+	desc = "A liver that has been enhanced by Imperial geneboosting to function at the level of a peak human athlete."
+	//icon = 'icons/obj/organs/bioaugs.dmi'
+	//icon_state = "boosted_liver"
+	base_filter_strength = 1.15
+	base_filter_effect = 3.5
+	toxin_critical_mass = 75
+	booze_filtering_modifier = 0.15
+	blackout_booze_filtering_modifier = 0.125
