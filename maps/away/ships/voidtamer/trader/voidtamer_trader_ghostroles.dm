@@ -37,7 +37,7 @@
 	uses_species_whitelist = TRUE
 	spawnpoints = list("voidtamer_captain")
 	max_count = 1
-	outfit = /obj/outfit/admin/voidtamer/captain
+	outfit = /obj/outfit/admin/voidtamer_crew/captain
 	assigned_role = "Voidtamer Captain"
 	special_role = "Voidtamer Captain"
 
@@ -55,4 +55,5 @@
 /obj/item/card/id/voidtamer
 	name = "voidtamer ship id"
 	access = list(ACCESS_VOIDTAMER_SHIP, ACCESS_EXTERNAL_AIRLOCKS)
+
 
