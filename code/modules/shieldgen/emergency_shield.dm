@@ -165,7 +165,7 @@
 	use_power = POWER_USE_OFF
 	idle_power_usage = 0
 
-/obj/machinery/shield/mechanics_hints(mob/user, distance, is_adjacent)
+/obj/machinery/shieldgen/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "ALT-click the [src] to lock or unlock it (if you have the appropriate ID access)."
 

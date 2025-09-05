@@ -26,7 +26,7 @@
 	/// Draws directly from power net. Does not use APC power.
 	use_power = POWER_USE_OFF
 
-/obj/machinery/shield/mechanics_hints(mob/user, distance, is_adjacent)
+/obj/machinery/shieldwallgen/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "ALT-click the [src] to lock or unlock it (if you have the appropriate ID access)."
 
