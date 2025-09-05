@@ -54,7 +54,7 @@
 	// This should probably be expanded in some way, but fucked if I know
 	// what else kidneys can process in our reagent list.
 	if(REAGENT_VOLUME(owner.reagents, /singleton/reagent/drink/coffee))
-		if(is_bruised()) 
+		if(is_bruised())
 			owner.adjustToxLoss(bruised_tox_damage_from_coffee * seconds_per_tick)
 		else if(is_broken())
 			owner.adjustToxLoss(broken_tox_damage_from_coffee * seconds_per_tick)
