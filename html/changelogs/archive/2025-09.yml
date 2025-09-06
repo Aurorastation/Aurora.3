@@ -1,0 +1,56 @@
+2025-09-01:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Alarm Monitoring app now correctly provides full area names.
+  - bugfix: Infestation event announcement now correctly provides full area name.
+  - bugfix: Supply Drop event announcement now correctly provides full area name.
+  Ben10083:
+  - bugfix: Adds missing cargo supplier coefficents to Crescent Expanse (everything
+      is unaffordable, just like real life).
+  MattAtlas:
+  - bugfix: Fixes armour penetration not working on mechs when hit with a melee weapon
+      or by simple mobs.
+2025-09-05:
+  Evandorf:
+  - rscadd: Allows Unathi to choose neuter pronouns for appropriate characters; essentially
+      just guwan, but if you have questions reach out to the lore team.
+  FlyBrokenWings:
+  - rscadd: Gave the Machinists 10 lead and 2 stacks of Aluminium.
+  - rscdel: Snapped Engineering's 2 stacks of Aluminium into dust. The world is in
+      balance. (They weren't using it.)
+  Geeves:
+  - bugfix: Fixed exploitables not formatting correctly.
+  Kano:
+  - bugfix: Fixed Odyssey maps spawning in non-Odyssey rounds.
+  - bugfix: Fixed floor plaque not having an icon.
+  MattAtlas:
+  - rscadd: Added noticeboards to every department.
+  SimpleMaroon:
+  - bugfix: Diplomatic Bodyguards can now select the holster selection from the loadout
+      as intended, whereas Consular Officers, Diplomatic Aides, and Corporate Aides
+      cannot any longer.
+  WickedCybs:
+  - rscadd: Added Darvan Omega's custom item.
+  crunchypretzels:
+  - rscadd: Pepperoni pizza can now be specifically ordered from Cargo.
+  hazelmouse:
+  - rscadd: Added noticeboards to the custodial closet, hydroponics, kitchen, and
+      bar.
+  - rscadd: Added the new microwave meals vendor to the commissary, and a supply of
+      various bags in adjacent maintenance..
+  - rscadd: Implemented QoL improvements to hydroponics; shipbounds can now operate
+      the valves correctly, and the piping is fed at roundstart.
+  - rscadd: Implemented QoL improvements to the bar, including adding tinted windows
+      between it and the cafeteria.
+  - bugfix: The bar backroom's tinted window is no longer controlled from the library.
+  - bugfix: The public garden no longer lacks sufficient lighting for most crops.
+  nauticall:
+  - imageadd: Resprited the lottery cards to be more in line with their 'digital'
+      nature.
+  - refactor: Changed the way lottery cards work to now use a best-of-3 system with
+      a modified prize pool. See PR for full details.
+2025-09-06:
+  ElorgRHG:
+  - bugfix: Fixes M'sai diagonal bangs, and overeye bobcut hair styles not having
+      sprites.
+  - bugfix: Fixes M'sai not having the curly hairstyle, while having the alt variant
+      of it.
