@@ -185,7 +185,7 @@
 	desc = "A double-barreled shotgun meant to fire signal flash shells."
 	ammo_type = /obj/item/ammo_casing/shotgun/flash
 
-/obj/item/gun/projectile/shotgun/doublebarrel/unload_ammo(user, allow_dump)
+/obj/item/gun/projectile/shotgun/doublebarrel/unload_ammo(mob/user, allow_dump = TRUE, drop_mag = FALSE)
 	..(user, allow_dump=1)
 
 /obj/item/gun/projectile/shotgun/doublebarrel/saw_off(mob/user, obj/item/tool)
@@ -349,7 +349,7 @@
 		open = FALSE
 		update_icon()
 
-/obj/item/gun/projectile/shotgun/wallgun/unload_ammo(user, allow_dump)
+/obj/item/gun/projectile/shotgun/wallgun/unload_ammo(mob/user, allow_dump = TRUE, drop_mag = FALSE)
 	if(open)
 		..(user, allow_dump=1)
 

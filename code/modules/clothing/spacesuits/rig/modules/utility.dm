@@ -774,7 +774,7 @@
 	interface_desc = "A heat sink with liquid cooled radiator."
 	icon_state = "suitcooler"
 	var/charge_consumption = 1
-	var/max_cooling = 12
+	var/max_cooling = 24
 	var/thermostat = T20C
 
 	category = MODULE_GENERAL
