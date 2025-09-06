@@ -342,7 +342,7 @@
 	category = "medical"
 	name = "inaprovaline bottle"
 	supplier = "nanotrasen"
-	description = "A bottle of inaprovaline, a broad-spectrum stabilizer.."
+	description = "A bottle of inaprovaline, a broad-spectrum stabilizer."
 	price = 205
 	items = list(
 		/obj/item/reagent_containers/glass/bottle/inaprovaline
