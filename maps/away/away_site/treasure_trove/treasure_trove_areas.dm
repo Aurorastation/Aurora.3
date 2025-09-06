@@ -2,7 +2,7 @@
 
 /area/trove
 	name = "Treasure Trove (base/abstract)"
-	requires_power = 0
+	requires_power = 1
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP | AREA_FLAG_RAD_SHIELDED | AREA_FLAG_INDESTRUCTIBLE_TURFS
 	is_outside = OUTSIDE_NO
 
@@ -39,3 +39,4 @@
 /area/trove/tunnels
 	name = "Treasure Trove Tunnels"
 	icon_state = "blue"
+	requires_power = 0
