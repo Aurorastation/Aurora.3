@@ -2,3 +2,4 @@ author: Hellfirejag
 delete-after: True
 changes:
   - rscadd: "Circuit Imprinters now require a tiny amount of phoron for lining the superconducting elements in the trace of all modern electronics."
+  - rscadd: "Circuitboards can now be recycled."
