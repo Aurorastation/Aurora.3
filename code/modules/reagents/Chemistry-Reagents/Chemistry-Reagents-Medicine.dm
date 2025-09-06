@@ -1641,7 +1641,7 @@
 /singleton/reagent/rezadone/affect_chem_effect(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	. = ..()
 	if(.)
-		M.add_chemical_effect(CE_ORGANREPAIR, 1)
+		M.add_chemical_effect(CE_ORGANREPAIR, 2)
 		M.add_chemical_effect(CE_BLOODRESTORE, 15)
 
 /singleton/reagent/rezadone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
@@ -1674,7 +1674,7 @@
 /singleton/reagent/sanasomnum/affect_chem_effect(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	. = ..()
 	if(.)
-		M.add_chemical_effect(CE_ORGANREPAIR, 20)
+		M.add_chemical_effect(CE_ORGANREPAIR, 40)
 		M.add_chemical_effect(CE_BLOODRESTORE, 15)
 		M.add_chemical_effect(CE_BLOODCLOT, 15)
 		M.add_chemical_effect(CE_BRAIN_REGEN, 20)
