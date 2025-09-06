@@ -8,6 +8,36 @@
 		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/treasure_trove/rest_rooms",
 		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/treasure_trove/rest_rooms",
 		"submaps_can_repeat": false
+	},
+	{
+		"type": "SubmapExtractInsert",
+		"submap_size_x": 19,
+		"submap_size_y": 7,
+		"submap_size_z": 1,
+		"submaps_dmm": "treasure_trove_submaps.dmm",
+		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/treasure_trove/hallways",
+		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/treasure_trove/hallways",
+		"submaps_can_repeat": true
+	},
+	{
+		"type": "SubmapExtractInsert",
+		"submap_size_x": 7,
+		"submap_size_y": 18,
+		"submap_size_z": 1,
+		"submaps_dmm": "treasure_trove_submaps.dmm",
+		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/treasure_trove/forks",
+		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/treasure_trove/forks",
+		"submaps_can_repeat": true
+	},
+	{
+		"type": "SubmapExtractInsert",
+		"submap_size_x": 19,
+		"submap_size_y": 12,
+		"submap_size_z": 1,
+		"submaps_dmm": "treasure_trove_submaps.dmm",
+		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/treasure_trove/stairs",
+		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/treasure_trove/stairs",
+		"submaps_can_repeat": true
 	}
 
 ]

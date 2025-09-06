@@ -32,3 +32,17 @@
 
 /obj/effect/map_effect/marker/mapmanip/submap/insert/treasure_trove/rest_rooms
 	name = "Treasure Trove - Rest Room Modules"
+
+//Forks
+
+/obj/effect/map_effect/marker/mapmanip/submap/extract/treasure_trove/forks
+	name = "Treasure Trove - Fork Modules"
+
+/obj/effect/map_effect/marker/mapmanip/submap/insert/treasure_trove/forks
+	name = "Treasure Trove - Fork Modules"
+
+/obj/effect/map_effect/marker/mapmanip/submap/extract/treasure_trove/stairs
+	name = "Treasure Trove - Stair Modules"
+
+/obj/effect/map_effect/marker/mapmanip/submap/insert/treasure_trove/stairs
+	name = "Treasure Trove - Stair Modules"
