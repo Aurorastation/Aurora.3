@@ -503,7 +503,7 @@ By design, d1 is the smallest direction and d2 is the highest
 	w_class = WEIGHT_CLASS_SMALL
 	throw_speed = 2
 	throw_range = 5
-	matter = list(DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 20)
+	matter = list(DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 20, MATERIAL_PHORON = 3)
 	recyclable = TRUE
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	item_flags = ITEM_FLAG_HELD_MAP_TEXT
