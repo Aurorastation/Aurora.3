@@ -124,7 +124,8 @@
 		/obj/item/clothing/suit/space/void/atmos = /obj/item/clothing/suit/space/void/atmos/himeo,
 		/obj/item/clothing/head/helmet/space/void/atmos = /obj/item/clothing/head/helmet/space/void/atmos/himeo,
 
-		/obj/item/rig_assembly/industrial = /obj/item/rig_assembly/industrial/himeo
+		/obj/item/rig_assembly/industrial = /obj/item/rig_assembly/industrial/himeo,
+		/obj/item/rig/industrial = /obj/item/rig/industrial/himeo/dequipped
 
 	)
 	var/parts = MODKIT_FULL
@@ -157,30 +158,60 @@
 		if(istype(W, /obj/item/clothing/suit/space/void) && W.contents.len)
 			to_chat(user, SPAN_NOTICE("Remove any accessories, helmets, magboots, or oxygen tanks before attempting to convert this voidsuit."))
 			return
+		else if(istype(W, /obj/item/rig)) // hardsuit kitting
+			//reconverting = FALSE
+			var/obj/item/rig/rigVar = W
+			if(!isturf(W.loc))
+				to_chat(user, SPAN_NOTICE("You'll need to set this down to work on it."))
+				return
+			else if (rigVar.cell)
+				to_chat(user, SPAN_NOTICE("You'll need to remove the cell before you convert this hardsuit."))
+				return
+			else if (rigVar.air_supply)
+				to_chat(user, SPAN_NOTICE("You'll need to remove the air tank before you convert this hardsuit."))
+				return
+			else if (rigVar.open)
+				to_chat(user, SPAN_NOTICE("You'll need to close up the hardsuit to work properly."))
+				return
+			else
+				var/list/possible_removals = list()
+				for(var/obj/item/rig_module/module in rigVar.installed_modules)
+					if(module.permanent)
+						continue
+					possible_removals[module.name] = module
+
+					if(possible_removals.len)
+						to_chat(user, SPAN_NOTICE("You'll need to remove any modules before you convert this hardsuit."))
+						return
 
 		playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
 		var/obj/item/P = new voidsuit_product(get_turf(W))
 
 		if(!reconverting)
 			to_chat(user, SPAN_NOTICE("Your permit for [P] has been processed. Enjoy!"))
+		else if(reconverting && istype(P, /obj/item/rig))
+			var/obj/item/rig/rigVarBack = P
+			rigVarBack.cell = null
+			rigVarBack.air_supply = null
 		else
-			to_chat(user, SPAN_NOTICE("Your voidsuit part has been reconverted into [P]."))
+			to_chat(user, SPAN_NOTICE("Your part has been reconverted into [P]."))
+
+		qdel(W)
 
 		if (istype(W, /obj/item/clothing/head/helmet))
 			parts &= ~MODKIT_HELMET
 		if (istype(W, /obj/item/clothing/suit))
 			parts &= ~MODKIT_SUIT
-		if (istype(W, /obj/item/rig_assembly/industrial/himeo))
+		if (istype(W, /obj/item/rig))
 			parts &= ~MODKIT_RIG
 
-		qdel(W)
 
-		if(!parts)
+		/*if(!parts)
 			user.drop_from_inventory(src)
-			qdel(src)
+			qdel(src)*/
 
 /obj/item/voidsuit_modkit/himeo
-	name = "himeo voidsuit kit"
+	name = "himean EVA suit modkit"
 	contained_sprite = TRUE
 	icon = 'icons/obj/mining_contained.dmi'
 	icon_state = "himeo_kit"
@@ -195,7 +226,7 @@
 	. += "This modkit can be used to convert an industrial hardsuit, or hardsuit assembly, into a Himean variant."
 
 /obj/item/voidsuit_modkit/himeo/tajara
-	name = "tajaran himeo voidsuit kit"
+	name = "tajaran himean EVA suit modkit"
 	desc = "A simple cardboard box containing the requisition forms, permits, and decal kits for a Himean voidsuit fitted for Tajara."
 	suit_options = list(
 		/obj/item/clothing/suit/space/void/mining = /obj/item/clothing/suit/space/void/mining/himeo/tajara,

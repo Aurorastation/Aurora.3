@@ -201,42 +201,7 @@
 				else
 					to_chat(user, SPAN_WARNING("\The [S] is empty!"))
 
-	else if(istype(attacking_item,/obj/item/voidsuit_modkit/himeo)) // hardsuit kitting
-		if(!isturf(src.loc))
-			to_chat(user, SPAN_NOTICE("You'll need to set this down to work on it."))
-			return
-		if(!(istype(src, /obj/item/rig/industrial)))
-			to_chat(user, SPAN_NOTICE("You don't have a permit for that sort of hardsuit."))
-			return
-		else if(cell)
-			to_chat(user, SPAN_NOTICE("You'll need to remove the power cell before you modify the suit so extensively."))
-			return
-		else if(air_supply)
-			to_chat(user, SPAN_NOTICE("You should probably remove the air tank. Seems unsafe to leave it in."))
-			return
-		else if(open)
-			to_chat(user, SPAN_NOTICE("You'll need to close up the hardsuit to apply the plating correctly."))
-			return
-		else
-			var/list/possible_removals = list()
-			for(var/obj/item/rig_module/module in installed_modules)
-				if(module.permanent)
-					continue
-				possible_removals[module.name] = module
-
-				if(possible_removals.len)
-					to_chat(user, SPAN_WARNING("You'll need to remove any installed modules to modify this hardsuit."))
-					return
-			playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
-			if(istype(src, /obj/item/rig/industrial/himeo))
-				var/obj/item/P = new /obj/item/rig/industrial/dequipped(get_turf(src))
-				to_chat(user, SPAN_NOTICE("It takes some scraping(a lot of scraping, actually), but you manage to re-convert your suit into [P]."))
-				qdel(src)
-			else
-				var/obj/item/Q = new /obj/item/rig/industrial/himeo/dequipped(get_turf(src))
-				to_chat(user, SPAN_NOTICE("After a few minutes of effort, you step back and appreciate [Q]."))
-				qdel(src)
-			return
+		return
 
 	// If we've gotten this far, all we have left to do before we pass off to root procs
 	// is check if any of the loaded modules want to use the item we've been given.
