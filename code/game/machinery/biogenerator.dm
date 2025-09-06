@@ -51,7 +51,7 @@ FOODSTUFFS
 	name = "Meat Substitute"
 	class = BIOGEN_FOOD
 	object = /obj/item/reagent_containers/food/snacks/meat/biogenerated
-	cost = 50
+	cost = 75
 
 /singleton/biorecipe/food/fishfillet
 	name = "Fish Fillet"
@@ -64,7 +64,7 @@ FOODSTUFFS
 /singleton/biorecipe/food/slimymeat
 	name = "Slimy Meat"
 	object = /obj/item/reagent_containers/food/snacks/fish/mollusc
-	cost = 75
+	cost = 100
 
 /singleton/biorecipe/food/soywafers
 	name = "Soy Wafers"
@@ -74,17 +74,17 @@ FOODSTUFFS
 /singleton/biorecipe/food/boba
 	name = "Boba Pearls"
 	object = /obj/item/reagent_containers/food/drinks/boba
-	cost = 50
+	cost = 75
 
 /singleton/biorecipe/food/egg_carton
 	name = "Chicken Egg Carton"
 	object = /obj/item/storage/box/fancy/egg_box
-	cost = 300
+	cost = 350
 
 /singleton/biorecipe/food/tunneler_egg_carton
 	name = "Ice Tunneler Egg Carton"
 	object = /obj/item/storage/box/fancy/egg_box/tunneler
-	cost = 300
+	cost = 350
 
 /singleton/biorecipe/food/bio_vitamin
 	name = "Flavored Vitamin"
@@ -94,40 +94,42 @@ FOODSTUFFS
 /singleton/biorecipe/food/liquidfood
 	name = "Food Ration"
 	object = /obj/item/reagent_containers/food/snacks/liquidfood
-	cost = 30
+	cost = 50
 
 /singleton/biorecipe/food/milk
 	name = "Space Milk (50u)"
 	object = /obj/item/reagent_containers/food/drinks/carton/milk
-	cost = 100
+	cost = 125
 
 /singleton/biorecipe/food/nutrispread
 	name = "Nutri-spread"
 	object = /obj/item/reagent_containers/food/snacks/spreads
-	cost = 80
+	cost = 100
 
 /singleton/biorecipe/food/lard
 	name = "Lard"
 	object = /obj/item/reagent_containers/food/snacks/spreads/lard
-	cost = 80
+	cost = 100
 
 /singleton/biorecipe/food/egg_carton
 	name = "Chicken Egg Carton"
 	object = /obj/item/storage/box/fancy/egg_box
-	cost = 300
+	cost = 350
 
 /singleton/biorecipe/food/tunneler_egg_carton
 	name = "Ice Tunneler Egg Carton"
 	object = /obj/item/storage/box/fancy/egg_box/tunneler
-	cost = 300
+	cost = 350
 
 /singleton/biorecipe/food/enzyme
 	name = "Universal Enzyme (50u)"
 	object = /obj/item/reagent_containers/food/condiment/enzyme
+	cost = 125
 
 /singleton/biorecipe/food/blood
 	name = "Synthetic Blood (50u)"
 	object = /obj/item/reagent_containers/food/condiment/blood
+	cost = 125
 
 /singleton/biorecipe/food/pepper
 	name = "Pepper Grinder"
@@ -157,12 +159,12 @@ FERTILIZER
 	name = "E-Z-Nutrient (60u)"
 	class = BIOGEN_FERTILIZER
 	object = /obj/item/reagent_containers/glass/fertilizer/ez
-	cost = 60
+	cost = 75
 
 /singleton/biorecipe/fertilizer/l4z
 	name = "Left 4 Zed (60u)"
 	object = /obj/item/reagent_containers/glass/fertilizer/l4z
-	cost = 120
+	cost = 130
 
 /singleton/biorecipe/fertilizer/rh
 	name = "Robust Harvest (60u)"
@@ -344,18 +346,22 @@ MEDICAL
 	name = "Monkey Cube"
 	class = BIOGEN_SPECIAL
 	object = /obj/item/reagent_containers/food/snacks/monkeycube/wrapped
+	cost = 125
 
 /singleton/biorecipe/cube/stok
 	name = "Stok Cube"
 	object = /obj/item/reagent_containers/food/snacks/monkeycube/wrapped/stokcube
+	cost = 125
 
 /singleton/biorecipe/cube/farwa
 	name = "Farwa Cube"
 	object = /obj/item/reagent_containers/food/snacks/monkeycube/wrapped/farwacube
+	cost = 125
 
 /singleton/biorecipe/cube/neaera
 	name = "Neaera Cube"
 	object = /obj/item/reagent_containers/food/snacks/monkeycube/wrapped/neaeracube
+	cost = 125
 
 /singleton/biorecipe/cube/cazador
 	name = "V'krexi Cube"
@@ -371,6 +377,7 @@ MEDICAL
 /singleton/biorecipe/medical/ointment
 	name = "Burn Ointment"
 	object = /obj/item/stack/medical/ointment
+	cost = 125
 
 /singleton/biorecipe/medical/perconol_pill
 	name = "Perconol Pill"
@@ -672,7 +679,7 @@ EMAG/ILLEGAL
 		S += 5
 		if(REAGENT_VOLUME(I.reagents, /singleton/reagent/nutriment) < 0.1)
 			points += 1
-		else points += REAGENT_VOLUME(I.reagents, /singleton/reagent/nutriment) * 5 * eat_eff
+		else points += REAGENT_VOLUME(I.reagents, /singleton/reagent/nutriment) * 10 * eat_eff
 		qdel(I)
 		CHECK_TICK
 	if(S)
