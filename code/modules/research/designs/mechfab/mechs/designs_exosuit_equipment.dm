@@ -21,9 +21,14 @@
 	build_path = /obj/item/mecha_equipment/mounted_system/combat/taser
 
 /datum/design/item/mechfab/exosuit_equipment/uac
-	name = "Mounted Automatic Weapon"
+	name = "Mounted Submachine Gun"
 	req_tech = list(TECH_COMBAT = 4)
 	build_path = /obj/item/mecha_equipment/mounted_system/combat/smg
+
+/datum/design/item/mechfab/exosuit_equipment/uac_ltl
+	name = "Mounted Riot Submachine Gun"
+	req_tech = list(TECH_COMBAT = 2)
+	build_path = /obj/item/mecha_equipment/mounted_system/combat/smg_ltl
 
 /datum/design/item/mechfab/exosuit_equipment/plasma
 	name = "Mounted Plasma Cutter"
@@ -162,10 +167,16 @@
 	desc += " It needs an anomaly core to function, however."
 
 /datum/design/item/mechfab/exosuit_equipment/kinetic_accelerator
+	name = "Mounted Kinetic Accelerator"
+	materials = list(MATERIAL_STEEL = 5000, MATERIAL_ALUMINIUM = 5000, MATERIAL_GLASS = 2500)
+	req_tech = list(TECH_MATERIAL = 3, TECH_ENGINEERING = 3, TECH_POWER = 3)
+	build_path = /obj/item/mecha_equipment/mounted_system/mining/kinetic_accelerator
+
+/datum/design/item/mechfab/exosuit_equipment/kinetic_accelerator_heavy
 	name = "Mounted Heavy Kinetic Accelerator"
 	materials = list(MATERIAL_STEEL = 25000, MATERIAL_GLASS = 5000)
 	req_tech = list(TECH_MATERIAL = 3, TECH_ENGINEERING = 3, TECH_POWER = 3)
-	build_path = /obj/item/mecha_equipment/mounted_system/mining/kinetic_accelerator
+	build_path = /obj/item/mecha_equipment/mounted_system/mining/kinetic_accelerator/heavy
 
 /datum/design/item/mechfab/exosuit_equipment/ore_summoner
 	name = "Mounted Ore Summoner"

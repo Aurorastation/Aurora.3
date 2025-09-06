@@ -237,3 +237,14 @@
 
 	/// Phoron mecha cores recharges 10% every one minute
 	self_charge_percentage = 10
+
+/obj/item/cell/mecha/phoron/alien
+	name = "anomalous power core"
+	origin_tech = list(TECH_POWER = 9, TECH_MATERIAL = 9)
+	icon_state = "alien_power_cell"
+	desc = "A mercurial gem gleaming with anomalous white light. Pale, cold flames dance along its surface, which crackle with static charge upon touching any object."
+
+/obj/item/cell/mecha/phoron/alien/Initialize()
+	. = ..()
+	maxcharge *= rand(0.75, 1.25)
+	self_charge_percentage *= rand(0.75, 1.25)
