@@ -185,14 +185,14 @@
 	icon = 'icons/obj/mining_contained.dmi'
 	icon_state = "himeo_kit"
 	item_state = "himeo_kit"
-	desc = "A simple cardboard box containing the requisition forms, permits, and decal kits for a Himean voidsuit."
+	desc = "A simple cardboard box containing the requisition forms, permits, and decal kits for Himean EVA equipment."
 	desc_extended = "Despite the vast amounts of supplementary paperwork involved, the Stellar Corporate Conglomerate continues to import specialty industrialwear through an Orion Express subsidiary to \
 	boost morale among Himean staff. With success in the previous Type-76 'Fish Fur' program, the Chainlink has also authorized a number of Type-86 'Cicada' industrial hardsuits for use \
 	on a number of installations, such as the Horizon."
 
 /obj/item/voidsuit_modkit/himeo/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	. += "This modkit can be used to convert an industrial hardsuit assembly into a Himean variant."
+	. += "This modkit can be used to convert an industrial hardsuit, or hardsuit assembly, into a Himean variant."
 
 /obj/item/voidsuit_modkit/himeo/tajara
 	name = "tajaran himeo voidsuit kit"
