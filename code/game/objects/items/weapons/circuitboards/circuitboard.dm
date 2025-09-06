@@ -29,7 +29,7 @@
 	var/contain_parts = 1
 
 	recyclable = TRUE
-	matter = list(MATERIAL_GLASS = 20, MATERIAL_PHORON = 10)
+	matter = list(MATERIAL_GLASS = 500, MATERIAL_PHORON = 10)
 
 /obj/item/circuitboard/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
