@@ -102,6 +102,7 @@ SUBSYSTEM_DEF(cargo)
 /datum/controller/subsystem/cargo/proc/load_cargo_suppliers()
 	for(var/singleton/cargo_supplier/S as anything in (GET_SINGLETON_SUBTYPE_LIST(/singleton/cargo_supplier)))
 		log_subsystem_cargo("Loading supplier '[S.name]', with short name '[S.short_name]'.")
+		S.price_modifier = S.get_total_price_coefficient()
 		SScargo.cargo_suppliers[S.short_name] = S
 
 /datum/controller/subsystem/cargo/proc/load_cargo_items()
