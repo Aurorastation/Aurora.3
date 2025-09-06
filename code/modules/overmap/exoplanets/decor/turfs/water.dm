@@ -165,11 +165,10 @@
 			var/obj/item/organ/external/E = A
 			if(BP_IS_ROBOTIC(E))
 				continue
-			if (E.wounds.len)
-				for(var/datum/wound/W in E.wounds)
-					if(W.germ_level < INFECTION_LEVEL_ONE)
-						W.germ_level = INFECTION_LEVEL_ONE
-					W.germ_level += rand(10, 50)
+			for(var/datum/wound/W in E.wounds)
+				if(W.germ_level < INFECTION_LEVEL_ONE)
+					W.germ_level = INFECTION_LEVEL_ONE
+				W.germ_level += rand(10, 50)
 
 /turf/simulated/floor/exoplanet/water/shallow/moghes
 	icon = 'icons/turf/flooring/exoplanet/moghes.dmi'
