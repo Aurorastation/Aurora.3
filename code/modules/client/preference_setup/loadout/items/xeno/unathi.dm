@@ -228,7 +228,7 @@
 	culture_restriction = list(/singleton/origin_item/culture/autakh)
 	sort_category = "Xenowear - Unathi"
 	cost = 2
-	allowed_roles = list("Engineer", "Chief Engineer", "Atmospheric Technician", "Engineering Apprentice", "Machinist", "Engineering Personnel")
+	allowed_roles = list("Ship Engineer", "Chief Engineer", "Atmospheric Technician", "Engineering Apprentice", "Machinist", "Engineering Personnel")
 	flags = GEAR_NO_SELECTION
 
 /datum/gear/augment/autakh_mining
