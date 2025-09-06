@@ -37,6 +37,8 @@
 
 #define isspaceturf(A) istype(A, /turf/space)
 
+#define ischasm(A) (istype(A, /turf/simulated/floor/exoplanet/abyss) || istype(A, /turf/simulated/abyss))
+
 #define isghost(A) istype(A, /mob/abstract/ghost)
 
 #define isobserver(A) istype(A, /mob/abstract/ghost/observer)
