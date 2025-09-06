@@ -48,7 +48,7 @@
 		else if (isAI(target_mob))  //Repairing AIs
 			var/mob/living/silicon/ai/A = target_mob
 			if (!A.getBruteLoss() && !A.getFireLoss())
-				to_chat(user, SPAN_NOTICE("All [A]'s systems are nominal."))
+				to_chat(user, SPAN_NOTICE("All of [A]'s systems are nominal."))
 				return FALSE
 
 		if(target_mob == user)
