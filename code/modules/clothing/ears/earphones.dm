@@ -369,16 +369,9 @@ Earphone Variants
 	desc = "A music cartridge with some company-selected songs. Nothing special, everyone got one of these in their welcome boxes..."
 
 	tracks = list(
-		new/datum/track("Amsterdam", 'sound/music/audioconsole/Amsterdam.ogg'),
-		new/datum/track("Butterflies", 'sound/music/audioconsole/Butterflies.ogg'),
-		new/datum/track("Childhood", 'sound/music/audioconsole/Childhood.ogg'),
-		new/datum/track("Don't Rush", 'sound/music/audioconsole/DontRush.ogg'),
-		new/datum/track("Lips", 'sound/music/audioconsole/Lips.ogg'),
-		new/datum/track("Number 0", 'sound/music/audioconsole/Number0.ogg'),
-		new/datum/track("Phoron Will Make Us Rich", 'sound/music/audioconsole/PhoronWillMakeUsRich.ogg'),
-		new/datum/track("That Ain't Chopin", 'sound/music/audioconsole/ThatAintChopin.ogg'),
-		new/datum/track("The Pianist", 'sound/music/audioconsole/ThePianist.ogg'),
-		new/datum/track("When", 'sound/music/audioconsole/When.ogg')
+		new/datum/track("Phoron Will Make Us Rich", 'sound/music/audioconsole/PhoronWillMakeUsRich+1340.ogg'),
+		new/datum/track("Amsterdam", 'sound/music/audioconsole/Amsterdam+2220.ogg'),
+		new/datum/track("Childhood", 'sound/music/audioconsole/Childhood+1330.ogg')
 	)
 
 /*

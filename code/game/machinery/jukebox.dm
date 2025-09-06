@@ -117,7 +117,7 @@
 
 	ui_interact(user)
 
-/obj/machinery/media/jukebox/ui_interact(mob/user, ui_key = "jukebox", var/datum/nanoui/ui = null, var/force_open = 1)
+/obj/machinery/media/jukebox/ui_interact(mob/user, ui_key = "jukebox2", var/datum/nanoui/ui = null, var/force_open = 1)
 	var/title = "Music Player"
 	var/data[0]
 
@@ -232,24 +232,9 @@
 	state_base = "audioconsole"
 	anchored = FALSE
 	tracks = list(
-		new/datum/track("Konyang Chill A", 'sound/music/lobby/konyang/konyang-1.ogg'),
-		new/datum/track("Konyang Chill B", 'sound/music/lobby/konyang/konyang-2.ogg'),
-		new/datum/track("Konyang Chill C", 'sound/music/lobby/konyang/konyang-3.ogg'),
-		new/datum/track("Konyang Chill D", 'sound/music/lobby/konyang/konyang-4.ogg'),
-		new/datum/track("Synthetic Future A", 'sound/music/lobby/adhomai/adhomai-1.ogg'),
-		new/datum/track("Synthetic Future B", 'sound/music/lobby/adhomai/adhomai-2.ogg'),
-		new/datum/track("Synthetic Future C", 'sound/music/lobby/adhomai/adhomai-3.ogg'),
-		new/datum/track("Synthetic Future D", 'sound/music/lobby/adhomai/adhomai-4.ogg'),
-		new/datum/track("Butterflies", 'sound/music/audioconsole/Butterflies.ogg'),
-		new/datum/track("That Ain't Chopin", 'sound/music/audioconsole/ThatAintChopin.ogg'),
-		new/datum/track("Don't Rush", 'sound/music/audioconsole/DontRush.ogg'),
-		new/datum/track("Phoron Will Make Us Rich", 'sound/music/audioconsole/PhoronWillMakeUsRich.ogg'),
-		new/datum/track("Amsterdam", 'sound/music/audioconsole/Amsterdam.ogg'),
-		new/datum/track("When", 'sound/music/audioconsole/When.ogg'),
-		new/datum/track("Number 0", 'sound/music/audioconsole/Number0.ogg'),
-		new/datum/track("The Pianist", 'sound/music/audioconsole/ThePianist.ogg'),
-		new/datum/track("Lips", 'sound/music/audioconsole/Lips.ogg'),
-		new/datum/track("Childhood", 'sound/music/audioconsole/Childhood.ogg')
+		new/datum/track("Phoron Will Make Us Rich", 'sound/music/audioconsole/PhoronWillMakeUsRich+1340.ogg'),
+		new/datum/track("Amsterdam", 'sound/music/audioconsole/Amsterdam+2220.ogg'),
+		new/datum/track("Childhood", 'sound/music/audioconsole/Childhood+1330.ogg')
 	)
 
 /obj/machinery/media/jukebox/audioconsole/update_icon()

@@ -1,10 +1,8 @@
 // Reasons for appling STATUS_MUTE to a mob's sound status
 /// The mob is deaf
 #define MUTE_DEAF (1<<0)
-/// The mob has disabled jukeboxes in their preferences
-#define MUTE_PREF (1<<1)
 /// The mob is out of range of the jukebox
-#define MUTE_RANGE (1<<2)
+#define MUTE_RANGE (1<<1)
 
 /**
  * ## Jukebox datum
@@ -95,16 +93,15 @@
 	var/static/list/config_songs
 	if(isnull(config_songs))
 		config_songs = list()
-		var/list/tracks = flist("[global.config.directory]/jukebox_music/sounds/")
+		var/list/tracks = flist("sound/music/audioconsole/")
 		for(var/track_file in tracks)
 			var/datum/track/new_track = new()
-			new_track.song_path = file("[global.config.directory]/jukebox_music/sounds/[track_file]")
+			new_track.song_path = file("sound/music/audioconsole/[track_file]")
 			var/list/track_data = splittext(track_file, "+")
-			if(length(track_data) < 3)
+			if(length(track_data) < 2)
 				continue
 			new_track.song_name = track_data[1]
 			new_track.song_length = text2num(track_data[2])
-			new_track.song_beat = text2num(track_data[3])
 			config_songs[new_track.song_name] = new_track
 
 		if(!length(config_songs))
@@ -128,7 +125,6 @@
 		UNTYPED_LIST_ADD(songs_data, list( \
 			"name" = song_name, \
 			"length" = DisplayTimeText(one_song.song_length), \
-			"beat" = one_song.song_beat, \
 		))
 
 	data["active"] = !!active_song_sound
@@ -215,10 +211,8 @@
 		RegisterSignal(new_listener, COMSIG_MOB_LOGIN, PROC_REF(listener_login))
 		return
 
-	RegisterSignals(new_listener, list(COMSIG_MOVABLE_MOVED, COMSIG_MOB_JUKEBOX_PREFERENCE_APPLIED), PROC_REF(listener_moved))
-	RegisterSignals(new_listener, list(SIGNAL_ADDTRAIT(TRAIT_DEAF), SIGNAL_REMOVETRAIT(TRAIT_DEAF)), PROC_REF(listener_deaf))
-	var/pref_volume = new_listener.client?.prefs.read_preference(/datum/preference/numeric/volume/sound_jukebox)
-	if(HAS_TRAIT(new_listener, TRAIT_DEAF) || !pref_volume)
+	RegisterSignals(new_listener, list(COMSIG_MOVABLE_MOVED), PROC_REF(listener_moved))
+	if(new_listener.ear_deaf)
 		listeners[new_listener] |= SOUND_MUTE
 
 	if(isnull(active_song_sound))
@@ -227,7 +221,7 @@
 		active_song_sound.channel = CHANNEL_JUKEBOX
 		active_song_sound.priority = 255
 		active_song_sound.falloff = 2
-		active_song_sound.volume = volume * (pref_volume/100)
+		active_song_sound.volume = volume
 		active_song_sound.y = 1
 		active_song_sound.environment = juke_area.sound_environment || SOUND_ENVIRONMENT_NONE
 		active_song_sound.repeat = sound_loops
@@ -256,32 +250,19 @@
 	deregister_listener(source)
 	register_listener(source)
 
-/// Updates the sound's mute status when the mob's deafness updates.
-/datum/jukebox/proc/listener_deaf(mob/source)
-	SIGNAL_HANDLER
-
-	if(HAS_TRAIT(source, TRAIT_DEAF))
-		listeners[source] |= SOUND_MUTE
-	else if(!unmute_listener(source, MUTE_DEAF))
-		return
-	update_listener(source)
-
 /**
  * Unmutes the passed mob's sound from the passed reason.
  *
  * Arguments
  * * mob/listener - The mob to unmute.
- * * reason - The reason to unmute them for. Can be a combination of MUTE_DEAF, MUTE_PREF, MUTE_RANGE.
+ * * reason - The reason to unmute them for. Can be a combination of MUTE_DEAF, MUTE_RANGE.
  */
 /datum/jukebox/proc/unmute_listener(mob/listener, reason)
 	// We need to check everything BUT the reason we're unmuting for
 	// Because if we're muted for a different reason we don't wanna touch it
 	reason = ~reason
 
-	if((reason & MUTE_DEAF) && HAS_TRAIT(listener, TRAIT_DEAF))
-		return FALSE
-	var/pref_volume = listener.client?.prefs.read_preference(/datum/preference/numeric/volume/sound_jukebox)
-	if((reason & MUTE_PREF) && !pref_volume)
+	if((reason & MUTE_DEAF) && listener.ear_deaf)
 		return FALSE
 
 	if(reason & MUTE_RANGE)
@@ -309,9 +290,6 @@
 		COMSIG_MOB_LOGIN,
 		COMSIG_QDELETING,
 		COMSIG_MOVABLE_MOVED,
-		COMSIG_MOB_JUKEBOX_PREFERENCE_APPLIED,
-		SIGNAL_ADDTRAIT(TRAIT_DEAF),
-		SIGNAL_REMOVETRAIT(TRAIT_DEAF),
 	))
 
 /// Updates the passed mob's sound in according to their position and status.
@@ -342,13 +320,7 @@
 
 		active_song_sound.x = new_x
 		active_song_sound.z = new_z
-
-		var/pref_volume = listener.client?.prefs.read_preference(/datum/preference/numeric/volume/sound_jukebox)
-		if(!pref_volume)
-			listeners[listener] |= SOUND_MUTE
-		else
-			unmute_listener(listener, MUTE_PREF)
-			active_song_sound.volume = volume * (pref_volume/100)
+		active_song_sound.volume = volume
 
 	SEND_SOUND(listener, active_song_sound)
 
@@ -386,7 +358,6 @@
 	register_listener(solo_listener)
 
 #undef MUTE_DEAF
-#undef MUTE_PREF
 #undef MUTE_RANGE
 
 /// Track datums, used in jukeboxes
@@ -403,7 +374,7 @@
 
 // Default track supplied for testing and also because it's a banger
 /datum/track/default
-	song_path = 'sound/music/lobby_music/title3.ogg'
+	song_path = 'sound/music/title3.ogg'
 	song_name = "Tintin on the Moon"
 	song_length = 3 MINUTES + 52 SECONDS
 	song_beat = 1 SECONDS
