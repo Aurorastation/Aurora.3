@@ -1,0 +1,8 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "Added the price scanner and crate scanner to hangar tech lockers."
+  - rscdel: "Removed clothing items from hangar tech lockers that was in the drobe."
+  - rscadd: "Toolbelts can now hold the export scanner, price scanner, crate scanner and quikpay."
