@@ -91,7 +91,7 @@
 	cyborg_maptext_override = TRUE
 
 	installed_cell = /obj/item/custom_ka_upgrade/cells/exosuit
-	installed_barrel = /obj/item/custom_ka_upgrade/barrels/barrel01
+	installed_barrel = /obj/item/custom_ka_upgrade/barrels/barrel04
 	installed_upgrade_chip = /obj/item/custom_ka_upgrade/upgrade_chips/focusing
 
 /obj/item/gun/custom_ka/exosuit/heavy
