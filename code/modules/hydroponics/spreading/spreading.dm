@@ -1,13 +1,32 @@
 #define DEFAULT_SEED "glowshroom"
 #define VINE_GROWTH_STAGES 5
 
-/proc/spacevine_infestation(var/potency_min=70, var/potency_max=100, var/maturation_min=1, var/maturation_max=3)
-	var/turf/T = pick_subarea_turf(/area/horizon/hallway, list(/proc/is_station_turf, /proc/not_turf_contains_dense_objects))
+/proc/spacevine_infestation(var/potency_min=85, var/potency_max=100, var/maturation_min=1, var/maturation_max=3)
+	/// List of areas to affect.
+	var/list/area/areaList = list()
+	/// Area types to include.
+	var/list/areaType = list(
+		/area/horizon/hallway,
+		/area/horizon/security/hallway,
+		/area/horizon/engineering/hallway,
+		/area/horizon/medical/hallway,
+		/area/horizon/operations/lobby,
+		/area/horizon/rnd/hallway,
+		/area/horizon/security/hallway,
+		/area/horizon/security/investigations_hallway,
+		/area/horizon/service/cafeteria,
+		/area/horizon/hangar
+		)
+	for(var/area/area in GLOB.the_station_areas)
+		if(is_type_in_list(area, areaType))
+			areaList += area
+
+	var/turf/T = pick_subarea_turf(pick(areaList), list(/proc/is_station_turf, /proc/not_turf_contains_dense_objects))
 	if(T)
 		var/datum/seed/seed = SSplants.create_random_seed(TRUE, SEED_NOUN_PITS)
 		seed.set_trait(TRAIT_SPREAD,2)             // So it will function properly as vines.
 		seed.growth_stages = VINE_GROWTH_STAGES
-		seed.set_trait(TRAIT_POTENCY,rand(potency_min, potency_max)) // 70-100 potency will help guarantee a wide spread and powerful effects.
+		seed.set_trait(TRAIT_POTENCY,rand(potency_min, potency_max)) // 85-100 potency will help guarantee a wide spread and powerful effects.
 		seed.set_trait(TRAIT_MATURATION,rand(maturation_min, maturation_max))
 
 		//make vine zero start off fully matured
@@ -78,7 +97,6 @@
 
 /obj/effect/plant/single
 	spread_chance = 0
-
 
 /obj/effect/plant/Initialize(mapload, datum/seed/newseed, obj/effect/plant/newparent)
 	. = ..()
