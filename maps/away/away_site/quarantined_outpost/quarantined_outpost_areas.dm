@@ -2,6 +2,8 @@
 /area/quarantined_outpost
 	name = "base type"
 	ambience = list(AMBIENCE_FOREBODING, AMBIENCE_LAVA)
+	base_turf = /turf/simulated/floor/exoplanet/abyss
+	area_flags = AREA_FLAG_INDESTRUCTIBLE_TURFS
 
 /area/quarantined_outpost/exterior
 	name = "Exterior"

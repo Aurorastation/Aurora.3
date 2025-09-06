@@ -365,6 +365,7 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 
 /mob/living/simple_animal/hostile/revivable/husked_creature/quarantined_outpost/horde
 	var/tmp/breaking_wall = FALSE
+	break_stuff_probability = 100
 	maxHealth = 200
 	health = 200
 
@@ -376,47 +377,52 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 	var/obj/machinery/door/firedoor/F = locate(/obj/machinery/door/firedoor) in target_turf
 	var/obj/structure/quarantined_outpost_extractor/EX = locate(/obj/structure/quarantined_outpost_extractor) in target_turf
 
-	if(istype(target_turf, /turf/simulated/wall) || EX || F)
+	if(istype(target_turf, /turf/simulated/wall) || EX || (F && F.density))
 		breaking_wall = TRUE
-		spawn(0)
-			if(istype(target_turf, /turf/simulated/wall))
-				visible_message(SPAN_DANGER("\the [src] is attempting to break down \the [target_turf]!"))
-				playsound(target_turf, 'sound/effects/meteorimpact.ogg', 50, 1)
-				sleep(BREAK_WALL_COOLDOWN)
-				if(istype(target_turf, /turf/simulated/wall) && !QDELETED(src) && stat != DEAD && get_dist(src, target_turf) == 1) // we check again
-					visible_message(SPAN_DANGER("With a loud thud, \the [src] breaks down the [target_turf]!"))
-					playsound(target_turf, 'sound/effects/meteorimpact.ogg', 50, 1)
-					target_turf.ChangeTurf(/turf/simulated/floor/exoplanet/asteroid/ash/rocky)
-					new /obj/effect/decal/cleanable/floor_damage/broken6(target_turf)
-				breaking_wall = FALSE
-
-			if(F) // ---- firedoor
-				visible_message(SPAN_DANGER("\the [src] is attempting to break down the [F]!"))
-				playsound(target_turf, 'sound/effects/meteorimpact.ogg', 50, 1)
-				sleep(BREAK_WALL_COOLDOWN)
-				if(!QDELETED(F) && !QDELETED(src) && stat != DEAD && get_dist(src, target_turf) == 1) // check again if conditions are still valid after sleep
-					qdel(F)
-					visible_message(SPAN_DANGER("With a loud thud, \the [src] breaks down \the [F]!"))
-					playsound(target_turf, 'sound/effects/meteorimpact.ogg', 50, 1)
-				breaking_wall = FALSE
-
-			if(EX)
-				visible_message(SPAN_DANGER("\the [src] is attempting to break down the [EX]!"))
-				playsound(target_turf, 'sound/effects/meteorimpact.ogg', 50, 1)
-				sleep(BREAK_EXTRACTOR_COOLDOWN)
-				if(!QDELETED(EX) && !QDELETED(src) && stat != DEAD && get_dist(src, target_turf) == 1)
-					qdel(EX)
-					visible_message(SPAN_DANGER("With a loud thud, \the [src] breaks down \the [EX]!"))
-					playsound(target_turf, 'sound/effects/meteorimpact.ogg', 50, 1)
-				breaking_wall = FALSE
+		INVOKE_ASYNC(src, PROC_REF(destroy_obstacle), target_turf, F, EX)
 
 		return FALSE
 	return ..()
+
+/mob/living/simple_animal/hostile/revivable/husked_creature/quarantined_outpost/horde/proc/destroy_obstacle(turf/target_turf, obj/F, obj/EX)
+	if(istype(target_turf, /turf/simulated/wall))
+		visible_message(SPAN_DANGER("\the [src] is attempting to break down \the [target_turf]!"))
+		playsound(target_turf, 'sound/effects/meteorimpact.ogg', 50, 1)
+		sleep(BREAK_WALL_COOLDOWN)
+		if(istype(target_turf, /turf/simulated/wall) && !QDELETED(src) && stat != DEAD && get_dist(src, target_turf) == 1) // we check again
+			visible_message(SPAN_DANGER("With a loud thud, \the [src] breaks down the [target_turf]!"))
+			playsound(target_turf, 'sound/effects/meteorimpact.ogg', 50, 1)
+			target_turf.ChangeTurf(/turf/simulated/floor/exoplanet/asteroid/ash/rocky)
+			new /obj/effect/decal/cleanable/floor_damage/broken6(target_turf)
+		breaking_wall = FALSE
+		return
+
+	if(F) // ---- firedoor
+		visible_message(SPAN_DANGER("\the [src] is attempting to break down the [F]!"))
+		playsound(target_turf, 'sound/effects/meteorimpact.ogg', 50, 1)
+		sleep(BREAK_WALL_COOLDOWN)
+		if(!QDELETED(F) && !QDELETED(src) && stat != DEAD && get_dist(src, target_turf) == 1) // check again if conditions are still valid after sleep
+			qdel(F)
+			visible_message(SPAN_DANGER("With a loud thud, \the [src] breaks down \the [F]!"))
+			playsound(target_turf, 'sound/effects/meteorimpact.ogg', 50, 1)
+		breaking_wall = FALSE
+		return
+
+	if(EX)
+		visible_message(SPAN_DANGER("\the [src] is attempting to break down the [EX]!"))
+		playsound(target_turf, 'sound/effects/meteorimpact.ogg', 50, 1)
+		sleep(BREAK_EXTRACTOR_COOLDOWN)
+		if(!QDELETED(EX) && !QDELETED(src) && stat != DEAD && get_dist(src, target_turf) == 1)
+			qdel(EX)
+			visible_message(SPAN_DANGER("With a loud thud, \the [src] breaks down \the [EX]!"))
+			playsound(target_turf, 'sound/effects/meteorimpact.ogg', 50, 1)
+		breaking_wall = FALSE
 
 // Abomination - Horde edition
 
 /mob/living/simple_animal/hostile/revivable/abomination/quarantined_outpost/horde
 	var/tmp/breaking_wall = FALSE
+	break_stuff_probability = 100
 	disguise_disabled = TRUE
 	maxHealth = 250
 	health = 250
@@ -429,42 +435,46 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 	var/obj/machinery/door/firedoor/F = locate(/obj/machinery/door/firedoor) in target_turf
 	var/obj/structure/quarantined_outpost_extractor/EX = locate(/obj/structure/quarantined_outpost_extractor) in target_turf
 
-	if(istype(target_turf, /turf/simulated/wall) || EX || F)
+	if(istype(target_turf, /turf/simulated/wall) || EX || (F && F.density))
 		breaking_wall = TRUE
-		spawn(0)
-			if(istype(target_turf, /turf/simulated/wall))
-				visible_message(SPAN_DANGER("\the [src] is attempting to break down \the [target_turf]!"))
-				playsound(target_turf, 'sound/effects/meteorimpact.ogg', 50, 1)
-				sleep(BREAK_WALL_COOLDOWN)
-				if(istype(target_turf, /turf/simulated/wall) && !QDELETED(src) && stat != DEAD && get_dist(src, target_turf) == 1) // we check again
-					visible_message(SPAN_DANGER("With a loud thud, \the [src] breaks down the [target_turf]!"))
-					playsound(target_turf, 'sound/effects/meteorimpact.ogg', 50, 1)
-					target_turf.ChangeTurf(/turf/simulated/floor/exoplanet/asteroid/ash/rocky)
-					new /obj/effect/decal/cleanable/floor_damage/broken6(target_turf)
-				breaking_wall = FALSE
-
-			if(F && F.density) // ---- firedoor
-				visible_message(SPAN_DANGER("\the [src] is attempting to break down the [F]!"))
-				playsound(target_turf, 'sound/effects/meteorimpact.ogg', 50, 1)
-				sleep(BREAK_WALL_COOLDOWN)
-				if(!QDELETED(F) && !QDELETED(src) && stat != DEAD && get_dist(src, target_turf) == 1) // check again if conditions are still valid after sleep
-					qdel(F)
-					visible_message(SPAN_DANGER("With a loud thud, \the [src] breaks down \the [F]!"))
-					playsound(target_turf, 'sound/effects/meteorimpact.ogg', 50, 1)
-				breaking_wall = FALSE
-
-			if(EX)
-				visible_message(SPAN_DANGER("\the [src] is attempting to break down the [EX]!"))
-				playsound(target_turf, 'sound/effects/meteorimpact.ogg', 50, 1)
-				sleep(BREAK_EXTRACTOR_COOLDOWN)
-				if(!QDELETED(EX) && !QDELETED(src) && stat != DEAD && get_dist(src, target_turf) == 1)
-					qdel(EX)
-					visible_message(SPAN_DANGER("With a loud thud, \the [src] breaks down \the [EX]!"))
-					playsound(target_turf, 'sound/effects/meteorimpact.ogg', 50, 1)
-				breaking_wall = FALSE
+		INVOKE_ASYNC(src, PROC_REF(destroy_obstacle), target_turf, F, EX)
 
 		return FALSE
 	return ..()
+
+/mob/living/simple_animal/hostile/revivable/abomination/quarantined_outpost/horde/proc/destroy_obstacle(turf/target_turf, obj/F, obj/EX)
+	if(istype(target_turf, /turf/simulated/wall))
+		visible_message(SPAN_DANGER("\the [src] is attempting to break down \the [target_turf]!"))
+		playsound(target_turf, 'sound/effects/meteorimpact.ogg', 50, 1)
+		sleep(BREAK_WALL_COOLDOWN)
+		if(istype(target_turf, /turf/simulated/wall) && !QDELETED(src) && stat != DEAD && get_dist(src, target_turf) == 1) // we check again
+			visible_message(SPAN_DANGER("With a loud thud, \the [src] breaks down the [target_turf]!"))
+			playsound(target_turf, 'sound/effects/meteorimpact.ogg', 50, 1)
+			target_turf.ChangeTurf(/turf/simulated/floor/exoplanet/asteroid/ash/rocky)
+			new /obj/effect/decal/cleanable/floor_damage/broken6(target_turf)
+		breaking_wall = FALSE
+		return
+
+	if(F) // ---- firedoor
+		visible_message(SPAN_DANGER("\the [src] is attempting to break down the [F]!"))
+		playsound(target_turf, 'sound/effects/meteorimpact.ogg', 50, 1)
+		sleep(BREAK_WALL_COOLDOWN)
+		if(!QDELETED(F) && !QDELETED(src) && stat != DEAD && get_dist(src, target_turf) == 1) // check again if conditions are still valid after sleep
+			qdel(F)
+			visible_message(SPAN_DANGER("With a loud thud, \the [src] breaks down \the [F]!"))
+			playsound(target_turf, 'sound/effects/meteorimpact.ogg', 50, 1)
+		breaking_wall = FALSE
+		return
+
+	if(EX)
+		visible_message(SPAN_DANGER("\the [src] is attempting to break down the [EX]!"))
+		playsound(target_turf, 'sound/effects/meteorimpact.ogg', 50, 1)
+		sleep(BREAK_EXTRACTOR_COOLDOWN)
+		if(!QDELETED(EX) && !QDELETED(src) && stat != DEAD && get_dist(src, target_turf) == 1)
+			qdel(EX)
+			visible_message(SPAN_DANGER("With a loud thud, \the [src] breaks down \the [EX]!"))
+			playsound(target_turf, 'sound/effects/meteorimpact.ogg', 50, 1)
+		breaking_wall = FALSE
 
 /*######################################
 		HORDE LOGIC (partially copied over from `phoron_deposit_objects.dm`)
@@ -548,32 +558,33 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 	shaker_effect = new /obj/effect/map_effect/interval/screen_shaker/quarantined_outpost(get_turf(src))
 	activate_fauna_spawners(src.z)
 	working = TRUE
-	var/obj/structure/quarantined_outpost/fluff_canister/canister
+	INVOKE_ASYNC(src, PROC_REF(process_mini_game))
 
 	// ---- core function of the horde mini-game
-	spawn()
-		while(working && src)
-			for(var/turf/connector_turf in connector_locations_list)
-				canister = locate(/obj/structure/quarantined_outpost/fluff_canister) in connector_turf
-				if(canister && canister.connected)
-					canister.percentage = min(canister.percentage + 10, 100) // make sure it doesn't exceed 100 while we add 10% each time
-					canister.update_icon()
-					if(canister.percentage == 100)
-						canister.toggle_fastening()
-						canisters_filled++
+/obj/structure/quarantined_outpost_extractor/proc/process_mini_game()
+	var/obj/structure/quarantined_outpost/fluff_canister/canister
+	while(working && src)
+		for(var/turf/connector_turf in connector_locations_list)
+			canister = locate(/obj/structure/quarantined_outpost/fluff_canister) in connector_turf
+			if(canister && canister.connected)
+				canister.percentage = min(canister.percentage + 10, 100) // make sure it doesn't exceed 100 while we add 10% each time
+				canister.update_icon()
+				if(canister.percentage == 100)
+					canister.toggle_fastening()
+					canisters_filled++
 
-			if(canisters_filled == 5) // mission successful, shutting down the monster magnet
-				working = FALSE
-				spawner.stop_spawning()
-				qdel(shaker_effect)
-				icon_state = "off"
-				for(var/mob/M in view(7, src))
-					playsound(M, 'sound/mecha/mech-shutdown.ogg', 50, FALSE)
-					to_chat(M, SPAN_DANGER("\The [src]'s hydraulics beginning to slow down, the machine releases one long hiss for one last time."))
-				return
+		if(canisters_filled == 5) // mission successful, shutting down the monster magnet
+			working = FALSE
+			spawner.stop_spawning()
+			qdel(shaker_effect)
+			icon_state = "off"
+			for(var/mob/M in view(7, src))
+				playsound(M, 'sound/mecha/mech-shutdown.ogg', 50, FALSE)
+				to_chat(M, SPAN_DANGER("\The [src]'s hydraulics beginning to slow down, the machine releases a long hiss for one last time."))
+			return
 
-			// it takes 2 minutes to completely fill a canister. There is a total of 5 canister and 2 connector ports. Event takes 6 minutes at best.
-			sleep(12 SECONDS)
+		// it takes 2 minutes to completely fill a canister. There is a total of 5 canister and 2 connector ports. Event takes 6 minutes at best.
+		sleep(12 SECONDS)
 
 // ---- Fluff objects used in extraction/horde mini-game
 

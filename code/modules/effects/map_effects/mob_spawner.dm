@@ -175,9 +175,11 @@
 		if(src.waypoint && istype(new_mob, /mob/living/simple_animal/hostile))
 			var/mob/living/simple_animal/hostile/H = new_mob
 			H.target_waypoint = src.waypoint
-			spawn()
-				if(isturf(src.waypoint.loc))
-					GLOB.move_manager.move_towards(H, src.waypoint.loc, move_speed, TRUE)
+			INVOKE_ASYNC(src, PROC_REF(lead_the_mob), H, waypoint, move_speed)
+
+/obj/effect/fauna_spawner/organized/proc/lead_the_mob(H, waypoint, move_speed)
+	if(isturf(src.waypoint.loc))
+		GLOB.move_manager.move_towards(H, src.waypoint.loc, move_speed, TRUE)
 
 // ---- Put your subtypes here
 
