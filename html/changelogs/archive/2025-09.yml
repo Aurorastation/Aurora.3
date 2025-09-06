@@ -48,3 +48,9 @@
       nature.
   - refactor: Changed the way lottery cards work to now use a best-of-3 system with
       a modified prize pool. See PR for full details.
+2025-09-06:
+  ElorgRHG:
+  - bugfix: Fixes M'sai diagonal bangs, and overeye bobcut hair styles not having
+      sprites.
+  - bugfix: Fixes M'sai not having the curly hairstyle, while having the alt variant
+      of it.
