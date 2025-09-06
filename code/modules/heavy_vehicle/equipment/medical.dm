@@ -158,14 +158,20 @@
 	passive_power_use *= rand(0.8, 1.2)
 	damcap *= rand(0.8, 1.2)
 	heal_dead = prob(50)
-	brute_heal = rand(1, 5)
-	burn_heal = rand(1, 5)
-	tox_heal = rand(1, 5)
-	oxy_heal = rand(1, 5)
-	rad_heal = rand(1, 5)
-	clone_heal = rand(1, 5)
-	hal_heal = rand(1, 5)
-	bone_heal = rand(0, 500) / 5
+
+	// 5% chance to be a "Harming drone" instead of a healing drone. All healing is inverted to damage. Have fun with that.
+	var/harming_drone = 1
+	if(prob(5))
+		harming_drone = -1
+
+	brute_heal = rand(1, 5) * harming_drone
+	burn_heal = rand(1, 5) * harming_drone
+	tox_heal = rand(1, 5) * harming_drone
+	oxy_heal = rand(1, 5) * harming_drone
+	rad_heal = rand(1, 5) * harming_drone
+	clone_heal = rand(1, 5) * harming_drone
+	hal_heal = rand(1, 5) * harming_drone
+	bone_heal = rand(0, 499) / 5
 
 /obj/item/mecha_equipment/crisis_drone/Destroy()
 	Target = null
