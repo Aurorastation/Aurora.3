@@ -563,12 +563,12 @@ EMAG/ILLEGAL
 	else if(istype(attacking_item, /obj/item/storage/bag/plants))
 		var/i = 0
 		var/obj/item/storage/bag/P = attacking_item
-		for(var/obj/item/reagent_containers/food/snacks/grown/G in contents)
+		for(var/obj/item/reagent_containers/food/snacks/G in contents)
 			i++
 		if(i >= capacity)
 			to_chat(user, SPAN_NOTICE("\The [src] is already full! Activate it."))
 		else
-			for(var/obj/item/reagent_containers/food/snacks/grown/G in P.contents)
+			for(var/obj/item/reagent_containers/food/snacks/G in P.contents)
 				P.remove_from_storage(G,src)
 				i++
 				if(i >= capacity)
@@ -580,12 +580,12 @@ EMAG/ILLEGAL
 			if(i < capacity)
 				to_chat(user, SPAN_NOTICE("You empty \the [attacking_item] into \the [src]."))
 		. = TRUE
-	else if(!istype(attacking_item, /obj/item/reagent_containers/food/snacks/grown))
+	else if(!istype(attacking_item, /obj/item/reagent_containers/food/snacks))
 		to_chat(user, SPAN_NOTICE("You cannot put this in \the [src]."))
 		. = TRUE
 	else
 		var/i = 0
-		for(var/obj/item/reagent_containers/food/snacks/grown/G in contents)
+		for(var/obj/item/reagent_containers/food/snacks/G in contents)
 			i++
 		if(i >= capacity)
 			to_chat(user, SPAN_NOTICE("\The [src] is full! Activate it."))
@@ -668,11 +668,11 @@ EMAG/ILLEGAL
 		to_chat(usr, SPAN_NOTICE("The biogenerator is in the process of working."))
 		return
 	var/S = 0
-	for(var/obj/item/reagent_containers/food/snacks/grown/I in contents)
+	for(var/obj/item/reagent_containers/food/snacks/I in contents)
 		S += 5
 		if(REAGENT_VOLUME(I.reagents, /singleton/reagent/nutriment) < 0.1)
 			points += 1
-		else points += REAGENT_VOLUME(I.reagents, /singleton/reagent/nutriment) * 10 * eat_eff
+		else points += REAGENT_VOLUME(I.reagents, /singleton/reagent/nutriment) * 5 * eat_eff
 		qdel(I)
 		CHECK_TICK
 	if(S)
