@@ -50,6 +50,7 @@
 		"Medical Intern" = /obj/outfit/job/intern_med/pmc,
 		"Corporate Reporter" = /obj/outfit/job/journalist/pmc,
 		"Corporate Liaison" = /obj/outfit/job/representative/pmc,
+		"Corporate Aide" = /obj/outfit/job/corporate_aide/pmc,
 		"Assistant" = /obj/outfit/job/assistant/pmc,
 		"Medical Orderly" = /obj/outfit/job/assistant/med_assistant/pmc,
 		"Off-Duty Crew Member" = /obj/outfit/job/visitor/pmc,
@@ -205,6 +206,18 @@
 	id = /obj/item/card/id/pmc
 	accessory = /obj/item/clothing/accessory/tie/corporate/pmc
 	suit_accessory = /obj/item/clothing/accessory/pin/corporate/pmc
+
+	backpack_faction = /obj/item/storage/backpack/pmcg
+	satchel_faction = /obj/item/storage/backpack/satchel/pmcg
+	dufflebag_faction = /obj/item/storage/backpack/duffel/pmcg
+	messengerbag_faction = /obj/item/storage/backpack/messenger/pmcg
+
+/obj/outfit/job/corporate_aide/pmc
+	name = "PMC Corporate Aide"
+
+	id = /obj/item/card/id/pmc
+	head = /obj/item/clothing/head/beret/corporate/pmc
+	suit = /obj/item/clothing/suit/storage/toggle/corp/pmc
 
 	backpack_faction = /obj/item/storage/backpack/pmcg
 	satchel_faction = /obj/item/storage/backpack/satchel/pmcg
