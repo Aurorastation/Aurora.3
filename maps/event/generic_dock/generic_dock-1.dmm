@@ -6442,7 +6442,7 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/administration)
 "gLC" = (
-/obj/structure/janitorialcart/full{
+/obj/structure/cart/storage/janitorialcart/full{
 	dir = 8
 	},
 /turf/unsimulated/floor{

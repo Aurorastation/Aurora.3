@@ -1601,7 +1601,7 @@
 /obj/effect/floor_decal/corner_wide/blue{
 	dir = 9
 	},
-/obj/structure/janitorialcart/full{
+/obj/structure/cart/storage/janitorialcart/full{
 	dir = 8
 	},
 /obj/item/reagent_containers/glass/bucket,

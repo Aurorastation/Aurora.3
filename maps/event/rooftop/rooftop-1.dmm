@@ -4750,7 +4750,7 @@
 	},
 /area/city/mendell)
 "BK" = (
-/obj/structure/janitorialcart/full{
+/obj/structure/cart/storage/janitorialcart/full{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,

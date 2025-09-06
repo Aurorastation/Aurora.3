@@ -489,7 +489,7 @@
 	},
 /area/cruise/escort)
 "arM" = (
-/obj/structure/janitorialcart/full{
+/obj/structure/cart/storage/janitorialcart/full{
 	dir = 1
 	},
 /obj/item/reagent_containers/glass/bucket,
@@ -1360,7 +1360,7 @@
 	},
 /area/cruise/fore_s)
 "aWs" = (
-/obj/structure/janitorialcart/full{
+/obj/structure/cart/storage/janitorialcart/full{
 	dir = 1
 	},
 /obj/item/reagent_containers/glass/bucket,

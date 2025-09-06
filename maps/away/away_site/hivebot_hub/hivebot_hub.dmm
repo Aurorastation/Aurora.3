@@ -663,7 +663,7 @@
 	dir = 9
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/janitorialcart{
+/obj/structure/cart/storage/janitorialcart{
 	dir = 4
 	},
 /turf/simulated/floor/airless,

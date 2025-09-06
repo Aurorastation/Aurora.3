@@ -1459,7 +1459,7 @@
 /area/space)
 "dll" = (
 /obj/effect/floor_decal/industrial/outline/custodial,
-/obj/structure/janitorialcart/full{
+/obj/structure/cart/storage/janitorialcart/full{
 	dir = 8
 	},
 /obj/machinery/alarm/north{

@@ -2391,7 +2391,7 @@
 	dir = 8;
 	icon_state = "tube_empty"
 	},
-/obj/structure/janitorialcart,
+/obj/structure/cart/storage/janitorialcart,
 /turf/simulated/floor,
 /area/heph_security_ship/thrusterport)
 "pM" = (

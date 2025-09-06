@@ -5797,7 +5797,7 @@
 "VM" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/mop,
-/obj/structure/janitorialcart/full,
+/obj/structure/cart/storage/janitorialcart/full,
 /turf/simulated/floor/tiled/dark,
 /area/coc_survey_ship/cargo)
 "VP" = (

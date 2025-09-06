@@ -44,8 +44,8 @@
 
 /obj/structure/mopbucket/on_reagent_change()
 	. = ..()
-	if(istype(loc,/obj/structure/janitorialcart))
-		var/obj/structure/janitorialcart/cart = loc
+	if(istype(loc,/obj/structure/cart/storage/janitorialcart))
+		var/obj/structure/cart/storage/janitorialcart/cart = loc
 		cart.update_icon()
 	else
 		update_icon()

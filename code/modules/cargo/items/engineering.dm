@@ -903,7 +903,7 @@
 	description = "A cart for your engineering-related storage needs."
 	price = 100
 	items = list(
-		/obj/structure/engineeringcart
+		/obj/structure/cart/storage/engineeringcart
 	)
 	access = ACCESS_ENGINE
 	container_type = "crate"

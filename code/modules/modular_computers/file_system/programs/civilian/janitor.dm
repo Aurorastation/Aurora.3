@@ -48,8 +48,8 @@
 			var/mob/living/bot/cleanbot/C = A
 			status = C.on ? "Online" : "Offline"
 			supply_type = "Cleanbots"
-		else if(istype(A, /obj/structure/janitorialcart))
-			var/obj/structure/janitorialcart/J = A
+		else if(istype(A, /obj/structure/cart/storage/janitorialcart))
+			var/obj/structure/cart/storage/janitorialcart/J = A
 			status = J.get_short_status()
 			supply_type = "Janicarts"
 		else
