@@ -2,4 +2,5 @@ author: Hellfirejag
 delete-after: True
 changes:
   - rscadd: "Circuit Imprinters now require a tiny amount of phoron for lining the superconducting elements in the trace of all modern electronics."
+  - rscadd: "Power cables also now require a tiny amount of phoron for enabling the handling of ultra-high current required by modern starships."
   - rscadd: "Circuitboards can now be recycled."
