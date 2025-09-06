@@ -201,7 +201,8 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 			response = alert(src, "Are you -sure- you want to ghost?\n(You are alive. If you ghost, you won't be able to play this round for another [GLOB.config.respawn_delay] minutes! You can't change your mind so choose wisely!)", "Are you sure you want to ghost?", "Ghost", "Stay in body")
 		if(response != "Ghost")
 			return
-		resting = 1
+		if(!istype(usr, /mob/living/simple_animal/hostile/giant_spider/nurse/spider_queen))
+			resting = 1
 		var/turf/location = get_turf(src)
 		message_admins("[key_name_admin(usr)] has ghosted. (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[location.x];Y=[location.y];Z=[location.z]'>JMP</a>)")
 		log_game("[key_name_admin(usr)] has ghosted.")
