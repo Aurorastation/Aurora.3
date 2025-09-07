@@ -513,15 +513,6 @@
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
 /area/trove/beach)
-"lr" = (
-/obj/structure/flora/rock{
-	icon_state = "basalt3"
-	},
-/obj/effect/decal/remains{
-	layer = 3
-	},
-/turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
-/area/trove/beach)
 "ly" = (
 /obj/random/dirt_75,
 /obj/item/landmine/frag{
@@ -1836,13 +1827,6 @@
 /obj/structure/sink/puddle,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/trove/beach)
-"QF" = (
-/obj/structure/flora/rock{
-	icon_state = "basalt3";
-	layer = 3
-	},
-/turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
-/area/trove/beach)
 "QH" = (
 /obj/structure/flora/stump,
 /obj/structure/flora/grass/junglegrass,
@@ -1894,6 +1878,10 @@
 /obj/item/organ/external/head/autakh,
 /obj/item/organ/external/arm/autakh,
 /turf/simulated/floor/exoplanet/grass/moghes,
+/area/trove/beach)
+"Sm" = (
+/obj/effect/decal/remains,
+/turf/simulated/floor/exoplanet/water/konyang,
 /area/trove/beach)
 "SE" = (
 /obj/random/dirt_75,
@@ -92162,7 +92150,7 @@ IW
 IW
 IW
 aA
-QF
+wq
 yc
 CG
 yc
@@ -107030,7 +107018,7 @@ IW
 IW
 yc
 Hs
-yc
+Sm
 yc
 CG
 yc
@@ -107282,7 +107270,7 @@ IW
 GK
 GK
 IW
-lr
+wq
 yc
 CG
 yc
