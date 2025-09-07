@@ -641,3 +641,12 @@
 		/obj/random/med_stack = 1,
 		/obj/item/reagent_containers/glass/bottle/ammonia = 1,
 	)
+
+/obj/random/holoturret
+	name = "random holoturret"
+	desc = "This is a random turret item. It could be active or simply a statue."
+	icon_state = "holoturret"
+	problist = list(
+		/obj/machinery/porta_turret/hologram = 1,
+		/obj/structure/unathi_statue/warrior/right,
+	)
