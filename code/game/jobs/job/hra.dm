@@ -59,7 +59,7 @@
 	l_pocket = /obj/item/reagent_containers/spray/pepper
 	r_pocket = /obj/item/device/taperecorder/cciaa
 	l_hand = /obj/item/storage/lockbox/cciaa
-	id = /obj/item/card/id/gold
+	id = /obj/item/card/id/scc/gold
 
 	backpack_contents = list(
 			/obj/item/modular_computer/laptop/preset/command = 1,

@@ -219,7 +219,7 @@
 		/obj/item/device/encryptionkey/headset_sec = 5,
 		/obj/item/device/encryptionkey/headset_service = 5,
 		/obj/item/device/encryptionkey/headset_warden = 5,
-		/obj/item/device/encryptionkey/headset_xenoarch = 5,
+		/obj/item/device/encryptionkey/headset_xenology = 5,
 	)
 
 /obj/item/device/vending_refill/encryption

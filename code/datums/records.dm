@@ -147,11 +147,11 @@
 	..()
 	if (!H)
 		var/mob/living/carbon/human/dummy/mannequin/dummy = SSmobs.get_mannequin("New record")
-		photo_front = getFlatIcon(dummy, SOUTH)
-		photo_side = getFlatIcon(dummy, WEST)
+		photo_front = getFlatIcon(dummy, SOUTH, no_anim = TRUE)
+		photo_side = getFlatIcon(dummy, WEST, no_anim = TRUE)
 	else
-		photo_front = getFlatIcon(H, SOUTH)
-		photo_side = getFlatIcon(H, WEST)
+		photo_front = getFlatIcon(H, SOUTH, no_anim = TRUE)
+		photo_side = getFlatIcon(H, WEST, no_anim = TRUE)
 	if(!nid)
 		nid = generate_record_id()
 	id = nid

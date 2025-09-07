@@ -77,6 +77,8 @@
 
 		var/obj/machinery/airlock_sensor/sensor = thing
 		if(istype(sensor))
+			sensor.req_access = req_access
+			sensor.req_one_access = req_one_access
 			sensor.set_frequency(frequency)
 			sensor.master_tag = MARKER_AIRLOCK_TAG_MASTER
 			if(is_interior)

@@ -2031,6 +2031,16 @@ All custom items with worn sprites must follow the contained sprite system: http
 	override_robotize_painted = FALSE
 	robotize_children = FALSE
 
+/obj/item/clothing/suit/storage/toggle/leather_jacket/fluff/darvan_jacket //Painted Leather Jacket - Darvan Omega - JoeTheBro
+	name = "painted leather jacket"
+	desc = "This leather jacket has been roughly painted cyan on the left arm and purple on the right arm. There appears to be an uppercase omega symbol on the \
+	back, drawn in the same paint from the respective halves of the jacket.  You can see a faint NT logo beneath the omega symbol if you look hard enough."
+	icon = 'icons/obj/custom_items/omega_jacket.dmi'
+	icon_override = 'icons/obj/custom_items/omega_jacket.dmi'
+	icon_state = "omega_jacket"
+	item_state = "omega_jacket"
+	contained_sprite = TRUE
+
 /obj/item/journal/fluff/kathira // Blue Leather-Bound Journal - Kathira El-Hashem - TheGreyWolf
 	name = "blue leather-bound journal"
 	desc = "A blue journal emblazoned with the New Kingdom of Adhomai's flag across the cover."
@@ -2160,3 +2170,4 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 	SEND_SIGNAL(K, COMSIG_ITEM_UPDATE_STATE, K)
 	K.update_icon()
+
