@@ -352,6 +352,9 @@
 	deployed = TRUE
 	anchored = TRUE
 
+/obj/item/trap/punji/deployed/hidden
+	invisibility = INVISIBILITY_MAXIMUM
+
 /obj/item/trap/jagged_rock
 	name = "treacherous rock"
 	desc = "A jagged and dangerous outcropping."

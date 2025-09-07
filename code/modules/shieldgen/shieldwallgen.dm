@@ -25,6 +25,15 @@
 	var/max_stored_power = 50 KILO WATTS
 	use_power = POWER_USE_OFF //Draws directly from power net. Does not use APC power.
 
+/obj/machinery/shieldwallgen/active
+	power_state = POWER_STARTING
+	is_powered = TRUE
+	wrenched = TRUE
+	anchored = TRUE
+	locked = FALSE
+	icon_state = "Shield_Gen +a"
+	storedpower = 2000000
+
 /obj/machinery/shieldwallgen/update_icon()
 	if(power_state >= POWER_STARTING)
 		icon_state = "Shield_Gen +a"
