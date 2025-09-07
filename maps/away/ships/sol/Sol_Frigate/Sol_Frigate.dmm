@@ -77,7 +77,7 @@
 "dv" = (/obj/structure/cable{icon_state = "2-4"},/turf/simulated/floor/tiled/dark,/area/ship/Sol_Frigate/Starboard_docking_port)
 "dA" = (/obj/machinery/door/airlock/external{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden{dir = 8},/obj/effect/map_effect/marker/airlock/Sol_Frigate/mid_starboard,/obj/effect/map_effect/marker_helper/airlock/interior,/turf/simulated/floor/plating,/area/ship/Sol_Frigate/Port_docking_port)
 "dB" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 6},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 6},/turf/simulated/floor/tiled/white,/area/ship/Sol_Frigate/sickbay)
-"dF" = (/obj/machinery/door/airlock/multi_tile/glass{dir = 8; name = "Mess Hall"; req_access = s},/obj/machinery/door/firedoor/noid,/obj/effect/floor_decal/corner/yellow{dir = 9},/turf/simulated/floor/tiled/dark,/area/ship/Sol_Frigate/hallway_fore)
+"dF" = (/obj/machinery/door/airlock/multi_tile/glass{dir = 8; name = "Mess Hall"; req_access = list (203)},/obj/machinery/door/firedoor/noid,/obj/effect/floor_decal/corner/yellow{dir = 9},/turf/simulated/floor/tiled/dark,/area/ship/Sol_Frigate/hallway_fore)
 "dG" = (/obj/structure/bed/stool/chair{dir = 1},/obj/effect/floor_decal/corner/paleblue/diagonal,/turf/simulated/floor/tiled/white,/area/ship/Sol_Frigate/canteen)
 "dH" = (/obj/structure/table/reinforced,/obj/structure/window{dir = 4},/obj/structure/window{dir = 1},/obj/item/clothing/head/helmet/space/void/sol/league,/turf/simulated/floor/wood,/area/ship/Sol_Frigate/captain_office)
 "dK" = (/obj/effect/floor_decal/corner/yellow{dir = 5},/turf/simulated/floor/tiled/dark,/area/ship/Sol_Frigate/starboard_gunnery)
