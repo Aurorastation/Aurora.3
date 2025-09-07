@@ -410,7 +410,6 @@
 "FP" = (
 /obj/random/dirt_75,
 /obj/structure/lattice/catwalk/indoor/grate/damaged,
-/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "Gy" = (
