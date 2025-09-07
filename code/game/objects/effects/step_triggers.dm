@@ -118,9 +118,6 @@
 	///List of moving atoms mapped to their inital direction
 	var/list/affecting = list()
 
-	icon = 'icons/mob/screen/generic.dmi'
-	icon_state = "dir_arrow"
-
 /obj/effect/step_trigger/thrower/Trigger(atom/A)
 	if(!A || !ismovable(A))
 		return

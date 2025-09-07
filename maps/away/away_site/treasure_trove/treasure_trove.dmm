@@ -2182,7 +2182,7 @@
 /turf/simulated/floor/exoplanet/grass/moghes,
 /area/trove/beach)
 "ZK" = (
-/turf/simulated/abyss,
+/turf/simulated/floor/exoplanet/abyss,
 /area/trove/tunnels)
 "ZM" = (
 /obj/effect/step_trigger/thrower{
