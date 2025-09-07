@@ -438,14 +438,11 @@
 /obj/random/smalltank
 	name = "random small tank"
 	icon_state = "airtank"
-
-/obj/random/smalltank/item_to_spawn()
-	if (prob(40))
-		return /obj/item/tank/emergency_oxygen
-	else if (prob(60))
-		return /obj/item/tank/emergency_oxygen/engi
-	else
-		return /obj/item/tank/emergency_oxygen/double
+	problist = list(
+		/obj/item/tank/emergency_oxygen = 3,
+		/obj/item/tank/emergency_oxygen/engi = 2,
+		/obj/item/tank/emergency_oxygen/double = 1,
+	)
 
 /obj/random/pottedplant
 	name = "random potted plant, big"
@@ -648,5 +645,5 @@
 	icon_state = "holoturret"
 	problist = list(
 		/obj/machinery/porta_turret/hologram = 1,
-		/obj/structure/unathi_statue/warrior/right,
+		/obj/structure/unathi_statue/warrior/right = 1,
 	)
