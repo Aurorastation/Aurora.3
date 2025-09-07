@@ -187,7 +187,7 @@
 	name = "Heavy Hoverthrusters"
 	time = 105 SECONDS
 	// Significantly heavier armor than light hoverthrusters, gold, silver, and phoron are for the ion engines.
-	materials = list(DEFAULT_WALL_MATERIAL = 15000, MATERIAL_ALUMINIUM = 7500, MATERIAL_GOLD = 2500, MATERIAL_SILVER = 2500, MATERIAL_PHORON = 2500)
+	materials = list(DEFAULT_WALL_MATERIAL = 15000, MATERIAL_ALUMINIUM = 7500, MATERIAL_GOLD = 2500, MATERIAL_SILVER = 2500, MATERIAL_URANIUM = 2500)
 	build_path = /obj/item/mech_component/propulsion/hover
 
 /datum/design/item/mechfab/exosuit/hover_legs/light
@@ -195,7 +195,7 @@
 	time = 75 SECONDS
 	// Harder to obtain materials than other leg types, though not unobtainable by any means. You can get them roundstart by partnering up with engineering.
 	// The cost is kind of intentionally set to discourage "Light hoverthruster meta", there is otherwise no actual reason to ever make anything else.
-	materials = list(MATERIAL_ALUMINIUM = 15000, MATERIAL_GOLD = 4500, MATERIAL_SILVER = 4500, MATERIAL_PHORON = 4500)
+	materials = list(MATERIAL_ALUMINIUM = 15000, MATERIAL_GOLD = 4500, MATERIAL_SILVER = 4500, MATERIAL_URANIUM = 4500)
 	build_path = /obj/item/mech_component/propulsion/hover/light
 
 /datum/design/item/mechfab/exosuit/track
