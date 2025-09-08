@@ -1,6 +1,7 @@
 //making this separate from /obj/effect/landmark until that mess can be dealt with
 /obj/effect/shuttle_landmark
 	name = "Nav Point"
+	var/clean_name = "Nav Point" // to be used if we want to display the name without their coordinates appended
 	icon = 'icons/effects/map_effects_96x96.dmi'
 	icon_state = "shuttle_landmark"
 	anchored = TRUE
@@ -39,6 +40,7 @@
 
 /obj/effect/shuttle_landmark/Initialize()
 	. = ..()
+	clean_name = name
 	name = name + " ([x],[y])"
 	SSshuttle.register_landmark(landmark_tag, src)
 	return INITIALIZE_HINT_LATELOAD
@@ -112,13 +114,13 @@
 	clear_landing_indicators()
 	activate_ghostroles()
 	if(announce_docking)
-		var/message = "[shuttle.name] has docked at [src.name]."
+		var/message = "[shuttle.name] has docked at [src.clean_name]."
 		GLOB.global_announcer.autosay(message, "Docking Oversight", announce_channel)
 		GLOB.shuttle_moved_event.register(shuttle, src, PROC_REF(announce_departure))
 
 /obj/effect/shuttle_landmark/proc/announce_departure(datum/shuttle/shuttle)
 	if(announce_docking)
-		var/message = "[shuttle.name] has undocked from [src.name]."
+		var/message = "[shuttle.name] has undocked from [src.clean_name]."
 		GLOB.global_announcer.autosay(message, "Docking Oversight", announce_channel)
 	GLOB.shuttle_moved_event.unregister(shuttle, src)
 
