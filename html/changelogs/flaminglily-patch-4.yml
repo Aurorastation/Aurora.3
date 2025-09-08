@@ -55,5 +55,5 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - balance: "Enables all uplink-using antags to create fake manifest entries for themselves."
+  - balance: "Enables all uplink-using antags to create fake manifest entries for themselves. Adds a 4BC cost to the item, as well."
 
