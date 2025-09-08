@@ -120,7 +120,7 @@
 	if(announce_docking)
 		var/message = "[shuttle.name] has undocked from [src.name]."
 		GLOB.global_announcer.autosay(message, "Docking Oversight", announce_channel)
-		GLOB.shuttle_moved_event.unregister(shuttle, src)
+	GLOB.shuttle_moved_event.unregister(shuttle, src)
 
 /proc/check_collision(area/target_area, list/target_turfs)
 	for(var/target_turf in target_turfs)
