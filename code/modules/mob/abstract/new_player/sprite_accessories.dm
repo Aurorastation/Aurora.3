@@ -3324,6 +3324,60 @@ Follow by example and make good judgement based on length which list to include 
 	length = 2
 	chatname = "bangs"
 
+/datum/sprite_accessory/hair/taj_ears/taj_ears_ponytail_one
+	name = "Tajara Ponytail 1"
+	icon_state = "hair_ponytail1"
+	length = 2
+	chatname = "ponytail"
+
+/datum/sprite_accessory/hair/taj_ears/taj_ears_ponytail_two
+	name = "Tajara Ponytail 2"
+	icon_state = "hair_ponytail2"
+	length = 2
+	chatname = "ponytail"
+
+/datum/sprite_accessory/hair/taj_ears/taj_ears_ponytail_spiky
+	name = "Tajara Ponytail, Spiky"
+	icon_state = "hair_ponytail_spiky"
+	length = 2
+	chatname = "ponytail"
+
+/datum/sprite_accessory/hair/taj_ears/taj_ears_ponytail_wisp
+	name = "Tajara Ponytail, Wisp"
+	icon_state = "hair_ponytail_wisp"
+	length = 3
+	chatname = "ponytail"
+
+/datum/sprite_accessory/hair/taj_ears/taj_ears_ponytail_zieglertail
+	name = "Tajara Ponytail, Zieglertail"
+	icon_state = "hair_ponytail_ziegler"
+	length = 2
+	chatname = "ponytail"
+
+/datum/sprite_accessory/hair/taj_ears/taj_ears_beehive
+	name=  "Tajara Beehive"
+	icon_state = "hair_beehive"
+	length = 2
+	chatname = "ponytail"
+
+/datum/sprite_accessory/hair/taj_ears/taj_ears_longfringe
+	name = "Tajara Long Fringe"
+	icon_state = "hair_longfringe"
+	length = 3
+	chatname = "long mane"
+
+/datum/sprite_accessory/hair/taj_ears/taj_ears_longfringe_longer
+	name = "Tajara Long Fringe, Longer"
+	icon_state = "hair_longfringe_longer"
+	length = 4
+	chatname = "long mane"
+
+/datum/sprite_accessory/hair/taj_ears/taj_ears_long_wavy
+	name = "Tajara Long Wavy"
+	icon_state = "hair_long_wavy"
+	length = 3
+	chatname = "long mane"
+
 //msai hair, longer ears
 /datum/sprite_accessory/hair/msai_ears
 	icon = 'icons/mob/human_face/msai_hair.dmi'
@@ -3620,6 +3674,60 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "msai_diagonal_bangs"
 	length = 2
 	chatname = "bangs"
+
+/datum/sprite_accessory/hair/msai_ears/msai_ears_ponytail_one
+	name = "M'sai Ponytail 1"
+	icon_state = "msai_ponytail1"
+	length = 2
+	chatname = "ponytail"
+
+/datum/sprite_accessory/hair/msai_ears/msai_ears_ponytail_two
+	name = "M'sai Ponytail 2"
+	icon_state = "msai_ponytail2"
+	length = 2
+	chatname = "ponytail"
+
+/datum/sprite_accessory/hair/msai_ears/msai_ears_ponytail_spiky
+	name = "M'sai Ponytail, Spiky"
+	icon_state = "msai_ponytail_spiky"
+	length = 2
+	chatname = "ponytail"
+
+/datum/sprite_accessory/hair/msai_ears/msai_ears_ponytail_wisp
+	name = "M'sai Ponytail, Wisp"
+	icon_state = "msai_ponytail_wisp"
+	length = 3
+	chatname = "ponytail"
+
+/datum/sprite_accessory/hair/msai_ears/msai_ears_ponytail_zieglertail
+	name = "M'sai Ponytail, Zieglertail"
+	icon_state = "msai_ponytail_ziegler"
+	length = 2
+	chatname = "ponytail"
+
+/datum/sprite_accessory/hair/msai_ears/msai_ears_beehive
+	name = "M'sai Beehive"
+	icon_state = "msai_beehive"
+	length = 2
+	chatname = "ponytail"
+
+/datum/sprite_accessory/hair/msai_ears/msai_ears_longfringe
+	name = "M'sai Long Fringe"
+	icon_state = "msai_longfringe"
+	length = 3
+	chatname = "long mane"
+
+/datum/sprite_accessory/hair/msai_ears/msai_ears_longfringe_longer
+	name = "M'sai Long Fringe, Longer"
+	icon_state = "msai_longfringe_longer"
+	length = 4
+	chatname = "long mane"
+
+/datum/sprite_accessory/hair/msai_ears/msai_ears_long_wavy
+	name = "M'sai Long Wavy"
+	icon_state = "msai_long_wavy"
+	length = 3
+	chatname = "long mane"
 
 //tesla rejuvenation suit hair
 /datum/sprite_accessory/hair/tesla_ears
