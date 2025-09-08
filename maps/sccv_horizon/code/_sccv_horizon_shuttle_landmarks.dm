@@ -24,6 +24,10 @@
 	"nav_horizon_dock_deck_3_port_5",\
 )
 
+/obj/effect/shuttle_landmark/horizon/dock
+	announce_docking = TRUE
+	announce_channel = "Command"
+
 /obj/effect/shuttle_landmark/horizon/dock/deck_3/starboard_1
 	name = "Third Deck Starboard Dock 1"
 	landmark_tag = "nav_horizon_dock_deck_3_starboard_1"

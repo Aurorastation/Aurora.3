@@ -34,6 +34,9 @@
 	/// Ghostspawners, means their `short_name` vars.
 	var/list/ghostspawners_to_activate_on_shuttle_arrival
 
+	var/announce_docking = FALSE
+	var/announce_channel = "Common"
+
 /obj/effect/shuttle_landmark/Initialize()
 	. = ..()
 	name = name + " ([x],[y])"
@@ -108,6 +111,16 @@
 /obj/effect/shuttle_landmark/proc/shuttle_arrived(datum/shuttle/shuttle)
 	clear_landing_indicators()
 	activate_ghostroles()
+	if(announce_docking)
+		var/message = "[shuttle.name] has docked at [src.name]."
+		GLOB.global_announcer.autosay(message, "Docking Oversight", announce_channel)
+		GLOB.shuttle_moved_event.register(shuttle, src, PROC_REF(announce_departure))
+
+/obj/effect/shuttle_landmark/proc/announce_departure(datum/shuttle/shuttle)
+	if(announce_docking)
+		var/message = "[shuttle.name] has undocked from [src.name]."
+		GLOB.global_announcer.autosay(message, "Docking Oversight", announce_channel)
+		GLOB.shuttle_moved_event.unregister(shuttle, src)
 
 /proc/check_collision(area/target_area, list/target_turfs)
 	for(var/target_turf in target_turfs)
