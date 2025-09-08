@@ -1,7 +1,7 @@
 //making this separate from /obj/effect/landmark until that mess can be dealt with
 /obj/effect/shuttle_landmark
 	name = "Nav Point"
-	var/clean_name = "Nav Point" // to be used if we want to display the name without their coordinates appended
+	var/clean_name = "Nav Point"
 	icon = 'icons/effects/map_effects_96x96.dmi'
 	icon_state = "shuttle_landmark"
 	anchored = TRUE
