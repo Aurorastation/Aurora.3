@@ -4034,7 +4034,7 @@
 	desc_extended = "Commonly seen across Zhurong and in Zhao buildings, this flag is often regarded as the unofficial symbol of the Imperial Fleet. Zhurong shipbuilders have a tradition of carving this flag into supporting beams in ships, signifying their belief Zhurong’s steel will endure whatever is thrown at it."
 	flag_path = "zhurong"
 	icon_state = "zhurong"
-	flag_item = /obj/flag/zhurong
+	flag_item = /obj/item/flag/zhurong
 
 /obj/structure/sign/flag/zhurong/unmovable
 	unmovable = TRUE
