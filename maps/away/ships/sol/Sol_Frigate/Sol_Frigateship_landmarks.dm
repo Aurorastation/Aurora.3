@@ -65,4 +65,4 @@
 	base_area = /area/ship/Sol_Frigate
 	base_turf = /turf/simulated/floor/plating
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
-    // -------
+	// -------
