@@ -1,0 +1,7 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "The combat hardsuit now work for unathi, tajara and IPC too."
+  - rscadd: "The hazard rig tech level was lowered, allowing it to be made at roundstart."
