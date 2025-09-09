@@ -114,14 +114,22 @@
 	clear_landing_indicators()
 	activate_ghostroles()
 	if(announce_docking)
-		var/message = "[shuttle.name] has docked at [src.clean_name]."
-		GLOB.global_announcer.autosay(message, "Docking Oversight", announce_channel)
-		GLOB.shuttle_moved_event.register(shuttle, src, PROC_REF(announce_departure))
+		var/datum/shuttle/autodock/multi/antag/antag_shuttle
+		if(istype(shuttle, /datum/shuttle/autodock/multi/antag))
+			antag_shuttle = shuttle
+		if(!antag_shuttle || (antag_shuttle && !antag_shuttle.cloaked))
+			var/message = "[shuttle.name] has docked at [src.clean_name]."
+			GLOB.global_announcer.autosay(message, "Docking Oversight", announce_channel)
+	GLOB.shuttle_moved_event.register(shuttle, src, PROC_REF(announce_departure))
 
 /obj/effect/shuttle_landmark/proc/announce_departure(datum/shuttle/shuttle)
 	if(announce_docking)
-		var/message = "[shuttle.name] has undocked from [src.clean_name]."
-		GLOB.global_announcer.autosay(message, "Docking Oversight", announce_channel)
+		var/datum/shuttle/autodock/multi/antag/antag_shuttle
+		if(istype(shuttle, /datum/shuttle/autodock/multi/antag))
+			antag_shuttle = shuttle
+		if(!antag_shuttle || (antag_shuttle && !antag_shuttle.cloaked))
+			var/message = "[shuttle.name] has undocked from [src.clean_name]."
+			GLOB.global_announcer.autosay(message, "Docking Oversight", announce_channel)
 	GLOB.shuttle_moved_event.unregister(shuttle, src)
 
 /proc/check_collision(area/target_area, list/target_turfs)
