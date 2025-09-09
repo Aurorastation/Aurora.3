@@ -392,12 +392,15 @@
 		playsound(owner, 'sound/species/synthetic/light_electric_discharge.ogg')
 		spark(owner, rand(2, 3), GLOB.alldirs)
 	if(prob(1))
-		// no metagaming these ones :^)
-		// they're on the server config
-		sound_to(owner, 'sound/effects/eas_beep_fadeinout.ogg')
-		owner.play_screen_text(pick(GLOB.low_integrity_messages), /atom/movable/screen/text/screen_text/low_integrity_message, COLOR_CYAN)
-		to_chat(owner, SPAN_MACHINE_VISION(FONT_LARGE(pick(GLOB.low_integrity_messages))))
+		send_revelation()
 	. = ..()
+
+/obj/item/organ/internal/machine/posibrain/proc/send_revelation()
+	// no metagaming these ones :^)
+	// they're on the server config
+	sound_to(owner, 'sound/effects/eas_beep_fadeinout.ogg')
+	owner.play_screen_text(pick(GLOB.low_integrity_messages), /atom/movable/screen/text/screen_text/low_integrity_message, COLOR_CYAN)
+	to_chat(owner, SPAN_MACHINE_VISION(FONT_LARGE(pick(GLOB.low_integrity_messages))))
 
 /obj/item/organ/internal/machine/posibrain/proc/rampant_self_preservation()
 	to_chat(owner, SPAN_MACHINE_WARNING(FONT_LARGE("Your self preservation erroneously kicks in! [SPAN_DANGER("RETURN TO SAFETY.")] <a href='byond://?src=[REF(src)];resist_self_preservation=1'>Resist it!</a>")))
