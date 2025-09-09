@@ -57,3 +57,4 @@ delete-after: True
 changes:
   - rscadd: "Added a Burzsian voidsuit kit to the loadout. It can be worn by both humans and IPCs, and is meant for Engineering or Operations personnel. Off-worlders and Hephaestus IPCs only!"
   - code_imp: "Changed the standard modkit handheld sprite icon state names to be more standardized."
+  - qol: "Added the new Burzsian voidsuit (mining variant) to the Burzsia mining outpost."
