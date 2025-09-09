@@ -5,6 +5,12 @@
 /obj/item/reagent_containers/glass/beaker/vial/nerveworm_eggs,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
+"at" = (
+/obj/effect/decal/cleanable/blood/oil/streak,
+/obj/random/dirt_75,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
 "ay" = (
 /obj/random/dirt_75,
 /obj/structure/table/steel,
@@ -20,10 +26,29 @@
 	},
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
+"aN" = (
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/trove/tunnels)
 "bj" = (
 /obj/effect/decal/remains/robot/burned,
 /obj/random/dirt_75,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
+"br" = (
+/obj/effect/decal/cleanable/liquid_fuel,
+/obj/machinery/power/terminal{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/trove/tunnels)
+"bu" = (
+/obj/effect/decal/cleanable/liquid_fuel,
+/obj/item/hullbeacon/red,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/trove/tunnels)
 "bw" = (
 /obj/effect/decal/cleanable/liquid_fuel,
@@ -35,10 +60,21 @@
 /obj/structure/headspear,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
+"bG" = (
+/obj/item/device/flashlight/lantern/on,
+/turf/simulated/floor/cult,
+/area/trove/tunnels)
 "bI" = (
 /obj/random/dirt_75,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/effect/decal/cleanable/greenglow,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
+"bQ" = (
+/obj/random/dirt_75,
+/obj/structure/closet/crate/bin,
+/obj/item/reagent_containers/food/snacks/burger,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "cb" = (
@@ -58,16 +94,28 @@
 /obj/structure/sign/flag/hiskyn,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
-"cB" = (
-/obj/random/dirt_75,
-/obj/structure/barricade/wooden{
-	dir = 4
+"cE" = (
+/obj/machinery/conveyor{
+	dir = 4;
+	id = "fun";
+	movedir = 4;
+	operating = 1
 	},
+/obj/structure/railing/mapped,
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "cU" = (
 /obj/item/reagent_containers/food/snacks/meat/human,
 /turf/simulated/floor/exoplanet/barren,
+/area/trove/tunnels)
+"dJ" = (
+/obj/machinery/power/smes/buildable/horizon_shuttle,
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/turf/simulated/floor/exoplanet/plating,
 /area/trove/tunnels)
 "dR" = (
 /obj/random/dirt_75,
@@ -76,6 +124,16 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/exoplanet/plating,
+/area/trove/tunnels)
+"dU" = (
+/obj/item/clothing/shoes/cult,
+/turf/simulated/floor/cult,
+/area/trove/tunnels)
+"dV" = (
+/obj/item/landmine/emp,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "ea" = (
 /obj/random/dirt_75,
@@ -88,11 +146,36 @@
 /obj/item/storage/firstaid/toxin,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
+"el" = (
+/obj/random/dirt_75,
+/obj/item/device/flashlight/lantern/on,
+/turf/simulated/floor/exoplanet/barren,
+/area/trove/tunnels)
+"em" = (
+/obj/item/landmine/emp,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
+"eA" = (
+/obj/random/dirt_75,
+/obj/structure/headspear,
+/obj/item/organ/external/head/autakh,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
 "eQ" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/asphalt,
+/area/trove/tunnels)
+"eR" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/liquid_fuel,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "eS" = (
 /obj/random/dirt_75,
@@ -111,9 +194,14 @@
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
+"fe" = (
+/mob/living/simple_animal/hostile/scarybat/cult,
+/turf/simulated/floor/cult,
+/area/trove/tunnels)
 "fi" = (
 /obj/random/contraband/pill,
 /obj/random/contraband/pill,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "fq" = (
@@ -121,13 +209,14 @@
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/structure/mech_wreckage,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "fs" = (
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/item/lazarus_injector,
-/turf/simulated/floor/exoplanet/basalt/cave,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/trove/tunnels)
 "fw" = (
 /obj/random/dirt_75,
@@ -137,11 +226,21 @@
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
+"fA" = (
+/obj/random/dirt_75,
+/mob/living/simple_animal/hostile/scarybat/cult,
+/turf/simulated/floor/cult,
+/area/trove/tunnels)
 "fG" = (
 /obj/random/dirt_75,
 /obj/effect/spider/stickyweb,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
+"fJ" = (
+/obj/item/clothing/suit/cult_leader,
+/obj/random/dirt_75,
+/turf/simulated/floor/cult,
 /area/trove/tunnels)
 "fX" = (
 /obj/item/trap/punji/deployed/hidden,
@@ -153,6 +252,7 @@
 	dir = 1
 	},
 /obj/random/gun_with_ammo/pistols,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "gm" = (
@@ -168,6 +268,18 @@
 	},
 /obj/effect/spider/stickyweb,
 /obj/effect/spider/stickyweb,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
+"gx" = (
+/obj/structure/platform_deco/ledge,
+/obj/item/material/sword/sabre,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
+"gJ" = (
+/obj/random/dirt_75,
+/obj/effect/decal/remains/robot/burned,
+/obj/random/dirt_75,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "gN" = (
@@ -228,6 +340,16 @@
 /obj/effect/decal/cleanable/blood,
 /turf/simulated/floor/exoplanet/barren,
 /area/trove/tunnels)
+"hI" = (
+/obj/machinery/power/terminal{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/trove/tunnels)
+"hJ" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/cult,
+/area/trove/tunnels)
 "hT" = (
 /obj/random/dirt_75,
 /obj/effect/spider/stickyweb,
@@ -240,6 +362,16 @@
 "hV" = (
 /obj/random/junk,
 /turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
+"ie" = (
+/obj/machinery/conveyor{
+	dir = 4;
+	id = "fun";
+	movedir = 4;
+	operating = 1
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/trove/tunnels)
 "if" = (
 /obj/effect/spider/stickyweb,
@@ -258,6 +390,12 @@
 /obj/effect/spider/stickyweb,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
+"iz" = (
+/obj/structure/cult/talisman,
+/obj/item/clothing/head/culthood/magus,
+/obj/random/dirt_75,
+/turf/simulated/floor/cult,
+/area/trove/tunnels)
 "iA" = (
 /obj/structure/lattice,
 /turf/simulated/floor/exoplanet/abyss,
@@ -272,6 +410,18 @@
 /obj/effect/decal/cleanable/blood/oil/streak,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
+"iK" = (
+/obj/effect/decal/cleanable/liquid_fuel,
+/obj/machinery/power/terminal,
+/turf/simulated/floor/exoplanet/plating,
+/area/trove/tunnels)
+"iQ" = (
+/obj/random/dirt_75,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/effect/decal/cleanable/liquid_fuel,
+/obj/shieldwall,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
 "iW" = (
 /obj/random/dirt_75,
 /obj/structure/platform_deco/ledge{
@@ -279,6 +429,12 @@
 	},
 /obj/random/mine,
 /obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
+"ja" = (
+/obj/structure/headspear,
+/obj/item/organ/external/head/autakh,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "jb" = (
@@ -297,20 +453,56 @@
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
+"jT" = (
+/obj/structure/cable/green{
+	icon_state = "4-8";
+	d1 = 4;
+	d2 = 8
+	},
+/obj/machinery/door/airlock/hatch{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/trove/tunnels)
 "jU" = (
 /obj/effect/spider/stickyweb,
 /mob/living/simple_animal/hostile/giant_spider,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
+"jY" = (
+/obj/item/melee/cultblade,
+/turf/simulated/floor/cult,
+/area/trove/tunnels)
 "ka" = (
 /obj/effect/decal/cleanable/spiderling_remains,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
+"kg" = (
+/obj/random/dirt_75,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/structure/barricade/wooden{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
+"kh" = (
+/obj/structure/table/wood/gamblingtable,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
+"km" = (
+/turf/simulated/wall/r_wall,
+/area/trove/tunnels)
+"kp" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/trove/tunnels)
 "kA" = (
 /obj/effect/decal/cleanable/blood,
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/basalt/cave,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/trove/tunnels)
 "kD" = (
 /obj/random/dirt_75,
@@ -340,7 +532,7 @@
 	},
 /obj/random/dirt_75,
 /obj/random/gun_with_ammo/pistols,
-/turf/simulated/floor/exoplanet/basalt/cave,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/trove/tunnels)
 "lj" = (
 /turf/simulated/floor/exoplanet/abyss,
@@ -367,7 +559,12 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/liquid_fuel,
+/obj/shieldwall,
 /turf/simulated/floor/exoplanet/asphalt,
+/area/trove/tunnels)
+"lD" = (
+/obj/structure/platform,
+/turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "lF" = (
 /obj/machinery/shieldwallgen/active,
@@ -385,13 +582,19 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
+"lQ" = (
+/obj/random/dirt_75,
+/obj/effect/spider/stickyweb,
+/obj/effect/spider/stickyweb,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
 "lU" = (
 /obj/random/medical,
 /obj/item/deployable_kit/iv_drip,
 /obj/item/reagent_containers/blood/OMinus,
 /obj/random/dirt_75,
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor/exoplanet/basalt/cave,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/trove/tunnels)
 "ma" = (
 /obj/random/dirt_75,
@@ -401,14 +604,30 @@
 /obj/effect/decal/cleanable/molten_item,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
+"mi" = (
+/obj/item/landmine/emp,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
+"mv" = (
+/obj/item/toy/partypopper,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
 "mO" = (
 /obj/effect/spider/stickyweb,
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/exoplanet/asphalt,
 /area/trove/tunnels)
+"mP" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark/full,
+/area/trove/tunnels)
 "mQ" = (
 /obj/effect/meteor/ship_debris,
 /turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
+"mY" = (
+/obj/random/dirt_75,
+/turf/simulated/lava,
 /area/trove/tunnels)
 "nl" = (
 /obj/effect/decal/cleanable/liquid_fuel,
@@ -424,6 +643,7 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "nz" = (
@@ -462,6 +682,11 @@
 /obj/effect/decal/cleanable/cobweb,
 /turf/simulated/floor/exoplanet/abyss,
 /area/trove/tunnels)
+"of" = (
+/obj/effect/decal/cleanable/liquid_fuel,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
 "ov" = (
 /obj/effect/spider/stickyweb,
 /obj/effect/spider/stickyweb,
@@ -478,14 +703,31 @@
 /obj/structure/grille/broken,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
+"pg" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/structure/barricade/wooden{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
 "pt" = (
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/exoplanet/asphalt,
 /area/trove/tunnels)
+"pw" = (
+/obj/machinery/conveyor{
+	dir = 4;
+	id = "fun";
+	movedir = 8;
+	operating = 1
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
 "pz" = (
 /obj/structure/closet/crate/freezer/rations,
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/basalt/cave,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/trove/tunnels)
 "pA" = (
 /obj/item/trap/punji/deployed/hidden,
@@ -516,6 +758,24 @@
 /obj/effect/decal/cleanable/blood,
 /obj/effect/landmark/corpse/miner,
 /obj/effect/decal/cleanable/liquid_fuel,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
+"qo" = (
+/obj/random/dirt_75,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/structure/grille,
+/turf/simulated/floor/exoplanet/plating,
+/area/trove/tunnels)
+"qq" = (
+/obj/random/dirt_75,
+/obj/structure/table/wood/gamblingtable,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "qs" = (
@@ -537,6 +797,18 @@
 	pixel_y = 32
 	},
 /obj/item/device/geiger,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
+"qM" = (
+/obj/structure/headspear,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
+"rb" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/effect/decal/cleanable/liquid_fuel,
+/obj/shieldwall,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "rf" = (
@@ -570,10 +842,20 @@
 /obj/effect/decal/remains,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
+"rw" = (
+/obj/machinery/conveyor{
+	dir = 4;
+	id = "fun";
+	movedir = 4;
+	operating = 1
+	},
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
 "rG" = (
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/greenglow,
 /obj/effect/decal/cleanable/greenglow,
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/asphalt,
 /area/trove/tunnels)
 "rK" = (
@@ -587,15 +869,14 @@
 /obj/item/hullbeacon/red,
 /turf/simulated/floor/exoplanet/asphalt,
 /area/trove/tunnels)
-"rU" = (
-/obj/structure/reagent_dispensers/watertank,
+"rS" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/wine,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
-"rW" = (
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/random/dirt_75,
+"rU" = (
+/obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/exoplanet/asphalt,
 /area/trove/tunnels)
 "sb" = (
@@ -619,9 +900,44 @@
 /obj/effect/decal/remains/xeno/burned,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
+"sy" = (
+/obj/random/dirt_75,
+/obj/structure/platform_deco/ledge{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/obj/machinery/conveyor{
+	dir = 4;
+	id = "fun";
+	movedir = 4;
+	operating = 1
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
 "sE" = (
 /obj/structure/barricade/metal/wired,
-/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/exoplanet/asphalt,
+/area/trove/tunnels)
+"sG" = (
+/obj/machinery/porta_turret/ion,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/asphalt,
+/area/trove/tunnels)
+"sJ" = (
+/obj/random/dirt_75,
+/obj/item/material/stool/chair/wood,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
+"sM" = (
+/obj/machinery/conveyor{
+	dir = 4;
+	id = "fun";
+	movedir = 4;
+	operating = 1
+	},
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "sO" = (
@@ -636,11 +952,17 @@
 /obj/effect/decal/remains/xeno,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
+"tb" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/lava,
+/area/trove/tunnels)
 "th" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/effect/spider/stickyweb,
 /obj/effect/decal/cleanable/liquid_fuel,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "tp" = (
@@ -651,6 +973,17 @@
 "tq" = (
 /mob/living/simple_animal/hostile/giant_spider,
 /turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
+"tC" = (
+/turf/simulated/floor/cult,
+/area/trove/tunnels)
+"tN" = (
+/obj/structure/platform{
+	dir = 1
+	},
+/obj/structure/cable/green,
+/obj/structure/grille,
+/turf/simulated/floor/exoplanet/plating,
 /area/trove/tunnels)
 "tT" = (
 /obj/random/dirt_75,
@@ -697,6 +1030,11 @@
 /obj/shieldwall,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
+"uZ" = (
+/obj/random/dirt_75,
+/obj/item/toy/partypopper,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
 "vd" = (
 /obj/random/dirt_75,
 /mob/living/simple_animal/hostile/giant_spider,
@@ -706,11 +1044,14 @@
 "vw" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/treasure_trove/rest_rooms,
 /obj/random/dirt_75,
-/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "vx" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
+"vM" = (
+/obj/structure/reagent_dispensers/keg/xuizikeg,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "vO" = (
@@ -743,6 +1084,39 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/barren,
 /area/trove/tunnels)
+"wS" = (
+/obj/structure/platform_deco/ledge{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/obj/machinery/conveyor{
+	dir = 4;
+	id = "fun";
+	movedir = 4;
+	operating = 1
+	},
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
+"wT" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/platform_deco/ledge{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
+"wZ" = (
+/obj/structure/platform_deco/ledge,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/liquid_fuel,
+/obj/machinery/conveyor{
+	dir = 4;
+	id = "fun";
+	movedir = 4;
+	operating = 1
+	},
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
 "xi" = (
 /obj/structure/platform_deco/ledge,
 /obj/random/mine,
@@ -766,30 +1140,67 @@
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
+"xB" = (
+/obj/random/dirt_75,
+/obj/item/hullbeacon/red,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/asphalt,
+/area/trove/tunnels)
 "xR" = (
 /obj/random/dirt_75,
 /turf/simulated/open,
 /area/trove/tunnels)
+"xU" = (
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/structure/grille,
+/turf/simulated/floor/exoplanet/plating,
+/area/trove/tunnels)
 "xV" = (
 /turf/template_noop,
 /area/space)
+"xW" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood,
+/obj/effect/landmark/corpse/miner,
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/floor/exoplanet/asphalt,
+/area/trove/tunnels)
 "xY" = (
 /obj/item/trap/punji/deployed/hidden,
 /obj/random/dirt_75,
 /obj/structure/lattice/catwalk/indoor/grate/damaged,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
+"yn" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/wall,
+/area/trove/tunnels)
 "yI" = (
 /obj/random/dirt_75,
 /turf/template_noop,
 /area/space)
+"yO" = (
+/obj/item/landmine/emp,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/asphalt,
+/area/trove/tunnels)
 "yQ" = (
 /obj/structure/table/rack/folding_table,
 /obj/random/medical,
 /obj/random/medical,
 /obj/random/dirt_75,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor/exoplanet/basalt/cave,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/trove/tunnels)
 "yU" = (
 /obj/random/dirt_75,
@@ -797,16 +1208,19 @@
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
-"yW" = (
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/effect/decal/cleanable/liquid_fuel,
-/mob/living/simple_animal/hostile/viscerator,
-/turf/simulated/floor/exoplanet/basalt/cave,
+"zr" = (
+/obj/random/holoturret,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/trove/tunnels)
 "zB" = (
 /obj/random/dirt_75,
 /obj/item/trap/punji/deployed/hidden,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
+"zE" = (
+/obj/structure/reagent_dispensers/radioactive_waste,
+/obj/effect/decal/cleanable/greenglow,
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "zR" = (
@@ -814,11 +1228,21 @@
 /obj/effect/meteor/ship_debris,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
+"zS" = (
+/obj/machinery/conveyor{
+	dir = 4;
+	id = "fun";
+	movedir = 8;
+	operating = 1
+	},
+/obj/structure/railing/mapped,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
 "zU" = (
 /obj/item/reagent_containers/blood/ripped,
 /obj/random/dirt_75,
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor/exoplanet/basalt/cave,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/trove/tunnels)
 "zY" = (
 /obj/random/dirt_75,
@@ -837,16 +1261,55 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/plating,
 /area/trove/tunnels)
+"Az" = (
+/obj/random/dirt_75,
+/obj/effect/spider/stickyweb,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
+"AH" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/structure/grille,
+/obj/machinery/light/colored/red{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/trove/tunnels)
 "AK" = (
 /obj/effect/spider/stickyweb,
 /obj/effect/spider/stickyweb,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
+"AL" = (
+/obj/structure/platform{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/obj/structure/cable/green,
+/obj/structure/grille,
+/turf/simulated/floor/exoplanet/plating,
+/area/trove/tunnels)
 "AY" = (
 /obj/random/dirt_75,
 /obj/structure/headspear,
 /turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
+"Bs" = (
+/obj/machinery/conveyor{
+	dir = 4;
+	id = "fun";
+	movedir = 8;
+	operating = 1
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/trove/tunnels)
 "BE" = (
 /obj/random/dirt_75,
@@ -878,15 +1341,32 @@
 /obj/effect/decal/cleanable/ash,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
+"Cb" = (
+/obj/random/dirt_75,
+/obj/structure/table/wood/gamblingtable,
+/obj/item/deck/cards,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
 "Cc" = (
 /obj/effect/spider/stickyweb,
 /turf/simulated/floor/exoplanet/asphalt,
+/area/trove/tunnels)
+"Ce" = (
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/exoplanet/plating,
 /area/trove/tunnels)
 "Cj" = (
 /obj/random/dirt_75,
 /obj/random/holoturret,
 /obj/effect/decal/cleanable/cobweb2,
 /turf/simulated/floor/exoplanet/asphalt,
+/area/trove/tunnels)
+"CC" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/cult,
 /area/trove/tunnels)
 "CI" = (
 /obj/random/dirt_75,
@@ -911,6 +1391,13 @@
 /obj/effect/decal/cleanable/blood,
 /turf/simulated/floor/exoplanet/asphalt,
 /area/trove/tunnels)
+"Dx" = (
+/obj/random/dirt_75,
+/obj/machinery/door/airlock/hatch{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/asphalt,
+/area/trove/tunnels)
 "DA" = (
 /obj/structure/reagent_dispensers/radioactive_waste,
 /obj/effect/decal/cleanable/greenglow,
@@ -933,8 +1420,15 @@
 /area/trove/tunnels)
 "Ef" = (
 /obj/random/barricade_materials,
-/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/exoplanet/asphalt,
+/area/trove/tunnels)
+"Ej" = (
+/obj/structure/platform_deco/ledge,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/liquid_fuel,
+/obj/effect/decal/remains/robot,
+/obj/effect/decal/cleanable/blood/oil/streak,
+/turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "En" = (
 /mob/living/simple_animal/hostile/giant_spider/bombardier,
@@ -952,6 +1446,31 @@
 /obj/structure/grille/broken,
 /obj/effect/decal/cleanable/ash,
 /turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
+"Ex" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/structure/grille,
+/turf/simulated/floor/exoplanet/plating,
+/area/trove/tunnels)
+"EI" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/machinery/door/airlock/hatch{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/asphalt,
 /area/trove/tunnels)
 "EK" = (
 /obj/item/hullbeacon/red,
@@ -996,6 +1515,22 @@
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/exoplanet/asphalt,
 /area/trove/tunnels)
+"FC" = (
+/obj/machinery/conveyor{
+	dir = 4;
+	id = "fun";
+	movedir = 4;
+	operating = 1
+	},
+/obj/structure/railing/mapped,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/asphalt,
+/area/trove/tunnels)
+"FG" = (
+/obj/item/landmine/emp,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
 "FJ" = (
 /obj/item/trap/punji/deployed/hidden,
 /obj/structure/lattice/catwalk/indoor/grate/damaged,
@@ -1014,6 +1549,24 @@
 /obj/structure/lattice/catwalk/indoor/grate/damaged,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
+"FQ" = (
+/obj/item/stack/nanopaste,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
+"FT" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/liquid_fuel,
+/obj/shieldwall,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
+"FY" = (
+/obj/structure/cable/green{
+	icon_state = "2-8";
+	d1 = 2;
+	d2 = 8
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/trove/tunnels)
 "FZ" = (
 /obj/random/dirt_75,
 /obj/structure/platform_deco/ledge{
@@ -1021,6 +1574,33 @@
 	},
 /obj/random/mine,
 /turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
+"Gb" = (
+/obj/machinery/conveyor{
+	dir = 4;
+	id = "fun";
+	movedir = 8;
+	operating = 1
+	},
+/obj/structure/railing/mapped,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/asphalt,
+/area/trove/tunnels)
+"Ge" = (
+/obj/random/dirt_75,
+/obj/structure/table/wood/gamblingtable,
+/obj/item/stack/dice,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
+"Gr" = (
+/obj/machinery/conveyor{
+	dir = 4;
+	id = "fun";
+	movedir = 4;
+	operating = 1
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/trove/tunnels)
 "Gw" = (
 /obj/random/dirt_75,
@@ -1033,15 +1613,71 @@
 /obj/effect/decal/cleanable/blood,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
+"GL" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/liquid_fuel,
+/obj/shieldwall,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
 "GN" = (
 /obj/random/dirt_75,
 /obj/structure/platform_deco/ledge,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
+"GR" = (
+/obj/structure/cable/green{
+	icon_state = "4-8";
+	d1 = 4;
+	d2 = 8
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/trove/tunnels)
+"Hf" = (
+/obj/machinery/power/smes/buildable/horizon_shuttle,
+/obj/structure/cable/green{
+	icon_state = "4-8";
+	d1 = 4;
+	d2 = 8
+	},
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/trove/tunnels)
+"Hj" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/structure/grille,
+/obj/machinery/light/colored/red{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/trove/tunnels)
+"Ho" = (
+/obj/structure/platform_deco/ledge{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "Hu" = (
 /obj/item/stack/material/steel/full,
 /obj/item/stack/rods/full,
 /obj/structure/table/rack/folding_table,
+/turf/simulated/floor/exoplanet/asphalt,
+/area/trove/tunnels)
+"Hw" = (
+/obj/effect/spider/stickyweb,
+/obj/random/dirt_75,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "HA" = (
@@ -1057,10 +1693,17 @@
 /area/trove/tunnels)
 "HD" = (
 /obj/random/rig_module,
-/obj/random/vault_rig,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/random/safe_rig,
 /turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
+"HE" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/spider/stickyweb,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/trove/tunnels)
 "HG" = (
 /obj/effect/spider/stickyweb,
@@ -1069,17 +1712,27 @@
 	},
 /turf/simulated/floor/exoplanet/plating,
 /area/trove/tunnels)
+"HJ" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/effect/decal/cleanable/liquid_fuel,
+/obj/shieldwall,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
 "Ii" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/random/dirt_75,
 /obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/floor/exoplanet/asphalt,
+/area/trove/tunnels)
+"In" = (
+/obj/item/landmine/emp,
+/obj/random/dirt_75,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "Iu" = (
 /obj/structure/barricade/metal/wired,
 /obj/random/dirt_75,
-/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/random/melee/highvalue,
 /turf/simulated/floor/exoplanet/asphalt,
 /area/trove/tunnels)
@@ -1106,10 +1759,9 @@
 "IG" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/random/medical,
 /obj/random/medical,
-/turf/simulated/floor/exoplanet/basalt/cave,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/trove/tunnels)
 "IH" = (
 /obj/structure/lattice/catwalk/indoor/grate/damaged,
@@ -1125,6 +1777,13 @@
 /obj/random/dirt_75,
 /obj/effect/landmark/corpse/unathi_pirate,
 /turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
+"IU" = (
+/obj/machinery/power/smes/buildable/horizon_shuttle,
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/exoplanet/plating,
 /area/trove/tunnels)
 "Jl" = (
 /mob/living/simple_animal/hostile/giant_spider/emp,
@@ -1174,6 +1833,11 @@
 "JR" = (
 /obj/structure/table/rack/folding_table,
 /obj/item/storage/belt/utility,
+/turf/simulated/floor/exoplanet/asphalt,
+/area/trove/tunnels)
+"Kb" = (
+/obj/random/dirt_75,
+/obj/item/towel_flat,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "Kh" = (
@@ -1186,6 +1850,7 @@
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/item/pickaxe/diamonddrill,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "Kq" = (
@@ -1203,13 +1868,28 @@
 /obj/effect/decal/cleanable/blood,
 /obj/effect/landmark/corpse/miner,
 /obj/effect/decal/cleanable/liquid_fuel,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
+"KC" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/trove/tunnels)
+"KI" = (
+/obj/structure/cable/green,
+/obj/machinery/shieldwallgen/active,
+/turf/simulated/floor/exoplanet/plating,
 /area/trove/tunnels)
 "KL" = (
 /obj/structure/platform_deco/ledge{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
+"KS" = (
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/exoplanet/plating,
 /area/trove/tunnels)
 "Lb" = (
 /obj/random/dirt_75,
@@ -1229,6 +1909,22 @@
 /obj/shieldwall,
 /turf/simulated/floor/exoplanet/asphalt,
 /area/trove/tunnels)
+"Ln" = (
+/obj/machinery/conveyor{
+	dir = 4;
+	id = "fun";
+	movedir = 4;
+	operating = 1
+	},
+/obj/machinery/conveyor{
+	dir = 4;
+	id = "fun";
+	movedir = 4;
+	operating = 1
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
 "Lu" = (
 /obj/random/dirt_75,
 /obj/random/holoturret,
@@ -1238,6 +1934,7 @@
 /obj/random/dirt_75,
 /obj/item/storage/box/fancy/med_pouch/radiation,
 /obj/structure/table/steel,
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "LA" = (
@@ -1271,7 +1968,6 @@
 /obj/random/glowstick,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/random/gun_with_ammo/automatic,
 /turf/simulated/floor/exoplanet/asphalt,
 /area/trove/tunnels)
@@ -1287,12 +1983,21 @@
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
-"Mj" = (
+"Md" = (
+/obj/effect/decal/cleanable/blood/oil/streak,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
+"Mg" = (
 /obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/cult/tome,
+/turf/simulated/floor/cult,
+/area/trove/tunnels)
+"Mj" = (
 /obj/random/dirt_75,
 /obj/effect/decal/remains,
 /obj/effect/decal/cleanable/liquid_fuel,
-/turf/simulated/floor/exoplanet/basalt/cave,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/trove/tunnels)
 "Mw" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
@@ -1317,15 +2022,51 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
+"MU" = (
+/obj/random/dirt_75,
+/obj/structure/platform,
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/structure/grille,
+/turf/simulated/floor/exoplanet/plating,
+/area/trove/tunnels)
+"Nd" = (
+/obj/machinery/conveyor{
+	dir = 4;
+	id = "fun";
+	movedir = 4;
+	operating = 1
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
+"Ne" = (
+/obj/structure/barricade/wooden{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/asphalt,
+/area/trove/tunnels)
 "Nu" = (
 /obj/effect/spider/stickyweb,
 /mob/living/simple_animal/hostile/giant_spider/emp,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
+"Ny" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/liquid_fuel,
+/obj/shieldwall,
+/turf/simulated/floor/exoplanet/asphalt,
+/area/trove/tunnels)
 "Nz" = (
 /obj/structure/table/rack/folding_table,
 /obj/item/weldingtool,
 /obj/item/storage/belt,
+/turf/simulated/floor/exoplanet/asphalt,
+/area/trove/tunnels)
+"NA" = (
+/obj/effect/decal/remains/robot/burned,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "NI" = (
@@ -1397,16 +2138,33 @@
 	},
 /obj/random/melee/highvalue,
 /obj/random/dirt_75,
-/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/exoplanet/asphalt,
 /area/trove/tunnels)
-"Pl" = (
+"OW" = (
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/machinery/shieldwallgen/active,
+/turf/simulated/floor/exoplanet/plating,
+/area/trove/tunnels)
+"OZ" = (
 /obj/structure/sign/flag/hiskyn,
-/turf/simulated/wall,
+/turf/unsimulated/mineral/konyang,
+/area/trove/tunnels)
+"Po" = (
+/obj/effect/spider/stickyweb,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/trove/tunnels)
 "Pw" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/treasure_trove/hallways,
 /turf/unsimulated/mineral/konyang,
+/area/trove/tunnels)
+"Px" = (
+/obj/random/dirt_75,
+/obj/structure/girder/cult,
+/turf/simulated/floor/cult,
 /area/trove/tunnels)
 "PA" = (
 /obj/random/dirt_75,
@@ -1430,17 +2188,10 @@
 /obj/effect/spider/stickyweb,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
-"Qc" = (
+"PO" = (
+/obj/item/vampiric,
 /obj/random/dirt_75,
-/obj/effect/spider/stickyweb,
-/obj/effect/decal/cleanable/liquid_fuel,
-/turf/simulated/floor/exoplanet/basalt/cave,
-/area/trove/tunnels)
-"Qw" = (
-/obj/random/dirt_75,
-/obj/effect/decal/cleanable/liquid_fuel,
-/mob/living/simple_animal/hostile/hivebot,
-/turf/simulated/floor/exoplanet/basalt/cave,
+/turf/simulated/floor/tiled/dark/full,
 /area/trove/tunnels)
 "QB" = (
 /obj/random/dirt_75,
@@ -1457,16 +2208,30 @@
 /obj/item/hullbeacon/red,
 /turf/simulated/floor/exoplanet/asphalt,
 /area/trove/tunnels)
+"QY" = (
+/obj/random/dirt_75,
+/obj/effect/decal/remains/robot/burned,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
 "Rk" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/gun_with_ammo/automatic,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
+"Rs" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
+"Rz" = (
+/obj/item/reagent_containers/food/drinks/bottle/wine,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
 "RH" = (
 /obj/item/tent,
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor/exoplanet/basalt/cave,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/trove/tunnels)
 "RK" = (
 /obj/machinery/door/airlock/hatch,
@@ -1475,8 +2240,7 @@
 "RR" = (
 /obj/random/contraband/pillbottle,
 /obj/item/stack/medical/bruise_pack/full,
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor/exoplanet/basalt/cave,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/trove/tunnels)
 "RS" = (
 /turf/simulated/floor/exoplanet/barren,
@@ -1487,10 +2251,16 @@
 /obj/effect/decal/cleanable/ash,
 /turf/simulated/floor/exoplanet/asphalt,
 /area/trove/tunnels)
+"SC" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/oil/streak,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
 "SI" = (
 /obj/structure/table/rack/folding_table,
 /obj/item/storage/toolbox/mechanical,
-/turf/simulated/floor/exoplanet/basalt/cave,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/trove/tunnels)
 "Tl" = (
 /obj/random/dirt_75,
@@ -1510,6 +2280,23 @@
 /obj/item/trap/punji/deployed,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
+"Tw" = (
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/cocktail,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
+"TG" = (
+/obj/structure/platform_deco/ledge{
+	dir = 4
+	},
+/obj/machinery/conveyor{
+	dir = 4;
+	id = "fun";
+	movedir = 4;
+	operating = 1
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
 "TM" = (
 /obj/structure/platform,
 /obj/random/dirt_75,
@@ -1519,6 +2306,13 @@
 /obj/random/dirt_75,
 /turf/unsimulated/mineral/konyang,
 /area/trove/tunnels)
+"Ur" = (
+/obj/random/dirt_75,
+/obj/structure/barricade/wooden{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/asphalt,
+/area/trove/tunnels)
 "Ut" = (
 /obj/random/mine,
 /turf/simulated/floor/exoplanet/asphalt,
@@ -1527,6 +2321,7 @@
 /obj/structure/barricade/wooden{
 	dir = 8
 	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/exoplanet/asphalt,
 /area/trove/tunnels)
 "UE" = (
@@ -1536,14 +2331,51 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/asphalt,
 /area/trove/tunnels)
+"UJ" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/structure/grille,
+/turf/simulated/floor/exoplanet/plating,
+/area/trove/tunnels)
 "UM" = (
 /obj/random/dirt_75,
 /obj/effect/spider/stickyweb,
 /mob/living/simple_animal/hostile/giant_spider/bombardier,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
+"UR" = (
+/obj/random/dirt_75,
+/obj/structure/platform_deco/ledge{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
+"UT" = (
+/obj/structure/platform,
+/obj/random/dirt_75,
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/structure/grille,
+/turf/simulated/floor/exoplanet/plating,
+/area/trove/tunnels)
 "UV" = (
 /obj/machinery/floodlight/randomcharge,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
+"UZ" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/spider/stickyweb,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
@@ -1553,6 +2385,13 @@
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
+"Vs" = (
+/obj/random/dirt_75,
+/obj/structure/reagent_dispensers/radioactive_waste,
+/obj/effect/decal/cleanable/greenglow,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
 "VA" = (
 /obj/random/dirt_75,
 /obj/effect/spider/stickyweb,
@@ -1560,8 +2399,18 @@
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
+"VN" = (
+/obj/structure/girder/cult,
+/turf/simulated/floor/cult,
+/area/trove/tunnels)
 "VP" = (
 /turf/simulated/lava,
+/area/trove/tunnels)
+"VS" = (
+/obj/structure/platform{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "VT" = (
 /obj/random/dirt_75,
@@ -1572,6 +2421,11 @@
 /area/trove/tunnels)
 "VU" = (
 /obj/shieldwall,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
+"VW" = (
+/obj/effect/decal/cleanable/blood/oil/streak,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "Wa" = (
@@ -1593,6 +2447,16 @@
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
+"Wk" = (
+/obj/structure/platform{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/obj/machinery/conveyor_switch/oneway{
+	id = "fun"
+	},
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
 "Wr" = (
 /obj/random/dirt_75,
 /obj/item/trap/punji/deployed,
@@ -1607,6 +2471,12 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/spiderling_remains,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
+"WH" = (
+/obj/random/dirt_75,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "WK" = (
@@ -1630,6 +2500,15 @@
 /mob/living/simple_animal/hostile/giant_spider,
 /turf/simulated/floor/exoplanet/asphalt,
 /area/trove/tunnels)
+"WX" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/structure/barricade/wooden{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
 "Xb" = (
 /obj/effect/decal/remains,
 /turf/simulated/floor/exoplanet/basalt/cave,
@@ -1648,8 +2527,7 @@
 "Xw" = (
 /obj/structure/barricade/metal/wired,
 /obj/random/mre,
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor/exoplanet/basalt/cave,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/trove/tunnels)
 "Xx" = (
 /obj/random/dirt_75,
@@ -1668,6 +2546,13 @@
 /obj/structure/platform{
 	dir = 8
 	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
+"Yq" = (
+/obj/random/dirt_75,
+/obj/effect/decal/remains/robot,
+/obj/effect/decal/cleanable/blood/oil/streak,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
@@ -1716,9 +2601,8 @@
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "Zl" = (
-/obj/random/dirt_75,
-/obj/effect/decal/remains,
 /obj/effect/decal/cleanable/liquid_fuel,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "Zq" = (
@@ -1749,6 +2633,10 @@
 /area/trove/tunnels)
 "ZC" = (
 /obj/structure/reagent_dispensers/fueltank,
+/turf/simulated/floor/exoplanet/asphalt,
+/area/trove/tunnels)
+"ZU" = (
+/obj/item/towel_flat,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "ZX" = (
@@ -2174,10 +3062,10 @@ xV
 xV
 xV
 Op
-Op
 ML
-WC
-WC
+nE
+lb
+vx
 qs
 II
 xV
@@ -2185,9 +3073,9 @@ xV
 xV
 Iv
 Op
-ML
-ML
-Op
+kH
+Ep
+kH
 tT
 vw
 xV
@@ -2326,37 +3214,37 @@ xV
 xV
 xV
 UV
-Op
-Op
-qs
-qs
-qs
+OC
+OC
+Cc
+jf
+jf
 WC
 xV
 xV
 xV
 qs
 th
-Ii
-Qc
+eR
+FA
 fq
-jN
+eR
 Iv
 xV
 xV
 xV
 qs
-Op
+kH
 pP
 Uv
 kH
-WC
+vx
 WC
 xV
 xV
 xV
 hg
-Op
+kH
 vx
 UE
 nE
@@ -2477,43 +3365,43 @@ xV
 xV
 xV
 xV
-Op
-Op
+kH
+kH
 pz
 rU
 SI
-Op
-Op
+kH
+kH
 xV
 xV
 xV
-Op
+kH
 qk
-Jo
-Qw
+pt
+HA
 Mj
 Ki
-Op
+kH
 xV
 xV
 xV
-Op
-Op
+kH
+kH
 yQ
 jb
 RR
 fi
-Op
+kH
 xV
 xV
 xV
-WC
+vx
 nw
 LS
 Or
 Xw
-WC
-Op
+vx
+kH
 xV
 xV
 "}
@@ -2629,43 +3517,43 @@ xV
 xV
 xV
 xV
-if
-if
-if
+Po
+Po
+Po
 ZC
 Nz
-Op
-qs
+Ep
+Cc
 xV
 xV
 NW
-tT
-jN
-jN
+HE
+HA
+pt
 fs
-yW
+HA
 Ii
-Op
+Ep
 xV
 xV
 NW
-tT
-ML
+HE
+ea
 lU
 MI
 RH
-WC
-Op
+lb
+Ep
 xV
 xV
 NW
 kA
 le
-rW
+ea
 Ef
 Iu
-Op
-NI
+Ep
+eQ
 xV
 xV
 "}
@@ -2781,33 +3669,33 @@ xV
 xV
 xV
 xV
-Op
-Op
-if
+kH
+kH
+Po
 JR
 Hu
-qs
-WC
+jf
+vx
 xV
 xV
 xV
-Op
-jN
-KA
-Qc
-jN
-jN
-qs
+kH
+eR
+xW
+FA
+HA
+eR
+jf
 xV
 xV
 xV
-ML
-ML
+nE
+nE
 zU
 qc
 IG
-Op
-Op
+kH
+kH
 xV
 xV
 xV
@@ -2816,7 +3704,7 @@ gj
 ON
 hd
 sE
-WC
+vx
 HD
 xV
 xV
@@ -2934,37 +3822,37 @@ xV
 xV
 xV
 WC
-qs
-Op
-ML
-ML
-Op
+jf
+vx
+Ep
+nE
+kH
 Op
 xV
 xV
 xV
-Op
+rv
 Zl
-jN
-jN
-jN
+eR
+HA
+eR
 KA
 Op
 xV
 xV
 xV
 Iv
-ML
+nE
 kH
 eQ
 nQ
-cB
+nQ
 Op
 xV
 xV
 xV
 Op
-ML
+nE
 kH
 lb
 nE
@@ -3087,9 +3975,9 @@ xV
 xV
 Op
 ML
-if
-Op
-WC
+Hw
+Ep
+vx
 Op
 ML
 xV
@@ -3097,9 +3985,9 @@ xV
 xV
 tT
 WC
-Op
-Op
-Iv
+kH
+Ep
+fG
 WC
 Op
 xV
@@ -8066,9 +8954,9 @@ MK
 MK
 Op
 WC
-WC
-Op
-Op
+vx
+Ep
+kH
 Op
 Op
 MK
@@ -8218,9 +9106,9 @@ MK
 MK
 WC
 Op
-Op
-Op
-Op
+kH
+Ep
+kH
 WC
 Op
 MK
@@ -8368,23 +9256,23 @@ xV
 xV
 MK
 MK
-WC
-ML
-Op
-Op
-Op
-WC
-Op
+VS
+wT
+kH
+WO
+kH
+gx
+BQ
 MK
 MK
 xV
 xV
 MK
 MK
-bw
+of
 Jo
 xk
-HA
+kL
 xk
 bw
 jN
@@ -8520,26 +9408,26 @@ xV
 xV
 MK
 MK
-Op
-Op
-Op
-WC
-Op
-Op
-Op
+Lu
+Og
+kg
+Ne
+kg
+hm
+Lu
 MK
 MK
 xV
 xV
 MK
 MK
-jN
+az
 jN
 xk
 pt
 xk
 jN
-jN
+az
 MK
 MK
 xV
@@ -8672,28 +9560,28 @@ xV
 xV
 MK
 MK
-WC
-Op
-WC
-Op
-Op
-Op
-WC
+az
+az
+az
+Dx
+az
+az
+az
 MK
 MK
 xV
 xV
-MK
-MK
-bw
-jN
-rm
-HA
-xk
-jN
-bw
-MK
-MK
+KS
+kp
+KI
+FT
+HJ
+Ny
+iQ
+FT
+OW
+kp
+Ce
 xV
 xV
 MK
@@ -8824,28 +9712,28 @@ xV
 xV
 MK
 MK
-Op
-WC
-WC
-Op
-Op
-Op
-WC
+Px
+hJ
+hJ
+mP
+tC
+hJ
+VN
 MK
 MK
 xV
 xV
+GR
 MK
-MK
-jN
+az
 bw
 rm
 HA
 xk
 jN
-bw
+az
 MK
-MK
+GR
 xV
 xV
 MK
@@ -8976,18 +9864,18 @@ xV
 xV
 MK
 MK
-WC
-Op
-WC
-WC
-WC
-Op
-Op
+fe
+hJ
+hJ
+KC
+tC
+fA
+hJ
 MK
 MK
 xV
 xV
-MK
+GR
 MK
 bw
 jN
@@ -8997,7 +9885,7 @@ rm
 jN
 jN
 MK
-MK
+GR
 xV
 xV
 MK
@@ -9128,18 +10016,18 @@ xV
 xV
 MK
 MK
-WC
-ML
-WC
-Op
-WC
-Op
-Op
+hJ
+hJ
+hJ
+mP
+hJ
+hJ
+hJ
 MK
 MK
 xV
 xV
-MK
+GR
 MK
 bw
 Jo
@@ -9149,7 +10037,7 @@ rm
 jN
 jN
 MK
-MK
+GR
 xV
 xV
 MK
@@ -9280,18 +10168,18 @@ xV
 xV
 MK
 MK
-WC
-ML
-Op
-Op
-Op
-Op
-Op
+dU
+hJ
+hJ
+mP
+bG
+hJ
+Px
 MK
 MK
 xV
 xV
-MK
+GR
 MK
 Zs
 iW
@@ -9301,7 +10189,7 @@ xk
 fd
 IE
 MK
-MK
+GR
 xV
 xV
 MK
@@ -9432,28 +10320,28 @@ xV
 NW
 MK
 MK
-WC
-Op
-Op
-WC
-Op
-WC
-ML
+iz
+hJ
+hJ
+PO
+hJ
+hJ
+Mg
 MK
 MK
 xV
 NW
-MK
-MK
+Hf
+br
 Lu
 Lb
 xk
-pt
+bu
 xk
 Mc
 Lu
-MK
-MK
+iK
+Hf
 xV
 NW
 MK
@@ -9584,18 +10472,18 @@ xV
 xV
 MK
 MK
-WC
-Op
-Op
-WC
-Op
-Op
-ML
+fJ
+hJ
+hJ
+mP
+tC
+hJ
+Px
 MK
 MK
 xV
 xV
-MK
+GR
 MK
 rf
 ls
@@ -9605,7 +10493,7 @@ xk
 fw
 QB
 MK
-MK
+GR
 xV
 xV
 MK
@@ -9736,18 +10624,18 @@ xV
 xV
 MK
 MK
-WC
-ML
-Op
-WC
-WC
-ML
-Op
+hJ
+hJ
+hJ
+mP
+hJ
+CC
+hJ
 MK
 MK
 xV
 xV
-MK
+GR
 MK
 bw
 Jo
@@ -9757,7 +10645,7 @@ rm
 Jo
 jN
 MK
-MK
+GR
 xV
 xV
 MK
@@ -9888,18 +10776,18 @@ xV
 xV
 MK
 MK
-WC
-ML
-Op
-WC
-Op
-ML
-Op
+hJ
+hJ
+hJ
+mP
+hJ
+CC
+hJ
 MK
 MK
 xV
 xV
-MK
+GR
 MK
 bw
 Jo
@@ -9909,7 +10797,7 @@ xk
 Jo
 jN
 MK
-MK
+GR
 xV
 xV
 MK
@@ -10040,28 +10928,28 @@ xV
 xV
 MK
 MK
-WC
-ML
-Op
-Op
-Op
-WC
-Op
+VN
+hJ
+jY
+mP
+tC
+fe
+Px
 MK
 MK
 xV
 xV
+GR
 MK
-MK
-bw
+az
 Jo
 xk
 HA
 xk
 bw
-jN
+az
 MK
-MK
+GR
 xV
 xV
 MK
@@ -10192,28 +11080,28 @@ xV
 xV
 MK
 MK
-WC
-Op
-ML
-NI
-Op
-ML
-Op
+az
+az
+az
+EI
+az
+az
+az
 MK
 MK
 xV
 xV
-MK
-MK
-bw
-jN
-sb
+FY
+kp
+KI
+FT
+rb
 lC
-xk
-Jo
-jN
-MK
-MK
+iQ
+GL
+OW
+kp
+aN
 xV
 xV
 MK
@@ -10344,26 +11232,26 @@ xV
 xV
 MK
 MK
-WC
-WC
-ML
-Op
-WC
-ML
-WC
+zr
+lD
+WX
+Ur
+pg
+hm
+Lu
 MK
 MK
 xV
 xV
 MK
 MK
-bw
+az
 bw
 sb
 HA
 rm
 Jo
-bw
+az
 MK
 MK
 xV
@@ -10496,13 +11384,13 @@ xV
 xV
 MK
 MK
-WC
-Op
-Op
-Op
-Op
-Op
-WC
+aB
+Zx
+kH
+WO
+kH
+HC
+gm
 MK
 MK
 xV
@@ -10512,7 +11400,7 @@ MK
 bw
 jN
 xk
-HA
+kL
 xk
 jN
 bw
@@ -10650,9 +11538,9 @@ MK
 MK
 Op
 ML
-Op
-Op
-Op
+kH
+Ep
+kH
 Op
 WC
 MK
@@ -10802,9 +11690,9 @@ MK
 MK
 Op
 Op
-ML
-WC
-WC
+nE
+lb
+vx
 WC
 Op
 MK
@@ -14775,7 +15663,7 @@ az
 RS
 tp
 wE
-wE
+el
 wE
 wE
 cU
@@ -15531,7 +16419,7 @@ Op
 Op
 Op
 Op
-Pl
+az
 wE
 wE
 RS
@@ -16439,44 +17327,44 @@ xV
 xV
 xV
 xV
+MK
+MK
+MK
+MK
+MK
+MK
+MK
+MK
+MK
+MK
+MK
+MK
+MK
+MK
+MK
+MK
+MK
+hf
 xV
 xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
+MK
+MK
+MK
+MK
+MK
+dJ
+hI
+MK
+MK
+MK
+MK
+MK
+MK
+MK
+MK
+MK
+MK
+hf
 xV
 xV
 MK
@@ -16591,44 +17479,44 @@ xV
 xV
 xV
 xV
+MK
+MK
+MK
+MK
+MK
+MK
+MK
+MK
+MK
+MK
+MK
+MK
+MK
+MK
+MK
+MK
+MK
+MK
 xV
 xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
+MK
+MK
+MK
+km
+km
+jT
+km
+km
+km
+km
+km
+km
+km
+km
+MK
+MK
+MK
+MK
 xV
 xV
 MK
@@ -16743,44 +17631,44 @@ xV
 xV
 xV
 xV
+WC
+Op
+WC
+FQ
+az
+ML
+WC
+mi
+Op
+SC
+NA
+mi
+qM
+OA
+qB
+TM
+Op
+Op
 xV
 xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
+WC
+OA
+qB
+UT
+qo
+Ex
+AH
+UJ
+UJ
+UJ
+UJ
+AH
+UJ
+tN
+qB
+TM
+Op
+Op
 xV
 xV
 WC
@@ -16788,7 +17676,7 @@ Op
 Ee
 gN
 az
-WC
+Op
 sP
 Xe
 Xe
@@ -16799,8 +17687,8 @@ Op
 oQ
 qB
 nN
-WC
-WC
+Op
+Op
 xV
 xV
 xV
@@ -16895,64 +17783,64 @@ xV
 xV
 xV
 xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-Op
-Op
 WC
+Op
+Op
+Op
+az
+ML
+WC
+dV
+ML
+Yq
+WC
+FG
+QY
+Ho
+LO
+BU
+Op
+Op
+xV
+xV
+WC
+tZ
+LO
+TG
+pw
+Nd
+pw
+Nd
+pw
+Nd
+pw
+Nd
+pw
+wS
+BG
+KL
+Op
+Op
+xV
+xV
+ML
+ML
+Op
 WC
 az
-Op
-Op
+ML
+ML
 LA
 Oq
 WC
-DA
-Op
-Xe
+zE
+ML
+Vs
 sO
 Kq
 Zx
-WC
-WC
+Op
+Op
 xV
 xV
 xV
@@ -17047,63 +17935,63 @@ xV
 xV
 xV
 xV
+vx
+kH
+kH
+kH
+yn
+nE
+gJ
+em
+ja
+nE
+vx
+em
+at
+nE
+kH
+vx
+kH
+vx
 xV
 xV
+vx
+vx
+kH
+cE
+pw
+Nd
+zS
+cE
+zS
+cE
+zS
+Ln
+pw
+sM
+kH
+kH
+kH
+kH
 xV
 xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
+Rs
 OC
-OC
-OC
-OC
+Rs
+Rs
 az
 vx
-kH
-kH
+WH
+WH
+vx
+WH
 vx
 kH
-vx
-kH
-kH
+WH
 az
 kH
 vx
-kH
+WH
 vx
 xV
 xV
@@ -17199,63 +18087,63 @@ xV
 xV
 xV
 xV
+lb
+Ep
+rP
+Ep
+RK
+Ep
+Ep
+yO
+rP
+sG
+rP
+yO
+Ep
+lb
+Ep
+rP
+Ep
+lb
 xV
 xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
+lb
+WO
+Ep
+FC
+Gb
+ie
+Bs
+FC
+Bs
+ie
+Gb
+ie
+Bs
+Gr
+lb
+WO
+Ep
+Ep
 xV
 NW
-lb
+Ep
 WO
-Ep
-Ep
+ea
+ea
 RK
 lb
 Ep
 Ep
+ea
 Ep
-lb
 sj
 rG
-Ep
+ea
 RK
 lb
 Ep
-WO
+xB
 lb
 xV
 xV
@@ -17351,63 +18239,63 @@ xV
 xV
 xV
 xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
+vx
+kH
+kH
+kH
+yn
+kH
+at
+em
+vx
+nE
+VW
+In
+eA
+VW
+kH
+kH
+kH
+kH
 xV
 xV
 vx
+kH
+vx
+Nd
+zS
+cE
+pw
+cE
+pw
+Nd
+pw
+cE
+zS
+rw
+vx
+kH
+kH
+kH
+xV
+xV
 vx
 OC
+Rs
 vx
 az
 vx
 kH
 vx
-kH
-kH
+WH
+WH
 vx
 bI
 kH
 az
 vx
 kH
-kH
+WH
 kH
 xV
 xV
@@ -17503,64 +18391,64 @@ xV
 xV
 xV
 xV
+WC
+Op
+Op
+Op
+az
+WC
+iJ
+FG
+AY
+WC
+Yq
+dV
+Md
+Ej
+Zs
+lJ
+Op
+Op
 xV
 xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
+WC
+gV
+Zs
+sy
+pw
+cE
+zS
+cE
+pw
+Nd
+pw
+cE
+pw
+wZ
+Zs
+UR
+Op
+Op
 xV
 xV
 Op
 Op
-Op
+ML
 Op
 az
 Op
 lA
 Oq
-WC
-WC
-LA
-Xe
 Op
+Op
+LA
+Vs
+ML
 nl
 qC
 Jp
-WC
 Op
+ML
 xV
 xV
 xV
@@ -17655,63 +18543,63 @@ xV
 xV
 xV
 xV
+WC
+Op
+Op
+WC
+az
+Op
+NA
+FG
+Op
+WC
+WC
+mi
+WC
+ro
+qB
+Og
+Op
+WC
 xV
 xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
+WC
+Wk
+qB
+MU
+UJ
+xU
+Hj
+UJ
+UJ
+UJ
+UJ
+Hj
+UJ
+AL
+qB
+Og
+WC
+Op
 xV
 xV
 Op
-Op
+ML
 Lx
 Fm
 az
 DA
-Op
+LA
 lA
 Op
 Xe
 Op
 Xe
-DA
+zE
 oQ
 qB
 Og
-WC
+Op
 WC
 xV
 xV
@@ -17807,44 +18695,44 @@ xV
 xV
 xV
 xV
+MK
+MK
+MK
+MK
+MK
+MK
+MK
+MK
+MK
+MK
+MK
+MK
+MK
+MK
+MK
+MK
+MK
+MK
 xV
 xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
+MK
+MK
+MK
+km
+km
+jT
+km
+km
+km
+km
+km
+km
+km
+km
+MK
+MK
+MK
+MK
 xV
 xV
 MK
@@ -17959,44 +18847,44 @@ xV
 xV
 xV
 xV
+MK
+MK
+MK
+MK
+MK
+MK
+MK
+MK
+MK
+MK
+MK
+MK
+MK
+MK
+MK
+MK
+MK
+MK
 xV
 xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
-xV
+MK
+MK
+MK
+MK
+MK
+IU
+hI
+MK
+MK
+MK
+MK
+MK
+MK
+MK
+MK
+MK
+MK
+MK
 xV
 xV
 MK
@@ -21182,15 +22070,15 @@ xV
 xV
 WC
 WC
+qs
 WC
 WC
 WC
 WC
-WC
-WC
+qs
 WC
 Op
-Op
+Iv
 Zh
 xV
 xV
@@ -21332,25 +22220,25 @@ Op
 WC
 xV
 xV
-Op
-Op
+Iv
+Iv
 WC
+Az
+Az
+Az
 Op
-Op
-Op
-Op
-Op
-Op
-WC
-Op
-WC
+Iv
+Iv
+if
+Az
+qs
 xV
 xV
 Op
-Op
-WC
-Op
-Op
+qq
+kh
+qq
+Ge
 Op
 Op
 Op
@@ -21486,23 +22374,23 @@ xV
 xV
 WC
 Op
+Az
+Az
+WC
+if
+qs
+qs
 Op
 Op
-WC
-WC
-WC
-WC
-WC
-WC
+Az
 Op
-WC
 xV
 xV
 WC
-Op
-Op
-Op
-WC
+qq
+Cb
+qq
+kh
 WC
 WC
 WC
@@ -21637,21 +22525,21 @@ Op
 xV
 xV
 WC
-Op
-Op
+Az
+Az
 Op
 WC
+Az
+Az
 Op
-Op
-Op
-Op
+ML
 WC
 WC
 Op
 xV
 xV
-WC
-Op
+vM
+sJ
 Op
 Op
 WC
@@ -21788,21 +22676,21 @@ WC
 Op
 xV
 xV
-WC
-Op
-Op
-WC
-WC
+qs
+Az
 Op
 WC
 WC
+Iv
 Op
+Op
+Az
 WC
 WC
 Op
 xV
 xV
-WC
+vM
 Op
 Op
 WC
@@ -21813,7 +22701,7 @@ WC
 Op
 WC
 WC
-Op
+Ep
 xV
 xV
 xV
@@ -21941,14 +22829,14 @@ Op
 xV
 xV
 WC
-Op
-WC
-Op
-Op
-Op
-WC
-Op
-WC
+ML
+if
+Az
+Az
+ML
+qs
+Iv
+qs
 Op
 Op
 Op
@@ -21965,7 +22853,7 @@ Op
 WC
 Op
 Op
-Op
+Ep
 xV
 xV
 xV
@@ -22094,30 +22982,30 @@ xV
 xV
 Op
 WC
-WC
+qs
 Op
 Op
-WC
 Op
 Op
+Iv
 WC
 MK
 Op
 Op
 xV
 xV
+mY
+VP
+VP
+mY
 Op
 WC
-WC
-Op
-Op
-WC
-Op
+uZ
 Op
 Op
 MK
 WC
-WC
+lb
 xV
 xV
 xV
@@ -22238,38 +23126,38 @@ WC
 JO
 JO
 WC
+Uj
+OZ
 Op
+Op
+xV
+xV
+Op
+qs
+if
+ML
+Op
+Op
+Op
+qs
 MK
+OZ
 Op
 Op
 xV
 xV
-Op
-WC
-WC
-Op
-WC
-WC
-Op
+mY
+VP
+VP
+mY
 WC
 Op
+Op
+WC
 MK
+OZ
 Op
-Op
-xV
-xV
-Op
-WC
-WC
-Op
-WC
-Op
-Op
-WC
-Op
-MK
-WC
-WC
+lb
 xV
 xV
 xV
@@ -22390,38 +23278,38 @@ ZX
 nv
 nv
 WC
-Op
 MK
-WC
-Op
-xV
-xV
-WC
-Op
-Op
-Op
-Op
-MK
-MK
-MK
-MK
-MK
-WC
+Wa
+Jp
 Op
 xV
 xV
 WC
+ML
+ML
 Op
 Op
+MK
+MK
+MK
+MK
+Wa
+Jp
 Op
+xV
+xV
+VP
+mY
+mY
+mY
 Op
 MK
 MK
 MK
 MK
-MK
-WC
-WC
+Wa
+Jp
+lb
 xV
 xV
 xV
@@ -22542,38 +23430,38 @@ ZX
 nv
 xR
 Op
-Op
 MK
-WC
+Lu
+Og
 Op
 xV
 NW
-WC
+if
+Az
 Op
+bQ
 Op
-Op
-Op
 MK
 MK
 MK
 MK
-MK
-WC
+Lu
+Og
 Op
 xV
 NW
-WC
-Op
-Op
-Op
+VP
+mY
+mY
+mY
 Op
 MK
 MK
 MK
 MK
-MK
-WC
-Op
+Lu
+Og
+Ep
 xV
 xV
 xV
@@ -22694,38 +23582,38 @@ XH
 xR
 nv
 WC
-WC
 MK
-WC
+aB
+KL
 Op
 xV
 xV
+ML
+if
+ML
+ML
 Op
-WC
-Op
-Op
-WC
 MK
 MK
 MK
 MK
-MK
-WC
+aB
+KL
 Op
 xV
 xV
-Op
+mY
+VP
+mY
+mY
 WC
-Op
-Op
-WC
 MK
 MK
 MK
 MK
-MK
-WC
-Op
+aB
+KL
+Ep
 xV
 xV
 xV
@@ -22846,38 +23734,38 @@ WC
 JI
 JI
 WC
+MK
+OZ
+WC
+Op
+xV
+xV
+Op
+Op
+Az
+Op
+Op
+Op
+Iv
 WC
 MK
+OZ
 WC
 Op
 xV
 xV
-Op
+mY
+VP
+mY
+VP
 WC
 Op
-WC
-WC
 Op
-Op
-WC
 WC
 MK
+OZ
 WC
-Op
-xV
-xV
-Op
-WC
-Op
-WC
-WC
-Op
-Op
-WC
-WC
-MK
-WC
-Op
+Ep
 xV
 xV
 xV
@@ -23006,22 +23894,22 @@ xV
 xV
 ML
 WC
+Iv
 Op
-WC
-WC
 Op
-WC
-Op
-WC
-MK
-WC
-WC
-xV
-xV
 ML
-WC
+qs
 Op
 WC
+MK
+WC
+Op
+xV
+xV
+tb
+VP
+mY
+VP
 WC
 Op
 WC
@@ -23029,7 +23917,7 @@ Op
 WC
 MK
 WC
-WC
+lb
 xV
 xV
 xV
@@ -23156,32 +24044,32 @@ WC
 Op
 xV
 xV
+tT
+qs
+Az
+Op
 ML
-WC
+ML
+if
+qs
+ML
 Op
-WC
 Op
-Op
-WC
-WC
-WC
-Op
-WC
 Op
 xV
 xV
 ML
+ZU
+Kb
+Tw
+Op
+Op
+WC
+WC
 WC
 Op
 WC
-Op
-Op
-WC
-WC
-WC
-Op
-WC
-Op
+Ep
 xV
 xV
 xV
@@ -23309,31 +24197,31 @@ Op
 xV
 xV
 ML
-WC
-Op
-WC
-Op
-WC
-Op
-Op
-WC
-WC
-WC
-Op
-xV
-xV
+if
 ML
+Op
+Iv
 WC
+ML
+Iv
+qs
+qs
+Op
+Iv
+xV
+xV
+rS
+Xb
+sP
+Rz
+Op
+mv
+Op
 Op
 WC
-Op
-WC
-Op
-Op
 WC
 WC
-WC
-Op
+Ep
 xV
 xV
 xV
@@ -23461,17 +24349,17 @@ Op
 xV
 xV
 ML
-WC
+if
+Az
+Az
+Iv
+qs
 Op
 Op
 Op
-WC
-WC
 Op
-Op
-WC
-WC
-Op
+if
+Iv
 xV
 xV
 ML
@@ -23613,16 +24501,16 @@ Op
 xV
 xV
 Op
-WC
 Op
+Az
+qs
 WC
-WC
-WC
+if
+Az
 Op
-Op
-WC
-WC
-Op
+if
+if
+lQ
 Op
 xV
 xV
@@ -23764,18 +24652,18 @@ Op
 Op
 xV
 xV
+ML
+ML
+Az
 Op
-Op
-Op
-Op
+Iv
+NI
 Op
 ML
-WC
-Op
-Op
-Op
-Op
-Op
+Az
+Iv
+Az
+Iv
 xV
 xV
 Op
@@ -23916,18 +24804,18 @@ WC
 WC
 xV
 xV
-Op
 ML
-ML
-ML
+tT
+UZ
+NI
 Op
+Iv
 Op
-Op
-Op
+Iv
 WC
 WC
-WC
-WC
+Op
+Op
 xV
 xV
 Op

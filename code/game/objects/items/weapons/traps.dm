@@ -256,7 +256,7 @@
 /obj/item/trap/punji/attack_mob(mob/living/L)
 
 	//Reveal the trap, if not already visible
-	hide(FALSE)
+	invisibility = 0
 
 	//Select a target zone
 	var/target_zone

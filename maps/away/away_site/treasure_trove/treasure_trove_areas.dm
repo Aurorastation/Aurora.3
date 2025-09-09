@@ -21,18 +21,21 @@
 	icon_state = "yellow"
 	lighting = TRUE
 	is_outside = OUTSIDE_YES
+	ambience = 'sound/ambience/konyang/konyang-water.ogg'
 
 /area/trove/ocean
 	name = "Treasure Trove Ocean"
 	icon_state =  "purple"
 	lighting = TRUE
 	is_outside = OUTSIDE_YES
+	ambience = 'sound/ambience/konyang/konyang-water.ogg'
 
 /area/trove/jungle
 	name = "Treasure Trove Jungle"
 	icon_state = "green"
 	lighting = TRUE
 	is_outside = OUTSIDE_YES
+	ambience = 'sound/ambience/eeriejungle1.ogg'
 
 // ----- Interior
 
@@ -40,3 +43,4 @@
 	name = "Treasure Trove Tunnels"
 	icon_state = "blue"
 	requires_power = 0
+	ambience = AMBIENCE_LAVA

@@ -41,3 +41,13 @@
 	locationx = 23
 	locationy = 14
 	icon_state = "wave3"
+
+
+// ------ Fluff Items
+
+/obj/item/paper/fluff/treasure_trove/dead_end
+	name = "left behind note"
+	desc = "A single piece of paper with a note to the finder."
+	info = "\
+		You went the wrong way.\
+		"

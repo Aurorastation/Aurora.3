@@ -32,7 +32,7 @@
 	anchored = TRUE
 	locked = FALSE
 	icon_state = "Shield_Gen +a"
-	storedpower = 2000000
+	storedpower = 9000000
 
 /obj/machinery/shieldwallgen/update_icon()
 	if(power_state >= POWER_STARTING)
