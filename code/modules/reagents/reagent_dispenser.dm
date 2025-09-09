@@ -476,3 +476,29 @@
 	icon_state = "chemical_barrel"
 	amount_per_transfer_from_this = 300
 	reagents_to_add = list(/singleton/reagent/radioactive_waste = 1000)
+
+/obj/structure/reagent_dispensers/radioactive_waste/hazardous // Only use this if you want active radiation.
+	name = "leaking radioactive waste barrel"
+	desc = "A metal barrel containing radioactive waste; the seals on this one seem to have failed and noxious fumes are escaping."
+	light_range = 2
+	light_color = "#64C864"
+
+/obj/structure/reagent_dispensers/radioactive_waste/hazardous/Initialize()
+	. = ..()
+	start_process()
+
+/obj/structure/reagent_dispensers/radioactive_waste/hazardous/proc/start_process()
+	START_PROCESSING(SSprocessing, src)
+
+/obj/structure/reagent_dispensers/radioactive_waste/hazardous/process()
+	if(!is_leaking && reagents.total_volume <= 0)
+		STOP_PROCESSING(SSprocessing,src)
+		return
+	else
+		if(reagents.total_volume > 0)
+			SSradiation.radiate(src,60)
+
+		if(is_leaking)
+			var/splash_amount = min(amount_per_transfer_from_this,60) //Hard limit of 60 per process
+			reagents.trans_to_turf(get_turf(src),splash_amount)
+			return

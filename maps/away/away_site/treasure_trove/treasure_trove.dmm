@@ -3,6 +3,10 @@
 /obj/effect/decal/remains/human,
 /turf/simulated/floor/exoplanet/desert/rough,
 /area/trove/jungle)
+"ad" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren,
+/area/trove/tunnels)
 "af" = (
 /obj/effect/step_trigger/thrower{
 	tiles = 1;
@@ -307,6 +311,10 @@
 /obj/item/trap/punji/deployed/hidden,
 /turf/simulated/floor/exoplanet/asphalt,
 /area/trove/tunnels)
+"fV" = (
+/obj/structure/mech_wreckage,
+/turf/simulated/floor/exoplanet/basalt,
+/area/trove/beach)
 "gb" = (
 /obj/effect/step_trigger/thrower,
 /obj/structure/flora/bush/konyang_reeds/water,
@@ -352,6 +360,9 @@
 /obj/random/dirt_75,
 /obj/structure/platform,
 /turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
+"gR" = (
+/turf/simulated/floor/exoplanet/barren,
 /area/trove/tunnels)
 "ha" = (
 /obj/structure/flora/grass/junglegrass/random,
@@ -798,6 +809,10 @@
 	},
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
+"pV" = (
+/obj/structure/flora/grass/junglegrass/random,
+/turf/simulated/floor/exoplanet/barren,
+/area/trove/beach)
 "qb" = (
 /obj/item/gun/projectile/revolver/detective,
 /turf/simulated/floor/exoplanet/dirt_konyang/sand,
@@ -919,6 +934,10 @@
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
 /area/trove/ocean)
+"rR" = (
+/obj/structure/flora/bush/jungle/c/random,
+/turf/simulated/floor/exoplanet/barren,
+/area/trove/beach)
 "rS" = (
 /obj/random/dirt_75,
 /obj/structure/platform_deco/ledge{
@@ -961,6 +980,10 @@
 /obj/structure/flora/bush/jungle/large/random,
 /turf/simulated/floor/exoplanet/grass/moghes,
 /area/trove/beach)
+"sM" = (
+/obj/machinery/mining/drill,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
 "sP" = (
 /obj/structure/flora/stump,
 /obj/structure/flora/grass/junglegrass/random,
@@ -1075,6 +1098,12 @@
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
 /area/trove/ocean)
+"vk" = (
+/obj/structure/table/rack,
+/obj/random/custom_ka,
+/obj/random/custom_ka,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
 "vz" = (
 /turf/simulated/wall/shuttle/raider,
 /area/trove/tunnels)
@@ -1083,6 +1112,12 @@
 /obj/random/junk,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
+"vL" = (
+/obj/item/card/id/syndicate{
+	access = list(150)
+	},
+/turf/simulated/floor/exoplanet/barren,
+/area/trove/beach)
 "vM" = (
 /obj/structure/flora/tree/jungle/random,
 /obj/structure/flora/tree/jungle/random,
@@ -1405,7 +1440,7 @@
 "BJ" = (
 /obj/structure/headspear,
 /obj/effect/decal/cleanable/blood,
-/obj/item/organ/external/arm/autakh,
+/obj/item/organ/external/head/autakh,
 /turf/simulated/floor/exoplanet/grass/moghes,
 /area/trove/beach)
 "BO" = (
@@ -1428,6 +1463,11 @@
 /obj/structure/flora/bush/jungle/large/random,
 /turf/simulated/floor/exoplanet/grass/moghes,
 /area/trove/beach)
+"Cg" = (
+/obj/structure/table/rack,
+/obj/item/pickaxe/drill,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
 "Cs" = (
 /turf/simulated/floor/exoplanet/basalt,
 /area/trove/beach)
@@ -1569,6 +1609,12 @@
 "EE" = (
 /turf/unsimulated/mineral/konyang,
 /area/trove/ocean)
+"EJ" = (
+/obj/structure/table/rack,
+/obj/item/clothing/head/helmet/space/void/mining,
+/obj/item/clothing/suit/space/void/mining,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
 "EO" = (
 /obj/effect/step_trigger/thrower{
 	tiles = 1;
@@ -1817,6 +1863,10 @@
 /obj/effect/spider/stickyweb,
 /turf/simulated/floor/exoplanet/asphalt,
 /area/trove/tunnels)
+"IV" = (
+/obj/structure/closet/secure_closet/miner,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
 "IW" = (
 /turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
 /area/trove/beach)
@@ -1887,6 +1937,10 @@
 /turf/simulated/floor/exoplanet/asteroid/basalt/air{
 	temperature = 293.15
 	},
+/area/trove/tunnels)
+"Ku" = (
+/obj/random/dirt_75,
+/turf/simulated/mineral/lava,
 /area/trove/tunnels)
 "Kz" = (
 /obj/effect/step_trigger/thrower,
@@ -2064,6 +2118,10 @@
 /obj/structure/structural_support,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
+"Ov" = (
+/obj/structure/ore_box,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
 "OC" = (
 /obj/random/dirt_75,
 /obj/structure/platform_deco/ledge{
@@ -2206,6 +2264,11 @@
 /obj/effect/decal/cleanable/floor_damage/random_burned,
 /turf/simulated/floor/exoplanet/asphalt,
 /area/trove/beach)
+"RL" = (
+/obj/random/dirt_75,
+/obj/item/mecha_equipment/drill,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
 "RW" = (
 /obj/effect/decal/remains/human,
 /turf/simulated/floor/exoplanet/basalt/cave,
@@ -2295,6 +2358,11 @@
 	},
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
+"Tx" = (
+/obj/random/dirt_75,
+/obj/structure/closet/secure_closet/miner,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
 "Tz" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/barren,
@@ -2321,6 +2389,10 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/barren,
+/area/trove/beach)
+"Ub" = (
+/obj/structure/flora/grass/junglegrass,
 /turf/simulated/floor/exoplanet/barren,
 /area/trove/beach)
 "Uc" = (
@@ -66807,9 +66879,9 @@ Pu
 Pu
 Pu
 Pu
-uo
-uo
-uo
+Ov
+sp
+sp
 uo
 uo
 uo
@@ -67057,12 +67129,12 @@ Pu
 Pu
 Pu
 Pu
-uo
-uo
-uo
-uo
-uo
-uo
+sM
+RL
+sp
+ad
+gR
+sp
 uo
 Pu
 Pu
@@ -67307,14 +67379,14 @@ Pu
 Pu
 Pu
 Pu
-Pu
 uo
+sp
+sp
 uo
-uo
-uo
-uo
-uo
-Pu
+ad
+gR
+sp
+Ku
 Pu
 Pu
 Pu
@@ -67558,14 +67630,14 @@ Pu
 Pu
 Pu
 Pu
-Pu
-Pu
 uo
+sp
+sp
 uo
+gR
+ad
 uo
-uo
-uo
-uo
+Tx
 Pu
 Pu
 Pu
@@ -67809,15 +67881,15 @@ Pu
 Pu
 Pu
 Pu
-Pu
-Pu
-Pu
-Pu
+uo
+sp
+sp
 uo
 uo
 uo
+sp
 uo
-uo
+IV
 Pu
 Pu
 Pu
@@ -68060,15 +68132,15 @@ Pu
 Pu
 Pu
 Pu
-Pu
-Pu
-Pu
-Pu
-Pu
-Pu
+uP
 uo
+sp
 uo
-uo
+Pu
+Pu
+vk
+EJ
+Cg
 Pu
 Pu
 Pu
@@ -68311,10 +68383,10 @@ Pu
 Pu
 Pu
 Pu
-Pu
-Pu
-Pu
-Pu
+uo
+sp
+sp
+uo
 Pu
 Pu
 Pu
@@ -68563,9 +68635,9 @@ Pu
 Pu
 Pu
 Pu
-Pu
-Pu
-Pu
+sp
+sp
+uo
 Pu
 Pu
 Pu
@@ -68815,8 +68887,8 @@ Pu
 Pu
 Pu
 Pu
-Pu
-Pu
+sp
+uo
 Pu
 Pu
 Pu
@@ -69067,8 +69139,8 @@ Pu
 Pu
 Pu
 Pu
-Pu
-Pu
+sp
+uo
 Pu
 Pu
 Pu
@@ -69319,8 +69391,8 @@ Pu
 Pu
 Pu
 Pu
-Pu
-Pu
+uo
+sp
 Pu
 Pu
 Pu
@@ -69571,8 +69643,8 @@ Pu
 Pu
 Pu
 Pu
-Pu
-Pu
+sp
+sp
 Pu
 Pu
 Pu
@@ -69823,8 +69895,8 @@ Pu
 Pu
 Pu
 Pu
-Pu
-Pu
+sp
+sp
 Pu
 Pu
 Pu
@@ -70075,8 +70147,8 @@ Pu
 Pu
 Pu
 Pu
-Pu
-Pu
+uo
+uo
 Pu
 Pu
 Pu
@@ -70326,7 +70398,7 @@ Cs
 Cs
 ag
 Cs
-Cs
+fV
 Cs
 Cs
 ha
@@ -70581,7 +70653,7 @@ AL
 Bs
 LC
 Bs
-MM
+Ub
 Bs
 Bs
 MM
@@ -70831,7 +70903,7 @@ sD
 Bs
 ZG
 Bs
-MM
+Ub
 tU
 VS
 VE
@@ -71588,7 +71660,7 @@ dR
 Bs
 Bs
 ZG
-ZG
+pV
 Bs
 Bs
 Bs
@@ -71840,7 +71912,7 @@ Bs
 mw
 mw
 MM
-Bs
+Ez
 Bs
 mw
 Bs
@@ -72344,7 +72416,7 @@ LC
 qf
 Bs
 Bs
-Bs
+Ez
 MM
 tU
 Bs
@@ -72594,7 +72666,7 @@ MM
 Bs
 Bs
 Bs
-MM
+Ub
 VS
 OG
 VS
@@ -73350,7 +73422,7 @@ Bs
 gM
 VS
 Bs
-Bs
+Ez
 VS
 Bs
 Bs
@@ -73601,7 +73673,7 @@ Bs
 Bs
 tU
 VS
-Bs
+Ez
 Bs
 Bs
 Bs
@@ -74104,7 +74176,7 @@ Bs
 Bs
 Bs
 Bs
-mw
+rR
 MM
 rx
 qf
@@ -76014,8 +76086,8 @@ qL
 qL
 qL
 qL
-sp
-uo
+jj
+DQ
 qL
 qL
 qL
@@ -76034,10 +76106,10 @@ qL
 qL
 qL
 qL
-sp
-sp
-sp
-sp
+jj
+jj
+jj
+jj
 qL
 qL
 qL
@@ -76056,8 +76128,8 @@ qL
 qL
 qL
 qL
-sp
-uo
+jj
+DQ
 qL
 qL
 qL
@@ -76266,8 +76338,8 @@ qL
 qL
 qL
 qL
-sp
-sp
+Xo
+Xo
 Pw
 qL
 qL
@@ -76286,10 +76358,10 @@ qL
 qL
 qL
 qL
-sp
-uo
-sp
-sp
+Xo
+WU
+Xo
+Xo
 Pw
 qL
 qL
@@ -76308,8 +76380,8 @@ qL
 qL
 qL
 qL
-sp
-sp
+Xo
+Xo
 Pw
 qL
 qL
@@ -76518,8 +76590,8 @@ qL
 qL
 qL
 qL
-uo
-sp
+DQ
+jj
 qL
 qL
 qL
@@ -76538,10 +76610,10 @@ qL
 qL
 qL
 qL
-sp
-sp
-sp
-uo
+jj
+jj
+jj
+DQ
 qL
 qL
 qL
@@ -76560,8 +76632,8 @@ qL
 qL
 qL
 qL
-uo
-sp
+DQ
+jj
 qL
 qL
 qL
@@ -77320,9 +77392,9 @@ eg
 eg
 uo
 sp
-uo
-uo
-uo
+DQ
+WU
+DQ
 sp
 sp
 eg
@@ -77572,9 +77644,9 @@ eg
 eg
 uo
 sp
-sp
-sp
-sp
+jj
+Xo
+jj
 sp
 sp
 eg
@@ -82862,13 +82934,13 @@ eg
 eg
 eg
 eg
-sp
-sp
+DI
+OC
 jj
 Xo
 DQ
-sx
-sp
+sR
+FK
 eg
 eg
 eg
@@ -83114,13 +83186,13 @@ eg
 eg
 eg
 eg
-sp
-uo
+SE
+jY
 DQ
 Xo
 DQ
-uo
-sp
+UN
+DG
 eg
 eg
 eg
@@ -83366,13 +83438,13 @@ eg
 eg
 eg
 eg
-sp
-sx
+qS
+rS
 jj
 Xo
 jj
-sp
-sp
+ZF
+qS
 eg
 eg
 eg
@@ -88658,13 +88730,13 @@ eg
 eg
 eg
 eg
-sp
-uo
+DI
+OC
 uo
 WU
 jj
-sp
-sp
+sR
+FK
 eg
 eg
 eg
@@ -88910,13 +88982,13 @@ eg
 eg
 eg
 eg
-sp
-On
+SE
+jY
 jj
 Xo
 jj
-uo
-sp
+UN
+DG
 eg
 eg
 eg
@@ -89162,13 +89234,13 @@ eg
 eg
 eg
 eg
-sp
-uo
+qS
+rS
 jj
 Xo
 jj
-On
-sp
+ZF
+qS
 eg
 eg
 eg
@@ -91496,8 +91568,8 @@ Bs
 Bs
 sD
 Bs
-ji
-sD
+Ez
+Bs
 Bs
 Bs
 Bs
@@ -96262,7 +96334,7 @@ mB
 iM
 iM
 hF
-Ez
+vL
 Tz
 Bs
 Bs
@@ -103274,13 +103346,13 @@ eg
 eg
 eg
 eg
-sp
-uo
+Tu
+OC
 jj
 WU
 jj
-sx
-sp
+Vt
+qA
 eg
 eg
 eg
@@ -103526,13 +103598,13 @@ eg
 eg
 eg
 eg
-sp
-uo
+SE
+gP
 jj
 Xo
 jj
-sp
-uo
+UN
+SE
 eg
 eg
 eg
@@ -103778,13 +103850,13 @@ eg
 eg
 eg
 eg
-sp
-sx
+tO
+Cy
 jj
 Xo
 jj
-sp
-sp
+ZF
+gt
 eg
 eg
 eg
@@ -109322,13 +109394,13 @@ eg
 eg
 eg
 eg
-uo
-sx
+Tu
+OC
 DQ
 Xo
 jj
-sp
-uo
+Vt
+qA
 eg
 eg
 eg
@@ -109574,13 +109646,13 @@ eg
 eg
 eg
 eg
-uo
-sp
+SE
+gP
 jj
 Xo
 jj
-On
-uo
+UN
+SE
 eg
 eg
 eg
@@ -109826,13 +109898,13 @@ eg
 eg
 eg
 eg
-uo
-sp
+tO
+Cy
 DQ
 WU
 jj
-sp
-sp
+ZF
+gt
 eg
 eg
 eg
@@ -115830,8 +115902,8 @@ qL
 qL
 qL
 qL
-sp
-sp
+jj
+jj
 qL
 qL
 qL
@@ -115850,10 +115922,10 @@ qL
 qL
 qL
 qL
-uo
-sp
-sp
-sp
+DQ
+jj
+jj
+jj
 qL
 qL
 qL
@@ -115872,8 +115944,8 @@ qL
 qL
 qL
 qL
-sp
-uo
+jj
+DQ
 qL
 qL
 qL
@@ -116082,8 +116154,8 @@ qL
 qL
 qL
 qL
-uo
-sp
+WU
+Xo
 Pw
 qL
 qL
@@ -116102,10 +116174,10 @@ qL
 qL
 qL
 qL
-uo
-uo
-sp
-uo
+WU
+WU
+Xo
+WU
 Pw
 qL
 qL
@@ -116124,8 +116196,8 @@ qL
 qL
 qL
 qL
-sp
-uo
+Xo
+WU
 Pw
 qL
 qL
@@ -116334,8 +116406,8 @@ qL
 qL
 qL
 qL
-sp
-sp
+jj
+jj
 qL
 qL
 qL
@@ -116354,10 +116426,10 @@ qL
 qL
 qL
 qL
-sp
-sp
-uo
-uo
+jj
+jj
+DQ
+DQ
 qL
 qL
 qL
@@ -116376,8 +116448,8 @@ qL
 qL
 qL
 qL
-sp
-uo
+jj
+DQ
 qL
 qL
 qL
