@@ -30,6 +30,7 @@
 	icon_state = "ipc_repair_plates"
 	matter = list(MATERIAL_STEEL = 40000)
 	surgerysound = 'sound/weapons/saw/drillhit1.ogg'
+	item_flags = ITEM_FLAG_SURGERY
 
 /obj/item/synth_plating/mechanics_hints()
 	. = ..()

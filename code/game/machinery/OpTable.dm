@@ -354,21 +354,9 @@
 	occupant_must_be_lying = FALSE
 	can_buckle = list(/mob/living/carbon/human)
 
-	/// The access cable linked to this table.
-	var/obj/item/access_cable/access_cable
-
-/obj/machinery/optable/robotics/Initialize()
-	. = ..()
-	access_cable = new(src, src, src)
-
-/obj/machinery/optable/robotics/remove_cable(obj/item/access_cable/cable)
-	access_cable = null
-
 /obj/machinery/optable/robotics/mechanics_hints(mob/user, distance, is_adjacent)
 	. = ..()
 	. += list("Use a <b>non-help</b> intent to unbuckle.")
-	. += list("Use the <b>Retrieve Cable</b> verb on this chair in order to take the access cable from it.")
-	. += list("You can then click an IPC with that cable to slot it into them. After that, click on the chair with <b>grab</b> intent.")
 
 /obj/machinery/optable/robotics/refresh_icon_state()
 	return
@@ -381,52 +369,3 @@
 	. = ..()
 	if(.)
 		playsound(src, 'sound/effects/metal_close.ogg', 20)
-
-/obj/machinery/optable/robotics/attack_hand(mob/user)
-	if(access_cable?.target && user.a_intent == I_GRAB)
-		if(istype(access_cable.target, /obj/item/organ/internal/machine/access_port))
-			var/obj/item/organ/internal/machine/access_port/port = access_cable.target
-			port.cable_interact(access_cable, user)
-	else
-		. = ..()
-
-/obj/machinery/optable/robotics/attackby(obj/item/attacking_item, mob/user, params)
-	if(istype(attacking_item, /obj/item/access_cable))
-		var/obj/item/access_cable/retrieved_cable = attacking_item
-		if(retrieved_cable == access_cable)
-			visible_message(SPAN_NOTICE("[user] slots \the [access_cable] back into \the [src]."))
-			user.drop_from_inventory(access_cable)
-			access_cable.forceMove(src)
-			retrieved_cable.clear_cable_full()
-			return TRUE
-	else
-		return ..()
-
-/obj/machinery/optable/robotics/verb/take_cable()
-	set name = "Retrieve Cable"
-	set category = "Object"
-	set src in view(1)
-
-	if(!ishuman(usr))
-		return
-
-	var/mob/living/carbon/human/user = usr
-
-	if(use_check_and_message(user))
-		return
-
-	if(!access_cable)
-		to_chat(user, SPAN_WARNING("This table does not have an access cable anymore!"))
-		return
-
-	if(user.get_active_hand())
-		to_chat(user, SPAN_WARNING("You need a free hand to retrieve \the [access_cable]!"))
-		return
-
-	if(access_cable.loc != src)
-		to_chat(user, SPAN_WARNING("The access cable is already elsewhere!"))
-		return
-
-	user.visible_message(SPAN_NOTICE("[user] retrieves \the [access_cable] from \the [src]."), SPAN_NOTICE("You retrieve \the [access_cable] from \the [src]."))
-	access_cable.create_cable(src, user)
-	user.put_in_active_hand(access_cable)

@@ -785,14 +785,33 @@
 
 	var/mob/living/carbon/human/H = holder.wearer
 
-	var/temp_adj = min(H.bodytemperature - thermostat, max_cooling)
+	var/env_temp = get_environment_temperature()
+	var/temp_adj = min(H.bodytemperature - max(thermostat, env_temp), max_cooling)
 
 	if (temp_adj < 0.5)
 		return passive_power_cost
 
-	H.bodytemperature -= temp_adj
+	H.bodytemperature = max(T0C, H.bodytemperature - temp_adj)
 	active_power_cost = round((temp_adj/max_cooling)*charge_consumption)
+
 	return active_power_cost
+
+/obj/item/rig_module/cooling_unit/proc/get_environment_temperature()
+	if(ishuman(loc))
+		var/mob/living/carbon/human/H = loc
+		if(istype(H.loc, /obj/machinery/atmospherics/unary/cryo_cell))
+			var/obj/machinery/atmospherics/unary/cryo_cell/C = H.loc
+			return C.air_contents.temperature
+
+	var/turf/T = get_turf(src)
+	if(istype(T, /turf/space) || !isturf(T))
+		return FALSE	//space has no temperature, this just makes sure the cooling unit works in space
+
+	var/datum/gas_mixture/environment = T.return_air()
+	if(!environment)
+		return FALSE
+
+	return environment.temperature
 
 /obj/item/rig_module/boring
 	name = "burrowing lasers"

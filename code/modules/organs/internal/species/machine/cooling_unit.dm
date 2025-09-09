@@ -144,7 +144,7 @@
 			//cooling is going to SUCK if you have heat-regulating clothes
 			if(owner.bodytemperature < species.heat_level_3)
 				owner.bodytemperature = min(owner.bodytemperature + 5, owner.species.heat_level_2)
-				temperature_change *= 0.1
+				temperature_change *= 0.5
 
 	// Check if there is somehow no air, or if we are in an ambient without enough air to properly cool us.
 	if((!ambient || (ambient && owner.calculate_affecting_pressure(ambient.return_pressure()) < owner.species.warning_low_pressure)))

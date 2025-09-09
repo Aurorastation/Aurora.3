@@ -52,7 +52,7 @@
 	if(status & ORGAN_DEAD)
 		return
 
-	return cell.give(amount * get_damage_multiplier())
+	return cell.give(amount * max(get_damage_multiplier(), 0.5))
 
 /obj/item/organ/internal/machine/power_core/use(var/amount)
 	if(!is_usable() || !cell)

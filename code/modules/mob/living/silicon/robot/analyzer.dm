@@ -40,8 +40,8 @@
 			prosthetics_scan(user, M)
 
 /proc/robot_scan(mob/user, mob/living/silicon/robot/M)
-	var/BU = M.getFireLoss() > 50 	? 	"<b>[M.getFireLoss()]</b>" 		: M.getFireLoss()
-	var/BR = M.getBruteLoss() > 50 	? 	"<b>[M.getBruteLoss()]</b>" 	: M.getBruteLoss()
+	var/BU = M.getFireLoss() > 50 	? 	"<b>[get_robot_severity(M.getFireLoss())]</b>" : get_robot_severity(M.getFireLoss())
+	var/BR = M.getBruteLoss() > 50 	? 	"<b>[get_robot_severity(M.getBruteLoss())]</b>" : get_robot_severity(M.getBruteLoss())
 
 	to_chat(user, SPAN_NOTICE("Analyzing Results for [M]:"))
 	to_chat(user, SPAN_NOTICE("Overall Status: [M.stat > 1 ? "fully disabled" : "[M.health - M.getHalLoss()]% functional"]"))
@@ -67,6 +67,8 @@
 
 /proc/prosthetics_scan(mob/user, mob/living/carbon/human/H)
 	to_chat(user, SPAN_NOTICE("Analyzing Results for \the [H]:"))
+	if(H.stat == DEAD)
+		to_chat(user, SPAN_DANGER("No neural coherence detected."))
 	to_chat(user, "Key: <font color='#FFA500'>Electronics</font>/<span class='warning'>Wiring</span>")
 	var/obj/item/organ/internal/machine/power_core/IC = H.internal_organs_by_name[BP_CELL]
 	if(IC)
@@ -80,7 +82,7 @@
 			if(!(E.status & (ORGAN_ROBOT || ORGAN_ASSISTED)))
 				continue
 			organ_found = TRUE
-			to_chat(user, "[E.name]: <span class='warning'>[E.brute_dam]</span> <font color='#FFA500'>[E.burn_dam]</font>")
+			to_chat(user, "[E.name]: <span class='warning'>[get_robot_severity(E.brute_dam)]</span> <font color='#FFA500'>[get_robot_severity(E.burn_dam)]</font>")
 	if(!organ_found)
 		to_chat(user, SPAN_NOTICE("No prosthetics located."))
 	to_chat(user, "<hr>")
@@ -105,13 +107,30 @@
 			if(istype(O, /obj/item/organ/internal/machine))
 				var/obj/item/organ/internal/machine/machine_organ = O
 				if(machine_organ.get_integrity() < 100)
-					to_chat(user, SPAN_WARNING("Integrity damage detected."))
+					to_chat(user, SPAN_WARNING("<b>[machine_organ.name]</b>: Integrity damage detected."))
 					found_damage = TRUE
 			if(!found_damage)
 				to_chat(user, SPAN_NOTICE("No damage detected."))
 
 	if(!organ_found)
 		to_chat(user, SPAN_NOTICE("No prosthetics located."))
+
+/proc/get_robot_severity(amount, var/uppercase = FALSE)
+	var/output = "undamaged"
+	if(!amount)
+		output = "undamaged"
+	else if(amount > 100)
+		output = "destroyed"
+	else if(amount > 75)
+		output = "falling apart"
+	else if(amount > 50)
+		output = "heavily compromised"
+	else if(amount > 25)
+		output = "problematic"
+	else if(amount > 10)
+		output = "fine"
+	else
+		output = "minor"
 
 /obj/item/device/robotanalyzer/augment
 	name = "retractable cyborg analyzer"

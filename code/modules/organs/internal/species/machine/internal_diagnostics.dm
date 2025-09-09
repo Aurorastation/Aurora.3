@@ -4,7 +4,7 @@
 	icon = 'icons/obj/robot_component.dmi'
 	icon_state = "analyser"
 	organ_tag = BP_DIAGNOSTICS_SUITE
-	parent_organ = BP_CHEST
+	parent_organ = BP_GROIN
 	action_button_name = "Internal Diagnostics"
 
 	max_damage = 40
