@@ -145,7 +145,7 @@
 	description = "The ultimate in custodial carts. Has space for water, mops, signs, trash bags, and more."
 	price = 190
 	items = list(
-		/obj/structure/janitorialcart
+		/obj/structure/cart/storage/janitorialcart
 	)
 	access = ACCESS_JANITOR
 	container_type = "crate"
