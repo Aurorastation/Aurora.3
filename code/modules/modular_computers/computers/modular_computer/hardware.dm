@@ -78,6 +78,12 @@
 			return
 		found = TRUE
 		flashlight = H
+	else if(istype(H, /obj/item/computer_hardware/universal_port))
+		if(universal_port)
+			to_chat(user, SPAN_WARNING("\The [src]'s port slot is already occupied by \the [universal_port]."))
+			return
+		found = TRUE
+		universal_port = H
 	if(found)
 		to_chat(user, SPAN_NOTICE("You install \the [H] into \the [src]."))
 		H.parent_computer = src
@@ -128,6 +134,9 @@
 		personal_ai.pai.parent_computer = null
 		update_icon()
 		personal_ai = null
+	else if(universal_port == H)
+		universal_port = null
+		found = TRUE
 
 	if(found)
 		if(user)
@@ -165,6 +174,8 @@
 		return tesla_link
 	if(flashlight && initial(flashlight.name) == name)
 		return flashlight
+	if(universal_port && initial(universal_port.name) == name)
+		return universal_port
 	return null
 
 // Returns list of all components
@@ -192,4 +203,6 @@
 		all_components.Add(tesla_link)
 	if(flashlight)
 		all_components.Add(flashlight)
+	if(universal_port)
+		all_components.Add(universal_port)
 	return all_components

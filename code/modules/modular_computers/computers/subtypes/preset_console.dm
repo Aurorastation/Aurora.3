@@ -15,6 +15,7 @@
 	hard_drive = new /obj/item/computer_hardware/hard_drive/super(src)
 	network_card = new /obj/item/computer_hardware/network_card/wired(src)
 	nano_printer = new /obj/item/computer_hardware/nano_printer(src)
+	universal_port = new /obj/item/computer_hardware/universal_port(src)
 
 /obj/item/modular_computer/console/preset/install_default_programs()
 	..()

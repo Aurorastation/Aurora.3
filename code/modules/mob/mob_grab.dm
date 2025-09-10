@@ -443,7 +443,7 @@
 		to_chat(H, SPAN_WARNING("You can only fireman carry humanoids!"))
 		return
 	var/mob/living/carbon/human/affected_human = affecting
-	if(affected_human.species.mob_size > 25)
+	if(affected_human.mob_weight > H.get_mob_strength())
 		to_chat(H, SPAN_WARNING("\The [affected_human] is way too big to fireman carry!"))
 		return
 	if(state < GRAB_AGGRESSIVE)
