@@ -2622,6 +2622,10 @@
 "or" = (
 /turf/simulated/wall/wood,
 /area/trove/jungle)
+"ou" = (
+/obj/structure/flora/rock/pile/random,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
 "ov" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -3252,6 +3256,7 @@
 	direction = 6;
 	immobilize = 0
 	},
+/obj/structure/flora/rock,
 /turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
 /area/trove/ocean)
 "rR" = (
@@ -4741,6 +4746,10 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/wood,
 /area/trove/vault)
+"BW" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
 "BZ" = (
 /obj/structure/table/reinforced/steel,
 /obj/structure/window/reinforced{
@@ -5166,6 +5175,11 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/barren,
 /area/trove/vault)
+"Ev" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/flora/rock/pile/random,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
 "Ey" = (
 /obj/machinery/hologram/holopad/long_range,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -5439,6 +5453,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/barren,
 /area/trove/vault)
+"FX" = (
+/obj/structure/flora/rock{
+	icon_state = "basalt3"
+	},
+/obj/random/firstaid,
+/turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
+/area/trove/beach)
 "FY" = (
 /obj/structure/flora/stump,
 /obj/structure/flora/grass/junglegrass,
@@ -6925,6 +6946,10 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/marble/dark,
 /area/trove/vault)
+"Od" = (
+/obj/random/loot,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
 "Oe" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -7131,6 +7156,7 @@
 	dir = 5;
 	immobilize = 0
 	},
+/obj/structure/flora/rock,
 /turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
 /area/trove/ocean)
 "Pa" = (
@@ -8192,6 +8218,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/trove/vault)
+"Vc" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/flora/rock/pile/random,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
 "Ve" = (
 /obj/effect/step_trigger/thrower{
 	tiles = 1;
@@ -72769,9 +72801,9 @@ Pu
 EV
 EV
 EV
-Pu
-Pu
-Pu
+uo
+YV
+Od
 Pu
 Pu
 Pu
@@ -74521,10 +74553,10 @@ Pu
 Pu
 Pu
 Pu
-uP
+Vc
 uo
 sp
-uo
+ou
 Pu
 Pu
 vk
@@ -75780,7 +75812,7 @@ Pu
 Pu
 Pu
 Pu
-uo
+ou
 sp
 Pu
 Pu
@@ -79507,7 +79539,7 @@ Gj
 Pu
 Pu
 Pu
-uo
+BW
 Pu
 Iy
 oX
@@ -79758,8 +79790,8 @@ Gj
 Gj
 Pu
 Pu
-uo
-uo
+Ev
+BW
 Pu
 Iy
 Iy
@@ -80009,9 +80041,9 @@ Gj
 Gj
 Gj
 Pu
-uo
-uo
-uo
+BW
+BW
+BW
 Pu
 Pu
 Iy
@@ -80261,9 +80293,9 @@ Gj
 Gj
 Gj
 Pu
-uo
-uo
-uo
+BW
+BW
+BW
 uo
 Pu
 Iy
@@ -80513,9 +80545,9 @@ Gj
 Gj
 Gj
 Pu
-uo
-uo
-uo
+BW
+BW
+BW
 uo
 Pu
 Iy
@@ -80765,9 +80797,9 @@ Gj
 Gj
 Gj
 Pu
-uo
-uo
-uo
+BW
+BW
+BW
 xq
 Pu
 Iy
@@ -81017,13 +81049,13 @@ Gj
 Gj
 Gj
 Pu
-uo
-uo
-uo
+BW
+BW
+BW
 xq
 Pu
 Pu
-Iy
+up
 Iy
 Iy
 lD
@@ -81269,9 +81301,9 @@ Gj
 Gj
 Gj
 Pu
-uo
-uo
-uo
+BW
+BW
+BW
 xq
 xq
 Pu
@@ -81521,9 +81553,9 @@ Gj
 Gj
 Gj
 Pu
-uo
-uo
-uo
+BW
+BW
+BW
 xq
 xq
 Pu
@@ -81773,16 +81805,16 @@ Gj
 Gj
 Gj
 Pu
-uo
-uo
-uo
+Ev
+BW
+BW
 xq
 xq
 xq
 Pu
 Pu
 Iy
-Iy
+ix
 ix
 Mo
 Mo
@@ -82025,16 +82057,16 @@ CB
 Gj
 Gj
 Pu
-uo
-uo
-uo
+BW
+BW
+BW
 xq
 Pu
 Pu
 Pu
 Pu
 Pu
-Iy
+ix
 ix
 ix
 Mo
@@ -82277,16 +82309,16 @@ qL
 Gj
 Gj
 Pu
-uo
-uo
-uo
+BW
+BW
+BW
 Pu
 Pu
 Pu
 Pu
-uo
-uo
-Iy
+BW
+BW
+ix
 ix
 NL
 Mo
@@ -82529,15 +82561,15 @@ qL
 Gj
 Gj
 Pu
-uo
-uo
-uo
-uo
-uo
-uo
-uo
-uo
-uo
+BW
+BW
+BW
+BW
+BW
+BW
+BW
+BW
+BW
 Tr
 NL
 ix
@@ -82781,15 +82813,15 @@ qL
 Gj
 Gj
 Pu
-uo
-uo
-uo
-uo
-uo
-uo
-uo
-uo
-uo
+BW
+BW
+BW
+BW
+BW
+BW
+BW
+BW
+BW
 Tr
 NL
 ix
@@ -83033,16 +83065,16 @@ qL
 Gj
 Gj
 Pu
-uo
-uo
-uo
-uo
-uo
-uo
-uo
-uo
-uo
-VU
+BW
+BW
+BW
+BW
+BW
+BW
+BW
+BW
+BW
+Tr
 Tr
 ix
 Iy
@@ -83286,15 +83318,15 @@ Gj
 Gj
 Pu
 Pu
-uo
-uo
-uo
-uo
-uo
-uo
-uo
-uo
-VU
+BW
+BW
+BW
+Ev
+BW
+BW
+BW
+BW
+Tr
 Tr
 ix
 ix
@@ -83539,11 +83571,11 @@ Gj
 Pu
 Pu
 Pu
-uo
-uo
-uo
-uo
-uo
+BW
+BW
+BW
+BW
+BW
 Pu
 Pu
 Pu
@@ -85061,7 +85093,7 @@ Pu
 Pu
 Pu
 Pu
-Iy
+up
 Iy
 oX
 oX
@@ -130494,7 +130526,7 @@ IW
 IW
 XS
 XS
-IW
+FX
 yc
 yc
 At
