@@ -5806,7 +5806,7 @@
 /obj/machinery/alarm/west,
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/random/dirt_75,
-/obj/structure/janitorialcart/full{
+/obj/structure/cart/storage/janitorialcart/full{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
