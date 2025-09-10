@@ -10110,7 +10110,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/northhall)
 "WM" = (
-/obj/structure/janitorialcart/full/water{
+/obj/structure/cart/storage/janitorialcart/full/water{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,

@@ -72,7 +72,8 @@
 /obj/structure/sign/double/barsign/marketsign
 	icon = 'icons/obj/marketsigns.dmi'
 	icon_state = "off"
-	req_access = list(ACCESS_CARGO, ACCESS_JANITOR, ACCESS_ROBOTICS, ACCESS_MINING, ACCESS_PARAMEDIC, ACCESS_HYDROPONICS, ACCESS_BAR, ACCESS_KITCHEN, ACCESS_LIBRARY)
+	req_access = null
+	req_one_access = list(ACCESS_CARGO, ACCESS_JANITOR, ACCESS_ROBOTICS, ACCESS_MINING, ACCESS_PARAMEDIC, ACCESS_HYDROPONICS, ACCESS_KITCHEN, ACCESS_LIBRARY)
 	choice_types = /singleton/sign/double/market
 
 /obj/structure/sign/double/barsign/marketsign/set_sign()
