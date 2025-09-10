@@ -317,9 +317,6 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/obj/machinery/power/apc/north{
-	req_access = list(220)
-	},
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/trove/vault)
@@ -1066,7 +1063,6 @@
 /turf/simulated/floor/exoplanet/barren,
 /area/trove/beach)
 "fJ" = (
-/obj/machinery/power/smes/buildable/third_party_shuttle,
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
@@ -1079,6 +1075,7 @@
 	},
 /obj/machinery/alarm/east,
 /obj/random/dirt_75,
+/obj/machinery/power/smes/buildable/horizon_shuttle,
 /turf/simulated/floor/tiled/dark,
 /area/trove/vault)
 "fK" = (
@@ -1702,9 +1699,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/trove/vault)
 "jh" = (
-/obj/machinery/porta_turret{
-	req_one_access = list(229, 217)
-	},
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/light/small{
 	dir = 8
@@ -2749,10 +2743,6 @@
 	icon_state = "0-2"
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
-/obj/machinery/power/apc/north{
-	req_access = null;
-	req_one_access = list(229, 217)
-	},
 /obj/machinery/light/small{
 	dir = 8;
 	must_start_working = 1
@@ -3697,10 +3687,6 @@
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
 	},
-/obj/machinery/power/apc/east{
-	req_access = null;
-	req_one_access = list(221,222)
-	},
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
@@ -3911,10 +3897,6 @@
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "wt" = (
-/obj/machinery/power/apc/west{
-	req_access = null;
-	req_one_access = list(229, 217)
-	},
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
@@ -4643,18 +4625,6 @@
 /turf/simulated/floor/exoplanet/grass/moghes,
 /area/trove/beach)
 "By" = (
-/obj/machinery/porta_turret{
-	req_one_access = list(229, 217)
-	},
-/obj/machinery/turretid{
-	dir = 1;
-	pixel_y = -26;
-	req_access = null;
-	req_one_access = list(229, 217);
-	check_arrest = 0;
-	check_records = 0;
-	check_wildlife = 0
-	},
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/light/small{
 	dir = 4
@@ -6025,9 +5995,6 @@
 	name = "Fuel Tank to Thrusters"
 	},
 /obj/structure/bed/handrail,
-/obj/structure/fuel_port/phoron/scc{
-	pixel_y = 24
-	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/trove/vault)
@@ -6704,9 +6671,6 @@
 /area/trove/vault)
 "MW" = (
 /obj/structure/cable,
-/obj/machinery/power/apc/south{
-	req_access = list(220)
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -7268,9 +7232,6 @@
 "Pv" = (
 /obj/structure/cable{
 	icon_state = "0-2"
-	},
-/obj/machinery/power/apc/super/west{
-	req_access = list(220)
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
