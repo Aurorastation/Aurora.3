@@ -1753,6 +1753,11 @@
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/coalition,
 /area/trove/vault)
+"jG" = (
+/obj/random/dirt_75,
+/obj/structure/largecrate/animal/moghes/warmount,
+/turf/simulated/floor/exoplanet/plating/asteroid,
+/area/trove/vault)
 "jH" = (
 /obj/random/contraband/pillbottle,
 /obj/random/dirt_75,
@@ -3301,7 +3306,6 @@
 /area/trove/beach)
 "sg" = (
 /obj/random/dirt_75,
-/mob/living/simple_animal/schlorrgo/cybernetic,
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/simulated/floor/exoplanet/asphalt,
 /area/trove/vault)
@@ -3339,7 +3343,6 @@
 	req_access = list(110);
 	dir = 1
 	},
-/mob/living/simple_animal/schlorrgo/baby,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/barren,
 /area/trove/vault)
@@ -5476,11 +5479,6 @@
 "Gj" = (
 /turf/unsimulated/mineral/konyang,
 /area/space)
-"Gk" = (
-/obj/random/dirt_75,
-/obj/random/animal_crate,
-/turf/simulated/floor/exoplanet/plating/asteroid,
-/area/trove/vault)
 "Gm" = (
 /obj/random/dirt_75,
 /obj/structure/platform,
@@ -5814,6 +5812,11 @@
 /obj/item/material/caltrops,
 /turf/simulated/floor/exoplanet/asphalt,
 /area/trove/beach)
+"HT" = (
+/obj/random/dirt_75,
+/obj/structure/largecrate/animal/shark,
+/turf/simulated/floor/exoplanet/plating/asteroid,
+/area/trove/vault)
 "HU" = (
 /obj/item/toy/comic/stormman,
 /obj/random/dirt_75,
@@ -6432,8 +6435,8 @@
 /turf/simulated/floor/wood/mahogany,
 /area/trove/vault)
 "LJ" = (
-/obj/random/animal_crate,
 /obj/random/dirt_75,
+/obj/structure/largecrate/animal/adhomai/harron,
 /turf/simulated/floor/exoplanet/plating/asteroid,
 /area/trove/vault)
 "LK" = (
@@ -6533,8 +6536,8 @@
 /turf/simulated/floor/exoplanet/dirt_konyang/sand,
 /area/trove/beach)
 "LX" = (
-/obj/random/animal_crate,
 /obj/random/dirt_75,
+/obj/structure/largecrate/animal/adhomai/schlorrgo,
 /turf/simulated/floor/exoplanet/marble/dark,
 /area/trove/vault)
 "LY" = (
@@ -8513,11 +8516,6 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/closet/crate/loot,
 /turf/simulated/floor/exoplanet/barren,
-/area/trove/vault)
-"WQ" = (
-/obj/random/animal_crate,
-/obj/random/dirt_75,
-/turf/simulated/floor/wood/mahogany,
 /area/trove/vault)
 "WS" = (
 /obj/structure/flora/ausbushes/sparsegrass,
@@ -29745,7 +29743,7 @@ fF
 fF
 fF
 LX
-LX
+eZ
 fF
 fF
 fF
@@ -29995,7 +29993,7 @@ tT
 tT
 CJ
 ac
-LJ
+lt
 ap
 lt
 lt
@@ -30247,8 +30245,8 @@ tT
 tT
 CJ
 ac
+HT
 lt
-LJ
 lt
 lt
 Rc
@@ -30501,7 +30499,7 @@ PR
 fd
 lt
 lt
-LJ
+lt
 lt
 Zc
 LL
@@ -31257,7 +31255,7 @@ gv
 rl
 lt
 lt
-lt
+jG
 lt
 FW
 wL
@@ -31508,7 +31506,7 @@ tT
 qu
 bi
 lt
-LJ
+lt
 lt
 lt
 Ie
@@ -31761,7 +31759,7 @@ fU
 bi
 lt
 lt
-LJ
+lt
 lt
 Ie
 An
@@ -33272,7 +33270,7 @@ lt
 eo
 sE
 lt
-WQ
+Li
 lt
 lt
 cF
@@ -33777,7 +33775,7 @@ ss
 Mr
 lt
 lt
-LJ
+lt
 lt
 Qq
 Vr
@@ -34028,7 +34026,7 @@ tT
 tT
 FC
 Li
-Gk
+lt
 Li
 kx
 kx
