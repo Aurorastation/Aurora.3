@@ -1130,8 +1130,8 @@
 	name = "\improper Burzsian engineering voidsuit"
 	desc = "Initially designed by the native star-people of Burzsia and later incorporated as an official voidsuit for Hephaestus Industries' Burzsian workers and IPCs, the HI-L82 'Panoply' is both sturdy and accommodating to the off-worlder form."
 	icon = 'icons/obj/clothing/voidsuit/coalition.dmi'
-	icon_state = "burzsia_suit"
-	item_state = "burzsia_suit"
+	icon_state = "burzsia_voidsuit"
+	item_state = "burzsia_voidsuit"
 	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
 
 /obj/item/clothing/head/helmet/space/void/engineering/burzsia
