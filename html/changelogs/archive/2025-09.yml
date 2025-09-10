@@ -107,3 +107,15 @@
       one.
   TheGreyWolf:
   - bugfix: Fixed all apc/west being missing on the map.
+2025-09-10:
+  KingOfThePing:
+  - imageadd: Updated girders to work better with the 3/4th walls.
+  - imageadd: Updated safe.dmi to not use sprites from the stone age anymore.
+  - bugfix: Fixes the faulty access restrictions to the commissary sign.
+  MattAtlas:
+  - bugfix: Fixes people getting lit on fire despite not having firestacks.
+  - experiment: The movement delay placed on a mob after taking things out of objects
+      in containers has been removed.
+  - rscadd: Skrell are no longer restricted to they/them pronouns.
+  TheGreyWolf:
+  - bugfix: Fixed the colorable amohdan cloak lacking an object sprite.
