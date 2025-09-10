@@ -6015,10 +6015,6 @@
 /turf/simulated/floor/exoplanet/asphalt,
 /area/trove/tunnels)
 "IT" = (
-/obj/machinery/power/apc/west{
-	req_access = null;
-	req_one_access = list(229, 217)
-	},
 /obj/structure/cable,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
