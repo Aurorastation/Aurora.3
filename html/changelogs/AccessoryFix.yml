@@ -1,6 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - bugfix: "Make the chaps, kneepads and suspenders able to be equipped on uniforms, instead of only on pants."
