@@ -351,6 +351,12 @@
 
 // ++++ROCKDTBEN++++ MOB PROCS //END
 
+/**
+ * Checks the carbon's get_heat_protection (bitflags of covered areas). The maximum temp increase per tick is BODYTEMP_HEATING_MAX, so it
+ * compares how
+ * Limited per tick by BODYTEMP_HEATING_MAX.
+ * Only uses exposed_temperature param.
+ */
 /mob/living/carbon/fire_act(exposed_temperature, exposed_volume)
 	..()
 	var/temp_inc = max(min(BODYTEMP_HEATING_MAX*(1-get_heat_protection()), exposed_temperature - bodytemperature), 0)
@@ -501,8 +507,6 @@
 
 /mob/living/carbon/proc/can_feel_pain()
 	if (species && (species.flags & NO_PAIN))
-		return FALSE
-	if (is_berserk())
 		return FALSE
 	if ((mutations & HULK))
 		return FALSE

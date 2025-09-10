@@ -616,14 +616,21 @@
 		'sound/weapons/reloads/pistol_metal_slide3.ogg',
 		'sound/weapons/reloads/pistol_metal_slide4.ogg',
 		'sound/weapons/reloads/pistol_metal_slide5.ogg',
-		'sound/weapons/reloads/pistol_metal_slide6.ogg'
+		'sound/weapons/reloads/pistol_metal_slide6.ogg',
+		'sound/weapons/reloads/pistol_metal_slide7.ogg',
+		'sound/weapons/reloads/pistol_metal_slide8.ogg',
+		'sound/weapons/reloads/pistol_metal_slide9.ogg',
+		'sound/weapons/reloads/pistol_metal_slide10.ogg',
+		'sound/weapons/reloads/pistol_metal_slide11.ogg'
 	)
 
 /singleton/sound_category/polymer_slide_reload
 	sounds = list(
 		'sound/weapons/reloads/pistol_polymer_slide1.ogg',
 		'sound/weapons/reloads/pistol_polymer_slide2.ogg',
-		'sound/weapons/reloads/pistol_polymer_slide3.ogg'
+		'sound/weapons/reloads/pistol_polymer_slide3.ogg',
+		'sound/weapons/reloads/pistol_polymer_slide4.ogg',
+		'sound/weapons/reloads/pistol_polymer_slide5.ogg'
 	)
 
 /singleton/sound_category/rifle_slide_reload
@@ -636,7 +643,10 @@
 		'sound/weapons/reloads/rifle_slide6.ogg',
 		'sound/weapons/reloads/rifle_slide7.ogg',
 		'sound/weapons/reloads/rifle_slide8.ogg',
-		'sound/weapons/reloads/rifle_slide9.ogg'
+		'sound/weapons/reloads/rifle_slide9.ogg',
+		'sound/weapons/reloads/rifle_slide10.ogg',
+		'sound/weapons/reloads/rifle_slide11.ogg',
+		'sound/weapons/reloads/rifle_slide12.ogg'
 	)
 
 /singleton/sound_category/revolver_reload
@@ -649,7 +659,9 @@
 		'sound/weapons/reloads/shotgun_pump3.ogg',
 		'sound/weapons/reloads/shotgun_pump4.ogg',
 		'sound/weapons/reloads/shotgun_pump5.ogg',
-		'sound/weapons/reloads/shotgun_pump6.ogg'
+		'sound/weapons/reloads/shotgun_pump6.ogg',
+		'sound/weapons/reloads/shotgun_pump7.ogg',
+		'sound/weapons/reloads/shotgun_pump8.ogg'
 	)
 
 /singleton/sound_category/shotgun_reload

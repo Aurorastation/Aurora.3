@@ -1,0 +1,6 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - rscadd: "Added a new Nonlethal variant of the mech submachine gun."
+  - rscadd: "Split mech-mounted KAs into Standard and Heavy KAs. Heavy KAs work like the original mining mechs, with a 9 tile blast radius. Standard mech KAs are for more precise work with a 1 tile blast radius. Standard mech KAs are a lot cheaper."
+  - rscadd: "Added four new cross-department cooperation 'Finds' for Xenoarcheology. This changelog won't spoil the surprise of what they are, find out in game!"

@@ -11176,7 +11176,7 @@
 /obj/machinery/alarm/south{
 	req_one_access = list(204)
 	},
-/obj/structure/janitorialcart{
+/obj/structure/cart/storage/janitorialcart{
 	dir = 4
 	},
 /obj/item/reagent_containers/glass/bucket,

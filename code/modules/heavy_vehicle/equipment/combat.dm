@@ -45,6 +45,12 @@
 	icon_state = "mecha_ballistic"
 	holding_type = /obj/item/gun/energy/mountedsmg/mech
 
+/obj/item/mecha_equipment/mounted_system/combat/smg_ltl
+	name = "mounted riot submachinegun"
+	desc = "An exosuit-mounted automatic weapon that has been modified to fire rubber ammunition for riot control. Handle with care."
+	icon_state = "mecha_ballistic_ltl"
+	holding_type = /obj/item/gun/energy/mountedsmg/mech
+
 /obj/item/mecha_equipment/mounted_system/combat/smg/attack_self(mob/user)
 	if(owner && istype(holding, /obj/item/gun/energy/mountedsmg/mech))
 		var/obj/item/gun/energy/mountedsmg/mech/R = holding
