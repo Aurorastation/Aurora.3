@@ -17,7 +17,7 @@
 		"submaps_dmm": "treasure_trove_submaps.dmm",
 		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/treasure_trove/hallways",
 		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/treasure_trove/hallways",
-		"submaps_can_repeat": false
+		"submaps_can_repeat": true
 	},
 	{
 		"type": "SubmapExtractInsert",
@@ -33,7 +33,7 @@
 		"type": "SubmapExtractInsert",
 		"submap_size_x": 19,
 		"submap_size_y": 12,
-		"submap_size_z": 1,
+		"submap_size_z": 2,
 		"submaps_dmm": "treasure_trove_submaps.dmm",
 		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/treasure_trove/stairs",
 		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/treasure_trove/stairs",

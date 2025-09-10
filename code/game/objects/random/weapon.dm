@@ -254,6 +254,4 @@
 	spawnlist = list(
 		/obj/item/landmine/frag/deployed,
 		/obj/item/landmine/emp/deployed,
-		/obj/item/landmine/n2o/deployed,
-		/obj/item/landmine/phoron/deployed,
 	)

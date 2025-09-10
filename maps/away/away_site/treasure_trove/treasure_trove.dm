@@ -51,3 +51,34 @@
 	info = "\
 		You went the wrong way.\
 		"
+
+/obj/item/paper/fluff/treasure_trove/warning
+	name = "final warning"
+	desc = "A warning to any who come here."
+	info = "\
+		So you made it through and found my loot? Enjoy the rest, but what's in here is mine."
+
+
+/obj/item/paper/fluff/treasure_trove/survivor
+	name = "journal page"
+	desc = "A single page remaining from a survivor's journal."
+	info = "\
+		I'm going to die here. This place is a death trap.<br>\
+		We buried Rena, Markus, and the unathi but pretty quick something came<br>\
+		and started digging them up. Staying away from the jungle.<br>\
+		<br>\
+		Alsir and Jena are intent on going into the caves. I told them no.\
+		I'm not looking to die but it seems like this place is\
+		hungry for blood anyway.\
+		<br>\
+		They went into the caves two days ago.\
+		They haven't come back.\
+		<br>\
+		Nearly got carried away by a riptide. Even the water is trying to\
+		kill me.\
+		<br>\
+		Found what seems to be an old prospecting setup, but\
+		it's too close to the jungle. I think something\
+		caught my scent. It always feels like something is\
+		watching me... waiting.\
+		"
