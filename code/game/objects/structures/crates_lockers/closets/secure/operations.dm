@@ -93,7 +93,6 @@
 	new /obj/item/key/minecarts(src)
 	new /obj/item/device/gps/mining(src)
 	new /obj/item/book/manual/ka_custom(src)
-	new /obj/item/clothing/accessory/storage/overalls/mining(src)
 	new /obj/item/device/radio(src)
 	new /obj/item/device/flashlight/lantern(src)
 	new /obj/item/sleeping_bag/mining(src)

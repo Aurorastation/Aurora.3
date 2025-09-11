@@ -59,6 +59,7 @@
 		/obj/item/clothing/head/wool/heph = 4,
 		/obj/item/clothing/head/wool/zavod = 2,
 		/obj/item/clothing/head/wool/zavod/alt = 2,
+		/obj/item/clothing/accessory/storage/overalls/engineer = 4,
 		/obj/item/clothing/pants/highvis = 5,
 		/obj/item/clothing/pants/highvis_alt = 5,
 		/obj/item/clothing/pants/highvis_orange = 5,
@@ -138,6 +139,7 @@
 		/obj/item/clothing/head/wool/heph = 4,
 		/obj/item/clothing/head/wool/zavod = 2,
 		/obj/item/clothing/head/wool/zavod/alt = 2,
+		/obj/item/clothing/accessory/storage/overalls/engineer = 3,
 		/obj/item/clothing/shoes/sneakers/orange = 4,
 		/obj/item/clothing/shoes/workboots/dark = 4,
 		/obj/item/clothing/shoes/workboots/toeless = 2,
@@ -522,6 +524,8 @@
 		/obj/item/clothing/head/wool/nt = 3,
 		/obj/item/clothing/head/wool/orion = 3,
 		/obj/item/clothing/head/wool/orion/alt = 3,
+		/obj/item/clothing/accessory/apron/blue = 3,
+		/obj/item/clothing/accessory/overalls/blue = 3,
 		/obj/item/storage/backpack/hydroponics = 5,
 		/obj/item/storage/backpack/idris = 2,
 		/obj/item/storage/backpack/nt = 2,
@@ -576,7 +580,8 @@
 		/obj/item/clothing/suit/cultrobes/alt = 2,
 		/obj/item/clothing/head/culthood/alt = 2,
 		/obj/item/clothing/shoes/cult = 2,
-		/obj/item/clothing/head/tajaran/raskara = 2
+		/obj/item/clothing/head/tajaran/raskara = 2,
+		/obj/item/clothing/suit/storage/tajaran/raskara = 2
 	)
 	premium = list(
 		/obj/item/toy/figure/chaplain = 3
@@ -680,6 +685,9 @@
 		/obj/item/clothing/under/rank/medical/pmc/alt = 3,
 		/obj/item/clothing/under/rank/medical/pmc/nexus = 3,
 		/obj/item/clothing/under/rank/medical/zeng = 3,
+		/obj/item/clothing/under/rank/medical/paramedic = 2,
+		/obj/item/clothing/under/rank/medical/paramedic/zeng = 2,
+		/obj/item/clothing/under/rank/medical/paramedic/pmc = 2,
 		/obj/item/clothing/under/rank/medical/paramedic/pmc/alt = 2,
 		/obj/item/clothing/under/rank/medical/paramedic/pmc/epmc = 2,
 		/obj/item/clothing/under/rank/medical/paramedic/pmc/nexus = 2,
@@ -741,6 +749,7 @@
 		/obj/item/clothing/shoes/sneakers/medsci = 6,
 		/obj/item/clothing/shoes/sneakers/medsci/pmc = 4,
 		/obj/item/clothing/shoes/sneakers/medsci/zeng = 4,
+		/obj/item/clothing/shoes/jackboots = 4,
 		/obj/item/storage/backpack/medic = 8,
 		/obj/item/storage/backpack/emt = 4,
 		/obj/item/storage/backpack/psychiatrist = 2,
@@ -866,6 +875,7 @@
 		/obj/item/clothing/head/wool/orion = 4,
 		/obj/item/clothing/head/hardhat/orange = 4,
 		/obj/item/clothing/accessory/poncho/roles/cargo = 4,
+		/obj/item/clothing/accessory/storage/overalls/mining = 4,
 		/obj/item/clothing/glasses/safety/goggles = 3,
 		/obj/item/clothing/gloves/black = 3,
 		/obj/item/clothing/gloves/yellow = 3,

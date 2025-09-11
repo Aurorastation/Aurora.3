@@ -5,11 +5,6 @@
 
 /obj/structure/closet/secure_closet/hydroponics/fill()
 	..()
-	switch(rand(1,2))
-		if(1)
-			new /obj/item/clothing/accessory/apron/blue(src)
-		if(2)
-			new /obj/item/clothing/accessory/overalls/blue(src)
 	new /obj/item/storage/bag/plants(src)
 	new /obj/item/device/analyzer/plant_analyzer(src)
 	new /obj/item/device/radio/headset/headset_service(src)
