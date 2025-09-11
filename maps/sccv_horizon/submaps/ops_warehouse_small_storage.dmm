@@ -296,7 +296,7 @@
 /turf/template_noop,
 /area/template_noop)
 "hs" = (
-/obj/structure/janitorialcart,
+/obj/structure/cart/storage/janitorialcart,
 /turf/template_noop,
 /area/template_noop)
 "ht" = (
@@ -1529,7 +1529,7 @@
 /turf/template_noop,
 /area/template_noop)
 "NJ" = (
-/obj/structure/janitorialcart/full,
+/obj/structure/cart/storage/janitorialcart/full,
 /turf/template_noop,
 /area/template_noop)
 "NR" = (

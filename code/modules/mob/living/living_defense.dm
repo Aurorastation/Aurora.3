@@ -372,7 +372,7 @@
 	if(fire_stacks_to_add)
 		adjust_fire_stacks(fire_stacks_to_add)
 
-	if(fire_stacks >= 0 && !on_fire)
+	if(fire_stacks > 0 && !on_fire)
 		// Sanity check
 		fire_stacks_temperature = 0
 		set_on_fire()

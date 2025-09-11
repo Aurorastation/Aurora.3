@@ -3588,7 +3588,7 @@
 /turf/simulated/floor,
 /area/himeo_patrol_ship/generator)
 "oN" = (
-/obj/structure/janitorialcart/full/water{
+/obj/structure/cart/storage/janitorialcart/full/water{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/custodial,
