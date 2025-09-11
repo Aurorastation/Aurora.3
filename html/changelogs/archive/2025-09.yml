@@ -119,3 +119,33 @@
   - rscadd: Skrell are no longer restricted to they/them pronouns.
   TheGreyWolf:
   - bugfix: Fixed the colorable amohdan cloak lacking an object sprite.
+2025-09-11:
+  ASmallCuteCat:
+  - rscadd: You can now pick up snakes and let them sit on your shoulders. They can
+      occupy the LEFT EAR or RIGHT EAR slots.
+  - imageadd: Added sprites for held and equipped snakes.
+  Crozarius:
+  - qol: Changes the text on the slot machine to reflect the new updated price of
+      a spin.
+  Fyni:
+  - rscadd: Adds a Zhurong flag and large flag, available in the loadout.
+  - rscadd: Removes Kazhkz and Han'san flags from loadout, per request of unathi lore
+  - rscadd: Change the Kazhkz and Han'san flags descriptions to be in line with new
+      Unathi in Dominia lore, in case they are still present on maps or spawn as random
+      loot.
+  - rscadd: Changes the Diona imperial flag to remove all references to diona, in
+      case they are still present on maps or spawn as random loot.
+  Hellfirejag:
+  - rscadd: Added a new Nonlethal variant of the mech submachine gun.
+  - rscadd: Split mech-mounted KAs into Standard and Heavy KAs. Heavy KAs work like
+      the original mining mechs, with a 9 tile blast radius. Standard mech KAs are
+      for more precise work with a 1 tile blast radius. Standard mech KAs are a lot
+      cheaper.
+  - rscadd: Added four new cross-department cooperation 'Finds' for Xenoarcheology.
+      This changelog won't spoil the surprise of what they are, find out in game!
+  KingOfThePing:
+  - imageadd: Resprited the emitter because the current sprite was very old.
+  TheGreyWolf & Tomixcomics:
+  - rscadd: Added a parcel cart to the operations mail room. It can carry up to 17
+      handheld packages regardless of size.
+  - bugfix: Fixed the engineering cart giving plasteel when taken apart.
