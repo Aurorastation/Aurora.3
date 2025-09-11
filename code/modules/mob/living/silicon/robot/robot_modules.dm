@@ -1365,3 +1365,186 @@ GLOBAL_LIST_INIT(robot_modules, list(
 	var/obj/item/melee/baton/robot/B = locate() in modules
 	if(B?.bcell)
 		B.bcell.give(amount)
+
+//
+//I am lazily tacking on the event stuff here in 1 file, so its easier to track
+//
+
+/mob/living/silicon/robot/hivebot
+	mod_type = "Advanced Hivebot"
+	cell_type = /obj/item/cell/infinite
+	law_preset = /datum/ai_laws/conglomerate/malfunction
+	scrambled_codes = TRUE
+	law_update = FALSE
+	overclocked = TRUE
+	has_jetpack = TRUE
+	braintype = "Robot"
+
+/mob/living/silicon/robot/hivebot/Initialize()
+	. = ..()
+	var/datum/robot_component/C = components["surge"]
+	C.installed = TRUE
+	C.wrapped = new C.external_type
+	setup_icon_cache()
+
+/mob/living/silicon/robot/hivebot/rocket
+	spawn_module = /obj/item/robot_module/hivebot/rocket
+
+/mob/living/silicon/robot/hivebot/plasma
+	spawn_module = /obj/item/robot_module/hivebot/plasma
+
+/mob/living/silicon/robot/hivebot/sentry
+	spawn_module = /obj/item/robot_module/hivebot/sentry
+
+/obj/item/robot_module/hivebot
+	name = "Hivebot module"
+	languages = list(
+		LANGUAGE_HIVEBOT =  TRUE
+	)
+	channels = list(
+		CHANNEL_SERVICE =       TRUE,
+		CHANNEL_SUPPLY =        TRUE,
+		CHANNEL_SCIENCE =       TRUE,
+		CHANNEL_SECURITY =      TRUE,
+		CHANNEL_ENGINEERING =   TRUE,
+		CHANNEL_MEDICAL =       TRUE,
+		CHANNEL_COMMAND =       TRUE,
+		CHANNEL_RESPONSE_TEAM = TRUE,
+		CHANNEL_AI_PRIVATE =    TRUE
+	)
+	no_slip = TRUE
+	all_access = TRUE
+	can_be_pushed = FALSE
+
+	sprites = list()
+
+/obj/item/robot_module/hivebot/rocket
+	sprites = list(
+		"Rocketcarrier" = list(ROBOT_CHASSIS = "rocket", ROBOT_PANEL = "hunter_seeker", ROBOT_EYES = "rocket")
+		)
+
+/obj/item/robot_module/hivebot/rocket/Initialize(mapload, mob/living/silicon/robot/R)
+	. = ..()
+
+	modules += new /obj/item/device/analyzer(src)
+	modules += new /obj/item/borg/sight/thermal(src)
+	modules += new /obj/item/gun/energy/pulse/mounted/hivebotevent/rocket(src)
+	modules += new /obj/item/tank/jetpack/carbondioxide(src)
+	modules += new /obj/item/robot_teleporter(src)
+
+/obj/item/robot_module/hivebot/plasma
+	sprites = list(
+		"Plasma-projector" = list(ROBOT_CHASSIS = "plasma", ROBOT_PANEL = "hunter_seeker", ROBOT_EYES = "plasma")
+		)
+
+/obj/item/robot_module/hivebot/plasma/Initialize(mapload, mob/living/silicon/robot/R)
+	. = ..()
+	modules += new /obj/item/device/analyzer(src)
+	modules += new /obj/item/borg/sight/thermal(src)
+	modules += new /obj/item/gun/energy/pulse/mounted/hivebotevent/plasma(src)
+	modules += new /obj/item/tank/jetpack/carbondioxide(src)
+	modules += new /obj/item/robot_teleporter(src)
+
+/obj/item/robot_module/hivebot/sentry
+	sprites = list(
+		"Rocketcarrier" = list(ROBOT_CHASSIS = "rocket", ROBOT_PANEL = "hunter_seeker", ROBOT_EYES = "rocket")
+		)
+
+/obj/item/robot_module/hivebot/sentry/Initialize(mapload, mob/living/silicon/robot/R) //boss mob
+	. = ..()
+	modules += new /obj/item/device/analyzer(src)
+	modules += new /obj/item/borg/sight/thermal(src)
+	modules += new /obj/item/gun/energy/pulse/mounted/hivebotevent/rocket/sentry(src)
+	modules += new /obj/item/tank/jetpack/carbondioxide(src)
+	modules += new /obj/item/melee/energy/sword/green(src)
+	modules += new /obj/item/robot_teleporter(src)
+	modules += new /obj/item/gun/launcher/grenade/cyborg/hbsmoke(src)
+	modules += new /obj/item/melee/hammer/powered/hivebotevent(src)
+
+	pixel_x = -80
+	pixel_y = -40
+
+/obj/item/gun/energy/pulse/mounted/hivebotevent
+	icon = 'icons/obj/guns/bfg.dmi'
+	icon_state = "bfg"
+	item_state = "bfg"
+
+	fire_delay = 10
+	charge_cost = 400
+	self_recharge = 1
+	use_external_power = 1
+	recharge_time = 10
+
+/obj/item/gun/energy/pulse/mounted/hivebotevent/rocket
+	name = "mounted rocket launcher and spikethrower"
+
+	firemodes = list(
+		list(mode_name="Rocket (Low Power) - Acceptable Targets: Anyone", projectile_type = /obj/projectile/bullet/peac, fire_sound='sound/weapons/rocketlaunch.ogg'),
+		list(mode_name="Rocket (Fragmentation) - Acceptable Targets: Armoured", projectile_type = /obj/projectile/bullet/peac/shrapnel, fire_sound='sound/weapons/rocketlaunch.ogg', fire_delay = 50),
+		list(mode_name="Spikethrower - Acceptable Targets: Anyone", projectile_type = /obj/projectile/bullet/pistol/hivebotspike, fire_sound='sound/weapons/gunshot/gunshot_suppressed.ogg', fire_delay = 1),
+		list(mode_name="Spikethrower (Extra Sharp) - Acceptable Targets: Armoured", projectile_type = /obj/projectile/bullet/pistol/hivebotspike/spikier, fire_sound='sound/weapons/gunshot/gunshot_suppressed.ogg', fire_delay = 20)
+		)
+
+/obj/item/gun/energy/pulse/mounted/hivebotevent/plasma
+	name = "integrated plasma furnace and spikethrower"
+	firemodes = list(
+		list(mode_name="Plasma (Lethal) - Acceptable Targets: Armoured", projectile_type = /obj/projectile/beam/plasmacutter/plasma_lethal, fire_sound='sound/weapons/plasma_cutter.ogg'),
+		list(mode_name="Plasma (Extra Lethal) - Acceptable Targets: Heavily Armoured", projectile_type = /obj/projectile/beam/plasmacutter/plasma_extralethal, fire_sound='sound/weapons/plasma_cutter.ogg', charge_cost = 1200, fire_delay = 50),
+		list(mode_name="Spikethrower - Acceptable Targets: Anyone", projectile_type = /obj/projectile/bullet/pistol/hivebotspike, fire_sound='sound/weapons/gunshot/gunshot_suppressed.ogg', fire_delay = 1),
+		list(mode_name="Spikethrower (Extra Sharp) - Acceptable Targets: Armoured", projectile_type = /obj/projectile/bullet/pistol/hivebotspike/spikier, fire_sound='sound/weapons/gunshot/gunshot_suppressed.ogg', fire_delay = 20)
+		)
+
+/obj/projectile/bullet/pistol/hivebotspike/spikier
+	damage = 20
+	embed = 1
+
+/obj/projectile/beam/plasmacutter/plasma_lethal
+	damage = 30
+	maim_rate = 2
+	armor_penetration = 15
+	penetrating = 3
+
+/obj/projectile/beam/plasmacutter/plasma_extralethal
+	damage = 35
+	maim_rate = 4
+	armor_penetration = 20
+	penetrating = 3
+	incinerate = 8
+
+/obj/item/gun/energy/pulse/mounted/hivebotevent/rocket/sentry //not open to volunteers (boss mob played by Kermit), thus the beefier arsenal
+	name = "mounted rocket launcher and plasma ray"
+	charge_cost = 1
+	firemodes = list(
+		list(mode_name="Rocket (Low Power) - Acceptable Targets: Anyone", projectile_type = /obj/projectile/bullet/peac, fire_sound='sound/weapons/rocketlaunch.ogg'),
+		list(mode_name="Rocket (Fragmentation) - Acceptable Targets: Armoured", projectile_type = /obj/projectile/bullet/peac/shrapnel, fire_sound='sound/weapons/rocketlaunch.ogg', fire_delay = 50),
+		list(mode_name="Spikethrower (Extra Sharp) - Acceptable Targets: Armoured", projectile_type = /obj/projectile/bullet/pistol/hivebotspike/spikier, fire_sound='sound/weapons/gunshot/gunshot_suppressed.ogg'),
+		list(mode_name="Plasma (Extra Lethal) - Acceptable Targets: Heavily Armoured", projectile_type = /obj/projectile/beam/plasmacutter/plasma_extralethal, fire_sound='sound/weapons/plasma_cutter.ogg', fire_delay = 50),
+		)
+
+/obj/item/gun/launcher/grenade/cyborg/hbsmoke/Initialize()
+	. = ..()
+
+	grenades = list(
+		new /obj/item/grenade/smokebomb(src),
+		new /obj/item/grenade/smokebomb(src),
+		new /obj/item/grenade/smokebomb(src),
+		new /obj/item/grenade/smokebomb(src),
+		new /obj/item/grenade/smokebomb(src),
+		new /obj/item/grenade/smokebomb(src),
+		new /obj/item/grenade/smokebomb(src)
+	)
+	chambered = new /obj/item/grenade/smokebomb(src)
+	update_maptext()
+
+/obj/item/melee/hammer/powered/hivebotevent
+	name = "sentry arm structure"
+	icon = 'icons/obj/clothing/gloves.dmi'
+	icon_state = "powerfist"
+	item_state = "powerfist"
+	hitsound = 'sound/mecha/mech_punch_slow.ogg'
+
+	reset_time = 1
+	trigger_chance = 100
+
+	force = 20
+	attack_verb = list("sweeps", "swipes")
