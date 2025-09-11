@@ -402,3 +402,47 @@
 	thready_pump_modifier = 1.5
 	damage_from_chemicals = 0.7
 	blood_spray_distance = 1
+
+/obj/item/organ/internal/heart/alien_heart
+	name = "anomalous mercurial flesh"
+	desc = "A slab of flesh made seemingly from mercury, yet with a recognizably organic shape. It is soft to the touch, pliable like skin, yet is as tough as steel."
+	icon = 'icons/obj/organs/bioaugs.dmi'
+	icon_state = "alien_heart"
+	max_damage = 200
+	min_bruised_damage = 150
+	min_broken_damage = 175
+
+/obj/item/organ/internal/heart/alien_heart/Initialize()
+	. = ..()
+	// RANDOMIZE EVERYTHING.
+	// DEAR READER, I HOPE YOU HAVE FUN IF YOU MAKE THE MISTAKE OF PUTTING THIS IN A HUMAN.
+	// BECAUSE YOU ARE NOT GUARANTEED IT CAN SUSTAIN LIFE.
+	heart_fibrillation_damage *= rand(0.5, 2)
+	heart_tachycardia_damage *= rand(0.5, 2)
+	fibrillation_stop_risk = rand(1, 99)
+	shock_stage_for_fibrillation *= rand(0.5, 2)
+	shock_risk_from_pain = rand(1, 99)
+	first_shock_stage *= rand(0.75, 1.33)
+	second_shock_stage *= rand(0.75, 1.33)
+	blood_regen_modifier *= rand(0.5, 2)
+	base_arterial_bloodloss_modifier *= rand(0.5, 2)
+	base_cut_bloodloss_modifier *= rand(0.5, 2)
+	nutrition_cost_per_blood_regen *= rand(0.5, 2)
+	hydration_cost_per_blood_regen *= rand(0.5, 2)
+	minimum_temperature_to_pump_blood *= rand(0.75, 1.33)
+	time_between_arterial_sprays *= rand(0.5, 2)
+	bleed_drip_modifier *= rand(0.5, 2)
+	palpitations_threshold *= rand(0.5, 2)
+	slow_bleeding_modifier *= rand(0.75, 1.33)
+	fast_bleeding_modifier *= rand(0.75, 1.33)
+	thready_bleeding_modifier *= rand(0.75, 1.33)
+	base_pump_rate *= rand(0.75, 1.33)
+	none_pump_modifier *= rand(0.75, 1.33)
+	slow_pump_modifier *= rand(0.75, 1.33)
+	fast_pump_modifier *= rand(0.75, 1.33)
+	too_fast_pump_modifier *= rand(0.75, 1.33)
+	thready_pump_modifier *= rand(0.75, 1.33)
+	if(prob(50))
+		fake_pulse = TRUE
+	damage_from_chemicals *= rand(0.75, 1.33)
+	blood_spray_distance = rand(1, 9)

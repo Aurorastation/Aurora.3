@@ -13,6 +13,8 @@
 	response_help  = "pets"
 	response_disarm = "boops"
 	response_harm   = "stomps on"
-	mob_size = MOB_SMALL
+	mob_size = 3.5
+	can_nap = TRUE
 	canbrush = TRUE
 	brush = /obj/item/reagent_containers/glass/rag
+	holder_type = /obj/item/holder/snake

@@ -70,22 +70,18 @@
 	if(("[initial(icon_state)]_flip") in icon_states(icon)) // Check for whether it has a flipped icon. Prevents invisible sprites.
 		verbs += /obj/item/storage/belt/proc/flipbelt
 
-/obj/item/storage/belt/proc/flipbelt(mob/user, var/self = TRUE)
+/obj/item/storage/belt/proc/flipbelt()
 	set category = "Object.Equipped"
 	set name = "Flip Belt"
 	set src in usr
 
-	if(self)
-		if(use_check_and_message(user))
-			return
-	else
-		if(use_check_and_message(user, self ? USE_ALLOW_NON_ADJACENT : 0))
-			return
+	if(use_check_and_message(usr))
+		return
 
 	flipped = !flipped
 	icon_state = "[initial(icon_state)][flipped ? "_flip" : ""]"
 	item_state = "[initial(item_state)][flipped ? "_flip" : ""]"
-	to_chat(usr, SPAN_NOTICE("You change \the [src] to be [src.flipped ? "behind" : "in front of"] you."))
+	to_chat(usr, SPAN_NOTICE("You adjust \the [src] [src.flipped ? "to the other side" : "back"]."))
 	update_clothing_icon()
 
 /obj/item/storage/belt/utility
@@ -664,9 +660,23 @@
 	icon_state = "fannypack"
 	item_state = "fannypack"
 	max_w_class = WEIGHT_CLASS_SMALL
+	w_class = WEIGHT_CLASS_HUGE
 	contained_sprite = TRUE
 	storage_slots = null
 	max_storage_space = 8
+
+/obj/item/storage/belt/fannypack/waistpack
+	name = "waist pack"
+	desc = "A small, waist-mounted pack for... well, storing stuff!"
+	icon_state = "waistpack"
+	item_state = "waistpack"
+
+/obj/item/storage/belt/fannypack/pouchbelt
+	name = "belt with pouches"
+	desc = "A belt coated from front to back in pouches."
+	icon_state = "pouchbelt"
+	item_state = "pouchbelt"
+	max_storage_space = 10
 
 /obj/item/storage/belt/fannypack/recolorable
 	icon_state = "fannypack_colorable"
