@@ -60,6 +60,7 @@
 	density = TRUE
 	anchored = TRUE
 	pass_flags = PASSTABLE
+	mouse_opacity = MOUSE_OPACITY_ICON
 
 	///The resilience of our meteor
 	var/hits = 4
