@@ -1461,27 +1461,28 @@ GLOBAL_LIST_INIT(robot_modules, list(
 	modules += new /obj/item/gun/launcher/grenade/cyborg/hbsmoke(src)
 	modules += new /obj/item/melee/hammer/powered/hivebotevent(src)
 
-	pixel_x = -80
-	pixel_y = -40
-
 /obj/item/gun/energy/pulse/mounted/hivebotevent
 	icon = 'icons/obj/guns/bfg.dmi'
 	icon_state = "bfg"
 	item_state = "bfg"
 
 	fire_delay = 10
-	charge_cost = 400
-	self_recharge = 1
-	use_external_power = 1
-	recharge_time = 10
+	charge_meter = FALSE
+	max_shots = 12
+	self_recharge = TRUE
+	use_external_power = FALSE
+	recharge_time = 5
+
+/obj/item/gun/energy/pulse/mounted/hivebotevent/update_icon()
+	return
 
 /obj/item/gun/energy/pulse/mounted/hivebotevent/rocket
 	name = "mounted rocket launcher and spikethrower"
 
 	firemodes = list(
-		list(mode_name="Rocket (Low Power) - Acceptable Targets: Anyone", projectile_type = /obj/projectile/bullet/peac, fire_sound='sound/weapons/rocketlaunch.ogg'),
-		list(mode_name="Rocket (Fragmentation) - Acceptable Targets: Armoured", projectile_type = /obj/projectile/bullet/peac/shrapnel, fire_sound='sound/weapons/rocketlaunch.ogg', fire_delay = 50),
-		list(mode_name="Spikethrower - Acceptable Targets: Anyone", projectile_type = /obj/projectile/bullet/pistol/hivebotspike, fire_sound='sound/weapons/gunshot/gunshot_suppressed.ogg', fire_delay = 1),
+		list(mode_name="Rocket (Standard) - Acceptable Targets: <span class = 'good'>Anyone</span>, <span class = 'danger'>EXCEPT IPCS (EVEN ARMOURED ONES)</span>", projectile_type = /obj/projectile/bullet/peac, fire_sound='sound/weapons/rocketlaunch.ogg', fire_delay = 50, charge_cost = 1000),
+		list(mode_name="Rocket (Fragmentation) - Acceptable Targets: Armoured", projectile_type = /obj/projectile/bullet/peac/shrapnel, fire_sound='sound/weapons/rocketlaunch.ogg', fire_delay = 50, charge_cost = 1000),
+		list(mode_name="Spikethrower - Acceptable Targets: <span class = 'good'>Anyone</span>", projectile_type = /obj/projectile/bullet/pistol/hivebotspike, fire_sound='sound/weapons/gunshot/gunshot_suppressed.ogg', fire_delay = 3),
 		list(mode_name="Spikethrower (Extra Sharp) - Acceptable Targets: Armoured", projectile_type = /obj/projectile/bullet/pistol/hivebotspike/spikier, fire_sound='sound/weapons/gunshot/gunshot_suppressed.ogg', fire_delay = 20)
 		)
 
@@ -1489,8 +1490,8 @@ GLOBAL_LIST_INIT(robot_modules, list(
 	name = "integrated plasma furnace and spikethrower"
 	firemodes = list(
 		list(mode_name="Plasma (Lethal) - Acceptable Targets: Armoured", projectile_type = /obj/projectile/beam/plasmacutter/plasma_lethal, fire_sound='sound/weapons/plasma_cutter.ogg'),
-		list(mode_name="Plasma (Extra Lethal) - Acceptable Targets: Heavily Armoured", projectile_type = /obj/projectile/beam/plasmacutter/plasma_extralethal, fire_sound='sound/weapons/plasma_cutter.ogg', charge_cost = 1200, fire_delay = 50),
-		list(mode_name="Spikethrower - Acceptable Targets: Anyone", projectile_type = /obj/projectile/bullet/pistol/hivebotspike, fire_sound='sound/weapons/gunshot/gunshot_suppressed.ogg', fire_delay = 1),
+		list(mode_name="<span class = 'danger'>Plasma (Extra Lethal) - Acceptable Targets: Heavily Armoured</span>", projectile_type = /obj/projectile/beam/plasmacutter/plasma_extralethal, fire_sound='sound/weapons/plasma_cutter.ogg', charge_cost = 800, fire_delay = 50),
+		list(mode_name="Spikethrower - Acceptable Targets: <span class = 'good'>Anyone</span>", projectile_type = /obj/projectile/bullet/pistol/hivebotspike, fire_sound='sound/weapons/gunshot/gunshot_suppressed.ogg', fire_delay = 3),
 		list(mode_name="Spikethrower (Extra Sharp) - Acceptable Targets: Armoured", projectile_type = /obj/projectile/bullet/pistol/hivebotspike/spikier, fire_sound='sound/weapons/gunshot/gunshot_suppressed.ogg', fire_delay = 20)
 		)
 
@@ -1499,26 +1500,26 @@ GLOBAL_LIST_INIT(robot_modules, list(
 	embed = 1
 
 /obj/projectile/beam/plasmacutter/plasma_lethal
-	damage = 30
+	damage = 15
 	maim_rate = 2
-	armor_penetration = 15
+	armor_penetration = 40
 	penetrating = 3
 
 /obj/projectile/beam/plasmacutter/plasma_extralethal
-	damage = 35
+	damage = 25
 	maim_rate = 4
-	armor_penetration = 20
+	armor_penetration = 40
 	penetrating = 3
-	incinerate = 8
+	incinerate = 4
 
 /obj/item/gun/energy/pulse/mounted/hivebotevent/rocket/sentry //not open to volunteers (boss mob played by Kermit), thus the beefier arsenal
 	name = "mounted rocket launcher and plasma ray"
-	charge_cost = 1
+	max_shots = 100
 	firemodes = list(
-		list(mode_name="Rocket (Low Power) - Acceptable Targets: Anyone", projectile_type = /obj/projectile/bullet/peac, fire_sound='sound/weapons/rocketlaunch.ogg'),
+		list(mode_name="Rocket (Low Power) - Acceptable Targets: <span class = 'danger'>ANYONE EXCEPT IPCS</span>", projectile_type = /obj/projectile/bullet/peac, fire_sound='sound/weapons/rocketlaunch.ogg', fire_delay = 50),
 		list(mode_name="Rocket (Fragmentation) - Acceptable Targets: Armoured", projectile_type = /obj/projectile/bullet/peac/shrapnel, fire_sound='sound/weapons/rocketlaunch.ogg', fire_delay = 50),
 		list(mode_name="Spikethrower (Extra Sharp) - Acceptable Targets: Armoured", projectile_type = /obj/projectile/bullet/pistol/hivebotspike/spikier, fire_sound='sound/weapons/gunshot/gunshot_suppressed.ogg'),
-		list(mode_name="Plasma (Extra Lethal) - Acceptable Targets: Heavily Armoured", projectile_type = /obj/projectile/beam/plasmacutter/plasma_extralethal, fire_sound='sound/weapons/plasma_cutter.ogg', fire_delay = 50),
+		list(mode_name="<span class = 'danger'>Plasma (Extra Lethal) - Acceptable Targets: Heavily Armoured</span>", projectile_type = /obj/projectile/beam/plasmacutter/plasma_extralethal, fire_sound='sound/weapons/plasma_cutter.ogg', fire_delay = 50),
 		)
 
 /obj/item/gun/launcher/grenade/cyborg/hbsmoke/Initialize()
@@ -1531,7 +1532,11 @@ GLOBAL_LIST_INIT(robot_modules, list(
 		new /obj/item/grenade/smokebomb(src),
 		new /obj/item/grenade/smokebomb(src),
 		new /obj/item/grenade/smokebomb(src),
-		new /obj/item/grenade/smokebomb(src)
+		new /obj/item/grenade/smokebomb(src),
+		new /obj/item/grenade/smokebomb(src),
+		new /obj/item/grenade/smokebomb(src),
+		new /obj/item/grenade/smokebomb(src),
+		new /obj/item/grenade/smokebomb(src),
 	)
 	chambered = new /obj/item/grenade/smokebomb(src)
 	update_maptext()
@@ -1547,4 +1552,4 @@ GLOBAL_LIST_INIT(robot_modules, list(
 	trigger_chance = 100
 
 	force = 20
-	attack_verb = list("sweeps", "swipes")
+	attack_verb = list("sweeped", "swiped")
