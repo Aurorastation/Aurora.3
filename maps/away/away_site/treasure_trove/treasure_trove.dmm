@@ -3307,6 +3307,7 @@
 "sg" = (
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/blood/splatter,
+/mob/living/simple_animal/hostile/cybernetic_schlorrgo,
 /turf/simulated/floor/exoplanet/asphalt,
 /area/trove/vault)
 "sl" = (
