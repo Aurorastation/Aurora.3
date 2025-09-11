@@ -439,6 +439,13 @@
 	item_state = "Fpacket"
 	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/oracle
 
+/obj/item/storage/box/fancy/cigarettes/koko
+	name = "\improper Ha'zana Corsair Afterburners cigarette packet"
+	desc = "Made exclusively on the Compact ruled world of Ha'zana, these cigarettes are made using koko reed instead of tobacco; a good pick-me-up for Unathi, but has no effect on other species."
+	icon_state = "kokopacket"
+	item_state = "kokopacket"
+	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/koko
+
 /obj/item/storage/box/fancy/cigarettes/case
 	name = "cigarette case"
 	desc = "A simple cigarette case for the aspiring chain-smoker."
