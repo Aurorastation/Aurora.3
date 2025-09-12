@@ -105,7 +105,7 @@
 	icon_state = "ams"
 	organ_tag = BP_AUG_CALF_OVERRIDE
 	parent_organ = BP_GROIN
-	action_button_icon = "augment"
+	action_button_icon = "ams"
 	action_button_name = "Activate Calf Override"
 	cooldown = 30
 	var/online = FALSE
