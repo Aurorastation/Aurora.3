@@ -95,13 +95,18 @@
 
 /obj/item/device/shield_diffuser/process()
 	if(!enabled)
+		to_chat(world, "diffuser not enabled! return")
 		return
 
 	for(var/obj/effect/energy_field/S in range(diffuser_range, src))
+		to_chat(world, "checking energy_field at [S.x],[S.y]")
 		// 5kJ per pulse, but gap in the shield lasts for longer than regular diffusers.
-		if(!S.diffused_for && cell.checked_use(5000 * CELLRATE))
-			to_chat(world, "Diffusing shield.")
-			S.diffuse(20)
+		if(!S.diffused_for)
+			to_chat(world, "Returned !S.diffused_for")
+			if(cell.checked_use(5000 * CELLRATE))
+				to_chat(world,"returned cell.checked_use()")
+				to_chat(world, "both successful, diffusing shield.")
+				S.diffuse(20) // Then even more debug logs inside diffuse()
 
 /obj/item/device/shield_diffuser/attack_self()
 	enabled = !enabled
