@@ -149,3 +149,14 @@
   - rscadd: Added a parcel cart to the operations mail room. It can carry up to 17
       handheld packages regardless of size.
   - bugfix: Fixed the engineering cart giving plasteel when taken apart.
+2025-09-12:
+  FlamingLily:
+  - bugfix: Fixes winning messages from slot machine.
+  Hellfirejag:
+  - bugfix: Made the mech mounted riot smg actually fire rubber bullets.
+  KingOfThePing:
+  - rscadd: Added a command noticeboard to the Stargazer central ring. It requires
+      a command-level ID to unlock.
+  Timby:
+  - imageadd: Adds a new debugger sprite more in-line with the server's art style.
+  - imagedel: Removes the old debugger sprite.
