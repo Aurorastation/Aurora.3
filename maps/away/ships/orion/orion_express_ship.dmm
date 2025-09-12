@@ -3846,7 +3846,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/orion/forehall)
 "nkI" = (
-/obj/structure/janitorialcart/full,
+/obj/structure/cart/storage/janitorialcart/full,
 /turf/simulated/floor,
 /area/ship/orion/forehall)
 "nmt" = (

@@ -5,6 +5,8 @@
 /obj/machinery/power/emitter
 	name = "emitter"
 	desc = "It is a heavy duty industrial laser."
+	desc_extended = "A standard heavy duty laser emitter. As the name implies it fires very high energy laser beams in the targeted direction. There is a big warning label printed on the top panel:\"WARNING: RISK OF DEATH. \
+	USE ONLY BY TRAINED PERSONNEL.\" as well as: \"AIM EMITTER AT DESIGNATED TARGET. CHECK DIRECTION WITH DIRECTION INDICATOR. ACTIVATE AND STAND BACK.\""
 	icon = 'icons/obj/emitter.dmi'
 	icon_state = "emitter"
 	anchored = FALSE
