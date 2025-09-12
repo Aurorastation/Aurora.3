@@ -133,7 +133,7 @@
 				to_chat(user, SPAN_NOTICE("You push [target] out of the way."))
 				owner.visible_message(SPAN_NOTICE("[owner] pushes [target] out of the way."))
 
-/obj/item/mecha_equipment/clamp/break_door(var/obj/machinery/door/airlock/Airlock)
+/obj/item/mecha_equipment/clamp/proc/break_door(var/obj/machinery/door/airlock/Airlock)
 	if(Airlock.bolt_cut_state == 2)
 		return
 
