@@ -3713,6 +3713,10 @@
 /obj/random/custom_ka,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
+"vl" = (
+/obj/effect/overmap/visitable/sector/trove,
+/turf/simulated/floor/exoplanet/wood/walnut,
+/area/trove/beach)
 "vm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -97175,7 +97179,7 @@ Bs
 jp
 ky
 wC
-ky
+vl
 Rs
 jp
 Pe

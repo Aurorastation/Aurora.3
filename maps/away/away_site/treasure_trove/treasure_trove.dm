@@ -25,8 +25,13 @@
 	name = "isolated garden planetoid"
 	desc = "A hidden but beautiful planetoid; breathable air, lush vegetation, a thriving biosphere and pristine oceans make it seem too good to be true."
 	icon_state = "globe"
-	color = "#25666b"
-
+	color = "#10ad4c"
+	initial_generic_waypoints = list(
+	"nav_point_beach_01",
+	"nav_point_beach_02",
+	"nav_point_beach_03",
+	"nav_point_beach_04"
+	)
 
 // ----- Map Effects and Assets
 
