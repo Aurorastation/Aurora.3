@@ -64,6 +64,7 @@
 				return
 			var/obj/machinery/door/airlock/AD = target
 			if(!AD.operating)
+				playsound(src.loc, 'sound/machines/hydraulic_long.ogg', 100, 1, ignore_walls = TRUE)
 				if(AD.welded || AD.locked)
 					AD.visible_message(SPAN_WARNING("\The [owner] begins prying on \the [AD]!"))
 					var/time_to_open = 15 SECONDS
@@ -73,21 +74,25 @@
 						AD.welded = FALSE
 						AD.locked = FALSE
 						AD.update_icon()
-						playsound(AD, 'sound/effects/meteorimpact.ogg', 100, 1)
 						playsound(AD, 'sound/machines/airlock_open_force.ogg', 100, 1)
 						AD.visible_message(SPAN_WARNING("\The [owner] tears \the [AD] open!"))
-						INVOKE_ASYNC(AD, TYPE_PROC_REF(/obj/machinery/door/airlock, open))
+						INVOKE_ASYNC(AD, TYPE_PROC_REF(/obj/machinery/door/airlock, open), TRUE)
 				else
 					AD.visible_message(SPAN_WARNING("\The [owner] begins forcing \the [AD]!"))
 					if(do_after(user, 5 SECONDS, owner, (DO_DEFAULT & ~DO_USER_CAN_TURN) | DO_USER_UNIQUE_ACT, extra_checks = CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(atom_maintain_position), AD, AD.loc)) && !(AD.operating || AD.welded || AD.locked))
 						if(AD.density)
-							INVOKE_ASYNC(AD, TYPE_PROC_REF(/obj/machinery/door/airlock, open))
+							INVOKE_ASYNC(AD, TYPE_PROC_REF(/obj/machinery/door/airlock, open), TRUE)
 							playsound(AD, 'sound/machines/airlock_open_force.ogg', 100, 1)
 							AD.visible_message(SPAN_DANGER("\The [owner] forces \the [AD] open!"))
 						else
-							INVOKE_ASYNC(AD, TYPE_PROC_REF(/obj/machinery/door/airlock, close))
+							INVOKE_ASYNC(AD, TYPE_PROC_REF(/obj/machinery/door/airlock, close), TRUE)
 							playsound(AD, 'sound/machines/airlock_close_force.ogg', 100, 1)
 							AD.visible_message(SPAN_DANGER("\The [owner] forces \the [AD] closed!"))
+				if(AD.bolt_cut_state != 2)
+					playsound(AD, 'sound/effects/meteorimpact.ogg', 100, 1, ignore_walls = TRUE)
+					AD.visible_message(SPAN_DANGER("\The [AD]'s bolts give off a deafening mechanical screech as they are torn apart."))
+					AD.bolt_cut_state = 2
+					AD.set_broken()
 			return
 
 		if(length(carrying) >= carrying_capacity)
