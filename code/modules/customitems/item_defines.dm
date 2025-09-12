@@ -2092,9 +2092,9 @@ All custom items with worn sprites must follow the contained sprite system: http
 	desc = "A carefully handsewn cloak proudly emblazoned with the symbol of Idris Banking in silver treading and the words ‘Astronomical Figures. Unlimited Power.’ Embroidered beneath it.\nOn close examination, the inside of the cloak appears to be colored differently."
 	icon = 'icons/obj/custom_items/kathira_cloak.dmi'
 	icon_override = 'icons/obj/custom_items/kathira_cloak.dmi'
-	icon_state = "new_idris_cloak"
-	item_state = "new_idris_cloak"
-	var/style = "new_nka_cloak"
+	icon_state = "idris_cloak"
+	item_state = "idris_cloak"
+	var/style = "nka_cloak"
 	var/name2 = "handmade royalist cloak"
 	var/desc2 = "A blue cloak with the symbol of the New Kingdom of Adhomai proudly displayed on the back.\nUpon closer examination it appears to be a patchwork of older textile and newer fabrics, with the inside of the cloak appearing to be colored differently."
 	var/changed = FALSE
