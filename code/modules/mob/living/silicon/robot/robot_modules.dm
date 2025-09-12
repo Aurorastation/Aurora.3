@@ -1496,7 +1496,7 @@ GLOBAL_LIST_INIT(robot_modules, list(
 		)
 
 /obj/projectile/bullet/pistol/hivebotspike/spikier
-	damage = 20
+	damage = 15
 	embed = 1
 
 /obj/projectile/beam/plasmacutter/plasma_lethal
