@@ -276,7 +276,7 @@
 		order_data += "<li>[item["name"]]: [item["price"]]</li>"
 	order_data += "<li>Crate Fee: [SScargo.get_cratefee()]</li>"
 	order_data += "<li>Handling Fee: [SScargo.get_handlingfee()]</li>"
-	order_data += "<li>Supplier Fee: [get_shipment_cost()]</li>"
+	order_data += "<li>Shuttle Fee: [get_shipment_cost()]</li>"
 	order_data += "</ul>"
 
 	return order_data.Join("")
