@@ -107,6 +107,7 @@
 	parent_organ = BP_GROIN
 	action_button_icon = "augment"
 	action_button_name = "Activate Calf Override"
+	cooldown = 10
 	var/online = FALSE
 	activable = TRUE
 
@@ -118,8 +119,10 @@
 
 	if(!online)
 		online = TRUE
+		to_chat(owner, SPAN_NOTICE("\The [src] activates!"))
 	else
 		online = FALSE
+		to_chat(owner, SPAN_NOTICE("\The [src] deactivates!"))
 
 /obj/item/organ/internal/augment/calf_override/proc/do_run_act()
 	owner.apply_damage(1, DAMAGE_BRUTE, BP_GROIN, armor_pen = 100)
