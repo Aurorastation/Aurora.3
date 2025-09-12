@@ -1,3 +1,6 @@
+/obj/effect/shuttle_landmark/trove/
+	landmark_flags = SLANDMARK_FLAG_AUTOSET
+
 /obj/effect/shuttle_landmark/trove/landing_01
 	name = "Beach Landing Zone 01"
 	landmark_tag = "nav_point_beach_01"

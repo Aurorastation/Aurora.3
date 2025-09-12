@@ -3251,7 +3251,6 @@
 	direction = 6;
 	immobilize = 0
 	},
-/obj/structure/flora/rock,
 /turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
 /area/trove/ocean)
 "rR" = (
@@ -7124,7 +7123,6 @@
 	dir = 5;
 	immobilize = 0
 	},
-/obj/structure/flora/rock,
 /turf/simulated/floor/exoplanet/water/shallow/konyang/beach,
 /area/trove/ocean)
 "Pa" = (
