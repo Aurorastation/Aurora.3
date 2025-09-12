@@ -105,6 +105,21 @@
 	icon_state = "ams"
 	organ_tag = BP_AUG_CALF_OVERRIDE
 	parent_organ = BP_GROIN
+	action_button_icon = "augment"
+	action_button_name = "Activate Calf Override"
+	var/online = FALSE
+	activable = TRUE
+
+/obj/item/organ/internal/augment/protein_valve/attack_self(var/mob/user)
+	. = ..()
+
+	if(!.)
+		return FALSE
+
+	if(!online)
+		online = TRUE
+	else
+		online = FALSE
 
 /obj/item/organ/internal/augment/calf_override/proc/do_run_act()
 	owner.apply_damage(1, DAMAGE_BRUTE, BP_GROIN, armor_pen = 100)
