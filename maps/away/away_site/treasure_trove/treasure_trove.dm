@@ -28,7 +28,10 @@
 	color = "#10ad4c"
 	initial_generic_waypoints = list(
 	"nav_point_beach_01",
-	"nav_point_beach_02",
+	"nav_point_beach_02a",
+	"nav_point_beach_02b",
+	"nav_point_beach_02c",
+	"nav_point_beach_02d",
 	"nav_point_beach_03",
 	"nav_point_beach_04"
 	)

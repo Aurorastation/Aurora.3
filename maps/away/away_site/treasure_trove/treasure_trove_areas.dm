@@ -24,6 +24,8 @@
 	ambience = 'sound/ambience/konyang/konyang-water.ogg'
 	area_blurb = "You can hear the sound of waves hitting the shore. Something at the back of your mind makes you think the beauty of the area hides something darker."
 
+/area/trove/beach/landing
+
 /area/trove/ocean
 	name = "Treasure Trove Ocean"
 	icon_state =  "purple"

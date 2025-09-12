@@ -6,10 +6,25 @@
 	landmark_tag = "nav_point_beach_01"
 	dir = 1
 
-/obj/effect/shuttle_landmark/trove/landing_02
-	name = "Beach Landing Zone 02"
-	landmark_tag = "nav_point_beach_02"
+/obj/effect/shuttle_landmark/trove/landing_02a
+	name = "Beach Landing Zone 02a"
+	landmark_tag = "nav_point_beach_02a"
 	dir = 2
+
+/obj/effect/shuttle_landmark/trove/landing_02b
+	name = "Beach Landing Zone 02b"
+	landmark_tag = "nav_point_beach_02b"
+	dir = 4
+
+/obj/effect/shuttle_landmark/trove/landing_02c
+	name = "Beach Landing Zone 02c"
+	landmark_tag = "nav_point_beach_02c"
+	dir = 1
+
+/obj/effect/shuttle_landmark/trove/landing_02d
+	name = "Beach Landing Zone 02d"
+	landmark_tag = "nav_point_beach_02d"
+	dir = 8
 
 /obj/effect/shuttle_landmark/trove/landing_03
 	name = "Beach Landing Zone 03"
