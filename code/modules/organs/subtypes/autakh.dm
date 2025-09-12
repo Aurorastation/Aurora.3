@@ -110,7 +110,7 @@
 	var/online = FALSE
 	activable = TRUE
 
-/obj/item/organ/internal/augment/protein_valve/attack_self(var/mob/user)
+/obj/item/organ/internal/augment/calf_override/attack_self(var/mob/user)
 	. = ..()
 
 	if(!.)
