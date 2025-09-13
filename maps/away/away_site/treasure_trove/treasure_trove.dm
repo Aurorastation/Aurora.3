@@ -9,7 +9,7 @@
 	spawn_weight = 1
 	spawn_cost = 1
 	id = "trove"
-	exoplanet_lightlevel = 1.4
+	exoplanet_lightlevel = 3
 	exoplanet_lightcolor = COLOR_WHITE
 
 	traits = list(
