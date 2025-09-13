@@ -61,6 +61,7 @@
 	cigarettes["Eriuyushi Sunset cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/federation
 	cigarettes["Xaqixal Dyn Fields cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/dyn
 	cigarettes["Natural Vysokan Soothsayer oracle cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/oracle
+	cigarettes["Koko-Reed cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/koko
 	gear_tweaks += new /datum/gear_tweak/path(cigarettes)
 
 /datum/gear/drugs_meds/chew

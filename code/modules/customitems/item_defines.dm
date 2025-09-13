@@ -2030,3 +2030,13 @@ All custom items with worn sprites must follow the contained sprite system: http
 	override_robotize_force_icon = 'icons/mob/human_races/fluff/nines_leg.dmi'
 	override_robotize_painted = FALSE
 	robotize_children = FALSE
+
+/obj/item/clothing/suit/storage/toggle/leather_jacket/fluff/darvan_jacket //Painted Leather Jacket - Darvan Omega - JoeTheBro
+	name = "painted leather jacket"
+	desc = "This leather jacket has been roughly painted cyan on the left arm and purple on the right arm. There appears to be an uppercase omega symbol on the \
+	back, drawn in the same paint from the respective halves of the jacket.  You can see a faint NT logo beneath the omega symbol if you look hard enough."
+	icon = 'icons/obj/custom_items/omega_jacket.dmi'
+	icon_override = 'icons/obj/custom_items/omega_jacket.dmi'
+	icon_state = "omega_jacket"
+	item_state = "omega_jacket"
+	contained_sprite = TRUE

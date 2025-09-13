@@ -5,7 +5,7 @@
 	icon_state = "iv_stand"
 	anchored = 0
 	density = FALSE
-	pass_flags_self = PASSTABLE
+	pass_flags_self = PASSTABLE | LETPASSCLICKS
 	var/tipped = FALSE
 	var/last_full // Spam check
 	var/last_warning

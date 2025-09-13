@@ -104,7 +104,7 @@
 
 	//Apply weapon damage
 	var/damage_flags = I.damage_flags()
-	apply_damage(effective_force, I.damtype, hit_zone, null, I, damage_flags, I.armor_penetration)
+	apply_damage(effective_force, I.damtype, hit_zone, I, damage_flags, I.armor_penetration)
 
 	//Melee weapon embedded object code.
 	if (I && I.damtype == DAMAGE_BRUTE && !I.anchored && !is_robot_module(I) && I.canremove)

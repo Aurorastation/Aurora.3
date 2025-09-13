@@ -255,7 +255,7 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 		var/mob/living/L = last_found_target
 		if(L.paralysis)
 			return
-		on_attack_mob(L, L.attack_generic(src, rand(melee_damage_lower, melee_damage_upper), attacktext, armor_penetration, attack_flags, damage_type))
+		on_attack_mob(L, L.attack_generic(src, rand(melee_damage_lower, melee_damage_upper), attacktext, environment_smash, armor_penetration, attack_flags, damage_type))
 		target = L
 	else if(istype(last_found_target, /obj/machinery/bot))
 		var/obj/machinery/bot/B = last_found_target

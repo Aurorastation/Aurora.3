@@ -145,6 +145,34 @@
 		"It <b>cannot</b> heal the dead. It also <b>cannot</b> mend broken bones.",
 	)
 
+/obj/item/mecha_equipment/crisis_drone/alien
+	name = "anomalous dronebay"
+	desc = "A small shoulder-mounted dronebay containing a drone made seemingly from mercury."
+	icon_state = "alien_drone"
+	origin_tech = list(TECH_PHORON = 9, TECH_MAGNET = 9, TECH_BIO = 9, TECH_DATA = 9)
+	restricted_hardpoints = list(HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
+
+/obj/item/mecha_equipment/crisis_drone/alien/Initialize()
+	. = ..()
+	max_distance = rand(1, 5)
+	passive_power_use *= rand(0.8, 1.2)
+	damcap *= rand(0.8, 1.2)
+	heal_dead = prob(50)
+
+	// 5% chance to be a "Harming drone" instead of a healing drone. All healing is inverted to damage. Have fun with that.
+	var/harming_drone = 1
+	if(prob(5))
+		harming_drone = -1
+
+	brute_heal = rand(1, 5) * harming_drone
+	burn_heal = rand(1, 5) * harming_drone
+	tox_heal = rand(1, 5) * harming_drone
+	oxy_heal = rand(1, 5) * harming_drone
+	rad_heal = rand(1, 5) * harming_drone
+	clone_heal = rand(1, 5) * harming_drone
+	hal_heal = rand(1, 5) * harming_drone
+	bone_heal = rand(0, 499) / 5
+
 /obj/item/mecha_equipment/crisis_drone/Destroy()
 	Target = null
 	MyBeam = null

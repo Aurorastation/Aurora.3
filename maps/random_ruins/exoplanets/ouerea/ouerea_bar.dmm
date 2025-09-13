@@ -8,7 +8,7 @@
 	},
 /area/ouerea_bar)
 "ah" = (
-/obj/structure/janitorialcart/full,
+/obj/structure/cart/storage/janitorialcart/full,
 /obj/item/clothing/gloves/janitor/unathi,
 /turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
