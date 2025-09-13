@@ -113,6 +113,7 @@
 			M.set_id_info(W)
 			M.equip_to_slot_or_del(W, slot_wear_id)
 
+	M.update_icon()
 	do_extra_customization(M)
 	qdel(src)
 
