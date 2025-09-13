@@ -31,12 +31,12 @@
 	UnregisterSignal(owner, COMSIG_HEART_PUMP_EVENT)
 	UnregisterSignal(owner, COMSIG_HEART_BLEED_EVENT)
 
-/obj/item/organ/internal/augment/bioaug/platelet_factories/proc/stroke_risk(var/obj/item/organ/internal/heart/heart, var/blood_volume, var/recent_pump, var/pulse_mod, var/min_efficiency)
+/obj/item/organ/internal/augment/bioaug/platelet_factories/proc/stroke_risk(var/implantee, var/obj/item/organ/internal/heart/heart, var/blood_volume, var/recent_pump, var/pulse_mod, var/min_efficiency)
 	SIGNAL_HANDLER
 	*min_efficiency *= 0.85
 	*pulse_mod *= 0.95
 
-/obj/item/organ/internal/augment/bioaug/platelet_factories/proc/reduce_bloodloss(var/blood_volume, var/cut_bloodloss_modifier, var/arterial_bloodloss_modifier)
+/obj/item/organ/internal/augment/bioaug/platelet_factories/proc/reduce_bloodloss(var/implantee, var/blood_volume, var/cut_bloodloss_modifier, var/arterial_bloodloss_modifier)
 	SIGNAL_HANDLER
 	*cut_bloodloss_modifier *= 0.1
 	*arterial_bloodloss_modifier *= 0.25
