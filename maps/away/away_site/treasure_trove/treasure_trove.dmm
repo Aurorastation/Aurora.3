@@ -1064,11 +1064,6 @@
 "fF" = (
 /turf/unsimulated/mineral/konyang,
 /area/trove/vault)
-"fI" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/flora/bush/jungle/large/random,
-/turf/simulated/floor/exoplanet/barren,
-/area/trove/beach)
 "fJ" = (
 /obj/structure/cable/green{
 	icon_state = "0-8"
@@ -2427,6 +2422,10 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/trove/vault)
+"ng" = (
+/obj/structure/flora/bush/jungle/large/random,
+/turf/space,
+/area/trove/beach)
 "ni" = (
 /obj/structure/table/stone/marble,
 /obj/random/booze,
@@ -3476,7 +3475,8 @@
 /area/trove/beach)
 "td" = (
 /obj/effect/shuttle_landmark/trove/landing_02d,
-/turf/simulated/floor/exoplanet/grass/moghes,
+/obj/structure/flora/bush/jungle/large/random,
+/turf/simulated/floor/exoplanet/barren,
 /area/trove/beach/landing)
 "te" = (
 /obj/random/keg,
@@ -4555,7 +4555,8 @@
 /area/trove/ocean)
 "AV" = (
 /obj/effect/shuttle_landmark/trove/landing_01,
-/turf/simulated/floor/exoplanet/grass/moghes,
+/obj/structure/flora/bush/jungle/large/random,
+/turf/simulated/floor/exoplanet/barren,
 /area/trove/beach/landing)
 "AX" = (
 /obj/machinery/power/terminal{
@@ -9052,7 +9053,8 @@
 /area/trove/vault)
 "ZD" = (
 /obj/effect/shuttle_landmark/trove/landing_02b,
-/turf/simulated/floor/exoplanet/grass/moghes,
+/obj/structure/flora/bush/jungle/large/random,
+/turf/simulated/floor/exoplanet/barren,
 /area/trove/beach/landing)
 "ZF" = (
 /obj/random/dirt_75,
@@ -95286,7 +95288,7 @@ Bs
 MM
 Bs
 Bs
-sD
+Bs
 Ez
 Bs
 Bs
@@ -95536,9 +95538,9 @@ MM
 Bs
 Bs
 MM
+sD
 Bs
-Bs
-fI
+Tz
 Bs
 Bs
 sD
@@ -95792,7 +95794,7 @@ Bs
 Bs
 Tz
 Bs
-sD
+Bs
 Bs
 Bs
 IM
@@ -96793,10 +96795,10 @@ Bs
 VS
 Bs
 sD
-sD
 Bs
 Bs
-sD
+Bs
+Bs
 Bs
 Ez
 Bs
@@ -97045,10 +97047,10 @@ Bs
 Bs
 Bs
 Bs
-sD
-sD
-sD
-sD
+ng
+Bs
+Bs
+Bs
 Bs
 Ez
 Bs
@@ -97296,10 +97298,10 @@ Bs
 Bs
 Bs
 Bs
-sD
 Bs
 Bs
-sD
+Bs
+Bs
 Bs
 Ez
 Ez
@@ -97549,8 +97551,8 @@ Bs
 Bs
 Bs
 sD
-Je
-sD
+VS
+Bs
 Bs
 Ez
 Tz
@@ -98048,7 +98050,7 @@ Bs
 Bs
 Bs
 Bs
-Bs
+sD
 Bs
 Bs
 Bs
@@ -98060,7 +98062,7 @@ Bs
 Bs
 Bs
 Bs
-sD
+Bs
 Bs
 Bs
 Bs
@@ -98304,8 +98306,8 @@ Bs
 Bs
 Bs
 sD
-sD
-sD
+Bs
+Bs
 Bs
 Tz
 sD
@@ -98556,7 +98558,7 @@ Bs
 Bs
 Bs
 Bs
-sD
+Bs
 Bs
 Tz
 Ez
@@ -98806,7 +98808,7 @@ Bs
 Bs
 Bs
 sD
-sD
+Bs
 sD
 Bs
 Bs
@@ -98815,7 +98817,7 @@ Bs
 sD
 Bs
 Je
-AL
+Bs
 Bs
 VS
 Bs
@@ -99057,8 +99059,8 @@ Bs
 Bs
 AL
 Bs
-sD
-sD
+Bs
+Bs
 Bs
 Bs
 Ez
@@ -99069,7 +99071,7 @@ Bs
 Bs
 AL
 Bs
-VS
+Bs
 Bs
 Bs
 qf
@@ -99316,7 +99318,7 @@ Bs
 Ez
 Bs
 Bs
-sD
+Bs
 Bs
 Bs
 Bs

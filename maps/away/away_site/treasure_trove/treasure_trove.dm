@@ -9,6 +9,8 @@
 	spawn_weight = 1
 	spawn_cost = 1
 	id = "trove"
+	exoplanet_lightlevel = 1.4
+	exoplanet_lightcolor = COLOR_WHITE
 
 	traits = list(
 		list(ZTRAIT_AWAY = TRUE, ZTRAIT_UP = TRUE, ZTRAIT_DOWN = FALSE),
