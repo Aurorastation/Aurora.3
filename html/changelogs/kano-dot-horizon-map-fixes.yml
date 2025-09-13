@@ -1,0 +1,7 @@
+
+author: Kano
+
+delete-after: True
+
+changes:
+  - bugfix: "Removed some rogue objects in the Horizon."
