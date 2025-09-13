@@ -72,7 +72,7 @@
 	telecrystal_cost = 8
 	bluecrystal_cost = 8
 	path = /obj/item/rig/combat
-	desc = "A sleek and dangerous hardsuit for active combat. This one is a Stellar Corporate Conglomerate design in color scheme and make. Wearable by human, skrell, tajara, unathi and IPC."
+	desc = "A sleek and dangerous hardsuit for active combat. This one is a Stellar Corporate Conglomerate design in color scheme and make. Wearable by humans, skrell, tajara, unathi and IPC."
 
 /datum/uplink_item/item/hardsuit_modules/suit/sol
 	name = "Solarian Vampire Hardsuit"
