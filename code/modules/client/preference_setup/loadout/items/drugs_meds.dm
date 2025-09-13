@@ -207,4 +207,5 @@
 	legal_rec["Snowflake pills"] = /obj/item/storage/pill_bottle/snowflake
 	legal_rec["Psilocybin pills"] = /obj/item/storage/pill_bottle/psilocybin
 	legal_rec["Wulumunusha extract bottle"] = /obj/item/reagent_containers/food/condiment/wulumunusha
+	legal_rec["Ambrosia extract bottle"] = /obj/item/reagent_containers/food/condiment/ambrosia
 	gear_tweaks += new /datum/gear_tweak/path(legal_rec)
