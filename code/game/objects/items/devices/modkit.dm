@@ -109,7 +109,7 @@
 	name = "voidsuit kit"
 	icon = 'icons/obj/item/device/modkit.dmi'
 	icon_state = "modkit"
-	item_state = "restock_unit"
+	item_state = "modkit"
 	contained_sprite = TRUE
 	desc = "A simple cardboard box containing the requisition forms, permits, and decal kits for a Himean voidsuit."
 
@@ -448,6 +448,22 @@
 	suit_options = list(
 		/obj/item/clothing/suit/space/void/sci = /obj/item/clothing/suit/space/void/sci/assunzione/ipc,
 		/obj/item/clothing/head/helmet/space/void/sci = /obj/item/clothing/head/helmet/space/void/sci/assunzione/ipc,
+	)
+
+/obj/item/voidsuit_modkit/burzsia
+	name = "burzsian voidsuit kit"
+	desc = "A metal briefcase containing the requisition forms, permits, and decal kits for a Burzsian voidsuit."
+	icon_state = "burzsia_modkit"
+	item_state = "burzsia_modkit"
+	suit_options = list(
+		/obj/item/clothing/suit/space/void/mining = /obj/item/clothing/suit/space/void/mining/burzsia,
+		/obj/item/clothing/head/helmet/space/void/mining = /obj/item/clothing/head/helmet/space/void/mining/burzsia,
+
+		/obj/item/clothing/suit/space/void/engineering = /obj/item/clothing/suit/space/void/engineering/burzsia,
+		/obj/item/clothing/head/helmet/space/void/engineering = /obj/item/clothing/head/helmet/space/void/engineering/burzsia,
+
+		/obj/item/clothing/suit/space/void/atmos = /obj/item/clothing/suit/space/void/atmos/burzsia,
+		/obj/item/clothing/head/helmet/space/void/atmos = /obj/item/clothing/head/helmet/space/void/atmos/burzsia
 	)
 
 #undef MODKIT_HELMET

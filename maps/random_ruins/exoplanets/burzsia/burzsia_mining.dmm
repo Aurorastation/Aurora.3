@@ -590,8 +590,8 @@
 	req_access = list(202)
 	},
 /obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/mining,
-/obj/item/clothing/head/helmet/space/void/mining,
+/obj/item/clothing/suit/space/void/mining/burzsia,
+/obj/item/clothing/head/helmet/space/void/mining/burzsia,
 /obj/item/device/suit_cooling_unit,
 /obj/item/device/gps/mining,
 /turf/simulated/floor/tiled/steel,

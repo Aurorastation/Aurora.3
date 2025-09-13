@@ -117,6 +117,12 @@
 	allowed_roles = list("Research Director", "Scientist", "Xenoarchaeologist", "Xenobiologist", "Xenobotanist", "Research Intern", "Science Personnel")
 	origin_restriction = list(/singleton/origin_item/origin/assunzione, /singleton/origin_item/origin/ipc_assunzione)
 
+/datum/gear/utility/burzsia_kit
+	display_name = "burzsian voidsuit kit"
+	path = /obj/item/voidsuit_modkit/burzsia
+	allowed_roles = list("Shaft Miner", "Operations Manager", "Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice", "Engineering Personnel", "Operations Personnel")
+	origin_restriction = list(/singleton/origin_item/origin/coa_spacer, /singleton/origin_item/origin/hephaestus)
+
 /datum/gear/utility/wheelchair
 	display_name = "wheelchair"
 	path = /obj/item/material/stool/chair/wheelchair
