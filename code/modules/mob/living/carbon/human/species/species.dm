@@ -678,7 +678,7 @@
 		return 0
 
 	var/obj/item/organ/internal/augment/calf_override/C = H.internal_organs_by_name[BP_AUG_CALF_OVERRIDE]
-	if(C && !C.is_broken())
+	if(C && !C.is_broken() && C.online)
 		cost = 0
 		if(!pre_move)
 			C.do_run_act()
