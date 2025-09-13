@@ -28,7 +28,7 @@
 /datum/design/item/mechfab/exosuit_equipment/uac_ltl
 	name = "Mounted Riot Submachine Gun"
 	req_tech = list(TECH_COMBAT = 2)
-	build_path = /obj/item/mecha_equipment/mounted_system/combat/smg_ltl
+	build_path = /obj/item/mecha_equipment/mounted_system/combat/smg/ltl
 
 /datum/design/item/mechfab/exosuit_equipment/plasma
 	name = "Mounted Plasma Cutter"
