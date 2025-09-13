@@ -1560,7 +1560,7 @@
 	},
 /area/moghes_bar)
 "WN" = (
-/obj/structure/janitorialcart/full,
+/obj/structure/cart/storage/janitorialcart/full,
 /obj/item/clothing/gloves/janitor/unathi,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5

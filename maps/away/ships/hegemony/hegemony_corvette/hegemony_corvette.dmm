@@ -4489,7 +4489,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/hegemony)
 "Aa" = (
-/obj/structure/janitorialcart/full/water{
+/obj/structure/cart/storage/janitorialcart/full/water{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
