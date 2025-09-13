@@ -60,6 +60,16 @@
 /obj/item/device/flashlight/lantern/on,
 /turf/simulated/floor/exoplanet/plating/asteroid,
 /area/trove/vault)
+"aq" = (
+/obj/structure/structural_support,
+/obj/structure/platform{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/asteroid/basalt/air{
+	temperature = 293.15
+	},
+/area/trove/tunnels)
 "ar" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/effect/decal/cleanable/liquid_fuel,
@@ -995,11 +1005,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/marble/dark,
 /area/trove/vault)
-"fb" = (
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/asphalt,
-/area/trove/tunnels)
 "fd" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -1440,6 +1445,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/trove/vault)
+"hU" = (
+/obj/structure/structural_support,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/asteroid/basalt/air{
+	temperature = 293.15
+	},
+/area/trove/tunnels)
 "hV" = (
 /obj/structure/table/wood/gamblingtable,
 /obj/random/dirt_75,
@@ -1923,6 +1935,7 @@
 /area/trove/vault)
 "kI" = (
 /obj/structure/barricade/wooden,
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/asphalt,
 /area/trove/tunnels)
 "kM" = (
@@ -2422,10 +2435,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/trove/vault)
-"ng" = (
-/obj/structure/flora/bush/jungle/large/random,
-/turf/space,
-/area/trove/beach)
 "ni" = (
 /obj/structure/table/stone/marble,
 /obj/random/booze,
@@ -2521,6 +2530,7 @@
 "nM" = (
 /obj/effect/decal/remains/human/burned,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/asteroid/basalt/air{
 	temperature = 293.15
 	},
@@ -2845,6 +2855,11 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/trove/vault)
+"pT" = (
+/obj/item/hullbeacon/red,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/asphalt,
+/area/trove/tunnels)
 "pV" = (
 /obj/structure/flora/grass/junglegrass/random,
 /turf/simulated/floor/exoplanet/barren,
@@ -4181,14 +4196,6 @@
 "yc" = (
 /turf/simulated/floor/exoplanet/water/konyang,
 /area/trove/beach)
-"yg" = (
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor/exoplanet/asteroid/basalt/air{
-	temperature = 293.15
-	},
-/area/trove/tunnels)
 "yi" = (
 /obj/structure/structural_support,
 /turf/simulated/floor/exoplanet/asteroid/basalt/air{
@@ -4246,12 +4253,6 @@
 "yF" = (
 /turf/simulated/mineral/lava,
 /area/space)
-"yH" = (
-/obj/structure/platform{
-	dir = 4
-	},
-/turf/simulated/floor/exoplanet/basalt/cave,
-/area/trove/tunnels)
 "yI" = (
 /obj/structure/flora/grass/junglegrass,
 /turf/simulated/floor/exoplanet/grass/moghes,
@@ -4340,9 +4341,8 @@
 "zn" = (
 /obj/effect/decal/remains/xeno,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor/exoplanet/asteroid/basalt/air{
-	temperature = 293.15
-	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "zs" = (
 /obj/item/hullbeacon/red,
@@ -5080,6 +5080,10 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/holoturret,
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#C98C2C";
+	light_range = 2
+	},
 /turf/simulated/floor/exoplanet/asphalt,
 /area/trove/tunnels)
 "DH" = (
@@ -6146,12 +6150,6 @@
 /obj/effect/decal/cleanable/floor_damage/wood_broken3,
 /turf/simulated/floor/wood/mahogany,
 /area/trove/vault)
-"Jo" = (
-/obj/structure/platform{
-	dir = 8
-	},
-/turf/simulated/floor/exoplanet/basalt/cave,
-/area/trove/tunnels)
 "Jp" = (
 /turf/unsimulated/wall/fakepdoor{
 	dir = 4
@@ -6921,9 +6919,7 @@
 /obj/effect/decal/remains/xeno/burned,
 /obj/random/dirt_75,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor/exoplanet/asteroid/basalt/air{
-	temperature = 293.15
-	},
+/turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "NN" = (
 /obj/structure/bed/stool/chair/shuttle,
@@ -7664,6 +7660,15 @@
 /obj/structure/flora/bush/jungle/large/random,
 /turf/simulated/floor/exoplanet/grass/moghes,
 /area/trove/jungle)
+"Rm" = (
+/obj/random/dirt_75,
+/obj/machinery/porta_turret/hologram,
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#C98C2C";
+	light_range = 2
+	},
+/turf/simulated/floor/exoplanet/asphalt,
+/area/trove/tunnels)
 "Rp" = (
 /obj/random/dirt_75,
 /obj/structure/closet/crate/loot,
@@ -7801,6 +7806,10 @@
 "SE" = (
 /obj/random/dirt_75,
 /obj/random/holoturret,
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#C98C2C";
+	light_range = 2
+	},
 /turf/simulated/floor/exoplanet/asphalt,
 /area/trove/tunnels)
 "SG" = (
@@ -7813,6 +7822,14 @@
 /obj/structure/blocker,
 /turf/simulated/floor/exoplanet/marble/dark,
 /area/trove/vault)
+"SJ" = (
+/obj/structure/structural_support,
+/obj/structure/platform{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
 "SK" = (
 /obj/random/dirt_75,
 /obj/random/junk,
@@ -8163,9 +8180,9 @@
 /area/trove/vault)
 "Uv" = (
 /obj/structure/barricade/wooden,
-/turf/simulated/floor/exoplanet/asteroid/basalt/air{
-	temperature = 293.15
-	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "UF" = (
 /obj/random/dirt_75,
@@ -8184,6 +8201,12 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/lino/diamond,
+/area/trove/vault)
+"UI" = (
+/obj/structure/table/wood/gamblingtable,
+/obj/random/dirt_75,
+/obj/item/device/flashlight/lantern/on,
+/turf/simulated/floor/wood/mahogany,
 /area/trove/vault)
 "UJ" = (
 /obj/structure/window/reinforced{
@@ -37146,7 +37169,7 @@ Ou
 lt
 Li
 KV
-hV
+UI
 hV
 FT
 zH
@@ -39948,9 +39971,9 @@ Kt
 Kt
 Kt
 Kt
-ru
+Kt
 Xo
-ru
+Kt
 eg
 eg
 eg
@@ -40200,9 +40223,9 @@ eg
 aH
 qA
 OC
-ru
+Kt
 Xo
-ru
+Kt
 eg
 eg
 eg
@@ -40452,7 +40475,7 @@ eg
 eg
 SE
 gP
-ru
+Kt
 Xo
 TB
 eg
@@ -40704,7 +40727,7 @@ eg
 eg
 wZ
 WV
-ru
+Kt
 Xo
 TB
 eg
@@ -40958,7 +40981,7 @@ eg
 eg
 TB
 Xo
-ru
+Kt
 eg
 eg
 eg
@@ -41210,7 +41233,7 @@ eg
 eg
 TB
 WU
-ru
+Kt
 yi
 eg
 eg
@@ -41460,9 +41483,9 @@ eg
 eg
 eg
 eg
-ru
+Kt
 Xo
-ru
+Kt
 eg
 eg
 eg
@@ -41712,7 +41735,7 @@ eg
 eg
 eg
 eg
-ru
+Kt
 Te
 TB
 eg
@@ -41964,7 +41987,7 @@ eg
 eg
 eg
 eg
-ru
+Kt
 Xo
 TB
 eg
@@ -42216,9 +42239,9 @@ eg
 eg
 eg
 eg
-ru
+Kt
 Xo
-ru
+Kt
 eg
 eg
 eg
@@ -42470,7 +42493,7 @@ eg
 eg
 TB
 Xo
-ru
+Kt
 eg
 eg
 eg
@@ -42720,7 +42743,7 @@ eg
 eg
 eg
 eg
-ru
+Kt
 Xo
 TB
 eg
@@ -42972,7 +42995,7 @@ eg
 eg
 eg
 eg
-ru
+Kt
 Xo
 TB
 eg
@@ -43224,9 +43247,9 @@ eg
 eg
 eg
 yi
-ru
+Kt
 Xo
-ru
+Kt
 eg
 eg
 eg
@@ -43476,9 +43499,9 @@ eg
 eg
 eg
 eg
-ru
+Kt
 Xo
-ru
+Kt
 eg
 eg
 eg
@@ -43728,9 +43751,9 @@ eg
 eg
 eg
 eg
-ru
+Kt
 Xo
-ru
+Kt
 eg
 eg
 eg
@@ -43980,7 +44003,7 @@ eg
 eg
 eg
 eg
-ru
+Kt
 Xo
 TB
 eg
@@ -44232,7 +44255,7 @@ eg
 eg
 eg
 eg
-ru
+Kt
 WU
 TB
 eg
@@ -44484,7 +44507,7 @@ eg
 eg
 eg
 eg
-ru
+Kt
 WU
 TB
 eg
@@ -44736,7 +44759,7 @@ eg
 eg
 eg
 eg
-ru
+Kt
 cp
 TB
 eg
@@ -44988,7 +45011,7 @@ eg
 eg
 eg
 eg
-ru
+Kt
 Xo
 ru
 eg
@@ -47255,8 +47278,8 @@ eg
 eg
 eg
 eg
-yi
-ru
+hU
+Kt
 Xo
 TB
 eg
@@ -50784,7 +50807,7 @@ eg
 eg
 eg
 eg
-ru
+Kt
 cp
 TB
 eg
@@ -51036,7 +51059,7 @@ eg
 eg
 eg
 eg
-ru
+Kt
 Xo
 TB
 eg
@@ -51288,7 +51311,7 @@ eg
 eg
 eg
 eg
-ru
+Kt
 Xo
 ru
 eg
@@ -51540,7 +51563,7 @@ eg
 eg
 eg
 yi
-ru
+Kt
 WU
 TB
 eg
@@ -51792,7 +51815,7 @@ eg
 eg
 eg
 eg
-ru
+Kt
 Xo
 TB
 eg
@@ -52046,7 +52069,7 @@ eg
 eg
 TB
 Xo
-ru
+Kt
 eg
 eg
 eg
@@ -52297,7 +52320,7 @@ eg
 eg
 eg
 TB
-WU
+Xo
 nM
 eg
 eg
@@ -52550,7 +52573,7 @@ eg
 eg
 TB
 Xo
-ru
+Kt
 eg
 eg
 eg
@@ -52800,9 +52823,9 @@ eg
 eg
 eg
 eg
-ru
+Kt
 cp
-ru
+Kt
 eg
 eg
 eg
@@ -53052,7 +53075,7 @@ eg
 eg
 eg
 eg
-ru
+Kt
 Xo
 TB
 eg
@@ -53304,8 +53327,8 @@ eg
 eg
 eg
 eg
-ru
-WU
+Kt
+Xo
 TB
 yi
 eg
@@ -53810,7 +53833,7 @@ eg
 eg
 TB
 Xo
-ru
+Kt
 eg
 eg
 eg
@@ -54060,9 +54083,9 @@ eg
 eg
 eg
 eg
-ru
+Kt
 Xo
-ru
+Kt
 eg
 eg
 eg
@@ -54312,9 +54335,9 @@ eg
 eg
 eg
 eg
-ru
+Kt
 Xo
-ru
+Kt
 eg
 eg
 eg
@@ -54564,9 +54587,9 @@ eg
 eg
 eg
 eg
-ru
+Kt
 Xo
-ru
+Kt
 eg
 eg
 eg
@@ -54816,9 +54839,9 @@ eg
 eg
 eg
 eg
-ru
+Kt
 Xo
-ru
+Kt
 eg
 eg
 eg
@@ -55068,7 +55091,7 @@ eg
 eg
 eg
 eg
-ru
+Kt
 cp
 TB
 eg
@@ -55320,8 +55343,8 @@ eg
 eg
 eg
 eg
-ru
-WU
+Kt
+Xo
 TB
 eg
 eg
@@ -55571,12 +55594,12 @@ eg
 eg
 eg
 eg
-yi
-ru
-WU
+hU
+Kt
+Xo
 TB
-eg
-eg
+ZK
+ZK
 eg
 eg
 eg
@@ -55824,10 +55847,10 @@ eg
 eg
 eg
 eg
-ru
-WU
-TB
-eg
+Kt
+Xo
+ZK
+ZK
 eg
 eg
 eg
@@ -56076,9 +56099,9 @@ eg
 eg
 eg
 eg
-ru
-Xo
-TB
+Kt
+nu
+ZK
 eg
 eg
 eg
@@ -56328,8 +56351,8 @@ eg
 eg
 eg
 eg
-TB
-Xo
+ZK
+nu
 TB
 eg
 eg
@@ -56578,9 +56601,9 @@ eg
 eg
 eg
 eg
-eg
-eg
-TB
+ZK
+ZK
+ZK
 Xo
 TB
 eg
@@ -56829,8 +56852,8 @@ eg
 eg
 eg
 eg
-eg
-eg
+ZK
+ZK
 eg
 TB
 Xo
@@ -57080,11 +57103,11 @@ eg
 eg
 eg
 eg
+ZK
+ZK
 eg
 eg
-eg
-eg
-ru
+Kt
 Te
 TB
 eg
@@ -57332,7 +57355,7 @@ eg
 eg
 eg
 eg
-eg
+ZK
 eg
 eg
 eg
@@ -57584,7 +57607,7 @@ eg
 eg
 eg
 eg
-eg
+ZK
 eg
 eg
 eg
@@ -57836,8 +57859,8 @@ eg
 eg
 eg
 eg
-eg
-eg
+ZK
+ZK
 eg
 eg
 sp
@@ -58350,7 +58373,7 @@ sp
 eg
 eg
 eg
-eg
+ZK
 eg
 eg
 eg
@@ -58596,12 +58619,13 @@ eg
 eg
 eg
 eg
-ru
+VK
 Xo
 sp
 eg
 eg
 eg
+ZK
 eg
 eg
 eg
@@ -58620,8 +58644,7 @@ eg
 eg
 eg
 eg
-eg
-Jb
+aq
 qL
 qL
 qL
@@ -58848,13 +58871,13 @@ eg
 eg
 eg
 eg
-TB
+jj
 Xo
-TB
+jj
 eg
 eg
 eg
-eg
+ZK
 eg
 eg
 eg
@@ -59100,14 +59123,14 @@ eg
 eg
 eg
 eg
-TB
+jj
 Xo
-TB
+jj
 eg
 eg
 eg
-eg
-eg
+ZK
+ZK
 eg
 yi
 eg
@@ -59125,7 +59148,7 @@ eg
 yi
 eg
 aH
-yH
+PX
 qL
 qL
 qL
@@ -59352,32 +59375,32 @@ eg
 eg
 eg
 yi
-TB
+jj
 Xo
-TB
-TB
-TB
-TB
-ru
-ru
-TB
-TB
-yg
-TB
-TB
-ru
-ru
-TB
-TB
-ru
-ru
+jj
+jj
+jj
+jj
+DQ
+ZK
+jj
+jj
+jj
+jj
+jj
+VK
+VK
+jj
+jj
+DQ
+DQ
 NM
-ru
-ru
-ru
-TB
+DQ
+DQ
+DQ
+jj
 Uv
-ru
+Kt
 qL
 qL
 qL
@@ -59604,21 +59627,21 @@ eg
 eg
 eg
 eg
-TB
+jj
 Xo
 Xo
 Xo
 WU
 Xo
 Te
-WU
-Xo
-WU
-fb
-WU
+ZK
+nu
 Xo
 Xo
-Te
+Xo
+Xo
+Xo
+pT
 Xo
 Xo
 Xo
@@ -59629,7 +59652,7 @@ Xo
 cp
 Xo
 kI
-WU
+Xo
 Pw
 qL
 qL
@@ -59856,32 +59879,32 @@ eg
 eg
 eg
 eg
-TB
-TB
-TB
-TB
-ru
-ru
-TB
-TB
-ru
-TB
-ru
-ru
+jj
+jj
+jj
+jj
+VK
+VK
+jj
+jj
+ZK
+jj
+VK
+VK
 zn
+VK
+jj
 TB
-TB
-TB
-ru
-TB
-TB
-ru
-ru
-ru
-ru
-ru
+DQ
+jj
+jj
+DQ
+DQ
+DQ
+DQ
+DQ
 Uv
-ru
+Kt
 qL
 qL
 qL
@@ -60116,8 +60139,8 @@ eg
 eg
 eg
 eg
-eg
-eg
+ZK
+ZK
 eg
 eg
 eg
@@ -60133,7 +60156,7 @@ eg
 eg
 eg
 aH
-Jo
+hE
 qL
 qL
 qL
@@ -60369,7 +60392,7 @@ eg
 eg
 eg
 eg
-eg
+ZK
 eg
 eg
 eg
@@ -60637,7 +60660,7 @@ eg
 eg
 eg
 eg
-tO
+SJ
 qL
 qL
 qL
@@ -82093,7 +82116,7 @@ qL
 qL
 nR
 Ug
-Ru
+Rm
 xo
 qL
 qL
@@ -83605,7 +83628,7 @@ qL
 qL
 nR
 oL
-Ru
+Rm
 gP
 qL
 qL
@@ -97047,7 +97070,7 @@ Bs
 Bs
 Bs
 Bs
-ng
+sD
 Bs
 Bs
 Bs
@@ -101979,7 +102002,7 @@ qL
 qL
 qL
 Ug
-Ru
+Rm
 xo
 qL
 qL
@@ -103491,7 +103514,7 @@ qL
 qL
 LP
 oL
-Ru
+Rm
 gP
 qL
 qL
@@ -121909,7 +121932,7 @@ qL
 qL
 TY
 Ug
-Ru
+Rm
 xo
 qL
 qL
@@ -123421,7 +123444,7 @@ qL
 qL
 TY
 oL
-Ru
+Rm
 gP
 qL
 qL
