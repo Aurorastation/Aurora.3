@@ -194,6 +194,7 @@
 	item_state = "snood"
 	contained_sprite = TRUE
 	w_class = WEIGHT_CLASS_SMALL
+	flags_inv = HIDEFACE
 	body_parts_covered = FACE
 	item_flags = ITEM_FLAG_FLEXIBLE_MATERIAL
 	gas_transfer_coefficient = 0.90
@@ -211,3 +212,12 @@
 	. = ..()
 	if(icon_auto_adapt)
 		build_and_apply_species_adaption()
+
+/obj/item/clothing/mask/snood/adjust_mask(mob/user, self)
+	. = ..()
+	if(hanging)
+		body_parts_covered &= ~FACE
+		flags_inv &= ~HIDEFACE
+	else
+		body_parts_covered |= FACE
+		flags_inv |= HIDEFACE
