@@ -3,7 +3,7 @@
 	desc = "A sleek and dangerous hardsuit for active combat. This one is a Stellar Corporate Conglomerate design in color scheme and make."
 	icon = 'icons/obj/item/clothing/rig/combat.dmi'
 	icon_state = "combat_rig"
-	icon_supported_species_tags = list("skr")
+	icon_supported_species_tags = list("skr", "taj", "unat", "ipc")
 	suit_type = "combat hardsuit"
 	armor = list(
 		MELEE = ARMOR_MELEE_MAJOR,
@@ -25,7 +25,7 @@
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT
 
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL)
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_TAJARA, BODYTYPE_UNATHI, BODYTYPE_IPC, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU)
 
 /obj/item/clothing/head/helmet/space/rig/combat
 	light_overlay = "helmet_light_dual_cyan"

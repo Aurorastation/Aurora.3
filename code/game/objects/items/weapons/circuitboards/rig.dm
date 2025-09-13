@@ -43,9 +43,11 @@
 
 /obj/item/circuitboard/rig_assembly/combat/hazard
 	name = "hazard hardsuit central circuit board"
+	origin_tech = list(TECH_DATA = 4)
 
 /obj/item/circuitboard/rig_assembly/combat/targeting/hazard
 	name = "hazard hardsuit control and targeting board"
+	origin_tech = list(TECH_DATA = 4, TECH_COMBAT = 4)
 
 /obj/item/circuitboard/rig_assembly/combat/combat
 	name = "combat hardsuit central circuit board"
