@@ -84,6 +84,7 @@
 	area_blurb = "A strong, concentrated smell of many cleaning supplies linger within this room."
 	area_blurb_category = "janitor"
 	horizon_deck = 1
+	area_flags = AREA_FLAG_PREVENT_PERSISTENT_TRASH
 
 /area/horizon/service/custodial/disposals
 	name = "Disposals and Recycling (PARENT AREA - DON'T USE)"
