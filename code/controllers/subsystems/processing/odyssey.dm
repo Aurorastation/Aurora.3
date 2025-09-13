@@ -73,7 +73,7 @@ SUBSYSTEM_DEF(odyssey)
 //		log_and_message_admins(SPAN_DANGER(FONT_HUGE("CRITICAL ERROR: NO SITUATIONS ARE AVAILABLE FOR THIS SECTOR!")))
 //		return FALSE
 
-	scenario = /singleton/scenario/ruined_propellant_depot
+	scenario = GET_SINGLETON(/singleton/scenario/ruined_propellant_depot)
 	setup_scenario_variables()
 	var/list/possible_station_levels = SSmapping.levels_by_all_traits(list(ZTRAIT_STATION))
 	main_map = GLOB.map_sectors["[pick(possible_station_levels)]"]
