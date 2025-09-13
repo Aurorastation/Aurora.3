@@ -33,6 +33,14 @@
 	},
 /turf/simulated/floor/exoplanet/plating,
 /area/trove/tunnels)
+"be" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/random/dirt_75,
+/obj/item/material/caltrops,
+/turf/simulated/floor/exoplanet/asteroid/basalt/air{
+	temperature = 293.15
+	},
+/area/trove/tunnels)
 "bj" = (
 /obj/effect/decal/remains/robot/burned,
 /obj/random/dirt_75,
@@ -70,6 +78,16 @@
 /obj/structure/closet/crate/drinks,
 /turf/simulated/floor/exoplanet/grass,
 /area/trove/tunnels)
+"bF" = (
+/obj/random/dirt_75,
+/obj/structure/platform_deco/ledge{
+	dir = 8
+	},
+/obj/random/mine,
+/turf/simulated/floor/exoplanet/asteroid/basalt/air{
+	temperature = 293.15
+	},
+/area/trove/tunnels)
 "bG" = (
 /obj/item/device/flashlight/lantern/on,
 /obj/structure/platform_deco/ledge{
@@ -99,6 +117,10 @@
 "cj" = (
 /obj/structure/lattice/catwalk/indoor/grate/damaged,
 /turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
+"cl" = (
+/obj/item/device/flashlight/lantern/on,
+/turf/simulated/floor/exoplanet/concrete/square,
 /area/trove/tunnels)
 "cn" = (
 /obj/random/dirt_75,
@@ -512,6 +534,14 @@
 /obj/structure/table/wood/gamblingtable,
 /obj/item/paper/fluff/treasure_trove/dead_end,
 /turf/simulated/floor/carpet/purple,
+/area/trove/tunnels)
+"iU" = (
+/obj/structure/platform_deco/ledge{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/obj/item/material/caltrops,
+/turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "iW" = (
 /obj/random/dirt_75,
@@ -932,6 +962,10 @@
 "qB" = (
 /obj/random/dirt_75,
 /obj/machinery/porta_turret/hologram,
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#C98C2C";
+	light_range = 2
+	},
 /turf/simulated/floor/exoplanet/asphalt,
 /area/trove/tunnels)
 "qC" = (
@@ -1037,6 +1071,10 @@
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/exoplanet/asphalt,
 /area/trove/tunnels)
+"rY" = (
+/obj/item/device/flashlight/lantern/on,
+/turf/simulated/floor/wood/mahogany,
+/area/trove/tunnels)
 "sb" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/random/dirt_75,
@@ -1057,6 +1095,15 @@
 /obj/random/dirt_75,
 /obj/effect/decal/remains/xeno/burned,
 /turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
+"sq" = (
+/obj/random/dirt_75,
+/obj/random/holoturret,
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#C98C2C";
+	light_range = 2
+	},
+/turf/simulated/floor/exoplanet/asphalt,
 /area/trove/tunnels)
 "sy" = (
 /obj/random/dirt_75,
@@ -1386,6 +1433,14 @@
 /obj/random/dirt_75,
 /turf/simulated/wall,
 /area/trove/tunnels)
+"yz" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/random/dirt_75,
+/obj/random/mine,
+/turf/simulated/floor/exoplanet/asteroid/basalt/air{
+	temperature = 293.15
+	},
+/area/trove/tunnels)
 "yF" = (
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/greenglow,
@@ -1426,6 +1481,10 @@
 /area/trove/tunnels)
 "zr" = (
 /obj/random/holoturret,
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#C98C2C";
+	light_range = 2
+	},
 /turf/simulated/floor/exoplanet/asphalt,
 /area/trove/tunnels)
 "zB" = (
@@ -1639,6 +1698,13 @@
 "DH" = (
 /obj/item/trap/punji/deployed/hidden,
 /turf/simulated/floor/exoplanet/asphalt,
+/area/trove/tunnels)
+"Ea" = (
+/obj/random/dirt_75,
+/obj/random/mine,
+/turf/simulated/floor/exoplanet/asteroid/basalt/air{
+	temperature = 293.15
+	},
 /area/trove/tunnels)
 "Ee" = (
 /obj/random/dirt_75,
@@ -1946,6 +2012,11 @@
 /obj/shieldwall,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
+"Ia" = (
+/obj/random/dirt_75,
+/obj/item/device/flashlight/lantern/on,
+/turf/simulated/floor/exoplanet/grass,
+/area/trove/tunnels)
 "If" = (
 /obj/random/dirt_75,
 /obj/structure/platform{
@@ -2139,6 +2210,13 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
+"KN" = (
+/obj/random/dirt_75,
+/obj/item/material/caltrops,
+/turf/simulated/floor/exoplanet/asteroid/basalt/air{
+	temperature = 293.15
+	},
 /area/trove/tunnels)
 "KS" = (
 /obj/structure/cable/green{
@@ -3015,6 +3093,16 @@
 /obj/effect/map_effect/marker/mapmanip/submap/extract/treasure_trove/stairs,
 /turf/unsimulated/mineral/konyang,
 /area/trove/tunnels)
+"Zi" = (
+/obj/random/dirt_75,
+/obj/random/holoturret,
+/obj/effect/decal/cleanable/cobweb2,
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#C98C2C";
+	light_range = 2
+	},
+/turf/simulated/floor/exoplanet/asphalt,
+/area/trove/tunnels)
 "Zl" = (
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
@@ -3046,6 +3134,10 @@
 /obj/random/dirt_75,
 /obj/machinery/porta_turret/hologram,
 /obj/random/dirt_75,
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#C98C2C";
+	light_range = 2
+	},
 /turf/simulated/floor/exoplanet/asphalt,
 /area/trove/tunnels)
 "ZC" = (
@@ -9835,13 +9927,13 @@ xV
 xV
 MK
 MK
-Lu
+sq
 Og
 kg
 Ne
 kg
 hm
-Lu
+sq
 MK
 MK
 xV
@@ -9874,26 +9966,26 @@ xV
 xV
 MK
 MK
-Lu
+sq
 Og
 kH
 kA
 kH
 hm
-Lu
+sq
 MK
 MK
 xV
 xV
 MK
 MK
-Lu
+sq
 Og
 xk
 EK
 kH
 hm
-Lu
+sq
 MK
 MK
 xV
@@ -10760,13 +10852,13 @@ xV
 NW
 Hf
 br
-Lu
+sq
 Lb
 xk
 bu
 xk
 Mc
-Lu
+sq
 iK
 Hf
 xV
@@ -10799,13 +10891,13 @@ xV
 NW
 MK
 MK
-Cj
+Zi
 Og
 kH
 OM
 fG
 hm
-Lu
+sq
 MK
 MK
 xV
@@ -11665,7 +11757,7 @@ WX
 Ur
 pg
 hm
-Lu
+sq
 MK
 MK
 xV
@@ -11698,26 +11790,26 @@ xV
 xV
 MK
 MK
-Lu
+sq
 Og
 kH
 Ep
 vx
 hm
-Lu
+sq
 MK
 MK
 xV
 xV
 MK
 MK
-Lu
+sq
 Og
 Tw
 WO
 vx
 Ge
-Lu
+sq
 MK
 MK
 xV
@@ -23091,9 +23183,9 @@ xV
 xV
 fS
 fS
-fS
-fS
-fS
+ro
+qB
+TM
 MK
 MK
 MK
@@ -23243,9 +23335,9 @@ xV
 xV
 SC
 fS
-fS
-fS
-fS
+iU
+LO
+BU
 fS
 Ug
 MK
@@ -23394,7 +23486,7 @@ xV
 xV
 xV
 if
-fS
+KN
 fS
 fS
 fS
@@ -23547,9 +23639,9 @@ xV
 xV
 tb
 fS
+Ea
 fS
-fS
-fS
+KN
 MK
 MK
 MK
@@ -23699,8 +23791,8 @@ xV
 xV
 ZX
 XV
-ZX
-ZX
+be
+be
 ZX
 nv
 XV
@@ -23852,7 +23944,7 @@ NW
 Ep
 Ep
 Ep
-Ep
+Ju
 Ep
 MK
 xR
@@ -24003,7 +24095,7 @@ xV
 xV
 XV
 ZX
-ZX
+yz
 ZX
 ZX
 nv
@@ -24153,9 +24245,9 @@ xV
 xV
 xV
 xV
-SC
+bF
 fS
-fS
+KN
 fS
 fS
 MK
@@ -24309,7 +24401,7 @@ if
 fS
 fS
 fS
-fS
+Ea
 fS
 MK
 MK
@@ -24459,9 +24551,9 @@ xV
 xV
 tb
 fS
-fS
-fS
-fS
+xi
+Wa
+op
 fS
 Ug
 MK
@@ -24611,9 +24703,9 @@ xV
 xV
 fS
 fS
-fS
-fS
-fS
+ro
+Zy
+nz
 MK
 MK
 MK
@@ -45310,7 +45402,7 @@ Iv
 WC
 xV
 xV
-hR
+rY
 hR
 hR
 hR
@@ -46659,7 +46751,7 @@ YV
 Lz
 Ep
 MK
-Lu
+sq
 oS
 Ep
 xV
@@ -46673,7 +46765,7 @@ MK
 MK
 MK
 MK
-Lu
+sq
 oS
 Ep
 xV
@@ -46685,9 +46777,9 @@ VP
 ge
 mv
 mv
-mv
+cl
 MK
-Lu
+sq
 oS
 Ep
 xV
@@ -48046,7 +48138,7 @@ Iv
 Iv
 xV
 xV
-ya
+Ia
 AQ
 AQ
 AQ
