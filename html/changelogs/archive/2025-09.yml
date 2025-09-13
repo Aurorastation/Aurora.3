@@ -160,3 +160,9 @@
   Timby:
   - imageadd: Adds a new debugger sprite more in-line with the server's art style.
   - imagedel: Removes the old debugger sprite.
+2025-09-13:
+  MattAtlas:
+  - bugfix: Fixed human-on-human melee damage with weapons being broken.
+  Mneme:
+  - bugfix: Fixed a bug blocking the ability to attach an IV to a patient in certain
+      situations.
