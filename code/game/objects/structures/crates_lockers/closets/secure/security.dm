@@ -291,7 +291,6 @@
 	new /obj/item/storage/backpack/satchel/leather/recolorable(src)
 	new /obj/item/clothing/suit/storage/toggle/labcoat(src)
 	new /obj/item/clothing/accessory/badge/investigator(src)
-	new /obj/item/clothing/shoes/laceup(src)
 	new /obj/item/clothing/mask/gas/half(src)
 	//Tools
 	new /obj/item/device/radio/headset/headset_sec(src)
