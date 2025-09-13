@@ -1481,9 +1481,8 @@ GLOBAL_LIST_INIT(robot_modules, list(
 
 	firemodes = list(
 		list(mode_name="Rocket (Standard) - Acceptable Targets: <span class = 'good'>Anyone</span>, <span class = 'danger'>EXCEPT IPCS (EVEN ARMOURED ONES)</span>", projectile_type = /obj/projectile/bullet/peac, fire_sound='sound/weapons/rocketlaunch.ogg', fire_delay = 50, charge_cost = 1000),
-		list(mode_name="Rocket (Fragmentation) - Acceptable Targets: Armoured", projectile_type = /obj/projectile/bullet/peac/shrapnel, fire_sound='sound/weapons/rocketlaunch.ogg', fire_delay = 50, charge_cost = 1000),
 		list(mode_name="Spikethrower - Acceptable Targets: <span class = 'good'>Anyone</span>", projectile_type = /obj/projectile/bullet/pistol/hivebotspike, fire_sound='sound/weapons/gunshot/gunshot_suppressed.ogg', fire_delay = 3),
-		list(mode_name="Spikethrower (Extra Sharp) - Acceptable Targets: Armoured", projectile_type = /obj/projectile/bullet/pistol/hivebotspike/spikier, fire_sound='sound/weapons/gunshot/gunshot_suppressed.ogg', fire_delay = 20)
+		list(mode_name="Spikethrower (Extra Sharp) - Acceptable Targets: <span class = 'warning'>Armoured</span>", projectile_type = /obj/projectile/bullet/pistol/hivebotspike/spikier, fire_sound='sound/weapons/gunshot/gunshot_suppressed.ogg', fire_delay = 20)
 		)
 
 /obj/item/gun/energy/pulse/mounted/hivebotevent/plasma
@@ -1492,7 +1491,7 @@ GLOBAL_LIST_INIT(robot_modules, list(
 		list(mode_name="Plasma (Lethal) - Acceptable Targets: Armoured", projectile_type = /obj/projectile/beam/plasmacutter/plasma_lethal, fire_sound='sound/weapons/plasma_cutter.ogg'),
 		list(mode_name="<span class = 'danger'>Plasma (Extra Lethal) - Acceptable Targets: Heavily Armoured</span>", projectile_type = /obj/projectile/beam/plasmacutter/plasma_extralethal, fire_sound='sound/weapons/plasma_cutter.ogg', charge_cost = 800, fire_delay = 50),
 		list(mode_name="Spikethrower - Acceptable Targets: <span class = 'good'>Anyone</span>", projectile_type = /obj/projectile/bullet/pistol/hivebotspike, fire_sound='sound/weapons/gunshot/gunshot_suppressed.ogg', fire_delay = 3),
-		list(mode_name="Spikethrower (Extra Sharp) - Acceptable Targets: Armoured", projectile_type = /obj/projectile/bullet/pistol/hivebotspike/spikier, fire_sound='sound/weapons/gunshot/gunshot_suppressed.ogg', fire_delay = 20)
+		list(mode_name="Spikethrower (Extra Sharp) - Acceptable Targets: <span class = 'warning'>Armoured</span>", projectile_type = /obj/projectile/bullet/pistol/hivebotspike/spikier, fire_sound='sound/weapons/gunshot/gunshot_suppressed.ogg', fire_delay = 20)
 		)
 
 /obj/projectile/bullet/pistol/hivebotspike/spikier
@@ -1518,7 +1517,7 @@ GLOBAL_LIST_INIT(robot_modules, list(
 	firemodes = list(
 		list(mode_name="Rocket (Low Power) - Acceptable Targets: <span class = 'danger'>ANYONE EXCEPT IPCS</span>", projectile_type = /obj/projectile/bullet/peac, fire_sound='sound/weapons/rocketlaunch.ogg', fire_delay = 50),
 		list(mode_name="Rocket (Fragmentation) - Acceptable Targets: Armoured", projectile_type = /obj/projectile/bullet/peac/shrapnel, fire_sound='sound/weapons/rocketlaunch.ogg', fire_delay = 50),
-		list(mode_name="Spikethrower (Extra Sharp) - Acceptable Targets: Armoured", projectile_type = /obj/projectile/bullet/pistol/hivebotspike/spikier, fire_sound='sound/weapons/gunshot/gunshot_suppressed.ogg'),
+		list(mode_name="Spikethrower (Extra Sharp) - Acceptable Targets: <span class = 'warning'>Armoured</span>", projectile_type = /obj/projectile/bullet/pistol/hivebotspike/spikier, fire_sound='sound/weapons/gunshot/gunshot_suppressed.ogg'),
 		list(mode_name="<span class = 'danger'>Plasma (Extra Lethal) - Acceptable Targets: Heavily Armoured</span>", projectile_type = /obj/projectile/beam/plasmacutter/plasma_extralethal, fire_sound='sound/weapons/plasma_cutter.ogg', fire_delay = 50),
 		)
 
