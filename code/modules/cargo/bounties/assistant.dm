@@ -40,7 +40,7 @@
 
 /datum/bounty/item/assistant/curtains
 	name = "Curtain"
-	description = "Send us some curtains to help redecorate our offices!"
+	description = "Somebody on the residential decks has ordered some curtains, deliver them via the cargo elevator!"
 	reward_low = 250
 	reward_high = 270
 	required_count = 5
@@ -49,7 +49,7 @@
 
 /datum/bounty/item/assistant/action_figures
 	name = "Action Figures"
-	description = "%PERSONNAME wants a few action figures for their collection, and is willing to pay any station who provides."
+	description = "Someone on the ship wants a few action figures for their collection, and is willing to pay for them to be provided."
 	reward_low = 120
 	reward_high = 130
 	required_count = 5
@@ -58,7 +58,7 @@
 
 /datum/bounty/item/assistant/water_tank
 	name = "Water Tank"
-	description = "Send us some water tanks that will be used for botany research, and definitely not for creating a slip 'n slide in %PERSONNAME's office."
+	description = "The water needs to be turned off in a residential sector for maintanence, send down some water tanks for crew to use in the meantime."
 	reward_low = 115
 	reward_high = 135
 	required_count = 3
