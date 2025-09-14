@@ -3,14 +3,18 @@ GLOBAL_LIST(fusion_reactions)
 /singleton/fusion_reaction
 	/// Primary reactant.
 	var/p_react = ""
+	/// Minimum # of p required to react.
+	var/minimum_p_react = 0
 	/// Secondary reactant.
 	var/s_react = ""
+	/// This is the minimum energy to initiate a given reaction.
 	var/minimum_energy_level = 1
 	var/energy_consumption = 0
 	var/energy_production = 0
 	var/radiation = 0
 	var/instability = 0
 	var/list/products = list()
+	/// This is the minimum energy to continue a given reaction, once started.
 	var/minimum_reaction_temperature = 10000
 	var/priority = 100
 
@@ -34,7 +38,6 @@ GLOBAL_LIST(fusion_reactions)
 		if(secondary_reactions.Find(s_react))
 			return GLOB.fusion_reactions[p_react][s_react]
 
-// Dirty jumpstart reaction
 /singleton/fusion_reaction/deuterium_tritium
 	p_react = GAS_DEUTERIUM
 	s_react = GAS_TRITIUM
@@ -60,8 +63,7 @@ GLOBAL_LIST(fusion_reactions)
 	s_react = GAS_DEUTERIUM
 	energy_consumption = 2
 	energy_production = 9
-	products = list(GAS_HELIUMFUEL = 1)
-	radiation = 4
+	radiation = 8
 	priority = 2
 
 /singleton/fusion_reaction/helium3_helium
@@ -77,6 +79,7 @@ GLOBAL_LIST(fusion_reactions)
 // Helium reduction
 /singleton/fusion_reaction/helium_helium
 	p_react = GAS_HELIUM
+	minimum_p_react = 10000
 	s_react = GAS_HELIUM
 	energy_consumption = 4
 	energy_production = 6
@@ -154,7 +157,7 @@ GLOBAL_LIST(fusion_reactions)
 	p_react = GAS_HELIUMFUEL
 	s_react = GAS_HELIUMFUEL
 	energy_consumption = 2
-	energy_production = 24
+	energy_production = 48
 	products = list(GAS_HELIUM = 1, GAS_HYDROGEN = 2)
 	radiation = 1
 	minimum_reaction_temperature = 250000
@@ -199,7 +202,7 @@ GLOBAL_LIST(fusion_reactions)
 	energy_consumption = 64
 	energy_production = 0
 	radiation = 16
-	instability = 10
+	instability = 14
 
 /singleton/fusion_reaction/iron_iron
 	p_react = "iron"

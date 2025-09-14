@@ -568,7 +568,7 @@
 				if(possible_s_reacts[cur_s_react] < 1)
 					continue
 				var/singleton/fusion_reaction/cur_reaction = get_fusion_reaction(cur_p_react, cur_s_react)
-				if(cur_reaction && plasma_temperature >= cur_reaction.minimum_energy_level)
+				if(cur_reaction && plasma_temperature >= cur_reaction.minimum_energy_level && cur_p_react >= cur_reaction.minimum_p_react)
 					LAZYDISTINCTADD(possible_reactions, cur_reaction)
 
 			// If there are no possible reactions here, abandon this primary reactant and move on.
