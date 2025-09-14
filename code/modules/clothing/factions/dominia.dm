@@ -259,6 +259,7 @@
 /obj/item/clothing/accessory/poncho/dominia_cape/tribunalist/medical
 	name = "tribunalist medical cape"
 	desc = "A white-and-green cape in the style of the Dominian clergy. Worn by those medical workers affiliated with the Moroz Holy Tribunal."
+	desc_extended = null
 	icon = 'icons/obj/item/clothing/accessory/poncho/dominia_medical_cape.dmi'
 	icon_state = "dominian_cape_hospital"
 	item_state = "dominian_cape_hospital"
