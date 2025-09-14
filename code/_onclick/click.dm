@@ -158,10 +158,6 @@
 	// A is your location but is not a turf; or is on you (backpack); or is on something on you (box in backpack); sdepth is needed here because contents depth does not equate inventory storage depth.
 	var/sdepth = A.storage_depth(src)
 	if((!isturf(A) && A == loc) || (sdepth != -1 && sdepth <= 1))
-		// faster access to objects already on you
-		if(A.loc != src)
-			setMoveCooldown(10) //getting something out of a backpack
-
 		if(W)
 			var/resolved = W.resolve_attackby(A, src, params)
 			if(!resolved && A && W)

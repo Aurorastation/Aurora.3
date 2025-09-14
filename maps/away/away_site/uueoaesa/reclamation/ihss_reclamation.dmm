@@ -3765,7 +3765,7 @@
 /obj/effect/floor_decal/corner/lime{
 	dir = 5
 	},
-/obj/machinery/seed_storage/xenobotany,
+/obj/machinery/seed_storage/garden/hydroponics,
 /turf/simulated/floor/tiled/white{
 	temperature = 303.15
 	},
@@ -5505,7 +5505,6 @@
 /area/shuttle/ihss_reclamation)
 "Au" = (
 /obj/machinery/hologram/holopad/long_range,
-/obj/effect/overmap/visitable/sector/ihss_reclamation,
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/bridge)
 "Ay" = (
@@ -10111,7 +10110,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/northhall)
 "WM" = (
-/obj/structure/janitorialcart/full/water{
+/obj/structure/cart/storage/janitorialcart/full/water{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -10173,6 +10172,10 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ihss_reclamation/hangar1)
+"Xg" = (
+/obj/effect/overmap/visitable/ship/stationary/ihss_reclamation,
+/turf/simulated/floor/tiled/dark,
+/area/ihss_reclamation/bridge)
 "Xk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
@@ -43783,7 +43786,7 @@ IX
 ME
 wJ
 wJ
-wJ
+Xg
 Au
 wJ
 wJ
