@@ -127,19 +127,6 @@
 	volume = 5
 	time = 0
 
-/obj/item/reagent_containers/hypospray/autoinjector/persistence_get_content()
-	var/list/content = list()
-	content["name"] = name
-	content["desc"] = desc
-	return content
-
-/obj/item/reagent_containers/hypospray/autoinjector/persistence_apply_content(content, x, y, z)
-	name = content["name"]
-	desc = content["desc"]
-	src.x = x
-	src.y = y
-	src.z = z
-
 /obj/item/reagent_containers/hypospray/autoinjector/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Autoinjectors are spent after using them. To re-use, use a screwdriver to open the back panel, then simply pour any desired reagent inside. ALT-click while it's on your person to prepare it for reuse."
@@ -172,7 +159,6 @@
 	. = ..()
 	if(.)
 		spent = TRUE
-		persistency_considered_trash = TRUE
 		update_icon()
 
 /obj/item/reagent_containers/hypospray/autoinjector/attack_self(mob/user as mob)
@@ -187,7 +173,6 @@
 		if(LAZYLEN(reagents.reagent_volumes))
 			to_chat(user, SPAN_NOTICE("With a quick twist of \the [src]'s lid, you secure the reagents inside."))
 			spent = FALSE
-			persistency_considered_trash = FALSE
 			atom_flags &= ~ATOM_FLAG_OPEN_CONTAINER
 			update_icon()
 		else
