@@ -628,7 +628,7 @@
 
 	user.update_equipment_speed_mods()
 
-	if(persistency_considered_trash) // The moment trash like items get picked up they are no longer persistent
+	if(persistency_considered_trash || persistence_track_active) // The moment trash like items get picked up they are no longer persistent
 		SSpersistence.deregister_track(src)
 
 /obj/item/proc/check_equipped(var/mob/user, var/slot, var/assisted_equip = FALSE)
