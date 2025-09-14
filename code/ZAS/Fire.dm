@@ -44,11 +44,7 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 	var/obj/effect/decal/cleanable/liquid_fuel/liquid = locate() in src
 
 	if(air_contents.check_combustibility(liquid))
-<<<<<<< HEAD
-		igniting = 1
-=======
 		igniting = TRUE
->>>>>>> master
 
 		create_fire(exposed_temperature)
 	return igniting
