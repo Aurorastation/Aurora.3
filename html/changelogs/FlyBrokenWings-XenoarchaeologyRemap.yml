@@ -55,6 +55,6 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "A new layout for Xenoarchaeology. Adds a presentation abdd gas storage room and the areas needed for them. Plus a grate in white."
+  - rscadd: "A new layout for Xenoarchaeology. Adds a presentation and gas storage room and the areas needed for them. Plus a grate in white."
   - rscdel: "Anomaly harvesting with presentation. Harvesting consolidated into chambers B and C."
   - balance: "Gives Xenoarchaeology a xenofauna gun. Some things spawn space bears, hivebots and what-not. If xenobiology can have one, why can't they? Some insulated gloves too in case they need some weird setup for their emitter."
