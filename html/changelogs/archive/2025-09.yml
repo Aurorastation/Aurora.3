@@ -166,3 +166,8 @@
   Mneme:
   - bugfix: Fixed a bug blocking the ability to attach an IV to a patient in certain
       situations.
+2025-09-14:
+  Kano:
+  - bugfix: Removed some rogue objects in the Horizon.
+  MattAtlas:
+  - bugfix: Fixes planted C4 and meteors being unclickable.
