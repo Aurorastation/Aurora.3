@@ -439,6 +439,7 @@
 #define PROSTHETIC_SELEN "Selen Head"
 #define PROSTHETIC_SIENNA "Sienna Head"
 #define PROSTHETIC_SISEYO "Siseyo Head"
+#define PROSTHETIC_CHEAP "Cheap Prosthetic"
 
 //Prosthetics that aren't restricted by species
 #define PROSTHETICS_UNRESTRICTED list(PROSTHETIC_BC, PROSTHETIC_HI, PROSTHETIC_XMG, PROSTHETIC_UNBRANDED, PROSTHETIC_ZH)

@@ -152,7 +152,7 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 				set_last_found_target(tmp_target_mob)
 			change_stance(HOSTILE_STANCE_ATTACK)
 
-/mob/living/simple_animal/hostile/attack_generic(var/mob/user, var/damage, var/attack_message)
+/mob/living/simple_animal/hostile/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	..()
 	if(last_found_target != user)
 		set_last_found_target(user)
@@ -255,7 +255,7 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 		var/mob/living/L = last_found_target
 		if(L.paralysis)
 			return
-		on_attack_mob(L, L.attack_generic(src, rand(melee_damage_lower, melee_damage_upper), attacktext, armor_penetration, attack_flags, damage_type))
+		on_attack_mob(L, L.attack_generic(src, rand(melee_damage_lower, melee_damage_upper), attacktext, environment_smash, armor_penetration, attack_flags, damage_type))
 		target = L
 	else if(istype(last_found_target, /obj/machinery/bot))
 		var/obj/machinery/bot/B = last_found_target

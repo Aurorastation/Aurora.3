@@ -20,21 +20,35 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 
 /turf/proc/hotspot_expose(exposed_temperature, exposed_volume, soh = 0)
 
-
+/**
+ * Create a temporary ignition source at turf. Think sparks/igniters.
+ *
+ * Checks for flammable materials at its location.
+ *
+ * * exposed_temperature - ignition source temp (K)
+ * * exposed_volume - gas volume (passed to fire_act() for locs)
+ * * soh - they say no one knows
+ *
+ * Returns boolean and/or executes create_fire(exposed_temperature).
+ */
 /turf/simulated/hotspot_expose(exposed_temperature, exposed_volume, soh)
 	if(fire_protection > world.time-300)
-		return 0
+		return FALSE
 	if(locate(/obj/fire) in src)
-		return 1
+		return TRUE
 	var/datum/gas_mixture/air_contents = return_air()
 	if(!air_contents || exposed_temperature < PHORON_MINIMUM_BURN_TEMPERATURE)
-		return 0
+		return FALSE
 
-	var/igniting = 0
+	var/igniting = FALSE
 	var/obj/effect/decal/cleanable/liquid_fuel/liquid = locate() in src
 
 	if(air_contents.check_combustibility(liquid))
+<<<<<<< HEAD
 		igniting = 1
+=======
+		igniting = TRUE
+>>>>>>> master
 
 		create_fire(exposed_temperature)
 	return igniting
@@ -425,7 +439,11 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 	var/mx = 5 * firelevel/GLOB.vsc.fire_firelevel_multiplier * min(pressure / ONE_ATMOSPHERE, 1)
 	apply_damage(2.5*mx, DAMAGE_BURN)
 
-
+/**
+ * Applies direct damage to human mobs to fire.
+ * On the chopping block depending on how we feel.
+ * We can decide its fate in future reworks.
+ */
 /mob/living/carbon/human/FireBurn(var/firelevel, var/last_temperature, var/pressure)
 	//Burns mobs due to fire. Respects heat transfer coefficients on various body parts.
 	//Due to TG reworking how fireprotection works, this is kinda less meaningful.
@@ -465,7 +483,6 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 	apply_damage(0.6*mx*legs_exposure, DAMAGE_BURN, BP_R_LEG, used_weapon = "Fire")
 	apply_damage(0.4*mx*arms_exposure, DAMAGE_BURN, BP_L_ARM, used_weapon = "Fire")
 	apply_damage(0.4*mx*arms_exposure, DAMAGE_BURN, BP_R_ARM, used_weapon = "Fire")
-
 
 #undef FIRE_LIGHT_1
 #undef FIRE_LIGHT_2
