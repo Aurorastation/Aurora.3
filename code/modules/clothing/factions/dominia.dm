@@ -189,7 +189,6 @@
 	icon = 'icons/obj/item/clothing/accessory/poncho/dominia_red.dmi'
 	icon_state = "dominian_cape_red"
 	item_state = "dominian_cape_red"
-	contained_sprite = TRUE
 	var/rolled = FALSE
 
 /obj/item/clothing/accessory/poncho/dominia_cape/tribunalist/update_clothing_icon()
@@ -256,9 +255,6 @@
 	icon_state = "dominia_cape_consular"
 	item_state = "dominia_cape_consular"
 	overlay_state = "dominia_cape_consular"
-	contained_sprite = TRUE
-	icon_override = null
-	rolled = FALSE
 
 /obj/item/clothing/accessory/poncho/dominia_cape/tribunalist/medical
 	name = "tribunalist medical cape"
@@ -266,7 +262,6 @@
 	icon = 'icons/obj/item/clothing/accessory/poncho/dominia_medical_cape.dmi'
 	icon_state = "dominian_cape_hospital"
 	item_state = "dominian_cape_hospital"
-	rolled = FALSE
 
 /obj/item/clothing/suit/storage/dominia
 	name = "dominian great coat"
