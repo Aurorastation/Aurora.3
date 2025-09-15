@@ -54,7 +54,7 @@
 	name = "Hazard Hardsuit Control Module"
 	desc = "An assembly for a security hardsuit designed for prolonged EVA in dangerous environments."
 	build_path = /obj/item/rig_assembly/combat/hazard
-	req_tech = list(TECH_MATERIAL = 4, TECH_ENGINEERING = 3, TECH_MAGNET = 3, TECH_POWER = 3, TECH_COMBAT = 3)
+	req_tech = list(TECH_MATERIAL = 3, TECH_ENGINEERING = 3, TECH_MAGNET = 3, TECH_POWER = 3, TECH_COMBAT = 3)
 	materials = list(DEFAULT_WALL_MATERIAL = 26500, MATERIAL_GLASS = 12500, MATERIAL_SILVER = 3500, MATERIAL_GOLD = 5500, MATERIAL_LEAD = 3500)
 
 /datum/design/rig/combat

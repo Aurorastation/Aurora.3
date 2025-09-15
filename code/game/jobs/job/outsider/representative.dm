@@ -364,7 +364,7 @@
 
 	access = list(ACCESS_CONSULAR, ACCESS_MAINT_TUNNELS)
 	minimal_access = list(ACCESS_CONSULAR)
-	outfit = /obj/outfit/job/diplomatic_aide
+	outfit = /obj/outfit/job/diplomatic_bodyguard
 	blacklisted_citizenship = ALL_CITIZENSHIPS //removed based on consular citizensihp
 
 /datum/job/diplomatic_bodyguard/get_outfit(mob/living/carbon/human/H, alt_title = null)
@@ -410,23 +410,21 @@
 
 	access = list(ACCESS_LAWYER, ACCESS_MAINT_TUNNELS)
 	minimal_access = list(ACCESS_LAWYER)
-	outfit = /obj/outfit/job/diplomatic_aide
-
-/datum/job/corporate_aide/get_outfit(mob/living/carbon/human/H, alt_title = null)
-	var/datum/faction/aide_faction = SSjobs.name_factions[H.employer_faction]
-	if(aide_faction)
-		return aide_faction.titles_to_loadout["Off-Duty Crew Member"]
+	outfit = /obj/outfit/job/corporate_aide
 
 /obj/outfit/job/corporate_aide
-	name = "Corporate Aide"
+	name = "NanoTrasen Corporate Aide"
 	jobtype = /datum/job/corporate_aide
 
-	uniform = /obj/item/clothing/under/suit_jacket/navy
+	head = /obj/item/clothing/head/beret/corporate
+	uniform = /obj/item/clothing/under/dressshirt
+	suit = /obj/item/clothing/suit/storage/toggle/corp/nt
+	pants = /obj/item/clothing/pants/khaki
+
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/lawyer
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/lawyer
 	tablet = /obj/item/modular_computer/handheld/preset/civilian/lawyer
 	shoes = /obj/item/clothing/shoes/laceup
-	glasses = /obj/item/clothing/glasses/sunglasses/big
 	headset = /obj/item/device/radio/headset/representative
 	bowman = /obj/item/device/radio/headset/representative/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/command/representative

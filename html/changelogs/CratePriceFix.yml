@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - balance: "Returned crates now only give 50 credits instead of 500 credits."

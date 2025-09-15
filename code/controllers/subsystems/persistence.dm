@@ -120,9 +120,11 @@ SUBSYSTEM_DEF(persistence)
  * RETURN: JSON formatted content of track or null if an exception occured.
  */
 /datum/controller/subsystem/persistence/proc/track_get_content(var/obj/track)
-	var/result = null
+	var/result = json_encode(list())
 	try
-		result = json_encode(track.persistence_get_content())
+		var/list/content = track.persistence_get_content()
+		if(content && content.len)
+			result = json_encode(content)
 	catch(var/exception/e)
 		log_subsystem_persistence("Track: Failed to get/encode track content: [e]")
 	return result
@@ -202,10 +204,6 @@ SUBSYSTEM_DEF(persistence)
 	if(!SSdbcore.Connect())
 		log_subsystem_persistence("SQL ERROR during persistence database_add_entry. Failed to connect.")
 	else
-		var/content = track_get_content(track)
-		if (!content)
-			return
-
 		var/turf/T = get_turf(track)
 		if(!T || !is_station_level(T.z)) // The persistence system only supports objects from the main map levels for multiple reasons, e.g. Z level value, mapping support
 			return
@@ -217,7 +215,7 @@ SUBSYSTEM_DEF(persistence)
 				"author_ckey" = track.persistence_author_ckey,
 				"type" = "[track.type]",
 				"expire_in_days" = track.persistance_expiration_time_days,
-				"content" = content,
+				"content" = track_get_content(track),
 				"x" = T.x,
 				"y" = T.y,
 				"z" = T.z
@@ -236,10 +234,6 @@ SUBSYSTEM_DEF(persistence)
 	if(!SSdbcore.Connect())
 		log_subsystem_persistence("SQL ERROR during persistence database_update_entry. Failed to connect.")
 	else
-		var/content = track_get_content(track)
-		if (!content)
-			return
-
 		var/turf/T = get_turf(track)
 		if(!T || !is_station_level(T.z)) // The persistence system only supports objects from the main map levels for multiple reasons, e.g. Z level value, mapping support
 			return
@@ -249,7 +243,7 @@ SUBSYSTEM_DEF(persistence)
 			list(
 				"author_ckey" = track.persistence_author_ckey,
 				"expire_in_days" = track.persistance_expiration_time_days,
-				"content" = content,
+				"content" = track_get_content(track),
 				"x" = T.x,
 				"y" = T.y,
 				"z" = T.z,
