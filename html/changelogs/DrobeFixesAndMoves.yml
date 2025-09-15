@@ -1,0 +1,8 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "Moved around a lot of clothing from various lockers to the respective drobes for the department."
+  - rscadd: "A couple of taj religious outfits were added to the chaplain drobe."
+  - rscadd: "Items can now be put back into the drobes."
