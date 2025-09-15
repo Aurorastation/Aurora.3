@@ -15,7 +15,7 @@ GLOBAL_LIST(fusion_reactions)
 	var/instability = 0
 	var/list/products = list()
 	/// This is the minimum energy to continue a given reaction, once started.
-	var/minimum_reaction_temperature = 10000
+	var/minimum_reaction_temperature = 12500
 	var/priority = 100
 
 /singleton/fusion_reaction/proc/handle_reaction_special(obj/effect/fusion_em_field/holder)
@@ -42,18 +42,19 @@ GLOBAL_LIST(fusion_reactions)
 	p_react = GAS_DEUTERIUM
 	s_react = GAS_TRITIUM
 	energy_consumption = 1
-	energy_production = 8
+	energy_production = 16
 	products = list(GAS_HELIUM = 1)
-	instability = 8.5
-	radiation = 96
-	minimum_reaction_temperature = 500
-	priority = 20
+	instability = 3.5
+	// deut-trit bad!!!
+	radiation = 400
+	minimum_reaction_temperature = 300
+	priority = 1
 
 /singleton/fusion_reaction/hydrogen_hydrogen
 	p_react = GAS_HYDROGEN
 	s_react = GAS_HYDROGEN
 	energy_consumption = 1
-	energy_production = 8
+	energy_production = 6
 	products = list(GAS_DEUTERIUM = 1)
 	radiation = 3
 	priority = 1
@@ -62,51 +63,95 @@ GLOBAL_LIST(fusion_reactions)
 	p_react = GAS_HYDROGEN
 	s_react = GAS_DEUTERIUM
 	energy_consumption = 2
-	energy_production = 9
-	radiation = 8
+	energy_production = 10
+	products = list(GAS_HELIUMFUEL = 1)
+	radiation = 16
 	priority = 2
+
+/singleton/fusion_reaction/helium3_hydrogen
+	p_react = GAS_HELIUMFUEL
+	s_react = GAS_HYDROGEN
+	energy_consumption = 4
+	energy_production = 11
+	products = list(GAS_HYDROGEN = 2)
+	radiation = 32
+	instability = 1
+	priority = 10
+
+/singleton/fusion_reaction/helium_helium
+	p_react = GAS_HELIUM
+	s_react = GAS_HELIUM
+	energy_consumption = 3
+	energy_production = 8
+	products = list(GAS_DEUTERIUM = 2, GAS_HYDROGEN = 1)
+	radiation = 6
+	instability = 0.5
+	minimum_reaction_temperature = 128000
+	priority = 12
 
 /singleton/fusion_reaction/helium3_helium
 	p_react = GAS_HELIUMFUEL
 	s_react = GAS_HELIUM
 	energy_consumption = 3
-	energy_production = 7
-	products = list("beryllium" = 1)
+	energy_production = 14
+	products = list("beryllium-7" = 1)
 	radiation = 6
-	minimum_reaction_temperature = 72000
+	minimum_reaction_temperature = 220000
 	priority = 13
 
-// Helium reduction
-/singleton/fusion_reaction/helium_helium
-	p_react = GAS_HELIUM
-	minimum_p_react = 10000
-	s_react = GAS_HELIUM
-	energy_consumption = 4
-	energy_production = 6
-	products = list(GAS_DEUTERIUM = 2, GAS_HYDROGEN = 1)
-	radiation = 6
-	minimum_reaction_temperature = 128000
-	priority = 12
+/singleton/fusion_reaction/beryllium7_hydrogen
+	p_react = "beryllium-7"
+	s_react = GAS_HYDROGEN
+	energy_consumption = 6
+	energy_production = 8
+	products = list("beryllium-8" = 1)
+	radiation = 3
+	instability = 0.5
+	minimum_reaction_temperature = 720000
+	priority = 20
 
-/singleton/fusion_reaction/helium_boron
-	p_react = GAS_HELIUM
-	s_react = "boron"
-	minimum_energy_level = 128000
-	energy_consumption = 3
-	energy_production = 12
-	radiation = 9
-	instability = 4
-	priority = 35
+/singleton/fusion_reaction/boron8_decay
+	p_react = "boron-8"
+	s_react = "boron-8"
+	energy_consumption = 6
+	energy_production = 3
+	products = list("beryllium-7" = 2)
+	radiation = 64
+	instability = 2.5
+	priority = 24
 
-/singleton/fusion_reaction/beryllium_decay
-	p_react = "beryllium"
-	s_react = "beryllium"
+/singleton/fusion_reaction/beryllium7_decay_1
+	p_react = "beryllium-7"
+	minimum_p_react = 6500
+	s_react = "beryllium-7"
 	energy_consumption = 4
 	energy_production = 4
 	products = list("lithium" = 2)
 	radiation = 24
-	instability = 2
-	minimum_reaction_temperature = 72000
+	instability = 1
+	minimum_reaction_temperature = 720000
+	priority = 15
+
+/singleton/fusion_reaction/beryllium7_decay_2
+	p_react = "beryllium-7"
+	minimum_p_react = 6500
+	s_react = "beryllium-7"
+	energy_consumption = 4
+	energy_production = 8
+	products = list("beryllium-8" = 2)
+	radiation = 24
+	instability = 1
+	minimum_reaction_temperature = 1600000
+	priority = 25
+
+/singleton/fusion_reaction/beryllium8_decay
+	p_react = "beryllium-8"
+	s_react = "beryllium-8"
+	energy_consumption = 20
+	energy_production = 16
+	products = list(GAS_HELIUM = 2)
+	radiation = 36
+	instability = 3
 	priority = 13
 
 /singleton/fusion_reaction/lithium_hydrogen
@@ -115,42 +160,20 @@ GLOBAL_LIST(fusion_reactions)
 	energy_consumption = 3
 	energy_production = 5
 	products = list(GAS_HELIUM = 2)
-	radiation = 2
+	radiation = 22
 	instability = 0.5
-	minimum_reaction_temperature = 72000
-	priority = 15
-
-/singleton/fusion_reaction/beryllium_hydrogen
-	p_react = "beryllium"
-	s_react = GAS_HYDROGEN
-	energy_consumption = 3
-	energy_production = 8
-	products = list("boron" = 1)
-	radiation = 3
-	instability = 0.5
-	minimum_reaction_temperature = 196000
+	minimum_reaction_temperature = 960000
 	priority = 20
 
-/singleton/fusion_reaction/boron_decay
-	p_react = "boron"
-	s_react = "boron"
-	energy_consumption = 3
-	energy_production = 16
-	products = list("beryllium" = 2)
-	radiation = 4
-	instability = 3
-	minimum_reaction_temperature = 128000
-	priority = 24
-
 /singleton/fusion_reaction/deuterium_lithium
-	p_react = GAS_DEUTERIUM
-	s_react = "lithium"
-	energy_consumption = 2
-	energy_production = 0
+	p_react = "lithium"
+	minimum_p_react = 7500
+	s_react = GAS_DEUTERIUM
+	energy_consumption = 1
+	energy_production = 1
 	radiation = 3
 	products = list(GAS_TRITIUM= 1)
-	instability = 4
-	minimum_reaction_temperature = 100000
+	minimum_reaction_temperature = 2000000
 	priority = 25
 
 /singleton/fusion_reaction/helium3_helium3
@@ -160,20 +183,8 @@ GLOBAL_LIST(fusion_reactions)
 	energy_production = 48
 	products = list(GAS_HELIUM = 1, GAS_HYDROGEN = 2)
 	radiation = 1
-	minimum_reaction_temperature = 250000
+	minimum_reaction_temperature = 1200000
 	priority = 30
-
-// Temperature mitigation reaction
-/singleton/fusion_reaction/boron_decay
-	p_react = "boron"
-	s_react = "boron"
-	energy_consumption = 18
-	energy_production = 1
-	products = list("beryllium" = 2)
-	radiation = 4
-	instability = 3
-	minimum_reaction_temperature = 400000
-	priority = 24
 
 // bad!!!
 /singleton/fusion_reaction/oxygen_oxygen
@@ -236,6 +247,17 @@ GLOBAL_LIST(fusion_reactions)
 	products = list("mhydrogen" = 1)
 	minimum_reaction_temperature = 250000
 
+/singleton/fusion_reaction/iron_phoron
+	p_react = "iron"
+	s_react = GAS_PHORON
+	minimum_energy_level = 300000
+	energy_consumption = 64
+	energy_production = 18
+	radiation = 30
+	instability = 12
+	products = list("uranium" = 30, "borosilicate glass" = 80, "osmium" = 20) // Psuedoscience but here we are
+	priority = 40
+
 // VERY UNIDEAL REACTIONS.
 /singleton/fusion_reaction/phoron_supermatter
 	p_react = "supermatter"
@@ -273,16 +295,3 @@ GLOBAL_LIST(fusion_reactions)
 	explosion(origin, 8)
 
 	return 1
-
-
-// Any now we go even further beyond!!!!
-/singleton/fusion_reaction/iron_phoron
-	p_react = "iron"
-	s_react = GAS_PHORON
-	minimum_energy_level = 300000
-	energy_consumption = 64
-	energy_production = 18
-	radiation = 30
-	instability = 12
-	products = list("uranium" = 30, "borosilicate glass" = 80, "osmium" = 20) // Psuedoscience but here we are
-	priority = 40

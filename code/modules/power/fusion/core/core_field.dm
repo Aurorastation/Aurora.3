@@ -4,6 +4,7 @@
 #define FUSION_REACTANT_CAP				10000
 #define FUSION_WARNING_DELAY 			20
 #define FUSION_BLACKBODY_MULTIPLIER		24
+#define FUSION_INTEGRITY_RATE_LIMIT		8
 
 /obj/effect/fusion_em_field
 	name = "electromagnetic field"
@@ -92,7 +93,7 @@
 
 	var/vfx_radius_actual
 	//var/vfx_radius_visual
-	var/pause_rupture = FALSE
+	var/pause_rupture = TRUE
 
 /obj/effect/fusion_em_field/proc/UpdateVisuals()
 	//Take the particle system and edit it
@@ -199,14 +200,14 @@
 	// Let the particles inside the field react.
 	React()
 
-	var/field_strength_power_multiplier = max((owned_core.field_strength ** 1.025) / 100, 1)
+	var/field_strength_power_multiplier = max((owned_core.field_strength ** 1.045) / 100, 1)
 	// Dump power to our powernet.
 	owned_core.add_avail(FUSION_ENERGY_PER_K * plasma_temperature * field_strength_power_multiplier)
 
-	var/field_strength_entropy_multiplier = max((((owned_core.field_strength - 18) ** 1.1) / 90), 1)
+	var/field_strength_entropy_multiplier = max(((min((owned_core.field_strength - 18), 2) ** 1.2) / 90), 3)
 	// Energy decay (entropy tax).
 	if(plasma_temperature >= 1)
-		var/lost = plasma_temperature * 0.001
+		var/lost = plasma_temperature * 0.005
 		radiation += lost
 		plasma_temperature -= lost * field_strength_entropy_multiplier
 
@@ -247,7 +248,7 @@
 	if(tick_instability > 0)
 		percent_unstable_archive = percent_unstable
 		// Apply any modifiers to instability imparted by current field strength, but only apply up to FUSION_INTEGRITY_RATE_LIMIT additional instability.
-		percent_unstable += (tick_instability * field_strength_instability_multiplier)/FUSION_INSTABILITY_DIVISOR
+		percent_unstable += min((tick_instability * field_strength_instability_multiplier)/FUSION_INSTABILITY_DIVISOR, FUSION_INTEGRITY_RATE_LIMIT)
 		tick_instability = 0
 		UpdateVisuals()
 	else
@@ -289,7 +290,7 @@
 					rupture = prob(25)
 					wave_size += 4
 
-				if(rupture)
+				if(rupture && !pause_rupture)
 					owned_core.Shutdown(force_rupture=1)
 				else
 					var/lost_plasma = (plasma_temperature*percent_unstable)
@@ -374,11 +375,11 @@
  */
 /obj/effect/fusion_em_field/proc/Rupture()
 	visible_message(SPAN_DANGER("\The [src] shudders like a dying animal before flaring to eye-searing brightness and rupturing!"))
-	set_light(1, 0.1, 15, 2, "#ccccff")
-	empulse(get_turf(src), Ceil(plasma_temperature/1000), Ceil(plasma_temperature/300))
+	set_light(1, 0.1, "#ccccff", 15, 2)
+	empulse(get_turf(src), Ceil(plasma_temperature/100000), Ceil(plasma_temperature/30000))
 	sleep(5)
 	RadiateAll()
-	explosion(get_turf(owned_core), 8, 8)
+	explosion(get_turf(owned_core), 6, 8)
 	return
 
 /**
@@ -406,10 +407,14 @@
 
 /obj/effect/fusion_em_field/proc/AddEnergy(a_energy, a_plasma_temperature)
 	// Boost gyro effects at low temperatures for faster startup
-	if(plasma_temperature < 5500)
+	if(plasma_temperature <= 12500)
 		a_energy = a_energy * 8
+	else if(plasma_temperature <= 25000)
+		a_energy = a_energy * 4
 	energy += a_energy
+
 	plasma_temperature += a_plasma_temperature
+
 	if(a_energy && percent_unstable > 0)
 		percent_unstable = max(percent_unstable - (a_energy/10000), 0)
 	while(energy >= 100)
@@ -568,7 +573,7 @@
 				if(possible_s_reacts[cur_s_react] < 1)
 					continue
 				var/singleton/fusion_reaction/cur_reaction = get_fusion_reaction(cur_p_react, cur_s_react)
-				if(cur_reaction && plasma_temperature >= cur_reaction.minimum_energy_level && cur_p_react >= cur_reaction.minimum_p_react)
+				if(cur_reaction && plasma_temperature >= cur_reaction.minimum_energy_level && possible_s_reacts[cur_p_react] >= cur_reaction.minimum_p_react)
 					LAZYDISTINCTADD(possible_reactions, cur_reaction)
 
 			// If there are no possible reactions here, abandon this primary reactant and move on.
@@ -793,3 +798,4 @@
 #undef FUSION_REACTANT_CAP
 #undef FUSION_WARNING_DELAY
 #undef FUSION_BLACKBODY_MULTIPLIER
+#undef FUSION_INTEGRITY_RATE_LIMIT
