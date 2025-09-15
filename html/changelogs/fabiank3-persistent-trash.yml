@@ -1,0 +1,6 @@
+author: FabianK3
+
+delete-after: True
+
+changes:
+  - rscadd: "Added multiple types of trash to the persistence system. Trash will become persistent when it's dropped unless it's in a maint, in the custodial areas (including disposal/compactor) or gets picked up again. Persistent trash can be found up to three days later."
