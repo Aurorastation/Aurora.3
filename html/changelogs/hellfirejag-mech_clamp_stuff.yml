@@ -1,0 +1,5 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - rscadd: "Mech clamps now produce new sound effects while forcing open airlocks."
+  - rscadd: "Mech clamps now break airlocks when forcing them open."
