@@ -12,7 +12,7 @@
 	var/destroyed_stack_amount
 	/// Pretty tough. Changes sprites at 300 and 150
 	var/health = 100
-	 /// Basic code functions
+	/// Basic code functions
 	var/maxhealth = 100
 
 	/// Used for calculating some stuff related to maxhealth as it constantly changes due to e.g. barbed wire. set to 100 to avoid possible divisions by zero

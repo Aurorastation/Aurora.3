@@ -84,7 +84,7 @@
 	shadeColour = "#886422"
 	desc = "A crayon that is integrated into a user's finger. It can synthesize a multitude of colors."
 
-/obj/item/crayon/rainbow/mechanics_hints(mob/user, distance, is_adjacent)
+/obj/item/crayon/augment/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Use this on yourself to change the current primary and shade colors."
 
