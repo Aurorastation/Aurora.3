@@ -1,4 +1,0 @@
-author: Hellfirejag
-delete-after: True
-changes:
-  - rscadd: "Examining a mech now provides clickable descriptions for its hardpoints, which can be further examined to view the mechanics hints of its mounted equipment."
