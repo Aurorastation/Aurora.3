@@ -13,11 +13,19 @@
 	C.charge = 0 //shouldn't produce power out of thin air.
 	return C
 
+// This is actually a battery.
 /datum/design/item/powercell/basic
 	name = "Basic"
 	req_tech = list(TECH_POWER = 1)
 	materials = list(DEFAULT_WALL_MATERIAL = 700, MATERIAL_GLASS = 50)
 	build_path = /obj/item/cell
+
+// This is actually the standard power cell found in APCs. And is called for by logistics bounties.
+/datum/design/item/powercell/apc
+	name = "Heavy-Duty"
+	req_tech = list(TECH_POWER = 1)
+	materials = list(DEFAULT_WALL_MATERIAL = 700, MATERIAL_GLASS = 50)
+	build_path = /obj/item/cell/apc
 
 /datum/design/item/powercell/high
 	name = "High-Capacity"
