@@ -15,7 +15,7 @@ GLOBAL_LIST(fusion_reactions)
 	var/instability = 0
 	var/list/products = list()
 	/// This is the minimum energy to continue a given reaction, once started.
-	var/minimum_reaction_temperature = 12500
+	var/minimum_reaction_temperature = 15000
 	var/priority = 100
 
 /singleton/fusion_reaction/proc/handle_reaction_special(obj/effect/fusion_em_field/holder)
@@ -42,19 +42,19 @@ GLOBAL_LIST(fusion_reactions)
 	p_react = GAS_DEUTERIUM
 	s_react = GAS_TRITIUM
 	energy_consumption = 1
-	energy_production = 16
+	energy_production = 20
 	products = list(GAS_HELIUM = 1)
-	instability = 3.5
+	instability = 1.5
 	// deut-trit bad!!!
-	radiation = 400
-	minimum_reaction_temperature = 300
+	radiation = 200
+	minimum_reaction_temperature = 2500
 	priority = 1
 
 /singleton/fusion_reaction/hydrogen_hydrogen
 	p_react = GAS_HYDROGEN
 	s_react = GAS_HYDROGEN
 	energy_consumption = 1
-	energy_production = 6
+	energy_production = 12
 	products = list(GAS_DEUTERIUM = 1)
 	radiation = 3
 	priority = 1
@@ -63,7 +63,7 @@ GLOBAL_LIST(fusion_reactions)
 	p_react = GAS_HYDROGEN
 	s_react = GAS_DEUTERIUM
 	energy_consumption = 2
-	energy_production = 10
+	energy_production = 12
 	products = list(GAS_HELIUMFUEL = 1)
 	radiation = 16
 	priority = 2
@@ -72,7 +72,7 @@ GLOBAL_LIST(fusion_reactions)
 	p_react = GAS_HELIUMFUEL
 	s_react = GAS_HYDROGEN
 	energy_consumption = 4
-	energy_production = 11
+	energy_production = 16
 	products = list(GAS_HYDROGEN = 2)
 	radiation = 32
 	instability = 1
@@ -82,7 +82,7 @@ GLOBAL_LIST(fusion_reactions)
 	p_react = GAS_HELIUM
 	s_react = GAS_HELIUM
 	energy_consumption = 3
-	energy_production = 8
+	energy_production = 18
 	products = list(GAS_DEUTERIUM = 2, GAS_HYDROGEN = 1)
 	radiation = 6
 	instability = 0.5
@@ -93,7 +93,7 @@ GLOBAL_LIST(fusion_reactions)
 	p_react = GAS_HELIUMFUEL
 	s_react = GAS_HELIUM
 	energy_consumption = 3
-	energy_production = 14
+	energy_production = 24
 	products = list("beryllium-7" = 1)
 	radiation = 6
 	minimum_reaction_temperature = 220000
@@ -103,7 +103,7 @@ GLOBAL_LIST(fusion_reactions)
 	p_react = "beryllium-7"
 	s_react = GAS_HYDROGEN
 	energy_consumption = 6
-	energy_production = 8
+	energy_production = 12
 	products = list("beryllium-8" = 1)
 	radiation = 3
 	instability = 0.5
@@ -114,7 +114,7 @@ GLOBAL_LIST(fusion_reactions)
 	p_react = "boron-8"
 	s_react = "boron-8"
 	energy_consumption = 6
-	energy_production = 3
+	energy_production = 5
 	products = list("beryllium-7" = 2)
 	radiation = 64
 	instability = 2.5
@@ -124,7 +124,7 @@ GLOBAL_LIST(fusion_reactions)
 	p_react = "beryllium-7"
 	minimum_p_react = 6500
 	s_react = "beryllium-7"
-	energy_consumption = 4
+	energy_consumption = 5
 	energy_production = 4
 	products = list("lithium" = 2)
 	radiation = 24
@@ -137,7 +137,7 @@ GLOBAL_LIST(fusion_reactions)
 	minimum_p_react = 6500
 	s_react = "beryllium-7"
 	energy_consumption = 4
-	energy_production = 8
+	energy_production = 9
 	products = list("beryllium-8" = 2)
 	radiation = 24
 	instability = 1
@@ -154,12 +154,22 @@ GLOBAL_LIST(fusion_reactions)
 	instability = 3
 	priority = 13
 
+// This is just to delete lone beryllium-8 reactants that might get left over somehow
+/singleton/fusion_reaction/beryllium8_hydrogen
+	p_react = "beryllium-8"
+	s_react = GAS_HYDROGEN
+	energy_consumption = 20
+	energy_production = 16
+	products = list(GAS_HELIUM = 2)
+	radiation = 36
+	priority = 12
+
 /singleton/fusion_reaction/lithium_hydrogen
 	p_react = "lithium"
 	s_react = GAS_HYDROGEN
 	energy_consumption = 3
 	energy_production = 5
-	products = list(GAS_HELIUM = 2)
+	products = list(GAS_DEUTERIUM = 1, GAS_HELIUM = 1)
 	radiation = 22
 	instability = 0.5
 	minimum_reaction_temperature = 960000
@@ -171,8 +181,9 @@ GLOBAL_LIST(fusion_reactions)
 	s_react = GAS_DEUTERIUM
 	energy_consumption = 1
 	energy_production = 1
-	radiation = 3
-	products = list(GAS_TRITIUM= 1)
+	radiation = 18
+	instability = 1.5
+	products = list(GAS_TRITIUM = 2)
 	minimum_reaction_temperature = 2000000
 	priority = 25
 
@@ -180,7 +191,7 @@ GLOBAL_LIST(fusion_reactions)
 	p_react = GAS_HELIUMFUEL
 	s_react = GAS_HELIUMFUEL
 	energy_consumption = 2
-	energy_production = 48
+	energy_production = 96
 	products = list(GAS_HELIUM = 1, GAS_HYDROGEN = 2)
 	radiation = 1
 	minimum_reaction_temperature = 1200000

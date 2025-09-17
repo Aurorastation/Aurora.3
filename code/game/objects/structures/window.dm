@@ -899,6 +899,7 @@
 	maxhealth = 160 // Two reinforced borosilicate glass panes worth of health, since that's the minimum you need to break through to get to the other side.
 	reinf = TRUE
 	maximal_heat = T0C + 4000
+	rad_resistance_modifier = 4
 
 #undef FULL_REINFORCED_WINDOW_DAMAGE_FORCE
 #undef REINFORCED_WINDOW_DAMAGE_FORCE
