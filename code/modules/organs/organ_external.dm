@@ -26,15 +26,16 @@
 	var/damage_state = "00"
 
 	//Damage variables.
-	var/brute_mod = 1
 
 	///Actual current brute damage
-	var/brute_dam = 0
+	VAR_PRIVATE/brute_dam = 0
 
 	///Ratio of current brute damage to max damage
-	var/brute_ratio = 0
+	VAR_PRIVATE/brute_ratio = 0
 
-
+	/// Brute damage modifier.
+	var/brute_mod = 1
+	/// Burn damage modifier.
 	var/burn_mod = 1
 
 	///Actual current burn damage
@@ -49,7 +50,7 @@
 	var/genetic_degradation = 0
 
 	///How much the limb hurts
-	var/pain = 0
+	VAR_PRIVATE/pain = 0
 
 	///The amount of `pain` at which a limb becomes unusable
 	var/pain_disability_threshold
@@ -193,8 +194,35 @@
 	///Whether the limb is a tesla limb (required for special handling)
 	var/is_tesla = FALSE
 
-/obj/item/organ/external/proc/invalidate_marking_cache()
-	cached_markings = null
+/obj/item/organ/external/Initialize(mapload)
+	if(robotize_type)
+		robotize(robotize_type)
+		drop_sound = 'sound/items/drop/prosthetic.ogg'
+		pickup_sound = 'sound/items/pickup/prosthetic.ogg'
+	else
+		//HACK: Make sure non-emissive organs, if swapped to, are not treated as emissive. Robotized organs have their own handling, but we still need to cover the case where it is somehow swapped to an organic limb
+		is_emissive = initial(is_emissive)
+
+	. = ..(mapload, FALSE)
+	if(isnull(pain_disability_threshold))
+		pain_disability_threshold = (max_damage * 0.75)
+	if(owner)
+		replaced(owner)
+		sync_colour_to_human(owner)
+
+	if ((status & ORGAN_PLANT))
+		limb_flags &= ~ORGAN_CAN_BREAK
+
+	get_icon()
+
+	RegisterSignal(src, COMSIG_UPDATE_LIMB_IMAGE, PROC_REF(modify_damage_hud_image_color))
+
+	get_damage_hud_image(TRUE)
+
+	if((limb_flags & ORGAN_HAS_TENDON) && !BP_IS_ROBOTIC(src) && tendon_path)
+		tendon = new tendon_path(src, tendon_name, tendon_health, tendon_msgs)
+	else if(limb_flags & ORGAN_HAS_TENDON)
+		limb_flags &= ~ORGAN_HAS_TENDON
 
 /obj/item/organ/external/Destroy()
 	if(parent?.children)
@@ -235,6 +263,8 @@
 
 	. = ..()
 
+/obj/item/organ/external/proc/invalidate_marking_cache()
+	cached_markings = null
 
 /obj/item/organ/external/attack_self(var/mob/user)
 	if(!contents.len)
@@ -321,32 +351,6 @@
 /obj/item/organ/external/update_health()
 	damage = min(max_damage, (brute_dam + burn_dam))
 	return
-
-/obj/item/organ/external/Initialize(mapload)
-	if(robotize_type)
-		robotize(robotize_type)
-		drop_sound = 'sound/items/drop/prosthetic.ogg'
-		pickup_sound = 'sound/items/pickup/prosthetic.ogg'
-	else
-		//HACK: Make sure non-emissive organs, if swapped to, are not treated as emissive. Robotized organs have their own handling, but we still need to cover the case where it is somehow swapped to an organic limb
-		is_emissive = initial(is_emissive)
-
-	. = ..(mapload, FALSE)
-	if(isnull(pain_disability_threshold))
-		pain_disability_threshold = (max_damage * 0.75)
-	if(owner)
-		replaced(owner)
-		sync_colour_to_human(owner)
-
-	if ((status & ORGAN_PLANT))
-		limb_flags &= ~ORGAN_CAN_BREAK
-
-	get_icon()
-
-	if((limb_flags & ORGAN_HAS_TENDON) && !BP_IS_ROBOTIC(src) && tendon_path)
-		tendon = new tendon_path(src, tendon_name, tendon_health, tendon_msgs)
-	else if(limb_flags & ORGAN_HAS_TENDON)
-		limb_flags &= ~ORGAN_HAS_TENDON
 
 /obj/item/organ/external/replaced(var/mob/living/carbon/human/target)
 	..()
@@ -963,6 +967,9 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 	// sync the organ's damage with its wounds
 	src.update_damages()
+
+	SEND_SIGNAL(src, COMSIG_UPDATE_LIMB_IMAGE)
+
 	if (updatehud)
 		owner.hud_updateflag = 1022
 
@@ -1640,6 +1647,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 		owner.emote("scream")
 	if(amount > 5 && owner)
 		owner.undo_srom_pull()
+	SEND_SIGNAL(src, COMSIG_UPDATE_LIMB_IMAGE)
 	return pain-last_pain
 
 /mob/living/carbon/human/proc/undo_srom_pull()
