@@ -136,15 +136,15 @@ ABSTRACT_TYPE(/datum/gear/religion/dominia)
 /datum/gear/religion/dominia/cape
 	display_name = "dominian outerwear selection"
 	description = "A selection of capes and outerwear worn by the Moroz Holy Tribunal."
-	path = /obj/item/clothing/under/dominia/priest
-	slot = slot_wear_suit
+	path = /obj/item/clothing/accessory/poncho/dominia_cape/tribunalist
+	slot = slot_in_backpack
 
 /datum/gear/religion/dominia/cape/New()
 	..()
 	var/list/cape = list()
-	cape["tribunalist red cape"] = /obj/item/clothing/accessory/poncho/dominia/red
-	cape["tribunalist full cape"] = /obj/item/clothing/accessory/poncho/dominia/red/double
-	cape["tribunalist surcoat"] = /obj/item/clothing/accessory/poncho/dominia/red/surcoat
+	cape["tribunalist red cape"] = /obj/item/clothing/accessory/poncho/dominia_cape/tribunalist
+	cape["tribunalist full cape"] = /obj/item/clothing/accessory/poncho/dominia_cape/tribunalist/double
+	cape["tribunalist surcoat"] = /obj/item/clothing/accessory/poncho/dominia_cape/tribunalist/surcoat
 	gear_tweaks += new /datum/gear_tweak/path(cape)
 
 /datum/gear/religion/dominia/accessory
@@ -192,7 +192,7 @@ ABSTRACT_TYPE(/datum/gear/religion/dominia)
 /datum/gear/religion/dominia/cape_consular
 	display_name = "tribunalist cousular cape"
 	description = "A truly majestic gold and red cape worn by members of the clergy affiliated with His Majesty's Diplomatic Service."
-	path = /obj/item/clothing/accessory/poncho/dominia/consular
+	path = /obj/item/clothing/accessory/poncho/dominia_cape/tribunalist/consular
 	slot = slot_wear_suit
 	allowed_roles = list("Consular Officer")
 
