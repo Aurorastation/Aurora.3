@@ -39,9 +39,10 @@
 	#warn Manual unit test is defined, remember to recomment it before PRing!
 #endif // MANUAL_UNIT_TEST
 
-#ifdef TESTING
+#define LETSDOTHIS
+#ifdef LETSDOTHIS
 	///Used to find the sources of harddels, quite laggy, don't be surpised if it freezes your client for a good while
-	// #define REFERENCE_TRACKING
+	#define REFERENCE_TRACKING
 	#ifdef REFERENCE_TRACKING
 
 		//Run a lookup on things hard deleting by default.
