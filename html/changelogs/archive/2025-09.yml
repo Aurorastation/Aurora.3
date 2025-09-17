@@ -268,3 +268,6 @@
   meep109:
   - balance: Makes skrell martial art dislocating move guaranteed dislocate, instead
       of a chance-based dislocate
+2025-09-17:
+  FlyBrokenWings:
+  - rscadd: Adds a missing wire to Xenoarchaelogy.
