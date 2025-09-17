@@ -28,7 +28,7 @@
 
 /obj/machinery/stasis_bed/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	. += "You can alt-click this to toggle it on or off."
+	. += "ALT-click this to toggle it on or off."
 
 /obj/machinery/stasis_bed/Initialize(mapload, d, populate_components)
 	. = ..()

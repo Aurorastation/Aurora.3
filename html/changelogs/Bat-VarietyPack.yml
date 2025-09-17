@@ -14,6 +14,7 @@ changes:
   - qol: "Added detailed extended examine info on mechanics to the psychiatrist/chaplain Mesmetron."
   - qol: "Added detailed extended examine info on mechanics to barricades."
   - qol: "Added some extended examine info to (hanging) flags, crayons, misc."
+  - qol: "Washing machines can now be anchored/unanchored with a wrench."
   - code_imp: "Updated dmdocs in many locations."
   - bugfix: "You can no longer force-feed people crayons. However, you can still offer a bite of crayon for them to accept or refuse, for tradition's sake."
   - bugfix: "Reading the contents of a noticeboard now makes you actually face the noticeboard."
