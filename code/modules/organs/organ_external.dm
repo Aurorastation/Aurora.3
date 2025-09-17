@@ -574,6 +574,9 @@
 
 	//Sync the organ's damage with its wounds
 	update_damages()
+
+	SEND_SIGNAL(src, COMSIG_UPDATE_LIMB_IMAGE)
+
 	owner.updatehealth()
 
 	return update_icon()
