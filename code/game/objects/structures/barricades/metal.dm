@@ -1,6 +1,6 @@
 /obj/structure/barricade/metal
 	name = "metal barricade"
-	desc = "A sturdy and easily assembled barricade made of metal plates, often used for quick fortifications. Use a blowtorch to repair."
+	desc = "A sturdy and easily assembled barricade made of metal plates, often used for quick fortifications."
 	icon_state = "metal_0"
 	build_amt = 4
 	health = 450
@@ -12,8 +12,20 @@
 	barricade_hitsound = 'sound/effects/metalhit.ogg'
 	barricade_type = "metal"
 	can_wire = TRUE
-	var/build_state = BARRICADE_BSTATE_SECURED //Look at __game.dm for barricade defines
+	/// Look at __game.dm for barricade defines
+	var/build_state = BARRICADE_BSTATE_SECURED
 
+// Duplicated in /obj/structure/barricade/plasteel. If you change one, also change the other.
+/obj/structure/barricade/metal/assembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Damage (up to a point) can be repaired with a welding torch."
+	switch(build_state)
+		if(BARRICADE_BSTATE_MOVABLE)
+			. += "The barricade is ready to have its <b>anchor bolts</b> tightened."
+		if(BARRICADE_BSTATE_UNSECURED)
+			. += "The protection panel is ready to be <b>screwed</b> into place."
+
+// Duplicated in /obj/structure/barricade/plasteel. If you change one, also change the other.
 /obj/structure/barricade/metal/disassembly_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	switch(build_state)
