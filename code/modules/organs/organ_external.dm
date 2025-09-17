@@ -25,24 +25,22 @@
 
 	var/damage_state = "00"
 
-	//Damage variables.
+	//Damage variables. Do not modify brute_dam or burn_dam directly. Use take_damage.
 
 	///Actual current brute damage
-	VAR_PRIVATE/brute_dam = 0
+	var/brute_dam = 0
+	///Actual current burn damage
+	var/burn_dam = 0
 
 	///Ratio of current brute damage to max damage
-	VAR_PRIVATE/brute_ratio = 0
+	var/brute_ratio = 0
+	///Ratio of current burn damage to max damage
+	var/burn_ratio = 0
 
 	/// Brute damage modifier.
 	var/brute_mod = 1
 	/// Burn damage modifier.
 	var/burn_mod = 1
-
-	///Actual current burn damage
-	var/burn_dam = 0
-
-	///Ratio of current burn damage to max damage
-	var/burn_ratio = 0
 
 	var/last_dam = -1
 
