@@ -15,65 +15,95 @@
 	anchored = 1
 
 	density = 0
-	idle_power_usage = 50		//when inactive, this turret takes up constant 50 Equipment power
-	active_power_usage = 300	//when active, this turret takes up constant 300 Equipment power
-	power_channel = AREA_USAGE_EQUIP	//drains power from the EQUIPMENT channel
+	/// when inactive, this turret takes up constant 50 Equipment power
+	idle_power_usage = 50
+	/// when active, this turret takes up constant 300 Equipment power
+	active_power_usage = 300
+	/// drains power from the EQUIPMENT channel
+	power_channel = AREA_USAGE_EQUIP
 
 	req_one_access = list(ACCESS_SECURITY, ACCESS_HEADS)
 
 	light_range = 3
 	light_power = 2
 
-	var/raised = 0			//if the turret cover is "open" and the turret is raised
-	var/raising= 0			//if the turret is currently opening or closing its cover
-	var/health = 80			//the turret's health
-	var/maxhealth = 80		//turrets maximal health.
-	var/auto_repair = 0		//if 1 the turret slowly repairs itself.
-	var/locked = 1			//if the turret's behaviour control access is locked
-	var/controllock = 0		//if the turret responds to control panels
-
-	var/obj/item/gun/energy/installation = /obj/item/gun/energy/gun //the type of weapon installed
-	var/gun_charge = 0		//the charge of the gun inserted
-	var/reqpower = 500		//holder for power needed
-	var/lethal_icon = 0		//holder for the icon_state. 1 for lethal sprite, null for stun sprite.
-	var/egun = 1			//holder to handle certain guns switching modes
-	var/sprite_set = "carbine"	//set of gun sprites the turret will use
-	var/cover_set = 0		//set of cover sprites the turret will use
+	/// if the turret cover is "open" and the turret is raised
+	var/raised = 0
+	/// if the turret is currently opening or closing its cover
+	var/raising= 0
+	/// the turret's health
+	var/health = 80
+	/// turrets maximal health.
+	var/maxhealth = 80
+	/// if 1 the turret slowly repairs itself.
+	var/auto_repair = 0
+	/// if the turret's behaviour control access is locked
+	var/locked = 1
+	/// if the turret responds to control panels
+	var/controllock = 0
+	/// the type of weapon installed
+	var/obj/item/gun/energy/installation = /obj/item/gun/energy/gun
+	/// the charge of the gun inserted
+	var/gun_charge = 0
+	/// holder for power needed
+	var/reqpower = 500
+	/// holder for the icon_state. 1 for lethal sprite, null for stun sprite.
+	var/lethal_icon = 0
+	/// holder to handle certain guns switching modes
+	var/egun = 1
+	/// set of gun sprites the turret will use
+	var/sprite_set = "carbine"
+	/// set of cover sprites the turret will use
+	var/cover_set = 0
 	var/name_override = FALSE
-
-	var/last_fired = 0		//1: if the turret is cooling down from a shot, 0: turret is ready to fire
-	var/shot_delay = 15		//1.5 seconds between each shot
-
-	var/check_arrest = 1	//checks if the perp is set to arrest
-	var/check_records = 1	//checks if a security record exists at all
-	var/check_weapons = 0	//checks if it can shoot people that have a weapon they aren't authorized to have
-	var/check_access = 1	//if this is active, the turret shoots everything that does not meet the access requirements
-	var/check_wildlife = 1	//checks if it can shoot at simple animals or anything that passes issmall
-	var/check_synth	 = 0	//if active, will shoot at anything not an AI or cyborg
-	var/target_borgs = FALSE//if active, will shoot at borgs
-	var/ailock = 0 			// AI cannot use this
-
-	var/immobile = FALSE	// If TRUE, the turret cannot be detached from the ground with a wrench.
-	var/no_salvage = FALSE	// If TRUE, the turret cannot be salvaged for parts when broken.
-
-	var/attacked = 0		//if set to 1, the turret gets pissed off and shoots at people nearby (unless they have sec access!)
-
-	var/enabled = 1			//determines if the turret is on
-	var/lethal = 0			//whether in lethal or stun mode
+	/// 1: if the turret is cooling down from a shot, 0: turret is ready to fire
+	var/last_fired = 0
+	/// 1.5 seconds between each shot
+	var/shot_delay = 15
+	/// checks if the perp is set to arrest
+	var/check_arrest = 1
+	/// checks if a security record exists at all
+	var/check_records = 1
+	/// checks if it can shoot people that have a weapon they aren't authorized to have
+	var/check_weapons = 0
+	/// if this is active, the turret shoots everything that does not meet the access requirements
+	var/check_access = 1
+	/// checks if it can shoot at simple animals or anything that passes issmall
+	var/check_wildlife = 1
+	/// if active, will shoot at anything not an AI or cyborg
+	var/check_synth	 = 0
+	/// if active, will shoot at borgs
+	var/target_borgs = FALSE
+	///  AI cannot use this
+	var/ailock = 0
+	///  If TRUE, the turret cannot be detached from the ground with a wrench.
+	var/immobile = FALSE
+	///  If TRUE, the turret cannot be salvaged for parts when broken.
+	var/no_salvage = FALSE
+	/// if set to 1, the turret gets pissed off and shoots at people nearby (unless they have sec access!)
+	var/attacked = 0
+	/// determines if the turret is on
+	var/enabled = 1
+	/// whether in lethal or stun mode
+	var/lethal = 0
 	var/disabled = 0
-
-	var/projectile =/obj/projectile/beam/stun	//holder for stun (main) mode beam
-	var/eprojectile = /obj/projectile/beam		//holder for lethal (secondary) mode beam
-
-	var/shot_sound = 'sound/weapons/Taser.ogg'		//what sound should play when the turret fires
-	var/eshot_sound	= 'sound/weapons/laser1.ogg'		//what sound should play when the lethal turret fires
-
-	var/datum/effect_system/sparks/spark_system		//the spark system, used for generating... sparks?
-
+	/// holder for stun (main) mode beam
+	var/projectile =/obj/projectile/beam/stun
+	/// holder for lethal (secondary) mode beam
+	var/eprojectile = /obj/projectile/beam
+	/// what sound should play when the turret fires
+	var/shot_sound = 'sound/weapons/Taser.ogg'
+	/// what sound should play when the lethal turret fires
+	var/eshot_sound	= 'sound/weapons/laser1.ogg'
+	/// the spark system, used for generating... sparks?
+	var/datum/effect_system/sparks/spark_system
 	var/wrenching = 0
-	var/last_target			//last target fired at, prevents turrets from erratically firing at all valid targets in range
-	var/list/targets = list()			//list of primary targets
-	var/list/secondarytargets = list()	//targets that are least important
+	/// last target fired at, prevents turrets from erratically firing at all valid targets in range
+	var/last_target
+	/// list of primary targets
+	var/list/targets = list()
+	/// targets that are least important
+	var/list/secondarytargets = list()
 	var/resetting
 	var/fast_processing = FALSE
 
@@ -92,9 +122,14 @@
 	else
 		. += "\The [src] is in perfect condition."
 
+/obj/machinery/porta_turret/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "ALT-click the [src] to lock or unlock it (if you have the appropriate ID access)."
+
 /obj/machinery/porta_turret/assembly_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	. += "It [anchored ? "is" : "could be"] anchored to the floor with some <b>bolts</b>."
+	if(!immobile)
+		. += "It [anchored ? "is" : "could be"] anchored to the floor with some <b>bolts</b>."
 
 /obj/machinery/porta_turret/crescent
 	enabled = FALSE
@@ -110,7 +145,8 @@
 	no_salvage = TRUE
 	req_one_access = list(ACCESS_CENT_SPECOPS, ACCESS_CENT_GENERAL)
 
-	var/admin_emag_override = FALSE	// Set to true to allow emagging of this turret.
+	/// Set to true to allow emagging of this turret.
+	var/admin_emag_override = FALSE
 
 /obj/machinery/porta_turret/crescent/emag_act()
 	if (admin_emag_override)
@@ -376,16 +412,6 @@
 		wrenching = 0
 		return TRUE
 
-	else if(attacking_item.GetID())
-		//Behavior lock/unlock mangement
-		if(allowed(user))
-			locked = !locked
-			to_chat(user, SPAN_NOTICE("Controls are now [locked ? "locked" : "unlocked"]."))
-			updateUsrDialog()
-		else
-			to_chat(user, SPAN_NOTICE("Access denied."))
-		return TRUE
-
 	else if(attacking_item.iswelder())
 		var/obj/item/weldingtool/WT = attacking_item
 		if (!WT.welding)
@@ -415,6 +441,22 @@
 				attacked = 1
 				addtimer(CALLBACK(src, PROC_REF(reset_attacked)), 1 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE)
 		return ..()
+
+/obj/machinery/porta_turret/AltClick(mob/user)
+	if(Adjacent(user))
+		if(allowed(user))
+			locked = !locked
+			if(locked)
+				playsound(src, 'sound/machines/terminal/terminal_button03.ogg', 35, FALSE)
+			else
+				playsound(src, 'sound/machines/terminal/terminal_button01.ogg', 35, FALSE)
+			balloon_alert(user, locked ? "locked" : "unlocked")
+			updateUsrDialog()
+		else
+			to_chat(user, SPAN_NOTICE("Access denied."))
+			playsound(src, 'sound/machines/terminal/terminal_error.ogg', 25, FALSE)
+			balloon_alert(user, "access denied!")
+		return TRUE
 
 /obj/machinery/porta_turret/proc/reset_attacked()
 	attacked = FALSE

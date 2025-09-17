@@ -36,21 +36,27 @@
 
 	req_access = list(ACCESS_CAPTAIN, ACCESS_HEADS)
 	z_flags = ZMM_MANGLE_PLANES
-
-	var/active = FALSE		// PLEASE HOLD.
-	var/safeties = TRUE		// The cycler won't start with a living thing inside it unless safeties are off.
-	var/irradiating = 0		// If this is > 0, the cycler is decontaminating whatever is inside it.
-	var/radiation_level = 2	// 1 is removing germs, 2 is removing blood, 3 is removing phoron.
-	var/model_text = ""		// Some flavour text for the topic box.
-	var/locked = TRUE		// If locked, nothing can be taken from or added to the cycler.
-	var/can_repair			// If set, the cycler can repair voidsuits.
+	/// PLEASE HOLD.
+	var/active = FALSE
+	/// The cycler won't start with a living thing inside it unless safeties are off.
+	var/safeties = TRUE
+	/// If this is > 0, the cycler is decontaminating whatever is inside it.
+	var/irradiating = 0
+	/// 1 is removing germs, 2 is removing blood, 3 is removing phoron.
+	var/radiation_level = 2
+	/// Some flavour text for the topic box.
+	var/model_text = ""
+	/// If locked, nothing can be taken from or added to the cycler.
+	var/locked = TRUE
+	/// If set, the cycler can repair voidsuits.
+	var/can_repair
 	var/electrified = FALSE
 
-	//Will it change the suit name to "refitted [x]" on refit
+	/// Will it change the suit name to "refitted [x]" on refit
 	var/rename_on_refit = TRUE
-	//Departments that the cycler can paint suits to look like.
+	/// Departments that the cycler can paint suits to look like.
 	var/list/departments = list("Engineering", "Mining", "Medical", "Security", "Atmos")
-	//Species that the suits can be configured to fit.
+	/// Species that the suits can be configured to fit.
 	var/list/species = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_UNATHI, BODYTYPE_TAJARA, BODYTYPE_IPC)
 
 	var/target_department
@@ -63,6 +69,10 @@
 	var/obj/item/clothing/mask/breath/mask
 
 	var/datum/wires/suit_storage_unit/wires
+
+/obj/machinery/suit_cycler/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "ALT-click the [src] to lock or unlock it (if you have the appropriate ID access)."
 
 /obj/machinery/suit_cycler/Initialize(mapload, d = 0, populate_parts = TRUE)
 	. = ..()
@@ -193,14 +203,6 @@
 		if(src.shock(user, 100))
 			return
 
-	if(attacking_item.GetID())
-		if(allowed(user))
-			locked = !locked
-			to_chat(user, SPAN_NOTICE("You [locked ? "" : "un"]lock \the [src]."))
-		else
-			to_chat(user, SPAN_WARNING("Access denied."))
-		return
-
 	//Other interface stuff.
 	if(istype(attacking_item, /obj/item/grab))
 		var/obj/item/grab/G = attacking_item
@@ -242,6 +244,7 @@
 			updateUsrDialog()
 			update_icon()
 		return
+
 	else if(attacking_item.isscrewdriver())
 		panel_open = !panel_open
 		to_chat(user, SPAN_NOTICE("You [panel_open ? "open" : "close"] the maintenance panel."))
@@ -255,6 +258,26 @@
 	TRY_INSERT_SUIT_PIECE(mask, clothing/mask)
 
 	..()
+
+/obj/machinery/suit_cycler/AltClick(mob/user)
+	if(Adjacent(user))
+		add_fingerprint(user)
+		if(electrified != 0)
+			if(src.shock(user, 100))
+				return
+
+		if(allowed(user))
+			locked = !locked
+			if(locked)
+				playsound(src, 'sound/machines/terminal/terminal_button03.ogg', 35, FALSE)
+			else
+				playsound(src, 'sound/machines/terminal/terminal_button01.ogg', 35, FALSE)
+			balloon_alert(user, locked ? "locked" : "unlocked")
+		else
+			to_chat(user, SPAN_WARNING("Access denied."))
+			playsound(src, 'sound/machines/terminal/terminal_error.ogg', 25, FALSE)
+			balloon_alert(user, "access denied!")
+	return
 
 /obj/machinery/suit_cycler/emag_act(var/remaining_charges, mob/user)
 	if(emagged)
