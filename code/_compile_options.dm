@@ -50,7 +50,7 @@
 
 		#ifdef GC_FAILURE_HARD_LOOKUP
 			///Don't stop when searching, go till you're totally done
-			#define FIND_REF_NO_CHECK_TICK
+			//#define FIND_REF_NO_CHECK_TICK
 		#endif //GC_FAILURE_HARD_LOOKUP
 
 	#endif //REFERENCE_TRACKING
