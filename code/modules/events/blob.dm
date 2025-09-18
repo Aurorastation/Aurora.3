@@ -32,19 +32,3 @@
 		// Blobs receive a burst of growth from the moment they spawn!
 		for(var/int = 1; int < rand(3, 4); int++)
 			Blob.process()
-
-/datum/event/blob/tick()
-	for(var/obj/effect/blob/core in cores)
-		// If a core is absent, remove it from the list.
-		if(!core || !core.loc)
-			cores.Remove(core)
-
-		// If the list is empty, kill the event - all blobs have been destroyed.
-		if(isemptylist(cores))
-			end()
-			kill()
-			return
-
-		// Otherwise, process for every third tick.
-		if(IsMultiple(activeFor, 3))
-			core.process()
