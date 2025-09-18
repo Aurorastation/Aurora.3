@@ -28,9 +28,11 @@
 	var/list/req_components
 	var/contain_parts = 1
 
-/obj/item/circuitboard/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+	recyclable = TRUE
+	matter = list(MATERIAL_GLASS = 500, MATERIAL_PHORON = 10)
 
+/obj/item/circuitboard/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(build_path)
 		var/obj/machine = new build_path // instantiate to get the name and desc
 		. +=  FONT_SMALL(SPAN_NOTICE("This circuitboard will build a <b>[capitalize_first_letters(machine.name)]</b>: [machine.desc]"))

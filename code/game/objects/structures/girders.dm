@@ -1,9 +1,5 @@
 /obj/structure/girder
 	desc = "The basic building block of all walls."
-	desc_info = "Use metal sheets on this to build a normal wall.<br>\
-	A false wall can be made by using a crowbar on this girder, and then adding some material.<br>\
-	You can dismantle the grider with a wrench, or add support struts with a screwdriver to enable further reinforcement.<br>\
-	If reinforced, before you can dismantle it, you must first unscrew the support struts, then cut them with wirecutters."
 	icon_state = "girder"
 	anchored = 1
 	density = 1
@@ -19,8 +15,8 @@
 	var/reinforcing = 0
 	var/plating = FALSE
 
-/obj/structure/girder/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/structure/girder/condition_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	var/state
 	var/current_damage = health / initial(health)
 	switch(current_damage)
@@ -33,6 +29,43 @@
 		if(0.8 to 1)
 			state = SPAN_NOTICE("The support struts look completely intact.")
 	. += state
+
+/obj/structure/girder/mechanics_hints()
+	. = list()
+	. += ..()
+	if (state == 0 && anchored)
+		. += SPAN_NOTICE("It could be <b>pried</b> to subtly displace it to build a fake wall.")
+	return .
+
+/obj/structure/girder/assembly_hints()
+	. = list()
+	. += ..()
+	if (health < initial(health))
+		. += "It could be repaired with a few choice <b>welds</b>."
+
+	if (anchored)
+		if (!reinf_material && !reinforcing)
+			. += "It could be prepared for reinforcement with some <b>screws</b>."
+		if (reinforcing)
+			. += "It could be given reinforced plating with some <b>plasteel sheets</b>."
+		if (!plating)
+			. += "It could be given basic plating with some <b>steel sheets</b>."
+
+	// Anchor state
+	. += "It [anchored ? "is" : "could be"] anchored to the floor with some <b>bolts</b>."
+	return .
+
+/obj/structure/girder/disassembly_hints()
+	. = list()
+	. += ..()
+	// Reinf wall deconstruction.
+	if (state == 2)
+		. += "Its support struts have been securely <b>screwed<b/> into place."
+	else if (state == 1)
+		. += "Its unsecured support struts could be <b>cut</b> out."
+	if (!anchored)
+		. += "It is held together by a couple of <b>bolts</b>; a heavy <b>cutting</b> tool might also take it apart."
+
 
 /obj/structure/girder/displaced
 	name = "displaced girder"
@@ -200,19 +233,19 @@
 
 	return ..()
 
-/obj/structure/girder/proc/construct_wall(obj/item/stack/material/S, mob/user)
-	if(S.get_amount() < 2)
+/obj/structure/girder/proc/construct_wall(obj/item/stack/material/mat_stack, mob/user)
+	if(mat_stack.get_amount() < 2)
 		to_chat(user, SPAN_NOTICE("There isn't enough material here to construct a wall."))
 		return 0
 
-	var/material/M = SSmaterials.get_material_by_name(S.default_type)
-	if(!istype(M))
+	var/material/material = SSmaterials.get_material_by_name(mat_stack.default_type)
+	if(!istype(material))
 		return 0
 
 	var/wall_fake
 	add_hiddenprint(usr)
 
-	if(M.integrity < 50)
+	if(material.integrity < 50)
 		to_chat(user, SPAN_NOTICE("This material is too soft for use in wall construction."))
 		return 0
 
@@ -222,7 +255,7 @@
 	else
 		return TRUE
 
-	if(!do_after(user,40) || !S.use(2))
+	if(!do_after(user,40) || !mat_stack.use(2))
 		plating = FALSE
 		return 1 //once we've gotten this far don't call parent attackby()
 
@@ -239,33 +272,33 @@
 	Tsrc.ChangeTurf(/turf/simulated/wall)
 	var/turf/simulated/wall/T = Tsrc
 	T.under_turf = original_type
-	T.set_material(M, reinf_material)
+	T.set_material(material, reinf_material)
 	if(wall_fake)
 		T.can_open = 1
 	T.add_hiddenprint(usr)
 	qdel(src)
 	return 1
 
-/obj/structure/girder/proc/reinforce_with_material(obj/item/stack/material/S, mob/user) //if the verb is removed this can be renamed.
+/obj/structure/girder/proc/reinforce_with_material(obj/item/stack/material/mat_stack, mob/user) //if the verb is removed this can be renamed.
 	if(reinf_material)
 		to_chat(user, SPAN_NOTICE("\The [src] is already reinforced."))
 		return 0
 
-	if(S.get_amount() < 2)
+	if(mat_stack.get_amount() < 2)
 		to_chat(user, SPAN_NOTICE("There isn't enough material here to reinforce the girder."))
 		return 0
 
-	var/material/M = SSmaterials.get_material_by_name(S.default_type)
-	if(!istype(M) || M.integrity < 50)
+	var/material/material = SSmaterials.get_material_by_name(mat_stack.default_type)
+	if(!istype(material) || material.integrity < 50)
 		to_chat(user, "You cannot reinforce \the [src] with that; it is too soft.")
 		return 0
 
 	to_chat(user, SPAN_NOTICE("Now reinforcing..."))
-	if (!do_after(user,40) || !S.use(2))
+	if (!do_after(user,40) || !mat_stack.use(2))
 		return 1 //don't call parent attackby() past this point
 	to_chat(user, SPAN_NOTICE("You added reinforcement!"))
 
-	reinf_material = M
+	reinf_material = material
 	reinforce_girder()
 	return 1
 
@@ -307,8 +340,8 @@
 		dismantle()
 	return
 
-/obj/structure/girder/attack_generic(var/mob/user, var/damage, var/attack_message = "smashes apart", var/wallbreaker)
-	if(!damage || !wallbreaker)
+/obj/structure/girder/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
+	if(!damage || !environment_smash)
 		return FALSE
 	user.do_attack_animation(src)
 	visible_message(SPAN_DANGER("[user] [attack_message] \the [src]!"))

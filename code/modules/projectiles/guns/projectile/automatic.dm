@@ -85,6 +85,7 @@
 /obj/item/gun/projectile/automatic/c20r/sol
 	name = "solarian submachine gun"
 	desc = "Designed by Zavodskoi as a scaled-down version of their M469, the M470-L is a personal defense weapon intended for use by second-line personnel from all branches of the Solarian military, such as support troops and Navy crewmen."
+	desc_extended = null
 	icon = 'icons/obj/guns/sol_smg.dmi'
 	icon_state = "vityaz"
 	item_state = "vityaz"
@@ -93,6 +94,17 @@
 /obj/item/gun/projectile/automatic/c20r/sol/update_icon()
 	..()
 	icon_state = (ammo_magazine)? "vityaz" : "vityaz-empty"
+
+/obj/item/gun/projectile/automatic/c20r/sol/siib
+	name = "solarian SIIB submachine gun"
+	desc = "Based off the standard solarian M470-L, this SMG is used by SIIB Operatives during raids and specialist operations. Officially, this variant of the SMG does not exist."
+	icon = 'icons/obj/guns/sol_smg.dmi'
+	icon_state = "vityaz-siib"
+	item_state = "vityaz-siib"
+
+/obj/item/gun/projectile/automatic/c20r/sol/siib/update_icon()
+	..()
+	icon_state = (ammo_magazine)? "vityaz-siib" : "vityaz-siib-empty"
 
 /obj/item/gun/projectile/automatic/xanusmg
 	name = "\improper Xanan submachine gun"
@@ -370,6 +382,13 @@
 	var/use_launcher = 0
 	var/obj/item/gun/launcher/grenade/underslung/launcher
 
+/obj/item/gun/projectile/automatic/rifle/z8/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(launcher.chambered)
+		. += "\The [launcher] has \a [launcher.chambered] loaded."
+	else
+		. += "\The [launcher] is empty."
+
 /obj/item/gun/projectile/automatic/rifle/z8/Initialize()
 	. = ..()
 	launcher = new(src)
@@ -405,13 +424,6 @@
 		icon_state = "carbine"
 	else
 		icon_state = "carbine-empty"
-
-/obj/item/gun/projectile/automatic/rifle/z8/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(launcher.chambered)
-		. += "\The [launcher] has \a [launcher.chambered] loaded."
-	else
-		. += "\The [launcher] is empty."
 
 /obj/item/gun/projectile/automatic/rifle/jingya
 	name = "burst rifle"
@@ -753,7 +765,7 @@
 	scoped_accuracy = 2
 
 /obj/item/gun/projectile/automatic/terminator/verb/scope()
-	set category = "Object"
+	set category = "Object.Held"
 	set name = "Use Scope"
 	set src in usr
 

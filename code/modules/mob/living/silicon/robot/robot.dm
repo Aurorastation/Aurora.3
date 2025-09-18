@@ -823,7 +823,7 @@
 			user.put_in_active_hand(broken_device)
 
 //Robots take half damage from basic attacks.
-/mob/living/silicon/robot/attack_generic(var/mob/user, var/damage, var/attack_message)
+/mob/living/silicon/robot/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	return ..(user,FLOOR(damage/2, 1),attack_message)
 
 /mob/living/silicon/robot/proc/allowed(mob/M)
@@ -868,9 +868,9 @@
 	dat += {"
 	<B>Activated Modules</B>
 	<BR>
-	Module 1: [module_state_1 ? "<A href='byond://?src=[REF(src)];mod=[REF(module_state_1)]>[module_state_1]<A>" : "No Module"]<BR>
-	Module 2: [module_state_2 ? "<A href='byond://?src=[REF(src)];mod=[REF(module_state_2)]>[module_state_2]<A>" : "No Module"]<BR>
-	Module 3: [module_state_3 ? "<A href='byond://?src=[REF(src)];mod=[REF(module_state_3)]>[module_state_3]<A>" : "No Module"]<BR>
+	Module 1: [module_state_1 ? "<A href='byond://?src=[REF(src)];mod=[REF(module_state_1)]'>[module_state_1]<A>" : "No Module"]<BR>
+	Module 2: [module_state_2 ? "<A href='byond://?src=[REF(src)];mod=[REF(module_state_2)]'>[module_state_2]<A>" : "No Module"]<BR>
+	Module 3: [module_state_3 ? "<A href='byond://?src=[REF(src)];mod=[REF(module_state_3)]'>[module_state_3]<A>" : "No Module"]<BR>
 	<BR>
 	<B>Installed Modules</B><BR><BR>"}
 
@@ -881,17 +881,17 @@
 		else if(activated(obj))
 			dat += "[obj]: <B>Activated</B><BR>"
 		else
-			dat += "[obj]: <A href='byond://?src=[REF(src)];act=[REF(obj)]>Activate</A><BR>"
+			dat += "[obj]: <A href='byond://?src=[REF(src)];act=[REF(obj)]'>Activate</A><BR>"
 	if(emagged)
 		if(activated(module.emag))
 			dat += "[module.emag]: <B>Activated</B><BR>"
 		else
-			dat += "[module.emag]: <A href='byond://?src=[REF(src)];act=[REF(module.emag)]>Activate</A><BR>"
+			dat += "[module.emag]: <A href='byond://?src=[REF(src)];act=[REF(module.emag)]'>Activate</A><BR>"
 	if(malf_AI_module)
 		if(activated(module.malf_AI_module))
 			dat += "[module.malf_AI_module]: <B>Activated</B><BR>"
 		else
-			dat += "[module.malf_AI_module]: <A href='byond://?src=[REF(src)];act=[REF(module.malf_AI_module)]>Activate</A><BR>"
+			dat += "[module.malf_AI_module]: <A href='byond://?src=[REF(src)];act=[REF(module.malf_AI_module)]'>Activate</A><BR>"
 	src << browse(HTML_SKELETON(dat), "window=robotmod")
 
 
@@ -1031,7 +1031,7 @@
 
 /mob/living/silicon/robot/mode()
 	set name = "Activate Held Object"
-	set category = "IC"
+	set category = "Object.Held"
 	set src = usr
 
 	var/obj/item/W = get_active_hand()

@@ -229,7 +229,7 @@
 
 /obj/item/clothing/suit/armor/tactical/verb/holster()
 	set name = "Holster"
-	set category = "Object"
+	set category = "Object.Held"
 	set src in usr
 	if(!istype(usr, /mob/living)) return
 	if(usr.stat) return
@@ -546,7 +546,7 @@
 /obj/item/clothing/suit/storage/vest/sol
 	name = "sol heavy armor vest"
 	desc = "A high-quality armor vest in a deep green. It is surprisingly flexible and light, even with the added webbing and armor plating."
-	icon = 'icons/clothing/under/uniforms/sol_uniform.dmi'
+	icon = 'icons/obj/item/clothing/suit/storage/sol_army_vest.dmi'
 	icon_state = "solwebvest"
 	item_state = "solwebvest"
 	armor = list(
@@ -561,7 +561,7 @@
 /obj/item/clothing/suit/storage/vest/konyang
 	name = "konyang police vest"
 	desc = "A fairly dated armor vest in bright blue issued to the various police forces of Konyang. It comes with a prominent silver emblem on the front."
-	icon = 'icons/clothing/under/uniforms/konyang_uniforms.dmi'
+	icon = 'icons/obj/item/clothing/suit/storage/konyang_police_vest.dmi'
 	icon_state = "police_vest"
 	item_state = "police_vest"
 	contained_sprite = TRUE
@@ -569,7 +569,7 @@
 /obj/item/clothing/suit/storage/vest/kala
 	name = "kala armor vest"
 	desc = "A simple armor vest issued to all of the Kala. It's made of an advanced lightweight alloy."
-	icon = 'icons/clothing/kit/skrell_armor.dmi'
+	icon = 'icons/obj/item/clothing/suit/storage/kala_armor.dmi'
 	icon_state = "kala_armor"
 	item_state = "kala_armor"
 	armor = list(

@@ -272,14 +272,18 @@
 /obj/item/clothing/accessory/stethoscope
 	name = "stethoscope"
 	desc = "An outdated medical apparatus for listening to the sounds of the human body. It also makes you look like you know what you're doing."
-	desc_info = "Click on the UI action button toggle between the examination modes. Automatic will use the stethoscope on the person you're \
-	examining when adjacent to them, automatically using it on the selected body part. Manual will make it so you don't automatically use it via examine."
 	icon = 'icons/obj/item/clothing/accessory/stethoscope.dmi'
 	icon_state = "stethoscope"
 	item_state = "stethoscope"
 	contained_sprite = TRUE
 	flippable = 1
 	var/auto_examine = FALSE
+
+/obj/item/clothing/accessory/stethoscope/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Click on the UI action button toggle between the examination modes."
+	. += "Automatic will use the stethoscope on the person you're examining when adjacent to them, automatically using it on the selected body part."
+	. += "Manual will make it so you don't automatically use it via examine."
 
 /obj/item/clothing/accessory/stethoscope/attack(mob/living/target_mob, mob/living/user, target_zone)
 	var/mob/living/carbon/human/M = target_mob
@@ -331,7 +335,7 @@
 	icon_state = "suspenders"
 	item_state = "suspenders"
 	gender = PLURAL
-	slot = ACCESSORY_SLOT_PANTS
+	slot = ACCESSORY_SLOT_GENERIC
 
 /obj/item/clothing/accessory/scarf
 	name = "scarf"
@@ -391,7 +395,7 @@
 	icon_state = "chaps"
 	item_state = "chaps"
 	gender = PLURAL
-	slot = ACCESSORY_SLOT_PANTS
+	slot = ACCESSORY_SLOT_GENERIC
 
 /obj/item/clothing/accessory/chaps/black
 	name = "black chaps"
@@ -421,8 +425,8 @@
 	protects_against_weather = TRUE
 
 /obj/item/clothing/accessory/poncho/verb/toggle_hide_tail()
-	set name = "Toggle Tail Coverage"
-	set category = "Object"
+	set name = "Toggle Poncho Tail Coverage"
+	set category = "Object.Equipped"
 	set src in usr
 
 	if(allow_tail_hiding)
@@ -991,6 +995,30 @@
 	icon_state = "idrissec_patch"
 	overlay_state = "idrissec_patch"
 
+/obj/item/clothing/accessory/sleevepatch/kog/pra
+	name = "\improper KOG Motorheads shoulder tabs"
+	desc = "A patch attached to the shoulders of a uniform or armor. This one denotes the wearer as a member of KOG's PRA division the Motorheads."
+	desc_extended = "Kazarrhaldiye Operations Group splits employees based on nationality to remove possible political tensions. The PRA division, called the Motorheads, specializes in motorized warfare and quick response force operations."
+	icon_state = "kog_tabs_pra"
+	overlay_state = "kog_tabs_pra"
+	flippable = 0
+
+/obj/item/clothing/accessory/sleevepatch/kog/ala
+	name = "\improper KOG Last Chancers shoulder tabs"
+	desc = "A patch attached to the shoulders of a uniform or armor. This one denotes the wearer as a member of KOG's DPRA/ALA division the Last Chancers."
+	desc_extended = "Kazarrhaldiye Operations Group splits employees based on nationality to remove possible political tensions. The ALA/DPRA division, known as the Last Chancers, focus on sabatoge and explosives. They have become infamous for nighttime infiltrations wherein their explosive expertise leads to devastating effects."
+	icon_state = "kog_tabs_ala"
+	overlay_state = "kog_tabs_ala"
+	flippable = 0
+
+/obj/item/clothing/accessory/sleevepatch/kog/nka
+	name = "\improper KOG Starry Knights shoulder tabs"
+	desc = "A patch attached to the shoulders of a uniform or armor. This one denotes the wearer as a member of KOG's NKA division the Starry Knights."
+	desc_extended = "Kazarrhaldiye Operations Group splits employees based on nationality to remove possible political tensions. The NKA divison, called the Starry Knights, are the defensive experts of the KOG. Using datasets regarding various entities of the Spur, the Starry Knights are capable of preparing an adaptable and formidable defense."
+	icon_state = "kog_tabs_nka"
+	overlay_state = "kog_tabs_nka"
+	flippable = 0
+
 /obj/item/clothing/accessory/kneepads
 	name = "kneepads"
 	desc = "A pair of synthetic kneepads. Doesn't provide protection from more than arthritis."
@@ -999,7 +1027,7 @@
 	item_state = "kneepads"
 	contained_sprite = TRUE
 	gender = PLURAL
-	slot = ACCESSORY_SLOT_PANTS
+	slot = ACCESSORY_SLOT_GENERIC
 
 /obj/item/clothing/accessory/blood_patch
 	name = "O- blood patch"
@@ -1237,7 +1265,7 @@
 /obj/item/clothing/accessory/apron/qeburgerapron
 	name = "Quick-E-Burger Food Technician Apron"
 	desc = "For industrious employees hard at work, the Quick-E-Burger Food Technician Apron is the perfect protection! Supplied and manufactured in bulk by Quick-E-Burger's parent company, Orion Express, the Food Technician Apron is constructed from highly-resistant rubber with ergonomic quick-fastening security straps to ensure it can be made to fit any employee, of any species, anywhere!"
-	icon = 'icons/clothing/suits/quickeburger_apron.dmi'
+	icon = 'icons/obj/item/clothing/accessory/aprons.dmi'
 	icon_state = "quickeburger_apron"
 	item_state = "quickeburger_apron"
 	allowed = list(

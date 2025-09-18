@@ -3,21 +3,6 @@
 /obj/machinery/atmospherics/unary/cryo_cell
 	name = "cryo cell"
 	desc = "A cryogenic chamber that can freeze occupants while keeping them alive, preventing them from taking any further damage. It can be loaded with a chemical cocktail for various medical benefits."
-	desc_info = "The cryogenic chamber, or 'cryo', treats most damage types, most notably genetic damage. It also stabilizes patients \
-	in critical condition by placing them in stasis, so they can be treated at a later time.<br>\
-	<br>\
-	In order for it to work, it must be loaded with chemicals, and the temperature of the solution must reach a certain point. Additionally, it \
-	requires a supply of pure oxygen, provided by canisters that are attached. The most commonly used chemicals in the chambers are Cryoxadone and \
-	Clonexadone. Clonexadone is more effective in treating all damage, including Genetic damage, but is otherwise functionally identical.<br>\
-	<br>\
-	Activating the freezer nearby, and setting it to a temperature setting below 150, is recommended before operation! Further, any clothing the patient \
-	is wearing that act as an insulator will reduce its effectiveness, and should be removed.<br>\
-	<br>\
-	Clicking the tube with a beaker full of chemicals in hand will place it in its storage to distribute when it is activated.<br>\
-	<br>\
-	Click your target with Grab intent, then click on the tube, with an empty hand, to place them in it. Click the tube again to open the menu. \
-	Press the button on the menu to activate it. Once they have reached 100 health, right-click the cell and click 'Eject Occupant' to remove them. \
-	Remember to turn it off, once you've finished, to save power and chemicals!"
 	icon = 'icons/obj/cryogenics.dmi' // map only
 	icon_state = "pod_preview"
 	density = TRUE
@@ -54,6 +39,35 @@
 	var/slow_stasis_mult = 1.7
 	var/current_stasis_mult = 1
 
+/obj/machinery/atmospherics/unary/cryo_cell/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "The cryogenic chamber, or 'cryo', treats most damage types, most notably genetic damage. It also stabilizes patients \
+	in critical condition by placing them in stasis, so they can be treated at a later time."
+	. += "In order for it to work, it must be loaded with chemicals, and the temperature of the solution must reach a certain point. Additionally, it \
+	requires a supply of pure oxygen provided by attached canisters."
+	. += "The most commonly used chemicals in the chambers are Cryoxadone and Clonexadone."
+	. += "Activating the freezer nearby and setting it to a temperature setting below 150 is recommended before operation! Further, any insulating clothing the patient \
+	is wearing will reduce its effectiveness, and should be removed."
+	. += "Clicking the tube with a beaker full of chemicals in hand will place it in its storage to distribute when it is activated."
+	. += "Click your target with Grab intent, then click on the tube, with an empty hand, to place them in it. Click the tube again to open the menu. \
+	Press the button on the menu to activate it."
+	. += "Once they have reached 100 health, right-click the cell and click 'Eject Occupant' to remove them."
+	. += "Remember to turn the cryo off once you've finished to save power and chemicals!"
+
+/obj/machinery/atmospherics/unary/cryo_cell/upgrade_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Upgraded <b>manipulators</b> will increase effectiveness of both hyper-metabolism and cryostasis functions."
+
+/obj/machinery/atmospherics/unary/cryo_cell/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(is_adjacent)
+		if(beaker)
+			. += "It is loaded with a beaker."
+		if(occupant)
+			occupant.examine(arglist(args))
+	if(panel_open)
+		. += "The maintenance hatch is open."
+
 /obj/machinery/atmospherics/unary/cryo_cell/Initialize()
 	. = ..()
 	update_icon()
@@ -74,17 +88,6 @@
 		if(target.initialize_directions & get_dir(target,src))
 			node = target
 			break
-
-/obj/machinery/atmospherics/unary/cryo_cell/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(is_adjacent)
-		if(beaker)
-			. += SPAN_NOTICE("It is loaded with a beaker.")
-		if(occupant)
-			occupant.examine(arglist(args))
-
-	if(panel_open)
-		. += "The maintenance hatch is open."
 
 /obj/machinery/atmospherics/unary/cryo_cell/process()
 	..()

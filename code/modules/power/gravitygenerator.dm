@@ -347,20 +347,21 @@
 	// Sound the alert if gravity was just enabled or disabled.
 	var/alert = 0
 	var/area/area = get_area(src)
+	var/areadisplayname = get_area_display_name(area)
 	if(new_state) // If we turned on
 		if(!area.has_gravity())
 			alert = 1
 			GLOB.gravity_is_on = 1
 			soundloop.start(src)
 			investigate_log("was brought online and is now producing gravity for this level.", "gravity")
-			message_admins("The gravity generator was brought online. (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>[area.name]</a>)")
+			message_admins("The gravity generator was brought online. (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>[areadisplayname]</a>)")
 	else
 		if(area.has_gravity())
 			alert = 1
 			GLOB.gravity_is_on = 0
 			soundloop.stop(src)
 			investigate_log("was brought offline and there is now no gravity for this level.", "gravity")
-			message_admins("The gravity generator was brought offline with no backup generator. (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>[area.name]</a>)")
+			message_admins("The gravity generator was brought offline with no backup generator. (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>[areadisplayname]</a>)")
 
 	update_icon()
 	update_list(gravity_changed)
@@ -380,9 +381,9 @@
 			set_state(0)
 		else
 			if(charging_state == POWER_UP)
-				charge_count += 2
+				charge_count += rand(1,5)
 			else if(charging_state == POWER_DOWN)
-				charge_count -= 2
+				charge_count -= rand(1,5)
 
 			if(charge_count % 4 == 0 && prob(75)) // Let them know it is charging/discharging.
 				playsound(src.loc, 'sound/effects/EMPulse.ogg', 100, 1)
@@ -417,8 +418,7 @@
 					current_overlay = overlay_state
 
 /obj/machinery/gravity_generator/main/proc/pulse_radiation(var/amount = 20)
-	for(var/mob/living/L in view(7, src))
-		L.apply_damage(amount, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
+	SSradiation.radiate(src, amount)
 
 // Shake everyone on the z level to let them know that gravity was enagaged/disenagaged.
 /obj/machinery/gravity_generator/main/proc/shake_everyone()
@@ -462,7 +462,7 @@
 		linked.gravity_generator = src
 
 /obj/machinery/gravity_generator/main/proc/updateareas()
-	for(var/area/A in get_sorted_areas())
+	for(var/area/A in GLOB.the_station_areas)
 		if(!(get_area_type(A) == AREA_STATION))
 			continue
 		localareas += A

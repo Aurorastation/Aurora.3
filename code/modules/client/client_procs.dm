@@ -386,6 +386,8 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 	// Forcibly enable hardware-accelerated graphics, as we need them for the lighting overlays.
 	winset(src, null, "command=\".configure graphics-hwmode on\"")
 
+	winset(src, "map", "style=\"[MAP_STYLESHEET]\"")
+
 	if(IsGuestKey(key) && GLOB.config.external_auth)
 		src.authed = FALSE
 		var/mob/abstract/unauthed/m = new()
@@ -562,7 +564,7 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 	if(!establish_db_connection(GLOB.dbcon))
 		return
 
-	var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT datediff(Now(),firstseen) as age, whitelist_status, account_join_date, DATEDIFF(NOW(), account_join_date) FROM ss13_player WHERE ckey = :ckey:")
+	var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT datediff(Now(),firstseen) as age, whitelist_status, account_join_date, DATEDIFF(NOW(), account_join_date), ckey_is_external FROM ss13_player WHERE ckey = :ckey:")
 
 	if(!query.Execute(list("ckey"=ckey(key))))
 		return
@@ -576,6 +578,7 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 		whitelist_status = text2num(query.item[2])
 		account_join_date = query.item[3]
 		account_age = text2num(query.item[4])
+		ckey_is_external = !!text2num(query.item[5])
 		if (!account_age)
 			account_join_date = sanitizeSQL(findJoinDate())
 			if (!account_join_date)
@@ -611,8 +614,8 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 		query_update.Execute(list("ckey"=ckey(key),"ip"=src.address,"computerid"=src.computer_id,"lastadminrank"=admin_rank,"account_join_date"=account_join_date,"byond_version"=byond_version,"byond_build"=byond_build))
 	else if (!GLOB.config.access_deny_new_players)
 		//New player!! Need to insert all the stuff
-		var/DBQuery/query_insert = GLOB.dbcon.NewQuery("INSERT INTO ss13_player (ckey, firstseen, lastseen, ip, computerid, lastadminrank, account_join_date, byond_version, byond_build) VALUES (:ckey:, Now(), Now(), :ip:, :computerid:, :lastadminrank:, :account_join_date:, :byond_version:, :byond_build:)")
-		query_insert.Execute(list("ckey"=ckey(key),"ip"=src.address,"computerid"=src.computer_id,"lastadminrank"=admin_rank,"account_join_date"=account_join_date,"byond_version"=byond_version,"byond_build"=byond_build))
+		var/DBQuery/query_insert = GLOB.dbcon.NewQuery("INSERT INTO ss13_player (ckey, ckey_is_external, firstseen, lastseen, ip, computerid, lastadminrank, account_join_date, byond_version, byond_build) VALUES (:ckey:, :ckey_is_external:, Now(), Now(), :ip:, :computerid:, :lastadminrank:, :account_join_date:, :byond_version:, :byond_build:)")
+		query_insert.Execute(list("ckey"=ckey(key), "ckey_is_external"=src.ckey_is_external,"ip"=src.address,"computerid"=src.computer_id,"lastadminrank"=admin_rank,"account_join_date"=account_join_date,"byond_version"=byond_version,"byond_build"=byond_build))
 	else
 		// Flag as -1 to know we have to kiiick them.
 		player_age = -1
@@ -1020,3 +1023,12 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 /// This grabs the DPI of the user per their skin
 /client/proc/acquire_dpi()
 	window_scaling = text2num(winget(src, null, "dpi"))
+
+/client/verb/set_icon_size()
+	set name = "Set View Zoom"
+	set desc = "Lets you zoom in."
+	set category = "OOC"
+
+	var/list/zoom_options = list("Default" = 0, "Low" = 3, "Medium" = 6, "High" = 10, "Extreme" = 15)
+	var/selected_zoom = tgui_input_list(usr, "Please select a zoom level for your view.", "Set View Zoom", zoom_options, zoom_options[1])
+	winset(src, "mapwindow.map", "zoom=[zoom_options[selected_zoom]]")

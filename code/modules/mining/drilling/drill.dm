@@ -12,7 +12,6 @@
 /obj/machinery/mining/drill
 	name = "mining drill head"
 	desc = "A large industrial drill. Its bore does not penetrate deep enough to access the sublevels."
-	desc_info = "You can upgrade this machine with better matter bins, capacitors, micro lasers, and power cells. You can also attach a mining satchel that has a warp pack and a linked ore box to it, to bluespace teleport any mined ore directly into the linked ore box."
 	icon_state = "mining_drill"
 	var/braces_needed = 2
 	var/list/supports = list()
@@ -58,32 +57,26 @@
 		/obj/item/cell/high
 	)
 
+	parts_power_mgmt = FALSE
+
 	/// The list of ores currently held within the mining drill
 	var/list/stored_ores = list()
 
 	/// The last time the stored ores were updated, used as a cooldown to not nuke the server
 	var/last_stored_ore_update = 0
 
-/obj/machinery/mining/drill/Initialize()
-	. = ..()
-	spark_system = bind_spark(src, 3)
+/obj/machinery/mining/drill/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Attaching a mining satchel with a warp extraction pack and a linked ore box to this drill will bluespace-teleport any mined ore directly into the linked ore box."
 
-/obj/machinery/mining/drill/Destroy()
-	QDEL_NULL(attached_satchel)
-	QDEL_NULL(spark_system)
-	return ..()
+/obj/machinery/mining/drill/upgrade_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Upgraded <b>matter bins</b> will increase ore capacity."
+	. += "Upgraded <b>capacitors</b> will improve power efficiency."
+	. += "Upgraded <b>micro-lasers</b> will increase the amount of ore harvested."
 
-/obj/machinery/mining/drill/proc/update_ore_count()
-	stored_ores = list()
-	for(var/obj/item/ore/O in contents)
-		if(stored_ores[O.name])
-			stored_ores[O.name]++
-		else
-			stored_ores[O.name] = 1
-
-/obj/machinery/mining/drill/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-
+/obj/machinery/mining/drill/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(need_player_check)
 		. += SPAN_WARNING("The drill error light is flashing. The cell panel is [panel_open ? "open" : "closed"].")
 	else
@@ -117,6 +110,23 @@
 	for(var/ore in stored_ores)
 		. += SPAN_NOTICE("- [stored_ores[ore]] [ore]")
 
+/obj/machinery/mining/drill/Initialize()
+	. = ..()
+	spark_system = bind_spark(src, 3)
+
+/obj/machinery/mining/drill/Destroy()
+	QDEL_NULL(attached_satchel)
+	QDEL_NULL(spark_system)
+	return ..()
+
+/obj/machinery/mining/drill/proc/update_ore_count()
+	stored_ores = list()
+	for(var/obj/item/ore/O in contents)
+		if(stored_ores[O.name])
+			stored_ores[O.name]++
+		else
+			stored_ores[O.name] = 1
+
 /obj/machinery/mining/drill/process()
 	if(need_player_check)
 		return
@@ -140,7 +150,15 @@
 		return
 
 	//Drill through the flooring, if any.
-	if(istype(get_turf(src), /turf/simulated/floor/exoplanet/asteroid))
+	if(istype(get_turf(src), /turf/simulated/floor/exoplanet/asteroid/ash/rocky/phoron_deposit))
+		var/turf/simulated/floor/exoplanet/asteroid/ash/rocky/phoron_deposit/T = get_turf(src)
+		if(!T.dug)
+			T.gets_dug()
+			for(var/obj/item/ore/ore in range(1, src)) // gets_dug causes ore to spawn, this picks that ore up as well
+				ore.forceMove(src)
+				if(attached_satchel?.linked_box)
+					attached_satchel.insert_into_storage(ore)
+	else if(istype(get_turf(src), /turf/simulated/floor/exoplanet/asteroid))
 		var/turf/simulated/floor/exoplanet/asteroid/T = get_turf(src)
 		if(!T.dug)
 			T.gets_dug()

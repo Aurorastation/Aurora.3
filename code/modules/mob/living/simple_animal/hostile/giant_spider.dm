@@ -130,7 +130,7 @@
 
 /mob/living/simple_animal/hostile/giant_spider/bombardier
 	name = "greimorian bombardier"
-	desc = "A disgusting crawling Greimorian. This one has vents that shoot out condensed capsaicin."
+	desc = "A disgusting crawling Greimorian. This one has vents that shoot out acid."
 	icon_state = "greimorian_bombardier"
 	icon_living = "greimorian_bombardier"
 	icon_dead = "greimorian_bombardier_dead"
@@ -141,10 +141,10 @@
 	armor_penetration = 5
 	ranged = TRUE
 	ranged_attack_range = 4
-	poison_type = /singleton/reagent/capsaicin/condensed
+	poison_type = /singleton/reagent/acid/greimorian
 	poison_per_bite = 2
 	speed = 5
-	sample_data = list("Genetic markers identified as being linked with stem cell differentiaton", "Exocrinic caspaicin synthesis detected")
+	sample_data = list("Genetic markers identified as being linked with stem cell differentiaton", "Exocrinic acid synthesis detected")
 	smart_melee = TRUE
 
 /mob/living/simple_animal/hostile/giant_spider/bombardier/Shoot(var/target, var/start, var/mob/user, var/bullet = 0)
@@ -155,8 +155,8 @@
 
 	var/turf/target_turf = get_turf(target)
 	var/obj/effect/effect/water/chempuff/pepperspray = new /obj/effect/effect/water/chempuff(get_turf(src))
-	pepperspray.create_reagents(15)
-	pepperspray.reagents.add_reagent(poison_type, 15)
+	pepperspray.create_reagents(10)
+	pepperspray.reagents.add_reagent(poison_type, 10)
 	pepperspray.set_color()
 	pepperspray.set_up(target_turf, 3, 5)
 

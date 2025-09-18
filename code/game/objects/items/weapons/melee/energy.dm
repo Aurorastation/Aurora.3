@@ -118,6 +118,8 @@
 					if(prob(reflectchance))
 						user.visible_message(SPAN_DANGER("\The [user] blocks [attack_text] with \the [src]!"))
 						return BULLET_ACT_BLOCK
+			else
+				return BULLET_ACT_HIT
 
 /obj/item/melee/energy/get_print_info()
 	. = ..()
@@ -221,9 +223,6 @@
 /obj/item/melee/energy/sword
 	name = "energy sword"
 	desc = "An energy sword. Quite rare, very dangerous."
-	desc_antag = "The energy sword is a very strong melee weapon, capable of severing limbs easily, if they are targeted.  It can also has a chance \
-	to block projectiles and melee attacks while it is on and being held.  The sword can be toggled on or off by using it in your hand.  While it is off, \
-	it can be concealed in your pocket or bag."
 	icon_state = "sword0"
 	active_force = 33
 	armor_penetration = 25
@@ -243,6 +242,13 @@
 	base_reflectchance = 30
 	base_block_chance = 30
 	var/blade_color
+
+/obj/item/melee/energy/sword/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "The energy sword is a very strong melee weapon, capable of severing limbs easily, if they are targeted."
+	. += "It also has a chance to block projectiles and melee attacks while it is on and being held."
+	. += "The sword can be toggled on or off by using it in your hand."
+	. += "While it is off, it can be concealed in your pocket or bag."
 
 /obj/item/melee/energy/sword/Initialize(mapload, ...)
 	. = ..()
@@ -358,7 +364,7 @@
 
 /obj/item/melee/energy/sword/knife
 	name = "energy utility knife"
-	desc = "Some cheap energy blade, branded at the hilt with the logo of the Tau Ceti Foreign Legion."
+	desc = "Some cheap energy blade. Easier to conceal and carry than the larger energy swords, it is a mainstay in militaries across the spur for its utility as a tool and a backup weapon."
 	icon_state = "edagger0"
 	base_reflectchance = 10
 	base_block_chance = 10

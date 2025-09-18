@@ -1,12 +1,12 @@
 /* Surgery Tools
  * Contains:
- *		Retractor
- *		Hemostat
- *		Cautery
- *		Surgical Drill
- *		Scalpel
- *		Circular Saw
- *   	Tray
+ * * Retractor
+ * * Hemostat
+ * * Cautery
+ * * Surgical Drill
+ * * Scalpel
+ * * Circular Saw
+ * * Tray
  */
 /obj/item/surgery
 	name = "surgery tool parent item"
@@ -272,10 +272,8 @@
 		var/mob/dropped_onto_mob = over
 		if(ishuman(dropped_onto_mob) && !dropped_onto_mob.get_active_hand())
 			var/mob/living/carbon/human/H = user
-			var/obj/item/organ/external/temp = H.organs_by_name[BP_R_HAND]
+			var/obj/item/organ/external/temp = H.organs_by_name[H.hand?BP_L_HAND:BP_R_HAND]
 
-			if (H.hand)
-				temp = H.organs_by_name[BP_L_HAND]
 			if(temp && !temp.is_usable())
 				to_chat(H, SPAN_NOTICE("You try to move your [temp.name], but cannot!"))
 				return

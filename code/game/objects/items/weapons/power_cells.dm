@@ -11,10 +11,13 @@
 	throw_speed = 3
 	throw_range = 5
 	w_class = WEIGHT_CLASS_NORMAL
-	var/charge = 0	// note %age conveted to actual charge in New
+	/// Note %age converted to actual charge in New()
+	var/charge = 0
 	var/maxcharge = 1000
-	var/rigged = 0		// true if rigged to explode
-	var/minor_fault = 0 //If not 100% reliable, it will build up faults.
+	/// True if rigged to explode
+	var/rigged = FALSE
+	/// If not 100% reliable, it will build up faults.
+	var/minor_fault = 0
 	matter = list(DEFAULT_WALL_MATERIAL = 700, MATERIAL_GLASS = 50)
 	recyclable = TRUE
 
@@ -142,15 +145,22 @@
 /obj/item/cell/slime
 	name = "charged slime core"
 	desc = "A yellow slime core infused with phoron, it crackles with power."
-	desc_info = "This slime core is energized with powerful bluespace energies, allowing it to regenerate ten percent of its charge every minute."
 	origin_tech = list(TECH_POWER = 2, TECH_BIO = 4)
 	icon = 'icons/mob/npc/slimes.dmi'
 	icon_state = "yellow slime extract"
 	maxcharge = 15000
 	matter = null
 
-	// slime cores recharges 10% every one minute
+	/// Slime cores recharges 10% every one minute.
 	self_charge_percentage = 10
+
+/obj/item/cell/slime/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This slime core is energized with powerful bluespace energies, allowing it to regenerate ten percent of its charge every minute."
+
+/obj/item/cell/slime/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Auto-charges, so maybe be fucking careful if you try rigging this one."
 
 /obj/item/cell/nuclear
 	name = "miniaturized nuclear power cell"
@@ -160,13 +170,14 @@
 	maxcharge = 50000
 	matter = null
 
-	// nuclear cores recharges 20% every one minute
+	/// Nuclear cells recharge 20% every one minute.
 	self_charge_percentage = 10
 
 /obj/item/cell/device/emergency_light
 	name = "miniature power cell"
 	desc = "A small power cell intended for use with emergency lighting."
-	maxcharge = 120	//Emergency lights use 0.2 W per tick, meaning ~10 minutes of emergency power from a cell
+	/// Emergency lights use 0.2 W per tick, meaning ~10 minutes of emergency power from a cell
+	maxcharge = 120
 	w_class = WEIGHT_CLASS_TINY
 	matter = list(MATERIAL_GLASS = 20)
 
@@ -191,7 +202,8 @@
 	name = "hydrogen blaster canister"
 	desc = "An industrial-grade hydrogen power cell, used in various blaster weapons- or blaster-adjacent power tools- in place of expensive phoron."
 	icon_state = "hycell"
-	maxcharge = 10000 // hydrogen is actually used today in electric cars
+	/// Hydrogen is actually used today in electric cars
+	maxcharge = 10000
 	matter = list(DEFAULT_WALL_MATERIAL = 700, MATERIAL_GLASS = 70)
 	w_class = WEIGHT_CLASS_SMALL
 	drop_sound = 'sound/items/drop/gascan.ogg'
@@ -213,7 +225,7 @@
 	maxcharge = 30000
 	matter = list(DEFAULT_WALL_MATERIAL = 20000, MATERIAL_GLASS = 10000, MATERIAL_URANIUM = 10000)
 
-	// nuclear mecha cores recharges 5% every one minute
+	/// Nuclear mecha cores recharges 5% every one minute
 	self_charge_percentage = 5
 
 /obj/item/cell/mecha/phoron
@@ -223,5 +235,16 @@
 	maxcharge = 50000
 	matter = list(DEFAULT_WALL_MATERIAL = 20000, MATERIAL_GLASS = 10000, MATERIAL_PHORON = 5000)
 
-	// nuclear mecha cores recharges 10% every one minute
+	/// Phoron mecha cores recharges 10% every one minute
 	self_charge_percentage = 10
+
+/obj/item/cell/mecha/phoron/alien
+	name = "anomalous power core"
+	origin_tech = list(TECH_POWER = 9, TECH_MATERIAL = 9)
+	icon_state = "alien_power_cell"
+	desc = "A mercurial gem gleaming with anomalous white light. Pale, cold flames dance along its surface, which crackle with static charge upon touching any object."
+
+/obj/item/cell/mecha/phoron/alien/Initialize()
+	. = ..()
+	maxcharge *= rand(0.75, 1.25)
+	self_charge_percentage *= rand(0.75, 1.25)

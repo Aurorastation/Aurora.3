@@ -216,6 +216,7 @@
 	blacklisted_citizenship = list(CITIZENSHIP_ERIDANI, CITIZENSHIP_ELYRA_NCP, CITIZENSHIP_NONE, CITIZENSHIP_FREE_COUNCIL)
 
 	aide_job = "Diplomatic Aide"
+	bodyguard_job = "Diplomatic Bodyguard"
 
 /datum/job/consular/get_outfit(mob/living/carbon/human/H, alt_title = null)
 	var/datum/citizenship/citizenship = SSrecords.citizenships[H.citizenship]
@@ -251,14 +252,17 @@
 	var/datum/citizenship/citizenship = SSrecords.citizenships[H.citizenship]
 	LAZYDISTINCTADD(blacklisted_citizenship, citizenship.name)
 	add_verb(H, /mob/living/carbon/human/proc/summon_aide)
+	add_verb(H, /mob/living/carbon/human/proc/summon_bodyguard)
 
 /datum/job/consular/on_despawn(mob/living/carbon/human/H)
 	var/datum/citizenship/citizenship = SSrecords.citizenships[H.citizenship]
 	LAZYREMOVE(blacklisted_citizenship, citizenship.name)
 
-	// Handle the removal of aide blacklists and the slot.
+	// Handle the removal of aide/bodyguard blacklists and the slot.
 	var/datum/job/J = SSjobs.GetJob(aide_job)
+	var/datum/job/J2 = SSjobs.GetJob(bodyguard_job)
 	close_aide_slot(H, J)
+	close_bodyguard_slot(H, J2)
 
 /datum/job/consular/post_open_aide_slot(mob/living/carbon/human/representative, datum/job/aide)
 	var/datum/citizenship/citizenship = SSrecords.citizenships[representative.citizenship]
@@ -266,6 +270,13 @@
 		LAZYREMOVE(aide.blacklisted_citizenship, citizenship.linked_citizenship)
 	else
 		LAZYREMOVE(aide.blacklisted_citizenship, representative.citizenship)
+
+/datum/job/consular/post_open_bodyguard_slot(mob/living/carbon/human/representative, datum/job/bodyguard)
+	var/datum/citizenship/citizenship = SSrecords.citizenships[representative.citizenship]
+	if(citizenship.linked_citizenship) //if there's a secondary citizenship that this one should allow - e.g zo'ra and biesel
+		LAZYREMOVE(bodyguard.blacklisted_citizenship, citizenship.linked_citizenship)
+	else
+		LAZYREMOVE(bodyguard.blacklisted_citizenship, representative.citizenship)
 
 /datum/job/consular/close_aide_slot(mob/living/carbon/human/representative, datum/job/aide)
 	var/datum/citizenship/citizenship = SSrecords.citizenships[representative.citizenship]
@@ -276,6 +287,16 @@
 
 	if(aide.total_positions > 0)
 		aide.total_positions--
+
+/datum/job/consular/close_bodyguard_slot(mob/living/carbon/human/representative, datum/job/bodyguard)
+	var/datum/citizenship/citizenship = SSrecords.citizenships[representative.citizenship]
+	if(citizenship.linked_citizenship)
+		LAZYDISTINCTADD(bodyguard.blacklisted_citizenship, citizenship.linked_citizenship)
+	else
+		LAZYDISTINCTADD(bodyguard.blacklisted_citizenship, representative.citizenship)
+
+	if(bodyguard.total_positions > 0)
+		bodyguard.total_positions--
 
 /datum/job/diplomatic_aide
 	title = "Diplomatic Aide"
@@ -323,9 +344,55 @@
 /datum/job/diplomatic_aide/after_spawn(mob/living/carbon/human/H)
 	LAZYDISTINCTADD(blacklisted_citizenship, H.citizenship)
 
+/datum/job/diplomatic_bodyguard
+	title = "Diplomatic Bodyguard"
+	flag = DIPLOMAT_GUARD
+	departments = SIMPLEDEPT(DEPARTMENT_COMMAND_SUPPORT)
+	department_flag = ENGSEC
+	faction = "Station"
+	total_positions = 0 //manually opened by consular
+	spawn_positions = 0
+	supervisors = "the Consular Officer"
+	selection_color = "#6186cf"
+	economic_modifier = 5
+
+	minimum_character_age = list(
+		SPECIES_HUMAN = 18,
+		SPECIES_SKRELL = 50,
+		SPECIES_SKRELL_AXIORI = 50
+	)
+
+	access = list(ACCESS_CONSULAR, ACCESS_MAINT_TUNNELS)
+	minimal_access = list(ACCESS_CONSULAR)
+	outfit = /obj/outfit/job/diplomatic_bodyguard
+	blacklisted_citizenship = ALL_CITIZENSHIPS //removed based on consular citizensihp
+
+/datum/job/diplomatic_bodyguard/get_outfit(mob/living/carbon/human/H, alt_title = null)
+	var/datum/citizenship/citizenship = SSrecords.citizenships[H.citizenship]
+	if(citizenship)
+		return citizenship.bodyguard_outfit
+
+/obj/outfit/job/diplomatic_bodyguard
+	name = "Diplomatic Bodyguard"
+	jobtype = /datum/job/diplomatic_bodyguard
+
+	uniform = /obj/item/clothing/under/suit_jacket/navy
+	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/lawyer
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/lawyer
+	tablet = /obj/item/modular_computer/handheld/preset/civilian/lawyer
+	shoes = /obj/item/clothing/shoes/laceup
+	glasses = /obj/item/clothing/glasses/sunglasses/big
+	headset = /obj/item/device/radio/headset/representative
+	bowman = /obj/item/device/radio/headset/representative/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/command/representative
+	wrist_radio = /obj/item/device/radio/headset/wrist/command/representative
+
+/datum/job/diplomatic_bodyguard/after_spawn(mob/living/carbon/human/H)
+	LAZYDISTINCTADD(blacklisted_citizenship, H.citizenship)
+
 /datum/job/corporate_aide
 	title = "Corporate Aide"
-	flag = DIPLOMAT_AIDE
+	flag = GLOB.DIPLOMAT_AIDE
 	departments = SIMPLEDEPT(DEPARTMENT_COMMAND_SUPPORT)
 	department_flag = ENGSEC
 	faction = "Station"
@@ -343,23 +410,21 @@
 
 	access = list(ACCESS_LAWYER, ACCESS_MAINT_TUNNELS)
 	minimal_access = list(ACCESS_LAWYER)
-	outfit = /obj/outfit/job/diplomatic_aide
-
-/datum/job/corporate_aide/get_outfit(mob/living/carbon/human/H, alt_title = null)
-	var/datum/faction/aide_faction = SSjobs.name_factions[H.employer_faction]
-	if(aide_faction)
-		return aide_faction.titles_to_loadout["Off-Duty Crew Member"]
+	outfit = /obj/outfit/job/corporate_aide
 
 /obj/outfit/job/corporate_aide
-	name = "Corporate Aide"
+	name = "NanoTrasen Corporate Aide"
 	jobtype = /datum/job/corporate_aide
 
-	uniform = /obj/item/clothing/under/suit_jacket/navy
+	head = /obj/item/clothing/head/beret/corporate
+	uniform = /obj/item/clothing/under/dressshirt
+	suit = /obj/item/clothing/suit/storage/toggle/corp/nt
+	pants = /obj/item/clothing/pants/khaki
+
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/lawyer
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/lawyer
 	tablet = /obj/item/modular_computer/handheld/preset/civilian/lawyer
 	shoes = /obj/item/clothing/shoes/laceup
-	glasses = /obj/item/clothing/glasses/sunglasses/big
 	headset = /obj/item/device/radio/headset/representative
 	bowman = /obj/item/device/radio/headset/representative/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/command/representative

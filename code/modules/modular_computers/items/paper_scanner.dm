@@ -1,12 +1,16 @@
 /obj/item/paper_scanner
 	name = "paper scanner"
 	desc = "A simple device that can be used to scan paper or paper bundles in order to digitize them."
-	desc_info = "Alt-click it while it's in one of your hands to eject the portable drive. Click paper or a paper bundle with it to digitize it and store it in the inserted drive."
 	icon = 'icons/obj/devices/paperscanner.dmi'
 	icon_state = "paperscanner"
 	item_state = "paperscanner"
 	contained_sprite = TRUE
 	var/obj/item/computer_hardware/hard_drive/portable/drive
+
+/obj/item/paper_scanner/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Click paper or a paper bundle with it to digitize it and store it in the inserted drive."
+	. += "ALT-click it while it's in one of your hands to eject the portable drive."
 
 /obj/item/paper_scanner/Initialize(mapload, ...)
 	. = ..()

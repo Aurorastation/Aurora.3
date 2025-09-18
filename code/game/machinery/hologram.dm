@@ -1,8 +1,8 @@
 /* Holograms!
  * Contains:
- *		Holopad
- *		Hologram
- *		Other stuff
+ * * Holopad
+ * * Hologram
+ * * Other stuff
  */
 
 /*
@@ -64,6 +64,14 @@ Possible to do for anyone motivated enough:
 
 	var/can_hear_flags = NONE
 
+/obj/machinery/hologram/holopad/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(connected_pad)
+		if(established_connection)
+			. += "\The [src] is currently in a call with a holopad with ID: <b>[connected_pad.holopad_id]</b>"
+		else
+			. += SPAN_NOTICE("\The [src] is currently pending connection with a holopad with ID: <b>[connected_pad.holopad_id]</b>")
+
 /obj/machinery/hologram/holopad/Initialize()
 	. = ..()
 
@@ -81,15 +89,8 @@ Possible to do for anyone motivated enough:
 
 /obj/machinery/hologram/holopad/proc/get_holopad_id()
 	var/area/A = get_area(src)
-	holopad_id = "[A.name] ([src.x]-[src.y]-[src.z])"
-
-/obj/machinery/hologram/holopad/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(connected_pad)
-		if(established_connection)
-			. += SPAN_NOTICE("\The [src] is currently in a call with a holopad with ID: [connected_pad.holopad_id]")
-		else
-			. += SPAN_NOTICE("\The [src] is currently pending connection with a holopad with ID: [connected_pad.holopad_id]")
+	var/display_name = get_area_display_name(A)
+	holopad_id = "[display_name] ([src.x]-[src.y]-[src.z])"
 
 /obj/machinery/hologram/holopad/update_icon(var/recurse = TRUE)
 	if(LAZYLEN(active_holograms) || has_established_connection())
@@ -479,7 +480,8 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 		holopad_id = "[linked.name] | "
 
 	var/area/A = get_area(src)
-	holopad_id += "[A.name]"
+	var/display_name = get_area_display_name(A)
+	holopad_id += "[display_name]"
 
 /obj/machinery/hologram/holopad/long_range/can_connect(var/obj/machinery/hologram/holopad/HP)
 	if(HP.long_range != long_range)

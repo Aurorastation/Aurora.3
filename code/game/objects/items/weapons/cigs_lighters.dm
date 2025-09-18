@@ -156,7 +156,8 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 	var/icon_on
 	var/icon_off
 	var/type_butt = null
-	var/chem_volume = 15 //Size of a syringe
+	/// Size of a syringe
+	var/chem_volume = 15
 	var/genericmes = "USER lights NAME with FLAME"
 	var/matchmes = "USER lights NAME with FLAME"
 	var/lightermes = "USER lights NAME with FLAME"
@@ -165,14 +166,17 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 	var/ignitermes = "USER lights NAME with FLAME"
 	var/initial_volume = 0
 	var/burn_rate = 0
-	var/last_drag = 0 //Spam limiter for audio/message when taking a drag of cigarette.
+	/// Spam limiter for audio/message when taking a drag of cigarette.
+	var/last_drag = 0
 	drop_sound = 'sound/items/drop/food.ogg'
 	pickup_sound = 'sound/items/pickup/food.ogg'
 
 /obj/item/clothing/mask/smokable/Initialize()
 	. = ..()
-	atom_flags |= ATOM_FLAG_NO_REACT // so it doesn't react until you light it
-	create_reagents(chem_volume) // making the cigarrete a chemical holder with a maximum volume of 15
+	// So it doesn't react until you light it
+	atom_flags |= ATOM_FLAG_NO_REACT
+	// Making the cigarette a chemical holder with a maximum volume of 15
+	create_reagents(chem_volume)
 
 /obj/item/clothing/mask/smokable/process()
 	if(reagents && reagents.total_volume && burn_rate && !istype(loc, /obj/item/storage))
@@ -449,6 +453,11 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 		/singleton/reagent/mental/caromeg = 5
 	)
 
+/obj/item/clothing/mask/smokable/cigarette/koko
+	name = "unathi cigarette"
+	desc = "An Unathi cigarette made with koko reed."
+	reagents_to_add = list(/singleton/reagent/mental/kokoreed = 15)
+
 ////////////
 // CIGARS //
 ////////////
@@ -712,7 +721,8 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 	drop_sound = 'sound/items/drop/card.ogg'
 	pickup_sound = 'sound/items/pickup/card.ogg'
 	surgerysound = 'sound/items/surgery/cautery.ogg'
-	var/last_open = 0 //prevent message spamming.
+	/// Spam limiter.
+	var/last_open = 0
 	var/last_close = 0
 	var/flame_light_range = 1
 	var/flame_light_power = 2
@@ -1040,13 +1050,13 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 	icon_on = "cigrollon"
 	icon_off = "cigrolloff"
 
-/obj/item/trash/cigbutt/roll
-	icon_state = "rollbutt"
-
-/obj/item/clothing/mask/smokable/cigarette/rolled/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/clothing/mask/smokable/cigarette/rolled/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(filter)
 		. += "It's capped off one end with a filter."
+
+/obj/item/trash/cigbutt/roll
+	icon_state = "rollbutt"
 
 /obj/item/clothing/mask/smokable/cigarette/rolled/update_icon()
 	. = ..()
@@ -1091,7 +1101,6 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 		var/obj/item/clothing/mask/smokable/cigarette/rolled/CR = attacking_item
 		return CR.attackby(src, user)
 	. = ..()
-
 
 //tobacco sold seperately if you're too snobby to grow it yourself.
 /obj/item/reagent_containers/food/snacks/grown/dried_tobacco

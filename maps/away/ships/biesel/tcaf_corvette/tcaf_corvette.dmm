@@ -8631,25 +8631,21 @@
 /obj/item/book{
 	name = "\improper Tanakh";
 	icon_state = "torah";
-	desc_antag = null;
 	desc = "This is a copy of the Tanakh, the canonical collection of Hebrew scriptures revered in Judaism. It is composed of the Torah, the Nevi'im, and the Ketuvim. The left of each page is written in Hebrew, and the right reads the Tau Ceti Basic translation."
 	},
 /obj/item/book{
 	name = "\improper Nygaard Translation Bible";
 	icon_state = "bible";
-	desc_antag = null;
 	desc = "This is a copy of the Bible, the holy text of Christianity, with plain white-on-black text at the front declaring that it is the 2443 Ecumenical Tau Ceti Basic translation. On closer inspection, this one contains sixty-six books inside it, indicating that it is a Protestant variation of the book, written exclusively in Tau Ceti Basic."
 	},
 /obj/item/book{
 	name = "\improper Quran";
 	icon_state = "quran";
-	desc_antag = null;
 	desc = "This is the Quran. This is the holy text of Islam, believed by Muslims to be a revelation from God. The proper text of this copy is written in Quranic Arabic, with a Tau Ceti Basic translation in slightly smaller print to the side."
 	},
 /obj/item/book{
 	name = "\improper Reim-Dich Translation Bible";
 	icon_state = "bible";
-	desc_antag = null;
 	desc = "This is a copy of the Bible, the holy text of Christianity, embossed at the front with a fancy golden image of a crucifix. On closer inspection, this one contains seventy-three books inside it, indicating that it is a Catholic variation of the book. There are several notes dispersed throughout clarifying the original words in Latin Vulgate where they may not translate perfectly to Tau Ceti Basic."
 	},
 /obj/item/device/versebook/tribunal,
@@ -11180,7 +11176,7 @@
 /obj/machinery/alarm/south{
 	req_one_access = list(204)
 	},
-/obj/structure/janitorialcart{
+/obj/structure/cart/storage/janitorialcart{
 	dir = 4
 	},
 /obj/item/reagent_containers/glass/bucket,

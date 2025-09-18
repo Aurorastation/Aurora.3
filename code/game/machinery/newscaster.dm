@@ -553,7 +553,7 @@ GLOBAL_LIST_INIT_TYPED(allCasters, /obj/machinery/newscaster, list())
 					dat+="No comments on this story yet!</BR>"
 				else
 					for(var/datum/feed_comment/COMMENT in src.viewing_message.comments)
-						dat+="<BLOCKQUOTE style=\"padding:2px 4px;border-left:4px #797979 solid;\"><B>\[[world.time]\] [COMMENT.author]:</B>[COMMENT.message]<BR><A href='byond://?src=[REF(src)];censor_comment=1;comment=[REF(COMMENT)]>Censor Comment</A></BLOCKQUOTE>"
+						dat+="<BLOCKQUOTE style=\"padding:2px 4px;border-left:4px #797979 solid;\"><B>\[[world.time]\] [COMMENT.author]:</B>[COMMENT.message]<BR><A href='byond://?src=[REF(src)];censor_comment=1;comment=[REF(COMMENT)]'>Censor Comment</A></BLOCKQUOTE>"
 				dat+="<A href='byond://?src=[REF(src)];setScreen=[9]'>Return</A>"
 			if(24) //newscaster is not connected to the station-z-level
 				dat += "<B>ERROR: Newscaster unit cannot access main news server!</B></BR>"
@@ -950,7 +950,6 @@ GLOBAL_LIST_INIT_TYPED(allCasters, /obj/machinery/newscaster, list())
 /obj/item/newspaper
 	name = "newspaper"
 	desc = "An issue of The Griffon, the newspaper circulating aboard most stations."
-	desc_info = "You can alt-click this to roll it up."
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "newspaper"
 	item_state = "newspaper"
@@ -966,6 +965,10 @@ GLOBAL_LIST_INIT_TYPED(allCasters, /obj/machinery/newscaster, list())
 	var/scribble=""
 	var/scribble_page = null
 	var/rolled = FALSE // Whether the newspaper is rolled or not, making it a deadly weapon.
+
+/obj/item/newspaper/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "You can use this on yourself with the Grab intent to roll it up or to unroll it."
 
 /obj/item/newspaper/attack_self(mob/user as mob)
 	if(user.a_intent == I_GRAB)

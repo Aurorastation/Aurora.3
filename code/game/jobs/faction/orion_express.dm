@@ -1,4 +1,4 @@
-/datum/faction/orin_express
+/datum/faction/orion_express
 	name = "Orion Express"
 	description = {"<p>
 	Founded in 2464, the Orion Express is a corporation designed to handle logistics for the
@@ -51,6 +51,7 @@
 		"Corporate Reporter" = /obj/outfit/job/journalist/orion,
 		"Chaplain" = /obj/outfit/job/chaplain/orion,
 		"Corporate Liaison" = /obj/outfit/job/representative/orion,
+		"Corporate Aide" = /obj/outfit/job/corporate_aide/orion,
 		"Assistant" = /obj/outfit/job/assistant/orion,
 		"Wait Staff" = /obj/outfit/job/assistant/waiter/orion,
 		"Off-Duty Crew Member" = /obj/outfit/job/visitor/orion,
@@ -100,6 +101,18 @@
 	id = /obj/item/card/id/orion
 	accessory = /obj/item/clothing/accessory/tie/corporate/orion
 	suit_accessory = /obj/item/clothing/accessory/pin/corporate/orion
+
+	backpack_faction = /obj/item/storage/backpack/orion
+	satchel_faction = /obj/item/storage/backpack/satchel/orion
+	dufflebag_faction = /obj/item/storage/backpack/duffel/orion
+	messengerbag_faction = /obj/item/storage/backpack/messenger/orion
+
+/obj/outfit/job/corporate_aide/orion
+	name = "Orion Express Corporate Aide"
+
+	id = /obj/item/card/id/orion
+	head = /obj/item/clothing/head/beret/corporate/orion
+	suit = /obj/item/clothing/suit/storage/toggle/corp/orion
 
 	backpack_faction = /obj/item/storage/backpack/orion
 	satchel_faction = /obj/item/storage/backpack/satchel/orion

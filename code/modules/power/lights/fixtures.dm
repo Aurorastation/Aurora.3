@@ -10,7 +10,6 @@
 	var/base_state = "tube"		// base description and icon_state
 	icon_state = "tube_preview"
 	desc = "A lighting fixture."
-	desc_info = "Use grab intent when interacting with a working light to take it out of its fixture."
 	anchored = TRUE
 	layer = ABOVE_HUMAN_LAYER
 	use_power = POWER_USE_ACTIVE
@@ -59,6 +58,24 @@
 		LIGHT_MODE_DELTA = LIGHT_COLOR_ORANGE
 	)
 	init_flags = 0
+
+/obj/machinery/light/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Use Grab intent on a working light to remove it from its fixture."
+
+/obj/machinery/light/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	switch(status)
+		if(LIGHT_OK)
+			. += "It is turned [!(stat & POWEROFF) ? "on" : "off"]."
+		if(LIGHT_EMPTY)
+			. += "\The [fitting] has been removed."
+		if(LIGHT_BURNED)
+			. += "\The [fitting] is burnt out."
+		if(LIGHT_BROKEN)
+			. += "\The [fitting] has been smashed."
+	if(cell)
+		. += "The charge meter reads [round((cell.charge / cell.maxcharge) * 100, 0.1)]%."
 
 /obj/machinery/light/skrell
 	base_state = "skrell"
@@ -376,7 +393,7 @@
 	else
 		return light_range != brightness_range || light_power != brightness_power || light_color != brightness_color
 
-/obj/machinery/light/attack_generic(var/mob/user, var/damage)
+/obj/machinery/light/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	if(!damage)
 		return
 	if(status == LIGHT_EMPTY)
@@ -392,21 +409,6 @@
 		broken()
 	user.do_attack_animation(src)
 	return TRUE
-
-// examine verb
-/obj/machinery/light/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	switch(status)
-		if(LIGHT_OK)
-			. += "It is turned [!(stat & POWEROFF) ? "on" : "off"]."
-		if(LIGHT_EMPTY)
-			. += "\The [fitting] has been removed."
-		if(LIGHT_BURNED)
-			. += "\The [fitting] is burnt out."
-		if(LIGHT_BROKEN)
-			. += "\The [fitting] has been smashed."
-	if(cell)
-		. += "The charge meter reads [round((cell.charge / cell.maxcharge) * 100, 0.1)]%."
 
 // attack with item - insert light (if right type), otherwise try to break the light
 

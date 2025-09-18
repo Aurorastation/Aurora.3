@@ -23,6 +23,22 @@
 	//Placeholder for effect that trigger on eating that aren't tied to reagents.
 	var/flavor = null // set_flavor()
 
+/obj/item/reagent_containers/food/snacks/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(distance > 1)
+		return
+	if (coating)
+		var/singleton/reagent/coating_reagent = GET_SINGLETON(coating)
+		. += SPAN_NOTICE("It's coated in [coating_reagent.name]!")
+	if (!bitecount)
+		return
+	else if (bitecount==1)
+		. += SPAN_NOTICE("\The [src] was bitten by someone!")
+	else if (bitecount<=3)
+		. += SPAN_NOTICE("\The [src] was bitten [bitecount] time\s!")
+	else
+		. += SPAN_NOTICE("\The [src] was bitten multiple times!")
+
 /obj/item/reagent_containers/food/snacks/proc/on_dry(var/newloc)
 	if(dried_type == type)
 		name = "dried [name]"
@@ -142,22 +158,6 @@
 	on_consume(user, target)
 
 	return 1
-
-/obj/item/reagent_containers/food/snacks/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(distance > 1)
-		return
-	if (coating)
-		var/singleton/reagent/coating_reagent = GET_SINGLETON(coating)
-		. += SPAN_NOTICE("It's coated in [coating_reagent.name]!")
-	if (!bitecount)
-		return
-	else if (bitecount==1)
-		. += SPAN_NOTICE("\The [src] was bitten by someone!")
-	else if (bitecount<=3)
-		. += SPAN_NOTICE("\The [src] was bitten [bitecount] time\s!")
-	else
-		. += SPAN_NOTICE("\The [src] was bitten multiple times!")
 
 /obj/item/reagent_containers/food/snacks/attackby(obj/item/attacking_item, mob/user)
 
@@ -380,7 +380,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 /// FOOD END
 ////////////////////////////////////////////////////////////////////////////////
-/obj/item/reagent_containers/food/snacks/attack_generic(var/mob/living/user)
+/obj/item/reagent_containers/food/snacks/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	if(!isanimal(user) && !isalien(user))
 		return
 

@@ -73,9 +73,6 @@
 		STOP_PROCESSING(SSprocessing, src)
 		qdel(src)
 
-/obj/structure/closet/statue/content_info()
-	return
-
 /obj/structure/closet/statue/proc/create_icon(var/mob/living/L)
 	appearance = L
 	appearance_flags |= KEEP_TOGETHER
@@ -132,7 +129,7 @@
 	health -= hitting_projectile.get_structure_damage()
 	check_health()
 
-/obj/structure/closet/statue/attack_generic(var/mob/user, damage, attacktext, environment_smash)
+/obj/structure/closet/statue/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if(damage && environment_smash)
 		for(var/mob/M in src)

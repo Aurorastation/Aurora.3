@@ -28,6 +28,13 @@
 	var/radius_2 = 1.35
 	var/static/list/animation_math //assoc list with pre calculated values
 
+/obj/structure/closet/crate/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Crates can be placed on top of tables by clicking and dragging the crate onto the target table."
+
+/obj/structure/closet/crate/antagonist_hints(mob/user, distance, is_adjacent)
+	. = list()
+
 /obj/structure/closet/crate/can_open()
 	if(tablestatus == UNDER_TABLE)//Can't be opened while under a table
 		return 0
@@ -593,6 +600,7 @@
 	new /obj/item/beehive_assembly(src)
 	new /obj/item/bee_net(src)
 	new /obj/item/bee_smoker(src)
+	new /obj/item/crowbar(src)
 
 // Includes everything you need to run your own horticultural medicinal operation. Or something more nefarious, if you prefer.
 /obj/structure/closet/crate/hydroponics/herbalism

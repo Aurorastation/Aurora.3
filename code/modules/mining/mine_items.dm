@@ -142,8 +142,8 @@
 
 /obj/item/pickaxe/verb/wield_pick()
 	if(can_wield)
-		set name = "Wield pick/drill"
-		set category = "Object"
+		set name = "Wield Pick/Drill"
+		set category = "Object.Held"
 		set src in usr
 
 		attack_self(usr)
@@ -963,11 +963,15 @@ GLOBAL_LIST_INIT_TYPED(total_extraction_beacons, /obj/structure/extraction_point
 
 /obj/item/warp_core
 	name = "warp extraction beacon signaller"
-	desc = "Emits a signal which Warp-Item recovery devices can lock onto. Activate in hand to create a beacon."
-	desc_info = "You can activate this item in-hand to create a static beacon, or you can click on an ore box with it to allow the ore box to be linked to warp packed mining satchels."
+	desc = "Emits a signal which Warp-Item recovery devices can lock onto."
 	icon = 'icons/obj/stock_parts.dmi'
 	icon_state = "subspace_amplifier"
 	origin_tech = list(TECH_BLUESPACE = 1, TECH_PHORON = 1, TECH_ENGINEERING = 2)
+
+/obj/item/warp_core/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "You can activate this item in-hand to create a static beacon."
+	. += "You can click on an ore box with it to allow the ore box to be linked to warp extraction pack-enabled mining satchels."
 
 /obj/item/warp_core/attack_self(mob/user)
 	to_chat(user, SPAN_NOTICE("You start placing down the beacon..."))

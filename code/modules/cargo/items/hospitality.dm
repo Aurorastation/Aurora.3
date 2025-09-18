@@ -3,7 +3,7 @@
 	name = "meat (x5)"
 	supplier = "getmore"
 	description = "Slabs of real meat, from real animals. Freshly frozen and extremely not-vegan."
-	price = 160
+	price = 55
 	items = list(
 		/obj/item/reagent_containers/food/snacks/meat
 	)
@@ -17,7 +17,7 @@
 	name = "chicken breast (x5)"
 	supplier = "getmore"
 	description = "Boneless chicken breast fillets, for chicken-y recipes."
-	price = 160
+	price = 65
 	items = list(
 		/obj/item/reagent_containers/food/snacks/meat/chicken
 	)
@@ -31,7 +31,7 @@
 	name = "synthetic meat (x5)"
 	supplier = "getmore"
 	description = "Slabs of synthetic meat, grown in a factory. More or less identical to the real thing, but without the animal sacrifice."
-	price = 140
+	price = 55
 	items = list(
 		/obj/item/reagent_containers/food/snacks/meat/syntiflesh
 	)
@@ -45,7 +45,7 @@
 	name = "adhomian meat (x5)"
 	supplier = "zharkov"
 	description = "A handful of meat slices from Adhomian animals. Freshly frozen."
-	price = 200
+	price = 75
 	items = list(
 		/obj/item/reagent_containers/food/snacks/meat/adhomai
 	)
@@ -59,7 +59,7 @@
 	name = "fish fillet (x5)"
 	supplier = "getmore"
 	description = "Raw fish fillets, sourced from an aquaponics farm. Freshly frozen."
-	price = 150
+	price = 55
 	items = list(
 		/obj/item/reagent_containers/food/snacks/fish/fishfillet
 	)
@@ -73,7 +73,7 @@
 	name = "moghresian meat (x5)"
 	supplier = "arizi"
 	description = "Slabs of meat from animals native to Moghes. Freshly frozen."
-	price = 200
+	price = 80
 	items = list(
 		/obj/item/reagent_containers/food/snacks/meat/moghes
 	)
@@ -87,7 +87,7 @@
 	name = "squid meat (x5)"
 	supplier = "getmore"
 	description = "Squid meat, meat from squid. Makes for some tasty calamari."
-	price = 150
+	price = 65
 	items = list(
 		/obj/item/reagent_containers/food/snacks/squidmeat
 	)
@@ -101,7 +101,7 @@
 	name = "worm fillet (x5)"
 	supplier = "nanotrasen"
 	description = "Exotic meat from a Cavern Dweller. Mildly toxic if prepared improperly."
-	price = 350
+	price = 90
 	items = list(
 		/obj/item/reagent_containers/food/snacks/dwellermeat
 	)
@@ -115,7 +115,7 @@
 	name = "roe sack (x5)"
 	supplier = "getmore"
 	description = "A fleshy organ filled with fish eggs."
-	price = 160
+	price = 80
 	items = list(
 		/obj/item/reagent_containers/food/snacks/fish/roe
 	)
@@ -129,7 +129,7 @@
 	name = "box of Silversun crab legs"
 	supplier = "idris"
 	description = "A box filled with high-quality crab legs from Silversun. Shipped by popular demand!"
-	price = 200
+	price = 120
 	items = list(
 		/obj/item/storage/box/crabmeat
 	)
@@ -143,9 +143,23 @@
 	name = "box of Ras'val clams"
 	supplier = "zharkov"
 	description = "A box filled with clams from the Ras'val sea, imported from Adhomai."
-	price = 200
+	price = 85
 	items = list(
 		/obj/item/storage/box/clams
+	)
+	access = 0
+	container_type = "freezer"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/hmatrrafillet
+	category = "hospitality"
+	name = "Hma'trra fillet"
+	supplier = "zharkov"
+	description = "A fillet of glacier worm meat."
+	price = 45
+	items = list(
+		/obj/item/reagent_containers/food/snacks/hmatrrameat
 	)
 	access = 0
 	container_type = "freezer"
@@ -157,7 +171,7 @@
 	name = "produce box"
 	supplier = "nanotrasen"
 	description = "A large box of random, leftover produce."
-	price = 100
+	price = 35
 	items = list(
 		/obj/item/storage/box/produce
 	)
@@ -171,9 +185,37 @@
 	name = "space spices"
 	supplier = "getmore"
 	description = "An exotic blend of spices for cooking. It must flow."
-	price = 60
+	price = 15
 	items = list(
 		/obj/item/reagent_containers/food/condiment/shaker/spacespice
+	)
+	access = 0
+	container_type = "freezer"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/sliced_bread
+	category = "hospitality"
+	name = "sliced bread"
+	supplier = "getmore"
+	description = "Factory-grade, machine-baked, machine-sliced, machine-bagged bread. Just like mama used to make."
+	price = 8
+	items = list(
+		/obj/item/storage/box/fancy/food/sliced_bread
+	)
+	access = 0
+	container_type = "freezer"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/packaged_shrimp
+	category = "hospitality"
+	name = "packaged shrimp"
+	supplier = "getmore"
+	description = "Frozen shrimp available at reasonable prices for any place in the Spur that can't get them fresh! Each pack contains 4 servings' worth of shrimp."
+	price = 90
+	items = list(
+		/obj/item/storage/box/fancy/food/packaged_shrimp
 	)
 	access = 0
 	container_type = "freezer"
@@ -185,7 +227,7 @@
 	name = "pepper mill"
 	supplier = "getmore"
 	description = "Often used to flavor food or make people sneeze."
-	price = 20
+	price = 12
 	items = list(
 		/obj/item/reagent_containers/food/condiment/shaker/peppermill
 	)
@@ -199,7 +241,7 @@
 	name = "salt shaker"
 	supplier = "getmore"
 	description = "Salt. From space oceans, presumably."
-	price = 10
+	price = 5
 	items = list(
 		/obj/item/reagent_containers/food/condiment/shaker/salt
 	)
@@ -213,7 +255,7 @@
 	name = "barbecue sauce"
 	supplier = "getmore"
 	description = "A bottle of tangy barbecue sauce."
-	price = 50
+	price = 8
 	items = list(
 		/obj/item/reagent_containers/food/condiment/barbecue
 	)
@@ -227,7 +269,7 @@
 	name = "hot sauce"
 	supplier = "getmore"
 	description = "A bottle of spicy hot sauce."
-	price = 50
+	price = 8
 	items = list(
 		/obj/item/reagent_containers/food/condiment/hot_sauce
 	)
@@ -241,7 +283,7 @@
 	name = "garlic sauce"
 	supplier = "getmore"
 	description = "A bottle of pungent garlic sauce."
-	price = 50
+	price = 8
 	items = list(
 		/obj/item/reagent_containers/food/condiment/garlicsauce
 	)
@@ -255,7 +297,7 @@
 	name = "honey"
 	supplier = "vysoka"
 	description = "A premium bottle of bee honey."
-	price = 200
+	price = 20
 	items = list(
 		/obj/item/reagent_containers/food/condiment/honey
 	)
@@ -269,7 +311,7 @@
 	name = "soy sauce"
 	supplier = "getmore"
 	description = "Savory, savory soy sauce."
-	price = 50
+	price = 8
 	items = list(
 		/obj/item/reagent_containers/food/condiment/soysauce
 	)
@@ -283,7 +325,7 @@
 	name = "ketchup"
 	supplier = "getmore"
 	description = "Tomato ketchup. The condiment that needs no introduction."
-	price = 50
+	price = 6
 	items = list(
 		/obj/item/reagent_containers/food/condiment/ketchup
 	)
@@ -297,7 +339,7 @@
 	name = "mayonnaise"
 	supplier = "getmore"
 	description = "A bottle of creamy mayonnaise."
-	price = 50
+	price = 6
 	items = list(
 		/obj/item/reagent_containers/food/condiment/mayonnaise
 	)
@@ -311,7 +353,7 @@
 	name = "NTella jar"
 	supplier = "getmore"
 	description = "A jar of popular NTella-brand hazelnut chocolate spread."
-	price = 40
+	price = 12
 	items = list(
 		/obj/item/reagent_containers/food/condiment/ntella
 	)
@@ -325,7 +367,7 @@
 	name = "peanut butter jar"
 	supplier = "getmore"
 	description = "Simultaneously smooth and chunky."
-	price = 40
+	price = 9
 	items = list(
 		/obj/item/reagent_containers/food/condiment/peanut_butter
 	)
@@ -339,7 +381,7 @@
 	name = "cherry jelly jar"
 	supplier = "getmore"
 	description = "A cherry jelly jar."
-	price = 40
+	price = 11
 	items = list(
 		/obj/item/reagent_containers/food/condiment/cherry_jelly
 	)
@@ -353,7 +395,7 @@
 	name = "grape jelly jar"
 	supplier = "getmore"
 	description = "A grape jelly jar."
-	price = 40
+	price = 11
 	items = list(
 		/obj/item/reagent_containers/food/condiment/grape_jelly
 	)
@@ -367,7 +409,7 @@
 	name = "triglyceride bottle"
 	supplier = "virgo"
 	description = "A small bottle. Contains triglyceride."
-	price = 50
+	price = 20
 	items = list(
 		/obj/item/reagent_containers/glass/bottle/triglyceride
 	)
@@ -381,7 +423,7 @@
 	name = "box of drinking glasses"
 	supplier = "virgo"
 	description = "A box of drinking glasses, for drinking purposes."
-	price = 21
+	price = 25
 	items = list(
 		/obj/item/storage/box/drinkingglasses
 	)
@@ -395,7 +437,7 @@
 	name = "egg carton"
 	supplier = "vysoka"
 	description = "Eggs from mostly chicken."
-	price = 40
+	price = 25
 	items = list(
 		/obj/item/storage/box/fancy/egg_box
 	)
@@ -409,7 +451,7 @@
 	name = "flour sack"
 	supplier = "getmore"
 	description = "A big bag of flour. Good for baking!"
-	price = 50
+	price = 25
 	items = list(
 		/obj/item/reagent_containers/food/condiment/flour
 	)
@@ -423,7 +465,7 @@
 	name = "sugar sack"
 	supplier = "getmore"
 	description = "A big bag of sugar. Highly addictive."
-	price = 40
+	price = 20
 	items = list(
 		/obj/item/reagent_containers/food/condiment/sugar
 	)
@@ -437,7 +479,7 @@
 	name = "rice sack"
 	supplier = "vysoka"
 	description = "A big bag of rice. For all your rice needs."
-	price = 50
+	price = 22
 	items = list(
 		/obj/item/reagent_containers/food/condiment/rice
 	)
@@ -451,7 +493,7 @@
 	name = "universal enzyme"
 	supplier = "getmore"
 	description = "Used in cooking various dishes."
-	price = 30
+	price = 15
 	items = list(
 		/obj/item/reagent_containers/food/condiment/enzyme
 	)
@@ -465,7 +507,7 @@
 	name = "milk carton"
 	supplier = "getmore"
 	description = "It's milk. White and nutritious goodness!"
-	price = 10
+	price = 5
 	items = list(
 		/obj/item/reagent_containers/food/drinks/carton/milk
 	)
@@ -479,7 +521,7 @@
 	name = "soymilk carton"
 	supplier = "getmore"
 	description = "It's soy milk. White and nutritious vegan goodness!"
-	price = 15
+	price = 3.50
 	items = list(
 		/obj/item/reagent_containers/food/drinks/carton/soymilk
 	)
@@ -493,7 +535,7 @@
 	name = "milk cream carton"
 	supplier = "getmore"
 	description = "It's cream. Made from milk. What else did you think you'd find in there?"
-	price = 15
+	price = 3.50
 	items = list(
 		/obj/item/reagent_containers/food/drinks/carton/cream
 	)
@@ -507,7 +549,7 @@
 	name = "fatshouters milk carton"
 	supplier = "getmore"
 	description = "Fatty fatshouters milk in a carton."
-	price = 20
+	price = 8.50
 	items = list(
 		/obj/item/reagent_containers/food/drinks/carton/fatshouters
 	)
@@ -521,7 +563,7 @@
 	name = "orange juice carton"
 	supplier = "getmore"
 	description = "Full of vitamins and deliciousness!"
-	price = 15
+	price = 4
 	items = list(
 		/obj/item/reagent_containers/food/drinks/carton/orangejuice
 	)
@@ -535,7 +577,7 @@
 	name = "tomato juice carton"
 	supplier = "getmore"
 	description = "Well, at least it LOOKS like tomato juice. You can't tell with all that redness."
-	price = 15
+	price = 4
 	items = list(
 		/obj/item/reagent_containers/food/drinks/carton/tomatojuice
 	)
@@ -549,7 +591,7 @@
 	name = "lime juice carton"
 	supplier = "getmore"
 	description = "Sweet-sour goodness."
-	price = 15
+	price = 4
 	items = list(
 		/obj/item/reagent_containers/food/drinks/carton/limejuice
 	)
@@ -563,7 +605,7 @@
 	name = "cranberry juice carton"
 	supplier = "getmore"
 	description = "Tart and sweet. A unique flavor for a unique berry."
-	price = 15
+	price = 4
 	items = list(
 		/obj/item/reagent_containers/food/drinks/carton/cranberryjuice
 	)
@@ -577,7 +619,7 @@
 	name = "lemon juice carton"
 	supplier = "getmore"
 	description = "This juice is VERY sour."
-	price = 15
+	price = 4
 	items = list(
 		/obj/item/reagent_containers/food/drinks/carton/lemonjuice
 	)
@@ -591,7 +633,7 @@
 	name = "dyn juice carton"
 	supplier = "getmore"
 	description = "Juice from a Skrell medicinal herb. It's supposed to be diluted."
-	price = 20
+	price = 4
 	items = list(
 		/obj/item/reagent_containers/food/drinks/carton/dynjuice
 	)
@@ -605,7 +647,7 @@
 	name = "apple juice carton"
 	supplier = "getmore"
 	description = "Juice from an apple. Yes."
-	price = 15
+	price = 4
 	items = list(
 		/obj/item/reagent_containers/food/drinks/carton/applejuice
 	)
@@ -619,7 +661,7 @@
 	name = "chip multipack crate"
 	supplier = "getmore"
 	description = "A Getmore supply crate of multipack chip bags."
-	price = 400
+	price = 25
 	items = list(
 		/obj/item/storage/box/fancy/chips,
 		/obj/item/storage/box/fancy/chips/cucumber,
@@ -638,7 +680,7 @@
 	name = "dry rags (x5)"
 	supplier = "blam"
 	description = "For cleaning up messes, you suppose."
-	price = 20
+	price = 10
 	items = list(
 		/obj/item/reagent_containers/glass/rag,
 	)
@@ -652,7 +694,7 @@
 	name = "flask"
 	supplier = "virgo"
 	description = "For those who can't be bothered to hang out at the bar to drink."
-	price = 55
+	price = 15
 	items = list(
 		/obj/item/reagent_containers/food/drinks/flask/barflask
 	)
@@ -666,7 +708,7 @@
 	name = "Goldschlager"
 	supplier = "zharkov"
 	description = "A gold laced drink imported from noble houses within S'rand'marr."
-	price = 460
+	price = 40
 	items = list(
 		/obj/item/reagent_containers/food/drinks/bottle/goldschlager
 	)
@@ -680,7 +722,7 @@
 	name = "Silverport champagne"
 	supplier = "idris"
 	description = "A rather fancy bottle of champagne, fit for collecting and storing in a cellar for decades."
-	price = 450
+	price = 40
 	items = list(
 		/obj/item/reagent_containers/food/drinks/bottle/champagne
 	)
@@ -694,7 +736,7 @@
 	name = "Wrapp Artiste patron"
 	supplier = "idris"
 	description = "Silver laced tequila, served in space night clubs across the galaxy."
-	price = 510
+	price = 45
 	items = list(
 		/obj/item/reagent_containers/food/drinks/bottle/patron
 	)
@@ -708,7 +750,7 @@
 	name = "Sarezhi Wine"
 	supplier = "arizi"
 	description = "A premium Moghean wine made from Sareszhi berries. Bottled by the Arizi Guild for over 200 years."
-	price = 400
+	price = 35
 	items = list(
 		/obj/item/reagent_containers/food/drinks/bottle/sarezhiwine
 	)
@@ -722,7 +764,7 @@
 	name = "shaker"
 	supplier = "virgo"
 	description = "A metal shaker to mix drinks in."
-	price = 85
+	price = 20
 	items = list(
 		/obj/item/reagent_containers/food/drinks/shaker
 	)
@@ -736,7 +778,7 @@
 	name = "pizza box, margherita"
 	supplier = "orion"
 	description = "Classic Orion Express Pizza, delivered across the galaxy piping hot and ready to eat."
-	price = 50
+	price = 10
 	items = list(
 		/obj/item/pizzabox/margherita
 	)
@@ -750,7 +792,7 @@
 	name = "pizza box, meat"
 	supplier = "orion"
 	description = "Meaty Orion Express Pizza, delivered across the galaxy piping hot and ready to eat."
-	price = 50
+	price = 10
 	items = list(
 		/obj/item/pizzabox/meat
 	)
@@ -764,7 +806,7 @@
 	name = "pizza box, mushroom"
 	supplier = "orion"
 	description = "Earthy Orion Express Pizza, delivered across the galaxy piping hot and ready to eat."
-	price = 50
+	price = 10
 	items = list(
 		/obj/item/pizzabox/mushroom
 	)
@@ -778,7 +820,7 @@
 	name = "pizza box, pineapple"
 	supplier = "orion"
 	description = "Tropical Orion Express Pizza, delivered across the galaxy piping hot and ready to eat."
-	price = 50
+	price = 10
 	items = list(
 		/obj/item/pizzabox/pineapple
 	)
@@ -791,9 +833,23 @@
 	name = "pizza box, vegetable"
 	supplier = "orion"
 	description = "Vegetarian Orion Express Pizza, delivered across the galaxy piping hot and ready to eat."
-	price = 50
+	price = 10
 	items = list(
 		/obj/item/pizzabox/vegetable
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/pizzabox_pepperoni
+	category = "hospitality"
+	name = "pizza box, pepperoni"
+	supplier = "orion"
+	description = "Traditional Orion Express Pizza, delivered across the galaxy piping hot and ready to eat."
+	price = 10
+	items = list(
+		/obj/item/pizzabox/pepperoni
 	)
 	access = 0
 	container_type = "crate"
@@ -805,7 +861,7 @@
 	name = "pizza box, random"
 	supplier = "orion"
 	description = "An order of Orion Express ready-to-eat pizza with special instructions, 'Surprise Me'."
-	price = 40
+	price = 10
 	items = list(
 		/obj/random/pizzabox
 	)
@@ -819,7 +875,7 @@
 	name = "red lipstick"
 	supplier = "nanotrasen"
 	description = "A generic brand of lipstick."
-	price = 8
+	price = 5
 	items = list(
 		/obj/item/lipstick/random
 	)
@@ -833,7 +889,7 @@
 	name = "xuizi juice keg"
 	supplier = "virgo"
 	description = "A keg full of Xuizi juice, blended flower buds from the Moghean Xuizi cactus. The export stamp of the Arizi Guild is imprinted on the side."
-	price = 200
+	price = 80
 	items = list(
 		/obj/structure/reagent_dispensers/keg/xuizikeg
 	)
@@ -847,7 +903,7 @@
 	name = "beer keg"
 	supplier = "virgo"
 	description = "A keg of refreshing, intoxicating beer."
-	price = 500
+	price = 220
 	items = list(
 		/obj/structure/reagent_dispensers/keg/beerkeg
 	)
@@ -861,7 +917,7 @@
 	name = "mead barrel"
 	supplier = "virgo"
 	description = "A wooden mead barrel."
-	price = 650
+	price = 300
 	items = list(
 		/obj/structure/reagent_dispensers/keg/mead
 	)
@@ -875,7 +931,7 @@
 	name = "Virklunder beer (x6)"
 	supplier = "getmore"
 	description = "A 6-pack yoke of Virklunder beers, for cracking open a cold one."
-	price = 220
+	price = 18
 	items = list(
 		/obj/item/storage/box/fancy/yoke/beer
 	)
@@ -888,7 +944,7 @@
 	name = "Ebisu Super Dry rice beer (x6)"
 	supplier = "getmore"
 	description = "A 6-pack yoke of Ebisu Super Dry rice beer, for cracking open a cold one."
-	price = 220
+	price = 22
 	items = list(
 		/obj/item/storage/box/fancy/yoke/ebisu
 	)
@@ -901,7 +957,7 @@
 	name = "Shimauma Ichiban rice beer (x6)"
 	supplier = "getmore"
 	description = "A 6-pack yoke of Shimauma Ichiban rice beer, for cracking open a cold one."
-	price = 220
+	price = 20
 	items = list(
 		/obj/item/storage/box/fancy/yoke/shimauma
 	)
@@ -914,20 +970,7 @@
 	name = "Moonlabor Malt's rice beer (x6)"
 	supplier = "getmore"
 	description = "A 6-pack yoke of Moonlabor Malt's rice beer, for cracking open a cold one."
-	price = 220
-	items = list(
-		/obj/item/storage/box/fancy/yoke/moonlabor
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-
-/singleton/cargo_item/moonlabor
-	category = "hospitality"
-	name = "Moonlabor Malt's rice beer (x6)"
-	supplier = "getmore"
-	description = "A 6-pack yoke of Moonlabor Malt's rice beer, for cracking open a cold one."
-	price = 220
+	price = 18
 	items = list(
 		/obj/item/storage/box/fancy/yoke/moonlabor
 	)
@@ -940,7 +983,7 @@
 	name = "Inverkeithing Imports Earthmover ale (x6)"
 	supplier = "getmore"
 	description = "A 6-pack yoke of Inverkeithing Imports Earthmover ale, for cracking open a cold one."
-	price = 250
+	price = 21
 	items = list(
 		/obj/item/storage/box/fancy/yoke/earthmover
 	)
@@ -953,7 +996,7 @@
 	name = "Whistling Forest Pale Ale (x6)"
 	supplier = "getmore"
 	description = "A 6-pack yoke of Whistling Forest Pale Ale, for cracking open a cold one."
-	price = 250
+	price = 23
 	items = list(
 		/obj/item/storage/box/fancy/yoke/whistlingforest
 	)
@@ -966,7 +1009,7 @@
 	name = "Comet Cola (x6)"
 	supplier = "getmore"
 	description = "A 6-pack yoke of Comet Cola for cracking open a cold one."
-	price = 80
+	price = 8
 	items = list(
 		/obj/item/storage/box/fancy/yoke/cola
 	)
@@ -979,7 +1022,7 @@
 	name = "Stellar Jolt (x6)"
 	supplier = "getmore"
 	description = "A 6-pack yoke of Stellar Jolt for cracking open a cold one."
-	price = 80
+	price = 8
 	items = list(
 		/obj/item/storage/box/fancy/yoke/space_mountain_wind
 	)
@@ -989,36 +1032,10 @@
 
 /singleton/cargo_item/thirteenloko
 	category = "hospitality"
-	name = "Stellar Jolt (x6)"
-	supplier = "getmore"
-	description = "A 6-pack yoke of Stellar Jolt for cracking open a cold one."
-	price = 80
-	items = list(
-		/obj/item/storage/box/fancy/yoke/thirteenloko
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-
-/singleton/cargo_item/thirteenloko
-	category = "hospitality"
 	name = "Getmore Energy (x6)"
 	supplier = "getmore"
 	description = "A 6-pack yoke of Getmore Energy for cracking open a cold one."
-	price = 80
-	items = list(
-		/obj/item/storage/box/fancy/yoke/thirteenloko
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-
-/singleton/cargo_item/thirteenloko
-	category = "hospitality"
-	name = "Getmore Energy (x6)"
-	supplier = "getmore"
-	description = "A 6-pack yoke of Getmore Energy for cracking open a cold one."
-	price = 80
+	price = 8
 	items = list(
 		/obj/item/storage/box/fancy/yoke/thirteenloko
 	)
@@ -1030,21 +1047,8 @@
 	category = "hospitality"
 	name = "Getmore Root-Cola (x6)"
 	supplier = "getmore"
-	description = "A 6-pack yoke of Getmore Energy for cracking open a cold one."
-	price = 80
-	items = list(
-		/obj/item/storage/box/fancy/yoke/dr_gibb
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-
-/singleton/cargo_item/dr_gibb
-	category = "hospitality"
-	name = "Getmore Root-Cola (x6)"
-	supplier = "getmore"
-	description = "A 6-pack yoke of Getmore Energy for cracking open a cold one."
-	price = 80
+	description = "A 6-pack yoke of Getmore Root-Cola for cracking open a cold one."
+	price = 8
 	items = list(
 		/obj/item/storage/box/fancy/yoke/dr_gibb
 	)
@@ -1057,7 +1061,7 @@
 	name = "Orange Starshine (x6)"
 	supplier = "getmore"
 	description = "A 6-pack yoke of Orange Starshine for cracking open a cold one."
-	price = 80
+	price = 8
 	items = list(
 		/obj/item/storage/box/fancy/yoke/starkist
 	)
@@ -1065,12 +1069,12 @@
 	container_type = "crate"
 	groupable = TRUE
 
-/singleton/cargo_item/space_up
+/singleton/cargo_item/vacuum_fizz
 	category = "hospitality"
 	name = "Vacuum Fizz (x6)"
 	supplier = "getmore"
 	description = "A 6-pack yoke of Vacuum Fizz for cracking open a cold one."
-	price = 80
+	price = 8
 	items = list(
 		/obj/item/storage/box/fancy/yoke/space_up
 	)
@@ -1078,14 +1082,14 @@
 	container_type = "crate"
 	groupable = TRUE
 
-/singleton/cargo_item/space_up
+/singleton/cargo_item/lemon_lime
 	category = "hospitality"
-	name = "Lemon-Lime (x6)"
+	name = "Lemon-Lime soda (x6)"
 	supplier = "getmore"
 	description = "A 6-pack yoke of Lemon-Lime for cracking open a cold one."
-	price = 80
+	price = 8
 	items = list(
-		/obj/item/storage/box/fancy/yoke/space_up
+		/obj/item/storage/box/fancy/yoke/lemon_lime
 	)
 	access = 0
 	container_type = "crate"
@@ -1096,7 +1100,7 @@
 	name = "Silversun Wave Iced Tea (x6)"
 	supplier = "getmore"
 	description = "A 6-pack yoke of Silversun Wave Iced Tea for cracking open a cold one."
-	price = 80
+	price = 8
 	items = list(
 		/obj/item/storage/box/fancy/yoke/iced_tea
 	)
@@ -1109,7 +1113,7 @@
 	name = "Grapel Juice (x6)"
 	supplier = "getmore"
 	description = "A 6-pack yoke of Grapel Juice for cracking open a cold one."
-	price = 80
+	price = 8
 	items = list(
 		/obj/item/storage/box/fancy/yoke/grape_juice
 	)
@@ -1122,7 +1126,7 @@
 	name = "T-Borg's Tonic Water (x6)"
 	supplier = "getmore"
 	description = "A 6-pack yoke of T-Borg's Tonic Water for cracking open a cold one."
-	price = 80
+	price = 8
 	items = list(
 		/obj/item/storage/box/fancy/yoke/tonic
 	)
@@ -1135,7 +1139,7 @@
 	name = "Soda Water (x6)"
 	supplier = "getmore"
 	description = "A 6-pack yoke of Soda Water for cracking open a cold one."
-	price = 80
+	price = 8
 	items = list(
 		/obj/item/storage/box/fancy/yoke/sodawater
 	)
@@ -1148,7 +1152,7 @@
 	name = "Getmore Root Beer (x6)"
 	supplier = "getmore"
 	description = "A 6-pack yoke of Getmore Root Beer for cracking open a cold one."
-	price = 80
+	price = 8
 	items = list(
 		/obj/item/storage/box/fancy/yoke/root_beer
 	)
@@ -1161,7 +1165,7 @@
 	name = "Diet Comet Cola (x6)"
 	supplier = "getmore"
 	description = "A 6-pack yoke of Diet Comet Cola for cracking open a cold one."
-	price = 80
+	price = 8
 	items = list(
 		/obj/item/storage/box/fancy/yoke/diet_cola
 	)
@@ -1174,7 +1178,7 @@
 	name = "Xanu Rush! Peach Soda (x6)"
 	supplier = "getmore"
 	description = "A 6-pack yoke of Xanu Rush! Peach Soda for cracking open a cold one."
-	price = 80
+	price = 8
 	items = list(
 		/obj/item/storage/box/fancy/yoke/peach_soda
 	)
@@ -1187,7 +1191,7 @@
 	name = "Kansumi Melon Soda (x6)"
 	supplier = "getmore"
 	description = "A 6-pack yoke of Kansumi Melon Soda for cracking open a cold one."
-	price = 80
+	price = 8
 	items = list(
 		/obj/item/storage/box/fancy/yoke/melon_soda
 	)
@@ -1200,7 +1204,7 @@
 	name = "Dorshafen Deluxe Kvass (x6)"
 	supplier = "getmore"
 	description = "A 6-pack yoke of Dorshafen Deluxe Kvass for cracking open a cold one."
-	price = 220
+	price = 22
 	items = list(
 		/obj/item/storage/box/fancy/yoke/himeokvass
 	)
@@ -1213,7 +1217,7 @@
 	name = "Brown Palace Champion Chai (x6)"
 	supplier = "getmore"
 	description = "A 6-pack yoke of Brown Palace Champion Chai for cracking open a cold one."
-	price = 100
+	price = 10
 	items = list(
 		/obj/item/storage/box/fancy/yoke/xanuchai
 	)
@@ -1226,7 +1230,7 @@
 	name = "Hakhma Beetle Milk (x6)"
 	supplier = "getmore"
 	description = "A 6-pack yoke of Hakhma Beetle Milk for cracking open a cold one."
-	price = 80
+	price = 8
 	items = list(
 		/obj/item/storage/box/fancy/yoke/beetle_milk
 	)
@@ -1239,7 +1243,7 @@
 	name = "Burszi-ale (x6)"
 	supplier = "getmore"
 	description = "A half-dozen pack of Burszi-ale bottles, for cracking open a cold one."
-	price = 220
+	price = 22
 	items = list(
 		/obj/item/storage/box/ale
 	)
@@ -1252,7 +1256,7 @@
 	name = "Virklunder Beer (x6)"
 	supplier = "getmore"
 	description = "A half-dozen pack of Virklunder beers, for cracking open a cold one."
-	price = 220
+	price = 17
 	items = list(
 		/obj/item/storage/box/beer
 	)
@@ -1265,7 +1269,7 @@
 	name = "Qel'Zvol Hospitality's Prestige Dyn Beer (x6)"
 	supplier = "getmore"
 	description = "A half-dozen pack of Qel'Zvol Hospitality's Prestige dyn beers, for cracking open a cold one."
-	price = 220
+	price = 21
 	items = list(
 		/obj/item/storage/box/skrellbeerdyn
 	)
@@ -1278,7 +1282,7 @@
 	name = "Xuizi Juice (x6)"
 	supplier = "getmore"
 	description = "A half-dozen pack of Xuiji Juice, for cracking open a cold one."
-	price = 220
+	price = 14
 	items = list(
 		/obj/item/storage/box/xuizijuice
 	)
@@ -1291,7 +1295,7 @@
 	name = "Khlibnyz (x6)"
 	supplier = "getmore"
 	description = "A half-dozen pack of Khlibnyz, for cracking open a cold one."
-	price = 120
+	price = 12
 	items = list(
 		/obj/item/storage/box/khlibnyz
 	)
@@ -1304,7 +1308,7 @@
 	name = "Comet Cola Bottles (x6)"
 	supplier = "getmore"
 	description = "A half-dozen pack of Comet Cola, for cracking open a cold one."
-	price = 100
+	price = 8
 	items = list(
 		/obj/item/storage/box/cola
 	)
@@ -1317,7 +1321,7 @@
 	name = "Stellar Jolt Bottles (x6)"
 	supplier = "getmore"
 	description = "A half-dozen pack of Stellar Jolt, for cracking open a cold one."
-	price = 100
+	price = 8
 	items = list(
 		/obj/item/storage/box/space_mountain_wind
 	)
@@ -1330,7 +1334,7 @@
 	name = "Space Up Bottles (x6)"
 	supplier = "getmore"
 	description = "A half-dozen pack of Space Up, for cracking open a cold one."
-	price = 100
+	price = 8
 	items = list(
 		/obj/item/storage/box/space_up
 	)
@@ -1343,7 +1347,7 @@
 	name = "Hrozamal Soda (x6)"
 	supplier = "getmore"
 	description = "A half-dozen pack of Hrozamal Soda, for cracking open a cold one."
-	price = 100
+	price = 12
 	items = list(
 		/obj/item/storage/box/hrozamal_soda
 	)
@@ -1356,7 +1360,7 @@
 	name = "Midynhr Water (x6)"
 	supplier = "getmore"
 	description = "A half-dozen pack of Midynhr Water, for cracking open a cold one."
-	price = 100
+	price = 18
 	items = list(
 		/obj/item/storage/box/midynhr_water
 	)
@@ -1369,7 +1373,7 @@
 	name = "Dental Hygiene Kit"
 	supplier = "getmore"
 	description = "A box containing a toothbrush, a tube of toothpaste, and a bottle of mouthwash."
-	price = 150
+	price = 25
 	items = list(
 		/obj/item/storage/box/toothpaste
 	)
@@ -1382,20 +1386,7 @@
 	name = "Sencha Tins (x7)"
 	supplier = "getmore"
 	description = "A box containing some tins of green tea leaves."
-	price = 100
-	items = list(
-		/obj/item/storage/box/tea
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-
-/singleton/cargo_item/sencha
-	category = "hospitality"
-	name = "Sencha-cha Tins (x7)"
-	supplier = "getmore"
-	description = "A box containing some tins of green tea leaves."
-	price = 100
+	price = 20
 	items = list(
 		/obj/item/storage/box/tea
 	)
@@ -1408,7 +1399,7 @@
 	name = "Tieguanyin-cha Tins (x7)"
 	supplier = "getmore"
 	description = "A box containing some tins of oolong tea leaves."
-	price = 100
+	price = 20
 	items = list(
 		/obj/item/storage/box/tea/tieguanyin
 	)
@@ -1421,7 +1412,7 @@
 	name = "Jaeksol-cha Tins (x7)"
 	supplier = "getmore"
 	description = "A box containing some tins of black tea leaves."
-	price = 100
+	price = 20
 	items = list(
 		/obj/item/storage/box/tea/jaekseol
 	)
@@ -1429,12 +1420,12 @@
 	container_type = "crate"
 	groupable = TRUE
 
-/singleton/cargo_item/jaekseol
+/singleton/cargo_item/vkrexi_organ
 	category = "hospitality"
 	name = "V'krexi Swollen Organ"
 	supplier = "getmore"
 	description = "A traditional Sedantian alcoholic drink, packaged in the stomach it's fermented in."
-	price = 150
+	price = 50
 	items = list(
 		/obj/item/storage/box/fancy/vkrexi_swollen_organ
 	)
@@ -1447,7 +1438,7 @@
 	name = "Jadrani Consecrated Geneboosted Wine"
 	supplier = "getmore"
 	description = "A bottle of artisanally-crafted, highly sought-after Dominian red wine. Sanctified and exported via House Caladius."
-	price = 500
+	price = 50
 	items = list(
 		/obj/item/reagent_containers/food/drinks/bottle/dominian_wine
 	)
@@ -1461,7 +1452,7 @@
 	name = "Reacher's Triumph 2423 Algae Wine"
 	supplier = "getmore"
 	description = "A bottle of wine, brewed from algae, made in the traditional style of the Imperial Viceroyalty of Sun Reach, a Dominian frontier-world."
-	price = 500
+	price = 50
 	items = list(
 		/obj/item/reagent_containers/food/drinks/bottle/algae_wine
 	)
@@ -1475,21 +1466,7 @@
 	name = "\improper Assunzioni Sera Stellata di Dalyan Wine"
 	supplier = "getmore"
 	description = "A bottle of velvety smooth red wine from the underground vineyards of Dalyan, Assunzione."
-	price = 500
-	items = list(
-		/obj/item/reagent_containers/food/drinks/bottle/assunzione_wine
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
-/singleton/cargo_item/assunzione_wine
-	category = "hospitality"
-	name = "\improper Assunzioni Sera Stellata di Dalyan Wine"
-	supplier = "getmore"
-	description = "A bottle of velvety smooth red wine from the underground vineyards of Dalyan, Assunzione."
-	price = 500
+	price = 50
 	items = list(
 		/obj/item/reagent_containers/food/drinks/bottle/assunzione_wine
 	)
@@ -1503,7 +1480,7 @@
 	name = "Federation's Finest Ylpha Wine"
 	supplier = "getmore"
 	description = "A popular type of Skrell wine made from fermented ylpha berries."
-	price = 300
+	price = 30
 	items = list(
 		/obj/item/reagent_containers/food/drinks/bottle/skrellwineylpha
 	)
@@ -1517,7 +1494,7 @@
 	name = "Inverkeithing Import Mushroom Vodka"
 	supplier = "getmore"
 	description = "A mushroom-based vodka imported from the breweries of Inverkeithing on Himeo."
-	price = 300
+	price = 35
 	items = list(
 		/obj/item/reagent_containers/food/drinks/bottle/vodka/mushroom
 	)
@@ -1531,7 +1508,7 @@
 	name = "Victory Gin"
 	supplier = "getmore"
 	description = "A Tajaran gin considered to be the official drink of the People's Republic of Adhomai."
-	price = 200
+	price = 25
 	items = list(
 		/obj/item/reagent_containers/food/drinks/bottle/victorygin
 	)
@@ -1545,7 +1522,7 @@
 	name = "Sugar Tree Liquor"
 	supplier = "getmore"
 	description = "Called Nm'shaan Liquor in native Siik'maas, this strong Adhomian liquor is reserved for special occasions. A label on the bottle recommends diluting it with icy water before drinking."
-	price = 200
+	price = 35
 	items = list(
 		/obj/item/reagent_containers/food/drinks/bottle/sugartree_liquor
 	)
@@ -1559,7 +1536,7 @@
 	name = "messa's mead"
 	supplier = "getmore"
 	description = "A bottle of Messa's mead. Bottled somewhere in the icy world of Adhomai."
-	price = 200
+	price = 30
 	items = list(
 		/obj/item/reagent_containers/food/drinks/bottle/messa_mead
 	)
@@ -1573,7 +1550,7 @@
 	name = "Neubach Original Kvass"
 	supplier = "getmore"
 	description = "A bottle of authentic Fisanduhian kvass, a cereal alcohol."
-	price = 200
+	price = 20
 	items = list(
 		/obj/item/reagent_containers/food/drinks/bottle/kvass
 	)
@@ -1587,7 +1564,7 @@
 	name = "Frostdancer Distillery Tarasun"
 	supplier = "getmore"
 	description = "A bottle of Lyodii tarasun, an alcoholic beverage made from tenelote milk."
-	price = 200
+	price = 25
 	items = list(
 		/obj/item/reagent_containers/food/drinks/bottle/tarasun
 	)
@@ -1601,7 +1578,7 @@
 	name = "Frostdancer Distillery Valokki Wine"
 	supplier = "getmore"
 	description = "A bottle of wine distilled from the Morozi cloudberry."
-	price = 400
+	price = 42
 	items = list(
 		/obj/item/reagent_containers/food/drinks/bottle/valokki_wine
 	)
@@ -1615,7 +1592,7 @@
 	name = "2275 Classic Brandy"
 	supplier = "getmore"
 	description = "A bottle of Xanan mid-range brandy."
-	price = 350
+	price = 35
 	items = list(
 		/obj/item/reagent_containers/food/drinks/bottle/twentytwoseventyfive
 	)
@@ -1629,7 +1606,7 @@
 	name = "Saint-Jacques Black Label Cognac"
 	supplier = "getmore"
 	description = "An expensive bottle of Saint-Jacques Black Label, a Xanan luxury cognac."
-	price = 400
+	price = 40
 	items = list(
 		/obj/item/reagent_containers/food/drinks/bottle/saintjacques
 	)
@@ -1643,7 +1620,7 @@
 	name = "Vrozka Farms Ne'miik"
 	supplier = "getmore"
 	description = "A bottle of Ne'miik under the label 'Vrozka Farms' from Caprice. The Vaurcan analogue for milk."
-	price = 100
+	price = 12
 	items = list(
 		/obj/item/reagent_containers/food/drinks/bottle/nemiik
 	)
@@ -1657,7 +1634,7 @@
 	name = "Ogogoro Jar"
 	supplier = "getmore"
 	description = "A traditional Eridani palm wine drink, stored in a mason jar."
-	price = 150
+	price = 16
 	items = list(
 		/obj/item/reagent_containers/food/drinks/bottle/ogogoro
 	)

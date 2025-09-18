@@ -33,6 +33,7 @@ $supply: #c09141;
 $hail: #8b4cd8;
 $ent: #cfcfcf;
 $cling: #376340;
+$exped: #d6bc67;
 
 $_channel_map: (
   'Say': $say,
@@ -56,6 +57,7 @@ $_channel_map: (
   'Hail': $hail,
   'Ent': $ent,
   'Cling': $cling,
+  'Exped': $exped,
 );
 
 $channel_keys: map.keys($_channel_map) !default;

@@ -33,6 +33,7 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 	var/tgui_inputs_swapped = FALSE
 	var/tgui_say_light_mode = FALSE
 	var/ui_scale = TRUE
+	var/lobby_music_vol = 85
 	//Style for popup tooltips
 	var/tooltip_style = "Midnight"
 
@@ -412,7 +413,7 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 	character.set_species(species)
 	if(character.dna)
 		character.dna.real_name = character.real_name
-	character.set_floating_chat_color(floating_chat_color)
+	character.langchat_color = floating_chat_color
 
 	character.flavor_texts["general"] = flavor_texts["general"]
 	character.flavor_texts[BP_HEAD] = flavor_texts[BP_HEAD]
@@ -494,7 +495,7 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 		else
 			all_underwear -= underwear_category_name
 
-	if(backbag > OUTFIT_POCKETBOOK || backbag < OUTFIT_NOTHING)
+	if(backbag > OUTFIT_CHESTPOUCH || backbag < OUTFIT_NOTHING)
 		backbag = OUTFIT_NOTHING //Same as above
 	character.backbag = backbag
 	character.backbag_style = backbag_style

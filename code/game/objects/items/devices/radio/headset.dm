@@ -23,6 +23,15 @@
 	drop_sound = 'sound/items/drop/component.ogg'
 	pickup_sound = 'sound/items/pickup/component.ogg'
 
+/obj/item/device/radio/headset/feedback_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. = ..()
+	if(!(is_adjacent && radio_desc))
+		return
+
+	. += "The following channels are available:"
+	. += radio_desc
+
 /obj/item/device/radio/headset/Initialize()
 	. = ..()
 	internal_channels.Cut()
@@ -56,15 +65,6 @@
 
 /obj/item/device/radio/headset/list_channels(var/mob/user)
 	return list_secure_channels()
-
-/obj/item/device/radio/headset/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-
-	if(!(is_adjacent && radio_desc))
-		return
-
-	. += "The following channels are available:"
-	. += radio_desc
 
 /obj/item/device/radio/headset/setupRadioDescription()
 	if(translate_binary || translate_hivenet)
@@ -201,17 +201,19 @@
 /obj/item/device/radio/headset/alt/double
 	name = "soundproof headset"
 	desc = "A sound isolating version of the common radio headset."
-	desc_info = "This radio doubles as a pair of earmuffs by providing sound protection."
 	icon = 'icons/obj/item/device/radio/headset_alt_double.dmi'
 	icon_state = "earset"
 	item_state = "earset"
 	item_flags = ITEM_FLAG_SOUND_PROTECTION
 	slot_flags = SLOT_EARS | SLOT_TWOEARS
 
+/obj/item/device/radio/headset/alt/double/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This radio doubles as a pair of earmuffs by providing sound protection."
+
 /obj/item/device/radio/headset/wrist
 	name = "wristbound radio"
 	desc = "A radio designed to fit on the wrist. Often known for broadcasting loudly enough that those closeby might overhear it."
-	desc_info = "This radio can be heard by people standing next to the one wearing it."
 	icon = 'icons/obj/item/device/radio/headset_wrist.dmi'
 	icon_state = "wristset"
 	item_state = "wristset"
@@ -220,8 +222,12 @@
 	var/mob_wear_layer = ABOVE_SUIT_LAYER_WR
 	EarSound = FALSE
 
+/obj/item/device/radio/headset/wrist/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This radio can be heard by people standing next to the one wearing it."
+
 /obj/item/device/radio/headset/wrist/verb/change_layer()
-	set category = "Object"
+	set category = "Object.Equipped"
 	set name = "Change Wrist Layer"
 	set src in usr
 
@@ -243,14 +249,13 @@
 /obj/item/device/radio/headset/wrist/clip
 	name = "clip-on radio"
 	desc = "A radio designed to clip onto your clothes. Often known for broadcasting loudly enough that those closeby might overhear it."
-	desc_info = "This radio can be heard by people standing next to the one wearing it."
 	icon = 'icons/obj/item/device/radio/headset_clip.dmi'
 	icon_state = "clip"
 	item_state = "clip"
 	slot_flags = SLOT_WRISTS | SLOT_EARS
 
 /obj/item/device/radio/headset/wrist/clip/verb/flip_radio()
-	set category = "Object"
+	set category = "Object.Equipped"
 	set name = "Flip Radio"
 	set src in usr
 
@@ -449,6 +454,7 @@
 
 /obj/item/device/radio/headset/headset_mining/alt
 	name = "mining bowman radio headset"
+	icon = 'icons/obj/item/device/radio/headset_alt.dmi'
 	icon_state = "mine_headset_alt"
 	item_state = "headset_alt"
 
@@ -568,7 +574,7 @@
 
 /obj/item/device/radio/headset/headset_sci
 	name = "science radio headset"
-	desc = "A sciency headset. Like usual."
+	desc = "A science-y headset. Like usual."
 	icon_state = "sci_headset"
 	ks2type = /obj/item/device/encryptionkey/headset_sci
 
@@ -595,40 +601,40 @@
 	item_state = "clip_sci"
 	ks2type = /obj/item/device/encryptionkey/headset_sci
 
-/obj/item/device/radio/headset/headset_xenoarch
-	name = "xenoarchaeology radio headset"
-	desc = "A sciency headset for Xenoarchaeologists."
+/obj/item/device/radio/headset/headset_xenology
+	name = "xenologist radio headset"
+	desc = "A science-y headset for Xenologists."
 	icon_state = "sci_headset"
-	ks2type = /obj/item/device/encryptionkey/headset_xenoarch
+	ks2type = /obj/item/device/encryptionkey/headset_xenology
 
-/obj/item/device/radio/headset/headset_xenoarch/alt
-	name = "xenoarchaeology bowman headset"
+/obj/item/device/radio/headset/headset_xenology/alt
+	name = "xenologist bowman headset"
 	icon = 'icons/obj/item/device/radio/headset_alt.dmi'
 	icon_state = "sci_headset_alt"
 
-/obj/item/device/radio/headset/alt/double/xenoarch
-	name = "soundproof xenoarchaeology headset"
+/obj/item/device/radio/headset/alt/double/xenology
+	name = "soundproof xenologist headset"
 	icon_state = "earset_sci"
 	item_state = "earset_sci"
-	ks2type = /obj/item/device/encryptionkey/headset_xenoarch
+	ks2type = /obj/item/device/encryptionkey/headset_xenology
 
-/obj/item/device/radio/headset/wrist/xenoarch
-	name = "wristbound xenoarchaeology radio"
+/obj/item/device/radio/headset/wrist/xenology
+	name = "wristbound xenologist radio"
 	icon_state = "wristset_sci"
 	item_state = "wristset_sci"
-	ks2type = /obj/item/device/encryptionkey/headset_xenoarch
+	ks2type = /obj/item/device/encryptionkey/headset_xenology
 
-/obj/item/device/radio/headset/wrist/clip/xenoarch
-	name = "clip-on xenoarchaeology radio"
+/obj/item/device/radio/headset/wrist/clip/xenology
+	name = "clip-on xenologist radio"
 	icon_state = "clip_sci"
 	item_state = "clip_sci"
-	ks2type = /obj/item/device/encryptionkey/headset_xenoarch
+	ks2type = /obj/item/device/encryptionkey/headset_xenology
 
 /obj/item/device/radio/headset/headset_anom
 	name = "anomalist radio headset"
-	desc = "A sciency headset for Anomalists."
+	desc = "A science-y headset for Anomalists."
 	icon_state = "sci_headset"
-	ks2type = /obj/item/device/encryptionkey/headset_xenoarch
+	ks2type = /obj/item/device/encryptionkey/headset_xenology
 
 /obj/item/device/radio/headset/headset_anom/alt
 	name = "anomalist bowman headset"
@@ -639,19 +645,19 @@
 	name = "soundproof anomalist headset"
 	icon_state = "earset_sci"
 	item_state = "earset_sci"
-	ks2type = /obj/item/device/encryptionkey/headset_xenoarch
+	ks2type = /obj/item/device/encryptionkey/headset_xenology
 
 /obj/item/device/radio/headset/wrist/anom
 	name = "wristbound anomalist radio"
 	icon_state = "wristset_sci"
 	item_state = "wristset_sci"
-	ks2type = /obj/item/device/encryptionkey/headset_xenoarch
+	ks2type = /obj/item/device/encryptionkey/headset_xenology
 
 /obj/item/device/radio/headset/wrist/clip/anom
 	name = "clip-on anomalist radio"
 	icon_state = "clip_sci"
 	item_state = "clip_sci"
-	ks2type = /obj/item/device/encryptionkey/headset_xenoarch
+	ks2type = /obj/item/device/encryptionkey/headset_xenology
 
 /obj/item/device/radio/headset/headset_rob
 	name = "robotics radio headset"
@@ -864,12 +870,15 @@
 /obj/item/device/radio/headset/earmuff
 	name = "earmuffs"
 	desc = "Protects your hearing from loud noises, and quiet ones as well."
-	desc_antag = "This set of earmuffs has a secret compartment housing radio gear, allowing it to function as a standard headset."
 	icon = 'icons/obj/clothing/ears/earmuffs.dmi'
 	icon_state = "earmuffs"
 	item_state = "earmuffs"
 	item_flags = ITEM_FLAG_SOUND_PROTECTION
 	slot_flags = SLOT_EARS | SLOT_TWOEARS
+
+/obj/item/device/radio/headset/earmuff/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This set of earmuffs has a secret compartment housing radio gear, allowing it to function as a standard headset."
 
 /obj/item/device/radio/headset/syndicate
 	name = "military headset"
@@ -979,6 +988,12 @@
 	icon = 'icons/obj/item/device/radio/headset_alt.dmi'
 	icon_state = "com_headset_alt"
 	item_state = "headset_alt"
+
+/obj/item/device/radio/headset/ert/siib
+	name = "radio headset"
+	desc = "An updated, modular intercom that fits over the head. Takes encryption keys. This one looks slightly modified..."
+	icon_state = "headset"
+	item_state = "headset"
 
 /obj/item/device/radio/headset/legion
 	name = "Tau Ceti Foreign Legion radio headset"

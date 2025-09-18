@@ -1,9 +1,9 @@
 /* Cards
  * Contains:
- *		DATA CARD
- *		ID CARD
- *		FINGERPRINT CARD HOLDER
- *		FINGERPRINT CARD
+ * * DATA CARD
+ * * ID CARD
+ * * FINGERPRINT CARD HOLDER
+ * * FINGERPRINT CARD
  */
 
 
@@ -22,7 +22,9 @@
 	w_class = WEIGHT_CLASS_TINY
 	var/associated_account_number = 0
 	var/list/files = list(  )
-	var/last_flash = 0 //Spam limiter.
+	/// Spam limiter.
+	var/last_flash = 0
+	var/vertical_card = FALSE
 	drop_sound = 'sound/items/drop/card.ogg'
 	pickup_sound = 'sound/items/pickup/card.ogg'
 
@@ -43,12 +45,13 @@
 	update_icon()
 
 /obj/item/card/update_icon()
-	var/matrix/tf = matrix()
-	var/obj/item/storage/S = loc
-	if(istype(S, /obj/item/storage) && !S.storage_slots)
-		tf.Turn(-90) //Vertical for storing compactly
-		tf.Translate(-1, 0) //Could do this with pixel_x but let's just update the appearance once.
-	transform = tf
+	if(!vertical_card)
+		var/matrix/tf = matrix()
+		var/obj/item/storage/S = loc
+		if(istype(S, /obj/item/storage) && !S.storage_slots)
+			tf.Turn(-90) //Vertical for storing compactly
+			tf.Translate(-1, 0) //Could do this with pixel_x but let's just update the appearance once.
+		transform = tf
 
 /obj/item/card/data
 	name = "data disk"
@@ -119,7 +122,8 @@
 	overlay_state = "id"
 
 	var/list/access = list()
-	var/registered_name = ID_CARD_UNSET // The name registered_name on the card
+	/// The name registered_name on the card.
+	var/registered_name = ID_CARD_UNSET
 	var/datum/weakref/mob_id
 	slot_flags = SLOT_ID
 
@@ -131,7 +135,8 @@
 	var/sex = ID_CARD_UNSET
 	var/icon/front
 	var/icon/side
-	var/mining_points //miners gotta eat
+	/// Miners gotta eat.
+	var/mining_points
 
 	var/can_copy_access = FALSE
 	var/access_copy_msg
@@ -139,9 +144,13 @@
 	var/flipped = 0
 	var/wear_over_suit = 0
 
-	//alt titles are handled a bit weirdly in order to unobtrusively integrate into existing ID system
-	var/assignment = null	//can be alt title or the actual job
-	var/rank = null			//actual job
+	/**
+	 * Alt titles are handled a bit weirdly in order to unobtrusively integrate into existing ID system
+	 * Can be alt title or the actual job.
+	 */
+	var/assignment = null
+	/// Actual job.
+	var/rank = null
 	var/employer_faction = null
 	var/datum/ntnet_user/chat_user
 
@@ -159,7 +168,8 @@
 
 /obj/item/card/id/on_slotmove(var/mob/living/user, slot)
 	. = ..(user, slot)
-	BITSET(user.hud_updateflag, ID_HUD) //Update ID HUD if an ID is ever moved
+	// Update ID HUD if an ID is ever moved
+	BITSET(user.hud_updateflag, ID_HUD)
 
 /obj/item/card/id/proc/prevent_tracking()
 	return 0
@@ -180,9 +190,9 @@
 		chat_user.username = chat_user.generateUsernameIdCard(src)
 
 /obj/item/card/id/proc/set_id_photo(var/mob/M)
-	front = getFlatIcon(M, SOUTH)
+	front = getFlatIcon(M, SOUTH, no_anim = TRUE)
 	front.Scale(128, 128)
-	side = getFlatIcon(M, WEST)
+	side = getFlatIcon(M, WEST, no_anim = TRUE)
 	side.Scale(128, 128)
 
 /mob/proc/set_id_info(var/obj/item/card/id/id_card)
@@ -248,7 +258,8 @@
 	return
 
 /obj/item/card/id/proc/id_flash(var/mob/user, var/add_text = "", var/blind_add_text = "")
-	var/list/id_viewers = viewers(3, user) // or some other distance - this distance could be defined as a var on the ID
+	/// Or some other distance - could be defined as a var on the ID.
+	var/list/id_viewers = viewers(3, user)
 	var/message = "<b>[user]</b> flashes [user.get_pronoun("his")] [icon2html(src, id_viewers)] [src.name]."
 	var/blind_message = "You flash your [icon2html(src, id_viewers)] [src.name]."
 	if(add_text != "")
@@ -258,16 +269,13 @@
 	user.visible_message(message, blind_message)
 
 /obj/item/card/id/attack(mob/living/target_mob, mob/living/user, target_zone)
-
 	if(user.zone_sel.selecting == BP_R_HAND || user.zone_sel.selecting == BP_L_HAND)
-
 		if(!ishuman(target_mob))
 			return ..()
 
 		if (dna_hash == ID_CARD_UNSET && ishuman(user))
 			var/response = alert(user, "This ID card has not been imprinted with biometric data. Would you like to imprint [target_mob]'s now?", "Biometric Imprinting", "Yes", "No")
 			if (response == "Yes")
-
 				if (!user.Adjacent(target_mob) || user.restrained() || user.lying || user.stat)
 					to_chat(user, SPAN_WARNING("You must remain adjacent to [target_mob] to scan their biometric data."))
 					return
@@ -328,8 +336,8 @@
 		M.update_inv_wear_id()
 
 /obj/item/card/id/verb/flip_side()
-	set name = "Flip ID card"
-	set category = "Object"
+	set name = "Flip ID Card"
+	set category = "Object.Equipped"
 	set src in usr
 	if(use_check_and_message(usr, use_flags = USE_DISALLOW_SILICONS))
 		return
@@ -344,7 +352,7 @@
 
 /obj/item/card/id/verb/toggle_icon_layer()
 	set name = "Switch ID Layer"
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in usr
 
 	if(use_check_and_message(usr, use_flags = USE_DISALLOW_SILICONS))
@@ -415,12 +423,33 @@
 	access = get_all_station_access() | get_all_centcom_access()
 	..()
 
+// SCC ID cards
+
+/obj/item/card/id/scc
+	desc = "A high-tech holocard displaying the credentials of a SCC employee."
+	icon_state = "bridge_card"
+	vertical_card = TRUE
+
+/obj/item/card/id/scc/bridge
+	desc = "A high-tech holocard displaying the lowly credentials of a SCC bridge crewman."
+	icon_state = "bridge_card"
+
+/obj/item/card/id/scc/silver
+	desc = "A high-tech holocard displaying the credentials of a SCC command member."
+	icon_state = "command_card"
+
+/obj/item/card/id/scc/gold
+	desc = "A high-tech holocard displaying the intimidating credentials of a SCC employee."
+	icon_state = "captain_card"
+
+/obj/item/card/id/scc/gold/captain
+	desc = "A high-tech holocard displaying the commanding credentials of a SCC captain."
+	icon_state = "captain_card"
+
 /obj/item/card/id/captains_spare
 	name = "captain's spare identification card"
 	desc = "A captain's spare identification card."
-	icon_state = "gold"
-	item_state = "gold_id"
-	overlay_state = "gold"
+	icon_state = "captain_card"
 	registered_name = "Captain"
 	assignment = "Captain"
 
@@ -434,6 +463,7 @@
 	icon_state = "centcom"
 	overlay_state = "centcom"
 	access = list(ACCESS_MERCHANT)
+	vertical_card = TRUE
 
 /obj/item/card/id/synthetic
 	name = "\improper SCC equipment identification card"
@@ -475,6 +505,7 @@
 	overlay_state = "centcom"
 	registered_name = "Central Command"
 	assignment = "General"
+	vertical_card = TRUE
 
 /obj/item/card/id/centcom/New()
 	access = get_all_centcom_access()
@@ -482,11 +513,12 @@
 
 /obj/item/card/id/ccia
 	name = "\improper CentCom. Internal Affairs identification card"
-	desc = "A synthleather ID displaying the blood-chilling credentials of an Internal Affairs agent."
+	desc = "A high-tech holocard displaying the blood-chilling credentials of an Internal Affairs agent."
 	icon_state = "ccia"
 	overlay_state = "ccia"
 	drop_sound = /singleton/sound_category/generic_drop_sound
 	pickup_sound = /singleton/sound_category/generic_pickup_sound
+	vertical_card = TRUE
 
 /obj/item/card/id/ccia/update_icon()
 	return
@@ -500,12 +532,14 @@
 	name = "\improper Biesel Security Services Bureau identification card"
 	desc = "A synthleather ID straight from the Biesel Security Services Bureau."
 	icon_state = "bssb"
+	vertical_card = FALSE
 
 /obj/item/card/id/ert
 	name = "\improper NanoTrasen Emergency Response Team identification card"
 	icon_state = "centcom"
 	overlay_state = "centcom"
 	assignment = "Emergency Response Team"
+	vertical_card = TRUE
 
 /obj/item/card/id/ert/New()
 	access = get_all_station_access() + get_centcom_access("Emergency Response Team")
@@ -519,6 +553,7 @@
 	icon_state = "centcom"
 	overlay_state = "centcom"
 	assignment = "Asset Protection"
+	vertical_card = TRUE
 
 /obj/item/card/id/asset_protection/New()
 	access = get_all_accesses()
@@ -548,6 +583,7 @@
 	desc = "An old-fashioned, practical plastic card. Cheaply produced for Tau Ceti's finest."
 	assignment = "Tau Ceti Foreign Legion Volunteer"
 	icon_state = "legion"
+	vertical_card = TRUE
 
 /obj/item/card/id/distress/legion/New()
 	access = list(ACCESS_LEGION, ACCESS_MAINT_TUNNELS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_SECURITY, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_MEDICAL, ACCESS_RESEARCH, ACCESS_ATMOSPHERICS, ACCESS_MEDICAL_EQUIP)
@@ -563,6 +599,7 @@
 	assignment = "EPMC Asset Protection"
 	icon_state = "pmc_card"
 	overlay_state = "pmc_card"
+	vertical_card = TRUE
 
 /obj/item/card/distress/ap_eridani/update_icon()
 	return
@@ -575,6 +612,7 @@
 	name = "\improper Interstellar Aid Corps identification card"
 	assignment = "Interstellar Aid Corps Responder"
 	icon_state = "centcom"
+	vertical_card = TRUE
 
 /obj/item/card/id/distress/iac/New()
 	access = get_distress_access()
@@ -588,18 +626,19 @@
 	overlay_state = "data"
 	registered_name = "Administrator"
 	assignment = "Administrator"
+	vertical_card = TRUE
 
 /obj/item/card/id/all_access/New()
 	access = get_access_ids()
 	..()
 
 // Contractor cards
-
 /obj/item/card/id/idris
 	name = "\improper Idris Incorporated identification card"
 	desc = "A high-tech holocard, designed to project information about a sub-contractor from Idris Incorporated."
 	icon_state = "idris_card"
 	overlay_state = "idris_card"
+	vertical_card = TRUE
 
 /obj/item/card/id/idris/update_icon()
 	return
@@ -622,6 +661,7 @@
 	desc = "A high-tech holobadge, identifying the owner as a contractor from one of the many PMCs from the Private Military Contracting Group."
 	icon_state = "pmc_card"
 	overlay_state = "pmc_card"
+	vertical_card = TRUE
 
 /obj/item/card/id/pmc/update_icon()
 	return
@@ -631,6 +671,7 @@
 	desc = "A synthleather card, belonging to one of the highly skilled members of Zeng-Hu."
 	icon_state = "zhu_card"
 	overlay_state = "zhu_card"
+	vertical_card = TRUE
 
 /obj/item/card/zeng_hu/update_icon()
 	return
@@ -664,6 +705,7 @@
 	desc = "A well-worn identification pass, retrofitted with wireless transmission technology."
 	icon_state = "orion_card"
 	overlay_state = "orion_card"
+	vertical_card = TRUE
 
 /obj/item/card/id/coalition
 	name = "\improper coalition identification card"
@@ -682,13 +724,18 @@
 	desc = "An old-fashioned, practical plastic card. Cheaply produced for Tau Ceti's finest."
 	icon_state = "legion"
 	overlay_state = "nothing"
+	vertical_card = TRUE
 
 /obj/item/card/id/bluespace
 	name = "bluespace identification card"
 	desc = "A bizarre imitation of an ID card; shifting and moving."
-	desc_antag = "Access can be copied from other ID cards by clicking on them."
 	icon_state = "crystalid"
 	iff_faction = IFF_BLUESPACE
+	vertical_card = TRUE
+
+/obj/item/card/id/bluespace/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Access can be copied from other ID cards by clicking on them."
 
 /obj/item/card/id/bluespace/update_name()
 	return

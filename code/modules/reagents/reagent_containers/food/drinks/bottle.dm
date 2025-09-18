@@ -247,6 +247,12 @@
 	///The mask image for mimicking a broken-off neck of the bottle
 	var/static/icon/flipped_broken_outline = icon('icons/obj/item/reagent_containers/food/drinks/drink_effects.dmi', "broken-flipped")
 	w_class = WEIGHT_CLASS_SMALL
+	persistency_considered_trash = TRUE
+
+/obj/item/broken_bottle/persistence_apply_content(content, x, y, z)
+	src.x = x
+	src.y = y
+	src.z = z
 
 #define DRINK_FLUFF_GETMORE  "This drink is made by Getmore Corporation, a subsidiary of NanoTrasen. It mostly specializes in fast food and consumer food products, \
 								but also makes average quality alcohol. Many can find Getmore products in grocery stores, vending machines, \
@@ -578,6 +584,14 @@
 	icon_state = "absinthebottle"
 	center_of_mass = list("x"=16, "y"=7)
 	reagents_to_add = list(/singleton/reagent/alcohol/absinthe = 100)
+
+/obj/item/reagent_containers/food/drinks/bottle/limoncello
+	name = "Limoncello Mediterraneo"
+	desc = "A lemon liquor popular in Italy and in Assunzione."
+	desc_extended = DRINK_FLUFF_SILVERPORT
+	icon_state = "limoncello"
+	center_of_mass = list("x"=16, "y"=6)
+	reagents_to_add = list(/singleton/reagent/alcohol/limoncello = 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/melonliquor
 	name = "Emeraldine melon liquor"

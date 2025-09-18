@@ -487,6 +487,7 @@
 	taste_mult = 0.4
 	fallback_specific_heat = 1.6
 	value = 2.8
+	effect_messages = FALSE
 	condiment_name = "Ambrosia Extract Bottle"
 	condiment_desc = "A small dropper bottle full of a stoner's paradise."
 	condiment_icon_state = "ambrosiaextract"
@@ -727,7 +728,7 @@
 
 /singleton/reagent/drugs/dionae_stimulant
 	name = "Diesel"
-	description = "Fondly dubbed Diesel by the dionae of the Narrows where it is served in the ship's cafeteria, this viscous sludge is the byproduct of refining radioactive materialls and provides an invigorating kick to a dionae's workday."
+	description = "Fondly dubbed Diesel by the dionae of the Narrows where it is served in the ship's cafeteria, this viscous sludge is the byproduct of refining radioactive materials and provides an invigorating kick to a dionae's workday."
 	color = "#465044"
 	taste_description = "gritty corium"
 	reagent_state = SOLID
@@ -749,6 +750,8 @@
 		if(prob(5))
 			to_chat(M, SPAN_GOOD(pick("A bubbling sensation is felt by your nymphs.", "A nymph comments that this is the most energetic it has ever been!", "A warm energy builds within your central structure.", "Your nymphs can't stay still!")))
 			M.emote(pick("chirp", "twitch", "shiver"))
+	else
+		M.apply_damage(10, DAMAGE_TOXIN, damage_flags = DAMAGE_FLAG_DISPERSED)
 
 /singleton/reagent/drugs/dionae_stimulant/overdose(mob/living/carbon/M, alien, removed, datum/reagents/holder)
 	..()
@@ -771,6 +774,24 @@
 	if(alien == IS_DIONA)
 		M.remove_movespeed_modifier(/datum/movespeed_modifier/reagent/dionae_stimulant)
 	. = ..()
+
+/singleton/reagent/drugs/dionae_stimulant/diet
+	name = "diet Diesel"
+	description = "Diesel produced straight from the Narrows that has been made \"diet\" or decontaminated of radiation, making it safe for distribution around the Orion Spur."
+
+/singleton/reagent/drugs/dionae_stimulant/diet/initial_effect(mob/living/carbon/M, alien, datum/reagents/holder)
+	return
+
+/singleton/reagent/drugs/dionae_stimulant/diet/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+	if(alien == IS_DIONA)
+		if(prob(5))
+			to_chat(M, SPAN_GOOD(pick("A bubbling sensation is felt by your nymphs.", "A nymph comments that this is the most energetic it has ever been!", "A warm energy builds within your central structure.", "Your nymphs can't stay still!")))
+			M.emote(pick("chirp", "twitch", "shiver"))
+	else
+		M.apply_damage(5, DAMAGE_TOXIN, damage_flags = DAMAGE_FLAG_DISPERSED) //Less toxic than regular Diesel due to the lack of radioactivity, but still toxic
+
+/singleton/reagent/drugs/dionae_stimulant/diet/final_effect(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+	return
 
 #undef DRUG_MESSAGE_DELAY
 

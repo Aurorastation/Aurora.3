@@ -16,11 +16,10 @@
 	set_trait(TRAIT_PRODUCT_ICON,"herb")
 	set_trait(TRAIT_PRODUCT_COLOUR,"#4dd298")
 	set_trait(TRAIT_PLANT_ICON,"herb")
-	set_trait(TRAIT_IDEAL_LIGHT, 6)
+	set_trait(TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_HIGH)
 
 /obj/item/seeds/mintseed
 	seed_type = "mint"
-
 
 /datum/seed/tea
 	name = "tea"
@@ -38,7 +37,7 @@
 	set_trait(TRAIT_PRODUCT_ICON,"herb")
 	set_trait(TRAIT_PRODUCT_COLOUR,"#4fd24d")
 	set_trait(TRAIT_PLANT_ICON,"herb")
-	set_trait(TRAIT_IDEAL_LIGHT, 6)
+	set_trait(TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_HIGH)
 
 /obj/item/seeds/teaseed
 	seed_type = "tea"
@@ -58,7 +57,7 @@
 	set_trait(TRAIT_PRODUCT_ICON,"herb")
 	set_trait(TRAIT_PRODUCT_COLOUR,"#0E1F0E")
 	set_trait(TRAIT_PLANT_ICON,"herb")
-	set_trait(TRAIT_IDEAL_LIGHT, 6)
+	set_trait(TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_HIGH)
 
 /obj/item/seeds/sencha
 	seed_type = "sencha"
@@ -78,7 +77,7 @@
 	set_trait(TRAIT_PRODUCT_ICON,"herb")
 	set_trait(TRAIT_PRODUCT_COLOUR,"#5C6447")
 	set_trait(TRAIT_PLANT_ICON,"herb")
-	set_trait(TRAIT_IDEAL_LIGHT, 6)
+	set_trait(TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_HIGH)
 
 /obj/item/seeds/tieguanyin
 	seed_type = "tieguanyin"
@@ -98,7 +97,7 @@
 	set_trait(TRAIT_PRODUCT_ICON,"herb")
 	set_trait(TRAIT_PRODUCT_COLOUR,"#534337")
 	set_trait(TRAIT_PLANT_ICON,"herb")
-	set_trait(TRAIT_IDEAL_LIGHT, 6)
+	set_trait(TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_HIGH)
 
 /obj/item/seeds/jaekseol
 	seed_type = "jaekseol"
@@ -119,7 +118,7 @@
 	set_trait(TRAIT_PRODUCT_ICON, "herb")
 	set_trait(TRAIT_PRODUCT_COLOUR, "#056608")
 	set_trait(TRAIT_PLANT_ICON, "herb")
-	set_trait(TRAIT_IDEAL_LIGHT, 6)
+	set_trait(TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_HIGH)
 
 /obj/item/seeds/cocaseed
 	seed_type = "coca"

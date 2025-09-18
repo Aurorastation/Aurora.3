@@ -22,6 +22,12 @@
 		/obj/item/stack/cable_coil = 2
 	)
 
+	parts_power_mgmt = FALSE
+
+/obj/machinery/r_n_d/server/upgrade_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Upgraded <b>scanning modules</b> will reduce active power usage."
+
 /obj/machinery/r_n_d/server/Destroy()
 	for(var/obj/machinery/r_n_d/tech_processor/TP as anything in linked_processors)
 		TP.set_server(null)
@@ -29,6 +35,7 @@
 	return ..()
 
 /obj/machinery/r_n_d/server/RefreshParts()
+	..()
 	var/tot_rating = 0
 
 	for(var/obj/item/stock_parts/SP in component_parts)

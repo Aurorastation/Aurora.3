@@ -4,8 +4,7 @@
 /obj/item/clothing/suit/armor/riot/laser_tag
 	name = "laser tag armor"
 	desc = "A set of laser tag armor. Very swanky."
-	desc_info = "You can alt-click this while holding or wearing it to set how many laser tag shots you want to be able to take before going down."
-	icon = 'icons/clothing/kit/laser_tag.dmi'
+	icon = 'icons/obj/item/clothing/suit/armor/laser_tag.dmi'
 	icon_state = "vest"
 	item_state = "vest"
 	contained_sprite = TRUE
@@ -22,6 +21,10 @@
 
 	var/set_health = 3
 	var/current_health
+
+/obj/item/clothing/suit/armor/riot/laser_tag/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "You can alt-click this while holding or wearing it to set how many laser tag shots you want to be able to take before going down."
 
 /obj/item/clothing/suit/armor/riot/laser_tag/Initialize(mapload, material_key)
 	. = ..()
@@ -69,7 +72,7 @@
 /obj/item/clothing/head/helmet/riot/laser_tag
 	name = "laser tag helmet"
 	desc = "A helmet in the form of a riot helm, made for high-impact laser tag gameplay."
-	icon = 'icons/clothing/kit/laser_tag.dmi'
+	icon = 'icons/obj/item/clothing/head/laser_tag.dmi'
 	icon_state = "helmet"
 	item_state = "helmet"
 	contained_sprite = TRUE

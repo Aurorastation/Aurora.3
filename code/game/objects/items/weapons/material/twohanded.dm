@@ -1,8 +1,8 @@
 /* Two-handed Weapons
  * Contains:
- * 		Twohanded
- *		Fireaxe
- *		Double-Bladed Energy Swords
+ * * Twohanded
+ * * Fireaxe
+ * * Double-Bladed Energy Swords
  */
 
 /*##################################################################
@@ -160,8 +160,8 @@
 		attack_self(usr)
 
 /obj/item/material/twohanded/verb/wield_twohanded()
-	set name = "Wield two-handed weapon"
-	set category = "Object"
+	set name = "Wield Two-Handed Weapon"
+	set category = "Object.Held"
 	set src in usr
 
 	attack_self(usr)
@@ -260,15 +260,21 @@
 	use_material_sound = FALSE
 	worth_multiplier = 7 //blade + stuff
 
+/obj/item/material/twohanded/spear/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(!explosive)
+		. += "You can strap a grenade of any type to head of this spear, which will explode on thrown impact."
+	. += "You can impale a severed head on a spear, if you're into that sort of thing. Most people don't like this."
+
+/obj/item/material/twohanded/spear/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(explosive)
+		. += SPAN_ALERT("It has \the [explosive] strapped to it.")
+
 /obj/item/material/twohanded/spear/Destroy()
 	if(explosive)
 		QDEL_NULL(explosive)
 	return ..()
-
-/obj/item/material/twohanded/spear/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(explosive)
-		. += "It has \the [explosive] strapped to it."
 
 /obj/item/material/twohanded/spear/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/organ/external/head))
@@ -378,6 +384,17 @@
 	drop_sound = 'sound/items/drop/axe.ogg'
 	pickup_sound = 'sound/items/pickup/axe.ogg'
 
+/obj/item/material/twohanded/chainsaw/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "ALT-click on this in-hand to rev it and toggle it on or off."
+
+/obj/item/material/twohanded/chainsaw/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(distance <= 1)
+		. += "A heavy-duty chainsaw meant for cutting wood. Contains <b>[round(REAGENT_VOLUME(reagents, fuel_type))]</b> unit\s of fuel."
+		if(powered)
+			. += SPAN_NOTICE("It is currently powered on.")
+
 /obj/item/material/twohanded/chainsaw/Initialize()
 	. = ..()
 	create_reagents(max_fuel)
@@ -474,13 +491,6 @@
 
 	RemoveFuel(FuelToRemove)
 
-/obj/item/material/twohanded/chainsaw/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(distance <= 1)
-		. += "A heavy-duty chainsaw meant for cutting wood. Contains <b>[round(REAGENT_VOLUME(reagents, fuel_type))]</b> unit\s of fuel."
-		if(powered)
-			. += SPAN_NOTICE("It is currently powered on.")
-
 /obj/item/material/twohanded/chainsaw/attack(mob/living/target_mob, mob/living/user, target_zone)
 	. = ..()
 	if(powered)
@@ -529,8 +539,8 @@
 	// Just an override.
 
 /obj/item/material/twohanded/chainsaw/verb/toggle_power()
-	set name = "Toggle power"
-	set category = "Object"
+	set name = "Toggle Chainsaw Power"
+	set category = "Object.Held"
 	set src in usr
 
 	AltClick(usr)
@@ -597,7 +607,7 @@
 
 /obj/item/material/twohanded/pike/flag/verb/plant()
 	set name = "Plant Flag"
-	set category = "Object"
+	set category = "Object.Held"
 	set src in usr
 
 	if(ishuman(usr))
@@ -628,7 +638,6 @@
 /obj/item/material/twohanded/pike/flag/hegemony
 	name = "izweski hegemony flag"
 	desc = "For the Hegemon!"
-	desc_info = "This is a flagpole with an energy axe attached to it. Sheer strength and stubborness overcomes the unwieldiness."
 	desc_extended = "\"Honor, Fire, Burn thy Fear\" - the famous motto of the Izweski, the clan that leads the largest nation of Unathi."
 	icon = 'icons/obj/unathi_items.dmi'
 	icon_state = "flag_hegemony0"

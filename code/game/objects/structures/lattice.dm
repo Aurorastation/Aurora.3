@@ -1,8 +1,6 @@
 /obj/structure/lattice
 	name = "lattice"
 	desc = "A lightweight support lattice."
-	desc_info = "Add a metal floor tile to build a floor on top of the lattice.<br>\
-	Lattices can be made by applying metal rods to a space tile."
 	icon = 'icons/obj/smooth/lattice.dmi'
 	icon_state = "lattice"
 	density = FALSE
@@ -22,6 +20,12 @@
 		/turf/unsimulated/mineral/asteroid
 	)
 	footstep_sound = /singleton/sound_category/catwalk_footstep
+
+/obj/structure/lattice/assembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(name == "lattice")
+		. += "Add a <b>metal floor tile</b> to build a floor on top of the lattice."
+		. += "Lattices can be made by applying <b>metal rods</b> to a space tile."
 
 /obj/structure/lattice/Initialize()
 	. = ..()
@@ -194,6 +198,9 @@
 
 /obj/structure/lattice/catwalk/indoor/grate/slate
 	color = COLOR_SLATE
+
+/obj/structure/lattice/catwalk/indoor/grate/white
+	color = COLOR_WHITE
 
 /obj/structure/lattice/catwalk/indoor/urban
 	name = "grate"

@@ -206,8 +206,7 @@ Then check if it's true, if true return. This will stop the normal menu appearin
 				tgui_data["exploit"] = list()  // Setting this to equal L.fields passes it's variables that are lists as reference instead of value.
 												// We trade off being able to automatically add shit for more control over what gets passed to json
 												// and if it's sanitized for html.
-				tgui_data["exploit"]["tgui_exploit_record"] = html_encode(L.exploit_record) // Change stuff into html
-				tgui_data["exploit"]["tgui_exploit_record"] = replacetext(tgui_data["exploit"]["tgui_exploit_record"], "\n", "<br>") // change line breaks into <br>
+				tgui_data["exploit"]["tgui_exploit_record"] = html_decode(L.exploit_record) // this user input is already sanitized and encoded when saved to the DB, we can just decode it and slap it into a span
 				tgui_data["exploit"]["name"] = html_encode(L.name)
 				tgui_data["exploit"]["sex"] = html_encode(L.sex)
 				tgui_data["exploit"]["age"] = html_encode(L.age)
@@ -399,8 +398,11 @@ Then check if it's true, if true return. This will stop the normal menu appearin
 	icon = 'icons/obj/item/device/gps.dmi'
 	icon_state = "gps"
 	item_state = "radio"
-	desc_antag = "This device allows you to create a single central command report. It has only one use."
 	w_class = WEIGHT_CLASS_SMALL
+
+/obj/item/device/announcer/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This device allows you to create a single Central Command report. It has only one use."
 
 /obj/item/device/announcer/attack_self(mob/user as mob)
 	if(!player_is_antag(user.mind))
@@ -421,7 +423,6 @@ Then check if it's true, if true return. This will stop the normal menu appearin
 /obj/item/device/special_uplink
 	name = "special uplink"
 	desc = "A small device with knobs and switches."
-	desc_antag = "This is hidden uplink! Use it in-hand to access the uplink interface and spend telecrystals to beam in items. Make sure to do it in private, it could look suspicious!"
 	icon = 'icons/obj/radio.dmi'
 	icon_state = "radio"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
@@ -432,6 +433,11 @@ Then check if it's true, if true return. This will stop the normal menu appearin
 
 	///Amount of starting bluecrystals, used to buy support/medical/gimmick items. Defaults to default amount if not set.
 	var/starting_bluecrystals
+
+/obj/item/device/special_uplink/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This is hidden uplink! Use it in-hand to access the uplink interface and spend telecrystals to beam in items."
+	. += "Take care to only use it in private; it could look suspicious."
 
 /obj/item/device/special_uplink/New(var/loc, var/mind)
 	..()

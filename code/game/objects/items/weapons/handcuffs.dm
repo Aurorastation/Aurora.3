@@ -151,15 +151,12 @@
 	icon_state = "cablecuff"
 	item_state = "coil"
 	color = COLOR_RED
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/stacks/lefthand_materials.dmi',
-		slot_r_hand_str = 'icons/mob/items/stacks/righthand_materials.dmi',
-		)
 	breakouttime = 30 SECONDS
 	cuff_sound = 'sound/weapons/cablecuff.ogg'
 	cuff_type = "cable restraint handcuffs"
 	var/can_be_cut = TRUE
 	elastic = TRUE
+	contained_sprite = TRUE
 	build_from_parts = TRUE
 	worn_overlay = "end"
 

@@ -10,6 +10,11 @@
 	var/obj/machinery/camera/network/news/camera
 	var/obj/item/device/radio/radio
 
+/obj/item/device/tvcamera/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Video feed is currently: [camera.status ? "<span style='color: rgb(51, 204, 51);font-weight: bold;'>Online</span>" : "<span style='color: rgb(204, 0, 0); font-weight: bold;'>Offline</span>"]"
+	. += "Audio feed is currently: [radio.get_broadcasting() ? "<span style='color: rgb(51, 204, 51); font-weight: bold;'>Online</span>" : "<span style='color: rgb(204, 0, 0); font-weight: bold;'>Offline</span>"]"
+
 /obj/item/device/tvcamera/Destroy()
 	GLOB.listening_objects -= src
 	QDEL_NULL(camera)
@@ -25,11 +30,6 @@
 	radio.set_frequency(ENT_FREQ)
 	GLOB.listening_objects += src
 	. = ..()
-
-/obj/item/device/tvcamera/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += "Video feed is currently: [camera.status ? "<span style='color: rgb(51, 204, 51);font-weight: bold;'>Online</span>" : "<span style='color: rgb(204, 0, 0); font-weight: bold;'>Offline</span>"]"
-	. += "Audio feed is currently: [radio.get_broadcasting() ? "<span style='color: rgb(51, 204, 51); font-weight: bold;'>Online</span>" : "<span style='color: rgb(204, 0, 0); font-weight: bold;'>Offline</span>"]"
 
 /obj/item/device/tvcamera/attack_self(mob/user)
 	add_fingerprint(user)

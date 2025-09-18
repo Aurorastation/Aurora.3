@@ -198,6 +198,12 @@
 	icon_state = "bottle-1"
 	reagents_to_add = list(/singleton/reagent/butazoline = 60)
 
+/obj/item/reagent_containers/glass/bottle/kelotane
+	name = "kelotane bottle"
+	desc = "A small bottle. Contains kelotane - treats burnt tissues."
+	icon_state = "bottle-2"
+	reagents_to_add = list(/singleton/reagent/kelotane = 60)
+
 /obj/item/reagent_containers/glass/bottle/dermaline
 	name = "dermaline bottle"
 	desc = "A small bottle. Contains dermaline - treats burnt tissues."

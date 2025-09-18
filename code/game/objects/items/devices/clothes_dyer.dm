@@ -5,7 +5,6 @@
 /obj/item/device/clothes_dyer
 	name = "clothes dyer"
 	desc = "This is a device designed to rapidly dye clothes to new colors. Naysayers say it isn't great for the fabric, but what do they know?"
-	desc_info = "Select the desired color by using the item on yourself, and alternate between the primary and secondary colour of the item by alt-clicking the item. This only works on clothing items that are recolorable."
 	icon = 'icons/obj/item/device/paint_sprayer.dmi'
 	icon_state = "paint_sprayer"
 	item_state = "paint_sprayer"
@@ -13,6 +12,10 @@
 	var/selected_mode = BASE_COLOR
 	/// Contains the colors the dyer is set to for each possible mode.
 	var/list/colors_by_mode = list(BASE_COLOR = "#FFFFFF", ACCENT_COLOR = "#FFFFFF")
+
+/obj/item/device/clothes_dyer/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Select the desired color by using the item on yourself, and alternate between the primary and secondary colour of the item by alt-clicking the item. This only works on clothing items that are recolorable."
 
 // Changes the color of the selected mode.
 /obj/item/device/clothes_dyer/attack_self(mob/user)

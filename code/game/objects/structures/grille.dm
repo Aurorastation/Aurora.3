@@ -1,9 +1,6 @@
 /obj/structure/grille
 	name = "grille"
-	desc = "A flimsy lattice of metal rods, with screws to secure it to the floor."
-	desc_info = "A powered and knotted wire underneath this will cause the grille to shock anyone not wearing insulated gloves.<br>\
-	Wirecutters will turn the grille into metal rods instantly.  Grilles are made with metal rods.<br>\
-	Can be fixed with a single metal rod if damaged."
+	desc = "A flimsy lattice of metal rods."
 	icon = 'icons/obj/structures.dmi'
 	icon_state = "grille"
 	density = TRUE
@@ -14,6 +11,35 @@
 	layer = BELOW_WINDOW_LAYER
 	var/health = 10
 	var/destroyed = 0
+
+/obj/structure/grille/condition_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(health < initial(health))
+		var/state
+		var/current_damage = health / initial(health)
+		switch(current_damage)
+			if(0 to 0.3)
+				state = SPAN_DANGER("The grille is barely in one piece!")
+			if(0.3 to 0.8)
+				state = SPAN_ALERT("The grille has taken some serious damage.")
+			if(0.8 to 1)
+				state = SPAN_NOTICE("The grille is in less than perfect condition.")
+		. += state
+
+/obj/structure/grille/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "A powered and knotted wire underneath this will cause the grille to shock anyone not wearing insulated gloves."
+
+/obj/structure/grille/assembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
+
+/obj/structure/grille/disassembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "These could be easily <b>cut</b> through."
+
+/obj/structure/grille/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "\the [src] [anchored ? "is" : "could be"] anchored to the floor with some <b>screws<b/>."
 
 /obj/structure/grille/over
 	name = "over-frame grille"
@@ -292,7 +318,7 @@
 			healthcheck()
 	..()
 
-/obj/structure/grille/attack_generic(var/mob/user, var/damage, var/attack_verb)
+/obj/structure/grille/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	visible_message(SPAN_DANGER("[user] [attack_verb] the [src]!"))
 	user.do_attack_animation(src)
 	health -= damage
@@ -331,7 +357,7 @@
 /obj/structure/grille/crescent/attackby()
 	return
 
-/obj/structure/grille/crescent/attack_generic()
+/obj/structure/grille/crescent/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	return
 
 /obj/structure/grille/crescent/ex_act(var/severity = 2.0)

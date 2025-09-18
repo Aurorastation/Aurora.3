@@ -22,7 +22,7 @@
 	icon = 'icons/obj/clothing/hats.dmi'
 
 	//Species-specific stuff.
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU)
+	species_restricted = list(BODYTYPE_HUMAN)
 	sprite_sheets_refit = list(
 		BODYTYPE_UNATHI = 'icons/mob/species/unathi/helmet.dmi',
 		BODYTYPE_TAJARA = 'icons/mob/species/tajaran/helmet.dmi',
@@ -60,7 +60,7 @@
 	contained_sprite = FALSE
 	icon = 'icons/obj/clothing/suits.dmi'
 
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU)
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL)
 	sprite_sheets_refit = list(
 		BODYTYPE_UNATHI = 'icons/mob/species/unathi/suit.dmi',
 		BODYTYPE_TAJARA = 'icons/mob/species/tajaran/suit.dmi',
@@ -176,7 +176,7 @@
 /obj/item/clothing/suit/space/void/verb/toggle_helmet()
 
 	set name = "Toggle Helmet"
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in usr
 
 	if(!istype(src.loc,/mob/living)) return
@@ -209,7 +209,7 @@
 /obj/item/clothing/suit/space/void/verb/eject_tank()
 
 	set name = "Eject Voidsuit Tank"
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in view(1)
 
 	var/mob/living/user = usr
@@ -233,7 +233,7 @@
 /obj/item/clothing/suit/space/void/verb/eject_cooler()
 
 	set name = "Eject Suit Cooler"
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in view(1)
 
 	var/mob/living/user = usr

@@ -5,10 +5,6 @@
 	name = "pill"
 	desc = "a pill."
 	icon = 'icons/obj/chemical.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/stacks/lefthand_medical.dmi',
-		slot_r_hand_str = 'icons/mob/items/stacks/righthand_medical.dmi',
-		)
 	icon_state = null
 	item_state = "pill"
 	possible_transfer_amounts = null
@@ -18,6 +14,7 @@
 	drop_sound = 'sound/items/drop/food.ogg'
 	pickup_sound = 'sound/items/pickup/food.ogg'
 	storage_slot_sort_by_name = TRUE
+	contained_sprite = TRUE
 
 /obj/item/reagent_containers/pill/New()
 	..()
@@ -118,7 +115,10 @@
 /obj/item/reagent_containers/pill/cyanide
 	icon_state = "pill5"
 	reagents_to_add = list(/singleton/reagent/toxin/cyanide = 50)
-	desc_antag = "A cyanide pill. Deadly if swallowed."
+
+/obj/item/reagent_containers/pill/cyanide/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "A cyanide pill. Deadly if swallowed."
 
 /obj/item/reagent_containers/pill/adminordrazine
 	name = "Adminordrazine Pill"

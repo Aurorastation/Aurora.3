@@ -4506,7 +4506,7 @@
 	pixel_y = 6
 	},
 /obj/random/dirt_75,
-/obj/item/clothing/ears/earmuffs/earphones/headphones{
+/obj/item/clothing/ears/earphones/headphones{
 	pixel_y = 4;
 	pixel_x = 9
 	},
@@ -6779,7 +6779,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/obj/structure/janitorialcart{
+/obj/structure/cart/storage/janitorialcart{
 	dir = 4
 	},
 /obj/item/reagent_containers/glass/bucket,

@@ -34,9 +34,8 @@
 
 	atmos_canpass = CANPASS_PROC
 
-/obj/structure/window/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-
+/obj/structure/window/condition_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(health == maxhealth)
 		. += SPAN_NOTICE("It looks fully intact.")
 	else
@@ -239,7 +238,7 @@
 							"You hear a knocking sound.")
 	return
 
-/obj/structure/window/attack_generic(var/mob/user, var/damage)
+/obj/structure/window/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if(damage >= 10)
 		visible_message(SPAN_DANGER("[user] smashes into [src]!"))

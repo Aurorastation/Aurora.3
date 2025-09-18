@@ -90,6 +90,12 @@
 	name = "Abandoned Ship"
 	icon_state = "yellow"
 
+/area/solar
+	requires_power = 1
+	always_unpowered = 1
+	ambience = AMBIENCE_SPACE
+	base_turf = /turf/space
+
 /area/solar/derelict_starboard
 	name = "Derelict Starboard Solar Array"
 	icon_state = "panelsS"
