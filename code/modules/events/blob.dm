@@ -1,6 +1,6 @@
 /datum/event/blob
-	// We provide a fair amount of leeway prior to the announcement, so blobs aren't caught so early that they're trivial.
-	announceWhen = 30
+	// Quite a short fuse due to the potential severity of this event.
+	announceWhen = 12
 
 	/// The number of blob cores active.
 	var/list/obj/effect/blob/core/cores = list()
