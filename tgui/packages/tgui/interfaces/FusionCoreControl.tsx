@@ -38,7 +38,6 @@ export const FusionCoreControl = (props, context) => {
     'override',
     false
   );
-
   return (
     <Window resizable theme={data.manufacturer}>
       <Window.Content scrollable>
