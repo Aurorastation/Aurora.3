@@ -34,14 +34,17 @@
 			Blob.process()
 
 /datum/event/blob/tick()
-	// If there's no cores, empty everything out.
-	if(isemptylist(cores))
-		cores = null
-		end()
-		kill()
-		return
-
 	for(var/obj/effect/blob/core in cores)
-		// Process for every third tick.
+		// If a core is absent, remove it from the list.
+		if(!core || !core.loc)
+			cores.Remove(core)
+
+		// If the list is empty, kill the event - all blobs have been destroyed.
+		if(isemptylist(cores))
+			end()
+			kill()
+			return
+
+		// Otherwise, process for every third tick.
 		if(IsMultiple(activeFor, 3))
 			core.process()
