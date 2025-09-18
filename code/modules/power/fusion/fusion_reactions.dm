@@ -182,7 +182,7 @@ GLOBAL_LIST(fusion_reactions)
 	energy_production = 96
 	products = list(GAS_HELIUM = 1, GAS_HYDROGEN = 2)
 	radiation = 1
-	minimum_reaction_temperature = 800000
+	minimum_reaction_temperature = 720000
 	priority = 30
 
 // bad!!!
