@@ -81,8 +81,8 @@
 	departments = SIMPLEDEPT(DEPARTMENT_ENGINEERING)
 	department_flag = ENGSEC
 	faction = "Station"
-	total_positions = 5
-	spawn_positions = 5
+	total_positions = 3
+	spawn_positions = 3
 	supervisors = "the chief engineer"
 	selection_color = "#c67519"
 	economic_modifier = 5
@@ -154,8 +154,8 @@
 	departments = SIMPLEDEPT(DEPARTMENT_ENGINEERING)
 	department_flag = ENGSEC
 	faction = "Station"
-	total_positions = 3
-	spawn_positions = 3
+	total_positions = 2
+	spawn_positions = 2
 	intro_prefix = "an"
 	supervisors = "the chief engineer"
 	selection_color = "#c67519"
@@ -229,8 +229,8 @@
 	faction = "Station"
 	alt_titles = list("Atmospherics Apprentice")
 	alt_outfits = list("Atmospherics Apprentice" = /obj/outfit/job/intern_atmos)
-	total_positions = 3
-	spawn_positions = 3
+	total_positions = 2
+	spawn_positions = 2
 	intro_prefix = "an"
 	supervisors = "the Chief Engineer"
 	selection_color = "#c67519"
