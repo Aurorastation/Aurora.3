@@ -93,7 +93,7 @@
 
 	var/vfx_radius_actual
 	//var/vfx_radius_visual
-	var/pause_rupture = TRUE
+	var/pause_rupture = FALSE
 
 /obj/effect/fusion_em_field/proc/UpdateVisuals()
 	//Take the particle system and edit it
