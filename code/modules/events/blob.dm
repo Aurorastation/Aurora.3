@@ -9,7 +9,7 @@
 /datum/event/blob/start()
 	..()
 
-	// This stores the list of the possible number of blobs, weighted towards 2. Adjust if a different weighting is desired.
+	// This stores the list of the possible number of blobs, weighted towards 2. Adjust if a different weighting if desired.
 	var/list/numberOfBlobs = list(1, 2, 2, 3)
 
 	// We pick randomly from the list to determine how many we spawn.
