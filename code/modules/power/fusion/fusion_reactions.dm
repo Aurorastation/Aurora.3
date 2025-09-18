@@ -166,16 +166,14 @@ GLOBAL_LIST(fusion_reactions)
 	priority = 19
 
 // This is just to delete lone beryllium-8 reactants that might get left over somehow
-/*
 /singleton/fusion_reaction/beryllium8_hydrogen
 	p_react = "beryllium-8"
 	s_react = GAS_HYDROGEN
-	energy_consumption = 20
+	energy_consumption = 10
 	energy_production = 16
 	products = list(GAS_HELIUM = 2)
 	radiation = 36
-	priority = 12
-*/
+	priority = 18
 
 /singleton/fusion_reaction/helium3_helium3
 	p_react = GAS_HELIUMFUEL
@@ -184,7 +182,7 @@ GLOBAL_LIST(fusion_reactions)
 	energy_production = 96
 	products = list(GAS_HELIUM = 1, GAS_HYDROGEN = 2)
 	radiation = 1
-	minimum_reaction_temperature = 1200000
+	minimum_reaction_temperature = 600000
 	priority = 30
 
 // bad!!!
