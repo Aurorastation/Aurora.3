@@ -1,10 +1,10 @@
-#define FUSION_ENERGY_PER_K				5
+#define FUSION_ENERGY_PER_K				4
 #define FUSION_INSTABILITY_DIVISOR		50000
 #define FUSION_RUPTURE_THRESHOLD		25000
 #define FUSION_REACTANT_CAP				10000
 #define FUSION_WARNING_DELAY 			20
 #define FUSION_BLACKBODY_MULTIPLIER		24
-#define FUSION_INTEGRITY_RATE_LIMIT		8
+#define FUSION_INTEGRITY_RATE_LIMIT		11
 
 /obj/effect/fusion_em_field
 	name = "electromagnetic field"
@@ -374,11 +374,14 @@
  * EMP, rads, and a big fuckoff explosion.
  */
 /obj/effect/fusion_em_field/proc/Rupture()
-	visible_message(SPAN_DANGER("\The [src] shudders like a dying animal before flaring to eye-searing brightness and rupturing!"))
+	visible_message(SPAN_DANGER("There's a violent few convulsions from \the [src] as gouts of plasma spill forth!"))
 	set_light(1, 0.1, "#ccccff", 15, 2)
 	empulse(get_turf(src), Ceil(plasma_temperature/100000), Ceil(plasma_temperature/30000))
 	sleep(5)
 	RadiateAll()
+	sleep(45)
+	visible_message(SPAN_DANGER("\The [src] shudders like a dying animal before flaring to eye-searing brightness and rupturing!"))
+	sleep(10)
 	explosion(get_turf(owned_core), 6, 8)
 	return
 
@@ -621,8 +624,12 @@
 					amount_reacting = react_pool[cur_reaction.s_react]
 					react_pool[cur_reaction.s_react] = 0
 
-				plasma_temperature -= max_num_reactants * cur_reaction.energy_consumption  // Remove the consumed energy.
-				plasma_temperature += max_num_reactants * cur_reaction.energy_production   // Add any produced energy.
+				// Attempt to run temperature changes in isolation to prevent weird drops
+				var/plasma_temperature_change
+				plasma_temperature_change -= max_num_reactants * cur_reaction.energy_consumption
+				plasma_temperature_change += max_num_reactants * cur_reaction.energy_production
+
+				plasma_temperature += plasma_temperature_change
 				radiation += max_num_reactants * cur_reaction.radiation           // Add any produced radiation.
 				tick_instability += max_num_reactants * cur_reaction.instability
 				last_reactants += amount_reacting
