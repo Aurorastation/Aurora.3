@@ -16,9 +16,10 @@
 	for(var/i = 1; i <= pick(numberOfBlobs); i++)
 		var/turf/T = pick_subarea_turf(/area/horizon/maintenance, list(/proc/is_station_turf, /proc/not_turf_contains_dense_objects))
 		if(!T)
-			log_and_message_admins("Blob failed to find a viable turf.")
+			// If we can't find a turf anywhere, we aren't going to find one in subsequent loops and we can call it here.
+			log_and_message_admins("Blob event failed to find a viable turf.")
 			kill(TRUE)
-			break
+			return
 
 		log_and_message_admins("Blob spawned at \the [get_area(T)]", location = T)
 		// Spawn the blob in.
