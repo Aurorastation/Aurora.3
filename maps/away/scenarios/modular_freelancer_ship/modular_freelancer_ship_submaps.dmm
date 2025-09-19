@@ -9611,9 +9611,12 @@
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/aft/atmos)
 "bWE" = (
-/obj/machinery/computer/general_air_control/large_tank_control/terminal,
-/turf/simulated/floor/plating,
-/area/modular_freelancer_ship/aft/atmos)
+/obj/structure/table/reinforced/steel,
+/obj/item/portable_map_reader{
+	pixel_y = 3
+	},
+/turf/simulated/floor/tiled/dark,
+/area/modular_freelancer_ship/aft/cic)
 "bXA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -9738,10 +9741,13 @@
 /turf/simulated/floor/plating,
 /area/modular_freelancer_ship/mid/lounge)
 "ctn" = (
-/obj/structure/window/borosilicate/reinforced,
-/obj/machinery/atmospherics/unary/vent_pump/siphon/atmos,
-/turf/simulated/floor/reinforced/carbon_dioxide,
-/area/modular_freelancer_ship/aft/atmos)
+/obj/structure/table/reinforced/steel,
+/obj/item/portable_map_reader{
+	pixel_x = -5;
+	pixel_y = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/modular_freelancer_ship/aft/cic)
 "cur" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
@@ -10123,11 +10129,6 @@
 	},
 /turf/simulated/floor/tiled/cargo,
 /area/modular_freelancer_ship/mid/hallway)
-"doC" = (
-/obj/structure/window/borosilicate/reinforced,
-/obj/machinery/atmospherics/unary/outlet_injector,
-/turf/simulated/floor/reinforced/carbon_dioxide,
-/area/modular_freelancer_ship/aft/atmos)
 "drA" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/modular_freelancer_ship/container/c02)
@@ -12252,6 +12253,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/modular_freelancer_ship/fore/hallway)
 "iMr" = (
+/obj/effect/map_effect/marker/large_tank{
+	master_tag = "mod_free_ship_co2_thruster_tank";
+	name = "mod_free_ship_co2_thruster_tank"
+	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/modular_freelancer_ship/aft/atmos)
 "iMM" = (
@@ -18390,6 +18395,10 @@
 "xWt" = (
 /obj/machinery/air_sensor{
 	pixel_x = 16
+	},
+/obj/effect/map_effect/marker/large_tank{
+	master_tag = "mod_free_ship_co2_thruster_tank";
+	name = "mod_free_ship_co2_thruster_tank"
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/modular_freelancer_ship/aft/atmos)
@@ -68723,7 +68732,7 @@ mEP
 hbJ
 aqJ
 rtY
-uIm
+bWE
 aht
 fKC
 hbJ
@@ -69484,7 +69493,7 @@ cmK
 saR
 agd
 eVf
-uIm
+ctn
 hbJ
 eZs
 gUY
@@ -71365,7 +71374,7 @@ qNb
 anI
 anI
 anI
-bWE
+apl
 wBK
 qtX
 erT
@@ -71521,7 +71530,7 @@ oOg
 bVR
 anI
 xWt
-doC
+qmd
 cPa
 eBK
 akJ
@@ -71678,7 +71687,7 @@ bVR
 oOg
 anI
 iMr
-ctn
+fAW
 poK
 mOu
 jkT
