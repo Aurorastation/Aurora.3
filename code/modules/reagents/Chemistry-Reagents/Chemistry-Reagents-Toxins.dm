@@ -818,6 +818,7 @@
 		H.berserk_process()
 	M.make_jittery(20)
 	M.add_chemical_effect(CE_BERSERK, 1)
+	M.add_up_to_chemical_effect(CE_PAINKILLER, 75)
 	if(M.a_intent != I_HURT)
 		M.a_intent_change(I_HURT)
 	if(prob(3))

@@ -161,6 +161,24 @@
 			AddOverlays(organ_icon)
 			mob_icon.Blend(organ_icon, ICON_OVERLAY)
 
+			if(O.blocks_emissive != EMISSIVE_BLOCK_NONE) {
+				var/mutable_appearance/organ_em_block = emissive_blocker(internal_organ_icon, O.item_state || O.icon_state, MOB_SHADOW_LAYER)
+				organ_em_block.dir = dir
+				mob_overlays += list(organ_em_block)
+			}
+
+			if(O.active_overlay && !O.is_broken()) {
+				var/mutable_appearance/active_overlay = overlay_image(internal_organ_icon, "[O.item_state || O.icon_state]_overlay")
+				active_overlay.dir = dir
+				mob_overlays += list(active_overlay)
+			}
+
+			if(O.active_emissive && !O.is_broken()) {
+				var/mutable_appearance/organ_em = emissive_appearance(internal_organ_icon, "[O.item_state || O.icon_state]_e", MOB_EMISSIVE_LAYER)
+				organ_em.dir = dir
+				mob_overlays += list(organ_em)
+			}
+
 /obj/item/organ/external/var/icon_cache_key
 /obj/item/organ/external/proc/get_icon(var/skeletal)
 
@@ -171,11 +189,24 @@
 	var/chosen_icon
 	var/chosen_icon_state
 
+	mob_overlays = list()
+
 	if(force_icon)
 		chosen_icon = force_icon
 		chosen_icon_state = "[icon_name][gendered_icon ? "_[gender]" : ""]"
 		mob_icon = new /icon(force_icon, chosen_icon_state)
-		AddOverlays(emissive_blocker(chosen_icon, chosen_icon_state))
+		if(blocks_emissive != EMISSIVE_BLOCK_NONE)
+			var/mutable_appearance/limb_em_block = emissive_blocker(chosen_icon, chosen_icon_state, MOB_SHADOW_LAYER)
+			limb_em_block.dir = dir
+			mob_overlays += list(limb_em_block)
+		if(is_emissive && !is_broken())
+			var/mutable_appearance/limb_em = emissive_appearance(chosen_icon, "[chosen_icon_state]_e", MOB_EMISSIVE_LAYER)
+			limb_em.dir = dir
+			mob_overlays += list(limb_em)
+		if(is_overlay && !is_broken())
+			var/mutable_appearance/limb_overlay = overlay_image(chosen_icon, "[chosen_icon_state]_overlay")
+			limb_overlay.dir = dir
+			mob_overlays += list(limb_overlay)
 		if((painted && skin_color) || robotize_type == PROSTHETIC_SYNTHSKIN)
 			mob_icon.Blend(skin_color, ICON_ADD)
 		if(!isnull(s_tone))
@@ -190,9 +221,15 @@
 			chosen_icon = 'icons/mob/human_races/human/r_human.dmi'
 			chosen_icon_state = "[icon_name][gendered_icon ? "_[gender]" : ""]"
 			mob_icon = new /icon(chosen_icon, chosen_icon_state)
-			var/mutable_appearance/limb_em_block = emissive_blocker(chosen_icon, chosen_icon_state, MOB_SHADOW_LAYER)
-			limb_em_block.dir = dir
-			mob_overlays += list(limb_em_block)
+			if(blocks_emissive != EMISSIVE_BLOCK_NONE)
+				var/mutable_appearance/limb_em_block = emissive_blocker(chosen_icon, chosen_icon_state, MOB_SHADOW_LAYER)
+				limb_em_block.dir = dir
+				mob_overlays += list(limb_em_block)
+
+			if(is_emissive && !is_broken())
+				var/mutable_appearance/limb_em = emissive_appearance(chosen_icon, "[chosen_icon_state]_e", MOB_EMISSIVE_LAYER)
+				limb_em.dir = dir
+				mob_overlays += list(limb_em)
 		else
 			chosen_icon_state = "[icon_name][gendered_icon ? "_[gender]" : ""]"
 			if(!gendered_icon)
@@ -238,9 +275,15 @@
 			apply_markings()
 			get_internal_organs_overlay()
 
-			var/mutable_appearance/limb_em_block = emissive_blocker(chosen_icon, chosen_icon_state, MOB_SHADOW_LAYER)
-			limb_em_block.dir = dir
-			mob_overlays += list(limb_em_block)
+			if(blocks_emissive != EMISSIVE_BLOCK_NONE)
+				var/mutable_appearance/limb_em_block = emissive_blocker(chosen_icon, chosen_icon_state, MOB_SHADOW_LAYER)
+				limb_em_block.dir = dir
+				mob_overlays += list(limb_em_block)
+
+			if(is_emissive && !is_broken())
+				var/mutable_appearance/limb_em = emissive_appearance(chosen_icon, "[chosen_icon_state]_e", MOB_EMISSIVE_LAYER)
+				limb_em.dir = dir
+				mob_overlays += list(limb_em)
 
 			if(body_hair)
 				var/list/limb_icon_cache = SSicon_cache.limb_icons_cache

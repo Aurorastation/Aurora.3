@@ -27,6 +27,93 @@
 	var/healed_threshold = 1
 	var/oxygen_reserve = 6
 
+	/**
+	 * The base amount brain damage is changed by "Per second", differentiated by tick time.
+	 * This is then modified based on the blood volume being pumped, and whether or not a patient has been stabilized with Inaprovaline.
+	 * It's also directly 1:1 with your brain's numerical healthbar. If your brain has 200hp, consider that it has "200 seconds" of budget.
+	 */
+	var/brain_damage_per_second = 1
+
+	/**
+	 * Brain damage modifier used for 85% blood volume and up.
+	 * This one is actually used for the passive healing rate mainly.
+	 */
+	var/safe_damage_modifier = 1
+
+	/**
+	 * Base brain damage modifier used for 70% to 85% blood volume.
+	 * This is where a patient starts taking real damage, but not a lot, easily stabilized. They are likely to recover naturally.
+	 */
+	var/okay_damage_modifier = 1
+
+	/**
+	 * "Okay" blood volume, stabilized with inaprovaline.
+	 * For a default unmodified brain, this would take 666.666s to kill. You've got plenty of time.
+	 */
+	var/okay_stabilized_mod = 0.3
+
+	/**
+	 * "Okay" blood volume, not stabilized with inaprovaline.
+	 * For a default unmodified brain, this is 333.333s to kill. Get them Inaprovaline, and you'll have plenty of time.
+	 */
+	var/okay_unstable_mod = 0.6
+
+	/**
+	 * Base brain damage modifier used for 60% to 70% blood volume.
+	 * This is where a character starts being at a real risk of death.
+	 */
+	var/bad_damage_modifier = 1
+
+	/**
+	 * "Bad" blood volume, stabilized with inaprovaline.
+	 * For a default unmodified brain, this would take 500s to kill. Inaprovaline makes a big difference.
+	 */
+	var/bad_stabilized_mod = 0.4
+
+	/**
+	 * "Bad" blood volume, not stabilized with inaprovaline.
+	 * For a default unmodified brain, this is 250s to kill.
+	 */
+	var/bad_unstable_mod = 0.8
+
+	/**
+	 * Base brain damage modifier used for 30% to 60% blood volume.
+	 * Death is extremely likely without aid. Even inaprovaline starts to help a lot less.
+	 * If someone has gotten to this point, they likely don't have 200 brain health left to begin with, they probably actually have far less.
+	 */
+	var/crit_damage_modifier = 1
+
+	/**
+	 * "Critical" blood volume, stabilized with inaprovaline.
+	 * For a default unmodified brain, this would take 333.333s to kill.
+	 */
+	var/crit_stabilized_mod = 0.6
+
+	/**
+	 * "Bad" blood volume, not stabilized with inaprovaline.
+	 * For a default unmodified brain, this is 200s to kill.
+	 */
+	var/crit_unstable_mod = 1
+
+	/**
+	 * Base brain damage modifier used for 00% to 30% blood volume.
+	 * Death is imminent, and is very likely to occur without an extremely skilled doctor throwing away most of the ship's resources.
+	 * If someone has gotten to this point, they likely don't have 200 brain health left to begin with, they probably actually have far less.
+	 */
+	var/dying_damage_modifier = 2
+
+	/**
+	 * "Dying" blood volume, stabilized with inaprovaline.
+	 * For a default unmodified brain, this would take 125s to kill.
+	 */
+	var/dying_stabilized_mod = 0.8
+
+	/**
+	 * "Dying" blood volume, not stabilized with inaprovaline.
+	 * For a default unmodified brain, this is 100s to kill. By the time someone gets to this point, they probably have closer to 30s.
+	 */
+	var/dying_unstable_mod = 1
+
 /obj/item/organ/internal/brain/Initialize(mapload)
 	. = ..()
 	if(species)
@@ -82,69 +169,74 @@
 	..()
 	damage_threshold_value = round(max_damage / damage_threshold_count)
 
-/obj/item/organ/internal/brain/process()
-	if(owner)
-		if(damage > (max_damage * 0.75) && healed_threshold)
-			handle_severe_brain_damage()
+/obj/item/organ/internal/brain/process(seconds_per_tick)
+	if(!owner)
+		return ..()
 
-		if(damage < (max_damage / 4))
-			healed_threshold = 1
+	if(damage > (max_damage * 0.75) && healed_threshold)
+		handle_severe_brain_damage()
 
-		handle_damage_effects()
+	if(damage < (max_damage / 4))
+		healed_threshold = 1
 
-		// Brain damage from low oxygenation or lack of blood.
-		if(owner.should_have_organ(BP_HEART))
+	handle_damage_effects()
 
-			// No heart? You are going to have a very bad time. Not 100% lethal because heart transplants should be a thing.
-			var/blood_volume = owner.get_blood_oxygenation()
-			if(blood_volume < BLOOD_VOLUME_SURVIVE)
-				if(!owner.chem_effects[CE_STABLE] || prob(60))
-					oxygen_reserve = max(0, oxygen_reserve-1)
-			else
-				oxygen_reserve = min(initial(oxygen_reserve), oxygen_reserve+1)
+	// Brain damage from low oxygenation or lack of blood.
+	if(!owner.should_have_organ(BP_HEART))
+		return ..()
 
-			if(!oxygen_reserve) //(hardcrit)
-				owner.Paralyse(10)
+	// Adjust the rate of brain healing and damage over time if the owner is in stasis.
+	if(owner.stasis_value > 0)
+		seconds_per_tick /= owner.stasis_value
 
-			var/can_heal = (damage && damage < max_damage && (damage % damage_threshold_value || owner.chem_effects[CE_BRAIN_REGEN] || (!past_damage_threshold(3) && owner.chem_effects[CE_STABLE]))) && (!(owner.chem_effects[CE_NEUROTOXIC]) || owner.chem_effects[CE_ANTITOXIN])
-			var/damprob
-			var/brain_regen_amount = owner.chem_effects[CE_BRAIN_REGEN]	/ 10
-			//Effects of bloodloss
-			switch(blood_volume)
-				if(BLOOD_VOLUME_SAFE to INFINITY)
-					if(can_heal && owner.chem_effects[CE_BRAIN_REGEN])
-						damage = max(damage - brain_regen_amount, 0)
-					else if(can_heal)
-						damage = max(damage-1, 0)
-				if(BLOOD_VOLUME_OKAY to BLOOD_VOLUME_SAFE)
-					owner.notify_message(SPAN_WARNING("You feel a bit [pick("lightheaded","dizzy","pale")]..."), rand(20 SECONDS, 40 SECONDS), key = "blood_volume_okay")
-					damprob = owner.chem_effects[CE_STABLE] ? 30 : 60
-					if(!past_damage_threshold(2) && prob(damprob))
-						take_internal_damage(1)
-				if(BLOOD_VOLUME_BAD to BLOOD_VOLUME_OKAY)
-					owner.notify_message(SPAN_WARNING("You feel [pick("weak","disoriented","faint","cold")]."), rand(20 SECONDS, 40 SECONDS), key = "blood_volume_bad")
-					owner.eye_blurry = max(owner.eye_blurry,6)
-					damprob = owner.chem_effects[CE_STABLE] ? 40 : 80
-					if(!past_damage_threshold(4) && prob(damprob))
-						take_internal_damage(1)
-					if(!owner.paralysis && prob(10))
-						owner.Paralyse(rand(1,3))
-				if(BLOOD_VOLUME_SURVIVE to BLOOD_VOLUME_BAD)
-					owner.notify_message(SPAN_WARNING("You feel <b>extremely</b> [pick("cold","woozy","faint","weak","confused","tired","lethargic")]."), rand(20 SECONDS, 40 SECONDS), key = "blood_volume_survive")
-					owner.eye_blurry = max(owner.eye_blurry,6)
-					damprob = owner.chem_effects[CE_STABLE] ? 60 : 100
-					if(!past_damage_threshold(6) && prob(damprob))
-						take_internal_damage(1)
-					if(!owner.paralysis && prob(15))
-						owner.Paralyse(rand(3, 5))
-				if(-(INFINITY) to BLOOD_VOLUME_SURVIVE) // Also see heart.dm, being below this point puts you into cardiac arrest.
-					owner.notify_message(SPAN_DANGER("You feel like death is imminent."), rand(20 SECONDS, 40 SECONDS), key = "blood_volume_dying")
-					owner.eye_blurry = max(owner.eye_blurry,6)
-					damprob = owner.chem_effects[CE_STABLE] ? 80 : 100
-					if(prob(damprob))
-						take_internal_damage(1)
-					if(prob(damprob))
-						take_internal_damage(1)
+	// No heart? You are going to have a very bad time. Not 100% lethal because heart transplants should be a thing.
+	var/blood_volume = owner.get_blood_oxygenation()
+	if(blood_volume < BLOOD_VOLUME_SURVIVE)
+		if(!owner.chem_effects[CE_STABLE] || prob(60))
+			oxygen_reserve = max(0, oxygen_reserve-1)
+	else
+		oxygen_reserve = min(initial(oxygen_reserve), oxygen_reserve+1)
+
+	if(!oxygen_reserve) //(hardcrit)
+		owner.Paralyse(10)
+
+	var/can_heal = (damage && damage < max_damage && (damage % damage_threshold_value || owner.chem_effects[CE_BRAIN_REGEN] || (!past_damage_threshold(3) && owner.chem_effects[CE_STABLE]))) && (!(owner.chem_effects[CE_NEUROTOXIC]) || owner.chem_effects[CE_ANTITOXIN])
+	var/dammod
+	var/brain_regen_amount = owner.chem_effects[CE_BRAIN_REGEN]	* seconds_per_tick
+	var/brain_damage_amount = brain_damage_per_second * seconds_per_tick
+	//Effects of bloodloss
+	switch(blood_volume)
+		if(BLOOD_VOLUME_SAFE to INFINITY)
+			if(can_heal && owner.chem_effects[CE_BRAIN_REGEN])
+				damage -= min(damage, brain_regen_amount * safe_damage_modifier)
+			else if(can_heal)
+				damage -= min(damage, brain_damage_amount * safe_damage_modifier)
+		if(BLOOD_VOLUME_OKAY to BLOOD_VOLUME_SAFE)
+			owner.notify_message(SPAN_WARNING("You feel a bit [pick("lightheaded","dizzy","pale")]..."), rand(20 SECONDS, 40 SECONDS), key = "blood_volume_okay")
+			dammod = owner.chem_effects[CE_STABLE] ? okay_stabilized_mod : okay_unstable_mod
+			if(!past_damage_threshold(2))
+				take_internal_damage(brain_damage_amount * dammod * okay_damage_modifier)
+		if(BLOOD_VOLUME_BAD to BLOOD_VOLUME_OKAY)
+			owner.notify_message(SPAN_WARNING("You feel [pick("weak","disoriented","faint","cold")]."), rand(20 SECONDS, 40 SECONDS), key = "blood_volume_bad")
+			owner.eye_blurry = max(owner.eye_blurry,6)
+			dammod = owner.chem_effects[CE_STABLE] ? bad_stabilized_mod : bad_unstable_mod
+			if(!past_damage_threshold(4))
+				take_internal_damage(brain_damage_amount * dammod * bad_damage_modifier)
+			if(!owner.paralysis && prob(10))
+				owner.Paralyse(rand(1,3))
+		if(BLOOD_VOLUME_SURVIVE to BLOOD_VOLUME_BAD)
+			owner.notify_message(SPAN_WARNING("You feel <b>extremely</b> [pick("cold","woozy","faint","weak","confused","tired","lethargic")]."), rand(20 SECONDS, 40 SECONDS), key = "blood_volume_survive")
+			owner.eye_blurry = max(owner.eye_blurry,6)
+			dammod = owner.chem_effects[CE_STABLE] ? crit_stabilized_mod : crit_unstable_mod
+			if(!past_damage_threshold(6))
+				take_internal_damage(brain_damage_amount * dammod * crit_damage_modifier)
+			if(!owner.paralysis && prob(15))
+				owner.Paralyse(rand(3, 5))
+		if(-(INFINITY) to BLOOD_VOLUME_SURVIVE) // Also see heart.dm, being below this point puts you into cardiac arrest.
+			owner.notify_message(SPAN_DANGER("You feel like death is imminent."), rand(20 SECONDS, 40 SECONDS), key = "blood_volume_dying")
+			owner.eye_blurry = max(owner.eye_blurry,6)
+			dammod = owner.chem_effects[CE_STABLE] ? dying_stabilized_mod : dying_unstable_mod
+			take_internal_damage(brain_damage_amount * dammod * dying_damage_modifier)
 	..()
 
 /obj/item/organ/internal/brain/proc/handle_severe_brain_damage()

@@ -1,7 +1,6 @@
 /obj/item/device/chameleon
 	name = "chameleon projector"
 	desc = "A strange device."
-	desc_antag = "This device can let you disguise as common objects. Click on an object with this in your active hand to scan it, then activate it to use it in your hand."
 	icon = 'icons/obj/item/device/chameleon.dmi'
 	icon_state = "shield0"
 	item_state = "electronic"
@@ -18,6 +17,12 @@
 	var/saved_icon = 'icons/obj/clothing/masks.dmi'
 	var/saved_icon_state = "cigbutt"
 	var/saved_overlays
+
+/obj/item/device/chameleon/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This device can let you disguise as common objects."
+	. += "Left-click on an object with this in your active hand to scan it."
+	. += "Left-click it in-hand to toggle the effect."
 
 /obj/item/device/chameleon/dropped()
 	disrupt()

@@ -103,9 +103,12 @@
 /obj/item/robot_emag
 	name = "cryptographic sequencer"
 	desc = "It's a card with a magnetic strip attached to some circuitry. This one is modified to be used by a robot."
-	desc_antag = "This emag has an unlimited number of uses, however, each use will drain a little bit of your power cell."
 	icon = 'icons/obj/card.dmi'
 	icon_state = "emag"
+
+/obj/item/robot_emag/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This emag has an unlimited number of uses, however, each use will drain a little bit of your power cell."
 
 /obj/item/robot_emag/afterattack(var/atom/target, var/mob/living/user, proximity) //possible spaghetti code, but should work
 	if(!target)

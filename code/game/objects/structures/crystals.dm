@@ -12,6 +12,19 @@
 
 	var/obj/machinery/power/crystal_agitator/creator // used to re-add dense turfs to agitation list when destroyed
 
+/obj/structure/reagent_crystal/condition_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	var/current_damage = health / initial(health)
+	switch(current_damage)
+		if(0 to 0.2)
+			. += SPAN_DANGER("The crystal is barely holding together!")
+		if(0.2 to 0.4)
+			. += SPAN_WARNING("The crystal has various cracks visible!")
+		if(0.4 to 0.8)
+			. += SPAN_WARNING("The crystal has scratches and deeper grooves on its surface.")
+		if(0.8 to 1)
+			. += SPAN_NOTICE("The crystal looks structurally sound.")
+
 /obj/structure/reagent_crystal/Initialize(mapload, var/reagent_i = null, var/our_creator = null)
 	. = ..()
 	if(!reagent_i)
@@ -25,21 +38,6 @@
 	AddOverlays(crystal_overlay)
 	if(our_creator)
 		creator = our_creator
-
-/obj/structure/reagent_crystal/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	var/state
-	var/current_damage = health / initial(health)
-	switch(current_damage)
-		if(0 to 0.2)
-			state = SPAN_DANGER("The crystal is barely holding together!")
-		if(0.2 to 0.4)
-			state = SPAN_WARNING("The crystal has various cracks visible!")
-		if(0.4 to 0.8)
-			state = SPAN_WARNING("The crystal has scratches and deeper grooves on its surface.")
-		if(0.8 to 1)
-			state = SPAN_NOTICE("The crystal looks structurally sound.")
-	. += state
 
 /obj/structure/reagent_crystal/proc/take_damage(var/damage)
 	health -= damage
@@ -118,8 +116,8 @@
 		harvest()
 	return
 
-/obj/structure/reagent_crystal/attack_generic(var/mob/user, var/damage, var/attack_message = "smashes apart", var/wallbreaker)
-	if(!damage || !wallbreaker)
+/obj/structure/reagent_crystal/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
+	if(!damage || !environment_smash)
 		return FALSE
 	user.do_attack_animation(src)
 	visible_message(SPAN_WARNING("\The [user] [attack_message] \the [src]!"))
@@ -162,8 +160,11 @@
 	var/singleton/reagent/R = GET_SINGLETON(reagent_i)
 	name = "[lowertext(R.name)] crystal"
 	desc = "A [lowertext(R.name)] crystal. It looks rough, unprocessed."
-	desc_info = "This crystal can be ground to obtain the chemical material locked within."
 	color = reagents.get_color()
+
+/obj/item/reagent_crystal/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This crystal can be ground to obtain the chemical material locked within."
 
 /obj/item/storage/bag/crystal
 	name = "crystal satchel"

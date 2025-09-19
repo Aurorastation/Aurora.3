@@ -41,6 +41,16 @@
 		to_chat(user, SPAN_NOTICE("You add [src.worth] credits worth of money to the bundles.<br>It holds [bundle.worth] credits now."))
 		qdel(src)
 
+/proc/coin_typepath_suffix(var/amount)
+	// accepts 0.01, 0.05, 0.10, 0.25; returns "c001", "c005", etc.
+	var/cents = round(amount * 100)
+	if(cents < 10)
+		return "c00[cents]"
+	else if(cents < 100)
+		return "c0[cents]"
+	else
+		return "c[cents]"
+
 /obj/item/spacecash/bundle
 	name = "credit chips"
 	icon_state = ""
@@ -51,32 +61,46 @@
 /obj/item/spacecash/bundle/update_icon()
 	ClearOverlays()
 	var/list/ovr = list()
-	var/sum = src.worth
 	var/num = 0
-	for(var/i in list(1000,500,200,100,50,20,10,1))
-		while(sum >= i && num < 50)
-			sum -= i
+	var/cents = round(src.worth * 100) // INTEGER CENTS for splitting
+	// list is in cents, so 1000 = $10, 100 = $1, 25 = $0.25, 1 = $0.01
+
+	if(src.worth < 1)
+		src.name = "credit coins"
+		src.drop_sound = 'sound/items/drop/ring.ogg'
+		src.pickup_sound = 'sound/items/pickup/ring.ogg'
+	else
+		src.name = "credit chips"
+
+	// build The Pile(TM)
+	for(var/denom in list(100000,50000,20000,10000,5000,2000,1000,500,100,25,10,5,1))
+		while(cents >= denom && num < 50)
+			cents -= denom
 			num++
-			var/image/banknote = image('icons/obj/cash.dmi', "spacecash[i]")
+			var/image/banknote
+			var/denom_value = denom / 100.0
+			if(denom >= 100)
+				// bills (>= $1.00)
+				banknote = image('icons/obj/cash.dmi', "spacecash[round(denom_value)]")
+			else
+				// coins (< $1.00)
+				// pad denom_value for icon_state, e.g. "spacecash0.05"
+				var/coinstr = "[denom_value]"
+				if(findtext(coinstr, ".") && length(copytext(coinstr, findtext(coinstr, ".")+1)) == 1)
+					coinstr += "0"
+				banknote = image('icons/obj/cash.dmi', "spacecash[coinstr]")
 			var/matrix/M = matrix()
 			M.Translate(rand(-6, 6), rand(-4, 8))
 			M.Turn(pick(-45, -27.5, 0, 0, 0, 0, 0, 0, 0, 27.5, 45))
 			banknote.transform = M
 			ovr += banknote
-	if(num == 0) // Less than one credit, let's just make it look like 1 for ease
-		var/image/banknote = image('icons/obj/cash.dmi', "spacecash1")
-		var/matrix/M = matrix()
-		M.Translate(rand(-6, 6), rand(-4, 8))
-		M.Turn(pick(-45, -27.5, 0, 0, 0, 0, 0, 0, 0, 27.5, 45))
-		banknote.transform = M
-		ovr += banknote
 
 	AddOverlays(ovr)
 	UpdateOverlays()	// The delay looks weird, so we force an update immediately.
-	src.desc = "A bundle of Biesel Standard Credit chips. Combined, this is worth [worth] credits."
+	src.desc = "A bundle of Biesel Standard Credits. Combined, this is worth [worth] credits."
 
 /obj/item/spacecash/bundle/attack_self(mob/user as mob)
-	var/amount = tgui_input_number(user, "How many credits do you want to take? (0 to [src.worth])", "Take Money", 20, worth, 0)
+	var/amount = tgui_input_number(user, "How many credits do you want to take out? (0 to [src.worth])", "Take Money", 5, worth, 0, 0, round_value = FALSE)
 
 	if(QDELETED(src))
 		return 0
@@ -84,25 +108,58 @@
 	if(use_check_and_message(user,USE_FORCE_SRC_IN_USER))
 		return 0
 
-	amount = round(clamp(amount, 0, src.worth))
-	if(amount==0) return 0
+	if(amount == 0) return 0
 
-	src.worth -= amount
+	var/cents_out = round(amount * 100)
+	var/bundle_cents = round(src.worth * 100)
+
+	if(cents_out > bundle_cents)
+		cents_out = bundle_cents
+
+	src.worth = (bundle_cents - cents_out) / 100.0
+
+	// get rid of floating points
+	if(abs(src.worth) < 0.0001)
+		src.worth = 0
+
 	src.update_icon()
-	if(!worth)
+	if(!src.worth)
 		user.drop_from_inventory(src)
 
-	if(amount in list(1000,500,200,100,50,20,1))
-		var/cashtype = text2path("/obj/item/spacecash/c[amount]")
-		var/obj/cash = new cashtype (user.loc)
-		user.put_in_hands(cash)
+	// bill denominations (whole creds)
+	if(cents_out >= 100 && cents_out % 100 == 0)
+		var/dollars = cents_out / 100
+		var/cashtype = text2path("/obj/item/spacecash/c[dollars]")
+		if(isnull(cashtype))
+			// fallback: spawn a bundle if something's wrong
+			var/obj/item/spacecash/bundle/bundle = new(user.loc)
+			bundle.worth = cents_out / 100.0
+			bundle.update_icon()
+			user.put_in_hands(bundle)
+		else
+			var/obj/cash = new cashtype(user.loc)
+			user.put_in_hands(cash)
+
+	// coin denominations
+	else if(cents_out in list(25, 10, 5, 1))
+		var/cashtype = text2path("/obj/item/spacecash/coin/[coin_typepath_suffix(cents_out / 100.0)]")
+		if(isnull(cashtype))
+			var/obj/item/spacecash/bundle/bundle = new(user.loc)
+			bundle.worth = cents_out / 100.0
+			bundle.update_icon()
+			user.put_in_hands(bundle)
+		else
+			var/obj/cash = new cashtype(user.loc)
+			user.put_in_hands(cash)
+
+	// fallback for weird edge cases
 	else
-		var/obj/item/spacecash/bundle/bundle = new (user.loc)
-		bundle.worth = amount
+		var/obj/item/spacecash/bundle/bundle = new(user.loc)
+		bundle.worth = cents_out / 100.0
 		bundle.update_icon()
 		user.put_in_hands(bundle)
 
-	if(!worth)
+	if(!src.worth)
 		qdel(src)
 
 /obj/item/spacecash/c1
@@ -110,6 +167,12 @@
 	icon_state = "spacecash1"
 	desc = "A Biesel Standard Credit chip, used for transactions large and small. This one is worth 1 credit."
 	worth = 1
+
+/obj/item/spacecash/c5
+	name = "5 credit chip"
+	icon_state = "spacecash5"
+	desc = "A Biesel Standard Credit chip, used for transactions large and small. This one is worth 5 credits."
+	worth = 5
 
 /obj/item/spacecash/c10
 	name = "10 credit chip"
@@ -153,18 +216,81 @@
 	desc = "A Biesel Standard Credit chip, used for transactions large and small. This one is worth 1000 credits."
 	worth = 1000
 
+/obj/item/spacecash/coin
+	drop_sound = 'sound/items/drop/ring.ogg'
+	pickup_sound = 'sound/items/pickup/ring.ogg'
+	worth = 0
+	var/sides = 2
+	var/last_flip = 0 //spam limiter
+
+/obj/item/spacecash/coin/attack_self(mob/user)
+	if(last_flip <= world.time - 20)
+		last_flip = world.time
+		var/result = rand(1, sides)
+		var/comment = ""
+		if(result == 1)
+			comment = "tails"
+		else if(result == 2)
+			comment = "heads"
+		playsound(get_turf(src), 'sound/items/coinflip.ogg', 100, 1, -4)
+		user.visible_message(SPAN_NOTICE("\The [user] throws \the [src]. It lands on [comment]!"), SPAN_NOTICE("You throw \the [src]. It lands on [comment]!"))
+
+/obj/item/spacecash/coin/c001
+	name = "1 cent unie coin"
+	icon_state = "spacecash0.01"
+	desc = "A Biesel Standard Credit coin, called a 'unie'. This is worth 0.01 credits."
+	worth = 0.01
+
+/obj/item/spacecash/coin/c005
+	name = "5 cent quin coin"
+	icon_state = "spacecash0.05"
+	desc = "A Biesel Standard Credit coin, called a 'quin'. This is worth 0.05 credits."
+	worth = 0.05
+
+/obj/item/spacecash/coin/c010
+	name = "10 cent dece coin"
+	icon_state = "spacecash0.10"
+	desc = "A Biesel Standard Credit coin, called a 'dece'. This is worth 0.10 credits."
+	worth = 0.10
+
+/obj/item/spacecash/coin/c025
+	name = "25 cent quarter coin"
+	icon_state = "spacecash0.25"
+	desc = "A Biesel Standard Credit coin, called a 'quarter'. This is worth 0.25 credits."
+	worth = 0.25
+
 /proc/spawn_money(var/sum, spawnloc, mob/living/carbon/human/human_user as mob)
-	if(sum in list(1000,500,200,100,50,20,10,1))
-		var/cash_type = text2path("/obj/item/spacecash/c[sum]")
-		var/obj/cash = new cash_type (spawnloc)
-		if(ishuman(human_user) && !human_user.get_active_hand())
-			human_user.put_in_hands(cash)
-	else
-		var/obj/item/spacecash/bundle/bundle = new (spawnloc)
-		bundle.worth = sum
-		bundle.update_icon()
-		if (ishuman(human_user) && !human_user.get_active_hand())
-			human_user.put_in_hands(bundle)
+	var/cents = round(sum * 100)
+	// list all bill and coin denominations (in cents)
+	var/list/denoms = list(
+		100000,50000,20000,10000,5000,2000,1000,500,100,	// Bills: $1000 ... $1
+		25,10,5,1											   // Coins: $0.25, $0.10, $0.05, $0.01
+	)
+
+	// check for a single denomination match first (bill or coin)
+	if(cents in denoms)
+		var objpath
+		if(cents >= 100)
+			var/dollars = cents / 100
+			objpath = text2path("/obj/item/spacecash/c[dollars]")
+		else
+			var/coin_value = "[cents / 100.0]"
+			// pad to two decimals for path if needed
+			if(findtext(coin_value, ".") && length(copytext(coin_value, ".")+1) == 1)
+				coin_value += "0"
+			objpath = text2path("/obj/item/spacecash/coin/[coin_typepath_suffix(cents / 100.0)]")
+		if(!isnull(objpath))
+			var/obj/cash = new objpath(spawnloc)
+			if(ishuman(human_user) && !human_user.get_active_hand())
+				human_user.put_in_hands(cash)
+			return
+
+	// spawn a bundle for mixed/odd amounts
+	var/obj/item/spacecash/bundle/bundle = new(spawnloc)
+	bundle.worth = cents / 100.0
+	bundle.update_icon()
+	if(ishuman(human_user) && !human_user.get_active_hand())
+		human_user.put_in_hands(bundle)
 	return
 
 /obj/item/spacecash/ewallet
@@ -190,79 +316,3 @@
 
 /obj/item/spacecash/ewallet/c10000
 	worth = 10000
-
-/obj/item/spacecash/ewallet/lotto
-	name = "space lottery card"
-	icon_state = "lottocard_3"
-	desc = "A virtual scratch-action charge card that contains a variable amount of money."
-	worth = 0
-	var/scratches_remaining = 3
-	var/next_scratch = 0
-
-/obj/item/spacecash/ewallet/lotto/attack_self(mob/user)
-
-	if(scratches_remaining <= 0)
-		to_chat(user, SPAN_WARNING("The card flashes: \"No scratches remaining!\""))
-		return
-
-	if(next_scratch > world.time)
-		to_chat(user, SPAN_WARNING("The card flashes: \"Please wait!\""))
-		return
-
-	next_scratch = world.time + 6 SECONDS
-
-	to_chat(user, SPAN_NOTICE("You initiate the simulated scratch action process on the [src]..."))
-	playsound(src.loc, 'sound/items/drumroll.ogg', 20, 0, -4)
-	if(do_after(user,4.5 SECONDS))
-		var/won = 0
-		var/result = rand(1,10000)
-		if(result <= 4000) // 40% chance to not earn anything at all.
-			won = 0
-			speak("You've won: [won] credits. Better luck next time!")
-		else if (result <= 8000) // 40% chance
-			won = 10
-			speak("You've won: [won] credits. Better than nothing!")
-		else if (result <= 9000) // 10% chance
-			won = 50
-			speak("You've won: [won] credits. Try again!")
-		else if (result <= 9500) // 5% chance
-			won = 100
-			speak("You've won: [won] credits. Halfway there!")
-		else if (result <= 9750) // 2.5% chance
-			won = 200
-			speak("You've won: [won] credits. You're even!")
-		else if (result <= 9900) // 1.5% chance
-			won = 500
-			speak("You've won: [won] CREDITS. WINNER! You're lucky!")
-		else if (result <= 9950) // 0.5% chance
-			won = 1000
-			speak("You've won: [won] CREDITS. SUPER WINNER! You're super lucky!")
-		else if (result <= 9975) // 0.25% chance
-			won = 1500
-			speak("You've won: [won] CREDITS. MEGA WINNER! You're mega lucky!")
-		else if (result <= 9999) // 0.24% chance
-			won = 2500
-			speak("You've won: [won] CREDITS. ULTIMATE WINNER! You're ultra lucky!")
-		else // 0.01% chance
-			won = 5000
-			speak("You've won: [won] CREDITS. JACKPOT WINNER! You're JACKPOT lucky!")
-
-		scratches_remaining -= 1
-		update_icon()
-		worth += won
-		sleep(1 SECONDS)
-		if(scratches_remaining > 0)
-			to_chat(user, SPAN_NOTICE("The card flashes: You have: [scratches_remaining] SCRATCHES remaining! Scratch again!"))
-		else
-			to_chat(user, SPAN_NOTICE("The card flashes: You have: [scratches_remaining] SCRATCHES remaining! You won a total of: [worth] CREDITS. Thanks for playing the space lottery!"))
-
-		owner_name = user.name
-
-/obj/item/spacecash/ewallet/lotto/proc/speak(var/message = "Hello!")
-	for(var/mob/O in hearers(src.loc, null))
-		O.show_message("<span class='game say'><span class='name'>\The [src]</span> pings, \"[message]\"</span>",2)
-	playsound(src.loc, 'sound/machines/ping.ogg', 20, 0, -4)
-
-
-/obj/item/spacecash/ewallet/lotto/update_icon()
-	icon_state = "lottocard_[scratches_remaining]"

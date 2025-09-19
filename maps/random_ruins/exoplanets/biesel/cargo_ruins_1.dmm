@@ -6,7 +6,7 @@
 /turf/template_noop,
 /area/template_noop)
 "b" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "grey3"
 	},
 /turf/simulated/floor/exoplanet/asphalt,
@@ -16,13 +16,13 @@
 /turf/simulated/floor/exoplanet/asphalt,
 /area/template_noop)
 "e" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "blue2"
 	},
 /turf/simulated/floor/exoplanet/asphalt,
 /area/template_noop)
 "f" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "red3"
 	},
 /turf/simulated/floor/exoplanet/asphalt,
@@ -67,11 +67,11 @@
 /turf/template_noop,
 /area/template_noop)
 "s" = (
-/obj/structure/shipping_container,
+/obj/structure/shipping_container_old,
 /turf/simulated/floor/exoplanet/asphalt,
 /area/template_noop)
 "t" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "red1"
 	},
 /turf/simulated/floor/exoplanet/asphalt,
@@ -84,7 +84,7 @@
 /turf/simulated/floor/exoplanet/asphalt,
 /area/template_noop)
 "w" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "grey2"
 	},
 /turf/simulated/floor/exoplanet/asphalt,
@@ -98,19 +98,19 @@
 /turf/simulated/floor/exoplanet/asphalt,
 /area/template_noop)
 "B" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "green3"
 	},
 /turf/simulated/floor/exoplanet/asphalt,
 /area/template_noop)
 "C" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "grey1"
 	},
 /turf/simulated/floor/exoplanet/asphalt,
 /area/template_noop)
 "E" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "green2"
 	},
 /turf/simulated/floor/exoplanet/asphalt,
@@ -124,7 +124,7 @@
 /turf/simulated/floor/exoplanet/asphalt,
 /area/template_noop)
 "O" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "red2"
 	},
 /turf/simulated/floor/exoplanet/asphalt,
@@ -136,13 +136,13 @@
 /turf/template_noop,
 /area/template_noop)
 "T" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "blue3"
 	},
 /turf/simulated/floor/exoplanet/asphalt,
 /area/template_noop)
 "Z" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "green1"
 	},
 /turf/simulated/floor/exoplanet/asphalt,

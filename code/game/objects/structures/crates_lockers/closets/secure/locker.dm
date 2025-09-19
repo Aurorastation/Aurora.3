@@ -49,7 +49,7 @@
 									SPAN_NOTICE("You [locked ? null : "un"]lock \the [src]."))
 			update_icon()
 		else if(!silent)
-			to_chat(user, SPAN_NOTICE("Access Denied."))
+			to_chat(user, SPAN_NOTICE("Access denied."))
 
 /obj/structure/closet/AltClick(mob/user)
 	. = ..()

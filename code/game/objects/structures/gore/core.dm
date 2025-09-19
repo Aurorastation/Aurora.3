@@ -65,7 +65,7 @@
 	health -= throw_force
 	healthcheck()
 
-/obj/structure/gore/attack_generic()
+/obj/structure/gore/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	attack_hand(usr)
 
 /obj/structure/gore/attackby(obj/item/attacking_item, mob/user)

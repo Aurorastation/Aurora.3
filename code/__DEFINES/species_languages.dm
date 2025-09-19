@@ -71,6 +71,7 @@
 #define LANGUAGE_GREIMORIAN "Greimorian Chattering" //Intelligent Greimorians
 #define LANGUAGE_GREIMORIAN_HIVEMIND "Greimorian Hivemind" //Intelligent Greimorian Hivemind
 #define LANGUAGE_PURPOSE "Encrypted Transmission" //Purpose
+#define LANGUAGE_HIVEBOT "Hivebot Network" //Hivebots
 
 // Lesser-form Languages
 #define LANGUAGE_GIBBERING "Gibbering"			// alberyk

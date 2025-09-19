@@ -10,14 +10,14 @@
 	flags_inv = HIDEEARS
 	var/earsup = 0
 
-/obj/item/clothing/head/ushanka/nyakas
+/obj/item/clothing/head/ushanka/cap
 	name = "visegradi nyakas"
 	desc = "A type of flap hat that is extremely popular on Visegrad. It is designed to keep one's head and neck dry, and the flap can be pinned to the sides of the hat when not needed."
 	contained_sprite = TRUE
 	build_from_parts = FALSE
-	icon = 'icons/obj/item/clothing/head/nyakas.dmi'
-	icon_state = "nyakas"
-	item_state = "nyakas"
+	icon = 'icons/obj/item/clothing/head/earflap_cap.dmi'
+	icon_state = "earflap"
+	item_state = "earflap"
 
 /obj/item/clothing/head/ushanka/attack_self(mob/user as mob)
 	src.earsup = !src.earsup
@@ -50,15 +50,25 @@
 	. = ..()
 	color = get_random_colour(lower = 150)
 
-/obj/item/clothing/head/beanie/winter
-	name = "winter beanie"
+/obj/item/clothing/head/beanie/earflap
+	name = "ear flap beanie"
 	desc = "A head-hugging brimless winter cap. This one has flaps that cover the ears."
-	icon_state = "winterbeanie"
-	item_state = "winterbeanie"
+	icon_state = "beanie_earflap"
+	item_state = "beanie_earflap"
 	has_accents = TRUE
+
+/obj/item/clothing/head/beanie/earflap/random/Initialize()
+	. = ..()
+	color = get_random_colour(lower = 150)
+	accent_color = color
 
 /obj/item/clothing/head/beanie/submariner
 	name = "submariner's beanie"
 	desc = "A design of tightly fitting beanie particularly popular among the dock workers of Europa. Favored among anyone who prides a warm head."
-	icon_state = "dock_beanie"
-	item_state = "dock_beanie"
+	icon_state = "beaner_submariner"
+	item_state = "beaner_submariner"
+
+/obj/item/clothing/head/beanie/submariner/random/Initialize()
+	. = ..()
+	color = get_random_colour(lower = 150)
+

@@ -20,21 +20,31 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 
 /turf/proc/hotspot_expose(exposed_temperature, exposed_volume, soh = 0)
 
-
+/**
+ * Create a temporary ignition source at turf. Think sparks/igniters.
+ *
+ * Checks for flammable materials at its location.
+ *
+ * * exposed_temperature - ignition source temp (K)
+ * * exposed_volume - gas volume (passed to fire_act() for locs)
+ * * soh - they say no one knows
+ *
+ * Returns boolean and/or executes create_fire(exposed_temperature).
+ */
 /turf/simulated/hotspot_expose(exposed_temperature, exposed_volume, soh)
 	if(fire_protection > world.time-300)
-		return 0
+		return FALSE
 	if(locate(/obj/fire) in src)
-		return 1
+		return TRUE
 	var/datum/gas_mixture/air_contents = return_air()
 	if(!air_contents || exposed_temperature < PHORON_MINIMUM_BURN_TEMPERATURE)
-		return 0
+		return FALSE
 
-	var/igniting = 0
+	var/igniting = FALSE
 	var/obj/effect/decal/cleanable/liquid_fuel/liquid = locate() in src
 
-	if(air_contents.check_combustability(liquid))
-		igniting = 1
+	if(air_contents.check_combustibility(liquid))
+		igniting = TRUE
 
 		create_fire(exposed_temperature)
 	return igniting
@@ -180,7 +190,7 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 				//if(!enemy_tile.zone.fire_tiles.len) TODO - optimize
 				var/datum/gas_mixture/acs = enemy_tile.return_air()
 				var/obj/effect/decal/cleanable/liquid_fuel/liquid = locate() in enemy_tile
-				if(!acs || !acs.check_combustability(liquid))
+				if(!acs || !acs.check_combustibility(liquid))
 					continue
 
 				//If extinguisher mist passed over the turf it's trying to spread to, don't spread and
@@ -332,7 +342,7 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 		adjust_gas(GAS_CO2, used_oxidizers)
 
 		if(zone)
-			zone.remove_liquidfuel(used_liquid_fuel, !check_combustability())
+			zone.remove_liquidfuel(used_liquid_fuel, !check_combustibility())
 
 		//calculate the energy produced by the reaction and then set the new temperature of the mix
 		temperature = (starting_energy + GLOB.vsc.fire_fuel_energy_release * (used_gas_fuel + used_liquid_fuel)) / heat_capacity()
@@ -364,7 +374,7 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 			. = 1
 			break
 
-/datum/gas_mixture/proc/check_combustability(obj/effect/decal/cleanable/liquid_fuel/liquid=null)
+/datum/gas_mixture/proc/check_combustibility(obj/effect/decal/cleanable/liquid_fuel/liquid=null)
 	. = 0
 	for(var/g in gas)
 		if(gas_data.flags[g] & XGM_GAS_OXIDIZER && QUANTIZE(gas[g] * GLOB.vsc.fire_consuption_rate) >= 0.1)
@@ -425,7 +435,11 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 	var/mx = 5 * firelevel/GLOB.vsc.fire_firelevel_multiplier * min(pressure / ONE_ATMOSPHERE, 1)
 	apply_damage(2.5*mx, DAMAGE_BURN)
 
-
+/**
+ * Applies direct damage to human mobs to fire.
+ * On the chopping block depending on how we feel.
+ * We can decide its fate in future reworks.
+ */
 /mob/living/carbon/human/FireBurn(var/firelevel, var/last_temperature, var/pressure)
 	//Burns mobs due to fire. Respects heat transfer coefficients on various body parts.
 	//Due to TG reworking how fireprotection works, this is kinda less meaningful.
@@ -465,7 +479,6 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 	apply_damage(0.6*mx*legs_exposure, DAMAGE_BURN, BP_R_LEG, used_weapon = "Fire")
 	apply_damage(0.4*mx*arms_exposure, DAMAGE_BURN, BP_L_ARM, used_weapon = "Fire")
 	apply_damage(0.4*mx*arms_exposure, DAMAGE_BURN, BP_R_ARM, used_weapon = "Fire")
-
 
 #undef FIRE_LIGHT_1
 #undef FIRE_LIGHT_2

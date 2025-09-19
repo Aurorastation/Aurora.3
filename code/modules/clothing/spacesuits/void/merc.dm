@@ -18,7 +18,7 @@
 		RAD = ARMOR_RAD_SMALL
 	)
 	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
+	species_restricted = list(BODYTYPE_HUMAN)
 	light_overlay = "merc_voidsuit_lights"
 	camera = /obj/machinery/camera/network/mercenary
 	brightness_on = 6
@@ -45,7 +45,7 @@
 	)
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL)
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_IPC, BODYTYPE_UNATHI, BODYTYPE_SKRELL)
 
 /obj/item/clothing/head/helmet/space/void/merc/unathi

@@ -1,7 +1,7 @@
 /mob/living/heavy_vehicle/premade/heavy
 	name = "Heavy exosuit"
 	desc = "A heavily armored combat exosuit."
-	icon_state = "durand"
+	icon_state = "heavy"
 
 	e_head = /obj/item/mech_component/sensors/heavy
 	e_body = /obj/item/mech_component/chassis/heavy/cell

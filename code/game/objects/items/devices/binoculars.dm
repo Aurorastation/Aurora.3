@@ -13,14 +13,16 @@
 	throw_range = 15
 	throw_speed = 3
 
-	var/tileoffset = 14
+	var/tileoffset = 7
 	var/viewsize = 7
 
 /obj/item/device/binoculars/attack_self(mob/user)
-	zoom(user,tileoffset,viewsize, show_zoom_message = FALSE)
+	if(do_after(user, 1.5 SECONDS))
+		user.visible_message(SPAN_NOTICE("[user] looks into the binoculars."), SPAN_NOTICE("You look through the binoculars."))
+		zoom(user, tileoffset, viewsize, show_zoom_message = FALSE)
 
 /obj/item/device/binoculars/high_power
 	name = "high power binoculars"
 	desc = "A pair of high power binoculars."
 	icon_state = "binoculars_high"
-	tileoffset = 14*3
+	tileoffset = 8

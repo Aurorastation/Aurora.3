@@ -1261,7 +1261,7 @@
 /mob/living/carbon/human/proc/change_animal_name()
 	set name = "Name Animal"
 	set desc = "Name a monkeylike animal."
-	set category = "IC"
+	set category = "IC.Critters"
 	set src in view(1)
 
 	var/mob/living/carbon/M = usr

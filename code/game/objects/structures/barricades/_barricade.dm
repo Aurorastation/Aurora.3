@@ -29,11 +29,8 @@
 	update_icon()
 	starting_maxhealth = maxhealth
 
-/obj/structure/barricade/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += SPAN_INFO("It is recommended to stand flush to a barricade or one tile away for maximum efficiency.")
-	if(is_wired)
-		. += SPAN_INFO("There is a length of wire strewn across the top of this barricade.")
+/obj/structure/barricade/condition_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	switch(damage_state)
 		if(BARRICADE_DMG_NONE)
 			. += SPAN_INFO("It appears to be in good shape.")
@@ -43,6 +40,17 @@
 			. += SPAN_WARNING("It's quite beat up, but it's holding together.")
 		if(BARRICADE_DMG_HEAVY)
 			. += SPAN_WARNING("It's crumbling apart, just a few more blows will tear it apart!")
+
+/obj/structure/barricade/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(!is_wired)
+		. += "Use a length of barbed wire on this barricade to restrict enemies from climbing it and damage them on attacking it at close range."
+
+/obj/structure/barricade/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += SPAN_INFO("It is recommended to stand flush to a barricade or one tile away for maximum efficiency.")
+	if(is_wired)
+		. += SPAN_INFO("There is a length of barbed wire strewn across the top of this barricade, preventing it from being climbed and making it hazardous to attack at close range.")
 
 /obj/structure/barricade/update_icon()
 	CutOverlays()
@@ -133,7 +141,7 @@
 				var/attack_verb = pick("mangles", "slices", "slashes", "shreds")
 				attack_generic(user, UA.damage, attack_verb)
 
-/obj/structure/barricade/attack_generic(mob/user, damage, attack_verb, wallbreaker)
+/obj/structure/barricade/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	if(!damage)
 		return FALSE
 	if(!isliving(user))
@@ -145,7 +153,7 @@
 		playsound(src, barricade_hitsound, 50, 1)
 	if(is_wired)
 		visible_message(SPAN_DANGER("\The [src]'s barbed wire slices into [L]!"))
-		L.apply_damage(rand(5, 10), DAMAGE_BRUTE, pick(BP_R_HAND, BP_L_HAND), "barbed wire", DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE, 25)
+		L.apply_damage((5), DAMAGE_BRUTE, pick(BP_R_HAND, BP_L_HAND), "barbed wire", DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE, 25)
 	L.do_attack_animation(src)
 	take_damage(damage)
 

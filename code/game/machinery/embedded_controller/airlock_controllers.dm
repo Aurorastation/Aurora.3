@@ -35,6 +35,19 @@
 	. = ..()
 	GC_TEMPORARY_HARDDEL
 
+/obj/machinery/embedded_controller/radio/airlock/attackby(obj/item/attacking_item, mob/user)
+	//Swiping ID on the access button
+	if (attacking_item.GetID())
+		attack_hand(user)
+		return TRUE
+	return ..()
+
+/obj/machinery/embedded_controller/radio/airlock/attack_hand(mob/user)
+	if(!allowed(user))
+		to_chat(user, SPAN_WARNING("Access denied."))
+		return FALSE
+	return ..()
+
 //Advanced airlock controller for when you want a more versatile airlock controller - useful for turning simple access control rooms into airlocks
 /obj/machinery/embedded_controller/radio/airlock/advanced_airlock_controller
 	name = "Advanced Airlock Controller"

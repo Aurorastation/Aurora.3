@@ -92,6 +92,14 @@
 
 	installed_cell = /obj/item/custom_ka_upgrade/cells/exosuit
 	installed_barrel = /obj/item/custom_ka_upgrade/barrels/barrel04
+	installed_upgrade_chip = /obj/item/custom_ka_upgrade/upgrade_chips/focusing
+
+/obj/item/gun/custom_ka/exosuit/heavy
+	name = "exosuit heavy kinetic accelerator"
+	build_name = "exosuit compatible"
+	icon_state = "frame_cyborg"
+	desc = "A heavy kinetic accelerator frame meant for exosuits. Uses an exosuit's internal charge as power."
+	installed_barrel = /obj/item/custom_ka_upgrade/barrels/barrel04
 	installed_upgrade_chip = /obj/item/custom_ka_upgrade/upgrade_chips/explosive/exosuit
 
 /obj/item/gun/custom_ka/frameA

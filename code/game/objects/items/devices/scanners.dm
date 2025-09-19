@@ -31,7 +31,6 @@ BREATH ANALYZER
 		last_scan = world.time
 		sound_scan = TRUE
 	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
-	user.do_attack_animation(src)
 	flick("[icon_state]-scan", src)	//makes it so that it plays the scan animation on a successful scan
 	health_scan_mob(target_mob, user, mode, sound_scan = sound_scan)
 	add_fingerprint(user)
@@ -42,7 +41,6 @@ BREATH ANALYZER
 		last_scan = world.time
 		sound_scan = TRUE
 	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
-	user.do_attack_animation(src)
 	flick("[icon_state]-scan", src)	//makes it so that it plays the scan animation on a successful scan
 	health_scan_mob(user, user, mode, sound_scan = sound_scan)
 	add_fingerprint(user)
@@ -361,7 +359,7 @@ BREATH ANALYZER
 
 /obj/item/device/healthanalyzer/verb/toggle_mode()
 	set name = "Switch Verbosity"
-	set category = "Object"
+	set category = "Object.Held"
 	set src in usr
 
 	mode = !mode
@@ -588,8 +586,8 @@ BREATH ANALYZER
 		return
 
 	var/value = get_value(target)
-	user.visible_message("\The [user] scans \the [target] with \the [src]")
-	user.show_message("Price estimation of \the [target]: [value ? value : "N/A"] Credits")
+	user.visible_message(SPAN_NOTICE("\The [user] scans \the [target] with \the [src]."))
+	to_chat(user, SPAN_NOTICE("\The [src] estimates the price of \the [target] at <b>[value ? value : "N/A"]</b>."))
 
 /obj/item/device/breath_analyzer
 	name = "breath analyzer"
@@ -631,7 +629,6 @@ BREATH ANALYZER
 		return
 
 	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
-	user.do_attack_animation(H)
 
 	user.visible_message(SPAN_NOTICE("[user] is trying to take a breath sample from [H]."),
 							SPAN_NOTICE("You gently insert \the [src] into [H]'s mouth."))
@@ -730,7 +727,6 @@ BREATH ANALYZER
 	if(!connected)
 		return
 	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
-	user.do_attack_animation(src)
 	user.visible_message("<b>[user]</b> starts scanning \the [target_mob] with \the [src].", SPAN_NOTICE("You start scanning \the [target_mob] with \the [src]."))
 	flick("[icon_state]-scan", src)
 	if(do_after(user, 7 SECONDS, target_mob, DO_UNIQUE))

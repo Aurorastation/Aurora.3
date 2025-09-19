@@ -6,7 +6,6 @@
 /obj/item/storage/backpack
 	name = "backpack"
 	desc = "You wear this on your back and put items into it."
-	desc_antag = "As a Cultist, this item can be reforged to become a cult backpack. Any stored items will be transferred."
 	icon = 'icons/obj/storage/backpack.dmi'
 	icon_state = "backpack"
 	item_state = "backpack"
@@ -33,6 +32,10 @@
 	 */
 	var/attached_icon = "backpack"
 
+/obj/item/storage/backpack/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "As a Cultist, this item can be reforged to become a cult backpack. Any stored items will be transferred."
+
 /obj/item/storage/backpack/Initialize()
 	. = ..()
 	if(straps == TRUE)
@@ -46,7 +49,7 @@
 /obj/item/storage/backpack/proc/adjust_backpack_straps()
 	set name = "Adjust Bag Straps"
 	set desc = "Adjust your bag straps."
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in usr
 	if(use_check_and_message(usr))
 		return 0
@@ -117,9 +120,9 @@
 		I.AddOverlays(over)
 	return I
 
-/obj/item/storage/backpack/AltClick(mob/usr)
-	if(attached_bag && ishuman(usr))
-		var/mob/living/carbon/human/H = usr
+/obj/item/storage/backpack/AltClick(mob/user)
+	if(attached_bag && ishuman(user))
+		var/mob/living/carbon/human/H = user
 		H.put_in_hands(attached_bag)
 		attached_bag = null
 		update_icon()
@@ -160,7 +163,6 @@
 /obj/item/storage/backpack/cultpack
 	name = "trophy rack"
 	desc = "It's useful for both carrying extra gear and proudly declaring your insanity."
-	desc_antag = null // It's already been forged once.
 	icon_state = "cultpack"
 	item_state = "cultpack"
 
@@ -905,6 +907,20 @@
 	icon_state = "rucksack_tan"
 	item_state = "rucksack_tan"
 
+/*
+ * Chest pouch
+ */
+
+/obj/item/storage/backpack/chestpouch
+	name = "chest pouch"
+	desc = "A small pouch that straps across your chest."
+	icon = 'icons/obj/storage/chestpouch.dmi'
+	icon_state = "chestpouch"
+	item_state = "chestpouch"
+	w_class = WEIGHT_CLASS_HUGE // to avoid recursive backpacks
+	max_w_class = WEIGHT_CLASS_NORMAL
+	max_storage_space = DEFAULT_LARGEBOX_STORAGE
+
 // Vaurca stuff.
 
 /obj/item/storage/backpack/typec
@@ -972,7 +988,7 @@
 /obj/item/storage/backpack/cloak/verb/toggle_cloak_hood()
 	set name = "Toggle Cloak Hood"
 	set desc = "Toggle your cloak hood."
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in usr
 	if(use_check_and_message(usr))
 		return 0
@@ -1089,7 +1105,6 @@
 /obj/item/storage/backpack/kala
 	name = "skrell backpack"
 	desc = "A lightly padded, waterproof backpack worn by Skrell."
-	icon = 'icons/clothing/kit/skrell_armor.dmi'
 	icon_state = "kala_backpack"
 	item_state = "kala_backpack"
 	contained_sprite = TRUE

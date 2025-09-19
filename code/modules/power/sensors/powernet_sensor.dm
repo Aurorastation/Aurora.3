@@ -164,11 +164,8 @@
 			APC_entry["cell_status"] = A.cell ? chg[A.charging+1] : 0
 			// Other info
 			APC_entry["total_load"] = reading_to_text(A.lastused_total)
-			// Hopefully removes those goddamn \improper s which are screwing up the UI
-			var/N = A.area.name
-			if(findtext(N, "�"))
-				N = copytext(N, 3)
-			APC_entry["name"] = N
+			var/area_display_name = get_area_display_name(A.area)
+			APC_entry["name"] = area_display_name
 			// Add data into main list of APC data.
 			APC_data += list(APC_entry)
 			// Add load of this APC to total APC load calculation

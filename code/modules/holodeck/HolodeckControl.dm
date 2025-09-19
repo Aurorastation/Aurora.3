@@ -189,11 +189,18 @@ GLOBAL_LIST_EMPTY_TYPED(holodeck_controls, /obj/machinery/computer/holodeck_cont
 		item_power_usage = 2500
 		for(var/obj/item/holo/esword/H in linkedholodeck)
 			H.damtype = DAMAGE_BRUTE
+		for(var/obj/item/holo/practicesword/P in linkedholodeck)
+			P.damtype = DAMAGE_BRUTE
+		for(var/obj/item/holo/practicesword/holorapier/R in linkedholodeck)
+			R.damtype = DAMAGE_BRUTE
 	else
 		item_power_usage = initial(item_power_usage)
 		for(var/obj/item/holo/esword/H in linkedholodeck)
 			H.damtype = initial(H.damtype)
-
+		for(var/obj/item/holo/practicesword/P in linkedholodeck)
+			P.damtype = initial(P.damtype)
+		for(var/obj/item/holo/practicesword/holorapier/R in linkedholodeck)
+			R.damtype = initial(R.damtype)
 	for(var/mob/living/simple_animal/hostile/carp/holodeck/C in holographic_mobs)
 		C.set_safety(!safety_disabled)
 		if (last_to_emag)

@@ -5,7 +5,7 @@
 	icon = 'icons/mob/mob.dmi'
 	icon_state = "behemoth"
 	icon_living = "behemoth"
-	maxHealth = 400
+	maxHealth = 350 // Slow, melee only and can't sprint. So needs to be a beefcake.
 	health_prefix = "juggernaut"
 	response_harm = "harmlessly punches"
 	harm_intent_damage = 0
@@ -20,6 +20,13 @@
 	attack_sound = 'sound/weapons/heavysmash.ogg'
 	status_flags = 0
 	resistance = 10
+	natural_armor = list(
+		MELEE = ARMOR_MELEE_VERY_HIGH, // Shouldnt crowbar these guys
+		BULLET = ARMOR_BALLISTIC_MAJOR,
+		LASER = ARMOR_LASER_RIFLE,
+		ENERGY = ARMOR_ENERGY_SMALL,
+		BOMB = ARMOR_BOMB_PADDED
+	)
 	construct_spells = list(/spell/aoe_turf/conjure/forcewall/lesser)
 
 /mob/living/simple_animal/construct/armored/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)

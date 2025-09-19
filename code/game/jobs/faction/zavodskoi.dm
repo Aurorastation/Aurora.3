@@ -65,6 +65,7 @@
 		"Atmospherics Apprentice" = /obj/outfit/job/intern_atmos/zavodskoi,
 		"Corporate Reporter" = /obj/outfit/job/journalist/zavodskoi,
 		"Corporate Liaison" = /obj/outfit/job/representative/zavodskoi,
+		"Corporate Aide" = /obj/outfit/job/corporate_aide/zavodskoi,
 		"Assistant" = /obj/outfit/job/assistant/zavodskoi,
 		"Technical Assistant" = /obj/outfit/job/assistant/tech_assistant/zavodskoi,
 		"Lab Assistant" = /obj/outfit/job/assistant/lab_assistant/zavodskoi,
@@ -273,6 +274,18 @@
 		/obj/item/gun/projectile/pistol = 1,
 		/obj/item/stamp/zavodskoi = 1
 	)
+
+/obj/outfit/job/corporate_aide/zavodskoi
+	name = "Zavodskoi Interstellar Corporate Aide"
+
+	id = /obj/item/card/id/zavodskoi
+	head = /obj/item/clothing/head/beret/corporate/zavod
+	suit = /obj/item/clothing/suit/storage/toggle/corp/zavod
+
+	backpack_faction = /obj/item/storage/backpack/zavod
+	satchel_faction = /obj/item/storage/backpack/satchel/zavod
+	dufflebag_faction = /obj/item/storage/backpack/duffel/zavod
+	messengerbag_faction = /obj/item/storage/backpack/messenger/zavod
 
 /obj/outfit/job/journalist/zavodskoi
 	name = "Corporate Reporter - Zavodskoi Interstellar"

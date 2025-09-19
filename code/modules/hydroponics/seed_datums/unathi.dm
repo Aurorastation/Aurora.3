@@ -19,6 +19,8 @@
 	set_trait(TRAIT_PLANT_COLOUR,"#4D8F53")
 	set_trait(TRAIT_PLANT_ICON,"tree3")
 	set_trait(TRAIT_WATER_CONSUMPTION, 6)
+	set_trait(TRAIT_IDEAL_HEAT, IDEAL_HEAT_MOGHES)
+	set_trait(TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_HIGH)
 
 /obj/item/seeds/xuiziseed
 	seed_type = "xuizi"
@@ -44,6 +46,8 @@
 	set_trait(TRAIT_PLANT_ICON,"bush")
 	set_trait(TRAIT_WATER_CONSUMPTION, 6)
 	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.15)
+	set_trait(TRAIT_IDEAL_HEAT, IDEAL_HEAT_MOGHES)
+	set_trait(TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_HIGH)
 
 /obj/item/seeds/sarezhiseed
 	seed_type = "sarezhi"
@@ -68,7 +72,8 @@
 	set_trait(TRAIT_PRODUCT_COLOUR,"#e93e1c")
 	set_trait(TRAIT_PLANT_COLOUR,"#6d9c6b")
 	set_trait(TRAIT_PLANT_ICON,"algae")
-	set_trait(TRAIT_IDEAL_LIGHT, 6)
+	set_trait(TRAIT_IDEAL_HEAT, IDEAL_HEAT_MOGHES)
+	set_trait(TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_HIGH)
 	set_trait(TRAIT_WATER_CONSUMPTION, 6)
 	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.15)
 
@@ -92,6 +97,8 @@
 	set_trait(TRAIT_PRODUCT_ICON,"nuts")
 	set_trait(TRAIT_PRODUCT_COLOUR,"#866523")
 	set_trait(TRAIT_PLANT_ICON,"tree")
+	set_trait(TRAIT_IDEAL_HEAT, IDEAL_HEAT_MOGHES)
+	set_trait(TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_HIGH)
 
 /obj/item/seeds/aghrasshseed
 	seed_type = "aghrassh"
@@ -116,6 +123,8 @@
 	set_trait(TRAIT_PLANT_ICON,"bush")
 	set_trait(TRAIT_WATER_CONSUMPTION, 6)
 	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.15)
+	set_trait(TRAIT_IDEAL_HEAT, IDEAL_HEAT_MOGHES)
+	set_trait(TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_HIGH)
 
 /obj/item/seeds/sthberryseed
 	seed_type = "sthberry"
@@ -134,6 +143,8 @@
 	set_trait(TRAIT_IDEAL_LIGHT, 7)
 	set_trait(TRAIT_WATER_CONSUMPTION, 6)
 	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.15)
+	set_trait(TRAIT_IDEAL_HEAT, IDEAL_HEAT_MOGHES)
+	set_trait(TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_HIGH)
 
 /obj/item/seeds/serkiflowerseed
 	seed_type = "serkiflower"

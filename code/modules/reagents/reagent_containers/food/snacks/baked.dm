@@ -61,8 +61,8 @@
 	filling_color = "#BD8939"
 
 /obj/item/reagent_containers/food/snacks/donkpocket
-	name = "Donk-pocket"
-	desc = "The cold, reheatable food of choice for the seasoned spaceman."
+	name = "\improper Donk-pocket"
+	desc = "A mass produced shelf-stable turnover. The reheatable food of choice for the seasoned spaceman."
 	icon = 'icons/obj/item/reagent_containers/food/baked.dmi'
 	icon_state = "donkpocket"
 	filling_color = "#DEDEAB"
@@ -70,55 +70,122 @@
 	reagents_to_add = list(/singleton/reagent/nutriment = 2, /singleton/reagent/nutriment/protein = 2)
 	reagent_data = list(/singleton/reagent/nutriment = list("heartiness" = 1, "dough" = 2))
 
-/obj/item/reagent_containers/food/snacks/donkpocket/warm
-	name = "cooked Donk-pocket"
-	desc = "The cooked, reheatable food of choice for the seasoned spaceman."
-	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/nutriment/protein = 1, /singleton/reagent/tricordrazine = 5)
-	reagent_data = list(/singleton/reagent/nutriment = list("warm heartiness" = 1, "dough" = 2))
+	/// Whether the donk pocket is currently hot. Hot donk pockets have additional reagents
+	var/is_hot = FALSE
+
+	/// Whether the donk pocket is able to be made hot without a microwave by using it in-hand
+	var/can_self_heat = FALSE
+
+	/// Whether the donk pocket was heated up already. Reheating does not re-add the extra reagents.
+	var/was_heated = FALSE
+
+	/// The reagents to be added to the donk pocket when it is made hot (and removed when made cold)
+	var/list/hot_reagents = list(/singleton/reagent/tricordrazine = 5)
+
+	/// The reagents to be added to the donk pocket when it is initialized
+	var/list/filling_options
+
+/obj/item/reagent_containers/food/snacks/donkpocket/Initialize()
+	. = ..()
+	if (. == INITIALIZE_HINT_QDEL)
+		return
+	if (filling_options)
+		SetInitialReagents(filling_options)
+
+/obj/item/reagent_containers/food/snacks/donkpocket/standard_feed_mob(mob/living/consumer, mob/living/feeder)
+	if (can_self_heat)
+		if (feeder)
+			feeder.visible_message(
+				SPAN_ITALIC("\The [feeder] tears open \a [src], destroying the self-heating packaging."),
+				SPAN_ITALIC("You tear open \the [src], destroying the self-heating packaging."),
+				SPAN_ITALIC("You hear plastic packaging crinkling."),
+				range = 3
+			)
+		can_self_heat = FALSE
+	..()
+
+
+/obj/item/reagent_containers/food/snacks/donkpocket/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
+	. = ..()
+	if (distance > 1)
+		return
+	if (!initial(can_self_heat))
+		return
+	to_chat(user, "This one can self-heat[can_self_heat ? "." : " but the heaters are used up."]")
+
+
+/obj/item/reagent_containers/food/snacks/donkpocket/attack_self(mob/living/user)
+	if (!initial(can_self_heat))
+		return
+	SetHot(user, TRUE)
+
+
+/obj/item/reagent_containers/food/snacks/donkpocket/proc/SetHot(mob/living/user, attempt_self_heat)
+	if (is_hot)
+		to_chat(user, SPAN_NOTICE("\The [src] is already hot!"))
+		return
+	if (attempt_self_heat)
+		if (!can_self_heat)
+			if (!initial(can_self_heat))
+				return
+			to_chat(user, SPAN_WARNING("\The [src]'s heaters are used up. Use a microwave."))
+			return
+		can_self_heat = FALSE
+	is_hot = TRUE
+	if (attempt_self_heat)
+		to_chat(user, SPAN_NOTICE("A comforting warmth spreads through \the [src]. It's ready to eat!"))
+	if (!was_heated)
+		for(var/reagent in hot_reagents)
+			reagents.add_reagent(reagent, hot_reagents[reagent])
+		was_heated = TRUE
+	name = "hot [name]"
+	addtimer(CALLBACK(src, PROC_REF(UnsetHot)), 7 MINUTES)
+
+/obj/item/reagent_containers/food/snacks/donkpocket/proc/UnsetHot()
+	if (!is_hot)
+		return
+	is_hot = FALSE
+	name = initial(name)
+	visible_message(SPAN_ITALIC("\The [src] cools down."), range = 1)
+	for (var/reagent in hot_reagents)
+		reagents.del_reagent(reagent)
+
+/obj/item/reagent_containers/food/snacks/donkpocket/proc/SetInitialReagents(list/options, amount = 3)
+	var/list/entry = pick(options)
+	if (!islist(entry))
+		reagents.add_reagent(entry, amount)
+		return
+	var/sub_amount = amount / length(entry)
+	for (var/reagent in entry)
+		reagents.add_reagent(reagent, sub_amount)
 
 /obj/item/reagent_containers/food/snacks/donkpocket/sinpocket
+	name = "premium Donk-pocket"
+	desc = "A \"premium\" shelf-stable turnover. Possibly contains \"real\" fruit paste. Crush the packaging to cook it on the go!"
+	filling_color = "#6d6d00"
+	can_self_heat = TRUE
 	reagent_data = list(/singleton/reagent/nutriment = list("delicious cruelty" = 1, "dough" = 2))
-	filling_color = "#6D6D00"
-	desc_antag = "Use it in hand to heat and release chemicals."
-	var/has_been_heated = FALSE
+	hot_reagents = list(
+		/singleton/reagent/drink/doctorsdelight = 4,
+		/singleton/reagent/hyperzine = 0.5,
+		/singleton/reagent/synaptizine = 0.1
+	)
 
-	reagents_to_add = list(/singleton/reagent/nutriment/protein = 1, /singleton/reagent/nutriment = 3)
-
-/obj/item/reagent_containers/food/snacks/donkpocket/sinpocket/attack_self(mob/user)
-	if(has_been_heated)
-		to_chat(user, SPAN_NOTICE("The heating chemicals have already been spent."))
-		return
-	has_been_heated = TRUE
-	user.visible_message(SPAN_NOTICE("[user] crushes \the [src] package."), "You crush \the [src] package and feel it rapidly heat up.")
-	name = "cooked Donk-pocket"
-	desc = "The cooked, reheatable food of choice for the seasoned spaceman."
-	reagents.add_reagent(/singleton/reagent/drink/doctorsdelight, 5)
-	reagents.add_reagent(/singleton/reagent/hyperzine, 1.5)
-	reagents.add_reagent(/singleton/reagent/synaptizine, 1.25)
+/obj/item/reagent_containers/food/snacks/donkpocket/sinpocket/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Use it in hand to heat and release chemicals."
 
 /obj/item/reagent_containers/food/snacks/donkpocket/teriyaki
 	name = "teriyaki Donk-pocket"
-	desc = "The cold, reheatable food of choice for the seasoned salaryman."
+	desc = "A mass produced shelf-stable turnover. The reheatable food of choice for the seasoned salaryman."
 	filling_color = "#8e4619"
 	reagent_data = list(/singleton/reagent/nutriment = list("sweet and savory" = 1, "dough" = 2))
 
-/obj/item/reagent_containers/food/snacks/donkpocket/teriyaki/warm
-	name = "cooked teriyaki Donk-pocket"
-	desc = "The cooked, reheatable food of choice for the seasoned salaryman."
-	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/nutriment/protein = 1, /singleton/reagent/tricordrazine = 5)
-	reagent_data = list(/singleton/reagent/nutriment = list("warm sweet and savory" = 1, "dough" = 2))
-
 /obj/item/reagent_containers/food/snacks/donkpocket/takoyaki
 	name = "takoyaki Donk-pocket"
-	desc = "The cold, reheatable food of choice for the seasoned salaryman."
+	desc = "A mass produced shelf-stable turnover. The reheatable food of choice for the seasoned salaryman."
 	filling_color = "#8e4619"
 	reagent_data = list(/singleton/reagent/nutriment = list("takoyaki" = 1, "dough" = 2))
-
-/obj/item/reagent_containers/food/snacks/donkpocket/takoyaki/warm
-	name = "cooked takoyaki Donk-pocket"
-	desc = "The cooked, reheatable food of choice for the seasoned salaryman."
-	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/nutriment/protein = 1, /singleton/reagent/tricordrazine = 5)
-	reagent_data = list(/singleton/reagent/nutriment = list("warm takoyaki" = 1, "dough" = 2))
 
 /obj/item/reagent_containers/food/snacks/spacylibertyduff
 	name = "spacy liberty duff"

@@ -47,8 +47,8 @@ By design, d1 is the smallest direction and d2 is the highest
 	color = COLOR_RED
 	var/obj/machinery/power/breakerbox/breaker_box
 
-/obj/structure/cable/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/structure/cable/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	var/found_color_name = "Unknown"
 	for(var/color_name in GLOB.cable_coil_colours)
 		var/color_value = GLOB.cable_coil_colours[color_name]
@@ -221,7 +221,7 @@ By design, d1 is the smallest direction and d2 is the highest
 			return TRUE
 	return FALSE
 
-/obj/structure/cable/attack_generic(var/mob/user)
+/obj/structure/cable/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	//Let those rats (and other small things) nibble the cables
 	if (issmall(user) && !isDrone(user))
 		to_chat(user, SPAN_DANGER("You bite into \the [src]."))
@@ -503,7 +503,7 @@ By design, d1 is the smallest direction and d2 is the highest
 	w_class = WEIGHT_CLASS_SMALL
 	throw_speed = 2
 	throw_range = 5
-	matter = list(DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 20)
+	matter = list(DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 20, MATERIAL_PHORON = 3)
 	recyclable = TRUE
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	item_flags = ITEM_FLAG_HELD_MAP_TEXT
@@ -513,6 +513,7 @@ By design, d1 is the smallest direction and d2 is the highest
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
 	surgerysound = 'sound/items/surgery/fixovein.ogg'
+	contained_sprite = TRUE
 	build_from_parts = TRUE
 	worn_overlay = "end"
 
@@ -530,9 +531,8 @@ By design, d1 is the smallest direction and d2 is the highest
 	update_icon()
 	update_wclass()
 
-/obj/item/stack/cable_coil/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-
+/obj/item/stack/cable_coil/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	var/found_color_name = "Unknown"
 	for(var/color_name in GLOB.cable_coil_colours)
 		var/color_value = GLOB.cable_coil_colours[color_name]
@@ -542,7 +542,7 @@ By design, d1 is the smallest direction and d2 is the highest
 	. += "This cable is: <span style='color:[color]'>[found_color_name]</span>"
 
 	if(!uses_charge)
-		. += "There [src.amount == 1 ? "is" : "are"] <b>[src.amount]</b> [src.singular_name]\s of cable in the coil."
+		. += "There [src.amount == 1 ? "is" : "are"] <b>[src.amount] [src.singular_name]\s</b> of cable in the coil."
 	else
 		. += "You have enough charge to produce <b>[get_amount()]</b>."
 

@@ -17,6 +17,11 @@
 
 	matter = list(DEFAULT_WALL_MATERIAL = 700, MATERIAL_GLASS = 300)
 
+/obj/item/grenade/chem_grenade/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(detonator)
+		. += "With attached [detonator.name]"
+
 /obj/item/grenade/chem_grenade/Initialize()
 	. = ..()
 	create_reagents(1000)
@@ -110,11 +115,6 @@
 				name = "unsecured grenade with [beakers.len] containers[detonator?" and detonator":""]"
 			else
 				to_chat(user, SPAN_WARNING("\The [attacking_item] is empty."))
-
-/obj/item/grenade/chem_grenade/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(detonator)
-		. += "With attached [detonator.name]"
 
 /obj/item/grenade/chem_grenade/activate(mob/user as mob)
 	if(active) return

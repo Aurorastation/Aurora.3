@@ -56,7 +56,6 @@
 /obj/item/clothing/gloves/latex
 	name = "latex gloves"
 	desc = "Sterile latex gloves."
-	desc_info = "You can make balloons with these using some cable coil."
 	icon_state = "latex"
 	item_state = "latex"
 	siemens_coefficient = 1.0 //thin latex gloves, much more conductive than fabric gloves (basically a capacitor for AC)
@@ -66,6 +65,10 @@
 	drop_sound = 'sound/items/drop/rubber.ogg'
 	pickup_sound = 'sound/items/pickup/rubber.ogg'
 	var/balloon = /obj/item/toy/balloon/latex
+
+/obj/item/clothing/gloves/latex/assembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "You can make balloons with these using some cable coil."
 
 /obj/item/clothing/gloves/latex/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/stack/cable_coil))
@@ -442,7 +445,7 @@
 /obj/item/clothing/gloves/single
 	name = "single glove"
 	desc = "A single glove. This one is for the right hand."
-	icon = 'icons/clothing/gloves/single.dmi'
+	icon = 'icons/obj/item/clothing/gloves/single.dmi'
 	contained_sprite = TRUE
 	icon_state = "single"
 	item_state = "single"
@@ -455,7 +458,7 @@
 /obj/item/clothing/gloves/multi_color
 	name = "multi-color gloves"
 	desc = "A pair of gloves, each is a different color."
-	icon = 'icons/clothing/gloves/multi_color.dmi'
+	icon = 'icons/obj/item/clothing/gloves/multi_color.dmi'
 	contained_sprite = TRUE
 	icon_state = "multi_color"
 	item_state = "multi_color"

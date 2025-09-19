@@ -100,7 +100,7 @@
 	is_wieldable = TRUE
 
 /obj/item/gun/energy/blaster/rifle/verb/scope()
-	set category = "Object"
+	set category = "Object.Held"
 	set name = "Use Scope"
 	set src in usr
 
@@ -145,7 +145,7 @@
 	icon = 'icons/obj/guns/himeo_blaster.dmi'
 	icon_state = "himeoblaster"
 	item_state = "himeoblaster"
-	projectile_type = /obj/projectile/energy/blaster
+	projectile_type = /obj/projectile/energy/blaster/heavy
 	usesound = 'sound/weapons/plasma_cutter.ogg'
 	fire_sound = 'sound/weapons/gunshot/slammer.ogg'
 	cell_type = /obj/item/cell/hydrogen

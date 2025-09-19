@@ -37,7 +37,7 @@
 /obj/item/tajcard
 	name = "collectable tajaran card"
 	desc = "A collectable card with an illustration of a famous Tajaran figure, usually found inside cigarette packets."
-	icon = 'icons/obj/playing_cards.dmi'
+	icon = 'icons/obj/item/playing_cards.dmi'
 	icon_state = "tajcig"
 	drop_sound = 'sound/items/drop/paper.ogg'
 	pickup_sound = 'sound/items/pickup/paper.ogg'
@@ -144,7 +144,7 @@
 	return "around [user.get_pronoun("his")] neck"
 
 /obj/item/clothing/wrists/watch/pocketwatch/adhomai/checktime(mob/user)
-	set category = "Object"
+	set category = "Object.Equipped"
 	set name = "Check Time"
 	set src in usr
 

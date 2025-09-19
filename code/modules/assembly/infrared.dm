@@ -15,6 +15,11 @@
 	var/obj/effect/beam/i_beam/first = null
 	var/turf/beam_origin //If we're not on this turf anymore, we've moved. Catches holder.master movements when we're attached to bombs and stuff.
 
+/obj/item/device/assembly/infra/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	var/direction_text = dir2text(dir)
+	. += SPAN_NOTICE("It is facing [direction_text].")
+
 /obj/item/device/assembly/infra/activate()
 	if(!..())
 		return FALSE //Cooldown check
@@ -57,11 +62,6 @@
 		var/direction_text = dir2text(dir)
 		to_chat(user, SPAN_NOTICE("You rotate \the [src] to face [direction_text]."))
 		QDEL_NULL(first)
-
-/obj/item/device/assembly/infra/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	var/direction_text = dir2text(dir)
-	. += SPAN_NOTICE("It is facing [direction_text].")
 
 /obj/item/device/assembly/infra/process()
 

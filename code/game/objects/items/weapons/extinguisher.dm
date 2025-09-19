@@ -20,6 +20,22 @@
 	drop_sound = 'sound/items/drop/gascan.ogg'
 	pickup_sound = 'sound/items/pickup/gascan.ogg'
 
+/obj/item/reagent_containers/extinguisher_refill/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(!distance <= 2)
+		return
+
+	if(is_open_container())
+		if(LAZYLEN(reagents?.reagent_volumes))
+			. += SPAN_NOTICE("It contains <b>[round(reagents.total_volume, accuracy)]</b> units of non-aerosol mix.")
+		else
+			. += SPAN_NOTICE("It is empty.")
+	else
+		if(LAZYLEN(reagents?.reagent_volumes))
+			. += SPAN_NOTICE("The reagents are secured in the aerosol mix.")
+		else
+			. += SPAN_NOTICE("The cartridge seems spent.")
+
 /obj/item/reagent_containers/extinguisher_refill/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.isscrewdriver())
 		if(is_open_container())
@@ -57,22 +73,6 @@
 	else
 		to_chat(user,SPAN_NOTICE("\The reagents inside [src] are already secured!"))
 	return
-
-/obj/item/reagent_containers/extinguisher_refill/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(!distance <= 2)
-		return
-
-	if(is_open_container())
-		if(LAZYLEN(reagents?.reagent_volumes))
-			. += SPAN_NOTICE("It contains [round(reagents.total_volume, accuracy)] units of non-aerosol mix.")
-		else
-			. += SPAN_NOTICE("It is empty.")
-	else
-		if(LAZYLEN(reagents?.reagent_volumes))
-			. += SPAN_NOTICE("The reagents are secured in the aerosol mix.")
-		else
-			. += SPAN_NOTICE("The cartridge seems spent.")
 
 /obj/item/reagent_containers/extinguisher_refill/filled
 	name = "extinguisher refiller (monoammonium phosphate)"
@@ -125,17 +125,17 @@
 	spray_distance = 1
 	sprite_name = "miniFE"
 
+/obj/item/extinguisher/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(distance <= 0)
+		. += SPAN_NOTICE("\The [src] contains <b>[src.reagents.total_volume]</b> units of reagents.")
+		. += SPAN_NOTICE("The safety is [safety ? "on" : "off"].")
+	return
+
 /obj/item/extinguisher/New()
 	create_reagents(max_water)
 	reagents.add_reagent(/singleton/reagent/toxin/fertilizer/monoammoniumphosphate, max_water)
 	..()
-
-/obj/item/extinguisher/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(distance <= 0)
-		. += SPAN_NOTICE("\The [src] contains [src.reagents.total_volume] units of reagents.")
-		. += SPAN_NOTICE("The safety is [safety ? "on" : "off"].")
-	return
 
 /obj/item/extinguisher/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if(ismob(target_mob) && user.a_intent != I_HURT)

@@ -102,7 +102,7 @@
 	. = ..()
 	if(LAZYLEN(accessories))
 		for(var/obj/item/clothing/accessory/A in accessories)
-			. += SPAN_NOTICE("<a href='byond://?src=[REF(user)];lookitem=[REF(A)]>\A [A]</a> [A.gender == PLURAL ? "are" : "is"] attached to it.")
+			. += SPAN_NOTICE("<a href='byond://?src=[REF(user)];lookitem=[REF(A)]'>\A [A]</a> [A.gender == PLURAL ? "are" : "is"] attached to it.")
 
 /obj/item/clothing/proc/update_accessory_slowdown(mob/user)
 	slowdown_accessory = 0
@@ -137,22 +137,22 @@
 	update_accessory_slowdown()
 	recalculate_body_temperature_change()
 
-/obj/item/clothing/proc/remove_accessory(mob/user, obj/item/clothing/accessory/A)
+/obj/item/clothing/proc/remove_accessory(mob/wearer, obj/item/clothing/accessory/A)
 	if(!(A in accessories))
 		return
 
-	A.on_removed(user)
+	A.on_removed(wearer)
 	LAZYREMOVE(accessories, A)
 	update_clothing_icon()
-	update_accessory_slowdown(user)
+	update_accessory_slowdown(wearer)
 	recalculate_body_temperature_change()
 
 /obj/item/clothing/proc/remove_accessory_verb()
 	set name = "Remove Accessory"
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in usr
 
-	remove_accessory_handler(usr)
+	remove_accessory_handler(usr, FALSE)
 
 /obj/item/clothing/proc/remove_accessory_handler(var/mob/living/user, var/force_radial = FALSE)
 	if(!isliving(user))
@@ -183,6 +183,9 @@
 		try_reopen_radial_after_removal = TRUE
 	else
 		A = accessories[1]
+
+	if(use_check_and_message(user))
+		return
 
 	remove_accessory(usr, A)
 

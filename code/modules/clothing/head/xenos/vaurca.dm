@@ -12,7 +12,7 @@
 /obj/item/clothing/head/vaurca_breeder/verb/raise_shroud()
 	set name = "Raise Shroud"
 	set desc = "Raise your shroud."
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in usr
 
 	if(use_check_and_message(usr) || !ishuman(usr))

@@ -17,8 +17,8 @@ GLOBAL_LIST_EMPTY(teleportbeacons)
 	GLOB.teleportbeacons -= src
 	return ..()
 
-/obj/item/device/radio/beacon/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/device/radio/beacon/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(anchored)
 		. += SPAN_NOTICE("It's been secured to the ground with anchoring screws.")
 
@@ -42,7 +42,7 @@ GLOBAL_LIST_EMPTY(teleportbeacons)
 
 /obj/item/device/radio/beacon/verb/alter_signal(t as text)
 	set name = "Alter Beacon's Signal"
-	set category = "Object"
+	set category = "Object.Held"
 	set src in usr
 
 	if ((usr.canmove && !( usr.restrained() )))

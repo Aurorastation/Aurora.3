@@ -36,14 +36,14 @@
 		return
 	if(checks_for_access)
 		if(!allowed(user))
-			to_chat(user, SPAN_WARNING("Access Denied."))
+			to_chat(user, SPAN_WARNING("Access denied."))
 			return
 	src.ui_interact(user)
 
 /obj/machinery/embedded_controller/attack_hand(mob/user as mob)
 	if(checks_for_access)
 		if(!allowed(user))
-			to_chat(user, SPAN_WARNING("Access Denied."))
+			to_chat(user, SPAN_WARNING("Access denied."))
 			return
 
 	if(!user.IsAdvancedToolUser())

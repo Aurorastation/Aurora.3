@@ -10,6 +10,12 @@
 	var/image/obfuscation_image
 	var/mob/registered_user = null
 
+/obj/item/card/id/syndicate/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(is_adjacent)
+		if(user == registered_user)
+			. += SPAN_NOTICE("It is at <b>[charge]/[initial(charge)]</b> charge.")
+
 /obj/item/card/id/syndicate/New(mob/user as mob)
 	..()
 	access = GLOB.syndicate_access.Copy()
@@ -19,12 +25,6 @@
 	STOP_PROCESSING(SSprocessing, src)
 	unset_registered_user(registered_user)
 	return ..()
-
-/obj/item/card/id/syndicate/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(is_adjacent)
-		if(user == registered_user)
-			. += FONT_SMALL(SPAN_NOTICE("It is at [charge]/[initial(charge)] charge."))
 
 /obj/item/card/id/syndicate/process()
 	if(electronic_warfare)

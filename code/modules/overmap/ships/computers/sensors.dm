@@ -496,14 +496,14 @@
 	if(heat_percentage > 85)
 		AddOverlays("sensors-effect-hot")
 
-/obj/machinery/shipsensors/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/machinery/shipsensors/condition_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(health <= 0)
 		. += "\The [src] is wrecked."
 	else if(health < max_health * 0.25)
 		. += SPAN_DANGER("\The [src] looks like it's about to break!")
 	else if(health < max_health * 0.5)
-		. += SPAN_DANGER("\The [src] looks seriously damaged!")
+		. += SPAN_ALERT("\The [src] looks seriously damaged!")
 	else if(health < max_health * 0.75)
 		. += "\The [src] shows signs of damage!"
 
@@ -583,7 +583,7 @@
 /obj/machinery/shipsensors/weak
 	heat_reduction = 1.7 // Can sustain range 4
 	max_range = 7
-	desc = "Miniturized gravity scanner with various other sensors, used to detect irregularities in surrounding space. Can only run in vacuum to protect delicate quantum BS elements."
+	desc = "Miniaturized gravity scanner with various other sensors, used to detect irregularities in surrounding space. Can only run in vacuum to protect delicate quantum BS elements."
 	deep_scan_range = 0
 	component_types = list(
 		/obj/item/circuitboard/shipsensors/weak,

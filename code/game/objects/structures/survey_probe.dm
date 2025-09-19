@@ -11,9 +11,6 @@
 		It has different devices and samplers, as well as internal processing computers, \
 		to inspect the atmosphere and other properties and qualities of planetary bodies. \
 		Commonly used by surveyors, explorers, pioneers, all over the Spur, looking to determine the suitability of planets for settlement. "
-	desc_info = "\
-		The probe has to be deployed first before it is used. Wrench it to deploy, then click with empty hand to activate.\
-		"
 	icon = 'icons/obj/xenoarchaeology.dmi'
 	icon_state = "surveying_probe"
 	density = FALSE
@@ -31,11 +28,22 @@
 	var/desc_extra = "This probe was manufactured by Orion Express, but it is based on on older model designed by Hephaestus Industries."
 	var/survey_type = SURVEY_TYPE_ATMOSPHERIC
 
+/obj/structure/survey_probe/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "The probe has to be deployed first before it is used: wrench it to deploy, then click with empty hand to activate."
+
+/obj/structure/survey_probe/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This probe was manufactured by Orion Express, but it is based on on older model designed by Hephaestus Industries."
+	if(survey_type == SURVEY_TYPE_ATMOSPHERIC)
+		desc += "When deployed, this probe will read and relay weather data to compatible devices."
+	if(survey_type == SURVEY_TYPE_GROUND)
+		desc += "When deployed, this probe will read and relay seismic data to compatible devices."
+	if(survey_type == SURVEY_TYPE_GEOMAGNETIC)
+		desc += "When deployed, this probe will read and relay geomagnetic data to compatible devices."
+
 /obj/structure/survey_probe/Initialize(mapload)
 	. = ..()
-	desc_extended += desc_extra
-	if(survey_type == SURVEY_TYPE_ATMOSPHERIC)
-		desc += " When deployed, this probe will read and relay weather data to compatible devices."
 	if(start_deployed)
 		deploy()
 
@@ -224,8 +232,6 @@
 		It has different devices and drill bits, as well as internal processing computers, \
 		to inspect the ground, soil and crust of planetary bodies. \
 		Commonly used by surveyors, explorers, pioneers, all over the Spur, looking to determine the mineral value of planets for settlement. "
-	desc_info = "\
-		The probe has to be deployed first before it is used. Wrench it to deploy, then click with empty hand to activate."
 
 	icon_state = "ground_probe"
 	survey_type = SURVEY_TYPE_GROUND
@@ -268,8 +274,6 @@
 		It has different devices and instruments bits, as well as internal processing computers, \
 		to inspect the magnetic field and magnetosphere of planetary bodies. \
 		Commonly used by surveyors, explorers, pioneers, all over the Spur, looking to determine the sefety and comfort of planets for settlement. "
-	desc_info = "\
-		The probe has to be deployed first before it is used. Wrench it to deploy, then click with empty hand to activate."
 
 	icon_state = "magnet_probe"
 	survey_type = SURVEY_TYPE_GEOMAGNETIC

@@ -28,7 +28,7 @@
 
 /obj/item/gun/projectile/colt/detective/verb/rename_gun()
 	set name = "Name Gun"
-	set category = "Object"
+	set category = "Object.Held"
 	set desc = "Rename your gun. If you're the detective."
 	set src in usr
 
@@ -332,7 +332,7 @@
 
 /obj/item/gun/projectile/pistol/detective/verb/rename_gun()
 	set name = "Name Gun"
-	set category = "Object"
+	set category = "Object.Held"
 	set desc = "Rename your gun."
 	set src in usr
 
@@ -420,6 +420,22 @@
 	else
 		icon_state = "m8-empty"
 
+/obj/item/gun/projectile/pistol/sol/siib
+	name = "solarian SIIB silenced pistol"
+	desc = "A variant of the M8 solarian service pistol, this paticular variant comes with an integrated recoil compensator and are used by SIIB agents and operatives. Officially, this pistol does not exist."
+	icon = 'icons/obj/guns/sol_pistol.dmi'
+	icon_state = "m8-siib"
+	item_state = "m8-siib"
+	suppressed = FALSE
+	can_suppress = FALSE
+
+/obj/item/gun/projectile/pistol/sol/siib/update_icon()
+	..()
+	if(ammo_magazine)
+		icon_state = "m8-siib"
+	else
+		icon_state = "m8-siib-empty"
+
 /obj/item/gun/projectile/pistol/sol/konyang
 	name = "konyang service pistol"
 	desc = "The compact M8, redesignated as the K8, is the standard service pistol of the Konyanger Armed Forces. Inherited from the Solarian military, Zavodskoi has since given these handguns \
@@ -483,10 +499,10 @@
 	accuracy = -3
 	accuracy_wielded = 1
 
-/obj/item/gun/projectile/pistol/super_heavy/Initialize()
-	. = ..()
-	desc_info = "This is an extremely powerful ballistic weapon, using .599 Kumar Super ammunition. If you aren't an Unathi or a G2 IPC, firing without wielding (clicking in-hand) could lead to serious injury or death; Unathi and G2s may fire it unwielded \
-	with an aim penalty. To fire the weapon, toggle the safety with ctrl-click (or enable HARM intent), then click where you want to fire.  To reload, click the gun with an empty hand to remove the magazine, and then insert a new one."
+/obj/item/gun/projectile/pistol/super_heavy/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This is an extremely powerful ballistic weapon, using .599 Kumar Super ammunition."
+	. += "If you aren't an Unathi or a G2 IPC, firing without wielding (clicking in-hand) could lead to serious injury or death. Unathi and G2s may fire it unwielded with an aim penalty."
 
 /obj/item/gun/projectile/pistol/super_heavy/update_icon()
 	..()

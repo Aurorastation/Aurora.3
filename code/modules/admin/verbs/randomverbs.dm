@@ -119,6 +119,65 @@
 	message_admins(SPAN_NOTICE("\bold LocalNarrate: [key_name_admin(usr)] : [msg]<BR>"), 1)
 	feedback_add_details("admin_verb", "LCLN") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
+
+/client/proc/cmd_admin_local_screen_text()
+	set category = "Special Verbs"
+	set name = "Local Screen Text"
+
+	if(!check_rights(R_ADMIN, TRUE))
+		return
+
+	var/list/mob/message_mobs = list()
+	var/choice = tgui_alert(usr, "Local Screen Text will send a screen text message to mobs. Do you want the mobs messaged to be only ones that you can see, or ignore blocked vision and message everyone within seven tiles of you?", "Narrate Selection", list("View", "Range", "Cancel"))
+	if(choice != "Cancel")
+		if(choice == "View")
+			message_mobs = mobs_in_view(view, src.mob)
+		else
+			for(var/mob/M in range(view, src.mob))
+				message_mobs += M
+	else
+		return
+
+	var/msg = tgui_input_text(usr, "Insert the screen message you want to send.", "Local Screen Text")
+	if(!msg)
+		return
+
+	var/big_text = tgui_alert(src, "Do you want big or normal text?", "Local Screen Text", list("Big", "Normal"))
+	var/text_type = /atom/movable/screen/text/screen_text
+	if(big_text == "Big")
+		text_type = /atom/movable/screen/text/screen_text/command_order
+
+	for(var/mob/M in message_mobs)
+		if(M.client)
+			M.play_screen_text(msg,text_type, COLOR_RED)
+	log_admin("LocalScreenText: [key_name(usr)] : [msg]")
+	message_admins(SPAN_NOTICE("Local Screen Text: [key_name_admin(usr)] : [msg]"), 1)
+	feedback_add_details("admin_verb", "LSTX") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+
+/client/proc/cmd_admin_global_screen_text()
+	set category = "Special Verbs"
+	set name = "Global Screen Text"
+
+	if(!check_rights(R_ADMIN, TRUE))
+		return
+
+	var/msg = tgui_input_text(usr, "Insert the screen message you want to send.", "Global Screen Text")
+	if(!msg)
+		return
+
+	var/big_text = tgui_alert(src, "Do you want big or normal text?", "Global Screen Text", list("Big", "Normal"))
+	var/text_type = /atom/movable/screen/text/screen_text
+	if(big_text == "Big")
+		text_type = /atom/movable/screen/text/screen_text/command_order
+
+	for(var/mob/M in GLOB.mob_list)
+		if(M.client)
+			M.play_screen_text(msg, text_type, COLOR_RED)
+
+	log_admin("GlobalScreenText: [key_name(usr)] : [msg]")
+	message_admins(SPAN_NOTICE("Global Screen Text: [key_name_admin(usr)] : [msg]"), 1)
+	feedback_add_details("admin_verb", "GSTX") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+
 /client/proc/cmd_admin_direct_narrate(var/mob/M)	// Targetted narrate -- TLE
 	set category = "Special Verbs"
 	set name = "Direct Narrate"
@@ -1010,17 +1069,16 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	set name = "Toggle random events on/off"
 
 	set desc = "Toggles random events such as meteors, black holes, blob (but not space dust) on/off"
-	if(!check_rights(R_SERVER))	return
-
-	if(!GLOB.config.allow_random_events)
-		GLOB.config.allow_random_events = 1
-		to_chat(usr, "Random events enabled")
-		message_admins("Admin [key_name_admin(usr)] has enabled random events.", 1)
-	else
-		GLOB.config.allow_random_events = 0
-		to_chat(usr, "Random events disabled")
-		message_admins("Admin [key_name_admin(usr)] has disabled random events.", 1)
-	feedback_add_details("admin_verb","TRE") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+	if(check_rights(R_SERVER) || isstoryteller(usr))
+		if(!GLOB.config.allow_random_events)
+			GLOB.config.allow_random_events = 1
+			to_chat(usr, "Random events enabled")
+			message_admins("Admin [key_name_admin(usr)] has enabled random events.", 1)
+		else
+			GLOB.config.allow_random_events = 0
+			to_chat(usr, "Random events disabled")
+			message_admins("Admin [key_name_admin(usr)] has disabled random events.", 1)
+		feedback_add_details("admin_verb","TRE") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/fab_tip()
 	set category = "Admin"

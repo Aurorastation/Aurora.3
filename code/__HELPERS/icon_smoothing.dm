@@ -44,10 +44,13 @@
 	var/tmp/top_right_corner
 	var/tmp/bottom_left_corner
 	var/tmp/bottom_right_corner
-	var/list/canSmoothWith = null // TYPE PATHS I CAN SMOOTH WITH~~~~~ If this is null and atom is smooth, it smooths only with itself
+	/// TYPE PATHS I CAN SMOOTH WITH - If this is null and atom is smooth, it smooths only with itself
+	var/list/canSmoothWith = null
 	var/list/can_blend_with = null
-	var/blend_overlay //Icon state of the blending overlay.
-	var/attach_overlay //Icon state of the overlay this object uses to attach to other objects.
+	/// Icon state of the blending overlay.
+	var/blend_overlay
+	/// Icon state of the overlay this object uses to attach to other objects.
+	var/attach_overlay
 
 /atom/movable
 	var/can_be_unanchored = 0
@@ -56,10 +59,14 @@
 
 /turf
 	var/list/fixed_underlay
-	var/smooth_underlays	// Determines if we should attempt to generate turf underlays for this type.
-	var/tile_decal_state // override if you don't want decals to cut from the icon state directly but something else. used for coloring decals, mostly
-	var/tile_outline // decal effect for "sinking in" the edges.
-	var/tile_outline_alpha // how dark you want the sinking in to be. set this if you want above to do stuff.
+	/// Determines if we should attempt to generate turf underlays for this type.
+	var/smooth_underlays
+	/// Override if you don't want decals to cut from the icon state directly but something else. Used for coloring decals, mostly
+	var/tile_decal_state
+	/// Decal effect for "sinking in" the edges.
+	var/tile_outline
+	/// How dark you want the sinking in to be. Set this if you want above to do stuff.
+	var/tile_outline_alpha
 	var/tile_outline_blend_process = ICON_OVERLAY
 
 /turf/simulated/wall/shuttle
@@ -225,7 +232,7 @@
 /turf/proc/get_underlays(var/list/adjacencies)
 	SHOULD_NOT_SLEEP(TRUE)
 
-	//First of all, check if there are turfs like us we can ask for underlays.
+	// First of all, check if there are turfs like us we can ask for underlays.
 	adjacencies = calculate_adjacencies()
 	var/success = FALSE
 	if (smooth_underlays)
@@ -241,7 +248,7 @@
 						success = TRUE
 						break
 
-		//if all else fails, ask our own turf
+		// If all else fails, ask our own turf
 		if(!success)
 			underlay_appearance.icon = base_icon
 			underlay_appearance.icon_state = base_icon_state
@@ -264,12 +271,15 @@
 			}\
 	}
 
-//Blend atoms
+/**
+ * Blend atoms
+ */
 /atom/proc/handle_blending(adjacencies, var/list/dir_mods, var/overlay_layer = 3)
 	SHOULD_NOT_SLEEP(TRUE)
 
 	LAZYINITLIST(dir_mods)
-	var/walls_found = 0 //Bitfield of the directions of walls we've found.
+	// Bitfield of the directions of walls we've found.
+	var/walls_found = 0
 	for(var/adjacency in list(N_NORTH, N_EAST, N_SOUTH, N_WEST))
 		if(adjacencies & adjacency)
 			var/turf/T = get_step(src, REVERSE_DIR(adjacency))

@@ -21,13 +21,13 @@
 		ACCESS_RD, ACCESS_HEADS, ACCESS_TOX, ACCESS_GENETICS, ACCESS_MORGUE, ACCESS_EVA, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_TOX_STORAGE,
 		ACCESS_TELEPORTER, ACCESS_SEC_DOORS, ACCESS_MEDICAL, ACCESS_ENGINE, ACCESS_SHIP_WEAPONS, ACCESS_CONSTRUCTION, ACCESS_MINING, ACCESS_MAILSORTING, ACCESS_RESEARCH,
 		ACCESS_XENOBIOLOGY, ACCESS_XENOBOTANY, ACCESS_AI_UPLOAD, ACCESS_TECH_STORAGE, ACCESS_RC_ANNOUNCE, ACCESS_KEYCARD_AUTH, ACCESS_TCOMSAT, ACCESS_GATEWAY,
-		ACCESS_XENOARCH, ACCESS_NETWORK, ACCESS_MAINT_TUNNELS, ACCESS_IT, ACCESS_INTREPID
+		ACCESS_XENOARCH, ACCESS_NETWORK, ACCESS_MAINT_TUNNELS, ACCESS_IT, ACCESS_INTREPID, ACCESS_SPARK, ACCESS_QUARK, ACCESS_CANARY
 	)
 	minimal_access = list(
 		ACCESS_RD, ACCESS_HEADS, ACCESS_TOX, ACCESS_GENETICS, ACCESS_MORGUE, ACCESS_EVA, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_TOX_STORAGE,
 		ACCESS_TELEPORTER, ACCESS_SEC_DOORS, ACCESS_MEDICAL, ACCESS_ENGINE, ACCESS_SHIP_WEAPONS, ACCESS_CONSTRUCTION, ACCESS_MINING, ACCESS_MAILSORTING, ACCESS_RESEARCH,
 		ACCESS_XENOBIOLOGY, ACCESS_XENOBOTANY, ACCESS_AI_UPLOAD, ACCESS_TECH_STORAGE, ACCESS_RC_ANNOUNCE, ACCESS_KEYCARD_AUTH, ACCESS_TCOMSAT, ACCESS_GATEWAY,
-		ACCESS_XENOARCH, ACCESS_NETWORK, ACCESS_MAINT_TUNNELS, ACCESS_IT, ACCESS_INTREPID
+		ACCESS_XENOARCH, ACCESS_NETWORK, ACCESS_MAINT_TUNNELS, ACCESS_IT, ACCESS_INTREPID, ACCESS_SPARK, ACCESS_QUARK, ACCESS_CANARY
 	)
 	minimal_player_age = 14
 	outfit = /obj/outfit/job/rd
@@ -41,7 +41,7 @@
 	uniform = /obj/item/clothing/under/rank/research_director
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/science
 	shoes = /obj/item/clothing/shoes/sneakers/brown
-	id = /obj/item/card/id/silver
+	id = /obj/item/card/id/scc/silver
 	l_hand = /obj/item/clipboard
 
 	headset = /obj/item/device/radio/headset/heads/rd
@@ -77,8 +77,8 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	access = list(ACCESS_TOX, ACCESS_TOX_STORAGE, ACCESS_RESEARCH, ACCESS_INTREPID)
-	minimal_access = list(ACCESS_TOX, ACCESS_TOX_STORAGE, ACCESS_RESEARCH, ACCESS_INTREPID)
+	access = list(ACCESS_TOX, ACCESS_TOX_STORAGE, ACCESS_RESEARCH, ACCESS_INTREPID, ACCESS_SPARK, ACCESS_QUARK, ACCESS_CANARY)
+	minimal_access = list(ACCESS_TOX, ACCESS_TOX_STORAGE, ACCESS_RESEARCH, ACCESS_INTREPID, ACCESS_SPARK, ACCESS_QUARK, ACCESS_CANARY)
 
 	minimal_player_age = 14
 	outfit = /obj/outfit/job/scientist
@@ -119,7 +119,7 @@
 	department_flag = MEDSCI
 	faction = "Station"
 	alt_titles = list("Anomalist")
-	alt_outfits = list("Anomalist" = "/obj/outfit/job/scientist/anomalist")
+	alt_outfits = list("Anomalist" = /obj/outfit/job/scientist/anomalist)
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the research director"
@@ -132,8 +132,8 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	access = list(ACCESS_TOX, ACCESS_TOX_STORAGE, ACCESS_RESEARCH, ACCESS_XENOARCH, ACCESS_INTREPID)
-	minimal_access = list(ACCESS_RESEARCH, ACCESS_XENOARCH, ACCESS_TOX, ACCESS_TOX_STORAGE, ACCESS_INTREPID)
+	access = list(ACCESS_TOX, ACCESS_TOX_STORAGE, ACCESS_RESEARCH, ACCESS_XENOARCH, ACCESS_INTREPID, ACCESS_SPARK, ACCESS_QUARK, ACCESS_CANARY)
+	minimal_access = list(ACCESS_RESEARCH, ACCESS_XENOARCH, ACCESS_TOX, ACCESS_TOX_STORAGE, ACCESS_INTREPID, ACCESS_SPARK, ACCESS_QUARK, ACCESS_CANARY)
 
 	minimal_player_age = 14
 	outfit = /obj/outfit/job/scientist/xenoarchaeologist
@@ -145,11 +145,11 @@
 
 	uniform = /obj/item/clothing/under/rank/scientist/xenoarchaeologist
 
-	headset = /obj/item/device/radio/headset/headset_xenoarch
-	bowman = /obj/item/device/radio/headset/headset_xenoarch/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/xenoarch
-	wrist_radio = /obj/item/device/radio/headset/wrist/xenoarch
-	clipon_radio = /obj/item/device/radio/headset/wrist/clip/xenoarch
+	headset = /obj/item/device/radio/headset/headset_xenology
+	bowman = /obj/item/device/radio/headset/headset_xenology/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/xenology
+	wrist_radio = /obj/item/device/radio/headset/wrist/xenology
+	clipon_radio = /obj/item/device/radio/headset/wrist/clip/xenology
 
 /obj/outfit/job/scientist/anomalist
 	name = "Anomalist"
@@ -181,8 +181,8 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	access = list(ACCESS_TOX, ACCESS_TOX_STORAGE, ACCESS_RESEARCH, ACCESS_XENOBIOLOGY)
-	minimal_access = list(ACCESS_TOX, ACCESS_RESEARCH, ACCESS_XENOBIOLOGY, ACCESS_TOX_STORAGE)
+	access = list(ACCESS_TOX, ACCESS_TOX_STORAGE, ACCESS_RESEARCH, ACCESS_XENOBIOLOGY, ACCESS_INTREPID, ACCESS_SPARK, ACCESS_QUARK, ACCESS_CANARY)
+	minimal_access = list(ACCESS_TOX, ACCESS_RESEARCH, ACCESS_XENOBIOLOGY, ACCESS_TOX_STORAGE, ACCESS_INTREPID, ACCESS_SPARK, ACCESS_QUARK, ACCESS_CANARY)
 
 	minimal_player_age = 14
 
@@ -194,6 +194,12 @@
 	jobtype = /datum/job/xenobiologist
 
 	uniform = /obj/item/clothing/under/rank/scientist/xenobio
+
+	headset = /obj/item/device/radio/headset/headset_xenology
+	bowman = /obj/item/device/radio/headset/headset_xenology/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/xenology
+	wrist_radio = /obj/item/device/radio/headset/wrist/xenology
+	clipon_radio = /obj/item/device/radio/headset/wrist/clip/xenology
 
 /datum/job/xenobotanist
 	title = "Xenobotanist"
@@ -213,8 +219,8 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	access = list(ACCESS_TOX_STORAGE, ACCESS_RESEARCH, ACCESS_XENOBOTANY, ACCESS_TOX)
-	minimal_access = list(ACCESS_TOX, ACCESS_TOX_STORAGE, ACCESS_RESEARCH, ACCESS_XENOBOTANY)
+	access = list(ACCESS_TOX_STORAGE, ACCESS_RESEARCH, ACCESS_XENOBOTANY, ACCESS_TOX, ACCESS_INTREPID, ACCESS_SPARK, ACCESS_QUARK, ACCESS_CANARY)
+	minimal_access = list(ACCESS_TOX, ACCESS_TOX_STORAGE, ACCESS_RESEARCH, ACCESS_XENOBOTANY, ACCESS_INTREPID, ACCESS_SPARK, ACCESS_QUARK, ACCESS_CANARY)
 
 	minimal_player_age = 14
 
@@ -227,6 +233,12 @@
 	jobtype = /datum/job/xenobotanist
 
 	uniform = /obj/item/clothing/under/rank/scientist/botany
+
+	headset = /obj/item/device/radio/headset/headset_xenology
+	bowman = /obj/item/device/radio/headset/headset_xenology/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/xenology
+	wrist_radio = /obj/item/device/radio/headset/wrist/xenology
+	clipon_radio = /obj/item/device/radio/headset/wrist/clip/xenology
 
 /datum/job/intern_sci
 	title = "Research Intern"

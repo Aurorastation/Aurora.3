@@ -1,6 +1,6 @@
 /mob/living/proc/convert_to_rev()
 	set name = "Invite to the Revolutionaries"
-	set category = "IC"
+	set category = "IC.Antag"
 
 	var/list/mobs_to_convert = list()
 	for(var/mob/A in orange(world.view, src))
@@ -55,7 +55,7 @@
 
 /mob/living/proc/convert_to_loyalist()
 	set name = "Invite to the Loyalists"
-	set category = "IC"
+	set category = "IC.Antag"
 
 	var/list/mobs_to_convert = list()
 	for(var/mob/A in orange(world.view, src))

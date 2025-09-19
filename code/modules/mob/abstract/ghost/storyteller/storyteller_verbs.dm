@@ -142,6 +142,56 @@
 	var/datum/tgui_module/narrate_panel/NP = new /datum/tgui_module/narrate_panel(usr)
 	NP.ui_interact(usr)
 
+/mob/abstract/ghost/storyteller/verb/local_screen_text()
+	set name = "Local Screen Text"
+	set category = "Storyteller"
+
+	var/list/mob/message_mobs = list()
+	var/choice = html_decode(sanitize(tgui_alert(src, "Local Screen Text will send a screen text message to mobs. Do you want the mobs messaged to be only ones that you can see, or ignore blocked vision and message everyone within seven tiles of you?", "Narrate Selection", list("View", "Range", "Cancel"))))
+	if(choice != "Cancel")
+		if(choice == "View")
+			message_mobs = mobs_in_view(world.view, src)
+		else
+			for(var/mob/M in range(world.view, src))
+				message_mobs += M
+	else
+		return
+
+	var/msg = tgui_input_text(src, "Insert the screen message you want to send.", "Local Screen Text")
+	if(!msg)
+		return
+
+	var/big_text = tgui_alert(src, "Do you want big or normal text?", "Local Screen Text", list("Big", "Normal"))
+	var/text_type = /atom/movable/screen/text/screen_text
+	if(big_text == "Big")
+		text_type = /atom/movable/screen/text/screen_text/command_order
+
+	for(var/mob/M in message_mobs)
+		if(M.client)
+			M.play_screen_text(msg, text_type, COLOR_PURPLE)
+	log_admin("LocalScreenText: [key_name(usr)] : [msg]")
+	message_admins(SPAN_NOTICE("Local Screen Text: [key_name_admin(usr)] : [msg]"), 1)
+
+/mob/abstract/ghost/storyteller/verb/global_screen_text()
+	set name = "Global Screen Text"
+	set category = "Storyteller"
+
+	var/msg = html_decode(sanitize(tgui_input_text(src, "Insert the screen message you want to send.", "Global Screen Text")))
+	if(!msg)
+		return
+
+	var/big_text = tgui_alert(src, "Do you want big or normal text?", "Global Screen Text", list("Big", "Normal"))
+	var/text_type = /atom/movable/screen/text/screen_text
+	if(big_text == "Big")
+		text_type = /atom/movable/screen/text/screen_text/command_order
+
+	for(var/mob/M in GLOB.mob_list)
+		if(M.client)
+			M.play_screen_text(msg, text_type, COLOR_PURPLE)
+
+	log_admin("GlobalScreenText: [key_name(usr)] : [msg]")
+	message_admins(SPAN_NOTICE("Global Screen Text: [key_name_admin(usr)] : [msg]"), 1)
+
 /mob/abstract/ghost/storyteller/verb/storyteller_direct_narrate(var/mob/M)
 	set name = "Direct Narrate"
 	set category = "Storyteller"

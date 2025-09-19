@@ -92,7 +92,7 @@
 	. = !istype(A,/area/space)
 
 /proc/is_shuttle_area(var/area/A)
-	. = istype(A,/area/shuttle)
+	. = istype(A,/area/horizon/shuttle)
 
 /proc/is_area_with_turf(var/area/A)
 	. = isnum(A.x)
@@ -101,7 +101,7 @@
 	. = !is_area_with_turf(A)
 
 /proc/is_maint_area(var/area/A)
-	. = istype(A,/area/maintenance)
+	. = istype(A,/area/horizon/maintenance)
 
 /proc/is_not_maint_area(var/area/A)
 	. = !is_maint_area(A)

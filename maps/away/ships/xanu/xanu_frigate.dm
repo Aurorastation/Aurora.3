@@ -8,7 +8,7 @@
 	suffix = "xanu_frigate.dmm"
 
 	sectors = list(ALL_COALITION_SECTORS)
-	spawn_weight_sector_dependent = list(SECTOR_LIBERTYS_CRADLE = 3)
+	spawn_weight_sector_dependent = list(SECTOR_LIBERTYS_CRADLE = 3, SECTOR_XANU = 3, SECTOR_BURZSIA = 0.5)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "xanu_frigate"

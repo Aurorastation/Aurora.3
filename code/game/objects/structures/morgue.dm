@@ -1,9 +1,9 @@
 /* Morgue stuff
  * Contains:
- *		Morgue
- *		Morgue trays
- *		Crematorium
- *		Crematorium trays
+ * * Morgue
+ * * Morgue trays
+ * * Crematorium
+ * * Crematorium trays
  */
 
 /*

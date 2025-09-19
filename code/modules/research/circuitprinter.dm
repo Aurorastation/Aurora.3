@@ -44,7 +44,14 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 	///The timer id for the build callback, if we're building something
 	var/build_callback_timer
 
+
+/obj/machinery/r_n_d/circuit_imprinter/upgrade_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Upgraded <b>matter bins</b> will increase material storage capacity."
+	. += "Upgraded <b>manipulators</b> will improve material use efficiency and increase fabrication speed."
+
 /obj/machinery/r_n_d/circuit_imprinter/RefreshParts()
+	..()
 	// Adjust reagent container volume to match combined volume of the inserted beakers
 	var/T = 0
 	for(var/obj/item/reagent_containers/glass/G in component_parts)

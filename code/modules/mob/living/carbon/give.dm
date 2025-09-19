@@ -48,4 +48,4 @@
 		I.on_give(usr, target)
 		if(!QDELETED(I)) // if on_give deletes the item, we don't want runtimes below
 			target.put_in_hands(I) // If this fails it will just end up on the floor, but that's fitting for things like dionaea.
-			usr.visible_message("<b>[usr]</b> hands [target] \a [I].", SPAN_NOTICE("You give \the [target] a [I]."))
+			usr.visible_message("<b>[usr]</b> hands \the [target] \a [I].", SPAN_NOTICE("You give \the [target] \a [I]."))

@@ -1,6 +1,6 @@
 /obj/outfit/admin/ert/hephaestus
 	name = "Hephaestus Asset Protection"
-	uniform = /obj/item/clothing/under/rank/security/heph
+	uniform = /obj/item/clothing/under/ert/hephaestus
 	shoes = /obj/item/clothing/shoes/jackboots
 	species_shoes = list(
 		SPECIES_UNATHI = /obj/item/clothing/shoes/jackboots/toeless
@@ -44,7 +44,8 @@
 		H.equip_to_slot_if_possible(boots, slot_shoes)
 
 /obj/outfit/admin/ert/hephaestus/medic
-	name = "Hephaestus Medic"
+	name = "Hephaestus Asset Protection - Medic"
+	uniform = /obj/item/clothing/under/ert/hephaestus/medic
 	belt = /obj/item/storage/belt/medical/paramedic/combat
 	glasses = /obj/item/clothing/glasses/hud/health
 	gloves = /obj/item/clothing/gloves/latex
@@ -78,7 +79,8 @@
 	)
 
 /obj/outfit/admin/ert/hephaestus/engi
-	name = "Hephaestus Engineer"
+	name = "Hephaestus Asset Protection - Engineer"
+	uniform = /obj/item/clothing/under/ert/hephaestus/engineer
 	back = /obj/item/storage/backpack/duffel/heph
 	belt = /obj/item/storage/belt/utility/very_full
 	gloves = /obj/item/clothing/gloves/yellow
@@ -99,5 +101,5 @@
 	belt_contents = null
 
 /obj/outfit/admin/ert/hephaestus/leader
-	name = "Hephaestus Squad Leader"
-	uniform = /obj/item/clothing/under/rank/captain/hephaestus
+	name = "Hephaestus Asset Protection - Squad Leader"
+	uniform = /obj/item/clothing/under/ert/hephaestus/leader

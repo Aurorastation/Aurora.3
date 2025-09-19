@@ -19,11 +19,20 @@ var/round_start_time
 /proc/time_stamp()
 	return time2text(world.timeofday, "hh:mm:ss")
 
-/* Returns 1 if it is the selected month and day */
+/**
+ * Check if specific day of the year
+ *
+ * * month - month in integer form
+ * * day - day in integer form
+ *
+ * Returns TRUE if the passed month/day is the current server world date
+ */
 /proc/isDay(var/month, var/day)
 	if(isnum(month) && isnum(day))
-		var/MM = text2num(time2text(world.timeofday, "MM")) // get the current month
-		var/DD = text2num(time2text(world.timeofday, "DD")) // get the current day
+		// Get the current month
+		var/MM = text2num(time2text(world.timeofday, "MM"))
+		// Get the current day
+		var/DD = text2num(time2text(world.timeofday, "DD"))
 		if(month == MM && day == DD)
 			return 1
 
@@ -32,9 +41,16 @@ var/round_start_time
 			//return 1
 
 var/real_round_start_time
-/proc/get_round_duration() //Real time since round has started, in ticks.
+
+/**
+ * Real time since round has started, in ticks.
+ */
+/proc/get_round_duration()
 	return real_round_start_time ? (REALTIMEOFDAY - real_round_start_time) : 0
 
+/**
+ * Real time since round has started, in hours and minutes.
+ */
 /proc/get_round_duration_formatted()
 	var/duration = get_round_duration()
 	var/hour = "[ round(duration / ( 1 HOUR) ) ]"
@@ -49,12 +65,15 @@ var/real_round_start_time
 /var/midnight_rollovers = 0
 /var/rollovercheck_last_timeofday = 0
 /proc/update_midnight_rollover()
-	if (world.timeofday < rollovercheck_last_timeofday) //TIME IS GOING BACKWARDS!
+	// TIME IS GOING BACKWARDS!
+	if (world.timeofday < rollovercheck_last_timeofday)
 		midnight_rollovers += 1
 	rollovercheck_last_timeofday = world.timeofday
 	return midnight_rollovers
 
-//returns timestamp in a sql and ISO 8601 friendly format
+/**
+ * Returns timestamp in a SQL- and ISO 8601-friendly format.
+ */
 /proc/SQLtime(timevar)
 	if(!timevar)
 		timevar = world.realtime
@@ -73,8 +92,9 @@ var/real_round_start_time
 /proc/stop_watch(wh)
 	return round(0.1 * (REALTIMEOFDAY - wh), 0.1)
 
-//Takes a value of time in deciseconds.
-//Returns a text value of that number in hours, minutes, or seconds.
+/**
+ * Returns a text value of a given # of deciseconds in hours, minutes, or seconds.
+ */
 /proc/DisplayTimeText(time_value, round_seconds_to = 0.1)
 	var/second = FLOOR_FLOAT(time_value * 0.1, round_seconds_to)
 	if(!second)

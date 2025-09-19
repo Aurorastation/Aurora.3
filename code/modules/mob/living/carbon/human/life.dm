@@ -56,7 +56,7 @@
 		handle_changeling()
 
 		//Organs
-		handle_organs()
+		handle_organs(seconds_per_tick)
 		stabilize_body_temperature() //Body temperature adjusts itself (self-regulation)
 
 		//Random events (vomiting etc)
@@ -464,7 +464,13 @@
 		var/recovery_amt = min((body_temperature_difference / BODYTEMP_AUTORECOVERY_DIVISOR), -BODYTEMP_AUTORECOVERY_MINIMUM)	//We're dealing with negative numbers
 		bodytemperature += recovery_amt
 
-	//This proc returns a number made up of the flags for body parts which you are protected on. (such as HEAD, UPPER_TORSO, LOWER_TORSO, etc. See setup.dm for the full list)
+/**
+ * Returns a bitflag for the body parts currently heat-protected. Called and used by get_heat_protection()
+ * If the passed temperature is less than the item's max_heat_protection_temperature, then the flag is added to the associated body part(s).
+ * Refer to 'code/__DEFINES/item_clothing.dm' for details.
+ *
+ * * temperature - the temperature the living/carbon/human is being exposed to.
+ */
 /mob/living/carbon/human/proc/get_heat_protection_flags(temperature) //Temperature is the temperature you're being exposed to.
 	var/thermal_protection_flags = 0
 	//Handle normal clothing
@@ -489,7 +495,14 @@
 
 	return thermal_protection_flags
 
-/mob/living/carbon/human/get_heat_protection(temperature) //Temperature is the temperature you're being exposed to.
+/**
+ * Returns a bitflag for the body parts currently heat-protected. Called by get_heat_protection()
+ * If the passed temperature is less than the item's max_heat_protection_temperature, then the flag is added to the associated body part(s).
+ * Refer to 'code/__DEFINES/item_clothing.dm' for details.
+ *
+ * * temperature - the temperature the living/carbon/human is being exposed to.
+ */
+/mob/living/carbon/human/get_heat_protection(temperature)
 	var/thermal_protection_flags = get_heat_protection_flags(temperature)
 
 	var/thermal_protection = 0.0
@@ -1402,15 +1415,23 @@
 			hud_list[SPECIALROLE_HUD] = holder
 	hud_updateflag = 0
 
-/mob/living/carbon/human/handle_fire()
+/**
+ * If parent proc returns TRUE, this entity is no longer on fire (nothing to see here, in that case).
+ * Otherwise, we first get burn temperature, calculated from the entity's current fire stacks.
+ * This has a minimum of 700 K (approx. temp of a cool flame). The maximum temperature of the air
+ * to which a burning creature is exposed, at any point during its fiery adventure, is the base
+ * temperature of the fire, scaling upwards with fire_stacks.
+ */
+/mob/living/carbon/human/handle_fire(var/seconds_per_tick, var/datum/gas_mixture/environment)
 	if(..())
 		return
 
 	var/burn_temperature = fire_burn_temperature()
 	var/thermal_protection = get_heat_protection(burn_temperature)
 
+	// Increment bodytemp up by up to BODYTEMP_HEATING_MAX C / sec, as modified by thermal protection.
 	if (thermal_protection < 1 && bodytemperature < burn_temperature)
-		bodytemperature += round(BODYTEMP_HEATING_MAX*(1-thermal_protection), 1)
+		bodytemperature += round(BODYTEMP_HEATING_MAX * (1-thermal_protection) * 20 * seconds_per_tick, 1)
 
 /mob/living/carbon/human/rejuvenate()
 	restore_blood()

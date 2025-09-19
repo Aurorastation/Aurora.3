@@ -1,10 +1,6 @@
 /obj/machinery/portable_atmospherics/powered/scrubber
 	name = "portable air scrubber"
 	desc = "Scrubs contaminants from the local atmosphere or the connected portable tank."
-	desc_info = "Filters the air, placing harmful gases into the internal gas container.  The container can be emptied by \
-	connecting it to a connector port.  The pump can pump the air in (sucking) or out (blowing), at a specific target pressure.  The powercell inside can be \
-	replaced by using a screwdriver, and then adding a new cell.  A tank of gas can also be attached to the scrubber. "
-
 	icon = 'icons/obj/atmos.dmi'
 	icon_state = "pscrubber:0"
 	density = TRUE
@@ -23,6 +19,13 @@
 
 	var/list/scrubbing_gas = list(GAS_PHORON, GAS_CO2, GAS_N2O, GAS_HYDROGEN, GAS_HELIUM, GAS_DEUTERIUM, GAS_TRITIUM, GAS_BORON, GAS_SULFUR, GAS_NO2, GAS_CHLORINE, GAS_STEAM)
 
+/obj/machinery/portable_atmospherics/powered/scrubber/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Filters the air, placing harmful gases into the internal gas container. The container can be emptied by connecting it to a connector port."
+	. += "The pump can pump the air in (sucking) or out (blowing), at a specific target pressure."
+	. += "The power cell inside can be replaced by using a screwdriver, then adding a new cell. Screw it closed again afterwards."
+	. += "A tank of gas can also be attached to the scrubber."
+
 /obj/machinery/portable_atmospherics/powered/scrubber/Initialize()
 	. = ..()
 	cell = new/obj/item/cell/apc(src)
@@ -36,7 +39,6 @@
 	if(prob(50/severity))
 		on = !on
 		update_icon()
-
 
 /obj/machinery/portable_atmospherics/powered/scrubber/update_icon()
 	ClearOverlays()
@@ -237,6 +239,7 @@
 		return TRUE
 
 	return ..()
+
 /obj/machinery/portable_atmospherics/powered/scrubber/huge/stationary
 	name = "Stationary Air Scrubber"
 

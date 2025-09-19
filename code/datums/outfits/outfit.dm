@@ -1,9 +1,11 @@
 
-/// General outfit abstraction.
-/// To be used for both a mob's outfit (for a ghostspawner, ship/station job, corpse),
-/// where the outfit is applied to the mob.
-/// But also for "standalone" outfits (just items spawned in a locker, on the floor),
-/// where the outfit items are "spilled" onto the floor (not all items, does not spawn IDs for example).
+/**
+ * General outfit abstraction.
+ * To be used for both a mob's outfit (for a ghostspawner, ship/station job, corpse),
+ * where the outfit is applied to the mob.
+ * But also for "standalone" outfits (just items spawned in a locker, on the floor),
+ * where the outfit items are "spilled" onto the floor (not all items, does not spawn IDs for example).
+ */
 /obj/outfit
 	name = "Naked"
 	icon = 'icons/effects/map_effects.dmi'
@@ -16,11 +18,12 @@
 
 	var/collect_not_del = FALSE
 
-	//The following vars can either be a path or a list of paths
-	//If a list of paths is supplied a random item from that list is selected
+	// The following vars can either be a path or a list of paths.
+	/// If a list of paths is supplied a random item from that list is selected.
 	var/uniform = null
 	var/suit = null
-	var/back = null // Mutually exclusive with and will override backpack choices below. Use for RIGs, tanks, etc.
+	/// Mutually exclusive with and will override backpack choices below. Use for RIGs, tanks, etc.
+	var/back = null
 	var/belt = null
 	var/gloves = null
 	var/wrist = null
@@ -39,22 +42,24 @@
 	var/accessory = null
 	var/suit_accessory = null
 
-	// species specific item paths, in the form of
-	// thing = list(SPECIES_NAME = /type/path/here)
-	// if no path is found, the default fallback (var without the species_ prefix) will be used
+	/**
+	 * species specific item paths, in the form of
+	 * thing = list(SPECIES_NAME = /type/path/here)
+	 * if no path is found, the default fallback (var without the species_ prefix) will be used.
+	 */
 	var/list/species_head
 	var/list/species_suit
 	var/list/species_gloves
 	var/list/species_shoes
 
-	//The following vars must be paths
+	/// The following vars must be paths.
 	var/l_hand = null
 	var/r_hand = null
 	var/id = null
 	var/pda = null
 	var/radio = null
 
-	// Must be paths, used to allow player-pref backpack choice
+	/// Must be paths, used to allow player-pref backpack choice.
 	var/allow_backbag_choice = FALSE
 	var/backpack = /obj/item/storage/backpack
 	var/backpack_faction
@@ -70,6 +75,8 @@
 	var/rucksack_faction
 	var/pocketbook = /obj/item/storage/backpack/satchel/pocketbook
 	var/pocketbook_faction
+	var/chestpouch = /obj/item/storage/backpack/chestpouch
+	var/chestpouch_faction
 
 	var/allow_pda_choice = FALSE
 	var/tab_pda = /obj/item/modular_computer/handheld/pda/civilian
@@ -83,14 +90,20 @@
 	var/wrist_radio = /obj/item/device/radio/headset/wrist
 	var/clipon_radio = /obj/item/device/radio/headset/wrist/clip
 
-	var/id_iff = IFF_DEFAULT // when spawning in, the ID will be set to this iff, preventing friendly fire
+	/// When spawning in, the ID will be set to this iff, preventing friendly fire.
+	var/id_iff = IFF_DEFAULT
 
-	var/internals_slot = null //ID of slot containing a gas tank
-	var/list/backpack_contents = list() //In the list(path=count,otherpath=count) format
+	/// ID of slot containing a gas tank.
+	var/internals_slot = null
+	/// In the list(path=count,otherpath=count) format.
+	var/list/backpack_contents = list()
 	var/list/accessory_contents = list()
-	var/list/belt_contents = list() //In the list(path=count,otherpath=count) format
-	var/list/implants = null //A list of implants that should be implanted
-	var/list/spells = list() // A list of spells to grant
+	/// In the list(path=count,otherpath=count) format.
+	var/list/belt_contents = list()
+	/// A list of implants that should be implanted.
+	var/list/implants = null
+	/// A list of spells to grant.
+	var/list/spells = list()
 
 /obj/outfit/Initialize(mapload, ...)
 	. = ..()
@@ -98,10 +111,12 @@
 	if(loc!=null)
 		spill()
 
-/// Spawn the items on the loc turf.
-/// Delete self later.
+/**
+ * Spawn the items on the loc turf.
+ * Delete self later.
+ */
 /obj/outfit/proc/spill()
-	// get a list of item types to spawn
+	// Get a list of item types to spawn.
 	var/list/items = list(
 		uniform,
 		suit,
@@ -159,7 +174,7 @@
 		new path(loc)
 
 /obj/outfit/proc/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	//to be overriden for customization depending on client prefs,species etc
+	// To be overriden for customization depending on client prefs, species etc
 	if(allow_backbag_choice)
 		switch(H.backbag)
 			if (OUTFIT_NOTHING)
@@ -170,8 +185,9 @@
 						back = backpack
 					if (OUTFIT_GENERIC)
 						back = /obj/item/storage/backpack
+					// Some may not have faction-specifics; fall back on job backpack if needed
 					if (OUTFIT_FACTIONSPECIFIC)
-						back = backpack_faction ? backpack_faction : backpack // some may not have faction specific; fall back on job backpack if needed
+						back = backpack_faction ? backpack_faction : backpack
 			if (OUTFIT_SATCHEL)
 				switch(H.backbag_style)
 					if (OUTFIT_JOBSPECIFIC)
@@ -180,7 +196,8 @@
 						back = /obj/item/storage/backpack/satchel
 					if (OUTFIT_FACTIONSPECIFIC)
 						back = satchel_faction ? satchel_faction : satchel
-			if (OUTFIT_SATCHEL_ALT) // Leather Satchel
+			// Leather Satchel
+			if (OUTFIT_SATCHEL_ALT)
 				switch(H.backbag_style)
 					if (OUTFIT_JOBSPECIFIC)
 						back = satchel_alt
@@ -220,10 +237,19 @@
 						back = /obj/item/storage/backpack/satchel/pocketbook
 					if (OUTFIT_FACTIONSPECIFIC)
 						back = pocketbook_faction ? pocketbook_faction : pocketbook
+			if (OUTFIT_CHESTPOUCH)
+				switch(H.backbag_style)
+					if (OUTFIT_JOBSPECIFIC)
+						back = chestpouch
+					if (OUTFIT_GENERIC)
+						back = /obj/item/storage/backpack/chestpouch
+					if (OUTFIT_FACTIONSPECIFIC)
+						back = chestpouch_faction ? chestpouch_faction : chestpouch
 			else
-				back = backpack //Department backpack
-
-		if (H.backbag_color >= 2) // if theres a color switch em out for a recolorable one
+				// Department backpack
+				back = backpack
+		// If theres a color switch em out for a recolorable one
+		if (H.backbag_color >= 2)
 			switch (H.backbag)
 				if (OUTFIT_POCKETBOOK)
 					back = /obj/item/storage/backpack/satchel/pocketbook/recolorable
@@ -292,7 +318,8 @@
 				l_ear = null
 				wrist = clipon_radio
 			else
-				l_ear = headset //Department headset
+				// Department headset
+				l_ear = headset
 	if(l_ear)
 		equip_item(H, l_ear, slot_l_ear, callback = radio_callback)
 	else if (wrist)
@@ -305,6 +332,11 @@
 
 // Used to equip an item to the mob. Mainly to prevent copypasta for collect_not_del.
 //override_collect temporarily allows equip_or_collect without enabling it for the job. Mostly used to prevent weirdness with hand equips when the player is missing one
+/**
+ * Used to equip an item to the mob. Mainly to prevent copypasta for collect_not_del.
+ *
+ * *
+ */
 /obj/outfit/proc/equip_item(mob/living/carbon/human/H, path, slot, var/override_collect = FALSE, var/item_color, var/datum/callback/callback)
 	var/obj/item/I
 

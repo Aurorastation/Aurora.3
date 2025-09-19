@@ -10,7 +10,8 @@
 	density = TRUE
 	use_power = POWER_USE_IDLE
 	idle_power_usage = 50
-	active_power_usage = 500 //multiplied by field strength
+	/// Gets multiplied by field strength
+	active_power_usage = 500
 	anchored = FALSE
 
 	var/obj/effect/fusion_em_field/owned_field
@@ -25,11 +26,17 @@
 	connect_to_network()
 	AddComponent(/datum/component/local_network_member, initial_id_tag)
 
+/**
+ * If there's no powernet or no owned field, shutdown() in those cases too.
+ */
 /obj/machinery/power/fusion_core/process()
 	. = ..()
 	if(stat & BROKEN || !powernet || !owned_field)
 		Shutdown()
 
+/**
+ * Create a new owned_field of appropriate strength and update power usage.
+ */
 /obj/machinery/power/fusion_core/proc/Startup()
 	if(owned_field)
 		return
@@ -39,6 +46,9 @@
 	update_use_power(POWER_USE_ACTIVE)
 	. = 1
 
+/**
+ * If we're too hot, there's going to be an explosion, EMP, etc. Bad time.
+ */
 /obj/machinery/power/fusion_core/proc/Shutdown(force_rupture)
 	if(owned_field)
 		icon_state = "core0"

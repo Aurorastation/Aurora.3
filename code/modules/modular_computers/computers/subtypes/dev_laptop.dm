@@ -3,7 +3,6 @@
 	name = "laptop computer"
 	lexical_name = "laptop"
 	desc = "A portable computer."
-	desc_info = "You can alt-click the laptop while it's set down on surface to open it up and work with it. Left clicking while it is open will allow you to operate it."
 	hardware_flag = PROGRAM_LAPTOP
 	can_reset = TRUE
 	icon_state_unpowered = "laptop-open"
@@ -20,6 +19,11 @@
 	max_damage = 50
 	broken_damage = 25
 	var/icon_state_closed = "laptop-closed"
+
+/obj/item/modular_computer/laptop/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "ALT-click the laptop while it's set down on a surface to open or close it."
+	. += "Left-click on it while it is open to operate it."
 
 /obj/item/modular_computer/laptop/AltClick()
 	if(use_check(usr))

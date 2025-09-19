@@ -23,6 +23,23 @@ GLOBAL_LIST_EMPTY(total_active_bonfires)
 	var/last_ambient_message
 	var/burn_out = TRUE //Whether or not it deletes itself when fuel is depleted
 
+/obj/structure/bonfire/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(distance > 2)
+		return
+	if(on_fire)
+		switch(fuel)
+			if(0 to 200)
+				. += "\The [src] is burning weakly."
+			if(200 to 600)
+				. += "\The [src] is gently burning."
+			if(600 to 900)
+				. += "\The [src] is burning steadily."
+			if(900 to 1300)
+				. += "The flames are dancing wildly!"
+			if(1300 to 2000)
+				. += "The fire is roaring!"
+
 /obj/structure/bonfire/Initialize()
 	. = ..()
 	fuel = rand(1000, 2000)
@@ -38,23 +55,6 @@ GLOBAL_LIST_EMPTY(total_active_bonfires)
 	STOP_PROCESSING(SSprocessing, src)
 	GLOB.total_active_bonfires -= src
 	. = ..()
-
-/obj/structure/bonfire/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(distance > 2)
-		return
-	if(on_fire)
-		switch(fuel)
-			if(0 to 200)
-				. += "\The [src] is burning weakly."
-			if(200 to 600)
-				. += "\The [src] is gently burning."
-			if(600 to 900)
-				. += "\The [src] is burning steadily."
-			if(900 to 1300)
-				. += "The flames are dancing wildly!"
-			if(1300 to 2000)
-				. += "The fire is roaring!"
 
 /obj/structure/bonfire/update_icon()
 	if(on_fire)

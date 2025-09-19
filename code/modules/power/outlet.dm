@@ -17,6 +17,12 @@
 		/obj/item/circuitboard/outlet
 	)
 
+	parts_power_mgmt = FALSE
+
+/obj/machinery/power/outlet/upgrade_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Upgraded <b>capacitors</b> will increase the rate at which connected devices charge."
+
 /obj/machinery/power/outlet/Initialize()
 	. = ..()
 	connect_to_network()
@@ -25,6 +31,7 @@
 	icon_state = panel_open ? "[initial(icon_state)]-open" : initial(icon_state)
 
 /obj/machinery/power/outlet/RefreshParts()
+	..()
 	var/part_level = 0
 	for(var/obj/item/stock_parts/SP in component_parts)
 		part_level += SP.rating

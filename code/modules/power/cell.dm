@@ -2,6 +2,20 @@
 // charge from 0 to 100%
 // fits in APC to provide backup power
 
+/obj/item/cell/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Injecting 5 units of phoron into a power cell with a syringe will rig it to explode!"
+	. += "The higher the charge in the cell, the bigger and more damaging the explosion will be."
+	. += "When rigged, the cell will explode immediately whenever it is next charged or discharged."
+
+/obj/item/cell/feedback_hints(mob/user, distance, is_adjacent)
+	if(distance > 1)
+		return
+	. = list()
+	. += ..()
+	. += "The manufacturer's label states this cell has a power rating of [maxcharge]J, and that you should not swallow it."
+	. += "The charge meter reads [round(src.percent() )]%."
+
 /obj/item/cell/Initialize()
 	. = ..()
 
@@ -102,20 +116,6 @@
 	charge += amount_used
 	SEND_SIGNAL(src, COMSIG_CELL_CHARGE, charge)
 	return amount_used
-
-
-/obj/item/cell/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(distance > 1)
-		return
-
-	if(maxcharge <= 2500)
-		. += "[desc]"
-		. += "The manufacturer's label states this cell has a power rating of [maxcharge]J, and that you should not swallow it."
-		. += "The charge meter reads [round(src.percent() )]%."
-	else
-		. += "This power cell has an exciting chrome finish, as it is an uber-capacity cell type! It has a power rating of [maxcharge]J!"
-		. += "The charge meter reads [round(src.percent() )]%."
 
 /obj/item/cell/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/reagent_containers/syringe))

@@ -1,9 +1,13 @@
 /obj/structure/cult/talisman
 	name = "daemon altar"
 	desc = "A bloodstained altar. Looking at it makes you feel slightly terrified."
-	desc_antag = "If you are a cultist, you could click on this altar to pray to Nar'Sie, who will in turn heal some of your ailments."
 	icon_state = "talismanaltar"
 	var/last_use = 0
+
+/obj/structure/cult/talisman/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "If you are a Cultist, you could click on this altar to pray to Nar'Sie, who will in turn heal some of your ailments."
+	. += "It has a cooldown time of 15 seconds. Do not tempt the wrath of Nar'Sie demanding more!"
 
 /obj/structure/cult/talisman/attack_hand(mob/user)
 	. = ..()

@@ -4495,7 +4495,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/obj/structure/janitorialcart/full,
+/obj/structure/cart/storage/janitorialcart/full,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/janitor)
 "rzM" = (

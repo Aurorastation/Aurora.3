@@ -165,6 +165,105 @@
 	disguise(clothing_choices[picked])
 	update_clothing_icon()	//so our overlays update.
 
+//*******************
+//**Chameleon Plate Carrier**
+//*******************
+
+/obj/item/clothing/suit/armor/chameleon
+	name = "standard plate carrier"
+	icon = 'icons/obj/clothing/suits.dmi'
+	contained_sprite = TRUE
+	icon_state = "plate_chameleon"
+	item_state = "plate_chameleon"
+	w_class = WEIGHT_CLASS_NORMAL
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
+	armor = list(
+		MELEE = ARMOR_MELEE_KEVLAR,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_KEVLAR,
+		ENERGY = ARMOR_ENERGY_SMALL,
+		BOMB = ARMOR_BOMB_PADDED
+	)
+	desc = "A standard plate carrier that upon closer inspection reveal a holographic cloaker that allows it to change its appearance. It seems to have a small dial inside."
+	origin_tech = list(TECH_ILLEGAL = 3)
+	var/global/list/clothing_choices
+
+/obj/item/clothing/suit/armor/chameleon/Initialize()
+	. = ..()
+	if(!clothing_choices)
+		var/blocked = list(src.type, /obj/item/clothing/suit/cyborg_suit, /obj/item/clothing/suit/justice)
+		clothing_choices = generate_chameleon_choices(/obj/item/clothing/suit, blocked)
+
+/obj/item/clothing/suit/armor/chameleon/emp_act(severity) //Because we don't have psych for all slots right now but still want a downside to EMP.  In this case your cover's blown.
+	. = ..()
+
+	name = "plate carrier"
+	desc = "A generic plate carrier."
+	icon_state = "carrier_chameleon"
+	update_icon()
+	update_clothing_icon()
+
+/obj/item/clothing/suit/armor/chameleon/verb/change()
+	set name = "Change Oversuit Appearance"
+	set category = "Chameleon Items"
+	set src in usr
+
+	var/picked = tgui_input_list(usr, "Select disguise.", "Disguise", clothing_choices)
+
+	if(!picked)
+		return
+
+	disguise(clothing_choices[picked])
+	update_clothing_icon()	//so our overlays update.
+
+//*******************
+//**Chameleon Helmet**
+//*******************
+
+/obj/item/clothing/head/helmet/chameleon
+	name = "standard helmet"
+	desc = "A standard helmet that upon closer inspection reveal a holographic cloaker that allows it to change its appearance. It seems to have a small dial on the inside."
+	icon = 'icons/obj/item/clothing/head/modular_armor_helmets.dmi'
+	icon_state = "helm_generic"
+	item_state = "helm_generic"
+	contained_sprite = TRUE
+	origin_tech = list(TECH_ILLEGAL = 3)
+	armor = list(
+		MELEE = ARMOR_MELEE_KEVLAR,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_KEVLAR,
+		ENERGY = ARMOR_ENERGY_SMALL,
+		BOMB = ARMOR_BOMB_PADDED
+	)
+	var/global/list/clothing_choices
+
+/obj/item/clothing/head/helmet/chameleon/Initialize()
+	. = ..()
+	if(!clothing_choices)
+		var/blocked = list(src.type, /obj/item/clothing/head/justice,)//Prevent infinite loops and bad hats.
+		clothing_choices = generate_chameleon_choices(/obj/item/clothing/head, blocked)
+
+/obj/item/clothing/head/helmet/chameleon/emp_act(severity) //Because we don't have psych for all slots right now but still want a downside to EMP.  In this case your cover's blown.
+	. = ..()
+
+	name = "standard helmet"
+	desc = "A generic helmet."
+	icon_state = initial(icon_state)
+	update_icon()
+	update_clothing_icon()
+
+/obj/item/clothing/head/helmet/chameleon/verb/change()
+	set name = "Change Hat/Helmet Appearance"
+	set category = "Chameleon Items"
+	set src in usr
+
+	var/picked = tgui_input_list(usr, "Select disguise.", "Disguise", clothing_choices)
+
+	if(!picked)
+		return
+
+	disguise(clothing_choices[picked])
+	update_clothing_icon()	//so our overlays update.
 
 //*******************
 //**Chameleon Shoes**
@@ -382,10 +481,6 @@
 /obj/item/gun/energy/chameleon
 	name = "desert eagle"
 	desc = null
-	desc_info = null //The chameleon gun adopts the desc_info of the weapon it is impersonating as, to make meta-ing harder.
-	desc_antag = "This gun is actually a hologram projector that can alter its appearance to mimick other weapons.  To change the appearance, use \
-	the appropriate verb in the chameleon items tab. Any beams or projectiles fired from this gun are actually holograms and useless for actual combat. \
-	Projecting these holograms over distance uses a little bit of charge."
 	icon = 'icons/obj/guns/deagle.dmi'
 	icon_state = "deagle"
 	w_class = WEIGHT_CLASS_NORMAL
@@ -400,6 +495,17 @@
 
 	var/obj/projectile/copy_projectile
 	var/global/list/gun_choices
+
+/obj/item/gun/energy/chameleon/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Exactly as it appears, officer."
+
+/obj/item/gun/energy/chameleon/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This gun is actually a hologram projector that can alter its appearance to mimick other weapons. "
+	. += "To change the appearance, use the appropriate verb in the chameleon items tab."
+	. += "Any beams or projectiles fired from this gun are actually holograms and useless for actual combat."
+	. += "Projecting these holograms over distance uses a little bit of charge."
 
 /obj/item/gun/energy/chameleon/Initialize()
 	. = ..()
@@ -447,7 +553,6 @@
 	if(istype(E))
 		copy_projectile = E.projectile_type
 		desc = E.desc
-		desc_info = E.desc_info
 	else
 		copy_projectile = null
 

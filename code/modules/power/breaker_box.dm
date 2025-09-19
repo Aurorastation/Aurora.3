@@ -18,6 +18,19 @@
 	var/RCon_tag = "NO_TAG"
 	var/update_locked = 0
 
+/obj/machinery/power/breakerbox/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "A breaker brox functions as an electrical passthrough; if enabled, power will flow freely around it. In substations, this means that the PSU/SMES will be bypassed."
+	. += "Toggling the breaker box has a sixty-second cooldown time."
+	. += "A multitool can be used to update or clear the breaker's RCON tag."
+
+/obj/machinery/power/breakerbox/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(on)
+		. += "It seems to be online."
+	else
+		. += "It seems to be offline."
+
 /obj/machinery/power/breakerbox/Initialize()
 	LAZYADD(SSmachinery.breaker_boxes, src)
 	return ..()
@@ -39,13 +52,6 @@
 
 /obj/machinery/power/breakerbox/activated/LateInitialize()
 	set_state(1)
-
-/obj/machinery/power/breakerbox/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(on)
-		. += SPAN_GOOD("It seems to be online.")
-	else
-		. += SPAN_BAD("It seems to be offline.")
 
 /obj/machinery/power/breakerbox/attack_ai(mob/user)
 	if(!ai_can_interact(user))

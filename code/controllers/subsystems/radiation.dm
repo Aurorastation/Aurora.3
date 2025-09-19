@@ -4,9 +4,12 @@ SUBSYSTEM_DEF(radiation)
 	priority = SS_PRIORITY_RADIATION
 	flags = SS_NO_INIT
 
-	var/list/sources = list()			// all radiation source datums
-	var/list/sources_assoc = list()		// Sources indexed by turf for de-duplication.
-	var/list/resistance_cache = list()	// Cache of turf's radiation resistance.
+	/// All radiation source datums.
+	var/list/sources = list()
+	/// Sources indexed by turf for de-duplication.
+	var/list/sources_assoc = list()
+	/// Cache of turf's radiation resistance.
+	var/list/resistance_cache = list()
 
 	var/list/current_sources   = list()
 	var/list/current_res_cache = list()
@@ -57,7 +60,9 @@ SUBSYSTEM_DEF(radiation)
 		if (MC_TICK_CHECK)
 			return
 
-// Ray trace from all active radiation sources to T and return the strongest effect.
+/**
+ * Ray trace from all active radiation sources to T and return the strongest effect.
+ */
 /datum/controller/subsystem/radiation/proc/get_rads_at_turf(turf/T)
 	. = 0
 	if(!istype(T))
@@ -69,7 +74,7 @@ SUBSYSTEM_DEF(radiation)
 			continue // Already being affected by a stronger source
 		if(source.source_turf.z != T.z)
 			continue // Radiation is not multi-z
-		if(source.respect_maint)
+		if(source.respect_rad_shielding)
 			var/area/A = T.loc
 			if(A.area_flags & AREA_FLAG_RAD_SHIELDED)
 				continue // In shielded area
@@ -79,24 +84,30 @@ SUBSYSTEM_DEF(radiation)
 			continue // Too far to possibly affect
 		if(source.flat)
 			. = max(., source.rad_power)
-			continue // No need to ray trace for flat  field
+			continue // No need to ray trace for flat field
 
 		// Okay, now ray trace to find resistence!
 		var/turf/origin = source.source_turf
 		var/working = source.rad_power
+		// Ray tracing.
 		while(origin != T)
-			origin = get_step_towards(origin, T) //Raytracing
-			if(!resistance_cache[origin]) //Only get the resistance if we don't already know it.
+			origin = get_step_towards(origin, T)
+			// Only get the resistance if we don't already know it.
+			if(!resistance_cache[origin])
 				origin.calc_rad_resistance()
 			if(origin.cached_rad_resistance)
 				working = round((working / (origin.cached_rad_resistance * RADIATION_RESISTANCE_MULTIPLIER)), 0.1)
+			// Already affected by a stronger source (or its zero...)
 			if((working <= .) || (working <= RADIATION_THRESHOLD_CUTOFF))
-				break // Already affected by a stronger source (or its zero...)
-		. = max((working / (dist ** 2)), .) //Butchered version of the inverse square law. Works for this purpose
+				break
+		// Butchered version of the inverse square law. Works for this purpose.
+		. = max((working / (dist ** 2)), .)
 		if(. <= RADIATION_THRESHOLD_CUTOFF)
 			. = 0
 
-// Add a radiation source instance to the repository.  It will override any existing source on the same turf.
+/**
+ * Add a /datum/radiation_source instance to the repository. It will override any existing source on the same turf.
+ */
 /datum/controller/subsystem/radiation/proc/add_source(datum/radiation_source/S)
 	if(!isturf(S.source_turf))
 		return
@@ -106,8 +117,12 @@ SUBSYSTEM_DEF(radiation)
 	sources += S
 	sources_assoc[S.source_turf] = S
 
-// Creates a temporary radiation source that will decay
-/datum/controller/subsystem/radiation/proc/radiate(source, power) //Sends out a radiation pulse, taking walls into account
+/**
+ * Creates a /datum/radiation_source that will decay over time.
+ *
+ * This source will send out regular radiation pulses that take walls and distance into account.
+ */
+/datum/controller/subsystem/radiation/proc/radiate(source, power)
 	if(!(source && power)) //Sanity checking
 		return
 	var/datum/radiation_source/S = new()
@@ -115,21 +130,29 @@ SUBSYSTEM_DEF(radiation)
 	S.update_rad_power(power)
 	add_source(S)
 
-// Sets the radiation in a range to a constant value.
-/datum/controller/subsystem/radiation/proc/flat_radiate(source, power, range, respect_maint = FALSE)
+/**
+ * Creates a /datum/radiation_source that will decay over time.
+ *
+ * This source will send out regular radiation pulses that will deliver
+ * identical radiation doses to everyone in range, irrespective of barriers
+ * in the way or their distance from the source.
+ */
+/datum/controller/subsystem/radiation/proc/flat_radiate(source, power, range, respect_rad_shielding = FALSE)
 	if(!(source && power && range))
 		return
 	var/datum/radiation_source/S = new()
 	S.flat = TRUE
 	S.range = range
-	S.respect_maint = respect_maint
+	S.respect_rad_shielding = respect_rad_shielding
 	S.source_turf = get_turf(source)
 	S.update_rad_power(power)
 	add_source(S)
 
-// Irradiates a full Z-level. Hacky way of doing it, but not too expensive.
-/datum/controller/subsystem/radiation/proc/z_radiate(atom/source, power, respect_maint = FALSE)
+/**
+ * Irradiates a full Z-level. Hacky way of doing it, but not too expensive.
+ */
+/datum/controller/subsystem/radiation/proc/z_radiate(atom/source, power, respect_rad_shielding = FALSE)
 	if(!(power && source))
 		return
 	var/turf/epicentre = locate(round(world.maxx / 2), round(world.maxy / 2), source.z)
-	flat_radiate(epicentre, power, world.maxx, respect_maint)
+	flat_radiate(epicentre, power, world.maxx, respect_rad_shielding)

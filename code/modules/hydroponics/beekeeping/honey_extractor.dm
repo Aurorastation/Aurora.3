@@ -14,6 +14,11 @@
 		. += SPAN_NOTICE("It's holding \the <b>[contained_frame]</b>.")
 	. += SPAN_NOTICE("It contains <b>[honey]</b> units of honey for collection.")
 
+/obj/machinery/honey_extractor/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Once filled honeycombs have been obtained, insert them into this device to process them into wax and honey. The honey can be retrieved from \
+	the extractor with any reagent container."
+
 /obj/machinery/honey_extractor/attackby(obj/item/attacking_item, mob/user)
 	if(contained_frame)
 		to_chat(user, SPAN_WARNING("\The [src] is currently spinning, wait until it's finished."))

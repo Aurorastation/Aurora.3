@@ -45,6 +45,7 @@ SUBSYSTEM_DEF(machinery)
 
 	var/list/all_cameras = list()
 	var/list/obj/machinery/hologram/holopad/all_holopads = list()
+	var/list/obj/machinery/power/apc/all_apcs = list()
 	var/list/all_status_displays = list()	// Note: This contains both ai_status_display and status_display.
 	var/list/gravity_generators = list()
 	var/list/obj/machinery/telecomms/all_telecomms = list()
@@ -54,9 +55,14 @@ SUBSYSTEM_DEF(machinery)
 	var/list/rcon_smes_units_by_tag = list()
 	var/list/rcon_breaker_units = list()
 	var/list/rcon_breaker_units_by_tag = list()
+	// Not yet implemented, added for future.
+	var/list/rcon_apc_units = list()
+	// Not yet implemented, added for future.
+	var/list/rcon_apc_units_by_tag = list()
 
 	var/list/breaker_boxes = list()
 	var/list/smes_units = list()
+	var/list/apc_units = list()
 	var/list/all_sensors = list()
 
 	var/list/slept_in_process = list()
@@ -67,6 +73,7 @@ SUBSYSTEM_DEF(machinery)
 /datum/controller/subsystem/machinery/Recover()
 	all_cameras = SSmachinery.all_cameras
 	all_holopads = SSmachinery.all_holopads
+	all_apcs = SSmachinery.all_apcs
 	recipe_datums = SSmachinery.recipe_datums
 	breaker_boxes = SSmachinery.breaker_boxes
 	all_sensors = SSmachinery.all_sensors

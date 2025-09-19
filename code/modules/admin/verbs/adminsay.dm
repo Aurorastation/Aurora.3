@@ -41,7 +41,7 @@
 	feedback_add_details("admin_verb","MS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/cmd_dev_say(msg as text)
-	set category = "Special Verbs"
+	set category = "OOC.Chat"
 	set name = "Devsay"
 	set hidden = 1
 

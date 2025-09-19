@@ -420,6 +420,7 @@
 /datum/unit_test/mob_damage/diona/brute
 	name = "MOB: Diona Brute Damage Check"
 	damagetype = DAMAGE_BRUTE
+	expected_vulnerability = ARMORED
 
 /datum/unit_test/mob_damage/diona/fire
 	name = "MOB: Diona Fire Damage Check"

@@ -9,10 +9,6 @@ Contains:
 	name = "medical pack"
 	singular_name = "medical pack"
 	icon = 'icons/obj/item/stacks/medical.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/stacks/lefthand_medical.dmi',
-		slot_r_hand_str = 'icons/mob/items/stacks/righthand_medical.dmi',
-		)
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
 	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
 	amount = 5
@@ -43,6 +39,10 @@ Contains:
 		var/mob/living/carbon/human/H = target_mob
 		var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting)
 
+		if((affecting.status & ORGAN_ASSISTED) || (affecting.status & ORGAN_ROBOT))
+			to_chat(user, SPAN_WARNING("This isn't useful at all on a robotic limb."))
+			return 1
+
 		if(affecting.name == BP_HEAD)
 			if(H.head && istype(H.head,/obj/item/clothing/head/helmet/space))
 				to_chat(user, SPAN_WARNING("You can't apply [src] through [H.head]!"))
@@ -67,10 +67,6 @@ Contains:
 					SPAN_NOTICE("You apply \the [src] to [target_mob].")\
 				)
 				use(1)
-			return 1
-
-		if(affecting.status & ORGAN_ASSISTED)
-			to_chat(user, SPAN_WARNING("This isn't useful at all on a robotic limb."))
 			return 1
 
 		H.UpdateDamageIcon()

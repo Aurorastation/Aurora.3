@@ -119,7 +119,7 @@
 					icon_state = "tube_empty"
 				if("bulb")
 					icon_state = "bulb_empty"
-				if("slight")
+				if("spotlight")
 					icon_state = "slight_empty"
 				if ("floorbulb")
 					icon_state = "floor_empty"
@@ -136,7 +136,7 @@
 					newlight = new /obj/machinery/light/built(get_turf(src))
 				if("bulb")
 					newlight = new /obj/machinery/light/small/built(get_turf(src))
-				if("slight")
+				if("spotlight")
 					newlight = new /obj/machinery/light/spot/built(get_turf(src))
 				if("floorbulb")
 					newlight = new /obj/machinery/light/small/floor/built(get_turf(src))

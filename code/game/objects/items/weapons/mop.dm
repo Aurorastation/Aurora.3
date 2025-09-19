@@ -19,16 +19,19 @@
 	var/mopping = 0
 	var/mopcount = 0
 	var/cleantime = 25
+	/// Spam limiter.
 	var/last_clean
 	var/clean_msg = FALSE
 
 /obj/item/mop/Initialize()
 	. = ..()
 	create_reagents(30)
-	GLOB.janitorial_supplies |= src
+	if(is_station_turf(get_turf(src)))
+		GLOB.janitorial_supplies |= src
 
 /obj/item/mop/Destroy()
-	GLOB.janitorial_supplies -= src
+	if(src in GLOB.janitorial_supplies)
+		GLOB.janitorial_supplies -= src
 	return ..()
 
 /obj/item/mop/afterattack(atom/A, mob/user, proximity)
@@ -47,7 +50,8 @@
 			if(clean_msg)
 				to_chat(user, SPAN_NOTICE("Your mop is dry!"))
 			return
-		if(!(last_clean && world.time < last_clean + 120)) //spam is bad
+		// Spam is bad
+		if(!(last_clean && world.time < last_clean + 120))
 			user.visible_message(SPAN_WARNING("[user] begins to mop \the [get_turf(A)]."))
 			clean_msg = TRUE
 			last_clean = world.time
@@ -84,9 +88,16 @@
 	throwforce = 14
 	throw_range = 8
 	cleantime = 15
-	var/refill_enabled = TRUE //Self-refill toggle for when a janitor decides to mop with something other than water.
-	var/refill_rate = 0.5 //Rate per process() tick mop refills itself
-	var/refill_reagent = /singleton/reagent/water //Determins what reagent to use for refilling, just in case someone wanted to make a HOLY MOP OF PURGING
+	// Self-refill toggle for when a janitor decides to mop with something other than water.
+	var/refill_enabled = TRUE
+	/// Rate per process() tick mop refills itself. W/ max volume 30, fully replenish in 120s (at 2s ticks)
+	var/refill_rate = 0.5
+	// Determins what reagent to use for refilling, just in case someone wanted to make a HOLY MOP OF PURGING
+	var/refill_reagent = /singleton/reagent/water
+
+/obj/item/mop/advanced/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += SPAN_NOTICE("\The condenser switch is set to <b>[refill_enabled ? "ON" : "OFF"]</b>.")
 
 /obj/item/mop/advanced/Initialize()
 	. = ..()
@@ -110,7 +121,3 @@
 /obj/item/mop/advanced/process()
 	if(reagents.total_volume < 30)
 		reagents.add_reagent(refill_reagent, refill_rate)
-
-/obj/item/mop/advanced/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += SPAN_NOTICE("\The condenser switch is set to <b>[refill_enabled ? "ON" : "OFF"]</b>.")

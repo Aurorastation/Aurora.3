@@ -6,7 +6,7 @@
 		return
 
 	var/datum/browser/config_window = new(usr, "access_control", "Access Control")
-	config_window.add_head_content("<title>Access Control</title>")
+	config_window.set_head_content("<title>Access Control</title>")
 
 	var/data = "These settings control who can access the server during this round.<br>"
 	data += "They must be reset every single time the server restarts.<br>"

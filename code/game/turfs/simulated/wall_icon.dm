@@ -103,6 +103,9 @@
 		damage_image = damage_overlays[overlay]
 		overlays_to_add += damage_image
 
+	// Remove the existing damage overlay entirely and replace it with the newly-calculated one.
+	CutOverlays(damage_overlays)
+
 	AddOverlays(overlays_to_add)
 	UNSETEMPTY(reinforcement_images)
 	QUEUE_SMOOTH(src)
@@ -110,10 +113,11 @@
 		get_underlays(cached_adjacency)
 
 /turf/simulated/wall/proc/generate_overlays()
-	var/alpha_inc = 256 / damage_overlays.len
+	for(var/damage_level = 1; damage_level <= damage_overlays.len; damage_level++) // Generate damage overlay for each placeholder (16 in array)
+		var/image/damage_overlay = image(icon = 'icons/turf/walls.dmi', icon_state = "overlay_damage")
+		damage_overlay.blend_mode = BLEND_MULTIPLY
 
-	for(var/i = 1; i <= damage_overlays.len; i++)
-		var/image/img = image(icon = 'icons/turf/walls.dmi', icon_state = "overlay_damage")
-		img.blend_mode = BLEND_MULTIPLY
-		img.alpha = (i * alpha_inc) - 1
-		damage_overlays[i] = img
+		// The actual difference in each damage overlay is represented with a different alpha value, higher alpha = higher visible damage
+		damage_overlay.alpha = damage_level * 18 + 32; // Linear scale with inital offset
+
+		damage_overlays[damage_level] = damage_overlay

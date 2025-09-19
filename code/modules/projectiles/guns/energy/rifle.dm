@@ -68,10 +68,6 @@
 	name = "combat laser rifle"
 	desc = "The Noctiluca XM/24 is a brand new model of laser rifle, developed entirely by Kumar Arms, a Zavodskoi Interstellar subsidiary. Easy to handle for users with minimal training, reliable and with a reasonable form factor, it is poised to become the new standard for laser weaponry."
 	desc_extended = "The Noctiluca XM/24 was unveiled at the tail end of 2463 in the SCC Future Firearms contest and was released by Zavodskoi in June 2464 after achieving a stunning victory over the other competitors. Zavodskoi installations are prioritized for acquisition of this new rifle, with along the SCCV Horizon. The Noctiluca's specialty lies in its revolutionary dual-function laser diffuser, which is able to modulate the laser into either a standard beam or an armor-piercing super-concentrated beam."
-	desc_info = "This is an energy weapon.  To fire the weapon, ensure your intent is *not* set to 'help', have your gun mode set to 'fire', \
-	then click where you want to fire.  Most energy weapons can fire through windows harmlessly.  To recharge this weapon, use a weapon recharger. \
-	The Noctiluca comes with a standard firing mode that is slightly worse in damage than the normal laser rifle, but has more armor penetration. Additionally, \
-	it has a secondary armor-piercing mode, which does less damage but has extremely high armor piercing."
 	icon = 'icons/obj/guns/crew_laser.dmi'
 	icon_state = "trilaser"
 	item_state = "trilaser"
@@ -87,6 +83,11 @@
 		list(mode_name = "fire normal diffusion lasers", projectile_type = /obj/projectile/beam/noctiluca, fire_sound = 'sound/weapons/laser1.ogg'),
 		list(mode_name = "fire specialized armor piercing lasers", projectile_type = /obj/projectile/beam/noctiluca/armor_piercing, fire_sound = 'sound/weapons/laserstrong.ogg')
 	)
+
+/obj/item/gun/energy/rifle/laser/noctiluca/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "The Noctiluca comes with a standard firing mode that is slightly worse in damage than the normal laser rifle, but has more armor penetration. Additionally, \
+	it has a secondary armor-piercing mode, which does less damage but has extremely high armor piercing."
 
 /obj/item/gun/energy/rifle/laser/heavy
 	name = "laser cannon"
@@ -189,7 +190,7 @@
 	var/atom/movable/screen/overlay = null
 
 /obj/item/gun/energy/rifle/laser/tachyon/verb/scope()
-	set category = "Object"
+	set category = "Object.Held"
 	set name = "Use Scope"
 	set src in usr
 

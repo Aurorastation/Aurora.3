@@ -189,6 +189,8 @@ class ChatRenderer {
       const text = setting.highlightText;
       const highlightColor = setting.highlightColor;
       const highlightWholeMessage = setting.highlightWholeMessage;
+      const backgroundHighlightColor = setting.backgroundHighlightColor;
+      const backgroundHighlightOpacity = setting.backgroundHighlightOpacity;
       const matchWord = setting.matchWord;
       const matchCase = setting.matchCase;
       const allowedRegex = /^[a-z0-9_\-$/^[\s\]\\]+$/gi;
@@ -250,6 +252,8 @@ class ChatRenderer {
         highlightRegex,
         highlightColor,
         highlightWholeMessage,
+        backgroundHighlightColor,
+        backgroundHighlightOpacity,
       });
     });
   }
@@ -411,6 +415,14 @@ class ChatRenderer {
               (text) => createHighlightNode(text, parser.highlightColor)
             );
             if (highlighted && parser.highlightWholeMessage) {
+              node.style.setProperty(
+                '--highlight-color',
+                parser.backgroundHighlightColor || 'rgba(255, 221, 68)'
+              );
+              node.style.setProperty(
+                '--highlight-color-opacity',
+                (parser.backgroundHighlightOpacity ?? 10) / 100
+              );
               node.className += ' ChatMessage--highlighted';
             }
           });

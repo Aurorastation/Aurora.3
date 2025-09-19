@@ -2263,7 +2263,7 @@
 /turf/simulated/floor/plating/cooled,
 /area/ship/dominian_unathi/portthrust)
 "qq" = (
-/obj/structure/janitorialcart/full,
+/obj/structure/cart/storage/janitorialcart/full,
 /obj/item/reagent_containers/glass/bucket,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/janitor)

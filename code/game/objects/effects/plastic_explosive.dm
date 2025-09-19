@@ -6,7 +6,13 @@
 	icon_state = "plastic-explosive2"
 	anchored = TRUE
 	density = FALSE
+	mouse_opacity = MOUSE_OPACITY_ICON
 	var/obj/item/plastique/parent
+
+/obj/effect/plastic_explosive/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(is_adjacent)
+		. += SPAN_WARNING("It is set to blow in [round((parent.detonate_time - world.time) / 10)] seconds.")
 
 /obj/effect/plastic_explosive/Initialize(var/atom/owner_pos, var/atom/target, var/obj/item/plastique/c4)
 	. = ..()
@@ -36,11 +42,6 @@
 	var/list/pixel_shifts = dir_to_pixel[dir_text]
 	pixel_x = pixel_shifts[1]
 	pixel_y = pixel_shifts[2]
-
-/obj/effect/plastic_explosive/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(is_adjacent)
-		. += SPAN_WARNING("It is set to blow in [round((parent.detonate_time - world.time) / 10)] seconds.")
 
 /obj/effect/plastic_explosive/attack_hand(mob/living/user)
 	to_chat(user, SPAN_WARNING("\The [src] is solidly attached, it doesn't budge!"))

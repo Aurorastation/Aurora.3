@@ -7667,7 +7667,7 @@
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/corridor/dockingarm/port)
 "BK" = (
-/obj/structure/janitorialcart{
+/obj/structure/cart/storage/janitorialcart{
 	dir = 4
 	},
 /obj/item/reagent_containers/glass/bucket,

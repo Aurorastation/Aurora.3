@@ -23,7 +23,7 @@
 	/// Turning this off prevents awkward zone geometry in places like medbay lobby, for example.
 	block_air_zones = 0
 
-	// Icon states for different shutter types. Simply change this instead of rewriting the update_icon proc.
+	/// Icon states for different shutter types. Simply change this instead of rewriting the update_icon proc.
 	var/icon_state_open = null
 	var/icon_state_opening = null
 	var/icon_state_closed = null
@@ -37,7 +37,8 @@
 	var/datum/wifi/receiver/button/door/wifi_receiver
 
 	var/securitylock = TRUE
-	var/fail_secure = FALSE // If the blast door should close when power goes out.
+	/// If the blast door should close when power goes out.
+	var/fail_secure = FALSE
 
 /obj/machinery/door/blast/Initialize()
 	. = ..()
@@ -52,17 +53,20 @@
 	QDEL_NULL(wifi_receiver)
 	return ..()
 
-// Proc: Bumped()
-// Parameters: 1 (AM - Atom that tried to walk through this object)
-// Description: If we are open returns zero, otherwise returns result of parent function.
+/**
+ * If are open, return zero. Otherwise return result of parent function.
+ *
+ * * atom/bumped_atom - Atom that tried to walk through this object
+ */
 /obj/machinery/door/blast/CollidedWith(atom/bumped_atom)
 	if(!density)
 		return ..()
 	else
 		return 0
-// Proc: update_icon()
-// Parameters: None
-// Description: Updates icon of this object. Uses icon state variables.
+
+/**
+ * Updates icon of this object. Uses icon state variables.
+ */
 /obj/machinery/door/blast/update_icon()
 	if(density)
 		icon_state = icon_state_closed
@@ -70,9 +74,9 @@
 		icon_state = icon_state_open
 	return
 
-// Proc: force_open()
-// Parameters: None
-// Description: Opens the door. No checks are done inside this proc.
+/**
+ * Opens the door. No checks are done inside this proc.
+ */
 /obj/machinery/door/blast/proc/force_open()
 	src.operating = 1
 	playsound(src.loc, open_sound, 100, 1)
@@ -85,9 +89,9 @@
 	src.layer = open_layer
 	src.operating = 0
 
-// Proc: force_close()
-// Parameters: None
-// Description: Closes the door. No checks are done inside this proc.
+/**
+ * Closes the door. No checks are done inside this proc.
+ */
 /obj/machinery/door/blast/proc/force_close()
 	if(density)
 		return 0
@@ -102,19 +106,23 @@
 	sleep(15)
 	src.operating = 0
 
-// Proc: force_toggle()
-// Parameters: None
-// Description: Opens or closes the door, depending on current state. No checks are done inside this proc.
+/**
+ * Opens or closes the door, depending on current state. No checks are done inside this proc.
+ */
 /obj/machinery/door/blast/proc/force_toggle()
 	if(src.density)
 		src.force_open()
 	else
 		src.force_close()
 
-// Proc: attackby()
-// Parameters: 2 (C - Item this object was clicked with, user - Mob which clicked this object)
-// Description: If we are clicked with crowbar or wielded fire axe, try to manually open the door.
-// This only works on broken doors or doors without power. Also allows repair with Plasteel.
+/**
+ * If we are clicked with crowbar, wielded fire axe, etc., try to manually open the door.
+ * This only works on broken doors or doors without power.
+ * Also allows repair with Plasteel.
+ *
+ * * obj/item/attacking_item - Item this object was clicked with
+ * * mob/user - Mob which clicked this object
+ */
 /obj/machinery/door/blast/attackby(obj/item/attacking_item, mob/user)
 	if(!istype(attacking_item, /obj/item/forensics))
 		src.add_fingerprint(user)
@@ -129,7 +137,6 @@
 			to_chat(usr, SPAN_NOTICE("[src]'s motors resist your effort."))
 
 		return TRUE
-
 
 	if(attacking_item.ishammer() || istype(attacking_item, /obj/item/crowbar/hydraulic_rescue_tool))
 		if(((stat & NOPOWER) || (stat & BROKEN)) && !src.operating)
@@ -157,11 +164,9 @@
 				to_chat(usr, SPAN_WARNING("You don't have enough sheets to repair this! You need at least [amt] sheets."))
 		return TRUE
 
-
-
-// Proc: open()
-// Parameters: None
-// Description: Opens the door. Does necessary checks. Automatically closes if autoclose is true
+/**
+ * Opens the door. Does necessary checks. Automatically closes if autoclose is true.
+ */
 /obj/machinery/door/blast/open()
 	if (src.operating || (stat & BROKEN || stat & NOPOWER))
 		return
@@ -170,9 +175,9 @@
 		addtimer(CALLBACK(src, PROC_REF(close)), 15 SECONDS)
 	return 1
 
-// Proc: close()
-// Parameters: None
-// Description: Closes the door. Does necessary checks.
+/**
+ * Closes the door. Does necessary checks.
+ */
 /obj/machinery/door/blast/close()
 	if (src.operating || (stat & BROKEN || stat & NOPOWER))
 		return
@@ -183,9 +188,9 @@
 				take_damage(damage*0.2)
 
 
-// Proc: repair()
-// Parameters: None
-// Description: Fully repairs the blast door.
+/**
+ * Fully repairs the blast door.
+ */
 /obj/machinery/door/blast/proc/repair()
 	health = maxhealth
 	if(stat & BROKEN)
@@ -195,13 +200,16 @@
 	if(air_group) return 1
 	return ..()
 
-// Controls how blast doors and shutters should act when power is lost or gained.
+/**
+ * Controls how blast doors and shutters should act when power is lost or restored.
+ */
 /obj/machinery/door/blast/power_change()
 	..()
 	if(src.operating || (stat & BROKEN))
 		return
+	// Blast doors will only re-open when power is restored if they were open originally.
 	if((stat & NOPOWER) && fail_secure)
-		securitylock = !density // Blast doors will only re-open when power is restored if they were open originally.
+		securitylock = !density
 		INVOKE_ASYNC(src, PROC_REF(force_close))
 	else if(securitylock && fail_secure)
 		INVOKE_ASYNC(src, PROC_REF(force_open))
@@ -213,7 +221,8 @@
 // SUBTYPE: Regular
 // Your classical blast door, found almost everywhere.
 /obj/machinery/door/blast/regular
-	name = "blast door" //Because SDMM doesn't recognise the name otherwise, for some reason
+	//Because SDMM doesn't recognise the name otherwise, for some reason
+	name = "blast door"
 	icon_state_open = "pdoor0"
 	icon_state_opening = "pdoorc0"
 	icon_state_closed = "pdoor1"
@@ -223,7 +232,8 @@
 	block_air_zones = 1
 
 /obj/machinery/door/blast/regular/open
-	name = "blast door" //Because SDMM doesn't recognise the name otherwise, for some reason
+	//Because SDMM doesn't recognise the name otherwise, for some reason
+	name = "blast door"
 	icon_state = "pdoor0"
 	density = FALSE
 	opacity = FALSE
@@ -257,7 +267,8 @@
 	block_air_zones = 1
 
 /obj/machinery/door/blast/odin/open
-	name = "blast door" //Because SDMM doesn't recognise the name otherwise, for some reason
+	//Because SDMM doesn't recognise the name otherwise, for some reason
+	name = "blast door"
 	icon_state = "pdoor0"
 	density = 0
 	opacity = 0

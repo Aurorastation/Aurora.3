@@ -1,7 +1,6 @@
 /obj/machinery/atmospherics/tvalve
 	name = "manual switching valve"
 	desc = "A pipe valve."
-	desc_info = "Click this to toggle the mode.  The direction with the green light is where the gas will flow."
 	icon = 'icons/atmos/tvalve.dmi'
 	icon_state = "map_tvalve0"
 
@@ -17,6 +16,10 @@
 	var/datum/pipe_network/network_node1
 	var/datum/pipe_network/network_node2
 	var/datum/pipe_network/network_node3
+
+/obj/machinery/atmospherics/tvalve/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Click this to toggle the mode. The direction with the green light is where the gas will flow."
 
 /obj/machinery/atmospherics/tvalve/bypass
 	icon_state = "map_tvalve1"

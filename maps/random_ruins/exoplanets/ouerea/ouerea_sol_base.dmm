@@ -898,9 +898,6 @@
 /turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "Up" = (
-/obj/structure/closet/secure_closet/soll_officer{
-	req_access = list(203)
-	},
 /obj/item/clothing/under/rank/sol/service,
 /obj/item/melee/energy/sword/knife/sol,
 /obj/item/gun/projectile/pistol/sol,
@@ -909,6 +906,9 @@
 	},
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
+	},
+/obj/structure/closet/secure_closet/sol_officer{
+	req_access = list(203)
 	},
 /turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)

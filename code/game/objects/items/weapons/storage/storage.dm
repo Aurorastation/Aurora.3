@@ -86,6 +86,11 @@
 
 	var/make_exact_fit = FALSE
 
+/obj/item/storage/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(isghost(user) || isstoryteller(user))
+		. += "It contains: [counting_english_list(contents)]"
+
 /obj/item/storage/Destroy()
 	close_all()
 	QDEL_NULL(boxes)
@@ -165,10 +170,10 @@
  * * detail_insertions - A boolean, if `TRUE`, `can_be_inserted()` will be told to give feedbacks
  */
 /obj/item/storage/proc/pickup_items_from_loc(mob/user, turf/location, detail_insertions = TRUE)
+	RETURN_TYPE(/list)
 
 	//In the format of list(SUCCESS, FAILURE)
 	var/list/return_status = list(FALSE, FALSE)
-	RETURN_TYPE(return_status)
 
 	var/list/rejections = list()
 
@@ -197,12 +202,6 @@
 		handle_storage_deferred(user)
 
 	return return_status
-
-
-/obj/item/storage/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(isghost(user))
-		. += "It contains: [counting_english_list(contents)]"
 
 /obj/item/storage/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	. = ..()
@@ -239,12 +238,12 @@
 				user.equip_to_slot_if_possible(src, slot_l_hand)
 		src.add_fingerprint(user)
 
-/obj/item/storage/AltClick(var/mob/usr)
+/obj/item/storage/AltClick(var/mob/user)
 	if(!canremove)
 		return ..()
-	if (!use_check_and_message(usr))
-		add_fingerprint(usr)
-		open(usr)
+	if (!use_check_and_message(user))
+		add_fingerprint(user)
+		open(user)
 		return TRUE
 	. = ..()
 
@@ -595,13 +594,11 @@
 			add_fingerprint(user)
 
 		if(!prevent_warning)
-			for(var/mob/M in viewers(user, null))
-				if(M == usr)
-					continue
-				else if (M in range(1)) //If someone is standing close enough, they can tell what it is...
-					M.show_message(SPAN_NOTICE("\The [user] puts [W] into [src]."))
-				else if (W && W.w_class >= WEIGHT_CLASS_NORMAL) //Otherwise they can only see large or normal items from a distance...
-					M.show_message(SPAN_NOTICE("\The [user] puts [W] into [src]."))
+			if(W?.w_class >= WEIGHT_CLASS_NORMAL)
+				user.visible_message(SPAN_NOTICE("\The [user] puts [W] into [src]."), SPAN_NOTICE("You put [W] into [src]."))
+			else
+				user.visible_message(SPAN_NOTICE("\The [user] puts [W] into [src]."), SPAN_NOTICE("You slip [W] into [src]."), null, 2)
+
 		orient2hud(user)
 		if(user.s_active)
 			user.s_active.show_to(user)

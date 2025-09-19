@@ -1,6 +1,6 @@
 /obj/machinery/recharge_station
-	name = "cyborg recharging station"
-	desc = "A heavy duty rapid charging system, designed to quickly recharge cyborg power reserves."
+	name = "synthetic recharging station"
+	desc = "A heavy duty rapid charging system, designed to quickly recharge synthetic power reserves."
 	icon = 'icons/obj/robot_charger.dmi'
 	icon_state = "borgcharger0"
 	density = 1
@@ -44,6 +44,25 @@
 		/obj/item/cell/high,
 		/obj/item/stack/cable_coil{amount = 5}
 	)
+
+/obj/machinery/recharge_station/upgrade_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Upgraded <b>capacitors</b> will increase charging rate (for shipbounds only, not IPCs)."
+	. += "Upgraded <b>manipulators</b> will make the recharging station also start to repair brute damage, then also burn damage, at increasing speed (for shipbounds only, not IPCs)."
+
+/obj/machinery/recharge_station/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	var/charging_power_kw = round(charging_power / 1000, 0.1)
+	. += "Uses a dedicated power supply to deliver <b>[charging_power_kw] kW</b> when in use."
+	. += "The charge meter reads: <b>[round(chargepercentage())]%</b>."
+	if(weld_rate)
+		. += "It is capable of repairing shipbounds' structural damage."
+	else
+		. += SPAN_ALERT("It has not been upgraded to repair shipbounds' structural damage.")
+	if(wire_rate)
+		. += "It is capable of repairing shipbounds' burn damage."
+	else
+		. += SPAN_ALERT("It has not been upgraded to repair shipbounds' burn damage.")
 
 /obj/machinery/recharge_station/Initialize()
 	. = ..()
@@ -132,10 +151,6 @@
 			D.upgrade_cooldown = world.time + 1 MINUTE
 			D.master_matrix.apply_upgrades(D)
 
-/obj/machinery/recharge_station/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += "The charge meter reads: [round(chargepercentage())]%."
-
 /obj/machinery/recharge_station/proc/chargepercentage()
 	if(!cell)
 		return 0
@@ -182,6 +197,7 @@
 
 /obj/machinery/recharge_station/RefreshParts()
 	..()
+
 	var/man_rating = 0
 	var/cap_rating = 0
 
@@ -198,13 +214,6 @@
 	restore_power_passive = 5000 + 1000 * cap_rating
 	weld_rate = max(0, man_rating - 3)
 	wire_rate = max(0, man_rating - 5)
-
-	desc = initial(desc)
-	desc += " Uses a dedicated internal power cell to deliver [charging_power]W when in use."
-	if(weld_rate)
-		desc += "<br>It is capable of repairing stationbounds' structural damage."
-	if(wire_rate)
-		desc += "<br>It is capable of repairing stationbounds' burn damage."
 
 /obj/machinery/recharge_station/proc/build_overlays()
 	ClearOverlays()

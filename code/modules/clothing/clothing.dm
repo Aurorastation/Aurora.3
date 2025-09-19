@@ -170,13 +170,12 @@
 
 	//Set species_restricted list
 	switch(target_species)
-		if(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)	//humanoid bodytypes
-			species_restricted = list(
-				BODYTYPE_HUMAN,
-				BODYTYPE_SKRELL,
-				BODYTYPE_IPC_ZENGHU,
-				BODYTYPE_IPC_BISHOP
-			) //skrell/humans like to share with IPCs
+		if(BODYTYPE_HUMAN, BODYTYPE_SKRELL) // Humans and Skrell can share!
+			species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL)
+
+		if(BODYTYPE_IPC, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_INDUSTRIAL) // All non-shell IPCs use Machine refittings.
+			species_restricted = list(BODYTYPE_IPC, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_INDUSTRIAL)
+
 		else
 			species_restricted = list(target_species)
 
@@ -197,8 +196,8 @@
 
 	//Set species_restricted list
 	switch(target_species)
-		if(BODYTYPE_SKRELL, BODYTYPE_HUMAN)
-			species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_IPC) // skrell helmets like to share
+		if(BODYTYPE_IPC, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_INDUSTRIAL) // All non-shell IPCs use Machine refittings.
+			species_restricted = list(BODYTYPE_IPC, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_INDUSTRIAL)
 
 		else
 			species_restricted = list(target_species)
@@ -221,19 +220,24 @@
 	var/species_short = GLOB.all_species_bodytypes[target_species]
 	if(!(species_short in icon_supported_species_tags) && target_species != BODYTYPE_HUMAN) //if it's empty it's for human, but otherwise it needs to be in there
 		return
+
 	switch(target_species)
-		if(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_INDUSTRIAL) //humanoid bodies
-			species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU)
-		if(BODYTYPE_IPC) //ipc suits can fit on all ipcs
+		if(BODYTYPE_HUMAN, BODYTYPE_SKRELL) //humanoid bodies
+			species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL)
+
+		if(BODYTYPE_IPC, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_INDUSTRIAL) // All non-shell IPCs use Machine refittings.
 			species_restricted = list(BODYTYPE_IPC, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU)
+
 		else
 			species_restricted = list(target_species)
+
 	var/list/all_icon_states = icon_states(icon)
 	if(!("[UNDERSCORE_OR_NULL(species_short)][icon_state][WORN_LHAND]" in all_icon_states)) //if no left hand, probably no right hand
 		item_state_slots = list( //done in order to prevent inhands from being overridden here
 			slot_r_hand_str = item_state,
 			slot_l_hand_str = item_state
 		)
+
 	if("[UNDERSCORE_OR_NULL(species_short)][icon_state]" in all_icon_states)
 		icon_state = "[UNDERSCORE_OR_NULL(species_short)][icon_state]"
 		item_state = icon_state
@@ -241,20 +245,24 @@
 /obj/item/clothing/head/helmet/refit_contained(var/target_species)
 	if(!species_restricted || !contained_sprite)
 		return
+
 	var/species_short = GLOB.all_species_bodytypes[target_species]
-	if(species_short && !(species_short in icon_supported_species_tags)) //if it's empty it's for human, but otherwise it needs to be in there
+	if(species_short && !(species_short in icon_supported_species_tags) && target_species != BODYTYPE_HUMAN) //if it's empty it's for human, but otherwise it needs to be in there
 		return
+
 	switch(target_species)
-		if(BODYTYPE_HUMAN, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_INDUSTRIAL)
-			species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU)
+		if(BODYTYPE_IPC, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_INDUSTRIAL) // All non-shell IPCs use Machine refittings.
+			species_restricted = list(BODYTYPE_IPC, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU)
 		else
 			species_restricted = list(target_species)
+
 	var/list/all_icon_states = icon_states(icon)
 	if(!("[UNDERSCORE_OR_NULL(species_short)][icon_state][WORN_LHAND]" in all_icon_states)) //if no left hand, probably no right hand
 		item_state_slots = list( //done in order to prevent inhands from being overridden here
 			slot_r_hand_str = item_state,
 			slot_l_hand_str = item_state
 		)
+
 	if("[UNDERSCORE_OR_NULL(species_short)][icon_state]" in all_icon_states)
 		icon_state = "[UNDERSCORE_OR_NULL(species_short)][icon_state]"
 		item_state = icon_state
@@ -616,7 +624,7 @@
 
 /obj/item/clothing/head/proc/toggle_block_hair()
 	set name = "Toggle Hair Coverage"
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in usr
 
 	if(allow_hair_covering)
@@ -654,7 +662,7 @@
 	if(!mob_wear_hat(user))
 		return ..()
 
-/obj/item/clothing/head/attack_generic(var/mob/user)
+/obj/item/clothing/head/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	if(!mob_wear_hat(user))
 		return ..()
 
@@ -830,7 +838,7 @@
 
 /obj/item/clothing/mask/proc/adjust_mask(mob/user, var/self = TRUE)
 	set name = "Adjust Mask"
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in usr
 
 	if(!adjustable)
@@ -914,7 +922,7 @@
 /obj/item/clothing/shoes/proc/draw_knife()
 	set name = "Draw Boot Knife"
 	set desc = "Pull out your boot knife."
-	set category = "Object"
+	set category = "Object.Held"
 	set src in usr
 
 	if(use_check_and_message(usr))
@@ -954,7 +962,7 @@
 
 /obj/item/clothing/shoes/verb/toggle_layer()
 	set name = "Switch Shoe Layer"
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in usr
 
 	if(use_check_and_message(usr))
@@ -1140,6 +1148,19 @@
 	valid_accessory_slots = list(ACCESSORY_SLOT_UTILITY, ACCESSORY_SLOT_UTILITY_MINOR, ACCESSORY_SLOT_ARMBAND, ACCESSORY_SLOT_GENERIC, ACCESSORY_SLOT_CAPE)
 	restricted_accessory_slots = list(ACCESSORY_SLOT_UTILITY)
 
+/obj/item/clothing/under/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(has_sensor)
+		switch(src.sensor_mode)
+			if(SUIT_SENSOR_OFF)
+				. += "Its sensors appear to be disabled."
+			if(SUIT_SENSOR_BINARY)
+				. += "Its binary life sensors appear to be enabled."
+			if(SUIT_SENSOR_VITAL)
+				. += "Its vitals tracker appears to be enabled."
+			if(SUIT_SENSOR_TRACKING)
+				. += "Its vitals tracker and tracking beacon appear to be enabled."
+
 /obj/item/clothing/under/attack_hand(var/mob/user)
 	if(LAZYLEN(accessories))
 		..()
@@ -1263,19 +1284,6 @@
 		M.update_inv_w_uniform()
 		playsound(M, /singleton/sound_category/rustle_sound, 15, TRUE, SILENCED_SOUND_EXTRARANGE, ignore_walls = FALSE)
 
-/obj/item/clothing/under/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(has_sensor)
-		switch(src.sensor_mode)
-			if(SUIT_SENSOR_OFF)
-				. += "Its sensors appear to be disabled."
-			if(SUIT_SENSOR_BINARY)
-				. += "Its binary life sensors appear to be enabled."
-			if(SUIT_SENSOR_VITAL)
-				. += "Its vitals tracker appears to be enabled."
-			if(SUIT_SENSOR_TRACKING)
-				. += "Its vitals tracker and tracking beacon appear to be enabled."
-
 /obj/item/clothing/under/proc/set_sensors(mob/user as mob)
 	var/mob/M = user
 	if (isobserver(M) || user.incapacitated())
@@ -1324,13 +1332,13 @@
 
 /obj/item/clothing/under/proc/toggle()
 	set name = "Toggle Suit Sensors"
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in usr
 	set_sensors(usr)
 
 /obj/item/clothing/under/proc/rollsuit()
 	set name = "Roll Up/Down Jumpsuit"
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in usr
 	if(!istype(usr, /mob/living)) return
 	if(usr.stat) return
@@ -1371,7 +1379,7 @@
 
 /obj/item/clothing/under/proc/rollsleeves()
 	set name = "Roll Up/Down Sleeves"
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in usr
 	if(!istype(usr, /mob/living)) return
 	if(usr.stat) return

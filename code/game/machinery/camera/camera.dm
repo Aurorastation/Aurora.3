@@ -21,7 +21,8 @@
 	var/toughness = 5 //sorta fragile
 
 	// WIRES
-	var/datum/wires/camera/wires = null // Wires datum
+	/// Wires datum
+	var/datum/wires/camera/wires = null
 
 	//OTHER
 
@@ -391,7 +392,7 @@
 /atom/proc/auto_turn()
 	//Automatically turns based on nearby walls.
 	var/turf/simulated/wall/T = null
-	for(var/i = 1, i <= 8; i += i)
+	for(var/i = 1; i <= 8; i += i)
 		T = get_ranged_target_turf(src, i, 1)
 		if(istype(T))
 			//If someone knows a better way to do this, let me know. -Giacom

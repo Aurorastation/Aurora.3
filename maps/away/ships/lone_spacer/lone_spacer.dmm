@@ -575,7 +575,7 @@
 /area/shuttle/lone_spacer/storage)
 "go" = (
 /obj/structure/table/standard,
-/obj/item/clothing/ears/earmuffs/earphones/headphones{
+/obj/item/clothing/ears/earphones/headphones{
 	pixel_y = 9;
 	pixel_x = 7
 	},

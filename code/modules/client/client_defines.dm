@@ -29,6 +29,8 @@
 	var/discord_admin //IRC- no more IRC, K? Discord admin that spoke with them last.
 	var/mute_discord = 0
 
+	var/ckey_is_external = FALSE // Will be set to TRUE if the user is using a "fake" ckey from an external source, like the forums.
+
 // Database
 	var/player_age = "Requires database" // So admins know why it isn't working - Used to determine how old the account is - in days.
 	var/related_accounts_ip = "Requires database" //So admins know why it isn't working - Used to determine what other accounts previously logged in from this ip
@@ -78,6 +80,8 @@
 
 	///Hide top bars
 	var/fullscreen = FALSE
+	///Hide status bar (bottom left)
+	var/show_status_bar = TRUE
 
 	/// our current tab
 	var/stat_tab
@@ -95,3 +99,10 @@
 	var/drag_start = 0
 	///The params we were passed at the start of the drag, in list form
 	var/list/drag_details
+
+	/// The DPI scale of the client. 1 is equivalent to 100% window scaling, 2 will be 200% window scaling
+	var/window_scaling
+
+	//screen_text vars
+	///lazylist of screen_texts for this client, first in this list is the one playing
+	var/list/atom/movable/screen/text/screen_text/screen_texts

@@ -6,12 +6,12 @@
  *
  *
  * Contains:
- *		Donut Box
- *		Egg Carton
- *		Candle Box
- *		Crayon Box
- *		Cigarette Box
- *		Match Box
+ * * Donut Box
+ * * Egg Carton
+ * * Candle Box
+ * * Crayon Box
+ * * Cigarette Box
+ * * Match Box
  */
 
 /obj/item/storage/box/fancy
@@ -22,8 +22,23 @@
 	var/icon_overlays = TRUE // whether the icon uses the update_icon() or a unique one.
 	var/open_sound = null // if you want to play a special sound if you open it for the first time
 	var/open_message = null // same as above, but a message
+	var/opened_icon_state = null //for items that have unique base icons but look the same opened, such as all the various microwave pizzas.
 	foldable = null // most of this stuff isn't foldable by default, e.g. cig packets and vial boxes
 	contained_sprite = TRUE
+
+/obj/item/storage/box/fancy/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(closable)
+		. += "ALT-click to open and close the box." //aka force override icon state. for you know, style.
+
+/obj/item/storage/box/fancy/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(!icon_type || !storage_type)
+		return
+	if(contents.len <= 0)
+		. += "There are no [src.icon_type]s left in the [src.storage_type]."
+	else
+		. += "There [src.contents.len == 1 ? "is" : "are"] <b>[src.contents.len]</b> [src.icon_type]\s left in \the [src.storage_type]."
 
 /obj/item/storage/box/fancy/open(mob/user)
 	. = ..()
@@ -39,8 +54,6 @@
 /obj/item/storage/box/fancy/Initialize()
 	. = ..()
 	update_icon()
-	if(closable)
-		desc_info += "Alt-click to open and close the box. " //aka force override icon state. for you know, style.
 
 /obj/item/storage/box/fancy/AltClick(mob/user)
 	if(opened && !closable) // opened, non-closable items do nothing
@@ -60,7 +73,7 @@
 		if(icon_overlays) //whether it uses the overlays/uses its own version.
 			src.icon_state = "[src.icon_type][src.storage_type][contents.len - itemremoved]"
 		else
-			icon_state = "[initial(icon_state)][src.opened]"
+			icon_state = opened_icon_state ? opened_icon_state : "[initial(icon_state)][src.opened]"
 			..()
 	else
 		ClearOverlays()
@@ -72,15 +85,6 @@
 		opened = TRUE
 		update_icon()
 	. = ..()
-
-/obj/item/storage/box/fancy/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(!icon_type || !storage_type)
-		return
-	if(contents.len <= 0)
-		. += "There are no [src.icon_type]s left in the [src.storage_type]."
-	else
-		. += "There [src.contents.len == 1 ? "is" : "are"] <b>[src.contents.len]</b> [src.icon_type]\s left in \the [src.storage_type]."
 
 /*
  * Donut Box
@@ -285,7 +289,6 @@
 /obj/item/storage/box/fancy/cigarettes
 	name = "Trans-Stellar Duty Frees cigarette packet"
 	desc = "A ubiquitous brand of cigarettes, found in the facilities of every major spacefaring corporation in the universe. As mild and flavorless as it gets."
-	desc_info = "You can put a cigarette directly in your mouth by selecting the mouth region and clicking on yourself with a cigarette packet in hand. "
 	icon = 'icons/obj/cigs_lighters.dmi'
 	icon_state = "cigpacket"
 	item_state = "cigpacket"
@@ -306,6 +309,10 @@
 	can_hold = list(/obj/item/clothing/mask/smokable/cigarette, /obj/item/flame/lighter, /obj/item/trash/cigbutt)
 	cant_hold = list(/obj/item/clothing/mask/smokable/cigarette/cigar) // prevents cigars from being put in regular cigarettes packs, because thats kind of silly
 	var/cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette
+
+/obj/item/storage/box/fancy/cigarettes/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "You can put a cigarette directly in your mouth by selecting the mouth region and clicking on yourself with a cigarette packet in hand."
 
 /obj/item/storage/box/fancy/cigarettes/Initialize()
 	atom_flags |= ATOM_FLAG_NO_REACT
@@ -431,6 +438,13 @@
 	icon_state = "Opacket"
 	item_state = "Fpacket"
 	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/oracle
+
+/obj/item/storage/box/fancy/cigarettes/koko
+	name = "\improper Ha'zana Corsair Afterburners cigarette packet"
+	desc = "Made exclusively on the Compact ruled world of Ha'zana, these cigarettes are made using koko reed instead of tobacco; a good pick-me-up for Unathi, but has no effect on other species."
+	icon_state = "kokopacket"
+	item_state = "kokopacket"
+	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/koko
 
 /obj/item/storage/box/fancy/cigarettes/case
 	name = "cigarette case"
@@ -903,3 +917,73 @@
 		else if(contents.len <= 10)
 			item_state = "heartbox_open"
 			icon_state = "heartbox_full"
+
+/obj/item/storage/box/fancy/food/sliced_bread
+	name = "sliced bread"
+	desc = "The best thing since... ever, basically! This store-bought bread might not have the heart and soul of a fresh loaf of bread baked at home, but it's... uh... Well, at least it's supsiciously square!"
+	icon = 'icons/obj/item/reagent_containers/food/bread.dmi'
+	icon_state = "slicedbread_full"
+	icon_type = "bread slice"
+	use_sound = 'sound/items/storage/wrapper.ogg'
+	drop_sound = 'sound/items/drop/wrapper.ogg'
+	pickup_sound = 'sound/items/pickup/wrapper.ogg'
+	storage_type = "bag"
+	storage_slots = 8
+	max_storage_space = 8
+	can_hold = list(
+		/obj/item/reagent_containers/food/snacks/breadslice/filled
+	)
+	starts_with = list(/obj/item/reagent_containers/food/snacks/breadslice/filled = 8)
+	opened = TRUE
+	closable = FALSE
+	throwforce = 1
+
+/obj/item/storage/box/fancy/food/sliced_bread/update_icon()
+	. = ..()
+	var/storage_space_used
+	for(var/obj/item/I in contents)
+		storage_space_used += I.get_storage_cost()
+
+	if(!storage_space_used)
+		icon_state = "slicedbread_empty"
+	else if(storage_space_used <= 0.25 * max_storage_space)
+		icon_state = "slicedbread_last"
+	else if(storage_space_used <= 0.5 * max_storage_space)
+		icon_state = "slicedbread_half"
+	else if(storage_space_used <= 0.875 * max_storage_space)
+		icon_state = "slicedbread_nearfull"
+	else if(storage_space_used <= max_storage_space)
+		icon_state = "slicedbread_full"
+
+
+/obj/item/storage/box/fancy/food/packaged_shrimp
+	name = "packaged shrimp"
+	desc = "A package containing raw shrimp, as fresh as packaged shellfish shipped halfway across the universe can be!"
+	icon = 'icons/obj/item/reagent_containers/food/meat.dmi'
+	icon_state = "shrimp_pack"
+	icon_type = "raw shrimp"
+	use_sound = 'sound/items/storage/wrapper.ogg'
+	drop_sound = 'sound/items/drop/wrapper.ogg'
+	pickup_sound = 'sound/items/pickup/wrapper.ogg'
+	storage_slots = 4
+	max_storage_space = 4
+	can_hold = list(
+		/obj/item/reagent_containers/food/snacks/fish/raw_shrimp
+	)
+	starts_with = list(/obj/item/reagent_containers/food/snacks/fish/raw_shrimp = 4)
+	opened = TRUE
+	closable = FALSE
+	throwforce = 1
+
+/obj/item/storage/box/fancy/food/packaged_shrimp/update_icon()
+	. = ..()
+	var/storage_space_used
+	for(var/obj/item/I in contents)
+		storage_space_used += I.get_storage_cost()
+
+	if(!storage_space_used)
+		icon_state = "shrimp_pack_empty"
+	else if(storage_space_used <= 0.5 * max_storage_space)
+		icon_state = "shrimp_pack_half"
+	else if(storage_space_used <= max_storage_space)
+		icon_state = "shrimp_pack"

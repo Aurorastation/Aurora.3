@@ -11,35 +11,46 @@ GLOBAL_LIST_EMPTY(unauthed)
 /mob/abstract/unauthed/LateLogin()
 	SHOULD_CALL_PARENT(FALSE)
 
+	//Don't redo this if they have already been authenticated
+	if(client?.authed)
+		return
+
 	update_Login_details()
-	to_chat(src, SPAN_DANGER("<b>You need to authenticate before you can continue.</b>"))
 	token = md5("[client.ckey][client.computer_id][world.time][rand()]")
 	GLOB.unauthed[token] = src
 	remove_verb(client, typesof(/client/verb))
-	var/uihtml = "<html><head><style>body * {display: block;text-align:center;margin: 14px 0;font-size:24px;text-decoration:none;font-family:Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif;}</style></head><body><p>Please select:</p>"
+	var/uihtml = "<html><head><style>body * {display: block;text-align:center;margin: 14px 0;font-size:24px;text-decoration:none;font-family:Segoe UI Variable,Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif;}h1{color: #ff0000;font-family:Segoe UI Variable,Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif;}</style></head>"
+	uihtml += "<body><h1>You need to authenticate before you can continue.</h1><br/><p>Please select:</p>"
 	if(GLOB.config.guests_allowed)
 		uihtml += "<a href='byond://?src=[REF(src)];authaction=guest'>Login as guest</a>"
 	if(GLOB.config.webint_url && GLOB.config.external_auth)
 		uihtml += "<a href='byond://?src=[REF(src)];authaction=forums'>Login via forums</a>"
 	if(!GLOB.config.guests_allowed && GLOB.config.webint_url && GLOB.config.external_auth)
 		src.OpenForumAuthWindow()
-	show_browser(src, uihtml, "window=externalauth;size=300x300;border=0;can_close=1;can_resize=0;can_minimize=0;titlebar=1")
-	timeout_timer = addtimer(CALLBACK(src, PROC_REF(timeout)), 900, TIMER_STOPPABLE)
+	uihtml += "</body>"
+	show_browser(src, uihtml, "window=mainwindow.guestbrowser")
+	winset(src, "mainwindow.guestbrowser", "is-visible=true")
+	winset(src, "mainwindow.guestbrowser", "is-disabled=false")
+	timeout_timer = addtimer(CALLBACK(src, PROC_REF(timeout)), 90 SECONDS, TIMER_STOPPABLE)
 
 /mob/abstract/unauthed/proc/timeout()
 	if (client)
-		to_chat_immediate(client, "Your login time has expired. Please relog and try again.")
+		var/alert = "<html><head><title>Login Timeout</title><style>body * {display: block;text-align:center;margin: 14px 0;font-size:24px;text-decoration:none;font-family:Segoe UI Variable,Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif;}h1{color: #ff0000;font-family:Segoe UI Variable,Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif;}</style></head>"
+		alert += "<body><h1>Your login time has expired. Please relog and try again.</h1></body>"
+		show_browser(src, alert, "window=mainwindow.guestbrowser;")
 	qdel(client)
 	qdel(src)
 
-/mob/abstract/unauthed/proc/ClientLogin(var/newkey)
+/mob/abstract/unauthed/proc/ClientLogin(var/newkey, var/ckey_is_external)
 	if(!client)
 		qdel(src)
 	deltimer(timeout_timer)
+	winset(src, "mainwindow.guestbrowser", "is-visible=false")
+	winset(src, "mainwindow.guestbrowser", "is-disabled=true")
 	var/client/c = client // so we don't lose the client in the current mob.
 
-	show_browser(src, null, "window=externalauth")
 	add_verb(c,  typesof(/client/verb)) // Let's return regular client verbs
+
 	c.authed = TRUE // We declare client as authed now
 	c.prefs = null //Null them so we can load them from the db again for the correct ckey
 	// Check for bans
@@ -53,7 +64,8 @@ GLOBAL_LIST_EMPTY(unauthed)
 
 	GLOB.directory -= c.ckey
 	if(newkey)
-		c.key = newkey // Try seeting ckey
+		c.ckey_is_external = ckey_is_external
+		c.key = newkey // Try setting ckey
 		// ^^^^ THIS INVOKES mob/Login()!
 		// and also modifies the c.mob to the actual mob they disconnected out of.
 
@@ -62,6 +74,7 @@ GLOBAL_LIST_EMPTY(unauthed)
 	// Note that modifying the key variable does not invoke client/New() or client/Login() again.
 	c.InitClient()
 	c.InitPrefs()
+	c.InitUI()
 	c.mob.LateLogin()
 
 	if(istype(c.mob, /mob/abstract/unauthed))

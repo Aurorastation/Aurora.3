@@ -179,7 +179,7 @@
 "wj" = (
 /obj/structure/closet/crate/hydroponics,
 /obj/item/seeds/mtearseed,
-/obj/item/seeds/nifberries,
+/obj/item/seeds/dirtberries,
 /obj/item/seeds/sugartree,
 /obj/item/seeds/earthenroot,
 /turf/simulated/floor/exoplanet/snow/cold,

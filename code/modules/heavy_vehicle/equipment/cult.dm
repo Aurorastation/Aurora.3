@@ -25,3 +25,7 @@
 	if(!owner)
 		return
 	doomblade.attack(target_mob, user, user.zone_sel.selecting)
+
+/obj/item/mecha_equipment/doomblade/Destroy()
+	doomblade = null
+	return ..()

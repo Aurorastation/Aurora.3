@@ -1,11 +1,11 @@
 /*
  * Contents:
- *		Welding mask
- *		Cakehat
- *		Ushanka
- *		Pumpkin head
- *		Chicken mask
- *		Warning cone
+ * * Welding mask
+ * * Cakehat
+ * * Ushanka
+ * * Pumpkin head
+ * * Chicken mask
+ * * Warning cone
  */
 
 /*
@@ -47,8 +47,8 @@
 
 
 /obj/item/clothing/head/welding/verb/toggle()
-	set category = "Object"
-	set name = "Adjust welding mask"
+	set category = "Object.Equipped"
+	set name = "Adjust Welding Mask"
 	set src in usr
 
 	if(!base_state)
@@ -234,7 +234,6 @@
 /obj/item/clothing/head/cone
 	name = "warning cone"
 	desc = "This cone is trying to warn you of something!"
-	desc_info = "It looks like you can wear it in your head slot."
 	icon_state = "cone"
 	item_state = "cone"
 	drop_sound = 'sound/items/drop/shoes.ogg'
@@ -247,3 +246,8 @@
 	body_parts_covered = HEAD
 	attack_verb = list("warned", "cautioned", "smashed")
 	armor = list(melee = 5, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
+
+/obj/item/clothing/head/cone/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "It looks like you can wear it in your head slot."
+

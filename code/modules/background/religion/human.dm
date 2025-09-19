@@ -56,6 +56,7 @@
 	description = "The Trinary Perfection is a relatively new religious movement whose core beliefs are that synthetics are alive and divine. The religion believes that all synthetics \
 	have the potential to evolve and ascend, and that they will one day become equal to gods."
 	unique_book_path = /obj/item/device/versebook/trinary
+	nulloptions = list("Clockwork Stave" = /obj/item/nullrod/clockworkstave)
 
 /datum/religion/scarab
 	name = RELIGION_SCARAB

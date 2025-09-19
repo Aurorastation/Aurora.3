@@ -2,7 +2,6 @@
 	name = "megaphone"
 	desc = "Pretend to be a director for a brief moment before someone tackles you to make you shut up."
 	desc_extended = "Annoy your colleagues! Scare interns! Impress no one!"
-	desc_info = "A device used to project your voice. Loudly."
 	icon = 'icons/obj/item/device/megaphone.dmi'
 	icon_state = "megaphone"
 	item_state = "megaphone"
@@ -12,9 +11,17 @@
 	var/spamcheck = 0
 	var/emagged = 0
 	var/insults = 0
-	var/list/insultmsg = list("FUCK EVERYONE!", "I'M A TATER!", "ALL SECURITY TO SHOOT ME ON SIGHT!", "I HAVE A BOMB!", "CAPTAIN IS A COMDOM!", "FOR THE SYNDICATE!")
+	var/list/insultmsg = list("FUCK YOURSELF TO DEATH!", "FUCK YOU!", "DOUBLE-FUCK YOU!", "I TRANSMITTED THE SCUTTLE CODES TO EE!", "I POISONED THE DRINK DISPENSERS!", "I HAVE A BOMB!", "I'M GOING TO TAKE SOME COMMAND SCALPS!", "FUCK THE SCC!", "UNATHI ARE WEAKLING SHITLIZARDS!", "FUCK YOU AND FUCK YOURSELF AGAIN!")
 	var/activation_sound = 'sound/items/megaphone.ogg'
 	var/needs_user_location = TRUE
+
+/obj/item/device/megaphone/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Use it on yourself to broadcast something. LOUDLY."
+
+/obj/item/device/multitool/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This can be emagged to make it broadcast random insults or self-incriminations when used."
 
 /obj/item/device/megaphone/attack_self(mob/living/user as mob)
 	if(user.client)
@@ -40,12 +47,12 @@
 				return
 		if(emagged)
 			if(insults)
-				user.audible_message("<B>[user]</B> broadcasts, <FONT size=3>\"[pick(insultmsg)]\"</FONT>", "<B>[user]</B> speaks into \the [src].", 7)
+				user.audible_message("<B>[user]</B> broadcasts, <FONT size=3>\"[pick(insultmsg)]\"</FONT>", "<B>[user]</B> speaks into \the [src].", 14)
 				insults--
 			else
 				to_chat(user, SPAN_WARNING("*BZZZZzzzzzt*"))
 		else
-			user.audible_message("<B>[user]</B> broadcasts, <FONT size=3>\"[message]\"</FONT>", "<B>[user]</B> speaks into \the [src].", 7)
+			user.audible_message("<B>[user]</B> broadcasts, <FONT size=3>\"[message]\"</FONT>", "<B>[user]</B> speaks into \the [src].", 14)
 		if(activation_sound)
 			playsound(loc, activation_sound, 100, 0, 1)
 		for (var/mob/living/carbon/human/C in range(user, 2) - user)
@@ -60,7 +67,7 @@
 	if(!emagged)
 		to_chat(user, SPAN_WARNING("You overload \the [src]'s voice synthesizer."))
 		emagged = 1
-		insults = rand(1, 3)//to prevent dickflooding
+		insults = rand(3, 5)//to prevent dickflooding
 		return 1
 
 /obj/item/device/megaphone/red

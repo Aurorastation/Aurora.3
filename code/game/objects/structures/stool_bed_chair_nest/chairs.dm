@@ -227,6 +227,68 @@
 	if(!buckled)
 		generate_overlay_cache(material, CACHE_TYPE_SPECIAL, ABOVE_HUMAN_LAYER)
 
+/// Unique feature - you can put two seats on same tile with different pixel_offsets, humans will be buckled with respective offsets
+/// and only when both seats taken, seats will be made dense and, therefore, tile will become unpassible
+/// **Does not support more than two seats on a tile. It causes layer issues when used facing horizontal directions in a vertical row.**
+/obj/structure/bed/stool/chair/shuttle/double
+	obj_flags = NONE // We don't want this subtype able to be rotated.
+	var/buckle_offset_x = 0
+	var/buckle_offset_y = 0
+	var/mob_old_x = 0
+	var/mob_old_y = 0
+
+/obj/structure/bed/stool/chair/shuttle/double/Initialize()
+	. = ..()
+
+	addtimer(CALLBACK(src, PROC_REF(setup_buckle_offsets)), 1 SECONDS)
+
+/obj/structure/bed/stool/chair/shuttle/double/CanPass(atom/movable/mover, turf/target, height, air_group)
+	return TRUE
+
+/obj/structure/bed/stool/chair/shuttle/double/proc/setup_buckle_offsets()
+	if(pixel_x != 0)
+		buckle_offset_x = pixel_x
+	if(pixel_y != 0)
+		buckle_offset_y = pixel_y
+
+/// Buckling offset and density adjustment.
+/obj/structure/bed/stool/chair/shuttle/double/post_buckle(mob/M)
+	. = ..()
+	if(buckled)
+		if(buckled != M)
+			return
+
+		if(buckle_offset_x != 0)
+			mob_old_x = M.pixel_x
+			M.pixel_x = buckle_offset_x
+		if(buckle_offset_y != 0)
+			mob_old_y = M.pixel_y
+			M.pixel_y = buckle_offset_y
+	else
+		icon_state = initial(icon_state)
+
+		if(buckle_offset_x != 0)
+			M.pixel_x = mob_old_x
+			mob_old_x = 0
+		if(buckle_offset_y != 0)
+			M.pixel_y = mob_old_y
+			mob_old_y = 0
+
+	for(var/obj/structure/bed/stool/chair/shuttle/double/VS in get_turf(src))
+		if(VS != src)
+			//if both seats on same tile have buckled mob, we become dense, otherwise, not dense.
+			if(buckled)
+				if(VS.buckled)
+					REMOVE_TRAIT(buckled, TRAIT_UNDENSE, TRAIT_DOUBLE_SEATS)
+					REMOVE_TRAIT(VS.buckled, TRAIT_UNDENSE, TRAIT_DOUBLE_SEATS)
+				else
+					ADD_TRAIT(buckled, TRAIT_UNDENSE, TRAIT_DOUBLE_SEATS)
+			else
+				if(VS.buckled)
+					ADD_TRAIT(VS.buckled, TRAIT_UNDENSE, TRAIT_DOUBLE_SEATS)
+				REMOVE_TRAIT(M, TRAIT_UNDENSE, TRAIT_DOUBLE_SEATS)
+			break
+
 /obj/structure/bed/stool/chair/cockpit
 	name = "cockpit seating"
 	icon_state = "cockpit_preview"
@@ -281,7 +343,6 @@
 /obj/item/material/stool/chair
 	name = "chair"
 	desc = "Bar brawl essential. Now all that's missing is a ragtime piano."
-	desc_info = "Click it while in-hand to right it."
 	icon = 'icons/obj/structure/chairs.dmi'
 	icon_state = "chair_item"
 	item_state = "chair"

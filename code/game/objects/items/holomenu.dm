@@ -1,7 +1,6 @@
 /obj/item/holomenu
 	name = "holo-menu"
 	desc = "A hologram projector, this one has been set up to display text above itself."
-	desc_info = "If you have bar or kitchen access, you can swipe your ID on this to root it in place, then you can click on it with an empty hand to adjust its text. Alt-clicking it will toggle its border."
 	icon = 'icons/obj/holomenu.dmi'
 	icon_state = "holomenu"
 
@@ -10,7 +9,7 @@
 	light_color = LIGHT_COLOR_CYAN
 	light_range = 1.4
 
-	req_one_access = list(ACCESS_BAR, ACCESS_KITCHEN)
+	req_one_access = list(ACCESS_BAR, ACCESS_KITCHEN, ACCESS_HYDROPONICS)
 
 	var/rave_mode = FALSE
 	var/menu_text = ""
@@ -19,6 +18,11 @@
 	var/image/holo_lights
 	var/image/holo_text
 	var/image/holo_border
+
+/obj/item/holomenu/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "If you have bar or kitchen access, you can swipe your ID on this to root it in place, then you can click on it with an empty hand to adjust its text."
+	. += "Alt-clicking it will toggle its border."
 
 /obj/item/holomenu/Initialize()
 	. = ..()
@@ -128,12 +132,16 @@
 /obj/item/holomenu/holodeck
 	name = "holodeck status projector"
 	desc = "A hologram projector, this one has been set up to display text."
-	desc_info = "You can click on this with paper in hand to display text, or you can click on it with an empty hand to adjust its text. Alt-clicking it will toggle its border."
 	icon = 'icons/obj/holomenu_holodeck.dmi'
 	anchored = 1
 	layer = 4
 
 	req_one_access = list()
+
+/obj/item/holomenu/holodeck/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "If you have bar or kitchen access, you can click on this with paper in hand to display text, or you can click on it with an empty hand to adjust its text."
+	. += "Alt-clicking it will toggle its border."
 
 /obj/item/holomenu/holodeck/attack_hand(mob/user)
 	var/new_text = sanitize(input(user, "Enter new text for the hologram to display.", "Hologram Display", html2pencode(menu_text, TRUE)) as null|message)

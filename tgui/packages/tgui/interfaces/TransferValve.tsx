@@ -41,7 +41,7 @@ export const TransferValve = (props, context) => {
             </Section>
           </Flex.Item>
           <Flex.Item grow={1}>
-            <Section fill title="Vavle Attachment">
+            <Section fill title="Valve Attachment">
               <LabeledList>
                 <LabeledList.Item label="Name">
                   {data.valveAttachment ? data.valveAttachment : 'NOT ATTACHED'}

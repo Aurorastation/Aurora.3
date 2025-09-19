@@ -79,20 +79,22 @@
 
 	var/old_angle = 0
 
-/obj/machinery/porta_turret/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	var/msg = ""
+/obj/machinery/porta_turret/condition_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(!health)
-		msg += SPAN_DANGER("\The [src] is destroyed!")
+		. += SPAN_DANGER("\The [src] is destroyed!")
 	else if(health / maxhealth < 0.35)
-		msg += SPAN_DANGER("\The [src] is critically damaged!")
+		. += SPAN_DANGER("\The [src] is critically damaged!")
 	else if(health / maxhealth < 0.6)
-		msg += SPAN_WARNING("\The [src] is badly damaged!")
+		. += SPAN_ALERT("\The [src] is badly damaged!")
 	else if(health / maxhealth < 1)
-		msg += SPAN_NOTICE("\The [src] is slightly damaged!")
+		. += SPAN_NOTICE("\The [src] is slightly damaged.")
 	else
-		msg += SPAN_GOOD("\The [src] is not damaged!")
-	. +=  msg
+		. += "\The [src] is in perfect condition."
+
+/obj/machinery/porta_turret/assembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "It [anchored ? "is" : "could be"] anchored to the floor with some <b>bolts</b>."
 
 /obj/machinery/porta_turret/crescent
 	enabled = FALSE

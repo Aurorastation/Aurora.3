@@ -91,7 +91,8 @@ var/list/reverseradiochannels = list(
 	"[AI_FREQ]"		= "AI Private",
 	"[ENT_FREQ]"	= "Entertainment",
 	"[MED_I_FREQ]"	= "Medical (I)",
-	"[SEC_I_FREQ]"	= "Security (I)"
+	"[SEC_I_FREQ]"	= "Security (I)",
+	"[EXP_FREQ]"	= "Expeditionary",
 )
 
 // The assoc variants are separate lists because they need the keys to be strings, but some code expects numbers.

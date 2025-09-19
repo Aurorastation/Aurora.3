@@ -1,10 +1,6 @@
-//replaces our stun baton code with /tg/station's code
 /obj/item/melee/baton
 	name = "stunbaton"
 	desc = "A stun baton for incapacitating people with."
-	desc_info = "The baton needs to be turned on to apply the stunning effect.  Use it in your hand to toggle it on or off.  If your intent is \
-	set to 'harm', you will inflict damage when using it, regardless if it is on or not.  Each stun reduces the baton's charge, which can be replenished by \
-	putting it inside a weapon recharger."
 	icon_state = "stunbaton"
 	item_state = "baton"
 	slot_flags = SLOT_BELT
@@ -19,17 +15,38 @@
 	attack_verb = list("beaten")
 	var/stunforce = 0
 	var/agonyforce = 60
-	var/status = 0		//whether the thing is on or not
+	/// Whether the thing is on or not
+	var/status = 0
 	var/obj/item/cell/bcell
 	var/hitcost = 1000
 	var/baton_color = "#FF6A00"
-	var/sheathed = 1 //electrocutes only on harm intent
+	/// Electrocutes only on harm intent
+	var/sheathed = 1
+
+/obj/item/melee/baton/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "The baton needs to be turned on to apply the stunning effect; left-click it in-hand to toggle power."
+	. += "On Harm intent, you will inflict damage when using it, regardless if it is on or not."
+	. += "Each stun reduces the baton's charge, which can be replenished by putting it inside a weapon recharger."
+
+/obj/item/melee/baton/feedback_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. = ..()
+	if(!distance <= 1)
+		return
+	if(bcell)
+		. += "The baton is [round(bcell.percent())]% charged."
+	else
+		. += "The baton does not have a power source installed."
 
 /obj/item/melee/baton/Initialize()
 	. = ..()
 	update_icon()
 
-/obj/item/melee/baton/loaded/Initialize() //this one starts with a cell pre-installed.
+/**
+ * This one starts with a cell pre-installed.
+ */
+/obj/item/melee/baton/loaded/Initialize()
 	bcell = new/obj/item/cell/high(src)
 	. = ..()
 
@@ -58,15 +75,6 @@
 		set_light(1.3, 1, "[baton_color]")
 	else
 		set_light(0)
-
-/obj/item/melee/baton/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(!distance <= 1)
-		return
-	if(bcell)
-		. += SPAN_NOTICE("The baton is [round(bcell.percent())]% charged.")
-	else
-		. += SPAN_WARNING("The baton does not have a power source installed.")
 
 /obj/item/melee/baton/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/cell))

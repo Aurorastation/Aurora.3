@@ -34,6 +34,11 @@
 	drop_sound = 'sound/items/drop/food.ogg'
 	pickup_sound = 'sound/items/pickup/food.ogg'
 
+/obj/item/reagent_containers/blood/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if (distance <= 2 && vampire_marks)
+		. += SPAN_WARNING("There are sharp, canine-like teeth marks on it.")
+
 /obj/item/reagent_containers/blood/Initialize()
 	. = ..()
 	if(blood_type != null)
@@ -154,11 +159,6 @@
 				affecting.take_damage(brute = 5, damage_flags = DAMAGE_FLAG_SHARP)
 		attached_mob = null
 	STOP_PROCESSING(SSprocessing, src)
-
-/obj/item/reagent_containers/blood/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if (distance <= 2 && vampire_marks)
-		. += SPAN_WARNING("There are sharp, canine-like teeth marks on it.")
 
 /obj/item/reagent_containers/blood/attackby(obj/item/attacking_item, mob/user)
 	..()

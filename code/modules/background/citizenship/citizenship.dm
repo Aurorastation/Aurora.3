@@ -3,6 +3,7 @@
 	var/description
 	var/obj/outfit/consular_outfit = /obj/outfit/job/representative/consular
 	var/obj/outfit/assistant_outfit = /obj/outfit/job/diplomatic_aide
+	var/obj/outfit/bodyguard_outfit
 	var/demonym
 	var/list/job_species_blacklist = list()
 	var/linked_citizenship //a secondary citizenship tied to this one. only used for vaurca snowflake code.

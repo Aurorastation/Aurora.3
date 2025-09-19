@@ -2,6 +2,7 @@ import { BooleanLike } from '../../common/react';
 import { useBackend } from '../backend';
 import { Box, Button, LabeledList, NoticeBox, Section, Table } from '../components';
 import { NtosWindow } from '../layouts';
+import { sortBy } from 'es-toolkit';
 
 export type PowerData = {
   all_sensors: Sensor[];
@@ -73,6 +74,10 @@ export const ShowMasterList = (props, context) => {
 
 export const SensorMonitoring = (props, context) => {
   const { act, data } = useBackend<PowerData>(context);
+  const { apc_data = [] } = data.focus;
+  const apcs_sorted: APCData[] = sortBy(apc_data, [
+    (APCData: APCData) => APCData.name,
+  ]);
 
   return (
     <Section
@@ -108,8 +113,8 @@ export const SensorMonitoring = (props, context) => {
             <Table.Cell>Cell Status</Table.Cell>
             <Table.Cell>APC Load</Table.Cell>
           </Table.Row>
-          {data.focus.apc_data && data.focus.apc_data.length ? (
-            data.focus.apc_data.map((apc) => (
+          {apcs_sorted && apcs_sorted.length ? (
+            apcs_sorted.map((apc) => (
               <Table.Row key={apc.name}>
                 <Table.Cell>{apc.name}</Table.Cell>
                 <Table.Cell>{apc.s_equipment}</Table.Cell>

@@ -33,6 +33,7 @@
   "world_subsystems_ghostroles_log":"subsystems/ghostroles.log",
   "world_subsystems_law_log":"subsystems/law.log",
   "world_subsystems_cargo_log":"subsystems/cargo.log",
+  "world_subsystems_persistence_log":"subsystems/persistence.log",
   "world_subsystems_discord_log":"subsystems/discord.log",
   "world_subsystems_documents_log":"subsystems/documents.log",
   "world_subsystems_fail2topic_log":"subsystems/fail2topic.log",

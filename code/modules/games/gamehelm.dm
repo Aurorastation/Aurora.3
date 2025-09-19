@@ -5,7 +5,6 @@
 	being able to be purchased from an online marketplace hosted by InUs. Thousands of popular and obscure titles are available on the \
 	console. Besides being the perfect present, it's also capable of video streaming and sharing files over authorized \
 	connections. A quick and easy way to upload your latest montage to the extranet."
-	desc_info = "You can ALT-click the game-helm to open it up and turn it on. Click on the open device to play."
 	icon = 'icons/obj/gamehelm.dmi'
 	w_class = WEIGHT_CLASS_SMALL
 	update_icon_on_init = TRUE
@@ -46,6 +45,10 @@
 	var/action_time_cooldown = 10 SECONDS
 
 	var/muted = FALSE
+
+/obj/item/gamehelm/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "You can ALT-click the game-helm to open it up and turn it on. Click on the open device to play."
 
 /obj/item/gamehelm/update_icon()
 	ClearOverlays()

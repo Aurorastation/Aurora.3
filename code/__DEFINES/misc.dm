@@ -32,7 +32,7 @@
 #define SOUND_ADMINHELP 0x1
 #define SOUND_MIDI      0x2
 // 0x4 is free.
-#define SOUND_LOBBY				0x8
+// 0x8 is free.
 #define CHAT_OOC				0x10
 #define CHAT_DEAD				0x20
 #define CHAT_GHOSTEARS			0x40
@@ -57,7 +57,7 @@
 #define ACCENT_TAG_TEXT BITFLAG(8)
 #define CLIENT_PREFERENCE_HIDE_MENU BITFLAG(9)
 
-#define TOGGLES_DEFAULT (SOUND_ADMINHELP | SOUND_MIDI | SOUND_LOBBY | CHAT_OOC | CHAT_DEAD | CHAT_GHOSTEARS | CHAT_GHOSTSIGHT | CHAT_PRAYER | CHAT_RADIO | CHAT_ATTACKLOGS | CHAT_LOOC | CHAT_GHOSTLOOC)
+#define TOGGLES_DEFAULT (SOUND_ADMINHELP | SOUND_MIDI | CHAT_OOC | CHAT_DEAD | CHAT_GHOSTEARS | CHAT_GHOSTSIGHT | CHAT_PRAYER | CHAT_RADIO | CHAT_ATTACKLOGS | CHAT_LOOC | CHAT_GHOSTLOOC)
 
 // ASFX and SFX Toggles
 // (ASFX = Ambient Sound Effects; SFX = Sound Effects)
@@ -122,21 +122,22 @@
 #define EVENT_LEVEL_MODERATE 2
 #define EVENT_LEVEL_MAJOR    3
 
-//General-purpose life speed define for plants.
+/// General-purpose life speed define for plants.
 #define HYDRO_SPEED_MULTIPLIER 1
 
 #define DEFAULT_JOB_TYPE /datum/job/assistant
 
 //Area flags, possibly more to come
-#define AREA_FLAG_RAD_SHIELDED        	 BITFLAG(1) //shielded from radiation, clearly
-#define AREA_FLAG_SPAWN_ROOF          	 BITFLAG(2) // if we should attempt to spawn a roof above us.
-#define AREA_FLAG_HIDE_FROM_HOLOMAP   	 BITFLAG(3) // if we shouldn't be drawn on station holomaps
-#define AREA_FLAG_FIRING_RANGE        	 BITFLAG(4)
-#define AREA_FLAG_NO_CREW_EXPECTED    	 BITFLAG(5) // Areas where crew is not expected to ever be. Used to tell antag bases and such from crew-accessible areas on centcom level.
-#define AREA_FLAG_PRISON              	 BITFLAG(6) // Marks prison area for purposes of checking if brigged/imprisoned
-#define AREA_FLAG_NO_GHOST_TELEPORT_ACCESS BITFLAG(7) // Marks whether ghosts should not have teleport access to this area
-#define AREA_FLAG_INDESTRUCTIBLE_TURFS			 BITFLAG(8) //Marks whether or not turfs in this area can be destroyed by explosions
-#define AREA_FLAG_IS_BACKGROUND 		 BITFLAG(9) //Marks whether or not blueprints can create areas on top of this area
+#define AREA_FLAG_RAD_SHIELDED				BITFLAG(1)	// shielded from radiation, clearly
+#define AREA_FLAG_SPAWN_ROOF				BITFLAG(2)	// if we should attempt to spawn a roof above us.
+#define AREA_FLAG_HIDE_FROM_HOLOMAP			BITFLAG(3)	// if we shouldn't be drawn on station holomaps
+#define AREA_FLAG_FIRING_RANGE				BITFLAG(4)	// Area dedicated for firing pin logic
+#define AREA_FLAG_NO_CREW_EXPECTED			BITFLAG(5)	// Areas where crew is not expected to ever be. Used to tell antag bases and such from crew-accessible areas on centcom level.
+#define AREA_FLAG_PRISON					BITFLAG(6)	// Marks prison area for purposes of checking if brigged/imprisoned
+#define AREA_FLAG_NO_GHOST_TELEPORT_ACCESS	BITFLAG(7)	// Marks whether ghosts should not have teleport access to this area
+#define AREA_FLAG_INDESTRUCTIBLE_TURFS		BITFLAG(8)	// Marks whether or not turfs in this area can be destroyed by explosions
+#define AREA_FLAG_IS_BACKGROUND				BITFLAG(9)	// Marks whether or not blueprints can create areas on top of this area
+#define AREA_FLAG_PREVENT_PERSISTENT_TRASH	BITFLAG(10)	// Marks whether or not the area allows trash to become persistent in it
 
 // Convoluted setup so defines can be supplied by Bay12 main server compile script.
 // Should still work fine for people jamming the icons into their repo.
@@ -406,6 +407,7 @@ example:
 #define SAUCEPAN			1 << 4
 #define POT					1 << 5
 #define GRILL				1 << 6
+#define MICROWAVE			1 << 7
 
 // Cooking misc.
 // can_insert return values
@@ -450,7 +452,8 @@ example:
 #define TEMPLATE_FLAG_PORT_SPAWN       BITFLAG(5)
 
 //Ruin map template flags
-/// Ruin is not available during spawning unless another ruin permits it, or whitelisted by the exoplanet
+/// Ruin is not available during spawning unless another ruin permits it, whitelisted by the exoplanet or tied to an external subsystem like Odyssey gamemode.
+/// This should also be added to Odssey maps.
 #define TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED BITFLAG(6)
 
 #define LANDING_ZONE_RADIUS 15 // Used for autoplacing landmarks on exoplanets

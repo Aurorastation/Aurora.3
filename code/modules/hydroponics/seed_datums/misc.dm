@@ -35,7 +35,8 @@
 	set_trait(TRAIT_PRODUCT_COLOUR,"#B4D6BD")
 	set_trait(TRAIT_PLANT_COLOUR,"#6BBD68")
 	set_trait(TRAIT_PLANT_ICON,"stalk3")
-	set_trait(TRAIT_IDEAL_HEAT, 298)
+	set_trait(TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_HIGH)
+	set_trait(TRAIT_IDEAL_HEAT, IDEAL_HEAT_TROPICAL)
 
 /obj/item/seeds/sugarcaneseed
 	seed_type = "sugarcane"
@@ -63,20 +64,6 @@
 
 /obj/item/seeds/grassseed
 	seed_type = "grass"
-
-/datum/seed/grass/sea
-	name = "seaweed"
-	seed_name = "seaweed"
-	display_name = "seaweed"
-	kitchen_tag = "seaweed"
-
-/datum/seed/grass/sea/setup_traits()
-	..()
-	set_trait(TRAIT_PRODUCT_COLOUR, "#0F6E56")
-	set_trait(TRAIT_PLANT_COLOUR, "#0D4836")
-
-/obj/item/seeds/seaweed
-	seed_type = "seaweed"
 
 /datum/seed/grass/moss
 	name = "moss"
@@ -109,7 +96,8 @@
 	set_trait(TRAIT_PRODUCT_ICON,"nuts")
 	set_trait(TRAIT_PRODUCT_COLOUR,"#4d4d4d")
 	set_trait(TRAIT_PLANT_ICON,"vine2")
-	set_trait(TRAIT_IDEAL_LIGHT, 6)
+	set_trait(TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_HIGH)
+	set_trait(TRAIT_IDEAL_HEAT, IDEAL_HEAT_TROPICAL)
 
 /obj/item/seeds/peppercornseed
 	seed_type = "peppercorn"

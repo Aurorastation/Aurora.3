@@ -1,7 +1,6 @@
 /obj/item/device/holowarrant
 	name = "warrant projector"
 	desc = "The practical paperwork replacement for the officer on the go."
-	desc_info = "Use this item in-hand to select the active warrant. Click on the person you want to show it to to display the warrant."
 	icon = 'icons/obj/holowarrant.dmi'
 	icon_state = "holowarrant"
 	item_state = "holowarrant"
@@ -13,6 +12,16 @@
 
 	var/datum/record/warrant/selected_warrant
 
+/obj/item/device/holowarrant/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Use this item in-hand to select the active warrant."
+	. += "Click on the person you want to show it to to display the warrant to them."
+
+/obj/item/device/holowarrant/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(selected_warrant)
+		. += "It's a holographic warrant for '[selected_warrant.name]'."
+
 /obj/item/device/holowarrant/Initialize(mapload, ...)
 	. = ..()
 	RegisterSignal(SSrecords, COMSIG_RECORD_CREATED, PROC_REF(handle_warrant_created))
@@ -20,11 +29,6 @@
 /obj/item/device/holowarrant/Destroy()
 	unload_warrant()
 	return ..()
-
-/obj/item/device/holowarrant/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(selected_warrant)
-		. += "It's a holographic warrant for '[selected_warrant.name]'."
 
 /obj/item/device/holowarrant/attack_self(mob/living/user as mob)
 	if(!LAZYLEN(SSrecords.warrants))

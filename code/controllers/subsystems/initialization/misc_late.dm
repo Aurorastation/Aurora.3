@@ -42,4 +42,9 @@ SUBSYSTEM_DEF(misc_late)
 		var/obj/outfit/new_outfit = new outfit_type()
 		GLOB.outfit_cache[new_outfit.name] = new_outfit
 
+	// Load AI Icons here
+	for(var/ai_icon in subtypesof(/datum/ai_icon))
+		var/datum/ai_icon/new_icon = new ai_icon()
+		GLOB.ai_icons[new_icon.name] = ai_icon
+
 	return SS_INIT_SUCCESS

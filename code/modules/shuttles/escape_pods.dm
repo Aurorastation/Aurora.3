@@ -179,7 +179,7 @@ GLOBAL_LIST_EMPTY(escape_pods_by_name)
 #define AURORA_ESCAPE_POD(NUMBER) \
 /datum/shuttle/autodock/ferry/escape_pod/pod/escape_pod##NUMBER { \
 	name = "Escape Pod " + #NUMBER; \
-	shuttle_area = /area/shuttle/escape_pod/pod##NUMBER; \
+	shuttle_area = /area/horizon/shuttle/escape_pod/pod##NUMBER; \
 	location = 0; \
 	dock_target = "escape_pod_" + #NUMBER; \
 	arming_controller = "escape_pod_"+ #NUMBER +"_berth"; \

@@ -2510,7 +2510,7 @@
 /turf/simulated/floor/reinforced/airless,
 /area/abandoned_industrial_station/exterior)
 "ig" = (
-/obj/structure/janitorialcart{
+/obj/structure/cart/storage/janitorialcart{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/custodial,
@@ -15846,7 +15846,7 @@
 /area/abandoned_industrial_station/service)
 "Yn" = (
 /obj/effect/floor_decal/industrial/outline/custodial,
-/obj/structure/janitorialcart{
+/obj/structure/cart/storage/janitorialcart{
 	dir = 4
 	},
 /obj/random/dirt_75,

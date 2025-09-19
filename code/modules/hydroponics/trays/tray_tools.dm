@@ -10,7 +10,8 @@
 		slot_r_hand_str = 'icons/mob/items/righthand_hydro.dmi',
 		)
 	toolspeed = 0.7
-	bomb_defusal_chance = 40 // 40% chance to successfully defuse a bomb, higher than standard because plant clippers are smaller
+	/// Plant clippers have a 40% chance to successfully defuse a bomb, higher than standard because plant clippers are smaller.
+	bomb_defusal_chance = 40
 	build_from_parts = FALSE
 
 /obj/item/wirecutters/clippers/update_icon()
@@ -21,6 +22,7 @@
 		tf.Translate(-1, 0) //Could do this with pixel_x but let's just update the appearance once.
 	transform = tf
 
+/// Like a health analyzer, but for plants! Tells you everything you need to know.
 /obj/item/device/analyzer/plant_analyzer
 	name = "plant analyzer"
 	icon = 'icons/obj/item/device/plant_analyzer.dmi'
@@ -33,7 +35,7 @@
 
 /obj/item/device/analyzer/plant_analyzer/proc/print_report_verb()
 	set name = "Print Plant Report"
-	set category = "Object"
+	set category = "Object.Held"
 	set src = usr
 
 	if(usr.stat || usr.restrained() || usr.lying)

@@ -1,11 +1,11 @@
 /* Types of tanks!
  * Contains:
- *		Oxygen
- *		Anesthetic
- *		Air
- *		Phoron
- *		Hydrogen
- *		Emergency Oxygen
+ * * Oxygen
+ * * Anesthetic
+ * * Air
+ * * Phoron
+ * * Hydrogen
+ * * Emergency Oxygen
  */
 
 /*
@@ -18,13 +18,13 @@
 	item_state = "oxygen"
 	distribute_pressure = ONE_ATMOSPHERE*O2STANDARD
 
-/obj/item/tank/oxygen/adjust_initial_gas()
-	air_contents.adjust_gas(GAS_OXYGEN, (6*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))
-
-/obj/item/tank/oxygen/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/tank/oxygen/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if((is_adjacent) && air_contents.gas[GAS_OXYGEN] < 10)
 		. += SPAN_WARNING("The meter on \the [src] indicates you are almost out of oxygen!")
+
+/obj/item/tank/oxygen/adjust_initial_gas()
+	air_contents.adjust_gas(GAS_OXYGEN, (6*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))
 
 /obj/item/tank/oxygen/yellow
 	desc = "A tank of oxygen, this one is yellow."
@@ -73,13 +73,13 @@
 	icon_state = "oxygen"
 	item_state = "oxygen"
 
-/obj/item/tank/air/adjust_initial_gas()
-	air_contents.adjust_multi(GAS_OXYGEN, (6*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C) * O2STANDARD, GAS_NITROGEN, (6*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C) * N2STANDARD)
-
-/obj/item/tank/air/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/tank/air/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if((is_adjacent) && air_contents.gas[GAS_OXYGEN] < 1 && loc==user)
 		. += SPAN_WARNING("The meter on the [src.name] indicates you are almost out of air!")
+
+/obj/item/tank/air/adjust_initial_gas()
+	air_contents.adjust_multi(GAS_OXYGEN, (6*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C) * O2STANDARD, GAS_NITROGEN, (6*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C) * N2STANDARD)
 
 /*
  * Phoron
@@ -133,7 +133,6 @@
 /obj/item/tank/emergency_oxygen
 	name = "emergency oxygen tank"
 	desc = "Used for emergencies. Contains very little oxygen, so try to conserve it until you actually need it."
-	desc_antag = "As a Cultist, this item can be reforged to become a large brown oxygen tank."
 	icon_state = "emergency"
 	item_state = "emergency"
 	gauge_icon = "indicator_emergency"
@@ -145,13 +144,17 @@
 	distribute_pressure = ONE_ATMOSPHERE*O2STANDARD
 	volume = 2 //Tiny. Real life equivalents only have 21 breaths of oxygen in them. They're EMERGENCY tanks anyway -errorage (dangercon 2011)
 
-/obj/item/tank/emergency_oxygen/adjust_initial_gas()
-	air_contents.adjust_gas(GAS_OXYGEN, (3*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))
-
-/obj/item/tank/emergency_oxygen/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/tank/emergency_oxygen/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if((is_adjacent) && air_contents.gas[GAS_OXYGEN] < 0.2 && loc==user)
 		. += SPAN_WARNING("The meter on the [src.name] indicates you are almost out of air!")
+
+/obj/item/tank/emergency_oxygen/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "As a Cultist, this item can be reforged to become a large brown oxygen tank."
+
+/obj/item/tank/emergency_oxygen/adjust_initial_gas()
+	air_contents.adjust_gas(GAS_OXYGEN, (3*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))
 
 /obj/item/tank/emergency_oxygen/engi
 	name = "extended-capacity emergency oxygen tank"

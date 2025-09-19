@@ -1,9 +1,9 @@
 /* Library Items
  *
  * Contains:
- *		Bookcase
- *		Book
- *		Barcode Scanner
+ * * Bookcase
+ * * Book
+ * * Barcode Scanner
  */
 
 
@@ -17,7 +17,6 @@
 	icon_state = "book-0"
 	anchored = 1
 	density = 1
-	opacity = 1
 	build_amt = 5
 
 /obj/structure/bookcase/Initialize()
@@ -192,7 +191,6 @@
 	icon = 'icons/obj/library.dmi'
 	contained_sprite = TRUE
 	icon_state = "book"
-	desc_antag = "As a Cultist, this item can be reforged to become a cult tome."
 	throw_speed = 1
 	throw_range = 5
 	w_class = WEIGHT_CLASS_NORMAL		 //upped to three because books are, y'know, pretty big. (and you could hide them inside eachother recursively forever)
@@ -206,6 +204,10 @@
 	var/obj/item/store	//What's in the book?
 	drop_sound = 'sound/items/drop/book.ogg'
 	pickup_sound = 'sound/items/pickup/book.ogg'
+
+/obj/item/book/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "As a Cultist, this item can be reforged to become a cult tome."
 
 /obj/item/book/attack_self(var/mob/user as mob)
 	if(carved)

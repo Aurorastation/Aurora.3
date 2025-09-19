@@ -92,7 +92,7 @@ GLOBAL_LIST_EMPTY(chargen_disabilities_list)
 GLOBAL_LIST_INIT(valid_player_genders, list(MALE, FEMALE, NEUTER, PLURAL))
 
 /// List of possible backpack shapes for the loadout.
-GLOBAL_LIST_INIT(backbaglist, list("Nothing", "Backpack", "Satchel", "Leather Satchel", "Duffel Bag", "Messenger Bag", "Rucksack", "Pocketbook"))
+GLOBAL_LIST_INIT(backbaglist, list("Nothing", "Backpack", "Satchel", "Leather Satchel", "Duffel Bag", "Messenger Bag", "Rucksack", "Pocketbook", "Chest Pouch"))
 /// List of possible backpack styles for the loadout.
 GLOBAL_LIST_INIT(backbagstyles, list("Job-specific", "Generic", "Faction-specific"))
 /// List of possible backpack colors for the loadout.
@@ -110,6 +110,9 @@ GLOBAL_LIST_INIT(headsetlist, list("Nothing", "Headset", "Bowman Headset", "Doub
 
 /// Primary Radio Slot loadout choices.
 GLOBAL_LIST_INIT(primary_radio_slot_choice, list("Left Ear", "Right Ear", "Wrist"))
+
+// Used to track fauna spawners on the phoron deposit away site.
+GLOBAL_LIST_INIT(fauna_spawners, list())
 
 /// Visual nets.
 GLOBAL_LIST_EMPTY_TYPED(visual_nets, /datum/visualnet)
@@ -193,6 +196,8 @@ GLOBAL_LIST_EMPTY(all_particles)
 	//Disability datums
 	paths = subtypesof(/datum/character_disabilities)
 	for(var/path in paths)
+		if(is_abstract(path))
+			continue
 		var/datum/character_disabilities/T = new path()
 		GLOB.chargen_disabilities_list[T.name] = T
 

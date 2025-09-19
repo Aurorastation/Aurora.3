@@ -13,6 +13,8 @@
 			for(var/obj/item/grab/G in moving_mob.grabbed_by)
 				if(G.assailant == src)
 					return TRUE
+		if(HAS_TRAIT(src, TRAIT_UNDENSE))
+			return TRUE
 		return (!mover.density || !density || lying)
 	else
 		return (!mover.density || !density || lying)
@@ -327,7 +329,7 @@
 
 		//Wheelchair pushing goes here for now.
 		//TODO: Fuck wheelchairs.
-		if(istype(mob.pulledby, /obj/structure/bed/stool/chair/office/wheelchair) || istype(mob.pulledby, /obj/structure/janitorialcart))
+		if(istype(mob.pulledby, /obj/structure/bed/stool/chair/office/wheelchair) || istype(mob.pulledby, /obj/structure/cart))
 			var/obj/structure/S = mob.pulledby
 			move_delay += S.slowdown
 			return mob.pulledby.relaymove(mob, direct)

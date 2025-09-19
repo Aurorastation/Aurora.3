@@ -357,7 +357,7 @@ SUBSYSTEM_DEF(discord)
 	if(GLOB.evacuation_controller.evacuation_type == TRANSFER_EMERGENCY)
 		escape_text = "escaped"
 	else
-		escape_text = "transfered"
+		escape_text = "transferred"
 
 	if (!webhooks.len)
 		return

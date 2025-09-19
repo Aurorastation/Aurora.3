@@ -30,6 +30,14 @@ FLOOR SAFES
 	var/drill_x_offset = -4				// The X pixel offset for the drill
 	var/drill_y_offset = -8				// The Y pixel offset for the drill
 
+/obj/structure/safe/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(broken)
+		. += SPAN_WARNING("\The [src]'s locking system has been drilled open!")
+	else if(time_to_drill < 300 SECONDS)
+		var/time_left = max(round(time_to_drill / 10), 0)
+		. += SPAN_WARNING("There are only [time_left] second\s of drilling left until \the [src] is broken!")
+
 /obj/structure/safe/Initialize()
 	. = ..()
 	tumbler_1_pos = rand(0, 71)
@@ -43,14 +51,6 @@ FLOOR SAFES
 		if(I.w_class + space <= maxspace)
 			space += I.w_class
 			I.forceMove(src)
-
-/obj/structure/safe/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(broken)
-		. += SPAN_WARNING("\The [src]'s locking system has been drilled open!")
-	else if(time_to_drill < 300 SECONDS)
-		var/time_left = max(round(time_to_drill / 10), 0)
-		. += SPAN_WARNING("There are only [time_left] second\s of drilling left until \the [src] is broken!")
 
 /obj/structure/safe/Destroy()
 	if(drill)

@@ -1,8 +1,8 @@
-//Config stuff
-#define SUPPLY_DOCKZ 1		  //Z-level of the Dock.
-#define SUPPLY_STATIONZ 6	   //Z-level of the Station.
-#define SUPPLY_STATION_AREATYPE /area/supply/station //Type of the supply shuttle area for station
-#define SUPPLY_DOCK_AREATYPE /area/supply/dock	//Type of the supply shuttle area for dock
+// Config Defines
+#define SUPPLY_DOCKZ 1		  // Z-level of the dock.
+#define SUPPLY_STATIONZ 6	   // Z-level of the main map.
+#define SUPPLY_STATION_AREATYPE /area/supply/station // Type of the cargo elevator area for station.
+#define SUPPLY_DOCK_AREATYPE /area/supply/dock	// Type of the cargo elevator area for dock.
 
 SUBSYSTEM_DEF(cargo)
 	name = "Cargo"
@@ -10,42 +10,42 @@ SUBSYSTEM_DEF(cargo)
 	flags = SS_NO_FIRE
 	init_order = SS_INIT_CARGO
 
-	//Shipment stuff
+	// Shipment Variables and Lists
 	var/shipmentnum
-	var/list/cargo_shipments = list() //List of the shipments to the station
-	var/datum/cargo_shipment/current_shipment = null //The current cargo shipment
+	var/list/cargo_shipments = list() // List of the shipments to the main map.
+	var/datum/cargo_shipment/current_shipment = null // The current cargo shipment.
 	var/list/queued_mining_equipment = list()
 
-	//order stuff
+	// Order Variables and Lists
 	var/ordernum
-	var/list/cargo_items = list() //The list of items
-	var/list/cargo_categories = list() //The list of categories
-	var/list/cargo_suppliers = list() //The list of suppliers
-	var/list/all_orders = list() //All orders
+	var/list/cargo_items = list() // The list of items.
+	var/list/cargo_categories = list() // The list of categories.
+	var/list/cargo_suppliers = list() // The list of suppliers.
+	var/list/all_orders = list() // All orders.
 
-	//Fee Stuff
-	var/credits_per_crate = 100 //Cost / Payment per crate shipped from / to centcom
-	var/credits_per_platinum = 140 //Per sheet
-	var/credits_per_phoron = 100 //Per sheet
-	var/cargo_handlingfee = 50 //The handling fee cargo takes per crate
-	var/cargo_handlingfee_min = 0 //The minimum handling fee
-	var/cargo_handlingfee_max = 500 //The maximum handling fee
-	var/cargo_handlingfee_change = 1 //If the handlingfee can be changed -> For a random event
+	// Fee Variables
+	var/credits_per_crate = 30 // "Cost / Payment" per crate shipped from or to centcomm.
+	var/credits_per_platinum = 140 // Per sheet.
+	var/credits_per_phoron = 100 // Per sheet.
+	var/cargo_handlingfee = 20 // The handling fee cargo takes per crate.
+	var/cargo_handlingfee_min = 0 // The minimum handling fee.
+	var/cargo_handlingfee_max = 500 // The maximum handling fee.
+	var/cargo_handlingfee_change = 1 // If the handling fee can be changed -> for a random event.
 	var/datum/money_account/supply_account
 
-	//shuttle movement
+	// Elevator Movement Variables
 	var/movetime = 300
 	var/min_movetime = 300
 	var/max_movetime = 2400
 	var/datum/shuttle/autodock/ferry/supply/shuttle
 
-	//Item vars
-	var/last_item_id = 0 //The ID of the last item that has been added
+	// Item Variables
+	var/last_item_id = 0 // The ID of the last item that has been added.
 
-	//Bool to indicate if orders have been dumped
+	/// Indicates if orders have been dumped.
 	var/dumped_orders = FALSE
 
-	//Exports and bounties
+	// Exports and Bounties
 	var/list/exports_list = list()
 	var/list/bounties_list = list()
 
@@ -63,19 +63,19 @@ SUBSYSTEM_DEF(cargo)
 	src.bounties_list = SScargo.bounties_list
 
 /datum/controller/subsystem/cargo/Initialize(timeofday)
-	//Generate the ordernumber and shipmentnumber to start with
-	ordernum = rand(1,8000)
-	shipmentnum = rand(500,700)
+	// Generate the order number and shipment number to start with.
+	ordernum = rand(1, 8000)
+	shipmentnum = rand(500, 700)
 
 	supply_account = SSeconomy.get_department_account("Operations")
 
-	//Load in the cargo items config
+	// Load in the cargo items config.
 	load_cargo_files()
 
 	setupExports()
 	setupBounties()
 
-	//Spawn in the warehouse crap
+	// Spawn in the warehouse objects and items.
 	var/datum/cargospawner/spawner = new
 	spawner.start()
 	qdel(spawner)
@@ -85,23 +85,24 @@ SUBSYSTEM_DEF(cargo)
 /*
 	Loading Data
 */
-//Reset cargo to prep for loading in new items
+// Reset cargo to prep for loading in new items.
 /datum/controller/subsystem/cargo/proc/reset_cargo()
-	cargo_shipments = list() //List of the shipments to the station
-	current_shipment = null //The current cargo shipment
-	all_orders = list() //All orders
+	cargo_shipments = list() // List of the shipments to the main map.
+	current_shipment = null // The current cargo shipment.
+	all_orders = list() // All orders.
 	last_item_id = 0
 
-//Load categories
+// Load Categories
 /datum/controller/subsystem/cargo/proc/load_cargo_categories()
 	for(var/singleton/cargo_category/C as anything in (GET_SINGLETON_SUBTYPE_LIST(/singleton/cargo_category)))
 		log_subsystem_cargo("Loading category '[C.name]'.")
 		SScargo.cargo_categories[C.name] = C
 
-//Load Suppliers
+// Load Suppliers
 /datum/controller/subsystem/cargo/proc/load_cargo_suppliers()
 	for(var/singleton/cargo_supplier/S as anything in (GET_SINGLETON_SUBTYPE_LIST(/singleton/cargo_supplier)))
 		log_subsystem_cargo("Loading supplier '[S.name]', with short name '[S.short_name]'.")
+		S.price_modifier = S.get_total_price_coefficient()
 		SScargo.cargo_suppliers[S.short_name] = S
 
 /datum/controller/subsystem/cargo/proc/load_cargo_items()
@@ -110,70 +111,70 @@ SUBSYSTEM_DEF(cargo)
 
 	reset_cargo()
 
-	// Get the list of all valid cargo items
-	for (var/singleton/cargo_item/I as anything in (GET_SINGLETON_SUBTYPE_LIST(/singleton/cargo_item)))
+	// Get the list of all valid cargo items.
+	for(var/singleton/cargo_item/I as anything in (GET_SINGLETON_SUBTYPE_LIST(/singleton/cargo_item)))
 		cargo_items[I.name] = I
 		I.id = id++
 		I.get_adjusted_price()
 
-		// Check if the category exists in SScargo.cargo_categories
-		if (!(I.category || SScargo.cargo_categories[I.category]))
+		// Check if the category exists in "SScargo.cargo_categories".
+		if(!(I.category || SScargo.cargo_categories[I.category]))
 			log_subsystem_cargo("Error: Unable to find category '[I.category]' for item '[I.name]. Skipping.")
 			continue
 		else
 			var/singleton/cargo_category/item_category = SScargo.cargo_categories[I.category]
-			if (!item_category.items)
+			if(!item_category.items)
 				item_category.items = list()
 			item_category.items += I
 			log_subsystem_cargo("Inserted item '[I.name]' into category '[I.category]' with ID '[I.id]'.")
 
-		if (!(I.supplier || SScargo.cargo_suppliers[I.supplier]))
+		if(!(I.supplier || SScargo.cargo_suppliers[I.supplier]))
 			log_subsystem_cargo("Error: Unable to find supplier '[I.supplier]' for item '[I.name]. Skipping.")
 			continue
 		else
 			var/singleton/cargo_supplier/item_supplier = SScargo.cargo_suppliers[I.supplier]
-			if (!item_supplier.items)
+			if(!item_supplier.items)
 				item_supplier.items = list()
 			item_supplier.items += I
 			I.supplier_data = item_supplier
 
 	log_subsystem_cargo("Finished loading cargo items.")
 
-//Load cargo data from cargo_items.dm
+// Load cargo data from "cargo_items.dm".
 /datum/controller/subsystem/cargo/proc/load_cargo_files()
 	log_subsystem_cargo("Starting to load cargo data from files.")
 
-	//Reset the loaded cargo data
+	// Reset the loaded cargo data.
 	reset_cargo()
 
-	//Add categories
+	// Add categories.
 	load_cargo_categories()
 
-	//Load suppliers
+	// Load suppliers.
 	load_cargo_suppliers()
 
-	//Load cargo items
+	// Load cargo items.
 	load_cargo_items()
 
 	log_subsystem_cargo("Finished loading cargo data from files.")
 
 /*
-	Getting items, categories, suppliers and shipments
+	Getting Items, Categories, Suppliers, and Shipments
 */
 /datum/controller/subsystem/cargo/proc/get_order_count()
 	return all_orders.len
-//Returns the order id and increments it
+// Returns the order ID and increments it.
 /datum/controller/subsystem/cargo/proc/get_next_order_id()
 	. = ordernum
 	ordernum++
 	return .
-//Increments the itemid and returns it
+// Increments the item ID and returns it.
 /datum/controller/subsystem/cargo/proc/get_next_item_id()
 	last_item_id++
 	return last_item_id
 
 
-/// Returns a "default" cargo_category for usage in situations where one is needed.
+/// Returns a default cargo_category for usage in situations where one is needed.
 /datum/controller/subsystem/cargo/proc/get_default_category()
 	var/list/categories = GET_SINGLETON_SUBTYPE_LIST(/singleton/cargo_category)
 	var/singleton/cargo_category/default_cat = categories[1]
@@ -231,7 +232,7 @@ SUBSYSTEM_DEF(cargo)
 	var/list/category_list = list()
 
 	for (var/cat_name in cargo_categories)
-		// Get the singleton instance for the current category
+		// Get the singleton instance for the current category.
 		var/singleton/cargo_category/cc = cargo_categories[cat_name]
 
 		category_list += list(list(
@@ -244,28 +245,28 @@ SUBSYSTEM_DEF(cargo)
 
 	return category_list
 
-//Get category names
+// Get category names.
 /datum/controller/subsystem/cargo/proc/get_category_by_name(var/name)
-	// Check if the category exists in cargo_categories
-	if (!cargo_categories[name])
+	// Check if the category exists in cargo_categories.
+	if(!cargo_categories[name])
 		log_subsystem_cargo("Error: Requested category '[name]' does not exist.")
 		return
 
-	// Return the category if it exists
+	// Return the category if it exists.
 	return cargo_categories[name]
 
-//Gets a order by order id
+// Gets a order by order ID.
 /datum/controller/subsystem/cargo/proc/get_order_by_id(var/id)
 	for (var/datum/cargo_order/co in all_orders)
 		if(co.order_id == id)
 			return co
 	return null
 
-//Gets a supplier by name
+// Gets a supplier by name.
 /datum/controller/subsystem/cargo/proc/get_supplier_by_name(var/name)
 	return cargo_suppliers[name]
 
-//Gets all the shipments sent to / from the station
+// Gets all the shipments sent to or from the main map.
 /datum/controller/subsystem/cargo/proc/get_shipment_list()
 	var/list/shipment_list = list()
 	for(var/datum/cargo_shipment/cs in cargo_shipments)
@@ -273,7 +274,7 @@ SUBSYSTEM_DEF(cargo)
 			shipment_list.Add(list(cs.get_list()))
 	return shipment_list
 
-//Get a shipment by shipment id
+// Get a shipment by shipment ID.
 /datum/controller/subsystem/cargo/proc/get_shipment_by_id(var/id)
 	for(var/datum/cargo_shipment/cs in cargo_shipments)
 		if(cs.shipment_num == id)
@@ -283,8 +284,7 @@ SUBSYSTEM_DEF(cargo)
 /*
 	Submitting, Approving, Rejecting and Shipping Orders
 */
-
-//Gets the orders based on their status (submitted, approved, shipped)
+// Gets the orders based on their status (submitted, approved, shipped).
 /datum/controller/subsystem/cargo/proc/get_orders_by_status(var/status, var/data_list=0)
 	if(!status)
 		log_subsystem_cargo("get_orders_by_status has been called with a invalid status")
@@ -298,7 +298,7 @@ SUBSYSTEM_DEF(cargo)
 				orders.Add(co)
 	return orders
 
-//Gets the value of orders based on their status, type is passed on to co.get_value
+// Gets the value of orders based on their status, type is passed on to co.get_value.
 /datum/controller/subsystem/cargo/proc/get_orders_value_by_status(var/status, var/type=0)
 	if(!status)
 		log_subsystem_cargo("get_orders_value_by_status has been called with a invalid status")
@@ -309,7 +309,7 @@ SUBSYSTEM_DEF(cargo)
 			value += co.get_value(type)
 	return value
 
-//Gets the suppliers of the orders of a specific type
+// Gets the suppliers of the orders of a specific type.
 /datum/controller/subsystem/cargo/proc/get_order_suppliers_by_status(var/status, var/pretty_names=0)
 	if(!status)
 		log_subsystem_cargo("get_order_suppliers_by_status has been called with a invalid status")
@@ -317,7 +317,7 @@ SUBSYSTEM_DEF(cargo)
 	var/list/suppliers = list()
 	for(var/datum/cargo_order/co in all_orders)
 		if(co.status == status)
-			//Get the list of supplirs and add it to the suppliers list
+			// Get the list of supplirs and add it to the suppliers list.
 			for(var/supplier in co.get_supplier_list())
 				if(pretty_names)
 					var/singleton/cargo_supplier/cs = SScargo.cargo_suppliers[supplier]
@@ -326,25 +326,25 @@ SUBSYSTEM_DEF(cargo)
 					suppliers[supplier] = supplier
 	return suppliers
 
-//Checks if theorder can be shipped and marks it as shipped if possible
+// Checks if theorder can be shipped and marks it as shipped if possible.
 /datum/controller/subsystem/cargo/proc/ship_order(var/datum/cargo_order/co)
-	//Get the price cargo has to pay for the order
+	// Get the price cargo has to pay for the order.
 	var/item_price = co.get_value(1)
 
-	//Get the maximum shipment costs for the order
+	// Get the maximum shipment costs for the order.
 	var/shipment_cost = co.get_shipment_cost()
 
-	//Check if cargo has enough money to pay for the shipment of the item and the maximum shipment cost
+	// Check if cargo has enough money to pay for the shipment of the item and the maximum shipment cost.
 	if(item_price + shipment_cost > get_cargo_money())
 		log_subsystem_cargo("Order could not be shipped. Insufficient money. [item_price] + [shipment_cost] > [get_cargo_money()].")
 		return 0
 
 	co.set_shipped()
-	current_shipment.shipment_cost_purchase += item_price //Increase the price of the shipment
-	current_shipment.orders.Add(co) //Add the order to the order list
+	current_shipment.shipment_cost_purchase += item_price // Increase the price of the shipment.
+	current_shipment.orders.Add(co) // Add the order to the order list.
 	return 1
 
-//Generate a new cargo shipment
+// Generate a new cargo shipment.
 /datum/controller/subsystem/cargo/proc/new_shipment()
 	current_shipment = new()
 	shipmentnum ++
@@ -353,10 +353,11 @@ SUBSYSTEM_DEF(cargo)
 /*
 	Changing Settings
 */
-//Gets the current handlingfee
+// Gets the current handlingfee.
 /datum/controller/subsystem/cargo/proc/get_handlingfee()
 	return cargo_handlingfee
-// Sets the handling fee - Returns a status message
+
+// Sets the handling fee and returns a status message.
 /datum/controller/subsystem/cargo/proc/set_handlingfee(var/fee)
 	if(!fee)
 		return "Unable to set handlingfee - Can not be NULL"
@@ -372,6 +373,7 @@ SUBSYSTEM_DEF(cargo)
 //Gets the current crate fee
 /datum/controller/subsystem/cargo/proc/get_cratefee()
 	return credits_per_crate
+
 /*
 	Money Stuff
 */
@@ -409,55 +411,55 @@ SUBSYSTEM_DEF(cargo)
 /*
 	Shuttle Operations - Calling, Forcing, Canceling, Buying / Selling
 */
-//Calls the shuttle. Returns a status message
+// Calls the shuttle and returns a status message.
 /datum/controller/subsystem/cargo/proc/shuttle_call(var/requester_name)
 	if(shuttle.at_station())
-		if (shuttle.forbidden_atoms_check())
-			. = "For safety reasons the automated supply shuttle cannot transport live organisms, classified nuclear weaponry or homing beacons."
+		if(shuttle.forbidden_atoms_check())
+			. = "For safety reasons the cargo elevator cannot transport live organisms, classified nuclear weaponry, nor homing beacons."
 		else
-			movetime = min_movetime //It always takes two minutes to get to centcom
+			movetime = min_movetime // It always takes two minutes to get to centcomm.
 			shuttle.launch(src)
-			. = "Initiating launch sequence"
+			. = "Initiating cargo elevator."
 			current_shipment.shuttle_recalled_by = requester_name
 	else
-		//Check if there is enough money in the cargo account for the current shipment
+		// Check if there is enough money in the cargo account for the current shipment.
 		var/shipment_cost = get_pending_shipment_cost()
-		if( shipment_cost > get_cargo_money())
-			. = "The supply shuttle could not be called. Insufficient Funds. [shipment_cost] Credits required"
+		if(shipment_cost > get_cargo_money())
+			. = "The cargo elevator could not be called due to insufficient funds. [shipment_cost] credits required."
 		else
-			//Create a new shipment if one does not exist already
+			// Create a new shipment if one does not exist already.
 			if(!current_shipment)
 				new_shipment()
 
-			//Set the shuttle movement time
+			// Set the elevator movement time.
 			current_shipment.shuttle_time = get_pending_shipment_time()
 			current_shipment.shuttle_fee = shipment_cost
 
 			if(current_shipment.shuttle_time < min_movetime)
-				log_subsystem_cargo("Shuttle Time less than [min_movetime]: [current_shipment.shuttle_time] - Setting to [min_movetime]")
+				log_subsystem_cargo("Cargo elevator time less than [min_movetime]: [current_shipment.shuttle_time]. Setting to [min_movetime].")
 				current_shipment.shuttle_time = min_movetime
 
 			if(current_shipment.shuttle_time > max_movetime)
-				log_subsystem_cargo("Shuttle Time larger than [max_movetime]: [current_shipment.shuttle_time] - Setting to [max_movetime]")
+				log_subsystem_cargo("Cargo elevator time larger than [max_movetime]: [current_shipment.shuttle_time]. Setting to [max_movetime].")
 				current_shipment.shuttle_time = max_movetime
 
 			movetime = current_shipment.shuttle_time
 			//Launch it
 			shuttle.launch(src)
-			. = "The supply shuttle has been called and will arrive in approximately [round(SScargo.movetime/600,2)] minutes."
+			. = "The cargo elevator has been called and will arrive in approximately [round(SScargo.movetime/600, 2)] minutes."
 			current_shipment.shuttle_called_by = requester_name
 
-//Cancels the shuttle. Can return a status message
+// Cancels the elevator. Can return a status message.
 /datum/controller/subsystem/cargo/proc/shuttle_cancel()
 	shuttle.cancel_launch(src)
 
-//Forces the shuttle. Can return a status message
+// Forces the eleavtor. Can return a status message.
 /datum/controller/subsystem/cargo/proc/shuttle_force()
 	shuttle.force_launch(src)
 
-//To stop things being sent to centcomm which should not be sent to centcomm. Recursively checks for these types.
+// To stop things being sent to centcomm which should not be sent to centcomm. Recursively checks for these types.
 /datum/controller/subsystem/cargo/proc/forbidden_atoms_check(atom/A)
-	if(istype(A,/mob/living))
+	if(istype(A, /mob/living))
 		var/mob/living/mob_to_send = A
 		var/mob_is_for_bounty = FALSE
 		if(!mob_to_send.mind)
@@ -467,11 +469,11 @@ SUBSYSTEM_DEF(cargo)
 					mob_is_for_bounty = TRUE
 		if(!mob_is_for_bounty)
 			return 1
-	if(istype(A,/obj/item/disk/nuclear))
+	if(istype(A, /obj/item/disk/nuclear))
 		return 1
-	if(istype(A,/obj/machinery/nuclearbomb))
+	if(istype(A, /obj/machinery/nuclearbomb))
 		return 1
-	if(istype(A,/obj/item/device/radio/beacon))
+	if(istype(A, /obj/item/device/radio/beacon))
 		return 1
 
 	for(var/i=1, i<=A.contents.len, i++)
@@ -479,7 +481,7 @@ SUBSYSTEM_DEF(cargo)
 		if(.(B))
 			return 1
 
-//Sells stuff on the shuttle to centcom
+// Sells stuff on the elevator to centcomm.
 /datum/controller/subsystem/cargo/proc/sell()
 	if(!shuttle.shuttle_area)
 		return
@@ -514,7 +516,7 @@ SUBSYSTEM_DEF(cargo)
 	charge_cargo("Shipment #[current_shipment.shipment_num] - Income", -current_shipment.shipment_cost_sell)
 	current_shipment.message = msg
 	current_shipment.generate_invoice()
-	current_shipment = null //Null the current shipment because its completed
+	current_shipment = null // Null the current shipment because it is completed.
 
 /datum/controller/subsystem/cargo/proc/order_mining(var/equip_path)
 	if(!ispath(equip_path))
@@ -523,13 +525,13 @@ SUBSYSTEM_DEF(cargo)
 	queued_mining_equipment += equip_path
 	return TRUE
 
-//Buys the item and places them on the shuttle
-//Returns 0 if unsuccessful returns 1 if the shuttle can be sent
+// Buys the item and places them on the elevator.
+// Returns 0 if unsuccessful and returns 1 if the elevator can be sent.
 /datum/controller/subsystem/cargo/proc/buy()
 	if(!current_shipment)
 		new_shipment()
 
-	var/list/approved_orders = get_orders_by_status("approved",0)
+	var/list/approved_orders = get_orders_by_status("approved", 0)
 
 	if(!shuttle.shuttle_area)
 		return
@@ -566,18 +568,18 @@ SUBSYSTEM_DEF(cargo)
 		if(!co)
 			continue
 
-		//Check if theres space to place the order
+		// Check if theres space to place the order.
 		if(!clear_turfs.len)
-			log_subsystem_cargo("Order [co.order_id] could not be placed on the shuttle because the shuttle is full")
+			log_subsystem_cargo("Order [co.order_id] could not be placed on the cargo elevator because it is full.")
 			break
 
-		//Check if the supplier is still available
+		// Check if the supplier is still available.
 		for(var/datum/cargo_order_item/coi in co.items)
 			if(!coi.ci.supplier_data.available)
-				log_subsystem_cargo("Order [co.order_id] could not be placed on the shuttle because supplier [coi.ci.supplier_data.name] for item [coi.ci.name] is unavailable")
+				log_subsystem_cargo("Order [co.order_id] could not be placed on the cargo elevator because supplier [coi.ci.supplier_data.name] for item [coi.ci.name] is unavailable.")
 				continue
 
-		//Check if there is enough money to ship the order
+		// Check if there is enough money to ship the order.
 		if(!ship_order(co))
 			continue
 
@@ -585,20 +587,20 @@ SUBSYSTEM_DEF(cargo)
 		var/turf/pickedloc = clear_turfs[i]
 		clear_turfs.Cut(i,i+1)
 
-		//Spawn the crate
+		// Spawn the crate.
 		var/containertype = co.get_container_type()
 		var/obj/crate = new containertype(pickedloc)
 
-		//Label the crate
+		// Label the crate.
 		crate.name_unlabel = crate.name
 		crate.name = "[crate.name] ([co.order_id] - [co.ordered_by])"
 		crate.verbs += /atom/proc/remove_label
 
-		//Set the access requirement
+		// Set the access requirement.
 		if(co.required_access.len > 0)
 			crate.req_access = co.required_access.Copy()
 
-		//Loop through the items and spawn them
+		// Loop through the items and spawn them.
 		for(var/datum/cargo_order_item/coi in co.items)
 			if(!coi)
 				continue
@@ -606,12 +608,12 @@ SUBSYSTEM_DEF(cargo)
 				for(var/item_typepath in coi.ci.items)
 					new item_typepath(crate)
 
-		//Spawn the Paper Inside
+		// Spawn the paper inside.
 		var/obj/item/paper/P = new(crate)
 		P.set_content_unsafe("[co.order_id] - [co.ordered_by]", co.get_report_delivery_order())
 
-	//Shuttle is loaded now - Charge cargo for it
-	charge_cargo("Shipment #[current_shipment.shipment_num] - Expense",current_shipment.shipment_cost_purchase)
+	// Shuttle is loaded now, charge operations for it.
+	charge_cargo("Shipment #[current_shipment.shipment_num] - Expense", current_shipment.shipment_cost_purchase)
 
 	return 1
 
@@ -626,7 +628,7 @@ SUBSYSTEM_DEF(cargo)
 
 	dumped_orders = TRUE
 
-	// Loop through all the orders and dump them all
+	// Loop through all the orders and dump them all.
 	var/DBQuery/dump_query = GLOB.dbcon.NewQuery("INSERT INTO `ss13_cargo_orderlog` (`game_id`, `order_id`, `status`, `price`, `ordered_by_id`, `ordered_by`, `authorized_by_id`, `authorized_by`, `received_by_id`, `received_by`, `paid_by_id`, `paid_by`, `time_submitted`, `time_approved`, `time_shipped`, `time_delivered`, `time_paid`, `reason`) \
 	VALUES (:game_id:, :order_id:, :status:, :price:, :ordered_by_id:, :ordered_by:, :authorized_by_id:, :authorized_by:, :received_by_id:, :received_by:, :paid_by_id:, :paid_by:, :time_submitted:, :time_approved:, :time_shipped:, :time_delivered:, :time_paid:, :reason:)")
 
@@ -636,7 +638,7 @@ SUBSYSTEM_DEF(cargo)
 	var/DBQuery/log_id = GLOB.dbcon.NewQuery("SELECT LAST_INSERT_ID() AS log_id")
 
 	for(var/datum/cargo_order/co in all_orders)
-		//Iterate over the items in the order and build the a list with the item count
+		// Iterate over the items in the order and build the a list with the item count.
 		var/list/itemcount = list()
 		var/list/itemnames = list()
 		for(var/datum/cargo_order_item/coi in co.items)
@@ -670,11 +672,11 @@ SUBSYSTEM_DEF(cargo)
 			log_subsystem_cargo("SQL: Could not write order to database. Cargo data dump has been aborted.")
 			continue
 
-		//Run the query to get the inserted id
+		// Run the query to get the inserted ID.
 		log_id.Execute()
 
 		var/db_log_id = null
-		if (log_id.NextRow())
+		if(log_id.NextRow())
 			db_log_id = text2num(log_id.item[1])
 
 		if(db_log_id)

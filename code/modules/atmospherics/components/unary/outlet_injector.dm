@@ -5,8 +5,6 @@
 /obj/machinery/atmospherics/unary/outlet_injector
 	name = "air injector"
 	desc = "Passively injects air into its surroundings. Has a valve attached to it that can control flow rate."
-	desc_info = "Outputs the pipe's gas into the atmosphere, similar to an airvent.  It can be controlled by a nearby atmospherics computer. \
-	A green light on it means it is on."
 	icon = 'icons/atmos/injector.dmi'
 	icon_state = "map_injector"
 
@@ -25,6 +23,12 @@
 	var/broadcast_status_next_process = FALSE
 
 	level = 1
+
+/obj/machinery/atmospherics/unary/outlet_injector/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Outputs the pipe's gas into the atmosphere, similar to an airvent."
+	. += "It can be controlled by a nearby atmospherics computer."
+	. += "A green light on it means it is on."
 
 /obj/machinery/atmospherics/unary/outlet_injector/Initialize()
 	. = ..()

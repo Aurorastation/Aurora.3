@@ -38,10 +38,13 @@
 /obj/item/clothing/ring/reagent/sleepy
 	name = "silver ring"
 	desc = "A ring made from what appears to be silver."
-	desc_antag = "This ring has a hidden injector that will activate when worn, administering a strong sedative. It is safe to hold in your hands."
 	icon_state = "material"
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
 	reagents_to_add = list(/singleton/reagent/polysomnine = 10)
+
+/obj/item/clothing/ring/reagent/sleepy/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This ring has a hidden injector that will activate when worn, administering a strong sedative. It is safe to hold in your hands."
 
 //Seals and Signet Rings
 

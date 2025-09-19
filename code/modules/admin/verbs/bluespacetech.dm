@@ -24,10 +24,10 @@
 		to_chat(src, "You've used this verb too recently, please wait a moment before trying again.")
 		return
 
-	if(!check_rights(R_DEV|R_ADMIN))
+	if(!check_rights(R_DEV|R_ADMIN) && !isstoryteller(src.mob))
 		return
 
-	if(!holder)
+	if(!holder && !isstoryteller(src.mob))
 		return //how did they get here?
 
 	if(!ROUND_IS_STARTED)

@@ -1813,7 +1813,7 @@
 /obj/item/toy/comic/witchfinder,
 /obj/item/mirror,
 /obj/item/flame/lighter/zippo/europa,
-/obj/item/clothing/ears/earmuffs/earphones/headphones,
+/obj/item/clothing/ears/earphones/headphones,
 /obj/item/gamehelm/pink{
 	icon_state = "closed_pink"
 	},

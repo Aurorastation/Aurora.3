@@ -80,7 +80,7 @@
 	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_BREAK | ORGAN_CAN_MAIM | ORGAN_HAS_TENDON | ORGAN_CAN_GRASP
 	tendon_name = "palmaris longus tendon"
 	artery_name = "basilic vein"
-	arterial_bleed_severity = 0.75
+	arterial_bleed_severity = 0.5
 	amputation_point = "left shoulder"
 	augment_limit = 2
 
@@ -113,7 +113,7 @@
 	joint = "left knee"
 	tendon_name = "quadriceps tendon"
 	artery_name = "femoral artery"
-	arterial_bleed_severity = 0.75
+	arterial_bleed_severity = 0.5
 	amputation_point = "left hip"
 	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_BREAK | ORGAN_CAN_MAIM | ORGAN_HAS_TENDON
 	augment_limit = 2

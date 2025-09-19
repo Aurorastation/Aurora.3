@@ -19,8 +19,8 @@
 	toggle()
 
 /obj/item/clothing/accessory/sinta_hood/verb/toggle()
-	set category = "Object"
-	set name = "Adjust Hood"
+	set category = "Object.Equipped"
+	set name = "Toggle Hood"
 	set src in usr
 
 	if(use_check_and_message(usr))
@@ -235,3 +235,40 @@
 	worn_overlay =  "chain"
 	has_accents = TRUE
 	protects_against_weather = FALSE
+
+/obj/item/clothing/accessory/poncho/scaleshield
+	name = "scaleshield"
+	desc = "A reinforced canvas and fabric made by Dominian Unathi, for Dominian Unathi, to face the cold weather of Moroz and look good doing it."
+	desc_extended = "A thick, warm piece of reinforced canvas and fabric made by Dominian Unathi to keep themselves warm in Moroz's \
+	frigid climate. Nowadays, its also become a fashion statement for those that wear it."
+	icon = 'icons/obj/unathi_items.dmi'
+	icon_state = "scaleshield"
+	item_state = "scaleshield"
+	icon_override = null
+	contained_sprite = TRUE
+	build_from_parts = TRUE
+	worn_overlay = "scaleshield"
+
+/obj/item/clothing/accessory/poncho/scaleshield/LSscaleshield
+	name = "Landsite Scaleshield"
+	desc = "A reinforced canvas and fabric made by Dominian Unathi, for Dominian Unathi, to face the cold weather of Moroz and look good doing it."
+	desc_extended = "A thick, warm piece of reinforced canvas and fabric made by Dominian Unathi to keep themselves warm in Moroz's \
+	frigid climate. This one bears a pattern commonly seen in the New Hope Unathi District, also known as Landsite."
+	icon = 'icons/obj/unathi_items.dmi'
+	worn_overlay = "LSscaleshield"
+
+/obj/item/clothing/accessory/poncho/scaleshield/ATscaleshield
+	name = "Anvil Towers Scaleshield"
+	desc = "A reinforced canvas and fabric made by Dominian Unathi, for Dominian Unathi, to face the cold weather of Moroz and look good doing it."
+	desc_extended = "A thick, warm piece of reinforced canvas and fabric made by Dominian Unathi to keep themselves warm in Moroz's \
+	frigid climate. This one bears a pattern commonly seen in the Anvil Unathi District, also known as Anvil Towers."
+	icon = 'icons/obj/unathi_items.dmi'
+	worn_overlay = "ATscaleshield"
+
+/obj/item/clothing/accessory/poncho/scaleshield/WTscaleshield
+	name = "Widowtown Scaleshield"
+	desc = "A reinforced canvas and fabric made by Dominian Unathi, for Dominian Unathi, to face the cold weather of Moroz and look good doing it."
+	desc_extended = "A thick, warm piece of reinforced canvas and fabric made by Dominian Unathi to keep themselves warm in Moroz's \
+	frigid climate. This one bears a pattern commonly seen in Hunter’s District, also known as Widowtown."
+	icon = 'icons/obj/unathi_items.dmi'
+	worn_overlay = "WTscaleshield"

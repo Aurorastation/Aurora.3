@@ -3,13 +3,17 @@
 /obj/item/evidencebag
 	name = "evidence bag"
 	desc = "An empty evidence bag."
-	desc_info = "Click drag this onto an object to put it inside. Click it in-hand to remove an object from it."
 	icon = 'icons/obj/forensics.dmi'
 	icon_state = "evidenceobj"
 	item_state = ""
 	w_class = WEIGHT_CLASS_SMALL
 	var/obj/item/stored_item = null
 	var/label_text = ""
+
+/obj/item/evidencebag/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Click drag this onto an object to put it inside."
+	. += "Click it in-hand to remove an object from it."
 
 /obj/item/evidencebag/Initialize()
 	. = ..()

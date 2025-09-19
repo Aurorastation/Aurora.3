@@ -84,6 +84,13 @@
 	whitelisted = list(SPECIES_HUMAN_OFFWORLD)
 	sort_category = "Xenowear - Human"
 
+/datum/gear/offworlder_rig/colorable
+	display_name = "colorable exo-stellar skeleton"
+	path = /obj/item/rig/light/offworlder/colorable
+	whitelisted = list(SPECIES_HUMAN_OFFWORLD)
+	sort_category = "Xenowear - Human"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/accessory/offworlder_card
 	display_name = "scarab passblade"
 	path = /obj/item/clothing/accessory/badge/passcard/scarab
@@ -99,3 +106,82 @@
 	sort_category = "Xenowear - Human"
 	flags = GEAR_HAS_DESC_SELECTION
 	origin_restriction = list(/singleton/origin_item/origin/coa_spacer)
+
+/datum/gear/head/human/conical
+	display_name = "non la conical hat"
+	sort_category = "Xenowear - Human"
+	path = /obj/item/clothing/head/nonla
+	origin_restriction = list(/singleton/origin_item/origin/konyang, /singleton/origin_item/origin/ipc_konyang, /singleton/origin_item/origin/new_hai_phong)
+
+/datum/gear/head/human/konyanger
+	display_name = "konyanger hat selection"
+	sort_category = "Xenowear - Human"
+	path = /obj/item/clothing/head/konyang
+	origin_restriction = list(/singleton/origin_item/origin/konyang, /singleton/origin_item/origin/ipc_konyang)
+
+/datum/gear/head/human/konyanger/New()
+	..()
+	var/list/hats = list()
+	hats["hat, gat"] = /obj/item/clothing/head/konyang
+	hats["hat, konyanger hachimaki"] = /obj/item/clothing/head/hachimaki
+	gear_tweaks += new /datum/gear_tweak/path(hats)
+
+/datum/gear/head/human/himeo
+	display_name = "himean cap"
+	sort_category = "Xenowear - Human"
+	path = /obj/item/clothing/head/softcap/himeo
+	origin_restriction = list(/singleton/origin_item/origin/himeo, /singleton/origin_item/origin/ipc_himeo, /singleton/origin_item/origin/free_council)
+
+/datum/gear/head/human/fisanduhian_ushanka
+	display_name = "fisanduhian ushanka"
+	sort_category = "Xenowear - Human"
+	path = /obj/item/clothing/head/ushanka/dominia
+	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
+
+/datum/gear/head/vysoka
+	display_name = "vysokan hat selection"
+	description = "A selection of vysokan hats."
+	path = /obj/item/clothing/head/vysoka
+	flags = GEAR_HAS_DESC_SELECTION
+	origin_restriction = list(/singleton/origin_item/origin/vysoka, /singleton/origin_item/origin/ipc_vysoka)
+	sort_category = "Xenowear - Human"
+
+/datum/gear/head/vysoka/New()
+	..()
+	var/list/vysoka = list()
+	vysoka["fur cap"] = /obj/item/clothing/head/vysoka
+	vysoka["fur cap, purple"] = /obj/item/clothing/head/vysoka/purple
+	vysoka["fur cap, blue"] = /obj/item/clothing/head/vysoka/blue
+	vysoka["fur cap, red"] = /obj/item/clothing/head/vysoka/red
+	vysoka["joku cap"] = /obj/item/clothing/head/vysoka/joku
+	vysoka["joku cap, purple"] = /obj/item/clothing/head/vysoka/joku/purple
+	vysoka["joku cap, blue"] = /obj/item/clothing/head/vysoka/joku/blue
+	vysoka["joku cap, red"] = /obj/item/clothing/head/vysoka/joku/red
+	vysoka["hair pin, dainshu feather"] = /obj/item/clothing/head/pin/dainshu
+	gear_tweaks += new /datum/gear_tweak/path(vysoka)
+
+/datum/gear/head/gadpathur
+	display_name = "gadpathurian headgear selection"
+	description = "A selection of headgear from Gadpathur."
+	path = /obj/item/clothing/head/gadpathur
+	flags = GEAR_HAS_DESC_SELECTION
+	origin_restriction = list(/singleton/origin_item/origin/gadpathur)
+	sort_category = "Xenowear - Human"
+
+/datum/gear/head/gadpathur/New()
+	..()
+	var/list/gadpathur = list()
+	gadpathur["gadpathurian side cap"] = /obj/item/clothing/head/gadpathur
+	gadpathur["gadpathurian beret"] = /obj/item/clothing/head/beret/gadpathur
+	gadpathur["gadpathurian engineer beret"] = /obj/item/clothing/head/beret/gadpathur/engineer
+	gadpathur["gadpathurian medical beret"] = /obj/item/clothing/head/beret/gadpathur/medical
+	gadpathur["gadpathurian turban"] = /obj/item/clothing/head/turban/gadpathur
+	gadpathur["gadpathurian patrol cap"] = /obj/item/clothing/head/ushanka/gadpathur
+	gear_tweaks += new /datum/gear_tweak/path(gadpathur)
+
+/datum/gear/uniform/dominia_consular
+	display_name = "dominian consular dress"
+	description = "A Dominian dress belonging to the Diplomatic Service."
+	path = /obj/item/clothing/under/dominia/consular/dress
+	allowed_roles = list("Consular Officer")
+

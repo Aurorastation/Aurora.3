@@ -544,10 +544,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/obj/effect/floor_decal/plaque{
-	name = "Okon 001 Plaque";
-	desc = "Granted as a gift to honor the Hadiist-Skrell relationship. Okon 001 will be the Party's eyes upon Adhomai."
-	},
+/obj/structure/sign/floor_plaque/raskara_okon,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},

@@ -73,13 +73,6 @@ Changelogs should be written in a concise and clear manner. There is no need for
 specific numbers, values, etcetera) in a changelog. If necessary, the PR can be tagged as **wiki update** for a wiki article to be written
 about it.
 
-There also exist **IC changelogs**. These are presented in-game as a news article by NanoTrasen, and can be used to provide temporary fluff
-for in-game changes. To make use of these, simply put a IC changelog header into the description of the PR and write up the contents below
-it. An example:
-
-> # IC Changelog
-> A new weapon was commissioned by NanoTrasen. It is currently being tested aboard the NSS Aurora
-
 # Coding Standards
 
 ### Absolute Pathing

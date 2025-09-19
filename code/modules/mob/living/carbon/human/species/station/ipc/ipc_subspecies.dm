@@ -83,8 +83,7 @@
 /datum/species/machine/shell/get_species(var/reference, var/mob/living/carbon/human/H, var/records)
 	if(reference)
 		return src
-	// it's illegal for shells in Tau Ceti space to not have tags, so their records would have to be falsified
-	if(records && !H.internal_organs_by_name[BP_IPCTAG])
+	if(records && H.client.prefs.hidden_shell_status)
 		return "Human"
 	return name
 
@@ -492,7 +491,7 @@
 	deform = 'icons/mob/human_races/ipc/r_ind_bishop.dmi'
 	preview_icon = 'icons/mob/human_races/ipc/ind_bishop_preview.dmi'
 
-	eyes = "bishop_eyes"
+	eyes = "blank_eyes"
 	eyes_icon_blend = ICON_MULTIPLY
 
 	brute_mod = 1.2
@@ -500,7 +499,7 @@
 	resist_mod = 4
 	num_alternate_languages = 3
 
-	appearance_flags = HAS_EYE_COLOR | HAS_UNDERWEAR | HAS_SOCKS
+	appearance_flags = HAS_HAIR_COLOR | HAS_UNDERWEAR | HAS_SOCKS
 
 	examine_color = "#00afea"
 
@@ -522,12 +521,13 @@
 
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/self_diagnostics,
-		/mob/living/carbon/human/proc/check_tag
+		/mob/living/carbon/human/proc/check_tag,
+		/mob/living/carbon/human/proc/change_monitor
 		)
 
 /datum/species/machine/bishop/get_light_color(mob/living/carbon/human/H)
 	if (istype(H))
-		return rgb(H.r_eyes, H.g_eyes, H.b_eyes)
+		return rgb(H.r_facial, H.g_facial, H.b_facial)
 
 /datum/species/machine/unbranded
 	name = SPECIES_IPC_UNBRANDED

@@ -53,20 +53,47 @@
 
 	var/gfi_layer_rotation = GFI_ROTATION_DEFAULT
 
-	// Extra descriptions.
-	var/desc_extended = null // Regular text about the atom's extended description, if any exists.
-	var/desc_info = null // Blue text (SPAN_NOTICE()), informing the user about how to use the item or about game controls.
-	var/desc_antag = null // Red text (SPAN_ALERT()), informing the user about how they can use an object to antagonize.
+	/*
+	 * EXTRA DESCRIPTIONS
+	 * Adds additional information of different types about a given object.
+	 * get_examine_text() in "obj\game\code\atom\atom_examine.dm" handles structure, formatting, etc.
+	 *
+	 * Most of these vars only concern objs, but they are initialized here in case any functionality
+	 * is migrated elsewhere.
+	 *
+	 * These vars should not be set in the object definition, but in defined funcs just beneath definition.
+	 */
+
+	/// Text about the atom's damage/condition. Gets built by children of /atom/proc/condition_hints()
+	var/desc_damagecondition = null
+
+	/// Text about the atom's extended description, if any exists. Should be a regular string.
+	var/desc_extended = null
+
+	/// Informs the user about how to use the item or about game controls. Gets built by children of /atom/proc/mechanics_hints()
+	var/desc_mechanics = null
+
+	/// Informs the user about how to assemble or disassemble the item. Gets built by children of /atom/proc/build_hints()
+	var/desc_build = null
+
+	/// Blue text (SPAN_NOTICE()), informing the user about what upgrades the item has and what they do. Gets built by children of /atom/proc/upgrade_hints()
+	var/desc_upgrade = null
+
+	/// Informs the user about how they can use an object to antagonize. Gets built by children of /atom/proc/antag_hints()
+	var/desc_antag = null
+
+	/// Feedback text. Gets built by children of /atom/proc/feedback_hints()
+	var/desc_feedback = null
 
 	/* SSicon_update VARS */
 
-	///When was the last time (in `world.time`) that the icon of this atom was updated via `SSicon_update`
+	/// When was the last time (in `world.time`) that the icon of this atom was updated via `SSicon_update`
 	var/tmp/last_icon_update = null
 
-	///If the atom is currently queued to have it's icon updated in `SSicon_update`
+	/// If the atom is currently queued to have it's icon updated in `SSicon_update`
 	var/tmp/icon_update_queued = FALSE
 
-	///Delay to apply before updating the icon in `SSicon_update`
+	/// Delay to apply before updating the icon in `SSicon_update`
 	var/icon_update_delay = null
 
 	/// How this atom should react to having its astar blocking checked
@@ -98,7 +125,7 @@
 	if(smoothing_flags & SMOOTH_QUEUED)
 		SSicon_smooth.remove_from_queues(src)
 
-	//We're being destroyed, no need to update the icon
+	// We're being destroyed, no need to update the icon
 	if(icon_update_queued)
 		SSicon_update.remove_from_queue(src)
 
@@ -108,7 +135,8 @@
 	if(length(atom_protected_overlay_cache))
 		LAZYCLEARLIST(atom_protected_overlay_cache)
 
-	orbiters = null // The component is attached to us normaly and will be deleted elsewhere
+	// The component is attached to us normaly and will be deleted elsewhere
+	orbiters = null
 
 	. = ..()
 
@@ -127,14 +155,23 @@
 	ricocheting_projectile.set_angle(new_angle_s)
 	return TRUE
 
-///Purpose: Determines if the object (or airflow) can pass this atom.
-///Called by: Movement, airflow.
-///Inputs: The moving atom (optional), target turf, "height" and air group
-///Outputs: Boolean if can pass.
-///**Please stop using this proc, use the `pass_flags_self` flags to determine what can pass unless you literally have no other choice**
+/**
+ * Purpose: Determines if the object (or airflow) can pass this atom.
+ * Called by: Movement, airflow.
+ *
+ * **PLEASE STOP USING THIS PROC, use the `pass_flags_self` flags to determine what can pass unless you literally have no other choice**
+ *
+ * * atom/movable/mover - The moving atom (can be null)
+ * * turf/target - Target turf
+ * * height - "height", whatever that means.
+ * * air_group - air group (ZAS bullshit)
+ *
+ * Returns Boolean if can pass.
+ */
 /atom/proc/CanPass(atom/movable/mover, turf/target, height=1.5, air_group = 0)
-	//I have condensed TG's `CanAllowThrough()` into this proc
-	if(mover) //Because some procs send null as a mover
+	// I have condensed TG's `CanAllowThrough()` into this proc
+	// Because some procs send null as a mover
+	if(mover)
 		if(mover.movement_type & PHASING)
 			return TRUE
 		if(mover.pass_flags & pass_flags_self)
@@ -145,7 +182,7 @@
 	return (!density || !height || air_group)
 
 /**
- * An atom we are buckled or is contained within us has tried to move
+ * An atom we are buckled or is contained within us has tried to move.
  */
 /atom/proc/relaymove(mob/living/user, direction)
 	SHOULD_NOT_SLEEP(TRUE)

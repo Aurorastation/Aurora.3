@@ -1207,7 +1207,8 @@
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "airlock_orion_ship_port";
 	name = "airlock_orion_ship_port";
-	frequency = 1004
+	frequency = 1004;
+	req_one_access = list(201)
 	},
 /obj/structure/bed/handrail{
 	dir = 1
@@ -1488,7 +1489,8 @@
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "airlock_orion_ship_starboard";
 	name = "airlock_orion_ship_starboard";
-	frequency = 1004
+	frequency = 1004;
+	req_one_access = list(201)
 	},
 /turf/simulated/floor,
 /area/ship/orion/bridge)
@@ -2372,7 +2374,8 @@
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "airlock_orion_ship_starboard";
 	name = "airlock_orion_ship_starboard";
-	frequency = 1004
+	frequency = 1004;
+	req_one_access = list(201)
 	},
 /obj/machinery/light/small,
 /turf/simulated/floor,
@@ -2733,7 +2736,8 @@
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "airlock_orion_ship_starboard";
 	name = "airlock_orion_ship_starboard";
-	frequency = 1004
+	frequency = 1004;
+	req_one_access = list(201)
 	},
 /obj/structure/bed/handrail{
 	dir = 1
@@ -2784,7 +2788,8 @@
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "airlock_orion_ship_port";
 	name = "airlock_orion_ship_port";
-	frequency = 1004
+	frequency = 1004;
+	req_one_access = list(201)
 	},
 /turf/simulated/floor,
 /area/ship/orion/cargo)
@@ -3053,6 +3058,11 @@
 "kog" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/random/pottedplant,
+/obj/item/device/gps/stationary{
+	gps_prefix = "ORION";
+	gpstag = "ORIONSHUTTLE";
+	pixel_x = -24
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/orion_shuttle/cockpit)
 "krv" = (
@@ -3099,7 +3109,8 @@
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "airlock_orion_ship_port";
 	name = "airlock_orion_ship_port";
-	frequency = 1004
+	frequency = 1004;
+	req_one_access = list(201)
 	},
 /turf/simulated/floor,
 /area/ship/orion/cargo)
@@ -3136,7 +3147,8 @@
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "airlock_orion_ship_port";
 	name = "airlock_orion_ship_port";
-	frequency = 1004
+	frequency = 1004;
+	req_one_access = list(201)
 	},
 /turf/simulated/floor,
 /area/ship/orion/cargo)
@@ -3311,7 +3323,8 @@
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "airlock_orion_ship_starboard";
 	name = "airlock_orion_ship_starboard";
-	frequency = 1004
+	frequency = 1004;
+	req_one_access = list(201)
 	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	pixel_y = 25
@@ -3833,7 +3846,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/orion/forehall)
 "nkI" = (
-/obj/structure/janitorialcart/full,
+/obj/structure/cart/storage/janitorialcart/full,
 /turf/simulated/floor,
 /area/ship/orion/forehall)
 "nmt" = (
@@ -5330,7 +5343,8 @@
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "airlock_orion_ship_starboard";
 	name = "airlock_orion_ship_starboard";
-	frequency = 1004
+	frequency = 1004;
+	req_one_access = list(201)
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor,
@@ -5598,7 +5612,8 @@
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "airlock_orion_ship_starboard";
 	name = "airlock_orion_ship_starboard";
-	frequency = 1004
+	frequency = 1004;
+	req_one_access = list(201)
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor,
@@ -5659,8 +5674,14 @@
 /obj/item/clothing/suit/space/void/engineering,
 /obj/item/clothing/head/helmet/space/void/engineering,
 /obj/item/clothing/head/helmet/space/void/engineering,
-/obj/item/device/gps/engineering,
-/obj/item/device/gps/engineering,
+/obj/item/device/gps/engineering{
+	gps_prefix = "ORION";
+	gpstag = "ORION0"
+	},
+/obj/item/device/gps/engineering{
+	gps_prefix = "ORION";
+	gpstag = "ORION0"
+	},
 /obj/item/cargo_backpack,
 /obj/item/cargo_backpack,
 /turf/simulated/floor/tiled/dark,
@@ -5898,7 +5919,8 @@
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "airlock_orion_ship_port";
 	name = "airlock_orion_ship_port";
-	frequency = 1004
+	frequency = 1004;
+	req_one_access = list(201)
 	},
 /turf/simulated/floor,
 /area/ship/orion/cargo)
@@ -6130,6 +6152,12 @@
 /obj/machinery/light{
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
+/obj/item/device/gps/stationary{
+	gps_prefix = "ORION";
+	gpstag = "ORIONBASE";
+	pixel_y = -24;
+	pixel_x = -24
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/bridge)
 "tWh" = (
@@ -6323,8 +6351,14 @@
 /obj/item/clothing/suit/space/void/engineering,
 /obj/item/clothing/head/helmet/space/void/engineering,
 /obj/item/clothing/head/helmet/space/void/engineering,
-/obj/item/device/gps/engineering,
-/obj/item/device/gps/engineering,
+/obj/item/device/gps/engineering{
+	gps_prefix = "ORION";
+	gpstag = "ORION0"
+	},
+/obj/item/device/gps/engineering{
+	gps_prefix = "ORION";
+	gpstag = "ORION0"
+	},
 /obj/item/cargo_backpack,
 /obj/item/cargo_backpack,
 /turf/simulated/floor/tiled/dark,
@@ -7264,7 +7298,8 @@
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "airlock_orion_ship_port";
 	name = "airlock_orion_ship_port";
-	frequency = 1004
+	frequency = 1004;
+	req_one_access = list(201)
 	},
 /obj/machinery/light/small,
 /turf/simulated/floor,

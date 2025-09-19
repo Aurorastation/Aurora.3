@@ -43,8 +43,8 @@
 		for(var/obj/item/thing in hold.contents)
 			var/icon_type = hold.helmet_storage_types[thing.type]
 			var/thing_state = icon_type == HELMET_GARB_PASS_ICON ? initial(thing.icon_state) : icon_type
-			I.AddOverlays(image('icons/clothing/kit/helmet_garb.dmi', null, "helmet_band"))
-			I.AddOverlays(image('icons/clothing/kit/helmet_garb.dmi', null, thing_state))
+			I.AddOverlays(image('icons/obj/item/clothing/accessory/armor/helmet_garb.dmi', null, "helmet_band"))
+			I.AddOverlays(image('icons/obj/item/clothing/accessory/armor/helmet_garb.dmi', null, thing_state))
 	return I
 
 /obj/item/clothing/head/helmet/attack_hand(mob/user)
@@ -81,7 +81,7 @@
 
 /obj/item/clothing/head/helmet/proc/toggle_camera()
 	set name = "Toggle Helmet Camera"
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in usr
 
 	if(ispath(camera))
@@ -105,7 +105,7 @@
 /obj/item/clothing/head/helmet/hos
 	name = "head of security helmet"
 	desc = "A special Internal Security Division helmet designed to protect the precious craniums of important installation security officers."
-	icon = 'icons/clothing/kit/modular_armor.dmi'
+	icon = 'icons/obj/item/clothing/head/modular_armor_helmets.dmi'
 	contained_sprite = TRUE
 	icon_state = "helm_sec_commander"
 	item_state = "helm_sec_commander"
@@ -140,7 +140,7 @@
 /obj/item/clothing/head/helmet/riot
 	name = "riot helmet"
 	desc = "It's a helmet specifically designed to protect against close range attacks."
-	icon = 'icons/clothing/kit/modular_armor.dmi'
+	icon = 'icons/obj/item/clothing/head/modular_armor_helmets.dmi'
 	contained_sprite = TRUE
 	icon_auto_adapt = TRUE
 	icon_supported_species_tags = list("una", "taj")
@@ -178,7 +178,7 @@
 /obj/item/clothing/head/helmet/ablative
 	name = "ablative helmet"
 	desc = "A helmet made from advanced materials which protects against concentrated energy weapons."
-	icon = 'icons/clothing/kit/modular_armor.dmi'
+	icon = 'icons/obj/item/clothing/head/modular_armor_helmets.dmi'
 	contained_sprite = TRUE
 	icon_state = "helm_ablative"
 	item_state = "helm_ablative"
@@ -193,7 +193,7 @@
 /obj/item/clothing/head/helmet/ballistic
 	name = "ballistic helmet"
 	desc = "A helmet with reinforced plating to protect against ballistic projectiles."
-	icon = 'icons/clothing/kit/modular_armor.dmi'
+	icon = 'icons/obj/item/clothing/head/modular_armor_helmets.dmi'
 	contained_sprite = TRUE
 	icon_state = "helm_ballistic"
 	item_state = "helm_ballistic"
@@ -208,7 +208,7 @@
 /obj/item/clothing/head/helmet/merc
 	name = "combat helmet"
 	desc = "A tan helmet made from advanced ceramic."
-	icon = 'icons/clothing/kit/modular_armor.dmi'
+	icon = 'icons/obj/item/clothing/head/modular_armor_helmets.dmi'
 	contained_sprite = TRUE
 	icon_state = "helm_heavy"
 	item_state = "helm_heavy"

@@ -1387,7 +1387,7 @@
 /turf/simulated/floor/tiled,
 /area/konyang_landing_zone/command_center)
 "su" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "red3"
 	},
 /obj/effect/overlay/container_logo{
@@ -2599,7 +2599,7 @@
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "KU" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "red1"
 	},
 /obj/effect/overlay/container_logo{
@@ -3635,7 +3635,7 @@
 /turf/simulated/floor/plating,
 /area/konyang_landing_zone/command_center/landing_pads)
 "Zy" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "red2"
 	},
 /obj/effect/overlay/container_logo,

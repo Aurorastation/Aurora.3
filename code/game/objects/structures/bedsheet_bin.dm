@@ -7,7 +7,6 @@ LINEN BINS
 /obj/item/bedsheet
 	name = "bedsheet"
 	desc = "A surprisingly soft linen bedsheet."
-	desc_info = "Click to roll and unroll. Alt-click to fold and unfold. Drag and drop to pick up. You can equip it in your backpack slot."
 	icon = 'icons/obj/bedsheets.dmi'
 	icon_state = "sheetwhite"
 	item_state = "sheetwhite"
@@ -29,6 +28,15 @@ LINEN BINS
 	var/fold = FALSE
 	var/inuse = FALSE
 	var/inside_storage_item = FALSE
+
+/obj/item/bedsheet/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Click to roll and unroll."
+	. += "Alt-click to fold and unfold."
+	. += "Drag and drop to pick up."
+	. += "You can equip it in your backpack slot."
+	. += "It could be cut up into sheets of cloth."
+	. += "Holes could be poked in it to make a ghost costume... if you really wanted to."
 
 /obj/item/bedsheet/Initialize()
 	. = ..()
@@ -388,9 +396,12 @@ LINEN BINS
 	var/list/sheets = list()
 	var/obj/item/hidden = null
 
+/obj/structure/bedsheetbin/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "You could hide things in here, so long as there are also some sheets to conceal it."
 
-/obj/structure/bedsheetbin/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/structure/bedsheetbin/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(amount < 1)
 		. += "There are no bed sheets in the bin."
 		return

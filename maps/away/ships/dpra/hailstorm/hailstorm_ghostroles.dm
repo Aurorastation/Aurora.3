@@ -5,7 +5,7 @@
 	tags = list("External")
 
 	spawnpoints = list("hailstorm_crew")
-	max_count = 3
+	max_count = 4
 	uses_species_whitelist = FALSE
 
 	outfit = /obj/outfit/admin/hailstorm_crew
@@ -22,13 +22,14 @@
 	name = "People's Volunteer Spacer Militia Crew"
 
 	id = /obj/item/card/id
+	l_ear = /obj/item/device/radio/headset/ship
+	mask = /obj/item/clothing/accessory/dogtags/adhomai
 	shoes = /obj/item/clothing/shoes/jackboots/tajara
 
 	uniform = /obj/item/clothing/under/tajaran/pvsm
-	l_ear = /obj/item/device/radio/headset/ship
-
+	head = /obj/item/clothing/head/beret/tajaran/pvsm
 	back = /obj/item/storage/backpack/rucksack
-	belt = /obj/item/storage/belt/military
+	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/storage/field_ration/dpra = 1, /obj/item/clothing/accessory/badge/dpra_passport = 1)
 
 	r_pocket = /obj/item/storage/wallet/random
 
@@ -54,11 +55,9 @@
 /obj/outfit/admin/hailstorm_crew/captain
 	name = "People's Volunteer Spacer Militia Captain"
 
-	head = /obj/item/clothing/head/beret/tajaran/pvsm
-
 	uniform = /obj/item/clothing/under/tajaran/pvsm/captain
-	accessory = /obj/item/clothing/accessory/holster/hip
-	accessory_contents = list(/obj/item/gun/projectile/silenced = 1)
+	head = /obj/item/clothing/head/beret/tajaran/pvsm
+	back = /obj/item/storage/backpack/satchel/leather
 
 /datum/ghostspawner/human/hailstorm_crew/advisor
 	short_name = "hailstorm_advisor"
@@ -80,12 +79,9 @@
 /obj/outfit/admin/hailstorm_crew/advisor
 	name = "People's Volunteer Spacer Militia ALA Advisor"
 
-	head = /obj/item/clothing/head/tajaran/ala_officer
-
 	uniform = /obj/item/clothing/under/tajaran/ala/black/officer
-	accessory = /obj/item/clothing/accessory/storage/bandolier
-	accessory_contents = list(/obj/item/ammo_casing/shotgun = 5,
-							/obj/item/ammo_casing/shotgun/pellet = 5)
+	accessory = /obj/item/clothing/accessory/dpra_badge
+	head = /obj/item/clothing/head/tajaran/ala_officer
+	back = /obj/item/storage/backpack/satchel/leather
 
-	belt = /obj/item/gun/projectile/shotgun/foldable
-	backpack_contents = list(/obj/item/gun/projectile/silenced = 1)
+	l_pocket = /obj/item/clothing/wrists/watch/pocketwatch/adhomai

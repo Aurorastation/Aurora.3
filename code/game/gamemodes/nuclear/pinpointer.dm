@@ -13,6 +13,12 @@
 	var/obj/item/disk/nuclear/the_disk = null
 	var/active = 0
 
+/obj/item/pinpointer/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	for(var/obj/machinery/nuclearbomb/bomb in SSmachinery.machinery)
+		if(bomb.timing)
+			. += "Extreme danger. Arming signal detected. Time remaining: [bomb.timeleft]"
+
 /obj/item/pinpointer/attack_self()
 	if(!active)
 		active = 1
@@ -48,12 +54,6 @@
 		if(16 to INFINITY)
 			AddOverlays("pinonfar")
 	return TRUE
-
-/obj/item/pinpointer/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	for(var/obj/machinery/nuclearbomb/bomb in SSmachinery.machinery)
-		if(bomb.timing)
-			. += "Extreme danger.  Arming signal detected.   Time remaining: [bomb.timeleft]"
 
 /obj/item/pinpointer/Destroy()
 	active = 0
@@ -150,7 +150,7 @@
 			AddOverlays("pinonfar")
 
 /obj/item/pinpointer/advpinpointer/verb/toggle_mode()
-	set category = "Object"
+	set category = "Object.Held"
 	set name = "Toggle Pinpointer Mode"
 	set src in view(1)
 

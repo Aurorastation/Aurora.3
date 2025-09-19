@@ -8,6 +8,10 @@
 	var/caught_bees = 0
 	var/feralbees
 
+/obj/item/bee_net/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This can be used to contain rogue bees, although beware overcrowding the net! If you do, the contained bees may all break out at once."
+
 /obj/item/bee_net/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(caught_bees)
@@ -100,8 +104,8 @@
 
 /obj/item/bee_net/verb/empty_bees()
 	set src in usr
-	set name = "Empty bee net"
-	set category = "Object"
+	set name = "Empty Bee Net"
+	set category = "Object.Held"
 
 	var/mob/living/carbon/M
 	if(iscarbon(usr))

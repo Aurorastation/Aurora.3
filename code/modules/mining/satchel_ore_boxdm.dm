@@ -4,7 +4,6 @@
 /obj/structure/ore_box
 	name = "ore box"
 	desc = "A heavy box used for storing ore."
-	desc_info = "You can attach a warp extraction beacon signaller to this, then click on it with an ore satchel that has a warp extraction pack attached, to link them."
 	icon = 'icons/obj/mining.dmi'
 	icon_state = "orebox0"
 	density = TRUE
@@ -12,6 +11,32 @@
 	var/last_update = 0
 	var/obj/item/warp_core/warp_core // to set up the bluespace network
 	var/list/stored_ore = list()
+
+/obj/structure/ore_box/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "You can attach a warp extraction beacon signaller to this, then click on it with an ore satchel that has a warp extraction pack attached, to link them."
+
+/obj/structure/ore_box/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(!is_adjacent) //Can only check the contents of ore boxes if you can physically reach them.
+		return
+
+	add_fingerprint(user)
+
+	if(warp_core)
+		. +=  FONT_SMALL(SPAN_NOTICE("It has a <b>warp extraction beacon signaller</b> attached to it."))
+
+	if(!length(contents))
+		. += SPAN_NOTICE("It is empty.")
+		return
+
+	if(world.time > last_update + 10)
+		update_ore_count()
+		last_update = world.time
+
+	. += SPAN_NOTICE("It holds:")
+	for(var/ore in stored_ore)
+		. += SPAN_NOTICE("- [stored_ore[ore]] [ore]")
 
 /obj/structure/ore_box/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/ore))
@@ -70,28 +95,6 @@
 			stored_ore[O.name]++
 		else
 			stored_ore[O.name] = 1
-
-/obj/structure/ore_box/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(!is_adjacent) //Can only check the contents of ore boxes if you can physically reach them.
-		return
-
-	add_fingerprint(user)
-
-	if(warp_core)
-		. +=  FONT_SMALL(SPAN_NOTICE("It has a <b>warp extraction beacon signaller</b> attached to it."))
-
-	if(!length(contents))
-		. += SPAN_NOTICE("It is empty.")
-		return
-
-	if(world.time > last_update + 10)
-		update_ore_count()
-		last_update = world.time
-
-	. += SPAN_NOTICE("It holds:")
-	for(var/ore in stored_ore)
-		. += SPAN_NOTICE("- [stored_ore[ore]] [ore]")
 
 /obj/structure/ore_box/verb/empty_box()
 	set name = "Empty Ore Box"

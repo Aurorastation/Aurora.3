@@ -74,8 +74,8 @@
 		if((l_leg.status & ORGAN_ROBOT) && (r_leg.status & ORGAN_ROBOT))
 			return
 
-		if(istype(H.back, /obj/item/rig/light/offworlder))
-			var/obj/item/rig/light/offworlder/rig = H.back
+		if(istype(H.back, /obj/item/rig))
+			var/obj/item/rig/rig = H.back
 			if(!rig.offline)
 				return
 

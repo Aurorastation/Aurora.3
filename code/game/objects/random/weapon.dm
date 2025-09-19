@@ -113,8 +113,7 @@
 /obj/random/sword
 	name = "random sword"
 	desc = "This is a random sword."
-	icon = 'icons/obj/weapons.dmi'
-	icon_state = "claymore"
+	icon_state = "melee"
 	spawnlist = list(
 		/obj/item/material/sword,
 		/obj/item/material/sword/katana,

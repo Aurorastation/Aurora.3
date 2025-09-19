@@ -18236,7 +18236,7 @@
 /turf/unsimulated/marker/blue,
 /area/enviro_testing_facility/inside/crew/quarters)
 "syU" = (
-/obj/structure/janitorialcart/full/water{
+/obj/structure/cart/storage/janitorialcart/full/water{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/mauve{

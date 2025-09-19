@@ -263,8 +263,8 @@
 			audible_emote("[verb] anxiously.")
 
 /mob/living/simple_animal/cat/fluff/verb/friend()
-	set name = "Become Friends"
-	set category = "IC"
+	set name = "Befriend Cat"
+	set category = "IC.Critters"
 	set src in view(1)
 
 	if(friend && usr == friend)

@@ -14,8 +14,8 @@
 	max_w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/storage/firstaid/empty
-	name = "empty first-aid kit"
 	desc = "It's a first-aid kit. Comes with nothing, so feel free to put your own stuff in it."
+	max_storage_space = DEFAULT_BOX_STORAGE // So empty first-aid kits don't start with less space than filled ones.
 
 /obj/item/storage/firstaid/regular
 	starts_with = list(

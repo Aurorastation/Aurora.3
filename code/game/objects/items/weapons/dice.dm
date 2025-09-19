@@ -8,10 +8,13 @@
 	max_amount = 6
 
 	base_icon = "d6"
-	var/side_mult = 1 // Used for d100s.
+	/// Used for d100s.
+	var/side_mult = 1
 	var/sides = 6
-	var/weight_roll = 0 // chance of the dice falling on its favored number
-	var/favored_number = 1 //related to the var above
+	/// Chance of the dice falling on its favored number
+	var/weight_roll = 0
+	/// Related to the var above.
+	var/favored_number = 1
 
 /obj/item/stack/dice/Initialize()
 	. = ..()

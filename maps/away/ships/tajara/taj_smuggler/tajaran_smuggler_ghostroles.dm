@@ -90,4 +90,4 @@
 	name = "Tajaran Smuggler Captain"
 
 	uniform = /obj/item/clothing/under/syndicate
-	head = /obj/item/clothing/head/padded
+	head = /obj/item/clothing/head/tanker

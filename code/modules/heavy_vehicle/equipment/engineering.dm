@@ -4,6 +4,11 @@
 	holding_type = /obj/item/rfd/construction/mounted/exosuit
 	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND)
 	restricted_software = list(MECH_SOFTWARE_ENGINEERING)
+	module_hints = list(
+		"<b>Control Click(Self):</b> Activate the RFD's mode selection radial menu.",
+		"<b>Left Click(Target):</b> Use the RFD on the target.",
+		"Matter used for the RFD is synthesized directly from the mech's power supply via a phoron-catalyzed mass fabricator.",
+	)
 
 /obj/item/mecha_equipment/mounted_system/rfd/CtrlClick(mob/user)
 	if(owner && istype(holding, /obj/item/rfd/construction/mounted/exosuit))

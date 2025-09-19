@@ -1,5 +1,5 @@
 /datum/export/large/crate
-	cost = 500
+	cost = 15
 	k_elasticity = 0
 	unit_name = "crate"
 	export_types = list(/obj/structure/closet/crate)
@@ -11,7 +11,7 @@
 		. += " Thanks for participating in NanoTrasen Crates Recycling Program."
 
 /datum/export/large/crate/wooden
-	cost = 100
+	cost = 25
 	unit_name = "large wooden crate"
 	export_types = list(/obj/structure/closet/crate/large)
 	exclude_types = list()

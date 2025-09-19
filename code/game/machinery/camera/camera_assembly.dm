@@ -92,7 +92,8 @@
 					return TRUE
 
 				var/area/camera_area = get_area(src)
-				var/temptag = "[sanitize(camera_area.name)] ([rand(1, 999)])"
+				var/area_display_name = get_area_display_name(camera_area)
+				var/temptag = "[sanitize(area_display_name)] ([rand(1, 999)])"
 				input = sanitizeSafe( tgui_input_text(user, "How would you like to name the camera?", "Set Camera Name", (camera_name ? camera_name : temptag), MAX_NAME_LEN), MAX_NAME_LEN )
 
 				state = 4

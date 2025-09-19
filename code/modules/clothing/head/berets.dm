@@ -16,21 +16,15 @@
 	. = ..()
 	color = get_random_colour(TRUE)
 
-/obj/item/clothing/head/beret/peaked/colourable
+/obj/item/clothing/head/beret/peaked/colorable
 	name = "peaked beret"
 	desc = "A peaked beret."
 	icon_state = "beret_peaked_colourable"
 	item_state = "beret_peaked_colourable"
 
-/obj/item/clothing/head/beret/peaked/colourable/random/Initialize()
+/obj/item/clothing/head/beret/peaked/colorable/random/Initialize()
 	. = ..()
 	color = get_random_colour(TRUE)
-
-/obj/item/clothing/head/beret/artist/colourable
-	name = "artist beret"
-	desc = "A beret fit for an artist."
-	icon_state = "artist_colorable"
-	item_state = "artist_colorable"
 
 /obj/item/clothing/head/beret/red // Antag red.
 	name = "red beret"
@@ -211,7 +205,7 @@
 /obj/item/clothing/head/beret/legion/tcaf
 	name = "\improper TCAF dress beret"
 	desc = "A blue dress beret bearing the flag of the Republic of Biesel. Often only seen worn by in-service members of the Tau Ceti Armed Forces."
-	icon = 'icons/clothing/under/uniforms/tcaf_uniform.dmi'
+	icon = 'icons/obj/item/clothing/head/tcaf_hats.dmi'
 	contained_sprite = TRUE
 	icon_state = "tcaf_dress_beret"
 	item_state = "tcaf_dress_beret"
@@ -250,7 +244,7 @@
 
 // Factional
 
-/obj/item/clothing/head/beret/sapk
+/obj/item/clothing/head/beret/sol/army
 	name = "solarian army beret"
 	desc = "A sky-blue Army beret with a white trim, proudly displaying a golden emblem of the Alliance."
 	desc_extended = "While a common sight in the Alliance's more rebellious or devastated worlds such as Mars, the Army beret became a potent symbol of Sol's triumph in the civil war. Nowhere else in the Spur are the blue berets more omnipresent than with peacekeepers on the former capital of the Restoration Front - Lycoris."

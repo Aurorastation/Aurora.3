@@ -20,6 +20,8 @@
 	set_trait(TRAIT_PRODUCT_COLOUR,"#3AF026")
 	set_trait(TRAIT_PLANT_ICON,"tree")
 	set_trait(TRAIT_FLESH_COLOUR,"#3AF026")
+	set_trait(TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_HIGH)
+	set_trait(TRAIT_IDEAL_HEAT, IDEAL_HEAT_TROPICAL)
 
 /obj/item/seeds/limeseed
 	seed_type = "lime"
@@ -36,7 +38,6 @@
 	set_trait(TRAIT_PRODUCES_POWER,1)
 	set_trait(TRAIT_PRODUCT_COLOUR,"#F0E226")
 	set_trait(TRAIT_FLESH_COLOUR,"#F0E226")
-	set_trait(TRAIT_IDEAL_LIGHT, 6)
 
 /obj/item/seeds/lemonseed
 	seed_type = "lemon"
@@ -77,7 +78,8 @@
 	set_trait(TRAIT_PRODUCT_COLOUR,"#BB6AC4")
 	set_trait(TRAIT_PLANT_COLOUR,"#378F2E")
 	set_trait(TRAIT_PLANT_ICON,"vine")
-	set_trait(TRAIT_IDEAL_LIGHT, 6)
+	set_trait(TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_HIGH)
+	set_trait(TRAIT_IDEAL_HEAT, IDEAL_HEAT_TROPICAL)
 	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.15)
 
 /obj/item/seeds/grapeseed
@@ -255,6 +257,22 @@
 
 /obj/item/seeds/strawberryseed
 	seed_type = "strawberries"
+
+/datum/seed/berry/cranberry
+	name = "cranberries"
+	seed_name = "cranberry"
+	display_name = "cranberry bush"
+	mutants = list("berries","poisonberries","glowberries")
+	chems = list(/singleton/reagent/nutriment = list(1,10), /singleton/reagent/drink/cranberryjuice = list(10,10))
+	kitchen_tag = "cranberries"
+
+/datum/seed/berry/cranberry/setup_traits()
+	..()
+	set_trait(TRAIT_PRODUCT_COLOUR,"#bb0202")
+
+/obj/item/seeds/cranberryseed
+	seed_type = "cranberries"
+
 //////////////
 //  Apples  //
 //////////////
@@ -277,7 +295,6 @@
 	set_trait(TRAIT_PRODUCT_COLOUR,"#FF540A")
 	set_trait(TRAIT_PLANT_ICON,"tree2")
 	set_trait(TRAIT_FLESH_COLOUR,"#E8E39B")
-	set_trait(TRAIT_IDEAL_LIGHT, 4)
 
 /obj/item/seeds/appleseed
 	seed_type = "apple"
@@ -331,7 +348,8 @@
 	set_trait(TRAIT_PRODUCT_ICON,"treefruit")
 	set_trait(TRAIT_PRODUCT_COLOUR,"#CCA935")
 	set_trait(TRAIT_PLANT_ICON,"tree2")
-	set_trait(TRAIT_IDEAL_HEAT, 298)
+	set_trait(TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_HIGH)
+	set_trait(TRAIT_IDEAL_HEAT, IDEAL_HEAT_TROPICAL)
 	set_trait(TRAIT_WATER_CONSUMPTION, 6)
 
 /datum/seed/banana
@@ -352,8 +370,8 @@
 	set_trait(TRAIT_PRODUCT_COLOUR,"#FFEC1F")
 	set_trait(TRAIT_PLANT_COLOUR,"#69AD50")
 	set_trait(TRAIT_PLANT_ICON,"tree4")
-	set_trait(TRAIT_IDEAL_HEAT, 298)
-	set_trait(TRAIT_IDEAL_LIGHT, 7)
+	set_trait(TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_HIGH)
+	set_trait(TRAIT_IDEAL_HEAT, IDEAL_HEAT_TROPICAL)
 	set_trait(TRAIT_WATER_CONSUMPTION, 6)
 
 /obj/item/seeds/bananaseed
@@ -403,8 +421,8 @@
 	set_trait(TRAIT_PLANT_COLOUR,"#49be45")
 	set_trait(TRAIT_PLANT_ICON,"vine2")
 	set_trait(TRAIT_FLESH_COLOUR,"#ff5858")
-	set_trait(TRAIT_IDEAL_HEAT, 298)
-	set_trait(TRAIT_IDEAL_LIGHT, 6)
+	set_trait(TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_HIGH)
+	set_trait(TRAIT_IDEAL_HEAT, IDEAL_HEAT_TROPICAL)
 	set_trait(TRAIT_WATER_CONSUMPTION, 6)
 
 /obj/item/seeds/watermelonseed
@@ -452,7 +470,8 @@
 	set_trait(TRAIT_PRODUCT_ICON,"bean2")
 	set_trait(TRAIT_PRODUCT_COLOUR,"#be9109")
 	set_trait(TRAIT_PLANT_ICON,"bush2")
-	set_trait(TRAIT_IDEAL_LIGHT, 6)
+	set_trait(TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_HIGH)
+	set_trait(TRAIT_IDEAL_HEAT, IDEAL_HEAT_TROPICAL)
 
 /obj/item/seeds/coffeeseed
 	seed_type = "coffee"
@@ -474,7 +493,8 @@
 	set_trait(TRAIT_PRODUCT_ICON,"bean2")
 	set_trait(TRAIT_PRODUCT_COLOUR,"#be9109")
 	set_trait(TRAIT_PLANT_ICON,"bush2")
-	set_trait(TRAIT_IDEAL_LIGHT, 6)
+	set_trait(TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_HIGH)
+	set_trait(TRAIT_IDEAL_HEAT, IDEAL_HEAT_TROPICAL)
 
 /obj/item/seeds/richcoffeeseed
 	seed_type = "richcoffee"

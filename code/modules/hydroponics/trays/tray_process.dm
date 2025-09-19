@@ -1,5 +1,14 @@
 /obj/machinery/portable_atmospherics/hydroponics/process()
 
+	// If there is no power, and stasis is enabled, disable stasis.
+	if((stat & (NOPOWER|BROKEN)) && stasis)
+		stasis = FALSE
+		update_use_power(POWER_USE_IDLE)
+
+	// If the tray is under stasis, return now and process nothing.
+	if(stasis)
+		return
+
 	// Handle nearby smoke if any.
 	for(var/obj/effect/smoke/chem/smoke in view(1, src))
 		if(smoke.reagents.total_volume)
@@ -35,9 +44,6 @@
 	if(!seed || dead)
 		if(mechanical) update_icon() //Harvesting would fail to set alert icons properly.
 		return
-
-	// Advance plant age.
-	if(prob(30)) age += 1 * HYDRO_SPEED_MULTIPLIER
 
 	//Highly mutable plants have a chance of mutating every tick.
 	if(seed.get_trait(TRAIT_IMMUTABLE) == -1)
@@ -75,15 +81,40 @@
 	if(!environment && istype(T)) environment = T.return_air()
 	if(!environment) return
 
-	// Seed datum handles gasses, light and pressure.
+	// This carries the product of the handle_enviroment proc, so we can use it for multiple things.
+	var/environmental_damage
+	// This determines the probability of growth, for use with the get_probability_of_growth proc.
+	var/probability_of_growth
+
+	// Seed datum handles gasses, light and pressure relevant to whether the plant should be damaged, and what the probability of growth should be.
 	if(mechanical && closed_system)
-		health -= seed.handle_environment(T,environment,tray_light)
+		environmental_damage = seed.handle_environment(T,environment,tray_light)
+		probability_of_growth = seed.get_probability_of_growth(T,environment,tray_light)
 	else
-		health -= seed.handle_environment(T,environment)
+		environmental_damage = seed.handle_environment(T,environment)
+		probability_of_growth = seed.get_probability_of_growth(T,environment)
+
+	// Reduce health by however much handle_environent returned.
+	health -= environmental_damage
 
 	// If we're attached to a pipenet, then we should let the pipenet know we might have modified some gasses
 	if (closed_system && connected_port)
 		update_connected_network()
+
+	// Handle light requirements for upcoming logic.
+	var/light_supplied
+	if(!closed_system)
+		if (TURF_IS_DYNAMICALLY_LIT(T))
+			light_supplied = T.get_lumcount(0, 3) * 10
+		else
+			light_supplied = 5
+	else
+		light_supplied = tray_light
+
+	// We only let the plant grow if they're within their light and heat tolerances.
+	if(!seed.check_light_tolerances(light_supplied) && !seed.check_heat_tolerances(environment))
+		// Roll the dice on advancing plant age.
+		if(prob(probability_of_growth)) age += 1 * HYDRO_SPEED_MULTIPLIER
 
 	// Toxin levels beyond the plant's tolerance cause damage, but
 	// toxins are sucked up each tick and slowly reduce over time.
@@ -116,7 +147,12 @@
 
 	// If enough time (in cycles, not ticks) has passed since the plant was harvested, we're ready to harvest again.
 	if((age > seed.get_trait(TRAIT_MATURATION)) && ((age - lastproduce) > seed.get_trait(TRAIT_PRODUCTION)) && (!harvest && !dead))
-		harvest = 1
+		// If the plant matures while not at either its light or heat preference, it becomes stunted, reducing its yield on harvest.
+		// Better grow your plants better next time.
+		if(!seed.check_light_preferences(light_supplied) || !seed.check_heat_preferences(environment))
+			stunted = TRUE
+
+		harvest = TRUE
 		lastproduce = age
 		if(seed.get_trait(TRAIT_SPOROUS) && !closed_system)
 			seed.create_spores(get_turf(src))

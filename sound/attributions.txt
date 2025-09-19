@@ -27,10 +27,28 @@ sound/weapons/reloads/pistol_metal_slide1.ogg to 6
 sound/weapons/reloads/pistol_polymer_slide1.ogg to 3
 sound/weapons/reloads/reload_shell.ogg to 4
 sound/weapons/reloads/revolver_reload.ogg
-sound/weapons/reloads/rifle_slide.ogg to 9
+sound/weapons/reloads/rifle_slide.ogg to 2 and 4 to 9
 sound/weapons/reloads/shotgun_pump.ogg to 6
 
 All sounds listed above in this section part of "Valhalla", licensed under CC0 1.0 Universal (CC0 1.0). Obtained from https://freesound.org/people/FilmmakersManual
+ATTRIBUTIONS SECTION END
+
+ATTRIBUTION SECTION START
+sound/weapons/reloads/pistol_metal_slide 7-9.ogg - Gary Guns Mixed.wav by GaryQ | License: Creative Commons 0. Obtained from www.freesound.org (not available anymore)
+sound/weapons/reloads/pistol_metal_slide 10.ogg - PistolReloadSound.wav by MaximBomba | License: Creative Commons 0. Obtained from https://freesound.org/people/MaximBomba/sounds/432139/
+sound/weapons/reloads/pistol_metal_slide 11.ogg - Browning Hi-Power handgun being reloaded while empty. Full sequence by serøtōnin | License: Creative Commons 0. Obtained from https://freesound.org/people/ser%C3%B8t%C5%8Dnin/sounds/674569/
+sound/weapons/reloads/pistol_polymer_slide 4.ogg - M9 Reload.wav by oneshotofficial | License: Creative Commons 0. Obtained from https://freesound.org/people/oneshotofficial/sounds/616758/ 
+sound/weapons/reloads/pistol_polymer_slide 5.ogg - Gary Guns Mixed.wav by GaryQ | License: Creative Commons 0. Obtained from www.freesound.org (not available anymore) 
+sound/weapons/reloads/shotgun_pump 7-8.ogg - pump shotgun.WAV by shaana | License: Attribution NonCommercial 4.0. Obtained from https://freesound.org/people/shaana/sounds/222131/
+sound/weapons/reloads/rifle_slide 3.ogg - Uzi submachine gun being reloaded while empty. Full sequence by serøtōnin | License: Creative Commons 0. Obtained from https://freesound.org/people/ser%C3%B8t%C5%8Dnin/sounds/677160/
+sound/weapons/reloads/rifle_slide 10.ogg - AK-47 Assault Rifle being unloaded and reloaded by serøtōnin | License: Creative Commons 0. Obtained from https://freesound.org/people/ser%C3%B8t%C5%8Dnin/sounds/674742/
+sound/weapons/reloads/rifle_slide 11-12.ogg - AK-47 assault rifle being cocked 3x by serøtōnin | License: Creative Commons 0. Obtained from https://freesound.org/people/ser%C3%B8t%C5%8Dnin/sounds/675008/
+ATTRIBUTIONS SECTION END
+
+ATTRIBUTIONS SECTION START
+sound/items/drop/bone_drop.ogg - "MugClinks", licensed under CC0. Obtained from https://freesound.org/people/sidequesting/sounds/547489/
+sound/item/cards/bone_flip.ogg - "MugClinks", licensed under CC0. Obtained from https://freesound.org/people/sidequesting/sounds/547489/
+sound/item/cards/bone_shuffle.ogg - "Porcelain Shards", licensed under CC0. Obtained from https://freesound.org/people/IENBA/sounds/763616/
 ATTRIBUTIONS SECTION END
 
 ATTRIBUTIONS SECTION START
@@ -130,4 +148,42 @@ sound/machines/steam_pipe1.ogg - "steam.flac" by tim.kahn. Licensed under CC-BY 
 sound/machines/steam_pipe2.ogg - "Steam Leaking" by PatrickLieberkind. Licensed under CC-BY 4.0. Obtained from https://freesound.org/people/PatrickLieberkind/sounds/213083/
 sound/machines/steam_pipe3.ogg - "file0571_air_hiss_weak.wav" by beerbelly38. Licensed under CC-BY NC 4.0. Obtained from https://freesound.org/people/beerbelly38/sounds/277360/
 sound/machines/steam_pipe4.ogg - "Steam Sewer Ambient" by Geoff-Bremner-Audio. Licensed under CC0. Obtained from https://freesound.org/people/Geoff-Bremner-Audio/sounds/724892/
+ATTRIBUTIONS SECTION END
+
+ATTRIBUTIONS SECTOR START
+sound/music/regional/venus/all_night.ogg - "All Night" by Rollergirl, licensed under CC BY-NC-SA 3.0. Obtained from https://rollergirl.bandcamp.com/album/rollergirl
+sound/music/regional/venus/billy_ocean.ogg - "#billyocean" by Rollergirl, licensed under CC BY-NC-SA 3.0. Obtained from https://rollergirl.bandcamp.com/album/rollergirl
+sound/music/regional/venus/artificially_sweetened.ogg - "Artificially Sweetened" by Stevia Sphere, licensed under CC BY 3.0. https://steviasphere.bandcamp.com/album/artificially-sweetened-single
+sound/music/regional/venus/real_love.ogg - "Real Love" by Stevia Sphere, licensed under CC BY 3.0. Obtained from https://steviasphere.bandcamp.com/album/artificially-sweetened-single
+sound/music/regional/venus/dance.ogg - "Danceさせる" by ウナチャンUNACHAN, licensed under CC BY 3.0. Obtained from https://unachan.bandcamp.com/track/dance
+sound/music/regional/venus/love_sensation.ogg - "love sensation" by ウナチャンUNACHAN and bedroomtheft, licensed under CC BY 3.0. Obtained from https://unachan.bandcamp.com/track/love-sensation
+sound/music/regional/venus/funky_girl.ogg - "F U N K Y G I R L <3" by B~mO9000, licensed under CC BY-SA 3.0. Obtained from https://bmo9000.bandcamp.com/album/v-i-n-t-a-g-e
+sound/music/regional/venus/break_the_system.ogg - "Break The System" by B~mO9000, licensed under CC BY-SA 3.0. Obtained from https://bmo9000.bandcamp.com/album/wanted-in-80s (Download Only)
+ATTRIBUTIONS SECTION END
+
+ATTRIBUTIONS SECTOR START
+sound/music/regional/xanu/xanu_rock_1.ogg - "Rise" by Swara Sutra, licensed under CC BY-NC-SA 3.0. Obtained from https://swarasutra.bandcamp.com/track/rise
+sound/music/regional/xanu/xanu_rock_2.ogg - "Induldge" by Swara Sutra, licensed under CC BY-NC-SA 3.0. Obtained from https://swarasutra.bandcamp.com/track/indulgence
+sound/music/regional/xanu/xanu_rock_3.ogg - "Shimmer" by Swara Sutra, licensed under CC BY-NC-SA 3.0. Obtained from https://swarasutra.bandcamp.com/track/indulgence
+ATTRIBUTIONS SECTION END
+
+ATTRIBUTIONS SECTOR START
+sound/music/lobby/lights_edge/lights_edge_1.ogg - "Is Anyone Left?" by Karl Casey, licensed under CC BY 3.0. Obtained from https://karlcasey.bandcamp.com/track/is-anyone-left
+sound/music/lobby/lights_edge/lights_edge_2.ogg - "Running From The Wendigo" by Karl Casey, licensed under CC BY 3.0. Obtained from https://karlcasey.bandcamp.com/track/running-from-the-wendigo
+sound/music/lobby/dangerous_space/dangerous_space_1.ogg - "You Can't Kill The Boogeyman" by Karl Casey, licensed under CC BY 3.0. Obtained From https://karlcasey.bandcamp.com/track/you-can-t-kill-the-boogeyman
+sound/music/lobby/dangerous_space/dangerous_space_2.ogg - "Prison Planet" by Karl Casey, licensed under CC BY 3.0. Obtained from https://karlcasey.bandcamp.com/track/prison-planet
+
+ATTRIBUTIONS SECTOR START
+sound/music/regional/europa/weedance.ogg - "Lüüü - Weedance" by Lüüü, licensed under CC BY-NC-SA 3.0. Obtained from https://myprivateunderground.bandcamp.com/track/lu-u-u-weedance
+sound/music/regional/europa/casting_faint_shadows.ogg - "casting faint shadows" by Ikaiora (https://ikaiora.bandcamp.com/track/casting-faint-shadows-2) - CC BY-NC-ND 3.0
+sound/music/regional/europa/where_the_dusks_rays_leap.ogg - "where the dusk's rays leap" by Ikaiora (https://ikaiora.bandcamp.com/track/where-the-dusks-rays-leap) - CC BY-NC-ND 3.0
+sound/music/regional/europa/deep_beneath-.ogg - "Deep Beneath the Solemn Waves a Vast Underwater Landscape, Brimming With Bizarre, Eerily Gleaming Cyclopean Structures of, What Must Surely Be, Non​​​​-​​​​Human Origin, Stretched Out Across the Ocean Floor" by Unknown Oceanographer/Under Jorden (https://under-jorden.bandcamp.com/album/deep-beneath-the-solemn-waves-a-vast-underwater-landscape-brimming-with-bizarre-eerily-gleaming-cyclopean-structures-of-what-must-surely-be-non-human-origin-stretched-out-across-the-ocean-floor) -  CC BY-NC-ND 3.0
+sound/music/regional/europa/instrument_park.ogg - "Instrument Park" by Little Bradley (https://myprivateunderground.bandcamp.com/track/little-bradley-instrumental-park) - CC BY-NC 3.0
+sound/music/regional/europa/way_between_the_shadows.ogg -"Way Between The Shadows" by Mokusei No Maguro (https://mokuseinomaguro.bandcamp.com/track/way-between-the-shadows) - CC BY-SA 3.0
+ATTRIBUTIONS SECTION END
+
+ATTRIBUTIONS SECTION START
+sound/machines/rig/rigstep_chonk.ogg - by majormoth(Discord), licensed under CC-BY-SA-3.0
+sound/machines/rig/rigstep_heavy.ogg - by majormoth(Discord), licensed under CC-BY-SA-3.0
+sound/machines/rig/rigstep_medium.ogg - by majormoth(Discord), licensed under CC-BY-SA-3.0
 ATTRIBUTIONS SECTION END

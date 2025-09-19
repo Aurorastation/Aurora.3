@@ -7,7 +7,7 @@
 	gold-appearance clothing is now popular within many Golden Deep brands, but this was the first, and still carries considerable prestige (and a price tag to match)."
 	icon_state = "goldendeep_dress"
 	item_state = "goldendeep_dress"
-	icon = 'icons/clothing/under/uniforms/goldendeep_dress.dmi'
+	icon = 'icons/obj/item/clothing/under/synthetic/goldendeep.dmi'
 	contained_sprite = TRUE
 
 /obj/item/clothing/under/goldendeep/wrap
@@ -18,7 +18,7 @@
 	(and more poorly-designed) predecessors."
 	icon_state = "goldendeep_wrap"
 	item_state = "goldendeep_wrap"
-	icon = 'icons/clothing/under/uniforms/goldendeep_wrap.dmi'
+	icon = 'icons/obj/item/clothing/under/synthetic/goldendeep.dmi'
 	contained_sprite = TRUE
 
 /obj/item/clothing/under/goldendeep/vest
@@ -29,7 +29,7 @@
 	may still be far out of the reach of the masses, but it barely approaches a fraction of the cost of a golden two piece, and is certainly far, far cheaper than the dresses made by Lux-Igmatic themself."
 	icon_state = "goldendeep_vest"
 	item_state = "goldendeep_vest"
-	icon = 'icons/clothing/under/uniforms/goldendeep_vest.dmi'
+	icon = 'icons/obj/item/clothing/under/synthetic/goldendeep.dmi'
 	slot_flags = SLOT_OCLOTHING | SLOT_ICLOTHING
 	contained_sprite = TRUE
 
@@ -42,7 +42,7 @@
 	Golden Deep social circles."
 	icon_state = "goldendeep_suit"
 	item_state = "goldendeep_suit"
-	icon = 'icons/clothing/under/uniforms/goldendeep_suit.dmi'
+	icon = 'icons/obj/item/clothing/under/synthetic/goldendeep.dmi'
 	contained_sprite = TRUE
 
 /obj/item/clothing/under/goldendeep/skirtsuit
@@ -53,7 +53,7 @@
 	GD citizens and traders have been rekindled - necessitating the need to 'keep up appearances' even within exclusively Golden Deep social circles."
 	icon_state = "goldendeep_skirtsuit"
 	item_state = "goldendeep_skirtsuit"
-	icon = 'icons/clothing/under/uniforms/goldendeep_skirtsuit.dmi'
+	icon = 'icons/obj/item/clothing/under/synthetic/goldendeep.dmi'
 	contained_sprite = TRUE
 
 // Hoplan
@@ -62,7 +62,7 @@
 	desc = "A standard issued uniform for a Hoplan house, often provided to represent a particular merchant or merchant organization who is funding the group."
 	icon_state = "hoplan_uniform"
 	item_state = "hoplan_uniform"
-	icon = 'icons/clothing/under/uniforms/goldendeep_hoplan.dmi'
+	icon = 'icons/obj/item/clothing/under/synthetic/goldendeep.dmi'
 	contained_sprite = TRUE
 
 /obj/item/clothing/head/goldendeep/hoplan
@@ -70,7 +70,7 @@
 	desc = "A large poofy and floppy hat with a golden antennae sticking out its top where typically feathers would protrude. If you wanted to be historically accurate."
 	icon_state = "hoplan_combat_hat"
 	item_state = "hoplan_combat_hat"
-	icon = 'icons/clothing/head/hoplan_combat_hat.dmi'
+	icon = 'icons/obj/item/clothing/head/ipc/golden_deep.dmi'
 	contained_sprite = TRUE
 
 //colorable items go under here
@@ -135,7 +135,7 @@
 	desc = "This coat is long with reinforcement to make someone look like an angel of old, or a clown."
 	icon_state = "eccentric_coat"
 	item_state = "eccentric_coat"
-	icon = 'icons/clothing/suits/coats/eccentric_coat.dmi'
+	icon = 'icons/obj/item/clothing/suit/storage/eccentric_coat.dmi'
 	contained_sprite = TRUE
 	has_accents = TRUE
 
@@ -188,7 +188,7 @@
 	desc = "Like a true monarch, has a metal rim capped with a cloth top piece. Peaked in a ornate point."
 	icon_state = "furred_crown"
 	item_state = "furred_crown"
-	icon = 'icons/clothing/head/furred_crown.dmi'
+	icon = 'icons/obj/item/clothing/head/ipc/golden_deep.dmi'
 	contained_sprite = TRUE
 	has_accents = TRUE
 
@@ -197,7 +197,7 @@
 	desc = "A cloth hood with special fabric rated for the acid rain of Pactolous."
 	icon_state = "cowl"
 	item_state = "cowl"
-	icon = 'icons/clothing/head/cowl.dmi'
+	icon = 'icons/obj/item/clothing/head/ipc/golden_deep.dmi'
 	body_parts_covered = 0
 	slot_flags = SLOT_EARS | SLOT_HEAD
 
@@ -206,7 +206,7 @@
 	desc = "Ornate and with subtle religious undertones, would make any wearer loom like a revered parent."
 	icon_state = "cube_hood"
 	item_state = "cube_hood"
-	icon = 'icons/clothing/head/cube_hood.dmi'
+	icon = 'icons/obj/item/clothing/head/ipc/golden_deep.dmi'
 	body_parts_covered = 0
 	slot_flags = SLOT_EARS | SLOT_HEAD
 
@@ -215,7 +215,7 @@
 	desc = "Jingling and dancing with movement. This chain is of metals or jewels that flaunt the wealth of the wearer. Or some facsimile of it."
 	icon_state = "chain_jewelry"
 	item_state = "chain_jewelry"
-	icon = 'icons/clothing/head/chain_jewelry.dmi'
+	icon = 'icons/obj/item/clothing/head/ipc/golden_deep.dmi'
 	slot_flags = SLOT_EARS | SLOT_HEAD | SLOT_MASK
 
 /obj/item/clothing/head/goldendeep/chainjewelry/baseline
@@ -238,7 +238,7 @@
 /obj/item/storage/backpack/goldendeep
 	name = "sacred icon"
 	desc = "A floating and imposing symbol with very discrete anti gravity emitters capable of rendering viewers blinded by its majesty, paralyzed, or dumbstruck."
-	icon = 'icons/clothing/backpacks/sacred_icon.dmi'
+	icon = 'icons/obj/storage/backpack.dmi'
 	icon_state = "sacred_icon"
 	item_state = "sacred_icon"
 	contained_sprite = TRUE
@@ -254,7 +254,7 @@
 	desc_extended = "Originally the invention of an unknown synthetic, the design of plain utilitarian jumpsuits known as 'Porter Uniforms' has skyrocketed in popularity, with many different firms and organizations within the Golden Deep inventing their own variety. Known not to be particularly comfortable for organic use."
 	icon_state = "porter_uniform"
 	item_state = "porter_uniform"
-	icon = 'icons/clothing/under/uniforms/goldendeep_porter_uniform.dmi'
+	icon = 'icons/obj/item/clothing/under/synthetic/goldendeep.dmi'
 	contained_sprite = TRUE
 
 /obj/item/clothing/head/goldendeep/porter
@@ -262,5 +262,5 @@
 	desc = "This is a simple and nondescript hood designed to fit over many shapes of head, intended to provide protection from the elements. While originally fashioned by the Golden Deep and remaining particularly popular in it, its use has also branched out widely throughout the spur among independent delivery workers."
 	icon_state = "porter_hood"
 	item_state = "porter_hood"
-	icon = 'icons/clothing/under/uniforms/goldendeep_porter_uniform.dmi'
+	icon = 'icons/obj/item/clothing/head/ipc/golden_deep.dmi'
 	contained_sprite = TRUE

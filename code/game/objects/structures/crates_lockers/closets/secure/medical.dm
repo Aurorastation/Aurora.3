@@ -110,10 +110,6 @@
 	new /obj/item/storage/backpack/medic(src)
 	new /obj/item/clothing/accessory/storage/white_vest(src)
 	new /obj/item/clothing/suit/storage/medical_chest_rig(src)
-	new /obj/item/clothing/under/rank/medical/paramedic(src)
-	new /obj/item/clothing/under/rank/medical/paramedic/zeng(src)
-	new /obj/item/clothing/under/rank/medical/paramedic/pmc(src)
-	new /obj/item/clothing/shoes/jackboots(src)
 	new /obj/item/device/flashlight/pen(src)
 	new /obj/item/clothing/accessory/stethoscope(src)
 	new /obj/item/storage/belt/medical/paramedic(src)
@@ -126,9 +122,7 @@
 	new /obj/item/clothing/mask/gas/alt(src)
 	new /obj/item/clothing/mask/gas/half(src)
 	new /obj/item/auto_cpr(src)
-	new /obj/item/clothing/suit/storage/toggle/para_jacket(src)
-	new /obj/item/clothing/suit/storage/toggle/para_jacket/zeng(src)
-	new /obj/item/clothing/suit/storage/toggle/para_jacket/pmc(src)
+	new /obj/item/defibrillator/compact/loaded(src)
 
 /obj/structure/closet/secure_closet/CMO
 	name = "chief medical officer's locker"
@@ -234,3 +228,10 @@
 	new /obj/item/toy/plushie/bee(src)
 	new /obj/item/device/flashlight/pen(src)
 	new /obj/item/storage/box/stressball(src)
+
+// Empty
+/obj/structure/closet/secure_closet/medical/empty
+	name = "medicine closet"
+	desc = "A medical locker."
+	icon_state = "med"
+	req_access = list(ACCESS_MEDICAL_EQUIP)

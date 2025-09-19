@@ -64,4 +64,8 @@
 // tgui signals
 #define COMSIG_TGUI_CLOSE "tgui_close"
 
+// Psionics signals
+/// Raised on the target of a "mind-affecting" psionic power.
+#define COMSIG_PSI_MIND_POWER "psi_block_check"
+
 /*******Component Specific Signals*******/

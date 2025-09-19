@@ -49,50 +49,59 @@
 	/// If set, overrides the extended scription of the product (Useful to describe the 'lore')
 	var/product_desc_extended
 
+	/// The base percentage chance the plant will grow per each process().
+	var/base_growth_speed = 10
+	/// The boost to the base growth speed applied to the plant if within temperature preferences.
+	var/temperature_growth_boost = 20
+	/// The boost to the base growth speed applied to the plant if within light preferences.
+	var/light_growth_boost = 5
+
 	var/force_layer
 	var/hydrotray_only
 
 /datum/seed/proc/setup_traits()
 
 /datum/seed/New()
-	set_trait(TRAIT_SPOROUS,              0)            // If set, plant will periodically release smoke clouds of its reagent.
-	set_trait(TRAIT_IMMUTABLE,            0)            // If set, plant will never mutate. If -1, plant is highly mutable.
-	set_trait(TRAIT_HARVEST_REPEAT,       0)            // If 1, this plant will fruit repeatedly.
-	set_trait(TRAIT_PRODUCES_POWER,       0)            // Can be used to make a battery.
-	set_trait(TRAIT_JUICY,                0)            // When thrown, causes a splatter decal.
-	set_trait(TRAIT_EXPLOSIVE,            0)            // When thrown, acts as a grenade.
-	set_trait(TRAIT_CARNIVOROUS,          0)            // 0 = none, 1 = eat pests in tray, 2 = eat living things  (when a vine).
-	set_trait(TRAIT_PARASITE,             0)            // 0 = no, 1 = gain health from weed level.
-	set_trait(TRAIT_STINGS,               0)            // Can cause damage/inject reagents when thrown or handled.
-	set_trait(TRAIT_YIELD,                0)            // Amount of product.
-	set_trait(TRAIT_SPREAD,               0)            // 0 limits plant to tray, 1 = creepers, 2 = vines.
-	set_trait(TRAIT_MATURATION,           0)            // Time taken before the plant is mature.
-	set_trait(TRAIT_PRODUCTION,           0)            // Time before harvesting can be undertaken again.
-	set_trait(TRAIT_TELEPORTING,          0)            // Uses the bluespace tomato effect.
-	set_trait(TRAIT_BIOLUM,               0)            // Plant is bioluminescent.
-	set_trait(TRAIT_ALTER_TEMP,           0)            // If set, the plant will periodically alter local temp by this amount.
-	set_trait(TRAIT_PRODUCT_ICON,         0)            // Icon to use for fruit coming from this plant.
-	set_trait(TRAIT_PLANT_ICON,           0)            // Icon to use for the plant growing in the tray.
-	set_trait(TRAIT_PRODUCT_COLOUR,       0)            // Colour to apply to product icon.
-	set_trait(TRAIT_BIOLUM_COLOUR,        0)            // The colour of the plant's radiance.
-	set_trait(TRAIT_BIOLUM_PWR,           1)            // The power of the plant's radiance.
-	set_trait(TRAIT_POTENCY,              1)            // General purpose plant strength value.
-	set_trait(TRAIT_REQUIRES_NUTRIENTS,   1)            // The plant can starve.
-	set_trait(TRAIT_REQUIRES_WATER,       1)            // The plant can become dehydrated.
-	set_trait(TRAIT_WATER_CONSUMPTION,    3)            // Plant drinks this much per tick.
-	set_trait(TRAIT_LIGHT_TOLERANCE,      3)            // Departure from ideal that is survivable.
-	set_trait(TRAIT_TOXINS_TOLERANCE,     5)            // Resistance to poison.
-	set_trait(TRAIT_PEST_TOLERANCE,       5)            // Threshold for pests to impact health.
-	set_trait(TRAIT_WEED_TOLERANCE,       5)            // Threshold for weeds to impact health.
-	set_trait(TRAIT_IDEAL_LIGHT,          5)            // Preferred light level in luminosity.
-	set_trait(TRAIT_HEAT_TOLERANCE,       20)           // Departure from ideal that is survivable.
-	set_trait(TRAIT_LOWKPA_TOLERANCE,     25)           // Low pressure capacity.
-	set_trait(TRAIT_ENDURANCE,            100)          // Maximum plant HP when growing.
-	set_trait(TRAIT_HIGHKPA_TOLERANCE,    200)          // High pressure capacity.
-	set_trait(TRAIT_IDEAL_HEAT,           293)          // Preferred temperature in Kelvin.
-	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.25)         // Plant eats this much per tick.
-	set_trait(TRAIT_PLANT_COLOUR,         "#46B543")    // Colour of the plant icon.
-	set_trait(TRAIT_LARGE,				  0)			//0 = normal plant, 1 = big tree
+	set_trait(TRAIT_SPOROUS,              0)
+	set_trait(TRAIT_IMMUTABLE,            0)
+	set_trait(TRAIT_HARVEST_REPEAT,       0)
+	set_trait(TRAIT_PRODUCES_POWER,       0)
+	set_trait(TRAIT_JUICY,                0)
+	set_trait(TRAIT_EXPLOSIVE,            0)
+	set_trait(TRAIT_CARNIVOROUS,          0)
+	set_trait(TRAIT_PARASITE,             0)
+	set_trait(TRAIT_STINGS,               0)
+	set_trait(TRAIT_YIELD,                0)
+	set_trait(TRAIT_SPREAD,               0)
+	set_trait(TRAIT_MATURATION,           0)
+	set_trait(TRAIT_PRODUCTION,           0)
+	set_trait(TRAIT_TELEPORTING,          0)
+	set_trait(TRAIT_BIOLUM,               0)
+	set_trait(TRAIT_ALTER_TEMP,           0)
+	set_trait(TRAIT_PRODUCT_ICON,         0)
+	set_trait(TRAIT_PLANT_ICON,           0)
+	set_trait(TRAIT_PRODUCT_COLOUR,       0)
+	set_trait(TRAIT_BIOLUM_COLOUR,        0)
+	set_trait(TRAIT_BIOLUM_PWR,           1)
+	set_trait(TRAIT_POTENCY,              1)
+	set_trait(TRAIT_REQUIRES_NUTRIENTS,   1)
+	set_trait(TRAIT_REQUIRES_WATER,       1)
+	set_trait(TRAIT_WATER_CONSUMPTION,    3)
+	set_trait(TRAIT_LIGHT_TOLERANCE,      2.5) // Plants will begin to die if the light levels are 2.5 or more lumens from their ideal.
+	set_trait(TRAIT_TOXINS_TOLERANCE,     5)
+	set_trait(TRAIT_PEST_TOLERANCE,       5)
+	set_trait(TRAIT_WEED_TOLERANCE,       5)
+	set_trait(TRAIT_IDEAL_LIGHT,          IDEAL_LIGHT_TEMPERATE)
+	set_trait(TRAIT_HEAT_TOLERANCE,       12) // Plants will begin to die if they're twelve or more degrees from their ideal temperature.
+	set_trait(TRAIT_LOWKPA_TOLERANCE,     25) // Plants survive all the way down to a quarter of an atmosphere!
+	set_trait(TRAIT_ENDURANCE,            100)
+	set_trait(TRAIT_HIGHKPA_TOLERANCE,    200)
+	set_trait(TRAIT_IDEAL_HEAT,           IDEAL_HEAT_TEMPERATE)
+	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.25)
+	set_trait(TRAIT_PLANT_COLOUR,         "#46B543")
+	set_trait(TRAIT_LARGE,                0)
+	set_trait(TRAIT_HEAT_PREFERENCE,      5) // By default, plants grow faster in a temperature within five degrees of their ideal.
+	set_trait(TRAIT_LIGHT_PREFERENCE,     1.5) // Similarly, they grow faster under lumens within 1.5 of their ideal.
 
 	setup_traits()
 
@@ -129,7 +138,7 @@
 	S.set_up(R, round(get_trait(TRAIT_POTENCY)/4), 0, T, 40)
 	S.start()
 
-// Does brute damage to a target.
+/// Does brute damage to a target.
 /datum/seed/proc/do_thorns(var/mob/living/carbon/human/target, var/obj/item/fruit, var/target_limb)
 
 	if(!get_trait(TRAIT_CARNIVOROUS))
@@ -173,7 +182,7 @@
 	target.UpdateDamageIcon()
 	target.updatehealth()
 
-// Adds reagents to a target.
+/// Adds reagents to a target.
 /datum/seed/proc/do_sting(var/mob/living/carbon/human/target, var/obj/item/fruit)
 	if(!get_trait(TRAIT_STINGS))
 		return
@@ -194,7 +203,7 @@
 			var/injecting = min(5,max(1,get_trait(TRAIT_POTENCY)/5))
 			target.reagents.add_reagent(rid,injecting)
 
-//Splatter a turf.
+/// Splatter a turf.
 /datum/seed/proc/splatter(var/turf/T,var/obj/item/thrown)
 	if(splat_type && !(locate(/obj/effect/plant) in T))
 		var/obj/effect/plant/splat = new splat_type(T, src)
@@ -223,7 +232,7 @@
 				var/injecting = min(5,max(1,get_trait(TRAIT_POTENCY)/3))
 				M.reagents.add_reagent(chem,injecting)
 
-//Applies an effect to a target atom.
+/// Applies an effect to a target atom.
 /datum/seed/proc/thrown_at(var/obj/item/thrown,var/atom/target, var/force_explode)
 
 	var/splatted
@@ -307,8 +316,8 @@
 			P.set_target(picked)
 			P.creator = null
 
+/// Checks the plant's environment. If anything is improper, adds to a value that will ultimately be used to damage the plant.
 /datum/seed/proc/handle_environment(var/turf/current_turf, var/datum/gas_mixture/environment, var/light_supplied, var/check_only)
-
 	var/health_change = 0
 	// Handle gas consumption.
 	if(consume_gasses && consume_gasses.len)
@@ -329,7 +338,9 @@
 	if(pressure < get_trait(TRAIT_LOWKPA_TOLERANCE)|| pressure > get_trait(TRAIT_HIGHKPA_TOLERANCE))
 		health_change += rand(1,3) * HYDRO_SPEED_MULTIPLIER
 
-	if(abs(environment.temperature - get_trait(TRAIT_IDEAL_HEAT)) > get_trait(TRAIT_HEAT_TOLERANCE))
+	// We take the absolute value of the environment's temperature minus the ideal heat - closer to 0 is better, in this case.
+	// If that value is greater than the heat tolerance, we apply some damage to the plant.
+	if(check_heat_tolerances(environment))
 		health_change += rand(1,3) * HYDRO_SPEED_MULTIPLIER
 
 	// Handle gas production.
@@ -345,10 +356,58 @@
 			light_supplied = 5
 
 	if(light_supplied)
-		if(abs(light_supplied - get_trait(TRAIT_IDEAL_LIGHT)) > get_trait(TRAIT_LIGHT_TOLERANCE))
+		if(check_light_tolerances(light_supplied))
 			health_change += rand(1,3) * HYDRO_SPEED_MULTIPLIER
 
 	return health_change
+
+/// Returns true if a plant is outside their light tolerances, otherwise false.
+/datum/seed/proc/check_light_tolerances(var/light_supplied)
+	if(abs(light_supplied - get_trait(TRAIT_IDEAL_LIGHT)) > get_trait(TRAIT_LIGHT_TOLERANCE))
+		return TRUE
+	return FALSE
+
+/// Returns true if a plant is outside their heat tolerances, otherwise false.
+/datum/seed/proc/check_heat_tolerances(var/datum/gas_mixture/environment)
+	if(abs(environment.temperature - get_trait(TRAIT_IDEAL_HEAT)) > get_trait(TRAIT_HEAT_TOLERANCE))
+		return TRUE
+	return FALSE
+
+/// Returns true if a plant is in their light preferences, otherwise false.
+/datum/seed/proc/check_light_preferences(var/light_supplied)
+	if(abs(light_supplied - get_trait(TRAIT_IDEAL_LIGHT)) < get_trait(TRAIT_LIGHT_PREFERENCE))
+		return TRUE
+	return FALSE
+
+/// Returns true if a plant is in their heat preferences, otherwise false.
+/datum/seed/proc/check_heat_preferences(var/datum/gas_mixture/environment)
+	if(abs(environment.temperature - get_trait(TRAIT_IDEAL_HEAT)) < get_trait(TRAIT_HEAT_PREFERENCE))
+		return TRUE
+	return FALSE
+
+/// Checks the preferences of the seed, and returns the percentage chance for growth to occur. Called in tray_process.
+/datum/seed/proc/get_probability_of_growth(var/turf/current_turf, var/datum/gas_mixture/environment, var/light_supplied, var/check_only)
+	// By standard, the probability of growth is only the base. This rises if growing conditions are within their preferences.
+	// This is intended to motivate the use of atmospheric equipment to more viably grow plants with irregular preferences.
+	// You *can* grow plants outside of their preferences without them dying so long as it's within their tolerance, but it'll be pretty slow.
+	var/return_probability = base_growth_speed
+
+	// Handle light requirements.
+	if(!light_supplied)
+		if (TURF_IS_DYNAMICALLY_LIT(current_turf))
+			light_supplied = current_turf.get_lumcount(0, 3) * 10
+		else
+			light_supplied = 5
+
+	// Are we within the preference zone for temperature? If so, add to the chance of growth.
+	if(check_heat_preferences(environment))
+		return_probability += temperature_growth_boost
+
+	// Same for light!
+	if(check_light_preferences(light_supplied))
+		return_probability += light_growth_boost
+
+	return return_probability
 
 /datum/seed/proc/apply_special_effect(var/mob/living/target,var/obj/item/thrown)
 
@@ -396,8 +455,8 @@
 	display_name = name
 	display_name = "[name] plant"
 
-//Creates a random seed. MAKE SURE THE LINE HAS DIVERGED BEFORE THIS IS CALLED.
-/datum/seed/proc/randomize(var/list/native_gases = list(GAS_OXYGEN, GAS_NITROGEN, GAS_CO2, GAS_PHORON, GAS_HYDROGEN))
+/// Creates a random seed. MAKE SURE THE LINE HAS DIVERGED BEFORE THIS IS CALLED.
+/datum/seed/proc/randomize(var/list/native_gases = list(GAS_OXYGEN, GAS_NITROGEN, GAS_CO2, GAS_HYDROGEN))
 	roundstart = FALSE
 	mysterious = TRUE
 
@@ -467,7 +526,6 @@
 			/singleton/reagent/drugs/mindbreaker,
 			/singleton/reagent/inaprovaline,
 			/singleton/reagent/peridaxon,
-			/singleton/reagent/toxin/phoron,
 			/singleton/reagent/toxin/plasticide,
 			/singleton/reagent/potassium,
 			/singleton/reagent/radium,
@@ -556,12 +614,12 @@
 
 	generate_name()
 
-//Returns a key corresponding to an entry in the global seed list.
+/// Returns a key corresponding to an entry in the global seed list.
 /datum/seed/proc/get_mutant_variant()
 	if(!mutants || !mutants.len || get_trait(TRAIT_IMMUTABLE) > 0) return 0
 	return pick(mutants)
 
-//Mutates the plant overall (randomly).
+/// Mutates the plant overall (randomly).
 /datum/seed/proc/mutate(var/degree,var/turf/source_turf)
 
 	if(!degree || get_trait(TRAIT_IMMUTABLE) > 0) return
@@ -632,7 +690,7 @@
 
 	return
 
-//Mutates a specific trait/set of traits.
+/// Mutates a specific trait/set of traits.
 /datum/seed/proc/apply_gene(var/datum/plantgene/gene)
 
 	if(!gene || !gene.values || get_trait(TRAIT_IMMUTABLE) > 0) return
@@ -687,7 +745,7 @@
 
 	update_growth_stages()
 
-//Returns a list of the desired trait values.
+/// Returns a list of the desired trait values.
 /datum/seed/proc/get_gene(var/genetype)
 
 	if(!genetype) return 0
@@ -731,9 +789,8 @@
 		P.values["[trait]"] = get_trait(trait)
 	return (P ? P : 0)
 
-//Place the plant products at the feet of the user.
-/datum/seed/proc/harvest(var/mob/user,var/yield_mod,var/harvest_sample,var/force_amount)
-
+/// Place the plant products at the feet of the user.
+/datum/seed/proc/harvest(var/mob/user,var/yield_mod,var/harvest_sample,var/force_amount,var/stunted_status = FALSE)
 	if(!user)
 		return
 
@@ -765,6 +822,10 @@
 				else
 					total_yield = get_trait(TRAIT_YIELD) + rand(yield_mod)
 				total_yield = max(1,total_yield)
+
+		// If the plant is stunted, you get half the yield.
+		if(stunted_status)
+			total_yield *= 0.5
 
 		for(var/i = 0;i<total_yield;i++)
 			spawn_seed(get_turf(user))
@@ -807,9 +868,9 @@
 			var/mob/living/simple_animal/mushroom/mush = product
 			mush.seed = src
 
-// When the seed in this machine mutates/is modified, the tray seed value
-// is set to a new datum copied from the original. This datum won't actually
-// be put into the global datum list until the product is harvested, though.
+/** When the seed in this machine mutates/is modified, the tray seed value
+is set to a new datum copied from the original. This datum won't actually
+be put into the global datum list until the product is harvested, though. */
 /datum/seed/proc/diverge(var/modified)
 
 	if(get_trait(TRAIT_IMMUTABLE) > 0) return

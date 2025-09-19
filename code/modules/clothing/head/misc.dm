@@ -186,14 +186,14 @@
 	name = "flat cap"
 	desc = "A working man's hat."
 	icon = 'icons/obj/item/clothing/head/flat_cap.dmi'
-	icon_state = "flat_cap"
-	item_state = "flat_cap"
+	icon_state = "flat_cap_brown"
+	item_state = "flat_cap_brown"
 	contained_sprite = TRUE
 	siemens_coefficient = 0.9
 
 /obj/item/clothing/head/flatcap/colourable
-	icon_state = "flat_cap_greyscale"
-	item_state = "flat_cap_greyscale"
+	icon_state = "flat_cap"
+	item_state = "flat_cap"
 
 /obj/item/clothing/head/pirate
 	name = "pirate hat"
@@ -234,12 +234,6 @@
 	item_state = "feather_trilby"
 	contained_sprite = TRUE
 	desc = "A sharp, stylish hat with a feather."
-
-/obj/item/clothing/head/feathertrilby/colourable
-	icon_state = "feather_trilby_grayscale"
-	item_state = "feather_trilby_grayscale"
-	build_from_parts = TRUE
-	worn_overlay = "feather"
 
 /obj/item/clothing/head/fez
 	name = "fez"
@@ -292,7 +286,7 @@
 /obj/item/clothing/head/plain_hood
 	name = "plain hood"
 	desc = "A simple hood made of cloth, worn for myriad reasons - cultural, religious, protection from the elements, a fashion statement... or perhaps you simply want to look like you intend to give quests to adventurers who walk into your favorite tavern."
-	icon = 'icons/clothing/head/plain_hood.dmi'
+	icon = 'icons/obj/item/clothing/head/plain_hood.dmi'
 	icon_state = "plain_hood"
 	item_state = "plain_hood"
 	body_parts_covered = HEAD
@@ -303,8 +297,8 @@
 	name = "hijab"
 	desc = "Encompassing cloth headwear worn by some human cultures and religions."
 	icon = 'icons/obj/clothing/hijabs.dmi'
-	icon_state = "hijab_white"
-	item_state = "hijab_white"
+	icon_state = "hijab"
+	item_state = "hijab"
 	flags_inv = BLOCKHAIR
 	body_parts_covered = 0
 	contained_sprite = 1
@@ -313,35 +307,32 @@
 /obj/item/clothing/head/hijab/get_ear_examine_text(var/mob/user, var/ear_text = "left")
 	return "on [user.get_pronoun("his")] head"
 
-/obj/item/clothing/head/hijab/grey
-	name = "grey hijab"
-	icon_state = "hijab_grey"
-	item_state = "hijab_grey"
-
 /obj/item/clothing/head/hijab/red
-	name = "red hijab"
-	icon_state = "hijab_red"
-	item_state = "hijab_red"
+	color = COLOR_RED
 
-/obj/item/clothing/head/hijab/brown
-	name = "brown hijab"
-	icon_state = "hijab_brown"
-	item_state = "hijab_brown"
+/obj/item/clothing/head/hijab/orange
+	color = COLOR_ORANGE
+
+/obj/item/clothing/head/hijab/yellow
+	color = COLOR_YELLOW
 
 /obj/item/clothing/head/hijab/green
-	name = "green hijab"
-	icon_state = "hijab_green"
-	item_state = "hijab_green"
+	color = COLOR_GREEN
 
 /obj/item/clothing/head/hijab/blue
-	name = "blue hijab"
-	icon_state = "hijab_blue"
-	item_state = "hijab_blue"
+	color = COLOR_BLUE
+
+/obj/item/clothing/head/hijab/purple
+	color = COLOR_PURPLE
+
+/obj/item/clothing/head/hijab/brown
+	color = COLOR_BROWN
+
+/obj/item/clothing/head/hijab/grey
+	color = COLOR_GRAY50
 
 /obj/item/clothing/head/hijab/black
-	name = "black hijab"
-	icon_state = "hijab_black"
-	item_state = "hijab_black"
+	color = COLOR_GRAY20
 
 /obj/item/clothing/head/sombrero
 	name = "sombrero"
@@ -354,7 +345,7 @@
 /obj/item/clothing/head/kippah
 	name = "kippah"
 	desc = "A head covering commonly worn by those of Jewish faith."
-	icon = 'icons/clothing/head/kippahs.dmi'
+	icon = 'icons/obj/item/clothing/head/kippahs.dmi'
 	icon_state = "kippah"
 	item_state = "kippah"
 	contained_sprite = 1
@@ -362,47 +353,38 @@
 /obj/item/clothing/head/turban
 	name = "turban"
 	desc = "A sturdy cloth, worn around the head."
-	icon = 'icons/obj/clothing/hijabs.dmi'
-	icon_state = "turban_black"
-	item_state = "turban_black"
+	icon = 'icons/obj/item/clothing/head/turban.dmi'
+	icon_state = "turban"
+	item_state = "turban"
 	flags_inv = BLOCKHEADHAIR
-	contained_sprite = 1
-
-/obj/item/clothing/head/turban/blue
-	icon_state = "turban_blue"
-	item_state = "turban_blue"
-
-/obj/item/clothing/head/turban/brown
-	icon_state = "turban_brown"
-	item_state = "turban_brown"
-
-/obj/item/clothing/head/turban/green
-	icon_state = "turban_green"
-	item_state = "turban_green"
-
-/obj/item/clothing/head/turban/grey
-	icon_state = "turban_grey"
-	item_state = "turban_grey"
-
-/obj/item/clothing/head/turban/orange
-	icon_state = "turban_orange"
-	item_state = "turban_orange"
-
-/obj/item/clothing/head/turban/purple
-	icon_state = "turban_purple"
-	item_state = "turban_purple"
+	contained_sprite = TRUE
 
 /obj/item/clothing/head/turban/red
-	icon_state = "turban_red"
-	item_state = "turban_red"
+	color = COLOR_RED
 
-/obj/item/clothing/head/turban/white
-	icon_state = "turban_white"
-	item_state = "turban_white"
+/obj/item/clothing/head/turban/orange
+	color = COLOR_ORANGE
 
 /obj/item/clothing/head/turban/yellow
-	icon_state = "turban_yellow"
-	item_state = "turban_yellow"
+	color = COLOR_YELLOW
+
+/obj/item/clothing/head/turban/green
+	color = COLOR_GREEN
+
+/obj/item/clothing/head/turban/blue
+	color = COLOR_BLUE
+
+/obj/item/clothing/head/turban/purple
+	color = COLOR_PURPLE
+
+/obj/item/clothing/head/turban/brown
+	color = COLOR_BROWN
+
+/obj/item/clothing/head/turban/grey
+	color = COLOR_GRAY50
+
+/obj/item/clothing/head/turban/black
+	color = COLOR_GRAY20
 
 //praise verkister
 /obj/item/clothing/head/headbando
@@ -460,8 +442,8 @@
 	cold_protection = HEAD
 	min_cold_protection_temperature = SPACE_HELMET_MIN_COLD_PROTECTION_TEMPERATURE
 
-/obj/item/clothing/head/padded
-	name = "padded cap"
+/obj/item/clothing/head/tanker
+	name = "tanker cap"
 	desc = "A padded skullcap for those prone to bumping their heads against hard surfaces."
 	icon_state = "tank"
 	flags_inv = BLOCKHEADHAIR
@@ -494,39 +476,12 @@
 	item_state = "leader_headband"
 	contained_sprite = TRUE
 
-//all by budg
-/obj/item/clothing/head/slouch
-	name = "slouch hat"
-	desc = "A wide brimmed hat folded to form a slouch."
-	icon_state = "slouch"
-
-/obj/item/clothing/head/tight_beanie
-	name = "tight beanie"
-	desc = "A rather tight beanie, blocks hair."
-	icon_state = "tight_beanie"
-	flags_inv = BLOCKHEADHAIR
-	cold_protection = HEAD
-
-/obj/item/clothing/head/sun_visor
-	name = "sun visor"
-	desc = "A stylish visor intended for blocking out harsh sunlight."
-	icon_state = "sun_visor"
-
-/obj/item/clothing/head/newsboy
-	name = "newsboy cap"
-	desc = "A fashionable peaked cap!"
-	icon_state = "newsboy"
-
-/obj/item/clothing/head/legionnaire
-	name = "legionnaire cap"
-	desc = "A hate made to protect your neck from sunlight, not affiliated with the TCAF."
-	icon_state = "legionnaire"
 //sol stuff
 
 /obj/item/clothing/head/sol
 	name = "sol navy utility cover"
 	desc = "A military cover issued to Solarian Navy personnel as part of their utility uniform."
-	icon = 'icons/clothing/under/uniforms/sol_uniform.dmi'
+	icon = 'icons/obj/item/clothing/head/sol_army.dmi'
 	icon_state = "navy_utility"
 	item_state = "navy_utility"
 	contained_sprite = TRUE
@@ -583,7 +538,7 @@
 /obj/item/clothing/head/helmet/sol
 	name = "sol combat helmet"
 	desc = "A woodland colored helmet made from advanced ceramic."
-	icon = 'icons/clothing/under/uniforms/sol_uniform.dmi'
+	icon = 'icons/obj/item/clothing/head/sol_army.dmi'
 	icon_state = "helmet_tac_sol"
 	item_state = "helmet_tac_sol"
 	armor = list(
@@ -654,7 +609,7 @@
 /obj/item/clothing/head/konyang/army
 	name = "konyang army field cap"
 	desc = "A cloth field cap issued to Konyang soldiers as part of their field uniform."
-	icon = 'icons/clothing/under/uniforms/konyang_uniforms.dmi'
+	icon = 'icons/obj/item/clothing/head/konyang.dmi'
 	icon_state = "konyang_army_cap"
 	item_state = "konyang_army_cap"
 	contained_sprite = TRUE
@@ -668,7 +623,7 @@
 /obj/item/clothing/head/konyang/navy
 	name = "konyang navy officer peaked cap"
 	desc = "A white peaked cap issued to officers of the Konyang Navy."
-	icon = 'icons/clothing/under/uniforms/konyang_uniforms.dmi'
+	icon = 'icons/obj/item/clothing/head/konyang.dmi'
 	icon_state = "konyang_navy_cap"
 	item_state = "konyang_navy_cap"
 	contained_sprite = TRUE
@@ -676,7 +631,7 @@
 /obj/item/clothing/head/konyang/space
 	name = "konyang aerospace forces officer peaked cap"
 	desc = "A white peaked cap issued to officers of the Konyang Aerospace Forces."
-	icon = 'icons/clothing/under/uniforms/konyang_uniforms.dmi'
+	icon = 'icons/obj/item/clothing/head/konyang.dmi'
 	icon_state = "konyang_space_cap"
 	item_state = "konyang_space_cap"
 	contained_sprite = TRUE
@@ -684,7 +639,7 @@
 /obj/item/clothing/head/konyang/police
 	name = "konyang national police hat"
 	desc = "A white peaked cap issued to personnel of the Konyang National Police"
-	icon = 'icons/clothing/under/uniforms/konyang_uniforms.dmi'
+	icon = 'icons/obj/item/clothing/head/konyang.dmi'
 	icon_state = "konyang_police_hat"
 	item_state = "konyang_police_hat"
 	contained_sprite = TRUE
@@ -698,7 +653,7 @@
 /obj/item/clothing/head/konyang/burger
 	name = "\improper UP! Burger cap"
 	desc = "An astoundingly bright orange hat, worn by employees of UP! Burger (or Burger UP!, depending on preference), a Gwok Group subsidiary."
-	icon = 'icons/clothing/under/uniforms/konyang_uniforms.dmi'
+	icon = 'icons/obj/item/clothing/head/konyang.dmi'
 	icon_state = "upburger-cap"
 	item_state = "upburger-cap"
 	contained_sprite = TRUE
@@ -706,7 +661,7 @@
 /obj/item/clothing/head/helmet/konyang
 	name = "konyang army helmet"
 	desc = "A woodland colored helmet made from advanced ceramic."
-	icon = 'icons/clothing/under/uniforms/konyang_uniforms.dmi'
+	icon = 'icons/obj/item/clothing/head/konyang.dmi'
 	icon_state = "helmet_konyang_army"
 	item_state = "helmet_konyang_army"
 	armor = list(
@@ -733,7 +688,7 @@
 /obj/item/clothing/head/xanu
 	name = "xanu armed forces garrison cap"
 	desc = "A garrison cap belonging to a member of the All-Xanu Spacefleet."
-	icon = 'icons/clothing/under/uniforms/xanu.dmi'
+	icon = 'icons/obj/item/clothing/head/xanu_army.dmi'
 	icon_state = "xanu_garrison_enlisted"
 	item_state = "xanu_garrison_enlisted"
 	contained_sprite = TRUE
@@ -753,7 +708,7 @@
 /obj/item/clothing/head/grupo_amapola
 	name = "Grupo Amapola officer cap"
 	desc = "A peaked officer's cap bearing the poppy of the military contracting group Grupo Amapola."
-	icon = 'icons/clothing/head/pmcg.dmi'
+	icon = 'icons/obj/item/clothing/head/pmcg.dmi'
 	icon_state = "amapola_officer_hat"
 	item_state = "amapola_officer_hat"
 	contained_sprite = TRUE

@@ -260,10 +260,8 @@
 /turf/simulated/floor,
 /area/coc_survey_ship/research)
 "cx" = (
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/atmospherics/portables_connector/aux{
-	dir = 1
-	},
+/obj/machinery/mech_recharger,
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_survey_shuttle)
 "cF" = (
@@ -424,6 +422,9 @@
 	dir = 5
 	},
 /obj/effect/floor_decal/corner_wide/paleblue,
+/obj/structure/sign/flag/coalition{
+	pixel_y = 31
+	},
 /turf/simulated/floor/tiled/dark,
 /area/coc_survey_ship/bridge)
 "em" = (
@@ -509,7 +510,7 @@
 /area/coc_survey_ship/cryo)
 "eZ" = (
 /obj/machinery/computer/ship/helm{
-	req_access = list(203);
+	req_access = list(221);
 	dir = 1
 	},
 /obj/effect/floor_decal/corner_wide/paleblue{
@@ -555,7 +556,9 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/high/north,
+/obj/machinery/power/apc/high/north{
+	req_access = list(221)
+	},
 /turf/simulated/floor/tiled,
 /area/coc_survey_ship/atmos)
 "fB" = (
@@ -705,7 +708,9 @@
 /turf/simulated/floor/tiled/white,
 /area/coc_survey_ship/cryo)
 "gQ" = (
-/obj/machinery/power/apc/south,
+/obj/machinery/power/apc/south{
+	req_access = list(221)
+	},
 /obj/structure/cable{
 	d2 = 4;
 	icon_state = "0-4"
@@ -866,6 +871,9 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/structure/sign/flag/xanu{
+	pixel_y = 31
+	},
 /turf/simulated/floor/tiled/dark,
 /area/coc_survey_ship/bridge)
 "ig" = (
@@ -951,6 +959,9 @@
 	dir = 5
 	},
 /obj/effect/floor_decal/corner_wide/paleblue,
+/obj/structure/sign/flag/konyang{
+	pixel_y = 31
+	},
 /turf/simulated/floor/tiled/dark,
 /area/coc_survey_ship/bridge)
 "jj" = (
@@ -1119,7 +1130,9 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/north,
+/obj/machinery/power/apc/north{
+	req_access = list(221)
+	},
 /turf/simulated/floor/tiled,
 /area/coc_survey_ship/miningeva)
 "kN" = (
@@ -1195,7 +1208,9 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/north,
+/obj/machinery/power/apc/north{
+	req_access = list(221)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/coc_survey_ship/bridge)
 "le" = (
@@ -1360,7 +1375,8 @@
 /area/coc_survey_ship/mess_hall)
 "lZ" = (
 /obj/machinery/alarm/north{
-	req_one_access = null
+	req_one_access = null;
+	req_access = list(221)
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -1418,7 +1434,9 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/east,
+/obj/machinery/power/apc/east{
+	req_access = list(221)
+	},
 /obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/tiled,
 /area/coc_survey_ship/quarters)
@@ -1457,9 +1475,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_survey_shuttle)
 "mK" = (
-/obj/structure/sign/flag/coalition,
-/turf/simulated/wall,
-/area/coc_survey_ship/mess_hall)
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner_wide/paleblue,
+/obj/structure/sign/flag/vysoka{
+	pixel_y = 31
+	},
+/turf/simulated/floor/tiled/dark,
+/area/coc_survey_ship/bridge)
 "mL" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/machinery/light{
@@ -1474,6 +1498,9 @@
 	},
 /obj/machinery/light{
 	dir = 8
+	},
+/obj/structure/sign/flag/galatea_government{
+	pixel_y = 31
 	},
 /turf/simulated/floor/tiled/dark,
 /area/coc_survey_ship/bridge)
@@ -1508,7 +1535,9 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/north,
+/obj/machinery/power/apc/north{
+	req_access = list(221)
+	},
 /turf/simulated/floor/reinforced,
 /area/coc_survey_ship/blaster)
 "no" = (
@@ -1573,6 +1602,18 @@
 /obj/item/clothing/accessory/offworlder/bracer,
 /obj/item/clothing/accessory/offworlder/bracer/neckbrace,
 /obj/item/clothing/accessory/offworlder/bracer/neckbrace,
+/obj/item/clothing/suit/storage/galatea_labcoat,
+/obj/item/clothing/suit/storage/galatea_labcoat,
+/obj/item/clothing/suit/storage/galatea_labcoat,
+/obj/item/clothing/suit/storage/galatea_labcoat,
+/obj/item/clothing/suit/storage/galatea_labcoat/alt,
+/obj/item/clothing/suit/storage/galatea_labcoat/alt,
+/obj/item/clothing/suit/storage/galatea_labcoat/alt,
+/obj/item/clothing/suit/storage/galatea_labcoat/alt,
+/obj/item/clothing/under/galatea,
+/obj/item/clothing/under/galatea,
+/obj/item/clothing/under/galatea,
+/obj/item/clothing/under/galatea,
 /turf/simulated/floor/tiled,
 /area/coc_survey_ship/quarters)
 "nI" = (
@@ -1760,12 +1801,20 @@
 /turf/simulated/floor/tiled/dark,
 /area/coc_survey_ship/bridge)
 "pA" = (
-/obj/structure/sign/flag/assunzione,
-/turf/simulated/wall,
-/area/coc_survey_ship/mess_hall)
+/obj/structure/bed/stool/chair/shuttle,
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner_wide/paleblue,
+/obj/structure/sign/flag/assunzione{
+	pixel_y = 31
+	},
+/turf/simulated/floor/tiled/dark,
+/area/coc_survey_ship/bridge)
 "pJ" = (
 /obj/machinery/alarm/west{
-	req_one_access = null
+	req_one_access = null;
+	req_access = list(221)
 	},
 /obj/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor,
@@ -1812,7 +1861,9 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/north,
+/obj/machinery/power/apc/north{
+	req_access = list(221)
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/coc_survey_ship/engineering)
 "qe" = (
@@ -1871,7 +1922,8 @@
 	dir = 4
 	},
 /obj/machinery/alarm/north{
-	req_one_access = null
+	req_one_access = null;
+	req_access = list(221)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/coc_survey_ship/cargo)
@@ -1988,7 +2040,9 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/west,
+/obj/machinery/power/apc/west{
+	req_access = list(221)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/coc_survey_ship/mess_hall)
 "rt" = (
@@ -2003,7 +2057,8 @@
 	dir = 4
 	},
 /obj/machinery/alarm/west{
-	req_one_access = null
+	req_one_access = null;
+	req_access = list(221)
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
@@ -2102,7 +2157,8 @@
 	},
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/machinery/alarm/east{
-	req_one_access = null
+	req_one_access = null;
+	req_access = list(221)
 	},
 /turf/simulated/floor/tiled/white,
 /area/coc_survey_ship/anomaly)
@@ -2125,7 +2181,9 @@
 /area/coc_survey_ship/grauwolf)
 "sH" = (
 /obj/structure/cable,
-/obj/machinery/power/apc/east,
+/obj/machinery/power/apc/east{
+	req_access = list(221)
+	},
 /turf/simulated/floor/reinforced,
 /area/coc_survey_ship/grauwolf)
 "sK" = (
@@ -2228,10 +2286,6 @@
 "ti" = (
 /turf/simulated/wall/shuttle/dark/cardinal/blue,
 /area/coc_survey_ship/bridge)
-"tm" = (
-/obj/structure/sign/flag/konyang,
-/turf/simulated/wall/shuttle/dark/cardinal/blue,
-/area/coc_survey_ship/captain)
 "tr" = (
 /obj/machinery/artifact_scanpad,
 /turf/simulated/floor/bluegrid,
@@ -2528,17 +2582,14 @@
 	},
 /turf/simulated/floor,
 /area/coc_survey_ship/miningeva)
-"wn" = (
-/obj/structure/sign/flag/vysoka,
-/turf/simulated/wall,
-/area/coc_survey_ship/captain)
 "wu" = (
 /obj/machinery/cryopod{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/alarm/north{
-	req_one_access = null
+	req_one_access = null;
+	req_access = list(221)
 	},
 /turf/simulated/floor/tiled/white,
 /area/coc_survey_ship/cryo)
@@ -2658,7 +2709,8 @@
 	dir = 6
 	},
 /obj/machinery/alarm/north{
-	req_one_access = null
+	req_one_access = null;
+	req_access = list(221)
 	},
 /turf/simulated/floor/reinforced,
 /area/coc_survey_ship/grauwolf)
@@ -2756,7 +2808,8 @@
 /area/coc_survey_ship/atmos)
 "xQ" = (
 /obj/machinery/alarm/north{
-	req_one_access = null
+	req_one_access = null;
+	req_access = list(221)
 	},
 /turf/simulated/floor,
 /area/coc_survey_ship/starboard_propulsion)
@@ -2777,7 +2830,8 @@
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /obj/machinery/bodyscanner,
 /obj/machinery/alarm/north{
-	req_one_access = null
+	req_one_access = null;
+	req_access = list(221)
 	},
 /turf/simulated/floor/tiled/white,
 /area/coc_survey_ship/medical)
@@ -2814,7 +2868,8 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/alarm/west{
-	req_one_access = null
+	req_one_access = null;
+	req_access = list(221)
 	},
 /turf/simulated/floor/tiled/white,
 /area/coc_survey_ship/research)
@@ -2993,7 +3048,9 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/west,
+/obj/machinery/power/apc/west{
+	req_access = list(221)
+	},
 /turf/simulated/floor/tiled/white,
 /area/coc_survey_ship/medical)
 "zr" = (
@@ -3127,9 +3184,6 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 4
-	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_survey_shuttle)
@@ -3162,7 +3216,9 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/west,
+/obj/machinery/power/apc/west{
+	req_access = list(221)
+	},
 /turf/simulated/floor/carpet/lightblue,
 /area/coc_survey_ship/captain)
 "Bm" = (
@@ -3170,7 +3226,8 @@
 	dir = 4
 	},
 /obj/machinery/alarm/north{
-	req_one_access = null
+	req_one_access = null;
+	req_access = list(221)
 	},
 /turf/simulated/floor/reinforced,
 /area/coc_survey_ship/blaster)
@@ -3269,9 +3326,11 @@
 	pixel_y = -26;
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/aux,
 /obj/machinery/door/airlock/external{
 	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_survey_shuttle)
@@ -3523,7 +3582,9 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/north,
+/obj/machinery/power/apc/north{
+	req_access = list(221)
+	},
 /turf/simulated/floor/tiled/white,
 /area/coc_survey_ship/research)
 "Dz" = (
@@ -3580,7 +3641,9 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/east,
+/obj/machinery/power/apc/east{
+	req_access = list(221)
+	},
 /turf/simulated/floor,
 /area/coc_survey_ship/port_propulsion)
 "DT" = (
@@ -3753,7 +3816,8 @@
 	},
 /obj/effect/floor_decal/corner_wide/white/diagonal,
 /obj/machinery/alarm/east{
-	req_one_access = null
+	req_one_access = null;
+	req_access = list(221)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/coc_survey_ship/mess_hall)
@@ -3786,10 +3850,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/coc_survey_ship/miningeva)
-"FF" = (
-/obj/structure/sign/flag/himeo,
-/turf/simulated/wall/shuttle/dark/cardinal/blue,
-/area/coc_survey_ship/mess_hall)
 "FJ" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
@@ -3900,7 +3960,8 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/alarm/west{
-	req_one_access = null
+	req_one_access = null;
+	req_access = list(221)
 	},
 /turf/simulated/floor/tiled,
 /area/coc_survey_ship/quarters)
@@ -4084,7 +4145,8 @@
 	dir = 4
 	},
 /obj/machinery/alarm/south{
-	req_one_access = null
+	req_one_access = null;
+	req_access = list(221)
 	},
 /turf/simulated/floor/tiled,
 /area/coc_survey_ship/atmos)
@@ -4198,7 +4260,9 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/east,
+/obj/machinery/power/apc/east{
+	req_access = list(221)
+	},
 /turf/simulated/floor/tiled/white,
 /area/coc_survey_ship/anomaly)
 "IR" = (
@@ -4248,7 +4312,8 @@
 	},
 /obj/effect/floor_decal/corner_wide/paleblue,
 /obj/machinery/alarm/north{
-	req_one_access = null
+	req_one_access = null;
+	req_access = list(221)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/coc_survey_ship/bridge)
@@ -4354,9 +4419,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 5
-	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_survey_shuttle)
 "Kr" = (
@@ -4398,9 +4460,15 @@
 /turf/simulated/floor/carpet/lightblue,
 /area/coc_survey_ship/captain)
 "KD" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner_wide/paleblue,
+/obj/structure/sign/flag/himeo{
+	pixel_y = 31
+	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/coc_survey_shuttle)
+/area/coc_survey_ship/bridge)
 "KH" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Mining Laser"
@@ -4462,6 +4530,9 @@
 	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_survey_shuttle)
 "KX" = (
@@ -4558,7 +4629,9 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/south,
+/obj/machinery/power/apc/south{
+	req_access = list(221)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/coc_survey_ship/cargo)
 "LL" = (
@@ -4614,7 +4687,8 @@
 /area/coc_survey_ship/quarters)
 "Mj" = (
 /obj/machinery/alarm/east{
-	req_one_access = null
+	req_one_access = null;
+	req_access = list(221)
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/decal/cleanable/dirt,
@@ -4701,7 +4775,12 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/high/north,
+/obj/machinery/power/apc/high/north{
+	req_access = list(221)
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_survey_shuttle)
 "MY" = (
@@ -4879,7 +4958,10 @@
 /turf/simulated/floor/tiled,
 /area/coc_survey_ship/atmos)
 "OH" = (
-/obj/machinery/alarm/west,
+/obj/machinery/alarm/west{
+	req_access = list(221);
+	req_one_access = null
+	},
 /turf/simulated/floor,
 /area/coc_survey_ship/starboard_propulsion)
 "OL" = (
@@ -5177,7 +5259,9 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/east,
+/obj/machinery/power/apc/east{
+	req_access = list(221)
+	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/coc_survey_ship/hangar)
@@ -5267,10 +5351,14 @@
 	dir = 1
 	},
 /obj/machinery/alarm/north{
-	req_one_access = null
+	req_one_access = null;
+	req_access = list(221)
 	},
 /obj/structure/cable/green{
 	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_survey_shuttle)
@@ -5503,7 +5591,9 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/north,
+/obj/machinery/power/apc/north{
+	req_access = list(221)
+	},
 /turf/simulated/floor/tiled/white,
 /area/coc_survey_ship/kitchen)
 "Ul" = (
@@ -5540,8 +5630,10 @@
 /turf/simulated/floor/tiled/white,
 /area/coc_survey_ship/kitchen)
 "Uw" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/mech_recharger,
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_survey_shuttle)
 "Uy" = (
@@ -5556,9 +5648,6 @@
 	},
 /obj/structure/fuel_port/hydrogen{
 	pixel_y = 31
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_survey_shuttle)
@@ -5708,7 +5797,7 @@
 "VM" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/mop,
-/obj/structure/janitorialcart/full,
+/obj/structure/cart/storage/janitorialcart/full,
 /turf/simulated/floor/tiled/dark,
 /area/coc_survey_ship/cargo)
 "VP" = (
@@ -5861,11 +5950,11 @@
 	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 6
-	},
 /obj/machinery/door/airlock/external{
 	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_survey_shuttle)
@@ -5911,8 +6000,8 @@
 /turf/simulated/floor,
 /area/coc_survey_ship/miningeva)
 "Xj" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 6
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_survey_shuttle)
@@ -6061,7 +6150,8 @@
 /obj/item/clothing/head/softcap/himeo,
 /obj/item/clothing/head/softcap/himeo,
 /obj/machinery/alarm/west{
-	req_one_access = null
+	req_one_access = null;
+	req_access = list(221)
 	},
 /turf/simulated/floor/tiled,
 /area/coc_survey_ship/quarters)
@@ -6109,7 +6199,8 @@
 	dir = 5
 	},
 /obj/machinery/alarm/north{
-	req_one_access = null
+	req_one_access = null;
+	req_access = list(221)
 	},
 /turf/simulated/floor/tiled,
 /area/coc_survey_ship/miningeva)
@@ -6122,7 +6213,8 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/alarm/north{
-	req_one_access = null
+	req_one_access = null;
+	req_access = list(221)
 	},
 /turf/simulated/floor/tiled/white,
 /area/coc_survey_ship/kitchen)
@@ -6224,7 +6316,9 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc/north,
+/obj/machinery/power/apc/north{
+	req_access = list(221)
+	},
 /turf/simulated/floor/tiled/white,
 /area/coc_survey_ship/cryo)
 "Zd" = (
@@ -6324,7 +6418,8 @@
 "Zz" = (
 /obj/structure/table/steel,
 /obj/machinery/alarm/south{
-	req_one_access = null
+	req_one_access = null;
+	req_access = list(221)
 	},
 /turf/simulated/floor/carpet/lightblue,
 /area/coc_survey_ship/captain)
@@ -11030,8 +11125,8 @@ nr
 nr
 nr
 nr
-FF
-jf
+nr
+KD
 hg
 Cc
 Xl
@@ -11438,7 +11533,7 @@ zj
 Pa
 Xx
 Pa
-mK
+Pd
 ee
 CT
 hg
@@ -11642,8 +11737,8 @@ Pd
 Pd
 lY
 Pd
+Pd
 pA
-ee
 CT
 hg
 DT
@@ -11824,7 +11919,7 @@ dT
 ul
 KQ
 Xj
-KD
+xB
 Kq
 hF
 ul
@@ -11846,8 +11941,8 @@ Dz
 kD
 oq
 Zz
-wn
-jf
+Yq
+mK
 CT
 hg
 uO
@@ -12050,7 +12145,7 @@ ib
 ib
 IA
 IA
-tm
+IA
 jf
 hg
 do

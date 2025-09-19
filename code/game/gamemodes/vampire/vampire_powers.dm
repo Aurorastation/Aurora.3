@@ -484,7 +484,7 @@
 	ghost_last_move = world.time
 
 	var/turf/new_loc = get_step(src, direction)
-	if(new_loc.turf_flags & TURF_FLAG_NOJAUNT || istype(new_loc.loc, /area/chapel))
+	if(new_loc.turf_flags & TURF_FLAG_NOJAUNT || istype(new_loc.loc, /area/horizon/service/chapel))
 		to_chat(usr, SPAN_WARNING("Some strange aura is blocking the way!"))
 		return
 

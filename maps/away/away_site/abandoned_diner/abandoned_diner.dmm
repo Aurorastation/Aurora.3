@@ -1601,7 +1601,7 @@
 /obj/effect/floor_decal/corner_wide/blue{
 	dir = 9
 	},
-/obj/structure/janitorialcart/full{
+/obj/structure/cart/storage/janitorialcart/full{
 	dir = 8
 	},
 /obj/item/reagent_containers/glass/bucket,
@@ -2482,7 +2482,7 @@
 /obj/random/junk{
 	pixel_x = -13
 	},
-/obj/item/clothing/ears/earmuffs/earphones,
+/obj/item/clothing/ears/earphones,
 /turf/simulated/floor/tiled/dark,
 /area/abandoned_diner/crew_quarters)
 "cGg" = (
@@ -4644,7 +4644,7 @@
 /area/abandoned_diner/diner)
 "piK" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/item/clothing/ears/earmuffs/earphones/headphones{
+/obj/item/clothing/ears/earphones/headphones{
 	pixel_y = 6;
 	pixel_x = 11
 	},
@@ -5845,7 +5845,7 @@
 	pixel_y = -4;
 	pixel_x = 3
 	},
-/obj/item/clothing/ears/earmuffs/earphones,
+/obj/item/clothing/ears/earphones,
 /turf/simulated/floor/carpet/rubber,
 /area/abandoned_diner/backroom)
 "xjB" = (

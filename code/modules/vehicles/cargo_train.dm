@@ -1,13 +1,6 @@
 /obj/vehicle/train/cargo/engine
 	name = "cargo train tug"
 	desc = "A ridable electric car designed for pulling cargo trolleys."
-	desc_info = "Click-drag yourself onto the truck to climb onto it.<br>\
-		- CTRL-click the truck to open the ignition and controls menu.<br>\
-		- ALT-click the truck to remove the key from the ignition.<br>\
-		- Click the truck to open a UI menu.<br>\
-		- Click the resist button or type \"resist\" in the command bar at the bottom of your screen to get off the truck.<br>\
-		- If latched, you can use a wrench to unlatch.<br>\
-		- Click-drag on a trolley to latch and tow it."
 	icon = 'icons/obj/vehicles.dmi'
 	icon_state = "cargo_engine"
 	on = 0
@@ -25,6 +18,26 @@
 	var/obj/item/key/key
 	var/key_type = /obj/item/key/cargo_train
 
+/obj/vehicle/train/cargo/engine/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Click-drag yourself onto the truck to climb onto it."
+	. += "CTRL-click the truck to open the ignition and controls menu."
+	. += "ALT-click the truck to remove the key from the ignition."
+	. += "Click the truck to open a UI menu."
+	. += "Click the resist button or type \"resist\" in the command bar at the bottom of your screen to get off the truck."
+	. += "If latched, you can use a wrench to unlatch."
+	. += "Click-drag on a trolley to latch and tow it."
+
+/obj/vehicle/train/cargo/engine/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(distance > 1)
+		return
+	if(!ishuman(user))
+		return
+
+	. += "The power light is [on ? "on" : "off"].\nThere are[key ? "" : " no"] keys in the ignition."
+	. += "The charge meter reads [cell? round(cell.percent(), 0.01) : 0]%."
+
 /obj/item/key/cargo_train
 	name = "key"
 	desc = "A keyring with a small steel key, and a yellow fob reading \"Choo Choo!\"."
@@ -34,7 +47,6 @@
 
 /obj/vehicle/train/cargo/trolley
 	name = "cargo train trolley"
-	desc_info = "You can use a wrench to unlatch this, click-drag to link it to another trolley to tow."
 	icon = 'icons/obj/vehicles.dmi'
 	icon_state = "cargo_trailer"
 	anchored = 0
@@ -45,6 +57,10 @@
 	load_offset_x = 0
 	load_offset_y = 5
 	mob_offset_y = 8
+
+/obj/vehicle/train/cargo/trolley/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "You can use a wrench to unlatch this, click-drag to link it to another trolley to tow."
 
 //-------------------------------------------
 // Standard procs
@@ -253,17 +269,6 @@
 		return 0
 	else
 		return ..()
-
-/obj/vehicle/train/cargo/engine/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(distance > 1)
-		return
-
-	if(!ishuman(user))
-		return
-
-	. += "The power light is [on ? "on" : "off"].\nThere are[key ? "" : " no"] keys in the ignition."
-	. += "The charge meter reads [cell? round(cell.percent(), 0.01) : 0]%."
 
 /obj/vehicle/train/cargo/engine/CtrlClick(mob/user)
 	if(load && load != user)

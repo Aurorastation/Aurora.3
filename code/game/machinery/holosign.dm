@@ -48,11 +48,23 @@
 	name = "surgery holosign"
 	desc = "Small wall-mounted holographic projector. This one reads SURGERY."
 	on_icon = "surgery"
+
+/obj/machinery/holosign/service
+	name = "service holosign"
+	on_icon = "serviceopen"
+	desc = "A small wall-mounted holographic projector. This one reads OPEN."
+
+/obj/machinery/holosign/service/update_icon()
+	if(!lit)
+		icon_state = "serviceclosed"
+	else
+		icon_state = on_icon
+
 ////////////////////SWITCH///////////////////////////////////////
 
 /obj/machinery/button/switch/holosign
 	name = "holosign switch"
-	desc = "A remote control switch for holosign."
+	desc = "A remote control switch for a holosign."
 	icon_state = "light0"
 
 /obj/machinery/button/switch/holosign/attack_hand(mob/user as mob)

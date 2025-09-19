@@ -58,6 +58,25 @@
 	guildmantles["fishing league mantle"] = /obj/item/clothing/accessory/poncho/unathimantle/fisher
 	gear_tweaks += new /datum/gear_tweak/path(guildmantles)
 
+/datum/gear/suit/unathi_scaleshields
+	display_name = "scaleshield selection"
+	description = "A collection of reinforced canvas and fabric covers worn by Dominian Unathi."
+	path = /obj/item/clothing/accessory/poncho/scaleshield
+	cost = 1
+	whitelisted = list(SPECIES_UNATHI)
+	origin_restriction = list(/singleton/origin_item/origin/dominian_unathi)
+	sort_category = "Xenowear - Unathi"
+	flags = GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/suit/unathi_scaleshields/New()
+	..()
+	var/list/scaleshields = list()
+	scaleshields["Colorable Scaleshield"] = /obj/item/clothing/accessory/poncho/scaleshield
+	scaleshields["Landsite Scaleshield"] = /obj/item/clothing/accessory/poncho/scaleshield/LSscaleshield
+	scaleshields["Anvil Towers Scaleshield"] = /obj/item/clothing/accessory/poncho/scaleshield/ATscaleshield
+	scaleshields["Widowtown Scaleshield"] = /obj/item/clothing/accessory/poncho/scaleshield/WTscaleshield
+	gear_tweaks += new /datum/gear_tweak/path(scaleshields)
+
 /datum/gear/suit/unathi_robe
 	display_name = "roughspun robe"
 	path = /obj/item/clothing/suit/unathi/robe
@@ -250,6 +269,7 @@
 	path = /obj/item/clothing/under/unathi/jizixi
 	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 /datum/gear/uniform/unathi/jizixi/New()
 	..()
@@ -259,7 +279,26 @@
 	jizixi["jizixi dress, blue"] = /obj/item/clothing/under/unathi/jizixi/blue
 	jizixi["jizixi dress, white"] = /obj/item/clothing/under/unathi/jizixi/white
 	jizixi["jizixi dress, orange"] = /obj/item/clothing/under/unathi/jizixi/orange
+	jizixi["jizixi dress, black"] = /obj/item/clothing/under/unathi/jizixi/black
 	gear_tweaks += new /datum/gear_tweak/path(jizixi)
+
+/datum/gear/uniform/unathi/jizixi_colorable
+	display_name = "jizixi dress (colorable)"
+	path = /obj/item/clothing/under/unathi/jizixi/colorable
+	whitelisted = list(SPECIES_UNATHI)
+	sort_category = "Xenowear - Unathi"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
+
+/datum/gear/uniform/unathi/jizixi_colorable/New()
+	..()
+	var/list/jizixi_colorable = list()
+	jizixi_colorable["jizixi dress, colorable"] = /obj/item/clothing/under/unathi/jizixi/colorable
+	jizixi_colorable["jizixi dress, pattern 1"] = /obj/item/clothing/under/unathi/jizixi/colorable/accent1
+	jizixi_colorable["jizixi dress, pattern 2"] = /obj/item/clothing/under/unathi/jizixi/colorable/accent2
+	jizixi_colorable["jizixi dress, pattern 3"] = /obj/item/clothing/under/unathi/jizixi/colorable/accent3
+	jizixi_colorable["jizixi dress, pattern 4"] = /obj/item/clothing/under/unathi/jizixi/colorable/accent4
+	jizixi_colorable["jizixi dress, pattern 5"] = /obj/item/clothing/under/unathi/jizixi/colorable/accent5
+	gear_tweaks += new /datum/gear_tweak/path(jizixi_colorable)
 
 /datum/gear/uniform/unathi/sashes
 	display_name = "gyzao sashes"

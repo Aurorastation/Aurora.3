@@ -6,7 +6,7 @@ node2, air2, network2 correspond to output
 
 Thus, the two variables affect pump operation are set in New():
 	air1.volume
-		This is the volume of gas available to the pump that may be transfered to the output
+		This is the volume of gas available to the pump that may be transferred to the output
 	air2.volume
 		Higher quantities of this cause more air to be perfected later
 			but overall network volume is also increased as this increases...
@@ -15,7 +15,6 @@ Thus, the two variables affect pump operation are set in New():
 /obj/machinery/atmospherics/binary/pump
 	name = "gas pump"
 	desc = "A pump."
-	desc_info = "This moves gas from one pipe to another. A higher target pressure demands more energy. The side with the colored end is the output."
 	icon = 'icons/atmos/pump.dmi'
 	icon_state = "map_off"
 	level = 1
@@ -36,6 +35,11 @@ Thus, the two variables affect pump operation are set in New():
 	var/datum/radio_frequency/radio_connection
 
 	var/broadcast_status_next_process = FALSE
+
+/obj/machinery/atmospherics/binary/pump/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This moves gas from one pipe to another. A higher target pressure demands more energy."
+	. += "The side with the colored end is the output."
 
 /obj/machinery/atmospherics/binary/pump/Initialize()
 	. = ..()

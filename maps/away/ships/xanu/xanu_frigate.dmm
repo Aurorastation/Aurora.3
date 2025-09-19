@@ -12027,7 +12027,7 @@
 /area/ship/xanu_frigate/corridor/aft)
 "Pj" = (
 /obj/effect/floor_decal/corner/purple/full,
-/obj/structure/janitorialcart{
+/obj/structure/cart/storage/janitorialcart{
 	dir = 8
 	},
 /obj/machinery/power/apc/west,

@@ -19,6 +19,12 @@
 
 	can_hold_mob = TRUE
 
+/obj/vehicle/train/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(lead)
+		. += SPAN_NOTICE("It is being towed by \the [lead] in the [dir2text(get_dir(src, lead))].")
+	if(tow)
+		. += SPAN_NOTICE("It towing \the [tow] in the [dir2text(get_dir(src, tow))].")
 
 //-------------------------------------------
 // Standard procs
@@ -27,13 +33,6 @@
 	..()
 	for(var/obj/vehicle/train/T in orange(1, src))
 		latch(T)
-
-/obj/vehicle/train/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(lead)
-		. += SPAN_NOTICE("It is being towed by \the [lead] in the [dir2text(get_dir(src, lead))].")
-	if(tow)
-		. += SPAN_NOTICE("It towing \the [tow] in the [dir2text(get_dir(src, tow))].")
 
 /obj/vehicle/train/Move()
 	var/old_loc = get_turf(src)

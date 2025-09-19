@@ -17,7 +17,10 @@
 		/obj/item/cell/high = 3
 	)
 
+	parts_power_mgmt = FALSE
+
 /obj/machinery/power/smes/batteryrack/RefreshParts()
+	..()
 	capacitors_amount = 0
 	cells_amount = 0
 

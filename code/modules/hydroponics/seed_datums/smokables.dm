@@ -17,8 +17,8 @@
 	set_trait(TRAIT_PRODUCT_COLOUR,"#749733")
 	set_trait(TRAIT_PLANT_COLOUR,"#749733")
 	set_trait(TRAIT_PLANT_ICON,"vine2")
-	set_trait(TRAIT_IDEAL_HEAT, 299)
-	set_trait(TRAIT_IDEAL_LIGHT, 7)
+	set_trait(TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_HIGH)
+	set_trait(TRAIT_IDEAL_HEAT, IDEAL_HEAT_TROPICAL)
 	set_trait(TRAIT_WATER_CONSUMPTION, 6)
 	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.15)
 
@@ -83,7 +83,8 @@
 	set_trait(TRAIT_PRODUCT_ICON,"ambrosia")
 	set_trait(TRAIT_PRODUCT_COLOUR,"#9FAD55")
 	set_trait(TRAIT_PLANT_ICON,"ambrosia")
-	set_trait(TRAIT_IDEAL_LIGHT, 6)
+	set_trait(TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_HIGH)
+	set_trait(TRAIT_IDEAL_HEAT, IDEAL_HEAT_TROPICAL)
 
 /obj/item/seeds/ambrosiavulgarisseed
 	seed_type = "ambrosia"
@@ -125,7 +126,8 @@
 	set_trait(TRAIT_PRODUCT_COLOUR, "#ad5555")
 	set_trait(TRAIT_PLANT_COLOUR, "#ffa2a2")
 	set_trait(TRAIT_PLANT_ICON, "flower")
-	set_trait(TRAIT_IDEAL_LIGHT, 6)
+	set_trait(TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_HIGH)
+	set_trait(TRAIT_IDEAL_HEAT, IDEAL_HEAT_TROPICAL)
 
 /obj/item/seeds/oracleseed
 	seed_type = "oracle"

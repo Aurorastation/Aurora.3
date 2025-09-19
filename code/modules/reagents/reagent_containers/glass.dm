@@ -20,12 +20,8 @@
 	pickup_sound = 'sound/items/pickup/bottle.ogg'
 	var/label_text = ""
 
-/obj/item/reagent_containers/glass/Initialize()
-	. = ..()
-	AddComponent(/datum/component/base_name, name)
-
-/obj/item/reagent_containers/glass/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/reagent_containers/glass/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(distance > 2)
 		return
 	if(LAZYLEN(reagents.reagent_volumes))
@@ -45,6 +41,10 @@
 		. += SPAN_NOTICE("It is empty.")
 	if(!is_open_container())
 		. += SPAN_NOTICE("An airtight lid seals it completely.")
+
+/obj/item/reagent_containers/glass/Initialize()
+	. = ..()
+	AddComponent(/datum/component/base_name, name)
 
 /obj/item/reagent_containers/glass/get_additional_forensics_swab_info()
 	var/list/additional_evidence = ..()
@@ -201,6 +201,21 @@
 	volume = 60
 	amount_per_transfer_from_this = 5
 	reagents_to_add = list(/singleton/reagent/antibodies = 60)
+
+/obj/item/reagent_containers/glass/beaker/vial/dexalin_plus
+	name = "dexalin plus vial"
+	desc = "A small vial of Dexalin Plus, a potent medication that aids in the re-oxygenating of blood cells."
+	reagents_to_add = list(/singleton/reagent/dexalin/plus = 15)
+
+/obj/item/reagent_containers/glass/beaker/vial/peridaxon
+	name = "peridaxon vial"
+	desc = "A small vial of Peridaxon, an advanced organ regenerative compound."
+	reagents_to_add = list(/singleton/reagent/peridaxon = 15)
+
+/obj/item/reagent_containers/glass/beaker/vial/arithrazine
+	name = "arithrazine vial"
+	desc = "A small vial of Arithrazine, a potent anti-radiation medication."
+	reagents_to_add = list(/singleton/reagent/arithrazine = 15)
 
 /obj/item/reagent_containers/glass/beaker/medcup
 	name = "medicine cup"

@@ -43,7 +43,7 @@ Firing pins as a rule can't be removed without replacing them, blame a really sh
 	..()
 	update_icon()
 
-/obj/item/firing_pin/update_icon()
+/obj/item/device/firing_pin/update_icon()
 	var/matrix/tf = matrix()
 	var/obj/item/storage/S = loc
 	if(istype(S, /obj/item/storage) && !S.storage_slots)

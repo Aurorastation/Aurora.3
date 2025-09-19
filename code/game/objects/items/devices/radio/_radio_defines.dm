@@ -10,6 +10,7 @@
 #define CHANNEL_SERVICE "Service"
 #define CHANNEL_AI_PRIVATE "AI Private"
 #define CHANNEL_PENAL "Penal"
+#define CHANNEL_EXPED "Expeditionary"
 
 #define CHANNEL_RESPONSE_TEAM "Response Team"
 
@@ -42,5 +43,6 @@ var/global/list/ALL_RADIO_CHANNELS = list(
 	CHANNEL_NINJA = TRUE,
 	CHANNEL_BLUESPACE = TRUE,
 	CHANNEL_BURGLAR = TRUE,
-	CHANNEL_JOCKEY = TRUE
+	CHANNEL_JOCKEY = TRUE,
+	CHANNEL_EXPED = TRUE,
 )

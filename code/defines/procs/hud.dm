@@ -123,3 +123,13 @@ the HUD updates properly! */
 		state = "hudunknown"
 
 	return state
+
+/// Wrapper for adding anything to a client's screen
+/client/proc/add_to_screen(screen_add)
+	screen += screen_add
+	SEND_SIGNAL(src, COMSIG_CLIENT_SCREEN_ADD, screen_add)
+
+/// Wrapper for removing anything from a client's screen
+/client/proc/remove_from_screen(screen_remove)
+	screen -= screen_remove
+	SEND_SIGNAL(src, COMSIG_CLIENT_SCREEN_REMOVE, screen_remove)

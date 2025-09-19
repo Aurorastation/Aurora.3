@@ -524,6 +524,8 @@
 	data["charge"] = (linked_bluespace_drive.internal_gas.total_moles || linked_bluespace_drive.fuel_gas.total_moles) ? TRUE : FALSE
 	data["rotation"] = linked_bluespace_drive.rotation
 	data["jumping"] = linked_bluespace_drive.initiate_jump_timer_id ? TRUE : FALSE
+	data["jump_power"] = linked_bluespace_drive.power_from_gas / (10 KILO)
+	data["fuel_gas"] = linked_bluespace_drive.fuel_gas.total_moles
 
 	return data
 

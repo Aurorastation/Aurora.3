@@ -12,6 +12,12 @@
 	layer = ABOVE_WINDOW_LAYER
 	w_class = WEIGHT_CLASS_NORMAL
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
+	/// Sign type path that'll be spawned in `unfasten()` act.
+	var/sign_type = /obj/item/sign
+
+/obj/structure/sign/disassembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "You can use a <b>screwdriver</b> to fasten/unfasten \the [src]."
 
 /obj/structure/sign/ex_act(severity)
 	qdel(src)
@@ -25,7 +31,7 @@
 
 /obj/structure/sign/proc/unfasten(mob/user)
 	user.visible_message(SPAN_NOTICE("\The [user] unfastens \the [src]."), SPAN_NOTICE("You unfasten \the [src]."))
-	var/obj/item/sign/S = new(src.loc)
+	var/obj/item/sign/S = new sign_type(get_turf(src))
 	S.name = name
 	S.desc = desc
 	S.icon_state = icon_state
@@ -38,6 +44,14 @@
 	icon = 'icons/obj/signs.dmi'
 	w_class = WEIGHT_CLASS_HUGE
 	var/sign_state = ""
+
+/obj/item/sign/heavy
+	throw_speed = 3
+	throw_range = 3
+	force = 10
+	throwforce = 10
+	drop_sound = 'sound/items/drop/axe.ogg'
+	pickup_sound = 'sound/items/pickup/axe.ogg'
 
 /obj/item/sign/attackby(obj/item/attacking_item, mob/user) // Construction.
 	if(attacking_item.isscrewdriver() && isturf(user.loc))
@@ -59,6 +73,7 @@
 		S.name = name
 		S.desc = desc
 		S.icon_state = sign_state
+		S.sign_type = src.type
 		to_chat(user, "You fasten \the [S] with your [attacking_item].")
 		qdel(src)
 	else ..()
@@ -109,8 +124,12 @@
 
 /obj/structure/sign/greencross
 	name = "\improper MEDICAL sign"
-	desc = "The Intergalactic symbol of Medical institutions. You'll probably get help here."
+	desc = "The intergalactic symbol of medical institutions. You'll probably get help here."
 	icon_state = "greencross"
+
+/obj/structure/sign/greencross/small
+	name = "small MEDICAL sign"
+	icon_state = "greencross_small"
 
 /obj/structure/sign/goldenplaque
 	name = "\improper The Most Robust Men Award for Robustness sign"
@@ -245,6 +264,62 @@
 	desc = "A direction sign, pointing out which way the nearest propulsion area is."
 	icon_state = "direction_prop"
 
+/obj/structure/sign/directions/deck1
+	name = "\improper DECK1 sign"
+	desc = "A sign, telling you that you're on the first deck."
+	icon_state = "deck1"
+
+/obj/structure/sign/directions/deck2
+	name = "\improper DECK2 sign"
+	desc = "A sign, telling you that you're on the second deck."
+	icon_state = "deck2"
+
+/obj/structure/sign/directions/deck3
+	name = "\improper DECK3 sign"
+	desc = "A sign, telling you that you're on the third deck."
+	icon_state = "deck3"
+
+/obj/structure/sign/directions/deck3
+	name = "\improper DECK4 sign"
+	desc = "A sign, telling you, that you're on the fourth deck."
+	icon_state = "deck4"
+
+/obj/structure/sign/directions/restricted
+	name = "\improper RESTRICTED sign"
+	desc = "A sign, telling you, that where you are going is somewhere you're probably not meant to be."
+	icon_state = "restricted"
+
+/obj/structure/sign/directions/cic
+	name = "\improper CIC sign"
+	desc = "A direction sign, pointing out the direction of a command center."
+	icon_state = "direction_cic"
+
+/obj/structure/sign/directions/cargobay
+	name = "\improper Cargo Bay sign"
+	desc = "A direction sign, pointing you in the direction of a cargo bay."
+	icon_state = "direction_cargobay"
+
+/obj/structure/sign/directions/garage
+	name = "\improper Garage sign"
+	desc = "A direction sign, pointing you in the direction of a vehicle garage."
+	icon_state = "direction_garage"
+
+/obj/structure/sign/directions/shuttlepad
+	name = "\improper Shuttle Pad sign"
+	desc = "A sign, telling you that you are at a shuttle landing pad."
+	icon_state = "shuttle_pad"
+
+/obj/structure/sign/directions/service
+	name = "\improper SERVICE sign"
+	desc = "A direction sign, pointing out which way the Service department is. "
+	icon_state = "direction_service"
+
+/obj/structure/sign/directions/commissary
+	name = "\improper STORE sign"
+	desc = "A direction sign, pointing out which way a store or commissary is. "
+	icon_state = "direction_commissary"
+
+
 //
 // Danger, Warning, and Hazard Signs
 //
@@ -294,6 +369,15 @@
 	desc = "A danger sign which reads \"DANGER: CRUSH HAZARD\" and \"AUTOMATIC EQUIPMENT STARTS AND STOPS AUTOMATICALLY\"."
 	icon_state = "crush"
 
+/obj/structure/sign/air_station
+	name = "\improper AIR STATION sign"
+	desc = "A sign which reads \"AIR REFILLING STATION\" and some smaller printed warnings: \"DANGER: EXERCISE CAUTION. PRESSURIZED AIR.\"."
+	icon_state = "air_station"
+
+/obj/structure/sign/waste_station
+	name = "\improper WASTE STATION sign"
+	desc = "A danger sign which reads \"WASTE GAS COLLECTION\" and some smaller printed warnings: \"DANGER: EXERCISE CAUTION. WASTE MAY BE TOXIC. PRESSURIZED GASSES.\"."
+	icon_state = "waste"
 //
 // Emergency Signs
 //
@@ -631,3 +715,34 @@
 	door to the tent with her body as the insurgents attempted to shoot through it. While she ultimately perished to gunfire, her sacrifice allowed the medical tent to be evacuated and let \
 	the 23rd capture all insurgents involved in the attack. Formerly a frontierswoman with no nation to call her own, she was buried with military honors and became the first Holy Martyr of \
 	Sun Reach in 2426. She is commonly venerated on Sun Reach and by Ma’zals throughout the Empire."
+
+/obj/structure/sign/floor_plaque
+	name = "plaque"
+	desc = "An adorned and polished bronze plaque, gleaming with first-class elegance."
+	icon_state = "plaque"
+	layer = DECAL_LAYER
+	sign_type = /obj/item/sign/heavy
+
+/obj/structure/sign/floor_plaque/horizon/captain_office
+	name = "Commemorative SCC Plaque"
+	desc = "The Stellar Corporate Conglomerate's logo is engraved in its bronze surface."
+	desc_extended = "The unbreakable chainlink, the one thing holding the Orion Spur together..."
+
+/obj/structure/sign/floor_plaque/horizon/service
+	name = "SCCV Horizon plaque"
+	desc = "A plaque commemorating the SCCV Horizon's launch by the unbreakable chainlink, the SCC. The one thing holding the Orion Spur together. According to some, anyways."
+
+/obj/structure/sign/floor_plaque/raskara_okon
+	name = "Okon 001 Plaque"
+	desc = "Granted as a gift to honor the Hadiist-Skrell relationship. Okon 001 will be the Party's eyes upon Adhomai."
+
+/obj/structure/sign/floor_plaque/halloween_event/entrance
+	name = "Fancy Plaque"
+	desc = "Welcome to the Infinity Reach Towers!"
+	desc_extended = "Welcome to the Infinity Reach Towers, a jewel of Nouvelle-Rochelle. We have several attractions here setup just for you! A haunted house, the renowned Ethereal Nexus Lounge, \
+	and so much more! Have a wonderful stay, and remember.. Happy Halloween!"
+
+/obj/structure/sign/floor_plaque/halloween_event/bridge
+	name = "Fancy Plaque"
+	desc = "Infinity Bridge."
+	desc_extended = "You're currently standing on the Infinity Bridge. This bridge is over 150 floors high!"

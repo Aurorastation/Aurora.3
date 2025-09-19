@@ -41,7 +41,12 @@
 /datum/move_loop/proc/setup(delay = 1, timeout = INFINITY)
 	if(!ismovable(moving) || !owner)
 		return FALSE
-
+	// Handle issue of delay 0 being passed for simplemobs.
+	if(istype(moving, /mob/living/simple_animal))
+		var/mob/living/simple_animal/moving_sa = moving
+		if(!moving_sa.speed)
+			moving_sa.speed = 5
+			delay = 5
 	src.delay = max(delay, world.tick_lag) //Please...
 	src.lifetime = timeout
 	return TRUE

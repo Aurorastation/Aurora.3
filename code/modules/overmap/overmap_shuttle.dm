@@ -118,7 +118,6 @@
 /obj/structure/fuel_port //empty
 	name = "fuel port"
 	desc = "The fuel input port of the shuttle. Holds one fuel tank. Use a crowbar to open and close it."
-	desc_info = "The fuel port must be wrenched and welded in place before it can be loaded and used by the shuttle."
 	icon = 'icons/turf/shuttle.dmi'
 	icon_state = "fuel_port"
 	density = 0
@@ -132,8 +131,12 @@
 	var/parent_shuttle
 	var/port_item_path = /obj/item/fuel_port
 
-/obj/structure/fuel_port/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/structure/fuel_port/assembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "The fuel port must be wrenched and welded in place before it can be loaded and used by the shuttle."
+
+/obj/structure/fuel_port/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	switch(state)
 		if(FUEL_PORT_UNSECURED)
 			. += SPAN_NOTICE("\The [src] is in place, but not attached to anything.")

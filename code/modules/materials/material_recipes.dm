@@ -71,7 +71,9 @@
 	recipes += new /datum/stack_recipe_list("miscellaneous construction",
 		list(
 			new /datum/stack_recipe("key", /obj/item/key, 1, time = 10, one_per_turf = 0, on_floor = 1),
-			new /datum/stack_recipe("custodial cart", /obj/structure/janitorialcart, BUILD_AMT, time = 120, one_per_turf = 1, on_floor = 1),
+			new /datum/stack_recipe("custodial cart", /obj/structure/cart/storage/janitorialcart, BUILD_AMT, time = 120, one_per_turf = 1, on_floor = 1),
+			new /datum/stack_recipe("engineering cart", /obj/structure/cart/storage/engineeringcart, BUILD_AMT, time = 120, one_per_turf = 1, on_floor = 1),
+			new /datum/stack_recipe("parcel cart", /obj/structure/cart/storage/parcelcart, BUILD_AMT, time = 120, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("steel closet", /obj/structure/closet, BUILD_AMT, time = 15, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("canister", /obj/machinery/portable_atmospherics/canister, 10, time = 15, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("target stake", /obj/structure/target_stake, BUILD_AMT, time = 15, one_per_turf = 1, on_floor = 1),

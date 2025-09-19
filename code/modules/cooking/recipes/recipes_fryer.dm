@@ -6,7 +6,7 @@
 	result = /obj/item/reagent_containers/food/snacks/fries
 
 /singleton/recipe/cheesyfries
-	appliance = SKILLET | MIX // You can reheat it or mix it cold, like some sort of monster.
+	appliance = SKILLET | MIX | MICROWAVE // You can reheat it or mix it cold, like some sort of monster.
 	items = list(
 		/obj/item/reagent_containers/food/snacks/fries,
 		/obj/item/reagent_containers/food/snacks/cheesewedge
@@ -14,7 +14,7 @@
 	result = /obj/item/reagent_containers/food/snacks/cheesyfries
 
 /singleton/recipe/chilicheesefries
-	appliance = SKILLET | SAUCEPAN | MIX // you can reheat it if you'd like
+	appliance = SKILLET | SAUCEPAN | MIX | MICROWAVE // you can reheat it if you'd like
 	items = list(
 		/obj/item/reagent_containers/food/snacks/fries,
 		/obj/item/reagent_containers/food/snacks/cheesewedge,
@@ -187,7 +187,9 @@
 
 /singleton/recipe/north60squid
 	appliance = FRYER
-	items = list(/obj/item/reagent_containers/food/snacks/squidmeat = 1)
+	items = list(/obj/item/reagent_containers/food/snacks/squidmeat = 1,
+		/obj/item/reagent_containers/food/snacks/fish/raw_shrimp = 1
+	)
 	reagents = list(/singleton/reagent/drink/lemonjuice = 5 , /singleton/reagent/drink/applejuice = 5, /singleton/reagent/nutriment/garlicsauce = 10)
 	coating = /singleton/reagent/nutriment/coating/beerbatter
 	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
@@ -198,3 +200,13 @@
 	fruit = list("chickpeas" = 2)
 	result = /obj/item/reagent_containers/food/snacks/falafelballs
 
+/singleton/recipe/pop_shrimp
+	appliance = FRYER
+	reagents = list(/singleton/reagent/spacespice = 2)
+	coating = /singleton/reagent/nutriment/coating/batter
+	items = list(
+		/obj/item/reagent_containers/food/snacks/fish/raw_shrimp,
+		/obj/item/reagent_containers/food/snacks/fish/raw_shrimp
+	)
+	result = /obj/item/reagent_containers/food/snacks/bowl/pop_shrimp_bowl
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product

@@ -46,9 +46,6 @@
 	build_from_parts = TRUE
 
 	var/obj/item/card/id/front_id = null
-	var/flipped = null
-	var/flippable = 1
-	var/wear_over_suit = 0
 
 /obj/item/storage/wallet/Initialize()
 	. = ..()
@@ -96,7 +93,6 @@
 	else
 		icon_state = "[initial(icon_state)]"
 		. = ..()
-	mob_icon_update()
 
 /obj/item/storage/wallet/GetID()
 	return front_id
@@ -127,42 +123,6 @@
 	if(istype(id) && is_adjacent)
 		id.show(user)
 
-/obj/item/storage/wallet/proc/mob_icon_update()
-	if (ismob(src.loc))
-		var/mob/M = src.loc
-		M.update_inv_wear_id()
-
-/obj/item/storage/wallet/verb/flip_side()
-	set name = "Flip wallet side"
-	set category = "Object"
-	set src in usr
-	if(use_check_and_message(usr, use_flags = USE_DISALLOW_SILICONS))
-		return
-	if (!flippable)
-		to_chat(usr, "You cannot flip \the [src] as it is not a flippable item.")
-		return
-
-	src.flipped = !src.flipped
-	if(src.flipped)
-		src.overlay_state = "[overlay_state]_flip"
-	else
-		src.overlay_state = initial(overlay_state)
-	to_chat(usr, "You change \the [src] to be on your [src.flipped ? "left" : "right"] side.")
-	mob_icon_update()
-
-/obj/item/storage/wallet/verb/toggle_icon_layer()
-	set name = "Switch Wallet Layer"
-	set category = "Object"
-	set src in usr
-
-	if(use_check_and_message(usr, use_flags = USE_DISALLOW_SILICONS))
-		return
-	if(wear_over_suit == -1)
-		to_chat(usr, SPAN_NOTICE("\The [src] cannot be worn above your suit!"))
-		return
-	wear_over_suit = !wear_over_suit
-	mob_icon_update()
-
 /obj/item/storage/wallet/colourable
 	icon_state = "wallet"
 
@@ -190,14 +150,13 @@
 		/obj/item/paper_bundle,
 		/obj/item/pen,
 		/obj/item/photo)
-	flippable = 0 //until a cleaner way is implemented to just simply have the verb not show up at all
-	var/plastic_film_overlay_state = "plasticfilm"
-	var/front_id_overlay_state
-
 	drop_sound = 'sound/items/drop/cloth.ogg'
 	pickup_sound = 'sound/items/pickup/cloth.ogg'
 
+	var/front_id_overlay_state
 	var/image/plastic_film
+	var/plastic_film_overlay_state = "plasticfilm"
+	var/wear_over_suit = 0
 
 /obj/item/storage/wallet/lanyard/update_icon()
 	if(front_id)
@@ -206,6 +165,7 @@
 	if(("[initial(icon_state)]-film") in icon_states(icon))
 		var/image/film_image = overlay_image(icon, "[initial(icon_state)]-film", flags = RESET_COLOR)
 		AddOverlays(film_image)
+	mob_icon_update()
 
 /obj/item/storage/wallet/lanyard/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
 	var/image/I = ..()
@@ -216,6 +176,24 @@
 			plastic_film = image('icons/mob/lanyard_overlays.dmi', icon_state = "[plastic_film_overlay_state]")
 		I.AddOverlays(plastic_film)
 	return I
+
+/obj/item/storage/wallet/lanyard/proc/mob_icon_update()
+	if(ismob(src.loc))
+		var/mob/M = src.loc
+		M.update_inv_wear_id()
+
+/obj/item/storage/wallet/lanyard/verb/toggle_icon_layer()
+	set name = "Switch Lanyard Layer"
+	set category = "Object.Equipped"
+	set src in usr
+
+	if(use_check_and_message(usr, use_flags = USE_DISALLOW_SILICONS))
+		return
+	if(wear_over_suit == -1)
+		to_chat(usr, SPAN_NOTICE("\The [src] cannot be worn above your suit!"))
+		return
+	wear_over_suit = !wear_over_suit
+	mob_icon_update()
 
 // wallet subtypes
 

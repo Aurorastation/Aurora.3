@@ -17,6 +17,10 @@
 	var/diffuser_enabled = TRUE
 	var/diffuser_range = 0 // 1x1 tiles, including the tile its on.
 
+/obj/machinery/shield_diffuser/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "It is [diffuser_enabled ? "diffuser_enabled" : "disabled"]."
+
 /obj/machinery/shield_diffuser/process()
 	if(stat & BROKEN)
 		return PROCESS_KILL
@@ -48,10 +52,6 @@
 
 	update_icon()
 	to_chat(user, "You turn \the [src] [diffuser_enabled ? "on" : "off"].")
-
-/obj/machinery/shield_diffuser/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += "It is [diffuser_enabled ? "diffuser_enabled" : "disabled"]."
 
 /obj/machinery/shield_diffuser/power_change()
 	..()

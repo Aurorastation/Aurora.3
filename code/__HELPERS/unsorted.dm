@@ -46,6 +46,7 @@
 /proc/get_turfs_in_cone(atom/source, middle_angle, distance, angle_spread)
 	SHOULD_NOT_SLEEP(TRUE)
 	SHOULD_BE_PURE(TRUE)
+	RETURN_TYPE(/list/turf)
 
 	if(!source)
 		crash_with("Source not specified")
@@ -60,7 +61,6 @@
 		crash_with("angle_spread cannot be negative")
 
 	var/list/turf/turfs_in_cone = list()
-	RETURN_TYPE(turfs_in_cone)
 
 	var/angle_left = (middle_angle - angle_spread + 360) % 360
 	var/angle_right = (middle_angle + angle_spread) % 360

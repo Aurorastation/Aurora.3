@@ -1,14 +1,16 @@
 /obj/item/gun/projectile/shotgun
 	name = "strange shotgun"
 	desc = DESC_PARENT
-	desc_info = "This is a shotgun, chambered for various shells and slugs. To fire the weapon, toggle the safety with CTRL-Click or enable 'HARM' intent, then click where \
-	you want to fire. To pump a pump-action shotgun, use the Unique-Action hotkey or the button in the bottom right of your screen. To reload, insert shells or a magazine \
-	into the shotgun, then pump the shotgun to chamber a fresh round."
 	accuracy = -1
 	accuracy_wielded = 1
 	var/can_sawoff = FALSE
 	var/sawnoff_workmsg
 	var/sawing_in_progress = FALSE
+
+/obj/item/gun/projectile/shotgun/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "To pump a pump-action shotgun, use the Unique-Action hotkey or the button in the bottom right of your screen."
+	. += "To reload, insert shells or a magazine into the shotgun, then pump the shotgun to chamber a fresh round."
 
 /obj/item/gun/projectile/shotgun/attackby(obj/item/attacking_item, mob/user)
 	if (!can_sawoff || sawing_in_progress)
@@ -46,9 +48,6 @@
 /obj/item/gun/projectile/shotgun/pump
 	name = "pump shotgun"
 	desc = "An ubiquitous unbranded shotgun. Useful for sweeping alleys."
-	desc_info = "This is a ballistic weapon.  To fire the weapon, ensure your intent is *not* set to 'help', have your gun mode set to 'fire', \
-	then click where you want to fire.  After firing, you will need to pump the gun, by using the unique-action verb.  To reload, load more shotgun \
-	shells into the gun."
 	icon = 'icons/obj/guns/shotgun.dmi'
 	icon_state = "shotgun"
 	item_state = "shotgun"
@@ -308,8 +307,8 @@
 	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2, TECH_ILLEGAL = 2)
 
-/obj/item/gun/projectile/shotgun/foldable/cameragun/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/gun/projectile/shotgun/foldable/cameragun/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(distance <= 1)
 		. += SPAN_NOTICE("Upon closer inspection, this is not a camera at all, but a 9mm firearm concealed inside the shell of one, which can be deployed by pressing a button.")
 

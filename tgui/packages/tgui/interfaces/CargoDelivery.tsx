@@ -158,16 +158,16 @@ export const Overview = (props, context) => {
             : 'Unauthorised'}
         </LabeledList.Item>
         <LabeledList.Item label="Price">
-          {data.order_details.price} 电
+          {data.order_details.price}.toFixed(2) 电
         </LabeledList.Item>
         <LabeledList.Item label="Operations Expense">
-          {data.order_details.price_cargo} 电
+          {data.order_details.price_cargo.toFixed(2)} 电
         </LabeledList.Item>
         <LabeledList.Item label="Personal Expense">
-          {data.order_details.price_customer} 电
+          {data.order_details.price_customer.toFixed(2)} 电
         </LabeledList.Item>
         <LabeledList.Item label="Personal Expense">
-          {data.order_details.price_customer} 电
+          {data.order_details.price_customer.toFixed(2)} 电
         </LabeledList.Item>
         <LabeledList.Item label="Ordered At">
           {data.order_details.time_submitted}
@@ -242,7 +242,7 @@ export const Payment = (props, context) => {
       }>
       <LabeledList>
         <LabeledList.Item label="Price">
-          {data.order_details.price} 电
+          {data.order_details.price.toFixed(2)} 电
         </LabeledList.Item>
         <LabeledList.Item label="Customer">
           {data.order_details.ordered_by}

@@ -182,6 +182,8 @@
 			return 40
 		if(CARGO_CONTAINER_BOX)
 			return 5 //You can fit 5 larger items into a box
+		if(CARGO_CONTAINER_BODYBAG)
+			return 30
 		else
 			LOG_DEBUG("Cargo: Tried to get storage size for invalid container [container_type]")
 			return 0 //Something went wrong

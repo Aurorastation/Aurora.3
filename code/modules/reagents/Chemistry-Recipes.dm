@@ -1270,6 +1270,7 @@
 		/mob/living/simple_animal/hostile/gift,
 		/mob/living/simple_animal/hostile/hivebotbeacon,
 		/mob/living/simple_animal/hostile/hivebotbeacon/incendiary,
+		/mob/living/simple_animal/hostile/hivebotbeacon/weakened,
 		/mob/living/simple_animal/hostile/republicon,
 		/mob/living/simple_animal/hostile/republicon/ranged,
 		/mob/living/simple_animal/hostile/giant_spider/nurse/spider_queen,
@@ -2174,6 +2175,21 @@
 	required_reagents = list(/singleton/reagent/toxin/poisonberryjuice = 10)
 	catalysts = list(/singleton/reagent/enzyme = 5)
 	result_amount = 10
+
+/datum/chemical_reaction/limoncello
+	name = "Limoncello"
+	id = "limoncello"
+	result = /singleton/reagent/alcohol/limoncello
+	required_reagents = list(/singleton/reagent/drink/lemonjuice = 1, /singleton/reagent/condiment/syrup_simple = 1)
+	catalysts = list(/singleton/reagent/enzyme = 5)
+	result_amount = 2
+
+/datum/chemical_reaction/bon_bon
+	name = "Bon Bon"
+	id = "bonbon"
+	result = /singleton/reagent/alcohol/bon_bon
+	required_reagents = list(/singleton/reagent/alcohol/limoncello = 1, /singleton/reagent/drink/lemonjuice = 1, /singleton/reagent/condiment/syrup_vanilla = 1, /singleton/reagent/alcohol/vodka = 3)
+	result_amount = 6
 
 /datum/chemical_reaction/melonliquor
 	name = "Melon Liquor"

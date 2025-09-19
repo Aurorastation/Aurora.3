@@ -83,7 +83,7 @@ SUBSYSTEM_DEF(mobs)
 	//of course, if we haven't resumed, this comparison would be useless, hence we skip it
 	var/list/currentrun = resumed ? (src.currentrun &= (GLOB.mob_list + processing)) : src.currentrun
 
-	var/seconds_per_tick = wait / (1 SECONDS)
+	var/seconds_per_tick = (1 SECONDS) / wait
 
 	while(length(currentrun))
 		var/datum/thing = currentrun[length(currentrun)]

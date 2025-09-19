@@ -30,6 +30,48 @@
 	var/list/obj/structure/ship_weapon_dummy/connected_dummies = list()
 	var/obj/structure/ship_weapon_dummy/barrel
 
+/obj/machinery/ship_weapon/condition_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	var/ratio = (damage / max_damage) * 100
+	switch(ratio)
+		if(1 to 10)
+			. += SPAN_NOTICE("It looks to be in tip top shape apart from a few minor scratches and dings.")
+		if(10 to 20)
+			. += SPAN_ALERT("It has some kinks and bends here and there.")
+		if(20 to 40)
+			. += SPAN_ALERT("It has a few holes through which you can see some machinery.")
+		if(40 to 60)
+			. += SPAN_WARNING("Some fairly important parts are missing... but it should work anyway.")
+		if(60 to 80)
+			. += SPAN_WARNING("It needs repairs direly. Both aiming and firing components are missing or broken. It has a lot of holes, too. It definitely wouldn't \
+				pass inspection.")
+		if(90 to 100)
+			. += SPAN_DANGER("It's falling apart! Just touching it might make the whole thing collapse!")
+		else //At roundstart, weapons start with 0 damage, so it'd be 0 / 1000 * 100 -> 0
+			. += SPAN_NOTICE("It looks to be in tip top shape and not damaged at all.")
+
+/obj/machinery/ship_weapon/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Use a multitool to check or update the weapon's internal network ID for linking purposes. You probably don't need to do this."
+	. += "To load a ship weapon, you must use a nearby Ammunition Loader linked to it."
+	. += "This weapon is LOUD when it fires; you probably want to wear ear protection when nearby."
+
+/obj/machinery/ship_weapon/assembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	var/ratio = (damage / max_damage) * 100
+	if(ratio > 0)
+		. += "The damage can be repaired with a <b>welder</b>, but given the size of \the [src] it will take a lot of time and welding fuel."
+
+/obj/machinery/ship_weapon/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	var/loaded_ammo_count_txt = num2text(length(ammunition))
+	var/max_ammo_txt = num2text(max_ammo)
+	. += "\the [src] can load a maximum of [max_ammo_txt] [max_ammo == 1 ? "round" : "rounds"] at a time."
+	if(length(ammunition) >= max_ammo)
+		. += "\the [src] is fully loaded with ammunition!"
+	else
+		. += SPAN_NOTICE("\the [src] is currently loaded with [loaded_ammo_count_txt] [length(ammunition) == 1 ? "round" : "rounds"] of ammunition.")
+
 /obj/machinery/ship_weapon/Initialize(mapload)
 	..()
 	appearance_flags &= ~TILE_BOUND //NOT BOUND BY ANY LIMITS
@@ -69,29 +111,6 @@
 /obj/machinery/ship_weapon/proc/update_damage()
 	if(damage >= max_damage)
 		qdel(src)
-
-/obj/machinery/ship_weapon/proc/get_damage_description()
-	var/ratio = (damage / max_damage) * 100
-	switch(ratio)
-		if(1 to 10)
-			. = "It looks to be in tip top shape."
-		if(10 to 20)
-			. = "It has some kinks and bends here and there."
-		if(20 to 40)
-			. = "It has a few holes through which you can see some machinery."
-		if(40 to 60)
-			. = SPAN_WARNING("Some fairly important parts are missing... but it should work anyway.")
-		if(60 to 80)
-			. = SPAN_DANGER("It needs repairs direly. Both aiming and firing components are missing or broken. It has a lot of holes, too. It definitely wouldn't \
-				pass inspection.")
-		if(90 to 100)
-			. = SPAN_DANGER("It's falling apart! Just touching it might make the whole thing collapse!")
-		else //At roundstart, weapons start with 0 damage, so it'd be 0 / 1000 * 100 -> 0
-			return "It looks to be in tip top shape and not damaged at all."
-
-/obj/machinery/ship_weapon/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += get_damage_description()
 
 /obj/machinery/ship_weapon/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/device/multitool))

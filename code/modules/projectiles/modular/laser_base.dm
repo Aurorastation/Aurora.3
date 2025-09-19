@@ -44,8 +44,8 @@
 	var/criticality
 	repair_item = /obj/item/weldingtool
 
-/obj/item/laser_components/modifier/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/laser_components/modifier/condition_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(distance <= 1)
 		if(malus > base_malus)
 			. += SPAN_WARNING("\The [src] appears damaged.")
@@ -75,6 +75,11 @@
 	reliability = 50
 	repair_item = /obj/item/stack/cable_coil
 
+/obj/item/laser_components/capacitor/condition_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(distance <= 1 && condition > 0)
+		. += SPAN_WARNING("\The [src] appears damaged.")
+
 /obj/item/laser_components/capacitor/repair_module(var/obj/item/stack/cable_coil/C)
 	if(!istype(C))
 		return
@@ -84,11 +89,6 @@
 		condition = max(condition - 5, 0)
 		return 1
 	return 0
-
-/obj/item/laser_components/capacitor/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(distance <= 1 && condition > 0)
-		. += SPAN_WARNING("\The [src] appears damaged.")
 
 /obj/item/laser_components/capacitor/proc/small_fail(var/mob/user, var/obj/item/gun/energy/laser/prototype/prototype)
 	return
@@ -108,6 +108,11 @@
 	reliability = 25
 	repair_item = /obj/item/stack/nanopaste
 
+/obj/item/laser_components/focusing_lens/condition_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(distance <= 1 && condition > 0)
+		. += SPAN_WARNING("\The [src] appears damaged.")
+
 /obj/item/laser_components/focusing_lens/repair_module(var/obj/item/stack/nanopaste/N)
 	if(!istype(N))
 		return
@@ -117,11 +122,6 @@
 		condition = max(condition - 5, 0)
 		return 1
 	return 0
-
-/obj/item/laser_components/focusing_lens/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(distance <= 1 && condition > 0)
-		. += SPAN_WARNING("\The [src] appears damaged.")
 
 /obj/item/laser_components/modulator
 	name = "laser modulator"

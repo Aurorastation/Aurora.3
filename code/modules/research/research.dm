@@ -250,19 +250,19 @@ GLOBAL_LIST_EMPTY(designs_imprinter_categories)
 	matter = list(DEFAULT_WALL_MATERIAL = 30, MATERIAL_GLASS = 10)
 	var/datum/tech/stored
 
+/obj/item/disk/tech_disk/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(distance <= 1)
+		if(stored)
+			. += "It is storing the following tech:"
+			. += " - [stored.name]: Level - [stored.level] | Progress - [stored.next_level_progress]/[stored.next_level_threshold]"
+		else
+			. += "It doesn't have any tech stored."
+
 /obj/item/disk/tech_disk/Initialize(mapload)
 	. = ..()
 	pixel_x = rand(-5, 5)
 	pixel_y = rand(-5, 5)
-
-/obj/item/disk/tech_disk/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(distance <= 1)
-		if(stored)
-			. += FONT_SMALL("It is storing the following tech:")
-			. += FONT_SMALL(" - [stored.name]: Level - [stored.level] | Progress - [stored.next_level_progress]/[stored.next_level_threshold]")
-		else
-			. += FONT_SMALL("It doesn't have any tech stored.")
 
 /obj/item/disk/design_disk
 	name = "component design disk"
@@ -274,16 +274,16 @@ GLOBAL_LIST_EMPTY(designs_imprinter_categories)
 	matter = list(DEFAULT_WALL_MATERIAL = 30, MATERIAL_GLASS = 10)
 	var/datum/design/blueprint
 
+/obj/item/disk/design_disk/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(distance <= 1)
+		if(blueprint)
+			. += "It is storing the following design:"
+			. += " - [blueprint.name]"
+		else
+			. += "It doesn't have any blueprint stored."
+
 /obj/item/disk/design_disk/Initialize(mapload)
 	. = ..()
 	pixel_x = rand(-5, 5)
 	pixel_y = rand(-5, 5)
-
-/obj/item/disk/design_disk/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(distance <= 1)
-		if(blueprint)
-			. += FONT_SMALL("It is storing the following design:")
-			. += FONT_SMALL(" - [blueprint.name]")
-		else
-			. += FONT_SMALL("It doesn't have any blueprint stored.")

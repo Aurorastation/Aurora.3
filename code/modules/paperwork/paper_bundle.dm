@@ -23,6 +23,17 @@
 	drop_sound = 'sound/items/drop/paper.ogg'
 	pickup_sound = 'sound/items/pickup/paper.ogg'
 
+/obj/item/paper_bundle/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Both papers and photos can be added to a paper bundle."
+
+/obj/item/paper_bundle/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(is_adjacent)
+		src.show_content(user)
+	else
+		. += SPAN_NOTICE("It is too far away to read.")
+
 /obj/item/paper_bundle/attackby(obj/item/attacking_item, mob/user)
 	..()
 
@@ -97,13 +108,6 @@
 
 			else
 				to_chat(user, SPAN_WARNING("You must hold \the [P] steady to burn \the [src]."))
-
-/obj/item/paper_bundle/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(is_adjacent)
-		src.show_content(user)
-	else
-		. += SPAN_NOTICE("It is too far away.")
 
 /obj/item/paper_bundle/proc/show_content(mob/user as mob)
 	var/dat

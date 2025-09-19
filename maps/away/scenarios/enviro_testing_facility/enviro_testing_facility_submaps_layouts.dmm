@@ -2358,7 +2358,7 @@
 /turf/simulated/wall,
 /area/enviro_testing_facility/inside/hallway/central)
 "hX" = (
-/obj/structure/janitorialcart/full/water{
+/obj/structure/cart/storage/janitorialcart/full/water{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/mauve{
@@ -10636,7 +10636,7 @@
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/operations/storage_long_term)
 "Jy" = (
-/obj/structure/janitorialcart/full/water{
+/obj/structure/cart/storage/janitorialcart/full/water{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/mauve{
@@ -13505,7 +13505,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/hallway/east)
 "Tv" = (
-/obj/structure/janitorialcart/full/water{
+/obj/structure/cart/storage/janitorialcart/full/water{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/mauve{

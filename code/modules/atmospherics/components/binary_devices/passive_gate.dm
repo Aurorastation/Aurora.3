@@ -5,7 +5,6 @@
 /obj/machinery/atmospherics/binary/passive_gate
 	name = "pressure regulator"
 	desc = "A one-way air valve that can be used to regulate input or output pressure, and flow rate. Does not require power."
-	desc_info = "This is a one-way regulator, allowing gas to flow only at a specific pressure and flow rate.  If the light is green, it is flowing."
 	icon = 'icons/atmos/passive_gate.dmi'
 	icon_state = "map"
 	level = 1
@@ -26,8 +25,14 @@
 
 	var/broadcast_status_next_process = FALSE
 
+/obj/machinery/atmospherics/binary/passive_gate/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This is a one-way regulator, allowing gas to flow only at a specific pressure and flow rate."
+	. += "If the light is green, it is flowing."
+
 /obj/machinery/atmospherics/binary/passive_gate/on
 	unlocked = 1
+
 /obj/machinery/atmospherics/binary/passive_gate/on/input
 	regulate_mode = REGULATE_INPUT
 

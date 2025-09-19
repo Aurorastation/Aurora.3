@@ -421,7 +421,7 @@
 /obj/vehicle/proc/update_stats()
 	return
 
-/obj/vehicle/attack_generic(var/mob/user, var/damage, var/attack_message)
+/obj/vehicle/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	if(!damage)
 		return
 	visible_message(SPAN_DANGER("[user] [attack_message] the [src]!"))

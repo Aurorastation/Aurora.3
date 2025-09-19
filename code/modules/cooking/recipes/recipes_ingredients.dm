@@ -1,4 +1,6 @@
 /singleton/recipe/mashedpotato
+	appliance = POT | SAUCEPAN | MICROWAVE
+	reagents = list(/singleton/reagent/drink/milk = 5, /singleton/reagent/sodiumchloride = 1, /singleton/reagent/blackpepper = 1)
 	fruit = list("potato" = 1)
 	result = /obj/item/reagent_containers/food/snacks/mashedpotato
 

@@ -705,7 +705,7 @@
 	if(ismob(hitting_projectile.firer))
 		handle_attack_by(hitting_projectile.firer)
 
-/mob/living/simple_animal/apply_damage(damage = 0, damagetype = DAMAGE_BRUTE, def_zone, blocked, used_weapon, damage_flags = 0, armor_pen, silent = FALSE)
+/mob/living/simple_animal/apply_damage(damage = 0, damagetype = DAMAGE_BRUTE, def_zone, used_weapon, damage_flags = 0, armor_pen, silent = FALSE)
 	. = ..()
 	handle_bleeding_timer(damage)
 	handle_blood()
@@ -772,7 +772,7 @@
 /mob/living/simple_animal/death(gibbed, deathmessage = "dies!")
 	GLOB.move_manager.stop_looping(src)
 	movement_target = null
-	density = FALSE
+	ADD_TRAIT(src, TRAIT_UNDENSE, TRAIT_SOURCE_MOB_DEATH)
 	if (isopenturf(loc))
 		ADD_FALLING_ATOM(src)
 	. = ..(gibbed, deathmessage)
@@ -835,7 +835,7 @@
 /mob/living/simple_animal/verb/change_name()
 	set name = "Name Animal"
 	set desc = "Rename an animal."
-	set category = "IC"
+	set category = "IC.Critters"
 	set src in view(1)
 
 	var/mob/living/carbon/M = usr

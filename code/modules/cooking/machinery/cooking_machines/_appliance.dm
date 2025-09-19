@@ -12,7 +12,6 @@
 /obj/machinery/appliance
 	name = "cooker"
 	desc = DESC_PARENT
-	desc_info = "Control-click this to change its temperature."
 	icon = 'icons/obj/machinery/cooking_machines.dmi'
 	var/appliancetype = 0
 	density = 1
@@ -26,6 +25,8 @@
 							/obj/item/stock_parts/capacitor = 3,
 							/obj/item/stock_parts/scanning_module = 1,
 							/obj/item/stock_parts/matter_bin = 2)
+
+	parts_power_mgmt = FALSE
 
 	var/cooking_power = 0			// Effectiveness/speed at cooking
 	var/cooking_coeff = 0			// Part-based cooking power multiplier
@@ -53,6 +54,20 @@
 	var/place_verb = "into"
 	var/combine_first = FALSE//If 1, this appliance will do combination cooking before checking recipes
 
+/obj/machinery/appliance/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Control-click this to change its temperature."
+
+/obj/machinery/appliance/upgrade_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Upgraded <b>capacitors</b> will increase heating power."
+	. += "Upgraded <b>scanning modules</b> will increase heating power and improve power efficiency."
+
+/obj/machinery/appliance/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(is_adjacent)
+		. += list_contents(user)
+
 /obj/machinery/appliance/Initialize()
 	. = ..()
 	if(length(output_options))
@@ -70,11 +85,6 @@
 		cooking_objs -= CI
 		qdel(CI)
 	return ..()
-
-/obj/machinery/appliance/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(is_adjacent)
-		. += list_contents(user)
 
 /obj/machinery/appliance/proc/list_contents(var/mob/user)
 	. = list()
@@ -359,7 +369,8 @@
 		adjust_smoke()
 
 /obj/machinery/appliance/proc/finish_cooking(var/datum/cooking_item/CI)
-	audible_message("<b>[src]</b> [finish_verb]", intent_message = PING_SOUND)
+	if(finish_verb)
+		audible_message(SPAN_NOTICE("<b>[src]</b> [finish_verb]"), intent_message = PING_SOUND)
 	if(cooked_sound)
 		playsound(get_turf(src), cooked_sound, 50, 1)
 	//Check recipes first, a valid recipe overrides other options

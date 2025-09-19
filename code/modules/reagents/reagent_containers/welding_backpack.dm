@@ -15,8 +15,8 @@
 	drop_sound = 'sound/items/drop/backpack.ogg'
 	pickup_sound = 'sound/items/pickup/backpack.ogg'
 
-/obj/item/reagent_containers/weldpack/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/reagent_containers/weldpack/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(ishuman(loc) && user != loc) // what if we want to sneak some reagents out of somewhere?
 		return
 	if(reagents.total_volume)

@@ -2,16 +2,9 @@
 #define PYLON_AWAITING_SACRIFICE 1	//1 = Awaiting sacrifice. The pylon is actively tracking a creature to be sacrificed to it
 #define PYLON_TURRET 2				//2 = Turret. The pylon has been empowered by a sacrifice and is now a turret permanantly
 
-
 /obj/structure/cult/pylon
 	name = "pylon"
 	desc = "A floating crystal that hums with an unearthly energy."
-	desc_antag = "A pylon can be upgraded into a magical defensive turret that shoots anyone opposing the cult\
-	</br>Upgrading a pylon requires a sacrifice. Bring it a small organic creature, like a monkey or rat. Use the creature on the pylon, or drag and drop to present it,\
-	</br>Alternatively, you can attack it with disarm intent to sacrifice some of your blood for the upgrade.\
-	</br>Once the sacrifice is accepted, kill it to complete the process. This will gib its body and make a very visible mess. After this point the pylon is fixed to the floor and cant be moved\
-	</br>The pylon will fire weak beams that are harmless to the cult. In addition it can be upgraded even more by shooting it with a laser, which will give it a limited number of extra-power shots."
-
 	icon_state = "pylonbase"
 	var/isbroken = FALSE
 	light_range = 5
@@ -51,6 +44,29 @@
 	var/ticks
 	anchored = FALSE
 
+/obj/structure/cult/pylon/condition_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. = ..()
+	if(damagetaken)
+		switch(damagetaken)
+			if(1 to 8)
+				. += SPAN_WARNING("It has very faint hairline fractures.")
+			if(8 to 20)
+				. += SPAN_WARNING("It has several cracks across its surface.")
+			if(20 to 30)
+				. += SPAN_WARNING("It is chipped and deeply cracked, it may shatter with much more pressure.")
+			if(30 to INFINITY)
+				. += SPAN_DANGER("It is almost cleaved in two, the pylon looks like it will fall to shards under its own weight.")
+
+/obj/structure/cult/pylon/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "A pylon can be upgraded into a magical defensive turret that shoots anyone opposing the cult."
+	. += "Upgrading a pylon requires a sacrifice. Bring it a small organic creature, like a monkey or rat. Use the creature on the pylon, or drag and drop to present it."
+	. += "Once the sacrifice is accepted, kill it to complete the process. This will gib its body and make a very visible mess."
+	. += "Alternatively, you can attack it with disarm intent to sacrifice some of your blood for the upgrade."
+	. += "Once a sacrifice has been made, the pylon is fixed to the floor and cant be moved, and will fire weak lasers at any non-cultists."
+	. += "It can be temporarily upgraded by shooting it with a laser weapon, which will give it a limited number of extra-power shots."
+	. += "If broken, an Artificer can repair it."
 
 //Just a subtype that starts off in turret mode. For adminbus and debugging. Maybe a future wizard spell
 //Spawn them next to ERPers
@@ -78,20 +94,6 @@
 	. = ..()
 	lang = new /datum/language/cultcommon()
 	update_icon()
-
-/obj/structure/cult/pylon/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(damagetaken)
-		switch(damagetaken)
-			if(1 to 8)
-				. += SPAN_WARNING("It has very faint hairline fractures.")
-			if(8 to 20)
-				. += SPAN_WARNING("It has several cracks across its surface.")
-			if(20 to 30)
-				. += SPAN_WARNING("It is chipped and deeply cracked, it may shatter with much more pressure.")
-			if(30 to INFINITY)
-				. += SPAN_WARNING("It is almost cleaved in two, the pylon looks like it will fall to shards under its own weight.")
-
 
 /obj/structure/cult/pylon/Move()
 	. = ..()
@@ -121,7 +123,6 @@
 	mindist = min(150, mindist)
 	process_interval = Ceiling(mindist*0.1)
 	process_interval = max(1, process_interval)
-
 
 //Run each process loop, this function checks if we can stop processing yet.
 //Returns 0 if its time to stop. Returns 1 if we should keep going.
@@ -164,7 +165,6 @@
 		if(empowered <= 0)
 			update_icon()
 
-
 //If user is a cultist, speaks message to them with a prefix
 //If user is not cultist, then speaks cult-y gibberish
 /obj/structure/cult/pylon/proc/speak_to(var/mob/user, var/message)
@@ -172,7 +172,6 @@
 		to_chat(user, "A voice speaks into your mind, <span class='cult'><i>[message]</i></span>")
 	else
 		to_chat(user, "A voice speaks into your mind, <span class='cult'><i>[lang.scramble(message)]</i></span>")
-
 
 //Todo: Replace the messages here with better ones. Should display a proper message to cultists
 //And nonsensical arcane gibberish to non cultists
@@ -265,7 +264,6 @@
 
 	update_icon()
 
-
 //Called every process in turret mode, and also by chaining spawns
 /obj/structure/cult/pylon/proc/handle_firing()
 	if((world.time < next_shot) || isbroken)
@@ -323,7 +321,6 @@
 			notarget = 0
 			reconsider_interval()
 
-
 /obj/structure/cult/pylon/proc/fire_at(var/atom/target)
 	last_target_loc = get_turf(target.loc)
 
@@ -370,7 +367,7 @@
 	else
 		attackpylon(user, 4, user)
 
-/obj/structure/cult/pylon/attack_generic(mob/user, damage)
+/obj/structure/cult/pylon/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 
 	//Artificiers maintain pylons
@@ -508,7 +505,6 @@
 	notarget = 0
 	damagetaken = 0
 	update_icon()
-
 
 /obj/structure/cult/pylon/update_icon()
 	ClearOverlays()

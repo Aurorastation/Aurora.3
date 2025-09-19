@@ -446,7 +446,7 @@
 
 /mob/verb/mode()
 	set name = "Activate Held Object"
-	set category = "Object"
+	set category = "Object.Held"
 	set src = usr
 
 	DEFAULT_QUEUE_OR_CALL_VERB(VERB_CALLBACK(src, PROC_REF(execute_mode)))
@@ -912,12 +912,12 @@
 			canmove = !MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKOUT) && !weakened
 
 	if(lying)
-		density = 0
+		ADD_TRAIT(src, TRAIT_UNDENSE, TRAIT_SOURCE_LYING_DOWN)
 		if(!lying_is_intentional)
 			if(l_hand) unEquip(l_hand)
 			if(r_hand) unEquip(r_hand)
 	else
-		density = initial(density)
+		REMOVE_TRAIT(src, TRAIT_UNDENSE, TRAIT_SOURCE_LYING_DOWN)
 
 	for(var/obj/item/grab/G in grabbed_by)
 		if(G.wielded)
@@ -1246,7 +1246,7 @@
 
 /mob/verb/face_direction()
 	set name = "Face Direction"
-	set category = "IC"
+	set category = "IC.Maneuver"
 	set src = usr
 
 	set_face_dir(dir)

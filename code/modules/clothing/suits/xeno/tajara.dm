@@ -198,6 +198,43 @@
 	item_state = "hb_cloak"
 	flags_inv = 0
 
+/obj/item/clothing/suit/storage/hooded/tajaran/colorable
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "taj_cloak_colorable"
+	item_state = "taj_cloak_colorable"
+	icon_override = null
+	contained_sprite = TRUE
+	build_from_parts = TRUE
+	has_accents = TRUE
+
+/obj/item/clothing/suit/storage/hooded/tajaran/colorable/fancy
+	name = "fancy adhomian cloak"
+	desc = "A fancy Adhomian cloak."
+	icon_state = "hb_cloak_colorable"
+	item_state = "hb_cloak_colorable"
+	worn_overlay =  "adornment"
+	flags_inv = 0
+
+/obj/item/clothing/suit/storage/hooded/tajaran/colorable/royal
+	name = "adhomian royal cloak"
+	desc = "An Adhomian cloak with an asymmetric design."
+	icon_state = "royal_cloak_colorable"
+	item_state = "royal_cloak_colorable"
+	worn_overlay =  "adornment"
+	flags_inv = 0
+
+/obj/item/clothing/suit/storage/hooded/tajaran/colorable/amohda
+	name = "amohdan cloak"
+	desc = "Originally used by the Amohdan swordsmen before the First Revolution, this cloak is now commonly worn by the island population."
+	icon_state = "amohda_cloak_colorable"
+	item_state = "amohda_cloak_colorable"
+	desc_extended = "The Feudal Era of Amohda is famous for the steel swords which became common. Many renowned swordsmen and famous warriors would travel the land fighting duels of \
+	single combat in their quests to become the greatest swordsman. Modern Amohda is under the control of the DPRA's Adhomai Liberation Army, further solidified after the defeat \
+	of a Nationalist revolt vying for a truly independent Amohda. The region is still beset by trouble within and without as a deeply divided Amohdan people continue to struggle in the \
+	bloody conflict to stamp out Nationalistic and to a lesser extent, divided Monarchistic sentiments while their rivals from the New Kingdom of Adhomai watch from the seas they rule \
+	and the People's Republic of Adhomai looms over the southern end of the island..."
+	flags_inv = 0
+
 /obj/item/clothing/suit/armor/amohda
 	name = "amohdan swordsman armor"
 	desc = "A suit of armor used by the traditional warriors of Amohda."

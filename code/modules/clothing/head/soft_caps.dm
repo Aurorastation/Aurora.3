@@ -17,7 +17,7 @@
 
 /obj/item/clothing/head/softcap/verb/ToggleHat()
 	set name = "Flip Hat"
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in usr
 
 	if(use_check_and_message(usr))
@@ -36,6 +36,9 @@
 /obj/item/clothing/head/softcap/colorable/random/Initialize()
 	. = ..()
 	color = get_random_colour(TRUE)
+
+/obj/item/clothing/head/softcap/colorable/accent
+	has_accents = TRUE
 
 /obj/item/clothing/head/softcap/rainbow
 	name = "rainbow cap"
@@ -198,3 +201,9 @@
 	desc = "A company-issue Orion Express cap. For overworked employees that value corporate pride over protection."
 	icon_state = "orion"
 	item_state = "orion"
+
+/obj/item/clothing/head/softcap/newsboy
+	name = "newsboy cap"
+	desc = "A fashionable peaked cap!"
+	icon_state = "newsboy"
+	item_state = "newsboy"

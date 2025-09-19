@@ -53,7 +53,7 @@
 /turf/space/transit/bluespace //this is typically going to be used by shuttles/ships that aren't present in the sector, to imply they've had to bluespace jump some distance away.
 	name = "bluespace"
 	desc = "The blue beyond, a breach into an unknown dimension. Don't lick it."
-	desc_info = "Bluespace is a very strange form of pocket dimension, that is largely unpredictable and completely unexplored. While there is speculation about the possibility of celestial bodies existing in Bluespace, it is highly unlikely. Travelling in the Bluespace dimension without a proper gate or Bluespace drive has thus far been proven to be incredibly dangerous, with probes either appearing in unintended locations or never returning at all."
+	desc_extended = "Bluespace is a very strange form of pocket dimension, that is largely unpredictable and completely unexplored. While there is speculation about the possibility of celestial bodies existing in Bluespace, it is highly unlikely. Travelling in the Bluespace dimension without a proper gate or Bluespace drive has thus far been proven to be incredibly dangerous, with probes either appearing in unintended locations or never returning at all."
 	icon_state = "bluespace-n"
 	plane = 0
 	use_space_appearance = FALSE

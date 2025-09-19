@@ -50,7 +50,7 @@
 
 /obj/item/reagent_containers/food/snacks/microchips
 	name = "micro chips"
-	desc = "Soft and rubbery. should have fried them"
+	desc = "Soft and rubbery. Should have fried them."
 	icon = 'icons/obj/item/reagent_containers/food/fryer.dmi'
 	icon_state = "microchips"
 	trash = /obj/item/trash/plate

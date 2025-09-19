@@ -10,11 +10,13 @@ import { isEscape, KEY } from 'common/keys';
 
 type ByondOpen = {
   channel: Channel;
+  mapfocus: BooleanLike;
 };
 
 type ByondProps = {
   maxLength: number;
   lightMode: BooleanLike;
+  scale: BooleanLike;
 };
 
 type State = {
@@ -24,19 +26,13 @@ type State = {
 
 const CHANNEL_REGEX = /^[:.]\w\s/;
 
-const ROWS: Record<keyof typeof WINDOW_SIZES, number> = {
-  small: 1,
-  medium: 2,
-  large: 3,
-  width: 1, // not used
-} as const;
-
 export class TguiSay extends Component<{}, State> {
   private channelIterator: ChannelIterator;
   private chatHistory: ChatHistory;
   private currentPrefix: keyof typeof RADIO_PREFIXES | null;
   private innerRef: RefObject<HTMLTextAreaElement>;
   private lightMode: boolean;
+  private scale: boolean;
   private maxLength: number;
   private messages: typeof byondMessages;
   state: State;
@@ -72,6 +68,8 @@ export class TguiSay extends Component<{}, State> {
   }
 
   componentDidMount() {
+    windowSet(WINDOW_SIZES.small, this.scale);
+
     Byond.subscribeTo('props', this.handleProps);
     Byond.subscribeTo('force', this.handleForceSay);
     Byond.subscribeTo('open', this.handleOpen);
@@ -140,7 +138,7 @@ export class TguiSay extends Component<{}, State> {
     this.chatHistory.reset();
     this.channelIterator.reset();
     this.currentPrefix = null;
-    windowClose();
+    windowClose(this.scale);
   }
 
   handleEnter() {
@@ -260,24 +258,38 @@ export class TguiSay extends Component<{}, State> {
   }
 
   handleOpen = (data: ByondOpen) => {
+    const { channel, mapfocus } = data;
+
+    if (!mapfocus) {
+      return;
+    }
     setTimeout(() => {
       this.innerRef.current?.focus();
     }, 0);
 
-    const { channel } = data;
     // Catches the case where the modal is already open
     if (this.channelIterator.isSay()) {
       this.channelIterator.set(channel);
     }
     this.setState({ buttonContent: this.channelIterator.current() });
 
-    windowOpen(this.channelIterator.current());
+    windowOpen(this.channelIterator.current(), this.scale);
   };
 
   handleProps = (data: ByondProps) => {
-    const { maxLength, lightMode } = data;
+    const { maxLength, lightMode, scale } = data;
     this.maxLength = maxLength;
     this.lightMode = !!lightMode;
+    this.scale = !!scale;
+
+    if (!this.scale) {
+      window.document.body.style.setProperty(
+        'zoom',
+        `${100 / window.devicePixelRatio}%`
+      );
+    } else {
+      window.document.body.style.setProperty('zoom', '');
+    }
   };
 
   reset() {
@@ -301,7 +313,7 @@ export class TguiSay extends Component<{}, State> {
 
     if (this.state.size !== newSize) {
       this.setState({ size: newSize });
-      windowSet(newSize);
+      windowSet(newSize, this.scale);
     }
   }
 
@@ -319,30 +331,35 @@ export class TguiSay extends Component<{}, State> {
       this.channelIterator.current();
 
     return (
-      <div
-        className={`window window-${theme} window-${this.state.size}`}
-        $HasKeyedChildren>
+      <div className={`window window-${theme} window-${this.state.size}`}>
         <Dragzone position="top" theme={theme} />
-        <div className="center" $HasKeyedChildren>
+        <div className="center">
           <Dragzone position="left" theme={theme} />
-          <div className="input" $HasKeyedChildren>
+          {!!theme && (
             <button
               className={`button button-${theme}`}
               onClick={this.handleIncrementChannel}
               type="button">
               {this.state.buttonContent}
             </button>
-            <textarea
-              autoCorrect="off"
-              className={`textarea textarea-${theme}`}
-              maxLength={this.maxLength}
-              onInput={this.handleInput}
-              onKeyDown={this.handleKeyDown}
-              ref={this.innerRef}
-              spellCheck={false}
-              rows={ROWS[this.state.size] || 1}
-            />
-          </div>
+          )}
+          <textarea
+            className={`textarea textarea-${theme}`}
+            maxLength={this.maxLength}
+            onInput={this.handleInput}
+            onKeyDown={this.handleKeyDown}
+            ref={this.innerRef}
+          />
+          {!!theme && (
+            <button
+              key="escape"
+              className={`button button-${theme}`}
+              onClick={this.handleClose}
+              type="submit"
+              style={{ width: '2rem', marginRight: '5px' }}>
+              X
+            </button>
+          )}
           <Dragzone position="right" theme={theme} />
         </div>
         <Dragzone position="bottom" theme={theme} />
@@ -351,7 +368,13 @@ export class TguiSay extends Component<{}, State> {
   }
 }
 
-const Dragzone = ({ theme, position }: { theme: string; position: string }) => {
+const Dragzone = ({
+  theme,
+  position,
+}: {
+  readonly theme: string;
+  readonly position: string;
+}) => {
   // Horizontal or vertical?
   const location =
     position === 'left' || position === 'right' ? 'vertical' : 'horizontal';

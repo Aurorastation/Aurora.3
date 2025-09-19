@@ -3088,7 +3088,7 @@
 /turf/template_noop,
 /area/magshield/east)
 "ji" = (
-/obj/structure/janitorialcart{
+/obj/structure/cart/storage/janitorialcart{
 	dir = 4
 	},
 /turf/simulated/floor/airless,

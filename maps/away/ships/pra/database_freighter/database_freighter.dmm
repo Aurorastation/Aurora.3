@@ -2455,7 +2455,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/database_freighter_shuttle)
 "lt" = (
-/obj/effect/floor_decal/plaque,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
@@ -2463,6 +2462,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/structure/sign/floor_plaque,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},

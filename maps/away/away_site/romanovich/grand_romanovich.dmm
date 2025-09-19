@@ -1348,9 +1348,9 @@
 	dir = 1;
 	icon_state = "tube_empty"
 	},
-/obj/item/reagent_containers/food/drinks/bottle/nmshaan_liquor,
-/obj/item/reagent_containers/food/drinks/bottle/nmshaan_liquor,
-/obj/item/reagent_containers/food/drinks/bottle/nmshaan_liquor,
+/obj/item/reagent_containers/food/drinks/bottle/sugartree_liquor,
+/obj/item/reagent_containers/food/drinks/bottle/sugartree_liquor,
+/obj/item/reagent_containers/food/drinks/bottle/sugartree_liquor,
 /turf/simulated/floor/lino,
 /area/grand_romanovich)
 "dE" = (
@@ -2947,7 +2947,7 @@
 /obj/item/reagent_containers/food/snacks/chipplate/tajcandy{
 	pixel_y = 10
 	},
-/obj/item/reagent_containers/food/drinks/bottle/nmshaan_liquor{
+/obj/item/reagent_containers/food/drinks/bottle/sugartree_liquor{
 	pixel_x = 7;
 	pixel_y = 15
 	},
@@ -6387,7 +6387,7 @@
 /obj/item/reagent_containers/food/snacks/chipplate/tajcandy{
 	pixel_y = 10
 	},
-/obj/item/reagent_containers/food/drinks/bottle/nmshaan_liquor{
+/obj/item/reagent_containers/food/drinks/bottle/sugartree_liquor{
 	pixel_x = 7;
 	pixel_y = 15
 	},

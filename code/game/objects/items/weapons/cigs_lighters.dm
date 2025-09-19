@@ -156,7 +156,8 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 	var/icon_on
 	var/icon_off
 	var/type_butt = null
-	var/chem_volume = 15 //Size of a syringe
+	/// Size of a syringe
+	var/chem_volume = 15
 	var/genericmes = "USER lights NAME with FLAME"
 	var/matchmes = "USER lights NAME with FLAME"
 	var/lightermes = "USER lights NAME with FLAME"
@@ -165,14 +166,17 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 	var/ignitermes = "USER lights NAME with FLAME"
 	var/initial_volume = 0
 	var/burn_rate = 0
-	var/last_drag = 0 //Spam limiter for audio/message when taking a drag of cigarette.
+	/// Spam limiter for audio/message when taking a drag of cigarette.
+	var/last_drag = 0
 	drop_sound = 'sound/items/drop/food.ogg'
 	pickup_sound = 'sound/items/pickup/food.ogg'
 
 /obj/item/clothing/mask/smokable/Initialize()
 	. = ..()
-	atom_flags |= ATOM_FLAG_NO_REACT // so it doesn't react until you light it
-	create_reagents(chem_volume) // making the cigarrete a chemical holder with a maximum volume of 15
+	// So it doesn't react until you light it
+	atom_flags |= ATOM_FLAG_NO_REACT
+	// Making the cigarette a chemical holder with a maximum volume of 15
+	create_reagents(chem_volume)
 
 /obj/item/clothing/mask/smokable/process()
 	if(reagents && reagents.total_volume && burn_rate && !istype(loc, /obj/item/storage))
@@ -354,8 +358,8 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 	if(!proximity || lit)
 		return
 	if(istype(glass)) //you can dip cigarettes into beakers
-		var/transfered = glass.reagents.trans_to_obj(src, chem_volume)
-		if(transfered)	//if reagents were transfered, show the message
+		var/transferred = glass.reagents.trans_to_obj(src, chem_volume)
+		if(transferred)	//if reagents were transferred, show the message
 			to_chat(user, SPAN_WARNING("You dip \the [src] into \the [glass]."))
 			playsound(src.loc, 'sound/effects/footstep/water1.ogg', 50, 1)
 		else			//if not, either the beaker was empty, or the cigarette was full
@@ -373,9 +377,6 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 		user.visible_message(SPAN_NOTICE("<b>[user]</b> taps \the [src] against their palm."), SPAN_NOTICE("You tap \the [src] against your palm."))
 	return ..()
 
-
-/obj/item/clothing/mask/smokable/cigarette/vanilla
-	reagents_to_add = list(/singleton/reagent/toxin/tobacco = 15)
 
 /obj/item/clothing/mask/smokable/cigarette/acmeco
 	reagents_to_add = list(
@@ -411,7 +412,7 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 	name = "adhomian cigarette"
 	desc = "An adhomian cigarette made from processed S'rendarr's Hand."
 	reagents_to_add = list(
-		/singleton/reagent/toxin/tobacco/srendarrs_hand = 5,
+		/singleton/reagent/toxin/tobacco/srendarrs_hand = 10,
 		/singleton/reagent/mental/nicotine = 5
 	)
 
@@ -431,7 +432,7 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 	)
 
 /obj/item/clothing/mask/smokable/cigarette/dyn
-	name =  "dyn cigarette"
+	name = "dyn cigarette"
 	desc = "A mentholated cigarette from Nralakk made with processed dyn."
 	reagents_to_add = list(
 		/singleton/reagent/toxin/tobacco/sweet = 5,
@@ -451,6 +452,11 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 		/singleton/reagent/toxin/oracle = 10,
 		/singleton/reagent/mental/caromeg = 5
 	)
+
+/obj/item/clothing/mask/smokable/cigarette/koko
+	name = "unathi cigarette"
+	desc = "An Unathi cigarette made with koko reed."
+	reagents_to_add = list(/singleton/reagent/mental/kokoreed = 15)
 
 ////////////
 // CIGARS //
@@ -715,7 +721,8 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 	drop_sound = 'sound/items/drop/card.ogg'
 	pickup_sound = 'sound/items/pickup/card.ogg'
 	surgerysound = 'sound/items/surgery/cautery.ogg'
-	var/last_open = 0 //prevent message spamming.
+	/// Spam limiter.
+	var/last_open = 0
 	var/last_close = 0
 	var/flame_light_range = 1
 	var/flame_light_power = 2
@@ -1043,13 +1050,13 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 	icon_on = "cigrollon"
 	icon_off = "cigrolloff"
 
-/obj/item/trash/cigbutt/roll
-	icon_state = "rollbutt"
-
-/obj/item/clothing/mask/smokable/cigarette/rolled/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/clothing/mask/smokable/cigarette/rolled/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(filter)
 		. += "It's capped off one end with a filter."
+
+/obj/item/trash/cigbutt/roll
+	icon_state = "rollbutt"
 
 /obj/item/clothing/mask/smokable/cigarette/rolled/update_icon()
 	. = ..()
@@ -1094,7 +1101,6 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 		var/obj/item/clothing/mask/smokable/cigarette/rolled/CR = attacking_item
 		return CR.attackby(src, user)
 	. = ..()
-
 
 //tobacco sold seperately if you're too snobby to grow it yourself.
 /obj/item/reagent_containers/food/snacks/grown/dried_tobacco

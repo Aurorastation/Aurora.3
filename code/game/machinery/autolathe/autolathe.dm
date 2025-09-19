@@ -16,8 +16,8 @@
 
 	var/atom/print_loc
 
-	var/list/stored_material =  list(DEFAULT_WALL_MATERIAL = 0, MATERIAL_GLASS = 0, MATERIAL_ALUMINIUM = 0, MATERIAL_PLASTIC = 0, MATERIAL_LEAD = 0)
-	var/list/storage_capacity = list(DEFAULT_WALL_MATERIAL = 0, MATERIAL_GLASS = 0, MATERIAL_ALUMINIUM = 0, MATERIAL_PLASTIC = 0, MATERIAL_LEAD = 0)
+	var/list/stored_material =  list(DEFAULT_WALL_MATERIAL = 0, MATERIAL_GLASS = 0, MATERIAL_ALUMINIUM = 0, MATERIAL_PLASTIC = 0, MATERIAL_LEAD = 0, MATERIAL_PHORON = 0)
+	var/list/storage_capacity = list(DEFAULT_WALL_MATERIAL = 0, MATERIAL_GLASS = 0, MATERIAL_ALUMINIUM = 0, MATERIAL_PLASTIC = 0, MATERIAL_LEAD = 0, MATERIAL_PHORON = 0)
 	var/show_category = "All"
 
 	var/hacked = FALSE
@@ -42,6 +42,11 @@
 		/obj/item/stock_parts/manipulator,
 		/obj/item/stock_parts/console_screen
 	)
+
+/obj/machinery/autolathe/upgrade_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Upgraded <b>matter bins</b> will increase material storage capacity."
+	. += "Upgraded <b>manipulators</b> will improve material use efficiency and increase fabrication speed."
 
 /obj/machinery/autolathe/Initialize()
 	..()
@@ -170,15 +175,6 @@
 	if(stat)
 		return TRUE
 
-	if(panel_open)
-		//Don't eat multitools or wirecutters used on an open lathe.
-		if(attacking_item.ismultitool() || attacking_item.iswirecutter())
-			if(panel_open)
-				wires.interact(user)
-			else
-				to_chat(user, SPAN_WARNING("\The [src]'s wires aren't exposed."))
-			return TRUE
-
 	if(attacking_item.loc != user && !istype(attacking_item, /obj/item/stack))
 		return FALSE
 
@@ -189,6 +185,8 @@
 	return TRUE
 
 /obj/machinery/autolathe/attack_hand(mob/user)
+	if(panel_open)
+		wires.interact(user)
 	user.set_machine(src)
 	ui_interact(user)
 
@@ -327,6 +325,7 @@
 	storage_capacity[MATERIAL_ALUMINIUM] = mb_rating * 25000
 	storage_capacity[MATERIAL_PLASTIC] = mb_rating * 12500
 	storage_capacity[MATERIAL_LEAD] = mb_rating * 12500
+	storage_capacity[MATERIAL_PHORON] = mb_rating * 12500
 	build_time = 50 / man_rating
 	mat_efficiency = 1.1 - man_rating * 0.1 // Normally, price is 1.25 the amount of material, so this shouldn't go higher than 0.8. Maximum rating of parts is 3
 

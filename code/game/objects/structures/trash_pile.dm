@@ -35,6 +35,7 @@
 	if(do_after(user, 3 SECONDS, src, DO_UNIQUE))
 		user.visible_message("<b>[user]</b> climbs into \the [src], disappearing from sight.", SPAN_NOTICE("You climb into \the [src], finally finding a good spot to hide."))
 		user.forceMove(src)
+		user.set_fullscreen(TRUE, "closet_impaired", /atom/movable/screen/fullscreen/closet_impaired)
 		hider = user
 		if(ishuman(user) && prob(5))
 			var/mob/living/carbon/human/H = user
@@ -47,6 +48,7 @@
 	if(user.stat || user.resting) // don't care too much about use_check here, checking these will suffice
 		return
 	user.forceMove(get_turf(src))
+	user.set_fullscreen(FALSE, "closet_impaired", /atom/movable/screen/fullscreen/closet_impaired)
 	if(user == hider)
 		hider = null
 
@@ -93,6 +95,7 @@
 	if(hider && prob(chance))
 		to_chat(hider, SPAN_DANGER("You've been discovered!"))
 		hider.forceMove(get_turf(src))
+		hider.set_fullscreen(FALSE, "closet_impaired", /atom/movable/screen/fullscreen/closet_impaired)
 		to_chat(user, SPAN_DANGER("You discover that \the [hider] was hiding inside \the [src]!"))
 		hider = null
 		return TRUE

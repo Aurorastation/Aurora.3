@@ -1,11 +1,11 @@
 /* Library Machines
  *
  * Contains:
- *		Borrowbook datum
- *		Library Public Computer
- *		Library Computer
- *		Library Scanner
- *		Book Binder
+ * * Borrowbook datum
+ * * Library Public Computer
+ * * Library Computer
+ * * Library Scanner
+ * * Book Binder
  */
 
 /*
@@ -194,7 +194,7 @@
 			else
 				dat += {"<a href='byond://?src=[REF(src)];orderbyid=1'>(Order Book by ISBN)</a><br><br>
 				<table>
-				<tr><td><a href='byond://?src=[REF(src)];sort=author>AUTHOR</a></td><td><a href='byond://?src=[REF(src)];sort=title>TITLE</a></td><td><a href='byond://?src=[REF(src)];sort=category>CATEGORY</a></td><td></td></tr>"}
+				<tr><td><a href='byond://?src=[REF(src)];sort=author'>AUTHOR</a></td><td><a href='byond://?src=[REF(src)];sort=title'>TITLE</a></td><td><a href='byond://?src=[REF(src)];sort=category'>CATEGORY</a></td><td></td></tr>"}
 				var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT id, author, title, category FROM ss13_library ORDER BY [sortby]")
 				query.Execute()
 

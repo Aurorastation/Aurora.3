@@ -14,7 +14,19 @@
 	minimal_access = list()	//See /datum/job/assistant/get_access()
 	outfit = /obj/outfit/job/assistant
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
-
+	alt_ages = list(
+	"Lab Assistant" = list(
+		SPECIES_IPC = 0
+	),
+	"Technical Assistant" = list(
+		SPECIES_IPC = 0
+	),
+	"Medical Orderly" = list(
+		SPECIES_IPC = 0
+	),
+	"Wait Staff" = list(
+		SPECIES_IPC = 0
+	))
 	alt_titles = list("Lab Assistant", "Technical Assistant", "Medical Orderly", "Wait Staff")
 	alt_outfits = list("Lab Assistant" = /obj/outfit/job/assistant/lab_assistant, "Technical Assistant" = /obj/outfit/job/assistant/tech_assistant, "Medical Orderly" = /obj/outfit/job/assistant/med_assistant, "Wait Staff" = /obj/outfit/job/assistant/waiter)
 	alt_factions = list(

@@ -4,7 +4,7 @@
 	req_access = list(ACCESS_CENT_SPECOPS)
 
 /obj/machinery/computer/shuttle_control/specops/attack_ai(user as mob)
-	to_chat(user, SPAN_WARNING("Access Denied."))
+	to_chat(user, SPAN_WARNING("Access denied."))
 	return 1
 
 /datum/shuttle/autodock/ferry/specops

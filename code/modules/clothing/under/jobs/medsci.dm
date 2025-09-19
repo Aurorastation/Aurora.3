@@ -37,7 +37,7 @@
 	name = "einstein scientist's jumpsuit"
 	desc_extended = "Doing away with the hideous purple of the SCC's science uniforms in favor of yet more dull greens, \
 	Einstein Engines' science uniforms push new frontiers of style just as their wearers push everything else."
-	icon = 'icons/clothing/under/uniforms/einstein.dmi'
+	icon = 'icons/obj/item/clothing/under/human/corporation/einstein.dmi'
 	icon_state = "ee_scientist"
 	item_state = "ee_scientist"
 
@@ -143,7 +143,7 @@
 /obj/item/clothing/under/rank/iacjumpsuit
 	desc = "It's a blue and white jumpsuit, the IAC logo plastered across the back."
 	name = "IAC uniform"
-	icon = 'icons/clothing/under/uniforms/iac_uniform.dmi'
+	icon = 'icons/obj/item/clothing/under/human/corporation/iac_uniform.dmi'
 	icon_state = "iac"
 	item_state = "iac"
 	contained_sprite = TRUE
@@ -169,7 +169,7 @@
 /obj/item/clothing/under/rank/medical/generic
 	icon_state = "generic_scrubs"
 	item_state = "generic_scrubs"
-	icon = 'icons/clothing/under/uniforms/generic_scrubs.dmi'
+	icon = 'icons/obj/item/clothing/department_uniforms/medical.dmi'
 	has_accents = TRUE
 
 /obj/item/clothing/under/rank/medical/zeng
@@ -183,6 +183,11 @@
 /obj/item/clothing/under/rank/medical/pmc/alt
 	icon_state = "pmc_alt_phys"
 	item_state = "pmc_alt_phys"
+
+// Hephaestus doesn't have medical jobs, but off-ships use them
+/obj/item/clothing/under/rank/medical/heph
+	icon_state = "heph_phys"
+	item_state = "heph_phys"
 
 // Intern
 

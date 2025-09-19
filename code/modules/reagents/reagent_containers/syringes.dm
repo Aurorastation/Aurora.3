@@ -9,7 +9,6 @@
 /obj/item/reagent_containers/syringe
 	name = "syringe"
 	desc = "A syringe."
-	desc_info = "This tool can be used to reinflate a collapsed lung. To do this, activate grab intent, select the patient's chest, then click on them. It will hurt a lot, but it will buy time until surgery can be performed."
 	icon = 'icons/obj/item/reagent_containers/syringe.dmi'
 	contained_sprite = TRUE
 	icon_state = "0"
@@ -32,7 +31,6 @@
 	var/list/datum/disease2/disease/viruses
 	var/time = 30
 
-
 	var/last_jab = 0 //Spam prevention
 	center_of_mass = null
 
@@ -41,6 +39,14 @@
 
 	///Boolean, if this syringe gets dirty (and consequently infects people when reused)
 	var/gets_dirty = TRUE
+
+/obj/item/reagent_containers/syringe/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This tool can be used to reinflate a collapsed lung. To do this, activate grab intent, select the patient's chest, then click on them. It will hurt a lot, but it will buy time until surgery can be performed."
+
+/obj/item/reagent_containers/syringe/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "You can use a syringe to inject phoron into both power cells and light bulbs to rig them to explode when used."
 
 /obj/item/reagent_containers/syringe/Initialize()
 	. = ..()

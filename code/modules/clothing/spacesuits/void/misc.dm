@@ -60,7 +60,7 @@
 		RAD = ARMOR_RAD_SMALL
 	)
 	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
+	species_restricted = list(BODYTYPE_HUMAN)
 	icon_supported_species_tags = list("ipc", "skr", "taj")
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_IPC, BODYTYPE_SKRELL)
 
@@ -87,7 +87,7 @@
 	)
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP, BODYTYPE_SKRELL)
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL)
 	icon_supported_species_tags = list("ipc", "skr", "taj")
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_IPC, BODYTYPE_SKRELL)
 
@@ -98,7 +98,7 @@
 	icon_state = "xanu_void_helmet"
 	item_state = "xanu_void_helmet"
 	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_INDUSTRIAL)
+	species_restricted = list(BODYTYPE_HUMAN)
 
 	light_overlay = "helmet_light_xanu_voidsuit"
 	brightness_on = 6
@@ -113,7 +113,7 @@
 	slowdown = 1
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_INDUSTRIAL)
+	species_restricted = list(BODYTYPE_HUMAN)
 
 /obj/item/clothing/suit/space/void/coalition/himeo
 	name = "\improper Himean buzzard voidsuit"
@@ -124,7 +124,7 @@
 	icon_state = "himeo_voidsuit"
 	item_state = "himeo_voidsuit"
 
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC)
+	species_restricted = list(BODYTYPE_HUMAN)
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_IPC)
 	icon_supported_species_tags = list("taj")
 
@@ -150,7 +150,7 @@
 	combat protection."
 	icon_state = "galatea_void_helmet"
 	item_state = "galatea_void_helmet"
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC)
+	species_restricted = list(BODYTYPE_HUMAN)
 	refittable = FALSE
 
 /obj/item/clothing/suit/space/void/coalition/galatea
@@ -162,7 +162,7 @@
 	icon_state = "galatea_voidsuit"
 	item_state = "galatea_voidsuit"
 
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC)
+	species_restricted = list(BODYTYPE_HUMAN)
 	refittable = FALSE
 
 /obj/item/clothing/head/helmet/space/void/cruiser
@@ -328,7 +328,7 @@
 		RAD = ARMOR_RAD_SMALL
 	)
 	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
+	species_restricted = list(BODYTYPE_HUMAN)
 	light_overlay = "helmet_light_banshee"
 	brightness_on = 6
 	light_color = "#7ffbf7"
@@ -356,7 +356,7 @@
 	)
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
+	species_restricted = list(BODYTYPE_HUMAN)
 	desc_extended = "An easily recognized Einstein Engines-made PMC voidsuit piece. It is a telltale mark of corporate espionage and more often than not ends up buried with its user."
 	icon_supported_species_tags = list("skr", "ipc")
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_IPC, BODYTYPE_SKRELL)
@@ -380,7 +380,7 @@
 		RAD = ARMOR_RAD_SMALL
 	)
 	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
+	species_restricted = list(BODYTYPE_HUMAN)
 	light_overlay = "helmet_light_dragon"
 	brightness_on = 6
 	light_color = "#7ffbf7"
@@ -408,7 +408,7 @@
 	)
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP, BODYTYPE_SKRELL)
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL)
 	desc_extended = "An easily recognized Zeng-Hu Pharmaceuticals biohazard control suit. It is relatively fragile but has very apparent radiation shielding. Most often seen in the hands of post-disaster cleanup teams and private military contractors."
 	icon_supported_species_tags = list("skr", "ipc")
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_IPC)
@@ -432,7 +432,7 @@
 		RAD = ARMOR_RAD_SMALL
 	)
 	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU)
+	species_restricted = list(BODYTYPE_HUMAN)
 	light_overlay = "helmet_light_caiman"
 	brightness_on = 6
 	light_color = "#ffce01"
@@ -460,7 +460,7 @@
 	)
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU)
+	species_restricted = list(BODYTYPE_HUMAN)
 	desc_extended = "An easily recognized Hephaestus terraforming suit. Used often on jungle worlds to handle local wildlife and safely deforest areas in hostile environments. It found recent popularity due to its combat effectiveness that resulted in its proliferation in the hands of Hephaestus private military."
 	icon_supported_species_tags = list("una")
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_UNATHI)
@@ -533,7 +533,7 @@
 		RAD = ARMOR_RAD_SMALL
 	)
 	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
+	species_restricted = list(BODYTYPE_HUMAN)
 	light_overlay = "freelancer_light"
 	brightness_on = 6
 	light_color = "#7ffbf7"
@@ -560,7 +560,7 @@
 	)
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL)
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_IPC, BODYTYPE_UNATHI, BODYTYPE_SKRELL)
 
 /obj/item/clothing/head/helmet/space/void/dominia
@@ -748,7 +748,7 @@
 
 /obj/item/clothing/suit/space/void/mining/himeo
 	name = "himeo mining voidsuit"
-	desc = "A simple but durable softsuit with a set of protective alloy plates commonly used by Himean astronauts. The suit life support console and torso plate contains a Himean flag patch."
+	desc = "A simple but durable softsuit with a set of protective alloy plates commonly used by Himean astronauts."
 	desc_extended = "The Type-78 'Fish Fur' Voidsuit is an aging yet popular design produced only on Himeo. The simple and affordable design means many Himeans are able to own their own spacesuits rather than have one provided to them by their employer.\
 	Its modular design means that they're adapted for use everywhere from the depths of Himeo to protect from debris, its surface to protect from the bitter cold, and in orbit, to work in the void. Their similarity to flightsuits have been noted, and the planet\
 	enjoys jolly cooperation with fellow designers from Crosk who seek to invent new suits to keep their racers going faster."
@@ -774,7 +774,7 @@
 
 /obj/item/clothing/suit/space/void/engineering/himeo
 	name = "himeo engineering voidsuit"
-	desc = "A simple but durable softsuit with a set of protective alloy plates commonly used by Himean astronauts. The suit life support console and torso plate contains a Himean flag patch. This particular model seems to have lead lining in it."
+	desc = "A simple but durable softsuit with a set of protective alloy plates commonly used by Himean astronauts. This particular model seems to have lead lining in it."
 	desc_extended = "The Type-78 'Fish Fur' Voidsuit is an aging yet popular design produced only on Himeo. The simple and affordable design means many Himeans are able to own their own spacesuits rather than have one provided to them by their employer.\
 	Its modular design means that they're adapted for use everywhere from the depths of Himeo to protect from debris, its surface to protect from the bitter cold, and in orbit, to work in the void. Their similarity to flightsuits have been noted, and the planet\
 	enjoys jolly cooperation with fellow designers from Crosk who seek to invent new suits to keep their racers going faster."
@@ -830,7 +830,7 @@
 
 /obj/item/clothing/suit/space/void/mining/himeo/tajara
 	name = "himeo mining voidsuit"
-	desc = "A simple but durable softsuit with a set of protective alloy plates commonly used by Himean astronauts. The suit life support console and torso plate contains a Himean flag patch. This suit looks fit for a Tajara."
+	desc = "A simple but durable softsuit with a set of protective alloy plates commonly used by Himean astronauts. This suit looks fit for a Tajara."
 	desc_extended = "The Type-78 'Fish Fur' Voidsuit is an aging yet popular design produced only on Himeo. The simple and affordable design means many Himeans are able to own their own spacesuits rather than have one provided to them by their employer.\
 	Its modular design means that they're adapted for use everywhere from the depths of Himeo to protect from debris, its surface to protect from the bitter cold, and in orbit, to work in the void. Their similarity to flightsuits have been noted, and the planet \
 	enjoys jolly cooperation with fellow designers from Crosk who seek to invent new suits to keep their racers going faster. They quickly found purchase among Himeo's population of Tajaran expatriates, who were shown how to modify and use the voidsuits. \
@@ -864,7 +864,7 @@
 
 /obj/item/clothing/suit/space/void/engineering/himeo/tajara
 	name = "himeo engineering voidsuit"
-	desc = "A simple but durable softsuit with a set of protective alloy plates commonly used by Himean astronauts. The suit life support console and torso plate contains a Himean flag patch. This particular model is fitted for Tajara and seems to have lead lining in it."
+	desc = "A simple but durable softsuit with a set of protective alloy plates commonly used by Himean astronauts. This particular model is fitted for Tajara and seems to have lead lining in it."
 	desc_extended = "The Type-78 'Fish Fur' Voidsuit is an aging yet popular design produced only on Himeo. The simple and affordable design means many Himeans are able to own their own spacesuits rather than have one provided to them by their employer.\
 	Its modular design means that they're adapted for use everywhere from the depths of Himeo to protect from debris, its surface to protect from the bitter cold, and in orbit, to work in the void. Their similarity to flightsuits have been noted, and the planet \
 	enjoys jolly cooperation with fellow designers from Crosk who seek to invent new suits to keep their racers going faster. They quickly found purchase among Himeo's population of Tajaran expatriates, who were shown how to modify and use the voidsuits. \
@@ -1020,7 +1020,7 @@
 	desc = "A helmet resembling an avian. This one has been modified for usage with Gadpathur's navy."
 	icon_state = "gadpathur_vulture_helm"
 	item_state = "gadpathur_vulture_helm"
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_INDUSTRIAL)
+	species_restricted = list(BODYTYPE_HUMAN)
 
 	brightness_on = 6
 
@@ -1029,7 +1029,7 @@
 	desc = "An iconic voidsuit of Xanan make, designed after the Interstellar War. This one has been modified for usage with Gadpathur's navy."
 	icon_state = "gadpathur_vulture"
 	item_state = "gadpathur_vulture"
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU, BODYTYPE_SKRELL, BODYTYPE_IPC_INDUSTRIAL)
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL)
 
 /obj/item/clothing/head/helmet/space/void/sol/konyang
 	name = "konyang aerospace forces voidsuit helmet"
@@ -1037,7 +1037,7 @@
 	icon = 'icons/obj/clothing/voidsuit/coalition.dmi'
 	icon_state = "konyang_helmet"
 	item_state = "konyang_helmet"
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU)
+	species_restricted = list(BODYTYPE_HUMAN)
 	icon_supported_species_tags = list("ipc")
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_IPC)
 	refittable = TRUE
@@ -1048,7 +1048,7 @@
 	icon = 'icons/obj/clothing/voidsuit/coalition.dmi'
 	icon_state = "konyang_suit"
 	item_state = "konyang_suit"
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU)
+	species_restricted = list(BODYTYPE_HUMAN)
 	icon_supported_species_tags = list("ipc")
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_IPC)
 	refittable = TRUE
@@ -1071,7 +1071,7 @@
 	slowdown = 1
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_SKRELL)
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL)
 	contained_sprite = TRUE
 	icon_supported_species_tags = list("ipc", "skr", "taj", "una", "vau", "vaw")
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_IPC, BODYTYPE_TAJARA, BODYTYPE_UNATHI, BODYTYPE_SKRELL, BODYTYPE_VAURCA)
@@ -1091,7 +1091,7 @@
 		BIO = ARMOR_BIO_SHIELDED,
 		RAD = ARMOR_RAD_SMALL
 	)
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU)
+	species_restricted = list(BODYTYPE_HUMAN)
 	contained_sprite = TRUE
 	icon_supported_species_tags = list("ipc", "skr", "taj", "una", "vau", "vaw")
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_IPC, BODYTYPE_TAJARA, BODYTYPE_UNATHI, BODYTYPE_SKRELL, BODYTYPE_VAURCA)

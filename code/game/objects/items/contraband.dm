@@ -124,10 +124,10 @@
 	w_class = WEIGHT_CLASS_TINY
 	volume = 50
 
-/obj/item/reagent_containers/powder/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/reagent_containers/powder/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(reagents)
-		. += SPAN_NOTICE("There's about [reagents.total_volume] unit\s here.")
+		. += SPAN_NOTICE("There's about <b>[reagents.total_volume] unit\s</b> here.")
 
 /obj/item/reagent_containers/powder/Initialize()
 	. = ..()
@@ -140,7 +140,7 @@
 // Proc to shove them up your nose
 
 /obj/item/reagent_containers/powder/attackby(obj/item/attacking_item, mob/user)
-	if(istype(attacking_item, /obj/item/paper/cig) || istype(attacking_item, /obj/item/spacecash))
+	if(istype(attacking_item, /obj/item/paper/cig) || attacking_item.type == /obj/item/spacecash)
 		var/mob/living/carbon/human/H = user
 		var/obj/item/blocked = H.check_mouth_coverage()
 		if(blocked)

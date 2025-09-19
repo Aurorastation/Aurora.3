@@ -2,7 +2,6 @@
 	name = "inductive charger"
 	desc = "A phoron-enhanced induction charger hooked up to its attached stationbound's internal cell."
 	desc_extended = "Harnessing the energy potential found in phoron structures, NanoTrasen engineers have created a portable device capable of highly efficient wireless charging. The expense and limit of energy output of using this method of charging prevents it from being used on a large scale, being far outclassed by Phoron-Supermatter charging systems."
-	desc_info = "Click on an adjacent object that contains or is a power cell to attempt to find and charge it. After a successful charge, the inductive charger recharge in a few minutes. The amount transfered can be adjusted by alt clicking it."
 	icon = 'icons/obj/item/inductive_charger.dmi'
 	icon_state = "inductive_charger"
 	item_state = "inductive_charger"
@@ -15,6 +14,17 @@
 	var/efficiency_mod = 0.9
 	maptext_x = 3
 	maptext_y = 2
+
+/obj/item/inductive_charger/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Click on an adjacent object that contains or is a power cell to attempt to find and charge it."
+	. += "ALT-click to adjust the transferred amount"
+	. += "After a successful charge, the inductive charger recharge in a few minutes."
+
+/obj/item/inductive_charger/handheld/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(cell)
+		. += SPAN_NOTICE("Cell Charge: [cell.percent()]%")
 
 /obj/item/inductive_charger/set_initial_maptext()
 	held_maptext = SMALL_FONTS(7, "Ready")
@@ -102,11 +112,6 @@
 	. = ..()
 	if(ispath(cell))
 		cell = new cell(src)
-
-/obj/item/inductive_charger/handheld/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(cell)
-		. += SPAN_NOTICE("Cell Charge: [cell.percent()]%")
 
 /obj/item/inductive_charger/handheld/get_cell()
 	return cell

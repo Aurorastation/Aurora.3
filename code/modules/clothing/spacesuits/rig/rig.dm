@@ -159,7 +159,7 @@
 	for(var/obj/item/clothing/piece in list(gloves,helmet,boots,chest))
 		if(!istype(piece))
 			continue
-		piece.canremove = 0
+		piece.canremove = FALSE
 		piece.name = "[suit_type] [initial(piece.name)]"
 		piece.desc = "It seems to be part of a [src.name]."
 		piece.icon = icon
@@ -167,8 +167,7 @@
 		piece.item_state = "[initial(icon_state)]"
 		piece.contained_sprite = TRUE
 		if(length(icon_supported_species_tags))
-			piece.icon_auto_adapt = TRUE
-			piece.icon_supported_species_tags = icon_supported_species_tags
+			set_piece_adaptation(piece)
 		piece.min_cold_protection_temperature = min_cold_protection_temperature
 		piece.max_heat_protection_temperature = max_heat_protection_temperature
 		if(piece.siemens_coefficient > siemens_coefficient) //So that insulated gloves keep their insulation.
@@ -188,6 +187,11 @@
 
 	set_vision(!offline)
 	update_icon(1)
+
+/// Sets the icon adaptation and species supported tags equal to parent, can be overriden for custom functionality
+/obj/item/rig/proc/set_piece_adaptation(var/obj/item/clothing/piece)
+	piece.icon_auto_adapt = TRUE
+	piece.icon_supported_species_tags = icon_supported_species_tags
 
 /obj/item/rig/Destroy()
 	for(var/obj/item/piece in list(gloves,boots,helmet,chest))
@@ -305,8 +309,7 @@
 					if(seal_delay && !instant && !do_after(wearer, seal_delay, src, do_flags = DO_DEFAULT & ~DO_USER_SAME_HAND))
 						failed_to_seal = 1
 
-					piece.icon_state = "[initial(icon_state)][!seal_target ? "_sealed" : ""]_[piece.clothing_class()]"
-					piece.item_state = "[initial(icon_state)][!seal_target ? "_sealed" : ""]"
+					update_sealed_piece_icon(piece, seal_target)
 					switch(msg_type)
 						if("boots")
 							to_chat(wearer, SPAN_NOTICE("\The [piece] [!seal_target ? "seal around your feet" : "relax their grip on your legs"]."))
@@ -379,6 +382,11 @@
 		initiator.loc.update_icon()
 	SSstatpanels.set_action_tabs(initiator.client, initiator)
 
+/// Sets the piece's icon and item state based on the seal target, can be overriden for custom functionality
+/obj/item/rig/proc/update_sealed_piece_icon(var/obj/item/clothing/piece, var/seal_target)
+	piece.icon_state = "[initial(icon_state)][!seal_target ? "_sealed" : ""]_[piece.clothing_class()]"
+	piece.item_state = "[initial(icon_state)][!seal_target ? "_sealed" : ""]"
+
 /obj/item/rig/proc/update_component_sealed()
 	for(var/obj/item/piece in list(helmet,boots,gloves,chest))
 		if(canremove)
@@ -392,7 +400,6 @@
 	update_icon(1)
 
 /obj/item/rig/process()
-
 	// If we've lost any parts, grab them back.
 	var/mob/living/M
 	for(var/obj/item/piece in list(gloves,boots,helmet,chest))
@@ -403,6 +410,7 @@
 			else
 				piece.forceMove(src)
 
+	var/previous_offline_status = offline
 	if(!istype(wearer) || loc != wearer || wearer.back != src || canremove || !cell || cell.charge <= 0)
 		if(!cell || cell.charge <= 0)
 			if(electrified > 0)
@@ -429,6 +437,9 @@
 			if(slowdown != initial(slowdown))
 				slowdown = initial(slowdown)
 				wearer?.update_equipment_speed_mods()
+
+	if(offline != previous_offline_status)
+		update_icon(TRUE)
 
 	set_vision(!offline)
 	if(offline)
@@ -750,6 +761,8 @@
 			if(check_slot && check_slot == use_obj)
 				return
 			use_obj.forceMove(wearer)
+			if(src.color)
+				use_obj.color = src.color
 			if(!wearer.equip_to_slot_if_possible(use_obj, equip_to, 0, 1))
 				use_obj.forceMove(src)
 				if(check_slot)
