@@ -66,9 +66,6 @@
 	var/toxloss = 0
 	var/datum/reagents/metabolism/ingested
 
-/mob/living/carbon/slime/get_ingested_reagents()
-	return ingested
-
 /mob/living/carbon/slime/Initialize(mapload, colour = "grey")
 	. = ..()
 
@@ -89,6 +86,19 @@
 	coretype = text2path("/obj/item/slime_extract/[sanitizedcolour]")
 	last_AI = world.time
 	regenerate_icons()
+
+/mob/living/carbon/slime/Destroy()
+	victim = null
+	target = null
+	leader = null
+	for(var/mob/friend in friends)
+		friends -= friend
+	friends.Cut()
+	QDEL_NULL(ingested)
+	return ..()
+
+/mob/living/carbon/slime/get_ingested_reagents()
+	return ingested
 
 /mob/living/carbon/slime/purple/Initialize(mapload, colour = "purple")
 	. = ..()
