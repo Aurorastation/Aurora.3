@@ -228,7 +228,7 @@ SUBSYSTEM_DEF(garbage)
 				if(detail)
 					LAZYADD(I.extra_details, detail)
 
-				#ifdef LETSDOTHIS
+				#ifdef TESTING
 				for(var/c in GLOB.staff) //Using testing() here would fill the logs with ADMIN_VV garbage
 					var/client/admin = c
 					if(!check_rights(R_ADMIN, user = admin?.mob))

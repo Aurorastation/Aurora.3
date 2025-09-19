@@ -39,10 +39,9 @@
 	#warn Manual unit test is defined, remember to recomment it before PRing!
 #endif // MANUAL_UNIT_TEST
 
-#define LETSDOTHIS
-#ifdef LETSDOTHIS
+#ifdef TESTING
 	///Used to find the sources of harddels, quite laggy, don't be surpised if it freezes your client for a good while
-	#define REFERENCE_TRACKING
+	// #define REFERENCE_TRACKING
 	#ifdef REFERENCE_TRACKING
 
 		//Run a lookup on things hard deleting by default.
@@ -50,7 +49,7 @@
 
 		#ifdef GC_FAILURE_HARD_LOOKUP
 			///Don't stop when searching, go till you're totally done
-			//#define FIND_REF_NO_CHECK_TICK
+			#define FIND_REF_NO_CHECK_TICK
 		#endif //GC_FAILURE_HARD_LOOKUP
 
 	#endif //REFERENCE_TRACKING
