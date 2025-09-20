@@ -2,8 +2,8 @@ name: "Stale bot - Issue and PR triage"
 
 on:
   schedule:
-    # Run every thursday (00:00 UTC), giving the weekend the first to react
-    - cron: "0 0 * * 4"
+    # Run every monday and friday at 06:00 UTC, giving an update for the new week and the weekend
+    - cron: "0 6 * * 1,5"
   workflow_dispatch: # Allow manual trigger
 
 permissions:
