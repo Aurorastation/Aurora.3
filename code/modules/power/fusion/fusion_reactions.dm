@@ -8,7 +8,7 @@ GLOBAL_LIST(fusion_reactions)
 	/// Secondary reactant.
 	var/s_react = ""
 	/// This is the minimum energy to initiate a given reaction.
-	var/minimum_energy_level = 150000
+	var/minimum_energy_level = 45000
 	/// This is the minimum energy to continue a given reaction, once started. Used for halting energy-consuming reactions.
 	/// When not set, it will default to (minimum_energy_level * 0.8) to avoid tanking plasma temp in a single tick.
 	var/minimum_reaction_temperature
@@ -47,7 +47,7 @@ GLOBAL_LIST(fusion_reactions)
 	energy_consumption = 1
 	energy_production = 20
 	products = list(GAS_HELIUM = 1)
-	instability = 1.5
+	instability = 2
 	// deut-trit bad!!!
 	radiation = 200
 	minimum_energy_level = 2500
@@ -89,7 +89,7 @@ GLOBAL_LIST(fusion_reactions)
 	products = list(GAS_DEUTERIUM = 2, GAS_HYDROGEN = 1)
 	radiation = 6
 	instability = 0.5
-	minimum_energy_level = 150000
+	minimum_energy_level = 90000
 	priority = 12
 
 /singleton/fusion_reaction/helium3_helium
@@ -131,7 +131,7 @@ GLOBAL_LIST(fusion_reactions)
 	energy_consumption = 1
 	energy_production = 2
 	radiation = 18
-	instability = 1
+	instability = 2
 	products = list(GAS_TRITIUM = 2)
 	minimum_energy_level = 2000000
 	priority = 30
@@ -184,7 +184,7 @@ GLOBAL_LIST(fusion_reactions)
 	energy_production = 96
 	products = list(GAS_HELIUM = 1, GAS_HYDROGEN = 2)
 	radiation = 1
-	minimum_energy_level = 1400000
+	minimum_energy_level = 720000
 	priority = 30
 
 // bad!!!
@@ -231,9 +231,9 @@ GLOBAL_LIST(fusion_reactions)
 	p_react = "mhydrogen"
 	energy_consumption = 0
 	energy_production = 50
-	instability = -6
+	instability = -3
 	radiation = 10
-	products = list("deuterium" = 1, "osmium" = 3)
+	products = list("deuterium" = 1, "mhydrogen" = 1)
 	minimum_energy_level = 800000
 
 /singleton/fusion_reaction/iron_phoron

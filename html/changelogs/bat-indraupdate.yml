@@ -20,7 +20,7 @@ changes:
   - balance: "SMES unit maximum coil capacity increased from 6 -> 8."
   - balance: "TEG maximum power output increased from 500000 -> 2500000."
   - balance: "Power wasted from exceeding TEG maximum power output decreased from 50% to 33%."
-  - balance: "Increased idle and active power usage values of many, many pieces of machinery (and adjusted temperature properties where applicable.)"
+  - balance: "Portable generators of all types have had their power generation capacity doubled."
   - rscadd: "Boron added as a singleton/reagent. Poisonous to vaurca, still usable in nuclear fusion as fuel assembly rods."
   - rscadd: "INDRA Field Strength now scales plasma temperature entropy, power output from temperature multiplier, and instability increase per tick."
   - refactor: "'Boron' gas renamed to 'Helium-3'. Boron is not a gas. Deal with it."
@@ -33,3 +33,4 @@ changes:
   - bugfix: "INDRA EM Field effect no longer considers the camera within its reactor chamber a destabilizing influence."
   - bugfix: "INDRA reactor core now produces radiation as intended."
   - bugfix: "Deuterium and Tritium canisters no longer contain 50% standard hydrogen (inheritance issue)."
+  - bugfix: "Borgs can now load and unload Fuel Assemblies from the INDRA."

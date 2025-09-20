@@ -56,8 +56,10 @@
 /obj/machinery/power/fusion_core/proc/Shutdown(force_rupture)
 	if(owned_field)
 		icon_state = "core0"
-		if(force_rupture || owned_field.plasma_temperature > 1000)
+		// Blow the whole fucking thing up.
+		if(force_rupture || owned_field.plasma_temperature > 720000)
 			owned_field.Rupture()
+		// Just radiate all that temperature into the environment. Unless you're under 1000 K, its still a big 'fuck you,' but admittedly better than EMP/explosion.
 		else
 			owned_field.RadiateAll()
 		qdel(owned_field)
@@ -81,7 +83,7 @@
 /obj/machinery/power/fusion_core/proc/set_strength(value)
 	value = clamp(value, MIN_FIELD_STR, MAX_FIELD_STR)
 	field_strength = value
-	change_power_consumption(1500 * (value ** 1.25), POWER_USE_ACTIVE)
+	change_power_consumption(4500 * (value ** 1.5), POWER_USE_ACTIVE)
 	if(owned_field)
 		owned_field.ChangeFieldStrength(value)
 
