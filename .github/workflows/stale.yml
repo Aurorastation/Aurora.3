@@ -1,0 +1,41 @@
+name: "Stale bot - Issue and PR triage"
+
+on:
+  schedule:
+    # Run every thursday (00:00 UTC), giving the weekend the first to react
+    - cron: "0 0 * * 4"
+  workflow_dispatch: # Allow manual trigger
+
+permissions:
+  issues: write
+  pull-requests: write
+
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/stale@v9
+        with:
+          # --- Issue settings ---
+          days-before-stale: 60
+          days-before-close: 30
+          stale-issue-label: "Stale"
+          stale-issue-message: >
+            This issue has been marked as stale due to 60 days of inactivity.
+            If you think the issue is still relevant, add a comment or if it's a bug, let it get marked as replicable by staff.
+            Otherwise the issue will be automatically closed after 30 more days of inactivity. 
+          close-issue-message: >
+            This issue has been closed automatically after 90 days of inactivity.
+            If you still think this issue is still relevant, please reopen or create a new issue.
+          exempt-issue-labels: "✔️ Issue Replicable" # Problems that are waiting for resolution shouldn't be closed
+
+          # --- PR settings ---
+          days-before-pr-stale: 60
+          days-before-pr-close: -1 # Never auto-close PRs
+          stale-pr-label: "Stale"
+          stale-pr-message: >
+            This issue has been marked as stale due to 60 days of inactivity.
+            If you are still working on this, please push your work or leave a comment.
+            PRs marked as stale won't be auto-closed but are at the discretion of staff to be closed at any point.
+          exempt-pr-labels-regex: "(?i).*discussion.*" # Match any label containing "discussion"
+          # Draft PRs are not exempted from getting marked as stale
