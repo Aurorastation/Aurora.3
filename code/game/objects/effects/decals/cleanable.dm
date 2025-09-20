@@ -28,7 +28,19 @@
 		SSstatistics.IncrementSimpleStat("messes_made")
 
 	var/turf/T = get_turf(src)
-	if(!T?.is_space())
-		return
-	animate(src, alpha = 0, time = 5 SECONDS)
-	QDEL_IN(src, 5 SECONDS)
+	if(T?.is_space())
+		animate(src, alpha = 0, time = 5 SECONDS)
+		QDEL_IN(src, 5 SECONDS)
+
+/obj/effect/decal/cleanable/persistence_get_content()
+	var/list/content = list()
+	content["icon_state"] = icon_state
+	content["color"] = color
+	return content
+
+/obj/effect/decal/cleanable/persistence_apply_content(content, x, y, z)
+	src.x = x
+	src.y = y
+	src.z = z
+	src.icon_state = content["icon_state"]
+	src.color = content["color"]
