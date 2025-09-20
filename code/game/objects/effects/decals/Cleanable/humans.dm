@@ -311,7 +311,12 @@
 	var/list/datum/disease2/disease/virus2 = list()
 
 /obj/effect/decal/cleanable/mucus/Initialize()
-	. = ..()
+	..()
 	animate(src, color = "#000000", time = DRYING_TIME * 2, loop = 0, flags = ANIMATION_RELATIVE)
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/effect/decal/cleanable/mucus/LateInitialize()
+	. = ..()
+	SSpersistence.register_track(src, null)
 
 #undef DRYING_TIME
