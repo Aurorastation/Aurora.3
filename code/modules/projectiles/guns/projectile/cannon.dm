@@ -134,6 +134,10 @@
 
 	max_shells = 1
 
+/obj/item/gun/projectile/peac/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "The PEAC can only be fired when wielded. Loading it is delayed by 5 seconds, which can be bypassed by having someone adjacent click on you with the ammo in their hand."
+
 /obj/item/gun/projectile/peac/update_icon()
 	..()
 	if(loaded.len)
@@ -151,3 +155,38 @@
 
 /obj/item/gun/projectile/peac/unloaded
 	ammo_type = null
+
+/obj/item/gun/projectile/peac/load_ammo(var/obj/item/A, mob/user)
+	if(!istype(A, /obj/item/ammo_casing))
+		return ..()
+	var/obj/item/ammo_casing/C = A
+	if(caliber != C.caliber)
+		to_chat(user,SPAN_WARNING("\The [C] does not fit."))
+		return
+	if(loaded.len >= max_shells)
+		to_chat(user,SPAN_WARNING("[src] is full."))
+		return
+
+	user.visible_message("[user] starts loading \a [C] into [src].", SPAN_NOTICE("You start loading \a [C] into [src]..."))
+	if(!do_after(user, 5 SECONDS, target = src))
+		to_chat(user, SPAN_WARNING("You stop loading \the [src]."))
+		return
+
+	if(loaded.len >= max_shells)
+		to_chat(user,SPAN_WARNING("[src] is full."))
+		return
+	if(!istype(C) || C.loc != user)
+		to_chat(user, SPAN_WARNING("You no longer have \a [C] to load."))
+		return
+	if(caliber != C.caliber)
+		to_chat(user,SPAN_WARNING("\The [C] does not fit."))
+		return
+
+	user.remove_from_mob(C)
+	C.forceMove(src)
+	loaded.Insert(1, C)
+	user.visible_message("[user] inserts \a [C] into [src].", SPAN_NOTICE("You insert \a [C] into [src]."))
+	playsound(src.loc, C.reload_sound, 50, extrarange = SILENCED_SOUND_EXTRARANGE)
+	update_maptext()
+	update_icon()
+	return
