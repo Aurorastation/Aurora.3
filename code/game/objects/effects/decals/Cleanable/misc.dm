@@ -41,6 +41,14 @@
 	icon_state = "dirt"
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
+/obj/effect/decal/cleanable/dirt/Initialize(mapload)
+	..()
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/effect/decal/cleanable/dirt/LateInitialize()
+	. = ..()
+	SSpersistence.register_track(src, null)
+
 /obj/effect/decal/cleanable/flour
 	name = "flour"
 	desc = "It's still good. Four second rule!"
