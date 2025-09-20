@@ -201,17 +201,20 @@ GLOBAL_LIST(fusion_reactions)
 /singleton/fusion_reaction/iron_poison
 	p_react = "iron"
 	s_react = "iron"
-	energy_consumption = 64
+	energy_consumption = 32
 	energy_production = 0
 	radiation = 48
+	minimum_energy_level = 1000
 	priority = 35
 
 // Gold poisoning
 /singleton/fusion_reaction/gold_poison
 	p_react = "gold"
 	s_react = "gold"
-	energy_consumption = 96
+	energy_consumption = 48
 	energy_production = 0
+	instability = 2
+	minimum_energy_level = 1000
 	radiation = 96
 
 /singleton/fusion_reaction/iron_iron
@@ -219,10 +222,10 @@ GLOBAL_LIST(fusion_reactions)
 	s_react = "iron"
 	// Much of the gold is going to be consumed to poison the reactor.
 	products = list("silver" = 12, "gold" = 32, "platinum" = 12, "lead" = 12, ) // Not realistic but w/e
-	energy_consumption = 64
+	energy_consumption = 32
 	energy_production = 0
-	instability = 4
-	radiation = 12
+	instability = 0.5
+	radiation = 49
 	minimum_energy_level = 1800000
 	priority = 40
 
@@ -231,7 +234,7 @@ GLOBAL_LIST(fusion_reactions)
 	p_react = "mhydrogen"
 	energy_consumption = 0
 	energy_production = 50
-	instability = -3
+	instability = -8
 	radiation = 10
 	products = list("deuterium" = 1, "mhydrogen" = 1)
 	minimum_energy_level = 800000

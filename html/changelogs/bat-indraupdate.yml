@@ -28,7 +28,7 @@ changes:
   - code_imp: "Descriptions added to gas singletons for future use."
   - qol: "Minor remap of INDRA control room for usability."
   - qol: "Standardized gas canister naming conventions."
-  - qol: "Updated INDRA-related TGUI menus to use kW, MW abbreviations for high wattages."
+  - qol: "INDRA and APC TGUI interfaces now use use kW, MW abbreviations for high wattages."
   - bugfix: "INDRA Kinetic Harvester no longer rapidly deselects materials for harvest when too many are being generated at once."
   - bugfix: "INDRA EM Field effect no longer considers the camera within its reactor chamber a destabilizing influence."
   - bugfix: "INDRA reactor core now produces radiation as intended."

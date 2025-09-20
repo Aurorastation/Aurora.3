@@ -1,6 +1,6 @@
 #define FUSION_ENERGY_PER_K				10
 #define FUSION_INSTABILITY_DIVISOR		50000
-#define FUSION_RUPTURE_THRESHOLD		25000
+#define FUSION_RUPTURE_THRESHOLD		500000
 #define FUSION_REACTANT_CAP				10000
 #define FUSION_WARNING_DELAY 			20
 #define FUSION_BLACKBODY_MULTIPLIER		28
@@ -41,7 +41,7 @@
 	/// Radius of the EM field. Scales with Field Strength.
 	var/size = 1
 	var/tick_instability = 0
-	/// Ranges from 0-1. At or over 1, boom.
+	/// Ranges from 0-5. At or over 5, boom.
 	var/percent_unstable = 0
 	var/percent_unstable_archive = 0
 
@@ -187,7 +187,7 @@
 	var/added_particles = FALSE
 	var/datum/gas_mixture/uptake_gas = owned_core.loc.return_air()
 	if(uptake_gas)
-		uptake_gas = uptake_gas.remove_by_flag(XGM_GAS_FUSION_FUEL, rand(50,100))
+		uptake_gas = uptake_gas.remove_by_flag(XGM_GAS_FUSION_FUEL, rand(75,100))
 	if(uptake_gas && uptake_gas.total_moles)
 		for(var/gasname in uptake_gas.gas)
 			if(uptake_gas.gas[gasname]*10 > reactants[gasname])
@@ -223,7 +223,7 @@
 
 	check_instability()
 
-	if(percent_unstable > 0.5 && (percent_unstable >= percent_unstable_archive))
+	if(percent_unstable > 2.5 && (percent_unstable >= percent_unstable_archive))
 		if((world.timeofday - lastwarning) >= FUSION_WARNING_DELAY * 10)
 			warning()
 
@@ -255,29 +255,29 @@
 		if(percent_unstable < 0)
 			percent_unstable = 0
 		else
-			if(percent_unstable > 1)
-				percent_unstable = 1
+			if(percent_unstable > 5)
+				percent_unstable = 5
 			if(percent_unstable > 0)
 				percent_unstable = max(0, percent_unstable-rand(0.01,0.03))
 				UpdateVisuals()
 
-	if(percent_unstable >= 1)
+	if(percent_unstable >= 5)
 		owned_core.Shutdown(force_rupture=1)
 	else
-		if(percent_unstable > 0.5 && prob(percent_unstable*100))
+		if(percent_unstable > 4 && prob(percent_unstable*20))
 			var/ripple_radius = ((size-1) / 2) + WORLD_ICON_SIZE
 			var/wave_size = 4
-			if(plasma_temperature < FUSION_RUPTURE_THRESHOLD)
+			if(plasma_temperature > FUSION_RUPTURE_THRESHOLD)
 				visible_message(SPAN_DANGER("\The [src] ripples uneasily, like a disturbed pond."))
 			else
 				var/flare
 				var/fuel_loss
 				var/rupture
 				// Why the fuck are these less thans???
-				if(percent_unstable < 0.7)
+				if(percent_unstable < 3)
 					visible_message(SPAN_DANGER("\The [src] ripples uneasily, like a disturbed pond."))
 					fuel_loss = prob(5)
-				else if(percent_unstable < 0.9)
+				else if(percent_unstable < 4)
 					visible_message(SPAN_DANGER("\The [src] undulates violently, shedding plumes of plasma!"))
 					flare = prob(50)
 					fuel_loss = prob(20)
@@ -312,19 +312,19 @@
 	return
 
 /obj/effect/fusion_em_field/proc/warning()
-	var/unstable = round(percent_unstable * 100)
+	var/unstable = round(percent_unstable * 20)
 	var/alert_msg = " Instability at [unstable]%."
 
-	if(percent_unstable > 0.5)
+	if(percent_unstable > 2.5)
 		if(percent_unstable >= percent_unstable_archive)
-			if(percent_unstable < 0.7)
+			if(percent_unstable < 3)
 				alert_msg = warning_alert + alert_msg
 				lastwarning = world.timeofday
 				safe_warned = FALSE
-			else if(percent_unstable < 0.9)
+			else if(percent_unstable < 4)
 				alert_msg = emergency_alert + alert_msg
 				lastwarning = world.timeofday - FUSION_WARNING_DELAY * 4
-			else if(percent_unstable > 0.9)
+			else if(percent_unstable > 4.5)
 				lastwarning = world.timeofday - FUSION_WARNING_DELAY * 4
 				alert_msg = emergency_alert + alert_msg
 			else
@@ -340,7 +340,7 @@
 	if(alert_msg)
 		radio.autosay(alert_msg, "INDRA Reactor Monitor", "Engineering")
 
-		if((percent_unstable > 0.9) && !public_alert)
+		if((percent_unstable > 4.5) && !public_alert)
 			alert_msg = null
 			radio.autosay(emergency_alert, "INDRA Reactor Monitor")
 			public_alert = TRUE
@@ -393,17 +393,17 @@
  */
 /obj/effect/fusion_em_field/proc/ChangeFieldStrength(new_strength)
 	var/calc_size = 1
-	if(new_strength <= 50)
+	if(new_strength < 40)
 		calc_size = 1
-	else if(new_strength <= 100)
+	else if(new_strength < 80)
 		calc_size = 3
-	else if(new_strength <= 150)
+	else if(new_strength < 120)
 		calc_size = 5
-	else if(new_strength <= 200)
+	else if(new_strength < 160)
 		calc_size = 7
-	else if(new_strength <= 250)
+	else if(new_strength < 200)
 		calc_size = 9
-	else if(new_strength <= 300)
+	else if(new_strength < 240)
 		calc_size = 11
 	else
 		calc_size = 13
@@ -421,7 +421,7 @@
 	plasma_temperature += a_plasma_temperature
 
 	if(a_energy && percent_unstable > 0)
-		percent_unstable = max(percent_unstable - (a_energy/10000), 0)
+		percent_unstable = max((percent_unstable / 5.0) - (a_energy/10000), 0)
 	while(energy >= 100)
 		energy -= 100
 		plasma_temperature += 1
