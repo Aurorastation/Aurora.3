@@ -2,6 +2,7 @@
 	mouse_opacity = MOUSE_OPACITY_ICON
 	var/list/random_icon_states
 	var/swept_away
+	persistance_expiration_time_days = 7
 
 /obj/effect/decal/cleanable/attack_hand(mob/user)
 	if(!swept_away && layer == DECAL_LAYER) // have to check layer otherwise more vars need to be added to determine whether it CAN be sweeped
