@@ -8,10 +8,16 @@
 	icon_state = "rust"
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
+/obj/effect/decal/cleanable/floor_damage/Initialize(mapload)
+	..()
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/effect/decal/cleanable/floor_damage/LateInitialize()
+	. = ..()
+	SSpersistence.register_track(src, null)
 
 /obj/effect/decal/cleanable/floor_damage/rust
 	icon_state = "rust"
-
 
 /obj/effect/decal/cleanable/floor_damage/random_broken
 	icon_state = "broken0"
@@ -33,7 +39,6 @@
 /obj/effect/decal/cleanable/floor_damage/broken7
 	icon_state = "broken7"
 
-
 /obj/effect/decal/cleanable/floor_damage/random_burned
 	icon_state = "burned3"
 	random_icon_states = list("burned0", "burned1", "burned2", "burned3", "burned4")
@@ -47,7 +52,6 @@
 	icon_state = "burned3"
 /obj/effect/decal/cleanable/floor_damage/burned4
 	icon_state = "burned4"
-
 
 /obj/effect/decal/cleanable/floor_damage/random_tiled_broken
 	icon_state = "tiled_broken0"
@@ -63,7 +67,6 @@
 /obj/effect/decal/cleanable/floor_damage/tiled_broken4
 	icon_state = "tiled_broken4"
 
-
 /obj/effect/decal/cleanable/floor_damage/random_tiled_burned
 	icon_state = "tiled_burned0"
 	random_icon_states = list("tiled_burned0", "tiled_burned1")
@@ -71,7 +74,6 @@
 	icon_state = "tiled_burned0"
 /obj/effect/decal/cleanable/floor_damage/tiled_burned1
 	icon_state = "tiled_burned1"
-
 
 /obj/effect/decal/cleanable/floor_damage/random_carpet_broken
 	icon_state = "carpet_broken0"
@@ -82,7 +84,6 @@
 	icon_state = "carpet_broken1"
 /obj/effect/decal/cleanable/floor_damage/carpet_broken2
 	icon_state = "carpet_broken2"
-
 
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken
 	icon_state = "wood_broken0"
