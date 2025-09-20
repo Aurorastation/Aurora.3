@@ -66,7 +66,7 @@
 			core["size"] =  C.owned_field ? C.owned_field.size : 0
 			core["instability"] = C.owned_field ? C.owned_field.percent_unstable * 100 : -1 //%
 			core["temperature"] = C.owned_field ? C.owned_field.plasma_temperature + 295 : -1 //K
-			core["power_status"] = "[reading_to_text(power_available)]/[reading_to_text(power_usage)]"
+			core["power_status"] = "[power_wattage_readable(power_available)]/[power_wattage_readable(power_usage)]"
 			core["shutdown_safe"] = C.owned_field ? C.owned_field.is_shutdown_safe() : TRUE
 
 			core["radiation_avg"] =  C.owned_field ? C.owned_field.radiation_avg : 0

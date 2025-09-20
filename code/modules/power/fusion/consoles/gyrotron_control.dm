@@ -62,7 +62,7 @@
 			gyrotron["active"] = G.active
 			gyrotron["firedelay"] = G.rate
 			gyrotron["energy"] = G.mega_energy
-			gyrotron["power_status"] = reading_to_text(G.mega_energy * GYRO_POWER)
+			gyrotron["power_status"] = power_wattage_readable(G.mega_energy * GYRO_POWER)
 			gyrotrons += list(gyrotron)
 	data["gyrotrons"] = gyrotrons
 	return data

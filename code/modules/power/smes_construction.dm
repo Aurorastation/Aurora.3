@@ -69,15 +69,25 @@
 /obj/machinery/power/smes/buildable/main_engine
 	cur_coils = 4
 	input_attempt = TRUE
-	input_level = 500000
+	input_level = 1000000
 	output_attempt = TRUE
-	output_level = 500000
+	output_level = 1000000
 	charge =1.5e+7
 
 /// For the substation SMES around the Horizon.
 /obj/machinery/power/smes/buildable/substation
 	input_level = 250000
 	output_level = 240000
+
+// Telecomms substation. Based on shuttle settings; those boxes are power-hungry.
+/obj/machinery/power/smes/buildable/telecomms/Initialize()
+	. = ..()
+	component_parts += new /obj/item/smes_coil/super_io(src)
+	input_attempt = TRUE
+	output_attempt = TRUE
+	input_level = 2000000
+	output_level = 2000000
+	charge = 5.55e+007
 
 // The Horizon's shuttles want something with decent capacity to sustain themselves and enough transmission to meet their energy needs.
 /obj/machinery/power/smes/buildable/horizon_shuttle/Initialize()
@@ -87,8 +97,8 @@
 	component_parts += new /obj/item/smes_coil/super_capacity(src)
 	input_attempt = TRUE
 	output_attempt = TRUE
-	input_level = 1800000
-	output_level = 1800000
+	input_level = 2700000
+	output_level = 2700000
 	charge = 5.55e+007
 
 //Identical to the horizon_shuttle for now as we try to work out specifics
@@ -99,8 +109,8 @@
 	component_parts += new /obj/item/smes_coil/super_capacity(src)
 	input_attempt = TRUE
 	output_attempt = TRUE
-	input_level = 18300000
-	output_level = 1800000
+	input_level = 2700000
+	output_level = 2700000
 	charge = 5.55e+007
 
 /obj/machinery/power/smes/buildable/third_party_shuttle/empty/Initialize()
@@ -115,8 +125,8 @@
 	component_parts += new /obj/item/smes_coil/super_capacity(src)
 	input_attempt = TRUE
 	output_attempt = TRUE
-	input_level = 1800000
-	output_level = 1800000
+	input_level = 2700000
+	output_level = 2700000
 	charge = 3.02024e+006
 
 // END SMES SUBTYPES

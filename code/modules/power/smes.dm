@@ -49,9 +49,9 @@
 	/// 1 = actually inputting, 0 = not inputting
 	var/inputting = 0
 	/// amount of power the SMES attempts to charge by
-	var/input_level = 50000
+	var/input_level = 250000
 	/// cap on input_level
-	var/input_level_max = 200000
+	var/input_level_max = 2000000
 	/// amount that we received from powernet last tick
 	var/input_taken = 0
 
@@ -60,9 +60,9 @@
 	/// 1 = actually outputting, 0 = not outputting
 	var/outputting = 0
 	/// amount of power the SMES attempts to output
-	var/output_level = 50000
+	var/output_level = 250000
 	/// cap on output_level
-	var/output_level_max = 200000
+	var/output_level_max = 2000000
 	/// amount of power actually outputted. may be less than output_level if the powernet returns excess power
 	var/output_used = 0
 

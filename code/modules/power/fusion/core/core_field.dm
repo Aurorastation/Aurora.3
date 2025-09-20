@@ -200,7 +200,7 @@
 	// Let the particles inside the field react.
 	React()
 
-	var/field_strength_power_multiplier = max((owned_core.field_strength ** 1.035) / 100, 1)
+	var/field_strength_power_multiplier = max((owned_core.field_strength ** 1.05) / 100, 1)
 	// Dump power to our powernet.
 	owned_core.add_avail(FUSION_ENERGY_PER_K * plasma_temperature * field_strength_power_multiplier)
 
@@ -600,6 +600,9 @@
 					continue
 
 				// Make sure we have enough energy.
+				// First, if minimum_reaction_temperature not set, make it the same as minimum_energy_level.
+				if(!cur_reaction.minimum_reaction_temperature)
+					cur_reaction.minimum_reaction_temperature = (cur_reaction.minimum_energy_level * 0.8)
 				if(plasma_temperature < cur_reaction.minimum_reaction_temperature)
 					continue
 

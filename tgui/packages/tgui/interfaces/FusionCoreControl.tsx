@@ -141,20 +141,13 @@ export const FusionCoreControl = (props, context) => {
                   )}
                 </LabeledList.Item>
               </LabeledList>
-              <Section title="Debug">
-                <LabeledList>
-                  <LabeledList.Item label="radiation_avg">
-                    {core.radiation_avg}
-                  </LabeledList.Item>
-                </LabeledList>
-              </Section>
               <Section title="Reactants">
                 {core.reactants && core.reactants.length ? (
                   core.reactants.map((reactant) => (
                     <Section key={reactant.name}>
                       <Dimmer>
                         {capitalize(reactant.name)} (
-                        {round(reactant.amount, 0.1)})
+                        {round(reactant.amount, 0.1)}) particle flux
                       </Dimmer>
                     </Section>
                   ))
