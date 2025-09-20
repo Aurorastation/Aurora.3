@@ -1,26 +1,47 @@
-#define FUSION_ENERGY_PER_K        20
-#define FUSION_INSTABILITY_DIVISOR 50000
-#define FUSION_RUPTURE_THRESHOLD   10000
-#define FUSION_REACTANT_CAP        10000
-#define FUSION_WARNING_DELAY 20
+#define FUSION_ENERGY_PER_K				10
+#define FUSION_INSTABILITY_DIVISOR		50000
+#define FUSION_RUPTURE_THRESHOLD		500000
+#define FUSION_REACTANT_CAP				10000
+#define FUSION_WARNING_DELAY 			20
+#define FUSION_BLACKBODY_MULTIPLIER		28
+#define FUSION_INTEGRITY_RATE_LIMIT		11
 
 /obj/effect/fusion_em_field
 	name = "electromagnetic field"
 	desc = "A coruscating, barely visible field of energy. It is shaped like a slightly flattened torus."
 	alpha = 30
-	layer = 4
+	layer = ABOVE_ABOVE_HUMAN_LAYER
 	light_color = COLOR_RED
 	mouse_opacity = MOUSE_OPACITY_ICON
 
+	/// Temporary pool for energy being added to the field from a Gyrotron.
 	var/energy = 0
+	/// Actual core field energy (temperature).
 	var/plasma_temperature = 0
+	/// Effective core field energy (temperature) as modified by field magnitude constriction or relaxation.
+	var/plasma_temperature_effective
+	/// Current excess radiation from ongoing reactions.
 	var/radiation = 0
-	/// The currently configured Field Strength (0.01 = 1 Tesla).
-	var/field_strength = 0.01
+	/// Radiation of the previous three ticks averaged out (if != 0).
+	var/radiation_avg = 0
+	/// Archived radiation. Used for averaging out new SSradiation.radiate() source creation.
+	var/radiation_archive_1 = 0
+	var/radiation_archive_2 = 0
+	var/radiation_archive_3 = 0
+	var/radiation_archive_4 = 0
+	var/radiation_archive_5 = 0
+	/**
+	 * The currently configured Field Strength (0.2 = 20 Tesla). Capped by TGUI at 1.2 (120 Tesla).
+	 *
+	 * Field Strength scales plasma temperature entropy. With higher field strength, each tick will lose more temp and produce more radiation.
+	 * Field Strength scales power output per temperature. With higher field strength, each degree Kelvin will produce more electricity.
+	 * Field Strength scales instability increase. With higher field strength, more instability for a given reaction will be produced each tick.
+	 */
+	var/field_strength = 1
 	/// Radius of the EM field. Scales with Field Strength.
 	var/size = 1
 	var/tick_instability = 0
-	/// Ranges from 0-1. At or over 1, boom.
+	/// Ranges from 0-5. At or over 5, boom.
 	var/percent_unstable = 0
 	var/percent_unstable_archive = 0
 
@@ -33,7 +54,8 @@
 		/obj/effect,
 		/obj/structure/cable,
 		/obj/machinery/atmospherics,
-		/obj/machinery/air_sensor
+		/obj/machinery/air_sensor,
+		/obj/machinery/camera
 		)
 
 	var/light_min_range = 2
@@ -58,27 +80,45 @@
 	var/emergency_alert = "DANGER: INDRA REACTOR MELTDOWN IMMINENT!"
 	var/lastwarning = 0
 
+	/// Power output. We average this like we do radiation for player-presenting data.
+	var/output
+	/// Power of the previous five ticks averaged out (if != 0).
+	var/output_avg = 0
+	/// Archived power. Used for averaging out the power dumped into the powernet for players to see.
+	var/output_archive_1 = 0
+	var/output_archive_2 = 0
+	var/output_archive_3 = 0
+	var/output_archive_4 = 0
+	var/output_archive_5 = 0
+
+	var/vfx_radius_actual
+	//var/vfx_radius_visual
+	var/pause_rupture = FALSE
+
 /obj/effect/fusion_em_field/proc/UpdateVisuals()
 	//Take the particle system and edit it
 
 	//size
-	var/radius = ((size-1) / 2) * WORLD_ICON_SIZE
-
-	particles.position = generator("circle", radius - size, radius + size, NORMAL_RAND)
+	vfx_radius_actual = ((size-1) / 2) * WORLD_ICON_SIZE
+	/*
+	var/vfx_radius_next = ((size+1) / 2) * WORLD_ICON_SIZE
+	var/percent_to_next_size = round(((field_strength + (size * 50)) - (size * 50)) / (((size + 1) / 2) * 50),0.01)
+	var/radius_add = round(percent_to_next_size * WORLD_ICON_SIZE, 1)
+	vfx_radius_visual = min(max(vfx_radius_actual + radius_add, vfx_radius_actual), vfx_radius_next)
+	*/
+	particles.position = generator("circle", vfx_radius_actual - size, vfx_radius_actual, NORMAL_RAND)
 
 	//Radiation affects drift
-	var/radiationfactor = clamp((radiation * 0.001), 0, 0.5)
+	var/radiationfactor = clamp((radiation_avg * 0.001), 0, 0.75)
 	particles.drift = generator("circle", (0.2 + radiationfactor), NORMAL_RAND)
-
 	particles.spawning = last_reactants * 0.9 + Interpolate(0, 200, clamp(plasma_temperature / 70000, 0, 1))
-
 
 /obj/effect/fusion_em_field/New(loc, obj/machinery/power/fusion_core/new_owned_core)
 	..()
 
 	filters = list(filter(type = "ripple", size = 4, "radius" = 1, "falloff" = 1)
 	, filter(type="outline", size = 2, color =  COLOR_RED)
-	, filter(type="bloom", size=3, offset = 0.5, alpha = 235))
+	, filter(type="bloom", size = 3, offset = 0.5, alpha = 235))
 
 	set_light(light_min_power, light_min_range / 10, light_min_range)
 	last_range = light_min_range
@@ -128,49 +168,6 @@
 	radio = new /obj/item/device/radio{channels=list("Engineering")}(src)
 
 /**
- * Not blackbody radiation- with these colors, is some sort of space magic?
- */
-/obj/effect/fusion_em_field/proc/update_light_colors()
-	var/use_range
-	var/use_power = 0
-	var/temp_mod = ((plasma_temperature-5000)/20000)
-	use_range = light_min_range + Ceil((light_max_range-light_min_range)*temp_mod)
-	use_power = light_min_power + Ceil((light_max_power-light_min_power)*temp_mod)
-	switch (plasma_temperature)
-		if (-INFINITY to 1000)
-			light_color = COLOR_RED
-			alpha = 30
-		if (1000 to 6000)
-			light_color = COLOR_ORANGE
-			alpha = 50
-		if (6000 to 20000)
-			light_color = COLOR_YELLOW
-			alpha = 80
-		if (20000 to 50000)
-			light_color = COLOR_GREEN
-			alpha = 120
-		if (50000 to 70000)
-			light_color = COLOR_CYAN
-			alpha = 160
-		if (70000 to 100000)
-			light_color = COLOR_BLUE
-			alpha = 200
-		if (100000 to INFINITY)
-			light_color = COLOR_VIOLET
-			alpha = 230
-
-	if (last_range != use_range || last_power != use_power || color != light_color)
-		set_light(use_range / 6, use_power ? 6 : 0, light_color)
-		last_range = use_range
-		last_power = use_power
-		//Temperature based color
-		particles.gradient = list(0, COLOR_WHITE, 0.85, light_color)
-		UNLINT(var/dm_filter/outline = filters[2])
-		UNLINT(outline.color = light_color)
-		UNLINT(var/dm_filter/bloom = filters[3])
-		UNLINT(bloom.alpha = alpha)
-
-/**
  * What are we doing every tick? A lot.
  * * Grab some gas from the env and convert it to reactants for the pool.
  * * Run react(), which updates a ton of vars for us to respond to here.
@@ -190,7 +187,7 @@
 	var/added_particles = FALSE
 	var/datum/gas_mixture/uptake_gas = owned_core.loc.return_air()
 	if(uptake_gas)
-		uptake_gas = uptake_gas.remove_by_flag(XGM_GAS_FUSION_FUEL, rand(50,100))
+		uptake_gas = uptake_gas.remove_by_flag(XGM_GAS_FUSION_FUEL, rand(75,100))
 	if(uptake_gas && uptake_gas.total_moles)
 		for(var/gasname in uptake_gas.gas)
 			if(uptake_gas.gas[gasname]*10 > reactants[gasname])
@@ -203,14 +200,16 @@
 	// Let the particles inside the field react.
 	React()
 
+	var/field_strength_power_multiplier = max((owned_core.field_strength ** 1.05) / 100, 1)
 	// Dump power to our powernet.
-	owned_core.add_avail(FUSION_ENERGY_PER_K * plasma_temperature)
+	owned_core.add_avail(FUSION_ENERGY_PER_K * plasma_temperature * field_strength_power_multiplier)
 
+	var/field_strength_entropy_multiplier = max(((min((owned_core.field_strength - 18), 2) ** 1.25) / 90), 3)
 	// Energy decay (entropy tax).
 	if(plasma_temperature >= 1)
-		var/lost = plasma_temperature*0.01
+		var/lost = plasma_temperature * 0.005
 		radiation += lost
-		plasma_temperature -= lost
+		plasma_temperature -= lost * field_strength_entropy_multiplier
 
 	// Handle some reactants formatting.
 	for(var/reactant in reactants)
@@ -218,19 +217,17 @@
 		if(amount < 1)
 			reactants.Remove(reactant)
 		else if(amount >= FUSION_REACTANT_CAP)
-			var/radiate = rand(3 * amount / 4, amount / 4)
+			var/radiate = rand(amount / 16, 3 * amount / 16)
 			reactants[reactant] -= radiate
 			radiation += radiate
 
 	check_instability()
 
-	if(percent_unstable > 0.5 && (percent_unstable >= percent_unstable_archive))
+	if(percent_unstable > 2.5 && (percent_unstable >= percent_unstable_archive))
 		if((world.timeofday - lastwarning) >= FUSION_WARNING_DELAY * 10)
 			warning()
 
 	Radiate()
-	if(radiation)
-		SSradiation.radiate(src, round(radiation*0.001))
 	return 1
 
 /**
@@ -247,38 +244,40 @@
  * document details later.
  */
 /obj/effect/fusion_em_field/proc/check_instability()
+	var/field_strength_instability_multiplier = max((owned_core.field_strength ** 1.125)/20, 1)
 	if(tick_instability > 0)
 		percent_unstable_archive = percent_unstable
-		percent_unstable += (tick_instability*size)/FUSION_INSTABILITY_DIVISOR
+		// Apply any modifiers to instability imparted by current field strength, but only apply up to FUSION_INTEGRITY_RATE_LIMIT additional instability.
+		percent_unstable += min((tick_instability * field_strength_instability_multiplier)/FUSION_INSTABILITY_DIVISOR, FUSION_INTEGRITY_RATE_LIMIT)
 		tick_instability = 0
 		UpdateVisuals()
 	else
 		if(percent_unstable < 0)
 			percent_unstable = 0
 		else
-			if(percent_unstable > 1)
-				percent_unstable = 1
+			if(percent_unstable > 5)
+				percent_unstable = 5
 			if(percent_unstable > 0)
 				percent_unstable = max(0, percent_unstable-rand(0.01,0.03))
 				UpdateVisuals()
 
-	if(percent_unstable >= 1)
+	if(percent_unstable >= 5)
 		owned_core.Shutdown(force_rupture=1)
 	else
-		if(percent_unstable > 0.5 && prob(percent_unstable*100))
-			var/ripple_radius = (((size-1) / 2) * WORLD_ICON_SIZE) + WORLD_ICON_SIZE
+		if(percent_unstable > 4 && prob(percent_unstable*20))
+			var/ripple_radius = ((size-1) / 2) + WORLD_ICON_SIZE
 			var/wave_size = 4
-			if(plasma_temperature < FUSION_RUPTURE_THRESHOLD)
+			if(plasma_temperature > FUSION_RUPTURE_THRESHOLD)
 				visible_message(SPAN_DANGER("\The [src] ripples uneasily, like a disturbed pond."))
 			else
 				var/flare
 				var/fuel_loss
 				var/rupture
 				// Why the fuck are these less thans???
-				if(percent_unstable < 0.7)
+				if(percent_unstable < 3)
 					visible_message(SPAN_DANGER("\The [src] ripples uneasily, like a disturbed pond."))
 					fuel_loss = prob(5)
-				else if(percent_unstable < 0.9)
+				else if(percent_unstable < 4)
 					visible_message(SPAN_DANGER("\The [src] undulates violently, shedding plumes of plasma!"))
 					flare = prob(50)
 					fuel_loss = prob(20)
@@ -291,7 +290,7 @@
 					rupture = prob(25)
 					wave_size += 4
 
-				if(rupture)
+				if(rupture && !pause_rupture)
 					owned_core.Shutdown(force_rupture=1)
 				else
 					var/lost_plasma = (plasma_temperature*percent_unstable)
@@ -313,19 +312,19 @@
 	return
 
 /obj/effect/fusion_em_field/proc/warning()
-	var/unstable = round(percent_unstable * 100)
+	var/unstable = round(percent_unstable * 20)
 	var/alert_msg = " Instability at [unstable]%."
 
-	if(percent_unstable > 0.5)
+	if(percent_unstable > 2.5)
 		if(percent_unstable >= percent_unstable_archive)
-			if(percent_unstable < 0.7)
+			if(percent_unstable < 3)
 				alert_msg = warning_alert + alert_msg
 				lastwarning = world.timeofday
 				safe_warned = FALSE
-			else if(percent_unstable < 0.9)
+			else if(percent_unstable < 4)
 				alert_msg = emergency_alert + alert_msg
 				lastwarning = world.timeofday - FUSION_WARNING_DELAY * 4
-			else if(percent_unstable > 0.9)
+			else if(percent_unstable > 4.5)
 				lastwarning = world.timeofday - FUSION_WARNING_DELAY * 4
 				alert_msg = emergency_alert + alert_msg
 			else
@@ -341,7 +340,7 @@
 	if(alert_msg)
 		radio.autosay(alert_msg, "INDRA Reactor Monitor", "Engineering")
 
-		if((percent_unstable > 0.9) && !public_alert)
+		if((percent_unstable > 4.5) && !public_alert)
 			alert_msg = null
 			radio.autosay(emergency_alert, "INDRA Reactor Monitor")
 			public_alert = TRUE
@@ -375,12 +374,17 @@
  * EMP, rads, and a big fuckoff explosion.
  */
 /obj/effect/fusion_em_field/proc/Rupture()
-	visible_message(SPAN_DANGER("\The [src] shudders like a dying animal before flaring to eye-searing brightness and rupturing!"))
-	set_light(1, 0.1, 15, 2, "#ccccff")
-	empulse(get_turf(src), Ceil(plasma_temperature/1000), Ceil(plasma_temperature/300))
+	if(pause_rupture)
+		return
+	visible_message(SPAN_DANGER("There's a violent few convulsions from \the [src] as gouts of plasma spill forth!"))
+	set_light(1, 0.1, "#ccccff", 15, 2)
+	empulse(get_turf(src), Ceil(plasma_temperature/100000), Ceil(plasma_temperature/30000))
 	sleep(5)
 	RadiateAll()
-	explosion(get_turf(owned_core), 8, 8)
+	sleep(45)
+	visible_message(SPAN_DANGER("\The [src] shudders like a dying animal before flaring to eye-searing brightness and rupturing!"))
+	sleep(10)
+	explosion(get_turf(owned_core), 6, 8)
 	return
 
 /**
@@ -389,17 +393,17 @@
  */
 /obj/effect/fusion_em_field/proc/ChangeFieldStrength(new_strength)
 	var/calc_size = 1
-	if(new_strength <= 50)
+	if(new_strength < 40)
 		calc_size = 1
-	else if(new_strength <= 200)
+	else if(new_strength < 80)
 		calc_size = 3
-	else if(new_strength <= 500)
+	else if(new_strength < 120)
 		calc_size = 5
-	else if(new_strength <= 1000)
+	else if(new_strength < 160)
 		calc_size = 7
-	else if(new_strength <= 2000)
+	else if(new_strength < 200)
 		calc_size = 9
-	else if(new_strength <= 5000)
+	else if(new_strength < 240)
 		calc_size = 11
 	else
 		calc_size = 13
@@ -407,10 +411,17 @@
 	change_size(calc_size)
 
 /obj/effect/fusion_em_field/proc/AddEnergy(a_energy, a_plasma_temperature)
+	// Boost gyro effects at low temperatures for faster startup
+	if(plasma_temperature <= 12500)
+		a_energy = a_energy * 8
+	else if(plasma_temperature <= 25000)
+		a_energy = a_energy * 4
 	energy += a_energy
+
 	plasma_temperature += a_plasma_temperature
+
 	if(a_energy && percent_unstable > 0)
-		percent_unstable = max(percent_unstable - (a_energy/10000), 0)
+		percent_unstable = max((percent_unstable / 5.0) - (a_energy/10000), 0)
 	while(energy >= 100)
 		energy -= 100
 		plasma_temperature += 1
@@ -450,10 +461,10 @@
 	for(var/particle in reactants)
 		radiation += reactants[particle]
 		reactants.Remove(particle)
-	radiation += plasma_temperature/2
+	radiation += plasma_temperature/8
 	plasma_temperature = 0
 
-	SSradiation.radiate(src, round(radiation*0.001))
+	SSradiation.radiate(src, radiation)
 	Radiate()
 
 /**
@@ -496,6 +507,19 @@
 		// Putting an upper bound on it to stop it being used in a TEG.
 		if(environment && environment.temperature < (T0C+1000))
 			environment.add_thermal_energy(plasma_temperature*20000)
+
+	// Radiation levels can spike unpredictably based on how many reagents we're throwing out, which reactions ran this cycle, etc.
+	// And while we like some unpredictability, it gets a little excessive with the INDRA. Use these vars to balance out actual rad output.
+	radiation_archive_5 = radiation_archive_4
+	radiation_archive_4 = radiation_archive_3
+	radiation_archive_3 = radiation_archive_2
+	radiation_archive_2 = radiation_archive_1
+	radiation_archive_1 = radiation
+
+	if(radiation >= 1000)
+		radiation_avg = ((radiation_archive_1 + radiation_archive_2 + radiation_archive_3 + radiation_archive_4 + radiation_archive_5 ) / 5)
+		SSradiation.radiate(src, radiation_avg * 0.01)
+
 	radiation = 0
 
 /obj/effect/fusion_em_field/proc/change_size(newsize = 1)
@@ -519,63 +543,66 @@
  * *
  */
 /obj/effect/fusion_em_field/proc/React()
-	// Loop through the reactants in random order
+	// Loop through the reactants in random order.
 	var/list/react_pool = reactants.Copy()
 	last_reactants = 0
 
-	// Can't have any reactions if there aren't any reactants present
+	// Can't have any reactions if there aren't any reactants present.
 	if(length(react_pool))
-		//determine a random amount to actually react this cycle, and remove it from the standard pool
-		//this is a hack, and quite nonrealistic :(
+		// Determine a random amount to actually react this cycle, and remove it from the standard pool.
+		// This is a hack, and quite nonrealistic :(
 		for(var/reactant in react_pool)
 			react_pool[reactant] = rand(FLOOR(react_pool[reactant]/2, 1),react_pool[reactant])
 			reactants[reactant] -= react_pool[reactant]
 			if(!react_pool[reactant])
 				react_pool -= reactant
 
-		//loop through all the reacting reagents, picking out random reactions for them
+		// Loop through all the reacting reagents, picking out random reactions for them.
 		var/list/produced_reactants = new/list
 		var/list/p_react_pool = react_pool.Copy()
 		while(length(p_react_pool))
-			//pick one of the unprocessed reacting reagents randomly
+			// Pick one of the unprocessed reacting reagents randomly.
 			var/cur_p_react = pick(p_react_pool)
 			p_react_pool.Remove(cur_p_react)
 
-			//grab all the possible reactants to have a reaction with
+			// Grab all the possible reactants to have a reaction with.
 			var/list/possible_s_reacts = react_pool.Copy()
-			//if there is only one of a particular reactant, then it can not react with itself so remove it
+			// If there is only one of a particular reactant, then it can not react with itself so remove it.
 			possible_s_reacts[cur_p_react] -= 1
 			if(possible_s_reacts[cur_p_react] < 1)
 				possible_s_reacts.Remove(cur_p_react)
 
-			//loop through and work out all the possible reactions
+			// Loop through and work out all the possible reactions.
 			var/list/possible_reactions
 			for(var/cur_s_react in possible_s_reacts)
 				if(possible_s_reacts[cur_s_react] < 1)
 					continue
 				var/singleton/fusion_reaction/cur_reaction = get_fusion_reaction(cur_p_react, cur_s_react)
-				if(cur_reaction && plasma_temperature >= cur_reaction.minimum_energy_level)
+				if(cur_reaction && plasma_temperature >= cur_reaction.minimum_energy_level && possible_s_reacts[cur_p_react] >= cur_reaction.minimum_p_react)
 					LAZYDISTINCTADD(possible_reactions, cur_reaction)
 
-			//if there are no possible reactions here, abandon this primary reactant and move on
+			// If there are no possible reactions here, abandon this primary reactant and move on.
 			if(!LAZYLEN(possible_reactions))
 				continue
 
-			/// Sort based on reaction priority to avoid deut-deut eating all the deut before deut-trit can run etc.
+			// Sort based on reaction priority to avoid deut-deut eating all the deut before deut-trit can run etc.
 			sortTim(possible_reactions, /proc/cmp_fusion_reaction_des)
 
-			//split up the reacting atoms between the possible reactions
+			// Split up the reacting atoms between the possible reactions.
 			while(length(possible_reactions))
 				var/singleton/fusion_reaction/cur_reaction = possible_reactions[1]
 				possible_reactions.Remove(cur_reaction)
 
-				//set the randmax to be the lower of the two involved reactants
+				// Set the randmax to be the lower of the two involved reactants.
 				var/max_num_reactants = react_pool[cur_reaction.p_react] > react_pool[cur_reaction.s_react] ? \
 				react_pool[cur_reaction.s_react] : react_pool[cur_reaction.p_react]
 				if(max_num_reactants < 1)
 					continue
 
-				//make sure we have enough energy
+				// Make sure we have enough energy.
+				// First, if minimum_reaction_temperature not set, make it the same as minimum_energy_level.
+				if(!cur_reaction.minimum_reaction_temperature)
+					cur_reaction.minimum_reaction_temperature = (cur_reaction.minimum_energy_level * 0.8)
 				if(plasma_temperature < cur_reaction.minimum_reaction_temperature)
 					continue
 
@@ -584,17 +611,17 @@
 					if(max_num_reactants < 1)
 						continue
 
-				//randomly determined amount to react
-				var/amount_reacting = rand(1, max_num_reactants)
+				// Randomly determined amount to react.
+				var/amount_reacting = rand(1, (max_num_reactants * (2/3)))
 
-				//removing the reacting substances from the list of substances that are primed to react this cycle
-				//if there aren't enough of that substance (there should be) then modify the reactant amounts accordingly
+				// Removing the reacting substances from the list of substances that are primed to react this cycle.
+				// If there aren't enough of that substance (there should be) then modify the reactant amounts accordingly.
 				if( react_pool[cur_reaction.p_react] - amount_reacting >= 0 )
 					react_pool[cur_reaction.p_react] -= amount_reacting
 				else
 					amount_reacting = react_pool[cur_reaction.p_react]
 					react_pool[cur_reaction.p_react] = 0
-				//same again for secondary reactant
+				// Same again for secondary reactant
 				if(react_pool[cur_reaction.s_react] - amount_reacting >= 0 )
 					react_pool[cur_reaction.s_react] -= amount_reacting
 				else
@@ -602,9 +629,13 @@
 					amount_reacting = react_pool[cur_reaction.s_react]
 					react_pool[cur_reaction.s_react] = 0
 
-				plasma_temperature -= max_num_reactants * cur_reaction.energy_consumption  // Remove the consumed energy.
-				plasma_temperature += max_num_reactants * cur_reaction.energy_production   // Add any produced energy.
-				radiation +=   max_num_reactants * cur_reaction.radiation           // Add any produced radiation.
+				// Attempt to run temperature changes in isolation to prevent weird drops
+				var/plasma_temperature_change
+				plasma_temperature_change -= max_num_reactants * cur_reaction.energy_consumption
+				plasma_temperature_change += max_num_reactants * cur_reaction.energy_production
+
+				plasma_temperature += plasma_temperature_change
+				radiation += max_num_reactants * cur_reaction.radiation           // Add any produced radiation.
 				tick_instability += max_num_reactants * cur_reaction.instability
 				last_reactants += amount_reacting
 
@@ -658,6 +689,106 @@
 /obj/effect/fusion_em_field/add_point_filter()
 	return
 
+/**
+ * Accurate(ish***) black-body radiation colors. Fuck you purple light; save it for a phoronics update!
+ */
+/obj/effect/fusion_em_field/proc/update_light_colors()
+	var/use_range
+	var/use_power = 0
+	var/temp_mod = ((plasma_temperature-5000)/28000)
+
+	// Using real values for black-body radiation means the fusion reactor will almost always zip to top temp color.
+	// This multiplier scales the below temperatures to better match intended range of temps in gameplay.
+	var/effective_plasma_temperature = plasma_temperature / FUSION_BLACKBODY_MULTIPLIER
+
+	use_range = light_min_range + Ceil((light_max_range-light_min_range)*temp_mod)
+	use_power = light_min_power + Ceil((light_max_power-light_min_power)*temp_mod)
+	switch (effective_plasma_temperature)
+		if (-INFINITY to 1000)
+			light_color = "#ff5800"
+			alpha = 30
+		if (1000 to 1400)
+			light_color = "#ff6500"
+			alpha = 40
+		if (1400 to 1800)
+			light_color = "#ff7e00"
+			alpha = 50
+		if (1800 to 2200)
+			light_color = "#ff932c"
+			alpha = 60
+		if (2200 to 2600)
+			light_color = "#ffa54f"
+			alpha = 70
+		if (2600 to 3000)
+			light_color = "#ffb46b"
+			alpha = 80
+		if (3000 to 4000)
+			light_color = "#ffd1a3"
+			alpha = 90
+		if (4000 to 5400)
+			light_color = "#ffebdc"
+			alpha = 100
+		if (5400 to 6200)
+			light_color = "#fff5f5"
+			alpha = 110
+		if (6200 to 7000)
+			light_color = "#f5f3ff"
+			alpha = 120
+		if (7000 to 8000)
+			light_color = "#e3e9ff"
+			alpha = 130
+		if (8000 to 9000)
+			light_color = "#d6e1ff"
+			alpha = 140
+		if (9000 to 10000)
+			light_color = "#ccdbff"
+			alpha = 150
+		if (1000 to 11000)
+			light_color = "#c4d7ff"
+			alpha = 160
+		if (11000 to 12000)
+			light_color = "#bfd3ff"
+			alpha = 170
+		if (12000 to 13000)
+			light_color = "#bad0ff"
+			alpha = 180
+		if (13000 to 14000)
+			light_color = "#b6ceff"
+			alpha = 190
+		if (14000 to 15000)
+			light_color = "#b3ccff"
+			alpha = 200
+		if (15000 to 16000)
+			light_color = "#b0caff"
+			alpha = 210
+		if (16000 to 17000)
+			light_color = "#aec8ff"
+			alpha = 220
+		if (17000 to 18000)
+			light_color = "#acc7ff"
+			alpha = 230
+		if (18000 to 20000)
+			light_color = "#a8c5ff"
+			alpha = 230
+		if (20000 to 23000)
+			light_color = "#94c2ff"
+			alpha = 230
+		if (23000 to INFINITY)
+			light_color = "#74a2ff"
+			alpha = 240
+
+	if (last_range != use_range || last_power != use_power || color != light_color)
+		set_light(use_range / 6, use_power ? 6 : 0, light_color)
+		last_range = use_range
+		last_power = use_power
+		//Temperature based color
+
+		particles.gradient = list(0, COLOR_WHITE, 0.85, light_color)
+		UNLINT(var/dm_filter/outline = filters[2])
+		UNLINT(outline.color = light_color)
+		UNLINT(var/dm_filter/bloom = filters[3])
+		UNLINT(bloom.alpha = alpha)
+
 /particles/fusion
 	width = 500
 	height = 500
@@ -677,3 +808,6 @@
 #undef FUSION_INSTABILITY_DIVISOR
 #undef FUSION_RUPTURE_THRESHOLD
 #undef FUSION_REACTANT_CAP
+#undef FUSION_WARNING_DELAY
+#undef FUSION_BLACKBODY_MULTIPLIER
+#undef FUSION_INTEGRITY_RATE_LIMIT
