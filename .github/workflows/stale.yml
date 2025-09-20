@@ -21,12 +21,12 @@ jobs:
           days-before-close: 30
           stale-issue-label: "Stale"
           stale-issue-message: >
-            This issue has been marked as stale due to 60 days of inactivity.
-            If you think the issue is still relevant, add a comment or if it's a bug, let it get marked as replicable by staff.
-            Otherwise the issue will be automatically closed after 30 more days of inactivity. 
+            This issue has been marked as stale due to the lack of activity within the last 60 days.
+            If you think the issue still is relevant, leave a comment or let the issue get labeled as replicable by staff.
+            If there is no further activity in the next 30 days, this issue will be closed automatically.
           close-issue-message: >
             This issue has been closed automatically after 90 days of inactivity.
-            If you still think this issue is still relevant, please reopen or create a new issue.
+            If you think this issue is still relevant, please reopen it or create a new issue.
           exempt-issue-labels-regex: "(?i).*replicable.*" # Problems that are waiting for resolution shouldn't be closed
 
           # --- PR settings ---
@@ -34,8 +34,8 @@ jobs:
           days-before-pr-close: -1 # Never auto-close PRs
           stale-pr-label: "Stale"
           stale-pr-message: >
-            This issue has been marked as stale due to 60 days of inactivity.
+            This pull request has been marked as stale due to the lack of activity within the last 60 days.
             If you are still working on this, please push your work or leave a comment.
-            PRs marked as stale won't be auto-closed but are at the discretion of staff to be closed at any point.
+            Pull requests marked as stale won't be auto-closed but are at the discretion of staff to be closed at any point without further notice.
           exempt-pr-labels-regex: "(?i).*discussion.*" # Match any label containing "discussion"
           # Draft PRs are not exempted from getting marked as stale
