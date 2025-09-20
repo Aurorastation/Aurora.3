@@ -22,7 +22,7 @@ jobs:
           stale-issue-label: "Stale"
           stale-issue-message: >
             This issue has been marked as stale due to the lack of activity within the last 60 days.
-            If you think the issue still is relevant, leave a comment or let the issue get labeled as replicable by staff.
+            If you think the issue is still relevant, leave a comment or let the issue get labeled as replicable by staff.
             If there is no further activity in the next 30 days, this issue will be closed automatically.
           close-issue-message: >
             This issue has been closed automatically after 90 days of inactivity.
