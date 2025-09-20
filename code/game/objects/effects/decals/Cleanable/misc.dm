@@ -119,6 +119,14 @@
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "molten"
 
+/obj/effect/decal/cleanable/molten_item/Initialize(mapload)
+	..()
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/effect/decal/cleanable/molten_item/LateInitialize()
+	. = ..()
+	SSpersistence.register_track(src, null)
+
 /obj/effect/decal/cleanable/tomato_smudge
 	name = "tomato smudge"
 	desc = "It's red."
