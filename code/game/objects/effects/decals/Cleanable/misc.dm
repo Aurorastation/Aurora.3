@@ -15,12 +15,21 @@
 	icon_state = "ash"
 	anchored = TRUE
 
+/obj/effect/decal/cleanable/ash/Initialize(mapload)
+	..()
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/effect/decal/cleanable/ash/LateInitialize()
+	. = ..()
+	SSpersistence.register_track(src, null)
+
 /obj/effect/decal/cleanable/ash/attack_hand(mob/user)
 	to_chat(user, SPAN_NOTICE("[src] sifts through your fingers."))
 	var/turf/simulated/floor/F = get_turf(src)
 	if (istype(F))
 		F.dirt += 4
 	qdel(src)
+	SSpersistency.deregister_track(src)
 
 /obj/effect/decal/cleanable/dirt
 	name = "dirt"
