@@ -329,7 +329,7 @@
 
 		//Wheelchair pushing goes here for now.
 		//TODO: Fuck wheelchairs.
-		if(istype(mob.pulledby, /obj/structure/bed/stool/chair/office/wheelchair) || istype(mob.pulledby, /obj/structure/janitorialcart) || istype(mob.pulledby, /obj/structure/engineeringcart))
+		if(istype(mob.pulledby, /obj/structure/bed/stool/chair/office/wheelchair) || istype(mob.pulledby, /obj/structure/cart))
 			var/obj/structure/S = mob.pulledby
 			move_delay += S.slowdown
 			return mob.pulledby.relaymove(mob, direct)
