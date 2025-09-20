@@ -160,3 +160,114 @@
   Timby:
   - imageadd: Adds a new debugger sprite more in-line with the server's art style.
   - imagedel: Removes the old debugger sprite.
+2025-09-13:
+  MattAtlas:
+  - bugfix: Fixed human-on-human melee damage with weapons being broken.
+  Mneme:
+  - bugfix: Fixed a bug blocking the ability to attach an IV to a patient in certain
+      situations.
+2025-09-14:
+  Kano:
+  - bugfix: Removed some rogue objects in the Horizon.
+  MattAtlas:
+  - bugfix: Fixes planted C4 and meteors being unclickable.
+2025-09-16:
+  ASmallCuteCat:
+  - rscadd: You can now recycle food items, not just produce, in the biogenerator.
+  - balance: To account for the extra things that can be recycled by the biogenerator,
+      the amount of points it produces has been roughly halved.
+  - qol: Added some glass doors to the Spark's cargo hold so that stuff doesn't fly
+      out of them as easily.
+  Baldos:
+  - rscadd: Added a Chameleon Armor-kit to the uplink, located in the Stealth and
+      Camouflage Items category.
+  Batrachophrenoboocosmomachia:
+  - rscdel: Exoplanets can no longer spawn with any amount of phoron in their atmospheres.
+  - rscdel: Plants can no longer yield phoron as a product by mutation or random generation.
+  - balance: Spacevines event has more area types to potentially spawn in.
+  - balance: Spacevines event potency_min increased from 70 -> 85.
+  - balance: Comet Expulsion event chances slightly increased with greater weighting
+      towards Bridge Crew availability.
+  - balance: Comet Expulsion event now generates many overmap hazards, mostly in random
+      directions, to make evasion less trivial.
+  - balance: Comet Expulsion event meteors now have a small chance to do greater damage.
+  - balance: Horizon and other overmap visitable sites minimum spawn distance from
+      overmap edge increased from 2 to 4.
+  - qol: Provided additional admin logging for Comet Expulsion event.
+  Ben10083:
+  - refactor: Adds Inflation.... by refactoring cargo pricing code to properly adjust
+      prices based on category and supplier price modifiers.
+  - rscadd: Adds Corporate Aide outfits for each megacorporation.
+  - imageadd: Adds missing job HUD sprites for consular and liason aide/bodyguards.
+  - spellcheck: Fixes typo of corporate liason HUD sprite.
+  - balance: Further tweaks to Crescent Expanse cargo prices.
+  - balance: Updates sector variables for Liberty's Cradle, in accordance with lore.
+  - refactor: Xanu is now a child of the Liberty's Cradle sector datum. inheriting
+      values such as cargo prices.
+  Crozarius:
+  - qol: Updates the loadout name of the new koko cigarettes.
+  FabianK3:
+  - rscadd: Added multiple types of trash to the persistence system. Trash will become
+      persistent when it's dropped unless it's in a maint, in the custodial areas
+      (including disposal/compactor) or gets picked up again. Persistent trash can
+      be found up to three days later.
+  FlamingLily:
+  - balance: Enables all uplink-using antags to create fake manifest entries for themselves.
+      Adds a 4BC cost to the item, as well.
+  - rscadd: Adds a bottle of ambrosia extract to the loadout.
+  FlyBrokenWings:
+  - rscadd: A new layout for Xenoarchaeology. Adds a presentation and gas storage
+      room and the areas needed for them. Plus a grate in white.
+  - rscdel: Anomaly harvesting with presentation. Harvesting consolidated into chambers
+      B and C.
+  - balance: Gives Xenoarchaeology a xenofauna gun. Some things spawn space bears,
+      hivebots and what-not. If xenobiology can have one, why can't they? Some insulated
+      gloves too in case they need some weird setup for their emitter.
+  Greenjoe:
+  - rscadd: Added a box of candles to the loadout.
+  - rscadd: Adds a hearing aid case item, capable of holding a pair of hearing aids,
+      adding it to the hearing aid selection in the loadout.
+  Hellfirejag:
+  - rscadd: Examining a mech now provides clickable descriptions for its hardpoints,
+      which can be further examined to view the mechanics hints of its mounted equipment.
+  - rscadd: Circuit Imprinters now require a tiny amount of phoron for lining the
+      superconducting elements in the trace of all modern electronics.
+  - rscadd: Power cables also now require a tiny amount of phoron for enabling the
+      handling of ultra-high current required by modern starships.
+  - rscadd: Circuitboards can now be recycled.
+  - rscadd: Mech clamps now produce new sound effects while forcing open airlocks.
+  - rscadd: Mech clamps now break airlocks when forcing them open.
+  - bugfix: Fixed the mech-mounted riot smg not being able to change into burst fire.
+  - bugfix: Fixed mindblankers, auxiliary heart, and platelet factory implants not
+      working as intended.
+  Kano:
+  - balance: Tweaked freebooter ships' cost from 0.5 to 1.
+  Snowy1237:
+  - rscadd: Made the Aut'akh calf override augment toggleable.
+  TheGreyWolf:
+  - balance: Returned crates now only give 50 credits instead of 500 credits.
+  - rscadd: Moved around a lot of clothing from various lockers to the respective
+      drobes for the department.
+  - rscadd: A couple of taj religious outfits were added to the chaplain drobe.
+  - rscadd: Items can now be put back into the drobes.
+  - rscadd: Added a regular holopad to the operations lobby office.
+  - rscadd: Snoods now hide the wearer's face when pulled up.
+  - rscadd: Added the price scanner and crate scanner to hangar tech lockers.
+  - rscdel: Removed clothing items from hangar tech lockers that was in the drobe.
+  - rscadd: Toolbelts can now hold the export scanner, price scanner, crate scanner
+      and quikpay.
+  - rscadd: Added the option to order an organ cooler through the cargo program.
+  TheGreyWolf, Noble Row:
+  - rscadd: The combat hardsuit now work for unathi, tajara and IPC too.
+  - rscadd: The hazard rig tech level was lowered, allowing it to be made at roundstart.
+  - rscadd: The hazard rig ballistic protection was buffed to be the same as the security
+      voidsuit.
+  UltraBigRat:
+  - rscadd: Adds most hardsuit modules to the uplink, adjusts some existing uplink
+      module names and descriptions.
+  meep109:
+  - balance: Makes skrell martial art dislocating move guaranteed dislocate, instead
+      of a chance-based dislocate
+2025-09-17:
+  FlyBrokenWings:
+  - rscadd: Adds a missing wire to Xenoarchaelogy.
