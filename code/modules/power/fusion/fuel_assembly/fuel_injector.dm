@@ -41,42 +41,21 @@
 		fusion.get_new_tag(user)
 		return
 
-	// I hate this I hate this I hate this.
-	if(istype(attacking_item, /obj/item/fuel_assembly) || istype(attacking_item, /obj/item/gripper))
+	if(istype(attacking_item, /obj/item/fuel_assembly))
 		if(injecting)
 			to_chat(user, SPAN_WARNING("Shut \the [src] off before playing with the fuel rod!"))
 			return
-		var/obj/item/gripper/gripper = attacking_item
-		var/obj/item/fuel_assembly/gripped_assembly = gripper.wrapped
-		to_chat(world, "gripper = [attacking_item]")
-		to_chat(world, "item = [gripped_assembly]")
-		if(istype(gripped_assembly))
-			attacking_item = gripped_assembly
-		if(ishuman(user) && !user.unEquip(attacking_item, 0, src))
-			return
-		else if(isrobot(user) && istype(gripped_assembly) && !gripper.drop(src, user, FALSE))
+		if(!user.unEquip(attacking_item, 0, src))
 			return
 		if(cur_assembly)
 			visible_message(SPAN_NOTICE("\The [user] swaps \the [src]'s [cur_assembly] for \a [attacking_item]."))
 		else
 			visible_message(SPAN_NOTICE("\The [user] inserts \a [attacking_item] into \the [src]."))
-		if(ishuman(user))
-			if(cur_assembly)
-				cur_assembly.dropInto(loc)
-				user.put_in_hands(cur_assembly)
-			cur_assembly = attacking_item
-			return
-		else if(isrobot(user))
-			if(istype(gripper))
-				if(cur_assembly)
-					cur_assembly.dropInto(loc)
-					cur_assembly = null
-					if(!gripped_assembly)
-						visible_message(SPAN_NOTICE("\The [user] removes \the [cur_assembly] from \the [src]."))
-				if(istype(gripped_assembly))
-					cur_assembly = gripped_assembly
-					gripper.drop(src, user, FALSE)
-			return
+		if(cur_assembly)
+			cur_assembly.dropInto(loc)
+			user.put_in_hands(cur_assembly)
+		cur_assembly = attacking_item
+		return
 
 	if(attacking_item.iswelder())
 		if(injecting)
