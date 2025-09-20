@@ -488,6 +488,29 @@
 	name = "anti-materiel FRAG cannon cartridge"
 	projectile_type = /obj/projectile/bullet/peac/shrapnel
 
+/obj/item/ammo_casing/peac/attack(mob/living/target_mob, mob/living/user, target_zone)
+	if(istype(target_mob, /mob/living/carbon/human))
+		var/mob/living/carbon/human/H = target_mob
+		if(user.Adjacent(H))
+			var/obj/item/gun/projectile/peac/G = null
+			var/obj/item/I = H.get_active_hand()
+			if(istype(I, /obj/item/gun/projectile/peac))
+				G = I
+			else
+				I = H.get_inactive_hand()
+				if(istype(I, /obj/item/gun/projectile/peac))
+					G = I
+			if(G && G.get_ammo() <= 0 && G.loaded.len < G.max_shells && G.caliber == caliber && src.loc == user)
+				user.remove_from_mob(src)
+				src.forceMove(G)
+				G.loaded.Insert(1, src)
+				user.visible_message("[user] loads [src] into [G] for [H].", SPAN_NOTICE("You load [src] into [G] for [H]."))
+				playsound(G.loc, src.reload_sound, 50, extrarange = SILENCED_SOUND_EXTRARANGE)
+				G.update_maptext()
+				G.update_icon()
+				return TRUE
+	return ..()
+
 /obj/item/ammo_casing/kumar_super
 	name =".599 kumar super casing"
 	icon_state = "rifle-casing"
