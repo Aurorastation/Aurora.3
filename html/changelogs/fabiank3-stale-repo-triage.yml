@@ -1,0 +1,6 @@
+author: FabianK3
+
+delete-after: True
+
+changes:
+  - code_imp: "Added a stale bot to the GitHub repository to handle inactive issues and pull requests."
