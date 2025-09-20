@@ -247,6 +247,13 @@
 	random_icon_states = list("gib1", "gib2", "gib3", "gib4", "gib5")
 	var/fleshcolor = "#FFFFFF"
 
+/obj/effect/decal/cleanable/blood/gibs/Initialize(mapload)
+	..()
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/effect/decal/cleanable/blood/gibs/LateInitialize()
+	. = ..()
+
 /obj/effect/decal/cleanable/blood/gibs/update_icon()
 
 	var/image/giblets = new(base_icon, "[icon_state]_flesh", dir)
