@@ -4,37 +4,37 @@
 /obj/effect/shuttle_landmark/trove/landing_01
 	name = "Beach Landing Zone 01"
 	landmark_tag = "nav_point_beach_01"
-	dir = 1
+	dir = NORTH
 
 /obj/effect/shuttle_landmark/trove/landing_02a
 	name = "Beach Landing Zone 02a"
 	landmark_tag = "nav_point_beach_02a"
-	dir = 2
+	dir = SOUTH
 
 /obj/effect/shuttle_landmark/trove/landing_02b
 	name = "Beach Landing Zone 02b"
 	landmark_tag = "nav_point_beach_02b"
-	dir = 4
+	dir = EAST
 
 /obj/effect/shuttle_landmark/trove/landing_02c
 	name = "Beach Landing Zone 02c"
 	landmark_tag = "nav_point_beach_02c"
-	dir = 1
+	dir = NORTH
 
 /obj/effect/shuttle_landmark/trove/landing_02d
 	name = "Beach Landing Zone 02d"
 	landmark_tag = "nav_point_beach_02d"
-	dir = 8
+	dir = WEST
 
 /obj/effect/shuttle_landmark/trove/landing_03
 	name = "Beach Landing Zone 03"
 	landmark_tag = "nav_point_beach_03"
-	dir = 4
+	dir = EAST
 
 /obj/effect/shuttle_landmark/trove/landing_04
 	name = "Beach Landing Zone 04"
 	landmark_tag = "nav_point_beach_04"
-	dir = 8
+	dir = WEST
 
 // Mapmanip
 // Hallways
