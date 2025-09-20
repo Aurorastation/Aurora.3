@@ -29,7 +29,7 @@
 	if (istype(F))
 		F.dirt += 4
 	qdel(src)
-	SSpersistency.deregister_track(src)
+	SSpersistence.deregister_track(src)
 
 /obj/effect/decal/cleanable/dirt
 	name = "dirt"
