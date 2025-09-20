@@ -200,11 +200,11 @@
 	// Let the particles inside the field react.
 	React()
 
-	var/field_strength_power_multiplier = max((owned_core.field_strength ** 1.045) / 100, 1)
+	var/field_strength_power_multiplier = max((owned_core.field_strength ** 1.035) / 100, 1)
 	// Dump power to our powernet.
 	owned_core.add_avail(FUSION_ENERGY_PER_K * plasma_temperature * field_strength_power_multiplier)
 
-	var/field_strength_entropy_multiplier = max(((min((owned_core.field_strength - 18), 2) ** 1.2) / 90), 3)
+	var/field_strength_entropy_multiplier = max(((min((owned_core.field_strength - 18), 2) ** 1.25) / 90), 3)
 	// Energy decay (entropy tax).
 	if(plasma_temperature >= 1)
 		var/lost = plasma_temperature * 0.005
@@ -244,7 +244,7 @@
  * document details later.
  */
 /obj/effect/fusion_em_field/proc/check_instability()
-	var/field_strength_instability_multiplier = max((owned_core.field_strength ** 1.25)/20, 1)
+	var/field_strength_instability_multiplier = max((owned_core.field_strength ** 1.125)/20, 1)
 	if(tick_instability > 0)
 		percent_unstable_archive = percent_unstable
 		// Apply any modifiers to instability imparted by current field strength, but only apply up to FUSION_INTEGRITY_RATE_LIMIT additional instability.
