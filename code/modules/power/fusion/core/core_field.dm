@@ -1,6 +1,6 @@
 #define FUSION_ENERGY_PER_K				10
 #define FUSION_INSTABILITY_DIVISOR		50000
-#define FUSION_RUPTURE_THRESHOLD		500000
+#define FUSION_RUPTURE_THRESHOLD		25000
 #define FUSION_REACTANT_CAP				10000
 #define FUSION_WARNING_DELAY 			20
 #define FUSION_BLACKBODY_MULTIPLIER		28
@@ -41,7 +41,7 @@
 	/// Radius of the EM field. Scales with Field Strength.
 	var/size = 1
 	var/tick_instability = 0
-	/// Ranges from 0-5. At or over 5, boom.
+	/// Ranges from 0-1. At or over 1, boom.
 	var/percent_unstable = 0
 	var/percent_unstable_archive = 0
 
@@ -204,6 +204,7 @@
 	// Dump power to our powernet.
 	owned_core.add_avail(FUSION_ENERGY_PER_K * plasma_temperature * field_strength_power_multiplier)
 
+	// Roundstart update
 	if(field_strength < 20)
 		field_strength = 20
 	var/field_strength_entropy_multiplier = max(((min((owned_core.field_strength - 18), 2) ** 1.25) / 90), 3)
@@ -225,7 +226,7 @@
 
 	check_instability()
 
-	if(percent_unstable > 2.5 && (percent_unstable >= percent_unstable_archive))
+	if(percent_unstable > 0.5 && (percent_unstable >= percent_unstable_archive))
 		if((world.timeofday - lastwarning) >= FUSION_WARNING_DELAY * 10)
 			warning()
 
@@ -257,29 +258,29 @@
 		if(percent_unstable < 0)
 			percent_unstable = 0
 		else
-			if(percent_unstable > 5)
-				percent_unstable = 5
+			if(percent_unstable > 1)
+				percent_unstable = 1
 			if(percent_unstable > 0)
 				percent_unstable = max(0, percent_unstable-rand(0.01,0.03))
 				UpdateVisuals()
 
-	if(percent_unstable >= 5)
+	if(percent_unstable >= 1)
 		owned_core.Shutdown(force_rupture=1)
 	else
-		if(percent_unstable > 4 && prob(percent_unstable*20))
+		if(percent_unstable > 0.5 && prob(percent_unstable*100))
 			var/ripple_radius = ((size-1) / 2) + WORLD_ICON_SIZE
 			var/wave_size = 4
-			if(plasma_temperature > FUSION_RUPTURE_THRESHOLD)
+			if(plasma_temperature < FUSION_RUPTURE_THRESHOLD)
 				visible_message(SPAN_DANGER("\The [src] ripples uneasily, like a disturbed pond."))
 			else
 				var/flare
 				var/fuel_loss
 				var/rupture
 				// Why the fuck are these less thans???
-				if(percent_unstable < 3)
+				if(percent_unstable < 0.7)
 					visible_message(SPAN_DANGER("\The [src] ripples uneasily, like a disturbed pond."))
 					fuel_loss = prob(5)
-				else if(percent_unstable < 4)
+				else if(percent_unstable < 0.9)
 					visible_message(SPAN_DANGER("\The [src] undulates violently, shedding plumes of plasma!"))
 					flare = prob(50)
 					fuel_loss = prob(20)
@@ -314,19 +315,19 @@
 	return
 
 /obj/effect/fusion_em_field/proc/warning()
-	var/unstable = round(percent_unstable * 20)
+	var/unstable = round(percent_unstable * 100)
 	var/alert_msg = " Instability at [unstable]%."
 
-	if(percent_unstable > 2.5)
+	if(percent_unstable > 0.5)
 		if(percent_unstable >= percent_unstable_archive)
-			if(percent_unstable < 3)
+			if(percent_unstable < 0.7)
 				alert_msg = warning_alert + alert_msg
 				lastwarning = world.timeofday
 				safe_warned = FALSE
-			else if(percent_unstable < 4)
+			else if(percent_unstable < 0.9)
 				alert_msg = emergency_alert + alert_msg
 				lastwarning = world.timeofday - FUSION_WARNING_DELAY * 4
-			else if(percent_unstable > 4.5)
+			else if(percent_unstable > 0.9)
 				lastwarning = world.timeofday - FUSION_WARNING_DELAY * 4
 				alert_msg = emergency_alert + alert_msg
 			else
@@ -342,7 +343,7 @@
 	if(alert_msg)
 		radio.autosay(alert_msg, "INDRA Reactor Monitor", "Engineering")
 
-		if((percent_unstable > 4.5) && !public_alert)
+		if((percent_unstable > 0.9) && !public_alert)
 			alert_msg = null
 			radio.autosay(emergency_alert, "INDRA Reactor Monitor")
 			public_alert = TRUE
@@ -423,7 +424,7 @@
 	plasma_temperature += a_plasma_temperature
 
 	if(a_energy && percent_unstable > 0)
-		percent_unstable = max((percent_unstable / 5.0) - (a_energy/10000), 0)
+		percent_unstable = max(percent_unstable - (a_energy/10000), 0)
 	while(energy >= 100)
 		energy -= 100
 		plasma_temperature += 1
