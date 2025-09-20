@@ -136,10 +136,19 @@
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "confetti"
 
+/obj/effect/decal/cleanable/confetti/Initialize(mapload)
+	..()
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/effect/decal/cleanable/confetti/LateInitialize()
+	. = ..()
+	SSpersistence.register_track(src, null)
+
 /obj/effect/decal/cleanable/confetti/attack_hand(mob/user)
 	to_chat(user, SPAN_NOTICE("You start to meticulously pick up the confetti."))
 	if(do_after(user, 6 SECONDS))
 		qdel(src)
+		SSpersistence.deregister_track(src)
 
 /obj/effect/decal/cleanable/acid_remnants
 	name = "acid remains"
