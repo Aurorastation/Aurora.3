@@ -204,6 +204,8 @@
 	// Dump power to our powernet.
 	owned_core.add_avail(FUSION_ENERGY_PER_K * plasma_temperature * field_strength_power_multiplier)
 
+	if(field_strength < 20)
+		field_strength = 20
 	var/field_strength_entropy_multiplier = max(((min((owned_core.field_strength - 18), 2) ** 1.25) / 90), 3)
 	// Energy decay (entropy tax).
 	if(plasma_temperature >= 1)
