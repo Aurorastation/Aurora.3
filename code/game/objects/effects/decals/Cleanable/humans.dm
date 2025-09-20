@@ -319,4 +319,24 @@
 	. = ..()
 	SSpersistence.register_track(src, null)
 
+/obj/effect/decal/cleanable/vomit
+	name = "vomit"
+	desc = "Gosh, how unpleasant."
+	gender = PLURAL
+	density = FALSE
+	anchored = TRUE
+	icon = 'icons/effects/blood.dmi'
+	icon_state = "vomit_1"
+	random_icon_states = list("vomit_1", "vomit_2", "vomit_3", "vomit_4")
+	var/list/viruses = list()
+
+/obj/effect/decal/cleanable/vomit/Initialize()
+	. = ..()
+	create_reagents(20, src)
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/effect/decal/cleanable/vomit/LateInitialize()
+	. = ..()
+	SSpersistence.register_track(src, null)
+
 #undef DRYING_TIME

@@ -94,22 +94,6 @@
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "molten"
 
-//Vomit (sorry)
-/obj/effect/decal/cleanable/vomit
-	name = "vomit"
-	desc = "Gosh, how unpleasant."
-	gender = PLURAL
-	density = FALSE
-	anchored = TRUE
-	icon = 'icons/effects/blood.dmi'
-	icon_state = "vomit_1"
-	random_icon_states = list("vomit_1", "vomit_2", "vomit_3", "vomit_4")
-	var/list/viruses = list()
-
-/obj/effect/decal/cleanable/vomit/Initialize()
-	. = ..()
-	create_reagents(20, src)
-
 /obj/effect/decal/cleanable/tomato_smudge
 	name = "tomato smudge"
 	desc = "It's red."
