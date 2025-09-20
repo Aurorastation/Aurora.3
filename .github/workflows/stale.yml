@@ -27,7 +27,7 @@ jobs:
           close-issue-message: >
             This issue has been closed automatically after 90 days of inactivity.
             If you still think this issue is still relevant, please reopen or create a new issue.
-          exempt-issue-labels: "✔️ Issue Replicable" # Problems that are waiting for resolution shouldn't be closed
+          exempt-issue-labels-regex: "(?i).*replicable.*" # Problems that are waiting for resolution shouldn't be closed
 
           # --- PR settings ---
           days-before-pr-stale: 60
