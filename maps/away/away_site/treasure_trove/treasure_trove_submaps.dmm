@@ -541,7 +541,9 @@
 	},
 /obj/random/dirt_75,
 /obj/item/material/caltrops,
-/turf/simulated/floor/exoplanet/basalt/cave,
+/turf/simulated/floor/exoplanet/asteroid/basalt/air{
+	temperature = 293.15
+	},
 /area/trove/tunnels)
 "iW" = (
 /obj/random/dirt_75,
@@ -568,6 +570,15 @@
 /obj/effect/spider/stickyweb,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
+"js" = (
+/obj/structure/platform{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/asteroid/basalt/air{
+	temperature = 293.15
+	},
 /area/trove/tunnels)
 "jN" = (
 /obj/random/dirt_75,
@@ -680,6 +691,15 @@
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
+"lt" = (
+/obj/structure/platform_deco/ledge,
+/obj/random/mine,
+/obj/effect/decal/cleanable/liquid_fuel,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/asteroid/basalt/air{
+	temperature = 293.15
+	},
 /area/trove/tunnels)
 "lA" = (
 /obj/random/dirt_75,
@@ -1242,6 +1262,11 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
+"uA" = (
+/obj/random/dirt_75,
+/obj/random/mine,
+/turf/simulated/floor/asphalt,
+/area/trove/tunnels)
 "uB" = (
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/acid_remnants,
@@ -1392,7 +1417,7 @@
 /obj/structure/ladder/up{
 	pixel_y = 13
 	},
-/turf/simulated/floor/exoplanet/asphalt,
+/turf/simulated/floor/asphalt,
 /area/trove/tunnels)
 "xU" = (
 /obj/structure/cable/green{
@@ -1569,6 +1594,15 @@
 /obj/structure/cable/green,
 /obj/structure/grille,
 /turf/simulated/floor/exoplanet/plating,
+/area/trove/tunnels)
+"AP" = (
+/obj/structure/platform{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/asteroid/basalt/air{
+	temperature = 293.15
+	},
 /area/trove/tunnels)
 "AQ" = (
 /obj/random/dirt_75,
@@ -2134,6 +2168,13 @@
 /obj/item/stack/dice,
 /turf/simulated/floor/carpet/purple,
 /area/trove/tunnels)
+"JJ" = (
+/obj/structure/platform,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/asteroid/basalt/air{
+	temperature = 293.15
+	},
+/area/trove/tunnels)
 "JR" = (
 /obj/structure/table/rack/folding_table,
 /obj/item/storage/belt/utility,
@@ -2308,6 +2349,17 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
+"LP" = (
+/obj/random/dirt_75,
+/obj/structure/platform_deco/ledge{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/ash,
+/turf/simulated/floor/exoplanet/asteroid/basalt/air{
+	temperature = 293.15
+	},
 /area/trove/tunnels)
 "LS" = (
 /obj/structure/barricade/metal/wired{
@@ -2640,9 +2692,27 @@
 /obj/item/melee/cultblade,
 /turf/simulated/floor/cult,
 /area/trove/tunnels)
+"RC" = (
+/obj/random/dirt_75,
+/obj/structure/platform,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/asteroid/basalt/air{
+	temperature = 293.15
+	},
+/area/trove/tunnels)
 "RH" = (
 /obj/item/tent,
 /turf/simulated/floor/exoplanet/asphalt,
+/area/trove/tunnels)
+"RI" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/platform{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/asteroid/basalt/air{
+	temperature = 293.15
+	},
 /area/trove/tunnels)
 "RK" = (
 /obj/machinery/door/airlock/hatch{
@@ -2723,6 +2793,16 @@
 /obj/structure/platform,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
+"Ub" = (
+/obj/random/dirt_75,
+/obj/structure/platform_deco/ledge{
+	dir = 8
+	},
+/obj/item/material/caltrops,
+/turf/simulated/floor/exoplanet/asteroid/basalt/air{
+	temperature = 293.15
+	},
 /area/trove/tunnels)
 "Ug" = (
 /obj/random/dirt_75,
@@ -2918,6 +2998,10 @@
 	id = "fun"
 	},
 /turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
+"Wm" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/asphalt,
 /area/trove/tunnels)
 "Wr" = (
 /obj/random/dirt_75,
@@ -23183,9 +23267,9 @@ xV
 xV
 fS
 fS
-ro
+js
 qB
-TM
+JJ
 MK
 MK
 MK
@@ -23336,8 +23420,8 @@ xV
 SC
 fS
 iU
-LO
-BU
+AP
+LP
 fS
 Ug
 MK
@@ -23941,11 +24025,11 @@ xV
 xV
 xV
 NW
-Ep
-Ep
-Ep
-Ju
-Ep
+Wm
+Wm
+Wm
+uA
+Wm
 MK
 xR
 MK
@@ -24551,9 +24635,9 @@ xV
 xV
 tb
 fS
-xi
-Wa
-op
+lt
+RI
+Ub
 fS
 Ug
 MK
@@ -24703,9 +24787,9 @@ xV
 xV
 fS
 fS
-ro
+js
 Zy
-nz
+RC
 MK
 MK
 MK
