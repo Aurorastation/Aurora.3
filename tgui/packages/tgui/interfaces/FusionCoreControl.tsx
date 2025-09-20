@@ -147,7 +147,7 @@ export const FusionCoreControl = (props, context) => {
                     <Section key={reactant.name}>
                       <Dimmer>
                         {capitalize(reactant.name)} (
-                        {round(reactant.amount, 0.1)}) particle flux
+                        {round(reactant.amount, 0.1)})
                       </Dimmer>
                     </Section>
                   ))
