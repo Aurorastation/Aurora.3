@@ -133,7 +133,10 @@
 	is_wieldable = TRUE
 
 	max_shells = 1
-	var/cooling_down = FALSE
+
+/obj/item/gun/projectile/peac/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "The PEAC can only be fired when wielded. Loading it is delayed by 5 seconds, which can be bypassed by having someone adjacent click on you with the ammo in their hand."
 
 /obj/item/gun/projectile/peac/update_icon()
 	..()
@@ -153,20 +156,37 @@
 /obj/item/gun/projectile/peac/unloaded
 	ammo_type = null
 
-/obj/item/gun/projectile/peac/Fire(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0, accuracy_decrease=0, is_offhand=0)
-	if(cooling_down)
-		to_chat(user, SPAN_WARNING("The capacitors of \the [src] are still cooling down!"))
-		return FALSE
-	var/ammo_before = get_ammo() //We check ammo so the cooldown doesn't trigger on dry firing
-	var/check = ..()
-	if(check == FALSE)
-		return FALSE
-	var/ammo_after = get_ammo()
-	if(ammo_after >= ammo_before)
-		return check
-	cooling_down = TRUE
-	playsound(src, 'sound/weapons/peac_recharge.ogg', 30, 1)
-	spawn(0)
-		sleep(9 SECONDS)
-		cooling_down = FALSE
-	return TRUE
+/obj/item/gun/projectile/peac/load_ammo(var/obj/item/A, mob/user)
+	if(!istype(A, /obj/item/ammo_casing))
+		return ..()
+	var/obj/item/ammo_casing/C = A
+	if(caliber != C.caliber)
+		to_chat(user,SPAN_WARNING("\The [C] does not fit."))
+		return
+	if(loaded.len >= max_shells)
+		to_chat(user,SPAN_WARNING("[src] is full."))
+		return
+
+	user.visible_message("[user] starts loading \a [C] into [src].", SPAN_NOTICE("You start loading \a [C] into [src]..."))
+	if(!do_after(user, 5 SECONDS, target = src))
+		to_chat(user, SPAN_WARNING("You stop loading \the [src]."))
+		return
+
+	if(loaded.len >= max_shells)
+		to_chat(user,SPAN_WARNING("[src] is full."))
+		return
+	if(!istype(C) || C.loc != user)
+		to_chat(user, SPAN_WARNING("You no longer have \a [C] to load."))
+		return
+	if(caliber != C.caliber)
+		to_chat(user,SPAN_WARNING("\The [C] does not fit."))
+		return
+
+	user.remove_from_mob(C)
+	C.forceMove(src)
+	loaded.Insert(1, C)
+	user.visible_message("[user] inserts \a [C] into [src].", SPAN_NOTICE("You insert \a [C] into [src]."))
+	playsound(src.loc, C.reload_sound, 50, extrarange = SILENCED_SOUND_EXTRARANGE)
+	update_maptext()
+	update_icon()
+	return

@@ -55,4 +55,4 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - balance: "Implemented a short cooldown to firing the PEAC to prevent rapid firing it."
+  - balance: "Implemented a delay to loading the PEAC. This delay can be bypassed by having someone else click on you with the ammo in their hand, performing an 'assisted reload'."
