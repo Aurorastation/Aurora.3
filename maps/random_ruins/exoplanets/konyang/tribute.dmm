@@ -254,7 +254,6 @@
 /area/space)
 "nh" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 8
 	},
@@ -323,7 +322,6 @@
 	density = 0
 	},
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
@@ -346,7 +344,6 @@
 /area/space)
 "qy" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 5
 	},
@@ -354,7 +351,6 @@
 /area/space)
 "ro" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 4
 	},
@@ -460,7 +456,6 @@
 /area/space)
 "vS" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 6
 	},
@@ -567,7 +562,6 @@
 /area/space)
 "CD" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 10
 	},
@@ -661,7 +655,6 @@
 	pixel_y = 19
 	},
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1
 	},
 /obj/structure/flora/rock/konyang/water,
@@ -669,7 +662,6 @@
 /area/space)
 "HJ" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 1
 	},
@@ -685,7 +677,6 @@
 /area/space)
 "Ib" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1
 	},
 /turf/simulated/floor/exoplanet/water/konyang,
@@ -771,7 +762,6 @@
 /area/space)
 "LD" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 9
 	},
