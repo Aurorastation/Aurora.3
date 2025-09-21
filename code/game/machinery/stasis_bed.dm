@@ -66,7 +66,7 @@
 
 	for(var/obj/item/stock_parts/P in component_parts)
 		if(isscanner(P))
-			scan_rating += P.rating
+			scanner_rating += P.rating
 		else if (iscapacitor(P))
 			capacitor_rating += P.rating
 
