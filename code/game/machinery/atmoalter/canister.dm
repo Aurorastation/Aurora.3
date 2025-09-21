@@ -257,6 +257,11 @@
 	icon_state = "whitebrs"
 	canister_color = "whitebrs"
 
+/obj/machinery/portable_atmospherics/canister/deuttrit
+	name = "\improper Fusion Reactor Cold Ignition Mix \[2H-3H\]"
+	icon_state = "whitebrs"
+	canister_color = "whitebrs"
+
 /obj/machinery/portable_atmospherics/canister/proc/check_change()
 	var/old_flag = update_flag
 	update_flag = 0
@@ -620,3 +625,8 @@ update_flag
 /obj/machinery/portable_atmospherics/canister/air/warm/Initialize()
 	. = ..()
 	src.air_contents.temperature = 303.15
+
+/obj/machinery/portable_atmospherics/canister/deuttrit/Initialize()
+	. = ..()
+	src.air_contents.adjust_gas(GAS_DEUTERIUM, MolesForPressure())
+	src.air_contents.adjust_gas(GAS_TRITIUM, MolesForPressure())
