@@ -1,0 +1,5 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - rscadd: "Stasis beds and stasis bags now have mechanics hints explaining what they do."
+  - rscadd: "Stasis beds can now be upgraded to provide more stasis."
