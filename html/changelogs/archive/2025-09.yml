@@ -271,3 +271,6 @@
 2025-09-17:
   FlyBrokenWings:
   - rscadd: Adds a missing wire to Xenoarchaelogy.
+2025-09-21:
+  MattAtlas:
+  - bugfix: Fixes hallucinations not processing on humans.
