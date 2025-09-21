@@ -2253,10 +2253,6 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
-/obj/item/holomenu{
-	menu_text = "test";
-	holo_text = "test"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/Starboard_docking_port)
 "kj" = (
@@ -6791,7 +6787,7 @@
 /obj/machinery/door/airlock/multi_tile/glass{
 	dir = 8;
 	name = "Mess Hall";
-	req_access = list (203)
+	req_access = list(203)
 	},
 /obj/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/corner/yellow{
@@ -9656,18 +9652,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/port_battery)
-"UJ" = (
-/obj/machinery/door/airlock/multi_tile/glass{
-	dir = 8;
-	name = "Mess Hall";
-	req_access = list(203)
-	},
-/obj/machinery/door/firedoor/noid,
-/obj/effect/floor_decal/corner/yellow{
-	dir = 9
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/hallway_fore)
 "UL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
@@ -42690,7 +42674,7 @@ HW
 af
 af
 af
-UJ
+GF
 AP
 lO
 jC
