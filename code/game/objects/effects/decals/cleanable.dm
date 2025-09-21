@@ -3,6 +3,7 @@
 	var/list/random_icon_states
 	var/swept_away
 	persistance_expiration_time_days = 7
+	var/persistence_type_requires_canon_round = FALSE
 
 /obj/effect/decal/cleanable/attack_hand(mob/user)
 	if(!swept_away && layer == DECAL_LAYER) // have to check layer otherwise more vars need to be added to determine whether it CAN be sweeped
@@ -55,3 +56,11 @@
 		var/area/A = get_area(T)
 		if(A && !(A.area_flags & AREA_FLAG_PREVENT_PERSISTENT_DIRT))
 			SSpersistence.register_track(src, null)
+
+/obj/effect/decal/cleanable/persistence_get_type()
+	SHOULD_NOT_OVERRIDE(TRUE)
+	// Some cleanable types are only to be made persistent in canon rounds, otherwise they get replaced with generic dirt
+	if(src.persistence_type_requires_canon_round && !is_current_round_canon())
+		return text2path("/obj/effect/decal/cleanable/generic")
+	else
+		return src.type
