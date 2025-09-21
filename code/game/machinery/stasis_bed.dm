@@ -44,6 +44,7 @@
 /obj/machinery/stasis_bed/upgrade_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Upgraded <b>scanning modules</b> increase the unit's stasis strength."
+	. += "Upgraded <b>capacitors</b> increase the unit's stasis strength."
 
 /obj/machinery/stasis_bed/Initialize(mapload, d, populate_components)
 	. = ..()
@@ -61,12 +62,15 @@
 /obj/machinery/stasis_bed/RefreshParts()
 	..()
 	var/scanner_rating = 0
+	var/capacitor_rating = 0
 
 	for(var/obj/item/stock_parts/P in component_parts)
 		if(isscanner(P))
 			scan_rating += P.rating
+		else if (iscapacitor(P))
+			capacitor_rating += P.rating
 
-	 stasis_power = initial(stasis_power) * scanner_rating / 2
+	 stasis_power = initial(stasis_power) * scanner_rating * capacitor_rating / 4
 
 /obj/machinery/stasis_bed/proc/play_power_sound()
 	var/_running = stasis_running()
