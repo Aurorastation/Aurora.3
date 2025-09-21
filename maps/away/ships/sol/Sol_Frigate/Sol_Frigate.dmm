@@ -2255,7 +2255,7 @@
 	},
 /obj/item/holomenu{
 	menu_text = "test";
-	holo_text = test
+	holo_text = "test"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/Starboard_docking_port)
