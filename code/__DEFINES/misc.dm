@@ -128,15 +128,16 @@
 #define DEFAULT_JOB_TYPE /datum/job/assistant
 
 //Area flags, possibly more to come
-#define AREA_FLAG_RAD_SHIELDED        	 BITFLAG(1) //shielded from radiation, clearly
-#define AREA_FLAG_SPAWN_ROOF          	 BITFLAG(2) // if we should attempt to spawn a roof above us.
-#define AREA_FLAG_HIDE_FROM_HOLOMAP   	 BITFLAG(3) // if we shouldn't be drawn on station holomaps
-#define AREA_FLAG_FIRING_RANGE        	 BITFLAG(4)
-#define AREA_FLAG_NO_CREW_EXPECTED    	 BITFLAG(5) // Areas where crew is not expected to ever be. Used to tell antag bases and such from crew-accessible areas on centcom level.
-#define AREA_FLAG_PRISON              	 BITFLAG(6) // Marks prison area for purposes of checking if brigged/imprisoned
-#define AREA_FLAG_NO_GHOST_TELEPORT_ACCESS BITFLAG(7) // Marks whether ghosts should not have teleport access to this area
-#define AREA_FLAG_INDESTRUCTIBLE_TURFS			 BITFLAG(8) //Marks whether or not turfs in this area can be destroyed by explosions
-#define AREA_FLAG_IS_BACKGROUND 		 BITFLAG(9) //Marks whether or not blueprints can create areas on top of this area
+#define AREA_FLAG_RAD_SHIELDED				BITFLAG(1)	// shielded from radiation, clearly
+#define AREA_FLAG_SPAWN_ROOF				BITFLAG(2)	// if we should attempt to spawn a roof above us.
+#define AREA_FLAG_HIDE_FROM_HOLOMAP			BITFLAG(3)	// if we shouldn't be drawn on station holomaps
+#define AREA_FLAG_FIRING_RANGE				BITFLAG(4)	// Area dedicated for firing pin logic
+#define AREA_FLAG_NO_CREW_EXPECTED			BITFLAG(5)	// Areas where crew is not expected to ever be. Used to tell antag bases and such from crew-accessible areas on centcom level.
+#define AREA_FLAG_PRISON					BITFLAG(6)	// Marks prison area for purposes of checking if brigged/imprisoned
+#define AREA_FLAG_NO_GHOST_TELEPORT_ACCESS	BITFLAG(7)	// Marks whether ghosts should not have teleport access to this area
+#define AREA_FLAG_INDESTRUCTIBLE_TURFS		BITFLAG(8)	// Marks whether or not turfs in this area can be destroyed by explosions
+#define AREA_FLAG_IS_BACKGROUND				BITFLAG(9)	// Marks whether or not blueprints can create areas on top of this area
+#define AREA_FLAG_PREVENT_PERSISTENT_TRASH	BITFLAG(10)	// Marks whether or not the area allows trash to become persistent in it
 
 // Convoluted setup so defines can be supplied by Bay12 main server compile script.
 // Should still work fine for people jamming the icons into their repo.
@@ -451,7 +452,8 @@ example:
 #define TEMPLATE_FLAG_PORT_SPAWN       BITFLAG(5)
 
 //Ruin map template flags
-/// Ruin is not available during spawning unless another ruin permits it, or whitelisted by the exoplanet
+/// Ruin is not available during spawning unless another ruin permits it, whitelisted by the exoplanet or tied to an external subsystem like Odyssey gamemode.
+/// This should also be added to Odssey maps.
 #define TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED BITFLAG(6)
 
 #define LANDING_ZONE_RADIUS 15 // Used for autoplacing landmarks on exoplanets

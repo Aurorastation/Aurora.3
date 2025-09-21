@@ -1,14 +1,8 @@
-/obj/structure/janitorialcart
+/obj/structure/cart/storage/janitorialcart
 	name = "custodial cart"
 	desc = "The ultimate in custodial carts. Has space for water, mops, signs, trash bags, and more."
 	icon = 'icons/obj/janitor.dmi'
 	icon_state = "cart"
-	anchored = FALSE
-	density = TRUE
-	climbable = TRUE
-	atom_flags = ATOM_FLAG_OPEN_CONTAINER
-	build_amt = 15
-	slowdown = 0
 
 	var/amount_per_transfer_from_this = 5 //shit I dunno, adding this so syringes stop runtime erroring. --NeoFite
 	var/obj/item/storage/bag/trash/mybag = null
@@ -17,22 +11,15 @@
 	var/obj/item/device/lightreplacer/myreplacer = null
 	var/obj/structure/mopbucket/mybucket = null
 	var/signs = 0 //maximum capacity hardcoded below
-	var/has_items = FALSE //This is set true whenever the cart has anything loaded/mounted on it
-	var/driving
-	var/mob/living/pulling
 
-/obj/structure/janitorialcart/mechanics_hints(mob/user, distance, is_adjacent)
+/obj/structure/cart/storage/janitorialcart/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Click and drag a mop bucket onto the cart to mount it."
 	. += "ALT-Click with a mop to put it away; a normal click will wet it in the bucket."
 	. += "ALT-Click with a container, such as a bucket, to pour its contents into the mounted bucket. A normal click will toss it into the trash."
 	. += "You can use a light replacer, spraybottle (of space cleaner) and four wet-floor signs on the cart to store them."
 
-/obj/structure/janitorialcart/disassembly_hints(mob/user, distance, is_adjacent)
-	. += ..()
-	. += "An empty custodial cart can be taken apart with a <b>wrench</b> or a <b>welder</b>. Or a <b>plasma cutter</b>, if you're that hardcore."
-
-/obj/structure/janitorialcart/feedback_hints(mob/user, distance, is_adjacent)
+/obj/structure/cart/storage/janitorialcart/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if(distance <= 1)
 		if (mybucket)
@@ -44,7 +31,7 @@
 
 // Regular Variant
 // No trashbag and no light replacer, this is inside the custodian's locker.
-/obj/structure/janitorialcart/Initialize()
+/obj/structure/cart/storage/janitorialcart/Initialize()
 	. = ..()
 	mymop = new /obj/item/mop(src)
 	myspray = new /obj/item/reagent_containers/spray/cleaner(src)
@@ -58,7 +45,7 @@
 
 // Full Variant
 // Has everything.
-/obj/structure/janitorialcart/full/Initialize()
+/obj/structure/cart/storage/janitorialcart/full/Initialize()
 	. = ..()
 	mybag = new /obj/item/storage/bag/trash(src)
 	mymop = new /obj/item/mop(src)
@@ -74,7 +61,7 @@
 
 // Full with Water Variant
 // Has everything as well as water in the mop bucket.
-/obj/structure/janitorialcart/full/water/Initialize()
+/obj/structure/cart/storage/janitorialcart/full/water/Initialize()
 	. = ..()
 	mybag = new /obj/item/storage/bag/trash(src)
 	mymop = new /obj/item/mop(src)
@@ -89,12 +76,12 @@
 
 	update_icon()
 
-/obj/structure/janitorialcart/New()
+/obj/structure/cart/storage/janitorialcart/New()
 	..()
 	if(is_station_turf(get_turf(src)))
 		GLOB.janitorial_supplies |= src
 
-/obj/structure/janitorialcart/Destroy()
+/obj/structure/cart/storage/janitorialcart/Destroy()
 	if(src in GLOB.janitorial_supplies)
 		GLOB.janitorial_supplies -= src
 	QDEL_NULL(mybag)
@@ -104,10 +91,10 @@
 	QDEL_NULL(mybucket)
 	return ..()
 
-/obj/structure/janitorialcart/proc/get_short_status()
+/obj/structure/cart/storage/janitorialcart/proc/get_short_status()
 	return "Contents: [english_list(contents)]"
 
-/obj/structure/janitorialcart/mouse_drop_receive(atom/dropped, mob/user, params)
+/obj/structure/cart/storage/janitorialcart/mouse_drop_receive(atom/dropped, mob/user, params)
 	var/atom/movable/O = dropped
 	if (istype(O, /obj/structure/mopbucket) && !mybucket)
 		O.forceMove(src)
@@ -120,7 +107,7 @@
 //New Altclick functionality!
 //Altclick the cart with a mop to stow the mop away
 //Altclick the cart with a reagent container to pour things into the bucket without putting the bottle in trash
-/obj/structure/janitorialcart/AltClick()
+/obj/structure/cart/storage/janitorialcart/AltClick()
 	if(!usr || usr.stat || usr.lying || usr.restrained() || !Adjacent(usr))	return
 	var/obj/I = usr.get_active_hand()
 	if(istype(I, /obj/item/mop))
@@ -141,7 +128,7 @@
 		if (LR.store_broken)
 			return mybag.attackby(I, usr)
 
-/obj/structure/janitorialcart/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/cart/storage/janitorialcart/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/mop) || istype(attacking_item, /obj/item/reagent_containers/glass/rag) || istype(attacking_item, /obj/item/soap))
 		if (mybucket)
 			if(attacking_item.reagents.total_volume < attacking_item.reagents.maximum_volume)
@@ -205,28 +192,8 @@
 		return
 	..()
 
-/obj/structure/janitorialcart/proc/take_apart(var/mob/user = null, var/obj/I)
-	if(has_items)
-		spill()
-
-	if(user)
-
-		if(iswelder(I))
-			var/obj/item/welder = I
-			welder.play_tool_sound(get_turf(src), 50)
-
-		user.visible_message("<b>[user]</b> starts taking apart the [src]...", SPAN_NOTICE("You start disassembling the [src]..."))
-		if (!do_after(user, 30, do_flags = DO_DEFAULT & ~DO_USER_SAME_HAND))
-			return
-
-	dismantle()
-
-/obj/structure/janitorialcart/ex_act(severity)
-	spill(100 / severity)
-	..()
-
 //This is called if the cart is caught in an explosion, or destroyed by weapon fire
-/obj/structure/janitorialcart/proc/spill(var/chance = 100)
+/obj/structure/cart/storage/janitorialcart/spill(var/chance = 100)
 	var/turf/dropspot = get_turf(src)
 	if (mymop && prob(chance))
 		mymop.forceMove(dropspot)
@@ -267,11 +234,11 @@
 
 	update_icon()
 
-/obj/structure/janitorialcart/attack_hand(mob/user)
-	// ui_interact(user)
+/obj/structure/cart/storage/janitorialcart/attack_hand(mob/user)
+	ui_interact(user)
 	return
-/*
-/obj/structure/janitorialcart/ui_interact(var/mob/user, var/ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+
+/obj/structure/cart/storage/janitorialcart/ui_interact(var/mob/user, var/ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	var/data[0]
 	data["name"] = capitalize(name)
 	data["bag"] = mybag ? capitalize(mybag.name) : null
@@ -286,8 +253,8 @@
 		ui = new(user, src, ui_key, "janitorcart.tmpl", "Janitorial cart", 240, 160)
 		ui.set_initial_data(data)
 		ui.open()
-*/
-/obj/structure/janitorialcart/Topic(href, href_list)
+
+/obj/structure/cart/storage/janitorialcart/Topic(href, href_list)
 	if(!in_range(src, usr))
 		return
 	if(!isliving(usr))
@@ -335,7 +302,7 @@
 	update_icon()
 	updateUsrDialog()
 
-/obj/structure/janitorialcart/update_icon()
+/obj/structure/cart/storage/janitorialcart/update_icon()
 	ClearOverlays()
 	has_items = 0
 	if(mybucket)
@@ -361,83 +328,3 @@
 	if(signs)
 		AddOverlays("cart_sign[signs]")
 		has_items = 1
-
-//Shamelessly copied from wheelchair code
-/obj/structure/janitorialcart/relaymove(mob/living/user, direction)
-	. = ..()
-
-	if(user.stat || user.stunned || user.weakened || user.paralysis || user.lying || user.restrained())
-		if(user==pulling)
-			pulling = null
-			user.pulledby = null
-			to_chat(user, SPAN_WARNING("You lost your grip!"))
-		return
-	if(user.pulling && (user == pulling))
-		pulling = null
-		user.pulledby = null
-		return
-	if(pulling && (get_dist(src, pulling) > 1))
-		pulling = null
-		user.pulledby = null
-		if(user==pulling)
-			return
-	if(pulling && (get_dir(src.loc, pulling.loc) == direction))
-		to_chat(user, SPAN_WARNING("You cannot go there."))
-		return
-
-	driving = 1
-	var/turf/T = null
-	if(pulling)
-		T = pulling.loc
-		if(get_dist(src, pulling) >= 1)
-			step(pulling, get_dir(pulling.loc, src.loc))
-	step(src, direction)
-	set_dir(direction)
-	if(pulling)
-		if(pulling.loc == src.loc)
-			pulling.forceMove(T)
-		else
-			spawn(0)
-			if(get_dist(src, pulling) > 1)
-				pulling = null
-				user.pulledby = null
-			pulling.set_dir(get_dir(pulling, src))
-	driving = 0
-
-/obj/structure/janitorialcart/Move()
-	. = ..()
-	if (pulling && (get_dist(src, pulling) > 1))
-		pulling.pulledby = null
-		to_chat(pulling, SPAN_WARNING("You lost your grip!"))
-		pulling = null
-
-/obj/structure/janitorialcart/CtrlClick(var/mob/user)
-	if(in_range(src, user))
-		if(!ishuman(user))	return
-		if(!pulling)
-			pulling = user
-			user.pulledby = src
-			if(user.pulling)
-				user.stop_pulling()
-			user.set_dir(get_dir(user, src))
-			to_chat(user, "You grip \the [name]'s handles.")
-		else
-			to_chat(usr, "You let go of \the [name]'s handles.")
-			pulling.pulledby = null
-			pulling = null
-		return
-
-/obj/structure/janitorialcart/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(air_group || (height==0))
-		return TRUE
-	if(mover?.movement_type & PHASING)
-		return TRUE
-	if(istype(mover) && mover.pass_flags & PASSTABLE)
-		return TRUE
-	if(istype(mover, /mob/living) && mover == pulling)
-		return TRUE
-	else
-		if(istype(mover, /obj/projectile))
-			return prob(30)
-		else
-			return !density

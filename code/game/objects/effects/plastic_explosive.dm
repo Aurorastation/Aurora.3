@@ -6,6 +6,7 @@
 	icon_state = "plastic-explosive2"
 	anchored = TRUE
 	density = FALSE
+	mouse_opacity = MOUSE_OPACITY_ICON
 	var/obj/item/plastique/parent
 
 /obj/effect/plastic_explosive/feedback_hints(mob/user, distance, is_adjacent)

@@ -156,7 +156,7 @@
 		. += SPAN_NOTICE("It has the following hardpoints:")
 		for(var/hardpoint in hardpoints)
 			var/obj/item/I = hardpoints[hardpoint]
-			. += "- <b>[hardpoint]</b>: [istype(I) ? SPAN_NOTICE("<i>[I]</i>") : "nothing"]."
+			. += "- <b>[hardpoint]</b>: [istype(I) ? "<a href='byond://?src=[REF(src)];examine=[REF(I)]'>[I.name]</a>" : "nothing"]."
 	else
 		. += "It has <b>no visible hardpoints</b>."
 
@@ -174,23 +174,6 @@
 			if(4)
 				damage_string = SPAN_DANGER("destroyed")
 		. += "Its <b>[thing.name]</b> [thing.gender == PLURAL ? "are" : "is"] [damage_string]."
-
-/mob/living/heavy_vehicle/mechanics_hints(mob/user, distance, is_adjacent)
-	. += ..()
-	var/list/hardpoint_hints = list()
-	for(var/hardpoint in hardpoints)
-		var/obj/item/mecha_equipment/I = hardpoints[hardpoint]
-		if(!istype(I) || !length(I.module_hints))
-			continue
-		hardpoint_hints += "- <b>[hardpoint]</b>: [SPAN_NOTICE("<i>[I]</i>")]"
-		hardpoint_hints += I.relayed_mechanics_hints(user, distance, is_adjacent)
-
-	if(length(hardpoint_hints))
-		. += "Its hardpoints have the following mechanics:"
-		. += hardpoint_hints
-		return
-	// Mech has no hardpoints, let's teach them how to fix that instead.
-	. += "modules can be attached to a mech by clicking on the mech with a module in hand."
 
 /mob/living/heavy_vehicle/Topic(href,href_list[])
 	if (href_list["examine"])

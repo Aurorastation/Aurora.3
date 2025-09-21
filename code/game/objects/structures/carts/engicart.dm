@@ -1,27 +1,16 @@
-/obj/structure/engineeringcart
+/obj/structure/cart/storage/engineeringcart
 	name = "engineering cart"
 	desc = "A cart for your engineering-related storage needs."
 	icon = 'icons/obj/engicart.dmi'
 	icon_state = "cart"
-	anchored = FALSE
-	density = TRUE
-	climbable = TRUE
-	build_amt = 15
-	material = DEFAULT_TABLE_REINF_MATERIAL
-	slowdown = 0
-	var/has_items = FALSE
 
 	var/list/my_glass = list()
 	var/list/my_metal = list()
 	var/list/my_plasteel = list()
-	/// Used for displaying and handling radial menu. Collective list of every single item this object contains.
-	var/list/storage_contents = list()
 	var/obj/item/device/lightreplacer/my_lightreplacer = null
 	var/obj/item/storage/toolbox/mechanical/my_blue_toolbox = null
 	var/obj/item/storage/toolbox/electrical/my_yellow_toolbox = null
 	var/obj/item/storage/toolbox/emergency/my_red_toolbox = null
-	var/driving
-	var/mob/living/pulling
 	/// Amount of stacks the cart is capable to store.
 	var/stack_capacity = 2
 
@@ -35,19 +24,11 @@
 		/obj/item/storage/toolbox/emergency
 	))
 
-/obj/structure/engineeringcart/mechanics_hints(mob/user, distance, is_adjacent)
+/obj/structure/cart/storage/engineeringcart/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "You can use steel, plasteel, glass sheets, toolboxes and light replacers on the cart to store them."
-	. += "\
-		You can <b>CTRL-Click</b> to start dragging this cart. This object has a special dragging behaviour: when dragged, character's movement \
-		directs the cart and the character is subsequently pulled by it. \
-		"
 
-/obj/structure/engineeringcart/disassembly_hints(mob/user, distance, is_adjacent)
-	. += ..()
-	. += "An empty engineering cart can be taken apart with a <b>wrench</b> or a <b>welder</b>. Or a <b>plasma cutter</b>, if you're that hardcore."
-
-/obj/structure/engineeringcart/feedback_hints(mob/user, distance, is_adjacent)
+/obj/structure/cart/storage/engineeringcart/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if(distance <= 1)
 		if(locate(/obj/item/stack/material) in storage_contents)
@@ -75,7 +56,7 @@
 		else
 			. += "[icon2html(src, user)] There is no material in this cart!"
 
-/obj/structure/engineeringcart/proc/get_storage_contents_list()
+/obj/structure/cart/storage/engineeringcart/get_storage_contents_list()
 	storage_contents.Cut()
 	var/list/lists_to_check = list(
 		my_glass, my_metal, my_plasteel
@@ -90,7 +71,7 @@
 		if(O)
 			storage_contents += O
 
-/obj/structure/engineeringcart/Destroy()
+/obj/structure/cart/storage/engineeringcart/Destroy()
 	QDEL_NULL(my_glass)
 	QDEL_NULL(my_metal)
 	QDEL_NULL(my_plasteel)
@@ -100,7 +81,7 @@
 	QDEL_NULL(my_red_toolbox)
 	return ..()
 
-/obj/structure/engineeringcart/attackby(obj/item/attacking_item, mob/user)
+/obj/structure/cart/storage/engineeringcart/attackby(obj/item/attacking_item, mob/user)
 	if(is_type_in_typecache(attacking_item, allowed_types))
 		var/should_store = FALSE
 		var/storage_is_full = FALSE
@@ -171,28 +152,7 @@
 		return
 	..()
 
-// copied from janicart code
-/obj/structure/engineeringcart/proc/take_apart(var/mob/user = null, var/obj/I)
-	if(has_items)
-		spill()
-
-	if(user)
-
-		if(iswelder(I))
-			var/obj/item/welder = I
-			welder.play_tool_sound(get_turf(src), 50)
-
-		user.visible_message("<b>[user]</b> starts taking apart the [src]...", SPAN_NOTICE("You start disassembling the [src]..."))
-		if (!do_after(user, 30, do_flags = DO_DEFAULT & ~DO_USER_SAME_HAND))
-			return
-
-	dismantle()
-
-/obj/structure/engineeringcart/ex_act(severity)
-	spill(100 / severity)
-	..()
-
-/obj/structure/engineeringcart/proc/spill(var/chance = 100)
+/obj/structure/cart/storage/engineeringcart/spill(var/chance = 100)
 	var/turf/dropspot = get_turf(src)
 	if(LAZYLEN(my_glass) && prob(chance))
 		var/obj/item/stack/material/glass/G
@@ -243,7 +203,7 @@
 
 	update_icon()
 
-/obj/structure/engineeringcart/proc/handle_storing(var/attacking_item, var/mob/user, var/should_store, var/storage_is_full)
+/obj/structure/cart/storage/engineeringcart/handle_storing(var/attacking_item, var/mob/user, var/should_store, var/storage_is_full)
 	if(should_store)
 		user.drop_from_inventory(attacking_item, src)
 		get_storage_contents_list()
@@ -254,7 +214,7 @@
 	else
 		to_chat(user, SPAN_WARNING("You can't store this here!"))
 
-/obj/structure/engineeringcart/attack_hand(mob/user)
+/obj/structure/cart/storage/engineeringcart/attack_hand(mob/user)
 	if(!isliving(user))
 		return
 
@@ -309,7 +269,7 @@
 		else
 			to_chat(user, SPAN_WARNING("\The [chosen_item] is not in the cart anymore!"))
 
-/obj/structure/engineeringcart/update_icon()
+/obj/structure/cart/storage/engineeringcart/update_icon()
 	ClearOverlays()
 	has_items = FALSE
 	if(my_plasteel.len)
@@ -334,92 +294,9 @@
 		AddOverlays("cart_redtoolbox")
 		has_items = TRUE
 
+/obj/structure/cart/storage/engineeringcart/half_filled
 
-/// For future reference, this kind of pulling functions are dependant on a type-check in `mob_movement.dm` line:332
-/obj/structure/engineeringcart/relaymove(mob/living/user, direction)
-	. = ..()
-
-	if(user.stat || user.stunned || user.weakened || user.paralysis || user.lying || user.restrained())
-		if(user==pulling)
-			pulling = null
-			user.pulledby = null
-			to_chat(user, SPAN_WARNING("You lost your grip!"))
-		return
-	if(user.pulling && (user == pulling))
-		pulling = null
-		user.pulledby = null
-		return
-	if(pulling && (get_dist(src, pulling) > 1))
-		pulling = null
-		user.pulledby = null
-		if(user==pulling)
-			return
-	if(pulling && (get_dir(src.loc, pulling.loc) == direction))
-		to_chat(user, SPAN_WARNING("You cannot go there."))
-		return
-
-	driving = 1
-	var/turf/T = null
-	if(pulling)
-		T = pulling.loc
-		if(get_dist(src, pulling) >= 1)
-			step(pulling, get_dir(pulling.loc, src.loc))
-	step(src, direction)
-	set_dir(direction)
-	if(pulling)
-		if(pulling.loc == src.loc)
-			pulling.forceMove(T)
-		else
-			spawn(0)
-			if(get_dist(src, pulling) > 1)
-				pulling = null
-				user.pulledby = null
-			pulling.set_dir(get_dir(pulling, src))
-	driving = 0
-
-/obj/structure/engineeringcart/Move()
-	. = ..()
-	if (pulling && (get_dist(src, pulling) > 1))
-		pulling.pulledby = null
-		to_chat(pulling, SPAN_WARNING("You lost your grip!"))
-		pulling = null
-	if(has_gravity())
-		playsound(src, 'sound/effects/roll.ogg', 50, 1)
-
-/obj/structure/engineeringcart/CtrlClick(var/mob/user)
-	if(in_range(src, user))
-		if(!ishuman(user))	return
-		if(!pulling)
-			pulling = user
-			user.pulledby = src
-			if(user.pulling)
-				user.stop_pulling()
-			user.set_dir(get_dir(user, src))
-			to_chat(user, "You grip \the [name]'s handles.")
-		else
-			to_chat(usr, "You let go of \the [name]'s handles.")
-			pulling.pulledby = null
-			pulling = null
-		return
-
-/obj/structure/engineeringcart/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(air_group || (height==0))
-		return TRUE
-	if(mover?.movement_type & PHASING)
-		return TRUE
-	if(istype(mover) && mover.pass_flags & PASSTABLE)
-		return TRUE
-	if(istype(mover, /mob/living) && mover == pulling)
-		return TRUE
-	else
-		if(istype(mover, /obj/projectile))
-			return prob(30)
-		else
-			return !density
-
-/obj/structure/engineeringcart/half_filled
-
-/obj/structure/engineeringcart/half_filled/Initialize()
+/obj/structure/cart/storage/engineeringcart/half_filled/Initialize()
 	. = ..()
 	my_blue_toolbox = new /obj/item/storage/toolbox/mechanical(src)
 	my_yellow_toolbox = new /obj/item/storage/toolbox/electrical(src)
@@ -427,9 +304,9 @@
 	get_storage_contents_list()
 	update_icon()
 
-/obj/structure/engineeringcart/full
+/obj/structure/cart/storage/engineeringcart/full
 
-/obj/structure/engineeringcart/full/Initialize()
+/obj/structure/cart/storage/engineeringcart/full/Initialize()
 	. = ..()
 	my_lightreplacer = new /obj/item/device/lightreplacer(src)
 	my_blue_toolbox = new /obj/item/storage/toolbox/mechanical(src)
