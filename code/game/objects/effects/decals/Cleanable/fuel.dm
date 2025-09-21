@@ -28,7 +28,7 @@
 
 	if(!has_spread)
 		Spread()
-		SSpersistence.register_track(src, null)
+		try_make_persistent_dirt()
 	else
 		qdel(src)
 

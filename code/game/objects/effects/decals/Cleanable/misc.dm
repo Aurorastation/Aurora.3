@@ -21,7 +21,7 @@
 
 /obj/effect/decal/cleanable/ash/LateInitialize()
 	. = ..()
-	SSpersistence.register_track(src, null)
+	try_make_persistent_dirt()
 
 /obj/effect/decal/cleanable/ash/attack_hand(mob/user)
 	to_chat(user, SPAN_NOTICE("[src] sifts through your fingers."))
@@ -47,7 +47,7 @@
 
 /obj/effect/decal/cleanable/dirt/LateInitialize()
 	. = ..()
-	SSpersistence.register_track(src, null)
+	try_make_persistent_dirt()
 
 /obj/effect/decal/cleanable/flour
 	name = "flour"
@@ -64,7 +64,7 @@
 
 /obj/effect/decal/cleanable/flour/LateInitialize()
 	. = ..()
-	SSpersistence.register_track(src, null)
+	try_make_persistent_dirt()
 
 /obj/effect/decal/cleanable/greenglow
 	name = "glowing goo"
@@ -125,7 +125,7 @@
 
 /obj/effect/decal/cleanable/molten_item/LateInitialize()
 	. = ..()
-	SSpersistence.register_track(src, null)
+	try_make_persistent_dirt()
 
 /obj/effect/decal/cleanable/tomato_smudge
 	name = "tomato smudge"
@@ -141,7 +141,7 @@
 
 /obj/effect/decal/cleanable/tomato_smudge/LateInitialize()
 	. = ..()
-	SSpersistence.register_track(src, null)
+	try_make_persistent_dirt()
 
 /obj/effect/decal/cleanable/egg_smudge
 	name = "smashed egg"
@@ -157,7 +157,7 @@
 
 /obj/effect/decal/cleanable/egg_smudge/LateInitialize()
 	. = ..()
-	SSpersistence.register_track(src, null)
+	try_make_persistent_dirt()
 
 /obj/effect/decal/cleanable/pie_smudge
 	name = "smashed pie"
@@ -173,7 +173,7 @@
 
 /obj/effect/decal/cleanable/pie_smudge/LateInitialize()
 	. = ..()
-	SSpersistence.register_track(src, null)
+	try_make_persistent_dirt()
 
 /obj/effect/decal/cleanable/fruit_smudge
 	name = "smudge"
@@ -190,7 +190,7 @@
 
 /obj/effect/decal/cleanable/fruit_smudge/LateInitialize()
 	. = ..()
-	SSpersistence.register_track(src, null)
+	try_make_persistent_dirt()
 
 /obj/effect/decal/cleanable/confetti
 	name = "confetti"
@@ -207,7 +207,7 @@
 
 /obj/effect/decal/cleanable/confetti/LateInitialize()
 	. = ..()
-	SSpersistence.register_track(src, null)
+	try_make_persistent_dirt()
 
 /obj/effect/decal/cleanable/confetti/attack_hand(mob/user)
 	to_chat(user, SPAN_NOTICE("You start to meticulously pick up the confetti."))

@@ -51,7 +51,7 @@
 	. = ..()
 	if (dries)
 		animate(src, color = "#000000", time = drytime, loop = 0, flags = ANIMATION_RELATIVE)
-	SSpersistence.register_track(src, null)
+	try_make_persistent_dirt()
 
 /obj/effect/decal/cleanable/blood/persistence_get_content()
 	var/list/content = ..()
@@ -324,7 +324,7 @@
 
 /obj/effect/decal/cleanable/mucus/LateInitialize()
 	. = ..()
-	SSpersistence.register_track(src, null)
+	try_make_persistent_dirt()
 
 /obj/effect/decal/cleanable/vomit
 	name = "vomit"
@@ -344,6 +344,6 @@
 
 /obj/effect/decal/cleanable/vomit/LateInitialize()
 	. = ..()
-	SSpersistence.register_track(src, null)
+	try_make_persistent_dirt()
 
 #undef DRYING_TIME

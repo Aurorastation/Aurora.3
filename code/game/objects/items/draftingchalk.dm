@@ -18,7 +18,7 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/effect/decal/cleanable/draftingchalk/LateInitialize()
-	SSpersistence.register_track(src, null)
+	try_make_persistent_dirt()
 
 /obj/item/pen/drafting
 	name = "white drafting chalk"

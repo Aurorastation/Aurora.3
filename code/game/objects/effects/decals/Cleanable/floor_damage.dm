@@ -14,7 +14,7 @@
 
 /obj/effect/decal/cleanable/floor_damage/LateInitialize()
 	. = ..()
-	SSpersistence.register_track(src, null)
+	try_make_persistent_dirt()
 
 /obj/effect/decal/cleanable/floor_damage/rust
 	icon_state = "rust"
