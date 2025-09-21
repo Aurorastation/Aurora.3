@@ -149,11 +149,14 @@ SUBSYSTEM_DEF(tgui)
 		mob/user,
 		datum/src_object,
 		datum/tgui/ui)
+	to_world("<b>/datum/controller/subsystem/tgui/proc/try_update_ui([user],[src_object],[ui])</b>")
 	// Look up a UI if it wasn't passed
 	if(isnull(ui))
+		to_world("<b>isnull(ui)</b>")
 		ui = get_open_ui(user, src_object)
 	// Couldn't find a UI.
 	if(isnull(ui))
+		to_world("<b>isnull(ui)</b>")
 		return null
 	ui.process_status()
 	// UI ended up with the closed status
@@ -176,6 +179,7 @@ SUBSYSTEM_DEF(tgui)
  * return datum/tgui The found UI.
  */
 /datum/controller/subsystem/tgui/proc/get_open_ui(mob/user, datum/src_object)
+	to_world("<b>/datum/controller/subsystem/tgui/proc/get_open_ui([user],[src_object])</b>")
 	// No UIs opened for this src_object
 	if(!LAZYLEN(src_object?.open_uis))
 		return null

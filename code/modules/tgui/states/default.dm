@@ -13,13 +13,14 @@
 GLOBAL_DATUM_INIT(default_state, /datum/ui_state/default, new)
 
 /datum/ui_state/default/can_use_topic(src_object, mob/user)
-	LOG_DEBUG("/datum/ui_state/default/can_use_topic([src_object], [user])")
-	return user.default_can_use_topic(src_object) // Call the individual mob-overridden procs.
+	to_world("<b>/datum/ui_state/default/can_use_topic([src_object], [user])</b>")
+	return user?.default_can_use_topic(src_object) // Call the individual mob-overridden procs.
 
 /mob/proc/default_can_use_topic(src_object)
 	return UI_CLOSE // Don't allow interaction by default.
 
 /mob/living/default_can_use_topic(src_object)
+	to_world("<b>/mob/living/default_can_use_topic([src_object])</b>")
 	. = shared_ui_interaction(src_object)
 	if(. > UI_CLOSE && loc) //must not be in nullspace.
 		. = min(., shared_living_ui_distance(src_object)) // Check the distance...

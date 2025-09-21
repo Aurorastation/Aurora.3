@@ -950,6 +950,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 	if(!ui)
 		var/area_display_name = get_area_display_name(area)
 		ui = new(user, src, "Apc", "[area_display_name] - APC", 665, (isobserver(user) && check_rights(R_ADMIN, FALSE, user) || issilicon(user) || isstoryteller(user)) ? 540 : 480)
+		to_chat(world, "<b>CREATED UI DETAILS:</b> ")
 		ui.open()
 
 /obj/machinery/power/apc/proc/update()
