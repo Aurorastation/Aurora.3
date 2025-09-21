@@ -513,7 +513,7 @@
 		G.update_maptext()
 		G.update_icon()
 		return TRUE
-    ..()
+	..()
 
 /obj/item/ammo_casing/kumar_super
 	name =".599 kumar super casing"
