@@ -46,7 +46,7 @@
 	src.icon_state = content["icon_state"]
 	src.color = content["color"]
 
-/obj/effect/decal/cleanable/try_make_persistent_dirt()
+/obj/effect/decal/cleanable/proc/try_make_persistent_dirt()
 	SHOULD_NOT_OVERRIDE(TRUE)
 	PROTECTED_PROC(TRUE)
 	// Cleanables should become only persistent when they are not in an area flagged with AREA_FLAG_PREVENT_PERSISTENT_DIRT
