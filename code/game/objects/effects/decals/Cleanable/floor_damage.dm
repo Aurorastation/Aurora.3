@@ -7,6 +7,7 @@
 	icon = 'icons/turf/decals/damage.dmi'
 	icon_state = "rust"
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	persistence_type_requires_canon_round = TRUE
 
 /obj/effect/decal/cleanable/floor_damage/Initialize(mapload)
 	..()

@@ -7,6 +7,7 @@
 	layer = BLOOD_LAYER
 	anchored = 1
 	var/amount = 1
+	persistence_type_requires_canon_round = TRUE
 
 /obj/effect/decal/cleanable/liquid_fuel/Initialize(mapload, amt = 1, nologs = 0)
 	..()

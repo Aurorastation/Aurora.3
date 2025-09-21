@@ -21,6 +21,7 @@
 	var/drytime
 	var/dries = TRUE
 	var/bleed_time
+	persistence_type_requires_canon_round = TRUE
 
 /obj/effect/decal/cleanable/blood/Initialize(mapload)
 	..()
