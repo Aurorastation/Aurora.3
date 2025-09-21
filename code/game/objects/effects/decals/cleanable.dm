@@ -45,3 +45,13 @@
 	src.z = z
 	src.icon_state = content["icon_state"]
 	src.color = content["color"]
+
+/obj/effect/decal/cleanable/try_make_persistent_dirt()
+	SHOULD_NOT_OVERRIDE(TRUE)
+	PROTECTED_PROC(TRUE)
+	// Cleanables should become only persistent when they are not in an area flagged with AREA_FLAG_PREVENT_PERSISTENT_DIRT
+	var/turf/T = get_turf(src)
+	if(T)
+		var/area/A = get_area(T)
+		if(A && !(A.area_flags & AREA_FLAG_PREVENT_PERSISTENT_DIRT))
+			SSpersistence.register_track(src, null)
