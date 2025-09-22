@@ -12,7 +12,7 @@
 	has_off_keyboards = TRUE
 	can_pass_under = FALSE
 	light_power_on = 1
-	tgui_x = 1000
+	tgui_x = 400
 
 /obj/machinery/computer/fusion/core_control/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()

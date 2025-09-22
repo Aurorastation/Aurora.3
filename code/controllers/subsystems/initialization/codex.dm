@@ -148,17 +148,17 @@ SUBSYSTEM_DEF(codex)
 
 		if(fusion_reaction.p_react == fusion_reaction.s_react)
 			fusionReactionData["reactants"] += list(list(
-				name = fusion_reaction.p_react,
+				name = capitalize_first_letters(fusion_reaction.p_react),
 				amount = 2
 			))
 
 		else
 			fusionReactionData["reactants"] += list(list(
-				name = fusion_reaction.p_react,
+				name = capitalize_first_letters(fusion_reaction.p_react),
 				amount = 1
 			))
 			fusionReactionData["reactants"] += list(list(
-				name = fusion_reaction.s_react,
+				name = capitalize_first_letters(fusion_reaction.s_react),
 				amount = 1
 			))
 
@@ -173,7 +173,7 @@ SUBSYSTEM_DEF(codex)
 		fusionReactionData["products"] = list()
 		for(var/product in fusion_reaction.products)
 			fusionReactionData["products"] += list(list(
-				name = product,
+				name = capitalize_first_letters(product),
 				amount = fusion_reaction.products[product]
 			))
 

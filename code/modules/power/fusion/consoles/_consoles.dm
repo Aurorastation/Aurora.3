@@ -8,7 +8,7 @@
 	manufacturer = "hephaestus"
 	var/ui_template
 	var/initial_id_tag
-	/// The Core Control console uses a larger x value than Injector/Gyro Control.
+	/// The Core Control console will be using a larger x value than Injector/Gyro Control in future.
 	var/tgui_x = 400
 
 /obj/machinery/computer/fusion/Initialize()

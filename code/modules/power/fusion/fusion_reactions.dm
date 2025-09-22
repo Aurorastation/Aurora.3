@@ -10,7 +10,7 @@ GLOBAL_LIST(fusion_reactions)
 	/// Secondary reactant.
 	var/s_react = ""
 	/// This is the minimum energy to initiate a given reaction.
-	var/minimum_energy_level = 45000
+	var/minimum_energy_level = 40000
 	/// This is the minimum energy to continue a given reaction, once started. Used for halting energy-consuming reactions.
 	/// When not set, it will default to (minimum_energy_level * 0.8) to avoid tanking plasma temp in a single tick.
 	var/minimum_reaction_temperature
@@ -46,7 +46,7 @@ GLOBAL_LIST(fusion_reactions)
 	p_react = GAS_DEUTERIUM
 	s_react = GAS_TRITIUM
 	energy_consumption = 1
-	energy_production = 20
+	energy_production = 24
 	products = list(GAS_HELIUM = 1)
 	instability = 2
 	// deut-trit bad!!!
@@ -55,7 +55,7 @@ GLOBAL_LIST(fusion_reactions)
 	priority = 1
 
 /singleton/fusion_reaction/hydrogen_hydrogen
-	name = "hydrogen burning"
+	name = "Hydrogen Burning"
 	p_react = GAS_HYDROGEN
 	s_react = GAS_HYDROGEN
 	energy_consumption = 1
@@ -80,18 +80,18 @@ GLOBAL_LIST(fusion_reactions)
 	energy_production = 16
 	products = list(GAS_HYDROGEN = 2)
 	radiation = 32
-	instability = 1
+	instability = 1.8
 	priority = 10
 
 /singleton/fusion_reaction/helium_helium
-	name = "helium burning"
+	name = "Helium Burning"
 	p_react = GAS_HELIUM
 	s_react = GAS_HELIUM
 	energy_consumption = 3
 	energy_production = 18
 	products = list(GAS_DEUTERIUM = 2, GAS_HYDROGEN = 1)
 	radiation = 6
-	instability = 0.5
+	instability = 0.75
 	minimum_energy_level = 90000
 	priority = 12
 
@@ -106,14 +106,14 @@ GLOBAL_LIST(fusion_reactions)
 	priority = 13
 
 /singleton/fusion_reaction/beryllium7_decay
-	name = "beryllium-7 decay"
+	name = "Beryllium-7 Decay"
 	p_react = "beryllium-7"
 	s_react = "beryllium-7"
 	energy_consumption = 2
 	energy_production = 7
 	products = list("lithium" = 2)
 	radiation = 54
-	instability = 1
+	instability = 2.25
 	minimum_energy_level = 300000
 	priority = 15
 
@@ -124,7 +124,7 @@ GLOBAL_LIST(fusion_reactions)
 	energy_production = 5
 	products = list(GAS_DEUTERIUM = 1, GAS_HELIUM = 1)
 	radiation = 22
-	instability = 0.3
+	instability = 0.35
 	minimum_energy_level = 480000
 	priority = 16
 
@@ -135,7 +135,7 @@ GLOBAL_LIST(fusion_reactions)
 	energy_consumption = 1
 	energy_production = 2
 	radiation = 18
-	instability = 2
+	instability = 2.8
 	products = list(GAS_TRITIUM = 2)
 	minimum_energy_level = 2000000
 	priority = 30
@@ -152,7 +152,7 @@ GLOBAL_LIST(fusion_reactions)
 	priority = 17
 
 /singleton/fusion_reaction/boron8_decay
-	name = "boron-8 decay"
+	name = "Boron-8 Decay"
 	p_react = "boron-8"
 	s_react = "boron-8"
 	energy_consumption = 4
@@ -163,29 +163,29 @@ GLOBAL_LIST(fusion_reactions)
 	priority = 18
 
 /singleton/fusion_reaction/beryllium8_fission
-	name = "beryllium-8 fission branch A"
+	name = "Beryllium-8 Fission Branch A"
 	p_react = "beryllium-8"
 	s_react = "beryllium-8"
 	energy_consumption = 14
 	energy_production = 10
 	products = list(GAS_HELIUM = 2)
 	radiation = 36
-	instability = 3
+	instability = 5
 	priority = 19
 
 // This is just to delete lone beryllium-8 reactants that might get left over somehow
 /singleton/fusion_reaction/beryllium8_hydrogen
-	name = "beryllium-8 fission branch B"
+	name = "Beryllium-8 Fission Branch B"
 	p_react = "beryllium-8"
 	s_react = GAS_HYDROGEN
-	energy_consumption = 10
-	energy_production = 16
+	energy_consumption = 18
+	energy_production = 10
 	products = list(GAS_HELIUM = 2)
-	radiation = 36
+	radiation = 72
 	priority = 18
 
 /singleton/fusion_reaction/helium3_helium3
-	name = "helium-3 burning"
+	name = "Helium-3 Burning"
 	p_react = GAS_HELIUMFUEL
 	s_react = GAS_HELIUMFUEL
 	energy_consumption = 2
@@ -197,7 +197,7 @@ GLOBAL_LIST(fusion_reactions)
 
 // bad!!!
 /singleton/fusion_reaction/oxygen_oxygen
-	name = "oxygen burning"
+	name = "Oxygen Burning"
 	p_react = GAS_OXYGEN
 	s_react = GAS_OXYGEN
 	energy_consumption = 10
@@ -208,7 +208,7 @@ GLOBAL_LIST(fusion_reactions)
 
 // Iron poisoning
 /singleton/fusion_reaction/iron_poison
-	name = "iron poisoning"
+	name = "Iron Poisoning"
 	p_react = "iron"
 	s_react = "iron"
 	energy_consumption = 32
@@ -219,7 +219,7 @@ GLOBAL_LIST(fusion_reactions)
 
 // Gold poisoning
 /singleton/fusion_reaction/gold_poison
-	name = "gold poisoning"
+	name = "Gold Poisoning"
 	p_react = "gold"
 	s_react = "gold"
 	energy_consumption = 48
@@ -229,7 +229,7 @@ GLOBAL_LIST(fusion_reactions)
 	radiation = 96
 
 /singleton/fusion_reaction/iron_iron
-	name = "iron burning"
+	name = "Iron Burning"
 	p_react = "iron"
 	s_react = "iron"
 	// Much of the gold is going to be consumed to poison the reactor.
@@ -242,7 +242,7 @@ GLOBAL_LIST(fusion_reactions)
 	priority = 40
 
 /singleton/fusion_reaction/mhydrogen
-	name = "metallic hydrogen stabilization"
+	name = "Metallic Hydrogen Stabilization"
 	p_react = "metallic hydrogen"
 	p_react = "metallic hydrogen"
 	energy_consumption = 0
@@ -253,7 +253,7 @@ GLOBAL_LIST(fusion_reactions)
 	minimum_energy_level = 800000
 
 /singleton/fusion_reaction/iron_phoron
-	name = "phoron shot"
+	name = "Phoron Shot"
 	p_react = "iron"
 	s_react = GAS_PHORON
 	minimum_energy_level = 3000000

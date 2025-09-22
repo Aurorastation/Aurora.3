@@ -1,5 +1,5 @@
 import { useBackend, useLocalState } from '../backend';
-import { Flex, Input, LabeledList, Section } from '../components';
+import { Box, Flex, Input, LabeledList, Section } from '../components';
 import { NtosWindow } from '../layouts';
 
 export type CodexData = {
@@ -53,62 +53,72 @@ export const FusionCodex = (props, context) => {
               }}
               value={searchTerm}
             />
-          }
-        />
-        {data.reactions
-          .filter(
-            (reaction) =>
-              reaction.name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1
-          )
-          .map((reaction) => (
-            <Section title={reaction.name} key={reaction.name}>
-              <Flex>
-                <Flex.Item grow={1}>
-                  <Section title="Reactants">
-                    <LabeledList>
-                      {reaction.reactants.map((Reactant) => (
-                        <LabeledList.Item
-                          label={Reactant.name}
-                          key={Reactant.name}>
-                          {Reactant.amount ? Reactant.amount : 'None'}
+          }>
+          <Box m={2}>
+            <Section>
+              {data.reactions
+                .filter(
+                  (reaction) =>
+                    reaction.name
+                      .toLowerCase()
+                      .indexOf(searchTerm.toLowerCase()) > -1
+                )
+                .map((reaction) => (
+                  <Section title={reaction.name} key={reaction.name}>
+                    <Flex>
+                      <Flex.Item grow={1}>
+                        <Section title="Reactants">
+                          <LabeledList>
+                            {reaction.reactants.map((Reactant) => (
+                              <LabeledList.Item
+                                label={Reactant.name}
+                                key={Reactant.name}>
+                                {Reactant.amount ? Reactant.amount : 'None'}
+                              </LabeledList.Item>
+                            ))}
+                          </LabeledList>
+                        </Section>
+                      </Flex.Item>
+                      <Flex.Item grow={1}>
+                        <Section title="Products">
+                          <LabeledList>
+                            {reaction.products.map((Product) => (
+                              <LabeledList.Item
+                                label={Product.name}
+                                key={Product.name}>
+                                {Product.amount}
+                              </LabeledList.Item>
+                            ))}
+                          </LabeledList>
+                        </Section>
+                      </Flex.Item>
+                    </Flex>
+                    <Section title="Properties">
+                      <LabeledList>
+                        <LabeledList.Item label="Minimum Temperature">
+                          {reaction.minimum_temp} K
                         </LabeledList.Item>
-                      ))}
-                    </LabeledList>
-                  </Section>
-                </Flex.Item>
-                <Flex.Item grow={1}>
-                  <Section title="Products">
-                    <LabeledList>
-                      {reaction.products.map((Product) => (
-                        <LabeledList.Item
-                          label={Product.name}
-                          key={Product.name}>
-                          {Product.amount}
+                        <LabeledList.Divider size={1} />
+                        <LabeledList.Item label="Relative Energy Consumption/Production">
+                          {reaction.energy_consumption} {' / '}
+                          {reaction.energy_production}
                         </LabeledList.Item>
-                      ))}
-                    </LabeledList>
+                        <LabeledList.Divider size={1} />
+                        <LabeledList.Item label="Radiation Coefficient">
+                          {reaction.radiation ? reaction.radiation : 'None'}
+                        </LabeledList.Item>
+                        <LabeledList.Divider size={1} />
+                        <LabeledList.Item label="Instability Coefficient">
+                          {reaction.instability ? reaction.instability : 'None'}
+                        </LabeledList.Item>
+                        <LabeledList.Divider size={1} />
+                      </LabeledList>
+                    </Section>
                   </Section>
-                </Flex.Item>
-              </Flex>
-              <Section title="Properties">
-                <LabeledList>
-                  <LabeledList.Item label="Minimum Temperature">
-                    {reaction.minimum_temp} K
-                  </LabeledList.Item>
-                  <LabeledList.Item label="Relative Energy Consumption/Production">
-                    {reaction.energy_consumption} {' / '}
-                    {reaction.energy_production}
-                  </LabeledList.Item>
-                  <LabeledList.Item label="Radiation Coefficient">
-                    {reaction.radiation ? reaction.radiation : 'None'}
-                  </LabeledList.Item>
-                  <LabeledList.Item label="Instability Coefficient">
-                    {reaction.instability ? reaction.instability : 'None'}
-                  </LabeledList.Item>
-                </LabeledList>
-              </Section>
+                ))}
             </Section>
-          ))}
+          </Box>
+        </Section>
       </NtosWindow.Content>
     </NtosWindow>
   );
