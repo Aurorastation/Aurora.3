@@ -3,4 +3,4 @@ author: FabianK3
 delete-after: True
 
 changes:
-  - bugfix: "Fixed missing APCs in the D3 fore bridge airlock, D3 stairwell and D3 holodeck maint. Slight shuffeling of affected areas."
+  - bugfix: "Added missing APCs to the D3 fore bridge airlock, D3 stairwell and D3 holodeck maint."
