@@ -135,6 +135,7 @@
 		material = SSmaterials.get_material_by_name(table_mat)
 	if(table_reinf)
 		reinforced = SSmaterials.get_material_by_name(table_reinf)
+		AddComponent(/datum/component/armor, list(MELEE = ARMOR_MELEE_KNIVES, BULLET = ARMOR_BALLISTIC_MINOR))
 
 	. = ..()
 
@@ -169,7 +170,6 @@
 		T.queue_icon_update()
 	return ..()
 
-//todomatt: make reinforced tables add armour
 /obj/structure/table/proc/reinforce_table(obj/item/stack/material/S, mob/user)
 	if(reinforced)
 		to_chat(user, SPAN_WARNING("\The [src] is already reinforced!"))
@@ -192,6 +192,7 @@
 		update_desc()
 		queue_icon_update()
 		update_material()
+		AddComponent(/datum/component/armor, list(MELEE = ARMOR_MELEE_KNIVES, BULLET = ARMOR_BALLISTIC_MINOR))
 
 /obj/structure/table/proc/update_desc()
 	if(material)

@@ -258,7 +258,7 @@
 			return FALSE
 	if(padding_material)
 		padding_material.place_sheet(get_turf(src))
-		..()
+	..()
 
 /obj/structure/bed/Move()
 	. = ..()

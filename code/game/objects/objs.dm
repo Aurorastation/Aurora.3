@@ -164,7 +164,7 @@
 	var/datum/component/armor/armor = GetComponent(/datum/component/armor)
 	if(armor)
 		var/blocked = armor.get_blocked(damage_type, damage_flags, armor_penetration, damage)
-		damage *= blocked
+		damage *= 1 - blocked
 
 	health = max(health - damage, 0)
 	update_health()

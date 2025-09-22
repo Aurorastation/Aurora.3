@@ -29,7 +29,7 @@
 	return FALSE
 
 /// You have to be at least this tall to ride... meaning, this is the minimum damage a weapon must be able to inflict to damage a structure.
-#define MINIMUM_DAMAGE_TO_HIT_STRUCTURES 15
+#define MINIMUM_DAMAGE_TO_HIT_STRUCTURES 10
 #define STRUCTURE_LOW_HEALTH 25
 #define STRUCTURE_NORMAL_HEALTH 50
 #define STRUCTURE_HIGH_HEALTH 100
