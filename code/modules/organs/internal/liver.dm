@@ -46,7 +46,7 @@
 	var/filter_effect_from_critical_toxin = 2
 
 	/// Modifier on how efficiently this liver eliminates booze.
-	var/booze_filtering_modifier = 1
+	var/booze_filtering_modifier = 0.03
 
 	/// How much the liver being bruised contributes to filter effect.
 	var/filter_effect_from_bruise = 1
@@ -55,7 +55,7 @@
 	var/filter_effect_from_broken = 2
 
 	/// Modifier on how efficiently this liver eliminates booze while blackout drunk.
-	var/blackout_booze_filtering_modifier = 0.5
+	var/blackout_booze_filtering_modifier = 0.015
 
 	/// Message to play in chat to a liver-haver when they have an infection.
 	var/infection_level_one_warning = "Your skin itches."
@@ -168,5 +168,35 @@
 	base_filter_strength = 1.5
 	base_filter_effect = 5
 	toxin_critical_mass = 90
-	booze_filtering_modifier = 100 // "Impossible to get drunk", this should make it impossible. :)
-	blackout_booze_filtering_modifier = 1
+	booze_filtering_modifier = 0.5 // "Impossible to get drunk", this should make it impossible. :)
+	blackout_booze_filtering_modifier = 0.25
+
+/obj/item/organ/internal/liver/alien_liver
+	name = "anomalous mercurial flesh"
+	desc = "A slab of flesh made seemingly from mercury, yet with a recognizably organic shape. It is soft to the touch, pliable like skin, yet is as tough as steel."
+	icon = 'icons/obj/organs/bioaugs.dmi'
+	icon_state = "alien_liver"
+	max_damage = 200
+	min_bruised_damage = 150
+	min_broken_damage = 175
+
+/obj/item/organ/internal/liver/alien_liver/Initialize()
+	. = ..()
+	base_filter_strength *= rand(0.5, 2)
+	base_filter_effect *= rand(0.5, 2)
+	// That negative bound is intentional.
+	// A negative filter effect value means dylovene will decrease the liver effectiveness.
+	filter_effect_from_dylovene *= rand(-2, 2)
+	intox_filter_bruised *= rand(0.5, 2)
+	intox_filter_broken *= rand(0.5, 2)
+	base_toxin_healing_rate *= rand(0.5, 2)
+	toxin_critical_mass *= rand(0.5, 2)
+	filter_effect_from_critical_toxin *= rand(0.5, 2)
+	booze_filtering_modifier *= rand(0, 10)
+	filter_effect_from_bruise *= rand(0.5, 2)
+	filter_effect_from_broken *= rand(0.5, 2)
+	blackout_booze_filtering_modifier *= rand(0, 10)
+	infection_level_one_warning = "Uncountable tiny metal scarabs dig into your flesh."
+	liver_regeneration_normal *= rand(0, 2)
+	liver_regeneration_bruised *= rand(0, 2)
+	liver_regeneration_broken = rand(0, 12)

@@ -710,7 +710,7 @@ This function completely restores a damaged organ to perfect condition.
 
 //Determines if we even need to process this organ.
 /obj/item/organ/external/proc/need_process()
-	if((status & ORGAN_ASSISTED) && surge_damage)
+	if(BP_IS_ROBOTIC(src) && surge_damage)
 		return TRUE
 	if(is_tesla && owner)
 		return TRUE

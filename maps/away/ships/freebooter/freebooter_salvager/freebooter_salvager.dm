@@ -11,8 +11,8 @@
 		list(ZTRAIT_AWAY = TRUE, ZTRAIT_UP = FALSE, ZTRAIT_DOWN = TRUE),
 	)
 
-	ship_cost = 0.5 // halved from 1 as this is a variation
-	spawn_weight = 0.5
+	ship_cost = 1
+	spawn_weight = 0.5 // halved from 1 as this is a variation
 
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/freebooter_salvager, /datum/shuttle/autodock/multi/lift/freebooter_salvager)
 	sectors = list(ALL_POSSIBLE_SECTORS)

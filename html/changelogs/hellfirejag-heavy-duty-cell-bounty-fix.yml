@@ -1,0 +1,4 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - rscadd: "Heavy-Duty power cells required for logistics bounties can now actually be made in protolathes without having to steal them from APCs."

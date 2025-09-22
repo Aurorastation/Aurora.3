@@ -61,6 +61,7 @@
 	cigarettes["Eriuyushi Sunset cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/federation
 	cigarettes["Xaqixal Dyn Fields cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/dyn
 	cigarettes["Natural Vysokan Soothsayer oracle cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/oracle
+	cigarettes["Ha'zana Corsair Afterburners cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/koko
 	gear_tweaks += new /datum/gear_tweak/path(cigarettes)
 
 /datum/gear/drugs_meds/chew
@@ -206,4 +207,5 @@
 	legal_rec["Snowflake pills"] = /obj/item/storage/pill_bottle/snowflake
 	legal_rec["Psilocybin pills"] = /obj/item/storage/pill_bottle/psilocybin
 	legal_rec["Wulumunusha extract bottle"] = /obj/item/reagent_containers/food/condiment/wulumunusha
+	legal_rec["Ambrosia extract bottle"] = /obj/item/reagent_containers/food/condiment/ambrosia
 	gear_tweaks += new /datum/gear_tweak/path(legal_rec)

@@ -105,6 +105,24 @@
 	icon_state = "ams"
 	organ_tag = BP_AUG_CALF_OVERRIDE
 	parent_organ = BP_GROIN
+	action_button_icon = "ams"
+	action_button_name = "Activate Calf Override"
+	cooldown = 30
+	var/online = FALSE
+	activable = TRUE
+
+/obj/item/organ/internal/augment/calf_override/attack_self(var/mob/user)
+	. = ..()
+
+	if(!.)
+		return FALSE
+
+	if(!online)
+		online = TRUE
+		to_chat(owner, SPAN_NOTICE("\The [src] activates!"))
+	else
+		online = FALSE
+		to_chat(owner, SPAN_NOTICE("\The [src] deactivates!"))
 
 /obj/item/organ/internal/augment/calf_override/proc/do_run_act()
 	owner.apply_damage(1, DAMAGE_BRUTE, BP_GROIN, armor_pen = 100)
@@ -187,7 +205,7 @@
 			return
 		owner.visible_message("<b>[user]'s</b> eyes clicks loudly as they focus ahead.", range = 3)
 
-	zoom(owner, 7, 7, FALSE, FALSE)
+	zoom(owner, 6, 7, FALSE, FALSE)
 
 /obj/item/organ/internal/augment/eye_flashlight
 	name = "eye flashlight"

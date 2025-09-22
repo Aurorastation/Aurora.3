@@ -456,7 +456,7 @@
 	display_name = "[name] plant"
 
 /// Creates a random seed. MAKE SURE THE LINE HAS DIVERGED BEFORE THIS IS CALLED.
-/datum/seed/proc/randomize(var/list/native_gases = list(GAS_OXYGEN, GAS_NITROGEN, GAS_CO2, GAS_PHORON, GAS_HYDROGEN))
+/datum/seed/proc/randomize(var/list/native_gases = list(GAS_OXYGEN, GAS_NITROGEN, GAS_CO2, GAS_HYDROGEN))
 	roundstart = FALSE
 	mysterious = TRUE
 
@@ -526,7 +526,6 @@
 			/singleton/reagent/drugs/mindbreaker,
 			/singleton/reagent/inaprovaline,
 			/singleton/reagent/peridaxon,
-			/singleton/reagent/toxin/phoron,
 			/singleton/reagent/toxin/plasticide,
 			/singleton/reagent/potassium,
 			/singleton/reagent/radium,
