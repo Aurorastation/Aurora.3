@@ -3021,7 +3021,7 @@
 	dir = 5
 	},
 /obj/machinery/vending/vendors{
-	req_access = sssssssssss
+	req_access = list(203)
 	},
 /obj/structure/cable/green{
 	d1 = 4;
