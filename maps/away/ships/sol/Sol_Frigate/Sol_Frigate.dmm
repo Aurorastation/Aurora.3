@@ -1031,6 +1031,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/safe_room)
+"eB" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, thrust compartment B"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/ship/Sol_Frigate/port_thrusters)
 "eC" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -1559,6 +1565,12 @@
 	temperature = 253.15
 	},
 /area/ship/Sol_Frigate/canteen)
+"gR" = (
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, secondary gunnery"
+	},
+/turf/template_noop,
+/area/space)
 "gW" = (
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/starboard_gunnery)
@@ -1839,6 +1851,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/canteen)
+"il" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, aft hallway"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/ship/Sol_Frigate/starboard_gunnery)
 "in" = (
 /obj/machinery/iff_beacon/name_change,
 /obj/effect/floor_decal/spline/plain/yellow{
@@ -2668,6 +2686,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/Starboard_docking_port)
+"mk" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, aft docks"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/ship/Sol_Frigate/engineering)
 "mn" = (
 /turf/simulated/wall/shuttle/raider,
 /area/ship/Sol_Frigate/canteen)
@@ -3077,6 +3101,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/starboard_gunnery)
+"nY" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, crew berths"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/ship/Sol_Frigate/bunks)
 "ob" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -3621,6 +3651,9 @@
 /area/ship/Sol_Frigate/freezer)
 "qp" = (
 /obj/structure/viewport,
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, main gunnery"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/port_battery)
 "qq" = (
@@ -4270,6 +4303,9 @@
 /area/ship/Sol_Frigate/starboard_thrusters)
 "tP" = (
 /obj/structure/sign/flag/mars,
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, midships hallway"
+	},
 /turf/simulated/wall/shuttle/raider,
 /area/ship/Sol_Frigate/hallway_mid)
 "tQ" = (
@@ -4280,6 +4316,10 @@
 	temperature = 253.15
 	},
 /area/ship/Sol_Frigate/crew_lounge)
+"tS" = (
+/obj/effect/landmark/entry_point/fore,
+/turf/simulated/floor/airless,
+/area/space)
 "tT" = (
 /obj/machinery/door/airlock/external{
 	dir = 4
@@ -4962,6 +5002,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/port_thrusters)
+"xl" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, primary gunnery"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/ship/Sol_Frigate/port_battery)
 "xy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
@@ -5069,6 +5115,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/sickbay)
+"ym" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, aft hallway"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/ship/Sol_Frigate/starboard_gunnery)
 "yo" = (
 /obj/effect/floor_decal/industrial/hatch,
 /obj/machinery/power/apc/east,
@@ -5640,6 +5692,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/port_battery)
+"AY" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, thrust compartment A"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/ship/Sol_Frigate/starboard_thrusters)
 "AZ" = (
 /obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock/shuttle{
@@ -6784,17 +6842,11 @@
 /turf/simulated/wall/shuttle/raider,
 /area/ship/Sol_Frigate/hallway_mid)
 "GF" = (
-/obj/machinery/door/airlock/multi_tile/glass{
-	dir = 8;
-	name = "Mess Hall";
-	req_access = list(203)
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, secondary gunnery"
 	},
-/obj/machinery/door/firedoor/noid,
-/obj/effect/floor_decal/corner/yellow{
-	dir = 9
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/hallway_fore)
+/turf/simulated/wall/shuttle/raider,
+/area/ship/Sol_Frigate/starboard_battery)
 "GG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -7163,6 +7215,12 @@
 /obj/item/hullbeacon/red,
 /turf/template_noop,
 /area/space)
+"Ij" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, mess hall"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/ship/Sol_Frigate/canteen)
 "In" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/cable{
@@ -8320,6 +8378,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/Exo_Bay)
+"Nx" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, brig"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/ship/Sol_Frigate/brig)
 "NA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -9320,10 +9384,16 @@
 	temperature = 253.15
 	},
 /area/ship/Sol_Frigate/crew_lounge)
+"Sw" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, galley"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/ship/Sol_Frigate/freezer)
 "SB" = (
 /obj/structure/table/wood,
-/obj/item/modular_computer/laptop/preset/civilian,
 /obj/structure/closet/walllocker/emerglocker/west,
+/obj/item/modular_computer/laptop,
 /turf/simulated/floor/wood,
 /area/ship/Sol_Frigate/captain_office)
 "SD" = (
@@ -9652,6 +9722,18 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/port_battery)
+"UJ" = (
+/obj/machinery/door/airlock/multi_tile/glass{
+	dir = 8;
+	name = "Mess Hall";
+	req_access = list(203)
+	},
+/obj/machinery/door/firedoor/noid,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/Sol_Frigate/hallway_fore)
 "UL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
@@ -9972,6 +10054,12 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/wood,
 /area/ship/Sol_Frigate/oquarters)
+"Wl" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, docks"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/ship/Sol_Frigate/Starboard_docking_port)
 "Wo" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
@@ -10003,6 +10091,18 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/Solfrig_shuttle)
+"Wr" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, medical"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/ship/Sol_Frigate/sickbay)
+"Wu" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, aft docks"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/ship/Sol_Frigate/engineering)
 "Wv" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -10111,6 +10211,12 @@
 "Xc" = (
 /turf/space,
 /area/space)
+"Xe" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, secondary docks"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/ship/Sol_Frigate/Port_docking_port)
 "Xf" = (
 /turf/simulated/wall/shuttle/raider,
 /area/ship/Sol_Frigate/port_battery)
@@ -39317,7 +39423,7 @@ MO
 mn
 mn
 mn
-mn
+Ij
 mn
 mn
 mn
@@ -39328,7 +39434,7 @@ Zs
 Zs
 Zs
 Zs
-Zs
+Sw
 Zs
 Zs
 Zs
@@ -40885,7 +40991,7 @@ eE
 eE
 eE
 eE
-eE
+GF
 eE
 eE
 eE
@@ -41334,7 +41440,7 @@ bI
 bI
 bI
 bI
-bI
+AY
 bI
 bI
 bI
@@ -41354,7 +41460,7 @@ MO
 MO
 MO
 Hv
-Hv
+Wl
 Hv
 Hv
 Hv
@@ -41408,7 +41514,7 @@ Oo
 Oo
 qi
 Ib
-MO
+gR
 MO
 MO
 MO
@@ -42374,7 +42480,7 @@ Vt
 Vt
 Mg
 Vt
-Vt
+il
 Mg
 Vt
 Vt
@@ -42674,7 +42780,7 @@ HW
 af
 af
 af
-GF
+UJ
 AP
 lO
 jC
@@ -44236,7 +44342,7 @@ ha
 aI
 ms
 Ol
-rZ
+tS
 rZ
 rZ
 rZ
@@ -44665,7 +44771,7 @@ MO
 MO
 SM
 SM
-SM
+mk
 SM
 SM
 WS
@@ -45696,7 +45802,7 @@ MO
 MO
 SM
 SM
-SM
+Wu
 SM
 SM
 SM
@@ -45758,7 +45864,7 @@ af
 af
 af
 af
-GF
+UJ
 Vn
 or
 jC
@@ -46228,7 +46334,7 @@ Zv
 Vt
 Vt
 Vt
-Vt
+ym
 Vt
 Vt
 Vt
@@ -47245,7 +47351,7 @@ Bg
 Bg
 Bg
 Bg
-Bg
+eB
 Bg
 Bg
 Bg
@@ -47261,7 +47367,7 @@ Qd
 rl
 SO
 SO
-SO
+Xe
 SO
 SO
 gh
@@ -47273,7 +47379,7 @@ MO
 cA
 cA
 cA
-cA
+Nx
 cA
 cA
 cA
@@ -47565,7 +47671,7 @@ Xf
 Xf
 Xf
 Xf
-Xf
+xl
 Xf
 Xf
 CX
@@ -49339,7 +49445,7 @@ Qd
 rl
 aW
 aW
-aW
+nY
 aW
 aW
 IT
@@ -49350,7 +49456,7 @@ IT
 IT
 EE
 EE
-EE
+Wr
 EE
 EE
 EE
