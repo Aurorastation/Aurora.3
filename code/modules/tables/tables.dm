@@ -31,8 +31,7 @@
 
 	var/list/connections = list("nw0", "ne0", "sw0", "se0")
 
-/obj/structure/table/condition_hints(mob/user, distance, is_adjacent)
-	. += ..()
+/obj/structure/table/get_damage_condition_hints(mob/user, distance, is_adjacent)
 	if(health < maxhealth)
 		switch(health / maxhealth)
 			if(0.0 to 0.5)

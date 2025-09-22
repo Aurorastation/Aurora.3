@@ -29,6 +29,7 @@
 	icon_state = "box"
 	item_state = "box"
 	contained_sprite = TRUE
+	maxhealth = 20
 	var/illustration = "writing"
 
 	// BubbleWrap - if set, can be folded (when empty) into a sheet of cardboard
@@ -37,19 +38,17 @@
 	///Boolean, if set, can be crushed into a trash item when empty
 	var/trash = null
 
-	var/maxHealth = 20	//health is already defined
 	use_sound = 'sound/items/storage/box.ogg'
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
 	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
 	var/chewable = TRUE
 
-/obj/item/storage/box/condition_hints(mob/user, distance, is_adjacent)
-	. += ..()
-	if (health < maxHealth)
-		if (health >= (maxHealth * 0.5))
-			. += SPAN_WARNING("It is slightly torn.")
+/obj/item/storage/box/get_damage_condition_hints(mob/user, distance, is_adjacent)
+	if (health < maxhealth)
+		if (health >= (maxhealth * 0.5))
+			. = SPAN_WARNING("It is slightly torn.")
 		else
-			. += SPAN_DANGER("It is full of tears and holes.")
+			. = SPAN_DANGER("It is full of tears and holes.")
 
 /obj/item/storage/box/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -60,7 +59,7 @@
 
 /obj/item/storage/box/Initialize()
 	. = ..()
-	health = maxHealth
+	health = maxhealth
 	if(illustration)
 		AddOverlays(illustration)
 

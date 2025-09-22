@@ -62,15 +62,6 @@
 
 	can_astar_pass = CANASTARPASS_ALWAYS_PROC
 
-/obj/machinery/door/condition_hints(mob/user, distance, is_adjacent)
-	. = ..()
-	if(src.health < src.maxhealth / 4)
-		. += SPAN_WARNING("\The [src] looks like it's about to break!")
-	else if(src.health < src.maxhealth / 2)
-		. += SPAN_WARNING("\The [src] looks seriously damaged!")
-	else if(src.health < src.maxhealth * 3/4)
-		. += SPAN_WARNING("\The [src] shows signs of damage!")
-
 /obj/machinery/door/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	if(damage >= 10)
 		visible_message(SPAN_DANGER("\The [user] smashes into the [src]!"))

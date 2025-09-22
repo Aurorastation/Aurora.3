@@ -21,16 +21,15 @@
 
 	can_astar_pass = CANASTARPASS_ALWAYS_PROC
 
-/obj/structure/railing/condition_hints(mob/user, distance, is_adjacent)
-	. += ..()
+/obj/structure/railing/get_damage_condition_hints(mob/user, distance, is_adjacent)
 	if (health < maxhealth)
 		switch(health / maxhealth)
 			if (0.0 to 0.5)
-				. += SPAN_WARNING("It looks severely damaged!")
+				. = SPAN_WARNING("It looks severely damaged!")
 			if (0.25 to 0.5)
-				. += SPAN_WARNING("It looks damaged!")
+				. = SPAN_WARNING("It looks damaged!")
 			if (0.5 to 1.0)
-				. += SPAN_NOTICE("It has a few scrapes and dents.")
+				. = SPAN_NOTICE("It has a few scrapes and dents.")
 
 /obj/structure/railing/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()

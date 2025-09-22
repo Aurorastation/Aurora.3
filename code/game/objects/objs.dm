@@ -174,6 +174,22 @@
 		on_death()
 	return TRUE
 
+/obj/condition_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(health < maxhealth)
+		. += get_damage_condition_hints(user, distance, is_adjacent)
+
+/**
+ * For custom damage condition hints. Some structures may want different ones than the default, like the cult crystal.
+ */
+/obj/proc/get_damage_condition_hints(mob/user, distance, is_adjacent)
+	if(health < maxhealth * 0.25)
+		. = SPAN_DANGER("\The [src] looks like it's about to break!")
+	else if(health < maxhealth * 0.5)
+		. = SPAN_ALERT("\The [src] looks seriously damaged!")
+	else if(health < maxhealth * 0.75)
+		. = "\The [src] shows signs of damage!"
+
 /**
  * This proc is called when object health changes. Use this to set custom states, do messages, etc.
  */

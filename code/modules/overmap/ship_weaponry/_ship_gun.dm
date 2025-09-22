@@ -33,25 +33,24 @@
 	. = ..()
 	AddComponent(/datum/component/armor, list(MELEE = ARMOR_MELEE_MAJOR, BULLET = ARMOR_BALLISTIC_RIFLE, LASER = ARMOR_LASER_MAJOR))
 
-/obj/machinery/ship_weapon/condition_hints(mob/user, distance, is_adjacent)
-	. += ..()
+/obj/machinery/ship_weapon/get_damage_condition_hints(mob/user, distance, is_adjacent)
 	var/ratio = (health / maxhealth) * 100
 	switch(ratio)
 		if(1 to 10)
-			. += SPAN_NOTICE("It looks to be in tip top shape apart from a few minor scratches and dings.")
+			. = SPAN_NOTICE("It looks to be in tip top shape apart from a few minor scratches and dings.")
 		if(10 to 20)
-			. += SPAN_ALERT("It has some kinks and bends here and there.")
+			. = SPAN_ALERT("It has some kinks and bends here and there.")
 		if(20 to 40)
-			. += SPAN_ALERT("It has a few holes through which you can see some machinery.")
+			. = SPAN_ALERT("It has a few holes through which you can see some machinery.")
 		if(40 to 60)
-			. += SPAN_WARNING("Some fairly important parts are missing... but it should work anyway.")
+			. = SPAN_WARNING("Some fairly important parts are missing... but it should work anyway.")
 		if(60 to 80)
-			. += SPAN_WARNING("It needs repairs direly. Both aiming and firing components are missing or broken. It has a lot of holes, too. It definitely wouldn't \
+			. = SPAN_WARNING("It needs repairs direly. Both aiming and firing components are missing or broken. It has a lot of holes, too. It definitely wouldn't \
 				pass inspection.")
 		if(90 to 100)
-			. += SPAN_DANGER("It's falling apart! Just touching it might make the whole thing collapse!")
+			. = SPAN_DANGER("It's falling apart! Just touching it might make the whole thing collapse!")
 		else //At roundstart, weapons start with 0 damage, so it'd be 0 / 1000 * 100 -> 0
-			. += SPAN_NOTICE("It looks to be in tip top shape and not damaged at all.")
+			. = SPAN_NOTICE("It looks to be in tip top shape and not damaged at all.")
 
 /obj/machinery/ship_weapon/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()

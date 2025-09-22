@@ -80,18 +80,15 @@
 
 	var/old_angle = 0
 
-/obj/machinery/porta_turret/condition_hints(mob/user, distance, is_adjacent)
-	. += ..()
-	if(!health)
-		. += SPAN_DANGER("\The [src] is destroyed!")
-	else if(health / maxhealth < 0.35)
-		. += SPAN_DANGER("\The [src] is critically damaged!")
+/obj/machinery/porta_turret/get_damage_condition_hints(mob/user, distance, is_adjacent)
+	if(health / maxhealth < 0.35)
+		. = SPAN_DANGER("\The [src] is critically damaged!")
 	else if(health / maxhealth < 0.6)
-		. += SPAN_ALERT("\The [src] is badly damaged!")
+		. = SPAN_ALERT("\The [src] is badly damaged!")
 	else if(health / maxhealth < 1)
-		. += SPAN_NOTICE("\The [src] is slightly damaged.")
+		. = SPAN_NOTICE("\The [src] is slightly damaged.")
 	else
-		. += "\The [src] is in perfect condition."
+		. = "\The [src] is in perfect condition."
 
 /obj/machinery/porta_turret/assembly_hints(mob/user, distance, is_adjacent)
 	. += ..()

@@ -34,27 +34,26 @@
 
 	atmos_canpass = CANPASS_PROC
 
-/obj/structure/window/condition_hints(mob/user, distance, is_adjacent)
-	. += ..()
+/obj/structure/window/get_damage_condition_hints(mob/user, distance, is_adjacent)
 	if(health == maxhealth)
-		. += SPAN_NOTICE("It looks fully intact.")
+		. = SPAN_NOTICE("It looks fully intact.")
 	else
 		var/perc = health / maxhealth
 		if(perc > 0.75)
-			. += SPAN_NOTICE("It has a few cracks.")
+			. = SPAN_NOTICE("It has a few cracks.")
 		else if(perc > 0.5)
-			. += SPAN_WARNING("It looks slightly damaged.")
+			. = SPAN_WARNING("It looks slightly damaged.")
 		else if(perc > 0.25)
-			. += SPAN_WARNING("It looks moderately damaged.")
+			. = SPAN_WARNING("It looks moderately damaged.")
 		else
-			. += SPAN_DANGER("It looks heavily damaged.")
+			. = SPAN_DANGER("It looks heavily damaged.")
 	if(silicate)
 		if (silicate < 30)
-			. += SPAN_NOTICE("It has a thin layer of silicate.")
+			. = SPAN_NOTICE("It has a thin layer of silicate.")
 		else if (silicate < 70)
-			. += SPAN_NOTICE("It is covered in silicate.")
+			. = SPAN_NOTICE("It is covered in silicate.")
 		else
-			. += SPAN_NOTICE("There is a thick layer of silicate covering it.")
+			. = SPAN_NOTICE("There is a thick layer of silicate covering it.")
 
 /obj/structure/window/proc/update_nearby_icons()
 	QUEUE_SMOOTH_NEIGHBORS(src)
