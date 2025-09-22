@@ -134,18 +134,34 @@ SUBSYSTEM_DEF(codex)
 /datum/controller/subsystem/codex/proc/generate_fusion_codex()
 	fusion_codex_data = list()
 	var/list/available_fusion_reactions = GET_SINGLETON_SUBTYPE_MAP(/singleton/fusion_reaction)
-	LOG_DEBUG("<b>length of available_fusion_reactions = [length(available_fusion_reactions)]</b>")
 	for (var/reaction_path in available_fusion_reactions)
 		var/singleton/fusion_reaction/fusion_reaction = GET_SINGLETON(reaction_path)
-		LOG_DEBUG("<b>[reaction_path]</b>")
 		var/list/fusionReactionData = list()
 
-		// Reactants (p,s)
-		fusionReactionData["reactants"] = list()
-		fusionReactionData["reactants"] += fusion_reaction.p_react
-		fusionReactionData["reactants"] += fusion_reaction.s_react
+		var/reaction_name = fusion_reaction.name
+		if(!reaction_name)
+			reaction_name = fusion_reaction.p_react + "-" + fusion_reaction.s_react
 
-		// Minimum temperature threshold
+		fusionReactionData["name"] = reaction_name
+
+		fusionReactionData["reactants"] = list()
+
+		if(fusion_reaction.p_react == fusion_reaction.s_react)
+			fusionReactionData["reactants"] += list(list(
+				name = fusion_reaction.p_react,
+				amount = 2
+			))
+
+		else
+			fusionReactionData["reactants"] += list(list(
+				name = fusion_reaction.p_react,
+				amount = 1
+			))
+			fusionReactionData["reactants"] += list(list(
+				name = fusion_reaction.s_react,
+				amount = 1
+			))
+
 		fusionReactionData["minimum_temp"] += fusion_reaction.minimum_energy_level
 
 		fusionReactionData["energy_consumption"] += fusion_reaction.energy_consumption
@@ -157,8 +173,8 @@ SUBSYSTEM_DEF(codex)
 		fusionReactionData["products"] = list()
 		for(var/product in fusion_reaction.products)
 			fusionReactionData["products"] += list(list(
-				name = fusion_reaction.products[1],
-				amount = fusion_reaction.products[2]
+				name = product,
+				amount = fusion_reaction.products[product]
 			))
 
 		fusion_codex_data += list(fusionReactionData)

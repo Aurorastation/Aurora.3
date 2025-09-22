@@ -1,0 +1,115 @@
+import { useBackend, useLocalState } from '../backend';
+import { Flex, Input, LabeledList, Section } from '../components';
+import { NtosWindow } from '../layouts';
+
+export type CodexData = {
+  reactions: Reaction[];
+};
+
+type Reaction = {
+  name: string;
+  reactants: Reactant[];
+  products: Product[];
+  minimum_temp: number;
+  energy_consumption: number;
+  energy_production: number;
+  radiation: number;
+  instability: number;
+};
+
+type Reactant = {
+  name: string;
+  amount: number;
+};
+
+type Product = {
+  name: string;
+  amount: number;
+};
+
+export const FusionCodex = (props, context) => {
+  const { act, data } = useBackend<CodexData>(context);
+  const [searchTerm, setSearchTerm] = useLocalState<string>(
+    context,
+    `searchTerm`,
+    ``
+  );
+
+  return (
+    <NtosWindow resizable>
+      <NtosWindow.Content scrollable>
+        <Section
+          title="Codex Search"
+          fitted
+          buttons={
+            <Input
+              autoFocus
+              autoSelect
+              placeholder="Search by name"
+              width="40vw"
+              maxLength={512}
+              onInput={(e, value) => {
+                setSearchTerm(value);
+              }}
+              value={searchTerm}
+            />
+          }
+        />
+        {data.reactions
+          .filter(
+            (reaction) =>
+              reaction.name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1
+          )
+          .map((reaction) => (
+            <Section title={reaction.name} key={reaction.name}>
+              <Flex>
+                <Flex.Item grow={1}>
+                  <Section title="Reactants">
+                    <LabeledList>
+                      {reaction.reactants.map((Reactant) => (
+                        <LabeledList.Item
+                          label={Reactant.name}
+                          key={Reactant.name}>
+                          {Reactant.amount ? Reactant.amount : 'None'}
+                        </LabeledList.Item>
+                      ))}
+                    </LabeledList>
+                  </Section>
+                </Flex.Item>
+                <Flex.Item grow={1}>
+                  <Section title="Products">
+                    <LabeledList>
+                      {reaction.products.map((Product) => (
+                        <LabeledList.Item
+                          label={Product.name}
+                          key={Product.name}>
+                          {Product.amount}
+                        </LabeledList.Item>
+                      ))}
+                    </LabeledList>
+                  </Section>
+                </Flex.Item>
+              </Flex>
+              <Section title="Properties">
+                <LabeledList>
+                  <LabeledList.Item label="Minimum Temperature">
+                    {reaction.minimum_temp} K
+                  </LabeledList.Item>
+                  <LabeledList.Item label="Relative Energy Consumption/Production">
+                    {reaction.energy_consumption} {' / '}
+                    {reaction.energy_production}
+                  </LabeledList.Item>
+                  <LabeledList.Item label="Radiation Coefficient">
+                    {reaction.radiation ? reaction.radiation : 'None'}
+                  </LabeledList.Item>
+                  <LabeledList.Item label="Instability Coefficient">
+                    {reaction.instability ? reaction.instability : 'None'}
+                  </LabeledList.Item>
+                </LabeledList>
+              </Section>
+            </Section>
+          ))}
+      </NtosWindow.Content>
+    </NtosWindow>
+  );
+};
