@@ -247,7 +247,7 @@
  * document details later.
  */
 /obj/effect/fusion_em_field/proc/check_instability()
-	var/field_strength_instability_multiplier = max((owned_core.field_strength ** 1.125)/20, 1)
+	var/field_strength_instability_multiplier = max((owned_core.field_strength ** 1.13)/20, 1)
 	if(tick_instability > 0)
 		percent_unstable_archive = percent_unstable
 		// Apply any modifiers to instability imparted by current field strength, but only apply up to FUSION_INTEGRITY_RATE_LIMIT additional instability.
@@ -261,7 +261,7 @@
 			if(percent_unstable > 1)
 				percent_unstable = 1
 			if(percent_unstable > 0)
-				percent_unstable = max(0, percent_unstable-rand(0.01,0.03))
+				percent_unstable = max(0, percent_unstable-rand(0.01,0.04))
 				UpdateVisuals()
 
 	if(percent_unstable >= 1)
@@ -381,7 +381,7 @@
 		return
 	visible_message(SPAN_DANGER("There's a violent few convulsions from \the [src] as gouts of plasma spill forth!"))
 	set_light(1, 0.1, "#ccccff", 15, 2)
-	empulse(get_turf(src), Ceil(plasma_temperature/100000), Ceil(plasma_temperature/30000))
+	empulse(get_turf(src), Ceil(plasma_temperature/1000000), Ceil(plasma_temperature/300000))
 	sleep(5)
 	RadiateAll()
 	sleep(45)
@@ -479,14 +479,8 @@
  *
  * After that, it'll return the air it stole this tick, just heated up.
  * The max temperature is capped so it can't be used for TEGs or shit.
- *
- * I don't know why radiation is set to 0 after that, because it means
- * that the INDRA is COMPLETELY radiation-free short of exploding it.
- *
- * Probably need to delete radiation = 0 after testing it doesn't generate
- * unreasonable amounts of rads with current values.
  */
-/obj/effect/fusion_em_field/proc/Radiate()
+/obj/effect/fusion_em_field/proc/Radiate(safe = TRUE)
 	if(istype(loc, /turf))
 		for(var/atom/movable/AM in range(max(1,FLOOR(size/2, 1)), loc))
 
@@ -502,7 +496,7 @@
 				continue
 
 			AM.visible_message(SPAN_DANGER("The field buckles visibly around \the [AM]!"))
-			tick_instability += rand(30,50)
+			tick_instability += rand(10,25)
 			AM.emp_act(EMP_LIGHT)
 
 	if(owned_core && owned_core.loc)

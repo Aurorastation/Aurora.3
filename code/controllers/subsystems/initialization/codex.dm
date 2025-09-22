@@ -4,12 +4,16 @@ SUBSYSTEM_DEF(codex)
 	flags = SS_NO_FIRE
 	init_order = INIT_ORDER_CODEX
 
-	/// List of cooking recipes, their result and ingredients.
+	/// List of cooking recipes and associated data.
 	var/list/cooking_codex_data = list()
 
+	/// List of chemistry/reagent reactions and associated data.
 	var/list/chemistry_codex_data = list()
 	var/list/chemistry_codex_ignored_reaction_path = list(/datum/chemical_reaction/slime)
 	var/list/chemistry_codex_ignored_result_path = list(/singleton/reagent/drink, /singleton/reagent/alcohol)
+
+	/// List of fusion reactions and associated data.
+	var/list/fusion_codex_data = list()
 
 /datum/controller/subsystem/codex/Initialize()
 	//We don't build the codex in fastboot, it's slow and kind of pointless for tests
@@ -19,19 +23,20 @@ SUBSYSTEM_DEF(codex)
 	else
 		generate_cooking_codex()
 		generate_chemistry_codex()
-		log_subsystem_codex("SScodex: [length(cooking_codex_data)] cooking recipes; [length(chemistry_codex_data)] chemistry recipes.")
+		generate_fusion_codex()
+		log_subsystem_codex("SScodex: [length(cooking_codex_data)] cooking recipes; [length(chemistry_codex_data)] chemistry recipes; [length(fusion_codex_data)] fusion recipes;")
 
 	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/codex/proc/generate_cooking_codex()
 	var/list/available_recipes = GET_SINGLETON_SUBTYPE_MAP(/singleton/recipe)
-	for (var/recipe_path in available_recipes)
-		var/singleton/recipe/recipe = GET_SINGLETON(recipe_path)
-		var/list/recipe_data = list()
+	for (var/reaction_path in available_recipes)
+		var/singleton/recipe/recipe = GET_SINGLETON(reaction_path)
+		var/list/cookingRecipeData = list()
 
 		// result
 		var/obj/item/recipe_result = recipe.result
-		recipe_data["result"] = initial(recipe_result.name)
+		cookingRecipeData["result"] = initial(recipe_result.name)
 
 		// result image
 		var/icon/result_icon = icon(
@@ -39,42 +44,42 @@ SUBSYSTEM_DEF(codex)
 			icon_state=initial(recipe_result.icon_state),
 			frame=1,
 			)
-		recipe_data["result_image"] = icon2base64(result_icon)
+		cookingRecipeData["result_image"] = icon2base64(result_icon)
 
 		// ingredients
-		recipe_data["ingredients"] = list()
+		cookingRecipeData["ingredients"] = list()
 
 		// ingredients, items
 		if(recipe.items)
 			for(var/ingredient_path in recipe.items)
 				var/obj/item/ingredient = ingredient_path
-				recipe_data["ingredients"] += initial(ingredient.name)
+				cookingRecipeData["ingredients"] += initial(ingredient.name)
 
 		// ingredients, fruits
 		if(recipe.fruit)
 			for(var/fruit_name in recipe.fruit)
 				var/count = recipe.fruit[fruit_name]
-				recipe_data["ingredients"] += "[count]x [fruit_name]"
+				cookingRecipeData["ingredients"] += "[count]x [fruit_name]"
 
 		// ingredients, reagents
 		if(recipe.reagents)
 			for(var/reagent_path in recipe.reagents)
 				var/count = recipe.reagents[reagent_path]
 				var/singleton/reagent/reagent = GET_SINGLETON(reagent_path)
-				recipe_data["ingredients"] += "[count]u [reagent.name]"
+				cookingRecipeData["ingredients"] += "[count]u [reagent.name]"
 
 		// coating
 		if(recipe.coating)
 			var/singleton/reagent/reagent = GET_SINGLETON(recipe.coating)
-			recipe_data["ingredients"] += "[reagent.name] coating"
+			cookingRecipeData["ingredients"] += "[reagent.name] coating"
 
 		// kitchen appliance
 		if(recipe.appliance)
-			recipe_data["appliances"] = recipe.get_appliance_names()
+			cookingRecipeData["appliances"] = recipe.get_appliance_names()
 
 		// fin
-		recipe_data["ingredients"] = english_list(recipe_data["ingredients"])
-		cooking_codex_data += list(recipe_data)
+		cookingRecipeData["ingredients"] = english_list(cookingRecipeData["ingredients"])
+		cooking_codex_data += list(cookingRecipeData)
 
 /datum/controller/subsystem/codex/proc/generate_chemistry_codex()
 	chemistry_codex_data = list()
@@ -87,40 +92,73 @@ SUBSYSTEM_DEF(codex)
 		if(chemistry_codex_ignored_result_path && is_path_in_list(CR.result, chemistry_codex_ignored_result_path))
 			continue
 		var/singleton/reagent/R = GET_SINGLETON(CR.result)
-		var/reactionData = list(id = CR.id)
-		reactionData["result"] = list(
+		var/chemistryReactionData = list(id = CR.id)
+		chemistryReactionData["result"] = list(
 			name = R.name,
 			description = R.description,
 			amount = CR.result_amount
 		)
 
-		reactionData["reagents"] = list()
+		chemistryReactionData["reagents"] = list()
 		for(var/reagent in CR.required_reagents)
 			var/singleton/reagent/required_reagent = reagent
-			reactionData["reagents"] += list(list(
+			chemistryReactionData["reagents"] += list(list(
 				name = initial(required_reagent.name),
 				amount = CR.required_reagents[reagent]
 			))
 
-		reactionData["catalysts"] = list()
+		chemistryReactionData["catalysts"] = list()
 		for(var/reagent_path in CR.catalysts)
 			var/singleton/reagent/required_reagent = reagent_path
-			reactionData["catalysts"] += list(list(
+			chemistryReactionData["catalysts"] += list(list(
 				name = initial(required_reagent.name),
 				amount = CR.catalysts[reagent_path]
 			))
 
-		reactionData["inhibitors"] = list()
+		chemistryReactionData["inhibitors"] = list()
 		for(var/reagent_path in CR.inhibitors)
 			var/singleton/reagent/required_reagent = reagent_path
 			var/inhibitor_amount = CR.inhibitors[reagent_path] ? CR.inhibitors[reagent_path] : "Any"
-			reactionData["inhibitors"] += list(list(
+			chemistryReactionData["inhibitors"] += list(list(
 				name = initial(required_reagent.name),
 				amount = inhibitor_amount
 			))
 
-		reactionData["temp_min"] = CR.required_temperature_min
+		chemistryReactionData["temp_min"] = CR.required_temperature_min
 
-		reactionData["temp_max"] = CR.required_temperature_max
+		chemistryReactionData["temp_max"] = CR.required_temperature_max
 
-		chemistry_codex_data += list(reactionData)
+		chemistry_codex_data += list(chemistryReactionData)
+
+/// Generate a list of all fusion reaction fusion_reactions, then populate the codex from that list.
+/datum/controller/subsystem/codex/proc/generate_fusion_codex()
+	fusion_codex_data = list()
+	var/list/available_fusion_reactions = GET_SINGLETON_SUBTYPE_MAP(/singleton/fusion_reaction)
+	LOG_DEBUG("<b>length of available_fusion_reactions = [length(available_fusion_reactions)]</b>")
+	for (var/reaction_path in available_fusion_reactions)
+		var/singleton/fusion_reaction/fusion_reaction = GET_SINGLETON(reaction_path)
+		LOG_DEBUG("<b>[reaction_path]</b>")
+		var/list/fusionReactionData = list()
+
+		// Reactants (p,s)
+		fusionReactionData["reactants"] = list()
+		fusionReactionData["reactants"] += fusion_reaction.p_react
+		fusionReactionData["reactants"] += fusion_reaction.s_react
+
+		// Minimum temperature threshold
+		fusionReactionData["minimum_temp"] += fusion_reaction.minimum_energy_level
+
+		fusionReactionData["energy_consumption"] += fusion_reaction.energy_consumption
+		fusionReactionData["energy_production"] += fusion_reaction.energy_production
+
+		fusionReactionData["radiation"] += fusion_reaction.radiation
+		fusionReactionData["instability"] += fusion_reaction.instability
+
+		fusionReactionData["products"] = list()
+		for(var/product in fusion_reaction.products)
+			fusionReactionData["products"] += list(list(
+				name = fusion_reaction.products[1],
+				amount = fusion_reaction.products[2]
+			))
+
+		fusion_codex_data += list(fusionReactionData)

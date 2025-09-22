@@ -18,7 +18,6 @@ GLOBAL_LIST(fusion_reactions)
 	var/instability = 0
 	var/list/products = list()
 
-
 	var/priority = 100
 
 /singleton/fusion_reaction/proc/handle_reaction_special(obj/effect/fusion_em_field/holder)
