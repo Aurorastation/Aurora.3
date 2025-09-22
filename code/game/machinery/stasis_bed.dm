@@ -70,7 +70,7 @@
 		else if (iscapacitor(P))
 			capacitor_rating += P.rating
 
-	 stasis_power = initial(stasis_power) * scanner_rating * capacitor_rating / 4
+	stasis_power = initial(stasis_power) * scanner_rating * capacitor_rating / 4
 
 /obj/machinery/stasis_bed/proc/play_power_sound()
 	var/_running = stasis_running()
