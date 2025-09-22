@@ -244,7 +244,7 @@ GLOBAL_LIST(fusion_reactions)
 /singleton/fusion_reaction/mhydrogen
 	name = "Metallic Hydrogen Stabilization"
 	p_react = "metallic hydrogen"
-	p_react = "metallic hydrogen"
+	s_react = "metallic hydrogen"
 	energy_consumption = 0
 	energy_production = 50
 	instability = -8

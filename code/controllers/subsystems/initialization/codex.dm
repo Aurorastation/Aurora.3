@@ -140,7 +140,7 @@ SUBSYSTEM_DEF(codex)
 
 		var/reaction_name = fusion_reaction.name
 		if(!reaction_name)
-			reaction_name = fusion_reaction.p_react + "-" + fusion_reaction.s_react
+			reaction_name = capitalize_first_letters(fusion_reaction.p_react) + "-" + capitalize_first_letters(fusion_reaction.s_react)
 
 		fusionReactionData["name"] = reaction_name
 
