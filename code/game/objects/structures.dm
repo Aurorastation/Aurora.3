@@ -240,8 +240,8 @@
 		return 0
 	return 1
 
-/obj/structure/attack_generic(var/mob/user, var/damage, var/attack_verb, var/wallbreaker)
-	if(!maxhealth)
+/obj/structure/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
+	if(|breakable || !damage || !maxhealth)
 		return FALSE
 
 	user.do_attack_animation(src)

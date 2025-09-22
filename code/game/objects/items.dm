@@ -233,6 +233,11 @@
 	/// Holder var for the item outline filter, null when no outline filter on the item.
 	var/outline_filter
 
+	// Persistency
+	// Set this to true if you want the item to become persistent trash
+	// Requires the usual implementation requirements for new persistent types but provides a single implementation for trash logic
+	var/persistency_considered_trash = FALSE
+
 /obj/item/Initialize(mapload, ...)
 	. = ..()
 	if(islist(armor))
@@ -479,18 +484,38 @@
 
 	if(item_flags & ITEM_FLAG_HELD_MAP_TEXT)
 		check_maptext()
-
 	if(zoom)
 		zoom(user) //binoculars, scope, etc
 
 	SEND_SIGNAL(src, COMSIG_ITEM_DROPPED, user)
-
 	in_inventory = FALSE
 
 	if(user && (z_flags & ZMM_MANGLE_PLANES))
 		addtimer(CALLBACK(user, /mob/proc/check_emissive_equipment), 0, TIMER_UNIQUE)
 
 	user?.update_equipment_speed_mods()
+	try_make_persistent_trash()
+
+/obj/item/pipe_eject(var/direction)
+	SHOULD_CALL_PARENT(TRUE)
+	..()
+	try_make_persistent_trash() // Trash that gets thrown into disposal bins and ends up in the disposal areas shouldn't be persistent after all
+
+/obj/item/proc/try_make_persistent_trash()
+	SHOULD_NOT_OVERRIDE(TRUE)
+	PROTECTED_PROC(TRUE)
+	if(persistency_considered_trash) // Persistent trash - Applicable if considered_persistent_trash is true
+		// Trash-like items should become only persistent when they are not dropped in a maint or disposals, otherwise they get deregistered
+		var/turf/T = get_turf(src)
+		if(T)
+			var/area/A = get_area(T)
+			if(A && !(A.area_flags & AREA_FLAG_PREVENT_PERSISTENT_TRASH))
+				persistance_expiration_time_days = 3 // Ensure expiration date is set to prevent long term trash
+				SSpersistence.register_track(src, usr == null ? null : ckey(usr.key))
+			else
+				SSpersistence.deregister_track(src)
+		else
+			SSpersistence.deregister_track(src)
 
 /obj/item/proc/remove_item_verbs(mob/user)
 	if(ismech(user)) //very snowflake, but necessary due to how mechs work
@@ -601,6 +626,9 @@
 		addtimer(CALLBACK(user, /mob/proc/check_emissive_equipment), 0, TIMER_UNIQUE)
 
 	user.update_equipment_speed_mods()
+
+	if(persistency_considered_trash || persistence_track_active) // The moment trash like items get picked up they are no longer persistent
+		SSpersistence.deregister_track(src)
 
 /obj/item/proc/check_equipped(var/mob/user, var/slot, var/assisted_equip = FALSE)
 	return TRUE

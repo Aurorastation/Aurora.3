@@ -318,7 +318,7 @@
 			healthcheck()
 	..()
 
-/obj/structure/grille/attack_generic(var/mob/user, var/damage, var/attack_verb)
+/obj/structure/grille/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	visible_message(SPAN_DANGER("[user] [attack_verb] the [src]!"))
 	user.do_attack_animation(src)
 	health -= damage
@@ -357,7 +357,7 @@
 /obj/structure/grille/crescent/attackby()
 	return
 
-/obj/structure/grille/crescent/attack_generic()
+/obj/structure/grille/crescent/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	return
 
 /obj/structure/grille/crescent/ex_act(var/severity = 2.0)

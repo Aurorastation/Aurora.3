@@ -453,6 +453,11 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 		/singleton/reagent/mental/caromeg = 5
 	)
 
+/obj/item/clothing/mask/smokable/cigarette/koko
+	name = "unathi cigarette"
+	desc = "An Unathi cigarette made with koko reed."
+	reagents_to_add = list(/singleton/reagent/mental/kokoreed = 15)
+
 ////////////
 // CIGARS //
 ////////////
