@@ -20,7 +20,7 @@
 
 	melee_damage_lower = 15
 	melee_damage_upper = 15
-	attacktext = "bitten"
+	attacktext = "bites"
 	attack_sound = 'sound/weapons/bite.ogg'
 
 	environment_smash = 1
@@ -56,7 +56,7 @@
 
 	melee_damage_lower = 15
 	melee_damage_upper = 15
-	attacktext = "bitten"
+	attacktext = "bites"
 	attack_sound = 'sound/weapons/bite.ogg'
 
 	faction = "Adhomai"
@@ -93,7 +93,7 @@
 	mob_swap_flags = HUMAN|SIMPLE_ANIMAL|SLIME|MONKEY
 	mob_push_flags = ALLMOBS
 
-	attacktext = "strangled"
+	attacktext = "strangles"
 	attack_sound = 'sound/effects/noosed.ogg'
 
 	speed = 1
@@ -124,7 +124,7 @@
 
 	melee_damage_lower = 5
 	melee_damage_upper = 5
-	attacktext = "shocked"
+	attacktext = "shocks"
 	attack_sound = 'sound/magic/LightningShock.ogg'
 
 	speed = 1

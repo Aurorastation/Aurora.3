@@ -7,6 +7,7 @@
 	build_amt = 2
 	slowdown = 5
 	pass_flags_self = PASSSTRUCTURE | LETPASSCLICKS | PASSTRACE
+	health = 45
 
 	var/icon_door = null
 	/// Override to have open overlay use icon different to its base's
@@ -34,7 +35,6 @@
 
 	/// Never solid (You can always pass over it)
 	var/wall_mounted = FALSE
-	var/health = 100
 	/// If someone is currently breaking out. mutex
 	var/breakout = 0
 

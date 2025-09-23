@@ -309,6 +309,12 @@
 	else
 		return 50 //if the projectile doesn't do damage, play its hitsound at 50% volume
 
+/obj/projectile/proc/get_structure_damage_sound()
+	if(damage_type == DAMAGE_BRUTE)
+		return 'sound/effects/metalping.ogg'
+	else if(damage_type == DAMAGE_BURN)
+		return pick(SOUNDS_LASER_METAL)
+
 /obj/projectile/proc/on_ricochet(atom/A)
 	if(!ricochet_auto_aim_angle || !ricochet_auto_aim_range)
 		return
@@ -1148,7 +1154,7 @@
 	if(!P || !P.ping_effect)
 		return
 
-	var/image/I = image('icons/obj/projectiles.dmi', src,P.ping_effect,10, pixel_x = pixel_x_offset, pixel_y = pixel_y_offset)
+	var/image/I = image('icons/obj/projectiles.dmi', src, P.ping_effect, 10, pixel_x = pixel_x_offset, pixel_y = pixel_y_offset)
 	var/angle = (P.firer && prob(60)) ? round(get_angle(P.firer,src)) : round(rand(1,359))
 	I.pixel_x += rand(-6,6)
 	I.pixel_y += rand(-6,6)
@@ -1157,6 +1163,7 @@
 	rotate.Turn(angle)
 	I.transform = rotate
 	// Need to do this in order to prevent the ping from being deleted
+	playsound(src, P.get_structure_damage_sound(), P.vol_by_damage())
 	addtimer(CALLBACK(I, TYPE_PROC_REF(/image, flick_overlay), src, 3), 1)
 
 /image/proc/flick_overlay(var/atom/A, var/duration)

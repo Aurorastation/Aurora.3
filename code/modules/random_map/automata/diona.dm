@@ -13,13 +13,8 @@
 	density = TRUE
 	opacity = FALSE
 	layer = ABOVE_TILE_LAYER
-	var/max_health = 50
-	var/health
+	maxhealth = 50
 	var/destroy_spawntype = /mob/living/carbon/alien/diona
-
-/obj/structure/diona/Initialize(mapload)
-	. = ..()
-	health = max_health
 
 /obj/structure/diona/attackby(obj/item/attacking_item, mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)

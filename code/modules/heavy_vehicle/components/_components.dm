@@ -72,7 +72,7 @@
 	user.visible_message(SPAN_NOTICE("\The [user] installs \the [thing] in \the [src]."))
 	return 1
 
-/obj/item/mech_component/proc/update_health()
+/obj/item/mech_component/proc/update_component_damage()
 	total_damage = brute_damage + burn_damage
 	if(total_damage > max_damage) total_damage = max_damage
 	damage_state = clamp(round((total_damage/max_damage) * 4), MECH_COMPONENT_DAMAGE_UNDAMAGED, MECH_COMPONENT_DAMAGE_DAMAGED_TOTAL)
@@ -88,13 +88,13 @@
 
 /obj/item/mech_component/proc/take_brute_damage(var/amt)
 	brute_damage = max(0, brute_damage + amt)
-	update_health()
+	update_component_damage()
 	if(total_damage == max_damage)
 		take_component_damage(amt,0)
 
 /obj/item/mech_component/proc/take_burn_damage(var/amt)
 	burn_damage = max(0, burn_damage + amt)
-	update_health()
+	update_component_damage()
 	if(total_damage == max_damage)
 		take_component_damage(0,amt)
 

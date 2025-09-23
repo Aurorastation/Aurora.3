@@ -2,18 +2,19 @@
 	name = "door"
 	density = 1
 	anchored = 1
+	maxhealth = 100
 
 	icon = 'icons/obj/doors/material_doors.dmi'
 	icon_state = "metal"
 
 	build_amt = 10
+
 	var/state = 0 //closed, 1 == open
 	var/isSwitchingStates = 0
 	var/oreAmount = 7
 	var/datum/lock/lock
 	var/initial_lock_value //for mapping purposes. Basically if this value is set, it sets the lock to this value.
-	var/health = 100
-	var/maxhealth = 100
+
 
 /obj/structure/simple_door/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()

@@ -87,6 +87,9 @@ Class Procs:
 	layer = STRUCTURE_LAYER
 	init_flags = INIT_MACHINERY_PROCESS_SELF
 	pass_flags_self = PASSMACHINE | LETPASSCLICKS
+	destroy_sound = 'sound/effects/meteorimpact.ogg'
+
+	maxhealth = 100
 
 	/// Controlled by a bitflag, differentiates between a few different possible states including the machine being broken or unpowered.
 	/// See code/__defines/machinery.dm for the possible states.
@@ -189,6 +192,9 @@ Class Procs:
 
 		if(component_parts.len)
 			RefreshParts()
+
+	if(maxhealth)
+		AddComponent(/datum/component/armor, list(MELEE = ARMOR_MELEE_KNIVES, BULLET = ARMOR_BALLISTIC_MINOR))
 
 /obj/machinery/Destroy()
 	//Stupid macro used in power usage
@@ -555,6 +561,8 @@ Class Procs:
 
 	if(hitting_projectile.get_structure_damage() > 5)
 		bullet_ping(hitting_projectile)
+
+	add_damage(hitting_projectile.damage, hitting_projectile.damage_flags(), hitting_projectile.damage_type, hitting_projectile.armor_penetration, hitting_projectile)
 
 /obj/machinery/proc/do_hair_pull(mob/living/carbon/human/H)
 	if(stat & (NOPOWER|BROKEN))

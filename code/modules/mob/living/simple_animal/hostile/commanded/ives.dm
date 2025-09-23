@@ -35,7 +35,7 @@
 	projectilesound = 'sound/weapons/taser2.ogg'
 	projectiletype = /obj/projectile/beam/hivebot/harmless
 
-	attacktext = "harmlessly clawed"
+	attacktext = "harmlessly claws"
 	harm_intent_damage = 5 // the damage we take
 	melee_damage_lower = 0
 	melee_damage_upper = 0

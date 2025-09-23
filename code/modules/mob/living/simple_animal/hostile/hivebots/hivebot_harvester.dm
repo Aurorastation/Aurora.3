@@ -12,7 +12,7 @@
 	destroy_surroundings = 0
 	wander = 0
 	ranged = 1
-	attacktext = "skewered"
+	attacktext = "skewers"
 	projectilesound = 'sound/weapons/lasercannonfire.ogg'
 	projectiletype = /obj/projectile/beam/hivebot/incendiary/heavy
 	organ_names = list("head", "core", "side thruster", "harvesting array")

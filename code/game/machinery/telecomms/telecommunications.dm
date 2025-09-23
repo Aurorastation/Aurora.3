@@ -74,13 +74,13 @@
 		var/current_damage = integrity / initial(integrity)
 		switch(current_damage)
 			if(0 to 0.2)
-				state = SPAN_DANGER("The machine is on its last legs!")
+				state = SPAN_DANGER("The machine's components are on their last legs!")
 			if(0.2 to 0.4)
-				state = SPAN_WARNING("The machine looks seriously damaged.")
+				state = SPAN_WARNING("The machine's components look seriously damaged.")
 			if(0.4 to 0.8)
-				state = SPAN_WARNING("The machine's condition appears somewhat degraded.")
+				state = SPAN_WARNING("The machine's components appear somewhat degraded.")
 			if(0.8 to 1)
-				state = SPAN_NOTICE("The machine shows some indications of minor damage.")
+				state = SPAN_NOTICE("The machine's components show some indications of minor damage.")
 		. += state
 
 /obj/machinery/telecomms/mechanics_hints(mob/user, distance, is_adjacent)

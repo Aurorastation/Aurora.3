@@ -470,7 +470,7 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 			found_obj = locate(/obj/structure/table) in target_turf
 			if(found_obj)
 				var/obj/structure/table/table = found_obj
-				if(!table.breakable)
+				if(!table.maxhealth)
 					continue
 				found_obj.attack_generic(src, rand(melee_damage_lower, melee_damage_upper), attacktext, TRUE)
 				hostile_last_attack = world.time
