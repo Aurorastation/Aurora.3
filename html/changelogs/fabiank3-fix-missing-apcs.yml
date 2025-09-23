@@ -1,6 +1,0 @@
-author: FabianK3
-
-delete-after: True
-
-changes:
-  - bugfix: "Added missing APCs to the D3 fore bridge airlock, D3 stairwell and D3 holodeck maint."

@@ -274,3 +274,14 @@
 2025-09-21:
   MattAtlas:
   - bugfix: Fixes hallucinations not processing on humans.
+2025-09-23:
+  FabianK3:
+  - bugfix: Added missing APCs to the D3 fore bridge airlock, D3 stairwell and D3
+      holodeck maint.
+  Hellfirejag:
+  - rscadd: Heavy-Duty power cells required for logistics bounties can now actually
+      be made in protolathes without having to steal them from APCs.
+  KingOfThePing:
+  - bugfix: Fixed the command noticeboard's faulty access fix.
+  TheGreyWolf:
+  - rscadd: Added Kathira El-Hashem's custom items.
