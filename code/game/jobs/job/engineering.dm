@@ -76,7 +76,7 @@
 		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/yellow(H), slot_gloves)
 
 /datum/job/engineer
-	title = "Engineer"
+	title = "Ship Engineer"
 	flag = ENGINEER
 	departments = SIMPLEDEPT(DEPARTMENT_ENGINEERING)
 	department_flag = ENGSEC
@@ -86,6 +86,7 @@
 	supervisors = "the chief engineer"
 	selection_color = "#c67519"
 	economic_modifier = 5
+	alt_titles = list("Reactor Technician", "Maintenance Technician", "Systems Engineer")
 
 	minimum_character_age = list(
 		SPECIES_HUMAN = 25,
@@ -104,7 +105,7 @@
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
 /obj/outfit/job/engineer
-	name = "Engineer"
+	name = "Ship Engineer"
 	jobtype = /datum/job/engineer
 	box = /obj/item/storage/box/survival/engineer
 
@@ -160,6 +161,7 @@
 	supervisors = "the chief engineer"
 	selection_color = "#c67519"
 	economic_modifier = 5
+	alt_titles = list("Propulsion Engineer", "Damage Control Technician")
 
 	minimum_character_age = list(
 		SPECIES_HUMAN = 25,
