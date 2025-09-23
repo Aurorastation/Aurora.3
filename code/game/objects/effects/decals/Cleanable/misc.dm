@@ -64,6 +64,13 @@
 		var/mob/living/carbon/human/H = user
 		H.apply_radiation(5)
 
+/obj/effect/decal/cleanable/greenglow/radioactive/Initialize()
+	. = ..()
+	start_process()
+
+/obj/effect/decal/cleanable/greenglow/radioactive/proc/start_process()
+	START_PROCESSING(SSprocessing, src)
+
 /obj/effect/decal/cleanable/greenglow/radioactive/process()
 	SSradiation.radiate(src, 25)
 

@@ -1,7 +1,6 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "al" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 6
 	},
@@ -78,7 +77,6 @@
 /area/space)
 "ia" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1
 	},
 /turf/simulated/floor/exoplanet/water/konyang,
@@ -103,7 +101,6 @@
 /area/exoplanet/grass/konyang)
 "jZ" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 5
 	},
@@ -115,7 +112,6 @@
 /area/konyang_swamp_4)
 "kY" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 9
 	},
@@ -146,7 +142,6 @@
 /area/konyang_swamp_4)
 "nU" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 1
 	},
@@ -199,7 +194,6 @@
 /area/konyang_swamp_4)
 "rG" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 4
 	},
@@ -388,7 +382,6 @@
 /area/konyang_swamp_4)
 "Dr" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 10
 	},
@@ -425,7 +418,6 @@
 /area/exoplanet/grass/konyang)
 "FK" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 8
 	},
