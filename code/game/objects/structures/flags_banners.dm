@@ -88,7 +88,7 @@
 			icon = flag_icon
 			return
 		for(var/obj/A in T)
-			if(istype(A, /obj/structure/window))
+			if(istype(A, /obj/structure/window) || istype(A, /obj/effect/map_effect/window_spawner))
 				icon = flag_icon
 				return
 		banner_icon = new('icons/obj/structure/flags.dmi', stand_icon)
