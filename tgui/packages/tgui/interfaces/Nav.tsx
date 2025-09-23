@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Button, Section, Table } from '../components';
+import { Button, Section, Table } from 'tgui-core/components';
 import { NtosWindow } from '../layouts';
 
 export type NavData = {
@@ -87,11 +87,11 @@ const NavSection = function (act, data) {
     </Section>
   );
 };
-export const Nav = (props, context) => {
-  const { act, data } = useBackend<NavData>(context);
+export const Nav = (props) => {
+  const { act, data } = useBackend<NavData>();
 
   return (
-    <NtosWindow resizable>
+    <NtosWindow>
       <NtosWindow.Content scrollable>
         {FlightSection(act, data)}
         {NavSection(act, data)}

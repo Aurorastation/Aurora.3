@@ -1,9 +1,9 @@
-import { capitalize } from '../../common/string';
-import { BooleanLike } from '../../common/react';
+import { capitalize } from 'tgui-core/string';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend, useLocalState } from '../backend';
-import { Box, Button, Collapsible, Input, LabeledList, NoticeBox, Section, Stack, Tabs, Tooltip } from '../components';
+import { Box, Button, Collapsible, Input, LabeledList, NoticeBox, Section, Stack, Tabs, Tooltip } from 'tgui-core/components';
 import { NtosWindow } from '../layouts';
-import { Dropdown } from '../components/Dropdown';
+import { Dropdown } from 'tgui-core/components';
 
 export type RecordsData = {
   activeview: string;
@@ -79,16 +79,15 @@ type RecordLocked = {
   rank: string;
 };
 
-export const Records = (props, context) => {
-  const { act, data } = useBackend<RecordsData>(context);
+export const Records = (props) => {
+  const { act, data } = useBackend<RecordsData>();
   const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
     `searchTerm`,
     ``
   );
 
   return (
-    <NtosWindow resizable width={900} height={900}>
+    <NtosWindow width={900} height={900}>
       <NtosWindow.Content scrollable>
         {!data.authenticated ? (
           <NoticeBox color="white">
@@ -107,9 +106,9 @@ export const Records = (props, context) => {
   );
 };
 
-export const RecordsView = (props, context) => {
-  const { act, data } = useBackend<RecordsData>(context);
-  const [recordTab, setRecordTab] = useLocalState(context, 'recordTab', 'All');
+export const RecordsView = (props) => {
+  const { act, data } = useBackend<RecordsData>();
+  const [recordTab, setRecordTab] = useLocalState('recordTab', 'All');
 
   return (
     <Stack>
@@ -121,11 +120,10 @@ export const RecordsView = (props, context) => {
   );
 };
 
-export const ListAllRecords = (props, context) => {
-  const { act, data } = useBackend<RecordsData>(context);
-  const [recordTab, setRecordTab] = useLocalState(context, 'recordTab', 'All');
+export const ListAllRecords = (props) => {
+  const { act, data } = useBackend<RecordsData>();
+  const [recordTab, setRecordTab] = useLocalState('recordTab', 'All');
   const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
     `searchTerm`,
     ``
   );
@@ -179,64 +177,53 @@ export const ListAllRecords = (props, context) => {
 };
 
 // Omega shitcode ahead but this is my like 56th UI and I don't give a fuck anymore.
-export const ListActive = (props, context) => {
-  const { act, data } = useBackend<RecordsData>(context);
-  const [recordTab, setRecordTab] = useLocalState(context, 'recordTab', 'All');
+export const ListActive = (props) => {
+  const { act, data } = useBackend<RecordsData>();
+  const [recordTab, setRecordTab] = useLocalState('recordTab', 'All');
   const [editingPhysStatus, setEditingPhysStatus] = useLocalState<boolean>(
-    context,
     'editingPhysStatus',
     false
   );
   const [editingMentalStatus, setEditingMentalStatus] = useLocalState<boolean>(
-    context,
     'editingMentalStatus',
     false
   );
   const [editingFingerprint, setEditingFingerprint] = useLocalState<boolean>(
-    context,
     'editingFingerprint',
     false
   );
   const [editingCriminalStatus, setEditingCriminalStatus] =
-    useLocalState<boolean>(context, 'editingCriminalStatus', false);
+    useLocalState<boolean>('editingCriminalStatus', false);
   const [editingSpecies, setEditingSpecies] = useLocalState<boolean>(
-    context,
     'editingSpecies',
     false
   );
   const [editingCitizenship, setEditingCitizenship] = useLocalState<boolean>(
-    context,
     'editingCitizenship',
     false
   );
   const [editingReligion, setEditingReligion] = useLocalState<boolean>(
-    context,
     'editingReligion',
     false
   );
   const [editingEmployer, setEditingEmployer] = useLocalState<boolean>(
-    context,
     'editingEmployer',
     false
   );
   const [editingDNA, setEditingDNA] = useLocalState<boolean>(
-    context,
     'editingDNA',
     false
   );
 
   const [editingDisabilities, setEditingDisabilities] = useLocalState<boolean>(
-    context,
     'editingDisabilities',
     false
   );
   const [editingAllergies, setEditingAllergies] = useLocalState<boolean>(
-    context,
     'editingAllergies',
     false
   );
   const [editingDisease, setEditingDisease] = useLocalState<boolean>(
-    context,
     'editingDisease',
     false
   );

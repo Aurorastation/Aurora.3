@@ -1,7 +1,7 @@
-import { BooleanLike } from '../../common/react';
-import { capitalize } from '../../common/string';
+import type { BooleanLike } from 'tgui-core/react';
+import { capitalize } from 'tgui-core/string';
 import { useBackend } from '../backend';
-import { Box, Button, LabeledList, NoticeBox, ProgressBar, Section, Slider } from '../components';
+import { Box, Button, LabeledList, NoticeBox, ProgressBar, Section, Slider } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type FusionGyrotronControl = {
@@ -19,11 +19,11 @@ type Injector = {
   injection_rate: number;
 };
 
-export const FusionInjectorControl = (props, context) => {
-  const { act, data } = useBackend<FusionGyrotronControl>(context);
+export const FusionInjectorControl = (props) => {
+  const { act, data } = useBackend<FusionGyrotronControl>();
 
   return (
-    <Window resizable theme={data.manufacturer}>
+    <Window theme={data.manufacturer}>
       <Window.Content scrollable>
         {data.injectors && data.injectors.length ? (
           <>

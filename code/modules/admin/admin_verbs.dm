@@ -176,7 +176,6 @@ GLOBAL_LIST_INIT(admin_verbs_server, list(
 	/datum/admins/proc/toggle_round_spookyness,
 	/datum/admins/proc/toggle_space_ninja,
 	/client/proc/toggle_random_events,
-	/client/proc/nanomapgen_DumpImage,
 	/client/proc/toggle_recursive_explosions,
 	/client/proc/restart_controller,
 	/client/proc/cmd_ss_panic,
@@ -353,7 +352,6 @@ GLOBAL_LIST_INIT(admin_verbs_hideable, list(
 	/datum/admins/proc/adjump,
 	/datum/admins/proc/toggle_space_ninja,
 	/client/proc/toggle_random_events,
-	/client/proc/nanomapgen_DumpImage,
 	/client/proc/play_local_sound,
 	/client/proc/play_sound,
 	/client/proc/play_server_sound,
@@ -474,7 +472,6 @@ GLOBAL_LIST_INIT(admin_verbs_dev, list( //will need to be altered - Ryan784
 	/client/proc/jumptoship,
 	/client/proc/jumptosector,
 	/client/proc/cmd_dev_say,
-	/client/proc/nanomapgen_DumpImage,
 	/client/proc/admin_ghost,
 	/client/proc/air_report,
 	/client/proc/enable_debug_verbs,
@@ -931,7 +928,7 @@ GLOBAL_LIST_INIT(admin_verbs_storyteller, list(
 		if(!H) return
 
 		log_and_message_admins("is altering the appearance of [H].")
-		H.change_appearance(APPEARANCE_ALL, usr, FALSE)
+		// H.change_appearance(APPEARANCE_ALL, usr, FALSE)
 		feedback_add_details("admin_verb","CHAA") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/change_human_appearance_self()
@@ -951,10 +948,10 @@ GLOBAL_LIST_INIT(admin_verbs_storyteller, list(
 	switch(alert("Do you wish for [H] to be allowed to select non-whitelisted races?","Alter Mob Appearance","Yes","No","Cancel"))
 		if("Yes")
 			log_and_message_admins("has allowed [H] to change [H.get_pronoun("his")] appearance, without whitelisting of races.")
-			H.change_appearance(APPEARANCE_ALL, H, FALSE)
+			// H.change_appearance(APPEARANCE_ALL, H, FALSE)
 		if("No")
 			log_and_message_admins("has allowed [H] to change [H.get_pronoun("his")] appearance, with whitelisting of races.")
-			H.change_appearance(APPEARANCE_ALL, H, TRUE)
+			// H.change_appearance(APPEARANCE_ALL, H, TRUE)
 	feedback_add_details("admin_verb","CMAS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/change_security_level()

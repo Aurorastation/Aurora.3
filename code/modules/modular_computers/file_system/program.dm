@@ -87,8 +87,8 @@ ABSTRACT_TYPE(/datum/computer_file/program)
 	var/ui_auto_update = TRUE
 
 	// TO BE DEPRECATED:
-	var/datum/nano_module/NM								// If the program uses NanoModule, put it here and it will be automagically opened. Otherwise implement ui_interact.
-	var/nanomodule_path										// Path to nanomodule, make sure to set this if implementing new program.
+	// var/datum/nano_module/NM								// If the program uses NanoModule, put it here and it will be automagically opened. Otherwise implement ui_interact.
+	// var/nanomodule_path										// Path to nanomodule, make sure to set this if implementing new program.
 
 /datum/computer_file/program/New(obj/item/modular_computer/comp)
 	..()
@@ -135,7 +135,7 @@ ABSTRACT_TYPE(/datum/computer_file/program)
 	var/datum/computer_file/program/temp = ..(rename, computer)
 	temp.required_access_run = required_access_run
 	temp.required_access_download = required_access_download
-	temp.nanomodule_path = nanomodule_path
+	// temp.nanomodule_path = nanomodule_path
 	temp.filedesc = filedesc
 	temp.program_icon_state = program_icon_state
 	temp.requires_ntnet = requires_ntnet
@@ -321,15 +321,21 @@ ABSTRACT_TYPE(/datum/computer_file/program)
 
 // Relays the call to nano module, if we have one
 /datum/computer_file/program/proc/check_eye(var/mob/user)
+	/*
 	if(NM)
 		return NM.check_eye(user)
 	else
 		return -1
+	*/
+	return
 
 /// Relays the call to nano module, if we have one
 /datum/computer_file/program/proc/grants_equipment_vision(var/mob/user)
+	/*
 	if(NM)
 		return NM.grants_equipment_vision(user)
+	*/
+	return
 
 /datum/computer_file/program/proc/message_dead(var/message)
 	for(var/mob/M in GLOB.player_list)

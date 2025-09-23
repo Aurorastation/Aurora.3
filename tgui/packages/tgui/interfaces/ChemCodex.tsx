@@ -1,5 +1,5 @@
 import { useBackend, useLocalState } from '../backend';
-import { Input, LabeledList, NoticeBox, Section } from '../components';
+import { Input, LabeledList, NoticeBox, Section } from 'tgui-core/components';
 import { NtosWindow } from '../layouts';
 
 export type CodexData = {
@@ -26,16 +26,15 @@ type Reagent = {
   amount: number;
 };
 
-export const ChemCodex = (props, context) => {
-  const { act, data } = useBackend<CodexData>(context);
+export const ChemCodex = (props) => {
+  const { act, data } = useBackend<CodexData>();
   const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
     `searchTerm`,
     ``
   );
 
   return (
-    <NtosWindow resizable>
+    <NtosWindow>
       <NtosWindow.Content scrollable>
         <Section
           title="Codex Search"

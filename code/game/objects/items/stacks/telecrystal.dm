@@ -42,7 +42,7 @@
 			else if(crystal_type == CRYSTAL_TYPE_BLUECRYSTAL)
 				I.hidden_uplink.bluecrystals += amount
 			I.hidden_uplink.update_tgui_data()
-			SSnanoui.update_uis(I.hidden_uplink)
+			// SSnanoui.update_uis(I.hidden_uplink)
 			use(amount)
 			to_chat(user, SPAN_NOTICE("You slot \the [src] into \the [I] and charge its internal uplink."))
 

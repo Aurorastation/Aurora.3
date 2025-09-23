@@ -233,7 +233,7 @@
 		ui_interact(user)
 	else
 		to_chat(user, SPAN_NOTICE("[src] needs to be anchored to the floor to function!"))
-
+/*
 /obj/machinery/lapvend/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	if(stat & (BROKEN | NOPOWER | MAINT))
 		if(ui)
@@ -261,7 +261,7 @@
 		ui.set_initial_data(data)
 		ui.open()
 		ui.set_auto_update(1)
-
+*/
 /obj/machinery/lapvend/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.iswrench())
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)

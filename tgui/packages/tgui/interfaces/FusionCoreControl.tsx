@@ -1,8 +1,8 @@
-import { round } from '../../common/math';
-import { BooleanLike } from '../../common/react';
-import { capitalize } from '../../common/string';
+import { round } from 'tgui-core/math';
+import type { BooleanLike } from 'tgui-core/react';
+import { capitalize } from 'tgui-core/string';
 import { useBackend, useSharedState } from '../backend';
-import { Box, Button, Dimmer, Divider, LabeledList, NoticeBox, NumberInput, ProgressBar, Section } from '../components';
+import { Box, Button, Dimmer, Divider, LabeledList, NoticeBox, NumberInput, ProgressBar, Section } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type FusionCoreData = {
@@ -29,16 +29,15 @@ type Reactant = {
   amount: number;
 };
 
-export const FusionCoreControl = (props, context) => {
-  const { act, data } = useBackend<FusionCoreData>(context);
+export const FusionCoreControl = (props) => {
+  const { act, data } = useBackend<FusionCoreData>();
   const [override, setOverride] = useSharedState<boolean>(
-    context,
     'override',
     false
   );
 
   return (
-    <Window resizable theme={data.manufacturer}>
+    <Window theme={data.manufacturer}>
       <Window.Content scrollable>
         {data.cores && data.cores.length ? (
           data.cores.map((core) => (

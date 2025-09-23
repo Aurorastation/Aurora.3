@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend, useLocalState } from '../backend';
-import { Button, Input, NoticeBox, Section, Table } from '../components';
+import { Button, Input, NoticeBox, Section, Table } from 'tgui-core/components';
 import { NtosWindow } from '../layouts';
 
 export type AlarmData = {
@@ -16,16 +16,15 @@ type Alarm = {
   danger: BooleanLike;
 };
 
-export const AtmosAlarmControl = (props, context) => {
-  const { act, data } = useBackend<AlarmData>(context);
+export const AtmosAlarmControl = (props) => {
+  const { act, data } = useBackend<AlarmData>();
   const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
     `searchTerm`,
     ``
   );
 
   return (
-    <NtosWindow resizable>
+    <NtosWindow>
       <NtosWindow.Content scrollable>
         <Section
           title="Alarms"

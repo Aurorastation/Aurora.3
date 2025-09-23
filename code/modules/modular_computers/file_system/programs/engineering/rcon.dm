@@ -20,7 +20,7 @@
 	..()
 
 /datum/computer_file/program/rcon_console/ui_data(mob/user)
-	var/list/data = initial_data()
+	var/list/data = list()
 
 	var/list/smeslist = list()
 	for(var/obj/machinery/power/smes/buildable/SMES in SSmachinery.rcon_smes_units)

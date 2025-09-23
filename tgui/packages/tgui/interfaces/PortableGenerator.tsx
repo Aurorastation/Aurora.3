@@ -1,7 +1,7 @@
-import { BooleanLike } from '../../common/react';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Button, Box, LabeledList, Section, ProgressBar, Knob } from '../components';
-import { capitalizeAll } from '../../common/string';
+import { Button, Box, LabeledList, Section, ProgressBar, Knob } from 'tgui-core/components';
+import { capitalizeAll } from 'tgui-core/string';
 import { Window } from '../layouts';
 
 export type GeneratorData = {
@@ -30,11 +30,11 @@ type Fuel = {
   fuel_type: string;
 };
 
-export const PortableGenerator = (props, context) => {
-  const { act, data } = useBackend<GeneratorData>(context);
+export const PortableGenerator = (props) => {
+  const { act, data } = useBackend<GeneratorData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section
           title="Generator Status"
