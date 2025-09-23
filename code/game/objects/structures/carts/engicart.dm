@@ -243,7 +243,7 @@
 						user.put_in_hands(chosen_item)
 						to_chat(user, SPAN_NOTICE("You take [my_plasteel[chosen_item]] from [src]."))
 						my_plasteel -= chosen_item
-				if(/obj/item/device/lightreplacer)
+				if(/obj/item/device/lightreplacer, /obj/item/device/lightreplacer/advanced)
 					if(my_lightreplacer)
 						user.put_in_hands(my_lightreplacer)
 						to_chat(user, SPAN_NOTICE("You take [my_lightreplacer] from [src]."))

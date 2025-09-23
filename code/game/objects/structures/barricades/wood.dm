@@ -15,6 +15,10 @@
 	can_wire = FALSE
 	metallic = FALSE
 
+/obj/structure/barricade/wooden/assembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "A plank of wood can be used on this to repair damage."
+
 /obj/structure/barricade/wooden/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/stack/material/wood))
 		var/obj/item/stack/material/wood/D = attacking_item
@@ -27,7 +31,7 @@
 				if(D.use(1))
 					update_health(-0.5*maxhealth)
 					update_damage_state()
-					visible_message(SPAN_NOTICE("[user] clumsily repairs [src]."))
+					visible_message(SPAN_NOTICE("[user] haphazardly repairs [src]."))
 		return
 
 	. = ..()

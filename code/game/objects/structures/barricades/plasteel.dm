@@ -1,6 +1,6 @@
 /obj/structure/barricade/plasteel
 	name = "plasteel barricade"
-	desc = "A very sturdy barricade made out of plasteel panels, the pinnacle of strongpoints. Use a blowtorch to repair. Can be flipped down to create a path."
+	desc = "A very sturdy barricade made out of plasteel panels, the pinnacle of strongpoints."
 	icon_state = "plasteel_closed_0"
 	health = 800
 	maxhealth = 800
@@ -15,9 +15,12 @@
 	closed = TRUE
 	can_wire = TRUE
 
-	var/build_state = BARRICADE_BSTATE_SECURED //Look at __game.dm for barricade defines
-	var/tool_cooldown = 0 //Delay to apply tools to prevent spamming
-	var/busy = 0 //Standard busy check
+	/// Look at __game.dm for barricade defines
+	var/build_state = BARRICADE_BSTATE_SECURED
+	/// Delay to apply tools to prevent spamming
+	var/tool_cooldown = 0
+	/// Standard busy check
+	var/busy = 0
 	var/linked = 0
 	var/recentlyflipped = FALSE
 	var/hasconnectionoverlay = TRUE
@@ -35,22 +38,37 @@
 						overlays += image('icons/obj/barricades.dmi', icon_state = "[src.barricade_type]_connection_[get_dir(src, cade)]")
 					continue
 
-
 /obj/structure/barricade/plasteel/handle_barrier_chance(mob/living/M)
 	if(!closed) // Closed = gate down for plasteel for some reason
 		return ..()
 	else
 		return 0
 
-/obj/structure/barricade/plasteel/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/structure/barricade/plasteel/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Use this with an empty active hand to toggle it closed or open."
+	. += "Multiple plasteel barricades aligned in a row can be linked together by using a crowbar on adjacent ones sequentially."
+
+// Duplicated in /obj/structure/barricade/metal. If you change one, also change the other.
+/obj/structure/barricade/plasteel/assembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Damage (up to a point) can be repaired with a welding torch."
+	switch(build_state)
+		if(BARRICADE_BSTATE_MOVABLE)
+			. += "The barricade is ready to have its <b>anchor bolts</b> tightened."
+		if(BARRICADE_BSTATE_UNSECURED)
+			. += "The protection panel is ready to be <b>screwed</b> into place."
+
+// Duplicated in /obj/structure/barricade/metal. If you change one, also change the other.
+/obj/structure/barricade/plasteel/disassembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	switch(build_state)
 		if(BARRICADE_BSTATE_SECURED)
-			. += SPAN_INFO("The protection panel is still tighly screwed in place.")
+			. += "The protection panel is still tighly <b>screwed</b> in place."
 		if(BARRICADE_BSTATE_UNSECURED)
-			. += SPAN_INFO("The protection panel has been removed, you can see the anchor bolts.")
+			. += "The protection panel has been removed, you can see the <b>anchor bolts</b>."
 		if(BARRICADE_BSTATE_MOVABLE)
-			. += SPAN_INFO("The protection panel has been removed and the anchor bolts loosened. It's ready to be taken apart.")
+			. += "The protection panel has been removed and the anchor bolts loosened. It's ready to be <b>pried</b> apart."
 
 /obj/structure/barricade/plasteel/weld_cade(obj/item/W, mob/user)
 	busy = TRUE
