@@ -19,7 +19,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 
 /mob/living/carbon/human/dummy/mannequin/Destroy()
 	SSmobs.free_mannequin(src)
-	. = ..()
+	return ..()
 
 /mob/living/carbon/human/vatgrown/Initialize(mapload)
 	. = ..(mapload, SPECIES_HUMAN_VATGROWN)

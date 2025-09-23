@@ -52,6 +52,11 @@
 		cig_cell = new cell_type(src)
 	ec_cartridge = new cartridge_type(src)
 
+/obj/item/clothing/mask/smokable/ecig/Destroy()
+	QDEL_NULL(ec_cartridge)
+	QDEL_NULL(cig_cell)
+	return ..()
+
 /obj/item/clothing/mask/smokable/ecig/get_cell()
 	return cig_cell
 

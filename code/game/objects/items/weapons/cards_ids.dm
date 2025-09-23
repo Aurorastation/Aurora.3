@@ -158,6 +158,7 @@
 
 /obj/item/card/id/Destroy()
 	QDEL_NULL(chat_user)
+	mob_id = null
 	. = ..()
 	GC_TEMPORARY_HARDDEL
 
