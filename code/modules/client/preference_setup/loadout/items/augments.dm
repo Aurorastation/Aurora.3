@@ -371,3 +371,19 @@
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 	origin_restriction = list(/singleton/origin_item/origin/galatea)
 	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD)
+
+/datum/gear/augment/geneboosted_heart
+	display_name = "Geneboosted Heart"
+	description = "A heart that has been enhanced by Imperial geneboosting to function at the level of a peak human athlete."
+	path = /obj/item/organ/internal/heart/geneboosted_heart
+	origin_restriction = list(/singleton/origin_item/origin/dominia_noble)
+	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD)
+	cost = 1
+
+/datum/gear/augment/geneboosted_liver
+	display_name = "Geneboosted Liver"
+	description = "A liver that has been enhanced by Imperial geneboosting to function at the level of a peak human athlete."
+	path = /obj/item/organ/internal/liver/geneboosted_liver
+	origin_restriction = list(/singleton/origin_item/origin/dominia_noble)
+	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD)
+	cost = 1
