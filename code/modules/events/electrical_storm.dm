@@ -34,7 +34,7 @@
 	for(var/obj/machinery/power/apc/valid_apc in SSmachinery.apc_units)
 		if((valid_apc.z in affecting_z) && !valid_apc.is_critical)
 			valid_apcs += valid_apc
-	endWhen = (severity * 45) + startWhen
+	endWhen = (severity * 35) + startWhen
 
 /datum/event/electrical_storm/end(faked)
 	..()
@@ -81,7 +81,9 @@
 			continue
 
 		// If the APC wasn't protected or we didn't roll lucky, flicker the lights for dramatic effect.
-		victim_apc.flicker_all()
+		// Just, you know. Not all of them. Lag sucks.
+		if(prob(90 - (severity * 20)))
+			victim_apc.flicker_lights()
 
 		// Now all the things that can happen if we roll high on damage.
 		if(storm_damage > (90 - (severity * 5)))

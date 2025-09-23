@@ -194,7 +194,7 @@
 				if (dist > 1)
 					AP.overload_lighting(100, TRUE)
 				else
-					AP.flicker_all()
+					AP.flicker_lights()
 			else if (T.master)
 				T.master.emp_act(EMP_LIGHT)
 
