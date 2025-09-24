@@ -1,10 +1,11 @@
 #define FUSION_ENERGY_PER_K				10
-#define FUSION_INSTABILITY_DIVISOR		50000
+#define FUSION_INSTABILITY_DIVISOR		100000
 #define FUSION_RUPTURE_THRESHOLD		25000
 #define FUSION_REACTANT_CAP				10000
 #define FUSION_WARNING_DELAY 			20
 #define FUSION_BLACKBODY_MULTIPLIER		28
-#define FUSION_INTEGRITY_RATE_LIMIT		11
+#define FUSION_INTEGRITY_RATE_LIMIT		0.11
+#define FUSION_TICK_MAX_TEMP_CHANGE		0.2
 
 /obj/effect/fusion_em_field
 	name = "electromagnetic field"
@@ -93,7 +94,7 @@
 
 	var/vfx_radius_actual
 	//var/vfx_radius_visual
-	var/pause_rupture = FALSE
+	var/pause_rupture = TRUE
 
 /obj/effect/fusion_em_field/proc/UpdateVisuals()
 	//Take the particle system and edit it
@@ -201,18 +202,21 @@
 	React()
 
 	var/field_strength_power_multiplier = max((owned_core.field_strength ** 1.05) / 100, 1)
+	to_chat(world, "field_strength_power_multiplier = [field_strength_power_multiplier]")
 	// Dump power to our powernet.
 	owned_core.add_avail(FUSION_ENERGY_PER_K * plasma_temperature * field_strength_power_multiplier)
 
 	// Roundstart update
 	if(field_strength < 20)
 		field_strength = 20
-	var/field_strength_entropy_multiplier = max(((min((owned_core.field_strength - 18), 2) ** 1.25) / 90), 3)
+	var/field_strength_entropy_multiplier = clamp((owned_core.field_strength ** 1.175) / 68, 0.5, 4.0)
+	to_chat(world, SPAN_NOTICE("field_strength_entropy_multiplier = [field_strength_entropy_multiplier]"))
 	// Energy decay (entropy tax).
 	if(plasma_temperature >= 1)
-		var/lost = plasma_temperature * 0.005
+		var/lost = plasma_temperature * 0.01
 		radiation += lost
-		plasma_temperature -= lost * field_strength_entropy_multiplier
+		var/temp_change = 0 - (lost * field_strength_entropy_multiplier)
+		adjust_temperature(temp_change)
 
 	// Handle some reactants formatting.
 	for(var/reactant in reactants)
@@ -247,11 +251,13 @@
  * document details later.
  */
 /obj/effect/fusion_em_field/proc/check_instability()
-	var/field_strength_instability_multiplier = max((owned_core.field_strength ** 1.13)/20, 1)
+	var/field_strength_instability_multiplier = max((owned_core.field_strength ** 1.1)/20, 1)
 	if(tick_instability > 0)
 		percent_unstable_archive = percent_unstable
 		// Apply any modifiers to instability imparted by current field strength, but only apply up to FUSION_INTEGRITY_RATE_LIMIT additional instability.
-		percent_unstable += min((tick_instability * field_strength_instability_multiplier)/FUSION_INSTABILITY_DIVISOR, FUSION_INTEGRITY_RATE_LIMIT)
+		var/new_instability = min((tick_instability * field_strength_instability_multiplier)/FUSION_INSTABILITY_DIVISOR, FUSION_INTEGRITY_RATE_LIMIT)
+		percent_unstable += new_instability
+		to_chat(world, SPAN_DANGER("increased instability by [new_instability] (original [(tick_instability * field_strength_instability_multiplier)/FUSION_INSTABILITY_DIVISOR])"))
 		tick_instability = 0
 		UpdateVisuals()
 	else
@@ -261,7 +267,7 @@
 			if(percent_unstable > 1)
 				percent_unstable = 1
 			if(percent_unstable > 0)
-				percent_unstable = max(0, percent_unstable-rand(0.01,0.04))
+				percent_unstable = max(0, percent_unstable-rand(0.02,0.08))
 				UpdateVisuals()
 
 	if(percent_unstable >= 1)
@@ -301,7 +307,8 @@
 					if(flare)
 						radiation += plasma_temperature/2
 						wave_size += 6
-					plasma_temperature -= lost_plasma
+					var/temp_change = 0 - lost_plasma
+					adjust_temperature(temp_change)
 
 					if(fuel_loss)
 						for(var/particle in reactants)
@@ -415,8 +422,8 @@
 
 /obj/effect/fusion_em_field/proc/AddEnergy(a_energy, a_plasma_temperature)
 	// Boost gyro effects at low temperatures for faster startup
-	if(plasma_temperature <= 12500)
-		a_energy = a_energy * 8
+	if(plasma_temperature <= 750)
+		a_energy = a_energy * 32
 	else if(plasma_temperature <= 25000)
 		a_energy = a_energy * 4
 	energy += a_energy
@@ -608,8 +615,10 @@
 					if(max_num_reactants < 1)
 						continue
 
-				// Randomly determined amount to react.
-				var/amount_reacting = rand(1, (max_num_reactants * (2/3)))
+				// Randomly determined amount to react. Starts at up to 1/20th, scales to up to 2/3rd at 20x min temp
+				var/temp_over_min = plasma_temperature / (cur_reaction.minimum_energy_level * 20)
+				var/max_react_percent = clamp(temp_over_min, (1/20), (2/3))
+				var/amount_reacting = rand(1, (max_num_reactants * max_react_percent))
 
 				// Removing the reacting substances from the list of substances that are primed to react this cycle.
 				// If there aren't enough of that substance (there should be) then modify the reactant amounts accordingly.
@@ -631,8 +640,10 @@
 				plasma_temperature_change -= max_num_reactants * cur_reaction.energy_consumption
 				plasma_temperature_change += max_num_reactants * cur_reaction.energy_production
 
-				plasma_temperature += plasma_temperature_change
-				radiation += max_num_reactants * cur_reaction.radiation           // Add any produced radiation.
+				adjust_temperature(plasma_temperature_change, cur_reaction.max_temp_change_rate)
+
+				 // Add any produced radiation.
+				radiation += max_num_reactants * cur_reaction.radiation
 				tick_instability += max_num_reactants * cur_reaction.instability
 				last_reactants += amount_reacting
 
@@ -685,6 +696,17 @@
 
 /obj/effect/fusion_em_field/add_point_filter()
 	return
+
+/**
+ * Handles clamping temperature changes to the core field to prevent excessive second-by-second shifts.
+ * Lives in its own function to ensure consistent behavior across all potential core field temperature interactions.
+ *
+ * * var/temperature : The amount temperature is being changed by. Can be positive or negative.
+ * * var/max_percentage : Limiting value on how much temp can change per tick. Only overriden by specific fusion reactions.
+ */
+/obj/effect/fusion_em_field/proc/adjust_temperature(var/temp_change, var/max_percentage = FUSION_TICK_MAX_TEMP_CHANGE)
+	var/adjusted_plasma_temperature_change = min(temp_change, temp_change * FUSION_TICK_MAX_TEMP_CHANGE)
+	plasma_temperature += adjusted_plasma_temperature_change
 
 /**
  * Accurate(ish***) black-body radiation colors. Fuck you purple light; save it for a phoronics update!
@@ -808,3 +830,4 @@
 #undef FUSION_WARNING_DELAY
 #undef FUSION_BLACKBODY_MULTIPLIER
 #undef FUSION_INTEGRITY_RATE_LIMIT
+#undef FUSION_TICK_MAX_TEMP_CHANGE

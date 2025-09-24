@@ -19,8 +19,10 @@ GLOBAL_LIST(fusion_reactions)
 	var/radiation = 0
 	var/instability = 0
 	var/list/products = list()
-
+	/// In what order will reactions be carried out? Default 100, less important reactions have priority reduced.
 	var/priority = 100
+	/// Cap on what % of current plasma temperature the reaction is allowed to increase or reduce in a single tick. Higher values for more volatile reactions.
+	var/max_temp_change_rate = 0.2
 
 /singleton/fusion_reaction/proc/handle_reaction_special(obj/effect/fusion_em_field/holder)
 	return 0
@@ -51,7 +53,7 @@ GLOBAL_LIST(fusion_reactions)
 	instability = 2
 	// deut-trit bad!!!
 	radiation = 200
-	minimum_energy_level = 2500
+	minimum_energy_level = 500
 	priority = 1
 
 /singleton/fusion_reaction/hydrogen_hydrogen
@@ -77,7 +79,7 @@ GLOBAL_LIST(fusion_reactions)
 	p_react = GAS_HELIUMFUEL
 	s_react = GAS_HYDROGEN
 	energy_consumption = 4
-	energy_production = 16
+	energy_production = 12
 	products = list(GAS_HYDROGEN = 2)
 	radiation = 32
 	instability = 1.8
@@ -88,7 +90,7 @@ GLOBAL_LIST(fusion_reactions)
 	p_react = GAS_HELIUM
 	s_react = GAS_HELIUM
 	energy_consumption = 3
-	energy_production = 18
+	energy_production = 16
 	products = list(GAS_DEUTERIUM = 2, GAS_HYDROGEN = 1)
 	radiation = 6
 	instability = 0.75
