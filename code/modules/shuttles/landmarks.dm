@@ -119,7 +119,7 @@
 		// IMPORTANT: The below area check is commented out as it is not compatible with the Horizon,
 		// which has docking ports with clashing turfs + areas! There's no good reason for this not to
 		// be re-enabled once the server's primary map doesn't have such poorly mapped docking ports.
-		// It being disabled shouldn't cause too many problems in the meantime.
+		// It being disabled shouldn't cause too many problems in the meantime. Hopefully.
 		// if(target.loc != target_area)
 		// 	return TRUE //clashes with another area
 
