@@ -19,27 +19,36 @@
 
 	// General properties.
 	var/icon_old = null
-	var/pathweight = 1          // How much does it cost to pathfind over this turf?
-	var/blessed = 0             // Has the turf been blessed?
+	/// How much does it cost to pathfind over this turf?
+	var/pathweight = 1
+	/// Has the turf been blessed?
+	var/blessed = 0
 
 	var/footstep_sound = /singleton/sound_category/tiles_footstep
 
 	var/list/decals
 	var/list/blueprints
 
-	var/is_hole		// If true, turf will be treated as space or a hole
+	/// If true, turf will be treated as space or a hole
+	var/is_hole
 	var/tmp/turf/baseturf
 
-	var/roof_type = null // The turf type we spawn as a roof.
+	/// The turf type we spawn as a roof.
+	var/roof_type = null
 	var/tmp/roof_flags = 0
 
-	var/movement_cost = 0 // How much the turf slows down movement, if any.
+	/// How much the turf slows down movement, if any.
+	var/movement_cost = 0
 
 	// Footprint info
-	var/tracks_footprint = TRUE // Whether footprints will appear on this turf
-	var/does_footprint = FALSE // Whether stepping on this turf will dirty your shoes or feet with the below
-	var/footprint_color // The hex color produced by the turf
-	var/track_distance = 12 // How far the tracks last
+	/// Whether footprints will appear on this turf
+	var/tracks_footprint = TRUE
+	/// Whether stepping on this turf will dirty your shoes or feet with the below
+	var/does_footprint = FALSE
+	/// The hex color produced by the turf
+	var/footprint_color
+	/// How far the tracks last
+	var/track_distance = 12
 
 	//Mining resources (for the large drills).
 	var/has_resources
@@ -106,9 +115,6 @@
 	if (smoothing_flags)
 		QUEUE_SMOOTH(src)
 
-	if (light_range && light_power)
-		update_light()
-
 	if (opacity)
 		has_opaque_atom = TRUE
 
@@ -119,6 +125,13 @@
 
 	if(A.base_turf)
 		baseturf = A.base_turf
+
+	if(A.needs_starlight == TRUE)
+		set_light(SSatlas.current_sector.starlight_range, SSatlas.current_sector.starlight_power, l_color = SSskybox.background_color)
+
+	if (light_range && light_power)
+		update_light()
+
 	else if(!baseturf)
 		// Hard-coding this for performance reasons.
 		baseturf = SSatlas.current_map.base_turf_by_z["[z]"] || /turf/space
