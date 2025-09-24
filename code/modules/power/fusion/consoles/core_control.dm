@@ -12,6 +12,7 @@
 	has_off_keyboards = TRUE
 	can_pass_under = FALSE
 	light_power_on = 1
+	tgui_x = 400
 
 /obj/machinery/computer/fusion/core_control/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
@@ -53,16 +54,23 @@
 		for(var/i = 1 to LAZYLEN(fusion_cores))
 			var/list/core = list()
 			var/obj/machinery/power/fusion_core/C = fusion_cores[i]
+
+			var/power_available = C.avail()
+			var/power_usage = C.active_power_usage
+
 			core["id"] = "#[i]"
 			core["ref"] = "[REF(C)]"
 			core["field"] = !isnull(C.owned_field)
 			core["power"] = "[C.field_strength / 10]"
 			core["field_strength"] = C.field_strength
+			core["field_strength_max"] = C.field_strength_max
 			core["size"] =  C.owned_field ? C.owned_field.size : 0
 			core["instability"] = C.owned_field ? C.owned_field.percent_unstable * 100 : -1 //%
 			core["temperature"] = C.owned_field ? C.owned_field.plasma_temperature + 295 : -1 //K
-			core["power_status"] = "[C.avail()]/[C.active_power_usage]"
+			core["power_status"] = "[power_wattage_readable(power_available)]/[power_wattage_readable(power_usage)]"
 			core["shutdown_safe"] = C.owned_field ? C.owned_field.is_shutdown_safe() : TRUE
+
+			core["radiation_avg"] =  C.owned_field ? C.owned_field.radiation_avg : 0
 
 			var/list/reactants = list()
 			if(C.owned_field && LAZYLEN(C.owned_field.reactants))

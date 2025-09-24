@@ -15,6 +15,7 @@ type Gyrotron = {
   active: BooleanLike;
   firedelay: number;
   energy: number;
+  power_status: string;
 };
 
 export const FusionGyrotronControl = (props, context) => {
@@ -37,15 +38,14 @@ export const FusionGyrotronControl = (props, context) => {
                 />
               }>
               <NoticeBox>
-                Power consumption per shot:{' '}
-                {gyrotron.energy * data.gyro_power_constant} watts.
+                Power consumption per shot: {gyrotron.power_status}
               </NoticeBox>
               <LabeledList>
                 <LabeledList.Item label="Strength">
                   <NumberInput
                     value={gyrotron.energy}
                     minValue={1}
-                    maxValue={50}
+                    maxValue={250}
                     unit="x"
                     stepPixelSize={15}
                     onDrag={(e, value) =>

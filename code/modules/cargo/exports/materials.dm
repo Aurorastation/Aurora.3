@@ -97,7 +97,7 @@
 
 /datum/export/material/mhydrogen
 	cost = 10
-	material_id = "mhydrogen"
+	material_id = "metallic hydrogen"
 	message = "metallic hydrogen sheets"
 
 /datum/export/material/aluminium
