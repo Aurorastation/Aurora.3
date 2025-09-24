@@ -7,9 +7,6 @@
 /area/ship/Sol_Frigate/hallway_fore)
 "ag" = (
 /obj/effect/floor_decal/corner/orange/diagonal,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/Solfrig_shuttle)
 "ah" = (
@@ -41,6 +38,10 @@
 /obj/item/reagent_containers/glass/bucket,
 /obj/item/reagent_containers/glass/bucket,
 /obj/effect/floor_decal/corner/green/diagonal,
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 4
+	},
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
 	temperature = 253.15
@@ -100,17 +101,16 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5
 	},
 /obj/machinery/alarm/north{
 	req_one_access = null;
 	req_access = list(203)
+	},
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_fore)
@@ -153,9 +153,6 @@
 /area/ship/Sol_Frigate/engineering)
 "aE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/starboard_gunnery)
@@ -238,21 +235,17 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/cable{
-	icon_state = "1-2";
-	dir = 4
-	},
 /obj/machinery/vending/medical,
 /turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/sickbay)
 "bb" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
 	icon_state = "1-2";
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/engineering)
 "bc" = (
@@ -293,14 +286,6 @@
 	},
 /turf/space,
 /area/ship/Sol_Frigate/Exo_Bay)
-"bn" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/cic)
 "bo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -309,7 +294,9 @@
 	dir = 10
 	},
 /obj/structure/cable{
-	icon_state = "2-8"
+	icon_state = "2-8";
+	d1 = 2;
+	d2 = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/starboard_gunnery)
@@ -353,10 +340,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/cable{
-	icon_state = "1-2";
-	dir = 4
-	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/starboard_gunnery)
 "bI" = (
@@ -380,22 +363,20 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/cic)
 "bT" = (
-/obj/structure/cable{
-	icon_state = "1-4";
-	d1 = 1;
-	d2 = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
+	},
+/obj/structure/cable{
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/head)
@@ -435,32 +416,29 @@
 "ci" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
 	},
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_fore)
 "cj" = (
 /obj/machinery/power/apc/north,
 /obj/structure/cable{
-	icon_state = "0-2"
+	icon_state = "0-8"
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/sickbay)
 "ck" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/item/deck/cards,
 /turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/canteen)
@@ -505,25 +483,8 @@
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/structure/cable{
-	icon_state = "2-4"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/port_thrusters)
-"cu" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/yellow{
-	dir = 10
-	},
-/obj/structure/cable{
-	icon_state = "1-8";
-	d1 = 1;
-	d2 = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/starboard_gunnery)
 "cw" = (
 /obj/structure/bed/stool/chair/shuttle,
 /obj/effect/floor_decal/corner/orange/diagonal,
@@ -588,9 +549,12 @@
 	dir = 1
 	},
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+	icon_state = "1-8"
+	},
+/obj/structure/cable{
+	icon_state = "2-8";
+	d1 = 2;
+	d2 = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_fore)
@@ -601,12 +565,6 @@
 	temperature = 253.15
 	},
 /area/ship/Sol_Frigate/canteen)
-"cT" = (
-/obj/structure/cable{
-	icon_state = "2-4"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/starboard_gunnery)
 "cV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
@@ -614,11 +572,11 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
 	icon_state = "1-2";
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/starboard_thrusters)
 "cW" = (
@@ -635,11 +593,13 @@
 "df" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/machinery/light{
 	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/starboard_battery)
@@ -650,16 +610,17 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/structure/cable{
-	icon_state = "2-8"
-	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5
+	},
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "2-8";
+	d1 = 2;
+	d2 = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_fore)
@@ -690,7 +651,10 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
 	icon_state = "1-2"
 	},
 /obj/structure/cable{
@@ -698,7 +662,11 @@
 	d1 = 1;
 	d2 = 8
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable{
+	icon_state = "1-4";
+	d1 = 1;
+	d2 = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_mid)
 "dm" = (
@@ -742,20 +710,15 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
 	icon_state = "1-2";
 	d1 = 1;
 	d2 = 2
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/starboard_gunnery)
 "dr" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -764,12 +727,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/starboard_gunnery)
-"dv" = (
-/obj/structure/cable{
-	icon_state = "2-4"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/starboard_thrusters)
 "dz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -800,6 +757,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/sickbay)
 "dG" = (
@@ -828,20 +788,20 @@
 /area/ship/Sol_Frigate/starboard_gunnery)
 "dN" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/cable{
-	icon_state = "1-8";
-	d1 = 1;
-	d2 = 8
-	},
-/obj/structure/cable{
-	icon_state = "1-2";
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
+	},
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-8";
+	d1 = 1;
+	d2 = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/bunks)
@@ -851,15 +811,9 @@
 	dir = 4;
 	name = "Officer Country"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 8
-	},
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
@@ -925,10 +879,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
 	},
-/obj/structure/cable{
-	icon_state = "1-2";
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
@@ -974,11 +924,6 @@
 /obj/machinery/door/airlock/engineering{
 	name = "Reactor Room";
 	req_access = list(203)
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
 	},
 /obj/machinery/door/firedoor/noid{
 	dir = 4
@@ -1053,12 +998,12 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/alarm/west,
 /obj/structure/cable{
 	icon_state = "1-2";
 	d1 = 1;
 	d2 = 2
 	},
-/obj/machinery/alarm/west,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/starboard_gunnery)
 "eI" = (
@@ -1088,10 +1033,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/cable{
-	icon_state = "1-2";
-	dir = 4
-	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
 	},
@@ -1103,11 +1044,6 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_fore)
 "eT" = (
@@ -1120,25 +1056,21 @@
 "eY" = (
 /obj/machinery/power/apc/north,
 /obj/structure/cable{
-	dir = 8
+	icon_state = "0-4"
 	},
 /turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/hangar)
 "fc" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-8";
-	d1 = 1;
-	d2 = 8
-	},
-/obj/structure/cable{
-	icon_state = "1-4";
-	d1 = 1;
-	d2 = 4
-	},
 /obj/machinery/light,
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_fore)
 "fd" = (
@@ -1164,13 +1096,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/port_battery)
 "fh" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
-	icon_state = "1-2";
-	d1 = 1;
-	d2 = 2
+	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled/white,
-/area/ship/Sol_Frigate/sickbay)
+/turf/simulated/floor/tiled/dark,
+/area/ship/Sol_Frigate/starboard_gunnery)
 "fi" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/bed/stool/chair/padded/green{
@@ -1192,16 +1124,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/starboard_gunnery)
 "fl" = (
-/obj/structure/cable{
-	icon_state = "1-2";
-	d1 = 1;
-	d2 = 2
-	},
-/obj/structure/cable{
-	icon_state = "2-4";
-	d1 = 2;
-	d2 = 4
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
@@ -1209,14 +1131,14 @@
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable{
+	icon_state = "1-2";
+	d1 = 1;
+	d2 = 2
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/starboard_gunnery)
 "fm" = (
-/obj/structure/cable{
-	icon_state = "1-8";
-	d1 = 1;
-	d2 = 8
-	},
 /obj/machinery/light{
 	dir = 4
 	},
@@ -1228,8 +1150,7 @@
 	dir = 8
 	},
 /obj/structure/cable{
-	icon_state = "1-2";
-	dir = 4
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/engineering)
@@ -1276,9 +1197,6 @@
 	pixel_y = 5
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
-	},
 /obj/item/reagent_containers/food/condiment/sugar,
 /obj/item/reagent_containers/food/condiment/sugar,
 /obj/item/reagent_containers/food/condiment/flour,
@@ -1342,9 +1260,9 @@
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/cable{
-	icon_state = "1-2";
 	d1 = 1;
-	d2 = 2
+	d2 = 2;
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
@@ -1366,14 +1284,6 @@
 "fO" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "1-2";
-	d1 = 1;
-	d2 = 2
-	},
-/obj/structure/cable{
-	icon_state = "2-8"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
@@ -1450,29 +1360,19 @@
 /obj/structure/bedsheetbin,
 /turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/head)
-"gr" = (
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 1
-	},
-/obj/structure/cable{
-	icon_state = "2-4"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/safe_room)
 "gv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/machinery/light{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_fore)
@@ -1622,6 +1522,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
+/obj/structure/cable{
+	icon_state = "2-4";
+	d1 = 2;
+	d2 = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/Exo_Bay)
 "hn" = (
@@ -1667,7 +1572,8 @@
 	},
 /obj/machinery/power/apc/north,
 /obj/structure/cable{
-	dir = 1
+	icon_state = "0-8";
+	d2 = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_mid)
@@ -1681,6 +1587,10 @@
 	},
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
+	},
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/Port_docking_port)
@@ -1747,11 +1657,6 @@
 "hR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2";
-	d1 = 1;
-	d2 = 2
-	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_fore)
@@ -1766,20 +1671,19 @@
 /area/ship/Sol_Frigate/oquarters)
 "hV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/hallway_mid)
 "hZ" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/light{
 	dir = 4
@@ -1789,6 +1693,14 @@
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/hallway_mid)
 "ic" = (
@@ -1836,9 +1748,8 @@
 	},
 /obj/machinery/alarm/north,
 /obj/structure/cable{
-	icon_state = "2-4";
-	d1 = 2;
-	d2 = 4
+	icon_state = "1-2";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/canteen)
@@ -1910,11 +1821,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/engineering)
 "iF" = (
@@ -1923,11 +1829,7 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /obj/structure/cable{
-	icon_state = "2-4"
-	},
-/obj/structure/cable{
-	icon_state = "1-2";
-	dir = 4
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_fore)
@@ -1936,22 +1838,17 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable{
+	icon_state = "1-2";
+	d1 = 1;
+	d2 = 2
+	},
 /turf/simulated/floor/wood,
 /area/ship/Sol_Frigate/oquarters)
 "iI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
@@ -1969,9 +1866,6 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
 	},
-/obj/structure/cable{
-	icon_state = "2-4"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/port_thrusters)
 "iL" = (
@@ -1981,19 +1875,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/structure/cable{
-	icon_state = "1-2";
-	dir = 4
-	},
 /turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/sickbay)
 "iM" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/cable{
-	icon_state = "1-2";
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
@@ -2032,9 +1918,9 @@
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/cable{
-	icon_state = "2-4";
-	d1 = 2;
-	d2 = 4
+	icon_state = "1-2";
+	d1 = 1;
+	d2 = 2
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/canteen)
@@ -2048,11 +1934,11 @@
 "jb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_fore)
@@ -2061,6 +1947,10 @@
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/machinery/light{
 	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
@@ -2073,13 +1963,11 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2";
-	d1 = 1;
-	d2 = 2
-	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_mid)
@@ -2132,10 +2020,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/structure/cable{
-	icon_state = "1-2";
-	dir = 4
-	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/canteen)
@@ -2184,15 +2068,12 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/structure/cable{
-	icon_state = "1-4";
-	d1 = 1;
-	d2 = 4
-	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable{
+	icon_state = "1-2";
+	d1 = 1;
+	d2 = 2
+	},
 /turf/simulated/floor,
 /area/ship/Sol_Frigate/hallway_mid)
 "jU" = (
@@ -2216,6 +2097,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 4
+	},
 /turf/simulated/floor/wood,
 /area/ship/Sol_Frigate/ocountry)
 "jX" = (
@@ -2225,6 +2110,10 @@
 	},
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
+	},
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/safe_room)
@@ -2245,12 +2134,12 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/canteen)
 "kf" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
 /obj/structure/cable{
 	icon_state = "1-2";
 	dir = 4
-	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/head)
@@ -2289,10 +2178,10 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hangar)
 "kl" = (
@@ -2348,13 +2237,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-2";
+	d1 = 1;
+	d2 = 2
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/starboard_gunnery)
@@ -2378,22 +2267,19 @@
 "kN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
 	},
 /obj/machinery/alarm/east,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_mid)
 "kO" = (
 /obj/machinery/door/firedoor/noid,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/Starboard_docking_port)
 "kS" = (
@@ -2446,9 +2332,6 @@
 /area/ship/Sol_Frigate/crew_lounge)
 "la" = (
 /obj/structure/table/reinforced,
-/obj/structure/cable{
-	icon_state = "2-8"
-	},
 /obj/machinery/button/toggle/door{
 	pixel_y = -3;
 	pixel_x = -8;
@@ -2477,14 +2360,11 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
-/obj/structure/cable{
-	icon_state = "2-4"
-	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+	icon_state = "2-4";
+	d1 = 2;
+	d2 = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_fore)
@@ -2496,10 +2376,12 @@
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	icon_state = "1-2";
+	d1 = 1;
+	d2 = 2
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/head)
 "lf" = (
@@ -2523,12 +2405,6 @@
 /area/ship/Sol_Frigate/armoury)
 "lh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/light{
 	dir = 4
@@ -2563,11 +2439,6 @@
 "lw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2";
-	d1 = 1;
-	d2 = 2
-	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
 	},
@@ -2618,13 +2489,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
+	},
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_fore)
@@ -2673,11 +2543,6 @@
 /turf/simulated/wall/shuttle/raider,
 /area/ship/Sol_Frigate/canteen)
 "mp" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
@@ -2686,7 +2551,9 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
-	icon_state = "1-8"
+	icon_state = "1-2";
+	d1 = 1;
+	d2 = 2
 	},
 /turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/engineering)
@@ -2701,9 +2568,6 @@
 /turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/hangar)
 "mu" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
@@ -2711,6 +2575,12 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	icon_state = "2-4";
+	d1 = 2;
+	d2 = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/engineering)
@@ -2726,19 +2596,17 @@
 	name = "Engineering";
 	req_access = list(203)
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
 /obj/machinery/door/firedoor/noid{
 	dir = 4
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "1-2";
+	d1 = 1;
+	d2 = 2
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/engineering)
@@ -2750,10 +2618,11 @@
 /area/ship/Sol_Frigate/safe_room)
 "mz" = (
 /obj/machinery/power/apc/south,
-/obj/structure/cable{
-	icon_state = "0-8"
-	},
 /obj/machinery/alarm/north,
+/obj/structure/cable{
+	icon_state = "0-8";
+	d2 = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/head)
 "mF" = (
@@ -2797,16 +2666,6 @@
 	icon_state = "1-2";
 	dir = 4
 	},
-/obj/structure/cable{
-	icon_state = "1-8";
-	d1 = 1;
-	d2 = 8
-	},
-/obj/structure/cable{
-	icon_state = "1-4";
-	d1 = 1;
-	d2 = 4
-	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/engineering)
 "mP" = (
@@ -2829,13 +2688,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
-/obj/structure/cable{
-	icon_state = "1-2";
-	d1 = 1;
-	d2 = 2
-	},
 /obj/machinery/light{
 	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/wood,
 /area/ship/Sol_Frigate/captain_office)
@@ -2845,9 +2702,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/canteen)
 "na" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 8
-	},
 /obj/machinery/door/airlock/engineering{
 	dir = 4;
 	name = "Starboard Propulsion & Atmos";
@@ -2856,6 +2710,9 @@
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /obj/structure/cable{
 	icon_state = "1-2";
@@ -2870,14 +2727,11 @@
 "ng" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
 	icon_state = "1-2";
 	dir = 4
 	},
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_fore)
 "nh" = (
@@ -2891,15 +2745,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/eva_storage)
 "nm" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable{
 	icon_state = "1-2";
-	d1 = 1;
-	d2 = 2
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/hallway_fore)
+/area/ship/Sol_Frigate/Exo_Bay)
 "nn" = (
 /obj/machinery/door/airlock/vault{
 	name = "Port Battery";
@@ -2908,9 +2759,6 @@
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/port_battery)
 "np" = (
@@ -2921,18 +2769,18 @@
 /turf/space,
 /area/ship/Sol_Frigate/Exo_Bay)
 "nr" = (
-/obj/structure/cable{
-	icon_state = "2-8";
-	d1 = 2;
-	d2 = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner/yellow{
-	dir = 6
+	dir = 5
+	},
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/hallway_mid)
+/area/ship/Sol_Frigate/starboard_gunnery)
 "ns" = (
 /obj/machinery/light{
 	dir = 4;
@@ -3043,12 +2891,14 @@
 /area/ship/Sol_Frigate/starboard_thrusters)
 "nO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_mid)
@@ -3062,10 +2912,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/safe_room)
 "nS" = (
-/obj/structure/cable{
-	icon_state = "1-2";
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
@@ -3090,6 +2936,10 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_fore)
 "od" = (
@@ -3098,9 +2948,6 @@
 	name = "Fuel Tank to Thrusters"
 	},
 /obj/effect/floor_decal/corner/orange/diagonal,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/Solfrig_shuttle)
 "of" = (
@@ -3114,6 +2961,10 @@
 /area/ship/Sol_Frigate/sickbay)
 "oh" = (
 /obj/structure/bed/stool/chair/plastic{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-2";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3153,6 +3004,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3189,14 +3042,13 @@
 	dir = 8
 	},
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/structure/cable{
 	icon_state = "1-8";
 	d1 = 1;
 	d2 = 8
+	},
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_fore)
@@ -3221,7 +3073,6 @@
 /turf/simulated/floor/wood,
 /area/ship/Sol_Frigate/captain_office)
 "oB" = (
-/obj/machinery/power/apc/east,
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
@@ -3258,30 +3109,12 @@
 /area/ship/Sol_Frigate/port_battery)
 "oM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/structure/cable{
-	icon_state = "1-2";
-	d1 = 1;
-	d2 = 2
-	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/port_thrusters)
 "oN" = (
 /obj/item/hullbeacon/red,
 /turf/simulated/floor/airless,
 /area/space)
-"oP" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/yellow{
-	dir = 10
-	},
-/obj/structure/cable{
-	icon_state = "1-4"
-	},
-/obj/machinery/light,
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/starboard_gunnery)
 "oQ" = (
 /obj/machinery/vending/engineering{
 	req_access = list(203)
@@ -3331,6 +3164,11 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
+/obj/structure/cable{
+	icon_state = "2-4";
+	d1 = 2;
+	d2 = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/brig)
 "pg" = (
@@ -3369,11 +3207,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/cable{
-	icon_state = "2-4";
-	d1 = 2;
-	d2 = 4
-	},
 /turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/sickbay)
 "pv" = (
@@ -3383,9 +3216,8 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable{
-	icon_state = "2-4";
-	d1 = 2;
-	d2 = 4
+	icon_state = "1-2";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
@@ -3443,7 +3275,8 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/power/apc/south,
 /obj/structure/cable{
-	icon_state = "0-8"
+	icon_state = "0-8";
+	d2 = 8
 	},
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
@@ -3512,11 +3345,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/cable{
-	icon_state = "1-8";
-	d1 = 1;
-	d2 = 8
-	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/canteen)
@@ -3531,6 +3359,10 @@
 "pW" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/light{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-2";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3637,13 +3469,15 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
 	icon_state = "1-2"
 	},
 /obj/structure/cable{
-	icon_state = "2-8"
+	icon_state = "1-8"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/ship/Sol_Frigate/hallway_fore)
 "qr" = (
@@ -3658,10 +3492,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
-	},
-/obj/structure/cable{
-	icon_state = "1-2";
-	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
@@ -3702,15 +3532,10 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
-/obj/structure/cable{
-	icon_state = "1-2";
-	d1 = 1;
-	d2 = 2
-	},
-/obj/structure/cable{
-	icon_state = "2-4"
-	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_fore)
 "qS" = (
@@ -3751,25 +3576,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/safe_room)
 "rj" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 8
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
-	icon_state = "1-2";
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/yellow{
-	dir = 5
-	},
-/obj/machinery/alarm/north{
-	req_one_access = null;
-	req_access = list(203)
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/hallway_fore)
+/area/ship/Sol_Frigate/safe_room)
 "rk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
@@ -3785,11 +3597,6 @@
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
-/obj/structure/cable{
-	icon_state = "1-2";
-	d1 = 1;
-	d2 = 2
-	},
 /turf/simulated/wall/shuttle/raider,
 /area/ship/Sol_Frigate/Exo_Bay)
 "ro" = (
@@ -3801,11 +3608,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/Solfrig_shuttle)
 "rq" = (
-/obj/structure/cable{
-	icon_state = "2-4";
-	d1 = 2;
-	d2 = 4
-	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/Starboard_docking_port)
 "rr" = (
@@ -3848,9 +3650,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/machinery/light{
 	dir = 4
 	},
@@ -3865,15 +3664,15 @@
 "rI" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/cable{
-	icon_state = "1-2";
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/bunks)
 "rJ" = (
@@ -3891,21 +3690,19 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/Exo_Bay)
 "rV" = (
-/obj/structure/cable{
-	icon_state = "1-4";
-	d1 = 1;
-	d2 = 4
-	},
-/obj/structure/cable{
-	icon_state = "1-2";
-	d1 = 1;
-	d2 = 2
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/cable{
+	icon_state = "1-4";
+	d1 = 1;
+	d2 = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_mid)
@@ -3919,6 +3716,10 @@
 /obj/machinery/vending/cola{
 	prices = list();
 	name = "Free Idris Re-Fresh"
+	},
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/starboard_gunnery)
@@ -3934,7 +3735,6 @@
 /area/space)
 "sc" = (
 /obj/machinery/smartfridge/foodheater/buffet,
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
@@ -3968,18 +3768,11 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/Sol_Frigate/Port_docking_port)
 "so" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
 /obj/structure/cable{
-	icon_state = "1-2";
-	dir = 4
+	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/corner/yellow{
-	dir = 10
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/starboard_gunnery)
+/turf/simulated/floor/tiled/white,
+/area/ship/Sol_Frigate/sickbay)
 "sq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -3989,9 +3782,6 @@
 "sw" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
-	},
-/obj/structure/cable{
-	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/cic)
@@ -4028,10 +3818,19 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/structure/cable{
+	icon_state = "1-2";
+	d1 = 1;
+	d2 = 2
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/engineering)
 "sI" = (
 /obj/effect/floor_decal/industrial/loading/emergency_closet,
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_fore)
 "sJ" = (
@@ -4050,9 +3849,9 @@
 	dir = 4
 	},
 /obj/structure/cable{
-	icon_state = "1-4";
+	icon_state = "1-8";
 	d1 = 1;
-	d2 = 4
+	d2 = 8
 	},
 /turf/simulated/floor/wood,
 /area/ship/Sol_Frigate/ocountry)
@@ -4083,16 +3882,22 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5
 	},
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/starboard_gunnery)
 "sZ" = (
-/obj/structure/cable{
-	icon_state = "1-2";
-	d1 = 1;
-	d2 = 2
+/obj/effect/floor_decal/corner/lime{
+	dir = 5
 	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/hallway_mid)
+/obj/machinery/iv_drip,
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/tiled/white,
+/area/ship/Sol_Frigate/sickbay)
 "tc" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/cable{
@@ -4109,11 +3914,6 @@
 "tj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -4138,18 +3938,12 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
-/obj/structure/cable{
-	icon_state = "0-8";
-	d2 = 8
-	},
 /obj/machinery/power/apc/north,
-/obj/structure/cable{
-	icon_state = "2-8";
-	d1 = 2;
-	d2 = 8
-	},
 /obj/machinery/light{
 	dir = 4
+	},
+/obj/structure/cable{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/engineering)
@@ -4181,10 +3975,10 @@
 /obj/item/ship_ammunition/grauwolf_bundle,
 /obj/item/ship_ammunition/grauwolf_bundle,
 /obj/item/ship_ammunition/grauwolf_bundle,
+/obj/machinery/power/apc/west,
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/west,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/starboard_battery)
 "tw" = (
@@ -4202,12 +3996,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/obj/structure/cable{
-	icon_state = "1-4";
-	d1 = 1;
-	d2 = 4
-	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/wood,
 /area/ship/Sol_Frigate/ocountry)
 "tF" = (
@@ -4225,9 +4021,6 @@
 /area/ship/Sol_Frigate/engineering)
 "tH" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/structure/cable{
-	icon_state = "1-4"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_fore)
 "tI" = (
@@ -4239,15 +4032,13 @@
 /area/ship/Sol_Frigate/hallway_fore)
 "tJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_mid)
@@ -4255,6 +4046,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/wood,
@@ -4271,6 +4064,7 @@
 	level = 2
 	},
 /obj/machinery/power/apc/super/critical/south,
+/obj/structure/cable,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/port_thrusters)
 "tN" = (
@@ -4318,22 +4112,24 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/hallway_mid)
 "tY" = (
 /obj/machinery/door/firedoor/noid,
-/obj/structure/cable{
-	icon_state = "1-2";
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/cable{
+	icon_state = "1-2";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -4380,16 +4176,15 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5
 	},
 /obj/machinery/light{
 	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_fore)
@@ -4410,11 +4205,6 @@
 /area/ship/Sol_Frigate/canteen)
 "ul" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
@@ -4477,8 +4267,7 @@
 	},
 /obj/machinery/power/apc/east,
 /obj/structure/cable{
-	icon_state = "0-8";
-	d2 = 8
+	icon_state = "0-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_mid)
@@ -4493,9 +4282,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/power/apc/east,
 /obj/structure/cable{
-	d1 = 1;
 	d2 = 2;
-	icon_state = "1-2"
+	icon_state = "0-2"
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/oquarters)
@@ -4511,12 +4299,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
 /obj/structure/cable{
 	icon_state = "1-2";
 	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/starboard_battery)
@@ -4550,11 +4338,6 @@
 "uO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2";
-	d1 = 1;
-	d2 = 2
-	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_mid)
 "uR" = (
@@ -4592,8 +4375,7 @@
 	},
 /obj/structure/cable{
 	icon_state = "1-2";
-	d1 = 1;
-	d2 = 2
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/starboard_gunnery)
@@ -4618,11 +4400,6 @@
 "vv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2";
-	d1 = 1;
-	d2 = 2
-	},
 /obj/machinery/door/firedoor/noid{
 	dir = 8
 	},
@@ -4650,6 +4427,10 @@
 	dir = 5
 	},
 /obj/machinery/vending/coffee/free,
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/starboard_gunnery)
 "vB" = (
@@ -4665,6 +4446,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/Exo_Bay)
 "vC" = (
@@ -4679,9 +4465,6 @@
 "vE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
-	},
-/obj/structure/cable{
-	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/engineering)
@@ -4699,9 +4482,11 @@
 /area/ship/Sol_Frigate/cic)
 "vJ" = (
 /obj/machinery/power/apc/south,
-/obj/structure/cable,
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
+	},
+/obj/structure/cable{
+	icon_state = "0-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/Exo_Bay)
@@ -4717,7 +4502,10 @@
 	dir = 10
 	},
 /obj/machinery/power/apc/south,
-/obj/structure/cable,
+/obj/structure/cable{
+	icon_state = "0-8";
+	d2 = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/Port_docking_port)
 "vN" = (
@@ -4757,7 +4545,6 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/power/apc/east,
 /obj/structure/cable{
-	d2 = 2;
 	icon_state = "0-2"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -4773,12 +4560,13 @@
 	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/Starboard_docking_port)
 "wb" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 8
-	},
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -4815,6 +4603,10 @@
 	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/Port_docking_port)
 "wo" = (
@@ -4824,10 +4616,10 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/port_battery)
 "wt" = (
@@ -4851,10 +4643,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/cable{
-	icon_state = "1-2";
-	dir = 4
-	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5
 	},
@@ -4868,10 +4656,10 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/wood,
 /area/ship/Sol_Frigate/oquarters)
 "wG" = (
@@ -4886,14 +4674,6 @@
 /obj/effect/step_trigger/teleporter,
 /turf/space,
 /area/space)
-"wL" = (
-/obj/structure/cable{
-	icon_state = "2-4";
-	d1 = 2;
-	d2 = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/Exo_Bay)
 "wO" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/machinery/power/apc/south,
@@ -4906,11 +4686,6 @@
 "wP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
@@ -4950,11 +4725,6 @@
 "xf" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/cable{
-	icon_state = "1-4";
-	d1 = 1;
-	d2 = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -4990,11 +4760,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
 	},
-/obj/structure/cable{
-	icon_state = "2-8";
-	d1 = 2;
-	d2 = 8
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
@@ -5003,19 +4768,11 @@
 "xz" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/cyan,
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/structure/cable{
-	icon_state = "1-2";
-	d1 = 1;
-	d2 = 2
-	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/port_thrusters)
 "xD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "2-4"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/engineering)
 "xG" = (
@@ -5048,15 +4805,15 @@
 /area/ship/Sol_Frigate/engineering)
 "yb" = (
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
-/obj/structure/cable{
-	icon_state = "1-2";
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/brig)
 "yd" = (
@@ -5101,8 +4858,6 @@
 /area/ship/Sol_Frigate/starboard_gunnery)
 "yo" = (
 /obj/effect/floor_decal/industrial/hatch,
-/obj/machinery/power/apc/east,
-/obj/structure/cable,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/starboard_battery)
 "yt" = (
@@ -5133,21 +4888,16 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/canteen)
 "yF" = (
-/obj/structure/cable{
-	icon_state = "2-8";
-	d1 = 2;
-	d2 = 8
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/structure/cable{
-	icon_state = "1-8";
-	d1 = 1;
-	d2 = 8
-	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable{
+	icon_state = "1-2";
+	d1 = 1;
+	d2 = 2
+	},
 /turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/starboard_gunnery)
 "yH" = (
@@ -5157,11 +4907,6 @@
 /area/space)
 "yJ" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider,
-/obj/structure/cable{
-	icon_state = "1-2";
-	d1 = 1;
-	d2 = 2
-	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/engineering)
 "yS" = (
@@ -5203,9 +4948,8 @@
 	dir = 8
 	},
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+	icon_state = "1-2";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_fore)
@@ -5228,25 +4972,18 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
-/obj/structure/cable{
-	icon_state = "1-4"
-	},
-/obj/structure/cable{
-	icon_state = "2-4";
-	d1 = 2;
-	d2 = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/starboard_gunnery)
 "zd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable{
-	icon_state = "2-4";
-	d1 = 2;
-	d2 = 4
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/wood,
 /area/ship/Sol_Frigate/captain_office)
@@ -5263,6 +5000,9 @@
 /obj/item/reagent_containers/toothpaste,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/captain_cabin)
@@ -5314,11 +5054,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -5336,13 +5071,15 @@
 /area/ship/Sol_Frigate/starboard_thrusters)
 "zC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable{
+	icon_state = "2-4";
+	d1 = 2;
+	d2 = 4
+	},
 /turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/starboard_gunnery)
 "zG" = (
@@ -5373,28 +5110,33 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/armoury)
 "zK" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
 /obj/structure/cable{
-	icon_state = "1-4"
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/Exo_Bay)
+/area/ship/Sol_Frigate/hallway_fore)
 "zL" = (
 /obj/machinery/atmospherics/unary/engine,
 /turf/simulated/floor/reinforced/airless,
 /area/ship/Sol_Frigate/port_thrusters)
 "zM" = (
-/obj/effect/floor_decal/corner/green/diagonal,
-/obj/effect/floor_decal/corner/green/diagonal,
+/obj/structure/bed/stool/chair,
+/obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/cable{
 	icon_state = "2-4";
 	d1 = 2;
 	d2 = 4
 	},
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 253.15
-	},
-/area/ship/Sol_Frigate/crew_lounge)
+/turf/simulated/floor/tiled/white,
+/area/ship/Sol_Frigate/canteen)
 "zP" = (
 /obj/machinery/light{
 	dir = 8;
@@ -5417,6 +5159,11 @@
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/safe_room)
 "zU" = (
@@ -5437,12 +5184,15 @@
 	req_access = list(203)
 	},
 /obj/machinery/door/firedoor/noid,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
 /obj/structure/cable{
 	icon_state = "1-2";
 	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/brig)
@@ -5461,11 +5211,6 @@
 /obj/item/storage/box/zipties,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
-/obj/structure/cable{
-	icon_state = "1-8";
-	d1 = 1;
-	d2 = 8
-	},
 /obj/machinery/light{
 	dir = 4;
 	status = 2
@@ -5481,11 +5226,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/Port_docking_port)
 "Ad" = (
-/obj/structure/cable{
-	icon_state = "1-4";
-	d1 = 1;
-	d2 = 4
-	},
 /obj/machinery/alarm/west,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_mid)
@@ -5494,11 +5234,22 @@
 /area/ship/Sol_Frigate/safe_room)
 "Ah" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/starboard_gunnery)
 "Ai" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-2";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/freezer{
@@ -5509,9 +5260,6 @@
 "Aj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/starboard_battery)
 "An" = (
@@ -5532,6 +5280,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/unsimulated/floor/carpet,
 /area/ship/Sol_Frigate/captain_cabin)
 "Az" = (
@@ -5544,10 +5293,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
-	},
-/obj/structure/cable{
-	icon_state = "1-2";
-	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_fore)
@@ -5627,11 +5372,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
 	temperature = 253.15
@@ -5706,6 +5446,13 @@
 "Bh" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/machinery/alarm/north,
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_fore)
 "Bi" = (
@@ -5733,10 +5480,12 @@
 "Bn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/machinery/door/firedoor/noid,
+/obj/structure/cable{
+	icon_state = "1-2";
+	d1 = 1;
+	d2 = 2
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_mid)
 "Bo" = (
@@ -5752,11 +5501,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/safe_room)
 "Bs" = (
-/obj/structure/cable{
-	icon_state = "1-4"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
+	},
+/obj/structure/cable{
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/starboard_thrusters)
@@ -5771,11 +5520,6 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
 	},
-/obj/structure/cable{
-	icon_state = "1-2";
-	d1 = 1;
-	d2 = 2
-	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/engineering)
 "Bw" = (
@@ -5783,7 +5527,9 @@
 	dir = 10
 	},
 /obj/machinery/power/apc/south,
-/obj/structure/cable,
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/Starboard_docking_port)
 "Bx" = (
@@ -5835,9 +5581,6 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
-/obj/structure/cable{
-	icon_state = "0-8"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/port_thrusters)
 "BF" = (
@@ -5864,14 +5607,16 @@
 /area/ship/Sol_Frigate/port_battery)
 "BN" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/cable{
-	icon_state = "2-8"
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-2";
+	d1 = 1;
+	d2 = 2
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/bunks)
@@ -5880,11 +5625,6 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2";
-	d1 = 1;
-	d2 = 2
-	},
 /obj/machinery/light{
 	dir = 4
 	},
@@ -5904,13 +5644,15 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/machinery/light{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable{
+	icon_state = "1-2";
+	d1 = 1;
+	d2 = 2
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_mid)
 "BT" = (
@@ -5924,14 +5666,7 @@
 /area/ship/Sol_Frigate/starboard_thrusters)
 "BV" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2";
-	dir = 4
-	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
 /turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/starboard_gunnery)
 "BW" = (
@@ -5940,6 +5675,9 @@
 	dir = 5
 	},
 /obj/machinery/power/apc/south,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
 /obj/structure/cable{
 	dir = 8
 	},
@@ -5953,16 +5691,20 @@
 /turf/simulated/floor/wood,
 /area/ship/Sol_Frigate/ocountry)
 "Cc" = (
-/obj/structure/cable{
-	dir = 8
-	},
 /obj/machinery/power/apc/south,
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/eva_storage)
 "Cf" = (
 /obj/machinery/alarm/north,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5
+	},
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_mid)
@@ -5985,11 +5727,6 @@
 "Cm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
-	},
-/obj/structure/cable{
-	icon_state = "1-2";
-	d1 = 1;
-	d2 = 2
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/starboard_gunnery)
@@ -6020,17 +5757,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 1
-	},
-/obj/structure/cable{
-	icon_state = "1-2";
-	d1 = 1;
-	d2 = 2
-	},
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/engineering)
 "CA" = (
@@ -6055,18 +5781,14 @@
 	dir = 9
 	},
 /obj/structure/cable{
-	icon_state = "1-2";
-	d1 = 1;
-	d2 = 2
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/wood,
 /area/ship/Sol_Frigate/captain_office)
 "CF" = (
 /obj/machinery/power/apc/east,
 /obj/structure/cable{
-	icon_state = "1-2";
-	d1 = 1;
-	d2 = 2
+	icon_state = "0-8"
 	},
 /turf/simulated/floor/wood,
 /area/ship/Sol_Frigate/captain_office)
@@ -6085,16 +5807,16 @@
 /turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/Starboard_docking_port)
 "CM" = (
-/obj/effect/floor_decal/corner/yellow{
+/obj/effect/floor_decal/corner/lime{
 	dir = 5
 	},
+/obj/structure/bed/roller,
 /obj/structure/cable{
 	icon_state = "1-2";
-	d1 = 1;
-	d2 = 2
+	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/hallway_fore)
+/turf/simulated/floor/tiled/white,
+/area/ship/Sol_Frigate/sickbay)
 "CQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
@@ -6107,6 +5829,10 @@
 "CV" = (
 /obj/structure/bed/stool/chair,
 /obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/canteen)
 "CX" = (
@@ -6198,19 +5924,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/Exo_Bay)
-"Dr" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/floor_decal/corner/yellow{
-	dir = 6
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/hallway_mid)
 "Dv" = (
 /turf/simulated/wall/shuttle/raider,
 /area/ship/Sol_Frigate/ocountry)
@@ -6308,12 +6021,13 @@
 "DW" = (
 /obj/structure/bed/stool/chair/office/light,
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
-/obj/structure/cable{
-	icon_state = "1-2";
-	dir = 4
-	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "1-8";
+	d1 = 1;
+	d2 = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/brig)
@@ -6401,6 +6115,7 @@
 	dir = 10
 	},
 /obj/machinery/power/apc/south,
+/obj/structure/cable,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/starboard_gunnery)
 "EA" = (
@@ -6408,6 +6123,10 @@
 /area/ship/Sol_Frigate/captain_cabin)
 "EC" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_fore)
 "EE" = (
@@ -6425,6 +6144,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/starboard_gunnery)
 "EP" = (
@@ -6434,16 +6156,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/structure/cable{
-	icon_state = "2-8";
-	d1 = 2;
-	d2 = 8
-	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
 	},
 /obj/machinery/light{
 	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_fore)
@@ -6467,6 +6187,10 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
 	},
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/safe_room)
 "Fc" = (
@@ -6477,11 +6201,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/structure/cable{
-	icon_state = "2-4";
-	d1 = 2;
-	d2 = 4
-	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5
 	},
@@ -6489,10 +6208,11 @@
 /area/ship/Sol_Frigate/starboard_gunnery)
 "Ff" = (
 /obj/structure/cable{
-	icon_state = "1-4"
+	icon_state = "1-2";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/port_battery)
+/area/ship/Sol_Frigate/starboard_gunnery)
 "Fg" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
@@ -6528,11 +6248,13 @@
 "Fl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_mid)
@@ -6544,6 +6266,10 @@
 	dir = 5
 	},
 /obj/machinery/vending/cigarette,
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/starboard_gunnery)
 "Fn" = (
@@ -6560,24 +6286,12 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/Starboard_docking_port)
-"Fq" = (
-/obj/structure/cable{
-	icon_state = "1-2";
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/port_battery)
 "Fs" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_fore)
@@ -6601,6 +6315,10 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_fore)
 "FF" = (
@@ -6611,7 +6329,14 @@
 	dir = 5
 	},
 /obj/structure/cable{
-	icon_state = "1-4"
+	icon_state = "1-8";
+	d1 = 1;
+	d2 = 8
+	},
+/obj/structure/cable{
+	icon_state = "1-4";
+	d1 = 1;
+	d2 = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/starboard_gunnery)
@@ -6662,16 +6387,6 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/cable{
-	icon_state = "2-4";
-	d1 = 2;
-	d2 = 4
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/engineering)
 "Gb" = (
@@ -6727,12 +6442,14 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
 	},
+/obj/structure/cable{
+	icon_state = "2-8";
+	d1 = 2;
+	d2 = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_mid)
 "Go" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/machinery/light{
 	dir = 4
 	},
@@ -6747,9 +6464,6 @@
 	dir = 9
 	},
 /obj/machinery/alarm/west,
-/obj/structure/cable{
-	icon_state = "2-4"
-	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
@@ -6760,16 +6474,12 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/unsimulated/floor/carpet,
 /area/ship/Sol_Frigate/captain_cabin)
 "Gt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "2-8";
-	d1 = 2;
-	d2 = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/port_battery)
@@ -6793,6 +6503,7 @@
 	dir = 1
 	},
 /obj/machinery/power/apc/super/critical/south,
+/obj/structure/cable,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/starboard_thrusters)
 "GB" = (
@@ -6805,7 +6516,8 @@
 	},
 /obj/machinery/power/apc/east,
 /obj/structure/cable{
-	icon_state = "0-8"
+	icon_state = "0-8";
+	d2 = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/starboard_gunnery)
@@ -6874,10 +6586,6 @@
 	dir = 4
 	},
 /obj/structure/cable{
-	icon_state = "1-2";
-	dir = 4
-	},
-/obj/structure/cable{
 	icon_state = "1-4";
 	d1 = 1;
 	d2 = 4
@@ -6899,6 +6607,10 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5
 	},
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/starboard_gunnery)
 "GX" = (
@@ -6906,8 +6618,10 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/structure/cable{
 	icon_state = "1-2";
-	d1 = 1;
-	d2 = 2
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_fore)
@@ -6916,6 +6630,10 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5
+	},
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_mid)
@@ -6952,11 +6670,6 @@
 "Hd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -7004,14 +6717,6 @@
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/port_battery)
-"Hp" = (
-/obj/structure/cable{
-	icon_state = "2-8";
-	d1 = 2;
-	d2 = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/starboard_gunnery)
 "Hr" = (
 /obj/structure/sign/directions/tcom{
 	dir = 1
@@ -7031,10 +6736,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable{
-	icon_state = "1-2"
+	icon_state = "1-2";
+	d1 = 1;
+	d2 = 2
 	},
 /obj/structure/cable{
-	icon_state = "1-2"
+	icon_state = "1-4";
+	d1 = 1;
+	d2 = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_mid)
@@ -7044,11 +6753,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
-	},
-/obj/structure/cable{
-	icon_state = "1-8";
-	d1 = 1;
-	d2 = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/starboard_gunnery)
@@ -7075,17 +6779,12 @@
 /area/ship/Sol_Frigate/eva_storage)
 "HO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-8";
-	d1 = 1;
-	d2 = 8
-	},
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_mid)
@@ -7098,7 +6797,19 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
-	icon_state = "2-4"
+	icon_state = "1-2";
+	d1 = 1;
+	d2 = 2
+	},
+/obj/structure/cable{
+	icon_state = "1-4";
+	d1 = 1;
+	d2 = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-8";
+	d1 = 1;
+	d2 = 8
 	},
 /turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/engineering)
@@ -7176,6 +6887,10 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/canteen)
 "Ih" = (
@@ -7195,10 +6910,6 @@
 /area/ship/Sol_Frigate/canteen)
 "In" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/cable{
-	icon_state = "1-2";
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
@@ -7214,11 +6925,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
-	},
-/obj/structure/cable{
-	icon_state = "1-8";
-	d1 = 1;
-	d2 = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/port_thrusters)
@@ -7253,9 +6959,7 @@
 	dir = 6
 	},
 /obj/structure/cable{
-	icon_state = "1-2";
-	d1 = 1;
-	d2 = 2
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/engineering)
@@ -7295,7 +6999,6 @@
 	name = "Captain's Office";
 	req_access = list(203)
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
@@ -7323,11 +7026,14 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/corner/yellow{
-	dir = 6
+/obj/structure/cable{
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_fore)
@@ -7339,9 +7045,6 @@
 /turf/template_noop,
 /area/ship/Sol_Frigate/sickbay)
 "IV" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
@@ -7350,19 +7053,17 @@
 /turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/starboard_gunnery)
 "IW" = (
-/obj/machinery/power/apc/east,
 /obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2"
+	icon_state = "1-2";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/port_battery)
+/area/ship/Sol_Frigate/engineering)
 "IX" = (
 /obj/machinery/power/smes/buildable/third_party_shuttle,
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
 	},
-/obj/structure/cable,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/engineering)
 "IY" = (
@@ -7394,17 +7095,8 @@
 "Jd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/effect/floor_decal/corner/yellow{
-	dir = 6
-	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/hallway_fore)
+/area/ship/Sol_Frigate/port_battery)
 "Jh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
@@ -7464,11 +7156,6 @@
 /area/ship/Sol_Frigate/canteen)
 "Jp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2";
-	d1 = 1;
-	d2 = 2
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
@@ -7494,14 +7181,16 @@
 "Js" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/structure/closet/walllocker/firecloset{
 	pixel_x = 32
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_mid)
@@ -7543,11 +7232,6 @@
 	dir = 8;
 	level = 2
 	},
-/obj/structure/cable{
-	icon_state = "1-2";
-	d1 = 1;
-	d2 = 2
-	},
 /turf/simulated/floor/wood,
 /area/ship/Sol_Frigate/captain_office)
 "JF" = (
@@ -7587,9 +7271,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/starboard_battery)
 "Kj" = (
@@ -7637,23 +7318,26 @@
 /turf/unsimulated/floor/carpet,
 /area/ship/Sol_Frigate/captain_cabin)
 "Kx" = (
-/obj/structure/cable{
-	icon_state = "2-8"
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/light{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/Exo_Bay)
+/area/ship/Sol_Frigate/starboard_battery)
 "Kz" = (
 /obj/machinery/door/airlock/command{
 	name = "Officers' Stateroom";
 	req_access = list(203)
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -7664,7 +7348,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
-	icon_state = "1-2"
+	icon_state = "1-4";
+	d1 = 1;
+	d2 = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/cic)
@@ -7693,16 +7379,14 @@
 "KL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2";
-	d1 = 1;
-	d2 = 2
-	},
 /obj/machinery/light{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_mid)
@@ -7749,9 +7433,6 @@
 	pixel_y = 5
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
-	},
 /obj/machinery/light{
 	dir = 8
 	},
@@ -7768,8 +7449,9 @@
 	dir = 9
 	},
 /obj/structure/cable{
-	icon_state = "1-2";
-	dir = 4
+	icon_state = "1-8";
+	d1 = 1;
+	d2 = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/sickbay)
@@ -7794,6 +7476,11 @@
 	name = "Solfrig_port";
 	master_tag = "splf_co2"
 	},
+/obj/structure/cable{
+	icon_state = "1-2";
+	d1 = 1;
+	d2 = 2
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/port_thrusters)
 "KV" = (
@@ -7807,9 +7494,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable{
+	icon_state = "1-2";
 	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+	d2 = 2
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/oquarters)
@@ -7824,14 +7511,18 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable{
-	icon_state = "1-2";
 	d1 = 1;
-	d2 = 2
+	d2 = 2;
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/eva_storage)
 "KY" = (
 /obj/structure/table/standard,
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/engineering)
 "Lb" = (
@@ -7868,10 +7559,6 @@
 /obj/structure/closet/crate/loot,
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
-	},
-/obj/structure/cable{
-	icon_state = "1-2";
-	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/safe_room)
@@ -7970,13 +7657,13 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/sickbay)
 "Ls" = (
-/obj/structure/cable{
-	icon_state = "1-2";
-	d1 = 1;
-	d2 = 2
-	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "1-4";
+	d1 = 1;
+	d2 = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_mid)
@@ -8087,13 +7774,11 @@
 "LR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2";
-	d1 = 1;
-	d2 = 2
-	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_mid)
@@ -8153,11 +7838,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/cable{
-	icon_state = "1-2";
-	d1 = 1;
-	d2 = 2
-	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_fore)
@@ -8194,15 +7874,13 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/canteen)
 "ME" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
-	icon_state = "1-2"
+	icon_state = "2-8";
+	d1 = 2;
+	d2 = 8
 	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/starboard_gunnery)
+/turf/simulated/wall/shuttle/raider,
+/area/ship/Sol_Frigate/bunks)
 "MF" = (
 /obj/machinery/suit_cycler/offship/sol,
 /obj/machinery/light{
@@ -8217,22 +7895,24 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/Exo_Bay)
 "ML" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5
 	},
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_mid)
 "MM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2";
-	d1 = 1;
-	d2 = 2
-	},
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/door/firedoor/noid{
 	dir = 8
@@ -8259,12 +7939,16 @@
 /obj/structure/closet/walllocker/firecloset{
 	pixel_x = 32
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
 /obj/structure/cable{
-	icon_state = "2-8"
+	icon_state = "2-8";
+	d1 = 2;
+	d2 = 8
 	},
 /turf/unsimulated/floor/carpet,
 /area/ship/Sol_Frigate/captain_cabin)
@@ -8312,17 +7996,18 @@
 	},
 /area/ship/Sol_Frigate/canteen)
 "Ng" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
+/obj/machinery/portable_atmospherics/hydroponics,
+/obj/effect/floor_decal/corner/green/diagonal,
 /obj/structure/cable{
-	icon_state = "1-4"
+	icon_state = "2-4";
+	d1 = 2;
+	d2 = 4
 	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/hallway_fore)
+/turf/simulated/floor/tiled/freezer{
+	name = "cooled tiles";
+	temperature = 253.15
+	},
+/area/ship/Sol_Frigate/crew_lounge)
 "Nj" = (
 /obj/structure/sign/directions/prop,
 /turf/simulated/wall/shuttle/raider,
@@ -8337,18 +8022,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/obj/structure/cable{
-	icon_state = "1-4";
-	d1 = 1;
-	d2 = 4
-	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/port_battery)
 "Nv" = (
 /obj/structure/cable{
-	icon_state = "1-2";
-	d1 = 1;
-	d2 = 2
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/Exo_Bay)
@@ -8365,13 +8043,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5
+	},
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_fore)
@@ -8425,10 +8102,11 @@
 /area/ship/Sol_Frigate/bunks)
 "NO" = (
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
-/obj/structure/cable{
-	icon_state = "0-2"
-	},
 /obj/machinery/power/apc/east,
+/obj/structure/cable{
+	icon_state = "0-8";
+	d2 = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/brig)
 "NP" = (
@@ -8439,13 +8117,14 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/sickbay)
 "NR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
@@ -8479,21 +8158,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
-	},
-/obj/structure/cable{
-	icon_state = "1-8";
-	d1 = 1;
-	d2 = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_mid)
@@ -8502,9 +8171,6 @@
 	dir = 4;
 	name = "Port Propulsion & Atmos";
 	req_access = list(203)
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 8
 	},
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -8520,11 +8186,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/port_thrusters)
 "Oh" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
@@ -8536,8 +8197,8 @@
 /obj/structure/bed/stool/chair,
 /obj/machinery/power/apc/east,
 /obj/structure/cable{
-	icon_state = "1-2";
-	dir = 4
+	icon_state = "0-8";
+	d2 = 8
 	},
 /turf/simulated/floor/wood,
 /area/ship/Sol_Frigate/oquarters)
@@ -8546,11 +8207,13 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_fore)
@@ -8609,6 +8272,9 @@
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
 /turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/captain_office)
 "OB" = (
@@ -8621,10 +8287,6 @@
 /area/ship/Sol_Frigate/canteen)
 "OG" = (
 /obj/machinery/door/firedoor/noid,
-/obj/structure/cable{
-	icon_state = "1-2";
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
@@ -8655,7 +8317,6 @@
 	pixel_x = 9
 	},
 /obj/structure/cable{
-	d2 = 2;
 	icon_state = "0-2"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -8670,12 +8331,12 @@
 	name = "Cargo Bay Storage"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/firedoor/noid,
 /obj/structure/cable{
 	icon_state = "1-2";
 	d1 = 1;
 	d2 = 2
 	},
-/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/starboard_gunnery)
 "OT" = (
@@ -8695,10 +8356,10 @@
 	dir = 4;
 	name = "Officer Country"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 8
-	},
 /obj/machinery/door/firedoor/noid,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/ocountry)
 "OX" = (
@@ -8774,9 +8435,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
 /obj/machinery/light{
 	dir = 4
 	},
@@ -8797,12 +8455,11 @@
 /area/ship/Sol_Frigate/bunks)
 "Pp" = (
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+	icon_state = "1-2";
+	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/starboard_thrusters)
+/turf/simulated/wall/shuttle/raider,
+/area/ship/Sol_Frigate/bunks)
 "Ps" = (
 /obj/effect/floor_decal/industrial/loading/firefighting_closet,
 /turf/simulated/floor/tiled/dark,
@@ -8810,10 +8467,12 @@
 "Pw" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	icon_state = "1-2";
+	d1 = 1;
+	d2 = 2
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/bunks)
 "Px" = (
@@ -8830,11 +8489,6 @@
 /area/ship/Sol_Frigate/port_thrusters)
 "Py" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-8";
-	d1 = 1;
-	d2 = 8
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
@@ -8852,9 +8506,6 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/machinery/alarm/east,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/starboard_battery)
@@ -8868,6 +8519,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
 	icon_state = "1-2";
 	dir = 4
@@ -8877,15 +8529,9 @@
 	d1 = 1;
 	d2 = 8
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/wood,
 /area/ship/Sol_Frigate/oquarters)
 "PN" = (
-/obj/structure/cable{
-	icon_state = "1-2";
-	d1 = 1;
-	d2 = 2
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
@@ -8931,12 +8577,11 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
-	icon_state = "1-8"
+	icon_state = "1-8";
+	d1 = 1;
+	d2 = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/starboard_battery)
@@ -8975,11 +8620,6 @@
 /area/ship/Sol_Frigate/Starboard_docking_port)
 "Qo" = (
 /obj/effect/floor_decal/industrial/loading/engineering,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/Exo_Bay)
 "Qp" = (
@@ -8995,8 +8635,6 @@
 /obj/structure/table/reinforced,
 /obj/item/paper_bin,
 /obj/item/pen/black,
-/obj/machinery/power/apc/south,
-/obj/structure/cable,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/cic)
 "Qz" = (
@@ -9009,9 +8647,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/power/apc/east,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
+/obj/structure/cable,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/port_battery)
 "QB" = (
@@ -9099,7 +8735,6 @@
 	},
 /obj/effect/floor_decal/corner/orange/diagonal,
 /obj/machinery/power/apc/super/south,
-/obj/structure/cable,
 /obj/machinery/vending/wallmed1{
 	pixel_x = 32
 	},
@@ -9116,11 +8751,11 @@
 /obj/machinery/door/airlock/silver{
 	name = "Captain's Head"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/captain_cabin)
 "Rb" = (
@@ -9134,17 +8769,21 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5
 	},
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/starboard_gunnery)
 "Ri" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_fore)
@@ -9154,13 +8793,15 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/captain_office)
 "Rl" = (
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+	icon_state = "1-2";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_mid)
@@ -9193,33 +8834,38 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/bunks)
-"Rw" = (
 /obj/structure/cable{
-	icon_state = "1-8"
+	icon_state = "1-2";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/port_battery)
+/area/ship/Sol_Frigate/bunks)
 "RC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
+/obj/structure/cable{
+	icon_state = "1-2";
+	d1 = 1;
+	d2 = 2
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/engineering)
 "RJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/machinery/light{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_mid)
@@ -9254,9 +8900,6 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
-/obj/structure/cable{
-	icon_state = "0-8"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/starboard_thrusters)
 "RX" = (
@@ -9275,16 +8918,15 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/machinery/light{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5
+	},
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_fore)
@@ -9325,21 +8967,18 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_fore)
 "Sp" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/machinery/light,
 /obj/structure/cable{
-	icon_state = "1-4";
-	d1 = 1;
-	d2 = 4
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_fore)
@@ -9347,11 +8986,6 @@
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
@@ -9382,6 +9016,10 @@
 	dir = 5
 	},
 /obj/machinery/iv_drip,
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/sickbay)
 "SH" = (
@@ -9391,17 +9029,10 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/cable{
-	icon_state = "1-2";
-	d1 = 1;
-	d2 = 2
-	},
-/obj/structure/cable{
-	icon_state = "2-8";
-	d1 = 2;
-	d2 = 8
-	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_fore)
 "SI" = (
@@ -9448,9 +9079,6 @@
 	dir = 10
 	},
 /obj/structure/bed/stool/chair/office/bridge/pilot,
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/cic)
 "Td" = (
@@ -9463,11 +9091,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
+/obj/machinery/door/firedoor/noid,
 /obj/structure/cable{
 	icon_state = "1-2";
 	dir = 4
 	},
-/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/crew_lounge)
 "Tg" = (
@@ -9479,29 +9107,21 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/port_thrusters)
-"Tj" = (
-/obj/structure/cable{
-	icon_state = "2-8";
-	d1 = 2;
-	d2 = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/Exo_Bay)
 "Tl" = (
 /obj/structure/bed/stool/chair,
 /obj/structure/closet/walllocker/emerglocker/west,
 /turf/simulated/floor/wood,
 /area/ship/Sol_Frigate/ocountry)
 "To" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
 	icon_state = "1-2";
 	d1 = 1;
 	d2 = 2
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
 	icon_state = "1-4";
 	d1 = 1;
@@ -9519,20 +9139,16 @@
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
-/obj/structure/cable{
-	icon_state = "1-2";
-	d1 = 1;
-	d2 = 2
-	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/safe_room)
 "TE" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/cable{
-	icon_state = "2-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
+	},
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/bunks)
@@ -9577,9 +9193,8 @@
 	dir = 8
 	},
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+	icon_state = "1-2";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_fore)
@@ -9622,15 +9237,12 @@
 	req_access = list(203);
 	name = "Captain's Cabin"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
 /obj/structure/cable{
-	icon_state = "1-2";
-	d1 = 1;
-	d2 = 2
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/exoplanet/wood,
 /area/ship/Sol_Frigate/captain_cabin)
@@ -9652,11 +9264,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
-	},
-/obj/structure/cable{
-	icon_state = "1-4";
-	d1 = 1;
-	d2 = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/cic)
@@ -9683,6 +9290,10 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-2";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -9720,26 +9331,27 @@
 	dir = 6
 	},
 /obj/structure/cable{
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/engineering)
-"UO" = (
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/starboard_thrusters)
-"UT" = (
-/obj/structure/cable{
 	icon_state = "1-2";
 	d1 = 1;
 	d2 = 2
 	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/Sol_Frigate/engineering)
+"UO" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/Sol_Frigate/hallway_fore)
+"UT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/multi_tile/glass{
 	door_color = "#304b77";
@@ -9747,6 +9359,11 @@
 	name = "Cargo Bay Storage"
 	},
 /obj/machinery/door/firedoor/noid,
+/obj/structure/cable{
+	icon_state = "1-2";
+	d1 = 1;
+	d2 = 2
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_mid)
 "UU" = (
@@ -9769,6 +9386,10 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5
 	},
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_mid)
 "Vb" = (
@@ -9777,7 +9398,7 @@
 	dir = 10
 	},
 /obj/structure/cable{
-	icon_state = "0-8"
+	icon_state = "0-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/safe_room)
@@ -9786,10 +9407,6 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2";
-	dir = 4
-	},
 /obj/machinery/light,
 /turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/sickbay)
@@ -9797,6 +9414,11 @@
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "1-4";
+	d1 = 1;
+	d2 = 4
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -9808,11 +9430,11 @@
 	pixel_x = 32
 	},
 /obj/machinery/power/apc/north,
-/obj/structure/cable{
-	icon_state = "0-2"
-	},
 /obj/machinery/light{
 	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "0-2"
 	},
 /turf/simulated/floor/wood,
 /area/ship/Sol_Frigate/ocountry)
@@ -9850,11 +9472,12 @@
 /area/ship/Sol_Frigate/port_battery)
 "Vn" = (
 /obj/machinery/power/apc/west,
-/obj/structure/cable{
-	icon_state = "0-2"
-	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
+	},
+/obj/structure/cable{
+	d2 = 2;
+	icon_state = "0-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_fore)
@@ -9868,6 +9491,10 @@
 /obj/machinery/power/apc{
 	dir = 4;
 	pixel_x = 9
+	},
+/obj/structure/cable{
+	icon_state = "0-8";
+	d2 = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/cic)
@@ -9934,6 +9561,11 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
 	},
+/obj/structure/cable{
+	icon_state = "1-2";
+	d1 = 1;
+	d2 = 2
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_mid)
 "VL" = (
@@ -9947,6 +9579,10 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5
 	},
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_mid)
 "VW" = (
@@ -9957,16 +9593,14 @@
 "VX" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
 	icon_state = "1-2";
 	dir = 4
 	},
 /obj/structure/cable{
-	icon_state = "1-4";
-	d1 = 1;
-	d2 = 4
+	icon_state = "1-8"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/wood,
 /area/ship/Sol_Frigate/ocountry)
 "VY" = (
@@ -9977,16 +9611,13 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/machinery/light{
 	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-2";
+	d1 = 1;
+	d2 = 2
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/engineering)
@@ -9997,12 +9628,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/light{
+	dir = 1
+	},
 /obj/structure/cable{
 	icon_state = "1-2";
 	dir = 4
-	},
-/obj/machinery/light{
-	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/canteen)
@@ -10015,10 +9646,12 @@
 "Wk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/wood,
 /area/ship/Sol_Frigate/oquarters)
 "Wl" = (
@@ -10039,15 +9672,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/Solfrig_shuttle)
-"Wp" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
-	dir = 8
-	},
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/port_thrusters)
 "Wq" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
@@ -10098,12 +9722,14 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/light{
 	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-2";
+	d1 = 1;
+	d2 = 2
 	},
 /turf/simulated/floor,
 /area/ship/Sol_Frigate/hallway_fore)
@@ -10127,14 +9753,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/safe_room)
 "WH" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "1-2";
+	d1 = 1;
+	d2 = 2
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/engineering)
@@ -10190,15 +9816,21 @@
 "Xg" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/wood,
 /area/ship/Sol_Frigate/captain_office)
 "Xh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable{
+	icon_state = "1-2";
 	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+	d2 = 2
 	},
 /turf/simulated/floor/wood,
 /area/ship/Sol_Frigate/oquarters)
@@ -10226,34 +9858,28 @@
 	},
 /area/ship/Sol_Frigate/freezer)
 "Xs" = (
-/obj/structure/cable{
-	icon_state = "1-4"
-	},
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold4w/visible/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2";
-	d1 = 1;
-	d2 = 2
-	},
-/obj/structure/cable{
-	icon_state = "1-2";
-	d1 = 1;
-	d2 = 2
-	},
-/obj/structure/cable{
-	icon_state = "2-8";
-	d1 = 2;
-	d2 = 8
-	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-4";
+	d1 = 1;
+	d2 = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_mid)
 "Xv" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/engineering)
 "Xy" = (
@@ -10279,6 +9905,10 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5
 	},
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_mid)
 "XB" = (
@@ -10288,6 +9918,10 @@
 /obj/structure/bed/stool/chair/office/bridge,
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
+	},
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/cic)
@@ -10342,15 +9976,19 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/starboard_gunnery)
-"XT" = (
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
-/turf/simulated/floor/tiled/white,
-/area/ship/Sol_Frigate/sickbay)
 "XV" = (
-/turf/simulated/wall/shuttle/raider,
-/area/ship/Sol_Frigate/hallway_mid)
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/Sol_Frigate/starboard_gunnery)
 "XW" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -10368,12 +10006,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/starboard_gunnery)
 "XY" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable{
 	icon_state = "1-2";
 	d1 = 1;
 	d2 = 2
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/starboard_gunnery)
 "Yc" = (
@@ -10385,10 +10023,22 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable{
+	icon_state = "1-4";
+	d1 = 1;
+	d2 = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-8";
+	d1 = 1;
+	d2 = 8
+	},
+/obj/structure/cable{
+	icon_state = "1-2";
+	d1 = 1;
+	d2 = 2
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/starboard_gunnery)
 "Yi" = (
@@ -10465,7 +10115,6 @@
 	dir = 3;
 	req_access = list(203)
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
@@ -10519,6 +10168,10 @@
 /area/ship/Sol_Frigate/head)
 "YU" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/engineering)
 "YZ" = (
@@ -10527,6 +10180,11 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/Exo_Bay)
@@ -10559,9 +10217,6 @@
 	},
 /obj/machinery/power/smes/buildable/third_party_shuttle,
 /obj/effect/floor_decal/industrial/warning/full,
-/obj/structure/cable{
-	dir = 1
-	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/Solfrig_shuttle)
 "Zf" = (
@@ -10605,22 +10260,25 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/cable{
-	icon_state = "1-2";
-	dir = 4
-	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable{
+	icon_state = "2-8";
+	d1 = 2;
+	d2 = 8
+	},
 /turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/port_thrusters)
 "Zn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/machinery/door/firedoor/noid,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_mid)
@@ -10638,20 +10296,25 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/wood,
 /area/ship/Sol_Frigate/ocountry)
 "Zu" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/starboard_gunnery)
+/area/ship/Sol_Frigate/hallway_fore)
 "Zv" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
@@ -10664,6 +10327,10 @@
 "ZA" = (
 /obj/structure/table/standard,
 /obj/item/pen/drafting,
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/engineering)
 "ZB" = (
@@ -10674,6 +10341,10 @@
 	dir = 5
 	},
 /obj/effect/floor_decal/industrial/outline/security,
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/cic)
 "ZE" = (
@@ -10698,13 +10369,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_mid)
 "ZL" = (
-/obj/structure/cable{
-	icon_state = "1-8";
-	d1 = 1;
-	d2 = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
-/turf/simulated/floor/tiled/white,
-/area/ship/Sol_Frigate/sickbay)
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/Sol_Frigate/starboard_gunnery)
 "ZN" = (
 /obj/structure/lattice,
 /turf/template_noop,
@@ -10738,12 +10410,12 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
 	icon_state = "1-2";
 	d1 = 1;
 	d2 = 2
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/starboard_gunnery)
 
@@ -40159,7 +39831,7 @@ MO
 MO
 MO
 mn
-CV
+zM
 iU
 AW
 tc
@@ -41194,16 +40866,16 @@ th
 Mo
 cS
 mn
-xI
-zM
+Ng
+fI
 fI
 fI
 fI
 wO
 jY
 kS
-wL
-px
+cB
+cB
 vJ
 jY
 we
@@ -41461,7 +41133,7 @@ jY
 Vx
 Qo
 cB
-cB
+nm
 bk
 BF
 ed
@@ -41716,9 +41388,9 @@ kY
 jY
 jY
 rT
-Kx
-zK
 cB
+cB
+nm
 np
 AP
 Lp
@@ -41974,11 +41646,11 @@ jY
 MR
 hj
 MH
-Tj
+px
 Nv
 rn
-CM
-Ng
+AP
+HW
 PD
 PD
 PD
@@ -42180,7 +41852,7 @@ Ja
 YM
 ZR
 UW
-UO
+UW
 UW
 bI
 bI
@@ -42236,13 +41908,13 @@ nF
 jY
 fG
 ld
-jb
+Zu
 gv
-jb
+Zu
 ol
 df
 Qh
-df
+Kx
 Kg
 Aj
 rC
@@ -42434,10 +42106,10 @@ MO
 DD
 vR
 zA
-dv
-Pp
-Pp
-Pp
+ZR
+ZR
+ZR
+ZR
 Bs
 GA
 bI
@@ -42471,7 +42143,7 @@ QG
 mK
 bL
 eo
-XV
+mn
 wb
 Ji
 mn
@@ -42716,8 +42388,8 @@ Kf
 Kf
 Kf
 ar
-Rl
 Zj
+Rl
 kK
 kK
 UA
@@ -42743,7 +42415,7 @@ vG
 cI
 eq
 eq
-HW
+zK
 af
 af
 af
@@ -42970,7 +42642,7 @@ aE
 aE
 NR
 zC
-aE
+fh
 zc
 tJ
 HO
@@ -42988,21 +42660,21 @@ Fl
 Zn
 dk
 BS
-Fl
+VI
 Hy
 jR
 Bn
 WC
 qq
-jb
+Zu
 ci
 Ok
 Vg
 jb
 jb
 IR
-Jd
-ci
+jb
+UO
 jb
 Ri
 jb
@@ -43226,9 +42898,9 @@ Kp
 Kp
 Kp
 Kp
-XQ
+nr
 gW
-so
+EV
 EA
 EA
 EA
@@ -43738,7 +43410,7 @@ RX
 Lj
 Xz
 eL
-gr
+RX
 Tw
 uX
 Cm
@@ -43984,7 +43656,7 @@ iE
 po
 SM
 dz
-gW
+Ff
 DN
 Kp
 ek
@@ -43998,8 +43670,8 @@ AO
 Lg
 Kp
 Fm
-cT
-cu
+gW
+EV
 EA
 ze
 Ra
@@ -44241,7 +43913,7 @@ iE
 ic
 SM
 XQ
-gW
+Ff
 XO
 Kp
 Gb
@@ -44255,7 +43927,7 @@ Af
 Vb
 Kp
 vz
-Zu
+gW
 EV
 EA
 fE
@@ -44498,7 +44170,7 @@ iE
 zp
 SM
 dz
-gW
+Ff
 jB
 Kp
 Zd
@@ -44512,8 +44184,8 @@ jG
 jX
 Kp
 rW
-Hp
-oP
+gW
+eR
 EA
 EA
 EA
@@ -44750,12 +44422,12 @@ SM
 WS
 SM
 aC
-QC
+IW
 iE
 tF
 SM
 XQ
-gW
+Ff
 Rp
 Kp
 ek
@@ -44801,7 +44473,7 @@ Fs
 yt
 ZB
 la
-bn
+vI
 Tc
 nE
 yt
@@ -45007,12 +44679,12 @@ IX
 mh
 SM
 nI
-QC
+IW
 iE
 Yv
 SM
 dz
-gW
+Ff
 jB
 Kp
 Gb
@@ -45023,7 +44695,7 @@ VB
 VB
 jn
 VB
-VB
+rj
 zT
 Ah
 Sf
@@ -45284,7 +44956,7 @@ WF
 Kp
 GV
 gW
-fT
+ZL
 lI
 MG
 lB
@@ -45797,13 +45469,13 @@ NG
 OP
 fl
 Yh
-ME
+NG
 yF
 XY
 UT
 To
 Ls
-sZ
+Zj
 Ad
 MG
 bd
@@ -46053,7 +45725,7 @@ fj
 Lk
 uu
 nS
-vh
+XV
 fV
 Lh
 Sf
@@ -46061,9 +45733,9 @@ Gj
 uv
 Gn
 VI
-nr
-Dr
-Dr
+VI
+VI
+VI
 rV
 jh
 LR
@@ -46080,16 +45752,16 @@ BO
 Ml
 lw
 lw
-nm
-nm
+PN
+PN
 SH
 qP
-nm
-nm
-nm
+PN
+PN
+PN
 PN
 hR
-nm
+PN
 ng
 jC
 jC
@@ -46354,7 +46026,7 @@ wo
 QL
 QA
 nn
-QL
+Jd
 Nr
 Zf
 Xf
@@ -46546,7 +46218,7 @@ MO
 zL
 uz
 iK
-Wp
+fX
 fX
 gY
 iV
@@ -46597,7 +46269,7 @@ IT
 EE
 EE
 EE
-rj
+ay
 PD
 aw
 Gw
@@ -46613,7 +46285,7 @@ Xf
 Xf
 lt
 Gt
-Ff
+lt
 et
 Vl
 Vl
@@ -46870,7 +46542,7 @@ qE
 Xf
 uw
 BL
-Fq
+lt
 rx
 QP
 Vl
@@ -47126,8 +46798,8 @@ fg
 UI
 Xf
 oK
-IW
-Rw
+lt
+lt
 iA
 Ho
 Ho
@@ -47365,8 +47037,8 @@ Nc
 xG
 Up
 IT
-SF
-PH
+sZ
+so
 dB
 KR
 cc
@@ -47612,7 +47284,7 @@ rl
 rl
 aW
 aW
-aW
+Pp
 In
 Ih
 aW
@@ -47625,7 +47297,7 @@ IT
 NP
 PH
 pt
-ZL
+PH
 Ia
 EE
 UG
@@ -48126,7 +47798,7 @@ MO
 Qd
 rl
 aW
-aW
+ME
 BN
 Pw
 Pw
@@ -48136,7 +47808,7 @@ IT
 IT
 IT
 gX
-Cs
+CM
 mP
 Vf
 EE
@@ -48651,8 +48323,8 @@ Nc
 Nc
 IT
 cj
-fh
-XT
+PH
+PH
 EE
 Dl
 Jm
