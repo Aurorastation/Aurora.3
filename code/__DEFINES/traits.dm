@@ -115,7 +115,26 @@
 			: FALSE)\
 		: FALSE)
 #define HAS_TRAIT_NOT_FROM(target, trait, source) (target.status_traits ? (target.status_traits[trait] ? (length(target.status_traits[trait] - source) > 0) : FALSE) : FALSE)
-
+#define ADD_TRAITS(target, list_of_traits, source) \
+	do { \
+		var/list/_LT = list_of_traits; \
+		if (list_of_traits && !islist(list_of_traits)) { \
+			_LT = list(list_of_traits); \
+		}; \
+		for (var/_TR in _LT) { \
+			ADD_TRAIT(target, _TR, source);\
+		}; \
+	} while (0)
+#define REMOVE_TRAITS(target, list_of_traits, source) \
+	do { \
+		var/list/_LT = list_of_traits; \
+		if (list_of_traits && !islist(list_of_traits)) { \
+			_LT = list(list_of_traits); \
+		}; \
+		for (var/_TR in _LT) { \
+			REMOVE_TRAIT(target, _TR, source);\
+		}; \
+	} while (0)
 // common trait sources
 #define TRAIT_GENERIC "generic"
 #define GENERIC_ITEM_TRAIT "generic_item"
@@ -216,3 +235,11 @@
 
 /// Trait given when the mob lies down.
 #define TRAIT_SOURCE_LYING_DOWN "lying_down"
+
+#define CLOTHING_TRAIT "clothing"
+
+#define TRAIT_MEDICAL_HUD "med_hud"
+#define TRAIT_SECURITY_HUD "sec_hud"
+#define TRAIT_ANTAG_HUD "antag_hud"
+
+#define ORGAN_TRAIT "organ"

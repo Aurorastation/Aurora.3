@@ -194,16 +194,6 @@
 
 	add_robot_verbs()
 
-	hud_list[HEALTH_HUD]      = new /image/hud_overlay('icons/hud/hud_med.dmi', src, "100")
-	hud_list[STATUS_HUD]      = new /image/hud_overlay('icons/hud/hud.dmi', src, "hudhealth100")
-	hud_list[LIFE_HUD]        = new /image/hud_overlay('icons/hud/hud.dmi', src, "hudhealth100")
-	hud_list[ID_HUD]          = new /image/hud_overlay('icons/hud/hud.dmi', src, "hudblank")
-	hud_list[WANTED_HUD]      = new /image/hud_overlay('icons/hud/hud.dmi', src, "hudblank")
-	hud_list[IMPLOYAL_HUD]    = new /image/hud_overlay('icons/hud/hud.dmi', src, "hudblank")
-	hud_list[IMPCHEM_HUD]     = new /image/hud_overlay('icons/hud/hud.dmi', src, "hudblank")
-	hud_list[IMPTRACK_HUD]    = new /image/hud_overlay('icons/hud/hud.dmi', src, "hudblank")
-	hud_list[SPECIALROLE_HUD] = new /image/hud_overlay('icons/hud/hud.dmi', src, "hudblank")
-
 /mob/living/silicon/robot/proc/update_access()
 	if(emagged || malf_AI_module || crisis)
 		id_card.access = get_all_station_access() + ACCESS_EQUIPMENT // Give full station access
@@ -1084,16 +1074,10 @@
 
 
 /mob/living/silicon/robot/proc/sensor_mode() //Medical/Security HUD controller for borgs
-	set name = "Set Sensor Augmentation"
+	set name = "Toggle Sensor Augmentation"
 	set category = "Robot Commands"
 	set desc = "Augment visual feed with internal sensor overlays."
-	toggle_sensor_mode()
-
-/mob/living/silicon/robot/proc/sensor_mode_sec()
-	return sensor_mode == SEC_HUD
-
-/mob/living/silicon/robot/proc/sensor_mode_med()
-	return sensor_mode == MED_HUD
+	toggle_sensors()
 
 /mob/living/silicon/robot/proc/add_robot_verbs()
 	add_verb(src, robot_verbs_default)

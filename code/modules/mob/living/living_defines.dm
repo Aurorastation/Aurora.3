@@ -7,8 +7,6 @@
 	/// A mob's current health
 	var/health = 100
 
-	var/hud_updateflag = 0
-
 	// Virtual Reality
 	/// The network this mob is attached to, used in virtual reality and remote control things
 	var/remote_network

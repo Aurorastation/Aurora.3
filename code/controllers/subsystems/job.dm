@@ -383,9 +383,7 @@ SUBSYSTEM_DEF(jobs)
 	// So shoes aren't silent if people never change 'em.
 	H.update_noise_level()
 
-	BITSET(H.hud_updateflag, ID_HUD)
-	BITSET(H.hud_updateflag, IMPLOYAL_HUD)
-	BITSET(H.hud_updateflag, SPECIALROLE_HUD)
+
 
 	var/obj/item/clothing/under/uniform = H.w_uniform
 	if(istype(uniform) && uniform.has_sensor)

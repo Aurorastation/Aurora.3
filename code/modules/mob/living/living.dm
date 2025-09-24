@@ -22,7 +22,7 @@
 /mob/living/drop_from_inventory(var/obj/item/W, var/atom/target)
 	. = ..(W, target)
 	if(W && W.GetID())
-		BITSET(hud_updateflag, ID_HUD) //If we drop our ID, update ID HUD
+		update_id_card()
 
 /*one proc, four uses
 swapping: if it's 1, the mobs are trying to switch, if 0, non-passive is pushing passive
@@ -470,9 +470,8 @@ default behaviour is:
 		if (C.legcuffed && !initial(C.legcuffed))
 			C.drop_from_inventory(C.legcuffed)
 		C.legcuffed = initial(C.legcuffed)
-	BITSET(hud_updateflag, HEALTH_HUD)
-	BITSET(hud_updateflag, STATUS_HUD)
-	BITSET(hud_updateflag, LIFE_HUD)
+	med_hud_set_health()
+	med_hud_set_status()
 	ExtinguishMobCompletely()
 
 /mob/living/proc/rejuvenate()
@@ -528,9 +527,8 @@ default behaviour is:
 	// make the icons look correct
 	regenerate_icons()
 
-	BITSET(hud_updateflag, HEALTH_HUD)
-	BITSET(hud_updateflag, STATUS_HUD)
-	BITSET(hud_updateflag, LIFE_HUD)
+	med_hud_set_health()
+	med_hud_set_status()
 
 	failed_last_breath = 0 //So mobs that died of oxyloss don't revive and have perpetual out of breath.
 
@@ -549,9 +547,8 @@ default behaviour is:
 	set_stat(CONSCIOUS)
 	regenerate_icons()
 
-	BITSET(hud_updateflag, HEALTH_HUD)
-	BITSET(hud_updateflag, STATUS_HUD)
-	BITSET(hud_updateflag, LIFE_HUD)
+	med_hud_set_health()
+	med_hud_set_status()
 
 	failed_last_breath = 0 //So mobs that died of oxyloss don't revive and have perpetual out of breath.
 
@@ -928,6 +925,15 @@ default behaviour is:
 
 	AddElement(/datum/element/connect_loc, loc_connections)
 
+/mob/living/prepare_huds()
+	..()
+	prepare_data_huds()
+
+/mob/living/proc/prepare_data_huds()
+	med_hud_set_health()
+	med_hud_set_status()
+	sec_hud_set_implants()
+
 /mob/living/Destroy()
 
 	//Aiming overlay
@@ -1089,3 +1095,11 @@ default behaviour is:
 		set_density(FALSE)
 	else
 		set_density(TRUE)
+
+/mob/living/proc/pulse()
+	var/pct_health = health / maxHealth
+	if (stat == DEAD || pct_health <= 0) return PULSE_NONE
+	if (pct_health <= 20) return PULSE_THREADY
+	if (pct_health <= 40) return PULSE_2FAST
+	if (pct_health <= 60) return PULSE_FAST
+	return PULSE_NORM

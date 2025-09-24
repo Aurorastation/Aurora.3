@@ -115,7 +115,6 @@
 	if(!can_update_hud())
 		return FALSE
 
-	handle_hud_icons()
 	handle_vision()
 
 	return TRUE
@@ -187,13 +186,6 @@
 /mob/living/proc/update_dead_sight()
 	set_sight(sight|SEE_TURFS|SEE_MOBS|SEE_OBJS)
 	set_see_invisible(SEE_INVISIBLE_LEVEL_TWO)
-
-/mob/living/proc/handle_hud_icons()
-	handle_hud_icons_health()
-	handle_hud_glasses()
-
-/mob/living/proc/handle_hud_icons_health()
-	return
 
 /mob/living
 	var/datum/weakref/last_weather

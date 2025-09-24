@@ -11,7 +11,6 @@
 
 	var/species_items_equipped // used so species that need special items (autoinhalers for vaurca/RMT for offworlders) don't get them twice when they shouldn't.
 
-	var/list/hud_list[11]
 	var/embedded_flag	  //To check if we've need to roll for damage on movement while an item is imbedded in us.
 	var/obj/item/rig/wearing_rig // This is very not good, but it's much much better than calling get_rig() every update_canmove() call.
 	/// Pref holder for the speech bubble style.
@@ -44,42 +43,7 @@
 	if(max_hydration > 0)
 		hydration = rand(CREW_MINIMUM_HYDRATION*100, CREW_MAXIMUM_HYDRATION*100) * max_hydration * 0.01
 
-	hud_list[HEALTH_HUD]      = new /image/hud_overlay('icons/hud/hud_med.dmi', src, "100")
-	hud_list[STATUS_HUD]      = new /image/hud_overlay('icons/hud/hud.dmi', src, "hudhealthy")
-	hud_list[ID_HUD]          = new /image/hud_overlay('icons/hud/hud_security.dmi', src, "hudunknown")
-	hud_list[WANTED_HUD]      = new /image/hud_overlay('icons/hud/hud_security.dmi', src, "hudblank")
-	hud_list[IMPLOYAL_HUD]    = new /image/hud_overlay('icons/hud/hud.dmi', src, "hudblank")
-	hud_list[IMPCHEM_HUD]     = new /image/hud_overlay('icons/hud/hud.dmi', src, "hudblank")
-	hud_list[IMPTRACK_HUD]    = new /image/hud_overlay('icons/hud/hud.dmi', src, "hudblank")
-	hud_list[SPECIALROLE_HUD] = new /image/hud_overlay('icons/hud/hud.dmi', src, "hudblank")
-	hud_list[STATUS_HUD_OOC]  = new /image/hud_overlay('icons/hud/hud.dmi', src, "hudhealthy")
-	hud_list[LIFE_HUD]	      = new /image/hud_overlay('icons/hud/hud.dmi', src, "hudhealthy")
-	hud_list[TRIAGE_HUD]      = new /image/hud_overlay('icons/hud/hud_med.dmi', src, triage_tag)
-
-	//Scaling down the ID hud
-	var/image/holder = hud_list[ID_HUD]
-	holder.pixel_x = -3
-	holder.pixel_y = 24
-	hud_list[ID_HUD] = holder
-
-	holder = hud_list[IMPLOYAL_HUD]
-	holder.pixel_y = 2
-	hud_list[IMPLOYAL_HUD] = holder
-
-	holder = hud_list[IMPCHEM_HUD]
-	holder.pixel_y = 2
-	hud_list[IMPCHEM_HUD] = holder
-
-	holder = hud_list[IMPTRACK_HUD]
-	holder.pixel_y = 2
-	hud_list[IMPTRACK_HUD] = holder
-
-
-	holder = hud_list[WANTED_HUD]
-	holder.pixel_x = -3
-	holder.pixel_y = 14
-	hud_list[WANTED_HUD] = holder
-
+	prepare_huds()
 
 	GLOB.human_mob_list |= src
 
@@ -100,6 +64,16 @@
 
 	if(length(species.unarmed_attacks))
 		set_default_attack(species.unarmed_attacks[1])
+
+/mob/living/carbon/human/prepare_data_huds()
+	//Update med hud images...
+	..()
+	med_hud_set_triage()
+	//...sec hud images...
+	update_id_card()
+	sec_hud_set_security_status()
+	//...and display them.
+	add_to_all_human_data_huds()
 
 /mob/living/carbon/human/Destroy(force)
 	ghost_spawner = null
@@ -138,14 +112,7 @@
 	// Do this last so the mob's stuff doesn't drop on del.
 	QDEL_NULL(w_uniform)
 
-	//Yes this is shit, but since someone had the brillant mind to use images for this, we must suffer
-	if(length(hud_list))
-		for(var/image/hud_overlay/an_hud_overlay in hud_list)
-			if(an_hud_overlay.owner)
-				an_hud_overlay.owner.client?.images -= an_hud_overlay
-			an_hud_overlay.owner = null
-			qdel(an_hud_overlay)
-		hud_list = null
+	remove_from_all_data_huds()
 
 	. = ..()
 
@@ -591,7 +558,7 @@
 		species.handle_strip(usr, src, href_list["species"])
 
 	if(href_list["criminal"])
-		if(hasHUD(usr,"security"))
+		if(HAS_TRAIT(usr, TRAIT_SECURITY_HUD))
 
 			var/modified = 0
 			var/perpname = "wot"
@@ -608,11 +575,11 @@
 				var/datum/record/general/R = SSrecords.find_record("name", perpname)
 				if(istype(R) && istype(R.security))
 					var/setcriminal = tgui_input_list(usr, "Specify a new criminal status for this person.", "Security HUD", list("None", "*Arrest*", "Search", "Incarcerated", "Parolled", "Released", "Cancel"))
-					if(hasHUD(usr, "security"))
+					if(HAS_TRAIT(usr, TRAIT_SECURITY_HUD))
 						if(setcriminal != "Cancel")
 							R.security.criminal = setcriminal
 							modified = 1
-							BITSET(hud_updateflag, WANTED_HUD)
+							sec_hud_set_security_status()
 							if(istype(usr,/mob/living/carbon/human))
 								var/mob/living/carbon/human/U = usr
 								U.handle_regular_hud_updates()
@@ -624,7 +591,7 @@
 				to_chat(usr, EXAMINE_BLOCK_RED(SPAN_WARNING("Unable to locate a data core entry for this person.")))
 
 	if (href_list["secrecord"])
-		if(hasHUD(usr,"security"))
+		if(HAS_TRAIT(usr, TRAIT_SECURITY_HUD))
 			var/perpname = "wot"
 			var/read = 0
 
@@ -635,7 +602,7 @@
 				perpname = src.name
 			var/datum/record/general/R = SSrecords.find_record("name", perpname)
 			if(istype(R) && istype(R.security))
-				if(hasHUD(usr,"security"))
+				if(HAS_TRAIT(usr, TRAIT_SECURITY_HUD))
 					var/message = "<b>Security Records: [R.name]</b>\n\n" \
 						+ "<b>Criminal Status:</b> [R.security.criminal]\n" \
 						+ "<b>Crimes:</b> [R.security.crimes]\n" \
@@ -648,7 +615,7 @@
 				to_chat(usr, EXAMINE_BLOCK_RED(SPAN_WARNING("Unable to locate a data core entry for this person.")))
 
 	if (href_list["secrecordComment"])
-		if(hasHUD(usr,"security"))
+		if(HAS_TRAIT(usr, TRAIT_SECURITY_HUD))
 			var/perpname = "wot"
 			var/read = 0
 
@@ -659,7 +626,7 @@
 				perpname = src.name
 			var/datum/record/general/R = SSrecords.find_record("name", perpname)
 			if(istype(R) && istype(R.security))
-				if(hasHUD(usr, "security"))
+				if(HAS_TRAIT(usr, TRAIT_SECURITY_HUD))
 					var/message = "<b>Security Record Comments: [name]</b>\n\n"
 					read = 1
 					if(R.security.comments.len > 0)
@@ -674,7 +641,7 @@
 				to_chat(usr, EXAMINE_BLOCK_RED(SPAN_WARNING("Unable to locate a data core entry for this person.")))
 
 	if (href_list["secrecordadd"])
-		if(hasHUD(usr,"security"))
+		if(HAS_TRAIT(usr, TRAIT_SECURITY_HUD))
 			var/perpname = "wot"
 			if(GetIdCard())
 				var/obj/item/card/id/id = GetIdCard()
@@ -684,7 +651,7 @@
 			var/datum/record/general/R = SSrecords.find_record("name", perpname)
 			if(istype(R) && istype(R.security))
 				var/t1 = sanitize(input("Add Comment:", "Sec. records", null, null)  as message)
-				if ( !(t1) || usr.stat || usr.restrained() || !(hasHUD(usr,"security")) )
+				if ( !(t1) || usr.stat || usr.restrained() || !(HAS_TRAIT(usr, TRAIT_SECURITY_HUD)) )
 					return
 				if(istype(usr,/mob/living/carbon/human))
 					var/mob/living/carbon/human/U = usr
@@ -694,7 +661,7 @@
 					R.security.comments += "Made by [U.name] ([U.mod_type] [U.braintype]) on [time2text(world.realtime, "DDD MMM DD hh:mm:ss")], [GLOB.game_year]<BR>[t1]"
 
 	if (href_list["medical"])
-		if(hasHUD(usr,"medical"))
+		if(HAS_TRAIT(usr, TRAIT_MEDICAL_HUD))
 			var/perpname = "wot"
 			var/modified = 0
 
@@ -708,7 +675,7 @@
 			if(istype(R))
 				var/setmedical = tgui_input_list(usr, "Specify a new medical status for this person.", "Medical HUD", list("*SSD*", "*Deceased*", "*Missing*", "Physically Unfit", "Active", "Disabled", "Cancel"), R.physical_status)
 
-				if(hasHUD(usr,"medical"))
+				if(HAS_TRAIT(usr, TRAIT_MEDICAL_HUD))
 					if(!isnull(setmedical) && setmedical != "Cancel")
 						R.physical_status = setmedical
 						modified = 1
@@ -724,7 +691,7 @@
 				to_chat(usr, EXAMINE_BLOCK_DEEP_CYAN(SPAN_WARNING("Unable to locate a data core entry for this person.")))
 
 	if (href_list["medrecord"])
-		if(hasHUD(usr,"medical"))
+		if(HAS_TRAIT(usr, TRAIT_MEDICAL_HUD))
 			var/perpname = "wot"
 			var/read = 0
 
@@ -735,7 +702,7 @@
 				perpname = src.name
 			var/datum/record/general/R = SSrecords.find_record("name", perpname)
 			if(istype(R) && istype(R.medical))
-				if(hasHUD(usr, "medical"))
+				if(HAS_TRAIT(usr, TRAIT_MEDICAL_HUD))
 					var/message = "<b>Medical Records: [R.name]</b>\n\n" \
 						+ "<b>Name:</b> [R.name] <b>Blood Type:</b> [R.medical.blood_type]\n" \
 						+ "<b>DNA:</b> [R.medical.blood_dna]\n" \
@@ -749,7 +716,7 @@
 				to_chat(usr, EXAMINE_BLOCK_DEEP_CYAN(SPAN_WARNING("Unable to locate a data core entry for this person.")))
 
 	if (href_list["medrecordComment"])
-		if(hasHUD(usr,"medical"))
+		if(HAS_TRAIT(usr, TRAIT_MEDICAL_HUD))
 			var/perpname = "wot"
 			var/read = 0
 
@@ -760,7 +727,7 @@
 				perpname = src.name
 			var/datum/record/general/R = SSrecords.find_record("name", perpname)
 			if(istype(R) && istype(R.medical))
-				if(hasHUD(usr, "medical"))
+				if(HAS_TRAIT(usr, TRAIT_MEDICAL_HUD))
 					var/message = "<b>Medical Record Comments: [name]</b>\n\n"
 					read = 1
 					if(R.medical.comments.len > 0)
@@ -775,7 +742,7 @@
 				to_chat(usr, EXAMINE_BLOCK_DEEP_CYAN(SPAN_WARNING("Unable to locate a data core entry for this person.")))
 
 	if (href_list["medrecordadd"])
-		if(hasHUD(usr,"medical"))
+		if(HAS_TRAIT(usr, TRAIT_MEDICAL_HUD))
 			var/perpname = "wot"
 			if(GetIdCard())
 				var/obj/item/card/id/id = GetIdCard()
@@ -785,7 +752,7 @@
 			var/datum/record/general/R = SSrecords.find_record("name", perpname)
 			if(istype(R) && istype(R.medical))
 				var/t1 = sanitize(input("Add Comment:", "Med. records", null, null)  as message)
-				if ( !(t1) || use_check(usr) || !(hasHUD(usr,"medical")) )
+				if ( !(t1) || use_check(usr) || !(HAS_TRAIT(usr, TRAIT_MEDICAL_HUD)) )
 					return
 				if(ishuman(usr))
 					var/mob/living/carbon/human/U = usr
@@ -795,7 +762,7 @@
 					R.medical.comments += "Made by [U.name] ([U.mod_type] [U.braintype]) on [time2text(world.realtime, "DDD MMM DD hh:mm:ss")], [GLOB.game_year]<BR>[t1]"
 
 	if(href_list["triagetag"])
-		if(hasHUD(usr, "medical"))
+		if(HAS_TRAIT(usr, TRAIT_MEDICAL_HUD))
 			var/static/list/tags = list()
 			if(!length(tags))
 				for(var/thing in list(TRIAGE_NONE, TRIAGE_GREEN, TRIAGE_YELLOW, TRIAGE_RED, TRIAGE_BLACK))
@@ -803,8 +770,9 @@
 			var/chosen_tag = show_radial_menu(usr, src, tags, radius = 42, tooltips = TRUE)
 			if(chosen_tag)
 				triage_tag = chosen_tag
-			BITSET(hud_updateflag, HEALTH_HUD)
-			handle_hud_list()
+			med_hud_set_health()
+			med_hud_set_status()
+			med_hud_set_triage()
 
 	if (href_list["lookitem"])
 		var/obj/item/I = locate(href_list["lookitem"])
@@ -1910,7 +1878,7 @@
 
 /mob/living/carbon/human/AltClick(mob/user)
 	. = ..()
-	if(hasHUD(user, MED_HUDTYPE))
+	if(HAS_TRAIT(user, TRAIT_MEDICAL_HUD))
 		Topic(src, list("triagetag"=1))
 
 /mob/living/carbon/human/verb/toggle_underwear()
@@ -1994,7 +1962,7 @@
 
 	return "[method ? bpm : bpm + rand(-10, 10)]"
 
-/mob/living/carbon/human/proc/pulse()
+/mob/living/carbon/human/pulse()
 	var/obj/item/organ/internal/heart/heart = internal_organs_by_name[BP_HEART]
 	return heart ? heart.fake_pulse ? PULSE_NORM : heart.pulse : PULSE_NONE
 

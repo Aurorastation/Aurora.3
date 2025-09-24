@@ -44,6 +44,9 @@
 	///Species to refit the item for on initialize so that we can map in specific items for specific species easier. This should be set to the BODYTYPE of the species in question, not the species name or type itself.
 	var/refit_initialize = null
 
+	/// Trait modification, lazylist of traits to add/take away, on equipment/drop in the correct slot
+	var/list/clothing_traits
+
 /obj/item/clothing/Initialize(var/mapload, var/material_key)
 	. = ..(mapload)
 	if(!material_key)
@@ -137,6 +140,8 @@
 	. = ..()
 	if(tint)
 		user.handle_vision()
+	for(var/trait in clothing_traits)
+		ADD_CLOTHING_TRAIT(user, trait)
 
 	for(var/obj/item/clothing/accessory/bling in accessories)
 		bling.on_clothing_change(user)
@@ -146,6 +151,8 @@
 	. = ..()
 	if(tint)
 		user.handle_vision()
+	for(var/trait in clothing_traits)
+		REMOVE_CLOTHING_TRAIT(user, trait)
 
 /obj/item/clothing/handle_middle_mouse_click(mob/user)
 	if(Adjacent(user))
@@ -1438,3 +1445,37 @@
 
 /obj/item/clothing/proc/clothing_class()
 	return "clothing"
+
+/**
+ * Inserts a trait (or multiple traits) into the clothing traits list
+ *
+ * If worn, then we will also give the wearer the trait as if equipped
+ *
+ * This is so you can add clothing traits without worrying about needing to equip or unequip them to gain effects
+ */
+/obj/item/clothing/proc/attach_clothing_traits(trait_or_traits)
+	if(!islist(trait_or_traits))
+		trait_or_traits = list(trait_or_traits)
+
+	LAZYOR(clothing_traits, trait_or_traits)
+	var/mob/wearer = loc
+	if(istype(wearer) && (get_equip_slot() & slot_flags))
+		for(var/new_trait in trait_or_traits)
+			ADD_CLOTHING_TRAIT(wearer, new_trait)
+
+/**
+ * Removes a trait (or multiple traits) from the clothing traits list
+ *
+ * If worn, then we will also remove the trait from the wearer as if unequipped
+ *
+ * This is so you can add clothing traits without worrying about needing to equip or unequip them to gain effects
+ */
+/obj/item/clothing/proc/detach_clothing_traits(trait_or_traits)
+	if(!islist(trait_or_traits))
+		trait_or_traits = list(trait_or_traits)
+
+	LAZYREMOVE(clothing_traits, trait_or_traits)
+	var/mob/wearer = loc
+	if(istype(wearer))
+		for(var/new_trait in trait_or_traits)
+			REMOVE_CLOTHING_TRAIT(wearer, new_trait)

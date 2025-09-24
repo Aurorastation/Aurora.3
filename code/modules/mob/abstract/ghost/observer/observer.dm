@@ -23,7 +23,7 @@
 	/// If the ghost has enabled antagHUD.
 	var/has_enabled_antagHUD = 0
 	/// If the ghost has enabled medHUD.
-	var/medHUD = 0
+	var/static/list/ghost_huds = list(TRAIT_SECURITY_HUD, TRAIT_MEDICAL_HUD)
 	/// If this is an adminghost.
 	var/admin_ghosted = 0
 	/// If this ghost has enabled chat anonymization.
@@ -128,18 +128,6 @@ Works together with spawning an observer, noted above.
 	if(!loc) return
 	if(!client) return 0
 
-	handle_hud_glasses()
-
-	if(antagHUD)
-		var/list/target_list = list()
-		for(var/mob/living/target in oview(src, 14))
-			if(target.mind && target.mind.special_role)
-				target_list += target
-		if(target_list.len)
-			assess_targets(target_list, src)
-	if(medHUD)
-		process_medHUD(src)
-
 /mob/abstract/ghost/observer/proc/teleport_to_spawn(var/message)
 	if(!message)
 		message = "You can not freely observe on this z-level."
@@ -149,20 +137,6 @@ Works together with spawning an observer, noted above.
 	if(istype(O))
 		to_chat(src, SPAN_NOTICE("[message]"))
 		forceMove(O.loc)
-
-/mob/abstract/ghost/observer/proc/process_medHUD(var/mob/M)
-	var/client/C = M.client
-	for(var/mob/living/carbon/human/patient in oview(M, 14))
-		C.images += patient.hud_list[HEALTH_HUD]
-		C.images += patient.hud_list[STATUS_HUD_OOC]
-
-/mob/abstract/ghost/observer/proc/assess_targets(list/target_list, mob/abstract/ghost/observer/U)
-	var/client/C = U.client
-	for(var/mob/living/carbon/human/target in target_list)
-		C.images += target.hud_list[SPECIALROLE_HUD]
-	for(var/mob/living/silicon/target in target_list)
-		C.images += target.hud_list[SPECIALROLE_HUD]
-	return 1
 
 /mob/proc/ghostize(var/can_reenter_corpse = TRUE, var/should_set_timer = TRUE)
 	if(ckey)
@@ -246,18 +220,22 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		announce_ghost_joinleave(mind, 0, "They now occupy their body again.")
 	return 1
 
-/mob/abstract/ghost/observer/verb/toggle_medHUD()
+/mob/abstract/ghost/observer/proc/show_data_huds()
+	ADD_TRAITS(src, ghost_huds, REF(src))
+
+/mob/abstract/ghost/observer/proc/remove_data_huds()
+	REMOVE_TRAITS(src, ghost_huds, REF(src))
+
+/mob/abstract/ghost/observer/verb/toggle_huds()
 	set category = "Ghost"
-	set name = "Toggle MedicHUD"
-	set desc = "Toggles Medical HUD allowing you to see how everyone is doing"
+	set name = "Toggle HUD"
+	set desc = "Toggles Medical & Security HUD"
 	if(!client)
 		return
-	if(medHUD)
-		medHUD = 0
-		to_chat(src, SPAN_NOTICE("<B>Medical HUD Disabled</B>"))
+	if(HAS_TRAIT(src, TRAIT_MEDICAL_HUD))
+		remove_data_huds()
 	else
-		medHUD = 1
-		to_chat(src, SPAN_NOTICE("<B>Medical HUD Enabled</B>"))
+		show_data_huds()
 
 /mob/abstract/ghost/observer/verb/scan_target()
 	set category = "Ghost"
@@ -296,11 +274,11 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		M.can_reenter_corpse = 0
 	if(!M.has_enabled_antagHUD && (!client.holder || aux_staff))
 		M.has_enabled_antagHUD = 1
-	if(M.antagHUD)
-		M.antagHUD = 0
+	if(HAS_TRAIT(src, TRAIT_ANTAG_HUD))
+		REMOVE_TRAIT(src, TRAIT_ANTAG_HUD, REF(src))
 		to_chat(src, SPAN_NOTICE("<B>AntagHUD Disabled</B>"))
 	else
-		M.antagHUD = 1
+		ADD_TRAIT(src, TRAIT_ANTAG_HUD, REF(src))
 		to_chat(src, SPAN_NOTICE("<B>AntagHUD Enabled</B>"))
 
 /mob/proc/check_holy(var/turf/T)

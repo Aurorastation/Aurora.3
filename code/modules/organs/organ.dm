@@ -47,6 +47,9 @@
 	var/force_skintone = FALSE		// If true, icon generation will skip is-robotic checks. Used for synthskin limbs.
 	var/list/species_restricted //used by augments and biomods to see what species can have this augment
 
+	/// Trait modification, lazylist of traits to add when organ is in body and alive, and remove when not
+	var/list/organ_traits
+
 INITIALIZE_IMMEDIATE(/obj/item/organ)
 
 /obj/item/organ/Initialize(mapload, internal)
@@ -58,6 +61,8 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 	if(istype(holder))
 		src.owner = holder
 		species = GLOB.all_species[SPECIES_HUMAN]
+		for(var/trait in organ_traits)
+			ADD_ORGAN_TRAIT(holder, trait)
 		if(holder.dna)
 			dna = holder.dna.Clone()
 			species = GLOB.all_species[dna.species]
@@ -86,6 +91,8 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 		return ..()
 
 	if(istype(owner, /mob/living/carbon))
+		for(var/trait in organ_traits)
+			REMOVE_ORGAN_TRAIT(owner, trait)
 		if(owner.internal_organs)
 			owner.internal_organs -= src
 		if(istype(owner, /mob/living/carbon/human))
@@ -123,6 +130,8 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 	damage = max_damage
 	status |= ORGAN_DEAD
 	death_time = world.time
+	for(var/trait in organ_traits)
+		REMOVE_ORGAN_TRAIT(owner, trait)
 	STOP_PROCESSING(SSprocessing, src)
 	if(owner && vital)
 		owner.death()
@@ -437,6 +446,8 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 	if(affected) affected.internal_organs -= src
 
 	loc = get_turf(owner)
+	for(var/trait in organ_traits)
+		REMOVE_ORGAN_TRAIT(owner, trait)
 	START_PROCESSING(SSprocessing, src)
 	rejecting = null
 	if (!reagents)
@@ -459,6 +470,8 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 /obj/item/organ/proc/replaced(var/mob/living/carbon/human/target, var/obj/item/organ/external/affected)
 	owner = target
 	action_button_name = initial(action_button_name)
+	for(var/trait in organ_traits)
+		ADD_ORGAN_TRAIT(owner, trait)
 	forceMove(owner) //just in case
 	if(BP_IS_ROBOTIC(src))
 		set_dna(owner.dna)
@@ -501,3 +514,29 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 //used by stethoscope
 /obj/item/organ/proc/listen()
 	return
+
+/**
+ * Inserts a trait (or multiple traits) into the organ traits list
+ * Mainly used for enabling / disabling organ augments
+ */
+/obj/item/organ/proc/attach_organ_traits(trait_or_traits)
+	if(!islist(trait_or_traits))
+		trait_or_traits = list(trait_or_traits)
+
+	LAZYOR(organ_traits, trait_or_traits)
+	if(istype(owner))
+		for(var/new_trait in trait_or_traits)
+			ADD_ORGAN_TRAIT(owner, new_trait)
+
+/**
+ * Removes a trait (or multiple traits) from the organ traits list
+ * Mainly used for enabling / disabling organ augments
+ */
+/obj/item/organ/proc/detach_organ_traits(trait_or_traits)
+	if(!islist(trait_or_traits))
+		trait_or_traits = list(trait_or_traits)
+
+	LAZYREMOVE(organ_traits, trait_or_traits)
+	if(istype(owner))
+		for(var/new_trait in trait_or_traits)
+			REMOVE_ORGAN_TRAIT(owner, new_trait)
