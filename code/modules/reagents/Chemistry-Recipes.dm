@@ -3462,7 +3462,7 @@
 	required_reagents = list(/singleton/reagent/drink/milk/adhomai/fermented = 1, /singleton/reagent/alcohol/victorygin = 1)
 	result_amount = 2
 
-//Kaed's Unathi cocktails
+//Unathi cocktails
 //========
 
 /datum/chemical_reaction/drink/healerspride
@@ -3487,7 +3487,7 @@
 	result_amount = 5
 
 /datum/chemical_reaction/drink/senssecret
-	name = "Sen's Secret
+	name = "Sens Secret"
 	id = "senssecret"
 	result = /singleton/reagent/alcohol/butanol/senssecret
 	required_reagents = list(/singleton/reagent/drink/milk/cream = 2, /singleton/reagent/drink/banana = 1, /singleton/reagent/alcohol/butanol/xuizijuice = 1, /singleton/reagent/drink/watermelonjuice = 1)
@@ -3530,7 +3530,7 @@
 
 /datum/chemical_reaction/drink/smokescalesblood
 	name = "Smokescale's Blood"
-	id = "hereticblood"
+	id = "smokescalesblood"
 	result = /singleton/reagent/alcohol/butanol/smokescalesblood
 	required_reagents = list(/singleton/reagent/alcohol/butanol/xuizijuice = 3, /singleton/reagent/drink/spacemountainwind = 1, /singleton/reagent/blood = 1, /singleton/reagent/drink/dr_gibb = 1)
 	result_amount = 6
@@ -3556,6 +3556,17 @@
 	required_reagents = list(/singleton/reagent/blood = 2, /singleton/reagent/alcohol/butanol/sarezhiwine = 3)
 	result_amount = 5
 
+/datum/chemical_reaction/drink/balefire
+	name = "Balefire"
+	id = "balefire"
+	result = /singleton/reagent/alcohol/butanol/balefire
+	required_reagents = list(/singleton/reagent/alcohol/redstaff = 5, /singleton/reagent/gunpowder = 1)
+
+/datum/chemical_reaction/drink/liarshandshake
+	name = "Liar's Handshake"
+	id = "liarshandshake"
+	result = /singleton/reagent/alcohol/butanol/liarshandshake
+	required_reagents = list(/singleton/reagent/alcohol/redstaff = 1, /singleton/reagent/drink/mintsyrup = 4, singleton/reagent/drink/ice = 1)
 //Skrell drinks. Bring forth the culture.
 //===========================================
 

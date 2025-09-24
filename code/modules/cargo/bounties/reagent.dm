@@ -119,9 +119,9 @@
 		/singleton/reagent/drink/xrim,
 		/singleton/reagent/drink/tea/securitea,
 		/singleton/reagent/drink/toothpaste/sedantian_firestorm,
-		/singleton/reagent/alcohol/butanol/wastelandheat,
+		/singleton/reagent/alcohol/butanol/janviriheat,
 		/singleton/reagent/alcohol/butanol/contactwine,
-		/singleton/reagent/alcohol/butanol/crocodile_booze)
+		/singleton/reagent/alcohol/butanol/eszkazalsbite)
 
 	var/reagent_type = pick(possible_reagents)
 	wanted_reagent = new reagent_type

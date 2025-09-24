@@ -165,7 +165,7 @@
 	taste_description = "burning heat"
 
 	glass_icon_state = "janviriheat"
-	glass_name = "glass of Janviri heat"
+	glass_name = "glass of Janviri Heat"
 	glass_desc = "A cocktail from the Moghesian city of Janvir, bringing much-needed warmth to Unathi living in an otherwise frigid place."
 	glass_center_of_mass = list("x"=17, "y"=8)
 
@@ -280,3 +280,38 @@
 	glass_icon_state = "pulque_butanol"
 	glass_name = "cup of xuizi pulque"
 	glass_desc = "A Unathi take on a traditional Human recipe, made by Unathi from Mictlan and, according to popular belief, only enjoyed by them."
+
+/singleton/reagent/alcohol/butanol/redstaff
+	name = "Redstaff"
+	description = "A tasty classic, and spicier than pepper spray. Fun as a dare. Great as a cocktail ingredient."
+	color = "#C73C00"
+	strength = 30
+	taste_description = "creamy red ale with a distinct hint of bitterness"
+
+	glass_icon_state = "redstaff"
+	glass_name = "cup of redstaff"
+	glass_desc = "A tasty classic, and spicier than pepper spray. Fun as a dare. Great as a cocktail ingredient."
+
+/singleton/reagent/alcohol/butanol/balefire
+	name = "Balefire"
+	description = "This Ouerean concoction itself is remarkably simple. A mixture of Redstaff, Ice, and enough mint syrup to make your mouth fall asleep. The result is something that is only drunk in shot glasses."
+	color = "#4f694f"
+	strength = 30
+	taste_description = "simultaneously far too hot and too cold, with a mild hint of gum"
+
+	glass_icon_state = "balefire"
+	glass_name = "glass of Balefire"
+	glass_desc = "This Ouerean concoction itself is remarkably simple. A mixture of Redstaff, Ice, and enough mint syrup to make your mouth fall asleep. The result is something that is only drunk in shot glasses."
+
+/singleton/reagent/alcohol/butanol/liarshandshake
+	name = "Liar's Handshake"
+	description = "Generally “enjoyed” by reckless warriors, pirates and other bandit types, It mainly functions as a centrepiece to a game called “Valkris’ Dare.” Wherein a party of four or more dare one another to do generally small acts. \
+	Refusal to do so results in being forced to swallow something unpleasant. Usually a live round. "
+	color = "#ec4300"
+	strength = 60
+	taste_description = "a powder keg of bad decisions."
+
+	glass_icon_state = "liarshandshake"
+	glass_name = "glass of Liar's Handshake"
+	glass_desc = "Generally “enjoyed” by reckless warriors, pirates and other bandit types, It mainly functions as a centrepiece to a game called “Valkris’ Dare.” Wherein a party of four or more dare one another to do generally small acts. \
+	Refusal to do so results in being forced to swallow something unpleasant. Usually a live round. "
