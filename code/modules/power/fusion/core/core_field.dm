@@ -202,7 +202,6 @@
 	React()
 
 	var/field_strength_power_multiplier = max((owned_core.field_strength ** 1.05) / 100, 1)
-	to_chat(world, "field_strength_power_multiplier = [field_strength_power_multiplier]")
 	// Dump power to our powernet.
 	owned_core.add_avail(FUSION_ENERGY_PER_K * plasma_temperature * field_strength_power_multiplier)
 
@@ -210,7 +209,6 @@
 	if(field_strength < 20)
 		field_strength = 20
 	var/field_strength_entropy_multiplier = clamp((owned_core.field_strength ** 1.175) / 68, 0.5, 4.0)
-	to_chat(world, SPAN_NOTICE("field_strength_entropy_multiplier = [field_strength_entropy_multiplier]"))
 	// Energy decay (entropy tax).
 	if(plasma_temperature >= 1)
 		var/lost = plasma_temperature * 0.01
@@ -257,7 +255,6 @@
 		// Apply any modifiers to instability imparted by current field strength, but only apply up to FUSION_INTEGRITY_RATE_LIMIT additional instability.
 		var/new_instability = min((tick_instability * field_strength_instability_multiplier)/FUSION_INSTABILITY_DIVISOR, FUSION_INTEGRITY_RATE_LIMIT)
 		percent_unstable += new_instability
-		to_chat(world, SPAN_DANGER("increased instability by [new_instability] (original [(tick_instability * field_strength_instability_multiplier)/FUSION_INSTABILITY_DIVISOR])"))
 		tick_instability = 0
 		UpdateVisuals()
 	else
