@@ -57,3 +57,4 @@ delete-after: True
 changes:
   - qol: "Integrated Electronics camera can now be configured for different camera networks"
   - qol: "Reduced Integrated Electronics speaker functions cooldown from 4s -> 1s, for translating busier conversations. Behave."
+  - balance: "Increase maximum components and complexity of integrated circuit 'electronic implant' assembly by 25%."
