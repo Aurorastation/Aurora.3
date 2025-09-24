@@ -82,7 +82,7 @@
 		/singleton/reagent/drink/tea/hakhma_tea,
 		/singleton/reagent/drink/tea/portsvilleminttea,
 		/singleton/reagent/drink/meatshake,
-		/singleton/reagent/alcohol/butanol/sandgria,
+		/singleton/reagent/alcohol/butanol/tasteofvictory,
 		/singleton/reagent/alcohol/butanol/cactuscola,
 		/singleton/reagent/alcohol/butanol/trizkizki_tea)
 
