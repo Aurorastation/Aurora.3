@@ -1,0 +1,6 @@
+author: kermit
+
+delete-after: True
+
+changes:
+  - rscadd: "Adds resource scarcity due to event conditions imposed on the Horizon."

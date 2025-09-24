@@ -875,3 +875,42 @@ ABSTRACT_TYPE(/obj/item/paper/fluff)
 	with your support. As such, local IAC vessels and stations are accepting donations of non-perishable foods and water, as well as medical supplies of any type. \
 	Additionally, at the behest of the IAC coordinator in your area of space, you can join for a blood drive or apply to volunteer in the IAC. <br> \
 	<center><i>Remember - it's up to all of us to look after our galaxy!</i></center></font>"
+
+/// cresent expanse supply scarcity fluff
+/obj/item/paper/fluff/donuts
+	info = "<font face=\"Verdana\"><font size=\"2\">who the fuck ate all the donuts!</font></font>"
+
+/obj/item/paper/fluff/armoury_stock
+	name = "armory stock notice"
+	info = "<font face=\"Verdana\"><center><b>Armoury Stock Notice</b></center><font size=\"2\">To All Wardens,\
+	<br><br>Due to limited supply availability, the Operations department has reduced their fabrication of weapons ammunition.\
+	<br>Our new daily supply is:<ol>\
+	4x .556 polymer, from 6x.<br>\
+	4x 9mm FMJ and 4x 9mm Rubber, from 6x each.<br>\
+	6x .45 FMJ from 8x and 9x .45 Rubber from 12x.</ol></font></font>"
+
+/obj/item/paper/fluff/medical_supply_notice
+	name = "medical supply notice"
+	info = "<font face=\"Verdana\"><center><b>Supply Notice</b></center><font size=\"2\">Medical Staff,\
+	<br><br>We are beginning to see the effects of prolonged inaccess to resupplies.\
+	<br><br>Critically, our O- blood reserve is nearing depletion. We are now afforded the following:<ol>\
+	<b>ICU Cabinet:</b> 3x O Rh- (from 6)</b><br>\
+    <b>Operating Theatres (Combined):</b> 3x O Rh- (from 6)</ol></b>\
+	We should consider referencing patient blood type\
+    when replenishing blood volume where possible.\
+	<br>In addition to dwindling blood, other supplies have also been affected. \
+	Stasis bags and advanced medical kits in particular.\
+	<br><br>The Pharmacy has also had its phoron ration cut significantly, meaning\
+	many medications will be at a premium.</font></font>"
+
+/obj/item/paper/fluff/generic_supply_notice
+	name = "supplies notice"
+	info = "<font face=\"Verdana\">low on supplies. phoron is being rationed strictly</font>"
+
+/obj/item/paper/fluff/kitchen_supply_notice
+	name = "kitchen supplies notice"
+	info = "<font face=\"Verdana\">short on real eggs & meat</font>"
+
+/obj/item/paper/fluff/atmos_supply_notice
+	name = "atmospherics supply notice"
+	info = "<font face=\"Verdana\">our holding tanks have been quite light lately<br>be mindful if your propulsion setups are high mass</font>"

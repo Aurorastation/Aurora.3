@@ -40,14 +40,26 @@
 /turf/simulated/floor/reinforced/phoron/scarce
 	initial_gas = list("phoron" = ATMOSTANK_PHORON_SCARCE)
 
+/turf/simulated/floor/reinforced/phoron/very_scarce
+	initial_gas = list("phoron" = ATMOSTANK_PHORON_VERY_SCARCE)
+
 /turf/simulated/floor/reinforced/carbon_dioxide
 	initial_gas = list("carbon_dioxide" = ATMOSTANK_CO2)
+
+/turf/simulated/floor/reinforced/carbon_dioxide/scarce
+	initial_gas = list("carbon_dioxide" = ATMOSTANK_CO2_SCARCE)
 
 /turf/simulated/floor/reinforced/n20
 	initial_gas = list("sleeping_agent" = ATMOSTANK_NITROUSOXIDE)
 
+/turf/simulated/floor/reinforced/n20/scarce
+	initial_gas = list("sleeping_agent" = ATMOSTANK_NITROUSOXIDE_SCARCE)
+
 /turf/simulated/floor/reinforced/hydrogen
 	initial_gas = list("hydrogen" = ATMOSTANK_HYDROGEN)
+
+/turf/simulated/floor/reinforced/hydrogen/scarce
+	initial_gas = list("hydrogen" = ATMOSTANK_HYDROGEN_SCARCE)
 
 // ------------------------------- reinforced large
 
