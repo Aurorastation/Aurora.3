@@ -3507,10 +3507,10 @@
 	required_reagents = list(/singleton/reagent/alcohol/butanol/sarezhiwine = 2, /singleton/reagent/alcohol/butanol/xuizijuice = 1, /singleton/reagent/drink/grenadine = 5)
 	result_amount = 5
 
-/datum/chemical_reaction/drink/wastelandheat
-	name = "Wasteland Heat"
-	id = "wastelandheat"
-	result = /singleton/reagent/alcohol/butanol/wastelandheat
+/datum/chemical_reaction/drink/janviriheat
+	name = "Janviri Heat"
+	id = "janviriheat"
+	result = /singleton/reagent/alcohol/butanol/janviriheat
 	required_reagents = list(/singleton/reagent/alcohol/butanol/xuizijuice = 10, /singleton/reagent/capsaicin = 3)
 	result_amount = 10
 
@@ -3535,10 +3535,10 @@
 	required_reagents = list(/singleton/reagent/alcohol/butanol/xuizijuice = 3, /singleton/reagent/drink/spacemountainwind = 1, /singleton/reagent/blood = 1, /singleton/reagent/drink/dr_gibb = 1)
 	result_amount = 6
 
-/datum/chemical_reaction/drink/sandpit
-	name = "Sandpit"
-	id = "sandpit"
-	result = /singleton/reagent/alcohol/butanol/sandpit
+/datum/chemical_reaction/drink/templetreasure
+	name = "Temple Treasure"
+	id = "templetreasure"
+	result = /singleton/reagent/alcohol/butanol/templetreasure
 	required_reagents = list(/singleton/reagent/alcohol/butanol/xuizijuice = 2, /singleton/reagent/drink/orangejuice = 2)
 	result_amount = 4
 

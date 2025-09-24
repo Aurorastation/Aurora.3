@@ -155,18 +155,18 @@
 	glass_name = "glass of Queen's Gift"
 	glass_desc = "A drink originating from the Szek’Hakh Queendom, generally enjoyed during parties and other joyous occasions for its fruity sweetness."
 
-/singleton/reagent/alcohol/butanol/wastelandheat
-	name = "Wasteland Heat"
-	description = "A mix of spicy cactus juice to warm you up."
+/singleton/reagent/alcohol/butanol/janviriheat
+	name = "Janviri Heat"
+	description = "A cocktail from the Moghesian city of Janvir, bringing much-needed warmth to Unathi living in an otherwise frigid place.
 	color = "#d8d7ae"
 	strength = 40
 	adj_temp = 60
 	targ_temp = 390
 	taste_description = "burning heat"
 
-	glass_icon_state = "moghesheat"
-	glass_name = "glass of Wasteland Heat"
-	glass_desc = "A mix of spicy cactus juice to warm you up. Maybe a little too warm for non-unathi, though."
+	glass_icon_state = "janviriheat"
+	glass_name = "glass of Janviri heat"
+	glass_desc = "A cocktail from the Moghesian city of Janvir, bringing much-needed warmth to Unathi living in an otherwise frigid place.
 	glass_center_of_mass = list("x"=17, "y"=8)
 
 /singleton/reagent/alcohol/butanol/tasteofvictory
@@ -207,7 +207,7 @@
 	glass_center_of_mass = list("x"=16, "y"=2)
 
 /singleton/reagent/alcohol/butanol/templetreasure
-	name = "Sandpit"
+	name = "Temple Treasure"
 	description = "A drink originally enjoyed by Akhanzi Order monks in their mountain temples. The recipe was found in the ruins of said temples after they were raised \
 	by the Sk'akh Inquisition. Though drinking it in public in Sk’akhist circles is often highly frowned upon."
 	color = "#A68310"
@@ -272,11 +272,11 @@
 
 /singleton/reagent/alcohol/butanol/pulque
 	name = "Xuizi pulque"
-	description = "A variation of Mictlanian pulque that is safe to consume for Unathi."
+	description = "A Unathi take on a traditional Human recipe, made by Unathi from Mictlan and, according to popular belief, only enjoyed by them.
 	color = "#80f580"
 	strength = 5
 	taste_description = "sweet yeast"
 
 	glass_icon_state = "pulque_butanol"
 	glass_name = "cup of xuizi pulque"
-	glass_desc = "A variation of Mictlanian pulque that is safe to consume for Unathi."
+	glass_desc = "A Unathi take on a traditional Human recipe, made by Unathi from Mictlan and, according to popular belief, only enjoyed by them.
