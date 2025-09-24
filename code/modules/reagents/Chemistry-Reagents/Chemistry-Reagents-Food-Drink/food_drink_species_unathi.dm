@@ -314,4 +314,17 @@
 	glass_icon_state = "liarshandshake"
 	glass_name = "glass of Liar's Handshake"
 	glass_desc = "Generally “enjoyed” by reckless warriors, pirates and other bandit types, It mainly functions as a centrepiece to a game called “Valkris’ Dare.” Wherein a party of four or more dare one another to do generally small acts. \
-	Refusal to do so results in being forced to swallow something unpleasant. Usually a live round. "
+	Refusal to do so results in being forced to swallow something unpleasant. Usually a live round."
+
+/singleton/reagent/alcohol/butanol/sarikshand
+	name = "Sarik's Hand"
+	description = "This drink has become the talk of popular court Unathi as it said to be Lady Hizoni’s drink of choice. The intense mix of bitter and spicy flavours means one often sees the drinker grimace and struggle with their beverage. \
+	Those who do enjoy it note a complexity of flavours that meet the tongue in waves."
+	color = "#f36f6a"
+	strength = 25
+	taste_description = "a strong initial hit of bitterness followed by a lingering earthy spice."
+
+	glass_icon_state = "sarikshand"
+	glass_name = "glass of Sarik's Hand"
+	glass_desc = "This drink has become the talk of popular court Unathi as it said to be Lady Hizoni’s drink of choice. The intense mix of bitter and spicy flavours means one often sees the drinker grimace and struggle with their beverage. \
+	Those who do enjoy it note a complexity of flavours that meet the tongue in waves."

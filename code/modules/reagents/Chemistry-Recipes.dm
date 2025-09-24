@@ -3560,13 +3560,22 @@
 	name = "Balefire"
 	id = "balefire"
 	result = /singleton/reagent/alcohol/butanol/balefire
-	required_reagents = list(/singleton/reagent/alcohol/redstaff = 5, /singleton/reagent/gunpowder = 1)
+	required_reagents = list(/singleton/reagent/alcohol/butanol/redstaff = 1, /singleton/reagent/drink/mintsyrup = 4, /singleton/reagent/drink/ice = 1)
+	result_amount = 5
 
 /datum/chemical_reaction/drink/liarshandshake
 	name = "Liar's Handshake"
 	id = "liarshandshake"
 	result = /singleton/reagent/alcohol/butanol/liarshandshake
-	required_reagents = list(/singleton/reagent/alcohol/redstaff = 1, /singleton/reagent/drink/mintsyrup = 4, singleton/reagent/drink/ice = 1)
+	required_reagents = list(/singleton/reagent/alcohol/butanol/redstaff = 5, /singleton/reagent/gunpowder = 1)
+	result_amount = 5
+
+/datum/chemical_reaction/drink/sarikshand
+	name = "Sarik's Hand"
+	id = "sarikshand"
+	result = /singleton/reagent/alcohol/butanol/sarikshand
+	required_reagents = list(/singleton/reagent/alcohol/butanol/sarezhiwine = 1, /singleton/reagent/drink/cranberryjuice = 1, /singleton/reagent/alcohol/butanol/redstaff = 1)
+	result_amount = 3
 //Skrell drinks. Bring forth the culture.
 //===========================================
 
