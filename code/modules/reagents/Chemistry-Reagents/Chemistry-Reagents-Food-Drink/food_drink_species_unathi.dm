@@ -103,7 +103,7 @@
 	glass_icon_state = "palacedelight"
 	glass_name = "glass of Palace Delight"
 	glass_desc = "A creamy, delightfully sweet drink, especially popular among Moghesian noblewomen. The typical berries used in this recipe became endangered after the Contact War, \
-	thus, use of non-Moghesian berries as a replacement became common.
+	thus, use of non-Moghesian berries as a replacement became common."
 	glass_center_of_mass = list("x"=17, "y"=8)
 
 /singleton/reagent/alcohol/butanol/forestsbounty
@@ -157,7 +157,7 @@
 
 /singleton/reagent/alcohol/butanol/janviriheat
 	name = "Janviri Heat"
-	description = "A cocktail from the Moghesian city of Janvir, bringing much-needed warmth to Unathi living in an otherwise frigid place.
+	description = "A cocktail from the Moghesian city of Janvir, bringing much-needed warmth to Unathi living in an otherwise frigid place."
 	color = "#d8d7ae"
 	strength = 40
 	adj_temp = 60
@@ -166,7 +166,7 @@
 
 	glass_icon_state = "janviriheat"
 	glass_name = "glass of Janviri heat"
-	glass_desc = "A cocktail from the Moghesian city of Janvir, bringing much-needed warmth to Unathi living in an otherwise frigid place.
+	glass_desc = "A cocktail from the Moghesian city of Janvir, bringing much-needed warmth to Unathi living in an otherwise frigid place."
 	glass_center_of_mass = list("x"=17, "y"=8)
 
 /singleton/reagent/alcohol/butanol/tasteofvictory
@@ -272,11 +272,11 @@
 
 /singleton/reagent/alcohol/butanol/pulque
 	name = "Xuizi pulque"
-	description = "A Unathi take on a traditional Human recipe, made by Unathi from Mictlan and, according to popular belief, only enjoyed by them.
+	description = "A Unathi take on a traditional Human recipe, made by Unathi from Mictlan and, according to popular belief, only enjoyed by them."
 	color = "#80f580"
 	strength = 5
 	taste_description = "sweet yeast"
 
 	glass_icon_state = "pulque_butanol"
 	glass_name = "cup of xuizi pulque"
-	glass_desc = "A Unathi take on a traditional Human recipe, made by Unathi from Mictlan and, according to popular belief, only enjoyed by them.
+	glass_desc = "A Unathi take on a traditional Human recipe, made by Unathi from Mictlan and, according to popular belief, only enjoyed by them."
