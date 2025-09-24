@@ -376,13 +376,15 @@
 	name = "CIC";
 	req_access = list(203)
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
 	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/cic)
@@ -1415,13 +1417,6 @@
 /turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/Port_docking_port)
 "gj" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
 /obj/structure/closet/crate/elec,
 /obj/item/device/multitool,
 /obj/item/storage/toolbox/electrical,
@@ -1774,19 +1769,14 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 4
-	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/hallway_mid)
 "hZ" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4
-	},
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
@@ -1798,6 +1788,7 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/hallway_mid)
 "ic" = (
@@ -2290,7 +2281,6 @@
 /turf/simulated/floor/airless,
 /area/ship/Sol_Frigate/Port_docking_port)
 "kk" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
 /obj/machinery/door/airlock/vault{
 	name = "Grauwolf Ammunition Storage";
 	req_access = list(203)
@@ -2302,6 +2292,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hangar)
 "kl" = (
@@ -2651,20 +2642,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/brig)
-"mg" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/floor_decal/corner/yellow{
-	dir = 6
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/hallway_mid)
 "mh" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
@@ -2924,7 +2901,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_fore)
 "nn" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
 /obj/machinery/door/airlock/vault{
 	name = "Port Battery";
 	req_access = list(203)
@@ -3021,7 +2997,7 @@
 	dir = 5
 	},
 /obj/machinery/vending/vendors{
-	req_access = list(203)
+	req_access = sssssssssss
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -4535,10 +4511,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/structure/cable{
 	icon_state = "1-2";
 	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/starboard_battery)
@@ -5217,9 +5195,6 @@
 	dir = 4;
 	name = "Command Center"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 8
-	},
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
@@ -5679,9 +5654,6 @@
 	name = "Primary Munitions Bay";
 	req_access = list(203);
 	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 8
 	},
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -7254,11 +7226,11 @@
 /obj/machinery/door/airlock/security{
 	req_access = list(203)
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/brig)
 "Iu" = (
@@ -7846,7 +7818,6 @@
 	dir = 3;
 	name = "EVA Storage"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
@@ -8137,6 +8108,9 @@
 	name = "sol_light_interceptor";
 	master_tag = "sol_light_interceptor";
 	shuttle_tag = "solarian light interceptor"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/Solfrig_shuttle)
@@ -9704,9 +9678,6 @@
 	dir = 4;
 	name = "Command Center"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 8
-	},
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
@@ -9905,7 +9876,6 @@
 	name = "Port Gunnery";
 	req_access = list(203)
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red,
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
@@ -9946,9 +9916,6 @@
 	dir = 1;
 	name = "Sick Bay";
 	req_access = list(203)
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 8
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
@@ -43009,7 +42976,7 @@ tJ
 HO
 hZ
 nO
-mg
+nO
 hV
 Fl
 tV
