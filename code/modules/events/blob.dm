@@ -10,10 +10,10 @@
 	..()
 
 	// This stores the list of the possible number of blobs, weighted towards 2. Adjust if a different weighting if desired.
-	var/list/numberOfBlobs = list(1, 2, 2, 3)
+	var/list/numberOfBlobs = list(1 = 1, 2 = 2, 3 = 1)
 
 	// We pick randomly from the list to determine how many we spawn.
-	for(var/i = 1; i <= pick(numberOfBlobs); i++)
+	for(var/i = 1 to pickweight(numberOfBlobs))
 		var/turf/T = pick_subarea_turf(/area/horizon/maintenance, list(/proc/is_station_turf, /proc/not_turf_contains_dense_objects))
 		if(!T)
 			// If we can't find a turf anywhere, we aren't going to find one in subsequent loops and we can call it here.
@@ -26,5 +26,5 @@
 		var/obj/effect/blob/core/Blob = new /obj/effect/blob/core(T)
 
 		// Blobs receive a burst of growth from the moment they spawn!
-		for(var/int = 1; int < rand(3, 4); int++)
+		for(var/int = 1 to rand(3, 4))
 			Blob.process()
