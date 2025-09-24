@@ -222,11 +222,12 @@
 		/obj/item/device/encryptionkey/headset_xenology = 5,
 	)
 
+	low_supply_immune = TRUE
+
 /obj/item/device/vending_refill/encryption
 	name = "encryption key resupply canister"
 	vend_id = "encryption"
 	charges = 60
-
 
 /obj/machinery/vending/assist
 	vend_id = "tools"

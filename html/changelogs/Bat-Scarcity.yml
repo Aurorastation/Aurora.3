@@ -1,0 +1,15 @@
+# Your name.
+author: Batrachophrenoboocosmomachia
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+# Any changes you've made.  See valid prefix list above.
+# INDENT WITH TWO SPACES.  NOT TABS.  SPACES.
+# SCREW THIS UP AND IT WON'T WORK.
+# Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
+# Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
+changes:
+  - balance: "Vending machines aboard the Horizon have initial stock reduced by random amount."
+  - balance: "Cargo items spawned at roundstart reduced from 180 -> 120."
+  - balance: "Chemical dispenser cartridge contents reduced by 50-200 units at round start."

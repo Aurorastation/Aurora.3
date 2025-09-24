@@ -1,3 +1,5 @@
+#define CHEM_DISPENSERS_LOW_SUPPLY	TRUE
+
 /obj/machinery/chemical_dispenser
 	name = "chemical dispenser"
 	icon = 'icons/obj/chemical.dmi'
@@ -39,9 +41,9 @@
 	. = ..()
 	if(spawn_cartridges)
 		for(var/type in spawn_cartridges)
-			add_cartridge(new type(src))
+			add_cartridge(new type(src), on_init = TRUE)
 
-/obj/machinery/chemical_dispenser/proc/add_cartridge(obj/item/reagent_containers/chem_disp_cartridge/C, mob/user)
+/obj/machinery/chemical_dispenser/proc/add_cartridge(obj/item/reagent_containers/chem_disp_cartridge/C, mob/user, var/on_init = FALSE)
 	if(!istype(C))
 		if(user)
 			to_chat(user, SPAN_WARNING("[C] will not fit in [src]!"))
@@ -71,6 +73,12 @@
 	cartridges[C.label] = C
 	sortTim(cartridges, GLOBAL_PROC_REF(cmp_text_asc))
 	SStgui.update_uis(src)
+
+	if(on_init && CHEM_DISPENSERS_LOW_SUPPLY)
+		var/is_station_level = is_station_level(src.z)
+		if(is_station_level)
+			// Reduce volume of every cartridge by between 50 and 200.
+			C?.reagents?.total_volume = C.reagents.total_volume * ((100 - rand(10,40)) / 100)
 
 /obj/machinery/chemical_dispenser/proc/remove_cartridge(label)
 	. = cartridges[label]
@@ -213,3 +221,5 @@
 
 /obj/machinery/chemical_dispenser/attack_hand(mob/user as mob)
 	ui_interact(user)
+
+#undef CHEM_DISPENSERS_LOW_SUPPLY
