@@ -293,6 +293,9 @@ would spawn and follow the beaker, even if it is carried or thrown.
 				src.total_smoke--
 				qdel(smoke)
 
+/datum/effect/effect/system/smoke_spread/Destroy()
+	. = ..()
+	smoke_type = null
 
 /datum/effect/effect/system/smoke_spread/bad
 	smoke_type = /obj/effect/smoke/bad
