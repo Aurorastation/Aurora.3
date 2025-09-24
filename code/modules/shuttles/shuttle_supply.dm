@@ -4,9 +4,6 @@
 	var/late_chance = 80
 	var/max_late_time = 300
 
-	/// Used for navigating the correct positions to place animation effects in Horizon and playing hatch animations.
-	var/obj/effect/cargo_elevator_hatch/hatch
-
 	/// A list for step_triggers, used for toggling fall functionality. Making the elevator shaft tiles safe to stand or not depening on where the elevator is.
 	var/list/step_trigger_group = list()
 
@@ -18,6 +15,10 @@
 
 	/// This effect will contain an image, copy of the turfs at CC supply shuttle zone. Added onto the elevator shaft effect as an off-centered overlay.
 	var/obj/effect/elevator/animation_overlay/elevator_animation
+
+	/// Hatch layers, similar to 'elevator_animation', is added to elevator shaft's 'vis_contents'.
+	var/obj/effect/elevator/animation_overlay/hatch/left/hatch_L
+	var/obj/effect/elevator/animation_overlay/hatch/right/hatch_R
 
 	/// Locations caches for Horizon elevator bay.
 	var/target_dest_x
@@ -37,28 +38,39 @@
 	addtimer(CALLBACK(src, PROC_REF(prepare_elevator)), 1 MINUTE) // pseudo initialize. We give mapload some time before initializing rest of the properties
 
 /datum/shuttle/autodock/ferry/supply/proc/prepare_elevator()
+	var/obj/dest_helper = locate(/obj/effect/landmark/destination_helper/cargo_elevator)
+	target_dest_x = dest_helper.x
+	target_dest_y = dest_helper.y
+	target_dest_z = dest_helper.z
+
+	horizon_elevator_area = get_area(dest_helper)
+	for(var/obj/effect/step_trigger/cargo_elevator/ST in horizon_elevator_area)
+		step_trigger_group += ST
+
 
 	elevator_animation = new /obj/effect/elevator/animation_overlay()
 	elevator_animation.pixel_x = 224 // 7 tiles
 	elevator_animation.pixel_y = -96 // 3 tiles
 
+	hatch_L = new /obj/effect/elevator/animation_overlay/hatch/left()
+	hatch_R = new /obj/effect/elevator/animation_overlay/hatch/right()
+
 	NW = new /obj/effect/elevator(get_turf(src))
 	NW.pixel_y = -192 // 6 tiles
 	NW.vis_contents += elevator_animation
+	NW.vis_contents += hatch_L
+	NW.vis_contents += hatch_R
 
 	NE = new /obj/effect/elevator(get_turf(src))
 	NE.pixel_x = -192
 	NE.pixel_y = -192
 	NE.vis_contents += elevator_animation
+	NE.vis_contents += hatch_L
+	NE.vis_contents += hatch_R
 
-	hatch = locate(/obj/effect/cargo_elevator_hatch) in world
-	target_dest_x = hatch.x
-	target_dest_y = hatch.y
-	target_dest_z = hatch.z
-
-	horizon_elevator_area = get_area(hatch)
-	for(var/obj/effect/step_trigger/cargo_elevator/ST in horizon_elevator_area)
-		step_trigger_group += ST
+	// We position the shaft beforehand.
+	NW.forceMove(locate(target_dest_x, target_dest_y, target_dest_z))
+	NE.forceMove(locate(target_dest_x + 6, target_dest_y, target_dest_z))
 
 /datum/shuttle/autodock/ferry/supply/short_jump(var/area/destination)
 	if(moving_status != SHUTTLE_IDLE)
@@ -78,13 +90,13 @@
 			moving_status = SHUTTLE_IDLE
 			return
 
-		if (!at_station())	//at centcom
+		if (!at_station()) //at centcom
 			if(!SScargo.buy()) //Check if the shuttle can be sent
 				moving_status = SHUTTLE_IDLE //Dont move the shuttle
 				return
 
 			flip_rotating_alarms() // elevator is coming up, prepare the lights
-			playsound(locate(hatch.x + 3, hatch.y - 1, hatch.z), 'sound/machines/warning-buzzer-2.ogg', 60, FALSE)
+			//playsound(locate(hatch.x + 3, hatch.y - 1, hatch.z), 'sound/machines/warning-buzzer-2.ogg', 60, FALSE)
 
 		//We pretend it's a long_jump by making the shuttle stay at centcom for the "in-transit" period.
 		var/obj/effect/shuttle_landmark/away_waypoint = get_location_waypoint(away_location)
@@ -138,10 +150,8 @@
 	Elevator Animations
 ***************************/
 
+// this will be reworked, currently a draft
 /datum/shuttle/autodock/ferry/supply/proc/play_elevator_animation(returning_to_CC = FALSE)
-	// We position the shaft beforehand.
-	NW.forceMove(locate(target_dest_x, target_dest_y, target_dest_z))
-	NE.forceMove(locate(target_dest_x + 6, target_dest_y, target_dest_z))
 	var/obj/effect/step_trigger/cargo_elevator/CE
 
 	for(var/area/A in shuttle_area) // an image copy of the elevator platform is prepared here
@@ -149,9 +159,7 @@
 			elevator_animation.vis_contents += T
 
 	if(!returning_to_CC) // coming to Horizon
-		playsound(locate(hatch.x + 3, hatch.y - 1, hatch.z), 'sound/machines/industrial_lift_raising.ogg', 100, FALSE)
-		flick("hatch-opening", hatch)
-		hatch.icon_state = "hatch-opened"
+		//playsound(locate(hatch.x + 3, hatch.y - 1, hatch.z), 'sound/machines/industrial_lift_raising.ogg', 100, FALSE)
 		for(CE in step_trigger_group) // checking for the things standing on top of the hatch, then we send them to falling
 			for(var/atom/movable/AM in get_turf(CE))
 				if(istype(AM, /obj/effect)) // prevent picking up step_triggers
@@ -176,7 +184,7 @@
 		// checking for standers is redundant here, since the elevator won't leave if a forbidden type is standing
 		CE = step_trigger_group[1]
 		CE.safe_to_walk = FALSE
-		playsound(locate(hatch.x + 4, hatch.y - 2, hatch.z), 'sound/machines/industrial_lift_lowering.ogg', 100, FALSE)
+		//playsound(locate(hatch.x + 4, hatch.y - 2, hatch.z), 'sound/machines/industrial_lift_lowering.ogg', 100, FALSE)
 		animate(elevator_animation, pixel_x = animation_move_x, pixel_y = animation_move_y, time = 4 SECONDS)
 		sleep(4.2 SECONDS)
 
@@ -191,7 +199,7 @@
 		animation_move_y = 0
 
 	elevator_animation.vis_contents.Cut()
-	// we move the elevators away to avoid layering issues, since elevator platform uses platings and they have the lowest layer value and won't work well with the animated layer
+	// we move the elevator shafts away to avoid layering issues
 	NW.moveToNullspace()
 	NE.moveToNullspace()
 
@@ -203,24 +211,24 @@
 	for(var/obj/structure/railing/retractable/R in horizon_elevator_area)
 		R.toggle_state()
 
-/obj/effect/cargo_elevator_hatch
-	name = "elevator hatch"
-	desc = "A gargantuan floor hatch, separating Operations Bay and inner warehouse."
-	icon = 'icons/effects/delete_me_sometime.dmi'
-	icon_state = "hatch"
-	invisibility = 0
-	pixel_y = -192
+/obj/effect/landmark/destination_helper/cargo_elevator
+	name = "cargo elevator destination helper"
 
 /obj/effect/step_trigger/cargo_elevator
 	name = "cargo elevator shaft"
 	icon = 'icons/effects/map_effects.dmi'
-	simulated = FALSE // this prevents the effects move along with the elevator
+	simulated = FALSE // this prevents the effects getting transported along with the elevator
 
 	/// List of turfs within the 'area/supply/dock'. Shared between all instances.
 	var/static/list/possible_turfs_to_land_on = list()
 
 	/// Boolean, determines whether the movables should fall or not. Shared between all instances.
 	var/static/safe_to_walk = TRUE
+
+/obj/effect/step_trigger/cargo_elevator/Initialize()
+	. = ..()
+	if(!possible_turfs_to_land_on.len)
+		possible_turfs_to_land_on = get_area_turfs(/area/supply/dock)
 
 /obj/effect/step_trigger/cargo_elevator/Trigger(atom/movable/AM)
 	if(safe_to_walk)
@@ -234,17 +242,39 @@
 
 	if(isliving(AM))
 		var/mob/living/L = AM
-		if(!L.CanAvoidGravity())
-			L.death()
-			L.adjustBruteLoss(rand(200,400))
-			L.dir = pick(GLOB.cardinals)
+		if(L.CanAvoidGravity())
+			return
+		L.Weaken(20 SECONDS)
 
-	// there is no need for sanity check if the elevator was in CC when we're picking turfs. This proc is only called when the elevator physically is in CC
-	if(!possible_turfs_to_land_on.len)
-		var/turf/T
-		for(var/area/A in SScargo.shuttle.shuttle_area)
-			for(T in A)
-				possible_turfs_to_land_on += T
+	INVOKE_ASYNC(src, PROC_REF(animate_falling), AM)
 
+/obj/effect/step_trigger/cargo_elevator/proc/animate_falling(atom/movable/AM)
+	var/oldalpha = AM.alpha
+	var/oldcolor = AM.color
+	var/old_pixel_y = AM.pixel_y
+	animate(AM, transform = matrix() - matrix(), alpha = 0, color = rgb(0, 0, 0), time = 10)
+
+	for(var/i in 1 to 5)
+		//Make sure the item is still there after our sleep
+		if(!AM || QDELETED(AM))
+			return
+		AM.pixel_y--
+		sleep(2)
+
+	//Make sure the item is still there after our sleep
+	if(!AM || QDELETED(AM))
+		return
+
+	AM.visible_message(SPAN_WARNING("[AM] falls into [src]!"), SPAN_DANGER("You stumble and stare into \the [src] as you fall. It will be a long ride..."))
 	AM.forceMove(pick(possible_turfs_to_land_on))
 
+	AM.alpha = oldalpha
+	AM.color = oldcolor
+	AM.transform = matrix()
+	AM.pixel_y = old_pixel_y
+
+	if(isliving(AM))
+		var/mob/living/L = AM
+		L.death()
+		L.adjustBruteLoss(rand(200,400))
+		L.dir = pick(GLOB.cardinals)

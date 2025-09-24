@@ -35,7 +35,7 @@
 /obj/effect/elevator
 	name = "\proper elevator shaft"
 	desc = "There seems to be an awful lot of machinery down below."
-	icon = 'icons/effects/delete_me_sometime.dmi'
+	icon = 'icons/effects/cargo_elevator.dmi'
 	icon_state = "abyss"
 	unacidable = TRUE
 	layer = TURF_DETAIL_LAYER
@@ -48,3 +48,14 @@
 	icon_state = null
 	blend_mode = BLEND_INSET_OVERLAY
 	appearance_flags = KEEP_TOGETHER
+
+/obj/effect/elevator/animation_overlay/hatch
+	name = "elevator hatch"
+	icon_state = "hatch"
+
+/obj/effect/elevator/animation_overlay/hatch/left
+	icon_state = "hatch_L"
+
+/obj/effect/elevator/animation_overlay/hatch/right
+	icon_state = "hatch_R"
+
