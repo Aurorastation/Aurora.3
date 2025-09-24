@@ -10,5 +10,5 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - tweak: "Synthetic SecHUD and MedHUD are now merged rather than being mutually exclusive."
+  - qol: "Synthetic SecHUD and MedHUD are now merged rather than being mutually exclusive."
   - backend: "HUDs are now represented via datums and updated on an as-needed basis."
