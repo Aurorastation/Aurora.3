@@ -5,7 +5,7 @@
 	suffix = "Sol_Frigate.dmm"
 
 	sectors = list(ALL_POSSIBLE_SECTORS) // temp spawnweight, cost, and sector for playtesting purposes
-	spawn_weight = 5
+	spawn_weight = 999
 	ship_cost = 0.5
 	id = "Sol_frigate"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/Solfrig_shuttle)
