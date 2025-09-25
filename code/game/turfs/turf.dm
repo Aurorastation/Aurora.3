@@ -197,7 +197,7 @@
 	if(A.needs_starlight == TRUE)
 		set_light(SSatlas.current_sector.starlight_range, SSatlas.current_sector.starlight_power, l_color = SSskybox.background_color)
 		return // Return here so we don't risk also running the space logic.
-	else(!istype(src, /turf/space)) // Exclude space turfs so this doesn't call set_light twice on space.
+	else if(!istype(src, /turf/space)) // Exclude space turfs so this doesn't call set_light twice on space.
 		set_light(initial(light_range), initial(light_power), initial(light_color))
 
 	// We handle space turfs here outside of needs_starlight areas here.
