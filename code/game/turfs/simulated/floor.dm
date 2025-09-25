@@ -95,6 +95,8 @@
 	flooring_override = null
 	levelupdate()
 
+	update_starlight()
+
 	if(!defer_icon_update)
 		update_icon(1)
 
