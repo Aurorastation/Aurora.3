@@ -55,7 +55,7 @@
 	var/filter_effect_from_broken = 2
 
 	/// Modifier on how efficiently this liver eliminates booze while blackout drunk.
-	var/blackout_booze_filtering_modifier = 0.015
+	var/blackout_booze_filtering_modifier = 0.5
 
 	/// Message to play in chat to a liver-haver when they have an infection.
 	var/infection_level_one_warning = "Your skin itches."
@@ -169,7 +169,7 @@
 	base_filter_effect = 5
 	toxin_critical_mass = 90
 	booze_filtering_modifier = 0.5 // "Impossible to get drunk", this should make it impossible. :)
-	blackout_booze_filtering_modifier = 0.25
+	blackout_booze_filtering_modifier = 1
 
 /obj/item/organ/internal/liver/alien_liver
 	name = "anomalous mercurial flesh"
