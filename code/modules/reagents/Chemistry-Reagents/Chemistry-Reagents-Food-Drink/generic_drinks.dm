@@ -3664,18 +3664,6 @@
 	glass_name = "glass of Andalusia"
 	glass_desc = "A nice, strange named drink."
 	glass_center_of_mass = list("x"=16, "y"=9)
-
-/singleton/reagent/alcohol/redstaff
-	name = "Redstaff"
-	description = "A tasty classic, and spicier than pepper spray. Fun as a dare. Great as a cocktail ingredient."
-	color = "#C73C00"
-	strength = 30
-	taste_description = "creamy red ale with a distinct hint of bitterness."
-
-	glass_icon_state = "redstaff"
-	glass_name = "glass of Redstaff"
-	glass_desc = "A tasty classic, and spicier than pepper spray. Fun as a dare. Great as a cocktail ingredient."
-
 //
 // To Be Removed
 //
