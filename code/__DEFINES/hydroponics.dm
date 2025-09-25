@@ -15,11 +15,11 @@
 #define GROWTH_MOLD				  "mold"
 
 // The various standardised ideal heat values.
-#define IDEAL_HEAT_MOGHES 333
+#define IDEAL_HEAT_MOGHES 313
 #define IDEAL_HEAT_TROPICAL 303
 #define IDEAL_HEAT_TEMPERATE 293
 #define IDEAL_HEAT_COLD 283
-#define IDEAL_HEAT_ADHOMAI 257
+#define IDEAL_HEAT_ADHOMAI 273
 
 // The various standardised ideal light values. They vary by incrmeents of 2.
 #define IDEAL_LIGHT_HIGH 7
