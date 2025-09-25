@@ -88,8 +88,8 @@ Class Procs:
 	init_flags = INIT_MACHINERY_PROCESS_SELF
 	pass_flags_self = PASSMACHINE | LETPASSCLICKS
 	destroy_sound = 'sound/effects/meteorimpact.ogg'
-
-	maxhealth = 100
+	maxhealth = 200
+	armor = list(MELEE = ARMOR_MELEE_KEVLAR, BULLET = ARMOR_BALLISTIC_PISTOL)
 
 	/// Controlled by a bitflag, differentiates between a few different possible states including the machine being broken or unpowered.
 	/// See code/__defines/machinery.dm for the possible states.
@@ -193,9 +193,6 @@ Class Procs:
 		if(component_parts.len)
 			RefreshParts()
 
-	if(maxhealth)
-		AddComponent(/datum/component/armor, list(MELEE = ARMOR_MELEE_KNIVES, BULLET = ARMOR_BALLISTIC_MINOR))
-
 /obj/machinery/Destroy()
 	//Stupid macro used in power usage
 	CAN_BE_REDEFINED(TRUE)
@@ -213,6 +210,30 @@ Class Procs:
 	component_parts = null
 
 	return ..()
+
+/obj/machinery/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
+	var/turf/current_turf = get_turf(src)
+	spark(current_turf, 3, GLOB.alldirs)
+	if(component_parts)
+		for(var/obj/item/stock_parts/part in component_parts)
+			if(prob(25))
+				part.forceMove(current_turf)
+				component_parts -= part
+		var/obj/item/circuitboard/board = locate() in component_parts
+		if(istype(board))
+			if(prob(25))
+				board.forceMove(current_turf)
+				component_parts -= board
+			else
+				new /obj/item/trash/broken_electronics(current_turf)
+	var/metal_to_spawn = 0
+	for(var/i = 1 to 2)
+		if(prob(50))
+			metal_to_spawn++
+	if(metal_to_spawn)
+		new /obj/item/stack/material/steel(get_turf(src), metal_to_spawn)
+	. = ..()
+
 
 // /obj/machinery/proc/process_all()
 // 	/* Uncomment this if/when you need component processing
@@ -246,18 +267,12 @@ Class Procs:
 
 /obj/machinery/ex_act(severity)
 	switch(severity)
-		if(1.0)
-			qdel(src)
-			return
-		if(2.0)
-			if (prob(50))
-				qdel(src)
-				return
-		if(3.0)
-			if (prob(25))
-				qdel(src)
-				return
-	return
+		if(1)
+			add_damage(maxhealth)
+		if(2)
+			add_damage(maxhealth * 0.25)
+		if(3)
+			add_damage(maxhealth * 0.5)
 
 /**
  * Check to see if the machine is operable
@@ -360,6 +375,12 @@ Class Procs:
 			user.visible_message("<b>[user]</b> removes \the [signaler] from \the [src].", SPAN_NOTICE("You remove \the [signaler] from \the [src]."), range = 3)
 			user.put_in_hands(detach_signaler())
 			return TRUE
+
+	if(user?.a_intent == I_HURT && maxhealth)
+		user.do_attack_animation(src)
+		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+		add_damage(attacking_item.force, attacking_item.damage_flags(), attacking_item.damtype, attacking_item.armor_penetration, attacking_item)
+		playsound(user, 'sound/effects/metalhit.ogg', attacking_item.get_clamped_volume())
 
 	return ..()
 

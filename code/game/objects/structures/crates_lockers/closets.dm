@@ -7,7 +7,8 @@
 	build_amt = 2
 	slowdown = 5
 	pass_flags_self = PASSSTRUCTURE | LETPASSCLICKS | PASSTRACE
-	health = 45
+	health = 150
+	armor = list(MELEE = ARMOR_MELEE_RESISTANT, BULLET = ARMOR_BALLISTIC_PISTOL, LASER = ARMOR_LASER_KEVLAR)
 
 	var/icon_door = null
 	/// Override to have open overlay use icon different to its base's
@@ -309,11 +310,11 @@
 /obj/structure/closet/ex_act(severity)
 	switch(severity)
 		if(1)
-			health -= rand(120, 240)
+			add_damage(rand(120, 240))
 		if(2)
-			health -= rand(60, 120)
+			add_damage(rand(60, 120))
 		if(3)
-			health -= rand(30, 60)
+			add_damage(rand(30, 60))
 
 	if(health <= 0)
 		for (var/atom/movable/A as mob|obj in src)
@@ -512,8 +513,10 @@
 			else
 				attack_hand(user)
 	else
-		attack_hand(user)
-	return
+		if(attacking_item.force < 10 && user.a_intent != I_HURT)
+			attack_hand(user)
+		else
+			return ..()
 
 // helper procs for callbacks
 /obj/structure/closet/proc/is_closed()

@@ -37,6 +37,8 @@
 	var/health
 	/// The maximum health of this object. If null, health is not used.
 	var/maxhealth
+	/// The armor of this object, turned into an armor component.
+	var/list/armor
 	/// The sound played when this object is destroyed.
 	var/destroy_sound
 	/// Set to TRUE when shocked by the tesla ball, to not repeatedly shock the object.
@@ -119,6 +121,11 @@
 		if(!health)
 			// Allows you to set dynamic health states on initialize.
 			health = maxhealth
+	if(islist(armor))
+		for(var/type in armor)
+			if(armor[type])
+				AddComponent(/datum/component/armor, armor)
+				break
 
 /obj/Destroy()
 	if(persistence_track_active) // Prevent hard deletion of references in the persistence register by removing it preemptively
@@ -158,7 +165,7 @@
  * This proc is called to add damage to an object. If there is no health left, it calls on_death().
  */
 /obj/proc/add_damage(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
-	if(!damage)
+	if(!damage || !maxhealth)
 		return FALSE
 
 	var/datum/component/armor/armor = GetComponent(/datum/component/armor)
@@ -188,7 +195,7 @@
 	else if(health < maxhealth * 0.5)
 		. = SPAN_ALERT("\The [src] looks seriously damaged!")
 	else if(health < maxhealth * 0.75)
-		. = "\The [src] shows signs of damage!"
+		. = SPAN_WARNING("\The [src] shows signs of damage!")
 
 /**
  * This proc is called when object health changes. Use this to set custom states, do messages, etc.
@@ -206,6 +213,9 @@
  * This proc is called to set the object's health directly.
  */
 /obj/proc/change_health(new_health)
+	if(!maxhealth)
+		return
+
 	if(health >= maxhealth)
 		return FALSE
 
@@ -216,6 +226,9 @@
  * This proc is called to directly add to an object's health (basically, to add it).
  */
 /obj/proc/add_health(repair_amount)
+	if(!maxhealth)
+		return
+
 	if(health >= maxhealth)
 		return FALSE
 

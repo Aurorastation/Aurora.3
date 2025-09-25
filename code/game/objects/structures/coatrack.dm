@@ -4,6 +4,7 @@
 	icon = 'icons/obj/coatrack.dmi'
 	icon_state = "coatrack"
 	layer = ABOVE_HUMAN_LAYER
+	maxhealth = 30
 	var/obj/item/clothing/coat
 	var/obj/item/clothing/head/hat
 	var/list/custom_sprites = list(/obj/item/clothing/head/beret/security, /obj/item/clothing/accessory/poncho/tajarancloak) // Custom manual sprite override.

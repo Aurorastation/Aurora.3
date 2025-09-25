@@ -149,10 +149,6 @@
 	/// Sound uses when dropping the item, or when its thrown.
 	var/drop_sound = /singleton/sound_category/generic_drop_sound
 
-	var/list/armor
-	/// How fast armor will degrade, multiplier to blocked damage to get armor damage value.
-	var/armor_degradation_speed
-
 	//Item_state definition moved to /obj
 	//var/item_state = null // Used to specify the item state for the on-mob overlays.
 
@@ -240,11 +236,6 @@
 
 /obj/item/Initialize(mapload, ...)
 	. = ..()
-	if(islist(armor))
-		for(var/type in armor)
-			if(armor[type])
-				AddComponent(/datum/component/armor, armor)
-				break
 	if(item_flags & ITEM_FLAG_HELD_MAP_TEXT)
 		set_initial_maptext()
 		check_maptext()

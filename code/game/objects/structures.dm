@@ -4,9 +4,6 @@
 	layer = STRUCTURE_LAYER
 	blocks_emissive = EMISSIVE_BLOCK_GENERIC
 	pass_flags_self = PASSSTRUCTURE
-	destroy_sound = 'sound/effects/metalhit.ogg'
-
-	maxhealth = 50
 
 	var/material_alteration = MATERIAL_ALTERATION_ALL // Overrides for material shit. Set them manually if you don't want colors etc. See wood chairs/office chairs.
 	var/climbable
