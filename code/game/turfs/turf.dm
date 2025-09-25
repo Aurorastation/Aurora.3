@@ -190,20 +190,23 @@
 	if(use_starlight == FALSE)
 		return
 
-	// We handle space turfs here. If it borders a simulated turf, it should be producing starlight.
+	// All area turfs are covered here - they should be starlit if their area's needs_starlight var is true, otherwise they
+	// are set to their default lighting. Areas can change in-game, so this needs to support removing starlight from a turf too.
+	// We do this prior to the unique space logic so this also covers space turfs within a needs_starlight area.
+	var/area/A = get_area(src)
+	if(A.needs_starlight == TRUE)
+		set_light(SSatlas.current_sector.starlight_range, SSatlas.current_sector.starlight_power, l_color = SSskybox.background_color)
+		return // Return here so we don't risk also running the space logic.
+	else(!istype(src, /turf/space)) // Exclude space turfs so this doesn't call set_light twice on space.
+		set_light(initial(light_range), initial(light_power), initial(light_color))
+
+	// We handle space turfs here outside of needs_starlight areas here.
+	// If it borders a simulated turf, it should be producing starlight.
 	if(istype(src, /turf/space))
 		if(locate(/turf/simulated) in RANGE_TURFS(1, src))
 			set_light(SSatlas.current_sector.starlight_range, SSatlas.current_sector.starlight_power, l_color = SSskybox.background_color)
 		else
 			set_light(0)
-	else
-		// All non-space turfs are handled here - they should be starlit if their area says they should be, otherwise they go
-		// to their default lighting. Areas can change in-game, so this needs to support removing starlight from a turf too.
-		var/area/A = get_area(src)
-		if(A.needs_starlight == TRUE)
-			set_light(SSatlas.current_sector.starlight_range, SSatlas.current_sector.starlight_power, l_color = SSskybox.background_color)
-		else
-			set_light(initial(light_range), initial(light_power), initial(light_color))
 
 /turf/ex_act(severity)
 	return 0
