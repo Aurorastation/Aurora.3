@@ -95,6 +95,9 @@
 	flooring_override = null
 	levelupdate()
 
+	// Set light to zero, so glowing turfs cease to glow if turned into plating.
+	set_light(0)
+	// Check if this still needs to have starlight - if it does, it'll be given back its starlight.
 	update_starlight()
 
 	if(!defer_icon_update)
