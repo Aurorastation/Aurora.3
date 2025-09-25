@@ -87,12 +87,12 @@
 	set_trait(TRAIT_REQUIRES_NUTRIENTS,   1)
 	set_trait(TRAIT_REQUIRES_WATER,       1)
 	set_trait(TRAIT_WATER_CONSUMPTION,    3)
-	set_trait(TRAIT_LIGHT_TOLERANCE,      2.5) // Plants will begin to die if the light levels are 2.5 or more lumens from their ideal.
+	set_trait(TRAIT_LIGHT_TOLERANCE,      3.5) // Plants will begin to die if the light levels are 2.5 or more lumens from their ideal.
 	set_trait(TRAIT_TOXINS_TOLERANCE,     5)
 	set_trait(TRAIT_PEST_TOLERANCE,       5)
 	set_trait(TRAIT_WEED_TOLERANCE,       5)
 	set_trait(TRAIT_IDEAL_LIGHT,          IDEAL_LIGHT_TEMPERATE)
-	set_trait(TRAIT_HEAT_TOLERANCE,       12) // Plants will begin to die if they're twelve or more degrees from their ideal temperature.
+	set_trait(TRAIT_HEAT_TOLERANCE,       14) // Plants will begin to die if they're fourteen or more degrees from their ideal temperature.
 	set_trait(TRAIT_LOWKPA_TOLERANCE,     25) // Plants survive all the way down to a quarter of an atmosphere!
 	set_trait(TRAIT_ENDURANCE,            100)
 	set_trait(TRAIT_HIGHKPA_TOLERANCE,    200)
@@ -101,7 +101,7 @@
 	set_trait(TRAIT_PLANT_COLOUR,         "#46B543")
 	set_trait(TRAIT_LARGE,                0)
 	set_trait(TRAIT_HEAT_PREFERENCE,      5) // By default, plants grow faster in a temperature within five degrees of their ideal.
-	set_trait(TRAIT_LIGHT_PREFERENCE,     1.5) // Similarly, they grow faster under lumens within 1.5 of their ideal.
+	set_trait(TRAIT_LIGHT_PREFERENCE,     2.5) // Similarly, they grow faster under lumens within 1.5 of their ideal.
 
 	setup_traits()
 
