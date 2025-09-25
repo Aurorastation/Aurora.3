@@ -62,7 +62,12 @@
 	var/base_icon_state = "plating"
 	var/base_color = null
 
-	var/last_clean //for clean log spam.
+	///for clean log spam.
+	var/last_clean
+
+	/// Should this turf ever possibly have starlight rendered on it? If it definitely never ever should, set to false.
+	/// Check update_starlight for possible situations wherein starlight may be rendered on a turf in the first place.
+	var/use_starlight = TRUE
 
 	///what /mob/oranges_ear instance is already assigned to us as there should only ever be one.
 	///used for guaranteeing there is only one oranges_ear per turf when assigned, speeds up view() iteration
@@ -126,8 +131,7 @@
 	if(A.base_turf)
 		baseturf = A.base_turf
 
-	if(A.needs_starlight == TRUE)
-		set_light(SSatlas.current_sector.starlight_range, SSatlas.current_sector.starlight_power, l_color = SSskybox.background_color)
+	update_starlight()
 
 	if (light_range && light_power)
 		update_light()
@@ -175,6 +179,31 @@
 	underlay_appearance.appearance = src
 	underlay_appearance.dir = adjacency_dir
 	return TRUE
+
+/// Handles starlight, both for space turfs and for turfs for whose area's needs_starlight var is set to true.
+/turf/proc/update_starlight()
+	// We don't render starlight if config says we shouldn't.
+	if(!GLOB.config.starlight)
+		return
+
+	// If this turf specifically shouldn't be receiving starlight, we cut it here.
+	if(use_starlight == FALSE)
+		return
+
+	// We handle space turfs here. If it borders a simulated turf, it should be producing starlight.
+	if(istype(src, /turf/space))
+		if(locate(/turf/simulated) in RANGE_TURFS(1, src))
+			set_light(SSatlas.current_sector.starlight_range, SSatlas.current_sector.starlight_power, l_color = SSskybox.background_color)
+		else
+			set_light(0)
+	else
+		// All non-space turfs are handled here - they should be starlit if their area says they should be, otherwise they go
+		// to their default lighting. Areas can change in-game, so this needs to support removing starlight from a turf too.
+		var/area/A = get_area(src)
+		if(A.needs_starlight == TRUE)
+			set_light(SSatlas.current_sector.starlight_range, SSatlas.current_sector.starlight_power, l_color = SSskybox.background_color)
+		else
+			set_light(initial(light_range), initial(light_power), initial(light_color))
 
 /turf/ex_act(severity)
 	return 0
