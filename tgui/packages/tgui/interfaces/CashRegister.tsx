@@ -1,5 +1,3 @@
-// QuikPay.tsx
-
 import { BooleanLike } from '../../common/react';
 import { useBackend } from '../backend';
 import { LabeledList, Button, Input, NumberInput, Section } from '../components';
@@ -13,10 +11,6 @@ export type PayData = {
   sum: number;
   editmode: BooleanLike;
   destinationact: number;
-
-  // NEW ↓
-  editing: BooleanLike; // true when editing an existing item
-  editing_original?: string; // original name of item being edited
 };
 
 type Item = {
@@ -45,7 +39,7 @@ export const QuikPay = (props, context) => {
               onClick={() => act('locking')}
             />
           }>
-          {data.editmode ? <AddItems /> : null}
+          {data.editmode ? <AddItems /> : ''}
           {data.items.length < 1 ? 'No items available.' : <ItemWindow />}
         </Section>
       </Window.Content>
@@ -65,33 +59,18 @@ export const ItemWindow = (props, context) => {
             <Button
               content="Buy"
               icon="calendar"
-              onClick={() => act('buy', { buying: item.name, amount: 1 })}
+              onClick={(e, value) =>
+                act('buy', { buying: item.name, amount: 1 })
+              }
             />
-            {data.editmode ? (
-              <>
-                &nbsp;
-                <Button
-                  content="Edit"
-                  icon="pen"
-                  onClick={() => act('start_edit', { name: item.name })}
-                />
-                &nbsp;
-                <Button
-                  content="Delete"
-                  icon="trash"
-                  color="bad"
-                  onClick={() => act('remove', { name: item.name })}
-                />
-              </>
-            ) : null}
           </LabeledList.Item>
         ))}
       </LabeledList>
-
       <Section
         title="Cart"
         buttons={
           <>
+            {' '}
             <Button
               content="Clear"
               icon="trash"
@@ -106,7 +85,11 @@ export const ItemWindow = (props, context) => {
             />
           </>
         }>
-        {data.buying.length < 1 ? 'Your shopping cart is empty.' : <CartWindow />}
+        {data.buying.length < 1 ? (
+          'Your shopping cart is empty.'
+        ) : (
+          <CartWindow />
+        )}
       </Section>
     </Section>
   );
@@ -114,38 +97,20 @@ export const ItemWindow = (props, context) => {
 
 export const AddItems = (props, context) => {
   const { act, data } = useBackend<PayData>(context);
-  const saving = !!data.editing;
-
   return (
-    <Section title={saving ? 'Edit Item' : 'Add Item'}>
+    <Section>
       <Input
-        placeholder="Item name"
         value={data.new_item}
-        onChange={(_, value) => act('set_new_item', { set_new_item: value })}
+        onChange={(e, value) => act('set_new_item', { set_new_item: value })}
       />
       <NumberInput
         value={data.new_price}
         minValue={0}
-        maxValue={1000}
+        maxValue={100}
         stepPixelSize={5}
-        onChange={(_, value) => act('set_new_price', { set_new_price: value })}
+        onDrag={(e, value) => act('set_new_price', { set_new_price: value })}
       />
-      {saving ? (
-        <>
-          <Button
-            content="Save"
-            icon="save"
-            onClick={() => act('save_edit', { original: data.editing_original })}
-          />
-          <Button
-            content="Cancel"
-            icon="times"
-            onClick={() => act('cancel_edit')}
-          />
-        </>
-      ) : (
-        <Button content="Add" icon="plus" onClick={() => act('add')} />
-      )}
+      <Button content="Add" onClick={() => act('add')} />
     </Section>
   );
 };
@@ -170,4 +135,3 @@ export const CartWindow = (props, context) => {
     </Section>
   );
 };
-
