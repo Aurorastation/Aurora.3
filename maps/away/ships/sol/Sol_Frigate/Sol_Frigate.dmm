@@ -95,25 +95,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_fore)
 "ay" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 8
-	},
-/obj/effect/floor_decal/corner/yellow{
-	dir = 5
-	},
-/obj/machinery/alarm/north{
-	req_one_access = null;
-	req_access = list(203)
-	},
-/obj/structure/cable{
-	icon_state = "1-2";
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/hallway_fore)
+/obj/structure/sign/flag/visegrad/large/west,
+/turf/simulated/wall/shuttle/raider,
+/area/ship/Sol_Frigate/brig)
 "az" = (
 /obj/machinery/door/airlock/hatch{
 	req_access = list(203)
@@ -196,7 +180,7 @@
 /obj/item/flag/sol,
 /obj/item/flag/sol/l,
 /obj/item/flag/sol/l,
-/turf/unsimulated/floor/carpet,
+/turf/simulated/floor/carpet,
 /area/ship/Sol_Frigate/captain_cabin)
 "aM" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -241,12 +225,12 @@
 "bb" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
 	icon_state = "1-2";
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/engineering)
 "bc" = (
 /obj/machinery/door/airlock/external{
@@ -262,10 +246,7 @@
 /turf/simulated/floor/airless,
 /area/ship/Sol_Frigate/Port_docking_port)
 "bd" = (
-/obj/structure/sign/directions/security{
-	pixel_y = -21;
-	dir = 4
-	},
+/obj/structure/sign/flag/ssrm/large/east,
 /turf/simulated/wall/shuttle/raider,
 /area/ship/Sol_Frigate/oquarters)
 "be" = (
@@ -286,6 +267,15 @@
 	},
 /turf/space,
 /area/ship/Sol_Frigate/Exo_Bay)
+"bn" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/machinery/ammunition_loader/longbow{
+	weapon_id = "Xanu Frigate Longbow"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/Sol_Frigate/port_battery)
 "bo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -346,11 +336,11 @@
 /turf/simulated/wall/shuttle/raider,
 /area/ship/Sol_Frigate/starboard_thrusters)
 "bJ" = (
-/obj/structure/sign/flag/sancolette,
+/obj/structure/sign/flag/callisto/large/west,
 /turf/simulated/wall/shuttle/raider,
-/area/ship/Sol_Frigate/brig)
+/area/ship/Sol_Frigate/captain_cabin)
 "bL" = (
-/obj/structure/sign/flag/sol,
+/obj/structure/sign/flag/sol/large/east,
 /turf/simulated/wall/shuttle/raider,
 /area/ship/Sol_Frigate/hallway_mid)
 "bO" = (
@@ -485,6 +475,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/port_thrusters)
+"cu" = (
+/obj/structure/lattice,
+/obj/structure/lattice,
+/turf/space/dynamic,
+/area/space)
 "cw" = (
 /obj/structure/bed/stool/chair/shuttle,
 /obj/effect/floor_decal/corner/orange/diagonal,
@@ -494,7 +489,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/turf/unsimulated/floor/carpet,
+/turf/simulated/floor/carpet,
 /area/ship/Sol_Frigate/captain_cabin)
 "cA" = (
 /turf/simulated/wall/shuttle/raider,
@@ -572,7 +567,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
 	icon_state = "1-2";
 	dir = 4
@@ -596,11 +590,6 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/starboard_battery)
 "dg" = (
@@ -609,9 +598,6 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
-	},
-/obj/effect/floor_decal/corner/yellow{
-	dir = 5
 	},
 /obj/structure/cable{
 	icon_state = "1-2";
@@ -622,7 +608,8 @@
 	d1 = 2;
 	d2 = 8
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/hallway_fore)
 "dh" = (
 /obj/machinery/computer/ship/targeting/terminal{
@@ -651,7 +638,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
@@ -667,7 +653,8 @@
 	d1 = 1;
 	d2 = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/hallway_mid)
 "dm" = (
 /obj/machinery/power/terminal{
@@ -710,12 +697,12 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
 	icon_state = "1-2";
 	d1 = 1;
 	d2 = 2
 	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/starboard_gunnery)
 "dr" = (
@@ -727,6 +714,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/starboard_gunnery)
+"dv" = (
+/obj/structure/sign/flag/nsrm/large/east,
+/turf/simulated/wall/shuttle/raider,
+/area/ship/Sol_Frigate/oquarters)
 "dz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -966,7 +957,7 @@
 /area/ship/Sol_Frigate/sickbay)
 "ez" = (
 /obj/structure/bed/stool/chair/office/light,
-/turf/unsimulated/floor/carpet,
+/turf/simulated/floor/carpet,
 /area/ship/Sol_Frigate/captain_cabin)
 "eA" = (
 /obj/structure/closet/crate/loot,
@@ -1029,16 +1020,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/safe_room)
-"eR" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/yellow{
-	dir = 10
-	},
-/obj/machinery/light,
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/starboard_gunnery)
 "eS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
@@ -1064,14 +1045,14 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/light,
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/hallway_fore)
 "fd" = (
 /obj/machinery/door/airlock/security{
@@ -1082,7 +1063,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/safe_room)
 "fe" = (
-/obj/structure/sign/flag/venus,
+/obj/structure/sign/flag/nhp/large/east,
 /turf/simulated/wall/shuttle/raider,
 /area/ship/Sol_Frigate/hallway_mid)
 "fg" = (
@@ -1095,14 +1076,6 @@
 /obj/item/warhead/longbow/ap,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/port_battery)
-"fh" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/starboard_gunnery)
 "fi" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/bed/stool/chair/padded/green{
@@ -1130,13 +1103,13 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
 	icon_state = "1-2";
 	d1 = 1;
 	d2 = 2
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/starboard_gunnery)
 "fm" = (
 /obj/machinery/light{
@@ -1273,14 +1246,18 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/hatch,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/starboard_battery)
 "fN" = (
-/obj/machinery/ammunition_loader/longbow{
-	weapon_id = "Xanu Frigate Longbow"
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/port_battery)
+/area/ship/Sol_Frigate/starboard_gunnery)
 "fO" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
@@ -1288,7 +1265,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_mid)
 "fT" = (
@@ -1360,6 +1336,19 @@
 /obj/structure/bedsheetbin,
 /turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/head)
+"gr" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/Sol_Frigate/starboard_gunnery)
 "gv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -1671,26 +1660,19 @@
 /area/ship/Sol_Frigate/oquarters)
 "hV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/effect/floor_decal/corner/yellow{
-	dir = 6
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/hallway_mid)
 "hZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/light{
 	dir = 4
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/effect/floor_decal/corner/yellow{
-	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable{
@@ -1701,6 +1683,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/hallway_mid)
 "ic" = (
@@ -1736,7 +1719,7 @@
 /obj/item/pen/fountain,
 /obj/item/stamp/sol,
 /obj/machinery/alarm/south,
-/turf/unsimulated/floor/carpet,
+/turf/simulated/floor/carpet,
 /area/ship/Sol_Frigate/captain_cabin)
 "ij" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
@@ -1838,7 +1821,6 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
 	icon_state = "1-2";
 	d1 = 1;
@@ -1938,6 +1920,8 @@
 	dir = 6
 	},
 /obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2020,7 +2004,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/canteen)
 "jG" = (
@@ -2068,13 +2051,13 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
 	icon_state = "1-2";
 	d1 = 1;
 	d2 = 2
 	},
-/turf/simulated/floor,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/hallway_mid)
 "jU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -2190,6 +2173,7 @@
 /area/ship/Sol_Frigate/sickbay)
 "ko" = (
 /obj/structure/bed/stool/chair/sofa,
+/obj/structure/bed/stool/chair/sofa/right,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_fore)
 "kp" = (
@@ -2293,14 +2277,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/Exo_Bay)
 "kU" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/bunks)
 "kV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2360,13 +2344,13 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
 	icon_state = "2-4";
 	d1 = 2;
 	d2 = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/hallway_fore)
 "le" = (
 /obj/machinery/door/airlock/multi_tile/glass{
@@ -2512,6 +2496,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/brig)
+"mg" = (
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/Sol_Frigate/Exo_Bay)
 "mh" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
@@ -2549,12 +2540,12 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
 	icon_state = "1-2";
 	d1 = 1;
 	d2 = 2
 	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/engineering)
 "mr" = (
@@ -2642,19 +2633,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/safe_room)
-"mK" = (
-/obj/structure/sign/flag/callisto,
-/turf/simulated/wall/shuttle/raider,
-/area/ship/Sol_Frigate/hallway_mid)
 "mN" = (
-/obj/machinery/door/airlock/silver{
-	req_access = list(203)
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
-/obj/machinery/door/firedoor/noid{
-	dir = 4
-	},
-/turf/space,
-/area/ship/Sol_Frigate/head)
+/turf/simulated/floor/tiled/dark,
+/area/ship/Sol_Frigate/starboard_gunnery)
 "mO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -2727,12 +2713,12 @@
 "ng" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
 	icon_state = "1-2";
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/hallway_fore)
 "nh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2746,11 +2732,12 @@
 /area/ship/Sol_Frigate/eva_storage)
 "nm" = (
 /obj/structure/cable{
-	icon_state = "1-2";
-	dir = 4
+	icon_state = "2-8";
+	d1 = 2;
+	d2 = 8
 	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/Exo_Bay)
+/turf/simulated/wall/shuttle/raider,
+/area/ship/Sol_Frigate/bunks)
 "nn" = (
 /obj/machinery/door/airlock/vault{
 	name = "Port Battery";
@@ -2769,18 +2756,18 @@
 /turf/space,
 /area/ship/Sol_Frigate/Exo_Bay)
 "nr" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner/yellow{
-	dir = 5
+	dir = 6
 	},
 /obj/structure/cable{
 	icon_state = "1-2";
-	dir = 4
+	d1 = 1;
+	d2 = 2
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/starboard_gunnery)
+/area/ship/Sol_Frigate/hallway_mid)
 "ns" = (
 /obj/machinery/light{
 	dir = 4;
@@ -3115,11 +3102,21 @@
 /obj/item/hullbeacon/red,
 /turf/simulated/floor/airless,
 /area/space)
+"oP" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
+/obj/machinery/light,
+/turf/simulated/floor/tiled/dark,
+/area/ship/Sol_Frigate/starboard_gunnery)
 "oQ" = (
 /obj/machinery/vending/engineering{
 	req_access = list(203)
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/engineering)
 "oX" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -3182,11 +3179,12 @@
 	dir = 8;
 	pixel_x = 33
 	},
-/obj/structure/sign/flag/silversun,
 /turf/simulated/wall/shuttle/raider,
 /area/ship/Sol_Frigate/brig)
 "po" = (
-/obj/structure/closet/secure_closet/engineering_welding,
+/obj/structure/closet/secure_closet/engineering_welding{
+	req_access = list(203)
+	},
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
 	},
@@ -3345,7 +3343,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/canteen)
 "pT" = (
@@ -3469,7 +3466,6 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
@@ -3478,7 +3474,8 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
-/turf/simulated/floor,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/hallway_fore)
 "qr" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3{
@@ -3493,7 +3490,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/starboard_gunnery)
 "qw" = (
@@ -3532,15 +3529,16 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/hallway_fore)
 "qS" = (
-/obj/structure/sink,
-/obj/structure/sink,
+/obj/structure/sink{
+	pixel_y = 16
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/head)
 "qT" = (
@@ -3566,9 +3564,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_mid)
 "qZ" = (
-/obj/machinery/light/floor,
-/turf/simulated/floor/airless,
-/area/space)
+/obj/machinery/ammunition_loader/grauwolf{
+	weapon_id = "Sol Frigate Grauwolf"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/Sol_Frigate/starboard_battery)
 "rb" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
@@ -3576,12 +3576,25 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/safe_room)
 "rj" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
+	},
+/obj/machinery/alarm/north{
+	req_one_access = null;
+	req_access = list(203)
+	},
 /obj/structure/cable{
-	icon_state = "2-8"
+	icon_state = "1-2";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/safe_room)
+/area/ship/Sol_Frigate/hallway_fore)
 "rk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
@@ -3590,7 +3603,7 @@
 /area/ship/Sol_Frigate/head)
 "rl" = (
 /obj/structure/lattice/catwalk,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/space)
 "rn" = (
 /obj/machinery/door/blast/shutters,
@@ -3653,7 +3666,8 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/starboard_battery)
 "rD" = (
 /obj/structure/cable/green{
@@ -3668,7 +3682,6 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
 	icon_state = "1-2";
 	dir = 4
@@ -3704,6 +3717,7 @@
 	d1 = 1;
 	d2 = 4
 	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_mid)
 "rW" = (
@@ -3745,6 +3759,7 @@
 	dir = 8;
 	pixel_x = 33
 	},
+/obj/structure/sign/flag/sol/large/west,
 /turf/simulated/wall/shuttle/raider,
 /area/ship/Sol_Frigate/bunks)
 "sj" = (
@@ -3768,11 +3783,9 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/Sol_Frigate/Port_docking_port)
 "so" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled/white,
-/area/ship/Sol_Frigate/sickbay)
+/obj/structure/sign/flag/venus/large/east,
+/turf/simulated/wall/shuttle/raider,
+/area/ship/Sol_Frigate/Starboard_docking_port)
 "sq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -3889,15 +3902,18 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/starboard_gunnery)
 "sZ" = (
-/obj/effect/floor_decal/corner/lime{
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/yellow{
 	dir = 5
 	},
-/obj/machinery/iv_drip,
 /obj/structure/cable{
-	icon_state = "2-4"
+	icon_state = "1-2";
+	dir = 4
 	},
-/turf/simulated/floor/tiled/white,
-/area/ship/Sol_Frigate/sickbay)
+/turf/simulated/floor/tiled/dark,
+/area/ship/Sol_Frigate/starboard_gunnery)
 "tc" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/cable{
@@ -3918,7 +3934,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_mid)
 "tm" = (
@@ -3996,7 +4011,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
 	icon_state = "1-2";
 	dir = 4
@@ -4072,7 +4086,6 @@
 /turf/simulated/wall/shuttle/raider,
 /area/ship/Sol_Frigate/starboard_thrusters)
 "tP" = (
-/obj/structure/sign/flag/mars,
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, midships hallway"
 	},
@@ -4112,15 +4125,12 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/effect/floor_decal/corner/yellow{
-	dir = 6
-	},
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/hallway_mid)
 "tY" = (
@@ -4208,7 +4218,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/starboard_gunnery)
 "um" = (
@@ -4377,7 +4387,8 @@
 	icon_state = "1-2";
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/starboard_gunnery)
 "vc" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -4458,7 +4469,7 @@
 /obj/machinery/ship_weapon/grauwolf{
 	pixel_x = -32;
 	pixel_y = -192;
-	weapon_id = "Xanu Frigate Grauwolf"
+	weapon_id = "Sol Frigate Grauwolf"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/starboard_battery)
@@ -4616,11 +4627,11 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/port_battery)
 "wt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
@@ -4656,7 +4667,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
@@ -4809,18 +4819,12 @@
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
 	icon_state = "1-2";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/brig)
-"yd" = (
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/port_thrusters)
 "yg" = (
 /obj/machinery/light{
 	dir = 8
@@ -4857,9 +4861,9 @@
 /turf/simulated/wall/shuttle/raider,
 /area/ship/Sol_Frigate/starboard_gunnery)
 "yo" = (
-/obj/effect/floor_decal/industrial/hatch,
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/starboard_battery)
+/obj/effect/map_effect/perma_light,
+/turf/simulated/floor/airless,
+/area/space)
 "yt" = (
 /turf/simulated/wall/shuttle/raider,
 /area/ship/Sol_Frigate/cic)
@@ -4892,12 +4896,12 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
 	icon_state = "1-2";
 	d1 = 1;
 	d2 = 2
 	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/starboard_gunnery)
 "yH" = (
@@ -4973,10 +4977,10 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/starboard_gunnery)
 "zd" = (
@@ -5074,12 +5078,13 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
 	icon_state = "2-4";
 	d1 = 2;
 	d2 = 4
 	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/starboard_gunnery)
 "zG" = (
@@ -5090,14 +5095,13 @@
 "zI" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/black,
-/obj/structure/closet/walllocker/emerglocker/west,
 /obj/effect/ghostspawpoint{
 	identifier = "Solfrig_commander"
 	},
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/unsimulated/floor/carpet,
+/turf/simulated/floor/carpet,
 /area/ship/Sol_Frigate/captain_cabin)
 "zJ" = (
 /obj/structure/bed/stool/chair/office/light,
@@ -5110,33 +5114,27 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/armoury)
 "zK" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
 /obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+	icon_state = "1-2";
+	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/hallway_fore)
+/turf/simulated/wall/shuttle/raider,
+/area/ship/Sol_Frigate/bunks)
 "zL" = (
 /obj/machinery/atmospherics/unary/engine,
 /turf/simulated/floor/reinforced/airless,
 /area/ship/Sol_Frigate/port_thrusters)
 "zM" = (
-/obj/structure/bed/stool/chair,
-/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/lime{
+	dir = 5
+	},
+/obj/structure/bed/roller,
 /obj/structure/cable{
-	icon_state = "2-4";
-	d1 = 2;
-	d2 = 4
+	icon_state = "1-2";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/ship/Sol_Frigate/canteen)
+/area/ship/Sol_Frigate/sickbay)
 "zP" = (
 /obj/machinery/light{
 	dir = 8;
@@ -5241,7 +5239,8 @@
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/starboard_gunnery)
 "Ai" = (
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -5262,12 +5261,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/starboard_battery)
-"An" = (
-/obj/machinery/ammunition_loader/grauwolf{
-	weapon_id = "Xanu Frigate Grauwolf"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/starboard_battery)
 "Ap" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
@@ -5281,10 +5274,10 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/unsimulated/floor/carpet,
+/turf/simulated/floor/carpet,
 /area/ship/Sol_Frigate/captain_cabin)
 "Az" = (
-/obj/structure/sign/flag/ssrm,
+/obj/structure/sign/flag/sancolette/large/west,
 /turf/simulated/wall/shuttle/raider,
 /area/ship/Sol_Frigate/bunks)
 "AA" = (
@@ -5606,7 +5599,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/port_battery)
 "BN" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
@@ -5618,7 +5610,8 @@
 	d1 = 1;
 	d2 = 2
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/bunks)
 "BO" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -5628,8 +5621,6 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_fore)
 "BQ" = (
@@ -5647,7 +5638,6 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
 	icon_state = "1-2";
 	d1 = 1;
@@ -5666,7 +5656,7 @@
 /area/ship/Sol_Frigate/starboard_thrusters)
 "BV" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/starboard_gunnery)
 "BW" = (
@@ -5681,7 +5671,7 @@
 /obj/structure/cable{
 	dir = 8
 	},
-/turf/unsimulated/floor/carpet,
+/turf/simulated/floor/carpet,
 /area/ship/Sol_Frigate/captain_cabin)
 "BZ" = (
 /obj/structure/bed/stool/chair/padded/beige{
@@ -5807,16 +5797,10 @@
 /turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/Starboard_docking_port)
 "CM" = (
-/obj/effect/floor_decal/corner/lime{
-	dir = 5
-	},
-/obj/structure/bed/roller,
-/obj/structure/cable{
-	icon_state = "1-2";
-	dir = 4
-	},
-/turf/simulated/floor/tiled/white,
-/area/ship/Sol_Frigate/sickbay)
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark,
+/area/ship/Sol_Frigate/port_battery)
 "CQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
@@ -5911,7 +5895,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/sickbay)
 "Dm" = (
-/obj/structure/sign/flag/pluto,
+/obj/structure/sign/flag/silversun/large/east,
 /turf/simulated/wall/shuttle/raider,
 /area/ship/Sol_Frigate/hallway_mid)
 "Dn" = (
@@ -5924,6 +5908,19 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/Exo_Bay)
+"Dr" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/Sol_Frigate/starboard_battery)
 "Dv" = (
 /turf/simulated/wall/shuttle/raider,
 /area/ship/Sol_Frigate/ocountry)
@@ -6009,7 +6006,7 @@
 	pixel_y = -3;
 	pixel_x = -8
 	},
-/turf/unsimulated/floor/carpet,
+/turf/simulated/floor/carpet,
 /area/ship/Sol_Frigate/captain_cabin)
 "DT" = (
 /obj/machinery/vending/engineering,
@@ -6207,12 +6204,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/starboard_gunnery)
 "Ff" = (
-/obj/structure/cable{
-	icon_state = "1-2";
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/starboard_gunnery)
+/obj/structure/sign/flag/mars/large/west,
+/turf/simulated/wall/shuttle/raider,
+/area/ship/Sol_Frigate/captain_cabin)
 "Fg" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
@@ -6286,6 +6280,20 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/Starboard_docking_port)
+"Fq" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/Sol_Frigate/hallway_fore)
 "Fs" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
@@ -6338,7 +6346,8 @@
 	d1 = 1;
 	d2 = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/starboard_gunnery)
 "FI" = (
 /obj/machinery/door/firedoor/noid,
@@ -6386,7 +6395,6 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/engineering)
 "Gb" = (
@@ -6473,9 +6481,8 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/unsimulated/floor/carpet,
+/turf/simulated/floor/carpet,
 /area/ship/Sol_Frigate/captain_cabin)
 "Gt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -6506,25 +6513,16 @@
 /obj/structure/cable,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/starboard_thrusters)
-"GB" = (
-/obj/structure/sink,
-/turf/simulated/floor/tiled/white,
-/area/ship/Sol_Frigate/head)
 "GD" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
 	},
-/obj/machinery/power/apc/east,
 /obj/structure/cable{
 	icon_state = "0-8";
 	d2 = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/starboard_gunnery)
-"GE" = (
-/obj/structure/sign/flag/luna,
-/turf/simulated/wall/shuttle/raider,
-/area/ship/Sol_Frigate/hallway_mid)
 "GF" = (
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, secondary gunnery"
@@ -6795,7 +6793,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
 	icon_state = "1-2";
 	d1 = 1;
@@ -6811,6 +6808,7 @@
 	d1 = 1;
 	d2 = 8
 	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/engineering)
 "HU" = (
@@ -7049,7 +7047,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/starboard_gunnery)
 "IW" = (
@@ -7058,7 +7056,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/engineering)
+/area/ship/Sol_Frigate/starboard_gunnery)
 "IX" = (
 /obj/machinery/power/smes/buildable/third_party_shuttle,
 /obj/effect/floor_decal/corner/orange{
@@ -7095,8 +7093,14 @@
 "Jd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/port_battery)
+/area/ship/Sol_Frigate/hallway_fore)
 "Jh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
@@ -7162,7 +7166,6 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_mid)
 "Jq" = (
@@ -7315,16 +7318,21 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/unsimulated/floor/carpet,
+/turf/simulated/floor/carpet,
 /area/ship/Sol_Frigate/captain_cabin)
 "Kx" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/light{
-	dir = 4
+/obj/machinery/portable_atmospherics/hydroponics,
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/structure/cable{
+	icon_state = "2-4";
+	d1 = 2;
+	d2 = 4
 	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/starboard_battery)
+/turf/simulated/floor/tiled/freezer{
+	name = "cooled tiles";
+	temperature = 253.15
+	},
+/area/ship/Sol_Frigate/crew_lounge)
 "Kz" = (
 /obj/machinery/door/airlock/command{
 	name = "Officers' Stateroom";
@@ -7453,7 +7461,8 @@
 	d1 = 1;
 	d2 = 8
 	},
-/turf/simulated/floor/tiled/white,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/sickbay)
 "KT" = (
 /obj/machinery/air_sensor,
@@ -7575,7 +7584,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/safe_room)
 "Lk" = (
@@ -7838,7 +7846,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_fore)
 "Mn" = (
@@ -7874,13 +7881,19 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/canteen)
 "ME" = (
-/obj/structure/cable{
-	icon_state = "2-8";
-	d1 = 2;
-	d2 = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
-/turf/simulated/wall/shuttle/raider,
-/area/ship/Sol_Frigate/bunks)
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/Sol_Frigate/hallway_fore)
 "MF" = (
 /obj/machinery/suit_cycler/offship/sol,
 /obj/machinery/light{
@@ -7950,7 +7963,7 @@
 	d1 = 2;
 	d2 = 8
 	},
-/turf/unsimulated/floor/carpet,
+/turf/simulated/floor/carpet,
 /area/ship/Sol_Frigate/captain_cabin)
 "MU" = (
 /obj/machinery/door/airlock/external{
@@ -7995,19 +8008,6 @@
 	temperature = 253.15
 	},
 /area/ship/Sol_Frigate/canteen)
-"Ng" = (
-/obj/machinery/portable_atmospherics/hydroponics,
-/obj/effect/floor_decal/corner/green/diagonal,
-/obj/structure/cable{
-	icon_state = "2-4";
-	d1 = 2;
-	d2 = 4
-	},
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 253.15
-	},
-/area/ship/Sol_Frigate/crew_lounge)
 "Nj" = (
 /obj/structure/sign/directions/prop,
 /turf/simulated/wall/shuttle/raider,
@@ -8190,7 +8190,7 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/starboard_gunnery)
 "Oi" = (
@@ -8218,7 +8218,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_fore)
 "Ol" = (
-/obj/machinery/door/blast/odin/shuttle/tcfl,
+/obj/machinery/door/blast/regular{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/hangar)
 "Oo" = (
@@ -8271,10 +8273,10 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/captain_office)
 "OB" = (
@@ -8454,12 +8456,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/bunks)
 "Pp" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable{
 	icon_state = "1-2";
-	dir = 4
+	d1 = 1;
+	d2 = 2
 	},
-/turf/simulated/wall/shuttle/raider,
-/area/ship/Sol_Frigate/bunks)
+/turf/simulated/floor/wood,
+/area/ship/Sol_Frigate/oquarters)
 "Ps" = (
 /obj/effect/floor_decal/industrial/loading/firefighting_closet,
 /turf/simulated/floor/tiled/dark,
@@ -8519,7 +8524,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
 	icon_state = "1-2";
 	dir = 4
@@ -8577,13 +8581,13 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
 	icon_state = "1-8";
 	d1 = 1;
 	d2 = 8
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/starboard_battery)
 "Ql" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
@@ -8629,6 +8633,7 @@
 /area/ship/Sol_Frigate/bunks)
 "Qr" = (
 /obj/effect/floor_decal/big/sol_full,
+/obj/effect/map_effect/perma_light,
 /turf/simulated/floor/airless,
 /area/space)
 "Qw" = (
@@ -8666,7 +8671,7 @@
 /turf/simulated/wall/shuttle/raider,
 /area/ship/Sol_Frigate/oquarters)
 "QG" = (
-/obj/structure/sign/flag/nhp,
+/obj/structure/sign/flag/pluto/large/east,
 /turf/simulated/wall/shuttle/raider,
 /area/ship/Sol_Frigate/hallway_mid)
 "QL" = (
@@ -8696,9 +8701,12 @@
 /turf/simulated/floor/reinforced,
 /area/shuttle/Solfrig_shuttle)
 "QS" = (
-/obj/structure/sign/flag/sol,
-/turf/simulated/wall/shuttle/raider,
-/area/ship/Sol_Frigate/bunks)
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/Sol_Frigate/engineering)
 "QT" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/vending/dinnerware,
@@ -8759,9 +8767,9 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/captain_cabin)
 "Rb" = (
-/obj/structure/sign/flag/nsrm,
-/turf/simulated/wall/shuttle/raider,
-/area/ship/Sol_Frigate/brig)
+/obj/structure/lattice,
+/turf/space/dynamic,
+/area/space)
 "Rf" = (
 /obj/machinery/light{
 	dir = 1
@@ -8792,19 +8800,12 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/captain_office)
-"Rl" = (
-/obj/structure/cable{
-	icon_state = "1-2";
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/hallway_mid)
 "Rn" = (
 /obj/structure/lattice,
 /obj/item/hullbeacon/green,
@@ -8840,6 +8841,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/bunks)
+"Rw" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/Sol_Frigate/safe_room)
 "RC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -9029,11 +9037,11 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
 	icon_state = "2-8"
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/hallway_fore)
 "SI" = (
 /turf/simulated/wall/shuttle/raider{
@@ -9072,7 +9080,7 @@
 	pixel_y = 10;
 	layer = 3.5
 	},
-/turf/unsimulated/floor/carpet,
+/turf/simulated/floor/carpet,
 /area/ship/Sol_Frigate/captain_cabin)
 "Tc" = (
 /obj/effect/floor_decal/corner/dark_blue{
@@ -9107,6 +9115,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/port_thrusters)
+"Tj" = (
+/obj/structure/bed/stool/chair,
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/structure/cable{
+	icon_state = "2-4";
+	d1 = 2;
+	d2 = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/ship/Sol_Frigate/canteen)
 "Tl" = (
 /obj/structure/bed/stool/chair,
 /obj/structure/closet/walllocker/emerglocker/west,
@@ -9116,7 +9134,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
 	icon_state = "1-2";
 	d1 = 1;
@@ -9127,6 +9144,7 @@
 	d1 = 1;
 	d2 = 4
 	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_mid)
 "Tw" = (
@@ -9338,19 +9356,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/engineering)
 "UO" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/floor_decal/corner/yellow{
-	dir = 6
-	},
-/obj/machinery/light{
+/obj/structure/cable{
+	icon_state = "1-2";
 	dir = 4
 	},
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/hallway_fore)
+/area/ship/Sol_Frigate/hallway_mid)
 "UT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/multi_tile/glass{
@@ -9556,18 +9567,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/starboard_battery)
 "VI" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/floor_decal/corner/yellow{
-	dir = 6
-	},
 /obj/structure/cable{
-	icon_state = "1-2";
-	d1 = 1;
-	d2 = 2
+	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/hallway_mid)
+/turf/simulated/floor/tiled/white,
+/area/ship/Sol_Frigate/sickbay)
 "VL" = (
 /obj/structure/reagent_dispensers/coolanttank,
 /turf/simulated/floor/tiled/dark,
@@ -9593,7 +9597,6 @@
 "VX" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
 	icon_state = "1-2";
 	dir = 4
@@ -9604,7 +9607,7 @@
 /turf/simulated/floor/wood,
 /area/ship/Sol_Frigate/ocountry)
 "VY" = (
-/obj/structure/sign/flag/visegrad,
+/obj/structure/sign/flag/silversun/large/west,
 /turf/simulated/wall/shuttle/raider,
 /area/ship/Sol_Frigate/brig)
 "Wd" = (
@@ -9644,16 +9647,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/safe_room)
 "Wk" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/wood,
-/area/ship/Sol_Frigate/oquarters)
+/obj/structure/sign/flag/luna/large/west,
+/turf/simulated/wall/shuttle/raider,
+/area/ship/Sol_Frigate/captain_cabin)
 "Wl" = (
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, docks"
@@ -9672,6 +9668,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/Solfrig_shuttle)
+"Wp" = (
+/obj/effect/floor_decal/corner/lime{
+	dir = 5
+	},
+/obj/machinery/iv_drip,
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/tiled/white,
+/area/ship/Sol_Frigate/sickbay)
 "Wq" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
@@ -9722,7 +9728,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/light{
 	dir = 4
 	},
@@ -9731,7 +9736,8 @@
 	d1 = 1;
 	d2 = 2
 	},
-/turf/simulated/floor,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/hallway_fore)
 "WF" = (
 /obj/structure/closet/crate/freezer/rations,
@@ -9828,9 +9834,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable{
-	icon_state = "1-2";
 	d1 = 1;
-	d2 = 2
+	d2 = 2;
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/wood,
 /area/ship/Sol_Frigate/oquarters)
@@ -9863,7 +9869,6 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold4w/visible/scrubbers,
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
 	icon_state = "1-2";
 	dir = 4
@@ -9873,7 +9878,8 @@
 	d1 = 1;
 	d2 = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/hallway_mid)
 "Xv" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
@@ -9885,7 +9891,7 @@
 "Xy" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/lattice/catwalk,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/space)
 "Xz" = (
 /obj/structure/railing/mapped{
@@ -9897,7 +9903,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/safe_room)
 "XA" = (
@@ -9977,18 +9982,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/starboard_gunnery)
 "XV" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
-	},
-/obj/effect/floor_decal/corner/yellow{
-	dir = 6
-	},
-/obj/structure/cable{
-	icon_state = "1-2";
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/starboard_gunnery)
+/turf/simulated/wall/shuttle/raider,
+/area/ship/Sol_Frigate/hallway_mid)
 "XW" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -10023,7 +10018,6 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
 	icon_state = "1-4";
 	d1 = 1;
@@ -10260,12 +10254,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
 	icon_state = "2-8";
 	d1 = 2;
 	d2 = 8
 	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/port_thrusters)
 "Zn" = (
@@ -10296,25 +10290,11 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/wood,
 /area/ship/Sol_Frigate/ocountry)
-"Zu" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/floor_decal/corner/yellow{
-	dir = 6
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/hallway_fore)
 "Zv" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
@@ -10368,15 +10348,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_mid)
-"ZL" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/starboard_gunnery)
 "ZN" = (
 /obj/structure/lattice,
 /turf/template_noop,
@@ -10410,12 +10381,12 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
 	icon_state = "1-2";
 	d1 = 1;
 	d2 = 2
 	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/starboard_gunnery)
 
@@ -39831,7 +39802,7 @@ MO
 MO
 MO
 mn
-zM
+Tj
 iU
 AW
 tc
@@ -40866,7 +40837,7 @@ th
 Mo
 cS
 mn
-Ng
+Kx
 fI
 fI
 fI
@@ -41133,7 +41104,7 @@ jY
 Vx
 Qo
 cB
-nm
+mg
 bk
 BF
 ed
@@ -41390,7 +41361,7 @@ jY
 rT
 cB
 cB
-nm
+mg
 np
 AP
 Lp
@@ -41662,8 +41633,8 @@ eE
 Bi
 Dc
 Kr
-An
 Kr
+qZ
 VD
 MO
 MO
@@ -41908,18 +41879,18 @@ nF
 jY
 fG
 ld
-Zu
+jb
 gv
-Zu
+jb
 ol
-df
+Dr
 Qh
-Kx
+df
 Kg
 Aj
 rC
 PG
-yo
+Kr
 fL
 eE
 eE
@@ -42133,14 +42104,14 @@ Hv
 Bz
 kO
 wa
-Hv
+so
 eo
 fe
 tP
 Dm
-GE
+XV
 QG
-mK
+XV
 bL
 eo
 mn
@@ -42389,7 +42360,7 @@ Kf
 Kf
 ar
 Zj
-Rl
+UO
 kK
 kK
 UA
@@ -42415,7 +42386,7 @@ vG
 cI
 eq
 eq
-zK
+ME
 af
 af
 af
@@ -42642,7 +42613,7 @@ aE
 aE
 NR
 zC
-fh
+mN
 zc
 tJ
 HO
@@ -42660,24 +42631,24 @@ Fl
 Zn
 dk
 BS
-VI
+nr
 Hy
 jR
 Bn
 WC
 qq
-Zu
+jb
 ci
 Ok
 Vg
-jb
-jb
+Jd
+Jd
 IR
-jb
-UO
-jb
+Jd
+Fq
+Jd
 Ri
-jb
+Jd
 fc
 jC
 ms
@@ -42898,15 +42869,15 @@ Kp
 Kp
 Kp
 Kp
-nr
+sZ
 gW
 EV
 EA
+bJ
 EA
+Wk
 EA
-EA
-EA
-EA
+Ff
 EA
 Jj
 Jj
@@ -43157,7 +43128,7 @@ lo
 Kp
 sV
 gW
-eR
+oP
 EA
 zU
 EA
@@ -43211,10 +43182,10 @@ ms
 ms
 Ol
 rZ
-qZ
 rZ
 rZ
-qZ
+rZ
+rZ
 MO
 MO
 MO
@@ -43467,7 +43438,7 @@ UU
 ms
 ms
 Ol
-rZ
+yo
 rZ
 rZ
 rZ
@@ -43656,7 +43627,7 @@ iE
 po
 SM
 dz
-Ff
+IW
 DN
 Kp
 ek
@@ -43913,7 +43884,7 @@ iE
 ic
 SM
 XQ
-Ff
+IW
 XO
 Kp
 Gb
@@ -44170,7 +44141,7 @@ iE
 zp
 SM
 dz
-Ff
+IW
 jB
 Kp
 Zd
@@ -44185,7 +44156,7 @@ jX
 Kp
 rW
 gW
-eR
+oP
 EA
 EA
 EA
@@ -44238,11 +44209,11 @@ aI
 aI
 ms
 Ol
+yo
 rZ
 rZ
 rZ
-rZ
-rZ
+yo
 MO
 MO
 MO
@@ -44422,12 +44393,12 @@ SM
 WS
 SM
 aC
-IW
+QS
 iE
 tF
 SM
 XQ
-Ff
+IW
 Rp
 Kp
 ek
@@ -44477,7 +44448,7 @@ vI
 Tc
 nE
 yt
-ay
+rj
 jC
 ms
 Yc
@@ -44679,12 +44650,12 @@ IX
 mh
 SM
 nI
-IW
+QS
 iE
 Yv
 SM
 dz
-Ff
+IW
 jB
 Kp
 Gb
@@ -44695,7 +44666,7 @@ VB
 VB
 jn
 VB
-rj
+Rw
 zT
 Ah
 Sf
@@ -44711,7 +44682,7 @@ Hi
 io
 ev
 wE
-Wk
+Xh
 Kz
 tK
 VX
@@ -44753,10 +44724,10 @@ ms
 ms
 Ol
 rZ
-qZ
 rZ
 rZ
-qZ
+rZ
+rZ
 MO
 MO
 MO
@@ -44956,7 +44927,7 @@ WF
 Kp
 GV
 gW
-ZL
+fN
 lI
 MG
 lB
@@ -44964,8 +44935,8 @@ jN
 Mi
 uy
 KV
-Xh
-Xh
+Pp
+Pp
 iH
 PM
 pd
@@ -45482,7 +45453,7 @@ bd
 MG
 MG
 MG
-MG
+dv
 MG
 Zj
 gI
@@ -45725,17 +45696,17 @@ fj
 Lk
 uu
 nS
-XV
+gr
 fV
 Lh
 Sf
 Gj
 uv
 Gn
-VI
-VI
-VI
-VI
+nr
+nr
+nr
+nr
 rV
 jh
 LR
@@ -45989,14 +45960,14 @@ YK
 Fc
 cA
 cA
-cA
+ay
 ph
 VY
-bJ
+cA
 zV
-Rb
+cA
 Az
-QS
+aW
 sh
 aW
 tY
@@ -46026,7 +45997,7 @@ wo
 QL
 QA
 nn
-Jd
+CM
 Nr
 Zf
 Xf
@@ -46222,7 +46193,7 @@ fX
 fX
 gY
 iV
-yd
+kp
 Bg
 Bg
 Vt
@@ -46269,7 +46240,7 @@ IT
 EE
 EE
 EE
-ay
+rj
 PD
 aw
 Gw
@@ -46486,9 +46457,9 @@ rl
 rl
 rl
 rl
-yH
-Qd
-Qd
+cu
+Rb
+Rb
 rl
 SO
 bC
@@ -46727,7 +46698,7 @@ MO
 MO
 MO
 MO
-Qd
+Rb
 rl
 Bg
 Bg
@@ -46740,12 +46711,12 @@ AR
 Bg
 Bg
 rl
-Qd
-Qd
-Qd
+Rb
+Rb
+Rb
 MO
 MO
-Qd
+Rb
 rl
 SO
 ud
@@ -46775,7 +46746,7 @@ xf
 Ih
 aW
 Qc
-GB
+qS
 Nc
 IT
 IT
@@ -46984,7 +46955,7 @@ MO
 MO
 MO
 MO
-Qd
+Rb
 rl
 Bg
 Bg
@@ -46997,12 +46968,12 @@ Bg
 Bg
 Bg
 rl
-Qd
+Rb
 MO
 MO
 MO
 MO
-Qd
+Rb
 rl
 SO
 SO
@@ -47032,13 +47003,13 @@ iM
 Wv
 uR
 Qc
-GB
+qS
 Nc
 xG
 Up
 IT
-sZ
-so
+Wp
+VI
 dB
 KR
 cc
@@ -47058,8 +47029,8 @@ Xf
 Xf
 lt
 lt
-fN
-UI
+lt
+bn
 qp
 wd
 MO
@@ -47241,7 +47212,7 @@ MO
 MO
 MO
 MO
-Qd
+Rb
 rl
 rl
 Xy
@@ -47254,7 +47225,7 @@ Bg
 Bg
 Bg
 rl
-Qd
+Rb
 MO
 MO
 MO
@@ -47284,7 +47255,7 @@ rl
 rl
 aW
 aW
-Pp
+zK
 In
 Ih
 aW
@@ -47315,8 +47286,8 @@ Xf
 Xf
 CX
 lt
+lt
 di
-Xf
 Xf
 Xf
 MO
@@ -47498,12 +47469,12 @@ MO
 MO
 MO
 MO
-Qd
-Qd
-Qd
-Qd
-Qd
-Qd
+Rb
+Rb
+Rb
+Rb
+Rb
+Rb
 rl
 rl
 rl
@@ -47511,7 +47482,7 @@ rl
 rl
 rl
 rl
-Qd
+Rb
 MO
 MO
 MO
@@ -47532,12 +47503,12 @@ MO
 MO
 MO
 MO
-Qd
-Qd
-Qd
-Qd
-Qd
-Qd
+Rb
+Rb
+Rb
+Rb
+Rb
+Rb
 rl
 Xy
 aW
@@ -47760,14 +47731,14 @@ MO
 MO
 MO
 MO
-Qd
-Qd
-Qd
-Qd
-Qd
-Qd
-Qd
-Qd
+Rb
+Rb
+Rb
+Rb
+Rb
+Rb
+Rb
+Rb
 MO
 MO
 NI
@@ -47795,10 +47766,10 @@ MO
 MO
 MO
 MO
-Qd
+Rb
 rl
 aW
-ME
+nm
 BN
 Pw
 Pw
@@ -47808,7 +47779,7 @@ IT
 IT
 IT
 gX
-CM
+zM
 mP
 Vf
 EE
@@ -47830,7 +47801,7 @@ Xf
 Xf
 Xf
 Xf
-MO
+Xf
 MO
 MO
 MO
@@ -48052,7 +48023,7 @@ MO
 MO
 MO
 MO
-Qd
+Rb
 rl
 aW
 Jl
@@ -48061,7 +48032,7 @@ if
 pD
 zq
 kf
-mN
+xG
 Nc
 Nc
 IT
@@ -48309,7 +48280,7 @@ MO
 MO
 MO
 MO
-Qd
+Rb
 rl
 aW
 aW
@@ -48566,7 +48537,7 @@ MO
 MO
 MO
 MO
-Qd
+Rb
 rl
 aW
 aW
@@ -48823,7 +48794,7 @@ MO
 MO
 MO
 MO
-Qd
+Rb
 rl
 aW
 aW
@@ -49080,7 +49051,7 @@ MO
 MO
 MO
 MO
-Qd
+Rb
 rl
 aW
 aW
@@ -49337,7 +49308,7 @@ MO
 MO
 MO
 MO
-Qd
+Rb
 rl
 rl
 rl
@@ -49348,7 +49319,7 @@ rl
 rl
 rl
 rl
-Qd
+Rb
 MO
 MO
 MO
@@ -49594,17 +49565,17 @@ MO
 MO
 MO
 MO
-yH
-Qd
-Qd
-Qd
-Qd
-Qd
-yH
-Qd
-Qd
-Qd
-Qd
+cu
+Rb
+Rb
+Rb
+Rb
+Rb
+cu
+Rb
+Rb
+Rb
+Rb
 MO
 MO
 MO
