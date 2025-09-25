@@ -1061,6 +1061,13 @@
 	center_of_mass = list("x" = 16,"y" = 6)
 	reagents_to_add = list(/singleton/reagent/alcohol/butanol/sarezhiwine = 100)
 
+/obj/item/reagent_containers/food/drinks/bottle/redstaff
+	name = "Redstaff"
+	desc = "Less of a unique spirit and instead a mixture of butanol, spices, and algae; either Gukhe bloom, Koko, or whatever is at hand when making it. The end result is a fairly strong drink with a spicy kick. \
+	Though it’s more used as a cocktail ingredient rather than drank by itself."
+	icon_state = "redstaff"
+	reagents_to_add = list(/singleton/reagent/alcohol/butanol/redstaff = 100)
+
 // Synnono Meme (Bottled) Drinks
 //======================================
 //
