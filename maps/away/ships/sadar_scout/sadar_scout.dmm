@@ -576,10 +576,6 @@
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
-/obj/effect/ghostspawpoint{
-	identifier = "sadar_crew";
-	name = "igs - usf crewman"
-	},
 /turf/simulated/floor/tiled,
 /area/ship/sadar_scout/mess)
 "dv" = (
@@ -4494,6 +4490,10 @@
 	name = "table handrail";
 	buckle_dir = 2
 	},
+/obj/effect/ghostspawpoint{
+	identifier = "sadar_crew_captain";
+	name = "igs - usf captain"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sadar_scout/crew)
 "Hn" = (
@@ -4999,6 +4999,10 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
+	},
+/obj/effect/ghostspawpoint{
+	identifier = "sadar_crew";
+	name = "igs - usf crewman"
 	},
 /turf/simulated/floor/plating,
 /area/ship/sadar_scout/crew)
@@ -6556,10 +6560,6 @@
 /obj/structure/bed/handrail{
 	dir = 8
 	},
-/obj/effect/ghostspawpoint{
-	identifier = "sadar_crew";
-	name = "igs - usf crewman"
-	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/sadar_scout/tools)
 "Wk" = (
@@ -6749,10 +6749,6 @@
 /area/ship/sadar_scout/solars)
 "Xb" = (
 /obj/structure/bed/stool/chair/office/bridge/generic,
-/obj/effect/ghostspawpoint{
-	identifier = "sadar_crew_captain";
-	name = "igs - usf captain"
-	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/sadar_scout/bridge)
 "Xe" = (
