@@ -200,7 +200,7 @@
 	else if(!istype(src, /turf/space)) // Exclude space turfs so this doesn't call set_light twice on space.
 		set_light(initial(light_range), initial(light_power), initial(light_color))
 
-	// We handle space turfs here outside of needs_starlight areas here.
+	// We handle space turfs outside of needs_starlight areas here.
 	// If it borders a simulated turf, it should be producing starlight.
 	if(istype(src, /turf/space))
 		if(locate(/turf/simulated) in RANGE_TURFS(1, src))
