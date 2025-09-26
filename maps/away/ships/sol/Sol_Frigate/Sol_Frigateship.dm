@@ -4,9 +4,9 @@
      After facing high losses in the Civil War, most surviving Cuirassier hulls post-unification are that of a 'revised' version of the design that was produced mid-war, featuring modest improvements to it's survivability and sensors at the cost of crew comfort. But despite there being a grimly high number of Cuirassier wrecks still floating in the void; there are just as many operational ships of this class still serving in almost every fleet in Solarian Navy today, with even more being built."
 	suffix = "Sol_Frigate.dmm"
 
-	sectors = list(SECTOR_ROMANOVICH) // temp spawnweight, cost, and sector for playtesting purposes
+	sectors = list(ALL_POSSIBLE_SECTORS) // temp spawnweight, cost, and sector for playtesting purposes
 	spawn_weight = 9
-	ship_cost = 1 
+	ship_cost = 0
 	id = "Sol_frigate"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/Solfrig_shuttle)
 
