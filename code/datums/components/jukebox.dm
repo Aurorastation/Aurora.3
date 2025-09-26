@@ -12,37 +12,36 @@
 /datum/jukebox
 	/// Atom that hosts the jukebox. Can be a turf or a movable.
 	VAR_FINAL/atom/parent
-	/// List of /datum/tracks we can play. Set via get_songs().
-	VAR_FINAL/list/songs = list()
+	/// List of /datum/tracks we can play.
+	var/list/playlist = list()
 	/// Current song track selected
-	VAR_FINAL/datum/track/selection
+	var/datum/track/selection
 	/// Current song datum playing
-	VAR_FINAL/sound/active_song_sound
+	var/sound/active_song_sound
 	/// Whether the jukebox requires a connect_range component to check for new listeners
 	VAR_PROTECTED/requires_range_check = TRUE
-
 	/// Assoc list of all mobs listening to the jukebox to their sound status.
 	VAR_PRIVATE/list/mob/listeners = list()
-
 	/// Volume of the songs played. Also serves as the max volume.
 	/// Do not set directly, use set_new_volume() instead.
 	VAR_PROTECTED/volume = 80
-
+	/// Whether the music loops when done.
+	/// If FALSE, you must handle ending music yourself.
+	var/sound_loops = FALSE
 	/// Range at which the sound plays to players, can also be a view "XxY" string
-	VAR_PROTECTED/sound_range
+	var/sound_range
 	/// How far away horizontally from the jukebox can you be before you stop hearing it
 	VAR_PRIVATE/x_cutoff
 	/// How far away vertically from the jukebox can you be before you stop hearing it
 	VAR_PRIVATE/z_cutoff
-	/// Whether the music loops when done.
-	/// If FALSE, you must handle ending music yourself.
-	var/sound_loops = FALSE
+	/// Music cartridge in the jukebox.
+	var/list/cartridges = list()
+	/// Maximum number of cartridges that can be loaded.
+	var/max_cartridges = 1
 	/// Whether or not cartridges can be inserted or ejected by players.
 	var/locked = FALSE
-	/// Music cartridge in the jukebox.
-	var/item/music_cartridge/cartridge
 
-/datum/jukebox/New(atom/new_parent, cartridge)
+/datum/jukebox/New(atom/new_parent, var/parent_sound_range, var/parent_cartridges, var/parent_max_cartridges, var/parent_locked)
 	if(!ismovable(new_parent) && !isturf(new_parent))
 		stack_trace("[type] created on non-turf or non-movable: [new_parent ? "[new_parent] ([new_parent.type])" : "null"])")
 		qdel(src)
@@ -50,7 +49,13 @@
 
 	parent = new_parent
 
-	if(isnull(sound_range))
+	if(length(parent_cartridges))
+		cartridges = parent_cartridges
+
+	if(isnull(parent_max_cartridges))
+		max_cartridges = parent_max_cartridges
+
+	if(isnull(parent_sound_range))
 		sound_range = world.view
 		var/list/worldviewsize = getviewsize(sound_range)
 		x_cutoff = ceil(worldviewsize[1] * 1.25 / 2) // * 1.25 gives us some extra range to fade out with
@@ -60,9 +65,10 @@
 		var/static/list/connections = list(COMSIG_ATOM_ENTERED = PROC_REF(check_new_listener))
 		AddComponent(/datum/component/connect_range, parent, connections, max(x_cutoff, z_cutoff))
 
-	songs = init_songs(cartridge)
-	if(length(songs))
-		selection = songs[pick(songs)]
+	for (var/obj/item/music_cartridge/cartridge in cartridges)
+	playlist = add_songs(cartridges)
+	if(length(playlist))
+		selection = playlist[pick(playlist)]
 
 	RegisterSignal(parent, COMSIG_ENTER_AREA, PROC_REF(on_enter_area))
 	RegisterSignal(parent, COMSIG_MOVABLE_MOVED, PROC_REF(on_moved))
@@ -72,7 +78,7 @@
 	unlisten_all()
 	parent = null
 	selection = null
-	songs.Cut()
+	playlist.Cut()
 	active_song_sound = null
 	return ..()
 
@@ -82,25 +88,54 @@
 	qdel(src)
 
 /**
- * Initializes the track list.
- *
- * By default, this loads all tracks from the config datum.
+ * Called by the attackby() of the atom containing the datum/jukebox.
  *
  * Returns
  * * An assoc list of track names to /datum/track. Track names must be unique.
  */
-/datum/jukebox/proc/init_songs(cartridge)
-	return load_songs_from_config(cartridge)
+/datum/jukebox/proc/load_cartridge(obj/item/music_cartridge, mob/user)
+	if(music_cartridge == user.get_active_hand())
+		if((length(cartridges) + 1) >= max_cartridges)
+			to_chat(user, SPAN_WARNING("\The [parent] cannot hold any more cartridges."))
+			return FALSE
+		else
+			user.drop_from_inventory(music_cartridge, src)
+			cartridges |= music_cartridge
+			add_songs(music_cartridge)
+			to_chat(user, SPAN_NOTICE("You insert \the [music_cartridge] into \the [parent]"))
 
-/// Loads the config sounds once, and returns a copy of them.
-/datum/jukebox/proc/load_songs_from_config(cartridge)
+/// Adds songs on the provided cartridge to our current playlist.
+/datum/jukebox/proc/add_songs(cartridge)
 	var/static/list/config_songs
 	if(isnull(config_songs))
 		config_songs = list()
-		var/list/tracks = flist("sound/music/audioconsole/")
+		var/list/tracks = flist("sound/music/jukebox/")
 		for(var/track_file in tracks)
 			var/datum/track/new_track = new()
-			new_track.song_path = file("sound/music/audioconsole/[track_file]")
+			new_track.song_path = file("sound/music/jukebox/[track_file]")
+			var/list/track_data = splittext(track_file, "+")
+			if(length(track_data) < 2)
+				continue
+			new_track.song_name = track_data[1]
+			new_track.song_length = text2num(track_data[2])
+			config_songs[new_track.song_name] = new_track
+
+		if(!length(config_songs))
+			var/datum/track/default/default_track = new()
+			config_songs[default_track.song_name] = default_track
+
+	// returns a copy so it can mutate if desired.
+	return config_songs.Copy()
+
+/// Removes songs on the provided cartridge from our current playlist.
+/datum/jukebox/proc/remove_songs(cartridge)
+	var/static/list/config_songs
+	if(isnull(config_songs))
+		config_songs = list()
+		var/list/tracks = flist("sound/music/jukebox/")
+		for(var/track_file in tracks)
+			var/datum/track/new_track = new()
+			new_track.song_path = file("sound/music/jukebox/[track_file]")
 			var/list/track_data = splittext(track_file, "+")
 			if(length(track_data) < 2)
 				continue
@@ -124,15 +159,15 @@
 /datum/jukebox/proc/get_ui_data()
 	var/list/data = list()
 	var/list/songs_data = list()
-	for(var/song_name in songs)
-		var/datum/track/one_song = songs[song_name]
+	for(var/song_name in playlist)
+		var/datum/track/one_song = playlist[song_name]
 		UNTYPED_LIST_ADD(songs_data, list( \
 			"name" = song_name, \
 			"length" = DisplayTimeText(one_song.song_length), \
 		))
 
 	data["active"] = !!active_song_sound
-	data["songs"] = songs_data
+	data["playlist"] = songs_data
 	data["track_selected"] = selection?.song_name
 	data["sound_loops"] = sound_loops
 	data["volume"] = volume
@@ -370,83 +405,128 @@
 	var/song_name = "generic"
 	/// Filepath of the song
 	var/song_path = null
-	/// How long is the song in deciseconds
-	var/song_length = 0
+	/// How long is the song in deciseconds. Default is an arbitrary low value, should be overwritten.
+	var/song_length = 10
+	/// What cartridge (if any) this song came from. Don't hate me okay? This works.
+	var/source = null
 	/// How long is a beat of the song in decisconds
 	/// Used to determine time between effects when played
 	var/song_beat = 0
 
 // Default track supplied for testing and also because it's a banger
 /datum/track/default
-	song_path = 'sound/music/title3.ogg'
+	song_path = 'sound/music/ingame/ss13/title3.ogg'
 	song_name = "Tintin on the Moon"
 	song_length = 3 MINUTES + 52 SECONDS
 
-/*
-	Regional Music Cartridges
-*/
+/obj/item/music_cartridge
+	name = "music cartridge"
+	desc = "A music cartridge."
+	icon = 'icons/obj/item/music_cartridges.dmi'
+	icon_state = "generic"
+	w_class = WEIGHT_CLASS_SMALL
+	var/list/datum/track/tracks = list()
+	/// Whether or not this cartridge can be removed from the datum/jukebox it belongs to.
+	var/hardcoded = FALSE
+
+/obj/item/music_cartridge/ss13
+	name = "Spacer Classics Vol. 1"
+	desc = "An old music cartridge with a cheap-looking label."
+	tracks = list(
+		new/datum/track("Scratch", 'sound/music/ingame/ss13/title1.ogg', 2 MINUTES + 30 SECONDS, /obj/item/music_cartridge/ss13),
+		new/datum/track("D`Bert", 'sound/music/ingame/ss13/title2.ogg', 1 MINUTES + 58 SECONDS, /obj/item/music_cartridge/ss13),
+		new/datum/track("Uplift", 'sound/music/ingame/ss13/title3.ogg', 3 MINUTES + 52 SECONDS, /obj/item/music_cartridge/ss13),
+		new/datum/track("Uplift II", 'sound/music/ingame/ss13/title3mk2.ogg', 3 MINUTES + 59 SECONDS, /obj/item/music_cartridge/ss13),
+		new/datum/track("Suspenseful", 'sound/music/ingame/ss13/traitor.ogg', 5 MINUTES + 30 SECONDS, /obj/item/music_cartridge/ss13),
+		new/datum/track("Beyond", 'sound/music/ingame/ss13/ambispace.ogg', 3 MINUTES + 15 SECONDS, /obj/item/music_cartridge/ss13),
+		new/datum/track("D`Fort", 'sound/music/ingame/ss13/song_game.ogg', 3 MINUTES + 50 SECONDS, /obj/item/music_cartridge/ss13),
+		new/datum/track("Endless Space", 'sound/music/ingame/ss13/space.ogg', 3 MINUTES + 33 SECONDS, /obj/item/music_cartridge/ss13),
+		new/datum/track("Thunderdome", 'sound/music/ingame/ss13/THUNDERDOME.ogg', 3 MINUTES + 22 SECONDS, /obj/item/music_cartridge/ss13)
+	)
+// Hardcoded variant
+/obj/item/music_cartridge/ss13/demo
+	hardcoded = TRUE
+
+/obj/item/music_cartridge/audioconsole
+	name = "SCC Welcome Package"
+	desc = "A music cartridge with some company-selected songs. Nothing special, everyone got one of these in their welcome boxes..."
+	tracks = list(
+		new/datum/track("Butterflies", 'sound/music/ingame/scc/Butterflies.ogg', 3 MINUTES + 37 SECONDS, /obj/item/music_cartridge/audioconsole),
+		new/datum/track("That Ain't Chopin", 'sound/music/ingame/scc/ThatAintChopin.ogg', 3 MINUTES + 29 SECONDS, /obj/item/music_cartridge/audioconsole),
+		new/datum/track("Don't Rush", 'sound/music/ingame/scc/DontRush.ogg', 3 MINUTES + 56 SECONDS, /obj/item/music_cartridge/audioconsole),
+		new/datum/track("Phoron Will Make Us Rich", 'sound/music/ingame/scc/PhoronWillMakeUsRich.ogg', 2 MINUTES + 14 SECONDS, /obj/item/music_cartridge/audioconsole),
+		new/datum/track("Amsterdam", 'sound/music/ingame/scc/Amsterdam.ogg', 3 MINUTES + 42 SECONDS, /obj/item/music_cartridge/audioconsole),
+		new/datum/track("When", 'sound/music/ingame/scc/When.ogg', 2 MINUTES + 41 SECONDS, /obj/item/music_cartridge/audioconsole),
+		new/datum/track("Number 0", 'sound/music/ingame/scc/Number0.ogg', 2 MINUTES + 37 SECONDS, /obj/item/music_cartridge/audioconsole),
+		new/datum/track("The Pianist", 'sound/music/ingame/scc/ThePianist.ogg', 4 MINUTES + 25 SECONDS, /obj/item/music_cartridge/audioconsole),
+		new/datum/track("Lips", 'sound/music/ingame/scc/Lips.ogg', 3 MINUTES + 20 SECONDS, /obj/item/music_cartridge/audioconsole),
+		new/datum/track("Childhood", 'sound/music/ingame/scc/Childhood.ogg', 2 MINUTES + 13 SECONDS, /obj/item/music_cartridge/audioconsole)
+	)
+// Hardcoded variant
+/obj/item/music_cartridge/audioconsole/demo
+	hardcoded = TRUE
 
 /obj/item/music_cartridge/konyang_retrowave
 	name = "Konyang Vibes 2463"
 	desc = "A music cartridge with a Konyang flag on the hololabel."
 	icon_state = "konyang"
-
 	tracks = list(
-		new/datum/track("Konyang Vibes #1", 'sound/music/lobby/konyang/konyang-1.ogg'),
-		new/datum/track("Konyang Vibes #2", 'sound/music/lobby/konyang/konyang-2.ogg'),
-		new/datum/track("Konyang Vibes #3", 'sound/music/lobby/konyang/konyang-3.ogg')
+		new/datum/track("Konyang Vibes #1", 'sound/music/ingame/konyang/konyang-1.ogg', 2 MINUTES + 59 SECONDS, /obj/item/music_cartridge/konyang_retrowave),
+		new/datum/track("Konyang Vibes #2", 'sound/music/ingame/konyang/konyang-2.ogg', 2 MINUTES + 58 SECONDS, /obj/item/music_cartridge/konyang_retrowave),
+		new/datum/track("Konyang Vibes #3", 'sound/music/ingame/konyang/konyang-3.ogg', 2 MINUTES + 43 SECONDS, /obj/item/music_cartridge/konyang_retrowave),
+		new/datum/track("Konyang Vibes #4", 'sound/music/ingame/konyang/konyang-4.ogg', 3 MINUTES + 8 SECONDS, /obj/item/music_cartridge/konyang_retrowave)
 	)
+// Hardcoded variant
+/obj/item/music_cartridge/konyang_retrowave/demo
+	hardcoded = TRUE
 
 /obj/item/music_cartridge/venus_funkydisco
 	name = "Top of the Charts 66 (Venusian Hits)"
 	desc = "A glitzy, pink music cartridge with more Venusian hits."
 	icon_state = "venus"
-
 	tracks = list(
-		new/datum/track("dance させる", 'sound/music/regional/venus/dance.ogg'),
-		new/datum/track("love sensation", 'sound/music/regional/venus/love_sensation.ogg'),
-		new/datum/track("All Night", 'sound/music/regional/venus/all_night.ogg'),
-		new/datum/track("#billyocean", 'sound/music/regional/venus/billy_ocean.ogg'),
-		new/datum/track("Artificially Sweetened", 'sound/music/regional/venus/artificially_sweetened.ogg'),
-		new/datum/track("Real Love", 'sound/music/regional/venus/real_love.ogg'),
-		new/datum/track("F U N K Y G I R L <3", 'sound/music/regional/venus/funky_girl.ogg'),
-		new/datum/track("Break The System", 'sound/music/regional/venus/break_the_system.ogg')
+		new/datum/track("dance させる", 'sound/music/ingame/venus/dance.ogg', 3 MINUTES + 19 SECONDS, /obj/item/music_cartridge/venus_funkydisco),
+		new/datum/track("love sensation", 'sound/music/ingame/venus/love_sensation.ogg', 3 MINUTES + 31 SECONDS, /obj/item/music_cartridge/venus_funkydisco),
+		new/datum/track("All Night", 'sound/music/ingame/venus/all_night.ogg', 3 MINUTES + 11 SECONDS, /obj/item/music_cartridge/venus_funkydisco),
+		new/datum/track("#billyocean", 'sound/music/ingame/venus/billy_ocean.ogg', 4 MINUTES + 19 SECONDS, /obj/item/music_cartridge/venus_funkydisco),
+		new/datum/track("Artificially Sweetened", 'sound/music/ingame/venus/artificially_sweetened.ogg', 4 MINUTES + 18 SECONDS, /obj/item/music_cartridge/venus_funkydisco),
+		new/datum/track("Real Love", 'sound/music/ingame/venus/real_love.ogg', 3 MINUTES + 52 SECONDS, /obj/item/music_cartridge/venus_funkydisco),
+		new/datum/track("F U N K Y G I R L <3", 'sound/music/ingame/venus/funky_girl.ogg', 2 MINUTES + 2 SECONDS, /obj/item/music_cartridge/venus_funkydisco),
+		new/datum/track("Break The System", 'sound/music/ingame/venus/break_the_system.ogg', 1 MINUTES + 23 SECONDS, /obj/item/music_cartridge/venus_funkydisco)
 	)
-
 
 /obj/item/music_cartridge/xanu_rock
 	name = "Indulgence EP (X-Rock)" //feel free to reflavour as a more varied x-rock mixtape, instead of a single EP, if other x-rock tracks are added
 	desc = "A music cartridge with a Xanan flag on the hololabel. Some fancy, rainbow text over it reads, 'INDULGENCE'."
 	icon_state = "xanu"
-
 	tracks = list(
-		new/datum/track("Shimmer", 'sound/music/regional/xanu/xanu_rock_3.ogg'),
-		new/datum/track("Rise", 'sound/music/regional/xanu/xanu_rock_1.ogg'),
-		new/datum/track("Indulgence", 'sound/music/regional/xanu/xanu_rock_2.ogg')
+		new/datum/track("Rise", 'sound/music/ingame/xanu/xanu_rock_1.ogg', 3 MINUTES + 3 SECONDS, /obj/item/music_cartridge/xanu_rock),
+		new/datum/track("Indulgence", 'sound/music/ingame/xanu/xanu_rock_2.ogg', 3 MINUTES + 7 SECONDS, /obj/item/music_cartridge/xanu_rock),
+		new/datum/track("Shimmer", 'sound/music/ingame/xanu/xanu_rock_3.ogg', 4 MINUTES + 30 SECONDS, /obj/item/music_cartridge/xanu_rock)
 	)
 
 /obj/item/music_cartridge/adhomai_swing
 	name = "Electro-Swing of Adhomai"
 	desc = "A red music cartridge holding the most widely-known Adhomian electro-swing songs."
 	icon_state = "adhomai"
-
 	tracks = list(
-		new/datum/track("Boolean Sisters", 'sound/music/phonograph/boolean_sisters.ogg'),
-		new/datum/track("Electro Swing", 'sound/music/phonograph/electro_swing.ogg'),
-		new/datum/track("Le Swing", 'sound/music/phonograph/le_swing.ogg'),
-		new/datum/track("Posin", 'sound/music/phonograph/posin.ogg')
+		new/datum/track("Boolean Sisters", 'sound/music/ingame/adhomai/boolean_sisters.ogg', 3 MINUTES + 17 SECONDS, /obj/item/music_cartridge/adhomai_swing),
+		new/datum/track("Electro Swing", 'sound/music/ingame/adhomai/electro_swing.ogg', 3 MINUTES + 18 SECONDS, /obj/item/music_cartridge/adhomai_swing),
+		new/datum/track("Le Swing", 'sound/music/ingame/adhomai/le_swing.ogg', 2 MINUTES + 11 SECONDS, /obj/item/music_cartridge/adhomai_swing),
+		new/datum/track("Posin", 'sound/music/ingame/adhomai/posin.ogg', 2 MINUTES + 50 SECONDS, /obj/item/music_cartridge/adhomai_swing)
 	)
+// Hardcoded variant
+/obj/item/music_cartridge/adhomai_swing/demo
+	hardcoded = TRUE
 
 /obj/item/music_cartridge/europa_various
 	name = "Europa: Best of the 50s"
 	desc = "A music cartridge storing the best tracks to listen to on a submarine dive."
-	icon_state = "generic"
-
 	tracks = list(
-		new/datum/track("Where The Rays Leap", 'sound/music/regional/europa/where_the_dusks_rays_leap.ogg'),
-		new/datum/track("Casting Faint Shadows", 'sound/music/regional/europa/casting_faint_shadows.ogg'),
-		new/datum/track("Weedance", 'sound/music/regional/europa/weedance.ogg'),
-		new/datum/track("Instrumental Park", 'sound/music/regional/europa/instrumental_park.ogg'),
-		new/datum/track("Way Between The Shadows", 'sound/music/regional/europa/way_between_the_shadows.ogg'),
-		new/datum/track("Deep Beneath the Solemn Waves a Vast Underwater Landscape, Brimming With Bizarre, Eerily Gleaming Cyclopean Structures of, What Must Surely Be, Non-Human Origin, Stretched Out Across the Ocean Floor", 'sound/music/regional/europa/deep_beneath-.ogg'),
+		new/datum/track("Where The Rays Leap", 'sound/music/ingame/europa/where_the_dusks_rays_leap.ogg', 3 MINUTES + 41 SECONDS, /obj/item/music_cartridge/europa_various),
+		new/datum/track("Casting Faint Shadows", 'sound/music/ingame/europa/casting_faint_shadows.ogg', 8 MINUTES + 56 SECONDS, /obj/item/music_cartridge/europa_various),
+		new/datum/track("Weedance", 'sound/music/ingame/europa/weedance.ogg', 7 MINUTES + 35 SECONDS, /obj/item/music_cartridge/europa_various),
+		new/datum/track("Instrumental Park", 'sound/music/ingame/europa/instrumental_park.ogg', 5 MINUTES + 39 SECONDS, /obj/item/music_cartridge/europa_various),
+		new/datum/track("Way Between The Shadows", 'sound/music/ingame/europa/way_between_the_shadows.ogg', 8 MINUTES + 21 SECONDS, /obj/item/music_cartridge/europa_various),
+		new/datum/track("Deep Beneath the Solemn Waves a Vast Underwater Landscape, Brimming With Bizarre, Eerily Gleaming Cyclopean Structures of, What Must Surely Be, Non-Human Origin, Stretched Out Across the Ocean Floor", 'sound/music/ingame/europa/deep_beneath-.ogg', 7 MINUTES + 18 SECONDS, /obj/item/music_cartridge/europa_various)
 	)

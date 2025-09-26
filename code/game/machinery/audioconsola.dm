@@ -20,7 +20,11 @@
 
 /obj/machinery/audioconsola/Initialize(mapload)
 	. = ..()
-	music_player = new(src)
+	var/starting_cartridges = list()
+	starting_cartridges |= new/obj/item/music_cartridge/ss13
+	starting_cartridges |= new/obj/item/music_cartridge/audioconsole
+	starting_cartridges |= new/obj/item/music_cartridge/konyang_retrowave
+	music_player = new(src, parent_cartridges = starting_cartridges, parent_max_cartridges = 3, parent_locked = TRUE)
 
 /obj/machinery/audioconsola/Destroy()
 	stop_music()
@@ -48,7 +52,13 @@
 		power_change()
 		update_icon()
 		return TRUE
-	return ..()
+
+	// Inserting cartridges into the machine.
+	if(anchored && istype(attacking_item, /obj/item/music_cartridge))
+		music_player.load_cartridge(attacking_item, user)
+
+	else
+		return ..()
 
 /obj/machinery/audioconsola/ui_status(mob/user, datum/ui_state/state)
 	if(isobserver(user))
@@ -59,7 +69,7 @@
 	if(!allowed(user))
 		balloon_alert(user, "access denied!")
 		return UI_CLOSE
-	if(!length(music_player.songs))
+	if(!length(music_player.playlist))
 		to_chat(user,SPAN_WARNING("Error: No music tracks have been authorized for your station. Petition Central Command to resolve this issue."))
 		return UI_CLOSE
 	return ..()
@@ -89,7 +99,7 @@
 				to_chat(user, SPAN_WARNING("Error: You cannot change the song until the current one is over."))
 				return TRUE
 
-			var/datum/track/new_song = music_player.songs[params["track"]]
+			var/datum/track/new_song = music_player.playlist[params["track"]]
 			if(QDELETED(src) || !istype(new_song, /datum/track))
 				return TRUE
 

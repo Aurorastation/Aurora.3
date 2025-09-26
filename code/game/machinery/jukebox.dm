@@ -1,11 +1,3 @@
-/datum/track
-	var/title
-	var/sound
-
-/datum/track/New(var/title_name, var/audio)
-	title = title_name
-	sound = audio
-
 /obj/machinery/media/jukebox
 	name = "jukebox"
 	icon = 'icons/obj/jukebox.dmi'
@@ -17,57 +9,35 @@
 	idle_power_usage = 10
 	active_power_usage = 100
 	clicksound = 'sound/machines/buttonbeep.ogg'
-	var/token = null
-
-	var/playing = 0
-
-	var/datum/track/current_track
-	var/list/datum/track/tracks = list(
-		new/datum/track("Beyond", 'sound/music/ambispace.ogg'),
-		new/datum/track("Clouds of Fire", 'sound/music/clouds.s3m'),
-		new/datum/track("D`Bert", 'sound/music/title2.ogg'),
-		new/datum/track("Uplift", 'sound/music/title3.ogg'),
-		new/datum/track("Uplift II", 'sound/music/title3mk2.ogg'),
-		new/datum/track("D`Fort", 'sound/music/song_game.ogg'),
-		new/datum/track("Floating", 'sound/music/main.ogg'),
-		new/datum/track("Endless Space", 'sound/music/space.ogg'),
-		new/datum/track("Scratch", 'sound/music/title1.ogg'),
-		new/datum/track("Suspenseful", 'sound/music/traitor.ogg'),
-		new/datum/track("Thunderdome", 'sound/music/THUNDERDOME.ogg')
-	)
-
-/obj/machinery/media/jukebox/Destroy()
-	StopPlaying()
-	return ..()
+	/// Cooldown between "Error" sound effects being played
+	COOLDOWN_DECLARE(jukebox_error_cd)
+	/// Cooldown between being allowed to play another song
+	COOLDOWN_DECLARE(jukebox_song_cd)
+	/// TimerID to when the current song ends
+	var/song_timerid
+	/// The actual music player datum that handles the music
+	var/datum/jukebox/music_player
 
 /obj/machinery/media/jukebox/power_change()
 	..()
 	if(!anchored)
 		stat &= ~NOPOWER
 
-	if(stat & (NOPOWER|BROKEN) && playing)
-		StopPlaying()
+	if(stat & (NOPOWER|BROKEN) && !isnull(song_timerid))
+		stop_music()
 	update_icon()
 
-/obj/machinery/media/jukebox/update_icon()
-	ClearOverlays()
-	if(stat & (NOPOWER|BROKEN) || !anchored)
-		if(stat & BROKEN)
-			icon_state = "[state_base]-broken"
-		else
-			icon_state = "[state_base]-nopower"
-		return
-	icon_state = state_base
-	if(playing)
-		if(emagged)
-			AddOverlays("[state_base]-emagged")
-		else
-			AddOverlays("[state_base]-running")
+/obj/machinery/media/jukebox/Destroy()
+	stop_music()
+	QDEL_NULL(music_player)
+	return ..()
 
-/obj/machinery/media/jukebox/Topic(href, href_list)
-	if(..() || !(Adjacent(usr) || istype(usr, /mob/living/silicon)))
-		return
+/obj/machinery/media/jukebox/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(music_player.active_song_sound)
+		. += "Now playing: [music_player.selection.song_name]"
 
+/obj/machinery/media/jukebox/attack_hand(mob/user as mob)
 	if(!anchored)
 		to_chat(usr, SPAN_WARNING("You must secure \the [src] first."))
 		return
@@ -76,79 +46,122 @@
 		to_chat(usr, "\The [src] doesn't appear to function.")
 		return
 
-	if(href_list["change_track"])
-		for(var/datum/track/T in tracks)
-			if(T.title == href_list["title"])
-				current_track = T
-				StartPlaying()
-				break
-	else if(href_list["stop"])
-		StopPlaying()
-	else if(href_list["play"])
-		if(emagged)
-			playsound(src.loc, 'sound/items/AirHorn.ogg', 100, 1)
-			for(var/mob/living/carbon/M in ohearers(6, src))
-				if(istype(M, /mob/living/carbon/human))
-					var/mob/living/carbon/human/H = M
-					if(H.get_hearing_protection() >= EAR_PROTECTION_MAJOR)
-						continue
-				M.sleeping = 0
-				M.stuttering += 20
-				M.ear_deaf += 30
-				M.Weaken(3)
-				if(prob(30))
-					M.Stun(10)
-					M.Paralyse(4)
-				else
-					M.make_jittery(500)
-			spawn(15)
-				explode()
-		else if(current_track == null)
-			to_chat(usr, "No track selected.")
-		else
-			StartPlaying()
-
-	return 1
-
-/obj/machinery/media/jukebox/interact(mob/user)
-	if(stat & (NOPOWER|BROKEN))
-		to_chat(usr, "\The [src] doesn't appear to function.")
-		return
-
 	ui_interact(user)
 
-/obj/machinery/media/jukebox/ui_interact(mob/user, ui_key = "jukebox2", var/datum/nanoui/ui = null, var/force_open = 1)
-	var/title = "Music Player"
-	var/data[0]
+/obj/machinery/media/jukebox/attackby(obj/item/attacking_item, mob/user)
+	if(!istype(attacking_item, /obj/item/forensics))
+		src.add_fingerprint(user)
 
-	if(!(stat & (NOPOWER|BROKEN)))
-		data["current_track"] = current_track != null ? current_track.title : ""
-		data["playing"] = playing
+	if(attacking_item.iswrench())
+		if(music_player.active_song_sound)
+			stop_music()
+		user.visible_message(SPAN_WARNING("[user] has [anchored ? "un" : ""]secured \the [src]."), "<span class='notice'>You [anchored ? "un" : ""]secure \the [src].")
+		anchored = !anchored
+		attacking_item.play_tool_sound(get_turf(src), 50)
+		power_change()
+		update_icon()
+		return TRUE
 
-		var/list/nano_tracks = new
-		for(var/datum/track/T in tracks)
-			nano_tracks[++nano_tracks.len] = list("track" = T.title)
+	// Inserting cartridges into the machine.
+	if(anchored && istype(attacking_item, /obj/item/music_cartridge))
+		music_player.load_cartridge(attacking_item, user)
 
-		data["tracks"] = nano_tracks
+	else
+		return ..()
 
-	// update the ui if it exists, returns null if no ui is passed/found
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		// the ui does not exist, so we'll create a new() one
-		// for a list of parameters and their descriptions see the code docs in \code\modules\nano\nanoui.dm
-		ui = new(user, src, ui_key, "jukebox.tmpl", title, 450, 600)
-		// when the ui is first opened this is the data it will use
-		ui.set_initial_data(data)
-		// open the new ui window
+/obj/machinery/media/jukebox/ui_status(mob/user, datum/ui_state/state)
+	if(isobserver(user))
+		return ..()
+	if(!anchored)
+		balloon_alert(user, "must be anchored!")
+		return UI_CLOSE
+	if(!allowed(user))
+		balloon_alert(user, "access denied!")
+		return UI_CLOSE
+	if(!length(music_player.playlist))
+		to_chat(user,SPAN_WARNING("Error: No music tracks have been authorized for your station. Petition Central Command to resolve this issue."))
+		return UI_CLOSE
+	return ..()
+
+/obj/machinery/media/jukebox/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "Jukebox", name)
 		ui.open()
+
+/obj/machinery/media/jukebox/ui_data(mob/user)
+	return music_player.get_ui_data()
+
+/obj/machinery/media/jukebox/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return
+
+	var/mob/user = ui.user
+	switch(action)
+		if("toggle")
+			toggle_playing(user)
+			return TRUE
+
+		if("select_track")
+			if(!isnull(music_player.active_song_sound))
+				to_chat(user, SPAN_WARNING("Error: You cannot change the song until the current one is over."))
+				return TRUE
+
+			var/datum/track/new_song = music_player.playlist[params["track"]]
+			if(QDELETED(src) || !istype(new_song, /datum/track))
+				return TRUE
+
+			music_player.selection = new_song
+			return TRUE
+
+		if("set_volume")
+			var/new_volume = params["volume"]
+			if(new_volume == "reset" || new_volume == "max")
+				music_player.set_volume_to_max()
+			else if(new_volume == "min")
+				music_player.set_new_volume(0)
+			else if(isnum(text2num(new_volume)))
+				music_player.set_new_volume(text2num(new_volume))
+			return TRUE
+
+		if("loop")
+			music_player.sound_loops = !!params["looping"]
+			return TRUE
+
+///If a song is playing, cut it. If none is playing, and the cooldown is up, start the queued track.
+/obj/machinery/media/jukebox/proc/toggle_playing(mob/user)
+	if(!isnull(music_player.active_song_sound))
+		stop_music()
+		return
+	if(COOLDOWN_FINISHED(src, jukebox_song_cd))
+		activate_music()
+		return
+	balloon_alert(user, "on cooldown for [DisplayTimeText(COOLDOWN_TIMELEFT(src, jukebox_song_cd))]!")
+	if(COOLDOWN_FINISHED(src, jukebox_error_cd))
+		COOLDOWN_START(src, jukebox_error_cd, 15 SECONDS)
+
+/obj/machinery/media/jukebox/proc/activate_music()
+	if(!isnull(music_player.active_song_sound))
+		return FALSE
+
+	music_player.start_music()
+	if(!music_player.sound_loops)
+		song_timerid = addtimer(CALLBACK(src, PROC_REF(stop_music)), music_player.selection.song_length, TIMER_UNIQUE|TIMER_STOPPABLE|TIMER_DELETE_ME)
+	return TRUE
+
+/obj/machinery/media/jukebox/proc/stop_music()
+	if(!isnull(song_timerid))
+		deltimer(song_timerid)
+
+	music_player.unlisten_all()
+
+	return TRUE
 
 /obj/machinery/media/jukebox/attack_ai(mob/user as mob)
 	if(!ai_can_interact(user))
 		return
 	return src.attack_hand(user)
-
-/obj/machinery/media/jukebox/attack_hand(var/mob/user as mob)
-	interact(user)
 
 /obj/machinery/media/jukebox/proc/explode()
 	walk_to(src,0)
@@ -161,48 +174,33 @@
 	new /obj/effect/decal/cleanable/blood/oil(src.loc)
 	qdel(src)
 
-/obj/machinery/media/jukebox/attackby(obj/item/attacking_item, mob/user)
-	if(!istype(attacking_item, /obj/item/forensics))
-		src.add_fingerprint(user)
+// Your classic 50s diner-style jukebox.
+/obj/machinery/media/jukebox/classic
+	name = "jukebox"
+	desc = "A classic music player."
 
-	if(attacking_item.iswrench())
-		if(playing)
-			StopPlaying()
-		user.visible_message(SPAN_WARNING("[user] has [anchored ? "un" : ""]secured \the [src]."), "<span class='notice'>You [anchored ? "un" : ""]secure \the [src].")
-		anchored = !anchored
-		attacking_item.play_tool_sound(get_turf(src), 50)
-		power_change()
-		update_icon()
-		return TRUE
-	return ..()
+/obj/machinery/media/jukebox/classic/Initialize(mapload)
+	. = ..(mapload)
+	var/starting_cartridges = list()
+	starting_cartridges |= new/obj/item/music_cartridge/ss13/demo
+	music_player = new(src, parent_cartridges = starting_cartridges, parent_max_cartridges = 3, parent_locked = TRUE)
 
-/obj/machinery/media/jukebox/emag_act(var/remaining_charges, var/mob/user)
-	if(!emagged)
-		emagged = 1
-		StopPlaying()
-		visible_message(SPAN_DANGER("\The [src] makes a fizzling sound."))
-		update_icon()
-		return 1
-
-/obj/machinery/media/jukebox/proc/StopPlaying()
-	QDEL_NULL(token)
-
-	playing = 0
-	update_use_power(POWER_USE_IDLE)
-	update_icon()
-
-
-/obj/machinery/media/jukebox/proc/StartPlaying()
-	StopPlaying()
-	if(!current_track)
+/obj/machinery/media/jukebox/classic/update_icon()
+	ClearOverlays()
+	if(stat & (NOPOWER|BROKEN) || !anchored)
+		if(stat & BROKEN)
+			icon_state = "[state_base]-broken"
+		else
+			icon_state = "[state_base]-nopower"
 		return
+	icon_state = state_base
+	if(!isnull(song_timerid))
+		if(emagged)
+			AddOverlays("[state_base]-emagged")
+		else
+			AddOverlays("[state_base]-running")
 
-	token = GLOB.sound_player.PlayLoopingSound(src, src, current_track.sound, 30, 7, 1, prefer_mute = TRUE, sound_type = ASFX_MUSIC)
-
-	playing = 1
-	update_use_power(POWER_USE_ACTIVE)
-	update_icon()
-
+// Old-timey phonograph.
 /obj/machinery/media/jukebox/phonograph
 	name = "phonograph"
 	desc = "Play that funky music..."
@@ -210,18 +208,17 @@
 	icon_state = "record"
 	state_base = "record"
 	anchored = 0
-	tracks = list(
-		new/datum/track("Boolean Sisters", 'sound/music/phonograph/boolean_sisters.ogg'),
-		new/datum/track("Electro Swing", 'sound/music/phonograph/electro_swing.ogg'),
-		new/datum/track("Jazz Instrumental", 'sound/music/phonograph/jazz_instrumental.ogg'),
-		new/datum/track("Le Swing", 'sound/music/phonograph/le_swing.ogg'),
-		new/datum/track("Posin'", 'sound/music/phonograph/posin.ogg')
-	)
+
+/obj/machinery/media/jukebox/phonograph/Initialize(mapload)
+	. = ..(mapload)
+	var/starting_cartridges = list()
+	starting_cartridges |= new/obj/item/music_cartridge/adhomai_swing/demo
+	music_player = new(src, parent_cartridges = starting_cartridges, parent_max_cartridges = 1, parent_locked = TRUE)
 
 /obj/machinery/media/jukebox/phonograph/update_icon()
 	ClearOverlays()
 	icon_state = state_base
-	if(playing)
+	if(!isnull(song_timerid))
 		AddOverlays("[state_base]-running")
 
 /obj/machinery/media/jukebox/audioconsole
@@ -231,16 +228,17 @@
 	icon_state = "audioconsole-nopower"
 	state_base = "audioconsole"
 	anchored = FALSE
-	tracks = list(
-		new/datum/track("Phoron Will Make Us Rich", 'sound/music/audioconsole/PhoronWillMakeUsRich+1340.ogg'),
-		new/datum/track("Amsterdam", 'sound/music/audioconsole/Amsterdam+2220.ogg'),
-		new/datum/track("Childhood", 'sound/music/audioconsole/Childhood+1330.ogg')
-	)
+
+/obj/machinery/media/jukebox/audioconsole/Initialize(mapload)
+	. = ..(mapload)
+	var/starting_cartridges = list()
+	starting_cartridges |= new/obj/item/music_cartridge/audioconsole/demo
+	music_player = new(src, parent_cartridges = starting_cartridges, parent_max_cartridges = 3)
 
 /obj/machinery/media/jukebox/audioconsole/update_icon()
 	ClearOverlays()
 	icon_state = state_base
-	if(playing)
+	if(!isnull(song_timerid))
 		AddOverlays("[state_base]-running")
 
 /obj/machinery/media/jukebox/audioconsole/wall
@@ -255,16 +253,32 @@
 	icon_state = "gramophone"
 	state_base = "gramophone"
 	anchored = 0
-	tracks = list(
-		new/datum/track("Boolean Sisters", 'sound/music/phonograph/boolean_sisters.ogg'),
-		new/datum/track("Electro Swing", 'sound/music/phonograph/electro_swing.ogg'),
-		new/datum/track("Jazz Instrumental", 'sound/music/phonograph/jazz_instrumental.ogg'),
-		new/datum/track("Le Swing", 'sound/music/phonograph/le_swing.ogg'),
-		new/datum/track("Posin'", 'sound/music/phonograph/posin.ogg')
-	)
+
+/obj/machinery/media/jukebox/gramophone/Initialize(mapload)
+	. = ..(mapload)
+	var/starting_cartridges = list()
+	starting_cartridges |= new/obj/item/music_cartridge/adhomai_swing/demo
+	music_player = new(src, parent_cartridges = starting_cartridges, parent_max_cartridges = 1, TRUE)
 
 /obj/machinery/media/jukebox/gramophone/update_icon()
 	ClearOverlays()
 	icon_state = state_base
-	if(playing)
+	if(!isnull(song_timerid))
 		AddOverlays("[state_base]-running")
+
+/obj/machinery/media/jukebox/calliope
+	name = "calliope"
+	desc = "A steam powered music instrument. This one is painted in bright colors."
+	icon = 'maps/away/ships/tajara/circus/circus_sprites.dmi'
+	icon_state = "calliope"
+	state_base = "calliope"
+	anchored = FALSE
+
+/obj/machinery/media/jukebox/calliope/Initialize(mapload)
+	. = ..(mapload)
+	var/starting_cartridges = list()
+	starting_cartridges |= new/obj/item/music_cartridge/adhomai_swing/demo
+	music_player = new(src, parent_cartridges = starting_cartridges, parent_max_cartridges = 2)
+
+/obj/machinery/media/jukebox/calliope/update_icon()
+	return
