@@ -66,7 +66,7 @@
 		AddComponent(/datum/component/connect_range, parent, connections, max(x_cutoff, z_cutoff))
 
 	for (var/obj/item/music_cartridge/cartridge in cartridges)
-	playlist = add_songs(cartridges)
+	playlist += add_songs(cartridges)
 	if(length(playlist))
 		selection = playlist[pick(playlist)]
 
@@ -93,33 +93,28 @@
  * Returns
  * * An assoc list of track names to /datum/track. Track names must be unique.
  */
-/datum/jukebox/proc/load_cartridge(obj/item/music_cartridge, mob/user)
-	if(music_cartridge == user.get_active_hand())
+/datum/jukebox/proc/load_cartridge(obj/item/music_cartridge/cartridge, mob/user)
+	to_chat(world, "/datum/jukebox/proc/load_cartridge([cartridge],[user])")
+	if(cartridge == user.get_active_hand())
 		if((length(cartridges) + 1) >= max_cartridges)
 			to_chat(user, SPAN_WARNING("\The [parent] cannot hold any more cartridges."))
 			return FALSE
 		else
-			user.drop_from_inventory(music_cartridge, src)
-			cartridges |= music_cartridge
-			add_songs(music_cartridge)
-			to_chat(user, SPAN_NOTICE("You insert \the [music_cartridge] into \the [parent]"))
+			user.drop_from_inventory(cartridge, parent)
+			cartridges |= cartridge
+			playlist += add_songs(cartridge)
+			to_chat(user, SPAN_NOTICE("You insert \the [cartridge] into \the [parent]"))
 
 /// Adds songs on the provided cartridge to our current playlist.
-/datum/jukebox/proc/add_songs(cartridge)
+/datum/jukebox/proc/add_songs(obj/item/music_cartridge/cartridge)
+	to_chat(world, "/datum/jukebox/proc/add_songs([cartridge])")
 	var/static/list/config_songs
 	if(isnull(config_songs))
 		config_songs = list()
-		var/list/tracks = flist("sound/music/jukebox/")
-		for(var/track_file in tracks)
-			var/datum/track/new_track = new()
-			new_track.song_path = file("sound/music/jukebox/[track_file]")
-			var/list/track_data = splittext(track_file, "+")
-			if(length(track_data) < 2)
-				continue
-			new_track.song_name = track_data[1]
-			new_track.song_length = text2num(track_data[2])
-			config_songs[new_track.song_name] = new_track
-
+		to_chat(world,"about to start adding tracks")
+		for(var/datum/track/track in cartridge.tracks)
+			to_chat("adding track [track]")
+			config_songs |= track
 		if(!length(config_songs))
 			var/datum/track/default/default_track = new()
 			config_songs[default_track.song_name] = default_track
@@ -128,27 +123,13 @@
 	return config_songs.Copy()
 
 /// Removes songs on the provided cartridge from our current playlist.
-/datum/jukebox/proc/remove_songs(cartridge)
-	var/static/list/config_songs
-	if(isnull(config_songs))
-		config_songs = list()
-		var/list/tracks = flist("sound/music/jukebox/")
-		for(var/track_file in tracks)
-			var/datum/track/new_track = new()
-			new_track.song_path = file("sound/music/jukebox/[track_file]")
-			var/list/track_data = splittext(track_file, "+")
-			if(length(track_data) < 2)
-				continue
-			new_track.song_name = track_data[1]
-			new_track.song_length = text2num(track_data[2])
-			config_songs[new_track.song_name] = new_track
+/datum/jukebox/proc/remove_songs(obj/item/music_cartridge/cartridge)
+	if(!isnull(playlist))
+		for(var/datum/track/track in cartridge.tracks)
+			if(istype(track.source, cartridge))
+				LAZYREMOVE(track, playlist)
 
-		if(!length(config_songs))
-			var/datum/track/default/default_track = new()
-			config_songs[default_track.song_name] = default_track
-
-	// returns a copy so it can mutate if desired.
-	return config_songs.Copy()
+	return playlist
 
 /**
  * Returns a set of general data relating to the jukebox for use in TGUI.

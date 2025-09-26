@@ -88,7 +88,6 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/obj/machinery/audioconsola,
 /turf/simulated/floor/plating,
 /area/engineering)
 "ap" = (
@@ -132,6 +131,9 @@
 /obj/machinery/power/sensor{
 	name = "Powernet Sensor - Master Grid";
 	name_tag = "Master"
+	},
+/obj/machinery/media/jukebox/calliope{
+	anchored = 1
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/gravity_gen)
@@ -261,6 +263,9 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
+/obj/machinery/media/jukebox/audioconsole{
+	anchored = 1
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/gravity_gen)
 "aH" = (
@@ -371,6 +376,9 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
+/obj/machinery/media/jukebox/classic{
+	anchored = 1
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/gravity_gen)
 "aT" = (
@@ -449,6 +457,9 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
+/obj/machinery/media/jukebox/gramophone{
+	anchored = 1
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/gravity_gen)
 "bf" = (
@@ -522,6 +533,9 @@
 "bn" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
+	},
+/obj/machinery/media/jukebox/phonograph{
+	anchored = 1
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/gravity_gen)

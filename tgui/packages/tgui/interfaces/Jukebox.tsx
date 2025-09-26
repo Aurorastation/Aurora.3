@@ -15,15 +15,15 @@ type Data = {
   sound_loops: BooleanLike;
   volume: number;
   track_selected: string | null;
-  songs: Song[];
+  playlist: Song[];
 };
 
 export const Jukebox = (props, context) => {
   const { act, data } = useBackend<Data>(context);
-  const { active, sound_loops, track_selected, volume, songs } = data;
+  const { active, sound_loops, track_selected, volume, playlist } = data;
 
-  const songs_sorted: Song[] = sortBy(songs, [(song: Song) => song.name]);
-  const song_selected: Song | undefined = songs.find(
+  const songs_sorted: Song[] = sortBy(playlist, [(song: Song) => song.name]);
+  const song_selected: Song | undefined = playlist.find(
     (song) => song.name === track_selected
   );
 
