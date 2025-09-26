@@ -42,10 +42,7 @@
 	icon_state = "1-2";
 	dir = 4
 	},
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 253.15
-	},
+/turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/crew_lounge)
 "ao" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
@@ -265,10 +262,7 @@
 "be" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/alarm/east,
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 253.15
-	},
+/turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/canteen)
 "bk" = (
 /obj/machinery/door/blast/shutters,
@@ -305,10 +299,7 @@
 	d1 = 1;
 	d2 = 2
 	},
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 253.15
-	},
+/turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/canteen)
 "bC" = (
 /obj/effect/floor_decal/corner/dark_blue{
@@ -472,10 +463,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 253.15
-	},
+/turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/canteen)
 "cr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
@@ -568,10 +556,7 @@
 /area/ship/Sol_Frigate/hallway_fore)
 "cS" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 253.15
-	},
+/turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/canteen)
 "cT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -719,10 +704,7 @@
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/machinery/alarm/north,
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 253.15
-	},
+/turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/crew_lounge)
 "dp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -947,6 +929,9 @@
 /area/ship/Sol_Frigate/port_battery)
 "ev" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/effect/ghostspawpoint{
+	identifier = "Solfrig_XO"
+	},
 /turf/simulated/floor/wood,
 /area/ship/Sol_Frigate/oquarters)
 "ew" = (
@@ -1038,10 +1023,7 @@
 "eI" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/appliance/cooker/oven,
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 253.15
-	},
+/turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/canteen)
 "eL" = (
 /obj/structure/railing/mapped{
@@ -1050,6 +1032,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/safe_room)
 "eM" = (
@@ -1276,10 +1259,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 253.15
-	},
+/turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/crew_lounge)
 "fG" = (
 /obj/effect/floor_decal/corner/yellow{
@@ -1298,10 +1278,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 253.15
-	},
+/turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/crew_lounge)
 "fL" = (
 /obj/machinery/light{
@@ -1489,10 +1466,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 253.15
-	},
+/turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/canteen)
 "gR" = (
 /obj/effect/landmark/entry_point/fore{
@@ -1982,10 +1956,7 @@
 	icon_state = "1-2";
 	dir = 4
 	},
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 253.15
-	},
+/turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/crew_lounge)
 "jh" = (
 /obj/machinery/light{
@@ -2087,10 +2058,7 @@
 	d1 = 1;
 	d2 = 2
 	},
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 253.15
-	},
+/turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/canteen)
 "jR" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -2236,10 +2204,7 @@
 	d1 = 1;
 	d2 = 2
 	},
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 253.15
-	},
+/turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/canteen)
 "kw" = (
 /obj/structure/bed/stool/chair/sofa{
@@ -2344,10 +2309,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 253.15
-	},
+/turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/crew_lounge)
 "kY" = (
 /obj/machinery/portable_atmospherics/hydroponics,
@@ -2355,10 +2317,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 253.15
-	},
+/turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/crew_lounge)
 "la" = (
 /obj/structure/table/reinforced,
@@ -3026,10 +2985,7 @@
 "oj" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/light,
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 253.15
-	},
+/turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/canteen)
 "ol" = (
 /obj/machinery/door/airlock/vault{
@@ -3262,10 +3218,7 @@
 	icon_state = "1-2";
 	dir = 4
 	},
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 253.15
-	},
+/turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/crew_lounge)
 "px" = (
 /obj/structure/cable{
@@ -3629,10 +3582,7 @@
 	d1 = 2;
 	d2 = 4
 	},
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 253.15
-	},
+/turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/crew_lounge)
 "rk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -4122,10 +4072,7 @@
 "tQ" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/effect/floor_decal/corner/green/diagonal,
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 253.15
-	},
+/turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/crew_lounge)
 "tS" = (
 /obj/effect/landmark/entry_point/fore,
@@ -4177,10 +4124,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 253.15
-	},
+/turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/canteen)
 "uc" = (
 /obj/structure/toilet,
@@ -4236,10 +4180,7 @@
 /obj/item/reagent_containers/food/condiment/shaker/salt,
 /obj/item/reagent_containers/food/condiment/shaker/peppermill,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 253.15
-	},
+/turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/canteen)
 "ul" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -4724,10 +4665,7 @@
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/machinery/power/apc/south,
 /obj/structure/cable,
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 253.15
-	},
+/turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/crew_lounge)
 "wP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -4838,10 +4776,7 @@
 "xI" = (
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/effect/floor_decal/corner/green/diagonal,
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 253.15
-	},
+/turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/crew_lounge)
 "xR" = (
 /obj/effect/floor_decal/industrial/hatch/emergency_closet,
@@ -4960,10 +4895,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/door/airlock/engineering{
-	name = "SMES room";
-	req_access = list(203)
-	},
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/engineering)
 "yS" = (
@@ -5299,10 +5231,7 @@
 	icon_state = "1-2";
 	dir = 4
 	},
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 253.15
-	},
+/turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/crew_lounge)
 "Aj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -5419,10 +5348,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 253.15
-	},
+/turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/crew_lounge)
 "AW" = (
 /obj/structure/bed/stool/chair{
@@ -5795,10 +5721,7 @@
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 253.15
-	},
+/turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/crew_lounge)
 "Cx" = (
 /obj/machinery/door/airlock/engineering{
@@ -5822,10 +5745,7 @@
 /area/shuttle/Solfrig_shuttle)
 "CC" = (
 /obj/effect/floor_decal/corner/green/diagonal,
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 253.15
-	},
+/turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/crew_lounge)
 "CD" = (
 /obj/structure/closet/walllocker/firecloset{
@@ -5890,21 +5810,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/port_battery)
-"CY" = (
-/obj/structure/bed/padded,
-/obj/item/bedsheet/blue,
-/obj/structure/curtain/open,
-/obj/machinery/light{
-	dir = 8
-	},
-/obj/effect/ghostspawpoint{
-	identifier = "Solfrig_XO"
-	},
-/obj/effect/ghostspawpoint{
-	identifier = "Solfrig_Intern"
-	},
-/turf/simulated/floor/wood,
-/area/ship/Sol_Frigate/oquarters)
 "Da" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 10
@@ -6479,10 +6384,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 253.15
-	},
+/turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/canteen)
 "Gj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -6702,10 +6604,7 @@
 	d1 = 1;
 	d2 = 2
 	},
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 253.15
-	},
+/turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/canteen)
 "Hc" = (
 /obj/machinery/light{
@@ -6735,10 +6634,7 @@
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 253.15
-	},
+/turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/canteen)
 "Hg" = (
 /obj/structure/table/wood,
@@ -6757,6 +6653,9 @@
 /area/ship/Sol_Frigate/sickbay)
 "Hi" = (
 /obj/machinery/alarm/north,
+/obj/effect/ghostspawpoint{
+	identifier = "Solfrig_Intern"
+	},
 /turf/simulated/floor/wood,
 /area/ship/Sol_Frigate/oquarters)
 "Hm" = (
@@ -6860,6 +6759,11 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/structure/cable{
+	icon_state = "2-8";
+	d1 = 2;
+	d2 = 8
 	},
 /turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/engineering)
@@ -7641,6 +7545,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/safe_room)
 "Lk" = (
@@ -7920,18 +7825,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/canteen)
-"MC" = (
-/obj/structure/bed/padded,
-/obj/item/bedsheet/blue,
-/obj/structure/curtain/open,
-/obj/machinery/light{
-	dir = 8
-	},
-/obj/effect/ghostspawpoint{
-	identifier = "Solfrig_XO"
-	},
-/turf/simulated/floor/wood,
-/area/ship/Sol_Frigate/oquarters)
 "MD" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/bed/stool/bar/padded,
@@ -8046,10 +7939,7 @@
 "Nd" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/appliance/cooker/grill,
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 253.15
-	},
+/turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/canteen)
 "Ng" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -8488,10 +8378,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 253.15
-	},
+/turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/crew_lounge)
 "Po" = (
 /obj/structure/table/wood,
@@ -8764,10 +8651,7 @@
 "QU" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/appliance/cooker/fryer,
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 253.15
-	},
+/turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/canteen)
 "QV" = (
 /obj/machinery/light{
@@ -9030,10 +8914,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 253.15
-	},
+/turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/crew_lounge)
 "Sw" = (
 /obj/effect/landmark/entry_point/starboard{
@@ -9821,10 +9702,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 253.15
-	},
+/turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/canteen)
 "Xc" = (
 /turf/space,
@@ -9922,6 +9800,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/safe_room)
 "XA" = (
@@ -44454,9 +44333,9 @@ MG
 MG
 Fh
 MG
-CY
+hU
 QD
-MC
+hU
 MG
 hU
 MG
