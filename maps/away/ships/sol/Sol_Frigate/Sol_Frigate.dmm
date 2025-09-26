@@ -2712,6 +2712,9 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/engineering)
 "mP" = (
@@ -4952,11 +4955,14 @@
 /turf/template_noop,
 /area/space)
 "yJ" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/raider,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
+	},
+/obj/machinery/door/airlock/engineering{
+	name = "SMES room";
+	req_access = list(203)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/engineering)
@@ -7010,10 +7016,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/engineering)
 "IA" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5;
-	icon_state = "intact"
-	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/Sol_Frigate/engineering)
 "IE" = (
@@ -7339,8 +7342,10 @@
 /turf/simulated/wall/shuttle/raider,
 /area/ship/Sol_Frigate/brig)
 "Kk" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/alarm/west,
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/Sol_Frigate/engineering)
 "Kl" = (
@@ -10138,9 +10143,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/freezer)
 "YF" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
+/obj/machinery/atmospherics/pipe/manifold/visible,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/Sol_Frigate/engineering)
 "YK" = (
