@@ -12,7 +12,7 @@ type Song = {
 
 type Data = {
   active: BooleanLike;
-  looping: BooleanLike;
+  sound_loops: BooleanLike;
   volume: number;
   track_selected: string | null;
   songs: Song[];
@@ -20,7 +20,7 @@ type Data = {
 
 export const Jukebox = (props, context) => {
   const { act, data } = useBackend<Data>(context);
-  const { active, looping, track_selected, volume, songs } = data;
+  const { active, sound_loops, track_selected, volume, songs } = data;
 
   const songs_sorted: Song[] = sortBy(songs, [(song: Song) => song.name]);
   const song_selected: Song | undefined = songs.find(
@@ -44,8 +44,8 @@ export const Jukebox = (props, context) => {
                 icon={'arrow-rotate-left'}
                 content="Repeat"
                 disabled={active}
-                checked={looping}
-                onClick={() => act('loop', { looping: !looping })}
+                checked={sound_loops}
+                onClick={() => act('loop', { sound_loops: !sound_loops })}
               />
             </>
           }>
@@ -74,11 +74,11 @@ export const Jukebox = (props, context) => {
               <Box position="relative">
                 <Knob
                   size={3.2}
-                  color={volume >= 25 ? 'red' : 'green'}
+                  color={volume >= 60 ? 'red' : 'green'}
                   value={volume}
                   unit="%"
                   minValue={0}
-                  maxValue={50}
+                  maxValue={80}
                   step={1}
                   stepPixelSize={1}
                   onChange={(e, value) =>

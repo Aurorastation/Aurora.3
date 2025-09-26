@@ -26,7 +26,7 @@
 
 	/// Volume of the songs played. Also serves as the max volume.
 	/// Do not set directly, use set_new_volume() instead.
-	VAR_PROTECTED/volume = 50
+	VAR_PROTECTED/volume = 80
 
 	/// Range at which the sound plays to players, can also be a view "XxY" string
 	VAR_PROTECTED/sound_range
@@ -37,8 +37,12 @@
 	/// Whether the music loops when done.
 	/// If FALSE, you must handle ending music yourself.
 	var/sound_loops = FALSE
+	/// Whether or not cartridges can be inserted or ejected by players.
+	var/locked = FALSE
+	/// Music cartridge in the jukebox.
+	var/item/music_cartridge/cartridge
 
-/datum/jukebox/New(atom/new_parent)
+/datum/jukebox/New(atom/new_parent, cartridge)
 	if(!ismovable(new_parent) && !isturf(new_parent))
 		stack_trace("[type] created on non-turf or non-movable: [new_parent ? "[new_parent] ([new_parent.type])" : "null"])")
 		qdel(src)
@@ -56,7 +60,7 @@
 		var/static/list/connections = list(COMSIG_ATOM_ENTERED = PROC_REF(check_new_listener))
 		AddComponent(/datum/component/connect_range, parent, connections, max(x_cutoff, z_cutoff))
 
-	songs = init_songs()
+	songs = init_songs(cartridge)
 	if(length(songs))
 		selection = songs[pick(songs)]
 
@@ -85,11 +89,11 @@
  * Returns
  * * An assoc list of track names to /datum/track. Track names must be unique.
  */
-/datum/jukebox/proc/init_songs()
-	return load_songs_from_config()
+/datum/jukebox/proc/init_songs(cartridge)
+	return load_songs_from_config(cartridge)
 
 /// Loads the config sounds once, and returns a copy of them.
-/datum/jukebox/proc/load_songs_from_config()
+/datum/jukebox/proc/load_songs_from_config(cartridge)
 	var/static/list/config_songs
 	if(isnull(config_songs))
 		config_songs = list()
@@ -130,7 +134,7 @@
 	data["active"] = !!active_song_sound
 	data["songs"] = songs_data
 	data["track_selected"] = selection?.song_name
-	data["looping"] = sound_loops
+	data["sound_loops"] = sound_loops
 	data["volume"] = volume
 	return data
 
@@ -377,4 +381,72 @@
 	song_path = 'sound/music/title3.ogg'
 	song_name = "Tintin on the Moon"
 	song_length = 3 MINUTES + 52 SECONDS
-	song_beat = 1 SECONDS
+
+/*
+	Regional Music Cartridges
+*/
+
+/obj/item/music_cartridge/konyang_retrowave
+	name = "Konyang Vibes 2463"
+	desc = "A music cartridge with a Konyang flag on the hololabel."
+	icon_state = "konyang"
+
+	tracks = list(
+		new/datum/track("Konyang Vibes #1", 'sound/music/lobby/konyang/konyang-1.ogg'),
+		new/datum/track("Konyang Vibes #2", 'sound/music/lobby/konyang/konyang-2.ogg'),
+		new/datum/track("Konyang Vibes #3", 'sound/music/lobby/konyang/konyang-3.ogg')
+	)
+
+/obj/item/music_cartridge/venus_funkydisco
+	name = "Top of the Charts 66 (Venusian Hits)"
+	desc = "A glitzy, pink music cartridge with more Venusian hits."
+	icon_state = "venus"
+
+	tracks = list(
+		new/datum/track("dance させる", 'sound/music/regional/venus/dance.ogg'),
+		new/datum/track("love sensation", 'sound/music/regional/venus/love_sensation.ogg'),
+		new/datum/track("All Night", 'sound/music/regional/venus/all_night.ogg'),
+		new/datum/track("#billyocean", 'sound/music/regional/venus/billy_ocean.ogg'),
+		new/datum/track("Artificially Sweetened", 'sound/music/regional/venus/artificially_sweetened.ogg'),
+		new/datum/track("Real Love", 'sound/music/regional/venus/real_love.ogg'),
+		new/datum/track("F U N K Y G I R L <3", 'sound/music/regional/venus/funky_girl.ogg'),
+		new/datum/track("Break The System", 'sound/music/regional/venus/break_the_system.ogg')
+	)
+
+
+/obj/item/music_cartridge/xanu_rock
+	name = "Indulgence EP (X-Rock)" //feel free to reflavour as a more varied x-rock mixtape, instead of a single EP, if other x-rock tracks are added
+	desc = "A music cartridge with a Xanan flag on the hololabel. Some fancy, rainbow text over it reads, 'INDULGENCE'."
+	icon_state = "xanu"
+
+	tracks = list(
+		new/datum/track("Shimmer", 'sound/music/regional/xanu/xanu_rock_3.ogg'),
+		new/datum/track("Rise", 'sound/music/regional/xanu/xanu_rock_1.ogg'),
+		new/datum/track("Indulgence", 'sound/music/regional/xanu/xanu_rock_2.ogg')
+	)
+
+/obj/item/music_cartridge/adhomai_swing
+	name = "Electro-Swing of Adhomai"
+	desc = "A red music cartridge holding the most widely-known Adhomian electro-swing songs."
+	icon_state = "adhomai"
+
+	tracks = list(
+		new/datum/track("Boolean Sisters", 'sound/music/phonograph/boolean_sisters.ogg'),
+		new/datum/track("Electro Swing", 'sound/music/phonograph/electro_swing.ogg'),
+		new/datum/track("Le Swing", 'sound/music/phonograph/le_swing.ogg'),
+		new/datum/track("Posin", 'sound/music/phonograph/posin.ogg')
+	)
+
+/obj/item/music_cartridge/europa_various
+	name = "Europa: Best of the 50s"
+	desc = "A music cartridge storing the best tracks to listen to on a submarine dive."
+	icon_state = "generic"
+
+	tracks = list(
+		new/datum/track("Where The Rays Leap", 'sound/music/regional/europa/where_the_dusks_rays_leap.ogg'),
+		new/datum/track("Casting Faint Shadows", 'sound/music/regional/europa/casting_faint_shadows.ogg'),
+		new/datum/track("Weedance", 'sound/music/regional/europa/weedance.ogg'),
+		new/datum/track("Instrumental Park", 'sound/music/regional/europa/instrumental_park.ogg'),
+		new/datum/track("Way Between The Shadows", 'sound/music/regional/europa/way_between_the_shadows.ogg'),
+		new/datum/track("Deep Beneath the Solemn Waves a Vast Underwater Landscape, Brimming With Bizarre, Eerily Gleaming Cyclopean Structures of, What Must Surely Be, Non-Human Origin, Stretched Out Across the Ocean Floor", 'sound/music/regional/europa/deep_beneath-.ogg'),
+	)
