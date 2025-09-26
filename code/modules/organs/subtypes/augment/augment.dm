@@ -31,6 +31,7 @@
 	var/cooldown = 150
 	var/action_button_icon = "augment"
 	var/activable = FALSE
+	var/activated = FALSE
 	var/bypass_implant = FALSE
 	/// If true, will make parent limb not count as broken, as long as it's not bruised (40%) and not broken (0%)
 	var/supports_limb = FALSE

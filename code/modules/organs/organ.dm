@@ -515,9 +515,14 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 /obj/item/organ/proc/listen()
 	return
 
+/obj/item/organ/proc/enable_traits()
+	ADD_TRAITS(owner, organ_traits, "[ORGAN_TRAIT]_[REF(src)]")
+
+/obj/item/organ/proc/disable_traits()
+	REMOVE_TRAITS(owner, organ_traits, "[ORGAN_TRAIT]_[REF(src)]")
+
 /**
  * Inserts a trait (or multiple traits) into the organ traits list
- * Mainly used for enabling / disabling organ augments
  */
 /obj/item/organ/proc/attach_organ_traits(trait_or_traits)
 	if(!islist(trait_or_traits))
@@ -530,7 +535,6 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 
 /**
  * Removes a trait (or multiple traits) from the organ traits list
- * Mainly used for enabling / disabling organ augments
  */
 /obj/item/organ/proc/detach_organ_traits(trait_or_traits)
 	if(!islist(trait_or_traits))

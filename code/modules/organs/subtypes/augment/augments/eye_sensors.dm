@@ -3,6 +3,7 @@
 	icon_state = "augment_eyes"
 	cooldown = 25
 	activable = TRUE
+	activated = TRUE
 	organ_tag = BP_AUG_EYE_SENSORS
 	parent_organ = BP_HEAD
 	action_button_name = "Toggle Sensors"
@@ -13,12 +14,14 @@
 	if(!.)
 		return FALSE
 
-	if (organ_traits.len)
-		to_chat("You deactivate \the [src].")
-		detach_organ_traits(organ_traits)
+	activated = !activated
+
+	if (activated)
+		to_chat(owner, "You activate \the [src].")
+		enable_traits()
 	else
-		to_chat("You activate \the [src].")
-		attach_organ_traits(initial(organ_traits))
+		to_chat(owner, "You deactivate \the [src].")
+		disable_traits()
 
 /obj/item/organ/internal/augment/eye_sensors/process()
 	..()

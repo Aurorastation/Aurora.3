@@ -1,5 +1,6 @@
 /mob/living/silicon
 	// Speaking
+	hud_possible = list(ANTAG_HUD)
 	gender = NEUTER
 	voice_name = "Synthesized Voice"
 	accent = ACCENT_TTS

@@ -383,6 +383,10 @@ BLIND     // can't see anything
 
 /obj/item/clothing/glasses/safety/goggles/tactical/handle_additional_changes()
 	flash_protection = up ? FLASH_PROTECTION_NONE : FLASH_PROTECTION_MODERATE
+	if (up)
+		detach_clothing_traits(TRAIT_SECURITY_HUD)
+	else
+		attach_clothing_traits(TRAIT_SECURITY_HUD)
 
 /obj/item/clothing/glasses/safety/goggles/tactical/generic
 	icon_state = "security_goggles"

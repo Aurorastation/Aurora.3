@@ -140,8 +140,13 @@
 	. = ..()
 	if(tint)
 		user.handle_vision()
-	for(var/trait in clothing_traits)
-		ADD_CLOTHING_TRAIT(user, trait)
+
+	if (slot != slot_r_hand && slot != slot_l_hand)
+		for(var/trait in clothing_traits)
+			ADD_CLOTHING_TRAIT(user, trait)
+	else
+		for(var/trait in clothing_traits)
+			REMOVE_CLOTHING_TRAIT(user, trait)
 
 	for(var/obj/item/clothing/accessory/bling in accessories)
 		bling.on_clothing_change(user)
@@ -1307,6 +1312,10 @@
 		to_chat(user, "You have moved too far away.")
 		return
 	sensor_mode = SUIT_SENSOR_MODES[switchMode]
+
+	var/mob/living/carbon/C = M
+	if (istype(C))
+		C.update_suit_sensors()
 
 	if (src.loc == user)
 		switch(sensor_mode)

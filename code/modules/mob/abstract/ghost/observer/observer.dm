@@ -88,6 +88,9 @@
 		name = capitalize(pick(GLOB.first_names_male)) + " " + capitalize(pick(GLOB.last_names))
 	real_name = name
 
+	setup_hud_traits()
+	show_data_huds()
+
 /mob/abstract/ghost/observer/Destroy()
 	if (ghostimage)
 		SSmobs.ghost_darkness_images -= ghostimage

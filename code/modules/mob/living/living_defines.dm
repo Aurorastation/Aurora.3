@@ -1,5 +1,6 @@
 /mob/living
 	see_invisible = SEE_INVISIBLE_LIVING
+	hud_possible = list(HEALTH_HUD,STATUS_HUD,ANTAG_HUD,TRIAGE_HUD)
 
 	//Health and life related vars
 	/// Maximum health that should be possible.

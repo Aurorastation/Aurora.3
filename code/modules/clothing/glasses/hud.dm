@@ -12,7 +12,7 @@
 	item_state = "healthhud"
 	body_parts_covered = 0
 	contained_sprite = TRUE
-	clothing_traits = list(DATA_HUD_MEDICAL_ADVANCED)
+	clothing_traits = list(TRAIT_MEDICAL_HUD)
 
 /obj/item/clothing/glasses/hud/health/pmc
 	name = "\improper PMCG health scanner HUD"
@@ -66,7 +66,7 @@
 	body_parts_covered = 0
 	var/global/list/jobs[0]
 	contained_sprite = TRUE
-	clothing_traits = list(DATA_HUD_SECURITY_ADVANCED)
+	clothing_traits = list(TRAIT_SECURITY_HUD)
 
 /obj/item/clothing/glasses/hud/security/zavod
 	name = "\improper Zavodskoi security HUD"

@@ -87,7 +87,7 @@ Medical HUD! Basic mode needs suit sensors on.
 /mob/living/carbon/human/med_hud_set_health()
 	. = ..()
 	var/obj/item/clothing/under/uniform = w_uniform
-	if(istype(uniform) && uniform.has_sensor < SUIT_SENSOR_VITAL)
+	if(istype(uniform) && uniform.sensor_mode < SUIT_SENSOR_VITAL)
 		set_hud_image_inactive(HEALTH_HUD)
 	else
 		set_hud_image_active(HEALTH_HUD)

@@ -104,6 +104,8 @@
 
 	become_hearing_sensitive()
 
+	setup_hud_traits()
+
 	prepare_huds()
 
 /**
