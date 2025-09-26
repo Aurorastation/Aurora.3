@@ -74,6 +74,10 @@
 
 	var/turf/new_turf = new path(src)
 
+	// If the area requires starlight, we need to fill it back in with starlight after the change.
+	// Particularly necessary so shuttles don't leave dark patches after undocking with starlit turfs.
+	update_starlight()
+
 	// WARNING WARNING
 	// Turfs DO NOT lose their signals when they get replaced, REMEMBER THIS
 	// It's possible because turfs are fucked, and if you have one in a list and it's replaced with another one, the list ref points to the new turf

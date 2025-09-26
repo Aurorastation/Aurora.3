@@ -14,7 +14,8 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 	var/uid
 	///Bitflag (Any of `AREA_FLAG_*`). See `code\__DEFINES\misc.dm`.
 	var/area_flags
-	var/holomap_color // Color of this area on the holomap. Must be a hex color (as string) or null.
+	/// Color of this area on the holomap. Must be a hex color (as string) or null.
+	var/holomap_color
 
 	///Do we have an active fire alarm?
 	var/fire = FALSE
@@ -33,22 +34,27 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 	invisibility = INVISIBILITY_LIGHTING
 
 	var/obj/machinery/power/apc/apc = null
-	var/turf/base_turf // The base turf type of the area, which can be used to override the z-level's base turf.
+	/// The base turf type of the area, which can be used to override the z-level's base turf.
+	var/turf/base_turf
 
 	var/lightswitch = FALSE
 
 	var/eject = null
 
 	var/requires_power = 1
-	var/always_unpowered = 0	//this gets overridden to 1 for space in area/New()
+	/// This gets overridden to 1 for space in area/New()
+	var/always_unpowered = 0
 
-	var/power_equip = 1 // Status vars
+	// Status vars
+	var/power_equip = 1
 	var/power_light = 1
 	var/power_environ = 1
-	var/used_equip = 0 // Continuous drain; don't touch these directly.
+	// Continuous drain; don't touch these directly.
+	var/used_equip = 0
 	var/used_light = 0
 	var/used_environ = 0
-	var/oneoff_equip 	= 0 // Used once and cleared each tick.
+	// Used once and cleared each tick.
+	var/oneoff_equip 	= 0
 	var/oneoff_light 	= 0
 	var/oneoff_environ 	= 0
 
@@ -71,8 +77,10 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 	///Used to decide what kind of reverb the area makes sound have
 	var/sound_environment = SOUND_AREA_STANDARD_STATION
 
-	var/no_light_control = FALSE // If TRUE, lights in area cannot be toggled with light controller.
-	var/allow_nightmode = FALSE // If TRUE, lights in area will be darkened by the night mode controller.
+	/// If TRUE, lights in area cannot be toggled with light controller.
+	var/no_light_control = FALSE
+	/// If TRUE, lights in area will be darkened by the night mode controller.
+	var/allow_nightmode = FALSE
 	var/emergency_lights = FALSE
 
 	/**
@@ -97,6 +105,11 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 	var/area_blurb_category
 
 	var/tmp/is_outside = OUTSIDE_NO
+
+	/// Should the turfs in this area render starlight accurate to the starlight of the local sector?
+	/// This is intended for use with EVA areas of ships - such as the wings of the Horizon, for instance.
+	/// You probably shouldn't be setting this to true on any planet-based maps, or on any indoors areas.
+	var/needs_starlight = FALSE
 
 /**
  * Don't move this to Initialize(). Things in here need to run before SSatoms does.

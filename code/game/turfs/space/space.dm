@@ -20,7 +20,6 @@
 	explosion_resistance = 3
 
 	var/use_space_appearance = TRUE
-	var/use_starlight = TRUE
 
 /turf/space/dynamic //For use in edge cases where you want the turf to not be completely lit, like in places where you have placed lattice.
 	dynamic_lighting = 1
@@ -35,7 +34,7 @@
 
 	if(use_space_appearance)
 		appearance = SSskybox.space_appearance_cache[(((x + y) ^ ~(x * y) + z) % 25) + 1]
-	if(GLOB.config.starlight && use_starlight && GLOB.lighting_overlays_initialized)
+	if(GLOB.config.starlight && GLOB.lighting_overlays_initialized)
 		update_starlight()
 
 	for(var/atom/movable/AM as mob|obj in src)
@@ -50,6 +49,16 @@
 		luminosity = 1
 
 	return INITIALIZE_HINT_NORMAL
+
+/// Handles starlight logic unique to space turfs.
+/turf/space/update_starlight()
+	. = ..() // We also run the parent proc here, since space may also require starlight from needs_starlight!
+	// Otherwise, if a space turf borders a simulated turf, it should be producing starlight.
+	if(istype(src, /turf/space))
+		if(locate(/turf/simulated) in RANGE_TURFS(1, src))
+			set_light(SSatlas.current_sector.starlight_range, SSatlas.current_sector.starlight_power, l_color = SSskybox.background_color)
+		else
+			set_light(0)
 
 /turf/space/Destroy()
 	// Cleanup cached z_eventually_space values above us.
@@ -72,14 +81,6 @@
 		return 1
 
 	return 0
-
-/turf/space/proc/update_starlight()
-	if(!GLOB.config.starlight)
-		return
-	if(locate(/turf/simulated) in RANGE_TURFS(1, src))
-		set_light(SSatlas.current_sector.starlight_range, SSatlas.current_sector.starlight_power, l_color = SSskybox.background_color)
-	else
-		set_light(0)
 
 /turf/space/attackby(obj/item/attacking_item, mob/user)
 
