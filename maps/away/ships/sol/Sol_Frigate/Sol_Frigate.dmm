@@ -1626,7 +1626,7 @@
 /obj/structure/sign/securearea{
 	name = "RESTRICTED ACCESS: AUTHORIZED PERSONNEL ONLY";
 	pixel_y = -29;
-	desc = "WARNING: THIS IS A SECURE AREA, ALL TRESSPASSERS WILL BE PROSECUTED TO MAXIMUM POSSIBLE EXTEND UNDER SOLARIAN LAW."
+	desc = "WARNING: THIS IS A SECURE AREA, ALL TRESSPASSERS WILL BE PROSECUTED TO MAXIMUM POSSIBLE EXTENT UNDER SOLARIAN LAW."
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/Port_docking_port)
@@ -1829,9 +1829,8 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
 	},
-/obj/machinery/light{
-	dir = 8;
-	pixel_x = 33
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/engineering)
@@ -3982,12 +3981,11 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
-/obj/machinery/power/apc/north,
 /obj/machinery/light{
 	dir = 4
 	},
 /obj/structure/cable{
-	dir = 1
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/engineering)
@@ -4818,8 +4816,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/port_thrusters)
 "xD" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/engineering)
 "xG" = (
@@ -5171,12 +5174,6 @@
 /obj/machinery/atmospherics/unary/engine,
 /turf/simulated/floor/reinforced/airless,
 /area/ship/Sol_Frigate/port_thrusters)
-"zM" = (
-/obj/structure/sign/securearea{
-	name = "WARNING: LIVE ORDNANcE INSIDE"
-	},
-/turf/simulated/wall/shuttle/raider,
-/area/ship/Sol_Frigate/port_battery)
 "zP" = (
 /obj/machinery/light{
 	dir = 8;
@@ -5574,7 +5571,7 @@
 /obj/structure/sign/securearea{
 	name = "RESTRICTED ACCESS: AUTHORIZED PERSONNEL ONLY";
 	pixel_y = -29;
-	desc = "WARNING: THIS IS A SECURE AREA, ALL TRESSPASSERS WILL BE PROSECUTED TO MAXIMUM POSSIBLE EXTEND UNDER SOLARIAN LAW."
+	desc = "WARNING: THIS IS A SECURE AREA, ALL TRESSPASSERS WILL BE PROSECUTED TO MAXIMUM POSSIBLE EXTENT UNDER SOLARIAN LAW."
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/Starboard_docking_port)
@@ -6512,8 +6509,10 @@
 	dir = 9
 	},
 /obj/machinery/alarm/west,
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4
+/obj/structure/cable{
+	icon_state = "2-4";
+	d1 = 2;
+	d2 = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/engineering)
@@ -7130,6 +7129,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
 	},
+/obj/structure/cable,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/engineering)
 "IY" = (
@@ -7942,12 +7942,6 @@
 /obj/structure/bed/stool/bar/padded,
 /turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/canteen)
-"ME" = (
-/obj/structure/sign/securearea{
-	name = "WARNING: LIVE ORDNANcE INSIDE"
-	},
-/turf/simulated/wall/shuttle/raider,
-/area/ship/Sol_Frigate/starboard_battery)
 "MF" = (
 /obj/machinery/suit_cycler/offship/sol,
 /obj/machinery/light{
@@ -8547,8 +8541,9 @@
 /area/ship/Sol_Frigate/port_thrusters)
 "Py" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/engineering)
@@ -9397,6 +9392,7 @@
 	d1 = 1;
 	d2 = 2
 	},
+/obj/machinery/power/apc/east,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/engineering)
 "UO" = (
@@ -41691,7 +41687,7 @@ PD
 PD
 PD
 Rb
-ME
+eE
 pR
 Fq
 eE
@@ -46314,7 +46310,7 @@ we
 we
 we
 Xf
-zM
+Xf
 AX
 nb
 Xf
