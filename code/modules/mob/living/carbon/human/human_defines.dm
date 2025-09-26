@@ -1,6 +1,7 @@
 /mob/living/carbon/human
 
 	blocks_emissive = EMISSIVE_BLOCK_NONE
+	hud_possible = list(HEALTH_HUD,STATUS_HUD,ID_HUD,WANTED_HUD,IMPLOYAL_HUD,IMPCHEM_HUD,IMPTRACK_HUD,ANTAG_HUD,TRIAGE_HUD)
 
 	// Tail Style
 	var/tail_style = null

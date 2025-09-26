@@ -96,14 +96,14 @@
 		take_overall_damage(amount, 0)
 	else
 		heal_overall_damage(-amount, 0)
-	BITSET(hud_updateflag, HEALTH_HUD)
+	med_hud_set_health()
 
 /mob/living/carbon/human/adjustFireLoss(var/amount)
 	if(amount > 0)
 		take_overall_damage(0, amount)
 	else
 		heal_overall_damage(0, -amount)
-	BITSET(hud_updateflag, HEALTH_HUD)
+	med_hud_set_health()
 
 /mob/living/carbon/human/Stun(amount)
 	if((mutations & HULK))
@@ -150,7 +150,7 @@
 			amount -= E.remove_genetic_damage(amount)
 		else
 			amount -= E.add_genetic_damage(amount)
-	BITSET(hud_updateflag, HEALTH_HUD)
+	med_hud_set_health()
 
 // Defined here solely to take species flags into account without having to recast at mob/living level.
 /mob/living/carbon/human/getOxyLoss()
@@ -187,7 +187,7 @@
 			breathe_organ.remove_oxygen_deprivation(abs(amount))
 		else
 			breathe_organ.add_oxygen_deprivation(abs(amount*species.oxy_mod))
-	BITSET(hud_updateflag, HEALTH_HUD)
+	med_hud_set_health()
 
 /mob/living/carbon/human/getToxLoss()
 	if(species.flags & NO_POISON)
@@ -282,7 +282,7 @@
 			amount -= E.remove_pain(amount)
 		else
 			amount -= E.add_pain(amount)
-	BITSET(hud_updateflag, HEALTH_HUD)
+	med_hud_set_health()
 
 ////////////////////////////////////////////
 
@@ -314,7 +314,7 @@
 	var/obj/item/organ/external/picked = pick(parts)
 	if(picked.heal_damage(brute, burn, robo_repair = prosthetic))
 		UpdateDamageIcon()
-		BITSET(hud_updateflag, HEALTH_HUD)
+		med_hud_set_health()
 	updatehealth()
 
 
@@ -331,7 +331,7 @@ In most cases it makes more sense to use apply_damage() instead! And make sure t
 	var/obj/item/organ/external/picked = pick(parts)
 	if(picked.take_damage(brute, burn, damage_flags))
 		UpdateDamageIcon()
-		BITSET(hud_updateflag, HEALTH_HUD)
+		med_hud_set_health()
 	updatehealth()
 
 
@@ -353,7 +353,7 @@ In most cases it makes more sense to use apply_damage() instead! And make sure t
 
 		parts -= picked
 	updatehealth()
-	BITSET(hud_updateflag, HEALTH_HUD)
+	med_hud_set_health()
 	if(update)
 		UpdateDamageIcon()
 
@@ -375,7 +375,7 @@ In most cases it makes more sense to use apply_damage() instead! And make sure t
 
 		parts -= picked
 	updatehealth()
-	BITSET(hud_updateflag, HEALTH_HUD)
+	med_hud_set_health()
 	if(update)
 		UpdateDamageIcon()
 
@@ -403,7 +403,7 @@ This function restores all organs.
 	if(istype(E, /obj/item/organ/external))
 		if (E.heal_damage(brute, burn))
 			UpdateDamageIcon()
-			BITSET(hud_updateflag, HEALTH_HUD)
+			med_hud_set_health()
 	else
 		return 0
 	return
@@ -506,7 +506,7 @@ This function restores all organs.
 
 	// Will set our damageoverlay icon to the next level, which will then be set back to the normal level the next mob.Life().
 	updatehealth()
-	BITSET(hud_updateflag, HEALTH_HUD)
+	med_hud_set_health()
 	return TRUE
 
 /mob/living/carbon/human/apply_radiation(var/rads)

@@ -167,12 +167,6 @@
 		set_sight(sight&(~SEE_TURFS)&(~SEE_MOBS)&(~SEE_OBJS))
 		set_see_invisible(SEE_INVISIBLE_LIVING)
 
-	switch(sensor_mode)
-		if(SEC_HUD)
-			process_sec_hud(src, FALSE)
-		if(MED_HUD)
-			process_med_hud(src, FALSE)
-
 	if(healths)
 		if(stat != DEAD)
 			if(istype(src, /mob/living/silicon/robot/drone))

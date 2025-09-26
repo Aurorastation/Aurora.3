@@ -211,3 +211,8 @@
 #define INJECTION_FAIL     0
 #define BASE_INJECTION_MOD 1 // x1 multiplier with no effects
 #define SUIT_INJECTION_MOD 2 // x2 multiplier if target is wearing spacesuit
+
+/// Wrapper for adding clothing based traits
+#define ADD_CLOTHING_TRAIT(mob, trait) ADD_TRAIT(mob, trait, "[CLOTHING_TRAIT]_[REF(src)]")
+/// Wrapper for removing clothing based traits
+#define REMOVE_CLOTHING_TRAIT(mob, trait) REMOVE_TRAIT(mob, trait, "[CLOTHING_TRAIT]_[REF(src)]")

@@ -45,9 +45,6 @@
 
 	..()
 
-	if(life_tick%30==5)//Makes huds update every 10 seconds instead of every 30 seconds
-		hud_updateflag = 1022
-
 	voice = GetVoice()
 
 	//No need to update all of these procs if the guy is dead or in stasis
@@ -865,9 +862,6 @@
 #define POSING_STRING "posing"
 
 /mob/living/carbon/human/handle_regular_hud_updates()
-	if(hud_updateflag) // update our mob's hud overlays, AKA what others see flaoting above our head
-		handle_hud_list()
-
 	// now handle what we see on our screen
 	if(!..())
 		return
@@ -1293,128 +1287,6 @@
 
 	if(shock_stage >= 150)
 		Weaken(20)
-
-
-/*
-	Called by life(), instead of having the individual hud items update icons each tick and check for status changes
-	we only set those statuses and icons upon changes.  Then those HUD items will simply add those pre-made images.
-	This proc below is only called when those HUD elements need to change as determined by the mobs hud_updateflag.
-*/
-
-
-/mob/living/carbon/human/proc/handle_hud_list(var/force_update = FALSE)
-	if(force_update)
-		hud_updateflag = 1022
-
-	if (BITTEST(hud_updateflag, HEALTH_HUD))
-		if(hud_list[HEALTH_HUD])
-			var/image/holder = hud_list[HEALTH_HUD]
-			if(stat == DEAD || (status_flags & FAKEDEATH))
-				holder.icon_state = "0" 	// X_X
-			else if(is_asystole())
-				holder.icon_state = "flatline"
-			else
-				holder.icon_state = "[pulse()]"
-			hud_list[HEALTH_HUD] = holder
-		if(hud_list[TRIAGE_HUD])
-			var/image/holder = hud_list[TRIAGE_HUD]
-			holder.icon_state = triage_tag
-			hud_list[TRIAGE_HUD] = holder
-
-	if (BITTEST(hud_updateflag, LIFE_HUD) && hud_list[LIFE_HUD])
-		var/image/holder = hud_list[LIFE_HUD]
-		if(stat == DEAD || (status_flags & FAKEDEATH))
-			holder.icon_state = "huddead"
-		else
-			holder.icon_state = "hudhealthy"
-		hud_list[LIFE_HUD] = holder
-
-	if (BITTEST(hud_updateflag, STATUS_HUD) && hud_list[STATUS_HUD] && hud_list[STATUS_HUD_OOC])
-		var/image/holder = hud_list[STATUS_HUD]
-		if(stat == DEAD || (status_flags & FAKEDEATH))
-			holder.icon_state = "huddead"
-		else if(status_flags & XENO_HOST)
-			holder.icon_state = "hudxeno"
-		else
-			holder.icon_state = "hudhealthy"
-
-		var/image/holder2 = hud_list[STATUS_HUD_OOC]
-		if(stat == DEAD || (status_flags & FAKEDEATH))
-			holder2.icon_state = "huddead"
-		else if(status_flags & XENO_HOST)
-			holder2.icon_state = "hudxeno"
-		else if(has_brain_worms())
-			holder2.icon_state = "hudbrainworm"
-		else
-			holder2.icon_state = "hudhealthy"
-
-		hud_list[STATUS_HUD] = holder
-		hud_list[STATUS_HUD_OOC] = holder2
-
-	if (BITTEST(hud_updateflag, ID_HUD) && hud_list[ID_HUD])
-		var/image/holder = hud_list[ID_HUD]
-
-		//The following function is found in code/defines/procs/hud.dm
-		holder.icon_state = get_sec_hud_icon(src)
-		hud_list[ID_HUD] = holder
-
-	if (BITTEST(hud_updateflag, WANTED_HUD))
-		var/image/holder = hud_list[WANTED_HUD]
-		holder.icon_state = "hudblank"
-		var/perpname = name
-		if(wear_id)
-			var/obj/item/card/id/I = wear_id.GetID()
-			if(I)
-				perpname = I.registered_name
-
-		var/datum/record/general/R = SSrecords.find_record("name", perpname)
-		if(istype(R) && istype(R.security))
-			if(R.security.criminal == "*Arrest*")
-				holder.icon_state = "hudwanted"
-			else if(R.security.criminal == "Search")
-				holder.icon_state = "hudsearch"
-			else if(R.security.criminal == "Incarcerated")
-				holder.icon_state = "hudprisoner"
-			else if(R.security.criminal == "Parolled")
-				holder.icon_state = "hudparolled"
-			else if(R.security.criminal == "Released")
-				holder.icon_state = "hudreleased"
-		hud_list[WANTED_HUD] = holder
-
-	if (  BITTEST(hud_updateflag, IMPLOYAL_HUD) \
-		|| BITTEST(hud_updateflag,  IMPCHEM_HUD) \
-		|| BITTEST(hud_updateflag, IMPTRACK_HUD))
-
-		var/image/holder1 = hud_list[IMPTRACK_HUD]
-		var/image/holder2 = hud_list[IMPLOYAL_HUD]
-		var/image/holder3 = hud_list[IMPCHEM_HUD]
-
-		holder1.icon_state = "hudblank"
-		holder2.icon_state = "hudblank"
-		holder3.icon_state = "hudblank"
-		for(var/obj/item/implant/I in src)
-			if(I.implanted)
-				if(istype(I,/obj/item/implant/tracking))
-					holder1.icon_state = "hud_imp_tracking"
-				if(istype(I,/obj/item/implant/mindshield) && !istype(I,/obj/item/implant/mindshield/loyalty))
-					holder2.icon_state = "hud_imp_loyal"
-				if(istype(I,/obj/item/implant/chem))
-					holder3.icon_state = "hud_imp_chem"
-
-		hud_list[IMPTRACK_HUD] = holder1
-		hud_list[IMPLOYAL_HUD] = holder2
-		hud_list[IMPCHEM_HUD]  = holder3
-
-	if (BITTEST(hud_updateflag, SPECIALROLE_HUD))
-		var/image/holder = hud_list[SPECIALROLE_HUD]
-		holder.icon_state = "hudblank"
-		if(mind && mind.special_role)
-			if(GLOB.hud_icon_reference[mind.special_role])
-				holder.icon_state = GLOB.hud_icon_reference[mind.special_role]
-			else
-				holder.icon_state = "hudsyndicate"
-			hud_list[SPECIALROLE_HUD] = holder
-	hud_updateflag = 0
 
 /**
  * If parent proc returns TRUE, this entity is no longer on fire (nothing to see here, in that case).

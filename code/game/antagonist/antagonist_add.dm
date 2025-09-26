@@ -76,7 +76,7 @@
 		player.special_role = null
 		player.antag_datums -= id
 		update_icons_removed(player)
-		BITSET(player.current.hud_updateflag, SPECIALROLE_HUD)
+		player.current.antag_hud_set_role()
 
 		if(player.current.client)
 			if(!is_special_character(player) && !check_rights(R_ADMIN|R_MOD|R_CCIAA, 0, player.current))

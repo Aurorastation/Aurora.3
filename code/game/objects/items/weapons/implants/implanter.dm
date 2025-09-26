@@ -58,7 +58,7 @@
 					imp.implanted = TRUE
 					affected.implants += imp
 					imp.part = affected
-					BITSET(M.hud_updateflag, IMPLOYAL_HUD)
+					M.sec_hud_set_implants()
 
 				imp = null
 				update_icon()

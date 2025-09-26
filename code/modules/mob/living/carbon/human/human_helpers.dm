@@ -86,7 +86,6 @@
 				equipment_see_invis = G.see_invisible
 
 		add_clothing_protection(G)
-		G.process_hud(src)
 
 /mob/living/carbon/human/proc/process_rig(var/obj/item/rig/O)
 	if(O.visor && O.visor.active && O.visor.vision && O.visor.vision.glasses && (!O.helmet || (head && O.helmet == head)))

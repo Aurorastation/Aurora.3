@@ -30,9 +30,9 @@
 
 	vr_disconnect()
 
-	BITSET(hud_updateflag, HEALTH_HUD)
-	BITSET(hud_updateflag, STATUS_HUD)
-	BITSET(hud_updateflag, LIFE_HUD)
+	med_hud_set_health()
+	med_hud_set_status()
+	med_hud_set_triage()
 
 	//Handle species-specific deaths.
 	species.handle_death(src, gibbed)
@@ -73,8 +73,6 @@
 
 	if(!gibbed) //We want to handle organs one last time to make sure that hearts don't report a positive pulse after death.
 		handle_organs()
-
-	handle_hud_list()
 
 	updatehealth()
 

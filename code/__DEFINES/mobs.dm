@@ -35,10 +35,11 @@
 #define GRAB_UPGRADING  4
 #define GRAB_KILL       5
 
-#define BORGMESON 0x1
-#define BORGTHERM 0x2
-#define BORGXRAY  0x4
-#define BORGMATERIAL  8
+#define NO_HUD	  		BITFLAG(0)
+#define BORGMESON 		BITFLAG(1)
+#define BORGTHERM 		BITFLAG(2)
+#define BORGXRAY  		BITFLAG(3)
+#define BORGMATERIAL  	BITFLAG(4)
 
 #define HOSTILE_STANCE_IDLE      1
 #define HOSTILE_STANCE_ALERT     2

@@ -3,14 +3,6 @@
 	desc = "A heads-up display that provides important info in (almost) real time."
 	item_flags = 0 //doesn't protect eyes because it's a monocle, duh
 	origin_tech = list(TECH_MAGNET = 3, TECH_BIO = 2)
-	var/list/icon/current = list() //the current hud icons
-
-/obj/item/clothing/glasses/proc/process_hud(var/mob/M)
-	if(hud)
-		hud.process_hud(M)
-
-/obj/item/clothing/glasses/hud/process_hud(var/mob/M)
-	return
 
 /obj/item/clothing/glasses/hud/health
 	name = "health scanner HUD"
@@ -20,13 +12,7 @@
 	item_state = "healthhud"
 	body_parts_covered = 0
 	contained_sprite = TRUE
-
-
-/obj/item/clothing/glasses/hud/health/process_hud(var/mob/M)
-	process_med_hud(M, 1)
-
-/obj/item/clothing/glasses/hud/health/is_med_hud()
-	return active
+	clothing_traits = list(TRAIT_MEDICAL_HUD)
 
 /obj/item/clothing/glasses/hud/health/pmc
 	name = "\improper PMCG health scanner HUD"
@@ -80,9 +66,7 @@
 	body_parts_covered = 0
 	var/global/list/jobs[0]
 	contained_sprite = TRUE
-
-/obj/item/clothing/glasses/hud/security/is_sec_hud()
-	return active
+	clothing_traits = list(TRAIT_SECURITY_HUD)
 
 /obj/item/clothing/glasses/hud/security/zavod
 	name = "\improper Zavodskoi security HUD"
@@ -134,6 +118,3 @@
 	item_state = "jensenshades"
 	vision_flags = SEE_MOBS
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
-
-/obj/item/clothing/glasses/hud/security/process_hud(var/mob/M)
-	process_sec_hud(M, 1)

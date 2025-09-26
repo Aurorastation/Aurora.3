@@ -42,3 +42,8 @@
  * Raised on an entity whose liver is attempting to filter blood.
  */
 #define COMSIG_LIVER_FILTER_EVENT "liver_filter_event"
+
+/// Wrapper for adding organ based traits
+#define ADD_ORGAN_TRAIT(mob, trait) ADD_TRAIT(mob, trait, "[ORGAN_TRAIT]_[REF(src)]")
+/// Wrapper for removing organ based traits
+#define REMOVE_ORGAN_TRAIT(mob, trait) REMOVE_TRAIT(mob, trait, "[ORGAN_TRAIT]_[REF(src)]")

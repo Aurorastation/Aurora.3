@@ -60,7 +60,7 @@
 
 	refresh_hud()
 
-/mob/living/heavy_vehicle/handle_hud_icons()
+/mob/living/heavy_vehicle/proc/handle_hud_icons()
 	for(var/hardpoint in hardpoint_hud_elements)
 		var/atom/movable/screen/mecha/hardpoint/H = hardpoint_hud_elements[hardpoint]
 		if(H) H.update_system_info()
@@ -69,7 +69,7 @@
 	refresh_hud()
 
 
-/mob/living/heavy_vehicle/handle_hud_icons_health()
+/mob/living/heavy_vehicle/proc/handle_hud_icons_health()
 
 	hud_health?.overlays.Cut()
 

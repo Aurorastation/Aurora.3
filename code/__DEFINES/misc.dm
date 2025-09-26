@@ -75,19 +75,6 @@
 
 #define ASFX_DEFAULT (ASFX_AMBIENCE | ASFX_FOOTSTEPS | ASFX_VOTE | ASFX_VOX | ASFX_DROPSOUND | ASFX_ARCADE | ASFX_RADIO | ASFX_INSTRUMENT | ASFX_HUM | ASFX_MUSIC | ASFX_CONSOLE_AMBIENCE)
 
-// For secHUDs and medHUDs and variants. The number is the location of the image on the list hud_list of humans.
-#define      HEALTH_HUD 1 // A simple line reading the pulse.
-#define      STATUS_HUD 2 // Alive, dead, diseased, etc.
-#define          ID_HUD 3 // The job asigned to your ID.
-#define      WANTED_HUD 4 // Wanted, released, paroled, security status.
-#define    IMPLOYAL_HUD 5 // Loyality implant.
-#define     IMPCHEM_HUD 6 // Chemical implant.
-#define    IMPTRACK_HUD 7 // Tracking implant.
-#define SPECIALROLE_HUD 8 // AntagHUD image.
-#define  STATUS_HUD_OOC 9 // STATUS_HUD without virus DB check for someone being ill.
-#define 	  LIFE_HUD 10 // STATUS_HUD that only reports dead or alive
-#define     TRIAGE_HUD 11 // a HUD that creates a bar above the user showing their medical status
-
 //	Shuttles.
 
 // These define the time taken for the shuttle to get to the space station, and the time before it leaves again.

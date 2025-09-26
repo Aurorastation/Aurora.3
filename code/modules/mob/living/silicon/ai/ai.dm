@@ -218,16 +218,6 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 
 	addtimer(CALLBACK(src, PROC_REF(create_powersupply)), 5)
 
-	hud_list[HEALTH_HUD]      = new /image/hud_overlay('icons/hud/hud_med.dmi', src, "100")
-	hud_list[STATUS_HUD]      = new /image/hud_overlay('icons/hud/hud.dmi', src, "hudblank")
-	hud_list[LIFE_HUD] 		  = new /image/hud_overlay('icons/hud/hud.dmi', src, "hudblank")
-	hud_list[ID_HUD]          = new /image/hud_overlay('icons/hud/hud.dmi', src, "hudblank")
-	hud_list[WANTED_HUD]      = new /image/hud_overlay('icons/hud/hud.dmi', src, "hudblank")
-	hud_list[IMPLOYAL_HUD]    = new /image/hud_overlay('icons/hud/hud.dmi', src, "hudblank")
-	hud_list[IMPCHEM_HUD]     = new /image/hud_overlay('icons/hud/hud.dmi', src, "hudblank")
-	hud_list[IMPTRACK_HUD]    = new /image/hud_overlay('icons/hud/hud.dmi', src, "hudblank")
-	hud_list[SPECIALROLE_HUD] = new /image/hud_overlay('icons/hud/hud.dmi', src, "hudblank")
-
 	GLOB.ai_list += src
 
 	GLOB.cameranet.add_source(src)
@@ -835,10 +825,10 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 
 /// Verb to call `toggle_sensor_mode()` from `silicon.dm`
 /mob/living/silicon/ai/proc/sensor_mode()
-	set name = "Set Sensor Augmentation"
+	set name = "Toggle Sensor Augmentation"
 	set category = "AI Commands"
 	set desc = "Augment visual feed with internal sensor overlays"
-	toggle_sensor_mode()
+	toggle_sensors()
 
 /// Retrieves all mobs assigned to REMOTE_AI_ROBOT or REMOTE_AI_MECH and allows the user to select one to control using SSvirtualreality
 /mob/living/silicon/ai/proc/remote_control()

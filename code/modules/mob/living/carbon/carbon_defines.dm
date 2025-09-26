@@ -1,4 +1,5 @@
 /mob/living/carbon
+	hud_possible = list(HEALTH_HUD,STATUS_HUD,ANTAG_HUD,TRIAGE_HUD)
 	gender = MALE
 	accent = ACCENT_CETI
 	blocks_emissive = EMISSIVE_BLOCK_UNIQUE

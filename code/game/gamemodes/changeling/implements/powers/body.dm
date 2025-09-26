@@ -223,9 +223,8 @@
 	C.status_flags |= FAKEDEATH		//play dead
 	C.update_canmove()
 	C.remove_changeling_powers()
-	if(ishuman(C))
-		var/mob/living/carbon/human/H = C
-		H.handle_hud_list(TRUE)
+	C.med_hud_set_health()
+	C.med_hud_set_status()
 
 	C.emote("gasp")
 	C.tod = worldtime2text()

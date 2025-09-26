@@ -367,7 +367,7 @@
 	else if(href_list["implant"])
 		var/mob/living/carbon/human/H = current
 
-		BITSET(H.hud_updateflag, IMPLOYAL_HUD)   // updates that players HUD images so secHUD's pick up they are implanted or not.
+		H.sec_hud_set_implants()   // updates that players HUD images so secHUD's pick up they are implanted or not.
 
 		switch(href_list["implant"])
 			if("remove")
@@ -384,7 +384,7 @@
 				log_admin("[key_name_admin(usr)] has loyalty implanted [current].")
 
 	else if (href_list["silicon"])
-		BITSET(current.hud_updateflag, SPECIALROLE_HUD)
+		current.antag_hud_set_role()
 		switch(href_list["silicon"])
 
 			if("unemag")

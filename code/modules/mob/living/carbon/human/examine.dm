@@ -350,7 +350,7 @@
 	if(digitalcamo)
 		msg += "[get_pronoun("He")] [get_pronoun("is")] a little difficult to identify.\n"
 
-	if(hasHUD(user,SEC_HUDTYPE))
+	if(HAS_TRAIT(user, TRAIT_SECURITY_HUD))
 		var/perpname = "wot"
 		var/criminal = "None"
 
@@ -371,7 +371,7 @@
 			msg += "<span class = 'deptradio'>Criminal status:</span> <a href='byond://?src=[REF(src)];criminal=1'>\[[criminal]\]</a>\n"
 			msg += "<span class = 'deptradio'>Security records:</span> <a href='byond://?src=[REF(src)];secrecord=`'>\[View\]</a>  <a href='byond://?src=[REF(src)];secrecordadd=`'>\[Add comment\]</a>\n"
 
-	if(hasHUD(user,MED_HUDTYPE))
+	if(HAS_TRAIT(user, TRAIT_MEDICAL_HUD))
 		var/perpname = "wot"
 		var/medical = "None"
 
@@ -414,36 +414,6 @@
 
 	if(Adjacent(user))
 		INVOKE_ASYNC(src, PROC_REF(examine_pulse), user)
-
-//Helper procedure. Called by /mob/living/carbon/human/examine() and /mob/living/carbon/human/Topic() to determine HUD access to security and medical records.
-/proc/hasHUD(mob/M, hudtype)
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
-		var/obj/item/clothing/glasses/G = H.glasses
-		var/eye_hud = 0
-		var/hud = 0
-		// Checks for eye sensor HUD
-		var/obj/item/organ/internal/augment/eye_sensors/E = locate() in H.internal_organs
-		if(E)
-			eye_hud = E.check_hud(hudtype)
-		if(G)
-			switch(hudtype)
-				if(SEC_HUDTYPE)
-					hud = G.is_sec_hud()
-				if(MED_HUDTYPE)
-					hud = G.is_med_hud()
-		return hud || eye_hud
-	else if(istype(M, /mob/living/silicon/robot))
-		var/mob/living/silicon/robot/R = M
-		switch(hudtype)
-			if(SEC_HUDTYPE)
-				return R.sensor_mode_sec()
-			if(MED_HUDTYPE)
-				return R.sensor_mode_med()
-			else
-				return 0
-	else
-		return 0
 
 /proc/fluid_color_type_map(var/supplied_color)
 	var/static/list/color_map = list(
