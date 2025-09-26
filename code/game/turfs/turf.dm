@@ -180,7 +180,8 @@
 	underlay_appearance.dir = adjacency_dir
 	return TRUE
 
-/// Handles starlight, both for space turfs and for turfs for whose area's needs_starlight var is set to true.
+/// Handles starlight for turfs for whose area's needs_starlight var is set to true.
+/// Logic unique to space turfs is set within a child proc of this!
 /turf/proc/update_starlight()
 	// We don't render starlight if config says we shouldn't.
 	if(!GLOB.config.starlight)
@@ -199,14 +200,6 @@
 		return // Return here so we don't risk also running the space logic.
 	else if(!istype(src, /turf/space)) // Exclude space turfs so this doesn't call set_light twice on space.
 		set_light(initial(light_range), initial(light_power), initial(light_color))
-
-	// We handle space turfs outside of needs_starlight areas here.
-	// If it borders a simulated turf, it should be producing starlight.
-	if(istype(src, /turf/space))
-		if(locate(/turf/simulated) in RANGE_TURFS(1, src))
-			set_light(SSatlas.current_sector.starlight_range, SSatlas.current_sector.starlight_power, l_color = SSskybox.background_color)
-		else
-			set_light(0)
 
 /turf/ex_act(severity)
 	return 0
