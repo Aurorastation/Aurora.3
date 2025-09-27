@@ -260,6 +260,9 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
+/obj/machinery/media/jukebox/audioconsole{
+	anchored = 1
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/gravity_gen)
 "aH" = (
@@ -447,6 +450,9 @@
 "be" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
+	},
+/obj/machinery/media/jukebox/classic{
+	anchored = 1
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/gravity_gen)
