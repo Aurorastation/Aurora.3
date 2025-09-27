@@ -92,7 +92,7 @@
 	head = /obj/item/clothing/head/sol/dress
 	accessory = /obj/item/clothing/accessory/holster/thigh
 
-/datum/ghostspawner/human/ssrm_ipc
+/datum/ghostspawner/human/Solfrig_ipc
 	short_name = "Solfrig_ipc"
 	name = "Solarian Frigate Synthetic"
 	desc = "Serve as a Navy-owned IPC aboard a Solarian Frigate. Remember that you are not a free, enlisted soldier: you are the military's non-combatant property, programmed to rigidly serve the interests of the Solarian government above all else."
@@ -101,7 +101,7 @@
 	spawnpoints = list("Solfrig_ipc")
 	max_count = 1
 
-	outfit = /obj/outfit/admin/ssrm_ipc
+	outfit = /obj/outfit/admin/solfrig_ipc
 	possible_species = list(SPECIES_IPC, SPECIES_IPC_SHELL, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION)
 	uses_species_whitelist = TRUE
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
@@ -111,7 +111,7 @@
 	respawn_flag = null
 
 
-/obj/outfit/admin/ssrm_ipc
+/obj/outfit/admin/solfrig_ipc
 	name = "Sol Military Navy Synthetic"
 
 	uniform = /obj/item/clothing/under/rank/sol/ipc
@@ -132,7 +132,7 @@
 		tag.ownership_info = IPC_OWNERSHIP_PRIVATE
 		tag.citizenship_info = CITIZENSHIP_NONE
 
-/obj/outfit/admin/ssrm_ipc/get_id_access()
+/obj/outfit/admin/solfrig_ipc/get_id_access()
 	return list(ACCESS_SOL_SHIPS, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/Solfrig_Intern
