@@ -43,7 +43,6 @@
 
 	user.visible_message(SPAN_NOTICE("<i>[user] blinks, their eyes briefly developing an unnatural shine.</i>"))
 	var/text = tgui_input_text(user, "What would you like to say?", "Commune", "", MAX_MESSAGE_LEN, TRUE)
-	text = sanitize(text)
 	if(!text)
 		return
 	text = formalize_text(text)
