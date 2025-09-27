@@ -80,6 +80,11 @@
 	spawnpoints = list("Solfrig_XO")
 	max_count = 1
 
+	outfit = /obj/outfit/admin/Solfrig_XO
+	possible_species = list(SPECIES_HUMAN)
+	allow_appearance_change = APPEARANCE_PLASTICSURGERY
+
+
 	assigned_role = "Solarian Frigate Executive Officer"
 	special_role = "Solarian Frigate Executive Officer"
 
