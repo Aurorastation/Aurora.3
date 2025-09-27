@@ -78,101 +78,101 @@
 
 		if("stats" in scanner)
 			data["scan_stats"] = TRUE
-			seed_type["endurance"] = seed.get_trait(TRAIT_ENDURANCE)
-			seed_type["yield"] = seed.get_trait(TRAIT_YIELD)
-			seed_type["maturation"] = seed.get_trait(TRAIT_MATURATION)
-			seed_type["production"] = seed.get_trait(TRAIT_PRODUCTION)
-			seed_type["potency"] = seed.get_trait(TRAIT_POTENCY)
-			if(seed.get_trait(TRAIT_HARVEST_REPEAT))
+			seed_type["endurance"] = GET_SEED_TRAIT(seed, TRAIT_ENDURANCE)
+			seed_type["yield"] = GET_SEED_TRAIT(seed, TRAIT_YIELD)
+			seed_type["maturation"] = GET_SEED_TRAIT(seed, TRAIT_MATURATION)
+			seed_type["production"] = GET_SEED_TRAIT(seed, TRAIT_PRODUCTION)
+			seed_type["potency"] = GET_SEED_TRAIT(seed, TRAIT_POTENCY)
+			if(GET_SEED_TRAIT(seed, TRAIT_HARVEST_REPEAT))
 				seed_type["harvest"] = "multiple"
 			else
 				seed_type["harvest"] = "single"
 
 		if("temperature" in scanner)
 			data["scan_temperature"] = TRUE
-			seed_type["ideal_heat"] = "[seed.get_trait(TRAIT_IDEAL_HEAT)] K"
+			seed_type["ideal_heat"] = "[GET_SEED_TRAIT(seed, TRAIT_IDEAL_HEAT)] K"
 
 		if("light" in scanner)
 			data["scan_light"] = TRUE
-			seed_type["ideal_light"] = "[seed.get_trait(TRAIT_IDEAL_LIGHT)] L"
+			seed_type["ideal_light"] = "[GET_SEED_TRAIT(seed, TRAIT_IDEAL_LIGHT)] L"
 
 		if("soil" in scanner)
 			data["scan_soil"] = TRUE
-			if(seed.get_trait(TRAIT_REQUIRES_NUTRIENTS))
-				if(seed.get_trait(TRAIT_NUTRIENT_CONSUMPTION) < 0.05)
+			if(GET_SEED_TRAIT(seed, TRAIT_REQUIRES_NUTRIENTS))
+				if(GET_SEED_TRAIT(seed, TRAIT_NUTRIENT_CONSUMPTION) < 0.05)
 					seed_type["nutrient_consumption"] = "Low"
-				else if(seed.get_trait(TRAIT_NUTRIENT_CONSUMPTION) > 0.2)
+				else if(GET_SEED_TRAIT(seed, TRAIT_NUTRIENT_CONSUMPTION) > 0.2)
 					seed_type["nutrient_consumption"] = "High"
 				else
 					seed_type["nutrient_consumption"] = "Average"
 			else
 				seed_type["nutrient_consumption"] = "No"
 
-			if(seed.get_trait(TRAIT_REQUIRES_WATER))
-				if(seed.get_trait(TRAIT_WATER_CONSUMPTION) < 1)
+			if(GET_SEED_TRAIT(seed, TRAIT_REQUIRES_WATER))
+				if(GET_SEED_TRAIT(seed, TRAIT_WATER_CONSUMPTION) < 1)
 					seed_type["water_consumption"] = "Low"
-				else if(seed.get_trait(TRAIT_WATER_CONSUMPTION) > 5)
+				else if(GET_SEED_TRAIT(seed, TRAIT_WATER_CONSUMPTION) > 5)
 					seed_type["water_consumption"] = "High"
 				else
 					seed_type["water_consumption"] =  "Average"
 			else
 				seed_type["water_consumption"] = "No"
 
-		switch(seed.get_trait(TRAIT_CARNIVOROUS))
+		switch(GET_SEED_TRAIT(seed, TRAIT_CARNIVOROUS))
 			if(1)
 				traits += "CARN"
 			if(2)
 				traits	+= "CARN (!)"
 
-		switch(seed.get_trait(TRAIT_SPREAD))
+		switch(GET_SEED_TRAIT(seed, TRAIT_SPREAD))
 			if(1)
 				traits += "VINE"
 			if(2)
 				traits	+= "VINE (!)"
 
 		if ("pressure" in scanner)
-			if(seed.get_trait(TRAIT_LOWKPA_TOLERANCE) < 20)
+			if(GET_SEED_TRAIT(seed, TRAIT_LOWKPA_TOLERANCE) < 20)
 				traits += "LP"
-			if(seed.get_trait(TRAIT_HIGHKPA_TOLERANCE) > 220)
+			if(GET_SEED_TRAIT(seed, TRAIT_HIGHKPA_TOLERANCE) > 220)
 				traits += "HP"
 
 		if ("temperature" in scanner)
-			if(seed.get_trait(TRAIT_HEAT_TOLERANCE) > 30)
+			if(GET_SEED_TRAIT(seed, TRAIT_HEAT_TOLERANCE) > 30)
 				traits += "TEMRES"
-			else if(seed.get_trait(TRAIT_HEAT_TOLERANCE) < 10)
+			else if(GET_SEED_TRAIT(seed, TRAIT_HEAT_TOLERANCE) < 10)
 				traits += "TEMSEN"
 
 		if ("light" in scanner)
-			if(seed.get_trait(TRAIT_LIGHT_TOLERANCE) > 10)
+			if(GET_SEED_TRAIT(seed, TRAIT_LIGHT_TOLERANCE) > 10)
 				traits += "LIGRES"
-			else if(seed.get_trait(TRAIT_LIGHT_TOLERANCE) < 3)
+			else if(GET_SEED_TRAIT(seed, TRAIT_LIGHT_TOLERANCE) < 3)
 				traits += "LIGSEN"
 
-		if(seed.get_trait(TRAIT_TOXINS_TOLERANCE) < 3)
+		if(GET_SEED_TRAIT(seed, TRAIT_TOXINS_TOLERANCE) < 3)
 			traits += "TOXSEN"
-		else if(seed.get_trait(TRAIT_TOXINS_TOLERANCE) > 6)
+		else if(GET_SEED_TRAIT(seed, TRAIT_TOXINS_TOLERANCE) > 6)
 			traits += "TOXRES"
 
-		if(seed.get_trait(TRAIT_PEST_TOLERANCE) < 3)
+		if(GET_SEED_TRAIT(seed, TRAIT_PEST_TOLERANCE) < 3)
 			traits += "PESTSEN"
-		else if(seed.get_trait(TRAIT_PEST_TOLERANCE) > 6)
+		else if(GET_SEED_TRAIT(seed, TRAIT_PEST_TOLERANCE) > 6)
 			traits += "PESTRES"
 
-		if(seed.get_trait(TRAIT_WEED_TOLERANCE) < 3)
+		if(GET_SEED_TRAIT(seed, TRAIT_WEED_TOLERANCE) < 3)
 			traits += "WEEDSEN"
-		else if(seed.get_trait(TRAIT_WEED_TOLERANCE) > 6)
+		else if(GET_SEED_TRAIT(seed, TRAIT_WEED_TOLERANCE) > 6)
 			traits += "WEEDRES"
 
-		if(seed.get_trait(TRAIT_PARASITE))
+		if(GET_SEED_TRAIT(seed, TRAIT_PARASITE))
 			traits += "PAR"
 
 		if("temperature" in scanner)
-			if(seed.get_trait(TRAIT_ALTER_TEMP) > 0)
+			if(GET_SEED_TRAIT(seed, TRAIT_ALTER_TEMP) > 0)
 				traits += "TEMP+"
-			if(seed.get_trait(TRAIT_ALTER_TEMP) < 0)
+			if(GET_SEED_TRAIT(seed, TRAIT_ALTER_TEMP) < 0)
 				traits += "TEMP-"
 
-		if(seed.get_trait(TRAIT_BIOLUM))
+		if(GET_SEED_TRAIT(seed, TRAIT_BIOLUM))
 			traits += "LUM"
 
 		seed_type["amount"] = S.amount

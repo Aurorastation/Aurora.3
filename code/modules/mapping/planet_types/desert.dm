@@ -81,15 +81,15 @@
 /obj/effect/overmap/visitable/sector/exoplanet/desert/adapt_seed(var/datum/seed/S)
 	..()
 	if(prob(90))
-		S.set_trait(TRAIT_REQUIRES_WATER,0)
+		SET_SEED_TRAIT(S, TRAIT_REQUIRES_WATER, 0)
 	else
-		S.set_trait(TRAIT_REQUIRES_WATER,1)
-		S.set_trait(TRAIT_WATER_CONSUMPTION,1)
+		SET_SEED_TRAIT(S, TRAIT_REQUIRES_WATER, 1)
+		SET_SEED_TRAIT(S, TRAIT_WATER_CONSUMPTION, 1)
 	if(prob(75))
-		S.set_trait(TRAIT_STINGS,1)
+		SET_SEED_TRAIT(S, TRAIT_STINGS, 1)
 	if(prob(75))
-		S.set_trait(TRAIT_CARNIVOROUS,2)
-	S.set_trait(TRAIT_SPREAD,0)
+		SET_SEED_TRAIT(S, TRAIT_CARNIVOROUS, 2)
+	SET_SEED_TRAIT(S, TRAIT_SPREAD, 0)
 
 /obj/structure/quicksand
 	name = "sand"

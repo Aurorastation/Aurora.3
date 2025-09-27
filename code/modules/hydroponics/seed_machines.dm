@@ -86,7 +86,7 @@
 			to_chat(user, "There is already a seed loaded.")
 			return
 		var/obj/item/seeds/S = attacking_item
-		if(S.seed && S.seed.get_trait(TRAIT_IMMUTABLE) > 0)
+		if(S.seed && S.GET_SEED_TRAIT(seed, TRAIT_IMMUTABLE) > 0)
 			to_chat(user, "That seed is not compatible with our genetics technology.")
 		else
 			user.drop_from_inventory(attacking_item,src)

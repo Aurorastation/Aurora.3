@@ -11,16 +11,16 @@
 
 /datum/seed/chili/setup_traits()
 	..()
-	set_trait(TRAIT_HARVEST_REPEAT,1)
-	set_trait(TRAIT_MATURATION,5)
-	set_trait(TRAIT_PRODUCTION,5)
-	set_trait(TRAIT_YIELD,4)
-	set_trait(TRAIT_POTENCY,20)
-	set_trait(TRAIT_PRODUCT_ICON,"chili")
-	set_trait(TRAIT_PRODUCT_COLOUR,"#ED3300")
-	set_trait(TRAIT_PLANT_ICON,"bush2")
-	set_trait(TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_HIGH)
-	set_trait(TRAIT_IDEAL_HEAT, IDEAL_HEAT_TROPICAL)
+	SET_SEED_TRAIT(src, TRAIT_HARVEST_REPEAT, 1)
+	SET_SEED_TRAIT(src, TRAIT_MATURATION, 5)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCTION, 5)
+	SET_SEED_TRAIT(src, TRAIT_YIELD, 4)
+	SET_SEED_TRAIT(src, TRAIT_POTENCY, 20)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_ICON, "chili")
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#ED3300")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_ICON, "bush2")
+	SET_SEED_TRAIT(src, TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_HIGH)
+	SET_SEED_TRAIT(src, TRAIT_IDEAL_HEAT, IDEAL_HEAT_TROPICAL)
 
 /obj/item/seeds/chiliseed
 	seed_type = "chili"
@@ -35,9 +35,9 @@
 
 /datum/seed/chili/ice/setup_traits()
 	..()
-	set_trait(TRAIT_MATURATION,4)
-	set_trait(TRAIT_PRODUCTION,4)
-	set_trait(TRAIT_PRODUCT_COLOUR,"#00EDC6")
+	SET_SEED_TRAIT(src, TRAIT_MATURATION, 4)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCTION, 4)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#00EDC6")
 
 /obj/item/seeds/icepepperseed
 	seed_type = "icechili"
@@ -52,18 +52,18 @@
 
 /datum/seed/bellpepper/setup_traits()
 	..()
-	set_trait(TRAIT_HARVEST_REPEAT,1)
-	set_trait(TRAIT_MATURATION,4)
-	set_trait(TRAIT_PRODUCTION,5)
-	set_trait(TRAIT_YIELD,4)
-	set_trait(TRAIT_POTENCY,5)
-	set_trait(TRAIT_PRODUCT_ICON,"pepper")
-	set_trait(TRAIT_PRODUCT_COLOUR,"#ff922d")
-	set_trait(TRAIT_PLANT_COLOUR,"#35d65d")
-	set_trait(TRAIT_PLANT_ICON,"bush2")
-	set_trait(TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_HIGH)
-	set_trait(TRAIT_IDEAL_HEAT, IDEAL_HEAT_TROPICAL)
-	set_trait(TRAIT_WATER_CONSUMPTION, 5)
+	SET_SEED_TRAIT(src, TRAIT_HARVEST_REPEAT, 1)
+	SET_SEED_TRAIT(src, TRAIT_MATURATION, 4)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCTION, 5)
+	SET_SEED_TRAIT(src, TRAIT_YIELD, 4)
+	SET_SEED_TRAIT(src, TRAIT_POTENCY, 5)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_ICON, "pepper")
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#ff922d")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_COLOUR, "#35d65d")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_ICON, "bush2")
+	SET_SEED_TRAIT(src, TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_HIGH)
+	SET_SEED_TRAIT(src, TRAIT_IDEAL_HEAT, IDEAL_HEAT_TROPICAL)
+	SET_SEED_TRAIT(src, TRAIT_WATER_CONSUMPTION, 5)
 
 /obj/item/seeds/bellpepperseed
 	seed_type = "bellpepper"
@@ -81,15 +81,15 @@
 
 /datum/seed/nettle/setup_traits()
 	..()
-	set_trait(TRAIT_HARVEST_REPEAT,1)
-	set_trait(TRAIT_MATURATION,6)
-	set_trait(TRAIT_PRODUCTION,6)
-	set_trait(TRAIT_YIELD,4)
-	set_trait(TRAIT_POTENCY,10)
-	set_trait(TRAIT_STINGS,1)
-	set_trait(TRAIT_PLANT_ICON,"bush5")
-	set_trait(TRAIT_PRODUCT_ICON,"nettles")
-	set_trait(TRAIT_PRODUCT_COLOUR,"#728A54")
+	SET_SEED_TRAIT(src, TRAIT_HARVEST_REPEAT, 1)
+	SET_SEED_TRAIT(src, TRAIT_MATURATION, 6)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCTION, 6)
+	SET_SEED_TRAIT(src, TRAIT_YIELD, 4)
+	SET_SEED_TRAIT(src, TRAIT_POTENCY, 10)
+	SET_SEED_TRAIT(src, TRAIT_STINGS, 1)
+	SET_SEED_TRAIT(src, TRAIT_PLANT_ICON, "bush5")
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_ICON, "nettles")
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#728A54")
 
 /obj/item/seeds/nettleseed
 	seed_type = "nettle"
@@ -104,10 +104,10 @@
 
 /datum/seed/nettle/death/setup_traits()
 	..()
-	set_trait(TRAIT_MATURATION,8)
-	set_trait(TRAIT_YIELD,2)
-	set_trait(TRAIT_PRODUCT_COLOUR,"#8C5030")
-	set_trait(TRAIT_PLANT_COLOUR,"#634941")
+	SET_SEED_TRAIT(src, TRAIT_MATURATION, 8)
+	SET_SEED_TRAIT(src, TRAIT_YIELD, 2)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#8C5030")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_COLOUR, "#634941")
 
 /obj/item/seeds/deathnettleseed
 	seed_type = "deathnettle"
@@ -125,16 +125,16 @@
 
 /datum/seed/eggplant/setup_traits()
 	..()
-	set_trait(TRAIT_HARVEST_REPEAT,1)
-	set_trait(TRAIT_MATURATION,6)
-	set_trait(TRAIT_PRODUCTION,6)
-	set_trait(TRAIT_YIELD,2)
-	set_trait(TRAIT_POTENCY,20)
-	set_trait(TRAIT_PRODUCT_ICON,"eggplant")
-	set_trait(TRAIT_PRODUCT_COLOUR,"#892694")
-	set_trait(TRAIT_PLANT_ICON,"bush4")
-	set_trait(TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_HIGH)
-	set_trait(TRAIT_IDEAL_HEAT, IDEAL_HEAT_TROPICAL)
+	SET_SEED_TRAIT(src, TRAIT_HARVEST_REPEAT, 1)
+	SET_SEED_TRAIT(src, TRAIT_MATURATION, 6)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCTION, 6)
+	SET_SEED_TRAIT(src, TRAIT_YIELD, 2)
+	SET_SEED_TRAIT(src, TRAIT_POTENCY, 20)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_ICON, "eggplant")
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#892694")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_ICON, "bush4")
+	SET_SEED_TRAIT(src, TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_HIGH)
+	SET_SEED_TRAIT(src, TRAIT_IDEAL_HEAT, IDEAL_HEAT_TROPICAL)
 
 /obj/item/seeds/eggplantseed
 	seed_type = "eggplant"
@@ -148,16 +148,16 @@
 
 /datum/seed/realeggplant/setup_traits()
 	..()
-	set_trait(TRAIT_HARVEST_REPEAT,1)
-	set_trait(TRAIT_MATURATION,4)
-	set_trait(TRAIT_PRODUCTION,5)
-	set_trait(TRAIT_YIELD,1)
-	set_trait(TRAIT_POTENCY,40)
-	set_trait(TRAIT_PRODUCT_ICON,"eggplant")
-	set_trait(TRAIT_PRODUCT_COLOUR,"#892694")
-	set_trait(TRAIT_PLANT_ICON,"bush4")
-	set_trait(TRAIT_IDEAL_HEAT, 298)
-	set_trait(TRAIT_IDEAL_LIGHT, 7)
+	SET_SEED_TRAIT(src, TRAIT_HARVEST_REPEAT, 1)
+	SET_SEED_TRAIT(src, TRAIT_MATURATION, 4)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCTION, 5)
+	SET_SEED_TRAIT(src, TRAIT_YIELD, 1)
+	SET_SEED_TRAIT(src, TRAIT_POTENCY, 40)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_ICON, "eggplant")
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#892694")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_ICON, "bush4")
+	SET_SEED_TRAIT(src, TRAIT_IDEAL_HEAT, 298)
+	SET_SEED_TRAIT(src, TRAIT_IDEAL_LIGHT, 7)
 
 ///////////////
 //  Legumes  //
@@ -171,16 +171,16 @@
 
 /datum/seed/peanuts/setup_traits()
 	..()
-	set_trait(TRAIT_HARVEST_REPEAT,1)
-	set_trait(TRAIT_MATURATION,6)
-	set_trait(TRAIT_PRODUCTION,6)
-	set_trait(TRAIT_YIELD,6)
-	set_trait(TRAIT_POTENCY,10)
-	set_trait(TRAIT_PRODUCT_ICON,"nuts")
-	set_trait(TRAIT_PRODUCT_COLOUR,"#F2B369")
-	set_trait(TRAIT_PLANT_ICON,"bush2")
-	set_trait(TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_HIGH)
-	set_trait(TRAIT_IDEAL_HEAT, IDEAL_HEAT_TROPICAL)
+	SET_SEED_TRAIT(src, TRAIT_HARVEST_REPEAT, 1)
+	SET_SEED_TRAIT(src, TRAIT_MATURATION, 6)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCTION, 6)
+	SET_SEED_TRAIT(src, TRAIT_YIELD, 6)
+	SET_SEED_TRAIT(src, TRAIT_POTENCY, 10)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_ICON, "nuts")
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#F2B369")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_ICON, "bush2")
+	SET_SEED_TRAIT(src, TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_HIGH)
+	SET_SEED_TRAIT(src, TRAIT_IDEAL_HEAT, IDEAL_HEAT_TROPICAL)
 
 /obj/item/seeds/peanutseed
 	seed_type = "peanut"
@@ -194,16 +194,16 @@
 
 /datum/seed/soybean/setup_traits()
 	..()
-	set_trait(TRAIT_HARVEST_REPEAT,1)
-	set_trait(TRAIT_MATURATION,4)
-	set_trait(TRAIT_PRODUCTION,4)
-	set_trait(TRAIT_YIELD,3)
-	set_trait(TRAIT_POTENCY,5)
-	set_trait(TRAIT_PRODUCT_ICON,"bean")
-	set_trait(TRAIT_PRODUCT_COLOUR,"#EBE7C0")
-	set_trait(TRAIT_PLANT_ICON,"stalk")
-	set_trait(TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_HIGH)
-	set_trait(TRAIT_IDEAL_HEAT, IDEAL_HEAT_TROPICAL)
+	SET_SEED_TRAIT(src, TRAIT_HARVEST_REPEAT, 1)
+	SET_SEED_TRAIT(src, TRAIT_MATURATION, 4)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCTION, 4)
+	SET_SEED_TRAIT(src, TRAIT_YIELD, 3)
+	SET_SEED_TRAIT(src, TRAIT_POTENCY, 5)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_ICON, "bean")
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#EBE7C0")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_ICON, "stalk")
+	SET_SEED_TRAIT(src, TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_HIGH)
+	SET_SEED_TRAIT(src, TRAIT_IDEAL_HEAT, IDEAL_HEAT_TROPICAL)
 
 /obj/item/seeds/soyaseed
 	seed_type = "soybean"
@@ -218,14 +218,14 @@
 
 /datum/seed/chickpea/setup_traits()
 	..()
-	set_trait(TRAIT_HARVEST_REPEAT,1)
-	set_trait(TRAIT_MATURATION, 4)
-	set_trait(TRAIT_PRODUCTION, 4)
-	set_trait(TRAIT_YIELD, 3)
-	set_trait(TRAIT_POTENCY, 5)
-	set_trait(TRAIT_PRODUCT_ICON, "bean")
-	set_trait(TRAIT_PRODUCT_COLOUR, "#e0ce25")
-	set_trait(TRAIT_PLANT_ICON, "bush2")
+	SET_SEED_TRAIT(src, TRAIT_HARVEST_REPEAT, 1)
+	SET_SEED_TRAIT(src, TRAIT_MATURATION, 4)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCTION, 4)
+	SET_SEED_TRAIT(src, TRAIT_YIELD, 3)
+	SET_SEED_TRAIT(src, TRAIT_POTENCY, 5)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_ICON, "bean")
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#e0ce25")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_ICON, "bush2")
 
 /obj/item/seeds/chickpeas
 	seed_type = "chickpea"
@@ -240,14 +240,14 @@
 
 /datum/seed/peas/setup_traits()
 	..()
-	set_trait(TRAIT_HARVEST_REPEAT,1)
-	set_trait(TRAIT_MATURATION, 3)
-	set_trait(TRAIT_PRODUCTION, 3)
-	set_trait(TRAIT_YIELD, 3)
-	set_trait(TRAIT_POTENCY, 5)
-	set_trait(TRAIT_PRODUCT_ICON, "bean")
-	set_trait(TRAIT_PRODUCT_COLOUR, "#70b74a")
-	set_trait(TRAIT_PLANT_ICON, "bush2")
+	SET_SEED_TRAIT(src, TRAIT_HARVEST_REPEAT, 1)
+	SET_SEED_TRAIT(src, TRAIT_MATURATION, 3)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCTION, 3)
+	SET_SEED_TRAIT(src, TRAIT_YIELD, 3)
+	SET_SEED_TRAIT(src, TRAIT_POTENCY, 5)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_ICON, "bean")
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#70b74a")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_ICON, "bush2")
 
 /obj/item/seeds/peaseed
 	seed_type = "peas"
@@ -265,17 +265,17 @@
 
 /datum/seed/cabbage/setup_traits()
 	..()
-	set_trait(TRAIT_HARVEST_REPEAT,1)
-	set_trait(TRAIT_MATURATION,3)
-	set_trait(TRAIT_PRODUCTION,5)
-	set_trait(TRAIT_YIELD,4)
-	set_trait(TRAIT_POTENCY,10)
-	set_trait(TRAIT_PRODUCT_ICON,"cabbage")
-	set_trait(TRAIT_PRODUCT_COLOUR,"#84BD82")
-	set_trait(TRAIT_PLANT_COLOUR,"#6D9C6B")
-	set_trait(TRAIT_PLANT_ICON,"vine2")
-	set_trait(TRAIT_WATER_CONSUMPTION, 6)
-	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.15)
+	SET_SEED_TRAIT(src, TRAIT_HARVEST_REPEAT, 1)
+	SET_SEED_TRAIT(src, TRAIT_MATURATION, 3)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCTION, 5)
+	SET_SEED_TRAIT(src, TRAIT_YIELD, 4)
+	SET_SEED_TRAIT(src, TRAIT_POTENCY, 10)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_ICON, "cabbage")
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#84BD82")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_COLOUR, "#6D9C6B")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_ICON, "vine2")
+	SET_SEED_TRAIT(src, TRAIT_WATER_CONSUMPTION, 6)
+	SET_SEED_TRAIT(src, TRAIT_NUTRIENT_CONSUMPTION, 0.15)
 
 /obj/item/seeds/cabbageseed
 	seed_type = "cabbage"

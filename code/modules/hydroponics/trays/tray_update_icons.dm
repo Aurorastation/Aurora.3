@@ -16,11 +16,11 @@
 	// Updates the plant overlay.
 	if(!isnull(seed))
 
-		if(mechanical && health <= (seed.get_trait(TRAIT_ENDURANCE) / 2))
+		if(mechanical && health <= (GET_SEED_TRAIT(seed, TRAIT_ENDURANCE) / 2))
 			AddOverlays("over_lowhealth3")
 
 		if(dead)
-			var/ikey = "[seed.get_trait(TRAIT_PLANT_ICON)]-dead"
+			var/ikey = "[GET_SEED_TRAIT(seed, TRAIT_PLANT_ICON)]-dead"
 			var/image/dead_overlay = SSplants.plant_icon_cache["[ikey]"]
 			if(!dead_overlay)
 				dead_overlay = image('icons/obj/hydroponics_growing.dmi', "[ikey]")
@@ -30,13 +30,13 @@
 			if(!seed.growth_stages)
 				seed.update_growth_stages()
 			if(!seed.growth_stages)
-				to_world(SPAN_DANGER("Seed type [seed.get_trait(TRAIT_PLANT_ICON)] cannot find a growth stage value."))
+				to_world(SPAN_DANGER("Seed type [GET_SEED_TRAIT(seed, TRAIT_PLANT_ICON)] cannot find a growth stage value."))
 				return
 			var/overlay_stage = 1
-			if(age >= seed.get_trait(TRAIT_MATURATION))
+			if(age >= GET_SEED_TRAIT(seed, TRAIT_MATURATION))
 				overlay_stage = seed.growth_stages
 			else
-				var/maturation = seed.get_trait(TRAIT_MATURATION)/seed.growth_stages
+				var/maturation = GET_SEED_TRAIT(seed, TRAIT_MATURATION)/seed.growth_stages
 				if(maturation < 1)
 					maturation = 1
 				overlay_stage = maturation ? max(1,round(age/maturation)) : 1
@@ -44,12 +44,12 @@
 			AddOverlays(plant_overlay)
 
 			if(harvest && overlay_stage == seed.growth_stages)
-				var/ikey = "[seed.get_trait(TRAIT_PRODUCT_ICON)]"
-				var/image/harvest_overlay = SSplants.plant_icon_cache["product-[ikey]-[seed.get_trait(TRAIT_PLANT_COLOUR)]"]
+				var/ikey = "[GET_SEED_TRAIT(seed, TRAIT_PRODUCT_ICON)]"
+				var/image/harvest_overlay = SSplants.plant_icon_cache["product-[ikey]-[GET_SEED_TRAIT(seed, TRAIT_PLANT_COLOUR)]"]
 				if(!harvest_overlay)
 					harvest_overlay = image('icons/obj/hydroponics_products.dmi', "[ikey]")
-					harvest_overlay.color = seed.get_trait(TRAIT_PRODUCT_COLOUR)
-					SSplants.plant_icon_cache["product-[ikey]-[seed.get_trait(TRAIT_PRODUCT_COLOUR)]"] = harvest_overlay
+					harvest_overlay.color = GET_SEED_TRAIT(seed, TRAIT_PRODUCT_COLOUR)
+					SSplants.plant_icon_cache["product-[ikey]-[GET_SEED_TRAIT(seed, TRAIT_PRODUCT_COLOUR)]"] = harvest_overlay
 				AddOverlays(harvest_overlay)
 
 	//Draw the cover.
@@ -70,7 +70,7 @@
 			AddOverlays("stasis")
 
 	// Apply density and opacity if a large plant is growing in the plot. Exempt mechanical trays from density alterations, since they're always dense.
-	if(seed && seed.get_trait(TRAIT_LARGE))
+	if(seed && GET_SEED_TRAIT(seed, TRAIT_LARGE))
 		if(!mechanical)
 			density = TRUE
 		opacity = TRUE
@@ -80,16 +80,16 @@
 		opacity = FALSE
 
 	// Update bioluminescence.
-	if(seed && seed.get_trait(TRAIT_BIOLUM))
+	if(seed && GET_SEED_TRAIT(seed, TRAIT_BIOLUM))
 		var/pwr
-		if(seed.get_trait(TRAIT_BIOLUM_PWR) == 0)
-			pwr = seed.get_trait(TRAIT_BIOLUM)
+		if(GET_SEED_TRAIT(seed, TRAIT_BIOLUM_PWR) == 0)
+			pwr = GET_SEED_TRAIT(seed, TRAIT_BIOLUM)
 		else
-			pwr = seed.get_trait(TRAIT_BIOLUM_PWR)
+			pwr = GET_SEED_TRAIT(seed, TRAIT_BIOLUM_PWR)
 		var/clr
-		if(seed.get_trait(TRAIT_BIOLUM_COLOUR))
-			clr = seed.get_trait(TRAIT_BIOLUM_COLOUR)
-		set_light(seed.get_trait(TRAIT_POTENCY)/10, pwr, clr)
+		if(GET_SEED_TRAIT(seed, TRAIT_BIOLUM_COLOUR))
+			clr = GET_SEED_TRAIT(seed, TRAIT_BIOLUM_COLOUR)
+		set_light(GET_SEED_TRAIT(seed, TRAIT_POTENCY)/10, pwr, clr)
 		return
 
 	if (last_biolum)

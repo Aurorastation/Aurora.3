@@ -56,7 +56,7 @@
 		plant = new(T,seed)
 		plant.dir = src.dir
 		plant.transform = src.transform
-		plant.age = seed.get_trait(TRAIT_MATURATION)-1
+		plant.age = GET_SEED_TRAIT(seed, TRAIT_MATURATION)-1
 		plant.update_icon()
 		if(growth_type==0) //Vines do not become invisible.
 			set_invisibility(INVISIBILITY_MAXIMUM)
@@ -65,7 +65,7 @@
 
 	if(buckled)
 		seed.do_sting(buckled,src)
-		if(seed.get_trait(TRAIT_CARNIVOROUS))
+		if(GET_SEED_TRAIT(seed, TRAIT_CARNIVOROUS))
 			seed.do_thorns(buckled,src)
 
 	if(world.time >= last_tick+NEIGHBOR_REFRESH_TIME)
@@ -75,16 +75,16 @@
 	if(sampled)
 		//Should be between 2-7 for given the default range of values for TRAIT_PRODUCTION
 		var/chance
-		if(!seed.get_trait(TRAIT_PRODUCTION))
+		if(!GET_SEED_TRAIT(seed, TRAIT_PRODUCTION))
 			chance = 1
 		else
-			chance = max(1, round(30/seed.get_trait(TRAIT_PRODUCTION)))
+			chance = max(1, round(30/GET_SEED_TRAIT(seed, TRAIT_PRODUCTION)))
 		if(prob(chance))
 			sampled = 0
 
 	if(is_mature() && neighbors.len && prob(spread_chance))
 		//spread to 1-3 adjacent turfs depending on yield trait.
-		var/max_spread = between(1, round(seed.get_trait(TRAIT_YIELD)*3/14), 3)
+		var/max_spread = between(1, round(GET_SEED_TRAIT(seed, TRAIT_YIELD)*3/14), 3)
 
 		do_spread(spread_chance, max_spread)
 
