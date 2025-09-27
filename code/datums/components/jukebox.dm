@@ -49,24 +49,28 @@
 
 	parent = new_parent
 
-	if(length(parent_cartridges))
-		cartridges = parent_cartridges
-
-	if(isnull(parent_max_cartridges))
-		max_cartridges = parent_max_cartridges
-
 	if(isnull(parent_sound_range))
 		sound_range = world.view
 		var/list/worldviewsize = getviewsize(sound_range)
 		x_cutoff = ceil(worldviewsize[1] * 1.25 / 2) // * 1.25 gives us some extra range to fade out with
 		z_cutoff = ceil(worldviewsize[2] * 1.25 / 2) // and / 2 is because world view is the whole screen, and we want the centre
 
+	if(length(parent_cartridges))
+		cartridges = parent_cartridges
+
+	if(isnull(parent_max_cartridges))
+		max_cartridges = parent_max_cartridges
+
+	if(parent_locked)
+		locked = TRUE
+
 	if(requires_range_check)
 		var/static/list/connections = list(COMSIG_ATOM_ENTERED = PROC_REF(check_new_listener))
 		AddComponent(/datum/component/connect_range, parent, connections, max(x_cutoff, z_cutoff))
 
 	for (var/obj/item/music_cartridge/cartridge in cartridges)
-	playlist += add_songs(cartridges)
+		LOG_DEBUG("/datum/jukebox/New(), first cartridge is [cartridge]")
+		playlist += add_songs(cartridge)
 	if(length(playlist))
 		selection = playlist[pick(playlist)]
 
@@ -94,7 +98,7 @@
  * * An assoc list of track names to /datum/track. Track names must be unique.
  */
 /datum/jukebox/proc/load_cartridge(obj/item/music_cartridge/cartridge, mob/user)
-	to_chat(world, "/datum/jukebox/proc/load_cartridge([cartridge],[user])")
+	LOG_DEBUG("/datum/jukebox/proc/load_cartridge([cartridge],[user])")
 	if(cartridge == user.get_active_hand())
 		if((length(cartridges) + 1) >= max_cartridges)
 			to_chat(user, SPAN_WARNING("\The [parent] cannot hold any more cartridges."))
@@ -107,14 +111,15 @@
 
 /// Adds songs on the provided cartridge to our current playlist.
 /datum/jukebox/proc/add_songs(obj/item/music_cartridge/cartridge)
-	to_chat(world, "/datum/jukebox/proc/add_songs([cartridge])")
+	LOG_DEBUG("/datum/jukebox/proc/add_songs([cartridge])")
 	var/static/list/config_songs
 	if(isnull(config_songs))
 		config_songs = list()
-		to_chat(world,"about to start adding tracks")
-		for(var/datum/track/track in cartridge.tracks)
-			to_chat("adding track [track]")
-			config_songs |= track
+		LOG_DEBUG("about to start adding tracks from cartridge [cartridge]")
+		if(cartridge.tracks)
+			for(var/datum/track/track in cartridge.tracks)
+				LOG_DEBUG("adding track [track.song_name]")
+				config_songs += track
 		if(!length(config_songs))
 			var/datum/track/default/default_track = new()
 			config_songs[default_track.song_name] = default_track
@@ -383,21 +388,18 @@
 /// Track datums, used in jukeboxes
 /datum/track
 	/// Readable name, used in the jukebox menu
-	var/song_name = "generic"
+	var/song_name
 	/// Filepath of the song
-	var/song_path = null
+	var/song_path
 	/// How long is the song in deciseconds. Default is an arbitrary low value, should be overwritten.
-	var/song_length = 10
+	var/song_length
 	/// What cartridge (if any) this song came from. Don't hate me okay? This works.
-	var/source = null
-	/// How long is a beat of the song in decisconds
-	/// Used to determine time between effects when played
-	var/song_beat = 0
+	var/source
 
 // Default track supplied for testing and also because it's a banger
 /datum/track/default
-	song_path = 'sound/music/ingame/ss13/title3.ogg'
 	song_name = "Tintin on the Moon"
+	song_path = 'sound/music/ingame/ss13/title3.ogg'
 	song_length = 3 MINUTES + 52 SECONDS
 
 /obj/item/music_cartridge

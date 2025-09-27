@@ -132,9 +132,6 @@
 	name = "Powernet Sensor - Master Grid";
 	name_tag = "Master"
 	},
-/obj/machinery/media/jukebox/calliope{
-	anchored = 1
-	},
 /turf/simulated/floor/tiled,
 /area/engineering/gravity_gen)
 "as" = (
@@ -376,9 +373,6 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/media/jukebox/classic{
-	anchored = 1
-	},
 /turf/simulated/floor/tiled,
 /area/engineering/gravity_gen)
 "aT" = (
@@ -457,7 +451,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/media/jukebox/gramophone{
+/obj/machinery/media/jukebox/classic{
 	anchored = 1
 	},
 /turf/simulated/floor/tiled,
@@ -533,9 +527,6 @@
 "bn" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
-	},
-/obj/machinery/media/jukebox/phonograph{
-	anchored = 1
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/gravity_gen)

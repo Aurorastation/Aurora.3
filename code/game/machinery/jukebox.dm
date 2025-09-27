@@ -18,6 +18,121 @@
 	/// The actual music player datum that handles the music
 	var/datum/jukebox/music_player
 
+/obj/machinery/media/jukebox/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(music_player.active_song_sound)
+		. += "Now playing: [music_player.selection.song_name]"
+
+// Your classic 50s diner-style jukebox.
+/obj/machinery/media/jukebox/classic
+	name = "jukebox"
+	desc = "A classic music player."
+
+/obj/machinery/media/jukebox/classic/Initialize(mapload)
+	. = ..(mapload)
+	var/starting_cartridges = list()
+	starting_cartridges += new/obj/item/music_cartridge/ss13
+	music_player = new(src, parent_cartridges = starting_cartridges, parent_max_cartridges = 3, parent_locked = TRUE)
+
+/obj/machinery/media/jukebox/classic/update_icon()
+	ClearOverlays()
+	if(stat & (NOPOWER|BROKEN) || !anchored)
+		if(stat & BROKEN)
+			icon_state = "[state_base]-broken"
+		else
+			icon_state = "[state_base]-nopower"
+		return
+	icon_state = state_base
+	if(!isnull(song_timerid))
+		if(emagged)
+			AddOverlays("[state_base]-emagged")
+		else
+			AddOverlays("[state_base]-running")
+
+// Old-timey phonograph.
+/obj/machinery/media/jukebox/phonograph
+	name = "phonograph"
+	desc = "Play that funky music..."
+	icon = 'icons/obj/jukebox.dmi'
+	icon_state = "record"
+	state_base = "record"
+	anchored = 0
+
+/obj/machinery/media/jukebox/phonograph/Initialize(mapload)
+	. = ..(mapload)
+	var/starting_cartridges = list()
+	starting_cartridges += new/obj/item/music_cartridge/adhomai_swing
+	music_player = new(src, parent_cartridges = starting_cartridges, parent_max_cartridges = 1, parent_locked = TRUE)
+
+/obj/machinery/media/jukebox/phonograph/update_icon()
+	ClearOverlays()
+	icon_state = state_base
+	if(!isnull(song_timerid))
+		AddOverlays("[state_base]-running")
+
+/obj/machinery/media/jukebox/audioconsole
+	name = "audioconsole"
+	desc = "An Idris-designed jukebox for the 25th century. Unfortunately, someone made a mistake setting this one up. It isn't connected to the extranet and only plays the demo music it was pre-programmed with."
+	icon = 'icons/obj/audioconsole.dmi'
+	icon_state = "audioconsole-nopower"
+	state_base = "audioconsole"
+	anchored = FALSE
+
+/obj/machinery/media/jukebox/audioconsole/Initialize(mapload)
+	. = ..(mapload)
+	var/starting_cartridges = list()
+	starting_cartridges += new/obj/item/music_cartridge/audioconsole
+	music_player = new(src, parent_cartridges = starting_cartridges, parent_max_cartridges = 3)
+
+/obj/machinery/media/jukebox/audioconsole/update_icon()
+	ClearOverlays()
+	icon_state = state_base
+	if(!isnull(song_timerid))
+		AddOverlays("[state_base]-running")
+
+/obj/machinery/media/jukebox/audioconsole/wall
+	icon = 'icons/obj/audioconsole_wall.dmi'
+	density = FALSE
+	anchored = TRUE
+
+/obj/machinery/media/jukebox/gramophone
+	name = "gramophone"
+	desc = "Play that vintage music!"
+	icon = 'icons/obj/jukebox.dmi'
+	icon_state = "gramophone"
+	state_base = "gramophone"
+	anchored = 0
+
+
+/obj/machinery/media/jukebox/gramophone/Initialize(mapload)
+	. = ..(mapload)
+	var/starting_cartridges = list()
+	starting_cartridges += new/obj/item/music_cartridge/adhomai_swing
+	music_player = new(src, parent_cartridges = starting_cartridges,  parent_max_cartridges = 1, parent_locked = TRUE)
+
+/obj/machinery/media/jukebox/gramophone/update_icon()
+	ClearOverlays()
+	icon_state = state_base
+	if(!isnull(song_timerid))
+		AddOverlays("[state_base]-running")
+
+/obj/machinery/media/jukebox/calliope
+	name = "calliope"
+	desc = "A steam powered music instrument. This one is painted in bright colors."
+	icon = 'maps/away/ships/tajara/circus/circus_sprites.dmi'
+	icon_state = "calliope"
+	state_base = "calliope"
+	anchored = FALSE
+
+/obj/machinery/media/jukebox/calliope/Initialize(mapload)
+	. = ..(mapload)
+	var/starting_cartridges = list()
+	starting_cartridges += new/obj/item/music_cartridge/adhomai_swing
+	music_player = new(src, parent_cartridges = starting_cartridges, parent_max_cartridges = 2)
+
+/obj/machinery/media/jukebox/calliope/update_icon()
+	return
+
 /obj/machinery/media/jukebox/power_change()
 	..()
 	if(!anchored)
@@ -31,11 +146,6 @@
 	stop_music()
 	QDEL_NULL(music_player)
 	return ..()
-
-/obj/machinery/media/jukebox/feedback_hints(mob/user, distance, is_adjacent)
-	. += ..()
-	if(music_player.active_song_sound)
-		. += "Now playing: [music_player.selection.song_name]"
 
 /obj/machinery/media/jukebox/attack_hand(mob/user as mob)
 	if(!anchored)
@@ -173,112 +283,3 @@
 
 	new /obj/effect/decal/cleanable/blood/oil(src.loc)
 	qdel(src)
-
-// Your classic 50s diner-style jukebox.
-/obj/machinery/media/jukebox/classic
-	name = "jukebox"
-	desc = "A classic music player."
-
-/obj/machinery/media/jukebox/classic/Initialize(mapload)
-	. = ..(mapload)
-	var/starting_cartridges = list()
-	starting_cartridges |= new/obj/item/music_cartridge/ss13/demo
-	music_player = new(src, parent_cartridges = starting_cartridges, parent_max_cartridges = 3, parent_locked = TRUE)
-
-/obj/machinery/media/jukebox/classic/update_icon()
-	ClearOverlays()
-	if(stat & (NOPOWER|BROKEN) || !anchored)
-		if(stat & BROKEN)
-			icon_state = "[state_base]-broken"
-		else
-			icon_state = "[state_base]-nopower"
-		return
-	icon_state = state_base
-	if(!isnull(song_timerid))
-		if(emagged)
-			AddOverlays("[state_base]-emagged")
-		else
-			AddOverlays("[state_base]-running")
-
-// Old-timey phonograph.
-/obj/machinery/media/jukebox/phonograph
-	name = "phonograph"
-	desc = "Play that funky music..."
-	icon = 'icons/obj/jukebox.dmi'
-	icon_state = "record"
-	state_base = "record"
-	anchored = 0
-
-/obj/machinery/media/jukebox/phonograph/Initialize(mapload)
-	. = ..(mapload)
-	var/starting_cartridges = list()
-	starting_cartridges |= new/obj/item/music_cartridge/adhomai_swing/demo
-	music_player = new(src, parent_cartridges = starting_cartridges, parent_max_cartridges = 1, parent_locked = TRUE)
-
-/obj/machinery/media/jukebox/phonograph/update_icon()
-	ClearOverlays()
-	icon_state = state_base
-	if(!isnull(song_timerid))
-		AddOverlays("[state_base]-running")
-
-/obj/machinery/media/jukebox/audioconsole
-	name = "audioconsole"
-	desc = "An Idris-designed jukebox for the 25th century. Unfortunately, someone made a mistake setting this one up. It isn't connected to the extranet and only plays the demo music it was pre-programmed with."
-	icon = 'icons/obj/audioconsole.dmi'
-	icon_state = "audioconsole-nopower"
-	state_base = "audioconsole"
-	anchored = FALSE
-
-/obj/machinery/media/jukebox/audioconsole/Initialize(mapload)
-	. = ..(mapload)
-	var/starting_cartridges = list()
-	starting_cartridges |= new/obj/item/music_cartridge/audioconsole/demo
-	music_player = new(src, parent_cartridges = starting_cartridges, parent_max_cartridges = 3)
-
-/obj/machinery/media/jukebox/audioconsole/update_icon()
-	ClearOverlays()
-	icon_state = state_base
-	if(!isnull(song_timerid))
-		AddOverlays("[state_base]-running")
-
-/obj/machinery/media/jukebox/audioconsole/wall
-	icon = 'icons/obj/audioconsole_wall.dmi'
-	density = FALSE
-	anchored = TRUE
-
-/obj/machinery/media/jukebox/gramophone
-	name = "gramophone"
-	desc = "Play that vintage music!"
-	icon = 'icons/obj/jukebox.dmi'
-	icon_state = "gramophone"
-	state_base = "gramophone"
-	anchored = 0
-
-/obj/machinery/media/jukebox/gramophone/Initialize(mapload)
-	. = ..(mapload)
-	var/starting_cartridges = list()
-	starting_cartridges |= new/obj/item/music_cartridge/adhomai_swing/demo
-	music_player = new(src, parent_cartridges = starting_cartridges, parent_max_cartridges = 1, TRUE)
-
-/obj/machinery/media/jukebox/gramophone/update_icon()
-	ClearOverlays()
-	icon_state = state_base
-	if(!isnull(song_timerid))
-		AddOverlays("[state_base]-running")
-
-/obj/machinery/media/jukebox/calliope
-	name = "calliope"
-	desc = "A steam powered music instrument. This one is painted in bright colors."
-	icon = 'maps/away/ships/tajara/circus/circus_sprites.dmi'
-	icon_state = "calliope"
-	state_base = "calliope"
-	anchored = FALSE
-
-/obj/machinery/media/jukebox/calliope/Initialize(mapload)
-	. = ..(mapload)
-	var/starting_cartridges = list()
-	starting_cartridges |= new/obj/item/music_cartridge/adhomai_swing/demo
-	music_player = new(src, parent_cartridges = starting_cartridges, parent_max_cartridges = 2)
-
-/obj/machinery/media/jukebox/calliope/update_icon()
-	return
