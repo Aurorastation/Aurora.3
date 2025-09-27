@@ -24,10 +24,10 @@
 	var/turf/T = pick_subarea_turf(pick(areaList), list(/proc/is_station_turf, /proc/not_turf_contains_dense_objects))
 	if(T)
 		var/datum/seed/seed = SSplants.create_random_seed(TRUE, SEED_NOUN_PITS)
-		seed.set_trait(TRAIT_SPREAD,2)             // So it will function properly as vines.
+		SET_SEED_TRAIT(seed, TRAIT_SPREAD, 2)             // So it will function properly as vines.
 		seed.growth_stages = VINE_GROWTH_STAGES
-		seed.set_trait(TRAIT_POTENCY,rand(potency_min, potency_max)) // 85-100 potency will help guarantee a wide spread and powerful effects.
-		seed.set_trait(TRAIT_MATURATION,rand(maturation_min, maturation_max))
+		SET_SEED_TRAIT(seed, TRAIT_POTENCY, rand(potency_min, potency_max)) // 85-100 potency will help guarantee a wide spread and powerful effects.
+		SET_SEED_TRAIT(seed, TRAIT_MATURATION, rand(maturation_min, maturation_max))
 
 		//make vine zero start off fully matured
 		var/obj/effect/plant/vine = new(T,seed)
@@ -119,8 +119,8 @@
 		return
 
 	name = seed.display_name
-	max_health = round(seed.get_trait(TRAIT_ENDURANCE)/2)
-	if(seed.get_trait(TRAIT_SPREAD) == 2)
+	max_health = round(GET_SEED_TRAIT(seed, TRAIT_ENDURANCE)/2)
+	if(GET_SEED_TRAIT(seed, TRAIT_SPREAD) == 2)
 		mouse_opacity = 2
 		max_growth = VINE_GROWTH_STAGES
 		growth_threshold = max_health/VINE_GROWTH_STAGES
@@ -134,8 +134,8 @@
 
 	can_buckle = list(/mob/living)
 
-	mature_time = world.time + seed.get_trait(TRAIT_MATURATION) + 15 //prevent vines from maturing until at least a few seconds after they've been created.
-	spread_chance = seed.get_trait(TRAIT_POTENCY)
+	mature_time = world.time + GET_SEED_TRAIT(seed, TRAIT_MATURATION) + 15 //prevent vines from maturing until at least a few seconds after they've been created.
+	spread_chance = GET_SEED_TRAIT(seed, TRAIT_POTENCY)
 	spread_distance = (growth_type ? round(spread_chance * 0.6) : round(spread_chance * 0.3))
 	update_icon()
 	return INITIALIZE_HINT_LATELOAD
@@ -167,15 +167,15 @@
 			if(EAST)
 				M.Turn(270)
 		src.transform = M
-	var/icon_colour = seed.get_trait(TRAIT_PLANT_COLOUR)
+	var/icon_colour = GET_SEED_TRAIT(seed, TRAIT_PLANT_COLOUR)
 	if(icon_colour)
 		color = icon_colour
 	// Apply colour and light from seed datum.
-	if(seed.get_trait(TRAIT_BIOLUM))
+	if(GET_SEED_TRAIT(seed, TRAIT_BIOLUM))
 		var/clr
-		if(seed.get_trait(TRAIT_BIOLUM_COLOUR))
-			clr = seed.get_trait(TRAIT_BIOLUM_COLOUR)
-		var/val = 1+round(seed.get_trait(TRAIT_POTENCY)/20)
+		if(GET_SEED_TRAIT(seed, TRAIT_BIOLUM_COLOUR))
+			clr = GET_SEED_TRAIT(seed, TRAIT_BIOLUM_COLOUR)
+		var/val = 1+round(GET_SEED_TRAIT(seed, TRAIT_POTENCY)/20)
 		if (val != last_biolum)
 			last_biolum = val
 			set_light(val, l_color = clr)
@@ -213,7 +213,7 @@
 		if(islist(seed.chems) && !isnull(seed.chems[/singleton/reagent/woodpulp]))
 			opacity = 1
 			density = 1
-	if(seed.get_trait(TRAIT_LARGE))
+	if(GET_SEED_TRAIT(seed, TRAIT_LARGE))
 		density = 1
 		opacity = 1
 	else
