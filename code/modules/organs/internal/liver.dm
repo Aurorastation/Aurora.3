@@ -175,18 +175,6 @@
 	booze_filtering_modifier = 0.5 // "Impossible to get drunk", this should make it impossible. :)
 	blackout_booze_filtering_modifier = 0.25
 
-// Dominian geneboosted liver. A significant improvement over a base human liver, but not quite to the level of Galatean bioengineering.
-/obj/item/organ/internal/liver/geneboosted_liver
-	name = "geneboosted liver"
-	desc = "A liver that has been enhanced by Imperial geneboosting to function at the level of a peak human athlete."
-	//icon = 'icons/obj/organs/bioaugs.dmi'
-	//icon_state = "boosted_liver"
-	base_filter_strength = 1.15
-	base_filter_effect = 3.5
-	toxin_critical_mass = 75
-	booze_filtering_modifier = 0.15
-	blackout_booze_filtering_modifier = 0.125
-
 /obj/item/organ/internal/liver/alien_liver
 	name = "anomalous mercurial flesh"
 	desc = "A slab of flesh made seemingly from mercury, yet with a recognizably organic shape. It is soft to the touch, pliable like skin, yet is as tough as steel."
