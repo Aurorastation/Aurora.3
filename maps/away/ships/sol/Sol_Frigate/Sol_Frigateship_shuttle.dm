@@ -1,5 +1,5 @@
 // This is a bare-bones shuttle only designed for transport, no interceptors here.
-/obj/effect/overmap/visitable/ship/landable/splf_shuttle
+/obj/effect/overmap/visitable/ship/landable/Solfrig_shuttle
 	name = "Sol Frigate Shuttle"
 	class = "SAMV"
 	desc = "The Norman-Class transport shuttle is the Destrier's smaller, and slightly faster cousin. Prmarily designed for utility transport above all else, it lacks any means to protect itself.\ Normans are usually seen in the hangars of escort warships in the Navy, and in the hands of the Solarian Navy's fag officers as a personal transport."
@@ -38,16 +38,6 @@
 	fuel_consumption = 2
 	logging_home_tag = "nav_hangar_splf"
 	defer_initialisation = TRUE
-// --------
-
-// Hangar marker
-/obj/effect/shuttle_landmark/splf_shuttle/hangar
-	name = "Shuttle Port"
-	landmark_tag = "nav_hangar_splf"
-	docking_controller = "splf_shuttle_dock"
-	base_area = /area/space
-	base_turf = /turf/space
-	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 // --------
 
 // Transit landmark
