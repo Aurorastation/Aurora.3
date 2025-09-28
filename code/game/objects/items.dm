@@ -511,7 +511,7 @@
 	if(in_storage) // Items getting moved into storages (lunchboxes, backpacks) triggers the dropped handler and requires no persistency as a result
 		SSpersistence.deregister_track(src)
 		return
-	
+
 	// Trash-like items should become only persistent when they are not dropped in an area flagged with AREA_FLAG_PREVENT_PERSISTENT_TRASH
 	var/turf/T = get_turf(src)
 	if(T)
