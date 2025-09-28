@@ -252,18 +252,21 @@
 /turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/engineering)
 "bc" = (
-/obj/machinery/access_button{
-	pixel_x = 12;
-	pixel_y = 28;
-	dir = 4;
-	req_access = list(203)
-	},
-/obj/effect/map_effect/marker/airlock/Sol_Frigate,
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/machinery/door/airlock/external/red{
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/door/airlock/external{
 	dir = 4
 	},
-/turf/simulated/floor/airless,
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 8
+	},
+/obj/machinery/access_button{
+	pixel_x = 27;
+	pixel_y = 25
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/map_effect/marker/airlock/Sol_Frigate/mid_starboard,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/tiled/dark/full,
 /area/ship/Sol_Frigate/Port_docking_port)
 "be" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -2122,20 +2125,25 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/Starboard_docking_port)
 "kj" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/manifold/hidden/black,
+/obj/effect/floor_decal/industrial/outline/service,
+/obj/machinery/light/small,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 8
 	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	pixel_y = 28;
-	pixel_x = -6
+	pixel_y = -23;
+	dir = 1;
+	pixel_x = 5
 	},
 /obj/machinery/airlock_sensor{
-	pixel_y = 28;
-	pixel_x = 6
+	pixel_y = -25;
+	pixel_x = -7
 	},
-/obj/effect/map_effect/marker/airlock/Sol_Frigate,
-/obj/machinery/light,
-/turf/simulated/floor/airless,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/map_effect/marker/airlock/Sol_Frigate/mid_starboard,
+/turf/simulated/floor,
 /area/ship/Sol_Frigate/Port_docking_port)
 "kk" = (
 /obj/machinery/door/airlock/vault{
@@ -4922,7 +4930,7 @@
 	pixel_y = 9;
 	dir = 1
 	},
-/turf/space,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/Solfrig_shuttle)
 "zd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -5365,7 +5373,7 @@
 	shuttle_tag = "solarian light interceptor"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/turf/space,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/Solfrig_shuttle)
 "Bb" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
@@ -5799,20 +5807,28 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/starboard_battery)
 "De" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/machinery/access_button{
-	pixel_x = -12;
-	pixel_y = 28;
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock/Sol_Frigate,
-/obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/machinery/door/airlock/external/red{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
 	},
-/turf/simulated/floor/airless,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/access_button{
+	pixel_x = -32;
+	pixel_y = -25;
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/Sol_Frigate/mid_starboard,
+/turf/simulated/floor/tiled/dark/full,
 /area/ship/Sol_Frigate/Port_docking_port)
 "Dj" = (
 /obj/structure/table/reinforced,
@@ -7625,6 +7641,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/brig)
+"LJ" = (
+/obj/effect/floor_decal/industrial/hatch/operations,
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
 "LK" = (
 /obj/machinery/light,
 /obj/effect/floor_decal/corner/yellow{
@@ -7778,6 +7801,9 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_mid)
+"MM" = (
+/turf/simulated/wall/shuttle/raider,
+/area/space)
 "MO" = (
 /turf/template_noop,
 /area/space)
@@ -39028,7 +39054,7 @@ mn
 mn
 mn
 mn
-mn
+PT
 mn
 mn
 mn
@@ -40821,7 +40847,7 @@ MO
 MO
 MO
 mn
-mn
+PT
 Wf
 WM
 Ow
@@ -42918,7 +42944,7 @@ ms
 Ol
 rZ
 rZ
-rZ
+UO
 rZ
 rZ
 MO
@@ -44460,7 +44486,7 @@ ms
 Ol
 rZ
 rZ
-rZ
+UO
 rZ
 rZ
 MO
@@ -46718,9 +46744,9 @@ SO
 gh
 gh
 SO
-MO
-MO
-MO
+MM
+LJ
+MM
 cA
 cA
 cA

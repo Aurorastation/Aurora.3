@@ -60,7 +60,7 @@
 	shoes = /obj/item/clothing/shoes/laceup
 	back = /obj/item/storage/backpack/satchel/leather
 	head = /obj/item/clothing/head/sol/dress/officer
-	accessory = /obj/item/clothing/accessory/sol_pin
+	accessory = /obj/item/clothing/accessory/holster/thigh
 
 	id = /obj/item/card/id/ssrm_ship
 
@@ -96,6 +96,13 @@
 	back = /obj/item/storage/backpack/satchel/leather
 	head = /obj/item/clothing/head/sol/dress
 	accessory = /obj/item/clothing/accessory/holster/thigh
+
+	id = /obj/item/card/id/ssrm_ship
+
+	l_ear = /obj/item/device/radio/headset/ship
+
+	obj/outfit/admin/Solfrig_Commander/get_id_access()
+	return list(ACCESS_SOL_SHIPS, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/Solfrig_ipc
 	short_name = "Solfrig_ipc"
