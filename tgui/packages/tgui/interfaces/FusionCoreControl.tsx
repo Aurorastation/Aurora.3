@@ -2,7 +2,7 @@ import { round } from '../../common/math';
 import { BooleanLike } from '../../common/react';
 import { capitalize } from '../../common/string';
 import { useBackend, useSharedState } from '../backend';
-import { Box, Button, Dimmer, Divider, LabeledList, NoticeBox, NumberInput, ProgressBar, Section } from '../components';
+import { Box, Button, Dimmer, Divider, Flex, LabeledList, NoticeBox, NumberInput, ProgressBar, Section } from '../components';
 import { Window } from '../layouts';
 
 export type FusionCoreData = {
@@ -16,6 +16,9 @@ type Core = {
   field: BooleanLike;
   field_strength: number;
   field_strength_max: number;
+  entropy_multiplier: number;
+  instability_multiplier: number;
+  power_multiplier: number;
   power: number;
   size: number;
   instability: number;
@@ -83,78 +86,84 @@ export const FusionCoreControl = (props, context) => {
               ) : (
                 ''
               )}
-              <Box fontSize={1.5}>
-                Field status:{' '}
-                <Box as="span" bold color={core.field ? 'good' : 'bad'}>
-                  {core.field ? 'Online' : 'Offline'}.
-                </Box>
-              </Box>
-              <Divider />
-              <LabeledList>
-                <LabeledList.Item label="Power Status">
-                  {core.power_status}
-                </LabeledList.Item>
-                <LabeledList.Item label="Field Strength">
-                  <NumberInput
-                    value={core.field_strength}
-                    unit="tesla"
-                    minValue={20}
-                    maxValue={core.field_strength_max * 100}
-                    stepPixelSize={15}
-                    onDrag={(e, value) =>
-                      act('strength', {
-                        strength: value,
-                        machine: core.ref,
-                      })
-                    }
-                  />
-                </LabeledList.Item>
-                <LabeledList.Item label="Field Size">
-                  {core.size}{' '}
-                  {core.size > 1 || core.size < 1 ? 'meters' : 'meter'}
-                </LabeledList.Item>
-                <LabeledList.Item label="Instability">
-                  {core.instability < 0 ? (
-                    <Box as="span" color="red">
-                      Core offline.
+              <Flex>
+                <Flex.Item>
+                  <Box fontSize={1.5}>
+                    Field status:{' '}
+                    <Box as="span" bold color={core.field ? 'good' : 'bad'}>
+                      {core.field ? 'Online' : 'Offline'}.
                     </Box>
-                  ) : (
-                    <ProgressBar
-                      ranges={{
-                        good: [0, 25],
-                        average: [25, 75],
-                        bad: [75, 100],
-                      }}
-                      value={core.instability}
-                      minValue={0}
-                      maxValue={100}
-                    />
-                  )}
-                </LabeledList.Item>
-                <LabeledList.Item label="Plasma Temperature">
-                  {core.temperature < 0 ? (
-                    <Box as="span" color="red">
-                      Core offline.
-                    </Box>
-                  ) : (
-                    round(core.temperature, 0.1) + ' kelvin'
-                  )}
-                </LabeledList.Item>
-              </LabeledList>
-              <Section title="Reactants">
-                {core.reactants && core.reactants.length ? (
-                  core.reactants.map((reactant) => (
-                    <Section key={reactant.name}>
-                      <Dimmer>
-                        {capitalize(reactant.name)} (
-                        {round(reactant.amount, 0.1)})
-                      </Dimmer>
-                    </Section>
-                  ))
-                ) : (
-                  <NoticeBox>No reactants detected.</NoticeBox>
-                )}
-              </Section>
+                  </Box>
+                  <Divider />
+                  <LabeledList>
+                    <LabeledList.Item label="Power Status">
+                      {core.power_status}
+                    </LabeledList.Item>
+                    <LabeledList.Item label="Field Strength">
+                      <NumberInput
+                        value={core.field_strength}
+                        unit="tesla"
+                        minValue={20}
+                        maxValue={core.field_strength_max * 100}
+                        stepPixelSize={15}
+                        onDrag={(e, value) =>
+                          act('strength', {
+                            strength: value,
+                            machine: core.ref,
+                          })
+                        }
+                      />
+                    </LabeledList.Item>
+                    <LabeledList.Item label="Field Size">
+                      {core.size}{' '}
+                      {core.size > 1 || core.size < 1 ? 'meters' : 'meter'}
+                    </LabeledList.Item>
+                    <LabeledList.Item label="Instability">
+                      {core.instability < 0 ? (
+                        <Box as="span" color="red">
+                          Core offline.
+                        </Box>
+                      ) : (
+                        <ProgressBar
+                          ranges={{
+                            good: [0, 25],
+                            average: [25, 75],
+                            bad: [75, 100],
+                          }}
+                          value={core.instability}
+                          minValue={0}
+                          maxValue={100}
+                        />
+                      )}
+                    </LabeledList.Item>
+                    <LabeledList.Item label="Plasma Temperature">
+                      {core.temperature < 0 ? (
+                        <Box as="span" color="red">
+                          Core offline.
+                        </Box>
+                      ) : (
+                        round(core.temperature, 0.1) + ' kelvin'
+                      )}
+                    </LabeledList.Item>
+                  </LabeledList>
+                </Flex.Item>
+                <Flex.Item>
+                  <Section title="Reactants">
+                    {core.reactants && core.reactants.length ? (
+                      core.reactants.map((reactant) => (
+                        <Section key={reactant.name}>
+                          <Dimmer>
+                            {capitalize(reactant.name)} (
+                            {round(reactant.amount, 0.1)})
+                          </Dimmer>
+                        </Section>
+                      ))
+                    ) : (
+                      <NoticeBox>No reactants detected.</NoticeBox>
+                    )}
+                  </Section>
+                </Flex.Item>
+              </Flex>
             </Section>
           ))
         ) : (

@@ -20,7 +20,7 @@
 	/// Actual core field energy (temperature).
 	var/plasma_temperature = 0
 	/// Effective core field energy (temperature) as modified by field magnitude constriction or relaxation.
-	var/plasma_temperature_effective
+	// var/plasma_temperature_effective
 	/// Current excess radiation from ongoing reactions.
 	var/radiation = 0
 	/// Radiation of the previous three ticks averaged out (if != 0).
@@ -38,9 +38,17 @@
 	 * Field Strength scales power output per temperature. With higher field strength, each degree Kelvin will produce more electricity.
 	 * Field Strength scales instability increase. With higher field strength, more instability for a given reaction will be produced each tick.
 	 */
-	var/field_strength = 1
+	var/field_strength = 20
+	/// Current field strength multiplier applied to entropy.
+	var/field_strength_entropy_multiplier = 1
+	/// Current field strength multiplier applied to instability.
+	var/field_strength_instability_multiplier = 1
+	/// Current field strength multiplier applied to power output.
+	var/field_strength_power_multiplier = 1
 	/// Radius of the EM field. Scales with Field Strength.
 	var/size = 1
+
+	/// Instability generated on this current tick.
 	var/tick_instability = 0
 	/// Ranges from 0-1. At or over 1, boom.
 	var/percent_unstable = 0
@@ -201,20 +209,23 @@
 	// Let the particles inside the field react.
 	React()
 
-	var/field_strength_power_multiplier = max((owned_core.field_strength ** 1.05) / 100, 1)
+	field_strength_power_multiplier = max((owned_core.field_strength ** 1.05) / 100, 1)
 	// Dump power to our powernet.
 	owned_core.add_avail(FUSION_ENERGY_PER_K * plasma_temperature * field_strength_power_multiplier)
 
 	// Roundstart update
 	if(field_strength < 20)
 		field_strength = 20
-	var/field_strength_entropy_multiplier = clamp((owned_core.field_strength ** 1.175) / 68, 0.5, 4.0)
+	field_strength_entropy_multiplier = clamp((owned_core.field_strength ** 1.175) / 68, 0.5, 4.0)
+	to_chat(world, "<b>entropy multiplier</b> = [field_strength_entropy_multiplier]")
 	// Energy decay (entropy tax).
 	if(plasma_temperature >= 1)
-		var/lost = plasma_temperature * 0.01
+		var/lost = plasma_temperature * 0.005
+		to_chat(world,"<b>plasma temp</b> = [plasma_temperature] | <b>lost</b> = [plasma_temperature * 0.005]")
 		radiation += lost
 		var/temp_change = 0 - (lost * field_strength_entropy_multiplier)
-		adjust_temperature(temp_change)
+		to_chat(world, "<b>temp_change</b> = [temp_change]")
+		adjust_temperature(temp_change, cause = "Containment Entropy")
 
 	// Handle some reactants formatting.
 	for(var/reactant in reactants)
@@ -249,7 +260,7 @@
  * document details later.
  */
 /obj/effect/fusion_em_field/proc/check_instability()
-	var/field_strength_instability_multiplier = max((owned_core.field_strength ** 1.1)/20, 1)
+	field_strength_instability_multiplier = max((owned_core.field_strength ** 1.1)/20, 1)
 	if(tick_instability > 0)
 		percent_unstable_archive = percent_unstable
 		// Apply any modifiers to instability imparted by current field strength, but only apply up to FUSION_INTEGRITY_RATE_LIMIT additional instability.
@@ -305,7 +316,7 @@
 						radiation += plasma_temperature/2
 						wave_size += 6
 					var/temp_change = 0 - lost_plasma
-					adjust_temperature(temp_change)
+					adjust_temperature(temp_change, cause = "Instability Bleed-off")
 
 					if(fuel_loss)
 						for(var/particle in reactants)
@@ -404,7 +415,8 @@
 		calc_size = 1
 	else if(new_strength < 80)
 		calc_size = 3
-	else if(new_strength < 120)
+	// Right now the max value allowed by the interface is 120. Change this from 121->120 if we want to allow bigger reactors.
+	else if(new_strength < 121)
 		calc_size = 5
 	else if(new_strength < 160)
 		calc_size = 7
@@ -637,7 +649,7 @@
 				plasma_temperature_change -= max_num_reactants * cur_reaction.energy_consumption
 				plasma_temperature_change += max_num_reactants * cur_reaction.energy_production
 
-				adjust_temperature(plasma_temperature_change, cur_reaction.max_temp_change_rate)
+				adjust_temperature(plasma_temperature_change, cur_reaction.max_temp_change_rate, cur_reaction.name)
 
 				 // Add any produced radiation.
 				radiation += max_num_reactants * cur_reaction.radiation
@@ -700,9 +712,11 @@
  *
  * * var/temperature : The amount temperature is being changed by. Can be positive or negative.
  * * var/max_percentage : Limiting value on how much temp can change per tick. Only overriden by specific fusion reactions.
+ * * var/cause : For debugging only.
  */
-/obj/effect/fusion_em_field/proc/adjust_temperature(var/temp_change, var/max_percentage = FUSION_TICK_MAX_TEMP_CHANGE)
+/obj/effect/fusion_em_field/proc/adjust_temperature(var/temp_change, var/max_percentage = FUSION_TICK_MAX_TEMP_CHANGE, var/cause)
 	var/adjusted_plasma_temperature_change = min(temp_change, temp_change * FUSION_TICK_MAX_TEMP_CHANGE)
+	to_chat(world, "<b>adjusted temp change</b> = [adjusted_plasma_temperature_change]")
 	plasma_temperature += adjusted_plasma_temperature_change
 
 /**

@@ -48,11 +48,11 @@ GLOBAL_LIST(fusion_reactions)
 	p_react = GAS_DEUTERIUM
 	s_react = GAS_TRITIUM
 	energy_consumption = 1
-	energy_production = 24
+	energy_production = 32
 	products = list(GAS_HELIUM = 1)
 	instability = 2
 	// deut-trit bad!!!
-	radiation = 200
+	radiation = 280
 	minimum_energy_level = 500
 	priority = 1
 

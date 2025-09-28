@@ -12,7 +12,7 @@
 	has_off_keyboards = TRUE
 	can_pass_under = FALSE
 	light_power_on = 1
-	tgui_x = 400
+	tgui_x = 800
 
 /obj/machinery/computer/fusion/core_control/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
@@ -64,6 +64,9 @@
 			core["power"] = "[C.field_strength / 10]"
 			core["field_strength"] = C.field_strength
 			core["field_strength_max"] = C.field_strength_max
+			core["entropy_multiplier"] =  C.owned_field ? round(C.owned_field.field_strength_entropy_multiplier, 0.01) : 1
+			core["instability_multiplier"] =  C.owned_field ? round(C.owned_field.field_strength_instability_multiplier, 0.01) : 1
+			core["power_multiplier"] = C.owned_field ? round(C.owned_field.field_strength_power_multiplier, 0.01) : 1
 			core["size"] =  C.owned_field ? C.owned_field.size : 0
 			core["instability"] = C.owned_field ? C.owned_field.percent_unstable * 100 : -1 //%
 			core["temperature"] = C.owned_field ? C.owned_field.plasma_temperature + 295 : -1 //K

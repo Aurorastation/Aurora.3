@@ -629,4 +629,4 @@ update_flag
 /obj/machinery/portable_atmospherics/canister/deuttrit/Initialize()
 	. = ..()
 	src.air_contents.adjust_gas(GAS_DEUTERIUM, MolesForPressure())
-	src.air_contents.adjust_gas(GAS_TRITIUM, MolesForPressure())
+	src.air_contents.adjust_gas(GAS_TRITIUM, MolesForPressure()/10)
