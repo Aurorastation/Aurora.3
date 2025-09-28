@@ -53,14 +53,14 @@
 // --------
 
 //Fore Airlock, right
-/obj/effect/map_effect/marker/airlock/docking/Sol_Frigate/starboard_dock
+/obj/effect/map_effect/marker/airlock/docking/Sol_Frigate/catwalkA
 	name = "Forward Catwalk airlock, A"
 	master_tag = "airlock_Solfrig_fore_dock"
 	landmark_tag = "Sol_Frigate_fore_dock"
 // --------
 
 //Fore Airlock, left
-/obj/effect/map_effect/marker/airlock/docking/Sol_Frigate/starboard_dock
+/obj/effect/map_effect/marker/airlock/docking/Sol_Frigate/catwalkB
 	name = "Forward Catwalk airlock, B"
 	master_tag = "airlock_Solfrig_fore_lockB"
 	landmark_tag = "airlock_Solfrig_fore_lockB"
