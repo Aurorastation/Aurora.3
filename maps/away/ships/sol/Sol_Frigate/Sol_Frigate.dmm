@@ -3026,6 +3026,13 @@
 /obj/structure/bed/stool/chair/office/bridge,
 /turf/simulated/floor/wood,
 /area/ship/Sol_Frigate/captain_office)
+"ov" = (
+/obj/effect/floor_decal/industrial/hatch/operations,
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/Sol_Frigate/Port_docking_port)
 "oB" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
@@ -3075,12 +3082,9 @@
 /turf/simulated/floor/airless,
 /area/space)
 "oP" = (
-/obj/effect/floor_decal/industrial/hatch/operations,
-/obj/machinery/atmospherics/pipe/simple/hidden/black{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/ship/Sol_Frigate/Port_docking_port)
+/obj/item/fluff/holoconsole,
+/turf/template_noop,
+/area/space)
 "oQ" = (
 /obj/machinery/vending/engineering{
 	req_access = list(203)
@@ -3468,6 +3472,9 @@
 	name = "sol_light_interceptor";
 	master_tag = "sol_light_interceptor";
 	shuttle_tag = "solarian light interceptor"
+	},
+/obj/machinery/light{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/Solfrig_shuttle)
@@ -4068,6 +4075,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/bunks)
+"tZ" = (
+/obj/structure/cable/blue{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/Sol_Frigate/eva_storage)
 "ub" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -6041,12 +6054,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/engineering)
-"Eq" = (
-/obj/structure/cable/blue{
-	icon_state = "0-4"
-	},
-/turf/template_noop,
-/area/space)
 "Et" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
@@ -7646,11 +7653,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/brig)
 "LJ" = (
-/obj/structure/cable/blue{
-	icon_state = "4-8"
+/obj/machinery/light{
+	dir = 1
 	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/armoury)
+/turf/simulated/floor/plating,
+/area/ship/Sol_Frigate/hangar)
 "LK" = (
 /obj/machinery/light,
 /obj/effect/floor_decal/corner/yellow{
@@ -7704,6 +7711,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 10
+	},
+/obj/machinery/light{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/Solfrig_shuttle)
@@ -7763,6 +7773,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/canteen)
+"Mz" = (
+/obj/structure/cable/blue{
+	icon_state = "0-4"
+	},
+/turf/template_noop,
+/area/space)
 "MC" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/flora/pottedplant/woodyshrubbloom,
@@ -7809,7 +7825,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/eva_storage)
+/area/ship/Sol_Frigate/armoury)
 "MO" = (
 /turf/template_noop,
 /area/space)
@@ -42159,7 +42175,7 @@ UJ
 VY
 lO
 jC
-ms
+LJ
 ms
 ms
 ms
@@ -43174,7 +43190,7 @@ ie
 Bu
 HM
 sq
-MM
+tZ
 ie
 Fy
 GL
@@ -43187,7 +43203,7 @@ Iu
 yt
 NA
 jC
-ms
+LJ
 Yc
 vK
 JF
@@ -44215,7 +44231,7 @@ nE
 yt
 ay
 jC
-ms
+LJ
 Yc
 vK
 JF
@@ -44457,7 +44473,7 @@ GY
 tj
 cE
 nK
-LJ
+MM
 MZ
 uM
 cE
@@ -46749,7 +46765,7 @@ gh
 gh
 SO
 SO
-oP
+ov
 SO
 cA
 cA
@@ -49576,7 +49592,7 @@ MO
 MO
 MO
 MO
-MO
+oP
 MO
 MO
 MO
@@ -49878,7 +49894,7 @@ MO
 MO
 MO
 MO
-Eq
+Mz
 MO
 MO
 MO
