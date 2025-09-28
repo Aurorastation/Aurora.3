@@ -222,7 +222,8 @@
 
 /singleton/reagent/alcohol/butanol/cactuscola
 	name = "Cactus Cola"
-	description = "Traditionally, Bloodwine was a drink enjoyed by nobles and other well-to-do Sinta after a good hunt; while the meat of the game was processed, its blood was not wasted but used in drinks such as this one."
+	description = "The introduction of Human soda to Unathi, shortly after the first contact, was quite positive, and many sinta grew quite fond of these drinks. It didn’t take long for someone to mix them with Xuizi, \
+	and this drink has been a staple ever since. Especially popular in Ouerea."
 	color = "#3E1B00"
 	strength = 15
 	taste_description = "cola"
@@ -230,7 +231,8 @@
 
 	glass_icon_state = "whiskeycolaglass"
 	glass_name = "glass of Cactus Cola"
-	glass_desc = "Traditionally, Bloodwine was a drink enjoyed by nobles and other well-to-do Sinta after a good hunt; while the meat of the game was processed, its blood was not wasted but used in drinks such as this one."
+	glass_desc = "The introduction of Human soda to Unathi, shortly after the first contact, was quite positive, and many sinta grew quite fond of these drinks. It didn’t take long for someone to mix them with Xuizi, \
+	and this drink has been a staple ever since. Especially popular in Ouerea."
 	glass_center_of_mass = list("x"=16, "y"=9)
 
 /singleton/reagent/alcohol/butanol/bloodwine
