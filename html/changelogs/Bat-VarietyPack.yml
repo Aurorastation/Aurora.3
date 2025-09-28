@@ -1,0 +1,21 @@
+# Your name.
+author: Batrachophrenoboocosmomachia
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+# Any changes you've made.  See valid prefix list above.
+# INDENT WITH TWO SPACES.  NOT TABS.  SPACES.
+# SCREW THIS UP AND IT WON'T WORK.
+# Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
+# Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
+changes:
+  - qol: "Added detailed extended examine info on mechanics to pens."
+  - qol: "Added detailed extended examine info on mechanics to the psychiatrist/chaplain Mesmetron."
+  - qol: "Added detailed extended examine info on mechanics to barricades."
+  - qol: "Added some extended examine info to (hanging) flags, crayons, misc."
+  - qol: "Washing machines can now be anchored/unanchored with a wrench."
+  - code_imp: "Updated dmdocs in many locations."
+  - bugfix: "You can no longer force-feed people crayons. However, you can still offer a bite of crayon for them to accept or refuse, for tradition's sake."
+  - bugfix: "Reading the contents of a noticeboard now makes you actually face the noticeboard."
+  - bugfix: "Fixed Advanced light replacers not being retrievable from Engineering Carts."

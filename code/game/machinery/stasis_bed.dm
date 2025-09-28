@@ -37,7 +37,7 @@
 
 /obj/machinery/stasis_bed/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	. += "You can alt-click this to toggle it on or off."
+	. += "ALT-click this to toggle it on or off."
 	. += "Applies a [stasis_power]x stasis effect to any living creature buckled to an active stasis unit."
 	. += "This causes effects such as bleeding and brain damage to accumulate [stasis_power]x slower."
 
