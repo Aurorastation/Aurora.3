@@ -293,7 +293,7 @@
 /obj/structure/cable/blue{
 	icon_state = "2-8"
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/holofloor/wood,
 /area/ship/Sol_Frigate/starboard_gunnery)
 "bx" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -775,11 +775,8 @@
 /turf/simulated/floor/wood,
 /area/ship/Sol_Frigate/captain_office)
 "dK" = (
-/obj/effect/floor_decal/corner/yellow{
-	dir = 5
-	},
 /obj/structure/bed/stool/chair/padded,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/holofloor/wood,
 /area/ship/Sol_Frigate/starboard_gunnery)
 "dN" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -3026,13 +3023,6 @@
 /obj/structure/bed/stool/chair/office/bridge,
 /turf/simulated/floor/wood,
 /area/ship/Sol_Frigate/captain_office)
-"ov" = (
-/obj/effect/floor_decal/industrial/hatch/operations,
-/obj/machinery/atmospherics/pipe/simple/hidden/black{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/ship/Sol_Frigate/Port_docking_port)
 "oB" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
@@ -3082,9 +3072,12 @@
 /turf/simulated/floor/airless,
 /area/space)
 "oP" = (
-/obj/item/fluff/holoconsole,
-/turf/template_noop,
-/area/space)
+/obj/effect/floor_decal/industrial/hatch/operations,
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/Sol_Frigate/Port_docking_port)
 "oQ" = (
 /obj/machinery/vending/engineering{
 	req_access = list(203)
@@ -3538,6 +3531,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/safe_room)
+"rc" = (
+/obj/item/fluff/holoconsole,
+/turf/template_noop,
+/area/space)
 "rj" = (
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -4075,12 +4072,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/bunks)
-"tZ" = (
-/obj/structure/cable/blue{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/eva_storage)
 "ub" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -4855,6 +4846,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/engineering)
+"yN" = (
+/obj/structure/cable/blue{
+	icon_state = "0-4"
+	},
+/turf/template_noop,
+/area/space)
 "yS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 8
@@ -4996,6 +4993,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/head)
+"zr" = (
+/obj/structure/cable/blue{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/Sol_Frigate/armoury)
 "zu" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
@@ -6461,7 +6464,7 @@
 	dir = 1
 	},
 /obj/structure/bookcase,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/holofloor/wood,
 /area/ship/Sol_Frigate/starboard_gunnery)
 "GF" = (
 /obj/effect/landmark/entry_point/starboard{
@@ -6584,17 +6587,11 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/yellow{
-	dir = 5
-	},
-/obj/effect/floor_decal/corner/yellow{
-	dir = 6
-	},
 /obj/structure/table/reinforced/glass,
 /obj/structure/flora/pottedplant/fern{
 	pixel_y = 13
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/holofloor/wood,
 /area/ship/Sol_Frigate/starboard_gunnery)
 "Hd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -6695,6 +6692,9 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
+/area/ship/Sol_Frigate/starboard_gunnery)
+"HA" = (
+/turf/simulated/floor/holofloor/wood,
 /area/ship/Sol_Frigate/starboard_gunnery)
 "HD" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
@@ -7653,11 +7653,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/brig)
 "LJ" = (
-/obj/machinery/light{
-	dir = 1
+/obj/structure/cable/blue{
+	icon_state = "4-8"
 	},
-/turf/simulated/floor/plating,
-/area/ship/Sol_Frigate/hangar)
+/turf/simulated/floor/tiled/dark,
+/area/ship/Sol_Frigate/eva_storage)
 "LK" = (
 /obj/machinery/light,
 /obj/effect/floor_decal/corner/yellow{
@@ -7773,12 +7773,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/canteen)
-"Mz" = (
-/obj/structure/cable/blue{
-	icon_state = "0-4"
-	},
-/turf/template_noop,
-/area/space)
 "MC" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/flora/pottedplant/woodyshrubbloom,
@@ -7821,11 +7815,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_mid)
 "MM" = (
-/obj/structure/cable/blue{
-	icon_state = "4-8"
+/obj/machinery/light{
+	dir = 1
 	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/armoury)
+/turf/simulated/floor/plating,
+/area/ship/Sol_Frigate/hangar)
 "MO" = (
 /turf/template_noop,
 /area/space)
@@ -10067,16 +10061,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/starboard_gunnery)
 "Zv" = (
-/obj/effect/floor_decal/corner/yellow{
-	dir = 6
-	},
-/obj/effect/floor_decal/corner/yellow{
-	dir = 8
-	},
 /obj/structure/bed/stool/chair/padded{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/holofloor/wood,
 /area/ship/Sol_Frigate/starboard_gunnery)
 "ZA" = (
 /obj/structure/table/standard,
@@ -42175,7 +42163,7 @@ UJ
 VY
 lO
 jC
-LJ
+MM
 ms
 ms
 ms
@@ -43190,7 +43178,7 @@ ie
 Bu
 HM
 sq
-tZ
+LJ
 ie
 Fy
 GL
@@ -43203,7 +43191,7 @@ Iu
 yt
 NA
 jC
-LJ
+MM
 Yc
 vK
 JF
@@ -44231,7 +44219,7 @@ nE
 yt
 ay
 jC
-LJ
+MM
 Yc
 vK
 JF
@@ -44473,7 +44461,7 @@ GY
 tj
 cE
 nK
-MM
+zr
 MZ
 uM
 cE
@@ -45464,7 +45452,7 @@ KU
 tM
 Bg
 dK
-gW
+HA
 Lk
 uu
 Lk
@@ -46765,7 +46753,7 @@ gh
 gh
 SO
 SO
-ov
+oP
 SO
 cA
 cA
@@ -49592,7 +49580,7 @@ MO
 MO
 MO
 MO
-oP
+rc
 MO
 MO
 MO
@@ -49894,7 +49882,7 @@ MO
 MO
 MO
 MO
-Mz
+yN
 MO
 MO
 MO
