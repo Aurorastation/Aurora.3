@@ -3342,12 +3342,6 @@
 	master_tag = "sol_light_interceptor";
 	shuttle_tag = "solarian light interceptor"
 	},
-/obj/machinery/access_button{
-	dir = 1;
-	pixel_x = -28;
-	pixel_y = 42;
-	req_access = list(222)
-	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/Solfrig_shuttle)
 "qa" = (
@@ -5366,13 +5360,13 @@
 /turf/simulated/wall/shuttle/raider,
 /area/ship/Sol_Frigate/starboard_thrusters)
 "AZ" = (
-/obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock/shuttle{
 	name = "sol_light_interceptor";
 	master_tag = "sol_light_interceptor";
 	shuttle_tag = "solarian light interceptor"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/door/airlock/external,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/Solfrig_shuttle)
 "Bb" = (
@@ -7647,7 +7641,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/ship/Sol_Frigate/Port_docking_port)
 "LK" = (
 /obj/machinery/light,
 /obj/effect/floor_decal/corner/yellow{
@@ -7801,9 +7795,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_mid)
-"MM" = (
-/turf/simulated/wall/shuttle/raider,
-/area/space)
 "MO" = (
 /turf/template_noop,
 /area/space)
@@ -9450,7 +9441,8 @@
 	},
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/machinery/computer/shuttle_control/explore/terminal/Solfrig_shuttle{
-	dir = 8
+	dir = 8;
+	shuttle_tag = Solarian Frigate - Shuttle
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/Solfrig_shuttle)
@@ -46744,9 +46736,9 @@ SO
 gh
 gh
 SO
-MM
+SO
 LJ
-MM
+SO
 cA
 cA
 cA
