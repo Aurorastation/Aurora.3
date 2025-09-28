@@ -41,14 +41,14 @@
 	var/list/ghostspawners_to_activate_on_shuttle_arrival
 
 	/**
-	 * If TRUE, announces docking over the announce_channel frequency
+	 * If TRUE, announces docking over the `announce_channel` frequency
 	 *
 	 * Checked in `/obj/effect/shuttle_landmark/proc/shuttle_arrived` and `/obj/effect/shuttle_landmark/proc/shuttle_departure`
 	 */
 	var/announce_docking = FALSE
 
 	/**
-	 * Determines which frequency to announce docking over if the above is TRUE
+	 * Determines which frequency to announce docking over if `announce_docking` is `TRUE`
 	 */
 	var/announce_channel = "Common"
 
