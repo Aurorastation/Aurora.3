@@ -506,7 +506,7 @@
 	SHOULD_NOT_OVERRIDE(TRUE)
 	PROTECTED_PROC(TRUE)
 	if(persistency_considered_trash) // Persistent trash - Applicable if considered_persistent_trash is true
-		// Trash-like items should become only persistent when they are not dropped in a maint or disposals, otherwise they get deregistered
+		// Trash-like items should become only persistent when they are not dropped in a an area flagged with AREA_FLAG_PREVENT_PERSISTENT_TRASH, otherwise they get deregistered
 		var/turf/T = get_turf(src)
 		if(T)
 			var/area/A = get_area(T)

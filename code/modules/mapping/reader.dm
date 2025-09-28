@@ -543,7 +543,7 @@ GLOBAL_LIST_INIT(_preloader_path, null)
 /area/template_noop
 	name = "Area Passthrough"
 	icon_state = "noop"
-	area_flags = AREA_FLAG_PREVENT_PERSISTENT_TRASH
+	area_flags = AREA_FLAG_PREVENT_PERSISTENT_TRASH | AREA_FLAG_PREVENT_PERSISTENT_DIRT
 
 /turf/template_noop
 	name = "Turf Passthrough"
