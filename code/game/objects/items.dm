@@ -521,6 +521,7 @@
 			SSpersistence.register_track(src, usr == null ? null : ckey(usr.key))
 			return
 
+	// Fallback - No persistency
 	SSpersistence.deregister_track(src)
 
 /obj/item/proc/remove_item_verbs(mob/user)
