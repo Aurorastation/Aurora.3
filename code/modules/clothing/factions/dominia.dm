@@ -48,33 +48,17 @@
 	item_state = "dominian_cape"
 	icon_override = null
 	contained_sprite = TRUE
-	var/cape_backing_state = "cape_backing"
 	protects_against_weather = FALSE
 
 /obj/item/clothing/accessory/poncho/dominia_cape/white
 	name = "white dominian cape"
 	icon_state = "dominian_capew"
 	item_state = "dominian_capew"
-	cape_backing_state = "capew_backing"
 
 /obj/item/clothing/accessory/poncho/dominia_cape/zavod
 	name = "zavodskoi dominian cape"
 	icon_state = "dominian_capez"
 	item_state = "dominian_capez"
-	cape_backing_state = "capez_backing"
-
-/obj/item/clothing/accessory/poncho/dominia_cape/get_mob_overlay(var/mob/living/carbon/human/human, var/mob_icon, var/mob_state, var/slot)
-	var/image/I = ..()
-	if(slot == slot_wear_suit_str)
-		var/image/cape_backing = image(mob_icon, null, cape_backing_state, human ? human.layer - 0.01 : MOB_LAYER - 0.01)
-		I.AddOverlays(cape_backing)
-	return I
-
-/obj/item/clothing/accessory/poncho/dominia_cape/get_accessory_mob_overlay(mob/living/carbon/human/human, force)
-	var/image/base = ..()
-	var/image/cape_backing = image(icon, null, cape_backing_state, human ? human.layer - 0.01 : MOB_LAYER - 0.01)
-	base.AddOverlays(cape_backing)
-	return base
 
 /obj/item/clothing/accessory/poncho/dominia_cape/strelitz
 	name = "house strelitz cape"
@@ -86,13 +70,11 @@
 	name = "white house strelitz cape"
 	icon_state = "strelitz_capew"
 	item_state = "strelitz_capew"
-	cape_backing_state = "capew_backing"
 
 /obj/item/clothing/accessory/poncho/dominia_cape/strelitz/zavod
 	name = "zavodskoi house strelitz cape"
 	icon_state = "strelitz_capez"
 	item_state = "strelitz_capez"
-	cape_backing_state = "capez_backing"
 
 /obj/item/clothing/accessory/poncho/dominia_cape/volvalaad
 	name = "house volvalaad cape"
@@ -104,13 +86,11 @@
 	name = "white house volvalaad cape"
 	icon_state = "volvalaad_capew"
 	item_state = "volvalaad_capew"
-	cape_backing_state = "capew_backing"
 
 /obj/item/clothing/accessory/poncho/dominia_cape/volvalaad/zavod
 	name = "zavodskoi house volvalaad cape"
 	icon_state = "volvalaad_capez"
 	item_state = "volvalaad_capez"
-	cape_backing_state = "capez_backing"
 
 /obj/item/clothing/accessory/poncho/dominia_cape/kazhkz
 	name = "house kazhkz cape"
@@ -122,13 +102,11 @@
 	name = "white house kazhkz cape"
 	icon_state = "kazhkz_capew"
 	item_state = "kazhkz_capew"
-	cape_backing_state = "capew_backing"
 
 /obj/item/clothing/accessory/poncho/dominia_cape/kazhkz/zavod
 	name = "zavodskoi house kazhkz cape"
 	icon_state = "kazhkz_capez"
 	item_state = "kazhkz_capez"
-	cape_backing_state = "capez_backing"
 
 /obj/item/clothing/accessory/poncho/dominia_cape/hansan
 	name = "clan han'san cape"
@@ -140,13 +118,11 @@
 	name = "white clan han'san cape"
 	icon_state = "hansan_capew"
 	item_state = "hansan_capew"
-	cape_backing_state = "capew_backing"
 
 /obj/item/clothing/accessory/poncho/dominia_cape/hansan/zavod
 	name = "zavodskoi clan han'san cape"
 	icon_state = "hansan_capez"
 	item_state = "hansan_capez"
-	cape_backing_state = "capez_backing"
 
 /obj/item/clothing/accessory/poncho/dominia_cape/caladius
 	name = "house caladius cape"
@@ -158,13 +134,11 @@
 	name = "white house caladius cape"
 	icon_state = "caladius_capew"
 	item_state = "caladius_capew"
-	cape_backing_state = "capew_backing"
 
 /obj/item/clothing/accessory/poncho/dominia_cape/caladius/zavod
 	name = "zavodskoi house caladius cape"
 	icon_state = "caladius_capez"
 	item_state = "caladius_capez"
-	cape_backing_state = "capez_backing"
 
 /obj/item/clothing/accessory/poncho/dominia_cape/zhao
 	name = "house zhao cape"
@@ -176,13 +150,11 @@
 	name = "white house zhao cape"
 	icon_state = "zhao_capew"
 	item_state = "zhao_capew"
-	cape_backing_state = "capew_backing"
 
 /obj/item/clothing/accessory/poncho/dominia_cape/zhao/zavod
 	name = "zavodskoi house zhao cape"
 	icon_state = "zhao_capez"
 	item_state = "zhao_capez"
-	cape_backing_state = "capez_backing"
 
 /obj/item/clothing/accessory/poncho/dominia_cape/colorable
 	icon_state = "dominian_cape_colorable"
@@ -207,10 +179,88 @@
 	icon_state = "armsman_mantle"
 	item_state = "armsman_mantle"
 
-/obj/item/clothing/accessory/poncho/dominia_cape/hospital
+
+/obj/item/clothing/accessory/poncho/dominia_cape/tribunalist
+	name = "tribunalist cape"
+	desc = "This is a cape in the style of Dominian clergy. The red differentiates the clergy from the nobility who wear traditionally black capes."
+	desc_extended = "Dominian priests and priestesses are traditionally expected to wear red or golden clothing when discharging \
+	their duties. Capes are worn as both a fashion statement to attract the attention of crowds and as a simple form of protection\
+	against the elements."
+	icon = 'icons/obj/item/clothing/accessory/poncho/dominia_red.dmi'
+	icon_state = "dominian_cape_red"
+	item_state = "dominian_cape_red"
+	var/rolled = FALSE
+
+/obj/item/clothing/accessory/poncho/dominia_cape/tribunalist/update_clothing_icon()
+	if(ismob(loc))
+		var/mob/M = loc
+		M.update_inv_wear_suit()
+	get_mob_overlay(TRUE)
+	get_inv_overlay(TRUE)
+
+/obj/item/clothing/accessory/poncho/dominia_cape/tribunalist/verb/roll_up_mantle()
+	set name = "Roll Up Cape Mantle"
+	set desc = "Roll up your cape's mantle. Doesn't work with some capes."
+	set category = "Object.Equipped"
+	set src in usr
+
+	if(use_check_and_message(usr))
+		return FALSE
+
+	var/list/icon_states = icon_states(icon)
+	var/initial_state = initial(icon_state)
+	var/new_state = "[initial_state]_h"
+	if(!(new_state in icon_states))
+		to_chat(usr, SPAN_WARNING("Your cape doesn't allow this!"))
+		return
+
+	rolled = !rolled
+	to_chat(usr, SPAN_NOTICE("You roll your cape's mantle [rolled ? "up" : "down"]."))
+	icon_state = rolled ? new_state : initial_state
+	item_state = rolled ? new_state : initial_state
+	overlay_state = rolled ? new_state : initial_state
+	update_icon()
+	update_clothing_icon()
+
+/obj/item/clothing/accessory/poncho/dominia_cape/tribunalist/AltClick(mob/user)
+	roll_up_mantle(user)
+
+/obj/item/clothing/accessory/poncho/dominia_cape/tribunalist/surcoat
+	name = "tribunalist surcoat"
+	desc = "A simple red surcoat commonly worn by Dominian clergy members."
+	desc_extended = "Spun with rough but hardy fabrics from the Dominian frontier, this surcoat is commonly worn by poorer Tribunal clergy as well as missionaries\
+	seeking protection from the elements. This garment was popularized by the Kael'kah sect and remains respected as a symbol of humility and poverty amongst priests."
+	icon = 'icons/obj/item/clothing/accessory/poncho/dominia_surcoat.dmi'
+	icon_state = "dominian_surcoat"
+	item_state = "dominian_surcoat"
+	overlay_state = "dominian_surcoat"
+
+/obj/item/clothing/accessory/poncho/dominia_cape/tribunalist/double
+	name = "tribunalist's full cape"
+	desc = "This is a large cape in the style of Dominian clergy. The symbol of 'The Eye' of the Tribunal is present on both the front and the back."
+	desc_extended = "This style of cape is among the most flashy and ornate of the Tribunal's garb. Its weight and impracticality of use means that \
+	it is often only worn by clergy of high station and on special occasions. Lower ranking members of the Tribunal or those who wear it frequently \
+	are often frowned upon as arrogant and vain."
+	icon = 'icons/obj/item/clothing/accessory/poncho/dominia_doublecape.dmi'
+	icon_state = "dominian_doublecape"
+	item_state = "dominian_doublecape"
+	overlay_state = "dominian_doublecape"
+
+/obj/item/clothing/accessory/poncho/dominia_cape/tribunalist/consular
+	name = "tribunalist consular's cape"
+	desc = "A truly majestic gold and red cape worn by members of the clergy affiliated with His Majesty's Diplomatic Service."
+	desc_extended = "His Majesty's Diplomatic Service - as with much of the Empire tends to be dominated by the great houses, though the Service also \
+	employs may commoners - as long as they can pass the rigorous examinations required to become a full member of the Diplomatic Service."
+	icon = 'icons/obj/item/clothing/accessory/poncho/dominia_consular_cape.dmi'
+	icon_state = "dominia_cape_consular"
+	item_state = "dominia_cape_consular"
+	overlay_state = "dominia_cape_consular"
+
+/obj/item/clothing/accessory/poncho/dominia_cape/tribunalist/medical
 	name = "tribunalist medical cape"
 	desc = "A white-and-green cape in the style of the Dominian clergy. Worn by those medical workers affiliated with the Moroz Holy Tribunal."
-	cape_backing_state = ""
+	desc_extended = null
+	icon = 'icons/obj/item/clothing/accessory/poncho/dominia_medical_cape.dmi'
 	icon_state = "dominian_cape_hospital"
 	item_state = "dominian_cape_hospital"
 
@@ -513,90 +563,6 @@
 /obj/item/clothing/under/dominia/dress/noble/black/zhao
 	name = "black zhao noble dress"
 	house = "zhao"
-
-/obj/item/clothing/accessory/poncho/dominia
-	protects_against_weather = FALSE
-
-/obj/item/clothing/accessory/poncho/dominia/red/surcoat
-	name = "tribunalist surcoat"
-	desc = "A simple red surcoat commonly worn by Dominian clergy members."
-	desc_extended = "Spun with rough but hardy fabrics from the Dominian frontier, this surcoat is commonly worn by poorer Tribunal clergy as well as missionaries\
-	seeking protection from the elements. This garment was popularized by the Kael'kah sect and remains respected as a symbol of humility and poverty amongst priests."
-	icon = 'icons/obj/item/clothing/accessory/poncho/dominia_surcoat.dmi'
-	icon_state = "dominian_surcoat"
-	item_state = "dominian_surcoat"
-	overlay_state = "dominian_surcoat"
-	icon_override = null
-
-/obj/item/clothing/accessory/poncho/dominia/red/double
-	name = "tribunalist's full cape"
-	desc = "This is a large cape in the style of Dominian clergy. The symbol of 'The Eye' of the Tribunal is present on both the front and the back."
-	desc_extended = "This style of cape is among the most flashy and ornate of the Tribunal's garb. Its weight and impracticality of use means that \
-	it is often only worn by clergy of high station and on special occasions. Lower ranking members of the Tribunal or those who wear it frequently \
-	are often frowned upon as arrogant and vain."
-	icon = 'icons/obj/item/clothing/accessory/poncho/dominia_doublecape.dmi'
-	icon_state = "dominian_doublecape"
-	item_state = "dominian_doublecape"
-	overlay_state = "dominian_doublecape"
-	icon_override = null
-
-/obj/item/clothing/accessory/poncho/dominia/red
-	name = "tribunalist cape"
-	desc = "This is a cape in the style of Dominian clergy. The red differentiates the clergy from the nobility who wear traditionally black capes."
-	desc_extended = "Dominian priests and priestesses are traditionally expected to wear red or golden clothing when discharging \
-	their duties. Capes are worn as both a fashion statement to attract the attention of crowds and as a simple form of protection\
-	against the elements."
-	icon = 'icons/obj/item/clothing/accessory/poncho/dominia_red.dmi'
-	icon_state = "dominian_cape_red"
-	item_state = "dominian_cape_red"
-	overlay_state = "dominian_cape_red"
-	contained_sprite = TRUE
-	icon_override = null
-	var/rolled = FALSE
-
-/obj/item/clothing/accessory/poncho/dominia/red/update_clothing_icon()
-	if(ismob(loc))
-		var/mob/M = loc
-		M.update_inv_wear_suit()
-	get_mob_overlay(TRUE)
-	get_inv_overlay(TRUE)
-
-/obj/item/clothing/accessory/poncho/dominia/red/verb/roll_up_mantle()
-	set name = "Roll Up Cape Mantle"
-	set desc = "Roll up your cape's mantle. Doesn't work with some capes."
-	set category = "Object.Equipped"
-	set src in usr
-
-	if(use_check_and_message(usr))
-		return FALSE
-
-	var/list/icon_states = icon_states(icon)
-	var/initial_state = initial(icon_state)
-	var/new_state = "[initial_state]_h"
-	if(!(new_state in icon_states))
-		to_chat(usr, SPAN_WARNING("Your cape doesn't allow this!"))
-		return
-
-	rolled = !rolled
-	to_chat(usr, SPAN_NOTICE("You roll your cape's mantle [rolled ? "up" : "down"]."))
-	icon_state = rolled ? new_state : initial_state
-	item_state = rolled ? new_state : initial_state
-	overlay_state = rolled ? new_state : initial_state
-	update_icon()
-	update_clothing_icon()
-
-/obj/item/clothing/accessory/poncho/dominia/consular
-	name = "tribunalist consular's cape"
-	desc = "A truly majestic gold and red cape worn by members of the clergy affiliated with His Majesty's Diplomatic Service."
-	desc_extended = "His Majesty's Diplomatic Service - as with much of the Empire tends to be dominated by the great houses, though the Service also \
-	employs may commoners - as long as they can pass the rigorous examinations required to become a full member of the Diplomatic Service."
-	icon = 'icons/obj/item/clothing/accessory/poncho/dominia_consular_cape.dmi'
-	icon_state = "dominia_cape_consular"
-	item_state = "dominia_cape_consular"
-	overlay_state = "dominia_cape_consular"
-	contained_sprite = TRUE
-	icon_override = null
-	var/rolled = FALSE
 
 /obj/item/clothing/under/dominia/consular
 	name = "dominian consular officer's uniform"

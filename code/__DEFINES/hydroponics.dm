@@ -138,3 +138,8 @@
 /// The range of lumens from the ideal in which the plant will grow faster than otherwise.
 /// This does not kill the plant if they go outside it, it only determines growth speed!
 #define TRAIT_LIGHT_PREFERENCE     45
+
+#define GET_SEED_TRAIT(SEED, TRAIT) ##SEED.traits["[TRAIT]"]
+#define SET_SEED_TRAIT(SEED, TRAIT, NVAL) ##SEED.traits["[TRAIT]"] = NVAL;
+#define SET_SEED_TRAIT_BOUNDED(SEED, TRAIT, NVAL, UBOUND, LBOUND, DEGRADE) \
+	if(isnum(NVAL)) { ##SEED.traits["[TRAIT]"] = ((clamp(NVAL * (DEGRADE || 1), (LBOUND || -INFINITY), (UBOUND || INFINITY)))) } else { ##SEED.traits["[TRAIT]"] = NVAL };
