@@ -3075,11 +3075,12 @@
 /turf/simulated/floor/airless,
 /area/space)
 "oP" = (
-/obj/structure/cable/blue{
-	icon_state = "4-8"
+/obj/effect/floor_decal/industrial/hatch/operations,
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/eva_storage)
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/Sol_Frigate/Port_docking_port)
 "oQ" = (
 /obj/machinery/vending/engineering{
 	req_access = list(203)
@@ -6040,6 +6041,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/engineering)
+"Eq" = (
+/obj/structure/cable/blue{
+	icon_state = "0-4"
+	},
+/turf/template_noop,
+/area/space)
 "Et" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
@@ -7593,6 +7600,12 @@
 /obj/item/clothing/head/sol,
 /obj/item/clothing/head/sol,
 /obj/item/clothing/head/sol,
+/obj/item/clothing/under/rank/sol/service,
+/obj/item/clothing/under/rank/sol/service,
+/obj/item/clothing/under/rank/sol/service,
+/obj/item/clothing/under/rank/sol/service,
+/obj/item/clothing/under/rank/sol/service,
+/obj/item/clothing/under/rank/sol/service,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/bunks)
 "LA" = (
@@ -7633,12 +7646,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/brig)
 "LJ" = (
-/obj/effect/floor_decal/industrial/hatch/operations,
-/obj/machinery/atmospherics/pipe/simple/hidden/black{
-	dir = 8
+/obj/structure/cable/blue{
+	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled/dark/full,
-/area/ship/Sol_Frigate/Port_docking_port)
+/turf/simulated/floor/tiled/dark,
+/area/ship/Sol_Frigate/armoury)
 "LK" = (
 /obj/machinery/light,
 /obj/effect/floor_decal/corner/yellow{
@@ -7797,7 +7809,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/armoury)
+/area/ship/Sol_Frigate/eva_storage)
 "MO" = (
 /turf/template_noop,
 /area/space)
@@ -43162,7 +43174,7 @@ ie
 Bu
 HM
 sq
-oP
+MM
 ie
 Fy
 GL
@@ -44445,7 +44457,7 @@ GY
 tj
 cE
 nK
-MM
+LJ
 MZ
 uM
 cE
@@ -46737,7 +46749,7 @@ gh
 gh
 SO
 SO
-LJ
+oP
 SO
 cA
 cA
@@ -49866,7 +49878,7 @@ MO
 MO
 MO
 MO
-MO
+Eq
 MO
 MO
 MO
