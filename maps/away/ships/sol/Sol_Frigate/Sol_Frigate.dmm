@@ -7625,15 +7625,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/brig)
-"LJ" = (
-/obj/effect/floor_decal/corner/yellow{
-	dir = 9
-	},
-/obj/structure/cable/blue{
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
 "LK" = (
 /obj/machinery/light,
 /obj/effect/floor_decal/corner/yellow{
@@ -7787,11 +7778,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_mid)
-"MM" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled/dark,
-/area/space)
 "MO" = (
 /turf/template_noop,
 /area/space)
@@ -45210,7 +45196,7 @@ wL
 nt
 jH
 Hd
-LJ
+Nv
 bL
 GD
 Nv
@@ -45467,7 +45453,7 @@ uO
 vv
 Jp
 fO
-MM
+nm
 BO
 Ml
 lw
