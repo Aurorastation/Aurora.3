@@ -115,12 +115,13 @@
 /obj/item/journal/filled/Initialize()
 	. = ..()
 	var/obj/item/folder/embedded/E = new /obj/item/folder/embedded(src)
-	var/index_name = "Papers"
+	var/index_name = "Journal"
 	E.name = index_name
 	LAZYSET(indices, E.name, E)
 	RegisterSignal(E, COMSIG_QDELETING, PROC_REF(remove_index))
 
-	E = indices[1]
+	var/selected_folder = indices[1]
+	E = indices[selected_folder]
 	new /obj/item/paper(E)
 	new /obj/item/paper(E)
 	new /obj/item/paper(E)
@@ -164,26 +165,19 @@
 /obj/item/journal/notepad/filled/Initialize()
 	. = ..()
 	var/obj/item/folder/embedded/E = new /obj/item/folder/embedded(src)
-	var/index_name = "Papers"
+	var/index_name = "Notepad"
 	E.name = index_name
 	LAZYSET(indices, E.name, E)
 	RegisterSignal(E, COMSIG_QDELETING, PROC_REF(remove_index))
 
 	var/selected_folder = indices[1]
-	if(isnull(selected_folder))
-		return
-	else
-		E = indices[selected_folder]
-	if(!E)
-		return
+	E = indices[selected_folder]
 	new /obj/item/paper(E)
 	new /obj/item/paper(E)
 	new /obj/item/paper(E)
 	new /obj/item/paper(E)
 	new /obj/item/paper(E)
 	update_icon()
-	return
-
 /obj/item/journal/notepad/scc
 	name = "scc notepad"
 	desc = "A notepad for jotting down notes in corporate meetings. This one is navy blue with a gold SCC logo on the front."

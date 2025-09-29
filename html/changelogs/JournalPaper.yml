@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "Added the possibility in the loadout to get notepads and journals filled with 5 blank papers."
