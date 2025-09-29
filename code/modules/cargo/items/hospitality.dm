@@ -194,6 +194,34 @@
 	groupable = TRUE
 	spawn_amount = 1
 
+/singleton/cargo_item/sliced_bread
+	category = "hospitality"
+	name = "sliced bread"
+	supplier = "getmore"
+	description = "Factory-grade, machine-baked, machine-sliced, machine-bagged bread. Just like mama used to make."
+	price = 8
+	items = list(
+		/obj/item/storage/box/fancy/food/sliced_bread
+	)
+	access = 0
+	container_type = "freezer"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/packaged_shrimp
+	category = "hospitality"
+	name = "packaged shrimp"
+	supplier = "getmore"
+	description = "Frozen shrimp available at reasonable prices for any place in the Spur that can't get them fresh! Each pack contains 4 servings' worth of shrimp."
+	price = 90
+	items = list(
+		/obj/item/storage/box/fancy/food/packaged_shrimp
+	)
+	access = 0
+	container_type = "freezer"
+	groupable = TRUE
+	spawn_amount = 1
+
 /singleton/cargo_item/peppermill
 	category = "hospitality"
 	name = "pepper mill"
@@ -808,6 +836,20 @@
 	price = 10
 	items = list(
 		/obj/item/pizzabox/vegetable
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/pizzabox_pepperoni
+	category = "hospitality"
+	name = "pizza box, pepperoni"
+	supplier = "orion"
+	description = "Traditional Orion Express Pizza, delivered across the galaxy piping hot and ready to eat."
+	price = 10
+	items = list(
+		/obj/item/pizzabox/pepperoni
 	)
 	access = 0
 	container_type = "crate"

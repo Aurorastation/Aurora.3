@@ -7063,7 +7063,7 @@
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ship/tirakqi_smuggler/hall)
 "QR" = (
-/obj/structure/janitorialcart/full{
+/obj/structure/cart/storage/janitorialcart/full{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/emergency_closet,

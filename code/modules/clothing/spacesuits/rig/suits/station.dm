@@ -362,7 +362,7 @@
 	icon_supported_species_tags = list("ipc", "skr", "taj", "una")
 	armor = list(
 		MELEE = ARMOR_MELEE_MAJOR,
-		BULLET = ARMOR_BALLISTIC_PISTOL,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
 		LASER = ARMOR_LASER_MEDIUM,
 		ENERGY = ARMOR_ENERGY_RESISTANT,
 		BOMB = ARMOR_BOMB_PADDED,

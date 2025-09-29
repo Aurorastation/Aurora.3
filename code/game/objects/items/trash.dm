@@ -10,9 +10,33 @@
 	desc = "General waste material, refuse or litter. Dispose responsibly."
 	drop_sound = 'sound/items/drop/wrapper.ogg'
 	pickup_sound = 'sound/items/pickup/wrapper.ogg'
+	persistency_considered_trash = TRUE
 
 /obj/item/trash/attack(mob/living/target_mob, mob/living/user, target_zone)
 	return
+
+/obj/item/trash/persistence_get_content()
+	var/list/content = list()
+	content["name"] = name
+	content["desc"] = desc
+	content["icon"] = icon
+	content["icon_state"] = icon_state
+	content["item_state"] = item_state
+	content["drop_sound"] = drop_sound
+	content["pickup_sound"] = pickup_sound
+	return content
+
+/obj/item/trash/persistence_apply_content(content, x, y, z)
+	name = content["name"]
+	desc = content["desc"]
+	icon = file(content["icon"])
+	icon_state = content["icon_state"]
+	item_state = content["item_state"]
+	drop_sound = file(content["drop_sound"])
+	pickup_sound = file(content["pickup_sound"])
+	src.x = x
+	src.y = y
+	src.z = z
 
 /obj/item/trash/koisbar
 	name = "\improper k'ois bar wrapper"
@@ -308,9 +332,9 @@
 	pickup_sound = 'sound/items/pickup/glass.ogg'
 
 /obj/item/trash/shakshouka
-	name = "empty shakshouka pan"
+	name = "large messy pan"
 	icon_state = "shakshouka"
-	desc = "It looks like the murder scene... Of a delicious Shakshouka. Trash or recycle."
+	desc = "It looks like the murder scene... of a delicious, saucy dish. Trash or recycle."
 	drop_sound = 'sound/items/drop/bottle.ogg'
 	pickup_sound = 'sound/items/pickup/bottle.ogg'
 
@@ -413,3 +437,16 @@
 	icon_state = "bowl_brown"
 	drop_sound = 'sound/items/drop/glass.ogg'
 	pickup_sound = 'sound/items/pickup/glass.ogg'
+
+/obj/item/trash/microwave_package
+	name = "empty microwave food package"
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "microwave_trash"
+
+/obj/item/trash/mac_cheeze
+	name = "empty mac and cheeze container"
+	icon_state = "mac_trash"
+
+/obj/item/trash/mac_fiery
+	name = "empty fiery hot mac and cheeze container"
+	icon_state = "mac_trash_fiery"

@@ -335,7 +335,7 @@
 	icon_state = "suspenders"
 	item_state = "suspenders"
 	gender = PLURAL
-	slot = ACCESSORY_SLOT_PANTS
+	slot = ACCESSORY_SLOT_GENERIC
 
 /obj/item/clothing/accessory/scarf
 	name = "scarf"
@@ -395,7 +395,7 @@
 	icon_state = "chaps"
 	item_state = "chaps"
 	gender = PLURAL
-	slot = ACCESSORY_SLOT_PANTS
+	slot = ACCESSORY_SLOT_GENERIC
 
 /obj/item/clothing/accessory/chaps/black
 	name = "black chaps"
@@ -1027,7 +1027,7 @@
 	item_state = "kneepads"
 	contained_sprite = TRUE
 	gender = PLURAL
-	slot = ACCESSORY_SLOT_PANTS
+	slot = ACCESSORY_SLOT_GENERIC
 
 /obj/item/clothing/accessory/blood_patch
 	name = "O- blood patch"

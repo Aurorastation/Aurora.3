@@ -74,6 +74,16 @@
 	if(LAZYLEN(colors))
 		color = pick(colors)
 
+/// Parent object for stationary objects that still need to access ship systems (such as the Sensor Relays)
+/obj/effect/overmap/visitable/ship/stationary
+	name = "generic station"
+	desc = "A generic space station, see if you can find the other twelve."
+	obfuscated_name = "unidentified stationary object"
+	unknown_id = "Unknown artificial structure"
+	static_vessel = TRUE
+	propulsion = "None equipped, flight incapable"
+	halted = TRUE // Cannot fly under any circumstances
+
 /obj/effect/overmap/visitable/ship/find_z_levels(var/fore_direction)
 	. = ..(fore_dir)
 
@@ -98,6 +108,8 @@
 
 /obj/effect/overmap/visitable/ship/get_scan_data(mob/user)
 	. = ..()
+	if (static_vessel) // full data already acquired from parent proc
+		return
 	if(!is_still())
 		. += "<br>Heading: [dir2angle(get_heading())], speed [get_speed() * 1000]"
 	if(instant_contact)

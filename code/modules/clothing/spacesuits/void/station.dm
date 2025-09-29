@@ -2,7 +2,7 @@
 //Engineering rig
 /obj/item/clothing/head/helmet/space/void/engineering
 	name = "engineering voidsuit helmet"
-	desc = "A special helmet designed for work in a hazardous, low-pressure environment. Has radiation shielding."
+	desc = "A special helmet designed for work in a hazardous, low-pressure environment. Has radiation shielding and minor thermal protection."
 	icon = 'icons/obj/clothing/voidsuit/station/engineering.dmi'
 	icon_state = "engineering_helm"
 	item_state = "engineering_helm"
@@ -20,13 +20,15 @@
 		BIO = ARMOR_BIO_SHIELDED,
 		RAD = ARMOR_RAD_RESISTANT
 	)
+	// Protects from up to 7500 degrees Kelvin.
+	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE + 2500
 	max_pressure_protection = ENG_VOIDSUIT_MAX_PRESSURE
 	light_overlay = "helmet_light_dual_low"
 	brightness_on = 6
 
 /obj/item/clothing/suit/space/void/engineering
 	name = "engineering voidsuit"
-	desc = "A special suit that protects against hazardous, low pressure environments. Has radiation shielding."
+	desc = "A special suit that protects against hazardous, low pressure environments. Has radiation shielding and minor thermal protection."
 	icon = 'icons/obj/clothing/voidsuit/station/engineering.dmi'
 	icon_state = "engineering"
 	item_state = "engineering"
@@ -45,6 +47,8 @@
 		BIO = ARMOR_BIO_SHIELDED,
 		RAD = ARMOR_RAD_RESISTANT
 	)
+	// Protects from up to 7500 degrees kelvin.
+	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE + 2500
 	max_pressure_protection = ENG_VOIDSUIT_MAX_PRESSURE
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/storage/bag/ore,/obj/item/device/t_scanner,/obj/item/pickaxe,/obj/item/material/twohanded/fireaxe,/obj/item/rfd/construction,/obj/item/storage/bag/inflatable)
 
