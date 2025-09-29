@@ -178,6 +178,7 @@
 	new /obj/item/paper(E)
 	new /obj/item/paper(E)
 	update_icon()
+
 /obj/item/journal/notepad/scc
 	name = "scc notepad"
 	desc = "A notepad for jotting down notes in corporate meetings. This one is navy blue with a gold SCC logo on the front."
