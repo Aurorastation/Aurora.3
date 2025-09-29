@@ -10000,8 +10000,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/machinery/computer/shuttle_control/explore/terminal/Solfrig_shuttle{
-	dir = 8;
-	shuttle_tag = "Solarian Frigate - Shuttle"
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/Solfrig_shuttle)
