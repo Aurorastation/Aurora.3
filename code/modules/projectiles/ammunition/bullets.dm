@@ -504,7 +504,13 @@
 		I = H.get_inactive_hand()
 		if(istype(I, /obj/item/gun/projectile/peac))
 			G = I
+	if(G && !G.wielded)
+		to_chat(H, SPAN_WARNING("You need to wield [G] before it can be loaded!"))
+		to_chat(user, SPAN_WARNING("[H] needs to wield [G] before you can load it!"))
+		return TRUE
 	if(G && G.get_ammo() <= 0 && G.loaded.len < G.max_shells && G.caliber == caliber && src.loc == user)
+		if(!do_after(user, 0.5 SECONDS, G))
+			return TRUE
 		user.remove_from_mob(src)
 		src.forceMove(G)
 		G.loaded.Insert(1, src)

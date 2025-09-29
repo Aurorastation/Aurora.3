@@ -136,7 +136,7 @@
 
 /obj/item/gun/projectile/peac/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	. += "The PEAC can only be fired when wielded. Loading it is delayed by 5 seconds, which can be bypassed by having someone adjacent click on you with the ammo in their hand."
+	. += "The PEAC can only be fired when wielded. Loading it by yourself is delayed by 5 seconds. Someone else can load it for you by clicking on you with the ammo in their hand as you wield it, shortening the delay to half a second."
 
 /obj/item/gun/projectile/peac/update_icon()
 	..()
@@ -182,11 +182,4 @@
 		to_chat(user,SPAN_WARNING("\The [C] does not fit."))
 		return
 
-	user.remove_from_mob(C)
-	C.forceMove(src)
-	loaded.Insert(1, C)
-	user.visible_message("[user] inserts \a [C] into [src].", SPAN_NOTICE("You insert \a [C] into [src]."))
-	playsound(src.loc, C.reload_sound, 50, extrarange = SILENCED_SOUND_EXTRARANGE)
-	update_maptext()
-	update_icon()
-	return
+	. = ..()
