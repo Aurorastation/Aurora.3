@@ -1,6 +1,0 @@
-author: FabianK3
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed trash items becoming persistent when put into storage containers (e.g. backpacks, lunchboxes)."
