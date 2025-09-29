@@ -502,7 +502,7 @@
 		G = I
 	else
 		I = H.get_inactive_hand()
-		if(istype(I, /obj/item/gun/projectile/peac))
+		if(istype(I, /obj/item/gun/projectile/peac)) //we check the other hand as well so the wield error message can get sent despite what hand it is in, to avoid confusion
 			G = I
 	if(G && !G.wielded)
 		to_chat(H, SPAN_WARNING("You need to wield [G] before it can be loaded!"))
