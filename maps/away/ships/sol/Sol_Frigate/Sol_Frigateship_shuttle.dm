@@ -1,4 +1,4 @@
-// This is a bare-bones shuttle only designed for transport, no interceptors here.
+
 /obj/effect/overmap/visitable/ship/landable/Solfrig_shuttle
 	name = "Sol Frigate Shuttle"
 	class = "SAMV"
@@ -50,7 +50,7 @@
 // Shuttle docking port
 /obj/effect/map_effect/marker/airlock/docking/Sol_frigate/shuttle_port
 	name = "Shuttle Dock"
-	landmark_tag = "nav_hangar_solfrig"
+	landmark_tag = "Solfrig_shuttle_dock"  
 	master_tag = "Solfrig_shuttle_dock"
 // --------
 
