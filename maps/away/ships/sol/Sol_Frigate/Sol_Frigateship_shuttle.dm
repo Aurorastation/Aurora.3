@@ -31,12 +31,12 @@
 	name = "Solarian Frigate Shuttle"
 	move_time = 15
 	shuttle_area = list(/area/shuttle/Solfrig_shuttle)
-	current_location = "nav_hangar_"
-	landmark_transition = "nav_transit_splf_shuttle"
-	dock_target = "splf_shuttle"
+	current_location = "nav_hangar_solfrig"
+	landmark_transition = "nav_transit_Solfrig_shuttle"
+	dock_target = "Solfrig_shuttle_dock"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_hangar_splf"
+	logging_home_tag = "nav_hangar_solfrig"
 	defer_initialisation = TRUE
 // --------
 
