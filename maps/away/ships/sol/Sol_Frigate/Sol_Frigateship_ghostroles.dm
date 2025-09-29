@@ -146,24 +146,3 @@ obj/outfit/admin/Solfrig_Commander/get_id_access()
 
 /obj/outfit/admin/solfrig_ipc/get_id_access()
 	return list(ACCESS_SOL_SHIPS, ACCESS_EXTERNAL_AIRLOCKS)
-
-/datum/ghostspawner/human/Solfrig_Intern
-	short_name = "Solfrig_Intern"
-	name = "Solarian Frigate Midshipman"
-	desc = "Serve as an officer-in-training aboard a Solarian Navy Frigate. Learn to lead, and not to be totally incompetent. (NOTE: It is recommended to use appropirate accents and origins depending on which region of the Spur you are in; Visegradi accents for the South, and San Colettish accents for the North.) "
-	mob_name_prefix = "MIDN. "
-
-	spawnpoints = list("Solfrig_Intern")
-	max_count = 1
-
-	assigned_role = "Solarian Navy Cadet"
-	special_role = "Solarian Navy Cadet"
-
-/obj/outfit/admin/Solfrig_navy_intern
-	name = "Solarian Navy Cadet"
-
-	uniform = /obj/item/clothing/under/rank/sol/dress/subofficer
-	shoes = /obj/item/clothing/shoes/laceup
-	back = /obj/item/storage/backpack/satchel/leather
-	head = /obj/item/clothing/head/sol/dress
-
