@@ -138,13 +138,11 @@
 /datum/jukebox/proc/get_ui_data()
 	var/list/data = list()
 	var/list/songs_data = list()
-	for(var/song_name in playlist)
-		var/datum/track/one_song = playlist[song_name]
+	for(var/datum/track/song in playlist)
 		UNTYPED_LIST_ADD(songs_data, list( \
-			"name" = song_name, \
-			"length" = DisplayTimeText(one_song.song_length), \
+			"name" = song.song_name, \
+			"length" = DisplayTimeText(song.song_length), \
 		))
-
 	data["active"] = !!active_song_sound
 	data["playlist"] = songs_data
 	data["track_selected"] = selection?.song_name

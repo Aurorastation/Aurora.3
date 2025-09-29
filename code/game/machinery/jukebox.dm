@@ -219,7 +219,7 @@
 				return TRUE
 
 			var/datum/track/new_song = music_player.playlist[params["track"]]
-			if(QDELETED(src) || !istype(new_song, /datum/track))
+			if(QDELETED(src))
 				return TRUE
 
 			music_player.selection = new_song

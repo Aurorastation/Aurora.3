@@ -7,7 +7,7 @@ import { Window } from '../layouts';
 
 type Song = {
   name: string;
-  length: number;
+  length: string;
 };
 
 type Data = {
