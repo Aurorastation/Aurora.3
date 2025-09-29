@@ -104,6 +104,7 @@
 		/obj/item/reagent_containers/ecig_cartridge/grape = 4.40
 	)
 	light_color = COLOR_BLUE_GRAY
+	var/obj/machinery/vending/cigarette/low_supply/replacement = null
 
 /obj/machinery/vending/cigarette/low_supply
 	products = list(
@@ -131,7 +132,7 @@
 	if(prob(30))
 		var/is_station_level = is_station_level(src.z)
 		if(is_station_level)
-			var/obj/machinery/vending/cigarette/low_supply/replacement = new(src.loc)
+			replacement = new(src.loc)
 			qdel(src)
 	else
 		. = ..()

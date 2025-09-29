@@ -75,12 +75,14 @@
 	temperature_setting = -1
 	light_color = COLOR_GUNMETAL
 
+	var/obj/machinery/vending/cola/low_supply/replacement = null
+
 /obj/machinery/vending/cola/Initialize()
 	// 30% chance to spawn as a low_supply variant, on the Horizon only. Temporary proc, to be deleted for final merge.
 	if(prob(30))
 		var/is_station_level = is_station_level(src.z)
 		if(is_station_level)
-			var/obj/machinery/vending/cola/low_supply/replacement = new(src.loc)
+			replacement = new(src.loc)
 			qdel(src)
 	else
 		. = ..()
@@ -171,6 +173,8 @@
 	temperature_setting = -1
 	light_color = COLOR_CULT_REINFORCED
 
+	var/obj/machinery/vending/zora/low_supply/replacement = null
+
 /obj/machinery/vending/zora/low_supply
 	products = list(
 		/obj/item/reagent_containers/food/drinks/cans/zorasoda/cherry = 2,
@@ -187,7 +191,7 @@
 	if(prob(30))
 		var/is_station_level = is_station_level(src.z)
 		if(is_station_level)
-			var/obj/machinery/vending/zora/low_supply/replacement = new(src.loc)
+			replacement = new(src.loc)
 			qdel(src)
 	else
 		. = ..()

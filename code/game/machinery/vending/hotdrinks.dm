@@ -45,6 +45,7 @@
 	heating_temperature = T0C + 100 //ULTRA HOT COFFEE
 	temperature_setting = -1
 	light_color = COLOR_BROWN
+	var/obj/machinery/vending/coffee/low_supply/replacement = null
 
 /obj/machinery/vending/coffee/free
 	name = "\improper Free Hot Drinks machine"
@@ -71,7 +72,7 @@
 	if(prob(30))
 		var/is_station_level = is_station_level(src.z)
 		if(is_station_level)
-			var/obj/machinery/vending/coffee/low_supply/replacement = new(src.loc)
+			replacement = new(src.loc)
 			qdel(src)
 	else
 		. = ..()

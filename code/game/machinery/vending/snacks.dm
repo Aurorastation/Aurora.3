@@ -94,6 +94,8 @@
 	light_color = COLOR_BABY_BLUE
 	manufacturer = "nanotrasen"
 
+	var/obj/machinery/vending/snack/low_supply/replacement = null
+
 /obj/machinery/vending/snack/low_supply
 	products = list(
 		/obj/item/reagent_containers/food/drinks/dry_ramen = 4,
@@ -138,7 +140,7 @@
 	if(prob(30))
 		var/is_station_level = is_station_level(src.z)
 		if(is_station_level)
-			var/obj/machinery/vending/snack/low_supply/replacement = new(src.loc)
+			replacement = new(src.loc)
 			qdel(src)
 	else
 		. = ..()
@@ -224,6 +226,8 @@
 	random_itemcount = 0
 	light_color = COLOR_BABY_BLUE
 
+	var/obj/machinery/vending/frontiervend/low_supply/replacement = null
+
 /obj/machinery/vending/frontiervend/low_supply
 	products = list(
 		/obj/item/reagent_containers/food/drinks/cans/himeokvass = 2,
@@ -249,7 +253,7 @@
 	if(prob(30))
 		var/is_station_level = is_station_level(src.z)
 		if(is_station_level)
-			var/obj/machinery/vending/frontiervend/low_supply/replacement = new(src.loc)
+			replacement = new(src.loc)
 			qdel(src)
 	else
 		. = ..()
