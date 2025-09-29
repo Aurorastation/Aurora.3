@@ -12,39 +12,25 @@
 
 // Standard Refrigerator
 /obj/structure/closet/secure_closet/refrigerator/standard/fill()
-	// 5 Cartons of Milk
-	for(var/i = 0, i < 5, i++)
-		new /obj/item/reagent_containers/food/drinks/carton/milk(src)
-	// 2 Cartons of Soy Milk
-	for(var/i = 0, i < 2, i++)
-		new /obj/item/reagent_containers/food/drinks/carton/soymilk(src)
-	// 1 Egg Box
-	for(var/i = 0, i < 2, i++)
-		new /obj/item/storage/box/fancy/egg_box(src)
-	// 1 Stick of Butter
-	for(var/i = 0, i < 1, i++)
-		new /obj/item/reagent_containers/food/snacks/spreads/butter(src)
-	// 4 Random Condiments
-	for(var/i = 0, i < 4, i++)
-		new /obj/random/condiment(src)
-	// 2 Random Kitchen Staples
-	for(var/i = 0, i < 2, i++)
-		new /obj/random/kitchen_staples(src)
+	new /obj/item/reagent_containers/food/drinks/carton/milk(src)
+	new /obj/item/reagent_containers/food/drinks/carton/milk(src)
+	new /obj/item/reagent_containers/food/drinks/carton/soymilk(src)
+	new /obj/item/storage/box/fancy/egg_box(src)
+	new /obj/item/reagent_containers/food/snacks/spreads/butter(src)
+	new /obj/random/condiment(src)
+	new /obj/random/condiment(src)
+	new /obj/random/kitchen_staples(src)
 
 // Cafe Refrigerator
 /obj/structure/closet/secure_closet/refrigerator/cafe/fill()
-	// 6 Cartons of Milk
-	for(var/i = 0, i < 6, i++)
-		new /obj/item/reagent_containers/food/drinks/carton/milk(src)
-	// 3 Egg Boxes
-	// 3 Bags of Flour
-	for(var/i = 0, i < 3, i++)
-		new /obj/item/storage/box/fancy/egg_box(src)
-		new /obj/item/reagent_containers/food/condiment/flour(src)
-	// 2 Cartons of Soymilk and 2 Bags of Sugar
-	for(var/i = 0, i < 2, i++)
-		new /obj/item/reagent_containers/food/drinks/carton/soymilk(src)
-		new /obj/item/reagent_containers/food/condiment/sugar(src)
+	new /obj/item/reagent_containers/food/drinks/carton/milk(src)
+	new /obj/item/reagent_containers/food/drinks/carton/milk(src)
+	new /obj/item/reagent_containers/food/drinks/carton/milk(src)
+	new /obj/item/reagent_containers/food/drinks/carton/milk(src)
+	new /obj/item/storage/box/fancy/egg_box(src)
+	new /obj/item/reagent_containers/food/condiment/flour(src)
+	new /obj/item/reagent_containers/food/drinks/carton/soymilk(src)
+	new /obj/item/reagent_containers/food/condiment/sugar(src)
 
 //
 // Freezers
@@ -119,7 +105,7 @@
 
 /obj/structure/closet/secure_closet/freezer/kois/spores/fill()
 	// 8 K'ois
-	for(var/i = 0, i < 8, i++)
+	for(var/i = 0, i < 6, i++)
 		new /obj/item/reagent_containers/food/snacks/grown/kois(src)
 
 //

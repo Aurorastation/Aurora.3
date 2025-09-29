@@ -133,6 +133,16 @@
 		/obj/item/reagent_containers/food/snacks/seaweed = 10,
 	)
 
+/obj/machinery/vending/snack/Initialize()
+	// 30% chance to spawn as a low_supply variant, on the Horizon only. Temporary proc, to be deleted for final merge.
+	if(prob(30))
+		var/is_station_level = is_station_level(src.z)
+		if(is_station_level)
+			var/obj/machinery/vending/snack/low_supply/replacement = new(src.loc)
+			qdel(src)
+	else
+		. = ..()
+
 /obj/item/device/vending_refill/snack
 	name = "snacks resupply canister"
 	vend_id = "snacks"
@@ -233,6 +243,16 @@
 		/obj/item/reagent_containers/food/snacks/papad = 2,
 		/obj/item/storage/box/fancy/foysnack = 1
 	)
+
+/obj/machinery/vending/frontiervend/Initialize()
+	// 30% chance to spawn as a low_supply variant, on the Horizon only. Temporary proc, to be deleted for final merge.
+	if(prob(30))
+		var/is_station_level = is_station_level(src.z)
+		if(is_station_level)
+			var/obj/machinery/vending/frontiervend/low_supply/replacement = new(src.loc)
+			qdel(src)
+	else
+		. = ..()
 
 /obj/machinery/vending/frontiervend/hacked
 	name = "\improper hacked FrontierVend"

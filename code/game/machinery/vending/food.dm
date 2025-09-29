@@ -6,7 +6,7 @@
 
 /obj/machinery/vending/mredispenser
 	name = "MRE dispenser"
-	desc = "A vending machine filled with MRE's."
+	desc = "A vending machine filled with MRE's. Now with bonus LiquidFood rations!"
 	icon_state = "mrevend"
 	icon_deny = "mrevend-deny"
 	product_slogans = ";FOREIGN LEGION TESTED!, FOREIGN LEGION RECOMMENDED!, FOREIGN LEGION APPROVED!;YOU ARE NOT ALLOWED A JELLY DOUGHNUT!;YOU DON'T WANT TO DIE HUNGRY, SOLDIER!"
@@ -22,7 +22,8 @@
 		/obj/item/storage/box/fancy/mre/menu8 = 2,
 		/obj/item/storage/box/fancy/mre/menu9 = 10,
 		/obj/item/storage/box/fancy/mre/menu10 = 10,
-		/obj/item/storage/box/fancy/mre/menu12 = 5
+		/obj/item/storage/box/fancy/mre/menu12 = 5,
+		/obj/item/reagent_containers/food/snacks/liquidfood = 20
 	)
 	prices = list(
 		/obj/item/storage/box/fancy/mre = 12.00,
@@ -35,11 +36,11 @@
 		/obj/item/storage/box/fancy/mre/menu8 = 12.00,
 		/obj/item/storage/box/fancy/mre/menu9 = 12.00,
 		/obj/item/storage/box/fancy/mre/menu10 = 12.00,
-		/obj/item/storage/box/fancy/mre/menu12 = 12.00
+		/obj/item/storage/box/fancy/mre/menu12 = 12.00,
+		/obj/item/reagent_containers/food/snacks/liquidfood = 3.00
 	)
 	contraband = list(
 		/obj/item/storage/box/fancy/mre/menu11 = 5, // memes.
-		/obj/item/reagent_containers/food/snacks/liquidfood = 5
 	)
 	vend_delay = 15
 	idle_power_usage = 211 // Cold MREs...
@@ -74,7 +75,7 @@
 
 /obj/machinery/vending/quick_e_meals
 	name = "\improper quick-e-meals vendor"
-	desc = "Shelves of affordable microwave-ready meals by Orion and Getmore just waiting to be deployed into the battle against hunger!"
+	desc = "Shelves of affordable microwave-ready meals by Orion and Getmore just waiting to be deployed into the battle against hunger! Now with bonus LiquidFood rations!"
 	icon_state = "quick_e"
 	icon_screen = "quick_e-screen"
 	icon_vend = "quick_e-vend"
@@ -97,7 +98,8 @@
 		/obj/item/storage/box/fancy/toptarts_strawberry = 3,
 		/obj/item/storage/box/fancy/toptarts_chocolate_peanutbutter = 3,
 		/obj/item/storage/box/fancy/toptarts_blueberry = 3,
-		/obj/item/storage/box/donkpockets = 3
+		/obj/item/storage/box/donkpockets = 3,
+		/obj/item/reagent_containers/food/snacks/liquidfood = 20
 	)
 	premium = list(
 		/obj/item/storage/box/fancy/packaged_mossburger = 2
@@ -115,5 +117,6 @@
 		/obj/item/storage/box/fancy/toptarts_strawberry = 5.00,
 		/obj/item/storage/box/fancy/toptarts_chocolate_peanutbutter = 5.00,
 		/obj/item/storage/box/fancy/toptarts_blueberry = 5.00,
-		/obj/item/storage/box/donkpockets = 11.00
+		/obj/item/storage/box/donkpockets = 11.00,
+		/obj/item/reagent_containers/food/snacks/liquidfood = 3.00
 	)

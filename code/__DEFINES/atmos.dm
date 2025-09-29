@@ -99,14 +99,23 @@
 #define PRESSURE_ONE_THOUSAND 1000 // 1000 kPa of pressure. Allows for easier searchability.
 #define PRESSURE_EXERTED 200 // 200 kPa of pressure.
 
-// Defines how much of certain gas do the Atmospherics tanks start with. Values are in kpa per tile (assuming 20C)
-#define ATMOSTANK_NITROGEN      90000 // A lot of N2 is needed to produce air mix, that's why we keep 90MPa of it
-#define ATMOSTANK_OXYGEN        40000 // O2 is also important for airmix, but not as much as N2 as it's only 21% of it.
-#define ATMOSTANK_CO2           25000 // CO2, PH and H2 are not critically important for station, only for toxins and alternative coolants, no need to store a lot of those.
-#define ATMOSTANK_PHORON        25000
-#define ATMOSTANK_PHORON_SCARCE 2500  // we're also in the middle of a phoron shortage - the old ATMOSTANK_PHORON define is staying in case someone wants to map in a phoron tank or something
-#define ATMOSTANK_HYDROGEN      25000
-#define ATMOSTANK_NITROUSOXIDE  40000 // N2O does have a real use now! It can be used instead of oxygen to do burns for the thrusters. This means we need more of it though, otherwise there isn't really enough.
+// Defines how much of certain gas do generic atmospherics tanks start with. Values are in kpa per tile (assuming 20C)
+#define ATMOSTANK_NITROGEN		90000 // A lot of N2 is needed to produce air mix, that's why we keep 90MPa of it
+#define ATMOSTANK_OXYGEN		40000 // O2 is also important for airmix, but not as much as N2 as it's only 21% of it.
+#define ATMOSTANK_CO2			25000 // CO2, PH and H2 are not critically important for station, only for toxins and alternative coolants, no need to store a lot of those.
+#define ATMOSTANK_PHORON		25000
+#define ATMOSTANK_PHORON_SCARCE	2500  // we're also in the middle of a phoron shortage - the old ATMOSTANK_PHORON define is staying in case someone wants to map in a phoron tank or something
+#define ATMOSTANK_HYDROGEN		25000
+#define ATMOSTANK_NITROUSOXIDE	40000 // N2O does have a real use now! It can be used instead of oxygen to do burns for the thrusters. This means we need more of it though, otherwise there isn't really enough.
+
+// As above, but Horizon-specific. These are separated out into their own defines to save us the trouble of editing maps with new turfs every time we want to change the Horizon's gas stockpiles.
+// To be replaced with persistence-governed variables at some point in the future.
+#define ATMOSTANK_NITROGEN_HORIZON		75000
+#define ATMOSTANK_OXYGEN_HORIZON		30000
+#define ATMOSTANK_CO2_HORIZON			8000
+#define ATMOSTANK_PHORON_HORIZON		1500
+#define ATMOSTANK_HYDROGEN_HORIZON		15000
+#define ATMOSTANK_NITROUSOXIDE_HORIZON	20000
 
 #define ADIABATIC_EXPONENT 0.667 //Actually adiabatic exponent - 1.
 

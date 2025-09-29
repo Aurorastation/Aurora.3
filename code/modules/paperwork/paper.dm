@@ -875,3 +875,59 @@ ABSTRACT_TYPE(/obj/item/paper/fluff)
 	with your support. As such, local IAC vessels and stations are accepting donations of non-perishable foods and water, as well as medical supplies of any type. \
 	Additionally, at the behest of the IAC coordinator in your area of space, you can join for a blood drive or apply to volunteer in the IAC. <br> \
 	<center><i>Remember - it's up to all of us to look after our galaxy!</i></center></font>"
+
+/// cresent expanse supply scarcity fluff
+/obj/item/paper/fluff/donuts_supply_notice
+	info = "<font face=\"Verdana\"><font size=\"2\">who the fuck ate all the donuts?!</font></font>"
+
+/obj/item/paper/fluff/armoury_supply_notice
+	name = "armory stock notice"
+	info = "<font face=\"Verdana\"><center><b>Armoury Stock Notice</b></center><font size=\"2\">To All Wardens,\
+	<br><br>Due to limited supply availability, the Operations department has reduced their fabrication of weapons ammunition.\
+	<br>Our new daily supply is:<ol>\
+	4x 9mm Rubber, from 8x.<br>\
+	8x .45 Rubber, from 14x.<br>\
+	4x 9mm FMJ, from 6x.<br>\
+	6x .45 FMJ from 8x.<br>\
+	4x .556 polymer, from 6x.\
+	</ol></font></font>"
+
+/obj/item/paper/fluff/medical_supply_notice
+	name = "medical supply notice"
+	info = "<font face=\"Verdana\"><center><b>Supply Notice</b></center><font size=\"2\">Medical Staff,\
+	<br><br>We are beginning to see the effects of prolonged inaccess to resupplies.\
+	<br><br>Critically, our O- blood reserve is nearing depletion. We are now afforded the following:<ol>\
+	<b>ICU Cabinet:</b> 3x O Rh- (from 6)</b><br>\
+    <b>Operating Theatres (Combined):</b> 3x O Rh- (from 6)</ol></b>\
+	<b>Intrepid Medbay:</b> 2x O Rh- (from 3)</ol></b>\
+	We should consider referencing patient blood type\
+    when replenishing blood volume where possible.\
+	<br>In addition to dwindling blood, other supplies have also been affected. \
+	Stasis bags and advanced medical kits in particular.\
+	<br><br>The Pharmacy has also had its phoron ration cut significantly, meaning\
+	many medications will be at a premium.</font></font>"
+
+/obj/item/paper/fluff/generic_supply_notice
+	name = "supplies notice"
+	info = "<font face=\"Verdana\">To All Horizon Crew,\
+	<br><br>Ship supplies are running critically low. Supplies and materiel, especially phoron and phoronics, are being strictly rationed.</font>"
+
+/obj/item/paper/fluff/kitchen_supply_notice
+	name = "kitchen supplies notice"
+	info = "<font face=\"Verdana\">To All Horizon Crew,\
+	<br><br>Meat, eggs, and other fresh foodstuffs are running critically low. Strict rationing is being enforced.</font>"
+
+/obj/item/paper/fluff/atmos_supply_notice
+	name = "atmospherics supply notice"
+	info = "<font face=\"Verdana\"><center><b>Atmospherics Supply Notice</b></center><font size=\"2\">To All Engineering Personnel,\
+	<br><br>Our holding tanks' reserves have been continually dropping due to lack of resupply.\
+	<br>Be mindful if your propulsion setups are high-mass.\
+	<br>Be mindful during breach response to minimize risk of crew accidentally spreading breaches, to conserve air mix reserves.</font>\
+	<br><br>Gas Reserve Deltas (Approximate):<ol>\
+	N2 (Δ): -17%<br>\
+	O2 (Δ): -25%<br>\
+	CO2 (Δ): -68%<br>\
+	Phoron (Δ): -40%<br>\
+	H2 (Δ): -40%<br>\
+	N2O (Δ): -50%<br>\
+	</ol></font></font>"
