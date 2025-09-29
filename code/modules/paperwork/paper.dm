@@ -898,12 +898,12 @@ ABSTRACT_TYPE(/obj/item/paper/fluff)
 	<br><br>We are beginning to see the effects of prolonged inaccess to resupplies.\
 	<br><br>Critically, our O- blood reserve is nearing depletion. We are now afforded the following:<ol>\
 	<b>ICU Cabinet:</b> 3x O Rh- (from 6)</b><br>\
-    <b>Operating Theatres (Combined):</b> 3x O Rh- (from 6)</ol></b>\
+	<b>Operating Theatres (Combined):</b> 3x O Rh- (from 6)</ol></b>\
 	<b>Intrepid Medbay:</b> 2x O Rh- (from 3)</ol></b>\
 	We should consider referencing patient blood type\
-    when replenishing blood volume where possible.\
-	<br>In addition to dwindling blood, other supplies have also been affected. \
-	Stasis bags and advanced medical kits in particular.\
+	when replenishing blood volume where possible.\
+	<br>In addition to dwindling blood, other supplies have also been affected, \
+	stasis bags and advanced medical kits in particular.\
 	<br><br>The Pharmacy has also had its phoron ration cut significantly, meaning\
 	many medications will be at a premium.</font></font>"
 

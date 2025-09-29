@@ -66,7 +66,7 @@
 		/obj/item/reagent_containers/food/drinks/h_chocolate = 3,
 		/obj/item/reagent_containers/food/snacks/donut/normal = 8
 	)
-
+/*
 /obj/machinery/vending/coffee/Initialize()
 	// 30% chance to spawn as a low_supply variant, on the Horizon only. Temporary proc, to be deleted for final merge.
 	if(prob(30))
@@ -76,7 +76,7 @@
 			qdel(src)
 	else
 		. = ..()
-
+*/
 /obj/item/device/vending_refill/coffee
 	name = "coffee resupply canister"
 	vend_id = "coffee"

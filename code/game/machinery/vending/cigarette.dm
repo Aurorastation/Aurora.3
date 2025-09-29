@@ -126,7 +126,7 @@
 		/obj/item/reagent_containers/ecig_cartridge/med_nicotine = 2,
 		/obj/item/reagent_containers/ecig_cartridge/grape = 1
 	)
-
+/*
 /obj/machinery/vending/cigarette/Initialize()
 	// 30% chance to spawn as a low_supply variant, on the Horizon only. Temporary proc, to be deleted for final merge.
 	if(prob(30))
@@ -136,7 +136,7 @@
 			qdel(src)
 	else
 		. = ..()
-
+*/
 /obj/machinery/vending/cigarette/merchant
 	// Mapped in merchant station
 	premium = list()

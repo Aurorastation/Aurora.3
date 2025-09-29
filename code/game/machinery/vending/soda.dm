@@ -76,7 +76,7 @@
 	light_color = COLOR_GUNMETAL
 
 	var/obj/machinery/vending/cola/low_supply/replacement = null
-
+/*
 /obj/machinery/vending/cola/Initialize()
 	// 30% chance to spawn as a low_supply variant, on the Horizon only. Temporary proc, to be deleted for final merge.
 	if(prob(30))
@@ -86,7 +86,7 @@
 			qdel(src)
 	else
 		. = ..()
-
+*/
 /obj/machinery/vending/cola/low_supply
 	products = list(
 		/obj/item/reagent_containers/food/drinks/cans/diet_cola = 1,
@@ -186,6 +186,7 @@
 		/obj/item/reagent_containers/food/drinks/cans/zorasoda/dyn = 1
 	)
 
+/*
 /obj/machinery/vending/zora/Initialize()
 	// 30% chance to spawn as a low_supply variant, on the Horizon only. Temporary proc, to be deleted for final merge.
 	if(prob(30))
@@ -195,7 +196,7 @@
 			qdel(src)
 	else
 		. = ..()
-
+*/
 /obj/item/device/vending_refill/zora
 	name = "Zo'ra Soda resupply canister"
 	vend_id = "zora"
