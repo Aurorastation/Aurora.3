@@ -54,9 +54,9 @@
 		for(var/i = 1 to LAZYLEN(fusion_cores))
 			var/list/core = list()
 			var/obj/machinery/power/fusion_core/C = fusion_cores[i]
-
 			var/power_available = C.avail()
 			var/power_usage = C.active_power_usage
+			var/power_generated = C.owned_field?.output_avg
 
 			core["id"] = "#[i]"
 			core["ref"] = "[REF(C)]"
@@ -70,10 +70,10 @@
 			core["size"] =  C.owned_field ? C.owned_field.size : 0
 			core["instability"] = C.owned_field ? C.owned_field.percent_unstable * 100 : -1 //%
 			core["temperature"] = C.owned_field ? C.owned_field.plasma_temperature + 295 : -1 //K
-			core["power_status"] = "[power_wattage_readable(power_available)]/[power_wattage_readable(power_usage)]"
+			core["power_available"] = "[power_wattage_readable(power_available)]"
+			core["power_usage"] = "[power_wattage_readable(power_usage)]"
+			core["power_generated"] = "[power_wattage_readable(power_generated)]"
 			core["shutdown_safe"] = C.owned_field ? C.owned_field.is_shutdown_safe() : TRUE
-
-			core["radiation_avg"] =  C.owned_field ? C.owned_field.radiation_avg : 0
 
 			var/list/reactants = list()
 			if(C.owned_field && LAZYLEN(C.owned_field.reactants))

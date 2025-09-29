@@ -1,4 +1,3 @@
-#define FUSION_ENERGY_PER_K				10
 #define FUSION_INSTABILITY_DIVISOR		100000
 #define FUSION_RUPTURE_THRESHOLD		25000
 #define FUSION_REACTANT_CAP				10000
@@ -40,11 +39,11 @@
 	 */
 	var/field_strength = 20
 	/// Current field strength multiplier applied to entropy.
-	var/field_strength_entropy_multiplier = 1
+	var/field_strength_entropy_multiplier = 1.0
 	/// Current field strength multiplier applied to instability.
-	var/field_strength_instability_multiplier = 1
+	var/field_strength_instability_multiplier = 1.0
 	/// Current field strength multiplier applied to power output.
-	var/field_strength_power_multiplier = 1
+	var/field_strength_power_multiplier = 1.0
 	/// Radius of the EM field. Scales with Field Strength.
 	var/size = 1
 
@@ -89,8 +88,8 @@
 	var/emergency_alert = "DANGER: INDRA REACTOR MELTDOWN IMMINENT!"
 	var/lastwarning = 0
 
-	/// Power output. We average this like we do radiation for player-presenting data.
-	var/output
+	/// Power output this tick. We average this like we do radiation for player-presenting data.
+	var/power_output
 	/// Power of the previous five ticks averaged out (if != 0).
 	var/output_avg = 0
 	/// Archived power. Used for averaging out the power dumped into the powernet for players to see.
@@ -103,6 +102,10 @@
 	var/vfx_radius_actual
 	//var/vfx_radius_visual
 	var/pause_rupture = TRUE
+
+	var/power_log_base = 1.4
+	var/power_multiplier = 3
+	var/power_power = 3.2
 
 /obj/effect/fusion_em_field/proc/UpdateVisuals()
 	//Take the particle system and edit it
@@ -196,7 +199,7 @@
 	var/added_particles = FALSE
 	var/datum/gas_mixture/uptake_gas = owned_core.loc.return_air()
 	if(uptake_gas)
-		uptake_gas = uptake_gas.remove_by_flag(XGM_GAS_FUSION_FUEL, rand(75,100))
+		uptake_gas = uptake_gas.remove_by_flag(XGM_GAS_FUSION_FUEL, rand(50,100))
 	if(uptake_gas && uptake_gas.total_moles)
 		for(var/gasname in uptake_gas.gas)
 			if(uptake_gas.gas[gasname]*10 > reactants[gasname])
@@ -209,19 +212,26 @@
 	// Let the particles inside the field react.
 	React()
 
-	field_strength_power_multiplier = max((owned_core.field_strength ** 1.05) / 100, 1)
+	field_strength_power_multiplier = max((owned_core.field_strength ** 1.12) / 100, 1)
 	// Dump power to our powernet.
-	owned_core.add_avail(FUSION_ENERGY_PER_K * plasma_temperature * field_strength_power_multiplier)
+	power_output = ((log(power_log_base, plasma_temperature) * power_multiplier) ** power_power) * field_strength_power_multiplier
+	output_archive_5 = output_archive_4
+	output_archive_4 = output_archive_3
+	output_archive_3 = output_archive_2
+	output_archive_2 = output_archive_1
+	output_archive_1 = power_output
+	output_avg = ((output_archive_1 + output_archive_2 + output_archive_3 + output_archive_4 + output_archive_5 ) / 5)
+	owned_core.add_avail(power_output)
 
 	// Roundstart update
 	if(field_strength < 20)
 		field_strength = 20
-	field_strength_entropy_multiplier = clamp((owned_core.field_strength ** 1.175) / 68, 0.5, 4.0)
+	field_strength_entropy_multiplier = clamp((owned_core.field_strength ** 1.05) / 40, 0.8, 2.0)
 	to_chat(world, "<b>entropy multiplier</b> = [field_strength_entropy_multiplier]")
 	// Energy decay (entropy tax).
 	if(plasma_temperature >= 1)
-		var/lost = plasma_temperature * 0.005
-		to_chat(world,"<b>plasma temp</b> = [plasma_temperature] | <b>lost</b> = [plasma_temperature * 0.005]")
+		var/lost = plasma_temperature * 0.0045
+		to_chat(world,"<b>plasma temp</b> = [plasma_temperature] | <b>lost</b> = [plasma_temperature * 0.0035]")
 		radiation += lost
 		var/temp_change = 0 - (lost * field_strength_entropy_multiplier)
 		to_chat(world, "<b>temp_change</b> = [temp_change]")
@@ -431,10 +441,10 @@
 
 /obj/effect/fusion_em_field/proc/AddEnergy(a_energy, a_plasma_temperature)
 	// Boost gyro effects at low temperatures for faster startup
-	if(plasma_temperature <= 750)
+	if(plasma_temperature <= 75000)
 		a_energy = a_energy * 32
-	else if(plasma_temperature <= 25000)
-		a_energy = a_energy * 4
+	else if(plasma_temperature <= 250000)
+		a_energy = a_energy * 8
 	energy += a_energy
 
 	plasma_temperature += a_plasma_temperature
@@ -834,7 +844,6 @@
 	color = 0
 	drift = generator("circle", 0.2, NORMAL_RAND)
 
-#undef FUSION_ENERGY_PER_K
 #undef FUSION_INSTABILITY_DIVISOR
 #undef FUSION_RUPTURE_THRESHOLD
 #undef FUSION_REACTANT_CAP

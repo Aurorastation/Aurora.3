@@ -10,7 +10,7 @@ GLOBAL_LIST(fusion_reactions)
 	/// Secondary reactant.
 	var/s_react = ""
 	/// This is the minimum energy to initiate a given reaction.
-	var/minimum_energy_level = 40000
+	var/minimum_energy_level = 250000
 	/// This is the minimum energy to continue a given reaction, once started. Used for halting energy-consuming reactions.
 	/// When not set, it will default to (minimum_energy_level * 0.8) to avoid tanking plasma temp in a single tick.
 	var/minimum_reaction_temperature
@@ -56,23 +56,36 @@ GLOBAL_LIST(fusion_reactions)
 	minimum_energy_level = 500
 	priority = 1
 
+/singleton/fusion_reaction/deuterium_deuterium
+	name = "Deuterium Burning"
+	p_react = GAS_DEUTERIUM
+	s_react = GAS_DEUTERIUM
+	energy_consumption = 6
+	energy_production = 16
+	products = list(GAS_HELIUM = 1)
+	radiation = 8
+	minimum_energy_level = 80000
+	priority = 0
+
 /singleton/fusion_reaction/hydrogen_hydrogen
 	name = "Hydrogen Burning"
 	p_react = GAS_HYDROGEN
 	s_react = GAS_HYDROGEN
-	energy_consumption = 1
+	energy_consumption = 8
 	energy_production = 12
 	products = list(GAS_DEUTERIUM = 1)
 	radiation = 3
+	minimum_energy_level = 100000
 	priority = 1
 
 /singleton/fusion_reaction/hydrogen_deuterium
 	p_react = GAS_HYDROGEN
 	s_react = GAS_DEUTERIUM
-	energy_consumption = 2
+	energy_consumption = 7
 	energy_production = 12
 	products = list(GAS_HELIUMFUEL = 1)
 	radiation = 16
+	minimum_energy_level = 240000
 	priority = 2
 
 /singleton/fusion_reaction/helium3_hydrogen
@@ -90,11 +103,11 @@ GLOBAL_LIST(fusion_reactions)
 	p_react = GAS_HELIUM
 	s_react = GAS_HELIUM
 	energy_consumption = 3
-	energy_production = 16
+	energy_production = 20
 	products = list(GAS_DEUTERIUM = 2, GAS_HYDROGEN = 1)
 	radiation = 6
 	instability = 0.75
-	minimum_energy_level = 90000
+	minimum_energy_level = 200000
 	priority = 12
 
 /singleton/fusion_reaction/helium3_helium
@@ -194,7 +207,7 @@ GLOBAL_LIST(fusion_reactions)
 	energy_production = 96
 	products = list(GAS_HELIUM = 1, GAS_HYDROGEN = 2)
 	radiation = 1
-	minimum_energy_level = 720000
+	minimum_energy_level = 1200000
 	priority = 30
 
 // bad!!!
@@ -240,7 +253,7 @@ GLOBAL_LIST(fusion_reactions)
 	energy_production = 0
 	instability = 0.5
 	radiation = 49
-	minimum_energy_level = 1800000
+	minimum_energy_level = 2800000
 	priority = 40
 
 /singleton/fusion_reaction/mhydrogen
@@ -258,7 +271,7 @@ GLOBAL_LIST(fusion_reactions)
 	name = "Phoron Shot"
 	p_react = "iron"
 	s_react = GAS_PHORON
-	minimum_energy_level = 3000000
+	minimum_energy_level = 4000000
 	energy_consumption = 64
 	energy_production = 18
 	radiation = 64
