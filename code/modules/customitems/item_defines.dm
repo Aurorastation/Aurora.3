@@ -2053,19 +2053,9 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/journal/fluff/kathira/Initialize()
 	. = ..()
-	var/obj/item/folder/embedded/E = new /obj/item/folder/embedded(src)
-	var/index_name = "Journal"
-	E.name = index_name
-	LAZYSET(indices, E.name, E)
-	RegisterSignal(E, COMSIG_QDELETING, PROC_REF(remove_index))
-
-	var/selected_folder = indices[1]
-	E = indices[selected_folder]
-	new /obj/item/paper(E)
-	new /obj/item/paper(E)
-	new /obj/item/paper(E)
-	new /obj/item/paper(E)
-	new /obj/item/paper(E)
+	var/obj/item/folder/embedded/E = generate_index("Journal")
+	for(var/i = 1 to 5)
+		new /obj/item/paper(E)
 	update_icon()
 
 /obj/item/organ/internal/augment/fluff/kath_legbrace // Leg Support Augment - Kathira El-Hashem - thegreywolf

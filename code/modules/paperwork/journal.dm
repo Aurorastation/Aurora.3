@@ -70,20 +70,7 @@
 		if(!open)
 			to_chat(user, SPAN_WARNING("You can't put anything into \the [src] while it's closed."))
 			return
-		var/obj/item/folder/embedded/E
-		var/list/options = LAZYLEN(indices) ? indices + "New Index" : list("New Index")
-		var/selected_folder = tgui_input_list(user, "Select an index to insert this into.", "Index Selection", options)
-		if(isnull(selected_folder))
-			return
-		if(selected_folder == "New Index")
-			E = generate_index(user)
-		else
-			E = indices[selected_folder]
-		if(!E)
-			return
-		user.drop_from_inventory(attacking_item, E)
-		to_chat(user, SPAN_NOTICE("You put \the [attacking_item] into \the [E] index in \the [src]."))
-		update_icon()
+		insert_item(attacking_item, user)
 		return
 	if(attacking_item.ispen())
 		if(!open)
@@ -93,9 +80,27 @@
 			return
 		attack_self(user)
 
-/obj/item/journal/proc/generate_index(var/mob/user)
+/obj/item/journal/proc/insert_item(obj/item/attacking_item, mob/user, var/selected_folder)
+	var/obj/item/folder/embedded/E
+	if(isnull(selected_folder))
+		var/list/options = LAZYLEN(indices) ? indices + "New Index" : list("New Index")
+		selected_folder = tgui_input_list(user, "Select an index to insert this into.", "Index Selection", options)
+	if(isnull(selected_folder))
+		return
+	if(selected_folder == "New Index")
+		var/index_name = sanitize(input(user, "Enter the index' name.", "Index Name") as text|null)
+		E = generate_index(index_name)
+	else
+		E = indices[selected_folder]
+	if(!E)
+		return
+
+	user.drop_from_inventory(attacking_item, E)
+	to_chat(user, SPAN_NOTICE("You put \the [attacking_item] into \the [E] index in \the [src]."))
+	update_icon()
+
+/obj/item/journal/proc/generate_index(var/index_name)
 	var/obj/item/folder/embedded/E = new /obj/item/folder/embedded(src)
-	var/index_name = sanitize(input(user, "Enter the index' name.", "Index Name") as text|null)
 	if(!index_name)
 		qdel(E)
 		return null
@@ -114,19 +119,9 @@
 
 /obj/item/journal/filled/Initialize()
 	. = ..()
-	var/obj/item/folder/embedded/E = new /obj/item/folder/embedded(src)
-	var/index_name = "Journal"
-	E.name = index_name
-	LAZYSET(indices, E.name, E)
-	RegisterSignal(E, COMSIG_QDELETING, PROC_REF(remove_index))
-
-	var/selected_folder = indices[1]
-	E = indices[selected_folder]
-	new /obj/item/paper(E)
-	new /obj/item/paper(E)
-	new /obj/item/paper(E)
-	new /obj/item/paper(E)
-	new /obj/item/paper(E)
+	var/obj/item/folder/embedded/E = generate_index("Journal")
+	for(var/i = 1 to 5)
+		new /obj/item/paper(E)
 	update_icon()
 
 /obj/item/journal/notepad
@@ -164,19 +159,9 @@
 
 /obj/item/journal/notepad/filled/Initialize()
 	. = ..()
-	var/obj/item/folder/embedded/E = new /obj/item/folder/embedded(src)
-	var/index_name = "Notepad"
-	E.name = index_name
-	LAZYSET(indices, E.name, E)
-	RegisterSignal(E, COMSIG_QDELETING, PROC_REF(remove_index))
-
-	var/selected_folder = indices[1]
-	E = indices[selected_folder]
-	new /obj/item/paper(E)
-	new /obj/item/paper(E)
-	new /obj/item/paper(E)
-	new /obj/item/paper(E)
-	new /obj/item/paper(E)
+	var/obj/item/folder/embedded/E = generate_index("Notepad")
+	for(var/i = 1 to 5)
+		new /obj/item/paper(E)
 	update_icon()
 
 /obj/item/journal/notepad/scc
