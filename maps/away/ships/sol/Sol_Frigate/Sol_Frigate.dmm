@@ -12,6 +12,9 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/machinery/power/terminal{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/Solfrig_shuttle)
 "ah" = (
@@ -198,6 +201,15 @@
 /obj/item/flag/sol/l,
 /turf/simulated/floor/carpet,
 /area/ship/Sol_Frigate/captain_cabin)
+"aK" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/Sol_Frigate/hallway_fore)
 "aM" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4;
@@ -280,15 +292,17 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_fore)
 "bk" = (
-/obj/machinery/door/airlock/external,
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/door/blast/shutters/open{
-	id = "Solfrigate_aft_shutters"
+/obj/machinery/door/blast/shutters{
+	id = Solfrig_workshop
 	},
-/obj/effect/map_effect/marker/airlock/docking/Sol_frigate/shuttle_port,
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/turf/simulated/floor/plating,
-/area/ship/Sol_Frigate/hallway_fore)
+/turf/simulated/floor/tiled/dark,
+/area/ship/Sol_Frigate/Exo_Bay)
+"bn" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/Sol_Frigate/port_battery)
 "bo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -494,11 +508,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/port_thrusters)
-"cs" = (
-/obj/structure/lattice/catwalk,
-/obj/item/hullbeacon/green,
-/turf/space/dynamic,
-/area/ship/Sol_Frigate/hallway_fore)
 "cu" = (
 /obj/structure/bed/stool/chair,
 /obj/effect/floor_decal/corner/paleblue/diagonal,
@@ -733,6 +742,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/starboard_gunnery)
+"dt" = (
+/obj/machinery/door/airlock/external,
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/door/blast/shutters/open{
+	id = "Solfrigate_aft_shutters"
+	},
+/obj/effect/map_effect/marker/airlock/docking/Sol_frigate/shuttle_port,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/plating,
+/area/ship/Sol_Frigate/hallway_fore)
 "dv" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 5
@@ -884,13 +903,6 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/bunks)
-"ef" = (
-/obj/machinery/light/small{
-	dir = 4
-	},
-/obj/effect/map_effect/marker/airlock/docking/Sol_Frigate/catwalkB,
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/hallway_fore)
 "eh" = (
 /obj/machinery/light{
 	dir = 8;
@@ -1578,11 +1590,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/Exo_Bay)
+"hk" = (
+/obj/effect/map_effect/marker/airlock/docking/Sol_Frigate/catwalkB,
+/turf/simulated/floor/tiled/dark,
+/area/ship/Sol_Frigate/hallway_fore)
 "hl" = (
-/obj/structure/bed/stool/chair{
-	dir = 1
-	},
-/obj/effect/floor_decal/corner/dark_blue{
+/obj/effect/floor_decal/corner/yellow{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1624,6 +1637,18 @@
 	},
 /turf/template_noop,
 /area/space)
+"ht" = (
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 1
+	},
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/docking/Sol_Frigate/catwalkB,
+/obj/machinery/door/blast/shutters/open{
+	id = "Solfrigate_aft_shutters"
+	},
+/turf/simulated/floor/tiled/gunmetal/full,
+/area/ship/Sol_Frigate/hallway_fore)
 "hy" = (
 /obj/structure/sign/flag/sol,
 /turf/simulated/wall/shuttle/raider,
@@ -1872,6 +1897,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/port_battery)
+"iB" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/Sol_Frigate/port_battery)
 "iC" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
@@ -2012,15 +2046,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/port_thrusters)
-"iX" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 9
-	},
-/obj/effect/floor_decal/corner/red{
-	dir = 10
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/port_battery)
 "jf" = (
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -2055,12 +2080,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_fore)
-"jm" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 9
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/port_battery)
 "jn" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
@@ -2091,9 +2110,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/port_thrusters)
 "jz" = (
-/obj/effect/floor_decal/corner/yellow{
-	dir = 10
+/obj/machinery/light/small{
+	dir = 4
 	},
+/obj/effect/map_effect/marker/airlock/docking/Sol_Frigate/catwalkB,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_fore)
 "jB" = (
@@ -2103,14 +2123,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/starboard_gunnery)
 "jC" = (
-/obj/effect/floor_decal/corner/yellow{
-	dir = 10
-	},
-/obj/effect/floor_decal/corner/yellow{
-	dir = 6
+/obj/effect/floor_decal/corner/red{
+	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/hallway_fore)
+/area/ship/Sol_Frigate/port_battery)
 "jD" = (
 /obj/structure/bed/stool/chair{
 	dir = 8
@@ -2177,6 +2194,21 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/hallway_mid)
+"jT" = (
+/obj/structure/cable/blue{
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/Sol_Frigate/hallway_fore)
 "jU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -2310,6 +2342,18 @@
 	dir = 8
 	},
 /turf/simulated/floor/holofloor/wood,
+/area/ship/Sol_Frigate/hallway_fore)
+"ky" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 9
+	},
+/obj/structure/cable/blue{
+	icon_state = "1-2"
+	},
+/obj/machinery/media/jukebox/audioconsole/wall{
+	pixel_x = -31
+	},
+/turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_fore)
 "kA" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -2557,10 +2601,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/oquarters)
-"lC" = (
-/obj/structure/lattice/catwalk,
-/turf/space/dynamic,
-/area/ship/Sol_Frigate/hallway_fore)
 "lI" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
@@ -2634,6 +2674,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/engineering)
+"mi" = (
+/obj/machinery/atmospherics/unary/vent_pump{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/docking/Sol_frigate/shuttle_port,
+/turf/simulated/floor/tiled/dark,
+/area/ship/Sol_Frigate/hallway_fore)
 "mj" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
@@ -2728,6 +2775,15 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/head)
+"mD" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
+/obj/structure/closet/walllocker/firecloset{
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/Sol_Frigate/hallway_fore)
 "mF" = (
 /obj/structure/closet/radiation,
 /obj/item/storage/firstaid/radiation,
@@ -2739,24 +2795,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/engineering)
-"mI" = (
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
-	pixel_x = -24;
-	dir = 4;
-	frequency = 1380;
-	pixel_y = 6
-	},
-/obj/machinery/airlock_sensor{
-	pixel_x = -24;
-	dir = 4;
-	pixel_y = -6
-	},
-/obj/effect/map_effect/marker/airlock/docking/Sol_Frigate/catwalkB,
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/hallway_fore)
 "mJ" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -2769,15 +2807,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/starboard_gunnery)
-"mL" = (
-/obj/effect/floor_decal/corner/yellow{
-	dir = 6
-	},
-/obj/structure/closet/walllocker/firecloset{
-	pixel_x = 32
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/hallway_fore)
 "mN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -2893,21 +2922,26 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/port_battery)
-"no" = (
-/obj/machinery/iv_drip,
-/turf/simulated/floor/tiled/white,
-/area/ship/Sol_Frigate/sickbay)
 "np" = (
-/obj/effect/floor_decal/industrial/hatch_door/red{
-	dir = 1
+/obj/effect/floor_decal/corner/red{
+	dir = 6
 	},
-/obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/machinery/door/airlock/external,
-/obj/effect/map_effect/marker/airlock/docking/Sol_Frigate/catwalkB,
-/obj/machinery/door/blast/shutters/open{
-	id = "Solfrigate_aft_shutters"
+/turf/simulated/floor/tiled/dark,
+/area/ship/Sol_Frigate/starboard_battery)
+"nq" = (
+/obj/effect/map_effect/marker/airlock/docking/Sol_Frigate/catwalkA,
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	pixel_x = -24;
+	dir = 4;
+	frequency = 1380;
+	pixel_y = 6
 	},
-/turf/simulated/floor/tiled/gunmetal/full,
+/obj/machinery/airlock_sensor{
+	pixel_x = -24;
+	dir = 4;
+	pixel_y = -6
+	},
+/turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_fore)
 "nr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -3275,18 +3309,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/engineering)
-"oU" = (
-/obj/effect/floor_decal/corner/yellow{
-	dir = 9
-	},
-/obj/structure/cable/blue{
-	icon_state = "1-2"
-	},
-/obj/machinery/media/jukebox/audioconsole/wall{
-	pixel_x = -31
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/hallway_fore)
 "oX" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4;
@@ -3605,12 +3627,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/bunks)
-"qm" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 6
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/port_battery)
 "qn" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -3736,12 +3752,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/Solfrig_shuttle)
-"qU" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/port_battery)
 "qW" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -3789,11 +3799,9 @@
 /turf/space/dynamic,
 /area/space)
 "rn" = (
-/obj/machinery/door/blast/shutters{
-	id = Solfrig_workshop
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/Exo_Bay)
+/obj/structure/lattice/catwalk,
+/turf/space/dynamic,
+/area/ship/Sol_Frigate/hallway_fore)
 "ro" = (
 /obj/machinery/atmospherics/pipe/tank/carbon_dioxide,
 /obj/effect/floor_decal/corner/orange{
@@ -4185,6 +4193,19 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_fore)
+"tz" = (
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker/airlock/docking/Sol_frigate/shuttle_port,
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	pixel_x = -24;
+	dir = 4;
+	frequency = 1380;
+	pixel_y = 6
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/plating,
+/area/ship/Sol_Frigate/hallway_fore)
 "tB" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -4198,23 +4219,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/ship/Sol_Frigate/ocountry)
-"tD" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/blue{
-	icon_state = "4-8"
-	},
-/obj/effect/ghostspawpoint{
-	identifier = "Solfrig_navy_crewman";
-	name = "Igs - Sol Frigate crewman"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/bunks)
 "tF" = (
 /obj/structure/closet,
 /obj/item/gun/energy/plasmacutter,
@@ -4733,9 +4737,6 @@
 	},
 /area/ship/Sol_Frigate/freezer)
 "vO" = (
-/obj/machinery/atmospherics/unary/vent_pump{
-	dir = 1
-	},
 /obj/effect/map_effect/marker/airlock/docking/Sol_frigate/shuttle_port,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_fore)
@@ -4991,19 +4992,6 @@
 "xs" = (
 /turf/simulated/floor/airless,
 /area/space)
-"xu" = (
-/obj/machinery/door/airlock/external,
-/obj/effect/map_effect/marker/airlock/docking/Sol_frigate/shuttle_port,
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
-	pixel_x = -24;
-	dir = 4;
-	frequency = 1380;
-	pixel_y = 6
-	},
-/obj/effect/map_effect/marker_helper/airlock/interior,
-/turf/simulated/floor/plating,
-/area/ship/Sol_Frigate/hallway_fore)
 "xy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
@@ -5050,22 +5038,6 @@
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/canteen)
-"xV" = (
-/obj/effect/floor_decal/industrial/hatch_door/red{
-	dir = 1
-	},
-/obj/machinery/door/airlock/external,
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/machinery/access_button{
-	pixel_x = 30;
-	pixel_y = -5
-	},
-/obj/effect/map_effect/marker/airlock/docking/Sol_Frigate/catwalkB,
-/obj/machinery/door/blast/shutters/open{
-	id = "Solfrigate_aft_shutters"
-	},
-/turf/simulated/floor/tiled/gunmetal/full,
-/area/ship/Sol_Frigate/hallway_fore)
 "ya" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -5128,27 +5100,6 @@
 	},
 /turf/simulated/wall/shuttle/raider,
 /area/ship/Sol_Frigate/starboard_gunnery)
-"ys" = (
-/obj/effect/floor_decal/industrial/hatch_door/red{
-	dir = 1
-	},
-/obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/obj/machinery/door/airlock/external,
-/obj/effect/map_effect/marker/airlock/docking/Sol_Frigate/catwalkA,
-/obj/machinery/access_button{
-	pixel_x = 29;
-	pixel_y = 9;
-	dir = 1
-	},
-/obj/machinery/door/blast/shutters/open{
-	id = "Solfrigate_aft_shutters"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 10
-	},
-/turf/simulated/floor/tiled/gunmetal/full,
-/area/ship/Sol_Frigate/hallway_fore)
 "yt" = (
 /turf/simulated/wall/shuttle/raider,
 /area/ship/Sol_Frigate/cic)
@@ -5586,9 +5537,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/carpet,
 /area/ship/Sol_Frigate/captain_cabin)
-"Au" = (
-/obj/effect/map_effect/marker/airlock/docking/Sol_Frigate/catwalkA,
-/turf/simulated/floor/tiled/dark,
+"At" = (
+/obj/structure/lattice/catwalk,
+/obj/item/hullbeacon/green,
+/turf/space/dynamic,
 /area/ship/Sol_Frigate/hallway_fore)
 "Az" = (
 /obj/machinery/atmospherics/unary/vent_pump{
@@ -5688,21 +5640,6 @@
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/ship/Sol_Frigate/port_thrusters)
-"AS" = (
-/obj/structure/cable/blue{
-	icon_state = "2-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
-	},
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/hallway_fore)
 "AU" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -5990,10 +5927,21 @@
 /turf/simulated/floor/wood,
 /area/ship/Sol_Frigate/captain_office)
 "BU" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/starboard_thrusters)
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 1
+	},
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/access_button{
+	pixel_x = 30;
+	pixel_y = -5
+	},
+/obj/effect/map_effect/marker/airlock/docking/Sol_Frigate/catwalkB,
+/obj/machinery/door/blast/shutters/open{
+	id = "Solfrigate_aft_shutters"
+	},
+/turf/simulated/floor/tiled/gunmetal/full,
+/area/ship/Sol_Frigate/hallway_fore)
 "BV" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
@@ -7133,6 +7081,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/engineering)
+"HT" = (
+/obj/machinery/iv_drip,
+/turf/simulated/floor/tiled/white,
+/area/ship/Sol_Frigate/sickbay)
 "HU" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
@@ -7269,6 +7221,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/brig)
+"Iq" = (
+/obj/effect/map_effect/marker/airlock/docking/Sol_Frigate/catwalkA,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/Sol_Frigate/hallway_fore)
 "Iu" = (
 /obj/structure/table/reinforced,
 /obj/item/device/binoculars{
@@ -7578,11 +7537,49 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/safe_room)
+"JK" = (
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker/airlock/docking/Sol_Frigate/catwalkA,
+/obj/machinery/access_button{
+	pixel_x = 29;
+	pixel_y = 9;
+	dir = 1
+	},
+/obj/machinery/door/blast/shutters/open{
+	id = "Solfrigate_aft_shutters"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/gunmetal/full,
+/area/ship/Sol_Frigate/hallway_fore)
 "JN" = (
 /obj/effect/floor_decal/industrial/hatch/firefighting_closet,
 /obj/structure/closet/firecloset,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_fore)
+"JO" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/blue{
+	icon_state = "4-8"
+	},
+/obj/effect/ghostspawpoint{
+	identifier = "Solfrig_navy_crewman";
+	name = "Igs - Sol Frigate crewman"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/Sol_Frigate/bunks)
 "JY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow,
 /turf/simulated/wall/shuttle/raider,
@@ -7993,7 +7990,6 @@
 /turf/simulated/floor/wood,
 /area/ship/Sol_Frigate/ocountry)
 "Lw" = (
-/obj/effect/map_effect/marker/airlock/docking/Sol_Frigate/catwalkA,
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	pixel_x = -24;
 	dir = 4;
@@ -8004,6 +8000,10 @@
 	pixel_x = -24;
 	dir = 4;
 	pixel_y = -6
+	},
+/obj/effect/map_effect/marker/airlock/docking/Sol_Frigate/catwalkB,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_fore)
@@ -8128,6 +8128,21 @@
 	},
 /turf/template_noop,
 /area/space)
+"LV" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 6
+	},
+/obj/structure/sign/vacuum{
+	pixel_x = 31
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/Sol_Frigate/hallway_fore)
+"LZ" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/Sol_Frigate/port_battery)
 "Mb" = (
 /obj/effect/map_effect/marker/airlock/shuttle{
 	name = "sol_light_interceptor";
@@ -8408,11 +8423,22 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/eva_storage)
 "NL" = (
-/obj/effect/map_effect/marker/airlock/docking/Sol_Frigate/catwalkA,
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/machinery/door/airlock/external,
+/obj/machinery/access_button{
+	pixel_x = 25;
+	pixel_y = 30;
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/docking/Sol_Frigate/catwalkB,
+/obj/machinery/door/blast/shutters/open{
+	id = "Solfrigate_aft_shutters"
+	},
+/turf/simulated/floor/tiled/gunmetal/full,
 /area/ship/Sol_Frigate/hallway_fore)
 "NO" = (
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
@@ -8843,10 +8869,6 @@
 "PN" = (
 /turf/template_noop,
 /area/ship/Sol_Frigate/starboard_battery)
-"PS" = (
-/obj/effect/map_effect/marker/airlock/docking/Sol_frigate/shuttle_port,
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/hallway_fore)
 "PT" = (
 /obj/machinery/light{
 	dir = 8;
@@ -9157,22 +9179,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/engineering)
-"RE" = (
-/obj/effect/floor_decal/industrial/hatch_door/red{
-	dir = 1
-	},
-/obj/machinery/door/airlock/external,
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/docking/Sol_Frigate/catwalkA,
-/obj/machinery/access_button{
-	pixel_x = 30;
-	pixel_y = -5
-	},
-/obj/machinery/door/blast/shutters/open{
-	id = "Solfrigate_aft_shutters"
-	},
-/turf/simulated/floor/tiled/gunmetal/full,
-/area/ship/Sol_Frigate/hallway_fore)
 "RJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -9255,15 +9261,13 @@
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
 	},
-/obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/docking/Sol_Frigate/catwalkA,
 /obj/machinery/access_button{
-	pixel_x = 25;
-	pixel_y = 30;
-	dir = 8
+	pixel_x = 30;
+	pixel_y = -5
 	},
-/obj/effect/map_effect/marker/airlock/docking/Sol_Frigate/catwalkB,
 /obj/machinery/door/blast/shutters/open{
 	id = "Solfrigate_aft_shutters"
 	},
@@ -9486,14 +9490,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/bunks)
 "TF" = (
-/obj/effect/floor_decal/corner/dark_blue{
-	dir = 6
-	},
-/obj/structure/sign/vacuum{
-	pixel_x = 31
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/hallway_fore)
+/area/ship/Sol_Frigate/starboard_thrusters)
 "TJ" = (
 /obj/machinery/door/airlock/external,
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -9510,7 +9510,7 @@
 /turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/engineering)
 "TM" = (
-/obj/effect/map_effect/marker/airlock/docking/Sol_Frigate/catwalkB,
+/obj/effect/map_effect/marker/airlock/docking/Sol_Frigate/catwalkA,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_fore)
 "TO" = (
@@ -9886,16 +9886,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/Exo_Bay)
 "VK" = (
-/obj/effect/floor_decal/industrial/hatch_door/red{
+/obj/structure/bed/stool/chair{
 	dir = 1
 	},
-/obj/machinery/door/airlock/external,
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/docking/Sol_Frigate/catwalkB,
-/obj/machinery/door/blast/shutters/open{
-	id = "Solfrigate_aft_shutters"
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
 	},
-/turf/simulated/floor/tiled/gunmetal/full,
+/turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_fore)
 "VL" = (
 /obj/structure/reagent_dispensers/coolanttank,
@@ -10080,12 +10077,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/engineering)
-"WK" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 6
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/starboard_battery)
 "WM" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/paleblue/diagonal,
@@ -10102,6 +10093,18 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/canteen)
+"WO" = (
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker/airlock/docking/Sol_Frigate/catwalkB,
+/obj/machinery/door/blast/shutters/open{
+	id = "Solfrigate_aft_shutters"
+	},
+/turf/simulated/floor/tiled/gunmetal/full,
+/area/ship/Sol_Frigate/hallway_fore)
 "WR" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
@@ -41485,7 +41488,7 @@ Vx
 Qo
 cB
 cB
-rn
+bk
 BF
 ed
 cI
@@ -41742,7 +41745,7 @@ rT
 cB
 cB
 cB
-rn
+bk
 AP
 Lp
 nh
@@ -41945,8 +41948,8 @@ eT
 tp
 sQ
 QB
-BU
-BU
+TF
+TF
 zM
 bI
 bI
@@ -41999,7 +42002,7 @@ hj
 MH
 cB
 cB
-rn
+bk
 AP
 HW
 PD
@@ -42013,7 +42016,7 @@ Kg
 Aj
 rC
 PG
-WK
+np
 fL
 eE
 eE
@@ -42259,7 +42262,7 @@ nF
 jY
 fG
 ld
-jz
+hl
 we
 we
 we
@@ -42516,14 +42519,14 @@ jY
 jY
 AP
 fw
-jz
+hl
 we
 WR
 dl
 ZH
 Qr
-Lw
-Au
+nq
+TM
 oP
 rl
 rl
@@ -42773,15 +42776,15 @@ Nv
 UJ
 VY
 lO
-jz
+hl
 we
 bQ
 vK
 PD
-ys
+JK
 qC
-NL
-RE
+Iq
+Sa
 rl
 rl
 rl
@@ -43034,7 +43037,7 @@ PD
 ir
 PD
 Hw
-hl
+VK
 we
 we
 we
@@ -43293,7 +43296,7 @@ PD
 Hw
 hm
 we
-cs
+At
 JF
 JF
 rl
@@ -43544,13 +43547,13 @@ DG
 yt
 yt
 NA
-jz
+hl
 we
 yB
 Hw
-hl
+VK
 we
-lC
+rn
 Yc
 ho
 SI
@@ -43801,7 +43804,7 @@ Jr
 Iu
 yt
 NA
-jz
+hl
 we
 Ol
 YP
@@ -44058,13 +44061,13 @@ vI
 QX
 yt
 uf
-jz
+hl
 we
 YL
 bf
-xu
+tz
 kk
-bk
+dt
 AZ
 Mb
 JY
@@ -44315,12 +44318,12 @@ Jr
 Yz
 yt
 NA
-jz
+hl
 we
 XZ
 Hw
 we
-PS
+vO
 oN
 Lf
 pX
@@ -44572,12 +44575,12 @@ sw
 Qw
 yt
 NA
-jz
+hl
 we
 sX
 bf
 Pg
-vO
+mi
 ms
 zc
 qF
@@ -44829,7 +44832,7 @@ Tc
 nE
 yt
 ay
-jz
+hl
 we
 jp
 Hw
@@ -45086,13 +45089,13 @@ CG
 pr
 yt
 NA
-jz
+hl
 we
 fq
 Hw
 gJ
 we
-lC
+rn
 Yc
 SK
 SI
@@ -45349,7 +45352,7 @@ uk
 Hw
 hm
 we
-lC
+rn
 JF
 JF
 rl
@@ -45852,20 +45855,20 @@ TV
 Hy
 Nv
 Nv
-oU
+ky
 Hy
 UJ
 Vn
 or
-jz
+hl
 we
 HF
 iJ
 Yd
-np
-mI
-TM
-VK
+WO
+Lw
+hk
+ht
 rl
 rl
 rl
@@ -46114,15 +46117,15 @@ Hp
 hR
 nr
 ng
-jC
+aK
 we
 qI
 qK
-TF
-Sa
-ef
-TM
-xV
+LV
+NL
+jz
+hk
+BU
 rl
 rl
 rl
@@ -46361,7 +46364,7 @@ IT
 IT
 IT
 dn
-mL
+mD
 CY
 Ui
 PD
@@ -46627,7 +46630,7 @@ Gw
 kw
 we
 we
-AS
+jT
 Vq
 QL
 wo
@@ -47146,7 +47149,7 @@ Xf
 hi
 CQ
 lu
-iX
+iB
 Xf
 uw
 BL
@@ -47406,7 +47409,7 @@ fg
 Bo
 Xf
 oK
-qm
+bn
 lt
 iA
 Ho
@@ -47664,9 +47667,9 @@ Xf
 Xf
 Xf
 Xf
-qU
+jC
 lt
-jm
+LZ
 fN
 qp
 wd
@@ -47893,7 +47896,7 @@ rl
 Xy
 aW
 Rs
-tD
+JO
 Wv
 OX
 IT
@@ -47922,8 +47925,8 @@ xl
 Xf
 Xf
 CX
-qm
-qm
+bn
+bn
 di
 Xf
 Xf
@@ -48679,7 +48682,7 @@ PH
 EE
 Dl
 Jm
-no
+HT
 EE
 EE
 EE

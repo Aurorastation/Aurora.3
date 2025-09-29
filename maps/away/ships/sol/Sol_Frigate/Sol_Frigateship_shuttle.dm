@@ -3,7 +3,7 @@
 	name = "Sol Frigate Shuttle"
 	class = "SAMV"
 	desc = "A modified variant of the Fuji-class space superiority fighter, the Kita-class is essentially a disarmed version of it's cousin in favor of passenger capacity and additional speed. This design is particularly popular with the larger escort vessels of the Solarian Navy, who appreciate the Kita's ability to interdict and board fleeing targets with exceptional speed."
-	shuttle = "Solarian Navy"
+	shuttle = "Solarian Frigate Shuttle"
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
 	designer = "Solarian Navy"
