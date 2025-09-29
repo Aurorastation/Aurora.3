@@ -5119,7 +5119,7 @@
 	req_access = list(212)
 	},
 /obj/item/clothing/under/dominia/priest,
-/obj/item/clothing/accessory/poncho/dominia/red,
+/obj/item/clothing/accessory/poncho/dominia_cape/tribunalist,
 /obj/item/clothing/head/beret/dominia/priest,
 /obj/item/flame/lighter/zippo/dominia,
 /obj/item/clothing/accessory/flagpatch/dominia,

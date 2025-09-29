@@ -328,11 +328,11 @@
 		adapt_animal(A)
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/adapt_seed(var/datum/seed/S)
-	S.set_trait(TRAIT_IDEAL_HEAT,          atmosphere.temperature + rand(-5,5),800,70)
-	S.set_trait(TRAIT_HEAT_TOLERANCE,      S.get_trait(TRAIT_HEAT_TOLERANCE) + rand(-5,5),800,70)
-	S.set_trait(TRAIT_LOWKPA_TOLERANCE,    atmosphere.return_pressure() + rand(-5,-50),80,0)
-	S.set_trait(TRAIT_HIGHKPA_TOLERANCE,   atmosphere.return_pressure() + rand(5,50),500,110)
-	S.set_trait(TRAIT_SPREAD,0)
+	SET_SEED_TRAIT_BOUNDED(S, TRAIT_IDEAL_HEAT, atmosphere.temperature + rand(-5,5), 800, 70, null)
+	SET_SEED_TRAIT_BOUNDED(S, TRAIT_HEAT_TOLERANCE, GET_SEED_TRAIT(S, TRAIT_HEAT_TOLERANCE) + rand(-5,5), 800, 70, null)
+	SET_SEED_TRAIT_BOUNDED(S, TRAIT_LOWKPA_TOLERANCE, atmosphere.return_pressure() + rand(-5,-50), 80, 0, null)
+	SET_SEED_TRAIT_BOUNDED(S, TRAIT_HIGHKPA_TOLERANCE, atmosphere.return_pressure() + rand(5,50), 500, 110, null)
+	SET_SEED_TRAIT(S, TRAIT_SPREAD, 0)
 	if(S.exude_gasses)
 		S.exude_gasses -= badgas
 	if(atmosphere)
@@ -340,7 +340,7 @@
 			S.consume_gasses = list(pick(atmosphere.gas)) // ensure that if the plant consumes a gas, the atmosphere will have it
 		for(var/g in atmosphere.gas)
 			if(gas_data.flags[g] & XGM_GAS_CONTAMINANT)
-				S.set_trait(TRAIT_TOXINS_TOLERANCE, rand(10,15))
+				SET_SEED_TRAIT(S, TRAIT_TOXINS_TOLERANCE, rand(10,15))
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/adapt_animal(var/mob/living/simple_animal/A)
 	if(species[A.type])

@@ -285,3 +285,37 @@
   - bugfix: Fixed the command noticeboard's faulty access fix.
   TheGreyWolf:
   - rscadd: Added Kathira El-Hashem's custom items.
+2025-09-29:
+  Batrachophrenoboocosmomachia:
+  - qol: Added detailed extended examine info on mechanics to pens.
+  - qol: Added detailed extended examine info on mechanics to the psychiatrist/chaplain
+      Mesmetron.
+  - qol: Added detailed extended examine info on mechanics to barricades.
+  - qol: Added some extended examine info to (hanging) flags, crayons, misc.
+  - qol: Washing machines can now be anchored/unanchored with a wrench.
+  - code_imp: Updated dmdocs in many locations.
+  - bugfix: You can no longer force-feed people crayons. However, you can still offer
+      a bite of crayon for them to accept or refuse, for tradition's sake.
+  - bugfix: Reading the contents of a noticeboard now makes you actually face the
+      noticeboard.
+  - bugfix: Fixed Advanced light replacers not being retrievable from Engineering
+      Carts.
+  ElorgRHG:
+  - rscadd: The tribunalist medical cape can now have its mantle be rolled up, like
+      its non-medical tribunalist counterpart.
+  - rscadd: Alt-clicking on tribunalist capes now rolls their mantles up.
+  - bugfix: All dominian capes should now properly display as attached to clothing
+      in character setup preview.
+  FabianK3:
+  - bugfix: Fixed trash items becoming persistent when put into storage containers
+      (e.g. backpacks, lunchboxes).
+  Hellfirejag:
+  - bugfix: Comet Expulsion false alarms will now be falsely reported. Have fun evading
+      a comet that doesn't exist.
+  - balance: Significantly reduced the duration of being blackout drunk. Livers no
+      longer take quite as severe a penalty to booze filtering from being blackout
+      drunk.
+  JohnWildkins:
+  - bugfix: Fix movement delay not applying while inside a locker, bin, or other object.
+  - refactor: Changes plant traits to use defines over procs for performance during
+      machinery processing.
