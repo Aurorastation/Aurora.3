@@ -91,6 +91,6 @@
 
 // Shuttles
 /area/shuttle/Solfrig_shuttle
-	name = "Solarian Frigate - Shuttle"
+	name = "Solarian Frigate Shuttle"
 	icon_state = "shuttle2"
 	requires_power = TRUE
