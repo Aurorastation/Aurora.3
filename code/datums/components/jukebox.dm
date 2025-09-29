@@ -13,7 +13,7 @@
 	/// Atom that hosts the jukebox. Can be a turf or a movable.
 	VAR_FINAL/atom/parent
 	/// List of /datum/tracks we can play.
-	var/list/playlist = list()
+	var/list/datum/track/playlist
 	/// Current song track selected
 	var/datum/track/selection
 	/// Current song datum playing
@@ -70,7 +70,7 @@
 
 	for (var/obj/item/music_cartridge/cartridge in cartridges)
 		LOG_DEBUG("/datum/jukebox/New(), first cartridge is [cartridge]")
-		playlist += add_songs(cartridge)
+		add_songs(cartridge)
 	if(length(playlist))
 		selection = playlist[pick(playlist)]
 
@@ -106,26 +106,19 @@
 		else
 			user.drop_from_inventory(cartridge, parent)
 			cartridges |= cartridge
-			playlist += add_songs(cartridge)
+			add_songs(cartridge)
 			to_chat(user, SPAN_NOTICE("You insert \the [cartridge] into \the [parent]"))
 
 /// Adds songs on the provided cartridge to our current playlist.
 /datum/jukebox/proc/add_songs(obj/item/music_cartridge/cartridge)
 	LOG_DEBUG("/datum/jukebox/proc/add_songs([cartridge])")
-	var/static/list/config_songs
-	if(isnull(config_songs))
-		config_songs = list()
-		LOG_DEBUG("about to start adding tracks from cartridge [cartridge]")
-		if(cartridge.tracks)
-			for(var/datum/track/track in cartridge.tracks)
-				LOG_DEBUG("adding track [track.song_name]")
-				config_songs += track
-		if(!length(config_songs))
-			var/datum/track/default/default_track = new()
-			config_songs[default_track.song_name] = default_track
-
-	// returns a copy so it can mutate if desired.
-	return config_songs.Copy()
+	if(cartridge.tracks)
+		for(var/datum/track/track in cartridge.tracks)
+			LOG_DEBUG("adding track [track.song_name], [track.song_path], [track.song_length]")
+			LAZYADD(track, playlist)
+	if(!length(playlist))
+		var/datum/track/default/default_track = new()
+		playlist[default_track.song_name] = default_track
 
 /// Removes songs on the provided cartridge from our current playlist.
 /datum/jukebox/proc/remove_songs(obj/item/music_cartridge/cartridge)
@@ -388,12 +381,12 @@
 /// Track datums, used in jukeboxes
 /datum/track
 	/// Readable name, used in the jukebox menu
-	var/song_name
+	var/song_name = "Generic"
 	/// Filepath of the song
 	var/song_path
 	/// How long is the song in deciseconds. Default is an arbitrary low value, should be overwritten.
-	var/song_length
-	/// What cartridge (if any) this song came from. Don't hate me okay? This works.
+	var/song_length = 10 SECONDS
+	/// What cartridge (if any) this song came from.
 	var/source
 
 // Default track supplied for testing and also because it's a banger
@@ -408,7 +401,7 @@
 	icon = 'icons/obj/item/music_cartridges.dmi'
 	icon_state = "generic"
 	w_class = WEIGHT_CLASS_SMALL
-	var/list/datum/track/tracks = list()
+	var/list/datum/track/tracks
 	/// Whether or not this cartridge can be removed from the datum/jukebox it belongs to.
 	var/hardcoded = FALSE
 
