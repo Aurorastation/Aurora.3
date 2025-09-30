@@ -4,6 +4,16 @@
 	anchored = TRUE
 	density = TRUE
 	atom_flags = ATOM_FLAG_CHECKS_BORDER
+	/// The type of stack the barricade dropped when disassembled if any.
+	var/stack_type
+	/// The amount of stack dropped when disassembled at full health
+	var/stack_amount = 5
+	/// to specify a non-zero amount of stack to drop when destroyed
+	var/destroyed_stack_amount
+	/// Pretty tough. Changes sprites at 300 and 150
+	var/health = 100
+	/// Basic code functions
+	var/maxhealth = 100
 
 	maxhealth = 100
 
@@ -14,9 +24,11 @@
 	///Used for calculating some stuff related to maxhealth as it constantly changes due to e.g. barbed wire. set to 100 to avoid possible divisions by zero
 	var/starting_maxhealth = 100
 
-	var/force_level_absorption = 5 //How much force an item needs to even damage it at all.
+	/// How much force an item needs to even damage it at all.
+	var/force_level_absorption = 5
 	var/barricade_hitsound
-	var/barricade_type = "barricade" //"metal", "plasteel", etc.
+	/// "metal", "plasteel", etc.
+	var/barricade_type = "barricade"
 	var/can_change_dmg_state = TRUE
 	var/damage_state = BARRICADE_DMG_NONE
 	var/closed = FALSE
@@ -42,12 +54,15 @@
 
 /obj/structure/barricade/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
+	. += "RIGHT-click on this to rotate it (if not anchored to the floor)."
 	if(!is_wired)
-		. += "Use a length of barbed wire on this barricade to restrict enemies from climbing it and damage them on attacking it at close range."
+		. += "Use a length of barbed wire on this barricade to prevent enemies from climbing it and damage them on attacking it at close range."
+	else
+		. += "Wirecutters could remove the barbed wire on this, but it will take several moments."
 
 /obj/structure/barricade/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	. += SPAN_INFO("It is recommended to stand flush to a barricade or one tile away for maximum efficiency.")
+	. += SPAN_INFO("It is recommended to stand flush to a barricade or one tile away for maximum effectiveness.")
 	if(is_wired)
 		. += SPAN_INFO("There is a length of barbed wire strewn across the top of this barricade, preventing it from being climbed and making it hazardous to attack at close range.")
 

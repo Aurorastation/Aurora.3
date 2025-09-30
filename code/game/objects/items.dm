@@ -495,18 +495,24 @@
 /obj/item/proc/try_make_persistent_trash()
 	SHOULD_NOT_OVERRIDE(TRUE)
 	PROTECTED_PROC(TRUE)
-	if(persistency_considered_trash) // Persistent trash - Applicable if considered_persistent_trash is true
-		// Trash-like items should become only persistent when they are not dropped in a maint or disposals, otherwise they get deregistered
-		var/turf/T = get_turf(src)
-		if(T)
-			var/area/A = get_area(T)
-			if(A && !(A.area_flags & AREA_FLAG_PREVENT_PERSISTENT_TRASH))
-				persistance_expiration_time_days = 3 // Ensure expiration date is set to prevent long term trash
-				SSpersistence.register_track(src, usr == null ? null : ckey(usr.key))
-			else
-				SSpersistence.deregister_track(src)
-		else
-			SSpersistence.deregister_track(src)
+	if(!persistency_considered_trash)
+		return
+
+	if(in_storage) // Items getting moved into storages (lunchboxes, backpacks) triggers the dropped handler and requires no persistency as a result
+		SSpersistence.deregister_track(src)
+		return
+
+	// Trash-like items should become only persistent when they are not dropped in an area flagged with AREA_FLAG_PREVENT_PERSISTENT_TRASH
+	var/turf/T = get_turf(src)
+	if(T)
+		var/area/A = get_area(T)
+		if(A && !(A.area_flags & AREA_FLAG_PREVENT_PERSISTENT_TRASH))
+			persistance_expiration_time_days = 3 // Ensure expiration date is set to prevent long term trash
+			SSpersistence.register_track(src, usr == null ? null : ckey(usr.key))
+			return
+
+	// Fallback - No persistency
+	SSpersistence.deregister_track(src)
 
 /obj/item/proc/remove_item_verbs(mob/user)
 	if(ismech(user)) //very snowflake, but necessary due to how mechs work
