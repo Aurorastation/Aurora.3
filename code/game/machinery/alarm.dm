@@ -404,6 +404,7 @@ pixel_x = 10;
 	return ..()
 
 /obj/machinery/alarm/LateInitialize()
+	. = ..()
 	apply_mode()
 
 /obj/machinery/alarm/Initialize(mapload, var/dir, var/building = 0)

@@ -88,7 +88,6 @@ This is /obj/machinery level code to properly manage power usage from the area.
 	. = ..()
 
 /obj/machinery/LateInitialize()
-	SHOULD_NOT_OVERRIDE(TRUE)
 	post_machine_initialize()
 
 /**
