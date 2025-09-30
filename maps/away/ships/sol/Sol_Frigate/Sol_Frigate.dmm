@@ -5775,7 +5775,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/Starboard_docking_port)
 "Bx" = (
-/turf/space,
+/turf/simulated/floor/foamedmetal,
 /area/ship/Sol_Frigate/hallway_fore)
 "Bz" = (
 /obj/structure/sign/directions/dock,
@@ -6397,9 +6397,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/starboard_gunnery)
 "EP" = (
-/obj/effect/floor_decal/corner/yellow{
-	dir = 6
-	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
 	},
@@ -42185,16 +42182,16 @@ bI
 Vt
 Vt
 Vt
-MO
-MO
-MO
-MO
-MO
-MO
-MO
-MO
-MO
-MO
+Vt
+Vt
+Vt
+il
+Vt
+Vt
+Vt
+Vt
+Vt
+Vt
 Hv
 wh
 mj
@@ -42203,12 +42200,12 @@ ki
 rq
 Bw
 Hv
-MO
-MO
-MO
-MO
-MO
-MO
+XV
+XV
+tP
+XV
+XV
+XV
 mn
 mn
 Jn
@@ -42445,7 +42442,7 @@ Vt
 Vt
 Mg
 Vt
-il
+Vt
 Mg
 Vt
 Vt
@@ -42462,7 +42459,7 @@ wa
 Hv
 eo
 XV
-tP
+XV
 XV
 XV
 XV
@@ -46299,7 +46296,7 @@ Zv
 Vt
 Vt
 Vt
-ym
+Vt
 Vt
 Vt
 Vt
@@ -46554,11 +46551,11 @@ Bg
 Vt
 Vt
 Vt
-rl
-rl
-rl
-rl
-rl
+Vt
+Vt
+ym
+Vt
+Vt
 SO
 al
 mv
@@ -46812,9 +46809,9 @@ rl
 rl
 rl
 rl
-yH
-Qd
-Qd
+rl
+rl
+rl
 rl
 SO
 bC
@@ -47069,8 +47066,8 @@ rl
 Qd
 Qd
 Qd
-MO
-MO
+Qd
+Qd
 Qd
 rl
 SO

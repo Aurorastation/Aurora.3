@@ -101,7 +101,7 @@
 
 	l_ear = /obj/item/device/radio/headset/ship
 
-obj/outfit/admin/Solfrig_Commander/get_id_access()
+obj/outfit/admin/Solfrig_XO/get_id_access()
 	return list(ACCESS_SOL_SHIPS, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/Solfrig_ipc
