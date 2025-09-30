@@ -23,7 +23,7 @@
 		/obj/item/storage/box/fancy/mre/menu9 = 10,
 		/obj/item/storage/box/fancy/mre/menu10 = 10,
 		/obj/item/storage/box/fancy/mre/menu12 = 5,
-		/obj/item/reagent_containers/food/snacks/liquidfood = 20
+		/obj/item/reagent_containers/food/snacks/liquidfood = 18
 	)
 	prices = list(
 		/obj/item/storage/box/fancy/mre = 12.00,
@@ -44,6 +44,7 @@
 	)
 	vend_delay = 15
 	idle_power_usage = 211 // Cold MREs...
+	low_supply_immune = TRUE
 
 /obj/machinery/vending/mredispenser/low_supply
 	products = list(
@@ -86,20 +87,20 @@
 	idle_power_usage = 211
 	light_color = COLOR_BABY_BLUE
 	products = list(
-		/obj/item/storage/box/fancy/quick_microwave_pizza = 3,
-		/obj/item/storage/box/fancy/quick_microwave_pizza/olive = 3,
-		/obj/item/storage/box/fancy/quick_microwave_pizza/pepperoni = 3,
-		/obj/item/storage/box/fancy/quick_microwave_pizza/district6 = 3,
-		/obj/item/reagent_containers/food/snacks/packaged_microwave_mac_and_cheeze = 3,
-		/obj/item/reagent_containers/food/snacks/packaged_microwave_fiery_mac_and_cheeze = 3,
-		/obj/item/storage/box/fancy/packaged_burger = 3,
-		/obj/item/reagent_containers/food/snacks/quick_curry = 3,
-		/obj/item/reagent_containers/food/snacks/hv_dinner = 3,
-		/obj/item/storage/box/fancy/toptarts_strawberry = 3,
-		/obj/item/storage/box/fancy/toptarts_chocolate_peanutbutter = 3,
-		/obj/item/storage/box/fancy/toptarts_blueberry = 3,
-		/obj/item/storage/box/donkpockets = 3,
-		/obj/item/reagent_containers/food/snacks/liquidfood = 20
+		/obj/item/storage/box/fancy/quick_microwave_pizza = 12,
+		/obj/item/storage/box/fancy/quick_microwave_pizza/olive = 12,
+		/obj/item/storage/box/fancy/quick_microwave_pizza/pepperoni = 12,
+		/obj/item/storage/box/fancy/quick_microwave_pizza/district6 = 12,
+		/obj/item/reagent_containers/food/snacks/packaged_microwave_mac_and_cheeze = 12,
+		/obj/item/reagent_containers/food/snacks/packaged_microwave_fiery_mac_and_cheeze = 12,
+		/obj/item/storage/box/fancy/packaged_burger = 12,
+		/obj/item/reagent_containers/food/snacks/quick_curry = 12,
+		/obj/item/reagent_containers/food/snacks/hv_dinner = 12,
+		/obj/item/storage/box/fancy/toptarts_strawberry = 6,
+		/obj/item/storage/box/fancy/toptarts_chocolate_peanutbutter = 6,
+		/obj/item/storage/box/fancy/toptarts_blueberry = 6,
+		/obj/item/storage/box/donkpockets = 18,
+		/obj/item/reagent_containers/food/snacks/liquidfood = 40
 	)
 	premium = list(
 		/obj/item/storage/box/fancy/packaged_mossburger = 2
