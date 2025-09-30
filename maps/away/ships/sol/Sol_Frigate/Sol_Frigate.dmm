@@ -745,6 +745,9 @@
 "dt" = (
 /obj/machinery/door/airlock/external,
 /obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/door/blast/shutters/open{
+	id = "Solfrigate_aft_shutters"
+	},
 /obj/effect/map_effect/marker/airlock/docking/Sol_frigate/shuttle_port,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/machinery/access_button{
@@ -1107,6 +1110,11 @@
 	dir = 1
 	},
 /turf/template_noop,
+/area/space)
+"fb" = (
+/obj/structure/lattice/catwalk,
+/obj/item/hullbeacon/green,
+/turf/space/dynamic,
 /area/space)
 "fc" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
@@ -2301,6 +2309,15 @@
 /obj/effect/map_effect/marker/airlock/Sol_Frigate/mid_starboard,
 /turf/simulated/floor,
 /area/ship/Sol_Frigate/Port_docking_port)
+"kk" = (
+/obj/machinery/airlock_sensor{
+	pixel_x = -24;
+	dir = 4;
+	pixel_y = -6
+	},
+/obj/effect/map_effect/marker/airlock/docking/Sol_frigate/shuttle_port,
+/turf/simulated/floor/tiled/dark,
+/area/ship/Sol_Frigate/hallway_fore)
 "kl" = (
 /obj/machinery/shipsensors/strong,
 /turf/simulated/floor/airless,
@@ -2666,11 +2683,6 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock/docking/Sol_frigate/shuttle_port,
-/obj/machinery/airlock_sensor{
-	pixel_x = 34;
-	dir = 4;
-	pixel_y = -6
-	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_fore)
 "mj" = (
@@ -3270,7 +3282,10 @@
 /obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/docking/Sol_frigate/shuttle_port,
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/door/blast/shutters/open{
+	id = "Solfrigate_aft_shutters"
+	},
+/turf/simulated/wall/shuttle/raider,
 /area/ship/Sol_Frigate/hallway_fore)
 "oP" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
@@ -3455,6 +3470,11 @@
 	temperature = 253.15
 	},
 /area/ship/Sol_Frigate/freezer)
+"pK" = (
+/obj/structure/lattice/catwalk,
+/obj/effect/map_effect/perma_light/brighter,
+/turf/space/dynamic,
+/area/space)
 "pL" = (
 /obj/effect/floor_decal/industrial/hatch/firefighting_closet,
 /obj/structure/closet/firecloset,
@@ -3916,6 +3936,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/Starboard_docking_port)
 "rZ" = (
+/obj/structure/lattice/catwalk,
 /obj/item/hullbeacon/red,
 /obj/effect/map_effect/perma_light/brighter,
 /turf/space/dynamic,
@@ -3934,6 +3955,12 @@
 	},
 /turf/simulated/wall/shuttle/raider,
 /area/ship/Sol_Frigate/bunks)
+"sj" = (
+/obj/structure/lattice/catwalk,
+/obj/item/hullbeacon/green,
+/obj/effect/map_effect/perma_light/brighter,
+/turf/space/dynamic,
+/area/space)
 "sn" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector{
@@ -7841,7 +7868,7 @@
 	master_tag = "sol_light_interceptor";
 	shuttle_tag = "solarian light interceptor"
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/wall/shuttle/raider,
 /area/shuttle/Solfrig_shuttle)
 "Lg" = (
 /obj/structure/closet/crate/loot,
@@ -9557,6 +9584,8 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/head)
 "Ur" = (
+/obj/structure/lattice/catwalk,
+/obj/item/hullbeacon/red,
 /turf/space/dynamic,
 /area/space)
 "Uu" = (
@@ -42750,10 +42779,10 @@ Iq
 Sa
 rl
 rl
-Ur
-Ur
-Ur
-Ur
+rl
+rl
+rl
+pK
 MO
 MO
 MO
@@ -43006,12 +43035,12 @@ we
 we
 we
 rl
-Ur
-Ur
+rl
+rl
 Le
 px
 JF
-Ur
+fb
 MO
 MO
 MO
@@ -43262,13 +43291,13 @@ we
 At
 JF
 JF
-Ur
-Ur
+rl
+sj
 JF
 JF
 dS
 SI
-Ur
+rl
 MO
 MO
 MO
@@ -43526,10 +43555,10 @@ JF
 jZ
 JF
 in
-Ur
-Ur
-Ur
-Ur
+Xy
+Xy
+Xy
+rl
 rl
 rl
 MO
@@ -43786,7 +43815,7 @@ JF
 SI
 UU
 UU
-Ur
+sj
 rl
 wM
 xs
@@ -44029,7 +44058,7 @@ we
 YL
 bf
 tz
-vO
+kk
 dt
 AZ
 Mb
@@ -44814,7 +44843,7 @@ JF
 SI
 UU
 UU
-Ur
+rZ
 rl
 wM
 xs
@@ -45068,10 +45097,10 @@ JF
 SI
 dS
 QQ
-Ur
-Xc
-Ur
-Ur
+rl
+rl
+rl
+rl
 rl
 rl
 MO
@@ -45318,13 +45347,13 @@ we
 rn
 JF
 JF
-Ur
+rl
 rZ
 JF
 JF
 JF
 jZ
-Ur
+rl
 MO
 MO
 MO
@@ -45577,7 +45606,7 @@ we
 we
 rl
 rl
-rl
+Xy
 gD
 bT
 EG
@@ -45835,9 +45864,9 @@ ht
 rl
 rl
 rl
-Ur
-Ur
-Ur
+rl
+rl
+pK
 MO
 MO
 MO
