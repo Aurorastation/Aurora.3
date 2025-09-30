@@ -795,7 +795,9 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 /datum/gear/taj_rations
 	display_name = "tajaran field ration selection"
 	description = "A selection of tajaran field ration boxes"
+	cost = 2
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	sort_category = "Xenowear - Tajara"
 	path = /obj/item/storage/field_ration
 

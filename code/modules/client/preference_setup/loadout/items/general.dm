@@ -501,6 +501,7 @@
 /datum/gear/mre
 	display_name = "mre selection"
 	description = "A selection of different MREs"
+	cost = 2
 	path = /obj/item/storage/box/fancy/mre
 
 /datum/gear/mre/New()
