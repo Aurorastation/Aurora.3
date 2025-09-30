@@ -2522,7 +2522,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/head)
 "lf" = (
-/obj/structure/closet/secure_closet/guncabinet,
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(203)
+	},
 /obj/item/gun/projectile/automatic/c20r/sol,
 /obj/item/gun/projectile/automatic/c20r/sol,
 /obj/item/gun/projectile/automatic/c20r/sol,
@@ -3021,7 +3023,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/engineering)
 "nK" = (
-/obj/structure/closet/secure_closet/guncabinet,
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(203)
+	},
 /obj/item/gun/projectile/pistol/sol,
 /obj/item/gun/projectile/pistol/sol,
 /obj/item/gun/projectile/pistol/sol,
@@ -3285,7 +3289,7 @@
 /obj/machinery/door/blast/shutters/open{
 	id = "Solfrigate_aft_shutters"
 	},
-/turf/simulated/wall/shuttle/raider,
+/turf/space,
 /area/ship/Sol_Frigate/hallway_fore)
 "oP" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
@@ -7868,7 +7872,7 @@
 	master_tag = "sol_light_interceptor";
 	shuttle_tag = "solarian light interceptor"
 	},
-/turf/simulated/wall/shuttle/raider,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/Solfrig_shuttle)
 "Lg" = (
 /obj/structure/closet/crate/loot,
