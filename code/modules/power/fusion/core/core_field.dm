@@ -107,6 +107,8 @@
 	var/power_multiplier = 3
 	var/power_power = 3.2
 
+	var/aaa_minimum_energy_level_multiplier = 1.0
+
 /obj/effect/fusion_em_field/proc/UpdateVisuals()
 	//Take the particle system and edit it
 
@@ -212,7 +214,7 @@
 	// Let the particles inside the field react.
 	React()
 
-	field_strength_power_multiplier = max((owned_core.field_strength ** 1.12) / 100, 1)
+	field_strength_power_multiplier = max((owned_core.field_strength ** 1.2) / 100, 1)
 	// Dump power to our powernet.
 	power_output = ((log(power_log_base, plasma_temperature) * power_multiplier) ** power_power) * field_strength_power_multiplier
 	output_archive_5 = output_archive_4
@@ -226,7 +228,7 @@
 	// Roundstart update
 	if(field_strength < 20)
 		field_strength = 20
-	field_strength_entropy_multiplier = clamp((owned_core.field_strength ** 1.05) / 40, 0.8, 2.0)
+	field_strength_entropy_multiplier = clamp((owned_core.field_strength ** 1.075) / 40, 0.8, 2.0)
 	// Energy decay (entropy tax).
 	if(plasma_temperature >= 1)
 		var/lost = plasma_temperature * 0.0045
@@ -442,7 +444,9 @@
 		a_energy = a_energy * 32
 	else if(plasma_temperature <= 250000)
 		a_energy = a_energy * 8
-	energy += a_energy
+	else if(plasma_temperature <= 1000000)
+		a_energy = a_energy * 2
+	energy += a_energy / 2
 
 	plasma_temperature += a_plasma_temperature
 
@@ -598,7 +602,7 @@
 				if(possible_s_reacts[cur_s_react] < 1)
 					continue
 				var/singleton/fusion_reaction/cur_reaction = get_fusion_reaction(cur_p_react, cur_s_react)
-				if(cur_reaction && plasma_temperature >= cur_reaction.minimum_energy_level && possible_s_reacts[cur_p_react] >= cur_reaction.minimum_p_react)
+				if(cur_reaction && plasma_temperature >= (cur_reaction.minimum_energy_level * aaa_minimum_energy_level_multiplier)&& possible_s_reacts[cur_p_react] >= cur_reaction.minimum_p_react)
 					LAZYDISTINCTADD(possible_reactions, cur_reaction)
 
 			// If there are no possible reactions here, abandon this primary reactant and move on.
@@ -622,7 +626,7 @@
 				// Make sure we have enough energy.
 				// First, if minimum_reaction_temperature not set, make it the same as minimum_energy_level.
 				if(!cur_reaction.minimum_reaction_temperature)
-					cur_reaction.minimum_reaction_temperature = (cur_reaction.minimum_energy_level * 0.8)
+					cur_reaction.minimum_reaction_temperature = (cur_reaction.minimum_energy_level * 0.8 * aaa_minimum_energy_level_multiplier)
 				if(plasma_temperature < cur_reaction.minimum_reaction_temperature)
 					continue
 
@@ -632,7 +636,7 @@
 						continue
 
 				// Randomly determined amount to react. Starts at up to 1/20th, scales to up to 2/3rd at 20x min temp
-				var/temp_over_min = plasma_temperature / (cur_reaction.minimum_energy_level * 20)
+				var/temp_over_min = plasma_temperature / (cur_reaction.minimum_energy_level * 20 * aaa_minimum_energy_level_multiplier)
 				var/max_react_percent = clamp(temp_over_min, (1/20), (2/3))
 				var/amount_reacting = rand(1, (max_num_reactants * max_react_percent))
 
@@ -653,8 +657,11 @@
 
 				// Attempt to run temperature changes in isolation to prevent weird drops
 				var/plasma_temperature_change
+				var/current_reaction_energy_production = cur_reaction.energy_production
+				if(cur_reaction.maximum_effective_temperature && plasma_temperature > cur_reaction.maximum_effective_temperature)
+					current_reaction_energy_production = current_reaction_energy_production * 0.4
 				plasma_temperature_change -= max_num_reactants * cur_reaction.energy_consumption
-				plasma_temperature_change += max_num_reactants * cur_reaction.energy_production
+				plasma_temperature_change += max_num_reactants * current_reaction_energy_production
 
 				adjust_temperature(plasma_temperature_change, cur_reaction.max_temp_change_rate, cur_reaction.name)
 

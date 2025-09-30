@@ -86,13 +86,13 @@
 
 
 /obj/item/book/manual/supermatter_engine
-	name = "Supermatter Engine Operating Manual"
+	name = "Supermatter Reactor Operating Manual"
 	icon_state = "bookSupermatter"
 	item_state = "book1"
 	author = "Engineering Encyclopedia"
-	title = "Supermatter Engine Operating Manual"
+	title = "Supermatter Reactor Operating Manual"
 
-/obj/item/book/manual/supermatter_engine/Initialize()
+/obj/item/book/manual/fusion_reactor/Initialize()
 	. = ..()
 	dat = {"<html>
 				<head>
@@ -106,17 +106,17 @@
 				</style>
 				</head>
 				<body>
-				<h1>OPERATING MANUAL FOR MK 1 PROTOTYPE THERMOELECTRIC SUPERMATTER ENGINE 'TOMBOLA'</h1>
+				<h1>OPERATING MANUAL FOR MK 1 PROTOTYPE THERMOELECTRIC SUPERMATTER REACTOR 'TOMBOLA'</h1>
 				<br>
 				<h2>OPERATING PRINCIPLES</h2>
 				<br>
-				<li>The supermatter crystal serves as the fundamental power source of the engine. Upon being charged, it begins to emit large amounts of heat and radiation, as well and oxygen and phoron gas. As oxygen accelerates the reaction, and phoron carries the risk of fire, these must be filtered out.</li>
+				<li>The supermatter crystal serves as the fundamental power source of the reactor. Upon being charged, it begins to emit large amounts of heat and radiation, as well and oxygen and phoron gas. As oxygen accelerates the reaction, and phoron carries the risk of fire, these must be filtered out.</li>
 				<br>
 				<li>Air in the reactor chamber housing the supermatter is circulated through the reactor loop, which passes through the filters and thermoelectric generators. The thermoelectric generators transfer heat from the reactor loop to the colder radiator loop, thereby generating power. Additional power is generated from internal turbines in the circulators.</li>
 				<br>
 				<li>Air in the radiator loop is circulated through the radiator bank, located in space. This rapidly cools the air, preserving the temperature differential needed for power generation.</li>
 				<br>
-				<li>The MK 1 Prototype Thermoelectric Supermatter Engine is designed to operate at reactor temperatures of 3000K to 4000K and generate up to 1MW of power. Beyond 1MW, the thermoelectric generators will begin to lose power through electrical discharge, reducing efficiency, but additional power generation remains feasible.</li>
+				<li>The MK 1 Prototype Thermoelectric Supermatter Reactor is designed to operate at reactor temperatures of 3000K to 4000K and generate up to 1MW of power. Beyond 1MW, the thermoelectric generators will begin to lose power through electrical discharge, reducing efficiency, but additional power generation remains feasible.</li>
 				<br>
 				<li>The crystal structure of the supermatter will begin to liquefy if its temperature exceeds 5000K. This eventually results in a massive release of light, heat and radiation, disintegration of both the supermatter crystal and most of the surrounding area, and as as-of-yet poorly documented psychological effects on all animals within a 2km radius. Appropriate action should be taken to stabilize or eject the supermatter before such occurs.</li>
 				<br>
@@ -131,12 +131,12 @@
 				<li>Don radiation hood, radiation suit and meson goggles, without these PPE, you <b>will</b> become irradiated.</li>
 				<li>Fill the hot loop's (northernmost) port with <b>ONE</b> canister of phoron.</li>
 				<li>Fill the cold loop's (southernmost) port with <b>TWO</b> canisters of phoron.</li>
-				<li>Ensure that <b>ALL</b> pumps and filters in the engine and waste room are on and operating at maximum power.</li>
+				<li>Ensure that <b>ALL</b> pumps and filters in the reactor and waste room are on and operating at maximum power.</li>
 				<li>Ensure the both the emergency coolant valves (located to the west and east of the TEGs) are <b>NOT</b> active.</li>
 				<li>Set the two waste loop filters to filter <b>PHORON</b>.</li>
 				<li>Set all three of the northernmost coolers to <b>ON</b> keep their temperature setting at its default of <b>293k</b>.</li>
 				<li>Fire <b>twenty-one to twenty-five</b> pulses from the emitter at supermatter crystal. Reactor blast doors <b>MUST</b> be open for this procedure.</li>
-				<li>Set the SMES in the adjacent room (not the one in the engine bay) to <b>NO</b> input and <b>MAXIMUM</b> output until the power is drained completely.</li>
+				<li>Set the SMES in the adjacent room (not the one in the reactor bay) to <b>NO</b> input and <b>MAXIMUM</b> output until the power is drained completely.</li>
 				<li>Go to hard storage and retrieve two coils, Transmission and Capacitance.</li>
 				<li>Open the SMES unit's maintenance panel with your screwdriver and insert both coils, close panel once finished.</li>
 				<li>Set input to maximum, and output to 1400000 (1.4 MW).</li>
@@ -144,10 +144,10 @@
 				<br>
 				<h2>OPERATION AND MAINTENANCE</h2>
 				<ol>
-				<li>Ensure that radiation protection and meson goggles are worn at <b>ALL</b> times while working in the engine room.</li>
+				<li>Ensure that radiation protection and meson goggles are worn at <b>ALL</b> times while working in the reactor room.</li>
 				<li>Ensure that reactor and radiator loops are undamaged and unobstructed.</li>
 				<li>Ensure that phoron and oxygen gas exhaust from filters is properly contained or disposed. Do not allow exhaust pressure to exceed 4500 kPa.</li>
-				<li>Ensure that engine room Area Power Controller (APC) and engine Superconducting Magnetic Energy Storage unit (SMES) are properly charged.</li>
+				<li>Ensure that reactor room Area Power Controller (APC) and reactor Superconducting Magnetic Energy Storage unit (SMES) are properly charged.</li>
 				<li>Ensure that reactor temperature does not exceed 5000K. In event of reactor temperature exceeding 5000K, see EMERGENCY COOLING PROCEDURE.</li>
 				<li>In event of imminent and/or unavoidable delamination, see EJECTION PROCEDURE.</li>
 				</ol>
@@ -162,8 +162,8 @@
 				<br>
 				<h2>EJECTION PROCEDURE</h2>
 				<ol>
-				<li>Press Engine Ventilatory Control button to open engine core vent to space.</li>
-				<li>Press Emergency Core Eject button to eject supermatter crystal. NOTE: Attempting crystal ejection while engine core vent is closed will result in ejection failure.</li>
+				<li>Press Reactor Ventilatory Control button to open reactor core vent to space.</li>
+				<li>Press Emergency Core Eject button to eject supermatter crystal. NOTE: Attempting crystal ejection while reactor core vent is closed will result in ejection failure.</li>
 				<li>In event of ejection failure, evacuate the area immediately, inform medical and prepare anti-radiation medicine.</li>
 				<li>Start work on repairing telecommunications and setting up an alternate method of power generation (Solars, Tesla).</li>
 				</ol>
@@ -191,7 +191,7 @@
 				<br>
 				<li><b>Q:</b> Are other gasses safe to use in the loops?</li>
 				<br>
-				<li><b>A:</b> Mostly, yes. More skilled engineers will likely teach you new methods of using other gasses. Our recommendation is to use phoron if you're unsure. The best idea is to ask your co-workers for help, especially if they set up the engine.</li>
+				<li><b>A:</b> Mostly, yes. More skilled engineers will likely teach you new methods of using other gasses. Our recommendation is to use phoron if you're unsure. The best idea is to ask your co-workers for help, especially if they set up the reactor.</li>
 				<br>
 				<li><b>Q:</b> What do the emergency valves actually do?</li>
 				<br>
@@ -199,7 +199,126 @@
 				<br>
 				<li><b>Q:</b> An engineer walked into the room with no PPE, why did they do that?</li>
 				<br>
-				<li><b>A:</b> If the supermatter engine hasn't been started yet, it will not output radiation. Our recommendation is to be safe instead of sorry, however. If the engine has started, call medical and security, they may be attempting to do an emergency fix, or they are mentally unwell. Remember that non-organics do not suffer from radiation poisoning.</li>
+				<li><b>A:</b> If the supermatter reactor hasn't been started yet, it will not output radiation. Our recommendation is to be safe instead of sorry, however. If the reactor has started, call medical and security, they may be attempting to do an emergency fix, or they are mentally unwell. Remember that non-organics do not suffer from radiation poisoning.</li>
+				<br>
+				</body>
+			</html>"}
+
+/obj/item/book/manual/fusion_reactor
+	name = "INDRA Fusion Reactor Operating Manual"
+	icon_state = "bookFusionReactor"
+	item_state = "book1"
+	author = "Engineering Encyclopedia"
+	title = "INDRA Fusion Reactor Operating Manual"
+
+/obj/item/book/manual/fusion_reactor/Initialize()
+	. = ..()
+	dat = {"<html>
+				<head>
+				<style>
+				h1 {font-size: 18px; margin: 15px 0px 5px;}
+				h2 {font-size: 15px; margin: 15px 0px 5px;}
+				li {margin: 2px 0px 2px 15px;}
+				ul {margin: 5px; padding: 0px;}
+				ol {margin: 5px; padding: 0px 15px;}
+				body {font-size: 13px; font-family: Verdana;}
+				</style>
+				</head>
+				<body>
+				<h1>OPERATING MANUAL FOR MK 1 PROTOTYPE THERMOELECTRIC SUPERMATTER REACTOR 'TOMBOLA'</h1>
+				<br>
+				<h2>OPERATING PRINCIPLES</h2>
+				<br>
+				<li>The supermatter crystal serves as the fundamental power source of the reactor. Upon being charged, it begins to emit large amounts of heat and radiation, as well and oxygen and phoron gas. As oxygen accelerates the reaction, and phoron carries the risk of fire, these must be filtered out.</li>
+				<br>
+				<li>Air in the reactor chamber housing the supermatter is circulated through the reactor loop, which passes through the filters and thermoelectric generators. The thermoelectric generators transfer heat from the reactor loop to the colder radiator loop, thereby generating power. Additional power is generated from internal turbines in the circulators.</li>
+				<br>
+				<li>Air in the radiator loop is circulated through the radiator bank, located in space. This rapidly cools the air, preserving the temperature differential needed for power generation.</li>
+				<br>
+				<li>The MK 1 Prototype Thermoelectric Supermatter Reactor is designed to operate at reactor temperatures of 3000K to 4000K and generate up to 1MW of power. Beyond 1MW, the thermoelectric generators will begin to lose power through electrical discharge, reducing efficiency, but additional power generation remains feasible.</li>
+				<br>
+				<li>The crystal structure of the supermatter will begin to liquefy if its temperature exceeds 5000K. This eventually results in a massive release of light, heat and radiation, disintegration of both the supermatter crystal and most of the surrounding area, and as as-of-yet poorly documented psychological effects on all animals within a 2km radius. Appropriate action should be taken to stabilize or eject the supermatter before such occurs.</li>
+				<br>
+				<h2>SUPERMATTER HANDLING</h2>
+				<li>Do not expose supermatter to oxygen.</li>
+				<li><b>NEVER</b> allow the supermatter to come into contact any solid object apart from the specially-designed supporting pallet.</li>
+				<li>Never directly look at the supermatter, it has a poorly documented psychological effect on those that do.</li>
+				<li>While handles on pallet allow moving the supermatter via pulling, pushing should <b>NEVER</b> be attempted.</li>
+				<br>
+				<h2>STARTUP PROCEDURE</h2>
+				<ol>
+				<li>Don radiation hood, radiation suit and meson goggles, without these PPE, you <b>will</b> become irradiated.</li>
+				<li>Fill the hot loop's (northernmost) port with <b>ONE</b> canister of phoron.</li>
+				<li>Fill the cold loop's (southernmost) port with <b>TWO</b> canisters of phoron.</li>
+				<li>Ensure that <b>ALL</b> pumps and filters in the reactor and waste room are on and operating at maximum power.</li>
+				<li>Ensure the both the emergency coolant valves (located to the west and east of the TEGs) are <b>NOT</b> active.</li>
+				<li>Set the two waste loop filters to filter <b>PHORON</b>.</li>
+				<li>Set all three of the northernmost coolers to <b>ON</b> keep their temperature setting at its default of <b>293k</b>.</li>
+				<li>Fire <b>twenty-one to twenty-five</b> pulses from the emitter at supermatter crystal. Reactor blast doors <b>MUST</b> be open for this procedure.</li>
+				<li>Set the SMES in the adjacent room (not the one in the reactor bay) to <b>NO</b> input and <b>MAXIMUM</b> output until the power is drained completely.</li>
+				<li>Go to hard storage and retrieve two coils, Transmission and Capacitance.</li>
+				<li>Open the SMES unit's maintenance panel with your screwdriver and insert both coils, close panel once finished.</li>
+				<li>Set input to maximum, and output to 1400000 (1.4 MW).</li>
+				</ol>
+				<br>
+				<h2>OPERATION AND MAINTENANCE</h2>
+				<ol>
+				<li>Ensure that radiation protection and meson goggles are worn at <b>ALL</b> times while working in the reactor room.</li>
+				<li>Ensure that reactor and radiator loops are undamaged and unobstructed.</li>
+				<li>Ensure that phoron and oxygen gas exhaust from filters is properly contained or disposed. Do not allow exhaust pressure to exceed 4500 kPa.</li>
+				<li>Ensure that reactor room Area Power Controller (APC) and reactor Superconducting Magnetic Energy Storage unit (SMES) are properly charged.</li>
+				<li>Ensure that reactor temperature does not exceed 5000K. In event of reactor temperature exceeding 5000K, see EMERGENCY COOLING PROCEDURE.</li>
+				<li>In event of imminent and/or unavoidable delamination, see EJECTION PROCEDURE.</li>
+				</ol>
+				<br>
+				<h2>EMERGENCY COOLING PROCEDURE</h2>
+				<ol>
+				<li>Open Emergency Cooling Valve 1 and Emergency Cooling Valve 2.</li>
+				<li>When reactor temperature returns to safe operating levels, close Emergency Cooling Valve 1 and Emergency Cooling Valve 2.</li>
+				<li>Add additional phoron canister to the COLD LOOP.</li>
+				<li>If reactor temperature does not return to safe operating levels, see EJECTION PROCEDURE.</li>
+				</ol>
+				<br>
+				<h2>EJECTION PROCEDURE</h2>
+				<ol>
+				<li>Press Reactor Ventilatory Control button to open reactor core vent to space.</li>
+				<li>Press Emergency Core Eject button to eject supermatter crystal. NOTE: Attempting crystal ejection while reactor core vent is closed will result in ejection failure.</li>
+				<li>In event of ejection failure, evacuate the area immediately, inform medical and prepare anti-radiation medicine.</li>
+				<li>Start work on repairing telecommunications and setting up an alternate method of power generation (Solars, Tesla).</li>
+				</ol>
+				<h2>Frequently Asked Questions</h2>
+				<br>
+				<li><b>Q:</b> Why do some Chief Engineers ask me to use a set-up that isn't in this book?</li>
+				<br>
+				<li><b>A:</b> There are a few different ways of setting up things in engineering, some Chief Engineers may want more power to be generated, some may want it to be run safely. Trust them.</li>
+				<br>
+				<li><b>Q:</b> Why is the Chief telling me to run the SMES at X MegaWatt output?</li>
+				<br>
+				<li><b>A:</b> Sometimes the station needs more power, sometimes it needs less. On a lazy day with no shields, 1.2 MW output is enough to keep the station running, and prevent people getting shocked from the main loop from getting injured.</li>
+				<br>
+				<li><b>Q:</b> What is that port south east of the waste loop blast doors?</li>
+				<br>
+				<li><b>A:</b> That's the emergency gas flushing port. Notice how it bypasses the filter. You use that to pull all the gas out of the pipes and into that port.</li>
+				<br>
+				<li><b>Q:</b> Why do my co-workers sometimes wrench a canister into the port inside the waste room?</li>
+				<br>
+				<li><b>A:</b> That's the canister you use an analyzer on to check the contents of the waste loop. It contains a miniscule amount of gas, but it's in the correct ratio to let you know. It's also a nice back-up in the event of backed up pipes.</li>
+				<br>
+				<li><b>Q:</b> I accidentally put way too many emitter shots into the crystal! What do I do!?</li>
+				<br>
+				<li><b>A:</b> The supermatter will heat up more, so all you do is place more coolant (likely phoron) into the cold loop. Once the situation settles, check if you're producing too little power, and emitter it some more.</li>
+				<br>
+				<li><b>Q:</b> Are other gasses safe to use in the loops?</li>
+				<br>
+				<li><b>A:</b> Mostly, yes. More skilled engineers will likely teach you new methods of using other gasses. Our recommendation is to use phoron if you're unsure. The best idea is to ask your co-workers for help, especially if they set up the reactor.</li>
+				<br>
+				<li><b>Q:</b> What do the emergency valves actually do?</li>
+				<br>
+				<li><b>A:</b> They combine the loops, which will lead to to the rapid cooling of the hot loop and the minor heating of the cold. Eventually they will normalize again. Pressure will be equalized in both.</li>
+				<br>
+				<li><b>Q:</b> An engineer walked into the room with no PPE, why did they do that?</li>
+				<br>
+				<li><b>A:</b> If the supermatter reactor hasn't been started yet, it will not output radiation. Our recommendation is to be safe instead of sorry, however. If the reactor has started, call medical and security, they may be attempting to do an emergency fix, or they are mentally unwell. Remember that non-organics do not suffer from radiation poisoning.</li>
 				<br>
 				</body>
 			</html>"}
