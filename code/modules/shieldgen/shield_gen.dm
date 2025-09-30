@@ -11,46 +11,33 @@
 	icon = 'icons/obj/machinery/shielding.dmi'
 	icon_state = "generator0"
 	density = TRUE
+	use_power = POWER_USE_OFF	//doesn't use APC power
+	req_one_access = list(ACCESS_CAPTAIN, ACCESS_SECURITY, ACCESS_ENGINE)
+	/// Our owned energy field.
+	var/datum/energy_field/energy_field
+	/// If the machine is powered or not.
+	var/powered = FALSE
 	/// Whether the shield generator is active or not.
 	var/active = FALSE
+	/// ID lock.
+	var/locked = FALSE
 	/// Radius of the field.
 	var/field_radius = 3
 	/// Maximum field radius.
 	var/max_field_radius = 100
-	/// A gigantic ass fucking list of energy fields.
-	var/list/field
-	/// ID lock.
-	var/locked = FALSE
-	/// Average field strength of all fields.
-	var/average_field_strength = 0
-	var/strengthen_rate = 0.2
-	var/max_strengthen_rate = 0.5	//the maximum rate that the generator can increase the average field strength
-	var/dissipation_rate = 0.030	//the percentage of the shield strength that needs to be replaced each second
-	var/min_dissipation = 0.01		//will dissipate by at least this rate in renwicks per field tile (otherwise field would never dissipate completely as dissipation is a percentage)
-	var/powered = FALSE
-	var/check_powered = TRUE
+	/// The shield capacitor attached to this shield generator.
 	var/obj/machinery/shield_capacitor/owned_capacitor
-	var/target_field_strength = 10
-	var/max_field_strength = 10
-	var/time_since_fail = 100
-	var/energy_conversion_rate = 0.0002	//how many renwicks per watt?
-	use_power = POWER_USE_OFF	//doesn't use APC power
+	/// If this shield generator supports multi-z.
 	var/multiz = TRUE
-	var/multi_unlocked = TRUE
-	req_one_access = list(ACCESS_CAPTAIN, ACCESS_SECURITY, ACCESS_ENGINE)
 
 /obj/machinery/shield_gen/Initialize()
 	for(var/obj/machinery/shield_capacitor/possible_cap in range(1, src))
 		if(get_dir(possible_cap, src) == possible_cap.dir)
 			owned_capacitor = possible_cap
 			break
-	field = list()
 	. = ..()
 
 /obj/machinery/shield_gen/Destroy()
-	for(var/obj/effect/energy_field/D as anything in field)
-		field.Remove(D)
-		D.loc = null
 	owned_capacitor = null
 	return ..()
 
@@ -84,7 +71,6 @@
 				if(get_dir(cap, src) == cap.dir && cap.anchored)
 					owned_capacitor = cap
 					owned_capacitor.owned_gen = src
-					updateDialog()
 					break
 		else
 			if(owned_capacitor && owned_capacitor.owned_gen == src)
@@ -135,46 +121,19 @@
 			toggle()
 			return PROCESS_KILL
 
-	average_field_strength = max(average_field_strength, 0)
+	if(istype(energy_field))
+		energy_field.handle_strength()
 
-	if(field.len)
-		time_since_fail++
-		var/total_renwick_increase = 0 //the amount of renwicks that the generator can add this tick, over the entire field
-		var/renwick_upkeep_per_field = max(average_field_strength * dissipation_rate, min_dissipation)
-
-		//figure out how much energy we need to draw from the capacitor
-		if(active && owned_capacitor?.active)
-			var/target_renwick_increase = min(target_field_strength - average_field_strength, strengthen_rate) + renwick_upkeep_per_field //per field tile
-
-			var/required_energy = field.len * target_renwick_increase / energy_conversion_rate
-			var/assumed_charge = min(owned_capacitor.stored_charge, required_energy)
-			total_renwick_increase = assumed_charge * energy_conversion_rate
-			assumed_charge = max(assumed_charge, 0)
-			owned_capacitor.stored_charge -= assumed_charge
-		else
-			renwick_upkeep_per_field = max(renwick_upkeep_per_field, 0.5)
-
-		var/renwick_increase_per_field = total_renwick_increase/field.len //per field tile
-
-		average_field_strength = 0 //recalculate the average field strength
-		for(var/obj/effect/energy_field/E as anything in field)
-			if(!E)
-				field -= E
-				continue
-			var/amount_to_strengthen = renwick_increase_per_field - renwick_upkeep_per_field
-			if(E.ticks_recovering > 0 && amount_to_strengthen > 0)
-				E.Strengthen( min(amount_to_strengthen / 10, 0.1) )
-				E.ticks_recovering -= 1
-			else
-				E.Strengthen(amount_to_strengthen)
-
-			average_field_strength += E.strength
-
-		average_field_strength /= field.len
-		if(average_field_strength < 1)
-			time_since_fail = 0
-	else
-		average_field_strength = 0
+/**
+ * Called whenever the field needs to take charge from the capacitor.
+ */
+/obj/machinery/shield_gen/proc/assume_charge(required_energy)
+	if(!owned_capacitor)
+		return 0
+	var/assumed_charge = min(owned_capacitor.stored_charge, required_energy)
+	assumed_charge = max(assumed_charge, 0)
+	owned_capacitor.stored_charge -= assumed_charge
+	return assumed_charge
 
 /obj/machinery/shield_gen/ex_act(var/severity)
 	if(active)
@@ -185,22 +144,14 @@
 	active = !active
 	update_icon()
 	if(active)
-		var/list/covered_turfs = get_shielded_turfs()
-		var/turf/T = get_turf(src)
-		for(var/turf/O as anything in covered_turfs - T)
-			var/obj/effect/energy_field/E = new(O)
-			field.Add(E)
-		covered_turfs = null
-
+		energy_field = new(src, get_shielded_turfs())
 		for(var/mob/M as anything in hearers(5,src))
-			to_chat(M, "[icon2html(src, M)] You hear heavy droning start up.")
+			to_chat(M, SPAN_NOTICE("[icon2html(src, M)] You hear heavy droning start up."))
 	else
-		for(var/obj/effect/energy_field/D as anything in field)
-			field.Remove(D)
-			D.loc = null
-
 		for(var/mob/M as anything in hearers(5,src))
-			to_chat(M, "[icon2html(src, M)] You hear heavy droning fade out.")
+			to_chat(M, SPAN_NOTICE("[icon2html(src, M)] You hear heavy droning fade out."))
+
+		qdel(energy_field)
 
 /obj/machinery/shield_gen/update_icon()
 	if(stat & BROKEN)
@@ -254,19 +205,12 @@
 	data["owned_capacitor"] = !!owned_capacitor
 	data["active"] = active
 	data["time_since_fail"] = time_since_fail
-	data["multi_unlocked"] = multi_unlocked
 	data["multiz"] = multiz
 	data["field_radius"] = field_radius
 	data["min_field_radius"] = 1
 	data["max_field_radius"] = max_field_radius
-	data["average_field"] = round(average_field_strength, 0.01)
-	data["progress_field"] = (target_field_strength ? round(100 * average_field_strength / target_field_strength, 0.1) : "NA")
-	data["power_take"] = round(field.len * max(average_field_strength * dissipation_rate, min_dissipation) / energy_conversion_rate)
-	data["shield_power"] = round(field.len * min(strengthen_rate, target_field_strength - average_field_strength) / energy_conversion_rate)
-	data["strengthen_rate"] = (strengthen_rate * 10)
-	data["max_strengthen_rate"] = (max_strengthen_rate * 10)
-	data["target_field_strength"] = target_field_strength
-
+	if(istype(energy_field))
+		data = energy_field.add_field_ui_data(data)
 	return data
 
 /obj/machinery/shield_gen/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
@@ -282,13 +226,13 @@
 			multiz = !multiz
 
 		if ("size_set")
-			field_radius = between(1, text2num(params["size_set"]), max_field_radius)
+			energy_field.field_radius = between(1, text2num(params["size_set"]), max_field_radius)
 
 		if ("charge_set")
-			strengthen_rate = (between(1, text2num(params["charge_set"]), (max_strengthen_rate * 10)) / 10)
+			energy_field.strengthen_rate = (between(1, text2num(params["charge_set"]), (max_strengthen_rate * 10)) / 10)
 
 		if ("field_set")
-			target_field_strength = between(1, text2num(params["field_set"]), 10)
+			energy_field.target_field_strength = between(1, text2num(params["field_set"]), 10)
 
 	add_fingerprint(usr)
 
