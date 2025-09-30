@@ -319,3 +319,16 @@
   - bugfix: Fix movement delay not applying while inside a locker, bin, or other object.
   - refactor: Changes plant traits to use defines over procs for performance during
       machinery processing.
+2025-09-30:
+  Batrachophrenoboocosmomachia:
+  - qol: Reduce number of APCs that flicker during electrical storms to mitigate lag.
+  Hellfirejag:
+  - bugfix: fluff augments no longer despawn if you have more than one.
+  JohnWildkins:
+  - bugfix: Fix psi commune messages being double-encoded, causing apostrophes and
+      other characters to show up incorrectly.
+  MattAtlas:
+  - bugfix: Trying to save a character with many languages should no longer create
+      an error and abort the whole SQL saving procedure.
+  SleepyGemmy:
+  - rscadd: Added a microwave food vendor to the deck 3 cafe.
