@@ -361,6 +361,7 @@
 		/obj/item/device/flash = 1,
 		/obj/item/device/holowarrant = 1
 	)
+	temp_scarcity = 75
 
 /obj/item/storage/belt/security/full/alt
 	starts_with = list(
@@ -370,6 +371,7 @@
 		/obj/item/device/flash = 1,
 		/obj/item/gun/energy/taser = 1,
 	)
+	temp_scarcity = 75
 
 /obj/item/storage/belt/security/full/disruptor
 	starts_with = list(
@@ -380,6 +382,7 @@
 		/obj/item/gun/energy/disruptorpistol = 1,
 		/obj/item/device/flashlight/flare = 1,
 	)
+	temp_scarcity = 75
 
 /obj/item/storage/belt/security/full/pistol45
 	starts_with = list(
@@ -390,6 +393,7 @@
 		/obj/item/gun/projectile/sec = 1,
 		/obj/item/ammo_magazine/c45m/rubber = 2,
 	)
+	temp_scarcity = 75
 
 /obj/item/storage/belt/security/full/investigator
 	starts_with = list(
@@ -398,6 +402,7 @@
 		/obj/item/device/camera/detective = 1,
 		/obj/item/device/taperecorder = 1
 	)
+	temp_scarcity = 75
 
 /obj/item/storage/belt/security/vestbelt
 	name = "security chestrig"
