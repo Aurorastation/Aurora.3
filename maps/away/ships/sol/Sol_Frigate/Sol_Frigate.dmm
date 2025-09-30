@@ -1110,9 +1110,6 @@
 	},
 /turf/template_noop,
 /area/space)
-"fb" = (
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/hangar)
 "fc" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
@@ -3476,6 +3473,9 @@
 	temperature = 253.15
 	},
 /area/ship/Sol_Frigate/freezer)
+"pK" = (
+/turf/simulated/wall/shuttle/raider,
+/area/ship/Sol_Frigate/hangar)
 "pL" = (
 /obj/effect/floor_decal/industrial/hatch/firefighting_closet,
 /obj/structure/closet/firecloset,
@@ -3936,18 +3936,6 @@
 /obj/structure/closet/walllocker/emerglocker/east,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/Starboard_docking_port)
-"rZ" = (
-/obj/machinery/door/airlock/multi_tile/glass{
-	dir = 8;
-	name = "Mess Hall";
-	req_access = list(203)
-	},
-/obj/machinery/door/blast/shutters/open{
-	id = "Solfrigate_aft_shutters"
-	},
-/obj/machinery/door/firedoor/noid,
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/hangar)
 "sc" = (
 /obj/machinery/smartfridge/foodheater/buffet,
 /obj/machinery/door/firedoor/noid{
@@ -3962,6 +3950,9 @@
 	},
 /turf/simulated/wall/shuttle/raider,
 /area/ship/Sol_Frigate/bunks)
+"sj" = (
+/turf/simulated/floor/tiled/dark,
+/area/ship/Sol_Frigate/hangar)
 "sn" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector{
@@ -4201,6 +4192,9 @@
 	pixel_y = 6
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/door/blast/shutters/open{
+	id = "SFLD"
+	},
 /turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/hangar)
 "tB" = (
@@ -8773,6 +8767,9 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking/Sol_frigate/shuttle_port,
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/door/blast/shutters/open{
+	id = "SFLD"
+	},
 /turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/hangar)
 "Pj" = (
@@ -9605,9 +9602,6 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/head)
-"Ur" = (
-/turf/simulated/wall/shuttle/raider,
-/area/ship/Sol_Frigate/hangar)
 "Uu" = (
 /obj/structure/closet/crate/loot,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -42275,14 +42269,14 @@ jY
 fG
 ld
 hl
-Ur
-Ur
-Ur
-Ur
-Ur
-Ur
-Ur
-Ur
+pK
+pK
+pK
+pK
+pK
+pK
+pK
+pK
 eE
 eE
 eE
@@ -42532,7 +42526,7 @@ jY
 AP
 fw
 hl
-Ur
+pK
 WR
 dl
 ZH
@@ -42789,10 +42783,10 @@ UJ
 VY
 lO
 hl
-Ur
+pK
 bQ
 vK
-fb
+sj
 JK
 qC
 Iq
@@ -43047,13 +43041,13 @@ Jd
 fc
 PD
 ir
-fb
+sj
 Hw
 VK
-Ur
-Ur
-Ur
-Ur
+pK
+pK
+pK
+pK
 MO
 MO
 MO
@@ -43304,10 +43298,10 @@ yt
 NA
 PD
 zP
-fb
+sj
 Hw
 hm
-Ur
+pK
 At
 JF
 JF
@@ -43560,11 +43554,11 @@ yt
 yt
 NA
 hl
-Ur
+pK
 yB
 Hw
 VK
-Ur
+pK
 rn
 Yc
 ho
@@ -43817,12 +43811,12 @@ Iu
 yt
 NA
 hl
-Ur
+pK
 Ol
 YP
-Ur
-Ur
-Ur
+pK
+pK
+pK
 JF
 dS
 JF
@@ -44074,7 +44068,7 @@ QX
 yt
 uf
 hl
-Ur
+pK
 YL
 bf
 tz
@@ -44331,10 +44325,10 @@ Yz
 yt
 NA
 hl
-Ur
+pK
 XZ
 Hw
-Ur
+pK
 vO
 oN
 Lf
@@ -44588,12 +44582,12 @@ Qw
 yt
 NA
 hl
-Ur
+pK
 sX
 bf
 Pg
 mi
-Ur
+pK
 JF
 qF
 JY
@@ -44845,12 +44839,12 @@ nE
 yt
 ay
 hl
-Ur
+pK
 jp
 Hw
-Ur
-Ur
-Ur
+pK
+pK
+pK
 JF
 dS
 JF
@@ -45102,11 +45096,11 @@ pr
 yt
 NA
 hl
-Ur
+pK
 fq
 Hw
 gJ
-Ur
+pK
 rn
 Yc
 SK
@@ -45359,11 +45353,11 @@ yt
 yt
 RZ
 PD
-rZ
+ir
 uk
 Hw
 hm
-Ur
+pK
 rn
 JF
 JF
@@ -45620,10 +45614,10 @@ xi
 dL
 Ta
 Vc
-Ur
-Ur
-Ur
-Ur
+pK
+pK
+pK
+pK
 MO
 MO
 MO
@@ -45873,7 +45867,7 @@ UJ
 Vn
 or
 hl
-Ur
+pK
 HF
 iJ
 Yd
@@ -46130,7 +46124,7 @@ hR
 nr
 ng
 aK
-Ur
+pK
 qI
 qK
 LV
