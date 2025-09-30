@@ -1110,9 +1110,6 @@
 	},
 /turf/template_noop,
 /area/space)
-"fb" = (
-/turf/simulated/wall/shuttle/raider,
-/area/ship/Sol_Frigate/hangar)
 "fc" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
@@ -1343,7 +1340,7 @@
 /area/ship/Sol_Frigate/starboard_battery)
 "fN" = (
 /obj/machinery/ammunition_loader/longbow{
-	weapon_id = "Xanu Frigate Longbow"
+	weapon_id = "Sol Frigate Longbow"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/port_battery)
@@ -3929,6 +3926,9 @@
 /obj/structure/closet/walllocker/emerglocker/east,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/Starboard_docking_port)
+"rZ" = (
+/turf/simulated/wall/shuttle/raider,
+/area/ship/Sol_Frigate/hangar)
 "sc" = (
 /obj/machinery/smartfridge/foodheater/buffet,
 /obj/machinery/door/firedoor/noid{
@@ -3943,6 +3943,9 @@
 	},
 /turf/simulated/wall/shuttle/raider,
 /area/ship/Sol_Frigate/bunks)
+"sj" = (
+/turf/simulated/floor/tiled/dark,
+/area/ship/Sol_Frigate/hangar)
 "sn" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector{
@@ -5491,6 +5494,9 @@
 /obj/structure/cable/blue{
 	icon_state = "4-8"
 	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/cic)
 "Ar" = (
@@ -5803,6 +5809,9 @@
 	},
 /obj/structure/cable/blue{
 	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/cic)
@@ -6493,6 +6502,12 @@
 /obj/machinery/power/apc/high/west,
 /obj/structure/cable/blue{
 	icon_state = "0-4"
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/cic)
@@ -8622,6 +8637,9 @@
 /obj/structure/table/reinforced,
 /obj/item/lore_radio,
 /obj/structure/closet/walllocker/emerglocker/west,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/cic)
 "ON" = (
@@ -8995,7 +9013,7 @@
 /obj/machinery/ship_weapon/longbow{
 	pixel_x = -32;
 	pixel_y = -320;
-	weapon_id = "Xanu Frigate Longbow"
+	weapon_id = "Sol Frigate Longbow"
 	},
 /obj/structure/ship_weapon_dummy{
 	opacity = 1
@@ -9562,9 +9580,6 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/head)
-"Ur" = (
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/hangar)
 "Uu" = (
 /obj/structure/closet/crate/loot,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -42232,14 +42247,14 @@ jY
 fG
 ld
 hl
-fb
-fb
-fb
-fb
-fb
-fb
-fb
-fb
+rZ
+rZ
+rZ
+rZ
+rZ
+rZ
+rZ
+rZ
 eE
 eE
 eE
@@ -42489,7 +42504,7 @@ jY
 AP
 fw
 hl
-fb
+rZ
 WR
 dl
 ZH
@@ -42746,10 +42761,10 @@ UJ
 VY
 lO
 hl
-fb
+rZ
 bQ
 vK
-Ur
+sj
 JK
 qC
 Iq
@@ -43004,13 +43019,13 @@ Jd
 fc
 PD
 ir
-Ur
+sj
 Hw
 VK
-fb
-fb
-fb
-fb
+rZ
+rZ
+rZ
+rZ
 MO
 MO
 MO
@@ -43261,10 +43276,10 @@ yt
 NA
 PD
 zP
-Ur
+sj
 Hw
 hm
-fb
+rZ
 At
 JF
 JF
@@ -43517,11 +43532,11 @@ yt
 yt
 NA
 hl
-fb
+rZ
 yB
 Hw
 VK
-fb
+rZ
 rn
 Yc
 ho
@@ -43774,12 +43789,12 @@ Iu
 yt
 NA
 hl
-fb
+rZ
 Ol
 YP
-fb
-fb
-fb
+rZ
+rZ
+rZ
 JF
 dS
 JF
@@ -44031,7 +44046,7 @@ QX
 yt
 uf
 hl
-fb
+rZ
 YL
 bf
 tz
@@ -44288,10 +44303,10 @@ Yz
 yt
 NA
 hl
-fb
+rZ
 XZ
 Hw
-fb
+rZ
 vO
 oN
 Lf
@@ -44545,12 +44560,12 @@ Qw
 yt
 NA
 hl
-fb
+rZ
 sX
 bf
 Pg
 mi
-fb
+rZ
 JF
 qF
 JY
@@ -44802,12 +44817,12 @@ nE
 yt
 ay
 hl
-fb
+rZ
 jp
 Hw
-fb
-fb
-fb
+rZ
+rZ
+rZ
 JF
 dS
 JF
@@ -45059,11 +45074,11 @@ pr
 yt
 NA
 hl
-fb
+rZ
 fq
 Hw
 gJ
-fb
+rZ
 rn
 Yc
 SK
@@ -45320,7 +45335,7 @@ ir
 uk
 Hw
 hm
-fb
+rZ
 rn
 JF
 JF
@@ -45577,10 +45592,10 @@ xi
 dL
 Ta
 Vc
-fb
-fb
-fb
-fb
+rZ
+rZ
+rZ
+rZ
 MO
 MO
 MO
@@ -45830,7 +45845,7 @@ UJ
 Vn
 or
 hl
-fb
+rZ
 HF
 iJ
 Yd
@@ -46087,7 +46102,7 @@ hR
 nr
 ng
 aK
-fb
+rZ
 qI
 qK
 LV
