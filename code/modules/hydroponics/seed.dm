@@ -62,62 +62,50 @@
 /datum/seed/proc/setup_traits()
 
 /datum/seed/New()
-	set_trait(TRAIT_SPOROUS,              0)
-	set_trait(TRAIT_IMMUTABLE,            0)
-	set_trait(TRAIT_HARVEST_REPEAT,       0)
-	set_trait(TRAIT_PRODUCES_POWER,       0)
-	set_trait(TRAIT_JUICY,                0)
-	set_trait(TRAIT_EXPLOSIVE,            0)
-	set_trait(TRAIT_CARNIVOROUS,          0)
-	set_trait(TRAIT_PARASITE,             0)
-	set_trait(TRAIT_STINGS,               0)
-	set_trait(TRAIT_YIELD,                0)
-	set_trait(TRAIT_SPREAD,               0)
-	set_trait(TRAIT_MATURATION,           0)
-	set_trait(TRAIT_PRODUCTION,           0)
-	set_trait(TRAIT_TELEPORTING,          0)
-	set_trait(TRAIT_BIOLUM,               0)
-	set_trait(TRAIT_ALTER_TEMP,           0)
-	set_trait(TRAIT_PRODUCT_ICON,         0)
-	set_trait(TRAIT_PLANT_ICON,           0)
-	set_trait(TRAIT_PRODUCT_COLOUR,       0)
-	set_trait(TRAIT_BIOLUM_COLOUR,        0)
-	set_trait(TRAIT_BIOLUM_PWR,           1)
-	set_trait(TRAIT_POTENCY,              1)
-	set_trait(TRAIT_REQUIRES_NUTRIENTS,   1)
-	set_trait(TRAIT_REQUIRES_WATER,       1)
-	set_trait(TRAIT_WATER_CONSUMPTION,    3)
-	set_trait(TRAIT_LIGHT_TOLERANCE,      2.5) // Plants will begin to die if the light levels are 2.5 or more lumens from their ideal.
-	set_trait(TRAIT_TOXINS_TOLERANCE,     5)
-	set_trait(TRAIT_PEST_TOLERANCE,       5)
-	set_trait(TRAIT_WEED_TOLERANCE,       5)
-	set_trait(TRAIT_IDEAL_LIGHT,          IDEAL_LIGHT_TEMPERATE)
-	set_trait(TRAIT_HEAT_TOLERANCE,       12) // Plants will begin to die if they're twelve or more degrees from their ideal temperature.
-	set_trait(TRAIT_LOWKPA_TOLERANCE,     25) // Plants survive all the way down to a quarter of an atmosphere!
-	set_trait(TRAIT_ENDURANCE,            100)
-	set_trait(TRAIT_HIGHKPA_TOLERANCE,    200)
-	set_trait(TRAIT_IDEAL_HEAT,           IDEAL_HEAT_TEMPERATE)
-	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.25)
-	set_trait(TRAIT_PLANT_COLOUR,         "#46B543")
-	set_trait(TRAIT_LARGE,                0)
-	set_trait(TRAIT_HEAT_PREFERENCE,      5) // By default, plants grow faster in a temperature within five degrees of their ideal.
-	set_trait(TRAIT_LIGHT_PREFERENCE,     1.5) // Similarly, they grow faster under lumens within 1.5 of their ideal.
+	SET_SEED_TRAIT(src, TRAIT_SPOROUS, 0)
+	SET_SEED_TRAIT(src, TRAIT_IMMUTABLE, 0)
+	SET_SEED_TRAIT(src, TRAIT_HARVEST_REPEAT, 0)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCES_POWER, 0)
+	SET_SEED_TRAIT(src, TRAIT_JUICY, 0)
+	SET_SEED_TRAIT(src, TRAIT_EXPLOSIVE, 0)
+	SET_SEED_TRAIT(src, TRAIT_CARNIVOROUS, 0)
+	SET_SEED_TRAIT(src, TRAIT_PARASITE, 0)
+	SET_SEED_TRAIT(src, TRAIT_STINGS, 0)
+	SET_SEED_TRAIT(src, TRAIT_YIELD, 0)
+	SET_SEED_TRAIT(src, TRAIT_SPREAD, 0)
+	SET_SEED_TRAIT(src, TRAIT_MATURATION, 0)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCTION, 0)
+	SET_SEED_TRAIT(src, TRAIT_TELEPORTING, 0)
+	SET_SEED_TRAIT(src, TRAIT_BIOLUM, 0)
+	SET_SEED_TRAIT(src, TRAIT_ALTER_TEMP, 0)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_ICON, 0)
+	SET_SEED_TRAIT(src, TRAIT_PLANT_ICON, 0)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, 0)
+	SET_SEED_TRAIT(src, TRAIT_BIOLUM_COLOUR, 0)
+	SET_SEED_TRAIT(src, TRAIT_BIOLUM_PWR, 1)
+	SET_SEED_TRAIT(src, TRAIT_POTENCY, 1)
+	SET_SEED_TRAIT(src, TRAIT_REQUIRES_NUTRIENTS, 1)
+	SET_SEED_TRAIT(src, TRAIT_REQUIRES_WATER, 1)
+	SET_SEED_TRAIT(src, TRAIT_WATER_CONSUMPTION, 3)
+	SET_SEED_TRAIT(src, TRAIT_LIGHT_TOLERANCE, 2.5) // Plants will begin to die if the light levels are 2.5 or more lumens from their ideal.
+	SET_SEED_TRAIT(src, TRAIT_TOXINS_TOLERANCE, 5)
+	SET_SEED_TRAIT(src, TRAIT_PEST_TOLERANCE, 5)
+	SET_SEED_TRAIT(src, TRAIT_WEED_TOLERANCE, 5)
+	SET_SEED_TRAIT(src, TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_TEMPERATE)
+	SET_SEED_TRAIT(src, TRAIT_HEAT_TOLERANCE, 12) // Plants will begin to die if they're twelve or more degrees from their ideal temperature.
+	SET_SEED_TRAIT(src, TRAIT_LOWKPA_TOLERANCE, 25) // Plants survive all the way down to a quarter of an atmosphere!
+	SET_SEED_TRAIT(src, TRAIT_ENDURANCE, 100)
+	SET_SEED_TRAIT(src, TRAIT_HIGHKPA_TOLERANCE, 200)
+	SET_SEED_TRAIT(src, TRAIT_IDEAL_HEAT, IDEAL_HEAT_TEMPERATE)
+	SET_SEED_TRAIT(src, TRAIT_NUTRIENT_CONSUMPTION, 0.25)
+	SET_SEED_TRAIT(src, TRAIT_PLANT_COLOUR, "#46B543")
+	SET_SEED_TRAIT(src, TRAIT_LARGE, 0)
+	SET_SEED_TRAIT(src, TRAIT_HEAT_PREFERENCE, 5) // By default, plants grow faster in a temperature within five degrees of their ideal.
+	SET_SEED_TRAIT(src, TRAIT_LIGHT_PREFERENCE, 1.5) // Similarly, they grow faster under lumens within 1.5 of their ideal.
 
 	setup_traits()
 
 	update_growth_stages()
-
-/datum/seed/proc/get_trait(var/trait)
-	return traits["[trait]"]
-
-/datum/seed/proc/get_trash_type()
-	return trash_type
-
-/datum/seed/proc/set_trait(var/trait,var/nval,var/ubound,var/lbound, var/degrade)
-	if(!isnull(degrade)) nval *= degrade
-	if(!isnull(ubound))  nval = min(nval,ubound)
-	if(!isnull(lbound))  nval = max(nval,lbound)
-	traits["[trait]"] =  nval
 
 /datum/seed/proc/create_spores(var/turf/T)
 	if(!T)
@@ -130,18 +118,18 @@
 	var/datum/reagents/R = new/datum/reagents(100)
 	if(chems.len)
 		for(var/rid in chems)
-			var/injecting = max(1,get_trait(TRAIT_POTENCY)/5)
+			var/injecting = max(1,GET_SEED_TRAIT(src, TRAIT_POTENCY)/5)
 			R.add_reagent(rid,injecting)
 
 	var/datum/effect/effect/system/smoke_spread/chem/spores/S = new(name)
 	S.attach(T)
-	S.set_up(R, round(get_trait(TRAIT_POTENCY)/4), 0, T, 40)
+	S.set_up(R, round(GET_SEED_TRAIT(src, TRAIT_POTENCY)/4), 0, T, 40)
 	S.start()
 
 /// Does brute damage to a target.
 /datum/seed/proc/do_thorns(var/mob/living/carbon/human/target, var/obj/item/fruit, var/target_limb)
 
-	if(!get_trait(TRAIT_CARNIVOROUS))
+	if(!GET_SEED_TRAIT(src, TRAIT_CARNIVOROUS))
 		return
 
 	if(!istype(target))
@@ -158,19 +146,19 @@
 	var/obj/item/organ/external/affecting = target.get_organ(target_limb)
 	var/damage = 0
 
-	if(get_trait(TRAIT_CARNIVOROUS))
-		if(get_trait(TRAIT_CARNIVOROUS) == 2)
+	if(GET_SEED_TRAIT(src, TRAIT_CARNIVOROUS))
+		if(GET_SEED_TRAIT(src, TRAIT_CARNIVOROUS) == 2)
 			if(affecting)
 				to_chat(target, SPAN_DANGER("\The [fruit]'s thorns pierce your [affecting.name] greedily!"))
 			else
 				to_chat(target, SPAN_DANGER("\The [fruit]'s thorns pierce your flesh greedily!"))
-			damage = get_trait(TRAIT_POTENCY)/2
+			damage = GET_SEED_TRAIT(src, TRAIT_POTENCY)/2
 		else
 			if(affecting)
 				to_chat(target, SPAN_DANGER("\The [fruit]'s thorns dig deeply into your [affecting.name]!"))
 			else
 				to_chat(target, SPAN_DANGER("\The [fruit]'s thorns dig deeply into your flesh!"))
-			damage = get_trait(TRAIT_POTENCY)/5
+			damage = GET_SEED_TRAIT(src, TRAIT_POTENCY)/5
 	else
 		return
 
@@ -184,7 +172,7 @@
 
 /// Adds reagents to a target.
 /datum/seed/proc/do_sting(var/mob/living/carbon/human/target, var/obj/item/fruit)
-	if(!get_trait(TRAIT_STINGS))
+	if(!GET_SEED_TRAIT(src, TRAIT_STINGS))
 		return
 	if(chems && chems.len)
 
@@ -200,7 +188,7 @@
 
 		to_chat(target, SPAN_DANGER("You are stung by \the [fruit]!"))
 		for(var/rid in chems)
-			var/injecting = min(5,max(1,get_trait(TRAIT_POTENCY)/5))
+			var/injecting = min(5,max(1,GET_SEED_TRAIT(src, TRAIT_POTENCY)/5))
 			target.reagents.add_reagent(rid,injecting)
 
 /// Splatter a turf.
@@ -209,27 +197,27 @@
 		var/obj/effect/plant/splat = new splat_type(T, src)
 		if(!istype(splat)) // Plants handle their own stuff.
 			splat.name = "[thrown.name] [pick("smear","smudge","splatter")]"
-			if(get_trait(TRAIT_BIOLUM))
+			if(GET_SEED_TRAIT(src, TRAIT_BIOLUM))
 				var/pwr
-				if(get_trait(TRAIT_BIOLUM_PWR) == 0)
-					pwr = get_trait(TRAIT_BIOLUM)
+				if(GET_SEED_TRAIT(src, TRAIT_BIOLUM_PWR) == 0)
+					pwr = GET_SEED_TRAIT(src, TRAIT_BIOLUM)
 				else
-					pwr = get_trait(TRAIT_BIOLUM_PWR)
+					pwr = GET_SEED_TRAIT(src, TRAIT_BIOLUM_PWR)
 				var/clr
-				if(get_trait(TRAIT_BIOLUM_COLOUR))
-					clr = get_trait(TRAIT_BIOLUM_COLOUR)
-				splat.set_light(get_trait(TRAIT_POTENCY)/10, pwr, clr)
+				if(GET_SEED_TRAIT(src, TRAIT_BIOLUM_COLOUR))
+					clr = GET_SEED_TRAIT(src, TRAIT_BIOLUM_COLOUR)
+				splat.set_light(GET_SEED_TRAIT(src, TRAIT_POTENCY)/10, pwr, clr)
 				addtimer(CALLBACK(splat, TYPE_PROC_REF(/atom, set_light), 0), rand(3 MINUTES, 5 MINUTES))
-			var/flesh_colour = get_trait(TRAIT_FLESH_COLOUR)
-			if(!flesh_colour) flesh_colour = get_trait(TRAIT_PRODUCT_COLOUR)
-			if(flesh_colour) splat.color = get_trait(TRAIT_PRODUCT_COLOUR)
+			var/flesh_colour = GET_SEED_TRAIT(src, TRAIT_FLESH_COLOUR)
+			if(!flesh_colour) flesh_colour = GET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR)
+			if(flesh_colour) splat.color = GET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR)
 
 	if(chems)
 		for(var/mob/living/M in T.contents)
 			if(!M.reagents)
 				continue
 			for(var/chem in chems)
-				var/injecting = min(5,max(1,get_trait(TRAIT_POTENCY)/3))
+				var/injecting = min(5,max(1,GET_SEED_TRAIT(src, TRAIT_POTENCY)/3))
 				M.reagents.add_reagent(chem,injecting)
 
 /// Applies an effect to a target atom.
@@ -238,11 +226,11 @@
 	var/splatted
 	var/turf/origin_turf = get_turf(target)
 
-	if(force_explode || get_trait(TRAIT_EXPLOSIVE))
+	if(force_explode || GET_SEED_TRAIT(src, TRAIT_EXPLOSIVE))
 
 		create_spores(origin_turf)
 
-		var/flood_dist = min(10,max(1,get_trait(TRAIT_POTENCY)/15))
+		var/flood_dist = min(10,max(1,GET_SEED_TRAIT(src, TRAIT_POTENCY)/15))
 		var/list/open_turfs = list()
 		var/list/closed_turfs = list()
 		var/list/valid_turfs = list()
@@ -293,16 +281,16 @@
 		for(var/mob/living/M in target.contents)
 			apply_special_effect(M)
 
-	if(get_trait(TRAIT_JUICY) && splatted)
+	if(GET_SEED_TRAIT(src, TRAIT_JUICY) && splatted)
 		splatter(origin_turf,thrown)
 		if(origin_turf)
 			origin_turf.visible_message(SPAN_DANGER("The [thrown.name] splatters against [target]!"))
 		qdel(thrown)
 
-	if(get_trait(TRAIT_TELEPORTING))
+	if(GET_SEED_TRAIT(src, TRAIT_TELEPORTING))
 
-		var/outer_teleport_radius = get_trait(TRAIT_POTENCY)/5
-		var/inner_teleport_radius = get_trait(TRAIT_POTENCY)/15
+		var/outer_teleport_radius = GET_SEED_TRAIT(src, TRAIT_POTENCY)/5
+		var/inner_teleport_radius = GET_SEED_TRAIT(src, TRAIT_POTENCY)/15
 
 		var/list/turfs = list()
 		if(inner_teleport_radius > 0)
@@ -335,7 +323,7 @@
 
 	// Process it.
 	var/pressure = environment.return_pressure()
-	if(pressure < get_trait(TRAIT_LOWKPA_TOLERANCE)|| pressure > get_trait(TRAIT_HIGHKPA_TOLERANCE))
+	if(pressure < GET_SEED_TRAIT(src, TRAIT_LOWKPA_TOLERANCE)|| pressure > GET_SEED_TRAIT(src, TRAIT_HIGHKPA_TOLERANCE))
 		health_change += rand(1,3) * HYDRO_SPEED_MULTIPLIER
 
 	// We take the absolute value of the environment's temperature minus the ideal heat - closer to 0 is better, in this case.
@@ -346,7 +334,7 @@
 	// Handle gas production.
 	if(exude_gasses && exude_gasses.len && !check_only)
 		for(var/gas in exude_gasses)
-			environment.adjust_gas(gas, max(1,round((exude_gasses[gas]*(get_trait(TRAIT_POTENCY)/5))/exude_gasses.len)))
+			environment.adjust_gas(gas, max(1,round((exude_gasses[gas]*(GET_SEED_TRAIT(src, TRAIT_POTENCY)/5))/exude_gasses.len)))
 
 	// Handle light requirements.
 	if(!light_supplied)
@@ -363,25 +351,25 @@
 
 /// Returns true if a plant is outside their light tolerances, otherwise false.
 /datum/seed/proc/check_light_tolerances(var/light_supplied)
-	if(abs(light_supplied - get_trait(TRAIT_IDEAL_LIGHT)) > get_trait(TRAIT_LIGHT_TOLERANCE))
+	if(abs(light_supplied - GET_SEED_TRAIT(src, TRAIT_IDEAL_LIGHT)) > GET_SEED_TRAIT(src, TRAIT_LIGHT_TOLERANCE))
 		return TRUE
 	return FALSE
 
 /// Returns true if a plant is outside their heat tolerances, otherwise false.
 /datum/seed/proc/check_heat_tolerances(var/datum/gas_mixture/environment)
-	if(abs(environment.temperature - get_trait(TRAIT_IDEAL_HEAT)) > get_trait(TRAIT_HEAT_TOLERANCE))
+	if(abs(environment.temperature - GET_SEED_TRAIT(src, TRAIT_IDEAL_HEAT)) > GET_SEED_TRAIT(src, TRAIT_HEAT_TOLERANCE))
 		return TRUE
 	return FALSE
 
 /// Returns true if a plant is in their light preferences, otherwise false.
 /datum/seed/proc/check_light_preferences(var/light_supplied)
-	if(abs(light_supplied - get_trait(TRAIT_IDEAL_LIGHT)) < get_trait(TRAIT_LIGHT_PREFERENCE))
+	if(abs(light_supplied - GET_SEED_TRAIT(src, TRAIT_IDEAL_LIGHT)) < GET_SEED_TRAIT(src, TRAIT_LIGHT_PREFERENCE))
 		return TRUE
 	return FALSE
 
 /// Returns true if a plant is in their heat preferences, otherwise false.
 /datum/seed/proc/check_heat_preferences(var/datum/gas_mixture/environment)
-	if(abs(environment.temperature - get_trait(TRAIT_IDEAL_HEAT)) < get_trait(TRAIT_HEAT_PREFERENCE))
+	if(abs(environment.temperature - GET_SEED_TRAIT(src, TRAIT_IDEAL_HEAT)) < GET_SEED_TRAIT(src, TRAIT_HEAT_PREFERENCE))
 		return TRUE
 	return FALSE
 
@@ -462,32 +450,32 @@
 
 	seed_noun = pick(SEED_NOUN_SEEDS, SEED_NOUN_PITS, SEED_NOUN_NODES, SEED_NOUN_CUTTINGS)
 
-	set_trait(TRAIT_POTENCY,rand(5,30),200,0)
-	set_trait(TRAIT_PRODUCT_ICON,pick(SSplants.plant_product_sprites))
-	set_trait(TRAIT_PLANT_ICON,pick(SSplants.plant_sprites))
-	set_trait(TRAIT_PLANT_COLOUR,get_random_colour(0,75,190))
-	set_trait(TRAIT_PRODUCT_COLOUR,get_random_colour(0,75,190))
+	SET_SEED_TRAIT_BOUNDED(src, TRAIT_POTENCY, rand(5,30), 200, 0, 1)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_ICON, pick(SSplants.plant_product_sprites))
+	SET_SEED_TRAIT(src, TRAIT_PLANT_ICON, pick(SSplants.plant_sprites))
+	SET_SEED_TRAIT(src, TRAIT_PLANT_COLOUR, get_random_colour(0,75,190))
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, get_random_colour(0,75,190))
 	update_growth_stages()
 
 	if(prob(20))
-		set_trait(TRAIT_HARVEST_REPEAT,1)
+		SET_SEED_TRAIT(src, TRAIT_HARVEST_REPEAT, 1)
 
 	if(prob(15))
 		if(prob(15))
-			set_trait(TRAIT_JUICY,2)
+			SET_SEED_TRAIT(src, TRAIT_JUICY, 2)
 		else
-			set_trait(TRAIT_JUICY,1)
+			SET_SEED_TRAIT(src, TRAIT_JUICY, 1)
 
 	if(prob(5))
-		set_trait(TRAIT_STINGS,1)
+		SET_SEED_TRAIT(src, TRAIT_STINGS, 1)
 
 	if(prob(5))
-		set_trait(TRAIT_PRODUCES_POWER,1)
+		SET_SEED_TRAIT(src, TRAIT_PRODUCES_POWER, 1)
 
 	if(prob(1))
-		set_trait(TRAIT_EXPLOSIVE,1)
+		SET_SEED_TRAIT(src, TRAIT_EXPLOSIVE, 1)
 	else if(prob(1))
-		set_trait(TRAIT_TELEPORTING,1)
+		SET_SEED_TRAIT(src, TRAIT_TELEPORTING, 1)
 
 	if(prob(5))
 		consume_gasses = list()
@@ -554,75 +542,75 @@
 			chems[new_chem] = list(rand(1,10),rand(10,20))
 
 	if(prob(90))
-		set_trait(TRAIT_REQUIRES_NUTRIENTS,1)
-		set_trait(TRAIT_NUTRIENT_CONSUMPTION,rand(25)/25)
+		SET_SEED_TRAIT(src, TRAIT_REQUIRES_NUTRIENTS, 1)
+		SET_SEED_TRAIT(src, TRAIT_NUTRIENT_CONSUMPTION, rand(25)/25)
 	else
-		set_trait(TRAIT_REQUIRES_NUTRIENTS,0)
+		SET_SEED_TRAIT(src, TRAIT_REQUIRES_NUTRIENTS, 0)
 
 	if(prob(90))
-		set_trait(TRAIT_REQUIRES_WATER,1)
-		set_trait(TRAIT_WATER_CONSUMPTION,rand(10))
+		SET_SEED_TRAIT(src, TRAIT_REQUIRES_WATER, 1)
+		SET_SEED_TRAIT(src, TRAIT_WATER_CONSUMPTION, rand(10))
 	else
-		set_trait(TRAIT_REQUIRES_WATER,0)
+		SET_SEED_TRAIT(src, TRAIT_REQUIRES_WATER, 0)
 
-	set_trait(TRAIT_IDEAL_HEAT,       rand(100,400))
-	set_trait(TRAIT_HEAT_TOLERANCE,   rand(10,30))
-	set_trait(TRAIT_IDEAL_LIGHT,      rand(2,10))
-	set_trait(TRAIT_LIGHT_TOLERANCE,  rand(2,7))
-	set_trait(TRAIT_TOXINS_TOLERANCE, rand(2,7))
-	set_trait(TRAIT_PEST_TOLERANCE,   rand(2,7))
-	set_trait(TRAIT_WEED_TOLERANCE,   rand(2,7))
-	set_trait(TRAIT_LOWKPA_TOLERANCE, rand(10,50))
-	set_trait(TRAIT_HIGHKPA_TOLERANCE,rand(100,300))
+	SET_SEED_TRAIT(src, TRAIT_IDEAL_HEAT, rand(100,400))
+	SET_SEED_TRAIT(src, TRAIT_HEAT_TOLERANCE, rand(10,30))
+	SET_SEED_TRAIT(src, TRAIT_IDEAL_LIGHT, rand(2,10))
+	SET_SEED_TRAIT(src, TRAIT_LIGHT_TOLERANCE, rand(2,7))
+	SET_SEED_TRAIT(src, TRAIT_TOXINS_TOLERANCE, rand(2,7))
+	SET_SEED_TRAIT(src, TRAIT_PEST_TOLERANCE, rand(2,7))
+	SET_SEED_TRAIT(src, TRAIT_WEED_TOLERANCE, rand(2,7))
+	SET_SEED_TRAIT(src, TRAIT_LOWKPA_TOLERANCE, rand(10,50))
+	SET_SEED_TRAIT(src, TRAIT_HIGHKPA_TOLERANCE, rand(100,300))
 
 	if(prob(5))
-		set_trait(TRAIT_ALTER_TEMP,rand(-5,5))
+		SET_SEED_TRAIT(src, TRAIT_ALTER_TEMP, rand(-5,5))
 
 	if(prob(1))
-		set_trait(TRAIT_IMMUTABLE,-1)
+		SET_SEED_TRAIT(src, TRAIT_IMMUTABLE, -1)
 
 	var/carnivore_prob = rand(100)
 	if(carnivore_prob < 5)
-		set_trait(TRAIT_CARNIVOROUS,2)
+		SET_SEED_TRAIT(src, TRAIT_CARNIVOROUS, 2)
 	else if(carnivore_prob < 10)
-		set_trait(TRAIT_CARNIVOROUS,1)
+		SET_SEED_TRAIT(src, TRAIT_CARNIVOROUS, 1)
 
 	if(prob(10))
-		set_trait(TRAIT_PARASITE,1)
+		SET_SEED_TRAIT(src, TRAIT_PARASITE, 1)
 
 	var/vine_prob = rand(100)
 	if(vine_prob < 5)
-		set_trait(TRAIT_SPREAD,2)
+		SET_SEED_TRAIT(src, TRAIT_SPREAD, 2)
 	else if(vine_prob < 10)
-		set_trait(TRAIT_SPREAD,1)
+		SET_SEED_TRAIT(src, TRAIT_SPREAD, 1)
 
 	if(prob(5))
-		set_trait(TRAIT_BIOLUM,1)
-		set_trait(TRAIT_BIOLUM_COLOUR,get_random_colour(0,75,190))
+		SET_SEED_TRAIT(src, TRAIT_BIOLUM, 1)
+		SET_SEED_TRAIT(src, TRAIT_BIOLUM_COLOUR, get_random_colour(0,75,190))
 		if(prob(5))
-			set_trait(TRAIT_BIOLUM_PWR,rand(0,-5)-rand())
+			SET_SEED_TRAIT(src, TRAIT_BIOLUM_PWR, rand(0,-5)-rand())
 		else
-			set_trait(TRAIT_BIOLUM_PWR,rand(0,5)+rand())
+			SET_SEED_TRAIT(src, TRAIT_BIOLUM_PWR, rand(0,5)+rand())
 
 	if(prob(5))
-		set_trait(TRAIT_SPOROUS,1)
+		SET_SEED_TRAIT(src, TRAIT_SPOROUS, 1)
 
-	set_trait(TRAIT_ENDURANCE,rand(60,100))
-	set_trait(TRAIT_YIELD,rand(3,15))
-	set_trait(TRAIT_MATURATION,rand(5,15))
-	set_trait(TRAIT_PRODUCTION,get_trait(TRAIT_MATURATION)+rand(2,5))
+	SET_SEED_TRAIT(src, TRAIT_ENDURANCE, rand(60,100))
+	SET_SEED_TRAIT(src, TRAIT_YIELD, rand(3,15))
+	SET_SEED_TRAIT(src, TRAIT_MATURATION, rand(5,15))
+	SET_SEED_TRAIT(src, TRAIT_PRODUCTION, GET_SEED_TRAIT(src, TRAIT_MATURATION)+rand(2,5))
 
 	generate_name()
 
 /// Returns a key corresponding to an entry in the global seed list.
 /datum/seed/proc/get_mutant_variant()
-	if(!mutants || !mutants.len || get_trait(TRAIT_IMMUTABLE) > 0) return 0
+	if(!mutants || !mutants.len || GET_SEED_TRAIT(src, TRAIT_IMMUTABLE) > 0) return 0
 	return pick(mutants)
 
 /// Mutates the plant overall (randomly).
 /datum/seed/proc/mutate(var/degree,var/turf/source_turf)
 
-	if(!degree || get_trait(TRAIT_IMMUTABLE) > 0) return
+	if(!degree || GET_SEED_TRAIT(src, TRAIT_IMMUTABLE) > 0) return
 
 	source_turf.visible_message(SPAN_NOTICE("\The [display_name] quivers!"))
 
@@ -631,76 +619,76 @@
 	for(var/i = 0;i<total_mutations;i++)
 		switch(rand(0,11))
 			if(0) //Plant cancer!
-				set_trait(TRAIT_ENDURANCE,get_trait(TRAIT_ENDURANCE)-rand(10,20),null,0)
+				SET_SEED_TRAIT_BOUNDED(src, TRAIT_ENDURANCE, GET_SEED_TRAIT(src, TRAIT_ENDURANCE)-rand(10,20), null, 0, null)
 				source_turf.visible_message(SPAN_DANGER("\The [display_name] withers rapidly!"))
 			if(1)
-				set_trait(TRAIT_NUTRIENT_CONSUMPTION,get_trait(TRAIT_NUTRIENT_CONSUMPTION)+rand(-(degree*0.1),(degree*0.1)),5,0)
-				set_trait(TRAIT_WATER_CONSUMPTION,   get_trait(TRAIT_WATER_CONSUMPTION)   +rand(-degree,degree),50,0)
-				set_trait(TRAIT_JUICY,              !get_trait(TRAIT_JUICY))
-				set_trait(TRAIT_STINGS,             !get_trait(TRAIT_STINGS))
+				SET_SEED_TRAIT_BOUNDED(src, TRAIT_NUTRIENT_CONSUMPTION, GET_SEED_TRAIT(src, TRAIT_NUTRIENT_CONSUMPTION)+rand(-(degree*0.1), (degree*0.1)), 5, 0, null)
+				SET_SEED_TRAIT_BOUNDED(src, TRAIT_WATER_CONSUMPTION, GET_SEED_TRAIT(src, TRAIT_WATER_CONSUMPTION)+rand(-degree,degree), 50, 0, null)
+				SET_SEED_TRAIT(src, TRAIT_JUICY, !GET_SEED_TRAIT(src, TRAIT_JUICY))
+				SET_SEED_TRAIT(src, TRAIT_STINGS, !GET_SEED_TRAIT(src, TRAIT_STINGS))
 			if(2)
-				set_trait(TRAIT_IDEAL_HEAT,          get_trait(TRAIT_IDEAL_HEAT) +      (rand(-5,5)*degree),800,70)
-				set_trait(TRAIT_HEAT_TOLERANCE,      get_trait(TRAIT_HEAT_TOLERANCE) +  (rand(-5,5)*degree),800,70)
-				set_trait(TRAIT_LOWKPA_TOLERANCE,    get_trait(TRAIT_LOWKPA_TOLERANCE)+ (rand(-5,5)*degree),80,0)
-				set_trait(TRAIT_HIGHKPA_TOLERANCE,   get_trait(TRAIT_HIGHKPA_TOLERANCE)+(rand(-5,5)*degree),500,110)
-				set_trait(TRAIT_EXPLOSIVE,1)
+				SET_SEED_TRAIT_BOUNDED(src, TRAIT_IDEAL_HEAT,          GET_SEED_TRAIT(src, TRAIT_IDEAL_HEAT) + (rand(-5,5)*degree), 800, 70, null)
+				SET_SEED_TRAIT_BOUNDED(src, TRAIT_HEAT_TOLERANCE,      GET_SEED_TRAIT(src, TRAIT_HEAT_TOLERANCE) + (rand(-5,5)*degree), 800, 70, null)
+				SET_SEED_TRAIT_BOUNDED(src, TRAIT_LOWKPA_TOLERANCE,    GET_SEED_TRAIT(src, TRAIT_LOWKPA_TOLERANCE)+ (rand(-5,5)*degree), 80, 0, null)
+				SET_SEED_TRAIT_BOUNDED(src, TRAIT_HIGHKPA_TOLERANCE,   GET_SEED_TRAIT(src, TRAIT_HIGHKPA_TOLERANCE)+ (rand(-5,5)*degree), 500, 110, null)
+				SET_SEED_TRAIT(src, TRAIT_EXPLOSIVE, 1)
 			if(3)
-				set_trait(TRAIT_IDEAL_LIGHT,         get_trait(TRAIT_IDEAL_LIGHT)+(rand(-1,1)*degree),30,0)
-				set_trait(TRAIT_LIGHT_TOLERANCE,     get_trait(TRAIT_LIGHT_TOLERANCE)+(rand(-2,2)*degree),10,0)
+				SET_SEED_TRAIT_BOUNDED(src, TRAIT_IDEAL_LIGHT,         GET_SEED_TRAIT(src, TRAIT_IDEAL_LIGHT)+(rand(-1,1)*degree), 30, 0, null)
+				SET_SEED_TRAIT_BOUNDED(src, TRAIT_LIGHT_TOLERANCE,     GET_SEED_TRAIT(src, TRAIT_LIGHT_TOLERANCE)+(rand(-2,2)*degree), 10, 0, null)
 			if(4)
-				set_trait(TRAIT_TOXINS_TOLERANCE,    get_trait(TRAIT_TOXINS_TOLERANCE)+(rand(-2,2)*degree),10,0)
+				SET_SEED_TRAIT_BOUNDED(src, TRAIT_TOXINS_TOLERANCE,    GET_SEED_TRAIT(src, TRAIT_TOXINS_TOLERANCE)+(rand(-2,2)*degree), 10, 0, null)
 			if(5)
-				set_trait(TRAIT_WEED_TOLERANCE,      get_trait(TRAIT_WEED_TOLERANCE)+(rand(-2,2)*degree),10, 0)
+				SET_SEED_TRAIT_BOUNDED(src, TRAIT_WEED_TOLERANCE,      GET_SEED_TRAIT(src, TRAIT_WEED_TOLERANCE)+(rand(-2,2)*degree), 10, 0, null)
 				if(prob(degree*5))
-					set_trait(TRAIT_CARNIVOROUS,     get_trait(TRAIT_CARNIVOROUS)+rand(-degree,degree),2, 0)
-					if(get_trait(TRAIT_CARNIVOROUS))
+					SET_SEED_TRAIT_BOUNDED(src, TRAIT_CARNIVOROUS,     GET_SEED_TRAIT(src, TRAIT_CARNIVOROUS)+rand(-degree,degree), 2, 0, null)
+					if(GET_SEED_TRAIT(src, TRAIT_CARNIVOROUS))
 						source_turf.visible_message(SPAN_NOTICE("\The [display_name] shudders hungrily."))
 			if(6)
-				set_trait(TRAIT_WEED_TOLERANCE,      get_trait(TRAIT_WEED_TOLERANCE)+(rand(-2,2)*degree),10, 0)
+				SET_SEED_TRAIT_BOUNDED(src, TRAIT_WEED_TOLERANCE,      GET_SEED_TRAIT(src, TRAIT_WEED_TOLERANCE)+(rand(-2,2)*degree), 10, 0, null)
 				if(prob(degree*5))
-					set_trait(TRAIT_PARASITE,!get_trait(TRAIT_PARASITE))
+					SET_SEED_TRAIT(src, TRAIT_PARASITE, !GET_SEED_TRAIT(src, TRAIT_PARASITE))
 			if(7)
-				if(get_trait(TRAIT_YIELD) != -1)
-					set_trait(TRAIT_YIELD,           get_trait(TRAIT_YIELD)+(rand(-2,2)*degree),10,0)
+				if(GET_SEED_TRAIT(src, TRAIT_YIELD) != -1)
+					SET_SEED_TRAIT_BOUNDED(src, TRAIT_YIELD,           GET_SEED_TRAIT(src, TRAIT_YIELD)+(rand(-2,2)*degree), 10, 0, null)
 			if(8)
-				set_trait(TRAIT_ENDURANCE,           get_trait(TRAIT_ENDURANCE)+(rand(-5,5)*degree),100,10)
-				set_trait(TRAIT_PRODUCTION,          get_trait(TRAIT_PRODUCTION)+(rand(-1,1)*degree),10, 1)
-				set_trait(TRAIT_POTENCY,             get_trait(TRAIT_POTENCY)+(rand(-20,20)*degree),200, 0)
+				SET_SEED_TRAIT_BOUNDED(src, TRAIT_ENDURANCE,           GET_SEED_TRAIT(src, TRAIT_ENDURANCE)+(rand(-5,5)*degree), 100, 10, null)
+				SET_SEED_TRAIT_BOUNDED(src, TRAIT_PRODUCTION,          GET_SEED_TRAIT(src, TRAIT_PRODUCTION)+(rand(-1,1)*degree), 10, 1, null)
+				SET_SEED_TRAIT_BOUNDED(src, TRAIT_POTENCY,             GET_SEED_TRAIT(src, TRAIT_POTENCY)+(rand(-20,20)*degree), 200, 0, null)
 				if(prob(degree*5))
-					set_trait(TRAIT_SPREAD,          get_trait(TRAIT_SPREAD)+rand(-1,1),2, 0)
+					SET_SEED_TRAIT_BOUNDED(src, TRAIT_SPREAD,          GET_SEED_TRAIT(src, TRAIT_SPREAD)+rand(-1,1), 2, 0, null)
 					source_turf.visible_message(SPAN_NOTICE("\The [display_name] spasms visibly, shifting in the tray."))
 				if(prob(degree*5))
-					set_trait(TRAIT_SPOROUS,         !get_trait(TRAIT_SPOROUS))
+					SET_SEED_TRAIT(src, TRAIT_SPOROUS,         !GET_SEED_TRAIT(src, TRAIT_SPOROUS))
 			if(9)
-				set_trait(TRAIT_MATURATION,          get_trait(TRAIT_MATURATION)+(rand(-1,1)*degree),30, 0)
+				SET_SEED_TRAIT_BOUNDED(src, TRAIT_MATURATION,          GET_SEED_TRAIT(src, TRAIT_MATURATION)+(rand(-1,1)*degree), 30, 0, null)
 				if(prob(degree*5))
-					set_trait(TRAIT_HARVEST_REPEAT, !get_trait(TRAIT_HARVEST_REPEAT))
+					SET_SEED_TRAIT(src, TRAIT_HARVEST_REPEAT, !GET_SEED_TRAIT(src, TRAIT_HARVEST_REPEAT))
 			if(10)
 				if(prob(degree*2))
-					set_trait(TRAIT_BIOLUM,         !get_trait(TRAIT_BIOLUM))
-					if(get_trait(TRAIT_BIOLUM))
+					SET_SEED_TRAIT(src, TRAIT_BIOLUM,         !GET_SEED_TRAIT(src, TRAIT_BIOLUM))
+					if(GET_SEED_TRAIT(src, TRAIT_BIOLUM))
 						source_turf.visible_message(SPAN_NOTICE("\The [display_name] begins to glow!"))
 						if(prob(degree*2))
-							set_trait(TRAIT_BIOLUM_COLOUR,get_random_colour(0,75,190))
-							source_turf.visible_message("<span class='notice'>\The [display_name]'s glow </span><font color='[get_trait(TRAIT_BIOLUM_COLOUR)]'>changes colour</font>!")
+							SET_SEED_TRAIT(src, TRAIT_BIOLUM_COLOUR, get_random_colour(0,75,190))
+							source_turf.visible_message("<span class='notice'>\The [display_name]'s glow </span><font color='[GET_SEED_TRAIT(src, TRAIT_BIOLUM_COLOUR)]'>changes colour</font>!")
 					else
 						source_turf.visible_message(SPAN_NOTICE("\The [display_name]'s glow dims..."))
 			if(11)
-				set_trait(TRAIT_TELEPORTING,1)
+				SET_SEED_TRAIT(src, TRAIT_TELEPORTING, 1)
 
 	return
 
 /// Mutates a specific trait/set of traits.
 /datum/seed/proc/apply_gene(var/datum/plantgene/gene)
 
-	if(!gene || !gene.values || get_trait(TRAIT_IMMUTABLE) > 0) return
+	if(!gene || !gene.values || GET_SEED_TRAIT(src, TRAIT_IMMUTABLE) > 0) return
 
 	// Splicing products has some detrimental effects on yield and lifespan.
 	// We handle this before we do the rest of the looping, as normal traits don't really include lists.
 	switch(gene.genetype)
 		if(GENE_BIOCHEMISTRY)
 			for(var/trait in list(TRAIT_YIELD, TRAIT_ENDURANCE))
-				if(get_trait(trait) > 0) set_trait(trait,get_trait(trait),null,1,0.85)
+				if(GET_SEED_TRAIT(src, trait) > 0) SET_SEED_TRAIT_BOUNDED(src, trait, GET_SEED_TRAIT(src, trait), null, 1, 0.85)
 
 			if(!chems) chems = list()
 
@@ -741,7 +729,7 @@
 			gene.values["product_type"] = null
 
 	for(var/trait in gene.values)
-		set_trait(trait,gene.values["[trait]"])
+		SET_SEED_TRAIT(src, trait, gene.values["[trait]"])
 
 	update_growth_stages()
 
@@ -786,7 +774,7 @@
 			traits_to_copy = list(TRAIT_TELEPORTING)
 
 	for(var/trait in traits_to_copy)
-		P.values["[trait]"] = get_trait(trait)
+		P.values["[trait]"] = GET_SEED_TRAIT(src, trait)
 	return (P ? P : 0)
 
 /// Place the plant products at the feet of the user.
@@ -794,7 +782,7 @@
 	if(!user)
 		return
 
-	if(!force_amount && get_trait(TRAIT_YIELD) == 0 && !harvest_sample)
+	if(!force_amount && GET_SEED_TRAIT(src, TRAIT_YIELD) == 0 && !harvest_sample)
 		if(istype(user)) to_chat(user, SPAN_DANGER("You fail to harvest anything useful."))
 	else
 		if(istype(user)) to_chat(user, "You [harvest_sample ? "take a sample" : "harvest"] from the [display_name].")
@@ -815,12 +803,12 @@
 		if(!isnull(force_amount))
 			total_yield = force_amount
 		else
-			if(get_trait(TRAIT_YIELD) > -1)
+			if(GET_SEED_TRAIT(src, TRAIT_YIELD) > -1)
 				if(isnull(yield_mod) || yield_mod < 1)
 					yield_mod = 0
-					total_yield = get_trait(TRAIT_YIELD)
+					total_yield = GET_SEED_TRAIT(src, TRAIT_YIELD)
 				else
-					total_yield = get_trait(TRAIT_YIELD) + rand(yield_mod)
+					total_yield = GET_SEED_TRAIT(src, TRAIT_YIELD) + rand(yield_mod)
 				total_yield = max(1,total_yield)
 
 		// If the plant is stunted, you get half the yield.
@@ -838,26 +826,26 @@
 	if(product_desc_extended)
 		product.desc_extended = product_desc_extended
 
-	if(get_trait(TRAIT_PRODUCT_COLOUR))
+	if(GET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR))
 		if(istype(product, /obj/item/reagent_containers/food))
 			var/obj/item/reagent_containers/food/food = product
-			food.color = get_trait(TRAIT_PRODUCT_COLOUR)
-			food.filling_color = get_trait(TRAIT_PRODUCT_COLOUR)
+			food.color = GET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR)
+			food.filling_color = GET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR)
 
 	if(mysterious)
 		product.name += "?"
 		product.desc += " On second thought, something about this one looks strange."
 
-	if(get_trait(TRAIT_BIOLUM))
+	if(GET_SEED_TRAIT(src, TRAIT_BIOLUM))
 		var/pwr
-		if(get_trait(TRAIT_BIOLUM_PWR) == 0)
-			pwr = get_trait(TRAIT_BIOLUM)
+		if(GET_SEED_TRAIT(src, TRAIT_BIOLUM_PWR) == 0)
+			pwr = GET_SEED_TRAIT(src, TRAIT_BIOLUM)
 		else
-			pwr = get_trait(TRAIT_BIOLUM_PWR)
+			pwr = GET_SEED_TRAIT(src, TRAIT_BIOLUM_PWR)
 		var/clr
-		if(get_trait(TRAIT_BIOLUM_COLOUR))
-			clr = get_trait(TRAIT_BIOLUM_COLOUR)
-		product.set_light(get_trait(TRAIT_POTENCY)/10, pwr, clr)
+		if(GET_SEED_TRAIT(src, TRAIT_BIOLUM_COLOUR))
+			clr = GET_SEED_TRAIT(src, TRAIT_BIOLUM_COLOUR)
+		product.set_light(GET_SEED_TRAIT(src, TRAIT_POTENCY)/10, pwr, clr)
 		addtimer(CALLBACK(product, TYPE_PROC_REF(/atom, set_light), 0), rand(5 MINUTES, 7 MINUTES))
 
 	//Handle spawning in living, mobile products (like dionaea).
@@ -873,7 +861,7 @@ is set to a new datum copied from the original. This datum won't actually
 be put into the global datum list until the product is harvested, though. */
 /datum/seed/proc/diverge(var/modified)
 
-	if(get_trait(TRAIT_IMMUTABLE) > 0) return
+	if(GET_SEED_TRAIT(src, TRAIT_IMMUTABLE) > 0) return
 
 	//Set up some basic information.
 	var/datum/seed/new_seed = new
@@ -898,8 +886,8 @@ be put into the global datum list until the product is harvested, though. */
 	return new_seed
 
 /datum/seed/proc/update_growth_stages()
-	if(get_trait(TRAIT_PLANT_ICON))
-		growth_stages = SSplants.plant_sprites[get_trait(TRAIT_PLANT_ICON)]
+	if(GET_SEED_TRAIT(src, TRAIT_PLANT_ICON))
+		growth_stages = SSplants.plant_sprites[GET_SEED_TRAIT(src, TRAIT_PLANT_ICON)]
 	else
 		growth_stages = 0
 
@@ -907,7 +895,7 @@ be put into the global datum list until the product is harvested, though. */
 	SHOULD_NOT_SLEEP(TRUE)
 	SHOULD_BE_PURE(TRUE)
 
-	if(get_trait(TRAIT_SPREAD) == 2)
+	if(GET_SEED_TRAIT(src, TRAIT_SPREAD) == 2)
 		switch(seed_noun)
 			if(SEED_NOUN_CUTTINGS)
 				return GROWTH_WORMS
@@ -942,15 +930,15 @@ GLOBAL_LIST_INIT(seed_icon_cache, list())
 	/* Setup a bunch of shit that should have been done in a very different way but alas */
 
 	//The icon of the plant
-	var/icon_trait = get_trait(TRAIT_PLANT_ICON)
+	var/icon_trait = GET_SEED_TRAIT(src, TRAIT_PLANT_ICON)
 	//The type of growth
 	var/growth_type = get_growth_type()
 	//If it's a vine
-	var/is_vine = (get_trait(TRAIT_SPREAD) == 2)
+	var/is_vine = (GET_SEED_TRAIT(src, TRAIT_SPREAD) == 2)
 	//If the icon is a large one
-	var/is_large_icon = get_trait(TRAIT_LARGE)
+	var/is_large_icon = GET_SEED_TRAIT(src, TRAIT_LARGE)
 	//The color of the leaves, if any
-	var/leaves_color = get_trait(TRAIT_LEAVES_COLOUR)
+	var/leaves_color = GET_SEED_TRAIT(src, TRAIT_LEAVES_COLOUR)
 
 	/* The part where we select what to request */
 
@@ -967,7 +955,7 @@ GLOBAL_LIST_INIT(seed_icon_cache, list())
 	var/icon_state_to_request = (is_vine) ? "[growth_type]-[growth_stage]" : "[icon_trait]-[growth_stage]"
 
 	//Pick the color to assign to the image
-	var/color_to_request = get_trait(TRAIT_PLANT_COLOUR)
+	var/color_to_request = GET_SEED_TRAIT(src, TRAIT_PLANT_COLOUR)
 
 	//The leaves color overlay to request
 	var/leaves_overlay_to_request = (leaves_color) ? "[icon_trait]-[growth_stage]-leaves" : null
