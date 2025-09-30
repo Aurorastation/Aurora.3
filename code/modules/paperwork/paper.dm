@@ -920,14 +920,13 @@ ABSTRACT_TYPE(/obj/item/paper/fluff)
 /obj/item/paper/fluff/atmos_supply_notice
 	name = "atmospherics supply notice"
 	info = "<font face=\"Verdana\"><center><b>Atmospherics Supply Notice</b></center><font size=\"2\">To All Engineering Personnel,\
-	<br><br>Our holding tanks' reserves have been continually dropping due to lack of resupply.\
-	<br>Be mindful if your propulsion setups are high-mass.\
-	<br>Be mindful during breach response to minimize risk of crew accidentally spreading breaches, to conserve air mix reserves.</font>\
+	<br><br>Our holding tanks' reserves have been continually dropping due to lack of resupply.Be mindful if your propulsion setups are high-mass. \
+	Further, during breach response, minimize risk of crew accidentally spreading breaches to conserve air mix reserves.</font>\
 	<br><br>Gas Reserve Deltas (Approximate):<ol>\
-	N2 (Δ): -17%<br>\
-	O2 (Δ): -25%<br>\
-	CO2 (Δ): -68%<br>\
-	Phoron (Δ): -40%<br>\
-	H2 (Δ): -40%<br>\
-	N2O (Δ): -50%<br>\
+	N2: -17%<br>\
+	O2: -25%<br>\
+	CO2: -68%<br>\
+	Phoron: -40%<br>\
+	H2: -40%<br>\
+	N2O: -50%<br>\
 	</ol></font></font>"
