@@ -745,9 +745,6 @@
 "dt" = (
 /obj/machinery/door/airlock/external,
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/door/blast/shutters/open{
-	id = "Solfrigate_aft_shutters"
-	},
 /obj/effect/map_effect/marker/airlock/docking/Sol_frigate/shuttle_port,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/machinery/access_button{
@@ -1110,11 +1107,6 @@
 	dir = 1
 	},
 /turf/template_noop,
-/area/space)
-"fb" = (
-/obj/structure/lattice/catwalk,
-/obj/item/hullbeacon/green,
-/turf/space/dynamic,
 /area/space)
 "fc" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
@@ -3278,9 +3270,6 @@
 /obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/docking/Sol_frigate/shuttle_port,
-/obj/machinery/door/blast/shutters/open{
-	id = "Solfrigate_aft_shutters"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_fore)
 "oP" = (
@@ -3466,11 +3455,6 @@
 	temperature = 253.15
 	},
 /area/ship/Sol_Frigate/freezer)
-"pK" = (
-/obj/structure/lattice/catwalk,
-/obj/effect/map_effect/perma_light/brighter,
-/turf/space/dynamic,
-/area/space)
 "pL" = (
 /obj/effect/floor_decal/industrial/hatch/firefighting_closet,
 /obj/structure/closet/firecloset,
@@ -3932,7 +3916,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/Starboard_docking_port)
 "rZ" = (
-/obj/structure/lattice/catwalk,
 /obj/item/hullbeacon/red,
 /obj/effect/map_effect/perma_light/brighter,
 /turf/space/dynamic,
@@ -3951,12 +3934,6 @@
 	},
 /turf/simulated/wall/shuttle/raider,
 /area/ship/Sol_Frigate/bunks)
-"sj" = (
-/obj/structure/lattice/catwalk,
-/obj/item/hullbeacon/green,
-/obj/effect/map_effect/perma_light/brighter,
-/turf/space/dynamic,
-/area/space)
 "sn" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector{
@@ -9580,8 +9557,6 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/head)
 "Ur" = (
-/obj/structure/lattice/catwalk,
-/obj/item/hullbeacon/red,
 /turf/space/dynamic,
 /area/space)
 "Uu" = (
@@ -42775,10 +42750,10 @@ Iq
 Sa
 rl
 rl
-rl
-rl
-rl
-pK
+Ur
+Ur
+Ur
+Ur
 MO
 MO
 MO
@@ -43031,12 +43006,12 @@ we
 we
 we
 rl
-rl
-rl
+Ur
+Ur
 Le
 px
 JF
-fb
+Ur
 MO
 MO
 MO
@@ -43287,13 +43262,13 @@ we
 At
 JF
 JF
-rl
-sj
+Ur
+Ur
 JF
 JF
 dS
 SI
-rl
+Ur
 MO
 MO
 MO
@@ -43551,10 +43526,10 @@ JF
 jZ
 JF
 in
-Xy
-Xy
-Xy
-rl
+Ur
+Ur
+Ur
+Ur
 rl
 rl
 MO
@@ -43811,7 +43786,7 @@ JF
 SI
 UU
 UU
-sj
+Ur
 rl
 wM
 xs
@@ -44839,7 +44814,7 @@ JF
 SI
 UU
 UU
-rZ
+Ur
 rl
 wM
 xs
@@ -45093,10 +45068,10 @@ JF
 SI
 dS
 QQ
-rl
-rl
-rl
-rl
+Ur
+Xc
+Ur
+Ur
 rl
 rl
 MO
@@ -45343,13 +45318,13 @@ we
 rn
 JF
 JF
-rl
+Ur
 rZ
 JF
 JF
 JF
 jZ
-rl
+Ur
 MO
 MO
 MO
@@ -45602,7 +45577,7 @@ we
 we
 rl
 rl
-Xy
+rl
 gD
 bT
 EG
@@ -45860,9 +45835,9 @@ ht
 rl
 rl
 rl
-rl
-rl
-pK
+Ur
+Ur
+Ur
 MO
 MO
 MO
