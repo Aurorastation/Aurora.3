@@ -1,44 +1,46 @@
 /obj/machinery/portable_atmospherics/hydroponics/proc/need_update_icon()
 	. = 0
-	if (mechanical)
-		if (health <= (GET_SEED_TRAIT(seed, TRAIT_ENDURANCE) / 2))
-			. |= TRAY_LOW_HEALTH
-		if (waterlevel <= 10)
-			. |= TRAY_LOW_WATER
-		if (nutrilevel <= 2)
-			. |= TRAY_LOW_NUT
-		if (pestlevel >= 5 || toxins >= 40)
-			. |= TRAY_ALERT
-		if (harvest)
-			. |= TRAY_HARVEST
-		if (stasis)
-			. |= TRAY_STASIS
+	if (seed)
+		if (mechanical)
+			if (health <= (GET_SEED_TRAIT(seed, TRAIT_ENDURANCE) / 2))
+				. |= TRAY_LOW_HEALTH
+			if (waterlevel <= 10)
+				. |= TRAY_LOW_WATER
+			if (nutrilevel <= 2)
+				. |= TRAY_LOW_NUT
+			if (pestlevel >= 5 || toxins >= 40)
+				. |= TRAY_ALERT
+			if (harvest)
+				. |= TRAY_HARVEST
+			if (stasis)
+				. |= TRAY_STASIS
 
-	if (closed_system)
-		. |= TRAY_COVERED
+		if (closed_system)
+			. |= TRAY_COVERED
 
-	if (dead)
-		. |= TRAY_PLANT_DEAD
-	else
-		. |= TRAY_PLANT_LIVE
-		if (harvest)
-			. |= TRAY_PLANT_HARVEST
-
-	if (. & TRAY_PLANT_LIVE)
-		if(!seed.growth_stages)
-			seed.update_growth_stages()
-		var/overlay_stage = 1
-		if(age >= GET_SEED_TRAIT(seed, TRAIT_MATURATION))
-			overlay_stage = seed.growth_stages
+		if (dead)
+			. |= TRAY_PLANT_DEAD
 		else
-			var/maturation = GET_SEED_TRAIT(seed, TRAIT_MATURATION)/seed.growth_stages
-			if(maturation < 1)
-				maturation = 1
-			overlay_stage = maturation ? max(1,round(age/maturation)) : 1
-		if (overlay_stage != displayed_stage)
-			do_update_icon(., overlay_stage)
-		else if (. != icon_status)
-			do_update_icon(.)
+			. |= TRAY_PLANT_LIVE
+			if (harvest)
+				. |= TRAY_PLANT_HARVEST
+
+		if (. & TRAY_PLANT_LIVE)
+			if(!seed.growth_stages)
+				seed.update_growth_stages()
+			var/overlay_stage = 1
+			if(age >= GET_SEED_TRAIT(seed, TRAIT_MATURATION))
+				overlay_stage = seed.growth_stages
+			else
+				var/maturation = GET_SEED_TRAIT(seed, TRAIT_MATURATION)/seed.growth_stages
+				if(maturation < 1)
+					maturation = 1
+				overlay_stage = maturation ? max(1,round(age/maturation)) : 1
+			if (overlay_stage != displayed_stage)
+				do_update_icon(., overlay_stage)
+				return
+	if (. != icon_status)
+		do_update_icon(.)
 
 /obj/machinery/portable_atmospherics/hydroponics/proc/do_update_icon(var/needed_state, var/plant_stage)
 	. = list()

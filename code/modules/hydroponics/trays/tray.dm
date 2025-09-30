@@ -299,6 +299,7 @@
 	if(seed && !dead && health <= 0)
 		die()
 	check_level_sanity()
+	update_icon()
 
 /// Call this to kill a plant. Don't modify the dead variable directly.
 /obj/machinery/portable_atmospherics/hydroponics/proc/die()
