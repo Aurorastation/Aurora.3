@@ -4,25 +4,18 @@
 	anchored = TRUE
 	density = TRUE
 	atom_flags = ATOM_FLAG_CHECKS_BORDER
+	maxhealth = 100
 	/// The type of stack the barricade dropped when disassembled if any.
 	var/stack_type
 	/// The amount of stack dropped when disassembled at full health
 	var/stack_amount = 5
 	/// to specify a non-zero amount of stack to drop when destroyed
 	var/destroyed_stack_amount
-	/// Pretty tough. Changes sprites at 300 and 150
-	var/health = 100
-	/// Basic code functions
-	var/maxhealth = 100
 
-	maxhealth = 100
 
 	var/stack_type //The type of stack the barricade dropped when disassembled if any.
 	var/stack_amount = 5 //The amount of stack dropped when disassembled at full health
 	var/destroyed_stack_amount //to specify a non-zero amount of stack to drop when destroyed
-
-	///Used for calculating some stuff related to maxhealth as it constantly changes due to e.g. barbed wire. set to 100 to avoid possible divisions by zero
-	var/starting_maxhealth = 100
 
 	/// How much force an item needs to even damage it at all.
 	var/force_level_absorption = 5
@@ -39,7 +32,6 @@
 /obj/structure/barricade/Initialize(mapload, mob/user)
 	. = ..()
 	update_icon()
-	starting_maxhealth = maxhealth
 
 /obj/structure/barricade/get_damage_condition_hints(mob/user, distance, is_adjacent)
 	switch(damage_state)
@@ -236,7 +228,7 @@
 		if(!deconstruct && destroyed_stack_amount)
 			stack_amt = destroyed_stack_amount
 		else
-			stack_amt = round(stack_amount * (health/starting_maxhealth)) //Get an amount of sheets back equivalent to remaining health. Obviously, fully destroyed means 0
+			stack_amt = round(stack_amount * (health/initial(maxhealth))) //Get an amount of sheets back equivalent to remaining health. Obviously, fully destroyed means 0
 
 		if(stack_amt)
 			new stack_type (loc, stack_amt)
