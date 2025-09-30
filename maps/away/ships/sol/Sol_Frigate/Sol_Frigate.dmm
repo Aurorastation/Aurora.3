@@ -125,7 +125,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/door/blast/shutters/open{
-	id = "Solfrigate_aft_shutters"
+	id = "SFLD"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/engineering)
@@ -783,7 +783,7 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/door/blast/shutters/open{
-	id = "Solfrigate_aft_shutters";
+	id = "SFLD";
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking/Sol_Frigate/port_dock,
@@ -1111,7 +1111,7 @@
 /turf/template_noop,
 /area/space)
 "fb" = (
-/turf/simulated/wall/shuttle/raider,
+/turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hangar)
 "fc" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
@@ -1646,7 +1646,7 @@
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/docking/Sol_Frigate/catwalkB,
 /obj/machinery/door/blast/shutters/open{
-	id = "Solfrigate_aft_shutters"
+	id = "SFLD"
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/ship/Sol_Frigate/hangar)
@@ -2412,7 +2412,7 @@
 "kO" = (
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/door/blast/shutters/open{
-	id = "Solfrigate_aft_shutters";
+	id = "SFLD";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2477,7 +2477,7 @@
 /obj/machinery/button/toggle/door{
 	pixel_y = 3;
 	pixel_x = -2;
-	id = "Solfrigate_aft_shutters";
+	id = "SFLD";
 	name = "Dock shutters lockdown"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3296,6 +3296,9 @@
 /obj/machinery/door/blast/shutters/open{
 	id = "Solfrigate_aft_shutters"
 	},
+/obj/machinery/door/blast/shutters/open{
+	id = "SFLD"
+	},
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/ship/Sol_Frigate/hangar)
 "oQ" = (
@@ -3929,6 +3932,9 @@
 /obj/structure/closet/walllocker/emerglocker/east,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/Starboard_docking_port)
+"rZ" = (
+/turf/simulated/wall/shuttle/raider,
+/area/ship/Sol_Frigate/hangar)
 "sc" = (
 /obj/machinery/smartfridge/foodheater/buffet,
 /obj/machinery/door/firedoor/noid{
@@ -3944,6 +3950,15 @@
 /turf/simulated/wall/shuttle/raider,
 /area/ship/Sol_Frigate/bunks)
 "sj" = (
+/obj/machinery/door/airlock/multi_tile/glass{
+	dir = 8;
+	name = "Mess Hall";
+	req_access = list(203)
+	},
+/obj/machinery/door/blast/shutters/open{
+	id = "SFLD"
+	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hangar)
 "sn" = (
@@ -4301,7 +4316,7 @@
 	req_access = list(222)
 	},
 /obj/machinery/door/blast/shutters/open{
-	id = "Solfrigate_aft_shutters";
+	id = "SFLD";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -4760,7 +4775,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/blast/shutters/open{
-	id = "Solfrigate_aft_shutters";
+	id = "SFLD";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -4799,7 +4814,7 @@
 	},
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/door/blast/shutters/open{
-	id = "Solfrigate_aft_shutters";
+	id = "SFLD";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -4953,6 +4968,9 @@
 	id = "Solfrigate_aft_shutters"
 	},
 /obj/machinery/door/firedoor/noid,
+/obj/machinery/door/blast/shutters/open{
+	id = "SFLD"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hangar)
 "xk" = (
@@ -5359,7 +5377,7 @@
 /area/ship/Sol_Frigate/starboard_thrusters)
 "zP" = (
 /obj/machinery/door/blast/shutters/open{
-	id = "Solfrigate_aft_shutters"
+	id = "SFLD"
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
@@ -5915,7 +5933,7 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking/Sol_Frigate/catwalkB,
 /obj/machinery/door/blast/shutters/open{
-	id = "Solfrigate_aft_shutters"
+	id = "SFLD"
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/ship/Sol_Frigate/hangar)
@@ -7531,7 +7549,7 @@
 	dir = 1
 	},
 /obj/machinery/door/blast/shutters/open{
-	id = "Solfrigate_aft_shutters"
+	id = "SFLD"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
@@ -8425,6 +8443,9 @@
 /obj/machinery/door/blast/shutters/open{
 	id = "Solfrigate_aft_shutters"
 	},
+/obj/machinery/door/blast/shutters/open{
+	id = "SFLD"
+	},
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/ship/Sol_Frigate/hangar)
 "NO" = (
@@ -8628,7 +8649,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/blast/shutters/open{
-	id = "Solfrigate_aft_shutters";
+	id = "SFLD";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -8956,6 +8977,9 @@
 	icon_state = "intact"
 	},
 /obj/machinery/door/airlock/external,
+/obj/machinery/door/blast/shutters/open{
+	id = "SFLD"
+	},
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/ship/Sol_Frigate/hangar)
 "Qw" = (
@@ -9259,7 +9283,7 @@
 	pixel_y = -5
 	},
 /obj/machinery/door/blast/shutters/open{
-	id = "Solfrigate_aft_shutters"
+	id = "SFLD"
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/ship/Sol_Frigate/hangar)
@@ -9491,7 +9515,7 @@
 /obj/effect/map_effect/marker/airlock/docking/Sol_Frigate/aft_dock,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/door/blast/shutters/open{
-	id = "Solfrigate_aft_shutters"
+	id = "SFLD"
 	},
 /obj/machinery/access_button{
 	pixel_x = 28;
@@ -10085,7 +10109,7 @@
 /obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock/docking/Sol_Frigate/catwalkB,
 /obj/machinery/door/blast/shutters/open{
-	id = "Solfrigate_aft_shutters"
+	id = "SFLD"
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/ship/Sol_Frigate/hangar)
@@ -10171,7 +10195,7 @@
 /obj/effect/map_effect/marker/airlock/docking/Sol_Frigate/aft_dock,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/door/blast/shutters/open{
-	id = "Solfrigate_aft_shutters"
+	id = "SFLD"
 	},
 /turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/engineering)
@@ -10270,7 +10294,7 @@
 	req_access = list(222)
 	},
 /obj/machinery/door/blast/shutters/open{
-	id = "Solfrigate_aft_shutters";
+	id = "SFLD";
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking/Sol_Frigate/port_dock,
@@ -10589,7 +10613,7 @@
 /obj/effect/map_effect/marker/airlock/docking/Sol_Frigate/port_dock,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/door/blast/shutters/open{
-	id = "Solfrigate_aft_shutters";
+	id = "SFLD";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -42247,14 +42271,14 @@ jY
 fG
 ld
 hl
-fb
-fb
-fb
-fb
-fb
-fb
-fb
-fb
+rZ
+rZ
+rZ
+rZ
+rZ
+rZ
+rZ
+rZ
 eE
 eE
 eE
@@ -42504,7 +42528,7 @@ jY
 AP
 fw
 hl
-fb
+rZ
 WR
 dl
 ZH
@@ -42761,10 +42785,10 @@ UJ
 VY
 lO
 hl
-fb
+rZ
 bQ
 vK
-sj
+fb
 JK
 qC
 Iq
@@ -43018,14 +43042,14 @@ Ri
 Jd
 fc
 PD
-ir
 sj
+fb
 Hw
 VK
-fb
-fb
-fb
-fb
+rZ
+rZ
+rZ
+rZ
 MO
 MO
 MO
@@ -43276,10 +43300,10 @@ yt
 NA
 PD
 zP
-sj
+fb
 Hw
 hm
-fb
+rZ
 At
 JF
 JF
@@ -43532,11 +43556,11 @@ yt
 yt
 NA
 hl
-fb
+rZ
 yB
 Hw
 VK
-fb
+rZ
 rn
 Yc
 ho
@@ -43789,12 +43813,12 @@ Iu
 yt
 NA
 hl
-fb
+rZ
 Ol
 YP
-fb
-fb
-fb
+rZ
+rZ
+rZ
 JF
 dS
 JF
@@ -44046,7 +44070,7 @@ QX
 yt
 uf
 hl
-fb
+rZ
 YL
 bf
 tz
@@ -44303,10 +44327,10 @@ Yz
 yt
 NA
 hl
-fb
+rZ
 XZ
 Hw
-fb
+rZ
 vO
 oN
 Lf
@@ -44560,12 +44584,12 @@ Qw
 yt
 NA
 hl
-fb
+rZ
 sX
 bf
 Pg
 mi
-fb
+rZ
 JF
 qF
 JY
@@ -44817,12 +44841,12 @@ nE
 yt
 ay
 hl
-fb
+rZ
 jp
 Hw
-fb
-fb
-fb
+rZ
+rZ
+rZ
 JF
 dS
 JF
@@ -45074,11 +45098,11 @@ pr
 yt
 NA
 hl
-fb
+rZ
 fq
 Hw
 gJ
-fb
+rZ
 rn
 Yc
 SK
@@ -45335,7 +45359,7 @@ ir
 uk
 Hw
 hm
-fb
+rZ
 rn
 JF
 JF
@@ -45592,10 +45616,10 @@ xi
 dL
 Ta
 Vc
-fb
-fb
-fb
-fb
+rZ
+rZ
+rZ
+rZ
 MO
 MO
 MO
@@ -45845,7 +45869,7 @@ UJ
 Vn
 or
 hl
-fb
+rZ
 HF
 iJ
 Yd
@@ -46102,7 +46126,7 @@ hR
 nr
 ng
 aK
-fb
+rZ
 qI
 qK
 LV
