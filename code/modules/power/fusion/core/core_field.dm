@@ -227,14 +227,11 @@
 	if(field_strength < 20)
 		field_strength = 20
 	field_strength_entropy_multiplier = clamp((owned_core.field_strength ** 1.05) / 40, 0.8, 2.0)
-	to_chat(world, "<b>entropy multiplier</b> = [field_strength_entropy_multiplier]")
 	// Energy decay (entropy tax).
 	if(plasma_temperature >= 1)
 		var/lost = plasma_temperature * 0.0045
-		to_chat(world,"<b>plasma temp</b> = [plasma_temperature] | <b>lost</b> = [plasma_temperature * 0.0035]")
 		radiation += lost
 		var/temp_change = 0 - (lost * field_strength_entropy_multiplier)
-		to_chat(world, "<b>temp_change</b> = [temp_change]")
 		adjust_temperature(temp_change, cause = "Containment Entropy")
 
 	// Handle some reactants formatting.
@@ -726,7 +723,6 @@
  */
 /obj/effect/fusion_em_field/proc/adjust_temperature(var/temp_change, var/max_percentage = FUSION_TICK_MAX_TEMP_CHANGE, var/cause)
 	var/adjusted_plasma_temperature_change = min(temp_change, temp_change * FUSION_TICK_MAX_TEMP_CHANGE)
-	to_chat(world, "<b>adjusted temp change</b> = [adjusted_plasma_temperature_change]")
 	plasma_temperature += adjusted_plasma_temperature_change
 
 /**
