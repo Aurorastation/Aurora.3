@@ -293,7 +293,7 @@
 /area/ship/Sol_Frigate/hangar)
 "bk" = (
 /obj/machinery/door/blast/shutters{
-	id = Solfrig_workshop
+	id = "Solfrig_workshop"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/Exo_Bay)
@@ -1110,6 +1110,9 @@
 	},
 /turf/template_noop,
 /area/space)
+"fb" = (
+/turf/simulated/wall/shuttle/raider,
+/area/ship/Sol_Frigate/hangar)
 "fc" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
@@ -1318,7 +1321,7 @@
 /obj/machinery/button/toggle/door{
 	pixel_y = 30;
 	pixel_x = -2;
-	id = Solfrig_workshop;
+	id = "Solfrig_workshop";
 	name = "Garage door"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3926,9 +3929,6 @@
 /obj/structure/closet/walllocker/emerglocker/east,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/Starboard_docking_port)
-"rZ" = (
-/turf/simulated/wall/shuttle/raider,
-/area/ship/Sol_Frigate/hangar)
 "sc" = (
 /obj/machinery/smartfridge/foodheater/buffet,
 /obj/machinery/door/firedoor/noid{
@@ -42247,14 +42247,14 @@ jY
 fG
 ld
 hl
-rZ
-rZ
-rZ
-rZ
-rZ
-rZ
-rZ
-rZ
+fb
+fb
+fb
+fb
+fb
+fb
+fb
+fb
 eE
 eE
 eE
@@ -42504,7 +42504,7 @@ jY
 AP
 fw
 hl
-rZ
+fb
 WR
 dl
 ZH
@@ -42761,7 +42761,7 @@ UJ
 VY
 lO
 hl
-rZ
+fb
 bQ
 vK
 sj
@@ -43022,10 +43022,10 @@ ir
 sj
 Hw
 VK
-rZ
-rZ
-rZ
-rZ
+fb
+fb
+fb
+fb
 MO
 MO
 MO
@@ -43279,7 +43279,7 @@ zP
 sj
 Hw
 hm
-rZ
+fb
 At
 JF
 JF
@@ -43532,11 +43532,11 @@ yt
 yt
 NA
 hl
-rZ
+fb
 yB
 Hw
 VK
-rZ
+fb
 rn
 Yc
 ho
@@ -43789,12 +43789,12 @@ Iu
 yt
 NA
 hl
-rZ
+fb
 Ol
 YP
-rZ
-rZ
-rZ
+fb
+fb
+fb
 JF
 dS
 JF
@@ -44046,7 +44046,7 @@ QX
 yt
 uf
 hl
-rZ
+fb
 YL
 bf
 tz
@@ -44303,10 +44303,10 @@ Yz
 yt
 NA
 hl
-rZ
+fb
 XZ
 Hw
-rZ
+fb
 vO
 oN
 Lf
@@ -44560,12 +44560,12 @@ Qw
 yt
 NA
 hl
-rZ
+fb
 sX
 bf
 Pg
 mi
-rZ
+fb
 JF
 qF
 JY
@@ -44817,12 +44817,12 @@ nE
 yt
 ay
 hl
-rZ
+fb
 jp
 Hw
-rZ
-rZ
-rZ
+fb
+fb
+fb
 JF
 dS
 JF
@@ -45074,11 +45074,11 @@ pr
 yt
 NA
 hl
-rZ
+fb
 fq
 Hw
 gJ
-rZ
+fb
 rn
 Yc
 SK
@@ -45335,7 +45335,7 @@ ir
 uk
 Hw
 hm
-rZ
+fb
 rn
 JF
 JF
@@ -45592,10 +45592,10 @@ xi
 dL
 Ta
 Vc
-rZ
-rZ
-rZ
-rZ
+fb
+fb
+fb
+fb
 MO
 MO
 MO
@@ -45845,7 +45845,7 @@ UJ
 Vn
 or
 hl
-rZ
+fb
 HF
 iJ
 Yd
@@ -46102,7 +46102,7 @@ hR
 nr
 ng
 aK
-rZ
+fb
 qI
 qK
 LV
