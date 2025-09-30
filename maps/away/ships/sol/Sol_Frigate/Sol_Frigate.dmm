@@ -3289,7 +3289,7 @@
 /obj/machinery/door/blast/shutters/open{
 	id = "Solfrigate_aft_shutters"
 	},
-/turf/space,
+/turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_fore)
 "oP" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
