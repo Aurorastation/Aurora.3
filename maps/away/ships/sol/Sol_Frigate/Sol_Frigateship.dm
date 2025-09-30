@@ -40,7 +40,7 @@
 	vessel_mass = 6200
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_LARGE
-	initial_restricted_waypoints = list("Solfrig_shuttle" = list("nav_hangar_solfrig") )
+	initial_restricted_waypoints = list("Solarian Frigate Shuttle" = list("nav_hangar_solfrig") )
 	initial_generic_waypoints = list(
 	"Sol_Frigate_nav1",
 	"Sol_Frigate_nav2",
