@@ -74,7 +74,7 @@
 	else
 		atmos_overlay_name = "pressure4"
 
-	if (button_overlay.icon_state != button_overlay_name)
+	if (!button_overlay || button_overlay.icon_state != button_overlay_name)
 		button_overlay = overlay_image(icon, button_overlay_name)
 		button_emissive = emissive_appearance(icon, button_overlay_name)
 		. = TRUE
@@ -100,7 +100,7 @@
 			else
 				temp_color = COLOR_VIOLET
 
-	if (atmos_overlay.icon_state != atmos_overlay_name || atmos_overlay.color != temp_color)
+	if (!atmos_overlay || atmos_overlay.icon_state != atmos_overlay_name || atmos_overlay.color != temp_color)
 		atmos_overlay = overlay_image(icon, atmos_overlay_name)
 		atmos_emissive = emissive_appearance(icon, atmos_overlay_name)
 		atmos_overlay.color = temp_color

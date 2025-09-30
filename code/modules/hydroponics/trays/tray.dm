@@ -80,6 +80,11 @@
 
 	/// Seed details/line data.
 	var/datum/seed/seed = null // The currently planted seed
+	/// BITFLAG of TRAY_ defines, set in update_icon. Used to determine if we need to update.
+	var/icon_status = 0
+	/// Currently displayed growth stage, set in update_icon.
+	var/displayed_stage
+
 
 	/**
 	Reagent information for process(), consider moving this to a controller along
@@ -294,7 +299,6 @@
 	if(seed && !dead && health <= 0)
 		die()
 	check_level_sanity()
-	update_icon()
 
 /// Call this to kill a plant. Don't modify the dead variable directly.
 /obj/machinery/portable_atmospherics/hydroponics/proc/die()
@@ -308,6 +312,7 @@
 		if(GET_SEED_TRAIT(seed, TRAIT_SPOROUS) && !closed_system)
 			seed.create_spores(get_turf(src))
 			visible_message(SPAN_DANGER("\The [src] releases its spores!"))
+	update_icon()
 
 /// Process reagents being input into the tray.
 /obj/machinery/portable_atmospherics/hydroponics/proc/process_reagents()
@@ -482,6 +487,7 @@
 	else
 		health = 0
 		dead = FALSE
+		update_icon()
 
 	mutation_level = max(0,min(mutation_level,100))
 	nutrilevel =     max(0,min(nutrilevel,10))

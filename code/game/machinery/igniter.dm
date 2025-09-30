@@ -158,11 +158,11 @@
 	. = ..()
 	for (var/obj/machinery/M in SSmachinery.machinery)
 		var/obj/machinery/sparker/S = M
-		if (S && S.id == id)
+		if (istype(S) && S.id == id)
 			LAZYADD(linked_sparkers, WEAKREF(S))
 		else
 			var/obj/machinery/igniter/I = M
-			if (I && I.id == id)
+			if (istype(I) && I.id == id)
 				LAZYADD(linked_igniters, WEAKREF(I))
 
 /obj/machinery/button/ignition/activate(mob/living/user)
