@@ -750,6 +750,10 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking/Sol_frigate/shuttle_port,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/access_button{
+	pixel_x = -33;
+	req_access = list(222)
+	},
 /turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/hallway_fore)
 "dv" = (
@@ -2716,20 +2720,6 @@
 	},
 /turf/simulated/wall/shuttle/raider,
 /area/ship/Sol_Frigate/starboard_thrusters)
-"ms" = (
-/obj/machinery/door/airlock/external,
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/door/blast/shutters/open{
-	id = "Solfrigate_aft_shutters"
-	},
-/obj/machinery/access_button{
-	pixel_x = 28;
-	req_access = list(222)
-	},
-/obj/effect/map_effect/marker/airlock/docking/Sol_frigate/shuttle_port,
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/turf/simulated/floor/plating,
-/area/ship/Sol_Frigate/hallway_fore)
 "mu" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
@@ -3288,6 +3278,12 @@
 "oN" = (
 /obj/effect/shuttle_landmark/Solfrig_shuttle/hangar{
 	dir = 1
+	},
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/docking/Sol_frigate/shuttle_port,
+/obj/machinery/door/blast/shutters/open{
+	id = "Solfrigate_aft_shutters"
 	},
 /turf/simulated/wall/shuttle/raider,
 /area/ship/Sol_Frigate/hallway_fore)
@@ -5217,21 +5213,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/canteen)
-"zc" = (
-/obj/machinery/door/airlock/external,
-/obj/effect/map_effect/marker/airlock/shuttle{
-	name = "sol_light_interceptor";
-	master_tag = "sol_light_interceptor";
-	shuttle_tag = "solarian light interceptor"
-	},
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/machinery/access_button{
-	pixel_x = -29;
-	pixel_y = 9;
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/Solfrig_shuttle)
 "zd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -5687,6 +5668,11 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/machinery/door/airlock/external,
+/obj/machinery/access_button{
+	pixel_x = -29;
+	pixel_y = 9;
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/Solfrig_shuttle)
 "Bb" = (
@@ -7875,6 +7861,13 @@
 /area/shuttle/Solfrig_shuttle)
 "Lf" = (
 /obj/effect/landmark/entry_point/aft,
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	name = "sol_light_interceptor";
+	master_tag = "sol_light_interceptor";
+	shuttle_tag = "solarian light interceptor"
+	},
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/Solfrig_shuttle)
 "Lg" = (
@@ -44580,8 +44573,8 @@ sX
 bf
 Pg
 mi
-ms
-zc
+we
+JF
 qF
 JY
 JY
