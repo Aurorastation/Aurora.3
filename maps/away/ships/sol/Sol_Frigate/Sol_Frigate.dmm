@@ -1318,11 +1318,13 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/machinery/button/toggle/door{
-	pixel_y = 30;
-	pixel_x = -2;
+/obj/machinery/button/remote/blast_door{
 	id = "Solfrig_workshop";
-	name = "Garage door"
+	name = "Garage Door";
+	pixel_x = -7;
+	dir = 6;
+	pixel_y = 34;
+	req_access = list(203)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_fore)
@@ -1872,7 +1874,7 @@
 	req_access = list(203)
 	},
 /obj/machinery/door/blast/shutters/open{
-	id = "Solfrigate_aft_shutters"
+	id = "SFLD"
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
@@ -2474,11 +2476,13 @@
 /area/ship/Sol_Frigate/crew_lounge)
 "la" = (
 /obj/structure/table/reinforced,
-/obj/machinery/button/toggle/door{
-	pixel_y = 3;
-	pixel_x = -2;
+/obj/machinery/button/remote/blast_door{
 	id = "SFLD";
-	name = "Dock shutters lockdown"
+	name = "Dock Shutters lockdown";
+	pixel_x = -6;
+	dir = 10;
+	pixel_y = -1;
+	req_access = list(203)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/cic)
@@ -3933,7 +3937,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/Starboard_docking_port)
 "rZ" = (
-/turf/simulated/wall/shuttle/raider,
+/obj/machinery/door/airlock/multi_tile/glass{
+	dir = 8;
+	name = "Mess Hall";
+	req_access = list(203)
+	},
+/obj/machinery/door/blast/shutters/open{
+	id = "Solfrigate_aft_shutters"
+	},
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hangar)
 "sc" = (
 /obj/machinery/smartfridge/foodheater/buffet,
@@ -3949,18 +3962,6 @@
 	},
 /turf/simulated/wall/shuttle/raider,
 /area/ship/Sol_Frigate/bunks)
-"sj" = (
-/obj/machinery/door/airlock/multi_tile/glass{
-	dir = 8;
-	name = "Mess Hall";
-	req_access = list(203)
-	},
-/obj/machinery/door/blast/shutters/open{
-	id = "SFLD"
-	},
-/obj/machinery/door/firedoor/noid,
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/hangar)
 "sn" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector{
@@ -9604,6 +9605,9 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/head)
+"Ur" = (
+/turf/simulated/wall/shuttle/raider,
+/area/ship/Sol_Frigate/hangar)
 "Uu" = (
 /obj/structure/closet/crate/loot,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -42271,14 +42275,14 @@ jY
 fG
 ld
 hl
-rZ
-rZ
-rZ
-rZ
-rZ
-rZ
-rZ
-rZ
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
+Ur
 eE
 eE
 eE
@@ -42528,7 +42532,7 @@ jY
 AP
 fw
 hl
-rZ
+Ur
 WR
 dl
 ZH
@@ -42785,7 +42789,7 @@ UJ
 VY
 lO
 hl
-rZ
+Ur
 bQ
 vK
 fb
@@ -43042,14 +43046,14 @@ Ri
 Jd
 fc
 PD
-sj
+ir
 fb
 Hw
 VK
-rZ
-rZ
-rZ
-rZ
+Ur
+Ur
+Ur
+Ur
 MO
 MO
 MO
@@ -43303,7 +43307,7 @@ zP
 fb
 Hw
 hm
-rZ
+Ur
 At
 JF
 JF
@@ -43556,11 +43560,11 @@ yt
 yt
 NA
 hl
-rZ
+Ur
 yB
 Hw
 VK
-rZ
+Ur
 rn
 Yc
 ho
@@ -43813,12 +43817,12 @@ Iu
 yt
 NA
 hl
-rZ
+Ur
 Ol
 YP
-rZ
-rZ
-rZ
+Ur
+Ur
+Ur
 JF
 dS
 JF
@@ -44070,7 +44074,7 @@ QX
 yt
 uf
 hl
-rZ
+Ur
 YL
 bf
 tz
@@ -44327,10 +44331,10 @@ Yz
 yt
 NA
 hl
-rZ
+Ur
 XZ
 Hw
-rZ
+Ur
 vO
 oN
 Lf
@@ -44584,12 +44588,12 @@ Qw
 yt
 NA
 hl
-rZ
+Ur
 sX
 bf
 Pg
 mi
-rZ
+Ur
 JF
 qF
 JY
@@ -44841,12 +44845,12 @@ nE
 yt
 ay
 hl
-rZ
+Ur
 jp
 Hw
-rZ
-rZ
-rZ
+Ur
+Ur
+Ur
 JF
 dS
 JF
@@ -45098,11 +45102,11 @@ pr
 yt
 NA
 hl
-rZ
+Ur
 fq
 Hw
 gJ
-rZ
+Ur
 rn
 Yc
 SK
@@ -45355,11 +45359,11 @@ yt
 yt
 RZ
 PD
-ir
+rZ
 uk
 Hw
 hm
-rZ
+Ur
 rn
 JF
 JF
@@ -45616,10 +45620,10 @@ xi
 dL
 Ta
 Vc
-rZ
-rZ
-rZ
-rZ
+Ur
+Ur
+Ur
+Ur
 MO
 MO
 MO
@@ -45869,7 +45873,7 @@ UJ
 Vn
 or
 hl
-rZ
+Ur
 HF
 iJ
 Yd
@@ -46126,7 +46130,7 @@ hR
 nr
 ng
 aK
-rZ
+Ur
 qI
 qK
 LV
