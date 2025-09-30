@@ -13,7 +13,7 @@
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000
-	fore_dir = WEST
+	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
 
 /obj/effect/overmap/visitable/ship/landable/Solfrig_shuttle/New()
