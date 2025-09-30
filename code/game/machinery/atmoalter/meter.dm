@@ -38,22 +38,20 @@
 	if (!target)
 		src.target = locate(/obj/machinery/atmospherics/pipe) in loc
 
-/obj/machinery/meter/process()
-	ClearOverlays()
-	if(!target)
-		AddOverlays("pressure_off")
-		AddOverlays("buttons-x")
-		return FALSE
+/obj/machinery/meter/update_icon()
+	var/list/new_overlays = get_rebuild_overlays()
+	if(LAZYLEN(new_overlays))
+		ClearOverlays()
+		AddOverlays(new_overlays)
 
-	if(stat & (BROKEN|NOPOWER))
-		AddOverlays("pressure_off")
-		return FALSE
-
+/obj/machinery/meter/proc/get_rebuild_overlays()
+	if (!target)
+		return list("pressure_off", "buttons_x")
+	if (!stat & (BROKEN|NOPOWER))
+		return list("pressure_off")
 	var/datum/gas_mixture/environment = target.return_air()
 	if(!environment)
-		AddOverlays("buttons_x")
-		AddOverlays("pressure0")
-		return FALSE
+		return list("pressure0", "buttons_x")
 
 	var/button_overlay_name
 	var/atmos_overlay_name
@@ -76,19 +74,16 @@
 	else
 		atmos_overlay_name = "pressure4"
 
-	button_overlay = overlay_image(icon, button_overlay_name)
-	atmos_overlay = overlay_image(icon, atmos_overlay_name)
-	button_emissive = emissive_appearance(icon, button_overlay_name)
-	atmos_emissive = emissive_appearance(icon, atmos_overlay_name)
+	if (button_overlay.icon_state != button_overlay_name)
+		button_overlay = overlay_image(icon, button_overlay_name)
+		button_emissive = emissive_appearance(icon, button_overlay_name)
+		. = TRUE
 
 	var/env_temperature = environment.temperature
 
-	var/temp_color
+	var/temp_color = COLOR_GRAY
 
-	if(env_pressure == 0 || env_temperature == 0)
-		temp_color = COLOR_GRAY
-
-	else
+	if(env_pressure != 0 && env_temperature != 0)
 		switch(env_temperature)
 			if((BODYTEMP_HEAT_DAMAGE_LIMIT + 360) to INFINITY)
 				temp_color = COLOR_RED
@@ -105,13 +100,23 @@
 			else
 				temp_color = COLOR_VIOLET
 
-	if(atmos_overlay.color != temp_color)
+	if (atmos_overlay.icon_state != atmos_overlay_name || atmos_overlay.color != temp_color)
+		atmos_overlay = overlay_image(icon, atmos_overlay_name)
+		atmos_emissive = emissive_appearance(icon, atmos_overlay_name)
 		atmos_overlay.color = temp_color
+		. = TRUE
 
-	AddOverlays(button_overlay)
-	AddOverlays(atmos_overlay)
-	AddOverlays(button_emissive)
-	AddOverlays(atmos_emissive)
+	if (.)
+		return list(button_overlay, button_emissive, atmos_overlay, atmos_emissive)
+
+/obj/machinery/meter/process()
+	update_icon()
+	if (!target || (!stat & (BROKEN|NOPOWER)))
+		return FALSE
+	var/datum/gas_mixture/environment = target.return_air()
+	if(!environment)
+		return FALSE
+	var/env_pressure = environment.return_pressure()
 
 	if(frequency)
 		var/datum/radio_frequency/radio_connection = SSradio.return_frequency(frequency)

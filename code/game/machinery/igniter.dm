@@ -146,28 +146,35 @@
 /obj/machinery/button/ignition
 	name = "ignition switch"
 	desc = "A remote control switch for a mounted igniter."
+	active_time = 5 SECONDS
+	var/list/datum/weakref/linked_sparkers
+	var/list/datum/weakref/linked_igniters
 
-/obj/machinery/button/ignition/attack_hand(mob/user as mob)
+/obj/machinery/button/ignition/Initialize()
+	..()
+	return INITIALIZE_HINT_LATELOAD
 
+/obj/machinery/button/ignition/LateInitialize()
+	. = ..()
+	for (var/obj/machinery/M in SSmachinery.machinery)
+		var/obj/machinery/sparker/S = M
+		if (S && S.id == id)
+			LAZYADD(linked_sparkers, WEAKREF(H))
+		else
+			var/obj/machinery/igniter/I = M
+			if (I && I.id == id)
+				LAZYADD(linked_igniters, WEAKREF(H))
+
+/obj/machinery/button/ignition/activate(mob/living/user)
 	if(..())
 		return
 
-	use_power_oneoff(5)
+	for (var/datum/weakref/W in linked_sparkers)
+		var/obj/machinery/sparker/S = W.resolve()
+		if(!isnull(S))
+			INVOKE_ASYNC(S, TYPE_PROC_REF(/obj/machinery/sparker, ignite))
 
-	active = 1
-	icon_state = "launcheract"
-
-	for(var/obj/machinery/sparker/M in SSmachinery.machinery)
-		if (M.id == id)
-			INVOKE_ASYNC(M, TYPE_PROC_REF(/obj/machinery/sparker, ignite))
-
-	for(var/obj/machinery/igniter/M in SSmachinery.machinery)
-		if(M.id == id)
-			M.ignite()
-
-	sleep(50)
-
-	icon_state = "launcherbtt"
-	active = 0
-
-	return
+	for (var/datum/weakref/W in linked_igniters)
+		var/obj/machinery/igniter/I = W.resolve()
+		if(!isnull(I))
+			I.ignite()
