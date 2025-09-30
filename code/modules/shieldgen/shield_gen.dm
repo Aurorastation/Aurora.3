@@ -10,12 +10,18 @@
 	desc = "Machine that generates an impenetrable field of energy when activated."
 	icon = 'icons/obj/machinery/shielding.dmi'
 	icon_state = "generator0"
-	var/active = FALSE
-	var/field_radius = 3
-	var/max_field_radius = 100
-	var/list/field
 	density = TRUE
+	/// Whether the shield generator is active or not.
+	var/active = FALSE
+	/// Radius of the field.
+	var/field_radius = 3
+	/// Maximum field radius.
+	var/max_field_radius = 100
+	/// A gigantic ass fucking list of energy fields.
+	var/list/field
+	/// ID lock.
 	var/locked = FALSE
+	/// Average field strength of all fields.
 	var/average_field_strength = 0
 	var/strengthen_rate = 0.2
 	var/max_strengthen_rate = 0.5	//the maximum rate that the generator can increase the average field strength
@@ -45,6 +51,7 @@
 	for(var/obj/effect/energy_field/D as anything in field)
 		field.Remove(D)
 		D.loc = null
+	owned_capacitor = null
 	return ..()
 
 /obj/machinery/shield_gen/emag_act(var/remaining_charges, var/mob/user)
