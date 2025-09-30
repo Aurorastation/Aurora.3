@@ -11,12 +11,6 @@
 	var/stack_amount = 5
 	/// to specify a non-zero amount of stack to drop when destroyed
 	var/destroyed_stack_amount
-
-
-	var/stack_type //The type of stack the barricade dropped when disassembled if any.
-	var/stack_amount = 5 //The amount of stack dropped when disassembled at full health
-	var/destroyed_stack_amount //to specify a non-zero amount of stack to drop when destroyed
-
 	/// How much force an item needs to even damage it at all.
 	var/force_level_absorption = 5
 	var/barricade_hitsound
