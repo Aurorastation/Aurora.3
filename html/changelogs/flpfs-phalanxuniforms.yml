@@ -44,7 +44,7 @@
 #################################
 
 # Your name.
-author: RustingWithYou, Flpfs
+author: RustingWithYou, GMR25, Flpfs
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
