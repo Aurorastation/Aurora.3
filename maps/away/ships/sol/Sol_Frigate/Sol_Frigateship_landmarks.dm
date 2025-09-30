@@ -85,7 +85,7 @@
 // --------
 //hangar landmarks
 /obj/effect/shuttle_landmark/Solfrig_shuttle/hangar
-	name = "Solarian Frigate - Hangar"
+	name = "Solarian Frigate - Catwalk docking area"
 	landmark_tag = "nav_hangar_solfrig"
 	docking_controller = "solf_shuttle_dock"
 	base_area = /area/ship/Sol_Frigate
