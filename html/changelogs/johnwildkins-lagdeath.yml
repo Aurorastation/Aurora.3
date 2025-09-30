@@ -13,4 +13,4 @@ changes:
   - refactor: "Refactored several machines backend code to reduce server load."
   - refactor: "Fixed an issue where slimes would hard-delete, causing server lag."
   - refactor: "Optimized igniter and holosign buttons to reduce server load when used."
-  - refactor: "Optimized atmos meters to only update their icon state when necessary."
+  - refactor: "Optimized atmos meters, hydroponics trays, tcomms machines, and disposal units to only update their icon state when necessary."
