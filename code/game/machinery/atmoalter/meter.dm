@@ -47,7 +47,7 @@
 /obj/machinery/meter/proc/get_rebuild_overlays()
 	if (!target)
 		return list("pressure_off", "buttons_x")
-	if (!stat & (BROKEN|NOPOWER))
+	if (stat & (BROKEN|NOPOWER))
 		return list("pressure_off")
 	var/datum/gas_mixture/environment = target.return_air()
 	if(!environment)
@@ -111,7 +111,7 @@
 
 /obj/machinery/meter/process()
 	update_icon()
-	if (!target || (!stat & (BROKEN|NOPOWER)))
+	if (!target || (stat & (BROKEN|NOPOWER)))
 		return FALSE
 	var/datum/gas_mixture/environment = target.return_air()
 	if(!environment)
