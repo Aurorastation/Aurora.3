@@ -87,7 +87,7 @@
 /obj/effect/shuttle_landmark/Solfrig_shuttle/hangar
 	name = "Solarian Frigate - Catwalk docking area"
 	landmark_tag = "nav_hangar_solfrig"
-	docking_controller = "solf_shuttle_dock"
+	docking_controller = "Solfrig_shuttle_dock"
 	base_area = /area/ship/Sol_Frigate
 	base_turf = /turf/simulated/floor/plating
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE

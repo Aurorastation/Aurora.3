@@ -33,7 +33,7 @@
 	shuttle_area = list(/area/shuttle/Solfrig_shuttle)
 	current_location = "nav_hangar_solfrig"
 	landmark_transition = "nav_transit_Solfrig_shuttle"
-	dock_target = "nav_hangar_solfrig"
+	dock_target = "Solfrig_shuttle_dock"
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_hangar_solfrig"
@@ -50,7 +50,7 @@
 // Shuttle docking port
 /obj/effect/map_effect/marker/airlock/docking/Sol_frigate/shuttle_dock
 	name = "Shuttle Dock"
-	landmark_tag = "nav_hangar_solfrig"
+	landmark_tag = "Solfrig_shuttle_dock"  
 	master_tag = "Solfrig_shuttle_dock"
 // --------
 
