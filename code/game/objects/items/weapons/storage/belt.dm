@@ -148,6 +148,8 @@
 		/obj/item/hammer = 1
 	)
 
+	temp_scarcity = 85
+
 /obj/item/storage/belt/utility/very_full
 	starts_with = list(
 		/obj/item/screwdriver = 1,
@@ -170,6 +172,8 @@
 		/obj/item/wirecutters = 1,
 		/obj/item/device/t_scanner = 1
 	)
+
+	temp_scarcity = 85
 
 /obj/item/storage/belt/utility/alt
 	desc = "A sturdy belt for holding various tools. This one eschews pouches for tight loops to hold your tools."
@@ -361,7 +365,7 @@
 		/obj/item/device/flash = 1,
 		/obj/item/device/holowarrant = 1
 	)
-	temp_scarcity = 75
+	temp_scarcity = 80
 
 /obj/item/storage/belt/security/full/alt
 	starts_with = list(
@@ -371,7 +375,7 @@
 		/obj/item/device/flash = 1,
 		/obj/item/gun/energy/taser = 1,
 	)
-	temp_scarcity = 75
+	temp_scarcity = 80
 
 /obj/item/storage/belt/security/full/disruptor
 	starts_with = list(
@@ -382,7 +386,7 @@
 		/obj/item/gun/energy/disruptorpistol = 1,
 		/obj/item/device/flashlight/flare = 1,
 	)
-	temp_scarcity = 75
+	temp_scarcity = 80
 
 /obj/item/storage/belt/security/full/pistol45
 	starts_with = list(
@@ -393,7 +397,7 @@
 		/obj/item/gun/projectile/sec = 1,
 		/obj/item/ammo_magazine/c45m/rubber = 2,
 	)
-	temp_scarcity = 75
+	temp_scarcity = 80
 
 /obj/item/storage/belt/security/full/investigator
 	starts_with = list(
@@ -402,7 +406,7 @@
 		/obj/item/device/camera/detective = 1,
 		/obj/item/device/taperecorder = 1
 	)
-	temp_scarcity = 75
+	temp_scarcity = 80
 
 /obj/item/storage/belt/security/vestbelt
 	name = "security chestrig"
@@ -583,6 +587,8 @@
 		/obj/item/storage/bag/ore = 1,
 	)
 
+	temp_scarcity = 95
+
 /obj/item/storage/belt/hydro
 	name = "hydrobelt"
 	desc = "A utility belt to store and provide easy access to your floral utilities."
@@ -620,6 +626,8 @@
 		/obj/item/device/analyzer/plant_analyzer = 1,
 		/obj/item/storage/bag/plants = 1
 	)
+
+	temp_scarcity = 90
 
 
 /obj/item/storage/belt/ninja //credits to BurgerBB
