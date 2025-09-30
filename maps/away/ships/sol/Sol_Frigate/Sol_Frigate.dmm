@@ -2309,15 +2309,6 @@
 /obj/effect/map_effect/marker/airlock/Sol_Frigate/mid_starboard,
 /turf/simulated/floor,
 /area/ship/Sol_Frigate/Port_docking_port)
-"kk" = (
-/obj/machinery/airlock_sensor{
-	pixel_x = -24;
-	dir = 4;
-	pixel_y = -6
-	},
-/obj/effect/map_effect/marker/airlock/docking/Sol_frigate/shuttle_port,
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/hallway_fore)
 "kl" = (
 /obj/machinery/shipsensors/strong,
 /turf/simulated/floor/airless,
@@ -2683,6 +2674,11 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock/docking/Sol_frigate/shuttle_port,
+/obj/machinery/airlock_sensor{
+	pixel_x = 34;
+	dir = 4;
+	pixel_y = -6
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_fore)
 "mj" = (
@@ -3285,7 +3281,7 @@
 /obj/machinery/door/blast/shutters/open{
 	id = "Solfrigate_aft_shutters"
 	},
-/turf/simulated/wall/shuttle/raider,
+/turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_fore)
 "oP" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
@@ -7868,7 +7864,7 @@
 	master_tag = "sol_light_interceptor";
 	shuttle_tag = "solarian light interceptor"
 	},
-/turf/simulated/wall/shuttle/raider,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/Solfrig_shuttle)
 "Lg" = (
 /obj/structure/closet/crate/loot,
@@ -44058,7 +44054,7 @@ we
 YL
 bf
 tz
-kk
+vO
 dt
 AZ
 Mb
