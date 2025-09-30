@@ -1374,11 +1374,13 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 				spark(L, 5, GLOB.alldirs)
 				CHECK_TICK
 
-/obj/machinery/power/apc/proc/flicker_all()
+/// Flicker the lights in the APC's area. Param is what % of lights to flicker (default 100).
+/obj/machinery/power/apc/proc/flicker_lights(var/percent = 100)
 	var/offset = 0
 	for (var/obj/machinery/light/L in area)
-		addtimer(CALLBACK(L, TYPE_PROC_REF(/obj/machinery/light, flicker)), offset)
-		offset += rand(5, 10)
+		if(prob(percent))
+			addtimer(CALLBACK(L, TYPE_PROC_REF(/obj/machinery/light, flicker)), offset)
+			offset += rand(5, 10)
 
 /obj/machinery/power/apc/proc/toggle_nightlight(var/force = null)
 	for (var/obj/machinery/light/L in area.contents)
