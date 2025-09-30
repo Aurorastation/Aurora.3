@@ -151,8 +151,7 @@ SUBSYSTEM_DEF(tgui)
 		datum/tgui/ui)
 	to_world("<b>/datum/controller/subsystem/tgui/proc/try_update_ui([user],[src_object],[ui])</b>")
 	// Look up a UI if it wasn't passed
-	if(isnull(ui))
-		to_world("<b>isnull(ui)</b>")
+	if(!isnull(ui))
 		ui = get_open_ui(user, src_object)
 	// Couldn't find a UI.
 	if(isnull(ui))

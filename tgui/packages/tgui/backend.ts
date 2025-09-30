@@ -209,7 +209,10 @@ export const backendMiddleware = (store) => {
       suspendRenderer();
       clearInterval(suspendInterval);
       suspendInterval = undefined;
+      // Tiny window to not show previous content when resumed
       Byond.winset(Byond.windowId, {
+        size: '1x1',
+        pos: '1,1',
         'is-visible': false,
       });
       setTimeout(() => focusMap());
@@ -350,9 +353,8 @@ const chunkSplitter = {
 export const sendAct = (action: string, payload: object = {}) => {
   // Validate that payload is an object
   // prettier-ignore
-  const isObject = typeof payload === 'object'
-    && payload !== null
-    && !Array.isArray(payload);
+  const isObject =
+    typeof payload === 'object' && payload !== null && !Array.isArray(payload);
   if (!isObject) {
     logger.error(`Payload for act() must be an object, got this:`, payload);
     return;
