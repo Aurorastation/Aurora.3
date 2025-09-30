@@ -204,7 +204,7 @@
 
 	data["owned_capacitor"] = !!owned_capacitor
 	data["active"] = active
-	data["time_since_fail"] = time_since_fail
+	data["time_since_fail"] = energy_field ? energy_field.time_since_fail : 0
 	data["multiz"] = multiz
 	data["field_radius"] = field_radius
 	data["min_field_radius"] = 1
@@ -226,13 +226,16 @@
 			multiz = !multiz
 
 		if ("size_set")
-			energy_field.field_radius = between(1, text2num(params["size_set"]), max_field_radius)
+			if(energy_field)
+				field_radius = between(1, text2num(params["size_set"]), max_field_radius)
 
 		if ("charge_set")
-			energy_field.strengthen_rate = (between(1, text2num(params["charge_set"]), (max_strengthen_rate * 10)) / 10)
+			if(energy_field)
+				energy_field.strengthen_rate = (between(1, text2num(params["charge_set"]), (energy_field.max_strengthen_rate * 10)) / 10)
 
 		if ("field_set")
-			energy_field.target_field_strength = between(1, text2num(params["field_set"]), 10)
+			if(energy_field)
+				energy_field.target_field_strength = between(1, text2num(params["field_set"]), 10)
 
 	add_fingerprint(usr)
 

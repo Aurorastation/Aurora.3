@@ -1,5 +1,7 @@
 // This is an abstracted energy field to cut down on processing thousands of shields per process tick.
 /datum/energy_field
+	/// The shield generator connected to this energy field.
+	var/obj/machinery/shield_gen/shield_generator
 	/// A gigantic ass fucking list of energy fields.
 	var/list/field
 	/// The actual strength of the field.
@@ -52,16 +54,11 @@
 		var/total_renwick_increase = 0 //the amount of renwicks that the generator can add this tick, over the entire field
 		var/renwick_upkeep_per_field = max(field_strength * dissipation_rate, min_dissipation)
 
-		//figure out how much energy we need to draw from the capacitor
-		if(active && owned_capacitor?.active)
-			var/target_renwick_increase = min(target_field_strength - field_strength, strengthen_rate) + renwick_upkeep_per_field //per field tile
-			var/required_energy = length(field) * target_renwick_increase / energy_conversion_rate
-			var/assumed_energy = shield_generator.assume_charge(required_energy)
-			total_renwick_increase = assumed_charge * energy_conversion_rate
-			assumed_charge = max(assumed_charge, 0)
-			owned_capacitor.stored_charge -= assumed_charge
-		else
-			renwick_upkeep_per_field = max(renwick_upkeep_per_field, 0.5)
+
+		var/target_renwick_increase = min(target_field_strength - field_strength, strengthen_rate) + renwick_upkeep_per_field //per field tile
+		var/required_energy = length(field) * target_renwick_increase / energy_conversion_rate
+		var/assumed_charge = shield_generator.assume_charge(required_energy)
+		total_renwick_increase = assumed_charge * energy_conversion_rate
 
 		var/renwick_increase_per_field = total_renwick_increase / length(field) //per field tile
 		var/amount_to_strengthen = renwick_increase_per_field - renwick_upkeep_per_field

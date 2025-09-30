@@ -3610,7 +3610,6 @@
 #include "code\modules\research\xenoarchaeology\artifact\effects\unknown_effect_cellcharge.dm"
 #include "code\modules\research\xenoarchaeology\artifact\effects\unknown_effect_celldrain.dm"
 #include "code\modules\research\xenoarchaeology\artifact\effects\unknown_effect_emp.dm"
-#include "code\modules\research\xenoarchaeology\artifact\effects\unknown_effect_forcefield.dm"
 #include "code\modules\research\xenoarchaeology\artifact\effects\unknown_effect_mental.dm"
 #include "code\modules\research\xenoarchaeology\artifact\effects\unknown_effect_physical.dm"
 #include "code\modules\research\xenoarchaeology\artifact\effects\unknown_effect_teleport.dm"
