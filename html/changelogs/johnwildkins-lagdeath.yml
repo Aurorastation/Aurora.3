@@ -14,3 +14,4 @@ changes:
   - refactor: "Fixed an issue where slimes would hard-delete, causing server lag."
   - refactor: "Optimized igniter and holosign buttons to reduce server load when used."
   - refactor: "Optimized atmos meters, hydroponics trays, tcomms machines, and disposal units to only update their icon state when necessary."
+  - refactor: "Refactors motion sensors, spiderlings, guns, ammo piles, and mecha equipment to remove costly hard-dels."
