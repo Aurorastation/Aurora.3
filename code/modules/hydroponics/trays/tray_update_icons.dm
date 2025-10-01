@@ -15,7 +15,7 @@
 		if (. & TRAY_PLANT_LIVE)
 			if(!seed.growth_stages)
 				seed.update_growth_stages()
-			var/overlay_stage = 1
+			overlay_stage = 1
 			if(age >= GET_SEED_TRAIT(seed, TRAIT_MATURATION))
 				overlay_stage = seed.growth_stages
 			else
