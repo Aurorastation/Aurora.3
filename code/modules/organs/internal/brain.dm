@@ -127,7 +127,7 @@
 /obj/item/organ/internal/brain/proc/qdel_brain(datum/source)
 	SIGNAL_HANDLER
 	qdel(src)
-	log_debug("Brain qdel: name [brainmob.name], real_name [brainmob.real_name], time of host death [brainmob.timeofhostdeath]")
+	log_debug("Brain ACTUAL ORGAN qdel: name [brainmob.name], real_name [brainmob.real_name], time of host death [brainmob.timeofhostdeath]")
 	brainmob = null
 
 /obj/item/organ/internal/brain/Destroy()
@@ -294,11 +294,6 @@
 /obj/item/organ/internal/brain/proc/clear_screen()
 	if (brainmob && brainmob.client)
 		brainmob.client.screen.Cut()
-
-/obj/item/organ/internal/brain/proc/qdel_brain(datum/source)
-	SIGNAL_HANDLER
-	log_debug("Brain ACTUAL ORGAN qdel: name [brainmob.name], real_name [brainmob.real_name], time of host death [brainmob.timeofhostdeath]")
-	brainmob = null
 
 /obj/item/organ/internal/brain/proc/transfer_identity(var/mob/living/carbon/H)
 	brainmob = new(src)
