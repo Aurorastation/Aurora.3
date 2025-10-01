@@ -188,7 +188,7 @@
 		return
 
 	// If this turf specifically shouldn't be receiving starlight, we cut it here.
-	if(use_starlight == FALSE)
+	if(!use_starlight)
 		return
 
 	// All area turfs are covered here - they should be starlit if their area's needs_starlight var is true, otherwise they
