@@ -295,7 +295,7 @@
 	if (brainmob && brainmob.client)
 		brainmob.client.screen.Cut()
 
-/mob/living/carbon/brain/proc/qdel_brain(datum/source)
+/obj/item/organ/internal/brain/proc/qdel_brain(datum/source)
 	SIGNAL_HANDLER
 	log_debug("Brain qdel: name [name], real_name [real_name], time of host death [timeofhostdeath]")
 	brainmob = null
