@@ -161,8 +161,7 @@
 
 	our_comet.fire(projectile_angle)
 
-/datum/event/comet_expulsion/announce_start()
-	. = ..()
+/datum/event/comet_expulsion/announce()
 	command_announcement.Announce("Warning, long range field scanners have detected an unforeseen comet expulsion in collision route with [location_name()].\n\
 									All hands, assume defense condition, perform evasive maneuvers to avoid collision with the debris cloud. Damage control teams prepare to respond to breaches of the \
 									vessel perimeter.",
