@@ -265,7 +265,6 @@
 					var/mob_type = pick(repopulate_types)
 					var/mob/S = new mob_type(T)
 					animals += S
-					GLOB.death_event.register(S, src, PROC_REF(remove_animal))
 					RegisterSignal(S, COMSIG_QDELETING, PROC_REF(remove_animal))
 					adapt_animal(S)
 			if(animals.len >= max_animal_count)
@@ -287,7 +286,6 @@
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/remove_animal(mob/M)
 	animals -= M
-	GLOB.death_event.unregister(M, src)
 	UnregisterSignal(M, COMSIG_QDELETING)
 	repopulate_types |= M.type
 
@@ -328,11 +326,11 @@
 		adapt_animal(A)
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/adapt_seed(var/datum/seed/S)
-	S.set_trait(TRAIT_IDEAL_HEAT,          atmosphere.temperature + rand(-5,5),800,70)
-	S.set_trait(TRAIT_HEAT_TOLERANCE,      S.get_trait(TRAIT_HEAT_TOLERANCE) + rand(-5,5),800,70)
-	S.set_trait(TRAIT_LOWKPA_TOLERANCE,    atmosphere.return_pressure() + rand(-5,-50),80,0)
-	S.set_trait(TRAIT_HIGHKPA_TOLERANCE,   atmosphere.return_pressure() + rand(5,50),500,110)
-	S.set_trait(TRAIT_SPREAD,0)
+	SET_SEED_TRAIT_BOUNDED(S, TRAIT_IDEAL_HEAT, atmosphere.temperature + rand(-5,5), 800, 70, null)
+	SET_SEED_TRAIT_BOUNDED(S, TRAIT_HEAT_TOLERANCE, GET_SEED_TRAIT(S, TRAIT_HEAT_TOLERANCE) + rand(-5,5), 800, 70, null)
+	SET_SEED_TRAIT_BOUNDED(S, TRAIT_LOWKPA_TOLERANCE, atmosphere.return_pressure() + rand(-5,-50), 80, 0, null)
+	SET_SEED_TRAIT_BOUNDED(S, TRAIT_HIGHKPA_TOLERANCE, atmosphere.return_pressure() + rand(5,50), 500, 110, null)
+	SET_SEED_TRAIT(S, TRAIT_SPREAD, 0)
 	if(S.exude_gasses)
 		S.exude_gasses -= badgas
 	if(atmosphere)
@@ -340,7 +338,7 @@
 			S.consume_gasses = list(pick(atmosphere.gas)) // ensure that if the plant consumes a gas, the atmosphere will have it
 		for(var/g in atmosphere.gas)
 			if(gas_data.flags[g] & XGM_GAS_CONTAMINANT)
-				S.set_trait(TRAIT_TOXINS_TOLERANCE, rand(10,15))
+				SET_SEED_TRAIT(S, TRAIT_TOXINS_TOLERANCE, rand(10,15))
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/adapt_animal(var/mob/living/simple_animal/A)
 	if(species[A.type])
@@ -442,8 +440,7 @@
 		atmosphere.adjust_gas(GAS_NITROGEN, MOLES_N2STANDARD)
 	else //let the fuckery commence
 		var/list/newgases = gas_data.gases.Copy()
-		if(prob(90)) //all phoron planet should be rare
-			newgases -= GAS_PHORON
+		newgases -= GAS_PHORON
 		if(prob(50)) //alium gas should be slightly less common than mundane shit
 			newgases -= GAS_ALIEN
 		newgases -= GAS_STEAM

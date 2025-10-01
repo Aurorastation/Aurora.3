@@ -24,10 +24,10 @@ SUBSYSTEM_DEF(cargo)
 	var/list/all_orders = list() // All orders.
 
 	// Fee Variables
-	var/credits_per_crate = 100 // "Cost / Payment" per crate shipped from or to centcomm.
+	var/credits_per_crate = 30 // "Cost / Payment" per crate shipped from or to centcomm.
 	var/credits_per_platinum = 140 // Per sheet.
 	var/credits_per_phoron = 100 // Per sheet.
-	var/cargo_handlingfee = 50 // The handling fee cargo takes per crate.
+	var/cargo_handlingfee = 20 // The handling fee cargo takes per crate.
 	var/cargo_handlingfee_min = 0 // The minimum handling fee.
 	var/cargo_handlingfee_max = 500 // The maximum handling fee.
 	var/cargo_handlingfee_change = 1 // If the handling fee can be changed -> for a random event.
@@ -102,6 +102,7 @@ SUBSYSTEM_DEF(cargo)
 /datum/controller/subsystem/cargo/proc/load_cargo_suppliers()
 	for(var/singleton/cargo_supplier/S as anything in (GET_SINGLETON_SUBTYPE_LIST(/singleton/cargo_supplier)))
 		log_subsystem_cargo("Loading supplier '[S.name]', with short name '[S.short_name]'.")
+		S.price_modifier = S.get_total_price_coefficient()
 		SScargo.cargo_suppliers[S.short_name] = S
 
 /datum/controller/subsystem/cargo/proc/load_cargo_items()
