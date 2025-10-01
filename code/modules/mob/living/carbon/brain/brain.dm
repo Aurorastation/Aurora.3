@@ -16,7 +16,7 @@
 	default_language = GLOB.all_languages[LANGUAGE_TCB]
 
 /mob/living/carbon/brain/Destroy()
-	log_debug("Brain qdel: name [brainmob.name], real_name [brainmob.real_name], time of host death [brainmob.timeofhostdeath]")
+	log_debug("Brain qdel: name [name], real_name [real_name], time of host death [timeofhostdeath]")
 	if(key)				//If there is a mob connected to this thing. Have to check key twice to avoid false death reporting.
 		if(stat != DEAD)	//If not dead.
 			death(1)	//Brains can die again. AND THEY SHOULD AHA HA HA HA HA HA

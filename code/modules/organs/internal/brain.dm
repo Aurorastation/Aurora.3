@@ -122,9 +122,9 @@
 		set_max_damage(200)
 	if(!mapload)
 		addtimer(CALLBACK(src, PROC_REF(clear_screen)), 5)
-	RegisterSignal(brainmob, COMSIG_QDELETED, PROC_REF(qdel_brain))
+	RegisterSignal(brainmob, COMSIG_QDELETING, PROC_REF(qdel_brain))
 
-/obj/item/organ/internal/brain/qdel_brain(datum/source)
+/obj/item/organ/internal/brain/proc/qdel_brain(datum/source)
 	SIGNAL_HANDLER
 	qdel(src)
 	log_debug("Brain qdel: name [brainmob.name], real_name [brainmob.real_name], time of host death [brainmob.timeofhostdeath]")
