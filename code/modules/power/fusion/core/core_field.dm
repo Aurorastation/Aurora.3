@@ -403,7 +403,7 @@
 /obj/effect/fusion_em_field/proc/Rupture()
 	if(pause_rupture)
 		return
-	visible_message(SPAN_DANGER("There's a violent few convulsions from \the [src] as gouts of plasma spill forth!"))
+	visible_message(SPAN_DANGER("\The [src] convulses violently as gouts of plasma spill forth!"))
 	set_light(1, 0.1, "#ccccff", 15, 2)
 	empulse(get_turf(src), Ceil(plasma_temperature/1000000), Ceil(plasma_temperature/300000))
 	sleep(5)
