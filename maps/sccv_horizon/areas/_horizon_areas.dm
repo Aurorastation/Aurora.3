@@ -39,6 +39,8 @@
 	base_turf = /turf/space
 	dynamic_lighting = TRUE
 	requires_power = FALSE
+	// This area will place starlight on any turf it's put on!
+	needs_starlight = TRUE
 	has_gravity = FALSE
 	no_light_control = TRUE
 	allow_nightmode = FALSE
