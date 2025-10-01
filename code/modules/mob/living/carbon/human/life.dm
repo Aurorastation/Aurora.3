@@ -43,6 +43,8 @@
 	if(wearing_rig && wearing_rig.offline)
 		wearing_rig = null
 
+	var/shock_value = get_shock()
+
 	..()
 
 	if(life_tick%30==5)//Makes huds update every 10 seconds instead of every 30 seconds
@@ -62,14 +64,14 @@
 		//Random events (vomiting etc)
 		handle_random_events()
 
-		handle_shock()
+		handle_shock(shock_value)
 
 		handle_pain()
 
 		handle_fever()
 
 		//Handles regenerating stamina if we have sufficient air and no oxyloss
-		handle_stamina()
+		handle_stamina(shock_value)
 
 		if (is_diona())
 			diona_handle_light(DS)
@@ -1222,7 +1224,11 @@
 		if(changeling)
 			changeling.regenerate()
 
-/mob/living/carbon/human/proc/handle_shock()
+/**
+ * This proc assumes that if traumatic_shock = null, then a shock value was NOT passed in, and thus it calculates it itself.
+ * If you for some reason need to call this alongside a lot of other shit that needs shock, make sure you cache that value, because calculating it is expensive.
+ */
+/mob/living/carbon/human/proc/handle_shock(traumatic_shock = null)
 	if(status_flags & GODMODE)
 		return 0
 	var/is_asystole = is_asystole()
@@ -1239,7 +1245,9 @@
 	if(is_asystole)
 		shock_stage = max(shock_stage + 1, 61)
 
-	var/traumatic_shock = get_shock()
+	if(isnull(traumatic_shock))
+		traumatic_shock = get_shock()
+
 	if(traumatic_shock >= max(30, 0.8*shock_stage))
 		shock_stage += 1
 	else if (!is_asystole)
@@ -1482,15 +1490,20 @@
 	if((mutations & XRAY))
 		set_sight(sight|SEE_TURFS|SEE_MOBS|SEE_OBJS)
 
-/mob/living/carbon/human/proc/handle_stamina()
+/**
+ * This proc assumes that if shock_value = null, then a shock value was NOT passed in, and thus it calculates it itself.
+ * If you for some reason need to call this alongside a lot of other shit that needs shock, make sure you cache that value, because calculating it is expensive.
+ */
+/mob/living/carbon/human/proc/handle_stamina(traumatic_shock = null)
 	if (species.stamina == -1) //If species stamina is -1, it has special mechanics which will be handled elsewhere
 		return //so quit this function
 
 	if (!exhaust_threshold) // Also quit if there's no exhaust threshold specified, because division by 0 is amazing.
 		return
 
-	var/shock = get_shock() // used again later for stamina regeneration
-	if (failed_last_breath || (getOxyLoss() + shock) > exhaust_threshold)//Can't catch our breath if we're suffocating
+	if(isnull(traumatic_shock))
+		traumatic_shock = get_shock() // used again later for stamina regeneration
+	if (failed_last_breath || (getOxyLoss() + traumatic_shock) > exhaust_threshold)//Can't catch our breath if we're suffocating
 		flash_pain(getOxyLoss()/2)
 		return
 
@@ -1507,7 +1520,7 @@
 	if (stamina != max_stamina)
 		//Any suffocation damage slows stamina regen.
 		//This includes oxyloss from low blood levels
-		var/regen = stamina_recovery * (1 - min(((getOxyLoss()) / exhaust_threshold) + (shock / exhaust_threshold), 1))
+		var/regen = stamina_recovery * (1 - min(((getOxyLoss()) / exhaust_threshold) + (traumatic_shock / exhaust_threshold), 1))
 		if(is_drowsy())
 			regen *= 0.85
 		if (regen > 0)
