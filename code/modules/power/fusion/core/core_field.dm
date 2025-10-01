@@ -409,7 +409,7 @@
 	RadiateAll()
 	addtimer(CALLBACK(src, PROC_REF(RuptureExplosion)), 45 SECONDS)
 
-obj/effect/fusion_em_field/proc/RuptureExplosion()
+/obj/effect/fusion_em_field/proc/RuptureExplosion()
 	visible_message(SPAN_DANGER("\The [src] shudders like a dying animal before flaring to eye-searing brightness and rupturing!"))
 	explosion(get_turf(owned_core), 6, 8)
 

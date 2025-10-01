@@ -92,7 +92,7 @@
 	author = "Engineering Encyclopedia"
 	title = "Supermatter Reactor Operating Manual"
 
-/obj/item/book/manual/fusion_reactor/Initialize()
+/obj/item/book/manual/supermatter_engine/Initialize()
 	. = ..()
 	dat = {"<html>
 				<head>
@@ -116,7 +116,7 @@
 				<br>
 				<li>Air in the radiator loop is circulated through the radiator bank, located in space. This rapidly cools the air, preserving the temperature differential needed for power generation.</li>
 				<br>
-				<li>The MK 1 Prototype Thermoelectric Supermatter Reactor is designed to operate at reactor temperatures of 3000K to 4000K and generate up to 1MW of power. Beyond 1MW, the thermoelectric generators will begin to lose power through electrical discharge, reducing efficiency, but additional power generation remains feasible.</li>
+				<li>The MK 1 Prototype Thermoelectric Supermatter Reactor is designed to operate at reactor temperatures of 3000K to 4000K and generate up to 5MW of power. Beyond 5MW, the thermoelectric generators will begin to lose power through electrical discharge, reducing efficiency, but additional power generation remains feasible.</li>
 				<br>
 				<li>The crystal structure of the supermatter will begin to liquefy if its temperature exceeds 5000K. This eventually results in a massive release of light, heat and radiation, disintegration of both the supermatter crystal and most of the surrounding area, and as as-of-yet poorly documented psychological effects on all animals within a 2km radius. Appropriate action should be taken to stabilize or eject the supermatter before such occurs.</li>
 				<br>
@@ -128,23 +128,23 @@
 				<br>
 				<h2>STARTUP PROCEDURE</h2>
 				<ol>
-				<li>Don radiation hood, radiation suit and meson goggles, without these PPE, you <b>will</b> become irradiated.</li>
+				<li>Don radiation hood, radiation suit and safety goggles, without these PPE, you <b>will</b> become irradiated.</li>
 				<li>Fill the hot loop's (northernmost) port with <b>ONE</b> canister of phoron.</li>
 				<li>Fill the cold loop's (southernmost) port with <b>TWO</b> canisters of phoron.</li>
 				<li>Ensure that <b>ALL</b> pumps and filters in the reactor and waste room are on and operating at maximum power.</li>
 				<li>Ensure the both the emergency coolant valves (located to the west and east of the TEGs) are <b>NOT</b> active.</li>
 				<li>Set the two waste loop filters to filter <b>PHORON</b>.</li>
-				<li>Set all three of the northernmost coolers to <b>ON</b> keep their temperature setting at its default of <b>293k</b>.</li>
-				<li>Fire <b>twenty-one to twenty-five</b> pulses from the emitter at supermatter crystal. Reactor blast doors <b>MUST</b> be open for this procedure.</li>
+				<li>Set all three of the northernmost coolers to <b>ON</b> keep their temperature setting at its default of <b>273 K</b>.</li>
+				<li>Fire <b>forty to sixty</b> pulses from the emitter at supermatter crystal. Reactor blast doors <b>MUST</b> be open for this procedure.</li>
 				<li>Set the SMES in the adjacent room (not the one in the reactor bay) to <b>NO</b> input and <b>MAXIMUM</b> output until the power is drained completely.</li>
 				<li>Go to hard storage and retrieve two coils, Transmission and Capacitance.</li>
 				<li>Open the SMES unit's maintenance panel with your screwdriver and insert both coils, close panel once finished.</li>
-				<li>Set input to maximum, and output to 1400000 (1.4 MW).</li>
+				<li>Set input to maximum, and output to 5900000 (5.9 MW).</li>
 				</ol>
 				<br>
 				<h2>OPERATION AND MAINTENANCE</h2>
 				<ol>
-				<li>Ensure that radiation protection and meson goggles are worn at <b>ALL</b> times while working in the reactor room.</li>
+				<li>Ensure that radiation protection and safety goggles are worn at <b>ALL</b> times while working in the reactor room.</li>
 				<li>Ensure that reactor and radiator loops are undamaged and unobstructed.</li>
 				<li>Ensure that phoron and oxygen gas exhaust from filters is properly contained or disposed. Do not allow exhaust pressure to exceed 4500 kPa.</li>
 				<li>Ensure that reactor room Area Power Controller (APC) and reactor Superconducting Magnetic Energy Storage unit (SMES) are properly charged.</li>
@@ -156,8 +156,8 @@
 				<ol>
 				<li>Open Emergency Cooling Valve 1 and Emergency Cooling Valve 2.</li>
 				<li>When reactor temperature returns to safe operating levels, close Emergency Cooling Valve 1 and Emergency Cooling Valve 2.</li>
-				<li>Add additional phoron canister to the COLD LOOP.</li>
-				<li>If reactor temperature does not return to safe operating levels, see EJECTION PROCEDURE.</li>
+				<li>If reactor temperature does not return to safe operating levels, add emergency liquid nitrogen canisters to the hot AND cold loops.</li>
+				<li>If reactor temperature still does not return to safe operating levels, see EJECTION PROCEDURE.</li>
 				</ol>
 				<br>
 				<h2>EJECTION PROCEDURE</h2>
@@ -187,7 +187,7 @@
 				<br>
 				<li><b>Q:</b> I accidentally put way too many emitter shots into the crystal! What do I do!?</li>
 				<br>
-				<li><b>A:</b> The supermatter will heat up more, so all you do is place more coolant (likely phoron) into the cold loop. Once the situation settles, check if you're producing too little power, and emitter it some more.</li>
+				<li><b>A:</b> The supermatter will heat up more, so all you do is place more coolant (likely hydrogen or phoron) into the cold loop. Once the situation settles, check if you're producing too little power, and emitter it some more.</li>
 				<br>
 				<li><b>Q:</b> Are other gasses safe to use in the loops?</li>
 				<br>
@@ -225,7 +225,7 @@
 				</style>
 				</head>
 				<body>
-				<h1>OPERATING MANUAL FOR INDRA MK VIII FUSION REACTOR'</h1>
+				<h1>OPERATING MANUAL FOR INDRA MK VIII FUSION REACTOR</h1>
 				<br>
 				<h2>OPERATING PRINCIPLES</h2>
 				<br>
