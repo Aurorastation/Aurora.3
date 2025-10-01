@@ -122,6 +122,13 @@
 		set_max_damage(200)
 	if(!mapload)
 		addtimer(CALLBACK(src, PROC_REF(clear_screen)), 5)
+	RegisterSignal(brainmob, COMSIG_QDELETED, PROC_REF(qdel_brain))
+
+/obj/item/organ/internal/brain/qdel_brain(datum/source)
+	SIGNAL_HANDLER
+	qdel(src)
+	log_debug("Brain qdel: name [brainmob.name], real_name [brainmob.real_name], time of host death [brainmob.timeofhostdeath]")
+	brainmob = null
 
 /obj/item/organ/internal/brain/Destroy()
 	if(brainmob)
@@ -288,6 +295,11 @@
 	if (brainmob && brainmob.client)
 		brainmob.client.screen.Cut()
 
+/mob/living/carbon/brain/proc/qdel_brain(datum/source)
+	SIGNAL_HANDLER
+	log_debug("Brain qdel: name [name], real_name [real_name], time of host death [timeofhostdeath]")
+	brainmob = null
+
 /obj/item/organ/internal/brain/proc/transfer_identity(var/mob/living/carbon/H)
 	brainmob = new(src)
 	brainmob.name = H.real_name
@@ -298,7 +310,6 @@
 		H.mind.transfer_to(brainmob)
 
 	to_chat(brainmob, SPAN_NOTICE("You feel slightly disoriented. That's normal when you're just a [initial(src.name)]."))
-	callHook("debrain", list(brainmob))
 
 /obj/item/organ/internal/brain/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
