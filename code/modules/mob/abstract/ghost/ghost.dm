@@ -130,8 +130,8 @@
 	set category = "Ghost"
 	set desc = "Follow and haunt a mob."
 
-	var/datum/tgui_module/follow_menu/GM = new /datum/tgui_module/follow_menu(usr)
-	GM.ui_interact(usr)
+	// var/datum/tgui_module/follow_menu/GM = new /datum/tgui_module/follow_menu(usr)
+	// GM.ui_interact(usr)
 
 // This is the ghost's follow verb with an argument
 /mob/abstract/ghost/proc/ManualFollow(var/atom/movable/target)

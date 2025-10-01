@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend, useLocalState } from '../backend';
-import { Box, Button, Input, Section, Stack, Table, Tabs } from '../components';
+import { Box, Button, Input, Section, Stack, Table, Tabs } from 'tgui-core/components';
 import { NtosWindow } from '../layouts';
 
 export type ChatData = {
@@ -34,21 +34,19 @@ type User = {
   username: string;
 };
 
-export const ChatClient = (props, context) => {
-  const { act, data } = useBackend<ChatData>(context);
+export const ChatClient = (props) => {
+  const { act, data } = useBackend<ChatData>();
   const [editingRingtone, setEditingRingtone] = useLocalState(
-    context,
     'editingRingtone',
     0
   );
   const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
     `searchTerm`,
     ``
   );
 
   return (
-    <NtosWindow resizable width={700}>
+    <NtosWindow width={700}>
       <NtosWindow.Content scrollable>
         <Section
           title="Users"
@@ -95,10 +93,9 @@ export const ChatClient = (props, context) => {
   );
 };
 
-export const Users = (props, context) => {
-  const { act, data } = useBackend<ChatData>(context);
+export const Users = (props) => {
+  const { act, data } = useBackend<ChatData>();
   const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
     `searchTerm`,
     ``
   );
@@ -135,10 +132,9 @@ export const Users = (props, context) => {
   );
 };
 
-export const AllUsers = (props, context) => {
-  const { act, data } = useBackend<ChatData>(context);
+export const AllUsers = (props) => {
+  const { act, data } = useBackend<ChatData>();
   const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
     `searchTerm`,
     ``
   );
@@ -176,33 +172,29 @@ export const AllUsers = (props, context) => {
   );
 };
 
-export const Chat = (props, context) => {
-  const { act, data } = useBackend<ChatData>(context);
+export const Chat = (props) => {
+  const { act, data } = useBackend<ChatData>();
   const [newMessage, setNewMessage] = useLocalState<string>(
-    context,
     `newMessage`,
     ``
   );
 
   const [creatingJoinPassword, setCreatingJoinPassword] = useLocalState(
-    context,
     'creatingJoinPassword',
     0
   );
 
   const [password, setPassword] = useLocalState<string>(
-    context,
     `password`,
     ``
   );
 
   const [creatingTitle, setCreatingTitle] = useLocalState(
-    context,
     'creatingTitle',
     0
   );
 
-  const [title, setTitle] = useLocalState<string>(context, `title`, ``);
+  const [title, setTitle] = useLocalState<string>(`title`, ``);
 
   return (
     <Section
@@ -343,34 +335,29 @@ export const Chat = (props, context) => {
   );
 };
 
-export const ChannelsWindow = (props, context) => {
-  const { act, data } = useBackend<ChatData>(context);
+export const ChannelsWindow = (props) => {
+  const { act, data } = useBackend<ChatData>();
   const [channelSearchTerm, setChannelSearchTerm] = useLocalState<string>(
-    context,
     `channelSearchTerm`,
     ``
   );
 
   const [creatingChannelName, setCreatingChannelName] = useLocalState(
-    context,
     'creatingChannelName',
     0
   );
 
   const [channelName, setChannelName] = useLocalState(
-    context,
     'channelName',
     ''
   );
 
   const [enteringJoinPassword, setEnteringJoinPassword] = useLocalState(
-    context,
     'enteringJoinPassword',
     0
   );
 
   const [joinPassword, setJoinPassword] = useLocalState(
-    context,
     'joinPassword',
     ''
   );

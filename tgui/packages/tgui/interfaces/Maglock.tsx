@@ -1,17 +1,17 @@
-import { BooleanLike } from '../../common/react';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { LabeledList, Input, Section, Button } from '../components';
+import { LabeledList, Input, Section, Button } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type MaglockData = {
   locked: BooleanLike;
 };
 
-export const Maglock = (props, context) => {
-  const { act, data } = useBackend<MaglockData>(context);
+export const Maglock = (props) => {
+  const { act, data } = useBackend<MaglockData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section title="Unlock">
           <LabeledList>
@@ -28,8 +28,8 @@ export const Maglock = (props, context) => {
   );
 };
 
-export const ConfigureWindow = (props, context) => {
-  const { act, data } = useBackend<MaglockData>(context);
+export const ConfigureWindow = (props) => {
+  const { act, data } = useBackend<MaglockData>();
 
   return (
     <Section title="Configure">

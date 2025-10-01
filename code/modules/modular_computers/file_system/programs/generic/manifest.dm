@@ -12,7 +12,7 @@
 	available_on_ntnet = TRUE
 
 /datum/computer_file/program/manifest/ui_data(mob/user)
-	var/list/data = initial_data()
+	var/list/data = list()
 	return data
 
 /datum/computer_file/program/manifest/ui_static_data(mob/user)

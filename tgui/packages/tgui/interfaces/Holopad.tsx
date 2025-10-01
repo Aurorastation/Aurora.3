@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend, useLocalState } from '../backend';
-import { Button, Input, Section } from '../components';
+import { Button, Input, Section } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type HolopadData = {
@@ -16,17 +16,16 @@ type Pad = {
   ref: string;
 };
 
-export const Holopad = (props, context) => {
-  const { act, data } = useBackend<HolopadData>(context);
+export const Holopad = (props) => {
+  const { act, data } = useBackend<HolopadData>();
 
   const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
     `searchTerm`,
     ``
   );
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section
           title="Selection Disc"
@@ -72,11 +71,10 @@ export const Holopad = (props, context) => {
   );
 };
 
-export const HolopadList = (props, context) => {
-  const { act, data } = useBackend<HolopadData>(context);
+export const HolopadList = (props) => {
+  const { act, data } = useBackend<HolopadData>();
 
   const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
     `searchTerm`,
     ``
   );

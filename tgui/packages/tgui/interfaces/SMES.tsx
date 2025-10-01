@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Box, BlockQuote, Button, LabeledList, Section, ProgressBar, NumberInput } from '../components';
+import { Box, BlockQuote, Button, LabeledList, Section, ProgressBar, NumberInput } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type SMESData = {
@@ -22,11 +22,11 @@ export type SMESData = {
   fail_time: number;
 };
 
-export const SMES = (props, context) => {
-  const { act, data } = useBackend<SMESData>(context);
+export const SMES = (props) => {
+  const { act, data } = useBackend<SMESData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         {data.fail_time ? <FailWindow /> : <SMESWindow />}
       </Window.Content>
@@ -34,8 +34,8 @@ export const SMES = (props, context) => {
   );
 };
 
-export const FailWindow = (props, context) => {
-  const { act, data } = useBackend<SMESData>(context);
+export const FailWindow = (props) => {
+  const { act, data } = useBackend<SMESData>();
 
   return (
     <Section
@@ -54,8 +54,8 @@ export const FailWindow = (props, context) => {
   );
 };
 
-export const SMESWindow = (props, context) => {
-  const { act, data } = useBackend<SMESData>(context);
+export const SMESWindow = (props) => {
+  const { act, data } = useBackend<SMESData>();
 
   return (
     <Section title="Supermagnetic Storage">

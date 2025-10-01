@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Section, LabeledList, Button, NumberInput } from '../components';
+import { Section, LabeledList, Button, NumberInput } from 'tgui-core/components';
 import { Window } from '../layouts';
 import { AtmosControl } from './AtmosControl';
 
@@ -23,10 +23,10 @@ type Output = {
   setpressure: number;
 };
 
-export const AtmosControlTank = (props, context) => {
-  const { act, data } = useBackend<TankData>(context);
+export const AtmosControlTank = (props) => {
+  const { act, data } = useBackend<TankData>();
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section>
           <AtmosControl />
@@ -54,8 +54,8 @@ export const AtmosControlTank = (props, context) => {
   );
 };
 
-export const InputWindow = (props, context) => {
-  const { act, data } = useBackend<TankData>(context);
+export const InputWindow = (props) => {
+  const { act, data } = useBackend<TankData>();
   return (
     <LabeledList>
       <LabeledList.Item label="Input">
@@ -82,8 +82,8 @@ export const InputWindow = (props, context) => {
   );
 };
 
-export const OutputWindow = (props, context) => {
-  const { act, data } = useBackend<TankData>(context);
+export const OutputWindow = (props) => {
+  const { act, data } = useBackend<TankData>();
   return (
     <Section>
       <LabeledList>

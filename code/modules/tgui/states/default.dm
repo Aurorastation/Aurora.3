@@ -13,12 +13,14 @@
 GLOBAL_DATUM_INIT(default_state, /datum/ui_state/default, new)
 
 /datum/ui_state/default/can_use_topic(src_object, mob/user)
-	return user.default_can_use_topic(src_object) // Call the individual mob-overridden procs.
+	to_world("<b>/datum/ui_state/default/can_use_topic([src_object], [user])</b>")
+	return user?.default_can_use_topic(src_object) // Call the individual mob-overridden procs.
 
 /mob/proc/default_can_use_topic(src_object)
 	return UI_CLOSE // Don't allow interaction by default.
 
 /mob/living/default_can_use_topic(src_object)
+	to_world("<b>/mob/living/default_can_use_topic([src_object])</b>")
 	. = shared_ui_interaction(src_object)
 	if(. > UI_CLOSE && loc) //must not be in nullspace.
 		. = min(., shared_living_ui_distance(src_object)) // Check the distance...
@@ -42,7 +44,7 @@ GLOBAL_DATUM_INIT(default_state, /datum/ui_state/default, new)
 		return
 
 	// The AI can interact with anything it can see nearby, or with cameras while wireless control is enabled.
-	if(!control_disabled)
+	if(!control_disabled && can_see(src_object))
 		return UI_INTERACTIVE
 	return UI_CLOSE
 
