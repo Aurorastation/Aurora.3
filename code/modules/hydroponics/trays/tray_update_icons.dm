@@ -1,22 +1,9 @@
 /obj/machinery/portable_atmospherics/hydroponics/proc/need_update_icon()
 	. = 0
+	var/overlay_stage
 	if (seed)
-		if (mechanical)
-			if (health <= (GET_SEED_TRAIT(seed, TRAIT_ENDURANCE) / 2))
-				. |= TRAY_LOW_HEALTH
-			if (waterlevel <= 10)
-				. |= TRAY_LOW_WATER
-			if (nutrilevel <= 2)
-				. |= TRAY_LOW_NUT
-			if (pestlevel >= 5 || toxins >= 40)
-				. |= TRAY_ALERT
-			if (harvest)
-				. |= TRAY_HARVEST
-			if (stasis)
-				. |= TRAY_STASIS
-
-		if (closed_system)
-			. |= TRAY_COVERED
+		if (mechanical && health <= (GET_SEED_TRAIT(seed, TRAIT_ENDURANCE) / 2))
+			. |= TRAY_LOW_HEALTH
 
 		if (dead)
 			. |= TRAY_PLANT_DEAD
@@ -36,11 +23,24 @@
 				if(maturation < 1)
 					maturation = 1
 				overlay_stage = maturation ? max(1,round(age/maturation)) : 1
-			if (overlay_stage != displayed_stage)
-				do_update_icon(., overlay_stage)
-				return
+
+	if (mechanical)
+		if (waterlevel <= 10)
+			. |= TRAY_LOW_WATER
+		if (nutrilevel <= 2)
+			. |= TRAY_LOW_NUT
+		if (pestlevel >= 5 || toxins >= 40)
+			. |= TRAY_ALERT
+		if (harvest)
+			. |= TRAY_HARVEST
+		if (stasis)
+			. |= TRAY_STASIS
+
+	if (closed_system)
+		. |= TRAY_COVERED
+
 	if (. != icon_status)
-		do_update_icon(.)
+		do_update_icon(., overlay_stage)
 
 /obj/machinery/portable_atmospherics/hydroponics/proc/do_update_icon(var/needed_state, var/plant_stage)
 	. = list()
@@ -80,6 +80,7 @@
 			. += harvest_overlay
 
 	SetOverlays(.)
+	icon_status = .
 
 /// Refreshes the icon and sets the luminosity.
 /obj/machinery/portable_atmospherics/hydroponics/update_icon()
