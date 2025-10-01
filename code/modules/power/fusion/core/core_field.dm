@@ -406,13 +406,12 @@
 	visible_message(SPAN_DANGER("\The [src] convulses violently as gouts of plasma spill forth!"))
 	set_light(1, 0.1, "#ccccff", 15, 2)
 	empulse(get_turf(src), Ceil(plasma_temperature/1000000), Ceil(plasma_temperature/300000))
-	sleep(5)
 	RadiateAll()
-	sleep(45)
+	addtimer(CALLBACK(src, PROC_REF(RuptureExplosion)), 45 SECONDS)
+
+obj/effect/fusion_em_field/proc/RuptureExplosion()
 	visible_message(SPAN_DANGER("\The [src] shudders like a dying animal before flaring to eye-searing brightness and rupturing!"))
-	sleep(10)
 	explosion(get_turf(owned_core), 6, 8)
-	return
 
 /**
  * Sets field strength in Tesla, and corresponding field size.

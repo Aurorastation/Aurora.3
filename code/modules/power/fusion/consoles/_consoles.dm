@@ -8,8 +8,6 @@
 	manufacturer = "hephaestus"
 	var/ui_template
 	var/initial_id_tag
-	/// The Core Control console will be using a larger x value than Injector/Gyro Control in future.
-	var/tgui_x = 400
 
 /obj/machinery/computer/fusion/Initialize()
 	AddComponent(/datum/component/local_network_member, initial_id_tag)
@@ -47,5 +45,5 @@
 /obj/machinery/computer/fusion/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
-		ui = new(user, src, ui_template, name, tgui_x, 500)
+		ui = new(user, src, ui_template, name)
 		ui.open()

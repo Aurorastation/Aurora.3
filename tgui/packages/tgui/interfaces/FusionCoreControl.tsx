@@ -43,7 +43,7 @@ export const FusionCoreControl = (props, context) => {
     false
   );
   return (
-    <Window resizable theme={data.manufacturer}>
+    <Window resizable width={800} height={500} theme={data.manufacturer}>
       <Window.Content scrollable>
         {data.cores && data.cores.length ? (
           data.cores.map((core) => (

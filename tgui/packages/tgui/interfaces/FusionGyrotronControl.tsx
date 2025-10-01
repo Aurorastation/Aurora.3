@@ -22,7 +22,7 @@ export const FusionGyrotronControl = (props, context) => {
   const { act, data } = useBackend<FusionGyrotronData>(context);
 
   return (
-    <Window resizable theme={data.manufacturer}>
+    <Window resizable width={400} height={500} theme={data.manufacturer}>
       <Window.Content scrollable>
         {data.gyrotrons && data.gyrotrons.length ? (
           data.gyrotrons.map((gyrotron) => (
