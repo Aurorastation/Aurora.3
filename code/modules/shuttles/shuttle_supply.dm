@@ -255,6 +255,10 @@
 	if(!possible_turfs_to_land_on.len)
 		possible_turfs_to_land_on = get_area_turfs(/area/supply/dock)
 
+/obj/effect/step_trigger/cargo_elevator/Destroy()
+	LAZYNULL(possible_turfs_to_land_on)
+	return ..()
+
 /obj/effect/step_trigger/cargo_elevator/Trigger(atom/movable/AM)
 	if(safe_to_walk)
 		return
