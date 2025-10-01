@@ -53,6 +53,11 @@
 // Handles starlight logic unique to space turfs.
 /turf/space/update_starlight()
 	. = ..() // We also run the parent proc here, since space may also require starlight from needs_starlight!
+
+	// Our parent proc already handled starlight for us, we don't have to do our own checks
+	if(.)
+		return
+
 	// Otherwise, if a space turf borders a simulated turf, it should be producing starlight.
 	if(locate(/turf/simulated) in RANGE_TURFS(1, src))
 		set_light(SSatlas.current_sector.starlight_range, SSatlas.current_sector.starlight_power, l_color = SSskybox.background_color)

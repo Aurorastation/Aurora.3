@@ -182,14 +182,16 @@
 
 /// Handles starlight for turfs for whose area's needs_starlight var is set to true.
 /// Logic unique to space turfs is set within a child proc of this!
+/// If this proc handles starlight, its child doesn't have to - therefore, we return TRUE.
+/// If it has failed to handle starlight, we return FALSE so the subsequent logic for space turfs can run.
 /turf/proc/update_starlight()
 	// We don't render starlight if config says we shouldn't.
 	if(!GLOB.config.starlight)
-		return
+		return TRUE
 
 	// If this turf specifically shouldn't be receiving starlight, we cut it here.
 	if(!use_starlight)
-		return
+		return TRUE
 
 	// All area turfs are covered here - they should be starlit if their area's needs_starlight var is true, otherwise they
 	// are set to their default lighting. Areas can change in-game, so this needs to support removing starlight from a turf too.
@@ -197,9 +199,10 @@
 	var/area/A = get_area(src)
 	if(A.needs_starlight)
 		set_light(SSatlas.current_sector.starlight_range, SSatlas.current_sector.starlight_power, l_color = SSskybox.background_color)
-		return // Return here so we don't risk also running the later space logic.
-	else // If we aren't assigning space lighting, set the lighting to default so it's possible to undo space lighting if an area changes.
+		return TRUE
+	else // If we aren't assigning starlight lighting, set the lighting to default so it's possible to undo starlight lighting if an area changes.
 		set_default_lighting()
+		return FALSE
 
 /// Restores the default lighting of a turf.
 /turf/proc/set_default_lighting()
