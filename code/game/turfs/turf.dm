@@ -197,9 +197,13 @@
 	var/area/A = get_area(src)
 	if(A.needs_starlight == TRUE)
 		set_light(SSatlas.current_sector.starlight_range, SSatlas.current_sector.starlight_power, l_color = SSskybox.background_color)
-		return // Return here so we don't risk also running the space logic.
-	else if(!istype(src, /turf/space)) // Exclude space turfs so this doesn't call set_light twice on space.
-		set_light(initial(light_range), initial(light_power), initial(light_color))
+		return // Return here so we don't risk also running the later space logic.
+	else // If we aren't assigning space lighting, set the lighting to default so it's possible to undo space lighting if an area changes.
+		set_default_lighting()
+
+/// Restores the default lighting of a turf.
+/turf/proc/set_default_lighting()
+	set_light(initial(light_range), initial(light_power), initial(light_color))
 
 /turf/ex_act(severity)
 	return 0
