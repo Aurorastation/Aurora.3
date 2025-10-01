@@ -50,16 +50,14 @@
 
 	return INITIALIZE_HINT_NORMAL
 
-/// Handles starlight logic unique to space turfs.
+// Handles starlight logic unique to space turfs.
 /turf/space/update_starlight()
 	. = ..() // We also run the parent proc here, since space may also require starlight from needs_starlight!
 	// Otherwise, if a space turf borders a simulated turf, it should be producing starlight.
 	if(locate(/turf/simulated) in RANGE_TURFS(1, src))
 		set_light(SSatlas.current_sector.starlight_range, SSatlas.current_sector.starlight_power, l_color = SSskybox.background_color)
-	else
-		set_light(0)
 
-/// We don't want this doing anything on space, otherwise update_starlight() would run set_light on space turfs twice.
+// We don't want this doing anything on space, otherwise update_starlight() would run set_light on space turfs twice.
 /turf/space/set_default_lighting()
 	return
 

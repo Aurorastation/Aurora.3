@@ -195,7 +195,7 @@
 	// are set to their default lighting. Areas can change in-game, so this needs to support removing starlight from a turf too.
 	// We do this prior to the unique space logic so this also covers space turfs within a needs_starlight area.
 	var/area/A = get_area(src)
-	if(A.needs_starlight == TRUE)
+	if(A.needs_starlight)
 		set_light(SSatlas.current_sector.starlight_range, SSatlas.current_sector.starlight_power, l_color = SSskybox.background_color)
 		return // Return here so we don't risk also running the later space logic.
 	else // If we aren't assigning space lighting, set the lighting to default so it's possible to undo space lighting if an area changes.
