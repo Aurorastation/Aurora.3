@@ -293,7 +293,7 @@
 /area/ship/Sol_Frigate/hangar)
 "bk" = (
 /obj/machinery/door/blast/shutters{
-	id = "Solfrig_workshop"
+	id = "SFWS"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/Exo_Bay)
@@ -1312,11 +1312,19 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/crew_lounge)
 "fG" = (
-/obj/machinery/door/blast/shutters{
-	id = "SLWS"
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "SFWS";
+	name = "Dock Shutters lockdown";
+	pixel_x = -6;
+	dir = 10;
+	pixel_y = 28;
+	req_access = list(203)
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/Exo_Bay)
+/area/ship/Sol_Frigate/hallway_fore)
 "fI" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -3465,6 +3473,9 @@
 	temperature = 253.15
 	},
 /area/ship/Sol_Frigate/freezer)
+"pK" = (
+/turf/simulated/wall/shuttle/raider,
+/area/ship/Sol_Frigate/hangar)
 "pL" = (
 /obj/effect/floor_decal/industrial/hatch/firefighting_closet,
 /obj/structure/closet/firecloset,
@@ -9597,9 +9608,6 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/head)
-"Ur" = (
-/turf/simulated/wall/shuttle/raider,
-/area/ship/Sol_Frigate/hangar)
 "Uu" = (
 /obj/structure/closet/crate/loot,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -42006,7 +42014,7 @@ hj
 MH
 cB
 cB
-fG
+bk
 AP
 HW
 PD
@@ -42264,17 +42272,17 @@ Dn
 DT
 nF
 jY
-AP
+fG
 ld
 hl
-Ur
-Ur
-Ur
-Ur
-Ur
-Ur
-Ur
-Ur
+pK
+pK
+pK
+pK
+pK
+pK
+pK
+pK
 eE
 eE
 eE
@@ -42524,7 +42532,7 @@ jY
 sj
 fw
 hl
-Ur
+pK
 WR
 dl
 ZH
@@ -42781,7 +42789,7 @@ UJ
 VY
 lO
 hl
-Ur
+pK
 bQ
 vK
 fb
@@ -43042,10 +43050,10 @@ ir
 fb
 Hw
 VK
-Ur
-Ur
-Ur
-Ur
+pK
+pK
+pK
+pK
 MO
 MO
 MO
@@ -43299,7 +43307,7 @@ zP
 fb
 Hw
 hm
-Ur
+pK
 At
 JF
 JF
@@ -43552,11 +43560,11 @@ yt
 yt
 NA
 hl
-Ur
+pK
 yB
 Hw
 VK
-Ur
+pK
 rn
 Yc
 ho
@@ -43809,12 +43817,12 @@ Iu
 yt
 NA
 hl
-Ur
+pK
 Ol
 YP
-Ur
-Ur
-Ur
+pK
+pK
+pK
 JF
 dS
 JF
@@ -44066,7 +44074,7 @@ QX
 yt
 uf
 hl
-Ur
+pK
 YL
 bf
 tz
@@ -44323,10 +44331,10 @@ Yz
 yt
 NA
 hl
-Ur
+pK
 XZ
 Hw
-Ur
+pK
 vO
 oN
 Lf
@@ -44580,12 +44588,12 @@ Qw
 yt
 NA
 hl
-Ur
+pK
 sX
 bf
 Pg
 mi
-Ur
+pK
 JF
 qF
 JY
@@ -44837,12 +44845,12 @@ nE
 yt
 ay
 hl
-Ur
+pK
 jp
 Hw
-Ur
-Ur
-Ur
+pK
+pK
+pK
 JF
 dS
 JF
@@ -45094,11 +45102,11 @@ pr
 yt
 NA
 hl
-Ur
+pK
 fq
 Hw
 gJ
-Ur
+pK
 rn
 Yc
 SK
@@ -45355,7 +45363,7 @@ ir
 uk
 Hw
 hm
-Ur
+pK
 rn
 JF
 JF
@@ -45612,10 +45620,10 @@ xi
 dL
 Ta
 Vc
-Ur
-Ur
-Ur
-Ur
+pK
+pK
+pK
+pK
 MO
 MO
 MO
@@ -45865,7 +45873,7 @@ UJ
 Vn
 or
 hl
-Ur
+pK
 HF
 iJ
 Yd
@@ -46122,7 +46130,7 @@ hR
 nr
 ng
 aK
-Ur
+pK
 qI
 qK
 LV
