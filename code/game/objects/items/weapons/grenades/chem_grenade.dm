@@ -11,7 +11,7 @@
 	var/state = 0
 	var/path = 0
 	var/obj/item/device/assembly_holder/detonator = null
-	var/list/beakers = new/list()
+	var/list/beakers = list()
 	var/list/allowed_containers = list(/obj/item/reagent_containers/glass/beaker, /obj/item/reagent_containers/glass/bottle)
 	var/affected_area = 3
 
@@ -25,6 +25,13 @@
 /obj/item/grenade/chem_grenade/Initialize()
 	. = ..()
 	create_reagents(1000)
+
+/obj/item/grenade/chem_grenade/Destroy()
+	for(var/obj/item/beaker in beakers)
+		qdel(beaker)
+	beakers.Cut()
+	QDEL_NULL(detonator)
+	return ..()
 
 /obj/item/grenade/chem_grenade/attack_self(mob/user as mob)
 	if(!stage || stage==1)
