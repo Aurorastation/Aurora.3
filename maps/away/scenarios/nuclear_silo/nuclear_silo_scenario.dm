@@ -1,5 +1,5 @@
 /singleton/scenario/nuclear_silo
-	name = "Week 5"
+	name = "Friends in Need"
 	desc = ""
 	scenario_site_id = "nuclear_silo"
 
