@@ -16,6 +16,8 @@
 #define SPATIAL_GRID_CONTENTS_TYPE_CLIENTS RECURSIVE_CONTENTS_CLIENT_MOBS
 ///all atmos machines are stored in this channel (I'm sorry kyler)
 #define SPATIAL_GRID_CONTENTS_TYPE_ATMOS "spatial_grid_contents_type_atmos"
+/// everything that can be targeted
+#define SPATIAL_GRID_CONTENTS_TYPE_TARGETS RECURSIVE_CONTENTS_AI_TARGETS
 
 #define ALL_CONTENTS_OF_CELL(cell) (cell.hearing_contents | cell.client_contents | cell.atmos_contents)
 

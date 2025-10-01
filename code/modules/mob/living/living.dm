@@ -942,6 +942,8 @@ default behaviour is:
 	if(old_mob)
 		old_mob = null
 
+	clear_from_target_grid()
+
 	//Remove contained mobs
 	if(loc)
 		for(var/mob/M in contents)
@@ -951,7 +953,6 @@ default behaviour is:
 			qdel(M)
 
 	QDEL_NULL(reagents)
-	clear_from_target_grid()
 
 	if(auras)
 		for(var/a in auras)
