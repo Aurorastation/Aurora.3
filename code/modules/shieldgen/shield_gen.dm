@@ -35,6 +35,7 @@
 		if(get_dir(possible_cap, src) == possible_cap.dir)
 			owned_capacitor = possible_cap
 			break
+	energy_field = new(src, get_shielded_turfs())
 	. = ..()
 
 /obj/machinery/shield_gen/Destroy()
@@ -122,7 +123,9 @@
 			return PROCESS_KILL
 
 	if(istype(energy_field))
-		energy_field.handle_strength()
+		var/required_energy = energy_field.get_required_energy()
+		var/assumed_charge = assume_charge(required_energy)
+		energy_field.handle_strength(assumed_charge)
 
 /**
  * Called whenever the field needs to take charge from the capacitor.
@@ -144,14 +147,13 @@
 	active = !active
 	update_icon()
 	if(active)
-		energy_field = new(src, get_shielded_turfs())
 		for(var/mob/M as anything in hearers(5,src))
 			to_chat(M, SPAN_NOTICE("[icon2html(src, M)] You hear heavy droning start up."))
+			energy_field.set_shielded_turfs(get_shielded_turfs())
 	else
 		for(var/mob/M as anything in hearers(5,src))
 			to_chat(M, SPAN_NOTICE("[icon2html(src, M)] You hear heavy droning fade out."))
-
-		qdel(energy_field)
+			energy_field.clear_field()
 
 /obj/machinery/shield_gen/update_icon()
 	if(stat & BROKEN)
@@ -193,6 +195,8 @@
 			locate(T.x + field_radius, T.y - field_radius + 1, max(connected_levels))\
 			)
 
+	return . - get_turf(src)
+
 /obj/machinery/shield_gen/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
@@ -209,8 +213,8 @@
 	data["field_radius"] = field_radius
 	data["min_field_radius"] = 1
 	data["max_field_radius"] = max_field_radius
-	if(istype(energy_field))
-		data = energy_field.add_field_ui_data(data)
+	data = energy_field.add_field_ui_data(data)
+
 	return data
 
 /obj/machinery/shield_gen/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
@@ -226,16 +230,13 @@
 			multiz = !multiz
 
 		if ("size_set")
-			if(energy_field)
-				field_radius = between(1, text2num(params["size_set"]), max_field_radius)
+			field_radius = between(1, text2num(params["size_set"]), max_field_radius)
 
 		if ("charge_set")
-			if(energy_field)
-				energy_field.strengthen_rate = (between(1, text2num(params["charge_set"]), (energy_field.max_strengthen_rate * 10)) / 10)
+			energy_field.strengthen_rate = (between(1, text2num(params["charge_set"]), (energy_field.max_strengthen_rate * 10)) / 10)
 
 		if ("field_set")
-			if(energy_field)
-				energy_field.target_field_strength = between(1, text2num(params["field_set"]), 10)
+			energy_field.target_field_strength = between(1, text2num(params["field_set"]), 10)
 
 	add_fingerprint(usr)
 

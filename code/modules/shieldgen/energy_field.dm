@@ -96,6 +96,7 @@
 
 /obj/effect/energy_field/process(seconds_per_tick)
 	if(!damage) // No need to process anymore.
+		update_strength()
 		return PROCESS_KILL
 
 	if(ticks_recovering)
@@ -127,6 +128,7 @@
 		density_check(TRUE)
 
 /obj/effect/energy_field/proc/update_strength()
+	SIGNAL_HANDLER
 	//if we take too much damage, drop out - the generator will bring us back up if we have enough power
 	var/old_density = density
 	var/shield_health = get_health()
