@@ -780,7 +780,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 				"You hear a loud metallic bang")
 
 /obj/machinery/power/apc/AltClick(mob/user)
-	if(Adjacent(user))
+	if(Adjacent(user) || issilicon(user))
 		add_fingerprint(user)
 		if(emagged)
 			to_chat(user, "The interface is broken.")
