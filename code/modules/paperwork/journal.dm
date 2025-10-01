@@ -25,9 +25,9 @@
 	. += "While the journal is open, use it in hand or use a pen on it to access the contents."
 
 /obj/item/journal/Destroy()
-	for(var/obj/item/folder/embedded/E in indices)
-		QDEL_LIST(E.contents)
-		qdel(E)
+	if (indices)
+		for(var/E in indices)
+			qdel(indices[E])
 	LAZYCLEARLIST(indices)
 	return ..()
 
