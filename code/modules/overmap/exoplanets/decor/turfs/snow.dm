@@ -32,6 +32,10 @@
 /turf/simulated/floor/exoplanet/snow/cold //temperature is -5 celsius
 	temperature = 268.15
 
+/turf/simulated/floor/exoplanet/snow/cold/nitrogen
+	initial_gas = list("nitrogen" = MOLES_CELLSTANDARD*1.66)
+	temperature = 245.15 // -28'C
+
 /turf/simulated/floor/exoplanet/permafrost
 	name = "permafrost"
 	gender = PLURAL
@@ -42,3 +46,7 @@
 
 /turf/simulated/floor/exoplanet/permafrost/cold //temperature is -5 celsius
 	temperature = 268.15
+
+/turf/simulated/floor/exoplanet/permafrost/cold/nitrogen
+	initial_gas = list("nitrogen" = MOLES_CELLSTANDARD*1.66)
+	temperature = 245.15 // -28'C

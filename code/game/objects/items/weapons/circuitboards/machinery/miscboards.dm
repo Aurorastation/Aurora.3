@@ -204,3 +204,24 @@
 		"/obj/item/stock_parts/micro_laser" = 1,
 		"/obj/item/stock_parts/manipulator" = 1,
 		"/obj/item/stock_parts/matter_bin" = 1)
+
+/obj/item/circuitboard/electrolyser
+	name = "circuit board (electrolyser)"
+	build_path = /obj/machinery/atmospherics/binary/electrolyser
+	board_type = BOARD_MACHINE
+	origin_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
+	req_components = list(
+		"/obj/item/stock_parts/capacitor" = 2,
+		"/obj/item/stock_parts/matter_bin" = 1,
+		"/obj/item/stack/cable_coil" = 10)
+
+/obj/item/circuitboard/ice_drill
+	name = "circuit board (ice drill)"
+	build_path = /obj/machinery/atmospherics/unary/ice_drill
+	board_type = BOARD_MACHINE
+	origin_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
+	req_components = list(
+		"/obj/item/stock_parts/capacitor" = 1,
+		"/obj/item/stock_parts/matter_bin" = 1,
+		"/obj/item/stock_parts/micro_laser" = 1,
+		"/obj/item/cell/high" = 1)

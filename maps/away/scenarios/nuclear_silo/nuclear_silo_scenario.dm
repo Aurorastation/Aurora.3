@@ -1,7 +1,6 @@
 /singleton/scenario/nuclear_silo
-	name = "Arctic Valley"
-	desc = "A small wooden village within a valley in an arctic environment, entirely unlabelled on starcharts. Scans indicate \
-			there may be more under the surface. As the SCCV Horizon is the closest vessel within range, it has been dispatched to make contact."
+	name = "Week 5"
+	desc = ""
 	scenario_site_id = "nuclear_silo"
 
 	min_player_amount = 0
@@ -22,18 +21,15 @@
 	)
 	default_outfit = /obj/outfit/admin/generic/nuclear_silo_crew
 	actor_accesses = list(/datum/access/nuclear_missile_silo_access, /datum/access/nuclear_missile_silo_access_high)
-	radio_frequency_name = "Arctic Valley"
+	radio_frequency_name = "Surveyor Outpost"
 
 	base_area = /area/nuclear_silo
 
 /singleton/scenario_announcements/nuclear_silo
 	horizon_announcement_title = "SCC Vessel Sensor Relay Network"
-	horizon_unrestrict_landing_message = "SCCV Horizon, an SCC scouting vessel detected a hitherto uncontacted community within a small arctic valley on an \
-	exoplanet within your current sector. All current starcharts indicate that this planet does not exist. Several hundred lifesigns have been detected on \
-	the surface, collected in scattered communities. The community within an arctic valley seems to have the most hospitable environment for landing, and \
-	as such you have been authorized to land and make contact with this group. You are what makes this chainlink unbreakable."
+	horizon_unrestrict_landing_message = "SCCV Horizon, the long range sensors have detected an icy dwarf planet nearby with an active outpost present. Standby for more details."
 
-	offship_announcement_message = "A small unlabelled arctic exoplanet has been located within the sector. Sapient lifesigns are detected. The coordinates \
+	offship_announcement_message = "A small unlabelled arctic exoplanet has been located within the sector. The coordinates \
 	have been registered on the flight deck."
 
 /singleton/role/nuclear_silo_crew/upper/villager

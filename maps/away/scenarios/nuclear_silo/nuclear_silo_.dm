@@ -34,11 +34,10 @@
 // --------------------------------------------------- sector
 
 /obj/effect/overmap/visitable/sector/nuclear_silo
-	name = "Unlabelled Arctic Exoplanet"
+	name = "Icy Exoplanet"
 	desc = "\
-		An arctic exoplanet not currently listed on available starcharts. \
-		Scans of the landing area indicate a small valley within the wider craggy mountains, with a frozen river running through it. \
-		Higher resolution scans show a small town within the valley, with biological signatures indicating a standard breathable atmosphere. \
+		An icy exoplanet not currently listed on available starcharts. \
+		Scans detect significant quantities of water-ice. An active outpost is also present. \
 		"
 	icon_state = "globe2"
 	color = "#f7e3e3"

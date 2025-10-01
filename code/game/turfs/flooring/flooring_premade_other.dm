@@ -9,6 +9,10 @@
 	icon = 'icons/turf/flooring/snow.dmi'
 	icon_state = "ice"
 
+/turf/simulated/floor/ice/event5
+	initial_gas = list("nitrogen" = MOLES_CELLSTANDARD*1.66)
+	temperature = 245.15 // -28'C
+
 /turf/simulated/floor/airless/ice
 	name = "ice"
 	icon = 'icons/turf/flooring/snow.dmi'
