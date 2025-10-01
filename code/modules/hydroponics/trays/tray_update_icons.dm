@@ -44,21 +44,6 @@
 
 /obj/machinery/portable_atmospherics/hydroponics/proc/do_update_icon(var/needed_state, var/plant_stage)
 	. = list()
-	if (mechanical)
-		if (needed_state & TRAY_LOW_HEALTH)
-			. += "over_lowhealth3"
-		if (needed_state & TRAY_LOW_WATER)
-			. += "over_lowwater3"
-		if (needed_state & TRAY_LOW_NUT)
-			. += "over_lownutri3"
-		if (needed_state & TRAY_ALERT)
-			. += "over_alert3"
-		if (needed_state & TRAY_HARVEST)
-			. += "over_harvest3"
-		if (needed_state & TRAY_STASIS)
-			. += "stasis"
-	if (needed_state & TRAY_COVERED)
-		. += "hydrocover"
 	if (needed_state & TRAY_PLANT_DEAD)
 		var/ikey = "[GET_SEED_TRAIT(seed, TRAIT_PLANT_ICON)]"
 		var/image/dead_overlay = SSplants.plant_icon_cache["[ikey]"]
@@ -78,6 +63,21 @@
 				harvest_overlay.color = GET_SEED_TRAIT(seed, TRAIT_PRODUCT_COLOUR)
 				SSplants.plant_icon_cache["product-[ikey]-[GET_SEED_TRAIT(seed, TRAIT_PRODUCT_COLOUR)]"] = harvest_overlay
 			. += harvest_overlay
+	if (mechanical)
+		if (needed_state & TRAY_LOW_HEALTH)
+			. += "over_lowhealth3"
+		if (needed_state & TRAY_LOW_WATER)
+			. += "over_lowwater3"
+		if (needed_state & TRAY_LOW_NUT)
+			. += "over_lownutri3"
+		if (needed_state & TRAY_ALERT)
+			. += "over_alert3"
+		if (needed_state & TRAY_HARVEST)
+			. += "over_harvest3"
+		if (needed_state & TRAY_STASIS)
+			. += "stasis"
+	if (needed_state & TRAY_COVERED)
+		. += "hydrocover"
 
 	SetOverlays(.)
 	icon_status = .
