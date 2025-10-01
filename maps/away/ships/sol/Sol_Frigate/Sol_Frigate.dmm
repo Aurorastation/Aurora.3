@@ -3338,7 +3338,7 @@
 	},
 /obj/machinery/button/toggle/door{
 	pixel_x = -32;
-	id = Solfrig_workshop;
+	id = "SFWS";
 	name = "Garage door"
 	},
 /turf/simulated/floor/tiled/dark,
