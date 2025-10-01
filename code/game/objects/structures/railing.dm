@@ -418,7 +418,7 @@
 
 	operating = TRUE
 	flick(density ? icon_state_opening : icon_state_closing, src)
-	playsound(get_turf(src), 'sound/machines/retractable_railing_openclose.ogg', 40)
+	playsound(get_turf(src), 'sound/machines/retractable_railing_openclose.ogg', 20)
 	if(density)
 		icon_state = icon_state_open
 		layer = open_layer
