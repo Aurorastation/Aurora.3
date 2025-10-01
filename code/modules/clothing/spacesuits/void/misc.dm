@@ -748,7 +748,7 @@
 
 /obj/item/clothing/suit/space/void/mining/himeo
 	name = "himeo mining voidsuit"
-	desc = "A simple but durable softsuit with a set of protective alloy plates commonly used by Himean astronauts. The suit life support console and torso plate contains a Himean flag patch."
+	desc = "A simple but durable softsuit with a set of protective alloy plates commonly used by Himean astronauts."
 	desc_extended = "The Type-78 'Fish Fur' Voidsuit is an aging yet popular design produced only on Himeo. The simple and affordable design means many Himeans are able to own their own spacesuits rather than have one provided to them by their employer.\
 	Its modular design means that they're adapted for use everywhere from the depths of Himeo to protect from debris, its surface to protect from the bitter cold, and in orbit, to work in the void. Their similarity to flightsuits have been noted, and the planet\
 	enjoys jolly cooperation with fellow designers from Crosk who seek to invent new suits to keep their racers going faster."
@@ -774,7 +774,7 @@
 
 /obj/item/clothing/suit/space/void/engineering/himeo
 	name = "himeo engineering voidsuit"
-	desc = "A simple but durable softsuit with a set of protective alloy plates commonly used by Himean astronauts. The suit life support console and torso plate contains a Himean flag patch. This particular model seems to have lead lining in it."
+	desc = "A simple but durable softsuit with a set of protective alloy plates commonly used by Himean astronauts. This particular model seems to have lead lining in it."
 	desc_extended = "The Type-78 'Fish Fur' Voidsuit is an aging yet popular design produced only on Himeo. The simple and affordable design means many Himeans are able to own their own spacesuits rather than have one provided to them by their employer.\
 	Its modular design means that they're adapted for use everywhere from the depths of Himeo to protect from debris, its surface to protect from the bitter cold, and in orbit, to work in the void. Their similarity to flightsuits have been noted, and the planet\
 	enjoys jolly cooperation with fellow designers from Crosk who seek to invent new suits to keep their racers going faster."
@@ -830,7 +830,7 @@
 
 /obj/item/clothing/suit/space/void/mining/himeo/tajara
 	name = "himeo mining voidsuit"
-	desc = "A simple but durable softsuit with a set of protective alloy plates commonly used by Himean astronauts. The suit life support console and torso plate contains a Himean flag patch. This suit looks fit for a Tajara."
+	desc = "A simple but durable softsuit with a set of protective alloy plates commonly used by Himean astronauts. This suit looks fit for a Tajara."
 	desc_extended = "The Type-78 'Fish Fur' Voidsuit is an aging yet popular design produced only on Himeo. The simple and affordable design means many Himeans are able to own their own spacesuits rather than have one provided to them by their employer.\
 	Its modular design means that they're adapted for use everywhere from the depths of Himeo to protect from debris, its surface to protect from the bitter cold, and in orbit, to work in the void. Their similarity to flightsuits have been noted, and the planet \
 	enjoys jolly cooperation with fellow designers from Crosk who seek to invent new suits to keep their racers going faster. They quickly found purchase among Himeo's population of Tajaran expatriates, who were shown how to modify and use the voidsuits. \
@@ -864,7 +864,7 @@
 
 /obj/item/clothing/suit/space/void/engineering/himeo/tajara
 	name = "himeo engineering voidsuit"
-	desc = "A simple but durable softsuit with a set of protective alloy plates commonly used by Himean astronauts. The suit life support console and torso plate contains a Himean flag patch. This particular model is fitted for Tajara and seems to have lead lining in it."
+	desc = "A simple but durable softsuit with a set of protective alloy plates commonly used by Himean astronauts. This particular model is fitted for Tajara and seems to have lead lining in it."
 	desc_extended = "The Type-78 'Fish Fur' Voidsuit is an aging yet popular design produced only on Himeo. The simple and affordable design means many Himeans are able to own their own spacesuits rather than have one provided to them by their employer.\
 	Its modular design means that they're adapted for use everywhere from the depths of Himeo to protect from debris, its surface to protect from the bitter cold, and in orbit, to work in the void. Their similarity to flightsuits have been noted, and the planet \
 	enjoys jolly cooperation with fellow designers from Crosk who seek to invent new suits to keep their racers going faster. They quickly found purchase among Himeo's population of Tajaran expatriates, who were shown how to modify and use the voidsuits. \

@@ -2263,7 +2263,7 @@
 /turf/simulated/floor/plating/cooled,
 /area/ship/dominian_unathi/portthrust)
 "qq" = (
-/obj/structure/janitorialcart/full,
+/obj/structure/cart/storage/janitorialcart/full,
 /obj/item/reagent_containers/glass/bucket,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/janitor)
@@ -3529,7 +3529,7 @@
 	},
 /obj/item/clothing/under/dominia/priest,
 /obj/item/clothing/accessory/dominia,
-/obj/item/clothing/accessory/poncho/dominia/red/surcoat,
+/obj/item/clothing/accessory/poncho/dominia_cape/tribunalist/surcoat,
 /obj/item/clothing/head/beret/dominia,
 /obj/machinery/light,
 /turf/simulated/floor/tiled/dark,

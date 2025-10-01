@@ -202,6 +202,21 @@
 	amount_per_transfer_from_this = 5
 	reagents_to_add = list(/singleton/reagent/antibodies = 60)
 
+/obj/item/reagent_containers/glass/beaker/vial/dexalin_plus
+	name = "dexalin plus vial"
+	desc = "A small vial of Dexalin Plus, a potent medication that aids in the re-oxygenating of blood cells."
+	reagents_to_add = list(/singleton/reagent/dexalin/plus = 15)
+
+/obj/item/reagent_containers/glass/beaker/vial/peridaxon
+	name = "peridaxon vial"
+	desc = "A small vial of Peridaxon, an advanced organ regenerative compound."
+	reagents_to_add = list(/singleton/reagent/peridaxon = 15)
+
+/obj/item/reagent_containers/glass/beaker/vial/arithrazine
+	name = "arithrazine vial"
+	desc = "A small vial of Arithrazine, a potent anti-radiation medication."
+	reagents_to_add = list(/singleton/reagent/arithrazine = 15)
+
 /obj/item/reagent_containers/glass/beaker/medcup
 	name = "medicine cup"
 	desc = "A glass medicine cup. Like a shot glass for medicine."

@@ -472,3 +472,32 @@
   - rscadd: Added ceres lance gear loadouts to the uplink, aswell as a nerfed bunker
       suit to the uplink.
   - rscadd: Added a modkit for ceres lance voidsuits.
+2025-08-30:
+  ASmallCuteCat:
+  - rscadd: Added snakes to the list of animals that can infest the ship.
+  FabianK3:
+  - rscadd: Added a new area, the Hangar Air Station. The hallway in front of the
+      pilot room on deck one has been repurposed to an air station allowing the hanger
+      crew to handle refilling shuttles with air and allowing them to dispose of waste
+      air safely.
+  Fyni:
+  - rscadd: Nerfs door rigged mines.
+2025-08-31:
+  ElorgRHG:
+  - imageadd: Resprited the himean voidsuits and its tajaran variants.
+  - rscdel: Removed the mention of a flagpatch on the himean voidsuits to reflect
+      the appearance of the actual sprites.
+  Hellfirejag:
+  - bugfix: Fixed mobs having an unintended high time delta. Things like organs should
+      no longer work several dozen times faster than expected.
+  - bugfix: You can now actually get drunk again(The unexpectedly high time delta
+      was the culprit here).
+  - rscadd: Stasis sources(Such as cryogenics, stasis bags, and stasis beds) now decrease
+      the rate at which brain damage is both healed and accumulated. Thus, they now
+      properly buy time for medics.
+  MattAtlas:
+  - bugfix: Fixes energy shields and energy swords blocking everything regardless
+      of block chance.
+  - balance: EMPs no longer travel through Z-levels.
+  hazelmouse:
+  - rscdel: Removed departmental cloaks from wardrobe vendors.

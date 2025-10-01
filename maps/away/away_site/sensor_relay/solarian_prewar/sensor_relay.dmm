@@ -606,6 +606,13 @@
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/sensor_relay/janitor)
+"abT" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, sensor monitoring"
+	},
+/turf/simulated/floor/plating,
+/area/sensor_relay/monitoring)
 "abV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1547,7 +1554,7 @@
 	},
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/random/dirt_75,
-/obj/structure/janitorialcart/full{
+/obj/structure/cart/storage/janitorialcart/full{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -1778,17 +1785,6 @@
 /obj/structure/extinguisher_cabinet/south,
 /turf/simulated/floor/tiled/full,
 /area/sensor_relay/dining)
-"aDR" = (
-/obj/structure/lattice/catwalk/indoor,
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/effect/overmap/visitable/sector/sensor_relay,
-/turf/simulated/floor/airless,
-/area/sensor_relay)
 "aDS" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
@@ -2607,6 +2603,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
+/obj/effect/overmap/visitable/ship/stationary/sensor_relay,
 /turf/simulated/floor/plating,
 /area/sensor_relay)
 "aYV" = (
@@ -2643,6 +2640,23 @@
 "aZQ" = (
 /turf/simulated/floor/airless,
 /area/sensor_relay)
+"bpd" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/structure/lattice/catwalk/indoor,
+/obj/effect/landmark/entry_point/east{
+	name = "east, upper solar array"
+	},
+/turf/simulated/floor/airless,
+/area/sensor_relay)
 "bNO" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -2677,6 +2691,9 @@
 	},
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
+	},
+/obj/effect/landmark/entry_point/north{
+	name = "north, southern airlock"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/sensor_relay/airlocks)
@@ -2748,6 +2765,7 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
 	},
+/obj/machinery/iff_beacon,
 /turf/simulated/floor/airless,
 /area/sensor_relay)
 "deH" = (
@@ -2772,6 +2790,12 @@
 "djv" = (
 /turf/simulated/wall,
 /area/sensor_relay/dining)
+"dnP" = (
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, EVA"
+	},
+/turf/simulated/wall,
+/area/sensor_relay/workshop)
 "drD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan,
 /obj/effect/map_effect/marker/airlock{
@@ -2947,6 +2971,9 @@
 /area/sensor_relay)
 "evX" = (
 /obj/structure/lattice/catwalk/indoor,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, northern airlock"
+	},
 /turf/simulated/floor/airless,
 /area/sensor_relay/airlocks)
 "eGA" = (
@@ -2985,6 +3012,23 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
+/area/sensor_relay)
+"eSR" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/structure/lattice/catwalk/indoor,
+/obj/effect/landmark/entry_point/east{
+	name = "east, lower solar array"
+	},
+/turf/simulated/floor/airless,
 /area/sensor_relay)
 "eVO" = (
 /obj/structure/table/wood,
@@ -3447,6 +3491,23 @@
 /obj/item/hullbeacon/red,
 /turf/space/dynamic,
 /area/space)
+"oBH" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/structure/lattice/catwalk/indoor,
+/obj/effect/landmark/entry_point/west{
+	name = "west, upper solar array"
+	},
+/turf/simulated/floor/airless,
+/area/sensor_relay)
 "oCr" = (
 /obj/structure/cable/yellow{
 	d1 = 4;
@@ -3712,6 +3773,13 @@
 /obj/item/device/radio/intercom/ship/west,
 /turf/simulated/floor/tiled,
 /area/sensor_relay)
+"sEV" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/landmark/entry_point/north{
+	name = "north, hydroponics"
+	},
+/turf/simulated/floor/plating,
+/area/sensor_relay/hydroponics)
 "sGj" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/plating,
@@ -3720,6 +3788,23 @@
 /obj/effect/shuttle_landmark/sensor_relay/northwest,
 /turf/template_noop,
 /area/space)
+"sJK" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/structure/lattice/catwalk/indoor,
+/obj/effect/landmark/entry_point/west{
+	name = "west, lower solar array"
+	},
+/turf/simulated/floor/airless,
+/area/sensor_relay)
 "sMu" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/plating,
@@ -3943,7 +4028,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "0-8"
 	},
-/turf/space/dynamic,
+/turf/simulated/floor/airless,
 /area/sensor_relay)
 "vYn" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
@@ -4050,6 +4135,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/sensor_relay/airlocks)
+"xxn" = (
+/obj/effect/landmark/entry_point/north{
+	name = "north, bedroom"
+	},
+/turf/simulated/wall,
+/area/sensor_relay/quarters)
 "xyP" = (
 /obj/structure/closet/secure_closet/freezer,
 /obj/effect/floor_decal/corner/black/diagonal,
@@ -27095,11 +27186,11 @@ vmy
 vmy
 cOx
 vmy
-vmy
-vmy
 cOx
 vmy
 vmy
+vmy
+cOx
 vmy
 cOx
 vmy
@@ -27603,7 +27694,7 @@ anw
 anw
 cOx
 aEs
-ohn
+bpd
 aQE
 cOx
 aEs
@@ -27619,7 +27710,7 @@ ohn
 aQE
 cOx
 aEs
-ohn
+eSR
 aQE
 cOx
 anw
@@ -32227,7 +32318,7 @@ anw
 anw
 anw
 anw
-aDR
+cqN
 asy
 asy
 asy
@@ -32999,7 +33090,7 @@ anw
 anw
 anw
 asy
-sMu
+abT
 aKt
 aLP
 aHe
@@ -33273,7 +33364,7 @@ azs
 aAu
 uYz
 kmb
-mqZ
+sEV
 aZn
 anw
 anw
@@ -38156,7 +38247,7 @@ axZ
 jOf
 tLJ
 dAx
-aNP
+xxn
 aZn
 anw
 anw
@@ -38396,7 +38487,7 @@ anw
 anw
 anw
 asy
-lcm
+dnP
 aDv
 amT
 adO
@@ -43537,7 +43628,7 @@ anw
 anw
 cOx
 aEs
-xXj
+oBH
 aQE
 cOx
 aEs
@@ -43553,7 +43644,7 @@ xXj
 aQE
 cOx
 aEs
-xXj
+sJK
 aQE
 cOx
 anw
