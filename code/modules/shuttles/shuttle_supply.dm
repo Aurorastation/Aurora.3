@@ -301,8 +301,7 @@
 
 	if(isliving(AM))
 		var/mob/living/L = AM
-		L.death()
-		L.adjustBruteLoss(rand(200,400))
+		L.adjustBruteLoss(rand(30,50))
 		L.dir = pick(GLOB.cardinals)
 
 #undef SHAFT_WIDTH
