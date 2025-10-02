@@ -172,7 +172,7 @@
 	if(field_radius > 0 && T)
 		var/connected_levels = list(T.z)
 		if(multiz)
-			for(var/turf/connected_z_turf as anything in (getzabove(src) + getzbelow(src)))
+			for(var/turf/connected_z_turf as anything in (getzabove(T) + getzbelow(T)))
 				connected_levels += connected_z_turf.z
 
 		. += block(\
