@@ -513,6 +513,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/port_thrusters)
+"cs" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 8
+	},
+/obj/structure/sign/flag/zora,
+/turf/simulated/floor/tiled/dark,
+/area/ship/Sol_Frigate/hangar)
 "cu" = (
 /obj/structure/bed/stool/chair,
 /obj/effect/floor_decal/corner/paleblue/diagonal,
@@ -557,6 +564,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/Starboard_docking_port)
+"cD" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 8
+	},
+/obj/structure/sign/flag/biesel,
+/turf/simulated/floor/tiled/dark,
+/area/ship/Sol_Frigate/hangar)
 "cE" = (
 /turf/simulated/wall/shuttle/raider,
 /area/ship/Sol_Frigate/armoury)
@@ -3613,13 +3627,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/Solfrig_shuttle)
-"pU" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 8
-	},
-/obj/structure/sign/flag/biesel,
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/hangar)
 "pW" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/light{
@@ -7231,13 +7238,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/safe_room)
-"HL" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 8
-	},
-/obj/structure/sign/flag/zora,
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/hangar)
 "HM" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark,
@@ -45127,7 +45127,7 @@ ay
 hl
 pK
 jp
-pU
+cD
 pK
 pK
 pK
@@ -45384,7 +45384,7 @@ Xq
 hl
 pK
 fq
-HL
+cs
 gJ
 pK
 rn
