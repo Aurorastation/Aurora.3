@@ -76,7 +76,7 @@
 		return FALSE
 	for(var/area/A in shuttle.shuttle_area)
 		var/list/translation = get_turf_translation(get_turf(shuttle.current_location), get_turf(src), A.contents)
-		if(check_collision(base_area, list_values(translation)))
+		if(check_collision(list_values(translation)))
 			return FALSE
 	var/conn = GetConnectedZlevels(z)
 	for(var/w in (z - shuttle.multiz) to z)
@@ -109,15 +109,23 @@
 	clear_landing_indicators()
 	activate_ghostroles()
 
-/proc/check_collision(area/target_area, list/target_turfs)
+/proc/check_collision(list/target_turfs)
 	for(var/target_turf in target_turfs)
 		var/turf/target = target_turf
+
 		if(!target)
 			return TRUE //collides with edge of map
-		if(target.loc != target_area)
-			return TRUE //collides with another area
+
+		// IMPORTANT: The below area check is commented out as it is not compatible with the Horizon,
+		// which has docking ports with clashing turfs + areas! There's no good reason for this not to
+		// be re-enabled once the server's primary map doesn't have such poorly mapped docking ports.
+		// It being disabled shouldn't cause too many problems in the meantime. Hopefully.
+		// if(target.loc != target_area)
+		// 	return TRUE //clashes with another area
+
 		if(target.density)
 			return TRUE //dense turf
+
 	return FALSE
 
 //Self-naming/numbering ones.
