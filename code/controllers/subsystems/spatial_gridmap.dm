@@ -601,7 +601,7 @@ SUBSYSTEM_DEF(spatial_grid)
 		remove_from_pre_init_queue(to_remove)//the spatial grid doesnt exist yet, so just take it out of the queue
 		return
 
-#ifdef UNIT_TESTS
+#ifdef UNIT_TEST
 	if(untracked_movable_error(to_remove))
 		find_hanging_cell_refs_for_movable(to_remove, remove_from_cells=FALSE) //dont remove from cells because we should be able to see 2 errors
 		return
