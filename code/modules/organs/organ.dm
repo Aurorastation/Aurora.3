@@ -439,7 +439,7 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 	var/turf/T = get_turf(owner)
 	// to avoid brains and things like that getting put into nullspace and thus entering spatial grids
 	if(!isnull(T))
-		loc = get_turf(owner)
+		loc = T
 	START_PROCESSING(SSprocessing, src)
 	rejecting = null
 	if (!reagents)
