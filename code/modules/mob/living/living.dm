@@ -942,8 +942,6 @@ default behaviour is:
 	if(old_mob)
 		old_mob = null
 
-	clear_from_target_grid()
-
 	//Remove contained mobs
 	if(loc)
 		for(var/mob/M in contents)

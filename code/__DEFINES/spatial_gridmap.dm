@@ -19,7 +19,7 @@
 /// everything that can be targeted
 #define SPATIAL_GRID_CONTENTS_TYPE_TARGETS RECURSIVE_CONTENTS_AI_TARGETS
 
-#define ALL_CONTENTS_OF_CELL(cell) (cell.hearing_contents | cell.client_contents | cell.atmos_contents)
+#define ALL_CONTENTS_OF_CELL(cell) (cell.hearing_contents | cell.client_contents | cell.atmos_contents | cell.target_contents)
 
 ///whether movable is itself or containing something which should be in one of the spatial grid channels.
 #define HAS_SPATIAL_GRID_CONTENTS(movable) (movable.spatial_grid_key)
@@ -54,4 +54,5 @@
 #define GRID_CELL_REMOVE_ALL(cell, movable) \
 	GRID_CELL_REMOVE(cell.hearing_contents, movable) \
 	GRID_CELL_REMOVE(cell.client_contents, movable) \
-	GRID_CELL_REMOVE(cell.atmos_contents, movable)
+	GRID_CELL_REMOVE(cell.atmos_contents, movable) \
+	GRID_CELL_REMOVE(cell.target_contents, movable)
