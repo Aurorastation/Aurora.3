@@ -436,7 +436,10 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 	var/obj/item/organ/external/affected = owner.get_organ(parent_organ)
 	if(affected) affected.internal_organs -= src
 
-	loc = get_turf(owner)
+	var/turf/T = get_turf(owner)
+	// to avoid brains and things like that getting put into nullspace and thus entering spatial grids
+	if(!isnull(T))
+		loc = get_turf(owner)
 	START_PROCESSING(SSprocessing, src)
 	rejecting = null
 	if (!reagents)
