@@ -77,7 +77,7 @@ export const ShieldGenerator = (props, context) => {
                   minValue={data.min_field_radius}
                   maxValue={data.max_field_radius}
                   onDrag={(e, value) => act('size_set', { size_set: value })}
-                /> 
+                />
               </LabeledList.Item>
               <LabeledList.Item label="Charge Rate">
                 <NumberInput
