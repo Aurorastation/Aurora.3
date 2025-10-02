@@ -513,13 +513,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/port_thrusters)
-"cs" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 8
-	},
-/obj/structure/sign/flag/zora,
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/hangar)
 "cu" = (
 /obj/structure/bed/stool/chair,
 /obj/effect/floor_decal/corner/paleblue/diagonal,
@@ -564,13 +557,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/Starboard_docking_port)
-"cD" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 8
-	},
-/obj/structure/sign/flag/biesel,
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/hangar)
 "cE" = (
 /turf/simulated/wall/shuttle/raider,
 /area/ship/Sol_Frigate/armoury)
@@ -1253,7 +1239,6 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/structure/sign/flag/elyra,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hangar)
 "fs" = (
@@ -2162,7 +2147,6 @@
 	dir = 5
 	},
 /obj/machinery/power/apc/north,
-/obj/structure/sign/flag/coalition,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hangar)
 "jt" = (
@@ -8782,7 +8766,6 @@
 /obj/machinery/media/jukebox/audioconsole/wall{
 	pixel_y = 33
 	},
-/obj/item/reagent_containers/food/drinks/bottle/champagne,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hangar)
 "Oo" = (
@@ -10776,7 +10759,6 @@
 	dir = 8
 	},
 /obj/machinery/light,
-/obj/item/flamethrower/full,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hangar)
 "YQ" = (
@@ -45127,7 +45109,7 @@ ay
 hl
 pK
 jp
-cD
+Hw
 pK
 pK
 pK
@@ -45384,7 +45366,7 @@ Xq
 hl
 pK
 fq
-cs
+Hw
 gJ
 pK
 rn
