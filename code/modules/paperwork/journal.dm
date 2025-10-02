@@ -172,3 +172,12 @@
 	icon_state = "notepad_scc"
 	item_state = "notepad_scc"
 	color = COLOR_WHITE
+
+/obj/item/journal/notepad/scc/filled
+
+/obj/item/journal/notepad/scc/filled/Initialize()
+	. = ..()
+	var/obj/item/folder/embedded/E = generate_index("Notepad")
+	for(var/i = 1 to 5)
+		new /obj/item/paper(E)
+	update_icon()
