@@ -1,0 +1,9 @@
+
+author: Mneme
+
+delete-after: True
+
+changes:
+  - rscadd: "Created a control hub system that allows for the control of multiple different types of buttons from one location."
+  - rscadd: "Created a light switch variant that can control the color and brightness of the lighting."
+  - qol: "Remodeled the Bar, most notably eliminating the barely used lounge at the top of the bar. "

@@ -108,3 +108,17 @@
 
 /obj/structure/curtain/open/shower/security
 	color = "#AA0000"
+
+/obj/structure/curtain/open/bar
+	name = "curtain"
+	color = "#42443A"
+	alpha = 210
+
+/obj/structure/curtain/open/bar/toggle()
+	src.set_opacity(!src.opacity)
+	if(opacity)
+		icon_state = "closed"
+		layer = ABOVE_ABOVE_HUMAN_LAYER
+	else
+		icon_state = "open"
+		layer = ABOVE_ABOVE_HUMAN_LAYER
