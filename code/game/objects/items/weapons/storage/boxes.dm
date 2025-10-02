@@ -29,6 +29,8 @@
 	icon_state = "box"
 	item_state = "box"
 	contained_sprite = TRUE
+	color = COLOR_CARDBOARD
+	var/label = "label"
 	var/illustration = "writing"
 
 	// BubbleWrap - if set, can be folded (when empty) into a sheet of cardboard
@@ -62,6 +64,7 @@
 	. = ..()
 	health = maxHealth
 	if(illustration)
+		AddOverlays(label)
 		AddOverlays(illustration)
 
 /obj/item/storage/box/proc/damage(var/severity)
@@ -240,171 +243,194 @@
 	illustration = "dna"
 	starts_with = list(/obj/item/dnainjector/h2m = 3, /obj/item/dnainjector/m2h = 3)
 
-/obj/item/storage/box/tungstenslugs
-	name = "box of compact tungsten slugs"
+// Ammunition
+
+/obj/item/storage/box/ammo
+	name = "ammo box"
 	desc = "A box with several compact tungsten slugs, aimed for use in gauss carbines."
 	icon_state = "ammobox"
 	item_state = "ammobox"
 	illustration = null
 	drop_sound = 'sound/items/drop/ammobox.ogg'
 	pickup_sound = 'sound/items/pickup/ammobox.ogg'
+
+/obj/item/storage/box/ammo/tungstenslugs
+	name = "box of compact tungsten slugs"
+	desc = "A box with several compact tungsten slugs, aimed for use in gauss carbines."
 	starts_with = list(/obj/item/ammo_casing/gauss/carbine = 4)
 
-/obj/item/storage/box/blanks
-	name = "box of blank shells"
+/obj/item/storage/box/ammo/sniperammo
+	name = "box of 14.5mm shells"
+	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
+	starts_with = list(/obj/item/ammo_casing/a145 = 7)
+
+/obj/item/storage/box/ammo/ammo10mm
+	name = "box of 10mm shells"
+	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
+	starts_with = list(/obj/item/ammo_casing/c10mm = 10)
+
+/obj/item/storage/box/ammo/governmentammo
+	name = "box of .45-70 Govt. rounds"
+	desc = "It has a picture of a rifle shell and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
+	starts_with = list(/obj/item/ammo_casing/govt = 8)
+
+// Shells
+
+/obj/item/storage/box/shells
+	name = "empty shotgun shell box"
 	desc = "It has a picture of a shotgun shell and several warning symbols on the front."
 	icon_state = "shellbox"
 	item_state = "shellbox"
 	illustration = "blankshot"
 	drop_sound = 'sound/items/drop/ammobox.ogg'
 	pickup_sound = 'sound/items/pickup/ammobox.ogg'
+
+/obj/item/storage/box/shell/tranquilizer
+	name = "box of tranquilizer darts"
+	desc = "It has a picture of a tranquilizer dart and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
+	illustration = "incendiaryshot"
+	starts_with = list(/obj/item/ammo_casing/tranq = 8)
+
+/obj/item/storage/box/shells/blanks
+	name = "box of blank shells"
+	desc = "It has a picture of a shotgun shell and several warning symbols on the front."
+	illustration = "blankshot"
 	starts_with = list(/obj/item/ammo_casing/shotgun/blank = 8)
 
-/obj/item/storage/box/beanbags
+/obj/item/storage/box/shells/beanbags
 	name = "box of beanbag shells"
 	desc = "It has a picture of a shotgun shell and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
-	icon_state = "shellbox"
-	item_state = "shellbox"
 	illustration = "beanshot"
-	drop_sound = 'sound/items/drop/ammobox.ogg'
-	pickup_sound = 'sound/items/pickup/ammobox.ogg'
 	starts_with = list(/obj/item/ammo_casing/shotgun/beanbag = 8)
 
-/obj/item/storage/box/shotgunammo
+/obj/item/storage/box/shells/slugs
 	name = "box of shotgun slugs"
 	desc = "It has a picture of a shotgun shell and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
-	icon_state = "shellbox"
-	item_state = "shellbox"
 	illustration = "lethalslug"
-	drop_sound = 'sound/items/drop/ammobox.ogg'
-	pickup_sound = 'sound/items/pickup/ammobox.ogg'
 	starts_with = list(/obj/item/ammo_casing/shotgun = 8)
 
-/obj/item/storage/box/shotgunshells
+/obj/item/storage/box/shells/buckshot
 	name = "box of shotgun shells"
 	desc = "It has a picture of a shotgun shell and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
-	icon_state = "shellbox"
-	item_state = "shellbox"
 	illustration = "lethalshell"
-	drop_sound = 'sound/items/drop/ammobox.ogg'
-	pickup_sound = 'sound/items/pickup/ammobox.ogg'
 	starts_with = list(/obj/item/ammo_casing/shotgun/pellet = 8)
 
-/obj/item/storage/box/flashshells
+/obj/item/storage/box/shells/flashshells
 	name = "box of illumination shells"
 	desc = "It has a picture of a shotgun shell and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
-	icon_state = "shellbox"
-	item_state = "shellbox"
 	illustration = "illumshot"
-	drop_sound = 'sound/items/drop/ammobox.ogg'
-	pickup_sound = 'sound/items/pickup/ammobox.ogg'
 	starts_with = list(/obj/item/ammo_casing/shotgun/flash = 8)
 
-/obj/item/storage/box/stunshells
+/obj/item/storage/box/shells/stunshells
 	name = "box of stun shells"
 	desc = "It has a picture of a shotgun shell and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
-	icon_state = "shellbox"
-	item_state = "shellbox"
 	illustration = "stunshot"
-	drop_sound = 'sound/items/drop/ammobox.ogg'
-	pickup_sound = 'sound/items/pickup/ammobox.ogg'
 	starts_with = list(/obj/item/ammo_casing/shotgun/stunshell = 8)
 
-/obj/item/storage/box/practiceshells
+/obj/item/storage/box/shells/practiceshells
 	name = "box of practice shells"
 	desc = "It has a picture of a shotgun shell and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
-	icon_state = "shellbox"
-	item_state = "shellbox"
 	illustration = "blankshot"
-	drop_sound = 'sound/items/drop/ammobox.ogg'
-	pickup_sound = 'sound/items/pickup/ammobox.ogg'
 	starts_with = list(/obj/item/ammo_casing/shotgun/practice = 8)
 
-/obj/item/storage/box/haywireshells
+/obj/item/storage/box/shells/haywireshells
 	name = "box of haywire shells"
 	desc = "It has a picture of a shotgun shell and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
-	icon_state = "shellbox"
-	item_state = "shellbox"
 	illustration = "empshot"
-	drop_sound = 'sound/items/drop/ammobox.ogg'
-	pickup_sound = 'sound/items/pickup/ammobox.ogg'
 	starts_with = list(/obj/item/ammo_casing/shotgun/emp = 8)
 
-/obj/item/storage/box/incendiaryshells
+/obj/item/storage/box/shells/incendiaryshells
 	name = "box of incendiary shells"
 	desc = "It has a picture of a shotgun shell and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
-	icon_state = "shellbox"
-	item_state = "shellbox"
 	illustration = "incendiaryshot"
-	drop_sound = 'sound/items/drop/ammobox.ogg'
-	pickup_sound = 'sound/items/pickup/ammobox.ogg'
 	starts_with = list(/obj/item/ammo_casing/shotgun/incendiary = 8)
 
-/obj/item/storage/box/trackingslugs
+/obj/item/storage/box/shells/trackingslugs
 	name = "box of tracking slugs"
 	desc = "It has a picture of a shotgun shell and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
-	icon_state = "shellbox"
-	item_state = "shellbox"
 	illustration = "trackingshot"
-	drop_sound = 'sound/items/drop/ammobox.ogg'
-	pickup_sound = 'sound/items/pickup/ammobox.ogg'
 	starts_with = list(/obj/item/ammo_casing/shotgun/tracking = 4)
 
-/obj/item/storage/box/wallgunammo
+/obj/item/storage/box/shells/wallgunammo
 	name = "box of wall gun slugs"
 	desc = "It has a picture of a shotgun shell and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
-	icon_state = "shellbox"
-	item_state = "shellbox"
 	illustration = "lethalslug"
-	drop_sound = 'sound/items/drop/ammobox.ogg'
-	pickup_sound = 'sound/items/pickup/ammobox.ogg'
 	starts_with = list(/obj/item/ammo_casing/shotgun/moghes = 8)
 
-/obj/item/storage/box/sniperammo
-	name = "box of 14.5mm shells"
-	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
-	icon_state = "ammobox"
-	item_state = "ammobox"
-	illustration = null
-	drop_sound = 'sound/items/drop/ammobox.ogg'
-	pickup_sound = 'sound/items/pickup/ammobox.ogg'
-	starts_with = list(/obj/item/ammo_casing/a145 = 7)
+// Tactical boxes
 
-/obj/item/storage/box/ammo10mm
-	name = "box of 10mm shells"
-	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
-	icon_state = "ammobox"
-	item_state = "ammobox"
-	illustration = null
-	drop_sound = 'sound/items/drop/ammobox.ogg'
-	pickup_sound = 'sound/items/pickup/ammobox.ogg'
-	starts_with = list(/obj/item/ammo_casing/c10mm = 10)
-
-/obj/item/storage/box/governmentammo
-	name = "box of .45-70 Govt. rounds"
-	desc = "It has a picture of a rifle shell and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
-	icon_state = "ammobox"
-	item_state = "ammobox"
-	illustration = null
-	drop_sound = 'sound/items/drop/ammobox.ogg'
-	pickup_sound = 'sound/items/pickup/ammobox.ogg'
-	starts_with = list(/obj/item/ammo_casing/govt = 8)
-
-/obj/item/storage/box/flashbangs
-	name = "box of flashbangs"
-	desc = "A box containing 7 antipersonnel flashbang grenades.<br> WARNING: These devices are extremely dangerous and can cause blindness or deafness in repeated use."
+/obj/item/storage/box/tactical
+	name = "tactical equipment box"
 	icon_state = "secbox"
 	item_state = "secbox"
+
+/obj/item/storage/box/tactical/flashbangs
+	name = "box of flashbangs"
+	desc = "A box containing 7 antipersonnel flashbang grenades.<br> WARNING: These devices are extremely dangerous and can cause blindness or deafness in repeated use."
 	illustration = "flashbang"
 	starts_with = list(/obj/item/grenade/flashbang = 7)
 
-/obj/item/storage/box/stingers
+/obj/item/storage/box/tactical/stingers
 	name = "box of stinger grenades"
 	desc = "A box containing 7 antipersonnel stinger grenades. <br> WARNING: These devices are extremely dangerous and can cause injury."
-	icon_state = "secbox"
-	item_state = "secbox"
 	illustration = "stinger"
 	starts_with = list(/obj/item/grenade/stinger = 7)
+
+/obj/item/storage/box/tactical/teargas
+	name = "box of pepperspray grenades"
+	desc = "A box containing 7 tear gas grenades. A gas mask is printed on the label.<br> WARNING: Exposure carries risk of serious injury or death. Keep away from persons with lung conditions."
+	illustration = "grenade"
+	starts_with = list(/obj/item/grenade/chem_grenade/teargas = 6)
+
+/obj/item/storage/box/tactical/smokebombs
+	name = "box of smoke grenades"
+	desc = "A box full of smoke grenades, used by special law enforcement teams and military organisations. Provides cover, confusion, and distraction."
+	illustration = "grenade"
+	starts_with = list(/obj/item/grenade/smokebomb = 7)
+
+/obj/item/storage/box/tactical/emps
+	name = "box of emp grenades"
+	desc = "A box containing 5 military grade EMP grenades.<br> WARNING: Do not use near unshielded electronics or biomechanical augmentations, death or permanent paralysis may occur."
+	illustration = "emp"
+	starts_with = list(/obj/item/grenade/empgrenade = 5)
+
+/obj/item/storage/box/tactical/smokes
+	name = "box of smoke bombs"
+	desc = "A box containing 5 smoke bombs."
+	illustration = "grenade"
+	starts_with = list(/obj/item/grenade/smokebomb = 5)
+
+/obj/item/storage/box/tactical/anti_photons
+	name = "box of anti-photon grenades"
+	desc = "A box containing 5 experimental photon disruption grenades."
+	illustration = "grenade"
+	starts_with = list(/obj/item/grenade/anti_photon = 5)
+
+/obj/item/storage/box/tactical/frags
+	name = "box of frag grenades"
+	desc = "A box containing 5 military grade fragmentation grenades.<br> WARNING: Live explosives. Misuse may result in serious injury or death."
+	illustration = "grenade"
+	starts_with = list(/obj/item/grenade/frag = 5)
+
+/obj/item/storage/box/tactical/napalm
+	name = "box of napalm grenades"
+	desc = "A box containing 3 napalm grenades."
+	illustration = "grenade"
+	starts_with = list(/obj/item/grenade/napalm = 3)
+
+/obj/item/storage/box/tactical/cardox
+	name = "box of cardox grenades"
+	desc = "A box containing 5 experimental cardox grenades."
+	illustration = "grenade"
+	starts_with = list(/obj/item/grenade/chem_grenade/large/phoroncleaner = 5)
+
+/obj/item/storage/box/tactical/trackimp
+	name = "boxed tracking implant kit"
+	desc = "Box full of scum-bag tracking utensils."
+	illustration = "implant"
+	starts_with = list(/obj/item/implantcase/tracking = 4, /obj/item/implanter = 1, /obj/item/implantpad = 1, /obj/item/locator = 1)
+
+// Firing pins
 
 /obj/item/storage/box/firingpins
 	name = "box of firing pins"
@@ -454,79 +480,6 @@
 	desc = "A box containing eight electro-tethers, used primarily to keep track of partners during expeditions."
 	starts_with = list(/obj/item/tethering_device = 8)
 	make_exact_fit = TRUE
-
-/obj/item/storage/box/teargas
-	name = "box of pepperspray grenades"
-	desc = "A box containing 7 tear gas grenades. A gas mask is printed on the label.<br> WARNING: Exposure carries risk of serious injury or death. Keep away from persons with lung conditions."
-	icon_state = "secbox"
-	item_state = "secbox"
-	illustration = "grenade"
-	starts_with = list(/obj/item/grenade/chem_grenade/teargas = 6)
-
-/obj/item/storage/box/smokebombs
-	name = "box of smoke grenades"
-	desc = "A box full of smoke grenades, used by special law enforcement teams and military organisations. Provides cover, confusion, and distraction."
-	icon_state = "secbox"
-	item_state = "secbox"
-	illustration = "grenade"
-	starts_with = list(/obj/item/grenade/smokebomb = 7)
-
-/obj/item/storage/box/emps
-	name = "box of emp grenades"
-	desc = "A box containing 5 military grade EMP grenades.<br> WARNING: Do not use near unshielded electronics or biomechanical augmentations, death or permanent paralysis may occur."
-	icon_state = "secbox"
-	item_state = "secbox"
-	illustration = "emp"
-	starts_with = list(/obj/item/grenade/empgrenade = 5)
-
-/obj/item/storage/box/smokes
-	name = "box of smoke bombs"
-	desc = "A box containing 5 smoke bombs."
-	icon_state = "secbox"
-	item_state = "secbox"
-	illustration = "grenade"
-	starts_with = list(/obj/item/grenade/smokebomb = 5)
-
-/obj/item/storage/box/anti_photons
-	name = "box of anti-photon grenades"
-	desc = "A box containing 5 experimental photon disruption grenades."
-	icon_state = "secbox"
-	item_state = "secbox"
-	illustration = "grenade"
-	starts_with = list(/obj/item/grenade/anti_photon = 5)
-
-/obj/item/storage/box/frags
-	name = "box of frag grenades"
-	desc = "A box containing 5 military grade fragmentation grenades.<br> WARNING: Live explosives. Misuse may result in serious injury or death."
-	icon_state = "secbox"
-	item_state = "secbox"
-	illustration = "grenade"
-	starts_with = list(/obj/item/grenade/frag = 5)
-
-/obj/item/storage/box/grenades/napalm
-	name = "box of napalm grenades"
-	desc = "A box containing 3 napalm grenades."
-	icon_state = "secbox"
-	item_state = "secbox"
-	illustration = "grenade"
-	starts_with = list(/obj/item/grenade/napalm = 3)
-
-/obj/item/storage/box/cardox
-	name = "box of cardox grenades"
-	desc = "A box containing 5 experimental cardox grenades."
-	icon_state = "secbox"
-	item_state = "secbox"
-	illustration = "grenade"
-	starts_with = list(/obj/item/grenade/chem_grenade/large/phoroncleaner = 5)
-
-/obj/item/storage/box/trackimp
-	name = "boxed tracking implant kit"
-	desc = "Box full of scum-bag tracking utensils."
-	icon_state = "secbox"
-	item_state = "secbox"
-	illustration = "implant"
-	starts_with = list(/obj/item/implantcase/tracking = 4, /obj/item/implanter = 1, /obj/item/implantpad = 1, /obj/item/locator = 1)
-
 
 /obj/item/storage/box/chemimp
 	name = "boxed chemical implant kit"
@@ -965,16 +918,6 @@
 	name = "box of crab legs"
 	desc = "A box filled with high-quality crab legs. Shipped on-board by popular demand!"
 	starts_with = list(/obj/item/reagent_containers/food/snacks/crabmeat = 5)
-
-/obj/item/storage/box/tranquilizer
-	name = "box of tranquilizer darts"
-	desc = "It has a picture of a tranquilizer dart and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
-	icon_state = "shellbox"
-	item_state = "shellbox"
-	illustration = "incendiaryshot"
-	drop_sound = 'sound/items/drop/ammobox.ogg'
-	pickup_sound = 'sound/items/pickup/ammobox.ogg'
-	starts_with = list(/obj/item/ammo_casing/tranq = 8)
 
 /obj/item/storage/box/toothpaste
 	can_hold = list(/obj/item/reagent_containers/toothpaste,
