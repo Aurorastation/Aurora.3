@@ -91,6 +91,7 @@
 		/obj/item/reagent_containers/food/drinks/jyalra/cherry = 1.75,
 		/obj/item/reagent_containers/food/snacks/syndicake = 3.50,
 		/obj/item/reagent_containers/food/snacks/koisbar = 12.00,
+		/obj/item/reagent_containers/food/snacks/algaechips = 2.50
 	)
 	light_color = COLOR_BABY_BLUE
 	manufacturer = "nanotrasen"
