@@ -838,7 +838,7 @@
 	icon_state = "algaechips"
 	trash = /obj/item/trash/algaechips
 	reagents_to_add = list(/singleton/reagent/nutriment = 3)
-	reagent_data = list(/singleton/reagent/nutriment = list("seaweed" = 3))
+	reagent_data = list(/singleton/reagent/nutriment = list("salty algae" = 3))
 
 //Microwave food packages
 
