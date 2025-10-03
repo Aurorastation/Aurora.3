@@ -4925,7 +4925,7 @@
 /area/ship/dominian_science_vessel/hangar)
 "oBB" = (
 /obj/item/storage/belt/archaeology,
-/obj/item/storage/box/excavation,
+/obj/item/storage/box/unique/excavation,
 /obj/item/device/flashlight/lantern,
 /obj/item/device/ano_scanner,
 /obj/item/device/depth_scanner,

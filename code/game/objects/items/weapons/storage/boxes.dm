@@ -60,12 +60,16 @@
 	if(ispath(src.trash))
 		. += "This can be crumpled up into a trash item when empty, or forcibly crumpled on harm intent. "
 
-/obj/item/storage/box/Initialize()
+/obj/item/storage/box/update_icon()
 	. = ..()
-	health = maxHealth
 	if(illustration)
 		AddOverlays(label)
 		AddOverlays(illustration)
+
+/obj/item/storage/box/Initialize()
+	. = ..()
+	health = maxHealth
+	update_icon()
 
 /obj/item/storage/box/proc/damage(var/severity)
 	health -= severity
@@ -206,6 +210,7 @@
 /obj/item/storage/box/gloves
 	name = "box of sterile gloves"
 	desc = "Contains sterile gloves."
+	color = COLOR_SKY_BLUE
 	illustration = "latex"
 	max_storage_space = DEFAULT_BOX_STORAGE
 	starts_with = list(/obj/item/clothing/gloves/latex = 2,
@@ -213,9 +218,11 @@
 						/obj/item/clothing/gloves/latex/nitrile/unathi = 1,
 						/obj/item/clothing/gloves/latex/nitrile/tajara = 1,
 						/obj/item/clothing/gloves/latex/nitrile/vaurca = 1)
+
 /obj/item/storage/box/masks
 	name = "box of surgical masks"
 	desc = "This box contains masks of surgicality."
+	color = COLOR_SKY_BLUE
 	illustration = "sterile"
 	starts_with = list(/obj/item/clothing/mask/surgical = 4, /obj/item/clothing/mask/surgical/w = 3)
 
@@ -258,6 +265,8 @@
 	illustration = null
 	drop_sound = 'sound/items/drop/ammobox.ogg'
 	pickup_sound = 'sound/items/pickup/ammobox.ogg'
+	foldable = null
+	chewable = FALSE
 
 /obj/item/storage/box/ammo/tungstenslugs
 	name = "box of compact tungsten slugs"
@@ -290,7 +299,7 @@
 	drop_sound = 'sound/items/drop/ammobox.ogg'
 	pickup_sound = 'sound/items/pickup/ammobox.ogg'
 
-/obj/item/storage/box/shell/tranquilizer
+/obj/item/storage/box/shells/tranquilizer
 	name = "box of tranquilizer darts"
 	desc = "It has a picture of a tranquilizer dart and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
 	illustration = "incendiaryshot"
@@ -366,8 +375,7 @@
 
 /obj/item/storage/box/tactical
 	name = "tactical equipment box"
-	icon_state = "secbox"
-	item_state = "secbox"
+	color = COLOR_GUNMETAL
 
 /obj/item/storage/box/tactical/flashbangs
 	name = "box of flashbangs"

@@ -497,7 +497,7 @@
 	description = "A box with several compact tungsten slugs, aimed for use in gauss carbines."
 	price = 125
 	items = list(
-		/obj/item/storage/box/tungstenslugs
+		/obj/item/storage/box/ammo/tungstenslugs
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"

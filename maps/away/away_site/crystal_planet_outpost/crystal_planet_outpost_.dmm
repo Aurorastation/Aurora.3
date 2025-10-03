@@ -1787,7 +1787,7 @@
 /area/crystal_planet_outpost/living)
 "zW" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/excavation{
+/obj/item/storage/box/unique/excavation{
 	pixel_x = -2;
 	pixel_y = 7
 	},
@@ -2081,7 +2081,7 @@
 /area/crystal_planet_outpost/medbay)
 "DG" = (
 /obj/item/storage/belt/archaeology,
-/obj/item/storage/box/excavation,
+/obj/item/storage/box/unique/excavation,
 /obj/item/device/flashlight/lantern,
 /obj/item/device/ano_scanner,
 /obj/item/device/depth_scanner,

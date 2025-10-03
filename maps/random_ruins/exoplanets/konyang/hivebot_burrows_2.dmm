@@ -708,7 +708,7 @@
 /area/hivebot_burrows_2)
 "kp" = (
 /obj/random/dirt_75,
-/obj/item/storage/box/excavation{
+/obj/item/storage/box/unique/excavation{
 	pixel_x = 12;
 	pixel_y = -6
 	},
@@ -2621,7 +2621,7 @@
 /area/hivebot_burrows_2)
 "LM" = (
 /obj/random/dirt_75,
-/obj/item/storage/box/excavation{
+/obj/item/storage/box/unique/excavation{
 	pixel_x = -4;
 	pixel_y = -6
 	},

@@ -315,7 +315,7 @@
 /obj/item/device/measuring_tape,
 /obj/item/device/core_sampler,
 /obj/item/device/depth_scanner,
-/obj/item/storage/box/excavation,
+/obj/item/storage/box/unique/excavation,
 /obj/item/book/manual/excavation,
 /obj/item/pickaxe/hand,
 /obj/random/dirt_75,
