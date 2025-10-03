@@ -186,7 +186,7 @@
 	..()
 	recipes += new /datum/stack_recipe_list("[display_name] recipes",
 		list(
-			new /datum/stack_recipe("box", /obj/item/storage/box),
+			new /datum/stack_recipe("box", /obj/item/storage/box/blank),
 			new /datum/stack_recipe("donut box", /obj/item/storage/box/fancy/donut/empty),
 			new /datum/stack_recipe("egg carton", /obj/item/storage/box/fancy/egg_box),
 			new /datum/stack_recipe("candle pack", /obj/item/storage/box/fancy/candle_box/empty),

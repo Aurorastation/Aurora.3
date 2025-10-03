@@ -2171,7 +2171,7 @@
 /area/ship/iac_rescue_ship/bridge)
 "emR" = (
 /obj/structure/table/stone/marble,
-/obj/item/storage/box/condiment{
+/obj/item/storage/box/large/condiment{
 	pixel_y = 10;
 	pixel_x = 2
 	},
@@ -9783,10 +9783,10 @@
 /area/space)
 "xeu" = (
 /obj/structure/table/stone/marble,
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_y = 9
 	},
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_y = 3
 	},
 /obj/item/material/kitchen/rollingpin{

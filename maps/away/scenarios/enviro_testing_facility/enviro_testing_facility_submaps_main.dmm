@@ -10453,7 +10453,7 @@
 /area/enviro_testing_facility/inside/security/hallway)
 "kuh" = (
 /obj/structure/table/stone/marble,
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 6;
 	pixel_y = 6
 	},
@@ -12911,14 +12911,14 @@
 /area/enviro_testing_facility/inside/engineering/reactors)
 "nbn" = (
 /obj/structure/closet/secure_closet/freezer,
-/obj/item/storage/box/produce,
-/obj/item/storage/box/produce,
-/obj/item/storage/box/produce,
-/obj/item/storage/box/produce,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
 /obj/effect/floor_decal/corner/lime/diagonal,
-/obj/item/storage/box/produce,
-/obj/item/storage/box/produce,
-/obj/item/storage/box/produce,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
 /turf/simulated/floor/tiled/freezer,
 /area/enviro_testing_facility/inside/crew/canteen)
 "nbt" = (
@@ -20936,15 +20936,15 @@
 /area/enviro_testing_facility/inside/security/lobby)
 "vhv" = (
 /obj/structure/closet/secure_closet/freezer,
-/obj/item/storage/box/produce,
-/obj/item/storage/box/produce,
-/obj/item/storage/box/produce,
-/obj/item/storage/box/produce,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/item/storage/box/produce,
+/obj/item/storage/box/large/produce,
 /turf/simulated/floor/tiled/white,
 /area/enviro_testing_facility/inside/crew/canteen)
 "vhB" = (

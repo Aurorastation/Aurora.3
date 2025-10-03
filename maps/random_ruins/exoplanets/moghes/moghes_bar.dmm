@@ -338,7 +338,7 @@
 	pixel_x = -9
 	},
 /obj/item/reagent_containers/cooking_container/board/bowl,
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_y = 9
 	},
 /turf/simulated/floor/exoplanet/tiled/white{

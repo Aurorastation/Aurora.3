@@ -174,7 +174,7 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_bar)
 "lk" = (
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = -5
 	},

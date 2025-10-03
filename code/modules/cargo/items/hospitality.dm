@@ -173,7 +173,7 @@
 	description = "A large box of random, leftover produce."
 	price = 35
 	items = list(
-		/obj/item/storage/box/produce
+		/obj/item/storage/box/large/produce
 	)
 	access = 0
 	container_type = "crate"

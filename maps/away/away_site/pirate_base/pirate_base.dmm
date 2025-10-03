@@ -1458,13 +1458,13 @@
 "gM" = (
 /obj/random/dirt_75,
 /obj/structure/closet/secure_closet/refrigerator/standard,
-/obj/item/storage/box/produce,
-/obj/item/storage/box/produce,
-/obj/item/storage/box/produce,
-/obj/item/storage/box/produce,
-/obj/item/storage/box/produce,
-/obj/item/storage/box/produce,
-/obj/item/storage/box/produce,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
 /obj/machinery/button/remote/airlock{
 	id = "pirate_base_freezer_door";
 	specialfunctions = 4;
@@ -8864,7 +8864,7 @@
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = -5
 	},

@@ -63,8 +63,12 @@
 /obj/item/storage/box/update_icon()
 	. = ..()
 	if(illustration)
-		AddOverlays(label)
-		AddOverlays(illustration)
+		var/image/label_img = image(icon, label)
+		var/image/illustration_img = image(icon, illustration)
+		label_img.appearance_flags |= RESET_COLOR
+		illustration_img.appearance_flags |= RESET_COLOR
+		AddOverlays(label_img)
+		AddOverlays(illustration_img)
 
 /obj/item/storage/box/Initialize()
 	. = ..()
@@ -156,7 +160,13 @@
 /obj/item/storage/box/large
 	name = "large box"
 	icon_state = "largebox"
+	label = "label_large"
+	illustration = "writing_large"
 	max_storage_space = DEFAULT_LARGEBOX_STORAGE
+
+/obj/item/storage/box/blank
+	label = null
+	illustration = null
 
 /obj/item/storage/box/survival
 	name = "emergency survival box"
@@ -210,7 +220,7 @@
 /obj/item/storage/box/gloves
 	name = "box of sterile gloves"
 	desc = "Contains sterile gloves."
-	color = COLOR_SKY_BLUE
+	color = COLOR_IAC
 	illustration = "latex"
 	max_storage_space = DEFAULT_BOX_STORAGE
 	starts_with = list(/obj/item/clothing/gloves/latex = 2,
@@ -222,36 +232,32 @@
 /obj/item/storage/box/masks
 	name = "box of surgical masks"
 	desc = "This box contains masks of surgicality."
-	color = COLOR_SKY_BLUE
+	color = COLOR_IAC
 	illustration = "sterile"
 	starts_with = list(/obj/item/clothing/mask/surgical = 4, /obj/item/clothing/mask/surgical/w = 3)
 
 /obj/item/storage/box/syringes
 	name = "box of syringes"
 	desc = "A box full of syringes."
-	icon_state = "secbox"
-	item_state = "secbox"
+	color = COLOR_IAC
 	illustration = "syringe"
 	starts_with = list(/obj/item/reagent_containers/syringe = 20)
 
 /obj/item/storage/box/syringegun
 	name = "box of syringe gun cartridges"
 	desc = "A box full of compressed gas cartridges."
-	icon_state = "secbox"
-	item_state = "secbox"
 	illustration = "syringe"
 	starts_with = list(/obj/item/syringe_cartridge = 7)
 
 /obj/item/storage/box/beakers
 	name = "box of beakers"
+	color = COLOR_IAC
 	illustration = "beaker"
 	starts_with = list(/obj/item/reagent_containers/glass/beaker = 7)
 
 /obj/item/storage/box/injectors
 	name = "box of DNA injectors"
 	desc = "This box contains injectors it seems."
-	icon_state = "secbox"
-	item_state = "secbox"
 	illustration = "dna"
 	starts_with = list(/obj/item/dnainjector/h2m = 3, /obj/item/dnainjector/m2h = 3)
 
@@ -293,8 +299,9 @@
 /obj/item/storage/box/shells
 	name = "empty shotgun shell box"
 	desc = "It has a picture of a shotgun shell and several warning symbols on the front."
+	color = COLOR_DARK_GUNMETAL
 	icon_state = "shellbox"
-	item_state = "shellbox"
+	label = "label_shell"
 	illustration = "blankshot"
 	drop_sound = 'sound/items/drop/ammobox.ogg'
 	pickup_sound = 'sound/items/pickup/ammobox.ogg'
@@ -376,6 +383,7 @@
 /obj/item/storage/box/tactical
 	name = "tactical equipment box"
 	color = COLOR_GUNMETAL
+	label = "label_sec"
 
 /obj/item/storage/box/tactical/flashbangs
 	name = "box of flashbangs"
@@ -536,7 +544,7 @@
 	illustration = "implant"
 	starts_with = list(/obj/item/implanter = 1, /obj/item/implantcase/death_alarm = 6, /obj/item/implantpad = 1)
 
-/obj/item/storage/box/condimentbottles
+/obj/item/storage/box/large/condimentbottles
 	name = "box of condiment bottles"
 	desc = "It has a large ketchup smear on it."
 	illustration = "condiment"
@@ -683,6 +691,7 @@
 /obj/item/storage/box/pillbottles
 	name = "box of pill bottles"
 	desc = "It has pictures of pill bottles on its front."
+	color = COLOR_IAC
 	illustration = "pillbox"
 	starts_with = list(/obj/item/storage/pill_bottle = 7)
 
@@ -692,7 +701,7 @@
 	illustration = "spray"
 	starts_with = list(/obj/item/reagent_containers/spray = 7)
 
-/obj/item/storage/box/snappops
+/obj/item/storage/box/unique/snappops
 	name = "snap pop box"
 	desc = "Eight wrappers of fun! Ages 8 and up. Not suitable for children."
 	icon = 'icons/obj/toy.dmi'
@@ -700,22 +709,24 @@
 	can_hold = list(/obj/item/toy/snappop)
 	starts_with = list(/obj/item/toy/snappop = 8)
 
-/obj/item/storage/box/snappops/syndi
+/obj/item/storage/box/unique/snappops/syndi
 	starts_with = list(/obj/item/toy/snappop/syndi = 8)
 
-/obj/item/storage/box/snappops/syndi/antagonist_hints(mob/user, distance, is_adjacent)
+/obj/item/storage/box/unique/snappops/syndi/antagonist_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "These snap pops have an extra compound added that will deploy a tiny smokescreen when snapped."
 
 /obj/item/storage/box/partypopper
 	name = "party popper box"
 	desc = "Six cones of confetti conflagarating fun!"
+	color = COLOR_PALE_PINK
 	illustration = "partypopper"
 	starts_with = list(/obj/item/toy/partypopper = 6)
 
 /obj/item/storage/box/autoinjectors
 	name = "box of empty injectors"
 	desc = "Contains empty autoinjectors."
+	color = COLOR_IAC
 	illustration = "epipen"
 	starts_with = list(/obj/item/reagent_containers/hypospray/autoinjector = 7)
 
@@ -723,6 +734,7 @@
 	name = "box of replacement bulbs"
 	illustration = "light"
 	desc = "This box is shaped on the inside so that only light tubes and bulbs fit."
+	color = COLOR_DARK_BLUE_GRAY
 	use_to_pickup = TRUE // for picking up broken bulbs, not that most people will try
 	make_exact_fit = TRUE
 
@@ -888,7 +900,7 @@
 	desc = "A box filled with clams from the Ras'val sea, imported by Njadra'Akhar Enterprises."
 	starts_with = list(/obj/item/reagent_containers/food/snacks/clam = 5)
 
-/obj/item/storage/box/produce
+/obj/item/storage/box/large/produce
 	name = "produce box"
 	desc = "A large box of random, leftover produce."
 	icon_state = "largebox"
@@ -896,29 +908,29 @@
 	starts_with = list(/obj/random_produce/box = 15)
 	make_exact_fit = TRUE
 
-/obj/item/storage/box/produce/adhomai
+/obj/item/storage/box/large/produce/adhomai
 	name = "adhomian produce box"
 	desc = "A large box of produce originating from the frigid world of Adhomai."
 	starts_with = list(/obj/random_produce/box/adhomai = 15)
 
-/obj/item/storage/box/produce/nralakk
+/obj/item/storage/box/large/produce/nralakk
 	name = "nralakk produce box"
 	desc = "A large box of produce originating from the Nralakk Federation."
 	starts_with = list(/obj/random_produce/box/nralakk = 15)
 
-/obj/item/storage/box/produce/moghes
+/obj/item/storage/box/large/produce/moghes
 	name = "moghresian produce box"
 	desc = "A large box of produce originating from Moghes, home of the Izweski Hegemony."
 	starts_with = list(/obj/random_produce/box/moghes = 15)
 
-/obj/item/storage/box/candy
+/obj/item/storage/box/large/candy
 	name = "candy box"
 	desc = "A large box of assorted small candy."
 	icon_state = "largebox"
 	illustration = "writing_large"
 	make_exact_fit = TRUE
 
-/obj/item/storage/box/candy/fill()
+/obj/item/storage/box/large/candy/fill()
 	var/list/assorted_list = list(
 		/obj/item/reagent_containers/food/snacks/cb01 = 1,
 		/obj/item/reagent_containers/food/snacks/cb02 = 1,
@@ -1031,17 +1043,16 @@
 	)
 
 /// Parent object of various national flag boxes. Original intention for random cargo spawn.
-/obj/item/storage/box/flags
+/obj/item/storage/box/large/flags
 	name = "national flag box - PARENT ITEM DO NOT USE"
 	desc = "A box filled to the brim with various flags."
-	icon_state = "largebox"
-	illustration = "flags"
+	illustration = "flagslg"
 	make_exact_fit = TRUE
 	can_hold = list(
 		/obj/item/flag
 	)
 
-/obj/item/storage/box/flags/sol
+/obj/item/storage/box/large/flags/sol
 	name = "Solarian Alliance flag box"
 	desc = "A box filled to the brim with various national flags."
 	starts_with = list(
@@ -1071,7 +1082,7 @@
 		/obj/item/flag/ssrm/l = 1
 	)
 
-/obj/item/storage/box/flags/biesel
+/obj/item/storage/box/large/flags/biesel
 	name = "Republic of Biesel flag box"
 	desc = "A box filled to the brim with various national flags."
 	starts_with = list(
@@ -1087,7 +1098,7 @@
 		/obj/item/flag/newgibson/l = 1
 	)
 
-/obj/item/storage/box/flags/coc
+/obj/item/storage/box/large/flags/coc
 	name = "Coalition of Colonies flag box"
 	desc = "A box filled to the brim with various national flags."
 	starts_with = list(
@@ -1111,7 +1122,7 @@
 		/obj/item/flag/scarab/l = 2
 	)
 
-/obj/item/storage/box/flags/galataea
+/obj/item/storage/box/large/flags/galataea
 	name = "Technocracy of Galatea flag box"
 	desc = "A box filled to the brim with various national flags."
 	starts_with = list(
@@ -1127,7 +1138,7 @@
 		/obj/item/flag/empyrean/l = 1
 	)
 
-/obj/item/storage/box/flags/dominia
+/obj/item/storage/box/large/flags/dominia
 	name = "Empire of Dominia flag box"
 	desc = "A box filled to the brim with various national flags."
 	starts_with = list(
@@ -1143,7 +1154,7 @@
 		/obj/item/flag/imperial_frontier/l = 2
 	)
 
-/obj/item/storage/box/flags/elyra
+/obj/item/storage/box/large/flags/elyra
 	name = "Serene Republic of Elyra flag box"
 	desc = "A box filled to the brim with various national flags."
 	starts_with = list(
@@ -1161,7 +1172,7 @@
 		/obj/item/flag/aemaq/l = 1
 	)
 
-/obj/item/storage/box/flags/diona
+/obj/item/storage/box/large/flags/diona
 	name = "Diona flag box"
 	desc = "A box filled to the brim with various national flags."
 	starts_with = list(
@@ -1173,7 +1184,7 @@
 		/obj/item/flag/narrows/l = 1
 	)
 
-/obj/item/storage/box/flags/unathi
+/obj/item/storage/box/large/flags/unathi
 	name = "Unathi flag box"
 	desc = "A box filled to the brim with various national flags."
 	starts_with = list(
@@ -1184,7 +1195,7 @@
 		/obj/item/flag/fishingleague = 2
 	)
 
-/obj/item/storage/box/flags/skrell
+/obj/item/storage/box/large/flags/skrell
 	name = "Skrell flag box"
 	desc = "A box filled to the brim with various waterproof national flags."
 	starts_with = list(
@@ -1194,7 +1205,7 @@
 		/obj/item/flag/traverse/l = 1
 	)
 
-/obj/item/storage/box/flags/tajara
+/obj/item/storage/box/large/flags/tajara
 	name = "Tajaran collected flag box"
 	desc = "A box filled to the brim with various national flags. Whoever chose the selection for this one was either brave or stupid or both."
 	starts_with = list(
@@ -1208,7 +1219,7 @@
 		/obj/item/flag/ftc/l = 3
 	)
 
-/obj/item/storage/box/flags/vaurca
+/obj/item/storage/box/large/flags/vaurca
 	name = "Vaurca flag box"
 	desc = "A box filled to the brim with various hive flags."
 	starts_with = list(
@@ -1222,7 +1233,7 @@
 		/obj/item/flag/cthur/l = 3
 	)
 
-/obj/item/storage/box/flags/goldendeep
+/obj/item/storage/box/large/flags/goldendeep
 	name = "Golden Deep flag box"
 	desc = "A box filled to the brim with various national flags. It's made from a bit sturdier board than most boxes."
 	starts_with = list(
@@ -1232,7 +1243,7 @@
 		/obj/item/stack/material/gold
 	)
 
-/obj/item/storage/box/flags/corporate
+/obj/item/storage/box/large/flags/corporate
 	name = "Corporate flag box"
 	desc = "A box filled to the brim with various corporate flags, flying in service to the almighty credit."
 	starts_with = list(
@@ -1259,7 +1270,7 @@
 	)
 
 /// Random misc flags- either non-national or no longer in use or controversial or straight-up contraband. Randomized contents from Initialize().
-/obj/item/storage/box/flags/misc
+/obj/item/storage/box/large/flags/misc
 	name = "miscellaneous flag box"
 	desc = "A box filled to the brim with various disorganized flags that might provoke a variety of reactions."
 
@@ -1267,7 +1278,7 @@
  * We don't want this box to always have every possible misc flag every time it spawns. Mix it up each time.
  */
 
-/obj/item/storage/box/flags/misc/fill()
+/obj/item/storage/box/large/flags/misc/fill()
 	..()
 	var/list/flag_options = list(
 		/obj/item/flag/red_coalition = 1,
@@ -1441,10 +1452,9 @@
 		..()
 
 // Flares
-/obj/item/storage/box/flares
+/obj/item/storage/box/large/flares
 	name = "flares box"
 	desc = "A box full of flares."
-	icon_state = "largebox"
 	illustration = "flare"
 	foldable = FALSE
 	max_storage_space = DEFAULT_BOX_STORAGE
@@ -1474,6 +1484,7 @@
 /obj/item/storage/box/cell
 	name = "power cell box"
 	desc = "A box full of power cells."
+	color = COLOR_TOOLS
 	foldable = FALSE
 	make_exact_fit = TRUE
 	can_hold = list(
@@ -1487,15 +1498,16 @@
 /obj/item/storage/box/cell/high
 	name = "high-capacity power cell box"
 	desc = "A box full of high-capacity power cells."
+	color = COLOR_TOOLS
 	starts_with = list(
 		/obj/item/cell/high = 3
 	)
 
-/obj/item/storage/box/condiment
+/obj/item/storage/box/large/condiment
 	name = "condiment box"
 	desc = "A large box of condiments, syrups, flavorings."
-	icon_state = "largebox"
-	illustration = "condiment"
+	color = COLOR_REDBOX
+	illustration = "condimentlg"
 	starts_with = list(
 		/obj/item/reagent_containers/food/condiment/enzyme = 1,
 		/obj/item/reagent_containers/food/condiment/shaker/peppermill = 2,
@@ -1513,6 +1525,7 @@
 /obj/item/storage/box/cleaner_tablets
 	name = "\improper Idris cleaner tablets box"
 	desc = "A box of advanced formula chemical tablets designed by Idris Incorporated."
+	color = COLOR_GREEN_GRAY
 	desc_extended = "A new generation of cleaning chemicals, according to Idris at least. The instructions on the box reads: \"Dissolve tablet fully in container of water\". A warning label mentions that you should not consume the tablets nor drink the mixture after dissolving them."
 	illustration = "soapbucket"
 	starts_with = list(

@@ -1602,7 +1602,7 @@
 /obj/item/storage/box/lights,
 /obj/item/storage/box/lights/coloredmixed,
 /obj/item/storage/box/unique/papersack,
-/obj/item/storage/box/candy,
+/obj/item/storage/box/large/candy,
 /obj/item/storage/box/cups,
 /obj/item/storage/box/fancy/cigarettes/dromedaryco,
 /obj/random/dirt_75,
@@ -3331,7 +3331,7 @@
 /obj/item/storage/box/magnetic_locks{
 	pixel_y = -6
 	},
-/obj/item/storage/box/flares{
+/obj/item/storage/box/large/flares{
 	pixel_y = 5
 	},
 /obj/random/dirt_75,
@@ -7061,9 +7061,9 @@
 /area/point_verdant/interior/hotel)
 "dQO" = (
 /obj/structure/table/rack/retail_shelf,
-/obj/item/storage/box/produce,
-/obj/item/storage/box/produce,
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce{
 	pixel_y = 11
 	},
 /turf/simulated/floor/tiled,
@@ -15040,7 +15040,7 @@
 /area/point_verdant/outdoors)
 "iwH" = (
 /obj/structure/table/rack,
-/obj/item/storage/box/flares,
+/obj/item/storage/box/large/flares,
 /obj/machinery/light/small{
 	dir = 4
 	},
@@ -19981,39 +19981,39 @@
 /turf/simulated/floor/exoplanet/konyang,
 /area/point_verdant/outdoors)
 "lnl" = (
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = -5
 	},
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = 4
 	},
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = 15
 	},
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = -5
 	},
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = -5
 	},
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = 4
 	},
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = 4
 	},
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = 15
 	},
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = 15
 	},
@@ -37446,9 +37446,9 @@
 /area/point_verdant/interior/shallow)
 "vFC" = (
 /obj/structure/table/rack/retail_shelf,
-/obj/item/storage/box/produce,
-/obj/item/storage/box/produce,
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce{
 	pixel_y = 11
 	},
 /obj/machinery/light/small,

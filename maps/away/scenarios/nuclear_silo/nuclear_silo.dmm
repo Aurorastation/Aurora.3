@@ -16535,7 +16535,7 @@
 /area/nuclear_silo/lower_level/civilian/messhall)
 "KF" = (
 /obj/structure/closet/secure_closet/freezer/meat,
-/obj/item/storage/box/produce,
+/obj/item/storage/box/large/produce,
 /obj/item/reagent_containers/food/drinks/carton/soymilk,
 /obj/item/reagent_containers/food/drinks/carton/milk,
 /obj/item/storage/box/fancy/egg_box,
@@ -19565,7 +19565,7 @@
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
-/obj/item/storage/box/produce,
+/obj/item/storage/box/large/produce,
 /obj/random/dirt_75,
 /obj/random/kitchen_staples,
 /obj/random/kitchen_staples,
@@ -20197,7 +20197,7 @@
 "SP" = (
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = -3
 	},
 /obj/structure/cable/green{
@@ -21696,8 +21696,8 @@
 "Wf" = (
 /obj/structure/closet/crate/freezer,
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/item/storage/box/produce,
-/obj/item/storage/box/produce,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat/chicken,
@@ -22022,7 +22022,7 @@
 	name = "Messhall Shutters";
 	req_one_access = list(248,247)
 	},
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_y = 9
 	},
 /obj/random/dirt_75,

@@ -4502,8 +4502,8 @@
 /obj/item/reagent_containers/food/snacks/meat/neaera,
 /obj/item/reagent_containers/food/snacks/meat/neaera,
 /obj/item/reagent_containers/food/snacks/meat/neaera,
-/obj/item/storage/box/produce,
-/obj/item/storage/box/produce,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/reagent_containers/food/condiment/enzyme{
 	pixel_x = -9;

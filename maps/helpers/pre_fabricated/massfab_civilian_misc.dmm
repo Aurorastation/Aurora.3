@@ -1608,8 +1608,8 @@
 /area/space)
 "HP" = (
 /obj/structure/table/rack/retail_shelf,
-/obj/item/storage/box/produce,
-/obj/item/storage/box/produce,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
 /turf/simulated/floor/exoplanet/tiled/white,
 /area/space)
 "HS" = (

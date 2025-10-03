@@ -456,7 +456,7 @@
 /obj/item/material/knife{
 	pixel_x = -9
 	},
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3
 	},
 /turf/simulated/floor/tiled/white,

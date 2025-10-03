@@ -733,8 +733,8 @@
 "jX" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
 /obj/structure/closet/crate/freezer,
-/obj/item/storage/box/produce,
-/obj/item/storage/box/produce,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
 /obj/item/reagent_containers/food/snacks/meat/chicken,
 /obj/item/reagent_containers/food/snacks/meat/chicken,
 /obj/item/reagent_containers/food/snacks/meat/chicken,

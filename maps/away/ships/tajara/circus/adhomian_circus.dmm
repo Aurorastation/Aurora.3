@@ -4412,9 +4412,9 @@
 	},
 /area/adhomian_circus/starboard)
 "xGS" = (
-/obj/item/storage/box/snappops,
+/obj/item/storage/box/unique/snappops,
 /obj/structure/table/wood,
-/obj/item/storage/box/snappops,
+/obj/item/storage/box/unique/snappops,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},

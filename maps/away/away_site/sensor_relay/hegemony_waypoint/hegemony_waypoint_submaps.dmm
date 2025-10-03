@@ -515,7 +515,7 @@
 /obj/item/reagent_containers/food/snacks/fish/fishfillet,
 /obj/item/reagent_containers/food/snacks/meat/chicken,
 /obj/item/reagent_containers/food/snacks/meat/chicken,
-/obj/item/storage/box/produce,
+/obj/item/storage/box/large/produce,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hegemony_waypoint/kitchen)
 "mo" = (
@@ -2471,7 +2471,7 @@
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/blood/drip,
 /obj/effect/decal/cleanable/blood/drip,
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_y = -7
 	},
 /obj/item/reagent_containers/food/snacks/fish/fishfillet{
@@ -2930,7 +2930,7 @@
 /obj/item/reagent_containers/food/snacks/fish/fishfillet,
 /obj/item/reagent_containers/food/snacks/meat/chicken,
 /obj/item/reagent_containers/food/snacks/meat/chicken,
-/obj/item/storage/box/produce,
+/obj/item/storage/box/large/produce,
 /obj/item/storage/box/fancy/vkrexi_swollen_organ,
 /turf/simulated/floor/carpet/rubber,
 /area/hegemony_waypoint/kitchen)

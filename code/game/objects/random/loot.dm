@@ -108,7 +108,7 @@
 		/obj/item/spacecash/ewallet/lotto = 0.3,
 		/obj/item/staff/broom = 0.5,
 		/obj/item/storage/bag/plasticbag = 1,
-		/obj/item/storage/box/condimentbottles = 0.2,
+		/obj/item/storage/box/large/condimentbottles = 0.2,
 		/obj/item/storage/box/unique/donkpockets = 0.6,
 		/obj/item/storage/box/drinkingglasses = 0.2,
 		/obj/item/storage/box/lights = 0.5,
