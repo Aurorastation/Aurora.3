@@ -664,7 +664,7 @@
 
 				adjust_temperature(plasma_temperature_change, cur_reaction.max_temp_change_rate, cur_reaction.name)
 
-				 // Add any produced radiation.
+				// Add any produced radiation.
 				radiation += max_num_reactants * cur_reaction.radiation
 				tick_instability += max_num_reactants * cur_reaction.instability
 				last_reactants += amount_reacting
