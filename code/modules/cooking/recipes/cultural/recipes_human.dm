@@ -379,7 +379,7 @@
 	items = list(
 		/obj/item/reagent_containers/food/snacks/fish
 	)
-	result = /obj/item/reagent_containers/food/snacks/imperial_scallops
+	result = /obj/item/reagent_containers/food/snacks/voidsman_stew
 	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify and replace
 
 /singleton/recipe/carian_strogonoff
