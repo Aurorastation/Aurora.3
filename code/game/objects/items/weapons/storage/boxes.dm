@@ -149,10 +149,15 @@
 	else
 		..()
 
+/obj/item/storage/box/large
+	name = "large box"
+	icon_state = "largebox"
+	max_storage_space = DEFAULT_LARGEBOX_STORAGE
+
 /obj/item/storage/box/survival
 	name = "emergency survival box"
 	desc = "A faithful box that will remain with you, no matter where you go, and probably save you."
-	icon_state = "redbox"
+	color = COLOR_REDBOX
 	illustration = "survival"
 	max_storage_space = DEFAULT_BOX_STORAGE
 	can_hold = list(
@@ -193,7 +198,7 @@
 				/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 1
 				)
 
-/obj/item/storage/box/vaurca
+/obj/item/storage/box/survival/vaurca
 	icon_state = "redbox"
 	illustration = "survivalvox"
 	starts_with = list(/obj/item/clothing/mask/breath = 1, /obj/item/reagent_containers/inhaler/phoron_special = 1)
@@ -430,6 +435,14 @@
 	illustration = "implant"
 	starts_with = list(/obj/item/implantcase/tracking = 4, /obj/item/implanter = 1, /obj/item/implantpad = 1, /obj/item/locator = 1)
 
+/obj/item/storage/box/handcuffs
+	name = "box of spare handcuffs"
+	desc = "A box full of handcuffs."
+	icon_state = "secbox"
+	item_state = "secbox"
+	illustration = "handcuff"
+	starts_with = list(/obj/item/handcuffs = 7)
+
 // Firing pins
 
 /obj/item/storage/box/firingpins
@@ -527,38 +540,6 @@
 	desc = "It has pictures of paper cups on the front."
 	starts_with = list(/obj/item/reagent_containers/food/drinks/sillycup = 7)
 
-/obj/item/storage/box/donkpockets
-	name = "box of donk-pockets"
-	desc = "<B>Instructions:</B> <I>Heat in microwave. Product will cool if not eaten within seven minutes.</I>"
-	icon_state = "donkpocketbox"
-	item_state = "redbox"
-	illustration = null
-	starts_with = list(/obj/item/reagent_containers/food/snacks/donkpocket = 6)
-
-/obj/item/storage/box/sinpockets
-	name = "box of donk-pockets"
-	desc = "<B>Instructions:</B> <I>Heat in microwave. Product will cool if not eaten within seven minutes.</I>"
-	icon_state = "donkpocketbox"
-	item_state = "redbox"
-	illustration = null
-	starts_with = list(/obj/item/reagent_containers/food/snacks/donkpocket/sinpocket = 6)
-
-/obj/item/storage/box/sinpockets/antagonist_hints(mob/user, distance, is_adjacent)
-	. += ..()
-	. += "Crush bottom of each package to initiate chemical heating. Wait for 20 seconds before consumption."
-	. += "Product will cool if not eaten within seven minutes."
-
-/obj/item/storage/box/donkpockets/gwok
-	name = "box of teriyaki Gwok-pockets"
-	icon_state = "donkpocketboxteriyaki"
-	item_state = "redbox"
-	illustration = null
-	starts_with = list(/obj/item/reagent_containers/food/snacks/donkpocket/teriyaki = 6)
-
-/obj/item/storage/box/donkpockets/gwok/takoyaki
-	name = "box of takoyaki Gwok-pockets"
-	starts_with = list(/obj/item/reagent_containers/food/snacks/donkpocket/takoyaki = 6)
-
 /obj/item/storage/box/janitorgloves
 	name = "janitorial gloves box"
 	desc = "A box full of janitorial gloves of all shapes and sizes."
@@ -573,49 +554,111 @@
 		/obj/item/clothing/gloves/janitor/vaurca = 1
 	)
 
-/obj/item/storage/box/monkeycubes
+/obj/item/storage/box/unique //unique sprite/properties
+	name = "unique box"
+	desc = "A unique box. How is it unique? You have no idea."
+	color = COLOR_WHITE
+	illustration = null
+	chewable = FALSE
+
+/obj/item/storage/box/unique/monkeycubes
 	name = "monkey cube box"
 	desc = "Drymate brand monkey cubes. Just add water!"
 	desc_extended = "The manufacture of a cubed animal produces subjects that are similar but have marked differences compared to their ordinary cousins. Higher brain functions are all but destroyed \
 	and the life expectancy of the cubed animal is greatly reduced, with most expiring only a few days after introduction with water."
 	icon_state = "monkeycubebox"
-	illustration = null
 	can_hold = list(/obj/item/reagent_containers/food/snacks/monkeycube)
 	starts_with = list(/obj/item/reagent_containers/food/snacks/monkeycube/wrapped = 5)
 
-/obj/item/storage/box/monkeycubes/farwacubes
+/obj/item/storage/box/unique/monkeycubes/farwacubes
 	name = "farwa cube box"
 	desc = "Drymate brand farwa cubes, shipped from Adhomai. Just add water!"
 	starts_with = list(/obj/item/reagent_containers/food/snacks/monkeycube/wrapped/farwacube = 5)
 
-/obj/item/storage/box/monkeycubes/stokcubes
+/obj/item/storage/box/unique/monkeycubes/stokcubes
 	name = "stok cube box"
 	desc = "Drymate brand stok cubes, shipped from Moghes. Just add water!"
 	starts_with = list(/obj/item/reagent_containers/food/snacks/monkeycube/wrapped/stokcube = 5)
 
-/obj/item/storage/box/monkeycubes/neaeracubes
+/obj/item/storage/box/unique/monkeycubes/neaeracubes
 	name = "neaera cube box"
 	desc = "Drymate brand neaera cubes, shipped from Nralakk IV. Just add water!"
 	starts_with = list(/obj/item/reagent_containers/food/snacks/monkeycube/wrapped/neaeracube = 5)
 
-/obj/item/storage/box/monkeycubes/vkrexicubes
+/obj/item/storage/box/unique/monkeycubes/vkrexicubes
 	name = "vkrexi cube box"
 	desc = "Drymate brand vkrexi cubes. Just add water!"
 	starts_with = list(/obj/item/reagent_containers/food/snacks/monkeycube/wrapped/vkrexicube = 5)
+
+/obj/item/storage/box/unique/sharps
+	name = "sharps disposal box"
+	desc = "A plastic box for disposal of used needles and other sharp, potentially-contaminated tools. There is a large biohazard sign on the front."
+	illustration = null
+	icon_state = "sharpsbox"
+	use_sound = 'sound/items/storage/briefcase.ogg'
+	max_storage_space = DEFAULT_BOX_STORAGE
+	foldable = null
+
+/obj/item/storage/box/unique/freezer
+	name = "portable freezer"
+	desc = "This nifty shock-resistant device will keep your 'groceries' nice and non-spoiled."
+	icon_state = "portafreezer"
+	item_state = "medicalpack"
+	max_w_class = WEIGHT_CLASS_NORMAL
+	max_storage_space = DEFAULT_LARGEBOX_STORAGE
+	use_to_pickup = FALSE // for picking up broken bulbs, not that most people will try
+	chewable = FALSE
+
+/obj/item/storage/box/unique/freezer/organcooler
+	name = "organ cooler"
+	desc = "A sealed, cooled container to keep organs from decaying."
+	icon_state = "organcooler"
+	item_state = "redbox"
+	max_w_class = WEIGHT_CLASS_NORMAL
+	foldable = FALSE
+	w_class = WEIGHT_CLASS_BULKY
+	can_hold = list(
+		/obj/item/organ,
+		/obj/item/reagent_containers/food,
+		/obj/item/reagent_containers/glass,
+		/obj/item/gun
+	)
+	storage_slots = 2
+
+/obj/item/storage/box/unique/donkpockets
+	name = "box of donk-pockets"
+	desc = "<B>Instructions:</B> <I>Heat in microwave. Product will cool if not eaten within seven minutes.</I>"
+	icon_state = "donkpocketbox"
+	item_state = "redbox"
+	starts_with = list(/obj/item/reagent_containers/food/snacks/donkpocket = 6)
+
+/obj/item/storage/box/unique/donkpockets/sinpockets
+	name = "box of donk-pockets"
+	desc = "<B>Instructions:</B> <I>Heat in microwave. Product will cool if not eaten within seven minutes.</I>"
+	illustration = null
+	starts_with = list(/obj/item/reagent_containers/food/snacks/donkpocket/sinpocket = 6)
+
+/obj/item/storage/box/unique/donkpockets/sinpockets/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Crush bottom of each package to initiate chemical heating. Wait for 20 seconds before consumption."
+	. += "Product will cool if not eaten within seven minutes."
+
+/obj/item/storage/box/unique/donkpockets/gwok
+	name = "box of teriyaki Gwok-pockets"
+	icon_state = "donkpocketboxteriyaki"
+	item_state = "redbox"
+	illustration = null
+	starts_with = list(/obj/item/reagent_containers/food/snacks/donkpocket/teriyaki = 6)
+
+/obj/item/storage/box/unique/donkpockets/gwok/takoyaki
+	name = "box of takoyaki Gwok-pockets"
+	starts_with = list(/obj/item/reagent_containers/food/snacks/donkpocket/takoyaki = 6)
 
 /obj/item/storage/box/ids
 	name = "box of spare IDs"
 	desc = "Has so many empty IDs."
 	illustration = "id"
 	starts_with = list(/obj/item/card/id = 7)
-
-/obj/item/storage/box/handcuffs
-	name = "box of spare handcuffs"
-	desc = "A box full of handcuffs."
-	icon_state = "secbox"
-	item_state = "secbox"
-	illustration = "handcuff"
-	starts_with = list(/obj/item/handcuffs = 7)
 
 /obj/item/storage/box/zipties
 	name = "box of zipties"
@@ -747,32 +790,6 @@
 	illustration = "lightmixed"
 	starts_with = list(/obj/item/light/tube/colored/magenta = 14, /obj/item/light/bulb/colored/magenta = 7)
 
-/obj/item/storage/box/freezer
-	name = "portable freezer"
-	desc = "This nifty shock-resistant device will keep your 'groceries' nice and non-spoiled."
-	icon_state = "portafreezer"
-	item_state = "medicalpack"
-	max_w_class = WEIGHT_CLASS_NORMAL
-	max_storage_space = DEFAULT_LARGEBOX_STORAGE
-	use_to_pickup = FALSE // for picking up broken bulbs, not that most people will try
-	chewable = FALSE
-
-/obj/item/storage/box/freezer/organcooler
-	name = "organ cooler"
-	desc = "A sealed, cooled container to keep organs from decaying."
-	icon_state = "organcooler"
-	item_state = "redbox"
-	max_w_class = WEIGHT_CLASS_NORMAL
-	foldable = FALSE
-	w_class = WEIGHT_CLASS_BULKY
-	can_hold = list(
-		/obj/item/organ,
-		/obj/item/reagent_containers/food,
-		/obj/item/reagent_containers/glass,
-		/obj/item/gun
-	)
-	storage_slots = 2
-
 /obj/item/storage/box/kitchen
 	name = "kitchen supplies"
 	illustration = "knife"
@@ -837,7 +854,7 @@
 /obj/item/storage/box/stims
 	name = "stimpack value kit"
 	desc = "A box with several stimpack medipens for the economical miner."
-	icon_state = "syringe"
+	illustration = "syringe"
 	starts_with = list(/obj/item/reagent_containers/hypospray/autoinjector/stimpack = 4)
 
 /obj/item/storage/box/inhalers
@@ -855,8 +872,6 @@
 /obj/item/storage/box/inhalers_auto
 	name = "autoinhaler kit"
 	desc = "A box filled with a combat inhaler and several large empty inhaler cartridges."
-	icon_state = "secbox"
-	item_state = "secbox"
 	illustration = "inhalers"
 	starts_with = list(/obj/item/reagent_containers/inhaler = 8)
 
@@ -1283,16 +1298,6 @@
 	illustration = "paper"
 	starts_with = list(/obj/item/book/manual/tcaf_pamphlet = 6)
 
-/obj/item/storage/box/sharps
-	name = "sharps disposal box"
-	desc = "A plastic box for disposal of used needles and other sharp, potentially-contaminated tools. There is a large biohazard sign on the front."
-	illustration = null
-	icon_state = "sharpsbox"
-	use_sound = 'sound/items/storage/briefcase.ogg'
-	max_storage_space = DEFAULT_BOX_STORAGE
-	chewable = FALSE
-	foldable = null
-
 /obj/item/storage/box/fountainpens
 	name = "box of fountain pens"
 	illustration = "fpen"
@@ -1316,20 +1321,18 @@
 	. += ..()
 	. += "This box contains encryption keys that gives the user a safe channel to chatter in. Access the safe comms with :x."
 
-/obj/item/storage/box/dynamite
+/obj/item/storage/box/unique/dynamite
 	name = "wooden crate"
 	desc = "An ordinary wooden crate."
 	icon_state = "dynamite"
 	foldable = null
-	illustration = null
 	use_sound = 'sound/effects/doorcreaky.ogg'
 	drop_sound = 'sound/items/drop/wooden.ogg'
 	pickup_sound = 'sound/items/pickup/wooden.ogg'
-	chewable = FALSE
 	w_class = WEIGHT_CLASS_BULKY
 	starts_with = list(/obj/item/grenade/dynamite = 6)
 
-/obj/item/storage/box/dynamite/throw_impact(atom/hit_atom)
+/obj/item/storage/box/unique/dynamite/throw_impact(atom/hit_atom)
 	..()
 	spill()
 
@@ -1352,7 +1355,7 @@
 /obj/item/storage/box/folders/blue
 	starts_with = list(/obj/item/folder/sec = 5)
 
-/obj/item/storage/box/papersack
+/obj/item/storage/box/unique/papersack
 	name = "paper sack"
 	desc = "A sack neatly crafted out of paper."
 	icon = 'icons/obj/storage/paperbag.dmi'
@@ -1374,14 +1377,14 @@
 	var/static/list/papersack_designs
 	var/choice = "None"
 
-/obj/item/storage/box/papersack/update_icon()
+/obj/item/storage/box/unique/papersack/update_icon()
 	. = ..()
 	if(length(contents) == 0)
 		icon_state = "paperbag_[choice]"
 	else if(length(contents) < 8)
 		icon_state = "paperbag_[choice]-food"
 
-/obj/item/storage/box/papersack/attackby(obj/item/attacking_item, mob/user)
+/obj/item/storage/box/unique/papersack/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.ispen())
 		if(!papersack_designs)
 			papersack_designs = sortList(list(
@@ -1538,7 +1541,7 @@
 		/obj/item/device/assembly/signaler = 6
 		)
 
-/obj/item/storage/box/tea
+/obj/item/storage/box/unique/tea
 	name = "sencha cha-tin"
 	desc = "A tin bearing the logo of the Konyang-cha tea company. This one contains a bag of sencha, a type of green tea."
 	desc_extended = "A subsidiary of Gwok Group, the Konyang-cha tea company is the spur's foremost vendor of artisanal loose leaf tea, \
@@ -1558,7 +1561,7 @@
 	)
 	foldable = null
 
-/obj/item/storage/box/tea/tieguanyin
+/obj/item/storage/box/unique/tea/tieguanyin
 	name = "tieguanyin cha-tin"
 	desc = "A tin bearing the logo of the Konyang-cha tea company. This one contains a bag of tieguanyin, a type of oolong tea."
 	icon_state = "can_tie"
@@ -1566,7 +1569,7 @@
 		/obj/item/reagent_containers/food/snacks/grown/konyang_tea/tieguanyin = 7
 	)
 
-/obj/item/storage/box/tea/jaekseol
+/obj/item/storage/box/unique/tea/jaekseol
 	name = "jaekseol cha-tin"
 	desc = "A tin bearing the logo of the Konyang-cha tea company. This one contains a bag of jaekseol, a type of black tea."
 	icon_state = "can_jaek"

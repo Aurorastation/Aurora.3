@@ -105,6 +105,7 @@
 #define COLOR_LEATHER          "#5C4831"
 #define COLOR_RAIDER           "#6C7364"
 #define COLOR_CARDBOARD        "#ABAEB6"
+#define COLOR_REDBOX           "#B62B2B"
 
 #define COLOR_TOOLS            "#eac041"
 
