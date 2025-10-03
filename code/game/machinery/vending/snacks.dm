@@ -46,7 +46,8 @@
 		/obj/item/reagent_containers/food/drinks/jyalra = 5,
 		/obj/item/reagent_containers/food/drinks/jyalra/cheese = 5,
 		/obj/item/reagent_containers/food/drinks/jyalra/apple = 5,
-		/obj/item/reagent_containers/food/drinks/jyalra/cherry = 5
+		/obj/item/reagent_containers/food/drinks/jyalra/cherry = 5,
+		/obj/item/reagent_containers/food/snacks/algaechips = 2
 	)
 	contraband = list(
 		/obj/item/reagent_containers/food/snacks/syndicake = 6,
