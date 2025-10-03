@@ -10,6 +10,8 @@
 	spawnpoints = list("Solfrig_navy_crewman")
 	max_count = 3
 
+	outfit = /obj/outfit/admin/ssrm_navy_crewman
+	
 	assigned_role = "Solarian Frigate Crewman"
 	special_role = "Solarian Frigate Crewman"
 
