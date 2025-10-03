@@ -255,7 +255,7 @@
 
 /singleton/reagent/alcohol/witchspirit
 	name = "Witch-spirit"
-	color = "#47092b"
+	color = "#33EDA3"
 	description = "The most fashionable new cocktail in Nova Luxembourg."
 	strength = 35
 	taste_description = "herbal and citrus sting"
