@@ -56,7 +56,7 @@ avoid code duplication. This includes items that may sometimes act as a standard
 		return TRUE
 
 	if((user?.a_intent == I_HURT) && !(attacking_item.item_flags & ITEM_FLAG_NO_BLUDGEON))
-		visible_message(SPAN_DANGER("[src] has been hit by [user] with [attacking_item]."))
+		visible_message(SPAN_DANGER("[src] has been [attacking_item.attack_verb ? pick(attacking_item.attack_verb) : "hit"] by [user] with [attacking_item]."))
 
 /mob/living/attackby(obj/item/attacking_item, mob/user, params)
 	if(..())

@@ -6,8 +6,7 @@
 	active_power_usage = 50000
 	anchored = TRUE
 	density = TRUE
-	var/damage = 0
-	var/max_damage = 1000
+	health = 1000
 	var/heavy_firing_sound = 'sound/weapons/gunshot/ship_weapons/120mm_mortar.ogg' //The sound in the immediate firing area. Very loud.
 	var/light_firing_sound = 'sound/effects/explosionfar.ogg' //The sound played when you're a few walls away. Kind of loud.
 	var/projectile_type = /obj/projectile/ship_ammo
@@ -30,25 +29,28 @@
 	var/list/obj/structure/ship_weapon_dummy/connected_dummies = list()
 	var/obj/structure/ship_weapon_dummy/barrel
 
-/obj/machinery/ship_weapon/condition_hints(mob/user, distance, is_adjacent)
-	. += ..()
-	var/ratio = (damage / max_damage) * 100
+/obj/machinery/ship_weapon/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/armor, list(MELEE = ARMOR_MELEE_MAJOR, BULLET = ARMOR_BALLISTIC_RIFLE, LASER = ARMOR_LASER_MAJOR))
+
+/obj/machinery/ship_weapon/get_damage_condition_hints(mob/user, distance, is_adjacent)
+	var/ratio = (health / maxhealth) * 100
 	switch(ratio)
 		if(1 to 10)
-			. += SPAN_NOTICE("It looks to be in tip top shape apart from a few minor scratches and dings.")
+			. = SPAN_NOTICE("It looks to be in tip top shape apart from a few minor scratches and dings.")
 		if(10 to 20)
-			. += SPAN_ALERT("It has some kinks and bends here and there.")
+			. = SPAN_ALERT("It has some kinks and bends here and there.")
 		if(20 to 40)
-			. += SPAN_ALERT("It has a few holes through which you can see some machinery.")
+			. = SPAN_ALERT("It has a few holes through which you can see some machinery.")
 		if(40 to 60)
-			. += SPAN_WARNING("Some fairly important parts are missing... but it should work anyway.")
+			. = SPAN_WARNING("Some fairly important parts are missing... but it should work anyway.")
 		if(60 to 80)
-			. += SPAN_WARNING("It needs repairs direly. Both aiming and firing components are missing or broken. It has a lot of holes, too. It definitely wouldn't \
+			. = SPAN_WARNING("It needs repairs direly. Both aiming and firing components are missing or broken. It has a lot of holes, too. It definitely wouldn't \
 				pass inspection.")
 		if(90 to 100)
-			. += SPAN_DANGER("It's falling apart! Just touching it might make the whole thing collapse!")
+			. = SPAN_DANGER("It's falling apart! Just touching it might make the whole thing collapse!")
 		else //At roundstart, weapons start with 0 damage, so it'd be 0 / 1000 * 100 -> 0
-			. += SPAN_NOTICE("It looks to be in tip top shape and not damaged at all.")
+			. = SPAN_NOTICE("It looks to be in tip top shape and not damaged at all.")
 
 /obj/machinery/ship_weapon/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -58,7 +60,7 @@
 
 /obj/machinery/ship_weapon/assembly_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	var/ratio = (damage / max_damage) * 100
+	var/ratio = (health / maxhealth) * 100
 	if(ratio > 0)
 		. += "The damage can be repaired with a <b>welder</b>, but given the size of \the [src] it will take a lot of time and welding fuel."
 
@@ -105,13 +107,10 @@
 		if(3)
 			add_damage(10)
 
-/obj/machinery/ship_weapon/proc/add_damage(var/amount)
-	damage = max(0, min(damage + amount, max_damage))
-	update_damage()
-
-/obj/machinery/ship_weapon/proc/update_damage()
-	if(damage >= max_damage)
-		qdel(src)
+/obj/machinery/ship_weapon/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
+	visible_message(FONT_LARGE(SPAN_DANGER("\The [src] explodes in a shower of sparks and fire!")))
+	explosion(get_turf(src), 5, 7, 9)
+	. = ..()
 
 /obj/machinery/ship_weapon/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/device/multitool))
@@ -127,13 +126,13 @@
 				weapon_id = new_id
 				to_chat(user, SPAN_NOTICE("With some finicking, you change the identification tag to <b>[new_id]</b>."))
 				return TRUE
-	if(istype(attacking_item, /obj/item/weldingtool) && damage)
+	if(istype(attacking_item, /obj/item/weldingtool) && (health < maxhealth))
 		var/obj/item/weldingtool/WT = attacking_item
 		if(WT.get_fuel() >= 20)
 			user.visible_message(SPAN_NOTICE("[user] starts slowly welding kinks and holes in \the [src] back to working shape..."),
 								SPAN_NOTICE("You start welding kinks and holes back to working shape. This'll take a long while..."))
 			if(do_after(user, 15 SECONDS))
-				add_damage(-max_damage)
+				change_health(maxhealth)
 				user.visible_message(SPAN_NOTICE("[user] finally finishes patching up \the [src]'s exterior! It's not a pretty job, but it'll do."),
 									SPAN_NOTICE("You finally finish patching up \the [src]'s exterior! It's not a pretty job, but it'll do."))
 				WT.use(20)

@@ -7,6 +7,9 @@
 	idle_power_usage = 30
 	active_power_usage = 200
 	power_channel = AREA_USAGE_EQUIP
+	maxhealth = 50
+	armor = list(MELEE = ARMOR_MELEE_SMALL, BULLET = ARMOR_BALLISTIC_MINOR)
+
 	/// Item to copy.
 	var/obj/item/copy_item
 	/// How much toner is left.

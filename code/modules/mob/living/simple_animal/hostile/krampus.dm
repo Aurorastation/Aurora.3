@@ -27,7 +27,7 @@
 	resist_mod = 15
 	mob_size = 25
 	environment_smash = 2
-	attacktext = "punished"
+	attacktext = "punishes"
 	attack_sound = 'sound/weapons/bladeslice.ogg'
 
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
@@ -140,7 +140,7 @@
 	harm_intent_damage = 5
 	melee_damage_lower = 5
 	melee_damage_upper = 5
-	attacktext = "nibbled"
+	attacktext = "nibbles"
 	attack_sound = 'sound/weapons/bite.ogg'
 
 	min_oxy = 0

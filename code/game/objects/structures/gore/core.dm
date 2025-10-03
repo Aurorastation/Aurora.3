@@ -4,18 +4,13 @@
 	icon = 'icons/obj/gore_structures.dmi'
 	anchored = TRUE
 	density = FALSE
+	maxhealth = 50
 	var/destroy_message = "THE STRUCTURE collapses in on itself!"
-	var/maxHealth = 50
-	var/health = 50
-
-/obj/structure/gore/Initialize(mapload)
-	. = ..()
-	health = maxHealth
 
 /obj/structure/gore/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance <= 2)
-		var/health_div = health / maxHealth
+		var/health_div = health / maxhealth
 		if(health_div >= 0.9)
 			. += SPAN_NOTICE("\The [src] appears completely intact.")
 		else if(health_div >= 0.7)

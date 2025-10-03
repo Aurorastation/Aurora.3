@@ -23,7 +23,7 @@
 	resist_mod = 2
 	mob_size = 30
 	environment_smash = 2
-	attacktext = "chomped"
+	attacktext = "chomps"
 	attack_sound = 'sound/weapons/bite.ogg'
 
 	faction = "worm"

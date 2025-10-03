@@ -12,7 +12,7 @@
 		to_chat(R, message)
 
 /mob/living/simple_animal/rat/king
-	attacktext = "bitten"
+	attacktext = "bites"
 	a_intent = "harm"
 
 	icon_state = "rat_gray"
@@ -74,7 +74,7 @@
 		swarm_name = "creation"
 		announce_name = "commandment"
 		desc = "A titanic swarm of rats."
-		attacktext = "swarmed"
+		attacktext = "swarm"
 		melee_damage_lower = 15
 		melee_damage_upper = 20
 		maxHealth = 260
@@ -86,7 +86,7 @@
 		swarm_name = "flock"
 		announce_name = "pronouncement"
 		desc = "A massive swarm of rats."
-		attacktext = "swarmed"
+		attacktext = "swarm"
 		melee_damage_lower = 10
 		melee_damage_upper = 10
 		maxHealth = 160
@@ -97,7 +97,7 @@
 		swarm_name = "empire"
 		announce_name = "command"
 		desc = "A large swarm of rats."
-		attacktext = "swarmed"
+		attacktext = "swarm"
 		melee_damage_lower = 7
 		melee_damage_upper = 5
 		maxHealth = 110
@@ -108,7 +108,7 @@
 		swarm_name = "kingdom"
 		announce_name = "decree"
 		desc = "A big swarm of rats."
-		attacktext = "swarmed"
+		attacktext = "swarm"
 		melee_damage_lower = 5
 		melee_damage_upper = 5
 		maxHealth = 60
@@ -119,7 +119,7 @@
 		swarm_name = "duchy"
 		announce_name = "decree"
 		desc = "A swarm of rats."
-		attacktext = "bitten"
+		attacktext = "bites"
 		maxHealth = 35
 		health = 35
 		mob_size = 6
@@ -128,7 +128,7 @@
 		swarm_name = "barony"
 		announce_name = "decree"
 		desc = "A group of rats."
-		attacktext = "bitten"
+		attacktext = "bites"
 		maxHealth = 25
 		health = 25
 		mob_size = 4
@@ -137,7 +137,7 @@
 		swarm_name = "hamlet"
 		announce_name = "decree"
 		desc = "A couple of rats."
-		attacktext = "bitten"
+		attacktext = "bites"
 		maxHealth = 15
 		health = 15
 		mob_size = 3
@@ -146,7 +146,7 @@
 		swarm_name = "peasentry"
 		announce_name = "request"
 		desc = "A single rat. This one seems special."
-		attacktext = "scratched"
+		attacktext = "scratches"
 		maxHealth = 10
 		health = 10
 		mob_size = 2

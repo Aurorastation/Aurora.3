@@ -22,7 +22,7 @@
 	harm_intent_damage = 8
 	melee_damage_lower = 10
 	melee_damage_upper = 10
-	attacktext = "attacked"
+	attacktext = "attacks"
 	attack_sound = 'sound/items/bikehorn.ogg'
 
 	min_oxy = 5

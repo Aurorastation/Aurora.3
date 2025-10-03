@@ -250,12 +250,15 @@
 	update_icon()
 
 /obj/structure/bed/dismantle(obj/item/W, mob/user)
-	user.visible_message("<b>[user]</b> begins dismantling \the [src].", SPAN_NOTICE("You begin dismantling \the [src]."))
-	if(W.use_tool(src, user, 20, volume = 50))
-		user.visible_message("\The [user] dismantles \the [src].", SPAN_NOTICE("You dismantle \the [src]."))
-		if(padding_material)
-			padding_material.place_sheet(get_turf(src))
-		..()
+	if(user)
+		user.visible_message("<b>[user]</b> begins dismantling \the [src].", SPAN_NOTICE("You begin dismantling \the [src]."))
+		if(W.use_tool(src, user, 20, volume = 50))
+			user.visible_message("\The [user] dismantles \the [src].", SPAN_NOTICE("You dismantle \the [src]."))
+		else
+			return FALSE
+	if(padding_material)
+		padding_material.place_sheet(get_turf(src))
+	..()
 
 /obj/structure/bed/Move()
 	. = ..()

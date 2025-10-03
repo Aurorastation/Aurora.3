@@ -27,7 +27,9 @@
 	use_power = POWER_USE_OFF
 	clicksound = /singleton/sound_category/switch_sound
 
-	var/health = 500
+	health = 500
+	maxhealth = 500
+
 	var/busted = FALSE // this it to prevent the damage text from playing repeatedly
 
 	var/capacity = 5e6 // maximum charge

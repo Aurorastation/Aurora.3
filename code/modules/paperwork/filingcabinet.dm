@@ -16,6 +16,9 @@
 	icon_state = "filingcabinet"
 	density = 1
 	anchored = 1
+	maxhealth = 50
+	armor = list(MELEE = ARMOR_MELEE_SMALL, BULLET = ARMOR_BALLISTIC_MINOR)
+
 	var/static/list/accepted_items = list(
 		/obj/item/paper,
 		/obj/item/folder,
@@ -46,13 +49,11 @@
 /obj/structure/filingcabinet/filingcabinet	//not changing the path to avoid unecessary map issues, but please don't name stuff like this in the future -Pete
 	icon_state = "tallcabinet"
 
-
 /obj/structure/filingcabinet/Initialize()
 	. = ..()
 	for(var/obj/item/I in loc)
 		if(is_type_in_list(I, accepted_items))
 			I.forceMove(src)
-
 
 /obj/structure/filingcabinet/attackby(obj/item/attacking_item, mob/user)
 	if(is_type_in_list(attacking_item, accepted_items))
@@ -70,6 +71,15 @@
 	else
 		to_chat(user, SPAN_NOTICE("You can't put [attacking_item] in [src]!"))
 
+/obj/structure/filingcabinet/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
+	for(var/obj/item/thing in src)
+		if(prob(25))
+			if(istype(thing, /obj/item/paper))
+				if(prob(50))
+					var/obj/item/paper/paper = thing
+					paper.crumple()
+			thing.forceMove(get_turf(src))
+	. = ..()
 
 /obj/structure/filingcabinet/attack_hand(mob/user as mob)
 	if(contents.len <= 0)
@@ -82,8 +92,6 @@
 		dat += "<tr><td><a href='byond://?src=[REF(src)];retrieve=[REF(P)]'>[P.name]</a></td></tr>"
 	dat += "</table></center>"
 	user << browse("<html><head><title>[name]</title></head><body>[dat]</body></html>", "window=filingcabinet;size=350x300")
-
-	return
 
 /obj/structure/filingcabinet/Topic(href, href_list)
 	if(href_list["retrieve"])

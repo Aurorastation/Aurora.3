@@ -33,7 +33,7 @@
 	resist_mod = 15
 	mob_size = 25
 	environment_smash = 2
-	attacktext = "mangled"
+	attacktext = "mangles"
 	attack_sound = 'sound/weapons/bloodyslice.ogg'
 	emote_sounds = list('sound/effects/creatures/bear_loud_1.ogg', 'sound/effects/creatures/bear_loud_2.ogg', 'sound/effects/creatures/bear_loud_3.ogg', 'sound/effects/creatures/bear_loud_4.ogg')
 
@@ -163,7 +163,7 @@
 	melee_damage_lower = 5
 	melee_damage_upper = 10
 	mob_size = 15
-	attacktext = "mangled"
+	attacktext = "mangles"
 	attack_sound = 'sound/weapons/bloodyslice.ogg'
 
 	see_invisible = SEE_INVISIBLE_NOLIGHTING

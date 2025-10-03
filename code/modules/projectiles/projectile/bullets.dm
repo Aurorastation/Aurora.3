@@ -8,6 +8,7 @@
 	embed = TRUE
 	sharp = TRUE
 	shrapnel_type = /obj/item/material/shard/shrapnel
+	ping_effect = "ping_b"
 	var/mob_passthrough_check = 0
 
 	muzzle_type = /obj/effect/projectile/muzzle/bullet

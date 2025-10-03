@@ -10,7 +10,6 @@
 	density = TRUE
 	climbable = TRUE
 	smoothing_flags = SMOOTH_MORE
-	breakable = TRUE
 	can_be_unanchored = TRUE
 	canSmoothWith = list(
 		/turf/simulated/wall,

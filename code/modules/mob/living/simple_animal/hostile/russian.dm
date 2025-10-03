@@ -19,7 +19,7 @@
 	harm_intent_damage = 5
 	melee_damage_lower = 15
 	melee_damage_upper = 15
-	attacktext = "punched"
+	attacktext = "punches"
 	a_intent = I_HURT
 	var/corpse = /obj/effect/landmark/mobcorpse/russian
 	var/weapon1 = /obj/item/material/knife
