@@ -3,7 +3,7 @@
 	/// How much will mobs that lean onto this object be offset
 	var/leaning_offset = 11
 	/// List of mobs currently leaning on our parent
-	var/list/leaning_mobs = list()
+	var/list/leaning_mobs
 	/// Is this object currently leanable?
 	var/is_currently_leanable = TRUE
 
@@ -37,7 +37,7 @@
 			leaner.visible_message(SPAN_WARNING("[leaner] loses their balance!"), SPAN_DANGER("You lose balance!"))
 			leaner.Weaken(rand(3,5))
 		leaner.stop_leaning()
-	leaning_mobs.Cut()
+	LAZYNULL(leaning_mobs)
 
 /datum/component/leanable/proc/on_moved(datum/source)
 	SIGNAL_HANDLER
@@ -68,7 +68,7 @@
 	if(!is_currently_leanable || !can_lean)
 		return COMPONENT_CANCEL_MOUSEDROPPED_ONTO
 	leaner.start_leaning(source, leaning_offset)
-	leaning_mobs += leaner
+	LAZYADD(leaning_mobs, leaner)
 	RegisterSignals(leaner, list(COMSIG_LIVING_STOPPED_LEANING, COMSIG_QDELETING), PROC_REF(stopped_leaning), override = TRUE)
 	return COMPONENT_CANCEL_MOUSEDROPPED_ONTO
 
@@ -123,7 +123,7 @@
 
 /datum/component/leanable/proc/stopped_leaning(datum/source)
 	SIGNAL_HANDLER
-	leaning_mobs -= source
+	LAZYREMOVE(leaning_mobs, source)
 	UnregisterSignal(source, list(COMSIG_LIVING_STOPPED_LEANING, COMSIG_QDELETING))
 
 /datum/component/leanable/proc/on_density_change()
