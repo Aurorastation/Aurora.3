@@ -223,7 +223,8 @@
 				to_chat(user, SPAN_WARNING("Error: You cannot change the song until the current one is over."))
 				return TRUE
 
-			var/datum/track/new_song = music_player.playlist[params]
+			var/datum/track/new_song = music_player.playlist[params["track"]]
+			to_chat(world, "returns: [new_song]")
 			if(QDELETED(src))
 				return TRUE
 
