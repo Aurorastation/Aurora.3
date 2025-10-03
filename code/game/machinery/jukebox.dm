@@ -6,8 +6,8 @@
 	anchored = 0
 	density = 1
 	power_channel = AREA_USAGE_EQUIP
-	idle_power_usage = 10
-	active_power_usage = 100
+	idle_power_usage = 100
+	active_power_usage = 2000
 	clicksound = 'sound/machines/buttonbeep.ogg'
 	/// Cooldown between "Error" sound effects being played
 	COOLDOWN_DECLARE(jukebox_error_cd)
@@ -33,6 +33,7 @@
 	var/starting_cartridges = list()
 	starting_cartridges += new/obj/item/music_cartridge/ss13
 	music_player = new(src, parent_cartridges = starting_cartridges, parent_max_cartridges = 3, parent_locked = TRUE)
+	update_icon()
 
 /obj/machinery/media/jukebox/classic/update_icon()
 	ClearOverlays()
@@ -67,7 +68,7 @@
 /obj/machinery/media/jukebox/phonograph/update_icon()
 	ClearOverlays()
 	icon_state = state_base
-	if(!isnull(song_timerid))
+	if(!isnull(music_player.active_song_sound))
 		AddOverlays("[state_base]-running")
 
 /obj/machinery/media/jukebox/audioconsole
@@ -87,7 +88,7 @@
 /obj/machinery/media/jukebox/audioconsole/update_icon()
 	ClearOverlays()
 	icon_state = state_base
-	if(!isnull(song_timerid))
+	if(!isnull(music_player.active_song_sound))
 		AddOverlays("[state_base]-running")
 
 /obj/machinery/media/jukebox/audioconsole/wall
@@ -113,7 +114,7 @@
 /obj/machinery/media/jukebox/gramophone/update_icon()
 	ClearOverlays()
 	icon_state = state_base
-	if(!isnull(song_timerid))
+	if(!isnull(music_player.active_song_sound))
 		AddOverlays("[state_base]-running")
 
 /obj/machinery/media/jukebox/calliope
@@ -138,7 +139,7 @@
 	if(!anchored)
 		stat &= ~NOPOWER
 
-	if(stat & (NOPOWER|BROKEN) && !isnull(song_timerid))
+	if(stat & (NOPOWER|BROKEN) && !isnull(music_player.active_song_sound))
 		stop_music()
 	update_icon()
 
@@ -255,7 +256,7 @@
 		return
 	balloon_alert(user, "on cooldown for [DisplayTimeText(COOLDOWN_TIMELEFT(src, jukebox_song_cd))]!")
 	if(COOLDOWN_FINISHED(src, jukebox_error_cd))
-		COOLDOWN_START(src, jukebox_error_cd, 15 SECONDS)
+		COOLDOWN_START(src, jukebox_error_cd, 5 SECONDS)
 
 /obj/machinery/media/jukebox/proc/activate_music()
 	if(!isnull(music_player.active_song_sound))
@@ -264,11 +265,15 @@
 	music_player.start_music()
 	if(!music_player.sound_loops)
 		song_timerid = addtimer(CALLBACK(src, PROC_REF(stop_music)), music_player.selection.song_length, TIMER_UNIQUE|TIMER_STOPPABLE|TIMER_DELETE_ME)
+	update_icon()
+
 	return TRUE
 
 /obj/machinery/media/jukebox/proc/stop_music()
 	if(!isnull(song_timerid))
 		deltimer(song_timerid)
+		song_timerid = null
+		update_icon()
 
 	music_player.unlisten_all()
 

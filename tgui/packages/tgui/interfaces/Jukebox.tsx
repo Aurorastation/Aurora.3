@@ -1,5 +1,5 @@
 import { sortBy } from 'es-toolkit';
-import { Box, Button, Dropdown, Knob, LabeledControls, LabeledList, Section } from '../components';
+import { Box, Button, Dropdown, Flex, Knob, LabeledControls, LabeledList, Section } from '../components';
 import type { BooleanLike } from '../../common/react';
 
 import { useBackend } from '../backend';
@@ -28,8 +28,13 @@ export const Jukebox = (props, context) => {
   );
 
   return (
-    <Window width={370} height={313}>
+    <Window width={600} height={313}>
       <Window.Content>
+        <Flex>
+          <Flex.Item />
+          <Flex.Item />
+          <Flex.Item />
+        </Flex>
         <Section
           title="Music Player"
           buttons={
@@ -53,6 +58,7 @@ export const Jukebox = (props, context) => {
               <Dropdown
                 width="240px"
                 options={playlist_sorted.map((song) => song.name)}
+                disabled={!!active}
                 selected={song_selected?.name || 'Select a Track'}
                 onSelected={(value) => act('select_track', { track: value })}
               />

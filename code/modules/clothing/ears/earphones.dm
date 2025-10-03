@@ -39,19 +39,19 @@
 
 /obj/item/clothing/ears/earphones/Initialize(mapload)
 	. = ..(mapload)
-	music_player = new(src, 0)
+	music_player = new(src, 1)
 
 /obj/item/clothing/ears/earphones/Destroy()
 	stop_music()
 	QDEL_NULL(music_player)
 	return ..()
 
-/*
-	Music Cartridge Procs:
-*/
+/obj/item/clothing/ears/earphones/update_icon()
+	..()
+	AddOverlays(overlay_image(icon, "[icon_state]_overlay", flags=RESET_COLOR))
 
 /obj/item/clothing/ears/earphones/verb/interface()
-	set name = "Interface"
+	set name = "Earphones Music Control"
 	set category = "Object.Earphones"
 	set src in usr
 
@@ -120,6 +120,17 @@
 
 ///If a song is playing, cut it. If none is playing, and the cooldown is up, start the queued track.
 /obj/item/clothing/ears/earphones/proc/toggle_playing(mob/user)
+
+
+	// Chat Display
+	var/current_track_name = current_playlist[playlist_index].title
+	to_chat(user,SPAN_NOTICE("Now Playing: Track [playlist_index] — '[current_track_name]'."))
+
+	// Icon/Overlay stuff for the music notes
+	worn_overlay = "music" // this is rather annoying but prevents the music notes on getting colored
+	update_icon()
+	update_clothing_icon()
+
 	if(!isnull(music_player.active_song_sound))
 		stop_music()
 		return
@@ -128,7 +139,7 @@
 		return
 	balloon_alert(user, "on cooldown for [DisplayTimeText(COOLDOWN_TIMELEFT(src, jukebox_song_cd))]!")
 	if(COOLDOWN_FINISHED(src, jukebox_error_cd))
-		COOLDOWN_START(src, jukebox_error_cd, 15 SECONDS)
+		COOLDOWN_START(src, jukebox_error_cd, 1 SECONDS)
 
 /obj/item/clothing/ears/earphones/proc/activate_music()
 	if(!isnull(music_player.active_song_sound))
@@ -146,24 +157,6 @@
 	music_player.unlisten_all()
 
 	return TRUE
-
-/*
-	Click Controls:
-
-	Shift+Click to Pause/Unpause
-	Alt+Click to Start/Stop
-
-
-
-/obj/item/clothing/ears/earphones/AltClick(mob/user)
-	pause_unpause()
-
-/obj/item/clothing/ears/earphones/ShiftClick(mob/user)
-	play_stop()
-
-
-	Generic Earwear Procs
-*/
 
 /obj/item/clothing/ears/earphones/update_clothing_icon()
 	if (ismob(src.loc))

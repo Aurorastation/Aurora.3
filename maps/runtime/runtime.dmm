@@ -3548,6 +3548,12 @@
 	temperature = 278
 	},
 /area/turret_protected/ai_upload_foyer)
+"RT" = (
+/obj/machinery/media/jukebox/classic{
+	anchored = 1
+	},
+/turf/simulated/floor/plating,
+/area/construction)
 "RU" = (
 /obj/machinery/bluespacerelay,
 /turf/simulated/floor/bluegrid{
@@ -9076,7 +9082,7 @@ cO
 tl
 pM
 db
-de
+RT
 yk
 dq
 dq
