@@ -37,7 +37,7 @@
 			leaner.visible_message(SPAN_WARNING("[leaner] loses their balance!"), SPAN_DANGER("You lose balance!"))
 			leaner.Weaken(rand(3,5))
 		leaner.stop_leaning()
-	LAZYNULL(leaning_mobs)
+	LAZYCLEARLIST(leaning_mobs)
 
 /datum/component/leanable/proc/on_moved(datum/source)
 	SIGNAL_HANDLER
