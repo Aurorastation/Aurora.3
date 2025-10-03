@@ -6,12 +6,13 @@
 	whever you are. (NOTE: It is recommended to use appropirate accents and origins depending on which region of the Spur you are in; Visegradi accents for the South, \
 	and Colettish accents for the North.) \
 	"
+	mob_name_prefix = "PO3. "
 
 	spawnpoints = list("Solfrig_navy_crewman")
 	max_count = 3
 
 	outfit = /obj/outfit/admin/ssrm_navy_crewman
-	
+
 	assigned_role = "Solarian Frigate Crewman"
 	special_role = "Solarian Frigate Crewman"
 
