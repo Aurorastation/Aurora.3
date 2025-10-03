@@ -7,7 +7,7 @@
 	and Colettish accents for the North.) \
 	"
 
-	spawnpoints = list("solfrig_navy_crewman")
+	spawnpoints = list("Solfrig_navy_crewman")
 	max_count = 3
 
 	assigned_role = "Solarian Frigate Crewman"
