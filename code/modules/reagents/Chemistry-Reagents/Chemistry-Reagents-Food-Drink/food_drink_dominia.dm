@@ -257,7 +257,7 @@
 	name = "Witch-spirit"
 	color = "#33EDA3"
 	description = "The most fashionable new cocktail in Nova Luxembourg."
-	strength = 35
+	strength = 45
 	taste_description = "herbal and citrus sting"
 
 	glass_icon_state = "witchspirit"
