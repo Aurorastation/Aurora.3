@@ -10,7 +10,7 @@ type Song = {
   length: string;
 };
 
-type Data = {
+export type Data = {
   active: BooleanLike;
   sound_loops: BooleanLike;
   volume: number;
@@ -22,7 +22,7 @@ export const Jukebox = (props, context) => {
   const { act, data } = useBackend<Data>(context);
   const { active, sound_loops, track_selected, volume, playlist } = data;
 
-  const songs_sorted: Song[] = sortBy(playlist, [(song: Song) => song.name]);
+  const playlist_sorted: Song[] = sortBy(playlist, [(song: Song) => song.name]);
   const song_selected: Song | undefined = playlist.find(
     (song) => song.name === track_selected
   );
@@ -31,7 +31,7 @@ export const Jukebox = (props, context) => {
     <Window width={370} height={313}>
       <Window.Content>
         <Section
-          title="Song Player"
+          title="Music Player"
           buttons={
             <>
               <Button
@@ -43,7 +43,6 @@ export const Jukebox = (props, context) => {
               <Button.Checkbox
                 icon={'arrow-rotate-left'}
                 content="Repeat"
-                disabled={active}
                 checked={sound_loops}
                 onClick={() => act('loop', { sound_loops: !sound_loops })}
               />
@@ -53,14 +52,9 @@ export const Jukebox = (props, context) => {
             <LabeledList.Item label="Track Selected">
               <Dropdown
                 width="240px"
-                options={songs_sorted.map((song) => song.name)}
-                disabled={!!active}
+                options={playlist_sorted}
                 selected={song_selected?.name || 'Select a Track'}
-                onSelected={(value) =>
-                  act('select_track', {
-                    track: value,
-                  })
-                }
+                onSelected={(value) => act('select_track', { track: value })}
               />
             </LabeledList.Item>
             <LabeledList.Item label="Track Length">
@@ -81,7 +75,7 @@ export const Jukebox = (props, context) => {
                   maxValue={80}
                   step={1}
                   stepPixelSize={1}
-                  onChange={(e, value) =>
+                  onChange={(value) =>
                     act('set_volume', {
                       volume: value,
                     })

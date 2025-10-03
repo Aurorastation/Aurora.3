@@ -72,7 +72,10 @@
 		LOG_DEBUG("/datum/jukebox/New(), first cartridge is [cartridge]")
 		add_songs(cartridge)
 	if(length(playlist))
+		LOG_DEBUG("[src] has a playlist. picking selection.")
 		selection = playlist[pick(playlist)]
+		LOG_DEBUG("picked [selection]")
+	LOG_DEBUG("[src] does not have a playlist.")
 
 	RegisterSignal(parent, COMSIG_ENTER_AREA, PROC_REF(on_enter_area))
 	RegisterSignal(parent, COMSIG_MOVABLE_MOVED, PROC_REF(on_moved))
@@ -114,8 +117,12 @@
 	LOG_DEBUG("/datum/jukebox/proc/add_songs([cartridge])")
 	if(cartridge.tracks)
 		for(var/datum/track/track in cartridge.tracks)
-			LOG_DEBUG("adding track [track.song_name], [track.song_path], [track.song_length]")
-			playlist += track
+			var/datum/track/new_track = new()
+			new_track.song_name = track.song_name
+			new_track.song_path = file(track.song_path)
+			new_track.song_length = track.song_length
+			new_track.source = track.source
+			playlist[new_track.song_name] = new_track
 	if(!length(playlist))
 		var/datum/track/default/default_track = new()
 		playlist[default_track.song_name] = default_track
@@ -138,10 +145,11 @@
 /datum/jukebox/proc/get_ui_data()
 	var/list/data = list()
 	var/list/songs_data = list()
-	for(var/datum/track/song in playlist)
+	for(var/song_name in playlist)
+		var/datum/track/one_song = playlist[song_name]
 		UNTYPED_LIST_ADD(songs_data, list( \
-			"name" = song.song_name, \
-			"length" = DisplayTimeText(song.song_length), \
+			"name" = song_name, \
+			"length" = DisplayTimeText(one_song.song_length)
 		))
 	data["active"] = !!active_song_sound
 	data["playlist"] = songs_data
