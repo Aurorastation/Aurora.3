@@ -137,6 +137,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/computer/rdconsole/LateInitialize()
+	. = ..()
 	SyncTechs()
 	screen = 1.0
 

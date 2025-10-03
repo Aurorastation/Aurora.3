@@ -282,6 +282,7 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/vending/LateInitialize()
+	. = ..()
 	v_asset = get_asset_datum(/datum/asset/spritesheet/vending)
 
 /obj/machinery/vending/proc/reset_light()
