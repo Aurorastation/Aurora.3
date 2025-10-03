@@ -34,7 +34,7 @@
 /obj/outfit/admin/kasf_crewman/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(isoffworlder(H))
-		H.equip_or_collect(new /obj/item/storage/pill_bottle/rmt, slot_in_backpack)
+		H.equip_or_collect(new /obj/item/storage/pill_bottle/rmt, slot_in_backpack_str)
 	var/obj/item/organ/internal/machine/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
 	if(istype(tag))
 		tag.serial_number = uppertext(dd_limittext(md5(H.real_name), 12))

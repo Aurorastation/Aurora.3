@@ -4,7 +4,7 @@ ABSTRACT_TYPE(/datum/gear/accessory)
 /datum/gear/accessory/locket
 	display_name = "silver locket"
 	path = /obj/item/clothing/accessory/locket
-	slot = slot_tie
+	slot = slot_tie_str
 
 /datum/gear/accessory/suspenders
 	display_name = "suspenders"

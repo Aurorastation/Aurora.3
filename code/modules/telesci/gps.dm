@@ -108,12 +108,12 @@ GLOBAL_LIST_EMPTY(gps_list)
 
 /obj/item/gps/on_slotmove(mob/user, slot)
 	. = ..()
-	if(user.client && !(slot == slot_r_hand || slot == slot_l_hand))
+	if(user.client && !(slot == slot_r_hand_str || slot == slot_l_hand_str))
 		user.client.screen -= compass
 
 /obj/item/gps/equipped(mob/user, slot)
 	. = ..()
-	if(user.client && (slot == slot_r_hand || slot == slot_l_hand))
+	if(user.client && (slot == slot_r_hand_str || slot == slot_l_hand_str))
 		user.client.screen |= compass
 
 /obj/item/gps/on_module_activate(mob/living/silicon/robot/R)

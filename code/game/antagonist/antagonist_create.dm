@@ -38,7 +38,7 @@
 	W.access |= default_access
 	W.assignment = "[assignment]"
 	player.set_id_info(W)
-	if(equip) player.equip_to_slot_or_del(W, slot_wear_id)
+	if(equip) player.equip_to_slot_or_del(W, slot_wear_id_str)
 	return W
 
 /datum/antagonist/proc/create_radio(var/freq, var/mob/living/carbon/human/player)
@@ -60,7 +60,7 @@
 			R.set_frequency(freq)
 
 	R.set_frequency(freq)
-	player.equip_to_slot_or_del(R, slot_l_ear)
+	player.equip_to_slot_or_del(R, slot_l_ear_str)
 	return R
 
 /datum/antagonist/proc/create_nuke(var/atom/paper_spawn_loc, var/datum/mind/code_owner)

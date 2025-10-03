@@ -35,7 +35,7 @@
 	. = ..()
 	if(H?.shoes)
 		var/obj/item/clothing/shoes/magboots/boots = new(H)
-		H.equip_to_slot_if_possible(boots, slot_shoes)
+		H.equip_to_slot_if_possible(boots, slot_shoes_str)
 
 /obj/outfit/admin/ert/dominia/medic
 	name = "Imperial Fleet Medic"

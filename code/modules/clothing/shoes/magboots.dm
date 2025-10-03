@@ -43,7 +43,7 @@
 
 	var/mob/living/carbon/human/H = wearer
 	if(shoes && istype(H))
-		if(!H.equip_to_slot_if_possible(shoes, slot_shoes))
+		if(!H.equip_to_slot_if_possible(shoes, slot_shoes_str))
 			shoes.forceMove(get_turf(src))
 		src.shoes = null
 	wearer.update_floating()
@@ -80,7 +80,7 @@
 		return 0
 
 /obj/item/clothing/shoes/magboots/mob_can_equip(mob/user, slot, disable_warning = FALSE)
-	if(slot != slot_shoes)
+	if(slot != slot_shoes_str)
 		return ..()
 
 	var/mob/living/carbon/human/H = user
@@ -94,7 +94,7 @@
 
 	if(!..())
 		if(shoes) 	//Put the old shoes back on if the check fails.
-			if(H.equip_to_slot_if_possible(shoes, slot_shoes))
+			if(H.equip_to_slot_if_possible(shoes, slot_shoes_str))
 				src.shoes = null
 		return 0
 

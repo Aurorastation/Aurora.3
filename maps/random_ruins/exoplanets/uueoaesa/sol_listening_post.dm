@@ -59,7 +59,7 @@
 	M.adjustBruteLoss(rand(200,400))
 	M.dir = pick(GLOB.cardinals)
 	if(prob(10))
-		M.equip_to_slot_or_del(new /obj/item/melee/energy/sword/pirate(M), slot_belt)
+		M.equip_to_slot_or_del(new /obj/item/melee/energy/sword/pirate(M), slot_belt_str)
 
 /obj/item/paper/fluff/sol_uueoa
 	language = LANGUAGE_SOL_COMMON

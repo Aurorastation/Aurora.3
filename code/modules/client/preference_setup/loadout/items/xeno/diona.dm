@@ -389,7 +389,7 @@ ABSTRACT_TYPE(/datum/gear/accessory/diona)
 
 /datum/gear/accessory/sinta_hood/diona
 	display_name = "dionae clan hood"
-	slot = slot_head
+	slot = slot_head_str
 	path = /obj/item/clothing/accessory/sinta_hood
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"

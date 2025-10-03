@@ -89,7 +89,7 @@ GLOBAL_LIST_INIT(mimic_defines, list("ZM_MIMIC_BELOW",
 #define ITEM_FLAG_NO_BLUDGEON FLAG(0)
 /// Does not get contaminated by phoron.
 #define ITEM_FLAG_PHORON_GUARD FLAG(1)
-/// Prevents syringes, parapens and hyposprays if equiped to slot_suit or slot_head.
+/// Prevents syringes, parapens and hyposprays if equiped to slot_suit or slot_head_str.
 #define ITEM_FLAG_THICK_MATERIAL FLAG(2)
 /// Functions with internals
 #define ITEM_FLAG_AIRTIGHT FLAG(3)

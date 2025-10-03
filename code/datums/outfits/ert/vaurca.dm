@@ -41,7 +41,7 @@
 	if(H?.shoes)
 		H.shoes.color = "#391610"
 		var/obj/item/clothing/shoes/magboots/vaurca/boots = new(H)
-		H.equip_to_slot_if_possible(boots, slot_shoes)
+		H.equip_to_slot_if_possible(boots, slot_shoes_str)
 	if(H?.w_uniform)
 		H.w_uniform.color = "#391610"
 	if(H?.glasses)
@@ -96,7 +96,7 @@
 	if(H?.shoes)
 		H.shoes.color = "#391610"
 		var/obj/item/clothing/shoes/magboots/vaurca/boots = new(H)
-		H.equip_to_slot_if_possible(boots, slot_shoes)
+		H.equip_to_slot_if_possible(boots, slot_shoes_str)
 	if(H?.w_uniform)
 		H.w_uniform.color = "#391610"
 	if(H?.glasses)
@@ -185,7 +185,7 @@
 	if(H?.shoes)
 		H.shoes.color = "#0e3a11"
 		var/obj/item/clothing/shoes/magboots/vaurca/boots = new(H)
-		H.equip_to_slot_if_possible(boots, slot_shoes)
+		H.equip_to_slot_if_possible(boots, slot_shoes_str)
 	if(H?.w_uniform)
 		H.w_uniform.color = "#0e3a11"
 	if(H?.glasses)

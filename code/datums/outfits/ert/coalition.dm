@@ -122,7 +122,7 @@
 /obj/outfit/admin/ert/konyang/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(H.isSynthetic())
-		H.equip_to_slot_or_del(new /obj/item/suit_cooling_unit(H), slot_back)
+		H.equip_to_slot_or_del(new /obj/item/suit_cooling_unit(H), slot_back_str)
 
 /obj/outfit/admin/ert/konyang/medic
 	name = "KASF Medic"

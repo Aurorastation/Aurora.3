@@ -152,7 +152,7 @@
 /obj/item/clothing/mask/ai/attack_self(mob/user)
 	if(user.incapacitated())
 		return
-	if(user.get_equipped_item(slot_wear_mask) != src)
+	if(user.get_equipped_item(slot_wear_mask_str) != src)
 		to_chat(user, SPAN_WARNING("You must be wearing \the [src] to activate it!"))
 		return
 	var/datum/component/eye/freelook/CN = GetComponent(/datum/component/eye/freelook)

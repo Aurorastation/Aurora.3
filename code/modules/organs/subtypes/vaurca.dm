@@ -269,7 +269,7 @@
 
 /obj/item/organ/internal/augment/tool/combitool/vaurca/left
 	parent_organ = BP_L_HAND
-	aug_slot = slot_l_hand
+	aug_slot = slot_l_hand_str
 
 /obj/item/combitool/robotic/vaurca
 	name = "vaurca toolset"

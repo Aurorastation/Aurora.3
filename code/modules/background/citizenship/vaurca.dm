@@ -94,8 +94,8 @@
 /obj/outfit/job/representative/consular/zora/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H)
 		if(isvaurca(H))
-			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec(H), slot_back)
-			H.equip_to_slot_or_del(new /obj/item/storage/box/tcaf_pamphlet(H), slot_in_backpack)
+			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec(H), slot_back_str)
+			H.equip_to_slot_or_del(new /obj/item/storage/box/tcaf_pamphlet(H), slot_in_backpack_str)
 		if(!visualsOnly)
 			addtimer(CALLBACK(src, PROC_REF(send_representative_mission), H), 5 MINUTES)
 	return TRUE
@@ -197,7 +197,7 @@
 /obj/outfit/job/representative/consular/klax/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H)
 		if(isvaurca(H))
-			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec/klax(H), slot_back)
+			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec/klax(H), slot_back_str)
 		if(!visualsOnly)
 			addtimer(CALLBACK(src, PROC_REF(send_representative_mission), H), 5 MINUTES)
 	return TRUE
@@ -299,7 +299,7 @@
 /obj/outfit/job/representative/consular/cthur/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H)
 		if(isvaurca(H))
-			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec/cthur(H), slot_back)
+			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec/cthur(H), slot_back_str)
 		if(!visualsOnly)
 			addtimer(CALLBACK(src, PROC_REF(send_representative_mission), H), 5 MINUTES)
 	return TRUE

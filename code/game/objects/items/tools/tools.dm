@@ -905,10 +905,10 @@
 		var/mob/living/carbon/human/user = loc
 		if(!user.gloves)
 			var/UserLoc = get_equip_slot()
-			if(UserLoc == slot_l_hand)
+			if(UserLoc == slot_l_hand_str)
 				user.apply_damage(5, DAMAGE_BURN, BP_L_HAND)
 				to_chat(user, SPAN_DANGER("The steel wool burns your left hand!"))
-			else if(UserLoc == slot_r_hand)
+			else if(UserLoc == slot_r_hand_str)
 				user.apply_damage(5, DAMAGE_BURN, BP_R_HAND)
 				to_chat(user, SPAN_DANGER("The steel wool burns your right hand!"))
 

@@ -182,7 +182,7 @@
 	 *
 	 * Used to specify the icon file to be used when the item is worn. If not set the default icon for that slot will be used.
 	 * If icon_override or sprite_sheets are set they will take precendence over this, assuming they apply to the slot in question.
-	 * Only slot_l_hand/slot_r_hand are implemented at the moment. Others to be implemented as needed.
+	 * Only slot_l_hand_str/slot_r_hand_str are implemented at the moment. Others to be implemented as needed.
 	 */
 	var/list/item_icons
 
@@ -612,7 +612,7 @@
 	in_inventory = TRUE
 
 	if(!initial)
-		if(slot == slot_l_hand || slot == slot_r_hand)
+		if(slot == slot_l_hand_str || slot == slot_r_hand_str)
 			playsound(src, pickup_sound, PICKUP_SOUND_VOLUME)
 		else if(slot_flags && slot)
 			if(equip_sound)
@@ -644,21 +644,21 @@
 
 ///Defines which slots correspond to which slot flags
 GLOBAL_LIST_INIT(slot_flags_enumeration, list(
-	"[slot_wear_mask]" = SLOT_MASK,
-	"[slot_back]" = SLOT_BACK,
-	"[slot_wear_suit]" = SLOT_OCLOTHING,
-	"[slot_gloves]" = SLOT_GLOVES,
-	"[slot_shoes]" = SLOT_FEET,
-	"[slot_belt]" = SLOT_BELT,
-	"[slot_glasses]" = SLOT_EYES,
-	"[slot_head]" = SLOT_HEAD,
-	"[slot_l_ear]" = SLOT_EARS|SLOT_TWOEARS,
-	"[slot_r_ear]" = SLOT_EARS|SLOT_TWOEARS,
-	"[slot_w_uniform]" = SLOT_ICLOTHING,
-	"[slot_wear_id]" = SLOT_ID,
-	"[slot_tie]" = SLOT_TIE,
-	"[slot_wrists]" = SLOT_WRISTS,
-	"[slot_pants]" = SLOT_PANTS
+	"[slot_wear_mask_str]" = SLOT_MASK,
+	"[slot_back_str]" = SLOT_BACK,
+	"[slot_wear_suit_str]" = SLOT_OCLOTHING,
+	"[slot_gloves_str]" = SLOT_GLOVES,
+	"[slot_shoes_str]" = SLOT_FEET,
+	"[slot_belt_str]" = SLOT_BELT,
+	"[slot_glasses_str]" = SLOT_EYES,
+	"[slot_head_str]" = SLOT_HEAD,
+	"[slot_l_ear_str]" = SLOT_EARS|SLOT_TWOEARS,
+	"[slot_r_ear_str]" = SLOT_EARS|SLOT_TWOEARS,
+	"[slot_w_uniform_str]" = SLOT_ICLOTHING,
+	"[slot_wear_id_str]" = SLOT_ID,
+	"[slot_tie_str]" = SLOT_TIE,
+	"[slot_wrists_str]" = SLOT_WRISTS,
+	"[slot_pants_str]" = SLOT_PANTS
 	))
 
 //the mob M is attempting to equip this item into the slot passed through as 'slot'. Return 1 if it can do this and 0 if it can't.
@@ -696,38 +696,38 @@ GLOBAL_LIST_INIT(slot_flags_enumeration, list(
 
 	//Lastly, check special rules for the desired slot.
 	switch(slot)
-		if(slot_l_ear, slot_r_ear)
-			var/slot_other_ear = (slot == slot_l_ear)? slot_r_ear : slot_l_ear
+		if(slot_l_ear_str, slot_r_ear_str)
+			var/slot_other_ear = (slot == slot_l_ear_str) ? slot_r_ear_str : slot_l_ear_str
 			if( (w_class > 1) && !(slot_flags & SLOT_EARS) )
 				return 0
 			if( (slot_flags & SLOT_TWOEARS) && H.get_equipped_item(slot_other_ear) )
 				return 0
-		if(slot_wear_id)
+		if(slot_wear_id_str)
 			return 1
-		if(slot_l_hand)
+		if(slot_l_hand_str)
 			var/obj/item/organ/external/O
 			O = H.organs_by_name[BP_L_HAND]
 			if(!O || !O.is_usable() || O.is_malfunctioning())
 				return FALSE
-		if(slot_r_hand)
+		if(slot_r_hand_str)
 			var/obj/item/organ/external/O
 			O = H.organs_by_name[BP_R_HAND]
 			if(!O || !O.is_usable() || O.is_malfunctioning())
 				return FALSE
-		if(slot_l_store, slot_r_store)
-			if(!H.w_uniform && (slot_w_uniform in mob_equip))
+		if(slot_l_store_str, slot_r_store_str)
+			if(!H.w_uniform && (slot_w_uniform_str in mob_equip))
 				if(!disable_warning)
 					to_chat(H, SPAN_WARNING("You need a jumpsuit before you can attach this [name]."))
 				return 0
 			if( w_class > 2 && !(slot_flags & SLOT_POCKET) )
 				return 0
-		if(slot_s_store)
+		if(slot_s_store_str)
 			var/can_hold_s_store = (slot_flags & SLOT_S_STORE)
 			if(!can_hold_s_store && H.species.can_hold_s_store(src))
 				can_hold_s_store = TRUE
 			if(can_hold_s_store)
 				return TRUE
-			if(!H.wear_suit && (slot_wear_suit in mob_equip))
+			if(!H.wear_suit && (slot_wear_suit_str in mob_equip))
 				if(!disable_warning)
 					to_chat(H, SPAN_WARNING("You need a suit before you can attach this [name]."))
 				return 0
@@ -737,13 +737,13 @@ GLOBAL_LIST_INIT(slot_flags_enumeration, list(
 				return 0
 			if(!istype(src, /obj/item/modular_computer) && tool_behaviour == TOOL_PEN && !is_type_in_list(src, H.wear_suit.allowed))
 				return 0
-		if(slot_handcuffed)
+		if(slot_handcuffed_str)
 			if(!istype(src, /obj/item/handcuffs))
 				return 0
-		if(slot_legcuffed)
+		if(slot_legcuffed_str)
 			if(!istype(src, /obj/item/handcuffs))
 				return 0
-		if(slot_in_backpack) //used entirely for equipping spawned mobs or at round start
+		if(slot_in_backpack_str) //used entirely for equipping spawned mobs or at round start
 			var/allow = 0
 			if(H.back && istype(H.back, /obj/item/storage/backpack))
 				var/obj/item/storage/backpack/B = H.back
@@ -751,7 +751,7 @@ GLOBAL_LIST_INIT(slot_flags_enumeration, list(
 					allow = 1
 			if(!allow)
 				return 0
-		if(slot_in_belt)
+		if(slot_in_belt_str)
 			var/allow = 0
 			if(istype(H.belt, /obj/item/storage/belt))
 				var/obj/item/storage/belt/B = H.belt
@@ -759,8 +759,8 @@ GLOBAL_LIST_INIT(slot_flags_enumeration, list(
 					allow = 1
 			if(!allow)
 				return 0
-		if(slot_tie)
-			if(!H.w_uniform && (slot_w_uniform in mob_equip))
+		if(slot_tie_str)
+			if(!H.w_uniform && (slot_w_uniform_str in mob_equip))
 				if(!disable_warning)
 					to_chat(H, SPAN_WARNING("You need a jumpsuit before you can attach this [name]."))
 				return 0
@@ -1026,41 +1026,41 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 	var/mob/M = loc
 	switch (equip_slot)
-		if (slot_back)
+		if (slot_back_str)
 			M.update_inv_back()
-		if (slot_wear_mask)
+		if (slot_wear_mask_str)
 			M.update_inv_wear_mask()
-		if (slot_l_hand)
+		if (slot_l_hand_str)
 			M.update_inv_l_hand()
-		if (slot_r_hand)
+		if (slot_r_hand_str)
 			M.update_inv_r_hand()
-		if (slot_belt)
+		if (slot_belt_str)
 			M.update_inv_belt()
-		if (slot_wear_id)
+		if (slot_wear_id_str)
 			M.update_inv_wear_id()
-		if (slot_l_ear)
+		if (slot_l_ear_str)
 			M.update_inv_l_ear()
-		if (slot_r_ear)
+		if (slot_r_ear_str)
 			M.update_inv_r_ear()
-		if (slot_glasses)
+		if (slot_glasses_str)
 			M.update_inv_glasses()
-		if (slot_gloves)
+		if (slot_gloves_str)
 			M.update_inv_gloves()
-		if (slot_head)
+		if (slot_head_str)
 			M.update_inv_head()
-		if (slot_shoes)
+		if (slot_shoes_str)
 			M.update_inv_shoes()
-		if (slot_wear_suit)
+		if (slot_wear_suit_str)
 			M.update_inv_wear_suit()
-		if (slot_w_uniform)
+		if (slot_w_uniform_str)
 			M.update_inv_w_uniform()
-		if (slot_l_store)
+		if (slot_l_store_str)
 			M.update_inv_pockets()
-		if (slot_r_store)
+		if (slot_r_store_str)
 			M.update_inv_pockets()
-		if (slot_s_store)
+		if (slot_s_store_str)
 			M.update_inv_s_store()
-		if (slot_wrists)
+		if (slot_wrists_str)
 			M.update_inv_wrists()
 
 // Attacks mobs that are adjacent to the target and user.

@@ -368,7 +368,7 @@
 				to_chat(target_mob, SPAN_WARNING("\The [user] moved too far away."))
 				return
 		remove_from_storage(cig, get_turf(target_mob))
-		target_mob.equip_to_slot_if_possible(cig, slot_wear_mask)
+		target_mob.equip_to_slot_if_possible(cig, slot_wear_mask_str)
 		target_mob.visible_message(SPAN_NOTICE("<b>[target_mob]</b> casually pulls out a [icon_type] from \the [src] with [target_mob.get_pronoun("his")] mouth."), SPAN_NOTICE("You casually pull out a [icon_type] from \the [src] with your mouth."), range = 3)
 		update_icon()
 		return

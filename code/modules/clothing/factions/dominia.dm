@@ -425,11 +425,11 @@
 
 /obj/item/clothing/under/dominia/lyodsuit/hoodie/attack_self(mob/user)
 	..()
-	if(equip_slot == slot_w_uniform)
+	if(equip_slot == slot_w_uniform_str)
 		toggle_mask()
 
 /obj/item/clothing/under/dominia/lyodsuit/hoodie/equipped(mob/user, slot)
-	if(slot != slot_w_uniform)
+	if(slot != slot_w_uniform_str)
 		remove_mask()
 	..()
 
@@ -470,7 +470,7 @@
 				to_chat(H, SPAN_WARNING("You're already wearing something on your head!"))
 				return
 			else
-				H.equip_to_slot_if_possible(mask, slot_wear_mask, 0, 0, 1)
+				H.equip_to_slot_if_possible(mask, slot_wear_mask_str, 0, 0, 1)
 				hood_raised = TRUE
 				H.update_inv_wear_mask()
 				item_state = "dom_thermal"

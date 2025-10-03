@@ -371,7 +371,7 @@ SUBSYSTEM_DEF(jobs)
 
 	//Gives glasses to the vision impaired
 	if(H.disabilities & NEARSIGHTED)
-		var/equipped = H.equip_to_slot_or_del(new /obj/item/clothing/glasses/regular(H), slot_glasses, TRUE)
+		var/equipped = H.equip_to_slot_or_del(new /obj/item/clothing/glasses/regular(H), slot_glasses_str, TRUE)
 		if(equipped != 1)
 			var/obj/item/clothing/glasses/G = H.glasses
 			G.prescription = 7
@@ -693,7 +693,7 @@ SUBSYSTEM_DEF(jobs)
 				var/obj/item/CI = G.spawn_item(null,metadata, H)
 				if (H.equip_to_slot_or_del(CI, G.slot, TRUE))
 					to_chat(H, SPAN_NOTICE("Equipping you with [thing]!"))
-					if(G.slot != slot_tie)
+					if(G.slot != slot_tie_str)
 						custom_equip_slots += G.slot
 					log_loadout("EC/([H]): Equipped [CI] successfully.")
 				else if (leftovers)
@@ -749,7 +749,7 @@ SUBSYSTEM_DEF(jobs)
 									worn_suit.attach_accessory(H, CI)
 									handled_accessory = TRUE
 						if(GEAR_TWEAK_ACCESSORY_SLOT_SUIT_STANDALONE)
-							equip_slot = slot_wear_suit
+							equip_slot = slot_wear_suit_str
 
 			if(!handled_accessory)
 				if (H.equip_to_slot_or_del(CI, equip_slot, TRUE))
@@ -897,11 +897,11 @@ SUBSYSTEM_DEF(jobs)
 	var/spawned_suit = FALSE
 	for(var/item in prefs.gear)
 		var/datum/gear/L = GLOB.gear_datums[item]
-		if(L.slot == slot_w_uniform)
+		if(L.slot == slot_w_uniform_str)
 			if(U.uniform && !spawned_uniform && !istype(H.w_uniform, U.uniform))
 				H.equip_or_collect(new U.uniform(H), H.back)
 				spawned_uniform = TRUE
-		if(L.slot == slot_wear_suit)
+		if(L.slot == slot_wear_suit_str)
 			if(U.suit && !spawned_suit && !istype(H.wear_suit, U.suit))
 				H.equip_or_collect(new U.suit(H), H.back)
 				spawned_suit = TRUE

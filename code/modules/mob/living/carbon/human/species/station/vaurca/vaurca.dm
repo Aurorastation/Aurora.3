@@ -177,13 +177,13 @@
 	. = ..()
 	H.gender = NEUTER
 	var/obj/item/clothing/mask/gas/vaurca/filter/M = new /obj/item/clothing/mask/gas/vaurca/filter(H)
-	H.equip_to_slot_or_del(M, slot_wear_mask)
+	H.equip_to_slot_or_del(M, slot_wear_mask_str)
 
 /datum/species/bug/after_equip(var/mob/living/carbon/human/H)
 	if(H.shoes)
 		return
 	var/obj/item/clothing/shoes/sandals/S = new /obj/item/clothing/shoes/sandals(H)
-	H.equip_to_slot_or_del(S,slot_shoes)
+	H.equip_to_slot_or_del(S,slot_shoes_str)
 
 /datum/species/bug/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.gender = NEUTER

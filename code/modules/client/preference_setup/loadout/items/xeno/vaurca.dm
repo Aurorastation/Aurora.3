@@ -25,7 +25,7 @@
 	display_name = "expression mask selection"
 	path = /obj/item/clothing/head/expression
 	cost = 1
-	slot = slot_head
+	slot = slot_head_str
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK)
 	sort_category = "Xenowear - Vaurca"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
@@ -49,7 +49,7 @@
 	display_name = "tunnel cloak (recolourable)"
 	path = /obj/item/storage/backpack/cloak
 	cost = 1
-	slot = slot_back
+	slot = slot_back_str
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK)
 	sort_category = "Xenowear - Vaurca"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
@@ -58,7 +58,7 @@
 	display_name = "tunnel cloak selection"
 	path = /obj/item/storage/backpack/cloak
 	cost = 1
-	slot = slot_back
+	slot = slot_back_str
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK)
 	sort_category = "Xenowear - Vaurca"
 	flags = GEAR_HAS_DESC_SELECTION
@@ -89,7 +89,7 @@
 	description = "A selection of vaurca colored Hive cloaks."
 	path = /obj/item/clothing/suit/vaurca
 	cost = 1
-	slot = slot_wear_suit
+	slot = slot_wear_suit_str
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK)
 	sort_category = "Xenowear - Vaurca"
 
@@ -136,7 +136,7 @@
 /datum/gear/suit/vaurca
 	display_name = "shaper robes"
 	path = /obj/item/clothing/suit/vaurca/shaper
-	slot = slot_wear_suit
+	slot = slot_wear_suit_str
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK)
 	sort_category = "Xenowear - Vaurca"
 	cost = 1
@@ -154,7 +154,7 @@
 	description = "A selection of vaurca colored shrouds."
 	path = /obj/item/clothing/head/shroud
 	cost = 1
-	slot = slot_head
+	slot = slot_head_str
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK)
 	sort_category = "Xenowear - Vaurca"
 
@@ -173,7 +173,7 @@
 	description = "A selection of vaurca colored shrouds."
 	path = /obj/item/clothing/head/shroud/colorable
 	cost = 1
-	slot = slot_head
+	slot = slot_head_str
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT)
 	sort_category = "Xenowear - Vaurca"
 	flags = GEAR_HAS_COLOR_SELECTION
@@ -310,7 +310,7 @@ ABSTRACT_TYPE(/datum/gear/ears/vaurca)
 	display_name = "zora flag shroud"
 	path = /obj/item/clothing/head/vaurca_breeder/flag
 	cost = 1
-	slot = slot_head
+	slot = slot_head_str
 	whitelisted = list(SPECIES_VAURCA_BREEDER)
 	culture_restriction = list(/singleton/origin_item/culture/zora_breeder)
 	sort_category = "Xenowear - Vaurca"
@@ -320,7 +320,7 @@ ABSTRACT_TYPE(/datum/gear/ears/vaurca)
 	display_name = "klax flag shroud"
 	path = /obj/item/clothing/head/vaurca_breeder/klax/flag
 	cost = 1
-	slot = slot_head
+	slot = slot_head_str
 	whitelisted = list(SPECIES_VAURCA_BREEDER)
 	culture_restriction = list(/singleton/origin_item/culture/klax_breeder)
 	sort_category = "Xenowear - Vaurca"
@@ -330,7 +330,7 @@ ABSTRACT_TYPE(/datum/gear/ears/vaurca)
 	display_name = "cthur flag shroud"
 	path = /obj/item/clothing/head/vaurca_breeder/cthur/flag
 	cost = 1
-	slot = slot_head
+	slot = slot_head_str
 	whitelisted = list(SPECIES_VAURCA_BREEDER)
 	culture_restriction = list(/singleton/origin_item/culture/cthur_breeder)
 	sort_category = "Xenowear - Vaurca"
@@ -378,7 +378,7 @@ ABSTRACT_TYPE(/datum/gear/ears/vaurca)
 	display_name = "colorable gyne clothes"
 	path = /obj/item/clothing/suit/vaurca/breeder/colorable
 	cost = 1
-	slot = slot_wear_suit
+	slot = slot_wear_suit_str
 	whitelisted = list(SPECIES_VAURCA_BREEDER)
 	sort_category = "Xenowear - Vaurca"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
@@ -387,7 +387,7 @@ ABSTRACT_TYPE(/datum/gear/ears/vaurca)
 	display_name = "colorable gyne shoes"
 	path = /obj/item/clothing/shoes/vaurca/breeder/colorable
 	cost = 1
-	slot = slot_shoes
+	slot = slot_shoes_str
 	whitelisted = list(SPECIES_VAURCA_BREEDER)
 	sort_category = "Xenowear - Vaurca"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION

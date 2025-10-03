@@ -691,7 +691,7 @@
 			. = 1
 
 /obj/item/rig/check_equipped(mob/living/carbon/human/M, slot, assisted_equip = FALSE)
-	if(istype(M) && slot == slot_back)
+	if(istype(M) && slot == slot_back_str)
 		if(!assisted_equip && seal_delay > 0)
 			M.visible_message(SPAN_NOTICE("[M] starts putting on \the [src]..."), SPAN_NOTICE("You start putting on \the [src]..."))
 			if(!do_after(M, seal_delay))
@@ -724,19 +724,19 @@
 
 	switch(piece)
 		if("helmet")
-			equip_to = slot_head
+			equip_to = slot_head_str
 			use_obj = helmet
 			check_slot = wearer.head
 		if("gauntlets")
-			equip_to = slot_gloves
+			equip_to = slot_gloves_str
 			use_obj = gloves
 			check_slot = wearer.gloves
 		if("boots")
-			equip_to = slot_shoes
+			equip_to = slot_shoes_str
 			use_obj = boots
 			check_slot = wearer.shoes
 		if("chest")
-			equip_to = slot_wear_suit
+			equip_to = slot_wear_suit_str
 			use_obj = chest
 			check_slot = wearer.wear_suit
 

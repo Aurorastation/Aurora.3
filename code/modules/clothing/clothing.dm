@@ -110,7 +110,7 @@
 	if (!..())
 		return 0
 
-	if(species_restricted && ishuman(M) && !(slot in list(slot_l_hand, slot_r_hand)))
+	if(species_restricted && ishuman(M) && !(slot in list(slot_l_hand_str, slot_r_hand_str)))
 		var/exclusive = null
 		var/wearable = null
 		var/mob/living/carbon/human/H = M
@@ -126,7 +126,7 @@
 				if(H.species.get_bodytype() in species_restricted)
 					wearable = 1
 
-			if(!wearable && !(slot in list(slot_l_store, slot_r_store, slot_s_store)))
+			if(!wearable && !(slot in list(slot_l_store_str, slot_r_store_str, slot_s_store_str)))
 				if(!disable_warning)
 					to_chat(H, SPAN_DANGER("Your species cannot wear [src]."))
 				return 0
@@ -541,7 +541,7 @@
 
 /obj/item/clothing/gloves/mob_can_equip(mob/user, slot, disable_warning = FALSE)
 	var/mob/living/carbon/human/H = user
-	if(slot && slot == slot_gloves)
+	if(slot && slot == slot_gloves_str)
 		if(istype(H.gloves, /obj/item/clothing/ring))
 			ring = H.gloves
 			if(!ring.undergloves)
@@ -552,7 +552,7 @@
 
 	if(!..())
 		if(ring) //Put the ring back on if the check fails.
-			if(H.equip_to_slot_if_possible(ring, slot_gloves))
+			if(H.equip_to_slot_if_possible(ring, slot_gloves_str))
 				src.ring = null
 		return 0
 
@@ -567,7 +567,7 @@
 
 	var/mob/living/carbon/human/H = wearer
 	if(ring && istype(H))
-		H.equip_to_slot(ring, slot_gloves)
+		H.equip_to_slot(ring, slot_gloves_str)
 		ring = null
 	wearer = null
 

@@ -208,72 +208,72 @@ GLOBAL_LIST(global_huds)
 			var/list/hud_data = H.species.hud.gear[gear_slot]
 			if(inventory_shown && hud_shown)
 				switch(hud_data["slot"])
-					if(slot_head)
+					if(slot_head_str)
 						if(H.head)
 							H.head.screen_loc =	hud_data["loc"]
-					if(slot_shoes)
+					if(slot_shoes_str)
 						if(H.shoes)
 							H.shoes.screen_loc = hud_data["loc"]
-					if(slot_l_ear)
+					if(slot_l_ear_str)
 						if(H.l_ear)
 							H.l_ear.screen_loc = hud_data["loc"]
-					if(slot_r_ear)
+					if(slot_r_ear_str)
 						if(H.r_ear)
 							H.r_ear.screen_loc = hud_data["loc"]
-					if(slot_gloves)
+					if(slot_gloves_str)
 						if(H.gloves)
 							H.gloves.screen_loc = hud_data["loc"]
-					if(slot_glasses)
+					if(slot_glasses_str)
 						if(H.glasses)
 							H.glasses.screen_loc = hud_data["loc"]
-					if(slot_w_uniform)
+					if(slot_w_uniform_str)
 						if(H.w_uniform)
 							H.w_uniform.screen_loc = hud_data["loc"]
-					if(slot_wear_suit)
+					if(slot_wear_suit_str)
 						if(H.wear_suit)
 							H.wear_suit.screen_loc = hud_data["loc"]
-					if(slot_wear_mask)
+					if(slot_wear_mask_str)
 						if(H.wear_mask)
 							H.wear_mask.screen_loc = hud_data["loc"]
-					if(slot_wrists)
+					if(slot_wrists_str)
 						if(H.wrists)
 							H.wrists.screen_loc = hud_data["loc"]
-					if(slot_pants)
+					if(slot_pants_str)
 						if(H.pants)
 							H.pants.screen_loc = hud_data["loc"]
 			else
 				switch(hud_data["slot"])
-					if(slot_head)
+					if(slot_head_str)
 						if(H.head)
 							H.head.screen_loc =	null
-					if(slot_shoes)
+					if(slot_shoes_str)
 						if(H.shoes)
 							H.shoes.screen_loc = null
-					if(slot_l_ear)
+					if(slot_l_ear_str)
 						if(H.l_ear)
 							H.l_ear.screen_loc = null
-					if(slot_r_ear)
+					if(slot_r_ear_str)
 						if(H.r_ear)
 							H.r_ear.screen_loc = null
-					if(slot_gloves)
+					if(slot_gloves_str)
 						if(H.gloves)
 							H.gloves.screen_loc = null
-					if(slot_glasses)
+					if(slot_glasses_str)
 						if(H.glasses)
 							H.glasses.screen_loc = null
-					if(slot_w_uniform)
+					if(slot_w_uniform_str)
 						if(H.w_uniform)
 							H.w_uniform.screen_loc = null
-					if(slot_wear_suit)
+					if(slot_wear_suit_str)
 						if(H.wear_suit)
 							H.wear_suit.screen_loc = null
-					if(slot_wear_mask)
+					if(slot_wear_mask_str)
 						if(H.wear_mask)
 							H.wear_mask.screen_loc = null
-					if(slot_wrists)
+					if(slot_wrists_str)
 						if(H.wrists)
 							H.wrists.screen_loc = null
-					if(slot_pants)
+					if(slot_pants_str)
 						if(H.pants)
 							H.pants.screen_loc = null
 
@@ -288,42 +288,42 @@ GLOBAL_LIST(global_huds)
 			var/list/hud_data = H.species.hud.gear[gear_slot]
 			if(hud_shown)
 				switch(hud_data["slot"])
-					if(slot_s_store)
+					if(slot_s_store_str)
 						if(H.s_store)
 							H.s_store.screen_loc = hud_data["loc"]
-					if(slot_wear_id)
+					if(slot_wear_id_str)
 						if(H.wear_id)
 							H.wear_id.screen_loc = hud_data["loc"]
-					if(slot_belt)
+					if(slot_belt_str)
 						if(H.belt)
 							H.belt.screen_loc = hud_data["loc"]
-					if(slot_back)
+					if(slot_back_str)
 						if(H.back)
 							H.back.screen_loc = hud_data["loc"]
-					if(slot_l_store)
+					if(slot_l_store_str)
 						if(H.l_store)
 							H.l_store.screen_loc = hud_data["loc"]
-					if(slot_r_store)
+					if(slot_r_store_str)
 						if(H.r_store)
 							H.r_store.screen_loc = hud_data["loc"]
 			else
 				switch(hud_data["slot"])
-					if(slot_s_store)
+					if(slot_s_store_str)
 						if(H.s_store)
 							H.s_store.screen_loc = null
-					if(slot_wear_id)
+					if(slot_wear_id_str)
 						if(H.wear_id)
 							H.wear_id.screen_loc = null
-					if(slot_belt)
+					if(slot_belt_str)
 						if(H.belt)
 							H.belt.screen_loc =    null
-					if(slot_back)
+					if(slot_back_str)
 						if(H.back)
 							H.back.screen_loc =    null
-					if(slot_l_store)
+					if(slot_l_store_str)
 						if(H.l_store)
 							H.l_store.screen_loc = null
-					if(slot_r_store)
+					if(slot_r_store_str)
 						if(H.r_store)
 							H.r_store.screen_loc = null
 

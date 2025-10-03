@@ -628,10 +628,10 @@
 			var/mob/living/carbon/human/h_user = user
 			if (h_user.r_hand == src)
 				h_user.drop_from_inventory(src)
-				h_user.equip_to_slot_if_possible(B, slot_r_hand)
+				h_user.equip_to_slot_if_possible(B, slot_r_hand_str)
 			else if (h_user.l_hand == src)
 				h_user.drop_from_inventory(src)
-				h_user.equip_to_slot_if_possible(B, slot_l_hand)
+				h_user.equip_to_slot_if_possible(B, slot_l_hand_str)
 			else if (h_user.l_store == src)
 				h_user.drop_from_inventory(src)
 				B.forceMove(h_user)

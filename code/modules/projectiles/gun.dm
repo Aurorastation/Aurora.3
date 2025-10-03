@@ -963,7 +963,7 @@
 		qdel(src)
 
 /obj/item/offhand/mob_can_equip(var/mob/M, slot, disable_warning = FALSE)
-	var/static/list/equippable_slots = list(slot_l_hand, slot_r_hand)
+	var/static/list/equippable_slots = list(slot_l_hand_str, slot_r_hand_str)
 	if(slot in equippable_slots)
 		return TRUE
 	return FALSE

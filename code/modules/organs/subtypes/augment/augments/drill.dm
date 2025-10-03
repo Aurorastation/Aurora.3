@@ -9,4 +9,4 @@
 
 /obj/item/organ/internal/augment/tool/drill/left
 	parent_organ = BP_L_HAND
-	aug_slot = slot_l_hand
+	aug_slot = slot_l_hand_str

@@ -76,7 +76,7 @@
 
 /obj/item/minigunpack/equipped(mob/user, slot)
 	..()
-	if(slot != slot_back)
+	if(slot != slot_back_str)
 		remove_gun()
 		user.update_inv_back()
 

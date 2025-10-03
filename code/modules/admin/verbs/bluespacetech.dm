@@ -52,29 +52,29 @@
 
 	//Items
 	var/obj/item/clothing/under/U = new /obj/item/clothing/under/rank/centcom_officer/bst(bst)
-	bst.equip_to_slot_or_del(U, slot_w_uniform)
-	bst.equip_to_slot_or_del(new /obj/item/radio/headset/ert/bst(bst), slot_l_ear)
-	bst.equip_to_slot_or_del(new /obj/item/storage/backpack/holding/bst(bst), slot_back)
-	bst.equip_to_slot_or_del(new /obj/item/storage/box/survival(bst.back), slot_in_backpack)
-	bst.equip_to_slot_or_del(new /obj/item/clothing/shoes/sneakers/black/bst(bst), slot_shoes)
-	bst.equip_to_slot_or_del(new /obj/item/clothing/head/beret/centcom/officer/bst(bst), slot_head)
-	bst.equip_to_slot_or_del(new /obj/item/clothing/glasses/sunglasses/bst(bst), slot_glasses)
-	bst.equip_to_slot_or_del(new /obj/item/storage/belt/utility/very_full(bst), slot_belt)
-	bst.equip_to_slot_or_del(new /obj/item/clothing/gloves/swat/bst(bst), slot_gloves)
+	bst.equip_to_slot_or_del(U, slot_w_uniform_str)
+	bst.equip_to_slot_or_del(new /obj/item/radio/headset/ert/bst(bst), slot_l_ear_str)
+	bst.equip_to_slot_or_del(new /obj/item/storage/backpack/holding/bst(bst), slot_back_str)
+	bst.equip_to_slot_or_del(new /obj/item/storage/box/survival(bst.back), slot_in_backpack_str)
+	bst.equip_to_slot_or_del(new /obj/item/clothing/shoes/sneakers/black/bst(bst), slot_shoes_str)
+	bst.equip_to_slot_or_del(new /obj/item/clothing/head/beret/centcom/officer/bst(bst), slot_head_str)
+	bst.equip_to_slot_or_del(new /obj/item/clothing/glasses/sunglasses/bst(bst), slot_glasses_str)
+	bst.equip_to_slot_or_del(new /obj/item/storage/belt/utility/very_full(bst), slot_belt_str)
+	bst.equip_to_slot_or_del(new /obj/item/clothing/gloves/swat/bst(bst), slot_gloves_str)
 	if(bst.backbag == 1)
-		bst.equip_to_slot_or_del(new /obj/item/storage/box/ids(bst), slot_r_hand)
+		bst.equip_to_slot_or_del(new /obj/item/storage/box/ids(bst), slot_r_hand_str)
 	else
-		bst.equip_to_slot_or_del(new /obj/item/storage/box/ids(bst.back), slot_in_backpack)
-		bst.equip_to_slot_or_del(new /obj/item/t_scanner(bst.back), slot_in_backpack)
-		bst.equip_to_slot_or_del(new /obj/item/modular_computer/handheld/pda/command/bst(bst.back), slot_in_backpack)
-		bst.equip_to_slot_or_del(new /obj/item/healthanalyzer(bst.back), slot_in_backpack)
-		bst.equip_to_slot_or_del(new /obj/item/research(bst.back), slot_in_backpack)
+		bst.equip_to_slot_or_del(new /obj/item/storage/box/ids(bst.back), slot_in_backpack_str)
+		bst.equip_to_slot_or_del(new /obj/item/t_scanner(bst.back), slot_in_backpack_str)
+		bst.equip_to_slot_or_del(new /obj/item/modular_computer/handheld/pda/command/bst(bst.back), slot_in_backpack_str)
+		bst.equip_to_slot_or_del(new /obj/item/healthanalyzer(bst.back), slot_in_backpack_str)
+		bst.equip_to_slot_or_del(new /obj/item/research(bst.back), slot_in_backpack_str)
 
 		var/obj/item/storage/box/pills = new /obj/item/storage/box(null, TRUE)
 		pills.name = "adminordrazine"
 		for(var/i = 1, i < 12, i++)
 			new /obj/item/reagent_containers/pill/adminordrazine(pills)
-		bst.equip_to_slot_or_del(pills, slot_in_backpack)
+		bst.equip_to_slot_or_del(pills, slot_in_backpack_str)
 
 	//Implant because access
 	bst.implant_loyalty(bst,TRUE)
@@ -84,7 +84,7 @@
 	id.registered_name = bst.real_name
 	id.assignment = "Bluespace Technician"
 	id.name = "[id.assignment]"
-	bst.equip_to_slot_or_del(id, slot_wear_id)
+	bst.equip_to_slot_or_del(id, slot_wear_id_str)
 	bst.update_inv_wear_id()
 	bst.regenerate_icons()
 

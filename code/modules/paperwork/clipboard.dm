@@ -32,10 +32,10 @@
 			switch(over.name)
 				if("right hand")
 					M.u_equip(src)
-					M.equip_to_slot_if_possible(src, slot_r_hand)
+					M.equip_to_slot_if_possible(src, slot_r_hand_str)
 				if("left hand")
 					M.u_equip(src)
-					M.equip_to_slot_if_possible(src, slot_l_hand)
+					M.equip_to_slot_if_possible(src, slot_l_hand_str)
 
 			add_fingerprint(M)
 			return

@@ -149,7 +149,7 @@
 
 	var/damage_mod = 1
 	//presumably, if they are wearing a helmet that stops pressure effects, then it probably covers the throat as well
-	var/obj/item/clothing/head/helmet = get_equipped_item(slot_head)
+	var/obj/item/clothing/head/helmet = get_equipped_item(slot_head_str)
 	if(istype(helmet) && (helmet.body_parts_covered & HEAD) && (helmet.min_pressure_protection == 0))
 		var/datum/component/armor/armor_component = helmet.GetComponent(/datum/component/armor)
 		if(armor_component)

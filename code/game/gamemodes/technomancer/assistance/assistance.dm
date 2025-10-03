@@ -61,7 +61,7 @@
 	if(user.wrists)
 		user.drop_from_inventory(user.wrists, get_turf(user_turf))
 	var/obj/item/technomancer_core/bracelet/bracelet = new(user_turf)
-	user.equip_to_slot_if_possible(bracelet, slot_wrists, assisted_equip = TRUE)
+	user.equip_to_slot_if_possible(bracelet, slot_wrists_str, assisted_equip = TRUE)
 	var/obj/item/technomancer_catalog/initiate/catalog = new(user_turf)
 	catalog.owner = user
 	user.put_in_active_hand(catalog)

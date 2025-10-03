@@ -385,7 +385,7 @@
 
 	for(var/entry in species.hud.gear)
 		var/list/slot_ref = species.hud.gear[entry]
-		if((slot_ref["slot"] in list(slot_l_store, slot_r_store)))
+		if((slot_ref["slot"] in list(slot_l_store_str, slot_r_store_str)))
 			continue
 		var/obj/item/thing_in_slot = get_equipped_item(slot_ref["slot"])
 		dat += "<BR><B>[slot_ref["name"]]:</b> <a href='byond://?src=[REF(src)];item=[slot_ref["slot"]]'>[istype(thing_in_slot) ? thing_in_slot : "nothing"]</a>"
@@ -393,8 +393,8 @@
 	dat += "<BR><HR>"
 
 	if(species.hud.has_hands)
-		dat += "<BR><b>Left hand:</b> <A href='byond://?src=[REF(src)];item=[slot_l_hand]'>[istype(l_hand) ? l_hand : "nothing"]</A>"
-		dat += "<BR><b>Right hand:</b> <A href='byond://?src=[REF(src)];item=[slot_r_hand]'>[istype(r_hand) ? r_hand : "nothing"]</A>"
+		dat += "<BR><b>Left hand:</b> <A href='byond://?src=[REF(src)];item=[slot_l_hand_str]'>[istype(l_hand) ? l_hand : "nothing"]</A>"
+		dat += "<BR><b>Right hand:</b> <A href='byond://?src=[REF(src)];item=[slot_r_hand_str]'>[istype(r_hand) ? r_hand : "nothing"]</A>"
 
 	var/has_mask // 0, no mask | 1, mask but it's down | 2, mask and it's ready
 	var/has_helmet
@@ -417,9 +417,9 @@
 	if(istype(suit) && suit.has_sensor == 1)
 		dat += "<BR><A href='byond://?src=[REF(src)];item=sensors'>Set sensors</A>"
 	if(handcuffed)
-		dat += "<BR><A href='byond://?src=[REF(src)];item=[slot_handcuffed]'>Handcuffed</A>"
+		dat += "<BR><A href='byond://?src=[REF(src)];item=[slot_handcuffed_str]'>Handcuffed</A>"
 	if(legcuffed)
-		dat += "<BR><A href='byond://?src=[REF(src)];item=[slot_legcuffed]'>Legcuffed</A>"
+		dat += "<BR><A href='byond://?src=[REF(src)];item=[slot_legcuffed_str]'>Legcuffed</A>"
 
 	if(has_mask)
 		var/obj/item/clothing/mask/M = wear_mask
