@@ -120,11 +120,9 @@
 
 ///If a song is playing, cut it. If none is playing, and the cooldown is up, start the queued track.
 /obj/item/clothing/ears/earphones/proc/toggle_playing(mob/user)
-
-
 	// Chat Display
-	var/current_track_name = current_playlist[playlist_index].title
-	to_chat(user,SPAN_NOTICE("Now Playing: Track [playlist_index] — '[current_track_name]'."))
+	var/current_track_name = music_player.selection?.song_name
+	to_chat(user,SPAN_NOTICE("Now Playing: '[current_track_name]'."))
 
 	// Icon/Overlay stuff for the music notes
 	worn_overlay = "music" // this is rather annoying but prevents the music notes on getting colored

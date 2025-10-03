@@ -69,13 +69,9 @@
 		AddComponent(/datum/component/connect_range, parent, connections, max(x_cutoff, z_cutoff))
 
 	for (var/obj/item/music_cartridge/cartridge in cartridges)
-		LOG_DEBUG("/datum/jukebox/New(), first cartridge is [cartridge]")
 		add_songs(cartridge)
 	if(length(playlist))
-		LOG_DEBUG("[src] has a playlist. picking selection.")
 		selection = playlist[pick(playlist)]
-		LOG_DEBUG("picked [selection]")
-	LOG_DEBUG("[src] does not have a playlist.")
 
 	RegisterSignal(parent, COMSIG_ENTER_AREA, PROC_REF(on_enter_area))
 	RegisterSignal(parent, COMSIG_MOVABLE_MOVED, PROC_REF(on_moved))
@@ -114,14 +110,13 @@
 
 /// Adds songs on the provided cartridge to our current playlist.
 /datum/jukebox/proc/add_songs(obj/item/music_cartridge/cartridge)
-	LOG_DEBUG("/datum/jukebox/proc/add_songs([cartridge])")
 	if(cartridge.tracks)
 		for(var/datum/track/track in cartridge.tracks)
 			var/datum/track/new_track = new()
 			new_track.song_name = track.song_name
 			new_track.song_path = file(track.song_path)
 			new_track.song_length = track.song_length
-			new_track.source = track.source
+			new_track.source = cartridge
 			playlist[new_track.song_name] = new_track
 	if(!length(playlist))
 		var/datum/track/default/default_track = new()
@@ -147,12 +142,21 @@
 	var/list/songs_data = list()
 	for(var/song_name in playlist)
 		var/datum/track/one_song = playlist[song_name]
-		UNTYPED_LIST_ADD(songs_data, list( \
-			"name" = song_name, \
-			"length" = DisplayTimeText(one_song.song_length)
+		UNTYPED_LIST_ADD(songs_data, list(
+			"name" = song_name,
+			"length" = DisplayTimeText(one_song.song_length),
+			"source" = one_song.source
+		))
+	var/list/cartridges_data = list()
+	for(var/obj/item/music_cartridge/cartridge in cartridges)
+		UNTYPED_LIST_ADD(cartridges_data, list(
+			"name" = cartridge.name,
+			"hardcoded" = cartridge.hardcoded
 		))
 	data["active"] = !!active_song_sound
 	data["playlist"] = songs_data
+	data["cartridges"] = cartridges_data
+	data["locked"] = locked
 	data["track_selected"] = selection?.song_name
 	data["sound_loops"] = sound_loops
 	data["volume"] = volume
@@ -423,15 +427,15 @@
 	name = "Spacer Classics Vol. 1"
 	desc = "An old music cartridge with a cheap-looking label."
 	tracks = list(
-		new/datum/track("Scratch", 'sound/music/ingame/ss13/title1.ogg', 2 MINUTES + 30 SECONDS, /obj/item/music_cartridge/ss13),
-		new/datum/track("D`Bert", 'sound/music/ingame/ss13/title2.ogg', 1 MINUTES + 58 SECONDS, /obj/item/music_cartridge/ss13),
-		new/datum/track("Uplift", 'sound/music/ingame/ss13/title3.ogg', 3 MINUTES + 52 SECONDS, /obj/item/music_cartridge/ss13),
-		new/datum/track("Uplift II", 'sound/music/ingame/ss13/title3mk2.ogg', 3 MINUTES + 59 SECONDS, /obj/item/music_cartridge/ss13),
-		new/datum/track("Suspenseful", 'sound/music/ingame/ss13/traitor.ogg', 5 MINUTES + 30 SECONDS, /obj/item/music_cartridge/ss13),
-		new/datum/track("Beyond", 'sound/music/ingame/ss13/ambispace.ogg', 3 MINUTES + 15 SECONDS, /obj/item/music_cartridge/ss13),
-		new/datum/track("D`Fort", 'sound/music/ingame/ss13/song_game.ogg', 3 MINUTES + 50 SECONDS, /obj/item/music_cartridge/ss13),
-		new/datum/track("Endless Space", 'sound/music/ingame/ss13/space.ogg', 3 MINUTES + 33 SECONDS, /obj/item/music_cartridge/ss13),
-		new/datum/track("Thunderdome", 'sound/music/ingame/ss13/THUNDERDOME.ogg', 3 MINUTES + 22 SECONDS, /obj/item/music_cartridge/ss13)
+		new/datum/track("Scratch", 'sound/music/ingame/ss13/title1.ogg', 2 MINUTES + 30 SECONDS),
+		new/datum/track("D`Bert", 'sound/music/ingame/ss13/title2.ogg', 1 MINUTES + 58 SECONDS),
+		new/datum/track("Uplift", 'sound/music/ingame/ss13/title3.ogg', 3 MINUTES + 52 SECONDS),
+		new/datum/track("Uplift II", 'sound/music/ingame/ss13/title3mk2.ogg', 3 MINUTES + 59 SECONDS),
+		new/datum/track("Suspenseful", 'sound/music/ingame/ss13/traitor.ogg', 5 MINUTES + 30 SECONDS),
+		new/datum/track("Beyond", 'sound/music/ingame/ss13/ambispace.ogg', 3 MINUTES + 15 SECONDS),
+		new/datum/track("D`Fort", 'sound/music/ingame/ss13/song_game.ogg', 3 MINUTES + 50 SECONDS),
+		new/datum/track("Endless Space", 'sound/music/ingame/ss13/space.ogg', 3 MINUTES + 33 SECONDS),
+		new/datum/track("Thunderdome", 'sound/music/ingame/ss13/THUNDERDOME.ogg', 3 MINUTES + 22 SECONDS)
 	)
 // Hardcoded variant
 /obj/item/music_cartridge/ss13/demo
@@ -441,16 +445,16 @@
 	name = "SCC Welcome Package"
 	desc = "A music cartridge with some company-selected songs. Nothing special, everyone got one of these in their welcome boxes..."
 	tracks = list(
-		new/datum/track("Butterflies", 'sound/music/ingame/scc/Butterflies.ogg', 3 MINUTES + 37 SECONDS, /obj/item/music_cartridge/audioconsole),
-		new/datum/track("That Ain't Chopin", 'sound/music/ingame/scc/ThatAintChopin.ogg', 3 MINUTES + 29 SECONDS, /obj/item/music_cartridge/audioconsole),
-		new/datum/track("Don't Rush", 'sound/music/ingame/scc/DontRush.ogg', 3 MINUTES + 56 SECONDS, /obj/item/music_cartridge/audioconsole),
-		new/datum/track("Phoron Will Make Us Rich", 'sound/music/ingame/scc/PhoronWillMakeUsRich.ogg', 2 MINUTES + 14 SECONDS, /obj/item/music_cartridge/audioconsole),
-		new/datum/track("Amsterdam", 'sound/music/ingame/scc/Amsterdam.ogg', 3 MINUTES + 42 SECONDS, /obj/item/music_cartridge/audioconsole),
-		new/datum/track("When", 'sound/music/ingame/scc/When.ogg', 2 MINUTES + 41 SECONDS, /obj/item/music_cartridge/audioconsole),
-		new/datum/track("Number 0", 'sound/music/ingame/scc/Number0.ogg', 2 MINUTES + 37 SECONDS, /obj/item/music_cartridge/audioconsole),
-		new/datum/track("The Pianist", 'sound/music/ingame/scc/ThePianist.ogg', 4 MINUTES + 25 SECONDS, /obj/item/music_cartridge/audioconsole),
-		new/datum/track("Lips", 'sound/music/ingame/scc/Lips.ogg', 3 MINUTES + 20 SECONDS, /obj/item/music_cartridge/audioconsole),
-		new/datum/track("Childhood", 'sound/music/ingame/scc/Childhood.ogg', 2 MINUTES + 13 SECONDS, /obj/item/music_cartridge/audioconsole)
+		new/datum/track("Butterflies", 'sound/music/ingame/scc/Butterflies.ogg', 3 MINUTES + 37 SECONDS),
+		new/datum/track("That Ain't Chopin", 'sound/music/ingame/scc/ThatAintChopin.ogg', 3 MINUTES + 29 SECONDS),
+		new/datum/track("Don't Rush", 'sound/music/ingame/scc/DontRush.ogg', 3 MINUTES + 56 SECONDS),
+		new/datum/track("Phoron Will Make Us Rich", 'sound/music/ingame/scc/PhoronWillMakeUsRich.ogg', 2 MINUTES + 14 SECONDS),
+		new/datum/track("Amsterdam", 'sound/music/ingame/scc/Amsterdam.ogg', 3 MINUTES + 42 SECONDS),
+		new/datum/track("When", 'sound/music/ingame/scc/When.ogg', 2 MINUTES + 41 SECONDS),
+		new/datum/track("Number 0", 'sound/music/ingame/scc/Number0.ogg', 2 MINUTES + 37 SECONDS),
+		new/datum/track("The Pianist", 'sound/music/ingame/scc/ThePianist.ogg', 4 MINUTES + 25 SECONDS),
+		new/datum/track("Lips", 'sound/music/ingame/scc/Lips.ogg', 3 MINUTES + 20 SECONDS),
+		new/datum/track("Childhood", 'sound/music/ingame/scc/Childhood.ogg', 2 MINUTES + 13 SECONDS)
 	)
 // Hardcoded variant
 /obj/item/music_cartridge/audioconsole/demo
