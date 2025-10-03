@@ -4011,13 +4011,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/canteen)
-"se" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 8
-	},
-/obj/structure/sign/flag/biesel,
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/hangar)
 "sh" = (
 /obj/machinery/light{
 	dir = 8;
@@ -7024,6 +7017,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/engineering)
+"GR" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 8
+	},
+/obj/structure/sign/flag/biesel,
+/turf/simulated/floor/tiled/dark,
+/area/ship/Sol_Frigate/hangar)
 "GT" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -43831,7 +43831,7 @@ NA
 hl
 pK
 yB
-se
+GR
 VK
 pK
 rn
