@@ -581,7 +581,7 @@
 
 /obj/item/laserpack/equipped(mob/user, slot)
 	..()
-	if(slot != slot_back) // if we're not wearing it, remove it
+	if(slot != slot_back_str) // if we're not wearing it, remove it
 		remove_gun()
 		user.update_inv_back()
 

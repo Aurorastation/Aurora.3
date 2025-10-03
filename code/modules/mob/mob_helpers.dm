@@ -795,41 +795,41 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 
 	//Now we check various slots on the mob, the order of these is optimised based on how likely we are to be in that slot
 	if (H.l_hand == src)
-		return slot_l_hand
+		return slot_l_hand_str
 	else if (H.r_hand == src)
-		return slot_r_hand
+		return slot_r_hand_str
 	else if (H.l_store == src)
-		return slot_l_store
+		return slot_l_store_str
 	else if (H.r_store == src)
-		return slot_r_store
+		return slot_r_store_str
 	else if (H.head == src)
-		return slot_head
+		return slot_head_str
 	else if (H.wear_suit == src)
-		return slot_wear_suit
+		return slot_wear_suit_str
 	else if (H.s_store == src)
-		return slot_s_store
+		return slot_s_store_str
 	else if (H.wear_mask == src)
-		return slot_wear_mask
+		return slot_wear_mask_str
 	else if (H.wear_id == src)
-		return slot_wear_id
+		return slot_wear_id_str
 	else if (H.w_uniform == src)
-		return slot_w_uniform
+		return slot_w_uniform_str
 	else if (H.gloves == src)
-		return slot_gloves
+		return slot_gloves_str
 	else if (H.belt == src)
-		return slot_belt
+		return slot_belt_str
 	else if (H.back == src)
-		return slot_back
+		return slot_back_str
 	else if (H.r_ear == src)
-		return slot_r_ear
+		return slot_r_ear_str
 	else if (H.l_ear == src)
-		return slot_l_ear
+		return slot_l_ear_str
 	else if (H.shoes == src)
-		return slot_shoes
+		return slot_shoes_str
 	else if (H.wrists == src)
-		return slot_wrists
+		return slot_wrists_str
 	else if (H.pants == src)
-		return slot_pants
+		return slot_pants_str
 	else
 		return null//We failed to find the slot
 
@@ -876,21 +876,21 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 
 	if (slot != null)
 
-		if (slot_l_hand == slot)
+		if (slot_l_hand_str == slot)
 			if (justmoved)
 				action += "now "
 			preposition = "in"
 			action += "being held"
 			action3 = "holds"
 			newlocation = "left hand"
-		else if (slot_r_hand == slot)
+		else if (slot_r_hand_str == slot)
 			if (justmoved)
 				action += "now "
 			preposition = "in"
 			action += "being held"
 			action3 = "holds"
 			newlocation = "right hand"
-		else if (slot_l_store == slot)
+		else if (slot_l_store_str == slot)
 			if (justmoved)
 				preposition = "into"
 				action = "placed"
@@ -898,7 +898,7 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 			else
 				preposition = "inside"
 			newlocation = "left pocket"
-		else if (slot_r_store == slot)
+		else if (slot_r_store_str == slot)
 			if (justmoved)
 				preposition = "into"
 				action = "placed"
@@ -906,7 +906,7 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 			else
 				preposition = "inside"
 			newlocation = "right pocket"
-		else if (slot_s_store == slot)
+		else if (slot_s_store_str == slot)
 			if (justmoved)
 				preposition = "into"
 				action = "placed"
@@ -919,47 +919,47 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 				action += "now "
 			action += "being worn"
 
-			if (slot_head == slot)
+			if (slot_head_str == slot)
 				preposition = "as"
 				action3 = "wears"
 				newlocation = "hat"
-			else if (slot_wear_suit == slot)
+			else if (slot_wear_suit_str == slot)
 				preposition = "over"
 				action3 = "wears"
 				newlocation = "uniform"
-			else if (slot_wear_mask == slot)
+			else if (slot_wear_mask_str == slot)
 				preposition = "on"
 				action3 = "wears"
 				newlocation = "face"
-			else if (slot_wear_id == slot)
+			else if (slot_wear_id_str == slot)
 				preposition = "as"
 				action3 = "wears"
 				newlocation = "ID"
-			else if (slot_w_uniform == slot)
+			else if (slot_w_uniform_str == slot)
 				preposition = "on"
 				action3 = "wears"
 				newlocation = "body"
-			else if (slot_gloves == slot)
+			else if (slot_gloves_str == slot)
 				preposition = "on"
 				action3 = "wears"
 				newlocation = "hands"
-			else if (slot_belt == slot)
+			else if (slot_belt_str == slot)
 				preposition = "around"
 				action3 = "wears"
 				newlocation = "waist"
-			else if (slot_back == slot)
+			else if (slot_back_str == slot)
 				preposition = "on"
 				action3 = "wears"
 				newlocation = "back"
-			else if (slot_r_ear == slot)
+			else if (slot_r_ear_str == slot)
 				preposition = "on"
 				action3 = "wears"
 				newlocation = "right shoulder"//Ill use ear slots for wearing mobs on the shoulder in future
-			else if (slot_l_ear == slot)
+			else if (slot_l_ear_str == slot)
 				preposition = "on"
 				action3 = "wears"
 				newlocation = "left shoulder"
-			else if (slot_shoes == slot)
+			else if (slot_shoes_str == slot)
 				preposition = "on"
 				action3 = "wears"
 				newlocation = "feet"

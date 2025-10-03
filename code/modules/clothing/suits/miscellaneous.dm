@@ -124,7 +124,7 @@
 	flags_inv = HIDEWRISTS|HIDEGLOVES|HIDEJUMPSUIT
 
 /obj/item/clothing/suit/straight_jacket/equipped(var/mob/user, var/slot)
-	if (slot == slot_wear_suit)
+	if (slot == slot_wear_suit_str)
 		if(ishuman(loc))
 			var/mob/living/carbon/human/H = loc
 			H.drop_r_hand()

@@ -51,10 +51,10 @@
 			switch(over_object.name)
 				if("right hand")
 					user.u_equip(real_master_item)
-					user.equip_to_slot_if_possible(real_master_item, slot_r_hand)
+					user.equip_to_slot_if_possible(real_master_item, slot_r_hand_str)
 				if("left hand")
 					user.u_equip(real_master_item)
-					user.equip_to_slot_if_possible(real_master_item, slot_l_hand)
+					user.equip_to_slot_if_possible(real_master_item, slot_l_hand_str)
 			real_master_item.add_fingerprint(user)
 			return 0
 	return 0

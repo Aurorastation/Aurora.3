@@ -1,5 +1,5 @@
 /obj/item/gun/equipped(mob/living/user, slot)
-	if(istype(user) && (slot != slot_l_hand && slot != slot_r_hand))
+	if(istype(user) && (slot != slot_l_hand_str && slot != slot_r_hand_str))
 		user.stop_aiming(src)
 	return ..()
 

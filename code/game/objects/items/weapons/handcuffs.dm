@@ -64,7 +64,7 @@
 	if(!istype(H))
 		return FALSE
 
-	if((!legcuff && !H.has_organ_for_slot(slot_handcuffed)) || (legcuff && !H.has_organ_for_slot(slot_legcuffed)))
+	if((!legcuff && !H.has_organ_for_slot(slot_handcuffed_str)) || (legcuff && !H.has_organ_for_slot(slot_legcuffed_str)))
 		if(user)
 			to_chat(user, SPAN_DANGER("\The [H] needs at least two [legcuff ? "ankles" : "wrists"] before you can cuff them together!"))
 		return FALSE

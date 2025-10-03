@@ -35,7 +35,7 @@
 		H.w_uniform.accent_color = H.w_uniform.color
 	if(H?.shoes)
 		var/obj/item/clothing/shoes/magboots/hegemony/boots = new(H)
-		H.equip_to_slot_if_possible(boots, slot_shoes)
+		H.equip_to_slot_if_possible(boots, slot_shoes_str)
 
 /obj/outfit/admin/ert/kataphract/get_id_access()
 	return get_distress_access_lesser()
@@ -76,7 +76,7 @@
 	if(H?.shoes)
 		H.shoes.color = uniform_colour
 		var/obj/item/clothing/shoes/magboots/hegemony/boots = new(H)
-		H.equip_to_slot_if_possible(boots, slot_shoes)
+		H.equip_to_slot_if_possible(boots, slot_shoes_str)
 
 /obj/outfit/admin/ert/kataphract/specialist
 	name = "Kataphract-Hopeful Spec."
@@ -112,7 +112,7 @@
 		H.w_uniform.color = pick("#42b360", "#b68029", "#5574c2")
 	if(H?.shoes)
 		var/obj/item/clothing/shoes/magboots/hegemony/boots = new(H)
-		H.equip_to_slot_if_possible(boots, slot_shoes)
+		H.equip_to_slot_if_possible(boots, slot_shoes_str)
 
 /obj/outfit/admin/ert/kataphract/leader
 	name = "Kataphract Knight"
@@ -126,4 +126,4 @@
 		H.w_uniform.color = pick("#42b360", "#b68029", "#5574c2")
 	if(H?.shoes)
 		var/obj/item/clothing/shoes/magboots/hegemony/boots = new(H)
-		H.equip_to_slot_if_possible(boots, slot_shoes)
+		H.equip_to_slot_if_possible(boots, slot_shoes_str)

@@ -73,11 +73,11 @@
 			if("right hand")
 				if(istype(src, /obj/item/clothing/ears))
 					C = check_two_ears(user)
-				user.equip_to_slot_if_possible(C, slot_r_hand)
+				user.equip_to_slot_if_possible(C, slot_r_hand_str)
 			if("left hand")
 				if(istype(src, /obj/item/clothing/ears))
 					C = check_two_ears(user)
-				user.equip_to_slot_if_possible(C, slot_l_hand)
+				user.equip_to_slot_if_possible(C, slot_l_hand_str)
 		src.add_fingerprint(user)
 
 /obj/item/clothing/proc/check_two_ears(var/mob/user)

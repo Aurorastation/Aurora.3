@@ -153,9 +153,9 @@ There are several things that need to be remembered:
 			animate(src, transform = M, time = (forceDirUpdate ? 0 : ANIM_LYING_TIME))
 
 			if(istype(src.l_hand, /obj/item/gun) && lying)
-				HeldObjectDirTransform(slot_l_hand, src.dir)
+				HeldObjectDirTransform(slot_l_hand_str, src.dir)
 			if(istype(src.r_hand, /obj/item/gun) && lying)
-				HeldObjectDirTransform(slot_r_hand, src.dir)
+				HeldObjectDirTransform(slot_r_hand_str, src.dir)
 
 		else
 			update_inv_l_hand(FALSE)
@@ -169,9 +169,9 @@ There are several things that need to be remembered:
 	UpdateOverlays()
 	lying_prev = lying
 
-/mob/living/carbon/human/proc/HeldObjectDirTransform(var/hand = slot_l_hand, var/direction)
+/mob/living/carbon/human/proc/HeldObjectDirTransform(var/hand = slot_l_hand_str, var/direction)
 	var/layer = null
-	if(hand == slot_r_hand)
+	if(hand == slot_r_hand_str)
 		update_inv_r_hand(FALSE)
 		layer = R_HAND_LAYER
 	else

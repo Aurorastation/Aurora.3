@@ -170,9 +170,9 @@ it should be avoided in favour of manual removal where possible
 	//For equipment modifier type to be valid, the source object must be in a mob's contents
 	//and equipped to one of these whitelisted slots
 	//This list can be overridden if you want a custom slot whitelist
-	var/list/valid_equipment_slots = list(slot_back, slot_wear_mask, slot_handcuffed, slot_belt, \
-	slot_wear_id, slot_l_ear, slot_glasses, slot_gloves, slot_head, slot_shoes, slot_wear_suit, \
-	slot_w_uniform,slot_legcuffed, slot_r_ear, slot_pants, slot_tie, slot_wrists)
+	var/list/valid_equipment_slots = list(slot_back_str, slot_wear_mask_str, slot_handcuffed_str, slot_belt_str, \
+	slot_wear_id_str, slot_l_ear_str, slot_glasses_str, slot_gloves_str, slot_head_str, slot_shoes_str, slot_wear_suit_str, \
+	slot_w_uniform_str,slot_legcuffed_str, slot_r_ear_str, slot_pants_str, slot_tie_str, slot_wrists_str)
 
 
 

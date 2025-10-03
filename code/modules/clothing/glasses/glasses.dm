@@ -1162,7 +1162,7 @@ BLIND     // can't see anything
 	handle_mob_overlay()
 
 /obj/item/clothing/glasses/eyepatch/hud/equipped(mob/user, slot)
-	if(active && slot == slot_glasses)
+	if(active && slot == slot_glasses_str)
 		user.AddOverlays(mob_overlay, ATOM_ICON_CACHE_PROTECTED)
 		user.AddOverlays(mob_overlay_emis, TRUE)
 		user.z_flags |= ZMM_MANGLE_PLANES

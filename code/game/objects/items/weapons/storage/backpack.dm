@@ -73,7 +73,7 @@
 	if (!..())
 		return 0
 
-	if(species_restricted && ishuman(M) && !(slot in list(slot_l_hand, slot_r_hand)))
+	if(species_restricted && ishuman(M) && !(slot in list(slot_l_hand_str, slot_r_hand_str)))
 		var/exclusive = null
 		var/wearable = null
 		var/mob/living/carbon/human/H = M
@@ -89,7 +89,7 @@
 				if(H.species.get_bodytype() in species_restricted)
 					wearable = 1
 
-			if(!wearable && !(slot in list(slot_l_store, slot_r_store, slot_s_store)))
+			if(!wearable && !(slot in list(slot_l_store_str, slot_r_store_str, slot_s_store_str)))
 				to_chat(H, SPAN_DANGER("Your species cannot wear [src]."))
 				return 0
 	return 1

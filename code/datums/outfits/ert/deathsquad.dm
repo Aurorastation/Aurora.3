@@ -54,7 +54,7 @@
 		hold.contents += weapon
 		hold.holstered = weapon
 
-	var/obj/item/clothing/under/U = H.get_equipped_item(slot_w_uniform)
+	var/obj/item/clothing/under/U = H.get_equipped_item(slot_w_uniform_str)
 	U.attackby(hold, H)
 
 	var/obj/item/rig/mercrig
@@ -66,7 +66,7 @@
 
 	if(mercrig)
 		H.put_in_hands(mercrig)
-		H.equip_to_slot_or_del(mercrig, slot_back)
+		H.equip_to_slot_or_del(mercrig, slot_back_str)
 		addtimer(CALLBACK(mercrig, TYPE_PROC_REF(/obj/item/rig, toggle_seals), H, TRUE), 2 SECONDS)
 	belt_contents = list(
 		/obj/item/ammo_magazine/a454 = 2,
@@ -109,5 +109,5 @@
 		hold.contents += weapon
 		hold.holstered = weapon
 
-	var/obj/item/clothing/under/U = H.get_equipped_item(slot_w_uniform)
+	var/obj/item/clothing/under/U = H.get_equipped_item(slot_w_uniform_str)
 	U.attackby(hold, H)

@@ -24,7 +24,7 @@
 /obj/outfit/admin/ert/izweski/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H?.shoes)
 		var/obj/item/clothing/shoes/magboots/hegemony/boots = new(H)
-		H.equip_to_slot_if_possible(boots, slot_shoes)
+		H.equip_to_slot_if_possible(boots, slot_shoes_str)
 
 /obj/outfit/admin/ert/izweski/get_id_access()
 	return get_distress_access_lesser()
@@ -80,7 +80,7 @@
 		H.internals.icon_state = "internal1"
 	if(H?.shoes)
 		var/obj/item/clothing/shoes/magboots/hegemony/boots = new(H)
-		H.equip_to_slot_if_possible(boots, slot_shoes)
+		H.equip_to_slot_if_possible(boots, slot_shoes_str)
 
 	H.update_body()
 

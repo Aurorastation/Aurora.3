@@ -150,9 +150,9 @@
 		var/mob/M = loc
 		if(!istype(M))
 			return FALSE //not equipped
-		if((slot_flags & SLOT_BACK) && M.get_equipped_item(slot_back) == src)
+		if((slot_flags & SLOT_BACK) && M.get_equipped_item(slot_back_str) == src)
 			return TRUE
-		if((slot_flags & SLOT_BELT) && M.get_equipped_item(slot_belt) == src)
+		if((slot_flags & SLOT_BELT) && M.get_equipped_item(slot_belt_str) == src)
 			return TRUE
 	return FALSE
 

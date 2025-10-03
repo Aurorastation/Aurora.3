@@ -54,7 +54,7 @@
 
 	if(!H.shoes)
 		var/obj/item/clothing/shoes/jackboots/toeless/shoes = new(src)
-		H.equip_to_slot_if_possible(shoes, slot_shoes)
+		H.equip_to_slot_if_possible(shoes, slot_shoes_str)
 
 /obj/outfit/admin/ert/ap_eridani/lead
 	name = "Eridani Section Leader"

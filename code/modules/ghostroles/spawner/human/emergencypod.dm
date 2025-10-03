@@ -440,9 +440,9 @@
 		holster.holstered = primary
 		primary.forceMove(holster)
 	else if(!H.belt && (primary.slot_flags & SLOT_BELT))
-		H.equip_to_slot_or_del(primary, slot_belt)
+		H.equip_to_slot_or_del(primary, slot_belt_str)
 	else if(!H.back && (primary.slot_flags & SLOT_BACK))
-		H.equip_to_slot_or_del(primary, slot_back)
+		H.equip_to_slot_or_del(primary, slot_back_str)
 	else
 		H.put_in_any_hand_if_possible(primary)
 

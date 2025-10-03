@@ -22,9 +22,9 @@
 
 /obj/effect/landmark/corpse/pra_soldier/do_extra_customization(var/mob/living/carbon/human/M)
 	if(prob(25))
-		M.equip_to_slot_or_del(new /obj/item/photo/soldier(M), slot_r_store)
+		M.equip_to_slot_or_del(new /obj/item/photo/soldier(M), slot_r_store_str)
 	if(prob(50))
-		M.equip_to_slot_or_del(new /obj/item/gun/projectile/pistol/adhomai(M), slot_l_store)
+		M.equip_to_slot_or_del(new /obj/item/gun/projectile/pistol/adhomai(M), slot_l_store_str)
 	var/cadaver_color = pick("white", "ivory", "silver")
 	switch(cadaver_color)
 		if("white")

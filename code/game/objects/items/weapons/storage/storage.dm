@@ -232,10 +232,10 @@
 		switch(over.name)
 			if("right hand")
 				user.u_equip(src)
-				user.equip_to_slot_if_possible(src, slot_r_hand)
+				user.equip_to_slot_if_possible(src, slot_r_hand_str)
 			if("left hand")
 				user.u_equip(src)
-				user.equip_to_slot_if_possible(src, slot_l_hand)
+				user.equip_to_slot_if_possible(src, slot_l_hand_str)
 		src.add_fingerprint(user)
 
 /obj/item/storage/AltClick(var/mob/user)

@@ -148,7 +148,7 @@
 
 /obj/outfit/job/doctor/surgeon/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!isskrell(H))
-		H.equip_to_slot_or_del(new /obj/item/clothing/head/surgery(H), slot_head)
+		H.equip_to_slot_or_del(new /obj/item/clothing/head/surgery(H), slot_head_str)
 
 /datum/job/pharmacist
 	title = "Pharmacist"
@@ -416,7 +416,7 @@
 
 /obj/outfit/job/intern_med/surgeon/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!isskrell(H))
-		H.equip_to_slot_or_del(new /obj/item/clothing/head/surgery(H), slot_head)
+		H.equip_to_slot_or_del(new /obj/item/clothing/head/surgery(H), slot_head_str)
 
 /obj/outfit/job/intern_med/psychiatrist
 	name = "Resident Psychiatrist"
