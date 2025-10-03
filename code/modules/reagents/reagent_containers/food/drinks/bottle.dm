@@ -247,6 +247,12 @@
 	///The mask image for mimicking a broken-off neck of the bottle
 	var/static/icon/flipped_broken_outline = icon('icons/obj/item/reagent_containers/food/drinks/drink_effects.dmi', "broken-flipped")
 	w_class = WEIGHT_CLASS_SMALL
+	persistency_considered_trash = TRUE
+
+/obj/item/broken_bottle/persistence_apply_content(content, x, y, z)
+	src.x = x
+	src.y = y
+	src.z = z
 
 #define DRINK_FLUFF_GETMORE  "This drink is made by Getmore Corporation, a subsidiary of NanoTrasen. It mostly specializes in fast food and consumer food products, \
 								but also makes average quality alcohol. Many can find Getmore products in grocery stores, vending machines, \
@@ -1054,6 +1060,13 @@
 	icon_state = "sarezhibottle"
 	center_of_mass = list("x" = 16,"y" = 6)
 	reagents_to_add = list(/singleton/reagent/alcohol/butanol/sarezhiwine = 100)
+
+/obj/item/reagent_containers/food/drinks/bottle/redstaff
+	name = "Redstaff"
+	desc = "Less of a unique spirit and instead a mixture of butanol, spices, and algae; either Gukhe bloom, Koko, or whatever is at hand when making it. The end result is a fairly strong drink with a spicy kick. \
+	Though it’s more used as a cocktail ingredient rather than drank by itself."
+	icon_state = "redstaff"
+	reagents_to_add = list(/singleton/reagent/alcohol/butanol/redstaff = 100)
 
 // Synnono Meme (Bottled) Drinks
 //======================================

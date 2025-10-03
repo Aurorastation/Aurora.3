@@ -157,10 +157,11 @@
  * This is called when a client tries to move, usually it dispatches the moving request to the mob it's controlling
  */
 /client/Move(new_loc, direct)
-	if(world.time < move_delay) //do not move anything ahead of this check please
+	if(moving || world.time < move_delay) //do not move anything ahead of this check please
 		return FALSE
 
 	var/old_move_delay = move_delay
+	move_delay = world.time + world.tick_lag
 
 	if(!direct || !new_loc)
 		return FALSE
@@ -173,9 +174,6 @@
 	if(mob.incorporeal_move && isabstractmob(mob))
 		Process_Incorpmove(direct, mob)
 		return
-
-	if(moving || world.time < move_delay)
-		return 0
 
 	if(mob.stat == DEAD && isliving(mob))
 		mob.ghostize()
@@ -233,6 +231,7 @@
 
 	if(isobj(mob.loc) || ismob(mob.loc))	//Inside an object, tell it we are moving out
 		var/atom/O = mob.loc
+		move_delay += (mob.movement_delay() + GLOB.config.walk_speed) * GLOB.config.walk_delay_multiplier
 		return O.relaymove(mob, direct)
 
 	if(isturf(mob.loc))

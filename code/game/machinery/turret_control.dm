@@ -18,19 +18,32 @@
 	var/enabled = 0
 	var/lethal = 0
 	var/locked = 1
-	var/egun = 1 //if the control panel can switch lethal and stun modes
-	var/area/control_area //can be area name, path or nothing.
+	/// if the control panel can switch lethal and stun modes
+	var/egun = 1
+	/// can be area name, path or nothing.
+	var/area/control_area
 
-	var/check_arrest = 1	//checks if the perp is set to arrest
-	var/check_records = 1	//checks if a security record exists at all
-	var/check_weapons = 0	//checks if it can shoot people that have a weapon they aren't authorized to have
-	var/check_access = 1	//if this is active, the turret shoots everything that does not meet the access requirements
-	var/check_wildlife = 1	//checks if it can shoot at simple animals or anything that passes issmall
-	var/check_synth = 0		//if active, will shoot at anything not an AI or cyborg
-	var/target_borgs = FALSE//if active, will shoot at borgs
-	var/ailock = 0 	//Silicons cannot use this
+	/// checks if the perp is set to arrest
+	var/check_arrest = 1
+	/// checks if a security record exists at all
+	var/check_records = 1
+	/// checks if it can shoot people that have a weapon they aren't authorized to have
+	var/check_weapons = 0
+	/// if this is active, the turret shoots everything that does not meet the access requirements
+	var/check_access = 1
+	/// checks if it can shoot at simple animals or anything that passes issmall
+	var/check_wildlife = 1
+	/// if active, will shoot at anything not an AI or cyborg
+	var/check_synth = 0
+	/// if active, will shoot at borgs
+	var/target_borgs = FALSE
+	/// Silicons cannot use this
+	var/ailock = 0
 	req_access = list(ACCESS_AI_UPLOAD)
 
+/obj/machinery/turretid/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "ALT-click the [src] to lock or unlock it (if you have the appropriate ID access)."
 
 /obj/machinery/turretid/stun
 	enabled = 1
@@ -72,6 +85,7 @@
 		return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/turretid/LateInitialize()
+	. = ..()
 	power_change()
 	turretModes()
 
@@ -93,19 +107,23 @@
 
 	return ..()
 
-/obj/machinery/turretid/attackby(obj/item/attacking_item, mob/user)
-	if(stat & BROKEN)
-		return
-
-	if(attacking_item.GetID())
-		if(src.allowed(usr))
-			if(emagged)
-				to_chat(user, SPAN_NOTICE("The turret control is unresponsive."))
+/obj/machinery/turretid/AltClick(mob/user)
+	if(Adjacent(user))
+		add_fingerprint(user)
+		if(emagged)
+			to_chat(user, SPAN_NOTICE("The turret control is unresponsive."))
+		else if(allowed(user))
+			locked = !locked
+			if(locked)
+				playsound(src, 'sound/machines/terminal/terminal_button03.ogg', 35, FALSE)
 			else
-				locked = !locked
-				to_chat(user, SPAN_NOTICE("You [ locked ? "lock" : "unlock"] the panel."))
-		return TRUE
-	return ..()
+				playsound(src, 'sound/machines/terminal/terminal_button01.ogg', 35, FALSE)
+			balloon_alert(user, locked ? "locked" : "unlocked")
+		else
+			to_chat(user, SPAN_WARNING("Access denied."))
+			playsound(src, 'sound/machines/terminal/terminal_error.ogg', 25, FALSE)
+			balloon_alert(user, "access denied!")
+	return
 
 /obj/machinery/turretid/emag_act(var/remaining_charges, var/mob/user)
 	if(!emagged)

@@ -491,3 +491,9 @@
 		plants[initial(plant.name)] = plant_type
 	sortTim(plants, GLOBAL_PROC_REF(cmp_text_asc))
 	gear_tweaks += new /datum/gear_tweak/path(plants)
+
+/datum/gear/candles
+	display_name = "candle pack"
+	description = "A pack of red candles."
+	cost = 1
+	path = /obj/item/storage/box/fancy/candle_box
