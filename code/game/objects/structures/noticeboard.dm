@@ -47,6 +47,7 @@
 // level, it should be fine to let anyone mess with the board other than ghosts.
 /obj/structure/noticeboard/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	if(is_adjacent)
+		user.face_atom(src)
 		var/dat = "<B>Noticeboard</B><BR>"
 		for(var/obj/item/paper/P in src)
 			dat += "<A href='byond://?src=[REF(src)];read=[REF(P)]'>[P.name]</A> <A href='byond://?src=[REF(src)];write=[REF(P)]'>Write</A> <A href='byond://?src=[REF(src)];remove=[REF(P)]'>Remove</A><BR>"
@@ -97,7 +98,7 @@
 	desc = "A board for command to pin actually important information on. As if. Can be locked and unlocked with an appropiate ID."
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "comboard0"
-	req_access = list(ACCESS_CAPTAIN, ACCESS_CMO, ACCESS_HOS, ACCESS_QM, ACCESS_HOS, ACCESS_CE)
+	req_one_access = list(ACCESS_CAPTAIN, ACCESS_CMO, ACCESS_HOS, ACCESS_QM, ACCESS_HOS, ACCESS_CE)
 	base_icon = "comboard"
 	notice_limit = 6
 	var/open

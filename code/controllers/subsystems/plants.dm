@@ -137,12 +137,12 @@ SUBSYSTEM_DEF(plants)
 		if(seed.chems && !isnull(seed.chems[/singleton/reagent/acid/polyacid]))
 			seed.chems[/singleton/reagent/acid/polyacid] = null // Eating through the hull will make these plants completely inviable, albeit very dangerous.
 			seed.chems -= null // Setting to null does not actually remove the entry, which is weird.
-		seed.set_trait(TRAIT_IDEAL_HEAT,293)
-		seed.set_trait(TRAIT_HEAT_TOLERANCE,20)
-		seed.set_trait(TRAIT_IDEAL_LIGHT,8)
-		seed.set_trait(TRAIT_LIGHT_TOLERANCE,5)
-		seed.set_trait(TRAIT_LOWKPA_TOLERANCE,25)
-		seed.set_trait(TRAIT_HIGHKPA_TOLERANCE,200)
+		SET_SEED_TRAIT(seed, TRAIT_IDEAL_HEAT, 293)
+		SET_SEED_TRAIT(seed, TRAIT_HEAT_TOLERANCE, 20)
+		SET_SEED_TRAIT(seed, TRAIT_IDEAL_LIGHT, 8)
+		SET_SEED_TRAIT(seed, TRAIT_LIGHT_TOLERANCE, 5)
+		SET_SEED_TRAIT(seed, TRAIT_LOWKPA_TOLERANCE, 25)
+		SET_SEED_TRAIT(seed, TRAIT_HIGHKPA_TOLERANCE, 200)
 	return seed
 
 /// Debug for testing seed genes.
