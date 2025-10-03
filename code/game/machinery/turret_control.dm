@@ -72,6 +72,7 @@
 		return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/turretid/LateInitialize()
+	. = ..()
 	power_change()
 	turretModes()
 
