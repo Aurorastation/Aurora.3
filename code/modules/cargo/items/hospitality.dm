@@ -1388,7 +1388,7 @@
 	description = "A box containing some tins of green tea leaves."
 	price = 20
 	items = list(
-		/obj/item/storage/box/tea
+		/obj/item/storage/box/unique/tea
 	)
 	access = 0
 	container_type = "crate"
@@ -1401,7 +1401,7 @@
 	description = "A box containing some tins of oolong tea leaves."
 	price = 20
 	items = list(
-		/obj/item/storage/box/tea/tieguanyin
+		/obj/item/storage/box/unique/tea/tieguanyin
 	)
 	access = 0
 	container_type = "crate"
@@ -1414,7 +1414,7 @@
 	description = "A box containing some tins of black tea leaves."
 	price = 20
 	items = list(
-		/obj/item/storage/box/tea/jaekseol
+		/obj/item/storage/box/unique/tea/jaekseol
 	)
 	access = 0
 	container_type = "crate"

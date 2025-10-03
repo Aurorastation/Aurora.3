@@ -1347,7 +1347,7 @@
 	pixel_y = -28
 	},
 /obj/structure/closet/crate/freezer,
-/obj/item/storage/box/freezer/organcooler,
+/obj/item/storage/box/unique/freezer/organcooler,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
@@ -2865,13 +2865,13 @@
 /area/raskara_okon/mess_hall)
 "KV" = (
 /obj/structure/table/rack,
-/obj/item/storage/box/monkeycubes/farwacubes{
+/obj/item/storage/box/unique/monkeycubes/farwacubes{
 	pixel_x = -5
 	},
-/obj/item/storage/box/monkeycubes/farwacubes{
+/obj/item/storage/box/unique/monkeycubes/farwacubes{
 	pixel_x = 5
 	},
-/obj/item/storage/box/monkeycubes/farwacubes,
+/obj/item/storage/box/unique/monkeycubes/farwacubes,
 /obj/item/reagent_containers/spray/cleaner{
 	pixel_x = -4;
 	pixel_y = -3

@@ -1148,7 +1148,7 @@
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 10
 	},
-/obj/item/storage/box/sharps,
+/obj/item/storage/box/unique/sharps,
 /obj/structure/table/reinforced/glass,
 /turf/simulated/floor/tiled/white,
 /area/ship/iac_rescue_ship/surgery)
@@ -1650,13 +1650,13 @@
 	},
 /obj/item/gun/projectile/shotgun/pump,
 /obj/item/gun/projectile/shotgun/pump,
-/obj/item/storage/box/shotgunshells,
-/obj/item/storage/box/shotgunshells,
-/obj/item/storage/box/beanbags{
+/obj/item/storage/box/shells/buckshot,
+/obj/item/storage/box/shells/buckshot,
+/obj/item/storage/box/shells/beanbags{
 	pixel_x = -4;
 	pixel_y = 4
 	},
-/obj/item/storage/box/beanbags{
+/obj/item/storage/box/shells/beanbags{
 	pixel_x = -4;
 	pixel_y = 4
 	},
@@ -7441,7 +7441,7 @@
 	icon_state = "sterilesprayblue";
 	name = "surgery cleaner"
 	},
-/obj/item/storage/box/freezer/organcooler,
+/obj/item/storage/box/unique/freezer/organcooler,
 /obj/structure/table/reinforced/glass,
 /turf/simulated/floor/tiled/white,
 /area/ship/iac_rescue_ship/surgery)

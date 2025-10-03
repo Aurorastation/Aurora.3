@@ -5951,8 +5951,8 @@
 /obj/item/ammo_magazine/c762/sol,
 /obj/item/ammo_magazine/c762/sol,
 /obj/item/gun/projectile/shotgun/pump/combat/sol,
-/obj/item/storage/box/shotgunshells,
-/obj/item/storage/box/shotgunshells,
+/obj/item/storage/box/shells/buckshot,
+/obj/item/storage/box/shells/buckshot,
 /obj/item/grenade/frag,
 /obj/item/grenade/frag,
 /obj/machinery/light,
@@ -7843,7 +7843,7 @@
 /obj/item/material/stool/chair/wheelchair,
 /obj/item/cane/crutch,
 /obj/item/cane/crutch,
-/obj/item/storage/box/monkeycubes,
+/obj/item/storage/box/unique/monkeycubes,
 /obj/item/storage/box/autoinjectors,
 /obj/item/storage/box/inhalers_auto,
 /obj/item/storage/box/syringes,
@@ -9593,7 +9593,7 @@
 	pixel_x = 5;
 	pixel_y = -4
 	},
-/obj/item/storage/box/sharps{
+/obj/item/storage/box/unique/sharps{
 	pixel_y = -14;
 	pixel_x = 5
 	},

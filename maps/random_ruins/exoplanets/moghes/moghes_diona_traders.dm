@@ -49,7 +49,7 @@
 	back = /obj/item/storage/backpack/satchel/leather
 	r_pocket = /obj/item/storage/wallet/random
 	backpack_contents = list(
-		/obj/item/storage/box/donkpockets = 1
+		/obj/item/storage/box/unique/donkpockets = 1
 	)
 	l_ear = null
 

@@ -18,7 +18,7 @@
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
 /obj/structure/closet/crate/freezer,
-/obj/item/storage/box/freezer/organcooler,
+/obj/item/storage/box/unique/freezer/organcooler,
 /obj/machinery/light/colored/decayed{
 	dir = 8
 	},

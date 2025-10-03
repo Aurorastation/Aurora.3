@@ -3084,11 +3084,11 @@
 /area/crystal_planet_outpost/surface)
 "QD" = (
 /obj/structure/table/wood,
-/obj/item/storage/box/tea/tieguanyin{
+/obj/item/storage/box/unique/tea/tieguanyin{
 	pixel_x = 6;
 	pixel_y = 3
 	},
-/obj/item/storage/box/tea/jaekseol{
+/obj/item/storage/box/unique/tea/jaekseol{
 	pixel_x = -5;
 	pixel_y = 7
 	},
@@ -3695,7 +3695,7 @@
 /obj/structure/closet/crate/freezer{
 	name = "Fridge"
 	},
-/obj/item/storage/box/freezer/organcooler,
+/obj/item/storage/box/unique/freezer/organcooler,
 /turf/simulated/floor/tiled/white,
 /area/crystal_planet_outpost/medbay)
 "ZH" = (

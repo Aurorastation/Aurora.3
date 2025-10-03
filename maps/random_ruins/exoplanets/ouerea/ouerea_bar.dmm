@@ -1055,7 +1055,7 @@
 "Yd" = (
 /obj/structure/closet/cabinet,
 /obj/item/clothing/accessory/storage/bandolier,
-/obj/item/storage/box/shotgunshells,
+/obj/item/storage/box/shells/buckshot,
 /obj/item/storage/box/fancy/candle_box,
 /obj/item/flame/lighter/zippo,
 /turf/simulated/floor/exoplanet/wood{

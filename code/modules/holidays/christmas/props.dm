@@ -294,7 +294,7 @@
 		/obj/item/device/paicard,
 		/obj/item/clothing/accessory/horrible,
 		/obj/item/clothing/shoes/heels,
-		/obj/item/storage/box/donkpockets,
+		/obj/item/storage/box/unique/donkpockets,
 		/obj/item/reagent_containers/glass/beaker/teapot,
 		/obj/item/device/flashlight/lantern,
 		/obj/item/clothing/mask/balaclava,

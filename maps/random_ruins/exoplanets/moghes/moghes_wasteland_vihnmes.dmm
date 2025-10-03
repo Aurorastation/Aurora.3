@@ -546,7 +546,7 @@
 /area/exoplanet/moghes)
 "wv" = (
 /obj/structure/closet/cabinet,
-/obj/item/storage/box/shotgunshells,
+/obj/item/storage/box/shells/buckshot,
 /obj/item/clothing/accessory/storage/bandolier,
 /obj/item/clothing/suit/armor/unathi,
 /obj/machinery/light/colored/decayed{

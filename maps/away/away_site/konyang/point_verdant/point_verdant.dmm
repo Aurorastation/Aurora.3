@@ -1601,7 +1601,7 @@
 /obj/random/tool,
 /obj/item/storage/box/lights,
 /obj/item/storage/box/lights/coloredmixed,
-/obj/item/storage/box/papersack,
+/obj/item/storage/box/unique/papersack,
 /obj/item/storage/box/candy,
 /obj/item/storage/box/cups,
 /obj/item/storage/box/fancy/cigarettes/dromedaryco,
@@ -9253,7 +9253,7 @@
 /obj/structure/closet/crate/freezer,
 /obj/item/reagent_containers/blood/OPlus,
 /obj/item/reagent_containers/blood/OMinus,
-/obj/item/storage/box/freezer/organcooler,
+/obj/item/storage/box/unique/freezer/organcooler,
 /obj/item/soap/syndie,
 /obj/item/reagent_containers/glass/rag,
 /turf/simulated/floor/tiled/white,
@@ -13935,7 +13935,7 @@
 	pixel_x = -4;
 	pixel_y = 6
 	},
-/obj/item/storage/box/sharps{
+/obj/item/storage/box/unique/sharps{
 	pixel_x = 2;
 	pixel_y = -1
 	},
@@ -23108,7 +23108,7 @@
 /obj/structure/table/wood,
 /obj/item/device/toner,
 /obj/item/device/toner,
-/obj/item/storage/box/donkpockets,
+/obj/item/storage/box/unique/donkpockets,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/tailor)
 "mUB" = (
@@ -28755,7 +28755,7 @@
 "qyA" = (
 /obj/structure/rod_railing,
 /obj/structure/table/wood,
-/obj/item/storage/box/donkpockets{
+/obj/item/storage/box/unique/donkpockets{
 	pixel_y = 6;
 	pixel_x = -11
 	},

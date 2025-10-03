@@ -3951,8 +3951,8 @@
 /obj/item/ammo_magazine/c762/dpra,
 /obj/item/ammo_magazine/c762/dpra,
 /obj/item/gun/projectile/shotgun/foldable,
-/obj/item/storage/box/shotgunshells,
-/obj/item/storage/box/shotgunshells,
+/obj/item/storage/box/shells/buckshot,
+/obj/item/storage/box/shells/buckshot,
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/machinery/light/colored/decayed{
 	dir = 1

@@ -27,8 +27,8 @@
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
-/obj/item/storage/box/freezer/organcooler,
-/obj/item/storage/box/freezer/organcooler,
+/obj/item/storage/box/unique/freezer/organcooler,
+/obj/item/storage/box/unique/freezer/organcooler,
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/ship/xanu_frigate/cargo_bay)
 "ad" = (

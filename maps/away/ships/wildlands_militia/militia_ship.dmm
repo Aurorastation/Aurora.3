@@ -575,7 +575,7 @@
 /obj/structure/extinguisher_cabinet/north,
 /obj/item/material/knife/trench,
 /obj/item/material/knife/trench,
-/obj/item/storage/box/shotgunshells,
+/obj/item/storage/box/shells/buckshot,
 /obj/random/civgun/rifle,
 /obj/random/civgun/rifle,
 /obj/item/gun/projectile/shotgun/pump,

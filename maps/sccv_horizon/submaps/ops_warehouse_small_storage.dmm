@@ -142,10 +142,10 @@
 /area/template_noop)
 "cQ" = (
 /obj/structure/table/rack/folding_table,
-/obj/item/storage/box/donkpockets,
-/obj/item/storage/box/donkpockets,
-/obj/item/storage/box/donkpockets,
-/obj/item/storage/box/donkpockets,
+/obj/item/storage/box/unique/donkpockets,
+/obj/item/storage/box/unique/donkpockets,
+/obj/item/storage/box/unique/donkpockets,
+/obj/item/storage/box/unique/donkpockets,
 /turf/template_noop,
 /area/template_noop)
 "cU" = (
@@ -1437,8 +1437,8 @@
 /area/template_noop)
 "KW" = (
 /obj/structure/table/rack/no_cargo,
-/obj/item/storage/box/beanbags,
-/obj/item/storage/box/beanbags,
+/obj/item/storage/box/shells/beanbags,
+/obj/item/storage/box/shells/beanbags,
 /turf/template_noop,
 /area/template_noop)
 "KX" = (

@@ -8977,7 +8977,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/obj/item/storage/box/sharps{
+/obj/item/storage/box/unique/sharps{
 	pixel_x = 8
 	},
 /obj/item/reagent_containers/spray/cleaner{

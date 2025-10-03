@@ -11134,10 +11134,10 @@
 /turf/template_noop,
 /area/template_noop)
 "jgQ" = (
-/obj/item/storage/box/frags,
-/obj/item/storage/box/frags,
-/obj/item/storage/box/frags,
-/obj/item/storage/box/frags,
+/obj/item/storage/box/tactical/frags,
+/obj/item/storage/box/tactical/frags,
+/obj/item/storage/box/tactical/frags,
+/obj/item/storage/box/tactical/frags,
 /obj/structure/table/rack,
 /turf/simulated/floor/reinforced,
 /area/cruise/virtual_reality)
@@ -15977,11 +15977,11 @@
 /area/cruise/main_bar)
 "ndw" = (
 /obj/structure/table/rack,
-/obj/item/storage/box/flashbangs{
+/obj/item/storage/box/tactical/flashbangs{
 	pixel_x = 4;
 	pixel_y = 4
 	},
-/obj/item/storage/box/teargas{
+/obj/item/storage/box/tactical/teargas{
 	pixel_x = -1;
 	pixel_y = -4
 	},
@@ -28433,12 +28433,12 @@
 /obj/item/gun/projectile/shotgun/pump/combat/sol,
 /obj/item/gun/projectile/shotgun/pump/combat/sol,
 /obj/item/gun/projectile/shotgun/pump/combat/sol,
-/obj/item/storage/box/incendiaryshells,
-/obj/item/storage/box/shotgunshells,
-/obj/item/storage/box/shotgunshells,
-/obj/item/storage/box/shotgunshells,
-/obj/item/storage/box/shotgunshells,
-/obj/item/storage/box/shotgunshells,
+/obj/item/storage/box/shells/incendiaryshells,
+/obj/item/storage/box/shells/buckshot,
+/obj/item/storage/box/shells/buckshot,
+/obj/item/storage/box/shells/buckshot,
+/obj/item/storage/box/shells/buckshot,
+/obj/item/storage/box/shells/buckshot,
 /turf/simulated/floor/reinforced,
 /area/cruise/virtual_reality)
 "xOU" = (

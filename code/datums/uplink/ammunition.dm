@@ -59,7 +59,7 @@
 
 /datum/uplink_item/item/ammo/shotgun_shells
 	name = "Box of Shells"
-	path = /obj/item/storage/box/shotgunshells
+	path = /obj/item/storage/box/shells/buckshot
 	desc = "Contains eight shotgun buckshot shells."
 
 /datum/uplink_item/item/ammo/government

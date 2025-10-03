@@ -837,8 +837,8 @@
 /obj/item/reagent_containers/toothpaste,
 /obj/item/device/quikpay,
 /obj/item/storage/box/fancy/matches,
-/obj/item/storage/box/beanbags,
-/obj/item/storage/box/beanbags,
+/obj/item/storage/box/shells/beanbags,
+/obj/item/storage/box/shells/beanbags,
 /obj/item/wrench,
 /obj/machinery/light/small{
 	pixel_y = -22
@@ -2235,8 +2235,8 @@
 /obj/item/reagent_containers/toothpaste,
 /obj/item/device/quikpay,
 /obj/item/storage/box/fancy/matches,
-/obj/item/storage/box/beanbags,
-/obj/item/storage/box/beanbags,
+/obj/item/storage/box/shells/beanbags,
+/obj/item/storage/box/shells/beanbags,
 /obj/item/wrench,
 /obj/machinery/light/small{
 	dir = 1;

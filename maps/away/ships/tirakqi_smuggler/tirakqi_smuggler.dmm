@@ -5770,7 +5770,7 @@
 /obj/structure/closet/crate/freezer{
 	name = "Fridge"
 	},
-/obj/item/storage/box/freezer/organcooler,
+/obj/item/storage/box/unique/freezer/organcooler,
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/tirakqi_smuggler/med)
@@ -6420,7 +6420,7 @@
 	dir = 8
 	},
 /obj/structure/table/skrell,
-/obj/item/storage/box/sharps{
+/obj/item/storage/box/unique/sharps{
 	pixel_x = 4;
 	pixel_y = 8
 	},

@@ -792,10 +792,10 @@
 /obj/item/gun/energy/net{
 	pixel_y = -4
 	},
-/obj/item/storage/box/tranquilizer{
+/obj/item/storage/box/shells/tranquilizer{
 	pixel_y = 14
 	},
-/obj/item/storage/box/tranquilizer{
+/obj/item/storage/box/shells/tranquilizer{
 	pixel_y = 14
 	},
 /obj/item/gun/projectile/heavysniper/tranq{

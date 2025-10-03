@@ -7226,7 +7226,7 @@
 	req_one_access = list(220)
 	},
 /obj/structure/table/reinforced/steel,
-/obj/item/storage/box/flashbangs{
+/obj/item/storage/box/tactical/flashbangs{
 	pixel_y = 7;
 	pixel_x = 7
 	},

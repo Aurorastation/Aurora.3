@@ -8873,7 +8873,7 @@
 /obj/item/storage/box/syringes{
 	pixel_x = -7
 	},
-/obj/item/storage/box/sharps{
+/obj/item/storage/box/unique/sharps{
 	pixel_x = 8
 	},
 /obj/item/reagent_containers/spray/cleaner{

@@ -5485,7 +5485,7 @@
 	pixel_y = -6;
 	pixel_x = -6
 	},
-/obj/item/storage/box/sharps{
+/obj/item/storage/box/unique/sharps{
 	pixel_y = 6;
 	pixel_x = -6
 	},

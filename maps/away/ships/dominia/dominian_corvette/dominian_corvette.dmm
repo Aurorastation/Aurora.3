@@ -6258,7 +6258,7 @@
 	pixel_x = 4;
 	pixel_y = 4
 	},
-/obj/item/storage/box/tea/tieguanyin{
+/obj/item/storage/box/unique/tea/tieguanyin{
 	desc = "A tin bearing the logo of a Dominian tea company located on Sun Reach. This one contains a bag of tieguanyin, a type of oolong tea.";
 	pixel_x = 14;
 	pixel_y = 3
@@ -7721,7 +7721,7 @@
 	pixel_y = -14;
 	pixel_x = 10
 	},
-/obj/item/storage/box/sharps{
+/obj/item/storage/box/unique/sharps{
 	pixel_x = -6;
 	pixel_y = -14
 	},

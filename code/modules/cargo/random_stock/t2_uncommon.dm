@@ -43,13 +43,13 @@ STOCK_ITEM_UNCOMMON(implants, 1)
 	if(prob(50))
 		new /obj/item/storage/box/cdeathalarm_kit(L)
 	else
-		new /obj/item/storage/box/trackimp(L)
+		new /obj/item/storage/box/tactical/trackimp(L)
 
 STOCK_ITEM_UNCOMMON(flashbang, 0.75)
-	new /obj/item/storage/box/flashbangs(L)
+	new /obj/item/storage/box/tactical/flashbangs(L)
 
 STOCK_ITEM_UNCOMMON(stinger, 0.75)
-	new /obj/item/storage/box/stingers(L)
+	new /obj/item/storage/box/tactical/stingers(L)
 
 STOCK_ITEM_UNCOMMON(arrest, 1)
 	if(prob(60))
@@ -60,13 +60,13 @@ STOCK_ITEM_UNCOMMON(arrest, 1)
 STOCK_ITEM_UNCOMMON(monkey, 2)
 	if(prob(40))
 		var/type = pick( \
-			/obj/item/storage/box/monkeycubes/farwacubes, \
-			/obj/item/storage/box/monkeycubes/stokcubes, \
-			/obj/item/storage/box/monkeycubes/neaeracubes \
+			/obj/item/storage/box/unique/monkeycubes/farwacubes, \
+			/obj/item/storage/box/unique/monkeycubes/stokcubes, \
+			/obj/item/storage/box/unique/monkeycubes/neaeracubes \
 		)
 		new type(L)
 	else
-		new /obj/item/storage/box/monkeycubes(L)
+		new /obj/item/storage/box/unique/monkeycubes(L)
 
 STOCK_ITEM_UNCOMMON(specialcrayon, 1.5)
 	if(prob(50))

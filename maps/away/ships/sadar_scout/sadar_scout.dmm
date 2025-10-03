@@ -4940,8 +4940,8 @@
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/storage/box/shotgunshells,
-/obj/item/storage/box/shotgunshells,
+/obj/item/storage/box/shells/buckshot,
+/obj/item/storage/box/shells/buckshot,
 /obj/item/ammo_magazine/c45uzi,
 /obj/item/ammo_magazine/c45uzi,
 /obj/item/ammo_magazine/boltaction,
@@ -6533,7 +6533,7 @@
 /obj/effect/floor_decal/corner_wide/paleblue/full{
 	dir = 4
 	},
-/obj/item/storage/box/sharps{
+/obj/item/storage/box/unique/sharps{
 	pixel_x = 10
 	},
 /obj/item/roller,

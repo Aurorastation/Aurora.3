@@ -478,7 +478,7 @@
 /area/hegemony_waypoint/atmos)
 "lO" = (
 /obj/structure/table/reinforced/steel,
-/obj/item/storage/box/donkpockets{
+/obj/item/storage/box/unique/donkpockets{
 	pixel_y = 9;
 	pixel_x = 1
 	},

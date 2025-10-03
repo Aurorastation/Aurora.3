@@ -306,7 +306,7 @@ STOCK_ITEM_COMMON(rollerbed, 2.2)
 	new /obj/item/roller(L)
 
 STOCK_ITEM_COMMON(smokebombs, 1.1)
-	new /obj/item/storage/box/smokebombs(L)
+	new /obj/item/storage/box/tactical/smokebombs(L)
 
 STOCK_ITEM_COMMON(jar, 2)
 	new /obj/item/glass_jar(L)
@@ -428,8 +428,8 @@ STOCK_ITEM_COMMON(snacks, 4)
 			L = get_turf(pick(CS.tables))
 
 	var/list/snacks = list(
-		/obj/item/storage/box/donkpockets = 10,
-		/obj/item/storage/box/sinpockets = 5,
+		/obj/item/storage/box/unique/donkpockets = 10,
+		/obj/item/storage/box/unique/donkpockets/sinpockets = 5,
 		/obj/item/storage/box/snack = 10,
 		/obj/item/storage/box/produce = 8,
 		/obj/item/storage/field_ration = 3,

@@ -3751,7 +3751,7 @@
 /obj/item/storage/firstaid/surgery{
 	pixel_y = 10
 	},
-/obj/item/storage/box/sharps{
+/obj/item/storage/box/unique/sharps{
 	pixel_y = 2;
 	pixel_x = 6
 	},
@@ -4429,7 +4429,7 @@
 	req_access = list(204)
 	},
 /obj/effect/floor_decal/industrial/outline/security,
-/obj/item/storage/box/frags,
+/obj/item/storage/box/tactical/frags,
 /obj/item/gun/energy/blaster/revolver,
 /obj/item/gun/energy/blaster/revolver,
 /obj/item/gun/energy/blaster/revolver,
@@ -4437,10 +4437,10 @@
 /obj/item/gun/energy/blaster/revolver,
 /obj/item/gun/energy/blaster/revolver,
 /obj/item/gun/projectile/shotgun/pump,
-/obj/item/storage/box/shotgunammo,
-/obj/item/storage/box/shotgunammo,
-/obj/item/storage/box/beanbags,
-/obj/item/storage/box/beanbags,
+/obj/item/storage/box/shells/slugs,
+/obj/item/storage/box/shells/slugs,
+/obj/item/storage/box/shells/beanbags,
+/obj/item/storage/box/shells/beanbags,
 /obj/item/gun/energy/rifle/laser/noctiluca,
 /obj/item/gun/energy/blaster/tcaf,
 /obj/item/gun/energy/blaster/tcaf,
@@ -7102,8 +7102,8 @@
 /obj/item/device/flashlight/maglight,
 /obj/item/device/flashlight/maglight,
 /obj/item/storage/box/handcuffs,
-/obj/item/storage/box/flashbangs,
-/obj/item/storage/box/smokebombs,
+/obj/item/storage/box/tactical/flashbangs,
+/obj/item/storage/box/tactical/smokebombs,
 /obj/item/shield/riot/tact/legion,
 /obj/item/shield/riot/tact/legion,
 /obj/item/shield/riot/tact/legion,
@@ -8054,7 +8054,7 @@
 /obj/item/material/stool/chair/wheelchair,
 /obj/item/cane/crutch,
 /obj/item/cane/crutch,
-/obj/item/storage/box/monkeycubes,
+/obj/item/storage/box/unique/monkeycubes,
 /obj/item/storage/box/autoinjectors,
 /obj/item/storage/box/inhalers_auto,
 /obj/item/storage/box/syringes,
@@ -10505,7 +10505,7 @@
 /obj/item/storage/firstaid/surgery{
 	pixel_y = 13
 	},
-/obj/item/storage/box/sharps{
+/obj/item/storage/box/unique/sharps{
 	pixel_y = 3;
 	pixel_x = 6
 	},

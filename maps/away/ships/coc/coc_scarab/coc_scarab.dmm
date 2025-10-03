@@ -8154,9 +8154,9 @@
 	must_start_working = 1
 	},
 /obj/item/gun/projectile/shotgun/pump,
-/obj/item/storage/box/shotgunshells,
-/obj/item/storage/box/shotgunshells,
-/obj/item/storage/box/stunshells,
+/obj/item/storage/box/shells/buckshot,
+/obj/item/storage/box/shells/buckshot,
+/obj/item/storage/box/shells/stunshells,
 /obj/item/gun/projectile/gauss,
 /obj/item/ammo_magazine/gauss,
 /obj/item/ammo_magazine/gauss,
