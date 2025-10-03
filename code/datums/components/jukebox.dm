@@ -105,7 +105,7 @@
 			return FALSE
 		else
 			user.drop_from_inventory(cartridge, parent)
-			cartridges |= cartridge
+			cartridges += cartridge
 			add_songs(cartridge)
 			to_chat(user, SPAN_NOTICE("You insert \the [cartridge] into \the [parent]"))
 
@@ -115,7 +115,7 @@
 	if(cartridge.tracks)
 		for(var/datum/track/track in cartridge.tracks)
 			LOG_DEBUG("adding track [track.song_name], [track.song_path], [track.song_length]")
-			playlist |= track
+			playlist += track
 	if(!length(playlist))
 		var/datum/track/default/default_track = new()
 		playlist[default_track.song_name] = default_track
@@ -125,7 +125,7 @@
 	if(!isnull(playlist))
 		for(var/datum/track/track in cartridge.tracks)
 			if(istype(track.source, cartridge))
-				LAZYREMOVE(track, playlist)
+				playlist -= track
 
 	return playlist
 
@@ -389,10 +389,11 @@
 
 /// Track datums, used in jukeboxes
 /datum/track/New(var/new_song_name, var/new_song_path, var/new_song_length, var/new_source)
-    song_name = new_song_name
-    song_path = new_song_path
-    song_length = new_song_length
-    source = new_source
+	. = ..()
+	song_name = new_song_name
+	song_path = new_song_path
+	song_length = new_song_length
+	source = new_source
 
 // Default track supplied for testing and also because it's a banger
 /datum/track/default
