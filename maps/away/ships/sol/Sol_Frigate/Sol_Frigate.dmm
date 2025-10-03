@@ -2214,6 +2214,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_mid)
+"jI" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 8
+	},
+/obj/structure/sign/flag/biesel,
+/turf/simulated/floor/tiled/dark,
+/area/ship/Sol_Frigate/hangar)
 "jN" = (
 /obj/structure/sink{
 	dir = 4;
@@ -5250,6 +5257,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/structure/sign/flag/elyra,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hangar)
 "yC" = (
@@ -7017,13 +7025,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/engineering)
-"GR" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 8
-	},
-/obj/structure/sign/flag/biesel,
-/turf/simulated/floor/tiled/dark,
-/area/ship/Sol_Frigate/hangar)
 "GT" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -8773,6 +8774,7 @@
 /obj/machinery/media/jukebox/audioconsole/wall{
 	pixel_y = 33
 	},
+/obj/structure/sign/flag/coalition,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hangar)
 "Oo" = (
@@ -10604,6 +10606,9 @@
 /obj/structure/sign/flag/sol{
 	pixel_y = 32
 	},
+/obj/structure/table/fancy/black,
+/obj/item/reagent_containers/food/drinks/bottle/champagne,
+/obj/item/flamethrower/full,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hangar)
 "Yc" = (
@@ -10766,6 +10771,7 @@
 	dir = 8
 	},
 /obj/machinery/light,
+/obj/structure/sign/flag/zora,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hangar)
 "YQ" = (
@@ -43831,7 +43837,7 @@ NA
 hl
 pK
 yB
-GR
+jI
 VK
 pK
 rn
