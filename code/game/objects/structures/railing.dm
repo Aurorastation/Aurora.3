@@ -14,7 +14,7 @@
 
 	build_amt = 2
 
-	maxhealth = 35
+	maxhealth = OBJECT_HEALTH_EXTREMELY_LOW
 
 	var/broken = FALSE
 	var/neighbor_status = 0

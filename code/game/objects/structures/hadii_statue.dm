@@ -6,7 +6,7 @@
 	density = TRUE
 	anchored = TRUE
 	layer = ABOVE_HUMAN_LAYER
-	maxhealth = 100
+	maxhealth = OBJECT_HEALTH_MEDIUM
 	var/toppled = FALSE
 	var/outside = FALSE
 	var/already_toppled = FALSE

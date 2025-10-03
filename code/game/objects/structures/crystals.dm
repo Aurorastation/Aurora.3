@@ -5,7 +5,7 @@
 	icon_state = "scattered"
 	anchored = TRUE
 	density = FALSE
-	maxhealth = 100
+	maxhealth = OBJECT_HEALTH_HIGH
 
 	var/singleton/reagent/reagent_id
 	var/state = 0

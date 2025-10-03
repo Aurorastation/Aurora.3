@@ -339,7 +339,7 @@
 	icon_state = "preview_glass"
 	glass = 1
 	hitsound = 'sound/effects/glass_hit.ogg'
-	maxhealth = 300
+	maxhealth = OBJECT_HEALTH_VERY_HIGH
 	explosion_resistance = 5
 	opacity = FALSE
 	panel_visible_while_open = TRUE
@@ -526,7 +526,7 @@
 	door_color = COLOR_GRAY40
 	explosion_resistance = 20
 	secured_wires = TRUE
-	maxhealth = 600
+	maxhealth = OBJECT_HEALTH_EXTREMELY_HIGH
 	insecure = 0
 	ai_bolting_delay = 10
 	ai_unbolt_delay = 5
@@ -540,7 +540,7 @@
 	name = "freezer airlock"
 	door_color = "#b9b8b6"
 	desc = "An extra thick, double-insulated door to preserve the cold atmosphere. Keep closed at all times."
-	maxhealth = 800
+	maxhealth = OBJECT_HEALTH_EXTREMELY_HIGH
 	opacity = TRUE
 	paintable = AIRLOCK_PAINTABLE_MAIN
 	open_duration = 20
@@ -586,7 +586,7 @@
 	name = "glass airlock"
 	icon_state = "cmd_glass"
 	hitsound = 'sound/effects/glass_hit.ogg'
-	maxhealth = 300
+	maxhealth = OBJECT_HEALTH_HIGH
 	explosion_resistance = 5
 	opacity = FALSE
 	glass = 1
@@ -600,7 +600,7 @@
 	name = "glass airlock"
 	icon_state = "eng_glass"
 	hitsound = 'sound/effects/glass_hit.ogg'
-	maxhealth = 300
+	maxhealth = OBJECT_HEALTH_VERY_HIGH
 	explosion_resistance = 5
 	opacity = FALSE
 	glass = 1
@@ -620,7 +620,7 @@
 /obj/machinery/door/airlock/glass_medical
 	name = "glass airlock"
 	hitsound = 'sound/effects/glass_hit.ogg'
-	maxhealth = 300
+	maxhealth = OBJECT_HEALTH_VERY_HIGH
 	explosion_resistance = 5
 	opacity = FALSE
 	glass = 1
@@ -655,7 +655,7 @@
 	name = "glass airlock"
 	icon_state = "sci_glass"
 	hitsound = 'sound/effects/glass_hit.ogg'
-	maxhealth = 300
+	maxhealth = OBJECT_HEALTH_VERY_HIGH
 	explosion_resistance = 5
 	opacity = FALSE
 	glass = 1
@@ -671,7 +671,7 @@
 	stripe_color = "#5E340B"
 	icon_state = "ops_glass"
 	hitsound = 'sound/effects/glass_hit.ogg'
-	maxhealth = 300
+	maxhealth = OBJECT_HEALTH_VERY_HIGH
 	explosion_resistance = 5
 	opacity = FALSE
 	glass = 1
@@ -681,7 +681,7 @@
 /obj/machinery/door/airlock/glass_atmos
 	name = "glass airlock"
 	hitsound = 'sound/effects/glass_hit.ogg'
-	maxhealth = 300
+	maxhealth = OBJECT_HEALTH_VERY_HIGH
 	explosion_resistance = 5
 	opacity = FALSE
 	glass = 1
@@ -731,7 +731,7 @@
 	name = "Diamond Airlock"
 	door_color = COLOR_DIAMOND
 	mineral = "diamond"
-	maxhealth = 2000
+	maxhealth = OBJECT_HEALTH_EXTREMELY_HIGH
 
 /obj/machinery/door/airlock/sandstone
 	name = "Sandstone Airlock"
@@ -753,7 +753,7 @@
 	explosion_resistance = 20
 	secured_wires = TRUE
 	assembly_type = /obj/structure/door_assembly/door_assembly_highsecurity
-	maxhealth = 600
+	maxhealth = OBJECT_HEALTH_EXTREMELY_HIGH
 	insecure = 0
 	ai_bolting_delay = 10
 	ai_unbolt_delay = 5
@@ -765,7 +765,7 @@
 	door_color = COLOR_PURPLE_GRAY
 	explosion_resistance = 20
 	secured_wires = TRUE
-	maxhealth = 600
+	maxhealth = OBJECT_HEALTH_EXTREMELY_HIGH
 	insecure = 0
 	hashatch = FALSE
 
@@ -775,7 +775,7 @@
 	door_frame_color = "#7E6A40"
 	explosion_resistance = 20
 	secured_wires = TRUE
-	maxhealth = 600
+	maxhealth = OBJECT_HEALTH_EXTREMELY_HIGH
 	insecure = FALSE
 	hashatch = FALSE
 

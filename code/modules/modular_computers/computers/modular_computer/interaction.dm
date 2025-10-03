@@ -292,14 +292,15 @@
 			to_chat(user, SPAN_WARNING("\The [attacking_item] is off."))
 			return TRUE
 
-		if(!damage)
+		if(health >= maxhealth)
 			to_chat(user, SPAN_WARNING("\The [src] does not require repairs."))
 			return TRUE
 
 		to_chat(user, SPAN_NOTICE("You begin repairing the damage to \the [src]..."))
 		playsound(get_turf(src), 'sound/items/Welder.ogg', 100, 1)
+		var/damage = maxhealth - health
 		if(WT.use(round(damage / 75)) && do_after(user, damage / 10, src, DO_REPAIR_CONSTRUCT))
-			damage = 0
+			health = maxhealth
 			to_chat(user, SPAN_NOTICE("You fully repair \the [src]."))
 		update_icon()
 		return TRUE
@@ -321,6 +322,14 @@
 			return TRUE
 		uninstall_component(user, H)
 		return TRUE
+
+	if(user?.a_intent == I_HURT && maxhealth)
+		user.do_attack_animation(src)
+		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+		add_damage(attacking_item.force, attacking_item.damage_flags(), attacking_item.damtype, attacking_item.armor_penetration, attacking_item)
+		playsound(user, 'sound/effects/metalhit.ogg', attacking_item.get_clamped_volume())
+		return TRUE
+
 	return ..()
 
 /obj/item/modular_computer/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)

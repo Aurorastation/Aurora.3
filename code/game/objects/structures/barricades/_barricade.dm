@@ -4,7 +4,7 @@
 	anchored = TRUE
 	density = TRUE
 	atom_flags = ATOM_FLAG_CHECKS_BORDER
-	maxhealth = 100
+	maxhealth = OBJECT_HEALTH_LOW
 	/// The type of stack the barricade dropped when disassembled if any.
 	var/stack_type
 	/// The amount of stack dropped when disassembled at full health

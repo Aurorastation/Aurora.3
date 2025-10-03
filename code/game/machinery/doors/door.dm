@@ -12,7 +12,7 @@
 	layer = CLOSED_DOOR_LAYER
 	dir = SOUTH
 
-	maxhealth = 300
+	maxhealth = OBJECT_HEALTH_VERY_HIGH
 
 	var/open_layer = OPEN_DOOR_LAYER
 	var/closed_layer = CLOSED_DOOR_LAYER

@@ -45,7 +45,7 @@
 	anchored = TRUE
 	atmos_canpass = CANPASS_DENSITY
 
-	maxhealth = 15
+	maxhealth = OBJECT_HEALTH_FRAGILE
 
 	var/deflating = FALSE
 	var/undeploy_path = null

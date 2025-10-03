@@ -19,7 +19,7 @@
 	active_power_usage = 300	//when active, this turret takes up constant 300 Equipment power
 	power_channel = AREA_USAGE_EQUIP	//drains power from the EQUIPMENT channel
 
-	maxhealth = 80
+	maxhealth = OBJECT_HEALTH_MEDIUM
 
 	req_one_access = list(ACCESS_SECURITY, ACCESS_HEADS)
 

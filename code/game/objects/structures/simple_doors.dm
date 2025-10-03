@@ -2,7 +2,7 @@
 	name = "door"
 	density = 1
 	anchored = 1
-	maxhealth = 100
+	maxhealth = OBJECT_HEALTH_VERY_LOW
 
 	icon = 'icons/obj/doors/material_doors.dmi'
 	icon_state = "metal"

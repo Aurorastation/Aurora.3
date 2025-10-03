@@ -29,7 +29,7 @@
 	icon_state = "box"
 	item_state = "box"
 	contained_sprite = TRUE
-	maxhealth = 20
+	maxhealth = OBJECT_HEALTH_EXTREMELY_LOW
 	var/illustration = "writing"
 
 	// BubbleWrap - if set, can be folded (when empty) into a sheet of cardboard

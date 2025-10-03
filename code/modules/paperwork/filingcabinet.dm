@@ -16,7 +16,7 @@
 	icon_state = "filingcabinet"
 	density = 1
 	anchored = 1
-	maxhealth = 50
+	maxhealth = OBJECT_HEALTH_VERY_LOW
 	armor = list(MELEE = ARMOR_MELEE_SMALL, BULLET = ARMOR_BALLISTIC_MINOR)
 
 	var/static/list/accepted_items = list(

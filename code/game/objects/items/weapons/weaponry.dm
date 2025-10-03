@@ -44,7 +44,7 @@
 	anchored = TRUE
 	mouse_opacity = MOUSE_OPACITY_ICON
 
-	maxhealth = 50
+	maxhealth = OBJECT_HEALTH_VERY_LOW
 
 	var/mob/living/affecting = null //Who it is currently affecting, if anyone.
 
