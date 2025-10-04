@@ -357,10 +357,7 @@
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ship/tirakqi_smuggler/starboard_hall)
 "cr" = (
-/obj/machinery/power/smes/buildable/main_engine{
-	input_level = 1000000;
-	output_level = 1000000
-	},
+/obj/machinery/power/smes/buildable/main_engine,
 /obj/structure/cable{
 	icon_state = "0-8"
 	},

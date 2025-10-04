@@ -21,7 +21,7 @@
 	density = TRUE
 	anchored = TRUE
 	idle_power_usage = 600 // WATTS
-	active_power_usage = 2 KILO WATTS
+	active_power_usage = 15 KILO WATTS
 
 	/// List of machines this machine is linked to
 	var/list/links = list()

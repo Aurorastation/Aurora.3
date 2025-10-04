@@ -2975,6 +2975,7 @@
 #include "code\modules\modular_computers\file_system\programs\command\teleporter.dm"
 #include "code\modules\modular_computers\file_system\programs\engineering\_engineering.dm"
 #include "code\modules\modular_computers\file_system\programs\engineering\atmoscontrol.dm"
+#include "code\modules\modular_computers\file_system\programs\engineering\fusion_codex.dm"
 #include "code\modules\modular_computers\file_system\programs\engineering\lightingcontrol.dm"
 #include "code\modules\modular_computers\file_system\programs\engineering\powermonitor.dm"
 #include "code\modules\modular_computers\file_system\programs\engineering\rcon.dm"
