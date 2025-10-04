@@ -30,11 +30,11 @@
 	ChangeTurf(/turf/simulated/floor/exoplanet/permafrost)
 
 /turf/simulated/floor/exoplanet/snow/cold //temperature is -5 celsius
-	temperature = 261 // -12'c
+	temperature = 268.15
 
 /turf/simulated/floor/exoplanet/snow/cold/nitrogen
 	initial_gas = list("nitrogen" = MOLES_CELLSTANDARD*1.66)
-	temperature = 245.15 // -28'C
+	temperature = 261 // -12'C
 
 /turf/simulated/floor/exoplanet/permafrost
 	name = "permafrost"
