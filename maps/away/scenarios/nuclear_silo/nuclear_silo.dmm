@@ -968,6 +968,7 @@
 /area/nuclear_silo/outside/cave/bunker)
 "aes" = (
 /obj/machinery/light,
+/obj/structure/inflatable/door,
 /turf/simulated/floor/exoplanet/permafrost/cold/nitrogen,
 /area/nuclear_silo/outside/mountain)
 "aet" = (
@@ -1337,12 +1338,12 @@
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/engineering)
 "agg" = (
-/obj/structure/closet,
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
+/obj/structure/closet/secure_closet/personal,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/checkpoint)
 "agj" = (
@@ -1373,6 +1374,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/structure/inflatable/door,
 /turf/simulated/floor/exoplanet/permafrost/cold/nitrogen,
 /area/nuclear_silo/outside/mountain)
 "agn" = (
@@ -2409,6 +2411,7 @@
 /obj/machinery/light/colored/decayed/dimmed{
 	dir = 1
 	},
+/obj/structure/inflatable/wall,
 /turf/simulated/floor/exoplanet/permafrost/cold/nitrogen,
 /area/nuclear_silo/outside/cave/bunker)
 "akx" = (
@@ -3504,7 +3507,6 @@
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/hallway)
 "apw" = (
-/obj/structure/closet,
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
 	},
@@ -3512,6 +3514,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/random/dirt_75,
+/obj/structure/closet/secure_closet/personal,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/checkpoint)
 "apz" = (
@@ -4295,6 +4298,10 @@
 /obj/item/device/flashlight/flare/glowstick/random,
 /obj/item/device/flashlight/flare/glowstick/random,
 /obj/item/device/flashlight/flare/glowstick/random,
+/obj/item/storage/bag/inflatable,
+/obj/item/storage/bag/inflatable,
+/obj/item/storage/bag/inflatable,
+/obj/item/storage/bag/inflatable,
 /turf/simulated/floor/tiled/dark,
 /area/nuclear_silo/outside/cave/bunker)
 "atg" = (
@@ -4802,6 +4809,7 @@
 /obj/machinery/door/blast/shutters{
 	name = "Inner Checkpoint Shutter"
 	},
+/obj/structure/inflatable/wall,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/outside/cave/bunker)
 "auV" = (
@@ -4911,6 +4919,7 @@
 	dir = 10
 	},
 /obj/effect/floor_decal/industrial/outline_door/red,
+/obj/structure/inflatable/door,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/outside/cave/bunker)
 "avy" = (
@@ -5127,6 +5136,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/outline_straight/red,
+/obj/structure/inflatable/wall,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/outside/cave/bunker)
 "awn" = (
@@ -6351,6 +6361,12 @@
 /obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/checkpoint)
+"aBv" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/structural_support,
+/turf/simulated/floor/exoplanet/permafrost/cold/nitrogen,
+/area/nuclear_silo/outside/mountain)
 "aBx" = (
 /obj/effect/map_effect/door_helper/lock,
 /obj/machinery/door/airlock,
@@ -7408,6 +7424,7 @@
 	id = "bunker_upper_checkpoint_outer"
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red,
+/obj/structure/inflatable/wall,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/outside/cave/bunker)
 "aFR" = (
@@ -7869,6 +7886,7 @@
 /obj/effect/floor_decal/corner/dark_blue/diagonal{
 	dir = 1
 	},
+/obj/structure/closet/secure_closet/personal,
 /turf/simulated/floor/tiled/dark,
 /area/nuclear_silo/lower_level/checkpoint)
 "aIb" = (
@@ -8082,6 +8100,7 @@
 	name = "Inner Checkpoint Shutter"
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red,
+/obj/structure/inflatable/wall,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/outside/cave/bunker)
 "aIM" = (
@@ -8436,11 +8455,11 @@
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/checkpoint)
 "aKa" = (
-/obj/structure/closet,
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/secure_closet/personal,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/lower_level/checkpoint)
 "aKc" = (
@@ -9660,6 +9679,7 @@
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 1
 	},
+/obj/structure/inflatable/wall,
 /turf/simulated/floor/exoplanet/permafrost/cold/nitrogen,
 /area/nuclear_silo/outside/mountain)
 "aPr" = (
@@ -10321,6 +10341,7 @@
 	name = "Outer Checkpoint Shutter";
 	id = "bunker_upper_checkpoint_outer"
 	},
+/obj/structure/inflatable/wall,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/outside/cave/bunker)
 "aSi" = (
@@ -10847,6 +10868,7 @@
 	dir = 10
 	},
 /obj/effect/floor_decal/industrial/outline_door/red,
+/obj/structure/inflatable/wall,
 /turf/simulated/floor/tiled,
 /area/nuclear_silo/outside/cave/bunker)
 "aUa" = (
@@ -11418,7 +11440,6 @@
 /area/nuclear_silo/lower_level/maintenance/engimed)
 "aWF" = (
 /obj/effect/floor_decal/industrial/outline/red,
-/obj/machinery/portable_atmospherics/powered/scrubber/huge/stationary,
 /turf/simulated/floor/tiled/full,
 /area/nuclear_silo/outside/cave/bunker)
 "aWG" = (
@@ -12036,6 +12057,7 @@
 	},
 /obj/machinery/light,
 /obj/random/dirt_75,
+/obj/structure/closet/secure_closet/personal,
 /turf/simulated/floor/tiled/dark,
 /area/nuclear_silo/lower_level/checkpoint)
 "aYM" = (
@@ -12377,6 +12399,10 @@
 /obj/machinery/floodlight,
 /turf/simulated/floor/exoplanet/permafrost/cold/nitrogen,
 /area/nuclear_silo/outside/surface)
+"bZI" = (
+/obj/structure/inflatable,
+/turf/simulated/floor/exoplanet/permafrost/cold/nitrogen,
+/area/nuclear_silo/outside/mountain)
 "csh" = (
 /obj/effect/shuttle_landmark/nuclear_silo/surface/north_1a,
 /turf/simulated/floor/exoplanet/permafrost/cold/nitrogen,
@@ -12385,6 +12411,15 @@
 /obj/effect/shuttle_landmark/nuclear_silo/surface/north_3b,
 /turf/simulated/floor/exoplanet/permafrost/cold/nitrogen,
 /area/nuclear_silo/outside/landing)
+"dsX" = (
+/obj/effect/floor_decal/industrial/hatch_door/red,
+/obj/machinery/door/blast/shutters{
+	name = "Outer Checkpoint Shutter";
+	id = "bunker_upper_checkpoint_outer"
+	},
+/obj/structure/inflatable/door,
+/turf/simulated/floor/tiled,
+/area/nuclear_silo/outside/cave/bunker)
 "eIx" = (
 /obj/machinery/floodlight{
 	dir = 4
@@ -12403,6 +12438,30 @@
 /obj/effect/shuttle_landmark/nuclear_silo/surface/north_3d,
 /turf/simulated/floor/exoplanet/permafrost/cold/nitrogen,
 /area/nuclear_silo/outside/landing)
+"fLd" = (
+/obj/structure/inflatable/door,
+/turf/simulated/floor/exoplanet/permafrost/cold/nitrogen,
+/area/nuclear_silo/outside/mountain)
+"fTq" = (
+/obj/random/dirt_75,
+/obj/structure/inflatable/door,
+/turf/simulated/floor/exoplanet/permafrost/cold/nitrogen,
+/area/nuclear_silo/outside/mountain)
+"gzX" = (
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 1
+	},
+/obj/machinery/portable_atmospherics/powered/scrubber/huge/stationary,
+/turf/simulated/floor/exoplanet/permafrost/cold/nitrogen,
+/area/nuclear_silo/outside/cave/bunker)
+"gUJ" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
+	},
+/obj/random/dirt_75,
+/obj/structure/closet/secure_closet/personal,
+/turf/simulated/floor/tiled,
+/area/nuclear_silo/lower_level/checkpoint)
 "hDu" = (
 /obj/machinery/floodlight{
 	dir = 1
@@ -12417,6 +12476,13 @@
 /obj/effect/shuttle_landmark/nuclear_silo/surface/north_3c,
 /turf/simulated/floor/exoplanet/snow/cold/nitrogen,
 /area/nuclear_silo/outside/surface)
+"jJU" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/obj/structure/inflatable/door,
+/turf/simulated/floor/exoplanet/permafrost/cold/nitrogen,
+/area/nuclear_silo/outside/mountain)
 "kgx" = (
 /obj/random/dirt_75,
 /turf/unsimulated/marker,
@@ -12439,6 +12505,9 @@
 /obj/structure/sign/flag/coalition,
 /turf/simulated/wall/r_wall,
 /area/nuclear_silo/upper_level_lift)
+"nwT" = (
+/turf/simulated/wall/shuttle/dark/cardinal/coalition,
+/area/nuclear_silo/outside/mountain)
 "nYg" = (
 /obj/machinery/floodlight{
 	dir = 1
@@ -12458,6 +12527,18 @@
 /obj/effect/shuttle_landmark/nuclear_silo/surface/north_1d,
 /turf/simulated/floor/exoplanet/permafrost/cold/nitrogen,
 /area/nuclear_silo/outside/landing)
+"pcq" = (
+/obj/effect/floor_decal/industrial/hatch_door/red,
+/obj/machinery/door/blast/shutters{
+	name = "Inner Checkpoint Shutter"
+	},
+/obj/structure/inflatable/door,
+/turf/simulated/floor/tiled,
+/area/nuclear_silo/outside/cave/bunker)
+"pcw" = (
+/obj/structure/inflatable/wall,
+/turf/simulated/floor/exoplanet/permafrost/cold/nitrogen,
+/area/nuclear_silo/outside/mountain)
 "qAN" = (
 /obj/effect/shuttle_landmark/nuclear_silo/surface/north_1b,
 /obj/random/dirt_75,
@@ -12470,6 +12551,14 @@
 "rhR" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
+/area/nuclear_silo/outside/cave/bunker)
+"rqu" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 10
+	},
+/obj/random/dirt_75,
+/obj/structure/inflatable/wall,
+/turf/simulated/floor/tiled,
 /area/nuclear_silo/outside/cave/bunker)
 "rrn" = (
 /obj/effect/floor_decal/industrial/outline_straight/red{
@@ -12492,6 +12581,19 @@
 /obj/random/dirt_75,
 /obj/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor/tiled/dark,
+/area/nuclear_silo/outside/cave/bunker)
+"vaJ" = (
+/obj/structure/structural_support,
+/turf/simulated/floor/exoplanet/permafrost/cold/nitrogen,
+/area/nuclear_silo/outside/mountain)
+"wLP" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/corner/grey{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/structure/inflatable/door,
+/turf/simulated/floor/tiled,
 /area/nuclear_silo/outside/cave/bunker)
 "wTS" = (
 /obj/random/dirt_75,
@@ -23458,7 +23560,7 @@ abj
 aJZ
 ayz
 aDh
-aQF
+gUJ
 abX
 aTa
 ajU
@@ -83347,13 +83449,13 @@ ajq
 aXG
 aBJ
 avt
-aTX
-auR
+wLP
+pcq
 azw
 aul
 anh
-aSh
-aPq
+dsX
+jJU
 asu
 aXa
 aAk
@@ -83604,18 +83706,18 @@ aGt
 aXG
 aDr
 akx
-aTX
-auR
+wLP
+pcq
 aHu
 aWF
 avs
-aSh
-aPq
+dsX
+jJU
 aYs
 aYs
 aYs
 aYs
-aXa
+aBv
 aLm
 aAe
 aAe
@@ -83862,12 +83964,12 @@ acZ
 aCa
 asF
 avx
-auR
+pcq
 aHu
 aqd
 avs
-aSh
-aPq
+dsX
+jJU
 aXa
 aAk
 aAk
@@ -84375,13 +84477,13 @@ ata
 aXG
 aAI
 akx
-atl
+rqu
 ayo
 amF
 amF
 amF
 acy
-aAk
+pcw
 aYs
 aYs
 aYs
@@ -84896,7 +84998,7 @@ agW
 aNW
 aqY
 aYs
-aXa
+aBv
 asu
 aAk
 aXN
@@ -85409,7 +85511,7 @@ aXG
 aXG
 aXG
 aXG
-akw
+gzX
 aAk
 aAk
 aAk
@@ -85928,7 +86030,7 @@ amW
 aAk
 aAk
 aAk
-aAk
+vaJ
 aAk
 aAk
 aii
@@ -87731,7 +87833,7 @@ aMh
 aAk
 aAk
 aAk
-aAk
+vaJ
 aYs
 aYs
 amW
@@ -88498,7 +88600,7 @@ amW
 amW
 amW
 aAk
-aAk
+vaJ
 aAk
 aAk
 aAk
@@ -89532,7 +89634,7 @@ aAk
 aAk
 aAk
 aAk
-amW
+nwT
 amW
 amW
 amW
@@ -89788,8 +89890,8 @@ aYs
 aYs
 aYs
 aXN
-amW
-amW
+nwT
+nwT
 amW
 amW
 amW
@@ -90040,12 +90142,12 @@ amW
 aAk
 aAk
 aAk
-aAk
-aYs
-aYs
-aAk
-aAk
-amW
+bZI
+fTq
+fTq
+fLd
+bZI
+nwT
 amW
 amW
 amW
@@ -90296,13 +90398,13 @@ amW
 amW
 amW
 amW
-amW
-amW
+nwT
+nwT
 agl
-aAk
+fLd
 aes
-amW
-amW
+nwT
+nwT
 amW
 amW
 amW
@@ -90547,19 +90649,19 @@ amW
 amW
 amW
 amW
-amW
-amW
-amW
-amW
-amW
-amW
-amW
+nwT
+nwT
+nwT
+nwT
+nwT
+nwT
+nwT
 aqJ
 aHo
 aSZ
 aSZ
 aqJ
-amW
+nwT
 amW
 amW
 amW
