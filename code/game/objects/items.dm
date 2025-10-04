@@ -182,7 +182,6 @@
 	 *
 	 * Used to specify the icon file to be used when the item is worn. If not set the default icon for that slot will be used.
 	 * If icon_override or sprite_sheets are set they will take precendence over this, assuming they apply to the slot in question.
-	 * Only slot_l_hand_str/slot_r_hand_str are implemented at the moment. Others to be implemented as needed.
 	 */
 	var/list/item_icons
 
@@ -258,8 +257,7 @@
 	if(ismob(loc))
 		var/mob/m = loc
 		m.drop_from_inventory(src)
-		m.update_inv_r_hand()
-		m.update_inv_l_hand()
+		m.update_inv_hands()
 		src.loc = null
 
 	if(!QDELETED(action))
@@ -295,10 +293,7 @@
 /obj/item/proc/update_held_icon()
 	if(ismob(src.loc))
 		var/mob/M = src.loc
-		if(M.l_hand == src)
-			M.update_inv_l_hand()
-		if(M.r_hand == src)
-			M.update_inv_r_hand()
+		M.update_inv_hands()
 
 /obj/item/ex_act(severity)
 	switch(severity)
@@ -612,8 +607,10 @@
 	in_inventory = TRUE
 
 	if(!initial)
-		if(slot == slot_l_hand_str || slot == slot_r_hand_str)
-			playsound(src, pickup_sound, PICKUP_SOUND_VOLUME)
+		if(isliving(user))
+			var/mob/living/L = user
+			if(slot in L.held_item_slots)
+				playsound(src, pickup_sound, PICKUP_SOUND_VOLUME)
 		else if(slot_flags && slot)
 			if(equip_sound)
 				playsound(src, equip_sound, EQUIP_SOUND_VOLUME, TRUE, ignore_walls = FALSE)
@@ -666,18 +663,25 @@ GLOBAL_LIST_INIT(slot_flags_enumeration, list(
 //Set disable_warning to 1 if you wish it to not give you outputs.
 //Should probably move the bulk of this into mob code some time, as most of it is related to the definition of slots and not item-specific
 /obj/item/proc/mob_can_equip(M as mob, slot, disable_warning = FALSE, bypass_blocked_check = FALSE)
-	if(!slot) return 0
-	if(!M) return 0
+	if(!slot || !M || ishuman(M))
+		return FALSE
 
-	if(!ishuman(M)) return 0
+	var/can_hold = FALSE
+	if(isliving(M))
+		var/mob/living/L = M
+		can_hold = !!LAZYACCESS(L.held_item_slots, slot)
 
 	var/mob/living/carbon/human/H = M
 	var/list/mob_equip = list()
-	if(H.species.hud && H.species.hud.equip_slots)
-		mob_equip = H.species.hud.equip_slots
 
-	if(H.species && !(slot in mob_equip))
-		return 0
+	if(!can_hold)
+		if(H.species.hud && H.species.hud.equip_slots)
+			mob_equip = H.species.hud.equip_slots
+		if(H.species && !(slot in mob_equip))
+			return FALSE
+		var/associated_slot = GLOB.slot_flags_enumeration["[slot]"]
+		if(!isnull(associated_slot) && !(associated_slot & slot_flags))
+			return FALSE
 
 	//First check if the item can be equipped to the desired slot.
 	if("[slot]" in GLOB.slot_flags_enumeration)
@@ -685,91 +689,82 @@ GLOBAL_LIST_INIT(slot_flags_enumeration, list(
 		if(!(req_flags & slot_flags))
 			return 0
 
-	//Next check that the slot is free
-	if(H.get_equipped_item(slot))
-		return 0
+	if(!bypass_blocked_check)
+		//Next check that the slot is free
+		if(H.get_equipped_item(slot))
+			return FALSE
 
-	//Next check if the slot is accessible.
-	var/mob/_user = disable_warning? null : H
-	if(!bypass_blocked_check && !H.slot_is_accessible(slot, src, _user))
-		return 0
+		//Next check if the slot is accessible.
+		var/mob/_user = disable_warning? null : H
+		if(!H.slot_is_accessible(slot, src, _user))
+			return FALSE
 
 	//Lastly, check special rules for the desired slot.
 	switch(slot)
 		if(slot_l_ear_str, slot_r_ear_str)
 			var/slot_other_ear = (slot == slot_l_ear_str) ? slot_r_ear_str : slot_l_ear_str
 			if( (w_class > 1) && !(slot_flags & SLOT_EARS) )
-				return 0
+				return FALSE
 			if( (slot_flags & SLOT_TWOEARS) && H.get_equipped_item(slot_other_ear) )
-				return 0
+				return FALSE
 		if(slot_wear_id_str)
-			return 1
-		if(slot_l_hand_str)
-			var/obj/item/organ/external/O
-			O = H.organs_by_name[BP_L_HAND]
-			if(!O || !O.is_usable() || O.is_malfunctioning())
-				return FALSE
-		if(slot_r_hand_str)
-			var/obj/item/organ/external/O
-			O = H.organs_by_name[BP_R_HAND]
-			if(!O || !O.is_usable() || O.is_malfunctioning())
-				return FALSE
+			return FALSE
 		if(slot_l_store_str, slot_r_store_str)
-			if(!H.w_uniform && (slot_w_uniform_str in mob_equip))
+			if(!H.w_uniform && (slot_w_uniform_str in H.species.hud?.equip_slots))
 				if(!disable_warning)
 					to_chat(H, SPAN_WARNING("You need a jumpsuit before you can attach this [name]."))
-				return 0
+				return FALSE
 			if( w_class > 2 && !(slot_flags & SLOT_POCKET) )
-				return 0
+				return FALSE
 		if(slot_s_store_str)
 			var/can_hold_s_store = (slot_flags & SLOT_S_STORE)
 			if(!can_hold_s_store && H.species.can_hold_s_store(src))
 				can_hold_s_store = TRUE
 			if(can_hold_s_store)
 				return TRUE
-			if(!H.wear_suit && (slot_wear_suit_str in mob_equip))
+			if(!H.wear_suit && (slot_wear_suit_str in H.species.hud?.equip_slots))
 				if(!disable_warning)
 					to_chat(H, SPAN_WARNING("You need a suit before you can attach this [name]."))
-				return 0
+				return FALSE
 			if(H.wear_suit && !length(H.wear_suit.allowed))
 				if(!disable_warning)
 					to_chat(usr, SPAN_WARNING("You somehow have a suit with no defined allowed items for suit storage, stop that."))
-				return 0
+				return FALSE
 			if(!istype(src, /obj/item/modular_computer) && tool_behaviour == TOOL_PEN && !is_type_in_list(src, H.wear_suit.allowed))
-				return 0
+				return FALSE
 		if(slot_handcuffed_str)
 			if(!istype(src, /obj/item/handcuffs))
-				return 0
+				return FALSE
 		if(slot_legcuffed_str)
 			if(!istype(src, /obj/item/handcuffs))
-				return 0
+				return FALSE
 		if(slot_in_backpack_str) //used entirely for equipping spawned mobs or at round start
-			var/allow = 0
+			var/allow = FALSE
 			if(H.back && istype(H.back, /obj/item/storage/backpack))
 				var/obj/item/storage/backpack/B = H.back
 				if(B.can_be_inserted(src,1))
-					allow = 1
+					allow = TRUE
 			if(!allow)
-				return 0
+				return FALSE
 		if(slot_in_belt_str)
-			var/allow = 0
+			var/allow = FALSE
 			if(istype(H.belt, /obj/item/storage/belt))
 				var/obj/item/storage/belt/B = H.belt
 				if(B.can_be_inserted(src,1))
-					allow = 1
+					allow = TRUE
 			if(!allow)
-				return 0
+				return FALSE
 		if(slot_tie_str)
-			if(!H.w_uniform && (slot_w_uniform_str in mob_equip))
+			if(!H.w_uniform && (slot_w_uniform_str in H.species.hud?.equip_slots))
 				if(!disable_warning)
 					to_chat(H, SPAN_WARNING("You need a jumpsuit before you can attach this [name]."))
-				return 0
+				return FALSE
 			var/obj/item/clothing/under/uniform = H.w_uniform
 			if(LAZYLEN(uniform.accessories) && !uniform.can_attach_accessory(src))
 				if (!disable_warning)
 					to_chat(H, SPAN_WARNING("You already have an accessory of this type attached to your [uniform]."))
-				return 0
-	return 1
+				return FALSE
+	return TRUE
 
 /obj/item/proc/mob_can_unequip(mob/M, slot, disable_warning = 0)
 	if(!slot) return 0
@@ -1025,15 +1020,16 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 		return
 
 	var/mob/M = loc
+
+	if(src in M.get_held_items())
+		update_held_icon()
+		return
+
 	switch (equip_slot)
 		if (slot_back_str)
 			M.update_inv_back()
 		if (slot_wear_mask_str)
 			M.update_inv_wear_mask()
-		if (slot_l_hand_str)
-			M.update_inv_l_hand()
-		if (slot_r_hand_str)
-			M.update_inv_r_hand()
 		if (slot_belt_str)
 			M.update_inv_belt()
 		if (slot_wear_id_str)
@@ -1137,22 +1133,13 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	set category = "Object"
 	set src in view(1)
 
-	if(use_check_and_message(usr))
-		return
-	if(!iscarbon(usr) || istype(usr, /mob/living/carbon/brain))
-		to_chat(usr, SPAN_WARNING("You can't pick things up!"))
+	if(use_check_and_message(usr) || !ishuman(usr) || !isturf(loc) || !simulated)
 		return
 	if(anchored)
-		to_chat(usr, SPAN_WARNING("You can't pick that up!"))
+		to_chat(usr, SPAN_WARNING("\The [src] won't budge."))
 		return
-	if(!usr.hand && usr.r_hand)
-		to_chat(usr, SPAN_WARNING("Your right hand is full."))
-		return
-	if(usr.hand && usr.l_hand)
-		to_chat(usr, SPAN_WARNING("Your left hand is full."))
-		return
-	if(!isturf(loc))
-		to_chat(usr, SPAN_WARNING("You can't pick that up!"))
+	if(!usr.get_empty_hand_slot())
+		to_chat(usr, SPAN_WARNING("Your hands are full."))
 		return
 	usr.UnarmedAttack(src)
 

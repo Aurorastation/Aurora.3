@@ -77,17 +77,14 @@ GLOBAL_LIST_EMPTY(sparring_attack_cache)
 											SPAN_DANGER("You see stars."))
 
 				target.apply_effect(attack_damage*2, EYE_BLUR, armor)
-			if(BP_L_ARM, BP_L_HAND)
-				if (target.l_hand)
+			if(BP_L_ARM, BP_L_HAND, BP_R_ARM, BP_R_HAND)
+				var/obj/item/organ/external/limb = target.species.get_limb_from_zone()
+				var/datum/inventory_slot/inv_slot = target.held_item_slots[limb.organ_tag]
+				if(inv_slot?.holding)
 					// Disarm left hand
 					//Urist McAssistant dropped the macguffin with a scream just sounds odd. Plus it doesn't work with NO_PAIN
-					target.visible_message(SPAN_DANGER("\The [target.l_hand] was knocked right out of [target]'s grasp!"))
-					target.drop_l_hand()
-			if(BP_R_ARM, BP_R_HAND)
-				if (target.r_hand)
-					// Disarm right hand
-					target.visible_message(SPAN_DANGER("\The [target.r_hand] was knocked right out of [target]'s grasp!"))
-					target.drop_r_hand()
+					target.visible_message(SPAN_DANGER("\The [inv_slot.holding] was knocked right out of [target]'s grasp!"))
+					target.drop_from_inventory(inv_slot.holding)
 			if(BP_CHEST)
 				if(!target.lying)
 					var/turf/T = get_step(get_turf(target), get_dir(get_turf(user), get_turf(target)))

@@ -16,7 +16,7 @@
 	max_storage_space = DEFAULT_BOX_STORAGE
 
 /obj/item/storage/pill_bottle/attack_self(mob/living/user)
-	if(user.get_inactive_hand())
+	if(user.get_empty_hand_slot())
 		to_chat(user, SPAN_NOTICE("You need an empty hand to take something out."))
 		return
 	if(contents.len)

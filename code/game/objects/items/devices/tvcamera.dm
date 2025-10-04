@@ -86,8 +86,7 @@
 		item_state = "camcorder"
 	var/mob/living/carbon/human/H = loc
 	if(istype(H))
-		H.update_inv_r_hand(0)
-		H.update_inv_l_hand()
+		H.update_inv_hands()
 
 /* Using camcorder icon as I can't sprite.
 Using robohead because of restricting to roboticist */

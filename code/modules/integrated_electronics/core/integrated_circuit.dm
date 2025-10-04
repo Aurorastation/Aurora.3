@@ -198,13 +198,15 @@ a creative player the means to solve many problems.  Circuits are held inside an
 	if(href_list["link"])
 		linked = locate(href_list["link"]) in pin.linked
 
-	var/obj/item/held_item = usr.get_active_hand()
-	var/obj/item/off_hand = usr.get_inactive_hand()
-	var/obj/item/multitool/M
+	var/obj/held_item = usr.get_active_hand()
+	var/obj/item/device/multitool/M
 	if(held_item?.tool_behaviour == TOOL_MULTITOOL)
 		M = held_item
-	if(!M && off_hand?.tool_behaviour == TOOL_MULTITOOL)
-		M = off_hand
+	else
+		for(var/obj/item/I in usr.get_inactive_held_items())
+			if (I.tool_behaviour == TOOL_MULTITOOL)
+				M = I
+				break
 	if(M?.tracking_apc)
 		to_chat(usr, SPAN_WARNING("\The [M]'s smart tracking is enabled! Disable it to regain I/O functionality."))
 		return TRUE

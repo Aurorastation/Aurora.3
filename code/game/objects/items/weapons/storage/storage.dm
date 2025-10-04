@@ -209,16 +209,13 @@
 		return
 	if(!over || over == src)
 		return
-	if(istype(over, /atom/movable/screen/inventory))
-		var/atom/movable/screen/inventory/S = over
-		if(S.slot_id == src.equip_slot)
-			return
 	if(ishuman(user) || issmall(user)) //so monkeys can take off their backpacks -- Urist
 		if(over == user && Adjacent(user)) // this must come before the screen objects only block
 			src.open(user)
 			return
-		if(!(istype(over, /atom/movable/screen)))
-			return ..()
+		var/atom/movable/screen/inventory/S = over
+		if(!istype(S) || S.slot_id == src.equip_slot)
+			return
 
 		//makes sure that the storage is equipped, so that we can't drag it into our hand from miles away.
 		//there's got to be a better way of doing this.
@@ -229,13 +226,8 @@
 		if((src.loc == user) && !user.unEquip(src))
 			return
 
-		switch(over.name)
-			if("right hand")
-				user.u_equip(src)
-				user.equip_to_slot_if_possible(src, slot_r_hand_str)
-			if("left hand")
-				user.u_equip(src)
-				user.equip_to_slot_if_possible(src, slot_l_hand_str)
+		user.u_equip(src)
+		user.equip_to_slot_if_possible(src, S.slot_id)
 		src.add_fingerprint(user)
 
 /obj/item/storage/AltClick(var/mob/user)

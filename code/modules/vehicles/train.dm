@@ -85,7 +85,7 @@
 		if(isliving(A))
 			var/mob/living/M = A
 			visible_message(SPAN_WARNING("[src] knocks over [M]!"))
-			var/def_zone = ran_zone()
+			var/def_zone = ran_zone(M)
 			M.apply_effects(5, 5)				//knock people down if you hit them
 			M.apply_damage(22 / move_delay, DAMAGE_BRUTE, def_zone,)	// and do damage according to how fast the train is going
 			if(isliving(load))

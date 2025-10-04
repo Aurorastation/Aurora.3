@@ -26,30 +26,18 @@
 	..()
 
 /obj/item/modular_computer/handheld/wristbound/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
-	if(!canremove)
+	var/mob/living/carbon/human/H = user
+	var/atom/movable/screen/inventory/S = over
+	if(!canremove || !istype(over) || over == src || !istype(H) || S.slot_id == equip_slot)
 		return
-	if(!over || over == src)
+
+	if(!(loc == user) || (loc && loc.loc == user))
 		return
-	if(istype(over, /atom/movable/screen/inventory))
-		var/atom/movable/screen/inventory/S = over
-		if(S.slot_id == equip_slot)
-			return
-	if(ishuman(user))
-		if(!(istype(over, /atom/movable/screen)))
-			return ..()
+	if(use_check_and_message(user))
+		return
+	if(!user.unEquip(src))
+		return
 
-		if(!(loc == user) || (loc && loc.loc == user))
-			return
-		if(use_check_and_message(user))
-			return
-		if((loc == user) && !user.unEquip(src))
-			return
-
-		switch(over.name)
-			if("right hand")
-				user.u_equip(src)
-				user.equip_to_slot_if_possible(src, slot_r_hand_str)
-			if("left hand")
-				user.u_equip(src)
-				user.equip_to_slot_if_possible(src, slot_l_hand_str)
-		add_fingerprint(user)
+	user.u_equip(src)
+	user.equip_to_slot_if_possible(src, S.slot_id)
+	add_fingerprint(user)

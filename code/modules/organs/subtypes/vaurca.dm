@@ -269,7 +269,7 @@
 
 /obj/item/organ/internal/augment/tool/combitool/vaurca/left
 	parent_organ = BP_L_HAND
-	aug_slot = slot_l_hand_str
+	aug_slot = BP_L_HAND
 
 /obj/item/combitool/robotic/vaurca
 	name = "vaurca toolset"
@@ -602,10 +602,22 @@
 	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_MAIM | ORGAN_CAN_STAND
 
 /obj/item/organ/external/hand/vaurca
-	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_MAIM | ORGAN_CAN_GRASP
+	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_MAIM
 
 /obj/item/organ/external/hand/right/vaurca
-	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_MAIM | ORGAN_CAN_GRASP
+	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_MAIM
+
+/obj/item/organ/external/hand/vaurca/upper
+	organ_tag = BP_L_HAND_UPPER
+	icon_name = BP_L_HAND_UPPER
+	gripper_ui_loc = "CENTER:16,BOTTOM+1:14"
+	gripper_ui_label = "UL"
+
+/obj/item/organ/external/hand/right/vaurca/upper
+	organ_tag = BP_R_HAND_UPPER
+	icon_name = BP_R_HAND_UPPER
+	gripper_ui_loc = "CENTER-1:16,BOTTOM+1:14"
+	gripper_ui_label = "UR"
 
 /obj/item/organ/external/head/vaurca
 	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_MAIM
@@ -659,7 +671,7 @@
 		if(ishuman(G.affecting))
 
 			var/mob/living/carbon/human/H = G.affecting
-			var/target_zone = check_zone(owner.zone_sel.selecting)
+			var/target_zone = check_zone(owner.zone_sel.selecting, H)
 
 			owner.last_special = world.time + 100
 			owner.adjustNutritionLoss(50)

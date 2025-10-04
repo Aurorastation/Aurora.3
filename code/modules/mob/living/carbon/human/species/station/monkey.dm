@@ -78,8 +78,8 @@
 /datum/species/monkey/New()
 	..()
 	equip_adjust = list(
-		slot_l_hand_str =    list("[NORTH]" = list("x" = 1, "y" = 2),  "[EAST]" = list("x" = -3, "y" = 1), "[SOUTH]" = list("x" = -2, "y" = 2), "[WEST]" = list("x" = 3, "y" = 2)),
-		slot_r_hand_str =    list("[NORTH]" = list("x" = -1, "y" = 2), "[EAST]" = list("x" = -2, "y" = 2), "[SOUTH]" = list("x" = 2, "y" = 2),  "[WEST]" = list("x" = 2, "y" = 2)),
+		BP_L_HAND =    list("[NORTH]" = list("x" = 1, "y" = 2),  "[EAST]" = list("x" = -3, "y" = 1), "[SOUTH]" = list("x" = -2, "y" = 2), "[WEST]" = list("x" = 3, "y" = 2)),
+		BP_R_HAND =    list("[NORTH]" = list("x" = -1, "y" = 2), "[EAST]" = list("x" = -2, "y" = 2), "[SOUTH]" = list("x" = 2, "y" = 2),  "[WEST]" = list("x" = 2, "y" = 2)),
 		slot_head_str =      list("[NORTH]" = list("x" = 0, "y" = 0),  "[EAST]" = list("x" = -2, "y" = 0), "[SOUTH]" = list("x" = 0, "y" = 0),  "[WEST]" = list("x" = 2, "y" = 0)),
 		slot_wear_mask_str = list("[NORTH]" = list("x" = 0, "y" = 0),  "[EAST]" = list("x" = -1, "y" = 0), "[SOUTH]" = list("x" = 0, "y" = 0),  "[WEST]" = list("x" = 1, "y" = 0))
 	)

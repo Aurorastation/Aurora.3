@@ -138,7 +138,7 @@
 	back = /obj/item/rig/skrell/equipped
 	backpack_contents = list()
 	mask = /obj/item/clothing/mask/gas/tactical
-	r_hand = /obj/item/gun/energy/rifle/laser/qukala
+	hands = list(/obj/item/gun/energy/rifle/laser/qukala)
 	accessory = /obj/item/clothing/accessory/holster/hip
 	accessory_contents = list(
 		/obj/item/gun/energy/fedpistol = 1

@@ -25,8 +25,8 @@
 /obj/item/toy
 	icon = 'icons/obj/toy.dmi'
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_toy.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_toy.dmi',
+		BP_L_HAND = 'icons/mob/items/lefthand_toy.dmi',
+		BP_R_HAND = 'icons/mob/items/righthand_toy.dmi',
 		)
 	throwforce = 0
 	throw_speed = 4
@@ -569,8 +569,8 @@
 	icon_state = "sword0"
 	item_state = "sword0"
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/weapons/lefthand_energy.dmi',
-		slot_r_hand_str = 'icons/mob/items/weapons/righthand_energy.dmi',
+		BP_L_HAND = 'icons/mob/items/weapons/lefthand_energy.dmi',
+		BP_R_HAND = 'icons/mob/items/weapons/righthand_energy.dmi',
 		)
 	drop_sound = 'sound/items/drop/gun.ogg'
 	pickup_sound = 'sound/items/pickup/gun.ogg'
@@ -599,8 +599,7 @@
 
 		if(istype(user,/mob/living/carbon/human))
 			var/mob/living/carbon/human/H = user
-			H.update_inv_l_hand()
-			H.update_inv_r_hand()
+			H.update_inv_hands()
 
 		src.add_fingerprint(user)
 		return

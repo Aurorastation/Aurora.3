@@ -608,8 +608,7 @@
 			var/mob/living/carbon/human/holder = loc_check
 			holder.remove_from_mob(breath_mask)
 			holder.update_inv_wear_mask()
-			holder.update_inv_l_hand()
-			holder.update_inv_r_hand()
+			holder.update_inv_hands()
 		breath_mask.forceMove(src)
 		breather = null
 		update_icon()

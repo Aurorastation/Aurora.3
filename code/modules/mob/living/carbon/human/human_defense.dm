@@ -20,7 +20,7 @@ emp_act
 			playsound(src, SFX_BULLET_MISS, 75, TRUE)
 			return BULLET_ACT_FORCE_PIERCE
 
-	def_zone = check_zone(def_zone)
+	def_zone = check_zone(def_zone, src)
 	if(!has_organ(def_zone))
 		return BULLET_ACT_FORCE_PIERCE //if they don't have the organ in question then the projectile just passes by.
 
@@ -42,7 +42,7 @@ emp_act
 			hitting_projectile.do_embed(organ)
 
 /mob/living/carbon/human/stun_effect_act(var/stun_amount, var/agony_amount, var/def_zone, var/used_weapon, var/damage_flags)
-	var/obj/item/organ/external/affected = get_organ(check_zone(def_zone))
+	var/obj/item/organ/external/affected = get_organ(check_zone(def_zone, src))
 	var/siemens_coeff = get_siemens_coefficient_organ(affected)
 	stun_amount *= siemens_coeff
 	agony_amount *= siemens_coeff
@@ -84,9 +84,9 @@ emp_act
 /mob/living/carbon/human/get_armors_by_zone(obj/item/organ/external/def_zone, damage_type, damage_flags)
 	. = ..()
 	if(!def_zone)
-		def_zone = ran_zone()
+		def_zone = ran_zone(src)
 	if(!istype(def_zone))
-		def_zone = get_organ(check_zone(def_zone))
+		def_zone = get_organ(check_zone(def_zone, src))
 	if(!def_zone)
 		return
 	var/list/protective_gear = list(head, wear_mask, wear_suit, w_uniform, gloves, shoes)
@@ -186,7 +186,9 @@ emp_act
 
 /mob/living/carbon/human/get_attack_victim(obj/item/I, mob/living/user, var/target_zone)
 	if(a_intent != I_HELP)
-		var/list/holding = list(get_active_hand() = 60, get_inactive_hand() = 40)
+		var/list/holding = list(get_active_hand() = 60)
+		for(var/obj/item/held in get_inactive_held_items())
+			holding[held] = 40
 		for(var/obj/item/grab/G in holding)
 			if(G.affecting && prob(holding[G]) && G.affecting != user)
 				visible_message(SPAN_WARNING("[src] repositions \the [G.affecting] to block \the [I]'s attack!"), SPAN_NOTICE("You reposition \the [G.affecting] to block \the [I]'s attack!"))
@@ -350,9 +352,9 @@ emp_act
 		var/zone
 		if (istype(O.throwing?.thrower?.resolve(), /mob/living))
 			var/mob/living/L = O.throwing?.thrower?.resolve()
-			zone = check_zone(L.zone_sel.selecting)
+			zone = check_zone(L.zone_sel.selecting, src)
 		else
-			zone = ran_zone(BP_CHEST,75)	//Hits a random part of the body, geared towards the chest
+			zone = ran_zone(src,BP_CHEST,75)	//Hits a random part of the body, geared towards the chest
 
 		//check if we hit
 		var/miss_chance = 15

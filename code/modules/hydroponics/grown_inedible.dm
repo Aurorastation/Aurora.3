@@ -6,8 +6,8 @@
 	name = "grown_weapon"
 	icon = 'icons/obj/weapons.dmi'
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_grown.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_grown.dmi',
+		BP_L_HAND = 'icons/mob/items/lefthand_grown.dmi',
+		BP_R_HAND = 'icons/mob/items/righthand_grown.dmi',
 		)
 	storage_slot_sort_by_name = TRUE
 	var/plantname
@@ -62,8 +62,8 @@
 	desc = "A peel from a banana."
 	icon = 'icons/obj/trash.dmi'
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_grown.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_grown.dmi'
+		BP_L_HAND = 'icons/mob/items/lefthand_grown.dmi',
+		BP_R_HAND = 'icons/mob/items/righthand_grown.dmi'
 		)
 	icon_state = "banana_peel"
 	item_state = "banana_peel"

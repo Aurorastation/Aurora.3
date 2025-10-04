@@ -111,28 +111,21 @@ GLOBAL_VAR_INIT(photo_count, 0)
 	can_hold = list(/obj/item/photo)
 
 /obj/item/storage/photo_album/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	var/mob/living/carbon/human/H = user
+	var/atom/movable/screen/inventory/hand = over
 
-	if((istype(user, /mob/living/carbon/human)))
-		var/mob/M = user
-		if(!( istype(over, /atom/movable/screen) ))
-			return ..()
-		playsound(loc, SFX_RUSTLE, 50, 1, -5)
-		if((!( M.restrained() ) && !( M.stat ) && M.back == src))
-			switch(over.name)
-				if("right hand")
-					M.u_equip(src)
-					M.equip_to_slot_if_possible(src, slot_r_hand_str)
-				if("left hand")
-					M.u_equip(src)
-					M.equip_to_slot_if_possible(src, slot_l_hand_str)
-			add_fingerprint(user)
-			return
-		if(over == user && in_range(src, user) || user.contents.Find(src))
-			if(user.s_active)
-				user.s_active.close(user)
-			show_to(user)
-			return
-	return
+	if(!istype(user) || !istype(hand))
+		return ..()
+
+	playsound(loc, SFX_RUSTLE, 50, 1, -5)
+	if((!( H.restrained() ) && !( H.stat ) && H.back == src))
+		H.u_equip(src)
+		H.equip_to_slot_if_possible(src, hand.slot_id)
+		add_fingerprint(user)
+	else if(over == user && in_range(src, user) || user.contents.Find(src))
+		if(user.s_active)
+			user.s_active.close(user)
+		show_to(user)
 
 /*********
 * camera *
@@ -292,9 +285,8 @@ GLOBAL_VAR_INIT(photo_count, 0)
 	return p
 
 /obj/item/camera/proc/printpicture(mob/user, obj/item/photo/p)
-	p.forceMove(user.loc)
-	if(!user.get_inactive_hand())
-		user.put_in_inactive_hand(p)
+	if(!user.put_in_hands())
+		p.forceMove(user.loc)
 
 /obj/item/photo/proc/copy(var/copy_id = 0)
 	var/obj/item/photo/p = new/obj/item/photo()

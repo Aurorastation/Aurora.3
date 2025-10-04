@@ -77,7 +77,7 @@
 	body_part = ARM_LEFT
 	parent_organ = BP_CHEST
 	joint = "left elbow"
-	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_BREAK | ORGAN_CAN_MAIM | ORGAN_HAS_TENDON | ORGAN_CAN_GRASP
+	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_BREAK | ORGAN_CAN_MAIM | ORGAN_HAS_TENDON
 	tendon_name = "palmaris longus tendon"
 	artery_name = "basilic vein"
 	arterial_bleed_severity = 0.5
@@ -183,8 +183,15 @@
 	tendon_name = "carpal ligament"
 	amputation_point = "left wrist"
 	arterial_bleed_severity = 0.5
-	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_BREAK | ORGAN_CAN_MAIM | ORGAN_CAN_GRASP | ORGAN_HAS_TENDON
+	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_BREAK | ORGAN_CAN_MAIM | ORGAN_HAS_TENDON
 	augment_limit = 1
+	var/gripper_ui_label = "L"
+	var/gripper_ui_loc = ui_lhand
+	var/overlay_slot_id = BP_L_HAND
+
+/obj/item/organ/external/hand/Initialize(mapload)
+	. = ..()
+	owner?.add_held_item_slot(organ_tag, gripper_ui_loc, overlay_slot_id, gripper_ui_label)
 
 /obj/item/organ/external/hand/body_part_class()
 	return ARMS
@@ -207,12 +214,11 @@
 		owner.update_hud_hands()
 
 /obj/item/organ/external/hand/removed()
+	var/held = owner?.get_equipped_item(organ_tag)
+	if(held)
+		owner.drop_from_inventory(held)
 	owner.drop_from_inventory(owner.gloves)
 	owner.update_hud_hands()
-	if(body_part == HAND_LEFT)
-		owner.drop_l_hand()
-	else
-		owner.drop_r_hand()
 	..()
 
 /obj/item/organ/external/hand/right
@@ -223,6 +229,9 @@
 	parent_organ = BP_R_ARM
 	joint = "right wrist"
 	amputation_point = "right wrist"
+	gripper_ui_label = "R"
+	gripper_ui_loc = ui_rhand
+	overlay_slot_id = BP_R_HAND
 
 /obj/item/organ/external/head
 	limb_name = BP_HEAD

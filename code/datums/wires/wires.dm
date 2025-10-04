@@ -340,7 +340,9 @@ GLOBAL_LIST_INIT(wire_name_directory, list())
 					var/mob/living/silicon/robot/R = L
 					I = R.return_wirecutter()
 				else
-					I = L.get_inactive_hand()
+					for (var/obj/item/_I in L.get_inactive_held_items())
+						if (_I?.tool_behaviour == TOOL_WIRECUTTER)
+							I = _I
 			if(I?.tool_behaviour == TOOL_WIRECUTTER)
 				cut_color(target_wire, source = L)
 				holder.add_hiddenprint(L)
@@ -356,7 +358,9 @@ GLOBAL_LIST_INIT(wire_name_directory, list())
 					var/mob/living/silicon/robot/R = L
 					I = R.return_multitool()
 				else
-					I = L.get_inactive_hand()
+					for (var/obj/item/_I in L.get_inactive_held_items())
+						if (_I?.tool_behaviour == TOOL_MULTITOOL)
+							I = _I
 			if(I?.tool_behaviour == TOOL_MULTITOOL)
 				pulse_color(target_wire, L)
 				holder.add_hiddenprint(L)

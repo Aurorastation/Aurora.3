@@ -98,8 +98,7 @@
 		user.visible_message(SPAN_DANGER("\The [user] has put [cuff_type] on \the [H]!"))
 
 	if(!legcuff)
-		target.drop_r_hand()
-		target.drop_l_hand()
+		target.drop_held_items()
 
 	// Apply cuffs.
 	var/obj/item/handcuffs/cuffs = src

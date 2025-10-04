@@ -71,7 +71,7 @@
 		to_chat(user, "There is nothing to remove in \the [src].")
 
 /obj/item/gun/launcher/pneumatic/attack_hand(mob/user as mob)
-	if(user.get_inactive_hand() == src)
+	if(user.is_holding_offhand(src))
 		unload_hopper(user)
 	else
 		return ..()
@@ -138,8 +138,7 @@
 
 	if (ismob(src.loc))
 		var/mob/M = src.loc
-		M.update_inv_r_hand()
-		M.update_inv_l_hand()
+		M.update_inv_hands()
 
 //Constructable pneumatic cannon.
 

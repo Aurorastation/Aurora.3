@@ -372,10 +372,16 @@
 /mob/proc/show_inv(mob/user)
 	user.set_machine(src)
 	var/dat = {"
-	<BR><B>Head(Mask):</B> <A href='byond://?src=[REF(src)];item=mask'>[(wear_mask ? wear_mask : "Nothing")]</A>
-	<BR><B>Left Hand:</B> <A href='byond://?src=[REF(src)];item=l_hand'>[(l_hand ? l_hand  : "Nothing")]</A>
-	<BR><B>Right Hand:</B> <A href='byond://?src=[REF(src)];item=r_hand'>[(r_hand ? r_hand : "Nothing")]</A>
-	<BR><B>Back:</B> <A href='byond://?src=[REF(src)];item=back'>[(back ? back : "Nothing")]</A> [((istype(wear_mask, /obj/item/clothing/mask) && istype(back, /obj/item/tank) && !( internal )) ? " <A href='byond://?src=[REF(src)];item=internal'>Set Internal</A>" : "")]
+	<BR><B>Head(Mask):</B> <A href='byond://?src=[REF(src)];item=mask'>[(wear_mask ? wear_mask : "Nothing")]</A>"}
+
+	var/mob/living/carbon/human/H = src
+	if(istype(H))
+		for(var/bp in H.held_item_slots)
+			var/datum/inventory_slot/inv_slot = H.held_item_slots[bp]
+			var/obj/item/organ/external/E = H.get_organ(bp)
+			dat += "<BR><b>[capitalize(E.name)]:</b> <A href='?src=\ref[src];item=[bp]'>[inv_slot.holding?.name || "nothing"]</A>"
+
+	dat += {"<BR><B>Back:</B> <A href='byond://?src=[REF(src)];item=back'>[(back ? back : "Nothing")]</A> [((istype(wear_mask, /obj/item/clothing/mask) && istype(back, /obj/item/tank) && !( internal )) ? " <A href='byond://?src=[REF(src)];item=internal'>Set Internal</A>" : "")]
 	<BR>[(internal ? "<A href='byond://?src=[REF(src)];item=internal'>Remove Internal</A>" : "")]
 	<BR><A href='byond://?src=[REF(src)];item=pockets'>Empty Pockets</A>
 	<BR><A href='byond://?src=[REF(user)];refresh=1'>Refresh</A>
@@ -456,20 +462,12 @@
 
 ///proc version to finish /mob/verb/mode() execution. used in case the proc needs to be queued for the tick after its first called
 /mob/proc/execute_mode()
-	if(hand)
-		var/obj/item/W = l_hand
-		if (W)
-			W.attack_self(src)
-			update_inv_l_hand()
-		else
-			attack_empty_hand(BP_L_HAND)
+	var/obj/item/I = get_active_hand()
+	if(istype(I))
+		I.attack_self(src)
 	else
-		var/obj/item/W = r_hand
-		if (W)
-			W.attack_self(src)
-			update_inv_r_hand()
-		else
-			attack_empty_hand(BP_R_HAND)
+		attack_empty_hand(get_active_held_item_slot())
+	update_inv_hands()
 
 /mob/verb/memory()
 	set name = "Notes"

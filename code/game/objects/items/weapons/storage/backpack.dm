@@ -73,7 +73,7 @@
 	if (!..())
 		return 0
 
-	if(species_restricted && ishuman(M) && !(slot in list(slot_l_hand_str, slot_r_hand_str)))
+	if(species_restricted && ishuman(M) && !(slot in list(BP_L_HAND, BP_R_HAND)))
 		var/exclusive = null
 		var/wearable = null
 		var/mob/living/carbon/human/H = M

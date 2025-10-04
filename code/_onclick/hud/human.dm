@@ -2,11 +2,7 @@
 	HUD.human_hud(ui_style, ui_color, ui_alpha, src)
 
 /datum/hud/proc/human_hud(var/ui_style='icons/mob/screen/white.dmi', var/ui_color = "#ffffff", var/ui_alpha = 255, var/mob/living/carbon/human/target)
-	var/datum/hud_data/hud_data
-	if(!istype(target))
-		hud_data = new()
-	else
-		hud_data = target.species.hud
+	var/datum/hud_data/hud_data = istype(target) ? target.species.hud : new()
 
 	if(hud_data.icon)
 		ui_style = hud_data.icon
@@ -149,35 +145,6 @@
 		using.alpha = ui_alpha
 		src.adding += using
 
-		inv_box = new /atom/movable/screen/inventory/hand()
-		inv_box.hud = src
-		inv_box.name = "right hand"
-		inv_box.icon = ui_style
-		inv_box.icon_state = "r_hand_inactive"
-		if(mymob && !mymob.hand)	//This being 0 or null means the right hand is in use
-			inv_box.icon_state = "r_hand_active"
-		inv_box.screen_loc = ui_rhand
-		inv_box.slot_id = slot_r_hand_str
-		inv_box.color = ui_color
-		inv_box.alpha = ui_alpha
-
-		src.r_hand_hud_object = inv_box
-		src.adding += inv_box
-
-		inv_box = new /atom/movable/screen/inventory/hand()
-		inv_box.hud = src
-		inv_box.name = "left hand"
-		inv_box.icon = ui_style
-		inv_box.icon_state = "l_hand_inactive"
-		if(mymob && mymob.hand)	//This being 1 means the left hand is in use
-			inv_box.icon_state = "l_hand_active"
-		inv_box.screen_loc = ui_lhand
-		inv_box.slot_id = slot_l_hand_str
-		inv_box.color = ui_color
-		inv_box.alpha = ui_alpha
-		src.l_hand_hud_object = inv_box
-		src.adding += inv_box
-
 		target.update_hud_hands()
 
 		using = new /atom/movable/screen/inventory()
@@ -199,6 +166,8 @@
 		using.alpha = ui_alpha
 		using.hud = src
 		src.adding += using
+
+		rebuild_hands(skip_client_update = TRUE)
 
 	if(hud_data.has_resist)
 		using = new /atom/movable/screen()
@@ -385,7 +354,10 @@
 
 	mymob.client.screen = null
 
-	mymob.client.screen += hud_elements
+	if(length(hand_hud_objects))
+		mymob.client.screen += hand_hud_objects
+	if(length(hud_elements))
+		mymob.client.screen += hud_elements
 	mymob.client.screen += src.adding + src.hotkeybuttons
 	inventory_shown = 0;
 

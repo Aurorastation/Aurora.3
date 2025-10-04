@@ -1407,8 +1407,8 @@
 	desc = "A sack neatly crafted out of paper."
 	icon = 'icons/obj/storage/paperbag.dmi'
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand.dmi',
+		BP_L_HAND = 'icons/mob/items/lefthand.dmi',
+		BP_R_HAND = 'icons/mob/items/righthand.dmi',
 		)
 	item_state = "papersack"
 	icon_state = "paperbag_None"

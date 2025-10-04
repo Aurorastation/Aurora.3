@@ -8,7 +8,7 @@
 	glasses = /obj/item/clothing/glasses/thermal
 	id = /obj/item/card/id/syndicate/ert
 	l_pocket = /obj/item/ammo_magazine/c45m
-	l_hand = /obj/item/gun/projectile/automatic/rifle/sts35
+	hands = list(/obj/item/gun/projectile/automatic/rifle/sts35)
 
 	belt_contents = list(
 		/obj/item/ammo_magazine/c762 = 3,

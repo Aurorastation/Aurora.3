@@ -17,8 +17,8 @@
 	icon_state = "welding"
 	item_state = "welding"
 	item_state_slots = list(
-		slot_l_hand_str = "welding",
-		slot_r_hand_str = "welding"
+		BP_L_HAND = "welding",
+		BP_R_HAND = "welding"
 		)
 	matter = list(DEFAULT_WALL_MATERIAL = 3000, MATERIAL_GLASS = 1000)
 	var/up = 0
@@ -162,8 +162,7 @@
 	if(ismob(loc))
 		var/mob/living/M = loc
 		M.update_inv_head(0)
-		M.update_inv_l_hand(0)
-		M.update_inv_r_hand(1)
+		M.update_inv_hands()
 
 /obj/item/clothing/head/pumpkin/lantern/attackby(obj/item/attacking_item, mob/user)
 	..()

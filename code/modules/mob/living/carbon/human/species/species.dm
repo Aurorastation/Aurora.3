@@ -394,6 +394,9 @@
 		)
 
 	var/natural_armor_type = /datum/component/armor/natural
+	/// An associative list of target zones (ex. BP_CHEST, BP_MOUTH) mapped to all possible keys associated. Used for non-standard organs like extra arms.
+	var/list/limb_mapping
+
 	var/list/natural_armor
 
 	// Bump vars
@@ -1079,3 +1082,6 @@
  */
 /datum/species/proc/handle_temperature_regulation(mob/living/carbon/human/human)
 	human.bodytemperature += passive_temp_gain
+
+/datum/species/proc/get_limb_from_zone(var/limb)
+	. = length(LAZYACCESS(limb_mapping, limb) ? pick(limb_mapping[limb]) : limb)

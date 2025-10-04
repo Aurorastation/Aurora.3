@@ -62,7 +62,7 @@
 	bst.equip_to_slot_or_del(new /obj/item/storage/belt/utility/very_full(bst), slot_belt_str)
 	bst.equip_to_slot_or_del(new /obj/item/clothing/gloves/swat/bst(bst), slot_gloves_str)
 	if(bst.backbag == 1)
-		bst.equip_to_slot_or_del(new /obj/item/storage/box/ids(bst), slot_r_hand_str)
+		bst.put_in_hands_or_del(new /obj/item/storage/box/ids(bst))
 	else
 		bst.equip_to_slot_or_del(new /obj/item/storage/box/ids(bst.back), slot_in_backpack_str)
 		bst.equip_to_slot_or_del(new /obj/item/t_scanner(bst.back), slot_in_backpack_str)

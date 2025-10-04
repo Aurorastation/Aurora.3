@@ -139,8 +139,7 @@
 	damtype = "fire"
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		H.update_inv_l_hand()
-		H.update_inv_r_hand()
+		H.update_inv_hands()
 	to_chat(user, SPAN_NOTICE("\The [src] is now energised."))
 
 /obj/item/melee/energy/vaurca/deactivate(mob/living/user)
@@ -150,8 +149,7 @@
 	damtype = "brute"
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		H.update_inv_l_hand()
-		H.update_inv_r_hand()
+		H.update_inv_hands()
 	to_chat(user, SPAN_NOTICE("\The [src] is de-energised."))
 
 /obj/item/vaurca/box
@@ -427,8 +425,7 @@
 	damtype = "fire"
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		H.update_inv_l_hand()
-		H.update_inv_r_hand()
+		H.update_inv_hands()
 	to_chat(user, SPAN_NOTICE("\The [src] is now energised."))
 
 /obj/item/melee/energy/vaurca_zweihander/deactivate(mob/living/user)
@@ -438,8 +435,7 @@
 	damtype = "brute"
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		H.update_inv_l_hand()
-		H.update_inv_r_hand()
+		H.update_inv_hands()
 	to_chat(user, SPAN_NOTICE("\The [src] is de-energised."))
 
 /obj/item/gun/launcher/crossbow/vaurca
@@ -528,7 +524,7 @@
 		..()
 
 /obj/item/gun/launcher/crossbow/vaurca/attack_hand(mob/user)
-	if(user.get_inactive_hand() == src)
+	if(user.is_holding_offhand(src))
 		unload(user)
 	else
 		..()

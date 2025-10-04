@@ -296,8 +296,8 @@
 	icon_type = "cigarette"
 	storage_type = "packet"
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_cigs_lighters.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_cigs_lighters.dmi',
+		BP_L_HAND = 'icons/mob/items/lefthand_cigs_lighters.dmi',
+		BP_R_HAND = 'icons/mob/items/righthand_cigs_lighters.dmi',
 		)
 	contained_sprite = FALSE // makes cigarette packets actually visible in hand
 	drop_sound = 'sound/items/drop/gloves.ogg'
@@ -647,7 +647,7 @@
 		return
 
 	if( boxes.len > 0 )
-		if( user.get_inactive_hand() != src )
+		if( !user.is_holding_offhand(src) )
 			..()
 			return
 

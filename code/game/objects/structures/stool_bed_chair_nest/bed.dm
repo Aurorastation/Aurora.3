@@ -297,7 +297,7 @@
 		else if (propelled)
 			occupant.throw_at(A, 3, propelled)
 
-		var/def_zone = ran_zone()
+		var/def_zone = ran_zone(occupant)
 		occupant.throw_at(A, 3, propelled)
 		occupant.apply_effect(6, STUN)
 		occupant.apply_effect(6, WEAKEN)
@@ -306,7 +306,7 @@
 		playsound(src.loc, "punch", 50, 1, -1)
 		if(isliving(A))
 			var/mob/living/victim = A
-			def_zone = ran_zone()
+			def_zone = ran_zone(victim)
 			victim.apply_effect(6, STUN)
 			victim.apply_effect(6, WEAKEN)
 			victim.apply_effect(6, STUTTER)

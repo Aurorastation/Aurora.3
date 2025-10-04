@@ -111,7 +111,11 @@
 
 	//Messages related to being hit (not necessarily damaged)
 	if(!hitting_projectile.do_not_log)
-		var/impacted_organ = get_organ_name_from_zone(def_zone)
+		var/obj/item/organ/external/E
+		var/mob/living/carbon/human/H = src
+		if(istype(H))
+			E = GET_EXTERNAL_ORGAN(H, def_zone)
+		var/impacted_organ = E ? E::name : "body"
 
 		//If the projectile was blocked and it's not at point blank range, then it missed
 		if(blocked >= 100 && !hitting_projectile.point_blank)

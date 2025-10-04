@@ -153,13 +153,12 @@ There are several things that need to be remembered:
 			animate(src, transform = M, time = (forceDirUpdate ? 0 : ANIM_LYING_TIME))
 
 			if(istype(src.l_hand, /obj/item/gun) && lying)
-				HeldObjectDirTransform(slot_l_hand_str, src.dir)
+				HeldObjectDirTransform(BP_L_HAND, src.dir)
 			if(istype(src.r_hand, /obj/item/gun) && lying)
-				HeldObjectDirTransform(slot_r_hand_str, src.dir)
+				HeldObjectDirTransform(BP_R_HAND, src.dir)
 
 		else
-			update_inv_l_hand(FALSE)
-			update_inv_r_hand(FALSE)
+			update_inv_hands(FALSE)
 			update_icon(UPDATE_ICON_IGNORE_DIRECTION_UPDATE)
 			var/matrix/M = matrix()
 			M.Scale(size_multiplier)
@@ -169,13 +168,12 @@ There are several things that need to be remembered:
 	UpdateOverlays()
 	lying_prev = lying
 
-/mob/living/carbon/human/proc/HeldObjectDirTransform(var/hand = slot_l_hand_str, var/direction)
+/mob/living/carbon/human/proc/HeldObjectDirTransform(var/hand = BP_L_HAND, var/direction)
 	var/layer = null
-	if(hand == slot_r_hand_str)
-		update_inv_r_hand(FALSE)
+	update_inv_hands(FALSE)
+	if(hand == BP_R_HAND)
 		layer = R_HAND_LAYER
 	else
-		update_inv_l_hand(FALSE)
 		layer = L_HAND_LAYER
 
 	switch(direction)
@@ -294,9 +292,9 @@ There are several things that need to be remembered:
 	switch(slot_str)
 		if(slot_back_str)
 			return WORN_BACK
-		if(slot_l_hand_str)
+		if(BP_L_HAND)
 			return WORN_LHAND
-		if(slot_r_hand_str)
+		if(BP_R_HAND)
 			return WORN_RHAND
 		if(slot_wear_id_str)
 			return WORN_ID
@@ -593,8 +591,7 @@ There are several things that need to be remembered:
 	update_inv_belt(FALSE)
 	update_inv_back(FALSE)
 	update_inv_wear_suit(FALSE)
-	update_inv_r_hand(FALSE)
-	update_inv_l_hand(FALSE)
+	update_inv_hands(FALSE)
 	update_inv_handcuffed(FALSE)
 	update_inv_legcuffed(FALSE)
 	update_inv_pockets(FALSE)
@@ -1151,18 +1148,15 @@ There are several things that need to be remembered:
 
 //update whether handcuffs appears on our hud.
 /mob/living/carbon/proc/update_hud_hands()
-	if(hud_used?.l_hand_hud_object)
-		hud_used.l_hand_hud_object.update_icon()
-	if(hud_used?.r_hand_hud_object)
-		hud_used.r_hand_hud_object.update_icon()
+	for(var/atom/movable/screen/bp in hud_used.hand_hud_objects)
+		bp.update_icon()
 
 /mob/living/carbon/human/update_inv_handcuffed(var/update_icons=1)
 	if (QDELETED(src))
 		return
 
 	if(handcuffed)
-		drop_r_hand()
-		drop_l_hand()
+		drop_held_items()
 		stop_pulling()	//TODO: should be handled elsewhere
 
 		var/image/standing
@@ -1207,84 +1201,51 @@ There are several things that need to be remembered:
 	if(update_icons)
 		update_icon()
 
-/mob/living/carbon/human/update_inv_l_hand(update_icons = TRUE)
+/mob/living/carbon/human/update_inv_hands(update_icons = TRUE)
 	if (QDELETED(src))
 		return
 
+	for(var/bp in held_item_slots)
+		var/datum/inventory_slot/inv_slot = held_item_slots[bp]
+		var/obj/item/held = inv_slot?.holding
+		if(istype(held))
+			var/mob_icon
+			var/mob_state = held.item_state || held.icon_state
 
-	if(l_hand)
-		var/mob_icon
-		var/mob_state = l_hand.item_state || l_hand.icon_state
+			var/mode = (bp in species.limb_mapping[BP_L_HAND]) ? BP_L_HAND : BP_R_HAND
+			var/wornflag = mode == BP_L_HAND ? WORN_LHAND : WORN_RHAND
+			var/layer = mode == BP_L_HAND ? L_HAND_LAYER : R_HAND_LAYER
 
-		if(l_hand.contained_sprite)
-			if(l_hand.icon_override)
-				mob_icon = l_hand.icon_override
-			else if(l_hand.sprite_sheets && l_hand.sprite_sheets[GET_BODY_TYPE])
-				mob_icon = l_hand.sprite_sheets[GET_BODY_TYPE]
+			if(held.contained_sprite)
+				if(held.icon_override)
+					mob_icon = held.icon_override
+				else if(held.sprite_sheets && held.sprite_sheets[GET_BODY_TYPE])
+					mob_icon = held.sprite_sheets[GET_BODY_TYPE]
+				else
+					mob_icon = held.icon
+				held.auto_adapt_species(src)
+				if(held.item_state_slots && held.item_state_slots[mode])
+					mob_state = "[held.item_state_slots[mode]][wornflag]"
+				else
+					mob_state = "[UNDERSCORE_OR_NULL(held.icon_species_in_hand ? held.icon_species_tag : null)][held.item_state][wornflag]"
 			else
-				mob_icon = l_hand.icon
-			l_hand.auto_adapt_species(src)
-			if(l_hand.item_state_slots && l_hand.item_state_slots[slot_l_hand_str])
-				mob_state = "[l_hand.item_state_slots[slot_l_hand_str]][WORN_LHAND]"
-			else
-				mob_state = "[UNDERSCORE_OR_NULL(l_hand.icon_species_in_hand ? l_hand.icon_species_tag : null)][l_hand.item_state][WORN_LHAND]"
+				if(held.item_state_slots && held.item_state_slots[mode])
+					mob_state = held.item_state_slots[mode]
+
+				if(held.item_icons && (mode in held.item_icons))
+					mob_icon = held.item_icons[mode]
+				else if(held.icon_override)
+					mob_icon = held.icon_override
+					mob_state += wornflag
+				else
+					mob_icon = mode == BP_L_HAND ? INV_L_HAND_DEF_ICON : INV_R_HAND_DEF_ICON
+
+			overlays_raw[layer] = held.get_mob_overlay(src, mob_icon, mob_state, mode)
 		else
-			if(l_hand.item_state_slots && l_hand.item_state_slots[slot_l_hand_str])
-				mob_state = l_hand.item_state_slots[slot_l_hand_str]
+			overlays_raw[layer] = null
 
-			if(l_hand.item_icons && (slot_l_hand_str in l_hand.item_icons))
-				mob_icon = l_hand.item_icons[slot_l_hand_str]
-			else if(l_hand.icon_override)
-				mob_icon = l_hand.icon_override
-				mob_state += WORN_LHAND
-			else
-				mob_icon = INV_L_HAND_DEF_ICON
-
-		overlays_raw[L_HAND_LAYER] = l_hand.get_mob_overlay(src, mob_icon, mob_state, slot_l_hand_str)
-	else
-		overlays_raw[L_HAND_LAYER] = null
-
-	if(update_icons)
-		update_icon(forceDirUpdate = TRUE)
-
-/mob/living/carbon/human/update_inv_r_hand(update_icons = TRUE)
-	if (QDELETED(src))
-		return
-
-	if(r_hand)
-		var/mob_icon
-		var/mob_state = r_hand.item_state || r_hand.icon_state
-
-		if(r_hand.contained_sprite)
-			if(r_hand.icon_override)
-				mob_icon = r_hand.icon_override
-			else if(r_hand.sprite_sheets && r_hand.sprite_sheets[GET_BODY_TYPE])
-				mob_icon = r_hand.sprite_sheets[GET_BODY_TYPE]
-			else
-				mob_icon = r_hand.icon
-			r_hand.auto_adapt_species(src)
-			if(r_hand.item_state_slots && r_hand.item_state_slots[slot_r_hand_str])
-				mob_state = "[r_hand.item_state_slots[slot_r_hand_str]][WORN_RHAND]"
-			else
-				mob_state = "[UNDERSCORE_OR_NULL(r_hand.icon_species_in_hand ? r_hand.icon_species_tag : null)][r_hand.item_state][WORN_RHAND]"
-		else
-			if(r_hand.item_state_slots && r_hand.item_state_slots[slot_r_hand_str])
-				mob_state = r_hand.item_state_slots[slot_r_hand_str]
-
-			if(r_hand.item_icons && (slot_r_hand_str in r_hand.item_icons))
-				mob_icon = r_hand.item_icons[slot_r_hand_str]
-			else if(r_hand.icon_override)
-				mob_icon = r_hand.icon_override
-				mob_state += WORN_RHAND
-			else
-				mob_icon = INV_R_HAND_DEF_ICON
-
-		overlays_raw[R_HAND_LAYER] = r_hand.get_mob_overlay(src, mob_icon, mob_state, slot_r_hand_str)
-	else
-		overlays_raw[R_HAND_LAYER] = null
-
-	if(update_icons)
-		update_icon(forceDirUpdate = TRUE)
+		if(update_icons)
+			update_icon(forceDirUpdate = TRUE)
 
 /mob/living/carbon/human/update_inv_wrists(var/update_icons=1)
 	if (QDELETED(src))

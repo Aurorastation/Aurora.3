@@ -104,7 +104,7 @@
 		update_icon()
 
 /obj/item/trap/proc/attack_mob(mob/living/L)
-	var/target_zone = L.lying ? ran_zone() : pick(BP_L_FOOT, BP_R_FOOT, BP_L_LEG, BP_R_LEG)
+	var/target_zone = L.lying ? ran_zone(L) : pick(BP_L_FOOT, BP_R_FOOT, BP_L_LEG, BP_R_LEG)
 
 	var/success = L.apply_damage(30, DAMAGE_BRUTE, target_zone, used_weapon = src, armor_pen = activated_armor_penetration)
 	if(!success)
@@ -115,7 +115,7 @@
 	var/did_trap = TRUE
 	if(ishuman(L))
 		var/mob/living/carbon/human/H = L
-		var/obj/item/organ/external/limb = H.get_organ(check_zone(target_zone))
+		var/obj/item/organ/external/limb = H.get_organ(check_zone(target_zone, H))
 		if(!limb || limb.is_stump()) // oops, we took the limb clean off
 			did_trap = FALSE
 

@@ -81,7 +81,7 @@
 				playsound(loc, SFX_PUNCH_MISS, 25, 1, -1)
 				visible_message(SPAN_DANGER("[H] has attempted to punch [src]!"))
 				return 0
-			var/obj/item/organ/external/affecting = get_organ(ran_zone(H.zone_sel.selecting))
+			var/obj/item/organ/external/affecting = get_organ(ran_zone(src, H.zone_sel.selecting))
 
 			if((H.mutations & HULK) || H.is_berserk())
 				damage += 5
@@ -223,7 +223,7 @@
 					TODO: proc for melee combat miss chances depending on organ?
 				*/
 				if(prob(80))
-					hit_zone = ran_zone(hit_zone)
+					hit_zone = ran_zone(src, hit_zone)
 				if(prob(15) && hit_zone != BP_CHEST) // Missed!
 					if(!src.lying)
 						attack_message = "[H] attempted to strike [src], but missed!"
@@ -344,8 +344,10 @@
 			if(w_uniform)
 				w_uniform.add_fingerprint(M)
 
-			var/obj/item/organ/external/affecting = get_organ(ran_zone(M.zone_sel.selecting))
-			var/list/holding = list(get_active_hand() = 40, get_inactive_hand() = 20)
+			var/obj/item/organ/external/affecting = get_organ(ran_zone(src, M.zone_sel.selecting))
+			var/list/holding = list(get_active_hand() = 40)
+			for(var/offhand in get_inactive_held_items())
+				LAZYSET(holding, offhand, 20)
 
 			//See if they have any weapons to retaliate with
 			if(src.a_intent != I_HELP)
@@ -455,9 +457,7 @@
 	return
 
 /mob/living/carbon/human/proc/cpr(mob/living/carbon/human/H, var/starting = FALSE, var/cpr_mode)
-	var/obj/item/main_hand = H.get_active_hand()
-	var/obj/item/off_hand = H.get_inactive_hand()
-	if(istype(main_hand) || istype(off_hand))
+	if(LAZYLEN(H.get_held_items()))
 		cpr = FALSE
 		to_chat(H, SPAN_NOTICE("You cannot perform CPR with anything in your hands."))
 		return
@@ -576,10 +576,10 @@
 		return 0
 
 	if(!def_zone) def_zone = user.zone_sel.selecting
-	var/target_zone = check_zone(def_zone)
+	var/target_zone = check_zone(def_zone, src)
 	if(!target_zone)
 		return 0
-	var/obj/item/organ/external/organ = get_organ(check_zone(target_zone))
+	var/obj/item/organ/external/organ = get_organ(check_zone(target_zone, src))
 	if(!organ || ORGAN_IS_DISLOCATED(organ) || organ.dislocated == -1)
 		return 0
 

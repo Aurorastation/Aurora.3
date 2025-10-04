@@ -12,7 +12,7 @@
 	id = /obj/item/card/id/asset_protection
 	l_pocket = /obj/item/plastique
 	r_pocket = /obj/item/melee/energy/sword
-	l_hand = /obj/item/gun/energy/rifle/pulse
+	hands = list(/obj/item/gun/energy/rifle/pulse)
 
 	belt_contents = list(
 		/obj/item/ammo_magazine/a454 = 2,
@@ -31,7 +31,7 @@
 	name = "Asset Protection Lead"
 
 	l_pocket = /obj/item/pinpointer
-	r_hand = /obj/item/orbital_dropper/icarus_drones
+	hands = list(/obj/item/gun/energy/rifle/pulse, /obj/item/orbital_dropper/icarus_drones)
 
 /obj/outfit/admin/deathsquad/get_id_access()
 	return get_all_accesses()

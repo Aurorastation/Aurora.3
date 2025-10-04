@@ -108,12 +108,14 @@ GLOBAL_LIST_EMPTY(gps_list)
 
 /obj/item/gps/on_slotmove(mob/user, slot)
 	. = ..()
-	if(user.client && !(slot == slot_r_hand_str || slot == slot_l_hand_str))
+	var/mob/living/L = user
+	if(istype(L) && user.client && !(slot in L.held_item_slots))
 		user.client.screen -= compass
 
 /obj/item/gps/equipped(mob/user, slot)
 	. = ..()
-	if(user.client && (slot == slot_r_hand_str || slot == slot_l_hand_str))
+	var/mob/living/L = user
+	if(istype(L) && user.client && (slot in L.held_item_slots))
 		user.client.screen |= compass
 
 /obj/item/gps/on_module_activate(mob/living/silicon/robot/R)
@@ -265,7 +267,7 @@ GLOBAL_LIST_EMPTY(gps_list)
 		z_coord = held_by.z
 
 	GLOB.gps_list[gpstag] = list("tag" = gpstag, "pos_x" = x_coord, "pos_y" = y_coord, "pos_z" = z_coord, "area" = "[gps_areaname]", "emped" = emped, "compass_color" = compass_color)
-	if(check_held_by && held_by && (held_by.get_active_hand() == src || held_by.get_inactive_hand() == src))
+	if(check_held_by && held_by && (src in held_by.get_held_items()))
 		update_compass(TRUE)
 
 /obj/item/gps/proc/update_compass(var/update_compass_icon)

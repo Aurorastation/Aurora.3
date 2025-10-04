@@ -326,7 +326,7 @@
 	var/state = G.state
 	qdel(G)	//gotta delete it here because if window breaks, it won't get deleted
 
-	var/def_zone = ran_zone(BP_HEAD, 20)
+	var/def_zone = ran_zone(M, BP_HEAD, 20)
 	switch (state)
 		if(1)
 			M.visible_message(SPAN_WARNING("[user] slams [M] against \the [src]!"))

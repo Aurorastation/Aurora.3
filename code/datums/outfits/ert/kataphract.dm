@@ -14,7 +14,7 @@
 	back = /obj/item/storage/backpack/satchel/hegemony
 
 	l_ear = /obj/item/radio/headset/distress
-	l_hand = /obj/item/martial_manual/swordsmanship
+	hands = list(/obj/item/martial_manual/swordsmanship)
 
 	r_pocket = /obj/item/radio
 
@@ -51,7 +51,7 @@
 	shoes = /obj/item/clothing/shoes/vaurca
 	gloves = null
 
-	l_hand = /obj/item/martial_manual/vaurca
+	hands = list(/obj/item/martial_manual/vaurca)
 	l_pocket = /obj/item/melee/energy/sword/hegemony
 
 	backpack_contents = list(
@@ -84,7 +84,7 @@
 	head = /obj/item/clothing/head/helmet/space/void/kataphract/spec
 	suit = /obj/item/clothing/suit/space/void/kataphract/spec
 	belt = /obj/item/storage/belt/medical/paramedic/combat
-	l_hand = /obj/item/melee/hammer/powered/hegemony
+	hands = list(/obj/item/melee/hammer/powered/hegemony)
 
 	belt_contents = list(
 		/obj/item/reagent_containers/hypospray/cmo = 1,

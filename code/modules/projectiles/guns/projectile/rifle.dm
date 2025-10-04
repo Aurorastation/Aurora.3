@@ -193,8 +193,7 @@
 		icon_state = icon_retracted
 		item_state = icon_retracted
 		retracted_bolt = 1
-		user.update_inv_l_hand()
-		user.update_inv_r_hand()
+		user.update_inv_hands()
 		return 1
 
 	else if(retracted_bolt && loaded.len)
@@ -206,8 +205,7 @@
 	icon_state = initial(icon_state)
 	item_state = initial(item_state)
 
-	user.update_inv_l_hand()
-	user.update_inv_r_hand()
+	user.update_inv_hands()
 
 	retracted_bolt = 0
 

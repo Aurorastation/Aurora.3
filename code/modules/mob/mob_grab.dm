@@ -138,8 +138,7 @@
 				affecting.Weaken(4)
 
 	if(state >= GRAB_NECK)
-		affecting.drop_l_hand()
-		affecting.drop_r_hand()
+		affecting.drop_held_items()
 		affecting.Stun(3)
 		if(isliving(affecting))
 			var/mob/living/L = affecting
@@ -449,8 +448,8 @@
 	if(state < GRAB_AGGRESSIVE)
 		to_chat(H, SPAN_WARNING("You need an aggressive grab before you can fireman carry someone!"))
 		return
-	if(H.get_inactive_hand() && !H.species.can_double_fireman_carry())
-		to_chat(H, SPAN_WARNING("Your other hand must be empty to fireman carry someone!"))
+	if(!H.get_empty_hand_slot() && !H.species.can_double_fireman_carry())
+		to_chat(H, SPAN_WARNING("You need a free hand to fireman carry someone!"))
 		return
 
 	H.visible_message("<b>[H]</b> starts lifting \the [affecting] onto their shoulders...", SPAN_NOTICE("You start lifting \the [affecting] onto your shoulders..."))
@@ -461,8 +460,8 @@
 	if(affecting.buckled_to)
 		return
 
-	if(H.get_inactive_hand() && !H.species.can_double_fireman_carry())
-		to_chat(H, SPAN_WARNING("Your other hand must be empty to fireman carry someone!"))
+	if(!H.get_empty_hand_slot() && !H.species.can_double_fireman_carry())
+		to_chat(H, SPAN_WARNING("You need a free hand to fireman carry someone!"))
 		return
 
 	if(H.species.can_double_fireman_carry())

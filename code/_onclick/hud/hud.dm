@@ -138,10 +138,9 @@ GLOBAL_LIST(global_huds)
 
 	var/atom/movable/screen/blobpwrdisplay
 	var/atom/movable/screen/blobhealthdisplay
-	var/atom/movable/screen/r_hand_hud_object
-	var/atom/movable/screen/l_hand_hud_object
 	var/atom/movable/screen/action_intent
 	var/atom/movable/screen/movement_intent/move_intent
+	var/list/hand_hud_objects
 
 	var/list/adding
 	var/list/other
@@ -183,8 +182,6 @@ GLOBAL_LIST(global_huds)
 	help_intent = null
 	blobpwrdisplay = null
 	blobhealthdisplay = null
-	r_hand_hud_object = null
-	l_hand_hud_object = null
 	action_intent = null
 	move_intent = null
 	adding = null
@@ -195,6 +192,7 @@ GLOBAL_LIST(global_huds)
 
 	QDEL_LIST_ASSOC_VAL(plane_masters)
 	QDEL_LIST_ASSOC_VAL(plane_master_controllers)
+	QDEL_NULL_LIST(hand_hud_objects)
 
 	. = ..()
 
@@ -357,6 +355,60 @@ GLOBAL_LIST(global_huds)
 		PM.backdrop(mymob)
 		mymob.client.add_to_screen(PM)
 
+/datum/hud/proc/rebuild_hands(list/adding, list/removing, skip_client_update = FALSE)
+	if(isnull(removing))
+		if(!skip_client_update)
+			mymob?.client?.screen -= hand_hud_objects
+		QDEL_NULL_LIST(hand_hud_objects)
+	else
+		for(var/bp in removing)
+			for(var/atom/movable/screen/inventory/hand/inv_box in hand_hud_objects)
+				if(inv_box.slot_id == bp)
+					if(mymob.client)
+						mymob.client.screen -= inv_box
+					hand_hud_objects -= inv_box
+					qdel(inv_box)
+
+	var/mob/living/target = mymob
+	if(!istype(target))
+		return
+
+	if(isnull(adding))
+		adding = target.held_item_slots
+
+	var/ui_style = ui_style2icon(mymob.client?.prefs.UI_style)
+	var/ui_color = mymob.client?.prefs?.UI_style_color
+	var/ui_alpha = mymob.client?.prefs?.UI_style_alpha || 255
+	for(var/bp in adding)
+		var/atom/movable/screen/inventory/hand/inv_box
+		for(var/atom/movable/screen/inventory/hand/existing_box in hand_hud_objects)
+			if(existing_box.slot_id == bp)
+				inv_box = existing_box
+				break
+		if(!inv_box)
+			inv_box = new /atom/movable/screen/inventory/hand()
+		var/datum/inventory_slot/inv_slot = target.held_item_slots[bp]
+		inv_box.name = bp
+		inv_box.icon = ui_style
+		inv_box.icon_state = "hand_base"
+
+		inv_box.ClearOverlays()
+		var/list/overlays_to_add = list("hand_[bp]", "hand_[inv_slot.ui_label]")
+		if(target.get_active_held_item_slot() == bp)
+			overlays_to_add += "hand_selected"
+		inv_box.AddOverlays(overlays_to_add)
+		inv_box.UpdateOverlays()
+
+		inv_box.screen_loc = inv_slot.ui_loc
+		inv_box.slot_id = bp
+		inv_box.color = ui_color
+		inv_box.alpha = ui_alpha
+		inv_box.appearance_flags |= KEEP_TOGETHER
+
+		LAZYADD(hand_hud_objects, inv_box)
+		if(!skip_client_update)
+			mymob.client?.screen |= inv_box
+
 /mob/proc/instantiate_hud(datum/hud/HUD, ui_style, ui_color, ui_alpha)
 	SHOULD_NOT_SLEEP(TRUE)
 	SHOULD_CALL_PARENT(FALSE)
@@ -394,8 +446,7 @@ GLOBAL_LIST(global_huds)
 		//Due to some poor coding some things need special treatment:
 		//These ones are a part of 'adding', 'other' or 'hotkeybuttons' but we want them to stay
 		if(!full)
-			src.client.screen += src.hud_used.l_hand_hud_object	//we want the hands to be visible
-			src.client.screen += src.hud_used.r_hand_hud_object	//we want the hands to be visible
+			src.client.screen += src.hud_used.hand_hud_objects	//we want the hands to be visible
 			src.client.screen += src.hud_used.action_intent		//we want the intent swticher visible
 			src.hud_used.action_intent.screen_loc = ui_acti_alt	//move this to the alternative position, where zone_select usually is.
 		else

@@ -217,7 +217,7 @@
 
 		var/success = 0
 		if (src == user)
-			success = grabber.put_in_any_hand_if_possible(H, 0,1,1)
+			success = grabber.put_in_hands(H)
 		else
 			H.attack_hand(grabber)//We put this last to prevent some race conditions
 			if (H.loc == grabber)

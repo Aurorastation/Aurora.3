@@ -221,8 +221,9 @@
 
 	/// This needs to be updated to use signals.
 	var/holding_gps = FALSE
-	if(istype(src.get_active_hand(), /obj/item/gps) || istype(src.get_inactive_hand(), /obj/item/gps))
+	for(var/obj/item/device/gps in get_held_items())
 		holding_gps = TRUE
+		break
 
 	var/area/A = get_area(src)
 	var/area_name
@@ -392,9 +393,11 @@
 
 	dat += "<BR><HR>"
 
-	if(species.hud.has_hands)
-		dat += "<BR><b>Left hand:</b> <A href='byond://?src=[REF(src)];item=[slot_l_hand_str]'>[istype(l_hand) ? l_hand : "nothing"]</A>"
-		dat += "<BR><b>Right hand:</b> <A href='byond://?src=[REF(src)];item=[slot_r_hand_str]'>[istype(r_hand) ? r_hand : "nothing"]</A>"
+	for(var/hand in held_item_slots)
+		var/obj/item/organ/external/E = get_organ(hand)
+		var/obj/item/held = get_equipped_item(hand)
+		if(istype(E))
+			dat += "<BR><b>[capitalize_first_letters(E)]:</b> <A href='byond://?src=[REF(src)];item=[hand]'>[istype(held) ? held : "nothing"]</A>"
 
 	var/has_mask // 0, no mask | 1, mask but it's down | 2, mask and it's ready
 	var/has_helmet
@@ -546,12 +549,12 @@
 	if(!(ground_zero in damage_areas))
 		damage_areas.Add(ground_zero) //sucks to suck, get more zappy time bitch
 
-	var/obj/item/organ/external/contact = get_organ(check_zone(ground_zero))
+	var/obj/item/organ/external/contact = get_organ(check_zone(ground_zero, src))
 	shock_damage *= get_siemens_coefficient_organ(contact)
 
 	var/obj/item/organ/external/affecting
 	for (var/area in damage_areas)
-		affecting = get_organ(check_zone(area))
+		affecting = get_organ(check_zone(area, src))
 		var/emp_damage
 		switch(shock_damage)
 			if(-INFINITY to 5)
@@ -925,7 +928,7 @@
 
 	var/obj/item/organ/affecting = internal_organs_by_name[brain_tag]
 
-	target_zone = check_zone(target_zone)
+	target_zone = check_zone(target_zone, src)
 	if(!affecting || affecting.parent_organ != target_zone)
 		return 0
 

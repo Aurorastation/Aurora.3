@@ -63,8 +63,6 @@
 		equip_slots |= gear[slot]["slot"]
 
 	if(has_hands)
-		equip_slots |= slot_l_hand_str
-		equip_slots |= slot_r_hand_str
 		equip_slots |= slot_handcuffed_str
 
 	if(slot_back_str in equip_slots)

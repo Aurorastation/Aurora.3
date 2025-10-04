@@ -265,8 +265,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 	atom_flags = ATOM_FLAG_NO_BLOOD
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/weapons/lefthand_energy.dmi',
-		slot_r_hand_str = 'icons/mob/items/weapons/righthand_energy.dmi'
+		BP_L_HAND = 'icons/mob/items/weapons/lefthand_energy.dmi',
+		BP_R_HAND = 'icons/mob/items/weapons/righthand_energy.dmi'
 		)
 	var/active = 0
 	var/item_color
@@ -307,8 +307,7 @@
 
 	if(istype(user,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = user
-		H.update_inv_l_hand()
-		H.update_inv_r_hand()
+		H.update_inv_hands()
 
 	add_fingerprint(user)
 	return

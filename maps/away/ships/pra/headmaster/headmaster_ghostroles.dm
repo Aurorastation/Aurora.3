@@ -32,7 +32,7 @@
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/clothing/accessory/badge/hadii_card = 1)
 
 	r_pocket = /obj/item/storage/wallet/random
-	l_hand = /obj/item/martial_manual/tajara
+	hands = list(/obj/item/martial_manual/tajara)
 
 /obj/outfit/admin/headmaster_kosmostrelki/get_id_access()
 	return list(ACCESS_PRA, ACCESS_EXTERNAL_AIRLOCKS)

@@ -92,8 +92,8 @@ Protectiveness | Armor %
 	flags_inv = HIDEEARS|HIDEEYES|BLOCKHAIR
 	icon = 'icons/obj/clothing/material_armor.dmi'
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_janitor.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_janitor.dmi',
+		BP_L_HAND = 'icons/mob/items/lefthand_janitor.dmi',
+		BP_R_HAND = 'icons/mob/items/righthand_janitor.dmi',
 		)
 	icon_state = "bucket"
 	item_state = "bucket"

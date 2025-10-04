@@ -862,37 +862,6 @@ Turf and target are seperate in case you want to teleport some distance from a t
 			mobs += M
 	return mobs
 
-
-/proc/parse_zone(zone)
-	if(zone == BP_R_HAND) return "right hand"
-	else if (zone == BP_L_HAND) return "left hand"
-	else if (zone == BP_L_ARM) return "left arm"
-	else if (zone == BP_R_ARM) return "right arm"
-	else if (zone == BP_L_LEG) return "left leg"
-	else if (zone == BP_R_LEG) return "right leg"
-	else if (zone == BP_L_FOOT) return "left foot"
-	else if (zone == BP_R_FOOT) return "right foot"
-	else if (zone == BP_L_HAND) return "left hand"
-	else if (zone == BP_R_HAND) return "right hand"
-	else if (zone == BP_L_FOOT) return "left foot"
-	else if (zone == BP_R_FOOT) return "right foot"
-	else return zone
-
-/proc/reverse_parse_zone(zone)
-	if(zone == "right hand") return BP_R_HAND
-	else if (zone == "left hand") return BP_L_HAND
-	else if (zone == "left arm") return BP_L_ARM
-	else if (zone == "right arm") return BP_R_ARM
-	else if (zone == "left leg") return BP_L_LEG
-	else if (zone == "right leg") return BP_R_LEG
-	else if (zone == "left foot") return BP_L_FOOT
-	else if (zone == "right foot") return BP_R_FOOT
-	else if (zone == "left hand") return BP_L_HAND
-	else if (zone == "right hand") return BP_R_HAND
-	else if (zone == "left foot") return BP_L_FOOT
-	else if (zone == "right foot") return BP_R_FOOT
-	else return zone
-
 /proc/get(atom/loc, type)
 	while(loc)
 		if(istype(loc, type))

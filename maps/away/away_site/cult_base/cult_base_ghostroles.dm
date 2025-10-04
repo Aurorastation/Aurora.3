@@ -164,22 +164,24 @@
 		/obj/item/storage/backpack/satchel/pocketbook,
 		/obj/item/storage/backpack/cultpack,
 	)
-	r_hand = list(
-		/obj/item/flashlight/on,
-		/obj/item/flashlight/lantern/on,
-		/obj/item/flashlight/maglight/on,
-		/obj/item/flashlight/heavy/on,
-	)
-	l_hand = list(
-		/obj/item/melee/cultblade,
-		/obj/item/melee/cultblade,
-		/obj/item/melee/telebaton,
-		/obj/item/melee/baton/stunrod,
-		/obj/item/material/sword/improvised_sword,
-		/obj/item/material/sword/longsword,
-		/obj/item/material/hatchet/machete/steel,
-		/obj/item/material/kitchen/utensil/knife/boot,
-		/obj/item/material/knife/butterfly,
+	hands = list(
+		list(
+			/obj/item/flashlight/on,
+			/obj/item/flashlight/lantern/on,
+			/obj/item/flashlight/maglight/on,
+			/obj/item/flashlight/heavy/on,
+		),
+		list(
+			/obj/item/melee/cultblade,
+			/obj/item/melee/cultblade,
+			/obj/item/melee/telebaton,
+			/obj/item/melee/baton/stunrod,
+			/obj/item/material/sword/improvised_sword,
+			/obj/item/material/sword/longsword,
+			/obj/item/material/hatchet/machete/steel,
+			/obj/item/material/kitchen/utensil/knife/boot,
+			/obj/item/material/knife/butterfly,
+		)
 	)
 	backpack_contents = list(
 		/obj/item/storage/box/survival = 1,

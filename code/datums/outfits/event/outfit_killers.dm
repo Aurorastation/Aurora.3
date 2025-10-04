@@ -11,7 +11,7 @@
 	glasses = /obj/item/clothing/glasses/thermal/plain/monocle
 	l_pocket = /obj/item/material/knife
 	r_pocket = /obj/item/surgery/scalpel
-	r_hand = /obj/item/material/twohanded/fireaxe
+	hands = list(/obj/item/material/twohanded/fireaxe)
 	id = null
 
 /obj/outfit/admin/killer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -45,7 +45,7 @@
 	sec_briefcase.contents += new /obj/item/gun/projectile/revolver/mateba
 	sec_briefcase.contents += new /obj/item/ammo_magazine/a357
 	sec_briefcase.contents += new /obj/item/plastique
-	H.equip_to_slot_or_del(sec_briefcase, slot_l_hand_str)
+	H.equip_to_slot_or_del(sec_briefcase, BP_L_HAND)
 
 /obj/outfit/admin/killer/assassin/get_id_access()
 	return get_all_station_access()

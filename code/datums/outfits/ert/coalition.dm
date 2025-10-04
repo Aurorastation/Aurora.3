@@ -81,7 +81,7 @@
 	mask = /obj/item/clothing/mask/gas/tactical
 	back = /obj/item/rig/gunslinger/equipped/ert
 	suit_store = /obj/item/tank/oxygen
-	l_hand = /obj/item/gun/projectile/automatic/rifle/shorty
+	hands = list(/obj/item/gun/projectile/automatic/rifle/shorty)
 	belt_contents = list(
 			/obj/item/ammo_magazine/plasma = 3,
 			/obj/item/ammo_magazine/c45m = 2,
