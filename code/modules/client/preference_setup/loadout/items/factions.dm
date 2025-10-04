@@ -530,6 +530,7 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 	var/list/epmc_uniform_phys_med = list()
 	epmc_uniform_phys_med["PMCG physician uniform"] = /obj/item/clothing/under/rank/medical/pmc/alt
 	epmc_uniform_phys_med["Nexus Corporate Security medic uniform"] = /obj/item/clothing/under/rank/medical/pmc/nexus
+	epmc_uniform_phys_med["Ve'katak Phalanx medical uniform"] = /obj/item/clothing/under/rank/medical/paramedic/pmc/vekatak_phalanx
 	gear_tweaks += new /datum/gear_tweak/path(epmc_uniform_phys_med)
 
 /datum/gear/faction/epmc_uniform_pharm_med
@@ -596,7 +597,7 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 	epmc_uniform_para_med["EPMC paramedic uniform"] = /obj/item/clothing/under/rank/medical/paramedic/pmc/epmc
 	epmc_uniform_para_med["PMCG paramedic uniform, alt"] = /obj/item/clothing/under/rank/medical/paramedic/pmc/alt
 	epmc_uniform_para_med["Sekhmet Intergalactic paramedic uniform"] = /obj/item/clothing/under/rank/medical/paramedic/pmc/sekh
-	epmc_uniform_para_med["Ve'katak Phalanx paramedic uniform"] = /obj/item/clothing/under/rank/medical/paramedic/pmc/vekatak_phalanx
+	epmc_uniform_para_med["Ve'katak Phalanx medical uniform"] = /obj/item/clothing/under/rank/medical/paramedic/pmc/vekatak_phalanx
 	epmc_uniform_para_med["Nexus Corporate Security paramedic uniform"] = /obj/item/clothing/under/rank/medical/paramedic/pmc/nexus
 	gear_tweaks += new /datum/gear_tweak/path(epmc_uniform_para_med)
 
