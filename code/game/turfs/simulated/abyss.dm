@@ -9,7 +9,15 @@
 		/obj/singularity,
 		/obj/structure/lattice,
 		/obj/projectile,
-		/obj/effect
+		/obj/effect,
+		/obj/machinery/light,
+		/obj/structure/railing,
+		/obj/structure/stairs_railing,
+		/obj/structure/platform,
+		/obj/structure/platform_deco,
+		/obj/structure/extinguisher_cabinet,
+		/obj/structure/sign,
+		/obj/machinery/atmospherics/pipe
 		))
 
 /turf/simulated/abyss/Initialize()
@@ -17,7 +25,7 @@
 	icon_state = "Fill"
 
 /turf/simulated/abyss/Entered(atom/movable/AM, atom/oldloc)
-	if(is_type_in_typecache(forbidden_types))
+	if(is_type_in_typecache(AM, forbidden_types))
 		return TRUE
 
 	else if(istype(AM, /mob/living))
@@ -34,13 +42,19 @@
 			return TRUE
 
 
-	else if(istype(AM, /obj/item))
-		var/obj/item/I = AM
-		I.visible_message(SPAN_DANGER("\The [I] falls into \the [src]."))
-		qdel(I)
+	else if(istype(AM, /obj/item) || istype(AM, /obj/structure) || istype(AM, /obj/machinery))
+		if(locate(/obj/structure/lattice, src))	// Should be safe to be placed upon.
+			return TRUE
+		var/obj/O = AM
+		O.visible_message(SPAN_DANGER("\The [O] falls into \the [src]."))
+		qdel(O)
 
 	else
 		..()
 
 /turf/simulated/abyss/is_open()
 	return TRUE
+
+/turf/simulated/abyss/airless
+	initial_gas = null
+	temperature = TCMB
