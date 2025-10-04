@@ -2438,6 +2438,7 @@
 #include "code\modules\hydroponics\spreading\spreading.dm"
 #include "code\modules\hydroponics\spreading\spreading_growth.dm"
 #include "code\modules\hydroponics\spreading\spreading_response.dm"
+#include "code\modules\hydroponics\trays\_defines.dm"
 #include "code\modules\hydroponics\trays\tray.dm"
 #include "code\modules\hydroponics\trays\tray_process.dm"
 #include "code\modules\hydroponics\trays\tray_reagents.dm"

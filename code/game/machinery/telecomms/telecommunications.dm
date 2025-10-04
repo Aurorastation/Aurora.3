@@ -152,8 +152,9 @@
 		AddOverlays("[icon_state]_panel")
 
 /obj/machinery/telecomms/process()
-	update_icon()
-	if(!use_power) return PROCESS_KILL
+	if(!use_power)
+		update_icon()
+		return PROCESS_KILL
 	if(!operable(EMPED))
 		toggle_power(additional_flags = EMPED)
 		return PROCESS_KILL
