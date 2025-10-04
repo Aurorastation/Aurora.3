@@ -88,17 +88,3 @@
 /mob/living/simple_animal/hostile/vannatusk/dead/Initialize()
 	. = ..()
 	death()
-
-/obj/machinery/vannatusk_spawner
-	name = "telepad"
-	desc = "A bluespace telepad used for creating bluespace portals."
-	icon = 'icons/obj/telescience.dmi'
-	icon_state = "pad-idle"
-	anchored = TRUE
-	use_power = POWER_USE_IDLE
-
-/obj/machinery/vannatusk_spawner/power_change()
-	..()
-	spark(src, 3, GLOB.alldirs)
-	new /mob/living/simple_animal/hostile/vannatusk(get_turf(src))
-	qdel(src)
