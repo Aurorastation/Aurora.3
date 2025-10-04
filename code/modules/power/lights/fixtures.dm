@@ -739,3 +739,9 @@
 	. = ..()
 	brightness_color = initial(brightness_color)
 	update()
+
+/obj/machinery/light/voidtamer
+	name = "voidtamer light fixture"
+	base_state = "voidtamer"
+	icon_state = "voidtamer_empty"
+	desc = "A lighting fixture, decorated in gold and carp hide"
