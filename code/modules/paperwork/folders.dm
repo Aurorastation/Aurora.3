@@ -153,6 +153,11 @@
 	if(!length(contents))
 		qdel(src)
 
+/obj/item/folder/embedded/Destroy()
+	for(var/x in src)
+		qdel(x)
+	. = ..()
+
 /obj/item/folder/envelope
 	name = "envelope"
 	desc = "A thick envelope. You can't see what's inside."
