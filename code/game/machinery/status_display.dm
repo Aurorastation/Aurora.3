@@ -119,24 +119,7 @@
 					AddOverlays(emissive_appearance(icon, "outline", src, alpha = src.alpha))
 				return 1
 		if(STATUS_DISPLAY_MESSAGE)	//custom messages
-			var/line1_metric
-			var/line2_metric
-			var/line_pair
-			var/datum/font/display_font = new STATUS_DISPLAY_FONT_DATUM()
-			line1_metric = display_font.get_metrics(message1)
-			line2_metric = display_font.get_metrics(message2)
-			line_pair = (line1_metric > line2_metric ? line1_metric : line2_metric)
-			var/overlay = update_message(message1_overlay, LINE1_Y, message1, LINE1_X, line_pair)
-			if(overlay)
-				message1_overlay = overlay
-			overlay = update_message(message2_overlay, LINE2_Y, message2, LINE2_X, line_pair)
-			if(overlay)
-				message2_overlay = overlay
-			if(message1 == "" && message2 == "")
-				return 1
-			else
-				AddOverlays(emissive_appearance(icon, "outline", src, alpha = src.alpha))
-				return 1
+			arrange_displayed_texts(message1, message2)
 		if(STATUS_DISPLAY_ALERT)
 			set_picture(picture_state)
 			return 1
@@ -144,25 +127,28 @@
 			message1 = "-Time-"
 			message2 = worldtime2text()
 			set_messages(message1, message2)
-			var/line1_metric
-			var/line2_metric
-			var/line_pair
-			var/datum/font/display_font = new STATUS_DISPLAY_FONT_DATUM()
-			line1_metric = display_font.get_metrics(message1)
-			line2_metric = display_font.get_metrics(message2)
-			line_pair = (line1_metric > line2_metric ? line1_metric : line2_metric)
-			var/overlay = update_message(message1_overlay, LINE1_Y, message1, LINE1_X, line_pair)
-			if(overlay)
-				message1_overlay = overlay
-			overlay = update_message(message2_overlay, LINE2_Y, message2, LINE2_X, line_pair)
-			if(overlay)
-				message2_overlay = overlay
-			if(message1 == "" && message2 == "")
-				return 1
-			else
-				AddOverlays(emissive_appearance(icon, "outline", src, alpha = src.alpha))
-			return 1
+			arrange_displayed_texts(message1, message2)
 	return 0
+
+/obj/machinery/status_display/proc/arrange_displayed_texts(message1, message2)
+	var/line1_metric
+	var/line2_metric
+	var/line_pair
+	var/datum/font/display_font = new STATUS_DISPLAY_FONT_DATUM()
+	line1_metric = display_font.get_metrics(message1)
+	line2_metric = display_font.get_metrics(message2)
+	line_pair = (line1_metric > line2_metric ? line1_metric : line2_metric)
+	var/overlay = update_message(message1_overlay, LINE1_Y, message1, LINE1_X, line_pair)
+	if(overlay)
+		message1_overlay = overlay
+	overlay = update_message(message2_overlay, LINE2_Y, message2, LINE2_X, line_pair)
+	if(overlay)
+		message2_overlay = overlay
+	if(message1 == "" && message2 == "")
+		return 1
+	else
+		AddOverlays(emissive_appearance(icon, "outline", src, alpha = src.alpha))
+		return 1
 
 /obj/machinery/status_display/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
