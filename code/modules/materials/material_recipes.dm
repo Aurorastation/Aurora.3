@@ -140,6 +140,8 @@
 	recipes += new /datum/stack_recipe_list("[display_name] recipes",
 		list(
 			new /datum/stack_recipe("plastic rack", /obj/structure/table/rack, BUILD_AMT, time = 5, one_per_turf = 1, on_floor = 1),
+			new /datum/stack_recipe("clothing rack", /obj/structure/table/rack/clothing, BUILD_AMT, time = 5, one_per_turf = 1, on_floor = 1),
+			new /datum/stack_recipe("retail shelf", /obj/structure/table/rack/retail_shelf, BUILD_AMT, time = 5, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("plastic crate", /obj/structure/closet/crate/plastic, BUILD_AMT, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("plastic bag", /obj/item/storage/bag/plasticbag, 3, on_floor = 1),
 			new /datum/stack_recipe("IV bag", /obj/item/reagent_containers/blood/empty, 4, on_floor = 0),

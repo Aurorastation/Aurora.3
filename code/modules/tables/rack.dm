@@ -9,6 +9,7 @@
 	can_reinforce = 0
 	flipped = -1
 	table_mat = DEFAULT_TABLE_MATERIAL
+	dismantle_mat = /obj/item/stack/material/plastic
 
 /obj/structure/table/rack/New()
 	..()
