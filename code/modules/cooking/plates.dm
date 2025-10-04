@@ -152,7 +152,7 @@ Plates that can hold your cooking stuff
 		return
 
 /obj/item/reagent_containers/bowl/plate/attack_self(mob/user)
-	if(!user.get_inactive_hand())
+	if(user.get_empty_hand_slot())
 		var/obj/item/reagent_containers/food/snacks/F = holding
 		user.put_in_hands(F)
 		holding = null

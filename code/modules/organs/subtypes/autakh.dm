@@ -444,7 +444,7 @@
 		if(ishuman(G.affecting))
 
 			var/mob/living/carbon/human/H = G.affecting
-			var/target_zone = check_zone(owner.zone_sel.selecting)
+			var/target_zone = check_zone(owner.zone_sel.selecting, H)
 
 			owner.last_special = world.time + 100
 			owner.adjustNutritionLoss(50)

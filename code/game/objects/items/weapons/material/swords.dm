@@ -55,10 +55,7 @@
 
 	if(target_zone == BP_R_ARM || target_zone == BP_L_ARM || target_zone == BP_R_HAND || target_zone == BP_L_HAND)
 		if(prob(80 - armor_reduction))
-			if(target_zone == BP_R_ARM || target_zone == BP_R_HAND)
-				target.drop_r_hand()
-			else
-				target.drop_l_hand()
+			target.drop_held_items()
 			return TRUE
 
 	if(target_zone == BP_R_FOOT || target_zone == BP_R_FOOT || target_zone == BP_R_LEG || target_zone == BP_L_LEG)

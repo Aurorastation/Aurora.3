@@ -34,18 +34,17 @@
 	return
 
 /datum/martial_art/wrestling/disarm_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
-	if(istype(A.get_inactive_hand(),/obj/item/grab))
-		var/obj/item/grab/G = A.get_inactive_hand()
-		if(G.affecting == D)
-			Suplex(A,D)
-			return 1
+	var/obj/item/grab/G = A.get_type_in_hands(/obj/item/grab)
+	if(A.is_holding_offhand(G) && G.affecting == D)
+		Suplex(A,D)
+		return 1
 	harm_act(A,D)
 	return 1
 
 /datum/martial_art/wrestling/grab_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	D.grabbedby(A,1)
 	D.visible_message(SPAN_DANGER("[A] holds [D] down!"))
-	var/obj/item/organ/external/affecting = D.get_organ(ran_zone(A.zone_sel.selecting))
+	var/obj/item/organ/external/affecting = D.get_organ(ran_zone(D, A.zone_sel.selecting))
 	D.apply_damage(40, DAMAGE_PAIN, affecting)
 	return 1
 

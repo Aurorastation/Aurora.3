@@ -37,7 +37,9 @@
 			src.open(user)
 			return 0
 
-		if (!( istype(over_object, /atom/movable/screen) ))
+		var/atom/movable/screen/inventory/ui_element = over_object
+
+		if (!( istype(ui_element) ))
 			return 1
 
 		var/obj/item/real_master_item = special_master_item_handling ? get_master_item() : master_item
@@ -48,13 +50,8 @@
 			return 0
 
 		if (!( user.restrained() ) && !( user.stat ))
-			switch(over_object.name)
-				if("right hand")
-					user.u_equip(real_master_item)
-					user.equip_to_slot_if_possible(real_master_item, slot_r_hand_str)
-				if("left hand")
-					user.u_equip(real_master_item)
-					user.equip_to_slot_if_possible(real_master_item, slot_l_hand_str)
+			user.u_equip(real_master_item)
+			user.equip_to_slot(real_master_item, ui_element.slot_id)
 			real_master_item.add_fingerprint(user)
 			return 0
 	return 0

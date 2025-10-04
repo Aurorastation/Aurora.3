@@ -117,8 +117,7 @@
 	if(ismob(loc))
 		var/mob/living/M = loc
 		M.update_inv_wear_mask(0)
-		M.update_inv_l_hand(0)
-		M.update_inv_r_hand(1)
+		M.update_inv_hands()
 
 /obj/item/clothing/mask/smokable/ecig/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/reagent_containers/ecig_cartridge))
@@ -178,7 +177,7 @@
 	if(use_check_and_message(user))
 		return
 
-	if(user.get_inactive_hand() == src || user.get_active_hand() == src)
+	if(src in user.get_held_items())
 		if (ec_cartridge)
 			active = FALSE
 			user.put_in_hands(ec_cartridge)

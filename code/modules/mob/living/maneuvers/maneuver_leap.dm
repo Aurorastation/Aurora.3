@@ -40,7 +40,9 @@
 					shake_camera(L, 2, 4)
 				for(var/mob/living/rebecca in T)
 					if(rebecca.lying || from_above)
-						rebecca.apply_damage(40 * damage_mod, DAMAGE_BRUTE, pick(BP_ALL_LIMBS), used_weapon = "landing", armor_pen = 30) //so true choomfie
+						var/mob/living/carbon/human/TH = rebecca
+						var/obj/item/organ/external/def_zone = istype(TH) ? pick(TH.organs) : pick(BP_ALL_LIMBS)
+						rebecca.apply_damage(40 * damage_mod, DAMAGE_BRUTE, def_zone, used_weapon = "landing", armor_pen = 30) //so true choomfie
 						T.visible_message(SPAN_DANGER("<font size=4>[H] lands on [rebecca]!</font>"))
 						to_chat(H, SPAN_DANGER("<font size=4>You land on [rebecca]!</font>")) //since the mob won't be on the turf yet
 	user.post_maneuver()

@@ -4,7 +4,7 @@
 	cooldown = 10
 	activable = TRUE
 	var/obj/item/augment_type
-	var/aug_slot = slot_r_hand_str
+	var/aug_slot = BP_R_HAND
 
 /obj/item/organ/internal/augment/tool/attack_self(var/mob/user)
 	. = ..()

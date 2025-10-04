@@ -7,8 +7,8 @@
 	icon_state = "pickaxe"
 	item_state = "pickaxe"
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_mining.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_mining.dmi',
+		BP_L_HAND = 'icons/mob/items/lefthand_mining.dmi',
+		BP_R_HAND = 'icons/mob/items/righthand_mining.dmi',
 		)
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
@@ -82,8 +82,7 @@
 	. = ..()
 	//handles unwielding a twohanded weapon when dropped as well as clearing up the offhand
 	if(user)
-		var/obj/item/pickaxe/O = user.get_inactive_hand()
-		if(istype(O))
+		for(var/obj/item/pickaxe/O in user.get_inactive_held_items())
 			O.unwield()
 	return unwield()
 
@@ -113,16 +112,15 @@
 		unwield()
 		to_chat(user, SPAN_NOTICE("You are now carrying \the [src] with one hand."))
 
-		var/obj/item/pickaxe/offhand/O = user.get_inactive_hand()
-		if(O && istype(O))
+		for(var/obj/item/pickaxe/O in user.get_inactive_held_items())
 			O.unwield()
 
 	else //Trying to wield it
-		if(user.get_inactive_hand())
-			to_chat(user, SPAN_WARNING("Your other hand needs to be empty."))
+		if(!user.get_empty_hand_slot())
+			to_chat(user, SPAN_WARNING("You need a free hand to wield this."))
 			return
 		wield()
-		to_chat(user, SPAN_NOTICE("You grab \the [src] with both hands."))
+		to_chat(user, SPAN_NOTICE("You grab \the [src] with two hands."))
 
 		var/obj/item/pickaxe/offhand/O = new(user) ////Let's reserve his other hand~
 		O.name = "[initial(name)] - offhand"
@@ -131,8 +129,7 @@
 
 	if(istype(user,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = user
-		H.update_inv_l_hand()
-		H.update_inv_r_hand()
+		H.update_inv_hands()
 
 	return
 
@@ -320,8 +317,8 @@
 	desc = "A large tool for digging and moving dirt."
 	icon = 'icons/obj/tools.dmi'
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_mining.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_mining.dmi',
+		BP_L_HAND = 'icons/mob/items/lefthand_mining.dmi',
+		BP_R_HAND = 'icons/mob/items/righthand_mining.dmi',
 		)
 	icon_state = "shovel"
 	item_state = "shovel"
@@ -346,8 +343,8 @@
 	name = "spade"
 	desc = "A small tool for digging and moving dirt."
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_hydro.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_hydro.dmi',
+		BP_L_HAND = 'icons/mob/items/lefthand_hydro.dmi',
+		BP_R_HAND = 'icons/mob/items/righthand_hydro.dmi',
 		)
 	icon_state = "spade"
 	item_state = "spade"

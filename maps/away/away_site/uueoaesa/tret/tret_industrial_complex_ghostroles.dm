@@ -173,7 +173,7 @@
 		/obj/item/clothing/accessory/storage/pouches/black,
 		/obj/item/clothing/accessory/poncho/vaurca,
 	)
-	l_hand = list(/obj/item/martial_manual/vaurca)
+	hands = list(/obj/item/martial_manual/vaurca)
 
 /obj/outfit/admin/tret_industrial/vaurca/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H?.wear_mask && H.species.has_organ[BP_PHORON_RESERVE])

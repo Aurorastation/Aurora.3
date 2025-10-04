@@ -52,9 +52,14 @@
 	var/list/species_gloves
 	var/list/species_shoes
 
+	/**
+	 * Items that are expected to appear held in the hands.
+	 * Either a list or a list of list of items is expected.
+	 * A one-level list of items will spawn all items in hands, if possible. A two-level list of items will spawn one item from each list randomly in each available hand.
+	 */
+	var/list/hands
+
 	/// The following vars must be paths.
-	var/l_hand = null
-	var/r_hand = null
 	var/id = null
 	var/pda = null
 	var/radio = null
@@ -139,8 +144,6 @@
 		accessory,
 		suit_accessory,
 
-		l_hand,
-		r_hand,
 		pda,
 		radio,
 
@@ -154,6 +157,9 @@
 		items += c
 	for(var/c in belt_contents)
 		items += c
+
+	for(var/h in hands)
+		items += h
 
 	// shuffle
 	if(spill_shuffle)
@@ -296,7 +302,7 @@
 			if(OUTFIT_THICK)
 				B.alpha_mask = null
 		if(isvaurca(H, TRUE))
-			H.equip_or_collect(B, slot_r_hand_str)
+			H.equip_or_collect(B, H.get_active_held_item_slot())
 		else
 			H.equip_or_collect(B, slot_back_str)
 
@@ -397,6 +403,26 @@
 		var/obj/item/clothing/accessory/A = new suit_accessory
 		S.attach_accessory(H, A)
 
+/obj/outfit/proc/equip_to_hands(mob/living/carbon/human/H, list/path, var/override_collect = FALSE)
+	if(!LAZYLEN(path))
+		CRASH("Outfit [name] - Parameter path: [path] is not a list.")
+
+	if (!LAZYLEN(H.held_item_slots))
+		CRASH("Outfit [name] - Mob: [H] has no held_item_slots.")
+
+	var/datum/inventory_slot/free_hand = H.get_empty_hand_slot()
+
+	while(!isnull(free_hand) && LAZYLEN(path) >= 1)
+		var/itempath_or_list = pick(path)
+		var/itempath = islist(itempath_or_list) ? pick(itempath_or_list) : itempath_or_list
+		path -= itempath_or_list
+		var/obj/item/I = new itempath(H)
+
+		if(collect_not_del || override_collect)
+			H.put_in_hands_or_collect(I)
+		else
+			H.put_in_hands_or_del(I)
+
 /**
  * This proc handles actions done after the outfit was equipped,
  * eg. toggling internals, personalizations or similar
@@ -471,20 +497,9 @@
 
 	//Hand equips. If person is missing an arm or hand it attempts to put it in the other hand.
 	//Override_collect should attempt to collect any items that can't be equipped regardless of collect_not_del settings for the outfit.
-	if(l_hand)
-		var/obj/item/organ/external/O
-		O = H.organs_by_name[BP_L_HAND]
-		if(!O || !O.is_usable())
-			equip_item(H, l_hand, slot_r_hand_str, override_collect = TRUE)
-		else
-			equip_item(H, l_hand, slot_l_hand_str, override_collect = TRUE)
-	if(r_hand)
-		var/obj/item/organ/external/O
-		O = H.organs_by_name[BP_R_HAND]
-		if(!O || !O.is_usable())
-			equip_item(H, r_hand, slot_l_hand_str, override_collect = TRUE)
-		else
-			equip_item(H, r_hand, slot_r_hand_str, override_collect = TRUE)
+
+	if(hands)
+		equip_to_hands(H, hands, override_collect = TRUE)
 
 	if(allow_pda_choice)
 		switch(H.pda_choice)
@@ -532,14 +547,8 @@
 				for(var/i in 1 to number)
 					H.equip_or_collect(new path(H), slot_in_backpack_str)
 		else
-			var/obj/item/storage/storage_item
-			if(!H.l_hand)
-				storage_item = new /obj/item/storage/bag/plasticbag(H)
-				H.equip_to_slot_or_del(storage_item, slot_l_hand_str)
-			if(!storage_item && !H.r_hand)
-				storage_item = new /obj/item/storage/bag/plasticbag(H)
-				H.equip_to_slot_or_del(storage_item, slot_r_hand_str)
-			if(storage_item)
+			var/obj/item/storage/storage_item = new /obj/item/storage/bag/plasticbag(H)
+			if(H.put_in_hands_or_del(storage_item))
 				for(var/path in backpack_contents)
 					var/number = backpack_contents[path]
 					for(var/i in 1 to number)

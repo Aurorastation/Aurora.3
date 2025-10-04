@@ -277,7 +277,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 	add_language(LANGUAGE_GUTTER, 1)
 	add_language(LANGUAGE_EAL, 1)
 	accent = ACCENT_TTS
-	src.equip_to_slot_or_del(new /obj/item/gun/energy/scythe(src),slot_l_hand_str)
+	src.equip_to_slot_or_del(new /obj/item/gun/energy/scythe(src), BP_L_HAND)
 	src.equip_to_slot_or_del(new /obj/item/clothing/under/gearharness, slot_w_uniform_str)
 	src.equip_to_slot_or_del(new /obj/item/grenade/frag(src), slot_l_store_str)
 	src.equip_to_slot_or_del(new /obj/item/melee/energy/sword(src), slot_r_store_str)

@@ -44,7 +44,7 @@
 	suit_store = /obj/item/device/flashlight/pen
 	shoes = /obj/item/clothing/shoes/sneakers/brown
 	id = /obj/item/card/id/scc/silver
-	l_hand = /obj/item/storage/firstaid/adv
+	hands = list(/obj/item/storage/firstaid/adv)
 
 	headset = /obj/item/device/radio/headset/heads/cmo
 	bowman = /obj/item/device/radio/headset/heads/cmo/alt

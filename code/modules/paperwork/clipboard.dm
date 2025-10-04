@@ -23,22 +23,16 @@
 	update_icon()
 
 /obj/item/clipboard/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
-	if(ishuman(user))
-		var/mob/M = user
-		if(!(istype(over, /atom/movable/screen) ))
-			return ..()
+	var/mob/living/carbon/human/H = user
+	var/atom/movable/screen/inventory/hand = over
+	if(!istype(H) || !istype(over))
+		return ..()
 
-		if(!M.restrained() && !M.stat)
-			switch(over.name)
-				if("right hand")
-					M.u_equip(src)
-					M.equip_to_slot_if_possible(src, slot_r_hand_str)
-				if("left hand")
-					M.u_equip(src)
-					M.equip_to_slot_if_possible(src, slot_l_hand_str)
+	if(!H.restrained() && !H.stat)
+		H.u_equip(src)
+		H.equip_to_slot_if_possible(src, hand.slot_id)
 
-			add_fingerprint(M)
-			return
+		add_fingerprint(H)
 
 /obj/item/clipboard/update_icon()
 	ClearOverlays()

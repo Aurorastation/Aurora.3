@@ -303,15 +303,13 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 		var/mob/Buckled = buckled_to
 		. = Buckled.lowest_buckled_mob()
 
-/proc/check_zone(zone)
-	if(!zone)
-		return BP_CHEST
-	switch(zone)
-		if(BP_EYES)
-			zone = BP_HEAD
-		if(BP_MOUTH)
-			zone = BP_HEAD
-	return zone
+/proc/check_zone(zone, mob/target, var/base_zone_only)
+	. = zone || BP_CHEST
+	if (. == BP_EYES || . == BP_MOUTH)
+		. = BP_HEAD
+	if (ishuman(target) && !base_zone_only)
+		var/mob/living/carbon/human/H = target
+		. = H.species.get_limb_from_zone(.)
 
 /**
  * Return the zone or randomly, another valid zone
@@ -321,9 +319,9 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
  * probability controls the chance it chooses the passed in zone, or another random zone
  * defaults to 80
  */
-/proc/ran_zone(zone, probability = 80, list/weighted_list)
+/proc/ran_zone(mob/target, zone, probability = 80, list/weighted_list)
 	if(prob(probability))
-		zone = check_zone(zone)
+		zone = check_zone(zone, target)
 	else
 		zone = pick_weight(weighted_list ? weighted_list : GLOB.organ_rel_size) //Slightly different from TG, we have a list with organ sizes
 	return zone
@@ -334,7 +332,7 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
  * miss_chance_mod can be negative.
  */
 /proc/get_zone_with_miss_chance(zone, var/mob/target, var/miss_chance_mod = 0, var/ranged_attack=0, var/point_blank = FALSE)
-	zone = check_zone(zone)
+	zone = check_zone(zone, target)
 
 	if(!ranged_attack)
 		// you cannot miss if your target is prone or restrained
@@ -792,13 +790,13 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 
 	var/mob/living/carbon/human/H = loc
 
+	for(var/slot in H.held_item_slots)
+		var/datum/inventory_slot/inv_slot = H.held_item_slots[slot]
+		if(inv_slot?.holding == src)
+			return slot
 
 	//Now we check various slots on the mob, the order of these is optimised based on how likely we are to be in that slot
-	if (H.l_hand == src)
-		return slot_l_hand_str
-	else if (H.r_hand == src)
-		return slot_r_hand_str
-	else if (H.l_store == src)
+	if (H.l_store == src)
 		return slot_l_store_str
 	else if (H.r_store == src)
 		return slot_r_store_str
@@ -859,7 +857,7 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 	if(istype(reportto.loc, /mob/living/bot))
 		to_chat(reportto, SPAN_NOTICE("You are currently housed within \the [reportto.loc]."))
 		return
-	var/mob/living/carbon/human/H//The person who the item is on
+	var/mob/living/carbon/human/H //The person who the item is on
 	var/newlocation
 	var/preposition= ""
 	var/action = ""
@@ -875,21 +873,14 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 
 
 	if (slot != null)
-
-		if (slot_l_hand_str == slot)
+		if (slot in H.held_item_slots)
+			var/obj/item/organ/external/E = GET_EXTERNAL_ORGAN(H, slot)
 			if (justmoved)
 				action += "now "
 			preposition = "in"
 			action += "being held"
 			action3 = "holds"
-			newlocation = "left hand"
-		else if (slot_r_hand_str == slot)
-			if (justmoved)
-				action += "now "
-			preposition = "in"
-			action += "being held"
-			action3 = "holds"
-			newlocation = "right hand"
+			newlocation = E::name
 		else if (slot_l_store_str == slot)
 			if (justmoved)
 				preposition = "into"
@@ -1298,9 +1289,6 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 	voice_name = real_name
 	if(mind)
 		mind.name = real_name
-
-/mob/proc/get_organ_name_from_zone(var/def_zone)
-	return parse_zone(def_zone)
 
 /mob/living/silicon/robot/set_name(var/new_name, var/prefix)
 	..()

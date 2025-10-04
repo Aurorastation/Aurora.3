@@ -43,8 +43,6 @@
 // since numbers cannot be used as associative list keys.
 //icon_back, icon_l_hand, etc would be much better names for these...
 #define slot_back_str		"slot_back"
-#define slot_l_hand_str		"slot_l_hand"
-#define slot_r_hand_str		"slot_r_hand"
 #define slot_wear_id_str	"slot_wear_id"
 #define slot_w_uniform_str	"slot_w_uniform"
 #define slot_s_store_str	"slot_s_store"
@@ -72,8 +70,8 @@
 
 GLOBAL_LIST_INIT(all_inventory_slots, list(
 	slot_back_str,
-	slot_l_hand_str,
-	slot_r_hand_str,
+	BP_L_HAND,
+	BP_R_HAND,
 	slot_wear_id_str,
 	slot_w_uniform_str,
 	slot_s_store_str,

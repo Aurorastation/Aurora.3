@@ -65,7 +65,7 @@ GLOBAL_DATUM(cult, /datum/antagonist/cultist)
 		return FALSE
 
 	var/obj/item/book/tome/T = new(get_turf(player))
-	var/list/slots = list(slot_in_backpack_str, slot_l_store_str, slot_r_store_str, slot_belt_str, slot_l_hand_str, slot_r_hand_str)
+	var/list/slots = list(slot_in_backpack_str, slot_l_store_str, slot_r_store_str, slot_belt_str, BP_L_HAND, BP_R_HAND)
 	player.equip_in_one_of_slots(T, slots, disable_warning = TRUE)
 
 /datum/antagonist/cultist/remove_antagonist(var/datum/mind/player, var/show_message, var/implanted)

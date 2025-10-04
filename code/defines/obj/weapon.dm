@@ -108,17 +108,10 @@
 				if (do_mob(user,target_mob,chargedelay,display_progress=0))
 					if(!wasblocked && damageamount)
 						var/chancemod = (100 - armorpercent)*0.05*damageamount // Lower chance if lower damage + high armor. Base chance is 50% at 10 damage.
-						if(target_zone == BP_L_HAND || target_zone == BP_L_ARM)
-							if (prob(chancemod) && target_mob.l_hand && target_mob.l_hand != src)
-								shoulddisarm = 1
-						else if(target_zone == BP_R_HAND || target_zone == BP_R_ARM)
-							if (prob(chancemod) && target_mob.r_hand && target_mob.r_hand != src)
-								shoulddisarm = 2
+						if(target_zone in list(BP_L_HAND, BP_R_HAND, BP_L_ARM, BP_R_ARM))
+							shoulddisarm = prob(chancemod) && LAZYLEN(target_mob.get_held_items()) ? TRUE : FALSE
 						else
-							if (prob(chancemod*0.5) && target_mob.l_hand && target_mob.l_hand != src)
-								shoulddisarm = 1
-							if (prob(chancemod*0.5) && target_mob.r_hand && target_mob.r_hand != src)
-								shoulddisarm += 2
+							shoulddisarm = prob(chancemod*0.5) && LAZYLEN(target_mob.get_held_items()) ? TRUE : FALSE
 				else
 					user.visible_message("<span class='[class]'>[user] flips [user.get_pronoun("his")] [name] back to its original position.</span>", "<span class='[class]'>You flip [src] back to its original position.</span>")
 					return 0
@@ -175,41 +168,25 @@
 			else
 				noun = "[target_mob]'s grip"
 				selfnoun = noun
-		if (targetIsHuman && shoulddisarm != 3) // Query: Can non-humans hold objects in hands?
-			var/mob/living/carbon/human/targethuman = target_mob
-			var/obj/item/organ/external/O = targethuman.get_organ(target_zone)
-			if (O.is_stump())
-				if(wasselfattack)
-					selfnoun = "your missing [O.name]"
-					noun = "[target_mob.get_pronoun("his")] missing [O.name]"
-				else
-					noun = "[target_mob]'s missing [O.name]"
-					selfnoun = noun
-			else
-				if(wasselfattack)
-					selfnoun = "your [O.name]"
-					noun = "[target_mob.get_pronoun("his")] [O.name]"
-				else
-					noun = "[target_mob]'s [O.name]"
-					selfnoun = noun
 
-		switch(shoulddisarm)
-			if(1)
-				endmessage1st = "You [verbtouse] the [target_mob.l_hand.name] out of [selfnoun]"
-				endmessage3rd = "[user] [verbtouse] the [target_mob.l_hand.name] out of [noun]"
-				target_mob.drop_l_hand()
-			if(2)
-				endmessage1st = "You [verbtouse] the [target_mob.r_hand.name] out of [selfnoun]"
-				endmessage3rd = "[user] [verbtouse] the [target_mob.r_hand.name] out of [noun]"
-				target_mob.drop_r_hand()
-			if(3)
-				endmessage1st = "You [verbtouse] both the [target_mob.r_hand.name] and the [target_mob.l_hand.name] out of [selfnoun]"
-				endmessage3rd = "[user] [verbtouse] both the [target_mob.r_hand.name] and the [target_mob.l_hand.name] out of [noun]"
-				target_mob.drop_l_hand()
-				target_mob.drop_r_hand()
+		if (targetIsHuman && shoulddisarm) // Query: Can non-humans hold objects in hands?
+			var/mob/living/carbon/human/targethuman = target_mob
+			var/obj/item/organ/external/O = targethuman.get_organ(check_zone(target_zone, target_mob))
+			var/missing_str = O.is_stump() ? "missing" : ""
+			if(wasselfattack)
+				selfnoun = "your [missing_str] [O.name]"
+				noun = "[target_mob.get_pronoun("his")] [missing_str] [O.name]"
 			else
-				endmessage1st = "You [verbtouse] [selfnoun] with the [name]"
-				endmessage3rd = "[user] [verbtouse] [noun] with the [name]"
+				noun = "[target_mob]'s [missing_str] [O.name]"
+				selfnoun = noun
+
+		if (shoulddisarm)
+			endmessage1st = "You [verbtouse] the [target_mob.l_hand.name] out of [selfnoun]"
+			endmessage3rd = "[user] [verbtouse] the [target_mob.l_hand.name] out of [noun]"
+			target_mob.drop_from_hand(target_mob.get_active_held_item_slot())
+		else
+			endmessage1st = "You [verbtouse] [selfnoun] with the [name]"
+			endmessage3rd = "[user] [verbtouse] [noun] with the [name]"
 
 	if(damageamount > 0) // Poking will no longer do damage until there is some fix that makes it so that 0.0001 HALLOS doesn't cause bleed.
 		target_mob.standard_weapon_hit_effects(src, user, damageamount, armorpercent, target_zone)
@@ -240,8 +217,7 @@
 		user.drop_from_inventory(src)
 		user.put_in_hands(concealed_blade)
 		user.put_in_hands(src)
-		user.update_inv_l_hand(0)
-		user.update_inv_r_hand()
+		user.update_inv_hands()
 		concealed_blade = null
 		update_icon()
 	else
@@ -350,8 +326,8 @@
 	name = "disk"
 	icon = 'icons/obj/items.dmi'
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_card.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_card.dmi',
+		BP_L_HAND = 'icons/mob/items/lefthand_card.dmi',
+		BP_R_HAND = 'icons/mob/items/righthand_card.dmi',
 		)
 	drop_sound = 'sound/items/drop/disk.ogg'
 	pickup_sound =  'sound/items/pickup/disk.ogg'

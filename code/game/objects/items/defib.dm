@@ -94,8 +94,9 @@
 	if(!slot_check() && slot_flags)
 		to_chat(user, SPAN_WARNING("You need to equip [src] before taking out [paddles]."))
 	else
-		if(!usr.put_in_any_hand_if_possible(paddles)) //Detach the paddles into the user's hands
+		if(!usr.put_in_hands(paddles)) //Detach the paddles into the user's hands
 			to_chat(user, SPAN_WARNING("You need a free hand to hold the paddles!"))
+			reattach_paddles()
 		update_icon() //success
 
 /obj/item/defibrillator/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
@@ -253,9 +254,8 @@
 /obj/item/shockpaddles/proc/wield()
 	var/mob/living/carbon/human/M = loc
 	if(istype(M))
-		var/obj/A = M.get_inactive_hand()
-		if(A)
-			to_chat(M, SPAN_WARNING("Your other hand is occupied!"))
+		if(!M.get_empty_hand_slot())
+			to_chat(M, SPAN_WARNING("You need a free hand for this!"))
 			return
 		if(!wielded)
 			wielded = TRUE
@@ -270,8 +270,7 @@
 	wielded = FALSE
 	if(ismob(loc))
 		var/mob/living/M = loc
-		var/obj/item/offhand/O = M.get_inactive_hand()
-		if(istype(O))
+		for (var/obj/item/offhand/O in M.get_inactive_held_items())
 			O.unwield()
 	name = initial(name)
 	update_icon()
@@ -279,8 +278,7 @@
 /obj/item/shockpaddles/dropped(mob/user)
 	..()
 	if(user)
-		var/obj/item/offhand/O = user.get_inactive_hand()
-		if(istype(O))
+		for (var/obj/item/offhand/O in user.get_inactive_held_items())
 			O.unwield()
 		return unwield()
 

@@ -23,15 +23,16 @@
 		if(!chosen_target)
 			return 0
 
-		var/obj/item/I = user.get_inactive_hand()
-		if(I && pay_energy(200))
-			var/prox = user.Adjacent(chosen_target)
-			if(prox) // Needed or else they can attack with melee from afar.
-				I.attack(chosen_target, owner)
-			I.afterattack(chosen_target,owner, prox)
-			adjust_instability(2)
+		for(var/obj/item/I in user.get_inactive_held_items())
+			if(I && pay_energy(200))
+				var/prox = user.Adjacent(chosen_target)
+				if(prox) // Needed or else they can attack with melee from afar.
+					I.attack(chosen_target, owner)
+				I.afterattack(chosen_target,owner, prox)
+				adjust_instability(2)
 
-			var/image/target_image = image(icon = 'icons/obj/spells.dmi', loc = get_turf(chosen_target), icon_state = "target")
-			user << target_image
-			sleep(5)
-			qdel(target_image)
+				var/image/target_image = image(icon = 'icons/obj/spells.dmi', loc = get_turf(chosen_target), icon_state = "target")
+				user << target_image
+				sleep(5)
+				qdel(target_image)
+				break
