@@ -132,7 +132,7 @@
 		if(!E)
 			continue
 		if(BP_IS_ROBOTIC(E))
-			visible_message("<B>\The [src]</B> drops what they were holding, [user.get_pronoun("his")] [affected.name] malfunctioning!")
+			visible_message("<B>\The [src]</B> drops what they were holding, [get_pronoun("his")] [affected.name] malfunctioning!")
 			spark(5)
 			continue
 
