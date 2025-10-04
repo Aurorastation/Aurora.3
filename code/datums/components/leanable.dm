@@ -96,6 +96,8 @@
 	animate(src, pixel_x = shift_pixel_x, pixel_y = shift_pixel_y, time = 1)
 	if(direction == NORTH)
 		src.add_filter("cutout", 1, alpha_mask_filter(icon = icon('icons/effects/effects.dmi', "cutout")))
+	if(direction == SOUTH)
+		src.layer = ABOVE_DOOR_LAYER
 	set_density(FALSE)
 	ADD_TRAIT(src, TRAIT_UNDENSE, TRAIT_SOURCE_WALL_LEANING)
 	ADD_TRAIT(src, TRAIT_LEANING, TRAIT_SOURCE_WALL_LEANING)
@@ -107,7 +109,7 @@
 
 /mob/living/proc/stop_leaning()
 	SIGNAL_HANDLER
-	set_density(FALSE)
+	set_density(TRUE)
 	pixel_x = initial(pixel_x)
 	pixel_y = initial(pixel_y)
 	layer = initial(layer)
