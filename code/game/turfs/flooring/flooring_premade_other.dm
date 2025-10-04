@@ -11,7 +11,7 @@
 
 /turf/simulated/floor/ice/event5
 	initial_gas = list("nitrogen" = MOLES_CELLSTANDARD*1.66)
-	temperature = 245.15 // -28'C
+	temperature = 261 // -12'C
 
 /turf/simulated/floor/airless/ice
 	name = "ice"
