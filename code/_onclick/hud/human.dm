@@ -145,8 +145,6 @@
 		using.alpha = ui_alpha
 		src.adding += using
 
-		target.update_hud_hands()
-
 		using = new /atom/movable/screen/inventory()
 		using.name = "hand"
 		using.icon = ui_style
