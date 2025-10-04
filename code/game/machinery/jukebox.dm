@@ -31,7 +31,7 @@
 /obj/machinery/media/jukebox/classic/Initialize(mapload)
 	. = ..(mapload)
 	var/starting_cartridges = list()
-	starting_cartridges += new/obj/item/music_cartridge/ss13
+	starting_cartridges += new/obj/item/music_cartridge/ss13/demo
 	music_player = new(src, parent_cartridges = starting_cartridges, parent_max_cartridges = 3, parent_locked = TRUE)
 	update_icon()
 
@@ -62,7 +62,7 @@
 /obj/machinery/media/jukebox/phonograph/Initialize(mapload)
 	. = ..(mapload)
 	var/starting_cartridges = list()
-	starting_cartridges += new/obj/item/music_cartridge/adhomai_swing
+	starting_cartridges += new/obj/item/music_cartridge/adhomai_swing/demo
 	music_player = new(src, parent_cartridges = starting_cartridges, parent_max_cartridges = 1, parent_locked = TRUE)
 
 /obj/machinery/media/jukebox/phonograph/update_icon()
@@ -82,7 +82,7 @@
 /obj/machinery/media/jukebox/audioconsole/Initialize(mapload)
 	. = ..(mapload)
 	var/starting_cartridges = list()
-	starting_cartridges += new/obj/item/music_cartridge/audioconsole
+	starting_cartridges += new/obj/item/music_cartridge/audioconsole/demo
 	music_player = new(src, parent_cartridges = starting_cartridges, parent_max_cartridges = 3)
 
 /obj/machinery/media/jukebox/audioconsole/update_icon()
@@ -108,7 +108,7 @@
 /obj/machinery/media/jukebox/gramophone/Initialize(mapload)
 	. = ..(mapload)
 	var/starting_cartridges = list()
-	starting_cartridges += new/obj/item/music_cartridge/adhomai_swing
+	starting_cartridges += new/obj/item/music_cartridge/adhomai_swing/demo
 	music_player = new(src, parent_cartridges = starting_cartridges,  parent_max_cartridges = 1, parent_locked = TRUE)
 
 /obj/machinery/media/jukebox/gramophone/update_icon()
@@ -128,7 +128,7 @@
 /obj/machinery/media/jukebox/calliope/Initialize(mapload)
 	. = ..(mapload)
 	var/starting_cartridges = list()
-	starting_cartridges += new/obj/item/music_cartridge/adhomai_swing
+	starting_cartridges += new/obj/item/music_cartridge/adhomai_swing/demo
 	music_player = new(src, parent_cartridges = starting_cartridges, parent_max_cartridges = 2)
 
 /obj/machinery/media/jukebox/calliope/update_icon()
@@ -232,8 +232,18 @@
 			music_player.selection = new_song
 			return TRUE
 
+		if("eject")
+			var/obj/item/music_cartridge/cartridge = music_player.cartridges[params["object"]]
+			music_player.eject_cartridge(cartridge, user)
+			return TRUE
+
 		if("set_volume")
 			var/new_volume = params["volume"]
+			to_chat(world,"new volume is [new_volume]")
+			for(var/value in params)
+				to_chat(world,"value [value]")
+				for(var/value2 in params)
+					to_chat(world,"value2 [value2]")
 			if(new_volume == "reset" || new_volume == "max")
 				music_player.set_volume_to_max()
 			else if(new_volume == "min")

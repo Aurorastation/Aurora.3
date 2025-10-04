@@ -108,6 +108,19 @@
 			add_songs(cartridge)
 			to_chat(user, SPAN_NOTICE("You insert \the [cartridge] into \the [parent]"))
 
+/**
+ * Called by the ui_act() of the atom containing the datum/jukebox.
+ *
+ * Spits out a given music cartridge, gives it to the user.
+ */
+/datum/jukebox/proc/eject_cartridge(var/obj/item/music_cartridge/cartridge, mob/user)
+	LOG_DEBUG("/datum/jukebox/proc/eject_cartridge([cartridge],[user])")
+
+	cartridge.dropInto(user.loc)
+	cartridges -= cartridge
+	user.put_in_hands(cartridge)
+	return TRUE
+
 /// Adds songs on the provided cartridge to our current playlist.
 /datum/jukebox/proc/add_songs(obj/item/music_cartridge/cartridge)
 	if(cartridge.tracks)
@@ -151,7 +164,8 @@
 	for(var/obj/item/music_cartridge/cartridge in cartridges)
 		UNTYPED_LIST_ADD(cartridges_data, list(
 			"name" = cartridge.name,
-			"hardcoded" = cartridge.hardcoded
+			"hardcoded" = cartridge.hardcoded,
+			"object" = cartridge
 		))
 	data["active"] = !!active_song_sound
 	data["playlist"] = songs_data

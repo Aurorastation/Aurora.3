@@ -93,15 +93,26 @@
 			return TRUE
 
 		if("select_track")
+			to_chat(world, "params [params]")
+			for(var/value in params)
+				to_chat(world,"value [value]")
+				for(var/song in value)
+					to_chat(world,"song [song]")
 			if(!isnull(music_player.active_song_sound))
 				to_chat(user, SPAN_WARNING("Error: You cannot change the song until the current one is over."))
 				return TRUE
 
 			var/datum/track/new_song = music_player.playlist[params["track"]]
-			if(QDELETED(src) || !istype(new_song, /datum/track))
+			to_chat(world, "returns: [new_song]")
+			if(QDELETED(src))
 				return TRUE
 
 			music_player.selection = new_song
+			return TRUE
+
+		if("eject")
+			var/obj/item/music_cartridge/cartridge = music_player.cartridges[params["object"]]
+			music_player.eject_cartridge(cartridge, user)
 			return TRUE
 
 		if("set_volume")

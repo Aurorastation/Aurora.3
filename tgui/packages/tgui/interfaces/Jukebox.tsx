@@ -13,6 +13,7 @@ type Song = {
 type Cartridge = {
   name: string;
   locked: BooleanLike;
+  object: object;
 };
 
 export type Data = {
@@ -46,21 +47,20 @@ export const Jukebox = (props, context) => {
   );
 
   return (
-    <Window width={600} height={313}>
+    <Window width={600} height={450}>
       <Window.Content>
         <Flex>
           <Flex.Item grow={1}>
             <Section title="Cartridges">
-              Cartridges
               <LabeledList>
                 {cartridges_sorted.map((cartridge) => (
                   <LabeledList.Item key={cartridge.name} label={cartridge.name}>
                     <Button
                       key={cartridge.name}
                       content="Eject"
-                      disabled={!!active}
+                      disabled={!!active || cartridge.locked || locked}
                       onClick={(value) =>
-                        act('eject', { track: cartridge.name })
+                        act('eject', { track: cartridge.object })
                       }
                     />
                   </LabeledList.Item>
@@ -70,14 +70,12 @@ export const Jukebox = (props, context) => {
             <Section title="Tracks">
               <LabeledList>
                 {playlist_sorted.map((song) => (
-                  <LabeledList.Item key={song.name}>
+                  <LabeledList.Item key={song.name} label={song.name}>
                     <Button
                       key={song.name}
-                      content={song.name}
+                      content="Play"
                       disabled={!!active}
-                      onClick={(value) =>
-                        act('select_track', { track: song.name })
-                      }
+                      onClick={() => act('select_track', { track: song.name })}
                     />
                   </LabeledList.Item>
                 ))}
