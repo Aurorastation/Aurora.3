@@ -62,6 +62,48 @@
 /datum/seed/proc/setup_traits()
 
 /datum/seed/New()
+<<<<<<< HEAD
+	set_trait(TRAIT_SPOROUS,              0)
+	set_trait(TRAIT_IMMUTABLE,            0)
+	set_trait(TRAIT_HARVEST_REPEAT,       0)
+	set_trait(TRAIT_PRODUCES_POWER,       0)
+	set_trait(TRAIT_JUICY,                0)
+	set_trait(TRAIT_EXPLOSIVE,            0)
+	set_trait(TRAIT_CARNIVOROUS,          0)
+	set_trait(TRAIT_PARASITE,             0)
+	set_trait(TRAIT_STINGS,               0)
+	set_trait(TRAIT_YIELD,                0)
+	set_trait(TRAIT_SPREAD,               0)
+	set_trait(TRAIT_MATURATION,           0)
+	set_trait(TRAIT_PRODUCTION,           0)
+	set_trait(TRAIT_TELEPORTING,          0)
+	set_trait(TRAIT_BIOLUM,               0)
+	set_trait(TRAIT_ALTER_TEMP,           0)
+	set_trait(TRAIT_PRODUCT_ICON,         0)
+	set_trait(TRAIT_PLANT_ICON,           0)
+	set_trait(TRAIT_PRODUCT_COLOUR,       0)
+	set_trait(TRAIT_BIOLUM_COLOUR,        0)
+	set_trait(TRAIT_BIOLUM_PWR,           1)
+	set_trait(TRAIT_POTENCY,              1)
+	set_trait(TRAIT_REQUIRES_NUTRIENTS,   1)
+	set_trait(TRAIT_REQUIRES_WATER,       1)
+	set_trait(TRAIT_WATER_CONSUMPTION,    3)
+	set_trait(TRAIT_LIGHT_TOLERANCE,      3.5) // Plants will begin to die if the light levels are 2.5 or more lumens from their ideal.
+	set_trait(TRAIT_TOXINS_TOLERANCE,     5)
+	set_trait(TRAIT_PEST_TOLERANCE,       5)
+	set_trait(TRAIT_WEED_TOLERANCE,       5)
+	set_trait(TRAIT_IDEAL_LIGHT,          IDEAL_LIGHT_TEMPERATE)
+	set_trait(TRAIT_HEAT_TOLERANCE,       14) // Plants will begin to die if they're fourteen or more degrees from their ideal temperature.
+	set_trait(TRAIT_LOWKPA_TOLERANCE,     25) // Plants survive all the way down to a quarter of an atmosphere!
+	set_trait(TRAIT_ENDURANCE,            100)
+	set_trait(TRAIT_HIGHKPA_TOLERANCE,    200)
+	set_trait(TRAIT_IDEAL_HEAT,           IDEAL_HEAT_TEMPERATE)
+	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.25)
+	set_trait(TRAIT_PLANT_COLOUR,         "#46B543")
+	set_trait(TRAIT_LARGE,                0)
+	set_trait(TRAIT_HEAT_PREFERENCE,      5) // By default, plants grow faster in a temperature within five degrees of their ideal.
+	set_trait(TRAIT_LIGHT_PREFERENCE,     2.5) // Similarly, they grow faster under lumens within 1.5 of their ideal.
+=======
 	SET_SEED_TRAIT(src, TRAIT_SPOROUS, 0)
 	SET_SEED_TRAIT(src, TRAIT_IMMUTABLE, 0)
 	SET_SEED_TRAIT(src, TRAIT_HARVEST_REPEAT, 0)
@@ -102,6 +144,7 @@
 	SET_SEED_TRAIT(src, TRAIT_LARGE, 0)
 	SET_SEED_TRAIT(src, TRAIT_HEAT_PREFERENCE, 5) // By default, plants grow faster in a temperature within five degrees of their ideal.
 	SET_SEED_TRAIT(src, TRAIT_LIGHT_PREFERENCE, 1.5) // Similarly, they grow faster under lumens within 1.5 of their ideal.
+>>>>>>> ac8a42373edea7e50f72643683efa71df36e6484
 
 	setup_traits()
 
