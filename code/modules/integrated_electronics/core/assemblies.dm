@@ -18,8 +18,8 @@
 	icon_state = "setup_implant"
 	desc = "It's a case, for building very tiny electronics with."
 	w_class = WEIGHT_CLASS_TINY
-	max_components = IC_COMPONENTS_BASE / 2
-	max_complexity = IC_COMPLEXITY_BASE / 2
+	max_components = IC_COMPONENTS_BASE * 3/4
+	max_complexity = IC_COMPLEXITY_BASE * 3/4
 	var/obj/item/implant/integrated_circuit/implant = null
 
 /obj/item/device/electronic_assembly/Initialize(mapload, printed = FALSE)

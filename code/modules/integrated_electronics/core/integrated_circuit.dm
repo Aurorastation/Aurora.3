@@ -169,6 +169,7 @@ a creative player the means to solve many problems.  Circuits are held inside an
 //	HTML += "<br><font color='33CC33'>Meta Variables;</font>" // If more meta vars get introduced, uncomment this.
 //	HTML += "<br>"
 
+	HTML += "<br><span class='highlight'>Size: [size]</span>"
 	HTML += "<br><span class='highlight'>Complexity: [complexity]</span>"
 	if(power_draw_idle)
 		HTML += "<br><span class='highlight'>Power Draw: [power_draw_idle] W (Idle)</span>"
