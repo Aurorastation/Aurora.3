@@ -625,6 +625,28 @@
 	reagents_to_add = list(/singleton/reagent/nutriment/protein/seafood/mollusc = 6, /singleton/reagent/nutriment = 2, /singleton/reagent/water = 5, /singleton/reagent/sodiumchloride = 2)
 	reagent_data = list(/singleton/reagent/nutriment/protein/seafood/mollusc = list("pillowy scallops" = 10, "salt" = 5), /singleton/reagent/nutriment = list("butter" = 10))
 
+/obj/item/reagent_containers/food/snacks/voidsman_stew
+	name = "voidsman's stew"
+	desc = "Fried fish balls in a light sauce. This dish predates the Imperial liberation of Sun Reach, though it was originally known as freebooter stew. The name was changed by the Viceroy's orders to honor those who died fighting the pirate lords."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "voidsman_stew"
+	trash = /obj/item/trash/wooden_platter
+	reagents_to_add = list(/singleton/reagent/nutriment/protein = 8, /singleton/reagent/nutriment = 4, /singleton/reagent/nutriment/triglyceride = 4, /singleton/reagent/spacespice = 2)
+	reagent_data = list(/singleton/reagent/nutriment = list("hot stew" = 3, "spices" = 1, "vegetables" = 1, "fish" = 2))
+	bitesize = 3
+	filling_color = "#4D2009"
+
+/obj/item/reagent_containers/food/snacks/carian_stroganoff
+	name = "carian stroganoff"
+	desc = "Meaty mushrooms drenched in a creamy sauce. Caria has a variety of mushroom dishes, but the rich flavours of Carian stroganoff made it popular when brought to Moroz, and onto the rest of the spur."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "carian_stroganoff"
+	trash = /obj/item/trash/wooden_platter
+	reagents_to_add = list(/singleton/reagent/nutriment/protein = 6, /singleton/reagent/nutriment = 4)
+	reagent_data = list(/singleton/reagent/nutriment = list("creamy sauce" = 2, "savory spices" = 2), /singleton/reagent/nutriment = list("fried mushrooms" = 4))
+	bitesize = 3
+	filling_color = "#986E55"
+
 //New Hai Phong
 
 /obj/item/reagent_containers/food/snacks/chetroinuoc
