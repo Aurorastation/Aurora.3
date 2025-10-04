@@ -1,0 +1,7 @@
+author: AlaunusLux
+
+delete-after: True
+
+changes:
+  - rscadd: "Added a message sent over command frequency when a vessel docks or undocks at official docking ports, unless cloaked."
+  - rscadd: "Added disassembly instructions to reinforced walls."

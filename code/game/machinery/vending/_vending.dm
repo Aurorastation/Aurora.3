@@ -285,6 +285,10 @@
 	. = ..()
 	v_asset = get_asset_datum(/datum/asset/spritesheet/vending)
 
+/obj/machinery/vending/mouse_drop_receive(atom/dropping, mob/user, params)
+	//Adds the component only once. We do it here & not in Initialize() because there are tons of walls & we don't want to add to their init times
+	LoadComponent(/datum/component/leanable, dropping)
+
 /obj/machinery/vending/proc/reset_light()
 	set_light(initial(light_range), initial(light_power), initial(light_color))
 

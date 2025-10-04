@@ -33,3 +33,23 @@
       on initialisation, meaning that the wings are no longer entirely dark. This
       is overwritten if the turfs are modified.
   - rscadd: Implements some minor changes to the Horizon's outer hull.
+2025-10-04:
+  ASmallCuteCat:
+  - bugfix: The machinist's workshop now has 10 sheets of lead, instead of only 1.
+  Batrachophrenoboocosmomachia:
+  - bugfix: Event False Alarms now give refer to proper ship name instead of 'Unknown
+      Location.'
+  - qol: Many objects, which required you to have an ID in-hand to toggle lock statuses
+      for, now instead check for equipped IDs on alt-click.
+  - rscadd: Added new SFX to APCs, Air Alarms, and other devices.
+  - bugfix: APC status lights now accurately reflect lock/unlock status and channel
+      settings.
+  - refactor: 'Performance improvement: area /power_change() proc uses signals instead
+      of for loop.'
+  HanSolo1519:
+  - balance: Moved Timers out of the Tool-Storage devices Vendomat contraband list,
+      and into normal selection.
+  Hellfirejag:
+  - rscadd: Stasis beds and stasis bags now have mechanics hints explaining what they
+      do.
+  - rscadd: Stasis beds can now be upgraded to provide more stasis.

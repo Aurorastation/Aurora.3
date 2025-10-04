@@ -1,5 +1,5 @@
 # Your name.
-author: Batrachophrenoboocosmomachia
+author: JohnWildkins
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -10,4 +10,8 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - bugfix: "Event False Alarms now give refer to proper ship name instead of 'Unknown Location.'"
+  - refactor: "Refactored several machines backend code to reduce server load."
+  - refactor: "Fixed an issue where slimes would hard-delete, causing server lag."
+  - refactor: "Optimized igniter and holosign buttons to reduce server load when used."
+  - refactor: "Optimized atmos meters, hydroponics trays, tcomms machines, and disposal units to only update their icon state when necessary."
+  - refactor: "Refactors motion sensors, spiderlings, guns, ammo piles, and mecha equipment to remove costly hard-dels."
