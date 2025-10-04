@@ -379,7 +379,7 @@
 		for(var/bp in H.held_item_slots)
 			var/datum/inventory_slot/inv_slot = H.held_item_slots[bp]
 			var/obj/item/organ/external/E = H.get_organ(bp)
-			dat += "<BR><b>[capitalize(E.name)]:</b> <A href='?src=\ref[src];item=[bp]'>[inv_slot.holding?.name || "nothing"]</A>"
+			dat += "<BR><b>[capitalize(E.name)]:</b> <A href='byond://?src=[REF(src)];item=[bp]'>[inv_slot.holding?.name || "Nothing"]</A>"
 
 	dat += {"<BR><B>Back:</B> <A href='byond://?src=[REF(src)];item=back'>[(back ? back : "Nothing")]</A> [((istype(wear_mask, /obj/item/clothing/mask) && istype(back, /obj/item/tank) && !( internal )) ? " <A href='byond://?src=[REF(src)];item=internal'>Set Internal</A>" : "")]
 	<BR>[(internal ? "<A href='byond://?src=[REF(src)];item=internal'>Remove Internal</A>" : "")]
