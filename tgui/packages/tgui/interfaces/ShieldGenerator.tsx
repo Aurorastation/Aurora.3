@@ -7,7 +7,6 @@ export type ShieldData = {
   owned_capacitor: BooleanLike;
   active: BooleanLike;
   time_since_fail: number;
-  multi_unlocked: BooleanLike;
   multiz: BooleanLike;
   field_radius: number;
   min_field_radius: number;
