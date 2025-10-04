@@ -1,5 +1,5 @@
 import { sortBy } from 'es-toolkit';
-import { Box, Button, Dropdown, Flex, Knob, LabeledControls, LabeledList, Section } from '../components';
+import { Box, Button, Dropdown, Knob, LabeledControls, LabeledList, Section } from '../components';
 import type { BooleanLike } from '../../common/react';
 
 import { useBackend } from '../backend';
@@ -9,21 +9,21 @@ type Song = {
   name: string;
   length: string;
 };
-
+/*
 type Cartridge = {
   name: string;
   locked: BooleanLike;
   object: object;
 };
-
+*/
 export type Data = {
   active: BooleanLike;
   sound_loops: BooleanLike;
   volume: number;
   track_selected: string | null;
-  locked: BooleanLike;
+  // locked: BooleanLike;
   playlist: Song[];
-  cartridges: Cartridge[];
+  // cartridges: Cartridge[];
 };
 
 export const Jukebox = (props, context) => {
@@ -33,155 +33,119 @@ export const Jukebox = (props, context) => {
     sound_loops,
     volume,
     track_selected,
-    locked,
+    // locked,
     playlist,
-    cartridges,
+    // cartridges,
   } = data;
 
   const playlist_sorted: Song[] = sortBy(playlist, [(song: Song) => song.name]);
+  /*
   const cartridges_sorted: Cartridge[] = sortBy(cartridges, [
     (cartridge: Cartridge) => cartridge.name,
-  ]);
+    ]);
+  */
   const song_selected: Song | undefined = playlist.find(
     (song) => song.name === track_selected
   );
 
   return (
-    <Window width={600} height={450}>
+    <Window width={370} height={313}>
       <Window.Content>
-        <Flex>
-          <Flex.Item grow={1}>
-            <Section title="Cartridges">
-              <LabeledList>
-                {cartridges_sorted.map((cartridge) => (
-                  <LabeledList.Item key={cartridge.name} label={cartridge.name}>
-                    <Button
-                      key={cartridge.name}
-                      content="Eject"
-                      disabled={!!active || cartridge.locked || locked}
-                      onClick={(value) =>
-                        act('eject', { track: cartridge.object })
-                      }
-                    />
-                  </LabeledList.Item>
-                ))}
-              </LabeledList>
-            </Section>
-            <Section title="Tracks">
-              <LabeledList>
-                {playlist_sorted.map((song) => (
-                  <LabeledList.Item key={song.name} label={song.name}>
-                    <Button
-                      key={song.name}
-                      content="Play"
-                      disabled={!!active}
-                      onClick={() => act('select_track', { track: song.name })}
-                    />
-                  </LabeledList.Item>
-                ))}
-              </LabeledList>
-            </Section>
-          </Flex.Item>
-          <Flex.Item grow={1}>
-            <Section
-              title="Music Player"
-              buttons={
-                <>
-                  <Button
-                    icon={active ? 'pause' : 'play'}
-                    content={active ? 'Stop' : 'Play'}
-                    selected={active}
-                    onClick={() => act('toggle')}
-                  />
-                  <Button.Checkbox
-                    icon={'arrow-rotate-left'}
-                    content="Repeat"
-                    checked={sound_loops}
-                    onClick={() => act('loop', { sound_loops: !sound_loops })}
-                  />
-                </>
-              }>
-              <LabeledList>
-                <LabeledList.Item label="Track Selected">
-                  <Dropdown
-                    width="240px"
-                    options={playlist_sorted.map((song) => song.name)}
-                    disabled={!!active}
-                    selected={song_selected?.name || 'Select a Track'}
-                    onSelected={(value) =>
-                      act('select_track', { track: value })
-                    }
-                  />
-                </LabeledList.Item>
-                <LabeledList.Item label="Track Length">
-                  {song_selected?.length || 'No Track Selected'}
-                </LabeledList.Item>
-              </LabeledList>
-            </Section>
-            <Section title="Machine Settings">
-              <LabeledControls justify="center">
-                <LabeledControls.Item label="Volume">
-                  <Box position="relative">
-                    <Knob
-                      size={3.2}
-                      color={volume >= 60 ? 'red' : 'green'}
-                      value={volume}
-                      unit="%"
-                      minValue={0}
-                      maxValue={80}
-                      step={1}
-                      stepPixelSize={1}
-                      onChange={(value) =>
-                        act('set_volume', {
-                          volume: value,
-                        })
-                      }
-                    />
-                    <Button
-                      fluid
-                      position="absolute"
-                      top="-2px"
-                      right="-22px"
-                      color="transparent"
-                      icon="fast-backward"
-                      onClick={() =>
-                        act('set_volume', {
-                          volume: 'min',
-                        })
-                      }
-                    />
-                    <Button
-                      fluid
-                      position="absolute"
-                      top="16px"
-                      right="-22px"
-                      color="transparent"
-                      icon="fast-forward"
-                      onClick={() =>
-                        act('set_volume', {
-                          volume: 'max',
-                        })
-                      }
-                    />
-                    <Button
-                      fluid
-                      position="absolute"
-                      top="34px"
-                      right="-22px"
-                      color="transparent"
-                      icon="undo"
-                      onClick={() =>
-                        act('set_volume', {
-                          volume: 'reset',
-                        })
-                      }
-                    />
-                  </Box>
-                </LabeledControls.Item>
-              </LabeledControls>
-            </Section>
-          </Flex.Item>
-        </Flex>
+        <Section
+          title="Music Player"
+          buttons={
+            <>
+              <Button
+                icon={active ? 'pause' : 'play'}
+                content={active ? 'Stop' : 'Play'}
+                selected={active}
+                onClick={() => act('toggle')}
+              />
+              <Button.Checkbox
+                icon={'arrow-rotate-left'}
+                content="Repeat"
+                checked={sound_loops}
+                onClick={() => act('loop', { sound_loops: !sound_loops })}
+              />
+            </>
+          }>
+          <LabeledList>
+            <LabeledList.Item label="Track Selected">
+              <Dropdown
+                width="240px"
+                options={playlist_sorted.map((song) => song.name)}
+                disabled={!!active}
+                selected={song_selected?.name || 'Select a Track'}
+                onSelected={(value) => act('select_track', { track: value })}
+              />
+            </LabeledList.Item>
+            <LabeledList.Item label="Track Length">
+              {song_selected?.length || 'No Track Selected'}
+            </LabeledList.Item>
+          </LabeledList>
+        </Section>
+        <Section title="Machine Settings">
+          <LabeledControls justify="center">
+            <LabeledControls.Item label="Volume">
+              <Box position="relative">
+                <Knob
+                  size={3.2}
+                  color={volume >= 60 ? 'red' : 'green'}
+                  value={volume}
+                  unit="%"
+                  minValue={0}
+                  maxValue={80}
+                  step={1}
+                  stepPixelSize={1}
+                  onChange={(value) =>
+                    act('set_volume', {
+                      volume: value,
+                    })
+                  }
+                />
+                <Button
+                  fluid
+                  position="absolute"
+                  top="-2px"
+                  right="-22px"
+                  color="transparent"
+                  icon="fast-backward"
+                  onClick={() =>
+                    act('set_volume', {
+                      volume: 'min',
+                    })
+                  }
+                />
+                <Button
+                  fluid
+                  position="absolute"
+                  top="16px"
+                  right="-22px"
+                  color="transparent"
+                  icon="fast-forward"
+                  onClick={() =>
+                    act('set_volume', {
+                      volume: 'max',
+                    })
+                  }
+                />
+                <Button
+                  fluid
+                  position="absolute"
+                  top="34px"
+                  right="-22px"
+                  color="transparent"
+                  icon="undo"
+                  onClick={() =>
+                    act('set_volume', {
+                      volume: 'reset',
+                    })
+                  }
+                />
+              </Box>
+            </LabeledControls.Item>
+          </LabeledControls>
+        </Section>
       </Window.Content>
     </Window>
   );

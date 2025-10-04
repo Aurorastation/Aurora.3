@@ -35,19 +35,40 @@
 	/// How far away vertically from the jukebox can you be before you stop hearing it
 	VAR_PRIVATE/z_cutoff
 	/// Music cartridge in the jukebox.
-	var/list/cartridges = list()
+	// var/list/cartridges = list()
 	/// Maximum number of cartridges that can be loaded.
-	var/max_cartridges = 1
+	// var/max_cartridges = 1
 	/// Whether or not cartridges can be inserted or ejected by players.
-	var/locked = FALSE
+	// var/locked = FALSE
 
-/datum/jukebox/New(atom/new_parent, var/parent_sound_range, var/parent_cartridges, var/parent_max_cartridges, var/parent_locked)
+/**
+ * In the future, the music_cartridge item should be able to be inserted into jukeboxes, just like they are with earphones, to be able to control
+ * what songs are available on the playlist - i.e. crew members should be able to use their personal music cartridges in classic jukeboxes, etc.
+ * Further, earphones should be refactored to create datum/jukebox/single_mob instances and be otherwise interacted w/ just like freestanding jukeboxes.
+ *
+ * In practice, this turned out to be a gigantic pain in the ass due to difficulties in passing references to cartridge objs in and out of the component
+ * through TGUI- they kept getting nulled. Therefore, for the present, all jukeboxes have their available tracks set in their definitions, whereas
+ * earphones remain able to slot in and out cartridges. The old cartridge-based code for jukeboxes has been largely commented out.
+ */
+
+/datum/jukebox/New(atom/new_parent, var/list/datum/track/parent_playlist, var/parent_sound_range)
 	if(!ismovable(new_parent) && !isturf(new_parent))
 		stack_trace("[type] created on non-turf or non-movable: [new_parent ? "[new_parent] ([new_parent.type])" : "null"])")
 		qdel(src)
 		return
 
 	parent = new_parent
+	for(var/datum/track/track in parent_playlist)
+		LOG_DEBUG("adding track [track] [track.song_name] to playlist for [src]")
+		var/datum/track/new_track = new()
+		new_track.song_name = track.song_name
+		new_track.song_path = file(track.song_path)
+		new_track.song_length = track.song_length
+		playlist[new_track.song_name] = new_track
+
+	if(!length(playlist))
+		var/datum/track/default/default_track = new()
+		playlist[default_track.song_name] = default_track
 
 	if(isnull(parent_sound_range))
 		sound_range = world.view
@@ -55,6 +76,7 @@
 		x_cutoff = ceil(worldviewsize[1] * 1.25 / 2) // * 1.25 gives us some extra range to fade out with
 		z_cutoff = ceil(worldviewsize[2] * 1.25 / 2) // and / 2 is because world view is the whole screen, and we want the centre
 
+	/*
 	if(length(parent_cartridges))
 		cartridges = parent_cartridges
 
@@ -63,13 +85,16 @@
 
 	if(parent_locked)
 		locked = TRUE
+	*/
 
 	if(requires_range_check)
 		var/static/list/connections = list(COMSIG_ATOM_ENTERED = PROC_REF(check_new_listener))
 		AddComponent(/datum/component/connect_range, parent, connections, max(x_cutoff, z_cutoff))
 
+	/*
 	for (var/obj/item/music_cartridge/cartridge in cartridges)
 		add_songs(cartridge)
+	*/
 	if(length(playlist))
 		selection = playlist[pick(playlist)]
 
@@ -96,6 +121,7 @@
  * Returns
  * * An assoc list of track names to /datum/track. Track names must be unique.
  */
+/*
 /datum/jukebox/proc/load_cartridge(obj/item/music_cartridge/cartridge, mob/user)
 	LOG_DEBUG("/datum/jukebox/proc/load_cartridge([cartridge],[user])")
 	if(cartridge == user.get_active_hand())
@@ -107,12 +133,14 @@
 			cartridges += cartridge
 			add_songs(cartridge)
 			to_chat(user, SPAN_NOTICE("You insert \the [cartridge] into \the [parent]"))
+*/
 
 /**
  * Called by the ui_act() of the atom containing the datum/jukebox.
  *
  * Spits out a given music cartridge, gives it to the user.
  */
+/*
 /datum/jukebox/proc/eject_cartridge(var/obj/item/music_cartridge/cartridge, mob/user)
 	LOG_DEBUG("/datum/jukebox/proc/eject_cartridge([cartridge],[user])")
 
@@ -120,8 +148,10 @@
 	cartridges -= cartridge
 	user.put_in_hands(cartridge)
 	return TRUE
+*/
 
 /// Adds songs on the provided cartridge to our current playlist.
+/*
 /datum/jukebox/proc/add_songs(obj/item/music_cartridge/cartridge)
 	if(cartridge.tracks)
 		for(var/datum/track/track in cartridge.tracks)
@@ -134,8 +164,10 @@
 	if(!length(playlist))
 		var/datum/track/default/default_track = new()
 		playlist[default_track.song_name] = default_track
+*/
 
 /// Removes songs on the provided cartridge from our current playlist.
+/*
 /datum/jukebox/proc/remove_songs(obj/item/music_cartridge/cartridge)
 	if(!isnull(playlist))
 		for(var/datum/track/track in cartridge.tracks)
@@ -143,6 +175,7 @@
 				playlist -= track
 
 	return playlist
+*/
 
 /**
  * Returns a set of general data relating to the jukebox for use in TGUI.
@@ -153,13 +186,17 @@
 /datum/jukebox/proc/get_ui_data()
 	var/list/data = list()
 	var/list/songs_data = list()
-	for(var/song_name in playlist)
-		var/datum/track/one_song = playlist[song_name]
-		UNTYPED_LIST_ADD(songs_data, list(
-			"name" = song_name,
-			"length" = DisplayTimeText(one_song.song_length),
-			"source" = one_song.source
+	for(var/entry in playlist)
+		to_chat(world,"first for loop: [entry]")
+		var/datum/track/one_song = playlist[entry]
+		to_chat(world,"one_song: [one_song]")
+		var/song_name = one_song.song_name
+		var/song_length = one_song.song_length
+		UNTYPED_LIST_ADD(songs_data, list( \
+			"name" = song_name, \
+			"length" = DisplayTimeText(song_length)
 		))
+	/*
 	var/list/cartridges_data = list()
 	for(var/obj/item/music_cartridge/cartridge in cartridges)
 		UNTYPED_LIST_ADD(cartridges_data, list(
@@ -167,10 +204,11 @@
 			"hardcoded" = cartridge.hardcoded,
 			"object" = cartridge
 		))
+	*/
 	data["active"] = !!active_song_sound
 	data["playlist"] = songs_data
-	data["cartridges"] = cartridges_data
-	data["locked"] = locked
+	// data["cartridges"] = cartridges_data
+	// data["locked"] = locked
 	data["track_selected"] = selection?.song_name
 	data["sound_loops"] = sound_loops
 	data["volume"] = volume

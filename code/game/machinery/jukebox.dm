@@ -3,8 +3,8 @@
 	icon = 'icons/obj/jukebox.dmi'
 	icon_state = "jukebox-nopower"
 	var/state_base = "jukebox"
-	anchored = 0
-	density = 1
+	anchored = FALSE
+	density = TRUE
 	power_channel = AREA_USAGE_EQUIP
 	idle_power_usage = 100
 	active_power_usage = 2000
@@ -17,6 +17,8 @@
 	var/song_timerid
 	/// The actual music player datum that handles the music
 	var/datum/jukebox/music_player
+	/// The songs this jukebox starts with.
+	var/list/datum/track/playlist
 
 /obj/machinery/media/jukebox/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -27,12 +29,26 @@
 /obj/machinery/media/jukebox/classic
 	name = "jukebox"
 	desc = "A classic music player."
+	idle_power_usage = 1000
+	active_power_usage = 20000
+	playlist = list(
+		new/datum/track("Scratch", 'sound/music/ingame/ss13/title1.ogg', 2 MINUTES + 30 SECONDS),
+		new/datum/track("D`Bert", 'sound/music/ingame/ss13/title2.ogg', 1 MINUTES + 58 SECONDS),
+		new/datum/track("Uplift", 'sound/music/ingame/ss13/title3.ogg', 3 MINUTES + 52 SECONDS),
+		new/datum/track("Uplift II", 'sound/music/ingame/ss13/title3mk2.ogg', 3 MINUTES + 59 SECONDS),
+		new/datum/track("Suspenseful", 'sound/music/ingame/ss13/traitor.ogg', 5 MINUTES + 30 SECONDS),
+		new/datum/track("Beyond", 'sound/music/ingame/ss13/ambispace.ogg', 3 MINUTES + 15 SECONDS),
+		new/datum/track("D`Fort", 'sound/music/ingame/ss13/song_game.ogg', 3 MINUTES + 50 SECONDS),
+		new/datum/track("Endless Space", 'sound/music/ingame/ss13/space.ogg', 3 MINUTES + 33 SECONDS),
+		new/datum/track("Thunderdome", 'sound/music/ingame/ss13/THUNDERDOME.ogg', 3 MINUTES + 22 SECONDS),
+		new/datum/track("Rise", 'sound/music/ingame/xanu/xanu_rock_1.ogg', 3 MINUTES + 3 SECONDS),
+		new/datum/track("Indulgence", 'sound/music/ingame/xanu/xanu_rock_2.ogg', 3 MINUTES + 7 SECONDS),
+		new/datum/track("Shimmer", 'sound/music/ingame/xanu/xanu_rock_3.ogg', 4 MINUTES + 30 SECONDS)
+	)
 
 /obj/machinery/media/jukebox/classic/Initialize(mapload)
 	. = ..(mapload)
-	var/starting_cartridges = list()
-	starting_cartridges += new/obj/item/music_cartridge/ss13/demo
-	music_player = new(src, parent_cartridges = starting_cartridges, parent_max_cartridges = 3, parent_locked = TRUE)
+	music_player = new(src, playlist)
 	update_icon()
 
 /obj/machinery/media/jukebox/classic/update_icon()
@@ -50,45 +66,41 @@
 		else
 			AddOverlays("[state_base]-running")
 
-// Old-timey phonograph.
-/obj/machinery/media/jukebox/phonograph
-	name = "phonograph"
-	desc = "Play that funky music..."
-	icon = 'icons/obj/jukebox.dmi'
-	icon_state = "record"
-	state_base = "record"
-	anchored = 0
-
-/obj/machinery/media/jukebox/phonograph/Initialize(mapload)
-	. = ..(mapload)
-	var/starting_cartridges = list()
-	starting_cartridges += new/obj/item/music_cartridge/adhomai_swing/demo
-	music_player = new(src, parent_cartridges = starting_cartridges, parent_max_cartridges = 1, parent_locked = TRUE)
-
-/obj/machinery/media/jukebox/phonograph/update_icon()
-	ClearOverlays()
-	icon_state = state_base
-	if(!isnull(music_player.active_song_sound))
-		AddOverlays("[state_base]-running")
-
 /obj/machinery/media/jukebox/audioconsole
 	name = "audioconsole"
 	desc = "An Idris-designed jukebox for the 25th century. Unfortunately, someone made a mistake setting this one up. It isn't connected to the extranet and only plays the demo music it was pre-programmed with."
 	icon = 'icons/obj/audioconsole.dmi'
 	icon_state = "audioconsole-nopower"
 	state_base = "audioconsole"
-	anchored = FALSE
-
-/obj/machinery/media/jukebox/audioconsole/Initialize(mapload)
-	. = ..(mapload)
-	var/starting_cartridges = list()
-	starting_cartridges += new/obj/item/music_cartridge/audioconsole/demo
-	music_player = new(src, parent_cartridges = starting_cartridges, parent_max_cartridges = 3)
+	idle_power_usage = 4000
+	active_power_usage = 80000
+	playlist = list(
+		new/datum/track("Butterflies", 'sound/music/ingame/scc/Butterflies.ogg', 3 MINUTES + 37 SECONDS),
+		new/datum/track("That Ain't Chopin", 'sound/music/ingame/scc/ThatAintChopin.ogg', 3 MINUTES + 29 SECONDS),
+		new/datum/track("Don't Rush", 'sound/music/ingame/scc/DontRush.ogg', 3 MINUTES + 56 SECONDS),
+		new/datum/track("Phoron Will Make Us Rich", 'sound/music/ingame/scc/PhoronWillMakeUsRich.ogg', 2 MINUTES + 14 SECONDS),
+		new/datum/track("Amsterdam", 'sound/music/ingame/scc/Amsterdam.ogg', 3 MINUTES + 42 SECONDS),
+		new/datum/track("When", 'sound/music/ingame/scc/When.ogg', 2 MINUTES + 41 SECONDS),
+		new/datum/track("Number 0", 'sound/music/ingame/scc/Number0.ogg', 2 MINUTES + 37 SECONDS),
+		new/datum/track("The Pianist", 'sound/music/ingame/scc/ThePianist.ogg', 4 MINUTES + 25 SECONDS),
+		new/datum/track("Lips", 'sound/music/ingame/scc/Lips.ogg', 3 MINUTES + 20 SECONDS),
+		new/datum/track("Childhood", 'sound/music/ingame/scc/Childhood.ogg', 2 MINUTES + 13 SECONDS),
+		new/datum/track("Konyang Vibes #1", 'sound/music/ingame/konyang/konyang-1.ogg', 2 MINUTES + 59 SECONDS),
+		new/datum/track("Konyang Vibes #2", 'sound/music/ingame/konyang/konyang-2.ogg', 2 MINUTES + 58 SECONDS),
+		new/datum/track("Konyang Vibes #3", 'sound/music/ingame/konyang/konyang-3.ogg', 2 MINUTES + 43 SECONDS),
+		new/datum/track("Konyang Vibes #4", 'sound/music/ingame/konyang/konyang-4.ogg', 3 MINUTES + 8 SECONDS)
+	)
 
 /obj/machinery/media/jukebox/audioconsole/update_icon()
 	ClearOverlays()
+	if(stat & (NOPOWER|BROKEN) || !anchored)
+		if(stat & BROKEN)
+			icon_state = "[state_base]-broken"
+		else
+			icon_state = "[state_base]-nopower"
+		return
 	icon_state = state_base
-	if(!isnull(music_player.active_song_sound))
+	if(!isnull(song_timerid))
 		AddOverlays("[state_base]-running")
 
 /obj/machinery/media/jukebox/audioconsole/wall
@@ -96,20 +108,53 @@
 	density = FALSE
 	anchored = TRUE
 
+/obj/machinery/media/jukebox/audioconsole/Initialize(mapload)
+	. = ..(mapload)
+	music_player = new(src, playlist)
+	update_icon()
+
+// Old-timey phonograph.
+/obj/machinery/media/jukebox/phonograph
+	name = "phonograph"
+	desc = "Play that funky music..."
+	icon = 'icons/obj/jukebox.dmi'
+	icon_state = "record"
+	state_base = "record"
+	playlist = list(
+		new/datum/track("Boolean Sisters", 'sound/music/ingame/adhomai/boolean_sisters.ogg', 3 MINUTES + 17 SECONDS, /obj/item/music_cartridge/adhomai_swing),
+		new/datum/track("Electro Swing", 'sound/music/ingame/adhomai/electro_swing.ogg', 3 MINUTES + 18 SECONDS, /obj/item/music_cartridge/adhomai_swing),
+		new/datum/track("Le Swing", 'sound/music/ingame/adhomai/le_swing.ogg', 2 MINUTES + 11 SECONDS, /obj/item/music_cartridge/adhomai_swing),
+		new/datum/track("Posin", 'sound/music/ingame/adhomai/posin.ogg', 2 MINUTES + 50 SECONDS, /obj/item/music_cartridge/adhomai_swing)
+	)
+
+/obj/machinery/media/jukebox/phonograph/Initialize(mapload)
+	. = ..(mapload)
+	music_player = new(src, playlist)
+	update_icon()
+
+/obj/machinery/media/jukebox/phonograph/update_icon()
+	ClearOverlays()
+	icon_state = state_base
+	if(!isnull(music_player.active_song_sound))
+		AddOverlays("[state_base]-running")
+
 /obj/machinery/media/jukebox/gramophone
 	name = "gramophone"
 	desc = "Play that vintage music!"
 	icon = 'icons/obj/jukebox.dmi'
 	icon_state = "gramophone"
 	state_base = "gramophone"
-	anchored = 0
-
+	playlist = list(
+		new/datum/track("Boolean Sisters", 'sound/music/ingame/adhomai/boolean_sisters.ogg', 3 MINUTES + 17 SECONDS, /obj/item/music_cartridge/adhomai_swing),
+		new/datum/track("Electro Swing", 'sound/music/ingame/adhomai/electro_swing.ogg', 3 MINUTES + 18 SECONDS, /obj/item/music_cartridge/adhomai_swing),
+		new/datum/track("Le Swing", 'sound/music/ingame/adhomai/le_swing.ogg', 2 MINUTES + 11 SECONDS, /obj/item/music_cartridge/adhomai_swing),
+		new/datum/track("Posin", 'sound/music/ingame/adhomai/posin.ogg', 2 MINUTES + 50 SECONDS, /obj/item/music_cartridge/adhomai_swing)
+	)
 
 /obj/machinery/media/jukebox/gramophone/Initialize(mapload)
 	. = ..(mapload)
-	var/starting_cartridges = list()
-	starting_cartridges += new/obj/item/music_cartridge/adhomai_swing/demo
-	music_player = new(src, parent_cartridges = starting_cartridges,  parent_max_cartridges = 1, parent_locked = TRUE)
+	music_player = new(src, playlist)
+	update_icon()
 
 /obj/machinery/media/jukebox/gramophone/update_icon()
 	ClearOverlays()
@@ -123,13 +168,17 @@
 	icon = 'maps/away/ships/tajara/circus/circus_sprites.dmi'
 	icon_state = "calliope"
 	state_base = "calliope"
-	anchored = FALSE
+	playlist = list(
+		new/datum/track("Boolean Sisters", 'sound/music/ingame/adhomai/boolean_sisters.ogg', 3 MINUTES + 17 SECONDS, /obj/item/music_cartridge/adhomai_swing),
+		new/datum/track("Electro Swing", 'sound/music/ingame/adhomai/electro_swing.ogg', 3 MINUTES + 18 SECONDS, /obj/item/music_cartridge/adhomai_swing),
+		new/datum/track("Le Swing", 'sound/music/ingame/adhomai/le_swing.ogg', 2 MINUTES + 11 SECONDS, /obj/item/music_cartridge/adhomai_swing),
+		new/datum/track("Posin", 'sound/music/ingame/adhomai/posin.ogg', 2 MINUTES + 50 SECONDS, /obj/item/music_cartridge/adhomai_swing)
+	)
 
 /obj/machinery/media/jukebox/calliope/Initialize(mapload)
 	. = ..(mapload)
-	var/starting_cartridges = list()
-	starting_cartridges += new/obj/item/music_cartridge/adhomai_swing/demo
-	music_player = new(src, parent_cartridges = starting_cartridges, parent_max_cartridges = 2)
+	music_player = new(src, playlist)
+	update_icon()
 
 /obj/machinery/media/jukebox/calliope/update_icon()
 	return
@@ -174,9 +223,10 @@
 		return TRUE
 
 	// Inserting cartridges into the machine.
+	/*
 	if(anchored && istype(attacking_item, /obj/item/music_cartridge))
 		music_player.load_cartridge(attacking_item, user)
-
+	*/
 	else
 		return ..()
 
@@ -232,10 +282,12 @@
 			music_player.selection = new_song
 			return TRUE
 
+		/*
 		if("eject")
 			var/obj/item/music_cartridge/cartridge = music_player.cartridges[params["object"]]
 			music_player.eject_cartridge(cartridge, user)
 			return TRUE
+		*/
 
 		if("set_volume")
 			var/new_volume = params["volume"]
