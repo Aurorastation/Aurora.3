@@ -393,8 +393,8 @@
 	departments = SIMPLEDEPT(DEPARTMENT_CARGO)
 	department_flag = SERVICE
 	faction = "Station"
-	total_positions = 3
-	spawn_positions = 3
+	total_positions = 4
+	spawn_positions = 4
 	supervisors = "the operations manager"
 	selection_color = "#7B431C"
 
