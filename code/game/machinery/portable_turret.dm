@@ -1250,6 +1250,32 @@
 	ailock = 1
 	req_one_access = list(ACCESS_LEGION, ACCESS_TCAF_SHIPS)
 
+/obj/machinery/porta_turret/hologram
+	name = "warrior statue"
+	desc = "An ancient and crumbling sandstone statue of an Unathi. This one is armored, and wields a war scythe."
+	name_override = TRUE
+	icon_state = "cover_holo"
+	light_range = 0
+	light_power = 1
+	installation = /obj/item/gun/energy/mountedsmg
+	lethal = 1
+	lethal_icon = 1
+	egun = 0
+	sprite_set = "ballistic"
+	cover_set = "holo"
+	eprojectile = /obj/projectile/bullet/pistol/medium
+	eshot_sound	= 'sound/weapons/gunshot/gunshot_saw.ogg'
+	no_salvage = TRUE
+	req_one_access = list(ACCESS_SYNDICATE)
+
+/obj/machinery/porta_turret/hologram/assembly_hints(mob/user, distance, is_adjacent)
+	. = ..()
+	. = null
+
+/obj/machinery/porta_turret/hologram/condition_hints(mob/user, distance, is_adjacent)
+	. = ..()
+	. = null
+
 #undef TURRET_PRIORITY_TARGET
 #undef TURRET_SECONDARY_TARGET
 #undef TURRET_NOT_TARGET
