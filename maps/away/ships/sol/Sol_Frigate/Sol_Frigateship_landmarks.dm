@@ -1,0 +1,94 @@
+// Midships port airlock
+/obj/effect/map_effect/marker/airlock/Sol_Frigate/mid_starboard
+	name = "Midships port airlock"
+	master_tag = "Solfrig_airlock"
+// --------
+
+// Docking ports
+// Aft dock
+/obj/effect/map_effect/marker/airlock/docking/Sol_Frigate/aft_dock
+	name = "Aft Dock"
+	master_tag = "airlock_Solfrig_aft_dock"
+	landmark_tag = "Sol_Frigate_aft_dock"
+
+/obj/effect/shuttle_landmark/Sol_Frigate/dock_aft
+	name = "Aft Dock"
+	docking_controller = "airlock_Solfrig_aft_dock"
+	landmark_tag = "Sol_Frigate_aft_dock"
+// --------
+// Port dock
+/obj/effect/map_effect/marker/airlock/docking/Sol_Frigate/port_dock
+	name = "Port Dock"
+	master_tag = "airlock_Solfrig_port_dock"
+	landmark_tag = "Sol_Frigate_port_dock"
+
+/obj/effect/shuttle_landmark/Sol_Frigate/dock_port
+	name = "Port Dock"
+	docking_controller = "airlock_Solfrig_port_dock"
+	landmark_tag = "Sol_Frigate_port_dock"
+// --------
+
+// Starboard dock
+/obj/effect/map_effect/marker/airlock/docking/Sol_Frigate/starboard_dock
+	name = "Starboard Dock"
+	master_tag = "airlock_Solfrig_starboard_dock"
+	landmark_tag = "Sol_Frigate_starboard_dock"
+
+/obj/effect/shuttle_landmark/Sol_Frigate/dock_starboard
+	name = "Starboard Dock"
+	docking_controller = "airlock_Solfrig_starboard_dock"
+	landmark_tag = "Sol_Frigate_starboard_dock"
+// --------
+
+//Fore landing area
+/obj/effect/map_effect/marker/airlock/docking/Sol_Frigate/starboard_dock
+	name = "Forward Catwalk Landing Area"
+	master_tag = "airlock_Solfrig_fore_dock"
+	landmark_tag = "Sol_Frigate_fore_dock"
+
+/obj/effect/shuttle_landmark/Sol_Frigate/dock_starboard
+	name = "Forward Catwalk Landing Area"
+	docking_controller = "Navpoint_Solfrig_fore_dock"
+	landmark_tag = "Navpoint_Solfrig_fore_dock"
+// --------
+
+//Fore Airlock, right
+/obj/effect/map_effect/marker/airlock/docking/Sol_Frigate/catwalkA
+	name = "Forward Catwalk airlock, A"
+	master_tag = "airlock_Solfrig_fore_dock"
+	landmark_tag = "Sol_Frigate_fore_dock"
+// --------
+
+//Fore Airlock, left
+/obj/effect/map_effect/marker/airlock/docking/Sol_Frigate/catwalkB
+	name = "Forward Catwalk airlock, B"
+	master_tag = "airlock_Solfrig_fore_lockB"
+	landmark_tag = "airlock_Solfrig_fore_lockB"
+// --------
+
+// Space landmarks
+/obj/effect/shuttle_landmark/Sol_Frigate/nav1
+	name = "Fore"
+	landmark_tag = "Sol_Frigate_nav1"
+
+/obj/effect/shuttle_landmark/Sol_Frigate/nav2
+	name = "Aft"
+	landmark_tag = "Sol_Frigate_nav2"
+
+/obj/effect/shuttle_landmark/Sol_Frigate/nav3
+	name = "Port"
+	landmark_tag = "Sol_Frigate_nav3"
+
+/obj/effect/shuttle_landmark/Sol_Frigate/nav4
+	name = "Starboard"
+	landmark_tag = "Sol_Frigate_nav4"
+// --------
+//hangar landmarks
+/obj/effect/shuttle_landmark/Solfrig_shuttle/hangar
+	name = "Solarian Frigate - Catwalk docking area"
+	landmark_tag = "nav_hangar_solfrig"
+	docking_controller = "Solfrig_shuttle_dock"
+	base_area = /area/ship/Sol_Frigate
+	base_turf = /turf/simulated/floor/plating
+	movable_flags = MOVABLE_FLAG_EFFECTMOVE
+	// -------
