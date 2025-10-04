@@ -104,6 +104,7 @@
 		/obj/item/reagent_containers/ecig_cartridge/grape = 4.40
 	)
 	light_color = COLOR_BLUE_GRAY
+	var/obj/machinery/vending/cigarette/low_supply/replacement = null
 
 /obj/machinery/vending/cigarette/low_supply
 	products = list(
@@ -125,7 +126,17 @@
 		/obj/item/reagent_containers/ecig_cartridge/med_nicotine = 2,
 		/obj/item/reagent_containers/ecig_cartridge/grape = 1
 	)
-
+/*
+/obj/machinery/vending/cigarette/Initialize()
+	// 30% chance to spawn as a low_supply variant, on the Horizon only. Temporary proc, to be deleted for final merge.
+	if(prob(30))
+		var/is_station_level = is_station_level(src.z)
+		if(is_station_level)
+			replacement = new(src.loc)
+			qdel(src)
+	else
+		. = ..()
+*/
 /obj/machinery/vending/cigarette/merchant
 	// Mapped in merchant station
 	premium = list()

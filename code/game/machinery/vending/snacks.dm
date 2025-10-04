@@ -94,6 +94,8 @@
 	light_color = COLOR_BABY_BLUE
 	manufacturer = "nanotrasen"
 
+	var/obj/machinery/vending/snack/low_supply/replacement = null
+
 /obj/machinery/vending/snack/low_supply
 	products = list(
 		/obj/item/reagent_containers/food/drinks/dry_ramen = 4,
@@ -132,7 +134,17 @@
 		/obj/item/reagent_containers/food/snacks/riceball = 8,
 		/obj/item/reagent_containers/food/snacks/seaweed = 10,
 	)
-
+/*
+/obj/machinery/vending/snack/Initialize()
+	// 30% chance to spawn as a low_supply variant, on the Horizon only. Temporary proc, to be deleted for final merge.
+	if(prob(30))
+		var/is_station_level = is_station_level(src.z)
+		if(is_station_level)
+			replacement = new(src.loc)
+			qdel(src)
+	else
+		. = ..()
+*/
 /obj/item/device/vending_refill/snack
 	name = "snacks resupply canister"
 	vend_id = "snacks"
@@ -214,6 +226,8 @@
 	random_itemcount = 0
 	light_color = COLOR_BABY_BLUE
 
+	var/obj/machinery/vending/frontiervend/low_supply/replacement = null
+
 /obj/machinery/vending/frontiervend/low_supply
 	products = list(
 		/obj/item/reagent_containers/food/drinks/cans/himeokvass = 2,
@@ -233,7 +247,17 @@
 		/obj/item/reagent_containers/food/snacks/papad = 2,
 		/obj/item/storage/box/fancy/foysnack = 1
 	)
-
+/*
+/obj/machinery/vending/frontiervend/Initialize()
+	// 30% chance to spawn as a low_supply variant, on the Horizon only. Temporary proc, to be deleted for final merge.
+	if(prob(30))
+		var/is_station_level = is_station_level(src.z)
+		if(is_station_level)
+			replacement = new(src.loc)
+			qdel(src)
+	else
+		. = ..()
+*/
 /obj/machinery/vending/frontiervend/hacked
 	name = "\improper hacked FrontierVend"
 	desc = "A complimentary FrontierVend machine. No money? No worries."

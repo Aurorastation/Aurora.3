@@ -1,3 +1,5 @@
+#define VENDING_MACHINES_LOW_SUPPLY	TRUE
+
 /**
  *  Datum used to hold information about a product in a vending machine
  */
@@ -231,11 +233,13 @@
 	/// Default price of premium items if not overridden
 	var/extra_price = 50
 
+	/// Ignores the effects of VENDING_MACHINES_LOW_SUPPLY.
+	var/low_supply_immune = FALSE
+
 /obj/machinery/vending/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "A vending machine infected with a launcher virus can be fixed by using a debugger on it. This takes longer than using a wiring panel."
 	. += "All vending machines can be hacked to obtain some contraband items from them, and some can be fed with coins to gain access to premium items."
-
 
 /obj/machinery/vending/Initialize(mapload)
 	. = ..()
@@ -321,6 +325,9 @@
 		list(src.contraband, CAT_HIDDEN),
 		list(src.premium, CAT_COIN))
 
+	var/adjusted_max_amount
+	var/is_station_level = is_station_level(src.z)
+
 	for(var/current_list in all_products)
 		var/category = current_list[2]
 
@@ -329,10 +336,15 @@
 
 			product.price = (entry in src.prices) ? src.prices[entry] : 0
 			product.max_amount = product.amount = product.amount = (current_list[1][entry]) ? current_list[1][entry] : 1
-			if (random_itemcount == 1 && category == CAT_NORMAL) //Only the normal category is randomized.
-				product.amount = rand(1,product.max_amount)
+			if(VENDING_MACHINES_LOW_SUPPLY && is_station_level && !low_supply_immune)
+				// Maximum # of each stocked item is reduced by 25%, 50%, or 75%.
+				adjusted_max_amount = FLOOR(max(product.max_amount * (rand(1,3)/4), 0), 1)
+				product.amount = rand(0,adjusted_max_amount)
 			else
-				product.amount = product.max_amount
+				if (random_itemcount == 1 && category == CAT_NORMAL) //Only the normal category is randomized.
+					product.amount = rand(1,product.max_amount)
+				else
+					product.amount = product.max_amount
 			product.category = category
 
 			src.product_records.Add(product)
@@ -1016,3 +1028,5 @@
 				charges -= expense
 				if(!charges)
 					break
+
+#undef VENDING_MACHINES_LOW_SUPPLY

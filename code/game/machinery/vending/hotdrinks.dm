@@ -45,6 +45,7 @@
 	heating_temperature = T0C + 100 //ULTRA HOT COFFEE
 	temperature_setting = -1
 	light_color = COLOR_BROWN
+	var/obj/machinery/vending/coffee/low_supply/replacement = null
 
 /obj/machinery/vending/coffee/free
 	name = "\improper Free Hot Drinks machine"
@@ -60,15 +61,22 @@
 
 /obj/machinery/vending/coffee/low_supply
 	products = list(
-		/obj/item/reagent_containers/food/drinks/coffee = 2,
-		/obj/item/reagent_containers/food/drinks/tea = 3,
-		/obj/item/reagent_containers/food/drinks/greentea = 1,
-		/obj/item/reagent_containers/food/drinks/chaitea = 1,
-		/obj/item/reagent_containers/food/drinks/hotcider = 1,
-		/obj/item/reagent_containers/food/drinks/h_chocolate = 1,
-		/obj/item/reagent_containers/food/snacks/donut/normal = 2
+		/obj/item/reagent_containers/food/drinks/coffee = 4,
+		/obj/item/reagent_containers/food/drinks/tea = 6,
+		/obj/item/reagent_containers/food/drinks/h_chocolate = 3,
+		/obj/item/reagent_containers/food/snacks/donut/normal = 8
 	)
-
+/*
+/obj/machinery/vending/coffee/Initialize()
+	// 30% chance to spawn as a low_supply variant, on the Horizon only. Temporary proc, to be deleted for final merge.
+	if(prob(30))
+		var/is_station_level = is_station_level(src.z)
+		if(is_station_level)
+			replacement = new(src.loc)
+			qdel(src)
+	else
+		. = ..()
+*/
 /obj/item/device/vending_refill/coffee
 	name = "coffee resupply canister"
 	vend_id = "coffee"

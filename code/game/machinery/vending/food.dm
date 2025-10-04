@@ -6,7 +6,7 @@
 
 /obj/machinery/vending/mredispenser
 	name = "MRE dispenser"
-	desc = "A vending machine filled with MRE's."
+	desc = "A vending machine filled with MRE's. Now with bonus LiquidFood rations!"
 	icon_state = "mrevend"
 	icon_deny = "mrevend-deny"
 	product_slogans = ";FOREIGN LEGION TESTED!, FOREIGN LEGION RECOMMENDED!, FOREIGN LEGION APPROVED!;YOU ARE NOT ALLOWED A JELLY DOUGHNUT!;YOU DON'T WANT TO DIE HUNGRY, SOLDIER!"
@@ -22,7 +22,8 @@
 		/obj/item/storage/box/fancy/mre/menu8 = 2,
 		/obj/item/storage/box/fancy/mre/menu9 = 10,
 		/obj/item/storage/box/fancy/mre/menu10 = 10,
-		/obj/item/storage/box/fancy/mre/menu12 = 5
+		/obj/item/storage/box/fancy/mre/menu12 = 5,
+		/obj/item/reagent_containers/food/snacks/liquidfood = 18
 	)
 	prices = list(
 		/obj/item/storage/box/fancy/mre = 12.00,
@@ -35,14 +36,15 @@
 		/obj/item/storage/box/fancy/mre/menu8 = 12.00,
 		/obj/item/storage/box/fancy/mre/menu9 = 12.00,
 		/obj/item/storage/box/fancy/mre/menu10 = 12.00,
-		/obj/item/storage/box/fancy/mre/menu12 = 12.00
+		/obj/item/storage/box/fancy/mre/menu12 = 12.00,
+		/obj/item/reagent_containers/food/snacks/liquidfood = 3.00
 	)
 	contraband = list(
 		/obj/item/storage/box/fancy/mre/menu11 = 5, // memes.
-		/obj/item/reagent_containers/food/snacks/liquidfood = 5
 	)
 	vend_delay = 15
 	idle_power_usage = 211 // Cold MREs...
+	low_supply_immune = TRUE
 
 /obj/machinery/vending/mredispenser/low_supply
 	products = list(
@@ -74,7 +76,7 @@
 
 /obj/machinery/vending/quick_e_meals
 	name = "\improper quick-e-meals vendor"
-	desc = "Shelves of affordable microwave-ready meals by Orion and Getmore just waiting to be deployed into the battle against hunger!"
+	desc = "Shelves of affordable microwave-ready meals by Orion and Getmore just waiting to be deployed into the battle against hunger! Now with bonus LiquidFood rations!"
 	icon_state = "quick_e"
 	icon_screen = "quick_e-screen"
 	icon_vend = "quick_e-vend"
@@ -85,19 +87,20 @@
 	idle_power_usage = 211
 	light_color = COLOR_BABY_BLUE
 	products = list(
-		/obj/item/storage/box/fancy/quick_microwave_pizza = 3,
-		/obj/item/storage/box/fancy/quick_microwave_pizza/olive = 3,
-		/obj/item/storage/box/fancy/quick_microwave_pizza/pepperoni = 3,
-		/obj/item/storage/box/fancy/quick_microwave_pizza/district6 = 3,
-		/obj/item/reagent_containers/food/snacks/packaged_microwave_mac_and_cheeze = 3,
-		/obj/item/reagent_containers/food/snacks/packaged_microwave_fiery_mac_and_cheeze = 3,
-		/obj/item/storage/box/fancy/packaged_burger = 3,
-		/obj/item/reagent_containers/food/snacks/quick_curry = 3,
-		/obj/item/reagent_containers/food/snacks/hv_dinner = 3,
-		/obj/item/storage/box/fancy/toptarts_strawberry = 3,
-		/obj/item/storage/box/fancy/toptarts_chocolate_peanutbutter = 3,
-		/obj/item/storage/box/fancy/toptarts_blueberry = 3,
-		/obj/item/storage/box/donkpockets = 3
+		/obj/item/storage/box/fancy/quick_microwave_pizza = 12,
+		/obj/item/storage/box/fancy/quick_microwave_pizza/olive = 12,
+		/obj/item/storage/box/fancy/quick_microwave_pizza/pepperoni = 12,
+		/obj/item/storage/box/fancy/quick_microwave_pizza/district6 = 12,
+		/obj/item/reagent_containers/food/snacks/packaged_microwave_mac_and_cheeze = 12,
+		/obj/item/reagent_containers/food/snacks/packaged_microwave_fiery_mac_and_cheeze = 12,
+		/obj/item/storage/box/fancy/packaged_burger = 12,
+		/obj/item/reagent_containers/food/snacks/quick_curry = 12,
+		/obj/item/reagent_containers/food/snacks/hv_dinner = 12,
+		/obj/item/storage/box/fancy/toptarts_strawberry = 6,
+		/obj/item/storage/box/fancy/toptarts_chocolate_peanutbutter = 6,
+		/obj/item/storage/box/fancy/toptarts_blueberry = 6,
+		/obj/item/storage/box/donkpockets = 18,
+		/obj/item/reagent_containers/food/snacks/liquidfood = 40
 	)
 	premium = list(
 		/obj/item/storage/box/fancy/packaged_mossburger = 2
@@ -115,5 +118,6 @@
 		/obj/item/storage/box/fancy/toptarts_strawberry = 5.00,
 		/obj/item/storage/box/fancy/toptarts_chocolate_peanutbutter = 5.00,
 		/obj/item/storage/box/fancy/toptarts_blueberry = 5.00,
-		/obj/item/storage/box/donkpockets = 11.00
+		/obj/item/storage/box/donkpockets = 11.00,
+		/obj/item/reagent_containers/food/snacks/liquidfood = 3.00
 	)

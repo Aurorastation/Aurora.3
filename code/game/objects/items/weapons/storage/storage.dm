@@ -86,6 +86,9 @@
 
 	var/make_exact_fit = FALSE
 
+	/// Percent chance for each given item to be present.
+	var/temp_scarcity
+
 /obj/item/storage/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if(isghost(user) || isstoryteller(user))
@@ -821,7 +824,11 @@
 				crash_with("[t] in [src]'s starts_with list is not a path!")
 				continue
 			for(var/i=0, i<starts_with[t], i++)
-				new t(src)
+				if(temp_scarcity)
+					if(prob(temp_scarcity))
+						new t(src)
+				else
+					new t(src)
 	return
 
 /obj/item/storage/Initialize(mapload, defer_shrinkwrap = FALSE)

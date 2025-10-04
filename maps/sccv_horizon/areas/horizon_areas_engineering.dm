@@ -140,6 +140,12 @@
 	name = "Combustion Turbine"
 	area_blurb = "It feels like this compartment gets smaller every time you enter it! What's with that?!"
 
+/area/horizon/engineering/atmos/storage_tank
+	name = "Gas Storage Tank"
+	icon_state = "atmos_storage"
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+	area_blurb = "The interior of a gas storage tank is a decidedly unwelcome place to be; claustrophobia is probably the least of your concerns."
+
 /// ENGINEERING_AREAS - REACTOR_AREAS
 /area/horizon/engineering/reactor
 	name = "Engine (PARENT AREA - DON'T USE)"

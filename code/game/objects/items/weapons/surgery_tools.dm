@@ -229,6 +229,8 @@
 		/obj/item/stack/medical/advanced/bruise_pack = 1
 	)
 
+	temp_scarcity = 85
+
 /obj/item/storage/box/fancy/tray/update_icon()
 	ClearOverlays()
 
