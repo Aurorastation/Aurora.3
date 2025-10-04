@@ -29,6 +29,12 @@
 	connect_to_network()
 	AddComponent(/datum/component/local_network_member, initial_id_tag)
 
+/obj/machinery/power/fusion_core/Destroy()
+	if(owned_field)
+		qdel(owned_field)
+		owned_field = null
+	. = ..()
+
 /**
  * If there's no powernet or no owned field, shutdown() in those cases too.
  */
