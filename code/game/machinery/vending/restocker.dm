@@ -25,7 +25,8 @@
 		/obj/item/device/vending_refill/cutlery = 2,
 		/obj/item/device/vending_refill/robo = 2,
 		/obj/item/device/vending_refill/battlemonsters = 2,
-		/obj/item/device/vending_refill/encryption = 2
+		/obj/item/device/vending_refill/encryption = 2,
+		/obj/item/device/vending_refill/horizoncasino = 2
 	)
 	random_itemcount = 0
 	light_color = COLOR_GOLD
@@ -41,5 +42,6 @@
 		/obj/item/device/vending_refill/cutlery = 1,
 		/obj/item/device/vending_refill/robo = 1,
 		/obj/item/device/vending_refill/battlemonsters = 1,
-		/obj/item/device/vending_refill/encryption = 1
+		/obj/item/device/vending_refill/encryption = 1,
+		/obj/item/device/vending_refill/horizoncasino = 1
 	)

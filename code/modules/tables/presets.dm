@@ -66,6 +66,9 @@
 	icon_state = "gamble_preview"
 	carpeted = 1
 
+/obj/structure/table/wood/gamblingtable/bartop
+	table_reinf = MATERIAL_WOOD
+
 /obj/structure/table/glass
 	icon = 'icons/obj/structure/tables/glass_table.dmi'
 	icon_state = "glass_preview"

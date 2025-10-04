@@ -732,6 +732,10 @@
 	name = "SCCV Horizon plaque"
 	desc = "A plaque commemorating the SCCV Horizon's launch by the unbreakable chainlink, the SCC. The one thing holding the Orion Spur together. According to some, anyways."
 
+/obj/structure/sign/floor_plaque/horizon/casino
+	name = "Lucky Leina Casino plaque"
+	desc = "A plaque commemorating the construction of the Lucky Leina Casino. Named after Leina Idris, the Chief Executive Officer of Celestial Cruises, this casino promises the pursuit of riches beyond your wildest dreams, limited only by the fine print of an SCC Employment Contract."
+
 /obj/structure/sign/floor_plaque/raskara_okon
 	name = "Okon 001 Plaque"
 	desc = "Granted as a gift to honor the Hadiist-Skrell relationship. Okon 001 will be the Party's eyes upon Adhomai."

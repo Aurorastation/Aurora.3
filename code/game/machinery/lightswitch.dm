@@ -100,6 +100,12 @@
 		"Magenta" = LIGHT_COLOR_VIOLET
 	)
 
+/obj/machinery/light_switch/idris/Initialize()
+	. = ..()
+	if(!area.lightswitch)
+		on = TRUE
+		area.lightswitch = TRUE
+
 /obj/machinery/light_switch/idris/attack_hand(mob/user)
 	if(stat & NOPOWER)
 		to_chat(user, SPAN_WARNING("\The [src] is not responding."))

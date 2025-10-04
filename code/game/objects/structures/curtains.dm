@@ -111,8 +111,8 @@
 
 /obj/structure/curtain/open/bar
 	name = "curtain"
-	color = "#42443A"
-	alpha = 210
+	color = "#792f27"
+	icon_state = "open"
 
 /obj/structure/curtain/open/bar/toggle()
 	src.set_opacity(!src.opacity)

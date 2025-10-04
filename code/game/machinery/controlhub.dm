@@ -3,7 +3,6 @@ ABSTRACT_TYPE(/obj/machinery/controlhub)
 	name = "control hub"
 	desc = "A control interface that can manage multiple systems from a single point."
 	icon = 'icons/obj/modular_telescreen.dmi'
-	icon_state = "generic"
 	anchored = TRUE
 	density = FALSE
 	opacity = FALSE
@@ -20,6 +19,9 @@ ABSTRACT_TYPE(/obj/machinery/controlhub)
 	/// associative list tracking toggle states for controls. key is control name, value is boolean
 	var/list/control_states
 
+	/// stores the initial icon_state set by subtype
+	var/initial_icon_state
+
 /*
  * INITIALIZATION & POWER
  */
@@ -27,6 +29,7 @@ ABSTRACT_TYPE(/obj/machinery/controlhub)
 /obj/machinery/controlhub/Initialize()
 	. = ..()
 	control_states = list()
+	initial_icon_state = icon_state
 	update_icon()
 
 /obj/machinery/controlhub/update_icon()
@@ -37,7 +40,7 @@ ABSTRACT_TYPE(/obj/machinery/controlhub)
 	else if(stat & NOPOWER)
 		icon_state = "standby"
 	else
-		icon_state = initial(icon_state)
+		icon_state = initial_icon_state
 
 /obj/machinery/controlhub/power_change()
 	..()
@@ -90,7 +93,7 @@ ABSTRACT_TYPE(/obj/machinery/controlhub)
 
 	use_power_oneoff(active_power_usage)
 	playsound(src, 'sound/machines/holoclick.ogg', 100, FALSE)
-	flick("holocontrol", src)
+	flick(initial_icon_state, src)
 
 	var/list/control_data = controls[chosen_control]
 	if(!control_data)
@@ -248,9 +251,22 @@ ABSTRACT_TYPE(/obj/machinery/controlhub)
 	icon_state = "holocontrol"
 	req_access = list(ACCESS_BAR)
 	controls = list(
-		"bar holosign" = list("type" = "holosign", "id" = "bar"),
-		"bar shutters" = list("type" = "blast_door", "id" = "bar_shutter"),
-		"bar window tint" = list("type" = "windowtint", "id" = "bar_fore"),
-		"bar window shutters" = list("type" = "blast_door", "id" = "bar_viewing_shutters")
+		"counter shutters" = list("type" = "blast_door", "id" = "bar_shutter"),
+		"holosign" = list("type" = "holosign", "id" = "bar"),
+		"maintenance shutters" = list("type" = "blast_door", "id" = "bar_maint"),
+		"safety shutters" = list("type" = "blast_door", "id" = "bar_viewing_shutters"),
+		"window tint" = list("type" = "windowtint", "id" = "bar_fore")
+	)
+
+/obj/machinery/controlhub/horizoncasino
+	name = "lucky leina control hub"
+	icon_state = "generic"
+	req_access = list(ACCESS_BAR)
+	controls = list(
+		"airlock bolts" = list("type" = "airlock", "id" = "casino_airlock", "functions" = 4),
+		"counter shutters" = list("type" = "blast_door", "id" = "casino_bar"),
+		"holosign" = list("type" = "holosign", "id" = "casino_sign"),
+		"safety shutters" = list("type" = "blast_door", "id" = "casino_viewing"),
+		"window tint" = list("type" = "windowtint", "id" = "casino_window")
 	)
 
