@@ -1,0 +1,8 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscdel: "Drobes no longer contains mechanically relevant items, such as insulated gloves or bags."
+  - rscadd: "Bags, holsters and webbings were added to relevant department lockers, such as security and engineering lockers. This includes alt versions of them where relevant."
+  - rscadd: "Engineering lockers now start with insulated gloves in them."
