@@ -928,16 +928,12 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 	if((status & ORGAN_ROBOT) || (status & ORGAN_ADV_ROBOT) || (status & ORGAN_PLANT)) //Robotic limbs don't heal or get worse. Diona limbs heal using their own mechanic
 		return
-	var/updatehud
 	for(var/datum/wound/W in wounds)
 		// wounds can disappear after 10 minutes at the earliest
 		if(W.damage <= 0 && W.created + 6000 <= world.time)
 			wounds -= W
 			continue
 			// let the GC handle the deletion of the wound
-
-		if (W.damage > 0)
-			updatehud = 1//If there are any wounds with damage to heal, then we'll update health huds
 
 		// slow healing
 		var/heal_amt = 0
@@ -963,8 +959,8 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 	// sync the organ's damage with its wounds
 	src.update_damages()
-	if (updatehud)
-		owner.hud_updateflag = 1022
+	owner.med_hud_set_health()
+	owner.med_hud_set_status()
 
 	if(update_icon())
 		owner.UpdateDamageIcon(1)

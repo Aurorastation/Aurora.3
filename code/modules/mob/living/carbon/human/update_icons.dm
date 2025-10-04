@@ -691,8 +691,7 @@ There are several things that need to be remembered:
 
 		overlays_raw[id_layer] = wear_id.get_mob_overlay(src, mob_icon, mob_state, slot_wear_id_str)
 
-	BITSET(hud_updateflag, ID_HUD)
-	BITSET(hud_updateflag, WANTED_HUD)
+	update_id_card()
 
 	if(update_icons)
 		update_icon()

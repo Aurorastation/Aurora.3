@@ -170,7 +170,8 @@
 /obj/item/card/id/on_slotmove(var/mob/living/user, slot)
 	. = ..(user, slot)
 	// Update ID HUD if an ID is ever moved
-	BITSET(user.hud_updateflag, ID_HUD)
+	if(user)
+		user.update_id_card()
 
 /obj/item/card/id/proc/prevent_tracking()
 	return 0

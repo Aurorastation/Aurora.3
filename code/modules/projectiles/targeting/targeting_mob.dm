@@ -30,6 +30,8 @@
 	. = ..()
 
 	SEND_SIGNAL(src, COMSIG_LIVING_DEATH, gibbed)
+	med_hud_set_health()
+	med_hud_set_status()
 
 	if(.)
 		stop_aiming(no_message=1)

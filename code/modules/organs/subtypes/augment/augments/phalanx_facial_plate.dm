@@ -12,40 +12,4 @@
 		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/augments_external.dmi',
 		BODYTYPE_VAURCA = 'icons/mob/species/vaurca/augments_external.dmi'
 	)
-
-/obj/item/organ/internal/augment/eye_sensors/phalanx/attack_self(var/mob/user)
-	. = ..()
-
-	if(selected_hud == "disabled")
-		selected_hud = SEC_HUDTYPE
-		to_chat(user, "You activate \the [src] security HUD.")
-		return
-	if(selected_hud == SEC_HUDTYPE)
-		selected_hud = MED_HUDTYPE
-		to_chat(user, "You activate \the [src] medical HUD.")
-		return
-	if(selected_hud == MED_HUDTYPE)
-		selected_hud = "disabled"
-		to_chat(user, "You deactivate \the [src].")
-		return
-
-/obj/item/organ/internal/augment/eye_sensors/phalanx/process()
-	..()
-
-	switch(selected_hud)
-		if(SEC_HUDTYPE)
-			req_access = list(ACCESS_SECURITY)
-			if(allowed(owner))
-				active_hud = "security"
-				process_sec_hud(owner, 1)
-			else
-				active_hud = "disabled"
-		if(MED_HUDTYPE)
-			req_access = list(ACCESS_MEDICAL)
-			if(allowed(owner))
-				active_hud = "medical"
-				process_med_hud(owner, 1)
-			else
-				active_hud = "disabled"
-		else
-			active_hud = "disabled"
+	organ_traits = list(TRAIT_MEDICAL_HUD, TRAIT_SECURITY_HUD)

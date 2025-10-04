@@ -104,12 +104,6 @@ BLIND     // can't see anything
 	user.update_inv_l_hand(0)
 	user.update_inv_r_hand(1)
 
-/obj/item/clothing/glasses/proc/is_sec_hud()
-	return FALSE
-
-/obj/item/clothing/glasses/proc/is_med_hud()
-	return FALSE
-
 
 /obj/item/clothing/glasses/meson
 	name = "optical meson scanner"
@@ -389,6 +383,10 @@ BLIND     // can't see anything
 
 /obj/item/clothing/glasses/safety/goggles/tactical/handle_additional_changes()
 	flash_protection = up ? FLASH_PROTECTION_NONE : FLASH_PROTECTION_MODERATE
+	if (up)
+		detach_clothing_traits(TRAIT_SECURITY_HUD)
+	else
+		attach_clothing_traits(TRAIT_SECURITY_HUD)
 
 /obj/item/clothing/glasses/safety/goggles/tactical/generic
 	icon_state = "security_goggles"
@@ -407,19 +405,13 @@ BLIND     // can't see anything
 	)
 	flash_protection = FLASH_PROTECTION_MODERATE
 	change_item_state_on_flip = TRUE
+	clothing_traits = list(TRAIT_SECURITY_HUD)
 
 /obj/item/clothing/glasses/safety/goggles/goon/Initialize(mapload, material_key)
 	icon_state = sprite_state
 	item_state = sprite_state
 	off_state = sprite_state
 	. = ..()
-
-/obj/item/clothing/glasses/safety/goggles/goon/process_hud(var/mob/M)
-	if(!up)
-		process_sec_hud(M, TRUE)
-
-/obj/item/clothing/glasses/safety/goggles/goon/is_sec_hud()
-	return !up
 
 /obj/item/clothing/glasses/safety/goggles/goon/handle_additional_changes()
 	flash_protection = up ? FLASH_PROTECTION_NONE : FLASH_PROTECTION_MODERATE
@@ -451,22 +443,13 @@ BLIND     // can't see anything
 		slot_r_hand_str = "plaingoggles"
 	)
 	change_item_state_on_flip = TRUE
+	clothing_traits = list(TRAIT_MEDICAL_HUD)
 
 /obj/item/clothing/glasses/safety/goggles/medical/Initialize(mapload, material_key)
 	icon_state = sprite_state
 	item_state = sprite_state
 	off_state = sprite_state
 	. = ..()
-
-/obj/item/clothing/glasses/safety/goggles/medical/process_hud(var/mob/M)
-	if(!up)
-		process_med_hud(M, TRUE)
-
-/obj/item/clothing/glasses/safety/goggles/medical/is_sec_hud()
-	return FALSE
-
-/obj/item/clothing/glasses/safety/goggles/medical/is_med_hud()
-	return !up
 
 /obj/item/clothing/glasses/safety/goggles/medical/pmc
 	sprite_state = "pmc_goggles"
@@ -866,14 +849,7 @@ BLIND     // can't see anything
 	icon_state = "sunhud"
 	item_state = "sunhud"
 	contained_sprite = TRUE
-
-/obj/item/clothing/glasses/sunglasses/sechud/Initialize()
-	. = ..()
-	src.hud = new/obj/item/clothing/glasses/hud/security(src)
-	return
-
-/obj/item/clothing/glasses/sunglasses/sechud/is_sec_hud()
-	return active
+	clothing_traits = list(TRAIT_SECURITY_HUD)
 
 /obj/item/clothing/glasses/sunglasses/sechud/big
 	name = "fat HUDsunglasses"
@@ -1206,24 +1182,14 @@ BLIND     // can't see anything
 	desc = "A Security-type heads-up display that connects directly to the optic nerve of the user, replacing what you lost in Space 'Nam."
 	hud = /obj/item/clothing/glasses/hud/security
 	eye_color = COLOR_BLUE
-
-/obj/item/clothing/glasses/eyepatch/hud/security/process_hud(var/mob/M)
-	process_sec_hud(M, 1)
-
-/obj/item/clothing/glasses/eyepatch/hud/security/is_sec_hud()
-	return active
+	clothing_traits = list(TRAIT_SECURITY_HUD)
 
 /obj/item/clothing/glasses/eyepatch/hud/medical
 	name = "MEDpatch"
 	desc = "A Medical-type heads-up display that connects directly to the optic nerve of the user, giving you information about a patient your department will likely ignore."
 	hud = /obj/item/clothing/glasses/hud/health
 	eye_color = COLOR_CYAN
-
-/obj/item/clothing/glasses/eyepatch/hud/medical/process_hud(var/mob/M)
-	process_med_hud(M, 1)
-
-/obj/item/clothing/glasses/eyepatch/hud/medical/is_med_hud()
-	return active
+	clothing_traits = list(TRAIT_MEDICAL_HUD)
 
 /obj/item/clothing/glasses/eyepatch/hud/meson
 	name = "MESpatch"

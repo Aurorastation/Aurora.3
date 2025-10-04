@@ -1,5 +1,6 @@
 /mob/living/silicon
 	// Speaking
+	hud_possible = list(ANTAG_HUD)
 	gender = NEUTER
 	voice_name = "Synthesized Voice"
 	accent = ACCENT_TTS
@@ -22,8 +23,7 @@
 	var/obj/item/device/radio/common_radio // Used to determine default channels
 
 	// Hud Stuff
-	var/list/hud_list[10]
-	var/sensor_mode = 0 //Determines the current HUD.
+	var/sensors_on = FALSE
 
 	// Alarms
 	var/register_alarms = TRUE
@@ -58,6 +58,8 @@
 
 	var/can_speak_basic = TRUE
 
+	var/list/silicon_huds = list(DATA_HUD_MEDICAL_BASIC, DATA_HUD_SECURITY_BASIC)
+
 /mob/living/silicon/Initialize()
 	GLOB.silicon_mob_list |= src
 	. = ..()
@@ -68,6 +70,8 @@
 	default_language = L
 
 	init_subsystems()
+
+	add_sensors()
 
 /mob/living/silicon/Destroy()
 	GLOB.silicon_mob_list -= src
@@ -234,19 +238,24 @@
 	src << browse(HTML_SKELETON(dat), "window=checklanguage")
 	return
 
-/// Prompts the silicon mob which HUD to choose from, changes `sensor_mode` depending on choice
-/mob/living/silicon/proc/toggle_sensor_mode()
-	var/sensor_type = tgui_input_list(src, "Please select sensor type.", "Sensor Integration", list("Security", "Medical", "Disable"))
-	switch(sensor_type)
-		if("Security")
-			sensor_mode = SEC_HUD
-			to_chat(src, SPAN_NOTICE("Security records overlay enabled."))
-		if("Medical")
-			sensor_mode = MED_HUD
-			to_chat(src, SPAN_NOTICE("Life signs monitor overlay enabled."))
-		if("Disable")
-			sensor_mode = NO_HUD
-			to_chat(src, SPAN_NOTICE("Sensor augmentations disabled."))
+/mob/living/silicon/proc/remove_sensors()
+	for (var/hud_type in silicon_huds)
+		var/datum/atom_hud/silicon_hud = GLOB.huds[hud_type]
+		silicon_hud.hide_from(src)
+
+/mob/living/silicon/proc/add_sensors()
+	for (var/hud_type in silicon_huds)
+		var/datum/atom_hud/silicon_hud = GLOB.huds[hud_type]
+		silicon_hud.show_to(src)
+
+/mob/living/silicon/proc/toggle_sensors()
+	sensors_on = !sensors_on
+	if (!sensors_on)
+		to_chat(src, SPAN_NOTICE("Sensor overlay deactivated."))
+		remove_sensors()
+		return
+	add_sensors()
+	to_chat(src, SPAN_NOTICE("Sensor overlay activated."))
 
 /mob/living/silicon/verb/pose()
 	set name = "Set Pose"

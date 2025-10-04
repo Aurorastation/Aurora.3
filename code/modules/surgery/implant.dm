@@ -196,7 +196,7 @@
 					SPAN_NOTICE("You take [I] out of incision on [target]'s [affected.name]s with \the [tool].") )
 				target.remove_implant(I, TRUE, affected)
 
-				BITSET(target.hud_updateflag, IMPLOYAL_HUD)
+				target.sec_hud_set_implants()
 
 				//Handle possessive brain borers.
 				if(istype(I, /mob/living/simple_animal/borer))

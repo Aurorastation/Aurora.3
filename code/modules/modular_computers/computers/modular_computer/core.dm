@@ -612,7 +612,8 @@
 
 /obj/item/modular_computer/on_slotmove(var/mob/living/user, slot)
 	. = ..(user, slot)
-	BITSET(user.hud_updateflag, ID_HUD) //Same reasoning as for IDs
+	if(user)
+		user.update_id_card() //Same reasoning as for IDs
 
 // A late init operation called in SSshuttle for ship computers and holopads, used to attach the thing to the right ship.
 /obj/item/modular_computer/proc/attempt_hook_up(var/obj/effect/overmap/visitable/sector)

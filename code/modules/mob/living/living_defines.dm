@@ -1,13 +1,12 @@
 /mob/living
 	see_invisible = SEE_INVISIBLE_LIVING
+	hud_possible = list(HEALTH_HUD,STATUS_HUD,ANTAG_HUD,TRIAGE_HUD)
 
 	//Health and life related vars
 	/// Maximum health that should be possible.
 	var/maxHealth = 100
 	/// A mob's current health
 	var/health = 100
-
-	var/hud_updateflag = 0
 
 	// Virtual Reality
 	/// The network this mob is attached to, used in virtual reality and remote control things
