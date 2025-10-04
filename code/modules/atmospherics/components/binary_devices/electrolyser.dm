@@ -65,12 +65,18 @@
 					"You hear a ratchet")
 		anchor_helper()
 
-	if(phase == PHASE_PROCESS) // for convenience if its taking too long
-		if(attacking_item.ismultitool())
-			playsound(src.loc, 'sound/machines/buttonbeep.ogg', 50, 1)
-			user.visible_message("[user.name] manually overrides the [src.name], opening the outlet valve.", \
-						"You manually override the [src], opening the outlet valve.")
-			phase = PHASE_RELEASE
+	if(attacking_item.ismultitool()) // just in case its taking too long
+		playsound(src.loc, 'sound/machines/buttonbeep.ogg', 50, 1)
+		switch(phase)
+			if(PHASE_PROCESS)
+				user.visible_message("[user.name] manually overrides the [src.name], opening the outlet valve.", \
+							"You manually override the [src], opening the outlet valve and putting the electrolyser into Release mode.")
+				phase = PHASE_RELEASE
+			if(PHASE_RELEASE)
+				user.visible_message("[user.name] manually overrides the [src.name], closing the outlet valve.", \
+							"You manually override the [src], closing the outlet valve and putting the electrolyser into Processing mode.")
+				phase = PHASE_PROCESS
+
 
 /obj/machinery/atmospherics/binary/electrolyser/proc/anchor_helper()
 	if(anchored)
@@ -133,12 +139,9 @@
 			cell.adjust_gas(GAS_STEAM, -steam_intake, 1)
 
 			// Turning the steam into H2 + O
-			var/datum/gas_mixture/new_gasmix = new
-			var/heat_gain = rand(25, 250)
-			new_gasmix.adjust_gas(GAS_OXYGEN,  steam_intake/0.6) // 1 oxygen and 2 hydrogen from H2O
-			new_gasmix.adjust_gas(GAS_HYDROGEN, steam_intake/0.3)
-			new_gasmix.temperature = T20C + heat_gain // hot, risk of ignition if left unchecked
-			cell.merge(new_gasmix)
+			var/heat_gain = rand(298, 523)  // hot, risk of ignition if left unchecked
+			cell.adjust_gas_temp(GAS_OXYGEN,  steam_intake/0.6, heat_gain) // 1 oxygen
+			cell.adjust_gas_temp(GAS_HYDROGEN, steam_intake/0.3, heat_gain) // and 2 hydrogen from H2O
 
 			// Power draw
 			power_draw = power_rating * steam_intake
