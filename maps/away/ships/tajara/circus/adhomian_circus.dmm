@@ -617,7 +617,7 @@
 	},
 /area/adhomian_circus/hangar)
 "cUS" = (
-/obj/item/storage/box/monkeycubes/farwacubes,
+/obj/item/storage/box/unique/monkeycubes/farwacubes,
 /obj/structure/closet/crate,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -4412,9 +4412,9 @@
 	},
 /area/adhomian_circus/starboard)
 "xGS" = (
-/obj/item/storage/box/snappops,
+/obj/item/storage/box/unique/snappops,
 /obj/structure/table/wood,
-/obj/item/storage/box/snappops,
+/obj/item/storage/box/unique/snappops,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},

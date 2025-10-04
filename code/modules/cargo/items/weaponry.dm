@@ -245,7 +245,7 @@
 	description = "A box of less-lethal beanbag shells."
 	price = 65
 	items = list(
-		/obj/item/storage/box/beanbags
+		/obj/item/storage/box/shells/beanbags
 	)
 	access = ACCESS_SECURITY
 	container_type = "crate"
@@ -259,7 +259,7 @@
 	description = "A box of EMP-inducing 'haywire' shotgun shells."
 	price = 90
 	items = list(
-		/obj/item/storage/box/haywireshells
+		/obj/item/storage/box/shells/haywireshells
 	)
 	access = ACCESS_SECURITY
 	container_type = "crate"
@@ -273,7 +273,7 @@
 	description = "A box of incendiary shotgun shells."
 	price = 95
 	items = list(
-		/obj/item/storage/box/incendiaryshells
+		/obj/item/storage/box/shells/incendiaryshells
 	)
 	access = ACCESS_SECURITY
 	container_type = "crate"
@@ -287,7 +287,7 @@
 	description = "A box of shotgun buckshot shells."
 	price = 70
 	items = list(
-		/obj/item/storage/box/shotgunshells
+		/obj/item/storage/box/shells/buckshot
 	)
 	access = ACCESS_SECURITY
 	container_type = "crate"
@@ -301,7 +301,7 @@
 	description = "A box of shotgun slugs."
 	price = 80
 	items = list(
-		/obj/item/storage/box/shotgunammo
+		/obj/item/storage/box/shells/slugs
 	)
 	access = ACCESS_SECURITY
 	container_type = "crate"
@@ -315,7 +315,7 @@
 	description = "A box of illuminating shotgun shells."
 	price = 65
 	items = list(
-		/obj/item/storage/box/flashshells
+		/obj/item/storage/box/shells/flashshells
 	)
 	access = ACCESS_SECURITY
 	container_type = "crate"
@@ -483,7 +483,7 @@
 	description = "A box of 50-caliber tranquilizer darts."
 	price = 50
 	items = list(
-		/obj/item/storage/box/tranquilizer
+		/obj/item/storage/box/shells/tranquilizer
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"
@@ -497,7 +497,7 @@
 	description = "A box with several compact tungsten slugs, aimed for use in gauss carbines."
 	price = 125
 	items = list(
-		/obj/item/storage/box/tungstenslugs
+		/obj/item/storage/box/ammo/tungstenslugs
 	)
 	access = ACCESS_ARMORY
 	container_type = "crate"

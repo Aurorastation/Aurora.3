@@ -1122,8 +1122,8 @@
 	pixel_y = 8
 	},
 /obj/item/storage/box/fancy/donut,
-/obj/item/storage/box/flashbangs,
-/obj/item/storage/box/flashbangs,
+/obj/item/storage/box/tactical/flashbangs,
+/obj/item/storage/box/tactical/flashbangs,
 /turf/simulated/floor/tiled/steel,
 /area/space)
 "QB" = (

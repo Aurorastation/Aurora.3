@@ -394,11 +394,11 @@
 "P" = (
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/table/rack/folding_table,
-/obj/item/storage/box/tranquilizer{
+/obj/item/storage/box/shells/tranquilizer{
 	pixel_y = 14
 	},
 /obj/effect/map_effect/marker/mapmanip/submap/extract/lone_spacer/storage_2,
-/obj/item/storage/box/tranquilizer{
+/obj/item/storage/box/shells/tranquilizer{
 	pixel_y = 14
 	},
 /obj/item/gun/projectile/heavysniper/tranq{

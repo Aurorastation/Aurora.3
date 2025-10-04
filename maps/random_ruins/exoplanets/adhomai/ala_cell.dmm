@@ -164,7 +164,7 @@
 /area/exoplanet/adhomai)
 "W" = (
 /obj/structure/closet/crate/weapon/alt,
-/obj/item/storage/box/dynamite,
+/obj/item/storage/box/unique/dynamite,
 /obj/item/flame/lighter/adhomai,
 /turf/simulated/floor/exoplanet/mineral/adhomai,
 /area/exoplanet/adhomai)

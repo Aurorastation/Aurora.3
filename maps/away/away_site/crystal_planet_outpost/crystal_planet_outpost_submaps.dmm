@@ -265,7 +265,7 @@
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "le" = (
-/obj/item/storage/box/excavation{
+/obj/item/storage/box/unique/excavation{
 	pixel_x = -9;
 	pixel_y = 7
 	},
@@ -819,7 +819,7 @@
 "Bp" = (
 /obj/random/dirt_75,
 /obj/item/storage/belt/archaeology,
-/obj/item/storage/box/excavation,
+/obj/item/storage/box/unique/excavation,
 /obj/item/device/flashlight/lantern,
 /obj/item/device/ano_scanner,
 /obj/item/device/depth_scanner,
@@ -1083,7 +1083,7 @@
 /area/template_noop)
 "GP" = (
 /obj/item/storage/belt/archaeology,
-/obj/item/storage/box/excavation,
+/obj/item/storage/box/unique/excavation,
 /obj/item/device/flashlight/lantern,
 /obj/item/device/ano_scanner,
 /obj/item/device/depth_scanner,
@@ -1423,7 +1423,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "RL" = (
-/obj/item/storage/box/excavation{
+/obj/item/storage/box/unique/excavation{
 	pixel_x = -9;
 	pixel_y = 7
 	},

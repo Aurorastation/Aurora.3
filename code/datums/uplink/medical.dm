@@ -7,7 +7,7 @@
 /datum/uplink_item/item/medical/sinpockets
 	name = "Box of Sin-Pockets"
 	bluecrystal_cost = 1
-	path = /obj/item/storage/box/sinpockets
+	path = /obj/item/storage/box/unique/donkpockets/sinpockets
 
 /datum/uplink_item/item/medical/lunchbox
 	name = "Tactical Lunchbox"

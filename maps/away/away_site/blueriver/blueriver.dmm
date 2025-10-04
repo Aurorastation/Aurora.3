@@ -1029,7 +1029,7 @@
 /area/bluespaceriver/ship)
 "Va" = (
 /obj/structure/closet/excavation,
-/obj/item/storage/box/flares,
+/obj/item/storage/box/large/flares,
 /turf/simulated/floor/exoplanet/barren{
 	temperature = 250
 	},

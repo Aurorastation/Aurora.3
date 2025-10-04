@@ -82,7 +82,7 @@
 	l_ear = /obj/item/device/radio/headset/ship
 
 	backpack_contents = list(
-		/obj/item/storage/box/donkpockets = 1
+		/obj/item/storage/box/unique/donkpockets = 1
 	)
 
 /obj/outfit/admin/kataphract/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)

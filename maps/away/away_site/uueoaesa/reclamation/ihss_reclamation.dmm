@@ -8463,8 +8463,8 @@
 	dir = 5
 	},
 /obj/structure/table/standard,
-/obj/item/storage/box/monkeycubes/stokcubes,
-/obj/item/storage/box/monkeycubes/stokcubes,
+/obj/item/storage/box/unique/monkeycubes/stokcubes,
+/obj/item/storage/box/unique/monkeycubes/stokcubes,
 /obj/item/paper/fluff/ihss_reclamation_cell{
 	pixel_x = 6;
 	pixel_y = 4

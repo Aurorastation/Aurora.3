@@ -161,7 +161,7 @@
 	name = "adjusted light fixture"
 	},
 /obj/structure/table/standard,
-/obj/item/storage/box/sharps{
+/obj/item/storage/box/unique/sharps{
 	pixel_x = -5
 	},
 /obj/item/device/mass_spectrometer{
@@ -575,7 +575,7 @@
 	name = "adjusted light fixture"
 	},
 /obj/structure/table/standard,
-/obj/item/storage/box/sharps{
+/obj/item/storage/box/unique/sharps{
 	pixel_x = -5
 	},
 /obj/item/device/mass_spectrometer{
@@ -2141,7 +2141,7 @@
 /area/space)
 "JO" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/sharps{
+/obj/item/storage/box/unique/sharps{
 	pixel_x = -5
 	},
 /obj/item/device/mass_spectrometer{
@@ -2411,7 +2411,7 @@
 /area/space)
 "MY" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/sharps{
+/obj/item/storage/box/unique/sharps{
 	pixel_x = -5
 	},
 /obj/item/device/mass_spectrometer{
@@ -2593,7 +2593,7 @@
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 1
 	},
-/obj/item/storage/box/freezer/organcooler{
+/obj/item/storage/box/unique/freezer/organcooler{
 	pixel_x = -1;
 	pixel_y = 15
 	},

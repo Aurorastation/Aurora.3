@@ -73,7 +73,7 @@
 	desc = "Snap pops with a compound added which deploys a small smokescreen upon exploding."
 	telecrystal_cost = 1
 	bluecrystal_cost = 1
-	path = /obj/item/storage/box/snappops/syndi
+	path = /obj/item/storage/box/unique/snappops/syndi
 
 /datum/uplink_item/item/stealth_items/closet_teleporter
 	name = "Closet Teleportation Set-up"

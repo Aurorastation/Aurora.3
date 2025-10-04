@@ -475,10 +475,10 @@
 	req_access = list(247)
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
-/obj/item/storage/box/frags,
-/obj/item/storage/box/smokebombs,
-/obj/item/storage/box/flashbangs,
-/obj/item/storage/box/teargas,
+/obj/item/storage/box/tactical/frags,
+/obj/item/storage/box/tactical/smokebombs,
+/obj/item/storage/box/tactical/flashbangs,
+/obj/item/storage/box/tactical/teargas,
 /obj/effect/map_effect/marker/mapmanip/submap/extract/nuclear_silo/armoury,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
@@ -792,10 +792,10 @@
 	req_access = list(247)
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
-/obj/item/storage/box/frags,
-/obj/item/storage/box/smokebombs,
-/obj/item/storage/box/flashbangs,
-/obj/item/storage/box/teargas,
+/obj/item/storage/box/tactical/frags,
+/obj/item/storage/box/tactical/smokebombs,
+/obj/item/storage/box/tactical/flashbangs,
+/obj/item/storage/box/tactical/teargas,
 /obj/item/recharger_backpack,
 /obj/item/recharger_backpack,
 /obj/item/recharger_backpack,
@@ -1228,9 +1228,9 @@
 /obj/item/ammo_magazine/c45m/rubber,
 /obj/item/ammo_magazine/c45m/rubber,
 /obj/item/ammo_magazine/c45m/rubber,
-/obj/item/storage/box/stunshells,
-/obj/item/storage/box/flashshells,
-/obj/item/storage/box/beanbags,
+/obj/item/storage/box/shells/stunshells,
+/obj/item/storage/box/shells/flashshells,
+/obj/item/storage/box/shells/beanbags,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "we" = (
@@ -1804,8 +1804,8 @@
 /obj/item/ammo_magazine/a556/carbine,
 /obj/item/ammo_magazine/a556/carbine,
 /obj/item/ammo_magazine/a556/carbine,
-/obj/item/storage/box/shotgunshells,
-/obj/item/storage/box/shotgunshells,
+/obj/item/storage/box/shells/buckshot,
+/obj/item/storage/box/shells/buckshot,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "FB" = (
@@ -2233,9 +2233,9 @@
 	req_access = list(247)
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
-/obj/item/storage/box/teargas,
-/obj/item/storage/box/smokebombs,
-/obj/item/storage/box/flashbangs,
+/obj/item/storage/box/tactical/teargas,
+/obj/item/storage/box/tactical/smokebombs,
+/obj/item/storage/box/tactical/flashbangs,
 /obj/effect/map_effect/marker/mapmanip/submap/extract/nuclear_silo/armoury,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)

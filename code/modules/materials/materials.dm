@@ -891,7 +891,7 @@
 	stack_type = /obj/item/stack/material/cardboard
 	flags = MATERIAL_BRITTLE
 	integrity = 10
-	icon_colour = "#AAAAAA"
+	icon_colour = COLOR_CARDBOARD
 	hardness = 1
 	weight = 1
 	protectiveness = 0 // 0%

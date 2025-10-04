@@ -8634,7 +8634,7 @@
 /obj/structure/closet/secure_closet/refrigerator,
 /obj/random/kitchen_staples,
 /obj/random/kitchen_staples,
-/obj/item/storage/box/produce,
+/obj/item/storage/box/large/produce,
 /obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/light,
 /area/himeo_patrol_ship/messhall)

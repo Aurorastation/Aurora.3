@@ -156,13 +156,13 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Pack for holding pickaxes
 
-/obj/item/storage/box/excavation
+/obj/item/storage/box/unique/excavation
 	name = "excavation pick set"
 	icon = 'icons/obj/storage/boxes.dmi'
 	icon_state = "excavation"
 	desc = "A rugged metal case containing a set of standardized picks used in archaeological digs."
 	item_state = "box"
-	foldable = /obj/item/stack/material/cardboard //BubbleWrap
+	foldable = null
 	storage_slots = 7
 	w_class = WEIGHT_CLASS_SMALL
 	can_hold = list(/obj/item/pickaxe/brush,\
@@ -176,7 +176,7 @@
 	max_w_class = WEIGHT_CLASS_NORMAL
 	use_to_pickup = TRUE // for picking up broken bulbs, not that most people will try
 
-/obj/item/storage/box/excavation/fill()
+/obj/item/storage/box/unique/excavation/fill()
 	..()
 	new /obj/item/pickaxe/brush(src)
 	new /obj/item/pickaxe/one_pick(src)

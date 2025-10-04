@@ -575,8 +575,8 @@
 	},
 /obj/item/gun/projectile/shotgun/pump,
 /obj/item/gun/projectile/shotgun/pump,
-/obj/item/storage/box/shotgunammo,
-/obj/item/storage/box/shotgunammo,
+/obj/item/storage/box/shells/slugs,
+/obj/item/storage/box/shells/slugs,
 /turf/simulated/floor/tiled,
 /area/idris_wreck/armory)
 "fD" = (

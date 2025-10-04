@@ -27,7 +27,7 @@
 	new /obj/item/clothing/glasses/safety/goggles/science(src)
 	new /obj/item/device/radio/headset/headset_sci(src)
 	new /obj/item/storage/belt/archaeology(src)
-	new /obj/item/storage/box/excavation(src)
+	new /obj/item/storage/box/unique/excavation(src)
 	new /obj/item/taperoll/science(src)
 	new /obj/item/clothing/head/hardhat(src)
 	new /obj/item/sampler(src)
@@ -39,7 +39,7 @@
 
 /obj/structure/closet/excavation/fill()
 	new /obj/item/storage/belt/archaeology(src)
-	new /obj/item/storage/box/excavation(src)
+	new /obj/item/storage/box/unique/excavation(src)
 	new /obj/item/device/flashlight/lantern(src)
 	new /obj/item/device/ano_scanner(src)
 	new /obj/item/device/depth_scanner(src)

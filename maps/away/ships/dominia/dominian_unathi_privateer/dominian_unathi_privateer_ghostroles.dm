@@ -30,7 +30,7 @@
 
 	backpack_contents = list(
 		/obj/item/storage/box/survival = 1,
-		/obj/item/storage/box/donkpockets = 1,
+		/obj/item/storage/box/unique/donkpockets = 1,
 		/obj/item/device/versebook/tribunal = 1,
 		/obj/item/shield/energy/dominia = 1
 	)

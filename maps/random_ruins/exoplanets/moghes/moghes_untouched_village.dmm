@@ -581,8 +581,8 @@
 "HC" = (
 /obj/structure/closet/cabinet,
 /obj/item/gun/projectile/shotgun/doublebarrel,
-/obj/item/storage/box/shotgunshells,
-/obj/item/storage/box/shotgunshells,
+/obj/item/storage/box/shells/buckshot,
+/obj/item/storage/box/shells/buckshot,
 /obj/item/clothing/accessory/storage/bandolier,
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 303.15

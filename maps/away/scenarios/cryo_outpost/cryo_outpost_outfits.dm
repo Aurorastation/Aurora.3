@@ -97,7 +97,7 @@
 		/obj/item/storage/box/survival = 1,
 		/obj/item/clothing/glasses/welding/superior = 1,
 		/obj/item/gun/projectile/shotgun/pump/combat/sol = 1,
-		/obj/item/storage/box/shotgunshells = 1,
+		/obj/item/storage/box/shells/buckshot = 1,
 		/obj/item/landmine/frag = 1,
 		/obj/item/landmine/emp = 1,
 		/obj/item/storage/belt/utility/very_full = 1,

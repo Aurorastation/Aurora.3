@@ -54,8 +54,8 @@
 /obj/item/device/flashlight/maglight,
 /obj/item/device/flashlight/maglight,
 /obj/item/device/flashlight/maglight,
-/obj/item/storage/box/flashbangs,
-/obj/item/storage/box/teargas,
+/obj/item/storage/box/tactical/flashbangs,
+/obj/item/storage/box/tactical/teargas,
 /obj/item/storage/box/handcuffs,
 /obj/item/storage/box/handcuffs,
 /turf/simulated/floor/exoplanet/wood{
