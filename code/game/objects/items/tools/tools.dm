@@ -905,7 +905,7 @@
 		if(!user.gloves && user.is_holding(src))
 			var/obj/item/organ/external/hand = user.get_organ(user.get_bp_holding(src))
 			if(istype(hand))
-				user.apply_damage(5, DAMAGE_BURN, hand.organ_tag)
+				user.apply_damage(5, DAMAGE_BURN, hand.limb_name)
 				to_chat(user, SPAN_DANGER("The steel wool burns your [hand]!"))
 
 	new /obj/effect/decal/cleanable/ash(get_turf(src))

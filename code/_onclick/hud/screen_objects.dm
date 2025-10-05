@@ -563,7 +563,12 @@
 	if(!hud)
 		return
 
-	var/is_left = slot_id == BP_L_HAND // this is a hack I'm so sorry
+	var/is_left = slot_id == BP_L_HAND ? BP_L_HAND : slot_id == BP_R_HAND ? BP_R_HAND : null
+	var/mob/living/L = hud.mymob
+	var/mob/living/carbon/human/H = L
+
+	if(istype(H) && !is_left)
+		is_left = LAZYACCESSASSOC(H.species.limb_mapping, BP_L_HAND, slot_id) ? BP_L_HAND : BP_R_HAND
 
 	if(!handcuff_overlay)
 		var/state = is_left ? "l_hand_hud_handcuffs" : "r_hand_hud_handcuffs"
@@ -574,9 +579,10 @@
 	if(!removed_hand_overlay)
 		var/state = is_left ? "l_hand_removed" : "r_hand_removed"
 		removed_hand_overlay = image("icon" = 'icons/mob/screen_gen.dmi', "icon_state" = state)
-	ClearOverlays()
-	if(hud.mymob && ishuman(hud.mymob))
-		var/mob/living/carbon/human/H = hud.mymob
+	CutOverlays(list("hand_selected", handcuff_overlay, disabled_hand_overlay, removed_hand_overlay))
+	if(istype(L) && slot_id == L.get_active_held_item_slot())
+		AddOverlays("hand_selected")
+	if(istype(H))
 		var/obj/item/organ/external/O = H.organs_by_name[slot_id]
 		if(!O || O.is_stump())
 			AddOverlays(removed_hand_overlay)

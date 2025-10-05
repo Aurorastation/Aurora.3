@@ -435,8 +435,8 @@
 		robo = TRUE
 		if(prob(80)) // 20% chance of making robot limbs malfuction
 			continue
-		if(E.organ_tag in H.held_item_slots)
-			H.drop_from_hand(E.organ_tag)
+		if(E.limb_name in H.held_item_slots)
+			H.drop_from_hand(E.limb_name)
 	if(robo)
 		H.add_chemical_effect(CE_PAINKILLER, 30)
 		if(prob(3))

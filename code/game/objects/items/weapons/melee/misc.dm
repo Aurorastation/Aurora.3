@@ -217,7 +217,7 @@
 		// If hit in a valid zone, check and drop the item held in the respective hand, only working for items that are weight class small or below
 		var/obj/item/organ/external/E = check_zone(target_zone, target_mob)
 		if(istype(E))
-			var/obj/item/held = target_mob.get_equipped_item(E.organ_tag)
+			var/obj/item/held = target_mob.get_equipped_item(E.limb_name)
 			if(istype(held) && held.w_class <= WEIGHT_CLASS_SMALL)
 				drop_result = target_mob.drop_from_inventory(held)
 

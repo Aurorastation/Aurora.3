@@ -115,7 +115,7 @@
 /mob/living/carbon/human/proc/grasp_damage_disarm(var/obj/item/organ/external/affected)
 	var/list/drop_held_item_slots
 	if(istype(affected))
-		for(var/bp in (list(affected.organ_tag) | affected.children))
+		for(var/bp in (list(affected.limb_name) | affected.children))
 			var/datum/inventory_slot/inv_slot = LAZYACCESS(held_item_slots, bp)
 			if(inv_slot?.holding)
 				LAZYDISTINCTADD(drop_held_item_slots, inv_slot)

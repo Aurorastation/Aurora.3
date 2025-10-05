@@ -191,7 +191,7 @@
 
 /obj/item/organ/external/hand/Initialize(mapload)
 	. = ..()
-	owner?.add_held_item_slot(organ_tag, gripper_ui_loc, overlay_slot_id, gripper_ui_label)
+	owner?.add_held_item_slot(limb_name, gripper_ui_loc, overlay_slot_id, gripper_ui_label)
 
 /obj/item/organ/external/hand/body_part_class()
 	return ARMS
@@ -214,7 +214,7 @@
 		owner.update_hud_hands()
 
 /obj/item/organ/external/hand/removed()
-	var/held = owner?.get_equipped_item(organ_tag)
+	var/held = owner?.get_equipped_item(limb_name)
 	if(held)
 		owner.drop_from_inventory(held)
 	owner.drop_from_inventory(owner.gloves)

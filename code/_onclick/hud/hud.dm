@@ -387,6 +387,8 @@ GLOBAL_LIST(global_huds)
 				break
 		if(!inv_box)
 			inv_box = new /atom/movable/screen/inventory/hand()
+			inv_box.hud = src
+
 		var/datum/inventory_slot/inv_slot = target.held_item_slots[bp]
 		inv_box.name = bp
 		inv_box.icon = ui_style
