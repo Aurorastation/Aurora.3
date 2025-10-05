@@ -31,7 +31,7 @@
 	designer = "Solarian Navy"
 	volume = "80 meters length, 42 meters beam/width, 37 meters vertical height"
 	drive = "Medum-Speed Warp Acceleration FTL Drive"
-	weapons = "Dual extruding fore caliber ballistic armament, fore obscured flight craft hangar"
+	weapons = "Dual extruding fore caliber ballistic armament, fore unobscured docking arm and catwalk"
 	sizeclass = "Cuirassier-Class Frigate (Revised)"
 	shiptype = "Naval Frigate"
 	max_speed = 1/(2 SECONDS)
