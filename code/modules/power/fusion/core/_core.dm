@@ -144,7 +144,3 @@
 	if(idle_power_usage > avail())
 		return FALSE
 	. = TRUE
-
-/obj/machinery/power/fusion_core/Destroy()
-	set_light(0)
-	..()
