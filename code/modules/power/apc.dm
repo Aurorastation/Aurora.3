@@ -85,7 +85,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 	var/areastring = null
 	var/obj/item/cell/cell
 	/// Cap for how fast APC cells charge, as a percentage-per-tick (0.01 means cellcharge is capped to 1% per second)
-	var/chargelevel = 0.0005
+	var/chargelevel = 0.005
 	var/cellused = 0
 	/// Initial cell charge %
 	var/start_charge = 90
@@ -147,7 +147,8 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 /obj/machinery/power/apc/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "An APC (Area Power Controller) regulates and supplies backup power for the area they are in."
-	. += "Their power channels are divided into 'environmental' (items that manipulate airflow and temperature), 'lighting' (lights), and 'equipment' (everything else that consumes power)."
+	. += "ALT-click the [src] to lock or unlock it (if you have the appropriate ID access)."
+	. += "APC power channels are divided into 'environmental' (items that manipulate airflow and temperature), 'lighting' (lights), and 'equipment' (everything else that consumes power)."
 	. += "Power consumption and backup power cell charge can be seen from the interface; further controls (turning a specific channel on, off or automatic, \
 	toggling the APC's ability to charge the backup cell, or toggling power for the entire area via master breaker) first requires the interface to be unlocked \
 	with an ID with Engineering access or by one of the ship's robots or AI."
@@ -373,7 +374,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 	if(update & 2)
 		ClearOverlays()
 		if(!(stat & (BROKEN|MAINT)) && update_state & UPDATE_ALLGOOD)
-			AddOverlays(status_overlays_lock[locked+coverlocked+1])
+			AddOverlays(status_overlays_lock[locked+1])
 			AddOverlays(status_overlays_charging[charging+1])
 			AddOverlays(emissive_appearance(icon, "apc-cover-0"))
 			AddOverlays(emissive_appearance(icon, "apc-charge-0"))
@@ -585,26 +586,6 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 			to_chat(user, "The wires have been [panel_open ? "exposed" : "unexposed"]")
 			update_icon()
 
-	// ID CARD: Attempt to unlock the interface if you have sufficient access.
-	else if (attacking_item.GetID())
-		if(emagged)
-			to_chat(user, "The interface is broken.")
-		else if(opened != COVER_CLOSED)
-			to_chat(user, "You must close the cover to swipe an ID card.")
-		else if(panel_open)
-			to_chat(user, "You must close the wiring panel to swipe an ID card.")
-		else if(stat & (BROKEN|MAINT))
-			to_chat(user, "Nothing happens.")
-		else if(hacker)
-			to_chat(user, SPAN_WARNING("Access denied."))
-		else
-			if(allowed(usr) && !isWireCut(WIRE_IDSCAN))
-				locked = !locked
-				to_chat(user, "You [ locked ? "lock" : "unlock"] the APC interface.")
-				update_icon()
-			else
-				to_chat(user, SPAN_WARNING("Access denied."))
-
 	// CABLE COIL: Install the power terminal (wire stuff on the floor in front of the APC).
 	else if (attacking_item.iscoil() && !terminal && opened != COVER_CLOSED && has_electronics != HAS_ELECTRONICS_SECURED)
 		var/turf/T = loc
@@ -798,6 +779,33 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 				SPAN_DANGER("You hit the [name] with your [attacking_item.name]!"), \
 				"You hear a loud metallic bang")
 
+/obj/machinery/power/apc/AltClick(mob/user)
+	if(Adjacent(user) || issilicon(user))
+		add_fingerprint(user)
+		if(emagged)
+			to_chat(user, "The interface is broken.")
+		else if(opened != COVER_CLOSED)
+			to_chat(user, "You must close the cover to swipe an ID card.")
+		else if(panel_open)
+			to_chat(user, "You must close the wiring panel to swipe an ID card.")
+		else if(stat & (BROKEN|MAINT))
+			to_chat(user, "Nothing happens.")
+		else if(hacker)
+			to_chat(user, SPAN_WARNING("Access denied."))
+		else
+			if(allowed(usr) && !isWireCut(WIRE_IDSCAN))
+				locked = !locked
+				if(locked)
+					playsound(src, 'sound/machines/terminal/terminal_button03.ogg', 35, FALSE)
+				else
+					playsound(src, 'sound/machines/terminal/terminal_button01.ogg', 35, FALSE)
+				balloon_alert(user, locked ? "locked" : "unlocked")
+				update_icon()
+			else
+				to_chat(user, SPAN_WARNING("Access denied."))
+				playsound(src, 'sound/machines/terminal/terminal_error.ogg', 25, FALSE)
+				balloon_alert(user, "access denied!")
+
 /obj/machinery/power/apc/emag_act(var/remaining_charges, var/mob/user)
 	if(emagged && !infected)
 		to_chat(user, SPAN_WARNING("You start sliding your cryptographic device into the charging slot. This will take a few seconds..."))
@@ -928,8 +936,8 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 	data["fail_time"] = failure_timer * 2
 	data["silicon_user"] = isAdmin || issilicon(user)
 	data["is_AI_or_robot"] = isAI(user) || isrobot(user)
-	data["total_load"] = round(lastused_total)
-	data["total_charging"] = round(lastused_charging)
+	data["total_load"] = power_wattage_readable(lastused_total)
+	data["total_charging"] = power_wattage_readable(lastused_charging)
 	data["is_operating"] = operating
 	data["charge_mode"] = chargemode
 	data["external_power"] = main_status
@@ -939,9 +947,9 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 	data["emergency_mode"] = !emergency_lights
 	data["time"] = time
 	data["power_channels"] = list(
-		list("name" = "Equipment", "power_load" = lastused_equip, "status" = equipment),
-		list("name" = "Lighting", "power_load" = round(lastused_light), "status" = lighting),
-		list("name" = "Environment", "power_load" = round(lastused_environ), "status" = environ)
+		list("name" = "Equipment", "power_load" = power_wattage_readable(lastused_equip), "status" = equipment),
+		list("name" = "Lighting", "power_load" = power_wattage_readable(lastused_light), "status" = lighting),
+		list("name" = "Environment", "power_load" = power_wattage_readable(lastused_environ), "status" = environ)
 	)
 	return data
 
@@ -957,10 +965,12 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 		area.power_light = (lighting > 1)
 		area.power_equip = (equipment > 1)
 		area.power_environ = (environ > 1)
+
 	else
 		area.power_light = FALSE
 		area.power_equip = FALSE
 		area.power_environ = FALSE
+		playsound(src.loc, 'sound/machines/terminal/terminal_off.ogg', 50, FALSE)
 	area.power_change()
 
 /obj/machinery/power/apc/proc/isWireCut(var/wireIndex)
@@ -1070,6 +1080,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 				if("Environment")
 					environ = setsubsystem(val)
 			intent_message(BUTTON_FLICK, 5)
+			playsound(src, 'sound/machines/terminal/terminal_select.ogg', 18, TRUE)
 			update_icon()
 			update()
 			. = TRUE
@@ -1090,6 +1101,10 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 
 /obj/machinery/power/apc/proc/toggle_breaker()
 	operating = !operating
+	if(operating)
+		playsound(src, 'sound/machines/terminal/terminal_on.ogg', 35, FALSE)
+	else
+		playsound(src, 'sound/machines/terminal/terminal_off.ogg', 35, FALSE)
 	update()
 	update_icon()
 	intent_message(BUTTON_FLICK)
