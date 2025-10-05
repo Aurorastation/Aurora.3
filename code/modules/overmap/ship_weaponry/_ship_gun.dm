@@ -80,6 +80,7 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/ship_weapon/LateInitialize()
+	. = ..()
 	SSshuttle.weapons_to_initialize += src
 	if(SSshuttle.initialized)
 		SSshuttle.initialize_ship_weapons()

@@ -178,6 +178,7 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/zat_lever/LateInitialize()
+	. = ..()
 	for(var/obj/machinery/ship_weapon/leviathan/cannon in get_area(src))
 		ZAT = cannon
 		break
@@ -287,6 +288,7 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/leviathan_safeguard/LateInitialize()
+	. = ..()
 	if(SSatlas.current_map.use_overmap && !linked)
 		var/my_sector = GLOB.map_sectors["[z]"]
 		if (istype(my_sector, /obj/effect/overmap/visitable))
@@ -359,6 +361,7 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/leviathan_button/LateInitialize()
+	. = ..()
 	if(SSatlas.current_map.use_overmap && !linked)
 		var/my_sector = GLOB.map_sectors["[z]"]
 		if (istype(my_sector, /obj/effect/overmap/visitable))

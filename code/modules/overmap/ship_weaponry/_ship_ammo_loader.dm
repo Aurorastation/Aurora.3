@@ -21,6 +21,7 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/ammunition_loader/LateInitialize()
+	. = ..()
 	for(var/obj/machinery/ship_weapon/SW in SSmachinery.machinery)
 		if(SW.weapon_id == weapon_id)
 			if(get_area(SW) == get_area(src))

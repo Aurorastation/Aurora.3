@@ -16,22 +16,27 @@
 
 	var/regen_rate = 5
 
-	// damage gets divided by these modifiers, based on damage type
+	/// Damage gets divided by these modifiers, based on damage type
 	var/brute_resist = 4.3
 	var/fire_resist = 0.8
-	var/laser_resist = 2	// Special resist for laser based weapons - Emitters or handheld energy weaponry. Damage is divided by this and THEN by fire_resist.
+	/// Special resist for laser based weapons - Emitters or handheld energy weaponry. Damage is divided by this and THEN by fire_resist.
+	var/laser_resist = 2
 
 	var/expandType = /obj/effect/blob
-	var/secondary_core_growth_chance = 5 //% chance to grow a secondary blob core instead of whatever was supposed to grow. Secondary cores are considerably weaker, but still nasty.
+	/// % chance to grow a secondary blob core instead of whatever was supposed to grow. Secondary cores are considerably weaker, but still nasty.
+	var/secondary_core_growth_chance = 5
 	var/damage_min = 15
 	var/damage_max = 25
 	var/pruned = FALSE
 	var/product = /obj/item/blob_tendril
 	var/attack_time = 0
-	var/attack_cooldown = 60 // time in deciseconds before next attack will occur
+	/// Time in deciseconds before next attack will occur
+	var/attack_cooldown = 60
 
-	var/obj/effect/blob/parent_core // the core this blob piece belongs to
-	var/is_core = FALSE // determines how to pass core inheritance
+	/// The core this blob piece belongs to
+	var/obj/effect/blob/parent_core
+	/// Determines how to pass core inheritance
+	var/is_core = FALSE
 
 /obj/effect/blob/Initialize()
 	. = ..()

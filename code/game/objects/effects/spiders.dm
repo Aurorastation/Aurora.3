@@ -207,28 +207,29 @@
 				var/obj/machinery/atmospherics/unary/vent_pump/exit_vent = pick(vents)
 
 				spawn(rand(20,60))
-					loc = exit_vent
-					var/travel_time = round(get_dist(loc, exit_vent.loc) / 2)
-					spawn(travel_time)
+					if(!QDELETED(src))
+						loc = exit_vent
+						var/travel_time = round(get_dist(loc, exit_vent.loc) / 2)
+						spawn(travel_time)
+							if(!QDELETED(src))
+								if(!exit_vent || exit_vent.welded)
+									loc = entry_vent
+									entry_vent = null
+									return
 
-						if(!exit_vent || exit_vent.welded)
-							loc = entry_vent
-							entry_vent = null
-							return
+								if(prob(50))
+									visible_message(SPAN_NOTICE("You hear something squeezing through the ventilation ducts."), range = 2)
+								sleep(travel_time)
 
-						if(prob(50))
-							visible_message(SPAN_NOTICE("You hear something squeezing through the ventilation ducts."), range = 2)
-						sleep(travel_time)
-
-						if(!exit_vent || exit_vent.welded)
-							loc = entry_vent
-							entry_vent = null
-							return
-						loc = exit_vent.loc
-						entry_vent = null
-						var/area/new_area = get_area(loc)
-						if(new_area)
-							new_area.Entered(src)
+								if(!exit_vent || exit_vent.welded)
+									loc = entry_vent
+									entry_vent = null
+									return
+								loc = exit_vent.loc
+								entry_vent = null
+								var/area/new_area = get_area(loc)
+								if(new_area)
+									new_area.Entered(src)
 			else
 				entry_vent = null
 	else if(prob(25) && isturf(loc))

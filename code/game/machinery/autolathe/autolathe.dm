@@ -56,6 +56,7 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/autolathe/LateInitialize()
+	. = ..()
 	populate_lathe_recipes()
 
 /obj/machinery/autolathe/Destroy()

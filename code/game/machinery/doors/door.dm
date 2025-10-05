@@ -6,9 +6,9 @@
 	desc = "It opens and closes."
 	icon = 'icons/obj/doors/doorint.dmi'
 	icon_state = "door_closed"
-	anchored = 1
-	opacity = 1
-	density = 1
+	anchored = TRUE
+	opacity = TRUE
+	density = TRUE
 	layer = CLOSED_DOOR_LAYER
 	dir = SOUTH
 
@@ -61,6 +61,10 @@
 	atmos_canpass = CANPASS_PROC
 
 	can_astar_pass = CANASTARPASS_ALWAYS_PROC
+
+/obj/machinery/door/mouse_drop_receive(atom/dropping, mob/user, params)
+	//Adds the component only once. We do it here & not in Initialize() because there are tons of walls & we don't want to add to their init times
+	LoadComponent(/datum/component/leanable, dropping)
 
 /obj/machinery/door/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	if(damage >= 10)
@@ -124,7 +128,7 @@
 	playsound(src.loc, hatch_close_sound, 30, TRUE, extrarange = SILENCED_SOUND_EXTRARANGE)
 
 /obj/machinery/door/Destroy()
-	density = 0
+	set_density(FALSE)
 	update_nearby_tiles()
 
 	return ..()
@@ -505,7 +509,7 @@
 	icon_state = "door_open"
 	set_opacity(0)
 	sleep(3)
-	src.density = 0
+	set_density(FALSE)
 	update_nearby_tiles()
 	sleep(2)
 	src.layer = open_layer
@@ -541,7 +545,7 @@
 
 	do_animate("closing")
 	sleep(3)
-	src.density = 1
+	set_density(TRUE)
 	explosion_resistance = initial(explosion_resistance)
 	src.layer = closed_layer
 	update_nearby_tiles()

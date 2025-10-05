@@ -40,9 +40,12 @@
 	var/blood_color
 	var/last_bumped = 0
 	var/pass_flags = 0
-	var/germ_level = GERM_LEVEL_AMBIENT // The higher the germ level, the more germ on the atom.
-	var/simulated = 1 // Filter for actions. Used by lighting overlays.
-	var/fluorescent // Shows up under a UV light.
+	/// The higher the germ level, the more germ on the atom.
+	var/germ_level = GERM_LEVEL_AMBIENT
+	/// Filter for actions. Used by lighting overlays.
+	var/simulated = 1
+	/// Shows up under a UV light.
+	var/fluorescent
 
 	var/explosion_resistance
 
@@ -285,3 +288,12 @@
 	if(pass_info.pass_flags & pass_flags_self)
 		return TRUE
 	. = !density
+
+///Setter for the `density` variable to append behavior related to its changing.
+/atom/proc/set_density(new_value)
+	SHOULD_CALL_PARENT(TRUE)
+	if(density == new_value)
+		return
+	. = density
+	density = new_value
+	SEND_SIGNAL(src, COMSIG_ATOM_DENSITY_CHANGED)

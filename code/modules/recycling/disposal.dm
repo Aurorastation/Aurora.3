@@ -33,6 +33,10 @@
 	/// Internal reservoir
 	var/datum/gas_mixture/air_contents
 	var/mode = MODE_PRESSURIZING
+	/// MODE_X define that was set when we last updated overlays.
+	var/mode_icon
+	/// Whether or not we are currently indicating as occupied.
+	var/showing_full = FALSE
 	/// Controlled by flush wire status
 	var/can_flush = TRUE
 	/// TRUE if flush handle is pulled
@@ -436,12 +440,21 @@
  * Update the icon & overlays to reflect mode & status
  */
 /obj/machinery/disposal/proc/update()
-	ClearOverlays()
-	if(stat & BROKEN)
+	if(!isnull(mode_icon) && (stat & BROKEN))
+		ClearOverlays()
 		icon_state = "[icon_state]-broken"
+		mode_icon = null
 		mode = MODE_OFF
 		flush = 0
 		return
+
+	var/has_contents = !!length(contents)
+
+	if (mode_icon == mode && showing_full == has_contents)
+		return
+
+	// if we're here, we must rebuild...
+	ClearOverlays()
 
 	// flush handle
 	if(flush)
@@ -449,17 +462,21 @@
 
 	// only handle is shown if no power
 	if(stat & NOPOWER || mode == MODE_OFF)
+		mode_icon = MODE_OFF
 		return
 
 	// check for items in disposal - occupied light
-	if(length(contents))
+	if(has_contents)
 		AddOverlays("[icon_state]-full")
+	showing_full = has_contents
 
 	// charging and ready light
 	if(mode == MODE_PRESSURIZING)
 		AddOverlays("[icon_state]-charge")
+		mode_icon = MODE_PRESSURIZING
 	else if(mode == MODE_READY)
 		AddOverlays("[icon_state]-ready")
+		mode_icon = MODE_READY
 
 /**
  * Timed process. Charge the gas reservoir and perform flush if ready.
@@ -1733,8 +1750,3 @@
 		dirs = GLOB.alldirs.Copy()
 
 	src.streak(dirs)
-
-#undef MODE_OFF
-#undef MODE_PRESSURIZING
-#undef MODE_READY
-#undef MODE_FLUSHING

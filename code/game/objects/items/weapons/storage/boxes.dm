@@ -1168,11 +1168,10 @@
 		/obj/item/flag/dominia/l = 6,
 		/obj/item/flag/strelitz = 4,
 		/obj/item/flag/volvalaad = 4,
-		/obj/item/flag/kazhkz = 4,
 		/obj/item/flag/caladius = 2,
 		/obj/item/flag/zhao = 4,
-		/obj/item/flag/diona = 2,
-		/obj/item/flag/hansan = 2,
+		/obj/item/flag/zhurong = 3,
+		/obj/item/flag/zhurong/l = 2,
 		/obj/item/flag/imperial_frontier = 3,
 		/obj/item/flag/imperial_frontier/l = 2
 	)
