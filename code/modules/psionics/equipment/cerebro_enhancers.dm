@@ -132,20 +132,53 @@
 	icon_state = "amp"
 	contained_sprite = FALSE
 
+	/**
+	 * The psi rank that this jumpstarter will set a user to.
+	 * If the user is below this psi-rank, it will upgrade them
+	 */
+	var/psi_rank_to_set = PSI_RANK_HARMONIOUS
+
+	/**
+	 * The amount of psi-points this jumpstarter will set a user to have.
+	 * Due to limitations of the current psionics code, it's not actually feasible for me to make this a modifier.
+	 * If this is set to -1, it will set the points to whatever the default point total is for the given psi-rank.
+	 */
+	var/psi_points_override = 8
+
+	/// The message displayed to a character that is not eligible for psionics when attempting to use the psionic jumpstarter.
+	var/non_eligible_message = SPAN_WARNING("You don't have a Zona Bovinae!")
+
+	/// The message displayed to a character that is already at or above the jumpstarter's psionic rating.
+	var/already_psionic_message = SPAN_WARNING("You've already awakened your psionic potential!")
+
+	/// The message displayed to a player who successfully uses a psionic jumpstarter.
+	var/awakening_message = SPAN_NOTICE("You've awakened your psionic potential. Note that you have a reduced point pool than usual.")
+
 /obj/item/psionic_jumpstarter/attack_self(mob/user)
 	. = ..()
 	if(!ishuman(user))
 		return
 	var/mob/living/carbon/human/H = user
 	if(!H.has_zona_bovinae())
-		to_chat(H, SPAN_WARNING("You don't have a Zona Bovinae!"))
+		to_chat(H, non_eligible_message)
 		return
 
-	if(H.psi && H.psi.get_rank() >= PSI_RANK_HARMONIOUS)
-		to_chat(H, SPAN_WARNING("You've already awakened your psionic potential!"))
+	if(H.psi && H.psi.get_rank() >= psi_rank_to_set)
+		to_chat(H, already_psionic_message)
 		return
 
-	H.set_psi_rank(PSI_RANK_HARMONIOUS)
-	H.psi.psi_points = 8
-	to_chat(H, SPAN_NOTICE("You've awakened your psionic potential. Note that you have a reduced point pool than usual."))
+	H.set_psi_rank(psi_rank_to_set)
+
+	if(psi_points_override != -1)
+		H.psi.psi_points = psi_points_override
+
+	to_chat(H, awakening_message)
 	qdel(src)
+
+/obj/item/psionic_jumpstarter/sensitive
+	name = "psionic awakener"
+	desc = "Use this to jumpstart your psionic rank to Psionically Sensitive, enabling you to use the Psionic Point Shop and buy basic psionic abilities. \
+			This won't work on species with no Zona Bovinae, like synthetics, vaurcae or dionae! This item is definitely not canon."
+	psi_rank_to_set = PSI_RANK_SENSITIVE
+	psi_points_override = -1 // Uses the default 2 psi points allotted to psionic sensitive.
+	awakening_message = SPAN_NOTICE("You've awakened your psionic potential.")

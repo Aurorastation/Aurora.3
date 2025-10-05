@@ -265,7 +265,6 @@
 					var/mob_type = pick(repopulate_types)
 					var/mob/S = new mob_type(T)
 					animals += S
-					GLOB.death_event.register(S, src, PROC_REF(remove_animal))
 					RegisterSignal(S, COMSIG_QDELETING, PROC_REF(remove_animal))
 					adapt_animal(S)
 			if(animals.len >= max_animal_count)
@@ -287,7 +286,6 @@
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/remove_animal(mob/M)
 	animals -= M
-	GLOB.death_event.unregister(M, src)
 	UnregisterSignal(M, COMSIG_QDELETING)
 	repopulate_types |= M.type
 
@@ -422,7 +420,7 @@
 					break
 			// Landability check - try to find an already-open space for an LZ
 			if(attempts >= 10)
-				if(check_collision(T.loc, block_to_check))
+				if(check_collision(block_to_check))
 					valid = FALSE
 			else // If we're running low on attempts we try to make our own LZ, ignoring landability but still checking for ruins
 				new_type = /obj/effect/shuttle_landmark/automatic/clearing

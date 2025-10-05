@@ -25,6 +25,7 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/mineral/stacking_unit_console/LateInitialize()
+	. = ..()
 	setup_machine(null)
 
 /obj/machinery/mineral/stacking_unit_console/Destroy()

@@ -919,7 +919,7 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 /datum/gear/faction/scc_notepad
 	display_name = "SCC notepad"
 	description = "A notepad for jotting down notes in corporate meetings. This one is navy blue with a gold SCC logo on the front."
-	path = /obj/item/journal/notepad/scc
+	path = /obj/item/journal/notepad/scc/filled
 	sort_category = "Factions"
 	cost = 1
 	faction = null

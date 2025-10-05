@@ -97,8 +97,8 @@
 		winset(src, null, "mainwindow.macro=macro hotkey_toggle.is-checked=false input.focus=true")
 	MOB_STOP_THINKING(src)
 
-	clear_important_client_contents(client)
-	enable_client_mobs_in_contents(client)
+	clear_important_client_contents()
+	enable_client_mobs_in_contents()
 
 	AddDefaultRenderers()
 	update_client_color()

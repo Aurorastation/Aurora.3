@@ -580,7 +580,7 @@
 				LAZYINITLIST(recursive_contents[channel])
 				recursive_contents[channel] -= gone.important_recursive_contents[channel]
 				switch(channel)
-					if(RECURSIVE_CONTENTS_CLIENT_MOBS, RECURSIVE_CONTENTS_HEARING_SENSITIVE)
+					if(RECURSIVE_CONTENTS_CLIENT_MOBS, RECURSIVE_CONTENTS_HEARING_SENSITIVE,RECURSIVE_CONTENTS_AI_TARGETS)
 						if(!length(recursive_contents[channel]))
 							// This relies on a nice property of the linked recursive and gridmap types
 							// They're defined in relation to each other, so they have the same value
@@ -601,7 +601,7 @@
 				var/list/recursive_contents = location.important_recursive_contents // blue hedgehog velocity
 				LAZYINITLIST(recursive_contents[channel])
 				switch(channel)
-					if(RECURSIVE_CONTENTS_CLIENT_MOBS, RECURSIVE_CONTENTS_HEARING_SENSITIVE)
+					if(RECURSIVE_CONTENTS_CLIENT_MOBS, RECURSIVE_CONTENTS_HEARING_SENSITIVE,RECURSIVE_CONTENTS_AI_TARGETS)
 						if(!length(recursive_contents[channel]))
 							SSspatial_grid.add_grid_awareness(location, channel)
 				recursive_contents[channel] |= arrived.important_recursive_contents[channel]
@@ -701,25 +701,29 @@
 // This proc adds atom/movables to the AI targetable list, i.e. things that the AI (turrets, hostile animals) will attempt to target
 /atom/movable/proc/add_to_target_grid()
 	for (var/atom/movable/location as anything in get_nested_locs(src) + src)
-		LAZYADDASSOCLIST(location.important_recursive_contents, RECURSIVE_CONTENTS_AI_TARGETS, src)
+		LAZYINITLIST(location.important_recursive_contents)
+		var/list/recursive_contents = location.important_recursive_contents
+		if(!length(recursive_contents[RECURSIVE_CONTENTS_AI_TARGETS]))
+			SSspatial_grid.add_grid_awareness(location, SPATIAL_GRID_CONTENTS_TYPE_TARGETS)
+		LAZYINITLIST(recursive_contents[RECURSIVE_CONTENTS_AI_TARGETS])
+		recursive_contents[RECURSIVE_CONTENTS_AI_TARGETS] |= src
 
 	var/turf/our_turf = get_turf(src)
-	if(our_turf && SSspatial_grid.initialized)
-		SSspatial_grid.add_grid_awareness(src, RECURSIVE_CONTENTS_AI_TARGETS)
-		SSspatial_grid.add_grid_membership(src, our_turf, RECURSIVE_CONTENTS_AI_TARGETS)
-
-	else if(our_turf && !SSspatial_grid.initialized)//SSspatial_grid isnt init'd yet, add ourselves to the queue
-		SSspatial_grid.enter_pre_init_queue(src, RECURSIVE_CONTENTS_AI_TARGETS)
+	SSspatial_grid.add_grid_membership(src, our_turf, SPATIAL_GRID_CONTENTS_TYPE_TARGETS)
 
 /atom/movable/proc/clear_from_target_grid()
 	var/turf/our_turf = get_turf(src)
-	if(our_turf && SSspatial_grid.initialized)
-		SSspatial_grid.exit_cell(src, our_turf, RECURSIVE_CONTENTS_AI_TARGETS)
-	else if(our_turf && !SSspatial_grid.initialized)
-		SSspatial_grid.remove_from_pre_init_queue(src, RECURSIVE_CONTENTS_AI_TARGETS)
+	SSspatial_grid.remove_grid_membership(src, our_turf, SPATIAL_GRID_CONTENTS_TYPE_TARGETS)
 
-	for(var/atom/movable/location as anything in get_nested_locs(src) + src)
-		LAZYREMOVEASSOC(location.important_recursive_contents, RECURSIVE_CONTENTS_AI_TARGETS, src)
+	for(var/atom/movable/movable_loc as anything in get_nested_locs(src) + src)
+		LAZYINITLIST(movable_loc.important_recursive_contents)
+		var/list/recursive_contents = movable_loc.important_recursive_contents // blue hedgehog velocity
+		LAZYINITLIST(recursive_contents[RECURSIVE_CONTENTS_AI_TARGETS])
+		recursive_contents[RECURSIVE_CONTENTS_AI_TARGETS] -= src
+		if(!length(recursive_contents[RECURSIVE_CONTENTS_AI_TARGETS]))
+			SSspatial_grid.remove_grid_awareness(movable_loc, SPATIAL_GRID_CONTENTS_TYPE_TARGETS)
+		ASSOC_UNSETEMPTY(recursive_contents, RECURSIVE_CONTENTS_AI_TARGETS)
+		UNSETEMPTY(movable_loc.important_recursive_contents)
 
 /atom/movable/proc/do_simple_ranged_interaction(var/mob/user)
 	return FALSE
