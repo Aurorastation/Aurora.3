@@ -79,7 +79,7 @@
 
 		visible_message(SPAN_NOTICE("[user] recovers a bluespace crystal from [src]'s remains!"))
 		var/obj/item/bluespace_crystal/C = new(get_turf(src))
-		user.put_in_any_hand_if_possible(C)
+		user.put_in_hands(C)
 		crystal_harvested = TRUE
 		return
 

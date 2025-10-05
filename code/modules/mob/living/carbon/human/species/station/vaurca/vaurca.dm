@@ -124,6 +124,8 @@
 		BP_R_LEG =  list("path" = /obj/item/organ/external/leg/right/vaurca),
 		BP_L_HAND = list("path" = /obj/item/organ/external/hand/vaurca),
 		BP_R_HAND = list("path" = /obj/item/organ/external/hand/right/vaurca),
+		BP_L_HAND_UPPER = list("path" = /obj/item/organ/external/hand/vaurca/upper),
+		BP_R_HAND_UPPER = list("path" = /obj/item/organ/external/hand/right/vaurca/upper),
 		BP_L_FOOT = list("path" = /obj/item/organ/external/foot/vaurca),
 		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/vaurca)
 		)
@@ -177,13 +179,13 @@
 	. = ..()
 	H.gender = NEUTER
 	var/obj/item/clothing/mask/gas/vaurca/filter/M = new /obj/item/clothing/mask/gas/vaurca/filter(H)
-	H.equip_to_slot_or_del(M, slot_wear_mask)
+	H.equip_to_slot_or_del(M, slot_wear_mask_str)
 
 /datum/species/bug/after_equip(var/mob/living/carbon/human/H)
 	if(H.shoes)
 		return
 	var/obj/item/clothing/shoes/sandals/S = new /obj/item/clothing/shoes/sandals(H)
-	H.equip_to_slot_or_del(S,slot_shoes)
+	H.equip_to_slot_or_del(S,slot_shoes_str)
 
 /datum/species/bug/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.gender = NEUTER

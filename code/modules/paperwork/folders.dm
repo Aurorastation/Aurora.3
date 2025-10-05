@@ -83,11 +83,10 @@
 			var/obj/item/paper/paper = locate(href_list["write"])
 			if(!istype(paper) || paper.loc != src)
 				return
-			var/obj/item/pen = usr.get_inactive_hand()
-			if(!pen || !pen.ispen())
-				pen = usr.get_active_hand()
-			if(pen?.ispen())
-				paper.attackby(pen, usr)
+			for(var/obj/item/pen in usr.get_held_items())
+				if(pen.ispen())
+					paper.attackby(pen, usr)
+					break
 		else if(href_list["read"])
 			var/obj/item/paper/P = locate(href_list["read"])
 			if(P && (P.loc == src) && istype(P))

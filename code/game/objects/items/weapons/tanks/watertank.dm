@@ -64,7 +64,7 @@
 
 /obj/item/watertank/equipped(mob/user, slot)
 	..()
-	if(slot != slot_back)
+	if(slot != slot_back_str)
 		remove_noz()
 
 /obj/item/watertank/proc/remove_noz()

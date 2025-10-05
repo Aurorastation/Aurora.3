@@ -36,7 +36,7 @@
 /atom/proc/attack_ranged(mob/user, params)
 	return
 
-/mob/proc/attack_empty_hand(var/bp_hand)
+/mob/proc/attack_empty_hand()
 	return
 
 /mob/living/carbon/human/RangedAttack(atom/A)

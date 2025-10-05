@@ -94,6 +94,6 @@
 						/obj/item/storage/box/hadii_manifesto = 1,
 						/obj/item/storage/box/hadii_card = 1
 						)
-	l_hand = /obj/item/device/megaphone
+	hands = list(/obj/item/device/megaphone)
 
 	accessory = /obj/item/clothing/accessory/hadii_pin

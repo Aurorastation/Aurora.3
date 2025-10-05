@@ -45,8 +45,7 @@
 	item_state = icon_state
 	if(ismob(src.loc))
 		var/mob/H = src.loc
-		H.update_inv_l_hand()
-		H.update_inv_r_hand()
+		H.update_inv_hands()
 
 /obj/item/device/flashlight/flare/attack_self(mob/user)
 	// Usual checks
@@ -118,8 +117,7 @@
 	item_state = icon_state
 	if(ismob(src.loc))
 		var/mob/H = src.loc
-		H.update_inv_l_hand()
-		H.update_inv_r_hand()
+		H.update_inv_hands()
 
 
 /obj/item/device/flashlight/flare/torch/proc/light(mob/user)

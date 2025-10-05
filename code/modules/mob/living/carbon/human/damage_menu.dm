@@ -30,7 +30,7 @@
 	if(!user.client.holder)
 		return
 
-	var/mob/living/carbon/H = target_human.resolve()
+	var/mob/living/carbon/human/H = target_human.resolve()
 	if(!istype(H))
 		to_chat(user, SPAN_DANGER("The humanoid target couldn't be found, closing UI."))
 		SStgui.close_uis(src)
@@ -38,7 +38,8 @@
 
 	var/list/limbs = list()
 	for(var/name in H.species.has_limbs)
-		limbs += list(list("name" = capitalize_first_letters(parse_zone(name)), "present" = !!H.organs_by_name[name]))
+		var/obj/item/organ/external/E = GET_EXTERNAL_ORGAN(H, name)
+		limbs += list(list("name" = capitalize_first_letters(E::name), "present" = !!H.organs_by_name[name]))
 	var/list/organs = list()
 	for(var/name in H.species.has_organ)
 		organs += list(list("name" = capitalize_first_letters(name), "present" = !!H.internal_organs_by_name[name]))
@@ -61,7 +62,11 @@
 
 	switch(action)
 		if("limb")
-			var/obj/item/organ/external/L = H.organs_by_name[reverse_parse_zone(lowertext(params["name"]))]
+			var/obj/item/organ/external/L
+			for (var/obj/item/organ/external/organ in H.organs)
+				if (organ.name == lowertext(params["name"]))
+					L = organ
+					break
 			if(!L)
 				to_chat(usr, SPAN_WARNING("\The [H] doesn't have that limb!"))
 				return

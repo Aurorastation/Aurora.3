@@ -8,18 +8,18 @@ ABSTRACT_TYPE(/datum/gear/religion/trinary)
 /datum/gear/religion/trinary/mask
 	display_name = "trinary perfection mask"
 	path = /obj/item/clothing/mask/trinary_mask
-	slot = slot_wear_mask
+	slot = slot_wear_mask_str
 
 /datum/gear/religion/trinary/coif
 	display_name = "trinary perfection coif"
 	path = /obj/item/clothing/head/trinary
-	slot = slot_head
+	slot = slot_head_str
 
 /datum/gear/religion/trinary/robe
 	display_name = "trinary perfection robes selection"
 	description = "A selection of robes worn by adherents of the Trinary Perfection."
 	path = /obj/item/clothing/suit/trinary_robes
-	slot = slot_wear_suit
+	slot = slot_wear_suit_str
 
 /datum/gear/religion/trinary/robe/New()
 	..()
@@ -33,7 +33,7 @@ ABSTRACT_TYPE(/datum/gear/religion/trinary)
 	display_name = "trinary perfection cape selection"
 	description = "A selection of capes worn by adherents to the Trinary Perfection."
 	path = /obj/item/clothing/accessory/poncho/trinary
-	slot = slot_wear_suit
+	slot = slot_wear_suit_str
 
 /datum/gear/religion/trinary/cape/New()
 	..()
@@ -46,7 +46,7 @@ ABSTRACT_TYPE(/datum/gear/religion/trinary)
 /datum/gear/religion/trinary/badge
 	display_name = "trinary perfection brooch"
 	path = /obj/item/clothing/accessory/badge/trinary
-	slot = slot_tie
+	slot = slot_tie_str
 
 /datum/gear/religion/trinary/book
 	display_name = "The Order"
@@ -61,18 +61,18 @@ ABSTRACT_TYPE(/datum/gear/religion/trinary)
 /datum/gear/religion/rosary
 	display_name = "rosary"
 	path = /obj/item/clothing/accessory/rosary
-	slot = slot_tie
+	slot = slot_tie_str
 
 /datum/gear/religion/scapular
 	display_name = "scapular"
 	path = /obj/item/clothing/accessory/scapular
-	slot = slot_tie
+	slot = slot_tie_str
 
 /datum/gear/religion/crucifix
 	display_name = "crucifix selection"
 	description = "A selection of different crucifixes, commonly associated with Christianity."
 	path = /obj/item/clothing/accessory/crucifix
-	slot = slot_tie
+	slot = slot_tie_str
 	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_NAME_SELECTION
 
 /datum/gear/religion/crucifix/New()
@@ -87,20 +87,20 @@ ABSTRACT_TYPE(/datum/gear/religion/trinary)
 /datum/gear/religion/shintorobe
 	display_name = "shrine maiden robe"
 	path = /obj/item/clothing/under/konyangdresstraditional/red
-	slot = slot_w_uniform
+	slot = slot_w_uniform_str
 
 /datum/gear/religion/kippah
 	display_name = "kippah"
 	description = "A head covering commonly worn by those of Jewish faith."
 	path = /obj/item/clothing/head/kippah
-	slot = slot_head
+	slot = slot_head_str
 	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/religion/tallit
 	display_name = "tallit"
 	description = "A prayer shawl commonly worn by those of Jewish faith."
 	path = /obj/item/clothing/accessory/tallit
-	slot = slot_tie
+	slot = slot_tie_str
 	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 ABSTRACT_TYPE(/datum/gear/religion/dominia)
@@ -110,7 +110,7 @@ ABSTRACT_TYPE(/datum/gear/religion/dominia)
 	display_name = "dominian robe selection"
 	description = "A selection of robes belonging to Dominia's Moroz Holy Tribunal."
 	path = /obj/item/clothing/under/dominia/priest
-	slot = slot_w_uniform
+	slot = slot_w_uniform_str
 
 /datum/gear/religion/dominia/robe/New()
 	..()
@@ -123,7 +123,7 @@ ABSTRACT_TYPE(/datum/gear/religion/dominia)
 	display_name = "dominian beret selection"
 	description = "A selection of modified berets belonging to Dominia's Moroz Holy Tribunal."
 	path = /obj/item/clothing/under/dominia/priest
-	slot= slot_head
+	slot= slot_head_str
 
 /datum/gear/religion/dominia/beret/New()
 	..()
@@ -137,7 +137,7 @@ ABSTRACT_TYPE(/datum/gear/religion/dominia)
 	display_name = "dominian outerwear selection"
 	description = "A selection of capes and outerwear worn by the Moroz Holy Tribunal."
 	path = /obj/item/clothing/accessory/poncho/dominia_cape/tribunalist
-	slot = slot_in_backpack
+	slot = slot_in_backpack_str
 
 /datum/gear/religion/dominia/cape/New()
 	..()
@@ -150,7 +150,7 @@ ABSTRACT_TYPE(/datum/gear/religion/dominia)
 /datum/gear/religion/dominia/accessory
 	display_name = "tribunal necklace"
 	path = /obj/item/clothing/accessory/dominia
-	slot = slot_tie
+	slot = slot_tie_str
 
 /datum/gear/religion/dominia/accessory/lyodii
 	display_name = "lyodic tribunal necklace"
@@ -172,28 +172,28 @@ ABSTRACT_TYPE(/datum/gear/religion/dominia)
 /datum/gear/religion/dominia/medical
 	display_name = "tribunalist medical beret"
 	path = /obj/item/clothing/head/beret/dominia/medical
-	slot = slot_head
+	slot = slot_head_str
 	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Paramedic", "Medical Intern", "Medical Personnel")
 
 /datum/gear/religion/dominia/robe_consular
 	display_name = "tribunalist consular uniform"
 	description = "The traditional red-black-gold uniform of a priestly member of His Majesty's Diplomatic Service."
 	path = /obj/item/clothing/under/dominia/priest/consular
-	slot = slot_w_uniform
+	slot = slot_w_uniform_str
 	allowed_roles = list("Consular Officer")
 
 /datum/gear/religion/dominia/beret_consular
 	display_name = "tribunalist consular beret"
 	description = "An elegant and well-tailored gold-and-red beret worn by priestly members of His Majesty's Diplomatic Service."
 	path = /obj/item/clothing/head/beret/dominia/consular
-	slot = slot_head
+	slot = slot_head_str
 	allowed_roles = list("Consular Officer")
 
 /datum/gear/religion/dominia/cape_consular
 	display_name = "tribunalist cousular cape"
 	description = "A truly majestic gold and red cape worn by members of the clergy affiliated with His Majesty's Diplomatic Service."
 	path = /obj/item/clothing/accessory/poncho/dominia_cape/tribunalist/consular
-	slot = slot_wear_suit
+	slot = slot_wear_suit_str
 	allowed_roles = list("Consular Officer")
 
 /datum/gear/religion/dominia/codex
@@ -234,18 +234,18 @@ ABSTRACT_TYPE(/datum/gear/religion/assunzione)
 	display_name = "assunzione cloak selection"
 	description = "A violet cloak adorned with gold inlays worn by devout adherents of Luceism, the dominant faith of Assunzione."
 	path = /obj/item/clothing/accessory/poncho/assunzione
-	slot = slot_wear_suit
+	slot = slot_wear_suit_str
 
 /datum/gear/religion/assunzione/cassock
 	display_name = "assunzione clerical cassock"
 	description = "A simple black-and-purple linen cassock worn by clergyfolk of Luceism, the dominant faith of Assunzione."
 	path = /obj/item/clothing/under/assunzione/priest
-	slot = slot_w_uniform
+	slot = slot_w_uniform_str
 
 /datum/gear/religion/assunzione/robe
 	display_name = "assunzione clerical robe"
 	description = "A violet cloak adorned with gold inlays worn by devout adherents of Luceism, the dominant faith of Assunzione."
-	slot = slot_wear_suit
+	slot = slot_wear_suit_str
 
 /datum/gear/religion/assunzione/robe/New()
 	..()
@@ -257,7 +257,7 @@ ABSTRACT_TYPE(/datum/gear/religion/assunzione)
 /datum/gear/religion/assunzione/accessory
 	display_name = "luceian amulet"
 	path = /obj/item/clothing/accessory/assunzione
-	slot = slot_tie
+	slot = slot_tie_str
 
 /datum/gear/religion/assunzione/scripture
 	display_name = "luceian scripture"

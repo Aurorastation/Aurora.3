@@ -57,10 +57,9 @@
 // Limb behaviour defines.
 #define ORGAN_CAN_AMPUTATE (1<<0) //Can this organ be amputated?
 #define ORGAN_CAN_BREAK    (1<<1) //Can this organ break?
-#define ORGAN_CAN_GRASP    (1<<2) //Can this organ grasp things?
-#define ORGAN_CAN_STAND    (1<<3) //Can this organ allow you to stand?
-#define ORGAN_CAN_MAIM     (1<<4) //Can this organ be maimed?
-#define ORGAN_HAS_TENDON   (1<<5) //Does this organ have tendons?
+#define ORGAN_CAN_STAND    (1<<2) //Can this organ allow you to stand?
+#define ORGAN_CAN_MAIM     (1<<3) //Can this organ be maimed?
+#define ORGAN_HAS_TENDON   (1<<4) //Does this organ have tendons?
 
 #define TENDON_BRUISED (1<<0)
 #define TENDON_CUT     (1<<1)

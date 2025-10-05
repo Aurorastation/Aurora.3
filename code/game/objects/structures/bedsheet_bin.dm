@@ -11,8 +11,8 @@ LINEN BINS
 	icon_state = "sheetwhite"
 	item_state = "sheetwhite"
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_bedsheet.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_bedsheet.dmi',
+		BP_L_HAND = 'icons/mob/items/lefthand_bedsheet.dmi',
+		BP_R_HAND = 'icons/mob/items/righthand_bedsheet.dmi',
 		)
 	slot_flags = SLOT_BACK
 	layer = BASE_ABOVE_OBJ_LAYER

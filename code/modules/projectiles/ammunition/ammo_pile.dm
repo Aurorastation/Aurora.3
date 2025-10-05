@@ -95,7 +95,7 @@
 	return ..()
 
 /obj/item/ammo_pile/attack_hand(mob/user)
-	if(user.get_inactive_hand() == src)
+	if(user.is_holding_offhand(src))
 		var/obj/item/ammo_casing/C = get_next_ammo()
 		user.put_in_hands(C)
 		remove_ammo()

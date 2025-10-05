@@ -490,7 +490,7 @@
 		if(their_turf?.loc ==  Area)
 			if(ishuman(M))
 				var/mob/living/carbon/human/H = M
-				var/obj/item/clothing/shoes/magboots/boots = H.get_equipped_item(slot_shoes)
+				var/obj/item/clothing/shoes/magboots/boots = H.get_equipped_item(slot_shoes_str)
 				if(istype(boots))
 					continue
 			to_chat(M, SPAN_DANGER("Suddenly the gravity pushed you up to the ceiling and dropped you back on the floor with great force!"))

@@ -164,21 +164,8 @@
 	return shock_damage
 
 /mob/proc/swap_hand()
+	SHOULD_CALL_PARENT(TRUE)
 	return
-
-/mob/living/carbon/swap_hand()
-	var/obj/item/item_in_hand = src.get_active_hand()
-	if(item_in_hand && !item_in_hand.can_swap_hands(src)) //this segment checks if the item in your hand is twohanded.
-		to_chat(src, SPAN_WARNING("Your other hand is too busy holding \the [item_in_hand]!"))
-		return
-	src.hand = !src.hand
-	if(hud_used.l_hand_hud_object && hud_used.r_hand_hud_object)
-		if(hand)	//This being 1 means the left hand is in use
-			hud_used.l_hand_hud_object.icon_state = "l_hand_active"
-			hud_used.r_hand_hud_object.icon_state = "r_hand_inactive"
-		else
-			hud_used.l_hand_hud_object.icon_state = "l_hand_inactive"
-			hud_used.r_hand_hud_object.icon_state = "r_hand_active"
 
 /mob/living/carbon/proc/activate_hand(var/selhand) //0 or "r" or "right" for right hand; 1 or "l" or "left" for left hand.
 	if(istext(selhand))
@@ -375,21 +362,18 @@
 	return
 
 /mob/living/carbon/u_equip(obj/item/W as obj)
-	if(!W)	return 0
-
-	else if (W == handcuffed)
-		handcuffed = null
-		update_inv_handcuffed()
-		if(buckled_to && buckled_to.buckle_require_restraints)
-			buckled_to.unbuckle()
-
-	else if (W == legcuffed)
-		legcuffed = null
-		update_inv_legcuffed()
-	else
-		..()
-
-	return
+	. = ..()
+	if(!.)
+		if(W == handcuffed)
+			handcuffed = null
+			update_inv_handcuffed()
+			if(buckled_to && buckled_to.buckle_require_restraints)
+				buckled_to.unbuckle()
+			return TRUE
+		else if (W == legcuffed)
+			legcuffed = null
+			update_inv_legcuffed()
+			return TRUE
 
 //			output for machines^	^^^^^^^output for people^^^^^^^^^
 

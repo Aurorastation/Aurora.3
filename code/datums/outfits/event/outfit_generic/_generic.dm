@@ -71,13 +71,13 @@
 /obj/outfit/admin/generic/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(isvaurca(H))
-		H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/vaurca/filter(H), slot_wear_mask)
+		H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/vaurca/filter(H), slot_wear_mask_str)
 		var/obj/item/organ/internal/vaurca/preserve/preserve = H.internal_organs_by_name[BP_PHORON_RESERVE]
 		H.internal = preserve
 		H.internals.icon_state = "internal1"
-		H.equip_or_collect(new /obj/item/reagent_containers/inhaler/phoron_special, slot_in_backpack)
-		H.equip_or_collect(new /obj/item/reagent_containers/food/snacks/koisbar_clean, slot_in_backpack)
+		H.equip_or_collect(new /obj/item/reagent_containers/inhaler/phoron_special, slot_in_backpack_str)
+		H.equip_or_collect(new /obj/item/reagent_containers/food/snacks/koisbar_clean, slot_in_backpack_str)
 	if(isoffworlder(H))
-		H.equip_or_collect(new /obj/item/clothing/accessory/offworlder/bracer, slot_in_backpack)
-		H.equip_or_collect(new /obj/item/storage/pill_bottle/rmt, slot_in_backpack)
-		H.equip_or_collect(new /obj/item/rig/light/offworlder, slot_in_backpack)
+		H.equip_or_collect(new /obj/item/clothing/accessory/offworlder/bracer, slot_in_backpack_str)
+		H.equip_or_collect(new /obj/item/storage/pill_bottle/rmt, slot_in_backpack_str)
+		H.equip_or_collect(new /obj/item/rig/light/offworlder, slot_in_backpack_str)

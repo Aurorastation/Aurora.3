@@ -304,6 +304,9 @@
 		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right)
 		)
 
+	/// An associative list of target zones (ex. BP_CHEST, BP_MOUTH) mapped to all possible keys associated. Used for non-standard organs like extra arms.
+	var/list/limb_mapping
+
 	var/list/natural_armor
 
 	// Bump vars
@@ -965,3 +968,6 @@
  */
 /datum/species/proc/sleep_examine_msg(var/mob/M)
 	return SPAN_NOTICE("[M.get_pronoun("He")] appears to be fast asleep.\n")
+
+/datum/species/proc/get_limb_from_zone(var/limb)
+	. = length(LAZYACCESS(limb_mapping, limb) ? pick(limb_mapping[limb]) : limb)

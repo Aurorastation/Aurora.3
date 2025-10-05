@@ -284,7 +284,7 @@
 		unload_ammo(user)
 
 /obj/item/gun/projectile/attack_hand(mob/user)
-	if(user.get_inactive_hand() == src)
+	if(user.is_holding_offhand(src))
 		unload_ammo(user, allow_dump=0)
 	else
 		return ..()

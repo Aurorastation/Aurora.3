@@ -50,7 +50,7 @@
 		to_chat(attacker, SPAN_WARNING("You require a better grab to do this."))
 		return
 
-	var/obj/item/organ/external/organ = target.get_organ(check_zone(target_zone))
+	var/obj/item/organ/external/organ = target.get_organ(check_zone(target_zone, target))
 	if(!organ || organ.dislocated == -1)
 		return
 

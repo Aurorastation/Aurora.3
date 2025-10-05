@@ -44,7 +44,7 @@
 	belt = /obj/item/material/sword/longsword
 	head = /obj/item/clothing/accessory/sinta_hood
 	glasses = /obj/item/clothing/glasses/safety/goggles/wasteland
-	l_hand = /obj/item/martial_manual/swordsmanship
+	hands = list(/obj/item/martial_manual/swordsmanship)
 
 /obj/outfit/admin/moghes_guwandi/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H?.w_uniform)

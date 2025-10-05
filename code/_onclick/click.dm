@@ -134,20 +134,14 @@
 			W.attack_self_secondary(src, modifiers)
 			/* START Aurora snowflake */
 			trigger_aiming(TARGET_CAN_CLICK)
-			if(hand)
-				update_inv_l_hand(FALSE)
-			else
-				update_inv_r_hand(FALSE)
+			update_inv_hands(FALSE)
 			/* END Aurora snowflake */
 			return
 		else
 			W.attack_self(src, modifiers)
 			/* START Aurora snowflake */
 			trigger_aiming(TARGET_CAN_CLICK)
-			if(hand)
-				update_inv_l_hand(FALSE)
-			else
-				update_inv_r_hand(FALSE)
+			update_inv_hands(FALSE)
 			/* END Aurora snowflake */
 			return
 

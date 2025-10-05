@@ -2,7 +2,7 @@
 	display_name = "handheld mirror"
 	path = /obj/item/mirror
 	sort_category = "Cosmetics"
-	slot = slot_in_backpack
+	slot = slot_in_backpack_str
 
 /datum/gear/cosmetic/haircomb
 	display_name = "comb"

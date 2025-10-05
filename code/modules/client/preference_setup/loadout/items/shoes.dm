@@ -2,7 +2,7 @@
 /datum/gear/shoes
 	display_name = "boots, circuitry (empty)"
 	path = /obj/item/clothing/shoes/circuitry
-	slot = slot_shoes
+	slot = slot_shoes_str
 	sort_category = "Shoes and Footwear"
 
 /datum/gear/shoes/New()
