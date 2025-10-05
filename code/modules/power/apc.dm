@@ -85,7 +85,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 	var/areastring = null
 	var/obj/item/cell/cell
 	/// Cap for how fast APC cells charge, as a percentage-per-tick (0.01 means cellcharge is capped to 1% per second)
-	var/chargelevel = 0.0005
+	var/chargelevel = 0.005
 	var/cellused = 0
 	/// Initial cell charge %
 	var/start_charge = 90
@@ -936,8 +936,8 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 	data["fail_time"] = failure_timer * 2
 	data["silicon_user"] = isAdmin || issilicon(user)
 	data["is_AI_or_robot"] = isAI(user) || isrobot(user)
-	data["total_load"] = round(lastused_total)
-	data["total_charging"] = round(lastused_charging)
+	data["total_load"] = power_wattage_readable(lastused_total)
+	data["total_charging"] = power_wattage_readable(lastused_charging)
 	data["is_operating"] = operating
 	data["charge_mode"] = chargemode
 	data["external_power"] = main_status
@@ -947,9 +947,9 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 	data["emergency_mode"] = !emergency_lights
 	data["time"] = time
 	data["power_channels"] = list(
-		list("name" = "Equipment", "power_load" = lastused_equip, "status" = equipment),
-		list("name" = "Lighting", "power_load" = round(lastused_light), "status" = lighting),
-		list("name" = "Environment", "power_load" = round(lastused_environ), "status" = environ)
+		list("name" = "Equipment", "power_load" = power_wattage_readable(lastused_equip), "status" = equipment),
+		list("name" = "Lighting", "power_load" = power_wattage_readable(lastused_light), "status" = lighting),
+		list("name" = "Environment", "power_load" = power_wattage_readable(lastused_environ), "status" = environ)
 	)
 	return data
 

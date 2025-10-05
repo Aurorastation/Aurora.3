@@ -193,12 +193,12 @@
 /area/horizon/engineering/reactor/indra/mainchamber
 	name = "INDRA Reactor Chamber"
 	ambience = AMBIENCE_SINGULARITY
-	area_blurb = "The product of over four-hundred years' iteration and refinement: the INDRA Mk.II Tokamak Fusion bottle and its vast supporting machineries dominate the entire compartment"
+	area_blurb = "The product of over four-hundred years' iteration and refinement: the INDRA Mk.II Tokamak fusion bottle and its vast supporting machineries dominate the entire compartment"
 
 /area/horizon/engineering/reactor/indra/smes
 	name = "INDRA Reactor SMES"
 	icon_state = "engine_smes"
-	area_blurb = "A quiet hum suffuses this compartment from grid balancing hardware and power banks fitted beneath the floor."
+	area_blurb = "A quiet hum suffuses this compartment from grid-balancing hardware and power banks fitted beneath the floor."
 
 /area/horizon/engineering/reactor/indra/monitoring
 	name = "INDRA Reactor Monitoring"
@@ -208,7 +208,7 @@
 
 /area/horizon/engineering/reactor/indra/office
 	name = "INDRA Reactor Office"
-	area_blurb = "A dingy, forgotten compartment a year or three away from looking about as well-kept as the Maints'."
+	area_blurb = "A dingy, forgotten compartment a year or three away from looking about as well-kept as the maints."
 
 // The engineering stairwell /area/horizon/stairwell/engineering/* are defined in './horizon_areas_crew.dm'. Bat put them there originally because they felt that made sense. If you don't, migrate them here I guess, everything's cool.
 

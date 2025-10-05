@@ -47,14 +47,6 @@
 /obj/random/powercell,
 /turf/template_noop,
 /area/template_noop)
-"aV" = (
-/obj/random/mre/main,
-/obj/random/mre/main,
-/obj/random/mre/main,
-/obj/random/mre/main,
-/obj/structure/table/rack/no_cargo,
-/turf/template_noop,
-/area/template_noop)
 "aZ" = (
 /obj/structure/table/rack/no_cargo,
 /obj/random/bad_ai,
@@ -184,6 +176,13 @@
 /obj/structure/reagent_dispensers/extinguisher,
 /turf/template_noop,
 /area/template_noop)
+"eb" = (
+/obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
+/obj/structure/closet/crate/freezer,
+/obj/item/storage/box/produce,
+/obj/item/storage/box/produce,
+/turf/template_noop,
+/area/template_noop)
 "eg" = (
 /obj/machinery/portable_atmospherics/canister/chlorine,
 /turf/template_noop,
@@ -222,12 +221,24 @@
 	},
 /turf/template_noop,
 /area/template_noop)
+"eG" = (
+/obj/random/junk,
+/turf/template_noop,
+/area/template_noop)
 "eL" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
 /obj/structure/table/rack/no_cargo,
 /obj/item/stack/tile/carpet/orange{
 	amount = 60
 	},
+/turf/template_noop,
+/area/template_noop)
+"fn" = (
+/obj/structure/bed/stool/bar/padded{
+	dir = 8;
+	pixel_x = -8
+	},
+/obj/random/junk,
 /turf/template_noop,
 /area/template_noop)
 "fv" = (
@@ -268,6 +279,15 @@
 /obj/structure/trash_pile,
 /turf/template_noop,
 /area/template_noop)
+"gI" = (
+/obj/random/mre/dessert,
+/obj/random/mre/dessert,
+/obj/random/mre/dessert,
+/obj/structure/closet/crate/freezer{
+	name = "emergency rations"
+	},
+/turf/template_noop,
+/area/template_noop)
 "gS" = (
 /obj/random/med_stack,
 /turf/template_noop,
@@ -295,11 +315,6 @@
 /area/template_noop)
 "hs" = (
 /obj/structure/cart/storage/janitorialcart,
-/turf/template_noop,
-/area/template_noop)
-"ht" = (
-/obj/structure/table/rack/no_cargo,
-/obj/item/trash/coffee,
 /turf/template_noop,
 /area/template_noop)
 "hu" = (
@@ -356,6 +371,13 @@
 /obj/structure/table/rack/folding_table,
 /turf/template_noop,
 /area/template_noop)
+"iA" = (
+/obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
+/obj/structure/closet/crate/freezer{
+	name = "emergency rations"
+	},
+/turf/template_noop,
+/area/template_noop)
 "iE" = (
 /obj/item/stellascope,
 /obj/structure/table/rack/no_cargo,
@@ -380,11 +402,6 @@
 /area/template_noop)
 "iM" = (
 /obj/structure/table/rack/no_cargo,
-/turf/template_noop,
-/area/template_noop)
-"jv" = (
-/obj/random/plushie,
-/obj/random/junk,
 /turf/template_noop,
 /area/template_noop)
 "jB" = (
@@ -432,6 +449,13 @@
 /obj/item/reagent_containers/food/condiment/shaker/spacespice,
 /turf/template_noop,
 /area/template_noop)
+"kN" = (
+/obj/random/junk,
+/obj/structure/closet/crate/freezer{
+	name = "emergency rations"
+	},
+/turf/template_noop,
+/area/template_noop)
 "kO" = (
 /obj/item/reagent_containers/chem_disp_cartridge/espresso,
 /obj/item/reagent_containers/chem_disp_cartridge/espresso,
@@ -444,11 +468,6 @@
 /obj/item/reagent_containers/chem_disp_cartridge/coffee,
 /obj/item/reagent_containers/chem_disp_cartridge/coffee,
 /obj/item/reagent_containers/chem_disp_cartridge/coffee,
-/turf/template_noop,
-/area/template_noop)
-"kY" = (
-/obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
-/obj/structure/closet/crate/freezer/rations,
 /turf/template_noop,
 /area/template_noop)
 "kZ" = (
@@ -549,14 +568,6 @@
 /obj/machinery/vending/security,
 /turf/template_noop,
 /area/template_noop)
-"nj" = (
-/obj/random/mre/spread,
-/obj/random/mre/spread,
-/obj/random/mre/spread,
-/obj/random/mre/spread,
-/obj/structure/table/rack/no_cargo,
-/turf/template_noop,
-/area/template_noop)
 "nn" = (
 /obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
 	dir = 1
@@ -567,10 +578,6 @@
 /obj/structure/table/rack/no_cargo,
 /obj/random/tech_supply,
 /obj/random/bomb_supply,
-/turf/template_noop,
-/area/template_noop)
-"ny" = (
-/obj/random/junk,
 /turf/template_noop,
 /area/template_noop)
 "nA" = (
@@ -602,12 +609,6 @@
 /obj/random/junk,
 /obj/random/maintenance_junk_or_loot,
 /obj/random/maintenance_junk_or_loot,
-/turf/template_noop,
-/area/template_noop)
-"nL" = (
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/random/junk,
 /turf/template_noop,
 /area/template_noop)
 "nO" = (
@@ -659,6 +660,11 @@
 	},
 /turf/template_noop,
 /area/template_noop)
+"oI" = (
+/obj/random/junk,
+/obj/structure/closet/crate/freezer/rations,
+/turf/template_noop,
+/area/template_noop)
 "oJ" = (
 /obj/random/syrup,
 /turf/template_noop,
@@ -687,6 +693,15 @@
 /obj/structure/table/rack/folding_table,
 /obj/item/storage/box/candy,
 /obj/item/storage/box/candy,
+/turf/template_noop,
+/area/template_noop)
+"pV" = (
+/obj/structure/table/rack/no_cargo,
+/obj/item/pizzabox{
+	icon_state = "pizzabox_messy";
+	ismessy = 1;
+	open = 1
+	},
 /turf/template_noop,
 /area/template_noop)
 "qo" = (
@@ -738,6 +753,16 @@
 /obj/structure/table/rack/no_cargo,
 /obj/random/booze,
 /obj/random/booze,
+/turf/template_noop,
+/area/template_noop)
+"rN" = (
+/obj/structure/closet/crate/hydroponics,
+/obj/item/material/minihoe,
+/obj/item/material/hatchet,
+/obj/item/wirecutters/clippers,
+/obj/item/reagent_containers/glass/bucket,
+/obj/item/storage/backpack/hydroponics,
+/obj/random/junk,
 /turf/template_noop,
 /area/template_noop)
 "rO" = (
@@ -835,21 +860,30 @@
 /obj/item/clothing/mask/gas/alt,
 /turf/template_noop,
 /area/template_noop)
-"tD" = (
-/obj/random/junk,
-/obj/structure/closet/crate/freezer{
-	name = "emergency rations"
-	},
-/turf/template_noop,
-/area/template_noop)
 "tG" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
+/turf/template_noop,
+/area/template_noop)
+"tI" = (
+/obj/random/junk,
+/obj/random/junk,
+/obj/structure/closet/crate/freezer/rations{
+	name = 4
+	},
 /turf/template_noop,
 /area/template_noop)
 "tJ" = (
 /obj/structure/table/rack/no_cargo,
 /obj/random/action_figure,
 /obj/random/action_figure,
+/turf/template_noop,
+/area/template_noop)
+"tN" = (
+/obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
+/obj/item/storage/box/fancy/yoke/random,
+/obj/item/storage/box/fancy/yoke/random,
+/obj/structure/closet/crate,
+/obj/random/kitchen_staples,
 /turf/template_noop,
 /area/template_noop)
 "tR" = (
@@ -962,6 +996,16 @@
 /obj/random/coin,
 /turf/template_noop,
 /area/template_noop)
+"vB" = (
+/obj/item/trash/coffee,
+/obj/item/trash/coffee,
+/turf/template_noop,
+/area/template_noop)
+"vE" = (
+/obj/structure/trash_pile,
+/obj/random/junk,
+/turf/template_noop,
+/area/template_noop)
 "wa" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
 /obj/structure/closet/emcloset,
@@ -984,13 +1028,6 @@
 /area/template_noop)
 "xb" = (
 /obj/random/coin,
-/turf/template_noop,
-/area/template_noop)
-"xg" = (
-/obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
-/obj/structure/closet/crate/freezer,
-/obj/item/storage/box/produce,
-/obj/item/storage/box/produce,
 /turf/template_noop,
 /area/template_noop)
 "xu" = (
@@ -1021,6 +1058,14 @@
 "xF" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
 /obj/structure/reagent_dispensers/extinguisher,
+/turf/template_noop,
+/area/template_noop)
+"xG" = (
+/obj/random/mre/dessert,
+/obj/random/mre/dessert,
+/obj/random/mre/dessert,
+/obj/random/mre/dessert,
+/obj/structure/table/rack/no_cargo,
 /turf/template_noop,
 /area/template_noop)
 "xI" = (
@@ -1076,11 +1121,6 @@
 /obj/item/reagent_containers/spray/chemsprayer/mister/janitor,
 /turf/template_noop,
 /area/template_noop)
-"zn" = (
-/obj/random/junk,
-/obj/random/junk,
-/turf/template_noop,
-/area/template_noop)
 "zs" = (
 /obj/item/trash/cigbutt,
 /turf/template_noop,
@@ -1124,19 +1164,6 @@
 /obj/random/dirt_75,
 /turf/template_noop,
 /area/template_noop)
-"AK" = (
-/obj/machinery/portable_atmospherics/canister/hydrogen/deuterium,
-/turf/template_noop,
-/area/template_noop)
-"AN" = (
-/obj/random/plushie,
-/obj/random/plushie,
-/obj/random/plushie,
-/obj/random/plushie,
-/obj/random/plushie,
-/obj/random/junk,
-/turf/template_noop,
-/area/template_noop)
 "AW" = (
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/random/dirt_75,
@@ -1153,17 +1180,6 @@
 	},
 /turf/template_noop,
 /area/template_noop)
-"Bb" = (
-/obj/structure/closet/crate/extinguisher_cartridges,
-/obj/item/reagent_containers/extinguisher_refill/filled,
-/obj/item/reagent_containers/extinguisher_refill/filled,
-/obj/item/reagent_containers/extinguisher_refill/filled,
-/obj/item/reagent_containers/extinguisher_refill/filled,
-/obj/item/reagent_containers/extinguisher_refill/filled,
-/obj/item/reagent_containers/extinguisher_refill/filled,
-/obj/random/junk,
-/turf/template_noop,
-/area/template_noop)
 "Bj" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
 /obj/machinery/portable_atmospherics/hydroponics,
@@ -1174,6 +1190,11 @@
 /obj/vehicle/bike/motor/blue{
 	dir = 8
 	},
+/turf/template_noop,
+/area/template_noop)
+"BL" = (
+/obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
+/obj/random/junk,
 /turf/template_noop,
 /area/template_noop)
 "BM" = (
@@ -1216,8 +1237,9 @@
 	},
 /turf/template_noop,
 /area/template_noop)
-"Dl" = (
-/obj/machinery/portable_atmospherics/canister/boron,
+"Dr" = (
+/obj/random/dirt_75,
+/obj/random/junk,
 /turf/template_noop,
 /area/template_noop)
 "Dv" = (
@@ -1246,13 +1268,6 @@
 /obj/random/tech_supply,
 /turf/template_noop,
 /area/template_noop)
-"Eg" = (
-/obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
-/obj/structure/closet/crate/freezer{
-	name = "emergency rations"
-	},
-/turf/template_noop,
-/area/template_noop)
 "Er" = (
 /obj/machinery/media/jukebox/audioconsole,
 /turf/template_noop,
@@ -1268,18 +1283,15 @@
 /obj/machinery/appliance/cooker/oven/small,
 /turf/template_noop,
 /area/template_noop)
+"EQ" = (
+/obj/structure/table/rack/no_cargo,
+/obj/item/trash/coffee,
+/turf/template_noop,
+/area/template_noop)
 "ER" = (
 /obj/structure/table/rack,
 /obj/item/stack/material/marble/full,
 /obj/item/stack/tile/carpet/black,
-/turf/template_noop,
-/area/template_noop)
-"EY" = (
-/obj/structure/bed/stool/bar/padded{
-	dir = 8;
-	pixel_x = -8
-	},
-/obj/random/junk,
 /turf/template_noop,
 /area/template_noop)
 "Fb" = (
@@ -1287,10 +1299,22 @@
 /obj/machinery/vending/boozeomat,
 /turf/template_noop,
 /area/template_noop)
+"Ff" = (
+/obj/item/storage/box/fancy/yoke/alcoholic/random,
+/obj/item/storage/box/fancy/yoke/alcoholic/random,
+/obj/structure/closet/crate,
+/turf/template_noop,
+/area/template_noop)
 "Fh" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
 /obj/machinery/ship_weapon/autocannon,
 /obj/random/dirt_75,
+/turf/template_noop,
+/area/template_noop)
+"Fu" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/junk,
 /turf/template_noop,
 /area/template_noop)
 "FD" = (
@@ -1303,18 +1327,29 @@
 /obj/random/lavalamp,
 /turf/template_noop,
 /area/template_noop)
-"FM" = (
-/obj/item/trash/coffee,
-/obj/item/trash/coffee,
-/turf/template_noop,
-/area/template_noop)
-"FU" = (
-/obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
+"Go" = (
+/obj/random/plushie,
+/obj/random/plushie,
+/obj/random/plushie,
+/obj/random/plushie,
+/obj/random/plushie,
 /obj/random/junk,
 /turf/template_noop,
 /area/template_noop)
-"Gp" = (
-/obj/structure/table/rack/no_cargo,
+"Gt" = (
+/obj/structure/closet/firecloset/full,
+/turf/template_noop,
+/area/template_noop)
+"Gu" = (
+/obj/structure/closet/crate/freezer/rations{
+	name = 4
+	},
+/turf/template_noop,
+/area/template_noop)
+"Gz" = (
+/turf/template_noop,
+/area/template_noop)
+"GJ" = (
 /obj/item/pizzabox{
 	icon_state = "pizzabox_messy";
 	ismessy = 1;
@@ -1322,27 +1357,18 @@
 	},
 /turf/template_noop,
 /area/template_noop)
-"Gt" = (
-/obj/structure/closet/firecloset/full,
-/turf/template_noop,
-/area/template_noop)
-"Gz" = (
-/turf/template_noop,
-/area/template_noop)
 "GN" = (
 /obj/machinery/vending/ramen,
 /turf/template_noop,
 /area/template_noop)
-"Hc" = (
-/obj/random/junk,
-/obj/random/junk,
-/obj/structure/closet/crate/freezer/rations{
-	name = 4
-	},
-/turf/template_noop,
-/area/template_noop)
 "Hj" = (
 /obj/random/keg,
+/turf/template_noop,
+/area/template_noop)
+"Hl" = (
+/obj/structure/closet/crate/freezer{
+	name = "emergency rations"
+	},
 /turf/template_noop,
 /area/template_noop)
 "Hn" = (
@@ -1364,9 +1390,9 @@
 /obj/structure/table/rack/no_cargo,
 /turf/template_noop,
 /area/template_noop)
-"HG" = (
-/obj/machinery/smartfridge/foodheater,
-/obj/random/junk,
+"HB" = (
+/obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
+/obj/structure/closet/crate/freezer/rations,
 /turf/template_noop,
 /area/template_noop)
 "HL" = (
@@ -1454,11 +1480,6 @@
 /obj/random/dirt_75,
 /turf/template_noop,
 /area/template_noop)
-"Kg" = (
-/obj/random/junk,
-/obj/structure/closet/crate/freezer/rations,
-/turf/template_noop,
-/area/template_noop)
 "Kn" = (
 /obj/structure/punching_bag,
 /turf/template_noop,
@@ -1466,6 +1487,10 @@
 "Kp" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
 /obj/structure/closet/crate/autakh,
+/turf/template_noop,
+/area/template_noop)
+"KA" = (
+/obj/machinery/portable_atmospherics/canister/deuterium,
 /turf/template_noop,
 /area/template_noop)
 "KH" = (
@@ -1496,14 +1521,6 @@
 /area/template_noop)
 "KX" = (
 /obj/structure/closet/gimmick/tacticool,
-/turf/template_noop,
-/area/template_noop)
-"Lw" = (
-/obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
-/obj/item/storage/box/fancy/yoke/random,
-/obj/item/storage/box/fancy/yoke/random,
-/obj/structure/closet/crate,
-/obj/random/kitchen_staples,
 /turf/template_noop,
 /area/template_noop)
 "LE" = (
@@ -1571,6 +1588,17 @@
 /area/template_noop)
 "Nm" = (
 /obj/machinery/vending/hydronutrients/xenobotany,
+/turf/template_noop,
+/area/template_noop)
+"NH" = (
+/obj/structure/closet/crate/extinguisher_cartridges,
+/obj/item/reagent_containers/extinguisher_refill/filled,
+/obj/item/reagent_containers/extinguisher_refill/filled,
+/obj/item/reagent_containers/extinguisher_refill/filled,
+/obj/item/reagent_containers/extinguisher_refill/filled,
+/obj/item/reagent_containers/extinguisher_refill/filled,
+/obj/item/reagent_containers/extinguisher_refill/filled,
+/obj/random/junk,
 /turf/template_noop,
 /area/template_noop)
 "NI" = (
@@ -1657,11 +1685,6 @@
 /obj/random/syrup,
 /turf/template_noop,
 /area/template_noop)
-"OT" = (
-/obj/structure/trash_pile,
-/obj/random/junk,
-/turf/template_noop,
-/area/template_noop)
 "Pf" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
 /obj/random/vendor,
@@ -1672,6 +1695,11 @@
 /obj/random/booze,
 /obj/random/booze,
 /obj/random/action_figure,
+/turf/template_noop,
+/area/template_noop)
+"PG" = (
+/obj/machinery/smartfridge/foodheater,
+/obj/random/junk,
 /turf/template_noop,
 /area/template_noop)
 "PK" = (
@@ -1725,6 +1753,10 @@
 /obj/item/circuitboard/miningdrillbrace,
 /turf/template_noop,
 /area/template_noop)
+"PY" = (
+/obj/machinery/portable_atmospherics/canister/heliumfuel,
+/turf/template_noop,
+/area/template_noop)
 "QA" = (
 /obj/machinery/vending/boozeomat/unathi_pirate,
 /obj/random/dirt_75,
@@ -1735,14 +1767,13 @@
 /obj/effect/floor_decal/industrial/outline/engineering,
 /turf/template_noop,
 /area/template_noop)
-"Rn" = (
-/obj/effect/decal/cleanable/liquid_fuel,
+"Rg" = (
+/obj/random/junk,
+/obj/random/junk,
 /turf/template_noop,
 /area/template_noop)
-"Rz" = (
-/obj/item/storage/box/fancy/yoke/alcoholic/random,
-/obj/item/storage/box/fancy/yoke/alcoholic/random,
-/obj/structure/closet/crate,
+"Rn" = (
+/obj/effect/decal/cleanable/liquid_fuel,
 /turf/template_noop,
 /area/template_noop)
 "RB" = (
@@ -1779,26 +1810,17 @@
 /obj/structure/inflatable/door,
 /turf/template_noop,
 /area/template_noop)
-"SX" = (
+"SW" = (
+/obj/random/mre/main,
+/obj/random/mre/main,
+/obj/random/mre/main,
+/obj/random/mre/main,
 /obj/structure/table/rack/no_cargo,
-/obj/item/stack/tile/carpet/purple{
-	amount = 60
-	},
-/obj/random/junk,
 /turf/template_noop,
 /area/template_noop)
 "SY" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
 /obj/machinery/vending/coffee/free,
-/turf/template_noop,
-/area/template_noop)
-"Tf" = (
-/obj/random/mre/dessert,
-/obj/random/mre/dessert,
-/obj/random/mre/dessert,
-/obj/structure/closet/crate/freezer{
-	name = "emergency rations"
-	},
 /turf/template_noop,
 /area/template_noop)
 "Tl" = (
@@ -1810,9 +1832,12 @@
 /obj/item/storage/box/syndie_kit/random_weapon,
 /turf/template_noop,
 /area/template_noop)
-"TD" = (
-/obj/random/dirt_75,
-/obj/random/junk,
+"Tp" = (
+/obj/random/mre/spread,
+/obj/random/mre/spread,
+/obj/random/mre/spread,
+/obj/random/mre/spread,
+/obj/structure/table/rack/no_cargo,
 /turf/template_noop,
 /area/template_noop)
 "TL" = (
@@ -1826,14 +1851,6 @@
 /area/template_noop)
 "Ul" = (
 /obj/random/plushie,
-/turf/template_noop,
-/area/template_noop)
-"Um" = (
-/obj/item/pizzabox{
-	icon_state = "pizzabox_messy";
-	ismessy = 1;
-	open = 1
-	},
 /turf/template_noop,
 /area/template_noop)
 "Un" = (
@@ -1863,6 +1880,14 @@
 "UX" = (
 /obj/structure/table/rack/no_cargo,
 /obj/machinery/media/jukebox/phonograph,
+/turf/template_noop,
+/area/template_noop)
+"Vd" = (
+/obj/structure/table/rack/no_cargo,
+/obj/item/stack/tile/carpet/purple{
+	amount = 60
+	},
+/obj/random/junk,
 /turf/template_noop,
 /area/template_noop)
 "Vh" = (
@@ -1938,6 +1963,11 @@
 /obj/structure/inflatable/door,
 /turf/template_noop,
 /area/template_noop)
+"Wt" = (
+/obj/random/plushie,
+/obj/random/junk,
+/turf/template_noop,
+/area/template_noop)
 "WG" = (
 /obj/machinery/vending/hydroseeds,
 /turf/template_noop,
@@ -1948,12 +1978,6 @@
 /obj/random/medical,
 /obj/random/firstaid,
 /obj/structure/closet/crate/medical,
-/turf/template_noop,
-/area/template_noop)
-"WW" = (
-/obj/structure/closet/crate/freezer{
-	name = "emergency rations"
-	},
 /turf/template_noop,
 /area/template_noop)
 "WZ" = (
@@ -1984,19 +2008,21 @@
 /obj/item/reagent_containers/glass/beaker/vial/random/toxin,
 /turf/template_noop,
 /area/template_noop)
-"Xh" = (
-/obj/random/mre/dessert,
-/obj/random/mre/dessert,
-/obj/random/mre/dessert,
-/obj/random/mre/dessert,
-/obj/structure/table/rack/no_cargo,
-/turf/template_noop,
-/area/template_noop)
 "Xn" = (
 /obj/structure/table/rack/no_cargo,
 /obj/random/tech_supply,
 /obj/random/toolbox,
 /obj/random/tool,
+/turf/template_noop,
+/area/template_noop)
+"XE" = (
+/obj/structure/table/rack/no_cargo,
+/obj/item/rfd/service,
+/obj/item/rfd_ammo,
+/obj/item/rfd_ammo,
+/obj/item/rfd/service,
+/obj/random/junk,
+/obj/random/junk,
 /turf/template_noop,
 /area/template_noop)
 "XQ" = (
@@ -2017,37 +2043,11 @@
 /obj/item/ammo_display,
 /turf/template_noop,
 /area/template_noop)
-"XS" = (
-/obj/structure/closet/crate/freezer/rations{
-	name = 4
-	},
-/turf/template_noop,
-/area/template_noop)
 "XY" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
 /obj/structure/table/rack/no_cargo,
 /obj/random/tool,
 /obj/random/tech_supply,
-/turf/template_noop,
-/area/template_noop)
-"Yy" = (
-/obj/structure/table/rack/no_cargo,
-/obj/item/rfd/service,
-/obj/item/rfd_ammo,
-/obj/item/rfd_ammo,
-/obj/item/rfd/service,
-/obj/random/junk,
-/obj/random/junk,
-/turf/template_noop,
-/area/template_noop)
-"YJ" = (
-/obj/structure/closet/crate/hydroponics,
-/obj/item/material/minihoe,
-/obj/item/material/hatchet,
-/obj/item/wirecutters/clippers,
-/obj/item/reagent_containers/glass/bucket,
-/obj/item/storage/backpack/hydroponics,
-/obj/random/junk,
 /turf/template_noop,
 /area/template_noop)
 "Zb" = (
@@ -2197,7 +2197,7 @@ Gz
 Gz
 sW
 af
-TD
+Dr
 Gz
 UE
 nF
@@ -2235,8 +2235,8 @@ Gz
 Gz
 sH
 Gz
-ny
-ny
+eG
+eG
 sH
 Gz
 Gz
@@ -2245,7 +2245,7 @@ Gz
 kZ
 UE
 Gz
-ny
+eG
 JN
 Gz
 Gz
@@ -2291,7 +2291,7 @@ sW
 Ed
 Gz
 UE
-nL
+Fu
 km
 nn
 Gz
@@ -2475,7 +2475,7 @@ sW
 pT
 Gz
 Gz
-WW
+Hl
 SY
 Gz
 Gz
@@ -2490,16 +2490,16 @@ Gz
 Gz
 sW
 mg
-TD
+Dr
 Gz
 Zb
-Lw
+tN
 Gz
 sW
-WW
-WW
+Hl
+Hl
 Gz
-tD
+kN
 ix
 Gz
 Gz
@@ -2520,16 +2520,16 @@ Gz
 Gz
 lO
 Gz
-ny
-ny
-tD
+eG
+eG
+kN
 Gz
 Gz
 Gz
 Gz
-ny
-zn
-ny
+eG
+Rg
+eG
 Gz
 Gz
 Gz
@@ -2537,16 +2537,16 @@ Gz
 Gz
 iL
 Gz
-ny
+eG
 Gz
-Rz
+Ff
 Gz
 Gz
-Hc
-WW
-ny
+tI
+Hl
+eG
 Gz
-WW
+Hl
 Gz
 Gz
 Gz
@@ -2567,7 +2567,7 @@ sW
 cQ
 Gz
 Gz
-ny
+eG
 ZZ
 nn
 Gz
@@ -2588,11 +2588,11 @@ Gz
 Gz
 nn
 sW
-WW
-ny
+Hl
+eG
 Gz
 Gz
-XS
+Gu
 nn
 Gz
 Gz
@@ -2749,15 +2749,15 @@ Gz
 Gz
 sW
 lC
-ny
+eG
 rW
 Gz
-Eg
+iA
 Gz
 Gz
 sW
-ny
-zn
+eG
+Rg
 Gz
 np
 AD
@@ -2773,7 +2773,7 @@ Os
 Gz
 sW
 FD
-OT
+vE
 VQ
 Gz
 tl
@@ -2796,32 +2796,32 @@ Gz
 Gz
 rW
 Gz
-ny
-ny
+eG
+eG
 Gz
 Gz
 Gz
 Gz
 rB
-ny
+eG
 Gz
 Gz
-ny
+eG
 Gz
 Gz
 Gz
 Gz
 Js
 Gz
-ny
-zn
-ny
+eG
+Rg
+eG
 Gz
 Gz
 iM
 Gz
 sH
-ny
+eG
 OS
 Gz
 Gz
@@ -2843,7 +2843,7 @@ sW
 rW
 Gz
 Gz
-ny
+eG
 rW
 nn
 Gz
@@ -2857,7 +2857,7 @@ nn
 Gz
 Gz
 sW
-WW
+Hl
 Gz
 Gz
 Js
@@ -3034,7 +3034,7 @@ Gz
 sW
 gr
 Gz
-ny
+eG
 nK
 tG
 Gz
@@ -3044,7 +3044,7 @@ sW
 Jc
 Gz
 Gz
-ny
+eG
 Kp
 Gz
 sW
@@ -3071,7 +3071,7 @@ Gz
 Gz
 Gz
 yB
-ny
+eG
 ao
 pQ
 mQ
@@ -3082,13 +3082,13 @@ Gz
 Gz
 Gz
 Gz
-ny
+eG
 Gz
 Gz
 Gz
 Gz
 WR
-ny
+eG
 Gz
 Gz
 Gz
@@ -3096,7 +3096,7 @@ Gz
 Gz
 Gz
 Gz
-zn
+Rg
 Gz
 Gz
 Gz
@@ -3134,15 +3134,15 @@ Gz
 Gz
 sW
 dN
-ny
-ny
+eG
+eG
 Gz
 qP
 nn
 sW
 Jc
 WZ
-ny
+eG
 Gz
 Gz
 nn
@@ -3293,7 +3293,7 @@ Gz
 sW
 iM
 iM
-ht
+EQ
 iM
 vm
 Gz
@@ -3301,33 +3301,33 @@ Gz
 Gz
 sW
 aZ
-ny
+eG
 Gz
 Gz
 KI
 Gz
 Gz
 sW
-Tf
+gI
 Gz
-ny
+eG
 lI
-xg
+eb
 Gz
 Gz
 Gz
 sW
 dY
-ny
+eG
 Gz
-Bb
+NH
 aI
 Gz
 sW
 Gt
 Gt
 Gz
-ny
+eG
 xF
 Gz
 Gz
@@ -3349,7 +3349,7 @@ Gz
 Gz
 Gz
 Gz
-ny
+eG
 Gz
 Gz
 Gz
@@ -3358,14 +3358,14 @@ Hn
 Gz
 Gz
 Gz
-tD
+kN
 Gz
 Gz
 Gz
 Gz
 Gz
 Gz
-ny
+eG
 Gz
 Gz
 Gz
@@ -3385,7 +3385,7 @@ Gz
 sW
 Gz
 sX
-FM
+vB
 lu
 kO
 nn
@@ -3418,7 +3418,7 @@ nn
 sW
 iM
 BV
-ny
+eG
 Gz
 Gz
 nn
@@ -3568,10 +3568,10 @@ Gz
 Gz
 sW
 ad
-ny
+eG
 Gz
 ad
-FU
+BL
 Gz
 Gz
 Gz
@@ -3580,7 +3580,7 @@ Tl
 er
 nW
 mS
-Eg
+iA
 Gz
 Gz
 sW
@@ -3600,7 +3600,7 @@ Jx
 wa
 Gz
 sW
-ny
+eG
 VO
 Gz
 Gz
@@ -3614,9 +3614,9 @@ Gz
 Gz
 Gz
 gT
-ny
+eG
 Gz
-ny
+eG
 zi
 Gz
 Gz
@@ -3633,7 +3633,7 @@ Gz
 Gz
 Gz
 Gz
-ny
+eG
 KX
 Gz
 Gz
@@ -3641,12 +3641,12 @@ Gz
 Gz
 by
 Gz
-ny
+eG
 Jx
 Jx
 Gz
 Gz
-ny
+eG
 Gz
 Gz
 Gz
@@ -3677,7 +3677,7 @@ nn
 Gz
 sW
 Gz
-ny
+eG
 Gz
 Gz
 mS
@@ -3872,7 +3872,7 @@ sW
 RO
 Gz
 Gz
-ny
+eG
 EC
 Gz
 sW
@@ -3907,7 +3907,7 @@ Gz
 Gz
 Gz
 Gz
-ny
+eG
 Gz
 Gz
 Gz
@@ -3924,7 +3924,7 @@ Gz
 Gz
 Gz
 Gz
-ny
+eG
 Gz
 Gz
 Gz
@@ -3936,7 +3936,7 @@ Gz
 Gz
 sW
 yo
-ny
+eG
 Rn
 Rn
 yo
@@ -4121,7 +4121,7 @@ Gz
 sW
 eg
 eg
-ny
+eG
 Xc
 tn
 Gz
@@ -4129,7 +4129,7 @@ Gz
 Gz
 sW
 NU
-YJ
+rN
 Gz
 WG
 MQ
@@ -4137,7 +4137,7 @@ Gz
 Gz
 sW
 ar
-ny
+eG
 Gz
 UE
 Fb
@@ -4146,7 +4146,7 @@ Gz
 Gz
 sW
 Xc
-ny
+eG
 Gz
 bw
 ci
@@ -4167,7 +4167,7 @@ Gz
 Gz
 fU
 Ji
-ny
+eG
 Gz
 eg
 Gz
@@ -4176,16 +4176,16 @@ Gz
 Gz
 Gz
 Gz
-ny
-ny
-WW
+eG
+eG
+Hl
 Gz
 Gz
 Gz
 eo
 Gz
-ny
-ny
+eG
+eG
 Gz
 Gz
 Gz
@@ -4193,14 +4193,14 @@ Gz
 Gz
 nC
 Gz
-ny
+eG
 nC
 nC
 Gz
 Gz
 Gz
-ny
-ny
+eG
+eG
 Gz
 Gz
 Gz
@@ -4211,10 +4211,10 @@ Gz
 Gz
 Gz
 sW
-AK
+KA
 Gz
 Gz
-ny
+eG
 Dy
 nn
 Gz
@@ -4231,7 +4231,7 @@ sW
 lG
 rC
 Gz
-Yy
+XE
 KW
 nn
 Gz
@@ -4244,7 +4244,7 @@ nC
 nC
 nn
 sW
-Dl
+PY
 Gz
 Gz
 Gz
@@ -4404,7 +4404,7 @@ Gz
 Gz
 Gz
 sW
-ny
+eG
 iE
 Gz
 Gz
@@ -4412,18 +4412,18 @@ vm
 Gz
 Gz
 sW
-Gp
+pV
 iM
 iM
-Gp
+pV
 vm
 Gz
 Gz
 Gz
 sW
 vb
-ny
-ny
+eG
+eG
 rQ
 ZU
 Gz
@@ -4443,7 +4443,7 @@ Gz
 Gz
 yU
 Gz
-ny
+eG
 KV
 Gz
 Gz
@@ -4451,32 +4451,32 @@ Gz
 Gz
 Gz
 Gz
-ny
+eG
 Gz
 Gz
 iM
 Gz
 Gz
 Gz
-Um
-WW
+GJ
+Hl
 Gz
 Gz
-Um
+GJ
 Gz
 Gz
 Gz
 Gz
 ZW
 Gz
-ny
-ny
+eG
+eG
 Gz
 Gz
 Gz
 fH
 Gz
-ny
+eG
 Gz
 rQ
 Gz
@@ -4505,7 +4505,7 @@ nn
 Gz
 sW
 PK
-Um
+GJ
 Gz
 iM
 kK
@@ -4706,7 +4706,7 @@ Gz
 sW
 sH
 Nm
-Kg
+oI
 Hn
 TL
 Gz
@@ -4728,15 +4728,15 @@ Gz
 Gz
 Gz
 Gz
-ny
-ny
+eG
+eG
 Gz
 Gz
 Gz
 Gz
 is
 Gz
-ny
+eG
 Gz
 Gz
 Gz
@@ -4752,9 +4752,9 @@ Gz
 Gz
 sH
 Gz
-ny
+eG
 sH
-WW
+Hl
 Gz
 Gz
 Gz
@@ -4782,7 +4782,7 @@ Gz
 sW
 is
 Gz
-ny
+eG
 lM
 JF
 nn
@@ -4982,9 +4982,9 @@ Gz
 sW
 Gz
 xu
-AN
+Go
 Ul
-FU
+BL
 Gz
 Gz
 Gz
@@ -4994,7 +4994,7 @@ Gz
 Gz
 Gz
 dh
-ny
+eG
 Gz
 Gz
 fY
@@ -5003,17 +5003,17 @@ Gz
 Gz
 Gz
 CB
-ny
+eG
 Gz
 Gz
-WW
-Gz
-Gz
-Gz
+Hl
 Gz
 Gz
 Gz
-ny
+Gz
+Gz
+Gz
+eG
 RG
 Gz
 Gz
@@ -5021,14 +5021,14 @@ Gz
 Gz
 MW
 MW
-ny
+eG
 MW
 MW
 Gz
 Gz
 HU
 OB
-jv
+Wt
 OB
 aA
 Gz
@@ -5049,10 +5049,10 @@ Gz
 Gz
 sW
 Hj
-ny
-ny
+eG
+eG
 Gz
-WW
+Hl
 nn
 Gz
 sW
@@ -5234,7 +5234,7 @@ Gz
 sW
 Gz
 Gz
-ny
+eG
 ob
 HL
 Gz
@@ -5271,8 +5271,8 @@ Gz
 Gz
 KT
 Gz
-ny
-ny
+eG
+eG
 Of
 Gz
 Gz
@@ -5280,14 +5280,14 @@ Gz
 Gz
 ha
 Gz
-ny
+eG
 Gz
 Gz
 Gz
 Gz
 Gz
 Gz
-ny
+eG
 Gz
 Gz
 Gz
@@ -5296,7 +5296,7 @@ Gz
 Gz
 Gz
 Gz
-ny
+eG
 Gz
 Gz
 UE
@@ -5510,7 +5510,7 @@ Gz
 sW
 qI
 Gz
-ny
+eG
 eB
 Un
 Gz
@@ -5519,21 +5519,21 @@ sW
 ti
 AY
 Wc
-SX
+Vd
 eL
 Gz
 Gz
 Gz
 sW
-Xh
+xG
 TP
 Gz
-WW
-kY
+Hl
+HB
 Gz
 sW
 ID
-ny
+eG
 Gz
 nO
 im
@@ -5555,9 +5555,9 @@ Gz
 Gz
 Gz
 Gz
-zn
-ny
-EY
+Rg
+eG
+fn
 go
 Gz
 Gz
@@ -5565,22 +5565,22 @@ Gz
 Gz
 Gz
 Gz
-ny
-ny
+eG
+eG
 Gz
 Gz
 Gz
 Gz
-aV
-ny
+SW
+eG
 Gz
 Gz
-HG
+PG
 Gz
 Gz
 QA
 Gz
-ny
+eG
 Gz
 Gz
 Gz
@@ -5604,7 +5604,7 @@ LU
 Gz
 Gz
 Gz
-ny
+eG
 nn
 Gz
 sW
@@ -5617,10 +5617,10 @@ nn
 Gz
 Gz
 sW
-nj
-ny
+Tp
+eG
 Gz
-ny
+eG
 EF
 nn
 sW
