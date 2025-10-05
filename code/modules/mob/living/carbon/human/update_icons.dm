@@ -1169,7 +1169,8 @@ There are several things that need to be remembered:
 	else
 		overlays_raw[HANDCUFF_LAYER] = null
 
-	update_hud_hands()
+	if(hud_used)
+		update_hud_hands()
 	if(update_icons)
 		update_icon()
 
@@ -1206,13 +1207,14 @@ There are several things that need to be remembered:
 	for(var/bp in held_item_slots)
 		var/datum/inventory_slot/inv_slot = held_item_slots[bp]
 		var/obj/item/held = inv_slot?.holding
+		var/mode = (bp == BP_L_HAND) ? BP_L_HAND : (bp == BP_R_HAND) ? BP_R_HAND : (bp in species.limb_mapping[BP_L_HAND]) ? BP_L_HAND : BP_R_HAND
+		var/wornflag = mode == BP_L_HAND ? WORN_LHAND : WORN_RHAND
+		var/layer = mode == BP_L_HAND ? L_HAND_LAYER : R_HAND_LAYER
+
+		overlays_raw[layer] = null
 		if(istype(held))
 			var/mob_icon
 			var/mob_state = held.item_state || held.icon_state
-
-			var/mode = (bp in species.limb_mapping[BP_L_HAND]) ? BP_L_HAND : BP_R_HAND
-			var/wornflag = mode == BP_L_HAND ? WORN_LHAND : WORN_RHAND
-			var/layer = mode == BP_L_HAND ? L_HAND_LAYER : R_HAND_LAYER
 
 			if(held.contained_sprite)
 				if(held.icon_override)
@@ -1239,8 +1241,6 @@ There are several things that need to be remembered:
 					mob_icon = mode == BP_L_HAND ? INV_L_HAND_DEF_ICON : INV_R_HAND_DEF_ICON
 
 			overlays_raw[layer] = held.get_mob_overlay(src, mob_icon, mob_state, mode)
-		else
-			overlays_raw[layer] = null
 
 		if(update_icons)
 			update_icon(forceDirUpdate = TRUE)

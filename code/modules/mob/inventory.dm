@@ -340,15 +340,14 @@ GLOBAL_LIST_INIT(slot_equipment_priority, list(
 		if(!O.can_hold_dropped_items())
 			return FALSE
 	var/slot = get_inventory_slot(I)
-	return slot && I.mob_can_unequip(src, slot)
+	if(!slot && !istype(I.loc, /obj/item/rig_module))
+		return TRUE // already unequipped
+	return I.mob_can_unequip(src, slot)
 
 /mob/proc/get_inventory_slot(obj/item/I)
-	var/slot = 0
 	for(var/s in GLOB.all_inventory_slots) //kind of worries me
 		if(get_equipped_item(s) == I)
-			slot = s
-			break
-	return slot
+			return s
 
 //This differs from remove_from_mob() in that it checks if the item can be unequipped first.
 /mob/proc/unEquip(obj/item/I, force = 0, var/atom/target) //Force overrides NODROP for things like wizarditis and admin undress.
