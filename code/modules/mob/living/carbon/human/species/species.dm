@@ -1084,4 +1084,4 @@
 	human.bodytemperature += passive_temp_gain
 
 /datum/species/proc/get_limb_from_zone(var/limb)
-	. = length(LAZYACCESS(limb_mapping, limb) ? pick(limb_mapping[limb]) : limb)
+	. = length(LAZYACCESS(limb_mapping, limb)) ? pick(limb_mapping[limb]) : limb

@@ -414,8 +414,11 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 /obj/item/reagent_containers/food/drinks/shaker/attack_self(mob/user)
 	if(!twisted)
 		if(cap)
+			if(!user.get_empty_hand_slot())
+				to_chat(user, SPAN_NOTICE("You need a free hand to take off \the [src]'s [cap]!"))
+				return
 			to_chat(user, SPAN_NOTICE("You remove \the [src]'s [cap]."))
-			user.put_in_hands(cap)
+			user.put_in_inactive_hand(cap)
 			atom_flags |= ATOM_FLAG_OPEN_CONTAINER
 			cap = null
 			playsound(src.loc, SFX_SHAKER_LID_OFF, 50, 1)

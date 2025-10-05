@@ -364,9 +364,9 @@
 			to_chat(user, SPAN_WARNING("You uselessly claw at \the [src], your rotting brain incapable of picking it up or operating it."))
 			return
 		var/mob/living/carbon/human/H = user
-		var/obj/item/organ/external/temp = H.organs_by_name[BP_R_HAND]
-		if (user.hand)
-			temp = H.organs_by_name[BP_L_HAND]
+		if(H.get_active_hand())
+			return
+		var/obj/item/organ/external/temp = LAZYACCESS(H.organs_by_name, H.get_active_held_item_slot())
 		if(temp && !temp.is_usable())
 			to_chat(user, SPAN_NOTICE("You try to move your [temp.name], but cannot!"))
 			return
