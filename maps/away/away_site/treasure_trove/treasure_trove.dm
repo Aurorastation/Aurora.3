@@ -4,6 +4,7 @@
 
 	prefix = "away_site/treasure_trove/"
 	suffix = "treasure_trove.dmm"
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 	sectors = list(ALL_POSSIBLE_SECTORS)
 	spawn_weight = 1

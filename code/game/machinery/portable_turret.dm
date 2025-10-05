@@ -1268,14 +1268,6 @@
 	no_salvage = TRUE
 	req_one_access = list(ACCESS_SYNDICATE)
 
-/obj/machinery/porta_turret/hologram/assembly_hints(mob/user, distance, is_adjacent)
-	. = ..()
-	. = null
-
-/obj/machinery/porta_turret/hologram/condition_hints(mob/user, distance, is_adjacent)
-	. = ..()
-	. = null
-
 #undef TURRET_PRIORITY_TARGET
 #undef TURRET_SECONDARY_TARGET
 #undef TURRET_NOT_TARGET

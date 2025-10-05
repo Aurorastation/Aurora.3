@@ -109,6 +109,8 @@
 
 /* Tosses things in a certain direction */
 /obj/effect/step_trigger/thrower
+	icon = 'icons/mob/screen/generic.dmi'
+	icon_state = "dir_arrow"
 	var/direction = SOUTH // the direction of throw
 	var/tiles = 3 // if 0: forever until atom hits a stopper
 	var/immobilize = 1 // if nonzero: prevents mobs from moving while they're being flung
@@ -117,9 +119,6 @@
 	var/nostop = 0 // if 1: will only be stopped by teleporters
 	///List of moving atoms mapped to their inital direction
 	var/list/affecting = list()
-
-	icon = 'icons/mob/screen/generic.dmi'
-	icon_state = "dir_arrow"
 
 /obj/effect/step_trigger/thrower/Trigger(atom/A)
 	if(!A || !ismovable(A))

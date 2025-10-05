@@ -208,7 +208,7 @@
 	var/spread_range = 7
 
 /obj/item/landmine/frag/deployed
-	deployed = 1
+	deployed = TRUE
 
 /obj/item/landmine/frag/trigger(mob/living/triggerer)
 	spark(src, 3, GLOB.alldirs)
@@ -308,7 +308,7 @@
 	icon_state = "phoronlandmine"
 
 /obj/item/landmine/phoron/deployed
-	deployed = 1
+	deployed = TRUE
 
 /obj/item/landmine/phoron/trigger(mob/living/triggerer)
 	spark(src, 3, GLOB.alldirs)
@@ -329,7 +329,7 @@
 	icon_state = "phoronlandmine"
 
 /obj/item/landmine/n2o/deployed
-	deployed = 1
+	deployed = TRUE
 
 /obj/item/landmine/n2o/trigger(mob/living/L)
 	spark(src, 3, GLOB.alldirs)
@@ -348,7 +348,7 @@
 	icon_state = "emplandmine"
 
 /obj/item/landmine/emp/deployed
-	deployed = 1
+	deployed = TRUE
 
 /obj/item/landmine/emp/trigger(mob/living/triggerer)
 	spark(src, 3, GLOB.alldirs)

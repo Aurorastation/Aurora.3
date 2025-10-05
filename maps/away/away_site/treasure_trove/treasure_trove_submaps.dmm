@@ -33,6 +33,12 @@
 	},
 /turf/simulated/floor/exoplanet/plating,
 /area/trove/tunnels)
+"aS" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/acid_remnants,
+/obj/effect/decal/cleanable/greenglow/radioactive,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
 "be" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/random/dirt_75,
@@ -99,7 +105,7 @@
 "bI" = (
 /obj/random/dirt_75,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/effect/decal/cleanable/greenglow,
+/obj/effect/decal/cleanable/greenglow/radioactive,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
@@ -306,6 +312,12 @@
 /mob/living/simple_animal/hostile/scarybat/cult,
 /turf/simulated/floor/cult,
 /area/trove/tunnels)
+"fE" = (
+/obj/random/dirt_75,
+/obj/structure/reagent_dispensers/radioactive_waste/hazardous,
+/obj/effect/decal/cleanable/greenglow/radioactive,
+/turf/simulated/floor/exoplanet/asphalt,
+/area/trove/tunnels)
 "fG" = (
 /obj/random/dirt_75,
 /obj/effect/spider/stickyweb,
@@ -357,7 +369,7 @@
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "gs" = (
-/obj/effect/decal/cleanable/greenglow,
+/obj/effect/decal/cleanable/greenglow/radioactive,
 /obj/effect/decal/cleanable/acid_remnants,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/cave,
@@ -701,11 +713,6 @@
 	temperature = 293.15
 	},
 /area/trove/tunnels)
-"lA" = (
-/obj/random/dirt_75,
-/obj/effect/decal/cleanable/greenglow,
-/turf/simulated/floor/exoplanet/basalt/cave,
-/area/trove/tunnels)
 "lC" = (
 /obj/item/toy/partypopper,
 /obj/machinery/floor_light/dance,
@@ -902,6 +909,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
+"pk" = (
+/obj/structure/reagent_dispensers/radioactive_waste,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/greenglow/radioactive,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
 "pt" = (
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/exoplanet/asphalt,
@@ -1065,8 +1078,8 @@
 /area/trove/tunnels)
 "rG" = (
 /obj/random/dirt_75,
-/obj/effect/decal/cleanable/greenglow,
-/obj/effect/decal/cleanable/greenglow,
+/obj/effect/decal/cleanable/greenglow/radioactive,
+/obj/effect/decal/cleanable/greenglow/radioactive,
 /turf/simulated/floor/exoplanet/asphalt,
 /area/trove/tunnels)
 "rK" = (
@@ -1107,7 +1120,7 @@
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "sj" = (
-/obj/effect/decal/cleanable/greenglow,
+/obj/effect/decal/cleanable/greenglow/radioactive,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/asphalt,
 /area/trove/tunnels)
@@ -1182,6 +1195,12 @@
 /turf/simulated/floor/exoplanet/asteroid/basalt/air{
 	temperature = 293.15
 	},
+/area/trove/tunnels)
+"tg" = (
+/obj/random/dirt_75,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/effect/decal/cleanable/greenglow/radioactive,
+/turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "th" = (
 /obj/random/dirt_75,
@@ -1466,12 +1485,6 @@
 	temperature = 293.15
 	},
 /area/trove/tunnels)
-"yF" = (
-/obj/random/dirt_75,
-/obj/effect/decal/cleanable/greenglow,
-/obj/effect/decal/cleanable/acid_remnants,
-/turf/simulated/floor/exoplanet/basalt/cave,
-/area/trove/tunnels)
 "yI" = (
 /obj/random/dirt_75,
 /turf/template_noop,
@@ -1519,7 +1532,7 @@
 /area/trove/tunnels)
 "zE" = (
 /obj/structure/reagent_dispensers/radioactive_waste,
-/obj/effect/decal/cleanable/greenglow,
+/obj/effect/decal/cleanable/greenglow/radioactive,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
@@ -2046,6 +2059,11 @@
 /obj/shieldwall,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
+"HN" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/greenglow/radioactive,
+/turf/simulated/floor/exoplanet/asphalt,
+/area/trove/tunnels)
 "Ia" = (
 /obj/random/dirt_75,
 /obj/item/device/flashlight/lantern/on,
@@ -2329,7 +2347,7 @@
 "LA" = (
 /obj/random/dirt_75,
 /obj/structure/reagent_dispensers/radioactive_waste/hazardous,
-/obj/effect/decal/cleanable/greenglow,
+/obj/effect/decal/cleanable/greenglow/radioactive,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "LF" = (
@@ -2531,7 +2549,7 @@
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "Oq" = (
-/obj/effect/decal/cleanable/greenglow,
+/obj/effect/decal/cleanable/greenglow/radioactive,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "Or" = (
@@ -2754,6 +2772,11 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
+"Tk" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/greenglow/radioactive,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/trove/tunnels)
 "Tl" = (
 /obj/random/dirt_75,
 /obj/shieldwall,
@@ -2916,7 +2939,7 @@
 "Vs" = (
 /obj/random/dirt_75,
 /obj/structure/reagent_dispensers/radioactive_waste,
-/obj/effect/decal/cleanable/greenglow,
+/obj/effect/decal/cleanable/greenglow/radioactive,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
@@ -3067,7 +3090,7 @@
 "Xe" = (
 /obj/random/dirt_75,
 /obj/structure/reagent_dispensers/radioactive_waste,
-/obj/effect/decal/cleanable/greenglow,
+/obj/effect/decal/cleanable/greenglow/radioactive,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "Xw" = (
@@ -3087,6 +3110,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/acid_remnants,
+/obj/effect/decal/cleanable/greenglow/radioactive,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "XH" = (
@@ -18585,9 +18609,9 @@ OC
 cT
 sb
 kH
-kH
+tg
 OC
-kH
+tg
 OC
 kH
 WH
@@ -18736,10 +18760,10 @@ Ep
 Ep
 RK
 Ar
-Ep
-Ep
-Ep
-Ep
+HN
+HN
+HN
+fE
 sj
 rG
 Ar
@@ -18891,7 +18915,7 @@ sb
 kH
 OC
 kH
-kH
+tg
 OC
 bI
 WH
@@ -19040,10 +19064,10 @@ Op
 Op
 cT
 Op
-yF
+aS
 Oq
-Op
-Op
+Tk
+Tk
 LA
 Vs
 ML
@@ -19191,12 +19215,12 @@ Op
 Lx
 Fm
 cT
-zE
+pk
 LA
-lA
+Tk
 Op
 Xe
-uB
+aS
 Xe
 zE
 oQ
