@@ -161,6 +161,10 @@ Class Procs:
 	 */
 	var/manufacturer = null
 
+	///Do we want to hook into on_enter_area and on_exit_area?
+	///Disables some optimizations
+	var/always_area_sensitive = FALSE
+
 /obj/machinery/feedback_hints(mob/user, distance, is_adjacent)
 	. = list()
 	if(signaler && is_adjacent)
@@ -201,6 +205,8 @@ Class Procs:
 
 		if(component_parts.len)
 			RefreshParts()
+
+	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/Destroy()
 	//Stupid macro used in power usage

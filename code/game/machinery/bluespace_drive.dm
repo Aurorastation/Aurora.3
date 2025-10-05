@@ -110,6 +110,7 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/bluespacedrive/LateInitialize()
+	. = ..()
 	if(SSatlas.current_map.use_overmap && !linked)
 		var/my_sector = GLOB.map_sectors["[z]"]
 		if(istype(my_sector, /obj/effect/overmap/visitable/ship))
@@ -493,6 +494,7 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/computer/bluespacedrive/LateInitialize()
+	. = ..()
 
 	linked_bluespace_drive = locate() in get_area(src)
 

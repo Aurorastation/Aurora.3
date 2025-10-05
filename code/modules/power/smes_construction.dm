@@ -229,6 +229,7 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/power/smes/buildable/LateInitialize()
+	. = ..()
 	recalc_coils()
 
 // Proc: attack_hand()
