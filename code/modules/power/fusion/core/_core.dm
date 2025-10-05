@@ -33,7 +33,8 @@
 	if(owned_field)
 		qdel(owned_field)
 		owned_field = null
-	. = ..()
+	set_light(0)
+	return ..()
 
 /**
  * If there's no powernet or no owned field, shutdown() in those cases too.
@@ -143,7 +144,3 @@
 	if(idle_power_usage > avail())
 		return FALSE
 	. = TRUE
-
-/obj/machinery/power/fusion_core/Destroy()
-	set_light(0)
-	..()
