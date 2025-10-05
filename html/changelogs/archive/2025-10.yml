@@ -53,3 +53,26 @@
   - rscadd: Stasis beds and stasis bags now have mechanics hints explaining what they
       do.
   - rscadd: Stasis beds can now be upgraded to provide more stasis.
+2025-10-05:
+  AlaunusLux:
+  - rscadd: Added a message sent over command frequency when a vessel docks or undocks
+      at official docking ports, unless cloaked.
+  - rscadd: Added disassembly instructions to reinforced walls.
+  Batrachophrenoboocosmomachia:
+  - refactor: Wall-leaning code refactored into new 'leanable' component.
+  - rscadd: Full windows, doors (of all varieties), and vending machines can now be
+      leaned against just like walls.
+  - bugfix: Fixed buckling to chairs.
+  - bugfix: Fixed door-leaning layering issues.
+  JohnWildkins:
+  - refactor: Refactored several machines backend code to reduce server load.
+  - refactor: Fixed an issue where slimes would hard-delete, causing server lag.
+  - refactor: Optimized igniter and holosign buttons to reduce server load when used.
+  - refactor: Optimized atmos meters, hydroponics trays, tcomms machines, and disposal
+      units to only update their icon state when necessary.
+  - refactor: Refactors motion sensors, spiderlings, guns, ammo piles, and mecha equipment
+      to remove costly hard-dels.
+  crunchypretzels:
+  - qol: You can now use the Himeo voidsuit modkit on industrial rigs, as well as
+      rig assemblies.
+  - imageadd: Changed the rest of the Himean suits to match the new palette.

@@ -105,8 +105,8 @@
 /obj/structure/mouse_drop_receive(atom/dropped, mob/user, params)
 	var/mob/living/H = user
 	if(istype(H) && can_climb(H) && dropped == user)
-		if(!do_climb(dropped))
-			return ..()
+		do_climb(dropped)
+	return ..()
 
 /obj/structure/proc/can_climb(var/mob/living/user, post_climb_check=0)
 	if (!climbable)
