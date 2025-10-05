@@ -65,17 +65,9 @@
 		/obj/item/clothing/pants/highvis_orange = 5,
 		/obj/item/clothing/pants/highvis_red = 5,
 		/obj/item/clothing/shoes/sneakers/orange = 6,
+		/obj/item/clothing/shoes/workboots = 4,
 		/obj/item/clothing/shoes/workboots/dark = 6,
-		/obj/item/clothing/shoes/workboots/toeless = 4,
-		/obj/item/storage/backpack/industrial = 6,
-		/obj/item/storage/backpack/heph = 4,
-		/obj/item/storage/backpack/zavod = 4,
-		/obj/item/storage/backpack/duffel/eng = 6,
-		/obj/item/storage/backpack/duffel/heph = 4,
-		/obj/item/storage/backpack/duffel/zavod = 4,
-		/obj/item/storage/backpack/cloak/engi = 3,
-		/obj/item/storage/backpack/cloak/heph = 2,
-		/obj/item/storage/backpack/cloak/zavod = 2
+		/obj/item/clothing/shoes/workboots/toeless = 4
 	)
 	premium = list(
 		/obj/item/toy/figure/engineer = 6,
@@ -131,6 +123,7 @@
 		/obj/item/clothing/head/hardhat/orange = 2,
 		/obj/item/clothing/head/hardhat/green = 2,
 		/obj/item/clothing/head/hardhat/red = 2,
+		/obj/item/clothing/head/hardhat/atmos = 4,
 		/obj/item/clothing/head/sidecap/zavod = 3,
 		/obj/item/clothing/head/sidecap/zavod/alt = 3,
 		/obj/item/clothing/head/softcap/atmos = 2,
@@ -141,17 +134,9 @@
 		/obj/item/clothing/head/wool/zavod/alt = 2,
 		/obj/item/clothing/accessory/storage/overalls/engineer = 3,
 		/obj/item/clothing/shoes/sneakers/orange = 4,
+		/obj/item/clothing/shoes/workboots = 4,
 		/obj/item/clothing/shoes/workboots/dark = 4,
-		/obj/item/clothing/shoes/workboots/toeless = 2,
-		/obj/item/storage/backpack/industrial = 6,
-		/obj/item/storage/backpack/heph = 4,
-		/obj/item/storage/backpack/zavod = 4,
-		/obj/item/storage/backpack/duffel/eng = 6,
-		/obj/item/storage/backpack/duffel/heph = 4,
-		/obj/item/storage/backpack/duffel/zavod = 4,
-		/obj/item/storage/backpack/cloak/engi = 3,
-		/obj/item/storage/backpack/cloak/heph = 2,
-		/obj/item/storage/backpack/cloak/zavod = 2
+		/obj/item/clothing/shoes/workboots/toeless = 2
 	)
 	premium = list(
 		/obj/item/toy/figure/atmos = 3,
@@ -231,7 +216,6 @@
 		/obj/item/clothing/suit/storage/toggle/longcoat/pmc = 4,
 		/obj/item/clothing/suit/storage/toggle/longcoat/zavodskoi = 4,
 		/obj/item/clothing/suit/storage/toggle/sec_dep_jacket = 8,
-		/obj/item/clothing/accessory/holster/waist = 8,
 		/obj/item/clothing/gloves/black_leather = 8,
 		/obj/item/clothing/mask/balaclava = 4,
 		/obj/item/clothing/head/bandana/security = 8,
@@ -264,18 +248,7 @@
 		/obj/item/clothing/head/wool/zavod/alt = 4,
 		/obj/item/clothing/shoes/laceup = 2,
 		/obj/item/clothing/shoes/jackboots = 8,
-		/obj/item/clothing/shoes/jackboots/toeless = 6,
-		/obj/item/storage/backpack/security = 6,
-		/obj/item/storage/backpack/idris = 4,
-		/obj/item/storage/backpack/pmcg = 4,
-		/obj/item/storage/backpack/zavod = 4,
-		/obj/item/storage/backpack/duffel/sec = 6,
-		/obj/item/storage/backpack/duffel/idris = 4,
-		/obj/item/storage/backpack/duffel/pmcg = 4,
-		/obj/item/storage/backpack/duffel/zavod = 4,
-		/obj/item/storage/backpack/cloak/phalanx = 2,
-		/obj/item/storage/backpack/cloak/sec = 2,
-		/obj/item/storage/backpack/cloak/zavod = 2
+		/obj/item/clothing/shoes/jackboots/toeless = 6
 	)
 	premium = list(
 		/obj/item/toy/figure/secofficer = 6,
@@ -338,14 +311,7 @@
 		/obj/item/clothing/head/top_hat = 3,
 		/obj/item/clothing/shoes/laceup = 3,
 		/obj/item/clothing/shoes/laceup/grey = 3,
-		/obj/item/clothing/shoes/sneakers/black = 3,
-		/obj/item/storage/backpack/idris = 2,
-		/obj/item/storage/backpack/nt = 2,
-		/obj/item/storage/backpack/orion = 2,
-		/obj/item/storage/backpack/duffel/idris = 2,
-		/obj/item/storage/backpack/duffel/nt = 2,
-		/obj/item/storage/backpack/duffel/orion = 2,
-		/obj/item/storage/backpack/cloak/orion = 2
+		/obj/item/clothing/shoes/sneakers/black = 3
 	)
 	premium = list(
 		/obj/item/toy/figure/bartender = 3,
@@ -396,15 +362,7 @@
 		/obj/item/clothing/head/wool/nt = 3,
 		/obj/item/clothing/head/wool/orion = 3,
 		/obj/item/clothing/head/wool/orion/alt = 3,
-		/obj/item/storage/box/gloves = 3,
-		/obj/item/storage/backpack/idris = 2,
-		/obj/item/storage/backpack/nt = 2,
-		/obj/item/storage/backpack/orion = 2,
-		/obj/item/storage/backpack/duffel/idris = 2,
-		/obj/item/storage/backpack/duffel/nt = 2,
-		/obj/item/storage/backpack/duffel/orion = 2,
-		/obj/item/storage/backpack/cloak/nt = 2,
-		/obj/item/storage/backpack/cloak/orion = 2
+		/obj/item/storage/box/gloves = 3
 	)
 	premium = list(
 		/obj/item/toy/figure/chef = 3
@@ -425,7 +383,6 @@
 		/obj/item/clothing/under/rank/janitor/idris = 3,
 		/obj/item/clothing/under/rank/janitor/idris/alt = 3,
 		/obj/item/clothing/under/rank/janitor/orion = 3,
-		/obj/item/clothing/suit/caution = 6,
 		/obj/item/clothing/suit/storage/hazardvest = 5,
 		/obj/item/clothing/suit/storage/hazardvest/purple = 4,
 		/obj/item/clothing/suit/storage/hooded/wintercoat/idris = 2,
@@ -440,9 +397,6 @@
 		/obj/item/clothing/suit/storage/toggle/highvis_alt = 5,
 		/obj/item/clothing/suit/storage/toggle/highvis_orange = 5,
 		/obj/item/clothing/suit/storage/toggle/highvis_red = 5,
-		/obj/item/storage/belt/custodial = 3,
-		/obj/item/clothing/accessory/holster/utility/custodial/armpit = 2,
-		/obj/item/clothing/accessory/holster/utility/custodial/hip = 2,
 		/obj/item/clothing/pants/highvis = 3,
 		/obj/item/clothing/pants/highvis_alt = 3,
 		/obj/item/clothing/pants/highvis_orange = 3,
@@ -464,16 +418,7 @@
 		/obj/item/clothing/gloves/janitor/tajara = 2,
 		/obj/item/clothing/gloves/janitor/unathi = 2,
 		/obj/item/clothing/gloves/janitor/vaurca = 2,
-		/obj/item/clothing/glasses/safety/goggles = 6,
-		/obj/item/clothing/shoes/galoshes = 4,
-		/obj/item/storage/backpack/idris = 2,
-		/obj/item/storage/backpack/nt = 2,
-		/obj/item/storage/backpack/orion = 2,
-		/obj/item/storage/backpack/duffel/idris = 2,
-		/obj/item/storage/backpack/duffel/nt = 2,
-		/obj/item/storage/backpack/duffel/orion = 2,
-		/obj/item/storage/backpack/cloak/nt = 2,
-		/obj/item/storage/backpack/cloak/orion = 2
+		/obj/item/clothing/glasses/safety/goggles = 6
 	)
 	premium = list(
 		/obj/item/toy/figure/janitor = 6
@@ -525,17 +470,7 @@
 		/obj/item/clothing/head/wool/orion = 3,
 		/obj/item/clothing/head/wool/orion/alt = 3,
 		/obj/item/clothing/accessory/apron/blue = 3,
-		/obj/item/clothing/accessory/overalls/blue = 3,
-		/obj/item/storage/backpack/hydroponics = 5,
-		/obj/item/storage/backpack/idris = 2,
-		/obj/item/storage/backpack/nt = 2,
-		/obj/item/storage/backpack/orion = 2,
-		/obj/item/storage/backpack/duffel/hyd = 5,
-		/obj/item/storage/backpack/duffel/idris = 2,
-		/obj/item/storage/backpack/duffel/nt = 2,
-		/obj/item/storage/backpack/duffel/orion = 2,
-		/obj/item/storage/backpack/cloak/nt = 2,
-		/obj/item/storage/backpack/cloak/orion = 2
+		/obj/item/clothing/accessory/overalls/blue = 3
 	)
 	premium = list(
 		/obj/item/toy/figure/gardener = 3
@@ -655,18 +590,7 @@
 		/obj/item/clothing/accessory/poncho/roles/science = 8,
 		/obj/item/clothing/shoes/sneakers/medsci = 8,
 		/obj/item/clothing/shoes/sneakers/medsci/zavod = 4,
-		/obj/item/clothing/shoes/sneakers/medsci/zeng = 4,
-		/obj/item/storage/backpack/toxins = 8,
-		/obj/item/storage/backpack/nt = 4,
-		/obj/item/storage/backpack/zavod = 4,
-		/obj/item/storage/backpack/zeng = 4,
-		/obj/item/storage/backpack/duffel/tox = 8,
-		/obj/item/storage/backpack/duffel/nt = 4,
-		/obj/item/storage/backpack/duffel/zavod = 4,
-		/obj/item/storage/backpack/duffel/zeng = 4,
-		/obj/item/storage/backpack/cloak/sci = 4,
-		/obj/item/storage/backpack/cloak/nt = 2,
-		/obj/item/storage/backpack/cloak/zavod = 2
+		/obj/item/clothing/shoes/sneakers/medsci/zeng = 4
 	)
 	contraband = list(
 		/obj/item/clothing/under/rank/scientist/einstein = 4
@@ -748,28 +672,13 @@
 		/obj/item/clothing/head/wool/zeng/alt = 2,
 		/obj/item/clothing/head/hardhat/paramedic = 4,
 		/obj/item/clothing/mask/surgical = 8,
-		/obj/item/clothing/accessory/stethoscope = 8,
 		/obj/item/clothing/accessory/poncho/roles/medical = 6,
 		/obj/item/clothing/shoes/sneakers/black = 6,
 		/obj/item/clothing/shoes/sneakers/medsci = 6,
 		/obj/item/clothing/shoes/sneakers/medsci/pmc = 4,
 		/obj/item/clothing/shoes/sneakers/medsci/zeng = 4,
 		/obj/item/clothing/shoes/jackboots = 4,
-		/obj/item/storage/backpack/medic = 8,
-		/obj/item/storage/backpack/emt = 4,
-		/obj/item/storage/backpack/psychiatrist = 2,
-		/obj/item/storage/backpack/nt = 4,
-		/obj/item/storage/backpack/pmcg = 4,
-		/obj/item/storage/backpack/zeng = 4,
-		/obj/item/storage/backpack/duffel/med = 8,
-		/obj/item/storage/backpack/duffel/emt = 4,
-		/obj/item/storage/backpack/duffel/psych = 2,
-		/obj/item/storage/backpack/duffel/nt = 4,
-		/obj/item/storage/backpack/duffel/pmcg = 4,
-		/obj/item/storage/backpack/duffel/zeng = 4,
-		/obj/item/storage/backpack/cloak/medical = 4,
-		/obj/item/storage/backpack/cloak/nt = 2,
-		/obj/item/storage/backpack/cloak/phalanx = 2
+		/obj/item/clothing/shoes/jackboots/toeless = 2
 	)
 	premium = list(
 		/obj/item/toy/figure/md = 6,
@@ -817,25 +726,11 @@
 		/obj/item/clothing/head/wool/pmc/alt = 4,
 		/obj/item/clothing/head/wool/zeng = 2,
 		/obj/item/clothing/head/wool/zeng/alt = 2,
-		/obj/item/storage/belt/fannypack = 3,
 		/obj/item/clothing/accessory/poncho/roles/medical = 3,
 		/obj/item/clothing/shoes/sneakers/black = 4,
 		/obj/item/clothing/shoes/sneakers/medsci = 4,
 		/obj/item/clothing/shoes/sneakers/medsci/pmc = 2,
-		/obj/item/clothing/shoes/sneakers/medsci/zeng = 2,
-		/obj/item/storage/backpack/medic = 4,
-		/obj/item/storage/backpack/pharmacy = 3,
-		/obj/item/storage/backpack/nt = 3,
-		/obj/item/storage/backpack/pmcg = 3,
-		/obj/item/storage/backpack/zeng = 3,
-		/obj/item/storage/backpack/duffel/med = 4,
-		/obj/item/storage/backpack/duffel/pharm = 3,
-		/obj/item/storage/backpack/duffel/nt = 3,
-		/obj/item/storage/backpack/duffel/pmcg = 3,
-		/obj/item/storage/backpack/duffel/zeng = 3,
-		/obj/item/storage/backpack/cloak/medical = 4,
-		/obj/item/storage/backpack/cloak/nt = 2,
-		/obj/item/storage/backpack/cloak/phalanx = 2
+		/obj/item/clothing/shoes/sneakers/medsci/zeng = 2
 	)
 	premium = list(
 		/obj/item/toy/figure/chemist = 3
@@ -883,19 +778,10 @@
 		/obj/item/clothing/accessory/storage/overalls/mining = 4,
 		/obj/item/clothing/glasses/safety/goggles = 3,
 		/obj/item/clothing/gloves/black = 3,
-		/obj/item/clothing/gloves/yellow = 3,
-		/obj/item/clothing/gloves/yellow/specialu = 3,
-		/obj/item/clothing/gloves/yellow/specialt = 3,
 		/obj/item/clothing/shoes/sneakers/black = 8,
+		/obj/item/clothing/shoes/workboots = 4,
 		/obj/item/clothing/shoes/workboots/dark = 8,
-		/obj/item/clothing/shoes/workboots/toeless = 4,
-		/obj/item/storage/backpack/heph = 4,
-		/obj/item/storage/backpack/orion = 4,
-		/obj/item/storage/backpack/duffel/heph = 4,
-		/obj/item/storage/backpack/duffel/orion = 4,
-		/obj/item/storage/backpack/cloak/heph = 2,
-		/obj/item/storage/backpack/cloak/orion = 2,
-		/obj/item/device/flashlight/marshallingwand = 3
+		/obj/item/clothing/shoes/workboots/toeless = 4
 	)
 	premium = list(
 		/obj/item/toy/figure/cargotech = 3,
@@ -943,19 +829,10 @@
 		/obj/item/clothing/accessory/poncho/roles/cargo = 4,
 		/obj/item/clothing/glasses/safety/goggles = 3,
 		/obj/item/clothing/gloves/black = 3,
-		/obj/item/clothing/gloves/yellow = 3,
-		/obj/item/clothing/gloves/yellow/specialu = 3,
-		/obj/item/clothing/gloves/yellow/specialt = 3,
 		/obj/item/clothing/shoes/sneakers/black = 3,
+		/obj/item/clothing/shoes/workboots = 4,
 		/obj/item/clothing/shoes/workboots/dark = 4,
-		/obj/item/clothing/shoes/workboots/toeless = 2,
-		/obj/item/storage/backpack/heph = 4,
-		/obj/item/storage/backpack/orion = 4,
-		/obj/item/storage/backpack/duffel/heph = 4,
-		/obj/item/storage/backpack/duffel/orion = 4,
-		/obj/item/storage/backpack/cloak/cargo = 3,
-		/obj/item/storage/backpack/cloak/heph = 2,
-		/obj/item/storage/backpack/cloak/orion = 2
+		/obj/item/clothing/shoes/workboots/toeless = 2
 	)
 	premium = list(
 		/obj/item/toy/figure/roboticist = 3,
