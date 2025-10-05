@@ -14,20 +14,6 @@
 	groupable = TRUE
 	spawn_amount = 2
 
-/singleton/cargo_item/camera
-	category = "operations"
-	name = "camera"
-	supplier = "nanotrasen"
-	description = "A polaroid camera. 10 photos left."
-	price = 45
-	items = list(
-		/obj/item/device/camera
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
 /singleton/cargo_item/cargotraintrolley
 	category = "operations"
 	name = "cargo train trolley"
@@ -110,20 +96,6 @@
 	access = 0
 	container_type = "box"
 	groupable = FALSE
-	spawn_amount = 1
-
-/singleton/cargo_item/filmcartridge
-	category = "operations"
-	name = "film cartridge"
-	supplier = "nanotrasen"
-	description = "A camera film cartridge. Insert it into a camera to reload it."
-	price = 8
-	items = list(
-		/obj/item/device/camera_film
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
 	spawn_amount = 1
 
 /singleton/cargo_item/flare

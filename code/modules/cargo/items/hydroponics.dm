@@ -213,7 +213,7 @@
 	name = "hydroponics tray"
 	supplier = "nanotrasen"
 	description = "A safe space to raise your plants."
-	price = 50
+	price = 100
 	items = list(
 		/obj/machinery/portable_atmospherics/hydroponics
 	)
