@@ -516,7 +516,7 @@ Class Procs:
 	else return FALSE
 
 /obj/machinery/proc/dismantle()
-	playsound(loc, /singleton/sound_category/crowbar_sound, 50, 1)
+	playsound(loc, SFX_CROWBAR, 50, 1)
 	var/obj/machinery/constructable_frame/machine_frame/M = new /obj/machinery/constructable_frame/machine_frame(loc)
 	M.set_dir(src.dir)
 	M.state = 3
@@ -530,7 +530,7 @@ Class Procs:
 
 	return TRUE
 
-/obj/machinery/proc/print(var/obj/paper, var/play_sound = 1, var/print_sfx = /singleton/sound_category/print_sound, var/print_delay = 10, var/message, var/mob/user)
+/obj/machinery/proc/print(var/obj/paper, var/play_sound = 1, var/print_sfx = SFX_PRINT, var/print_delay = 10, var/message, var/mob/user)
 	if( printing )
 		return FALSE
 

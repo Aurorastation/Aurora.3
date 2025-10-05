@@ -24,7 +24,7 @@
 	/// Has the turf been blessed?
 	var/blessed = 0
 
-	var/footstep_sound = /singleton/sound_category/tiles_footstep
+	var/footstep_sound = SFX_FOOTSTEP_TILES
 
 	var/list/decals
 	var/list/blueprints

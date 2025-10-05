@@ -90,7 +90,7 @@ ABSTRACT_TYPE(/obj/structure/engineer_maintenance)
 		user.visible_message("[SPAN_BOLD("[user]")] [panel_open ? "closes" : "opens"] \the [src]!", SPAN_NOTICE("You [panel_open ? "close" : "open"] \the [src]!"))
 		panel_open = !panel_open
 		update_icon()
-		playsound(get_turf(src), panel_open ? /singleton/sound_category/hatch_open : /singleton/sound_category/hatch_close, 30, TRUE)
+		playsound(get_turf(src), panel_open ? SFX_HATCH_OPEN : SFX_HATCH_CLOSE, 30, TRUE)
 		return
 	if(panel_open)
 		for(var/tool_type in panel_tools)
@@ -219,13 +219,13 @@ ABSTRACT_TYPE(/obj/structure/engineer_maintenance)
 		playsound(get_turf(target), finish_sound, 30, TRUE)
 
 /singleton/engineer_maintenance_tool/steam_pipe
-	finish_sound = /singleton/sound_category/steam_pipe
+	finish_sound = SFX_STEAM_PIPE
 
 /singleton/engineer_maintenance_tool/electrical_hum
-	finish_sound = /singleton/sound_category/electrical_hum
+	finish_sound = SFX_ELECTRICAL_HUM
 
 /singleton/engineer_maintenance_tool/electrical_spark
-	finish_sound = /singleton/sound_category/electrical_spark
+	finish_sound = SFX_ELECTRICAL_SPARK
 
 /singleton/engineer_maintenance_tool/electrical_spark/perform_action(mob/user, obj/item/tool, obj/structure/engineer_maintenance/target)
 	. = ..()

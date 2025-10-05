@@ -13,7 +13,7 @@
 	on = TRUE
 	slot_flags = 0 //No wearing desklamps
 	light_wedge = LIGHT_OMNI
-	toggle_sound = /singleton/sound_category/switch_sound
+	toggle_sound = SFX_SWITCH
 	activation_sound = 'sound/effects/lighton.ogg'
 
 /obj/item/device/flashlight/lamp/mechanics_hints(mob/user, distance, is_adjacent)

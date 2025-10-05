@@ -63,7 +63,7 @@ BLIND     // can't see anything
 	if(stabbed && (body_parts_covered & EYES) && !(item_flags & ITEM_FLAG_THICK_MATERIAL) && shatter_material && prob(stab_item.force * 5))
 		var/mob/M = loc
 		M.visible_message(SPAN_WARNING("\The [src] [M] is wearing gets shattered!"))
-		playsound(loc, /singleton/sound_category/glass_break_sound, 70, TRUE)
+		playsound(loc, SFX_BREAK_GLASS, 70, TRUE)
 		new shatter_material(M.loc)
 		qdel(src)
 		return FALSE

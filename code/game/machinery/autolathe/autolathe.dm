@@ -11,7 +11,7 @@
 	use_power = POWER_USE_IDLE
 	idle_power_usage = 10
 	active_power_usage = 2000
-	clicksound = /singleton/sound_category/keyboard_sound
+	clicksound = SFX_KEYBOARD
 	clickvol = 30
 
 	var/atom/print_loc
@@ -199,7 +199,7 @@
 	usr.set_machine(src)
 	add_fingerprint(usr)
 
-	playsound(src, /singleton/sound_category/keyboard_sound, 50)
+	playsound(src, SFX_KEYBOARD, 50)
 
 	if(action == "make")
 		var/multiplier = text2num(params["multiplier"])

@@ -103,11 +103,11 @@
 	if(!running)
 		if(footstep >= 2)
 			footstep = 0
-			playsound(src, /singleton/sound_category/clown_sound, 20, 1)
+			playsound(src, SFX_FOOTSTEP_CLOWN, 20, 1)
 		else
 			footstep++
 	else
-		playsound(src, /singleton/sound_category/clown_sound, 50, 1) // Running is louder and funnier
+		playsound(src, SFX_FOOTSTEP_CLOWN, 50, 1) // Running is louder and funnier
 
 /obj/item/clothing/mask/clown
 	name = "clown mask"

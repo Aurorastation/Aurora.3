@@ -225,14 +225,6 @@
 			var/mob/M = m
 			M.playsound_local(M, null, volume, vary, frequency, null, channel, pressure_affected, S)
 
-/mob/proc/stop_sound_channel(chan)
-	SEND_SOUND(src, sound(null, repeat = 0, wait = 0, channel = chan))
-
-/mob/proc/set_sound_channel_volume(channel, volume)
-	var/sound/S = sound(null, FALSE, FALSE, channel, volume)
-	S.status = SOUND_UPDATE
-	SEND_SOUND(src, S)
-
 /client/proc/playtitlemusic()
 	set waitfor = FALSE
 	UNTIL(SSticker.login_music) //wait for SSticker init to set the login music
@@ -245,7 +237,7 @@
 /proc/get_rand_frequency()
 	return rand(32000, 55000) //Frequency stuff only works with 45kbps oggs.
 
-//Unlike TG, we use singletons here, so this is different, for now
+/// Randomly return one of the SFX within the keyed list.
 /proc/get_sfx(soundin)
 	if(!istext(soundin))
 		return soundin

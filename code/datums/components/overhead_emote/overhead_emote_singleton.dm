@@ -56,7 +56,7 @@ ABSTRACT_TYPE(/singleton/overhead_emote)
 	INVOKE_ASYNC(reciprocator, TYPE_PROC_REF(/atom/movable, do_attack_animation), original, FIST_ATTACK_ANIMATION)
 	INVOKE_ASYNC(original, TYPE_PROC_REF(/atom/movable, do_attack_animation), reciprocator, FIST_ATTACK_ANIMATION)
 
-	playsound(reciprocator.loc, /singleton/sound_category/punchmiss_sound, 30, 1)
+	playsound(reciprocator.loc, SFX_PUNCH_MISS, 30, 1)
 
 	original_emote_component.remove_from_mob()
 

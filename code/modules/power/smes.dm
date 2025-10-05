@@ -25,7 +25,7 @@
 	density = 1
 	anchored = 1
 	use_power = POWER_USE_OFF
-	clicksound = /singleton/sound_category/switch_sound
+	clicksound = SFX_SWITCH
 
 	var/health = 500
 	var/busted = FALSE // this it to prevent the damage text from playing repeatedly

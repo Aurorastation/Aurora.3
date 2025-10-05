@@ -65,7 +65,7 @@
 	if(user.a_intent == I_HURT && !issmall(user))
 		if(!isnull(damaged) && !(stat & BROKEN))
 			visible_message(SPAN_DANGER("\The [user] smashes \the [src]!"))
-			playsound(src, /singleton/sound_category/glass_break_sound, 70, 1)
+			playsound(src, SFX_BREAK_GLASS, 70, 1)
 			update_icon()
 			stat |= BROKEN
 		else

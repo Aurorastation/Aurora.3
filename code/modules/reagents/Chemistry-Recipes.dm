@@ -2027,7 +2027,7 @@
 	result = /singleton/reagent/alcohol/goldschlager
 	required_reagents = list(/singleton/reagent/alcohol/vodka = 10, /singleton/reagent/gold = 1)
 	mix_message = null
-	reaction_sound = /singleton/sound_category/generic_pour_sound
+	reaction_sound = SFX_POUR
 	result_amount = 10
 
 /datum/chemical_reaction/drink/patron

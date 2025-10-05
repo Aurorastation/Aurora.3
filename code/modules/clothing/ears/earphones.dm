@@ -223,7 +223,7 @@
 
 	if(ismob(src.loc))
 		usr.visible_message(SPAN_NOTICE("[usr] clicks a button on [usr.get_pronoun("his")] [src]."))
-		playsound(usr, /singleton/sound_category/button_sound, 10)
+		playsound(usr, SFX_BUTTON, 10)
 
 		if(soundplayer_token)
 			StopPlaying()
@@ -269,7 +269,7 @@
 
 	if(ismob(src.loc))
 		usr.visible_message(SPAN_NOTICE("[usr] clicks a button on [usr.get_pronoun("his")] [src]."))
-		playsound(usr, /singleton/sound_category/button_sound, 10)
+		playsound(usr, SFX_BUTTON, 10)
 		if(soundplayer_token)
 			if(soundplayer_token.status != SOUND_PAUSED)
 				soundplayer_token.Pause()
@@ -302,7 +302,7 @@
 	set src in usr
 
 	usr.visible_message(SPAN_NOTICE("[usr] clicks a button on [usr.get_pronoun("his")] [src]."))
-	playsound(usr, /singleton/sound_category/button_sound, 10)
+	playsound(usr, SFX_BUTTON, 10)
 	next_song(usr)
 
 /obj/item/clothing/ears/earphones/verb/previous_song_verb()
@@ -311,7 +311,7 @@
 	set src in usr
 
 	usr.visible_message(SPAN_NOTICE("[usr] clicks a button on [usr.get_pronoun("his")] [src]."))
-	playsound(usr, /singleton/sound_category/button_sound, 10)
+	playsound(usr, SFX_BUTTON, 10)
 	previous_song(usr)
 
 /obj/item/clothing/ears/earphones/verb/eject_music_cartridge_verb()

@@ -72,7 +72,7 @@
 	icon_state = "drill"
 	item_state = "drill"
 	surgerysound = 'sound/items/surgery/surgicaldrill.ogg'
-	hitsound = /singleton/sound_category/drillhit_sound
+	hitsound = SFX_DRILL_HIT
 	matter = list(DEFAULT_WALL_MATERIAL = 15000, MATERIAL_GLASS = 10000)
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	force = 22
@@ -289,7 +289,7 @@
 /obj/item/storage/box/fancy/tray/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if(..() && contents.len)
 		spill(3, get_turf(target_mob))
-		playsound(target_mob, /singleton/sound_category/tray_hit_sound, 50, 1)  //sound playin' again
+		playsound(target_mob, SFX_TRAY_HIT, 50, 1)  //sound playin' again
 		user.visible_message(SPAN_DANGER("[user] smashes \the [src] into [target_mob], causing it to spill its contents across the area!"))
 
 /obj/item/storage/box/fancy/tray/throw_impact(atom/hit_atom)

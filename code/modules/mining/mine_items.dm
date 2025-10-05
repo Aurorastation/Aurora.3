@@ -21,7 +21,7 @@
 	attack_verb = list("hit", "pierced", "sliced", "attacked")
 	hitsound = 'sound/weapons/rapidslice.ogg'
 	surgerysound = 'sound/weapons/rapidslice.ogg'
-	var/drill_sound = /singleton/sound_category/pickaxe_sound
+	var/drill_sound = SFX_PICKAXE
 	var/drill_verb = "excavating"
 	var/autodrill = 0 //pickaxes must be manually swung to mine, drills can mine rocks via bump
 	sharp = TRUE
@@ -30,7 +30,7 @@
 
 	var/excavation_amount = 40
 	var/wielded = FALSE
-	var/wield_sound = /singleton/sound_category/generic_wield_sound
+	var/wield_sound = SFX_WIELD
 	var/unwield_sound = null
 	var/force_unwielded = 5.0
 	var/force_wielded = 15.0
@@ -337,7 +337,7 @@
 	edge = TRUE
 	drop_sound = 'sound/items/drop/shovel.ogg'
 	pickup_sound = 'sound/items/pickup/shovel.ogg'
-	usesound = /singleton/sound_category/shovel_sound
+	usesound = SFX_SHOVEL
 
 /obj/item/shovel/is_shovel()
 	return TRUE
@@ -1221,13 +1221,13 @@ GLOBAL_LIST_INIT_TYPED(total_extraction_beacons, /obj/structure/extraction_point
 		if(prob(25))
 			playsound(loc, 'sound/items/Screwdriver.ogg', 20, TRUE)
 		else
-			playsound(loc, /singleton/sound_category/pickaxe_sound, 20, TRUE)
+			playsound(loc, SFX_PICKAXE, 20, TRUE)
 
 		var/successfully_sculpted = FALSE
 		while(do_after(user, 2 SECONDS) && sculpture_process_check(choice, user))
 			if(times_carved <= 9)
 				times_carved++
-				playsound(loc, /singleton/sound_category/pickaxe_sound, 20, TRUE)
+				playsound(loc, SFX_PICKAXE, 20, TRUE)
 				continue
 			successfully_sculpted = TRUE
 			break
@@ -1362,7 +1362,7 @@ GLOBAL_LIST_INIT_TYPED(total_extraction_beacons, /obj/structure/extraction_point
 /obj/structure/punching_bag/attack_hand(mob/user as mob)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	flick("[icon_state]2", src)
-	playsound(get_turf(src), /singleton/sound_category/swing_hit_sound, 25, 1, -1)
+	playsound(get_turf(src), SFX_SWING_HIT, 25, 1, -1)
 
 /obj/structure/punching_bag/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/holo/practicesword))

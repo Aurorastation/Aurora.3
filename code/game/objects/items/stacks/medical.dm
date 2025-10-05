@@ -121,7 +121,7 @@ Contains:
 	origin_tech = list(TECH_BIO = 1)
 	heal_brute = 4
 	icon_has_variants = TRUE
-	apply_sounds = /singleton/sound_category/rip_sound
+	apply_sounds = SFX_RIP
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
 
@@ -197,7 +197,7 @@ Contains:
 	heal_burn = 4
 	origin_tech = list(TECH_BIO = 1)
 	icon_has_variants = TRUE
-	apply_sounds = /singleton/sound_category/ointment_sound
+	apply_sounds = SFX_OINTMENT
 	drop_sound = 'sound/items/drop/herb.ogg'
 	pickup_sound = 'sound/items/pickup/herb.ogg'
 
@@ -248,7 +248,7 @@ Contains:
 	icon_state = "traumakit"
 	heal_brute = 8
 	origin_tech = list(TECH_BIO = 1)
-	apply_sounds = /singleton/sound_category/rip_sound
+	apply_sounds = SFX_RIP
 	applied_sounds = 'sound/items/advkit.ogg'
 	automatic_charge_overlays = TRUE
 
@@ -324,7 +324,7 @@ Contains:
 	icon_state = "burnkit"
 	heal_burn = 8
 	origin_tech = list(TECH_BIO = 1)
-	apply_sounds = /singleton/sound_category/ointment_sound
+	apply_sounds = SFX_OINTMENT
 	applied_sounds = 'sound/items/advkit.ogg'
 	automatic_charge_overlays = TRUE
 

@@ -517,8 +517,8 @@
 	desc = "A high-tech holocard displaying the blood-chilling credentials of an Internal Affairs agent."
 	icon_state = "ccia"
 	overlay_state = "ccia"
-	drop_sound = /singleton/sound_category/generic_drop_sound
-	pickup_sound = /singleton/sound_category/generic_pickup_sound
+	drop_sound = SFX_DROP
+	pickup_sound = SFX_PICKUP
 	vertical_card = TRUE
 
 /obj/item/card/id/ccia/update_icon()

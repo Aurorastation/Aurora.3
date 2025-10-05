@@ -6,7 +6,7 @@
 	anchored = 1.0
 	idle_power_usage = 300
 	active_power_usage = 300
-	clicksound = /singleton/sound_category/keyboard_sound
+	clicksound = SFX_KEYBOARD
 	z_flags = ZMM_MANGLE_PLANES
 
 	var/circuit = null //The path to the circuit board type. If circuit==null, the computer can't be disassembled.
