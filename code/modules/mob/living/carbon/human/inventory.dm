@@ -98,6 +98,7 @@ This saves us from having to call add_fingerprint() any time something is put in
 		if (W == wear_suit)
 			if(s_store && !(s_store.slot_flags & SLOT_S_STORE) && !(species.can_hold_s_store(s_store)))
 				drop_from_inventory(s_store)
+			var/update_uniform = wear_suit.flags_inv & HIDEJUMPSUIT
 			wear_suit = null
 			if(istype(W, /obj/item))
 				var/obj/item/I = W
@@ -107,7 +108,7 @@ This saves us from having to call add_fingerprint() any time something is put in
 					update_inv_r_ear(0)
 					update_inv_wear_mask(0)
 			update_inv_wear_suit()
-			if (wear_suit.flags_inv & HIDEJUMPSUIT)
+			if (update_uniform)
 				update_inv_w_uniform(0)
 		else if (W == w_uniform)
 			if (r_store)

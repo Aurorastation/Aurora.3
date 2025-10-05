@@ -970,4 +970,4 @@
 	return SPAN_NOTICE("[M.get_pronoun("He")] appears to be fast asleep.\n")
 
 /datum/species/proc/get_limb_from_zone(var/limb)
-	. = length(LAZYACCESS(limb_mapping, limb) ? pick(limb_mapping[limb]) : limb)
+	. = length(LAZYACCESS(limb_mapping, limb)) ? pick(limb_mapping[limb]) : limb
