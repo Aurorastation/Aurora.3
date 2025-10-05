@@ -21,8 +21,10 @@
 
 /obj/item/holomenu/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	. += "If you have bar or kitchen access, you can swipe your ID on this to root it in place, then you can click on it with an empty hand to adjust its text."
-	. += "Alt-clicking it will toggle its border."
+	. += "If you have Bar, Kitchen, or Hydroponics access, you can swipe your ID on this to anchor it in place."
+	. += "You can enter text manually by clicking it with an empty hand, or you can use a paper on the [src] to transfer its written contents."
+	. += "ALT-click the [src] to toggle its border."
+	. += "CTRL-click the [src] to toggle RAVE MODE."
 
 /obj/item/holomenu/Initialize()
 	. = ..()
@@ -140,8 +142,7 @@
 
 /obj/item/holomenu/holodeck/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	. += "If you have bar or kitchen access, you can click on this with paper in hand to display text, or you can click on it with an empty hand to adjust its text."
-	. += "Alt-clicking it will toggle its border."
+	. += "Note that holodecks do not support RAVE MODE."
 
 /obj/item/holomenu/holodeck/attack_hand(mob/user)
 	var/new_text = sanitize(input(user, "Enter new text for the hologram to display.", "Hologram Display", html2pencode(menu_text, TRUE)) as null|message)
