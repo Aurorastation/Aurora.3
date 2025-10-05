@@ -34,6 +34,7 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/portable_atmospherics/canister/LateInitialize()
+	. = ..()
 	update_icon()
 
 /obj/machinery/portable_atmospherics/process()

@@ -5,15 +5,15 @@
 
 /datum/seed/weeds/setup_traits()
 	..()
-	set_trait(TRAIT_MATURATION,5)
-	set_trait(TRAIT_PRODUCTION,1)
-	set_trait(TRAIT_YIELD,-1)
-	set_trait(TRAIT_POTENCY,-1)
-	set_trait(TRAIT_IMMUTABLE,-1)
-	set_trait(TRAIT_PRODUCT_ICON,"flower4")
-	set_trait(TRAIT_PRODUCT_COLOUR,"#FCEB2B")
-	set_trait(TRAIT_PLANT_COLOUR,"#59945A")
-	set_trait(TRAIT_PLANT_ICON,"bush6")
+	SET_SEED_TRAIT(src, TRAIT_MATURATION, 5)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCTION, 1)
+	SET_SEED_TRAIT(src, TRAIT_YIELD, -1)
+	SET_SEED_TRAIT(src, TRAIT_POTENCY, -1)
+	SET_SEED_TRAIT(src, TRAIT_IMMUTABLE, -1)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_ICON, "flower4")
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#FCEB2B")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_COLOUR, "#59945A")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_ICON, "bush6")
 
 /obj/item/seeds/weeds
 	seed_type = "weeds"
@@ -26,17 +26,17 @@
 
 /datum/seed/sugarcane/setup_traits()
 	..()
-	set_trait(TRAIT_HARVEST_REPEAT,1)
-	set_trait(TRAIT_MATURATION,3)
-	set_trait(TRAIT_PRODUCTION,6)
-	set_trait(TRAIT_YIELD,4)
-	set_trait(TRAIT_POTENCY,10)
-	set_trait(TRAIT_PRODUCT_ICON,"stalk")
-	set_trait(TRAIT_PRODUCT_COLOUR,"#B4D6BD")
-	set_trait(TRAIT_PLANT_COLOUR,"#6BBD68")
-	set_trait(TRAIT_PLANT_ICON,"stalk3")
-	set_trait(TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_HIGH)
-	set_trait(TRAIT_IDEAL_HEAT, IDEAL_HEAT_TROPICAL)
+	SET_SEED_TRAIT(src, TRAIT_HARVEST_REPEAT, 1)
+	SET_SEED_TRAIT(src, TRAIT_MATURATION, 3)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCTION, 6)
+	SET_SEED_TRAIT(src, TRAIT_YIELD, 4)
+	SET_SEED_TRAIT(src, TRAIT_POTENCY, 10)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_ICON, "stalk")
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#B4D6BD")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_COLOUR, "#6BBD68")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_ICON, "stalk3")
+	SET_SEED_TRAIT(src, TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_HIGH)
+	SET_SEED_TRAIT(src, TRAIT_IDEAL_HEAT, IDEAL_HEAT_TROPICAL)
 
 /obj/item/seeds/sugarcaneseed
 	seed_type = "sugarcane"
@@ -51,16 +51,16 @@
 
 /datum/seed/grass/setup_traits()
 	..()
-	set_trait(TRAIT_HARVEST_REPEAT,1)
-	set_trait(TRAIT_MATURATION,2)
-	set_trait(TRAIT_PRODUCTION,5)
-	set_trait(TRAIT_YIELD,5)
-	set_trait(TRAIT_PRODUCT_ICON,"grass")
-	set_trait(TRAIT_PRODUCT_COLOUR,"#09FF00")
-	set_trait(TRAIT_PLANT_COLOUR,"#07D900")
-	set_trait(TRAIT_PLANT_ICON,"grass")
-	set_trait(TRAIT_WATER_CONSUMPTION, 0.5)
-	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.15)
+	SET_SEED_TRAIT(src, TRAIT_HARVEST_REPEAT, 1)
+	SET_SEED_TRAIT(src, TRAIT_MATURATION, 2)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCTION, 5)
+	SET_SEED_TRAIT(src, TRAIT_YIELD, 5)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_ICON, "grass")
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#09FF00")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_COLOUR, "#07D900")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_ICON, "grass")
+	SET_SEED_TRAIT(src, TRAIT_WATER_CONSUMPTION, 0.5)
+	SET_SEED_TRAIT(src, TRAIT_NUTRIENT_CONSUMPTION, 0.15)
 
 /obj/item/seeds/grassseed
 	seed_type = "grass"
@@ -73,9 +73,9 @@
 
 /datum/seed/grass/moss/setup_traits()
 	..()
-	set_trait(TRAIT_PRODUCT_ICON,"moss")
-	set_trait(TRAIT_PRODUCT_COLOUR, "#83D27F")
-	set_trait(TRAIT_PLANT_COLOUR, "#589755")
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_ICON, "moss")
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#83D27F")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_COLOUR, "#589755")
 
 /obj/item/seeds/mossseed
 	seed_type = "moss"
@@ -88,16 +88,16 @@
 
 /datum/seed/peppercorn/setup_traits()
 	..()
-	set_trait(TRAIT_HARVEST_REPEAT,1)
-	set_trait(TRAIT_MATURATION,4)
-	set_trait(TRAIT_PRODUCTION,4)
-	set_trait(TRAIT_YIELD,3)
-	set_trait(TRAIT_POTENCY,5)
-	set_trait(TRAIT_PRODUCT_ICON,"nuts")
-	set_trait(TRAIT_PRODUCT_COLOUR,"#4d4d4d")
-	set_trait(TRAIT_PLANT_ICON,"vine2")
-	set_trait(TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_HIGH)
-	set_trait(TRAIT_IDEAL_HEAT, IDEAL_HEAT_TROPICAL)
+	SET_SEED_TRAIT(src, TRAIT_HARVEST_REPEAT, 1)
+	SET_SEED_TRAIT(src, TRAIT_MATURATION, 4)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCTION, 4)
+	SET_SEED_TRAIT(src, TRAIT_YIELD, 3)
+	SET_SEED_TRAIT(src, TRAIT_POTENCY, 5)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_ICON, "nuts")
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#4d4d4d")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_ICON, "vine2")
+	SET_SEED_TRAIT(src, TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_HIGH)
+	SET_SEED_TRAIT(src, TRAIT_IDEAL_HEAT, IDEAL_HEAT_TROPICAL)
 
 /obj/item/seeds/peppercornseed
 	seed_type = "peppercorn"
@@ -110,16 +110,16 @@
 
 /datum/seed/kudzu/setup_traits()
 	..()
-	set_trait(TRAIT_MATURATION,6)
-	set_trait(TRAIT_PRODUCTION,6)
-	set_trait(TRAIT_YIELD,4)
-	set_trait(TRAIT_POTENCY,10)
-	set_trait(TRAIT_SPREAD,2)
-	set_trait(TRAIT_PRODUCT_ICON,"treefruit")
-	set_trait(TRAIT_PRODUCT_COLOUR,"#96D278")
-	set_trait(TRAIT_PLANT_COLOUR,"#6F7A63")
-	set_trait(TRAIT_PLANT_ICON,"vine2")
-	set_trait(TRAIT_WATER_CONSUMPTION, 0.5)
+	SET_SEED_TRAIT(src, TRAIT_MATURATION, 6)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCTION, 6)
+	SET_SEED_TRAIT(src, TRAIT_YIELD, 4)
+	SET_SEED_TRAIT(src, TRAIT_POTENCY, 10)
+	SET_SEED_TRAIT(src, TRAIT_SPREAD, 2)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_ICON, "treefruit")
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#96D278")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_COLOUR, "#6F7A63")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_ICON, "vine2")
+	SET_SEED_TRAIT(src, TRAIT_WATER_CONSUMPTION, 0.5)
 
 /obj/item/seeds/kudzuseed
 	seed_type = "kudzu"
@@ -134,16 +134,16 @@
 
 /datum/seed/diona/setup_traits()
 	..()
-	set_trait(TRAIT_IMMUTABLE,1)
-	set_trait(TRAIT_ENDURANCE,8)
-	set_trait(TRAIT_MATURATION,5)
-	set_trait(TRAIT_PRODUCTION,10)
-	set_trait(TRAIT_YIELD,1)
-	set_trait(TRAIT_POTENCY,30)
-	set_trait(TRAIT_PRODUCT_ICON,"diona")
-	set_trait(TRAIT_PRODUCT_COLOUR,"#799957")
-	set_trait(TRAIT_PLANT_COLOUR,"#66804B")
-	set_trait(TRAIT_PLANT_ICON,"alien4")
+	SET_SEED_TRAIT(src, TRAIT_IMMUTABLE, 1)
+	SET_SEED_TRAIT(src, TRAIT_ENDURANCE, 8)
+	SET_SEED_TRAIT(src, TRAIT_MATURATION, 5)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCTION, 10)
+	SET_SEED_TRAIT(src, TRAIT_YIELD, 1)
+	SET_SEED_TRAIT(src, TRAIT_POTENCY, 30)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_ICON, "diona")
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#799957")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_COLOUR, "#66804B")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_ICON, "alien4")
 
 /obj/item/seeds/replicapod
 	seed_type = "diona"

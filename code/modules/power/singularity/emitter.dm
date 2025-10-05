@@ -14,9 +14,10 @@
 	req_access = list(ACCESS_ENGINE_EQUIP)
 	obj_flags = OBJ_FLAG_ROTATABLE | OBJ_FLAG_SIGNALER
 	var/id
-
-	use_power = POWER_USE_OFF	//uses powernet power, not APC power
-	active_power_usage = 30000	//30 kW laser. I guess that means 30 kJ per shot.
+	/// uses powernet power, not APC power
+	use_power = POWER_USE_OFF
+	/// 30 kW laser. I guess that means 30 kJ per shot.
+	active_power_usage = 30000
 
 	var/active = FALSE
 	var/powered = FALSE
@@ -29,8 +30,8 @@
 	var/shot_counter = 0
 	var/state = EMITTER_LOOSE
 	var/locked = FALSE
-
-	var/special_emitter = FALSE // special emitters notify admins if something happens to them, to prevent grief
+	/// special emitters notify admins if something happens to them, to prevent grief
+	var/special_emitter = FALSE
 
 	var/_wifi_id
 	var/datum/wifi/receiver/button/emitter/wifi_receiver
@@ -40,7 +41,7 @@
 /obj/machinery/power/emitter/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Standing next to \the [src] and examining it will let you see how many shots it has fired since last being turned on."
-	. += "Using an Engineering ID on \the [src] will toggle its control locks."
+	. += "ALT-click the [src] to lock or unlock it (if you have the appropriate ID access)."
 	. += "You can attach a signaler to \the [src] to remotely toggle it on and off (so long as its controls are not locked)."
 
 /obj/machinery/power/emitter/assembly_hints(mob/user, distance, is_adjacent)
@@ -248,23 +249,31 @@
 				else
 					to_chat(user, SPAN_WARNING("You need more welding fuel to complete this task."))
 		return
+	..()
+	return
 
-	if(attacking_item.GetID())
+/obj/machinery/power/emitter/AltClick(mob/user)
+	if(Adjacent(user))
+		add_fingerprint(user)
 		if(emagged)
 			to_chat(user, SPAN_WARNING("The lock seems to be broken."))
 			return
 		if(allowed(user))
 			if(active)
 				locked = !locked
-				to_chat(user, SPAN_NOTICE("The controls are now [locked ? "locked." : "unlocked."]"))
+				if(locked)
+					playsound(src, 'sound/machines/terminal/terminal_button03.ogg', 35, FALSE)
+				else
+					playsound(src, 'sound/machines/terminal/terminal_button01.ogg', 35, FALSE)
+				balloon_alert(user, locked ? "locked" : "unlocked")
 			else
 				locked = FALSE //just in case it somehow gets locked
 				to_chat(user, SPAN_WARNING("The controls can only be locked when \the [src] is online."))
 		else
 			to_chat(user, SPAN_WARNING("Access denied."))
+			playsound(src, 'sound/machines/terminal/terminal_error.ogg', 25, FALSE)
+			balloon_alert(user, "access denied!")
 		return
-	..()
-	return
 
 /obj/machinery/power/emitter/emag_act(remaining_charges, mob/user)
 	if(!emagged)

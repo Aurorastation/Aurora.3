@@ -39,3 +39,6 @@
 
 /// Called when certain atoms are deconstructed, currently implemented on walls and floors
 #define COMSIG_ATOM_DECONSTRUCTED "atom_deconstructed"
+
+/// From /atom/proc/set_density(new_value) for when an atom changes density
+#define COMSIG_ATOM_DENSITY_CHANGED "atom_density_change"

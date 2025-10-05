@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "Journals and notepads in the loadout now spawns with 5 blank pieces of paper."

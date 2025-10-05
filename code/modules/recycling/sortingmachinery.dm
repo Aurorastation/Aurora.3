@@ -260,16 +260,17 @@
 
 /obj/item/device/destTagger/proc/openwindow(mob/user)
 	var/dat = "<tt><center><h1><b>TagMaster 2.3</b></h1></center>"
+	var/ui_ref = REF(src)
 
 	dat += "<table style='width:100%; padding:4px;'><tr>"
 	for(var/i = 1, i <= SSdisposals.tagger_locations.len, i++)
-		dat += "<td><a href='byond://?src=[REF(src)];nextTag=[html_encode(SSdisposals.tagger_locations[i])]'>[SSdisposals.tagger_locations[i]]</a></td>"
+		dat += "<td><a href='byond://?src=[ui_ref];nextTag=[html_encode(SSdisposals.tagger_locations[i])]'>[SSdisposals.tagger_locations[i]]</a></td>"
 
 		if (i % 4==0)
 			dat += "</tr><tr>"
 
 	dat += "</tr></table><br>Current Selection: [currTag ? currTag : "None"]</tt>"
-	dat += "<br><a href='byond://?src=[REF(src)];nextTag=CUSTOM'>Enter custom location.</a>"
+	dat += "<br><a href='byond://?src=[ui_ref];nextTag=CUSTOM'>Enter custom location.</a>"
 	user << browse(HTML_SKELETON(dat), "window=destTagScreen;size=450x375")
 	onclose(user, "destTagScreen")
 
@@ -353,8 +354,8 @@
 	flushing = FALSE
 	// now reset disposal state
 	flush = 0
-	if(mode == 2)	// if was ready,
-		mode = 1	// switch to charging
+	if(mode == MODE_READY)	// if was ready,
+		mode = MODE_PRESSURIZING	// switch to charging
 	update()
 	return
 
@@ -399,3 +400,8 @@
 	if(trunk)
 		trunk.linked = null
 	return ..()
+
+#undef MODE_OFF
+#undef MODE_PRESSURIZING
+#undef MODE_READY
+#undef MODE_FLUSHING
