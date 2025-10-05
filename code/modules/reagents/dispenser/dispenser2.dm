@@ -74,12 +74,6 @@
 	sortTim(cartridges, GLOBAL_PROC_REF(cmp_text_asc))
 	SStgui.update_uis(src)
 
-	if(on_init && CHEM_DISPENSERS_LOW_SUPPLY)
-		var/is_station_level = is_station_level(src.z)
-		if(is_station_level)
-			// Reduce volume of every cartridge by between 50 and 200.
-			C?.reagents?.total_volume = C.reagents.total_volume * ((100 - rand(10,40)) / 100)
-
 /obj/machinery/chemical_dispenser/proc/remove_cartridge(label)
 	. = cartridges[label]
 	cartridges -= label

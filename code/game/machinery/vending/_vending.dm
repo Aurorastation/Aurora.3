@@ -338,8 +338,10 @@
 			product.max_amount = product.amount = product.amount = (current_list[1][entry]) ? current_list[1][entry] : 1
 			if(VENDING_MACHINES_LOW_SUPPLY && is_station_level && !low_supply_immune)
 				// Maximum # of each stocked item is reduced by 25%, 50%, or 75%.
-				adjusted_max_amount = FLOOR(max(product.max_amount * (rand(1,3)/4), 0), 1)
+				adjusted_max_amount = FLOOR(max(product.max_amount * (3/4), 0), 1)
 				product.amount = rand(0,adjusted_max_amount)
+				if(prob(50))
+					product.amount += rand(0,3)
 			else
 				if (random_itemcount == 1 && category == CAT_NORMAL) //Only the normal category is randomized.
 					product.amount = rand(1,product.max_amount)

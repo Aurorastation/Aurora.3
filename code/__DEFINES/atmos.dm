@@ -111,11 +111,11 @@
 // As above, but Horizon-specific. These are separated out into their own defines to save us the trouble of editing maps with new turfs every time we want to change the Horizon's gas stockpiles.
 // To be replaced with persistence-governed variables at some point in the future.
 #define ATMOSTANK_NITROGEN_HORIZON		75000
-#define ATMOSTANK_OXYGEN_HORIZON		30000
-#define ATMOSTANK_CO2_HORIZON			8000
+#define ATMOSTANK_OXYGEN_HORIZON		35000
+#define ATMOSTANK_CO2_HORIZON			15000
 #define ATMOSTANK_PHORON_HORIZON		1500
-#define ATMOSTANK_HYDROGEN_HORIZON		15000
-#define ATMOSTANK_NITROUSOXIDE_HORIZON	20000
+#define ATMOSTANK_HYDROGEN_HORIZON		20000
+#define ATMOSTANK_NITROUSOXIDE_HORIZON	30000
 
 #define ADIABATIC_EXPONENT 0.667 //Actually adiabatic exponent - 1.
 

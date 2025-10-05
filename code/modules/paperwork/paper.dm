@@ -905,28 +905,36 @@ ABSTRACT_TYPE(/obj/item/paper/fluff)
 	<br>In addition to dwindling blood, other supplies have also been affected, \
 	stasis bags and advanced medical kits in particular.\
 	<br><br>The Pharmacy has also had its phoron ration cut significantly, meaning\
-	many medications will be at a premium.</font></font>"
+	many medications will be at a premium. \
+	<br><br><b>ADDENDUM:</b> <i>Materiel gathered from salvage opportunity in CES 142 (2467-10-4) has increased our supply margins significantly, though we still \
+	remain well below nominal in all departments.</i></font></font>"
 
 /obj/item/paper/fluff/generic_supply_notice
 	name = "supplies notice"
 	info = "<font face=\"Verdana\">To All Horizon Crew,\
-	<br><br>Ship supplies are running critically low. Supplies and materiel, especially phoron and phoronics, are being strictly rationed.</font>"
+	<br><br>Ship supplies are running critically low. Supplies and materiel, especially phoron and phoronics, are being strictly rationed. \
+	<br><br><b>ADDENDUM:</b> <i>Materiel gathered from salvage opportunity in CES 142 (2467-10-4) has increased our supply margins significantly, though we still \
+	remain well below nominal in all departments.</i></font>"
 
 /obj/item/paper/fluff/kitchen_supply_notice
 	name = "kitchen supplies notice"
 	info = "<font face=\"Verdana\">To All Horizon Crew,\
-	<br><br>Meat, eggs, and other fresh foodstuffs are running critically low. Strict rationing is being enforced.</font>"
+	<br><br>Meat, eggs, and other fresh foodstuffs are running critically low. Strict rationing is being enforced. \
+	<br><br><b>ADDENDUM:</b> <i>Materiel gathered from salvage opportunity in CES 142 (2467-10-4) has increased our supply margins significantly, though we still \
+	remain well below nominal in all departments.</i></font>"
 
 /obj/item/paper/fluff/atmos_supply_notice
 	name = "atmospherics supply notice"
 	info = "<font face=\"Verdana\"><center><b>Atmospherics Supply Notice</b></center><font size=\"2\">To All Engineering Personnel,\
 	<br><br>Our holding tanks' reserves have been continually dropping due to lack of resupply.Be mindful if your propulsion setups are high-mass. \
-	Further, during breach response, minimize risk of crew accidentally spreading breaches to conserve air mix reserves.</font>\
+	Further, during breach response, minimize risk of crew accidentally spreading breaches to conserve air mix reserves.\
+	<br><br><b>ADDENDUM:</b> <i>Materiel gathered from salvage opportunity in CES 142 (2467-10-4) has increased our margins significantly, though we still \
+	remain well below nominal on all vital gas reserves.</i></font>\
 	<br><br>Gas Reserve Deltas (Approximate):<ol>\
 	N2: -17%<br>\
-	O2: -25%<br>\
-	CO2: -68%<br>\
+	O2: -13% (from -25%)<br>\
+	CO2: -40% (from -68%)<br>\
 	Phoron: -40%<br>\
-	H2: -40%<br>\
-	N2O: -50%<br>\
+	H2: -25% (from -40%)<br>\
+	N2O: -33% (from -50%)<br>\
 	</ol></font></font>"
