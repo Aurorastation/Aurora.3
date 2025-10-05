@@ -1148,8 +1148,9 @@ There are several things that need to be remembered:
 
 //update whether handcuffs appears on our hud.
 /mob/living/carbon/proc/update_hud_hands()
-	for(var/atom/movable/screen/bp in hud_used.hand_hud_objects)
-		bp.update_icon()
+	if(hud_used)
+		for(var/atom/movable/screen/bp in hud_used.hand_hud_objects)
+			bp.update_icon()
 
 /mob/living/carbon/human/update_inv_handcuffed(var/update_icons=1)
 	if (QDELETED(src))
@@ -1171,8 +1172,7 @@ There are several things that need to be remembered:
 	else
 		overlays_raw[HANDCUFF_LAYER] = null
 
-	if(hud_used)
-		update_hud_hands()
+	update_hud_hands()
 	if(update_icons)
 		update_icon()
 
