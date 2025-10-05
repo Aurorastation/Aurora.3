@@ -2051,6 +2051,13 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "kath_journal"
 	color = null
 
+/obj/item/journal/fluff/kathira/Initialize()
+	. = ..()
+	var/obj/item/folder/embedded/E = generate_index("Journal")
+	for(var/i = 1 to 5)
+		new /obj/item/paper(E)
+	update_icon()
+
 /obj/item/organ/internal/augment/fluff/kath_legbrace // Leg Support Augment - Kathira El-Hashem - thegreywolf
 	name = "leg support augment"
 	desc = "A leg augment to aid in the mobility of an otherwise disabled leg."
