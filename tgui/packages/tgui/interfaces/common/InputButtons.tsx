@@ -1,4 +1,4 @@
-import { Box, Button, Flex } from '../../components';
+import { Box, Button, Flex } from 'tgui-core/components';
 
 import { useBackend } from '../../backend';
 
@@ -13,7 +13,7 @@ type InputButtonsProps = {
 };
 
 export const InputButtons = (props: InputButtonsProps, context) => {
-  const { act, data } = useBackend<InputButtonsData>(context);
+  const { act, data } = useBackend<InputButtonsData>();
   const { large_buttons, swapped_buttons } = data;
   const { input, message } = props;
   const submitButton = (

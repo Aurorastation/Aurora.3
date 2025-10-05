@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Box, Button, Flex, LabeledList, Knob, ProgressBar, Section } from '../components';
+import { Box, Button, Flex, LabeledList, Knob, ProgressBar, Section } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type SpaceHeaterData = {
@@ -16,8 +16,8 @@ export type SpaceHeaterData = {
   set_temperature_min: number;
 };
 
-export const SpaceHeater = (props, context) => {
-  const { act, data } = useBackend<SpaceHeaterData>(context);
+export const SpaceHeater = (props) => {
+  const { act, data } = useBackend<SpaceHeaterData>();
 
   return (
     <Window width="382" height="277">

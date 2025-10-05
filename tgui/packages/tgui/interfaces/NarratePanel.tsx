@@ -1,6 +1,6 @@
 import { useBackend, useLocalState } from '../backend';
-import { Button, Divider, Input, LabeledList, NumberInput, Section } from '../components';
-import { Dropdown } from '../components/Dropdown';
+import { Button, Divider, Input, LabeledList, NumberInput, Section } from 'tgui-core/components';
+import { Dropdown } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type NarrateData = {
@@ -8,36 +8,31 @@ export type NarrateData = {
   narrate_locations: string[];
 };
 
-export const NarratePanel = (props, context) => {
-  const { act, data } = useBackend<NarrateData>(context);
+export const NarratePanel = (props) => {
+  const { act, data } = useBackend<NarrateData>();
   const [narrateText, setNarrateText] = useLocalState(
-    context,
     'narrateText',
     ''
   );
   const [narrateSize, setNarrateSize] = useLocalState(
-    context,
     'narrateSize',
     2
   );
   const [narrateRange, setNarrateRange] = useLocalState(
-    context,
     'narrateRange',
     7
   );
   const [narrateStyle, setNarrateStyle] = useLocalState(
-    context,
     'textStyle',
     'notice'
   );
   const [narrateLocation, setNarrateLocation] = useLocalState(
-    context,
     'narrateLocation',
     'View'
   );
 
   return (
-    <Window resizable theme="admin" width={600} height={300}>
+    <Window theme="admin" width={600} height={300}>
       <Window.Content scrollable>
         <Section
           title="Narrate Panel"

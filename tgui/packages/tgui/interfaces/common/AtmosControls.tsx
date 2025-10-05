@@ -1,7 +1,7 @@
-import { BooleanLike } from 'common/react';
-import { decodeHtmlEntities } from 'common/string';
+import type { BooleanLike } from 'tgui-core/react';
+import { decodeHtmlEntities } from 'tgui-core/string';
 import { useBackend } from '../../backend';
-import { Button, LabeledList, NumberInput, Section } from '../../components';
+import { Button, LabeledList, NumberInput, Section } from 'tgui-core/components';
 import { getGasLabel } from '../../constants';
 
 export type VentProps = {
@@ -32,7 +32,7 @@ export type ScrubberProps = {
 };
 
 export const Vent = (props: VentProps, context) => {
-  const { act } = useBackend(context);
+  const { act } = useBackend();
   const {
     refID,
     long_name,
@@ -162,7 +162,7 @@ export const Vent = (props: VentProps, context) => {
 };
 
 export const Scrubber = (props: ScrubberProps, context) => {
-  const { act } = useBackend(context);
+  const { act } = useBackend();
   const { long_name, power, scrubbing, refID, widenet, filter_types } = props;
   return (
     <Section

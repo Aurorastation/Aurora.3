@@ -41,7 +41,7 @@
 	playsound(user, 'sound/effects/squelch1.ogg', 25, TRUE)
 	if(!do_after(user, 2 SECONDS))
 		return
-	user.change_appearance(APPEARANCE_SURGERYKIT, user)
+	// user.change_appearance(APPEARANCE_SURGERYKIT, user)
 	used = TRUE
 	var/response = tgui_input_text(user, "What would you like to call your new self?", "Name Change")
 	response = sanitize(response, MAX_NAME_LEN)

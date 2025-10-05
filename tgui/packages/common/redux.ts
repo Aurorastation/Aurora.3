@@ -4,9 +4,11 @@
  * @license MIT
  */
 
+type Fn = (...args: any[]) => any;
+
 export type Reducer<State = any, ActionType extends Action = AnyAction> = (
   state: State | undefined,
-  action: ActionType
+  action: ActionType,
 ) => State;
 
 export type Store<State = any, ActionType extends Action = AnyAction> = {
@@ -21,7 +23,7 @@ type MiddlewareAPI<State = any, ActionType extends Action = AnyAction> = {
 };
 
 export type Middleware = <State = any, ActionType extends Action = AnyAction>(
-  storeApi: MiddlewareAPI<State, ActionType>
+  storeApi: MiddlewareAPI<State, ActionType>,
 ) => (next: Dispatch<ActionType>) => Dispatch<ActionType>;
 
 export type Action<TType = any> = {
@@ -33,10 +35,10 @@ export type AnyAction = Action & {
 };
 
 export type Dispatch<ActionType extends Action = AnyAction> = (
-  action: ActionType
+  action: ActionType,
 ) => void;
 
-type StoreEnhancer = (createStoreFunction: Function) => Function;
+type StoreEnhancer = (createStoreFunction: Fn) => Fn;
 
 type PreparedAction = {
   payload?: any;
@@ -48,7 +50,7 @@ type PreparedAction = {
  */
 export const createStore = <State, ActionType extends Action = AnyAction>(
   reducer: Reducer<State, ActionType>,
-  enhancer?: StoreEnhancer
+  enhancer?: StoreEnhancer,
 ): Store<State, ActionType> => {
   // Apply a store enhancer (applyMiddleware is one of them).
   if (enhancer) {
@@ -56,7 +58,7 @@ export const createStore = <State, ActionType extends Action = AnyAction>(
   }
 
   let currentState: State;
-  let listeners: Array<() => void> = [];
+  const listeners: Array<() => void> = [];
 
   const getState = (): State => currentState;
 
@@ -90,14 +92,14 @@ export const applyMiddleware = (
   ...middlewares: Middleware[]
 ): StoreEnhancer => {
   return (
-    createStoreFunction: (reducer: Reducer, enhancer?: StoreEnhancer) => Store
+    createStoreFunction: (reducer: Reducer, enhancer?: StoreEnhancer) => Store,
   ) => {
     return (reducer, ...args): Store => {
       const store = createStoreFunction(reducer, ...args);
 
-      let dispatch: Dispatch = () => {
+      let dispatch: Dispatch = (action, ...args) => {
         throw new Error(
-          'Dispatching while constructing your middleware is not allowed.'
+          'Dispatching while constructing your middleware is not allowed.',
         );
       };
 
@@ -109,7 +111,7 @@ export const applyMiddleware = (
       const chain = middlewares.map((middleware) => middleware(storeApi));
       dispatch = chain.reduceRight(
         (next, middleware) => middleware(next),
-        store.dispatch
+        store.dispatch,
       );
 
       return {
@@ -129,7 +131,7 @@ export const applyMiddleware = (
  * is also more flexible than the redux counterpart.
  */
 export const combineReducers = (
-  reducersObj: Record<string, Reducer>
+  reducersObj: Record<string, Reducer>,
 ): Reducer => {
   const keys = Object.keys(reducersObj);
 
@@ -163,14 +165,14 @@ export const combineReducers = (
  * @param {string} type The action type to use for created actions.
  * @param {any} prepare (optional) a method that takes any number of arguments
  * and returns { payload } or { payload, meta }. If this is given, the
- * resulting action creator will pass it's arguments to this method to
+ * resulting action creator will pass its arguments to this method to
  * calculate payload & meta.
  *
  * @public
  */
 export const createAction = <TAction extends string>(
   type: TAction,
-  prepare?: (...args: any[]) => PreparedAction
+  prepare?: (...args: any[]) => PreparedAction,
 ) => {
   const actionCreator = (...args: any[]) => {
     let action: Action<TAction> & PreparedAction = { type };
@@ -193,20 +195,4 @@ export const createAction = <TAction extends string>(
   actionCreator.match = (action) => action.type === type;
 
   return actionCreator;
-};
-
-// Implementation specific
-// --------------------------------------------------------
-
-export const useDispatch = <TAction extends Action = AnyAction>(context: {
-  store: Store<unknown, TAction>;
-}): Dispatch<TAction> => {
-  return context.store.dispatch;
-};
-
-export const useSelector = <State, Selected>(
-  context: { store: Store<State, Action> },
-  selector: (state: State) => Selected
-): Selected => {
-  return selector(context.store.getState());
 };

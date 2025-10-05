@@ -1,4 +1,4 @@
-import { NoticeBox } from 'tgui/components';
+import { NoticeBox } from 'tgui-core/components';
 
 type MinimapViewProps = {
   map_image: any; // base64 icon

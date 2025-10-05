@@ -40,7 +40,7 @@ GLOBAL_VAR(bomb_set)
 		if (timeleft <= 0)
 			spawn
 				explode()
-		SSnanoui.update_uis(src)
+		// SSnanoui.update_uis(src)
 	return
 
 /obj/machinery/nuclearbomb/attackby(obj/item/attacking_item, mob/user, params)
@@ -163,7 +163,7 @@ GLOBAL_VAR(bomb_set)
 			flick("lock", src)
 			update_icon()
 	return
-
+/*
 /obj/machinery/nuclearbomb/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	var/data[0]
 	data["hacking"] = 0
@@ -196,7 +196,7 @@ GLOBAL_VAR(bomb_set)
 		ui.set_initial_data(data)
 		ui.open()
 		ui.set_auto_update(1)
-
+*/
 /obj/machinery/nuclearbomb/verb/toggle_deployable()
 	set category = "Object"
 	set name = "Toggle Deployable"
@@ -263,19 +263,19 @@ GLOBAL_VAR(bomb_set)
 				timeleft = clamp(timeleft, 120, 600)
 			if (href_list["timer"])
 				if (timing == -1)
-					SSnanoui.update_uis(src)
+					// SSnanoui.update_uis(src)
 					return
 				if (!anchored)
 					to_chat(usr, SPAN_WARNING("\The [src] needs to be anchored."))
-					SSnanoui.update_uis(src)
+					// SSnanoui.update_uis(src)
 					return
 				if (safety)
 					to_chat(usr, SPAN_WARNING("The safety is still on."))
-					SSnanoui.update_uis(src)
+					// SSnanoui.update_uis(src)
 					return
 				if (wires.is_cut(WIRE_TIMING))
 					to_chat(usr, SPAN_WARNING("Nothing happens, something might be wrong with the wiring."))
-					SSnanoui.update_uis(src)
+					// SSnanoui.update_uis(src)
 					return
 
 				if (!timing && !safety)
@@ -292,7 +292,7 @@ GLOBAL_VAR(bomb_set)
 			if (href_list["safety"])
 				if (wires.is_cut(WIRE_SAFETY))
 					to_chat(usr, SPAN_WARNING("Nothing happens, something might be wrong with the wiring."))
-					SSnanoui.update_uis(src)
+					// SSnanoui.update_uis(src)
 					return
 				safety = !safety
 				if(safety)
@@ -302,7 +302,7 @@ GLOBAL_VAR(bomb_set)
 				if(removal_stage == 5)
 					anchored = 0
 					visible_message(SPAN_WARNING("\The [src] makes a highly unpleasant crunching noise. It looks like the anchoring bolts have been cut."))
-					SSnanoui.update_uis(src)
+					// SSnanoui.update_uis(src)
 					return
 
 				if(!isinspace())
@@ -315,7 +315,7 @@ GLOBAL_VAR(bomb_set)
 				else
 					to_chat(usr, SPAN_WARNING("There is nothing to anchor to!"))
 
-	SSnanoui.update_uis(src)
+	// SSnanoui.update_uis(src)
 
 /obj/machinery/nuclearbomb/proc/secure_device()
 	if(timing <= 0)

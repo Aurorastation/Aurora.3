@@ -65,12 +65,15 @@
  */
 /mob/proc/shared_ui_interaction(src_object)
 	// Close UIs if mindless.
+	to_world("<b>/mob/proc/shared_ui_interaction([src_object])</b>")
 	if(!client && !HAS_TRAIT(src, TRAIT_PRESERVE_UI_WITHOUT_CLIENT))
+		to_world("<b>!client && !HAS_TRAIT(src, TRAIT_PRESERVE_UI_WITHOUT_CLIENT)</b>")
 		return UI_CLOSE
 	// Disable UIs if unconscious.
 	else if(stat)
+		to_world("<b>stat (unconscious)</b>")
 		return UI_DISABLED
-	// Update UIs if incapicitated but concious.
+	// Update UIs if incapicitated but conscious.
 	else if(incapacitated())
 		return UI_UPDATE
 	return UI_INTERACTIVE
@@ -103,6 +106,13 @@
  * return UI_state The state of the UI.
  */
 /mob/living/proc/shared_living_ui_distance(atom/movable/src_object, viewcheck = TRUE, allow_tk = TRUE)
+	/*
+	var/obj/item/item_in_hand = get_active_held_item()
+	if(istype(item_in_hand, /obj/item/machine_remote)) //snowflake, this lets you interact with all.
+		var/obj/item/machine_remote/remote = item_in_hand
+		if(remote.controlling_machine_or_bot == src_object)
+			return UI_INTERACTIVE
+	*/
 	// If the object is obscured, close it.
 	if(viewcheck && !(src_object in view(src)))
 		return UI_CLOSE
@@ -129,6 +139,3 @@
 
 /datum/ui_state/proc/href_list(mob/user)
 	return list()
-
-/datum/proc/nano_container()
-	return src

@@ -47,10 +47,12 @@
 	switch(action)
 		// Opens the interface for the given air alarm.
 		if("alarm")
+			/*
 			var/obj/machinery/alarm/alarm = locate(params["alarm"]) in (monitored_alarms.len ? monitored_alarms : SSmachinery.processing)
 			if(alarm)
 				var/datum/ui_state/TS = generate_state(alarm)
 				alarm.ui_interact(usr, state = TS) //what the fuck?
+			*/
 			return TRUE
 		// Manually clear and repopulate the alarm list.
 		if("refresh")
@@ -58,7 +60,7 @@
 			get_alarms()
 
 /datum/computer_file/program/atmos_control/ui_data(mob/user)
-	var/list/data = initial_data()
+	var/list/data = list()
 
 	/// It is possible that a program may have a null computer at roundstart... somehow.
 	if(!length(monitored_alarms))

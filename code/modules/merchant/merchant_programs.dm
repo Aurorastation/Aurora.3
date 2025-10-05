@@ -26,9 +26,9 @@
 		num = SStrade.traders.len
 	if(num)
 		return SStrade.traders[num]
-
+/*
 /datum/computer_file/program/merchant/ui_data(mob/user)
-	var/list/data = initial_data()
+	var/list/data = list()
 	var/show_trade = 0
 	var/hailed = 0
 	var/datum/trader/T
@@ -54,7 +54,7 @@
 		else
 			data["trades"] = null
 	return data
-
+*/
 /datum/computer_file/program/merchant/proc/connect_pad()
 	for(var/obj/machinery/merchant_pad/P in orange(1,get_turf(computer)))
 		pad = P

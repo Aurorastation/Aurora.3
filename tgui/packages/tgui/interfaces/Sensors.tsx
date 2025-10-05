@@ -1,10 +1,10 @@
-import { BooleanLike } from '../../common/react';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Box, Button, Section, Table, ProgressBar, Slider } from '../components';
+import { Box, Button, Section, Table, ProgressBar, Slider } from 'tgui-core/components';
 import { NtosWindow } from '../layouts';
-import { round, clamp } from 'common/math';
-import { Color } from 'common/color';
-import { capitalizeAll } from 'common/string';
+import { round, clamp } from 'tgui-core/math';
+import { Color } from 'tgui-core/color';
+import { capitalizeAll } from 'tgui-core/string';
 
 export type SensorsData = {
   viewing: BooleanLike;
@@ -267,11 +267,9 @@ const ContactsSection = function (act, data: SensorsData) {
 
 const ContactDetailsSection = function (act, data: SensorsData) {
   if (data.contact_details && data.contact_details !== '') {
-    /* eslint-disable react/no-danger */
     const contact_details = (
       <div dangerouslySetInnerHTML={{ __html: data.contact_details }} />
     );
-    /* eslint-enable */
     return (
       <Section title="Sensor Contact Details">
         <Box textAlign="center">
@@ -570,8 +568,8 @@ const DistressSection = function (act, data: SensorsData) {
   );
 };
 
-export const Sensors = (props, context) => {
-  const { act, data } = useBackend<SensorsData>(context);
+export const Sensors = (props) => {
+  const { act, data } = useBackend<SensorsData>();
 
   {
     let color_i = 0;
@@ -602,7 +600,7 @@ export const Sensors = (props, context) => {
   }
 
   return (
-    <NtosWindow resizable>
+    <NtosWindow>
       <NtosWindow.Content scrollable>
         {data.status === 'MISSING' ? (
           <Button

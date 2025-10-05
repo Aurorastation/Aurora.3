@@ -15,7 +15,7 @@
 	var/datum/record/warrant/active_warrant
 
 /datum/computer_file/program/digitalwarrant/ui_data(mob/user)
-	var/list/data = initial_data()
+	var/list/data = list()
 
 	if(active_warrant)
 		data["active_warrant"] = list(

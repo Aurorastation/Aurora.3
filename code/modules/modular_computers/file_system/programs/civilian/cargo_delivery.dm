@@ -18,7 +18,7 @@
 	var/mod_mode = TRUE //If it can be used to pay for orders
 
 /datum/computer_file/program/civilian/cargodelivery/ui_data(mob/user)
-	var/list/data = initial_data()
+	var/list/data = list()
 
 	if(computer)
 		data["have_id_slot"] = !!computer.card_slot

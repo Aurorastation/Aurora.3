@@ -1,5 +1,5 @@
 import { useBackend } from '../backend';
-import { Box, Button, Section, Table } from '../components';
+import { Box, Button, Section, Table } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type ListData = {
@@ -11,11 +11,11 @@ type List = {
   value: any;
 };
 
-export const ListViewer = (props, context) => {
-  const { act, data } = useBackend<ListData>(context);
+export const ListViewer = (props) => {
+  const { act, data } = useBackend<ListData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section
           title="List"
