@@ -1,259 +1,501 @@
-///Default override for echo
-/sound
-	echo = list(
-		0, // Direct
-		0, // DirectHF
-		-10000, // Room, -10000 means no low frequency sound reverb
-		-10000, // RoomHF, -10000 means no high frequency sound reverb
-		0, // Obstruction
-		0, // ObstructionLFRatio
-		0, // Occlusion
-		0.25, // OcclusionLFRatio
-		1.5, // OcclusionRoomRatio
-		1.0, // OcclusionDirectRatio
-		0, // Exclusion
-		1.0, // ExclusionLFRatio
-		0, // OutsideVolumeHF
-		0, // DopplerFactor
-		0, // RolloffFactor
-		0, // RoomRolloffFactor
-		1.0, // AirAbsorptionFactor
-		0, // Flags (1 = Auto Direct, 2 = Auto Room, 4 = Auto RoomHF)
+/*
+# sound_effect datum
+* use for when you need multiple sound files to play at random in a playsound
+* see var documentation below
+* initialized and added to sfx_datum_by_key in /datum/controller/subsystem/sounds/init_sound_keys()
+*/
+/datum/sound_effect
+	/// sfx key define with which we are associated with, see code\__DEFINES\sound.dm
+	var/key
+	/// list of paths to our files, use the /assoc subtype if your paths are weighted
+	var/list/file_paths
+
+/datum/sound_effect/proc/return_sfx()
+	return pick(file_paths)
+
+/datum/sound_effect/shatter
+	key = SFX_SHATTER
+	file_paths = list(
+		'sound/effects/glassbr1.ogg',
+		'sound/effects/glassbr2.ogg',
+		'sound/effects/glassbr3.ogg',
 	)
-	environment = SOUND_ENVIRONMENT_NONE //Default to none so sounds without overrides dont get reverb
 
-/**
- * playsound is a proc used to play a 3D sound in a specific range. This uses SOUND_RANGE + extra_range to determine that.
- *
- * * source - Origin of sound.
- * * soundin - Either a file, or a string that can be used to get an SFX.
- * * vol - The volume of the sound, excluding falloff and pressure affection.
- * * vary - bool that determines if the sound changes pitch every time it plays.
- * * extrarange - modifier for sound range. This gets added on top of SOUND_RANGE.
- * * falloff_exponent - Rate of falloff for the audio. Higher means quicker drop to low volume. Should generally be over 1 to indicate a quick dive to 0 rather than a slow dive.
- * * frequency - playback speed of audio.
- * * channel - The channel the sound is played at.
- * * pressure_affected - Whether or not difference in pressure affects the sound (E.g. if you can hear in space).
- * * ignore_walls - Whether or not the sound can pass through walls.
- * * falloff_distance - Distance at which falloff begins. Sound is at peak volume (in regards to falloff) aslong as it is in this range.
- *
- * Aurora snowflake parameters:
- *
- * * required_preferences - What preference is required to be on on the client, for the sound to play
- * * required_asfx_toggles - What toggles are required to be on on the client, for the sound to play
- */
-/proc/playsound(atom/source, soundin, vol as num, vary, extrarange as num, falloff_exponent = SOUND_FALLOFF_EXPONENT, frequency = null, channel = 0, pressure_affected = TRUE, ignore_walls = TRUE, falloff_distance = SOUND_DEFAULT_FALLOFF_DISTANCE, use_reverb = TRUE, required_preferences, required_asfx_toggles)
-	if(isarea(source))
-		CRASH("playsound(): source is an area")
+/datum/sound_effect/explosion
+	key = SFX_EXPLOSION
+	file_paths = list(
+		'sound/effects/explosion1.ogg',
+		'sound/effects/explosion2.ogg',
+	)
 
-	var/turf/turf_source = get_turf(source)
+/datum/sound_effect/explosion_creaking
+	key = SFX_EXPLOSION_CREAKING
+	file_paths = list(
+		'sound/effects/explosioncreak1.ogg',
+		'sound/effects/explosioncreak2.ogg',
+	)
 
-	if (!turf_source || !soundin || !vol)
-		return
+/datum/sound_effect/hull_creaking
+	key = SFX_HULL_CREAKING
+	file_paths = list(
+		'sound/effects/creak1.ogg',
+		'sound/effects/creak2.ogg',
+		'sound/effects/creak3.ogg',
+	)
 
-	//allocate a channel if necessary now so its the same for everyone
-	channel = channel || SSsounds.random_available_channel()
+/datum/sound_effect/sparks
+	key = SFX_SPARKS
+	file_paths = list(
+		'sound/effects/sparks1.ogg',
+		'sound/effects/sparks2.ogg',
+		'sound/effects/sparks3.ogg',
+		'sound/effects/sparks4.ogg',
+	)
 
-	var/sound/S = isdatum(soundin) ? soundin : sound(get_sfx(soundin))
-	var/maxdistance = SOUND_RANGE + extrarange
-	var/source_z = turf_source.z
-	var/list/listeners = list()
+/datum/sound_effect/rustle
+	key = SFX_RUSTLE
+	file_paths = list(
+		'sound/effects/rustle1.ogg',
+		'sound/effects/rustle2.ogg',
+		'sound/effects/rustle3.ogg',
+		'sound/effects/rustle4.ogg',
+		'sound/effects/rustle5.ogg',
+	)
 
-	var/list/players_by_zlevel[world.maxz][1]
-	var/list/dead_players_by_zlevel[world.maxz][1]
+/datum/sound_effect/bodyfall
+	key = SFX_BODYFALL
+	file_paths = list(
+		'sound/effects/bodyfall1.ogg',
+		'sound/effects/bodyfall2.ogg',
+		'sound/effects/bodyfall3.ogg',
+		'sound/effects/bodyfall4.ogg',
+	)
 
-	for(var/mob/player as anything in GLOB.player_list)
-		if(required_preferences && (player.client.prefs.toggles & required_preferences) != required_preferences)
-			continue
+/datum/sound_effect/punch
+	key = SFX_PUNCH
+	file_paths = list(
+		'sound/weapons/punch1.ogg',
+		'sound/weapons/punch2.ogg',
+		'sound/weapons/punch3.ogg',
+		'sound/weapons/punch4.ogg',
+	)
 
-		if(required_asfx_toggles && (player.client.prefs.sfx_toggles & required_asfx_toggles) != required_asfx_toggles)
-			continue
+/datum/sound_effect/clown_step
+	key = SFX_CLOWN_STEP
+	file_paths = list(
+		'sound/effects/footstep/clownstep1.ogg',
+		'sound/effects/footstep/clownstep2.ogg',
+	)
 
-		//This is because your Z is 0 if you are inside eg. a mech
-		var/turf/player_turf = get_turf(player)
-		if(!player_turf)
-			continue
+/datum/sound_effect/suit_step
+	key = SFX_SUIT_STEP
+	file_paths = list(
+		'sound/effects/suitstep1.ogg',
+		'sound/effects/suitstep2.ogg',
+	)
 
-		if(player_turf.z == source_z)
-			listeners += player
+/datum/sound_effect/swing_hit
+	key = SFX_SWING_HIT
+	file_paths = list(
+		'sound/weapons/genhit1.ogg',
+		'sound/weapons/genhit2.ogg',
+		'sound/weapons/genhit3.ogg',
+	)
 
-		if(player_turf.z)
-			players_by_zlevel[player_turf.z] += player
+/datum/sound_effect/hiss
+	key = SFX_HISS
+	file_paths = list(
+		'sound/voice/hiss1.ogg',
+		'sound/voice/hiss2.ogg',
+		'sound/voice/hiss3.ogg',
+		'sound/voice/hiss4.ogg',
+	)
 
-		if(isobserver(player) && player_turf.z)
-			dead_players_by_zlevel[player_turf.z] += player
+/datum/sound_effect/page_turn
+	key = SFX_PAGE_TURN
+	file_paths = list(
+		'sound/effects/pageturn1.ogg',
+		'sound/effects/pageturn2.ogg',
+		'sound/effects/pageturn3.ogg',
+	)
 
-	. = list()//output everything that successfully heard the sound
+/datum/sound_effect/ricochet
+	key = SFX_RICOCHET
+	file_paths = list(
+		'sound/weapons/effects/ric1.ogg',
+		'sound/weapons/effects/ric2.ogg',
+		'sound/weapons/effects/ric3.ogg',
+		'sound/weapons/effects/ric4.ogg',
+		'sound/weapons/effects/ric5.ogg',
+	)
 
-	var/turf/above_turf = GET_TURF_ABOVE(turf_source)
-	var/turf/below_turf = GET_TURF_BELOW(turf_source)
+/datum/sound_effect/terminal_type
+	key = SFX_TERMINAL_TYPE
+	file_paths = list(
+		'sound/machines/terminal_button01.ogg',
+		'sound/machines/terminal_button02.ogg',
+		'sound/machines/terminal_button03.ogg',
+		'sound/machines/terminal_button04.ogg',
+		'sound/machines/terminal_button05.ogg',
+		'sound/machines/terminal_button06.ogg',
+		'sound/machines/terminal_button07.ogg',
+		'sound/machines/terminal_button08.ogg',
+	)
 
-	if(ignore_walls)
+/datum/sound_effect/desecration
+	key = SFX_DESECRATION
+	file_paths = list(
+		'sound/misc/desecration-01.ogg',
+		'sound/misc/desecration-02.ogg',
+		'sound/misc/desecration-03.ogg',
+	)
 
-		if(above_turf && istype(above_turf, /turf/simulated/open))
-			listeners += players_by_zlevel[above_turf.z]
+/datum/sound_effect/im_here
+	key = SFX_IM_HERE
+	file_paths = list(
+		'sound/hallucinations/im_here1.ogg',
+		'sound/hallucinations/im_here2.ogg',
+	)
 
-		if(below_turf && istype(turf_source, /turf/simulated/open))
-			listeners += players_by_zlevel[below_turf.z]
+/datum/sound_effect/can_open
+	key = SFX_CAN_OPEN
+	file_paths = list(
+		'sound/effects/can_open1.ogg',
+		'sound/effects/can_open2.ogg',
+		'sound/effects/can_open3.ogg',
+	)
 
-	else //these sounds don't carry through walls
-		listeners = get_hearers_in_view(maxdistance, turf_source)
+/datum/sound_effect/bullet_miss
+	key = SFX_BULLET_MISS
+	file_paths = list(
+		'sound/weapons/bulletflyby.ogg',
+		'sound/weapons/bulletflyby2.ogg',
+		'sound/weapons/bulletflyby3.ogg',
+	)
 
-		if(above_turf && istype(above_turf, /turf/simulated/open))
-			listeners += get_hearers_in_view(maxdistance, above_turf)
+/datum/sound_effect/revolver_spin
+	key = SFX_REVOLVER_SPIN
+	file_paths = list(
+		'sound/weapons/gun/revolver/spin1.ogg',
+		'sound/weapons/gun/revolver/spin2.ogg',
+		'sound/weapons/gun/revolver/spin3.ogg',
+	)
 
-		if(below_turf && istype(turf_source, /turf/simulated/open))
-			listeners += get_hearers_in_view(maxdistance, below_turf)
+/datum/sound_effect/law
+	key = SFX_LAW
+	file_paths = list(
+		'sound/voice/beepsky/creep.ogg',
+		'sound/voice/beepsky/god.ogg',
+		'sound/voice/beepsky/iamthelaw.ogg',
+		'sound/voice/beepsky/radio.ogg',
+		'sound/voice/beepsky/secureday.ogg',
+	)
 
-	for(var/mob/listening_mob in listeners | dead_players_by_zlevel[source_z])//observers always hear through walls
-		if(get_dist(listening_mob, turf_source) <= maxdistance)
-			//Aurora snowflake, if we don't ignore the walls, account for wall-like obstacles to dampen the sound
-			if(ignore_walls)
-				listening_mob.playsound_local(turf_source, soundin, vol, vary, frequency, falloff_exponent, channel, pressure_affected, S, maxdistance, falloff_distance, 1, use_reverb)
-			else
-				adjust_sound_based_on_path_obstacles(listening_mob, turf_source, soundin, vol, vary, frequency, falloff_exponent, channel, pressure_affected, S, maxdistance, falloff_distance, use_reverb)
+/datum/sound_effect/honkbot_e
+	key = SFX_HONKBOT_E
+	file_paths = list(
+		'sound/effects/pray.ogg',
+		'sound/effects/reee.ogg',
+		'sound/items/AirHorn.ogg',
+		'sound/items/AirHorn2.ogg',
+		'sound/items/bikehorn.ogg',
+		'sound/items/WEEOO1.ogg',
+		'sound/machines/buzz-sigh.ogg',
+		'sound/machines/ping.ogg',
+		'sound/magic/Fireball.ogg',
+		'sound/misc/sadtrombone.ogg',
+		'sound/voice/beepsky/creep.ogg',
+		'sound/voice/beepsky/iamthelaw.ogg',
+		'sound/voice/hiss1.ogg',
+		'sound/weapons/bladeslice.ogg',
+		'sound/weapons/flashbang.ogg',
+	)
 
-			. += listening_mob
+/datum/sound_effect/goose
+	key = "goose"
+	file_paths = list(
+		'sound/creatures/goose1.ogg',
+		'sound/creatures/goose2.ogg',
+		'sound/creatures/goose3.ogg',
+		'sound/creatures/goose4.ogg',
+	)
 
-/**
- * This proc takes into account walls, windows and similar when deciding the received sound for a mob,
- *
- * this is *NOT* meant to be called directly, use `playsound()`
- *
- * Use this to tweak what happens with the sound along the path from the emitter to the receiver of said sound
- */
-/proc/adjust_sound_based_on_path_obstacles(mob/listening_mob, turf/turf_source, soundin, vol, vary, frequency, falloff_exponent, channel, pressure_affected, S, maxdistance, falloff_distance, use_reverb)
-	var/turf/inbetween_turf = get_turf(listening_mob)
+/datum/sound_effect/warpspeed
+	key = SFX_WARPSPEED
+	file_paths = list(
+		'sound/runtime/hyperspace/hyperspace_begin.ogg',
+	)
 
-	for(var/step_counter in 1 to get_dist(listening_mob, turf_source))
-		inbetween_turf = get_step_towards(inbetween_turf, turf_source)
+/datum/sound_effect/sm_calm
+	key = SFX_SM_CALM
+	file_paths = list(
+		'sound/machines/sm/accent/normal/1.ogg',
+		'sound/machines/sm/accent/normal/2.ogg',
+		'sound/machines/sm/accent/normal/3.ogg',
+		'sound/machines/sm/accent/normal/4.ogg',
+		'sound/machines/sm/accent/normal/5.ogg',
+		'sound/machines/sm/accent/normal/6.ogg',
+		'sound/machines/sm/accent/normal/7.ogg',
+		'sound/machines/sm/accent/normal/8.ogg',
+		'sound/machines/sm/accent/normal/9.ogg',
+		'sound/machines/sm/accent/normal/10.ogg',
+		'sound/machines/sm/accent/normal/11.ogg',
+		'sound/machines/sm/accent/normal/12.ogg',
+		'sound/machines/sm/accent/normal/13.ogg',
+		'sound/machines/sm/accent/normal/14.ogg',
+		'sound/machines/sm/accent/normal/15.ogg',
+		'sound/machines/sm/accent/normal/16.ogg',
+		'sound/machines/sm/accent/normal/17.ogg',
+		'sound/machines/sm/accent/normal/18.ogg',
+		'sound/machines/sm/accent/normal/19.ogg',
+		'sound/machines/sm/accent/normal/20.ogg',
+		'sound/machines/sm/accent/normal/21.ogg',
+		'sound/machines/sm/accent/normal/22.ogg',
+		'sound/machines/sm/accent/normal/23.ogg',
+		'sound/machines/sm/accent/normal/24.ogg',
+		'sound/machines/sm/accent/normal/25.ogg',
+		'sound/machines/sm/accent/normal/26.ogg',
+		'sound/machines/sm/accent/normal/27.ogg',
+		'sound/machines/sm/accent/normal/28.ogg',
+		'sound/machines/sm/accent/normal/29.ogg',
+		'sound/machines/sm/accent/normal/30.ogg',
+		'sound/machines/sm/accent/normal/31.ogg',
+		'sound/machines/sm/accent/normal/32.ogg',
+		'sound/machines/sm/accent/normal/33.ogg',
+	)
 
-		if(istype(inbetween_turf, /turf/simulated/wall))
-			vol *= 0.6
+/datum/sound_effect/sm_delam
+	key = SFX_SM_DELAM
+	file_paths = list(
+		'sound/machines/sm/accent/delam/1.ogg',
+		'sound/machines/sm/accent/delam/2.ogg',
+		'sound/machines/sm/accent/delam/3.ogg',
+		'sound/machines/sm/accent/delam/4.ogg',
+		'sound/machines/sm/accent/delam/5.ogg',
+		'sound/machines/sm/accent/delam/6.ogg',
+		'sound/machines/sm/accent/delam/7.ogg',
+		'sound/machines/sm/accent/delam/8.ogg',
+		'sound/machines/sm/accent/delam/9.ogg',
+		'sound/machines/sm/accent/delam/10.ogg',
+		'sound/machines/sm/accent/delam/11.ogg',
+		'sound/machines/sm/accent/delam/12.ogg',
+		'sound/machines/sm/accent/delam/13.ogg',
+		'sound/machines/sm/accent/delam/14.ogg',
+		'sound/machines/sm/accent/delam/15.ogg',
+		'sound/machines/sm/accent/delam/16.ogg',
+		'sound/machines/sm/accent/delam/17.ogg',
+		'sound/machines/sm/accent/delam/18.ogg',
+		'sound/machines/sm/accent/delam/19.ogg',
+		'sound/machines/sm/accent/delam/20.ogg',
+		'sound/machines/sm/accent/delam/21.ogg',
+		'sound/machines/sm/accent/delam/22.ogg',
+		'sound/machines/sm/accent/delam/23.ogg',
+		'sound/machines/sm/accent/delam/24.ogg',
+		'sound/machines/sm/accent/delam/25.ogg',
+		'sound/machines/sm/accent/delam/26.ogg',
+		'sound/machines/sm/accent/delam/27.ogg',
+		'sound/machines/sm/accent/delam/28.ogg',
+		'sound/machines/sm/accent/delam/29.ogg',
+		'sound/machines/sm/accent/delam/30.ogg',
+		'sound/machines/sm/accent/delam/31.ogg',
+		'sound/machines/sm/accent/delam/32.ogg',
+		'sound/machines/sm/accent/delam/33.ogg',
+	)
 
-		if(locate(/obj/machinery/door) in inbetween_turf)
-			vol *= 0.7
+/datum/sound_effect/hypertorus_calm
+	key = SFX_HYPERTORUS_CALM
+	file_paths = list(
+		'sound/machines/sm/accent/normal/1.ogg',
+		'sound/machines/sm/accent/normal/2.ogg',
+		'sound/machines/sm/accent/normal/3.ogg',
+		'sound/machines/sm/accent/normal/4.ogg',
+		'sound/machines/sm/accent/normal/5.ogg',
+		'sound/machines/sm/accent/normal/6.ogg',
+		'sound/machines/sm/accent/normal/7.ogg',
+		'sound/machines/sm/accent/normal/8.ogg',
+		'sound/machines/sm/accent/normal/9.ogg',
+		'sound/machines/sm/accent/normal/10.ogg',
+		'sound/machines/sm/accent/normal/11.ogg',
+		'sound/machines/sm/accent/normal/12.ogg',
+		'sound/machines/sm/accent/normal/13.ogg',
+		'sound/machines/sm/accent/normal/14.ogg',
+		'sound/machines/sm/accent/normal/15.ogg',
+		'sound/machines/sm/accent/normal/16.ogg',
+		'sound/machines/sm/accent/normal/17.ogg',
+		'sound/machines/sm/accent/normal/18.ogg',
+		'sound/machines/sm/accent/normal/19.ogg',
+		'sound/machines/sm/accent/normal/20.ogg',
+		'sound/machines/sm/accent/normal/21.ogg',
+		'sound/machines/sm/accent/normal/22.ogg',
+		'sound/machines/sm/accent/normal/23.ogg',
+		'sound/machines/sm/accent/normal/24.ogg',
+		'sound/machines/sm/accent/normal/25.ogg',
+		'sound/machines/sm/accent/normal/26.ogg',
+		'sound/machines/sm/accent/normal/27.ogg',
+		'sound/machines/sm/accent/normal/28.ogg',
+		'sound/machines/sm/accent/normal/29.ogg',
+		'sound/machines/sm/accent/normal/30.ogg',
+		'sound/machines/sm/accent/normal/31.ogg',
+		'sound/machines/sm/accent/normal/32.ogg',
+		'sound/machines/sm/accent/normal/33.ogg',
+	)
 
-		if(locate(/obj/structure/window) in inbetween_turf)
-			vol *= 0.75
+/datum/sound_effect/hypertorus_melting
+	key = SFX_HYPERTORUS_MELTING
+	file_paths = list(
+		'sound/machines/sm/accent/delam/1.ogg',
+		'sound/machines/sm/accent/delam/2.ogg',
+		'sound/machines/sm/accent/delam/3.ogg',
+		'sound/machines/sm/accent/delam/4.ogg',
+		'sound/machines/sm/accent/delam/5.ogg',
+		'sound/machines/sm/accent/delam/6.ogg',
+		'sound/machines/sm/accent/delam/7.ogg',
+		'sound/machines/sm/accent/delam/8.ogg',
+		'sound/machines/sm/accent/delam/9.ogg',
+		'sound/machines/sm/accent/delam/10.ogg',
+		'sound/machines/sm/accent/delam/11.ogg',
+		'sound/machines/sm/accent/delam/12.ogg',
+		'sound/machines/sm/accent/delam/13.ogg',
+		'sound/machines/sm/accent/delam/14.ogg',
+		'sound/machines/sm/accent/delam/15.ogg',
+		'sound/machines/sm/accent/delam/16.ogg',
+		'sound/machines/sm/accent/delam/17.ogg',
+		'sound/machines/sm/accent/delam/18.ogg',
+		'sound/machines/sm/accent/delam/19.ogg',
+		'sound/machines/sm/accent/delam/20.ogg',
+		'sound/machines/sm/accent/delam/21.ogg',
+		'sound/machines/sm/accent/delam/22.ogg',
+		'sound/machines/sm/accent/delam/23.ogg',
+		'sound/machines/sm/accent/delam/24.ogg',
+		'sound/machines/sm/accent/delam/25.ogg',
+		'sound/machines/sm/accent/delam/26.ogg',
+		'sound/machines/sm/accent/delam/27.ogg',
+		'sound/machines/sm/accent/delam/28.ogg',
+		'sound/machines/sm/accent/delam/29.ogg',
+		'sound/machines/sm/accent/delam/30.ogg',
+		'sound/machines/sm/accent/delam/31.ogg',
+		'sound/machines/sm/accent/delam/32.ogg',
+		'sound/machines/sm/accent/delam/33.ogg',
+	)
 
-		//If we're at or below zero, no point continuing, no sound
-		if(vol <= 0)
-			return
+/datum/sound_effect/crunchy_bush_whack
+	key = SFX_CRUNCHY_BUSH_WHACK
+	file_paths = list(
+		'sound/effects/crunchybushwhack1.ogg',
+		'sound/effects/crunchybushwhack2.ogg',
+		'sound/effects/crunchybushwhack3.ogg',
+	)
 
-	listening_mob.playsound_local(turf_source, soundin, vol, vary, frequency, falloff_exponent, channel, pressure_affected, S, maxdistance, falloff_distance, 1, use_reverb)
+/datum/sound_effect/tree_chop
+	key = SFX_TREE_CHOP
+	file_paths = list(
+		'sound/effects/treechop1.ogg',
+		'sound/effects/treechop2.ogg',
+		'sound/effects/treechop3.ogg',
+	)
 
+/datum/sound_effect/rock_tap
+	key = SFX_ROCK_TAP
+	file_paths = list(
+		'sound/effects/rocktap1.ogg',
+		'sound/effects/rocktap2.ogg',
+		'sound/effects/rocktap3.ogg',
+	)
 
-/mob/proc/playsound_local(turf/turf_source, soundin, vol as num, vary, frequency, falloff_exponent = SOUND_FALLOFF_EXPONENT, channel = 0, pressure_affected = TRUE, sound/sound_to_use, max_distance, falloff_distance = SOUND_DEFAULT_FALLOFF_DISTANCE, distance_multiplier = 1, use_reverb = TRUE)
-	if(!client || !can_hear())
-		return
+/datum/sound_effect/muffled_speech
+	key = SFX_MUFFLED_SPEECH
+	file_paths = list(
+		'sound/effects/muffspeech/muffspeech1.ogg',
+		'sound/effects/muffspeech/muffspeech2.ogg',
+		'sound/effects/muffspeech/muffspeech3.ogg',
+		'sound/effects/muffspeech/muffspeech4.ogg',
+		'sound/effects/muffspeech/muffspeech5.ogg',
+		'sound/effects/muffspeech/muffspeech6.ogg',
+		'sound/effects/muffspeech/muffspeech7.ogg',
+		'sound/effects/muffspeech/muffspeech8.ogg',
+		'sound/effects/muffspeech/muffspeech9.ogg',
+	)
 
-	if(!sound_to_use)
-		sound_to_use = sound(get_sfx(soundin))
+/datum/sound_effect/keystroke
+	key = SFX_KEYSTROKE
+	file_paths = list(
+		'sound/machines/keyboard/keypress1.ogg',
+		'sound/machines/keyboard/keypress2.ogg',
+		'sound/machines/keyboard/keypress3.ogg',
+		'sound/machines/keyboard/keypress4.ogg',
+	)
 
-	sound_to_use.wait = 0 //No queue
-	sound_to_use.channel = channel || SSsounds.random_available_channel()
-	sound_to_use.volume = vol
+/datum/sound_effect/keyboard
+	key = SFX_KEYBOARD
+	file_paths = list(
+		'sound/machines/keyboard/keystroke1.ogg',
+		'sound/machines/keyboard/keystroke2.ogg',
+		'sound/machines/keyboard/keystroke3.ogg',
+		'sound/machines/keyboard/keystroke4.ogg',
+	)
 
-	if(vary)
-		if(frequency)
-			sound_to_use.frequency = frequency
-		else
-			sound_to_use.frequency = get_rand_frequency()
+/datum/sound_effect/button
+	key = SFX_BUTTON
+	file_paths = list(
+		'sound/machines/button1.ogg',
+		'sound/machines/button2.ogg',
+		'sound/machines/button3.ogg',
+		'sound/machines/button4.ogg',
+	)
 
-	if(isturf(turf_source))
-		var/turf/turf_loc = get_turf(src)
+/datum/sound_effect/use_switch
+	key = SFX_SWITCH
+	file_paths = list(
+		'sound/machines/switch1.ogg',
+		'sound/machines/switch2.ogg',
+		'sound/machines/switch3.ogg',
+	)
 
-		//sound volume falloff with distance
-		var/distance = get_dist(turf_loc, turf_source) * distance_multiplier
+/datum/sound_effect/button_click
+	key = SFX_BUTTON_CLICK
+	file_paths = list(
+		'monkestation/sound/effects/hl2/button-click.ogg',
+	)
 
-		if(max_distance) //If theres no max_distance we're not a 3D sound, so no falloff.
-			sound_to_use.volume -= (max(distance - falloff_distance, 0) ** (1 / falloff_exponent)) / ((max(max_distance, distance) - falloff_distance) ** (1 / falloff_exponent)) * sound_to_use.volume
-			//https://www.desmos.com/calculator/sqdfl8ipgf
+/datum/sound_effect/button_fail
+	key = SFX_BUTTON_FAIL
+	file_paths = list(
+		'monkestation/sound/effects/hl2/button-fail.ogg',
+	)
 
-		if(pressure_affected)
-			//Atmosphere affects sound
-			var/pressure_factor = 1
-			var/datum/gas_mixture/hearer_env = turf_loc.return_air()
-			var/datum/gas_mixture/source_env = turf_source.return_air()
+/datum/sound_effect/lightswitch
+	key = SFX_LIGHTSWITCH
+	file_paths = list(
+		'monkestation/sound/effects/hl2/lightswitch.ogg',
+	)
 
-			if(hearer_env && source_env)
-				var/pressure = min(hearer_env.return_pressure(), source_env.return_pressure())
-				if(pressure < ONE_ATMOSPHERE)
-					pressure_factor = max((pressure - SOUND_MINIMUM_PRESSURE)/(ONE_ATMOSPHERE - SOUND_MINIMUM_PRESSURE), 0)
-			else //space
-				pressure_factor = 0
+/datum/sound_effect/portal_close
+	key = SFX_PORTAL_CLOSE
+	file_paths = list('sound/effects/portal_close.ogg')
 
-			if(distance <= 1)
-				pressure_factor = max(pressure_factor, 0.15) //touching the source of the sound
+/datum/sound_effect/portal_enter
+	key = SFX_PORTAL_ENTER
+	file_paths = list('sound/effects/portal_travel.ogg')
 
-			sound_to_use.volume *= pressure_factor
-			//End Atmosphere affecting sound
+/datum/sound_effect/portal_created
+	key = SFX_PORTAL_CREATED
+	file_paths = list(
+		'sound/effects/portal_open_1.ogg',
+		'sound/effects/portal_open_2.ogg',
+		'sound/effects/portal_open_3.ogg',
+	)
 
-		if(sound_to_use.volume <= 0)
-			return //No sound
-
-		var/dx = turf_source.x - turf_loc.x // Hearing from the right/left
-		sound_to_use.x = dx * distance_multiplier
-		var/dz = turf_source.y - turf_loc.y // Hearing from infront/behind
-		sound_to_use.z = dz * distance_multiplier
-		var/dy = (turf_source.z - turf_loc.z) * 5 * distance_multiplier // Hearing from  above / below, multiplied by 5 because we assume height is further along coords.
-		sound_to_use.y = dy
-
-		sound_to_use.falloff = max_distance || 1 //use max_distance, else just use 1 as we are a direct sound so falloff isnt relevant.
-
-		// Sounds can't have their own environment. A sound's environment will be:
-		// 1. the mob's
-		// 2. the area's (defaults to SOUND_ENVRIONMENT_NONE)
-		if(sound_environment_override != SOUND_ENVIRONMENT_NONE)
-			sound_to_use.environment = sound_environment_override
-		else
-			var/area/A = get_area(src)
-			sound_to_use.environment = A.sound_environment
-
-		if(use_reverb && sound_to_use.environment != SOUND_ENVIRONMENT_NONE) //We have reverb, reset our echo setting
-			sound_to_use.echo[3] = 0 //Room setting, 0 means normal reverb
-			sound_to_use.echo[4] = 0 //RoomHF setting, 0 means normal reverb.
-
-	SEND_SOUND(src, sound_to_use)
-
-/proc/sound_to_playing_players(soundin, volume = 100, vary = FALSE, frequency = 0, channel = 0, pressure_affected = FALSE, sound/S)
-	if(!S)
-		S = sound(get_sfx(soundin))
-	for(var/m in GLOB.player_list)
-		if(ismob(m) && !isnewplayer(m))
-			var/mob/M = m
-			M.playsound_local(M, null, volume, vary, frequency, null, channel, pressure_affected, S)
-
-/mob/proc/stop_sound_channel(chan)
-	SEND_SOUND(src, sound(null, repeat = 0, wait = 0, channel = chan))
-
-/mob/proc/set_sound_channel_volume(channel, volume)
-	var/sound/S = sound(null, FALSE, FALSE, channel, volume)
-	S.status = SOUND_UPDATE
-	SEND_SOUND(src, S)
-
-/client/proc/playtitlemusic()
-	set waitfor = FALSE
-	UNTIL(SSticker.login_music) //wait for SSticker init to set the login music
-	SEND_SOUND(src, sound(null, repeat = 0, wait = 0, volume = prefs.lobby_music_vol, channel = CHANNEL_LOBBYMUSIC))
-
-	if(prefs.lobby_music_vol)
-		for(var/lobby_music in SSticker.login_music)
-			SEND_SOUND(src, sound(lobby_music, repeat = 0, wait = TRUE, volume = prefs.lobby_music_vol, channel = CHANNEL_LOBBYMUSIC)) // MAD JAMS
-
-/proc/get_rand_frequency()
-	return rand(32000, 55000) //Frequency stuff only works with 45kbps oggs.
-
-//Unlike TG, we use singletons here, so this is different, for now
-/proc/get_sfx(soundin)
-	if(isfile(soundin) || (istext(soundin) && !ispath(soundin)) || istype(soundin, /sound))
-		return soundin
-
-	var/singleton/sound_category/SC = GET_SINGLETON(soundin)
-	if(!istype(SC))
-		CRASH("Non-decl path in get_sfx: [soundin]")
-	return SC.get_sound()
+/datum/sound_effect/screech
+	key = SFX_SCREECH
+	file_paths = list(
+		'sound/creatures/monkey/monkey_screech_1.ogg',
+		'sound/creatures/monkey/monkey_screech_2.ogg',
+		'sound/creatures/monkey/monkey_screech_3.ogg',
+		'sound/creatures/monkey/monkey_screech_4.ogg',
+		'sound/creatures/monkey/monkey_screech_5.ogg',
+		'sound/creatures/monkey/monkey_screech_6.ogg',
+		'sound/creatures/monkey/monkey_screech_7.ogg',
+	)
 
 /singleton/sound_category
 	var/list/sounds = list()
@@ -262,9 +504,11 @@
 	return pick(sounds)
 
 /singleton/sound_category/blank_footsteps
+	key = SFX_FOOTSTEP
 	sounds = list('sound/effects/footstep/blank.ogg')
 
 /singleton/sound_category/catwalk_footstep
+	key = SFX_FOOTSTEP
 	sounds = list(
 		'sound/effects/footstep/catwalk1.ogg',
 		'sound/effects/footstep/catwalk2.ogg',
@@ -274,6 +518,7 @@
 	)
 
 /singleton/sound_category/wood_footstep
+	key = SFX_FOOTSTEP
 	sounds = list(
 		'sound/effects/footstep/wood1.ogg',
 		'sound/effects/footstep/wood2.ogg',
@@ -283,6 +528,7 @@
 	)
 
 /singleton/sound_category/tiles_footstep
+	key = SFX_FOOTSTEP
 	sounds = list(
 		'sound/effects/footstep/floor1.ogg',
 		'sound/effects/footstep/floor2.ogg',
@@ -292,6 +538,7 @@
 	)
 
 /singleton/sound_category/plating_footstep
+	key = SFX_FOOTSTEP
 	sounds = list(
 		'sound/effects/footstep/plating1.ogg',
 		'sound/effects/footstep/plating2.ogg',
@@ -301,6 +548,7 @@
 	)
 
 /singleton/sound_category/carpet_footstep
+	key = SFX_FOOTSTEP
 	sounds = list(
 		'sound/effects/footstep/carpet1.ogg',
 		'sound/effects/footstep/carpet2.ogg',
@@ -310,6 +558,7 @@
 	)
 
 /singleton/sound_category/asteroid_footstep
+	key = SFX_FOOTSTEP
 	sounds = list(
 		'sound/effects/footstep/asteroid1.ogg',
 		'sound/effects/footstep/asteroid2.ogg',
@@ -319,6 +568,7 @@
 	)
 
 /singleton/sound_category/grass_footstep
+	key = SFX_FOOTSTEP
 	sounds = list(
 		'sound/effects/footstep/grass1.ogg',
 		'sound/effects/footstep/grass2.ogg',
@@ -327,6 +577,7 @@
 	)
 
 /singleton/sound_category/water_footstep
+	key = SFX_FOOTSTEP
 	sounds = list(
 		'sound/effects/footstep/water1.ogg',
 		'sound/effects/footstep/water2.ogg',
@@ -335,6 +586,7 @@
 	)
 
 /singleton/sound_category/lava_footstep
+	key = SFX_FOOTSTEP
 	sounds = list(
 		'sound/effects/footstep/lava1.ogg',
 		'sound/effects/footstep/lava2.ogg',
@@ -342,6 +594,7 @@
 	)
 
 /singleton/sound_category/snow_footstep
+	key = SFX_FOOTSTEP
 	sounds = list(
 		'sound/effects/footstep/snow1.ogg',
 		'sound/effects/footstep/snow2.ogg',
@@ -351,6 +604,7 @@
 	)
 
 /singleton/sound_category/sand_footstep
+	key = SFX_FOOTSTEP
 	sounds = list(
 		'sound/effects/footstep/sand1.ogg',
 		'sound/effects/footstep/sand2.ogg',

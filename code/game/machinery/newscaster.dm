@@ -1148,7 +1148,7 @@ GLOBAL_LIST_INIT_TYPED(allCasters, /obj/machinery/newscaster, list())
 		NEWSPAPER.news_content += FC
 	if(SSnews.wanted_issue)
 		NEWSPAPER.important_message = SSnews.wanted_issue
-	playsound(src.loc, 'sound/bureaucracy/print.ogg', 75, 1)
+	playsound(src.loc, 'sound/items/bureaucracy/print.ogg', 75, 1)
 	usr.put_in_hands(NEWSPAPER)
 	src.paper_remaining--
 	return

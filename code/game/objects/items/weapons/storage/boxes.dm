@@ -1419,7 +1419,7 @@
 		)
 	item_state = "papersack"
 	icon_state = "paperbag_None"
-	use_sound = 'sound/bureaucracy/papercrumple.ogg'
+	use_sound = 'sound/items/bureaucracy/papercrumple.ogg'
 	drop_sound = 'sound/items/drop/paper.ogg'
 	pickup_sound = 'sound/items/storage/wrapper.ogg'
 	foldable = null

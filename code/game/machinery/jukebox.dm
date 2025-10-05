@@ -305,7 +305,7 @@
 			return TRUE
 
 		if("loop")
-			music_player.sound_loops = !!params["looping"]
+			music_player.sound_loops = !!params["sound_loops"]
 			return TRUE
 
 ///If a song is playing, cut it. If none is playing, and the cooldown is up, start the queued track.

@@ -26,10 +26,29 @@ SUBSYSTEM_DEF(sounds)
 	/// All valid sound files in the sound directory
 	var/list/all_sounds
 
+	/**
+	# assoc list of datum by key
+	* k = SFX_KEY (see below)
+	* v = singleton sound_effect datum ref
+	* initialized in SSsounds init
+	*/
+	var/alist/sfx_datum_by_key
+
 /datum/controller/subsystem/sounds/Initialize()
 	setup_available_channels()
 	find_all_available_sounds()
+	init_sound_keys()
 	return SS_INIT_SUCCESS
+
+/datum/controller/subsystem/sounds/Recover()
+	using_channels = SSsounds.using_channels
+	using_channels_by_datum = SSsounds.using_channels_by_datum
+	channel_list = SSsounds.channel_list
+	reserved_channels = SSsounds.reserved_channels
+	channel_random_low = SSsounds.channel_random_low
+	channel_reserve_high = SSsounds.channel_reserve_high
+	all_sounds = SSsounds.all_sounds
+	sfx_datum_by_key = SSsounds.sfx_datum_by_key
 
 /datum/controller/subsystem/sounds/proc/setup_available_channels()
 	channel_list = list()
@@ -155,5 +174,12 @@ SUBSYSTEM_DEF(sounds)
 /// How many channels we have left.
 /datum/controller/subsystem/sounds/proc/available_channels_left()
 	return length(channel_list) - random_channels_min
+
+/datum/controller/subsystem/sounds/proc/init_sound_keys()
+	sfx_datum_by_key = alist()
+	for(var/datum/sound_effect/sfx as anything in subtypesof(/datum/sound_effect))
+		// this is for the assoc subtype
+		if(!isnull(sfx.key))
+			sfx_datum_by_key[sfx.key] = new sfx()
 
 #undef DATUMLESS
