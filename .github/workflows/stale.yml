@@ -27,7 +27,7 @@ jobs:
           close-issue-message: >
             This issue has been closed automatically after 90 days of inactivity.
             If you think this issue is still relevant, please reopen it or create a new issue.
-          exempt-issue-labels-regex: "(?i).*replicable.*" # Problems that are waiting for resolution shouldn't be closed
+          exempt-issue-labels: "Bot Ignore,⛔ Lore Discussion,⛔ Maintainer Discussion,✔️ Issue Replicable"
 
           # --- PR settings ---
           days-before-pr-stale: 60
@@ -37,5 +37,5 @@ jobs:
             This pull request has been marked as stale due to the lack of activity within the last 60 days.
             If you are still working on this, please push your work or leave a comment.
             Pull requests marked as stale won't be auto-closed but are at the discretion of staff to be closed at any point without further notice.
-          exempt-pr-labels-regex: "(?i).*discussion.*" # Match any label containing "discussion"
+          exempt-pr-labels: "Bot Ignore,⛔ Lore Discussion,⛔ Maintainer Discussion,✔️ Issue Replicable"
           # Draft PRs are not exempted from getting marked as stale
