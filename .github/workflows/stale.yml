@@ -17,9 +17,8 @@ jobs:
       - uses: actions/stale@v9
         with:
           # --- Issue settings ---
-          days-before-stale: 60
-          days-before-close: 30
-          stale-issue-label: "Stale"
+          days-before-issue-stale: 60
+          days-before-issue-close: 30
           stale-issue-message: >
             This issue has been marked as stale due to the lack of activity within the last 60 days.
             If you think the issue is still relevant, leave a comment or let the issue get labeled as replicable by staff.
@@ -32,10 +31,8 @@ jobs:
           # --- PR settings ---
           days-before-pr-stale: 60
           days-before-pr-close: -1 # Never auto-close PRs
-          stale-pr-label: "Stale"
           stale-pr-message: >
             This pull request has been marked as stale due to the lack of activity within the last 60 days.
             If you are still working on this, please push your work or leave a comment.
             Pull requests marked as stale won't be auto-closed but are at the discretion of staff to be closed at any point without further notice.
           exempt-pr-labels: "Bot Ignore,⛔ Lore Discussion,⛔ Maintainer Discussion,✔️ Issue Replicable"
-          # Draft PRs are not exempted from getting marked as stale
