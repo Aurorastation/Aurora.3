@@ -161,9 +161,6 @@
 	return data
 
 /obj/machinery/autolathe/attackby(obj/item/attacking_item, mob/user)
-	if(user.a_intent == I_HURT)
-		return ..()
-
 	if((autolathe_flags & AUTOLATHE_BUSY))
 		to_chat(user, SPAN_NOTICE("\The [src] is busy. Please wait for the completion of previous operation."))
 		return TRUE

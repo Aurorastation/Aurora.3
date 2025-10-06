@@ -59,7 +59,6 @@
 
 /obj/item/storage/box/Initialize()
 	. = ..()
-	health = maxhealth
 	if(illustration)
 		AddOverlays(illustration)
 
