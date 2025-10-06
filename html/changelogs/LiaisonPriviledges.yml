@@ -1,0 +1,7 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "Corporate liaisons can now force holocalls."
+  - rscadd: "Corporate liaisons now have access to the bridge, and by extension the command break room and conference room."
