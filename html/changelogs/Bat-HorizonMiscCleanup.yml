@@ -12,4 +12,8 @@ delete-after: True
 changes:
   - code_imp: "Added set definitions for several Horizon-specific containers."
   - code_imp: "Updated 'full' material stacks on the Horizon from sneaky var-edited singles to properly defined full stacks"
+  - code_imp: "Cleaned up all Air Alarms, Fire Alarms, and APCs on the Horizon that were directional children with their dir var edited."
+  - code_imp: "Cleaned up all Power Cables on the Horizon that had d1 or d2 var edited instead of just icon_state."
+  - code_imp: "Adjusted pixel shifts for 'south' (north-facing) Air Alarms, Fire Alarms, APCs, and Extinguisher Cabinets to address layering issues when standing vs. leaning."
+  - bugfix: "Maintenance Panels located on the floor have had their layering issues fixed."
   - bugfix: "Add a full window variant that should also have been leanable but was left out."

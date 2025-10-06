@@ -307,65 +307,32 @@ pixel_x = 10;
 	req_access = null
 	highpower = 1
 
-/obj/machinery/alarm/shuttle/intrepid
-	req_one_access = list(ACCESS_ENGINE_EQUIP, ACCESS_ATMOSPHERICS, ACCESS_INTREPID)
-
-/obj/machinery/alarm/shuttle/intrepid/north
+/obj/machinery/alarm/shuttle/north
 	PRESET_NORTH
 
-/obj/machinery/alarm/shuttle/intrepid/east
+/obj/machinery/alarm/shuttle/east
 	PRESET_EAST
 
-/obj/machinery/alarm/shuttle/intrepid/west
+/obj/machinery/alarm/shuttle/west
 	PRESET_WEST
 
-/obj/machinery/alarm/shuttle/intrepid/south
+/obj/machinery/alarm/shuttle/south
 	PRESET_SOUTH
 
-/obj/machinery/alarm/shuttle/spark
-	req_one_access = list(ACCESS_ENGINE_EQUIP, ACCESS_ATMOSPHERICS, ACCESS_SPARK)
+/// Assigns req_one_access perms associated with the area of the shuttle its mapped in.
+/obj/machinery/alarm/shuttle/Initialize()
+	. = ..()
+	var/area = get_area(src)
 
-/obj/machinery/alarm/shuttle/spark/north
-	PRESET_NORTH
+	if(istype(area, /area/horizon/shuttle/intrepid))
+		req_one_access = list(ACCESS_ENGINE_EQUIP, ACCESS_ATMOSPHERICS, ACCESS_INTREPID)
+	if(istype(area, /area/horizon/shuttle/quark))
+		req_one_access = list(ACCESS_ENGINE_EQUIP, ACCESS_ATMOSPHERICS, ACCESS_QUARK)
+	if(istype(area, /area/horizon/shuttle/mining))
+		req_one_access = list(ACCESS_ENGINE_EQUIP, ACCESS_ATMOSPHERICS, ACCESS_SPARK)
+	if(istype(area, /area/horizon/shuttle/canary))
+		req_one_access = list(ACCESS_ENGINE_EQUIP, ACCESS_ATMOSPHERICS, ACCESS_CANARY)
 
-/obj/machinery/alarm/shuttle/spark/east
-	PRESET_EAST
-
-/obj/machinery/alarm/shuttle/spark/west
-	PRESET_WEST
-
-/obj/machinery/alarm/shuttle/spark/south
-	PRESET_SOUTH
-
-/obj/machinery/alarm/shuttle/quark
-	req_one_access = list(ACCESS_ENGINE_EQUIP, ACCESS_ATMOSPHERICS, ACCESS_QUARK)
-
-/obj/machinery/alarm/shuttle/quark/north
-	PRESET_NORTH
-
-/obj/machinery/alarm/shuttle/quark/east
-	PRESET_EAST
-
-/obj/machinery/alarm/shuttle/quark/west
-	PRESET_WEST
-
-/obj/machinery/alarm/shuttle/quark/south
-	PRESET_SOUTH
-
-/obj/machinery/alarm/shuttle/canary
-	req_one_access = list(ACCESS_ENGINE_EQUIP, ACCESS_ATMOSPHERICS, ACCESS_CANARY)
-
-/obj/machinery/alarm/shuttle/canary/north
-	PRESET_NORTH
-
-/obj/machinery/alarm/shuttle/canary/east
-	PRESET_EAST
-
-/obj/machinery/alarm/shuttle/canary/west
-	PRESET_WEST
-
-/obj/machinery/alarm/shuttle/canary/south
-	PRESET_SOUTH
 
 /obj/machinery/alarm/server/Initialize()
 	. = ..()
