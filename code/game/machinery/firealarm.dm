@@ -18,6 +18,7 @@
 	var/seclevel
 	///looping sound datum for our fire alarm siren.
 	var/datum/looping_sound/firealarm/soundloop
+	always_area_sensitive = TRUE
 
 /obj/machinery/firealarm/Initialize(mapload, var/dir, var/building = 0)
 	. = ..(mapload)

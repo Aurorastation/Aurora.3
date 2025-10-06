@@ -1,0 +1,167 @@
+2025-10-01:
+  hazelmouse:
+  - balance: Blob events now have the potential to spawn as many as three cores across
+      the map.
+2025-10-02:
+  ASmallCuteCat:
+  - imageadd: Updates the recolorable trenchcoats to follow the new colorable item
+      palette
+  FlamingLily:
+  - bugfix: Fixed un-piped disposal unit in medbay smoking lounge. Moved scrubber
+      and vent around for better distribution.
+  Fyni:
+  - rscadd: 'Fixes #21222, removing Diona, Hansan and Khazh flags from the Dominia
+      flag box - and adding the Zhurong flag.'
+  Kano:
+  - bugfix: Added a missing plaque to an away site.
+  KingOfThePing:
+  - rscadd: Adds four new Unathi related drinks.
+  - rscadd: Reflavours most of the existing Unathi drinks to not be jokes and/or wordplays
+      anymore.
+  Nalarac:
+  - rscadd: Allowed more away sites to spawn in Crescent Expanse sectors or everywhere
+      if generic enough.
+  - code_imp: Combined some sector spawn lists and blacklists into more generic groupings.
+  TheGreyWolf:
+  - bugfix: Custom items will now attempt to spawn in a character's hands, before
+      dropping to the floor. This should prevent items being lost to the lifts or
+      cryo.
+  - rscadd: The alert for a custom item being dropped on the ground is now red, to
+      make it easier to spot.
+  hazelmouse:
+  - rscadd: All EVA turfs on the Horizon are now automatically assigned starlight
+      on initialisation, meaning that the wings are no longer entirely dark. This
+      is overwritten if the turfs are modified.
+  - rscadd: Implements some minor changes to the Horizon's outer hull.
+2025-10-04:
+  ASmallCuteCat:
+  - bugfix: The machinist's workshop now has 10 sheets of lead, instead of only 1.
+  Batrachophrenoboocosmomachia:
+  - bugfix: Event False Alarms now give refer to proper ship name instead of 'Unknown
+      Location.'
+  - qol: Many objects, which required you to have an ID in-hand to toggle lock statuses
+      for, now instead check for equipped IDs on alt-click.
+  - rscadd: Added new SFX to APCs, Air Alarms, and other devices.
+  - bugfix: APC status lights now accurately reflect lock/unlock status and channel
+      settings.
+  - refactor: 'Performance improvement: area /power_change() proc uses signals instead
+      of for loop.'
+  HanSolo1519:
+  - balance: Moved Timers out of the Tool-Storage devices Vendomat contraband list,
+      and into normal selection.
+  Hellfirejag:
+  - rscadd: Stasis beds and stasis bags now have mechanics hints explaining what they
+      do.
+  - rscadd: Stasis beds can now be upgraded to provide more stasis.
+2025-10-05:
+  AlaunusLux:
+  - rscadd: Added a message sent over command frequency when a vessel docks or undocks
+      at official docking ports, unless cloaked.
+  - rscadd: Added disassembly instructions to reinforced walls.
+  Batrachophrenoboocosmomachia:
+  - refactor: Wall-leaning code refactored into new 'leanable' component.
+  - rscadd: Full windows, doors (of all varieties), and vending machines can now be
+      leaned against just like walls.
+  - bugfix: Fixed buckling to chairs.
+  - bugfix: Fixed door-leaning layering issues.
+  JohnWildkins:
+  - refactor: Refactored several machines backend code to reduce server load.
+  - refactor: Fixed an issue where slimes would hard-delete, causing server lag.
+  - refactor: Optimized igniter and holosign buttons to reduce server load when used.
+  - refactor: Optimized atmos meters, hydroponics trays, tcomms machines, and disposal
+      units to only update their icon state when necessary.
+  - refactor: Refactors motion sensors, spiderlings, guns, ammo piles, and mecha equipment
+      to remove costly hard-dels.
+  crunchypretzels:
+  - qol: You can now use the Himeo voidsuit modkit on industrial rigs, as well as
+      rig assemblies.
+  - imageadd: Changed the rest of the Himean suits to match the new palette.
+2025-10-06:
+  Batrachophrenoboocosmomachia:
+  - balance: Fusion reaction modifications. Higher radiation and temperature output,
+      comparable power output.
+  - balance: Increased rad resistance modifier of Borosilicate Windows from 1 -> 4
+      and (closed) Blast Doors from 1 -> 6.
+  - balance: INDRA Field Strength minima/maxima changed from 1-100 -> 20-120. Power
+      costs increased significantly.
+  - balance: INDRA instability increase per tick now limited, similar to Supermatter
+      (prevents sudden instability spike from instantly nuking it).
+  - balance: APC cell charge rate increased 10x.
+  - balance: Rebalanced contents of INDRA hard storage compartment.
+  - balance: SMES coils capacities halved, throughputs doubled.
+  - balance: SMES unit maximum coil capacity increased from 6 -> 8.
+  - balance: TEG maximum power output increased from 500000 -> 2500000.
+  - balance: Power wasted from exceeding TEG maximum power output decreased from 50%
+      to 33%.
+  - balance: Portable generators of all types have had their power generation capacity
+      doubled.
+  - rscadd: New 'Fusion Codex' app added for all crew with ACCESS_ENGINE that details
+      all available nuclear fusion chains.
+  - rscadd: Boron added as a singleton/reagent. Poisonous to vaurca, still usable
+      in nuclear fusion as fuel assembly rods.
+  - rscadd: INDRA Field Strength now scales plasma temperature entropy, power output
+      from temperature multiplier, and instability increase per tick.
+  - refactor: '''Boron'' gas renamed to ''Helium-3''. Boron is not a gas. Deal with
+      it.'
+  - refactor: '''Steam'' gas renamed to ''Water Vapor''.'
+  - code_imp: Descriptions added to gas singletons for future use.
+  - qol: Minor remap of INDRA control room for usability.
+  - qol: Standardized gas canister naming conventions.
+  - qol: INDRA and APC TGUI interfaces now use use kW, MW abbreviations for high wattages.
+  - bugfix: INDRA Kinetic Harvester no longer rapidly deselects materials for harvest
+      when too many are being generated at once.
+  - bugfix: INDRA EM Field effect no longer considers the camera within its reactor
+      chamber a destabilizing influence.
+  - bugfix: INDRA reactor core now produces radiation as intended.
+  - bugfix: Deuterium and Tritium canisters no longer contain 50% standard hydrogen
+      (inheritance issue).
+  - qol: Integrated Electronics camera can now be configured for different camera
+      networks
+  - qol: Reduced Integrated Electronics speaker functions cooldown from 4s -> 1s,
+      for translating busier conversations. Behave.
+  - qol: Add Integrated Electronics component 'size' value to displayed properties.
+  - balance: Increase maximum components and complexity of integrated circuit 'electronic
+      implant' assembly by 25%.
+  ElorgRHG:
+  - imageadd: Resprited or otherwise repaletted most if not all Zeng-Hu clothing,
+      from job uniforms to labcoats.
+  - imageadd: The alternate version of the Zeng-Hu cap now has a sprite.
+  FabianK3:
+  - code_imp: Added a new Github action workflow to the repository to handle stale
+      issues and pull requests.
+  FlamingLily:
+  - rscadd: Added another slot to Hangar Technician.
+  Hellfirejag:
+  - rscadd: Psionic jumpstarters now work on skrell, upgrading the user to an antagonist
+      level psion.
+  - rscadd: Added a new lesser version of the psionic jumpstarter, called a psionic
+      awakener, to the uplink. It sets the user to the same level of psionic as a
+      Skrell, while being significantly cheaper than the full jumpstarter.
+  JohnWildkins:
+  - bugfix: Fix atmospheric pipes becoming invisible or failing to be wrenched down.
+  Kano, KingOfThePing:
+  - rscadd: Added an elevator animation logic for cargo elevator, heavily inspired
+      from CM.
+  - rscadd: Added hatch and shaft sprites for cargo elevator, made by KingOfThePing!
+  - rscadd: Ported some sounds and sprites from CM.
+  MattAtlas:
+  - experiment: Moved limb icon updating to signals. This should reduce lag by a considerable
+      amount.
+  RustingWithYou, GMR25, Flpfs:
+  - rscadd: Adds a new Ve'katak Phalanx uniform for future off-ship use.
+  - imageadd: Standardises the existing Ve'katak Phalanx uniforms.
+  - rscadd: Allows physicians to take the Phalanx medical uniform in the loadout.
+  TheGreyWolf:
+  - rscdel: Drobes no longer contains mechanically relevant items, such as insulated
+      gloves or bags.
+  - rscadd: Bags, holsters and webbings were added to relevant department lockers,
+      such as security and engineering lockers. This includes alt versions of them
+      where relevant.
+  - rscadd: Engineering lockers now start with insulated gloves in them.
+  - rscadd: Added the ability to make retail shelves and clothing racks from plastic.
+  - bugfix: Fixed table frames giving duplicate rods when dismantled.
+  - bugfix: Fixed racks giving back rods when they were made with plastic.
+  - bugfix: There are now four spawn spots for hangar techs, to fit the amount of
+      slots they have.
+  - rscadd: Journals and notepads in the loadout now spawns with 5 blank pieces of
+      paper.
