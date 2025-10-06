@@ -8,7 +8,7 @@
 		/obj/item/tank/oxygen
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -22,7 +22,7 @@
 		/obj/item/tank/phoron
 	)
 	access = ACCESS_ENGINE
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -36,7 +36,7 @@
 		/obj/item/tank/hydrogen
 	)
 	access = ACCESS_ENGINE
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -50,7 +50,7 @@
 		/obj/machinery/portable_atmospherics/powered/pump
 	)
 	access = ACCESS_ENGINE
-	container_type = "box"
+	container_type = CARGO_BOX
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -64,7 +64,7 @@
 		/obj/machinery/portable_atmospherics/powered/scrubber
 	)
 	access = ACCESS_ENGINE
-	container_type = "box"
+	container_type = CARGO_BOX
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -78,7 +78,7 @@
 		/obj/machinery/portable_atmospherics/canister/air
 	)
 	access = ACCESS_ENGINE
-	container_type = "box"
+	container_type = CARGO_BOX
 	groupable = FALSE
 	spawn_amount = 1
 
@@ -92,7 +92,7 @@
 		/obj/machinery/portable_atmospherics/canister/boron
 	)
 	access = ACCESS_ENGINE
-	container_type = "box"
+	container_type = CARGO_BOX
 	groupable = FALSE
 	spawn_amount = 1
 
@@ -106,7 +106,7 @@
 		/obj/machinery/portable_atmospherics/canister/carbon_dioxide
 	)
 	access = ACCESS_ENGINE
-	container_type = "box"
+	container_type = CARGO_BOX
 	groupable = FALSE
 	spawn_amount = 1
 
@@ -120,7 +120,7 @@
 		/obj/machinery/portable_atmospherics/canister/hydrogen
 	)
 	access = ACCESS_ENGINE
-	container_type = "box"
+	container_type = CARGO_BOX
 	groupable = FALSE
 	spawn_amount = 1
 
@@ -134,7 +134,7 @@
 		/obj/machinery/portable_atmospherics/canister/helium
 	)
 	access = ACCESS_ENGINE
-	container_type = "box"
+	container_type = CARGO_BOX
 	groupable = FALSE
 	spawn_amount = 1
 
@@ -148,7 +148,7 @@
 		/obj/machinery/portable_atmospherics/canister/nitrogen
 	)
 	access = ACCESS_ENGINE
-	container_type = "box"
+	container_type = CARGO_BOX
 	groupable = FALSE
 	spawn_amount = 1
 
@@ -162,7 +162,7 @@
 		/obj/machinery/portable_atmospherics/canister/sleeping_agent
 	)
 	access = ACCESS_ENGINE
-	container_type = "box"
+	container_type = CARGO_BOX
 	groupable = FALSE
 	spawn_amount = 1
 
@@ -176,7 +176,7 @@
 		/obj/machinery/portable_atmospherics/canister/oxygen
 	)
 	access = ACCESS_ENGINE
-	container_type = "box"
+	container_type = CARGO_BOX
 	groupable = FALSE
 	spawn_amount = 1
 
@@ -190,7 +190,7 @@
 		/obj/machinery/portable_atmospherics/canister/phoron
 	)
 	access = ACCESS_ENGINE
-	container_type = "box"
+	container_type = CARGO_BOX
 	groupable = FALSE
 	spawn_amount = 1
 
@@ -204,7 +204,7 @@
 		/obj/machinery/pipedispenser/orderable
 	)
 	access = ACCESS_ENGINE
-	container_type = "box"
+	container_type = CARGO_BOX
 	groupable = FALSE
 	spawn_amount = 1
 
@@ -218,7 +218,7 @@
 		/obj/item/device/pipe_painter
 	)
 	access = ACCESS_ENGINE
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -232,7 +232,7 @@
 		/obj/item/rfd/piping
 	)
 	access = ACCESS_ENGINE
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -246,7 +246,7 @@
 		/obj/item/clothing/suit/space/void/atmos
 	)
 	access = ACCESS_ATMOSPHERICS
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -260,6 +260,6 @@
 		/obj/item/clothing/head/helmet/space/void/atmos
 	)
 	access = ACCESS_ATMOSPHERICS
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1

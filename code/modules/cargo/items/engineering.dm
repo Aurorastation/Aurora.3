@@ -8,7 +8,7 @@
 		/obj/item/stack/material/glass/full
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 
 /singleton/cargo_item/plasteelsheets
@@ -21,7 +21,7 @@
 		/obj/item/stack/material/plasteel/full
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -35,7 +35,7 @@
 		/obj/item/stack/material/plastic/full
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -49,7 +49,7 @@
 		/obj/item/stack/material/steel/full
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -63,7 +63,7 @@
 		/obj/item/stack/material/wood/full
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -77,7 +77,7 @@
 		/obj/item/stack/material/phoron/full
 	)
 	access = ACCESS_ENGINE
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 
 /singleton/cargo_item/cardboardsheets
@@ -90,7 +90,7 @@
 		/obj/item/stack/material/cardboard/full
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -104,7 +104,7 @@
 		/obj/item/stack/tile/carpet
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 10
 
@@ -118,7 +118,7 @@
 		/obj/item/grenade/chem_grenade/antifuel
 	)
 	access = ACCESS_ENGINE
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -132,7 +132,7 @@
 		/obj/item/clothing/accessory/storage/brown_vest
 	)
 	access = ACCESS_ENGINE
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -146,7 +146,7 @@
 		/obj/item/circuitboard/shield_gen
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -160,7 +160,7 @@
 		/obj/item/circuitboard/shield_gen_ex
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -174,7 +174,7 @@
 		/obj/item/circuitboard/shield_cap
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -188,7 +188,7 @@
 		/obj/item/circuitboard/solar_control
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -202,7 +202,7 @@
 		/obj/structure/reagent_dispensers/coolanttank
 	)
 	access = ACCESS_ENGINE
-	container_type = "box"
+	container_type = CARGO_BOX
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -216,7 +216,7 @@
 		/obj/machinery/pipedispenser/disposal/orderable
 	)
 	access = ACCESS_ENGINE
-	container_type = "box"
+	container_type = CARGO_BOX
 	groupable = FALSE
 	spawn_amount = 1
 
@@ -230,7 +230,7 @@
 		/obj/item/storage/toolbox/mechanical
 	)
 	access = ACCESS_ENGINE
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -244,7 +244,7 @@
 		/obj/item/storage/toolbox/electrical
 	)
 	access = ACCESS_ENGINE
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -258,7 +258,7 @@
 		/obj/item/storage/toolbox/emergency
 	)
 	access = ACCESS_ENGINE
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -272,7 +272,7 @@
 		/obj/structure/particle_accelerator/fuel_chamber
 	)
 	access = ACCESS_CE
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -286,7 +286,7 @@
 		/obj/structure/particle_accelerator/particle_emitter/center
 	)
 	access = ACCESS_CE
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -300,7 +300,7 @@
 		/obj/structure/particle_accelerator/particle_emitter/left
 	)
 	access = ACCESS_CE
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -314,7 +314,7 @@
 		/obj/structure/particle_accelerator/particle_emitter/right
 	)
 	access = ACCESS_CE
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -328,7 +328,7 @@
 		/obj/item/circuitboard/bluespacerelay
 	)
 	access = ACCESS_ENGINE
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -342,7 +342,7 @@
 		/obj/machinery/power/emitter
 	)
 	access = ACCESS_ENGINE
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -356,7 +356,7 @@
 		/obj/item/device/magnetic_lock/engineering
 	)
 	access = ACCESS_ENGINE
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -370,7 +370,7 @@
 		/obj/item/clothing/suit/space/void/engineering
 	)
 	access = ACCESS_ENGINE
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -384,7 +384,7 @@
 		/obj/item/clothing/head/helmet/space/void/engineering
 	)
 	access = ACCESS_ENGINE
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -398,7 +398,7 @@
 		/obj/machinery/field_generator
 	)
 	access = ACCESS_ARMORY
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -412,7 +412,7 @@
 		/obj/item/material/twohanded/fireaxe
 	)
 	access = ACCESS_ENGINE
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -426,7 +426,7 @@
 		/obj/structure/reagent_dispensers/fueltank
 	)
 	access = ACCESS_ENGINE
-	container_type = "box"
+	container_type = CARGO_BOX
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -440,7 +440,7 @@
 		/obj/item/clothing/mask/gas
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -456,7 +456,7 @@
 		/obj/item/clothing/head/hardhat
 	)
 	access = ACCESS_ENGINE
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -470,7 +470,7 @@
 		/obj/item/clothing/suit/storage/hazardvest
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -484,7 +484,7 @@
 		/obj/item/storage/belt/utility/full
 	)
 	access = ACCESS_ENGINE
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -498,7 +498,7 @@
 		/obj/item/cell/high
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -512,7 +512,7 @@
 		/obj/item/cell
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -526,7 +526,7 @@
 		/obj/item/hoist_kit
 	)
 	access = ACCESS_ENGINE
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -540,7 +540,7 @@
 		/obj/item/storage/bag/inflatable
 	)
 	access = ACCESS_ENGINE
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -554,7 +554,7 @@
 		/obj/item/clothing/gloves/yellow
 	)
 	access = ACCESS_ENGINE
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -568,7 +568,7 @@
 		/obj/item/clothing/gloves/yellow/specialt
 	)
 	access = ACCESS_ENGINE
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -582,7 +582,7 @@
 		/obj/item/clothing/gloves/yellow/specialu
 	)
 	access = ACCESS_ENGINE
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -596,7 +596,7 @@
 		/obj/item/device/am_shielding_container
 	)
 	access = ACCESS_CE
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -610,7 +610,7 @@
 		/obj/item/device/debugger
 	)
 	access = ACCESS_ENGINE
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 2
 
@@ -624,7 +624,7 @@
 		/obj/item/powerdrill
 	)
 	access = ACCESS_ENGINE
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -638,7 +638,7 @@
 		/obj/item/device/paint_sprayer
 	)
 	access = ACCESS_ENGINE
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -652,7 +652,7 @@
 		/obj/machinery/particle_accelerator/control_box
 	)
 	access = ACCESS_ENGINE
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -666,7 +666,7 @@
 		/obj/structure/particle_accelerator/power_box
 	)
 	access = ACCESS_CE
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -680,7 +680,7 @@
 		/obj/item/ladder_mobile
 	)
 	access = ACCESS_ENGINE
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -694,7 +694,7 @@
 		/obj/item/clothing/head/radiation
 	)
 	access = ACCESS_ENGINE
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -708,7 +708,7 @@
 		/obj/item/clothing/suit/radiation
 	)
 	access = ACCESS_ENGINE
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -722,7 +722,7 @@
 		/obj/item/circuitboard/research_shuttle
 	)
 	access = ACCESS_SECURITY
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -736,7 +736,7 @@
 		/obj/machinery/the_singularitygen
 	)
 	access = ACCESS_HEADS
-	container_type = "box"
+	container_type = CARGO_BOX
 	groupable = FALSE
 	spawn_amount = 1
 
@@ -750,7 +750,7 @@
 		/obj/item/smes_coil
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -764,7 +764,7 @@
 		/obj/machinery/power/supermatter
 	)
 	access = ACCESS_CAPTAIN
-	container_type = "box"
+	container_type = CARGO_BOX
 	groupable = FALSE
 	spawn_amount = 1
 
@@ -780,7 +780,7 @@
 		/obj/machinery/atmospherics/binary/circulator
 	)
 	access = ACCESS_ENGINE
-	container_type = "box"
+	container_type = CARGO_BOX
 	groupable = FALSE
 	spawn_amount = 1
 
@@ -794,7 +794,7 @@
 		/obj/item/solar_assembly
 	)
 	access = ACCESS_ENGINE
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 5
 
@@ -808,7 +808,7 @@
 		/obj/item/tracker_electronics
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -822,7 +822,7 @@
 		/obj/structure/reagent_dispensers/watertank
 	)
 	access = ACCESS_ENGINE
-	container_type = "box"
+	container_type = CARGO_BOX
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -836,7 +836,7 @@
 		/obj/item/clothing/head/welding
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -850,7 +850,7 @@
 		/obj/item/am_containment
 	)
 	access = ACCESS_CE
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -864,7 +864,7 @@
 		/obj/machinery/power/am_control_unit
 	)
 	access = ACCESS_CE
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -878,7 +878,7 @@
 		/obj/structure/particle_accelerator/end_cap
 	)
 	access = ACCESS_CE
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -892,7 +892,7 @@
 		/obj/machinery/power/rad_collector
 	)
 	access = ACCESS_ENGINE
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = FALSE
 	spawn_amount = 1
 
@@ -906,6 +906,6 @@
 		/obj/structure/cart/storage/engineeringcart
 	)
 	access = ACCESS_ENGINE
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1

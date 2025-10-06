@@ -1,3 +1,7 @@
+#define CARGO_CRATE "crate"
+#define CARGO_FREEZER "freezer"
+#define CARGO_BOX "box"
+#define CARGO_BODYBAG "bodybag"
 
 /// Master singleton for cargo items. Contains data relating to what a cargo item spawns, price, desc, supplier, access, etc.
 /singleton/cargo_item
@@ -26,7 +30,7 @@
 	var/access = 0
 
 	/// What kind of container this object spawns in. Valid options: "crate", "freezer", "box" (wooden box, or shipping container if restricted), and "bodybag".
-	var/container_type = "crate"
+	var/container_type = CARGO_CRATE
 
 	/// Whether or not this item can be shipped with other objects in the same crate. Switch to FALSE for large items that realistically cannot fit multiple in a container.
 	var/groupable = TRUE
@@ -60,3 +64,8 @@
 			return_price *= cc.price_modifier
 
 	adjusted_price = return_price
+
+#undef CARGO_CRATE
+#undef CARGO_FREEZER
+#undef CARGO_BOX
+#undef CARGO_BODYBAG

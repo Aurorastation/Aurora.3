@@ -8,7 +8,7 @@
 		/mob/living/bot/cleanbot
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -22,7 +22,7 @@
 		/mob/living/bot/farmbot
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -36,7 +36,7 @@
 		/mob/living/bot/medbot
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -50,7 +50,7 @@
 		/obj/item/device/mmi/digital/posibrain
 	)
 	access = ACCESS_ROBOTICS
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -64,7 +64,7 @@
 		/obj/item/robot_parts/chest/ipc
 	)
 	access = ACCESS_ROBOTICS
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -79,7 +79,7 @@
 		/obj/item/robot_parts/chest/bishop
 	)
 	access = ACCESS_ROBOTICS
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -93,7 +93,7 @@
 		/obj/item/robot_parts/chest/industrial
 	)
 	access = ACCESS_ROBOTICS
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -107,7 +107,7 @@
 		/obj/item/robot_parts/chest/hephaestus
 	)
 	access = ACCESS_ROBOTICS
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -121,7 +121,7 @@
 		/obj/item/robot_parts/chest/ipc
 	)
 	access = ACCESS_ROBOTICS
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -135,7 +135,7 @@
 		/obj/item/robot_parts/chest/synthskin
 	)
 	access = ACCESS_ROBOTICS
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -149,7 +149,7 @@
 		/obj/item/robot_parts/chest/xion
 	)
 	access = ACCESS_ROBOTICS
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -163,6 +163,6 @@
 		/obj/item/robot_parts/chest/zenghu
 	)
 	access = ACCESS_ROBOTICS
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1

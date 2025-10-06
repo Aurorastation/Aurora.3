@@ -12,7 +12,7 @@
 		/obj/item/storage/firstaid/adv
 	)
 	access = ACCESS_MEDICAL
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -26,7 +26,7 @@
 		/obj/item/storage/firstaid/regular
 	)
 	access = ACCESS_MEDICAL
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -40,7 +40,7 @@
 		/obj/item/storage/firstaid/adv
 	)
 	access = ACCESS_MEDICAL
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -54,7 +54,7 @@
 		/obj/item/storage/firstaid/large/adv
 	)
 	access = ACCESS_MEDICAL
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -68,7 +68,7 @@
 		/obj/item/storage/firstaid/fire
 	)
 	access = ACCESS_MEDICAL
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -82,7 +82,7 @@
 		/obj/item/storage/firstaid/o2
 	)
 	access = ACCESS_MEDICAL
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -96,7 +96,7 @@
 		/obj/item/storage/firstaid/toxin
 	)
 	access = ACCESS_MEDICAL
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -110,7 +110,7 @@
 		/obj/item/storage/firstaid/radiation
 	)
 	access = ACCESS_MEDICAL
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -124,7 +124,7 @@
 		/obj/item/reagent_containers/blood/OMinus
 	)
 	access = ACCESS_MEDICAL
-	container_type = "freezer"
+	container_type = CARGO_FREEZER
 	groupable = TRUE
 	spawn_amount = 2
 
@@ -138,7 +138,7 @@
 		/obj/item/reagent_containers/blood/sbs
 	)
 	access = ACCESS_MEDICAL
-	container_type = "freezer"
+	container_type = CARGO_FREEZER
 	groupable = TRUE
 	spawn_amount = 2
 
@@ -152,7 +152,7 @@
 		/obj/item/storage/box/bloodpacks
 	)
 	access = ACCESS_MEDICAL
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 3
 
@@ -166,7 +166,7 @@
 		/obj/item/reagent_containers/inhaler/pneumalin
 	)
 	access = ACCESS_MEDICAL
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 3
 
@@ -180,7 +180,7 @@
 		/obj/item/storage/box/bodybags
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 3
 
@@ -194,7 +194,7 @@
 		/obj/item/storage/box/autoinjectors
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -208,7 +208,7 @@
 		/obj/item/storage/box/gloves
 	)
 	access = ACCESS_MEDICAL
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -222,7 +222,7 @@
 		/obj/item/storage/box/masks
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -236,7 +236,7 @@
 		/obj/item/storage/box/syringes
 	)
 	access = ACCESS_MEDICAL
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -250,7 +250,7 @@
 		/obj/item/reagent_containers/glass/bottle/butazoline
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -264,7 +264,7 @@
 		/obj/item/reagent_containers/glass/bottle/kelotane
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -278,7 +278,7 @@
 		/obj/item/reagent_containers/glass/bottle/antitoxin
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -292,7 +292,7 @@
 		/obj/item/reagent_containers/glass/bottle/hyronalin
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -306,7 +306,7 @@
 		/obj/item/reagent_containers/glass/bottle/inaprovaline
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -320,7 +320,7 @@
 		/obj/item/reagent_containers/glass/bottle/stoxin
 	)
 	access = ACCESS_MEDICAL
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -334,7 +334,7 @@
 		/obj/item/reagent_containers/glass/bottle/mortaphenyl
 	)
 	access = ACCESS_MEDICAL
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -348,7 +348,7 @@
 		/obj/item/reagent_containers/glass/bottle/thetamycin
 	)
 	access = ACCESS_MEDICAL
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -362,7 +362,7 @@
 		/obj/item/reagent_containers/glass/beaker/vial/arithrazine
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -376,7 +376,7 @@
 		/obj/item/reagent_containers/glass/beaker/vial/dexalin_plus
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -390,7 +390,7 @@
 		/obj/item/reagent_containers/glass/beaker/vial/peridaxon
 	)
 	access = ACCESS_MEDICAL
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -404,7 +404,7 @@
 		/obj/item/storage/belt/medical
 	)
 	access = ACCESS_MEDICAL
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -418,7 +418,7 @@
 		/obj/item/clothing/mask/breath/medical
 	)
 	access = ACCESS_MEDICAL
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -432,7 +432,7 @@
 		/obj/item/clothing/head/surgery
 	)
 	access = ACCESS_MEDICAL
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -446,7 +446,7 @@
 		/obj/item/clothing/under/rank/medical/surgeon
 	)
 	access = ACCESS_MEDICAL
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -460,7 +460,7 @@
 		/obj/item/clothing/under/medical_gown
 	)
 	access = ACCESS_MEDICAL
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -474,7 +474,7 @@
 		/obj/item/clothing/suit/space/void/medical
 	)
 	access = ACCESS_MEDICAL
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -488,7 +488,7 @@
 		/obj/item/clothing/head/helmet/space/void/medical
 	)
 	access = ACCESS_MEDICAL
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -502,7 +502,7 @@
 		/obj/item/stack/nanopaste
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -516,7 +516,7 @@
 		/obj/item/storage/pill_bottle
 	)
 	access = ACCESS_MEDICAL
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -530,7 +530,7 @@
 		/obj/item/bodybag/cryobag
 	)
 	access = ACCESS_MEDICAL
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -544,7 +544,7 @@
 		/obj/item/auto_cpr
 	)
 	access = ACCESS_MEDICAL
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -558,7 +558,7 @@
 		/obj/item/reagent_containers/hypospray
 	)
 	access = ACCESS_MEDICAL
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -574,7 +574,7 @@
 		/obj/item/storage/firstaid/surgery
 	)
 	access = ACCESS_SURGERY
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -588,7 +588,7 @@
 		/obj/item/tank/anesthetic
 	)
 	access = ACCESS_MEDICAL
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -602,7 +602,7 @@
 		/obj/item/surgery/scalpel
 	)
 	access = ACCESS_SURGERY
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -616,7 +616,7 @@
 		/obj/item/surgery/retractor
 	)
 	access = ACCESS_SURGERY
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -630,7 +630,7 @@
 		/obj/item/surgery/hemostat
 	)
 	access = ACCESS_SURGERY
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -644,7 +644,7 @@
 		/obj/item/surgery/circular_saw
 	)
 	access = ACCESS_SURGERY
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -658,7 +658,7 @@
 		/obj/item/surgery/fix_o_vein
 	)
 	access = ACCESS_SURGERY
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -672,7 +672,7 @@
 		/obj/item/surgery/cautery
 	)
 	access = ACCESS_SURGERY
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -686,7 +686,7 @@
 		/obj/item/surgery/surgicaldrill
 	)
 	access = ACCESS_SURGERY
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -700,7 +700,7 @@
 		/obj/item/surgery/bone_gel
 	)
 	access = ACCESS_SURGERY
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -714,7 +714,7 @@
 		/obj/item/surgery/bonesetter
 	)
 	access = ACCESS_SURGERY
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -728,7 +728,7 @@
 		/obj/item/clothing/gloves/latex/tajara
 	)
 	access = ACCESS_MEDICAL
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -742,7 +742,7 @@
 		/obj/item/clothing/gloves/latex/unathi
 	)
 	access = ACCESS_MEDICAL
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -756,6 +756,21 @@
 		/obj/item/storage/box/freezer/organcooler
 	)
 	access = ACCESS_MEDICAL
-	container_type = "crate"
+	container_type = CARGO_CRATE
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/iv_stand
+	category = "medical"
+	name = "IV stand"
+	supplier = "zeng_hu"
+	description = "An intravenous drip stand used for hooking up IV bags. It also features an emergency positive pressure system for breathing-compromised patients. Comes with a breath mask. Tank or IV bags not included."
+	price = 150
+	items = list(
+		/obj/machinery/iv_drip,
+		/obj/item/clothing/mask/breath/medical
+	)
+	access = ACCESS_MEDICAL
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1

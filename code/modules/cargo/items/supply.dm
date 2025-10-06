@@ -8,7 +8,7 @@
 		/obj/item/storage/box
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 5
 
@@ -22,7 +22,7 @@
 		/obj/item/stack/packageWrap
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 2
 
@@ -36,7 +36,7 @@
 		/obj/item/stack/wrapping_paper
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 2
 
@@ -50,7 +50,7 @@
 		/obj/item/reagent_containers/glass/bucket
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -64,7 +64,7 @@
 		/obj/structure/filingcabinet/chestdrawer
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -78,7 +78,7 @@
 		/obj/item/clipboard
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -92,7 +92,7 @@
 		/obj/item/folder/blue
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 5
 
@@ -106,7 +106,7 @@
 		/obj/item/folder/yellow
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 5
 
@@ -120,7 +120,7 @@
 		/obj/item/folder/red
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 5
 
@@ -134,7 +134,7 @@
 		/obj/item/folder/white
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 5
 
@@ -148,7 +148,7 @@
 		/obj/item/device/hand_labeler
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -162,7 +162,7 @@
 		/obj/item/inflatable_duck
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -176,7 +176,7 @@
 		/obj/item/paper_bin
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -190,7 +190,7 @@
 		/obj/item/pen
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -204,7 +204,7 @@
 		/obj/item/pen/blue
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -218,7 +218,7 @@
 		/obj/item/pen/red
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -232,7 +232,7 @@
 		/obj/item/pen/multi
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -246,7 +246,7 @@
 		/obj/item/pen/fountain
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -260,7 +260,7 @@
 		/obj/item/tape_roll
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -274,7 +274,7 @@
 		/obj/item/device/toner
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 2
 
@@ -288,7 +288,7 @@
 		/obj/item/device/camera
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -302,7 +302,7 @@
 		/obj/item/device/camera_film
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -316,7 +316,7 @@
 		/obj/item/modular_computer/handheld/pda
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -330,7 +330,7 @@
 		/obj/item/device/taperecorder
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -344,7 +344,7 @@
 		/obj/item/paper_scanner
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -358,7 +358,7 @@
 		/obj/item/computer_hardware/hard_drive/portable
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -372,7 +372,7 @@
 		/obj/item/computer_hardware/hard_drive/portable/advanced
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -386,7 +386,7 @@
 		/obj/random/pottedplant_small
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -400,7 +400,7 @@
 		/obj/random/pottedplant
 	)
 	access = 0
-	container_type = "box"
+	container_type = CARGO_BOX
 	groupable = FALSE
 	spawn_amount = 1
 

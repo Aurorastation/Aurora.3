@@ -10,7 +10,7 @@
 		/obj/item/organ/external/hand/right/autakh/medical
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 2
 
@@ -24,7 +24,7 @@
 		/obj/vehicle/train/cargo/trolley
 	)
 	access = ACCESS_CARGO
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -38,7 +38,7 @@
 		/obj/vehicle/train/cargo/engine
 	)
 	access = ACCESS_CARGO
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -52,7 +52,7 @@
 		/obj/structure/coatrack
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -66,7 +66,7 @@
 		/obj/item/device/eftpos
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -80,7 +80,7 @@
 		/obj/item/reagent_containers/spray
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -94,7 +94,7 @@
 		/obj/machinery/photocopier/faxmachine
 	)
 	access = 0
-	container_type = "box"
+	container_type = CARGO_BOX
 	groupable = FALSE
 	spawn_amount = 1
 
@@ -108,7 +108,7 @@
 		/obj/item/device/flashlight/flare
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -132,7 +132,7 @@
 		/obj/item/clothing/suit/wcoat
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = FALSE
 	spawn_amount = 1
 
@@ -146,7 +146,7 @@
 		/obj/item/stack/wrapping_paper
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -172,7 +172,7 @@
 		/obj/item/soap/nanotrasen
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = FALSE
 	spawn_amount = 1
 
@@ -186,7 +186,7 @@
 		/obj/item/clothing/accessory/storage
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -200,7 +200,7 @@
 		/obj/item/stack/packageWrap
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -214,7 +214,7 @@
 		/obj/item/modular_computer/handheld/pda
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -228,7 +228,7 @@
 		/obj/item/storage/photo_album
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -242,13 +242,13 @@
 		/obj/machinery/photocopier
 	)
 	access = 0
-	container_type = "box"
+	container_type = CARGO_BOX
 	groupable = FALSE
 	spawn_amount = 1
 
 /singleton/cargo_item/poster19
 	category = "operations"
-	name = "rolled-up poster - No. 19"
+	name = "random poster"
 	supplier = "orion"
 	description = "The poster comes with its own automatic adhesive mechanism, for easy pinning to any vertical surface."
 	price = 3.50
@@ -256,7 +256,7 @@
 		/obj/item/contraband/poster
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -270,7 +270,7 @@
 		/obj/item/clothing/accessory/holster
 	)
 	access = ACCESS_SECURITY
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -284,7 +284,7 @@
 		/obj/vehicle/bike
 	)
 	access = 0
-	container_type = "box"
+	container_type = CARGO_BOX
 	groupable = FALSE
 	spawn_amount = 1
 
@@ -298,7 +298,7 @@
 		/obj/item/clothing/accessory/storage/webbing
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -312,7 +312,7 @@
 		/obj/item/reagent_containers/glass/paint/black
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -326,7 +326,7 @@
 		/obj/item/reagent_containers/glass/paint/blue
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -340,7 +340,7 @@
 		/obj/item/reagent_containers/glass/paint/white
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -354,7 +354,7 @@
 		/obj/item/reagent_containers/glass/paint/yellow
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -368,7 +368,7 @@
 		/obj/item/reagent_containers/glass/paint/purple
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -382,7 +382,7 @@
 		/obj/item/reagent_containers/glass/paint/red
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -396,7 +396,7 @@
 		/obj/item/reagent_containers/glass/paint/green
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -410,7 +410,7 @@
 		/obj/item/device/vending_refill/battlemonsters
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -424,7 +424,7 @@
 		/obj/item/device/vending_refill/booze
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -438,7 +438,7 @@
 		/obj/item/device/vending_refill/zora
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -452,7 +452,7 @@
 		/obj/item/device/vending_refill/tools
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -466,7 +466,7 @@
 		/obj/item/device/vending_refill/smokes
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -480,7 +480,7 @@
 		/obj/item/device/vending_refill/snack
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -494,7 +494,7 @@
 		/obj/item/device/vending_refill/robo
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -508,7 +508,7 @@
 		/obj/item/device/vending_refill/robust
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -522,7 +522,7 @@
 		/obj/item/device/vending_refill/meds
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -536,7 +536,7 @@
 		/obj/item/device/vending_refill/hydro
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -550,7 +550,7 @@
 		/obj/item/device/vending_refill/coffee
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -564,7 +564,7 @@
 		/obj/item/device/vending_refill/cola
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -578,6 +578,6 @@
 		/obj/item/device/vending_refill/cutlery
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1

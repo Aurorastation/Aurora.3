@@ -8,7 +8,7 @@
 		/obj/item/storage/box/fancy/crayons
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -25,7 +25,7 @@
 		/obj/item/reagent_containers/glass/rag,
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -39,7 +39,7 @@
 		/obj/item/canvas
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -53,7 +53,7 @@
 		/obj/item/canvas/nineteen_nineteen
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -67,7 +67,7 @@
 		/obj/item/canvas/twentythree_twentythree
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -81,7 +81,7 @@
 		/obj/item/device/synthesized_instrument/trumpet
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -95,7 +95,7 @@
 		/obj/item/device/synthesized_instrument/guitar
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -109,7 +109,7 @@
 		/obj/item/device/synthesized_instrument/violin
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -123,7 +123,7 @@
 		/obj/item/device/synthesized_instrument/guitar/multi
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -137,7 +137,7 @@
 		/obj/structure/synthesized_instrument/synthesizer/piano
 	)
 	access = 0
-	container_type = "box"
+	container_type = CARGO_BOX
 	groupable = FALSE
 	spawn_amount = 1
 
@@ -151,7 +151,7 @@
 		/obj/structure/synthesized_instrument/synthesizer
 	)
 	access = 0
-	container_type = "box"
+	container_type = CARGO_BOX
 	groupable = FALSE
 	spawn_amount = 1
 
@@ -165,7 +165,7 @@
 		/obj/machinery/media/jukebox
 	)
 	access = 0
-	container_type = "box"
+	container_type = CARGO_BOX
 	groupable = FALSE
 	spawn_amount = 1
 
@@ -179,7 +179,7 @@
 		/obj/machinery/media/jukebox/phonograph
 	)
 	access = 0
-	container_type = "box"
+	container_type = CARGO_BOX
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -193,7 +193,7 @@
 		/obj/item/toy/waterballoon
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 10
 
@@ -207,7 +207,7 @@
 		/obj/item/toy/balloon
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 10
 
@@ -221,7 +221,7 @@
 		/obj/item/toy/sword
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -235,7 +235,7 @@
 		/obj/item/toy/katana
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -249,7 +249,7 @@
 		/obj/item/toy/ammo/crossbow
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 5
 
@@ -263,7 +263,7 @@
 		/obj/item/toy/crossbow
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -277,7 +277,7 @@
 		/obj/item/toy/spinningtoy
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -291,7 +291,7 @@
 		/obj/random/plushie
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 4
 
@@ -305,7 +305,7 @@
 		/obj/item/toy/plushie/therapy
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -319,7 +319,7 @@
 		/obj/item/toy/snappop
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 5
 
@@ -335,7 +335,7 @@
 		/obj/item/gun/energy/lasertag/red
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 2
 
@@ -351,7 +351,7 @@
 		/obj/item/gun/energy/lasertag/blue
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 2
 
@@ -365,6 +365,20 @@
 		/obj/item/storage/box/lyodii
 	)
 	access = 0
-	container_type = "crate"
+	container_type = CARGO_CRATE
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/game_helm
+	category = "recreation"
+	name = "InUs Game-Helm"
+	supplier = "orion"
+	description = "A popular portable gaming console with thousands of games available for play."
+	price = 150
+	items = list(
+		/obj/item/gamehelm
+	)
+	access = 0
+	container_type = CARGO_CRATE
 	groupable = TRUE
 	spawn_amount = 1

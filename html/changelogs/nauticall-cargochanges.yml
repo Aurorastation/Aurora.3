@@ -55,7 +55,7 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Added the following items to cargo: pig, Cleanbot, Farmbot, Medibot, autopsy scanner, package/gift wrapping paper, PDA, universal (tape) recorder, paper scanner, data drives."
+  - rscadd: "Added the following items to cargo: pig, Cleanbot, Farmbot, Medibot, autopsy scanner, package/gift wrapping paper, PDA, universal (tape) recorder, paper scanner, data drives, produce boxes."
   - qol: "Moved certain cargo items to other categories."
   - qol: "Modified the pricing of blood, hydroponics trays, certain drink canisters, and organ coolers. Made folders and SBS blood come in multiple per order."
   - spellcheck: "Miscellaneous spellchecks and grammar fixes in cargo."
