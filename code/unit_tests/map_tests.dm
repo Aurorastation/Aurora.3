@@ -481,8 +481,6 @@
 	else
 		TEST_PASS("All \[[checks]\] fire alarms mapped properly.")
 
-	return 1
-
 	return test_status
 
 #undef SUCCESS
