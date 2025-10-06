@@ -321,16 +321,20 @@ GLOBAL_LIST_INIT(severity_to_string, list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 			list("Extended")),
 
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Rogue Drones", /datum/event/rogue_drone,
-			15, list(ASSIGNMENT_SECURITY = 15), pop_needed = 3),
+			15, list(ASSIGNMENT_SECURITY = 15),
+			pop_needed = 3),
 
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Moderate Spider Infestation", /datum/event/spider_infestation/moderate,
-			50, list(ASSIGNMENT_SECURITY = 10), pop_needed = 5),
+			50, list(ASSIGNMENT_SECURITY = 10),
+			pop_needed = 5),
 
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Moderate Vermin Infestation", /datum/event/infestation/moderate,
-			30, list(ASSIGNMENT_JANITOR = 15, ASSIGNMENT_SECURITY = 15, ASSIGNMENT_MEDICAL = 10), pop_needed = 5),
+			30, list(ASSIGNMENT_JANITOR = 15, ASSIGNMENT_SECURITY = 15, ASSIGNMENT_MEDICAL = 10),
+			pop_needed = 5),
 
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Drone Uprising", /datum/event/rogue_maint_drones,
-			25, list(ASSIGNMENT_ENGINEER = 30), pop_needed = 5),
+			25, list(ASSIGNMENT_ENGINEER = 30),
+			pop_needed = 5),
 
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "APC Damage", /datum/event/apc_damage,
 			20, list(ASSIGNMENT_ENGINEER = 15, ASSIGNMENT_JANITOR = 20)),
@@ -368,10 +372,12 @@ GLOBAL_LIST_INIT(severity_to_string, list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 			pop_needed = 10),
 
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Spider Infestation", /datum/event/spider_infestation,
-			25, list(ASSIGNMENT_SECURITY = 10, ASSIGNMENT_MEDICAL = 5), TRUE, pop_needed = 5),
+			25, list(ASSIGNMENT_SECURITY = 10, ASSIGNMENT_MEDICAL = 5), TRUE,
+			pop_needed = 8),
 
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Major Vermin Infestation", /datum/event/infestation/major,
-			15, list(ASSIGNMENT_SECURITY = 15, ASSIGNMENT_MEDICAL = 5), pop_needed = 10),
+			15, list(ASSIGNMENT_SECURITY = 15, ASSIGNMENT_MEDICAL = 5),
+			pop_needed = 10),
 
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Drone Revolution", /datum/event/rogue_maint_drones,
 			0, list(ASSIGNMENT_ENGINEER = 10, ASSIGNMENT_MEDICAL = 5, ASSIGNMENT_SECURITY = 5),
