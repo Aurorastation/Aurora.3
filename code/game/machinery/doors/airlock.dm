@@ -286,7 +286,7 @@
 				return
 	. = ..()
 
-/obj/machinery/door/airlock/attack_generic(var/mob/user, var/damage)
+/obj/machinery/door/airlock/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	if(stat & (BROKEN|NOPOWER))
 		if(damage >= 10)
 			if(src.density)

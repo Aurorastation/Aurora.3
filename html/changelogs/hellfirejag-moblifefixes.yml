@@ -1,6 +1,0 @@
-author: Hellfirejag
-delete-after: True
-changes:
-  - bugfix: "Fixed mobs having an unintended high time delta. Things like organs should no longer work several dozen times faster than expected."
-  - bugfix: "You can now actually get drunk again(The unexpectedly high time delta was the culprit here)."
-  - rscadd: "Stasis sources(Such as cryogenics, stasis bags, and stasis beds) now decrease the rate at which brain damage is both healed and accumulated. Thus, they now properly buy time for medics."

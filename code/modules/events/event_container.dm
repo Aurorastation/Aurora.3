@@ -378,8 +378,8 @@ GLOBAL_LIST_INIT(severity_to_string, list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 			pop_needed = 4),
 
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Comet Expulsion", /datum/event/comet_expulsion,
-			1, list(ASSIGNMENT_BRIDGE_CREW = 15, ASSIGNMENT_ENGINEER = 12), is_one_shot = TRUE,
-			pop_needed = 8),
+			5, list(ASSIGNMENT_BRIDGE_CREW = 20, ASSIGNMENT_ENGINEER = 12), is_one_shot = TRUE,
+			pop_needed = 12),
 
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "APC Damage", /datum/event/apc_damage,
 			20, list(ASSIGNMENT_ENGINEER = 15, ASSIGNMENT_JANITOR = 20)),

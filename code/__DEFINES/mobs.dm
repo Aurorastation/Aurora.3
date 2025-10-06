@@ -182,6 +182,14 @@
 #define BP_AUG_ETHANOL_BURNER     "integrated ethanol burner"
 #define BP_AUG_EYE_SENSORS        "integrated eyes sensors"
 #define BP_AUG_FUEL_CELL          "integrated fuel cell"
+#define BP_AUG_FLUFF_HEAD		  "head augmentation"
+#define BP_AUG_FLUFF_HEAD_BIO	  "head bioaug"
+#define BP_AUG_FLUFF_CHEST		  "chest augmentation"
+#define BP_AUG_FLUFF_CHEST_BIO	  "chest bioaug"
+#define BP_AUG_FLUFF_R_HAND		  "right hand augmentation"
+#define BP_AUG_FLUFF_R_HAND_BIO	  "right hand bioaug"
+#define BP_AUG_FLUFF_L_HAND		  "left hand augmentation"
+#define BP_AUG_FLUFF_L_HAND_BIO	  "left hand bioaug"
 #define BP_AUG_GLARE_DAMPENER     "glare dampeners"
 #define BP_AUG_GUSTATORIAL        "integrated gustatorial centre"
 #define BP_AUG_HAIR               "synthetic hair extensions"
@@ -474,6 +482,7 @@
 #define PROSTHETIC_SELEN "Selen Head"
 #define PROSTHETIC_SIENNA "Sienna Head"
 #define PROSTHETIC_SISEYO "Siseyo Head"
+#define PROSTHETIC_CHEAP "Cheap Prosthetic"
 
 //Prosthetics that aren't restricted by species
 #define PROSTHETICS_UNRESTRICTED list(PROSTHETIC_BC, PROSTHETIC_HI, PROSTHETIC_XMG, PROSTHETIC_UNBRANDED, PROSTHETIC_ZH)

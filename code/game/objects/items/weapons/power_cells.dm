@@ -20,6 +20,8 @@
 	var/maxcharge = 1000
 	/// True if rigged to explode
 	var/rigged = FALSE
+	/// If not 100% reliable, it will build up faults.
+	var/minor_fault = 0
 	/// Percentage of maxcharge to recharge per minute, though it will trickle charge every process tick (every ~2 seconds), leave null for no self-recharge
 	var/self_charge_percentage
 
@@ -32,14 +34,14 @@
 	force = 0
 	throw_speed = 5
 	throw_range = 7
-	maxcharge = 100
+	maxcharge = 250
 	matter = list(MATERIAL_STEEL = 70, MATERIAL_GLASS = 5)
 
 /obj/item/cell/device/high
 	name = "advanced power cell"
 	desc = "A small, advanced power cell designed to power more energy demanding handheld devices."
 	icon_state = "hdevice"
-	maxcharge = 250
+	maxcharge = 500
 	matter = list(MATERIAL_STEEL = 150, MATERIAL_GLASS = 10)
 
 /obj/item/cell/device/variable/New(newloc, charge_amount)
@@ -51,7 +53,7 @@
 	name = "old power cell"
 	desc = "A cheap, old power cell. It's probably been in use for quite some time now."
 	origin_tech = list(TECH_POWER = 0)
-	maxcharge = 500
+	maxcharge = 1500
 	matter = list(DEFAULT_WALL_MATERIAL = 700, MATERIAL_GLASS = 40)
 
 /obj/item/cell/crap/empty/Initialize()
@@ -78,14 +80,14 @@
 /obj/item/cell/apc
 	name = "heavy-duty power cell"
 	origin_tech = list(TECH_POWER = 1)
-	maxcharge = 5000
+	maxcharge = 15000
 	matter = list(DEFAULT_WALL_MATERIAL = 700, MATERIAL_GLASS = 50)
 
 /obj/item/cell/high
 	name = "high-capacity power cell"
 	origin_tech = list(TECH_POWER = 2)
 	icon_state = "hcell"
-	maxcharge = 10000
+	maxcharge = 30000
 	matter = list(DEFAULT_WALL_MATERIAL = 700, MATERIAL_GLASS = 60)
 
 /obj/item/cell/high/empty/Initialize()
@@ -97,7 +99,7 @@
 	name = "super-capacity power cell"
 	origin_tech = list(TECH_POWER = 5)
 	icon_state = "scell"
-	maxcharge = 20000
+	maxcharge = 60000
 	matter = list(DEFAULT_WALL_MATERIAL = 700, MATERIAL_GLASS = 70)
 
 /obj/item/cell/super/empty/Initialize()
@@ -109,7 +111,7 @@
 	name = "hyper-capacity power cell"
 	origin_tech = list(TECH_POWER = 6)
 	icon_state = "hpcell"
-	maxcharge = 30000
+	maxcharge = 90000
 	matter = list(DEFAULT_WALL_MATERIAL = 200, MATERIAL_GOLD = 50, MATERIAL_SILVER = 50, MATERIAL_GLASS = 40)
 
 /obj/item/cell/hyper/empty/Initialize()
@@ -121,7 +123,7 @@
 	name = "infinite-capacity power cell!"
 	icon_state = "icell"
 	origin_tech =  null
-	maxcharge = 30000 //determines how badly mobs get shocked
+	maxcharge = 180000 //determines how badly mobs get shocked
 	matter = list(DEFAULT_WALL_MATERIAL = 700, MATERIAL_GLASS = 80)
 
 /obj/item/cell/infinite/check_charge()
@@ -145,7 +147,7 @@
 	origin_tech = list(TECH_POWER = 2, TECH_BIO = 4)
 	icon = 'icons/mob/npc/slimes.dmi'
 	icon_state = "yellow slime extract"
-	maxcharge = 15000
+	maxcharge = 45000
 	matter = null
 
 	/// Slime cores recharges 10% every one minute.
@@ -174,7 +176,7 @@
 	name = "miniature power cell"
 	desc = "A small power cell intended for use with emergency lighting."
 	/// Emergency lights use 0.2 W per tick, meaning ~10 minutes of emergency power from a cell
-	maxcharge = 120
+	maxcharge = 500
 	w_class = WEIGHT_CLASS_TINY
 	matter = list(MATERIAL_GLASS = 20)
 
@@ -234,3 +236,14 @@
 
 	/// Phoron mecha cores recharges 10% every one minute
 	self_charge_percentage = 10
+
+/obj/item/cell/mecha/phoron/alien
+	name = "anomalous power core"
+	origin_tech = list(TECH_POWER = 9, TECH_MATERIAL = 9)
+	icon_state = "alien_power_cell"
+	desc = "A mercurial gem gleaming with anomalous white light. Pale, cold flames dance along its surface, which crackle with static charge upon touching any object."
+
+/obj/item/cell/mecha/phoron/alien/Initialize()
+	. = ..()
+	maxcharge *= rand(0.75, 1.25)
+	self_charge_percentage *= rand(0.75, 1.25)

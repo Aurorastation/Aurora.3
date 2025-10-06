@@ -16,6 +16,7 @@
 	idle_power_usage = 2
 	active_power_usage = 20
 	power_channel = AREA_USAGE_LIGHT //Lights are calc'd via area so they dont need to be in the machine list
+	always_area_sensitive = TRUE
 	gfi_layer_rotation = GFI_ROTATION_DEFDIR
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/brightness_range = 8	// luminosity when on, also used in power calculation
@@ -393,7 +394,7 @@
 	else
 		return light_range != brightness_range || light_power != brightness_power || light_color != brightness_color
 
-/obj/machinery/light/attack_generic(var/mob/user, var/damage)
+/obj/machinery/light/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	if(!damage)
 		return
 	if(status == LIGHT_EMPTY)

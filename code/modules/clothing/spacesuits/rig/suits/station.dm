@@ -116,6 +116,10 @@
 		/obj/item/rig_module/actuators
 		)
 
+/obj/item/rig/industrial/dequipped
+	cell_type = null
+	air_type = null
+
 /obj/item/rig/industrial/syndicate
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig
@@ -143,6 +147,11 @@
 		/obj/item/rig_module/actuators,
 		/obj/item/rig_module/maneuvering_jets
 	)
+
+/obj/item/rig/industrial/himeo/dequipped
+	cell_type = null
+	air_type = null
+
 /obj/item/rig/eva
 	name = "EVA suit control module"
 	suit_type = "EVA hardsuit"
@@ -362,7 +371,7 @@
 	icon_supported_species_tags = list("ipc", "skr", "taj", "una")
 	armor = list(
 		MELEE = ARMOR_MELEE_MAJOR,
-		BULLET = ARMOR_BALLISTIC_PISTOL,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
 		LASER = ARMOR_LASER_MEDIUM,
 		ENERGY = ARMOR_ENERGY_RESISTANT,
 		BOMB = ARMOR_BOMB_PADDED,

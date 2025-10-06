@@ -13,6 +13,7 @@
 	var/build_eff = 1
 	var/eat_eff = 1
 	var/capacity = 100
+	var/ref_for_ui
 
 	component_types = list(
 		/obj/item/circuitboard/biogenerator,
@@ -51,7 +52,7 @@ FOODSTUFFS
 	name = "Meat Substitute"
 	class = BIOGEN_FOOD
 	object = /obj/item/reagent_containers/food/snacks/meat/biogenerated
-	cost = 50
+	cost = 75
 
 /singleton/biorecipe/food/fishfillet
 	name = "Fish Fillet"
@@ -64,7 +65,7 @@ FOODSTUFFS
 /singleton/biorecipe/food/slimymeat
 	name = "Slimy Meat"
 	object = /obj/item/reagent_containers/food/snacks/fish/mollusc
-	cost = 75
+	cost = 100
 
 /singleton/biorecipe/food/soywafers
 	name = "Soy Wafers"
@@ -74,17 +75,17 @@ FOODSTUFFS
 /singleton/biorecipe/food/boba
 	name = "Boba Pearls"
 	object = /obj/item/reagent_containers/food/drinks/boba
-	cost = 50
+	cost = 75
 
 /singleton/biorecipe/food/egg_carton
 	name = "Chicken Egg Carton"
 	object = /obj/item/storage/box/fancy/egg_box
-	cost = 300
+	cost = 350
 
 /singleton/biorecipe/food/tunneler_egg_carton
 	name = "Ice Tunneler Egg Carton"
 	object = /obj/item/storage/box/fancy/egg_box/tunneler
-	cost = 300
+	cost = 350
 
 /singleton/biorecipe/food/bio_vitamin
 	name = "Flavored Vitamin"
@@ -94,40 +95,42 @@ FOODSTUFFS
 /singleton/biorecipe/food/liquidfood
 	name = "Food Ration"
 	object = /obj/item/reagent_containers/food/snacks/liquidfood
-	cost = 30
+	cost = 50
 
 /singleton/biorecipe/food/milk
 	name = "Space Milk (50u)"
 	object = /obj/item/reagent_containers/food/drinks/carton/milk
-	cost = 100
+	cost = 125
 
 /singleton/biorecipe/food/nutrispread
 	name = "Nutri-spread"
 	object = /obj/item/reagent_containers/food/snacks/spreads
-	cost = 80
+	cost = 100
 
 /singleton/biorecipe/food/lard
 	name = "Lard"
 	object = /obj/item/reagent_containers/food/snacks/spreads/lard
-	cost = 80
+	cost = 100
 
 /singleton/biorecipe/food/egg_carton
 	name = "Chicken Egg Carton"
 	object = /obj/item/storage/box/fancy/egg_box
-	cost = 300
+	cost = 350
 
 /singleton/biorecipe/food/tunneler_egg_carton
 	name = "Ice Tunneler Egg Carton"
 	object = /obj/item/storage/box/fancy/egg_box/tunneler
-	cost = 300
+	cost = 350
 
 /singleton/biorecipe/food/enzyme
 	name = "Universal Enzyme (50u)"
 	object = /obj/item/reagent_containers/food/condiment/enzyme
+	cost = 125
 
 /singleton/biorecipe/food/blood
 	name = "Synthetic Blood (50u)"
 	object = /obj/item/reagent_containers/food/condiment/blood
+	cost = 125
 
 /singleton/biorecipe/food/pepper
 	name = "Pepper Grinder"
@@ -157,12 +160,12 @@ FERTILIZER
 	name = "E-Z-Nutrient (60u)"
 	class = BIOGEN_FERTILIZER
 	object = /obj/item/reagent_containers/glass/fertilizer/ez
-	cost = 60
+	cost = 75
 
 /singleton/biorecipe/fertilizer/l4z
 	name = "Left 4 Zed (60u)"
 	object = /obj/item/reagent_containers/glass/fertilizer/l4z
-	cost = 120
+	cost = 130
 
 /singleton/biorecipe/fertilizer/rh
 	name = "Robust Harvest (60u)"
@@ -344,18 +347,22 @@ MEDICAL
 	name = "Monkey Cube"
 	class = BIOGEN_SPECIAL
 	object = /obj/item/reagent_containers/food/snacks/monkeycube/wrapped
+	cost = 125
 
 /singleton/biorecipe/cube/stok
 	name = "Stok Cube"
 	object = /obj/item/reagent_containers/food/snacks/monkeycube/wrapped/stokcube
+	cost = 125
 
 /singleton/biorecipe/cube/farwa
 	name = "Farwa Cube"
 	object = /obj/item/reagent_containers/food/snacks/monkeycube/wrapped/farwacube
+	cost = 125
 
 /singleton/biorecipe/cube/neaera
 	name = "Neaera Cube"
 	object = /obj/item/reagent_containers/food/snacks/monkeycube/wrapped/neaeracube
+	cost = 125
 
 /singleton/biorecipe/cube/cazador
 	name = "V'krexi Cube"
@@ -371,6 +378,7 @@ MEDICAL
 /singleton/biorecipe/medical/ointment
 	name = "Burn Ointment"
 	object = /obj/item/stack/medical/ointment
+	cost = 125
 
 /singleton/biorecipe/medical/perconol_pill
 	name = "Perconol Pill"
@@ -529,6 +537,7 @@ EMAG/ILLEGAL
 	R.my_atom = src
 	beaker = new /obj/item/reagent_containers/glass/bottle(src)
 	update_icon()
+	ref_for_ui = "[REF(src)]"
 
 /obj/machinery/biogenerator/on_reagent_change()			//When the reagents change, change the icon as well.
 	update_icon()
@@ -563,12 +572,12 @@ EMAG/ILLEGAL
 	else if(istype(attacking_item, /obj/item/storage/bag/plants))
 		var/i = 0
 		var/obj/item/storage/bag/P = attacking_item
-		for(var/obj/item/reagent_containers/food/snacks/grown/G in contents)
+		for(var/obj/item/reagent_containers/food/snacks/G in contents)
 			i++
 		if(i >= capacity)
 			to_chat(user, SPAN_NOTICE("\The [src] is already full! Activate it."))
 		else
-			for(var/obj/item/reagent_containers/food/snacks/grown/G in P.contents)
+			for(var/obj/item/reagent_containers/food/snacks/G in P.contents)
 				P.remove_from_storage(G,src)
 				i++
 				if(i >= capacity)
@@ -580,12 +589,12 @@ EMAG/ILLEGAL
 			if(i < capacity)
 				to_chat(user, SPAN_NOTICE("You empty \the [attacking_item] into \the [src]."))
 		. = TRUE
-	else if(!istype(attacking_item, /obj/item/reagent_containers/food/snacks/grown))
+	else if(!istype(attacking_item, /obj/item/reagent_containers/food/snacks))
 		to_chat(user, SPAN_NOTICE("You cannot put this in \the [src]."))
 		. = TRUE
 	else
 		var/i = 0
-		for(var/obj/item/reagent_containers/food/snacks/grown/G in contents)
+		for(var/obj/item/reagent_containers/food/snacks/G in contents)
 			i++
 		if(i >= capacity)
 			to_chat(user, SPAN_NOTICE("\The [src] is full! Activate it."))
@@ -611,8 +620,8 @@ EMAG/ILLEGAL
 			if("menu")
 				if (beaker)
 					dat += "<table style='width:100%'><tr><td colspan='6'><H2>Commands</H2></td></tr>"
-					dat += "<tr><td colspan='2'><A href='byond://?src=[REF(src)];action=activate'>Activate Biogenerator</A></td></tr>"
-					dat += "<tr><td colspan='2'><A href='byond://?src=[REF(src)];action=detach'>Detach Container</A><BR></td></tr>"
+					dat += "<tr><td colspan='2'><A href='byond://?src=[ref_for_ui];action=activate'>Activate Biogenerator</A></td></tr>"
+					dat += "<tr><td colspan='2'><A href='byond://?src=[ref_for_ui];action=detach'>Detach Container</A><BR></td></tr>"
 					dat += "<tr><td colspan='2'>Name</td><td colspan='2'>Cost</td><td colspan='4'>Production Amount</td></tr>"
 					var/lastclass = "Commands"
 
@@ -632,7 +641,7 @@ EMAG/ILLEGAL
 								if(num*round(current_recipe.cost/build_eff) > points)
 									dat += "<div class='no-build inline'>([fakenum][num])</div>"
 								else
-									dat += "<A href='byond://?src=[REF(src)];action=create;itemtype=[current_recipe.type];count=[num]'>([fakenum][num])</A>"
+									dat += "<A href='byond://?src=[ref_for_ui];action=create;itemtype=[current_recipe.type];count=[num]'>([fakenum][num])</A>"
 							dat += "</td>"
 							dat += "</tr>"
 
@@ -642,13 +651,13 @@ EMAG/ILLEGAL
 					dat += "<BR><FONT COLOR=red>No beaker inside. Please insert a beaker.</FONT><BR>"
 			if("nopoints")
 				dat += "You do not have biomass to create products.<BR>Please put growns into the reactor and activate it.<BR>"
-				dat += "<A href='byond://?src=[REF(src)];action=menu'>Return to menu</A>"
+				dat += "<A href='byond://?src=[ref_for_ui];action=menu'>Return to menu</A>"
 			if("complete")
 				dat += "Operation complete.<BR>"
-				dat += "<A href='byond://?src=[REF(src)];action=menu'>Return to menu</A>"
+				dat += "<A href='byond://?src=[ref_for_ui];action=menu'>Return to menu</A>"
 			if("void")
 				dat += "<FONT COLOR=red>Error: No growns inside.</FONT><BR>Please put growns into the reactor.<BR>"
-				dat += "<A href='byond://?src=[REF(src)];action=menu'>Return to menu</A>"
+				dat += "<A href='byond://?src=[ref_for_ui];action=menu'>Return to menu</A>"
 	dat += "</body></html>"
 
 	var/datum/browser/biogen_win = new(user, "biogenerator", "Biogenerator", 450, 500)
@@ -668,7 +677,7 @@ EMAG/ILLEGAL
 		to_chat(usr, SPAN_NOTICE("The biogenerator is in the process of working."))
 		return
 	var/S = 0
-	for(var/obj/item/reagent_containers/food/snacks/grown/I in contents)
+	for(var/obj/item/reagent_containers/food/snacks/I in contents)
 		S += 5
 		if(REAGENT_VOLUME(I.reagents, /singleton/reagent/nutriment) < 0.1)
 			points += 1

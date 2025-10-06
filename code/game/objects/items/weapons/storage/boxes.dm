@@ -72,7 +72,7 @@
 	if (health <= 0)
 		qdel(src)
 
-/obj/item/storage/box/attack_generic(var/mob/user)
+/obj/item/storage/box/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	if(!chewable)
 		return
 	if(istype(user, /mob/living))
@@ -82,11 +82,6 @@
 			if(contents.len && !locate(/obj/item/reagent_containers/food) in src) // you can tear open empty boxes for nesting material, or for food
 				to_chat(user, SPAN_WARNING("There's no food in that box!"))
 				return
-			var/damage
-			if (!L.mob_size)
-				damage = 3//A safety incase i forgot to set a mob_size on something
-			else
-				damage = L.mob_size//he bigger you are, the faster it tears
 
 			if (!damage || damage <= 0)
 				return
@@ -1174,11 +1169,10 @@
 		/obj/item/flag/dominia/l = 6,
 		/obj/item/flag/strelitz = 4,
 		/obj/item/flag/volvalaad = 4,
-		/obj/item/flag/kazhkz = 4,
 		/obj/item/flag/caladius = 2,
 		/obj/item/flag/zhao = 4,
-		/obj/item/flag/diona = 2,
-		/obj/item/flag/hansan = 2,
+		/obj/item/flag/zhurong = 3,
+		/obj/item/flag/zhurong/l = 2,
 		/obj/item/flag/imperial_frontier = 3,
 		/obj/item/flag/imperial_frontier/l = 2
 	)

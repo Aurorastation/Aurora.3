@@ -27,7 +27,7 @@
 	materials = list(MATERIAL_ALUMINIUM = 12500, MATERIAL_GLASS = 12500, DEFAULT_WALL_MATERIAL = 7000, MATERIAL_LEAD = 5500)
 
 /datum/design/rig/eva/pilot
-	name = "pilot Suit Control Module Assembly"
+	name = "Pilot Suit Control Module Assembly"
 	desc = "An assembly for a light hardsuit that is designed for pilots. It features a plasteel lining that offers excellent protection from shrapnel."
 	build_path = /obj/item/rig_assembly/eva/pilot
 	materials = list(DEFAULT_WALL_MATERIAL = 25000, MATERIAL_GLASS = 12500, MATERIAL_PLASTEEL = 5500)
@@ -54,7 +54,7 @@
 	name = "Hazard Hardsuit Control Module"
 	desc = "An assembly for a security hardsuit designed for prolonged EVA in dangerous environments."
 	build_path = /obj/item/rig_assembly/combat/hazard
-	req_tech = list(TECH_MATERIAL = 4, TECH_ENGINEERING = 3, TECH_MAGNET = 3, TECH_POWER = 3, TECH_COMBAT = 3)
+	req_tech = list(TECH_MATERIAL = 3, TECH_ENGINEERING = 3, TECH_MAGNET = 3, TECH_POWER = 3, TECH_COMBAT = 3)
 	materials = list(DEFAULT_WALL_MATERIAL = 26500, MATERIAL_GLASS = 12500, MATERIAL_SILVER = 3500, MATERIAL_GOLD = 5500, MATERIAL_LEAD = 3500)
 
 /datum/design/rig/combat

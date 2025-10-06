@@ -278,6 +278,7 @@
 	banners["banner, Visegrad"] = /obj/item/flag/visegrad
 	banners["banner, Burzsia"] = /obj/item/flag/burzsia
 	banners["banner, HPS Narrows"] = /obj/item/flag/narrows
+	banners["banner, Zhurong"] = /obj/item/flag/zhurong
 	gear_tweaks += new /datum/gear_tweak/path(banners)
 
 /datum/gear/standard
@@ -290,8 +291,6 @@
 	var/list/standards = list()
 	standards["standard, Strelitz"] = /obj/item/flag/strelitz
 	standards["standard, Volvalaad"] = /obj/item/flag/volvalaad
-	standards["standard, Kazhkz"] = /obj/item/flag/kazhkz
-	standards["standard, Han'san"] = /obj/item/flag/hansan
 	standards["standard, Caladius"] = /obj/item/flag/caladius
 	standards["standard, Zhao"] = /obj/item/flag/zhao
 	gear_tweaks += new /datum/gear_tweak/path(standards)
@@ -379,6 +378,7 @@
 	flags["flag, Visegrad"] = /obj/item/flag/visegrad/l
 	flags["flag, Burzsia"] = /obj/item/flag/burzsia/l
 	flags["flag, HPS Narrows"] = /obj/item/flag/narrows/l
+	flags["flag, Zhurong"] = /obj/item/flag/zhurong/l
 	gear_tweaks += new /datum/gear_tweak/path(flags)
 
 /datum/gear/towel
@@ -491,3 +491,9 @@
 		plants[initial(plant.name)] = plant_type
 	sortTim(plants, GLOBAL_PROC_REF(cmp_text_asc))
 	gear_tweaks += new /datum/gear_tweak/path(plants)
+
+/datum/gear/candles
+	display_name = "candle pack"
+	description = "A pack of red candles."
+	cost = 1
+	path = /obj/item/storage/box/fancy/candle_box
