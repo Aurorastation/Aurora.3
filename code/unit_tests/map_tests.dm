@@ -454,11 +454,12 @@
 	var/test_status = UNIT_TEST_PASSED
 	var/checks = 0
 	var/failed_checks = 0
-	var/firealarm_increment = 0
+	var/firealarm_increment
 	var/turf/T
 
 	for(var/obj/machinery/firealarm/F in world)
 		T = get_turf(F)
+		firealarm_increment = 0
 		if(istype(F, /obj/machinery/firealarm/north))
 			if(F.dir != NORTH)
 				firealarm_increment++
