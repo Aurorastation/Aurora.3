@@ -55,8 +55,9 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Added the following items to cargo: pig, Cleanbot, Farmbot, Medibot, autopsy scanner, package/gift wrapping paper, PDA, universal (tape) recorder, paper scanner, data drives, produce boxes."
+  - rscadd: "The following items have been added to cargo (1): pig, Cleanbot, Farmbot, Medibot, autopsy scanner, package/gift wrapping paper, PDA, universal (tape) recorder."
+  - rscadd: "The following items have been added to cargo (2): IV stand, camping set & sleeping bags, InUs Game-Helm, paper scanner, data drives, produce boxes."
   - qol: "Moved certain cargo items to other categories."
-  - qol: "Modified the pricing of blood, hydroponics trays, certain drink canisters, and organ coolers. Made folders and SBS blood come in multiple per order."
+  - qol: "Modified the pricing of blood, hydroponics trays, certain drink canisters, organ coolers, animals, and some security items. Made folders and SBS blood come in multiple per order."
   - spellcheck: "Miscellaneous spellchecks and grammar fixes in cargo."
-  - rscdel: "Removed the ability to vend pizza from the mining vendor."
+  - rscdel: "Capped the amount of pizza boxes available in mining vendors to 2."
