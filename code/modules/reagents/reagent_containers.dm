@@ -53,6 +53,14 @@
 	. = ..()
 	if(!possible_transfer_amounts)
 		src.verbs -= /obj/item/reagent_containers/verb/set_APTFT
+	// Horrible horrible scarcity shit. Temporary.
+	if(istype(src, /obj/item/reagent_containers/chem_disp_cartridge))
+		var/cartridge_area = get_area(src)
+		if(is_station_area(cartridge_area))
+			var/modifier = round((rand(50, 75) / 100), 0.1)
+			LOG_DEBUG("Modifying [src] to use [modifier]")
+			volume = round(volume * modifier, 1)
+			LOG_DEBUG("New volume is [volume]")
 	create_reagents(volume)
 	shatter_material = SSmaterials.get_material_by_name(shatter_material)
 
