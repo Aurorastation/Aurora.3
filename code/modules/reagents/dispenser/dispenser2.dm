@@ -41,9 +41,10 @@
 	. = ..()
 	if(spawn_cartridges)
 		for(var/type in spawn_cartridges)
-			add_cartridge(new type(src), on_init = TRUE)
+			if(prob(95))
+				add_cartridge(new type(src))
 
-/obj/machinery/chemical_dispenser/proc/add_cartridge(obj/item/reagent_containers/chem_disp_cartridge/C, mob/user, var/on_init = FALSE)
+/obj/machinery/chemical_dispenser/proc/add_cartridge(obj/item/reagent_containers/chem_disp_cartridge/C, mob/user)
 	if(!istype(C))
 		if(user)
 			to_chat(user, SPAN_WARNING("[C] will not fit in [src]!"))
