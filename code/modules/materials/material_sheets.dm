@@ -303,9 +303,13 @@
 			user.put_in_hands(SW)
 			use(5)
 
-/obj/item/stack/material/steel/full/Initialize()
+/obj/item/stack/material/steel/full/Initialize(mapload)
 	. = ..()
 	amount = max_amount
+	// Horrible horrible scarcity shit. Temporary.
+	var/stack_area = get_area(src)
+	if(istype(stack_area, /area/horizon))
+		amount = round(max_amount * 0.6, 1)
 	update_icon()
 
 /obj/item/stack/material/plasteel
