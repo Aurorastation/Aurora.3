@@ -1,4 +1,4 @@
-/datum/component/synthetic_burst_damage
+/datum/component/synthetic_endoskeleton
 	/// The synthetic that owns this component. Equivalent to `parent`, we just use this for ease of use.
 	var/mob/living/carbon/human/synthetic_owner
 	/// The posibrain of our parent.
@@ -24,31 +24,31 @@
 	/// Timer ID of the burst damage clearing timer.
 	var/burst_damage_timer
 
-/datum/component/synthetic_burst_damage/Initialize(...)
+/datum/component/synthetic_endoskeleton/Initialize(...)
 	. = ..()
 	if(isipc(parent))
 		synthetic_owner = parent
 		var/obj/item/organ/internal/machine/posibrain/possible_brain = synthetic_owner.internal_organs_by_name[BP_BRAIN]
 		if(!istype(possible_brain))
-			log_debug("Synthetic burst damage component somehow could not find a brain. Deleting.")
+			log_debug("Synthetic Endoskeleton somehow could not find a brain. Deleting.")
 			qdel_self()
 		else
 			posibrain = possible_brain
 	else
-		log_debug("Synthetic burst damage component spawned on non-IPC. Deleting.")
+		log_debug("Synthetic Endoskeleton component spawned on non-IPC. Deleting.")
 		qdel_self()
 
 	RegisterSignal(synthetic_owner, COMSIG_MACHINE_INTERNAL_DAMAGE, PROC_REF(receive_internal_damage))
-	RegisterSignal(synthetic_owner, COMSIG_SYNTH_BURST_DAMAGE_CLEARED, PROC_REF(posibrain_clear_burst_damage))
+	RegisterSignal(synthetic_owner, COMSIG_SYNTH_EMP_DAMAGE_CLEARED, PROC_REF(posibrain_clear_burst_damage))
 
-/datum/component/synthetic_burst_damage/Destroy(force)
+/datum/component/synthetic_endoskeleton/Destroy(force)
 	synthetic_owner = null
 	posibrain = null
 	if(burst_damage_timer)
 		deltimer(burst_damage_timer)
 	return ..()
 
-/datum/component/synthetic_burst_damage/proc/receive_internal_damage(mob/target, amount)
+/*/datum/component/synthetic_endoskeleton/proc/receive_internal_damage(mob/target, amount)
 	SIGNAL_HANDLER
 	if(burst_damage_grace_period_granted && (burst_damage_grace_period_start_time > world.time + burst_damage_grace_period))
 		return
@@ -57,13 +57,13 @@
 	if(burst_damage_counter >= burst_damage_maximum)
 		burst_damage_effects()
 
-/datum/component/synthetic_burst_damage/proc/clear_burst_damage()
+/datum/component/synthetic_endoskeleton/proc/clear_burst_damage()
 	burst_damage_counter = 0
 	posibrain.clear_burst_damage_counter()
 	begin_grace_period()
-	synthetic_owner.remove_movespeed_modifier(/datum/movespeed_modifier/burst_damage)
+	synthetic_owner.remove_movespeed_modifier(/datum/movespeed_modifier/synth_emp)
 
-/datum/component/synthetic_burst_damage/proc/burst_damage_effects()
+/datum/component/synthetic_endoskeleton/proc/burst_damage_effects()
 	if(!posibrain && synthetic_owner)
 		var/obj/item/organ/internal/machine/posibrain/possible_brain = synthetic_owner.internal_organs_by_name[BP_BRAIN]
 		if(!istype(possible_brain))
@@ -73,10 +73,11 @@
 			posibrain = possible_brain
 	posibrain.add_burst_damage_counter()
 
-/datum/component/synthetic_burst_damage/proc/posibrain_clear_burst_damage()
+/datum/component/synthetic_endoskeleton/proc/posibrain_clear_burst_damage()
 	SIGNAL_HANDLER
 	begin_grace_period()
 
-/datum/component/synthetic_burst_damage/proc/begin_grace_period()
+/datum/component/synthetic_endoskeleton/proc/begin_grace_period()
 	burst_damage_grace_period_granted = TRUE
 	burst_damage_grace_period_start_time = world.time
+*/

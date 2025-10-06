@@ -34,10 +34,10 @@
 	var/firewall = TRUE
 	/// If peer-to-peer communication (done through Neural Configuration) is allowed.
 	var/p2p_communication_allowed = TRUE
-	/// Burst damage counter. Starts at 0. See See code\datums\components\synthetic_burst_damage\synthetic_burst_damage.dm
-	var/burst_damage_counter = 0
-	/// Maximum burst damage points we can have. See See code\datums\components\synthetic_burst_damage\synthetic_burst_damage.dm
-	var/burst_damage_maximum = 3
+	/// Stores the current status of EMP damage.
+	var/emp_damage_counter = 0
+	/// Maximum EMP damage points we can have.
+	var/emp_damage_maximum = 3
 	/// The amount of seconds the brain should be scrambled for, while this is above 0, it'll add a flat 2 evaluate_damage()'s damage points
 	var/brain_scrambling = 0
 	/// The looping sound played when an IPC is sizzling from burn damage.
@@ -66,7 +66,6 @@
 	if(user.incapacitated(INCAPACITATION_KNOCKOUT|INCAPACITATION_STUNNED))
 		return
 
-
 	open_neural_configuration(user)
 
 /obj/item/organ/internal/machine/posibrain/emp_act(severity)
@@ -75,8 +74,14 @@
 	brain_scrambling = min(brain_scrambling + (severity == EMP_LIGHT ? 50 : 75), 100)
 	shake_camera(owner, 1 SECOND, 3)
 	to_chat(owner, FONT_LARGE(SPAN_MACHINE_DANGER("Your internal connections seize up and snap at the surge of electromagnetic current!")))
-	burst_damage_counter++
+	emp_damage_counter++
 	spark(owner, rand(3, 5), GLOB.alldirs)
+
+/obj/item/organ/internal/machine/posibrain/die()
+	. = ..()
+	to_chat(owner, SPAN_MACHINE_DANGER(FONT_LARGE("Your damage failsafes activate; your thought processes grind to a halt as your consciousness is cut off from the exterior world. No sensation or external input reaches you anymore.")))
+	to_chat(owner, SPAN_DANGER(FONT_LARGE("You are now in an emergency low power mode, so that your posibrain can still survive despite your chassis being destroyed.")))
+	owner.mind.transfer_to(stored_mmi.brainmob)
 
 /**
  * Helper proc to add fragmentation.
@@ -151,16 +156,16 @@
  * This proc clears the burst damage counter
  * See code\datums\components\synthetic_burst_damage\synthetic_burst_damage.dm
  */
-/obj/item/organ/internal/machine/posibrain/proc/clear_burst_damage_counter()
-	burst_damage_counter = 0
-	SEND_SIGNAL(owner, COMSIG_SYNTH_BURST_DAMAGE_CLEARED)
+/obj/item/organ/internal/machine/posibrain/proc/clear_emp_damage_counter()
+	emp_damage_counter = 0
+	SEND_SIGNAL(owner, COMSIG_SYNTH_EMP_DAMAGE_CLEARED)
 
 /**
  * This proc adds to the burst damage counter. The more burst damage we sustain, the greater debilitation we suffer, and the more time it takes to recover.
  * See code\datums\components\synthetic_burst_damage\synthetic_burst_damage.dm
  */
-/obj/item/organ/internal/machine/posibrain/proc/add_burst_damage_counter()
-	burst_damage_counter = min(burst_damage_counter + 1, burst_damage_maximum)
+/obj/item/organ/internal/machine/posibrain/proc/add_emp_damage_counter()
+	emp_damage_counter = min(emp_damage_counter + 1, emp_damage_maximum)
 	handle_burst_damage()
 
 /**
@@ -277,23 +282,25 @@
  */
 /obj/item/organ/internal/machine/posibrain/proc/handle_burst_damage()
 	playsound(owner, 'sound/species/synthetic/synthetic_shock.ogg')
-	switch(burst_damage_counter)
+	switch(emp_damage_counter)
 		if(1)
 			var/obj/item/organ/internal/machine/cooling_unit/cooling = owner.internal_organs_by_name[BP_COOLING_UNIT]
 			if(istype(cooling))
-				to_chat(owner, FONT_LARGE(SPAN_DANGER("The severed power wires cause a voltage spike in your cooling unit, messing up the settings! You'll need to fix it!")))
+				to_chat(owner, FONT_LARGE(SPAN_DANGER("Your cooling unit's power circuits struggle and spark against the electromagnetic current!")))
 				cooling.thermostat = cooling.thermostat_max
 			shake_camera(owner, 0.5 SECONDS, 1)
-			owner.add_movespeed_modifier(/datum/movespeed_modifier/burst_damage/level_1)
+			owner.add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/synth_emp)
 		if(2)
-			to_chat(owner, FONT_LARGE(SPAN_DANGER("Your hydraulics creak and stagger under the stress!")))
+			to_chat(owner, FONT_LARGE(SPAN_DANGER("The electromagnetic current overloads your hydraulics!")))
 			owner.Stun(2)
-			owner.add_movespeed_modifier(/datum/movespeed_modifier/burst_damage/level_2)
+			owner.add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/synth_emp, multiplicative_slowdown = 2)
+			medium_integrity_damage(50)
 			shake_camera(owner, 0.5 SECONDS, 3)
 		if(3)
-			to_chat(owner, FONT_LARGE(SPAN_MACHINE_WARNING("Your software errors out under the stress!")))
+			to_chat(owner, FONT_LARGE(SPAN_MACHINE_WARNING("Your positronic circuits error and break under the electromagnetic current!")))
 			owner.Weaken(3)
-			owner.add_movespeed_modifier(/datum/movespeed_modifier/burst_damage/level_3)
+			owner.add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/synth_emp, multiplicative_slowdown = 3)
+			high_integrity_damage(25)
 			shake_camera(owner, 1 SECONDS, 5)
 
 /**
@@ -320,8 +327,8 @@
 		damage_points += 2
 		brain_scrambling = max(brain_scrambling - seconds_per_tick, 0)
 
-	if(burst_damage_counter)
-		switch(burst_damage_counter)
+	if(emp_damage_counter)
+		switch(emp_damage_counter)
 			if(1)
 				damage_points++
 			if(2)

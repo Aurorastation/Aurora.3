@@ -126,7 +126,7 @@
 /obj/item/modular_computer/laptop/preset/supply/robotics
 	name = "robotics laptop"
 	desc = "A portable computer with support for specialized robotics software."
-	_app_preset_type = /datum/modular_computer_app_presets/operations/machinist
+	_app_preset_type = /datum/modular_computer_app_presets/supply/machinist
 
 // Representative
 /obj/item/modular_computer/laptop/preset/representative

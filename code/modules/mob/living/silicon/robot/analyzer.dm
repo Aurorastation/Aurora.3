@@ -116,21 +116,21 @@
 		to_chat(user, SPAN_NOTICE("No prosthetics located."))
 
 /proc/get_robot_severity(amount, var/uppercase = FALSE)
-	var/output = "undamaged"
+	. = "undamaged"
 	if(!amount)
-		output = "undamaged"
+		. = "undamaged"
 	else if(amount > 100)
-		output = "destroyed"
+		. = "destroyed"
 	else if(amount > 75)
-		output = "falling apart"
+		. = "falling apart"
 	else if(amount > 50)
-		output = "heavily compromised"
+		. = "heavily compromised"
 	else if(amount > 25)
-		output = "problematic"
+		. = "problematic"
 	else if(amount > 10)
-		output = "fine"
+		. = "fine"
 	else
-		output = "minor"
+		. = "minor"
 
 /obj/item/device/robotanalyzer/augment
 	name = "retractable cyborg analyzer"

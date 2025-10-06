@@ -47,4 +47,4 @@
 #define COMSIG_MACHINE_INTERNAL_DAMAGE "machine_internal_damage"
 
 /// Sent when the burst damage is cleared by the posibrain.
-#define COMSIG_SYNTH_BURST_DAMAGE_CLEARED "burst_damage_cleared"
+#define COMSIG_SYNTH_EMP_DAMAGE_CLEARED "burst_damage_cleared"
