@@ -86,11 +86,11 @@
 
 
 /obj/item/book/manual/supermatter_engine
-	name = "Supermatter Engine Operating Manual"
+	name = "Supermatter Reactor Operating Manual"
 	icon_state = "bookSupermatter"
 	item_state = "book1"
 	author = "Engineering Encyclopedia"
-	title = "Supermatter Engine Operating Manual"
+	title = "Supermatter Reactor Operating Manual"
 
 /obj/item/book/manual/supermatter_engine/Initialize()
 	. = ..()
@@ -106,17 +106,17 @@
 				</style>
 				</head>
 				<body>
-				<h1>OPERATING MANUAL FOR MK 1 PROTOTYPE THERMOELECTRIC SUPERMATTER ENGINE 'TOMBOLA'</h1>
+				<h1>OPERATING MANUAL FOR MK 1 PROTOTYPE THERMOELECTRIC SUPERMATTER REACTOR 'TOMBOLA'</h1>
 				<br>
 				<h2>OPERATING PRINCIPLES</h2>
 				<br>
-				<li>The supermatter crystal serves as the fundamental power source of the engine. Upon being charged, it begins to emit large amounts of heat and radiation, as well and oxygen and phoron gas. As oxygen accelerates the reaction, and phoron carries the risk of fire, these must be filtered out.</li>
+				<li>The supermatter crystal serves as the fundamental power source of the reactor. Upon being charged, it begins to emit large amounts of heat and radiation, as well and oxygen and phoron gas. As oxygen accelerates the reaction, and phoron carries the risk of fire, these must be filtered out.</li>
 				<br>
 				<li>Air in the reactor chamber housing the supermatter is circulated through the reactor loop, which passes through the filters and thermoelectric generators. The thermoelectric generators transfer heat from the reactor loop to the colder radiator loop, thereby generating power. Additional power is generated from internal turbines in the circulators.</li>
 				<br>
 				<li>Air in the radiator loop is circulated through the radiator bank, located in space. This rapidly cools the air, preserving the temperature differential needed for power generation.</li>
 				<br>
-				<li>The MK 1 Prototype Thermoelectric Supermatter Engine is designed to operate at reactor temperatures of 3000K to 4000K and generate up to 1MW of power. Beyond 1MW, the thermoelectric generators will begin to lose power through electrical discharge, reducing efficiency, but additional power generation remains feasible.</li>
+				<li>The MK 1 Prototype Thermoelectric Supermatter Reactor is designed to operate at reactor temperatures of 3000K to 4000K and generate up to 5MW of power. Beyond 5MW, the thermoelectric generators will begin to lose power through electrical discharge, reducing efficiency, but additional power generation remains feasible.</li>
 				<br>
 				<li>The crystal structure of the supermatter will begin to liquefy if its temperature exceeds 5000K. This eventually results in a massive release of light, heat and radiation, disintegration of both the supermatter crystal and most of the surrounding area, and as as-of-yet poorly documented psychological effects on all animals within a 2km radius. Appropriate action should be taken to stabilize or eject the supermatter before such occurs.</li>
 				<br>
@@ -128,26 +128,26 @@
 				<br>
 				<h2>STARTUP PROCEDURE</h2>
 				<ol>
-				<li>Don radiation hood, radiation suit and meson goggles, without these PPE, you <b>will</b> become irradiated.</li>
+				<li>Don radiation hood, radiation suit and safety goggles, without these PPE, you <b>will</b> become irradiated.</li>
 				<li>Fill the hot loop's (northernmost) port with <b>ONE</b> canister of phoron.</li>
 				<li>Fill the cold loop's (southernmost) port with <b>TWO</b> canisters of phoron.</li>
-				<li>Ensure that <b>ALL</b> pumps and filters in the engine and waste room are on and operating at maximum power.</li>
+				<li>Ensure that <b>ALL</b> pumps and filters in the reactor and waste room are on and operating at maximum power.</li>
 				<li>Ensure the both the emergency coolant valves (located to the west and east of the TEGs) are <b>NOT</b> active.</li>
 				<li>Set the two waste loop filters to filter <b>PHORON</b>.</li>
-				<li>Set all three of the northernmost coolers to <b>ON</b> keep their temperature setting at its default of <b>293k</b>.</li>
-				<li>Fire <b>twenty-one to twenty-five</b> pulses from the emitter at supermatter crystal. Reactor blast doors <b>MUST</b> be open for this procedure.</li>
-				<li>Set the SMES in the adjacent room (not the one in the engine bay) to <b>NO</b> input and <b>MAXIMUM</b> output until the power is drained completely.</li>
+				<li>Set all three of the northernmost coolers to <b>ON</b> keep their temperature setting at its default of <b>273 K</b>.</li>
+				<li>Fire <b>forty to sixty</b> pulses from the emitter at supermatter crystal. Reactor blast doors <b>MUST</b> be open for this procedure.</li>
+				<li>Set the SMES in the adjacent room (not the one in the reactor bay) to <b>NO</b> input and <b>MAXIMUM</b> output until the power is drained completely.</li>
 				<li>Go to hard storage and retrieve two coils, Transmission and Capacitance.</li>
 				<li>Open the SMES unit's maintenance panel with your screwdriver and insert both coils, close panel once finished.</li>
-				<li>Set input to maximum, and output to 1400000 (1.4 MW).</li>
+				<li>Set input to maximum, and output to 5900000 (5.9 MW).</li>
 				</ol>
 				<br>
 				<h2>OPERATION AND MAINTENANCE</h2>
 				<ol>
-				<li>Ensure that radiation protection and meson goggles are worn at <b>ALL</b> times while working in the engine room.</li>
+				<li>Ensure that radiation protection and safety goggles are worn at <b>ALL</b> times while working in the reactor room.</li>
 				<li>Ensure that reactor and radiator loops are undamaged and unobstructed.</li>
 				<li>Ensure that phoron and oxygen gas exhaust from filters is properly contained or disposed. Do not allow exhaust pressure to exceed 4500 kPa.</li>
-				<li>Ensure that engine room Area Power Controller (APC) and engine Superconducting Magnetic Energy Storage unit (SMES) are properly charged.</li>
+				<li>Ensure that reactor room Area Power Controller (APC) and reactor Superconducting Magnetic Energy Storage unit (SMES) are properly charged.</li>
 				<li>Ensure that reactor temperature does not exceed 5000K. In event of reactor temperature exceeding 5000K, see EMERGENCY COOLING PROCEDURE.</li>
 				<li>In event of imminent and/or unavoidable delamination, see EJECTION PROCEDURE.</li>
 				</ol>
@@ -156,14 +156,14 @@
 				<ol>
 				<li>Open Emergency Cooling Valve 1 and Emergency Cooling Valve 2.</li>
 				<li>When reactor temperature returns to safe operating levels, close Emergency Cooling Valve 1 and Emergency Cooling Valve 2.</li>
-				<li>Add additional phoron canister to the COLD LOOP.</li>
-				<li>If reactor temperature does not return to safe operating levels, see EJECTION PROCEDURE.</li>
+				<li>If reactor temperature does not return to safe operating levels, add emergency liquid nitrogen canisters to the hot AND cold loops.</li>
+				<li>If reactor temperature still does not return to safe operating levels, see EJECTION PROCEDURE.</li>
 				</ol>
 				<br>
 				<h2>EJECTION PROCEDURE</h2>
 				<ol>
-				<li>Press Engine Ventilatory Control button to open engine core vent to space.</li>
-				<li>Press Emergency Core Eject button to eject supermatter crystal. NOTE: Attempting crystal ejection while engine core vent is closed will result in ejection failure.</li>
+				<li>Press Reactor Ventilatory Control button to open reactor core vent to space.</li>
+				<li>Press Emergency Core Eject button to eject supermatter crystal. NOTE: Attempting crystal ejection while reactor core vent is closed will result in ejection failure.</li>
 				<li>In event of ejection failure, evacuate the area immediately, inform medical and prepare anti-radiation medicine.</li>
 				<li>Start work on repairing telecommunications and setting up an alternate method of power generation (Solars, Tesla).</li>
 				</ol>
@@ -187,11 +187,11 @@
 				<br>
 				<li><b>Q:</b> I accidentally put way too many emitter shots into the crystal! What do I do!?</li>
 				<br>
-				<li><b>A:</b> The supermatter will heat up more, so all you do is place more coolant (likely phoron) into the cold loop. Once the situation settles, check if you're producing too little power, and emitter it some more.</li>
+				<li><b>A:</b> The supermatter will heat up more, so all you do is place more coolant (likely hydrogen or phoron) into the cold loop. Once the situation settles, check if you're producing too little power, and emitter it some more.</li>
 				<br>
 				<li><b>Q:</b> Are other gasses safe to use in the loops?</li>
 				<br>
-				<li><b>A:</b> Mostly, yes. More skilled engineers will likely teach you new methods of using other gasses. Our recommendation is to use phoron if you're unsure. The best idea is to ask your co-workers for help, especially if they set up the engine.</li>
+				<li><b>A:</b> Mostly, yes. More skilled engineers will likely teach you new methods of using other gasses. Our recommendation is to use phoron if you're unsure. The best idea is to ask your co-workers for help, especially if they set up the reactor.</li>
 				<br>
 				<li><b>Q:</b> What do the emergency valves actually do?</li>
 				<br>
@@ -199,8 +199,96 @@
 				<br>
 				<li><b>Q:</b> An engineer walked into the room with no PPE, why did they do that?</li>
 				<br>
-				<li><b>A:</b> If the supermatter engine hasn't been started yet, it will not output radiation. Our recommendation is to be safe instead of sorry, however. If the engine has started, call medical and security, they may be attempting to do an emergency fix, or they are mentally unwell. Remember that non-organics do not suffer from radiation poisoning.</li>
+				<li><b>A:</b> If the supermatter reactor hasn't been started yet, it will not output radiation. Our recommendation is to be safe instead of sorry, however. If the reactor has started, call medical and security, they may be attempting to do an emergency fix, or they are mentally unwell. Remember that non-organics do not suffer from radiation poisoning.</li>
 				<br>
+				</body>
+			</html>"}
+
+/obj/item/book/manual/fusion_reactor
+	name = "INDRA Fusion Reactor Operating Manual"
+	icon_state = "bookFusionReactor"
+	item_state = "book1"
+	author = "Engineering Encyclopedia"
+	title = "INDRA Fusion Reactor Operating Manual"
+
+/obj/item/book/manual/fusion_reactor/Initialize()
+	. = ..()
+	dat = {"<html>
+				<head>
+				<style>
+				h1 {font-size: 18px; margin: 15px 0px 5px;}
+				h2 {font-size: 15px; margin: 15px 0px 5px;}
+				li {margin: 2px 0px 2px 15px;}
+				ul {margin: 5px; padding: 0px;}
+				ol {margin: 5px; padding: 0px 15px;}
+				body {font-size: 13px; font-family: Verdana;}
+				</style>
+				</head>
+				<body>
+				<h1>OPERATING MANUAL FOR INDRA MK VIII FUSION REACTOR</h1>
+				<br>
+				<h2>OPERATING PRINCIPLES</h2>
+				<br>
+				The INDRA Mk VIII fusion reactor is the secondary source of power for the SCCV Horizon, intended to be operated with primary power already available. Reactants are introduced to the reactor core via gas connection and/or solid fuel injection and contained within a toroidal magnetic field, generated by a central Tokamak. High-energy pulses are fired at this magnetic bottle using a Gyrotron to ignite the fusion mix, and the reactor machinery converts the resultant thermal energy to electricity.
+				<br>
+				Interactions between different types of particles have unique properties. For example, the easiest initial fusion reaction, Deuterium-Tritium, requires very low temperatures to achieve, but is very ‘dirty,’ producing large amounts of radiation and internal instability in the core. The Fusion Codex, available Engineering terminals or PDA, is an exhaustive list of all reactions that can be sustained by the INDRA Mk VIII.
+				<br>
+				The Gyrotron, in addition to providing energy, also serves to moderate and stabilize the core field. All fusion reactions induce some amount of core instability, and the Gyrotron must be fired continuously in order to keep instability at a minimum. Any object placed within the plasma torus will cause significant instability, as can running it at large sizes with volatile reaction chains active.
+				<br>
+				In the event that instability reaches 100%, the reactor core will violently rupture, causing several cascading negative effects. The collapse of the magnetic field will result in the uncontrolled release of the superheated plasma, followed by a massive explosion due to the thermal shock. Additionally, widespread EMP effects will be encountered, scalar with plasma temperatures at the time of rupture.
+				<br>
+				Because the Gyrotron requires a very high power outlay, and the Gyrotron is required to maintain core stability, it is strongly recommended to only run the INDRA when the primary power source is already online. If no external power is available, a portable generator can be employed temporarily to provide an initial boost to begin fusion.
+				<br>
+				The INDRA Mk VIII Fusion Reactor is designed to operate at reactor temperatures up to ten million K, and generate up to 12MW of power.
+				<br>
+				<h2>HARDWARE CONFIGURATION</h2>
+				In the event that any machinery comprising the INDRA Mk VIII Fusion Reactor is rendered inoperable, circuit boards for each part can be fabricated and installed in new machine frames alongside requisite components (detailed with each board). On construction, these replacement parts can then be linked to the primary reactor network using a multitool.</li>
+				<h2>STARTUP PROCEDURE</h2>
+				<ol>
+				<li>Set the SMES in the adjacent room (not the one in the reactor bay) to <b>NO</b> input and <b>MAXIMUM</b> output.</li>
+				<li>Don radiation suit and radiation hood whenever entering the reactor bay. When the reactor is running, without PPE, you <i>will</i> become irradiated.</li>
+				<li>Retrieve canister labeled ‘Fusion Reactor Cold Ignition Mix (2H-3H)’ from reactor bay storage, and wrench it onto one of the available gas connectors.</li>
+				<li>Enable the gas connector's pump at 10 kPa output pressure.</li>
+				<li>Go to the Reactor Control Room.</li>
+				<li>On the Core Control Console, set Field Strength to 40, then hit Initiate Fusion.</li>
+				<li>On the Gyrotron Control Console, set Gyrotron Strength to 25 and Fire Delay to 3, then hit Activate.</li>
+				<li>Go to hard storage and retrieve two Transmission coils.</li>
+				<li>Ensure that the SMES is fully discharged.
+				<li>If the SMES unit is fully discharged, open the unit's maintenance panel with your screwdriver and insert both coils; close panel once finished.</li>
+				<li>Set input to maximum, and output to 5900000 (5.9 MW).</li>
+				</ol>
+				<br>
+				<h2>OPERATION AND MAINTENANCE</h2>
+				<ol>
+				<li>Ensure that radiation protection are worn at <b>ALL</b> times while working in the reactor bay.</li>
+				<li>Ensure that the gyrotron has a stable supply of power; keeping the Containment Grid breaker open is recommended at all times.</li>
+				<li>Ensure that fuel supply remains available throughout the entirety of the shift.</li>
+				<li>Ensure that reactor bay Area Power Controller (APC) and reactor Superconducting Magnetic Energy Storage unit (SMES) are properly charged.</li>
+				<li>Ensure that reactor instability does not exceed 50%. In event of reactor instability exceeding 50%, see EMERGENCY STABILIZATION PROCEDURE.</li>
+				<li>In event of imminent and/or unavoidable rupture, see DISASTER CONTROL PROCEDURE.</li>
+				</ol>
+				<br>
+				<h2>EMERGENCY STABILIZATION PROCEDURE</h2>
+				<ol>
+				<li>Reduce core Field Strength to 20.</li>
+				<li>Cut all fuel sources; disable both gas pumps and fuel injectors.</li>
+				<li>Hit the INDRA Core Vent buttons, located on either side of the aft wall of the reactor bay.</li>
+				<li>Ensure Gyrotron has sufficient power and is firing regularly.</li>
+				<li>Increase Gyrotron power and/or reduce Gyrotron fire delay.</li>
+				</ol>
+				<br>
+				<h2>DISASTER CONTROL PROCEDURE</h2>
+				<br>
+				Ensure that you have performed all steps in EMERGENCY STABILIZATION PROCEDURE. In the event that the reactor is rapidly approaching 100% instability in spite of all preventative measures, a rupture event is highly likely. In this event:
+				<ol>
+				<li>Evacuate the reactor bay, control room, and any adjoining compartments immediately.</li>
+				<li>Alert command frequencies, and/or sound general call to move away from all compartments near or adjoining the reactor bay.</li>
+				<li>Brace for release of superheated plasma, explosion and immediate explosive decompression, and powerful EMP (which may encompass much of the ship, dependent on temperature at time of rupture event.</li>
+				<li>Ensure immediate integrity of affected area, assist with evacuation of any wounded crew, etc.</li>
+				<li>Ensure power remains available for the rest of the ship; triage power allocation as appropriate.</li>
+				<li>Commence with repairs and reconstruction of reactor bay and any other damaged ship areas.</li>
+				<li>Report to your nearest Chief Engineer for evaluation.</li>
+				</ol>
 				</body>
 			</html>"}
 

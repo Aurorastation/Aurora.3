@@ -535,6 +535,8 @@
 	maximal_heat = T0C + 2000
 	damage_per_fire_tick = 1 // This should last for 80 fire ticks if the window is not damaged at all. The idea is that borosilicate windows have something like ablative layer that protects them for a while.
 	maxhealth = OBJECT_HEALTH_VERY_LOW
+	/// Phoron-infused silicate
+	rad_resistance_modifier = 4
 
 /obj/structure/window/borosilicate/reinforced
 	name = "reinforced borosilicate glass pane"
@@ -566,6 +568,7 @@
 	smoothing_flags = SMOOTH_TRUE
 	can_be_unanchored = TRUE
 	layer = FULL_WINDOW_LAYER
+	rad_resistance_modifier = 4
 
 /obj/structure/window/shuttle/legion
 	name = "reinforced cockpit window"
@@ -895,6 +898,7 @@
 	maxhealth = OBJECT_HEALTH_MEDIUM
 	reinf = TRUE
 	maximal_heat = T0C + 4000
+	rad_resistance_modifier = 4
 
 #undef FULL_REINFORCED_WINDOW_DAMAGE_FORCE
 #undef REINFORCED_WINDOW_DAMAGE_FORCE

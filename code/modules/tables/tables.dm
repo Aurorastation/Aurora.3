@@ -24,6 +24,7 @@
 
 	var/manipulating = 0
 	var/material/reinforced = null
+	var/obj/item/stack/dismantle_mat = /obj/item/stack/rods
 
 	// Gambling tables. I'd prefer reinforced with carpet/felt/cloth/whatever, but AFAIK it's either harder or impossible to get /obj/item/stack/material of those.
 	// Convert if/when you can easily get stacks of these.
@@ -264,7 +265,7 @@
 		return
 	user.visible_message("\The [user] dismantles \the [src].",
 						SPAN_NOTICE("You dismantle \the [src]."))
-	new /obj/item/stack/rods(src.loc, 2)
+	new dismantle_mat(src.loc)
 	qdel(src)
 
 // Returns a list of /obj/item/material/shard objects that were created as a result of this table's breakage.
@@ -293,9 +294,7 @@
 	if(carpeted && (full_return || prob(50))) // Higher chance to get the carpet back intact, since there's no non-intact option
 		new /obj/item/stack/tile/carpet(src.loc)
 	if(full_return || prob(20))
-		new /obj/item/stack/rods(src.loc, 2)
-	else
-		new /obj/item/stack/rods(src.loc)
+		new dismantle_mat(src.loc)
 	qdel(src)
 	return shards
 
