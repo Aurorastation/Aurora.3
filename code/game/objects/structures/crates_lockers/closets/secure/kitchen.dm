@@ -22,7 +22,7 @@
 	for(var/i = 0 to 1)
 		new /obj/item/storage/box/fancy/egg_box(src)
 	// 1 Stick of Butter
-	for(var/i = 0 to )
+	for(var/i = 0 to 1)
 		new /obj/item/reagent_containers/food/snacks/spreads/butter(src)
 	// 4 Random Condiments
 	for(var/i = 0 to 4)
