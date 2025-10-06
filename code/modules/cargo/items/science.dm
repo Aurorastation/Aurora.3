@@ -8,7 +8,7 @@
 		/obj/item/storage/box/monkeycubes/stokcubes
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -22,7 +22,7 @@
 		/obj/item/storage/box/monkeycubes/vkrexicubes
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -36,7 +36,7 @@
 		/obj/item/storage/box/monkeycubes/farwacubes
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -50,7 +50,7 @@
 		/obj/item/storage/box/monkeycubes
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -64,7 +64,7 @@
 		/obj/item/storage/box/monkeycubes/neaeracubes
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 /singleton/cargo_item/hazmathood
@@ -77,7 +77,7 @@
 		/obj/item/clothing/head/hazmat/general
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -91,7 +91,7 @@
 		/obj/item/clothing/suit/hazmat/general
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -105,7 +105,7 @@
 		/obj/item/device/firing_pin/implant/loyalty
 	)
 	access = ACCESS_HEADS
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -119,7 +119,7 @@
 		/mob/living/carbon/human
 	)
 	access = ACCESS_RESEARCH
-	container_type = CARGO_BODYBAG
+	container_type = "bodybag"
 	groupable = FALSE
 	spawn_amount = 1
 
@@ -133,7 +133,7 @@
 		/mob/living/carbon/human/skrell
 	)
 	access = ACCESS_RESEARCH
-	container_type = CARGO_BODYBAG
+	container_type = "bodybag"
 	groupable = FALSE
 	spawn_amount = 1
 
@@ -147,7 +147,7 @@
 		/mob/living/carbon/human/tajaran
 	)
 	access = ACCESS_RESEARCH
-	container_type = CARGO_BODYBAG
+	container_type = "bodybag"
 	groupable = FALSE
 	spawn_amount = 1
 
@@ -161,7 +161,7 @@
 		/mob/living/carbon/human/unathi
 	)
 	access = ACCESS_RESEARCH
-	container_type = CARGO_BODYBAG
+	container_type = "bodybag"
 	groupable = FALSE
 	spawn_amount = 1
 
@@ -175,7 +175,7 @@
 		/mob/living/carbon/human/type_a/cargo
 	)
 	access = ACCESS_RESEARCH
-	container_type = CARGO_BODYBAG
+	container_type = "bodybag"
 	groupable = FALSE
 	spawn_amount = 1
 
@@ -189,7 +189,7 @@
 		/obj/item/device/assembly/prox_sensor
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -203,7 +203,7 @@
 		/obj/item/device/firing_pin/test_range
 	)
 	access = ACCESS_RESEARCH
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -217,7 +217,7 @@
 		/obj/item/device/assembly/timer
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -231,6 +231,6 @@
 		/obj/item/device/assembly/igniter
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1

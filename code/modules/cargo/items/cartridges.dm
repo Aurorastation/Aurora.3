@@ -8,7 +8,7 @@
 		/obj/item/reagent_containers/chem_disp_cartridge
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -22,7 +22,7 @@
 		/obj/item/reagent_containers/chem_disp_cartridge/ale
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -36,7 +36,7 @@
 		/obj/item/reagent_containers/chem_disp_cartridge/beer
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -50,7 +50,7 @@
 		/obj/item/reagent_containers/chem_disp_cartridge/champagne
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -64,7 +64,7 @@
 		/obj/item/reagent_containers/chem_disp_cartridge/coffee
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -78,7 +78,7 @@
 		/obj/item/reagent_containers/chem_disp_cartridge/cognac
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -92,7 +92,7 @@
 		/obj/item/reagent_containers/chem_disp_cartridge/cola
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -106,7 +106,7 @@
 		/obj/item/reagent_containers/chem_disp_cartridge/cream
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -120,7 +120,7 @@
 		/obj/item/reagent_containers/chem_disp_cartridge/dr_gibb
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -134,7 +134,7 @@
 		/obj/item/reagent_containers/chem_disp_cartridge/gin
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -148,7 +148,7 @@
 		/obj/item/reagent_containers/chem_disp_cartridge/ice
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -162,7 +162,7 @@
 		/obj/item/reagent_containers/chem_disp_cartridge/icetea
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -176,7 +176,7 @@
 		/obj/item/reagent_containers/chem_disp_cartridge/kahlua
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -190,7 +190,7 @@
 		/obj/item/reagent_containers/chem_disp_cartridge/lemon_lime
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -204,7 +204,7 @@
 		/obj/item/reagent_containers/chem_disp_cartridge/lime
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -218,7 +218,7 @@
 		/obj/item/reagent_containers/chem_disp_cartridge/mead
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -232,7 +232,7 @@
 		/obj/item/reagent_containers/chem_disp_cartridge/orange
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -246,7 +246,7 @@
 		/obj/item/reagent_containers/chem_disp_cartridge/rum
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -260,7 +260,7 @@
 		/obj/item/reagent_containers/chem_disp_cartridge/smw
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -274,7 +274,7 @@
 		/obj/item/reagent_containers/chem_disp_cartridge/sodawater
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -288,7 +288,7 @@
 		/obj/item/reagent_containers/chem_disp_cartridge/spaceup
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -302,7 +302,7 @@
 		/obj/item/reagent_containers/chem_disp_cartridge/tea
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -316,7 +316,7 @@
 		/obj/item/reagent_containers/chem_disp_cartridge/tequila
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -330,7 +330,7 @@
 		/obj/item/reagent_containers/chem_disp_cartridge/tonic
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -344,7 +344,7 @@
 		/obj/item/reagent_containers/chem_disp_cartridge/vermouth
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -358,7 +358,7 @@
 		/obj/item/reagent_containers/chem_disp_cartridge/vodka
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -372,7 +372,7 @@
 		/obj/item/reagent_containers/chem_disp_cartridge/watermelon
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -386,7 +386,7 @@
 		/obj/item/reagent_containers/chem_disp_cartridge/whiskey
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -400,7 +400,7 @@
 		/obj/item/reagent_containers/chem_disp_cartridge/wine
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -416,7 +416,7 @@
 		/obj/item/reagent_containers/chem_disp_cartridge/acetone
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -430,7 +430,7 @@
 		/obj/item/reagent_containers/chem_disp_cartridge/aluminum
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -444,7 +444,7 @@
 		/obj/item/reagent_containers/chem_disp_cartridge/ammonia
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -458,7 +458,7 @@
 		/obj/item/reagent_containers/chem_disp_cartridge/carbon
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -472,7 +472,7 @@
 		/obj/item/reagent_containers/chem_disp_cartridge/copper
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -486,7 +486,7 @@
 		/obj/item/reagent_containers/chem_disp_cartridge/ethanol
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -500,7 +500,7 @@
 		/obj/item/reagent_containers/chem_disp_cartridge/hydrazine
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -514,7 +514,7 @@
 		/obj/item/reagent_containers/chem_disp_cartridge/hclacid
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -528,7 +528,7 @@
 		/obj/item/reagent_containers/chem_disp_cartridge/iron
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -542,7 +542,7 @@
 		/obj/item/reagent_containers/chem_disp_cartridge/lithium
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -556,7 +556,7 @@
 		/obj/item/reagent_containers/chem_disp_cartridge/mercury
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -570,7 +570,7 @@
 		/obj/item/reagent_containers/chem_disp_cartridge/phosphorus
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -584,7 +584,7 @@
 		/obj/item/reagent_containers/chem_disp_cartridge/potassium
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -598,7 +598,7 @@
 		/obj/item/reagent_containers/chem_disp_cartridge/radium
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -612,7 +612,7 @@
 		/obj/item/reagent_containers/chem_disp_cartridge/silicon
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -626,7 +626,7 @@
 		/obj/item/reagent_containers/chem_disp_cartridge/sodium
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -640,7 +640,7 @@
 		/obj/item/reagent_containers/chem_disp_cartridge/sugar
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -654,7 +654,7 @@
 		/obj/item/reagent_containers/chem_disp_cartridge/sulfur
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -668,7 +668,7 @@
 		/obj/item/reagent_containers/chem_disp_cartridge/sacid
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -682,7 +682,7 @@
 		/obj/item/reagent_containers/chem_disp_cartridge/tungsten
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -696,7 +696,7 @@
 		/obj/item/reagent_containers/chem_disp_cartridge/water
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -712,7 +712,7 @@
 		/obj/item/reagent_containers/chem_disp_cartridge/dylovene
 	)
 	access = ACCESS_MEDICAL
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -726,7 +726,7 @@
 		/obj/item/reagent_containers/chem_disp_cartridge/inaprov
 	)
 	access = ACCESS_MEDICAL
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -740,7 +740,7 @@
 		/obj/item/reagent_containers/chem_disp_cartridge/thetamycin
 	)
 	access = ACCESS_MEDICAL
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -754,6 +754,6 @@
 		/obj/item/reagent_containers/chem_disp_cartridge/perconol
 	)
 	access = ACCESS_MEDICAL
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1

@@ -8,7 +8,7 @@
 		/obj/item/autochisel
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -22,7 +22,7 @@
 		/obj/structure/sculpting_block
 	)
 	access = 0
-	container_type = CARGO_BOX
+	container_type = "box"
 	groupable = FALSE
 	spawn_amount = 1
 
@@ -36,7 +36,7 @@
 		/obj/machinery/space_heater
 	)
 	access = 0
-	container_type = CARGO_BOX
+	container_type = "box"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -55,7 +55,7 @@
 		/obj/item/material/folding_table,
 	)
 	access = 0
-	container_type = CARGO_BOX
+	container_type = "box"
 	groupable = FALSE
 	spawn_amount = 1
 
@@ -69,6 +69,6 @@
 		/obj/item/sleeping_bag,
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1

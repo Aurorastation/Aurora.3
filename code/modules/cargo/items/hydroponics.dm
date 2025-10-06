@@ -8,7 +8,7 @@
 		/obj/item/reagent_containers/glass/bottle/ammonia
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -22,7 +22,7 @@
 		/obj/item/clothing/accessory/apron/blue
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -36,7 +36,7 @@
 		/obj/item/bee_net
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -50,7 +50,7 @@
 		/obj/item/bee_smoker
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -64,7 +64,7 @@
 		/obj/item/beehive_assembly
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 2
 
@@ -78,7 +78,7 @@
 		/mob/living/simple_animal/cat
 	)
 	access = 0
-	container_type = CARGO_BOX
+	container_type = "box"
 	groupable = FALSE
 	spawn_amount = 1
 
@@ -92,7 +92,7 @@
 		/mob/living/simple_animal/chick
 	)
 	access = 0
-	container_type = CARGO_BOX
+	container_type = "box"
 	groupable = FALSE
 	spawn_amount = 1
 
@@ -106,7 +106,7 @@
 		/obj/structure/largecrate/animal/corgi
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -120,7 +120,7 @@
 		/mob/living/simple_animal/cow
 	)
 	access = 0
-	container_type = CARGO_BOX
+	container_type = "box"
 	groupable = FALSE
 	spawn_amount = 1
 
@@ -134,7 +134,7 @@
 		/obj/structure/largecrate/animal/adhomai
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -148,7 +148,7 @@
 		/mob/living/simple_animal/hostile/retaliate/goat
 	)
 	access = 0
-	container_type = CARGO_BOX
+	container_type = "box"
 	groupable = FALSE
 	spawn_amount = 1
 
@@ -162,7 +162,7 @@
 		/mob/living/simple_animal/pig
 	)
 	access = 0
-	container_type = CARGO_BOX
+	container_type = "box"
 	groupable = FALSE
 	spawn_amount = 1
 
@@ -176,7 +176,7 @@
 		/mob/living/simple_animal/hakhma
 	)
 	access = 0
-	container_type = CARGO_BOX
+	container_type = "box"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -190,7 +190,7 @@
 		/obj/item/reagent_containers/food/snacks/egg/schlorrgo
 	)
 	access = 0
-	container_type = CARGO_FREEZER
+	container_type = "freezer"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -204,7 +204,7 @@
 		/obj/structure/largecrate/animal/adhomai/fatshouter
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -218,7 +218,7 @@
 		/obj/item/storage/box/botanydisk
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -232,7 +232,7 @@
 		/obj/machinery/honey_extractor
 	)
 	access = 0
-	container_type = CARGO_BOX
+	container_type = "box"
 	groupable = FALSE
 	spawn_amount = 1
 
@@ -246,7 +246,7 @@
 		/obj/machinery/portable_atmospherics/hydroponics
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -260,7 +260,7 @@
 		/obj/item/clothing/gloves/botanic_leather
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -274,7 +274,7 @@
 		/obj/item/seeds/replicapod
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -288,7 +288,7 @@
 		/obj/item/seeds/kudzuseed
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -302,7 +302,7 @@
 		/obj/item/seeds/random
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -316,7 +316,7 @@
 		/obj/item/device/analyzer/plant_analyzer
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -330,7 +330,7 @@
 		/obj/item/reagent_containers/spray/plantbgone
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -344,7 +344,7 @@
 		/obj/item/bee_pack
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -358,7 +358,7 @@
 		/obj/item/seeds/libertymycelium
 	)
 	access = ACCESS_HYDROPONICS
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -372,7 +372,7 @@
 		/obj/item/seeds/reishimycelium
 	)
 	access = ACCESS_HYDROPONICS
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -386,7 +386,7 @@
 		/obj/item/seeds/wulumunushaseed
 	)
 	access = ACCESS_HYDROPONICS
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -400,7 +400,7 @@
 		/obj/item/material/twohanded/chainsaw
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -414,7 +414,7 @@
 		/obj/item/material/hatchet
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -428,7 +428,7 @@
 		/obj/item/material/minihoe
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -442,7 +442,7 @@
 		/obj/item/grenade/chem_grenade/antiweed
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 

@@ -8,7 +8,7 @@
 		/obj/item/reagent_containers/spray/cleaner
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -22,7 +22,7 @@
 		/obj/item/soap
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -36,7 +36,7 @@
 		/obj/random/soap
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 3
 
@@ -50,7 +50,7 @@
 		/obj/item/storage/bag/trash
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 3
 
@@ -64,7 +64,7 @@
 		/obj/item/device/lightreplacer
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -78,7 +78,7 @@
 		/obj/item/storage/box/lights/mixed
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -92,7 +92,7 @@
 		/obj/item/clothing/suit/caution
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 5
 
@@ -106,7 +106,7 @@
 		/obj/item/mop
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -120,7 +120,7 @@
 		/obj/structure/mopbucket
 	)
 	access = 0
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -134,7 +134,7 @@
 		/obj/item/grenade/chem_grenade/cleaner
 	)
 	access = ACCESS_JANITOR
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
 
@@ -148,6 +148,6 @@
 		/obj/structure/cart/storage/janitorialcart
 	)
 	access = ACCESS_JANITOR
-	container_type = CARGO_CRATE
+	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
