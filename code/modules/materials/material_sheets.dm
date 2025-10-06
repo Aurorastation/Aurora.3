@@ -181,6 +181,10 @@
 /obj/item/stack/material/uranium/full/Initialize()
 	. = ..()
 	amount = max_amount
+	// Horrible horrible scarcity shit. Temporary.
+	var/stack_area = get_area(src)
+	if(istype(stack_area, /area/horizon))
+		amount = round(max_amount * (rand(0.33, 0.67)), 1)
 	update_icon()
 
 /obj/item/stack/material/phoron
@@ -192,6 +196,10 @@
 /obj/item/stack/material/phoron/full/Initialize()
 	. = ..()
 	amount = max_amount
+	// Horrible horrible scarcity shit. Temporary.
+	var/stack_area = get_area(src)
+	if(istype(stack_area, /area/horizon))
+		amount = round(max_amount * (rand(0.2, 0.4)), 1)
 	update_icon()
 
 /obj/item/stack/material/plastic
@@ -204,6 +212,10 @@
 /obj/item/stack/material/plastic/full/Initialize()
 	. = ..()
 	amount = max_amount
+	// Horrible horrible scarcity shit. Temporary.
+	var/stack_area = get_area(src)
+	if(istype(stack_area, /area/horizon))
+		amount = round(max_amount * (rand(0.67, 0.75)), 1)
 	update_icon()
 
 /obj/item/stack/material/gold
@@ -268,6 +280,10 @@
 /obj/item/stack/material/tritium/full/Initialize()
 	. = ..()
 	amount = max_amount
+	// Horrible horrible scarcity shit. Temporary.
+	var/stack_area = get_area(src)
+	if(istype(stack_area, /area/horizon))
+		amount = round(max_amount * (rand(0.33, 0.67)), 1)
 	update_icon()
 
 /obj/item/stack/material/osmium
@@ -309,7 +325,7 @@
 	// Horrible horrible scarcity shit. Temporary.
 	var/stack_area = get_area(src)
 	if(istype(stack_area, /area/horizon))
-		amount = round(max_amount * 0.6, 1)
+		amount = round(max_amount * (rand(0.5, 0.75)), 1)
 	update_icon()
 
 /obj/item/stack/material/plasteel
@@ -326,6 +342,10 @@
 /obj/item/stack/material/plasteel/full/Initialize()
 	. = ..()
 	amount = max_amount
+	// Horrible horrible scarcity shit. Temporary.
+	var/stack_area = get_area(src)
+	if(istype(stack_area, /area/horizon))
+		amount = round(max_amount * (rand(0.5, 0.75)), 1)
 	update_icon()
 
 /obj/item/stack/material/shuttle
@@ -349,6 +369,10 @@
 /obj/item/stack/material/wood/full/Initialize()
 	. = ..()
 	amount = max_amount
+	// Horrible horrible scarcity shit. Temporary.
+	var/stack_area = get_area(src)
+	if(istype(stack_area, /area/horizon))
+		amount = round(max_amount * (rand(0.7, 0.9)), 1)
 	update_icon()
 
 /obj/item/stack/material/wood/coloured
@@ -514,6 +538,10 @@
 /obj/item/stack/material/glass/full/Initialize()
 	. = ..()
 	amount = max_amount
+	// Horrible horrible scarcity shit. Temporary.
+	var/stack_area = get_area(src)
+	if(istype(stack_area, /area/horizon))
+		amount = round(max_amount * (rand(0.5, 0.75)), 1)
 	update_icon()
 
 /obj/item/stack/material/glass/wired
@@ -536,6 +564,10 @@
 /obj/item/stack/material/glass/reinforced/full/Initialize()
 	. = ..()
 	amount = max_amount
+	// Horrible horrible scarcity shit. Temporary.
+	var/stack_area = get_area(src)
+	if(istype(stack_area, /area/horizon))
+		amount = round(max_amount * (rand(0.33, 0.67)), 1)
 	update_icon()
 
 /obj/item/stack/material/glass/phoronglass
@@ -595,6 +627,10 @@
 /obj/item/stack/material/graphite/full/Initialize()
 	. = ..()
 	amount = max_amount
+	// Horrible horrible scarcity shit. Temporary.
+	var/stack_area = get_area(src)
+	if(istype(stack_area, /area/horizon))
+		amount = round(max_amount * (rand(0.33, 0.67)), 1)
 	update_icon()
 
 // Fusion fuel.
