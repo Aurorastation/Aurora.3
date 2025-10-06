@@ -14,7 +14,7 @@
 
 /singleton/cargo_item/farmbot
 	category = "robotics"
-	name = "Cleanbot"
+	name = "Farmbot"
 	supplier = "hephaestus"
 	description = "The botanist's best friend. Various farming equipment seems haphazardly attached to it."
 	price = 220
@@ -163,6 +163,20 @@
 		/obj/item/robot_parts/chest/zenghu
 	)
 	access = ACCESS_ROBOTICS
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/nanopaste
+	category = "robotics"
+	name = "nanopaste"
+	supplier = "zeng_hu"
+	description = "A tube of paste containing swarms of repair nanites. Very effective in repairing robotic machinery."
+	price = 750
+	items = list(
+		/obj/item/stack/nanopaste
+	)
+	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1

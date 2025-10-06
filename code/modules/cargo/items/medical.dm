@@ -492,20 +492,6 @@
 	groupable = TRUE
 	spawn_amount = 1
 
-/singleton/cargo_item/nanopaste
-	category = "medical"
-	name = "nanopaste"
-	supplier = "zeng_hu"
-	description = "A tube of paste containing swarms of repair nanites. Very effective in repairing robotic machinery."
-	price = 750
-	items = list(
-		/obj/item/stack/nanopaste
-	)
-	access = 0
-	container_type = "crate"
-	groupable = TRUE
-	spawn_amount = 1
-
 /singleton/cargo_item/pillbottles
 	category = "medical"
 	name = "pill bottles"
