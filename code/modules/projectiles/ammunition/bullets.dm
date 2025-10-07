@@ -511,13 +511,7 @@
 	if(G && G.get_ammo() <= 0 && G.loaded.len < G.max_shells && G.caliber == caliber && src.loc == user)
 		if(!do_after(user, 0.5 SECONDS, G))
 			return TRUE
-		user.remove_from_mob(src)
-		src.forceMove(G)
-		G.loaded.Insert(1, src)
-		user.visible_message("[user] loads [src] into [G] for [H].", SPAN_NOTICE("You load [src] into [G] for [H]."))
-		playsound(G.loc, src.reload_sound, 50, extrarange = SILENCED_SOUND_EXTRARANGE)
-		G.update_maptext()
-		G.update_icon()
+		G.load_ammo(src, user, TRUE)
 		return TRUE
 	..()
 

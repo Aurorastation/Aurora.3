@@ -156,7 +156,7 @@
 /obj/item/gun/projectile/peac/unloaded
 	ammo_type = null
 
-/obj/item/gun/projectile/peac/load_ammo(var/obj/item/A, mob/user)
+/obj/item/gun/projectile/peac/load_ammo(var/obj/item/A, mob/user, var/skip_delay = FALSE)
 	if(!istype(A, /obj/item/ammo_casing))
 		return ..()
 	var/obj/item/ammo_casing/C = A
@@ -167,10 +167,11 @@
 		to_chat(user,SPAN_WARNING("[src] is full."))
 		return
 
-	user.visible_message("[user] starts loading \a [C] into [src].", SPAN_NOTICE("You start loading \a [C] into [src]..."))
-	if(!do_after(user, 5 SECONDS, target = src))
-		to_chat(user, SPAN_WARNING("You stop loading \the [src]."))
-		return
+	if(!skip_delay)
+		user.visible_message("[user] starts loading \a [C] into [src].", SPAN_NOTICE("You start loading \a [C] into [src]..."))
+		if(!do_after(user, 5 SECONDS, target = src))
+			to_chat(user, SPAN_WARNING("You stop loading \the [src]."))
+			return
 
 	if(loaded.len >= max_shells)
 		to_chat(user,SPAN_WARNING("[src] is full."))
