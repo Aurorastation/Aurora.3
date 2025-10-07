@@ -2,7 +2,7 @@
 	screen_loc = "CENTER"
 	icon_state = "blank"
 	appearance_flags = PLANE_MASTER|NO_CLIENT_COLOR
-	blend_mode = BLEND_MULTIPLY
+	blend_mode = BLEND_OVERLAY
 	plane = LOWEST_EVER_PLANE
 	var/show_alpha = 255
 	var/hide_alpha = 0
@@ -35,7 +35,7 @@
 	name = "game world plane master"
 	plane = GAME_PLANE
 	appearance_flags = PLANE_MASTER //should use client color
-	blend_mode = BLEND_MULTIPLY
+	blend_mode = BLEND_OVERLAY
 
 /atom/movable/screen/plane_master/game_world_above
 	name = "above game world plane master"
@@ -60,6 +60,8 @@
 /atom/movable/screen/plane_master/space
 	name = "space plane master"
 	plane = SPACE_PLANE
+	appearance_flags = PLANE_MASTER //should use client color
+	blend_mode = BLEND_OVERLAY
 
 /// Plane master handling skyboxes.
 /atom/movable/screen/plane_master/skybox
@@ -136,7 +138,7 @@
 /atom/movable/screen/plane_master/hud
 	name = "HUD plane"
 	plane = HUD_PLANE
-	render_relay_plane = RENDER_PLANE_NON_GAME5
+	render_relay_plane = RENDER_PLANE_NON_GAME
 
 /atom/movable/screen/plane_master/cinematic
 	name = "cinematic plane"
