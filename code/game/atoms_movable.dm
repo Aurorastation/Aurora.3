@@ -76,6 +76,11 @@
 	///Internal holder for emissive blocker object, DO NOT USE DIRECTLY. Use blocks_emissive
 	var/mutable_appearance/em_block
 
+	///Lazylist to keep track on the sources of illumination.
+	var/list/affected_movable_lights
+	///Highest-intensity light affecting us, which determines our visibility.
+	var/affecting_dynamic_lumi = 0
+
 	/// Whether this atom should have its dir automatically changed when it moves. Setting this to FALSE allows for things such as directional windows to retain dir on moving without snowflake code all of the place.
 	var/set_dir_on_move = TRUE
 
@@ -523,13 +528,6 @@
 	if(opacity)
 		updateVisibility(src)
 
-	//Lighting recalculation
-	var/datum/light_source/L
-	var/thing
-	for (thing in light_sources)
-		L = thing
-		L.source_atom.update_light()
-
 	RESOLVE_ACTIVE_MOVEMENT
 
 	return TRUE
@@ -927,14 +925,6 @@
 	if(oldarea != newarea)
 		newarea.Entered(src, oldarea)
 
-	// Lighting.
-	if(light_sources)
-		var/datum/light_source/L
-		var/thing
-		for(thing in light_sources)
-			L = thing
-			L.source_atom.update_light()
-
 	// Openturf.
 	if(bound_overlay)
 		// The overlay will handle cleaning itself up on non-openspace turfs.
@@ -1036,3 +1026,23 @@
 /atom/movable/proc/add_point_filter()
 	add_filter("pointglow", 1, list(type = "drop_shadow", x = 0, y = -1, offset = 1, size = 1, color = "#F00"))
 	addtimer(CALLBACK(src, PROC_REF(remove_filter), "pointglow"), 2 SECONDS)
+
+///Keeps track of the sources of dynamic luminosity and updates our visibility with the highest.
+/atom/movable/proc/update_dynamic_luminosity()
+	var/highest = 0
+	for(var/i in affected_movable_lights)
+		if(affected_movable_lights[i] <= highest)
+			continue
+		highest = affected_movable_lights[i]
+	if(highest == affecting_dynamic_lumi)
+		return
+	luminosity -= affecting_dynamic_lumi
+	affecting_dynamic_lumi = highest
+	luminosity += affecting_dynamic_lumi
+
+
+///Helper to change several lighting overlay settings.
+/atom/movable/proc/set_light_range_power_color(range, power, color)
+	set_light_range(range)
+	set_light_power(power)
+	set_light_color(color)

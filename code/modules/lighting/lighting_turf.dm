@@ -1,184 +1,83 @@
-/turf
-	var/dynamic_lighting = TRUE
-	luminosity           = 1
+///Estimates the light power based on the alpha of the light and the range.
+///Assumes a linear fallout at (0, alpha/255) to (range, 0)
+///Used for lightig mask lumcount calculations
+#define LIGHT_POWER_ESTIMATION(alpha, range, distance) max((alpha * (range - distance)) / (255 * range), 0)
 
-	var/tmp/lighting_corners_initialised = FALSE
-
-	var/tmp/list/datum/light_source/affecting_lights       // List of light sources affecting this turf.
-	var/tmp/atom/movable/lighting_overlay/lighting_overlay // Our lighting overlay.
-	var/tmp/list/datum/lighting_corner/corners
-	var/tmp/has_opaque_atom = FALSE // Not to be confused with opacity, this will be TRUE if there's any opaque atom on the tile.
-
-// Causes any affecting light sources to be queued for a visibility update, for example a door got opened.
+/// Causes any affecting light sources to be queued for a visibility update, for example a door got opened.
 /turf/proc/reconsider_lights()
-	//L_PROF(src, "turf_reconsider")
-	var/datum/light_source/L
-	for (var/thing in affecting_lights)
-		L = thing
-		L.vis_update()
+	//Consider static lights
+	lighting_corner_NE?.vis_update()
+	lighting_corner_SE?.vis_update()
+	lighting_corner_SW?.vis_update()
+	lighting_corner_NW?.vis_update()
 
-// Forces a lighting update. Reconsider lights is preferred when possible.
-/turf/proc/force_update_lights()
-	//L_PROF(src, "turf_forceupdate")
-	var/datum/light_source/L
-	for (var/thing in affecting_lights)
-		L = thing
-		L.force_update()
-
-/turf/proc/lighting_clear_overlay()
-	if (lighting_overlay)
-		if (lighting_overlay.loc != src)
-			var/turf/badT = lighting_overlay.loc
-			crash_with("Lighting overlay variable on turf [DEBUG_REF(src)] is insane, lighting overlay actually located on [DEBUG_REF(lighting_overlay.loc)] at ([badT.x],[badT.y],[badT.z])!")
-
-		qdel(lighting_overlay, TRUE)
-		lighting_overlay = null
-
-	//L_PROF(src, "turf_clear_overlay")
-
-	for (var/datum/lighting_corner/C in corners)
-		C.update_active()
-
-// Builds a lighting overlay for us, but only if our area is dynamic.
-/turf/proc/lighting_build_overlay()
-	if (lighting_overlay)
-		return
-
-	//L_PROF(src, "turf_build_overlay")
-
-	var/area/A = loc
-	if (A.dynamic_lighting && dynamic_lighting)
-		if (!lighting_corners_initialised || !corners)
-			generate_missing_corners()
-
-		new /atom/movable/lighting_overlay(src)
-
-		for (var/datum/lighting_corner/C in corners)
-			if (!C.active) // We would activate the corner, calculate the lighting for it.
-				for (var/L in C.affecting)
-					var/datum/light_source/S = L
-					S.recalc_corner(C, TRUE)
-
-				C.active = TRUE
-
-// Returns the average color of this tile. Roughly corresponds to the color of a single old-style lighting overlay.
-/turf/proc/get_avg_color()
-	if (!lighting_overlay)
-		return null
-
-	var/lum_r
-	var/lum_g
-	var/lum_b
-
-	for (var/datum/lighting_corner/L in corners)
-		lum_r += L.lum_r
-		lum_g += L.lum_g
-		lum_b += L.lum_b
-
-	lum_r = CLAMP01(lum_r / 4) * 255
-	lum_g = CLAMP01(lum_g / 4) * 255
-	lum_b = CLAMP01(lum_b / 4) * 255
-
-	return "#[num2hex(lum_r, 2)][num2hex(lum_g, 2)][num2hex(lum_g, 2)]"
-
-#define SCALE(targ,min,max) (targ - min) / (max - min)
+	//consider dynamic lights
+	for(var/atom/movable/lighting_mask/mask as anything in hybrid_lights_affecting)
+		mask.queue_mask_update()
 
 // Used to get a scaled lumcount.
 /turf/proc/get_lumcount(minlum = 0, maxlum = 1)
-	if (!lighting_overlay)
-		return 0.5
-
 	var/totallums = 0
-	for (var/datum/lighting_corner/L in corners)
-		totallums += L.lum_r + L.lum_b + L.lum_g
+	if (static_lighting_object)
+		var/datum/static_lighting_corner/L
+		L = lighting_corner_NE
+		if (L)
+			totallums += L.lum_r + L.lum_b + L.lum_g
+		L = lighting_corner_SE
+		if (L)
+			totallums += L.lum_r + L.lum_b + L.lum_g
+		L = lighting_corner_SW
+		if (L)
+			totallums += L.lum_r + L.lum_b + L.lum_g
+		L = lighting_corner_NW
+		if (L)
+			totallums += L.lum_r + L.lum_b + L.lum_g
 
-	totallums /= 12 // 4 corners, each with 3 channels, get the average.
+		totallums /= 12 // 4 corners, each with 3 channels, get the average.
 
-	totallums = SCALE(totallums, minlum, maxlum)
+		totallums = (totallums - minlum) / (maxlum - minlum)
 
-	return CLAMP01(totallums)
-
-// Gets the current UV illumination of the turf. Always 100% for space & other static-lit tiles.
-/turf/proc/get_uv_lumcount(minlum = 0, maxlum = 1)
-	if (!lighting_overlay)
-		return 1
-
-	L_PROF(src, "turf_get_uv")
-
-	var/totallums = 0
-	for (var/datum/lighting_corner/L in corners)
-		totallums += L.lum_u
-
-	totallums /= 4	// average of four corners.
-
-	totallums = SCALE(totallums, minlum, maxlum)
-
-	return CLAMP01(totallums)
-
-#undef SCALE
-
-// Can't think of a good name, this proc will recalculate the has_opaque_atom variable.
-/turf/proc/recalc_atom_opacity()
-#ifdef AO_USE_LIGHTING_OPACITY
-	var/old = has_opaque_atom
-#endif
-
-	has_opaque_atom = FALSE
-	if (opacity)
-		has_opaque_atom = TRUE
+		totallums = CLAMP01(totallums)
 	else
-		for (var/thing in src) // Loop through every movable atom on our tile
-			var/atom/movable/A = thing
-			if (A.opacity && !QDELETED(A))
-				has_opaque_atom = TRUE
-				break 	// No need to continue if we find something opaque.
+		totallums = 1
 
-#ifdef AO_USE_LIGHTING_OPACITY
-	if (old != has_opaque_atom)
-		regenerate_ao()
-#endif
-
-/turf/Exited(atom/movable/Obj, atom/newloc)
-	. = ..()
-
-	if (Obj && Obj.opacity)
-		recalc_atom_opacity() // Make sure to do this before reconsider_lights(), incase we're on instant updates.
-		reconsider_lights()
-
-/turf/proc/transfer_area_lighting(area/old_area, area/new_area)
-	if (new_area.dynamic_lighting != old_area.dynamic_lighting)
-		if (new_area.dynamic_lighting)
-			lighting_build_overlay()
-
+	for(var/atom/movable/lighting_mask/mask as anything in hybrid_lights_affecting)
+		if(mask.blend_mode == BLEND_ADD)
+			totallums += LIGHT_POWER_ESTIMATION(mask.alpha, mask.radius, get_dist(src, get_turf(mask.attached_atom)))
 		else
-			lighting_clear_overlay()
+			totallums -= LIGHT_POWER_ESTIMATION(mask.alpha, mask.radius, get_dist(src, get_turf(mask.attached_atom)))
+	return clamp(totallums, 0.0, 1.0)
 
-// This is inlined in lighting_source.dm and lighting_source_novis.dm.
-// Update them too if you change this.
-/turf/proc/get_corners()
-	if (!dynamic_lighting && !light_sources)
-		return null
-
-	if (!lighting_corners_initialised)
-		generate_missing_corners()
-
-	if (has_opaque_atom)
-		return null // Since this proc gets used in a for loop, null won't be looped though.
-
-	return corners
-
-// This is inlined in lighting_source.dm and lighting_source_novis.dm.
-// Update them too if you change this.
-/turf/proc/generate_missing_corners()
-	if (!dynamic_lighting && !light_sources)
+///Proc to add movable sources of opacity on the turf and let it handle lighting code.
+/turf/proc/add_opacity_source(atom/movable/new_source)
+	LAZYADD(opacity_sources, new_source)
+	if(opacity)
 		return
+	recalculate_directional_opacity()
 
-	lighting_corners_initialised = TRUE
-	if (!corners)
-		corners = list(null, null, null, null)
 
-	for (var/i = 1 to 4)
-		if (corners[i]) // Already have a corner on this direction.
-			continue
+///Proc to remove movable sources of opacity on the turf and let it handle lighting code.
+/turf/proc/remove_opacity_source(atom/movable/old_source)
+	LAZYREMOVE(opacity_sources, old_source)
+	if(opacity) //Still opaque, no need to worry on updating.
+		return
+	recalculate_directional_opacity()
 
-		corners[i] = new/datum/lighting_corner(src, LIGHTING_CORNER_DIAGONAL[i])
+
+///Calculate on which directions this turfs block view.
+/turf/proc/recalculate_directional_opacity()
+	. = directional_opacity
+	if(opacity)
+		directional_opacity = ALL_CARDINALS
+		if(. != directional_opacity)
+			reconsider_lights()
+		return
+	directional_opacity = NONE
+	for(var/atom/movable/opacity_source as anything in opacity_sources)
+		if(opacity_source.flags_atom & ON_BORDER)
+			directional_opacity |= opacity_source.dir
+		else //If fulltile and opaque, then the whole tile blocks view, no need to continue checking.
+			directional_opacity = ALL_CARDINALS
+			break
+	if(. != directional_opacity && (. == ALL_CARDINALS || directional_opacity == ALL_CARDINALS))
+		reconsider_lights() //The lighting system only cares whether the tile is fully concealed from all directions or not.

@@ -239,13 +239,7 @@
 	var/old_dir = dir
 	dir = new_dir
 
-	// Lighting.
 	if (.)
-		var/datum/light_source/L
-		for (var/thing in light_sources)
-			L = thing
-			if (L.light_angle)
-				L.source_atom.update_light()
 		GLOB.dir_set_event.raise_event(src, old_dir, dir)
 
 /atom/proc/melt()
