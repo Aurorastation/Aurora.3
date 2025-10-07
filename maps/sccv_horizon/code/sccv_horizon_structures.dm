@@ -8,7 +8,7 @@
 	icon_state = "m-1"
 
 	atmos_canpass = CANPASS_DENSITY
-	var/health = 1000
+	maxhealth = 1000
 
 /obj/structure/tank_wall/Initialize(mapload)
 	. = ..()

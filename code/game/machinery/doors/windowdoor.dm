@@ -8,7 +8,7 @@
 	layer = SIDE_WINDOW_LAYER
 	min_force = 4
 	hitsound = 'sound/effects/glass_hit.ogg'
-	maxhealth = 150 //If you change this, consiter changing ../door/window/brigdoor/ health at the bottom of this .dm file
+	maxhealth = OBJECT_HEALTH_MEDIUM
 	health = 150
 	visible = 0.0
 	atom_flags = ATOM_FLAG_CHECKS_BORDER
@@ -239,7 +239,7 @@
 	base_state = "leftsecure"
 	req_access = list(ACCESS_SECURITY)
 	var/id = null
-	maxhealth = 300
+	maxhealth = OBJECT_HEALTH_VERY_HIGH
 	health = 300.0 //Stronger doors for prison (regular window door health is 150)
 
 

@@ -5,18 +5,13 @@
 	desc = "It's a gruesome pile of thick, sticky flesh shaped like a nest."
 	icon = 'icons/obj/gore_structures.dmi'
 	icon_state = "nest"
+	maxhealth = 100
 	var/destroy_message = "THE STRUCTURE collapses in on itself!"
-	var/maxHealth = 100
-	var/health = 100
-
-/obj/structure/bed/nest/Initialize(mapload, new_material, new_padding_material)
-	. = ..()
-	health = maxHealth
 
 /obj/structure/bed/nest/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance <= 2)
-		var/health_div = health / maxHealth
+		var/health_div = health / maxhealth
 		if(health_div >= 0.9)
 			. += SPAN_NOTICE("\The [src] appears completely intact.")
 		else if(health_div >= 0.7)

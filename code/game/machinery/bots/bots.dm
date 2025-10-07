@@ -7,22 +7,11 @@
 	use_power = POWER_USE_OFF
 	var/obj/item/card/id/botcard			// the ID card that the bot "holds"
 	var/on = 1
-	var/health = 0 //do not forget to set health for your bot!
-	var/maxhealth = 0
 	var/fire_dam_coeff = 1.0
 	var/brute_dam_coeff = 1.0
 	var/open = 0//Maint panel
 	var/locked = 1
 	//var/emagged = 0 //Urist: Moving that var to the general /bot tree as it's used by most bots
-
-/obj/machinery/bot/condition_hints(mob/user, distance, is_adjacent)
-	. += list()
-	. = ..()
-	if (src.health < maxhealth)
-		if (src.health > maxhealth/3)
-			. += SPAN_WARNING("[src]'s parts look loose.")
-		else
-			. += SPAN_DANGER("[src]'s parts look very loose!")
 
 /obj/machinery/bot/Initialize(mapload, d, populate_components, is_internal)
 	. = ..()

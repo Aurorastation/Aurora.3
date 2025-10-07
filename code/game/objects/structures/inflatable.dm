@@ -45,10 +45,12 @@
 	anchored = TRUE
 	atmos_canpass = CANPASS_DENSITY
 
+	maxhealth = OBJECT_HEALTH_FRAGILE
+
 	var/deflating = FALSE
 	var/undeploy_path = null
 	var/torn_path = null
-	var/health = 15
+
 
 /obj/structure/inflatable/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()

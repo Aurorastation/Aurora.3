@@ -191,11 +191,7 @@
 			user.show_message(SPAN_WARNING("\The [src] is already crumpled."))
 			return
 		//crumple dat paper
-		info = stars(info,85)
-		user.visible_message("\The [user] crumples \the [src] into a ball!", "You crumple \the [src] into a ball.")
-		playsound(src, 'sound/bureaucracy/papercrumple.ogg', 50, 1)
-		icon_state = "scrap"
-		throw_range = 4 //you can now make epic paper ball hoops into the disposals (kinda dumb that you could only throw crumpled paper 1 tile) -wezzy
+		crumple(user)
 		return
 
 	if (user.a_intent == I_GRAB && icon_state != "scrap" && can_fold)
@@ -242,6 +238,17 @@
 			last_honk = world.time
 			playsound(src.loc, 'sound/items/bikehorn.ogg', 50, 1)
 		src.add_fingerprint(user)
+
+/**
+ * Turns a paper into a crumpled ball. Only prints a message and makes a sound if user is present.
+ */
+/obj/item/paper/proc/crumple(mob/user)
+	info = stars(info,85)
+	if(user)
+		user.visible_message("\The [user] crumples \the [src] into a ball!", "You crumple \the [src] into a ball.")
+		playsound(src, 'sound/bureaucracy/papercrumple.ogg', 50, 1)
+	icon_state = "scrap"
+	throw_range = 4
 
 /obj/item/paper/attack_ai(var/mob/living/silicon/ai/user)
 	show_content(user)

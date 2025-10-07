@@ -9,11 +9,10 @@
 	obj_flags = OBJ_FLAG_CONDUCTABLE | OBJ_FLAG_MOVES_UNSUPPORTED
 	explosion_resistance = 1
 	layer = BELOW_WINDOW_LAYER
-	var/health = 10
+	health = 10
 	var/destroyed = 0
 
-/obj/structure/grille/condition_hints(mob/user, distance, is_adjacent)
-	. += ..()
+/obj/structure/grille/get_damage_condition_hints(mob/user, distance, is_adjacent)
 	if(health < initial(health))
 		var/state
 		var/current_damage = health / initial(health)
@@ -24,7 +23,7 @@
 				state = SPAN_ALERT("The grille has taken some serious damage.")
 			if(0.8 to 1)
 				state = SPAN_NOTICE("The grille is in less than perfect condition.")
-		. += state
+		. = state
 
 /obj/structure/grille/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()

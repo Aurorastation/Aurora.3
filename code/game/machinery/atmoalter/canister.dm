@@ -4,7 +4,7 @@
 	icon = 'icons/obj/atmos.dmi'
 	icon_state = "yellow"
 	density = 1
-	var/health = 100.0
+	health = 50
 	obj_flags = OBJ_FLAG_SIGNALER | OBJ_FLAG_CONDUCTABLE
 	w_class = WEIGHT_CLASS_HUGE
 

@@ -11,6 +11,9 @@
 	density = TRUE
 	layer = CLOSED_DOOR_LAYER
 	dir = SOUTH
+
+	maxhealth = OBJECT_HEALTH_VERY_HIGH
+
 	var/open_layer = OPEN_DOOR_LAYER
 	var/closed_layer = CLOSED_DOOR_LAYER
 
@@ -35,8 +38,6 @@
 	var/air_properties_vary_with_direction = 0
 	/// Integer. Corresponds to dirs. If opened from this dir, no access is required.
 	var/unres_dir = null
-	var/maxhealth = 300
-	var/health
 	/// Integer. How many strong hits it takes to destroy the door.
 	var/destroy_hits = 10
 	/// Integer. Minimum amount of force needed to damage the door with a melee weapon.
@@ -60,15 +61,6 @@
 	atmos_canpass = CANPASS_PROC
 
 	can_astar_pass = CANASTARPASS_ALWAYS_PROC
-
-/obj/machinery/door/condition_hints(mob/user, distance, is_adjacent)
-	. = ..()
-	if(src.health < src.maxhealth / 4)
-		. += SPAN_WARNING("\The [src] looks like it's about to break!")
-	else if(src.health < src.maxhealth / 2)
-		. += SPAN_WARNING("\The [src] looks seriously damaged!")
-	else if(src.health < src.maxhealth * 3/4)
-		. += SPAN_WARNING("\The [src] shows signs of damage!")
 
 /obj/machinery/door/mouse_drop_receive(atom/dropping, mob/user, params)
 	//Adds the component only once. We do it here & not in Initialize() because there are tons of walls & we don't want to add to their init times

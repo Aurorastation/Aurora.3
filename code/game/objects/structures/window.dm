@@ -17,11 +17,11 @@
 	anchored = TRUE
 	atom_flags = ATOM_FLAG_CHECKS_BORDER
 	obj_flags = OBJ_FLAG_ROTATABLE|OBJ_FLAG_MOVES_UNSUPPORTED
+	maxhealth = OBJECT_HEALTH_FRAGILE
+
 	var/hitsound = 'sound/effects/glass_hit.ogg'
-	var/maxhealth = 14
 	var/maximal_heat = T0C + 100 // Maximal heat before this window begins taking damage from fire
 	var/damage_per_fire_tick = 2 // Amount of damage per fire tick. Regular windows are not fireproof so they might as well break quickly.
-	var/health
 	var/ini_dir = null
 	var/state = 2
 	var/reinf = FALSE
@@ -34,27 +34,26 @@
 
 	atmos_canpass = CANPASS_PROC
 
-/obj/structure/window/condition_hints(mob/user, distance, is_adjacent)
-	. += ..()
+/obj/structure/window/get_damage_condition_hints(mob/user, distance, is_adjacent)
 	if(health == maxhealth)
-		. += SPAN_NOTICE("It looks fully intact.")
+		. = SPAN_NOTICE("It looks fully intact.")
 	else
 		var/perc = health / maxhealth
 		if(perc > 0.75)
-			. += SPAN_NOTICE("It has a few cracks.")
+			. = SPAN_NOTICE("It has a few cracks.")
 		else if(perc > 0.5)
-			. += SPAN_WARNING("It looks slightly damaged.")
+			. = SPAN_WARNING("It looks slightly damaged.")
 		else if(perc > 0.25)
-			. += SPAN_WARNING("It looks moderately damaged.")
+			. = SPAN_WARNING("It looks moderately damaged.")
 		else
-			. += SPAN_DANGER("It looks heavily damaged.")
+			. = SPAN_DANGER("It looks heavily damaged.")
 	if(silicate)
 		if (silicate < 30)
-			. += SPAN_NOTICE("It has a thin layer of silicate.")
+			. = SPAN_NOTICE("It has a thin layer of silicate.")
 		else if (silicate < 70)
-			. += SPAN_NOTICE("It is covered in silicate.")
+			. = SPAN_NOTICE("It is covered in silicate.")
 		else
-			. += SPAN_NOTICE("There is a thick layer of silicate covering it.")
+			. = SPAN_NOTICE("There is a thick layer of silicate covering it.")
 
 /obj/structure/window/proc/update_nearby_icons()
 	QUEUE_SMOOTH_NEIGHBORS(src)
@@ -428,7 +427,7 @@
 	glasstype = /obj/item/stack/material/glass
 	maximal_heat = T0C + 100
 	damage_per_fire_tick = 2
-	maxhealth = 12
+	maxhealth = OBJECT_HEALTH_FRAGILE
 
 /obj/structure/window/basic/full
 	name = "glass"
@@ -440,7 +439,7 @@
 	desc = "It looks rather strong. Might take a few good hits to shatter it."
 	icon_state = "rwindow"
 	basestate = "rwindow"
-	maxhealth = 40
+	maxhealth = OBJECT_HEALTH_LOW
 	reinf = TRUE
 	maximal_heat = T0C + 750
 	damage_per_fire_tick = 2
@@ -461,7 +460,7 @@
 /obj/structure/window/reinforced/tinted/frosted
 	name = "reinforced frosted glass pane"
 	desc = "It looks rather strong and frosted over. Looks like it might take a few less hits then a normal reinforced window."
-	maxhealth = 30
+	maxhealth = OBJECT_HEALTH_EXTREMELY_LOW
 
 /obj/structure/window/reinforced/polarized
 	name = "reinforced electrochromic glass pane"
@@ -535,7 +534,7 @@
 	glasstype = /obj/item/stack/material/glass/phoronglass
 	maximal_heat = T0C + 2000
 	damage_per_fire_tick = 1 // This should last for 80 fire ticks if the window is not damaged at all. The idea is that borosilicate windows have something like ablative layer that protects them for a while.
-	maxhealth = 40
+	maxhealth = OBJECT_HEALTH_VERY_LOW
 	/// Phoron-infused silicate
 	rad_resistance_modifier = 4
 
@@ -546,13 +545,13 @@
 	glasstype = /obj/item/stack/material/glass/phoronrglass
 	reinf = TRUE
 	maximal_heat = T0C + 4000
-	maxhealth = 80
+	maxhealth = OBJECT_HEALTH_LOW
 
 /obj/structure/window/borosilicate/reinforced/skrell
 	name = "advanced borosilicate alloy window"
 	desc = "A window made out of a higly advanced borosilicate alloy. It seems to be extremely strong."
 	color = GLASS_COLOR_PHORON
-	maxhealth = 250
+	maxhealth = OBJECT_HEALTH_HIGH
 
 /********** Shuttle Windows **********/
 /obj/structure/window/shuttle
@@ -563,7 +562,7 @@
 	basestate = "w"
 	atom_flags = 0
 	obj_flags = null
-	maxhealth = 40
+	maxhealth = OBJECT_HEALTH_VERY_LOW
 	reinf = TRUE
 	dir = 5
 	smoothing_flags = SMOOTH_TRUE
@@ -574,8 +573,7 @@
 /obj/structure/window/shuttle/legion
 	name = "reinforced cockpit window"
 	icon = 'icons/obj/smooth/shuttle_window_legion.dmi'
-	health = 160
-	maxhealth = 160
+	maxhealth = OBJECT_HEALTH_HIGH
 
 /obj/structure/window/shuttle/palepurple
 	icon = 'icons/obj/smooth/shuttle_window_palepurple.dmi'
@@ -584,8 +582,7 @@
 	name = "advanced borosilicate alloy window"
 	desc = "It looks extremely strong. Might take many good hits to crack it."
 	icon = 'icons/obj/smooth/skrell_window_purple.dmi'
-	health = 500
-	maxhealth = 500
+	maxhealth = OBJECT_HEALTH_VERY_HIGH
 	smoothing_flags = SMOOTH_MORE | SMOOTH_DIAGONAL
 	canSmoothWith = list(
 		/turf/simulated/wall/shuttle/skrell,
@@ -597,8 +594,7 @@
 	desc = "It looks extremely strong. Might take many good hits to crack it."
 	icon = 'icons/turf/smooth/scc_ship/scc_ship_windows.dmi'
 	icon_state = "map_window"
-	health = 500
-	maxhealth = 500
+	maxhealth = OBJECT_HEALTH_VERY_HIGH
 	alpha = 255
 	smoothing_flags = SMOOTH_MORE
 	canSmoothWith = list(
@@ -622,8 +618,7 @@
 
 /obj/structure/window/shuttle/scc
 	icon = 'icons/obj/smooth/scc_shuttle_window.dmi'
-	health = 160
-	maxhealth = 160
+	maxhealth = OBJECT_HEALTH_HIGH
 
 /obj/structure/window/shuttle/crescent
 	desc = "It looks rather strong."
@@ -640,7 +635,7 @@
 	atom_flags = 0
 	obj_flags = null
 	dir = 5
-	maxhealth = 28 // Two glass panes worth of health, since that's the minimum you need to break through to get to the other side.
+	maxhealth = OBJECT_HEALTH_EXTREMELY_LOW // Two glass panes worth of health, since that's the minimum you need to break through to get to the other side.
 	glasstype = /obj/item/stack/material/glass
 	shardtype = /obj/item/material/shard
 	full = TRUE
@@ -796,7 +791,7 @@
 	icon = 'icons/obj/smooth/window/full_window.dmi'
 	icon_state = "window_glass"
 	basestate = "window_glass"
-	maxhealth = 80 // Two reinforced panes worth of health, since that's the minimum you need to break through to get to the other side.
+	maxhealth = OBJECT_HEALTH_LOW
 	reinf = TRUE
 	maximal_heat = T0C + 750
 	glasstype = /obj/item/stack/material/glass/reinforced
@@ -891,7 +886,7 @@
 	basestate = "window_glass"
 	glasstype = /obj/item/stack/material/glass/phoronglass
 	shardtype = /obj/item/material/shard/phoron
-	maxhealth = 80 // Two borosilicate glass panes worth of health, since that's the minimum you need to break through to get to the other side.
+	maxhealth = OBJECT_HEALTH_LOW
 	maximal_heat = T0C + 2000
 	damage_per_fire_tick = 1
 
@@ -900,7 +895,7 @@
 	name = "reinforced borosilicate window"
 	desc = "A borosilicate alloy window, with rods supporting it. It seems to be very strong."
 	glasstype = /obj/item/stack/material/glass/phoronrglass
-	maxhealth = 160 // Two reinforced borosilicate glass panes worth of health, since that's the minimum you need to break through to get to the other side.
+	maxhealth = OBJECT_HEALTH_MEDIUM
 	reinf = TRUE
 	maximal_heat = T0C + 4000
 	rad_resistance_modifier = 4

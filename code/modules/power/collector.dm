@@ -12,8 +12,7 @@ GLOBAL_LIST_INIT_TYPED(rad_collectors, /obj/machinery/power/rad_collector, list(
 	/// The tank of phoron currently attached to the radiation collector
 	var/obj/item/tank/phoron/loaded_tank = null
 
-	/// Current health of the collector. TODO: replace with global health
-	var/health = 100
+	health = 100
 	/// The maximum safe temperature that the radiation collector can handle
 	var/max_safe_temp = 1000 + T0C
 	/// A boolean determining whether the collector has melted or not.

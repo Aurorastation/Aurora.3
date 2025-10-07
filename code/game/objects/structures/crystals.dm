@@ -5,25 +5,25 @@
 	icon_state = "scattered"
 	anchored = TRUE
 	density = FALSE
+	maxhealth = OBJECT_HEALTH_HIGH
+
 	var/singleton/reagent/reagent_id
 	var/state = 0
-	var/health = 100
 	var/mine_rate = 1 // how fast you can mine it
 
 	var/obj/machinery/power/crystal_agitator/creator // used to re-add dense turfs to agitation list when destroyed
 
-/obj/structure/reagent_crystal/condition_hints(mob/user, distance, is_adjacent)
-	. += ..()
-	var/current_damage = health / initial(health)
+/obj/structure/reagent_crystal/get_damage_condition_hints(mob/user, distance, is_adjacent)
+	var/current_damage = health / maxhealth
 	switch(current_damage)
 		if(0 to 0.2)
-			. += SPAN_DANGER("The crystal is barely holding together!")
+			. = SPAN_DANGER("The crystal is barely holding together!")
 		if(0.2 to 0.4)
-			. += SPAN_WARNING("The crystal has various cracks visible!")
+			. = SPAN_WARNING("The crystal has various cracks visible!")
 		if(0.4 to 0.8)
-			. += SPAN_WARNING("The crystal has scratches and deeper grooves on its surface.")
+			. = SPAN_WARNING("The crystal has scratches and deeper grooves on its surface.")
 		if(0.8 to 1)
-			. += SPAN_NOTICE("The crystal looks structurally sound.")
+			. = SPAN_NOTICE("The crystal looks structurally sound.")
 
 /obj/structure/reagent_crystal/Initialize(mapload, var/reagent_i = null, var/our_creator = null)
 	. = ..()

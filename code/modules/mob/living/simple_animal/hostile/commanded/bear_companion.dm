@@ -13,7 +13,7 @@
 	density = TRUE
 	belongs_to_station = FALSE
 
-	attacktext = "swatted"
+	attacktext = "swats"
 	melee_damage_lower = 25
 	melee_damage_upper = 25
 	resist_mod = 5

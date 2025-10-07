@@ -710,7 +710,7 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 	icon = 'icons/obj/structure/urban/windows_tall.dmi'
 	icon_state = "wood"
 	basestate = "wood"
-	maxhealth = 60
+	maxhealth = OBJECT_HEALTH_VERY_LOW
 	alpha = 255
 
 /obj/structure/window/urban/framed
@@ -757,8 +757,7 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 	icon = 'icons/obj/structure/urban/building_external.dmi'
 	icon_state = "wall_half"
 	//basestate = "wall_half"
-	health = 200
-	maxhealth = 200
+	maxhealth = OBJECT_HEALTH_HIGH
 	layer = ABOVE_HUMAN_LAYER
 
 /obj/structure/blocker/exterior_wall/red

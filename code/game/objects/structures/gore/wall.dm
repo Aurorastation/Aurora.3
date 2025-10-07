@@ -2,21 +2,21 @@
 	name = "flesh floor"
 	desc = "Looks like the floor was covered by some fleshlike growth."
 	icon_state = "flesh_floor"
-	maxHealth = 100
+	maxhealth = 100
 
 /obj/structure/gore/wall
 	name = "flesh wall"
 	desc = "Chunks of flesh sculpted to form an impassable wall."
 	icon_state = "flesh_wall"
 	opacity = TRUE
-	maxHealth = 200
+	maxhealth = 200
 
 /obj/structure/gore/wall/membrane
 	name = "flesh membrane"
 	desc = "Skin and muscle stretched just thin enough to let light pass through."
 	icon_state = "flesh_membrane"
 	opacity = FALSE
-	maxHealth = 120
+	maxhealth = 120
 
 /obj/structure/gore/wall/Initialize()
 	. = ..()

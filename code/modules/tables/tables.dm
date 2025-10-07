@@ -8,7 +8,6 @@
 	pass_flags_self = PASSTABLE | LETPASSTHROW
 	climbable = TRUE
 	layer = TABLE_LAYER
-	breakable = TRUE
 	build_amt = 1
 
 	//Preset shit
@@ -17,8 +16,7 @@
 	var/no_cargo
 
 	var/flipped = 0
-	var/maxhealth = 10
-	var/health = 10
+	health = 10
 
 	// For racks (which cannot be either of these things)
 	var/can_reinforce = 1
@@ -34,8 +32,7 @@
 
 	var/list/connections = list("nw0", "ne0", "sw0", "se0")
 
-/obj/structure/table/condition_hints(mob/user, distance, is_adjacent)
-	. += ..()
+/obj/structure/table/get_damage_condition_hints(mob/user, distance, is_adjacent)
 	if(health < maxhealth)
 		switch(health / maxhealth)
 			if(0.0 to 0.5)
@@ -139,8 +136,7 @@
 		material = SSmaterials.get_material_by_name(table_mat)
 	if(table_reinf)
 		reinforced = SSmaterials.get_material_by_name(table_reinf)
-	if(reinforced)
-		breakable = FALSE
+		AddComponent(/datum/component/armor, list(MELEE = ARMOR_MELEE_KNIVES, BULLET = ARMOR_BALLISTIC_MINOR))
 
 	. = ..()
 
@@ -194,10 +190,10 @@
 
 	reinforced = common_material_add(S, user, "reinforc")
 	if(reinforced)
-		breakable = FALSE
 		update_desc()
 		queue_icon_update()
 		update_material()
+		AddComponent(/datum/component/armor, list(MELEE = ARMOR_MELEE_KNIVES, BULLET = ARMOR_BALLISTIC_MINOR))
 
 /obj/structure/table/proc/update_desc()
 	if(material)
@@ -254,7 +250,6 @@
 
 /obj/structure/table/proc/remove_reinforced(obj/item/screwdriver/S, mob/user)
 	reinforced = common_material_remove(user, reinforced, 40, "reinforcements", "screws", 'sound/items/Screwdriver.ogg')
-	breakable = TRUE
 
 /obj/structure/table/proc/remove_material(obj/item/wrench/W, mob/user)
 	material = common_material_remove(user, material, 20, "plating", "bolts", W.usesound)

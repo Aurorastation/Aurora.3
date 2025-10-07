@@ -2,52 +2,85 @@
 	layer = OBJ_LAYER
 	animate_movement = 2
 
-	var/list/matter //Used to store information about the contents of the object.
-	var/recyclable = FALSE //Whether the object can be recycled (eaten) by something like the Autolathe
-	var/w_class // Size of the object.
-	var/list/origin_tech = null	//Used by R&D to determine what research bonuses it grants.
-	var/unacidable = 0 //universal "unacidabliness" var, here so you can use it in any obj.
+	/// Used to store information about the contents of the object.
+	var/list/matter
+	/// Whether the object can be recycled (eaten) by something like the Autolathe.
+	var/recyclable = FALSE
+	/// Size of the object.
+	var/w_class
+	///Used by R&D to determine what research bonuses it grants.
+	var/list/origin_tech = null
+	/// Universal "unacidabliness" var, here so you can use it in any obj. As xeno acid is gone, this is now only used for chemistry acid.
+	var/unacidable = 0
 
-	var/obj_flags //Special flags such as whether or not this object can be rotated.
+	/// Special flags such as whether or not this object can be rotated.
+	var/obj_flags
+	/// The object's force when thrown.
 	var/throwforce = 1
-	var/list/attack_verb //Used in attackby() to say how something was attacked "[x] has been [z.attack_verb] by [y] with [z]"
-	var/sharp = 0		// whether this object cuts
-	var/edge = FALSE	// whether this object is more likely to dismember
-	var/in_use = 0 // If we have a user using us, this will be set on. We will check if the user has stopped using us, and thus stop updating and LAGGING EVERYTHING!
+	/// Used in attackby() to say how something was attacked "[x] has been [z.attack_verb] by [y] with [z]".
+	var/list/attack_verb
+	/// Whether this object creates CUT wounds.
+	var/sharp = 0
+	/// Whether this object is more likely to dismember.
+	var/edge = FALSE
+	/// If we have a user using us, this will be set on. We will check if the user has stopped using us, and thus stop updating and LAGGING EVERYTHING!
+	var/in_use = 0
+	/// The type of damage this object deals.
 	var/damtype = DAMAGE_BRUTE
+	/// The damage this object deals.
 	var/force = 0
+	/// The armour penetration this object has.
 	var/armor_penetration = 0
-	var/noslice = 0 // To make it not able to slice things.
-
+	/// To make it not able to slice things. Used for curtains, flaps, pumpkins... why the fuck aren't you just using edge?
+	var/noslice = FALSE
+	/// The health of this object. If this is null, it will set health to maxhealth on Initialize. Otherwise, you can set a custom health value to use at initialize.
+	var/health
+	/// The maximum health of this object. If null, health is not used.
+	var/maxhealth
+	/// The armor of this object, turned into an armor component.
+	var/list/armor
+	/// The sound played when this object is destroyed.
+	var/destroy_sound
+	/// Set to TRUE when shocked by the tesla ball, to not repeatedly shock the object.
 	var/being_shocked = 0
 
-	var/icon_species_tag = ""//If set, this holds the 3-letter shortname of a species, used for species-specific worn icons
-	var/icon_auto_adapt = 0//If 1, this item will automatically change its species tag to match the wearer's species.
-	//requires that the wearer's species is listed in icon_supported_species_tags
+	/// The slot the object will equip to.
+	var/equip_slot = 0
+	/// If set, this holds the 3-letter shortname of a species, used for species-specific worn icons
+	var/icon_species_tag = ""
+	/// If 1, this item will automatically change its species tag to match the wearer's species. Requires that the wearer's species is listed in icon_supported_species_tags.
+	var/icon_auto_adapt = 0
 
 	/**
 	 * A list of strings used with icon_auto_adapt, a list of species which have differing appearances for this item,
-	 * based on the specie short name
+	 * based on the species short name
 	 */
 	var/list/icon_supported_species_tags
 
 	///If `TRUE`, will use the `icon_species_tag` var for rendering this item in the left/right hand
 	var/icon_species_in_hand = FALSE
 
-	var/equip_slot = 0
+
 	///Played when the item is used, for example tools
 	var/usesound
-
+	/// The speed of the tool. This is generally a divisor.
 	var/toolspeed = 1
 
+	/// The sound this tool makes in surgery.
 	var/surgerysound
 
 	/* START BUCKLING VARS */
+	/// A list of things that can buckle to this atom.
 	var/list/can_buckle
+	/// If the buckled atom can move, and thus face directions.
 	var/buckle_movable = 0
+	/// The direction forced on a buckled atom.
 	var/buckle_dir = 0
-	var/buckle_lying = -1 //bed-like behavior, forces mob.lying = buckle_lying if != -1
-	var/buckle_require_restraints = 0 //require people to be handcuffed before being able to buckle. eg: pipes
+	/// Causesbed-like behavior, forces mob.lying = buckle_lying if != -1.
+	var/buckle_lying = -1
+	/// Require people to be handcuffed before being able to buckle. eg: pipes.
+	var/buckle_require_restraints = 0
+	/// The atom buckled to us.
 	var/atom/movable/buckled = null
 	/**
 	* Stores the original layer of a buckled atom.
@@ -57,27 +90,42 @@
 	* Used in `/unbuckle()` to restore the original layer.
 	*/
 	var/buckled_original_layer = null
-	var/buckle_delay = 0 //How much extra time to buckle someone to this object.
+	/// How much extra time to buckle someone to this object.
+	var/buckle_delay = 0
 	/* END BUCKLING VARS */
 
 	/* START ACCESS VARS */
+	/// Required access.
 	var/list/req_access
+	/// Only require one of these accesses.
 	var/list/req_one_access
 	/* END ACCESS VARS */
 
 	/* START PERSISTENCE VARS */
-	// State check if the subsystem is tracking the object, used for easy state checking without iterating the register
+	/// State check if the subsystem is tracking the object, used for easy state checking without iterating the register
 	var/persistence_track_active = FALSE
-	// Tracking ID of the object used by the persistence subsystem
+	/// Tracking ID of the object used by the persistence subsystem
 	var/persistence_track_id = 0
-	// Author ckey of the object used in persistence subsystem
-	// Note: Not every type can have an author, like generated dirt for example
-	// Additionally, the ckey is only an indicator, for example: A player could pin a paper without having written it
-	// This should be considered for any moderation purpose
+	/// Author ckey of the object used in persistence subsystem
+	/// Note: Not every type can have an author, like generated dirt for example
+	/// Additionally, the ckey is only an indicator, for example: A player could pin a paper without having written it
+	/// This should be considered for any moderation purpose
 	var/persistence_author_ckey = null
-	// Expiration time used when saving/updating a persistent type, this can be changed depending on the use case by assigning a new value
+	/// Expiration time used when saving/updating a persistent type, this can be changed depending on the use case by assigning a new value
 	var/persistance_expiration_time_days = PERSISTENT_DEFAULT_EXPIRATION_DAYS
 	/* END PERSISTENCE VARS */
+
+/obj/Initialize(mapload, ...)
+	. = ..()
+	if(maxhealth)
+		if(!health)
+			// Allows you to set dynamic health states on initialize.
+			health = maxhealth
+	if(islist(armor))
+		for(var/type in armor)
+			if(armor[type])
+				AddComponent(/datum/component/armor, armor)
+				break
 
 /obj/Destroy()
 	if(persistence_track_active) // Prevent hard deletion of references in the persistence register by removing it preemptively
@@ -112,6 +160,80 @@
 
 /mob/proc/CanUseObjTopic()
 	return 1
+
+/**
+ * This proc is called to add damage to an object. If there is no health left, it calls on_death().
+ */
+/obj/proc/add_damage(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
+	if(!damage || !maxhealth)
+		return FALSE
+
+	var/datum/component/armor/armor = GetComponent(/datum/component/armor)
+	if(armor)
+		var/blocked = armor.get_blocked(damage_type, damage_flags, armor_penetration, damage)
+		damage *= 1 - blocked
+
+	health = max(health - damage, 0)
+	update_health()
+	if(!health)
+		if(destroy_sound)
+			playsound(src, destroy_sound, 75)
+		on_death()
+	return TRUE
+
+/obj/condition_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(health < maxhealth)
+		. += get_damage_condition_hints(user, distance, is_adjacent)
+
+/**
+ * For custom damage condition hints. Some structures may want different ones than the default, like the cult crystal.
+ */
+/obj/proc/get_damage_condition_hints(mob/user, distance, is_adjacent)
+	if(health < maxhealth * 0.25)
+		. = SPAN_DANGER("\The [src] looks like it's about to break!")
+	else if(health < maxhealth * 0.5)
+		. = SPAN_ALERT("\The [src] looks seriously damaged!")
+	else if(health < maxhealth * 0.75)
+		. = SPAN_WARNING("\The [src] shows signs of damage!")
+
+/**
+ * This proc is called when object health changes. Use this to set custom states, do messages, etc.
+ */
+/obj/proc/update_health()
+	return
+
+/**
+ * This proc is called by update_health() when the health of the object hits zero. Handles the destruction of the object, or you can override it to do different effects.
+ */
+/obj/proc/on_death(damage, damage_flags, damage_type, armor_penetration, obj/weapon)
+	qdel(src)
+
+/**
+ * This proc is called to set the object's health directly.
+ */
+/obj/proc/change_health(new_health)
+	if(!maxhealth)
+		return
+
+	if(health >= maxhealth)
+		return FALSE
+
+	health = min(new_health, maxhealth)
+	return TRUE
+
+/**
+ * This proc is called to directly add to an object's health (basically, to add it).
+ */
+/obj/proc/add_health(repair_amount)
+	if(!maxhealth)
+		return
+
+	if(health >= maxhealth)
+		return FALSE
+
+	health = min(health + repair_amount, maxhealth)
+	return TRUE
 
 /obj/proc/CouldUseTopic(var/mob/user)
 	user.AddTopicPrint(src)

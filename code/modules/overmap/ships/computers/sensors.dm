@@ -130,8 +130,8 @@
 	if(sensors)
 		data["on"] = sensors.use_power
 		data["range"] = sensors.range
-		data["health"] = sensors.health
-		data["max_health"] = sensors.max_health
+		data["integrity"] = sensors.health
+		data["max_health"] = sensors.maxhealth
 		data["deep_scan_name"] = sensors.deep_scan_sensor_name
 		data["deep_scan_range"] = sensors.deep_scan_range
 		data["deep_scan_toggled"] = sensors.deep_scan_toggled
@@ -401,8 +401,7 @@
 	icon = 'icons/obj/machinery/sensors.dmi'
 	icon_state = "sensors"
 	anchored = 1
-	var/max_health = 200
-	var/health = 200
+	health = 200
 	var/critical_heat = 50 // sparks and takes damage when active & above this heat
 	var/heat_reduction = 1.7 // mitigates this much heat per tick - can sustain range 4
 	var/heat = 0
@@ -438,7 +437,7 @@
 		return TRUE
 	if(default_part_replacement(user, attacking_item))
 		return TRUE
-	var/damage = max_health - health
+	var/damage = maxhealth - health
 	if(damage && attacking_item.iswelder())
 
 		var/obj/item/weldingtool/WT = attacking_item
@@ -495,17 +494,6 @@
 	var/heat_percentage = heat / critical_heat * 100
 	if(heat_percentage > 85)
 		AddOverlays("sensors-effect-hot")
-
-/obj/machinery/shipsensors/condition_hints(mob/user, distance, is_adjacent)
-	. += ..()
-	if(health <= 0)
-		. += "\The [src] is wrecked."
-	else if(health < max_health * 0.25)
-		. += SPAN_DANGER("\The [src] looks like it's about to break!")
-	else if(health < max_health * 0.5)
-		. += SPAN_ALERT("\The [src] looks seriously damaged!")
-	else if(health < max_health * 0.75)
-		. += "\The [src] shows signs of damage!"
 
 /obj/machinery/shipsensors/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	. = ..()
@@ -575,7 +563,7 @@
 	toggle()
 
 /obj/machinery/shipsensors/proc/take_damage(value)
-	health = min(max(health - value, 0),max_health)
+	health = min(max(health - value, 0), maxhealth)
 	if(use_power && health == 0)
 		toggle()
 

@@ -172,7 +172,6 @@
 		return TRUE
 	if(default_part_replacement(user, attacking_item))
 		return TRUE
-
 	if(stat)
 		return TRUE
 

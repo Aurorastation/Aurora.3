@@ -17,10 +17,9 @@ Deployable Kits
 	build_amt = 5
 	anchored = TRUE
 	density = TRUE
+	maxhealth = OBJECT_HEALTH_LOW
 
 	var/force_material
-	var/health = 100
-	var/maxhealth = 100
 
 /obj/structure/blocker/Initialize(mapload, var/material_name)
 	. = ..()
@@ -146,8 +145,7 @@ Deployable Kits
 	anchored = 0.0
 	density = 1.0
 	icon_state = "barrier"
-	var/health = 100.0
-	var/maxhealth = 100.0
+	maxhealth = OBJECT_HEALTH_LOW
 	var/locked = 0.0
 //	req_access = list(ACCESS_MAINT_TUNNELS)
 

@@ -107,7 +107,7 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 /obj/item/organ/attack_self(var/mob/user)
 	return (owner && loc == owner && owner == user)
 
-/obj/item/organ/proc/update_health()
+/obj/item/organ/proc/update_organ_health()
 	return
 
 /obj/item/organ/proc/set_dna(var/datum/dna/new_dna)
