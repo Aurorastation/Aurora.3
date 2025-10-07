@@ -9,8 +9,10 @@
 	var/max_tanks = 20
 	var/tanks_oxygen = 10
 	var/tanks_phoron = 10
+	var/tanks_hydrogen = 0
 	var/list/held_tanks_oxygen = list()
 	var/list/held_tanks_phoron = list()
+	var/list/held_tanks_hydrogen = list()
 
 // Oxygen
 /obj/structure/dispenser/oxygen
@@ -23,6 +25,14 @@
 	desc = "A simple yet bulky storage device for gas tanks. Has room for up to 10 phoron tanks."
 	max_tanks = 10
 	tanks_oxygen = 0
+
+// Hydrogen
+/obj/structure/dispenser/hydrogen
+	desc = "A simple yet bulky storage device for gas tanks. Has room for up to 10 hydrogen tanks."
+	max_tanks = 10
+	tanks_oxygen = 0
+	tanks_phoron = 0
+	tank_hydrogen = 10
 
 /obj/structure/dispenser/Initialize()
 	. = ..()
