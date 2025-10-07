@@ -23,3 +23,4 @@ changes:
   - bugfix: "Maintenance Panels located on the floor have had their layering issues fixed."
   - bugfix: "Borg eye emissive effects MAYBE no longer visible through higher z-levels."
   - bugfix: "Added missing leanable component to window/shuttle obj type."
+  - bugfix: "Add missing APC to D1 maintenance area."
