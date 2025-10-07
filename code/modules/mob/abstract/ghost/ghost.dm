@@ -1,7 +1,6 @@
 /mob/abstract/ghost
 	stat = DEAD
-	layer = OBSERVER_LAYER
-	plane = OBSERVER_PLANE
+	plane = GHOST_PLANE
 
 	/// Toggle darkness.
 	var/see_darkness = FALSE

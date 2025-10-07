@@ -6,7 +6,7 @@
 	var/_offset = 30
 	var/_color = COLOR_ORANGE
 	alpha = 200
-	plane = EFFECTS_ABOVE_LIGHTING_PLANE
+	plane = ABOVE_LIGHTING_PLANE
 	layer = EYE_GLOW_LAYER
 	mouse_opacity = 0
 

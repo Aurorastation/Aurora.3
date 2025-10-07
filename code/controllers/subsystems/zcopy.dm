@@ -464,7 +464,7 @@ SUBSYSTEM_DEF(zcopy)
 	// Don't fixup the root object's plane.
 	if (depth > 0)
 		switch (appearance:plane)
-			if (DEFAULT_PLANE, FLOAT_PLANE)
+			if (GAME_PLANE, FLOAT_PLANE)
 				plane_needs_fix = FALSE //For lint
 			else
 				plane_needs_fix = TRUE
@@ -513,7 +513,7 @@ SUBSYSTEM_DEF(zcopy)
 
 	var/mutable_appearance/MA = new(appearance)
 	if (plane_needs_fix)
-		MA.plane = depth == 0 ? DEFAULT_PLANE : FLOAT_PLANE
+		MA.plane = depth == 0 ? GAME_PLANE : FLOAT_PLANE
 		MA.layer = FLY_LAYER	// probably fine
 
 	if (fixed_overlays)
