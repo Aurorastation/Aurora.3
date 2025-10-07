@@ -1,0 +1,26 @@
+# Your name.
+author: Batrachophrenoboocosmomachia
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+# Any changes you've made.  See valid prefix list above.
+# INDENT WITH TWO SPACES.  NOT TABS.  SPACES.
+# SCREW THIS UP AND IT WON'T WORK.
+# Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
+# Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
+changes:
+  - code_imp: "Added set definitions for several Horizon-specific containers."
+  - code_imp: "Updated 'full' material stacks on the Horizon from sneaky var-edited singles to properly defined full stacks"
+  - code_imp: "Cleaned up all Air Alarms, Fire Alarms, and APCs on the Horizon that were directional children with their dir var edited."
+  - code_imp: "Cleaned up all Power Cables on the Horizon that had d1 or d2 var edited instead of just icon_state."
+  - code_imp: "Adjusted pixel shifts for 'south' (north-facing) Air Alarms, Fire Alarms, APCs, and Extinguisher Cabinets to address layering issues when standing vs. leaning."
+  - code_imp: "Minor refactor of shuttle/* Air Alarms and APCs to reduce excess children; req_one_access perms now assigned based on /area/horizon/shuttle/*."
+  - qol: "Adds feedback hint for uses remaining to Emag cards."
+  - qol: "Added Tip about the shift-click behavior of the 'up-hint'/'Look Up' button."
+  - bugfix: "See-through turfs (like lattices/catwalks over open space) can now be Looked Up through from below."
+  - bugfix: "Fixed the shift-click behavior of 'up-hint'/'Look Up' button, allowing you to see nearby turfs that can be Looked Up through."
+  - bugfix: "Maintenance Panels located on the floor have had their layering issues fixed."
+  - bugfix: "Borg eye emissive effects MAYBE no longer visible through higher z-levels."
+  - bugfix: "Added missing leanable component to window/shuttle obj type."
+  - bugfix: "Add missing APC to D1 maintenance area."
