@@ -29,7 +29,7 @@
 
 /obj/structure/extinguisher_cabinet/south
 	dir = SOUTH
-	pixel_y = -28
+	pixel_y = -26
 
 /obj/structure/extinguisher_cabinet/Initialize(mapload)
 	. = ..()
@@ -41,7 +41,7 @@
 
 /obj/structure/extinguisher_cabinet/set_pixel_offsets()
 	pixel_x = dir & (NORTH|SOUTH) ? 0 : (dir == EAST ? 21 : 4)
-	pixel_y = dir & (NORTH|SOUTH) ? (dir == NORTH ? 24 : -28) : 4
+	pixel_y = dir & (NORTH|SOUTH) ? (dir == NORTH ? 24 : -26) : 4
 
 /obj/structure/extinguisher_cabinet/attackby(obj/item/attacking_item, mob/user)
 	if(isrobot(user))
