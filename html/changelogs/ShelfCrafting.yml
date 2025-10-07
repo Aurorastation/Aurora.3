@@ -1,8 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - rscadd: "Added the ability to make retail shelves and clothing racks from plastic."
-  - bugfix: "Fixed table frames giving duplicate rods when dismantled."
-  - bugfix: "Fixed racks giving back rods when they were made with plastic."

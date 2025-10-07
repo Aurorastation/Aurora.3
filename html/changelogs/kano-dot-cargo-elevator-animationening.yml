@@ -1,8 +1,0 @@
-author: Kano, KingOfThePing
-
-delete-after: True
-
-changes:
-  - rscadd: "Added an elevator animation logic for cargo elevator, heavily inspired from CM."
-  - rscadd: "Added hatch and shaft sprites for cargo elevator, made by KingOfThePing!"
-  - rscadd: "Ported some sounds and sprites from CM."

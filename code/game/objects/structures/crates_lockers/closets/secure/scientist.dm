@@ -48,7 +48,7 @@
 	new /obj/item/device/megaphone/sci(src)
 	new /obj/item/device/taperecorder(src)
 	new /obj/item/sampler(src)
-	new /obj/item/storage/box/tranquilizer(src)
+	new /obj/item/storage/box/shells/tranquilizer(src)
 
 /// Used for when we want to populate the contents of this locker ourself. Good for away sites
 /obj/structure/closet/secure_closet/RD/empty

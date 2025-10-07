@@ -1,6 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - bugfix: "There are now four spawn spots for hangar techs, to fit the amount of slots they have."

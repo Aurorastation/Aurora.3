@@ -87,20 +87,21 @@
 	idle_power_usage = 211
 	light_color = COLOR_BABY_BLUE
 	products = list(
-		/obj/item/storage/box/fancy/quick_microwave_pizza = 12,
-		/obj/item/storage/box/fancy/quick_microwave_pizza/olive = 12,
-		/obj/item/storage/box/fancy/quick_microwave_pizza/pepperoni = 12,
-		/obj/item/storage/box/fancy/quick_microwave_pizza/district6 = 12,
-		/obj/item/reagent_containers/food/snacks/packaged_microwave_mac_and_cheeze = 12,
-		/obj/item/reagent_containers/food/snacks/packaged_microwave_fiery_mac_and_cheeze = 12,
-		/obj/item/storage/box/fancy/packaged_burger = 12,
-		/obj/item/reagent_containers/food/snacks/quick_curry = 12,
-		/obj/item/reagent_containers/food/snacks/hv_dinner = 12,
-		/obj/item/storage/box/fancy/toptarts_strawberry = 6,
-		/obj/item/storage/box/fancy/toptarts_chocolate_peanutbutter = 6,
-		/obj/item/storage/box/fancy/toptarts_blueberry = 6,
-		/obj/item/storage/box/donkpockets = 18,
+		/obj/item/storage/box/fancy/quick_microwave_pizza = 3,
+		/obj/item/storage/box/fancy/quick_microwave_pizza/olive = 3,
+		/obj/item/storage/box/fancy/quick_microwave_pizza/pepperoni = 3,
+		/obj/item/storage/box/fancy/quick_microwave_pizza/district6 = 3,
+		/obj/item/reagent_containers/food/snacks/packaged_microwave_mac_and_cheeze = 3,
+		/obj/item/reagent_containers/food/snacks/packaged_microwave_fiery_mac_and_cheeze = 3,
+		/obj/item/storage/box/fancy/packaged_burger = 3,
+		/obj/item/reagent_containers/food/snacks/quick_curry = 3,
+		/obj/item/reagent_containers/food/snacks/hv_dinner = 3,
+		/obj/item/storage/box/fancy/toptarts_strawberry = 3,
+		/obj/item/storage/box/fancy/toptarts_chocolate_peanutbutter = 3,
+		/obj/item/storage/box/fancy/toptarts_blueberry = 3,
+		/obj/item/storage/box/unique/donkpockets = 3,
 		/obj/item/reagent_containers/food/snacks/liquidfood = 40
+
 	)
 	premium = list(
 		/obj/item/storage/box/fancy/packaged_mossburger = 2
@@ -118,6 +119,6 @@
 		/obj/item/storage/box/fancy/toptarts_strawberry = 5.00,
 		/obj/item/storage/box/fancy/toptarts_chocolate_peanutbutter = 5.00,
 		/obj/item/storage/box/fancy/toptarts_blueberry = 5.00,
-		/obj/item/storage/box/donkpockets = 11.00,
+		/obj/item/storage/box/unique/donkpockets = 11.00,
 		/obj/item/reagent_containers/food/snacks/liquidfood = 3.00
 	)

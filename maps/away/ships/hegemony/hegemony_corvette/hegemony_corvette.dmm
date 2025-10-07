@@ -8928,10 +8928,10 @@
 	name = "wall cabinet";
 	pixel_x = -32
 	},
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_y = -3
 	},
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_y = 6
 	},
 /obj/item/storage/box/fancy/egg_box{
