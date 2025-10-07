@@ -165,3 +165,14 @@
       slots they have.
   - rscadd: Journals and notepads in the loadout now spawns with 5 blank pieces of
       paper.
+2025-10-07:
+  FabianK3:
+  - bugfix: Fixed missing permission for cache access in the issue triage workflow
+      in the repository.
+  - bugfix: Fixed exempt labels getting ignore in the CI/CD stale triage action in
+      the repository.
+  Hellfirejag:
+  - balance: Stasis beds now only go up to 30x stasis modifier when fully part upgraded,
+      down from 90.
+  - rscdel: Stasis beds are no longer upgraded using Capacitors, only scanning modules
+      contribute to the stasis modifier.
