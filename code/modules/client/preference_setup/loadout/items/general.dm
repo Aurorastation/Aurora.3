@@ -172,14 +172,14 @@
 	display_name = "konyang-cha tins"
 	description = "Tins of tea leaves made by Konyang-cha."
 	cost = 1
-	path = /obj/item/storage/box/tea
+	path = /obj/item/storage/box/unique/tea
 
 /datum/gear/chatins/New()
 	..()
 	var/list/chatins = list()
-	chatins["sencha cha-tin"] = /obj/item/storage/box/tea
-	chatins["tieguanyin cha-tin"] = /obj/item/storage/box/tea/tieguanyin
-	chatins["jaekseol cha-tin"] = /obj/item/storage/box/tea/jaekseol
+	chatins["sencha cha-tin"] = /obj/item/storage/box/unique/tea
+	chatins["tieguanyin cha-tin"] = /obj/item/storage/box/unique/tea/tieguanyin
+	chatins["jaekseol cha-tin"] = /obj/item/storage/box/unique/tea/jaekseol
 	gear_tweaks += new /datum/gear_tweak/path(chatins)
 
 /datum/gear/teapots

@@ -245,7 +245,7 @@
 /obj/structure/table/rack,
 /obj/item/gun/projectile/shotgun/pump/combat,
 /obj/item/gun/projectile/pistol/super_heavy,
-/obj/item/storage/box/shotgunshells,
+/obj/item/storage/box/shells/buckshot,
 /obj/item/ammo_magazine/super_heavy,
 /turf/simulated/floor/diona,
 /area/tarwa_ship/armory)

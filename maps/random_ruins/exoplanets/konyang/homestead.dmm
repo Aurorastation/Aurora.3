@@ -813,8 +813,8 @@
 /obj/item/seeds/wheatseed,
 /obj/item/seeds/wheatseed,
 /obj/item/seeds/wheatseed,
-/obj/item/storage/box/shotgunshells,
-/obj/item/storage/box/shotgunshells,
+/obj/item/storage/box/shells/buckshot,
+/obj/item/storage/box/shells/buckshot,
 /obj/item/gun/projectile/shotgun/doublebarrel/pellet,
 /turf/simulated/floor/exoplanet/dirt_konyang/cave,
 /area/konyang_homestead)

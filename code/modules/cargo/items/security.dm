@@ -133,7 +133,7 @@
 	description = "A box containing 7 tear gas grenades. A gas mask is printed on the label. WARNING: Exposure carries risk of serious injuries."
 	price = 450
 	items = list(
-		/obj/item/storage/box/teargas
+		/obj/item/storage/box/tactical/teargas
 	)
 	access = ACCESS_SECURITY
 	container_type = "crate"
@@ -147,7 +147,7 @@
 	description = "A box containing 7 antipersonnel flashbang grenades. WARNING: Can cause permanent vision or hearing loss. Use with caution."
 	price = 520
 	items = list(
-		/obj/item/storage/box/flashbangs
+		/obj/item/storage/box/tactical/flashbangs
 	)
 	access = ACCESS_SECURITY
 	container_type = "crate"
@@ -161,7 +161,7 @@
 	description = "A box containing 5 military grade EMP grenades. WARNING: Do not use near unshielded electronics or biomechanical augmentations."
 	price = 1450
 	items = list(
-		/obj/item/storage/box/emps
+		/obj/item/storage/box/tactical/emps
 	)
 	access = ACCESS_SECURITY
 	container_type = "crate"

@@ -1458,10 +1458,10 @@
 /obj/structure/table/reinforced/steel,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/extinguisher_cabinet/east,
-/obj/item/storage/box/condiment{
+/obj/item/storage/box/large/condiment{
 	pixel_y = 13
 	},
-/obj/item/storage/box/condiment{
+/obj/item/storage/box/large/condiment{
 	pixel_y = 3
 	},
 /turf/simulated/floor/tiled/dark,
