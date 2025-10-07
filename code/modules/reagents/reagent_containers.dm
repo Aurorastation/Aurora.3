@@ -56,7 +56,7 @@
 	// Horrible horrible scarcity shit. Temporary.
 	if(istype(src, /obj/item/reagent_containers/chem_disp_cartridge))
 		var/cartridge_area = get_area(src)
-		if(is_station_area(cartridge_area))
+		if(istype(cartridge_area, /area/horizon))
 			var/modifier = round((rand(50, 75) / 100), 0.1)
 			volume = round(volume * modifier, 1)
 	create_reagents(volume)
