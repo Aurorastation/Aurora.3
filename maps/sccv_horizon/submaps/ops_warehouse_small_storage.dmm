@@ -146,10 +146,10 @@
 /area/template_noop)
 "cQ" = (
 /obj/structure/table/rack/folding_table,
-/obj/item/storage/box/donkpockets,
-/obj/item/storage/box/donkpockets,
-/obj/item/storage/box/donkpockets,
-/obj/item/storage/box/donkpockets,
+/obj/item/storage/box/unique/donkpockets,
+/obj/item/storage/box/unique/donkpockets,
+/obj/item/storage/box/unique/donkpockets,
+/obj/item/storage/box/unique/donkpockets,
 /turf/template_noop,
 /area/template_noop)
 "cU" = (
@@ -679,8 +679,8 @@
 /area/template_noop)
 "pT" = (
 /obj/structure/table/rack/folding_table,
-/obj/item/storage/box/candy,
-/obj/item/storage/box/candy,
+/obj/item/storage/box/large/candy,
+/obj/item/storage/box/large/candy,
 /turf/template_noop,
 /area/template_noop)
 "qo" = (
@@ -985,10 +985,10 @@
 "xg" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
 /obj/structure/closet/crate/freezer,
-/obj/item/storage/box/produce,
-/obj/item/storage/box/produce,
-/obj/item/storage/box/produce,
-/obj/item/storage/box/produce,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
 /turf/template_noop,
 /area/template_noop)
 "xu" = (
@@ -1067,7 +1067,7 @@
 /area/template_noop)
 "zi" = (
 /obj/structure/table/rack/no_cargo,
-/obj/item/storage/box/condimentbottles,
+/obj/item/storage/box/large/condimentbottles,
 /obj/random/condiment,
 /obj/random/condiment,
 /obj/random/condiment,
@@ -1433,8 +1433,8 @@
 /area/template_noop)
 "KW" = (
 /obj/structure/table/rack/no_cargo,
-/obj/item/storage/box/beanbags,
-/obj/item/storage/box/beanbags,
+/obj/item/storage/box/shells/beanbags,
+/obj/item/storage/box/shells/beanbags,
 /turf/template_noop,
 /area/template_noop)
 "KX" = (
