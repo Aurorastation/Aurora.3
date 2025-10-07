@@ -58,9 +58,7 @@
 		var/cartridge_area = get_area(src)
 		if(is_station_area(cartridge_area))
 			var/modifier = round((rand(50, 75) / 100), 0.1)
-			LOG_DEBUG("Modifying [src] to use [modifier]")
 			volume = round(volume * modifier, 1)
-			LOG_DEBUG("New volume is [volume]")
 	create_reagents(volume)
 	shatter_material = SSmaterials.get_material_by_name(shatter_material)
 
