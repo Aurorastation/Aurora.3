@@ -107,14 +107,11 @@
 	if(on)
 		vis_contents += spin_effect
 
-
-/obj/machinery/rotating_alarm/proc/set_on()
-	vis_contents += spin_effect
-	set_light(2, 0.5, alarm_light_color)
-	on = TRUE
-
-
-/obj/machinery/rotating_alarm/proc/set_off()
-	vis_contents -= spin_effect
-	set_light(0)
-	on = FALSE
+/obj/machinery/rotating_alarm/proc/toggle_state()
+	if(on)
+		vis_contents -= spin_effect
+		set_light(0)
+	else
+		vis_contents += spin_effect
+		set_light(2, 0.5, alarm_light_color)
+	on = !on

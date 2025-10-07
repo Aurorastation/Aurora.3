@@ -280,3 +280,9 @@
 	desc = "A flamethrower, with a full canister of Phoron installed to fuel it. Handle with caution."
 	telecrystal_cost = 10
 	path = /obj/item/flamethrower/full
+
+/datum/uplink_item/item/visible_weapons/psionic_awakener
+	name = "Psionic Jumpstarter (Minor)"
+	telecrystal_cost = 3
+	bluecrystal_cost = 3
+	path = /obj/item/psionic_jumpstarter/sensitive

@@ -746,3 +746,7 @@
 	name = "Fancy Plaque"
 	desc = "Infinity Bridge."
 	desc_extended = "You're currently standing on the Infinity Bridge. This bridge is over 150 floors high!"
+
+/obj/structure/sign/floor_plaque/peoples_station
+	name = "People's Station Plaque"
+	desc = "A plaque commemorating the founding of the People's Space Station."

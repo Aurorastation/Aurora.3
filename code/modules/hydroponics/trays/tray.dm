@@ -80,6 +80,11 @@
 
 	/// Seed details/line data.
 	var/datum/seed/seed = null // The currently planted seed
+	/// BITFLAG of TRAY_ defines, set in update_icon. Used to determine if we need to update.
+	var/icon_status = 0
+	/// Currently displayed growth stage, set in update_icon.
+	var/displayed_stage
+
 
 	/**
 	Reagent information for process(), consider moving this to a controller along
@@ -259,7 +264,7 @@
 
 /obj/machinery/portable_atmospherics/hydroponics/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	//Don't act on seeds like dionaea that shouldn't change.
-	if(seed && seed.get_trait(TRAIT_IMMUTABLE) > 0)
+	if(seed && GET_SEED_TRAIT(seed, TRAIT_IMMUTABLE) > 0)
 		return BULLET_ACT_HIT
 
 	//Override for somatoray projectiles.
@@ -304,10 +309,11 @@
 	harvest = FALSE
 	weedlevel += 1 * HYDRO_SPEED_MULTIPLIER
 	pestlevel = 0
-	if(prob(min(25,max(1,seed.get_trait(TRAIT_POTENCY/2)))))
-		if(seed.get_trait(TRAIT_SPOROUS) && !closed_system)
+	if(prob(min(25,max(1,GET_SEED_TRAIT(seed, TRAIT_POTENCY)/2))))
+		if(GET_SEED_TRAIT(seed, TRAIT_SPOROUS) && !closed_system)
 			seed.create_spores(get_turf(src))
 			visible_message(SPAN_DANGER("\The [src] releases its spores!"))
+	update_icon()
 
 /// Process reagents being input into the tray.
 /obj/machinery/portable_atmospherics/hydroponics/proc/process_reagents()
@@ -374,14 +380,14 @@
 	else
 		seed.harvest(get_turf(src),yield_mod, stunted_status = stunted)
 	// Reset values.
-	if(seed.get_trait(TRAIT_SPOROUS))
+	if(GET_SEED_TRAIT(seed, TRAIT_SPOROUS))
 		seed.create_spores(get_turf(src))
 		visible_message(SPAN_DANGER("\The [src] releases its spores!"))
 	harvest = FALSE
 	stunted = FALSE
 	lastproduce = age
 
-	if(!seed.get_trait(TRAIT_HARVEST_REPEAT))
+	if(!GET_SEED_TRAIT(seed, TRAIT_HARVEST_REPEAT))
 		yield_mod = 0
 		seed = null
 		dead = 0
@@ -422,7 +428,7 @@
 
 	dead = FALSE
 	age = 0
-	health = seed.get_trait(TRAIT_ENDURANCE)
+	health = GET_SEED_TRAIT(seed, TRAIT_ENDURANCE)
 	lastcycle = world.time
 	stunted = FALSE
 	harvest = FALSE
@@ -478,10 +484,11 @@
 /// Verifies that all values are what they should be.
 /obj/machinery/portable_atmospherics/hydroponics/proc/check_level_sanity()
 	if(seed)
-		health =     max(0,min(seed.get_trait(TRAIT_ENDURANCE),health))
+		health =     max(0,min(GET_SEED_TRAIT(seed, TRAIT_ENDURANCE),health))
 	else
 		health = 0
 		dead = FALSE
+		update_icon()
 
 	mutation_level = max(0,min(mutation_level,100))
 	nutrilevel =     max(0,min(nutrilevel,10))
@@ -501,7 +508,7 @@
 	dead = FALSE
 	mutate(1)
 	age = 0
-	health = seed.get_trait(TRAIT_ENDURANCE)
+	health = GET_SEED_TRAIT(seed, TRAIT_ENDURANCE)
 	lastcycle = world.time
 	harvest = FALSE
 	weedlevel = 0
@@ -601,7 +608,7 @@
 			dead = 0
 			age = 1
 			//Snowflakey, maybe move this to the seed datum
-			health = (istype(S, /obj/item/seeds/cutting) ? round(seed.get_trait(TRAIT_ENDURANCE)/rand(2,5)) : seed.get_trait(TRAIT_ENDURANCE))
+			health = (istype(S, /obj/item/seeds/cutting) ? round(GET_SEED_TRAIT(seed, TRAIT_ENDURANCE)/rand(2,5)) : GET_SEED_TRAIT(seed, TRAIT_ENDURANCE))
 			lastcycle = world.time
 
 			qdel(attacking_item)
@@ -795,7 +802,7 @@
 	if(seed)
 		if(dead)
 			. += SPAN_DANGER("The plant is dead.")
-		else if(health <= (seed.get_trait(TRAIT_ENDURANCE)/ 2))
+		else if(health <= (GET_SEED_TRAIT(seed, TRAIT_ENDURANCE)/ 2))
 			. += SPAN_BAD("The plant looks unhealthy.")
 		if(stunted)
 			. += SPAN_BAD("This harvest is stunted due to improper growing conditions, reducing yield.")
