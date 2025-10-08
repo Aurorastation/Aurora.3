@@ -27,16 +27,16 @@
 #define SKYBOX_PLANE -90
 	#define SKYBOX_LAYER 1
 
-#define DUST_PLANE -80
+#define DUST_PLANE -82
 	#define DEBRIS_LAYER 1
 	#define DUST_LAYER 2
 
+#define OPENSPACE_BACKDROP_PLANE -81
 #define OPEN_SPACE_PLANE_START -80
 // Openspace uses planes -80 through -70.
 // Do no put anything between these two, adjust more z level support as needed
 #define OPEN_SPACE_PLANE_END -70
 #define OPENTURF_MAX_DEPTH 10		// The maxiumum number of planes deep we'll go before we just dump everything on the same plane.
-#define OPENSPACE_BACKDROP_PLANE -69
 
 #define HEAT_EFFECT_PLANE -4
 #define WARP_EFFECT_PLANE -3
@@ -149,20 +149,23 @@
 
 #define ROOF_PLANE 3
 
-#define GHOST_PLANE 4
+#define DISPLACEMENT_PLATE_RENDER_LAYER 4
+#define DISPLACEMENT_PLATE_RENDER_TARGET "*DISPLACEMENT_PLATE_RENDER_TARGET"
 
-#define LIGHTING_PLANE 5
+#define GHOST_PLANE 80
+
+#define LIGHTING_PLANE 100
 	#define LIGHTING_LAYER 1
 
-#define BALLOON_CHAT_PLANE 6
+#define BALLOON_CHAT_PLANE 110
 
-#define ABOVE_LIGHTING_PLANE 7
+#define ABOVE_LIGHTING_PLANE 150
 	#define EYE_GLOW_LAYER 1
 	#define BEAM_PROJECTILE_LAYER 2
 	#define SUPERMATTER_WALL_LAYER 3
 	#define LIGHTNING_LAYER 4
 
-#define RUNECHAT_PLANE 8
+#define RUNECHAT_PLANE 501
 
 #define FULLSCREEN_PLANE 9
 	#define FULLSCREEN_LAYER 1
@@ -171,7 +174,7 @@
 	#define BLIND_LAYER 4
 	#define CRIT_LAYER 5
 
-#define HUD_PLANE 10
+#define HUD_PLANE 1000
 	#define UNDER_HUD_LAYER 1
 	#define HUD_BASE_LAYER 2
 	#define HUD_BELOW_ITEM_LAYER 2.9
@@ -181,7 +184,7 @@
 	#define RADIAL_BASE_LAYER 6
 	#define RADIAL_CONTENT_LAYER 7
 
-#define CINEMATIC_PLANE 11
+#define CINEMATIC_PLANE 1200
 
 /*=============================*\
 | |
