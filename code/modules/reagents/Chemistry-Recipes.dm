@@ -4517,7 +4517,7 @@
 	name = "witch-spirit"
 	id = "witchspirit"
 	result = /singleton/reagent/alcohol/witchspirit
-	required_reagents = list(/singleton/reagent/alcohol/wine/algae = 1, /singleton/reagent/alcohol/gin = 1, /singleton/reagent/alcohol/limoncello = 1, /singleton/reagent/alcohol/melonliquor = 1,)
+	required_reagents = list(/singleton/reagent/alcohol/wine/algae = 1, /singleton/reagent/alcohol/gin = 1, /singleton/reagent/alcohol/limoncello = 1, /singleton/reagent/alcohol/melonliquor = 1)
 	result_amount = 4
 
 //boba drinks
