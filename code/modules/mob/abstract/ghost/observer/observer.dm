@@ -53,7 +53,7 @@
 
 		var/originaldesc = desc
 		var/o_transform = transform
-		appearance = body
+		set_appearance(body)
 		appearance_flags = KEEP_TOGETHER
 		desc = originaldesc
 		transform = o_transform
@@ -608,6 +608,14 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		client.images |= SSmobs.ghost_darkness_images
 		if (ghostimage)
 			client.images -= ghostimage //remove ourself
+
+/**
+ * We use this proc to set appearance because doing so resets the plane.
+ * We want the plane to stay at GHOST_PLANE to avoid weird overlaying stuff.
+ */
+/mob/abstract/ghost/observer/proc/set_appearance(new_appearance)
+	appearance = new_appearance
+	plane = GHOST_PLANE
 
 /mob/abstract/ghost/observer/MayRespawn(var/feedback = 0, var/respawn_type = null)
 	if(!client)

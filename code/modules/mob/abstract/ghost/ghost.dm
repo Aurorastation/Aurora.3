@@ -1,6 +1,5 @@
 /mob/abstract/ghost
 	stat = DEAD
-	plane = GHOST_PLANE
 
 	/// Toggle darkness.
 	var/see_darkness = FALSE
