@@ -146,6 +146,13 @@
 	plane = CINEMATIC_PLANE
 	render_relay_plane = RENDER_PLANE_NON_GAME
 
+/atom/movable/screen/plane_master/displacement
+	name = "displacement plane"
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	plane = DISPLACEMENT_PLATE_RENDER_LAYER
+	render_target = DISPLACEMENT_PLATE_RENDER_TARGET
+	render_relay_plane = null
+
 /atom/movable/screen/plane_master/open_space
 	name = "open space plane"
 	plane = OPEN_SPACE_PLANE_END //aurora snowflake: our openspace system works bottom up, not top down like CM's

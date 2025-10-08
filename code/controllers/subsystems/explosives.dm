@@ -329,6 +329,9 @@ SUBSYSTEM_DEF(explosives)
 
 	var/sound/explosion_sound = sound(get_sfx(/singleton/sound_category/explosion_sound))
 
+	if(power >= 100)
+		new /obj/effect/shockwave(epicenter, power / 60)
+
 	for (var/thing in GLOB.player_list)
 		var/mob/M = thing
 		var/reception = EXPLFX_BOTH
