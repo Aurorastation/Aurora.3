@@ -638,7 +638,7 @@
 
 /obj/item/reagent_containers/food/snacks/carian_stroganoff
 	name = "carian stroganoff"
-	desc = "Meaty mushrooms drenched in a creamy sauce. Caria has a variety of mushroom dishes, but the rich flavours of Carian stroganoff made it popular when brought to Moroz, and onto the rest of the spur."
+	desc = "Meaty mushrooms drenched in a creamy sauce. Caria has a variety of mushroom dishes, but the rich flavours of Carian stroganoff made it popular when brought to Moroz and to the rest of the Spur."
 	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
 	icon_state = "carian_stroganoff"
 	trash = /obj/item/trash/wooden_platter
