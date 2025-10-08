@@ -379,7 +379,7 @@
 			em_block = gen_emissive_blocker
 
 		if (EMISSIVE_BLOCK_UNIQUE)
-			render_target = ref(src)
+			render_target = REF(src)
 			em_block = new(src, render_target)
 
 	return em_block
