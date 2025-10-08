@@ -833,8 +833,8 @@
 
 /obj/item/reagent_containers/food/snacks/algaechips
 	name = "\improper Soostatom Bites Algae Chips"
-	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
 	desc = "Cripsy batter fried algae chips from Sun Reach. Soostatom Bites, snapping good snacks!"
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
 	icon_state = "algaechips"
 	trash = /obj/item/trash/algaechips
 	reagents_to_add = list(/singleton/reagent/nutriment = 3)
