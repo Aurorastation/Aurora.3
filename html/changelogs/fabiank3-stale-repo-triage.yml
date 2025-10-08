@@ -1,6 +1,0 @@
-author: FabianK3
-
-delete-after: True
-
-changes:
-  - code_imp: "Added a new Github action workflow to the repository to handle stale issues and pull requests."

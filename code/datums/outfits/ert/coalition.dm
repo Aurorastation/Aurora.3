@@ -63,7 +63,7 @@
 	suit_store = /obj/item/gun/projectile/shotgun/pump/combat
 	backpack_contents = list(
 		/obj/item/plastique = 3,
-		/obj/item/storage/box/shotgunshells = 1,
+		/obj/item/storage/box/shells/buckshot = 1,
 		/obj/item/ammo_magazine/c45m = 3,
 		/obj/item/handcuffs/ziptie = 1,
 		/obj/item/clothing/glasses/welding/superior = 1,
