@@ -3,14 +3,13 @@
 	desc = "It's a g-g-g-g-ghooooost!" //jinkies!
 	icon = 'icons/mob/mob.dmi'
 	icon_state = "ghost"
-	plane = GHOST_PLANE
 	density = FALSE
-	canmove = 0
-	blinded = 0
-	anchored = 1	//  don't get pushed around
+	canmove = FALSE
+	blinded = FALSE
+	anchored = TRUE	//  don't get pushed around
 	invisibility = INVISIBILITY_OBSERVER
 	simulated = FALSE
-	universal_speak = 1
+	universal_speak = TRUE
 	incorporeal_move = INCORPOREAL_GHOST
 	mob_thinks = FALSE
 	interaction_flags_atom = INTERACT_ATOM_MOUSEDROP_IGNORE_CHECKS
@@ -18,7 +17,7 @@
 	/// If the ghost can re-enter their corpse.
 	var/can_reenter_corpse
 	/// The ghost's HUD datum.
-	var/datum/hud/hud = null
+	var/datum/hud/hud
 	/// This variable is set to 1 when you enter the game as an observer. Remains null if you died in the game and are a ghost. Not reliable for admins; they change mobs a lot.
 	var/started_as_observer
 	/// If the ghost has enabled antagHUD.
@@ -43,7 +42,7 @@
 
 	set_stat(DEAD)
 
-	ghostimage = image(src.icon,src,src.icon_state)
+	ghostimage = image(icon, src, icon_state)
 	SSmobs.ghost_darkness_images |= ghostimage
 	updateallghostimages()
 

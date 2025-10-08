@@ -115,7 +115,7 @@
 
 /atom/movable/screen/plane_master/emissive/Initialize()
 	. = ..()
-	add_filter("emissives", 1, color_matrix_filter(space = GLOB.em_mask_matrix))
+	add_filter("em_block_masking", 1, color_matrix_filter(GLOB.em_mask_matrix))
 
 /atom/movable/screen/plane_master/above_lighting
 	name = "above lighting plane master"
