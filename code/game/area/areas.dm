@@ -538,8 +538,6 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 			continue
 		if (istype(A, /area/horizon/exterior))
 			continue
-		if (istype(A, /area/horizon/engineering/atmos/storage_tank))
-			continue
 
 		//Although hostile mobs instadying to turrets is fun
 		//If there's no AI they'll just be hit with stunbeams all day and spam the attack logs.

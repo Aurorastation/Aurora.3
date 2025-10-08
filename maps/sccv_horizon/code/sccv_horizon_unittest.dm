@@ -10,13 +10,10 @@
 		/area/supply/dock,
 		/area/turbolift,
 		/area/mine,
-		/area/horizon/exterior,
-		/area/horizon/engineering/atmos/storage_tank
+		/area/horizon/exterior
 	)
 
-	ut_apc_exempt_areas = list(
-		/area/horizon/engineering/atmos/storage_tank
-	)
+	ut_apc_exempt_areas = list()
 
 	ut_atmos_exempt_areas = list(
 		/area/horizon/maintenance,
@@ -30,8 +27,7 @@
 		/area/horizon/engineering/reactor/indra/smes,
 		/area/horizon/rnd/xenoarch/isolation_a,
 		/area/horizon/rnd/xenoarch/isolation_b,
-		/area/horizon/rnd/xenoarch/isolation_c,
-		/area/horizon/engineering/atmos/storage_tank
+		/area/horizon/rnd/xenoarch/isolation_c
 	)
 
 	ut_fire_exempt_areas = list(
@@ -41,8 +37,7 @@
 		/area/horizon/crew/washroom/deck_3,
 		/area/horizon/rnd/xenoarch/isolation_a,
 		/area/horizon/rnd/xenoarch/isolation_b,
-		/area/horizon/rnd/xenoarch/isolation_c,
-		/area/horizon/engineering/atmos/storage_tank
+		/area/horizon/rnd/xenoarch/isolation_c
 	)
 
 /datum/unit_test/zas_area_test/sccv_horizon
