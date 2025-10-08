@@ -230,7 +230,7 @@
 	horizon_deck = 3
 
 /area/horizon/crew/lounge
-	name = "Lucky Leina Casino"
+	name = "Crew Lounge"
 	icon_state = "lounge"
 	horizon_deck = 3
 

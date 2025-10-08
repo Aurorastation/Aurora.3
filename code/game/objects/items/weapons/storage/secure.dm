@@ -230,15 +230,3 @@ ABSTRACT_TYPE(/obj/item/storage/secure)
 		open(user)
 	else
 		to_chat(user, SPAN_WARNING("\The [src] is locked. Swipe an authorized ID card to unlock it."))
-
-/obj/item/storage/secure/safe/id_lock/horizoncasino
-	name = "casino safe"
-	desc = "A ID locked compact safe designed for storing casino chips and credits. An Idris Incorporated logo is embossed on the front."
-	color = "#AA8503"
-	req_one_access = list(ACCESS_BAR)
-	starts_with = list(
-		/obj/item/spacecash/c500 = 1,
-		/obj/item/coin/diamond = 1,
-		/obj/item/coin/gold = 2,
-		/obj/item/coin/silver = 3,
-	)

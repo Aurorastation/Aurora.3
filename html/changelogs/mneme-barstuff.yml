@@ -6,7 +6,6 @@ delete-after: True
 changes:
   - rscadd: "Created a control hub system that allows for the control of multiple different types of buttons from one location."
   - rscadd: "Created a light switch variant that can control the color and brightness of the lighting."
-  - rscadd: "Created a new secure safe variant that is controlled with an ID card; along with a vending variant for the casino."
+  - rscadd: "Created a new secure safe variant that is controlled with an ID card."
   - qol: "Remodeled the Bar"
-  - qol: "Remodeled the Deck 3 Crew Lounge, replacing it with the Lucky Leina Casino."
   - qol: "Connected the Deck Two Stairwell and the Bar via maintenance."

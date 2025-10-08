@@ -257,16 +257,3 @@ ABSTRACT_TYPE(/obj/machinery/controlhub)
 		"safety shutters" = list("type" = "blast_door", "id" = "bar_viewing_shutters"),
 		"window tint" = list("type" = "windowtint", "id" = "bar_fore")
 	)
-
-/obj/machinery/controlhub/horizoncasino
-	name = "lucky leina control hub"
-	icon_state = "generic"
-	req_access = list(ACCESS_BAR)
-	controls = list(
-		"airlock bolts" = list("type" = "airlock", "id" = "casino_airlock", "functions" = 4),
-		"counter shutters" = list("type" = "blast_door", "id" = "casino_bar"),
-		"holosign" = list("type" = "holosign", "id" = "casino_sign"),
-		"safety shutters" = list("type" = "blast_door", "id" = "casino_viewing"),
-		"window tint" = list("type" = "windowtint", "id" = "casino_window")
-	)
-

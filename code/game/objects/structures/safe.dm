@@ -312,15 +312,3 @@ FLOOR SAFES
 	new /obj/random/highvalue/no_weapon(src)
 	new /obj/random/highvalue/no_weapon(src)
 	new /obj/random/highvalue/no_weapon(src)
-
-/obj/structure/safe/cash/horizoncasino
-	name = "Idris SecurityVault Model VII"
-	desc = "An imposing safe constructed from extremely dense material, covered in scratches and burns. Its combination was misplaced during the casino's opening, and after numerous failed cracking attempts, it was turned into a display to demonstrate the product's durability. The contents remain unknown."
-	time_to_drill = 500 SECONDS
-
-/obj/structure/safe/cash/horizoncasino/Initialize()
-	. = ..()
-	if(prob(50))
-		new /obj/random/highvalue/cash(src)
-	if(prob(20))
-		new /obj/random/highvalue/safe(src)
