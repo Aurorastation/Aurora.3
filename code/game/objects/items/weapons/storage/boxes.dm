@@ -62,14 +62,15 @@
 
 /obj/item/storage/box/update_icon()
 	. = ..()
-	if(illustration)
-		var/image/illustration_img = image(icon, illustration)
-		illustration_img.appearance_flags |= RESET_COLOR
-		AddOverlays(illustration_img)
 	if(label)
 		var/image/label_img = image(icon, label)
 		label_img.appearance_flags |= RESET_COLOR
 		AddOverlays(label_img)
+
+	if(illustration)
+		var/image/illustration_img = image(icon, illustration)
+		illustration_img.appearance_flags |= RESET_COLOR
+		AddOverlays(illustration_img)
 
 /obj/item/storage/box/Initialize()
 	. = ..()
