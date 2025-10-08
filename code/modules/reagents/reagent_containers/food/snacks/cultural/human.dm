@@ -627,7 +627,7 @@
 
 /obj/item/reagent_containers/food/snacks/voidsman_stew
 	name = "voidsman's stew"
-	desc = "Fried fish balls in a light sauce. This dish predates the Imperial liberation of Sun Reach, though it was originally known as freebooter stew. The name was changed by the Viceroy's orders to honor those who died fighting the pirate lords."
+	desc = "Fried fish balls in a light sauce. This dish predates the Imperial liberation of Sun Reach, being originally known as a 'freebooter stew'. The name was changed by the Viceroy's orders to honor those who died fighting the pirate lords."
 	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
 	icon_state = "voidsman_stew"
 	trash = /obj/item/trash/wooden_platter
