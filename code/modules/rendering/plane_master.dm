@@ -41,7 +41,7 @@
 	name = "above game world plane master"
 	plane = ABOVE_GAME_PLANE
 	appearance_flags = PLANE_MASTER //should use client color
-	blend_mode = BLEND_OVERLAY
+	blend_mode = BLEND_MULTIPLY
 
 /atom/movable/screen/plane_master/ghost
 	name = "ghost plane master"
@@ -139,6 +139,7 @@
 	name = "HUD plane"
 	plane = HUD_PLANE
 	render_relay_plane = RENDER_PLANE_NON_GAME
+	blend_mode = BLEND_MULTIPLY
 
 /atom/movable/screen/plane_master/cinematic
 	name = "cinematic plane"
