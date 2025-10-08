@@ -384,7 +384,7 @@
 
 /singleton/recipe/carian_strogonoff
 	appliance = SKILLET
-	fruit = list( "mushroom" = 2, "onion" = 1, "garlic" = 1)
+	fruit = list("mushroom" = 2, "onion" = 1, "garlic" = 1)
 	reagents = list(/singleton/reagent/drink/milk/cream = 10)
 	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify and replace
 	result = /obj/item/reagent_containers/food/snacks/carian_stroganoff
