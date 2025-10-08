@@ -2577,7 +2577,7 @@
 /obj/item/storage/belt/medical{
 	pixel_y = -13
 	},
-/obj/item/storage/box/freezer/organcooler{
+/obj/item/storage/box/unique/freezer/organcooler{
 	pixel_x = -1;
 	pixel_y = 17
 	},

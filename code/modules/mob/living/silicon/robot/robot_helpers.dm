@@ -33,7 +33,7 @@
 		return
 	var/eye_plane = src.plane
 	if(lights_on && layer == MOB_LAYER) // in case you're hiding. so eyes don't go through tables.
-		eye_plane = ABOVE_LIGHTING_PLANE //make them glow in the dark if the lamp is on
+		eye_plane = MOB_EMISSIVE_LAYER //make them glow in the dark if the lamp is on
 	var/eyeprefix = module_sprites[icontype][ROBOT_EYES]
 	if(speed == -2) // For combat drones with the mobility module.
 		cached_eye_overlays = list(

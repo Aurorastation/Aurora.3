@@ -790,11 +790,11 @@
 /obj/item/reagent_containers/food/drinks/cans/beetle_milk,
 /obj/item/reagent_containers/food/drinks/cans/beetle_milk,
 /obj/item/reagent_containers/food/drinks/cans/beetle_milk,
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = 4
 	},
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = -5
 	},
@@ -8154,9 +8154,9 @@
 	must_start_working = 1
 	},
 /obj/item/gun/projectile/shotgun/pump,
-/obj/item/storage/box/shotgunshells,
-/obj/item/storage/box/shotgunshells,
-/obj/item/storage/box/stunshells,
+/obj/item/storage/box/shells/buckshot,
+/obj/item/storage/box/shells/buckshot,
+/obj/item/storage/box/shells/stunshells,
 /obj/item/gun/projectile/gauss,
 /obj/item/ammo_magazine/gauss,
 /obj/item/ammo_magazine/gauss,

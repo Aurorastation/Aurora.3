@@ -50,15 +50,17 @@ ABSTRACT_TYPE(/obj/structure/engineer_maintenance)
 
 /obj/structure/engineer_maintenance/Initialize(mapload)
 	. = ..()
-	name = panel_location == PANEL_LOCATION_FLOOR ? "maintenance panel" : "large maintenance panel" // floor panels are smaller than the wall mounted ones
+	// Floor panels are smaller and should be layered beneath dropped objects other structures.
+	if(panel_location == PANEL_LOCATION_FLOOR)
+		name = "maintenance_panel"
+		layer = EXPOSED_WIRE_TERMINAL_LAYER
+	else
+		name = "large maintenance panel"
 	icon_number = pick(icon_numbers_and_descriptions)
 	detailed_desc = icon_numbers_and_descriptions[icon_number]
 	for(var/tool_type in panel_tools)
 		var/atom/tool = tool_type
 		panel_tool_names += initial(tool.name)
-
-	var/turf/target_turf = panel_location == PANEL_LOCATION_FLOOR ? get_turf(src) : get_step(src, NORTH)
-	RegisterSignal(target_turf, COMSIG_ATOM_DECONSTRUCTED, PROC_REF(remove_self))
 
 /obj/structure/engineer_maintenance/proc/remove_self()
 	SIGNAL_HANDLER

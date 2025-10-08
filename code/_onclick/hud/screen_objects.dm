@@ -1,4 +1,4 @@
-/*
+/**
 	Screen objects
 	Todo: improve/re-implement
 
@@ -11,8 +11,10 @@
 	icon = 'icons/mob/screen/generic.dmi'
 	plane = HUD_PLANE
 	layer = HUD_BASE_LAYER
-	var/obj/master = null	//A reference to the object in the slot. Grabs or items, generally.
-	var/datum/hud/hud = null // A reference to the owner HUD, if any.
+	/// A reference to the object in the slot. Grabs or items, generally.
+	var/obj/master = null
+	/// A reference to the owner HUD, if any.
+	var/datum/hud/hud = null
 	appearance_flags = NO_CLIENT_COLOR
 
 /atom/movable/screen/Initialize(mapload, ...)
@@ -27,7 +29,7 @@
 	hud = null
 	. = ..()
 
-///Screen elements are always on top of the players screen and don't move so yes they are adjacent
+/// Screen elements are always on top of the players screen and don't move so yes they are adjacent
 /atom/movable/screen/Adjacent(atom/neighbor, atom/target, atom/movable/mover)
 	return TRUE
 
@@ -49,8 +51,10 @@
 	maptext_width = 480
 
 /atom/movable/screen/inventory
-	var/slot_id	//The identifier for the slot. It has nothing to do with ID cards.
-	var/list/object_overlays = list() // Required for inventory/screen overlays.
+	/// The identifier for the slot. It has nothing to do with ID cards.
+	var/slot_id
+	/// Required for inventory/screen overlays.
+	var/list/object_overlays = list()
 	var/color_changed = FALSE
 
 /atom/movable/screen/inventory/MouseEntered()
@@ -294,6 +298,7 @@
 	if(!usr)
 		return TRUE
 	var/list/modifiers = params2list(params)
+	var/client/viewer_client = usr?.client
 	switch(name)
 		if("toggle")
 			if(usr.hud_used.inventory_shown)
@@ -344,20 +349,21 @@
 				if(ishuman(usr))
 					var/mob/living/carbon/human/H = usr
 					if(H.last_special + 50 > world.time)
+						to_chat(usr, "You cannot do that again so quickly.")
 						return
 					H.last_special = world.time
 				to_chat(usr, SPAN_NOTICE("You take look around to see if there are any holes in the roof around."))
-				for(var/turf/T in view(usr.client.view + 3, usr)) // slightly extra to account for moving while looking for openness
+				for(var/turf/T in view(viewer_client.view, usr))
 					if(T.density)
 						continue
 					var/turf/above_turf = GET_TURF_ABOVE(T)
-					if(!isopenspace(above_turf))
+					if(!isopenturf(above_turf))
 						continue
-					var/image/up_image = image(icon = 'icons/mob/screen/generic.dmi', icon_state = "arrow_up", loc = T)
-					up_image.plane = LIGHTING_LAYER + 1
-					up_image.layer = LIGHTING_LAYER + 1
-					usr << up_image
-					QDEL_IN(up_image, 12)
+					var/image/point_up = image(icon = 'icons/mob/screen/generic.dmi', icon_state = "arrow_up", loc = T)
+					point_up.plane = DEFAULT_PLANE
+					point_up.layer = POINTER_LAYER
+					viewer_client?.images += point_up
+					addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(remove_image_from_client), point_up, viewer_client), 3 SECONDS)
 				return
 
 			if(!isliving(usr))
@@ -367,7 +373,7 @@
 			var/turf/T = GET_TURF_ABOVE(T1)
 			if (!T)
 				to_chat(user, SPAN_NOTICE("There is nothing above you!"))
-			else if (T.is_hole)
+			else if (isopenturf(T))
 				user.look_up_open_space(T1)
 			else
 				to_chat(user, SPAN_NOTICE("You see a ceiling staring back at you."))
@@ -466,7 +472,7 @@
 	name = "mov_intent"
 	screen_loc = ui_movi
 
-//This updates the run/walk button on the hud
+/// This updates the run/walk button on the hud.
 /atom/movable/screen/movement_intent/proc/update_move_icon(var/mob/living/user)
 	if(!user.client)
 		return
@@ -547,7 +553,7 @@
 
 #undef BLACKLIST_SPECIES_RUNNING
 
-// Hand slots are special to handle the handcuffs overlay
+/// Hand slots are special to handle the handcuffs overlay
 /atom/movable/screen/inventory/hand
 	var/image/handcuff_overlay
 	var/image/disabled_hand_overlay

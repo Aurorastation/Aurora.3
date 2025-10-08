@@ -1,7 +1,8 @@
 /obj/item/storage/box/syndie_kit
 	name = "box"
 	desc = "A sleek, sturdy box."
-	icon_state = "syndiebox"
+	color = COLOR_WALL_GUNMETAL
+	label = "label_syndie"
 	worn_overlay = "writing_syndie"
 
 /obj/item/storage/box/syndie_kit/imp_freedom
