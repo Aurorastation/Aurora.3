@@ -41,7 +41,7 @@
 /obj/machinery/power/emitter/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Standing next to \the [src] and examining it will let you see how many shots it has fired since last being turned on."
-	. += "ALT-click the [src] to lock or unlock it (if you have the appropriate ID access)."
+	. += "Using an Engineering ID on \the [src] will toggle its control locks."
 	. += "You can attach a signaler to \the [src] to remotely toggle it on and off (so long as its controls are not locked)."
 
 /obj/machinery/power/emitter/assembly_hints(mob/user, distance, is_adjacent)
@@ -249,31 +249,25 @@
 				else
 					to_chat(user, SPAN_WARNING("You need more welding fuel to complete this task."))
 		return
+		if(attacking_item.GetID())
+			if(emagged)
+				to_chat(user, SPAN_WARNING("The lock seems to be broken."))
+				return
+			if(allowed(user))
+				if(active)
+					locked = !locked
+					playsound(src, 'sound/machines/terminal/terminal_button01.ogg', 35, FALSE)
+					balloon_alert(user, locked ? "locked" : "unlocked")
+					to_chat(user, SPAN_NOTICE("The controls are now [locked ? "locked." : "unlocked."]"))
+				else
+					locked = FALSE //just in case it somehow gets locked
+					to_chat(user, SPAN_WARNING("The controls can only be locked when \the [src] is online."))
+			else
+				playsound(src, 'sound/machines/terminal/terminal_error.ogg', 25, FALSE)
+				balloon_alert(user, "access denied!")
+				to_chat(user, SPAN_WARNING("Access denied."))
 	..()
 	return
-
-/obj/machinery/power/emitter/AltClick(mob/user)
-	if(Adjacent(user))
-		add_fingerprint(user)
-		if(emagged)
-			to_chat(user, SPAN_WARNING("The lock seems to be broken."))
-			return
-		if(allowed(user))
-			if(active)
-				locked = !locked
-				if(locked)
-					playsound(src, 'sound/machines/terminal/terminal_button03.ogg', 35, FALSE)
-				else
-					playsound(src, 'sound/machines/terminal/terminal_button01.ogg', 35, FALSE)
-				balloon_alert(user, locked ? "locked" : "unlocked")
-			else
-				locked = FALSE //just in case it somehow gets locked
-				to_chat(user, SPAN_WARNING("The controls can only be locked when \the [src] is online."))
-		else
-			to_chat(user, SPAN_WARNING("Access denied."))
-			playsound(src, 'sound/machines/terminal/terminal_error.ogg', 25, FALSE)
-			balloon_alert(user, "access denied!")
-		return
 
 /obj/machinery/power/emitter/emag_act(remaining_charges, mob/user)
 	if(!emagged)
