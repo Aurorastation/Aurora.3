@@ -65,3 +65,12 @@ INITIALIZE_IMMEDIATE(/atom/movable/plane_master_controller)
 		GAME_PLANE,
 		LIGHTING_PLANE
 	)
+
+/// Exists for convienience when referencing all non-master render plates.
+/// This is the whole game and the UI, but not the escape menu.
+/atom/movable/plane_master_controller/non_master
+	name = PLANE_MASTERS_NON_MASTER
+	controlled_planes = list(
+		RENDER_PLANE_GAME,
+		RENDER_PLANE_NON_GAME,
+	)

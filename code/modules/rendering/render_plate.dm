@@ -39,16 +39,11 @@
 	plane = RENDER_PLANE_GAME
 	render_relay_plane = RENDER_PLANE_MASTER
 
-/atom/movable/screen/plane_master/rendering_plate/game_world/Initialize(mapload, datum/hud/hud_owner)
-	. = ..()
-	add_filter("displacer", 1, displacement_map_filter(render_source = DISPLACEMENT_PLATE_RENDER_TARGET, size = 10))
-
 ///render plate for OOC stuff like ghosts, hud-screen effects, etc
 /atom/movable/screen/plane_master/rendering_plate/non_game
 	name = "non-game rendering plate"
 	plane = RENDER_PLANE_NON_GAME
 	render_relay_plane = RENDER_PLANE_MASTER
-
 
 /**
  * Plane master proc called in backdrop() that creates a relay object, sets it as needed and then adds it to the clients screen

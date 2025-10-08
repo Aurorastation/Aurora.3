@@ -33,8 +33,10 @@
 	#define DEBRIS_LAYER 1
 	#define DUST_LAYER 2
 
+#define OPEN_SPACE_PLANE_START -80
 // Openspace uses planes -80 through -70.
-#define OPENTURF_MAX_PLANE -70
+// Do no put anything between these two, adjust more z level support as needed
+#define OPEN_SPACE_PLANE_END -70
 #define OPENTURF_MAX_DEPTH 10		// The maxiumum number of planes deep we'll go before we just dump everything on the same plane.
 
 #define OVER_OPENSPACE_PLANE -4
@@ -152,23 +154,23 @@
 
 #define GHOST_PLANE 4
 
-#define LIGHTING_PLANE 5
+#define LIGHTING_PLANE 6
 	#define LIGHTING_LAYER 1
 
-#define ABOVE_LIGHTING_PLANE 6
+#define ABOVE_LIGHTING_PLANE 7
 	#define EYE_GLOW_LAYER 1
 	#define BEAM_PROJECTILE_LAYER 2
 	#define SUPERMATTER_WALL_LAYER 3
 	#define LIGHTNING_LAYER 4
 
-#define FULLSCREEN_PLANE 7
+#define FULLSCREEN_PLANE 8
 	#define FULLSCREEN_LAYER 1
 	#define DAMAGE_LAYER 2
 	#define IMPAIRED_LAYER 3
 	#define BLIND_LAYER 4
 	#define CRIT_LAYER 5
 
-#define HUD_PLANE 8
+#define HUD_PLANE 9
 	#define UNDER_HUD_LAYER 1
 	#define HUD_BASE_LAYER 2
 	#define HUD_BELOW_ITEM_LAYER 2.9
@@ -178,9 +180,9 @@
 	#define RADIAL_BASE_LAYER 6
 	#define RADIAL_CONTENT_LAYER 7
 
-#define BALLOON_CHAT_PLANE 9
+#define BALLOON_CHAT_PLANE 10
 
-#define CINEMATIC_PLANE 10
+#define CINEMATIC_PLANE 11
 
 /*=============================*\
 | |
@@ -195,13 +197,14 @@
 
 /// Plane master controller keys
 #define PLANE_MASTERS_GAME "plane_masters_game"
+#define PLANE_MASTERS_NON_MASTER "plane_masters_non_master"
 
 //---------- EMISSIVES -------------
 //Layering order of these is not particularly meaningful.
 //Important part is the seperation of the planes for control via plane_master
 
 /// This plane masks out lighting, to create an "emissive" effect for e.g glowing screens in otherwise dark areas.
-#define EMISSIVE_PLANE 10
+#define EMISSIVE_PLANE 5
 #define EMISSIVE_TARGET "*emissive"
 	/// The layer you should use when you -really- don't want an emissive overlay to be blocked.
 	#define EMISSIVE_LAYER_UNBLOCKABLE 9999

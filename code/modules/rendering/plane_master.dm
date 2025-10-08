@@ -34,20 +34,15 @@
 /atom/movable/screen/plane_master/game_world
 	name = "game world plane master"
 	plane = GAME_PLANE
-	appearance_flags = PLANE_MASTER //should use client color
 	blend_mode = BLEND_OVERLAY
 
 /atom/movable/screen/plane_master/game_world_above
 	name = "above game world plane master"
 	plane = ABOVE_GAME_PLANE
-	appearance_flags = PLANE_MASTER //should use client color
-	blend_mode = BLEND_MULTIPLY
 
 /atom/movable/screen/plane_master/ghost
 	name = "ghost plane master"
 	plane = GHOST_PLANE
-	appearance_flags = PLANE_MASTER //should use client color
-	blend_mode = BLEND_OVERLAY
 	render_relay_plane = RENDER_PLANE_NON_GAME
 
 /// Plane master handling display of building roofs. They're meant to become invisible when inside a building.
@@ -60,15 +55,14 @@
 /atom/movable/screen/plane_master/space
 	name = "space plane master"
 	plane = SPACE_PLANE
-	appearance_flags = PLANE_MASTER //should use client color
 	blend_mode = BLEND_OVERLAY
 
 /// Plane master handling skyboxes.
 /atom/movable/screen/plane_master/skybox
 	name = "skybox plane master"
 	plane = SKYBOX_PLANE
-	appearance_flags = PLANE_MASTER
 	blend_mode = BLEND_MULTIPLY
+	appearance_flags = PLANE_MASTER
 
 /**
  * Plane master handling byond internal blackness
@@ -101,9 +95,6 @@
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	blend_mode = BLEND_MULTIPLY
 
-/atom/movable/screen/plane_master/lighting/backdrop(mob/mymob)
-	. = ..()
-
 /atom/movable/screen/plane_master/lighting/Initialize()
 	. = ..()
 	add_filter("emissives", 1, alpha_mask_filter(render_source = EMISSIVE_RENDER_TARGET, flags = MASK_INVERSE))
@@ -125,8 +116,6 @@
 /atom/movable/screen/plane_master/above_lighting
 	name = "above lighting plane master"
 	plane = ABOVE_LIGHTING_PLANE
-	appearance_flags = PLANE_MASTER //should use client color
-	blend_mode = BLEND_OVERLAY
 	render_relay_plane = RENDER_PLANE_GAME
 
 /atom/movable/screen/plane_master/fullscreen
@@ -139,9 +128,18 @@
 	name = "HUD plane"
 	plane = HUD_PLANE
 	render_relay_plane = RENDER_PLANE_NON_GAME
-	blend_mode = BLEND_MULTIPLY
 
 /atom/movable/screen/plane_master/cinematic
 	name = "cinematic plane"
 	plane = CINEMATIC_PLANE
 	render_relay_plane = RENDER_PLANE_NON_GAME
+
+/atom/movable/screen/plane_master/open_space
+	name = "open space plane"
+	plane = OPEN_SPACE_PLANE_END //aurora snowflake: our openspace system works bottom up, not top down like CM's
+
+/atom/movable/screen/plane_master/open_space/Initialize(mapload, offset)
+	name = "open space plane [offset]"
+	plane -= offset
+	. = ..()
+	add_filter("multizblur", 1, gauss_blur_filter(0.5 + 0.25 * (offset + 1)))

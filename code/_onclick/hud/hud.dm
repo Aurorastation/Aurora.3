@@ -157,8 +157,14 @@ GLOBAL_LIST(global_huds)
 /datum/hud/New(mob/owner)
 	mymob = owner
 
-	for(var/mytype in subtypesof(/atom/movable/screen/plane_master) - /atom/movable/screen/plane_master/rendering_plate)
+	for(var/mytype in subtypesof(/atom/movable/screen/plane_master) - /atom/movable/screen/plane_master/rendering_plate - /atom/movable/screen/plane_master/open_space)
 		var/atom/movable/screen/plane_master/instance = new mytype()
+		plane_masters["[instance.plane]"] = instance
+		if(owner.client)
+			instance.backdrop(mymob)
+
+	for(var/z_level in 0 to OPEN_SPACE_PLANE_END - OPEN_SPACE_PLANE_START) //aurora snowflake: our openspace system works bottom up, not top down like CM's
+		var/atom/movable/screen/plane_master/open_space/instance = new(null, z_level)
 		plane_masters["[instance.plane]"] = instance
 		if(owner.client)
 			instance.backdrop(mymob)

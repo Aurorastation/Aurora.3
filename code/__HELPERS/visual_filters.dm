@@ -137,6 +137,11 @@
 	if(!isnull(color))
 		.["color"] = color
 
+/proc/gauss_blur_filter(size)
+	. = list("type" = "blur")
+	if(!isnull(size))
+		.["size"] = size
+
 /proc/displacement_map_filter(icon, render_source, x, y, size = 32)
 	. = list("type" = "displace")
 	if(!isnull(icon))
