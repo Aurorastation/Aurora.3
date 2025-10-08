@@ -206,7 +206,7 @@
 //Important part is the seperation of the planes for control via plane_master
 
 /// This plane masks out lighting, to create an "emissive" effect for e.g glowing screens in otherwise dark areas.
-#define EMISSIVE_PLANE 5
+#define EMISSIVE_PLANE 90
 #define EMISSIVE_TARGET "*emissive"
 	/// The layer you should use when you -really- don't want an emissive overlay to be blocked.
 	#define EMISSIVE_LAYER_UNBLOCKABLE 9999
