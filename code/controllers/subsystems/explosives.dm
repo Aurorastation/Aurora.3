@@ -184,8 +184,8 @@ SUBSYSTEM_DEF(explosives)
 		E.set_up(epicenter)
 		E.start()
 
-	if(power >= 100)
-		new /obj/effect/shockwave(epicenter, power / 60)
+	if(power >= 9)
+		new /obj/effect/shockwave(epicenter, power / 2)
 
 	var/x0 = epicenter.x
 	var/y0 = epicenter.y

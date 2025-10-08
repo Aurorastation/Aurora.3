@@ -36,6 +36,10 @@
 	plane = GAME_PLANE
 	blend_mode = BLEND_OVERLAY
 
+/atom/movable/screen/plane_master/rendering_plate/game_world/Initialize(mapload, datum/hud/hud_owner)
+	. = ..()
+	add_filter("displacer", 1, displacement_map_filter(render_source = DISPLACEMENT_PLATE_RENDER_TARGET, size = 10))
+
 /atom/movable/screen/plane_master/game_world_above
 	name = "above game world plane master"
 	plane = ABOVE_GAME_PLANE
