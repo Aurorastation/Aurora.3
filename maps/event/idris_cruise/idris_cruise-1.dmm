@@ -1180,7 +1180,6 @@
 	pixel_x = -16
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -1763,7 +1762,6 @@
 	pixel_y = 20
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -1978,7 +1976,6 @@
 	pixel_y = -16
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -2126,7 +2123,6 @@
 "bAf" = (
 /obj/structure/flora/tree/jungle/small,
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -2189,7 +2185,6 @@
 	name = "rusty lamp"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -2277,7 +2272,6 @@
 	pixel_y = -2
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -2475,7 +2469,6 @@
 	icon_state = "rock"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -2590,7 +2583,6 @@
 "bXz" = (
 /obj/structure/flora/grass/jungle/b,
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -2769,7 +2761,6 @@
 	},
 /obj/structure/flora/grass/jungle,
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -2777,7 +2768,6 @@
 "cgF" = (
 /obj/item/reagent_containers/glass/bucket/wood,
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -2820,7 +2810,6 @@
 	pixel_y = 5
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -3012,7 +3001,6 @@
 	pixel_y = -16
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -3250,7 +3238,6 @@
 	color = "#6e472b"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -3502,7 +3489,6 @@
 	pixel_y = -16
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -4059,7 +4045,6 @@
 	pixel_y = 16
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -4665,7 +4650,6 @@
 	icon_state = "tree2"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -4680,7 +4664,6 @@
 	pixel_y = -16
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -4807,7 +4790,6 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -4947,7 +4929,6 @@
 	icon_state = "rock"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -5037,7 +5018,6 @@
 	},
 /obj/structure/flora/rock/pile,
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -5080,7 +5060,6 @@
 	},
 /obj/structure/flora/grass/jungle,
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -5721,7 +5700,6 @@
 /obj/structure/flora/grass/jungle/b,
 /obj/structure/flora/tree/jungle/small,
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -5901,7 +5879,6 @@
 	pixel_y = -16
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -6075,7 +6052,6 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -6798,7 +6774,6 @@
 	pixel_y = -14
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -7219,7 +7194,6 @@
 	icon_state = "basalt3"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -7407,7 +7381,6 @@
 	icon_state = "grassa2"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -7522,7 +7495,6 @@
 	pixel_y = -16
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -8056,7 +8028,6 @@
 "gIk" = (
 /obj/structure/flora/tree/jungle/small,
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -8342,7 +8313,6 @@
 	pixel_y = -14
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -8412,7 +8382,6 @@
 	pixel_y = -16
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -8422,7 +8391,6 @@
 	color = "#6e472b"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -8524,7 +8492,6 @@
 	},
 /obj/structure/flora/grass/jungle/b,
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -8638,7 +8605,6 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -8712,7 +8678,6 @@
 	icon_state = "rock2"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -9093,7 +9058,6 @@
 /area/cruise/arcade)
 "hAg" = (
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -9246,7 +9210,6 @@
 	name = "rusty lamp"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -9314,7 +9277,6 @@
 	},
 /obj/structure/flora/grass/jungle,
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -9432,7 +9394,6 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -9527,7 +9488,6 @@
 	pixel_x = -16
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -9670,7 +9630,6 @@
 	},
 /obj/structure/flora/tree/jungle/small,
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -10386,7 +10345,6 @@
 	name = "rusty lamp"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -10429,7 +10387,6 @@
 	icon_state = "basalt3"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -11423,7 +11380,6 @@
 	name = "rusty lamp"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -11528,7 +11484,6 @@
 /obj/structure/table/wood,
 /obj/item/storage/toolbox/mechanical,
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -11696,7 +11651,6 @@
 	icon_state = "grassa2"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -12038,7 +11992,6 @@
 	icon_state = "rock2"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -12612,7 +12565,6 @@
 	pixel_x = -13
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -12941,7 +12893,6 @@
 	icon_state = "bushb2"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -13421,7 +13372,6 @@
 "ljb" = (
 /obj/structure/flora/rock,
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -13553,7 +13503,6 @@
 	pixel_y = 9
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -14335,7 +14284,6 @@
 	icon_state = "rock"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -14475,7 +14423,6 @@
 	pixel_y = -16
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -15219,7 +15166,6 @@
 	pixel_y = -16
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -15397,7 +15343,6 @@
 	name = "rusty lamp"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -15469,7 +15414,6 @@
 	pixel_y = 9
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -15764,7 +15708,6 @@
 	pixel_x = -16
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -15833,7 +15776,6 @@
 "nnJ" = (
 /obj/machinery/floodlight,
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -15910,7 +15852,6 @@
 	},
 /obj/structure/blocker,
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -16110,7 +16051,6 @@
 	icon_state = "bushb1"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -16212,7 +16152,6 @@
 /obj/structure/table/wood,
 /obj/item/watertank,
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -16275,7 +16214,6 @@
 /obj/structure/flora/grass/jungle/b,
 /obj/structure/flora/grass/jungle,
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -16305,7 +16243,6 @@
 	icon_state = "grassa2"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -16426,7 +16363,6 @@
 	icon_state = "tree3"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -16597,7 +16533,6 @@
 "nRP" = (
 /obj/structure/flora/tree/jungle,
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -16676,7 +16611,6 @@
 	icon_state = "tree2"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -16694,7 +16628,6 @@
 	icon_state = "tree2"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -16849,7 +16782,6 @@
 	pixel_x = -16
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -16947,7 +16879,6 @@
 	},
 /obj/structure/flora/grass/jungle/b,
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -17458,7 +17389,6 @@
 	pixel_y = -16
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -18116,7 +18046,6 @@
 	icon_state = "grassa2"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -18202,7 +18131,6 @@
 	pixel_y = -16
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -18439,7 +18367,6 @@
 /obj/structure/flora/grass/jungle,
 /obj/structure/flora/tree/jungle/small,
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -18497,7 +18424,6 @@
 	icon_state = "tree2"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -18841,7 +18767,6 @@
 	icon_state = "tree3"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -18979,7 +18904,6 @@
 	pixel_y = 27
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -19338,7 +19262,6 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -19888,7 +19811,6 @@
 	pixel_x = -16
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -20355,7 +20277,6 @@
 	icon_state = "grassa2"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -20446,7 +20367,6 @@
 "rnM" = (
 /obj/structure/bed/stool/padded/red,
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -20511,7 +20431,6 @@
 	name = "rusty lamp"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -20700,7 +20619,6 @@
 	pixel_y = -16
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -20754,7 +20672,6 @@
 	},
 /obj/structure/flora/grass/jungle,
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -21184,7 +21101,6 @@
 	pixel_y = 20
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -22009,7 +21925,6 @@
 	icon_state = "bushb1"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -22119,7 +22034,6 @@
 	icon_state = "bushb2"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -22177,7 +22091,6 @@
 	pixel_y = -16
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -22656,7 +22569,6 @@
 "teR" = (
 /obj/structure/bed/stool/chair/wood,
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -22670,7 +22582,6 @@
 	pixel_y = -2
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -23036,7 +22947,6 @@
 "txD" = (
 /obj/structure/flora/rock,
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -23284,7 +23194,6 @@
 	},
 /obj/structure/flora/grass/jungle,
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -23330,7 +23239,6 @@
 	icon_state = "rock"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -23385,7 +23293,6 @@
 	pixel_y = -16
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -23543,7 +23450,6 @@
 "tNG" = (
 /obj/structure/flora/grass/jungle/b,
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -23631,7 +23537,6 @@
 "tSu" = (
 /obj/structure/bed/stool/chair/wood,
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -23820,7 +23725,6 @@
 	pixel_y = 32
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -24045,7 +23949,6 @@
 	icon_state = "rock"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -24175,7 +24078,6 @@
 	name = "rusty lamp"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -24348,7 +24250,6 @@
 "uqs" = (
 /obj/structure/flora/grass/jungle,
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -24460,7 +24361,6 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -24683,7 +24583,6 @@
 "uEa" = (
 /obj/structure/blocker,
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -25250,7 +25149,6 @@
 /obj/structure/closet/crate/coffin,
 /obj/item/reagent_containers/food/snacks/donut/normal/psdonut,
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -25311,7 +25209,6 @@
 	},
 /obj/structure/flora/grass/jungle,
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -25697,7 +25594,6 @@
 	icon_state = "tree2"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -26035,7 +25931,6 @@
 	pixel_y = -16
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -27186,7 +27081,6 @@
 	pixel_x = -16
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
@@ -27624,7 +27518,6 @@
 	},
 /obj/structure/flora/grass/jungle,
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -27678,7 +27571,6 @@
 /area/cruise/arcade)
 "xlt" = (
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -28498,7 +28390,6 @@
 "xUu" = (
 /obj/structure/flora/grass/jungle,
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon = 'icons/jungle.dmi';
 	icon_state = "grass1";
 	name = "lush grass"
@@ -28712,7 +28603,6 @@
 	icon_state = "bushb1"
 	},
 /turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon_state = "asteroid";
 	name = "dirt"
 	},
