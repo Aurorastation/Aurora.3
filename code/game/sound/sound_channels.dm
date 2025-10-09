@@ -24,7 +24,7 @@ GLOBAL_LIST_INIT(proxy_sound_channels, list(
 	CHANNEL_MOB_SOUNDS,
 ))
 
-GLOBAL_DATUM_INIT(cached_mixer_channels, /alist, alist())
+GLOBAL_DATUM_INIT(cached_mixer_channels, /list, list())
 
 /proc/guess_mixer_channel(soundin)
 	var/sound_text_string
