@@ -42,7 +42,9 @@
 	addtimer(CALLBACK(src, PROC_REF(prepare_elevator)), 1 MINUTE) // pseudo initialize. We give mapload some time before initializing rest of the properties
 
 /datum/shuttle/autodock/ferry/supply/proc/prepare_elevator()
-	var/obj/dest_helper = locate(/obj/effect/landmark/destination_helper/cargo_elevator)
+	var/obj/dest_helper = SSshuttle.cargo_dest_helper
+	if(!dest_helper)
+		crash_with("No cargo destination helper found for the elevator!")
 	target_dest_x = dest_helper.x
 	target_dest_y = dest_helper.y
 	target_dest_z = dest_helper.z
@@ -238,6 +240,16 @@
 
 /obj/effect/landmark/destination_helper/cargo_elevator
 	name = "cargo elevator destination helper"
+
+/obj/effect/landmark/destination_helper/cargo_elevator/Initialize(mapload)
+	..()
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/effect/landmark/destination_helper/cargo_elevator/LateInitialize()
+	. = ..()
+	if(SSshuttle.cargo_dest_helper)
+		log_and_message_admins("Multiple cargo destination helpers detected; overriding.")
+	SSshuttle.cargo_dest_helper = src
 
 /obj/effect/step_trigger/cargo_elevator
 	name = "cargo elevator shaft"
