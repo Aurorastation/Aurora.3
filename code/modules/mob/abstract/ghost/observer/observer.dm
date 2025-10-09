@@ -4,12 +4,12 @@
 	icon = 'icons/mob/mob.dmi'
 	icon_state = "ghost"
 	density = FALSE
-	canmove = 0
-	blinded = 0
-	anchored = 1	//  don't get pushed around
+	canmove = FALSE
+	blinded = FALSE
+	anchored = TRUE	//  don't get pushed around
 	invisibility = INVISIBILITY_OBSERVER
 	simulated = FALSE
-	universal_speak = 1
+	universal_speak = TRUE
 	incorporeal_move = INCORPOREAL_GHOST
 	mob_thinks = FALSE
 	interaction_flags_atom = INTERACT_ATOM_MOUSEDROP_IGNORE_CHECKS
@@ -17,7 +17,7 @@
 	/// If the ghost can re-enter their corpse.
 	var/can_reenter_corpse
 	/// The ghost's HUD datum.
-	var/datum/hud/hud = null
+	var/datum/hud/hud
 	/// This variable is set to 1 when you enter the game as an observer. Remains null if you died in the game and are a ghost. Not reliable for admins; they change mobs a lot.
 	var/started_as_observer
 	/// If the ghost has enabled antagHUD.
@@ -42,7 +42,7 @@
 
 	set_stat(DEAD)
 
-	ghostimage = image(src.icon,src,src.icon_state)
+	ghostimage = image(icon, src, icon_state)
 	SSmobs.ghost_darkness_images |= ghostimage
 	updateallghostimages()
 
@@ -53,7 +53,7 @@
 
 		var/originaldesc = desc
 		var/o_transform = transform
-		appearance = body
+		set_appearance(body)
 		appearance_flags = KEEP_TOGETHER
 		desc = originaldesc
 		transform = o_transform
@@ -608,6 +608,14 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		client.images |= SSmobs.ghost_darkness_images
 		if (ghostimage)
 			client.images -= ghostimage //remove ourself
+
+/**
+ * We use this proc to set appearance because doing so resets the plane.
+ * We want the plane to stay at GHOST_PLANE to avoid weird overlaying stuff.
+ */
+/mob/abstract/ghost/observer/proc/set_appearance(new_appearance)
+	appearance = new_appearance
+	plane = GHOST_PLANE
 
 /mob/abstract/ghost/observer/MayRespawn(var/feedback = 0, var/respawn_type = null)
 	if(!client)

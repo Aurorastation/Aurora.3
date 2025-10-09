@@ -93,7 +93,7 @@
 	messengerbag_faction = /obj/item/storage/backpack/messenger/nt
 
 	backpack_contents = list(
-		/obj/item/storage/box/produce = 1
+		/obj/item/storage/box/large/produce = 1
 	)
 
 /datum/job/hydro

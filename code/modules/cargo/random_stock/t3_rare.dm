@@ -10,7 +10,7 @@ STOCK_ITEM_RARE(uranium, 3)
 	new /obj/item/stack/material/uranium(L, rand(5,30))
 
 STOCK_ITEM_RARE(EMP, 0.75)
-	new /obj/item/storage/box/emps(L)
+	new /obj/item/storage/box/tactical/emps(L)
 
 STOCK_ITEM_RARE(hypercell, 3)
 	new /obj/item/cell/hyper(L)

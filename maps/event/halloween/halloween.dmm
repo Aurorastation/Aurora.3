@@ -1012,9 +1012,9 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/obj/item/storage/box/candy,
-/obj/item/storage/box/candy,
-/obj/item/storage/box/candy,
+/obj/item/storage/box/large/candy,
+/obj/item/storage/box/large/candy,
+/obj/item/storage/box/large/candy,
 /turf/simulated/floor/wood,
 /area/city/hallway)
 "cU" = (
@@ -6258,11 +6258,11 @@
 /turf/simulated/floor/cult,
 /area/city/horrorhouse)
 "Ac" = (
-/obj/item/storage/box/candy,
+/obj/item/storage/box/large/candy,
 /obj/structure/table/wood,
-/obj/item/storage/box/candy,
-/obj/item/storage/box/candy,
-/obj/item/storage/box/candy,
+/obj/item/storage/box/large/candy,
+/obj/item/storage/box/large/candy,
+/obj/item/storage/box/large/candy,
 /turf/simulated/floor/wood,
 /area/city/hallway)
 "Ae" = (
@@ -6702,9 +6702,9 @@
 /area/city/medical)
 "BX" = (
 /obj/structure/table/wood,
-/obj/item/storage/box/candy,
-/obj/item/storage/box/candy,
-/obj/item/storage/box/candy,
+/obj/item/storage/box/large/candy,
+/obj/item/storage/box/large/candy,
+/obj/item/storage/box/large/candy,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 7
 	},
@@ -9813,9 +9813,9 @@
 /area/city/bar)
 "NT" = (
 /obj/structure/table/wood,
-/obj/item/storage/box/candy,
-/obj/item/storage/box/candy,
-/obj/item/storage/box/candy,
+/obj/item/storage/box/large/candy,
+/obj/item/storage/box/large/candy,
+/obj/item/storage/box/large/candy,
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -10211,8 +10211,8 @@
 /area/city/hallway)
 "Pv" = (
 /obj/structure/table/wood,
-/obj/item/storage/box/candy,
-/obj/item/storage/box/candy,
+/obj/item/storage/box/large/candy,
+/obj/item/storage/box/large/candy,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 7
 	},
@@ -11922,7 +11922,7 @@
 /obj/item/material/knife{
 	pixel_x = -9
 	},
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = -5
 	},
@@ -11940,11 +11940,11 @@
 	pixel_x = 6;
 	pixel_y = 10
 	},
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = -5
 	},
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = -5
 	},
@@ -12055,8 +12055,8 @@
 /turf/simulated/floor/tiled/full,
 /area/city/security)
 "UW" = (
-/obj/item/storage/box/candy,
-/obj/item/storage/box/candy,
+/obj/item/storage/box/large/candy,
+/obj/item/storage/box/large/candy,
 /turf/simulated/floor/grass,
 /area/city/hallway)
 "UY" = (
@@ -13592,15 +13592,15 @@
 /area/city/bar)
 "ZR" = (
 /obj/structure/table/stone/marble,
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = -5
 	},
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = -5
 	},
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = -5
 	},

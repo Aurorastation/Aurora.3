@@ -165,3 +165,50 @@
       slots they have.
   - rscadd: Journals and notepads in the loadout now spawns with 5 blank pieces of
       paper.
+2025-10-07:
+  FabianK3:
+  - bugfix: Fixed missing permission for cache access in the issue triage workflow
+      in the repository.
+  - bugfix: Fixed exempt labels getting ignore in the CI/CD stale triage action in
+      the repository.
+  Hellfirejag:
+  - balance: Stasis beds now only go up to 30x stasis modifier when fully part upgraded,
+      down from 90.
+  - rscdel: Stasis beds are no longer upgraded using Capacitors, only scanning modules
+      contribute to the stasis modifier.
+2025-10-08:
+  Batrachophrenoboocosmomachia:
+  - code_imp: Added set definitions for several Horizon-specific containers.
+  - code_imp: Updated 'full' material stacks on the Horizon from sneaky var-edited
+      singles to properly defined full stacks
+  - code_imp: Cleaned up all Air Alarms, Fire Alarms, and APCs on the Horizon that
+      were directional children with their dir var edited.
+  - code_imp: Cleaned up all Power Cables on the Horizon that had d1 or d2 var edited
+      instead of just icon_state.
+  - code_imp: Adjusted pixel shifts for 'south' (north-facing) Air Alarms, Fire Alarms,
+      APCs, and Extinguisher Cabinets to address layering issues when standing vs.
+      leaning.
+  - code_imp: Minor refactor of shuttle/* Air Alarms and APCs to reduce excess children;
+      req_one_access perms now assigned based on /area/horizon/shuttle/*.
+  - qol: Adds feedback hint for uses remaining to Emag cards.
+  - qol: Added Tip about the shift-click behavior of the 'up-hint'/'Look Up' button.
+  - bugfix: See-through turfs (like lattices/catwalks over open space) can now be
+      Looked Up through from below.
+  - bugfix: Fixed the shift-click behavior of 'up-hint'/'Look Up' button, allowing
+      you to see nearby turfs that can be Looked Up through.
+  - bugfix: Maintenance Panels located on the floor have had their layering issues
+      fixed.
+  - bugfix: Borg eye emissive effects MAYBE no longer visible through higher z-levels.
+  - bugfix: Added missing leanable component to window/shuttle obj type.
+  - bugfix: Add missing APC to D1 maintenance area.
+  FabianK3:
+  - bugfix: Added missing APC to D2 service/bridge stairwell.
+  Fyni:
+  - rscadd: Adds the autopsy scanner to the protolathe, available at round start under
+      biotech
+  MattAtlas:
+  - experiment: Shields have been reworked to be far more performant, and genericized
+      to allow anything to have an energy field.
+  nauticall:
+  - imageadd: Resprited boxes; made them both colorable and modular.
+  - code_imp: Repathed box paths behind the scenes.

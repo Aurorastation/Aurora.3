@@ -7,6 +7,7 @@ on:
   workflow_dispatch: # Allow manual trigger
 
 permissions:
+  actions: write
   issues: write
   pull-requests: write
 

@@ -6,6 +6,9 @@
  */
 
 /atom
+	plane = GAME_PLANE
+	layer = TURF_LAYER
+	appearance_flags = DEFAULT_APPEARANCE_FLAGS
 
 	/// pass_flags that we are. If any of this matches a pass_flag on a moving thing, by default, we let them through.
 	var/pass_flags_self = NONE
@@ -23,9 +26,6 @@
 	var/receive_ricochet_damage_coeff = 0.33
 
 	var/update_icon_on_init	= FALSE // Default to 'no'.
-
-	layer = TURF_LAYER
-	appearance_flags = DEFAULT_APPEARANCE_FLAGS
 
 	var/level = 2
 	var/atom_flags = 0
