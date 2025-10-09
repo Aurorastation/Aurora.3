@@ -67,6 +67,7 @@ export const Jukebox = (props, context) => {
                   {''}
                   <Button
                     minWidth={12}
+                    maxWidth={40}
                     content={song.name}
                     backgroundColor={
                       song === song_selected && !active
