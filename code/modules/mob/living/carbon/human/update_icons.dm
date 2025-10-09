@@ -516,7 +516,7 @@ There are several things that need to be remembered:
 			var/datum/sprite_accessory/hair_style = GLOB.hair_styles_list[h_style]
 			if (hair_style)
 				var/col = species.get_light_color(src) || "#FFFFFF"
-				set_light(species.light_range, species.light_power, col, uv = 0, angle = LIGHT_WIDE)
+				set_light(species.light_range, species.light_power, col, uv = 0)
 		else
 			set_light(0)
 

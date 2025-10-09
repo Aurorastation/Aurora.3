@@ -120,13 +120,6 @@
 /obj/item/clothing/accessory/proc/on_clothing_change(var/mob/user)
 	update_light()
 
-/obj/item/clothing/accessory/get_light_atom()
-	if(isclothing(loc))
-		if(ismob(loc.loc))
-			return loc.loc
-		return loc
-	return ..()
-
 //default attackby behaviour
 /obj/item/clothing/accessory/attackby(obj/item/attacking_item, mob/user)
 	..()

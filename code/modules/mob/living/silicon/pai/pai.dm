@@ -113,7 +113,6 @@
 	light_power = 0
 	light_range = 4
 	light_color = COLOR_BRIGHT_GREEN
-	light_wedge = 45
 
 /mob/living/silicon/pai/movement_delay()
 	return 0.8
@@ -154,7 +153,7 @@
 	..()
 	if(istype(loc, /obj/item/holder/pai))
 		var/obj/item/holder/pai/P = loc
-		P.set_light(light_range, light_power, light_color, uv_intensity, light_wedge)
+		P.set_light(light_range, light_power, light_color, uv_intensity)
 
 /mob/living/silicon/pai/Initialize(mapload)
 	var/obj/item/device/paicard/paicard = loc

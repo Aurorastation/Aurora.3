@@ -305,13 +305,6 @@ SUBSYSTEM_DEF(explosives)
 		act_turfs[current_turf] = current_power
 		current_power -= current_turf.explosion_resistance
 
-		// Attempt to shortcut on empty tiles: if a turf only has a LO on it, we don't need to check object resistance. Some turfs might not have LOs, so we need to check it actually has one.
-		if (current_turf.contents.len > !!current_turf.lighting_overlay)
-			for (var/thing in current_turf)
-				var/atom/movable/AM = thing
-				if (AM.simulated && AM.explosion_resistance)
-					current_power -= AM.explosion_resistance
-
 		if (current_power <= 0)
 			CHECK_TICK
 			continue
@@ -395,7 +388,7 @@ SUBSYSTEM_DEF(explosives)
 
 		if (T.simulated)
 			T.ex_act(severity)
-		if (T.contents.len > !!T.lighting_overlay)
+		if (T.contents.len)
 			for (var/subthing in T)
 				var/atom/movable/AM = subthing
 				if (AM.simulated)

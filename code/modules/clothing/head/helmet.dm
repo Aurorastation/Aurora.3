@@ -470,6 +470,5 @@
 	action_button_name = "Toggle Helmet Light"
 	light_overlay = "helmet_light_dual"
 	brightness_on = 6
-	light_wedge = LIGHT_WIDE
 	camera = /obj/machinery/camera/network/tcfl
 	on = 0

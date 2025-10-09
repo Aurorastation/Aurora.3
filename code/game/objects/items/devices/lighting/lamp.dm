@@ -12,7 +12,6 @@
 	power_use = FALSE
 	on = TRUE
 	slot_flags = 0 //No wearing desklamps
-	light_wedge = LIGHT_OMNI
 	toggle_sound = /singleton/sound_category/switch_sound
 	activation_sound = 'sound/effects/lighton.ogg'
 

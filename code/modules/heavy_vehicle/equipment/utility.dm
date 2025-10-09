@@ -223,7 +223,6 @@
 	var/on = 0
 	var/brightness_on = 12		//can't remember what the maxed out value is
 	light_color = LIGHT_COLOR_TUNGSTEN
-	light_wedge = LIGHT_WIDE
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
 	module_hints = list(
 		"<b>Alt Click(Icon):</b> Light up a large area in front of the mech.",

@@ -49,16 +49,21 @@
 	var/obj/fire/old_fire = fire
 	var/old_baseturf = baseturf
 	var/old_above = above
-	var/old_opacity = opacity
-	var/old_dynamic_lighting = dynamic_lighting
-	var/list/old_affecting_lights = affecting_lights
-	var/old_lighting_overlay = lighting_overlay
-	var/list/old_corners = corners
 	var/list/old_blueprints = blueprints
 	var/list/old_decals = decals
 	var/old_outside = is_outside
 	var/old_is_open = is_open()
 	var/list/old_resources = resources ? resources.Copy() : null
+
+	//static lighting
+	var/old_lighting_object = static_lighting_object
+	var/old_lighting_corner_NE = lighting_corner_NE
+	var/old_lighting_corner_SE = lighting_corner_SE
+	var/old_lighting_corner_SW = lighting_corner_SW
+	var/old_lighting_corner_NW = lighting_corner_NW
+	//hybrid lighting
+	var/list/old_hybrid_lights_affecting = hybrid_lights_affecting?.Copy()
+	var/old_directional_opacity = directional_opacity
 
 	changing_turf = TRUE
 
@@ -92,28 +97,30 @@
 		regenerate_ao()
 #endif
 
-	if(GLOB.lighting_overlays_initialized)
-		recalc_atom_opacity()
-		lighting_overlay = old_lighting_overlay
-		if (lighting_overlay && lighting_overlay.loc != src)
-			// This is a hack, but I can't figure out why the fuck they're not on the correct turf in the first place.
-			lighting_overlay.forceMove(src, harderforce = TRUE)
+	new_turf.hybrid_lights_affecting = old_hybrid_lights_affecting
+	new_turf.dynamic_lumcount = dynamic_lumcount
 
-		affecting_lights = old_affecting_lights
-		corners = old_corners
+	lighting_corner_NE = old_lighting_corner_NE
+	lighting_corner_SE = old_lighting_corner_SE
+	lighting_corner_SW = old_lighting_corner_SW
+	lighting_corner_NW = old_lighting_corner_NW
 
-		if ((old_opacity != opacity) || (dynamic_lighting != old_dynamic_lighting) || force_lighting_update)
-			reconsider_lights()
+	//static Update
+	if(SSlighting.initialized)
+		recalculate_directional_opacity()
 
-		if (dynamic_lighting != old_dynamic_lighting)
-			if (dynamic_lighting)
-				lighting_build_overlay()
-			else
-				lighting_clear_overlay()
+		new_turf.static_lighting_object = old_lighting_object
 
-		if (GLOB.config.starlight)
-			for (var/turf/space/S in RANGE_TURFS(1, src))
-				S.update_starlight()
+		if(static_lighting_object && !static_lighting_object.needs_update)
+			static_lighting_object.update()
+
+	//Since the old turf was removed from hybrid_lights_affecting, readd the new turf here
+	if(new_turf.hybrid_lights_affecting)
+		for(var/atom/movable/lighting_mask/mask as anything in new_turf.hybrid_lights_affecting)
+			LAZYADD(mask.affecting_turfs, new_turf)
+
+	if(new_turf.directional_opacity != old_directional_opacity)
+		new_turf.reconsider_lights()
 
 	new_turf.above = old_above
 

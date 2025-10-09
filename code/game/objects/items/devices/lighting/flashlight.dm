@@ -9,7 +9,6 @@
 	slot_flags = SLOT_BELT
 	light_color = LIGHT_COLOR_HALOGEN
 	uv_intensity = 50
-	light_wedge = LIGHT_WIDE
 
 	matter = list(MATERIAL_PLASTIC = 50, MATERIAL_GLASS = 20)
 
@@ -55,8 +54,6 @@
 		. += "\The [src] is set to [brightness_level]."
 		if(cell)
 			. += "\The [src] has \a [cell] attached. It has [round(cell.percent())]% charge remaining."
-	if(light_wedge && isturf(loc))
-		. += SPAN_NOTICE("\The [src] is facing [dir2text(dir)].")
 
 /obj/item/device/flashlight/Initialize()
 
@@ -78,12 +75,6 @@
 		update_icon()
 
 	. = ..()
-
-	if(light_wedge)
-		set_dir(pick(NORTH, SOUTH, EAST, WEST))
-		if(spawn_dir)
-			set_dir(spawn_dir)
-		update_light()
 
 /obj/item/device/flashlight/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
@@ -203,19 +194,6 @@
 /obj/item/device/flashlight/vendor_action(var/obj/machinery/vending/V)
 	toggle()
 
-/obj/item/device/flashlight/dropped(mob/user)
-	. = ..()
-	if(light_wedge)
-		set_dir(user.dir)
-		update_light()
-
-/obj/item/device/flashlight/throw_at(atom/target, range, speed, thrower, do_throw_animation)
-	. = ..()
-	if(light_wedge)
-		var/new_dir = pick(NORTH, SOUTH, EAST, WEST)
-		set_dir(new_dir)
-		update_light()
-
 /obj/item/device/flashlight/emp_act(severity)
 	. = ..()
 
@@ -314,7 +292,6 @@
 	slot_flags = SLOT_EARS
 	brightness_on = 2
 	w_class = WEIGHT_CLASS_TINY
-	light_wedge = LIGHT_OMNI
 
 /obj/item/device/flashlight/drone
 	name = "low-power flashlight"
@@ -335,7 +312,6 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	uv_intensity = 60
 	matter = list(MATERIAL_PLASTIC = 100, MATERIAL_GLASS = 70)
-	light_wedge = LIGHT_SEMI
 
 /obj/item/device/flashlight/heavy/on
 	on = TRUE
@@ -353,7 +329,6 @@
 	attack_verb = list("slammed", "whacked", "bashed", "thunked", "battered", "bludgeoned", "thrashed")
 	matter = list(MATERIAL_ALUMINIUM = 200, MATERIAL_GLASS = 100)
 	hitsound = 'sound/weapons/smash.ogg'
-	light_wedge = LIGHT_NARROW
 
 /obj/item/device/flashlight/maglight/update_icon()
 	..()
@@ -379,7 +354,6 @@
 	always_on = TRUE
 	power_usage = FALSE
 	light_color = LIGHT_COLOR_SLIME_LAMP
-	light_wedge = LIGHT_OMNI
 
 /obj/item/device/flashlight/headlights
 	name = "headlights"
@@ -390,7 +364,6 @@
 	slot_flags = SLOT_HEAD | SLOT_EARS
 	brightness_on = 2
 	w_class = WEIGHT_CLASS_TINY
-	light_wedge = LIGHT_WIDE
 	body_parts_covered = 0
 
 /******************************Lantern*******************************/
@@ -406,7 +379,6 @@
 	brightness_on = 4
 	cell_type = /obj/item/cell
 	accepts_large_cells = TRUE
-	light_wedge = LIGHT_OMNI
 	light_color = LIGHT_COLOR_FIRE
 
 /obj/item/device/flashlight/lantern/update_icon()

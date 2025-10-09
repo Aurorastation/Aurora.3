@@ -30,9 +30,7 @@
 
 	var/turf/T
 	if (z_flags & ZM_MIMIC_BELOW)
-		CALCULATE_NEIGHBORS(src, ao_neighbors_mimic, T, (T.z_flags & ZM_MIMIC_BELOW))
-	if (AO_SELF_CHECK(src) && !(z_flags & ZM_MIMIC_NO_AO))
-		CALCULATE_NEIGHBORS(src, ao_neighbors, T, AO_TURF_CHECK(T))
+		CALCULATE_NEIGHBORS(src, ao_neighbors_mimic, T, (T.z_flags & ZM_MIMIC_BELOW)) //todomatt: unfuck ao
 
 /proc/make_ao_image(corner, i, px = 0, py = 0, pz = 0, pw = 0)
 	var/list/cache = SSicon_cache.ao_cache
@@ -107,8 +105,8 @@
 	CUT_AO(src, ao_overlays)
 	if (z_flags & ZM_MIMIC_BELOW)
 		REGEN_AO(shadower, ao_overlays_mimic, ao_neighbors_mimic)
-	if (!has_opaque_atom && !(z_flags & ZM_MIMIC_NO_AO))
-		REGEN_AO(src, ao_overlays, ao_neighbors)
+	//if (!has_opaque_atom && !(z_flags & ZM_MIMIC_NO_AO)) todomatt: unfuck ao
+	//	REGEN_AO(src, ao_overlays, ao_neighbors)
 
 #undef REGEN_AO
 #undef PROCESS_AO_CORNER

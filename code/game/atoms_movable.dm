@@ -86,19 +86,20 @@
 
 /atom/movable/Initialize(mapload, ...)
 	. = ..()
-	update_emissive_blocker()
+	update_emissive_blocker() //todomatt: unfuck this, different on cm
 	if (em_block)
 		AddOverlays(em_block)
+
+	if(opacity)
+		AddElement(/datum/element/light_blocking)
+	if(light_system == MOVABLE_LIGHT)
+		AddComponent(/datum/component/overlay_lighting)
+	if(light_system == DIRECTIONAL_LIGHT)
+		AddComponent(/datum/component/overlay_lighting, is_directional = TRUE)
 
 /atom/movable/Destroy(force)
 	if(orbiting)
 		stop_orbit()
-
-	//Recalculate opacity
-	var/turf/T = loc
-	if(opacity && istype(T))
-		T.recalc_atom_opacity()
-		T.reconsider_lights()
 
 	if(move_packet)
 		if(!QDELETED(move_packet))
@@ -143,6 +144,9 @@
 
 	if(em_block)
 		QDEL_NULL(em_block)
+
+	QDEL_NULL(light)
+	QDEL_NULL(static_light)
 
 /atom/movable/proc/moveToNullspace()
 	. = TRUE

@@ -74,8 +74,8 @@
 
 	return ..()
 
-/atom/movable/openspace/multiplier/proc/copy_lighting(atom/movable/lighting_overlay/LO)
-	appearance = LO
+/atom/movable/openspace/multiplier/proc/copy_lighting(atom/movable/LO)
+/*	appearance = LO todomatt: UNFUCK THIS
 	layer = MIMICED_LIGHTING_LAYER
 	plane = OPEN_SPACE_PLANE_END
 	set_invisibility(0)
@@ -113,7 +113,7 @@
 		overlays += parent.ao_overlays_mimic
 
 	if (bound_overlay)
-		update_above()
+		update_above()*/
 
 // -- OPENSPACE OVERLAY --
 // todo: rename

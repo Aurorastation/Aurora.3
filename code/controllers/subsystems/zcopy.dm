@@ -275,11 +275,6 @@ SUBSYSTEM_DEF(zcopy)
 				// Don't queue deleted stuff, stuff that's not visible, blacklisted stuff, or stuff that's centered on another tile but intersects ours.
 				continue
 
-			// Special case: these are merged into the shadower to reduce memory usage.
-			if (object.type == /atom/movable/lighting_overlay)
-				//T.shadower.copy_lighting(object)
-				continue
-
 			if (!object.bound_overlay)	// Generate a new overlay if the atom doesn't already have one.
 				object.bound_overlay = new(T)
 				object.bound_overlay.associated_atom = object

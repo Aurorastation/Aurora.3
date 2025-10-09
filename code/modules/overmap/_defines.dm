@@ -17,7 +17,7 @@ GLOBAL_LIST_EMPTY(map_templates)
 	icon_state = "start"
 	requires_power = 0
 	base_turf = /turf/unsimulated/map
-	dynamic_lighting = 0
+	base_lighting_alpha = 255
 
 /turf/unsimulated/map
 	icon = 'icons/obj/overmap/overmap.dmi'

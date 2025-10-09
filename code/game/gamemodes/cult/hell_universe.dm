@@ -72,11 +72,11 @@ In short:
 
 		CHECK_TICK
 
-	for(var/datum/lighting_corner/C in SSlighting.lighting_corners)
+	/*for(var/datum/lighting_corner/C in SSlighting.lighting_corners)
 		if (!C.active)
 			continue
 
-		C.update_lumcount(0.5, 0, 0)
+		C.update_lumcount(0.5, 0, 0) todomatt: unfuck this*/
 		CHECK_TICK
 
 /datum/universal_state/hell/proc/MiscSet()

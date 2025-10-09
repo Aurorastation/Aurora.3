@@ -109,3 +109,6 @@ GLOBAL_LIST_INIT(mimic_defines, list("ZM_MIMIC_BELOW",
 #define ITEM_FLAG_NO_MOVE FLAG(12)
 /// Can be used for surgery, giving the "You're not sure what you can do with this." message if no surgery is available.
 #define ITEM_FLAG_SURGERY FLAG(13)
+
+///All the cardinal direction bitflags.
+#define ALL_CARDINALS (NORTH|SOUTH|EAST|WEST)

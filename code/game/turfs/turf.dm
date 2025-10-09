@@ -124,16 +124,8 @@
 	if (is_station_level(z))
 		GLOB.station_turfs += src
 
-	if(dynamic_lighting)
-		luminosity = 0
-	else
-		luminosity = 1
-
 	if (smoothing_flags)
 		QUEUE_SMOOTH(src)
-
-	if (opacity)
-		has_opaque_atom = TRUE
 
 	if (mapload && permit_ao)
 		queue_ao()
@@ -148,6 +140,14 @@
 	if (light_range && light_power)
 		update_light()
 
+	//Get area light
+	var/area/current_area = loc
+	if(current_area?.lighting_effect)
+		overlays += current_area.lighting_effect
+
+	if(opacity)
+		directional_opacity = ALL_CARDINALS
+
 	else if(!baseturf)
 		// Hard-coding this for performance reasons.
 		baseturf = SSatlas.current_map.base_turf_by_z["[z]"] || /turf/space
@@ -161,6 +161,11 @@
 	return INITIALIZE_HINT_NORMAL
 
 /turf/Destroy()
+	if(hybrid_lights_affecting)
+		for(var/atom/movable/lighting_mask/mask as anything in hybrid_lights_affecting)
+			LAZYREMOVE(mask.affecting_turfs, src)
+		hybrid_lights_affecting.Cut()
+
 	if (!changing_turf)
 		crash_with("Improper turf qdeletion.")
 
@@ -474,10 +479,6 @@
 
 			if (oAM.simulated && (oAM.movable_flags & MOVABLE_FLAG_PROXMOVE))
 				arrived.proximity_callback(oAM)
-
-	if (arrived && arrived.opacity && !has_opaque_atom)
-		has_opaque_atom = TRUE // Make sure to do this before reconsider_lights(), incase we're on instant updates. Guaranteed to be on in this case.
-		reconsider_lights()
 
 #ifdef AO_USE_LIGHTING_OPACITY
 		// Hook for AO.

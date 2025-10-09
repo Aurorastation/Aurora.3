@@ -12,7 +12,6 @@
 	uv_intensity = 100
 	var/on_damage = 7
 	var/produce_heat = 1500
-	light_wedge = LIGHT_OMNI
 	power_use = FALSE
 	activation_sound = 'sound/items/flare.ogg'
 	toggle_sound = null

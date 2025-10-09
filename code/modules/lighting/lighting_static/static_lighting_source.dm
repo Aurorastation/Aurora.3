@@ -234,7 +234,7 @@
 				corners[T.lighting_corner_NW] = 0
 			turfs += T
 
-			var/turf/above = SSmapping.get_turf_above(T)
+			var/turf/above = GET_TURF_ABOVE(T) //TODOMATT: these used to be SSmapping.get_turf_above(T) and shit
 
 			while(above && istransparentturf(above))
 				if (!above.lighting_corners_initialised)
@@ -244,14 +244,14 @@
 				corners[above.lighting_corner_SW] = 0
 				corners[above.lighting_corner_NW] = 0
 
-				above = SSmapping.get_turf_above(above)
+				above = GET_TURF_ABOVE(above)
 
 			turfs += above
 
-			var/turf/below = SSmapping.get_turf_below(T)
+			var/turf/below = GET_TURF_BELOW(T)
 			var/turf/previous = T
 
-			while(below && istransparentturf(previous))
+			while(below && istransparentturf(previous)) //todomatt: do we need this shit? probably not
 				if (!below.lighting_corners_initialised)
 					below.static_generate_missing_corners()
 				corners[below.lighting_corner_NE] = 0
@@ -260,7 +260,7 @@
 				corners[below.lighting_corner_NW] = 0
 
 				previous = below
-				below = SSmapping.get_turf_below(below)
+				below = GET_TURF_BELOW(below)
 
 		source_turf.luminosity = oldlum
 

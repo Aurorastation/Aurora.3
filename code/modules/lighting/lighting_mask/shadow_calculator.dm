@@ -109,8 +109,10 @@
 	var/list/opaque_atoms_in_view = list()
 
 	//Rebuild the list
-	var/is_on_closed_turf = istype(our_turf, /turf/closed)
-	for(var/turf/thing in dview(range, get_turf(attached_atom))) //most expensive part of shadow code is this dview and group_atoms
+	var/is_on_closed_turf = our_turf.density //todomatt: this looks suspicious
+	var/list/turfs = list()
+	DVIEW(turfs, range, get_turf(attached_atom), INVISIBILITY_LIGHTING)
+	for(var/turf/thing in turfs) //most expensive part of shadow code is this DVIEW and group_atoms
 		link_turf_to_light(thing)
 		//The turf is now affected by our light, make it luminous
 		thing.luminosity += 1

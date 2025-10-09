@@ -92,8 +92,6 @@
 
 #define LIGHT_ATTACHED (1<<0)
 
-#define MINIMUM_USEFUL_LIGHT_RANGE 1.4
-
 #define LIGHTING_ICON 'icons/effects/lighting_object.dmi' // icon used for lighting shading effects
 #define LIGHTING_ICON_BIG 'icons/effects/lighting_object_big.dmi' //! icon used for lighting shading effects
 
@@ -115,11 +113,16 @@
 #define FLASH_LIGHT_POWER 3
 #define FLASH_LIGHT_RANGE 3.8
 
+#define IS_OPAQUE_TURF(turf) (turf.directional_opacity == ALL_CARDINALS)
+
 // Emissive blocking.
-/// Uses vis_overlays to leverage caching so that very few new items need to be made for the overlay. For anything that doesn't change outline or opaque area much or at all.
+/// For anything that shouldn't block emissives. Small objects or translucent objects primarily
+#define EMISSIVE_BLOCK_NONE 0
+/// For anything that doesn't change outline or opaque area much or at all.
 #define EMISSIVE_BLOCK_GENERIC 1
 /// Uses a dedicated render_target object to copy the entire appearance in real time to the blocking layer. For things that can change in appearance a lot from the base state, like humans.
 #define EMISSIVE_BLOCK_UNIQUE 2
+
 
 /// The color matrix applied to all emissive overlays. Should be solely dependent on alpha and not have RGB overlap with [EM_BLOCK_COLOR].
 #define EMISSIVE_COLOR list(0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,1, 1,1,1,0)

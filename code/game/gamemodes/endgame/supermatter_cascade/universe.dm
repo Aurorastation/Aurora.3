@@ -107,13 +107,13 @@ The access requirements on the Asteroid Shuttles' consoles have now been revoked
 				T.underlays += "end01"
 		CHECK_TICK
 
-	for(var/datum/lighting_corner/C in SSlighting.lighting_corners)
+	/*for(var/datum/lighting_corner/C in SSlighting.lighting_corners) todomatt: update lighting
 		if (!C.active)
 			continue
 
 		if (isNotAdminLevel(C.z))
 			C.update_lumcount(0.15, 0.15, 0.5)
-		CHECK_TICK
+		CHECK_TICK*/
 
 /datum/universal_state/supermatter_cascade/proc/MiscSet()
 	for (var/obj/machinery/firealarm/alm in SSmachinery.processing)

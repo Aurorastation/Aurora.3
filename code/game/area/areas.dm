@@ -136,11 +136,6 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 		power_equip = 0
 		power_environ = 0
 
-	if(dynamic_lighting)
-		luminosity = 0
-	else
-		luminosity = 1
-
 	if(centcomm_area)
 		GLOB.centcom_areas[src] = TRUE
 		alwaysgravity = 1
@@ -157,9 +152,6 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 		power_change()		// All machines set to current power level.
 
 	. = ..()
-
-	if(dynamic_lighting)
-		luminosity = FALSE
 
 	if (mapload && turf_initializer)
 		for(var/turf/T in src)

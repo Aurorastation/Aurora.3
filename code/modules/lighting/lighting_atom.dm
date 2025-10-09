@@ -1,8 +1,8 @@
 
 // The proc you should always use to set the light of this atom.
-// Nonesensical value for l_color default, so we can detect if it gets set to null.
+// Nonesensical value for l_color default, so we can detect if it gets set to null. TODOMATT: unfuck UV lighting
 #define NONSENSICAL_VALUE -99999
-/atom/proc/set_light(l_range, l_power, l_color = NONSENSICAL_VALUE, mask_type = null)
+/atom/proc/set_light(l_range, l_power, l_color = NONSENSICAL_VALUE, mask_type = null, uv = 0)
 	if(l_range > 0 && l_range < MINIMUM_USEFUL_LIGHT_RANGE)
 		l_range = MINIMUM_USEFUL_LIGHT_RANGE	//Brings the range up to 1.4, which is just barely brighter than the soft lighting that surrounds players.
 
@@ -176,3 +176,6 @@
 	SEND_SIGNAL(src, COMSIG_ATOM_SET_LIGHT_FLAGS, new_value)
 	. = light_flags
 	light_flags = new_value
+
+/turf/proc/get_uv_lumcount(low, high)
+	return //todomatt: UNFUCK THIS

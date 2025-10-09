@@ -21,7 +21,6 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	siemens_coefficient = 0.9
 	max_pressure_protection = FIRESUIT_MAX_PRESSURE
-	light_wedge = LIGHT_WIDE
 	drop_sound = 'sound/items/drop/helm.ogg'
 	pickup_sound = 'sound/items/pickup/helm.ogg'
 

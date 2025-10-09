@@ -69,7 +69,6 @@
 	var/light_brightness = 3
 	var/light_rgb = COLOR_WHITE
 	power_draw_idle = 0 // Adjusted based on brightness.
-	light_wedge = LIGHT_WIDE
 
 /obj/item/integrated_circuit/output/light/do_work()
 	light_toggled = !light_toggled
@@ -79,7 +78,7 @@
 	if(assembly)
 		var/atom/atom_holder = assembly.get_assembly_holder()
 		if(light_toggled)
-			atom_holder.set_light(l_range = light_brightness, l_power = light_brightness, l_color = light_rgb, uv = 0, angle = light_wedge)
+			atom_holder.set_light(light_brightness, light_brightness, light_rgb, 0)
 		else
 			atom_holder.set_light(0)
 	power_draw_idle = light_toggled ? light_brightness * 2 : 0

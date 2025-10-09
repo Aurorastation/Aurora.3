@@ -110,7 +110,6 @@
 	max_n2 = 0
 	minbodytemp = 0
 	light_range = 10
-	light_wedge = LIGHT_WIDE
 	psi_pingable = FALSE
 
 	faction = "sol"

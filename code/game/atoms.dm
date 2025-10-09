@@ -239,8 +239,9 @@
 	var/old_dir = dir
 	dir = new_dir
 
+	SEND_SIGNAL(src, COMSIG_ATOM_DIR_CHANGE, dir, new_dir)
 	if (.)
-		GLOB.dir_set_event.raise_event(src, old_dir, dir)
+		GLOB.dir_set_event.raise_event(src, old_dir, dir) //todomat: probaly get ird of this shit
 
 /atom/proc/melt()
 	return

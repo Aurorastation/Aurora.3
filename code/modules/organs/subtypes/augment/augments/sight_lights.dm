@@ -31,7 +31,7 @@
 	lights_on = !lights_on
 
 	if(lights_on)
-		set_light(lights_range, lights_intensity, lights_color, uv = 0, angle = LIGHT_WIDE)
+		set_light(lights_range, lights_intensity, lights_color, uv = 0)
 	else
 		set_light(0)
 

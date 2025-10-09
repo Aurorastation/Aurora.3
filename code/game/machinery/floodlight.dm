@@ -13,7 +13,6 @@
 	var/open = FALSE
 	var/brightness_on = 12		//can't remember what the maxed out value is
 	light_color = LIGHT_COLOR_TUNGSTEN
-	light_wedge = LIGHT_WIDE
 
 /obj/machinery/floodlight/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()

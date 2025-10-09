@@ -9,7 +9,6 @@
 	item_state = "glowstick"
 	produce_heat = 0
 	uv_intensity = 255
-	light_wedge = LIGHT_OMNI
 	activation_sound = 'sound/items/glowstick.ogg'
 	toggle_sound = null
 

@@ -76,12 +76,10 @@ GLOBAL_LIST_INIT(mineral_can_smooth_with, list(
 	if(is_station_level(z))
 		GLOB.station_turfs += src
 
-	if(dynamic_lighting)
-		luminosity = 0
-	else
-		luminosity = 1
-
-	has_opaque_atom = TRUE
+	//Get area light
+	var/area/current_area = loc
+	if(current_area?.lighting_effect)
+		overlays += current_area.lighting_effect
 
 	if(smoothing_flags)
 		canSmoothWith = GLOB.mineral_can_smooth_with
@@ -210,12 +208,12 @@ GLOBAL_LIST_INIT(mineral_can_smooth_with, list(
 	if(is_station_level(z))
 		GLOB.station_turfs += src
 
-	if(dynamic_lighting)
-		luminosity = 0
-	else
-		luminosity = 1
+	//Get area light
+	var/area/current_area = loc
+	if(current_area?.lighting_effect)
+		overlays += current_area.lighting_effect
 
-	has_opaque_atom = TRUE
+	//has_opaque_atom = TRUE todomatt: ??
 
 	if(smoothing_flags)
 		canSmoothWith = asteroid_can_smooth_with
@@ -753,11 +751,6 @@ GLOBAL_LIST_INIT(asteroid_floor_smooth, list(
 	if(is_station_level(z))
 		GLOB.station_turfs += src
 
-	if(dynamic_lighting)
-		luminosity = 0
-	else
-		luminosity = 1
-
 	if(mapload && permit_ao)
 		queue_ao()
 
@@ -768,6 +761,11 @@ GLOBAL_LIST_INIT(asteroid_floor_smooth, list(
 
 	if(light_range && light_power)
 		update_light()
+
+	//Get area light
+	var/area/current_area = loc
+	if(current_area?.lighting_effect)
+		overlays += current_area.lighting_effect
 
 	return INITIALIZE_HINT_NORMAL
 
