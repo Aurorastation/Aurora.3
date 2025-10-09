@@ -71,9 +71,6 @@
 	///Protected vars can only be called by things of the same type *or subtypes*.
 	#define VAR_PROTECTED var/SpacemanDMM_protected
 
-	///Opendream doesn't have alist yet, so let's just do this to satisfy linters for now.
-	#define alist list
-
 #else
 	#define RETURN_TYPE(X)
 	#define SHOULD_CALL_PARENT(X)
