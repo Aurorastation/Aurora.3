@@ -2603,12 +2603,12 @@
 /area/ship/scc_scout_ship/maint_power)
 "oG" = (
 /obj/structure/closet/crate/freezer,
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = -5
 	},
 /obj/random/mre,
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = -5
 	},
@@ -2616,7 +2616,7 @@
 /obj/random/mre,
 /obj/item/reagent_containers/food/condiment/flour,
 /obj/item/reagent_containers/food/condiment/flour,
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = -5
 	},
@@ -2624,12 +2624,12 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/item/reagent_containers/food/condiment/flour,
 /obj/item/reagent_containers/food/condiment/flour,
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = -5
 	},
 /obj/item/reagent_containers/food/condiment/flour,
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = -5
 	},
@@ -4710,7 +4710,7 @@
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = -5
 	},
@@ -5499,7 +5499,7 @@
 	},
 /obj/effect/floor_decal/corner/dark_blue,
 /obj/structure/table/stone/marble,
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 2;
 	pixel_y = 9
 	},
@@ -6948,7 +6948,7 @@
 	pixel_y = 11;
 	pixel_x = 2
 	},
-/obj/item/storage/box/flares{
+/obj/item/storage/box/large/flares{
 	pixel_x = -7;
 	pixel_y = 2
 	},
@@ -7779,7 +7779,7 @@
 /area/ship/scc_scout_ship/quarters)
 "Xa" = (
 /obj/item/storage/belt/archaeology,
-/obj/item/storage/box/excavation,
+/obj/item/storage/box/unique/excavation,
 /obj/item/device/flashlight/lantern,
 /obj/item/device/ano_scanner,
 /obj/item/device/depth_scanner,

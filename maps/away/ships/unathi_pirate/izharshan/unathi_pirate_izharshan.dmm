@@ -2101,7 +2101,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/item/storage/box/shotgunshells,
+/obj/item/storage/box/shells/buckshot,
 /obj/machinery/light{
 	dir = 4
 	},

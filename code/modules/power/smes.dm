@@ -1,5 +1,14 @@
-// the SMES
-// stores power
+/**
+ * BUILDABLE SMES (Superconducting Magnetic Energy Storage) UNIT
+ * AKA PSUs- both 'SMES unit' and 'PSU' will be used interchangeably in documentation and in-game.
+ *
+ * PSUs are linked by the RCON System, allowing for remote management of all linked
+ * It also supports RCON System which allows you to operate it remotely, if properly set.
+ *
+ * This file contains the main code and definition information for SMES units.
+ * For instantiation of buildable SMES units (the ones you'll see 99% of the time),
+ * please refer to 'code/modules/power/smes_construction.dm'
+ */
 
 #define SMESRATE 0.05
 #define SMESMAXCHARGELEVEL 250000
@@ -28,30 +37,41 @@
 	clicksound = SFX_SWITCH
 
 	var/health = 500
-	var/busted = FALSE // this it to prevent the damage text from playing repeatedly
-
-	var/capacity = 5e6 // maximum charge
-	var/charge = 1e6 // actual charge
+	/// this it to prevent the damage text from playing repeatedly
+	var/busted = FALSE
+	/// maximum charge
+	var/capacity = 5e6
+	var/charge = 1e6 /// actual charge
 	var/max_coils = 0
 
-	var/input_attempt = 0 			// 1 = attempting to charge, 0 = not attempting to charge
-	var/inputting = 0 				// 1 = actually inputting, 0 = not inputting
-	var/input_level = 50000 		// amount of power the SMES attempts to charge by
-	var/input_level_max = 200000 	// cap on input_level
-	var/input_taken = 0 			// amount that we received from powernet last tick
+	/// 1 = attempting to charge, 0 = not attempting to charge
+	var/input_attempt = 0
+	/// 1 = actually inputting, 0 = not inputting
+	var/inputting = 0
+	/// amount of power the SMES attempts to charge by
+	var/input_level = 250000
+	/// cap on input_level
+	var/input_level_max = 2000000
+	/// amount that we received from powernet last tick
+	var/input_taken = 0
 
-	var/output_attempt = 0 			// 1 = attempting to output, 0 = not attempting to output
-	var/outputting = 0 				// 1 = actually outputting, 0 = not outputting
-	var/output_level = 50000		// amount of power the SMES attempts to output
-	var/output_level_max = 200000	// cap on output_level
-	var/output_used = 0				// amount of power actually outputted. may be less than output_level if the powernet returns excess power
+	/// 1 = attempting to output, 0 = not attempting to output
+	var/output_attempt = 0
+	/// 1 = actually outputting, 0 = not outputting
+	var/outputting = 0
+	/// amount of power the SMES attempts to output
+	var/output_level = 250000
+	/// cap on output_level
+	var/output_level_max = 2000000
+	/// amount of power actually outputted. may be less than output_level if the powernet returns excess power
+	var/output_used = 0
 
-	//Holders for powerout event.
-	//var/last_output_attempt	= 0
-	//var/last_input_attempt	= 0
-	//var/last_charge			= 0
+	///Holders for powerout event.
+	///var/last_output_attempt	= 0
+	///var/last_input_attempt	= 0
+	///var/last_charge			= 0
 
-	//For icon overlay updates
+	///For icon overlay updates
 	var/last_disp
 	var/last_chrg
 	var/last_onln
@@ -60,14 +80,18 @@
 	var/input_pulsed = 0
 	var/output_cut = 0
 	var/output_pulsed = 0
-	var/is_critical = FALSE			// Use by gridcheck event, if set to true we do not disable it
-	var/failure_timer = 0			// Set by gridcheck event, temporarily disables the SMES.
+	/// Use by gridcheck event, if set to true we do not disable it
+	var/is_critical = FALSE
+	/// Set by gridcheck event, temporarily disables the SMES.
+	var/failure_timer = 0
 	var/target_load = 0
 	var/open_hatch = 0
 	var/name_tag = null
-	var/building_terminal = 0 //Suggestions about how to avoid clickspam building several terminals accepted!
+	///Suggestions about how to avoid clickspam building several terminals accepted!
+	var/building_terminal = 0
 	var/obj/machinery/power/terminal/terminal = null
-	var/should_be_mapped = 0 // If this is set to 0 it will send out warning on New()
+	/// If this is set to 0 it will send out warning on New()
+	var/should_be_mapped = 0
 	var/datum/effect_system/sparks/big_spark
 	var/datum/effect_system/sparks/small_spark
 

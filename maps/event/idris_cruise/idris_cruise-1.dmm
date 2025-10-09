@@ -40,24 +40,6 @@
 	},
 /turf/unsimulated/floor,
 /area/cruise/arcade)
-"aag" = (
-/obj/effect/decal/fake_object/light_source{
-	desc = "A cozy lamp.";
-	icon = 'icons/effects/32x96.dmi';
-	icon_state = "rustlamp_l";
-	light_color = "#FA644B";
-	light_range = 6;
-	name = "rusty lamp"
-	},
-/obj/structure/bed/stool/chair/wood{
-	dir = 4
-	},
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon_state = "asteroid";
-	name = "dirt"
-	},
-/area/cruise/jungle)
 "aah" = (
 /obj/machinery/door/airlock/centcom{
 	dir = 1
@@ -93,21 +75,6 @@
 	icon_state = "wood_preview"
 	},
 /area/cruise/pool/sauna2)
-"aaC" = (
-/obj/structure/flora/tree/jungle/small{
-	desc = "A lush and healthy bush.";
-	icon = 'icons/obj/flora/largejungleflora.dmi';
-	icon_state = "bush2";
-	name = "bush";
-	pixel_x = -16
-	},
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon = 'icons/jungle.dmi';
-	icon_state = "grass1";
-	name = "lush grass"
-	},
-/area/cruise/jungle)
 "aaR" = (
 /turf/unsimulated/floor,
 /area/cruise/centerline)
@@ -334,24 +301,6 @@
 	},
 /turf/unsimulated/floor,
 /area/cruise/arcade)
-"akd" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	dir = 1
-	},
-/obj/effect/decal/fake_object/light_source{
-	desc = "A cozy lamp.";
-	icon = 'icons/effects/32x96.dmi';
-	icon_state = "rustlamp_r";
-	light_color = "#FA644B";
-	light_range = 6;
-	name = "rusty lamp"
-	},
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon_state = "asteroid";
-	name = "dirt"
-	},
-/area/cruise/jungle)
 "als" = (
 /obj/structure/window/reinforced/crescent{
 	dir = 1
@@ -1004,25 +953,6 @@
 	icon_state = "wood"
 	},
 /area/cruise/main_bar)
-"aJa" = (
-/obj/structure/flora/tree/jungle{
-	icon_state = "tree3"
-	},
-/obj/structure/flora/tree/jungle/small{
-	desc = "A pile of unassuming rocks.";
-	icon = 'icons/obj/flora/largejungleflora.dmi';
-	icon_state = "rocks1";
-	name = "rocks";
-	pixel_x = -16;
-	pixel_y = -16
-	},
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon = 'icons/jungle.dmi';
-	icon_state = "grass1";
-	name = "lush grass"
-	},
-/area/cruise/jungle)
 "aJc" = (
 /obj/structure/bed/stool/padded/red,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -1069,18 +999,6 @@
 	icon_state = "dark"
 	},
 /area/cruise/centerline)
-"aLK" = (
-/obj/structure/flora/grass/jungle{
-	pixel_y = 20
-	},
-/obj/structure/flora/rock/pile,
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon = 'icons/jungle.dmi';
-	icon_state = "grass1";
-	name = "lush grass"
-	},
-/area/cruise/jungle)
 "aLP" = (
 /obj/structure/sink{
 	dir = 8;
@@ -1252,6 +1170,21 @@
 	icon_state = "carpet10-8"
 	},
 /area/cruise/escort)
+"aRz" = (
+/obj/structure/flora/grass/jungle,
+/obj/structure/flora/tree/jungle/small{
+	desc = "A lush and healthy bush.";
+	icon = 'icons/obj/flora/largejungleflora.dmi';
+	icon_state = "bush";
+	name = "bush";
+	pixel_x = -16
+	},
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon_state = "asteroid";
+	name = "dirt"
+	},
+/area/cruise/jungle)
 "aSD" = (
 /obj/machinery/recharger,
 /obj/structure/table/wood,
@@ -1394,16 +1327,6 @@
 	icon_state = "dark_preview"
 	},
 /area/cruise/pool)
-"aXk" = (
-/obj/structure/flora/grass/jungle{
-	icon_state = "rock2"
-	},
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon_state = "asteroid";
-	name = "dirt"
-	},
-/area/cruise/jungle)
 "aXI" = (
 /obj/machinery/telecomms/processor/preset_three,
 /turf/unsimulated/floor{
@@ -1834,6 +1757,18 @@
 	icon_state = "dark_preview"
 	},
 /area/cruise/aft)
+"bmo" = (
+/obj/structure/flora/grass/jungle,
+/obj/structure/flora/grass/jungle{
+	pixel_y = 20
+	},
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon = 'icons/jungle.dmi';
+	icon_state = "grass1";
+	name = "lush grass"
+	},
+/area/cruise/jungle)
 "bny" = (
 /obj/structure/closet/crate/medical,
 /obj/item/roller,
@@ -2015,25 +1950,6 @@
 	icon_state = "floor7"
 	},
 /area/cruise/arcade)
-"brz" = (
-/obj/structure/flora/tree/jungle/small{
-	icon_state = "tree2"
-	},
-/obj/structure/flora/tree/jungle/small{
-	desc = "A pile of unassuming rocks.";
-	icon = 'icons/obj/flora/largejungleflora.dmi';
-	icon_state = "rocks3";
-	name = "rocks";
-	pixel_x = -16;
-	pixel_y = -16
-	},
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon = 'icons/jungle.dmi';
-	icon_state = "grass1";
-	name = "lush grass"
-	},
-/area/cruise/jungle)
 "bsm" = (
 /obj/machinery/door/airlock{
 	id_tag = "c3";
@@ -2051,6 +1967,23 @@
 	dir = 8
 	},
 /area/cruise/centerline)
+"btA" = (
+/obj/structure/flora/tree/jungle/small,
+/obj/structure/flora/tree/jungle/small{
+	desc = "A pile of unassuming rocks.";
+	icon = 'icons/obj/flora/largejungleflora.dmi';
+	icon_state = "rocks2";
+	name = "rocks";
+	pixel_x = -16;
+	pixel_y = -16
+	},
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon = 'icons/jungle.dmi';
+	icon_state = "grass1";
+	name = "lush grass"
+	},
+/area/cruise/jungle)
 "btQ" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
@@ -2184,23 +2117,20 @@
 	icon_state = "wood"
 	},
 /area/cruise/main_bar)
-"bzs" = (
-/obj/structure/bed/stool/chair/wood{
-	dir = 4
-	},
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon = 'icons/jungle.dmi';
-	icon_state = "grass1";
-	name = "lush grass"
-	},
-/area/cruise/jungle)
 "bAc" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
 	},
 /turf/unsimulated/floor,
 /area/cruise/hangar)
+"bAf" = (
+/obj/structure/flora/tree/jungle/small,
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon_state = "asteroid";
+	name = "dirt"
+	},
+/area/cruise/jungle)
 "bAB" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -2246,6 +2176,24 @@
 	icon_state = "white"
 	},
 /area/cruise/escort)
+"bBo" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 1
+	},
+/obj/effect/decal/fake_object/light_source{
+	desc = "A cozy lamp.";
+	icon = 'icons/effects/32x96.dmi';
+	icon_state = "rustlamp_r";
+	light_color = "#FA644B";
+	light_range = 6;
+	name = "rusty lamp"
+	},
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon_state = "asteroid";
+	name = "dirt"
+	},
+/area/cruise/jungle)
 "bCg" = (
 /obj/effect/decal/fake_object{
 	icon = 'icons/obj/mining.dmi';
@@ -2320,6 +2268,21 @@
 /obj/machinery/door/window/westleft,
 /turf/simulated/floor/wood,
 /area/cruise/dining_hall)
+"bFj" = (
+/obj/effect/decal/fake_object/light_source{
+	icon = 'icons/obj/mining.dmi';
+	icon_state = "purpflag_open";
+	light_color = "#A97FAA";
+	name = "beacon";
+	pixel_y = -2
+	},
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon = 'icons/jungle.dmi';
+	icon_state = "grass1";
+	name = "lush grass"
+	},
+/area/cruise/jungle)
 "bFr" = (
 /obj/machinery/body_scanconsole{
 	dir = 4
@@ -2374,19 +2337,6 @@
 	icon_state = "dark_preview"
 	},
 /area/cruise/escort)
-"bJl" = (
-/obj/structure/flora/grass/jungle,
-/obj/structure/flora/grass/jungle{
-	icon_state = "bushb1";
-	pixel_x = -13
-	},
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon = 'icons/jungle.dmi';
-	icon_state = "grass1";
-	name = "lush grass"
-	},
-/area/cruise/jungle)
 "bJt" = (
 /turf/unsimulated/floor{
 	icon_state = "carpet7-3"
@@ -2520,16 +2470,14 @@
 	name = "gloomy grass"
 	},
 /area/cruise/virtual_reality)
-"bRs" = (
-/obj/structure/flora/grass/jungle,
+"bQX" = (
 /obj/structure/flora/grass/jungle{
-	pixel_y = 20
+	icon_state = "rock"
 	},
 /turf/unsimulated/floor{
 	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon = 'icons/jungle.dmi';
-	icon_state = "grass1";
-	name = "lush grass"
+	icon_state = "asteroid";
+	name = "dirt"
 	},
 /area/cruise/jungle)
 "bRB" = (
@@ -2639,6 +2587,14 @@
 	icon_state = "wood_birch"
 	},
 /area/cruise/escort)
+"bXz" = (
+/obj/structure/flora/grass/jungle/b,
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon_state = "asteroid";
+	name = "dirt"
+	},
+/area/cruise/jungle)
 "bZF" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/bed/stool/padded/red,
@@ -2672,16 +2628,6 @@
 	icon_state = "wood_cherry"
 	},
 /area/cruise/centerline)
-"ccf" = (
-/obj/structure/flora/grass/jungle/b,
-/obj/structure/flora/tree/jungle/small,
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon = 'icons/jungle.dmi';
-	icon_state = "grass1";
-	name = "lush grass"
-	},
-/area/cruise/jungle)
 "cco" = (
 /obj/effect/floor_decal/spline/fancy{
 	dir = 4
@@ -2813,15 +2759,23 @@
 	icon_state = "dark_preview"
 	},
 /area/cruise/aft_s)
-"cho" = (
-/obj/structure/flora/grass/jungle{
-	icon_state = "bushb2";
-	pixel_x = 14;
-	pixel_y = 27
+"cgB" = (
+/obj/structure/flora/tree/jungle/small{
+	desc = "A lush and healthy bush.";
+	icon = 'icons/obj/flora/largejungleflora.dmi';
+	icon_state = "bush";
+	name = "bush";
+	pixel_x = -16
 	},
-/obj/structure/flora/grass/jungle{
-	icon_state = "rock"
+/obj/structure/flora/grass/jungle,
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon_state = "asteroid";
+	name = "dirt"
 	},
+/area/cruise/jungle)
+"cgF" = (
+/obj/item/reagent_containers/glass/bucket/wood,
 /turf/unsimulated/floor{
 	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon_state = "asteroid";
@@ -2854,14 +2808,16 @@
 	icon_state = "desert"
 	},
 /area/cruise/beach_cave)
-"ciG" = (
-/obj/structure/flora/grass/jungle,
-/obj/structure/flora/tree/jungle/small{
-	desc = "A lush and healthy bush.";
-	icon = 'icons/obj/flora/largejungleflora.dmi';
-	icon_state = "bush";
-	name = "bush";
-	pixel_x = -16
+"cjH" = (
+/obj/effect/floor_decal/industrial/warning/dust,
+/turf/unsimulated/floor{
+	icon_state = "asteroidfloor"
+	},
+/area/cruise/beach)
+"ckz" = (
+/obj/structure/table/wood,
+/obj/item/device/flashlight/lamp{
+	pixel_y = 5
 	},
 /turf/unsimulated/floor{
 	footstep_sound = SFX_FOOTSTEP_GRASS;
@@ -2869,12 +2825,6 @@
 	name = "dirt"
 	},
 /area/cruise/jungle)
-"cjH" = (
-/obj/effect/floor_decal/industrial/warning/dust,
-/turf/unsimulated/floor{
-	icon_state = "asteroidfloor"
-	},
-/area/cruise/beach)
 "clw" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/structure/table/stone/marble,
@@ -3051,6 +3001,23 @@
 	icon_state = "floor7"
 	},
 /area/cruise/fore)
+"cqB" = (
+/obj/structure/flora/grass/jungle,
+/obj/structure/flora/tree/jungle/small{
+	desc = "A pile of unassuming rocks.";
+	icon = 'icons/obj/flora/largejungleflora.dmi';
+	icon_state = "rocks2";
+	name = "rocks";
+	pixel_x = -16;
+	pixel_y = -16
+	},
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon = 'icons/jungle.dmi';
+	icon_state = "grass1";
+	name = "lush grass"
+	},
+/area/cruise/jungle)
 "cqO" = (
 /obj/effect/floor_decal/spline/fancy{
 	dir = 4
@@ -3277,6 +3244,17 @@
 	icon_state = "dark"
 	},
 /area/cruise/jungle)
+"cCB" = (
+/obj/structure/flora/grass/jungle/b,
+/obj/structure/railing/mapped{
+	color = "#6e472b"
+	},
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon_state = "asteroid";
+	name = "dirt"
+	},
+/area/cruise/jungle)
 "cDg" = (
 /obj/structure/table/standard,
 /obj/machinery/vending/wallmed1{
@@ -3408,15 +3386,6 @@
 /obj/item/device/megaphone/stagemicrophone,
 /turf/unsimulated/floor,
 /area/cruise/main_bar/aft)
-"cIz" = (
-/obj/structure/table/wood,
-/obj/item/storage/toolbox/mechanical,
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon_state = "asteroid";
-	name = "dirt"
-	},
-/area/cruise/jungle)
 "cIA" = (
 /obj/structure/reagent_dispensers/water_cooler,
 /obj/structure/railing/mapped{
@@ -3474,25 +3443,6 @@
 	dir = 8
 	},
 /area/cruise/arcade)
-"cLb" = (
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon_state = "asteroid";
-	name = "dirt"
-	},
-/area/cruise/jungle)
-"cLg" = (
-/obj/structure/flora/grass/jungle{
-	pixel_y = 20
-	},
-/obj/structure/flora/grass/jungle,
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon = 'icons/jungle.dmi';
-	icon_state = "grass1";
-	name = "lush grass"
-	},
-/area/cruise/jungle)
 "cLz" = (
 /obj/item/flame/candle,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -3535,6 +3485,28 @@
 /obj/machinery/light,
 /turf/unsimulated/floor,
 /area/cruise/aft_s)
+"cLV" = (
+/obj/effect/decal/fake_object/light_source{
+	density = 1;
+	icon_state = "bonfire_on_fire";
+	light_color = "#FA644B";
+	light_range = 6;
+	name = "bonfire"
+	},
+/obj/structure/flora/tree/jungle/small{
+	desc = "A pile of unassuming rocks.";
+	icon = 'icons/obj/flora/largejungleflora.dmi';
+	icon_state = "rocks2";
+	name = "rocks";
+	pixel_x = -16;
+	pixel_y = -16
+	},
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon_state = "asteroid";
+	name = "dirt"
+	},
+/area/cruise/jungle)
 "cMg" = (
 /obj/structure/railing/mapped,
 /turf/unsimulated/floor{
@@ -3633,17 +3605,6 @@
 "cPr" = (
 /turf/simulated/wall/shuttle/idris,
 /area/cruise/pool/sauna1)
-"cPE" = (
-/obj/structure/flora/grass/jungle,
-/obj/structure/flora/tree/jungle{
-	icon_state = "tree2"
-	},
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon_state = "asteroid";
-	name = "dirt"
-	},
-/area/cruise/jungle)
 "cPQ" = (
 /turf/simulated/wall/shuttle/idris,
 /area/cruise/beach_cave)
@@ -4088,6 +4049,21 @@
 	icon_state = "wood_birch"
 	},
 /area/cruise/escort)
+"dgS" = (
+/obj/effect/decal/fake_object/light_source{
+	icon_state = "lantern-on";
+	light_color = "#FAA019";
+	light_range = 6;
+	name = "lantern";
+	pixel_x = -8;
+	pixel_y = 16
+	},
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon_state = "asteroid";
+	name = "dirt"
+	},
+/area/cruise/jungle)
 "dhz" = (
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/ramp{
@@ -4211,22 +4187,6 @@
 	icon_state = "dark_preview"
 	},
 /area/cruise/aft)
-"dlP" = (
-/obj/structure/flora/tree/jungle/small{
-	desc = "A pile of unassuming rocks.";
-	icon = 'icons/obj/flora/largejungleflora.dmi';
-	icon_state = "rocks2";
-	name = "rocks";
-	pixel_x = -16;
-	pixel_y = -16
-	},
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon = 'icons/jungle.dmi';
-	icon_state = "grass1";
-	name = "lush grass"
-	},
-/area/cruise/jungle)
 "dme" = (
 /turf/simulated/floor/tiled/ramp,
 /area/cruise/aft)
@@ -4241,21 +4201,6 @@
 	icon_state = "wood_preview"
 	},
 /area/cruise/main_bar)
-"dou" = (
-/obj/structure/flora/tree/jungle/small{
-	desc = "A pile of unassuming rocks.";
-	icon = 'icons/obj/flora/largejungleflora.dmi';
-	icon_state = "rocks1";
-	name = "rocks";
-	pixel_x = -16;
-	pixel_y = -16
-	},
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon_state = "asteroid";
-	name = "dirt"
-	},
-/area/cruise/jungle)
 "dpm" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
@@ -4363,22 +4308,6 @@
 	icon_state = "wood"
 	},
 /area/cruise/virtual_reality)
-"dxO" = (
-/obj/effect/decal/fake_object/light_source{
-	desc = "A cozy lamp.";
-	icon = 'icons/effects/32x96.dmi';
-	icon_state = "rustlamp_l";
-	light_color = "#FA644B";
-	light_range = 6;
-	name = "rusty lamp"
-	},
-/obj/structure/flora/grass/jungle/b,
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon_state = "asteroid";
-	name = "dirt"
-	},
-/area/cruise/jungle)
 "dxP" = (
 /obj/structure/window/reinforced/crescent{
 	dir = 8
@@ -4507,15 +4436,6 @@
 	icon_state = "turquoise"
 	},
 /area/cruise/aft)
-"dEl" = (
-/obj/structure/flora/grass/jungle,
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon = 'icons/jungle.dmi';
-	icon_state = "grass1";
-	name = "lush grass"
-	},
-/area/cruise/jungle)
 "dEt" = (
 /obj/structure/window/reinforced/crescent,
 /obj/structure/window/reinforced/crescent{
@@ -4539,22 +4459,6 @@
 	icon_state = "wood_preview"
 	},
 /area/cruise/main_bar)
-"dFf" = (
-/obj/structure/flora/tree/jungle/small{
-	desc = "A pile of unassuming rocks.";
-	icon = 'icons/obj/flora/largejungleflora.dmi';
-	icon_state = "rocks1";
-	name = "rocks";
-	pixel_x = -16;
-	pixel_y = -16
-	},
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon = 'icons/jungle.dmi';
-	icon_state = "grass1";
-	name = "lush grass"
-	},
-/area/cruise/jungle)
 "dFp" = (
 /obj/structure/window/reinforced/crescent,
 /obj/structure/window/reinforced/crescent{
@@ -4674,16 +4578,6 @@
 /obj/machinery/mech_recharger,
 /turf/unsimulated/floor,
 /area/cruise/virtual_reality)
-"dMa" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	dir = 1
-	},
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon_state = "asteroid";
-	name = "dirt"
-	},
-/area/cruise/jungle)
 "dNn" = (
 /obj/structure/bed/stool/chair/padded/blue{
 	dir = 4
@@ -4727,15 +4621,6 @@
 	icon_state = "dark"
 	},
 /area/cruise/aft_s)
-"dQM" = (
-/obj/structure/flora/grass/jungle/b,
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon = 'icons/jungle.dmi';
-	icon_state = "grass1";
-	name = "lush grass"
-	},
-/area/cruise/jungle)
 "dRq" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/window/reinforced/polarized{
@@ -4774,8 +4659,26 @@
 	icon_state = "dark_preview"
 	},
 /area/cruise/hangar)
-"dUV" = (
-/obj/structure/flora/rock,
+"dUa" = (
+/obj/structure/flora/grass/jungle,
+/obj/structure/flora/tree/jungle{
+	icon_state = "tree2"
+	},
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon_state = "asteroid";
+	name = "dirt"
+	},
+/area/cruise/jungle)
+"dUY" = (
+/obj/structure/flora/tree/jungle/small{
+	desc = "A pile of unassuming rocks.";
+	icon = 'icons/obj/flora/largejungleflora.dmi';
+	icon_state = "rocks1";
+	name = "rocks";
+	pixel_x = -16;
+	pixel_y = -16
+	},
 /turf/unsimulated/floor{
 	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon = 'icons/jungle.dmi';
@@ -4808,20 +4711,6 @@
 	icon_state = "dark_preview"
 	},
 /area/cruise/security)
-"dXc" = (
-/obj/structure/railing/mapped{
-	color = "#6e472b"
-	},
-/obj/structure/flora/grass/jungle{
-	icon_state = "grassa2"
-	},
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon = 'icons/jungle.dmi';
-	icon_state = "grass1";
-	name = "lush grass"
-	},
-/area/cruise/jungle)
 "dXh" = (
 /obj/machinery/light{
 	dir = 8
@@ -4905,14 +4794,6 @@
 	icon_state = "dark_preview"
 	},
 /area/cruise/fore_p)
-"eak" = (
-/obj/structure/flora/tree/jungle/small,
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon_state = "asteroid";
-	name = "dirt"
-	},
-/area/cruise/jungle)
 "ebS" = (
 /obj/effect/landmark/force_spawnpoint{
 	job_tag = "Off-Duty Crew Member"
@@ -4921,6 +4802,16 @@
 	icon_state = "dark"
 	},
 /area/cruise/centerline)
+"ecj" = (
+/obj/structure/bed/stool/chair/wood{
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon_state = "asteroid";
+	name = "dirt"
+	},
+/area/cruise/jungle)
 "ecq" = (
 /obj/structure/bed/stool/chair/wood{
 	dir = 1
@@ -5046,6 +4937,21 @@
 	icon_state = "wood"
 	},
 /area/cruise/library)
+"ejf" = (
+/obj/structure/flora/grass/jungle{
+	icon_state = "bushb2";
+	pixel_x = 14;
+	pixel_y = 27
+	},
+/obj/structure/flora/grass/jungle{
+	icon_state = "rock"
+	},
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon_state = "asteroid";
+	name = "dirt"
+	},
+/area/cruise/jungle)
 "ejQ" = (
 /obj/item/device/radio/intercom/east,
 /obj/effect/landmark/force_spawnpoint{
@@ -5125,6 +5031,18 @@
 	icon_state = "dark"
 	},
 /area/cruise/fore_p)
+"elz" = (
+/obj/structure/flora/grass/jungle{
+	pixel_y = 20
+	},
+/obj/structure/flora/rock/pile,
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon = 'icons/jungle.dmi';
+	icon_state = "grass1";
+	name = "lush grass"
+	},
+/area/cruise/jungle)
 "emn" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/effect/floor_decal/spline/fancy,
@@ -5156,6 +5074,18 @@
 	icon_state = "wood_birch"
 	},
 /area/cruise/centerline)
+"enR" = (
+/obj/structure/flora/grass/jungle{
+	pixel_y = 20
+	},
+/obj/structure/flora/grass/jungle,
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon = 'icons/jungle.dmi';
+	icon_state = "grass1";
+	name = "lush grass"
+	},
+/area/cruise/jungle)
 "eoi" = (
 /obj/structure/closet/emcloset,
 /turf/unsimulated/floor{
@@ -5200,18 +5130,6 @@
 	name = "extranet"
 	},
 /area/cruise/virtual_reality)
-"epX" = (
-/obj/structure/flora/grass/jungle/b,
-/obj/structure/flora/grass/jungle{
-	icon_state = "rock"
-	},
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon = 'icons/jungle.dmi';
-	icon_state = "grass1";
-	name = "lush grass"
-	},
-/area/cruise/jungle)
 "eqh" = (
 /obj/structure/railing/mapped{
 	color = "#f5c542"
@@ -5242,17 +5160,6 @@
 /obj/effect/floor_decal/spline/fancy,
 /turf/unsimulated/floor,
 /area/cruise/main_bar/aft)
-"erg" = (
-/obj/structure/flora/grass/jungle{
-	icon_state = "grassa2"
-	},
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon = 'icons/jungle.dmi';
-	icon_state = "grass1";
-	name = "lush grass"
-	},
-/area/cruise/jungle)
 "erm" = (
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -5810,6 +5717,16 @@
 	icon_state = "wood_preview"
 	},
 /area/cruise/beach)
+"eOV" = (
+/obj/structure/flora/grass/jungle/b,
+/obj/structure/flora/tree/jungle/small,
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon = 'icons/jungle.dmi';
+	icon_state = "grass1";
+	name = "lush grass"
+	},
+/area/cruise/jungle)
 "ePi" = (
 /obj/machinery/light{
 	dir = 1
@@ -5974,6 +5891,21 @@
 	icon_state = "dark_preview"
 	},
 /area/cruise/hangar)
+"eXj" = (
+/obj/structure/flora/tree/jungle/small{
+	desc = "A pile of unassuming rocks.";
+	icon = 'icons/obj/flora/largejungleflora.dmi';
+	icon_state = "rocks2";
+	name = "rocks";
+	pixel_x = -16;
+	pixel_y = -16
+	},
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon_state = "asteroid";
+	name = "dirt"
+	},
+/area/cruise/jungle)
 "eXL" = (
 /obj/effect/floor_decal/spline/fancy{
 	dir = 1
@@ -5982,15 +5914,6 @@
 	icon_state = "wood_willow"
 	},
 /area/cruise/centerline)
-"eYb" = (
-/obj/structure/table/wood,
-/obj/item/watertank,
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon_state = "asteroid";
-	name = "dirt"
-	},
-/area/cruise/jungle)
 "eYc" = (
 /obj/structure/coatrack{
 	pixel_x = -10;
@@ -6147,6 +6070,16 @@
 /obj/item/hullbeacon/red,
 /turf/unsimulated/floor,
 /area/template_noop)
+"feb" = (
+/obj/structure/bed/stool/chair/wood{
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon_state = "asteroid";
+	name = "dirt"
+	},
+/area/cruise/jungle)
 "feC" = (
 /obj/structure/filingcabinet/chestdrawer,
 /turf/unsimulated/floor{
@@ -6468,19 +6401,6 @@
 	},
 /turf/simulated/wall/shuttle/idris,
 /area/cruise/dining_hall)
-"fqE" = (
-/obj/structure/flora/grass/jungle{
-	icon_state = "bushb2";
-	pixel_y = 9
-	},
-/obj/structure/flora/tree/jungle/small,
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon = 'icons/jungle.dmi';
-	icon_state = "grass1";
-	name = "lush grass"
-	},
-/area/cruise/jungle)
 "fqV" = (
 /obj/structure/railing/mapped,
 /turf/unsimulated/floor,
@@ -6509,23 +6429,6 @@
 	icon_state = "dark_preview"
 	},
 /area/cruise/central)
-"fsh" = (
-/obj/structure/flora/tree/jungle/small,
-/obj/structure/flora/tree/jungle/small{
-	desc = "A pile of unassuming rocks.";
-	icon = 'icons/obj/flora/largejungleflora.dmi';
-	icon_state = "rocks1";
-	name = "rocks";
-	pixel_x = -16;
-	pixel_y = -16
-	},
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon = 'icons/jungle.dmi';
-	icon_state = "grass1";
-	name = "lush grass"
-	},
-/area/cruise/jungle)
 "fso" = (
 /obj/structure/table/rack,
 /obj/item/storage/toolbox/mechanical{
@@ -6615,17 +6518,6 @@
 	icon_state = "dark"
 	},
 /area/cruise/central)
-"fvN" = (
-/obj/structure/flora/grass/jungle/b,
-/obj/structure/railing/mapped{
-	color = "#6e472b"
-	},
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon_state = "asteroid";
-	name = "dirt"
-	},
-/area/cruise/jungle)
 "fvZ" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/multi_tile/glass{
@@ -6687,17 +6579,6 @@
 	dir = 4
 	},
 /turf/unsimulated/floor,
-/area/cruise/jungle)
-"fAw" = (
-/obj/structure/railing/mapped,
-/obj/structure/flora/grass/jungle{
-	icon_state = "grassa2"
-	},
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon_state = "asteroid";
-	name = "dirt"
-	},
 /area/cruise/jungle)
 "fAD" = (
 /obj/machinery/telecomms/processor/preset_four,
@@ -6852,21 +6733,6 @@
 	icon_state = "wood_birch"
 	},
 /area/cruise/centerline)
-"fGi" = (
-/obj/structure/flora/tree/jungle/small{
-	desc = "A lush and healthy bush.";
-	icon = 'icons/obj/flora/largejungleflora.dmi';
-	icon_state = "bush";
-	name = "bush";
-	pixel_x = -16
-	},
-/obj/structure/flora/grass/jungle,
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon_state = "asteroid";
-	name = "dirt"
-	},
-/area/cruise/jungle)
 "fGs" = (
 /obj/structure/flora/grass/jungle,
 /obj/machinery/light{
@@ -6924,6 +6790,19 @@
 	icon_state = "wood"
 	},
 /area/cruise/library)
+"fIr" = (
+/obj/structure/flora/grass/jungle/b,
+/obj/structure/flora/grass/jungle{
+	icon_state = "bushb1";
+	pixel_x = -13;
+	pixel_y = -14
+	},
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon_state = "asteroid";
+	name = "dirt"
+	},
+/area/cruise/jungle)
 "fIt" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate,
@@ -6953,24 +6832,6 @@
 	},
 /turf/unsimulated/floor,
 /area/template_noop)
-"fJY" = (
-/obj/structure/flora/grass/jungle{
-	icon_state = "bushb1"
-	},
-/obj/effect/decal/fake_object/light_source{
-	desc = "A cozy lamp.";
-	icon = 'icons/effects/32x96.dmi';
-	icon_state = "rustlamp_l";
-	light_color = "#FA644B";
-	light_range = 6;
-	name = "rusty lamp"
-	},
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon_state = "asteroid";
-	name = "dirt"
-	},
-/area/cruise/jungle)
 "fKk" = (
 /obj/effect/floor_decal/spline/fancy{
 	dir = 4
@@ -7353,6 +7214,16 @@
 	icon_state = "white"
 	},
 /area/cruise/pool)
+"gaW" = (
+/obj/structure/flora/rock{
+	icon_state = "basalt3"
+	},
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon_state = "asteroid";
+	name = "dirt"
+	},
+/area/cruise/jungle)
 "gbh" = (
 /obj/machinery/washing_machine,
 /turf/unsimulated/floor,
@@ -7444,17 +7315,6 @@
 	icon_state = "white"
 	},
 /area/cruise/virtual_reality)
-"gdM" = (
-/obj/structure/flora/grass/jungle{
-	icon_state = "grassa2"
-	},
-/obj/structure/blocker,
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon_state = "asteroid";
-	name = "dirt"
-	},
-/area/cruise/jungle)
 "geN" = (
 /obj/item/device/flashlight,
 /obj/item/device/flashlight,
@@ -7480,22 +7340,6 @@
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood_birch"
-	},
-/area/cruise/jungle)
-"gfh" = (
-/obj/structure/flora/tree/jungle/small{
-	desc = "A lush and healthy bush.";
-	icon = 'icons/obj/flora/largejungleflora.dmi';
-	icon_state = "bush";
-	name = "bush";
-	pixel_x = -16
-	},
-/obj/structure/flora/grass/jungle,
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon = 'icons/jungle.dmi';
-	icon_state = "grass1";
-	name = "lush grass"
 	},
 /area/cruise/jungle)
 "gfE" = (
@@ -7558,6 +7402,17 @@
 	icon_state = "wood_birch"
 	},
 /area/cruise/dining_hall)
+"ghi" = (
+/obj/structure/flora/grass/jungle{
+	icon_state = "grassa2"
+	},
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon = 'icons/jungle.dmi';
+	icon_state = "grass1";
+	name = "lush grass"
+	},
+/area/cruise/jungle)
 "ghv" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/machinery/appliance/mixer/candy{
@@ -7636,14 +7491,6 @@
 	icon_state = "floor7"
 	},
 /area/cruise/e_supplies)
-"gjw" = (
-/obj/machinery/floodlight,
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon_state = "asteroid";
-	name = "dirt"
-	},
-/area/cruise/jungle)
 "gjF" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 5
@@ -7664,6 +7511,23 @@
 	icon_state = "white"
 	},
 /area/cruise/medical)
+"gjU" = (
+/obj/structure/flora/tree/jungle/small,
+/obj/structure/flora/tree/jungle/small{
+	desc = "A pile of unassuming rocks.";
+	icon = 'icons/obj/flora/largejungleflora.dmi';
+	icon_state = "rocks1";
+	name = "rocks";
+	pixel_x = -16;
+	pixel_y = -16
+	},
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon = 'icons/jungle.dmi';
+	icon_state = "grass1";
+	name = "lush grass"
+	},
+/area/cruise/jungle)
 "gkf" = (
 /obj/machinery/light,
 /turf/unsimulated/floor{
@@ -7769,21 +7633,6 @@
 	icon_state = "dark"
 	},
 /area/cruise/beach)
-"gnW" = (
-/obj/structure/flora/tree/jungle/small{
-	desc = "A pile of unassuming rocks.";
-	icon = 'icons/obj/flora/largejungleflora.dmi';
-	icon_state = "rocks3";
-	name = "rocks";
-	pixel_x = -16;
-	pixel_y = -16
-	},
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon_state = "asteroid";
-	name = "dirt"
-	},
-/area/cruise/jungle)
 "god" = (
 /obj/structure/lattice/catwalk,
 /turf/unsimulated/floor,
@@ -7878,14 +7727,6 @@
 /obj/effect/map_effect/window_spawner/reinforced/crescent,
 /turf/unsimulated/floor/plating,
 /area/template_noop)
-"gqC" = (
-/obj/structure/bed/stool/chair/wood,
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon_state = "asteroid";
-	name = "dirt"
-	},
-/area/cruise/jungle)
 "grr" = (
 /obj/structure/table/rack,
 /obj/item/tank/emergency_oxygen/double{
@@ -8086,16 +7927,6 @@
 /obj/effect/floor_decal/industrial/warning/full,
 /turf/unsimulated/floor,
 /area/cruise/fore_p)
-"gBq" = (
-/obj/structure/flora/grass/jungle,
-/obj/structure/flora/tree/jungle/small,
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon = 'icons/jungle.dmi';
-	icon_state = "grass1";
-	name = "lush grass"
-	},
-/area/cruise/jungle)
 "gCK" = (
 /obj/machinery/vending/cola,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -8222,6 +8053,15 @@
 	icon_state = "wood_cherry"
 	},
 /area/cruise/dining_hall)
+"gIk" = (
+/obj/structure/flora/tree/jungle/small,
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon = 'icons/jungle.dmi';
+	icon_state = "grass1";
+	name = "lush grass"
+	},
+/area/cruise/jungle)
 "gIw" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -8494,33 +8334,17 @@
 	icon_state = "dark_preview"
 	},
 /area/cruise/hydroponics)
-"gTo" = (
-/obj/structure/flora/tree/jungle/small{
-	desc = "A pile of unassuming rocks.";
-	icon = 'icons/obj/flora/largejungleflora.dmi';
-	icon_state = "rocks3";
-	name = "rocks";
-	pixel_x = -16;
-	pixel_y = -16
-	},
-/obj/structure/flora/tree/jungle{
-	icon_state = "tree3"
+"gTu" = (
+/obj/structure/flora/grass/jungle,
+/obj/structure/flora/grass/jungle{
+	icon_state = "bushb1";
+	pixel_x = -13;
+	pixel_y = -14
 	},
 /turf/unsimulated/floor{
 	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon_state = "asteroid";
 	name = "dirt"
-	},
-/area/cruise/jungle)
-"gTK" = (
-/obj/structure/flora/grass/jungle{
-	icon_state = "rock"
-	},
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon = 'icons/jungle.dmi';
-	icon_state = "grass1";
-	name = "lush grass"
 	},
 /area/cruise/jungle)
 "gTZ" = (
@@ -8578,22 +8402,37 @@
 	},
 /turf/unsimulated/floor,
 /area/cruise/arcade)
+"gXb" = (
+/obj/structure/flora/tree/jungle/small{
+	desc = "A pile of unassuming rocks.";
+	icon = 'icons/obj/flora/largejungleflora.dmi';
+	icon_state = "rocks3";
+	name = "rocks";
+	pixel_x = -16;
+	pixel_y = -16
+	},
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon_state = "asteroid";
+	name = "dirt"
+	},
+/area/cruise/jungle)
+"gXt" = (
+/obj/structure/railing/mapped{
+	color = "#6e472b"
+	},
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon_state = "asteroid";
+	name = "dirt"
+	},
+/area/cruise/jungle)
 "gXu" = (
 /obj/machinery/light,
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
 	},
 /area/cruise/aft)
-"gYk" = (
-/obj/structure/flora/grass/jungle/b,
-/obj/structure/flora/grass/jungle,
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon = 'icons/jungle.dmi';
-	icon_state = "grass1";
-	name = "lush grass"
-	},
-/area/cruise/jungle)
 "gYu" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/floor_decal/industrial/warning{
@@ -8674,7 +8513,7 @@
 	icon_state = "dark_preview"
 	},
 /area/cruise/hydroponics)
-"haX" = (
+"hbo" = (
 /obj/effect/decal/fake_object/light_source{
 	desc = "A cozy lamp.";
 	icon = 'icons/effects/32x96.dmi';
@@ -8794,6 +8633,17 @@
 	icon_state = "dark_preview"
 	},
 /area/cruise/central)
+"hhh" = (
+/obj/structure/bed/stool/chair/wood{
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon = 'icons/jungle.dmi';
+	icon_state = "grass1";
+	name = "lush grass"
+	},
+/area/cruise/jungle)
 "hhy" = (
 /obj/structure/window/reinforced/crescent{
 	dir = 8
@@ -8857,6 +8707,17 @@
 	icon_state = "wood_preview"
 	},
 /area/cruise/security)
+"hkJ" = (
+/obj/structure/flora/grass/jungle{
+	icon_state = "rock2"
+	},
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon = 'icons/jungle.dmi';
+	icon_state = "grass1";
+	name = "lush grass"
+	},
+/area/cruise/jungle)
 "hla" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
@@ -9047,17 +8908,6 @@
 	icon_state = "wood_preview"
 	},
 /area/cruise/pool)
-"hrK" = (
-/obj/structure/railing/mapped,
-/obj/structure/flora/grass/jungle{
-	icon_state = "bushb1"
-	},
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon_state = "asteroid";
-	name = "dirt"
-	},
-/area/cruise/jungle)
 "hrN" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
 /obj/structure/railing/mapped{
@@ -9241,6 +9091,13 @@
 	dir = 8
 	},
 /area/cruise/arcade)
+"hAg" = (
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon_state = "asteroid";
+	name = "dirt"
+	},
+/area/cruise/jungle)
 "hAl" = (
 /turf/unsimulated/floor,
 /area/cruise/escort)
@@ -9261,14 +9118,6 @@
 	icon_state = "white"
 	},
 /area/cruise/medical)
-"hBy" = (
-/obj/structure/bed/stool/padded/red,
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon_state = "asteroid";
-	name = "dirt"
-	},
-/area/cruise/jungle)
 "hBF" = (
 /obj/structure/bed/stool/chair/padded/black,
 /turf/unsimulated/floor{
@@ -9387,6 +9236,21 @@
 /obj/machinery/vending/dinnerware/plastic,
 /turf/simulated/floor/wood,
 /area/cruise/dining_hall)
+"hHP" = (
+/obj/effect/decal/fake_object/light_source{
+	desc = "A cozy lamp.";
+	icon = 'icons/effects/32x96.dmi';
+	icon_state = "rustlamp_l";
+	light_color = "#FA644B";
+	light_range = 6;
+	name = "rusty lamp"
+	},
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon_state = "asteroid";
+	name = "dirt"
+	},
+/area/cruise/jungle)
 "hHX" = (
 /obj/structure/table/wood,
 /obj/item/paper_scanner,
@@ -9440,6 +9304,22 @@
 /obj/machinery/status_display,
 /turf/simulated/wall/shuttle/idris,
 /area/cruise/central)
+"hLi" = (
+/obj/structure/flora/tree/jungle/small{
+	desc = "A lush and healthy bush.";
+	icon = 'icons/obj/flora/largejungleflora.dmi';
+	icon_state = "bush";
+	name = "bush";
+	pixel_x = -16
+	},
+/obj/structure/flora/grass/jungle,
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon = 'icons/jungle.dmi';
+	icon_state = "grass1";
+	name = "lush grass"
+	},
+/area/cruise/jungle)
 "hLn" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/unsimulated/floor/plating,
@@ -9539,6 +9419,24 @@
 	dir = 8
 	},
 /area/cruise/pool)
+"hRJ" = (
+/obj/effect/decal/fake_object/light_source{
+	desc = "A cozy lamp.";
+	icon = 'icons/effects/32x96.dmi';
+	icon_state = "rustlamp_l";
+	light_color = "#FA644B";
+	light_range = 6;
+	name = "rusty lamp"
+	},
+/obj/structure/bed/stool/chair/wood{
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon_state = "asteroid";
+	name = "dirt"
+	},
+/area/cruise/jungle)
 "hRY" = (
 /obj/structure/table/stone/marble,
 /obj/machinery/door/firedoor,
@@ -9620,6 +9518,21 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/unsimulated/floor,
 /area/cruise/arcade)
+"hVo" = (
+/obj/structure/flora/tree/jungle/small{
+	desc = "A lush and healthy bush.";
+	icon = 'icons/obj/flora/largejungleflora.dmi';
+	icon_state = "bush";
+	name = "bush";
+	pixel_x = -16
+	},
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon = 'icons/jungle.dmi';
+	icon_state = "grass1";
+	name = "lush grass"
+	},
+/area/cruise/jungle)
 "hVw" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/unsimulated/floor{
@@ -9750,6 +9663,19 @@
 	icon_state = "desert"
 	},
 /area/cruise/beach)
+"ibL" = (
+/obj/structure/flora/grass/jungle{
+	icon_state = "bushb2";
+	pixel_y = 9
+	},
+/obj/structure/flora/tree/jungle/small,
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon = 'icons/jungle.dmi';
+	icon_state = "grass1";
+	name = "lush grass"
+	},
+/area/cruise/jungle)
 "ibO" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
@@ -9853,25 +9779,6 @@
 "ifO" = (
 /turf/unsimulated/floor{
 	icon_state = "wood_preview"
-	},
-/area/cruise/jungle)
-"igm" = (
-/obj/structure/flora/tree/jungle/small{
-	desc = "A pile of unassuming rocks.";
-	icon = 'icons/obj/flora/largejungleflora.dmi';
-	icon_state = "rocks2";
-	name = "rocks";
-	pixel_x = -16;
-	pixel_y = -16
-	},
-/obj/structure/flora/tree/jungle/small{
-	icon_state = "tree2"
-	},
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon = 'icons/jungle.dmi';
-	icon_state = "grass1";
-	name = "lush grass"
 	},
 /area/cruise/jungle)
 "igv" = (
@@ -10203,17 +10110,6 @@
 	icon_state = "dark"
 	},
 /area/cruise/fore)
-"isP" = (
-/obj/structure/flora/tree/jungle{
-	icon_state = "tree3"
-	},
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon = 'icons/jungle.dmi';
-	icon_state = "grass1";
-	name = "lush grass"
-	},
-/area/cruise/jungle)
 "ita" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -10335,21 +10231,6 @@
 	icon_state = "beach"
 	},
 /area/cruise/jungle)
-"ixz" = (
-/obj/effect/decal/fake_object/light_source{
-	desc = "A cozy lamp.";
-	icon = 'icons/effects/32x96.dmi';
-	icon_state = "rustlamp_l";
-	light_color = "#FA644B";
-	light_range = 6;
-	name = "rusty lamp"
-	},
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon_state = "asteroid";
-	name = "dirt"
-	},
-/area/cruise/jungle)
 "ixF" = (
 /turf/unsimulated/beach/coastline{
 	dir = 5;
@@ -10381,19 +10262,6 @@
 	icon_state = "dark_preview"
 	},
 /area/cruise/pool)
-"izD" = (
-/obj/structure/flora/grass/jungle{
-	icon_state = "bushb1";
-	pixel_x = -13;
-	pixel_y = -14
-	},
-/obj/structure/flora/grass/jungle,
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon_state = "asteroid";
-	name = "dirt"
-	},
-/area/cruise/jungle)
 "iAG" = (
 /obj/machinery/door/airlock/service{
 	name = "Public Backup Custodial Closet";
@@ -10485,16 +10353,6 @@
 	icon_state = "dark_preview"
 	},
 /area/cruise/hangar)
-"iHu" = (
-/obj/structure/bed/stool/chair/wood{
-	dir = 8
-	},
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon_state = "asteroid";
-	name = "dirt"
-	},
-/area/cruise/jungle)
 "iIm" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/window/reinforced/crescent{
@@ -10517,6 +10375,22 @@
 	icon_state = "dark_preview"
 	},
 /area/cruise/escort)
+"iIK" = (
+/obj/structure/flora/grass/jungle,
+/obj/effect/decal/fake_object/light_source{
+	desc = "A cozy lamp.";
+	icon = 'icons/effects/32x96.dmi';
+	icon_state = "rustlamp_l";
+	light_color = "#FA644B";
+	light_range = 6;
+	name = "rusty lamp"
+	},
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon_state = "asteroid";
+	name = "dirt"
+	},
+/area/cruise/jungle)
 "iIR" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/tank_wall/carbon_dioxide{
@@ -10550,6 +10424,17 @@
 	},
 /turf/unsimulated/floor,
 /area/cruise/arcade)
+"iKc" = (
+/obj/structure/flora/rock{
+	icon_state = "basalt3"
+	},
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon = 'icons/jungle.dmi';
+	icon_state = "grass1";
+	name = "lush grass"
+	},
+/area/cruise/jungle)
 "iKg" = (
 /obj/structure/railing/mapped,
 /turf/unsimulated/floor{
@@ -11133,14 +11018,6 @@
 	},
 /turf/template_noop,
 /area/template_noop)
-"jgQ" = (
-/obj/item/storage/box/frags,
-/obj/item/storage/box/frags,
-/obj/item/storage/box/frags,
-/obj/item/storage/box/frags,
-/obj/structure/table/rack,
-/turf/simulated/floor/reinforced,
-/area/cruise/virtual_reality)
 "jhi" = (
 /obj/item/storage/toolbox/mechanical{
 	pixel_y = 9
@@ -11271,14 +11148,6 @@
 	color = "#4b0082"
 	},
 /area/cruise/main_bar/aft)
-"jlw" = (
-/obj/structure/flora/grass/jungle/b,
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon_state = "asteroid";
-	name = "dirt"
-	},
-/area/cruise/jungle)
 "jlN" = (
 /obj/structure/window/reinforced/crescent{
 	dir = 8
@@ -11330,17 +11199,6 @@
 	icon_state = "tiles_small"
 	},
 /area/cruise/aft_s)
-"joZ" = (
-/obj/structure/flora/grass/jungle{
-	icon_state = "rock2"
-	},
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon = 'icons/jungle.dmi';
-	icon_state = "grass1";
-	name = "lush grass"
-	},
-/area/cruise/jungle)
 "jpA" = (
 /obj/structure/curtain/open/privacy,
 /obj/machinery/button/remote/airlock{
@@ -11456,21 +11314,6 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/template_noop)
-"jtU" = (
-/obj/effect/decal/fake_object/light_source{
-	desc = "A cozy lamp.";
-	icon = 'icons/effects/32x96.dmi';
-	icon_state = "rustlamp_r";
-	light_color = "#FA644B";
-	light_range = 6;
-	name = "rusty lamp"
-	},
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon_state = "asteroid";
-	name = "dirt"
-	},
-/area/cruise/jungle)
 "juG" = (
 /obj/machinery/status_display,
 /turf/simulated/wall/shuttle/idris,
@@ -11508,23 +11351,6 @@
 	icon_state = "freezer"
 	},
 /area/cruise/washroom_aft)
-"jwi" = (
-/obj/structure/flora/tree/jungle/small,
-/obj/structure/flora/tree/jungle/small{
-	desc = "A pile of unassuming rocks.";
-	icon = 'icons/obj/flora/largejungleflora.dmi';
-	icon_state = "rocks2";
-	name = "rocks";
-	pixel_x = -16;
-	pixel_y = -16
-	},
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon = 'icons/jungle.dmi';
-	icon_state = "grass1";
-	name = "lush grass"
-	},
-/area/cruise/jungle)
 "jwp" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/food/drinks/shaker{
@@ -11586,6 +11412,22 @@
 	},
 /turf/unsimulated/floor,
 /area/cruise/tcomms_sat)
+"jyW" = (
+/obj/structure/flora/grass/jungle/b,
+/obj/effect/decal/fake_object/light_source{
+	desc = "A cozy lamp.";
+	icon = 'icons/effects/32x96.dmi';
+	icon_state = "rustlamp_r";
+	light_color = "#FA644B";
+	light_range = 6;
+	name = "rusty lamp"
+	},
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon_state = "asteroid";
+	name = "dirt"
+	},
+/area/cruise/jungle)
 "jzd" = (
 /turf/unsimulated/floor{
 	icon_state = "wood_cherry"
@@ -11682,6 +11524,15 @@
 	icon_state = "dark"
 	},
 /area/cruise/central)
+"jHp" = (
+/obj/structure/table/wood,
+/obj/item/storage/toolbox/mechanical,
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon_state = "asteroid";
+	name = "dirt"
+	},
+/area/cruise/jungle)
 "jHC" = (
 /turf/simulated/floor/tiled/ramp,
 /area/cruise/centerline)
@@ -11789,20 +11640,6 @@
 	icon_state = "dark_preview"
 	},
 /area/cruise/aft)
-"jOH" = (
-/obj/structure/flora/grass/jungle{
-	icon_state = "bushb2"
-	},
-/obj/structure/flora/grass/jungle{
-	icon_state = "rock"
-	},
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon = 'icons/jungle.dmi';
-	icon_state = "grass1";
-	name = "lush grass"
-	},
-/area/cruise/jungle)
 "jOP" = (
 /obj/structure/barricade/metal{
 	dir = 4
@@ -11851,6 +11688,20 @@
 	icon_state = "wood"
 	},
 /area/cruise/pool/sauna1)
+"jRm" = (
+/obj/structure/railing/mapped{
+	color = "#6e472b"
+	},
+/obj/structure/flora/grass/jungle{
+	icon_state = "grassa2"
+	},
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon = 'icons/jungle.dmi';
+	icon_state = "grass1";
+	name = "lush grass"
+	},
+/area/cruise/jungle)
 "jRv" = (
 /obj/random/pottedplant,
 /obj/structure/sign/flag/idris{
@@ -12167,17 +12018,6 @@
 	icon_state = "dark_preview"
 	},
 /area/cruise/centerline)
-"kfK" = (
-/obj/structure/flora/grass/jungle{
-	icon_state = "bushb2"
-	},
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon = 'icons/jungle.dmi';
-	icon_state = "grass1";
-	name = "lush grass"
-	},
-/area/cruise/jungle)
 "kgi" = (
 /obj/item/towel_flat{
 	color = "#ff0000"
@@ -12193,6 +12033,16 @@
 "kgH" = (
 /turf/simulated/floor/exoplanet/water/shallow,
 /area/cruise/virtual_reality)
+"kgK" = (
+/obj/structure/flora/grass/jungle{
+	icon_state = "rock2"
+	},
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon_state = "asteroid";
+	name = "dirt"
+	},
+/area/cruise/jungle)
 "khs" = (
 /obj/machinery/telecomms/server/presets/service,
 /turf/unsimulated/floor{
@@ -12717,14 +12567,6 @@
 	icon_state = "grass_stalk"
 	},
 /area/cruise/main_bar/aft)
-"kBn" = (
-/obj/structure/flora/grass/jungle,
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon_state = "asteroid";
-	name = "dirt"
-	},
-/area/cruise/jungle)
 "kBq" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/light{
@@ -12763,14 +12605,17 @@
 	icon_state = "asteroidfloor"
 	},
 /area/cruise/beach)
-"kCY" = (
+"kCI" = (
+/obj/structure/flora/grass/jungle,
 /obj/structure/flora/grass/jungle{
-	icon_state = "bushb1"
+	icon_state = "bushb1";
+	pixel_x = -13
 	},
 /turf/unsimulated/floor{
 	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon_state = "asteroid";
-	name = "dirt"
+	icon = 'icons/jungle.dmi';
+	icon_state = "grass1";
+	name = "lush grass"
 	},
 /area/cruise/jungle)
 "kDq" = (
@@ -12893,21 +12738,19 @@
 	icon_state = "dark"
 	},
 /area/cruise/fore_s)
+"kJu" = (
+/obj/item/storage/box/tactical/frags,
+/obj/item/storage/box/tactical/frags,
+/obj/item/storage/box/tactical/frags,
+/obj/item/storage/box/tactical/frags,
+/obj/structure/table/rack,
+/turf/simulated/floor/reinforced,
+/area/cruise/virtual_reality)
 "kJv" = (
 /turf/unsimulated/beach/coastline{
 	dir = 8;
 	icon = 'icons/misc/beach.dmi';
 	icon_state = "beachcorner"
-	},
-/area/cruise/jungle)
-"kJz" = (
-/obj/structure/flora/tree/jungle/small{
-	icon_state = "tree2"
-	},
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon_state = "asteroid";
-	name = "dirt"
 	},
 /area/cruise/jungle)
 "kJC" = (
@@ -13093,6 +12936,17 @@
 	icon_state = "tiles_small"
 	},
 /area/cruise/fore_s)
+"kRg" = (
+/obj/structure/flora/grass/jungle{
+	icon_state = "bushb2"
+	},
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon = 'icons/jungle.dmi';
+	icon_state = "grass1";
+	name = "lush grass"
+	},
+/area/cruise/jungle)
 "kRt" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -13101,6 +12955,83 @@
 	icon_state = "wood_cherry"
 	},
 /area/cruise/centerline)
+"kRC" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/structure/closet/crate/freezer,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/storage/box/large/produce{
+	pixel_x = 3;
+	pixel_y = -5
+	},
+/obj/item/storage/box/large/produce{
+	pixel_x = 3;
+	pixel_y = -5
+	},
+/obj/item/storage/box/large/produce{
+	pixel_x = 3;
+	pixel_y = -5
+	},
+/obj/item/storage/box/large/produce{
+	pixel_x = 3;
+	pixel_y = -5
+	},
+/obj/item/storage/box/large/produce{
+	pixel_x = 3;
+	pixel_y = 5
+	},
+/obj/item/storage/box/large/produce{
+	pixel_x = 3;
+	pixel_y = 5
+	},
+/obj/item/storage/box/large/produce{
+	pixel_x = 3;
+	pixel_y = 5
+	},
+/obj/item/storage/box/large/produce{
+	pixel_x = 3;
+	pixel_y = 5
+	},
+/obj/item/storage/box/large/produce{
+	pixel_x = 3;
+	pixel_y = 5
+	},
+/obj/item/storage/box/large/produce{
+	pixel_x = 3;
+	pixel_y = 5
+	},
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/cruise/escort)
 "kTh" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/unsimulated/floor/plating,
@@ -13371,18 +13302,6 @@
 	icon_state = "white"
 	},
 /area/cruise/main_bar)
-"lcS" = (
-/obj/structure/flora/grass/jungle{
-	icon_state = "bushb2";
-	pixel_y = 9
-	},
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon = 'icons/jungle.dmi';
-	icon_state = "grass1";
-	name = "lush grass"
-	},
-/area/cruise/jungle)
 "ldq" = (
 /obj/structure/bed/stool/padded/red,
 /turf/unsimulated/floor,
@@ -13418,22 +13337,6 @@
 	name = "gloomy grass"
 	},
 /area/cruise/virtual_reality)
-"lfz" = (
-/obj/effect/decal/fake_object/light_source{
-	desc = "A cozy lamp.";
-	icon = 'icons/effects/32x96.dmi';
-	icon_state = "rustlamp_r";
-	light_color = "#FA644B";
-	light_range = 6;
-	name = "rusty lamp"
-	},
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon = 'icons/jungle.dmi';
-	icon_state = "grass1";
-	name = "lush grass"
-	},
-/area/cruise/jungle)
 "lgf" = (
 /obj/item/storage/toolbox/electrical{
 	pixel_x = 6;
@@ -13515,6 +13418,14 @@
 	},
 /turf/unsimulated/floor,
 /area/cruise/arcade)
+"ljb" = (
+/obj/structure/flora/rock,
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon_state = "asteroid";
+	name = "dirt"
+	},
+/area/cruise/jungle)
 "ljm" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -13629,13 +13540,17 @@
 	},
 /turf/unsimulated/floor,
 /area/cruise/centerline)
-"lpS" = (
-/obj/structure/flora/tree/jungle/small{
-	desc = "A lush and healthy bush.";
-	icon = 'icons/obj/flora/largejungleflora.dmi';
-	icon_state = "bush";
-	name = "bush";
-	pixel_x = -16
+"lrr" = (
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/turf/unsimulated/floor{
+	icon = 'icons/turf/flooring/carpet.dmi';
+	icon_state = "rub_carpet"
+	},
+/area/cruise/main_bar)
+"lrt" = (
+/obj/structure/flora/grass/jungle{
+	icon_state = "bushb2";
+	pixel_y = 9
 	},
 /turf/unsimulated/floor{
 	footstep_sound = SFX_FOOTSTEP_GRASS;
@@ -13644,13 +13559,6 @@
 	name = "lush grass"
 	},
 /area/cruise/jungle)
-"lrr" = (
-/obj/effect/floor_decal/industrial/outline/emergency_closet,
-/turf/unsimulated/floor{
-	icon = 'icons/turf/flooring/carpet.dmi';
-	icon_state = "rub_carpet"
-	},
-/area/cruise/main_bar)
 "lrG" = (
 /obj/structure/window/reinforced{
 	dir = 1
@@ -13819,77 +13727,6 @@
 	icon_state = "wood_birch"
 	},
 /area/cruise/aft)
-"lzR" = (
-/obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/structure/table/stone/marble,
-/obj/item/storage/box/produce{
-	pixel_x = 3;
-	pixel_y = -5
-	},
-/obj/item/storage/box/produce{
-	pixel_x = 3;
-	pixel_y = 5
-	},
-/obj/item/storage/box/produce{
-	pixel_x = 3;
-	pixel_y = 5
-	},
-/obj/item/storage/box/produce{
-	pixel_x = 3;
-	pixel_y = 5
-	},
-/obj/item/storage/box/produce{
-	pixel_x = 3;
-	pixel_y = -5
-	},
-/obj/item/storage/box/produce{
-	pixel_x = 3;
-	pixel_y = -5
-	},
-/obj/item/storage/box/produce{
-	pixel_x = 3;
-	pixel_y = -5
-	},
-/obj/item/storage/box/produce{
-	pixel_x = 3;
-	pixel_y = -5
-	},
-/obj/item/storage/box/produce{
-	pixel_x = 3;
-	pixel_y = -5
-	},
-/obj/item/storage/box/produce{
-	pixel_x = 3;
-	pixel_y = 5
-	},
-/obj/item/storage/box/produce{
-	pixel_x = 3;
-	pixel_y = 5
-	},
-/obj/item/storage/box/produce{
-	pixel_x = 3;
-	pixel_y = 5
-	},
-/obj/item/storage/box/produce{
-	pixel_x = 3;
-	pixel_y = 5
-	},
-/obj/item/storage/box/produce{
-	pixel_x = 3;
-	pixel_y = 5
-	},
-/obj/item/storage/box/produce{
-	pixel_x = 3;
-	pixel_y = 5
-	},
-/obj/item/storage/box/produce{
-	pixel_x = 3;
-	pixel_y = 5
-	},
-/turf/unsimulated/floor{
-	icon_state = "white"
-	},
-/area/cruise/main_bar)
 "lAa" = (
 /obj/structure/table/wood,
 /obj/effect/decal/fake_object{
@@ -14178,17 +14015,6 @@
 	icon_state = "asteroidfloor"
 	},
 /area/cruise/beach)
-"lJJ" = (
-/obj/structure/flora/rock{
-	icon_state = "basalt3"
-	},
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon = 'icons/jungle.dmi';
-	icon_state = "grass1";
-	name = "lush grass"
-	},
-/area/cruise/jungle)
 "lJU" = (
 /obj/machinery/recharge_station,
 /turf/unsimulated/floor,
@@ -14471,14 +14297,6 @@
 /obj/structure/table/stone/marble,
 /turf/simulated/floor/wood,
 /area/cruise/dining_hall)
-"lTe" = (
-/obj/structure/flora/rock,
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon_state = "asteroid";
-	name = "dirt"
-	},
-/area/cruise/jungle)
 "lTU" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -14512,6 +14330,17 @@
 	},
 /turf/unsimulated/floor/concrete,
 /area/cruise/virtual_reality)
+"lUZ" = (
+/obj/structure/flora/grass/jungle{
+	icon_state = "rock"
+	},
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon = 'icons/jungle.dmi';
+	icon_state = "grass1";
+	name = "lush grass"
+	},
+/area/cruise/jungle)
 "lWi" = (
 /obj/machinery/door/window/westright,
 /obj/effect/floor_decal/corner/mauve{
@@ -14552,39 +14381,6 @@
 	icon_state = "wood"
 	},
 /area/cruise/pool/sauna1)
-"lXB" = (
-/obj/structure/flora/grass/jungle,
-/obj/structure/flora/tree/jungle/small{
-	desc = "A pile of unassuming rocks.";
-	icon = 'icons/obj/flora/largejungleflora.dmi';
-	icon_state = "rocks2";
-	name = "rocks";
-	pixel_x = -16;
-	pixel_y = -16
-	},
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon = 'icons/jungle.dmi';
-	icon_state = "grass1";
-	name = "lush grass"
-	},
-/area/cruise/jungle)
-"lXH" = (
-/obj/structure/flora/grass/jungle/b,
-/obj/effect/decal/fake_object/light_source{
-	desc = "A cozy lamp.";
-	icon = 'icons/effects/32x96.dmi';
-	icon_state = "rustlamp_r";
-	light_color = "#FA644B";
-	light_range = 6;
-	name = "rusty lamp"
-	},
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon_state = "asteroid";
-	name = "dirt"
-	},
-/area/cruise/jungle)
 "lXO" = (
 /obj/machinery/reagentgrinder{
 	pixel_y = 6
@@ -14666,6 +14462,25 @@
 	icon_state = "tiles_small"
 	},
 /area/cruise/security)
+"mcY" = (
+/obj/structure/flora/tree/jungle/small{
+	icon_state = "tree2"
+	},
+/obj/structure/flora/tree/jungle/small{
+	desc = "A pile of unassuming rocks.";
+	icon = 'icons/obj/flora/largejungleflora.dmi';
+	icon_state = "rocks3";
+	name = "rocks";
+	pixel_x = -16;
+	pixel_y = -16
+	},
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon = 'icons/jungle.dmi';
+	icon_state = "grass1";
+	name = "lush grass"
+	},
+/area/cruise/jungle)
 "mds" = (
 /obj/structure/bed/stool/chair/wood{
 	dir = 8
@@ -15041,34 +14856,6 @@
 	},
 /turf/template_noop,
 /area/cruise/main_bar/aft)
-"mte" = (
-/obj/structure/flora/grass/jungle,
-/obj/structure/flora/grass/jungle{
-	icon_state = "bushb1";
-	pixel_x = -13;
-	pixel_y = -14
-	},
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon_state = "asteroid";
-	name = "dirt"
-	},
-/area/cruise/jungle)
-"mtj" = (
-/obj/effect/decal/fake_object/light_source{
-	icon = 'icons/obj/mining.dmi';
-	icon_state = "purpflag_open";
-	light_color = "#A97FAA";
-	name = "beacon";
-	pixel_y = -2
-	},
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon = 'icons/jungle.dmi';
-	icon_state = "grass1";
-	name = "lush grass"
-	},
-/area/cruise/jungle)
 "mts" = (
 /obj/machinery/cryopod/living_quarters{
 	pixel_y = 8
@@ -15322,17 +15109,6 @@
 /obj/item/hullbeacon/red,
 /turf/unsimulated/floor,
 /area/template_noop)
-"mEF" = (
-/obj/structure/flora/grass/jungle{
-	icon_state = "bushb2";
-	pixel_y = 9
-	},
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon_state = "asteroid";
-	name = "dirt"
-	},
-/area/cruise/jungle)
 "mEY" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/light{
@@ -15418,18 +15194,6 @@
 	icon_state = "wood"
 	},
 /area/cruise/main_bar/aft)
-"mHP" = (
-/obj/structure/flora/grass/jungle,
-/obj/structure/flora/tree/jungle/small{
-	icon_state = "tree2"
-	},
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon = 'icons/jungle.dmi';
-	icon_state = "grass1";
-	name = "lush grass"
-	},
-/area/cruise/jungle)
 "mIp" = (
 /obj/structure/tank_wall/carbon_dioxide{
 	density = 0;
@@ -15445,6 +15209,22 @@
 	icon_state = "tiles_small"
 	},
 /area/cruise/central)
+"mKh" = (
+/obj/structure/flora/tree/jungle/small{
+	desc = "A pile of unassuming rocks.";
+	icon = 'icons/obj/flora/largejungleflora.dmi';
+	icon_state = "rocks2";
+	name = "rocks";
+	pixel_x = -16;
+	pixel_y = -16
+	},
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon = 'icons/jungle.dmi';
+	icon_state = "grass1";
+	name = "lush grass"
+	},
+/area/cruise/jungle)
 "mKn" = (
 /obj/machinery/atm{
 	pixel_x = 28;
@@ -15524,83 +15304,6 @@
 	icon_state = "wood_cherry"
 	},
 /area/cruise/centerline)
-"mOf" = (
-/obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/structure/closet/crate/freezer,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/storage/box/produce{
-	pixel_x = 3;
-	pixel_y = -5
-	},
-/obj/item/storage/box/produce{
-	pixel_x = 3;
-	pixel_y = -5
-	},
-/obj/item/storage/box/produce{
-	pixel_x = 3;
-	pixel_y = -5
-	},
-/obj/item/storage/box/produce{
-	pixel_x = 3;
-	pixel_y = -5
-	},
-/obj/item/storage/box/produce{
-	pixel_x = 3;
-	pixel_y = 5
-	},
-/obj/item/storage/box/produce{
-	pixel_x = 3;
-	pixel_y = 5
-	},
-/obj/item/storage/box/produce{
-	pixel_x = 3;
-	pixel_y = 5
-	},
-/obj/item/storage/box/produce{
-	pixel_x = 3;
-	pixel_y = 5
-	},
-/obj/item/storage/box/produce{
-	pixel_x = 3;
-	pixel_y = 5
-	},
-/obj/item/storage/box/produce{
-	pixel_x = 3;
-	pixel_y = 5
-	},
-/turf/unsimulated/floor{
-	icon_state = "white"
-	},
-/area/cruise/escort)
 "mOt" = (
 /obj/structure/window/reinforced/crescent{
 	dir = 8
@@ -15681,6 +15384,24 @@
 	icon_state = "dark_preview"
 	},
 /area/cruise/escort)
+"mRf" = (
+/obj/structure/flora/grass/jungle{
+	icon_state = "bushb1"
+	},
+/obj/effect/decal/fake_object/light_source{
+	desc = "A cozy lamp.";
+	icon = 'icons/effects/32x96.dmi';
+	icon_state = "rustlamp_l";
+	light_color = "#FA644B";
+	light_range = 6;
+	name = "rusty lamp"
+	},
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon_state = "asteroid";
+	name = "dirt"
+	},
+/area/cruise/jungle)
 "mRm" = (
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
@@ -15742,6 +15463,17 @@
 	icon_state = "white"
 	},
 /area/cruise/medical)
+"mVb" = (
+/obj/structure/flora/grass/jungle{
+	icon_state = "bushb2";
+	pixel_y = 9
+	},
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon_state = "asteroid";
+	name = "dirt"
+	},
+/area/cruise/jungle)
 "mVh" = (
 /obj/structure/flora/grass/jungle/b,
 /turf/unsimulated/floor{
@@ -15847,18 +15579,6 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/ramp,
-/area/cruise/jungle)
-"mYa" = (
-/obj/structure/flora/tree/jungle{
-	icon_state = "tree3"
-	},
-/obj/structure/flora/grass/jungle,
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon = 'icons/jungle.dmi';
-	icon_state = "grass1";
-	name = "lush grass"
-	},
 /area/cruise/jungle)
 "mZn" = (
 /obj/structure/table/steel,
@@ -15975,21 +15695,6 @@
 	icon_state = "white"
 	},
 /area/cruise/main_bar)
-"ndw" = (
-/obj/structure/table/rack,
-/obj/item/storage/box/flashbangs{
-	pixel_x = 4;
-	pixel_y = 4
-	},
-/obj/item/storage/box/teargas{
-	pixel_x = -1;
-	pixel_y = -4
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/unsimulated/floor{
-	icon_state = "dark_preview"
-	},
-/area/cruise/security)
 "ndE" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/window/brigdoor/eastright{
@@ -16042,6 +15747,28 @@
 	icon_state = "wood_willow"
 	},
 /area/cruise/centerline)
+"niy" = (
+/obj/structure/flora/tree/jungle/small{
+	desc = "A pile of unassuming rocks.";
+	icon = 'icons/obj/flora/largejungleflora.dmi';
+	icon_state = "rocks1";
+	name = "rocks";
+	pixel_x = -16;
+	pixel_y = -16
+	},
+/obj/structure/flora/tree/jungle/small{
+	desc = "A lush and healthy bush.";
+	icon = 'icons/obj/flora/largejungleflora.dmi';
+	icon_state = "bush2";
+	name = "bush";
+	pixel_x = -16
+	},
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon_state = "asteroid";
+	name = "dirt"
+	},
+/area/cruise/jungle)
 "njd" = (
 /obj/machinery/vending/wallmed1{
 	pixel_x = -32;
@@ -16103,6 +15830,14 @@
 	icon_state = "dark_preview"
 	},
 /area/cruise/hangar)
+"nnJ" = (
+/obj/machinery/floodlight,
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon_state = "asteroid";
+	name = "dirt"
+	},
+/area/cruise/jungle)
 "nov" = (
 /obj/machinery/door/airlock{
 	name = "Emergency Supplies Closet";
@@ -16169,6 +15904,17 @@
 	icon_state = "white"
 	},
 /area/cruise/pool)
+"nqg" = (
+/obj/structure/flora/grass/jungle{
+	icon_state = "grassa2"
+	},
+/obj/structure/blocker,
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon_state = "asteroid";
+	name = "dirt"
+	},
+/area/cruise/jungle)
 "nrB" = (
 /turf/unsimulated/beach/coastline{
 	icon = 'icons/misc/beach.dmi';
@@ -16276,18 +16022,6 @@
 	},
 /turf/unsimulated/floor,
 /area/cruise/virtual_reality)
-"nxB" = (
-/obj/structure/flora/tree/jungle{
-	icon_state = "tree2"
-	},
-/obj/structure/flora/grass/jungle,
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon = 'icons/jungle.dmi';
-	icon_state = "grass1";
-	name = "lush grass"
-	},
-/area/cruise/jungle)
 "nxF" = (
 /obj/effect/map_effect/window_spawner/reinforced/crescent,
 /turf/unsimulated/floor/plating,
@@ -16371,6 +16105,17 @@
 	icon_state = "wood_preview"
 	},
 /area/cruise/pool/sauna2)
+"nzQ" = (
+/obj/structure/flora/grass/jungle{
+	icon_state = "bushb1"
+	},
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon = 'icons/jungle.dmi';
+	icon_state = "grass1";
+	name = "lush grass"
+	},
+/area/cruise/jungle)
 "nzW" = (
 /obj/structure/bed/stool/chair/wood{
 	dir = 8
@@ -16463,6 +16208,15 @@
 	icon_state = "turquoise"
 	},
 /area/cruise/aft)
+"nCg" = (
+/obj/structure/table/wood,
+/obj/item/watertank,
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon_state = "asteroid";
+	name = "dirt"
+	},
+/area/cruise/jungle)
 "nCl" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/light/spot{
@@ -16517,6 +16271,16 @@
 	icon_state = "dark_preview"
 	},
 /area/cruise/custodial_s)
+"nGr" = (
+/obj/structure/flora/grass/jungle/b,
+/obj/structure/flora/grass/jungle,
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon = 'icons/jungle.dmi';
+	icon_state = "grass1";
+	name = "lush grass"
+	},
+/area/cruise/jungle)
 "nGs" = (
 /obj/item/storage/toolbox/mechanical{
 	pixel_y = 9
@@ -16526,6 +16290,26 @@
 	icon_state = "asteroidfloor"
 	},
 /area/cruise/beach)
+"nGu" = (
+/obj/effect/decal/fake_object/light_source{
+	desc = "A cozy lamp.";
+	icon = 'icons/effects/32x96.dmi';
+	icon_state = "rustlamp_r";
+	light_color = "#FA644B";
+	light_range = 6;
+	name = "rusty lamp";
+	pixel_x = 8;
+	pixel_y = -2
+	},
+/obj/structure/flora/grass/jungle{
+	icon_state = "grassa2"
+	},
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon_state = "asteroid";
+	name = "dirt"
+	},
+/area/cruise/jungle)
 "nGD" = (
 /obj/structure/table/standard,
 /obj/machinery/vending/wallmed1{
@@ -16629,6 +16413,24 @@
 	icon_state = "carpet"
 	},
 /area/cruise/centerline)
+"nLD" = (
+/obj/structure/flora/tree/jungle/small{
+	desc = "A pile of unassuming rocks.";
+	icon = 'icons/obj/flora/largejungleflora.dmi';
+	icon_state = "rocks3";
+	name = "rocks";
+	pixel_x = -16;
+	pixel_y = -16
+	},
+/obj/structure/flora/tree/jungle{
+	icon_state = "tree3"
+	},
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon_state = "asteroid";
+	name = "dirt"
+	},
+/area/cruise/jungle)
 "nLU" = (
 /turf/unsimulated/floor{
 	icon_state = "wood_birch"
@@ -16792,6 +16594,15 @@
 	icon_state = "wood-broken3"
 	},
 /area/cruise/jungle)
+"nRP" = (
+/obj/structure/flora/tree/jungle,
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon = 'icons/jungle.dmi';
+	icon_state = "grass1";
+	name = "lush grass"
+	},
+/area/cruise/jungle)
 "nRX" = (
 /obj/structure/flora/rock/pile,
 /turf/simulated/floor/exoplanet/water/shallow,
@@ -16807,14 +16618,6 @@
 	icon_state = "dark"
 	},
 /area/cruise/security)
-"nSK" = (
-/obj/item/reagent_containers/glass/bucket/wood,
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon_state = "asteroid";
-	name = "dirt"
-	},
-/area/cruise/jungle)
 "nSN" = (
 /obj/structure/table/steel,
 /obj/item/device/multitool,
@@ -16843,14 +16646,6 @@
 	},
 /turf/unsimulated/floor,
 /area/cruise/centerline)
-"nTq" = (
-/obj/structure/blocker,
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon_state = "asteroid";
-	name = "dirt"
-	},
-/area/cruise/jungle)
 "nTt" = (
 /obj/structure/window/reinforced/crescent,
 /obj/item/hullbeacon/red,
@@ -16875,6 +16670,18 @@
 /obj/structure/flora/rock,
 /turf/simulated/floor/exoplanet/water/shallow,
 /area/cruise/jungle)
+"nTH" = (
+/obj/structure/flora/grass/jungle,
+/obj/structure/flora/tree/jungle/small{
+	icon_state = "tree2"
+	},
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon = 'icons/jungle.dmi';
+	icon_state = "grass1";
+	name = "lush grass"
+	},
+/area/cruise/jungle)
 "nUk" = (
 /obj/structure/bed/stool/padded/red,
 /turf/unsimulated/floor{
@@ -16882,6 +16689,17 @@
 	icon_state = "carpet"
 	},
 /area/cruise/centerline)
+"nVi" = (
+/obj/structure/flora/tree/jungle/small{
+	icon_state = "tree2"
+	},
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon = 'icons/jungle.dmi';
+	icon_state = "grass1";
+	name = "lush grass"
+	},
+/area/cruise/jungle)
 "nWh" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/unsimulated/floor{
@@ -17021,6 +16839,22 @@
 	icon_state = "dark"
 	},
 /area/cruise/fore_p)
+"obS" = (
+/obj/structure/flora/grass/jungle,
+/obj/structure/flora/tree/jungle/small{
+	desc = "A lush and healthy bush.";
+	icon = 'icons/obj/flora/largejungleflora.dmi';
+	icon_state = "bush";
+	name = "bush";
+	pixel_x = -16
+	},
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon = 'icons/jungle.dmi';
+	icon_state = "grass1";
+	name = "lush grass"
+	},
+/area/cruise/jungle)
 "obZ" = (
 /obj/structure/closet/crate/bin,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -17102,6 +16936,22 @@
 	icon_state = "dark_preview"
 	},
 /area/cruise/main_bar)
+"ofG" = (
+/obj/effect/decal/fake_object/light_source{
+	desc = "A cozy lamp.";
+	icon = 'icons/effects/32x96.dmi';
+	icon_state = "rustlamp_l";
+	light_color = "#FA644B";
+	light_range = 6;
+	name = "rusty lamp"
+	},
+/obj/structure/flora/grass/jungle/b,
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon_state = "asteroid";
+	name = "dirt"
+	},
+/area/cruise/jungle)
 "ogj" = (
 /obj/effect/floor_decal/spline/fancy,
 /turf/unsimulated/floor{
@@ -17157,21 +17007,6 @@
 	},
 /turf/unsimulated/floor,
 /area/cruise/fore_s)
-"ojz" = (
-/obj/effect/decal/fake_object/light_source{
-	icon_state = "lantern-on";
-	light_color = "#FAA019";
-	light_range = 6;
-	name = "lantern";
-	pixel_x = -8;
-	pixel_y = 16
-	},
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon_state = "asteroid";
-	name = "dirt"
-	},
-/area/cruise/jungle)
 "ojJ" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 1
@@ -17191,16 +17026,6 @@
 	icon_state = "dark_preview"
 	},
 /area/cruise/escort)
-"ojR" = (
-/obj/structure/bed/stool/chair/wood{
-	dir = 1
-	},
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon_state = "asteroid";
-	name = "dirt"
-	},
-/area/cruise/jungle)
 "okc" = (
 /obj/structure/window/reinforced/crescent{
 	dir = 8
@@ -17395,23 +17220,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/ramp,
 /area/cruise/pool)
-"otm" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	dir = 1
-	},
-/obj/effect/decal/fake_object{
-	desc = "A descriptive sign.";
-	icon = 'icons/effects/ship_idris_cruise.dmi';
-	icon_state = "sign_washroom";
-	name = "washroom indicator";
-	pixel_y = 32
-	},
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon_state = "asteroid";
-	name = "dirt"
-	},
-/area/cruise/jungle)
 "otn" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 8
@@ -17637,6 +17445,25 @@
 	},
 /turf/unsimulated/floor,
 /area/cruise/main_bar/aft)
+"oCI" = (
+/obj/structure/flora/tree/jungle{
+	icon_state = "tree3"
+	},
+/obj/structure/flora/tree/jungle/small{
+	desc = "A pile of unassuming rocks.";
+	icon = 'icons/obj/flora/largejungleflora.dmi';
+	icon_state = "rocks3";
+	name = "rocks";
+	pixel_x = -16;
+	pixel_y = -16
+	},
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon = 'icons/jungle.dmi';
+	icon_state = "grass1";
+	name = "lush grass"
+	},
+/area/cruise/jungle)
 "oDr" = (
 /obj/structure/barricade/plasteel/wired{
 	dir = 8
@@ -17785,6 +17612,24 @@
 	icon_state = "wood"
 	},
 /area/cruise/main_bar/aft)
+"oMn" = (
+/obj/structure/table/rack,
+/obj/item/melee/energy/sword/knife/sol,
+/obj/item/melee/energy/sword/knife/sol,
+/obj/item/melee/energy/sword/knife/sol,
+/obj/item/melee/energy/sword/knife/sol,
+/obj/item/gun/projectile/shotgun/pump/combat/sol,
+/obj/item/gun/projectile/shotgun/pump/combat/sol,
+/obj/item/gun/projectile/shotgun/pump/combat/sol,
+/obj/item/gun/projectile/shotgun/pump/combat/sol,
+/obj/item/storage/box/shells/incendiaryshells,
+/obj/item/storage/box/shells/buckshot,
+/obj/item/storage/box/shells/buckshot,
+/obj/item/storage/box/shells/buckshot,
+/obj/item/storage/box/shells/buckshot,
+/obj/item/storage/box/shells/buckshot,
+/turf/simulated/floor/reinforced,
+/area/cruise/virtual_reality)
 "oNq" = (
 /turf/simulated/floor/grass,
 /area/cruise/hydroponics)
@@ -18243,15 +18088,6 @@
 	icon_state = "floor7"
 	},
 /area/cruise/fore)
-"pfY" = (
-/obj/structure/flora/tree/jungle/small,
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon = 'icons/jungle.dmi';
-	icon_state = "grass1";
-	name = "lush grass"
-	},
-/area/cruise/jungle)
 "phj" = (
 /obj/effect/floor_decal/spline/fancy,
 /obj/machinery/door/firedoor,
@@ -18274,6 +18110,17 @@
 	icon_state = "wood"
 	},
 /area/cruise/virtual_reality)
+"phT" = (
+/obj/structure/railing/mapped,
+/obj/structure/flora/grass/jungle{
+	icon_state = "grassa2"
+	},
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon_state = "asteroid";
+	name = "dirt"
+	},
+/area/cruise/jungle)
 "pin" = (
 /obj/structure/closet/crate/bin,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -18345,6 +18192,21 @@
 	icon_state = "dark_preview"
 	},
 /area/cruise/fore)
+"plT" = (
+/obj/structure/flora/tree/jungle/small{
+	desc = "A pile of unassuming rocks.";
+	icon = 'icons/obj/flora/largejungleflora.dmi';
+	icon_state = "rocks1";
+	name = "rocks";
+	pixel_x = -16;
+	pixel_y = -16
+	},
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon_state = "asteroid";
+	name = "dirt"
+	},
+/area/cruise/jungle)
 "pmh" = (
 /obj/structure/undies_wardrobe,
 /turf/unsimulated/floor,
@@ -18386,22 +18248,6 @@
 /obj/machinery/door/firedoor,
 /turf/unsimulated/floor{
 	icon_state = "dark"
-	},
-/area/cruise/jungle)
-"pnl" = (
-/obj/structure/flora/grass/jungle,
-/obj/structure/flora/tree/jungle/small{
-	desc = "A lush and healthy bush.";
-	icon = 'icons/obj/flora/largejungleflora.dmi';
-	icon_state = "bush";
-	name = "bush";
-	pixel_x = -16
-	},
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon = 'icons/jungle.dmi';
-	icon_state = "grass1";
-	name = "lush grass"
 	},
 /area/cruise/jungle)
 "pnu" = (
@@ -18589,6 +18435,16 @@
 	dir = 1
 	},
 /area/cruise/jungle)
+"psD" = (
+/obj/structure/flora/grass/jungle,
+/obj/structure/flora/tree/jungle/small,
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon = 'icons/jungle.dmi';
+	icon_state = "grass1";
+	name = "lush grass"
+	},
+/area/cruise/jungle)
 "psJ" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 10
@@ -18628,14 +18484,23 @@
 	icon_state = "wood"
 	},
 /area/cruise/escort)
-"pul" = (
-/obj/structure/bed/stool/chair/wood{
-	dir = 4
+"puj" = (
+/obj/structure/flora/tree/jungle/small{
+	desc = "A pile of unassuming rocks.";
+	icon = 'icons/obj/flora/largejungleflora.dmi';
+	icon_state = "rocks2";
+	name = "rocks";
+	pixel_x = -16;
+	pixel_y = -16
+	},
+/obj/structure/flora/tree/jungle/small{
+	icon_state = "tree2"
 	},
 /turf/unsimulated/floor{
 	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon_state = "asteroid";
-	name = "dirt"
+	icon = 'icons/jungle.dmi';
+	icon_state = "grass1";
+	name = "lush grass"
 	},
 /area/cruise/jungle)
 "pvG" = (
@@ -18971,6 +18836,17 @@
 "pMK" = (
 /turf/unsimulated/floor,
 /area/cruise/beach_bar)
+"pNI" = (
+/obj/structure/flora/tree/jungle{
+	icon_state = "tree3"
+	},
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon = 'icons/jungle.dmi';
+	icon_state = "grass1";
+	name = "lush grass"
+	},
+/area/cruise/jungle)
 "pOp" = (
 /obj/structure/table/stone/marble,
 /obj/machinery/door/window/westright,
@@ -19093,6 +18969,21 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/unsimulated/floor/plating,
 /area/cruise/e_supplies)
+"pRZ" = (
+/obj/structure/bed/stool/chair/wood{
+	dir = 4
+	},
+/obj/structure/flora/grass/jungle{
+	icon_state = "bushb2";
+	pixel_x = 14;
+	pixel_y = 27
+	},
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon_state = "asteroid";
+	name = "dirt"
+	},
+/area/cruise/jungle)
 "pSl" = (
 /obj/machinery/vending/tool,
 /obj/structure/fireaxecabinet/west{
@@ -19442,6 +19333,16 @@
 "qjQ" = (
 /turf/unsimulated/floor/concrete,
 /area/cruise/virtual_reality)
+"qjX" = (
+/obj/structure/bed/stool/chair/wood{
+	dir = 4
+	},
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon_state = "asteroid";
+	name = "dirt"
+	},
+/area/cruise/jungle)
 "qkr" = (
 /obj/structure/table/wood,
 /obj/item/storage/box/fancy/cookiesnack,
@@ -19905,15 +19806,6 @@
 	icon_state = "grass_stalk"
 	},
 /area/cruise/hydroponics)
-"qEZ" = (
-/obj/structure/flora/tree/jungle,
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon = 'icons/jungle.dmi';
-	icon_state = "grass1";
-	name = "lush grass"
-	},
-/area/cruise/jungle)
 "qFg" = (
 /turf/unsimulated/mineral,
 /area/cruise/beach_cave)
@@ -19987,6 +19879,21 @@
 	icon_state = "dark_preview"
 	},
 /area/cruise/pool)
+"qIC" = (
+/obj/structure/flora/tree/jungle/small{
+	desc = "A lush and healthy bush.";
+	icon = 'icons/obj/flora/largejungleflora.dmi';
+	icon_state = "bush2";
+	name = "bush";
+	pixel_x = -16
+	},
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon = 'icons/jungle.dmi';
+	icon_state = "grass1";
+	name = "lush grass"
+	},
+/area/cruise/jungle)
 "qIG" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
@@ -20144,14 +20051,6 @@
 	icon_state = "turquoise"
 	},
 /area/cruise/aft)
-"qQP" = (
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon = 'icons/jungle.dmi';
-	icon_state = "grass1";
-	name = "lush grass"
-	},
-/area/cruise/jungle)
 "qQW" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -20177,25 +20076,6 @@
 	icon_state = "white"
 	},
 /area/cruise/main_bar)
-"qSc" = (
-/obj/structure/flora/tree/jungle{
-	icon_state = "tree3"
-	},
-/obj/structure/flora/tree/jungle/small{
-	desc = "A pile of unassuming rocks.";
-	icon = 'icons/obj/flora/largejungleflora.dmi';
-	icon_state = "rocks3";
-	name = "rocks";
-	pixel_x = -16;
-	pixel_y = -16
-	},
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon = 'icons/jungle.dmi';
-	icon_state = "grass1";
-	name = "lush grass"
-	},
-/area/cruise/jungle)
 "qSo" = (
 /obj/structure/table/rack,
 /obj/item/reagent_containers/food/snacks/muffin/berry,
@@ -20470,6 +20350,16 @@
 	icon_state = "dark_preview"
 	},
 /area/cruise/security)
+"rgQ" = (
+/obj/structure/flora/grass/jungle{
+	icon_state = "grassa2"
+	},
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon_state = "asteroid";
+	name = "dirt"
+	},
+/area/cruise/jungle)
 "rhb" = (
 /obj/structure/sign/flag/scc{
 	pixel_y = 32
@@ -20553,6 +20443,14 @@
 	},
 /turf/unsimulated/floor,
 /area/cruise/e_supplies)
+"rnM" = (
+/obj/structure/bed/stool/padded/red,
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon_state = "asteroid";
+	name = "dirt"
+	},
+/area/cruise/jungle)
 "rnP" = (
 /obj/item/towel_flat{
 	color = "#ff0000"
@@ -20603,6 +20501,22 @@
 	icon_state = "beach"
 	},
 /area/cruise/beach)
+"roK" = (
+/obj/effect/decal/fake_object/light_source{
+	desc = "A cozy lamp.";
+	icon = 'icons/effects/32x96.dmi';
+	icon_state = "rustlamp_r";
+	light_color = "#FA644B";
+	light_range = 6;
+	name = "rusty lamp"
+	},
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon = 'icons/jungle.dmi';
+	icon_state = "grass1";
+	name = "lush grass"
+	},
+/area/cruise/jungle)
 "roY" = (
 /obj/effect/floor_decal/spline/fancy{
 	dir = 8
@@ -20773,6 +20687,25 @@
 	},
 /turf/template_noop,
 /area/template_noop)
+"ruv" = (
+/obj/structure/flora/tree/jungle{
+	icon_state = "tree3"
+	},
+/obj/structure/flora/tree/jungle/small{
+	desc = "A pile of unassuming rocks.";
+	icon = 'icons/obj/flora/largejungleflora.dmi';
+	icon_state = "rocks2";
+	name = "rocks";
+	pixel_x = -16;
+	pixel_y = -16
+	},
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon = 'icons/jungle.dmi';
+	icon_state = "grass1";
+	name = "lush grass"
+	},
+/area/cruise/jungle)
 "ruD" = (
 /turf/simulated/floor/tiled/ramp{
 	dir = 4
@@ -20815,6 +20748,18 @@
 /obj/effect/decal/remains,
 /turf/unsimulated/floor/plating,
 /area/template_noop)
+"rwz" = (
+/obj/structure/flora/tree/jungle/small{
+	icon_state = "tree2"
+	},
+/obj/structure/flora/grass/jungle,
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon = 'icons/jungle.dmi';
+	icon_state = "grass1";
+	name = "lush grass"
+	},
+/area/cruise/jungle)
 "rxO" = (
 /obj/effect/decal/fake_object{
 	desc = "A descriptive sign.";
@@ -21234,23 +21179,14 @@
 	icon_state = "freezer"
 	},
 /area/cruise/washroom_aft)
-"rQF" = (
-/obj/structure/flora/tree/jungle{
-	icon_state = "tree3"
-	},
-/obj/structure/flora/tree/jungle/small{
-	desc = "A pile of unassuming rocks.";
-	icon = 'icons/obj/flora/largejungleflora.dmi';
-	icon_state = "rocks2";
-	name = "rocks";
-	pixel_x = -16;
-	pixel_y = -16
+"rQH" = (
+/obj/structure/flora/grass/jungle{
+	pixel_y = 20
 	},
 /turf/unsimulated/floor{
 	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon = 'icons/jungle.dmi';
-	icon_state = "grass1";
-	name = "lush grass"
+	icon_state = "asteroid";
+	name = "dirt"
 	},
 /area/cruise/jungle)
 "rRs" = (
@@ -21322,28 +21258,6 @@
 	icon_state = "dark_preview"
 	},
 /area/cruise/custodial_s)
-"rWT" = (
-/obj/structure/flora/tree/jungle/small{
-	desc = "A pile of unassuming rocks.";
-	icon = 'icons/obj/flora/largejungleflora.dmi';
-	icon_state = "rocks1";
-	name = "rocks";
-	pixel_x = -16;
-	pixel_y = -16
-	},
-/obj/structure/flora/tree/jungle/small{
-	desc = "A lush and healthy bush.";
-	icon = 'icons/obj/flora/largejungleflora.dmi';
-	icon_state = "bush2";
-	name = "bush";
-	pixel_x = -16
-	},
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon_state = "asteroid";
-	name = "dirt"
-	},
-/area/cruise/jungle)
 "rXc" = (
 /obj/structure/table/stone/marble,
 /obj/item/glass_jar{
@@ -21368,21 +21282,6 @@
 	icon_state = "panelscorched"
 	},
 /area/cruise/tcomms_sat)
-"rXR" = (
-/obj/structure/bed/stool/chair/wood{
-	dir = 4
-	},
-/obj/structure/flora/grass/jungle{
-	icon_state = "bushb2";
-	pixel_x = 14;
-	pixel_y = 27
-	},
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon_state = "asteroid";
-	name = "dirt"
-	},
-/area/cruise/jungle)
 "rYr" = (
 /obj/effect/decal{
 	anchored = 1;
@@ -21563,15 +21462,6 @@
 	icon_state = "wood"
 	},
 /area/cruise/centerline)
-"sey" = (
-/obj/structure/bed/stool/chair/wood,
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon = 'icons/jungle.dmi';
-	icon_state = "grass1";
-	name = "lush grass"
-	},
-/area/cruise/jungle)
 "sfj" = (
 /obj/machinery/telecomms/bus/preset_four,
 /turf/unsimulated/floor{
@@ -22093,16 +21983,6 @@
 /obj/item/material/ashtray/bronze,
 /turf/unsimulated/floor,
 /area/cruise/beach_bar)
-"sGy" = (
-/obj/structure/flora/grass/jungle{
-	icon_state = "grassa2"
-	},
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon_state = "asteroid";
-	name = "dirt"
-	},
-/area/cruise/jungle)
 "sGG" = (
 /turf/unsimulated/beach/coastline{
 	dir = 8;
@@ -22124,6 +22004,16 @@
 	icon_state = "grass_stalk"
 	},
 /area/cruise/hydroponics)
+"sGS" = (
+/obj/structure/flora/grass/jungle{
+	icon_state = "bushb1"
+	},
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon_state = "asteroid";
+	name = "dirt"
+	},
+/area/cruise/jungle)
 "sGU" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/unsimulated/floor{
@@ -22224,6 +22114,16 @@
 	icon_state = "dark"
 	},
 /area/cruise/central)
+"sMH" = (
+/obj/structure/flora/grass/jungle{
+	icon_state = "bushb2"
+	},
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon_state = "asteroid";
+	name = "dirt"
+	},
+/area/cruise/jungle)
 "sNa" = (
 /obj/structure/table/wood,
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -22245,16 +22145,6 @@
 	icon_state = "dark_preview"
 	},
 /area/cruise/pool)
-"sOe" = (
-/obj/structure/railing/mapped{
-	color = "#6e472b"
-	},
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon_state = "asteroid";
-	name = "dirt"
-	},
-/area/cruise/jungle)
 "sOi" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -22277,6 +22167,22 @@
 	},
 /turf/unsimulated/floor,
 /area/cruise/main_bar/aft)
+"sPi" = (
+/obj/structure/flora/tree/jungle/small{
+	desc = "A pile of unassuming rocks.";
+	icon = 'icons/obj/flora/largejungleflora.dmi';
+	icon_state = "rocks3";
+	name = "rocks";
+	pixel_x = -16;
+	pixel_y = -16
+	},
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon = 'icons/jungle.dmi';
+	icon_state = "grass1";
+	name = "lush grass"
+	},
+/area/cruise/jungle)
 "sPo" = (
 /obj/machinery/computer/arcade/orion_trail,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -22747,6 +22653,28 @@
 "tec" = (
 /turf/simulated/wall/shuttle/idris,
 /area/cruise/tcomms_sat)
+"teR" = (
+/obj/structure/bed/stool/chair/wood,
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon_state = "asteroid";
+	name = "dirt"
+	},
+/area/cruise/jungle)
+"teV" = (
+/obj/effect/decal/fake_object/light_source{
+	icon = 'icons/obj/mining.dmi';
+	icon_state = "purpflag_open";
+	light_color = "#A97FAA";
+	name = "beacon";
+	pixel_y = -2
+	},
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon_state = "asteroid";
+	name = "dirt"
+	},
+/area/cruise/jungle)
 "tfW" = (
 /obj/structure/window/reinforced/crescent{
 	dir = 1
@@ -22963,22 +22891,6 @@
 	icon_state = "grass_stalk"
 	},
 /area/cruise/hydroponics)
-"tpO" = (
-/obj/structure/flora/tree/jungle/small{
-	desc = "A pile of unassuming rocks.";
-	icon = 'icons/obj/flora/largejungleflora.dmi';
-	icon_state = "rocks3";
-	name = "rocks";
-	pixel_x = -16;
-	pixel_y = -16
-	},
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon = 'icons/jungle.dmi';
-	icon_state = "grass1";
-	name = "lush grass"
-	},
-/area/cruise/jungle)
 "tqr" = (
 /obj/item/clothing/suit/armor/tactical,
 /obj/item/clothing/suit/armor/tactical,
@@ -23051,17 +22963,6 @@
 	icon_state = "wood_birch"
 	},
 /area/cruise/centerline)
-"ttv" = (
-/obj/structure/table/wood,
-/obj/item/device/flashlight/lamp{
-	pixel_y = 5
-	},
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon_state = "asteroid";
-	name = "dirt"
-	},
-/area/cruise/jungle)
 "tua" = (
 /turf/unsimulated/floor,
 /area/cruise/virtual_reality)
@@ -23132,6 +23033,15 @@
 	icon_state = "floor7"
 	},
 /area/cruise/tcomms_sat)
+"txD" = (
+/obj/structure/flora/rock,
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon = 'icons/jungle.dmi';
+	icon_state = "grass1";
+	name = "lush grass"
+	},
+/area/cruise/jungle)
 "txV" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /turf/unsimulated/floor{
@@ -23368,6 +23278,18 @@
 	icon_state = "dark_preview"
 	},
 /area/cruise/escort)
+"tDp" = (
+/obj/structure/flora/tree/jungle{
+	icon_state = "tree2"
+	},
+/obj/structure/flora/grass/jungle,
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon = 'icons/jungle.dmi';
+	icon_state = "grass1";
+	name = "lush grass"
+	},
+/area/cruise/jungle)
 "tDB" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/light/small{
@@ -23400,6 +23322,18 @@
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood_birch"
+	},
+/area/cruise/jungle)
+"tFW" = (
+/obj/structure/flora/grass/jungle/b,
+/obj/structure/flora/grass/jungle{
+	icon_state = "rock"
+	},
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon = 'icons/jungle.dmi';
+	icon_state = "grass1";
+	name = "lush grass"
 	},
 /area/cruise/jungle)
 "tGY" = (
@@ -23440,6 +23374,23 @@
 	icon_state = "rub_carpet"
 	},
 /area/cruise/beach)
+"tId" = (
+/obj/structure/flora/tree/jungle,
+/obj/structure/flora/tree/jungle/small{
+	desc = "A pile of unassuming rocks.";
+	icon = 'icons/obj/flora/largejungleflora.dmi';
+	icon_state = "rocks2";
+	name = "rocks";
+	pixel_x = -16;
+	pixel_y = -16
+	},
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon = 'icons/jungle.dmi';
+	icon_state = "grass1";
+	name = "lush grass"
+	},
+/area/cruise/jungle)
 "tIr" = (
 /obj/machinery/vending/security,
 /turf/unsimulated/floor{
@@ -23589,6 +23540,15 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/cruise/arcade)
+"tNG" = (
+/obj/structure/flora/grass/jungle/b,
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon = 'icons/jungle.dmi';
+	icon_state = "grass1";
+	name = "lush grass"
+	},
+/area/cruise/jungle)
 "tOD" = (
 /obj/structure/barricade/metal{
 	dir = 4
@@ -23668,6 +23628,15 @@
 	icon_state = "plating"
 	},
 /area/cruise/tcomms_sat)
+"tSu" = (
+/obj/structure/bed/stool/chair/wood,
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon = 'icons/jungle.dmi';
+	icon_state = "grass1";
+	name = "lush grass"
+	},
+/area/cruise/jungle)
 "tTB" = (
 /obj/structure/window/reinforced/crescent,
 /obj/structure/window/reinforced/crescent{
@@ -23839,6 +23808,23 @@
 "tXV" = (
 /turf/simulated/floor/wood,
 /area/cruise/dining_hall)
+"tYe" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 1
+	},
+/obj/effect/decal/fake_object{
+	desc = "A descriptive sign.";
+	icon = 'icons/effects/ship_idris_cruise.dmi';
+	icon_state = "sign_washroom";
+	name = "washroom indicator";
+	pixel_y = 32
+	},
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon_state = "asteroid";
+	name = "dirt"
+	},
+/area/cruise/jungle)
 "tYk" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp/green,
@@ -24051,6 +24037,20 @@
 	icon_state = "dark_preview"
 	},
 /area/cruise/pool)
+"ueZ" = (
+/obj/structure/flora/grass/jungle{
+	icon_state = "bushb2"
+	},
+/obj/structure/flora/grass/jungle{
+	icon_state = "rock"
+	},
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon = 'icons/jungle.dmi';
+	icon_state = "grass1";
+	name = "lush grass"
+	},
+/area/cruise/jungle)
 "ufB" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -24165,6 +24165,21 @@
 	icon_state = "wood"
 	},
 /area/cruise/library)
+"uiv" = (
+/obj/effect/decal/fake_object/light_source{
+	desc = "A cozy lamp.";
+	icon = 'icons/effects/32x96.dmi';
+	icon_state = "rustlamp_r";
+	light_color = "#FA644B";
+	light_range = 6;
+	name = "rusty lamp"
+	},
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon_state = "asteroid";
+	name = "dirt"
+	},
+/area/cruise/jungle)
 "ujg" = (
 /turf/unsimulated/floor{
 	icon_state = "asteroid"
@@ -24330,14 +24345,8 @@
 	icon_state = "rub_carpet"
 	},
 /area/cruise/beach)
-"upB" = (
-/obj/structure/flora/tree/jungle/small{
-	desc = "A lush and healthy bush.";
-	icon = 'icons/obj/flora/largejungleflora.dmi';
-	icon_state = "bush";
-	name = "bush";
-	pixel_x = -16
-	},
+"uqs" = (
+/obj/structure/flora/grass/jungle,
 /turf/unsimulated/floor{
 	footstep_sound = SFX_FOOTSTEP_GRASS;
 	icon_state = "asteroid";
@@ -24446,6 +24455,16 @@
 	icon_state = "dark_preview"
 	},
 /area/cruise/escort)
+"uuG" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon_state = "asteroid";
+	name = "dirt"
+	},
+/area/cruise/jungle)
 "uvq" = (
 /obj/structure/bed/stool/chair/wood,
 /turf/unsimulated/floor,
@@ -24661,6 +24680,14 @@
 	icon_state = "floor7"
 	},
 /area/cruise/pool/sauna2)
+"uEa" = (
+/obj/structure/blocker,
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon_state = "asteroid";
+	name = "dirt"
+	},
+/area/cruise/jungle)
 "uEI" = (
 /obj/structure/curtain/black{
 	icon_state = "open";
@@ -24884,6 +24911,77 @@
 /obj/item/storage/box/drinkingglasses,
 /turf/unsimulated/floor,
 /area/cruise/beach_bar)
+"uND" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/structure/table/stone/marble,
+/obj/item/storage/box/large/produce{
+	pixel_x = 3;
+	pixel_y = -5
+	},
+/obj/item/storage/box/large/produce{
+	pixel_x = 3;
+	pixel_y = 5
+	},
+/obj/item/storage/box/large/produce{
+	pixel_x = 3;
+	pixel_y = 5
+	},
+/obj/item/storage/box/large/produce{
+	pixel_x = 3;
+	pixel_y = 5
+	},
+/obj/item/storage/box/large/produce{
+	pixel_x = 3;
+	pixel_y = -5
+	},
+/obj/item/storage/box/large/produce{
+	pixel_x = 3;
+	pixel_y = -5
+	},
+/obj/item/storage/box/large/produce{
+	pixel_x = 3;
+	pixel_y = -5
+	},
+/obj/item/storage/box/large/produce{
+	pixel_x = 3;
+	pixel_y = -5
+	},
+/obj/item/storage/box/large/produce{
+	pixel_x = 3;
+	pixel_y = -5
+	},
+/obj/item/storage/box/large/produce{
+	pixel_x = 3;
+	pixel_y = 5
+	},
+/obj/item/storage/box/large/produce{
+	pixel_x = 3;
+	pixel_y = 5
+	},
+/obj/item/storage/box/large/produce{
+	pixel_x = 3;
+	pixel_y = 5
+	},
+/obj/item/storage/box/large/produce{
+	pixel_x = 3;
+	pixel_y = 5
+	},
+/obj/item/storage/box/large/produce{
+	pixel_x = 3;
+	pixel_y = 5
+	},
+/obj/item/storage/box/large/produce{
+	pixel_x = 3;
+	pixel_y = 5
+	},
+/obj/item/storage/box/large/produce{
+	pixel_x = 3;
+	pixel_y = 5
+	},
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/cruise/main_bar)
 "uNI" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
 /obj/machinery/light{
@@ -24911,17 +25009,6 @@
 	icon_state = "desert"
 	},
 /area/cruise/beach)
-"uQJ" = (
-/obj/structure/flora/tree/jungle/small{
-	icon_state = "tree2"
-	},
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon = 'icons/jungle.dmi';
-	icon_state = "grass1";
-	name = "lush grass"
-	},
-/area/cruise/jungle)
 "uRy" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/bed/stool/padded/red,
@@ -25159,6 +25246,15 @@
 	icon_state = "dark_preview"
 	},
 /area/cruise/security)
+"vaK" = (
+/obj/structure/closet/crate/coffin,
+/obj/item/reagent_containers/food/snacks/donut/normal/psdonut,
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon_state = "asteroid";
+	name = "dirt"
+	},
+/area/cruise/jungle)
 "vbl" = (
 /obj/item/towel,
 /obj/effect/floor_decal/spline/fancy/wood/corner{
@@ -25207,6 +25303,19 @@
 	icon_state = "plating"
 	},
 /area/cruise/tcomms_sat)
+"vcZ" = (
+/obj/structure/flora/grass/jungle{
+	icon_state = "bushb1";
+	pixel_x = -13;
+	pixel_y = -14
+	},
+/obj/structure/flora/grass/jungle,
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon_state = "asteroid";
+	name = "dirt"
+	},
+/area/cruise/jungle)
 "vdd" = (
 /obj/effect/overlay/palmtree_l,
 /turf/unsimulated/beach/sand{
@@ -25235,17 +25344,6 @@
 /obj/structure/bed/stool/padded/red,
 /turf/unsimulated/floor/concrete,
 /area/cruise/pool)
-"vdS" = (
-/obj/structure/flora/grass/jungle{
-	icon_state = "bushb1"
-	},
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon = 'icons/jungle.dmi';
-	icon_state = "grass1";
-	name = "lush grass"
-	},
-/area/cruise/jungle)
 "veA" = (
 /turf/unsimulated/floor/plating,
 /area/cruise/pool/sauna1)
@@ -25559,16 +25657,6 @@
 	icon_state = "beachcorner"
 	},
 /area/cruise/jungle)
-"vuG" = (
-/obj/structure/flora/grass/jungle{
-	icon_state = "bushb2"
-	},
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon_state = "asteroid";
-	name = "dirt"
-	},
-/area/cruise/jungle)
 "vuJ" = (
 /obj/machinery/light,
 /turf/unsimulated/floor{
@@ -25604,6 +25692,16 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/cruise/pool)
+"vwS" = (
+/obj/structure/flora/tree/jungle/small{
+	icon_state = "tree2"
+	},
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon_state = "asteroid";
+	name = "dirt"
+	},
+/area/cruise/jungle)
 "vxi" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/light/small{
@@ -25924,6 +26022,25 @@
 	icon_state = "white"
 	},
 /area/cruise/virtual_reality)
+"vPg" = (
+/obj/structure/flora/tree/jungle{
+	icon_state = "tree3"
+	},
+/obj/structure/flora/tree/jungle/small{
+	desc = "A pile of unassuming rocks.";
+	icon = 'icons/obj/flora/largejungleflora.dmi';
+	icon_state = "rocks1";
+	name = "rocks";
+	pixel_x = -16;
+	pixel_y = -16
+	},
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon = 'icons/jungle.dmi';
+	icon_state = "grass1";
+	name = "lush grass"
+	},
+/area/cruise/jungle)
 "vPo" = (
 /obj/machinery/light{
 	dir = 8
@@ -26171,28 +26288,6 @@
 	icon_state = "dark_preview"
 	},
 /area/cruise/custodial_p)
-"vZg" = (
-/obj/effect/decal/fake_object/light_source{
-	density = 1;
-	icon_state = "bonfire_on_fire";
-	light_color = "#FA644B";
-	light_range = 6;
-	name = "bonfire"
-	},
-/obj/structure/flora/tree/jungle/small{
-	desc = "A pile of unassuming rocks.";
-	icon = 'icons/obj/flora/largejungleflora.dmi';
-	icon_state = "rocks2";
-	name = "rocks";
-	pixel_x = -16;
-	pixel_y = -16
-	},
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon_state = "asteroid";
-	name = "dirt"
-	},
-/area/cruise/jungle)
 "vZC" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
@@ -26207,22 +26302,6 @@
 "vZG" = (
 /turf/simulated/wall/shuttle/idris,
 /area/cruise/dining_hall)
-"vZS" = (
-/obj/structure/flora/grass/jungle,
-/obj/effect/decal/fake_object/light_source{
-	desc = "A cozy lamp.";
-	icon = 'icons/effects/32x96.dmi';
-	icon_state = "rustlamp_l";
-	light_color = "#FA644B";
-	light_range = 6;
-	name = "rusty lamp"
-	},
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon_state = "asteroid";
-	name = "dirt"
-	},
-/area/cruise/jungle)
 "wab" = (
 /obj/effect/floor_decal/spline/fancy{
 	dir = 4
@@ -26260,30 +26339,6 @@
 /obj/structure/bed/stool/chair/wood,
 /turf/unsimulated/floor,
 /area/cruise/virtual_reality)
-"wdg" = (
-/obj/effect/decal/fake_object/light_source{
-	icon = 'icons/obj/mining.dmi';
-	icon_state = "purpflag_open";
-	light_color = "#A97FAA";
-	name = "beacon";
-	pixel_y = -2
-	},
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon_state = "asteroid";
-	name = "dirt"
-	},
-/area/cruise/jungle)
-"wdh" = (
-/obj/structure/flora/rock{
-	icon_state = "basalt3"
-	},
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon_state = "asteroid";
-	name = "dirt"
-	},
-/area/cruise/jungle)
 "wdG" = (
 /turf/unsimulated/beach/coastline{
 	dir = 9;
@@ -26359,26 +26414,6 @@
 	icon_state = "dark_preview"
 	},
 /area/cruise/escort)
-"wgD" = (
-/obj/effect/decal/fake_object/light_source{
-	desc = "A cozy lamp.";
-	icon = 'icons/effects/32x96.dmi';
-	icon_state = "rustlamp_r";
-	light_color = "#FA644B";
-	light_range = 6;
-	name = "rusty lamp";
-	pixel_x = 8;
-	pixel_y = -2
-	},
-/obj/structure/flora/grass/jungle{
-	icon_state = "grassa2"
-	},
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon_state = "asteroid";
-	name = "dirt"
-	},
-/area/cruise/jungle)
 "wgV" = (
 /obj/effect/decal/fake_object{
 	desc = "A descriptive arrow connected to the adjacent sign.";
@@ -26658,15 +26693,6 @@
 	},
 /turf/unsimulated/floor,
 /area/cruise/main_bar/aft)
-"wsh" = (
-/obj/structure/closet/crate/coffin,
-/obj/item/reagent_containers/food/snacks/donut/normal/psdonut,
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon_state = "asteroid";
-	name = "dirt"
-	},
-/area/cruise/jungle)
 "wsC" = (
 /turf/simulated/floor/beach/water/pool,
 /area/cruise/main_bar/aft)
@@ -27151,21 +27177,18 @@
 	},
 /turf/unsimulated/floor,
 /area/cruise/beach_bar)
-"wQN" = (
-/obj/structure/flora/tree/jungle,
+"wPt" = (
 /obj/structure/flora/tree/jungle/small{
-	desc = "A pile of unassuming rocks.";
+	desc = "A lush and healthy bush.";
 	icon = 'icons/obj/flora/largejungleflora.dmi';
-	icon_state = "rocks2";
-	name = "rocks";
-	pixel_x = -16;
-	pixel_y = -16
+	icon_state = "bush";
+	name = "bush";
+	pixel_x = -16
 	},
 /turf/unsimulated/floor{
 	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon = 'icons/jungle.dmi';
-	icon_state = "grass1";
-	name = "lush grass"
+	icon_state = "asteroid";
+	name = "dirt"
 	},
 /area/cruise/jungle)
 "wRd" = (
@@ -27175,18 +27198,6 @@
 	icon_state = "beach"
 	},
 /area/cruise/beach_cave)
-"wSg" = (
-/obj/structure/flora/tree/jungle/small{
-	icon_state = "tree2"
-	},
-/obj/structure/flora/grass/jungle,
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon = 'icons/jungle.dmi';
-	icon_state = "grass1";
-	name = "lush grass"
-	},
-/area/cruise/jungle)
 "wSm" = (
 /obj/effect/decal/fake_object{
 	color = "#ff0000";
@@ -27224,19 +27235,6 @@
 	},
 /turf/unsimulated/floor,
 /area/cruise/arcade)
-"wTb" = (
-/obj/structure/flora/grass/jungle/b,
-/obj/structure/flora/grass/jungle{
-	icon_state = "bushb1";
-	pixel_x = -13;
-	pixel_y = -14
-	},
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon_state = "asteroid";
-	name = "dirt"
-	},
-/area/cruise/jungle)
 "wTt" = (
 /obj/structure/railing/mapped,
 /obj/machinery/door/firedoor,
@@ -27620,6 +27618,18 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/cruise/arcade)
+"xkm" = (
+/obj/structure/flora/tree/jungle{
+	icon_state = "tree3"
+	},
+/obj/structure/flora/grass/jungle,
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon = 'icons/jungle.dmi';
+	icon_state = "grass1";
+	name = "lush grass"
+	},
+/area/cruise/jungle)
 "xky" = (
 /obj/effect/engine_exhaust{
 	dir = 1;
@@ -27666,6 +27676,14 @@
 	},
 /turf/unsimulated/floor,
 /area/cruise/arcade)
+"xlt" = (
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon = 'icons/jungle.dmi';
+	icon_state = "grass1";
+	name = "lush grass"
+	},
+/area/cruise/jungle)
 "xmg" = (
 /obj/structure/blocker,
 /turf/unsimulated/floor{
@@ -27728,16 +27746,6 @@
 	icon_state = "white"
 	},
 /area/cruise/medical)
-"xni" = (
-/obj/structure/flora/grass/jungle{
-	pixel_y = 20
-	},
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon_state = "asteroid";
-	name = "dirt"
-	},
-/area/cruise/jungle)
 "xnP" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -28269,21 +28277,6 @@
 	},
 /turf/unsimulated/floor,
 /area/cruise/main_bar/aft)
-"xHn" = (
-/obj/structure/flora/tree/jungle/small{
-	desc = "A pile of unassuming rocks.";
-	icon = 'icons/obj/flora/largejungleflora.dmi';
-	icon_state = "rocks2";
-	name = "rocks";
-	pixel_x = -16;
-	pixel_y = -16
-	},
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon_state = "asteroid";
-	name = "dirt"
-	},
-/area/cruise/jungle)
 "xHt" = (
 /obj/structure/table/reinforced/steel,
 /turf/unsimulated/floor{
@@ -28423,24 +28416,6 @@
 	},
 /turf/unsimulated/floor,
 /area/cruise/centerline)
-"xOJ" = (
-/obj/structure/table/rack,
-/obj/item/melee/energy/sword/knife/sol,
-/obj/item/melee/energy/sword/knife/sol,
-/obj/item/melee/energy/sword/knife/sol,
-/obj/item/melee/energy/sword/knife/sol,
-/obj/item/gun/projectile/shotgun/pump/combat/sol,
-/obj/item/gun/projectile/shotgun/pump/combat/sol,
-/obj/item/gun/projectile/shotgun/pump/combat/sol,
-/obj/item/gun/projectile/shotgun/pump/combat/sol,
-/obj/item/storage/box/incendiaryshells,
-/obj/item/storage/box/shotgunshells,
-/obj/item/storage/box/shotgunshells,
-/obj/item/storage/box/shotgunshells,
-/obj/item/storage/box/shotgunshells,
-/obj/item/storage/box/shotgunshells,
-/turf/simulated/floor/reinforced,
-/area/cruise/virtual_reality)
 "xOU" = (
 /obj/effect/floor_decal/spline/fancy{
 	dir = 1
@@ -28520,6 +28495,15 @@
 	icon_state = "tiles_small"
 	},
 /area/cruise/aft_p)
+"xUu" = (
+/obj/structure/flora/grass/jungle,
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon = 'icons/jungle.dmi';
+	icon_state = "grass1";
+	name = "lush grass"
+	},
+/area/cruise/jungle)
 "xUz" = (
 /obj/structure/window/reinforced/crescent,
 /obj/machinery/light/small,
@@ -28585,16 +28569,6 @@
 	icon_state = "dark"
 	},
 /area/cruise/fore_p)
-"xXH" = (
-/obj/structure/flora/grass/jungle{
-	icon_state = "rock"
-	},
-/turf/unsimulated/floor{
-	footstep_sound = SFX_FOOTSTEP_GRASS;
-	icon_state = "asteroid";
-	name = "dirt"
-	},
-/area/cruise/jungle)
 "xXJ" = (
 /obj/structure/bed/stool/chair/folding{
 	dir = 4
@@ -28610,6 +28584,21 @@
 	icon_state = "beachcorner"
 	},
 /area/cruise/beach_cave)
+"xXS" = (
+/obj/structure/table/rack,
+/obj/item/storage/box/tactical/flashbangs{
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/obj/item/storage/box/tactical/teargas{
+	pixel_x = -1;
+	pixel_y = -4
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/unsimulated/floor{
+	icon_state = "dark_preview"
+	},
+/area/cruise/security)
 "xZi" = (
 /obj/machinery/telecomms/server/presets/engineering,
 /turf/unsimulated/floor{
@@ -28717,6 +28706,17 @@
 /obj/item/hullbeacon/red,
 /turf/unsimulated/floor,
 /area/template_noop)
+"yew" = (
+/obj/structure/railing/mapped,
+/obj/structure/flora/grass/jungle{
+	icon_state = "bushb1"
+	},
+/turf/unsimulated/floor{
+	footstep_sound = SFX_FOOTSTEP_GRASS;
+	icon_state = "asteroid";
+	name = "dirt"
+	},
+/area/cruise/jungle)
 "yeJ" = (
 /obj/machinery/door/window/southleft,
 /turf/unsimulated/floor{
@@ -50397,7 +50397,7 @@ jjH
 pxm
 pxm
 jjH
-ndw
+xXS
 bWr
 paL
 xSK
@@ -60418,7 +60418,7 @@ osf
 aaU
 kFj
 iUS
-lzR
+uND
 aiT
 aiT
 lNL
@@ -62684,9 +62684,9 @@ sTC
 feP
 qzh
 soG
-gjw
-cIz
-aag
+nnJ
+jHp
+hRJ
 onn
 onn
 cCc
@@ -62941,16 +62941,16 @@ soG
 vbV
 soG
 soG
-gjw
-cLb
-cLb
-cLb
+nnJ
+hAg
+hAg
+hAg
 vfH
 nLU
 nLU
 geN
-qQP
-qQP
+xlt
+xlt
 onn
 qsn
 qsn
@@ -63198,16 +63198,16 @@ pfD
 pfD
 soG
 hUO
-dEl
-lpS
-tpO
-cLb
+xUu
+hVo
+sPi
+hAg
 sDZ
 nLU
 nLU
 pyo
-qQP
-vdS
+xlt
+nzQ
 onn
 onn
 onn
@@ -63219,8 +63219,8 @@ onn
 onn
 onn
 hUO
-erg
-jlw
+ghi
+bXz
 kFu
 dBx
 gEF
@@ -63455,18 +63455,18 @@ pfD
 cqp
 soG
 hUO
-vdS
-qQP
-qQP
-cLb
-fAw
+nzQ
+xlt
+xlt
+hAg
+phT
 ruD
 dhz
-qQP
-qQP
-qQP
-kfK
-qQP
+xlt
+xlt
+xlt
+kRg
+xlt
 onn
 onn
 onn
@@ -63476,8 +63476,8 @@ hUO
 hUO
 hUO
 hUO
-erg
-cLb
+ghi
+hAg
 onn
 onn
 onn
@@ -63712,33 +63712,33 @@ pfD
 pfD
 soG
 hUO
-qQP
-qQP
-brz
-qQP
-hrK
+xlt
+xlt
+mcY
+xlt
+yew
 uMn
 uLN
-qQP
-qQP
-qQP
-qQP
-qQP
-qQP
-qQP
-qQP
-qQP
+xlt
+xlt
+xlt
+xlt
+xlt
+xlt
+xlt
+xlt
+xlt
 hUO
 hUO
-cLb
-cLb
-jlw
-sGy
-vuG
-jlw
+hAg
+hAg
+bXz
+rgQ
+sMH
+bXz
 hUO
-qQP
-qQP
+xlt
+xlt
 omf
 omf
 lIu
@@ -63969,34 +63969,34 @@ soG
 soG
 soG
 hUO
-qQP
-qQP
-qSc
-qQP
-sGy
-cLb
-jlw
-qQP
-qQP
-qQP
-isP
-kfK
-qQP
-qQP
-ixz
-qQP
+xlt
+xlt
+oCI
+xlt
+rgQ
+hAg
+bXz
+xlt
+xlt
+xlt
+pNI
+kRg
+xlt
+xlt
+hHP
+xlt
 hUO
-cLb
-jlw
+hAg
+bXz
 hUO
-aaC
-erg
-erg
-cLb
+qIC
+ghi
+ghi
+hAg
 hUO
 hUO
-qQP
-qQP
+xlt
+xlt
 omf
 omf
 asj
@@ -64226,35 +64226,35 @@ hUO
 hUO
 hUO
 hUO
-pfY
-tpO
-qQP
-qQP
-kfK
-cLb
-sGy
-qQP
-qQP
-qQP
-qQP
-qQP
-qQP
-jlw
-kBn
-cLb
+gIk
+sPi
+xlt
+xlt
+kRg
+hAg
+rgQ
+xlt
+xlt
+xlt
+xlt
+xlt
+xlt
+bXz
+uqs
+hAg
 hUO
-cLb
-hUO
-hUO
-erg
-erg
-cLb
-vuG
-jlw
+hAg
 hUO
 hUO
-qQP
-qQP
+ghi
+ghi
+hAg
+sMH
+bXz
+hUO
+hUO
+xlt
+xlt
 omf
 omf
 lIu
@@ -64480,39 +64480,39 @@ omf
 omf
 hUO
 hUO
-vdS
-qQP
+nzQ
+xlt
 hUO
-qQP
-qQP
-qQP
-qQP
-lpS
-kCY
-cLb
-sGy
-sGy
-sGy
-sGy
-sGy
-jlw
-cLb
-sGy
-cLb
+xlt
+xlt
+xlt
+xlt
+hVo
+sGS
+hAg
+rgQ
+rgQ
+rgQ
+rgQ
+rgQ
+bXz
+hAg
+rgQ
+hAg
 hUO
-cLb
-hUO
-hUO
-hUO
-qQP
-cLb
-erg
-cLb
+hAg
 hUO
 hUO
-qQP
-qQP
-ixz
+hUO
+xlt
+hAg
+ghi
+hAg
+hUO
+hUO
+xlt
+xlt
+hHP
 omf
 omf
 oSt
@@ -64734,43 +64734,43 @@ oSt
 oSt
 omf
 omf
-dEl
-dEl
-qQP
-dEl
-dEl
+xUu
+xUu
+xlt
+xUu
+xUu
 hUO
-dEl
-dEl
-dEl
-uQJ
-cLb
-cLb
-kCY
-cLb
-vuG
-cLb
-cLb
-jlw
-cLb
-qQP
-qQP
-upB
-kBn
-jlw
+xUu
+xUu
+xUu
+nVi
+hAg
+hAg
+sGS
+hAg
+sMH
+hAg
+hAg
+bXz
+hAg
+xlt
+xlt
+wPt
+uqs
+bXz
 hUO
 onn
 onn
 onn
-dMa
-qQP
-cLb
+uuG
+xlt
+hAg
 hUO
 hUO
-jlw
-hBy
-hBy
-nSK
+bXz
+rnM
+rnM
+cgF
 omf
 omf
 oSt
@@ -64990,45 +64990,45 @@ oSt
 oSt
 omf
 omf
-mtj
-vdS
-qQP
-qQP
-dEl
-wSg
-dEl
-qQP
-qQP
-dEl
-cLb
-cLb
-cLb
-qQP
-jtU
-qQP
-qQP
-qQP
-cLb
-cLb
-qQP
-aJa
-qQP
-sGy
-qQP
+bFj
+nzQ
+xlt
+xlt
+xUu
+rwz
+xUu
+xlt
+xlt
+xUu
+hAg
+hAg
+hAg
+xlt
+uiv
+xlt
+xlt
+xlt
+hAg
+hAg
+xlt
+vPg
+xlt
+rgQ
+xlt
 hUO
 onn
 iRQ
 gAl
-dMa
-cLb
-sGy
+uuG
+hAg
+rgQ
 hUO
 hUO
-kCY
-ttv
-cIz
-hBy
-qQP
+sGS
+ckz
+jHp
+rnM
+xlt
 omf
 omf
 asj
@@ -65246,47 +65246,47 @@ oSt
 oSt
 oSt
 omf
-dQM
-qQP
-qQP
-qQP
-qQP
-wSg
-dEl
-qQP
-kCY
-ixz
-kBn
-jlw
-kCY
-qQP
+tNG
+xlt
+xlt
+xlt
+xlt
+rwz
+xUu
+xlt
+sGS
+hHP
+uqs
+bXz
+sGS
+xlt
 hUO
 hUO
-aaC
-qQP
-pfY
-cLb
-cLb
-cLb
-qQP
-dUV
-cLb
-kBn
+qIC
+xlt
+gIk
+hAg
+hAg
+hAg
+xlt
+txD
+hAg
+uqs
 hUO
 onn
 onn
 onn
-otm
-qQP
-cLb
+tYe
+xlt
+hAg
 hUO
-qQP
-hBy
-eYb
-eYb
-cLb
-dEl
-qQP
+xlt
+rnM
+nCg
+nCg
+hAg
+xUu
+xlt
 omf
 asj
 oSt
@@ -65503,47 +65503,47 @@ oSt
 oSt
 omf
 omf
-dEl
-vdS
-qQP
-qQP
-qQP
-dEl
-dEl
-qQP
-pul
-kBn
-pul
-cLb
-qQP
+xUu
+nzQ
+xlt
+xlt
+xlt
+xUu
+xUu
+xlt
+qjX
+uqs
+qjX
+hAg
+xlt
 hUO
 hUO
 hUO
 hUO
-uQJ
-qQP
-tpO
-cLb
-jlw
-cLb
-kBn
-cLb
-cLb
+nVi
+xlt
+sPi
+hAg
+bXz
+hAg
+uqs
+hAg
+hAg
 hUO
 onn
 pPQ
 kVS
-dMa
-qQP
-cLb
-qQP
-dEl
-kBn
-hBy
-hBy
-kCY
-qQP
-lpS
+uuG
+xlt
+hAg
+xlt
+xUu
+uqs
+rnM
+rnM
+sGS
+xlt
+hVo
 omf
 onn
 omf
@@ -65759,49 +65759,49 @@ oSt
 oSt
 oSt
 omf
-dEl
-dEl
-qQP
-qQP
-qQP
-qQP
-dEl
-mYa
-dEl
-gqC
-cLb
-cLb
-ojR
-qQP
-nTq
+xUu
+xUu
+xlt
+xlt
+xlt
+xlt
+xUu
+xkm
+xUu
+teR
+hAg
+hAg
+feb
+xlt
+uEa
 qWo
-wsh
+vaK
 hUO
-qQP
-qQP
-isP
-qQP
-cLb
-jlw
-cLb
-cLb
-qQP
+xlt
+xlt
+pNI
+xlt
+hAg
+bXz
+hAg
+hAg
+xlt
 hUO
 onn
 onn
 onn
-akd
-qQP
-vuG
-cLb
-dEl
-dEl
-qQP
-jtU
-cLb
-dEl
-vdS
-kfK
+bBo
+xlt
+sMH
+hAg
+xUu
+xUu
+xlt
+uiv
+hAg
+xUu
+nzQ
+kRg
 fAU
 asw
 onn
@@ -66016,49 +66016,49 @@ oSt
 oSt
 omf
 omf
-dEl
-qQP
-qQP
-qQP
-uQJ
-qQP
-dEl
-dEl
-wSg
-cLb
-vZg
-cLb
-kCY
-qQP
+xUu
+xlt
+xlt
+xlt
+nVi
+xlt
+xUu
+xUu
+rwz
+hAg
+cLV
+hAg
+sGS
+xlt
 hUO
 hUO
 hUO
 hUO
 hUO
-qQP
-uQJ
-dlP
-cLb
-cLb
-jlw
-aaC
-qQP
+xlt
+nVi
+mKh
+hAg
+hAg
+bXz
+qIC
+xlt
 hUO
 hUO
 hUO
 hUO
-kfK
-qQP
-cLb
-cLb
-gBq
-dEl
-kfK
-qQP
-jlw
-kfK
-dEl
-fJY
+kRg
+xlt
+hAg
+hAg
+psD
+xUu
+kRg
+xlt
+bXz
+kRg
+xUu
+mRf
 klL
 nLU
 sVV
@@ -66272,48 +66272,48 @@ oSt
 oSt
 oSt
 omf
-dEl
-qQP
-dEl
-pfY
-cLb
-cLb
-cLb
-kBn
-kBn
-kBn
-jlw
-cLb
-cLb
-hBy
-dEl
-vdS
-dFf
-vdS
-qQP
-qQP
-vdS
-qQP
-qQP
-qQP
-cLb
-kBn
-erg
-qQP
-vdS
+xUu
+xlt
+xUu
+gIk
+hAg
+hAg
+hAg
+uqs
+uqs
+uqs
+bXz
+hAg
+hAg
+rnM
+xUu
+nzQ
+dUY
+nzQ
+xlt
+xlt
+nzQ
+xlt
+xlt
+xlt
+hAg
+uqs
+ghi
+xlt
+nzQ
 hUO
 hUO
-tpO
-dFf
-qQP
-qQP
-kBn
-kBn
-kBn
-cLb
-cLb
-cLb
-jlw
+sPi
+dUY
+xlt
+xlt
+uqs
+uqs
+uqs
+hAg
+hAg
+hAg
+bXz
 bkh
 jsv
 nLU
@@ -66529,48 +66529,48 @@ oSt
 oSt
 oSt
 omf
-kCY
-xXH
-xHn
-cLb
-kBn
-qQP
-lpS
-qQP
-uQJ
-dFf
-kCY
-iHu
-iHu
-cLb
-qQP
-qQP
-qQP
-qQP
-qQP
-qQP
-qQP
-qQP
-qQP
-lpS
-cLb
-kCY
-vZS
-qQP
-qQP
-kfK
+sGS
+bQX
+eXj
+hAg
+uqs
+xlt
+hVo
+xlt
+nVi
+dUY
+sGS
+ecj
+ecj
+hAg
+xlt
+xlt
+xlt
+xlt
+xlt
+xlt
+xlt
+xlt
+xlt
+hVo
+hAg
+sGS
+iIK
+xlt
+xlt
+kRg
 hUO
-kfK
-qQP
-qQP
-kCY
-cLb
-cLb
-cLb
-cLb
-jlw
-cLb
-cLb
+kRg
+xlt
+xlt
+sGS
+hAg
+hAg
+hAg
+hAg
+bXz
+hAg
+hAg
 prY
 lhn
 nLU
@@ -66788,48 +66788,48 @@ oSt
 omf
 dZt
 dZt
-cLb
-jlw
-qQP
-qQP
+hAg
+bXz
+xlt
+xlt
 hUO
 hUO
 hUO
-qQP
-cLb
-haX
-kBn
-kBn
-qQP
-vdS
-qQP
-sGy
-dou
-cLb
-qQP
-lpS
-qQP
-qQP
-jlw
-cLb
-vuG
-qQP
-qQP
-qQP
-qQP
-qQP
-qQP
-kBn
-cLb
-cLb
-cLb
-kBn
-kBn
-dQM
-qQP
-dEl
-qQP
-lXH
+xlt
+hAg
+hbo
+uqs
+uqs
+xlt
+nzQ
+xlt
+rgQ
+plT
+hAg
+xlt
+hVo
+xlt
+xlt
+bXz
+hAg
+sMH
+xlt
+xlt
+xlt
+xlt
+xlt
+xlt
+uqs
+hAg
+hAg
+hAg
+uqs
+uqs
+tNG
+xlt
+xUu
+xlt
+jyW
 klL
 nLU
 sVV
@@ -67046,47 +67046,47 @@ omf
 bHf
 aYO
 dZt
-cLb
-kBn
-dEl
+hAg
+uqs
+xUu
 hUO
 hUO
 hUO
-vdS
-qQP
-qQP
-dEl
-dEl
-qQP
-qQP
-sGy
-cLb
+nzQ
+xlt
+xlt
+xUu
+xUu
+xlt
+xlt
+rgQ
+hAg
 cun
-cLb
-eak
-jlw
-cLb
-lpS
-kCY
-cLb
-cLb
-dEl
-aaC
-dEl
-qQP
-jlw
-cLb
-cLb
-kBn
-kBn
-jtU
-qQP
-qQP
-pfY
-jOH
-qQP
-dQM
-vdS
+hAg
+bAf
+bXz
+hAg
+hVo
+sGS
+hAg
+hAg
+xUu
+qIC
+xUu
+xlt
+bXz
+hAg
+hAg
+uqs
+uqs
+uiv
+xlt
+xlt
+gIk
+ueZ
+xlt
+tNG
+nzQ
 sZT
 hSd
 onn
@@ -67303,47 +67303,47 @@ nTu
 pnc
 dfq
 htw
-vZS
-kBn
-dEl
+iIK
+uqs
+xUu
 hUO
 hUO
-nTq
-qQP
-dEl
-qQP
-qQP
-pfY
-qQP
-tpO
-cLb
+uEa
+xlt
+xUu
+xlt
+xlt
+gIk
+xlt
+sPi
+hAg
 cBi
 dZt
 cun
 cun
 lDe
-kBn
-cLb
-kBn
-cLb
-cLb
-jlw
-dEl
-qQP
-kBn
-cLb
-cLb
-kCY
-joZ
-gTK
-gTK
-gTK
-epX
-dlP
-qQP
-qQP
-jwi
-qQP
+uqs
+hAg
+uqs
+hAg
+hAg
+bXz
+xUu
+xlt
+uqs
+hAg
+hAg
+sGS
+hkJ
+lUZ
+lUZ
+lUZ
+tFW
+mKh
+xlt
+xlt
+btA
+xlt
 onn
 omf
 onn
@@ -67561,37 +67561,37 @@ pnc
 fYO
 uZF
 gKA
-aXk
-qQP
+kgK
+xlt
 hUO
 hUO
 hUO
-qQP
-pnl
-dEl
-gYk
-qQP
-vdS
-kCY
-cLb
+xlt
+obS
+xUu
+nGr
+xlt
+nzQ
+sGS
+hAg
 dZt
 vuo
 bHf
 kJv
 hNH
 hao
-cLb
-rWT
-cLb
-kCY
-cLb
-cLb
-cLb
-cLb
-kCY
-qQP
-qQP
-dlP
+hAg
+niy
+hAg
+sGS
+hAg
+hAg
+hAg
+hAg
+sGS
+xlt
+xlt
+mKh
 hUO
 hUO
 hUO
@@ -67599,10 +67599,10 @@ hUO
 hUO
 hUO
 hUO
-dlP
-joZ
-joZ
-gTK
+mKh
+hkJ
+hkJ
+lUZ
 omf
 oSt
 lIu
@@ -67818,19 +67818,19 @@ pnc
 pnc
 dfq
 pyG
-jlw
-dQM
+bXz
+tNG
 hUO
 hUO
 hUO
-qQP
-dEl
-dEl
-dEl
-qQP
-qQP
-vuG
-lTe
+xlt
+xUu
+xUu
+xUu
+xlt
+xlt
+sMH
+ljb
 cun
 ixn
 pnc
@@ -67839,15 +67839,15 @@ kJv
 cun
 cun
 cun
-cLb
-cLb
-cLb
-kBn
-kCY
-kBn
-upB
-aaC
-joZ
+hAg
+hAg
+hAg
+uqs
+sGS
+uqs
+wPt
+qIC
+hkJ
 hUO
 hUO
 hUO
@@ -68075,18 +68075,18 @@ pnc
 pnc
 dfq
 dZt
-jlw
-qQP
+bXz
+xlt
 hUO
 hUO
 hUO
-ccf
-qQP
-vdS
-qQP
-dFf
-qQP
-cLb
+eOV
+xlt
+nzQ
+xlt
+dUY
+xlt
+hAg
 fBw
 cun
 ixn
@@ -68096,14 +68096,14 @@ fYO
 kJv
 cun
 cun
-dou
-cLb
-cLb
-dEl
-nxB
-vdS
-jlw
-joZ
+plT
+hAg
+hAg
+xUu
+tDp
+nzQ
+bXz
+hkJ
 hUO
 hUO
 hUO
@@ -68332,18 +68332,18 @@ pnc
 pnc
 dfq
 mZW
-cLb
-dEl
+hAg
+xUu
 hUO
 hUO
 hUO
-qQP
-dEl
-dEl
-qQP
-qQP
-qQP
-fGi
+xlt
+xUu
+xUu
+xlt
+xlt
+xlt
+cgB
 cun
 wZV
 ixn
@@ -68354,12 +68354,12 @@ sXr
 kJv
 cun
 htw
-cLb
-cLb
-qQP
-dEl
-dEl
-lpS
+hAg
+hAg
+xlt
+xUu
+xUu
+hVo
 hUO
 hUO
 hUO
@@ -68589,18 +68589,18 @@ pnc
 pnc
 dfq
 dZt
-jlw
-dEl
-nTq
+bXz
+xUu
+uEa
 hUO
 hUO
-vdS
-dEl
-dEl
-lpS
-qQP
-qQP
-kCY
+nzQ
+xUu
+xUu
+hVo
+xlt
+xlt
+sGS
 cun
 wZV
 ixn
@@ -68612,10 +68612,10 @@ cAb
 kiu
 tFS
 tFS
-jlw
-dEl
-dEl
-dlP
+bXz
+xUu
+xUu
+mKh
 hUO
 hUO
 hUO
@@ -68623,12 +68623,12 @@ hUO
 hUO
 hUO
 hUO
-dlP
-dFf
-qEZ
-dFf
-dlP
-igm
+mKh
+dUY
+nRP
+dUY
+mKh
+puj
 hUO
 hUO
 onn
@@ -68846,19 +68846,19 @@ pnc
 pnc
 iok
 cun
-cLb
-dEl
+hAg
+xUu
 hUO
 hUO
 hUO
-qQP
-qQP
-dEl
-dEl
-qQP
-qQP
-cLb
-gnW
+xlt
+xlt
+xUu
+xUu
+xlt
+xlt
+hAg
+gXb
 cun
 ixn
 pnc
@@ -68869,23 +68869,23 @@ daI
 hph
 nLU
 nLU
-cLb
-jlw
-jlw
-lXB
+hAg
+bXz
+bXz
+cqB
 hUO
 hUO
 hUO
 hUO
 hUO
 hUO
-uQJ
-isP
-qQP
-qQP
-lpS
-qQP
-qQP
+nVi
+pNI
+xlt
+xlt
+hVo
+xlt
+xlt
 hUO
 hUO
 onn
@@ -69103,19 +69103,19 @@ pnc
 ovC
 ijB
 cun
-cho
-dEl
+ejf
+xUu
 hUO
 hUO
 hUO
-dEl
-qQP
-dEl
-gBq
-qQP
-qQP
-uQJ
-cLb
+xUu
+xlt
+xUu
+psD
+xlt
+xlt
+nVi
+hAg
 cun
 ixn
 pnc
@@ -69126,23 +69126,23 @@ nQg
 nLU
 nLU
 dHr
-kBn
-kBn
-cLb
-jlw
+uqs
+uqs
+hAg
+bXz
 hUO
 hUO
 hUO
 hUO
 hUO
-pfY
-kBn
-bzs
-rXR
-dEl
-qQP
-qQP
-fsh
+gIk
+uqs
+hhh
+pRZ
+xUu
+xlt
+xlt
+gjU
 hUO
 hUO
 onn
@@ -69359,20 +69359,20 @@ xqn
 pnc
 dfq
 pyG
-jtU
-qQP
-qQP
+uiv
+xlt
+xlt
 hUO
 hUO
 hUO
-uQJ
-dEl
-qQP
-qQP
-qQP
-qQP
-qQP
-kCY
+nVi
+xUu
+xlt
+xlt
+xlt
+xlt
+xlt
+sGS
 pyG
 sqA
 sWm
@@ -69383,22 +69383,22 @@ kmY
 gMu
 gMu
 vWC
-dEl
-dEl
-kBn
-aXk
+xUu
+xUu
+uqs
+kgK
 hUO
 hUO
 hUO
 hUO
 hUO
-gTo
-sey
-xni
-cLb
-hBy
-aLK
-lpS
+nLD
+tSu
+rQH
+hAg
+rnM
+elz
+hVo
 hUO
 hUO
 hUO
@@ -69616,21 +69616,21 @@ omf
 rrZ
 ijB
 dZt
-kBn
-qQP
-qQP
+uqs
+xlt
+xlt
 hUO
 hUO
 hUO
-qQP
-qQP
-dEl
-lpS
-dQM
-qQP
-lpS
-jlw
-jlw
+xlt
+xlt
+xUu
+hVo
+tNG
+xlt
+hVo
+bXz
+bXz
 bOz
 sqA
 sWm
@@ -69638,24 +69638,24 @@ pnc
 pnc
 dfq
 cun
-cPE
-cLb
-qQP
-lpS
-kBn
-cLb
+dUa
+hAg
+xlt
+hVo
+uqs
+hAg
 hUO
 hUO
 hUO
 hUO
 hUO
-kJz
-gqC
-xni
-vZg
-cLb
-bRs
-tpO
+vwS
+teR
+rQH
+cLV
+hAg
+bmo
+sPi
 hUO
 hUO
 onn
@@ -69872,47 +69872,47 @@ oSt
 omf
 dZt
 cun
-jlw
-fqE
-qQP
-qQP
+bXz
+ibL
+xlt
+xlt
 hUO
 hUO
 hUO
-qQP
-pfY
-qQP
-dEl
-dEl
-uQJ
-qQP
-qQP
-jlw
-mte
+xlt
+gIk
+xlt
+xUu
+xUu
+nVi
+xlt
+xlt
+bXz
+gTu
 cun
 sqA
 rrZ
 rrZ
 ijB
 cun
-mEF
-qQP
-qQP
+mVb
+xlt
+xlt
 hUO
-gnW
-cLb
-hUO
-hUO
+gXb
+hAg
 hUO
 hUO
 hUO
-dFf
-dEl
-xni
-cLb
-cLb
-cLg
-lpS
+hUO
+hUO
+dUY
+xUu
+rQH
+hAg
+hAg
+enR
+hVo
 hUO
 hUO
 onn
@@ -70127,49 +70127,49 @@ oSt
 oSt
 oSt
 omf
-cLb
-gnW
-kBn
-mEF
-jlw
+hAg
+gXb
+uqs
+mVb
+bXz
 hUO
 hUO
-nTq
+uEa
 hUO
 hUO
-cLb
-kBn
-kBn
-kBn
-qQP
-qQP
-qQP
-qEZ
-jlw
+hAg
+uqs
+uqs
+uqs
+xlt
+xlt
+xlt
+nRP
+bXz
 ave
 cun
 frp
 cun
 pdS
-kBn
-cLb
-qQP
+uqs
+hAg
+xlt
 hUO
 hUO
-cLb
-cLb
+hAg
+hAg
 hUO
 hUO
 hUO
 hUO
 hUO
-dlP
-gfh
-bJl
-iHu
-izD
-qQP
-jwi
+mKh
+hLi
+kCI
+ecj
+vcZ
+xlt
+btA
 hUO
 hUO
 onn
@@ -70384,48 +70384,48 @@ oSt
 oSt
 oSt
 omf
-kBn
-kBn
-cLb
-cLb
-jlw
-cLb
-cLb
-cLb
-jlw
-cLb
-cLb
-ciG
-kBn
-kBn
-cLb
-qQP
-qQP
-vdS
-wTb
-cLb
-xHn
-wdh
-kCY
-cLb
-cLb
-qQP
-lfz
+uqs
+uqs
+hAg
+hAg
+bXz
+hAg
+hAg
+hAg
+bXz
+hAg
+hAg
+aRz
+uqs
+uqs
+hAg
+xlt
+xlt
+nzQ
+fIr
+hAg
+eXj
+gaW
+sGS
+hAg
+hAg
+xlt
+roK
 hUO
 hUO
-xHn
-cLb
-jlw
-ixz
+eXj
+hAg
+bXz
+hHP
 hUO
 hUO
 hUO
-dlP
-dUV
-erg
-kBn
-kBn
-dEl
+mKh
+txD
+ghi
+uqs
+uqs
+xUu
 hUO
 hUO
 hUO
@@ -70642,48 +70642,48 @@ oSt
 oSt
 omf
 omf
-cLb
-lcS
-cLb
-qQP
-cLb
-jlw
-wdg
-cLb
-cLb
-qQP
-dEl
-pfY
-cLb
-cLb
-kCY
-dQM
-qQP
-wgD
-cLb
-cLb
-cLb
-sGy
+hAg
+lrt
+hAg
+xlt
+hAg
+bXz
+teV
+hAg
+hAg
+xlt
+xUu
+gIk
+hAg
+hAg
+sGS
+tNG
+xlt
+nGu
+hAg
+hAg
+hAg
+rgQ
 hUO
 hUO
 hUO
 hUO
 hUO
 hUO
-aXk
-cLb
-cLb
-qQP
-dlP
+kgK
+hAg
+hAg
+xlt
+mKh
 hUO
 hUO
 hUO
-dlP
-qQP
-sGy
-erg
-gTK
-dlP
+mKh
+xlt
+rgQ
+ghi
+lUZ
+mKh
 hUO
 onn
 onn
@@ -70899,10 +70899,10 @@ oSt
 oSt
 oSt
 omf
-qQP
-qQP
-jlw
-qQP
+xlt
+xlt
+bXz
+xlt
 hUO
 hUO
 hUO
@@ -70910,13 +70910,13 @@ hUO
 hUO
 hUO
 hUO
-qQP
-dEl
-ciG
-kBn
-kBn
-vdS
-fvN
+xlt
+xUu
+aRz
+uqs
+uqs
+nzQ
+cCB
 her
 jMW
 wli
@@ -70928,19 +70928,19 @@ hUO
 hUO
 hUO
 hUO
-cLb
-cLb
-jlw
-qQP
+hAg
+hAg
+bXz
+xlt
 hUO
 hUO
 hUO
 hUO
 hUO
-xXH
-qQP
-qQP
-qQP
+bQX
+xlt
+xlt
+xlt
 hUO
 onn
 oSt
@@ -71157,23 +71157,23 @@ oSt
 oSt
 omf
 omf
-vdS
-cLb
-cLb
-dEl
-vdS
+nzQ
+hAg
+hAg
+xUu
+nzQ
 hUO
 hUO
 hUO
 hUO
 hUO
 hUO
-dEl
-dEl
-kBn
-kBn
-sGy
-sOe
+xUu
+xUu
+uqs
+uqs
+rgQ
+gXt
 leB
 nRv
 vKK
@@ -71185,19 +71185,19 @@ uDB
 rcq
 hDo
 hUO
-aXk
-cLb
-cLb
-lpS
+kgK
+hAg
+hAg
+hVo
 hUO
 hUO
-aXk
-ojz
-sGy
-cLb
-erg
-qQP
-gTK
+kgK
+dgS
+rgQ
+hAg
+ghi
+xlt
+lUZ
 hUO
 onn
 oSt
@@ -71414,23 +71414,23 @@ oSt
 oSt
 oSt
 omf
-qQP
-vdS
-jlw
-cLb
-gqC
-jlw
-cLb
-jlw
+xlt
+nzQ
+bXz
+hAg
+teR
+bXz
+hAg
+bXz
 hUO
 hUO
 hUO
-dEl
-kBn
-kBn
-mHP
-cLb
-fvN
+xUu
+uqs
+uqs
+nTH
+hAg
+cCB
 oYb
 qUf
 ont
@@ -71443,17 +71443,17 @@ oYb
 obI
 cJJ
 mXZ
-cLb
-sGy
-erg
+hAg
+rgQ
+ghi
 hUO
 hUO
-cLb
-qQP
-qQP
-qQP
-qQP
-joZ
+hAg
+xlt
+xlt
+xlt
+xlt
+hkJ
 hUO
 hUO
 onn
@@ -71672,22 +71672,22 @@ oSt
 oSt
 omf
 omf
-qQP
-jwi
-kBn
-cLb
-cLb
-vZg
-cLb
+xlt
+btA
+uqs
+hAg
+hAg
+cLV
+hAg
 hUO
 hUO
 hUO
 hUO
-cLb
-jlw
+hAg
+bXz
 hUO
-kCY
-cLb
+sGS
+hAg
 rte
 oYb
 sSL
@@ -71700,13 +71700,13 @@ cLH
 qUf
 voy
 tJO
-jlw
-qQP
-pfY
+bXz
+xlt
+gIk
 hUO
 hUO
-cLb
-joZ
+hAg
+hkJ
 hUO
 hUO
 hUO
@@ -71930,18 +71930,18 @@ oSt
 oSt
 omf
 omf
-qQP
-cLb
-gqC
-cLb
-cLb
-cLb
+xlt
+hAg
+teR
+hAg
+hAg
+hAg
 hUO
 hUO
 hUO
-nTq
-cLb
-cLb
+uEa
+hAg
+hAg
 hUO
 hUO
 hUO
@@ -71956,17 +71956,17 @@ fBs
 wON
 uRy
 hUO
-aXk
-sGy
-erg
-erg
+kgK
+rgQ
+ghi
+ghi
 hUO
 hUO
-cLb
-qQP
-qQP
-erg
-aag
+hAg
+xlt
+xlt
+ghi
+hRJ
 hUO
 onn
 onn
@@ -72188,17 +72188,17 @@ oSt
 oSt
 omf
 omf
-cLb
-kCY
-iHu
-iHu
-kCY
-cLb
-qQP
+hAg
+sGS
+ecj
+ecj
+sGS
+hAg
+xlt
 hUO
 hUO
-cLb
-jlw
+hAg
+bXz
 hUO
 hUO
 hUO
@@ -72213,18 +72213,18 @@ wON
 gLF
 bZF
 omf
-cLb
-cLb
-erg
-erg
-erg
-qQP
-aXk
-qQP
-joZ
-cLb
-cLb
-cLb
+hAg
+hAg
+ghi
+ghi
+ghi
+xlt
+kgK
+xlt
+hkJ
+hAg
+hAg
+hAg
 omf
 vqj
 oSt
@@ -72446,22 +72446,22 @@ oSt
 oSt
 omf
 omf
-cLb
-cLb
-jlw
-cLb
-kBn
-qQP
-qEZ
+hAg
+hAg
+bXz
+hAg
+uqs
+xlt
+nRP
 hUO
-cLb
-cLb
+hAg
+hAg
 hUO
-qQP
-pfY
-dXc
+xlt
+gIk
+jRm
 xGq
-cLb
+hAg
 hUO
 hUO
 hUO
@@ -72470,18 +72470,18 @@ sSL
 cLH
 wYV
 omf
-nTq
-cLb
-erg
-joZ
+uEa
+hAg
+ghi
+hkJ
 hUO
 hUO
-xHn
-aXk
-nTq
+eXj
+kgK
+uEa
 hUO
-cLb
-cLb
+hAg
+hAg
 omf
 vqj
 oSt
@@ -72704,23 +72704,23 @@ oSt
 oSt
 omf
 omf
-qQP
-qQP
-qQP
-cLb
-cLb
-cLb
-qQP
-jlw
-cLb
-erg
-qQP
-qQP
-erg
-cLb
-cLb
-cLb
-dxO
+xlt
+xlt
+xlt
+hAg
+hAg
+hAg
+xlt
+bXz
+hAg
+ghi
+xlt
+xlt
+ghi
+hAg
+hAg
+hAg
+ofG
 hUO
 taC
 cUc
@@ -72728,17 +72728,17 @@ hUO
 hUO
 hUO
 hUO
-cLb
-qQP
-qQP
+hAg
+xlt
+xlt
 hUO
 hUO
 hUO
 hUO
 hUO
 hUO
-aXk
-sGy
+kgK
+rgQ
 omf
 vqj
 oSt
@@ -72962,34 +72962,34 @@ oSt
 oSt
 omf
 omf
-qQP
-qQP
-qQP
-dEl
-kBn
-cLb
-cLb
-cLb
-jlw
-cLb
-cLb
-lJJ
-cLb
-qQP
-pfY
-qQP
-lpS
-qQP
-jlw
+xlt
+xlt
+xlt
+xUu
+uqs
+hAg
+hAg
+hAg
+bXz
+hAg
+hAg
+iKc
+hAg
+xlt
+gIk
+xlt
+hVo
+xlt
+bXz
 hUO
 hUO
 hUO
-joZ
-cLb
-sGy
-cLb
-cLb
-sGy
+hkJ
+hAg
+rgQ
+hAg
+hAg
+rgQ
 hUO
 hUO
 hUO
@@ -73220,35 +73220,35 @@ oSt
 oSt
 omf
 omf
-qQP
-qQP
-pfY
-qQP
-qQP
-cLb
-cLb
-cLb
-lpS
-jlw
-cLb
-cLb
-jlw
-cLb
-cLb
-cLb
-cLb
-cLb
-cLb
-jlw
-cLb
-cLb
-cLb
-qQP
-jtU
+xlt
+xlt
+gIk
+xlt
+xlt
+hAg
+hAg
+hAg
+hVo
+bXz
+hAg
+hAg
+bXz
+hAg
+hAg
+hAg
+hAg
+hAg
+hAg
+bXz
+hAg
+hAg
+hAg
+xlt
+uiv
 hUO
-cLb
-cLb
-aXk
+hAg
+hAg
+kgK
 hUO
 onn
 sOi
@@ -73478,34 +73478,34 @@ oSt
 oSt
 omf
 omf
-qQP
-qQP
-qQP
-qQP
-qQP
-wQN
-qQP
-qQP
-qQP
-erg
-erg
-vdS
-qQP
-lpS
-vdS
-qQP
-dQM
-qQP
-qQP
-qQP
-pfY
-qQP
-erg
+xlt
+xlt
+xlt
+xlt
+xlt
+tId
+xlt
+xlt
+xlt
+ghi
+ghi
+nzQ
+xlt
+hVo
+nzQ
+xlt
+tNG
+xlt
+xlt
+xlt
+gIk
+xlt
+ghi
 hUO
 hUO
-gqC
-cLb
-gdM
+teR
+hAg
+nqg
 hUO
 onn
 qsn
@@ -73737,32 +73737,32 @@ oSt
 omf
 omf
 omf
-qQP
-qQP
-qQP
-qQP
-qQP
-jwi
-qQP
-qQP
-qQP
-qQP
-qQP
-qQP
-qQP
-pfY
-qQP
-lpS
-qQP
-qQP
-qQP
-joZ
-qQP
+xlt
+xlt
+xlt
+xlt
+xlt
+btA
+xlt
+xlt
+xlt
+xlt
+xlt
+xlt
+xlt
+gIk
+xlt
+hVo
+xlt
+xlt
+xlt
+hkJ
+xlt
 hUO
 hUO
-xXH
-cLb
-upB
+bQX
+hAg
+wPt
 hUO
 onn
 qsn
@@ -73996,25 +73996,25 @@ oSt
 omf
 omf
 omf
-qQP
-qQP
-qQP
-qQP
-qQP
-qQP
-qQP
-rQF
-vdS
-vdS
-qQP
-erg
-cLb
+xlt
+xlt
+xlt
+xlt
+xlt
+xlt
+xlt
+ruv
+nzQ
+nzQ
+xlt
+ghi
+hAg
 hUO
 hUO
 hUO
-qQP
-lpS
-qQP
+xlt
+hVo
+xlt
 hUO
 onn
 omf
@@ -74257,15 +74257,15 @@ omf
 omf
 omf
 omf
-qQP
-qQP
-qQP
-qQP
-qQP
-erg
-qQP
-cLb
-haX
+xlt
+xlt
+xlt
+xlt
+xlt
+ghi
+xlt
+hAg
+hbo
 onn
 onn
 onn
@@ -80262,7 +80262,7 @@ oSt
 tnn
 tnn
 xeN
-mOf
+kRC
 fRP
 bAE
 xeN
@@ -80597,7 +80597,7 @@ dzw
 dzw
 oog
 sGm
-jgQ
+kJu
 rzU
 oog
 luH
@@ -80853,7 +80853,7 @@ oog
 dzw
 dzw
 hwP
-xOJ
+oMn
 dzw
 rzU
 oog
@@ -81110,7 +81110,7 @@ oog
 dzw
 dzw
 hwP
-xOJ
+oMn
 dzw
 rzU
 oog
@@ -81367,7 +81367,7 @@ oog
 dzw
 dzw
 hwP
-xOJ
+oMn
 dzw
 rzU
 hwP
@@ -81624,7 +81624,7 @@ kPa
 dzw
 dzw
 oog
-xOJ
+oMn
 dzw
 rzU
 oog
@@ -87793,7 +87793,7 @@ dzw
 dzw
 oog
 sGm
-jgQ
+kJu
 iYa
 oog
 luH

@@ -251,20 +251,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/gravity_gen)
-"aG" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/obj/machinery/media/jukebox/audioconsole{
-	anchored = 1
-	},
-/turf/simulated/floor/tiled,
-/area/engineering/gravity_gen)
 "aH" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/plating,
@@ -445,15 +431,6 @@
 	dir = 4
 	},
 /obj/machinery/firealarm/west,
-/turf/simulated/floor/tiled,
-/area/engineering/gravity_gen)
-"be" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/obj/machinery/media/jukebox/classic{
-	anchored = 1
-	},
 /turf/simulated/floor/tiled,
 /area/engineering/gravity_gen)
 "bf" = (
@@ -1759,13 +1736,6 @@
 /obj/item/storage/belt/utility/very_full,
 /turf/simulated/floor/tiled,
 /area/construction)
-"iG" = (
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/item/storage/box/monkeycubes,
-/turf/simulated/floor/tiled,
-/area/construction/storage)
 "iN" = (
 /obj/structure/disposalpipe/trunk,
 /obj/structure/disposaloutlet{
@@ -2139,6 +2109,20 @@
 /obj/item/reagent_containers/glass/beaker/bluespace,
 /turf/simulated/floor/tiled,
 /area/construction/storage)
+"pk" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/machinery/media/jukebox/audioconsole{
+	anchored = 1
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/gravity_gen)
 "pv" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -2542,6 +2526,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/storage/primary)
+"xc" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/item/storage/box/unique/monkeycubes,
+/turf/simulated/floor/tiled,
+/area/construction/storage)
 "xi" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/tiled{
@@ -2653,6 +2644,15 @@
 	temperature = 278
 	},
 /area/turret_protected/ai_upload_foyer)
+"zf" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/machinery/media/jukebox/classic{
+	anchored = 1
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/gravity_gen)
 "zg" = (
 /obj/machinery/alarm/cold/west,
 /obj/machinery/turretid/stun{
@@ -3412,6 +3412,12 @@
 	temperature = 278
 	},
 /area/turret_protected/ai_upload_foyer)
+"NN" = (
+/obj/machinery/media/jukebox/classic{
+	anchored = 1
+	},
+/turf/simulated/floor/plating,
+/area/construction)
 "Oe" = (
 /obj/effect/landmark/start{
 	name = "Corporate Liaison"
@@ -3548,12 +3554,6 @@
 	temperature = 278
 	},
 /area/turret_protected/ai_upload_foyer)
-"RT" = (
-/obj/machinery/media/jukebox/classic{
-	anchored = 1
-	},
-/turf/simulated/floor/plating,
-/area/construction)
 "RU" = (
 /obj/machinery/bluespacerelay,
 /turf/simulated/floor/bluegrid{
@@ -9082,7 +9082,7 @@ cO
 tl
 pM
 db
-RT
+NN
 yk
 dq
 dq
@@ -12407,9 +12407,9 @@ wi
 sY
 ai
 ar
-aG
+pk
 aS
-be
+zf
 bo
 ai
 bO
@@ -74877,7 +74877,7 @@ Es
 Es
 Es
 Es
-iG
+xc
 Es
 Es
 gk
