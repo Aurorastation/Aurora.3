@@ -472,7 +472,6 @@
 #include "code\datums\changelog\changelog.dm"
 #include "code\datums\components\_component.dm"
 #include "code\datums\components\connect_mob_behalf.dm"
-#include "code\datums\components\connect_range.dm"
 #include "code\datums\components\drift.dm"
 #include "code\datums\components\jukebox.dm"
 #include "code\datums\components\leanable.dm"

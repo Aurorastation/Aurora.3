@@ -1,5 +1,5 @@
 import { sortBy } from 'es-toolkit';
-import { Box, Button, Dropdown, Knob, LabeledControls, LabeledList, Section } from '../components';
+import { Button, LabeledList, Section, Table } from '../components';
 import type { BooleanLike } from '../../common/react';
 
 import { useBackend } from '../backend';
@@ -9,142 +9,91 @@ type Song = {
   name: string;
   length: string;
 };
-/*
-type Cartridge = {
-  name: string;
-  locked: BooleanLike;
-  object: object;
-};
-*/
+
 export type Data = {
   active: BooleanLike;
-  sound_loops: BooleanLike;
-  volume: number;
-  track_selected: string | null;
-  // locked: BooleanLike;
+  selection: string | null;
   playlist: Song[];
-  // cartridges: Cartridge[];
 };
 
 export const Jukebox = (props, context) => {
   const { act, data } = useBackend<Data>(context);
-  const {
-    active,
-    sound_loops,
-    volume,
-    track_selected,
-    // locked,
-    playlist,
-    // cartridges,
-  } = data;
+  const { active, selection, playlist } = data;
 
   const playlist_sorted: Song[] = sortBy(playlist, [(song: Song) => song.name]);
-  /*
-  const cartridges_sorted: Cartridge[] = sortBy(cartridges, [
-    (cartridge: Cartridge) => cartridge.name,
-    ]);
-  */
   const song_selected: Song | undefined = playlist.find(
-    (song) => song.name === track_selected
+    (song) => song.name === selection
   );
 
   return (
-    <Window width={370} height={313}>
+    <Window resizable width={250} height={480}>
       <Window.Content>
         <Section
           title="Music Player"
           buttons={
             <>
               <Button
-                icon={active ? 'pause' : 'play'}
-                content={active ? 'Stop' : 'Play'}
+                icon={'play'}
+                content="Play"
                 selected={active}
-                onClick={() => act('toggle')}
+                onClick={() => act('play')}
               />
-              <Button.Checkbox
-                icon={'arrow-rotate-left'}
-                content="Repeat"
-                checked={sound_loops}
-                onClick={() => act('loop', { sound_loops: !sound_loops })}
+              <Button
+                icon={'pause'}
+                content="Stop"
+                disabled={!active}
+                onClick={() => act('stop')}
               />
             </>
           }>
           <LabeledList>
-            <LabeledList.Item label="Track Selected">
-              <Dropdown
-                width="240px"
-                options={playlist_sorted.map((song) => song.name)}
-                disabled={!!active}
-                selected={song_selected?.name || 'Select a Track'}
-                onSelected={(value) => act('select_track', { track: value })}
-              />
+            <LabeledList.Item label="Track Name">
+              {song_selected?.name || 'No Track Selected'}
             </LabeledList.Item>
             <LabeledList.Item label="Track Length">
-              {song_selected?.length || 'No Track Selected'}
+              {song_selected?.length || ''}
             </LabeledList.Item>
           </LabeledList>
         </Section>
-        <Section title="Machine Settings">
-          <LabeledControls justify="center">
-            <LabeledControls.Item label="Volume">
-              <Box position="relative">
-                <Knob
-                  size={3.2}
-                  color={volume >= 60 ? 'red' : 'green'}
-                  value={volume}
-                  unit="%"
-                  minValue={0}
-                  maxValue={80}
-                  step={1}
-                  stepPixelSize={1}
-                  onChange={(value) =>
-                    act('set_volume', {
-                      volume: value,
-                    })
-                  }
-                />
-                <Button
-                  fluid
-                  position="absolute"
-                  top="-2px"
-                  right="-22px"
-                  color="transparent"
-                  icon="fast-backward"
-                  onClick={() =>
-                    act('set_volume', {
-                      volume: 'min',
-                    })
-                  }
-                />
-                <Button
-                  fluid
-                  position="absolute"
-                  top="16px"
-                  right="-22px"
-                  color="transparent"
-                  icon="fast-forward"
-                  onClick={() =>
-                    act('set_volume', {
-                      volume: 'max',
-                    })
-                  }
-                />
-                <Button
-                  fluid
-                  position="absolute"
-                  top="34px"
-                  right="-22px"
-                  color="transparent"
-                  icon="undo"
-                  onClick={() =>
-                    act('set_volume', {
-                      volume: 'reset',
-                    })
-                  }
-                />
-              </Box>
-            </LabeledControls.Item>
-          </LabeledControls>
+        <Section title="Playlist">
+          <Table>
+            <Table.Row color="blue">
+              <Table.Cell>Title</Table.Cell>
+              <Table.Cell>Length</Table.Cell>
+            </Table.Row>
+            {playlist_sorted.sort().map((song) => (
+              <Table.Row key={song}>
+                <Table.Cell>
+                  {''}
+                  <Button
+                    content={song.name}
+                    backgroundColor={
+                      song === song_selected && !active
+                        ? 'rgba(255, 255, 0, 0.3)'
+                        : song === song_selected
+                          ? 'rgba(100, 255, 100, 0.3)'
+                          : 'rgba(128, 128, 128, 0.3)'
+                    }
+                    selected={song === song_selected}
+                    icon="play"
+                    onClick={(track: Song) =>
+                      act('change_track', { track: song.name })
+                    }
+                  />
+                </Table.Cell>
+                <Table.Cell
+                  color={
+                    song === song_selected && !active
+                      ? 'yellow'
+                      : song === song_selected
+                        ? 'green'
+                        : ''
+                  }>
+                  {song.length}
+                </Table.Cell>
+              </Table.Row>
+            ))}
+          </Table>
         </Section>
       </Window.Content>
     </Window>

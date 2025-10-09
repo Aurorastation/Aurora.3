@@ -2118,9 +2118,6 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/media/jukebox/audioconsole{
-	anchored = 1
-	},
 /turf/simulated/floor/tiled,
 /area/engineering/gravity_gen)
 "pv" = (
@@ -2647,9 +2644,6 @@
 "zf" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
-	},
-/obj/machinery/media/jukebox/classic{
-	anchored = 1
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/gravity_gen)
@@ -3412,12 +3406,6 @@
 	temperature = 278
 	},
 /area/turret_protected/ai_upload_foyer)
-"NN" = (
-/obj/machinery/media/jukebox/classic{
-	anchored = 1
-	},
-/turf/simulated/floor/plating,
-/area/construction)
 "Oe" = (
 /obj/effect/landmark/start{
 	name = "Corporate Liaison"
@@ -9082,7 +9070,7 @@ cO
 tl
 pM
 db
-NN
+de
 yk
 dq
 dq
