@@ -66,6 +66,7 @@ export const Jukebox = (props, context) => {
                 <Table.Cell>
                   {''}
                   <Button
+                    minWidth={12}
                     content={song.name}
                     backgroundColor={
                       song === song_selected && !active

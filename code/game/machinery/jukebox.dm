@@ -20,7 +20,7 @@
 
 /obj/machinery/media/jukebox/Initialize(mapload)
 	. = ..(mapload)
-	music_player = new(src, tracks, 7, 20)
+	music_player = new(src, tracks, 7, 28)
 
 /obj/machinery/media/jukebox/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
