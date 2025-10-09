@@ -12,7 +12,7 @@ GLOBAL_LIST_EMPTY(map_sectors)
 /// to an instance of `/datum/map_template`.
 GLOBAL_LIST_EMPTY(map_templates)
 
-/area/overmap/
+/area/overmap
 	name = "System Map"
 	icon_state = "start"
 	requires_power = 0
