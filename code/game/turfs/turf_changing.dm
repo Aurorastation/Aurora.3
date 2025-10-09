@@ -171,7 +171,6 @@
 	src.icon_state = other.icon_state
 	src.icon = other.icon
 	src.overlays = other.overlays.Copy()
-	src.underlays = other.underlays.Copy()
 	if(other.decals)
 		src.decals = other.decals.Copy()
 		other.decals.Cut()
@@ -204,7 +203,6 @@
 
 	other.icon = icon
 	other.icon_state = icon_state
-	other.underlays = underlays.Copy()
 	other.name = name
 	other.layer = layer
 	other.decals = decals
