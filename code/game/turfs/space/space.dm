@@ -20,7 +20,7 @@
 	var/use_space_appearance = TRUE
 
 /turf/space/dynamic //For use in edge cases where you want the turf to not be completely lit, like in places where you have placed lattice.
-	//base_lighting_alpha = 0 todomatt: ???
+	//todomatt: this is useless now
 
 // Copypaste of parent for performance.
 /turf/space/Initialize()

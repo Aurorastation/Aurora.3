@@ -285,7 +285,7 @@
 	/* END AURORA SNOWFLAKE */
 
 	//changes to make after turf has moved
-	on_change_area(old_area, new_area)
+	//on_change_area(old_area, new_area)
 
 /// Allows for reactions to an area change without inherently requiring change_area() be called (I hate maploading)
 /turf/proc/on_change_area(area/old_area, area/new_area)
