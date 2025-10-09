@@ -4,7 +4,6 @@
 	sound_environment = SOUND_AREA_LARGE_ENCLOSED
 	no_light_control = TRUE
 	station_area = TRUE
-	base_lighting_alpha = 255
 	area_flags = AREA_FLAG_NO_GHOST_TELEPORT_ACCESS
 
 /area/holodeck/alphadeck

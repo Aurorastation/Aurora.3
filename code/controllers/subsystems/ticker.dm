@@ -71,9 +71,6 @@ SUBSYSTEM_DEF(ticker)
 	var/total_players_ready = 0
 	var/list/ready_player_jobs
 
-/datum/controller/subsystem/ticker/New()
-	NEW_SS_GLOBAL(SSticker)
-
 /datum/controller/subsystem/ticker/Initialize(timeofday)
 	pregame()
 	restart_timeout = GLOB.config.restart_timeout
