@@ -7,9 +7,7 @@
 ///The time at which the next automatic transfer vote will be called
 GLOBAL_VAR_INIT(next_transfer_time, null)
 
-var/datum/controller/subsystem/ticker/SSticker
-
-/datum/controller/subsystem/ticker
+SUBSYSTEM_DEF(ticker)
 	// -- Subsystem stuff --
 	name = "Ticker"
 
