@@ -583,7 +583,7 @@ pixel_x = 10;
 	alarm_overlay = image(icon, "alarm[icon_level]")
 	AddOverlays(alarm_overlay)
 
-	var/emissive_overlay = emissive_appearance(icon, "alarm[icon_level]")
+	emissive_overlay = emissive_appearance(icon, "alarm[icon_level]")
 	AddOverlays(emissive_overlay)
 
 	var/new_color = null

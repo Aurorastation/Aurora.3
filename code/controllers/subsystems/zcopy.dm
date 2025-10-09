@@ -459,8 +459,6 @@ SUBSYSTEM_DEF(zcopy)
 		switch (appearance:plane)
 			if (GAME_PLANE, FLOAT_PLANE)
 				plane_needs_fix = FALSE //For lint
-			else
-				plane_needs_fix = TRUE
 
 	// Scan & fix overlays
 	var/list/fixed_overlays

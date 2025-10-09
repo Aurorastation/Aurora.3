@@ -158,7 +158,6 @@
 		icon_state = asmtype
 
 	var/image_overlay
-	var/emissive_overlay
 	if(powered(AREA_USAGE_EQUIP))
 		if(blocked == 1)
 			image_overlay = image(icon, "[asmtype]-overlay-red")

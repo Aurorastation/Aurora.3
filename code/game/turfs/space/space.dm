@@ -16,7 +16,6 @@
 	z_eventually_space = TRUE
 	turf_flags = TURF_FLAG_BACKGROUND
 	explosion_resistance = 3
-	//base_lighting_alpha = 255 todomatt: ???
 
 	var/use_space_appearance = TRUE
 
