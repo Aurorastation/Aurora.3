@@ -24,9 +24,11 @@
 
 /area/horizon/holodeck/alphadeck
 	name = "Holodeck Alpha"
+	base_lighting_alpha = 0
 
 /area/horizon/holodeck/betadeck
 	name = "Holodeck Beta"
+	base_lighting_alpha = 0
 
 /area/horizon/holodeck/source_plating
 	name = "Holodeck - Off"
