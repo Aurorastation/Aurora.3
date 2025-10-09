@@ -26,7 +26,7 @@ export const Jukebox = (props, context) => {
   );
 
   return (
-    <Window resizable width={250} height={480}>
+    <Window resizable width={325} height={500}>
       <Window.Content>
         <Section
           title="Music Player"

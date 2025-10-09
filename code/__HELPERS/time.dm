@@ -138,8 +138,10 @@ var/real_round_start_time
 	if(second)
 		if(second > 9)
 			secondT = "[second]"
-		else
+		else if(second)
 			secondT = "0[second]"
+		else
+			secondT = "00"
 	if(minute < 60 && minute > 9)
 		return "[minute]:[secondT]"
 	else if (minute < 10)
@@ -150,8 +152,10 @@ var/real_round_start_time
 	if(minute)
 		if(minute > 9)
 			minuteT = "[minute]"
-		else
+		else if(minute)
 			minuteT = "0[minute]"
+		else
+			minuteT = "00"
 	if(hour > 9)
 		return "[hour]:[minuteT]:[secondT]"
 	else
