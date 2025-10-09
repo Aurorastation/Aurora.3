@@ -5,6 +5,6 @@
 	item_state = "survival_flashlight"
 	uv_intensity = 255
 	light_power = 2
-	brightness_on = 2
+	light_range = 2
 	light_color = LIGHT_COLOR_GREEN
 	efficiency_modifier = 1.2 // 120% more efficient compared to other flashlights

@@ -81,14 +81,15 @@
 	///Highest-intensity light affecting us, which determines our visibility.
 	var/affecting_dynamic_lumi = 0
 
+	/// Holds a reference to the emissive blocker overlay
+	var/emissive_overlay
+
 	/// Whether this atom should have its dir automatically changed when it moves. Setting this to FALSE allows for things such as directional windows to retain dir on moving without snowflake code all of the place.
 	var/set_dir_on_move = TRUE
 
 /atom/movable/Initialize(mapload, ...)
 	. = ..()
 	update_emissive_blocker() //todomatt: unfuck this, different on cm
-	if (em_block)
-		AddOverlays(em_block)
 
 	if(opacity)
 		AddElement(/datum/element/light_blocking)
@@ -100,6 +101,8 @@
 /atom/movable/Destroy(force)
 	if(orbiting)
 		stop_orbit()
+
+	QDEL_NULL(emissive_overlay)
 
 	if(move_packet)
 		if(!QDELETED(move_packet))
@@ -379,19 +382,23 @@
 	src.throw_at(pick(turfs), maxrange, speed)
 
 /atom/movable/proc/update_emissive_blocker()
-	switch (blocks_emissive)
-		if (EMISSIVE_BLOCK_GENERIC)
+	if(emissive_overlay)
+		CutOverlays(emissive_overlay)
+
+	switch(blocks_emissive)
+		if(EMISSIVE_BLOCK_GENERIC)
 			var/mutable_appearance/gen_emissive_blocker = mutable_appearance(icon, icon_state, plane = EMISSIVE_PLANE, alpha = src.alpha)
 			gen_emissive_blocker.color = GLOB.em_block_color
 			gen_emissive_blocker.dir = dir
 			gen_emissive_blocker.appearance_flags |= appearance_flags
-			em_block = gen_emissive_blocker
+			emissive_overlay = gen_emissive_blocker
+			AddOverlays(emissive_overlay)
 
-		if (EMISSIVE_BLOCK_UNIQUE)
-			render_target = REF(src)
+		if(EMISSIVE_BLOCK_UNIQUE)
+			render_target = ref(src)
 			em_block = new(src, render_target)
-
-	return em_block
+			emissive_overlay = em_block
+			AddOverlays(emissive_overlay)
 
 /atom/movable/update_icon()
 	..()

@@ -3,6 +3,7 @@
 	level = 1
 
 	layer = TURF_LAYER
+	vis_flags = VIS_INHERIT_PLANE
 
 	var/holy = 0
 
@@ -127,9 +128,6 @@
 	if (smoothing_flags)
 		QUEUE_SMOOTH(src)
 
-	if (mapload && permit_ao)
-		queue_ao()
-
 	var/area/A = loc
 
 	if(A.base_turf)
@@ -176,10 +174,6 @@
 
 	remove_cleanables()
 	cleanup_roof()
-
-	if (ao_queued)
-		SSao.queue -= src
-		ao_queued = 0
 
 	if (z_flags & ZM_MIMIC_BELOW)
 		cleanup_zmimic()
@@ -479,11 +473,6 @@
 
 			if (oAM.simulated && (oAM.movable_flags & MOVABLE_FLAG_PROXMOVE))
 				arrived.proximity_callback(oAM)
-
-#ifdef AO_USE_LIGHTING_OPACITY
-		// Hook for AO.
-		regenerate_ao()
-#endif
 
 	if(!(arrived.bound_overlay || (arrived.z_flags & ZMM_IGNORE) || !TURF_IS_MIMICING(above)))
 		above.update_mimic()

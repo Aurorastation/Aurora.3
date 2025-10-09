@@ -11,7 +11,7 @@
 	var/use = 200 // 200W light
 	var/unlocked = FALSE
 	var/open = FALSE
-	var/brightness_on = 12		//can't remember what the maxed out value is
+	light_range = 8
 	light_color = LIGHT_COLOR_TUNGSTEN
 
 /obj/machinery/floodlight/feedback_hints(mob/user, distance, is_adjacent)
@@ -41,14 +41,14 @@
 
 	// If the cell is almost empty rarely "flicker" the light. Aesthetic only.
 	if((cell.percent() < 10) && prob(5))
-		set_light(brightness_on/3, 0.5)
+		set_light(light_range/3, 0.5)
 		addtimer(CALLBACK(src, PROC_REF(stop_flicker)), 5, TIMER_UNIQUE)
 
 	cell.use(use*CELLRATE)
 
 /obj/machinery/floodlight/proc/stop_flicker()
 	if(on)
-		set_light(brightness_on, 1)
+		set_light(light_range, 1)
 
 // Returns 0 on failure and 1 on success
 /obj/machinery/floodlight/proc/turn_on(var/loud = FALSE)
@@ -58,7 +58,7 @@
 		return FALSE
 
 	on = TRUE
-	set_light(brightness_on, 1)
+	set_light(light_range, 1)
 	update_icon()
 	if(loud)
 		visible_message(SPAN_NOTICE("\The [src] turns on."))

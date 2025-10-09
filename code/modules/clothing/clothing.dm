@@ -613,7 +613,6 @@
 
 	var/light_overlay = "helmet_light"
 	var/light_applied
-	var/brightness_on
 	var/on = 0
 	var/protects_against_weather = FALSE
 
@@ -638,7 +637,7 @@
 	return on
 
 /obj/item/clothing/head/attack_self(mob/user)
-	if(brightness_on)
+	if(light_range)
 		if(!isturf(user.loc))
 			to_chat(user, "You cannot turn the light on while in this [user.loc]")
 			return
@@ -650,12 +649,13 @@
 
 /obj/item/clothing/head/proc/update_flashlight(var/mob/user = null)
 	if(on && !light_applied)
-		set_light(brightness_on)
+		set_light(light_range)
 		light_applied = 1
 	else if(!on && light_applied)
 		set_light(0)
 		light_applied = 0
 	update_icon(user)
+	set_light_on(on)
 	user.update_action_buttons()
 
 /obj/item/clothing/head/attack_ai(var/mob/user)

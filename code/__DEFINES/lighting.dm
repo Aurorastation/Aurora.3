@@ -42,17 +42,11 @@
 
 #define LIGHT_EMERGENCY_POWER_USE 0.2 //How much power emergency lights will consume per tick
 
-// Some angle presets for directional lighting.
-#define LIGHT_OMNI null
-#define LIGHT_SEMI 180
-#define LIGHT_WIDE 90
-#define LIGHT_NARROW 45
-
 // Some brightness/range defines for objects.
-#define L_WALLMOUNT_POWER 1.3
-#define L_WALLMOUNT_RANGE 2
+#define L_WALLMOUNT_POWER 0.5
+#define L_WALLMOUNT_RANGE 1
 #define L_WALLMOUNT_HI_POWER 1	// For red/delta alert on fire alarms.
-#define L_WALLMOUNT_HI_RANGE 4
+#define L_WALLMOUNT_HI_RANGE 2
 // This controls by how much console sprites are dimmed before being overlayed.
 #define HOLOSCREEN_MULTIPLICATION_FACTOR 0.5
 #define HOLOSCREEN_ADDITION_OPACITY 0.75
@@ -61,21 +55,6 @@
 
 // Just so we can avoid unneeded proc calls when profiling is disabled.
 #define L_PROF(O,T) if (GLOB.lighting_profiling) {lprof_write(O,T);}
-
-// -- Ambient Occlusion --
-
-// Not handled by the lighting engine, but related. Controls the alpha of the ambient occlusion effect on opaque atoms and openturfs.
-#define WALL_AO_ALPHA 80
-
-#define AO_UPDATE_NONE 0
-#define AO_UPDATE_OVERLAY 1
-#define AO_UPDATE_REBUILD 2
-
-// If ao_neighbors equals this, no AO shadows are present.
-#define AO_ALL_NEIGHBORS 1910
-
-// If defined, integrate with the lighting engine and use its opacity value. Otherwise a simple turf opacity check is used. This may cause visual artifacts with opaque non-square movables.
-//#define AO_USE_LIGHTING_OPACITY
 
 #define MINIMUM_USEFUL_LIGHT_RANGE 1.4
 

@@ -9,14 +9,14 @@
 	slot_flags = SLOT_BELT
 	light_color = LIGHT_COLOR_HALOGEN
 	uv_intensity = 50
+	light_system = DIRECTIONAL_LIGHT
+	light_range = 4
 
 	matter = list(MATERIAL_PLASTIC = 50, MATERIAL_GLASS = 20)
 
 	action_button_name = "Toggle Flashlight"
 	/// Is the light currently on or off?
 	var/on = FALSE
-	/// Luminosity when on
-	var/brightness_on = 4
 	// Lighting power when on
 	var/flashlight_power = 0.8
 	/// Sound the light makes when it's switched
@@ -60,19 +60,20 @@
 	if(power_use && cell_type)
 		if(starts_with_cell)
 			cell = new cell_type(src)
-		brightness_levels = list("low" = 1/32, "medium" = 1/16, "high" = 1/8) // ~26 minutes at high power with a device cell.
+		brightness_levels = list("low" = 2, "medium" = 3, "high" = 4) // ~26 minutes at high power with a device cell.
 		power_usage = (brightness_levels[brightness_level] / efficiency_modifier)
 	else
 		verbs -= /obj/item/device/flashlight/verb/toggle_brightness
 
 	if (on)
 		if(brightness_level == "low")
-			light_range = brightness_on * 0.5
+			light_range = light_range * 0.5
 		else if(brightness_level == "high")
-			light_range = brightness_on * 1.5
+			light_range = light_range * 1.5
 		else
-			light_range = brightness_on
+			light_range = light_range
 		update_icon()
+		set_light_on(on)
 
 	. = ..()
 
@@ -87,7 +88,7 @@
 /obj/item/device/flashlight/proc/set_brightness(mob/user)
 	var/choice = tgui_input_list(user, "Choose a brightness level.", "Flashlight", brightness_levels)
 	if(choice)
-		brightness_level = choice
+		set_light_range(brightness_levels[choice])
 		power_usage = brightness_levels[choice]
 		to_chat(user, SPAN_NOTICE("You set the brightness level on \the [src] to [brightness_level]."))
 		update_icon()
@@ -111,15 +112,8 @@
 
 	if(on)
 		icon_state = "[initial(icon_state)]-on"
-		if(brightness_level == "low")
-			set_light(brightness_on * 0.5, flashlight_power * 0.75, light_color)
-		else if(brightness_level == "high")
-			set_light(brightness_on * 1.5, flashlight_power * 1.1, light_color)
-		else
-			set_light(brightness_on, flashlight_power, light_color)
 	else
 		icon_state = "[initial(icon_state)]"
-		set_light(0)
 	if (ismob(src.loc))	//for reasons, this makes headlights work.
 		var/mob/M = src.loc
 		M.update_inv_l_ear()
@@ -189,6 +183,7 @@
 		START_PROCESSING(SSprocessing, src)
 	else if (power_use)
 		STOP_PROCESSING(SSprocessing, src)
+	set_light_on(on)
 	update_icon()
 
 /obj/item/device/flashlight/vendor_action(var/obj/machinery/vending/V)
@@ -207,7 +202,7 @@
 		if(((user.is_clumsy()) || (user.mutations & DUMB)) && prob(50))	//too dumb to use flashlight properly
 			return ..()	//just hit them in the head
 
-		if(brightness_on < 2)
+		if(light_range < 2)
 			to_chat(user, SPAN_WARNING("This light is too dim to see anything with!"))
 			return
 
@@ -231,7 +226,7 @@
 			inspect_vision(vision, user)
 
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN) //can be used offensively
-			if (!(brightness_on < 2))
+			if (!(light_range < 2))
 				H.flash_act(length = 1 SECOND)
 	else
 		return ..()
@@ -290,7 +285,7 @@
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_EARS
-	brightness_on = 2
+	light_range = 2
 	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/device/flashlight/drone
@@ -299,7 +294,7 @@
 	icon_state = "penlight"
 	item_state = ""
 	obj_flags = OBJ_FLAG_CONDUCTABLE
-	brightness_on = 2
+	light_range = 2
 	efficiency_modifier = 2
 	w_class = WEIGHT_CLASS_TINY
 
@@ -308,7 +303,7 @@
 	desc = "A high-luminosity flashlight, for specialist duties."
 	icon_state = "heavyflashlight"
 	item_state = "heavyflashlight"
-	brightness_on = 4
+	light_range = 4
 	w_class = WEIGHT_CLASS_NORMAL
 	uv_intensity = 60
 	matter = list(MATERIAL_PLASTIC = 100, MATERIAL_GLASS = 70)
@@ -322,7 +317,7 @@
 	icon_state = "maglight"
 	item_state = "maglight"
 	force = 9
-	brightness_on = 5
+	light_range = 5
 	efficiency_modifier = 0.8
 	w_class = WEIGHT_CLASS_NORMAL
 	uv_intensity = 70
@@ -348,7 +343,7 @@
 	icon_state = "yellow slime extract"
 	item_state = "flashlight"
 	w_class = WEIGHT_CLASS_TINY
-	brightness_on = 6
+	light_range = 6
 	uv_intensity = 200
 	on = TRUE //Bio-luminesence has one setting, on.
 	always_on = TRUE
@@ -362,7 +357,7 @@
 	item_state = "headlights"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_HEAD | SLOT_EARS
-	brightness_on = 2
+	light_range = 2
 	w_class = WEIGHT_CLASS_TINY
 	body_parts_covered = 0
 
@@ -376,7 +371,7 @@
 	attack_verb = list("bludgeoned, bashed, whacked")
 	matter = list(MATERIAL_STEEL = 200,MATERIAL_GLASS = 100)
 	flashlight_power = 1
-	brightness_on = 4
+	light_range = 4
 	cell_type = /obj/item/cell
 	accepts_large_cells = TRUE
 	light_color = LIGHT_COLOR_FIRE

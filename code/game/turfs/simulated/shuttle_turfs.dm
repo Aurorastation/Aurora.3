@@ -4,7 +4,6 @@
 /turf/simulated/wall/shuttle
 	icon = 'icons/turf/smooth/shuttle_wall_dark.dmi'
 	icon_state = "map-shuttle"
-	permit_ao = 0
 	smoothing_flags = SMOOTH_MORE
 	canSmoothWith = list(
 		/turf/unsimulated/wall/steel, // Centcomm wall.
@@ -516,7 +515,6 @@
 	name = "shuttle floor"
 	icon = 'icons/turf/shuttle.dmi'
 	icon_state = "floor"
-	permit_ao = 0
 	initial_flooring = /singleton/flooring/shuttle
 	footstep_sound = /singleton/sound_category/plating_footstep
 
@@ -593,7 +591,6 @@
 	smooth_underlays = TRUE
 	initial_gas = null
 	roof_type = null
-	permit_ao = 0
 	canSmoothWith = list(
 			/turf/simulated/shuttle_roof
 	)

@@ -22,7 +22,6 @@ GLOBAL_LIST_EMPTY(map_templates)
 /turf/unsimulated/map
 	icon = 'icons/obj/overmap/overmap.dmi'
 	icon_state = "map"
-	permit_ao = FALSE
 
 /turf/unsimulated/map/edge
 	opacity = 1

@@ -1025,6 +1025,7 @@
 		thing.transform = matrix
 		thing.color = color
 		thing.set_light(muzzle_flash_range, muzzle_flash_intensity, muzzle_flash_color_override? muzzle_flash_color_override : color)
+		thing.set_light_on(TRUE)
 		QDEL_IN(thing, duration)
 	if(impacting && impact_type && duration > 0)
 		var/datum/point/p = beam_segments[beam_segments[beam_segments.len]]
@@ -1035,6 +1036,7 @@
 		thing.transform = matrix
 		thing.color = color
 		thing.set_light(impact_light_range, impact_light_intensity, impact_light_color_override? impact_light_color_override : color)
+		thing.set_light_on(TRUE)
 		QDEL_IN(thing, duration)
 	if(cleanup)
 		cleanup_beam_segments()

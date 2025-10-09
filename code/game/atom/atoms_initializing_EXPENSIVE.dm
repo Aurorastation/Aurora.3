@@ -136,11 +136,6 @@
 		var/turf/opaque_turf = loc
 		opaque_turf.directional_opacity = ALL_CARDINALS // No need to recalculate it in this case, it's guaranteed to be on afterwards anyways.
 
-	#ifdef AO_USE_LIGHTING_OPACITY
-		if (!mapload)
-			opaque_turf.regenerate_ao()
-	#endif
-
 	if (update_icon_on_init)
 		SSicon_update.add_to_queue(src)
 

@@ -5,7 +5,7 @@
 	item_state = "marshallingwand"
 	w_class = WEIGHT_CLASS_SMALL
 	light_color = LIGHT_COLOR_RED
-	brightness_on = 2
+	light_range = 2
 	action_button_name = "Toggle Marshalling Wands"
 
 /obj/item/device/flashlight/marshallingwand/AltClick(mob/user)

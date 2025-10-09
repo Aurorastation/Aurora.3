@@ -22,6 +22,7 @@
 	drop_sound = 'sound/items/drop/helm.ogg'
 	pickup_sound = 'sound/items/pickup/helm.ogg'
 	protects_against_weather = TRUE
+	light_system = DIRECTIONAL_LIGHT
 
 	var/has_storage = TRUE
 	var/obj/item/storage/internal/helmet/hold
@@ -469,6 +470,6 @@
 
 	action_button_name = "Toggle Helmet Light"
 	light_overlay = "helmet_light_dual"
-	brightness_on = 6
+	light_range = 6
 	camera = /obj/machinery/camera/network/tcfl
 	on = 0

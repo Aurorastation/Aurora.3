@@ -24,7 +24,7 @@
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE + 2500
 	max_pressure_protection = ENG_VOIDSUIT_MAX_PRESSURE
 	light_overlay = "helmet_light_dual_low"
-	brightness_on = 6
+	light_range = 6
 
 /obj/item/clothing/suit/space/void/engineering
 	name = "engineering voidsuit"
@@ -74,7 +74,7 @@
 		RAD = ARMOR_RAD_MINOR
 	)
 	light_overlay = "merc_voidsuit_lights"
-	brightness_on = 6
+	light_range = 6
 
 /obj/item/clothing/suit/space/void/mining
 	name = "mining voidsuit"
@@ -120,7 +120,7 @@
 		RAD = ARMOR_RAD_SMALL
 	)
 	light_overlay = "helmet_light_dual_low"
-	brightness_on = 6
+	light_range = 6
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_IPC, BODYTYPE_UNATHI, BODYTYPE_SKRELL)
 
 /obj/item/clothing/suit/space/void/medical
@@ -167,7 +167,7 @@
 		RAD = ARMOR_RAD_MINOR
 	)
 	light_overlay = "helmet_light_dual_low"
-	brightness_on = 6
+	light_range = 6
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_IPC, BODYTYPE_UNATHI, BODYTYPE_SKRELL)
 
 /obj/item/clothing/suit/space/void/security
@@ -217,7 +217,7 @@
 	max_heat_protection_temperature = FIRE_HELMET_MAX_HEAT_PROTECTION_TEMPERATURE + 10000 // It is a suit designed for fire, enclosed
 	max_pressure_protection = FIRESUIT_MAX_PRESSURE
 	light_overlay = "helmet_light_dual_low"
-	brightness_on = 6
+	light_range = 6
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_IPC, BODYTYPE_UNATHI, BODYTYPE_SKRELL, BODYTYPE_VAURCA)
 
 /obj/item/clothing/suit/space/void/atmos

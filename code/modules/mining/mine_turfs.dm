@@ -751,9 +751,6 @@ GLOBAL_LIST_INIT(asteroid_floor_smooth, list(
 	if(is_station_level(z))
 		GLOB.station_turfs += src
 
-	if(mapload && permit_ao)
-		queue_ao()
-
 	if(smoothing_flags)
 		canSmoothWith = GLOB.asteroid_floor_smooth
 		pixel_x = -4

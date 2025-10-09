@@ -7,7 +7,7 @@
 	light_overlay = "hardhat_light"
 	contained_sprite = TRUE
 	action_button_name = "Toggle Headlamp"
-	brightness_on = 4 //luminosity when on
+	light_range = 4 //luminosity when on
 	armor = list(
 		MELEE = ARMOR_MELEE_RESISTANT,
 		BULLET = ARMOR_BALLISTIC_MINOR,

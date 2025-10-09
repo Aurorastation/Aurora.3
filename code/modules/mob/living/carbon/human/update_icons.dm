@@ -1509,6 +1509,11 @@ There are several things that need to be remembered:
 	if(QDELETED(src))
 		return
 
+	if(!on_fire)
+		set_light_on(FALSE)
+	else
+		set_light_on(TRUE)
+
 	var/image/fire_image_lower = on_fire ? image(species.onfire_overlay, "lower", layer = FIRE_LAYER_LOWER) : null
 	var/image/fire_image_upper = on_fire ? image(species.onfire_overlay, "upper", layer = FIRE_LAYER_UPPER) : null
 

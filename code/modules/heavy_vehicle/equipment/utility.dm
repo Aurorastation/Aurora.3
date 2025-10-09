@@ -221,7 +221,7 @@
 	mech_layer = MECH_GEAR_LAYER
 
 	var/on = 0
-	var/brightness_on = 12		//can't remember what the maxed out value is
+	light_range = 8
 	light_color = LIGHT_COLOR_TUNGSTEN
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
 	module_hints = list(
@@ -249,7 +249,7 @@
 /obj/item/mecha_equipment/light/update_icon()
 	if(on)
 		icon_state = "[initial(icon_state)]-on"
-		set_light(brightness_on, 1)
+		set_light(light_range, 1)
 	else
 		icon_state = "[initial(icon_state)]"
 		set_light(0)

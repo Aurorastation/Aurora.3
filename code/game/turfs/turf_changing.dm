@@ -91,12 +91,6 @@
 	if(old_signal_procs)
 		LAZYOR(new_turf._signal_procs, old_signal_procs)
 
-#ifndef AO_USE_LIGHTING_OPACITY
-	// If we're using opacity-based AO, this is done in recalc_atom_opacity().
-	if (permit_ao)
-		regenerate_ao()
-#endif
-
 	new_turf.hybrid_lights_affecting = old_hybrid_lights_affecting
 	new_turf.dynamic_lumcount = dynamic_lumcount
 

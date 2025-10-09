@@ -34,11 +34,14 @@
 /atom/movable/screen/plane_master/game_world
 	name = "game world plane master"
 	plane = GAME_PLANE
+	appearance_flags = PLANE_MASTER
 	blend_mode = BLEND_OVERLAY
 
-/atom/movable/screen/plane_master/rendering_plate/game_world/Initialize(mapload, datum/hud/hud_owner)
+/atom/movable/screen/plane_master/game_world/backdrop(mob/mymob)
 	. = ..()
-	add_filter("displacer", 1, displacement_map_filter(render_source = DISPLACEMENT_PLATE_RENDER_TARGET, size = 10))
+	remove_filter("AO")
+	//if(istype(mymob) && mymob?.client?.prefs?.toggle_prefs & TOGGLE_AMBIENT_OCCLUSION) todomatt: maybe pref
+	add_filter("AO", 1, drop_shadow_filter(x = 0, y = -2, size = 4, color = "#04080FAA"))
 
 /atom/movable/screen/plane_master/game_world_above
 	name = "above game world plane master"

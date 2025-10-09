@@ -13,7 +13,6 @@
 //	heat_capacity = 700000 No.
 	is_hole = TRUE
 
-	permit_ao = FALSE
 	z_eventually_space = TRUE
 	turf_flags = TURF_FLAG_BACKGROUND
 	explosion_resistance = 3

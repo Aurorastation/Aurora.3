@@ -1,4 +1,5 @@
 /mob/living/carbon/human
+	light_system = MOVABLE_LIGHT
 
 	blocks_emissive = EMISSIVE_BLOCK_NONE
 

@@ -29,9 +29,9 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 	icon = 'icons/turf/areas.dmi'
 	icon_state = "unknown"
 	layer = AREA_LAYER
-	luminosity = 0
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	invisibility = INVISIBILITY_LIGHTING
+	plane = BLACKNESS_PLANE
 
 	var/obj/machinery/power/apc/apc = null
 	/// The base turf type of the area, which can be used to override the z-level's base turf.
@@ -152,6 +152,8 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 		power_change()		// All machines set to current power level.
 
 	. = ..()
+
+	update_base_lighting()
 
 	if (mapload && turf_initializer)
 		for(var/turf/T in src)
