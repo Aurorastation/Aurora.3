@@ -89,7 +89,7 @@
 
 /atom/movable/Initialize(mapload, ...)
 	. = ..()
-	update_emissive_blocker() //todomatt: unfuck this, different on cm
+	update_emissive_blocker()
 
 	if(opacity)
 		AddElement(/datum/element/light_blocking)

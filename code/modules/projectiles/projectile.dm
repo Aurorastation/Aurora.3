@@ -720,6 +720,8 @@
 		process_hitscan()
 		if(QDELETED(src))
 			return
+	else
+		generate_muzzle_flash()
 	if(!(datum_flags & DF_ISPROCESSING))
 		START_PROCESSING(SSprojectiles, src)
 	pixel_move(pixel_speed_multiplier, FALSE) //move it now!
@@ -1009,6 +1011,19 @@
 		beam_segments[beam_index] = point_cache
 	generate_hitscan_tracers(null, null, impacting)
 
+/obj/projectile/proc/generate_muzzle_flash(duration = 3)
+	if(duration <= 0)
+		return
+	if(!muzzle_type || suppressed)
+		return
+	var/datum/point/p = trajectory
+	var/atom/movable/thing = new muzzle_type
+	p.move_atom_to_src(thing)
+	var/matrix/M = new
+	M.Turn(original_angle)
+	thing.transform = M
+	QDEL_IN(thing, duration)
+
 /obj/projectile/proc/generate_hitscan_tracers(cleanup = TRUE, duration = 3, impacting = TRUE)
 	if(!length(beam_segments))
 		return
@@ -1024,7 +1039,7 @@
 		matrix.Turn(original_angle)
 		thing.transform = matrix
 		thing.color = color
-		thing.set_light(muzzle_flash_range, muzzle_flash_intensity, muzzle_flash_color_override? muzzle_flash_color_override : color)
+		thing.set_light(muzzle_flash_range, muzzle_flash_intensity, muzzle_flash_color_override ? muzzle_flash_color_override : color)
 		thing.set_light_on(TRUE)
 		QDEL_IN(thing, duration)
 	if(impacting && impact_type && duration > 0)
@@ -1077,6 +1092,7 @@
 	bullet.original = target
 	bullet.preparePixelProjectile(target, src)
 	bullet.fire()
+
 	return bullet
 
 

@@ -173,8 +173,8 @@
 	fitting = "large tube"
 	light_type = /obj/item/light/tube/large
 	inserted_light = /obj/item/light/tube/large
-	brightness_range = 12
-	brightness_power = 3.5
+	brightness_range = 8
+	brightness_power = 0.9
 	supports_nightmode = FALSE
 
 /obj/machinery/light/built

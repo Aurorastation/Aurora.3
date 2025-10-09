@@ -419,7 +419,7 @@
 	name = "bluespace technician's glasses"
 	desc = "A pair of modified sunglasses. The word 'BST' is stamped on the side."
 	vision_flags = (SEE_TURFS|SEE_OBJS|SEE_MOBS)
-	see_invisible = SEE_INVISIBLE_NOLIGHTING
+	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
 	canremove = 0
 	flash_protection = FLASH_PROTECTION_MAJOR
 
@@ -431,17 +431,17 @@
 
 	switch (mode)
 		if ("X-Ray without Lighting")
-			vision_flags = SEE_TURFS|SEE_OBJS|SEE_MOBS|SEE_BLACKNESS|SEE_SELF
-			see_invisible = SEE_INVISIBLE_NOLIGHTING
+			vision_flags = SEE_TURFS|SEE_OBJS|SEE_MOBS|SEE_SELF
+			lighting_alpha = LIGHTING_PLANE_ALPHA_INVISIBLE
 		if ("X-Ray with Lighting")
-			vision_flags = SEE_TURFS|SEE_OBJS|SEE_MOBS|SEE_BLACKNESS|SEE_SELF
-			see_invisible = -1
+			vision_flags = SEE_TURFS|SEE_OBJS|SEE_MOBS|SEE_SELF
+			lighting_alpha = LIGHTING_PLANE_ALPHA_VISIBLE
 		if ("Darkvision")
-			vision_flags = SEE_BLACKNESS|SEE_SELF
-			see_invisible = SEE_INVISIBLE_NOLIGHTING
+			vision_flags = SEE_SELF
+			lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
 		if ("Normal vision")
 			vision_flags = 0
-			see_invisible = -1
+			see_invisible = LIGHTING_PLANE_ALPHA_VISIBLE
 
 	to_chat(usr, SPAN_NOTICE("\The [src]'s vision mode is now <b>[mode]</b>."))
 

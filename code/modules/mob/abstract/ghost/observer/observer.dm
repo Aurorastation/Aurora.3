@@ -8,6 +8,7 @@
 	blinded = FALSE
 	anchored = TRUE	//  don't get pushed around
 	invisibility = INVISIBILITY_OBSERVER
+	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
 	simulated = FALSE
 	universal_speak = TRUE
 	incorporeal_move = INCORPOREAL_GHOST
@@ -574,32 +575,18 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 /mob/abstract/ghost/observer/can_admin_interact()
 	return check_rights(R_ADMIN, 0, src)
 
-/mob/abstract/ghost/observer/update_sight()
-	//if they are on a restricted level, then set the ghost vision for them.
-	if(on_restricted_level())
-		//On the restricted level they have the same sight as the mob
-		set_sight(sight&(~SEE_TURFS)&(~SEE_MOBS)&(~SEE_OBJS))
-		set_see_invisible(SEE_INVISIBLE_OBSERVER)
-	else
-		//Outside of the restrcited level, they have enhanced vision
-		set_sight(sight|SEE_TURFS|SEE_MOBS|SEE_OBJS)
-		set_see_invisible(SEE_INVISIBLE_LEVEL_TWO)
-
-		if (!see_darkness)
-			set_see_invisible(SEE_INVISIBLE_NOLIGHTING)
-		else
-			set_see_invisible(ghostvision ? SEE_INVISIBLE_OBSERVER : SEE_INVISIBLE_LIVING)
-
-	updateghostimages()
-
 /proc/updateallghostimages()
 	for (var/mob/abstract/ghost/observer/O in GLOB.player_list)
 		O.updateghostimages()
 
+/mob/abstract/ghost/observer/update_sight()
+	. = ..()
+	updateghostimages()
+
 /mob/abstract/ghost/observer/proc/updateghostimages()
 	if (!client)
 		return
-	if (see_darkness || !ghostvision)
+	if (!ghostvision)
 		client.images -= SSmobs.ghost_darkness_images
 		client.images |= SSmobs.ghost_sightless_images
 	else

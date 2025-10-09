@@ -168,8 +168,5 @@
 /atom/movable/lighting_mask/ex_act(severity, target)
 	return
 
-///atom/movable/lighting_mask/fire_act(exposed_temperature, exposed_volume)
-//	. = ..() todomatt: bruh
-
 #undef LIGHTING_MASK_SPRITE_SIZE
 #undef LIGHTING_MASK_RADIUS
