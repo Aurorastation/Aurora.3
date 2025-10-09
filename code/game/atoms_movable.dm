@@ -1063,3 +1063,10 @@
 	set_light_range(range)
 	set_light_power(power)
 	set_light_color(color)
+
+/**
+ * Called when a movable is moved by a shuttle. Eventually, God willing, replace this with the TG shuttle version.
+ */
+/atom/movable/proc/afterShuttleMove(obj/effect/shuttle_landmark/destination)
+	if(light)
+		update_light()

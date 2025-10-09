@@ -116,6 +116,10 @@
 	if(new_turf.directional_opacity != old_directional_opacity)
 		new_turf.reconsider_lights()
 
+	var/area/thisarea = get_area(new_turf)
+	if(thisarea.lighting_effect)
+		new_turf.AddOverlays(thisarea.lighting_effect)
+
 	new_turf.above = old_above
 
 	if(ispath(path, /turf/simulated))
