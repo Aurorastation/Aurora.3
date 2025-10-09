@@ -187,9 +187,7 @@
 	var/list/data = list()
 	var/list/songs_data = list()
 	for(var/entry in playlist)
-		to_chat(world,"first for loop: [entry]")
 		var/datum/track/one_song = playlist[entry]
-		to_chat(world,"one_song: [one_song]")
 		var/song_name = one_song.song_name
 		var/song_length = one_song.song_length
 		UNTYPED_LIST_ADD(songs_data, list( \
