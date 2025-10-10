@@ -61,6 +61,6 @@
 	SHOULD_NOT_OVERRIDE(TRUE)
 	// Some cleanable types are only to be made persistent in canon rounds, otherwise they get replaced with generic dirt
 	if(src.persistence_type_requires_canon_round && !is_current_round_canon())
-		return text2path("/obj/effect/decal/cleanable/generic")
+		return text2path("/obj/effect/decal/cleanable/dirt")
 	else
 		return src.type
