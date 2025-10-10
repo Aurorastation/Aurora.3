@@ -212,3 +212,8 @@
   nauticall:
   - imageadd: Resprited boxes; made them both colorable and modular.
   - code_imp: Repathed box paths behind the scenes.
+2025-10-10:
+  ChangeMe:
+  - rscadd: Species capable of indefinite sleep, can now voluntarily wake up from
+      sleeping at will by pressing 'Sleep' again.
+  - sounddel: IPCs will no longer beep when sleeping.
