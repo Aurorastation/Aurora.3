@@ -4071,14 +4071,14 @@
 
 /obj/item/flag/sankt_frederick
 	name = "\improper Sankt Frederick flag"
-	desc = "The flag of Sankt Frederick, the steadfast breadbasket of the Solarian Wildlands."
+	desc = "The flag of Sankt Frederick, the steadfast breadbasket of the Southern Reaches."
 	desc_extended = "The flag of Sankt Frederick features a horizontal tricolor of black, white, and blue, representing the planet’s rich soil, the people’s unity and perseverance, and its many lakes and rivers. At its center lies a blue escutcheon bearing a white wheat stalk, symbolizing Sankt Frederick’s agricultural heritage and its vital role in sustaining the wider Alliance."
 	flag_path = "sankt_frederick"
 	flag_structure = /obj/structure/sign/flag/sankt_frederick
 
 /obj/structure/sign/flag/sankt_frederick
 	name = "\improper Sankt Frederick flag"
-	desc = "The flag of Sankt Frederick, the steadfast breadbasket of the Solarian Wildlands."
+	desc = "The flag of Sankt Frederick, the steadfast breadbasket of the Southern Reaches."
 	desc_extended = "The flag of Sankt Frederick features a horizontal tricolor of black, white, and blue, representing the planet’s rich soil, the people’s unity and perseverance, and its many lakes and rivers. At its center lies a blue escutcheon bearing a white wheat stalk, symbolizing Sankt Frederick’s agricultural heritage and its vital role in sustaining the wider Alliance."
 	flag_path = "sankt_frederick"
 	icon_state = "sankt_frederick"
