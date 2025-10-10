@@ -46,7 +46,10 @@
 /obj/machinery/autolathe/upgrade_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Upgraded <b>matter bins</b> will increase material storage capacity."
+	. += "The current storage limit per material type is [storage_capacity[DEFAULT_WALL_MATERIAL] / 2000] sheets"
 	. += "Upgraded <b>manipulators</b> will improve material use efficiency and increase fabrication speed."
+	. += "The current material cost reduction is [round((1 - mat_efficiency) * 100)]%"
+	. += "The current build speed increase is [round((1 - mat_efficiency) * 100)]%"
 
 /obj/machinery/autolathe/Initialize()
 	..()
