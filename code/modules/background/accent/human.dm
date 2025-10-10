@@ -456,3 +456,12 @@
 	description = "Zhurongese is a dialect of Vulgar Morozi found on the Core World of Zhurong, where it is spoken by the Secondaries who make up most of the skilled workers and supervisors on the planet. While it mostly sticks to traditional Vulgar Morozi structures, its origin on one of the oldest colonies in the Empire and Zhurong itself being a more restricted world has led to this dialect being less influenced by the broader Spur. Scholars believe this dialect may be closer to pre-Imperial Vulgar Morozi than any other in the Empire."
 	tag_icon = "zhurong"
 	text_tag = "ZHU"
+
+/datum/accent/sankt_frederick
+	name = ACCENT_SANKT_FREDERICK
+	description = "Frederickian Common carries a distinctive cadence that sets it apart from the prototypical Solarian accent. \
+	Its rhythm is measured and deliberate, with vowels drawn into rounded tones and consonants softened into a gentle drawl. \
+	In recent years, however, the arrival of refugees has begun to reshape this speech pattern. \
+	Sharper inflections and clipped phrasing have layered over the traditional drawl, creating a growing divide between the voices of 'Old Frederickers' and the newer arrivals."
+	tag_icon = "sankt_frederick"
+	text_tag = "SFK"
