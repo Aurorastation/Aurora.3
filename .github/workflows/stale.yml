@@ -17,6 +17,9 @@ jobs:
     steps:
       - uses: actions/stale@v9
         with:
+          # --- Global settings ---
+          operations-per-run: 100
+
           # --- Issue settings ---
           days-before-issue-stale: 60
           days-before-issue-close: 30
