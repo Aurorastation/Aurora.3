@@ -902,14 +902,6 @@ lighting determines lighting capturing (optional), suppress_errors suppreses err
 				var/yoff = (A.y - ty) * 32
 				cap.Blend(img, blendMode2iconMode(A.blend_mode),  A.pixel_x + xoff, A.pixel_y + yoff)
 
-	/*if (lighting)
-		for (var/turf/T in turfstocapture)
-			var/icon/im = new(LIGHTING_ICON, "blank")
-			var/color = T.get_avg_color()	// We're going to lose some detail, but it's all we can do without color matrixes.
-			if (color)
-				im.Blend(color, ICON_MULTIPLY)
-				cap.Blend(im, ICON_MULTIPLY, (T.x - tx) * 32, (T.y - ty) * 32) todomatt: unfuck whatever that is*/
-
 	return cap
 
 /proc/percentage_to_colour(var/P)

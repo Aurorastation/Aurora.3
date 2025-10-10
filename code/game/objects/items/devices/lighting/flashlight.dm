@@ -60,8 +60,8 @@
 	if(power_use && cell_type)
 		if(starts_with_cell)
 			cell = new cell_type(src)
-		brightness_levels = list("low" = 2, "medium" = 3, "high" = 4) // ~26 minutes at high power with a device cell.
-		power_usage = (brightness_levels[brightness_level] / efficiency_modifier)
+		brightness_levels = list("low" = 2, "medium" = 3, "high" = 4)
+		power_usage = ((brightness_levels[brightness_level]/ 10 ) / efficiency_modifier)
 	else
 		verbs -= /obj/item/device/flashlight/verb/toggle_brightness
 

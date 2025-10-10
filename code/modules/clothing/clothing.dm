@@ -608,12 +608,14 @@
 
 	valid_accessory_slots = list(ACCESSORY_SLOT_HEAD)
 
+	light_system = DIRECTIONAL_LIGHT
+
 	/// In case if you want to allow someone to switch the BLOCKHEADHAIR var from the helmet or not
 	var/allow_hair_covering = TRUE
 
 	var/light_overlay = "helmet_light"
 	var/light_applied
-	var/on = 0
+	var/on = FALSE
 	var/protects_against_weather = FALSE
 
 /obj/item/clothing/head/Initialize(mapload, material_key)
@@ -642,20 +644,19 @@
 			to_chat(user, "You cannot turn the light on while in this [user.loc]")
 			return
 		on = !on
-		to_chat(user, "You [on ? "enable" : "disable"] the helmet light.")
+		to_chat(user, SPAN_NOTICE("You [on ? "enable" : "disable"] the helmet light."))
 		update_flashlight(user)
 	else
 		return ..(user)
 
 /obj/item/clothing/head/proc/update_flashlight(var/mob/user = null)
 	if(on && !light_applied)
-		set_light(light_range)
+		set_light_on(light_applied)
 		light_applied = 1
 	else if(!on && light_applied)
-		set_light(0)
+		set_light_on(0)
 		light_applied = 0
 	update_icon(user)
-	set_light_on(on)
 	user.update_action_buttons()
 
 /obj/item/clothing/head/attack_ai(var/mob/user)

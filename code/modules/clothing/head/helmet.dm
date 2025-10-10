@@ -22,7 +22,6 @@
 	drop_sound = 'sound/items/drop/helm.ogg'
 	pickup_sound = 'sound/items/pickup/helm.ogg'
 	protects_against_weather = TRUE
-	light_system = DIRECTIONAL_LIGHT
 
 	var/has_storage = TRUE
 	var/obj/item/storage/internal/helmet/hold
