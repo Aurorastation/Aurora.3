@@ -2,8 +2,8 @@ name: "Stale bot - Issue and PR triage"
 
 on:
   schedule:
-    # Run every day at 6 AM UTC - Daily run to utilize all operations-per-run without getting rate limited
-    - cron: "0 6 * * *"
+    # Run every hour
+    - cron: "0 * * * *"
   workflow_dispatch: # Allow manual trigger
 
 permissions:
