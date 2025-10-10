@@ -895,4 +895,4 @@ EMAG/ILLEGAL
 	// Tier 3 parts are equivalent to tier 2 parts for them, while tier 2 parts are only 33% more effective than tier 1 parts.
 	build_eff = max(build_eff * 0.667, 1)
 	eat_eff = max(eat_eff * 0.667, 1)
-	processing_time_divisor = max(capacitor_rating * 0.667, 1)
+	processing_time_divisor = max(processing_time_divisor * 0.667, 1)
