@@ -13,7 +13,9 @@
 	/// The actual music player datum that handles the music
 	var/datum/jukebox/music_player
 	/// The songs this jukebox starts with.
-	var/list/datum/track/tracks
+	var/list/datum/track/tracks = list(
+		new/datum/track("Uplift", 'sound/music/ingame/ss13/title3.ogg', 3 MINUTES + 52 SECONDS)
+	)
 	var/datum/track/selection
 
 // GENERAL PROCS
