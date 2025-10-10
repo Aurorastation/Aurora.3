@@ -2990,7 +2990,7 @@
 /turf/simulated/floor/exoplanet/barren,
 /area/piratebase/hallway_north)
 "op" = (
-/obj/machinery/media/jukebox,
+/obj/machinery/media/jukebox/classic,
 /obj/machinery/light{
 	dir = 1
 	},
@@ -4270,7 +4270,7 @@
 /obj/structure/sign/emergency/meetingpoint{
 	pixel_y = 31
 	},
-/obj/machinery/media/jukebox,
+/obj/machinery/media/jukebox/classic,
 /turf/simulated/floor/tiled/yellow,
 /area/shuttle/pirate_shuttle/storage)
 "vi" = (

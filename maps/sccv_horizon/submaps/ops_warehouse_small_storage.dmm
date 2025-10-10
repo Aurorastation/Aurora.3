@@ -689,7 +689,7 @@
 /turf/template_noop,
 /area/template_noop)
 "qI" = (
-/obj/machinery/media/jukebox,
+/obj/machinery/media/jukebox/classic,
 /turf/template_noop,
 /area/template_noop)
 "qM" = (

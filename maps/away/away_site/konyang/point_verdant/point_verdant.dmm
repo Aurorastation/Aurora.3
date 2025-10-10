@@ -12741,7 +12741,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/machinery/media/jukebox,
+/obj/machinery/media/jukebox/classic,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/tailor)
 "hdn" = (
@@ -21979,7 +21979,7 @@
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/offices)
 "mpm" = (
-/obj/machinery/media/jukebox,
+/obj/machinery/media/jukebox/classic,
 /turf/simulated/floor/tiled/full,
 /area/point_verdant/interior/bar)
 "mpn" = (

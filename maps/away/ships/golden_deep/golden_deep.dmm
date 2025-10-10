@@ -8157,7 +8157,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
-/obj/machinery/media/jukebox{
+/obj/machinery/media/jukebox/classic{
 	anchored = 1
 	},
 /turf/simulated/floor/wood,
@@ -9729,7 +9729,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/eva)
 "Ob" = (
-/obj/machinery/media/jukebox{
+/obj/machinery/media/jukebox/classic{
 	anchored = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,

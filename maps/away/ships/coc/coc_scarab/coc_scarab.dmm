@@ -10977,7 +10977,7 @@
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 6
 	},
-/obj/machinery/media/jukebox{
+/obj/machinery/media/jukebox/classic{
 	anchored = 1
 	},
 /turf/simulated/floor/tiled/dark,

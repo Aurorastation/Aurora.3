@@ -10786,7 +10786,7 @@
 /obj/machinery/power/apc/north{
 	req_access = list(212)
 	},
-/obj/machinery/media/jukebox{
+/obj/machinery/media/jukebox/classic{
 	anchored = 1;
 	density = 0
 	},

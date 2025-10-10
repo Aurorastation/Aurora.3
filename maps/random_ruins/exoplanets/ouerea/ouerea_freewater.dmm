@@ -611,7 +611,7 @@
 	},
 /area/ouerea_freewater)
 "CA" = (
-/obj/machinery/media/jukebox,
+/obj/machinery/media/jukebox/classic,
 /turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},

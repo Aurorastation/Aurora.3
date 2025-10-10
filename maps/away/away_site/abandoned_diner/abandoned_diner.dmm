@@ -1064,7 +1064,7 @@
 /area/abandoned_diner/crew_quarters)
 "akE" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
-/obj/machinery/media/jukebox{
+/obj/machinery/media/jukebox/classic{
 	anchored = 1
 	},
 /turf/simulated/floor/tiled/white,

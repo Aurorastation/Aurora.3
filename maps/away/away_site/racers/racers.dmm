@@ -3787,7 +3787,7 @@
 /turf/simulated/floor/shuttle/white,
 /area/shuttle/racers_red)
 "skw" = (
-/obj/machinery/media/jukebox,
+/obj/machinery/media/jukebox/classic,
 /turf/simulated/floor/wood,
 /area/racers)
 "sof" = (
