@@ -88,10 +88,8 @@
 /obj/machinery/light_switch/idris
 	name = "idris smart switch"
 	desc = "A smart lightswitch designed by Idris Incorporated for entertainment venues, this one has additional controls for adjusting the color and brightness of the room's lighting."
-
 	var/current_light_color = LIGHT_COLOR_HALOGEN
 	var/current_brightness = 1.0
-
 	var/static/list/color_options = list(
 		"Standard" = LIGHT_COLOR_HALOGEN,
 		"Red" = LIGHT_COLOR_RED,
@@ -111,86 +109,130 @@
 		to_chat(user, SPAN_WARNING("\The [src] is not responding."))
 		return
 
+	var/choice = show_control_menu(user)
+	if(!choice)
+		return
+
+	handle_menu_choice(user, choice)
+
+// displays the radial control menu for the smart switch
+/obj/machinery/light_switch/idris/proc/show_control_menu(mob/user)
 	var/list/choices = list()
 
 	var/image/power_toggle = image('icons/obj/machinery/button.dmi', null, "light[on ? 0 : 1]")
 	choices[on ? "Turn Off" : "Turn On"] = power_toggle
 
-	// color options
 	for(var/color_name in color_options)
 		var/image/color_icon = image('icons/obj/machinery/light.dmi', null, "lbulb")
 		color_icon.color = color_options[color_name]
 		choices[color_name] = color_icon
 
-	// custom color option
 	var/image/custom_color = image('icons/obj/machinery/light.dmi', null, "lbulb")
 	custom_color.color = "#ff5e00"
 	choices["Custom Color"] = custom_color
 
-	// brightness option
 	var/image/brightness_icon = image('icons/obj/machinery/light.dmi', null, "lbulb")
 	brightness_icon.color = current_light_color
 	brightness_icon.alpha = 128
 	choices["Brightness"] = brightness_icon
 
-	var/choice = show_radial_menu(user, src, choices, uniqueid = "lightswitch_[REF(src)]", radius = 42, require_near = !issilicon(user), tooltips = TRUE)
-	if(!choice)
+	return show_radial_menu(user, src, choices, uniqueid = "lightswitch_[REF(src)]", radius = 42, require_near = !issilicon(user), tooltips = TRUE)
+
+/obj/machinery/light_switch/idris/proc/handle_menu_choice(mob/user, choice)
+	if(choice == "Turn Off" || choice == "Turn On")
+		handle_power_toggle()
 		return
 
-	if(choice == "Turn Off" || choice == "Turn On")
-		return ..()
-
 	if(choice == "Brightness")
-		//internal 0.8-1.0 maps to display 0-100
-		var/display_value = ((current_brightness - 0.8) / 0.2) * 100
-		var/input = input(user, "Enter brightness (0-100%):", "Brightness", display_value) as num|null
-		if(isnull(input))
-			return
+		handle_brightness_adjustment(user)
+		return
 
-		current_brightness = 0.8 + (clamp(input, 0, 100) / 100) * 0.2
-	else if(choice == "Custom Color")
-		var/new_color = input(user, "Choose light color:", "Custom Light Color", current_light_color) as color|null
-		if(!new_color)
-			return
-		new_color = sanitize_hexcolor(new_color, current_light_color)
-		current_light_color = new_color
-	else
-		current_light_color = color_options[choice]
+	if(choice == "Custom Color")
+		handle_custom_color(user)
+		return
+
+	handle_preset_color(choice)
+
+/obj/machinery/light_switch/idris/proc/handle_power_toggle()
+	playsound(src, /singleton/sound_category/switch_sound, 30)
+	on = !on
+	sync_lights()
+	intent_message(BUTTON_FLICK, 5)
+
+//brightness adjustment
+/obj/machinery/light_switch/idris/proc/handle_brightness_adjustment(mob/user)
+	var/display_value = convert_brightness_to_display(current_brightness)
+	var/input = input(user, "Enter brightness (0-100%):", "Brightness", display_value) as num|null
+	if(isnull(input))
+		return
+
+	current_brightness = convert_display_to_brightness(input)
+	apply_lighting_changes()
+
+
+// custom color selection
+/obj/machinery/light_switch/idris/proc/handle_custom_color(mob/user)
+	var/new_color = input(user, "Choose light color:", "Custom Light Color", current_light_color) as color|null
+	if(!new_color)
+		return
+
+	current_light_color = sanitize_hexcolor(new_color, current_light_color)
+	apply_lighting_changes()
+
+
+// preset color selection
+/obj/machinery/light_switch/idris/proc/handle_preset_color(color_name)
+	current_light_color = color_options[color_name]
+	apply_lighting_changes()
+
+// applies current color and brightness settings to all lights in the area
+/obj/machinery/light_switch/idris/proc/apply_lighting_changes()
+	if(!area)
+		return
 
 	if(!on)
 		on = TRUE
 
+	var/list/saved_switchcounts = list()
+	for(var/obj/machinery/light/light in area)
+		saved_switchcounts[light] = light.switchcount
+
 	sync_lights()
 
-/obj/machinery/light_switch/idris/sync_lights()
-	..()
+	for(var/obj/machinery/light/light in area)
+		apply_light_modifications(light)
+		if(light in saved_switchcounts)
+			light.switchcount = saved_switchcounts[light]
 
-	if(!on || !area)
+// applies color and brightness modifications
+/obj/machinery/light_switch/idris/proc/apply_light_modifications(obj/machinery/light/light)
+	if(!light.brightness_range || !light.brightness_power)
 		return
 
-	for(var/obj/machinery/light/L in area)
-		if(!L.brightness_range || !L.brightness_power)
-			continue
+	if(light.emergency_mode)
+		light.emergency_mode = FALSE
+	light.no_emergency = TRUE
 
-		if(L.emergency_mode)
-			L.emergency_mode = FALSE
-		L.no_emergency = TRUE
+	light.brightness_color = current_light_color
+	light.default_color = current_light_color
 
-		L.brightness_color = current_light_color
-		L.default_color = current_light_color
+	var/power_multiplier = current_brightness ** 2.2
+	var/range_multiplier = sqrt(current_brightness)
 
-		// use gamma correction (power of 2.2) for perceptually linear brightness cause it provides finer control at lower brightness levels
-		var/power_multiplier = current_brightness ** 2.2
+	light.brightness_power = initial(light.brightness_power) * power_multiplier
+	light.brightness_range = initial(light.brightness_range) * range_multiplier
 
-		// uses square root for range which prevents the light area from shrinking too dramatically
-		var/range_multiplier = sqrt(current_brightness)
+	if(light.supports_nightmode && light.nightmode)
+		light.set_light(light.night_brightness_range, light.night_brightness_power, light.brightness_color)
+	else
+		light.set_light(light.brightness_range, light.brightness_power, light.brightness_color)
 
-		L.brightness_power = initial(L.brightness_power) * power_multiplier
-		L.brightness_range = initial(L.brightness_range) * range_multiplier
+	light.update_icon()
 
-		// avoid triggering switchcount burn-out mechanism
-		if(L.supports_nightmode && L.nightmode)
-			L.set_light(L.night_brightness_range, L.night_brightness_power, L.brightness_color)
-		else
-			L.set_light(L.brightness_range, L.brightness_power, L.brightness_color)
-		L.update_icon()
+// converts internal brightness value (0.8-1.0) to display value (0-100)
+/obj/machinery/light_switch/idris/proc/convert_brightness_to_display(brightness)
+	return ((brightness - 0.8) / 0.2) * 100
+
+// converts display value (0-100) to internal brightness value (0.8-1.0)
+/obj/machinery/light_switch/idris/proc/convert_display_to_brightness(display_value)
+	return 0.8 + (clamp(display_value, 0, 100) / 100) * 0.2
