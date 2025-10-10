@@ -1,5 +1,5 @@
 author: Hellfirejag
 delete-after: True
 changes:
-  - bugfix: "Fixed mechanics hints for chemical heaters."
-  - rscadd: "Improved mechanics hints for chemical heaters, autolathes, mechfabs, protolathes, and circuit imprinters. Their mechanics hints now state the actual current numerical effects."
+  - bugfix: "Fixed upgrade hints for chemical heaters."
+  - rscadd: "Improved upgrade hints for chemical heaters, autolathes, mechfabs, protolathes, and circuit imprinters. Their mechanics hints now state the actual current numerical effects."
