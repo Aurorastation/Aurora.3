@@ -19,8 +19,8 @@
 	always_area_sensitive = TRUE
 	gfi_layer_rotation = GFI_ROTATION_DEFDIR
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
-	var/brightness_range = 6	// luminosity when on, also used in power calculation
-	var/brightness_power = 0.45
+	var/brightness_range = 7	// luminosity when on, also used in power calculation
+	var/brightness_power = 0.6
 	var/night_brightness_range = 5
 	var/night_brightness_power = 0.4
 	var/supports_nightmode = TRUE
@@ -104,7 +104,7 @@
 	icon_state = "bulb_preview"
 	base_state = "bulb"
 	fitting = "bulb"
-	brightness_range = 4
+	brightness_range = 5
 	brightness_power = 0.45
 	brightness_color = LIGHT_COLOR_TUNGSTEN
 	desc = "A small lighting fixture."
