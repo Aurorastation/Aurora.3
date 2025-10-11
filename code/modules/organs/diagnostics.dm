@@ -90,8 +90,7 @@
 
 	var/list/badness = list()
 	var/list/symptoms = GET_SINGLETON_SUBTYPE_LIST(/singleton/diagnostic_sign)
-	for(var/S in symptoms)
-		var/singleton/diagnostic_sign/sign = symptoms[S]
+	for(var/singleton/diagnostic_sign/sign in symptoms)
 		if(sign.manifested_in(src))
 			badness += sign.get_description(user)
 	if(!badness.len)

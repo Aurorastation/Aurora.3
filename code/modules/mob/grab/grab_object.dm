@@ -23,13 +23,13 @@
 		return
 
 	current_grab = GET_SINGLETON(use_grab_state)
-	if (!istype(current_grab))
+	if(!istype(current_grab))
 		return INITIALIZE_HINT_QDEL
 	grabber = loc
-	if(!istype(grabber) || !grabber.add_grab(src, defer_hand = defer_hand))
+	if(!ismob(grabber) || !grabber.add_grab(src, defer_hand = defer_hand))
 		return INITIALIZE_HINT_QDEL
 	grabbed = target
-	if(!istype(grabbed))
+	if(!ismovable(grabbed))
 		return INITIALIZE_HINT_QDEL
 	target_zone = grabber.get_target_zone()
 
