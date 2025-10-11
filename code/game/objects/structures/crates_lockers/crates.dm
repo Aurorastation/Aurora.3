@@ -207,7 +207,7 @@
 			var/loudness = "thunk."
 			if(timeneeded * 0.1 > 10)
 				loudness = "loud THUNK!"
-			audible_message("[user] puts \the [src] onto \the [table] with a [loudness]", "[user] puts \the [src] onto \the [table].", 7, "You put \the [src] on \the [table] with a [loudness]")
+			visible_message("[user] puts \the [src] onto \the [table] with a [loudness]", "[user] puts \the [src] onto \the [table].", intent_message = THUNK_SOUND)
 			return TRUE
 
 /*
