@@ -187,7 +187,7 @@
 	description = "A large box of random, leftover produce from Adhomai."
 	price = 45
 	items = list(
-		/obj/item/storage/box/produce/adhomai
+		/obj/item/storage/box/large/produce/adhomai
 	)
 	access = 0
 	container_type = "crate"
@@ -201,7 +201,7 @@
 	description = "A large box of random, leftover produce from Moghes."
 	price = 45
 	items = list(
-		/obj/item/storage/box/produce/moghes
+		/obj/item/storage/box/large/produce/moghes
 	)
 	access = 0
 	container_type = "crate"
@@ -215,7 +215,7 @@
 	description = "A large box of random, leftover produce from various Skrellian worlds."
 	price = 50
 	items = list(
-		/obj/item/storage/box/produce/nralakk
+		/obj/item/storage/box/large/produce/nralakk
 	)
 	access = 0
 	container_type = "crate"
