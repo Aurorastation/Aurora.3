@@ -127,12 +127,6 @@
 
 	langchat_listeners = listeners
 	var/mob/listener
-
-	to_chat(world, "message is [message]")
-	to_chat(world, "language is [language.name]")
-
-	for(listener in langchat_listeners)
-		to_chat(world, "[listener]")
 	// Listener list management.
 	for(listener in langchat_listeners)
 		// Remove those who have the langchat_client disabled or who are deaf.
@@ -148,13 +142,11 @@
 	langchat_image.maptext_width = LANGCHAT_WIDTH
 	langchat_image.maptext_x = get_maxptext_x_offset(langchat_image)
 	for(var/mob/comprehending_listener in langchat_listeners)
-		to_chat(world, "[comprehending_listener]")
 		comprehending_listener.client.images += langchat_image
 
 	// Generate the untranslated langchat_image. Note that we have to loop through confused listeners first here, as some
 	// might know languages that confer partial comprehension, and that would result in a unique langchat image.
 	for(var/mob/confused_listener in langchat_listeners_untranslated)
-		to_chat(world, "[confused_listener]")
 		langchat_image_untranslated.maptext = generate_text_image(message, language, additional_styles, confused_listener.languages)
 		langchat_image_untranslated.maptext_width = LANGCHAT_WIDTH
 		langchat_image_untranslated.maptext_x = get_maxptext_x_offset(langchat_image_untranslated)
@@ -171,7 +163,6 @@
 		if(langchat_image_untranslated)
 			langchat_image_untranslated.loc = recursive_holder_check(src)
 
-	to_chat(world, "about to run animate_style")
 	animate_style(langchat_image, animation_style)
 	if(langchat_listeners_untranslated)
 		animate_style(langchat_image_untranslated, animation_style)
@@ -229,7 +220,6 @@
 		if(langchat_image_untranslated)
 			langchat_image_untranslated.loc = recursive_holder_check(src)
 
-	to_chat(world, "about to run animate_style")
 	animate_style(langchat_image)
 	if(langchat_listeners_untranslated)
 		animate_style(langchat_image_untranslated)
@@ -243,7 +233,6 @@
  * Generates the maptext_image, translated or untranslated, for a given message.
  */
 /atom/proc/generate_text_image(message, datum/language/language = null, list/additional_styles = list("langchat"), list/languages = null)
-	to_chat(world, "running generate_text_image")
 	var/text_to_display = message
 	var/use_mob_style = TRUE
 	var/image/r_icon
@@ -264,14 +253,12 @@
 		text_to_display = "\icon[r_icon]&zwsp;[text_to_display]"
 
 	text_to_display = "<span class='center [additional_styles != null ? additional_styles.Join(" ") : ""] [use_mob_style ? langchat_styles : ""] langchat'>[text_to_display]</span>"
-	to_chat(world, "[text_to_display]")
 	return text_to_display
 
 /**
  * Animate the given maptext_image.
  */
 /atom/proc/animate_style(var/image/langchat_image, animation_style = LANGCHAT_DEFAULT_POP)
-	to_chat(world, "running animate_style")
 	if(langchat_image)
 		switch(animation_style)
 			if(LANGCHAT_DEFAULT_POP)
