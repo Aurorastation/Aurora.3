@@ -457,6 +457,10 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 		return FALSE
 	return TRUE
 
+/obj/structure/rod_railing/bar
+	layer = ABOVE_HUMAN_LAYER
+
+
 /obj/structure/dam
 	name = "concrete dam"
 	desc = "A hulking mass of concrete meant to hold in a large reservoir of water from passing downwards."
