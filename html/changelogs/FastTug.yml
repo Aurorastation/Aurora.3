@@ -3,5 +3,5 @@ author: TheGreyWolf
 delete-after: True
 
 changes:
-  - rscadd: "The tug is now faster, but don't gain speed when emagged."
-  - rscadd: "Added a hint to the cargo tug that it can run over people when emagged."
+  - rscadd: "The cargo and janitorial tugs are now faster, but don't gain speed when emagged."
+  - rscadd: "Added a hint to the cargo, janitorial and mining tugs that they can run over people when emagged."
