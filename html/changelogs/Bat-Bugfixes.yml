@@ -62,5 +62,4 @@ changes:
   - bugfix: "Langchat images now pop up for untranslated speech."
   - bugfix: "Cyborgs can no longer flip Plasteel Barricades remotely."
   - bugfix: "Fixed ghost vision inconsistently toggling when Following mobs."
-
-
+  - bugfix: "Removed deprecated 'Gender and Pronouns' section from Appearance Changer (has been replaced by 'Pronouns' section)."
