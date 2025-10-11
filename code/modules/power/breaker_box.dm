@@ -78,6 +78,7 @@
 
 
 /obj/machinery/power/breakerbox/attack_hand(mob/user)
+	. = ..()
 	if(update_locked)
 		to_chat(user, SPAN_BAD("System locked. Please try again later."))
 		return

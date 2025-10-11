@@ -185,6 +185,7 @@
 	return TRUE
 
 /obj/machinery/autolathe/attack_hand(mob/user)
+	. = ..()
 	if(panel_open)
 		wires.interact(user)
 	user.set_machine(src)

@@ -229,6 +229,7 @@
 	return 0
 
 /obj/machinery/lapvend/attack_hand(var/mob/user)
+	. = ..()
 	if(anchored)
 		ui_interact(user)
 	else

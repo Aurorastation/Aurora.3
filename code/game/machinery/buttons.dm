@@ -66,6 +66,7 @@
 	icon_state = "light[active]"
 
 /obj/machinery/button/switch/attack_hand()
+	. = ..()
 	playsound(src, /singleton/sound_category/switch_sound, 30)
 	intent_message(BUTTON_FLICK, 5)
 

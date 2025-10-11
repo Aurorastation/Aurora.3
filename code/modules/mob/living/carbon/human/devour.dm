@@ -101,8 +101,8 @@
 			break
 
 /mob/living/carbon/human/proc/devouring_equals(var/mob/victim)
-	for(var/obj/item/grab/G in victim.grabbed_by)
-		if(G && G.state >= GRAB_NECK)
+	for(var/obj/item/grab/G as anything in victim.grabbed_by)
+		if(G.has_grab_flags(GRAB_FORCE_HARM|GRAB_RESTRAINS))
 			return TRUE
 	return FALSE
 

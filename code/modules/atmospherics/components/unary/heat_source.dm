@@ -98,6 +98,7 @@
 	ui_interact(user)
 
 /obj/machinery/atmospherics/unary/heater/attack_hand(mob/user as mob)
+	. = ..()
 	ui_interact(user)
 
 /obj/machinery/atmospherics/unary/heater/ui_interact(mob/user, var/datum/tgui/ui)

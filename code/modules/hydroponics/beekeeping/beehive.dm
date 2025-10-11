@@ -157,6 +157,7 @@
 		return
 
 /obj/machinery/beehive/attack_hand(mob/user)
+	. = ..()
 	if(!closed)
 		if(honeycombs < 100)
 			to_chat(user, SPAN_WARNING("There are no filled honeycombs."))

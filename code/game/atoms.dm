@@ -652,3 +652,14 @@
 		return
 	. = density
 	density = new_value
+
+/**
+	Handle this atom being hit by a grab.
+
+	Called by resolve_attackby()
+
+	- `G`: The grab hitting this atom
+	- Return: `TRUE` to skip attackby() and afterattack() or `FALSE`
+*/
+/atom/proc/grab_attack(obj/item/grab/G, mob/user)
+	return FALSE

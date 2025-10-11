@@ -35,6 +35,7 @@
 		return
 
 /obj/vehicle/unicycle/attack_hand(var/mob/user as mob)
+	. = ..()
 	if(user == load)
 		unload(load)
 		to_chat(user, "You climb on \the [src]")

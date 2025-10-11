@@ -187,6 +187,7 @@
 		return
 
 /obj/machinery/centrifuge/attack_hand(mob/user)
+	. = ..()
 
 	if(!LAZYLEN(samples))
 		to_chat(user, SPAN_WARNING("\The [src] has no samples to examine."))
@@ -304,6 +305,7 @@
 		return
 
 /obj/machinery/spectrophotometer/attack_hand(mob/user)
+	. = ..()
 	if(open)
 		if(!sample)
 			to_chat(user, SPAN_WARNING("\The [src] has no samples to remove."))

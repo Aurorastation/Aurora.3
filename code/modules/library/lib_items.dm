@@ -51,6 +51,7 @@
 		..()
 
 /obj/structure/bookcase/attack_hand(var/mob/user)
+	. = ..()
 	if(contents.len)
 		var/obj/item/book/choice = tgui_input_list(user, "Which book would you like to remove from the shelf?", "Bookcase", contents)
 		if(choice)

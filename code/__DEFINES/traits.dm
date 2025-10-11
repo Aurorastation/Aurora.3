@@ -115,6 +115,8 @@
 			: FALSE)\
 		: FALSE)
 #define HAS_TRAIT_NOT_FROM(target, trait, source) (target.status_traits ? (target.status_traits[trait] ? (length(target.status_traits[trait] - source) > 0) : FALSE) : FALSE)
+/// Returns a list of trait sources for this trait.
+#define GET_TRAIT_SOURCES(target, trait) (target.status_traits?[trait] || list())
 
 // common trait sources
 #define TRAIT_GENERIC "generic"
@@ -216,3 +218,6 @@
 
 /// Trait given when the mob lies down.
 #define TRAIT_SOURCE_LYING_DOWN "lying_down"
+
+/// Gloves give you an instant aggressive grab
+#define TRAIT_AGGRESSIVE_GRAB "aggressive_grab"

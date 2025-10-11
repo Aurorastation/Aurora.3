@@ -22,6 +22,7 @@
 			. += SPAN_NOTICE("It has a note attached which reads, \"[examtext]\".")
 
 /obj/structure/bigDelivery/attack_hand(mob/user as mob)
+	. = ..()
 	unwrap()
 
 /obj/structure/bigDelivery/attack_ai(mob/user)

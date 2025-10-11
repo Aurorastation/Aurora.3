@@ -114,6 +114,8 @@
 	var/blood_volume = DEFAULT_BLOOD_AMOUNT // Blood volume.
 	var/injection_mod = 1                    // Multiplicative time modifier on syringe injections
 
+	var/grab_type = /singleton/grab/normal/passive // The species' default grab type.
+
 	var/vision_flags = DEFAULT_SIGHT         // Same flags as glasses.
 	var/inherent_eye_protection              // If set, this species has this level of inherent eye protection.
 	var/eyes_are_impermeable = FALSE         // If TRUE, this species' eyes are not damaged by phoron.

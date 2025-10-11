@@ -216,7 +216,7 @@
 		securitylock = FALSE
 
 /obj/machinery/door/blast/attack_hand(mob/user as mob)
-	return
+	. = ..()
 
 // SUBTYPE: Regular
 // Your classical blast door, found almost everywhere.

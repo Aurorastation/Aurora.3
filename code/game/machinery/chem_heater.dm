@@ -31,6 +31,7 @@
 	. += "Upgraded <b>manipulators</b> increase the speed at which vessel contents are heated."
 
 /obj/machinery/chem_heater/attack_hand(mob/user)
+	. = ..()
 	user.set_machine(src)
 	interact(user)
 

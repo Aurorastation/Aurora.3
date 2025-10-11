@@ -108,7 +108,7 @@
 	..()
 	INVOKE_ASYNC(src, PROC_REF(update_wearer))
 
-/obj/item/clothing/shoes/magboots/mob_can_unequip()
+/obj/item/clothing/shoes/magboots/mob_can_unequip(mob/M, slot, disable_warning = FALSE, dropping = FALSE)
 	. = ..()
 	if (.)
 		INVOKE_ASYNC(src, PROC_REF(update_wearer))

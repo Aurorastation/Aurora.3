@@ -235,6 +235,7 @@
 	update_icon()
 
 /obj/structure/cart/storage/janitorialcart/attack_hand(mob/user)
+	. = ..()
 	ui_interact(user)
 	return
 

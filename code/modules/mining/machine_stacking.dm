@@ -60,6 +60,7 @@
 	return ..()
 
 /obj/machinery/mineral/stacking_unit_console/attack_hand(mob/user)
+	. = ..()
 	add_fingerprint(user)
 	ui_interact(user)
 

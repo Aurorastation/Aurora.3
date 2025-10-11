@@ -116,6 +116,7 @@
 	last_process_time = world.time
 
 /obj/machinery/replicator/attack_hand(mob/user as mob)
+	. = ..()
 	interact(user)
 
 /obj/machinery/replicator/interact(mob/user)

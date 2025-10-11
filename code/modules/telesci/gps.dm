@@ -366,7 +366,7 @@ GLOBAL_LIST_EMPTY(gps_list)
 	return INITIALIZE_HINT_NORMAL
 
 /obj/item/device/gps/stationary/attack_hand() // Don't let users pick it up.
-	return
+	SHOULD_CALL_PARENT(FALSE)
 
 // Spark
 /obj/item/device/gps/stationary/mining_shuttle

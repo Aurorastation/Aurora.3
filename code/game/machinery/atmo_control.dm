@@ -171,6 +171,7 @@
 	return data
 
 /obj/machinery/computer/general_air_control/attack_hand(mob/user)
+	. = ..()
 	ui_interact(user)
 
 /obj/machinery/computer/general_air_control/ui_interact(mob/user, var/datum/tgui/ui)

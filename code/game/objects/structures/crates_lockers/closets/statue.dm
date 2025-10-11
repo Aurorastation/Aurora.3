@@ -156,7 +156,7 @@
 	return
 
 /obj/structure/closet/statue/attack_hand()
-	return
+	SHOULD_CALL_PARENT(FALSE)
 
 /obj/structure/closet/statue/verb_toggleopen()
 	return

@@ -175,8 +175,8 @@
 			if(ishuman(victim) && !islesserform(M))
 				to_chat(src, SPAN_WARNING("You can't devour humanoids!"))
 				return FALSE
-			for(var/obj/item/grab/G in M.grabbed_by)
-				if(G && G.state < GRAB_NECK)
+			for(var/obj/item/grab/G as anything in M.grabbed_by)
+				if(!G.has_grab_flags(GRAB_RESTRAINS))
 					if(!silent)
 						to_chat(src, SPAN_WARNING("You need a tighter hold on \the [M]!"))
 					return FALSE
@@ -969,7 +969,11 @@
 			xylophone=0
 	return
 
-/mob/living/carbon/human/proc/check_has_mouth()
+/mob/living/carbon/human/check_has_eyes()
+	var/obj/item/organ/internal/eyes = GET_INTERNAL_ORGAN(src, BP_EYES)
+	. = eyes?.is_usable()
+
+/mob/living/carbon/human/check_has_mouth()
 	// Todo, check stomach organ when implemented.
 	var/obj/item/organ/external/E = get_organ(BP_HEAD)
 	if(E && !E.is_stump())

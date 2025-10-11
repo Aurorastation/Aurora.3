@@ -73,13 +73,5 @@
 
 /mob/living/silicon/robot/movement_delay()
 	. = speed
-	. += get_pulling_movement_delay()
-
-/mob/living/silicon/robot/get_pulling_movement_delay()
-	. = ..()
-
-	if(ishuman(pulling))
-		var/mob/living/carbon/human/H = pulling
-		if(H.species.slowdown > speed)
-			. += H.species.slowdown - speed
-		// . += H.ClothesSlowdown()
+	for(var/obj/item/grab/G as anything in get_active_grabs())
+		. += G.grab_slowdown()

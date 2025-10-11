@@ -57,6 +57,7 @@
 				qdel(O)
 
 /obj/machinery/mineral/mint/attack_hand(user)
+	. = ..()
 	var/dat = "<b>Coin Press</b><br>"
 
 	if(!input)

@@ -1397,6 +1397,7 @@
 	. += "Use the Harm intent to signal a disqualification."
 
 /obj/item/toy/ringbell/attack_hand(mob/user)
+	. = ..()
 	switch(user.a_intent)
 		if (I_HELP)
 			user.visible_message(FONT_LARGE(SPAN_NOTICE("[user] rings \the [src], signalling the beginning of the contest.")), SPAN_NOTICE("You ring \the [src] to signal the beginning of the contest!"))

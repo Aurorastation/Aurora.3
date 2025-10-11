@@ -236,6 +236,7 @@ GLOBAL_LIST_INIT(tape_roll_applications, list())
 	return breaktape(attacking_item, user)
 
 /obj/item/tape/attack_hand(mob/user)
+	. = ..()
 	if(user.a_intent == I_HELP)
 		lifted = !lifted
 		user.visible_message("<b>[user]</b> [lifted ? "lifts" : "drops"] the [initial(name)], [lifted ? "allowing" : "blocking"] passage.", SPAN_NOTICE("You [lifted ? "lift" : "drop"] the [initial(name)], [lifted ? "allowing" : "blocking"] passage."))

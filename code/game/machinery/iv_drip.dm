@@ -507,6 +507,7 @@
 	return attack_hand(user)
 
 /obj/machinery/iv_drip/attack_hand(mob/user)
+	. = ..()
 	if(use_check_and_message(user))
 		return
 	if(isDrone(user))

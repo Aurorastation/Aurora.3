@@ -63,6 +63,7 @@
 		update_icon()
 
 /obj/machinery/r_n_d/weapons_analyzer/attack_hand(mob/user)
+	. = ..()
 	user.set_machine(src)
 	ui_interact(user)
 

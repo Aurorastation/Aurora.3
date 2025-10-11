@@ -13,7 +13,7 @@
 	if(!src.get_pressure_weakness())
 		to_chat(src, SPAN_WARNING("We cannot absorb this creature from inside a sealed environment."))
 		return
-	var/mob/living/carbon/human/T = G.affecting
+	var/mob/living/carbon/human/T = G.get_grabbed_mob()
 	if(!istype(T))
 		to_chat(src, SPAN_WARNING("[T] is not compatible with our biology."))
 		return
@@ -26,7 +26,7 @@
 	if((T.mutations & HUSK))
 		to_chat(src, SPAN_WARNING("This creature's DNA is ruined beyond useability!"))
 		return
-	if(G.state != GRAB_KILL)
+	if(!G.has_grab_flags(GRAB_LING_ABSORB))
 		to_chat(src, SPAN_WARNING("We must have a tighter grip to absorb this creature."))
 		return
 	for(var/datum/absorbed_dna/D in changeling.absorbed_dna)

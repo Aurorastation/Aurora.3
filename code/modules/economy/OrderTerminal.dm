@@ -54,6 +54,7 @@
 		return
 
 /obj/machinery/orderterminal/attack_hand(var/mob/user)
+	. = ..()
 	ui_interact(user)
 
 /obj/machinery/orderterminal/ui_interact(mob/user, var/datum/tgui/ui)

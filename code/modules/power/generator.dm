@@ -187,6 +187,7 @@
 		..()
 
 /obj/machinery/power/generator/attack_hand(mob/user)
+	. = ..()
 	add_fingerprint(user)
 	if(stat & (BROKEN|NOPOWER) || !anchored) return
 	if(!circ1 || !circ2) //Just incase the middle part of the TEG was not wrenched last.

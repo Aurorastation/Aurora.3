@@ -1,13 +1,3 @@
-//mob verbs are faster than object verbs. See mob/verb/examine.
-/mob/living/verb/pulled(atom/movable/AM as mob|obj in oview(1))
-	set name = "Pull"
-	set category = "Object"
-
-	if(AM.Adjacent(src))
-		src.start_pulling(AM)
-
-	return
-
 /mob/living/_pointed(atom/pointing_at)
 	if(src.stat || src.restrained())
 		return FALSE
@@ -60,16 +50,9 @@ default behaviour is:
 		var/mob/living/tmob = AM
 
 		for(var/mob/living/M in range(tmob, 1))
-			if(tmob.pinned.len || ((M.pulling == tmob && ( tmob.restrained() && !( M.restrained() ) && M.stat == 0)) || locate(/obj/item/grab, tmob.grabbed_by.len)) )
+			if(tmob.pinned.len || locate(/obj/item/grab, LAZYLEN(tmob.grabbed_by)))
 				if (last_push_notif + 0.5 SECONDS <= world.time)
-					to_chat(src, SPAN_WARNING("[tmob] is restrained, you cannot push past"))
-					last_push_notif = world.time
-
-				now_pushing = FALSE
-				return
-			if( tmob.pulling == M && ( M.restrained() && !( tmob.restrained() ) && tmob.stat == 0) )
-				if (last_push_notif + 0.5 SECONDS <= world.time)
-					to_chat(src, SPAN_WARNING("[tmob] is restraining [M], you cannot push past"))
+					to_chat(src, SPAN_WARNING("[tmob] is restrained, you cannot push past."))
 					last_push_notif = world.time
 
 				now_pushing = FALSE
@@ -85,25 +68,8 @@ default behaviour is:
 		if(can_swap_with(tmob)) // mutual brohugs all around!
 			var/turf/tmob_oldloc = get_turf(tmob)
 			var/turf/src_oldloc = get_turf(src)
-			if(pulling?.density)
-				tmob.forceMove(pulling.loc)
-				forceMove(tmob_oldloc)
-				pulling.forceMove(src_oldloc)
-			else if(tmob.pulling?.density)
-				forceMove(tmob.pulling.loc)
-				tmob.forceMove(src_oldloc)
-				tmob.pulling.forceMove(tmob_oldloc)
-			else
-				forceMove(tmob_oldloc)
-				if(pulling)
-					pulling.forceMove(src_oldloc)
-				tmob.forceMove(src_oldloc)
-				if(tmob.pulling)
-					tmob.pulling.forceMove(tmob_oldloc)
-			for(var/obj/item/grab/G in list(l_hand, r_hand))
-				G.affecting.forceMove(loc)
-			for(var/obj/item/grab/G in list(tmob.l_hand, tmob.r_hand))
-				G.affecting.forceMove(tmob.loc)
+			forceMove(tmob_oldloc)
+			tmob.forceMove(src_oldloc)
 			now_pushing = FALSE
 			for(var/mob/living/carbon/slime/slime in view(2, tmob))
 				if(slime.victim == tmob)
@@ -163,10 +129,9 @@ default behaviour is:
 			step(AM, t)
 			if(ishuman(AM))
 				var/mob/living/carbon/human/H = AM
-				if(H.grabbed_by)
-					for(var/obj/item/grab/G in H.grabbed_by)
-						step(G.assailant, get_dir(G.assailant, H))
-						G.adjust_position()
+				for(var/obj/item/grab/G as anything in H.grabbed_by)
+					step(G.grabber, get_dir(G.grabber, H))
+					G.adjust_position()
 
 		now_pushing = FALSE
 
@@ -213,9 +178,6 @@ default behaviour is:
 		return FALSE
 
 	if(swap_density_check(tmob, src))
-		return FALSE
-
-	if(pulling?.density && tmob.pulling?.density) // if both are pulling, don't shuffle
 		return FALSE
 
 	return can_move_mob(tmob, 1, 0)
@@ -570,105 +532,86 @@ default behaviour is:
 /mob/living/proc/UpdateDamageIcon()
 	return
 
+/mob/living/handle_grabs_after_move(turf/old_loc, direction)
+	..()
+
+	var/list/my_grabs = get_active_grabs()
+
+	if(!isturf(loc))
+		for(var/obj/item/grab/G as anything in my_grabs)
+			qdel(G)
+		return
+
+	if(isturf(old_loc))
+		for(var/atom/movable/AM as anything in ret_grab())
+			if(AM != src && AM.loc != loc && !AM.anchored && old_loc.Adjacent(AM))
+				if(GET_Z(AM) <= GET_Z(src))
+					AM.glide_size = glide_size
+					step(AM, get_dir(get_turf(AM), old_loc))
+				else
+					AM.dropInto(get_turf(src))
+
+	for(var/obj/item/grab/G as anything in my_grabs)
+		if(HAS_GRAB_FLAGS(G, GRAB_REVERSE_FACING))
+			set_dir(REVERSE_DIR(direction))
+		G.grabber_moved()
+		if(QDELETED(G) || QDELETED(G.grabbed))
+			my_grabs -= G
+
+	if(LAZYLEN(grabbed_by))
+		for(var/obj/item/grab/G as anything in grabbed_by)
+			G.adjust_position()
+		reset_offsets()
+		reset_plane_and_layer()
+
+	if(!LAZYLEN(my_grabs))
+		return
+
+	if(direction & (UP|DOWN))
+		var/txt_dir = (direction & UP) ? "upwards" : "downwards"
+		if(old_loc)
+			old_loc.visible_message(SPAN_NOTICE("\The [src] moves [txt_dir]."))
+		for(var/obj/item/grab/G as anything in my_grabs)
+			var/turf/start = G.grabbed.loc
+			if(!isturf(start))
+				continue
+			var/turf/destination = (direction == UP) ? GET_TURF_ABOVE(start) : GET_TURF_BELOW(start)
+			if(!start.CanZPass(G.grabbed, direction))
+				to_chat(src, SPAN_WARNING("\The [start] blocks you from pulling [G.grabbed]!"))
+				my_grabs -= G
+				qdel(G)
+				continue
+			for(var/atom/A in destination)
+				if(!A.CanMoveOnto(G.grabbed, start, 1.5, direction))
+					to_chat(src, SPAN_WARNING("\The [A] blocks you from pulling [G.grabbed]"))
+					my_grabs -= G
+					qdel(G)
+					continue
+			G.grabbed.forceMove(destination)
+			if(QDELETED(G) || QDELETED(G.grabbed))
+				my_grabs -= G
+			continue
+	if(LAZYLEN(my_grabs))
+		for(var/obj/item/grab/G as anything in my_grabs)
+			var/mob/living/grabbed_mob = G.get_grabbed_mob()
+			if(grabbed_mob)
+				grabbed_mob.handle_grab_damage()
+
 /mob/living/Move(atom/newloc, direct)
 	if (buckled_to)
 		return
 
-	if (restrained())
-		stop_pulling()
+	var/turf/old_loc = loc
+	. = ..()
+	if(.)
+		handle_grabs_after_move(old_loc, direct)
 
+		if (s_active && !s_active.Adjacent(src))	//check !( s_active in contents ) first so we hopefully don't have to call get_turf() so much.
+			s_active.close(src)
 
-	var/t7 = 1
-	if (restrained())
-		for(var/mob/living/M in range(src, 1))
-			if ((M.pulling == src && M.stat == 0 && !( M.restrained() )))
-				t7 = null
-	if ((t7 && (pulling && ((get_dist(src, pulling) <= 1 || pulling.loc == loc) && (client && client.moving)))))
-		var/turf/T = loc
-		. = ..()
-
-		if (pulling && pulling.loc)
-			if(!( isturf(pulling.loc) ))
-				stop_pulling()
-				return
-
-		/////
-		if(pulling && pulling.anchored)
-			stop_pulling()
-			return
-
-		if (!restrained())
-			var/diag = get_dir(src, pulling)
-			if (!((diag - 1) & diag))
-				diag = null
-			if ((get_dist(src, pulling) > 1 || diag))
-				if (isliving(pulling))
-					var/mob/living/M = pulling
-					var/ok = 1
-					if (locate(/obj/item/grab, M.grabbed_by))
-						if (prob(75))
-							var/obj/item/grab/G = pick(M.grabbed_by)
-							if (istype(G, /obj/item/grab))
-								for(var/mob/O in viewers(M, null))
-									O.show_message(SPAN_WARNING("[G.affecting] has been pulled from [G.assailant]'s grip by [src]"), 1)
-								//G = null
-								qdel(G)
-						else
-							ok = 0
-						if (locate(/obj/item/grab, M.grabbed_by.len))
-							ok = 0
-					if (ok)
-						var/atom/movable/t = M.pulling
-						M.stop_pulling()
-
-						if(!istype(M.loc, /turf/space))
-							var/area/A = get_area(M)
-							if(A.has_gravity())
-								//this is the gay blood on floor shit -- Added back -- Skie
-								if (M.lying && (prob(M.getBruteLoss() / 6)))
-									var/turf/location = M.loc
-									if (istype(location, /turf/simulated))
-										location.add_blood(M)
-								//pull damage with injured people
-									if(prob(25))
-										M.adjustBruteLoss(1)
-										visible_message(SPAN_DANGER("\The [M]'s [M.isSynthetic() ? "state worsens": "wounds open more"] from being dragged!"))
-								if(M.pull_damage())
-									if(prob(25))
-										M.adjustBruteLoss(2)
-										visible_message(SPAN_DANGER("\The [M]'s [M.isSynthetic() ? "state" : "wounds"] worsen terribly from being dragged!"))
-										var/turf/location = M.loc
-										if (istype(location, /turf/simulated))
-											location.add_blood(M)
-											if(ishuman(M))
-												var/mob/living/carbon/human/H = M
-												var/total_blood = round(REAGENT_VOLUME(H.vessel, /singleton/reagent/blood))
-												if(total_blood > 0)
-													H.vessel.remove_reagent(/singleton/reagent/blood, 1)
-
-
-						step(pulling, get_dir(pulling.loc, T))
-						if(t)
-							M.start_pulling(t)
-				else
-					if (pulling)
-						if (istype(pulling, /obj/structure/window))
-							var/obj/structure/window/W = pulling
-							if(W.is_full_window())
-								for(var/obj/structure/window/win in get_step(pulling,get_dir(pulling.loc, T)))
-									stop_pulling()
-					if (pulling)
-						step(pulling, get_dir(pulling.loc, T))
-	else
-		stop_pulling()
-		. = ..()
-
-	if (s_active && !s_active.Adjacent(src))	//check !( s_active in contents ) first so we hopefully don't have to call get_turf() so much.
-		s_active.close(src)
-
-	if(update_slimes)
-		for(var/mob/living/carbon/slime/M in view(1,src))
-			M.UpdateFeed(src)
+		if(update_slimes)
+			for(var/mob/living/carbon/slime/M in view(1,src))
+				M.UpdateFeed(src)
 
 /mob/living/verb/resist()
 	set name = "Resist"
@@ -734,51 +677,11 @@ default behaviour is:
 	if(buckled_to)
 		buckled_to.user_unbuckle(src)
 
-/mob/living/var/last_resist
-
 /mob/living/proc/resist_grab()
-	if(last_resist + 10 > world.time)
-		return
-	last_resist = world.time
-	if(stunned > 10)
-		to_chat(src, SPAN_NOTICE("You can't move..."))
-		return
-	var/resisting = 0
-	for(var/obj/O in requests)
-		requests.Remove(O)
-		qdel(O)
-		resisting++
-	var/resist_power = get_resist_power() // How easily the mob can break out of a grab
-	for(var/obj/item/grab/G in grabbed_by)
-		resisting++
-		var/resist_chance
-		var/resist_msg
-		switch(G.state)
-			if(GRAB_PASSIVE)
-				if(incapacitated(INCAPACITATION_DISABLED) || src.lying)
-					resist_chance = 30 * resist_power
-				else
-					resist_chance = 70 * resist_power //only a bit difficult to break out of a passive grab
-				resist_msg = SPAN_WARNING("[src] pulls away from [G.assailant]'s grip!")
-			if(GRAB_AGGRESSIVE)
-				if(incapacitated(INCAPACITATION_DISABLED) || src.lying)
-					resist_chance = 15 * resist_power
-				else
-					resist_chance = 50 * resist_power
-				resist_msg = SPAN_WARNING("[src] has broken free of [G.assailant]'s grip!")
-			if(GRAB_NECK)
-				//If the you move when grabbing someone then it's easier for them to break free. Same if the affected mob is immune to stun.
-				if(world.time - G.assailant.l_move_time < 30 || !stunned || !src.lying || incapacitated(INCAPACITATION_DISABLED))
-					resist_chance = 15 * resist_power
-				else
-					resist_chance = 3 * resist_power
-				resist_msg = SPAN_DANGER("[src] has broken free of [G.assailant]'s headlock!")
-
-		if(prob(resist_chance))
-			visible_message(resist_msg)
-			qdel(G)
-			break
-
+	var/resisting = FALSE
+	for(var/obj/item/grab/G as anything in grabbed_by)
+		resisting = TRUE
+		G.handle_resist()
 	if(resisting)
 		visible_message(SPAN_WARNING("[src] resists!"))
 		setClickCooldown(2.5 SECONDS)
@@ -790,7 +693,7 @@ default behaviour is:
 	if(last_special + 1 SECOND > world.time)
 		to_chat(src, SPAN_WARNING("You're too tired to do this now!"))
 		return
-	if(in_neck_grab())
+	if(incapacitated(INCAPACITATION_RESTRAINED))
 		to_chat(src, SPAN_WARNING("You are being restrained!"))
 		return
 	last_special = world.time

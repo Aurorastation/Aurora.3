@@ -28,7 +28,7 @@
 	prints_prosthetics = 1
 
 /obj/machinery/bioprinter/attack_hand(mob/user)
-
+	. = ..()
 	var/choice = tgui_input_list(usr, "What would you like to print?", "Bioprinter", products)
 	if(!choice)
 		return
