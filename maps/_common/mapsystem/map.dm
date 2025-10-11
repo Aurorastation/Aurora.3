@@ -31,7 +31,7 @@
 	/// Custom base turf by Z-level. Defaults to world.turf for unlisted Z-levels
 	var/list/base_turf_by_z = list()
 
-	//This list contains the z-level numbers which can be accessed via space travel and the percentile chances to get there.
+	/// This list contains the z-level numbers which can be accessed via space travel and the percentile chances to get there.
 	var/list/accessible_z_levels = list()
 
 	var/list/allowed_jobs
@@ -107,17 +107,17 @@
 	/// If a number, transition between the lobby screens with this delay instead of picking just one.
 	var/lobby_transitions = FALSE
 
-	///If overmap should be used (including overmap space travel override)
+	/// If overmap should be used (including overmap space travel override)
 	var/use_overmap = FALSE
-	///Dimensions of overmap zlevel if overmap is used.
+	/// Dimensions of overmap zlevel if overmap is used.
 	var/overmap_size = 20
-	///If 0 will generate overmap zlevel on init. Otherwise will populate the zlevel provided.
+	/// If 0 will generate overmap zlevel on init. Otherwise will populate the zlevel provided.
 	var/overmap_z = 0
-	///How many event "clouds" will be generated
+	/// How many event "clouds" will be generated
 	var/overmap_event_areas = 0
 	/// A list of all our shuttles.
 	var/list/map_shuttles = list()
-	///What is the default space sector for this map
+	/// What is the default space sector for this map
 	var/default_sector = SECTOR_ROMANOVICH
 
 	//event messages
