@@ -551,7 +551,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "bp" = (
-/obj/item/storage/box/freezer/organcooler{
+/obj/item/storage/box/unique/freezer/organcooler{
 	pixel_x = -10;
 	pixel_y = -1
 	},
@@ -606,7 +606,7 @@
 /area/template_noop)
 "bv" = (
 /obj/structure/table/skrell,
-/obj/item/storage/box/sharps,
+/obj/item/storage/box/unique/sharps,
 /obj/effect/floor_decal/corner/mauve/full{
 	dir = 1
 	},

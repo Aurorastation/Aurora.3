@@ -138,9 +138,9 @@
 			footsound = T.footstep_sound
 
 	if (client)
-		var/turf/B = GET_TURF_ABOVE(T)
+		var/turf/T1 = GET_TURF_ABOVE(T)
 		if(up_hint)
-			up_hint.icon_state = "uphint[(B ? !!B.is_hole : 0)]"
+			up_hint.icon_state = "uphint[(T1 ? !!isopenturf(T1) : 0)]"
 
 	if (!stat && !lying)
 		if ((x == last_x && y == last_y) || !footsound)

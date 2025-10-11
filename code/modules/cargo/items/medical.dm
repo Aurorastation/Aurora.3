@@ -739,7 +739,7 @@
 	description = "A sealed, cooled container to keep organs from decaying."
 	price = 80
 	items = list(
-		/obj/item/storage/box/freezer/organcooler
+		/obj/item/storage/box/unique/freezer/organcooler
 	)
 	access = ACCESS_MEDICAL
 	container_type = "crate"

@@ -616,3 +616,14 @@
 	. = ..()
 	amount = max_amount
 	update_icon()
+
+// Fusion fuel.
+/obj/item/stack/material/boron
+	name = "boron"
+	icon_state = "puck"
+	default_type = MATERIAL_BORON
+
+/obj/item/stack/material/boron/full/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()

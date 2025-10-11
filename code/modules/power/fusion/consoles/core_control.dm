@@ -53,15 +53,25 @@
 		for(var/i = 1 to LAZYLEN(fusion_cores))
 			var/list/core = list()
 			var/obj/machinery/power/fusion_core/C = fusion_cores[i]
+			var/power_available = C.avail()
+			var/power_usage = C.active_power_usage
+			var/power_generated = C.owned_field?.output_avg
+
 			core["id"] = "#[i]"
 			core["ref"] = "[REF(C)]"
 			core["field"] = !isnull(C.owned_field)
 			core["power"] = "[C.field_strength / 10]"
 			core["field_strength"] = C.field_strength
+			core["field_strength_max"] = C.field_strength_max
+			core["entropy_multiplier"] =  C.owned_field ? round(C.owned_field.field_strength_entropy_multiplier, 0.01) : 1
+			core["instability_multiplier"] =  C.owned_field ? round(C.owned_field.field_strength_instability_multiplier, 0.01) : 1
+			core["power_multiplier"] = C.owned_field ? round(C.owned_field.field_strength_power_multiplier, 0.01) : 1
 			core["size"] =  C.owned_field ? C.owned_field.size : 0
 			core["instability"] = C.owned_field ? C.owned_field.percent_unstable * 100 : -1 //%
 			core["temperature"] = C.owned_field ? C.owned_field.plasma_temperature + 295 : -1 //K
-			core["power_status"] = "[C.avail()]/[C.active_power_usage]"
+			core["power_available"] = "[power_wattage_readable(power_available)]"
+			core["power_usage"] = "[power_wattage_readable(power_usage)]"
+			core["power_generated"] = "[power_wattage_readable(power_generated)]"
 			core["shutdown_safe"] = C.owned_field ? C.owned_field.is_shutdown_safe() : TRUE
 
 			var/list/reactants = list()

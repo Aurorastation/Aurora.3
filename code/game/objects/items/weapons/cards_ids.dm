@@ -86,6 +86,10 @@
 	origin_tech = list(TECH_MAGNET = 2, TECH_ILLEGAL = 2)
 	var/uses = 10
 
+/obj/item/card/emag/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += SPAN_NOTICE("\The [src] has [uses] use\s left.")
+
 /obj/item/card/emag_broken
 	desc = "It's a card with a magnetic strip attached to some circuitry. It looks too busted to be used for anything but salvage."
 	name = "broken cryptographic sequencer"
