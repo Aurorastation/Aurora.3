@@ -126,6 +126,7 @@
 	langchat_make_image(override_color)
 
 	langchat_listeners = listeners
+	langchat_listeners_untranslated = list()
 	var/mob/listener
 	// Listener list management.
 	for(listener in langchat_listeners)

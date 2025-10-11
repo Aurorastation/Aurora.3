@@ -186,7 +186,7 @@
 
 /obj/structure/barricade/plasteel/attack_hand(mob/user as mob)
 	// For preventing cyborgs from flipping barricades remotely.
-	if(!is_adjacent(user))
+	if(get_dist(src, user) > 1)
 		return FALSE
 
 	if(closed)
