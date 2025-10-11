@@ -134,6 +134,7 @@
 		// Remove those who have the langchat_client disabled or who are deaf.
 		if(!langchat_client_enabled(listener) || listener.ear_deaf)
 			langchat_listeners -= listener
+			continue
 		// Handle listeners who don't understand the language being spoken.
 		if(!skip_language_check && !listener.say_understands(src, language))
 			langchat_listeners_untranslated += listener
