@@ -51,7 +51,7 @@
 
 /obj/effect/decal/fake_object/light_source/Initialize()
 	.=..()
-	set_light()
+	set_light(light_power, light_range, light_color)
 
 /obj/effect/decal/fake_object/light_source/invisible
 	simulated = 0

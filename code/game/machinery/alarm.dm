@@ -595,7 +595,8 @@ pixel_x = 10;
 		if (2)
 			new_color = COLOR_RED_LIGHT
 
-	set_light(l_range = L_WALLMOUNT_RANGE, l_power = L_WALLMOUNT_POWER, l_color = new_color)
+	if(light_color != new_color)
+		set_light(L_WALLMOUNT_RANGE, L_WALLMOUNT_POWER, new_color)
 
 	if(regulating_temperature)
 		AddOverlays("alarm_fan_on")

@@ -2,6 +2,7 @@
 	name = "green glowstick"
 	desc = "A green military-grade glowstick."
 	w_class = WEIGHT_CLASS_SMALL
+	light_system = MOVABLE_LIGHT
 	light_range = 1.2
 	flashlight_power = 2
 	light_color = "#49F37C"
@@ -15,7 +16,7 @@
 /obj/item/device/flashlight/flare/glowstick/Initialize()
 	. = ..()
 	fuel = rand(9 MINUTES, 12 MINUTES)
-	light_color = color
+	set_light_color(color)
 
 /obj/item/device/flashlight/flare/glowstick/process()
 	fuel = max(fuel - 1, 0)
@@ -29,14 +30,15 @@
 	overlays.Cut()
 	if(!fuel)
 		icon_state = "[initial(icon_state)]-empty"
-		set_light(0)
+		set_light_on(0)
 	else if(on)
 		var/image/I = overlay_image(icon, "glowstick-overlay", color)
 		I.blend_mode = BLEND_ADD
 		AddOverlays(I)
 		icon_state = "[initial(icon_state)]-on"
 		item_state = "[initial(icon_state)]-on"
-		set_light(light_range, flashlight_power, light_color)
+		set_light_range_power_color(light_range, flashlight_power, light_color)
+		set_light_on(on)
 	else
 		icon_state = initial(icon_state)
 	update_held_icon()

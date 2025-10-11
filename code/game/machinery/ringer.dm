@@ -100,15 +100,15 @@ pixel_x = 8;
 		return
 	if(rings_pdas || rings_pdas.len)
 		screen = overlay_image(icon, "bell-active")
-		set_light(1.4, 1, COLOR_CYAN)
+		set_light(L_WALLMOUNT_POWER, L_WALLMOUNT_RANGE, COLOR_CYAN)
 	if(pinged)
 		screen = overlay_image(icon, "bell-alert")
-		set_light(1.4, 1, COLOR_CYAN)
+		set_light(L_WALLMOUNT_POWER, L_WALLMOUNT_RANGE, COLOR_CYAN)
 	if(on)
 		AddOverlays("bell-scanline")
 	else
 		screen = overlay_image(icon, "bell-standby")
-		set_light(1.4, 1, COLOR_CYAN)
+		set_light(L_WALLMOUNT_POWER, L_WALLMOUNT_RANGE, COLOR_CYAN)
 	AddOverlays(screen_hologram)
 	AddOverlays(screen)
 	AddOverlays(screen_emis)

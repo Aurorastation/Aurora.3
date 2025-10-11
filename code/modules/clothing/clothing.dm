@@ -651,10 +651,10 @@
 
 /obj/item/clothing/head/proc/update_flashlight(var/mob/user = null)
 	if(on && !light_applied)
-		set_light_on(light_applied)
+		set_light_on(on)
 		light_applied = 1
 	else if(!on && light_applied)
-		set_light_on(0)
+		set_light_on(on)
 		light_applied = 0
 	update_icon(user)
 	user.update_action_buttons()

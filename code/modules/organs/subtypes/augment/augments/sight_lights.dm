@@ -31,18 +31,19 @@
 	lights_on = !lights_on
 
 	if(lights_on)
-		set_light(lights_range, lights_intensity, lights_color, uv = 0)
+		set_light_range_power_color(lights_range, lights_intensity, lights_color)
+		set_light_on(TRUE)
 	else
-		set_light(0)
+		set_light_on(FALSE)
 
 /obj/item/organ/internal/augment/sightlights/emp_act(severity)
 	. = ..()
-	set_light(0)
+	set_light_on(FALSE)
 
 /obj/item/organ/internal/augment/sightlights/take_damage(var/amount, var/silent = 0)
 	. = ..()
-	set_light(0)
+	set_light_on(FALSE)
 
 /obj/item/organ/internal/augment/sightlights/take_internal_damage(var/amount, var/silent = 0)
 	. = ..()
-	set_light(0)
+	set_light_on(FALSE)

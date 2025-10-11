@@ -7,7 +7,7 @@
 	density = TRUE
 	obj_flags = OBJ_FLAG_ROTATABLE
 	light_system = MOVABLE_LIGHT
-	light_range = 8
+	light_range = 6
 	light_color = LIGHT_COLOR_TUNGSTEN
 
 	var/on = FALSE

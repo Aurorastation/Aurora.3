@@ -349,6 +349,7 @@
 	always_on = TRUE
 	power_usage = FALSE
 	light_color = LIGHT_COLOR_SLIME_LAMP
+	light_system = MOVABLE_LIGHT
 
 /obj/item/device/flashlight/headlights
 	name = "headlights"
@@ -375,6 +376,7 @@
 	cell_type = /obj/item/cell
 	accepts_large_cells = TRUE
 	light_color = LIGHT_COLOR_FIRE
+	light_system = MOVABLE_LIGHT
 
 /obj/item/device/flashlight/lantern/update_icon()
 	..()
