@@ -444,7 +444,9 @@
 	//Sleeping stuff
 	/// Does this species sleep standing up?
 	var/sleeps_upright = FALSE
-	/// The key of the emote to play when this species is sleeping
+	/// Whether this species snores or not.
+	var/snores = TRUE
+	/// The key of the emote to play when this species is sleeping, if it snores.
 	var/snore_key = "snore"
 	/// Whether this species can choose to sleep indefinitely
 	var/indefinite_sleep = FALSE
