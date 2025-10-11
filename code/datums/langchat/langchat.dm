@@ -124,6 +124,7 @@
 /atom/proc/langchat_speech(message, list/listeners, datum/language/language, override_color, skip_language_check = FALSE, animation_style = LANGCHAT_DEFAULT_POP, list/additional_styles = list("langchat"))
 	langchat_drop_images()
 	langchat_make_image(override_color)
+	langchat_make_image_untranslated(override_color)
 
 	langchat_listeners = listeners
 	langchat_listeners_untranslated = list()
@@ -137,9 +138,6 @@
 		if(!skip_language_check && !listener.say_understands(src, language))
 			langchat_listeners_untranslated += listener
 			langchat_listeners -= listener
-
-	if(length(langchat_listeners_untranslated))
-		langchat_make_image_untranslated(override_color)
 
 	// Generate the translated langchat_image.
 	langchat_image.maptext = generate_text_image(message, additional_styles = additional_styles)
@@ -176,6 +174,7 @@
 /atom/proc/langchat_long_speech(message, list/listeners, datum/language/language, override_color, skip_language_check = FALSE)
 	langchat_drop_images()
 	langchat_make_image()
+	langchat_make_image_untranslated(override_color)
 
 	var/text_left = null
 	var/truncated_message = message
