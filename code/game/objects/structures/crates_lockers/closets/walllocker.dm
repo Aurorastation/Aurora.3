@@ -104,3 +104,10 @@
 	locked = TRUE
 	secure = TRUE
 	req_access = list(ACCESS_MEDICAL_EQUIP)
+
+/obj/structure/closet/walllocker/medical/secure/donor_blood
+	name = "O- Blood Locker"
+
+/obj/structure/closet/walllocker/medical/secure/donor_blood/fill()
+	for(var/i = 0 to 3)
+		new /obj/item/reagent_containers/blood/OMinus(src)

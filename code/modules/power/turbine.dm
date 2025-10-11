@@ -369,6 +369,7 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/computer/terminal/turbine_computer/LateInitialize()
+	. = ..()
 	for(var/obj/machinery/power/compressor/C in SSmachinery.machinery)
 		if(id == C.comp_id)
 			compressor = C

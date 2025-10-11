@@ -25,6 +25,7 @@
 	var/opened_icon_state = null //for items that have unique base icons but look the same opened, such as all the various microwave pizzas.
 	foldable = null // most of this stuff isn't foldable by default, e.g. cig packets and vial boxes
 	contained_sprite = TRUE
+	color = COLOR_WHITE
 
 /obj/item/storage/box/fancy/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()

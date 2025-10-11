@@ -88,8 +88,20 @@ Class Procs:
 	init_flags = INIT_MACHINERY_PROCESS_SELF
 	pass_flags_self = PASSMACHINE | LETPASSCLICKS
 
-	/// Controlled by a bitflag, differentiates between a few different possible states including the machine being broken or unpowered.
-	/// See code/__defines/machinery.dm for the possible states.
+	/**
+	 * 'stat' = 'state'. Controlled by a bitflag, differentiates between a few different possible states including the machine being broken or unpowered.
+	 * These definitions are copypasted from 'code/__DEFINES/machinery.dm' so they can be easily referenced in code.
+	 * SO THAT MEANS IF THEY'VE BEEN UPDATED THERE, MAKE SURE THEY'RE UPDATED HERE!
+	 *
+	 * #define BROKEN   0x1
+	 * #define NOPOWER  0x2
+	 * #define POWEROFF 0x4  // TBD.
+	 * #define MAINT    0x8  // Under maintenance.
+	 * #define EMPED    0x10 // Temporary broken by EMP pulse.
+	 *
+	 * #define INOPERABLE(machine)  (machine.stat & (BROKEN|NOPOWER|MAINT|EMPED))
+	 * #define OPERABLE(machine)    !INOPERABLE(machine)
+	 */
 	var/stat = 0
 	/// Is this machine emagged?
 	var/emagged = 0
@@ -149,6 +161,10 @@ Class Procs:
 	 */
 	var/manufacturer = null
 
+	///Do we want to hook into on_enter_area and on_exit_area?
+	///Disables some optimizations
+	var/always_area_sensitive = FALSE
+
 /obj/machinery/feedback_hints(mob/user, distance, is_adjacent)
 	. = list()
 	if(signaler && is_adjacent)
@@ -189,6 +205,8 @@ Class Procs:
 
 		if(component_parts.len)
 			RefreshParts()
+
+	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/Destroy()
 	//Stupid macro used in power usage

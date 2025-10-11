@@ -74,6 +74,7 @@
 	telecrystal_cost = 1
 	bluecrystal_cost = 1
 	path = /obj/item/card/emag
+	desc = "It's a card that can be used to override, booby-trap, manipulate, take over, and otherwise do nefarious things to a wide variety of objects. Has ten uses."
 
 /datum/uplink_item/item/tools/personal_shield
 	name = "Personal Shield"

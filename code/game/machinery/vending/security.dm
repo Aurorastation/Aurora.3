@@ -67,8 +67,8 @@
 	req_access = list(ACCESS_SECURITY)
 	vend_id = "tactical" // Refill cartridge DNE 2025/07
 	products = list(
-		/obj/item/storage/box/shotgunammo = 2,
-		/obj/item/storage/box/shotgunshells = 2,
+		/obj/item/storage/box/shells/slugs = 2,
+		/obj/item/storage/box/shells/buckshot = 2,
 		/obj/item/ammo_magazine/c45m = 6,
 		/obj/item/grenade/chem_grenade/teargas = 6,
 		/obj/item/ammo_magazine/mc9mmt = 2,
@@ -91,8 +91,8 @@
 	req_access = list(ACCESS_SECURITY)
 	vend_id = "ert" // Refill cartridge DNE 2025/07
 	products = list(
-		/obj/item/storage/box/shotgunammo = 2,
-		/obj/item/storage/box/shotgunshells = 2,
+		/obj/item/storage/box/shells/slugs = 2,
+		/obj/item/storage/box/shells/buckshot = 2,
 		/obj/item/grenade/chem_grenade/gas = 6,
 		/obj/item/clothing/mask/gas/tactical = 8,
 		/obj/item/shield/riot/tact = 4,

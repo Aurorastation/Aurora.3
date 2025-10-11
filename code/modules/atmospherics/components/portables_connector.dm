@@ -44,6 +44,7 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/atmospherics/portables_connector/LateInitialize()
+	. = ..()
 	toggle_process()
 
 /obj/machinery/atmospherics/portables_connector/update_icon()

@@ -51,6 +51,7 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/am_shielding/LateInitialize()
+	. = ..()
 	update_icon()
 
 /obj/machinery/am_shielding/proc/link_control(var/obj/machinery/power/am_control_unit/AMC)

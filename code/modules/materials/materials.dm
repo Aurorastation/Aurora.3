@@ -891,7 +891,7 @@
 	stack_type = /obj/item/stack/material/cardboard
 	flags = MATERIAL_BRITTLE
 	integrity = 10
-	icon_colour = "#AAAAAA"
+	icon_colour = COLOR_CARDBOARD
 	hardness = 1
 	weight = 1
 	protectiveness = 0 // 0%
@@ -1218,6 +1218,15 @@
 	name = MATERIAL_DEUTERIUM
 	stack_type = /obj/item/stack/material/deuterium
 	icon_colour = "#999999"
+	stack_origin_tech = list(TECH_MATERIAL = 3)
+	sheet_singular_name = "ingot"
+	sheet_plural_name = "ingots"
+	is_fusion_fuel = TRUE
+
+/material/boron
+	name = MATERIAL_BORON
+	stack_type = /obj/item/stack/material/boron
+	icon_colour = "#bbbbbb"
 	stack_origin_tech = list(TECH_MATERIAL = 3)
 	sheet_singular_name = "ingot"
 	sheet_plural_name = "ingots"

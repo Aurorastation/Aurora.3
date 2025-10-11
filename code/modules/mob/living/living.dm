@@ -854,7 +854,6 @@ default behaviour is:
 			qdel(M)
 
 	QDEL_NULL(reagents)
-	clear_from_target_grid()
 
 	if(auras)
 		for(var/a in auras)

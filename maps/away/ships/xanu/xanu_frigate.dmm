@@ -27,8 +27,8 @@
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
-/obj/item/storage/box/freezer/organcooler,
-/obj/item/storage/box/freezer/organcooler,
+/obj/item/storage/box/unique/freezer/organcooler,
+/obj/item/storage/box/unique/freezer/organcooler,
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/ship/xanu_frigate/cargo_bay)
 "ad" = (
@@ -5639,10 +5639,10 @@
 "tz" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/structure/table/reinforced/steel,
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_y = 9
 	},
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_y = 3
 	},
 /turf/simulated/floor/tiled/white,
@@ -6922,7 +6922,7 @@
 /obj/item/reagent_containers/food/condiment/enzyme{
 	pixel_y = 12
 	},
-/obj/item/storage/box/condiment{
+/obj/item/storage/box/large/condiment{
 	pixel_y = 3
 	},
 /obj/item/reagent_containers/spray/cleaner{

@@ -10,7 +10,6 @@
 	GLOB.living_mob_list -= src
 	unset_machine()
 	QDEL_NULL(hud_used)
-	lose_hearing_sensitivity()
 
 	QDEL_LIST(spell_masters)
 	remove_screen_obj_references()

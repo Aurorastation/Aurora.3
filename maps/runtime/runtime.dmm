@@ -1757,7 +1757,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/item/storage/box/monkeycubes,
+/obj/item/storage/box/unique/monkeycubes,
 /turf/simulated/floor/tiled,
 /area/construction/storage)
 "iN" = (

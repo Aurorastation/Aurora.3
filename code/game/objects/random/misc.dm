@@ -170,7 +170,7 @@
 	desc = "Arcade loot!"
 	icon_state = "toy"
 	spawnlist = list(
-		/obj/item/storage/box/snappops = 11,
+		/obj/item/storage/box/unique/snappops = 11,
 		/obj/item/clothing/under/syndicate/tacticool = 5,
 		/obj/item/toy/sword = 22,
 		/obj/item/gun/projectile/revolver/capgun = 11,

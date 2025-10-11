@@ -28,6 +28,8 @@
 	var/list/client_contents
 	///every atmos machine inside this cell
 	var/list/atmos_contents
+	///every valid ai turret target inside this cell
+	var/list/target_contents
 
 /datum/spatial_grid_cell/New(cell_x, cell_y, cell_z)
 	. = ..()
@@ -43,6 +45,7 @@
 	hearing_contents = dummy_list
 	client_contents = dummy_list
 	atmos_contents = dummy_list
+	target_contents = dummy_list
 
 /datum/spatial_grid_cell/Destroy(force)
 	if(force)//the response to someone trying to qdel this is a right proper fuck you
@@ -85,7 +88,7 @@ SUBSYSTEM_DEF(spatial_grid)
 	///list of the spatial_grid_cell datums per z level, arranged in the order of y index then x index
 	var/list/grids_by_z_level = list()
 	///everything that spawns before us is added to this list until we initialize
-	var/list/waiting_to_add_by_type = list(SPATIAL_GRID_CONTENTS_TYPE_HEARING = list(), SPATIAL_GRID_CONTENTS_TYPE_CLIENTS = list(), SPATIAL_GRID_CONTENTS_TYPE_ATMOS = list())
+	var/list/waiting_to_add_by_type = list(SPATIAL_GRID_CONTENTS_TYPE_HEARING = list(), SPATIAL_GRID_CONTENTS_TYPE_CLIENTS = list(), SPATIAL_GRID_CONTENTS_TYPE_ATMOS = list(), SPATIAL_GRID_CONTENTS_TYPE_TARGETS = list())
 	///associative list of the form: movable.spatial_grid_key (string) -> inner list of spatial grid types for that key.
 	///inner lists contain contents channel types such as SPATIAL_GRID_CONTENTS_TYPE_HEARING etc.
 	///we use this to make adding to a cell static cost, and to save on memory
@@ -257,6 +260,12 @@ SUBSYSTEM_DEF(spatial_grid)
 				for(var/x_index in BOUNDING_BOX_MIN(center_x) to BOUNDING_BOX_MAX(center_x, cells_on_x_axis))
 					. += grid_level[row][x_index].atmos_contents
 
+		if(SPATIAL_GRID_CONTENTS_TYPE_TARGETS)
+			for(var/row in BOUNDING_BOX_MIN(center_y) to BOUNDING_BOX_MAX(center_y, cells_on_y_axis))
+				for(var/x_index in BOUNDING_BOX_MIN(center_x) to BOUNDING_BOX_MAX(center_x, cells_on_x_axis))
+
+					. += grid_level[row][x_index].target_contents
+
 	return .
 
 ///get the grid cell encomapassing targets coordinates
@@ -378,6 +387,11 @@ SUBSYSTEM_DEF(spatial_grid)
 				GRID_CELL_SET(intersecting_cell.hearing_contents, new_target.important_recursive_contents[SPATIAL_GRID_CONTENTS_TYPE_HEARING])
 				SEND_SIGNAL(intersecting_cell, SPATIAL_GRID_CELL_ENTERED(SPATIAL_GRID_CONTENTS_TYPE_HEARING), new_target_contents[SPATIAL_GRID_CONTENTS_TYPE_HEARING])
 
+			if(SPATIAL_GRID_CONTENTS_TYPE_TARGETS)
+				var/list/new_target_contents = new_target.important_recursive_contents
+				GRID_CELL_SET(intersecting_cell.target_contents, new_target.important_recursive_contents[SPATIAL_GRID_CONTENTS_TYPE_TARGETS])
+				SEND_SIGNAL(intersecting_cell, SPATIAL_GRID_CELL_ENTERED(SPATIAL_GRID_CONTENTS_TYPE_TARGETS), new_target_contents[SPATIAL_GRID_CONTENTS_TYPE_TARGETS])
+
 			if(SPATIAL_GRID_CONTENTS_TYPE_ATMOS)
 				GRID_CELL_SET(intersecting_cell.atmos_contents, new_target)
 				SEND_SIGNAL(intersecting_cell, SPATIAL_GRID_CELL_ENTERED(SPATIAL_GRID_CONTENTS_TYPE_ATMOS), new_target)
@@ -407,6 +421,11 @@ SUBSYSTEM_DEF(spatial_grid)
 			var/list/new_target_contents = new_target.important_recursive_contents
 			GRID_CELL_SET(intersecting_cell.hearing_contents, new_target.important_recursive_contents[SPATIAL_GRID_CONTENTS_TYPE_HEARING])
 			SEND_SIGNAL(intersecting_cell, SPATIAL_GRID_CELL_ENTERED(SPATIAL_GRID_CONTENTS_TYPE_HEARING), new_target_contents[SPATIAL_GRID_CONTENTS_TYPE_HEARING])
+
+		if(SPATIAL_GRID_CONTENTS_TYPE_TARGETS)
+			var/list/new_target_contents = new_target.important_recursive_contents
+			GRID_CELL_SET(intersecting_cell.target_contents, new_target.important_recursive_contents[SPATIAL_GRID_CONTENTS_TYPE_TARGETS])
+			SEND_SIGNAL(intersecting_cell, SPATIAL_GRID_CELL_ENTERED(SPATIAL_GRID_CONTENTS_TYPE_TARGETS), new_target_contents[SPATIAL_GRID_CONTENTS_TYPE_TARGETS])
 
 		if(SPATIAL_GRID_CONTENTS_TYPE_ATMOS)
 			GRID_CELL_SET(intersecting_cell.atmos_contents, new_target)
@@ -447,6 +466,11 @@ SUBSYSTEM_DEF(spatial_grid)
 				GRID_CELL_REMOVE(intersecting_cell.hearing_contents, old_target_contents)
 				SEND_SIGNAL(intersecting_cell, SPATIAL_GRID_CELL_EXITED(type), old_target_contents)
 
+			if(SPATIAL_GRID_CONTENTS_TYPE_TARGETS)
+				var/list/old_target_contents = old_target.important_recursive_contents?[type] || old_target
+				GRID_CELL_REMOVE(intersecting_cell.target_contents, old_target_contents)
+				SEND_SIGNAL(intersecting_cell, SPATIAL_GRID_CELL_EXITED(type), old_target_contents)
+
 			if(SPATIAL_GRID_CONTENTS_TYPE_ATMOS)
 				GRID_CELL_REMOVE(intersecting_cell.atmos_contents, old_target)
 				SEND_SIGNAL(intersecting_cell, SPATIAL_GRID_CELL_EXITED(type), old_target)
@@ -477,6 +501,11 @@ SUBSYSTEM_DEF(spatial_grid)
 		if(SPATIAL_GRID_CONTENTS_TYPE_HEARING)
 			var/list/old_target_contents = old_target.important_recursive_contents?[exclusive_type] || old_target
 			GRID_CELL_REMOVE(intersecting_cell.hearing_contents, old_target_contents)
+			SEND_SIGNAL(intersecting_cell, SPATIAL_GRID_CELL_EXITED(exclusive_type), old_target_contents)
+
+		if(SPATIAL_GRID_CONTENTS_TYPE_TARGETS)
+			var/list/old_target_contents = old_target.important_recursive_contents?[exclusive_type] || old_target
+			GRID_CELL_REMOVE(intersecting_cell.target_contents, old_target_contents)
 			SEND_SIGNAL(intersecting_cell, SPATIAL_GRID_CELL_EXITED(exclusive_type), old_target_contents)
 
 		if(SPATIAL_GRID_CONTENTS_TYPE_ATMOS)
@@ -520,6 +549,12 @@ SUBSYSTEM_DEF(spatial_grid)
 
 				if(movable_to_check in cell.hearing_contents)
 					contents = "hearing"
+
+				if(movable_to_check in cell.target_contents)
+					if(length(contents) > 0)
+						contents = "[contents], target"
+					else
+						contents = "target"
 
 				if(movable_to_check in cell.client_contents)
 					if(length(contents) > 0)
@@ -566,7 +601,7 @@ SUBSYSTEM_DEF(spatial_grid)
 		remove_from_pre_init_queue(to_remove)//the spatial grid doesnt exist yet, so just take it out of the queue
 		return
 
-#ifdef UNIT_TESTS
+#ifdef UNIT_TEST
 	if(untracked_movable_error(to_remove))
 		find_hanging_cell_refs_for_movable(to_remove, remove_from_cells=FALSE) //dont remove from cells because we should be able to see 2 errors
 		return
@@ -604,7 +639,7 @@ SUBSYSTEM_DEF(spatial_grid)
 	for(var/list/z_level_grid as anything in grids_by_z_level)
 		for(var/list/cell_row as anything in z_level_grid)
 			for(var/datum/spatial_grid_cell/cell as anything in cell_row)
-				if(to_remove in (cell.hearing_contents | cell.client_contents | cell.atmos_contents))
+				if(to_remove in (cell.hearing_contents | cell.client_contents | cell.atmos_contents | cell.target_contents))
 					containing_cells += cell
 					if(remove_from_cells)
 						force_remove_from_cell(to_remove, cell)
@@ -677,14 +712,17 @@ SUBSYSTEM_DEF(spatial_grid)
 	var/raw_clients = 0
 	var/raw_hearables = 0
 	var/raw_atmos = 0
+	var/raw_targets = 0
 
 	var/cells_with_clients = 0
 	var/cells_with_hearables = 0
 	var/cells_with_atmos = 0
+	var/cells_with_targets = 0
 
 	var/list/client_list = list()
 	var/list/hearable_list = list()
 	var/list/atmos_list = list()
+	var/list/target_list = list()
 
 	var/x_cell_count = world.maxx / SPATIAL_GRID_CELLSIZE
 	var/y_cell_count = world.maxy / SPATIAL_GRID_CELLSIZE
@@ -694,6 +732,7 @@ SUBSYSTEM_DEF(spatial_grid)
 	var/average_clients_per_cell = 0
 	var/average_hearables_per_cell = 0
 	var/average_atmos_mech_per_call = 0
+	var/average_targets_per_cell
 
 	var/hearable_min_x = x_cell_count
 	var/hearable_max_x = 1
@@ -706,6 +745,12 @@ SUBSYSTEM_DEF(spatial_grid)
 
 	var/client_min_y = y_cell_count
 	var/client_max_y = 1
+
+	var/target_min_x = x_cell_count
+	var/target_max_x = 1
+
+	var/target_min_y = y_cell_count
+	var/target_max_y = 1
 
 	var/atmos_min_x = x_cell_count
 	var/atmos_max_x = 1
@@ -727,7 +772,7 @@ SUBSYSTEM_DEF(spatial_grid)
 		for(var/client_to_insert in 0 to insert_clients)
 			var/turf/random_turf = pick(turfs)
 			var/mob/fake_client = new()
-			fake_client.important_recursive_contents = list(SPATIAL_GRID_CONTENTS_TYPE_HEARING = list(fake_client), SPATIAL_GRID_CONTENTS_TYPE_CLIENTS = list(fake_client))
+			fake_client.important_recursive_contents = list(SPATIAL_GRID_CONTENTS_TYPE_HEARING = list(fake_client), SPATIAL_GRID_CONTENTS_TYPE_CLIENTS = list(fake_client), SPATIAL_GRID_CONTENTS_TYPE_TARGETS = list(fake_client))
 			fake_client.forceMove(random_turf)
 			inserted_clients += fake_client
 
@@ -737,10 +782,12 @@ SUBSYSTEM_DEF(spatial_grid)
 		var/client_length = length(cell.client_contents)
 		var/hearable_length = length(cell.hearing_contents)
 		var/atmos_length = length(cell.atmos_contents)
+		var/target_length = length(cell.target_contents)
 
 		raw_clients += client_length
 		raw_hearables += hearable_length
 		raw_atmos += atmos_length
+		raw_targets += target_length
 
 		if(client_length)
 			cells_with_clients++
@@ -776,6 +823,23 @@ SUBSYSTEM_DEF(spatial_grid)
 			if(cell.cell_y > hearable_max_y)
 				hearable_max_y = cell.cell_y
 
+		if(target_length)
+			cells_with_targets++
+
+			target_list += cell.target_contents
+
+			if(cell.cell_x < hearable_min_x)
+				target_min_x = cell.cell_x
+
+			if(cell.cell_x > hearable_max_x)
+				target_max_x = cell.cell_x
+
+			if(cell.cell_y < hearable_min_y)
+				target_min_y = cell.cell_y
+
+			if(cell.cell_y > hearable_max_y)
+				target_max_y = cell.cell_y
+
 		if(raw_atmos)
 			cells_with_atmos++
 
@@ -796,10 +860,12 @@ SUBSYSTEM_DEF(spatial_grid)
 	var/total_client_distance = 0
 	var/total_hearable_distance = 0
 	var/total_atmos_distance = 0
+	var/total_target_distance = 0
 
 	var/average_client_distance = 0
 	var/average_hearable_distance = 0
 	var/average_atmos_distance = 0
+	var/average_target_distance = 0
 
 	for(var/hearable in hearable_list)//n^2 btw
 		for(var/other_hearable in hearable_list)
@@ -813,6 +879,12 @@ SUBSYSTEM_DEF(spatial_grid)
 				continue
 			total_client_distance += get_dist(client, other_client)
 
+	for(var/target in target_list)//n^2 btw
+		for(var/other_target in target_list)
+			if(target == other_target)
+				continue
+			total_target_distance += get_dist(target, other_target)
+
 	for(var/atmos in atmos_list)//n^2 btw
 		for(var/other_atmos in atmos_list)
 			if(atmos == other_atmos)
@@ -825,24 +897,28 @@ SUBSYSTEM_DEF(spatial_grid)
 		average_client_distance = total_client_distance / length(client_list)
 	if(length(atmos_list))
 		average_atmos_distance = total_atmos_distance / length(atmos_list)
+	if(length(target_list))
+		average_target_distance = total_target_distance / length(target_list)
 
 	average_clients_per_cell = raw_clients / total_cells
 	average_hearables_per_cell = raw_hearables / total_cells
 	average_atmos_mech_per_call = raw_atmos / total_cells
+	average_targets_per_cell = raw_targets / total_cells
 
 	for(var/mob/inserted_client as anything in inserted_clients)
 		qdel(inserted_client)
 
 	message_admins("on z level [z] there are [raw_clients] clients ([insert_clients] of whom are fakes inserted to random station turfs)\
-	, [raw_hearables] hearables, and [raw_atmos] atmos machines. all of whom are inside the bounding box given by \
+	, [raw_hearables] hearables, [raw_targets] targets, and [raw_atmos] atmos machines. all of whom are inside the bounding box given by \
 	clients: ([client_min_x], [client_min_y]) x ([client_max_x], [client_max_y]), \
 	hearables: ([hearable_min_x], [hearable_min_y]) x ([hearable_max_x], [hearable_max_y]) \
+	targets: ([target_min_x], [target_min_y] x [target_max_x], [target_max_y]) \
 	and atmos machines: ([atmos_min_x], [atmos_min_y]) x ([atmos_max_x], [atmos_max_y]), \
 	on average there are [average_clients_per_cell] clients per cell, [average_hearables_per_cell] hearables per cell, \
-	and [average_atmos_mech_per_call] per cell, \
-	[cells_with_clients] cells have clients, [cells_with_hearables] have hearables, and [cells_with_atmos] have atmos machines \
+	[average_targets_per_cell] targets per cell, and [average_atmos_mech_per_call] atmos machines per cell, \
+	[cells_with_clients] cells have clients, [cells_with_hearables] have hearables, [cells_with_targets] have targets, and [cells_with_atmos] have atmos machines \
 	the average client distance is: [average_client_distance], the average hearable_distance is [average_hearable_distance], \
-	and the average atmos distance is [average_atmos_distance] ")
+	the average target distance is [average_target_distance], and the average atmos distance is [average_atmos_distance] ")
 
 #undef BOUNDING_BOX_MAX
 #undef BOUNDING_BOX_MIN

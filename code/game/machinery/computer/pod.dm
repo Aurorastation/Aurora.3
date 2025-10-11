@@ -19,6 +19,7 @@
 	. = INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/computer/pod/LateInitialize()
+	. = ..()
 	for(var/obj/machinery/mass_driver/M in SSmachinery.machinery)
 		if(M.id == id)
 			connected = M

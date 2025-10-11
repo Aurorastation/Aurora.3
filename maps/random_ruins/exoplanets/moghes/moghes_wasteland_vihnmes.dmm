@@ -292,7 +292,7 @@
 	},
 /area/moghes_vihnmes)
 "nk" = (
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = -5
 	},
@@ -546,7 +546,7 @@
 /area/exoplanet/moghes)
 "wv" = (
 /obj/structure/closet/cabinet,
-/obj/item/storage/box/shotgunshells,
+/obj/item/storage/box/shells/buckshot,
 /obj/item/clothing/accessory/storage/bandolier,
 /obj/item/clothing/suit/armor/unathi,
 /obj/machinery/light/colored/decayed{

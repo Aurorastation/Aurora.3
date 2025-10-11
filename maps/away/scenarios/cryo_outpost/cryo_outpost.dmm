@@ -238,7 +238,7 @@
 /area/cryo_outpost/inside/habitation_west)
 "aoj" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
-/obj/item/storage/box/smokes{
+/obj/item/storage/box/tactical/smokes{
 	pixel_x = -4;
 	pixel_y = -5
 	},
@@ -2332,7 +2332,7 @@
 "cBq" = (
 /obj/structure/closet/crate/freezer,
 /obj/effect/floor_decal/industrial/outline/research,
-/obj/item/storage/box/freezer/organcooler,
+/obj/item/storage/box/unique/freezer/organcooler,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/labs_cryo_n)
 "cBJ" = (
@@ -3461,7 +3461,7 @@
 "dPk" = (
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_y = 3
 	},
 /turf/simulated/floor/tiled/white,
@@ -3675,7 +3675,7 @@
 /area/cryo_outpost/inside/engineering)
 "eeS" = (
 /obj/effect/floor_decal/industrial/outline/research,
-/obj/item/storage/box/freezer/organcooler,
+/obj/item/storage/box/unique/freezer/organcooler,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/labs_cryo_s)
 "egh" = (
@@ -4956,7 +4956,7 @@
 /area/cryo_outpost/inside/security)
 "fww" = (
 /obj/effect/floor_decal/industrial/outline/research,
-/obj/item/storage/box/freezer/organcooler,
+/obj/item/storage/box/unique/freezer/organcooler,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/labs_cryo_n)
 "fwA" = (
@@ -5019,7 +5019,7 @@
 "fxU" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner_wide/green/diagonal,
-/obj/item/storage/box/freezer/organcooler{
+/obj/item/storage/box/unique/freezer/organcooler{
 	pixel_x = -3;
 	pixel_y = 4
 	},
@@ -6296,7 +6296,7 @@
 "hbb" = (
 /obj/structure/closet/crate/freezer,
 /obj/effect/floor_decal/corner_wide/green/diagonal,
-/obj/item/storage/box/freezer/organcooler,
+/obj/item/storage/box/unique/freezer/organcooler,
 /turf/simulated/floor/tiled/white,
 /area/cryo_outpost/inside/labs_surgery)
 "hbh" = (
@@ -8925,7 +8925,7 @@
 "kby" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/pink,
-/obj/item/storage/box/freezer/organcooler{
+/obj/item/storage/box/unique/freezer/organcooler{
 	pixel_x = 4;
 	pixel_y = -5
 	},
@@ -10746,11 +10746,11 @@
 /area/cryo_outpost/inside/labs_maint_w)
 "lYa" = (
 /obj/structure/closet/secure_closet/freezer,
-/obj/item/storage/box/produce,
-/obj/item/storage/box/produce,
-/obj/item/storage/box/produce,
-/obj/item/storage/box/produce,
-/obj/item/storage/box/produce,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
 	temperature = 278
@@ -14645,7 +14645,7 @@
 /area/cryo_outpost/inside/habitation_west)
 "qxH" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/item/storage/box/freezer/organcooler,
+/obj/item/storage/box/unique/freezer/organcooler,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
@@ -16189,7 +16189,7 @@
 "sif" = (
 /obj/effect/floor_decal/corner_wide/green/diagonal,
 /obj/structure/table/standard,
-/obj/item/storage/box/sharps{
+/obj/item/storage/box/unique/sharps{
 	pixel_y = 4
 	},
 /obj/machinery/light{
@@ -16377,7 +16377,7 @@
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 8
 	},
-/obj/item/storage/box/freezer/organcooler,
+/obj/item/storage/box/unique/freezer/organcooler,
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
 	temperature = 278
@@ -16519,7 +16519,7 @@
 	pixel_y = 12
 	},
 /obj/effect/floor_decal/corner_wide/green/diagonal,
-/obj/item/storage/box/freezer/organcooler{
+/obj/item/storage/box/unique/freezer/organcooler{
 	pixel_x = -1;
 	pixel_y = 3
 	},
@@ -17397,7 +17397,7 @@
 /area/cryo_outpost/inside/engineering)
 "txZ" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/sharps{
+/obj/item/storage/box/unique/sharps{
 	pixel_x = -3;
 	pixel_y = 3
 	},
@@ -17910,7 +17910,7 @@
 /area/cryo_outpost/inside/labs_maint_w)
 "uaK" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/sharps{
+/obj/item/storage/box/unique/sharps{
 	pixel_x = -3;
 	pixel_y = -7
 	},
@@ -18862,7 +18862,7 @@
 /area/cryo_outpost/inside/engineering)
 "vcc" = (
 /obj/structure/table/reinforced/steel,
-/obj/item/storage/box/monkeycubes{
+/obj/item/storage/box/unique/monkeycubes{
 	pixel_x = 3;
 	pixel_y = 7
 	},
@@ -19784,7 +19784,7 @@
 "weW" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner_wide/green/diagonal,
-/obj/item/storage/box/freezer/organcooler{
+/obj/item/storage/box/unique/freezer/organcooler{
 	pixel_x = 3;
 	pixel_y = 5
 	},
@@ -20409,7 +20409,7 @@
 /area/cryo_outpost/outside/surface)
 "wRv" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/item/storage/box/freezer/organcooler,
+/obj/item/storage/box/unique/freezer/organcooler,
 /obj/machinery/light/small/broken{
 	dir = 4
 	},

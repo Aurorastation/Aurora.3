@@ -71,7 +71,7 @@
 	//If there's shields and it's strong enough, the power of the explosion is reduced, but it won't stop it
 	if(istype(A, /obj/effect/energy_field))
 		var/obj/effect/energy_field/impacted_energy_field = A
-		if(impacted_energy_field.strength > SHIELD_MINIMUM_STRENGTH_TO_REDUCE_EXPLOSION_POWER)
+		if(impacted_energy_field.damage < 1)
 			hitpwr *= 0.5
 			qdel(impacted_energy_field)
 

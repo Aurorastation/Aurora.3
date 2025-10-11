@@ -204,6 +204,7 @@
 
 /// This trait is used for double shuttle seats in a single tile, used in handling occupant density.
 #define TRAIT_DOUBLE_SEATS "double_seats"
+
 /// Apply this to make a mob passable by other mobs.
 #define TRAIT_UNDENSE "undense"
 
@@ -221,3 +222,6 @@
 
 /// Gloves give you an instant aggressive grab
 #define TRAIT_AGGRESSIVE_GRAB "aggressive_grab"
+
+/// A trait gained by leaning against something
+#define TRAIT_LEANING "leaning"

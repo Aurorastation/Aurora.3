@@ -2620,7 +2620,7 @@
 /area/ship/ipc_refugee/forehall)
 "ud" = (
 /obj/structure/lattice,
-/obj/item/storage/box/sharps{
+/obj/item/storage/box/unique/sharps{
 	pixel_x = -5;
 	pixel_y = -5
 	},

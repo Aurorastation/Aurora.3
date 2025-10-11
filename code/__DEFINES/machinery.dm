@@ -24,6 +24,8 @@
 #define POWER_USE_ACTIVE    2
 
 // Bitflags for machine stat variable.
+// These definitions are copypasted in the dmdocs in 'code/game/machinery.dm' so they can be easily referenced by checking the 'stat' variable.
+// SO THAT MEANS IF YOU UPDATE THEM HERE, UPDATE THEM THERE FOR VISIBILITY!
 #define BROKEN   0x1
 #define NOPOWER  0x2
 #define POWEROFF 0x4  // TBD.

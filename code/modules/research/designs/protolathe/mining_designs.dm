@@ -41,7 +41,7 @@
 /datum/design/item/mining/pick_set
 	req_tech = list(TECH_ENGINEERING = 2, TECH_MATERIAL = 2)
 	materials = list(DEFAULT_WALL_MATERIAL = 1700, MATERIAL_GLASS = 200)
-	build_path = /obj/item/storage/box/excavation
+	build_path = /obj/item/storage/box/unique/excavation
 
 //Frames
 /datum/design/item/mining/ka_frame01

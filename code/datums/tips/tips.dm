@@ -57,7 +57,8 @@ GLOBAL_LIST_EMPTY(tips_by_category)
 		"Role-playing isn't easy, the wiki contains resources to help.",
 		"Trash piles are bounties of interesting loot, but you can also hide in them, just drag your sprite onto the pile.",
 		"Switching to another weapon is always faster than reloading.",
-		"Remember to turn off your VPN before you try and connect."
+		"Remember to turn off your VPN before you try and connect.",
+		"You can shift-click the 'up-hint' button (that shows you whether or not the turf above you can be Looked Up through) to see ALL nearby turfs that you can Look Up through."
 	)
 
 /*

@@ -141,6 +141,7 @@
 	return data
 
 /obj/machinery/chem_master/LateInitialize()
+	. = ..()
 	if(!chem_asset)
 		chem_asset = get_asset_datum(/datum/asset/spritesheet/chem_master)
 

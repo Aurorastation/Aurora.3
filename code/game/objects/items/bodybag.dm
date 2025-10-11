@@ -170,6 +170,12 @@
 	var/stasis_power = 20
 	var/degradation_time = 60 // 2 minutes: 60 ticks * 2 seconds per tick
 
+/obj/structure/closet/body_bag/cryobag/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Applies a [stasis_power]x stasis effect to any living creature stored inside this bag."
+	. += "This causes effects such as bleeding and brain damage to accumulate 10x slower."
+	. += "stasis bags will only last for [degradation_time] seconds before becoming useless. The bag will turn from blue to grey when this happens."
+
 /obj/structure/closet/body_bag/cryobag/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "The stasis meter shows <b>'[stasis_power]x'</b>."

@@ -23,7 +23,7 @@ export const FusionInjectorControl = (props, context) => {
   const { act, data } = useBackend<FusionGyrotronControl>(context);
 
   return (
-    <Window resizable theme={data.manufacturer}>
+    <Window resizable width={400} height={500} theme={data.manufacturer}>
       <Window.Content scrollable>
         {data.injectors && data.injectors.length ? (
           <>

@@ -531,6 +531,9 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 		holder.owner = null
 		GLOB.staff -= src
 
+	if(mob)
+		mob.clear_important_client_contents()
+
 	SSping.currentrun -= src
 
 	QDEL_NULL(tooltips)

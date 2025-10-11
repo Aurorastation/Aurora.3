@@ -17,12 +17,15 @@
 		detectTime = world.time // start the clock
 	if (!(target in motionTargets) && !QDELING(target))
 		motionTargets += target
+		RegisterSignal(target, COMSIG_QDELETING, PROC_REF(lostTarget))
 
 	return TRUE
 
 /obj/machinery/camera/proc/lostTarget(var/mob/target)
+	SIGNAL_HANDLER
 	if (target in motionTargets)
 		motionTargets -= target
+		UnregisterSignal(target, COMSIG_QDELETING)
 	if (motionTargets.len == 0)
 		cancelAlarm()
 

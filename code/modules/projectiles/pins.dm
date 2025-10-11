@@ -235,6 +235,7 @@ Pins Below.
 /obj/item/device/firing_pin/Destroy()
 	if(gun)
 		gun.pin = null
+	gun = null
 	return ..()
 
 //this firing pin checks for access

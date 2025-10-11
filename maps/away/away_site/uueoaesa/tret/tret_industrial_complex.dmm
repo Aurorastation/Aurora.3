@@ -10192,7 +10192,7 @@
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/engineering)
 "nvo" = (
-/obj/item/storage/box/dynamite{
+/obj/item/storage/box/unique/dynamite{
 	pixel_x = 4;
 	pixel_y = 5
 	},

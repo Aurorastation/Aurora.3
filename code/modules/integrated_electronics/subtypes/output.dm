@@ -12,7 +12,6 @@
 	power_draw_per_use = 10
 	var/stuff_to_display = null
 
-
 /obj/item/integrated_circuit/output/screen/disconnect_all()
 	..()
 	stuff_to_display = null
@@ -126,7 +125,7 @@
 	desc = "A miniature speaker is attached to this component."
 	icon_state = "speaker"
 	complexity = 8
-	cooldown_per_use = 4 SECONDS
+	cooldown_per_use = 1 SECOND
 	inputs = list(
 		"sound ID" = IC_PINTYPE_STRING,
 		"volume" = IC_PINTYPE_NUMBER,
@@ -143,7 +142,7 @@
 	extended_desc = "This unit is more advanced than the plain speaker circuit, able to transpose any valid text to speech."
 	icon_state = "speaker"
 	complexity = 12
-	cooldown_per_use = 4 SECONDS
+	cooldown_per_use = 1 SECOND
 	inputs = list("text" = IC_PINTYPE_STRING)
 	outputs = list()
 	activators = list("to speech" = IC_PINTYPE_PULSE_IN)
@@ -235,15 +234,17 @@
 /obj/item/integrated_circuit/output/video_camera
 	name = "video camera circuit"
 	desc = "This small camera allows a remote viewer to see what it sees."
-	extended_desc = "The camera is linked to the Research camera network."
+	extended_desc = "The camera is linked to the Research camera network by default, but can be changed."
 	icon_state = "video_camera"
 	w_class = WEIGHT_CLASS_SMALL
 	complexity = 10
 	inputs = list(
 		"camera name" = IC_PINTYPE_STRING,
+		"camera network" = IC_PINTYPE_STRING,
 		"camera active" = IC_PINTYPE_BOOLEAN
 	)
-	inputs_default = list("1" = "video camera circuit")
+	inputs_default = list("1" = "video camera circuit",
+						"2" = "Research")
 	outputs = list()
 	activators = list()
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
@@ -267,18 +268,25 @@
 			if(!draw_idle_power())
 				power_fail()
 
+/obj/item/integrated_circuit/output/video_camera/proc/set_camera_network(var/network)
+	if(camera)
+		camera.network = list(network)
+		camera.update_coverage()
+
 /obj/item/integrated_circuit/output/video_camera/on_data_written()
 	if(camera)
 		var/cam_name = get_pin_data(IC_INPUT, 1)
-		var/cam_active = get_pin_data(IC_INPUT, 2)
+		var/cam_network = get_pin_data(IC_INPUT, 2)
+		var/cam_active = get_pin_data(IC_INPUT, 3)
 		if(!isnull(cam_name))
 			camera.c_tag = cam_name
+		set_camera_network(cam_network)
 		set_camera_status(cam_active)
 
 /obj/item/integrated_circuit/output/video_camera/power_fail()
 	if(camera)
 		set_camera_status(0)
-		set_pin_data(IC_INPUT, 2, FALSE)
+		set_pin_data(IC_INPUT, 3, FALSE)
 		push_data()
 
 /obj/item/integrated_circuit/output/led

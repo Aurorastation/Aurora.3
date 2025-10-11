@@ -274,7 +274,7 @@
 		return station_name()
 
 	var/obj/effect/overmap/O = GLOB.map_sectors["[pick(affecting_z)]"]
-	return O ? O.name : "Unknown Location"
+	return O ? O.name : station_name()
 
 /datum/event/proc/get_skybox_image()
 	return

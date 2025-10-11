@@ -167,7 +167,7 @@
 				M.mutation_chance = clamp(mutation_chance + rand(-3, 3), 0, 100)
 				babies += M
 				M.set_content(TRUE)
-				addtimer(CALLBACK(M, TYPE_PROC_REF(/mob/living/carbon/slime, set_content), FALSE), 1200) // You get two minutes of safety
+				addtimer(CALLBACK(M, TYPE_PROC_REF(/mob/living/carbon/slime, set_content), FALSE), 1200, TIMER_DELETE_ME) // You get two minutes of safety
 				feedback_add_details("slime_babies_born", "slimebirth_[replacetext(M.colour," ","_")]")
 
 			var/mob/living/carbon/slime/new_slime = pick(babies)

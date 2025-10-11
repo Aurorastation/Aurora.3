@@ -121,7 +121,7 @@
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = list(228)
 	},
-/obj/item/storage/box/shotgunshells,
+/obj/item/storage/box/shells/buckshot,
 /obj/item/gun/projectile/shotgun/doublebarrel,
 /turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15

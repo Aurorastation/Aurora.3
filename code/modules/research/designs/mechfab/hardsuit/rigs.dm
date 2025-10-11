@@ -27,7 +27,7 @@
 	materials = list(MATERIAL_ALUMINIUM = 12500, MATERIAL_GLASS = 12500, DEFAULT_WALL_MATERIAL = 7000, MATERIAL_LEAD = 5500)
 
 /datum/design/rig/eva/pilot
-	name = "pilot Suit Control Module Assembly"
+	name = "Pilot Suit Control Module Assembly"
 	desc = "An assembly for a light hardsuit that is designed for pilots. It features a plasteel lining that offers excellent protection from shrapnel."
 	build_path = /obj/item/rig_assembly/eva/pilot
 	materials = list(DEFAULT_WALL_MATERIAL = 25000, MATERIAL_GLASS = 12500, MATERIAL_PLASTEEL = 5500)

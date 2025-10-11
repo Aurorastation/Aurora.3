@@ -400,6 +400,7 @@
 	name = "drill head"
 	desc = "A replaceable drill head usually used in exosuit drills."
 	icon_state = "drill_head"
+	var/obj/item/mecha_equipment/drill/mounted_drill
 
 /obj/item/material/drill_head/condition_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -419,6 +420,12 @@
 /obj/item/material/drill_head/Initialize(newloc, material_key)
 	. = ..()
 	durability = 2 * material.integrity
+	if(istype(newloc, /obj/item/mecha_equipment/drill))
+		mounted_drill = newloc
+
+/obj/item/material/drill_head/Destroy()
+	mounted_drill = null
+	. = ..()
 
 /obj/item/material/drill_head/proc/get_durability_percentage()
 	return (durability * 100) / (2 * material.integrity)
@@ -445,6 +452,10 @@
 	. = ..()
 	drill_head = new /obj/item/material/drill_head(src, DEFAULT_WALL_MATERIAL)//You start with a basic steel head
 
+/obj/item/mecha_equipment/drill/Destroy()
+	QDEL_NULL(drill_head)
+	. = ..()
+
 /obj/item/mecha_equipment/drill/attack_self(var/mob/user)
 	. = ..()
 	if(.)
@@ -469,8 +480,10 @@
 			if(drill_head)
 				owner.visible_message(SPAN_NOTICE("\The [owner] detaches the [drill_head] mounted on the [src]."))
 				drill_head.forceMove(owner.loc)
+				drill_head.mounted_drill = null
 			DH.forceMove(src)
 			drill_head = DH
+			drill_head.mounted_drill = src
 			owner.visible_message(SPAN_NOTICE("\The [owner] mounts the [drill_head] on the [src]."))
 			return
 

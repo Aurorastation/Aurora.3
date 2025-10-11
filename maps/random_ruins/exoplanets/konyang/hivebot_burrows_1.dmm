@@ -2518,7 +2518,7 @@
 /area/hivebot_burrows_1)
 "Zu" = (
 /obj/structure/table/rack,
-/obj/item/storage/box/dynamite{
+/obj/item/storage/box/unique/dynamite{
 	pixel_y = 4;
 	pixel_x = -4
 	},
@@ -2526,7 +2526,7 @@
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/item/storage/box/dynamite,
+/obj/item/storage/box/unique/dynamite,
 /turf/simulated/floor/exoplanet/dirt_konyang/cave,
 /area/hivebot_burrows_1)
 "ZH" = (

@@ -105,9 +105,9 @@
 /obj/structure/closet/secure_closet/hos/fill()
 	..()
 	//Supply
-	new /obj/item/storage/box/flashbangs(src)
+	new /obj/item/storage/box/tactical/flashbangs(src)
 	new /obj/item/storage/box/ids(src)
-	new /obj/item/storage/box/stingers(src)
+	new /obj/item/storage/box/tactical/stingers(src)
 	//Appearance
 	if(prob(50))
 		new /obj/item/storage/backpack/security(src)
@@ -179,9 +179,9 @@
 /obj/structure/closet/secure_closet/warden/fill()
 	//Supply
 	new /obj/item/storage/box/ids(src)
-	new /obj/item/storage/box/flashbangs(src)
-	new /obj/item/storage/box/teargas(src)
-	new /obj/item/storage/box/stingers(src)
+	new /obj/item/storage/box/tactical/flashbangs(src)
+	new /obj/item/storage/box/tactical/teargas(src)
+	new /obj/item/storage/box/tactical/stingers(src)
 	//Appearance
 	if(prob(50))
 		new /obj/item/storage/backpack/security(src)
@@ -242,6 +242,7 @@
 	new /obj/item/device/flashlight/flare/glowstick/red(src)
 	//Belts
 	new /obj/item/clothing/accessory/storage/black_vest(src)
+	new /obj/item/clothing/accessory/storage/pouches/black(src)
 	new /obj/item/storage/belt/security(src)
 
 /obj/structure/closet/secure_closet/security
@@ -275,8 +276,12 @@
 	new /obj/item/device/breath_analyzer(src)
 	//Belts
 	new /obj/item/clothing/accessory/storage/black_vest(src)
+	new /obj/item/clothing/accessory/storage/pouches/black(src)
 	new /obj/item/clothing/accessory/holster/hip(src)
 	new /obj/item/clothing/accessory/holster/modular(src)
+	new /obj/item/clothing/accessory/holster/waist(src)
+	new /obj/item/clothing/accessory/holster/thigh(src)
+	new /obj/item/clothing/accessory/holster/armpit(src)
 	new /obj/item/storage/belt/security/full(src)
 	new /obj/item/storage/belt/security/vestbelt(src)
 	new /obj/item/clothing/suit/storage/hazardvest/security/officer(src)
@@ -303,9 +308,14 @@
 	new /obj/item/clothing/glasses/sunglasses/sechud/aviator(src)
 	new /obj/item/clothing/glasses/sunglasses/sechud(src)
 	//Belts
-	new /obj/item/clothing/accessory/holster/waist(src)
+	new /obj/item/clothing/accessory/storage/black_vest(src)
 	new /obj/item/clothing/accessory/storage/pouches/black(src)
+	new /obj/item/clothing/accessory/holster/waist(src)
+	new /obj/item/clothing/accessory/holster/hip(src)
+	new /obj/item/clothing/accessory/holster/thigh(src)
+	new /obj/item/clothing/accessory/holster/armpit(src)
 	new /obj/item/storage/belt/security/full/investigator(src)
+	new /obj/item/storage/belt/security/vestbelt(src)
 
 /obj/structure/closet/secure_closet/injection
 	name = "lethal injections locker"

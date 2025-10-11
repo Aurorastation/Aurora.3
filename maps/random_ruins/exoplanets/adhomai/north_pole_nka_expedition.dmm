@@ -116,8 +116,8 @@
 	name = "secure locker (shotgun)";
 	req_access = list(213)
 	},
-/obj/item/storage/box/shotgunammo,
-/obj/item/storage/box/shotgunshells,
+/obj/item/storage/box/shells/slugs,
+/obj/item/storage/box/shells/buckshot,
 /obj/item/gun/projectile/shotgun/doublebarrel/pellet,
 /obj/item/clothing/accessory/storage/bandolier,
 /turf/simulated/floor/exoplanet/carpet/rubber,
@@ -173,9 +173,9 @@
 /area/adhomai_archeology)
 "A" = (
 /obj/structure/closet/crate/secure/large,
-/obj/item/storage/box/dynamite,
-/obj/item/storage/box/dynamite,
-/obj/item/storage/box/dynamite,
+/obj/item/storage/box/unique/dynamite,
+/obj/item/storage/box/unique/dynamite,
+/obj/item/storage/box/unique/dynamite,
 /turf/simulated/floor/exoplanet/carpet/rubber,
 /area/adhomai_archeology)
 "C" = (
