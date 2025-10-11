@@ -314,11 +314,6 @@
 	user.put_in_hands(key)
 	key = null
 
-/obj/vehicle/train/cargo/engine/emag_act(var/remaining_charges, mob/user)
-	. = ..()
-	if(.)
-		update_car(train_length, active_engines)
-
 //-------------------------------------------
 // Loading/unloading procs
 //-------------------------------------------
@@ -402,8 +397,7 @@
 		move_delay *= (1 / max(1, active_engines)) * 2 										//overweight penalty (scaled by the number of engines)
 		move_delay += GLOB.config.walk_speed 													//base reference speed
 		move_delay *= GLOB.config.vehicle_delay_multiplier												//makes cargo trains 10% slower than running when not overweight
-		if(emagged)
-			move_delay -= 2
+		move_delay -= 2
 
 /obj/vehicle/train/cargo/trolley/update_car(var/train_length, var/active_engines)
 	src.train_length = train_length
