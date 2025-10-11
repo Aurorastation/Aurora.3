@@ -46,12 +46,12 @@
 
 /obj/machinery/mecha_part_fabricator/upgrade_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	. += "Upgraded <b>matter bins</b> will increase material storage capacity."
-	. += "The current storage capacity is [res_max_amount / 2000] sheets"
-	. += "Upgraded <b>micro-lasers</b> will increase fabrication speed."
-	. += "The current speed increase is [round((1 - (1 / production_speed)) * 100)]%"
-	. += "Upgraded <b>manipulators</b> will improve material use efficiency."
-	. += "The current cost reduction is [round((1 - mat_efficiency) * 100)]%"
+	. += "- Upgraded <b>matter bins</b> will increase material storage capacity."
+	. += SPAN_NOTICE("	- The current storage capacity is <b>[res_max_amount / 2000]</b> sheets")
+	. += "- Upgraded <b>micro-lasers</b> will increase fabrication speed."
+	. += SPAN_NOTICE("	- The current speed increase is <b>[round((1 - (1 / production_speed)) * 100)]%</b>")
+	. += "- Upgraded <b>manipulators</b> will improve material use efficiency."
+	. += SPAN_NOTICE("	- The current cost reduction is <b>[round((1 - mat_efficiency) * 100)]%</b>")
 
 /obj/machinery/mecha_part_fabricator/Initialize()
 	. = ..()

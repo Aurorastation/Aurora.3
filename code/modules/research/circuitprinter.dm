@@ -47,11 +47,11 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 
 /obj/machinery/r_n_d/circuit_imprinter/upgrade_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	. += "Upgraded <b>matter bins</b> will increase material storage capacity."
-	. += "The current storage capacity is [max_material_storage / 2000] sheets"
-	. += "Upgraded <b>manipulators</b> will improve material use efficiency and increase fabrication speed."
-	. += "The current speed increase is [round((1 - (1 / production_speed)) * 100)]%"
-	. += "The current cost reduction is [round((1 - mat_efficiency) * 100)]%"
+	. += "- Upgraded <b>matter bins</b> will increase material storage capacity."
+	. += SPAN_NOTICE("	- The current storage capacity is <b>[max_material_storage / 2000]</b> sheets")
+	. += "- Upgraded <b>manipulators</b> will improve material use efficiency and increase fabrication speed."
+	. += SPAN_NOTICE("	- The current speed increase is <b>[round((1 - (1 / production_speed)) * 100)]%</b>")
+	. += SPAN_NOTICE("	- The current cost reduction is <b>[round((1 - mat_efficiency) * 100)]%</b>")
 
 /obj/machinery/r_n_d/circuit_imprinter/RefreshParts()
 	..()

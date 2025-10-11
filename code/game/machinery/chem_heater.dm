@@ -28,8 +28,8 @@
 
 /obj/machinery/chem_heater/upgrade_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	. += "Upgraded <b>manipulators</b> increase the speed at which vessel contents are heated."
-	. += "The current heating power produced by this machine is [machine_strength]kW"
+	. += "- Upgraded <b>manipulators</b> increase the speed at which vessel contents are heated."
+	. += SPAN_NOTICE("	- The current heating power produced by this machine is <b>[machine_strength]kW</b>")
 
 /obj/machinery/chem_heater/attack_hand(mob/user)
 	user.set_machine(src)
