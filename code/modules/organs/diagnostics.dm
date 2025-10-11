@@ -10,7 +10,7 @@
 /singleton/diagnostic_sign/proc/get_description(mob/user)
 	. = descriptor
 	if(user)
-		. += "<small><a href='byond://?src=\ref[src];show_diagnostic_hint=1'>(?)</a></small>"
+		. += "<small><a href='byond://?src=[REF(src)];show_diagnostic_hint=1'>(?)</a></small>"
 
 /singleton/diagnostic_sign/Topic(var/href, var/list/href_list)
 	. = ..()
