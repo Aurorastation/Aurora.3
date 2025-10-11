@@ -292,7 +292,13 @@
 
 		var/old_loc = mob.loc
 
-		moving = 0
+		moving = TRUE
+		if(mob.confused && prob(25) && mob.m_intent == M_RUN)
+			step(mob, pick(GLOB.cardinals))
+		else
+			. = mob.SelfMove(new_loc, direct)
+
+		moving = FALSE
 
 		if(sprint_tally && mob.loc != old_loc)
 			var/mob/living/carbon/human/H = mob
