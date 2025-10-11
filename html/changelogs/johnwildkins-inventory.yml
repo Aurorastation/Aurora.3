@@ -12,3 +12,12 @@ delete-after: True
 changes:
   - refactor: "Generalized handling of active and inactive hands, allowing for mobs / species to have more than two hands."
   - refactor: "Moved all slot flags to be strings."
+  - refactor: "Pulling removed. CTRL-Click will now grab objects, which should act similarly to pulling them."
+  - refactor: "Grabbing slows you down depending on the size of the object grabbed. Wheeled objects, like carts, have a reduced penalty to movespeed."
+  - rscadd: "The following moves are now available by using the grab object on your grabbed target (including yourself)"
+  - rscadd: "Help intent, passive grab: inspect your targeted limb"
+  - rscadd: "Help intent, aggressive grab: apply pressure to a wound on the targeted limb."
+  - rscadd: "Disarm intent, aggressive grab (or higher): pin the grabbed target to the ground."
+  - rscadd: "Grab intent on aggressive (or higher) grabs will jointlock the targeted limb, causing pain if successful."
+  - rscadd: "Harm intent on aggressive (or higher) grabs will dislocate the targeted limb."
+  - refactor: "Standardized attack_hand procs, requiring calling parent and splitting out common functions into default_INTENT_interaction handlers."
