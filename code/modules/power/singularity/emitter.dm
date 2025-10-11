@@ -216,10 +216,11 @@
 		var/obj/item/weldingtool/WT = attacking_item
 		if(active)
 			to_chat(user, SPAN_NOTICE("You cannot unweld \the [src] while it's active."))
-			return
+			return FALSE
 		switch(state)
 			if(EMITTER_LOOSE)
 				to_chat(user, SPAN_WARNING("\The [src] needs to be wrenched to the floor."))
+				return FALSE
 			if(EMITTER_BOLTED)
 				if(WT.use(0, user))
 					playsound(get_turf(src), 'sound/items/welder_pry.ogg', 50, TRUE)
@@ -228,12 +229,14 @@
 						SPAN_WARNING("You hear the sound of metal being welded."))
 					if(attacking_item.use_tool(src, user, 20, volume = 50))
 						if(!src || !WT.isOn())
-							return
+							return FALSE
 						state = EMITTER_WELDED
 						to_chat(user, SPAN_NOTICE("You weld \the [src] to the floor."))
 						connect_to_network()
+						return TRUE
 				else
 					to_chat(user, SPAN_WARNING("You need more welding fuel to complete this task."))
+				return FALSE
 			if(EMITTER_WELDED)
 				if(WT.use(0, user))
 					playsound(get_turf(src), 'sound/items/welder_pry.ogg', 50, TRUE)
@@ -242,30 +245,35 @@
 						SPAN_WARNING("You hear the sound of metal being welded."))
 					if(attacking_item.use_tool(src, user, 20, volume = 50))
 						if(!src || !WT.isOn())
-							return
+							return FALSE
 						state = EMITTER_BOLTED
 						to_chat(user, SPAN_NOTICE("You cut \the [src] free from the floor."))
 						disconnect_from_network()
+						return TRUE
 				else
 					to_chat(user, SPAN_WARNING("You need more welding fuel to complete this task."))
-		return
-		if(attacking_item.GetID())
-			if(emagged)
-				to_chat(user, SPAN_WARNING("The lock seems to be broken."))
-				return
-			if(allowed(user))
-				if(active)
-					locked = !locked
-					playsound(src, 'sound/machines/terminal/terminal_button01.ogg', 35, FALSE)
-					balloon_alert(user, locked ? "locked" : "unlocked")
-					to_chat(user, SPAN_NOTICE("The controls are now [locked ? "locked." : "unlocked."]"))
-				else
-					locked = FALSE //just in case it somehow gets locked
-					to_chat(user, SPAN_WARNING("The controls can only be locked when \the [src] is online."))
+					return FALSE
+
+	if(attacking_item.GetID())
+		if(emagged)
+			to_chat(user, SPAN_WARNING("The lock seems to be broken."))
+			return FALSE
+		if(allowed(user))
+			if(active)
+				locked = !locked
+				playsound(src, 'sound/machines/terminal/terminal_button01.ogg', 35, FALSE)
+				balloon_alert(user, locked ? "locked" : "unlocked")
+				to_chat(user, SPAN_NOTICE("The controls are now [locked ? "locked." : "unlocked."]"))
+				return TRUE
 			else
-				playsound(src, 'sound/machines/terminal/terminal_error.ogg', 25, FALSE)
-				balloon_alert(user, "access denied!")
-				to_chat(user, SPAN_WARNING("Access denied."))
+				locked = FALSE //just in case it somehow gets locked
+				to_chat(user, SPAN_WARNING("The controls can only be locked when \the [src] is online."))
+				return FALSE
+		else
+			playsound(src, 'sound/machines/terminal/terminal_error.ogg', 25, FALSE)
+			balloon_alert(user, "access denied!")
+			to_chat(user, SPAN_WARNING("Access denied."))
+			return FALSE
 	..()
 	return
 
