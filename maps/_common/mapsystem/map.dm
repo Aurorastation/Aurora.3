@@ -1,7 +1,8 @@
 /datum/map
 	var/name = "Unnamed Map"
 	var/full_name = "Unnamed Map"
-	var/description // Basic info about the map. Shows up in the new player options.
+	/// Basic info about the map. Shows up in the new player options.
+	var/description
 	var/path
 
 	/**
@@ -11,16 +12,24 @@
 	 */
 	var/list/traits = list()
 
-	var/list/admin_levels = list()   // Z-levels for admin functionality (Centcom, shuttle transit, etc)
-	var/list/contact_levels = list() // Z-levels that can be contacted from the station, for eg announcements
-	var/list/player_levels = list()  // Z-levels a character can typically reach
-	var/list/sealed_levels = list()  // Z-levels that don't allow random transit at edge
-	var/list/restricted_levels = list()  // Z-levels that dont allow ghosts to randomly move around
-	var/list/empty_levels = null     // Empty Z-levels that may be used for various things (currently used by bluespace jump)
+	/// Z-levels for admin functionality (Centcom, shuttle transit, etc)
+	var/list/admin_levels = list()
+	/// Z-levels that can be contacted from the station, for eg announcements
+	var/list/contact_levels = list()
+	/// Z-levels a character can typically reach
+	var/list/player_levels = list()
+	/// Z-levels that don't allow random transit at edge
+	var/list/sealed_levels = list()
+	/// Z-levels that dont allow ghosts to randomly move around
+	var/list/restricted_levels = list()
+	/// Empty Z-levels that may be used for various things (currently used by bluespace jump)
+	var/list/empty_levels = null
 
-	var/list/map_levels              // Z-levels available to various consoles, such as the crew monitor. Defaults to station_levels if unset.
+	/// Z-levels available to various consoles, such as the crew monitor. Defaults to station_levels if unset.
+	var/list/map_levels
 
-	var/list/base_turf_by_z = list() // Custom base turf by Z-level. Defaults to world.turf for unlisted Z-levels
+	/// Custom base turf by Z-level. Defaults to world.turf for unlisted Z-levels
+	var/list/base_turf_by_z = list()
 
 	//This list contains the z-level numbers which can be accessed via space travel and the percentile chances to get there.
 	var/list/accessible_z_levels = list()
@@ -48,7 +57,8 @@
 
 	var/list/spawn_types
 
-	var/shuttle_call_restarts = FALSE // if true, calling crew transfer or evac just restarts the round in ten minute
+	/// if true, calling crew transfer or evac just restarts the round in ten minute
+	var/shuttle_call_restarts = FALSE
 	var/shuttle_call_restart_timer
 	var/shuttle_docked_message
 	var/shuttle_leaving_dock
@@ -72,15 +82,20 @@
 
 	var/evac_controller_type = /datum/evacuation_controller
 
-	var/list/station_networks = list() 		// Camera networks that will show up on the console.
+	/// Camera networks that will show up on the console.
+	var/list/station_networks = list()
 
-	var/list/holodeck_programs = list() // map of string ids to /datum/holodeck_program instances
+	/// map of string ids to /datum/holodeck_program instances
+	var/list/holodeck_programs = list()
+	/**
+	 * map of maps - first level maps from list-of-programs string id (e.g. "BarPrograms") to another map
+	 * this is in order to support multiple holodeck program listings for different holodecks
+	 * second level maps from program friendly display names ("Picnic Area") to program string ids ("picnicarea")
+	 * as defined in holodeck_programs
+	 */
 	var/list/holodeck_supported_programs = list()
-		// map of maps - first level maps from list-of-programs string id (e.g. "BarPrograms") to another map
-		// this is in order to support multiple holodeck program listings for different holodecks
-		// second level maps from program friendly display names ("Picnic Area") to program string ids ("picnicarea")
-		// as defined in holodeck_programs
-	var/list/holodeck_restricted_programs = list() // as above... but EVIL!
+	/// as above... but EVIL!
+	var/list/holodeck_restricted_programs = list()
 
 	var/force_spawnpoint = FALSE
 	var/allowed_spawns = list("Arrivals Shuttle","Gateway", "Cryogenic Storage", "Cyborg Storage")
@@ -89,14 +104,21 @@
 	/// A list of paths to rotate for the lobby image, png/bmp/jpg/gif only
 	var/list/lobby_icon_image_paths = list()
 
-	var/lobby_transitions = FALSE          // If a number, transition between the lobby screens with this delay instead of picking just one.
+	/// If a number, transition between the lobby screens with this delay instead of picking just one.
+	var/lobby_transitions = FALSE
 
-	var/use_overmap = FALSE		//If overmap should be used (including overmap space travel override)
-	var/overmap_size = 20		//Dimensions of overmap zlevel if overmap is used.
-	var/overmap_z = 0		//If 0 will generate overmap zlevel on init. Otherwise will populate the zlevel provided.
-	var/overmap_event_areas = 0 //How many event "clouds" will be generated
-	var/list/map_shuttles = list() // A list of all our shuttles.
-	var/default_sector = SECTOR_ROMANOVICH //What is the default space sector for this map
+	///If overmap should be used (including overmap space travel override)
+	var/use_overmap = FALSE
+	///Dimensions of overmap zlevel if overmap is used.
+	var/overmap_size = 20
+	///If 0 will generate overmap zlevel on init. Otherwise will populate the zlevel provided.
+	var/overmap_z = 0
+	///How many event "clouds" will be generated
+	var/overmap_event_areas = 0
+	/// A list of all our shuttles.
+	var/list/map_shuttles = list()
+	///What is the default space sector for this map
+	var/default_sector = SECTOR_ROMANOVICH
 
 	//event messages
 
@@ -123,15 +145,20 @@
 	var/rogue_drone_destroyed_message = "Icarus drone control registers disappointment at the loss of the drones, but the survivors have been recovered."
 
 	var/num_exoplanets = 0
-	var/list/planet_size  //dimensions of planet zlevel, defaults to world size. Due to how maps are generated, must be (2^n+1) e.g. 17,33,65,129 etc. Map will just round up to those if set to anything other.
+	///Dimensions of planet zlevel, defaults to world size. Due to how maps are generated, must be (2^n+1) e.g. 17,33,65,129 etc. Map will just round up to those if set to anything other.
+	var/list/planet_size
 	var/min_offmap_players = 0
 	var/away_site_budget = 0
 	var/away_ship_budget = 0
-	var/away_variance = 0 //how much higher the budgets can randomly go
+	///How much higher the budgets can randomly go
+	var/away_variance = 0
 
-	var/allow_borgs_to_leave = FALSE //this controls if borgs can leave the station or ship without exploding
-	var/area/warehouse_basearea //this controls where the cargospawner tries to populate warehouse items
-	var/area/warehouse_packagearea // used to handle spawnpoints for the packages that spawned after Initialize. See: `receptacle.dm`.
+	///This controls if borgs can leave the station or ship without exploding
+	var/allow_borgs_to_leave = FALSE
+	///This controls where the cargospawner tries to populate warehouse items
+	var/area/warehouse_basearea
+	/// used to handle spawnpoints for the packages that spawned after Initialize. See: `receptacle.dm`.
+	var/area/warehouse_packagearea
 
 	/**
 	 * A list of the shuttles on this map, used by the Shuttle Manifest program to populate itself.

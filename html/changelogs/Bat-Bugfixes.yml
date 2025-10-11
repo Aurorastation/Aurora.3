@@ -63,3 +63,5 @@ changes:
   - bugfix: "Cyborgs can no longer flip Plasteel Barricades remotely."
   - bugfix: "Fixed ghost vision inconsistently toggling when Following mobs."
   - bugfix: "Removed deprecated 'Gender and Pronouns' section from Appearance Changer (has been replaced by 'Pronouns' section)."
+  - bugfix: "Offship locations will not print Mining Yield Declarations saying they're from SCCV Horizon."
+  - bugfix: "Simple mobs which target their surroundings (destroying tables windows etc) will not do so if inside a container."
