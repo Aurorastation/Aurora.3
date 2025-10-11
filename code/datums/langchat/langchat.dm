@@ -138,7 +138,7 @@
 			langchat_listeners_untranslated += listener
 			langchat_listeners -= listener
 
-	if(length(langchat_listeners_untranslated.len))
+	if(length(langchat_listeners_untranslated))
 		langchat_make_image_untranslated(override_color)
 
 	// Generate the translated langchat_image.
@@ -151,7 +151,6 @@
 	// Generate the untranslated langchat_image. Note that we have to loop through confused listeners first here, as some
 	// might know languages that confer partial comprehension, and that would result in a unique langchat image.
 	for(var/mob/confused_listener in langchat_listeners_untranslated)
-		if()
 		langchat_image_untranslated.maptext = generate_text_image(message, language, additional_styles, confused_listener.languages)
 		langchat_image_untranslated.maptext_width = LANGCHAT_WIDTH
 		langchat_image_untranslated.maptext_x = get_maxptext_x_offset(langchat_image_untranslated)
@@ -193,7 +192,7 @@
 			langchat_listeners_untranslated += listener
 			langchat_listeners -= listener
 
-	if(length(langchat_listeners_untranslated.len))
+	if(length(langchat_listeners_untranslated))
 		langchat_make_image_untranslated(override_color)
 
 	if(length(message) > LANGCHAT_LONGEST_TEXT)
