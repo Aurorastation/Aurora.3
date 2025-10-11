@@ -251,6 +251,11 @@
 		log_and_message_admins("Multiple cargo destination helpers detected; overriding.")
 	SSshuttle.cargo_dest_helper = src
 
+/obj/effect/landmark/destination_helper/cargo_elevator/Destroy()
+	if(SSshuttle.cargo_dest_helper == src)
+		SSshuttle.cargo_dest_helper = null
+	return ..()
+
 /obj/effect/step_trigger/cargo_elevator
 	name = "cargo elevator shaft"
 	icon = 'icons/effects/map_effects.dmi'
