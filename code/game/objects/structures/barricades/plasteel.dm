@@ -185,6 +185,10 @@
 	. = ..()
 
 /obj/structure/barricade/plasteel/attack_hand(mob/user as mob)
+	// For preventing cyborgs from flipping barricades remotely.
+	if(!is_adjacent(user))
+		return FALSE
+
 	if(closed)
 		if(recentlyflipped)
 			to_chat(user, SPAN_NOTICE("\The [src] has been flipped too recently!"))
