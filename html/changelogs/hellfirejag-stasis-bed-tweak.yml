@@ -1,5 +1,0 @@
-author: Hellfirejag
-delete-after: True
-changes:
-  - balance: "Stasis beds now only go up to 30x stasis modifier when fully part upgraded, down from 90."
-  - rscdel: "Stasis beds are no longer upgraded using Capacitors, only scanning modules contribute to the stasis modifier."

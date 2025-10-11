@@ -1,6 +1,0 @@
-author: FabianK3
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed exempt labels getting ignore in the CI/CD stale triage action in the repository."

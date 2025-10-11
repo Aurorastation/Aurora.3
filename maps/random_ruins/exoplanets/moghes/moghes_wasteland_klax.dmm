@@ -40,7 +40,7 @@
 /turf/simulated/floor/exoplanet/tiled/white,
 /area/moghes_klax)
 "cF" = (
-/obj/item/storage/box/freezer/organcooler,
+/obj/item/storage/box/unique/freezer/organcooler,
 /obj/structure/closet/crate/freezer,
 /obj/effect/floor_decal/corner/lime{
 	dir = 5
@@ -362,10 +362,10 @@
 /obj/structure/closet/crate/large{
 	name = "Biological Subjects"
 	},
-/obj/item/storage/box/monkeycubes/vkrexicubes,
-/obj/item/storage/box/monkeycubes/vkrexicubes,
-/obj/item/storage/box/monkeycubes/stokcubes,
-/obj/item/storage/box/monkeycubes/stokcubes,
+/obj/item/storage/box/unique/monkeycubes/vkrexicubes,
+/obj/item/storage/box/unique/monkeycubes/vkrexicubes,
+/obj/item/storage/box/unique/monkeycubes/stokcubes,
+/obj/item/storage/box/unique/monkeycubes/stokcubes,
 /obj/effect/floor_decal/corner/lime/full{
 	dir = 1
 	},
