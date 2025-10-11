@@ -39,8 +39,6 @@
 			user.do_attack_animation(src)
 			return TRUE
 
-	return ..()
-
 /mob/living/carbon/human/default_help_interaction(mob/user)
 	var/user_target_zone = user.zone_sel.selecting
 	if(apply_pressure(user, user_target_zone))
@@ -110,7 +108,7 @@
 		// Someone got a good grip on them, they won't be able to do much damage
 		rand_damage = max(1, rand_damage - 2)
 
-	if(src.grabbed_by.len || src.buckled_to || !src.canmove || src==H)
+	if(LAZYLEN(grabbed_by) || src.buckled_to || !src.canmove || src==H)
 		accurate = 1 // certain circumstances make it impossible for us to evade punches
 		rand_damage = 5
 

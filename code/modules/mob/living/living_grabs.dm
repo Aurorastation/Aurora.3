@@ -47,8 +47,8 @@
 		return
 
 	if(!force_grab_tag)
-		var/datum/species/my_species = get_species()
-		if(my_species?.grab_type)
+		var/datum/species/my_species = get_species(TRUE)
+		if(istype(my_species) && my_species.grab_type)
 			grab_tag = my_species.grab_type
 
 	if(HAS_TRAIT(src, TRAIT_AGGRESSIVE_GRAB) && grab_tag == /singleton/grab/normal/passive)
