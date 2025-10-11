@@ -60,5 +60,7 @@ changes:
   - bugfix: "Emitters can be rotated again (alt-click lock toggling disabled)."
   - bugfix: "Lights no longer explode when toggled off and on."
   - bugfix: "Langchat images now pop up for untranslated speech."
+  - bugfix: "Cyborgs can no longer flip Plasteel Barricades remotely."
+  - bugfix: "Fixed ghost vision inconsistently toggling when Following mobs."
 
 
