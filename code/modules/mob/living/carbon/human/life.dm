@@ -796,7 +796,7 @@
 					else
 						AdjustSleeping(-1)
 			if(prob(2) && health && !failed_last_breath && !InStasis())
-				if(!paralysis)
+				if(!paralysis && species.snores)
 					emote(species.snore_key)
 
 		//CONSCIOUS
