@@ -235,6 +235,7 @@
 
 
 /obj/structure/synthesized_instrument/attack_hand(mob/user)
+	. = ..()
 	src.interact(user)
 
 

@@ -259,3 +259,9 @@
 /atom/proc/reset_plane_and_layer()
 	plane = initial(plane)
 	layer = initial(layer)
+
+/atom/proc/reset_offsets(anim_time = 2)
+	pixel_w = initial(pixel_w)
+	pixel_x = initial(pixel_x)
+	pixel_y = initial(pixel_y)
+	pixel_z = initial(pixel_z)

@@ -111,6 +111,7 @@
 	buckle_movable = TRUE
 	build_amt = 5
 	held_item = null
+	movable_flags = MOVABLE_FLAG_WHEELED
 
 	can_pad = FALSE
 

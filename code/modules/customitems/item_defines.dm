@@ -406,6 +406,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 		icon_state = "stand"
 
 /obj/item/fluff/tokash_spear/attack_hand(var/mob/user)
+	. = ..()
 	if(has_spear)
 		to_chat(user, SPAN_NOTICE("You remove the spearhead from \the [src]."))
 		var/obj/item/fluff/tokash_spearhead/piece = new(get_turf(user))

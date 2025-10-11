@@ -294,8 +294,6 @@
 	return
 
 /mob/living/carbon/slime/attack_hand(mob/living/carbon/human/M as mob)
-	..()
-
 	if(victim)
 		if(victim == M)
 			if(prob(60))
@@ -316,7 +314,7 @@
 				anchored = FALSE
 				step_away(src,M)
 
-			return
+			return TRUE
 
 		else
 			if(prob(30))
@@ -341,55 +339,49 @@
 				anchored = FALSE
 				step_away(src,M)
 
-			return
+			return TRUE
 
-	switch(M.a_intent)
-		if(I_HELP)
-			help_shake_act(M)
+	return ..()
 
-		if(I_GRAB)
-			if(M == src || anchored)
-				return
-			var/obj/item/grab/G = new /obj/item/grab(M, M, src)
+/mob/living/carbon/slime/default_disarm_interaction(mob/user)
+	return hit_by(user) || ..()
 
-			M.put_in_active_hand(G)
+/mob/living/carbon/slime/default_hurt_interaction(mob/user)
+	return hit_by(user) || ..()
 
-			G.synch()
+/mob/living/carbon/slime/proc/hit_by(mob/user)
+	var/damage = rand(1, 9)
+	var/mob/living/carbon/human/M = user
 
-			LAssailant = WEAKREF(M)
+	if(!istype(M))
+		return FALSE
 
-			playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
-			visible_message(SPAN_WARNING("[M] has grabbed [src] passively!"))
+	attacked += 10
+	if(prob(90))
+		if((user.mutations & HULK))
+			damage += 5
+			if(victim || target)
+				victim = null
+				target = null
+				anchored = 0
+				if(prob(80) && !client)
+					discipline++
+			spawn(0)
+				step_away(src,M,15)
+				sleep(3)
+				step_away(src,M,15)
 
-		else
+		playsound(loc, /singleton/sound_category/punch_sound, 25, 1, -1)
+		visible_message(SPAN_DANGER("[M] has punched [src]!"), \
+				SPAN_DANGER("[M] has punched [src]!"))
 
-			var/damage = rand(1, 9)
+		adjustBruteLoss(damage)
+		updatehealth()
+	else
+		playsound(loc, /singleton/sound_category/punchmiss_sound, 25, 1, -1)
+		visible_message(SPAN_DANGER("[M] has attempted to punch [src]!"))
 
-			attacked += 10
-			if(prob(90))
-				if((M.mutations & HULK))
-					damage += 5
-					if(victim || target)
-						victim = null
-						target = null
-						anchored = 0
-						if(prob(80) && !client)
-							discipline++
-					spawn(0)
-						step_away(src,M,15)
-						sleep(3)
-						step_away(src,M,15)
-
-				playsound(loc, SFX_PUNCH, 25, 1, -1)
-				visible_message(SPAN_DANGER("[M] has punched [src]!"), \
-						SPAN_DANGER("[M] has punched [src]!"))
-
-				adjustBruteLoss(damage)
-				updatehealth()
-			else
-				playsound(loc, SFX_PUNCH_MISS, 25, 1, -1)
-				visible_message(SPAN_DANGER("[M] has attempted to punch [src]!"))
-	return
+	return TRUE
 
 /mob/living/carbon/slime/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.force > 0)

@@ -47,8 +47,8 @@
 		if(istype(user, /mob/living/silicon/robot))
 			can_place = TRUE
 		else
-			for (var/obj/item/grab/G in C.grabbed_by)
-				if (G.state >= GRAB_AGGRESSIVE)
+			for (var/obj/item/grab/G as anything in C.grabbed_by)
+				if (G.has_grab_flags(GRAB_FORCE_HARM))
 					can_place = TRUE
 					break
 

@@ -38,6 +38,7 @@
 	connect_to_network()
 
 /obj/machinery/power/crystal_agitator/attack_hand(mob/user)
+	. = ..()
 	toggle_active()
 	visible_message("<b>[user]</b> turns \the [src] [active ? "on" : "off"].", SPAN_NOTICE("You turn \the [src] [active ? "on" : "off"]."))
 

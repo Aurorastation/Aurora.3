@@ -639,6 +639,7 @@
 	return attack_hand(user)
 
 /obj/machinery/vending/attack_hand(mob/user as mob)
+	. = ..()
 	if(stat & (BROKEN|NOPOWER))
 		return
 

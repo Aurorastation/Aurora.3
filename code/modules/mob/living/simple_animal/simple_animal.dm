@@ -385,7 +385,7 @@
 
 	if(wander && !anchored && !stop_automated_movement)
 		if(isturf(loc) && !resting && !buckled_to && canmove)
-			if(!(pulledby && stop_automated_movement_when_pulled))
+			if(!(LAZYLEN(grabbed_by) && stop_automated_movement_when_pulled))
 				step_rand(src)
 
 	//Speaking
@@ -582,18 +582,12 @@
 			if (!(status_flags & CANPUSH))
 				return
 
-			if (!attempt_grab(M))
+			if (!try_make_grab(M))
 				return
 
-			var/obj/item/grab/G = new /obj/item/grab(M, M, src)
-
-			M.put_in_active_hand(G)
-
-			G.synch()
-			G.affecting = src
 			LAssailant = WEAKREF(M)
 
-			M.visible_message(SPAN_WARNING("\The [M] has grabbed \the [src] passively!"))
+			M.visible_message(SPAN_WARNING("\The [M] has grabbed \the [src]!"))
 			M.do_attack_animation(src)
 			poke(1)
 			handle_attack_by(M)

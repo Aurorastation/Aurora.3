@@ -213,6 +213,7 @@
 	take_damage(tforce)
 
 /obj/structure/window/attack_hand(var/mob/living/user)
+	. = ..()
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if((user.mutations & HULK) && !(user.isSynthetic()) && !(isvaurca(user)))
 		user.say(pick(";RAAAAAAAARGH!", ";HNNNNNNNNNGGGGGGH!", ";GWAAAAAAAARRRHHH!", "NNNNNNNNGGGGGGGGHH!", ";AAAAAAARRRGH!"))
@@ -255,14 +256,15 @@
 	playsound(loc, 'sound/effects/glass_hit.ogg', 50, 1)
 	return TRUE
 
+/obj/structure/window/grab_attack(obj/item/grab/G, mob/user)
+	if(isliving(G.grabbed))
+		grab_smash_attack(G, DAMAGE_BRUTE)
+		return TRUE
+	return FALSE
+
 /obj/structure/window/attackby(obj/item/attacking_item, mob/user)
 	if(!istype(attacking_item) || istype(attacking_item, /obj/item/flag))
 		return
-	if(istype(attacking_item, /obj/item/grab) && get_dist(src,user)<2)
-		var/obj/item/grab/G = attacking_item
-		if(istype(G.affecting,/mob/living))
-			grab_smash_attack(G, DAMAGE_BRUTE)
-			return
 
 	if(attacking_item.item_flags & ITEM_FLAG_NO_BLUDGEON)
 		return
@@ -320,29 +322,27 @@
 	return
 
 /obj/structure/window/proc/grab_smash_attack(obj/item/grab/G, var/damtype = DAMAGE_BRUTE)
-	var/mob/living/M = G.affecting
-	var/mob/living/user = G.assailant
+	var/mob/living/M = G.grabbed
+	var/mob/living/user = G.grabber
 
-	var/state = G.state
 	qdel(G)	//gotta delete it here because if window breaks, it won't get deleted
 
 	var/def_zone = ran_zone(M, BP_HEAD, 20)
-	switch (state)
-		if(1)
-			M.visible_message(SPAN_WARNING("[user] slams [M] against \the [src]!"))
-			M.apply_damage(7, damtype, def_zone, used_weapon = src)
-			hit(10)
-		if(2)
-			M.visible_message(SPAN_DANGER("[user] bashes [M] against \the [src]!"))
-			if (prob(50))
-				M.Weaken(1)
-			M.apply_damage(10, damtype, def_zone, used_weapon = src)
-			hit(25)
-		if(3)
-			M.visible_message(SPAN_DANGER("<big>[user] crushes [M] against \the [src]!</big>"))
-			M.Weaken(5)
-			M.apply_damage(20, damtype, def_zone, used_weapon = src)
-			hit(50)
+	if(G.has_grab_flags(GRAB_RESTRAINS))
+		M.visible_message(SPAN_DANGER("<big>[user] crushes [M] against \the [src]!</big>"))
+		M.Weaken(5)
+		M.apply_damage(20, damtype, def_zone, used_weapon = src)
+		hit(50)
+	else if(G.has_grab_flags(GRAB_FORCE_HARM))
+		M.visible_message(SPAN_DANGER("[user] bashes [M] against \the [src]!"))
+		if(prob(50))
+			M.Weaken(1)
+		M.apply_damage(10, damtype, def_zone, used_weapon = src)
+		hit(25)
+	else
+		M.visible_message(SPAN_WARNING("[user] slams [M] against \the [src]!"))
+		M.apply_damage(7, damtype, def_zone, used_weapon = src)
+		hit(10)
 
 /obj/structure/window/proc/hit(var/damage, var/sound_effect = 1)
 	if(reinf)
@@ -478,7 +478,7 @@
 		set_opacity(1)
 
 /obj/structure/window/reinforced/crescent/attack_hand()
-	return
+	SHOULD_CALL_PARENT(FALSE)
 
 /obj/structure/window/reinforced/crescent/attackby()
 	return
@@ -689,11 +689,6 @@
 /obj/structure/window/full/attackby(obj/item/attacking_item, mob/user)
 	if(!istype(attacking_item) || istype(attacking_item, /obj/item/flag))
 		return
-	if(istype(attacking_item, /obj/item/grab) && get_dist(src,user)<2)
-		var/obj/item/grab/G = attacking_item
-		if(istype(G.affecting,/mob/living))
-			grab_smash_attack(G, DAMAGE_BRUTE)
-			return
 
 	if(attacking_item.item_flags & ITEM_FLAG_NO_BLUDGEON)
 		return
@@ -823,7 +818,7 @@
 
 // Indestructible Reinforced Window
 /obj/structure/window/full/reinforced/indestructible/attack_hand()
-	return
+	SHOULD_CALL_PARENT(FALSE)
 
 /obj/structure/window/full/reinforced/indestructible/attackby()
 	return
@@ -856,7 +851,7 @@
 
 // Indestructible Reinforced Polarized Window
 /obj/structure/window/full/reinforced/polarized/indestructible/attack_hand()
-	return
+	SHOULD_CALL_PARENT(FALSE)
 
 /obj/structure/window/full/reinforced/polarized/indestructible/attackby()
 	return

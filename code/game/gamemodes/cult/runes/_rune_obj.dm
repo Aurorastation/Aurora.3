@@ -42,6 +42,7 @@
 		return TRUE
 
 /obj/effect/rune/attack_hand(mob/living/user)
+	. = ..()
 	if(!iscultist(user))
 		to_chat(user, SPAN_NOTICE("You can't mouth the arcane scratchings without fumbling over them."))
 		return

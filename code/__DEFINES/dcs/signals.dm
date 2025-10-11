@@ -69,6 +69,8 @@
 /// when a gun mag is emptied
 #define COMSIG_EMPTIED_MAGAZINE "emptied_magazine"
 
+#define COMSIG_ORGAN_DISMEMBERED "organ_dismembered"
+
 // tgui signals
 #define COMSIG_TGUI_CLOSE "tgui_close"
 

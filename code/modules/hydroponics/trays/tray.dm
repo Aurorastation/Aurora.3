@@ -697,6 +697,7 @@
 		harvest(user)
 
 /obj/machinery/portable_atmospherics/hydroponics/attack_hand(mob/user as mob)
+	. = ..()
 	if(istype(usr,/mob/living/silicon))
 		return
 

@@ -122,7 +122,7 @@
 /mob/living/simple_animal/shade/bluespace/adjustHalLoss()
 	return 0
 
-/mob/living/simple_animal/shade/bluespace/attempt_grab()
+/mob/living/simple_animal/shade/bluespace/handle_grab_interaction()
 	return 0
 
 /mob/living/simple_animal/shade/bluespace/ex_act()

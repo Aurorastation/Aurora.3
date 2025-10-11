@@ -143,6 +143,7 @@
 	return
 
 /obj/machinery/optable/attack_hand(mob/user)
+	. = ..()
 	if((user.mutations & HULK))
 		visible_message(SPAN_DANGER("\The [user] destroys \the [src]!"))
 		density = FALSE
@@ -316,28 +317,35 @@
 	else
 		return ..()
 
-/obj/machinery/optable/attackby(obj/item/attacking_item, mob/user, params)
-	if(istype(attacking_item, /obj/item/grab))
-		var/obj/item/grab/G = attacking_item
+/obj/machinery/optable/proc/check_table(mob/living/patient, mob/user)
+	check_occupant()
+	var/mob/living/carbon/human/occupant_resolved = occupant?.resolve()
+	if(patient.bucklecheck(user))
+		return FALSE
+	if(occupant_resolved && get_turf(occupant_resolved) == get_turf(src) && occupant_resolved.lying)
+		to_chat(user, SPAN_WARNING("\The [src] is already occupied!"))
+		return FALSE
+	if(patient.buckled)
+		to_chat(user, SPAN_NOTICE("Unbuckle \the [patient] first!"))
+		return FALSE
+	if(patient.anchored)
+		return FALSE
+	return TRUE
 
-		var/mob/living/carbon/human/occupant_resolved = occupant?.resolve()
-		if(occupant_resolved)
-			to_chat(usr, SPAN_NOTICE(SPAN_BOLD("\The [src] is already occupied!")))
-			return TRUE
 
-		var/mob/living/L = G.affecting
-		var/bucklestatus = L.bucklecheck(user)
-		if(!bucklestatus)
-			return TRUE
-
-		if(L == user)
+/obj/machinery/optable/grab_attack(obj/item/grab/G, mob/user)
+	if(isliving(G.grabbed) && check_table(G.grabbed))
+		if(G.grabbed == user)
 			user.visible_message(SPAN_NOTICE("\The [user] starts climbing onto \the [src]."), SPAN_NOTICE("You start climbing onto \the [src]."), range = 3)
 		else
-			user.visible_message(SPAN_NOTICE("\The [user] starts putting \the [L] onto \the [src]."), SPAN_NOTICE("You start putting \the [L] onto \the [src]."), range = 3)
-		if(do_mob(user, L, 10, needhand = FALSE))
-			take_occupant(G.affecting,usr)
-			qdel(attacking_item)
-		return TRUE
+			user.visible_message(SPAN_NOTICE("\The [user] starts putting \the [G.grabbed] onto \the [src]."), SPAN_NOTICE("You start putting \the [G.grabbed] onto \the [src]."), range = 3)
+		if(do_mob(user, G.grabbed, 1 SECOND, needhand = FALSE))
+			take_occupant(G.grabbed, user)
+			qdel(G)
+			return TRUE
+	return ..()
+
+/obj/machinery/optable/attackby(obj/item/attacking_item, mob/user, params)
 	if(default_deconstruction_screwdriver(user, attacking_item))
 		return TRUE
 	if(default_deconstruction_crowbar(user, attacking_item))

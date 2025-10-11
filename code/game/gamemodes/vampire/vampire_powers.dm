@@ -36,11 +36,12 @@
 	if(!istype(G))
 		to_chat(src, SPAN_WARNING("You must be grabbing a victim in your active hand to drain their blood."))
 		return
-	if(G.state == GRAB_PASSIVE || G.state == GRAB_UPGRADING)
+
+	if(!G.has_grab_flags(GRAB_FORCE_HARM))
 		to_chat(src, SPAN_WARNING("You must have a better grip of the victim to drain their blood."))
 		return
 
-	var/mob/living/carbon/human/T = G.affecting
+	var/mob/living/carbon/human/T = G.get_grabbed_mob()
 	if(!istype(T) || T.species.flags & NO_BLOOD)
 		//Added this to prevent vampires draining diona and IPCs
 		//Diona have 'blood' but its really green sap and shouldn't help vampires
@@ -283,11 +284,12 @@
 
 	vampire_phase_in(T)
 
-	for(var/obj/item/grab/G in contents)
-		if (G.affecting && (vampire.status & VAMP_FULLPOWER))
-			G.affecting.vampire_phase_out(get_turf(G.affecting.loc))
-			G.affecting.forceMove(locate(T.x + rand(-1,1), T.y + rand(-1,1), T.z))
-			G.affecting.vampire_phase_in(get_turf(G.affecting.loc))
+	for(var/obj/item/grab/G in get_active_grabs())
+		var/mob/living/victim = G.get_grabbed_mob()
+		if (istype(victim) && (vampire.status & VAMP_FULLPOWER))
+			victim.vampire_phase_out(get_turf(victim.loc))
+			victim.forceMove(locate(T.x + rand(-1,1), T.y + rand(-1,1), T.z))
+			victim.vampire_phase_in(get_turf(victim.loc))
 		else
 			qdel(G)
 
@@ -414,13 +416,8 @@
 	if(isAdminLevel(src.z))
 		return
 
-	if(ismob(pulledby))
-		var/mob/M = pulledby
-		if(M.pulling == src)
-			M.pulling = null
-		pulledby = null
-	for(var/thing in grabbed_by)
-		qdel(thing)
+	for(var/obj/item/grab/G as anything in grabbed_by)
+		G.force_drop()
 
 	if(vampire.holder)
 		vampire.holder.deactivate()
@@ -544,9 +541,10 @@
 
 	var/datum/vampire/vampire = owner_mob.mind.antag_datums[MODE_VAMPIRE]
 	if(vampire.status & VAMP_FULLPOWER)
-		for(var/obj/item/grab/G in list(owner.l_hand, owner.r_hand))
-			G.affecting.vampire_phase_out(get_turf(G))
-			G.affecting.forceMove(src)
+		for(var/obj/item/grab/G as anything in owner.get_active_grabs())
+			var/mob/living/victim = G.get_grabbed_mob()
+			victim.vampire_phase_out(get_turf(G))
+			victim.forceMove(src)
 
 	START_PROCESSING(SSprocessing, src)
 
@@ -733,11 +731,11 @@
 	if(!istype(G))
 		to_chat(src, SPAN_WARNING("You must be grabbing a victim in your active hand to enthrall them."))
 		return
-	if(G.state == GRAB_PASSIVE || G.state == GRAB_UPGRADING)
+	if(!G.has_grab_flags(GRAB_FORCE_HARM))
 		to_chat(src, SPAN_WARNING("You must have a better grip of the victim to enthrall them."))
 		return
 
-	var/mob/living/carbon/human/T = G.affecting
+	var/mob/living/carbon/human/T = G.get_grabbed_mob()
 	if(isipc(T))
 		to_chat(src, SPAN_WARNING("[T] is not a creature you can enthrall."))
 		return
@@ -851,7 +849,7 @@
 		to_chat(src, SPAN_WARNING("You must be grabbing a victim in your active hand to touch them."))
 		return
 
-	var/mob/living/carbon/human/T = G.affecting
+	var/mob/living/carbon/human/T = G.get_grabbed_mob()
 	if(T.species.flags & NO_BLOOD)
 		to_chat(src, SPAN_WARNING("[T] has no blood and can not be affected by your powers!"))
 		return
@@ -878,11 +876,11 @@
 	if(!istype(G))
 		to_chat(src, SPAN_WARNING("You must be grabbing a victim in your active hand to drain their blood."))
 		return
-	if(G.state == GRAB_PASSIVE || G.state == GRAB_UPGRADING)
+	if(!G.has_grab_flags(GRAB_FORCE_HARM))
 		to_chat(src, SPAN_WARNING("You must have a better grip of the victim to drain their blood."))
 		return
 
-	var/mob/living/carbon/human/T = G.affecting
+	var/mob/living/carbon/human/T = G.get_grabbed_mob()
 	if(!vampire_can_affect_target(T, ignore_thrall = TRUE))
 		return
 	if(!T.client)
@@ -1011,25 +1009,13 @@
 
 	admin_attack_log(src, T, "leapt at and grappled [key_name(T)]", "was leapt at and grappled by [key_name(src)]", "leapt at and grappled")
 
-	var/use_hand = "left"
-	if(l_hand)
-		if(r_hand)
-			to_chat(src, SPAN_DANGER("You need to have one hand free to grab someone."))
-			return
-		else
-			use_hand = "right"
+	if(!get_empty_hand_slot())
+		to_chat(src, SPAN_DANGER("You need to have one hand free to grab someone."))
+		return
 
 	visible_message(SPAN_WARNING("<b>[src]</b> seizes [T] aggressively!"))
 
-	var/obj/item/grab/G = new(src, src, T)
-	if(use_hand == "left")
-		l_hand = G
-	else
-		r_hand = G
-
-	G.state = GRAB_AGGRESSIVE
-	G.icon_state = "grabbed1"
-	G.synch()
+	make_grab(T, /singleton/grab/normal/aggressive, TRUE, TRUE)
 
 	remove_verb(src, /mob/living/carbon/human/proc/grapple)
 	ADD_VERB_IN_IF(src, 800, /mob/living/carbon/human/proc/grapple, CALLBACK(src, PROC_REF(finish_vamp_timeout), VAMP_FRENZIED))

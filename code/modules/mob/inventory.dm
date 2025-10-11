@@ -290,12 +290,20 @@ GLOBAL_LIST_INIT(slot_equipment_priority, list(
 //Drops the item in our active hand. TODO: rename this to drop_active_hand or something
 
 /mob/proc/drop_item(var/atom/Target)
-	var/obj/item/item_dropped = null
+	var/obj/item/I = get_active_hand()
+	if(!istype(I))
+		if(length(get_active_grabs()))
+			for(var/obj/item/grab/G as anything in get_active_grabs())
+				qdel(G)
+				. = TRUE
+			return
+		return FALSE
+	else if(!I.mob_can_unequip(src, get_active_held_item_slot(), dropping = TRUE))
+		return FALSE
+	. = drop_from_inventory(I, Target)
 
-	. = drop_from_inventory(get_active_hand(), Target)
-
-	if (istype(item_dropped) && !QDELETED(item_dropped))
-		addtimer(CALLBACK(src, PROC_REF(make_item_drop_sound), item_dropped), 1)
+	if (!QDELETED(I))
+		addtimer(CALLBACK(src, PROC_REF(make_item_drop_sound), I), 1)
 
 /mob/proc/make_item_drop_sound(obj/item/I)
 	if(QDELETED(I))
@@ -435,7 +443,7 @@ GLOBAL_LIST_INIT(slot_equipment_priority, list(
 	if(istype(item, /obj/item/grab))
 		var/obj/item/grab/G = item
 		item = G.throw_held() //throw the person instead of the grab
-		if(ismob(item) && G.state >= GRAB_NECK)
+		if(ismob(item))
 			var/mob/M = item
 			if(M.mob_weight > get_mob_strength())
 				to_chat(src, SPAN_WARNING("[M] is far too heavy for you to throw around!"))

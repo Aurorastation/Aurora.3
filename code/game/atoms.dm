@@ -638,3 +638,23 @@
 /atom/proc/clear_bulletholes()
 	for(var/obj/effect/overlay/bmark/bullet_mark in src)
 		qdel(bullet_mark)
+
+// TODO make all atoms use set_density, do not rely on it at present
+///Setter for the `density` variable to append behavior related to its changing.
+/atom/proc/set_density(new_value)
+	SHOULD_CALL_PARENT(TRUE)
+	if(density == new_value)
+		return
+	. = density
+	density = new_value
+
+/**
+	Handle this atom being hit by a grab.
+
+	Called by resolve_attackby()
+
+	- `G`: The grab hitting this atom
+	- Return: `TRUE` to skip attackby() and afterattack() or `FALSE`
+*/
+/atom/proc/grab_attack(obj/item/grab/G, mob/user)
+	return FALSE

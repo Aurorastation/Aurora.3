@@ -100,7 +100,6 @@
 	if (usr.abiotic())
 		to_chat(usr, SPAN_WARNING("The subject cannot have abiotic items on."))
 		return
-	usr.stop_pulling()
 	usr.client.perspective = EYE_PERSPECTIVE
 	usr.client.eye = src
 	usr.forceMove(src)
@@ -108,6 +107,23 @@
 	src.icon_state = "scanner_1"
 	src.add_fingerprint(usr)
 	return
+
+/obj/machinery/dna_scannernew/grab_attack(obj/item/grab/G, mob/user)
+	. = ..()
+	var/mob/living/victim = G.get_grabbed_mob()
+	if(!istype(victim) || !victim.bucklecheck(user))
+		return
+	if(occupant)
+		to_chat(user, SPAN_WARNING("The scanner is already occupied!"))
+		return TRUE
+
+	user.visible_message(SPAN_NOTICE("\The [user] starts putting \the [victim] into \the [src]."), SPAN_NOTICE("You start putting \the [victim] into \the [src]."), range = 3)
+
+	if(do_mob(user, victim, 3 SECONDS, needhand = FALSE))
+		put_in(victim)
+	add_fingerprint(user)
+	qdel(G)
+	return TRUE
 
 /obj/machinery/dna_scannernew/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/reagent_containers/glass))
@@ -118,25 +134,6 @@
 		user.drop_from_inventory(attacking_item,src)
 		user.visible_message("\The [user] adds \a [attacking_item] to \the [src]!", "You add \a [attacking_item] to \the [src]!")
 		return TRUE
-
-	var/obj/item/grab/G = attacking_item
-	if (!istype(G, /obj/item/grab) || !isliving(G.affecting) )
-		return
-	if (occupant)
-		to_chat(user, SPAN_WARNING("The scanner is already occupied!"))
-		return TRUE
-
-	var/mob/living/M = G.affecting
-	var/bucklestatus = M.bucklecheck(user)
-	if (!bucklestatus)
-		return TRUE
-
-	user.visible_message(SPAN_NOTICE("\The [user] starts putting \the [M] into \the [src]."), SPAN_NOTICE("You start putting \the [M] into \the [src]."), range = 3)
-	if (do_mob(user, G.affecting, 30, needhand = 0))
-		put_in(G.affecting)
-	src.add_fingerprint(user)
-	qdel(G)
-	return TRUE
 
 /obj/machinery/dna_scannernew/mouse_drop_receive(atom/dropped, mob/user, params)
 	if(!istype(user))

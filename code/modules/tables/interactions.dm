@@ -196,49 +196,6 @@
 	if (!attacking_item)
 		return
 
-	// Handle harm intent grabbing/tabling.
-	if(istype(attacking_item, /obj/item/grab) && get_dist(src,user)<2)
-		var/obj/item/grab/G = attacking_item
-		if(istype(G.affecting, /mob/living))
-			var/mob/living/M = G.affecting
-			var/obj/occupied = turf_is_crowded()
-			if(occupied)
-				to_chat(user, SPAN_DANGER("There's \a [occupied] in the way."))
-				return
-			if(!user.Adjacent(M))
-				return
-			if(G.state > GRAB_AGGRESSIVE && world.time >= G.last_action + UPGRADE_COOLDOWN)
-				if(user.a_intent == I_HURT)
-					var/blocked = M.get_blocked_ratio(BP_HEAD, DAMAGE_BRUTE, damage = 8)
-					if (prob(30 * (1 - blocked)))
-						M.Weaken(5)
-					M.apply_damage(8, DAMAGE_BRUTE, BP_HEAD)
-					visible_message(SPAN_DANGER("[G.assailant] slams [G.affecting]'s face against \the [src]!"))
-					if(material)
-						playsound(loc, material.tableslam_noise, 50, 1)
-					else
-						playsound(loc, 'sound/weapons/tablehit1.ogg', 50, 1)
-					// Shards. Extra damage, plus potentially the fact YOU LITERALLY HAVE A PIECE OF GLASS/METAL/WHATEVER IN YOUR FACE
-					var/sanity_counter = 0
-					for(var/obj/item/material/shard/S in get_turf(src))
-						if(prob(50))
-							M.visible_message(SPAN_DANGER("\The [S] slices [M]'s face messily!"),
-												SPAN_DANGER("\The [S] slices your face messily!"))
-							M.apply_damage(10, DAMAGE_BRUTE, BP_HEAD)
-							sanity_counter++
-						if(sanity_counter >= 3)
-							break
-					G.last_action = world.time
-				else
-					G.affecting.forceMove(src.loc)
-					G.affecting.Weaken(rand(2,4))
-					visible_message(SPAN_DANGER("[G.assailant] puts [G.affecting] on \the [src]."))
-					qdel(attacking_item)
-				return
-			else
-				to_chat(user, SPAN_WARNING("You need a better grip to do that!"))
-				return
-
 	if(reinforced && attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		remove_reinforced(attacking_item, user)
 		if(!reinforced)

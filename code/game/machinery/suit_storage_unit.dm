@@ -452,7 +452,6 @@
 						SPAN_NOTICE("You start squeezing into [src]!"), range = 3)
 
 	if(do_after(usr, 1 SECOND, src, DO_UNIQUE))
-		usr.stop_pulling()
 		usr.client.perspective = EYE_PERSPECTIVE
 		usr.client.eye = src
 		usr.forceMove(src)
@@ -467,6 +466,39 @@
 		src.OCCUPANT = null //Testing this as a backup sanity test
 	return
 
+/obj/machinery/suit_storage_unit/grab_attack(obj/item/grab/G, mob/user)
+	var/mob/living/grabbed = G.get_grabbed_mob()
+	if(!istype(grabbed))
+		return FALSE
+
+	if(!isopen)
+		to_chat(user, SPAN_WARNING("\The [src]'s doors are shut!"))
+		return FALSE
+
+	if(!ispowered || isbroken)
+		to_chat(user, SPAN_WARNING("\The [src] is not operational."))
+		return FALSE
+
+	if(contents.len > 0)
+		to_chat(user, SPAN_WARNING("\The [src] is too cluttered for [grabbed] to fit!"))
+		return FALSE
+
+	user.visible_message(SPAN_NOTICE("[user] starts putting [grabbed] into \the [src]."), SPAN_NOTICE("You start putting [grabbed] into \the [src]."), range = 3)
+	if(do_after(user, 2 SECONDS, src, DO_UNIQUE))
+		if(!G || !G.grabbed || (grabbed != G.grabbed))
+			return FALSE
+		if(grabbed.client)
+			grabbed.client.perspective = EYE_PERSPECTIVE
+			grabbed.client.eye = src
+		grabbed.forceMove(src)
+		OCCUPANT = grabbed
+		isopen = FALSE
+		add_fingerprint(user)
+		qdel(G)
+		updateUsrDialog()
+		update_icon()
+		return TRUE
+	return FALSE
 
 /obj/machinery/suit_storage_unit/attackby(obj/item/attacking_item, mob/user)
 	if(!src.ispowered)
@@ -477,38 +509,6 @@
 		to_chat(user, SPAN_NOTICE("You [src.panelopen ? "open up" : "close"] the unit's maintenance panel."))
 		update_icon()
 		src.updateUsrDialog()
-		return TRUE
-	if ( istype(attacking_item, /obj/item/grab) )
-		var/obj/item/grab/G = attacking_item
-		if( !(ismob(G.affecting)) )
-			return TRUE
-		if (!src.isopen)
-			to_chat(usr, SPAN_WARNING("The unit's doors are shut."))
-			return TRUE
-		if (!src.ispowered || src.isbroken)
-			to_chat(usr, SPAN_WARNING("The unit is not operational."))
-			return TRUE
-		if ( (src.OCCUPANT) || (src.HELMET) || (src.SUIT) ) //Unit needs to be absolutely empty
-			to_chat(user, SPAN_WARNING("The unit's storage area is too cluttered."))
-			return TRUE
-		user.visible_message(SPAN_NOTICE("[user] starts putting [G.affecting] into [src]."),
-								SPAN_NOTICE("You start putting [G.affecting] into [src]."),
-								range = 3)
-
-		if(do_after(user, 2 SECONDS, src, DO_UNIQUE))
-			if(!G || !G.affecting) return TRUE //derpcheck
-			var/mob/M = G.affecting
-			if (M.client)
-				M.client.perspective = EYE_PERSPECTIVE
-				M.client.eye = src
-			M.forceMove(src)
-			src.OCCUPANT = M
-			src.isopen = 0 //close ittt
-			src.add_fingerprint(user)
-			qdel(G)
-			src.updateUsrDialog()
-			src.update_icon()
-			return TRUE
 		return TRUE
 	if( istype(attacking_item,/obj/item/clothing/suit/space) )
 		if(!src.isopen)

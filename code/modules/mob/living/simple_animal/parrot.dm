@@ -276,7 +276,7 @@
 /mob/living/simple_animal/parrot/think()
 	..()
 	//Sprite and AI update for when a parrot gets pulled
-	if(pulledby && stat == CONSCIOUS)
+	if(!LAZYLEN(grabbed_by) && stat == CONSCIOUS)
 		icon_state = "parrot_fly"
 		if(!client)
 			parrot_state = PARROT_WANDER

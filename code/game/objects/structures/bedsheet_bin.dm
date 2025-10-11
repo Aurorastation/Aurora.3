@@ -432,6 +432,7 @@ LINEN BINS
 			to_chat(user, SPAN_NOTICE("You hide [attacking_item] among the sheets."))
 
 /obj/structure/bedsheetbin/attack_hand(mob/user as mob)
+	. = ..()
 	if(amount >= 1)
 		amount--
 

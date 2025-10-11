@@ -188,7 +188,7 @@
 		var/mob/living/L = arrived
 		if(L.throwing)
 			return
-		INVOKE_ASYNC(src, PROC_REF(buckle), L)
+		INVOKE_ASYNC(src, TYPE_PROC_REF(/atom/movable, buckle), L)
 		if(!exposed)
 			expose()
 		to_chat(L, SPAN_DANGER("You fall into \the [src]!"))

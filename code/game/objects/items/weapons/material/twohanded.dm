@@ -342,6 +342,7 @@
 	anchored = 1
 
 /obj/structure/headspear/attack_hand(mob/living/user)
+	. = ..()
 	user.visible_message(SPAN_WARNING("[user] kicks over \the [src]!"), SPAN_DANGER("You kick down \the [src]!"))
 	new /obj/item/material/twohanded/spear(user.loc, material)
 	for(var/obj/item/organ/external/head/H in src)

@@ -1353,6 +1353,7 @@ GLOBAL_LIST_INIT_TYPED(total_extraction_beacons, /obj/structure/extraction_point
 	layer = 5.1
 
 /obj/structure/punching_bag/attack_hand(mob/user as mob)
+	. = ..()
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	flick("[icon_state]2", src)
 	playsound(get_turf(src), SFX_SWING_HIT, 25, 1, -1)
@@ -1372,6 +1373,7 @@ GLOBAL_LIST_INIT_TYPED(total_extraction_beacons, /obj/structure/extraction_point
 	anchored = TRUE
 
 /obj/structure/weightlifter/attack_hand(var/mob/living/carbon/human/user)
+	. = ..()
 	if(!istype(user))
 		return
 	if(in_use)

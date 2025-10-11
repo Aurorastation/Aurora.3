@@ -94,6 +94,17 @@
 /obj/machinery/washing_machine/update_icon()
 	icon_state = "wm_[state][panel]"
 
+/obj/machinery/washing_machine/grab_attack(obj/item/grab/G, mob/user)
+	var/mob/M = G.grabbed
+	if((state == 1) && hacked && istype(M))
+		if(M.mob_size <= MOB_TINY)
+			M.forceMove(src)
+			qdel(G)
+			state = 3
+			return TRUE
+		to_chat(user, SPAN_WARNING("You can't fit \the [M] in \the [src]!"))
+	return FALSE
+
 /obj/machinery/washing_machine/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item,/obj/item/pen/crayon) || istype(attacking_item,/obj/item/stamp))
 		if( state in list(	1, 3, 6 ) )
@@ -102,15 +113,6 @@
 				crayon = attacking_item
 			else
 				return ..()
-		else
-			return ..()
-	else if(istype(attacking_item,/obj/item/grab))
-		if( (state == 1) && hacked)
-			var/obj/item/grab/G = attacking_item
-			if(ishuman(G.assailant) && iscorgi(G.affecting))
-				G.affecting.forceMove(src)
-				qdel(G)
-				state = 3
 		else
 			return ..()
 	else if(attacking_item.tool_behaviour == TOOL_WRENCH)
@@ -134,6 +136,7 @@
 	return ..()
 
 /obj/machinery/washing_machine/attack_hand(mob/user as mob)
+	. = ..()
 	switch(state)
 		if(1)
 			state = 2

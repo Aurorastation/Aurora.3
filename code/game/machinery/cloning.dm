@@ -67,6 +67,7 @@
 	return attack_hand(user)
 
 /obj/machinery/clonepod/attack_hand(var/mob/user)
+	. = ..()
 	if((stat & NOPOWER) || !occupant || occupant.stat == DEAD)
 		return
 	to_chat(user, "Current clone cycle is [round(GetCloneReadiness())]% complete.")

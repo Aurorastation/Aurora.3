@@ -61,7 +61,7 @@
 		return TRUE
 
 /obj/machinery/floor_light/attack_hand(var/mob/user)
-
+	. = ..()
 	if(user.a_intent == I_HURT && !issmall(user))
 		if(!isnull(damaged) && !(stat & BROKEN))
 			visible_message(SPAN_DANGER("\The [user] smashes \the [src]!"))

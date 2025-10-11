@@ -139,6 +139,7 @@
 
 
 /obj/structure/sign/poster/attack_hand(mob/user as mob)
+	. = ..()
 	if(ruined)
 		return
 	if(user.a_intent == I_HELP)

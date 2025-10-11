@@ -611,12 +611,9 @@
 		damage_mult = 1.3
 
 	//determine multiplier due to the target being grabbed
-	if(M.grabbed_by.len)
-		var/grabstate = 0
-		for(var/obj/item/grab/G in M.grabbed_by)
-			grabstate = max(grabstate, G.state)
-		if(grabstate >= GRAB_NECK)
-			damage_mult = 2.5
+	for(var/obj/item/grab/G as anything in M.grabbed_by)
+		damage_mult = max(damage_mult, G.point_blank_mult())
+
 	P.damage *= damage_mult
 	P.point_blank = TRUE
 

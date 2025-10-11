@@ -357,6 +357,7 @@
 	return ..()
 
 /obj/item/attack_hand(mob/user)
+	. = ..()
 	if(!user)
 		return
 	if(ishuman(user))
@@ -603,7 +604,6 @@
 	hud_layerise()
 	equip_slot = slot
 	if(user.client)	user.client.screen |= src
-	if(user.pulling == src) user.stop_pulling()
 	in_inventory = TRUE
 
 	if(!initial)
@@ -766,15 +766,8 @@ GLOBAL_LIST_INIT(slot_flags_enumeration, list(
 				return FALSE
 	return TRUE
 
-/obj/item/proc/mob_can_unequip(mob/M, slot, disable_warning = 0)
-	if(!slot) return 0
-	if(!M) return 0
-
-	if(!canremove)
-		return 0
-	if(!M.slot_is_accessible(slot, src, disable_warning? null : M))
-		return 0
-	return 1
+/obj/item/proc/mob_can_unequip(mob/M, slot, disable_warning = FALSE, dropping = FALSE)
+	return slot && M && canremove && M.slot_is_accessible(slot, src, disable_warning ? null : M)
 
 // override for give shenanigans
 /obj/item/proc/on_give(var/mob/giver, var/mob/receiver)

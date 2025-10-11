@@ -78,7 +78,9 @@
 		return TryToSwitchState(user)
 
 /obj/structure/simple_door/attack_hand(mob/user as mob)
-	return TryToSwitchState(user)
+	. = ..()
+	if(!.)
+		return TryToSwitchState(user)
 
 /obj/structure/simple_door/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	if(istype(user, /mob/living/simple_animal/construct)) // don't know of any other attack_generic smart enough to open doors

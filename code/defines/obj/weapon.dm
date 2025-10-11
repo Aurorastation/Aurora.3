@@ -123,7 +123,7 @@
 				user.visible_message("<span class='[class]'>[user] flips [user.get_pronoun("his")] [name]...</span>", "<span class='[class]'>You flip [src], preparing a grab...</span>")
 				if (do_mob(user,target_mob,chargedelay,display_progress=0))
 					if(!wasblocked && damageamount)
-						user.start_pulling(target_mob)
+						user.make_grab(target_mob, defer_hand = TRUE)
 					else
 						verbtouse = pick("awkwardly tries to hook","fails to grab")
 				else

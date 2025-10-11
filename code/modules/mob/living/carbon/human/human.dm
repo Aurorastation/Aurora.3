@@ -178,8 +178,8 @@
 			if(ishuman(victim) && !islesserform(M))
 				to_chat(src, SPAN_WARNING("You can't devour humanoids!"))
 				return FALSE
-			for(var/obj/item/grab/G in M.grabbed_by)
-				if(G && G.state < GRAB_NECK)
+			for(var/obj/item/grab/G as anything in M.grabbed_by)
+				if(!G.has_grab_flags(GRAB_RESTRAINS))
 					if(!silent)
 						to_chat(src, SPAN_WARNING("You need a tighter hold on \the [M]!"))
 					return FALSE
@@ -990,20 +990,26 @@
 			xylophone=0
 	return
 
-/mob/living/carbon/human/proc/check_has_mouth()
+/mob/living/carbon/human/check_has_eyes()
+	var/obj/item/organ/internal/eyes = GET_INTERNAL_ORGAN(src, BP_EYES)
+	. = eyes?.is_usable()
+
+/mob/living/carbon/human/check_has_mouth()
 	// Look, it's not really a mouth, but you gotta do what you gotta do.
 	// Imagine the Bender shit from Futurama where he opens his stomach hatch and drops shit in there.
 	if(should_have_organ(BP_REACTOR))
 		var/obj/item/organ/internal/machine/reactor/reactor = internal_organs_by_name[BP_REACTOR]
 		if(reactor && (reactor.power_supply_type & POWER_SUPPLY_BIOLOGICAL))
 			return TRUE
-
-	// Todo, check stomach organ when implemented.
-	var/obj/item/organ/external/E = get_organ(BP_HEAD)
-	if(E && !E.is_stump())
-		var/obj/item/organ/external/head/H = E
-		if(!H.can_intake_reagents)
+		else
 			return FALSE
+	else
+		// Todo, check stomach organ when implemented.
+		var/obj/item/organ/external/E = get_organ(BP_HEAD)
+		if(E && !E.is_stump())
+			var/obj/item/organ/external/head/H = E
+			if(!H.can_intake_reagents)
+				return FALSE
 	return TRUE
 
 /mob/living/proc/empty_stomach()

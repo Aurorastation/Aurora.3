@@ -74,6 +74,7 @@
 		product_types.Add(5)
 
 /obj/machinery/icecream_vat/attack_hand(mob/user as mob)
+	. = ..()
 	user.set_machine(src)
 	interact(user)
 

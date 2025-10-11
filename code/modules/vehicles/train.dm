@@ -118,6 +118,7 @@
 			to_chat(user, SPAN_WARNING("You were unable to load \the [dropped] on \the [src]."))
 
 /obj/vehicle/train/attack_hand(mob/user as mob)
+	. = ..()
 	if(use_check_and_message(user))
 		return 0
 

@@ -12,6 +12,7 @@
 		src.reload++
 
 /obj/machinery/computer/artillerycontrol/attack_hand(mob/user as mob)
+	. = ..()
 	user.set_machine(src)
 	var/dat = "<B>Bluespace Artillery Control:</B><BR>"
 	dat += "Locked on<BR>"

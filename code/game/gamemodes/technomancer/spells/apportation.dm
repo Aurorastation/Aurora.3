@@ -56,20 +56,17 @@
 			src.loc = null
 
 /obj/item/spell/apportation/proc/seize_mob(var/mob/living/L, var/mob/user)
-	if(!user.Adjacent(L))
+	if(!user.Adjacent(L) || !isliving(user))
 		to_chat(user, SPAN_WARNING("\The [L] is out of your reach."))
 		qdel(src)
 		return
 
+	var/mob/living/living_user = user
+
 	L.Weaken(3)
 	user.visible_message(SPAN_WARNING("<b>\The [user]</b> seizes [L]!"))
 
-	var/obj/item/grab/G = new(user, L)
+	living_user.make_grab(L, TRUE)
 
-	user.put_in_hands(G)
-
-	G.state = GRAB_PASSIVE
-	G.icon_state = "grabbed1"
-	G.synch()
 	qdel(src)
 

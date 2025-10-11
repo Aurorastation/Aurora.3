@@ -346,6 +346,12 @@
 
 	damage(proj_damage)
 
+/obj/structure/closet/grab_attack(obj/item/grab/G, mob/user)
+	if(opened)
+		mouse_drop_receive(G.grabbed, user)
+		return TRUE
+	return FALSE
+
 /obj/structure/closet/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/closet_teleporter))
 		if(linked_teleporter)
@@ -360,10 +366,6 @@
 			user.drop_from_inventory(CT, src)
 		return
 	if(opened)
-		if(istype(attacking_item, /obj/item/grab))
-			var/obj/item/grab/G = attacking_item
-			mouse_drop_receive(G.affecting, user) //act like they were dragged onto the closet
-			return 0
 		if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER) // Moved here so you can only detach linked teleporters when the door is open. So you can like unscrew and bolt the locker normally in most circumstances.
 			if(linked_teleporter)
 				user.visible_message(SPAN_NOTICE("\The [user] starts detaching \the [linked_teleporter] from \the [src]..."), SPAN_NOTICE("You begin detaching \the [linked_teleporter] from \the [src]..."), range = 3)
@@ -576,6 +578,7 @@
 	to_chat(user, SPAN_NOTICE("It won't budge!"))
 
 /obj/structure/closet/attack_hand(mob/user as mob)
+	. = ..()
 	add_fingerprint(user)
 	if(locked)
 		togglelock(user)

@@ -186,19 +186,15 @@ emp_act
 
 /mob/living/carbon/human/get_attack_victim(obj/item/I, mob/living/user, var/target_zone)
 	if(a_intent != I_HELP)
-		var/list/holding = list(get_active_hand() = 60)
-		for(var/obj/item/held in get_inactive_held_items())
-			holding[held] = 40
-		for(var/obj/item/grab/G in holding)
-			if(G.affecting && prob(holding[G]) && G.affecting != user)
-				visible_message(SPAN_WARNING("[src] repositions \the [G.affecting] to block \the [I]'s attack!"), SPAN_NOTICE("You reposition \the [G.affecting] to block \the [I]'s attack!"))
-				return G.affecting
+		var/active_hand = get_active_hand()
+		for(var/obj/item/grab/G as anything in get_active_grabs())
+			var/successful_block = active_hand == G ? 60 : 40
+			if(G.grabbed && prob(successful_block) && G.grabbed != user && G.has_grab_flags(GRAB_SHIELDS_YOU))
+				visible_message(SPAN_WARNING("[src] repositions \the [G.grabbed] to block \the [I]'s attack!"), SPAN_NOTICE("You reposition \the [G.grabbed] to block \the [I]'s attack!"))
+				return G.grabbed
 	return src
 
 /mob/living/carbon/human/resolve_item_attack(obj/item/I, mob/living/user, var/target_zone)
-	if(check_attack_throat(I, user))
-		return null
-
 	if(user == src) // Attacking yourself can't miss
 		return target_zone
 
@@ -523,45 +519,6 @@ emp_act
 		perm += perm_by_part[part]
 
 	return perm
-
-/mob/living/carbon/human/proc/grabbedby(mob/living/carbon/human/user,var/supress_message = 0)
-	if(user == src || anchored)
-		return 0
-	if(user.is_pacified())
-		to_chat(user, SPAN_NOTICE("You don't want to risk hurting [src]!"))
-		return 0
-
-	for(var/obj/item/grab/G in user.grabbed_by)
-		if(G.assailant == user)
-			to_chat(user, SPAN_NOTICE("You already grabbed [src]."))
-			return
-
-	if (!attempt_grab(user))
-		return
-
-	if(src.w_uniform)
-		src.w_uniform.add_fingerprint(src)
-
-	var/obj/item/grab/G = new /obj/item/grab(user, user, src)
-	if(buckled_to)
-		to_chat(user, SPAN_NOTICE("You cannot grab [src], [get_pronoun("he")] [get_pronoun("is")] buckled in!"))
-	if(!G)	//the grab will delete itself in New if affecting is anchored
-		return
-	user.put_in_active_hand(G)
-	G.synch()
-	LAssailant = WEAKREF(user)
-
-	user.do_attack_animation(src)
-	playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
-	if(user.gloves && istype(user.gloves,/obj/item/clothing/gloves/force/syndicate)) //only antag gloves can do this for now
-		G.state = GRAB_AGGRESSIVE
-		G.icon_state = "grabbed1"
-		G.hud.icon_state = "reinforce1"
-		G.last_action = world.time
-		visible_message(SPAN_WARNING("[user] gets a strong grip on [src]!"))
-		return 1
-	visible_message(SPAN_WARNING("[user] has grabbed [src] passively!"))
-	return 1
 
 /mob/living/carbon/human/set_on_fire()
 	..()

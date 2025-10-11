@@ -90,6 +90,7 @@
 		slowdown = 2
 
 /obj/structure/cart/storage/parcelcart/attack_hand(mob/user)
+	. = ..()
 	if(!isliving(user))
 		return
 

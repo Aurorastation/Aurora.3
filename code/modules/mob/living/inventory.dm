@@ -19,6 +19,7 @@
 	. = LAZYLEN(held_item_slots) >= 1
 
 /mob/living/proc/add_held_item_slot(var/slot, var/new_ui_loc, var/new_overlay_slot, var/new_label)
+	has_had_gripper = TRUE
 	LAZYSET(held_item_slots, slot, new /datum/inventory_slot(slot, new_ui_loc, new_overlay_slot, new_label))
 	hud_used?.rebuild_hands(list(slot), FALSE)
 	if(!get_active_hand())

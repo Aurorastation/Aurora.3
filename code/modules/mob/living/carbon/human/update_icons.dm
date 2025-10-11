@@ -1158,7 +1158,6 @@ There are several things that need to be remembered:
 
 	if(handcuffed)
 		drop_held_items()
-		stop_pulling()	//TODO: should be handled elsewhere
 
 		var/image/standing
 		if(handcuffed.icon_override)

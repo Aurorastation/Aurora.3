@@ -21,8 +21,8 @@
 	return
 
 /obj/machinery/computer/area_atmos/attack_hand(var/mob/user as mob)
+	. = ..()
 	ui_interact(user)
-	return
 
 /obj/machinery/computer/area_atmos/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)

@@ -18,6 +18,9 @@ would spawn and follow the beaker, even if it is carried or thrown.
 	QDEL_NULL(reagents)
 	return ..()
 
+/obj/effect/attack_hand(mob/user)
+	SHOULD_CALL_PARENT(FALSE)
+
 /datum/effect/effect/system
 	var/number = 3
 	var/cardinals = 0

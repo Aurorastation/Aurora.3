@@ -370,6 +370,7 @@
 	ui_interact(user)
 
 /obj/machinery/power/supermatter/attack_hand(mob/user as mob)
+	SHOULD_CALL_PARENT(FALSE)
 	user.visible_message(
 		SPAN_WARNING("\The [user] reaches out and touches \the [src], inducing a resonance. For a brief instant, [user.get_pronoun("his")] body glows brilliantly, then flashes into ash."),
 		SPAN_DANGER(FONT_LARGE("You reach out and touch \the [src]. Instantly, you feel a curious sensation as your body turns into new and exciting forms of plasma. That was not a wise decision.")),

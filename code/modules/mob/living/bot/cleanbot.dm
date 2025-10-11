@@ -188,7 +188,7 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 	if(!on)
 		return
 
-	if(pulledby) // Don't wiggle if someone pulls you
+	if(LAZYLEN(grabbed_by)) // Don't wiggle if someone pulls you
 		patrol_path?.Cut()
 		return
 
@@ -321,6 +321,7 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 		icon_state = "cleanbot[on]"
 
 /mob/living/bot/cleanbot/attack_hand(mob/user)
+	. = ..()
 	ui_interact(user)
 
 /mob/living/bot/cleanbot/ui_interact(mob/user, datum/tgui/ui)

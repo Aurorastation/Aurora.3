@@ -65,6 +65,7 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 	return ..()
 
 /obj/machinery/computer/ship/attack_hand(mob/user)
+	. = ..()
 	if(use_check_and_message(user))
 		return
 	if(!emagged && !allowed(user))

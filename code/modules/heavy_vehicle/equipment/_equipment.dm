@@ -91,7 +91,7 @@
 	owner = null
 	. = ..()
 
-/obj/item/mecha_equipment/mob_can_unequip(mob/M, slot, disable_warning)
+/obj/item/mecha_equipment/mob_can_unequip(mob/M, slot, disable_warning = FALSE, dropping = FALSE)
 	. = ..()
 	if(. && owner)
 		//Installed equipment shall not be unequiped.

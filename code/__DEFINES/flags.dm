@@ -64,6 +64,8 @@ GLOBAL_LIST_INIT(mimic_defines, list("ZM_MIMIC_BELOW",
 #define MOVABLE_FLAG_EFFECTMOVE FLAG(2)
 ///Shuttle transition will delete this.
 #define MOVABLE_FLAG_DEL_SHUTTLE FLAG(3)
+/// Movable has reduced stamina cost/speed reduction when pulled.
+#define MOVABLE_FLAG_WHEELED BITFLAG(4)
 
 // Atom flags
 

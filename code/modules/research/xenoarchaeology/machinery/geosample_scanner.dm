@@ -61,6 +61,7 @@
 	coolant_reagents_purity[/singleton/reagent/adminordrazine] = 2
 
 /obj/machinery/radiocarbon_spectrometer/attack_hand(var/mob/user as mob)
+	. = ..()
 	ui_interact(user)
 
 /obj/machinery/radiocarbon_spectrometer/attackby(obj/item/attacking_item, mob/user)

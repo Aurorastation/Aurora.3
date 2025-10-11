@@ -128,21 +128,6 @@
 	owner.ui_action_click()
 	return 1
 
-/atom/movable/screen/grab
-	name = "grab"
-
-/atom/movable/screen/grab/Click()
-	var/obj/item/grab/G = master
-	G.s_click(src)
-	return 1
-
-/atom/movable/screen/grab/attack_hand()
-	return
-
-/atom/movable/screen/grab/attackby()
-	return
-
-
 /atom/movable/screen/storage
 	name = "storage"
 	screen_loc = "7,7 to 10,8"
@@ -335,8 +320,6 @@
 			usr.set_intent(I_DISARM)
 			usr.hud_used.action_intent.icon_state = "intent_disarm"
 
-		if("pull")
-			usr.stop_pulling()
 		if("throw")
 			if(!usr.stat && isturf(usr.loc) && !usr.restrained())
 				usr.toggle_throw_mode()

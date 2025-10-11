@@ -112,6 +112,7 @@
 	return 1
 
 /obj/machinery/atmospherics/unary/cryo_cell/attack_hand(mob/user)
+	. = ..()
 	ui_interact(user)
 
 /obj/machinery/atmospherics/unary/cryo_cell/ui_interact(mob/user, datum/tgui/ui = null)
@@ -229,6 +230,25 @@
 
 	add_fingerprint(usr)
 
+/obj/machinery/atmospherics/unary/cryo_cell/grab_attack(obj/item/grab/G, mob/user)
+	var/mob/living/victim = G.get_grabbed_mob()
+	if(!istype(victim) || !victim.bucklecheck(user))
+		return FALSE
+
+	user.visible_message(SPAN_NOTICE("[user] starts putting [victim] into \the [src]."), SPAN_NOTICE("You start putting [victim] into \the [src]."), range = 3)
+
+	if(do_mob(user, victim, 3 SECONDS, needhand = FALSE))
+		for(var/mob/living/carbon/slime/M in range(1, victim))
+			if(M.victim == victim)
+				to_chat(user, SPAN_WARNING("[victim] will not fit into \the [src] because they have a slime latched onto their head."))
+				return FALSE
+		if(put_mob(victim))
+			user.visible_message(SPAN_NOTICE("[user] puts [victim] into \the [src]."), SPAN_NOTICE("You put [victim] into \the [src]."), range = 3)
+			qdel(G)
+			addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, update_icon)), 2.5 SECONDS)
+			return TRUE
+	return FALSE
+
 /obj/machinery/atmospherics/unary/cryo_cell/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/reagent_containers/glass))
 		if(beaker)
@@ -238,30 +258,6 @@
 		beaker =  attacking_item
 		user.drop_from_inventory(attacking_item,src)
 		user.visible_message("[user] adds \a [attacking_item] to \the [src]!", "You add \a [attacking_item] to \the [src]!")
-	else if(istype(attacking_item, /obj/item/grab))
-		var/obj/item/grab/grab = attacking_item
-		var/mob/living/L = grab.affecting
-
-		if (!istype(L))
-			return
-
-		var/bucklestatus = L.bucklecheck(user)
-		if(!bucklestatus)
-			return TRUE
-
-		user.visible_message(SPAN_NOTICE("[user] starts putting [L] into [src]."),
-								SPAN_NOTICE("You start putting [L] into [src]."), range = 3)
-
-		if(do_mob(user, L, 30, needhand = 0))
-			for(var/mob/living/carbon/slime/M in range(1, L))
-				if(M.victim == L)
-					to_chat(user, SPAN_WARNING("[L] will not fit into the cryo because they have a slime latched onto their head."))
-					return TRUE
-			if(put_mob(L))
-				user.visible_message(SPAN_NOTICE("[user] puts [L] into [src]."),
-										SPAN_NOTICE("You put [L] into [src]."), range = 3)
-				qdel(attacking_item)
-				addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, update_icon)), 2.5 SECONDS)
 
 	else if(default_deconstruction_screwdriver(user, attacking_item))
 		return TRUE
@@ -308,8 +304,6 @@
 				user.visible_message(SPAN_NOTICE("[user] puts [L] into [src]."),
 										SPAN_NOTICE("<span class='notice'>You put [L] into [src]."), range = 3)
 
-				if(user.pulling == L)
-					user.pulling = null
 			addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, update_icon)), 2.5 SECONDS)
 
 /obj/machinery/atmospherics/unary/cryo_cell/update_icon(var/only_pickle = FALSE)
@@ -413,7 +407,6 @@
 	if (M.client)
 		M.client.perspective = EYE_PERSPECTIVE
 		M.client.eye = src
-	M.stop_pulling()
 	M.forceMove(src)
 	M.ExtinguishMob()
 	if(M.health > -100 && (M.health < 0 || M.sleeping))

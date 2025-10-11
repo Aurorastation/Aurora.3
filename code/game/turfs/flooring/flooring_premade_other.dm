@@ -95,6 +95,7 @@
 	icon_state = "metalfoam"
 
 /turf/simulated/floor/foamedmetal/attack_hand(var/mob/user)
+	. = ..()
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if(ishuman(user))
 		ChangeTurf(/turf/space)

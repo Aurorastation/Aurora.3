@@ -71,6 +71,7 @@
 	return main_part.get_status()
 
 /obj/machinery/gravity_generator/part/attack_hand(mob/user as mob)
+	SHOULD_CALL_PARENT(FALSE)
 	return main_part.attack_hand(user)
 
 /obj/machinery/gravity_generator/part/set_broken()

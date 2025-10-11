@@ -182,6 +182,9 @@
 	/// The coefficient to the climbing speed of the individual = 60 SECONDS * climb_coeff
 	var/climb_coeff = 1.25
 
+	/// The species' default grab type.
+	var/grab_type = /singleton/grab/normal/passive
+
 	// Death vars.
 	var/respawn_type = CREW
 	var/meat_type = /obj/item/reagent_containers/food/snacks/meat/human

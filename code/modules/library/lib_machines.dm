@@ -34,6 +34,7 @@
 	var/SQLquery
 
 /obj/machinery/librarypubliccomp/attack_hand(var/mob/user)
+	. = ..()
 	usr.set_machine(src)
 	var/dat = ""
 	switch(screenstate)
@@ -132,6 +133,7 @@
 	var/obj/machinery/libraryscanner/scanner // Book scanner that will be used when uploading books to the Archive
 
 /obj/machinery/librarycomp/attack_hand(var/mob/user)
+	. = ..()
 	user.set_machine(src)
 	var/dat = ""
 	switch(screenstate)
@@ -426,6 +428,7 @@
 		anchored = !anchored
 
 /obj/machinery/libraryscanner/attack_hand(var/mob/user)
+	. = ..()
 	usr.set_machine(src)
 	var/dat = ""
 	if(cache)

@@ -2,6 +2,9 @@
 /atom/proc/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	return 0
 
+/atom/proc/handle_grab_interaction(var/mob/user)
+	return FALSE
+
 ///Generic click on for pai
 /atom/proc/attack_pai(mob/user)
 	return
@@ -31,7 +34,13 @@
 	A.attack_hand(src)
 
 /atom/proc/attack_hand(mob/user)
-	return
+	SHOULD_CALL_PARENT(TRUE)
+
+	if(!user.can_use_hand())
+		return TRUE
+
+	if(handle_grab_interaction(user))
+		return TRUE
 
 /atom/proc/attack_ranged(mob/user, params)
 	return

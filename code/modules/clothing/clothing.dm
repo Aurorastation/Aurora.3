@@ -477,6 +477,7 @@
 	set_dir(O.dir)
 
 /obj/item/clothing/ears/offear/attack_hand(mob/living/carbon/human/H)
+	. = ..()
 	var/obj/item/clothing/ears/OE = (H.l_ear == src ? H.r_ear : H.l_ear)
 	OE.attack_hand(H)
 	qdel(src)
@@ -540,7 +541,30 @@
 
 // Called just before an attack_hand(), in mob/UnarmedAttack()
 /obj/item/clothing/gloves/proc/Touch(var/atom/A, mob/user, var/proximity)
-	return 0 // return 1 to cancel attack_hand()
+	var/mob/living/target = A
+	if(!istype(target))
+		return FALSE
+	if(cell && user.a_intent == I_HURT)
+		. = TRUE
+		visible_message(SPAN_DANGER("[user] touches [src] with \the [src]!"))
+		if(!cell.checked_use(2500))
+			to_chat(user, SPAN_WARNING("Not enough charge!"))
+		else
+			user.attack_log += "\[[time_stamp()]\] <span class='warning'>Stungloved [target.name] ([target.ckey])</span>"
+			target.attack_log += "\[[time_stamp()]\] <font color='orange'>Has been stungloved by [user.name] ([user.ckey])</font>"
+
+			msg_admin_attack("[key_name_admin(user)] stungloved [target.name] ([target.ckey]) (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target))
+
+			target.apply_effects(5,5,0,0,5,0,0,0,0)
+			target.apply_damage(rand(5,25), DAMAGE_BURN, user.zone_sel.selecting)
+
+			if(prob(15))
+				playsound(user.loc, 'sound/weapons/flash.ogg', 100, 1)
+				user.visible_message(SPAN_WARNING("The power source on [user]'s [src] overloads in a terrific fashion!"), SPAN_WARNING("Your jury rigged [src] malfunction!"), SPAN_WARNING("You hear a loud sparking."))
+				if(prob(50))
+					user.apply_damage(rand(1, 5), DAMAGE_BURN)
+				for(var/mob/M in viewers(3, user))
+					M.flash_act(ignore_inherent = TRUE)
 
 /obj/item/clothing/gloves/mob_can_equip(mob/user, slot, disable_warning = FALSE)
 	var/mob/living/carbon/human/H = user
@@ -578,7 +602,7 @@
 	..()
 	INVOKE_ASYNC(src, PROC_REF(update_wearer))
 
-/obj/item/clothing/gloves/mob_can_unequip()
+/obj/item/clothing/gloves/mob_can_unequip(mob/M, slot, disable_warning = FALSE, dropping = FALSE)
 	. = ..()
 	if (.)
 		INVOKE_ASYNC(src, PROC_REF(update_wearer))

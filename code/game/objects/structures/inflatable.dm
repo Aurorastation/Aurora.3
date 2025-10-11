@@ -109,8 +109,8 @@
 				return
 
 /obj/structure/inflatable/attack_hand(mob/user)
+	. = ..()
 	add_fingerprint(user)
-	return
 
 /obj/structure/inflatable/attackby(obj/item/attacking_item, mob/user)
 	if(!istype(attacking_item) || istype(attacking_item, /obj/item/inflatable_dispenser))
@@ -220,7 +220,9 @@
 		return TryToSwitchState(user)
 
 /obj/structure/inflatable/door/attack_hand(mob/user)
-	return TryToSwitchState(user)
+	. = ..()
+	if(!.)
+		return TryToSwitchState(user)
 
 /obj/structure/inflatable/door/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group)

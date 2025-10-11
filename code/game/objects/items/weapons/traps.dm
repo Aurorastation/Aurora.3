@@ -506,7 +506,7 @@
 		capturing_mob.forceMove(loc)
 
 	captured = WEAKREF(capturing_mob)
-	INVOKE_ASYNC(src, PROC_REF(buckle), capturing_mob)
+	INVOKE_ASYNC(src, TYPE_PROC_REF(/atom/movable, buckle), capturing_mob)
 	layer = capturing_mob.layer + 0.1
 
 	playsound(src, 'sound/weapons/beartrap_shut.ogg', 100, 1)
@@ -680,27 +680,30 @@
 	update_icon()
 	layer = initial(layer)
 
+/obj/item/trap/animal/grab_attack(obj/item/grab/G, mob/user)
+	var/mob/living/capturing = G.get_grabbed_mob()
+	if(!istype(capturing))
+		return FALSE
+
+	if(!G.has_grab_flags(GRAB_FORCE_HARM))
+		to_chat(user, SPAN_WARNING("You need a better grip on \the [capturing]!"))
+		return FALSE
+
+	if(capturing.mob_size > max_mob_size)
+		to_chat(user, SPAN_WARNING("\The [capturing] won't fit in \the [src]!"))
+		return FALSE
+
+	user.visible_message(SPAN_NOTICE("[user] starts putting \the [capturing] into \the [src]."), SPAN_NOTICE("You start putting \the [capturing] into \the [src]."))
+
+	if(do_mob(user, capturing, 3 SECONDS, needhand = FALSE))
+		if(captured?.resolve())
+			return FALSE
+		capture(capturing)
+		return TRUE
+	return FALSE
+
 /obj/item/trap/animal/attackby(obj/item/attacking_item, mob/user)
-	if(istype(attacking_item, /obj/item/grab))
-		var/obj/item/grab/grab = attacking_item
-		var/mob/living/capturing_mob = grab.affecting
-
-		if (grab.state == GRAB_PASSIVE || grab.state == GRAB_UPGRADING)
-			to_chat(user, SPAN_NOTICE("You need a better grip on \the [capturing_mob]!"))
-			return
-
-		user.visible_message("[SPAN_BOLD("[user]")] starts putting \the [capturing_mob] into \the [src].", SPAN_NOTICE("You start putting \the [capturing_mob] into \the [src]."))
-
-		if(capturing_mob.mob_size > max_mob_size)
-			to_chat(user, SPAN_WARNING("\The [capturing_mob] won't fit in there!"))
-			return
-
-		if (do_mob(user, capturing_mob, 3 SECONDS, needhand = FALSE))
-			if(captured?.resolve())
-				return
-			capture(capturing_mob)
-
-	else if(attacking_item.tool_behaviour == TOOL_WELDER)
+	if(attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/WT = attacking_item
 		if(!WT.isOn())
 			to_chat(user, SPAN_WARNING("\The [WT] is off!"))

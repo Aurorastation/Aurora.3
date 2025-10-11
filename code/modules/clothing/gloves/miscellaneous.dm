@@ -201,6 +201,35 @@
 	var/active = 1 //i am actually too lazy to code an on/off switch so if you want it off, take them off for now.  yes.
 	var/amplification = 2
 
+/obj/item/clothing/gloves/force/proc/try_shove(mob/living/carbon/human/user, mob/living/carbon/human/target, chance = 25)
+	if(!prob(chance) || !istype(user) || !istype(target))
+		return FALSE
+
+	target.apply_effect(6, WEAKEN)
+	playsound(target.loc, 'sound/weapons/push_connect.ogg', 50, 1, -1)
+	target.visible_message(SPAN_DANGER("[user] hurls [target] to the floor!"))
+	step_away(target, user, 15)
+	sleep(3)
+	step_away(target, user, 15)
+	return TRUE
+
+/obj/item/clothing/gloves/force/proc/try_throw(mob/living/carbon/human/user, mob/living/carbon/human/target, chance = 60)
+	if(!prob(chance) || !istype(user) || !istype(target))
+		return FALSE
+
+	playsound(target.loc, 'sound/weapons/push_connect.ogg', 50, 1, -1)
+	target.visible_message(SPAN_DANGER("[user] shoves, sending [target] flying!"))
+	step_away(target, user, 15)
+	sleep(1)
+	step_away(target, user, 15)
+	sleep(1)
+	step_away(target, user, 15)
+	sleep(1)
+	step_away(target, user, 15)
+	sleep(1)
+	target.apply_effect(1, WEAKEN, target.get_blocked_ratio(user.zone_sel.selecting, DAMAGE_BRUTE, damage = 20) * 100)
+	return TRUE
+
 /obj/item/clothing/gloves/force/basic //dooo iiiitttttt
 	name = "basic force gloves" //do it skull do it give it to all sec the forums agree go
 	desc = "These gloves bend gravity and bluespace, providing a cheap boost to the effectiveness of your average security staff."
@@ -211,6 +240,19 @@
 /obj/item/clothing/gloves/force/syndicate  //for syndies.  pda, *maybe* nuke team or ert.  up to you.  maybe just use the amp 2 variant.
 	name = "enhanced force gloves"
 	amplification = 2.5 //because *2.5 is kind of scary okay.  sometimes you want the scary effect.  sometimes not.
+
+/obj/item/clothing/gloves/force/syndicate/equipped(mob/user, slot, assisted_equip)
+	. = ..()
+	if(slot == slot_gloves_str)
+		ADD_TRAIT(user, TRAIT_AGGRESSIVE_GRAB, REF(src))
+	else
+		REMOVE_TRAIT(user, TRAIT_AGGRESSIVE_GRAB, REF(src))
+
+/obj/item/clothing/gloves/force/syndicate/Destroy()
+	if(ismob(loc))
+		var/mob/wearer = loc
+		REMOVE_TRAIT(wearer, TRAIT_AGGRESSIVE_GRAB, REF(src))
+	. = ..()
 
 /obj/item/clothing/gloves/brassknuckles
 	name = "brass knuckles"

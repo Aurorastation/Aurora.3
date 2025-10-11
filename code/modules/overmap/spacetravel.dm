@@ -104,8 +104,8 @@ GLOBAL_LIST_INIT_TYPED(cached_space, /obj/effect/overmap/visitable/sector/tempor
 		A.forceMove(dest)
 		if(ismob(A))
 			var/mob/D = A
-			if(D.pulling)
-				D.pulling.forceMove(dest)
+			for(var/obj/item/grab/G as anything in D.get_active_grabs())
+				G.grabbed.forceMove(dest)
 
 	if(istype(M, /obj/effect/overmap/visitable/sector/temporary))
 		var/obj/effect/overmap/visitable/sector/temporary/source = M

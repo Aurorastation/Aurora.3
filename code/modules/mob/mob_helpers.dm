@@ -339,8 +339,8 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 		if(target.buckled_to || target.lying)
 			return zone
 		// if your target is being grabbed aggressively by someone you cannot miss either
-		for(var/obj/item/grab/G in target.grabbed_by)
-			if(G.state >= GRAB_AGGRESSIVE)
+		for(var/obj/item/grab/G as anything in target.grabbed_by)
+			if(G.has_grab_flags(GRAB_FORCE_HARM))
 				return zone
 		if(point_blank)
 			return zone //Point blank shots don't miss.
@@ -1260,14 +1260,6 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 			if(M.client)
 				M.client.eye = M.client.mob
 				M.client.perspective = MOB_PERSPECTIVE
-
-/mob/proc/in_neck_grab()
-	for(var/thing in grabbed_by)
-		var/obj/item/grab/G = thing
-		if(istype(G))
-			if(G.state >= GRAB_NECK)
-				return TRUE
-	return FALSE
 
 /mob/get_cell()
 	return FALSE

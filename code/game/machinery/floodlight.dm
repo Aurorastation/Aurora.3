@@ -84,6 +84,7 @@
 			to_chat(user, SPAN_WARNING("You try to turn on \the [src] but it does not work."))
 
 /obj/machinery/floodlight/attack_hand(mob/user)
+	. = ..()
 	if(open && cell)
 		user.put_in_hands(cell)
 		cell.add_fingerprint(user)
