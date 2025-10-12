@@ -220,10 +220,11 @@ GLOBAL_LIST_INIT(severity_to_string, list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Camera Damage", /datum/event/camera_damage,
 			20, list(ASSIGNMENT_ENGINEER = 10)),
-
+		// Re-enable these after the current miniarc (Crescent Expanse exploration)
+		/*
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Economic News", /datum/event/economic_event,
 			300),
-
+		*/
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Electrical Storm", /datum/event/electrical_storm,
 			5, list(ASSIGNMENT_ENGINEER = 5, ASSIGNMENT_JANITOR = 10)),
 
@@ -235,10 +236,11 @@ GLOBAL_LIST_INIT(severity_to_string, list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Money Lotto", /datum/event/money_lotto,
 			0, list(ASSIGNMENT_ANY = 1), TRUE, 5, 15),
-
+		// Re-enable these after the current miniarc (Crescent Expanse exploration)
+		/*
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Mundane News", /datum/event/mundane_news,
 			300),
-
+		*/
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Wallrot", /datum/event/wallrot,
 			75, list(ASSIGNMENT_ENGINEER = 5, ASSIGNMENT_GARDENER = 20)),
 
