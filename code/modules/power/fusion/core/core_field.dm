@@ -2,7 +2,7 @@
 #define FUSION_RUPTURE_THRESHOLD		25000
 #define FUSION_REACTANT_CAP				10000
 #define FUSION_WARNING_DELAY 			20
-#define FUSION_BLACKBODY_MULTIPLIER		28
+#define FUSION_BLACKBODY_MULTIPLIER		64
 #define FUSION_INTEGRITY_RATE_LIMIT		0.11
 #define FUSION_TICK_MAX_TEMP_CHANGE		0.2
 
@@ -101,13 +101,11 @@
 
 	var/vfx_radius_actual
 	//var/vfx_radius_visual
-	var/pause_rupture = TRUE
+	var/pause_rupture = FALSE
 
 	var/power_log_base = 1.4
 	var/power_multiplier = 3
-	var/power_power = 3.2
-
-	var/aaa_minimum_energy_level_multiplier = 1.0
+	var/power_power = 3.35
 
 /obj/effect/fusion_em_field/proc/UpdateVisuals()
 	//Take the particle system and edit it
@@ -228,10 +226,10 @@
 	// Roundstart update
 	if(field_strength < 20)
 		field_strength = 20
-	field_strength_entropy_multiplier = clamp((owned_core.field_strength ** 1.075) / 40, 0.8, 2.0)
+	field_strength_entropy_multiplier = clamp((owned_core.field_strength ** 1.075) / 100, 0.33, 1.67)
 	// Energy decay (entropy tax).
 	if(plasma_temperature >= 1)
-		var/lost = plasma_temperature * 0.0045
+		var/lost = plasma_temperature * 0.004
 		radiation += lost
 		var/temp_change = 0 - (lost * field_strength_entropy_multiplier)
 		adjust_temperature(temp_change, cause = "Containment Entropy")
@@ -601,7 +599,7 @@
 				if(possible_s_reacts[cur_s_react] < 1)
 					continue
 				var/singleton/fusion_reaction/cur_reaction = get_fusion_reaction(cur_p_react, cur_s_react)
-				if(cur_reaction && plasma_temperature >= (cur_reaction.minimum_energy_level * aaa_minimum_energy_level_multiplier)&& possible_s_reacts[cur_p_react] >= cur_reaction.minimum_p_react)
+				if(cur_reaction && plasma_temperature >= cur_reaction.minimum_energy_level && possible_s_reacts[cur_p_react] >= cur_reaction.minimum_p_react)
 					LAZYDISTINCTADD(possible_reactions, cur_reaction)
 
 			// If there are no possible reactions here, abandon this primary reactant and move on.
@@ -625,7 +623,7 @@
 				// Make sure we have enough energy.
 				// First, if minimum_reaction_temperature not set, make it the same as minimum_energy_level.
 				if(!cur_reaction.minimum_reaction_temperature)
-					cur_reaction.minimum_reaction_temperature = (cur_reaction.minimum_energy_level * 0.8 * aaa_minimum_energy_level_multiplier)
+					cur_reaction.minimum_reaction_temperature = (cur_reaction.minimum_energy_level * 0.8)
 				if(plasma_temperature < cur_reaction.minimum_reaction_temperature)
 					continue
 
@@ -635,8 +633,8 @@
 						continue
 
 				// Randomly determined amount to react. Starts at up to 1/20th, scales to up to 2/3rd at 20x min temp
-				var/temp_over_min = plasma_temperature / (cur_reaction.minimum_energy_level * 20 * aaa_minimum_energy_level_multiplier)
-				var/max_react_percent = clamp(temp_over_min, (1/20), (2/3))
+				var/temp_over_min = plasma_temperature / (cur_reaction.minimum_energy_level * 20)
+				var/max_react_percent = clamp(temp_over_min, (1/10), (2/3))
 				var/amount_reacting = rand(1, (max_num_reactants * max_react_percent))
 
 				// Removing the reacting substances from the list of substances that are primed to react this cycle.

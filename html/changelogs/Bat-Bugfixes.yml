@@ -69,6 +69,7 @@ changes:
   - bugfix: "Held phoron- or chlorine-contaminated items will respect if you're wearing a sealed suit or thick gloves (if they provide fire protection)."
   - bugfix: "Fixed runtime in Electrical Storm event."
   - bugfix: "Fixed some bounties returning 0 credit reward due to rounding issues."
+  - bugfix: "Removed old fusion debug vars, fixed outdated maths."
   - rscdel: "Disabled 'Mundane News' and 'Economic News' events for the duration that the SCCV Horizon is outside comms range."
   - code_imp: "Updated more code comments to DMDocs."
   - code_imp: "Corrected poison/venom for greimorian variable naming."
