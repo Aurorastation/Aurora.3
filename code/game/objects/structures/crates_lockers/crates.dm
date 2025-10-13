@@ -161,7 +161,7 @@
 	if (istype(over, /obj/structure/table) && !istype(loc, /obj/structure/crate_shelf))
 		put_on_table(over, user)
 		return TRUE
-	else if(istype(over, /obj/structure/crate_shelf))
+	else if(istype(over, /obj/structure/crate_shelf) && !istype(loc, /obj/structure/crate_shelf))
 		put_on_shelf(over, user)
 		return TRUE
 	if(istype(loc, /obj/structure/crate_shelf) && isturf(over) && !is_blocked_turf(over))

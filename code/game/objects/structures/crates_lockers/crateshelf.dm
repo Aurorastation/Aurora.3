@@ -94,46 +94,6 @@
 	to_chat(user, SPAN_NOTICE("You begin attempting to knock [crate] out of [src]."))
 	visible_message(SPAN_DANGER("\The [crate] begins to shake violently!"), SPAN_DANGER("You hear the sound of metal thrashing around nearby."), intent_message = THUNK_SOUND)
 	crate.shake_animation()
-	// var/breakout_time = 1
-
-	// user.next_move = world.time + 100
-	// user.last_special = world.time + 100
-
-	// var/time = 6 * breakout_time * 2
-
-	// var/datum/progressbar/bar
-	// if (user.client && user.client.prefs.toggles_secondary & PROGRESS_BARS)
-	// 	bar = new(user, time, src)
-
-	// crate.breakout = 1
-	// for(var/i in 1 to time) //minutes * 6 * 5seconds * 2
-	// 	playsound(loc, 'sound/effects/grillehit.ogg', 100, 1)
-	// 	crate.shake_animation()
-	// 	intent_message(THUNK_SOUND)
-
-	// 	if (bar)
-	// 		bar.update(i)
-
-	// 	if(!do_after(user, 50, do_flags = DO_DEFAULT & ~DO_SHOW_PROGRESS)) //5 seconds
-	// 		crate.breakout = 0
-	// 		qdel(bar)
-	// 		return
-
-	// 	if(!user || user.stat || user.loc != src)
-	// 		crate.breakout = 0
-	// 		qdel(bar)
-	// 		return
-
-	// 	if(!crate.req_breakout())
-	// 		crate.breakout = 0
-	// 		qdel(bar)
-	// 		return
-
-	// crate.breakout = 0
-	// playsound(loc, 'sound/effects/grillehit.ogg', 100, 1)
-	// crate.shake_animation()
-	// qdel(bar)
-
 
 	if(do_after(user, 20 SECONDS, target = crate))
 		if(!user || user.stat != CONSCIOUS || user.loc != crate || crate.loc != src)
