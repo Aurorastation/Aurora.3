@@ -134,7 +134,7 @@
 	if(!opened && tablestatus == UNDER_TABLE)
 		to_chat(user, SPAN_WARNING("You can't open \the [src] while the lid is obstructed!"))
 		return FALSE
-	if(loc == /obj/structure/crate_shelf)
+	if(istype(loc, /obj/structure/crate_shelf))
 		to_chat(user, SPAN_WARNING("You can't open \the [src] while it is on a shelf!"))
 		return FALSE
 	else
