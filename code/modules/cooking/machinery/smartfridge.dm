@@ -30,6 +30,11 @@
 
 	// what icon overlay to use to show its contents - set to NULL if no contents.
 	var/contents_path = "-plant"
+	var/list/display_tiers = list(
+		"25" = "-1",
+		"50" = "-2"
+	)
+	var/infinity_tier = "-3"
 
 	component_types = list(
 		/obj/item/circuitboard/smartfridge,
@@ -280,16 +285,16 @@
 		AddOverlays("[initial(icon_state)]-panel")
 	var/list/shown_contents = contents - component_parts
 	if(contents_path && shown_contents.len > 0)
-		var/contents_icon_state
-		switch(shown_contents.len)
-			if(1 to 25)
-				contents_icon_state = "-1"
-			if(26 to 50)
-				contents_icon_state = "-2"
-			if(50 to INFINITY)
-				contents_icon_state = "-3"
+		var/contents_icon_state = change_display(shown_contents.len)
 		AddOverlays("[initial(icon_state)][contents_path][contents_icon_state]")
 	AddOverlays("[initial(icon_state)]-glass[(stat & BROKEN) ? "-broken" : ""]")
+
+/obj/machinery/smartfridge/proc/change_display(var/length)
+	for(var/tier in display_tiers)
+		var/tier_integer = text2num(tier)
+		if(length <= tier_integer)
+			return display_tiers[tier]
+	return infinity_tier
 
 /*******************
 *   Item Adding

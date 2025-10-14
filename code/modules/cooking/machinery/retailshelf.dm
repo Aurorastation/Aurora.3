@@ -2,12 +2,12 @@
 /obj/machinery/smartfridge/tradeshelf
 	name = "cigarette shelf"
 	desc = "A commercialized shelf for cigarettes and associated items."
-	icon = 'icons/obj/structure/urban/restaurant.dmi'
-	icon_state = "buffet"
+	// icon = 'icons/obj/structure/urban/restaurant.dmi'
+	icon_state = "trade_smokes"
 	use_power = POWER_USE_OFF
 	idle_power_usage = 0
 	active_power_usage = 0
-	contents_path = null
+	contents_path = "-cigarettebox"
 	accepted_items = list(/obj/item/storage/box/fancy/cigarettes,
 	/obj/item/storage/chewables,
 	/obj/item/storage/box/fancy/chewables,
@@ -18,49 +18,84 @@
 	/obj/item/clothing/mask/smokable/ecig,
 	/obj/item/reagent_containers/ecig_cartridge
 	)
+	display_tiers = list(
+		"3" = "-1",
+		"6" = "-2",
+		"9" = "-3",
+		"12" = "-4"
+	)
+	infinity_tier = "-5"
 
 /obj/machinery/smartfridge/tradeshelf/Initialize()
 	. = ..()
-	contents_path = "[rand(1, 4)]" // overriding the update icon anyway, so this var is free.
+	// contents_path = "[rand(1, 4)]" // overriding the update icon anyway, so this var is free.
 
-/obj/machinery/smartfridge/tradeshelf/update_icon()
-	if(stat & (BROKEN|NOPOWER))
-		icon_state = "[initial(icon_state)]"
-	else
-		icon_state = "[initial(icon_state)][contents_path]"
+// /obj/machinery/smartfridge/tradeshelf/update_icon()
+// 	if(stat & (BROKEN|NOPOWER))
+// 		icon_state = "[initial(icon_state)]"
+// 	else
+// 		icon_state = "[initial(icon_state)][contents_path]"
 
 /obj/machinery/smartfridge/tradeshelf/clothing
 	name = "clothing shelf"
 	desc = "A commercialized shelf for clothing and associated items."
-	icon_state = "buffet"
+	icon_state = "trade_clothes"
+	contents_path = "-clothing"
 	accepted_items = list(/obj/item/storage/backpack,
 	/obj/item/storage/belt,
 	/obj/item/clothing
 	)
+	display_tiers = list(
+		"5" = "-1",
+		"10" = "-2"
+	)
+	infinity_tier = "-3"
 
 /obj/machinery/smartfridge/tradeshelf/food
 	name = "food and drinks shelf"
 	desc = "A commercialized shelf for food and drinks."
-	icon_state = "buffet"
-	accepted_items = list(/obj/item/reagent_containers/food
-
+	icon_state = "trade_food"
+	contents_path = "-edible"
+	accepted_items = list(/obj/item/reagent_containers/food,
+	/obj/item/storage/box/fancy/cookiesnack
 	)
+	display_tiers = list(
+		"5" = "-1",
+		"10" = "-2",
+		"15" = "-3"
+	)
+	infinity_tier = "-4"
 
 /obj/machinery/smartfridge/tradeshelf/toy
 	name = "toy shelf"
 	desc = "A commercialized shelf for toys and associated items."
-	icon_state = "buffet"
-	accepted_items = list(/obj/item/toy
+	icon_state = "trade_toys"
+	contents_path = "-toy"
+	accepted_items = list(/obj/item/toy,
+	/obj/item/lipstick,
+	/obj/item/device/paicard,
+	/obj/item/device/camera,
+	/obj/item/device/synthesized_instrument,
+	/obj/item/storage/box/unique/snappops,
+	/obj/item/haircomb,
+	/obj/item/storage/box/fancy/crayons,
+	/obj/item/melee/dinograbber
 	)
+	display_tiers = list(
+		"5" = "-1",
+		"10" = "-2",
+		"15" = "-3"
+	)
+	infinity_tier = "-4"
 
 // -------------------------------------------------
 /obj/structure/cash_register/commissary
 	// name = "\improper Idris Quik-Pay"
 	// desc = "Swipe your ID to make direct company purchases."
-	icon = 'icons/obj/item/device/eftpos.dmi'
-	icon_state = "quikpay"
-	item_state = "electronic"
-	w_class = WEIGHT_CLASS_SMALL
+	// icon = 'icons/obj/item/device/eftpos.dmi'
+	// icon_state = "quikpay"
+	// item_state = "electronic"
+	// w_class = WEIGHT_CLASS_SMALL
 	// slot_flags = SLOT_BELT
 	var/machine_id = ""
 	var/list/items = list()
@@ -75,33 +110,32 @@
 
 /obj/structure/cash_register/commissary/Initialize()
 	. = ..()
-	machine_id = "[station_name()] Idris Quik-Pay #[SSeconomy.num_financial_terminals++]"
+	machine_id = "[station_name()] Idris Quik-Pay Register #[SSeconomy.num_financial_terminals++]"
 
 	//create a short manual as well
-	var/obj/item/paper/R = new(src.loc)
-	R.name = "Quik And Easy: How to make a transaction"
+	// var/obj/item/paper/R = new(src.loc)
+	// R.name = "Quik And Easy: How to make a transaction"
 
-	R.info += "<b>Quik-Pay setup:</b><br>"
-	R.info += "<ol><li>Remember your access code included on the paper that is included with your device</li>"
-	R.info += "<li>Unlock it to be able to add items to the menu</li>"
-	R.info += "<li>Add items to the menu by typing the item name and its price</li></ol>"
-	R.info += "<b>When starting a new transaction:</b><br>"
-	R.info += "<ol><li>Have the customer enter the amount of the item they want and then confirm the purchase.</li>"
-	R.info += "<li>Allow them to review the sum.</li>"
-	R.info += "<li>Have them swipe their card to pay for the items.</li></ol>"
+	// R.info += "<b>Quik-Pay setup:</b><br>"
+	// R.info += "<ol><li>Remember your access code included on the paper that is included with your device</li>"
+	// R.info += "<li>Unlock it to be able to add items to the menu</li>"
+	// R.info += "<li>Add items to the menu by typing the item name and its price</li></ol>"
+	// R.info += "<b>When starting a new transaction:</b><br>"
+	// R.info += "<ol><li>Have the customer enter the amount of the item they want and then confirm the purchase.</li>"
+	// R.info += "<li>Allow them to review the sum.</li>"
+	// R.info += "<li>Have them swipe their card to pay for the items.</li></ol>"
 
-
-	//stamp the paper
-	var/image/stampoverlay = image('icons/obj/bureaucracy.dmi')
-	stampoverlay.icon_state = "paper_stamp-cent"
-	if(!R.stamped)
-		R.stamped = new
-	R.offset_x += 0
-	R.offset_y += 0
-	R.ico += "paper_stamp-cent"
-	R.stamped += /obj/item/stamp
-	R.AddOverlays(stampoverlay)
-	R.stamps += "<HR><i>This paper has been stamped by the Executive Officer's desk.</i>"
+	// //stamp the paper
+	// var/image/stampoverlay = image('icons/obj/bureaucracy.dmi')
+	// stampoverlay.icon_state = "paper_stamp-cent"
+	// if(!R.stamped)
+	// 	R.stamped = new
+	// R.offset_x += 0
+	// R.offset_y += 0
+	// R.ico += "paper_stamp-cent"
+	// R.stamped += /obj/item/stamp
+	// R.AddOverlays(stampoverlay)
+	// R.stamps += "<HR><i>This paper has been stamped by the Executive Officer's desk.</i>"
 
 /obj/structure/cash_register/commissary/AltClick(var/mob/user)
 	var/obj/item/card/id/I = user.GetIdCard()
@@ -168,10 +202,14 @@
 // /obj/structure/cash_register/commissary/attack_self(var/mob/user)
 // 	ui_interact(user)
 
+/obj/structure/cash_register/commissary/attack_hand(mob/living/user)
+	. = ..()
+	ui_interact(user)
+
 /obj/structure/cash_register/commissary/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "QuikPay", "Idris Quik-Pay", 400, 400)
+		ui = new(user, src, "QuikPay", "Idris Quik-Pay Register", 400, 400)
 		ui.open()
 
 /obj/structure/cash_register/commissary/ui_data(var/mob/user)
@@ -206,9 +244,11 @@
 			if(!editmode)
 				to_chat(usr, SPAN_NOTICE("Device locked."))
 				return FALSE
-
-			items -= params["remove"]
-			items_to_price -= params["remove"]
+			var/index = 0
+			for(var/list/L in items)
+				index++
+				if(L["name"] == params["removing"])
+					items.Cut(index, index+1)
 			. = TRUE
 
 		if("set_new_price")
