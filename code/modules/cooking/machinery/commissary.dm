@@ -44,6 +44,10 @@
 	desc = "A commercialized shelf for food and drinks."
 	icon_state = "trade_food"
 	contents_path = "-edible"
+	use_power = POWER_USE_IDLE
+	idle_power_usage = 5
+	active_power_usage = 100
+	cooling = TRUE
 	accepted_items = list(/obj/item/reagent_containers/food,
 	/obj/item/storage/box/fancy/cookiesnack
 	)
