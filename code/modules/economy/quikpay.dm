@@ -152,9 +152,11 @@
 			if(!editmode)
 				to_chat(usr, SPAN_NOTICE("Device locked."))
 				return FALSE
-			to_chat(usr, SPAN_NOTICE("test."))
-			items -= params["remove"]
-			items_to_price -= params["remove"]
+			var/index = 0
+			for(var/list/L in items)
+				index++
+				if(L["name"] == params["removing"])
+					items.Cut(index, index+1)
 			. = TRUE
 
 		if("set_new_price")
