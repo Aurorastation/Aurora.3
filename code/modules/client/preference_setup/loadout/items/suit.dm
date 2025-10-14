@@ -320,6 +320,7 @@
 /datum/gear/suit/dominia_cape
 	display_name = "dominian cape"
 	path = /obj/item/clothing/accessory/poncho/dominia_cape
+	slot = slot_in_backpack
 	flags = GEAR_HAS_DESC_SELECTION
 	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
 
@@ -346,6 +347,7 @@
 /datum/gear/suit/dominia_cape_colorable
 	display_name = "dominian cape selection, colorable"
 	path = /obj/item/clothing/accessory/poncho/dominia_cape/colorable
+	slot = slot_in_backpack
 	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
 	description = "A black or white Dominian cape with a colorable stripe that can be used to represent either a generic cape or a Minor House."
 	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
@@ -359,7 +361,8 @@
 
 /datum/gear/suit/dominia_medical_cape
 	display_name = "tribunalist medical cape"
-	path = /obj/item/clothing/accessory/poncho/dominia_cape/hospital
+	path = /obj/item/clothing/accessory/poncho/dominia_cape/tribunalist/medical
+	slot = slot_in_backpack
 	flags = GEAR_HAS_DESC_SELECTION
 	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Paramedic", "Medical Intern")
 	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)

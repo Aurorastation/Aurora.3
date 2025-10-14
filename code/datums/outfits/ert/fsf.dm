@@ -45,7 +45,7 @@
 	backpack_contents = list(
 		/obj/item/storage/firstaid/combat = 1,
 		/obj/item/ammo_magazine/mc9mm = 2,
-		/obj/item/storage/box/shotgunshells = 1,
+		/obj/item/storage/box/shells/buckshot = 1,
 		/obj/item/storage/firstaid/adv = 1,
 		/obj/item/handcuffs/ziptie = 1,
 		/obj/item/device/healthanalyzer = 1,
@@ -81,7 +81,7 @@
 		/obj/item/melee/energy/sword/knife/sol = 1,
 		/obj/item/handcuffs/ziptie = 1,
 		/obj/item/clothing/glasses/welding/superior = 1,
-		/obj/item/storage/box/shotgunshells = 1,
+		/obj/item/storage/box/shells/buckshot = 1,
 		/obj/item/gun/projectile/pistol/sol = 1,
 		/obj/item/ammo_magazine/mc9mm = 2,
 		/obj/item/grenade/frag = 2

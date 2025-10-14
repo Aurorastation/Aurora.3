@@ -51,6 +51,7 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/power/breakerbox/activated/LateInitialize()
+	. = ..()
 	set_state(1)
 
 /obj/machinery/power/breakerbox/attack_ai(mob/user)

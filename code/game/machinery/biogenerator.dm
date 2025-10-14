@@ -13,6 +13,7 @@
 	var/build_eff = 1
 	var/eat_eff = 1
 	var/capacity = 100
+	var/ref_for_ui
 
 	component_types = list(
 		/obj/item/circuitboard/biogenerator,
@@ -536,6 +537,7 @@ EMAG/ILLEGAL
 	R.my_atom = src
 	beaker = new /obj/item/reagent_containers/glass/bottle(src)
 	update_icon()
+	ref_for_ui = "[REF(src)]"
 
 /obj/machinery/biogenerator/on_reagent_change()			//When the reagents change, change the icon as well.
 	update_icon()
@@ -618,8 +620,8 @@ EMAG/ILLEGAL
 			if("menu")
 				if (beaker)
 					dat += "<table style='width:100%'><tr><td colspan='6'><H2>Commands</H2></td></tr>"
-					dat += "<tr><td colspan='2'><A href='byond://?src=[REF(src)];action=activate'>Activate Biogenerator</A></td></tr>"
-					dat += "<tr><td colspan='2'><A href='byond://?src=[REF(src)];action=detach'>Detach Container</A><BR></td></tr>"
+					dat += "<tr><td colspan='2'><A href='byond://?src=[ref_for_ui];action=activate'>Activate Biogenerator</A></td></tr>"
+					dat += "<tr><td colspan='2'><A href='byond://?src=[ref_for_ui];action=detach'>Detach Container</A><BR></td></tr>"
 					dat += "<tr><td colspan='2'>Name</td><td colspan='2'>Cost</td><td colspan='4'>Production Amount</td></tr>"
 					var/lastclass = "Commands"
 
@@ -639,7 +641,7 @@ EMAG/ILLEGAL
 								if(num*round(current_recipe.cost/build_eff) > points)
 									dat += "<div class='no-build inline'>([fakenum][num])</div>"
 								else
-									dat += "<A href='byond://?src=[REF(src)];action=create;itemtype=[current_recipe.type];count=[num]'>([fakenum][num])</A>"
+									dat += "<A href='byond://?src=[ref_for_ui];action=create;itemtype=[current_recipe.type];count=[num]'>([fakenum][num])</A>"
 							dat += "</td>"
 							dat += "</tr>"
 
@@ -649,13 +651,13 @@ EMAG/ILLEGAL
 					dat += "<BR><FONT COLOR=red>No beaker inside. Please insert a beaker.</FONT><BR>"
 			if("nopoints")
 				dat += "You do not have biomass to create products.<BR>Please put growns into the reactor and activate it.<BR>"
-				dat += "<A href='byond://?src=[REF(src)];action=menu'>Return to menu</A>"
+				dat += "<A href='byond://?src=[ref_for_ui];action=menu'>Return to menu</A>"
 			if("complete")
 				dat += "Operation complete.<BR>"
-				dat += "<A href='byond://?src=[REF(src)];action=menu'>Return to menu</A>"
+				dat += "<A href='byond://?src=[ref_for_ui];action=menu'>Return to menu</A>"
 			if("void")
 				dat += "<FONT COLOR=red>Error: No growns inside.</FONT><BR>Please put growns into the reactor.<BR>"
-				dat += "<A href='byond://?src=[REF(src)];action=menu'>Return to menu</A>"
+				dat += "<A href='byond://?src=[ref_for_ui];action=menu'>Return to menu</A>"
 	dat += "</body></html>"
 
 	var/datum/browser/biogen_win = new(user, "biogenerator", "Biogenerator", 450, 500)

@@ -15,7 +15,7 @@
 "ae" = (
 /obj/structure/table/standard,
 /obj/item/surgery/scalpel/laser,
-/obj/item/storage/box/freezer/organcooler,
+/obj/item/storage/box/unique/freezer/organcooler,
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
 "af" = (
@@ -106,10 +106,6 @@
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 10
 	},
-/turf/simulated/floor/tiled/asteroid,
-/area/dungeon/bluespace_outpost)
-"au" = (
-/obj/machinery/vannatusk_spawner,
 /turf/simulated/floor/tiled/asteroid,
 /area/dungeon/bluespace_outpost)
 "av" = (
@@ -1251,7 +1247,7 @@ Nw
 Nw
 Iu
 ar
-au
+ac
 bs
 bo
 ad

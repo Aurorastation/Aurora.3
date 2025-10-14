@@ -4763,11 +4763,11 @@
 /area/centcom/bar)
 "eDp" = (
 /obj/structure/table/rack,
-/obj/item/storage/box/teargas{
+/obj/item/storage/box/tactical/teargas{
 	pixel_x = -1;
 	pixel_y = -4
 	},
-/obj/item/storage/box/flashbangs{
+/obj/item/storage/box/tactical/flashbangs{
 	pixel_x = 4;
 	pixel_y = 4
 	},
@@ -5695,7 +5695,7 @@
 	pixel_x = -9;
 	pixel_y = -14
 	},
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = -11
 	},

@@ -638,7 +638,7 @@
 	new /obj/item/storage/box/kitchen(src)
 	new /obj/item/reagent_containers/spray/cleaner(src)
 	new /obj/item/storage/box/gloves(src)
-	new /obj/item/storage/box/condiment(src)
+	new /obj/item/storage/box/large/condiment(src)
 
 //A crate that populates itself with randomly selected loot from randomstock.dm
 //Can be passed in a rarity value, which is used as a multiplier on the rare/uncommon chance

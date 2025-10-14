@@ -1,7 +1,8 @@
 /obj/item/storage/box/syndie_kit
 	name = "box"
 	desc = "A sleek, sturdy box."
-	icon_state = "syndiebox"
+	color = COLOR_WALL_GUNMETAL
+	label = "label_syndie"
 	worn_overlay = "writing_syndie"
 
 /obj/item/storage/box/syndie_kit/imp_freedom
@@ -52,7 +53,7 @@
 
 /obj/item/storage/box/syndie_kit/chameleon
 	name = "chameleon kit"
-	desc = "Comes with all the clothes you need to impersonate most people.  Acting lessons sold seperately."
+	desc = "Comes with all the clothes you need to impersonate most people. Acting lessons sold seperately."
 	worn_overlay = "syndiesuit"
 	starts_with = list(
 		/obj/item/clothing/under/chameleon = 1,
@@ -77,7 +78,7 @@
 
 /obj/item/storage/box/syndie_kit/clerical
 	name = "clerical kit"
-	desc = "Comes with all you need to fake paperwork. Assumes you have passed basic writing lessons."
+	desc = "Comes with all you need to fake paperwork or write with invisible ink. Assumes you have passed basic writing lessons."
 	worn_overlay = "pen"
 	starts_with = list(
 		/obj/item/stamp/chameleon = 1,
