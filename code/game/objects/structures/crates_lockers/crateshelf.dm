@@ -1,7 +1,3 @@
-#define DEFAULT_SHELF_CAPACITY 3 // Default capacity of the shelf
-#define DEFAULT_SHELF_USE_DELAY 1 SECONDS // Default interaction delay of the shelf
-#define DEFAULT_SHELF_VERTICAL_OFFSET 10 // Vertical pixel offset of shelving-related things. Set to 10 by default due to this leaving more of the crate on-screen to be clicked.
-
 /obj/structure/crate_shelf
 	name = "crate shelf"
 	desc = "It's a shelf! For storing crates!"
@@ -12,9 +8,10 @@
 	anchored = TRUE
 	layer = BELOW_OBJ_LAYER
 
-	var/capacity = DEFAULT_SHELF_CAPACITY
-	var/use_delay = DEFAULT_SHELF_USE_DELAY
+	var/capacity = 3 // Default capacity of the shelf
+	var/use_delay = 1 SECONDS // Default interaction delay of the shelf
 	var/list/shelf_contents
+	var/vertical_offset = 10 // Vertical pixel offset of shelving-related things. Set to 10 by default due to this leaving more of the crate on-screen to be clicked.
 
 	var/manipulating = FALSE
 
@@ -55,7 +52,7 @@
 	var/stack_offset // This is used to generate the vertical offset of the shelf pieces.
 	for(var/i in 1 to (capacity - 1))
 		stack_layer  = BELOW_OBJ_LAYER + (0.02 * i) - 0.01 // Make each shelf piece render above the last, but below the crate that should be on it.
-		stack_offset = DEFAULT_SHELF_VERTICAL_OFFSET * i // Make each shelf piece physically above the last.
+		stack_offset = vertical_offset * i // Make each shelf piece physically above the last.
 		var/image/I = image(icon, icon_state = shelf_stack, layer = stack_layer, pixel_y = stack_offset)
 		AddOverlays(I)
 
@@ -140,7 +137,7 @@
 /obj/structure/crate_shelf/proc/put_in(obj/structure/closet/crate/crate, var/next_free)
 	LAZYSET(shelf_contents, next_free, crate)
 	crate.forceMove(src) // Insert the crate into the shelf.
-	crate.pixel_y = DEFAULT_SHELF_VERTICAL_OFFSET * (next_free - 1) // Adjust the vertical offset of the crate to look like it's on the shelf.
+	crate.pixel_y = vertical_offset * (next_free - 1) // Adjust the vertical offset of the crate to look like it's on the shelf.
 	crate.layer = BELOW_OBJ_LAYER + 0.02 * (next_free - 1) // Adjust the layer of the crate to look like it's in the shelf.
 	handle_visuals()
 
