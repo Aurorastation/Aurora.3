@@ -65,6 +65,7 @@
 		/area/shuttle/orion_miner/mess_hall,
 		/area/shuttle/orion_miner/corridor,
 		/area/shuttle/orion_miner/corridor/central,
+		/area/shuttle/orion_miner/corridor/vestibule,
 		/area/shuttle/orion_miner/corridor/aft,
 		/area/shuttle/orion_miner/cargo_bay,
 		/area/shuttle/orion_miner/medbay,
@@ -73,6 +74,8 @@
 		/area/shuttle/orion_miner/bathroom,
 		/area/shuttle/orion_miner/hydro,
 		/area/shuttle/orion_miner/engineering,
+		/area/shuttle/orion_miner/engineering/port,
+		/area/shuttle/orion_miner/engineering/starboard,
 		/area/shuttle/orion_miner/engineering/tech_storage,
 		/area/shuttle/orion_miner/engineering/reactor,
 	)
@@ -95,17 +98,24 @@
 
 // Shuttle airlock
 /obj/effect/map_effect/marker/airlock/shuttle/orion_miner
-	name = "Starboard Docking Airlock"
+	name = "Aft Docking Airlock"
 	master_tag = "orion_miner"
 	shuttle_tag = "Independent Skiff"
 	cycle_to_external_air = TRUE
 
-// Secondary airlock
-/obj/effect/map_effect/marker/airlock/orion_miner
-	name = "Port Airlock"
+// Forward airlocks
+/obj/effect/map_effect/marker/airlock/orion_miner_port
+	name = "Port Fore Airlock"
 	master_tag = "port_orion_miner"
+	cycle_to_external_air = TRUE
+
+/obj/effect/map_effect/marker/airlock/orion_miner_starboard
+	name = "Starboard Fore Airlock"
+	master_tag = "stbd_orion_miner"
+	cycle_to_external_air = TRUE
 
 // Aft airlock
 /obj/effect/map_effect/marker/airlock/orion_miner_aft
 	name = "Aft Airlock"
 	master_tag = "rear_orion_miner"
+	cycle_to_external_air = TRUE

@@ -40,8 +40,12 @@
 	name = "Orion Miner - Central Corridor"
 	icon_state = "hallC"
 
+/area/shuttle/orion_miner/corridor/vestibule
+	name = "Orion Miner - Vestibule"
+	icon_state = "lounge"
+
 /area/shuttle/orion_miner/corridor/aft
-	name = "Orion Miner - Aft Vestibule"
+	name = "Orion Miner - Aft Corridor"
 	icon_state = "hallA"
 
 //Rooms
@@ -54,22 +58,36 @@
 
 /area/shuttle/orion_miner/eva
 	name = "Orion Miner - EVA Storage"
+	icon_state = "eva"
 
 /area/shuttle/orion_miner/dorm
 	name = "Orion Miner - Dormitory"
+	icon_state = "Sleep"
 
 /area/shuttle/orion_miner/bathroom
 	name = "Orion Miner - Bathroom"
+	icon_state = "toilet"
 
 /area/shuttle/orion_miner/hydro
 	name = "Orion Miner - Hydroponics"
+	icon_state = "hydro"
 
 /area/shuttle/orion_miner/engineering
 	name = "Orion Miner - Engineering"
 	icon_state = "red"
 
+/area/shuttle/orion_miner/engineering/port
+	name = "Orion Miner - Engineering Port"
+	icon_state = "red2"
+
+/area/shuttle/orion_miner/engineering/starboard
+	name = "Orion Miner - Engineering Starboard"
+	icon_state = "blue2"
+
 /area/shuttle/orion_miner/engineering/tech_storage
 	name = "Orion Miner - Tech Storage"
+	icon_state = "workshop"
 
 /area/shuttle/orion_miner/engineering/reactor
 	name = "Orion Miner - Reactor Room"
+	icon_state = "engine"
