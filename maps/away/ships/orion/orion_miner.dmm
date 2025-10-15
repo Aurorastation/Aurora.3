@@ -6,8 +6,18 @@
 /obj/effect/map_effect/marker/airlock/shuttle/orion_miner,
 /obj/effect/map_effect/marker_helper/airlock/out,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 8;
+	pixel_y = 6;
+	pixel_x = 20
+	},
+/obj/machinery/airlock_sensor{
+	pixel_x = 20;
+	dir = 8;
+	pixel_y = -6
+	},
 /obj/structure/bed/handrail{
-	dir = 4
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/orion_miner/corridor/aft)
@@ -19,7 +29,7 @@
 	dir = 4
 	},
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/shuttle/orion_miner/engineering/port)
+/area/shuttle/orion_miner/reactor)
 "ay" = (
 /obj/structure/table/steel,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -72,10 +82,10 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_miner/engineering/starboard)
+/area/shuttle/orion_miner/main_engineering_stbd)
 "aU" = (
 /obj/machinery/shipsensors,
-/obj/machinery/light/colored/blue{
+/obj/machinery/light/colored/decayed{
 	dir = 4
 	},
 /turf/simulated/floor/reinforced/airless,
@@ -96,6 +106,9 @@
 	},
 /obj/effect/floor_decal/industrial/outline_door/yellow{
 	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/corridor/aft)
@@ -131,6 +144,7 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/orion_miner_port,
+/obj/effect/floor_decal/industrial/hatch_door/firefighting_closet,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_miner/corridor)
 "bH" = (
@@ -138,7 +152,7 @@
 	dir = 1
 	},
 /obj/machinery/alarm/west,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/orion_miner/grauwolf)
 "bI" = (
 /obj/machinery/atmospherics/portables_connector{
@@ -147,7 +161,7 @@
 /obj/machinery/portable_atmospherics/powered/pump/filled,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_miner/engineering/port)
+/area/shuttle/orion_miner/main_engineering_port)
 "bK" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume,
 /obj/effect/floor_decal/industrial/warning/full,
@@ -177,7 +191,7 @@
 /turf/simulated/floor/tiled/full,
 /area/shuttle/orion_miner/mess_hall)
 "bR" = (
-/obj/machinery/computer/ship/navigation/terminal{
+/obj/machinery/computer/ship/targeting/terminal{
 	dir = 8
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -189,7 +203,7 @@
 "bY" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
 /turf/simulated/floor/plating,
-/area/shuttle/orion_miner/engineering/starboard)
+/area/shuttle/orion_miner/main_engineering_stbd)
 "ca" = (
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
@@ -239,7 +253,7 @@
 	req_access = list(201)
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_miner/engineering/port)
+/area/shuttle/orion_miner/corridor/aft)
 "ce" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
@@ -264,18 +278,9 @@
 	dir = 1
 	},
 /obj/machinery/light/colored/decayed,
+/obj/effect/floor_decal/industrial/outline/service,
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/corridor/vestibule)
-"cj" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/obj/item/hullbeacon/red,
-/obj/structure/bed/handrail{
-	dir = 4
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/shuttle/orion_miner/exterior)
 "cn" = (
 /obj/machinery/light/colored/blue{
 	dir = 8
@@ -297,8 +302,9 @@
 	req_access = list(201);
 	dir = 4
 	},
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
-/area/shuttle/orion_miner/engineering/reactor)
+/area/shuttle/orion_miner/reactor)
 "cu" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/effect/floor_decal/corner/dark_green/diagonal,
@@ -332,7 +338,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/turf/simulated/floor/tiled,
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/meter{
+	name = "Air Reserve"
+	},
+/turf/simulated/floor/plating,
 /area/shuttle/orion_miner/corridor/vestibule)
 "cP" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
@@ -350,7 +360,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/shuttle/orion_miner/engineering/starboard)
+/area/shuttle/orion_miner/main_engineering_stbd)
 "cQ" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -365,9 +375,9 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/orion_miner/engineering/starboard)
+/area/shuttle/orion_miner/main_engineering_stbd)
 "cT" = (
-/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/portable_atmospherics/canister/air,
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
@@ -394,7 +404,17 @@
 	},
 /obj/effect/floor_decal/industrial/outline,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_miner/engineering/port)
+/area/shuttle/orion_miner/main_engineering_port)
+"dn" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/shuttle/orion_miner/main_engineering_port)
+"dA" = (
+/obj/machinery/atmospherics/unary/engine,
+/turf/simulated/floor/reinforced/airless,
+/area/shuttle/orion_miner/main_engineering_stbd)
 "dD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan,
 /obj/structure/cable/green{
@@ -412,7 +432,7 @@
 /area/shuttle/orion_miner/corridor/vestibule)
 "dJ" = (
 /obj/effect/floor_decal/corner/black/diagonal,
-/obj/random/pottedplant,
+/obj/structure/closet/secure_closet/cabinet/beer,
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/mess_hall)
 "dK" = (
@@ -429,7 +449,7 @@
 	pixel_y = -20
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_miner/engineering/port)
+/area/shuttle/orion_miner/main_engineering_port)
 "dL" = (
 /obj/structure/table/reinforced/steel,
 /obj/machinery/recharger{
@@ -446,7 +466,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/tiled,
-/area/shuttle/orion_miner/engineering/tech_storage)
+/area/shuttle/orion_miner/tech_storage)
 "dM" = (
 /obj/machinery/mineral/stacking_machine{
 	id = "om_s_2";
@@ -497,16 +517,19 @@
 /obj/effect/floor_decal/industrial/hatch_tiny/firefighting_closet,
 /obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/plating,
-/area/shuttle/orion_miner/engineering/port)
+/area/shuttle/orion_miner/main_engineering_port)
 "eo" = (
 /obj/machinery/atmospherics/binary/pump/on{
 	dir = 8;
 	name = "Air to Distribution";
-	target_pressure = 1000
+	target_pressure = 200
 	},
 /obj/effect/floor_decal/industrial/hatch_tiny/emergency_closet,
+/obj/structure/bed/handrail{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_miner/engineering/port)
+/area/shuttle/orion_miner/main_engineering_port)
 "eu" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -557,7 +580,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_miner/engineering/port)
+/area/shuttle/orion_miner/main_engineering_port)
 "eP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -567,7 +590,7 @@
 	pixel_y = 4
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/orion_miner/engineering/starboard)
+/area/shuttle/orion_miner/main_engineering_stbd)
 "eR" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled,
@@ -580,27 +603,25 @@
 	dir = 8
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/shuttle/orion_miner/exterior)
+/area/shuttle/orion_miner/grauwolf)
 "eZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
-/area/shuttle/orion_miner/engineering/starboard)
+/area/shuttle/orion_miner/main_engineering_stbd)
 "fo" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/cargo_bay)
 "fp" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
 /obj/machinery/door/firedoor/multi_tile{
 	req_one_access = null;
 	dir = 2
 	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
+/obj/machinery/door/firedoor/noid{
+	dir = 8
 	},
+/obj/effect/floor_decal/industrial/hatch_door/yellow,
 /turf/simulated/floor/tiled/bitile,
 /area/shuttle/orion_miner/corridor)
 "fy" = (
@@ -609,7 +630,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
-/area/shuttle/orion_miner/engineering/starboard)
+/area/shuttle/orion_miner/main_engineering_stbd)
 "fH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 4
@@ -670,6 +691,11 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning/full,
+/obj/item/toy/figure/miner{
+	pixel_x = -7;
+	pixel_y = 13;
+	name = "MacDouglas the Miner"
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/orion_miner/cargo_bay)
 "gp" = (
@@ -678,6 +704,10 @@
 /obj/machinery/smartfridge/stocked,
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/hydro)
+"gr" = (
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/reinforced/airless,
+/area/shuttle/orion_miner/mess_hall)
 "gs" = (
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 4
@@ -695,12 +725,22 @@
 	pixel_y = 4;
 	pixel_x = -5
 	},
-/obj/random/pottedplant_small{
-	pixel_x = 7;
-	pixel_y = 1
+/obj/item/stack/nanopaste{
+	pixel_x = 5;
+	pixel_y = 0
+	},
+/obj/item/stack/nanopaste{
+	pixel_x = 10;
+	pixel_y = 0
 	},
 /turf/simulated/floor/tiled/white,
 /area/shuttle/orion_miner/medbay)
+"gv" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/shuttle/orion_miner/mess_hall)
 "gy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 4
@@ -708,6 +748,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan,
 /obj/effect/floor_decal/industrial/outline_door/yellow{
 	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/corridor/aft)
@@ -730,7 +773,7 @@
 	},
 /obj/item/hullbeacon/green,
 /turf/simulated/floor/reinforced/airless,
-/area/shuttle/orion_miner/exterior)
+/area/shuttle/orion_miner/main_engineering_stbd)
 "gP" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
@@ -788,6 +831,7 @@
 	pixel_y = 23
 	},
 /obj/effect/map_effect/marker/airlock/orion_miner_starboard,
+/obj/effect/floor_decal/industrial/hatch_door/firefighting_closet,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_miner/corridor)
 "hu" = (
@@ -798,8 +842,17 @@
 	dir = 10
 	},
 /obj/machinery/light,
+/obj/structure/sign/nosmoking_1{
+	pixel_x = 26
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_miner/medbay)
+"hx" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/shuttle/orion_miner/grauwolf)
 "hy" = (
 /obj/effect/floor_decal/industrial/outline_door/yellow,
 /obj/structure/disposalpipe/segment,
@@ -810,6 +863,9 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/corridor)
 "hM" = (
@@ -846,6 +902,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
+/obj/machinery/mineral/equipment_vendor,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/mining_prep)
 "id" = (
@@ -861,7 +919,7 @@
 /obj/machinery/disposal/small/west,
 /obj/structure/disposalpipe/trunk,
 /turf/simulated/floor/tiled,
-/area/shuttle/orion_miner/engineering/tech_storage)
+/area/shuttle/orion_miner/tech_storage)
 "ih" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -870,7 +928,10 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled,
+/obj/structure/bed/handrail{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/orion_miner/grauwolf)
 "im" = (
 /obj/structure/grille,
@@ -893,17 +954,17 @@
 	},
 /obj/machinery/air_sensor,
 /turf/simulated/floor/reinforced/carbon_dioxide,
-/area/shuttle/orion_miner/engineering/starboard)
+/area/shuttle/orion_miner/main_engineering_stbd)
 "iB" = (
 /turf/simulated/wall/r_wall,
-/area/shuttle/orion_miner/engineering/tech_storage)
+/area/shuttle/orion_miner/tech_storage)
 "iC" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4;
 	icon_state = "pipe-c"
 	},
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/shuttle/orion_miner/engineering/port)
+/area/shuttle/orion_miner/main_engineering_port)
 "iJ" = (
 /obj/effect/floor_decal/industrial/outline_door/yellow{
 	dir = 1
@@ -916,6 +977,9 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/floor_decal/industrial/outline_straight/yellow{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/mining_prep)
 "iR" = (
@@ -952,8 +1016,16 @@
 /obj/item/clothing/glasses/welding,
 /obj/item/clothing/glasses/welding,
 /obj/machinery/alarm/west,
+/obj/item/weldingtool/largetank{
+	pixel_x = 1;
+	pixel_y = 18
+	},
+/obj/item/weldingtool/largetank{
+	pixel_x = -6;
+	pixel_y = 18
+	},
 /turf/simulated/floor/carpet/rubber,
-/area/shuttle/orion_miner/engineering/port)
+/area/shuttle/orion_miner/main_engineering_port)
 "jf" = (
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
@@ -977,11 +1049,7 @@
 /area/shuttle/orion_miner/medbay)
 "jA" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/shuttle/orion_miner/engineering/reactor)
-"jB" = (
-/obj/machinery/atmospherics/unary/engine,
-/turf/simulated/floor/reinforced/airless,
-/area/shuttle/orion_miner/engineering/port)
+/area/shuttle/orion_miner/reactor)
 "jC" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/arrow/yellow{
@@ -997,7 +1065,7 @@
 	pixel_x = 0;
 	pixel_y = 32
 	},
-/obj/machinery/mineral/input,
+/obj/structure/ore_box,
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/cargo_bay)
 "jG" = (
@@ -1009,6 +1077,9 @@
 "jI" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/shuttle/orion_miner/mining_prep)
+"jO" = (
+/turf/simulated/wall/r_wall,
+/area/shuttle/orion_miner/corridor/vestibule)
 "jR" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan,
@@ -1039,24 +1110,24 @@
 /obj/item/storage/bag/inflatable{
 	pixel_y = 3
 	},
-/turf/simulated/floor/carpet/rubber,
-/area/shuttle/orion_miner/engineering/port)
-"kd" = (
-/obj/effect/shuttle_landmark/orion_miner{
-	dir = 8
+/obj/item/device/t_scanner{
+	pixel_x = -6;
+	pixel_y = 18
 	},
-/turf/space/transit/north,
-/area/space)
+/obj/item/device/t_scanner{
+	pixel_x = -6;
+	pixel_y = 13
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/shuttle/orion_miner/main_engineering_port)
 "kf" = (
 /obj/machinery/atmospherics/pipe/manifold/visible{
 	dir = 1
 	},
-/obj/machinery/meter{
-	name = "Air Reserve"
-	},
 /obj/structure/closet/walllocker/emerglocker/north,
+/obj/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_miner/engineering/port)
+/area/shuttle/orion_miner/main_engineering_port)
 "km" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume,
 /obj/effect/floor_decal/industrial/warning/full,
@@ -1065,13 +1136,22 @@
 /obj/effect/map_effect/marker/airlock/orion_miner_port,
 /turf/simulated/floor/reinforced/airless,
 /area/shuttle/orion_miner/corridor)
+"kq" = (
+/obj/machinery/door/firedoor/noid,
+/obj/effect/floor_decal/industrial/hatch_door/yellow{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/bitile{
+	dir = 4
+	},
+/area/shuttle/orion_miner/corridor/vestibule)
 "ku" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/crate/loot,
 /obj/machinery/mineral/stacking_unit_console{
 	id = "om_s_2";
 	pixel_x = -32
 	},
+/obj/structure/closet/crate,
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/cargo_bay)
 "kz" = (
@@ -1080,7 +1160,7 @@
 	dir = 4
 	},
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/shuttle/orion_miner/engineering/port)
+/area/shuttle/orion_miner/reactor)
 "kI" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -1093,8 +1173,12 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan,
+/obj/machinery/disposal/small/east,
+/obj/structure/disposalpipe/trunk{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_miner/engineering/port)
+/area/shuttle/orion_miner/main_engineering_port)
 "kO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -1103,15 +1187,15 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_miner/engineering/starboard)
+/area/shuttle/orion_miner/main_engineering_stbd)
 "kT" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
 /turf/simulated/floor/plating,
-/area/shuttle/orion_miner/engineering/starboard)
+/area/shuttle/orion_miner/main_engineering_stbd)
 "kU" = (
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_miner/engineering/starboard)
+/area/shuttle/orion_miner/main_engineering_stbd)
 "kV" = (
 /turf/simulated/wall,
 /area/shuttle/orion_miner/cargo_bay)
@@ -1119,8 +1203,8 @@
 /obj/machinery/light/colored/decayed{
 	dir = 4
 	},
-/obj/structure/closet/secure_closet/cabinet/beer,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/vending/quick_e_meals,
 /turf/simulated/floor/tiled/full,
 /area/shuttle/orion_miner/mess_hall)
 "ld" = (
@@ -1174,14 +1258,14 @@
 	dir = 8
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/shuttle/orion_miner/exterior)
+/area/shuttle/orion_miner/bridge)
 "ly" = (
 /obj/machinery/vending/engivend{
 	req_access = null
 	},
 /obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/plating,
-/area/shuttle/orion_miner/engineering/starboard)
+/area/shuttle/orion_miner/main_engineering_stbd)
 "lE" = (
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/reinforced,
@@ -1192,7 +1276,7 @@
 	},
 /obj/machinery/atmospherics/unary/engine,
 /turf/simulated/floor/reinforced/airless,
-/area/shuttle/orion_miner/engineering/port)
+/area/shuttle/orion_miner/main_engineering_port)
 "lP" = (
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 8
@@ -1202,7 +1286,7 @@
 	},
 /obj/machinery/power/apc/west,
 /turf/simulated/floor/tiled,
-/area/shuttle/orion_miner/engineering/tech_storage)
+/area/shuttle/orion_miner/tech_storage)
 "lU" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/shuttle/orion_miner/grauwolf)
@@ -1213,14 +1297,15 @@
 /obj/machinery/meter,
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
-/area/shuttle/orion_miner/engineering/starboard)
+/area/shuttle/orion_miner/main_engineering_stbd)
 "mo" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/bed/handrail{
 	dir = 8
 	},
+/obj/structure/closet/walllocker/emerglocker/west,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_miner/engineering/starboard)
+/area/shuttle/orion_miner/main_engineering_stbd)
 "ms" = (
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/effect/floor_decal/corner/dark_green/diagonal,
@@ -1235,7 +1320,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
-/area/shuttle/orion_miner/engineering/starboard)
+/area/shuttle/orion_miner/main_engineering_stbd)
 "mw" = (
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
 /obj/machinery/door/firedoor/noid{
@@ -1278,23 +1363,35 @@
 /obj/effect/floor_decal/industrial/warning/corner,
 /obj/item/hullbeacon/red,
 /turf/simulated/floor/reinforced/airless,
-/area/shuttle/orion_miner/exterior)
+/area/shuttle/orion_miner/mess_hall)
 "mT" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/shuttle/orion_miner/exterior)
+/area/shuttle/orion_miner/mess_hall)
 "mY" = (
-/turf/simulated/wall/r_wall,
-/area/shuttle/orion_miner/engineering/port)
+/obj/effect/floor_decal/industrial/hatch_door/yellow,
+/obj/machinery/door/firedoor/noid{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+	dir = 4
+	},
+/obj/machinery/door/airlock/glass_engineering{
+	dir = 4;
+	name = "Starboard Engineering";
+	req_access = list(201)
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/orion_miner/corridor/aft)
 "nb" = (
 /obj/machinery/atmospherics/pipe/tank/air{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_miner/engineering/port)
+/area/shuttle/orion_miner/main_engineering_port)
 "nh" = (
 /obj/machinery/atmospherics/valve/open{
 	name = "Thruster Cutoff Valve"
@@ -1304,7 +1401,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch_tiny/firefighting_closet,
 /turf/simulated/floor/plating,
-/area/shuttle/orion_miner/engineering/starboard)
+/area/shuttle/orion_miner/main_engineering_stbd)
 "nl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 4
@@ -1345,7 +1442,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
-/area/shuttle/orion_miner/engineering/starboard)
+/area/shuttle/orion_miner/main_engineering_stbd)
 "nC" = (
 /obj/machinery/light/colored/decayed{
 	dir = 4
@@ -1395,13 +1492,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/shuttle/orion_miner/exterior)
-"oe" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 8
-	},
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/shuttle/orion_miner/engineering/starboard)
+/area/shuttle/orion_miner/mess_hall)
 "og" = (
 /obj/machinery/disposal/small/east,
 /obj/structure/disposalpipe/trunk{
@@ -1423,19 +1514,13 @@
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/mess_hall)
 "ov" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
 /obj/structure/closet/walllocker/medical/firstaid{
 	pixel_y = -32
 	},
-/obj/machinery/door/firedoor/multi_tile{
-	req_one_access = null;
-	dir = 2
-	},
-/obj/effect/floor_decal/industrial/warning{
+/obj/machinery/door/firedoor/noid{
 	dir = 8
 	},
+/obj/effect/floor_decal/industrial/hatch_door/yellow,
 /turf/simulated/floor/tiled/bitile,
 /area/shuttle/orion_miner/corridor)
 "ow" = (
@@ -1484,7 +1569,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
-/area/shuttle/orion_miner/engineering/tech_storage)
+/area/shuttle/orion_miner/tech_storage)
 "oJ" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -1503,7 +1588,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/shuttle/orion_miner/exterior)
+/area/shuttle/orion_miner/grauwolf)
 "oN" = (
 /obj/structure/bed/handrail{
 	dir = 8;
@@ -1534,17 +1619,22 @@
 	pixel_x = -7;
 	pixel_y = 11
 	},
+/obj/item/material/ashtray{
+	pixel_x = 3;
+	pixel_y = 7
+	},
 /turf/simulated/floor/carpet/orange,
 /area/shuttle/orion_miner/corridor/vestibule)
 "oW" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/obj/item/ship_ammunition/grauwolf_bundle,
-/obj/item/ship_ammunition/grauwolf_bundle,
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/hatch/firefighting_closet,
 /obj/structure/extinguisher_cabinet/west,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_miner/ammo_storage)
 "pa" = (
@@ -1577,11 +1667,10 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_miner/engineering/port)
+/area/shuttle/orion_miner/main_engineering_port)
 "pt" = (
-/obj/structure/disposalpipe/segment{
-	dir = 8;
-	icon_state = "pipe-c"
+/obj/structure/disposalpipe/junction/yjunction{
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -1599,11 +1688,13 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_miner/engineering/port)
+/area/shuttle/orion_miner/main_engineering_port)
 "pu" = (
-/obj/machinery/atmospherics/pipe/manifold/visible/yellow,
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/shuttle/orion_miner/engineering/starboard)
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/shuttle/orion_miner/main_engineering_stbd)
 "pv" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -1657,7 +1748,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/shuttle/orion_miner/exterior)
+/area/shuttle/orion_miner/bridge)
 "pJ" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/red{
 	dir = 4
@@ -1667,6 +1758,7 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/orion_miner_port,
+/obj/effect/floor_decal/industrial/hatch_door/firefighting_closet,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_miner/corridor)
 "pL" = (
@@ -1699,7 +1791,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/shuttle/orion_miner/exterior)
+/area/shuttle/orion_miner/grauwolf)
 "pQ" = (
 /obj/structure/table/reinforced/steel,
 /obj/machinery/alarm/north,
@@ -1722,9 +1814,9 @@
 	dir = 8
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/shuttle/orion_miner/exterior)
+/area/shuttle/orion_miner/main_engineering_stbd)
 "qc" = (
-/obj/machinery/computer/ship/targeting/terminal,
+/obj/machinery/computer/ship/navigation/terminal,
 /obj/structure/fuel_port/phoron/scc{
 	pixel_y = 27
 	},
@@ -1754,6 +1846,14 @@
 	pixel_x = -7;
 	pixel_y = 3
 	},
+/obj/item/material/ashtray{
+	pixel_x = 5;
+	pixel_y = 8
+	},
+/obj/item/flame/lighter/zippo{
+	pixel_x = 5;
+	pixel_y = -2
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_miner/bridge)
 "ql" = (
@@ -1775,7 +1875,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_miner/engineering/starboard)
+/area/shuttle/orion_miner/main_engineering_stbd)
 "rh" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -1787,23 +1887,26 @@
 	dir = 4
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/shuttle/orion_miner/engineering/port)
+/area/shuttle/orion_miner/main_engineering_port)
 "rp" = (
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/super/critical/east,
 /obj/structure/bed/handrail{
 	dir = 8
 	},
+/obj/machinery/power/apc/super/critical/east,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_miner/engineering/starboard)
+/area/shuttle/orion_miner/main_engineering_stbd)
 "rq" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 5
+	},
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/shuttle/orion_miner/engineering/port)
+/area/shuttle/orion_miner/main_engineering_port)
 "rt" = (
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 4
@@ -1831,6 +1934,7 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock/orion_miner_starboard,
+/obj/effect/floor_decal/industrial/hatch_door/firefighting_closet,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_miner/corridor)
 "rI" = (
@@ -1841,7 +1945,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/shuttle/orion_miner/exterior)
+/area/shuttle/orion_miner/mess_hall)
 "rJ" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/arrow/yellow{
@@ -1854,7 +1958,7 @@
 /obj/structure/ship_weapon_dummy,
 /obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/reinforced/airless,
-/area/shuttle/orion_miner/exterior)
+/area/shuttle/orion_miner/grauwolf)
 "rX" = (
 /turf/simulated/wall,
 /area/shuttle/orion_miner/ammo_storage)
@@ -1862,22 +1966,23 @@
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
 	},
-/obj/machinery/light/colored/decayed{
-	dir = 1
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
-/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/bed/handrail,
 /turf/simulated/floor/plating,
-/area/shuttle/orion_miner/engineering/reactor)
+/area/shuttle/orion_miner/reactor)
 "se" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/meter{
+	name = "Air Reserve"
+	},
 /turf/simulated/floor/plating,
-/area/shuttle/orion_miner/engineering/port)
+/area/shuttle/orion_miner/main_engineering_port)
 "sg" = (
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/machinery/light/colored/decayed{
@@ -1912,7 +2017,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/orion_miner/engineering/port)
+/area/shuttle/orion_miner/main_engineering_port)
 "sw" = (
 /turf/simulated/wall,
 /area/shuttle/orion_miner/medbay)
@@ -1957,12 +2062,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning{
+/obj/machinery/door/firedoor/noid{
 	dir = 8
 	},
+/obj/effect/floor_decal/industrial/hatch_door/yellow,
 /turf/simulated/floor/tiled/bitile{
 	dir = 1
 	},
@@ -1985,7 +2088,7 @@
 	pixel_x = 6
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/orion_miner/engineering/port)
+/area/shuttle/orion_miner/main_engineering_port)
 "sU" = (
 /obj/machinery/conveyor{
 	dir = 8;
@@ -1993,14 +2096,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/orion_miner/cargo_bay)
-"sY" = (
-/obj/structure/disposalpipe/segment,
-/obj/structure/bed/handrail{
-	dir = 8
-	},
-/obj/structure/closet/walllocker/emerglocker/west,
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_miner/engineering/starboard)
 "td" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -2020,8 +2115,8 @@
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/corridor/central)
 "tH" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/crate/freezer/kois/rations,
+/obj/effect/floor_decal/industrial/hatch/operations,
+/obj/machinery/mineral/rigpress,
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/cargo_bay)
 "tK" = (
@@ -2073,12 +2168,12 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled,
-/area/shuttle/orion_miner/engineering/tech_storage)
+/area/shuttle/orion_miner/tech_storage)
 "vb" = (
 /obj/structure/reagent_dispensers/fueltank,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
-/area/shuttle/orion_miner/engineering/starboard)
+/area/shuttle/orion_miner/main_engineering_stbd)
 "vc" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2088,7 +2183,7 @@
 /area/shuttle/orion_miner/hydro)
 "vj" = (
 /obj/machinery/ammunition_loader/grauwolf{
-	weapon_id = "Grauwolf Flak Battery"
+	weapon_id = "Orion Miner Grauwolf"
 	},
 /turf/simulated/floor/reinforced,
 /area/shuttle/orion_miner/grauwolf)
@@ -2098,7 +2193,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/shuttle/orion_miner/exterior)
+/area/shuttle/orion_miner/grauwolf)
 "vo" = (
 /obj/structure/bed/handrail{
 	dir = 8
@@ -2106,35 +2201,16 @@
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/corridor/central)
 "vp" = (
-/obj/machinery/conveyor{
-	dir = 8;
-	id = "om_c_2"
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
-/obj/machinery/mineral/output,
-/turf/simulated/floor/plating,
-/area/shuttle/orion_miner/cargo_bay)
-"vq" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 1
-	},
-/obj/effect/map_effect/marker/airlock/shuttle/orion_miner,
-/obj/effect/map_effect/marker_helper/airlock/out,
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
-	dir = 8;
-	pixel_y = 6;
-	pixel_x = 20
-	},
-/obj/machinery/airlock_sensor{
-	pixel_x = 20;
-	dir = 8;
-	pixel_y = -6
-	},
-/obj/structure/bed/handrail{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
-/turf/simulated/floor/plating,
-/area/shuttle/orion_miner/corridor/aft)
+/obj/structure/closet/crate,
+/turf/simulated/floor/tiled,
+/area/shuttle/orion_miner/cargo_bay)
 "vv" = (
 /obj/machinery/appliance/cooker/stove,
 /obj/machinery/alarm/north,
@@ -2173,22 +2249,19 @@
 	},
 /obj/machinery/alarm/west,
 /turf/simulated/floor/plating,
-/area/shuttle/orion_miner/engineering/reactor)
+/area/shuttle/orion_miner/reactor)
 "wb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
 /obj/structure/disposalpipe/segment,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning,
-/obj/machinery/door/firedoor/multi_tile{
-	req_one_access = null
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/firedoor/noid,
+/obj/effect/floor_decal/industrial/hatch_door/yellow{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/bitile{
 	dir = 8
 	},
@@ -2203,13 +2276,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
-/obj/machinery/door/firedoor/multi_tile{
-	req_one_access = null
+/obj/machinery/door/firedoor/noid,
+/obj/effect/floor_decal/industrial/hatch_door/yellow{
+	dir = 8
 	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/bitile{
 	dir = 8
 	},
@@ -2246,7 +2316,17 @@
 	},
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
-/area/shuttle/orion_miner/engineering/port)
+/area/shuttle/orion_miner/main_engineering_port)
+"wr" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/item/hullbeacon/red,
+/obj/structure/bed/handrail{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/shuttle/orion_miner/eva)
 "ww" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/shuttle/orion_miner/bathroom)
@@ -2326,6 +2406,7 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/orion_miner_starboard,
+/obj/effect/floor_decal/industrial/hatch_door/firefighting_closet,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_miner/corridor)
 "xj" = (
@@ -2344,22 +2425,22 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/light/colored/decayed{
-	dir = 1
-	},
 /obj/effect/floor_decal/industrial/warning/full,
+/obj/structure/sign/electricshock{
+	pixel_y = 32
+	},
 /turf/simulated/floor/plating,
-/area/shuttle/orion_miner/engineering/port)
+/area/shuttle/orion_miner/main_engineering_port)
 "xs" = (
 /obj/structure/bed/stool/chair/shuttle/double{
 	pixel_x = 8;
 	dir = 8;
-	pixel_y = 10
+	pixel_y = 5
 	},
 /obj/structure/bed/stool/chair/shuttle/double{
 	pixel_x = 8;
 	dir = 8;
-	pixel_y = -8
+	pixel_y = -12
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
@@ -2386,17 +2467,35 @@
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/cargo_bay)
 "xE" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/structure/sign/directions/engineering{
+	pixel_x = 29;
+	pixel_y = 5;
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/warning,
+/obj/structure/sign/directions/medical{
+	pixel_x = 29;
+	pixel_y = -7
+	},
+/obj/structure/sign/directions/com{
+	pixel_x = 29;
+	pixel_y = -1
+	},
+/obj/structure/sign/directions/dock{
+	pixel_x = 29;
+	pixel_y = 11;
+	dir = 1
+	},
+/obj/machinery/door/firedoor/noid,
+/obj/effect/floor_decal/industrial/hatch_door/yellow{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/bitile{
 	dir = 4
 	},
 /area/shuttle/orion_miner/corridor/vestibule)
 "xF" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/shuttle/orion_miner/engineering/starboard)
+/area/shuttle/orion_miner/main_engineering_stbd)
 "xK" = (
 /turf/simulated/wall,
 /area/shuttle/orion_miner/dorm)
@@ -2405,23 +2504,41 @@
 	dir = 8
 	},
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/shuttle/orion_miner/engineering/starboard)
+/area/shuttle/orion_miner/main_engineering_stbd)
 "yk" = (
 /turf/simulated/wall/r_wall,
 /area/shuttle/orion_miner/hydro)
+"yn" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/item/hullbeacon/green,
+/obj/structure/bed/handrail{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/shuttle/orion_miner/cargo_bay)
 "ys" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
 	},
 /obj/item/hullbeacon/green,
 /turf/simulated/floor/reinforced/airless,
-/area/shuttle/orion_miner/exterior)
+/area/shuttle/orion_miner/grauwolf)
 "yv" = (
 /obj/machinery/vending/dinnerware/metal,
 /turf/simulated/floor/tiled/full,
 /area/shuttle/orion_miner/mess_hall)
+"yA" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/structure/bed/handrail{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/shuttle/orion_miner/main_engineering_stbd)
 "yB" = (
-/obj/machinery/power/apc/high/north,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -2431,7 +2548,10 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled,
+/obj/machinery/computer/ship/navigation/wall{
+	pixel_y = 25
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/orion_miner/grauwolf)
 "yF" = (
 /obj/machinery/seed_storage/garden/hydroponics,
@@ -2537,16 +2657,19 @@
 	},
 /obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/tiled,
-/area/shuttle/orion_miner/engineering/tech_storage)
-"zo" = (
-/obj/machinery/portable_atmospherics/hydroponics,
-/obj/effect/floor_decal/corner/dark_green/diagonal,
-/obj/effect/floor_decal/industrial/outline/service,
-/obj/structure/bed/handrail{
+/area/shuttle/orion_miner/tech_storage)
+"zr" = (
+/obj/effect/shuttle_landmark/orion_miner{
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
-/area/shuttle/orion_miner/hydro)
+/turf/space/transit/north,
+/area/space)
+"zt" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/shuttle/orion_miner/grauwolf)
 "zB" = (
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
@@ -2576,7 +2699,7 @@
 	},
 /obj/item/hullbeacon/green,
 /turf/simulated/floor/reinforced/airless,
-/area/shuttle/orion_miner/exterior)
+/area/shuttle/orion_miner/grauwolf)
 "zO" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan,
@@ -2614,15 +2737,9 @@
 /obj/structure/cable/yellow,
 /obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/plating,
-/area/shuttle/orion_miner/engineering/reactor)
+/area/shuttle/orion_miner/reactor)
 "An" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
 /obj/structure/sign/directions/medical{
@@ -2630,6 +2747,10 @@
 	pixel_y = 32;
 	dir = 4
 	},
+/obj/machinery/door/firedoor/noid{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/hatch_door/yellow,
 /turf/simulated/floor/tiled/bitile{
 	dir = 1
 	},
@@ -2741,6 +2862,9 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_miner/ammo_storage)
+"AN" = (
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/shuttle/orion_miner/main_engineering_port)
 "AQ" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
@@ -2839,7 +2963,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/shuttle/orion_miner/exterior)
+/area/shuttle/orion_miner/grauwolf)
 "BB" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/shuttle/orion_miner/corridor)
@@ -2881,6 +3005,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/orion_miner/grauwolf)
+"BV" = (
+/obj/machinery/portable_atmospherics/hydroponics,
+/obj/effect/floor_decal/corner/dark_green/diagonal,
+/obj/effect/floor_decal/industrial/outline/service,
+/obj/structure/bed/handrail{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/orion_miner/hydro)
 "Ch" = (
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
@@ -2895,21 +3028,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/orion_miner/medbay)
-"Cj" = (
-/obj/effect/floor_decal/industrial/hatch_door/yellow,
-/obj/machinery/door/firedoor/noid{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
-	dir = 4
-	},
-/obj/machinery/door/airlock/glass_engineering{
-	dir = 4;
-	name = "Starboard Engineering";
-	req_access = list(201)
-	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_miner/engineering/starboard)
 "Cm" = (
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 8
@@ -2945,7 +3063,7 @@
 "CE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/shuttle/orion_miner/engineering/starboard)
+/area/shuttle/orion_miner/main_engineering_stbd)
 "CG" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
@@ -2969,7 +3087,7 @@
 	pixel_y = 29
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/orion_miner/engineering/port)
+/area/shuttle/orion_miner/main_engineering_port)
 "CM" = (
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
@@ -3005,6 +3123,7 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/orion_miner_starboard,
+/obj/effect/floor_decal/industrial/hatch_door/firefighting_closet,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_miner/corridor)
 "CV" = (
@@ -3085,22 +3204,19 @@
 	dir = 1
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/shuttle/orion_miner/engineering/port)
+/area/shuttle/orion_miner/main_engineering_port)
 "Dp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
 /obj/structure/disposalpipe/segment,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning,
-/obj/machinery/door/firedoor/multi_tile{
-	req_one_access = null
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/firedoor/noid,
+/obj/effect/floor_decal/industrial/hatch_door/yellow{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/bitile{
 	dir = 8
 	},
@@ -3112,13 +3228,21 @@
 /obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock/shuttle/orion_miner,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/access_button{
+	pixel_x = -28;
+	pixel_y = 12;
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/hatch_door/firefighting_closet{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_miner/corridor/aft)
 "DG" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan,
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
 /turf/simulated/floor/plating,
-/area/shuttle/orion_miner/engineering/starboard)
+/area/shuttle/orion_miner/main_engineering_stbd)
 "DS" = (
 /obj/machinery/mineral/unloading_machine{
 	dir = 8
@@ -3135,7 +3259,7 @@
 	},
 /obj/item/hullbeacon/red,
 /turf/simulated/floor/reinforced/airless,
-/area/shuttle/orion_miner/exterior)
+/area/shuttle/orion_miner/mess_hall)
 "Eb" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3178,7 +3302,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_miner/engineering/port)
+/area/shuttle/orion_miner/main_engineering_port)
 "Eg" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan,
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -3190,7 +3314,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/button/remote/blast_door{
 	dir = 8;
-	id = "om_cargobay";
+	id = "om_cargo";
 	name = "Cargo Bay Shutters";
 	pixel_x = -20;
 	pixel_y = 9
@@ -3210,17 +3334,26 @@
 	amount = 15
 	},
 /turf/simulated/floor/tiled,
-/area/shuttle/orion_miner/engineering/tech_storage)
+/area/shuttle/orion_miner/tech_storage)
 "EW" = (
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/shuttle/orion_miner/engineering/port)
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/shuttle/orion_miner,
+/obj/effect/map_effect/marker_helper/airlock/out,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/structure/bed/handrail{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/orion_miner/corridor/aft)
 "Fd" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
 /obj/item/hullbeacon/red,
 /turf/simulated/floor/reinforced/airless,
-/area/shuttle/orion_miner/exterior)
+/area/shuttle/orion_miner/main_engineering_port)
 "Fj" = (
 /obj/machinery/mineral/equipment_vendor,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -3230,32 +3363,17 @@
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/shuttle/orion_miner/bridge)
 "Ft" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning,
-/obj/structure/sign/directions/engineering{
-	pixel_x = 29;
-	pixel_y = 5;
-	dir = 1
-	},
-/obj/structure/sign/directions/medical{
-	pixel_x = 29;
-	pixel_y = -7
-	},
-/obj/structure/sign/directions/com{
-	pixel_x = 29;
-	pixel_y = -1
-	},
-/obj/structure/sign/directions/dock{
-	pixel_x = 29;
-	pixel_y = 11;
-	dir = 1
-	},
-/turf/simulated/floor/tiled/bitile{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/effect/map_effect/marker/airlock/shuttle/orion_miner,
+/obj/machinery/light/colored/decayed{
 	dir = 4
 	},
-/area/shuttle/orion_miner/corridor/vestibule)
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/structure/bed/handrail{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/orion_miner/corridor/aft)
 "Fv" = (
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 8
@@ -3266,7 +3384,8 @@
 	},
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/airlock/glass_mining{
-	name = "Mining Preparation"
+	name = "Mining Preparation";
+	req_access = list(201)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 1
@@ -3282,7 +3401,7 @@
 /obj/machinery/telecomms/allinone/ship,
 /obj/effect/floor_decal/industrial/hatch/security,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_miner/engineering/starboard)
+/area/shuttle/orion_miner/main_engineering_stbd)
 "FC" = (
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -3306,14 +3425,14 @@
 	req_access = list(201)
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_miner/engineering/starboard)
+/area/shuttle/orion_miner/corridor/aft)
 "FI" = (
 /obj/machinery/atmospherics/portables_connector{
 	name = "Fuel Inlet Port"
 	},
 /obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/plating,
-/area/shuttle/orion_miner/engineering/starboard)
+/area/shuttle/orion_miner/main_engineering_stbd)
 "FJ" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/shuttle/orion_miner/medbay)
@@ -3339,15 +3458,16 @@
 	pixel_y = 0
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/shuttle/orion_miner/engineering/port)
+/area/shuttle/orion_miner/main_engineering_port)
 "FP" = (
-/obj/machinery/conveyor{
-	dir = 8;
-	id = "om_c_1"
+/obj/structure/table/reinforced/steel,
+/obj/effect/floor_decal/spline/plain/black,
+/obj/item/material/ashtray{
+	pixel_x = 15;
+	pixel_y = 0
 	},
-/obj/machinery/mineral/output,
-/turf/simulated/floor/plating,
-/area/shuttle/orion_miner/cargo_bay)
+/turf/simulated/floor/marble,
+/area/shuttle/orion_miner/mess_hall)
 "FX" = (
 /obj/structure/cable/green,
 /obj/effect/floor_decal/corner/black{
@@ -3369,9 +3489,12 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
-/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/structure/lattice/catwalk/indoor,
+/obj/machinery/light/colored/decayed{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
-/area/shuttle/orion_miner/engineering/reactor)
+/area/shuttle/orion_miner/reactor)
 "Gg" = (
 /obj/structure/disposalpipe/junction/yjunction{
 	dir = 1
@@ -3405,7 +3528,7 @@
 	pixel_y = -32
 	},
 /turf/simulated/floor/tiled,
-/area/shuttle/orion_miner/engineering/tech_storage)
+/area/shuttle/orion_miner/tech_storage)
 "Gn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -3446,6 +3569,9 @@
 	},
 /obj/effect/map_effect/marker/airlock/shuttle/orion_miner,
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/floor_decal/industrial/hatch_door/firefighting_closet{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_miner/corridor/aft)
 "GF" = (
@@ -3465,7 +3591,7 @@
 "GL" = (
 /obj/machinery/atmospherics/unary/engine,
 /turf/simulated/floor/reinforced/airless,
-/area/shuttle/orion_miner/engineering/starboard)
+/area/shuttle/orion_miner/main_engineering_port)
 "GP" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
@@ -3483,9 +3609,12 @@
 	dir = 8
 	},
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/shuttle/orion_miner/engineering/port)
+/area/shuttle/orion_miner/corridor/aft)
 "GT" = (
 /obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/structure/bed/handrail{
 	dir = 8
 	},
 /turf/simulated/floor/reinforced,
@@ -3578,7 +3707,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/shuttle/orion_miner/engineering/tech_storage)
+/area/shuttle/orion_miner/tech_storage)
 "HT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan,
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -3604,6 +3733,10 @@
 /obj/structure/viewport/zavod,
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/grauwolf)
+"Ib" = (
+/obj/machinery/atmospherics/pipe/manifold/visible/yellow,
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/shuttle/orion_miner/main_engineering_stbd)
 "Ik" = (
 /obj/machinery/suit_cycler/mining/prepared,
 /obj/effect/floor_decal/industrial/hatch/operations,
@@ -3613,7 +3746,7 @@
 "Im" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/reinforced/airless,
-/area/shuttle/orion_miner/exterior)
+/area/shuttle/orion_miner/grauwolf)
 "Iu" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -3636,7 +3769,8 @@
 /area/shuttle/orion_miner/mess_hall)
 "IB" = (
 /obj/effect/shuttle_landmark/ship/orion_miner{
-	dir = 1
+	dir = 1;
+	name = "Open Space"
 	},
 /turf/template_noop,
 /area/space)
@@ -3686,8 +3820,14 @@
 /area/shuttle/orion_miner/medbay)
 "Jl" = (
 /obj/machinery/atmospherics/pipe/manifold/visible,
+/obj/machinery/meter{
+	name = "Air Reserve"
+	},
+/obj/structure/bed/handrail{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_miner/engineering/port)
+/area/shuttle/orion_miner/main_engineering_port)
 "Jq" = (
 /turf/simulated/wall,
 /area/shuttle/orion_miner/bathroom)
@@ -3753,6 +3893,8 @@
 /obj/item/reagent_containers/food/condiment/sugar,
 /obj/item/reagent_containers/food/condiment/rice,
 /obj/item/storage/box/fancy/egg_box,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
 /turf/simulated/floor/marble,
 /area/shuttle/orion_miner/mess_hall)
 "Ku" = (
@@ -3762,7 +3904,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
-/area/shuttle/orion_miner/engineering/starboard)
+/area/shuttle/orion_miner/main_engineering_stbd)
 "Kz" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
@@ -3791,19 +3933,11 @@
 	opacity = 0
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/orion_miner/engineering/tech_storage)
+/area/shuttle/orion_miner/tech_storage)
 "KF" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume,
-/obj/effect/map_effect/marker/airlock/shuttle/orion_miner,
-/obj/machinery/light/colored/decayed{
-	dir = 8
-	},
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/structure/bed/handrail{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/orion_miner/corridor/aft)
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/reinforced/airless,
+/area/shuttle/orion_miner/bridge)
 "KP" = (
 /obj/machinery/vending/hydronutrients/hydroponics,
 /obj/effect/floor_decal/corner/dark_green/diagonal,
@@ -3823,15 +3957,6 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/orion_miner/eva)
-"KS" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 5
-	},
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/shuttle/orion_miner/engineering/port)
 "KT" = (
 /obj/effect/floor_decal/corner/black{
 	dir = 10
@@ -3853,24 +3978,27 @@
 	name = "om_co2"
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
-/area/shuttle/orion_miner/engineering/starboard)
+/area/shuttle/orion_miner/main_engineering_stbd)
+"Lc" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/machinery/atmospherics/unary/engine,
+/turf/simulated/floor/reinforced/airless,
+/area/shuttle/orion_miner/main_engineering_stbd)
 "Ld" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled,
-/area/shuttle/orion_miner/engineering/tech_storage)
-"Lj" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
+/area/shuttle/orion_miner/tech_storage)
+"Ll" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
-/obj/item/hullbeacon/green,
-/obj/structure/bed/handrail{
-	dir = 8
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/shuttle/orion_miner/exterior)
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/shuttle/orion_miner/reactor)
 "Lp" = (
 /obj/effect/floor_decal/industrial/outline_door/operations{
 	dir = 1
@@ -3885,7 +4013,7 @@
 /area/shuttle/orion_miner/eva)
 "Lq" = (
 /turf/simulated/wall,
-/area/shuttle/orion_miner/engineering/tech_storage)
+/area/shuttle/orion_miner/tech_storage)
 "LF" = (
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 8
@@ -3909,14 +4037,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_miner/engineering/port)
-"LR" = (
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 9
+/obj/structure/disposalpipe/segment{
+	icon_state = "pipe-c"
 	},
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/shuttle/orion_miner/engineering/starboard)
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/orion_miner/main_engineering_port)
 "LU" = (
 /obj/effect/floor_decal/corner/black{
 	dir = 10
@@ -3986,7 +4111,7 @@
 /obj/machinery/power/apc/super/critical/west,
 /obj/structure/cable/green,
 /turf/simulated/floor/plating,
-/area/shuttle/orion_miner/engineering/port)
+/area/shuttle/orion_miner/main_engineering_port)
 "MT" = (
 /obj/structure/closet/walllocker/medical/firstaid{
 	pixel_x = -32
@@ -4006,7 +4131,7 @@
 	dir = 6
 	},
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/shuttle/orion_miner/engineering/starboard)
+/area/shuttle/orion_miner/main_engineering_stbd)
 "Nd" = (
 /obj/structure/bed/stool/chair/sofa/left/black{
 	dir = 8
@@ -4040,7 +4165,7 @@
 	},
 /obj/machinery/power/apc/east,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_miner/engineering/reactor)
+/area/shuttle/orion_miner/reactor)
 "NB" = (
 /obj/effect/floor_decal/big/ox_full,
 /obj/structure/disposalpipe/segment{
@@ -4065,7 +4190,7 @@
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/machinery/light/colored/decayed,
 /turf/simulated/floor/tiled,
-/area/shuttle/orion_miner/engineering/tech_storage)
+/area/shuttle/orion_miner/tech_storage)
 "Oc" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/cargo_package/offship,
@@ -4084,7 +4209,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
-/area/shuttle/orion_miner/engineering/tech_storage)
+/area/shuttle/orion_miner/tech_storage)
 "Oj" = (
 /obj/structure/bed/stool/chair/shuttle,
 /obj/effect/ghostspawpoint{
@@ -4109,6 +4234,7 @@
 /obj/machinery/vending/snack,
 /obj/machinery/power/apc/low/south,
 /obj/structure/cable/green,
+/obj/effect/floor_decal/industrial/outline/service,
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/corridor/vestibule)
 "Ox" = (
@@ -4134,7 +4260,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/shuttle/orion_miner/engineering/tech_storage)
+/area/shuttle/orion_miner/tech_storage)
 "OC" = (
 /obj/structure/railing/mapped,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -4156,7 +4282,7 @@
 "OI" = (
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/reinforced/airless,
-/area/shuttle/orion_miner/exterior)
+/area/shuttle/orion_miner/grauwolf)
 "ON" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
@@ -4206,7 +4332,7 @@
 	pixel_x = 0;
 	pixel_y = -32
 	},
-/obj/machinery/mineral/input,
+/obj/structure/ore_box,
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/cargo_bay)
 "Pe" = (
@@ -4224,7 +4350,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/shuttle/orion_miner/engineering/tech_storage)
+/area/shuttle/orion_miner/tech_storage)
 "Pf" = (
 /obj/machinery/alarm/west,
 /obj/structure/bed/stool/chair/shuttle/double{
@@ -4249,6 +4375,9 @@
 	},
 /obj/effect/map_effect/marker/airlock/shuttle/orion_miner,
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/floor_decal/industrial/hatch_door/firefighting_closet{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_miner/corridor/aft)
 "Pj" = (
@@ -4259,27 +4388,35 @@
 	icon_state = "0-4"
 	},
 /obj/structure/lattice/catwalk/indoor,
+/obj/machinery/light/colored/decayed{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
-/area/shuttle/orion_miner/engineering/port)
+/area/shuttle/orion_miner/main_engineering_port)
 "Pp" = (
 /obj/effect/floor_decal/industrial/hatch/operations,
 /obj/structure/cargo_receptacle,
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/cargo_bay)
 "Pt" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning,
 /obj/structure/sign/directions/engineering{
 	pixel_x = 29;
-	pixel_y = 10;
+	pixel_y = 6;
 	dir = 1
 	},
 /obj/structure/sign/directions/medical{
 	pixel_x = 29;
-	pixel_y = 4;
+	pixel_y = 0;
 	dir = 1
+	},
+/obj/machinery/door/firedoor/noid,
+/obj/structure/sign/directions/dock{
+	pixel_x = 29;
+	pixel_y = 12;
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/hatch_door/yellow{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/bitile{
 	dir = 4
@@ -4350,7 +4487,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/orion_miner/engineering/starboard)
+/area/shuttle/orion_miner/main_engineering_stbd)
 "Qd" = (
 /obj/effect/floor_decal/industrial/outline_door/operations{
 	dir = 1
@@ -4378,7 +4515,7 @@
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/machinery/portable_atmospherics/powered/scrubber,
 /turf/simulated/floor/plating,
-/area/shuttle/orion_miner/engineering/starboard)
+/area/shuttle/orion_miner/main_engineering_stbd)
 "Qk" = (
 /obj/machinery/shower{
 	dir = 8;
@@ -4407,7 +4544,7 @@
 /area/shuttle/orion_miner/corridor/central)
 "Qm" = (
 /turf/simulated/wall/r_wall,
-/area/shuttle/orion_miner/corridor/vestibule)
+/area/shuttle/orion_miner/corridor/aft)
 "Qq" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 9
@@ -4447,7 +4584,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/plating,
-/area/shuttle/orion_miner/engineering/starboard)
+/area/shuttle/orion_miner/main_engineering_stbd)
 "Qz" = (
 /obj/machinery/computer/ship/helm/terminal{
 	dir = 1;
@@ -4493,7 +4630,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_miner/engineering/port)
+/area/shuttle/orion_miner/main_engineering_port)
 "Rb" = (
 /obj/structure/sink/kitchen{
 	pixel_y = 28
@@ -4531,12 +4668,17 @@
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/corridor/central)
 "Ro" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/machinery/atmospherics/pipe/manifold/hidden/red{
 	dir = 1
 	},
-/obj/machinery/atmospherics/unary/engine,
-/turf/simulated/floor/reinforced/airless,
-/area/shuttle/orion_miner/engineering/starboard)
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker/airlock/shuttle/orion_miner,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/floor_decal/industrial/hatch_door/firefighting_closet{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/orion_miner/corridor/aft)
 "Rt" = (
 /obj/machinery/mineral/stacking_machine{
 	id = "om_s_1";
@@ -4550,7 +4692,7 @@
 /obj/machinery/ship_weapon/grauwolf{
 	pixel_x = -32;
 	pixel_y = -192;
-	weapon_id = "Grauwolf Flak Battery"
+	weapon_id = "Orion Miner Grauwolf"
 	},
 /turf/simulated/floor/reinforced,
 /area/shuttle/orion_miner/grauwolf)
@@ -4570,12 +4712,18 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_miner/grauwolf)
 "RC" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled,
-/area/shuttle/orion_miner/engineering/tech_storage)
+/area/shuttle/orion_miner/tech_storage)
+"RD" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/shuttle/orion_miner/mess_hall)
 "RP" = (
 /obj/structure/closet/walllocker/emerglocker/west,
 /obj/effect/floor_decal/corner/black/diagonal,
@@ -4588,6 +4736,12 @@
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/grauwolf)
+"RU" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/shuttle/orion_miner/main_engineering_port)
 "RW" = (
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
 /obj/machinery/door/firedoor/noid{
@@ -4617,7 +4771,7 @@
 /area/shuttle/orion_miner/eva)
 "Sh" = (
 /turf/simulated/wall/r_wall,
-/area/shuttle/orion_miner/engineering/starboard)
+/area/shuttle/orion_miner/main_engineering_stbd)
 "Si" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/cable/green{
@@ -4708,6 +4862,13 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/orion_miner/mess_hall)
+"SK" = (
+/obj/structure/disposalpipe/segment,
+/obj/structure/bed/handrail{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/orion_miner/main_engineering_stbd)
 "SQ" = (
 /obj/effect/floor_decal/industrial/outline_door/yellow{
 	dir = 1
@@ -4725,25 +4886,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/corridor/vestibule)
-"SR" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/red{
-	dir = 1
-	},
-/obj/machinery/door/airlock/external,
-/obj/effect/map_effect/marker/airlock/shuttle/orion_miner,
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/machinery/access_button{
-	pixel_x = -28;
-	pixel_y = 12;
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_miner/corridor/aft)
 "SY" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /obj/machinery/vending/cola,
+/obj/effect/floor_decal/industrial/outline/service,
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/corridor/vestibule)
 "Tb" = (
@@ -4784,7 +4932,7 @@
 	},
 /obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/reinforced/airless,
-/area/shuttle/orion_miner/engineering/starboard)
+/area/shuttle/orion_miner/main_engineering_stbd)
 "Tp" = (
 /obj/structure/cable/green{
 	icon_state = "1-8"
@@ -4824,10 +4972,11 @@
 	pixel_y = 23
 	},
 /obj/effect/map_effect/marker/airlock/orion_miner_port,
+/obj/effect/floor_decal/industrial/hatch_door/firefighting_closet,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_miner/corridor)
 "Tv" = (
-/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/portable_atmospherics/canister/air,
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
@@ -4884,6 +5033,7 @@
 	pixel_x = -5;
 	pixel_y = 4
 	},
+/obj/machinery/power/outlet,
 /turf/simulated/floor/marble,
 /area/shuttle/orion_miner/mess_hall)
 "Uf" = (
@@ -4916,6 +5066,7 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock/orion_miner_port,
+/obj/effect/floor_decal/industrial/hatch_door/firefighting_closet,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_miner/corridor)
 "Un" = (
@@ -4969,9 +5120,21 @@
 	},
 /turf/simulated/floor/marble,
 /area/shuttle/orion_miner/mess_hall)
+"UG" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/shuttle/orion_miner/grauwolf)
 "UJ" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/shuttle/orion_miner/engineering/tech_storage)
+/area/shuttle/orion_miner/tech_storage)
+"UL" = (
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 9
+	},
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/shuttle/orion_miner/main_engineering_stbd)
 "UO" = (
 /obj/structure/bed/stool/chair/sofa/corner/concave/black,
 /turf/simulated/floor/carpet/orange,
@@ -4996,7 +5159,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/orion_miner/engineering/starboard)
+/area/shuttle/orion_miner/main_engineering_stbd)
 "Vb" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/shuttle/orion_miner/hydro)
@@ -5009,7 +5172,7 @@
 	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled,
-/area/shuttle/orion_miner/engineering/tech_storage)
+/area/shuttle/orion_miner/tech_storage)
 "Vj" = (
 /obj/machinery/suit_cycler/mining/prepared,
 /obj/effect/floor_decal/industrial/hatch/operations,
@@ -5029,7 +5192,7 @@
 	name = "om_co2"
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
-/area/shuttle/orion_miner/engineering/starboard)
+/area/shuttle/orion_miner/main_engineering_stbd)
 "VS" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
@@ -5043,12 +5206,12 @@
 	},
 /obj/machinery/light,
 /turf/simulated/floor/reinforced/airless,
-/area/shuttle/orion_miner/engineering/port)
+/area/shuttle/orion_miner/main_engineering_port)
 "VX" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
-/area/shuttle/orion_miner/engineering/port)
+/area/shuttle/orion_miner/main_engineering_port)
 "VZ" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/device/gps/mining{
@@ -5123,7 +5286,7 @@
 /obj/machinery/recharge_station,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_miner/engineering/starboard)
+/area/shuttle/orion_miner/main_engineering_stbd)
 "Wl" = (
 /obj/structure/table/rack,
 /obj/item/gun/energy/plasmacutter,
@@ -5153,7 +5316,7 @@
 /obj/structure/ship_weapon_dummy/barrel,
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/reinforced/airless,
-/area/shuttle/orion_miner/exterior)
+/area/shuttle/orion_miner/grauwolf)
 "Wr" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/yellow{
 	dir = 4
@@ -5166,7 +5329,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/orion_miner/engineering/starboard)
+/area/shuttle/orion_miner/main_engineering_stbd)
 "Wt" = (
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 8
@@ -5196,7 +5359,7 @@
 	},
 /obj/effect/map_effect/marker/airlock/orion_miner_aft,
 /turf/simulated/floor/plating,
-/area/shuttle/orion_miner/engineering/port)
+/area/shuttle/orion_miner/main_engineering_port)
 "Xi" = (
 /turf/simulated/wall,
 /area/shuttle/orion_miner/eva)
@@ -5223,7 +5386,7 @@
 	pixel_y = 4
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/orion_miner/engineering/starboard)
+/area/shuttle/orion_miner/main_engineering_stbd)
 "Xr" = (
 /obj/structure/table/reinforced/steel,
 /obj/machinery/vending/wallmed1{
@@ -5250,23 +5413,30 @@
 	pixel_x = 5;
 	pixel_y = 5
 	},
+/obj/item/clothing/accessory/holster/utility/machete{
+	pixel_x = 8;
+	pixel_y = -3
+	},
+/obj/item/clothing/accessory/holster/utility/machete{
+	pixel_x = 12;
+	pixel_y = -3
+	},
 /turf/simulated/floor/tiled/full,
 /area/shuttle/orion_miner/mining_prep)
 "Xu" = (
 /obj/structure/table/reinforced/steel,
-/obj/item/storage/box/large/produce{
-	pixel_x = 0;
-	pixel_y = 12
-	},
-/obj/item/storage/box/large/produce{
-	pixel_x = 0;
-	pixel_y = 3
-	},
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 10
 	},
+/obj/machinery/power/outlet,
 /turf/simulated/floor/marble,
 /area/shuttle/orion_miner/mess_hall)
+"XG" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/shuttle/orion_miner/eva)
 "XP" = (
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
@@ -5300,7 +5470,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/orion_miner/grauwolf)
 "XR" = (
 /obj/structure/table/rack,
@@ -5314,7 +5484,7 @@
 	},
 /obj/item/device/lightreplacer,
 /turf/simulated/floor/tiled,
-/area/shuttle/orion_miner/engineering/tech_storage)
+/area/shuttle/orion_miner/tech_storage)
 "XX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 4
@@ -5335,12 +5505,12 @@
 /turf/simulated/floor/plating,
 /area/shuttle/orion_miner/corridor)
 "Yd" = (
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 4
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_miner/engineering/starboard)
+/area/shuttle/orion_miner/main_engineering_stbd)
 "Ym" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
 /obj/machinery/atmospherics/binary/pump/scrubber/on{
@@ -5350,7 +5520,10 @@
 	},
 /obj/effect/floor_decal/industrial/hatch_tiny/red,
 /turf/simulated/floor/plating,
-/area/shuttle/orion_miner/engineering/starboard)
+/area/shuttle/orion_miner/main_engineering_stbd)
+"Yp" = (
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/shuttle/orion_miner/corridor/aft)
 "Yq" = (
 /obj/machinery/mineral/unloading_machine{
 	dir = 8
@@ -5418,7 +5591,7 @@
 	dir = 4
 	},
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/shuttle/orion_miner/engineering/port)
+/area/shuttle/orion_miner/main_engineering_port)
 "YQ" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/loot,
@@ -5437,8 +5610,11 @@
 	},
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/light/colored/decayed,
+/obj/structure/sign/deathsposal{
+	pixel_x = 32
+	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_miner/engineering/starboard)
+/area/shuttle/orion_miner/main_engineering_stbd)
 "YV" = (
 /obj/machinery/seed_extractor,
 /obj/effect/floor_decal/corner/dark_green/diagonal,
@@ -5453,6 +5629,15 @@
 	},
 /turf/simulated/floor/marble,
 /area/shuttle/orion_miner/mess_hall)
+"Zg" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/structure/bed/handrail{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/shuttle/orion_miner/main_engineering_port)
 "Zi" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -5475,15 +5660,10 @@
 /turf/simulated/floor/tiled/white,
 /area/shuttle/orion_miner/medbay)
 "Zq" = (
-/obj/structure/table/steel,
-/obj/item/storage/toolbox/mechanical,
-/obj/item/storage/belt/utility,
-/obj/item/stack/rods/full{
-	pixel_y = 4
-	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
+/obj/structure/dispenser/oxygen,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/orion_miner/eva)
 "Zw" = (
@@ -5494,7 +5674,7 @@
 /obj/machinery/disposal/small/west,
 /obj/machinery/button/remote/blast_door{
 	dir = 4;
-	id = "om_cargobay";
+	id = "om_cargo";
 	name = "Cargo Bay Shutters";
 	pixel_x = 20;
 	pixel_y = 9
@@ -5505,7 +5685,13 @@
 /obj/machinery/autolathe,
 /obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/tiled,
-/area/shuttle/orion_miner/engineering/tech_storage)
+/area/shuttle/orion_miner/tech_storage)
+"ZB" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/shuttle/orion_miner/cargo_bay)
 "ZC" = (
 /obj/structure/cable/green{
 	icon_state = "1-4"
@@ -5521,24 +5707,27 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/effect/floor_decal/industrial/outline_straight/yellow{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/mining_prep)
 "ZQ" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume,
 /obj/effect/map_effect/marker/airlock/shuttle/orion_miner,
 /obj/machinery/light/colored/decayed{
-	dir = 4
+	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/bed/handrail{
-	dir = 8
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/orion_miner/corridor/aft)
 "ZR" = (
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
-/area/shuttle/orion_miner/engineering/starboard)
+/area/shuttle/orion_miner/main_engineering_stbd)
 "ZT" = (
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -5565,7 +5754,7 @@
 	req_access = list(201)
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/orion_miner/engineering/port)
+/area/shuttle/orion_miner/corridor/aft)
 
 (1,1,1) = {"
 iS
@@ -7854,7 +8043,7 @@ ow
 ow
 ow
 ow
-kd
+ow
 ow
 ow
 ow
@@ -10655,7 +10844,7 @@ ow
 ow
 ow
 ow
-ow
+zr
 ow
 ow
 ow
@@ -35739,13 +35928,13 @@ iS
 iS
 gM
 qb
-eU
+yA
 qb
 qb
 qb
 qb
 qb
-BA
+pu
 iS
 iS
 iS
@@ -35756,10 +35945,10 @@ ww
 ww
 ww
 ww
-Lj
-qb
-qb
-qb
+yn
+ZB
+ZB
+ZB
 bK
 xx
 xg
@@ -35767,14 +35956,14 @@ CR
 xx
 vF
 zH
-qb
+UG
 eU
 eU
-qb
-qb
-qb
-qb
-qb
+UG
+UG
+UG
+UG
+UG
 BA
 iS
 iS
@@ -36508,7 +36697,7 @@ iS
 iS
 iS
 iS
-GL
+dA
 xW
 nh
 mv
@@ -36521,7 +36710,7 @@ yk
 zi
 cu
 vc
-zo
+BV
 Jq
 wO
 xe
@@ -36765,8 +36954,8 @@ iS
 iS
 iS
 iS
-GL
-pu
+dA
+Ib
 Qj
 eZ
 Ku
@@ -36778,7 +36967,7 @@ yk
 Pw
 ms
 oC
-zo
+BV
 Jq
 Jq
 Bd
@@ -37022,8 +37211,8 @@ iS
 iS
 iS
 iS
-GL
-pu
+dA
+Ib
 UR
 fy
 ny
@@ -37042,7 +37231,7 @@ Hh
 YF
 xK
 tH
-YQ
+vp
 uH
 dM
 Rt
@@ -37279,8 +37468,8 @@ iS
 iS
 iS
 iS
-Ro
-LR
+Lc
+UL
 Wj
 kU
 Yd
@@ -37542,8 +37731,8 @@ Fx
 rp
 qq
 aP
+SK
 mo
-sY
 YU
 yk
 MG
@@ -37793,16 +37982,16 @@ iS
 iS
 iS
 iS
-oe
-xF
-xF
-xF
-Cj
+GR
+Yp
+Yp
+Yp
+mY
 FC
-Sh
-Sh
-Sh
 Qm
+Qm
+Qm
+jO
 Tv
 cT
 Bs
@@ -37815,8 +38004,8 @@ xK
 Db
 Eb
 uH
-vp
-FP
+sU
+lo
 fo
 XX
 LU
@@ -37829,10 +38018,10 @@ HN
 im
 YA
 pI
-mT
-mT
-mT
-nX
+zt
+zt
+zt
+hx
 iS
 iS
 iS
@@ -38050,9 +38239,9 @@ iS
 iS
 iS
 iS
-SR
-ad
-KF
+DF
+EW
+ZQ
 Pi
 gy
 pL
@@ -38085,7 +38274,7 @@ Oj
 Qz
 im
 SA
-Im
+KF
 iS
 iS
 iS
@@ -38307,16 +38496,16 @@ iS
 iS
 iS
 IB
-DF
-vq
-ZQ
+Ro
+ad
+Ft
 Gy
 bn
 YC
 JY
 ux
 bo
-xE
+kq
 wy
 GY
 nn
@@ -38342,7 +38531,7 @@ Oj
 YE
 im
 SA
-Im
+KF
 iS
 iS
 iS
@@ -38565,15 +38754,15 @@ iS
 iS
 iS
 GR
-EW
-EW
-EW
+Yp
+Yp
+Yp
 cd
 ZT
-mY
-mY
-mY
 Qm
+Qm
+Qm
+jO
 TM
 oS
 tK
@@ -38600,10 +38789,10 @@ aL
 im
 aU
 lv
-qb
-qb
-qb
-BA
+gv
+gv
+gv
+RD
 iS
 iS
 iS
@@ -38830,12 +39019,12 @@ pt
 FN
 iT
 ka
-Qm
+jO
 UO
 Nd
 sF
 Qt
-Ft
+xE
 sm
 Ql
 NC
@@ -38860,7 +39049,7 @@ Kj
 hh
 Kj
 Kj
-Im
+gr
 iS
 iS
 iS
@@ -39079,7 +39268,7 @@ iS
 iS
 iS
 lG
-KS
+rq
 Pj
 VX
 QX
@@ -39117,7 +39306,7 @@ MT
 xj
 SJ
 zB
-Im
+gr
 iS
 iS
 iS
@@ -39335,14 +39524,14 @@ iS
 iS
 iS
 iS
-jB
+GL
 YM
 wn
 en
 NA
 eM
 se
-EW
+AN
 sq
 UJ
 Zz
@@ -39374,7 +39563,7 @@ Rh
 ay
 GW
 zB
-Im
+gr
 iS
 iS
 iS
@@ -39592,14 +39781,14 @@ iS
 iS
 iS
 iS
-jB
+GL
 kz
 cp
 jA
 jA
 bI
 eo
-EW
+AN
 WD
 UJ
 EB
@@ -39623,7 +39812,7 @@ II
 vv
 cQ
 UE
-lr
+FP
 YL
 Ot
 yv
@@ -39631,7 +39820,7 @@ Rh
 PA
 gi
 zB
-Im
+gr
 iS
 iS
 iS
@@ -39849,14 +40038,14 @@ iS
 iS
 iS
 iS
-jB
+GL
 ak
 sa
 vQ
 jA
 kf
 Jl
-EW
+AN
 sI
 UJ
 HO
@@ -39888,7 +40077,7 @@ AI
 id
 Nr
 zB
-Im
+gr
 iS
 iS
 iS
@@ -40106,14 +40295,14 @@ iS
 iS
 iS
 iS
-EW
-rq
+AN
+Ll
 Gd
 Ah
 jA
 dm
 nb
-EW
+AN
 CH
 UJ
 dL
@@ -40145,7 +40334,7 @@ Wn
 la
 Kj
 Kj
-Im
+gr
 iS
 iS
 iS
@@ -40363,14 +40552,14 @@ iS
 iS
 iS
 iS
-EW
-rq
-EW
-EW
-EW
-EW
-EW
-EW
+AN
+Ll
+jA
+jA
+jA
+AN
+AN
+AN
 VS
 UJ
 UJ
@@ -40622,13 +40811,13 @@ iS
 iS
 Fd
 rh
-rI
-mT
-mT
-mT
-rI
-rI
-nX
+Zg
+RU
+RU
+RU
+Zg
+Zg
+dn
 iS
 iS
 iS
@@ -40639,10 +40828,10 @@ Ch
 Ch
 Ch
 FJ
-cj
-mT
-mT
-mT
+wr
+XG
+XG
+XG
 km
 xx
 pJ

@@ -72,22 +72,18 @@
 	name = "Orion Miner - Hydroponics"
 	icon_state = "hydro"
 
-/area/shuttle/orion_miner/engineering
-	name = "Orion Miner - Engineering"
+/area/shuttle/orion_miner/main_engineering_port
+	name = "Orion Miner - Main Engineering Port"
 	icon_state = "red"
 
-/area/shuttle/orion_miner/engineering/port
-	name = "Orion Miner - Engineering Port"
-	icon_state = "red2"
+/area/shuttle/orion_miner/main_engineering_stbd
+	name = "Orion Miner - Main Engineering Starboard"
+	icon_state = "bluenew"
 
-/area/shuttle/orion_miner/engineering/starboard
-	name = "Orion Miner - Engineering Starboard"
-	icon_state = "blue2"
-
-/area/shuttle/orion_miner/engineering/tech_storage
+/area/shuttle/orion_miner/tech_storage
 	name = "Orion Miner - Tech Storage"
 	icon_state = "workshop"
 
-/area/shuttle/orion_miner/engineering/reactor
+/area/shuttle/orion_miner/reactor
 	name = "Orion Miner - Reactor Room"
 	icon_state = "engine"
