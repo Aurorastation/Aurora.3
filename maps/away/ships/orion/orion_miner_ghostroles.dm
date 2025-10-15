@@ -23,7 +23,8 @@
 
 	uniform = /obj/item/clothing/under/rank/miner/orion
 	shoes = /obj/item/clothing/shoes/workboots/dark
-	back = /obj/item/storage/backpack/satchel/orion
+	back = /obj/item/storage/backpack/satchel/eng
+	wrist = /obj/item/clothing/wrists/watch
 
 	id = /obj/item/card/id/orion/miner
 
@@ -36,8 +37,8 @@
 		SPECIES_TAJARA_MSAI = /obj/item/clothing/shoes/workboots/toeless,
 		SPECIES_TAJARA_ZHAN = /obj/item/clothing/shoes/workboots/toeless,
 		SPECIES_VAURCA_WORKER = /obj/item/clothing/shoes/workboots/toeless,
-		SPECIES_VAURCA_WARRIOR =/obj/item/clothing/shoes/workboots/toeless,
-		SPECIES_VAURCA_ATTENDANT =/obj/item/clothing/shoes/workboots/toeless
+		SPECIES_VAURCA_WARRIOR = /obj/item/clothing/shoes/workboots/toeless,
+		SPECIES_VAURCA_ATTENDANT = /obj/item/clothing/shoes/workboots/toeless
 	)
 
 /obj/outfit/admin/orion_miner/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -49,12 +50,17 @@
 		H.internals.icon_state = "internal1"
 		H.equip_or_collect(new /obj/item/reagent_containers/food/snacks/koisbar, slot_in_backpack)
 		H.update_body()
+
 	if(isoffworlder(H))
 		H.equip_or_collect(new /obj/item/storage/pill_bottle/rmt, slot_in_backpack)
+
 	if(isipc(H))
 		var/obj/item/organ/internal/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
+		H.equip_or_collect(new /obj/item/stack/nanopaste, slot_in_backpack)
 		if(istype(tag))
 			tag.modify_tag_data()
+	else
+		H.equip_or_collect(new /obj/item/storage/firstaid/sleekstab, slot_in_backpack)
 
 /obj/outfit/admin/orion_miner/get_id_access()
 	return list(ACCESS_ORION_EXPRESS_SHIP, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_MINING, ACCESS_ENGINE_EQUIP)

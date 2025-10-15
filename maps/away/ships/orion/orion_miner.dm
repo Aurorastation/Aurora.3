@@ -28,7 +28,7 @@
 	colors = list(COLOR_BROWN)
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 2 SECONDS
-	vessel_mass = 7500
+	vessel_mass = 6500
 	vessel_size = SHIP_SIZE_SMALL
 	fore_dir = SOUTH
 	use_mapped_z_levels = TRUE
@@ -56,7 +56,6 @@
 	range = 2
 	fuel_consumption = 2
 	shuttle_area = list(
-		/area/shuttle/orion_miner,
 		/area/shuttle/orion_miner/exterior,
 		/area/shuttle/orion_miner/bridge,
 		/area/shuttle/orion_miner/mining_prep,
@@ -73,11 +72,10 @@
 		/area/shuttle/orion_miner/dorm,
 		/area/shuttle/orion_miner/bathroom,
 		/area/shuttle/orion_miner/hydro,
-		/area/shuttle/orion_miner/engineering,
-		/area/shuttle/orion_miner/engineering/port,
-		/area/shuttle/orion_miner/engineering/starboard,
-		/area/shuttle/orion_miner/engineering/tech_storage,
-		/area/shuttle/orion_miner/engineering/reactor,
+		/area/shuttle/orion_miner/main_engineering_port,
+		/area/shuttle/orion_miner/main_engineering_stbd,
+		/area/shuttle/orion_miner/tech_storage,
+		/area/shuttle/orion_miner/reactor,
 	)
 	current_location = "nav_orion_miner_space"
 	dock_target = "orion_miner"
@@ -87,6 +85,7 @@
 
 // Main shuttle landmark
 /obj/effect/shuttle_landmark/ship/orion_miner
+	name = "Open Space"
 	shuttle_name = "Orion Express Mining Skiff"
 	landmark_tag = "nav_orion_miner_space"
 
