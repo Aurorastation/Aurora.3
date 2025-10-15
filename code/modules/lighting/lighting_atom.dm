@@ -6,22 +6,28 @@
 	if(l_range > 0 && l_range < MINIMUM_USEFUL_LIGHT_RANGE)
 		l_range = MINIMUM_USEFUL_LIGHT_RANGE	//Brings the range up to 1.4, which is just barely brighter than the soft lighting that surrounds players.
 
-	if(l_power != null)
+	if(l_power != null && l_power != light_power)
 		light_power = l_power
+		. = TRUE
 
-	if(l_range != null)
+	if(l_range != null && l_range != light_range)
 		light_range = l_range
 		light_on = (light_range>0) ? TRUE : FALSE
+		. = TRUE
 
-	if(l_color != NONSENSICAL_VALUE)
+	if(l_color != NONSENSICAL_VALUE && l_color != light_color)
 		light_color = l_color
+		. = TRUE
 
-	if(mask_type != null)
+	if(mask_type != null && mask_type != light_mask_type)
 		light_mask_type = mask_type
+		. = TRUE
+
+	if(.)
+		update_light()
 
 	SEND_SIGNAL(src, COMSIG_ATOM_SET_LIGHT, l_range, l_power, l_color)
 
-	update_light()
 
 /atom/proc/fade_light(new_colour, time)
 	light_color = new_colour
