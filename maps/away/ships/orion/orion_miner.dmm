@@ -30,20 +30,12 @@
 	},
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/shuttle/orion_miner/reactor)
-"ax" = (
-/obj/machinery/atmospherics/unary/engine,
-/obj/effect/landmark/entry_point/aft{
-	name = "aft, port engines"
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/shuttle/orion_miner/main_engineering_port)
 "ay" = (
 /obj/structure/table/steel,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/random/pottedplant_small{
-	pixel_x = 0;
 	pixel_y = 11
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -53,13 +45,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/full,
 /area/shuttle/orion_miner/mining_prep)
-"aD" = (
-/obj/machinery/atmospherics/unary/engine,
-/obj/effect/landmark/entry_point/aft{
-	name = "aft, starboard engines"
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/shuttle/orion_miner/main_engineering_stbd)
 "aL" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/paper_bin{
@@ -75,8 +60,7 @@
 	pixel_y = 4
 	},
 /obj/item/pen/black{
-	pixel_x = 6;
-	pixel_y = 0
+	pixel_x = 6
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_miner/bridge)
@@ -196,8 +180,7 @@
 	pixel_y = 5
 	},
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/orion{
-	pixel_x = 7;
-	pixel_y = 0
+	pixel_x = 7
 	},
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/orion{
 	pixel_x = 7;
@@ -435,6 +418,12 @@
 /obj/machinery/atmospherics/unary/engine,
 /turf/simulated/floor/reinforced/airless,
 /area/shuttle/orion_miner/main_engineering_stbd)
+"dB" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, nacelle"
+	},
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/shuttle/orion_miner/main_engineering_stbd)
 "dD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan,
 /obj/structure/cable/green{
@@ -501,8 +490,7 @@
 	},
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/structure/bed/handrail{
-	pixel_y = 7;
-	pixel_x = 0
+	pixel_y = 7
 	},
 /obj/machinery/atm{
 	dir = 4;
@@ -516,7 +504,6 @@
 /obj/structure/closet/crate,
 /obj/machinery/mineral/stacking_unit_console{
 	id = "om_s_1";
-	pixel_y = 0;
 	pixel_x = -32
 	},
 /turf/simulated/floor/tiled,
@@ -589,8 +576,7 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/airlock_sensor{
-	pixel_y = 22;
-	pixel_x = 0
+	pixel_y = 22
 	},
 /obj/effect/map_effect/marker/airlock/orion_miner_port,
 /turf/simulated/floor/plating,
@@ -606,7 +592,6 @@
 	dir = 4
 	},
 /obj/machinery/meter{
-	pixel_x = 0;
 	pixel_y = 4
 	},
 /turf/simulated/floor/plating,
@@ -690,8 +675,7 @@
 	pixel_y = 36
 	},
 /obj/structure/sink{
-	pixel_y = 25;
-	pixel_x = 0
+	pixel_y = 25
 	},
 /turf/simulated/floor/marble,
 /area/shuttle/orion_miner/bathroom)
@@ -742,12 +726,10 @@
 	pixel_x = -5
 	},
 /obj/item/stack/nanopaste{
-	pixel_x = 5;
-	pixel_y = 0
+	pixel_x = 5
 	},
 /obj/item/stack/nanopaste{
-	pixel_x = 10;
-	pixel_y = 0
+	pixel_x = 10
 	},
 /turf/simulated/floor/tiled/white,
 /area/shuttle/orion_miner/medbay)
@@ -910,6 +892,23 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/shuttle/orion_miner/corridor/aft)
+"hS" = (
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/structure/window/shuttle/scc_space_ship/cardinal,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 4;
+	icon_state = "pdoor0";
+	id = "om_blast";
+	name = "Exterior Lockdown Blast Door";
+	opacity = 0
+	},
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, canteen"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/orion_miner/mess_hall)
 "ic" = (
 /obj/structure/cable/green{
 	icon_state = "0-8"
@@ -1011,8 +1010,7 @@
 	dir = 8
 	},
 /obj/machinery/light_switch{
-	pixel_y = -19;
-	pixel_x = 0
+	pixel_y = -19
 	},
 /obj/structure/bed/handrail,
 /turf/simulated/floor/carpet/orange,
@@ -1024,15 +1022,12 @@
 /obj/structure/table/reinforced/steel,
 /obj/item/clothing/gloves/yellow,
 /obj/item/clothing/gloves/yellow{
-	pixel_x = 0;
 	pixel_y = 4
 	},
 /obj/item/clothing/glasses/welding{
-	pixel_x = 0;
 	pixel_y = 1
 	},
 /obj/item/clothing/glasses/welding{
-	pixel_x = 0;
 	pixel_y = -2
 	},
 /obj/machinery/alarm/west,
@@ -1075,6 +1070,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/shuttle/orion_miner/medbay)
+"jw" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, midsection"
+	},
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/shuttle/orion_miner/bathroom)
 "jA" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/shuttle/orion_miner/reactor)
@@ -1090,7 +1091,6 @@
 	},
 /obj/machinery/mineral/processing_unit_console{
 	id = "om_p_2";
-	pixel_x = 0;
 	pixel_y = 32
 	},
 /obj/structure/ore_box,
@@ -1133,12 +1133,10 @@
 /obj/machinery/light/colored/decayed,
 /obj/structure/table/reinforced/steel,
 /obj/item/storage/bag/inflatable{
-	pixel_y = 4;
-	pixel_x = 0
+	pixel_y = 4
 	},
 /obj/item/storage/bag/inflatable{
-	pixel_y = -1;
-	pixel_x = 0
+	pixel_y = -1
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/orion_miner/main_engineering_port)
@@ -1249,12 +1247,6 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/eva)
-"lm" = (
-/obj/effect/landmark/entry_point/starboard{
-	name = "starboard, midsection"
-	},
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/shuttle/orion_miner/bathroom)
 "ln" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light/colored/decayed{
@@ -1492,7 +1484,6 @@
 	},
 /obj/structure/table/steel,
 /obj/structure/roller_rack/three{
-	pixel_x = 0;
 	pixel_y = 13
 	},
 /obj/item/reagent_containers/spray/cleaner{
@@ -1613,8 +1604,7 @@
 "oN" = (
 /obj/structure/bed/handrail{
 	dir = 8;
-	pixel_x = 3;
-	pixel_y = 0
+	pixel_x = 3
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1747,12 +1737,6 @@
 /obj/effect/map_effect/marker/airlock/orion_miner_starboard,
 /turf/simulated/floor/plating,
 /area/shuttle/orion_miner/corridor)
-"pE" = (
-/obj/effect/landmark/entry_point/port{
-	name = "port, midsection"
-	},
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/shuttle/orion_miner/medbay)
 "pG" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/cable/green{
@@ -1765,8 +1749,7 @@
 	dir = 8
 	},
 /obj/structure/bed/handrail{
-	pixel_y = 7;
-	pixel_x = 0
+	pixel_y = 7
 	},
 /turf/simulated/floor/tiled/white,
 /area/shuttle/orion_miner/medbay)
@@ -1988,6 +1971,12 @@
 "rX" = (
 /turf/simulated/wall/r_wall,
 /area/shuttle/orion_miner/ammo_storage)
+"rY" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, nacelle"
+	},
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/shuttle/orion_miner/reactor)
 "sa" = (
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
@@ -2177,6 +2166,12 @@
 "tR" = (
 /turf/simulated/wall,
 /area/shuttle/orion_miner/bridge)
+"uo" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, fore"
+	},
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/shuttle/orion_miner/ammo_storage)
 "ux" = (
 /obj/machinery/power/apc/east,
 /obj/structure/cable/green{
@@ -2187,6 +2182,23 @@
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/corridor/aft)
+"uz" = (
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/structure/window/shuttle/scc_space_ship/cardinal,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 2;
+	icon_state = "pdoor0";
+	id = "om_blast";
+	name = "Exterior Lockdown Blast Door";
+	opacity = 0
+	},
+/obj/effect/landmark/entry_point/port{
+	name = "port, fore"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/orion_miner/mess_hall)
 "uA" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -2650,7 +2662,6 @@
 	pixel_y = 7
 	},
 /obj/item/reagent_containers/food/condiment/shaker/peppermill{
-	pixel_x = 0;
 	pixel_y = -5
 	},
 /obj/item/reagent_containers/food/condiment/shaker/salt{
@@ -2686,23 +2697,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/hydro)
-"zk" = (
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/structure/window/shuttle/scc_space_ship/cardinal,
-/obj/machinery/door/blast/regular{
-	density = 0;
-	dir = 2;
-	icon_state = "pdoor0";
-	id = "om_blast";
-	name = "Exterior Lockdown Blast Door";
-	opacity = 0
-	},
-/obj/effect/landmark/entry_point/port{
-	name = "port, fore"
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/orion_miner/mess_hall)
 "zl" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/structure/cart/storage/engineeringcart/half_filled{
@@ -2798,7 +2792,6 @@
 	dir = 4
 	},
 /obj/structure/sign/directions/medical{
-	pixel_x = 0;
 	pixel_y = 32;
 	dir = 4
 	},
@@ -2856,8 +2849,7 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/airlock_sensor{
-	pixel_y = 22;
-	pixel_x = 0
+	pixel_y = 22
 	},
 /obj/effect/map_effect/marker/airlock/orion_miner_starboard,
 /obj/effect/floor_decal/industrial/warning{
@@ -2881,7 +2873,6 @@
 	},
 /obj/structure/table/steel,
 /obj/item/storage/firstaid/surgery{
-	pixel_x = 0;
 	pixel_y = 16
 	},
 /obj/item/storage/firstaid/adv{
@@ -3115,12 +3106,6 @@
 /obj/structure/closet/crate,
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/cargo_bay)
-"CD" = (
-/obj/effect/landmark/entry_point/starboard{
-	name = "starboard, nacelle"
-	},
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/shuttle/orion_miner/main_engineering_stbd)
 "CE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
@@ -3188,23 +3173,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/orion_miner/corridor)
-"CU" = (
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/structure/window/shuttle/scc_space_ship/cardinal,
-/obj/machinery/door/blast/regular{
-	density = 0;
-	dir = 4;
-	icon_state = "pdoor0";
-	id = "om_blast";
-	name = "Exterior Lockdown Blast Door";
-	opacity = 0
-	},
-/obj/effect/landmark/entry_point/fore{
-	name = "fore, canteen"
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/orion_miner/mess_hall)
 "CV" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/machinery/alarm/north,
@@ -3251,12 +3219,6 @@
 /obj/effect/floor_decal/industrial/hatch/engineering,
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/dorm)
-"Dd" = (
-/obj/effect/landmark/entry_point/starboard{
-	name = "starboard, fore"
-	},
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/shuttle/orion_miner/ammo_storage)
 "Df" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/cable/green{
@@ -3336,6 +3298,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/cargo_bay)
+"DU" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, starboard engines"
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/shuttle/orion_miner/main_engineering_stbd)
 "Ea" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -3525,7 +3494,6 @@
 	},
 /obj/structure/table/reinforced/steel,
 /obj/machinery/recharger{
-	pixel_y = 0;
 	pixel_x = -7
 	},
 /obj/machinery/cell_charger{
@@ -3537,8 +3505,7 @@
 	pixel_y = 6
 	},
 /obj/item/cell/high{
-	pixel_x = 6;
-	pixel_y = 0
+	pixel_x = 6
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/orion_miner/main_engineering_port)
@@ -3546,8 +3513,7 @@
 /obj/structure/table/reinforced/steel,
 /obj/effect/floor_decal/spline/plain/black,
 /obj/item/material/ashtray{
-	pixel_x = 15;
-	pixel_y = 0
+	pixel_x = 15
 	},
 /obj/random/pottedplant_small{
 	pixel_x = -7;
@@ -3563,6 +3529,12 @@
 /obj/machinery/power/apc/high/south,
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/corridor)
+"FY" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, midsection"
+	},
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/shuttle/orion_miner/medbay)
 "Gd" = (
 /obj/structure/cable/yellow{
 	icon_state = "2-8"
@@ -3773,7 +3745,6 @@
 	},
 /obj/item/storage/toolbox/mechanical,
 /obj/item/device/binoculars{
-	pixel_x = 0;
 	pixel_y = 7
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3857,11 +3828,17 @@
 /area/shuttle/orion_miner/mess_hall)
 "IB" = (
 /obj/effect/shuttle_landmark/ship/orion_miner{
-	dir = 1;
-	name = "Open Space"
+	dir = 1
 	},
 /turf/template_noop,
 /area/space)
+"ID" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, port engines"
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/shuttle/orion_miner/main_engineering_port)
 "IE" = (
 /obj/machinery/cryopod{
 	dir = 2
@@ -3929,6 +3906,23 @@
 	},
 /turf/simulated/floor/carpet/orange,
 /area/shuttle/orion_miner/dorm)
+"Jy" = (
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/structure/window/shuttle/scc_space_ship/cardinal,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 4;
+	icon_state = "pdoor0";
+	id = "om_blast";
+	name = "Exterior Lockdown Blast Door";
+	opacity = 0
+	},
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, bridge"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/orion_miner/bridge)
 "JM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan,
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -4163,23 +4157,6 @@
 /obj/structure/extinguisher_cabinet/west,
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/mess_hall)
-"Mo" = (
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/structure/window/shuttle/scc_space_ship/cardinal,
-/obj/machinery/door/blast/regular{
-	density = 0;
-	dir = 4;
-	icon_state = "pdoor0";
-	id = "om_blast";
-	name = "Exterior Lockdown Blast Door";
-	opacity = 0
-	},
-/obj/effect/landmark/entry_point/fore{
-	name = "fore, bridge"
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/orion_miner/bridge)
 "Mp" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable/green{
@@ -4384,12 +4361,6 @@
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/reinforced/airless,
 /area/shuttle/orion_miner/grauwolf)
-"OK" = (
-/obj/effect/landmark/entry_point/port{
-	name = "port, nacelle"
-	},
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/shuttle/orion_miner/reactor)
 "ON" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
@@ -4436,7 +4407,6 @@
 	},
 /obj/machinery/mineral/processing_unit_console{
 	id = "om_p_1";
-	pixel_x = 0;
 	pixel_y = -32
 	},
 /obj/structure/ore_box,
@@ -4466,8 +4436,7 @@
 	},
 /obj/structure/bed/stool/chair/shuttle/double{
 	pixel_x = -8;
-	dir = 4;
-	pixel_y = 0
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -4510,7 +4479,6 @@
 	},
 /obj/structure/sign/directions/medical{
 	pixel_x = 29;
-	pixel_y = 0;
 	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
@@ -4740,8 +4708,7 @@
 	pixel_y = 28
 	},
 /obj/structure/bed/handrail{
-	pixel_y = 7;
-	pixel_x = 0
+	pixel_y = 7
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -4880,8 +4847,7 @@
 	icon_state = "1-8"
 	},
 /obj/structure/bed/handrail{
-	pixel_y = 7;
-	pixel_x = 0
+	pixel_y = 7
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -4999,8 +4965,7 @@
 "Tb" = (
 /obj/structure/table/rack,
 /obj/item/tent/mining{
-	pixel_x = 10;
-	pixel_y = 0
+	pixel_x = 10
 	},
 /obj/item/tent/mining{
 	pixel_x = 10;
@@ -5016,8 +4981,7 @@
 	pixel_y = 5
 	},
 /obj/item/clothing/accessory/storage/brown_vest{
-	pixel_x = -7;
-	pixel_y = 0
+	pixel_x = -7
 	},
 /obj/item/clothing/accessory/storage/brown_vest{
 	pixel_x = -7;
@@ -5090,8 +5054,7 @@
 /obj/structure/bed/handrail{
 	buckle_dir = 4;
 	dir = 4;
-	pixel_x = -3;
-	pixel_y = 0
+	pixel_x = -3
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/orion_miner/mining_prep)
@@ -5124,7 +5087,6 @@
 "Uc" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/storage/box/large/condiment{
-	pixel_x = 0;
 	pixel_y = 13
 	},
 /obj/effect/floor_decal/spline/plain/black,
@@ -5328,8 +5290,7 @@
 	pixel_y = 4
 	},
 /obj/item/device/gps/mining{
-	pixel_x = -8;
-	pixel_y = 0
+	pixel_x = -8
 	},
 /obj/item/plastique/seismic{
 	pixel_x = 10;
@@ -5388,15 +5349,12 @@
 /obj/structure/table/rack,
 /obj/item/gun/energy/plasmacutter,
 /obj/item/gun/energy/plasmacutter{
-	pixel_x = 0;
 	pixel_y = -5
 	},
 /obj/item/pickaxe/drill{
-	pixel_x = 0;
 	pixel_y = 8
 	},
 /obj/item/pickaxe/drill{
-	pixel_x = 0;
 	pixel_y = 14
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -5504,8 +5462,7 @@
 	pixel_y = 7
 	},
 /obj/item/material/hatchet/machete/steel{
-	pixel_x = 5;
-	pixel_y = 0
+	pixel_x = 5
 	},
 /obj/item/material/hatchet/machete/steel{
 	pixel_x = 5;
@@ -5677,8 +5634,7 @@
 	},
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/structure/bed/handrail{
-	pixel_y = 7;
-	pixel_x = 0
+	pixel_y = 7
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/mess_hall)
@@ -36039,7 +35995,7 @@ iS
 iS
 ww
 ww
-lm
+jw
 ww
 ww
 yn
@@ -36284,7 +36240,7 @@ xF
 xF
 xF
 xF
-CD
+dB
 MX
 CE
 CE
@@ -36312,7 +36268,7 @@ jI
 jI
 jI
 jI
-Dd
+uo
 sz
 sz
 sz
@@ -37051,7 +37007,7 @@ iS
 iS
 iS
 iS
-aD
+DU
 Ib
 Qj
 eZ
@@ -38626,7 +38582,7 @@ We
 oN
 Oj
 YE
-Mo
+Jy
 SA
 KF
 iS
@@ -39878,7 +39834,7 @@ iS
 iS
 iS
 iS
-ax
+ID
 kz
 cp
 jA
@@ -39916,7 +39872,7 @@ yv
 Rh
 PA
 gi
-CU
+hS
 gr
 iS
 iS
@@ -40653,7 +40609,7 @@ AN
 Ll
 jA
 jA
-OK
+rY
 AN
 AN
 AN
@@ -40668,7 +40624,7 @@ Gi
 Zp
 gs
 FJ
-pE
+FY
 Sa
 XP
 XP
@@ -40679,7 +40635,7 @@ BH
 BB
 Kj
 hh
-zk
+uz
 Kj
 Kj
 hh
