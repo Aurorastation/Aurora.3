@@ -8,9 +8,13 @@
 ## Byond internal functionality
 This part of the guide will assume that you have read the byond reference entry for rendering at www.byond.com/docs/ref//#/{notes}/renderer
 
-When you create an atom, this will always create an internal byond structure called an "appearance". This appearance you will likely be familiar with, as it is exposed through the /atom/var/appearance var. This appearance var holds data on how to render the object, ie what icon/icon_state/color etc it is using. Note that appearance vars will always copy, and do not hold a reference. When you update a var, for example lets pretend we add a filter, the appearance will be updated to include the filter. Note that, however, vis_contents objets are uniquely excluded from appearances. Then, when the filter is updated, the appearance will be recreated, and the atom marked as "dirty". After it has been updated, the SendMaps() function (sometimes also called maptick), which is a internal byond function that iterates over all objects in a clients view and in the clients.mob.contents, checks for "dirty" atoms, then resends any "dirty" appearances to clients as needed and unmarks them as dirty. This function is notoriosly slow, but we can see it's tick usage through the world.map_cpu var. We can also avoid more complex checks checking whether an object is visible on a clients screen by using the TILE_BOUND appearance flag.
+When you create an atom, this will always create an internal byond structure called an "appearance". This appearance you will likely be familiar with, as it is exposed through the /atom/var/appearance var. This appearance var holds data on how to render the object, ie what icon/icon_state/color etc it is using. Note that appearance vars will always copy, and do not hold a reference. When you update a var, for example let's pretend we add a filter, the appearance will be updated to include the filter. Note that, however, vis_contents objets are uniquely excluded from appearances. Then, when the filter is updated, the appearance will be recreated, and the atom marked as "dirty". After it has been updated, the SendMaps() function (sometimes also called maptick), which is an internal byond function that iterates over all objects in a client's view and in the clients.mob.contents, checks for "dirty" atoms, then resends any "dirty" appearances to clients as needed and unmarks them as dirty. This function is notoriously slow, but we can see its tick usage through the world.map_cpu var. We can also avoid more complex checks checking whether an object is visible on a client's screen by using the TILE_BOUND appearance flag.
 
-Finally, we arrive at clientside behavior, where we have two main clientside functions: GetMapIcons, and Render. GetMapIcons is repsonsible for actual rendering calculations on the clientside, such as "Group Icons and Set bounds", which performs clientside calculations for transform matrixes. Note that particles here are handled in a seperate thread and are not diplayed in the clientside profiler. Render handles the actual drawing of the screen.
+Finally, we arrive at clientside behavior, where we have two main clientside functions: GetMapIcons, and Render. GetMapIcons is repsonsible for actual rendering calculations on the clientside, such as "Group Icons and Set bounds", which performs clientside calculations for transform matrixes. Note that particles here are handled in a separate thread and are not diplayed in the clientside profiler. Render handles the actual drawing of the screen.
+
+For debugging rendering issues its reccomended you do two things:
+A) Talk to someone who has inside knowledge(like lummox) about it, most of this is undocumented and bugs often
+B) Use the undocumented debug printer which reads of data on icons rendering, this is very dense but can be useful in some cases. To use: Right click top tab -> Options & Messages -> Client -> Command -> Enter ".debug profile mapicons" and press Enter -> go to your Byond directory and find BYOND/cfg/mapicons.json . Yes this is one giant one-line json.
 
 ## Known internal snowflake
 The following is an incomplete list of pitfalls that come from byond snowflake that are known, this list is obviously incomplete.
@@ -25,6 +29,7 @@ The following is an incomplete list of pitfalls that come from byond snowflake t
 8. Byond uses DirectX 9 (Lummox said he wants to update to DirectX 11)
 9. Particles are just fancy overlays and are not independent of their owner
 10. Maptick items inside mob.contents are cheaper compared to most other movables
+11. Displacement filter: The byond "displacement filter" does not, as the name would make you expect, use displacement maps, but instead uses normal maps.
 
 ## The rendering solution
 One of the main issues with making pretty effects is how objects can only render to one plane, and how filters can only be applied to single objects. Quite simply it means we cant apply effects to multiple planes at once, and an effect to one plane only by treating it as a single unit:
@@ -50,13 +55,3 @@ The rendering system uses two objects to unify planes: render_relay and render_p
 
 Goodluck and godspeed with coding
 	- Just another contributor
-
-## Baystation/Aurorastation Differences
-
-The bay implementation differs in some points but you can treat the prior sections as broadly accurate.
-
-- Locally we have refactored and simplified the above concepts down to `/atom/movable/renderer` and undifferentiated relay movables.
-- There is no type destinction between renderers intended to draw normal entities and renderers intended to draw other renderers.
-- We instead refer to these as "Plane Renderers" and "Group Renderers", and note that Group Renderers may render *other* Group Renderers in turn.
-- We additionally add the extra "Effect Renderer" as a distinct concept. Effect renderers are more virtual, and drawn to other renderers by filters instead.
-- See the comments in _renderer.dm for detail next to code.

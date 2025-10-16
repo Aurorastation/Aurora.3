@@ -4,12 +4,10 @@
 	sound_environment = SOUND_AREA_LARGE_ENCLOSED
 	no_light_control = TRUE
 	station_area = TRUE
-	dynamic_lighting = FALSE
 	area_flags = AREA_FLAG_NO_GHOST_TELEPORT_ACCESS
 
 /area/holodeck/alphadeck
 	name = "Holodeck Alpha"
-	dynamic_lighting = TRUE
 
 /area/holodeck/source_plating
 	name = "Holodeck - Off"

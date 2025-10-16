@@ -29,17 +29,17 @@
 	user.visible_message(SPAN_NOTICE("<b><font size=4>[user] puts [user.get_pronoun("his")] palms together...</font></b>"))
 	START_PROCESSING(SSprocessing, src)
 	user.say("Cursed Technique Amplification: Blue...")
-	user.set_light(7, 10, COLOR_BLUE)
+	user.set_light_range_power_color(7, 10, COLOR_BLUE)
+	user.set_light_on(TRUE)
 	color = COLOR_BLUE
 	if(do_after(user, 4 SECONDS))
 		stage = 2
 		color = COLOR_RED
 		user.say("Cursed Technique Reversal: Red...")
-		user.set_light(0)
-		user.set_light(7, 10, COLOR_RED)
+		user.set_light_range_power_color(7, 10, COLOR_RED)
 		if(do_after(user, 4 SECONDS))
 			user.say("Hollow Technique: Purple!")
-			user.set_light(0)
+			user.set_light_on(FALSE)
 			user.visible_message(SPAN_CULT("<b><font size=4>[user] fires a gigantic purple sphere from [user.get_pronoun("his")] hand!</font></b>"))
 			. = ..()
 

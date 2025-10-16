@@ -155,3 +155,6 @@
 		return TRUE
 
 	return (!density || air_group)
+
+/obj/effect/energy_field/afterShuttleMove(obj/effect/shuttle_landmark/destination)
+	qdel_self()

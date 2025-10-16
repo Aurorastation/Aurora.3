@@ -91,7 +91,6 @@
 	icon_state = "0"
 	footstep_sound = null
 	plane = SPACE_PLANE
-	dynamic_lighting = 0
 
 /turf/simulated/floor/holofloor/space/Initialize()
 	. = ..()

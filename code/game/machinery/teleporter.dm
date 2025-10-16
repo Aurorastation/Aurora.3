@@ -60,14 +60,14 @@
 	ClearOverlays()
 	if (engaged)
 		var/image/I = image(icon, src, "[initial(icon_state)]_active_overlay")
-		I.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+		I.plane = ABOVE_LIGHTING_PLANE
 		AddOverlays(I)
 		set_light(4, 0.4)
 	else
 		set_light(0)
 		if (operable())
 			var/image/I = image(icon, src, "[initial(icon_state)]_idle_overlay")
-			I.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+			I.plane = ABOVE_LIGHTING_PLANE
 			AddOverlays(I)
 
 /obj/machinery/teleport/pad/proc/within_range(var/target)

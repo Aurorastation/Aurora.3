@@ -7,9 +7,7 @@
 ///The time at which the next automatic transfer vote will be called
 GLOBAL_VAR_INIT(next_transfer_time, null)
 
-var/datum/controller/subsystem/ticker/SSticker
-
-/datum/controller/subsystem/ticker
+SUBSYSTEM_DEF(ticker)
 	// -- Subsystem stuff --
 	name = "Ticker"
 
@@ -72,9 +70,6 @@ var/datum/controller/subsystem/ticker/SSticker
 	var/total_players = 0
 	var/total_players_ready = 0
 	var/list/ready_player_jobs
-
-/datum/controller/subsystem/ticker/New()
-	NEW_SS_GLOBAL(SSticker)
 
 /datum/controller/subsystem/ticker/Initialize(timeofday)
 	pregame()

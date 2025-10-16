@@ -54,7 +54,6 @@
 /datum/map_template/proc/load_new_z(var/no_changeturf = TRUE)
 	var/x = round((world.maxx - width)/2)
 	var/y = round((world.maxy - height)/2)
-	var/initial_z = world.maxz + 1
 
 	if (x < 1) x = 1
 	if (y < 1) y = 1
@@ -97,8 +96,8 @@
 	//initialize things that are normally initialized after map load
 	init_atoms(atoms_to_initialise)
 	init_shuttles(shuttle_state)
-	for(var/light_z = initial_z to world.maxz)
-		create_lighting_overlays_zlevel(light_z)
+	/*for(var/light_z = initial_z to world.maxz)
+		create_lighting_overlays_zlevel(light_z) todomatt: what*/
 	log_game("Z-level [name] loaded at [x], [y], [world.maxz]")
 	message_admins("Z-level [name] loaded at [x], [y], [world.maxz]")
 	SSicon_smooth.can_fire = TRUE

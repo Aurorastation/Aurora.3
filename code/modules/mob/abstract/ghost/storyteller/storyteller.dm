@@ -6,7 +6,6 @@
 	status_flags = GODMODE
 	invisibility = INVISIBILITY_OBSERVER
 	see_invisible = SEE_INVISIBLE_OBSERVER
-	layer = OBSERVER_LAYER
 	incorporeal_move = INCORPOREAL_GHOST
 	simulated = FALSE
 

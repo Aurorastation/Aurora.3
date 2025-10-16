@@ -64,7 +64,7 @@
 	if(!powersupply)
 		icon_state = "recharger_backpack"
 		item_state = "recharger_backpack"
-		set_light(0)
+		set_light_on(FALSE)
 
 	else
 		var/current_charge = powersupply.percent()
@@ -72,19 +72,22 @@
 			if(70 to INFINITY)
 				icon_state = "recharger_backpack_full"
 				item_state = "recharger_backpack_full"
-				set_light(2, 0.75, LIGHT_COLOR_GREEN)
+				set_light_range_power_color(2, 0.75, LIGHT_COLOR_GREEN)
+				set_light_on(TRUE)
 			if(35 to 70)
 				icon_state = "recharger_backpack_med"
 				item_state = "recharger_backpack_med"
-				set_light(2, 0.75, LIGHT_COLOR_FIRE)
+				set_light_range_power_color(2, 0.75, LIGHT_COLOR_FIRE)
+				set_light_on(TRUE)
 			if(1 to 35)
 				icon_state = "recharger_backpack_low"
 				item_state = "recharger_backpack_low"
-				set_light(2, 0.75, LIGHT_COLOR_RED)
+				set_light_range_power_color(2, 0.75, LIGHT_COLOR_RED)
+				set_light_on(TRUE)
 			if(-INFINITY to 1)
 				icon_state = "recharger_backpack"
 				item_state = "recharger_backpack"
-				set_light(0)
+				set_light_on(FALSE)
 
 /obj/item/recharger_backpack/get_cell()
 	if(powersupply)

@@ -2,7 +2,7 @@
 	name = "flare"
 	desc = "A red standard-issue flare. There are instructions on the side reading 'twist cap off, make light'."
 	w_class = WEIGHT_CLASS_TINY
-	brightness_on = 5 // Pretty bright.
+	light_range = 5 // Pretty bright.
 	light_power = 6
 	light_color = LIGHT_COLOR_FLARE //"#E58775"
 	icon_state = "flare"
@@ -12,7 +12,6 @@
 	uv_intensity = 100
 	var/on_damage = 7
 	var/produce_heat = 1500
-	light_wedge = LIGHT_OMNI
 	power_use = FALSE
 	activation_sound = 'sound/items/flare.ogg'
 	toggle_sound = null
@@ -90,7 +89,7 @@
 	name = "torch"
 	desc = "A rustic source of light."
 	w_class = WEIGHT_CLASS_BULKY
-	brightness_on = 2
+	light_range = 2
 	light_power = 3
 	light_color = LIGHT_COLOR_FIRE
 	icon_state = "torch"
@@ -177,7 +176,7 @@
 /obj/item/device/flashlight/flare/torch/stick
 	name = "flaming stick"
 	desc = "How exciting!"
-	brightness_on = 1.5
+	light_range = 1.5
 	light_power = 1
 	produce_heat = 400
 

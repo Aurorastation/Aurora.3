@@ -21,7 +21,7 @@
 	icon_dead = "rat_gray_dead"
 	icon_rest = "rat_gray_sleep"
 
-	see_invisible = SEE_INVISIBLE_NOLIGHTING
+	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
 
 	var/swarm_name = "peasentry"
 	var/announce_name = "Request"

@@ -16,7 +16,7 @@
 /obj/machinery/stargazer/Initialize(mapload, d, populate_components)
 	. = ..()
 	star_system_image = image(icon, null, "stargazer_[SSatlas.current_sector.name]")
-	star_system_image.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+	star_system_image.plane = ABOVE_LIGHTING_PLANE
 	star_system_image.layer = SUPERMATTER_WALL_LAYER
 	power_change()
 

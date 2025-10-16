@@ -29,7 +29,7 @@
 	. = ..()
 	name = "[initial(name)] ([rand(100, 999)])"
 	eye_overlay = image(icon, "[icon_state]-eyes_emag")
-	eye_overlay.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+	eye_overlay.plane = ABOVE_LIGHTING_PLANE
 	eye_overlay.appearance_flags = KEEP_APART
 	AddOverlays(eye_overlay)
 

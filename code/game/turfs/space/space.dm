@@ -3,7 +3,6 @@
 	name = "\proper space"
 	desc = "The final frontier."
 	icon_state = "0"
-	dynamic_lighting = 0
 	footstep_sound = null //Override to make sure because yeah
 	tracks_footprint = FALSE
 
@@ -14,7 +13,6 @@
 //	heat_capacity = 700000 No.
 	is_hole = TRUE
 
-	permit_ao = FALSE
 	z_eventually_space = TRUE
 	turf_flags = TURF_FLAG_BACKGROUND
 	explosion_resistance = 3
@@ -22,7 +20,7 @@
 	var/use_space_appearance = TRUE
 
 /turf/space/dynamic //For use in edge cases where you want the turf to not be completely lit, like in places where you have placed lattice.
-	dynamic_lighting = 1
+	//todomatt: this is useless now
 
 // Copypaste of parent for performance.
 /turf/space/Initialize()
@@ -34,7 +32,8 @@
 
 	if(use_space_appearance)
 		appearance = SSskybox.space_appearance_cache[(((x + y) ^ ~(x * y) + z) % 25) + 1]
-	if(GLOB.config.starlight && GLOB.lighting_overlays_initialized)
+
+	if(GLOB.config.starlight)
 		update_starlight()
 
 	for(var/atom/movable/AM as mob|obj in src)
@@ -42,11 +41,6 @@
 
 	// if (is_station_level(z))
 	// 	GLOB.station_turfs += src
-
-	if(dynamic_lighting)
-		luminosity = 0
-	else
-		luminosity = 1
 
 	return INITIALIZE_HINT_NORMAL
 

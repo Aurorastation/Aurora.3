@@ -82,7 +82,7 @@
 		RAD = ARMOR_RAD_SMALL
 	)
 	light_overlay = "helmet_light_dual_low"
-	brightness_on = 6
+	light_range = 6
 	species_restricted = list(BODYTYPE_UNATHI)
 	refittable = FALSE
 
@@ -156,7 +156,7 @@
 		RAD = ARMOR_RAD_SHIELDED
 	)
 	light_overlay = "helmet_light_dual_low"
-	brightness_on = 6
+	light_range = 6
 	species_restricted = list(BODYTYPE_UNATHI)
 	refittable = FALSE
 

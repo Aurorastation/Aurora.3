@@ -338,10 +338,7 @@
 
 	// Handle light requirements.
 	if(!light_supplied)
-		if (TURF_IS_DYNAMICALLY_LIT(current_turf))
-			light_supplied = current_turf.get_lumcount(0, 3) * 10
-		else
-			light_supplied = 5
+		light_supplied = current_turf.get_lumcount(0, 3) * 10
 
 	if(light_supplied)
 		if(check_light_tolerances(light_supplied))
@@ -382,10 +379,7 @@
 
 	// Handle light requirements.
 	if(!light_supplied)
-		if (TURF_IS_DYNAMICALLY_LIT(current_turf))
-			light_supplied = current_turf.get_lumcount(0, 3) * 10
-		else
-			light_supplied = 5
+		light_supplied = current_turf.get_lumcount(0, 3) * 10
 
 	// Are we within the preference zone for temperature? If so, add to the chance of growth.
 	if(check_heat_preferences(environment))

@@ -549,7 +549,6 @@
 
 	light_power = 1
 	light_range = 6
-	light_wedge = LIGHT_WIDE
 	light_color = LIGHT_COLOR_FIRE
 
 /obj/vehicle/train/cargo/engine/mining/Initialize()
@@ -601,7 +600,6 @@
 
 	light_power = 1
 	light_range = 3
-	light_wedge = LIGHT_OMNI
 	light_color = LIGHT_COLOR_FIRE
 
 /obj/item/key/minecarts

@@ -6,6 +6,7 @@
 	gender = NEUTER
 
 	var/vision_flags = 0
+	var/lighting_alpha = LIGHTING_PLANE_ALPHA_VISIBLE
 	var/see_invisible = 0
 	var/obj/item/robot_parts/robot_component/radio/radio
 	var/obj/item/robot_parts/robot_component/camera/camera
@@ -78,6 +79,12 @@
 	if((total_damage <= 0.8 * max_damage) && active_sensors && powered)
 		invisible = see_invisible
 	return invisible
+
+/obj/item/mech_component/sensors/proc/get_lighting_alpha(powered)
+	var/l_alpha = 0
+	if((total_damage <= 0.8 * max_damage) && active_sensors && powered)
+		l_alpha = lighting_alpha
+	return l_alpha
 
 /obj/item/mech_component/sensors/ready_to_install()
 	return (radio && camera)

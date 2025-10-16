@@ -184,6 +184,9 @@ SUBSYSTEM_DEF(explosives)
 		E.set_up(epicenter)
 		E.start()
 
+	if(power >= 9)
+		new /obj/effect/shockwave(epicenter, power / 2)
+
 	var/x0 = epicenter.x
 	var/y0 = epicenter.y
 	var/z0 = epicenter.z
@@ -302,13 +305,6 @@ SUBSYSTEM_DEF(explosives)
 		act_turfs[current_turf] = current_power
 		current_power -= current_turf.explosion_resistance
 
-		// Attempt to shortcut on empty tiles: if a turf only has a LO on it, we don't need to check object resistance. Some turfs might not have LOs, so we need to check it actually has one.
-		if (current_turf.contents.len > !!current_turf.lighting_overlay)
-			for (var/thing in current_turf)
-				var/atom/movable/AM = thing
-				if (AM.simulated && AM.explosion_resistance)
-					current_power -= AM.explosion_resistance
-
 		if (current_power <= 0)
 			CHECK_TICK
 			continue
@@ -328,6 +324,9 @@ SUBSYSTEM_DEF(explosives)
 	var/close_dist = round(power + world.view - 2, 1)
 
 	var/sound/explosion_sound = sound(get_sfx(/singleton/sound_category/explosion_sound))
+
+	if(power >= 100)
+		new /obj/effect/shockwave(epicenter, power / 60)
 
 	for (var/thing in GLOB.player_list)
 		var/mob/M = thing
@@ -389,7 +388,7 @@ SUBSYSTEM_DEF(explosives)
 
 		if (T.simulated)
 			T.ex_act(severity)
-		if (T.contents.len > !!T.lighting_overlay)
+		if (T.contents.len)
 			for (var/subthing in T)
 				var/atom/movable/AM = subthing
 				if (AM.simulated)

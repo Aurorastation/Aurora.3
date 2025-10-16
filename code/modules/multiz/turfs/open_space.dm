@@ -175,8 +175,9 @@
 /turf/simulated/open/Initialize(mapload)
 	. = ..()
 	icon_state = ""	// Clear out the debug icon.
-
+	ADD_TRAIT(src, TURF_Z_TRANSPARENT_TRAIT, TRAIT_SOURCE_INHERENT)
 	update(mapload)
+
 
 /**
  * Updates the turf with open turf's variables and basically resets it properly.

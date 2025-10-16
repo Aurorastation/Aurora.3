@@ -1,7 +1,6 @@
 /area/ship/fsf_patrol_ship
 	name = "FSF Corvette"
 	requires_power = TRUE
-	dynamic_lighting = TRUE
 
 /area/ship/fsf_patrol_ship/bridge
 	name = "FSF Corvette - Bridge"

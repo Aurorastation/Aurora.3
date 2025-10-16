@@ -72,7 +72,7 @@
 
 /turf/simulated/floor/exoplanet/basalt/cave/Initialize() // to make these tiles dark even on daytime exoplanets
 	. = ..()
-	set_light(0, 1, null)
+	set_light(0)
 	footprint_color = null
 	update_icon(1)
 

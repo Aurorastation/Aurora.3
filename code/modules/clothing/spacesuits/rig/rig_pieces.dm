@@ -9,8 +9,7 @@
 	body_parts_covered = HEAD|FACE|EYES
 	heat_protection =    HEAD|FACE|EYES
 	cold_protection =    HEAD|FACE|EYES
-	brightness_on = 4
-	light_wedge = LIGHT_WIDE
+	light_range = 4
 	icon = 'icons/obj/clothing/hats.dmi'
 	contained_sprite = FALSE
 

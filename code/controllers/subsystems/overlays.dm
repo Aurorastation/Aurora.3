@@ -106,6 +106,8 @@ SUBSYSTEM_DEF(overlays)
 			result += GetStateAppearance(icon, entry)
 		else if (isicon(entry))
 			result += GetIconAppearance(entry)
+		else if (istype(entry, /mutable_appearance))
+			result += entry
 		else
 			if (isloc(entry))
 				if (entry.atom_flags & ATOM_AWAITING_OVERLAY_UPDATE)

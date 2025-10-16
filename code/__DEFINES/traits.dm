@@ -121,6 +121,7 @@
 #define GENERIC_ITEM_TRAIT "generic_item"
 #define DISABILITY_TRAIT "disability"
 
+#define TRAIT_SOURCE_INHERENT "t_s_inherent"
 /// cannot be removed without admin intervention
 #define ROUNDSTART_TRAIT "roundstart"
 #define CULTURE_TRAIT "culture"
@@ -220,3 +221,6 @@
 
 /// A trait gained by leaning against something
 #define TRAIT_LEANING "leaning"
+
+/// traits transparent turf
+#define TURF_Z_TRANSPARENT_TRAIT "turf_z_transparent"

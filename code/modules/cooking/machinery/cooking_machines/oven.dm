@@ -66,13 +66,13 @@
 		icon_state = door_closed
 		if(!stat)
 			var/image/ovenclosed_on = image('icons/obj/machinery/cooking_machines.dmi', door_closed_overlay)
-			ovenclosed_on.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+			ovenclosed_on.plane = ABOVE_LIGHTING_PLANE
 			AddOverlays(ovenclosed_on)
 	else
 		icon_state = door_open
 		if(!stat)
 			var/image/ovenopen_on = image('icons/obj/machinery/cooking_machines.dmi', door_open_overlay)
-			ovenopen_on.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+			ovenopen_on.plane = ABOVE_LIGHTING_PLANE
 			AddOverlays(ovenopen_on)
 	..()
 

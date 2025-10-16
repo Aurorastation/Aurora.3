@@ -195,7 +195,7 @@
 
 	tameable = FALSE
 	flying = TRUE
-	see_invisible = SEE_INVISIBLE_NOLIGHTING
+	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
 
 	emote_sounds = list('sound/effects/creatures/PRA_drone.ogg')
 

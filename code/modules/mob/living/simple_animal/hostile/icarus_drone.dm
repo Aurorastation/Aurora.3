@@ -56,7 +56,7 @@
 	tameable = FALSE
 
 	flying = TRUE
-	see_invisible = SEE_INVISIBLE_NOLIGHTING
+	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
 
 	psi_pingable = FALSE
 	sample_data = null

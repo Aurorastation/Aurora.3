@@ -39,9 +39,9 @@
 		var/mutable_appearance/panel_overlay = mutable_appearance(icon, "[icon_state]-panel")
 		AddOverlays(panel_overlay)
 	if(length(extract_slimes))
-		var/mutable_appearance/interior_overlay = mutable_appearance(icon, "[icon_state]-interior", plane = EFFECTS_ABOVE_LIGHTING_PLANE)
+		var/mutable_appearance/interior_overlay = mutable_appearance(icon, "[icon_state]-interior", plane = ABOVE_LIGHTING_PLANE)
 		AddOverlays(interior_overlay)
-		var/mutable_appearance/spinning_overlay = mutable_appearance(icon, "[icon_state]-running", plane = EFFECTS_ABOVE_LIGHTING_PLANE)
+		var/mutable_appearance/spinning_overlay = mutable_appearance(icon, "[icon_state]-running", plane = ABOVE_LIGHTING_PLANE)
 		AddOverlays(spinning_overlay)
 		set_light(2.5, 1, COLOR_VIOLET)
 	else

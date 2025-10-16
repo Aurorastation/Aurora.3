@@ -9,17 +9,16 @@
 
 /mutable_appearance/New(mutable_appearance/to_copy)
 	..()
-	if(!to_copy)
-		plane = FLOAT_PLANE
+	plane = FLOAT_PLANE
 
 // Helper similar to image()
-/proc/mutable_appearance(icon, icon_state, color, flags = DEFAULT_APPEARANCE_FLAGS | RESET_COLOR | RESET_ALPHA, plane = FLOAT_PLANE, layer = FLOAT_LAYER)
+/proc/mutable_appearance(icon, icon_state = "", layer = FLOAT_LAYER, plane = FLOAT_PLANE, alpha = 255, appearance_flags = NONE)
 	RETURN_TYPE(/mutable_appearance)
 	var/mutable_appearance/MA = new()
 	MA.icon = icon
 	MA.icon_state = icon_state
-	MA.color = color
-	MA.appearance_flags = flags
-	MA.plane = plane
 	MA.layer = layer
+	MA.plane = plane
+	MA.alpha = alpha
+	MA.appearance_flags |= appearance_flags
 	return MA

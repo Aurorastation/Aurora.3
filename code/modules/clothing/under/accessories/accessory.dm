@@ -120,13 +120,6 @@
 /obj/item/clothing/accessory/proc/on_clothing_change(var/mob/user)
 	update_light()
 
-/obj/item/clothing/accessory/get_light_atom()
-	if(isclothing(loc))
-		if(ismob(loc.loc))
-			return loc.loc
-		return loc
-	return ..()
-
 //default attackby behaviour
 /obj/item/clothing/accessory/attackby(obj/item/attacking_item, mob/user)
 	..()
@@ -1405,7 +1398,7 @@
 	icon = 'icons/obj/item/clothing/accessory/led_collar.dmi'
 	icon_state = "led_collar"
 	item_state = "led_collar"
-	plane = EFFECTS_ABOVE_LIGHTING_PLANE
+	plane = ABOVE_LIGHTING_PLANE
 	contained_sprite = TRUE
 	slot = ACCESSORY_SLOT_UTILITY_MINOR
 
@@ -1423,6 +1416,6 @@
 
 /obj/item/clothing/accessory/led_collar/get_accessory_mob_overlay(var/mob/living/carbon/human/H, var/force = FALSE)
 	var/image/I = ..()
-	I.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+	I.plane = ABOVE_LIGHTING_PLANE
 	I.appearance_flags |= KEEP_APART
 	return I

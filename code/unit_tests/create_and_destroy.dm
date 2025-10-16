@@ -105,7 +105,8 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 		/atom/movable/flick_visual,
 
 		//Weather system, requires a z level
-		/obj/abstract/weather_system
+		/obj/abstract/weather_system,
+		/atom/movable/lighting_mask, //leave it alone
 
 	)
 

@@ -17,7 +17,7 @@
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN)
 
-	brightness_on = 6
+	light_range = 6
 	refittable = FALSE
 
 /obj/item/clothing/suit/space/void/sol
@@ -65,7 +65,7 @@
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_IPC, BODYTYPE_SKRELL)
 
 
-	brightness_on = 6
+	light_range = 6
 
 /obj/item/clothing/suit/space/void/coalition
 	name = "coalition vulture voidsuit"
@@ -101,7 +101,7 @@
 	species_restricted = list(BODYTYPE_HUMAN)
 
 	light_overlay = "helmet_light_xanu_voidsuit"
-	brightness_on = 6
+	light_range = 6
 
 /obj/item/clothing/suit/space/void/coalition/xanu
 	name = "\improper Xanan eagle voidsuit"
@@ -139,7 +139,7 @@
 
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_IPC)
 	icon_supported_species_tags = list("taj")
-	brightness_on = 6
+	light_range = 6
 	light_color = "#ffce01"
 
 /obj/item/clothing/head/helmet/space/void/coalition/galatea
@@ -184,7 +184,7 @@
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN)
 	w_class = WEIGHT_CLASS_NORMAL
-	brightness_on = 6
+	light_range = 6
 	refittable = FALSE
 
 /obj/item/clothing/suit/space/void/cruiser
@@ -228,7 +228,7 @@
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN)
 	max_heat_protection_temperature = FIRE_HELMET_MAX_HEAT_PROTECTION_TEMPERATURE + 10000
-	brightness_on = 6
+	light_range = 6
 	icon_supported_species_tags = list("ipc")
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_IPC)
 
@@ -330,7 +330,7 @@
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN)
 	light_overlay = "helmet_light_banshee"
-	brightness_on = 6
+	light_range = 6
 	light_color = "#7ffbf7"
 	desc_extended = "An easily recognized Einstein Engines-made PMC voidsuit piece. It is a telltale mark of corporate espionage and more often than not ends up buried with its user."
 	icon_supported_species_tags = list("skr", "ipc")
@@ -382,7 +382,7 @@
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN)
 	light_overlay = "helmet_light_dragon"
-	brightness_on = 6
+	light_range = 6
 	light_color = "#7ffbf7"
 	desc_extended = "An easily recognized Zeng-Hu Pharmaceuticals biohazard control suit helmet. Its bug-eyed goggle visor design is unique among its class, alongside cutting-edge radiation protection."
 	icon_supported_species_tags = list("skr", "ipc")
@@ -434,7 +434,7 @@
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN)
 	light_overlay = "helmet_light_caiman"
-	brightness_on = 6
+	light_range = 6
 	light_color = "#ffce01"
 	desc_extended = "An easily recognized Hephaestus terraforming suit helmet. Its low, protruding brow and heavy plating is useful in the event you happen to be cutting down things. Mostly trees. Hopefully trees."
 	icon_supported_species_tags = list("una")
@@ -486,7 +486,7 @@
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN)
 	light_overlay = "helmet_light_revenant"
-	brightness_on = 6
+	light_range = 6
 	light_color = "#f65858"
 	desc_extended = "An ominous helmet of Zavodskoi Interstellar make with its past veiled in mystery, used for high-end corporate backstabbing and secret operations."
 
@@ -535,7 +535,7 @@
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN)
 	light_overlay = "freelancer_light"
-	brightness_on = 6
+	light_range = 6
 	light_color = "#7ffbf7"
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_IPC, BODYTYPE_UNATHI, BODYTYPE_SKRELL)
 
@@ -582,7 +582,7 @@
 	)
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_UNATHI)
-	brightness_on = 6
+	light_range = 6
 	icon_supported_species_tags = list("una")
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_UNATHI)
 
@@ -648,7 +648,7 @@
 	)
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
-	brightness_on = 6
+	light_range = 6
 
 /obj/item/clothing/suit/space/void/golden_deep
 	name = "golden suit"
@@ -1022,7 +1022,7 @@
 	item_state = "gadpathur_vulture_helm"
 	species_restricted = list(BODYTYPE_HUMAN)
 
-	brightness_on = 6
+	light_range = 6
 
 /obj/item/clothing/suit/space/void/coalition/gadpathur
 	name = "coalition vulture-GP voidsuit"
@@ -1095,7 +1095,7 @@
 	contained_sprite = TRUE
 	icon_supported_species_tags = list("ipc", "skr", "taj", "una", "vau", "vaw")
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_IPC, BODYTYPE_TAJARA, BODYTYPE_UNATHI, BODYTYPE_SKRELL, BODYTYPE_VAURCA)
-	brightness_on = 6
+	light_range = 6
 	siemens_coefficient = 0.35
 
 /obj/item/clothing/head/helmet/space/void/sci/assunzione

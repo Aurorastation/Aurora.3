@@ -101,7 +101,7 @@
 	environment_smash = 1
 
 	attack_emote = "wiggles toward"
-	see_invisible = SEE_INVISIBLE_NOLIGHTING
+	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
 	blood_type = "#281C2D"
 
 
@@ -131,7 +131,7 @@
 	mob_size = 5
 
 	attack_emote = "hums at"
-	see_invisible = SEE_INVISIBLE_NOLIGHTING
+	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
 
 	smart_ranged = TRUE
 

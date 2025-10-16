@@ -106,7 +106,7 @@
 		return INITIALIZE_HINT_QDEL
 
 	if(known)
-		plane = EFFECTS_ABOVE_LIGHTING_PLANE
+		plane = ABOVE_LIGHTING_PLANE
 		for(var/obj/machinery/computer/ship/helm/H in SSmachinery.machinery)
 			H.get_known_sectors()
 	update_icon()

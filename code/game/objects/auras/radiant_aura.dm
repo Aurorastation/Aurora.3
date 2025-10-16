@@ -13,7 +13,8 @@
 /obj/aura/radiant_aura/added_to(mob/living/user)
 	..()
 	to_chat(user, SPAN_NOTICE("A bubble of light appears around you, exuding protection and warmth."))
-	set_light(6, 6, COLOR_AMBER)
+	set_light_range_power_color(6, 6, COLOR_AMBER)
+	set_light_on(TRUE)
 
 /obj/aura/radiant_aura/Destroy()
 	to_chat(user, SPAN_WARNING("Your protective aura dissipates, leaving you feeling cold and unsafe."))

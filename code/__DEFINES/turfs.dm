@@ -36,14 +36,6 @@
 		MACROS/FUNCTIONS
 ################################*/
 
-/**
- * Checks if a turf is opaque,
- * NOT the same inner-working as the TG version, but should be equivalent
- *
- * * turf - The `/turf` to check
- */
-#define IS_OPAQUE_TURF(turf)	(turf.opacity || turf.has_opaque_atom)
-
 //supposedly the fastest way to do this according to https://gist.github.com/Giacom/be635398926bb463b42a
 ///Returns a list of turf in a square
 #define RANGE_TURFS(RADIUS, CENTER) \

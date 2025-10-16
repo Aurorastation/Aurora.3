@@ -169,7 +169,7 @@ GLOBAL_LIST_INIT_TYPED(allCasters, /obj/machinery/newscaster, list())
 	screen_hologram.blend_mode = BLEND_MULTIPLY
 	screen.blend_mode = BLEND_ADD
 	AddOverlays(list(screen_hologram, screen, screen_emis))
-	set_light(1.4, 1.3, COLOR_CYAN)
+	set_light(L_WALLMOUNT_RANGE, L_WALLMOUNT_POWER, COLOR_CYAN)
 
 	if(!alert || !SSnews.wanted_issue)
 		var/mutable_appearance/screen_title = overlay_image(icon, "newscaster-title")

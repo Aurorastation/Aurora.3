@@ -132,12 +132,10 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 	icon = 'icons/effects/fire.dmi'
 	icon_state = "3"
 	appearance_flags = PIXEL_SCALE | NO_CLIENT_COLOR
-	render_target = HEAT_EFFECT_TARGET
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 /obj/fire
 	//Icon for fire on turfs.
-
 	anchored = 1
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
@@ -163,11 +161,11 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 	var/datum/gas_mixture/air_contents = my_tile.return_air()
 
 	if(firelevel > 6)
-		set_light(9, FIRE_LIGHT_3, no_update = TRUE)	// We set color later in the proc, that should trigger an update.
+		set_light(9, FIRE_LIGHT_3)	// We set color later in the proc, that should trigger an update.
 	else if(firelevel > 2.5)
-		set_light(7, FIRE_LIGHT_2, no_update = TRUE)
+		set_light(7, FIRE_LIGHT_2)
 	else
-		set_light(5, FIRE_LIGHT_1, no_update = TRUE)
+		set_light(5, FIRE_LIGHT_1)
 
 	air_contents.adjust_gas(GAS_CO2, firelevel * 0.07)
 

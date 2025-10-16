@@ -3,7 +3,8 @@
 	desc = "Holds gas. Has a built-in valve to allow for filling portable tanks."
 	icon = 'icons/obj/atmos.dmi'
 	icon_state = "yellow"
-	density = 1
+	density = TRUE
+	light_system = MOVABLE_LIGHT
 	var/health = 100.0
 	obj_flags = OBJ_FLAG_SIGNALER | OBJ_FLAG_CONDUCTABLE
 	w_class = WEIGHT_CLASS_HUGE
@@ -301,7 +302,7 @@ update_flag
 
 	if (src.destroyed)
 		ClearOverlays()
-		set_light(FALSE)
+		set_light_on(FALSE)
 		src.icon_state = "[src.canister_color]-1"
 		return
 
@@ -312,7 +313,6 @@ update_flag
 		return
 
 	ClearOverlays()
-	set_light(FALSE)
 
 	if(signaler)
 		AddOverlays("signaler")
@@ -322,21 +322,25 @@ update_flag
 	if(update_flag & 2)
 		AddOverlays("can-connector")
 	if(update_flag & 4)
-		var/mutable_appearance/indicator_overlay = mutable_appearance(icon, "can-o0", plane = EFFECTS_ABOVE_LIGHTING_PLANE)
+		var/mutable_appearance/indicator_overlay = mutable_appearance(icon, "can-o0", plane = ABOVE_LIGHTING_PLANE)
 		AddOverlays(indicator_overlay)
-		set_light(1.4, 1, COLOR_RED_LIGHT)
+		set_light_range_power_color(0.5, 0.5, COLOR_RED_LIGHT)
+		set_light_on(TRUE)
 	if(update_flag & 8)
-		var/mutable_appearance/indicator_overlay = mutable_appearance(icon, "can-o1", plane = EFFECTS_ABOVE_LIGHTING_PLANE)
+		var/mutable_appearance/indicator_overlay = mutable_appearance(icon, "can-o1", plane = ABOVE_LIGHTING_PLANE)
 		AddOverlays(indicator_overlay)
-		set_light(1.4, 1, COLOR_RED_LIGHT)
+		set_light_range_power_color(0.5, 0.5, COLOR_RED_LIGHT)
+		set_light_on(TRUE)
 	else if(update_flag & 16)
-		var/mutable_appearance/indicator_overlay = mutable_appearance(icon, "can-o2", plane = EFFECTS_ABOVE_LIGHTING_PLANE)
+		var/mutable_appearance/indicator_overlay = mutable_appearance(icon, "can-o2", plane = ABOVE_LIGHTING_PLANE)
 		AddOverlays(indicator_overlay)
-		set_light(1.4, 1, COLOR_YELLOW)
+		set_light_range_power_color(0.5, 0.5, COLOR_YELLOW)
+		set_light_on(TRUE)
 	else if(update_flag & 32)
-		var/mutable_appearance/indicator_overlay = mutable_appearance(icon, "can-o3", plane = EFFECTS_ABOVE_LIGHTING_PLANE)
+		var/mutable_appearance/indicator_overlay = mutable_appearance(icon, "can-o3", plane = ABOVE_LIGHTING_PLANE)
 		AddOverlays(indicator_overlay)
-		set_light(1.4, 1, COLOR_BRIGHT_GREEN)
+		set_light_range_power_color(0.5, 0.5, COLOR_BRIGHT_GREEN)
+		set_light_on(TRUE)
 
 /obj/machinery/portable_atmospherics/canister/fire_act(exposed_temperature, exposed_volume)
 	. = ..()

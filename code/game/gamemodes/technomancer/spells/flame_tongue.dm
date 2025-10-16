@@ -16,7 +16,8 @@
 
 /obj/item/spell/flame_tongue/Initialize()
 	. = ..()
-	set_light(3, 2, l_color = "#FF6A00")
+	set_light_range_power_color(6, 5, "#FF6A00")
+	set_light_on(TRUE)
 	visible_message(SPAN_WARNING("\The [loc]'s hand begins to emit a flame."))
 	welder = new /obj/item/weldingtool/spell(src)
 	welder.setWelding(1)

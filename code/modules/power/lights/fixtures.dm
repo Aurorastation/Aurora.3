@@ -19,9 +19,9 @@
 	always_area_sensitive = TRUE
 	gfi_layer_rotation = GFI_ROTATION_DEFDIR
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
-	var/brightness_range = 8	// luminosity when on, also used in power calculation
-	var/brightness_power = 0.45
-	var/night_brightness_range = 6
+	var/brightness_range = 7	// luminosity when on, also used in power calculation
+	var/brightness_power = 0.6
+	var/night_brightness_range = 5
 	var/night_brightness_power = 0.4
 	var/supports_nightmode = TRUE
 	var/nightmode = FALSE
@@ -123,7 +123,7 @@
 
 /obj/machinery/light/small/emergency
 	icon_state = "bulb_emergency_preview"
-	brightness_range = 6
+	brightness_range = 3
 	brightness_power = 0.45
 	brightness_color = LIGHT_COLOR_EMERGENCY_SOFT
 	randomize_color = FALSE
@@ -173,8 +173,8 @@
 	fitting = "large tube"
 	light_type = /obj/item/light/tube/large
 	inserted_light = /obj/item/light/tube/large
-	brightness_range = 12
-	brightness_power = 3.5
+	brightness_range = 8
+	brightness_power = 0.9
 	supports_nightmode = FALSE
 
 /obj/machinery/light/built

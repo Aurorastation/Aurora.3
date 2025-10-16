@@ -3,6 +3,7 @@
 	status_flags = GODMODE
 	invisibility = INVISIBILITY_ABSTRACT
 	blocks_emissive = EMISSIVE_BLOCK_NONE
+	plane = GHOST_PLANE
 
 	density = FALSE
 	anchored = TRUE

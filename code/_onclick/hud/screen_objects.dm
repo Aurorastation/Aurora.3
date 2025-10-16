@@ -360,7 +360,7 @@
 					if(!isopenturf(above_turf))
 						continue
 					var/image/point_up = image(icon = 'icons/mob/screen/generic.dmi', icon_state = "arrow_up", loc = T)
-					point_up.plane = DEFAULT_PLANE
+					point_up.plane = GAME_PLANE
 					point_up.layer = POINTER_LAYER
 					viewer_client?.images += point_up
 					addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(remove_image_from_client), point_up, viewer_client), 3 SECONDS)
