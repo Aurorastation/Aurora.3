@@ -81,11 +81,6 @@
 	area_blurb_category = "medical_isolation"
 	horizon_deck = 3
 
-/area/horizon/medical/emergency_storage
-	name = "Emergency Storage"
-	sound_environment = SOUND_AREA_SMALL_ENCLOSED
-	horizon_deck = 1
-
 /area/horizon/medical/morgue
 	name = "Morgue"
 	icon_state = "morgue"
