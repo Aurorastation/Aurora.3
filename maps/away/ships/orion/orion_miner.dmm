@@ -30,6 +30,13 @@
 	},
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/shuttle/orion_miner/reactor)
+"ax" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, port engines"
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/shuttle/orion_miner/main_engineering_port)
 "ay" = (
 /obj/structure/table/steel,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -46,6 +53,13 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/full,
 /area/shuttle/orion_miner/mining_prep)
+"aD" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, starboard engines"
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/shuttle/orion_miner/main_engineering_stbd)
 "aL" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/paper_bin{
@@ -1216,9 +1230,6 @@
 /turf/simulated/floor/tiled/full,
 /area/shuttle/orion_miner/mess_hall)
 "ld" = (
-/obj/effect/floor_decal/industrial/outline_door/yellow{
-	dir = 4
-	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
@@ -1238,6 +1249,12 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/eva)
+"lm" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, midsection"
+	},
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/shuttle/orion_miner/bathroom)
 "ln" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light/colored/decayed{
@@ -1730,6 +1747,12 @@
 /obj/effect/map_effect/marker/airlock/orion_miner_starboard,
 /turf/simulated/floor/plating,
 /area/shuttle/orion_miner/corridor)
+"pE" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, midsection"
+	},
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/shuttle/orion_miner/medbay)
 "pG" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/cable/green{
@@ -2391,9 +2414,6 @@
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/hydro)
 "xe" = (
-/obj/effect/floor_decal/industrial/outline_door/yellow{
-	dir = 4
-	},
 /obj/structure/window/reinforced,
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -2666,6 +2686,23 @@
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/hydro)
+"zk" = (
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/structure/window/shuttle/scc_space_ship/cardinal,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 2;
+	icon_state = "pdoor0";
+	id = "om_blast";
+	name = "Exterior Lockdown Blast Door";
+	opacity = 0
+	},
+/obj/effect/landmark/entry_point/port{
+	name = "port, fore"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/orion_miner/mess_hall)
 "zl" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/structure/cart/storage/engineeringcart/half_filled{
@@ -3078,6 +3115,12 @@
 /obj/structure/closet/crate,
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/cargo_bay)
+"CD" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, nacelle"
+	},
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/shuttle/orion_miner/main_engineering_stbd)
 "CE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
@@ -3145,6 +3188,23 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/orion_miner/corridor)
+"CU" = (
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/structure/window/shuttle/scc_space_ship/cardinal,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 4;
+	icon_state = "pdoor0";
+	id = "om_blast";
+	name = "Exterior Lockdown Blast Door";
+	opacity = 0
+	},
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, canteen"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/orion_miner/mess_hall)
 "CV" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/machinery/alarm/north,
@@ -3191,6 +3251,12 @@
 /obj/effect/floor_decal/industrial/hatch/engineering,
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/dorm)
+"Dd" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, fore"
+	},
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/shuttle/orion_miner/ammo_storage)
 "Df" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/cable/green{
@@ -3750,6 +3816,9 @@
 /area/shuttle/orion_miner/corridor/central)
 "HZ" = (
 /obj/structure/viewport/zavod,
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, grauwolf"
+	},
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/grauwolf)
 "Ib" = (
@@ -4094,6 +4163,23 @@
 /obj/structure/extinguisher_cabinet/west,
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/mess_hall)
+"Mo" = (
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/structure/window/shuttle/scc_space_ship/cardinal,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 4;
+	icon_state = "pdoor0";
+	id = "om_blast";
+	name = "Exterior Lockdown Blast Door";
+	opacity = 0
+	},
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, bridge"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/orion_miner/bridge)
 "Mp" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable/green{
@@ -4298,6 +4384,12 @@
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/reinforced/airless,
 /area/shuttle/orion_miner/grauwolf)
+"OK" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, nacelle"
+	},
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/shuttle/orion_miner/reactor)
 "ON" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
@@ -35947,7 +36039,7 @@ iS
 iS
 ww
 ww
-ww
+lm
 ww
 ww
 yn
@@ -36192,7 +36284,7 @@ xF
 xF
 xF
 xF
-xF
+CD
 MX
 CE
 CE
@@ -36220,7 +36312,7 @@ jI
 jI
 jI
 jI
-sz
+Dd
 sz
 sz
 sz
@@ -36959,7 +37051,7 @@ iS
 iS
 iS
 iS
-dA
+aD
 Ib
 Qj
 eZ
@@ -38534,7 +38626,7 @@ We
 oN
 Oj
 YE
-im
+Mo
 SA
 KF
 iS
@@ -39786,7 +39878,7 @@ iS
 iS
 iS
 iS
-GL
+ax
 kz
 cp
 jA
@@ -39824,7 +39916,7 @@ yv
 Rh
 PA
 gi
-zB
+CU
 gr
 iS
 iS
@@ -40561,7 +40653,7 @@ AN
 Ll
 jA
 jA
-jA
+OK
 AN
 AN
 AN
@@ -40576,7 +40668,7 @@ Gi
 Zp
 gs
 FJ
-FJ
+pE
 Sa
 XP
 XP
@@ -40587,7 +40679,7 @@ BH
 BB
 Kj
 hh
-hh
+zk
 Kj
 Kj
 hh
