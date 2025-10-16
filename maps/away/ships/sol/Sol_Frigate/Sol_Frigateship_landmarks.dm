@@ -40,18 +40,6 @@
 	landmark_tag = "Sol_Frigate_starboard_dock"
 // --------
 
-//Fore landing area
-/obj/effect/map_effect/marker/airlock/docking/Sol_Frigate/starboard_dock
-	name = "Forward Catwalk Landing Area"
-	master_tag = "airlock_Solfrig_fore_dock"
-	landmark_tag = "Sol_Frigate_fore_dock"
-
-/obj/effect/shuttle_landmark/Sol_Frigate/dock_starboard
-	name = "Forward Catwalk Landing Area"
-	docking_controller = "Navpoint_Solfrig_fore_dock"
-	landmark_tag = "Navpoint_Solfrig_fore_dock"
-// --------
-
 //Fore Airlock, right
 /obj/effect/map_effect/marker/airlock/docking/Sol_Frigate/catwalkA
 	name = "Forward Catwalk airlock, A"
