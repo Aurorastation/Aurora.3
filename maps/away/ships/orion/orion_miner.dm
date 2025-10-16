@@ -12,8 +12,6 @@
 	id = "orion_miner"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/orion_miner)
 
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
-
 	unit_test_groups = list(3)
 
 /obj/effect/overmap/visitable/ship/landable/orion_miner
@@ -28,7 +26,7 @@
 	colors = list(COLOR_BROWN)
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 2 SECONDS
-	vessel_mass = 6500
+	vessel_mass = 4000
 	vessel_size = SHIP_SIZE_SMALL
 	fore_dir = SOUTH
 	use_mapped_z_levels = TRUE
@@ -41,8 +39,8 @@
 	shiptype = "Multipurpose mining and salvage"
 
 /obj/effect/overmap/visitable/ship/landable/orion_miner/New()
-	designation = "[pick("Charming", "Endearing", "Willful", "Unrelenting", "Storm", "Definitive", "Aspirational", "Fiery", "Willful", "Watery", "Aerial", "Starborn", "Unreal", "Orion", "Stellar", "Astral", "Pony", "Nautical ", "Miner's", "Wayward")] \
-	[pick("Reality", "Dreamer", "Guitar", "Opportunity", "Wayfarer", "Trailblazer", "Northstar", "Gizmo", "Express", "Deity", "Diamond", "Miner", "Skiff", "Wallop", "Express", "Courier", "Coal", "Hematite", "Ore")]"
+	designation = "[pick("Charming", "Endearing", "Rusted", "Lucky", "Unlucky", "Unrelenting", "Unfortunate", "Definitive", "Difficult", "Fiery", "Willful", "Broke", "Aerial", "Starborn", "Unreal", "Orion", "Stellar", "Astral", "Flying", "Nautical ", "Miner's", "Wayward", "Duct-Taped", "Sort-of", "Barely", "Negative")] \
+	[pick("Reality", "Dreamer", "Regrets", "Boltbucket", "Wayfarer", "Trailblazer", "Overtime", "Gizmo", "Express", "Deity", "Diamond", "Miner", "Skiff of Skiffs", "Wallop", "Express", "Courier", "Coal", "Pitchblende", "Ore", "Activated Charcoal", "Plywood", "Luck", "Profit", "Write-off")]"
 	..()
 
 /obj/machinery/computer/shuttle_control/explore/terminal/orion_miner
