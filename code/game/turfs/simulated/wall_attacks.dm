@@ -60,7 +60,7 @@
 
 
 /turf/simulated/wall/attack_hand(var/mob/user)
-
+	. = ..()
 	radiate()
 	add_fingerprint(user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)

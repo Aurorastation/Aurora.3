@@ -52,10 +52,10 @@
 			if(D.canmove && D!=A && prob(20))
 				block = 1
 
-	if (D.grabbed_by.len)
+	if (LAZYLEN(D.grabbed_by))
 		rand_damage = max(1, rand_damage - 2)
 
-	if(D.grabbed_by.len || D.buckled_to || !D.canmove || D==A)
+	if(LAZYLEN(D.grabbed_by) || D.buckled_to || !D.canmove || D==A)
 		accurate = 1
 		rand_damage = 5
 
@@ -63,7 +63,7 @@
 	var/attack_message
 	if(!accurate)
 		if(prob(80))
-			hit_zone = ran_zone(hit_zone)
+			hit_zone = ran_zone(D, hit_zone)
 		if(prob(15) && hit_zone != BP_CHEST) // Missed!
 			if(!D.lying)
 				attack_message = "[A] attempted to strike [D], but missed!"

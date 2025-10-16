@@ -8,9 +8,7 @@
 	standard 0 if fail
 */
 
-/mob/living/proc/apply_damage(damage = 0, damagetype = DAMAGE_BRUTE, def_zone, used_weapon, damage_flags = 0, armor_pen, silent = FALSE)
-	SHOULD_NOT_SLEEP(TRUE)
-
+/mob/living/apply_damage(damage = 0, damagetype = DAMAGE_BRUTE, def_zone, used_weapon, damage_flags = 0, armor_pen, silent = FALSE)
 	if(!damage)
 		return FALSE
 
@@ -60,8 +58,7 @@
  *
  * Returns `TRUE` if the effect was applied, `FALSE` otherwise
  */
-/mob/living/proc/apply_effect(effect = 0, effect_type = STUN, blocked = 0)
-	SHOULD_NOT_SLEEP(TRUE)
+/mob/living/apply_effect(effect = 0, effect_type = STUN, blocked = 0)
 
 	//Check that noone fucked up the vars
 	if(!isnum(effect))

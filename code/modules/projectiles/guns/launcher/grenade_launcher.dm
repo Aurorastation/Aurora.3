@@ -89,7 +89,7 @@
 		..()
 
 /obj/item/gun/launcher/grenade/attack_hand(mob/user)
-	if(user.get_inactive_hand() == src)
+	if(user.is_holding_offhand(src))
 		unload(user)
 	else
 		..()

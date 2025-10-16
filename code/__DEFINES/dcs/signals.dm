@@ -61,6 +61,8 @@
 /// updates sprites
 #define COMSIG_ITEM_ICON_UPDATE "icon_update"
 
+#define COMSIG_ORGAN_DISMEMBERED "organ_dismembered"
+
 // tgui signals
 #define COMSIG_TGUI_CLOSE "tgui_close"
 

@@ -797,6 +797,7 @@
 		..()
 
 /mob/living/silicon/robot/attack_hand(mob/user)
+	. = ..()
 	add_fingerprint(user)
 
 	if(istype(user,/mob/living/carbon/human))

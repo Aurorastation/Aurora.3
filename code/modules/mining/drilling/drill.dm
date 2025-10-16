@@ -383,6 +383,7 @@
 	return
 
 /obj/machinery/mining/drill/attack_hand(mob/user)
+	. = ..()
 	check_supports()
 
 	if(need_player_check)

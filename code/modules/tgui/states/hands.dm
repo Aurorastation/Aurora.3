@@ -20,7 +20,7 @@ GLOBAL_DATUM_INIT(hands_state, /datum/ui_state/hands_state, new)
 	return UI_CLOSE
 
 /mob/living/hands_can_use_topic(src_object)
-	if(get_active_hand() == src_object || get_inactive_hand() == src_object)
+	if(src_object in get_held_items())
 		return UI_INTERACTIVE
 	return UI_CLOSE
 

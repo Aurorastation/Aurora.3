@@ -296,8 +296,8 @@
 	icon_type = "cigarette"
 	storage_type = "packet"
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_cigs_lighters.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_cigs_lighters.dmi',
+		BP_L_HAND = 'icons/mob/items/lefthand_cigs_lighters.dmi',
+		BP_R_HAND = 'icons/mob/items/righthand_cigs_lighters.dmi',
 		)
 	contained_sprite = FALSE // makes cigarette packets actually visible in hand
 	drop_sound = 'sound/items/drop/gloves.ogg'
@@ -368,7 +368,7 @@
 				to_chat(target_mob, SPAN_WARNING("\The [user] moved too far away."))
 				return
 		remove_from_storage(cig, get_turf(target_mob))
-		target_mob.equip_to_slot_if_possible(cig, slot_wear_mask)
+		target_mob.equip_to_slot_if_possible(cig, slot_wear_mask_str)
 		target_mob.visible_message(SPAN_NOTICE("<b>[target_mob]</b> casually pulls out a [icon_type] from \the [src] with [target_mob.get_pronoun("his")] mouth."), SPAN_NOTICE("You casually pull out a [icon_type] from \the [src] with your mouth."), range = 3)
 		update_icon()
 		return
@@ -647,7 +647,7 @@
 		return
 
 	if( boxes.len > 0 )
-		if( user.get_inactive_hand() != src )
+		if( !user.is_holding_offhand(src) )
 			..()
 			return
 

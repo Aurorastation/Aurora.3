@@ -94,7 +94,7 @@
 			var/mob/living/carbon/human/H = get_human(parent)
 			hooded = TRUE
 			update_icon(H)
-			H.equip_to_slot_if_possible(src,slot_head,0,0,1)
+			H.equip_to_slot_if_possible(src,slot_head_str,0,0,1)
 			usr.visible_message(SPAN_NOTICE("[usr] pulls up the hood on \the [src]."))
 	else
 		RemoveHood(parent)

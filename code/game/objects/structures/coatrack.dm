@@ -10,6 +10,7 @@
 	var/list/custom_sprites = list(/obj/item/clothing/head/beret/security, /obj/item/clothing/accessory/poncho/tajarancloak)
 
 /obj/structure/coatrack/attack_hand(mob/user as mob)
+	. = ..()
 	if(use_check_and_message(user))
 		return
 	add_fingerprint(user)

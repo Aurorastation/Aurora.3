@@ -105,6 +105,7 @@
 
 
 /obj/machinery/gateway/centerstation/attack_hand(mob/user as mob)
+	. = ..()
 	if(!ready)
 		detect()
 		return
@@ -213,6 +214,7 @@
 
 
 /obj/machinery/gateway/centeraway/attack_hand(mob/user as mob)
+	. = ..()
 	if(!ready)
 		detect()
 		return

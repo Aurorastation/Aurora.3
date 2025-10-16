@@ -560,7 +560,8 @@
 
 
 /obj/machinery/computer/bluespacedrive/attack_hand(mob/user)
-		ui_interact(user)
+	. = ..()
+	ui_interact(user)
 
 /// Signal handler for when the linked bluespace drive is deleted
 /obj/machinery/computer/bluespacedrive/proc/handle_drive_deletion()

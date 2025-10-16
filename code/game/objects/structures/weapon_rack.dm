@@ -27,6 +27,7 @@
 		to_chat(user, SPAN_NOTICE("[attacking_item] does not fit on \the [src]."))
 
 /obj/structure/weapon_rack/attack_hand(mob/user)
+	. = ..()
 	if(isrobot(user))
 		return
 	if (!user.can_use_hand())

@@ -185,6 +185,7 @@
 	. = ..()
 
 /obj/structure/barricade/plasteel/attack_hand(mob/user as mob)
+	. = ..()
 	if(closed)
 		if(recentlyflipped)
 			to_chat(user, SPAN_NOTICE("\The [src] has been flipped too recently!"))

@@ -318,6 +318,7 @@
 	return src.attack_hand(user)
 
 /obj/machinery/chem_master/attack_hand(mob/user as mob)
+	. = ..()
 	if(!operable())
 		return
 	user.set_machine(src)
@@ -431,6 +432,7 @@
 	interact(user)
 
 /obj/machinery/reagentgrinder/attack_hand(mob/user as mob)
+	. = ..()
 	interact(user)
 
 /obj/machinery/reagentgrinder/interact(mob/user as mob) // The microwave Menu

@@ -94,6 +94,14 @@
 
 	// Check for multi-surgery drifting.
 	var/zone = user.zone_sel.selecting
+
+	if(ishuman(M))
+		var/mob/living/carbon/human/H = M
+		if(length(LAZYACCESS(H.species.limb_mapping, zone)) > 1)
+			zone = tgui_input_list(user, "Which bodypart do you wish to operate on?", "Non-standard surgery", H.species.limb_mapping[zone])
+			if(!zone)
+				return FALSE
+
 	if(zone in M.op_stage.in_progress)
 		to_chat(user, SPAN_WARNING("You can't operate on this area while surgery is already in progress."))
 		return TRUE

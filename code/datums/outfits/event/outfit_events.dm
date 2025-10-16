@@ -160,7 +160,7 @@
 			/obj/item/grenade/flashbang = 2
 	)
 
-	l_hand = /obj/item/gun/projectile/shotgun/pump/combat/sol
+	hands = list(/obj/item/gun/projectile/shotgun/pump/combat/sol)
 
 	accessory = /obj/item/clothing/accessory/storage/bandolier
 	accessory_contents = list(/obj/item/ammo_casing/shotgun = 8,

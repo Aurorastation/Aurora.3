@@ -1,6 +1,6 @@
 ABSTRACT_TYPE(/datum/gear/pants)
 	sort_category = "Skirts and Trousers" //wikipedia definition puts shorts under trousers category, so.
-	slot = slot_pants
+	slot = slot_pants_str
 
 /datum/gear/pants/trousers
 	display_name = "pants and shorts selection"

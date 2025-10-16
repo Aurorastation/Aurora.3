@@ -66,14 +66,14 @@
 /obj/outfit/job/chief_engineer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(istajara(H))
-		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/workboots/toeless(H), slot_shoes)
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/yellow/specialt(H), slot_gloves)
+		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/workboots/toeless(H), slot_shoes_str)
+		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/yellow/specialt(H), slot_gloves_str)
 	else if(isunathi(H))
-		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/workboots/toeless(H), slot_shoes)
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/yellow/specialu(H), slot_gloves)
+		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/workboots/toeless(H), slot_shoes_str)
+		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/yellow/specialu(H), slot_gloves_str)
 	else
-		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/workboots(H), slot_shoes)
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/yellow(H), slot_gloves)
+		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/workboots(H), slot_shoes_str)
+		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/yellow(H), slot_gloves_str)
 
 /datum/job/engineer
 	title = "Engineer"
@@ -142,11 +142,11 @@
 /obj/outfit/job/engineer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(istajara(H))
-		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/workboots/toeless(H), slot_shoes)
+		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/workboots/toeless(H), slot_shoes_str)
 	else if(isunathi(H))
-		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/workboots/toeless(H), slot_shoes)
+		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/workboots/toeless(H), slot_shoes_str)
 	else
-		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/workboots(H), slot_shoes)
+		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/workboots(H), slot_shoes_str)
 
 /datum/job/atmos
 	title = "Atmospheric Technician"
@@ -215,11 +215,11 @@
 /obj/outfit/job/atmos/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(istajara(H))
-		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/workboots/toeless(H), slot_shoes)
+		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/workboots/toeless(H), slot_shoes_str)
 	else if(isunathi(H))
-		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/workboots/toeless(H), slot_shoes)
+		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/workboots/toeless(H), slot_shoes_str)
 	else
-		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/workboots(H), slot_shoes)
+		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/workboots(H), slot_shoes_str)
 
 /datum/job/intern_eng
 	title = "Engineering Apprentice"

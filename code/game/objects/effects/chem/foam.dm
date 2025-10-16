@@ -179,6 +179,7 @@
 		qdel(src)
 
 /obj/structure/foamedmetal/attack_hand(var/mob/user)
+	. = ..()
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	user.do_attack_animation(src, FIST_ATTACK_ANIMATION)
 	if ((user.mutations & HULK) || (prob(75 - metal * 25)))
@@ -188,21 +189,25 @@
 		to_chat(user, SPAN_NOTICE("You hit the metal foam but bounce off it."))
 		shake_animation()
 
+/obj/structure/foamedmetal/grab_attack(obj/item/grab/G, mob/user)
+	var/mob/living/M = G.get_grabbed_mob()
+	if(!istype(M))
+		return FALSE
+
+	if(!G.has_grab_flags(GRAB_FORCE_HARM))
+		to_chat(user, SPAN_WARNING("You need a stronger grip to do that!"))
+		return FALSE
+
+	M.forceMove(src.loc)
+	visible_message(SPAN_WARNING("[G.grabber] smashes [G.grabbed] through \the [name] wall!"))
+	M.take_overall_damage(15)
+	qdel(G)
+	qdel(src)
+	return TRUE
+
 /obj/structure/foamedmetal/attackby(obj/item/attacking_item, mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	if(istype(attacking_item, /obj/item/grab))
-		var/obj/item/grab/G = attacking_item
-		if(G.state < GRAB_AGGRESSIVE)
-			to_chat(user, SPAN_WARNING("You need a stronger grip to do that!"))
-			return TRUE
-		G.affecting.forceMove(src.loc)
-		visible_message(SPAN_WARNING("[G.assailant] smashes [G.affecting] through the foamed metal wall."))
-		G.affecting.take_overall_damage(15)
-		qdel(attacking_item)
-		qdel(src)
-		return TRUE
-
-	else if(istype(attacking_item, /obj/item/stack/material))
+	if(istype(attacking_item, /obj/item/stack/material))
 		var/obj/item/stack/material/S = attacking_item
 		if(S.get_amount() < 4)
 			to_chat(user, SPAN_NOTICE("There isn't enough material here to construct a wall."))

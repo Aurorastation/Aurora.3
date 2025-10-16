@@ -53,6 +53,7 @@
 	return ..()
 
 /obj/singularity/attack_hand(mob/user as mob)
+	SHOULD_CALL_PARENT(FALSE)
 	consume(user)
 	return 1
 

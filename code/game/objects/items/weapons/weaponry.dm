@@ -87,6 +87,7 @@
 	health_check()
 
 /obj/effect/energy_net/attack_hand(var/mob/user)
+	. = ..()
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	user.do_attack_animation(src, FIST_ATTACK_ANIMATION)
 	if(user == affecting)

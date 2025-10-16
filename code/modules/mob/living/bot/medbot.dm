@@ -137,6 +137,7 @@
 		icon_state = "medibot[on]"
 
 /mob/living/bot/medbot/attack_hand(var/mob/user)
+	. = ..()
 	if (!has_ui_access(user))
 		to_chat(user, SPAN_WARNING("The unit's interface refuses to unlock!"))
 		return

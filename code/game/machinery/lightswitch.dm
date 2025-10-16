@@ -48,6 +48,7 @@
 		set_light(FALSE)
 
 /obj/machinery/light_switch/attack_hand(mob/user)
+	. = ..()
 	playsound(src, /singleton/sound_category/switch_sound, 30)
 	on = !on
 	sync_lights()

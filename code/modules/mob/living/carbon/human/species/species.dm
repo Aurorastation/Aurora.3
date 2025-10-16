@@ -114,6 +114,8 @@
 	var/blood_volume = DEFAULT_BLOOD_AMOUNT // Blood volume.
 	var/injection_mod = 1                    // Multiplicative time modifier on syringe injections
 
+	var/grab_type = /singleton/grab/normal/passive // The species' default grab type.
+
 	var/vision_flags = DEFAULT_SIGHT         // Same flags as glasses.
 	var/inherent_eye_protection              // If set, this species has this level of inherent eye protection.
 	var/eyes_are_impermeable = FALSE         // If TRUE, this species' eyes are not damaged by phoron.
@@ -303,6 +305,9 @@
 		BP_L_FOOT = list("path" = /obj/item/organ/external/foot),
 		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right)
 		)
+
+	/// An associative list of target zones (ex. BP_CHEST, BP_MOUTH) mapped to all possible keys associated. Used for non-standard organs like extra arms.
+	var/list/limb_mapping
 
 	var/list/natural_armor
 
@@ -969,3 +974,6 @@
  */
 /datum/species/proc/sleep_examine_msg(var/mob/M)
 	return SPAN_NOTICE("[M.get_pronoun("He")] appears to be fast asleep.\n")
+
+/datum/species/proc/get_limb_from_zone(var/limb)
+	. = length(LAZYACCESS(limb_mapping, limb)) ? pick(limb_mapping[limb]) : limb

@@ -97,6 +97,7 @@
 		AddOverlays("[icon_state]_lights")
 
 /obj/machinery/power/emitter/attack_hand(mob/user)
+	. = ..()
 	add_fingerprint(user)
 	activate(user)
 

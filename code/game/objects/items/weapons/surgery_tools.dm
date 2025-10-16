@@ -264,6 +264,7 @@
 	update_icon()
 
 /obj/item/storage/box/fancy/tray/attack_hand(mob/user as mob)
+	. = ..()
 	if(ishuman(user))
 		src.open(user)
 

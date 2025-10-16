@@ -4,9 +4,6 @@
 	icon = 'icons/obj/lighting.dmi'
 	anchored = TRUE
 
-/obj/item/hullbeacon/attack_hand(mob/user)
-	return
-
 /obj/item/hullbeacon/red
 	name = "red hull beacon"
 	desc = "A red, light-emitting hull beacon."

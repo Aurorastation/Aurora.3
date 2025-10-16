@@ -175,8 +175,8 @@
 			if(ishuman(victim) && !islesserform(M))
 				to_chat(src, SPAN_WARNING("You can't devour humanoids!"))
 				return FALSE
-			for(var/obj/item/grab/G in M.grabbed_by)
-				if(G && G.state < GRAB_NECK)
+			for(var/obj/item/grab/G as anything in M.grabbed_by)
+				if(!G.has_grab_flags(GRAB_RESTRAINS))
 					if(!silent)
 						to_chat(src, SPAN_WARNING("You need a tighter hold on \the [M]!"))
 					return FALSE
@@ -209,8 +209,9 @@
 
 	/// This needs to be updated to use signals.
 	var/holding_gps = FALSE
-	if(istype(src.get_active_hand(), /obj/item/device/gps) || istype(src.get_inactive_hand(), /obj/item/device/gps))
+	for(var/obj/item/device/gps in get_held_items())
 		holding_gps = TRUE
+		break
 
 	var/area/A = get_area(src)
 	var/area_name
@@ -362,16 +363,18 @@
 
 	for(var/entry in species.hud.gear)
 		var/list/slot_ref = species.hud.gear[entry]
-		if((slot_ref["slot"] in list(slot_l_store, slot_r_store)))
+		if((slot_ref["slot"] in list(slot_l_store_str, slot_r_store_str)))
 			continue
 		var/obj/item/thing_in_slot = get_equipped_item(slot_ref["slot"])
 		dat += "<BR><B>[slot_ref["name"]]:</b> <a href='byond://?src=[REF(src)];item=[slot_ref["slot"]]'>[istype(thing_in_slot) ? thing_in_slot : "nothing"]</a>"
 
 	dat += "<BR><HR>"
 
-	if(species.hud.has_hands)
-		dat += "<BR><b>Left hand:</b> <A href='byond://?src=[REF(src)];item=[slot_l_hand]'>[istype(l_hand) ? l_hand : "nothing"]</A>"
-		dat += "<BR><b>Right hand:</b> <A href='byond://?src=[REF(src)];item=[slot_r_hand]'>[istype(r_hand) ? r_hand : "nothing"]</A>"
+	for(var/hand in held_item_slots)
+		var/obj/item/organ/external/E = get_organ(hand)
+		var/obj/item/held = get_equipped_item(hand)
+		if(istype(E))
+			dat += "<BR><b>[capitalize_first_letters(E)]:</b> <A href='byond://?src=[REF(src)];item=[hand]'>[istype(held) ? held : "nothing"]</A>"
 
 	var/has_mask // 0, no mask | 1, mask but it's down | 2, mask and it's ready
 	var/has_helmet
@@ -394,9 +397,9 @@
 	if(istype(suit) && suit.has_sensor == 1)
 		dat += "<BR><A href='byond://?src=[REF(src)];item=sensors'>Set sensors</A>"
 	if(handcuffed)
-		dat += "<BR><A href='byond://?src=[REF(src)];item=[slot_handcuffed]'>Handcuffed</A>"
+		dat += "<BR><A href='byond://?src=[REF(src)];item=[slot_handcuffed_str]'>Handcuffed</A>"
 	if(legcuffed)
-		dat += "<BR><A href='byond://?src=[REF(src)];item=[slot_legcuffed]'>Legcuffed</A>"
+		dat += "<BR><A href='byond://?src=[REF(src)];item=[slot_legcuffed_str]'>Legcuffed</A>"
 
 	if(has_mask)
 		var/obj/item/clothing/mask/M = wear_mask
@@ -527,12 +530,12 @@
 	if(!(ground_zero in damage_areas))
 		damage_areas.Add(ground_zero) //sucks to suck, get more zappy time bitch
 
-	var/obj/item/organ/external/contact = get_organ(check_zone(ground_zero))
+	var/obj/item/organ/external/contact = get_organ(check_zone(ground_zero, src))
 	shock_damage *= get_siemens_coefficient_organ(contact)
 
 	var/obj/item/organ/external/affecting
 	for (var/area in damage_areas)
-		affecting = get_organ(check_zone(area))
+		affecting = get_organ(check_zone(area, src))
 		var/emp_damage
 		switch(shock_damage)
 			if(-INFINITY to 5)
@@ -904,7 +907,7 @@
 
 	var/obj/item/organ/affecting = internal_organs_by_name[brain_tag]
 
-	target_zone = check_zone(target_zone)
+	target_zone = check_zone(target_zone, src)
 	if(!affecting || affecting.parent_organ != target_zone)
 		return 0
 
@@ -966,7 +969,11 @@
 			xylophone=0
 	return
 
-/mob/living/carbon/human/proc/check_has_mouth()
+/mob/living/carbon/human/check_has_eyes()
+	var/obj/item/organ/internal/eyes = GET_INTERNAL_ORGAN(src, BP_EYES)
+	. = eyes?.is_usable()
+
+/mob/living/carbon/human/check_has_mouth()
 	// Todo, check stomach organ when implemented.
 	var/obj/item/organ/external/E = get_organ(BP_HEAD)
 	if(E && !E.is_stump())

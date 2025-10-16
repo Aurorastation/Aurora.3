@@ -137,6 +137,7 @@
 	anchored = TRUE
 
 /obj/machinery/teleport_odyssey/attack_hand(mob/user)
+	. = ..()
 	// find valid POIs for the odyssey scenario site
 	var/list/obj/effect/landmark/minimap_poi/possible_pois = list()
 	for(var/obj/effect/landmark/minimap_poi/poi in SSholomap.pois)

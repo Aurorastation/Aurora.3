@@ -120,7 +120,7 @@
 	var/suit_temp = T20C
 
 /obj/item/clothing/suit/bomb_suit/equipped(var/mob/user, var/slot)
-	if (slot == slot_wear_suit)
+	if (slot == slot_wear_suit_str)
 		var/mob/living/carbon/human/H = user
 		H.visible_message(SPAN_NOTICE("[H] starts putting on \the [src]..."),
 							SPAN_NOTICE("You start putting on \the [src]..."))

@@ -9,11 +9,11 @@
 
 /obj/item/organ/external/arm/unbreakable
 	dislocated = -1
-	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_GRASP
+	limb_flags = ORGAN_CAN_AMPUTATE
 
 /obj/item/organ/external/arm/right/unbreakable
 	dislocated = -1
-	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_GRASP
+	limb_flags = ORGAN_CAN_AMPUTATE
 
 /obj/item/organ/external/leg/unbreakable
 	dislocated = -1
@@ -33,11 +33,11 @@
 
 /obj/item/organ/external/hand/unbreakable
 	dislocated = -1
-	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_GRASP
+	limb_flags = ORGAN_CAN_AMPUTATE
 
 /obj/item/organ/external/hand/right/unbreakable
 	dislocated = -1
-	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_GRASP
+	limb_flags = ORGAN_CAN_AMPUTATE
 
 /obj/item/organ/external/head/unbreakable
 	dislocated = -1

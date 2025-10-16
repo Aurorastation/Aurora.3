@@ -199,12 +199,14 @@ a creative player the means to solve many problems.  Circuits are held inside an
 		linked = locate(href_list["link"]) in pin.linked
 
 	var/obj/held_item = usr.get_active_hand()
-	var/obj/off_hand = usr.get_inactive_hand()
 	var/obj/item/device/multitool/M
 	if(held_item?.ismultitool())
 		M = held_item
-	if(!M && off_hand?.ismultitool())
-		M = off_hand
+	else
+		for(var/obj/item/I in usr.get_inactive_held_items())
+			if (I.ismultitool())
+				M = I
+				break
 	if(M?.tracking_apc)
 		to_chat(usr, SPAN_WARNING("\The [M]'s smart tracking is enabled! Disable it to regain I/O functionality."))
 		return TRUE

@@ -56,7 +56,7 @@
 	A.do_attack_animation(D)
 	A.visible_message(SPAN_DANGER("[A] lunges forwards and strikes [D] with their claws!"))
 	playsound(get_turf(A), 'sound/weapons/slice.ogg', 50, 1, -1)
-	var/obj/item/organ/external/affecting = D.get_organ(ran_zone(A.zone_sel.selecting))
+	var/obj/item/organ/external/affecting = D.get_organ(ran_zone(D, A.zone_sel.selecting))
 	D.apply_damage(20, DAMAGE_BRUTE, affecting, damage_flags = DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE)
 	if(prob(20))
 		D.apply_effect(4, WEAKEN)

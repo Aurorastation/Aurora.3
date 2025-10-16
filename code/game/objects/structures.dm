@@ -57,6 +57,9 @@
 
 	return ..()
 
+/obj/structure/CanMoveOnto(atom/movable/mover, turf/target, height=1.5, direction = 0)
+	return ..() || (direction == DOWN && climbable)
+
 /obj/structure/ex_act(severity)
 	switch(severity)
 		if(1.0)
@@ -237,3 +240,56 @@
 
 /obj/structure/get_material()
 	return material
+
+/obj/structure/grab_attack(obj/item/grab/G, mob/user)
+	if (!G.has_grab_flags(GRAB_FORCE_HARM))
+		to_chat(user, SPAN_WARNING("You need a better grip to do that!"))
+		return TRUE
+
+	var/mob/living/victim = G.get_grabbed_mob()
+	if(user.a_intent == I_HURT)
+
+		if(!istype(victim))
+			to_chat(user, SPAN_WARNING("You need to be grabbing a living creature to do that!"))
+			return TRUE
+
+		// Slam their face against the table.
+		var/blocked = victim.get_blocked_ratio(BP_HEAD, DAMAGE_BRUTE, damage = 8)
+		if (prob(30 * (1 - blocked)))
+			victim.Weaken(5)
+
+		victim.apply_damage(8, DAMAGE_BRUTE, BP_HEAD)
+		visible_message(SPAN_DANGER("[user] slams [victim]'s face against \the [src]!"))
+		var/shard_count = 0
+		for(var/obj/item/material/shard/S in get_turf(src))
+			if(S.sharp && prob(50))
+				shard_count++
+			if(shard_count == 1) // this is so we only message once
+				victim.visible_message(SPAN_DANGER("\The [S] slices [victim]'s face messily!"),
+									SPAN_DANGER("\The [S] slices your face messily!"))
+			if(shard_count >= 3)
+				break
+		if(shard_count > 0)
+			victim.apply_damage(10 * shard_count, DAMAGE_BRUTE, BP_HEAD)
+		if (material)
+			playsound(loc, material.tableslam_noise, 50, 1)
+		else
+			playsound(loc, 'sound/weapons/tablehit1.ogg', 50, 1)
+		qdel(G)
+		return TRUE
+	else if(can_buckle && !buckled && istype(victim) && istype(user))
+		user.visible_message(SPAN_NOTICE("\The [user] attempts to put \the [victim] onto \the [src]!"))
+		if(do_after(user, 2 SECONDS, src) && !QDELETED(victim) && !QDELETED(user) && !QDELETED(G) && user_buckle(victim, user))
+			qdel(G)
+		return TRUE
+	else if(climbable)
+		var/obj/occupied = turf_is_crowded()
+		if (occupied)
+			to_chat(user, SPAN_WARNING("There's \a [occupied] in the way."))
+			return TRUE
+		G.grabbed.forceMove(src.loc)
+		if(victim)
+			victim.Weaken(rand(2, 5))
+		visible_message(SPAN_DANGER("\The [user] puts \the [G.grabbed] on \the [src]."))
+		qdel(G)
+		return TRUE

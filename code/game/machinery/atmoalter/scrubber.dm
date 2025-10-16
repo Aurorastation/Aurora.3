@@ -5,6 +5,7 @@
 	icon_state = "pscrubber:0"
 	density = TRUE
 	w_class = WEIGHT_CLASS_NORMAL
+	movable_flags = MOVABLE_FLAG_WHEELED
 
 	var/on = FALSE
 	var/volume_rate = 800
@@ -104,8 +105,8 @@
 	return src.attack_hand(user)
 
 /obj/machinery/portable_atmospherics/powered/scrubber/attack_hand(var/mob/user)
+	. = ..()
 	ui_interact(user)
-	return
 
 /obj/machinery/portable_atmospherics/powered/scrubber/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
@@ -176,7 +177,8 @@
 	name = "[name] (ID [id])"
 
 /obj/machinery/portable_atmospherics/powered/scrubber/huge/attack_hand(var/mob/user as mob)
-		to_chat(usr, SPAN_NOTICE("You can't directly interact with this machine. Use the scrubber control console."))
+	. = ..()
+	to_chat(usr, SPAN_NOTICE("You can't directly interact with this machine. Use the scrubber control console."))
 
 /obj/machinery/portable_atmospherics/powered/scrubber/huge/update_icon()
 	src.overlays = 0

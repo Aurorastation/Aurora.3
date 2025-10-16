@@ -73,7 +73,8 @@ ABSTRACT_TYPE(/obj/machinery/howitzer)
 	set_dir(NORTH)
 
 /obj/machinery/howitzer/attack_hand(mob/user)
-		ui_interact(user)
+	. = ..()
+	ui_interact(user)
 
 /obj/machinery/howitzer/AltClick(mob/user)
 	if(ishuman(user))

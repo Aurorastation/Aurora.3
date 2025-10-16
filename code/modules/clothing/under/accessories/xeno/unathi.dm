@@ -36,7 +36,7 @@
 		body_parts_covered = 0
 		item_state = "sinta_hood"
 		to_chat(usr, SPAN_NOTICE("You flip \the [src] down."))
-	update_worn_icon()
+	usr.update_inv_head()
 	update_clothing_icon()
 	update_icon()
 	if(ishuman(usr))

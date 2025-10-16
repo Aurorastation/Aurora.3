@@ -260,9 +260,10 @@
 
 	. = ..()
 
-/mob/living/simple_animal/schlorrgo/attempt_grab(var/mob/living/grabber)
+/mob/living/simple_animal/schlorrgo/handle_grab_interaction(mob/user)
+	. = ..()
 	if(current_size >= WIDE_SCHLORRGO)
-		to_chat(grabber, SPAN_WARNING("\The [src] is too large to grab!"))
+		to_chat(user, SPAN_WARNING("\The [src] is too large to grab!"))
 		return FALSE
 	else
 		return TRUE

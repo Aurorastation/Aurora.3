@@ -1,7 +1,7 @@
 /datum/gear/faction
 	display_name = "idris advanced service cloth"
 	path = /obj/item/reagent_containers/glass/rag/advanced/idris
-	slot = slot_in_backpack
+	slot = slot_in_backpack_str
 	sort_category = "Factions"
 	cost = 1
 	faction = "Idris Incorporated"
@@ -10,7 +10,7 @@
 	display_name = "idris headwear selection"
 	description = "A selection of idris headwear."
 	path = /obj/item/clothing/head/softcap/idris
-	slot = slot_head
+	slot = slot_head_str
 	faction = "Idris Incorporated"
 
 /datum/gear/faction/idris_headwear/New()
@@ -28,7 +28,7 @@
 	display_name = "idris security uniform selection"
 	description = "A selection of idris security uniforms."
 	path = /obj/item/clothing/under/rank/security/idris/idrissec
-	slot = slot_w_uniform
+	slot = slot_w_uniform_str
 	faction = "Idris Incorporated"
 	allowed_roles = list("Security Cadet", "Security Officer", "Investigator", "Warden", "Security Personnel")
 
@@ -44,25 +44,25 @@
 	display_name = "idris hospitality dress"
 	description = "A snazzy teal dress typically worn by Idris service staff."
 	path = /obj/item/clothing/under/dress/idris
-	slot = slot_w_uniform
+	slot = slot_w_uniform_str
 	faction = "Idris Incorporated"
 
 /datum/gear/faction/idris_armband
 	display_name = "idris armband"
 	path = /obj/item/clothing/accessory/armband/idris
-	slot = slot_tie
+	slot = slot_tie_str
 	faction = "Idris Incorporated"
 
 /datum/gear/faction/idris_passcard
 	display_name = "idris silversun passcard"
 	path = /obj/item/clothing/accessory/badge/passcard/sol/silversun
-	slot = slot_tie
+	slot = slot_tie_str
 	faction = "Idris Incorporated"
 
 /datum/gear/faction/idris_custodialjumpsuit
 	display_name = "idris custodial jumpsuit, alternative"
 	path = /obj/item/clothing/under/rank/janitor/idris/alt
-	slot = slot_w_uniform
+	slot = slot_w_uniform_str
 	cost = 1
 	faction = "Idris Incorporated"
 	allowed_roles = list("Janitor", "Service Personnel")
@@ -71,7 +71,7 @@
 	display_name = "idris security HUD selection"
 	description = "A selection of Idris security HUDs."
 	path = /obj/item/clothing/glasses/sunglasses/sechud/idris
-	slot = slot_glasses
+	slot = slot_glasses_str
 	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Investigator", "Security Personnel")
 	faction = "Idris Incorporated"
 
@@ -88,7 +88,7 @@
 	display_name = "idris coat selection"
 	description = "A selection of Idris coats."
 	path = /obj/item/clothing/suit/storage/toggle/labcoat/idris
-	slot = slot_wear_suit
+	slot = slot_wear_suit_str
 	faction = "Idris Incorporated"
 
 /datum/gear/faction/idris_labcoat/New()
@@ -110,7 +110,7 @@
 	display_name = "idris security coat selection"
 	description = "A selection of Idris security coats."
 	path = /obj/item/clothing/suit/storage/security/officer/idris
-	slot = slot_wear_suit
+	slot = slot_wear_suit_str
 	faction = "Idris Incorporated"
 
 /datum/gear/faction/idris_sec_coat/New()
@@ -124,7 +124,7 @@
 	display_name = "idris security sleeve patch"
 	path = /obj/item/clothing/accessory/sleevepatch/idrissec
 	faction = "Idris Incorporated"
-	slot = slot_tie
+	slot = slot_tie_str
 	allowed_roles = list("Head of Security", "Warden", "Investigator", "Security Officer", "Security Cadet", "Security Personnel")
 
 //Zavodskoi
@@ -132,7 +132,7 @@
 	display_name = "zavodskoi headwear selection"
 	description = "A selection of zavodskoi headwear."
 	path = /obj/item/clothing/head/softcap/zavod
-	slot = slot_head
+	slot = slot_head_str
 	faction = "Zavodskoi Interstellar"
 
 /datum/gear/faction/zavodskoi_headwear/New()
@@ -152,7 +152,7 @@
 	display_name = "zavodskoi security uniform selection"
 	description = "A selection of zavodskoi security uniforms."
 	path = /obj/item/clothing/under/rank/security/zavod/zavodsec
-	slot = slot_w_uniform
+	slot = slot_w_uniform_str
 	faction = "Zavodskoi Interstellar"
 	allowed_roles = list("Warden", "Investigator", "Security Officer", "Security Cadet", "Security Personnel")
 
@@ -168,7 +168,7 @@
 	display_name = "zavodskoi coat selection"
 	description = "A selection of Zavodskoi coats."
 	path = /obj/item/clothing/suit/storage/toggle/labcoat/zavodskoi
-	slot = slot_wear_suit
+	slot = slot_wear_suit_str
 	faction = "Zavodskoi Interstellar"
 
 /datum/gear/faction/zavodskoi_labcoat/New()
@@ -189,7 +189,7 @@
 	display_name = "zavodskoi security coat selection"
 	description = "A selection of Zavodskoi security coats."
 	path = /obj/item/clothing/suit/storage/security/officer/zav
-	slot = slot_wear_suit
+	slot = slot_wear_suit_str
 	faction = "Zavodskoi Interstellar"
 	allowed_roles = list("Head of Security", "Warden", "Investigator", "Security Officer", "Security Cadet", "Security Personnel")
 
@@ -204,7 +204,7 @@
 	display_name = "zavodskoi warden coat selection"
 	description = "A selection of Zavodskoi warden coats."
 	path = /obj/item/clothing/suit/storage/toggle/warden/zavod
-	slot = slot_wear_suit
+	slot = slot_wear_suit_str
 	faction = "Zavodskoi Interstellar"
 	allowed_roles = list("Head of Security", "Warden", "Security Personnel")
 
@@ -219,7 +219,7 @@
 	display_name = "zavodskoi security HUD selection"
 	description = "A selection of Zavodskoi security HUDs."
 	path = /obj/item/clothing/glasses/sunglasses/sechud/zavod
-	slot = slot_glasses
+	slot = slot_glasses_str
 	faction = "Zavodskoi Interstellar"
 	allowed_roles = list("Head of Security", "Warden", "Investigator", "Security Officer", "Security Cadet", "Security Personnel")
 
@@ -235,13 +235,13 @@
 /datum/gear/faction/zavodskoi_patch
 	display_name = "zavodskoi sleeve patch"
 	path = /obj/item/clothing/accessory/sleevepatch/zavodskoi
-	slot = slot_tie
+	slot = slot_tie_str
 	faction = "Zavodskoi Interstellar"
 
 /datum/gear/faction/zavodskoisec_patch
 	display_name = "zavodskoi security sleeve patch"
 	path = /obj/item/clothing/accessory/sleevepatch/zavodskoisec
-	slot = slot_tie
+	slot = slot_tie_str
 	faction = "Zavodskoi Interstellar"
 	allowed_roles = list("Head of Security", "Warden", "Investigator", "Security Officer", "Security Cadet", "Security Personnel")
 
@@ -277,7 +277,7 @@
 	display_name = "PMCG security HUD selection"
 	description = "A selection of PMCG security HUDs."
 	path = /obj/item/clothing/glasses/sunglasses/sechud/pmc
-	slot = slot_glasses
+	slot = slot_glasses_str
 	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Investigator", "Security Personnel")
 	faction = "Private Military Contracting Group"
 
@@ -298,7 +298,7 @@
 	display_name = "PMCG medical HUD selection"
 	description = "A selection of PMCG medical HUDs."
 	path = /obj/item/clothing/glasses/hud/health/aviator/pmc
-	slot = slot_glasses
+	slot = slot_glasses_str
 	allowed_roles = list("Physician", "Surgeon", "Chief Medical Officer", "Pharmacist", "Paramedic", "Psychiatrist", "Medical Intern", "Medical Personnel")
 	faction = "Private Military Contracting Group"
 
@@ -315,7 +315,7 @@
 	display_name = "PMCG/EPMC labcoat selection"
 	description = "A selection of PMCG/EPMC labcoats."
 	path = /obj/item/clothing/suit/storage/toggle/labcoat/pmc
-	slot = slot_wear_suit
+	slot = slot_wear_suit_str
 	faction = "Private Military Contracting Group"
 
 /datum/gear/faction/pmc_labcoat/New()
@@ -336,7 +336,7 @@
 	display_name = "PMCG security coat selection"
 	description = "A selection of PMCG security coats."
 	path = /obj/item/clothing/suit/storage/security/officer/pmc
-	slot = slot_wear_suit
+	slot = slot_wear_suit_str
 	faction = "Private Military Contracting Group"
 
 /datum/gear/faction/pmc_sec_coat/New()
@@ -350,7 +350,7 @@
 	display_name = "PMCG and EPMC headwear selection"
 	description = "A selection of PMCG and EPMC headwear."
 	path = /obj/item/clothing/head/softcap/pmc
-	slot = slot_head
+	slot = slot_head_str
 	faction = "Private Military Contracting Group"
 
 /datum/gear/faction/pmcg_headwear/New()
@@ -372,7 +372,7 @@
 	display_name = "PMCG modsuit"
 	description = "A modular PMCG fatigue jumpsuit."
 	path = /obj/item/clothing/under/pmc_modsuit
-	slot = slot_w_uniform
+	slot = slot_w_uniform_str
 	faction = "Private Military Contracting Group"
 
 /datum/gear/faction/pmc_modsuit/New()
@@ -432,7 +432,7 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 	display_name = "PMCG/EPMC security uniform selection"
 	description = "A selection of PMCG and EPMC security uniforms."
 	path = /obj/item/clothing/under/rank/security/pmc/epmc
-	slot = slot_w_uniform
+	slot = slot_w_uniform_str
 	faction = "Private Military Contracting Group"
 	allowed_roles = list("Security Cadet", "Security Officer", "Investigator", "Warden", "Security Personnel")
 
@@ -455,7 +455,7 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 /datum/gear/faction/kog_sec_uniform
 	display_name = "Kazarrhaldiye Operations Group security uniform"
 	path = /obj/item/clothing/under/rank/security/pmc/kog/uniform
-	slot = slot_w_uniform
+	slot = slot_w_uniform_str
 	faction = "Private Military Contracting Group"
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	allowed_roles = list("Security Officer", "Warden", "Head of Security", "Security Personnel")
@@ -463,7 +463,7 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 /datum/gear/faction/kog_jacket_officer
 	display_name = "Kazarrhaldiye Operations Group officer jacket"
 	path = /obj/item/clothing/suit/storage/toggle/armor/kog/officer
-	slot = slot_wear_suit
+	slot = slot_wear_suit_str
 	faction = "Private Military Contracting Group"
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	allowed_roles = list("Security Officer", "Security Personnel")
@@ -471,7 +471,7 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 /datum/gear/faction/kog_jacket_warden
 	display_name = "Kazarrhaldiye Operations Group warden jacket"
 	path = /obj/item/clothing/suit/storage/toggle/armor/kog/warden
-	slot = slot_wear_suit
+	slot = slot_wear_suit_str
 	faction = "Private Military Contracting Group"
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	allowed_roles = list("Warden", "Security Personnel")
@@ -479,7 +479,7 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 /datum/gear/faction/kog_jacket_commander
 	display_name = "Kazarrhaldiye Operations Group head of security jacket"
 	path = /obj/item/clothing/suit/storage/toggle/armor/kog/commander
-	slot = slot_wear_suit
+	slot = slot_wear_suit_str
 	faction = "Private Military Contracting Group"
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_MSAI)
 	allowed_roles = list("Head of Security", "Security Personnel")
@@ -487,7 +487,7 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 /datum/gear/faction/kog_tabs
 	display_name = "KOG Shoulder Tabs"
 	path = /obj/item/clothing/accessory/sleevepatch/kog
-	slot = slot_tie
+	slot = slot_tie_str
 	faction = "Private Military Contracting Group"
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 
@@ -502,13 +502,13 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 /datum/gear/faction/erisec_patch
 	display_name = "EPMC sleeve patch"
 	path = /obj/item/clothing/accessory/sleevepatch/erisec
-	slot = slot_tie
+	slot = slot_tie_str
 	faction = "Private Military Contracting Group"
 
 /datum/gear/faction/pmc_patch
 	display_name = "PMCG armband"
 	path = /obj/item/clothing/accessory/armband/pmc
-	slot = slot_tie
+	slot = slot_tie_str
 	faction = "Private Military Contracting Group"
 
 /datum/gear/faction/pmc_patch/New()
@@ -521,7 +521,7 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 /datum/gear/faction/epmc_uniform_phys_med
 	display_name = "PMCG physician uniform"
 	path = /obj/item/clothing/under/rank/medical/pmc/alt
-	slot = slot_w_uniform
+	slot = slot_w_uniform_str
 	faction = "Private Military Contracting Group"
 	allowed_roles = list("Physician", "Medical Personnel")
 
@@ -536,7 +536,7 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 /datum/gear/faction/epmc_uniform_pharm_med
 	display_name = "PMCG pharmacist uniform"
 	path = /obj/item/clothing/under/rank/medical/pharmacist/pmc/alt
-	slot = slot_w_uniform
+	slot = slot_w_uniform_str
 	faction = "Private Military Contracting Group"
 	allowed_roles = list("Pharmacist", "Medical Personnel")
 
@@ -550,7 +550,7 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 /datum/gear/faction/epmc_uniform_psych_med
 	display_name = "PMCG psychiatrist uniform"
 	path = /obj/item/clothing/under/rank/medical/psych/pmc/alt
-	slot = slot_w_uniform
+	slot = slot_w_uniform_str
 	faction = "Private Military Contracting Group"
 	allowed_roles = list("Psychiatrist", "Medical Personnel")
 
@@ -564,14 +564,14 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 /datum/gear/faction/epmc_uniform_intern_med
 	display_name = "PMCG medical intern uniform"
 	path = /obj/item/clothing/under/rank/medical/intern/pmc/alt
-	slot = slot_w_uniform
+	slot = slot_w_uniform_str
 	faction = "Private Military Contracting Group"
 	allowed_roles = list("Medical Intern", "Medical Personnel")
 
 /datum/gear/faction/kog_uniform_med
 	display_name = "Kazarrhaldiye Operations Group medical uniform"
 	path = /obj/item/clothing/under/rank/medical/pmc/kog/medical
-	slot = slot_w_uniform
+	slot = slot_w_uniform_str
 	faction = "Private Military Contracting Group"
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	allowed_roles = list("Medical Intern", "Paramedic","Physician","Surgeon", "Psychiatrist", "Medical Personnel")
@@ -579,7 +579,7 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 /datum/gear/faction/kog_jacket_med
 	display_name = "Kazarrhaldiye Operations Group medical jacket"
 	path = /obj/item/clothing/suit/storage/toggle/labcoat/kog
-	slot = slot_wear_suit
+	slot = slot_wear_suit_str
 	faction = "Private Military Contracting Group"
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	allowed_roles = list("Medical Intern", "Paramedic","Physician","Surgeon", "Psychiatrist", "Medical Personnel")
@@ -587,7 +587,7 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 /datum/gear/faction/epmc_uniform_para_med
 	display_name = "PMCG/EPMC paramedic uniform"
 	path = /obj/item/clothing/under/rank/medical/paramedic/pmc/epmc
-	slot = slot_w_uniform
+	slot = slot_w_uniform_str
 	faction = "Private Military Contracting Group"
 	allowed_roles = list("Paramedic", "Medical Personnel")
 
@@ -605,7 +605,7 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 	display_name = "wildlands flagpatch selection"
 	description = "A selection of flagpatches from the now defunct groups of the Human Wildlands."
 	path = /obj/item/clothing/accessory/flagpatch/fsf
-	slot = slot_tie
+	slot = slot_tie_str
 	faction = "Private Military Contracting Group"
 	flags = null
 
@@ -624,7 +624,7 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 	flags = GEAR_HAS_DESC_SELECTION
 	allowed_roles = list("Corporate Liaison")
 	faction = "Private Military Contracting Group"
-	slot = slot_w_uniform
+	slot = slot_w_uniform_str
 
 /datum/gear/faction/vekatak_res
 	display_name = "ve'katak phalanx reserve uniform"
@@ -632,7 +632,7 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 	flags = GEAR_HAS_DESC_SELECTION
 	allowed_roles = list("Assistant", "Off-Duty Crew Member")
 	faction = "Private Military Contracting Group"
-	slot = slot_w_uniform
+	slot = slot_w_uniform_str
 
 /datum/gear/faction/grupo_amapola_officer
 	display_name = "grupo amapola officer cap"
@@ -640,14 +640,14 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 	flags = GEAR_HAS_DESC_SELECTION
 	allowed_roles = list("Head of Security")
 	faction = "Private Military Contracting Group"
-	slot = slot_head
+	slot = slot_head_str
 
 //Zeng-Hu
 /datum/gear/faction/zenghu_beret
 	display_name = "zeng-hu headwear selection"
 	description = "A selection of Zeng-Hu headwear."
 	path = /obj/item/clothing/head/beret/corporate/zeng
-	slot = slot_head
+	slot = slot_head_str
 	faction = "Zeng-Hu Pharmaceuticals"
 
 /datum/gear/faction/zenghu_beret/New()
@@ -664,7 +664,7 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 /datum/gear/faction/zenghu_labcoat
 	display_name = "zeng-hu coat selection"
 	path = /obj/item/clothing/suit/storage/toggle/labcoat/zeng
-	slot = slot_wear_suit
+	slot = slot_wear_suit_str
 	faction = "Zeng-Hu Pharmaceuticals"
 
 /datum/gear/faction/zenghu_labcoat/New()
@@ -687,26 +687,26 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 /datum/gear/faction/zenghu_apron
 	display_name = "zeng-hu vinyl apron"
 	path = /obj/item/clothing/accessory/apron/surgery/zeng
-	slot = slot_wear_suit
+	slot = slot_wear_suit_str
 	faction = "Zeng-Hu Pharmaceuticals"
 
 /datum/gear/faction/zenghu_gloves
 	display_name = "zeng-hu vinyl gloves"
 	path = /obj/item/clothing/gloves/latex/nitrile/zeng
-	slot = slot_gloves
+	slot = slot_gloves_str
 	faction = "Zeng-Hu Pharmaceuticals"
 
 /datum/gear/faction/zenghu_cloak
 	display_name = "Zeng-Hu Nralakk Division cloak"
 	path = /obj/item/clothing/accessory/poncho/shouldercape/qeblak/zeng
-	slot = slot_wear_suit
+	slot = slot_wear_suit_str
 	faction = "Zeng-Hu Pharmaceuticals"
 
 /datum/gear/faction/zeng_medglasses
 	display_name = "Zeng-Hu medical HUD selection"
 	description = "A selection of Zeng-Hu medical HUDs."
 	path = /obj/item/clothing/glasses/hud/health/aviator/zeng
-	slot = slot_glasses
+	slot = slot_glasses_str
 	allowed_roles = list("Physician", "Surgeon", "Chief Medical Officer", "Pharmacist", "Paramedic", "Psychiatrist", "Medical Intern", "Medical Personnel")
 	faction = "Zeng-Hu Pharmaceuticals"
 
@@ -722,7 +722,7 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 	display_name = "hephaestus coat selection"
 	description = "A selection of Hephaestus coats."
 	path = /obj/item/clothing/suit/storage/toggle/labcoat/heph
-	slot = slot_wear_suit
+	slot = slot_wear_suit_str
 	faction = "Hephaestus Industries"
 
 /datum/gear/faction/heph_labcoat/New()
@@ -739,7 +739,7 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 	display_name = "hephaestus headwear selection"
 	description = "A selection of Hephaestus headwear"
 	path = /obj/item/clothing/head/beret/corporate/heph
-	slot = slot_head
+	slot = slot_head_str
 	faction = "Hephaestus Industries"
 
 /datum/gear/faction/heph_beret/New()
@@ -753,7 +753,7 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 /datum/gear/faction/heph_passcard
 	display_name = "hephaestus burzsia passcard"
 	path = /obj/item/clothing/accessory/badge/passcard/burzsia
-	slot = slot_tie
+	slot = slot_tie_str
 	faction = "Hephaestus Industries"
 
 //NanoTrasen
@@ -761,7 +761,7 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 	display_name = "nanotrasen coat selection"
 	description = "A selection of NanoTrasen coats"
 	path = /obj/item/clothing/suit/storage/toggle/labcoat/nt
-	slot = slot_wear_suit
+	slot = slot_wear_suit_str
 	faction = "NanoTrasen"
 
 /datum/gear/faction/nanotrasen_labcoat/New()
@@ -777,7 +777,7 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 /datum/gear/faction/nt_custodialjumpsuit
 	display_name = "nanotrasen custodial jumpsuit, alternative"
 	path = /obj/item/clothing/under/rank/janitor/alt
-	slot = slot_w_uniform
+	slot = slot_w_uniform_str
 	cost = 1
 	faction = "NanoTrasen"
 	allowed_roles = list("Janitor", "Service Personnel")
@@ -786,7 +786,7 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 	display_name = "nanotrasen headwear selection"
 	description = "A selection of NanoTrasen headwear"
 	path = /obj/item/clothing/head/beret/corporate
-	slot = slot_head
+	slot = slot_head_str
 	faction = "NanoTrasen"
 
 /datum/gear/faction/nt_headwear/New()
@@ -800,7 +800,7 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 	display_name = "NanoTrasen medical HUD selection"
 	description = "A selection of NanoTrasen medical HUDs."
 	path = /obj/item/clothing/glasses/hud/health/aviator/nt
-	slot = slot_glasses
+	slot = slot_glasses_str
 	allowed_roles = list("Physician", "Surgeon", "Chief Medical Officer", "Pharmacist", "Paramedic", "Psychiatrist", "Medical Intern", "Medical Personnel")
 	faction = "NanoTrasen"
 
@@ -816,7 +816,7 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 	display_name = "orion coat selection"
 	description = "A selection of Orion coats"
 	path = /obj/item/clothing/suit/storage/toggle/labcoat/orion
-	slot = slot_wear_suit
+	slot = slot_wear_suit_str
 	faction = "Orion Express"
 
 /datum/gear/faction/orion_coat/New()
@@ -835,7 +835,7 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 	display_name = "orion headwear selection"
 	description = "A selection of Orion headwear"
 	path = /obj/item/clothing/head/beret/corporate/orion
-	slot = slot_head
+	slot = slot_head_str
 	faction = "Orion Express"
 
 /datum/gear/faction/orion_headwear/New()
@@ -852,21 +852,21 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 	display_name = "Quick-E-Burger apron"
 	description = "An apron for employees of Quick-E-Burger, a subsidiary of Orion Express."
 	path = /obj/item/clothing/accessory/apron/qeburgerapron
-	slot = slot_wear_suit
+	slot = slot_wear_suit_str
 	faction = "Orion Express"
 
 /datum/gear/faction/orion_qeburger_suit
 	display_name = "Quick-E-Burger jumpsuit"
 	description = "A jumpsuit for employees of Quick-E-Burger, a subsidiary of Orion Express."
 	path = /obj/item/clothing/under/qeburgerjumpsuit
-	slot = slot_w_uniform
+	slot = slot_w_uniform_str
 	faction = "Orion Express"
 
 //SCC
 /datum/gear/faction/scc_armband
 	display_name = "SCC armband"
 	path = /obj/item/clothing/accessory/armband/scc
-	slot = slot_tie
+	slot = slot_tie_str
 	sort_category = "Factions"
 	cost = 1
 	faction = null
@@ -874,7 +874,7 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 /datum/gear/faction/scc_sleevepatch
 	display_name = "SCC sleeve patch"
 	path = /obj/item/clothing/accessory/sleevepatch/scc
-	slot = slot_tie
+	slot = slot_tie_str
 	sort_category = "Factions"
 	cost = 1
 	faction = null
@@ -883,7 +883,7 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 	display_name = "SCC coat selection"
 	description = "A selection of SCC coats"
 	path = /obj/item/clothing/suit/storage/toggle/brown_jacket/scc
-	slot = slot_wear_suit
+	slot = slot_wear_suit_str
 	sort_category = "Factions"
 	cost = 1
 	faction = null
@@ -902,7 +902,7 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 	display_name = "SCC headwear selection"
 	description = "A selection of SCC headwear"
 	path = /obj/item/clothing/head/beret/scc
-	slot = slot_head
+	slot = slot_head_str
 	sort_category = "Factions"
 	cost = 1
 	faction = null

@@ -476,6 +476,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	return dat
 
 /obj/machinery/computer/rdconsole/attack_hand(mob/user as mob)
+	. = ..()
 	if(stat & (BROKEN|NOPOWER))
 		return
 

@@ -60,7 +60,7 @@
 	head = /obj/item/clothing/head/that/ringmaster
 	suit = /obj/item/clothing/suit/storage/ringmaster
 
-	r_hand = /obj/item/cane
+	hands = list(/obj/item/cane)
 
 
 /datum/ghostspawner/human/adhomian_circus/strongman

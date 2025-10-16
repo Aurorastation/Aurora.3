@@ -109,6 +109,7 @@
 		return 1
 
 /obj/machinery/computer/security/attack_hand(var/mob/user as mob)
+	. = ..()
 	if (!(src.z in GetConnectedZlevels(starting_z_level)))
 		to_chat(user, "Unable to establish a connection.")
 		return

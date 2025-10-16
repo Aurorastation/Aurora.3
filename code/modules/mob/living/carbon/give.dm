@@ -9,9 +9,7 @@
 		to_chat(usr, SPAN_WARNING("[target.name] is in no condition to handle items!"))
 		return
 
-	var/obj/item/I = usr.get_active_hand()
-	if(!I)
-		I = usr.get_inactive_hand()
+	var/obj/item/I = pick(list(target.get_active_hand()) + target.get_inactive_held_items())
 	if(!I)
 		to_chat(usr, SPAN_WARNING("You don't have anything in your hands to give to \the [target]."))
 		return

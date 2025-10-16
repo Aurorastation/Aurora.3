@@ -148,6 +148,7 @@
 	return src.attack_hand(user)
 
 /obj/machinery/media/jukebox/attack_hand(var/mob/user as mob)
+	. = ..()
 	interact(user)
 
 /obj/machinery/media/jukebox/proc/explode()

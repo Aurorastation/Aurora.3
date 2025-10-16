@@ -103,6 +103,7 @@
 	icon_state = "orb"
 
 /obj/item/device/flashlight/lamp/holodeck/attack_hand(mob/user)
+	. = ..()
 	toggle()
 
 /obj/item/device/flashlight/lamp/box

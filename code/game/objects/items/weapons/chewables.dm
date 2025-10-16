@@ -39,7 +39,7 @@
 
 /obj/item/clothing/mask/chewable/equipped(var/mob/living/user, var/slot)
 	..()
-	if(slot == slot_wear_mask)
+	if(slot == slot_wear_mask_str)
 		var/mob/living/carbon/human/C = user
 		if(C.check_has_mouth())
 			START_PROCESSING(SSprocessing, src)
@@ -116,9 +116,8 @@
 			if(M.wear_mask)
 				M.remove_from_mob(src) //un-equip it so the overlays can update
 				M.update_inv_wear_mask(0)
-				if(!M.equip_to_slot_if_possible(butt, slot_wear_mask))
-					M.update_inv_l_hand(0)
-					M.update_inv_r_hand(1)
+				if(!M.equip_to_slot_if_possible(butt, slot_wear_mask_str))
+					M.update_inv_hands()
 					M.put_in_hands(butt)
 	STOP_PROCESSING(SSprocessing, src)
 	qdel(src)

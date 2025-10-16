@@ -142,9 +142,8 @@
 	return
 
 /obj/item/ship_ammunition/proc/wield(var/mob/living/carbon/human/user)
-	var/obj/A = user.get_inactive_hand()
-	if(A)
-		to_chat(user, SPAN_WARNING("Your other hand is occupied!"))
+	if(!user.get_empty_hand_slot())
+		to_chat(user, SPAN_WARNING("You need a free hand to wield this!"))
 		return
 	wielded = TRUE
 	var/obj/item/offhand/O = new(user)
@@ -158,9 +157,9 @@
 /obj/item/ship_ammunition/dropped(mob/user)
 	..()
 	if(user)
-		var/obj/item/offhand/O = user.get_inactive_hand()
-		if(istype(O))
-			O.unwield()
+		for(var/obj/item/offhand/O in user.get_inactive_held_items())
+			if(istype(O))
+				O.unwield()
 		return unwield()
 
 /obj/item/ship_ammunition/can_swap_hands(var/mob/user)

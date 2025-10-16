@@ -24,6 +24,7 @@
 	attack_hand(user)
 
 /obj/structure/droppod_door/attack_hand(var/mob/user)
+	. = ..()
 	if(deploying || deployed) return
 	to_chat(user, SPAN_DANGER("You prime the explosive bolts. Better get clear!"))
 	sleep(30)

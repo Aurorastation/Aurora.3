@@ -222,11 +222,15 @@ Nymphs have 100 health, so without armor there is a small possibility for each n
 	var/list/exclude = organs_by_name - list(BP_GROIN, BP_CHEST, BP_L_ARM, BP_R_ARM, BP_L_LEG, BP_R_LEG)
 	var/list/organ_list = list()
 	for(var/organ in exclude)
-		organ_list += parse_zone(organ)
+		var/obj/item/organ/external/E = GET_EXTERNAL_ORGAN(src, organ)
+		organ_list += E.name
 	var/choice =  tgui_input_list(src, "Choose a limb to detach.", "Limb Detach", organ_list)
 	if(!choice)
 		return
-	var/obj/item/organ/external/O = organs_by_name[reverse_parse_zone(choice)]
+	var/obj/item/organ/external/O
+	for (var/obj/item/organ/external/_O in organs)
+		if(_O.name == choice)
+			O = _O
 	if(!O || O.is_stump())
 		to_chat(src, SPAN_WARNING("You cannot detach that!"))
 		return

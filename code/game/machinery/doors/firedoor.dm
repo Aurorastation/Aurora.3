@@ -214,6 +214,7 @@
 	return 0
 
 /obj/machinery/door/firedoor/attack_hand(mob/user as mob)
+	. = ..()
 	add_fingerprint(user)
 	// Already doing something.
 	if(operating)

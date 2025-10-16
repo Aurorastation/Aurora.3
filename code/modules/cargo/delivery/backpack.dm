@@ -96,19 +96,15 @@
 	if(!LAZYLEN(contained_packages))
 		return ..()
 
-	if(user.species.mob_size < 12)
-		var/obj/A = user.get_inactive_hand()
-		if(A)
-			to_chat(user, SPAN_WARNING("Your other hand is occupied!"))
-			return
+	if(user.species.mob_size < 12 && !user.get_empty_hand_slot())
+		to_chat(user, SPAN_WARNING("You need a free hand!"))
+		return
 
 	user.visible_message("<b>[user]</b> starts unloading a package from \the [src]...", SPAN_NOTICE("You start unloading a package from \the [src]..."))
 	if(do_after(user, 1 SECONDS, src, DO_UNIQUE))
-		if(user.species.mob_size < 12)
-			var/obj/A = user.get_inactive_hand()
-			if(A)
-				to_chat(user, SPAN_WARNING("Your other hand is occupied!"))
-				return
+		if(user.species.mob_size < 12 && !user.get_empty_hand_slot())
+			to_chat(user, SPAN_WARNING("You need a free hand!"))
+			return
 		user.visible_message("<b>[user]</b> unloads a package from \the [src]!", SPAN_NOTICE("You unload a package from \the [src]!"))
 		var/obj/item/cargo_package/package = contained_packages[1]
 		user.put_in_hands(package)

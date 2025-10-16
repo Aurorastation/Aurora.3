@@ -32,6 +32,7 @@
 	. += SPAN_NOTICE("	- The current heating power produced by this machine is <b>[machine_strength]kW</b>")
 
 /obj/machinery/chem_heater/attack_hand(mob/user)
+	. = ..()
 	user.set_machine(src)
 	interact(user)
 
