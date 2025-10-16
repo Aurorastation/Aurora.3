@@ -6460,7 +6460,7 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "dwp" = (
-/obj/structure/cart/storage/janitorialcart{
+/obj/structure/cart/storage/janitorialcart/full{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner_wide/black{

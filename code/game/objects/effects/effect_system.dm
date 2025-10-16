@@ -12,6 +12,7 @@ would spawn and follow the beaker, even if it is carried or thrown.
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	unacidable = 1//So effect are not targeted by alien acid.
 	pass_flags = PASSTABLE | PASSGRILLE
+	blocks_emissive = EMISSIVE_BLOCK_GENERIC
 
 /obj/effect/Destroy()
 	if(reagents)

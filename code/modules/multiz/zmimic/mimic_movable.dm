@@ -62,7 +62,7 @@
 	desc = DESC_PARENT
 	icon = 'icons/effects/lighting_overlay.dmi'
 	icon_state = "dark"
-	plane = OPENTURF_MAX_PLANE
+	plane = OPEN_SPACE_PLANE_END
 	layer = MIMICED_LIGHTING_LAYER
 //	blend_mode = BLEND_MULTIPLY
 	color = "#00000033"
@@ -77,7 +77,7 @@
 /atom/movable/openspace/multiplier/proc/copy_lighting(atom/movable/lighting_overlay/LO)
 	appearance = LO
 	layer = MIMICED_LIGHTING_LAYER
-	plane = OPENTURF_MAX_PLANE
+	plane = OPEN_SPACE_PLANE_END
 	set_invisibility(0)
 	if (icon_state == null)
 		blend_mode = BLEND_MULTIPLY
@@ -120,7 +120,7 @@
 
 // Object used to hold a mimiced atom's appearance.
 /atom/movable/openspace/mimic
-	plane = OPENTURF_MAX_PLANE
+	plane = OPEN_SPACE_PLANE_END
 	var/atom/movable/associated_atom
 	var/depth
 	var/queued = 0
@@ -174,7 +174,7 @@
 
 // This thing holds the mimic appearance for non-OVERWRITE turfs.
 /atom/movable/openspace/turf_proxy
-	plane = OPENTURF_MAX_PLANE
+	plane = OPEN_SPACE_PLANE_END
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	z_flags = ZMM_IGNORE  // Only one of these should ever be visible at a time, the mimic logic will handle that.
 
@@ -196,7 +196,7 @@
 
 // A type for copying non-overwrite turfs' self-appearance.
 /atom/movable/openspace/turf_mimic
-	plane = OPENTURF_MAX_PLANE	// These *should* only ever be at the top?
+	plane = OPEN_SPACE_PLANE_END	// These *should* only ever be at the top?
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	var/turf/delegate
 

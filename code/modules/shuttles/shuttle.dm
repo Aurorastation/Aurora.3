@@ -35,7 +35,7 @@
 	var/motherdock    //tag of mothershuttle landmark, defaults to starting location
 
 	var/squishes = TRUE //decides whether or not things get squished when it moves.
-	var/cargo_elevator = FALSE // Snowflake variable for the cargo elevator. Decides whether you will take fall damage or not.
+	var/cargo_elevator = FALSE // Snowflake variable for the cargo elevator. Decides whether you will take fall damage or not
 
 /datum/shuttle/New(_name, var/obj/effect/shuttle_landmark/initial_location)
 	..()

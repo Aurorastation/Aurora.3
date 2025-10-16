@@ -147,10 +147,32 @@ GLOBAL_LIST(global_huds)
 	var/list/other
 	var/list/atom/movable/screen/hotkeybuttons
 
+	/// See "appearance_flags" in the ref, assoc list of "[plane]" = object
+	var/list/atom/movable/screen/plane_master/plane_masters = list()
+	///Assoc list of controller groups, associated with key string group name with value of the plane master controller ref
+	var/list/atom/movable/plane_master_controller/plane_master_controllers = list()
+
 	var/atom/movable/screen/movable/action_button/hide_toggle/hide_actions_toggle
 
 /datum/hud/New(mob/owner)
 	mymob = owner
+
+	for(var/mytype in subtypesof(/atom/movable/screen/plane_master) - /atom/movable/screen/plane_master/rendering_plate - /atom/movable/screen/plane_master/open_space)
+		var/atom/movable/screen/plane_master/instance = new mytype()
+		plane_masters["[instance.plane]"] = instance
+		if(owner.client)
+			instance.backdrop(mymob)
+
+	for(var/z_level in 0 to OPEN_SPACE_PLANE_END - OPEN_SPACE_PLANE_START) //aurora snowflake: our openspace system works bottom up, not top down like CM's
+		var/atom/movable/screen/plane_master/open_space/instance = new(null, z_level)
+		plane_masters["[instance.plane]"] = instance
+		if(owner.client)
+			instance.backdrop(mymob)
+
+	for(var/mytype in subtypesof(/atom/movable/plane_master_controller))
+		var/atom/movable/plane_master_controller/controller_instance = new mytype(null,src)
+		plane_master_controllers[controller_instance.name] = controller_instance
+
 	instantiate()
 	..()
 
@@ -170,6 +192,9 @@ GLOBAL_LIST(global_huds)
 	hotkeybuttons = null
 //	item_action_list = null // ?
 	mymob = null
+
+	QDEL_LIST_ASSOC_VAL(plane_masters)
+	QDEL_LIST_ASSOC_VAL(plane_master_controllers)
 
 	. = ..()
 
@@ -322,6 +347,15 @@ GLOBAL_LIST(global_huds)
 	var/ui_alpha = mymob.client.prefs.UI_style_alpha
 
 	mymob.instantiate_hud(src, ui_style, ui_color, ui_alpha)
+
+	plane_masters_update()
+
+/datum/hud/proc/plane_masters_update()
+	// Plane masters are always shown to OUR mob, never to observers
+	for(var/thing in plane_masters)
+		var/atom/movable/screen/plane_master/PM = plane_masters[thing]
+		PM.backdrop(mymob)
+		mymob.client.add_to_screen(PM)
 
 /mob/proc/instantiate_hud(datum/hud/HUD, ui_style, ui_color, ui_alpha)
 	SHOULD_NOT_SLEEP(TRUE)
