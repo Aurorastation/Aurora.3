@@ -20,7 +20,7 @@
 	gfi_layer_rotation = GFI_ROTATION_DEFDIR
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/brightness_range = 7	// luminosity when on, also used in power calculation
-	var/brightness_power = 0.6
+	var/brightness_power = 1
 	var/night_brightness_range = 5
 	var/night_brightness_power = 0.4
 	var/supports_nightmode = TRUE
@@ -86,7 +86,7 @@
 	bulb_is_noisy = FALSE
 	light_type = /obj/item/light/tube
 	inserted_light = /obj/item/light/tube
-	brightness_power = 0.45
+	brightness_power = 0.8
 	brightness_color = LIGHT_COLOR_PURPLE
 
 /obj/machinery/light/floor
@@ -124,7 +124,7 @@
 /obj/machinery/light/small/emergency
 	icon_state = "bulb_emergency_preview"
 	brightness_range = 3
-	brightness_power = 0.45
+	brightness_power = 0.7
 	brightness_color = LIGHT_COLOR_EMERGENCY_SOFT
 	randomize_color = FALSE
 
@@ -134,7 +134,7 @@
 
 /obj/machinery/light/small/red
 	brightness_range = 2.5
-	brightness_power = 0.45
+	brightness_power = 0.7
 	brightness_color = LIGHT_COLOR_RED
 	randomize_color = FALSE
 
@@ -174,7 +174,7 @@
 	light_type = /obj/item/light/tube/large
 	inserted_light = /obj/item/light/tube/large
 	brightness_range = 8
-	brightness_power = 0.9
+	brightness_power = 1.5
 	supports_nightmode = FALSE
 
 /obj/machinery/light/built

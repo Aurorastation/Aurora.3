@@ -162,7 +162,11 @@
 	else
 		//Outside of the restrcited level, they have enhanced vision
 		set_sight(sight|SEE_TURFS|SEE_MOBS|SEE_OBJS)
-	set_see_invisible(SEE_INVISIBLE_LEVEL_TWO) //overmap viewing breaks if this is lower
+
+	if(ghostvision)
+		set_see_invisible(SEE_INVISIBLE_LEVEL_TWO) //overmap viewing breaks if this is lower
+	else
+		set_see_invisible(SEE_INVISIBLE_LEVEL_ONE)
 
 /mob/abstract/ghost/proc/on_restricted_level(var/check)
 	if(!check)
