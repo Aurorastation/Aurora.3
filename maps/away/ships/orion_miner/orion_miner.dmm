@@ -45,6 +45,13 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/full,
 /area/shuttle/orion_miner/mining_prep)
+"aE" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, port engines"
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/shuttle/orion_miner/main_engineering_port)
 "aL" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/paper_bin{
@@ -414,6 +421,23 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/shuttle/orion_miner/main_engineering_port)
+"ds" = (
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/structure/window/shuttle/scc_space_ship/cardinal,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 4;
+	icon_state = "pdoor0";
+	id = "om_blast";
+	name = "Exterior Lockdown Blast Door";
+	opacity = 0
+	},
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, bridge"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/orion_miner/bridge)
 "dA" = (
 /obj/machinery/atmospherics/unary/engine,
 /turf/simulated/floor/reinforced/airless,
@@ -630,12 +654,6 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/shuttle/orion_miner/main_engineering_stbd)
-"fA" = (
-/obj/effect/landmark/entry_point/starboard{
-	name = "starboard, midsection"
-	},
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/shuttle/orion_miner/bathroom)
 "fH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 4
@@ -683,6 +701,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_miner/bridge)
+"fQ" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, fore"
+	},
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/shuttle/orion_miner/ammo_storage)
 "gc" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/structure/mirror{
@@ -800,23 +824,6 @@
 /obj/effect/map_effect/marker/airlock/orion_miner_starboard,
 /turf/simulated/floor/plating,
 /area/shuttle/orion_miner/corridor)
-"gR" = (
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/structure/window/shuttle/scc_space_ship/cardinal,
-/obj/machinery/door/blast/regular{
-	density = 0;
-	dir = 2;
-	icon_state = "pdoor0";
-	id = "om_blast";
-	name = "Exterior Lockdown Blast Door";
-	opacity = 0
-	},
-/obj/effect/landmark/entry_point/port{
-	name = "port, fore"
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/orion_miner/mess_hall)
 "gZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan,
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -1296,12 +1303,22 @@
 /turf/simulated/floor/reinforced,
 /area/shuttle/orion_miner/grauwolf)
 "lG" = (
-/obj/machinery/atmospherics/unary/engine,
-/obj/effect/landmark/entry_point/aft{
-	name = "aft, port engines"
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/structure/window/shuttle/scc_space_ship/cardinal,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 4;
+	icon_state = "pdoor0";
+	id = "om_blast";
+	name = "Exterior Lockdown Blast Door";
+	opacity = 0
 	},
-/turf/simulated/floor/reinforced/airless,
-/area/shuttle/orion_miner/main_engineering_port)
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, canteen"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/orion_miner/mess_hall)
 "lP" = (
 /obj/structure/cable/green{
 	icon_state = "0-2"
@@ -1489,6 +1506,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/corridor)
+"nK" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/closet/walllocker/emerglocker/west,
+/turf/simulated/floor/plating,
+/area/shuttle/orion_miner/main_engineering_stbd)
 "nL" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
@@ -1547,12 +1569,6 @@
 "ow" = (
 /turf/space/transit/north,
 /area/space)
-"oy" = (
-/obj/effect/landmark/entry_point/starboard{
-	name = "starboard, nacelle"
-	},
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/shuttle/orion_miner/main_engineering_stbd)
 "oA" = (
 /obj/effect/floor_decal/industrial/outline_door/yellow{
 	dir = 1
@@ -1903,12 +1919,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_miner/main_engineering_stbd)
-"ra" = (
-/obj/effect/landmark/entry_point/starboard{
-	name = "starboard, fore"
-	},
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/shuttle/orion_miner/ammo_storage)
 "rh" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -1980,9 +1990,15 @@
 /obj/effect/floor_decal/industrial/arrow/yellow{
 	dir = 8
 	},
-/obj/structure/closet/crate,
+/obj/structure/closet/crate/miningcart,
 /turf/simulated/floor/tiled/full,
 /area/shuttle/orion_miner/cargo_bay)
+"rQ" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, nacelle"
+	},
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/shuttle/orion_miner/main_engineering_stbd)
 "rW" = (
 /obj/structure/ship_weapon_dummy,
 /obj/effect/floor_decal/industrial/warning/corner,
@@ -2563,13 +2579,6 @@
 /obj/machinery/vending/dinnerware/metal,
 /turf/simulated/floor/tiled/full,
 /area/shuttle/orion_miner/mess_hall)
-"yx" = (
-/obj/machinery/atmospherics/unary/engine,
-/obj/effect/landmark/entry_point/aft{
-	name = "aft, starboard engines"
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/shuttle/orion_miner/main_engineering_stbd)
 "yA" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -2824,6 +2833,12 @@
 /obj/effect/floor_decal/industrial/hatch/firefighting_closet,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_miner/ammo_storage)
+"Au" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, midsection"
+	},
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/shuttle/orion_miner/medbay)
 "AB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 4
@@ -3007,11 +3022,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/corridor/vestibule)
-"Bz" = (
-/obj/structure/lattice/catwalk/indoor,
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/turf/simulated/floor/plating,
-/area/shuttle/orion_miner/main_engineering_stbd)
 "BA" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
@@ -3111,7 +3121,7 @@
 	dir = 8
 	},
 /obj/machinery/light/colored/decayed,
-/obj/structure/closet/crate,
+/obj/structure/closet/crate/miningcart,
 /turf/simulated/floor/tiled/full,
 /area/shuttle/orion_miner/cargo_bay)
 "CE" = (
@@ -3235,6 +3245,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/shuttle/orion_miner/medbay)
+"Dg" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, midsection"
+	},
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/shuttle/orion_miner/bathroom)
 "Dn" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
@@ -3268,23 +3284,6 @@
 	dir = 8
 	},
 /area/shuttle/orion_miner/corridor/vestibule)
-"Dq" = (
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/structure/window/shuttle/scc_space_ship/cardinal,
-/obj/machinery/door/blast/regular{
-	density = 0;
-	dir = 4;
-	icon_state = "pdoor0";
-	id = "om_blast";
-	name = "Exterior Lockdown Blast Door";
-	opacity = 0
-	},
-/obj/effect/landmark/entry_point/fore{
-	name = "fore, canteen"
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/orion_miner/mess_hall)
 "DF" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/red{
 	dir = 1
@@ -3397,12 +3396,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/tech_storage)
-"EV" = (
-/obj/effect/landmark/entry_point/port{
-	name = "port, nacelle"
-	},
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/shuttle/orion_miner/reactor)
 "EW" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
@@ -4051,9 +4044,11 @@
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/shuttle/orion_miner/main_engineering_stbd)
 "Lc" = (
-/obj/effect/map_effect/map_helper/ruler_tiles_3,
-/turf/template_noop,
-/area/space)
+/obj/effect/landmark/entry_point/port{
+	name = "port, nacelle"
+	},
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/shuttle/orion_miner/reactor)
 "Ld" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/carpet/rubber,
@@ -4132,12 +4127,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/full,
 /area/shuttle/orion_miner/corridor/central)
-"Mf" = (
-/obj/effect/landmark/entry_point/port{
-	name = "port, midsection"
-	},
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/shuttle/orion_miner/medbay)
 "Mh" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -4697,23 +4686,6 @@
 	},
 /turf/simulated/floor/marble,
 /area/shuttle/orion_miner/mess_hall)
-"Re" = (
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/structure/window/shuttle/scc_space_ship/cardinal,
-/obj/machinery/door/blast/regular{
-	density = 0;
-	dir = 4;
-	icon_state = "pdoor0";
-	id = "om_blast";
-	name = "Exterior Lockdown Blast Door";
-	opacity = 0
-	},
-/obj/effect/landmark/entry_point/fore{
-	name = "fore, bridge"
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/orion_miner/bridge)
 "Rh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
@@ -4792,6 +4764,13 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/shuttle/orion_miner/mess_hall)
+"RJ" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, starboard engines"
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/shuttle/orion_miner/main_engineering_stbd)
 "RP" = (
 /obj/structure/closet/walllocker/emerglocker/west,
 /obj/effect/floor_decal/corner/black/diagonal,
@@ -4923,6 +4902,10 @@
 "SA" = (
 /turf/simulated/floor/reinforced/airless,
 /area/shuttle/orion_miner/bridge)
+"SE" = (
+/obj/effect/map_effect/map_helper/ruler_tiles_3,
+/turf/template_noop,
+/area/space)
 "SJ" = (
 /obj/machinery/light/colored/decayed{
 	dir = 8
@@ -5732,6 +5715,23 @@
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/cargo_bay)
+"Zy" = (
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/structure/window/shuttle/scc_space_ship/cardinal,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 2;
+	icon_state = "pdoor0";
+	id = "om_blast";
+	name = "Exterior Lockdown Blast Door";
+	opacity = 0
+	},
+/obj/effect/landmark/entry_point/port{
+	name = "port, fore"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/orion_miner/mess_hall)
 "Zz" = (
 /obj/machinery/autolathe,
 /obj/effect/floor_decal/industrial/outline/engineering,
@@ -5777,7 +5777,7 @@
 /area/shuttle/orion_miner/corridor/aft)
 "ZR" = (
 /obj/structure/lattice/catwalk/indoor,
-/obj/structure/closet/walllocker/emerglocker/west,
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/plating,
 /area/shuttle/orion_miner/main_engineering_stbd)
 "ZT" = (
@@ -35994,7 +35994,7 @@ iS
 iS
 ww
 ww
-fA
+Dg
 ww
 ww
 yn
@@ -36234,12 +36234,12 @@ iS
 iS
 iS
 iS
-Lc
+SE
 xF
 xF
 xF
 xF
-oy
+rQ
 MX
 CE
 CE
@@ -36267,7 +36267,7 @@ jI
 jI
 jI
 jI
-ra
+fQ
 sz
 sz
 sz
@@ -36495,8 +36495,8 @@ iS
 xF
 xF
 vb
+nK
 ZR
-Bz
 eP
 PR
 xF
@@ -37005,8 +37005,8 @@ iS
 iS
 iS
 iS
-Lc
-yx
+SE
+RJ
 Ib
 Qj
 eZ
@@ -37776,7 +37776,7 @@ iS
 iS
 iS
 iS
-Lc
+SE
 cP
 xF
 Fx
@@ -38581,7 +38581,7 @@ We
 oN
 Oj
 YE
-Re
+ds
 SA
 KF
 iS
@@ -39061,7 +39061,7 @@ iS
 iS
 iS
 iS
-Lc
+SE
 Dn
 iC
 xk
@@ -39832,8 +39832,8 @@ iS
 iS
 iS
 iS
-Lc
-lG
+SE
+aE
 kz
 cp
 jA
@@ -39871,7 +39871,7 @@ yv
 Rh
 PA
 gi
-Dq
+lG
 gr
 iS
 iS
@@ -40603,12 +40603,12 @@ iS
 iS
 iS
 iS
-Lc
+SE
 AN
 Ll
 jA
 jA
-EV
+Lc
 AN
 AN
 AN
@@ -40623,7 +40623,7 @@ Gi
 Zp
 gs
 FJ
-Mf
+Au
 Sa
 XP
 XP
@@ -40634,7 +40634,7 @@ BH
 BB
 Kj
 hh
-gR
+Zy
 Kj
 Kj
 hh

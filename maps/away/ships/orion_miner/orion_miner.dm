@@ -3,7 +3,7 @@
 	description = "The Argon-class mining skiff is a workhorse of Orion Express's mining division. It is a small but dependable atmospheric-capable skiff designed to land on or dock near asteroids, planets and other places and conduct all \
 	manner of mining, salvage, or extraction operations."
 
-	prefix = "ships/orion/"
+	prefix = "ships/orion_miner/"
 	suffix = "orion_miner.dmm"
 
 	sectors = list(ALL_CORPORATE_SECTORS)
