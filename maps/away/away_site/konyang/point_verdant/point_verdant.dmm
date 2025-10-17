@@ -423,7 +423,6 @@
 /area/point_verdant/outdoors)
 "ane" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1
 	},
 /turf/simulated/floor/wood,
@@ -626,7 +625,6 @@
 	},
 /obj/structure/chainlink_fence,
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 4
 	},
@@ -731,7 +729,6 @@
 /area/point_verdant/interior/restaurant)
 "awl" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 6
 	},
@@ -827,7 +824,6 @@
 /area/point_verdant/interior/offices)
 "ayh" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1
 	},
 /turf/simulated/floor/tiled/full,
@@ -1336,7 +1332,6 @@
 	pixel_y = 19
 	},
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
@@ -1601,8 +1596,8 @@
 /obj/random/tool,
 /obj/item/storage/box/lights,
 /obj/item/storage/box/lights/coloredmixed,
-/obj/item/storage/box/papersack,
-/obj/item/storage/box/candy,
+/obj/item/storage/box/unique/papersack,
+/obj/item/storage/box/large/candy,
 /obj/item/storage/box/cups,
 /obj/item/storage/box/fancy/cigarettes/dromedaryco,
 /obj/random/dirt_75,
@@ -1890,7 +1885,6 @@
 /area/point_verdant/outdoors)
 "bdx" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1
 	},
 /turf/simulated/wall,
@@ -2384,7 +2378,6 @@
 	name = "cable"
 	},
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 8
 	},
@@ -3181,7 +3174,6 @@
 	},
 /obj/structure/closet/crate/bin/urban/dumpster,
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1
 	},
 /turf/simulated/floor/sidewalk/flat,
@@ -3321,7 +3313,6 @@
 /area/point_verdant/interior/tailor)
 "bNl" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1
 	},
 /turf/simulated/floor/sidewalk,
@@ -3331,7 +3322,7 @@
 /obj/item/storage/box/magnetic_locks{
 	pixel_y = -6
 	},
-/obj/item/storage/box/flares{
+/obj/item/storage/box/large/flares{
 	pixel_y = 5
 	},
 /obj/random/dirt_75,
@@ -3474,7 +3465,6 @@
 /area/point_verdant/interior/offices/kaf)
 "bUu" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 1
 	},
@@ -3855,7 +3845,6 @@
 	dir = 8
 	},
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 10
 	},
@@ -4533,7 +4522,6 @@
 /area/point_verdant/interior/cafe)
 "cBJ" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
@@ -4878,7 +4866,6 @@
 /area/point_verdant/interior/offices/basement)
 "cKO" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 8
 	},
@@ -4948,7 +4935,6 @@
 /area/point_verdant/outdoors)
 "cMP" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 6
 	},
@@ -5179,7 +5165,6 @@
 /area/point_verdant/interior/cafe)
 "cSw" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1
 	},
 /obj/effect/decal/road_marking/thin{
@@ -5747,7 +5732,6 @@
 /area/point_verdant/interior/pharmacy)
 "dfj" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1
 	},
 /turf/simulated/floor/tiled,
@@ -5787,7 +5771,6 @@
 	pixel_y = 19
 	},
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
@@ -5829,7 +5812,6 @@
 /area/point_verdant/sewer)
 "dgZ" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 9
 	},
@@ -5909,7 +5891,6 @@
 	dir = 8
 	},
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1
 	},
 /turf/simulated/floor/asphalt,
@@ -5996,7 +5977,6 @@
 /area/point_verdant/interior/hotel/basement)
 "dld" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 10
 	},
@@ -6460,7 +6440,7 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "dwp" = (
-/obj/structure/janitorialcart{
+/obj/structure/cart/storage/janitorialcart/full{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner_wide/black{
@@ -6944,7 +6924,6 @@
 	icon_state = "cliff1-bottom"
 	},
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 6
 	},
@@ -7061,9 +7040,9 @@
 /area/point_verdant/interior/hotel)
 "dQO" = (
 /obj/structure/table/rack/retail_shelf,
-/obj/item/storage/box/produce,
-/obj/item/storage/box/produce,
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce{
 	pixel_y = 11
 	},
 /turf/simulated/floor/tiled,
@@ -7344,7 +7323,6 @@
 /area/point_verdant/interior)
 "eai" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 10
 	},
@@ -7771,7 +7749,6 @@
 /area/point_verdant/outdoors)
 "emr" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1
 	},
 /obj/structure/table/rack/clothing,
@@ -8073,7 +8050,6 @@
 /obj/structure/lattice/catwalk/indoor/urban,
 /obj/structure/chainlink_fence,
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 4
 	},
@@ -8566,7 +8542,6 @@
 /area/point_verdant/outdoors)
 "eEv" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1
 	},
 /obj/effect/decal/road_marking/thin{
@@ -8653,7 +8628,6 @@
 	dir = 1
 	},
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 4
 	},
@@ -8958,7 +8932,6 @@
 	name = "tram track"
 	},
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 4
 	},
@@ -9253,7 +9226,7 @@
 /obj/structure/closet/crate/freezer,
 /obj/item/reagent_containers/blood/OPlus,
 /obj/item/reagent_containers/blood/OMinus,
-/obj/item/storage/box/freezer/organcooler,
+/obj/item/storage/box/unique/freezer/organcooler,
 /obj/item/soap/syndie,
 /obj/item/reagent_containers/glass/rag,
 /turf/simulated/floor/tiled/white,
@@ -9401,7 +9374,6 @@
 /area/point_verdant/interior)
 "fcV" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 10
 	},
@@ -9695,7 +9667,6 @@
 /area/point_verdant/interior/maint_janitorial)
 "fmd" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1
 	},
 /obj/structure/chainlink_fence{
@@ -10277,7 +10248,6 @@
 /area/point_verdant/interior/tunnels)
 "fAq" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 4
 	},
@@ -10308,7 +10278,6 @@
 /area/point_verdant/outdoors)
 "fBm" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1
 	},
 /obj/structure/chainlink_fence{
@@ -10688,7 +10657,6 @@
 /area/point_verdant/interior/hotel/basement)
 "fNv" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 10
 	},
@@ -10809,7 +10777,6 @@
 "fPk" = (
 /obj/structure/lattice/catwalk/indoor/urban,
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 4
 	},
@@ -11016,7 +10983,6 @@
 	},
 /obj/effect/decal/road_marking/no_pass,
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 4
 	},
@@ -11090,7 +11056,6 @@
 "gaa" = (
 /obj/structure/flora/bush/konyang_reeds/water,
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 6
 	},
@@ -11621,7 +11586,6 @@
 /area/point_verdant/interior/offices/basement)
 "gts" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1
 	},
 /obj/structure/automobile_filler,
@@ -12040,7 +12004,6 @@
 /area/point_verdant/interior/pharmacy)
 "gHH" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 1
 	},
@@ -12616,7 +12579,6 @@
 	name = "cable"
 	},
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 4
 	},
@@ -13041,7 +13003,6 @@
 /area/point_verdant/interior/bar)
 "hom" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 10
 	},
@@ -13088,7 +13049,6 @@
 	dir = 4
 	},
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1
 	},
 /turf/simulated/floor/asphalt,
@@ -13474,7 +13434,6 @@
 /area/point_verdant/interior/offices)
 "hBR" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 1
 	},
@@ -13822,7 +13781,6 @@
 	name = "tram track"
 	},
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 4
 	},
@@ -13935,7 +13893,7 @@
 	pixel_x = -4;
 	pixel_y = 6
 	},
-/obj/item/storage/box/sharps{
+/obj/item/storage/box/unique/sharps{
 	pixel_x = 2;
 	pixel_y = -1
 	},
@@ -14011,7 +13969,6 @@
 /area/point_verdant/interior/decrepit)
 "hTc" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 1
 	},
@@ -14167,7 +14124,6 @@
 	dir = 1
 	},
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1
 	},
 /turf/simulated/floor/exoplanet/konyang,
@@ -14367,7 +14323,6 @@
 "iaS" = (
 /obj/structure/lattice/catwalk/indoor/urban,
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1
 	},
 /obj/random/dirt_75,
@@ -15009,7 +14964,6 @@
 	icon_state = "cliff1-bottom"
 	},
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
@@ -15040,7 +14994,7 @@
 /area/point_verdant/outdoors)
 "iwH" = (
 /obj/structure/table/rack,
-/obj/item/storage/box/flares,
+/obj/item/storage/box/large/flares,
 /obj/machinery/light/small{
 	dir = 4
 	},
@@ -15066,7 +15020,6 @@
 /area/point_verdant/interior/police)
 "ixt" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 1
 	},
@@ -15114,7 +15067,6 @@
 	name = "tram track"
 	},
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 8
 	},
@@ -15600,7 +15552,6 @@
 /area/point_verdant/interior/tunnels)
 "iKJ" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 1
 	},
@@ -15772,7 +15723,6 @@
 /area/point_verdant/interior/offices/basement)
 "iPa" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 9
 	},
@@ -15861,7 +15811,6 @@
 	dir = 1
 	},
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 9
 	},
@@ -16320,7 +16269,6 @@
 	opacity = 1
 	},
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 10
 	},
@@ -17457,7 +17405,6 @@
 	dir = 4
 	},
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 4
 	},
@@ -17670,7 +17617,6 @@
 /area/point_verdant/interior/cafe)
 "jVB" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 10
 	},
@@ -18394,7 +18340,6 @@
 /area/point_verdant/outdoors)
 "knT" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 1
 	},
@@ -18638,7 +18583,6 @@
 /area/point_verdant/interior/cafe)
 "kvH" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1
 	},
 /turf/simulated/floor/exoplanet/water/konyang,
@@ -18773,7 +18717,6 @@
 "kzW" = (
 /obj/structure/boat,
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1
 	},
 /obj/structure/automobile_filler,
@@ -19164,7 +19107,6 @@
 /area/point_verdant/interior/tailor)
 "kIA" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 6
 	},
@@ -19418,7 +19360,6 @@
 "kSZ" = (
 /obj/structure/flora/rock/konyang/water,
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 6
 	},
@@ -19653,7 +19594,6 @@
 /area/point_verdant/interior/hotel/basement)
 "kZG" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1
 	},
 /obj/structure/chainlink_fence{
@@ -19705,7 +19645,6 @@
 /area/point_verdant/outdoors)
 "lbi" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 4
 	},
@@ -19981,39 +19920,39 @@
 /turf/simulated/floor/exoplanet/konyang,
 /area/point_verdant/outdoors)
 "lnl" = (
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = -5
 	},
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = 4
 	},
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = 15
 	},
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = -5
 	},
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = -5
 	},
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = 4
 	},
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = 4
 	},
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = 15
 	},
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = 15
 	},
@@ -20705,7 +20644,6 @@
 	icon_state = "cliff-west"
 	},
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 6
 	},
@@ -21243,7 +21181,6 @@
 	icon_state = "cliff-west"
 	},
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 4
 	},
@@ -22551,7 +22488,6 @@
 /area/point_verdant/outdoors)
 "mGD" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 8
 	},
@@ -22903,7 +22839,6 @@
 /area/point_verdant/outdoors)
 "mRq" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 8
 	},
@@ -23108,7 +23043,7 @@
 /obj/structure/table/wood,
 /obj/item/device/toner,
 /obj/item/device/toner,
-/obj/item/storage/box/donkpockets,
+/obj/item/storage/box/unique/donkpockets,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/tailor)
 "mUB" = (
@@ -24268,7 +24203,6 @@
 /area/point_verdant/sewer)
 "nEP" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 9
 	},
@@ -24377,7 +24311,6 @@
 	dir = 4
 	},
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1
 	},
 /turf/simulated/floor/asphalt,
@@ -24806,7 +24739,6 @@
 /area/point_verdant/interior/offices/basement)
 "nXd" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 8
 	},
@@ -25706,7 +25638,6 @@
 /obj/structure/flora/rock/konyang/water,
 /obj/structure/flora/bush/konyang_reeds/water,
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 4
 	},
@@ -25714,7 +25645,6 @@
 /area/point_verdant/water)
 "oyM" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 6
 	},
@@ -25912,7 +25842,6 @@
 /area/point_verdant/interior/laundromat)
 "oEg" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 8
 	},
@@ -26531,7 +26460,6 @@
 /area/point_verdant/interior/offices)
 "oXl" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 8
 	},
@@ -26782,7 +26710,6 @@
 /area/point_verdant/interior/hotel/basement)
 "pgo" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 5
 	},
@@ -26846,7 +26773,6 @@
 /area/point_verdant/outdoors)
 "phF" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 4
 	},
@@ -27984,7 +27910,6 @@
 /area/point_verdant/interior/police)
 "pWe" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1
 	},
 /turf/simulated/floor/exoplanet/water/shallow/sewage,
@@ -28755,7 +28680,7 @@
 "qyA" = (
 /obj/structure/rod_railing,
 /obj/structure/table/wood,
-/obj/item/storage/box/donkpockets{
+/obj/item/storage/box/unique/donkpockets{
 	pixel_y = 6;
 	pixel_x = -11
 	},
@@ -29254,7 +29179,6 @@
 	dir = 1
 	},
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 10
 	},
@@ -29656,7 +29580,6 @@
 	dir = 1
 	},
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1
 	},
 /obj/structure/closet/crate/bin/urban,
@@ -29673,7 +29596,6 @@
 /area/point_verdant/interior/bar)
 "qXK" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 4
 	},
@@ -29966,7 +29888,6 @@
 "rib" = (
 /obj/structure/flora/bush/konyang_reeds/water,
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 4
 	},
@@ -30189,7 +30110,6 @@
 /area/point_verdant/outdoors)
 "roC" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1
 	},
 /obj/structure/chainlink_fence{
@@ -30446,7 +30366,6 @@
 "rvH" = (
 /obj/structure/flora/bush/konyang_reeds/water,
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1
 	},
 /turf/simulated/floor/exoplanet/water/konyang,
@@ -31066,7 +30985,6 @@
 	icon_state = "cliff-west"
 	},
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
@@ -31088,7 +31006,6 @@
 /area/point_verdant/interior/tunnels)
 "rRY" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1
 	},
 /turf/unsimulated/floor/plating,
@@ -31397,7 +31314,6 @@
 /area/point_verdant/outdoors)
 "scm" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 5
 	},
@@ -31799,7 +31715,6 @@
 	dir = 8
 	},
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 8
 	},
@@ -32053,7 +31968,6 @@
 	icon_state = "cliff2-bottom"
 	},
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
@@ -32370,7 +32284,6 @@
 	name = "tram track"
 	},
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 8
 	},
@@ -32800,7 +32713,6 @@
 /area/point_verdant/interior/decrepit)
 "sWJ" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 4
 	},
@@ -32848,7 +32760,6 @@
 	dir = 1
 	},
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1
 	},
 /turf/simulated/floor/asphalt,
@@ -34089,7 +34000,6 @@
 	},
 /obj/effect/decal/road_marking/reflector,
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1
 	},
 /turf/simulated/floor/asphalt,
@@ -34154,7 +34064,6 @@
 /area/point_verdant/outdoors)
 "tJO" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 6
 	},
@@ -34461,7 +34370,6 @@
 	icon_state = "topcorner_west"
 	},
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 4
 	},
@@ -34812,7 +34720,7 @@
 /area/point_verdant/interior/streetvendor)
 "uho" = (
 /obj/random/dirt_75,
-/obj/structure/janitorialcart/full{
+/obj/structure/cart/storage/janitorialcart/full{
 	dir = 4
 	},
 /obj/structure/sink/kitchen{
@@ -35066,7 +34974,6 @@
 /area/point_verdant/interior/spaceport)
 "uoW" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1
 	},
 /turf/simulated/floor/asphalt,
@@ -36856,7 +36763,6 @@
 	dir = 4
 	},
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 6
 	},
@@ -37446,9 +37352,9 @@
 /area/point_verdant/interior/shallow)
 "vFC" = (
 /obj/structure/table/rack/retail_shelf,
-/obj/item/storage/box/produce,
-/obj/item/storage/box/produce,
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce{
 	pixel_y = 11
 	},
 /obj/machinery/light/small,
@@ -37986,14 +37892,12 @@
 	icon_state = "botcorner_east"
 	},
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/water)
 "vXd" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 4
 	},
@@ -38612,7 +38516,6 @@
 /area/point_verdant/outdoors)
 "wsA" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 10
 	},
@@ -38897,7 +38800,6 @@
 /area/point_verdant/interior/parking)
 "wzZ" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 6
 	},
@@ -38956,7 +38858,6 @@
 	dir = 1
 	},
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1
 	},
 /obj/structure/closet/crate/bin/urban/dumpster,
@@ -39407,7 +39308,6 @@
 	name = "tram track"
 	},
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 4
 	},
@@ -39697,7 +39597,6 @@
 /area/point_verdant/interior/offices)
 "wWW" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
@@ -40074,7 +39973,6 @@
 /area/point_verdant/outdoors)
 "xfT" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 4
 	},
@@ -40087,7 +39985,6 @@
 /area/point_verdant/interior/hotel/basement)
 "xgh" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1
 	},
 /turf/simulated/floor/exoplanet/water/konyang,
@@ -41132,7 +41029,6 @@
 /area/point_verdant/outdoors)
 "xLm" = (
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 9
 	},
@@ -41357,7 +41253,6 @@
 	name = "cable"
 	},
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1;
 	dir = 4
 	},
@@ -41531,7 +41426,6 @@
 	dir = 1
 	},
 /obj/effect/step_trigger/thrower{
-	icon_state = "dir_arrow";
 	tiles = 1
 	},
 /obj/structure/flora/bush/konyang_reeds,

@@ -54,6 +54,7 @@ ABSTRACT_TYPE(/datum/modular_computer_app_presets)
 	/datum/computer_file/program/rcon_console,\
 	/datum/computer_file/program/camera_monitor,\
 	/datum/computer_file/program/lighting_control,\
+	/datum/computer_file/program/fusion_codex,\
 )
 
 #define COMPUTER_APP_PRESET_HORIZON_MEDICAL list(\

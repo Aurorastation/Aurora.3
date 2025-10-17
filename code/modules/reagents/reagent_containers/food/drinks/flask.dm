@@ -35,6 +35,10 @@
 	atom_flags ^= ATOM_FLAG_OPEN_CONTAINER
 	update_icon()
 
+/obj/item/reagent_containers/food/drinks/flask/vacuumflask/Destroy()
+	QDEL_NULL(cup)
+	return ..()
+
 /obj/item/reagent_containers/food/drinks/flask/vacuumflask/attack_self(mob/user)
 	if(cup)
 		to_chat(user, SPAN_NOTICE("You remove \the [src]'s cap."))

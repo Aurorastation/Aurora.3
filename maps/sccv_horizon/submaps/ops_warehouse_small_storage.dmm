@@ -80,6 +80,10 @@
 /obj/item/stack/cable_coil,
 /turf/template_noop,
 /area/template_noop)
+"bv" = (
+/obj/structure/cart/storage/janitorialcart/full,
+/turf/template_noop,
+/area/template_noop)
 "bw" = (
 /obj/structure/table/rack/no_cargo,
 /obj/item/rfd/piping,
@@ -142,10 +146,10 @@
 /area/template_noop)
 "cQ" = (
 /obj/structure/table/rack/folding_table,
-/obj/item/storage/box/donkpockets,
-/obj/item/storage/box/donkpockets,
-/obj/item/storage/box/donkpockets,
-/obj/item/storage/box/donkpockets,
+/obj/item/storage/box/unique/donkpockets,
+/obj/item/storage/box/unique/donkpockets,
+/obj/item/storage/box/unique/donkpockets,
+/obj/item/storage/box/unique/donkpockets,
 /turf/template_noop,
 /area/template_noop)
 "cU" = (
@@ -293,10 +297,6 @@
 /obj/random/booze,
 /obj/random/booze,
 /obj/random/booze,
-/turf/template_noop,
-/area/template_noop)
-"hs" = (
-/obj/structure/janitorialcart,
 /turf/template_noop,
 /area/template_noop)
 "ht" = (
@@ -679,8 +679,8 @@
 /area/template_noop)
 "pT" = (
 /obj/structure/table/rack/folding_table,
-/obj/item/storage/box/candy,
-/obj/item/storage/box/candy,
+/obj/item/storage/box/large/candy,
+/obj/item/storage/box/large/candy,
 /turf/template_noop,
 /area/template_noop)
 "qo" = (
@@ -954,6 +954,10 @@
 /obj/random/coin,
 /turf/template_noop,
 /area/template_noop)
+"vG" = (
+/obj/structure/cart/storage/janitorialcart/full,
+/turf/template_noop,
+/area/template_noop)
 "wa" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
 /obj/structure/closet/emcloset,
@@ -981,10 +985,10 @@
 "xg" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
 /obj/structure/closet/crate/freezer,
-/obj/item/storage/box/produce,
-/obj/item/storage/box/produce,
-/obj/item/storage/box/produce,
-/obj/item/storage/box/produce,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
 /turf/template_noop,
 /area/template_noop)
 "xu" = (
@@ -1063,7 +1067,7 @@
 /area/template_noop)
 "zi" = (
 /obj/structure/table/rack/no_cargo,
-/obj/item/storage/box/condimentbottles,
+/obj/item/storage/box/large/condimentbottles,
 /obj/random/condiment,
 /obj/random/condiment,
 /obj/random/condiment,
@@ -1117,10 +1121,6 @@
 /obj/random/tool,
 /obj/random/loot,
 /obj/random/dirt_75,
-/turf/template_noop,
-/area/template_noop)
-"AK" = (
-/obj/machinery/portable_atmospherics/canister/hydrogen/deuterium,
 /turf/template_noop,
 /area/template_noop)
 "AW" = (
@@ -1194,10 +1194,6 @@
 /obj/structure/bed/stool/chair/sofa/left/brown{
 	dir = 4
 	},
-/turf/template_noop,
-/area/template_noop)
-"Dl" = (
-/obj/machinery/portable_atmospherics/canister/boron,
 /turf/template_noop,
 /area/template_noop)
 "Dv" = (
@@ -1437,8 +1433,8 @@
 /area/template_noop)
 "KW" = (
 /obj/structure/table/rack/no_cargo,
-/obj/item/storage/box/beanbags,
-/obj/item/storage/box/beanbags,
+/obj/item/storage/box/shells/beanbags,
+/obj/item/storage/box/shells/beanbags,
 /turf/template_noop,
 /area/template_noop)
 "KX" = (
@@ -1475,6 +1471,10 @@
 /obj/random/loot,
 /turf/template_noop,
 /area/template_noop)
+"LX" = (
+/obj/machinery/portable_atmospherics/canister/deuterium,
+/turf/template_noop,
+/area/template_noop)
 "LZ" = (
 /obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
 	dir = 4
@@ -1484,6 +1484,10 @@
 "Mh" = (
 /obj/structure/reagent_dispensers/radioactive_waste,
 /obj/effect/decal/cleanable/greenglow,
+/turf/template_noop,
+/area/template_noop)
+"Ms" = (
+/obj/machinery/portable_atmospherics/canister/heliumfuel,
 /turf/template_noop,
 /area/template_noop)
 "MH" = (
@@ -1526,10 +1530,6 @@
 "NI" = (
 /obj/structure/reagent_dispensers/coolanttank,
 /obj/random/dirt_75,
-/turf/template_noop,
-/area/template_noop)
-"NJ" = (
-/obj/structure/janitorialcart/full,
 /turf/template_noop,
 /area/template_noop)
 "NR" = (
@@ -3597,7 +3597,7 @@ Gz
 Gz
 Gz
 Gz
-hs
+bv
 Gz
 Gz
 Gz
@@ -3643,7 +3643,7 @@ zw
 Gz
 Gz
 Gz
-NJ
+vG
 nn
 Gz
 Gz
@@ -4158,7 +4158,7 @@ Gz
 Gz
 Gz
 sW
-AK
+LX
 Gz
 Gz
 Gz
@@ -4191,7 +4191,7 @@ nC
 nC
 nn
 sW
-Dl
+Ms
 Gz
 Gz
 Gz

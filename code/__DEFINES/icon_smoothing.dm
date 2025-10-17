@@ -1,6 +1,6 @@
 /* smoothing_flags */
 ///Do not smooth
-#define SMOOTH_FALSE			BITFLAG(0)
+#define SMOOTH_FALSE			0
 ///Smooths with exact specified types or just itself
 #define SMOOTH_TRUE				BITFLAG(1)
 ///Smooths with all subtypes of specified types or just itself (this value can replace SMOOTH_TRUE)

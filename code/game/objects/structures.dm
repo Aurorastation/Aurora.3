@@ -103,28 +103,24 @@
 	return FALSE
 
 /obj/structure/mouse_drop_receive(atom/dropped, mob/user, params)
-
 	var/mob/living/H = user
 	if(istype(H) && can_climb(H) && dropped == user)
 		do_climb(dropped)
-	else
-		return ..()
+	return ..()
 
 /obj/structure/proc/can_climb(var/mob/living/user, post_climb_check=0)
 	if (!climbable)
-		to_chat(user, SPAN_WARNING("\The [src] cannot be climbed!"))
 		return FALSE
 
 	if (!can_touch(user) || (!post_climb_check && (user in climbers)))
 		return FALSE
 
 	if (!user.Adjacent(src))
-		to_chat(user, SPAN_WARNING("You must be next to \the [src] to climb it."))
 		return FALSE
 
 	var/obj/occupied = turf_is_crowded()
 	if(occupied)
-		to_chat(user, SPAN_WARNING("There's \a [occupied] in the way."))
+		to_chat(user, SPAN_WARNING("There's \a [occupied] in the way of climbing this."))
 		return FALSE
 	return TRUE
 
@@ -145,7 +141,7 @@
 
 /obj/structure/proc/do_climb(var/mob/living/user)
 	if (!can_climb(user))
-		return
+		return FALSE
 
 	user.visible_message(SPAN_WARNING("[user] starts [atom_flags & ATOM_FLAG_CHECKS_BORDER ? "leaping over" : "climbing onto"] \the [src]!"))
 	LAZYADD(climbers, user)
@@ -231,8 +227,8 @@
 		return 0
 	return 1
 
-/obj/structure/attack_generic(var/mob/user, var/damage, var/attack_verb, var/wallbreaker)
-	if(!breakable || !damage || !wallbreaker)
+/obj/structure/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
+	if(!breakable || !damage || !environment_smash)
 		return 0
 	visible_message(SPAN_DANGER("[user] [attack_verb] the [src] apart!"))
 	user.do_attack_animation(src)

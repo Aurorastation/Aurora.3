@@ -1677,6 +1677,7 @@
 /area/peoples_station/hangar)
 "fX" = (
 /obj/structure/lattice/catwalk,
+/obj/effect/overmap/visitable/ship/stationary/peoples_station,
 /turf/template_noop,
 /area/peoples_station/bridge)
 "fY" = (
@@ -2011,7 +2012,7 @@
 /area/peoples_station/barracks)
 "hc" = (
 /obj/structure/closet/secure_closet/kitchen_cabinet/standard,
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = -11
 	},
@@ -10614,15 +10615,6 @@
 	temperature = 278.15
 	},
 /area/peoples_station/hangar)
-"Ou" = (
-/obj/effect/floor_decal/plaque{
-	name = "people's station plaque";
-	desc = "A plaque commemorating the founding of the People's Space Station."
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station/visitor)
 "Ow" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -11849,6 +11841,12 @@
 	temperature = 278.15
 	},
 /area/peoples_station/bridge)
+"Te" = (
+/obj/structure/sign/floor_plaque/peoples_station,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/visitor)
 "Tf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 8
@@ -12339,12 +12337,6 @@
 /obj/effect/floor_decal/spline/plain/cee/grey,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/peoples_station_transport)
-"UP" = (
-/obj/effect/overmap/visitable/sector/peoples_station,
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station/bridge)
 "UQ" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -13513,7 +13505,9 @@
 /area/peoples_station/atmos)
 "Zs" = (
 /obj/structure/lattice/catwalk,
-/obj/machinery/iff_beacon/name_change,
+/obj/machinery/iff_beacon/name_change{
+	can_change_name = 0
+	},
 /obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/airless,
 /area/peoples_station/bridge)
@@ -50067,7 +50061,7 @@ wY
 TN
 wY
 qw
-Ou
+Te
 tK
 uL
 sf
@@ -50277,7 +50271,7 @@ Ox
 bL
 sA
 bs
-UP
+DJ
 Gz
 DJ
 YG

@@ -335,7 +335,7 @@
 	icon_state = "suspenders"
 	item_state = "suspenders"
 	gender = PLURAL
-	slot = ACCESSORY_SLOT_PANTS
+	slot = ACCESSORY_SLOT_GENERIC
 
 /obj/item/clothing/accessory/scarf
 	name = "scarf"
@@ -395,7 +395,7 @@
 	icon_state = "chaps"
 	item_state = "chaps"
 	gender = PLURAL
-	slot = ACCESSORY_SLOT_PANTS
+	slot = ACCESSORY_SLOT_GENERIC
 
 /obj/item/clothing/accessory/chaps/black
 	name = "black chaps"
@@ -1027,7 +1027,7 @@
 	item_state = "kneepads"
 	contained_sprite = TRUE
 	gender = PLURAL
-	slot = ACCESSORY_SLOT_PANTS
+	slot = ACCESSORY_SLOT_GENERIC
 
 /obj/item/clothing/accessory/blood_patch
 	name = "O- blood patch"
@@ -1405,7 +1405,7 @@
 	icon = 'icons/obj/item/clothing/accessory/led_collar.dmi'
 	icon_state = "led_collar"
 	item_state = "led_collar"
-	plane = EFFECTS_ABOVE_LIGHTING_PLANE
+	plane = ABOVE_LIGHTING_PLANE
 	contained_sprite = TRUE
 	slot = ACCESSORY_SLOT_UTILITY_MINOR
 
@@ -1423,6 +1423,6 @@
 
 /obj/item/clothing/accessory/led_collar/get_accessory_mob_overlay(var/mob/living/carbon/human/H, var/force = FALSE)
 	var/image/I = ..()
-	I.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+	I.plane = ABOVE_LIGHTING_PLANE
 	I.appearance_flags |= KEEP_APART
 	return I

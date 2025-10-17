@@ -21,7 +21,7 @@
 	density = TRUE
 	anchored = TRUE
 	idle_power_usage = 600 // WATTS
-	active_power_usage = 2 KILO WATTS
+	active_power_usage = 15 KILO WATTS
 
 	/// List of machines this machine is linked to
 	var/list/links = list()
@@ -96,6 +96,7 @@
 		return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/telecomms/LateInitialize()
+	. = ..()
 	if(SSatlas.current_map.use_overmap && !linked)
 		var/my_sector = GLOB.map_sectors["[z]"]
 		if (istype(my_sector, /obj/effect/overmap/visitable))
@@ -151,8 +152,9 @@
 		AddOverlays("[icon_state]_panel")
 
 /obj/machinery/telecomms/process()
-	update_icon()
-	if(!use_power) return PROCESS_KILL
+	if(!use_power)
+		update_icon()
+		return PROCESS_KILL
 	if(!operable(EMPED))
 		toggle_power(additional_flags = EMPED)
 		return PROCESS_KILL

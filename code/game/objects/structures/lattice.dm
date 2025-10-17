@@ -5,6 +5,7 @@
 	icon_state = "lattice"
 	density = FALSE
 	anchored = TRUE
+	opacity = FALSE
 	w_class = WEIGHT_CLASS_NORMAL
 	layer = ABOVE_TILE_LAYER
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
@@ -26,6 +27,11 @@
 	if(name == "lattice")
 		. += "Add a <b>metal floor tile</b> to build a floor on top of the lattice."
 		. += "Lattices can be made by applying <b>metal rods</b> to a space tile."
+
+/obj/structure/lattice/disassembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(name == "lattice")
+		. += "Lattices can be broken back down into metal rods with a <b>welder</b>."
 
 /obj/structure/lattice/Initialize()
 	. = ..()
@@ -198,6 +204,9 @@
 
 /obj/structure/lattice/catwalk/indoor/grate/slate
 	color = COLOR_SLATE
+
+/obj/structure/lattice/catwalk/indoor/grate/white
+	color = COLOR_WHITE
 
 /obj/structure/lattice/catwalk/indoor/urban
 	name = "grate"

@@ -42,6 +42,8 @@
 
 /obj/effect/overmap/proc/get_scan_data(mob/user)
 	if(static_vessel == TRUE)
+		if(instant_contact)
+			. += "<br>It is broadcasting a distress signal."
 		. += "<hr>"
 		. += "<br><center><large><b>Scan Details</b></large>"
 		. += "<br><large><b>[name]</b></large></center>"
@@ -56,7 +58,8 @@
 		. += "<hr>"
 		. += "<br><center><b>Native Database Notes</b></center>"
 		. += "<br><small>[desc]</small>"
-	if(landing_site == TRUE)
+		return
+	else if(landing_site == TRUE)
 		. += "<hr>"
 		. += "<br><center><large><b>Designated Landing Zone Details</b></large>"
 		. += "<br><large><b>[name]</b></large></center>"
@@ -103,7 +106,7 @@
 		return INITIALIZE_HINT_QDEL
 
 	if(known)
-		plane = EFFECTS_ABOVE_LIGHTING_PLANE
+		plane = ABOVE_LIGHTING_PLANE
 		for(var/obj/machinery/computer/ship/helm/H in SSmachinery.machinery)
 			H.get_known_sectors()
 	update_icon()

@@ -54,7 +54,7 @@
 	if(mapload)
 		var/turf/T = loc
 		var/image/I = image(icon, T, icon_state, dir, pixel_x, pixel_y)
-		I.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+		I.plane = ABOVE_LIGHTING_PLANE
 		I.color = color
 		I.alpha = 125
 		LAZYADD(T.blueprints, I)
@@ -163,11 +163,11 @@
 		"filter_2h" = (GAS_DEUTERIUM in scrubbing_gas),
 		"filter_3h" = (GAS_TRITIUM in scrubbing_gas),
 		"filter_he" = (GAS_HELIUM in scrubbing_gas),
-		"filter_b" = (GAS_BORON in scrubbing_gas),
+		"filter_b" = (GAS_HELIUMFUEL in scrubbing_gas),
 		"filter_so2" = (GAS_SULFUR in scrubbing_gas),
 		"filter_no2" = (GAS_NO2 in scrubbing_gas),
 		"filter_cl" = (GAS_CHLORINE in scrubbing_gas),
-		"filter_h2o" = (GAS_STEAM in scrubbing_gas),
+		"filter_h2o" = (GAS_WATERVAPOR in scrubbing_gas),
 		"sigtype" = "status"
 	)
 
@@ -312,10 +312,10 @@
 	else if(signal.data["toggle_he_scrub"])
 		toggle += GAS_HELIUM
 
-	if(!isnull(signal.data["b_scrub"]) && text2num(signal.data["b_scrub"]) != (GAS_BORON in scrubbing_gas))
-		toggle += GAS_BORON
+	if(!isnull(signal.data["b_scrub"]) && text2num(signal.data["b_scrub"]) != (GAS_HELIUMFUEL in scrubbing_gas))
+		toggle += GAS_HELIUMFUEL
 	else if(signal.data["toggle_b_scrub"])
-		toggle += GAS_BORON
+		toggle += GAS_HELIUMFUEL
 
 	if(!isnull(signal.data["so2_scrub"]) && text2num(signal.data["so2_scrub"]) != (GAS_SULFUR in scrubbing_gas))
 		toggle += GAS_SULFUR
@@ -332,10 +332,10 @@
 	else if(signal.data["toggle_cl_scrub"])
 		toggle += GAS_CHLORINE
 
-	if(!isnull(signal.data["h2o_scrub"]) && text2num(signal.data["h2o_scrub"]) != (GAS_STEAM in scrubbing_gas))
-		toggle += GAS_STEAM
+	if(!isnull(signal.data["h2o_scrub"]) && text2num(signal.data["h2o_scrub"]) != (GAS_WATERVAPOR in scrubbing_gas))
+		toggle += GAS_WATERVAPOR
 	else if(signal.data["toggle_h2o_scrub"])
-		toggle += GAS_STEAM
+		toggle += GAS_WATERVAPOR
 
 	scrubbing_gas ^= toggle
 

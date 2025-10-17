@@ -453,6 +453,6 @@
 
 /datum/accent/zhurong
 	name = ACCENT_DOMINIA_ZHURONG
-	description = "Zhurongese is a dialect of Vulgar Morozi found on the Core World of Zhurong, where it is spoken by the Secondaries who make up most of the planet’s skilled workers and supervisors. While it mostly sticks to traditional Vulgar Morozi structures, its origin on one of the Empire’s oldest colonies and Zhurong itself being a more restricted world has led to this dialect being less influenced by the broader Spur. Scholars believe this dialect may be closer to pre-Imperial Vulgar Morozi than any other in the Empire."
+	description = "Zhurongese is a dialect of Vulgar Morozi found on the Core World of Zhurong, where it is spoken by the Secondaries who make up most of the skilled workers and supervisors on the planet. While it mostly sticks to traditional Vulgar Morozi structures, its origin on one of the oldest colonies in the Empire and Zhurong itself being a more restricted world has led to this dialect being less influenced by the broader Spur. Scholars believe this dialect may be closer to pre-Imperial Vulgar Morozi than any other in the Empire."
 	tag_icon = "zhurong"
 	text_tag = "ZHU"

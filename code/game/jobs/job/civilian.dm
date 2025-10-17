@@ -93,7 +93,7 @@
 	messengerbag_faction = /obj/item/storage/backpack/messenger/nt
 
 	backpack_contents = list(
-		/obj/item/storage/box/produce = 1
+		/obj/item/storage/box/large/produce = 1
 	)
 
 /datum/job/hydro
@@ -368,7 +368,7 @@
 
 	uniform = /obj/item/clothing/under/rank/operations_manager
 	shoes = /obj/item/clothing/shoes/sneakers/brown
-	id = /obj/item/card/id/silver
+	id = /obj/item/card/id/scc/silver
 	glasses = /obj/item/clothing/glasses/sunglasses
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/supply/om
@@ -393,8 +393,8 @@
 	departments = SIMPLEDEPT(DEPARTMENT_CARGO)
 	department_flag = SERVICE
 	faction = "Station"
-	total_positions = 3
-	spawn_positions = 3
+	total_positions = 4
+	spawn_positions = 4
 	supervisors = "the operations manager"
 	selection_color = "#7B431C"
 

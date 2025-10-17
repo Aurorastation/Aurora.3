@@ -189,7 +189,7 @@
 		A.all_doors.Remove(src)
 	. = ..()
 
-/obj/machinery/door/firedoor/attack_generic(var/mob/user, var/damage)
+/obj/machinery/door/firedoor/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	if(stat & (BROKEN|NOPOWER))
 		if(damage >= 10)
 			if(src.density)
@@ -498,7 +498,7 @@
 		if(blocked)
 			AddOverlays("welded")
 		if(pdiff_alert)
-			AddOverlays(overlay_image(icon, icon_state = "palert", plane = EFFECTS_ABOVE_LIGHTING_PLANE))
+			AddOverlays(overlay_image(icon, icon_state = "palert", plane = ABOVE_LIGHTING_PLANE))
 			do_set_light = 1
 		if(dir_alerts)
 			for (var/d = 1; d <= 4; d++)
@@ -509,9 +509,9 @@
 				if (!dir_alerts[d])
 					continue
 				if (dir_alerts[d] & FIREDOOR_ALERT_COLD)
-					AddOverlays(overlay_image(icon, icon_state = "alert_cold", plane = EFFECTS_ABOVE_LIGHTING_PLANE))
+					AddOverlays(overlay_image(icon, icon_state = "alert_cold", plane = ABOVE_LIGHTING_PLANE))
 				if (dir_alerts[d] & FIREDOOR_ALERT_HOT)
-					AddOverlays(overlay_image(icon, icon_state = "alert_hot", plane = EFFECTS_ABOVE_LIGHTING_PLANE))
+					AddOverlays(overlay_image(icon, icon_state = "alert_hot", plane = ABOVE_LIGHTING_PLANE))
 
 				do_set_light = TRUE
 	else

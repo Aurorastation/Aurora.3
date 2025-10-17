@@ -152,14 +152,14 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 	// Don't process if we're in a freezer, an MMI or a stasis bag.or a freezer or something I dunno
 	if(istype(loc,/obj/item/device/mmi))
 		return
-	if(istype(loc,/obj/structure/closet/body_bag/cryobag) || istype(loc,/obj/structure/closet/crate/freezer) || istype(loc,/obj/item/storage/box/freezer))
+	if(istype(loc,/obj/structure/closet/body_bag/cryobag) || istype(loc,/obj/structure/closet/crate/freezer) || istype(loc,/obj/item/storage/box/unique/freezer))
 		return
 	//Process infections
 	if ((status & ORGAN_ROBOT) || (owner && owner.species && (owner.species.flags & IS_PLANT)))
 		germ_level = 0
 		return
 
-	if((status & ORGAN_ASSISTED) && surge_damage)
+	if(BP_IS_ROBOTIC(src) && surge_damage)
 		tick_surge_damage()
 
 	if(!owner)
@@ -416,7 +416,7 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 
 #define MAXIMUM_SURGE_DAMAGE 100
 /obj/item/organ/proc/take_surge_damage(var/surge)
-	if(!(status & ORGAN_ASSISTED))
+	if(!BP_IS_ROBOTIC(src))
 		return //We check earlier, but just to make sure.
 
 	surge_damage = clamp(0, surge + surge_damage, MAXIMUM_SURGE_DAMAGE) //We want X seconds at most of hampered movement or what have you.
@@ -436,7 +436,10 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 	var/obj/item/organ/external/affected = owner.get_organ(parent_organ)
 	if(affected) affected.internal_organs -= src
 
-	loc = get_turf(owner)
+	var/turf/T = get_turf(owner)
+	// to avoid brains and things like that getting put into nullspace and thus entering spatial grids
+	if(!isnull(T))
+		loc = T
 	START_PROCESSING(SSprocessing, src)
 	rejecting = null
 	if (!reagents)

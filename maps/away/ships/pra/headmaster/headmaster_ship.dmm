@@ -8873,7 +8873,7 @@
 /obj/item/storage/box/syringes{
 	pixel_x = -7
 	},
-/obj/item/storage/box/sharps{
+/obj/item/storage/box/unique/sharps{
 	pixel_x = 8
 	},
 /obj/item/reagent_containers/spray/cleaner{
@@ -9049,7 +9049,7 @@
 	},
 /area/headmaster_ship/cic)
 "Ld" = (
-/obj/structure/janitorialcart/full{
+/obj/structure/cart/storage/janitorialcart/full{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline_corner/custodial{
@@ -9495,18 +9495,18 @@
 /obj/item/reagent_containers/food/drinks/carton/fatshouters,
 /obj/item/reagent_containers/food/condiment/sugar,
 /obj/item/reagent_containers/food/condiment/sugar,
-/obj/item/storage/box/produce,
-/obj/item/storage/box/produce,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/reagent_containers/food/condiment/flour,
 /obj/item/reagent_containers/food/condiment/flour,
 /obj/structure/closet/secure_closet/refrigerator,
 /obj/item/reagent_containers/food/condiment/enzyme,
-/obj/item/storage/box/condiment{
+/obj/item/storage/box/large/condiment{
 	pixel_y = 2
 	},
-/obj/item/storage/box/condimentbottles{
+/obj/item/storage/box/large/condimentbottles{
 	pixel_y = 5
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
