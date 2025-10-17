@@ -59,7 +59,7 @@
 		name = "[name] (\the [grabbed_mob]'s [O.name])"
 		RegisterSignal(grabbed_mob, COMSIG_ORGAN_DISMEMBERED, PROC_REF(on_organ_loss))
 		if(grabbed_mob != grabber)
-			visible_message(SPAN_DANGER("\The [grabber] has grabbed [grabbed_mob]'s [O.name]"))
+			visible_message(SPAN_DANGER("\The [grabber] has grabbed [grabbed_mob]'s [O.name]!"))
 		else
 			visible_message(SPAN_NOTICE("\The [grabber] has grabbed [grabber.get_pronoun("his")] [O.name]!"))
 	else
