@@ -182,10 +182,19 @@
 	department = LOC_SCIENCE
 
 /// THE VAAAAAAUULLT
-/area/horizon/storage/secure
-	name = "Secure Storage"
+/area/horizon/storage/secure/ops_vault
+	name = "Secure Operational Storage"
 	icon_state = "storage"
 	horizon_deck = 2
+	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
+	department = LOC_COMMAND
+	area_blurb = "A place not to be visited unless things are going either horribly wrong or horribly right."
+
+/// THE VAAAAAAUULLT
+/area/horizon/storage/secure/tech_vault
+	name = "Secure Technical Storage"
+	icon_state = "storage"
+	horizon_deck = 3
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 	department = LOC_COMMAND
 	area_blurb = "A place not to be visited unless things are going either horribly wrong or horribly right."
