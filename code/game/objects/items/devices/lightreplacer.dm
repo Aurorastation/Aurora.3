@@ -53,7 +53,7 @@
 	var/emagged = 0
 	var/failmsg = ""
 	var/charge = 0
-	var/load_interval = 60
+	var/load_interval = 20
 	var/store_broken = 0//If set, this lightreplacer will suck up and store broken bulbs
 	var/max_stored = 10
 
