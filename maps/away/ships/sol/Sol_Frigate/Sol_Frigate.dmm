@@ -3305,8 +3305,8 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
-/obj/machinery/atmospherics/binary/pump/scrubber/on{
-	name = "Scrubber to Canister";
+/obj/machinery/atmospherics/binary/pump/high_power{
+	name = "Tank to Thrusters";
 	target_pressure = 15000;
 	dir = 1
 	},
