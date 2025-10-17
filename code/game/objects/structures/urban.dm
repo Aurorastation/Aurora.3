@@ -458,7 +458,7 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 	return TRUE
 
 /obj/structure/rod_railing/bar
-	layer = ABOVE_HUMAN_LAYER
+	layer = ABOVE_ABOVE_HUMAN_LAYER
 
 
 /obj/structure/dam
