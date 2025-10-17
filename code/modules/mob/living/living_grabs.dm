@@ -83,7 +83,7 @@
 
 /mob/living/ProcessGrabs()
 	if(LAZYLEN(grabbed_by))
-		resist()
+		execute_resist()
 
 /mob/living/give_control_grab(mob/living/M)
 	return(isliving(M) && M == buckled) ? M.make_grab(src, /singleton/grab/simple/control, force_grab_tag = TRUE) : ..()
