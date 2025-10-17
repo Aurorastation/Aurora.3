@@ -26,7 +26,7 @@
 	colors = list(COLOR_BROWN)
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 2 SECONDS
-	vessel_mass = 4000
+	vessel_mass = 6000
 	vessel_size = SHIP_SIZE_SMALL
 	fore_dir = SOUTH
 	use_mapped_z_levels = TRUE
