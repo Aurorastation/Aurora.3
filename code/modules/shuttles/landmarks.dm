@@ -1,6 +1,12 @@
 //making this separate from /obj/effect/landmark until that mess can be dealt with
 /obj/effect/shuttle_landmark
 	name = "Nav Point"
+	/**
+	 * Preserves the original name without appended coordinates
+	 *
+	 * Set in `/obj/effect/shuttle_landmark/Initialize()`
+	 */
+	var/clean_name = "Nav Point"
 	icon = 'icons/effects/map_effects_96x96.dmi'
 	icon_state = "shuttle_landmark"
 	anchored = TRUE
@@ -34,8 +40,21 @@
 	/// Ghostspawners, means their `short_name` vars.
 	var/list/ghostspawners_to_activate_on_shuttle_arrival
 
+	/**
+	 * If TRUE, announces docking over the `announce_channel` frequency
+	 *
+	 * Checked in `/obj/effect/shuttle_landmark/proc/shuttle_arrived` and `/obj/effect/shuttle_landmark/proc/shuttle_departure`
+	 */
+	var/announce_docking = FALSE
+
+	/**
+	 * Determines which frequency to announce docking over if `announce_docking` is `TRUE`
+	 */
+	var/announce_channel = "Common"
+
 /obj/effect/shuttle_landmark/Initialize()
 	. = ..()
+	clean_name = name
 	name = name + " ([x],[y])"
 	SSshuttle.register_landmark(landmark_tag, src)
 	return INITIALIZE_HINT_LATELOAD
@@ -76,7 +95,7 @@
 		return FALSE
 	for(var/area/A in shuttle.shuttle_area)
 		var/list/translation = get_turf_translation(get_turf(shuttle.current_location), get_turf(src), A.contents)
-		if(check_collision(base_area, list_values(translation)))
+		if(check_collision(list_values(translation)))
 			return FALSE
 	var/conn = GetConnectedZlevels(z)
 	for(var/w in (z - shuttle.multiz) to z)
@@ -108,16 +127,42 @@
 /obj/effect/shuttle_landmark/proc/shuttle_arrived(datum/shuttle/shuttle)
 	clear_landing_indicators()
 	activate_ghostroles()
+	if(announce_docking)
+		var/datum/shuttle/autodock/multi/antag/antag_shuttle
+		if(istype(shuttle, /datum/shuttle/autodock/multi/antag))
+			antag_shuttle = shuttle
+		if(!antag_shuttle || (antag_shuttle && !antag_shuttle.cloaked))
+			var/message = "[shuttle.name] has docked at [src.clean_name]."
+			GLOB.global_announcer.autosay(message, "Docking Oversight", announce_channel)
+	GLOB.shuttle_moved_event.register(shuttle, src, PROC_REF(announce_departure))
 
-/proc/check_collision(area/target_area, list/target_turfs)
+/obj/effect/shuttle_landmark/proc/announce_departure(datum/shuttle/shuttle)
+	if(announce_docking)
+		var/datum/shuttle/autodock/multi/antag/antag_shuttle
+		if(istype(shuttle, /datum/shuttle/autodock/multi/antag))
+			antag_shuttle = shuttle
+		if(!antag_shuttle || (antag_shuttle && !antag_shuttle.cloaked))
+			var/message = "[shuttle.name] has undocked from [src.clean_name]."
+			GLOB.global_announcer.autosay(message, "Docking Oversight", announce_channel)
+	GLOB.shuttle_moved_event.unregister(shuttle, src)
+
+/proc/check_collision(list/target_turfs)
 	for(var/target_turf in target_turfs)
 		var/turf/target = target_turf
+
 		if(!target)
 			return TRUE //collides with edge of map
-		if(target.loc != target_area)
-			return TRUE //collides with another area
+
+		// IMPORTANT: The below area check is commented out as it is not compatible with the Horizon,
+		// which has docking ports with clashing turfs + areas! There's no good reason for this not to
+		// be re-enabled once the server's primary map doesn't have such poorly mapped docking ports.
+		// It being disabled shouldn't cause too many problems in the meantime. Hopefully.
+		// if(target.loc != target_area)
+		// 	return TRUE //clashes with another area
+
 		if(target.density)
 			return TRUE //dense turf
+
 	return FALSE
 
 //Self-naming/numbering ones.

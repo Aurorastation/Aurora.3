@@ -420,7 +420,7 @@
 					break
 			// Landability check - try to find an already-open space for an LZ
 			if(attempts >= 10)
-				if(check_collision(T.loc, block_to_check))
+				if(check_collision(block_to_check))
 					valid = FALSE
 			else // If we're running low on attempts we try to make our own LZ, ignoring landability but still checking for ruins
 				new_type = /obj/effect/shuttle_landmark/automatic/clearing
@@ -443,7 +443,7 @@
 		newgases -= GAS_PHORON
 		if(prob(50)) //alium gas should be slightly less common than mundane shit
 			newgases -= GAS_ALIEN
-		newgases -= GAS_STEAM
+		newgases -= GAS_WATERVAPOR
 
 		var/total_moles = MOLES_CELLSTANDARD * rand(80,120)/100
 		var/badflag = 0

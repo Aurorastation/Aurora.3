@@ -1,0 +1,6 @@
+author: FabianK3
+
+delete-after: True
+
+changes:
+  - rscadd: "Update the repositories triage bot to run every full hour with an adjusted rate limit."

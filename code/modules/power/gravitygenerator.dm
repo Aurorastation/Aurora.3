@@ -454,6 +454,7 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/gravity_generator/main/LateInitialize()
+	..()
 	if(SSatlas.current_map.use_overmap && !linked)
 		var/my_sector = GLOB.map_sectors["[z]"]
 		if (istype(my_sector, /obj/effect/overmap/visitable))

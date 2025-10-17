@@ -18,7 +18,7 @@
 	if(anchored)
 		AddOverlays("[icon_state]+bolts")
 		var/image/lights_image = image(icon, null, "[icon_state]+lights")
-		lights_image.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+		lights_image.plane = ABOVE_LIGHTING_PLANE
 		AddOverlays(lights_image)
 
 /obj/machinery/power/tesla_coil/RefreshParts()
@@ -79,7 +79,7 @@
 	if(anchored)
 		AddOverlays("[icon_state]+bolts")
 		var/image/lights_image = image(icon, null, "[icon_state]+lights")
-		lights_image.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+		lights_image.plane = ABOVE_LIGHTING_PLANE
 		AddOverlays(lights_image)
 
 /obj/machinery/power/grounding_rod/attackby(obj/item/attacking_item, mob/user)

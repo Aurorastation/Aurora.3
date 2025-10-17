@@ -292,5 +292,5 @@
 
 	origin_tech = list(TECH_MATERIAL = 4,TECH_ENGINEERING = 5,TECH_MAGNET = 4,TECH_POWER = 4)
 
-	type_to_take = "mhydrogen"
+	type_to_take = "metallic hydrogen"
 	charge_per_sheet = 90

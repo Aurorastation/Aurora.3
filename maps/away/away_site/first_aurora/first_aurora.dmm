@@ -863,7 +863,7 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/northeast)
 "de" = (
-/obj/item/storage/box/flashbangs,
+/obj/item/storage/box/tactical/flashbangs,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northeast)
@@ -1991,7 +1991,7 @@
 /turf/template_noop,
 /area/template_noop)
 "gE" = (
-/obj/item/storage/box/flashbangs,
+/obj/item/storage/box/tactical/flashbangs,
 /turf/template_noop,
 /area/template_noop)
 "gF" = (

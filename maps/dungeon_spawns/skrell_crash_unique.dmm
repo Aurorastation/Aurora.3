@@ -372,7 +372,7 @@
 /turf/simulated/floor/shuttle/advanced,
 /area/dungeon/skrell_ship)
 "bp" = (
-/obj/item/storage/box/freezer/organcooler,
+/obj/item/storage/box/unique/freezer/organcooler,
 /turf/simulated/floor/tiled/white,
 /area/dungeon/skrell_ship)
 "bq" = (
@@ -404,7 +404,7 @@
 /area/dungeon/skrell_ship)
 "bv" = (
 /obj/structure/table/skrell,
-/obj/item/storage/box/sharps,
+/obj/item/storage/box/unique/sharps,
 /turf/simulated/floor/tiled/white,
 /area/dungeon/skrell_ship)
 "bw" = (

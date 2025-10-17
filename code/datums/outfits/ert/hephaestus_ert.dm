@@ -29,8 +29,8 @@
 
 	backpack_contents = list(
 		/obj/item/gun/projectile/sec/lethal = 1,
-		/obj/item/storage/box/shotgunammo = 1,
-		/obj/item/storage/box/shotgunshells = 1
+		/obj/item/storage/box/shells/slugs = 1,
+		/obj/item/storage/box/shells/buckshot = 1
 	)
 
 	id_iff = IFF_HEPH
@@ -63,8 +63,8 @@
 		/obj/item/melee/baton/loaded = 1,
 		/obj/item/shield/energy = 1,
 		/obj/item/gun/projectile/sec/lethal = 1,
-		/obj/item/storage/box/shotgunammo = 1,
-		/obj/item/storage/box/shotgunshells = 1
+		/obj/item/storage/box/shells/slugs = 1,
+		/obj/item/storage/box/shells/buckshot = 1
 	)
 
 	belt_contents = list(
@@ -95,8 +95,8 @@
 		/obj/item/melee/baton/loaded = 1,
 		/obj/item/clothing/glasses/welding/superior = 1,
 		/obj/item/gun/projectile/sec/lethal = 1,
-		/obj/item/storage/box/shotgunammo = 1,
-		/obj/item/storage/box/shotgunshells = 1
+		/obj/item/storage/box/shells/slugs = 1,
+		/obj/item/storage/box/shells/buckshot = 1
 	)
 	belt_contents = null
 

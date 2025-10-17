@@ -1,7 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - bugfix: "Custom items will now attempt to spawn in a character's hands, before dropping to the floor. This should prevent items being lost to the lifts or cryo."
-  - rscadd: "The alert for a custom item being dropped on the ground is now red, to make it easier to spot."

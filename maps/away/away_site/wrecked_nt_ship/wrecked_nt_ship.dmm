@@ -1545,7 +1545,7 @@
 	dir = 1
 	},
 /obj/item/trash/uselessplastic,
-/obj/item/storage/box/anti_photons,
+/obj/item/storage/box/tactical/anti_photons,
 /turf/simulated/floor/tiled/steel/airless,
 /area/wrecked_nt_ship)
 "JI" = (
