@@ -7,11 +7,6 @@
 /area/ship/Sol_Frigate/hallway_fore)
 "ag" = (
 /obj/effect/floor_decal/corner/orange/diagonal,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /obj/machinery/power/terminal{
 	dir = 1
 	},
@@ -316,7 +311,7 @@
 /obj/structure/cable/blue{
 	icon_state = "2-8"
 	},
-/turf/simulated/floor/holofloor/wood,
+/turf/unsimulated/floor/wood,
 /area/ship/Sol_Frigate/starboard_gunnery)
 "bx" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -346,6 +341,11 @@
 "bG" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/blue{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_fore)
@@ -851,7 +851,7 @@
 /area/ship/Sol_Frigate/captain_office)
 "dK" = (
 /obj/structure/bed/stool/chair/padded,
-/turf/simulated/floor/holofloor/wood,
+/turf/unsimulated/floor/wood,
 /area/ship/Sol_Frigate/starboard_gunnery)
 "dL" = (
 /obj/structure/cable/blue{
@@ -1666,11 +1666,13 @@
 /turf/simulated/wall/shuttle/raider,
 /area/ship/Sol_Frigate/captain_cabin)
 "hs" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/blue{
-	icon_state = "0-4"
+	icon_state = "2-4"
 	},
-/turf/template_noop,
-/area/space)
+/turf/simulated/floor/tiled/dark,
+/area/ship/Sol_Frigate/hallway_fore)
 "ht" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
@@ -2336,9 +2338,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/black,
 /obj/effect/floor_decal/industrial/outline/service,
 /obj/machinery/light/small,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
-	dir = 8
-	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	pixel_y = -23;
 	dir = 1;
@@ -2350,6 +2349,9 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/map_effect/marker/airlock/Sol_Frigate/mid_starboard,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
 /turf/simulated/floor,
 /area/ship/Sol_Frigate/Port_docking_port)
 "kk" = (
@@ -2542,15 +2544,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/eva_storage)
 "ld" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 1
-	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable/blue{
 	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/ship/Sol_Frigate/hallway_fore)
@@ -3181,9 +3183,7 @@
 	},
 /obj/effect/floor_decal/corner/orange/diagonal,
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/Solfrig_shuttle)
@@ -3510,12 +3510,6 @@
 	shuttle_tag = "solarian light interceptor"
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
-/obj/machinery/light/small{
-	dir = 4
-	},
-/obj/structure/bed/handrail{
-	dir = 8
-	},
 /obj/effect/floor_decal/corner/orange/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/Solfrig_shuttle)
@@ -4047,6 +4041,7 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
+/obj/machinery/hologram/holopad/long_range,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/cic)
 "sz" = (
@@ -4405,6 +4400,9 @@
 /obj/structure/cable/blue{
 	icon_state = "4-8"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/bunks)
 "ub" = (
@@ -4656,6 +4654,7 @@
 "uK" = (
 /obj/effect/floor_decal/corner/orange/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/machinery/hologram/holopad/long_range,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/Solfrig_shuttle)
 "uL" = (
@@ -5511,6 +5510,10 @@
 	frequency = 1534;
 	id_tag = "xanufrigate_portco2_out"
 	},
+/obj/effect/map_effect/marker/large_tank{
+	name = "Solfrig_starboard";
+	master_tag = "Solfrig_starboard"
+	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/ship/Sol_Frigate/starboard_thrusters)
 "zP" = (
@@ -5752,6 +5755,11 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/Solfrig_shuttle)
 "AO" = (
@@ -5766,10 +5774,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_fore)
 "AR" = (
-/obj/effect/map_effect/marker/large_tank{
-	name = "Solfrig_port";
-	master_tag = "Solfrig_port"
-	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/ship/Sol_Frigate/port_thrusters)
 "AU" = (
@@ -5833,6 +5837,9 @@
 /obj/machinery/meter,
 /obj/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/Solfrig_shuttle)
@@ -6522,6 +6529,9 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/Solfrig_shuttle)
 "Ep" = (
@@ -6957,7 +6967,7 @@
 	dir = 1
 	},
 /obj/structure/bookcase,
-/turf/simulated/floor/holofloor/wood,
+/turf/unsimulated/floor/wood,
 /area/ship/Sol_Frigate/starboard_gunnery)
 "GF" = (
 /obj/effect/landmark/entry_point/starboard{
@@ -7088,7 +7098,7 @@
 /obj/structure/flora/pottedplant/fern{
 	pixel_y = 13
 	},
-/turf/simulated/floor/holofloor/wood,
+/turf/unsimulated/floor/wood,
 /area/ship/Sol_Frigate/starboard_gunnery)
 "Hd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -7158,6 +7168,12 @@
 	name = "sol_light_interceptor";
 	master_tag = "sol_light_interceptor";
 	shuttle_tag = "solarian light interceptor"
+	},
+/obj/structure/bed/handrail{
+	dir = 8
+	},
+/obj/machinery/light/small{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/Solfrig_shuttle)
@@ -7289,11 +7305,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/starboard_battery)
 "HW" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_fore)
@@ -7439,10 +7455,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/armoury)
 "IG" = (
-/obj/effect/map_effect/marker/large_tank{
-	name = "Solfrig_starboard";
-	master_tag = "Solfrig_starboard"
-	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/ship/Sol_Frigate/starboard_thrusters)
 "IM" = (
@@ -7981,6 +7993,10 @@
 /area/ship/Sol_Frigate/sickbay)
 "KT" = (
 /obj/machinery/air_sensor,
+/obj/effect/map_effect/marker/large_tank{
+	name = "Solfrig_port";
+	master_tag = "Solfrig_port"
+	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/ship/Sol_Frigate/port_thrusters)
 "KU" = (
@@ -9559,7 +9575,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/hallway_fore)
 "Sr" = (
-/turf/simulated/floor/holofloor/wood,
+/turf/unsimulated/floor/wood,
 /area/ship/Sol_Frigate/starboard_gunnery)
 "Sv" = (
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -10319,10 +10335,6 @@
 "WM" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -10461,9 +10473,6 @@
 /area/ship/Sol_Frigate/freezer)
 "Xs" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/manifold4w/visible/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable/blue{
@@ -10829,6 +10838,9 @@
 /obj/structure/cable{
 	dir = 1
 	},
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/Solfrig_shuttle)
 "Zf" = (
@@ -10935,8 +10947,17 @@
 /obj/structure/bed/stool/chair/padded{
 	dir = 8
 	},
-/turf/simulated/floor/holofloor/wood,
+/turf/unsimulated/floor/wood,
 /area/ship/Sol_Frigate/starboard_gunnery)
+"Zz" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
+/obj/structure/cable/blue{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/Sol_Frigate/hallway_fore)
 "ZA" = (
 /obj/structure/table/standard,
 /obj/item/pen/drafting,
@@ -42283,7 +42304,7 @@ cB
 bk
 AP
 HW
-PD
+hs
 bG
 bG
 ol
@@ -42540,7 +42561,7 @@ nF
 jY
 fG
 ld
-hl
+Zz
 pK
 pK
 pK
@@ -50774,7 +50795,7 @@ MO
 MO
 MO
 MO
-hs
+MO
 MO
 MO
 MO
