@@ -2160,7 +2160,7 @@
 /area/construction)
 "pT" = (
 /obj/effect/landmark/start{
-	name = "Engineer"
+	name = "Ship Engineer"
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
