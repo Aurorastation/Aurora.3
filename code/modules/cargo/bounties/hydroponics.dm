@@ -8,14 +8,23 @@
 	random_count = 3
 	wanted_types = list(/obj/item/cell/potato)
 
-/datum/bounty/item/hydroponicist/ert
-	name = "Rations"
-	description = "%BOSSSHORT is sending ERT out on a long mission. We need some long-lasting rations for them to eat!"
+/datum/bounty/item/hydroponicist/rations
+	name = "Rations/MREs"
+	description = "The cargo hold's stockpile of rations is running low, deliver some down via the cargo elevator. Please keep any MREs sealed!"
 	reward_low = 220
 	reward_high = 280
 	required_count = 6
 	random_count = 2
-	wanted_types = list(/obj/item/reagent_containers/food/snacks/liquidfood, /obj/item/pen/crayon)
+	wanted_types = list(/obj/item/reagent_containers/food/snacks/liquidfood, /obj/item/pen/crayon, /obj/item/storage/box/fancy/mre)
+
+/datum/bounty/item/hydroponicist/rations/applies_to(var/obj/item/storage/box/fancy/mre/O)
+	if(!..())
+		return FALSE
+	if(!istype(O))
+		return FALSE
+	if(!O.open) // Checks if the MRE is open
+		return TRUE
+	return FALSE
 
 /datum/bounty/item/hydroponicist/towels
 	name = "Towels"
