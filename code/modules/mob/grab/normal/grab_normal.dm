@@ -86,7 +86,7 @@
 		if(do_mob(grabber, grabbed, action_cooldown - 1))
 			G.action_used()
 			limb.dislocate(TRUE)
-			grabber.visible_message(SPAN_DANGER("\The [grabbed]'s [limb.joint] [pick("gives way, caves in, crumbles, collapses")]!"))
+			grabber.visible_message(SPAN_DANGER("\The [grabbed]'s [limb.joint] [pick("gives way", "caves in", "crumbles", "collapses")]!"))
 			playsound(grabber.loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 			return TRUE
 		grabbed.visible_message(SPAN_WARNING("\The [grabber] fails to dislocate \the [grabbed]'s [limb.joint]."))

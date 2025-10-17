@@ -11,7 +11,7 @@
 
 /mob/living/drop_from_inventory(var/obj/item/W, var/atom/target)
 	. = ..(W, target)
-	if(W && W.GetID())
+	if(istype(W) && W.GetID())
 		BITSET(hud_updateflag, ID_HUD) //If we drop our ID, update ID HUD
 
 /*one proc, four uses
