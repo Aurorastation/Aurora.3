@@ -270,9 +270,9 @@
 	if(isobserver(user))
 		return
 	if(choice != selecting)
+		SEND_SIGNAL(user, COMSIG_MOB_ZONE_SEL_CHANGE, selecting, choice)
 		selecting = choice
 		update_icon()
-		SEND_SIGNAL(user, COMSIG_MOB_ZONE_SEL_CHANGE, user)
 
 /atom/movable/screen/zone_sel/update_icon()
 	ClearOverlays()

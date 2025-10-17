@@ -78,10 +78,7 @@
 	current_grab.do_process(src)
 
 /obj/item/grab/attack_self()
-	if(grabber?.a_intent == I_HELP)
-		downgrade()
-	else
-		upgrade()
+	upgrade()
 
 /obj/item/grab/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
 	if(QDELETED(src) || !current_grab || !grabber || proximity_flag) // Close-range is handled in resolve_attackby().
@@ -112,7 +109,7 @@
 		grabbed = null
 	if(grabber)
 		if(grabber.zone_sel)
-			UnregisterSignal(grabber.zone_sel, COMSIG_MOB_ZONE_SEL_CHANGE)
+			UnregisterSignal(grabber, COMSIG_MOB_ZONE_SEL_CHANGE)
 		grabber = null
 	. = ..()
 	if(old_grabbed)
