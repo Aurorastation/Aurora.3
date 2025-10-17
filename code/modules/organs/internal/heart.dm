@@ -120,6 +120,8 @@
 /obj/item/organ/internal/heart/process(seconds_per_tick)
 	if(!owner)
 		return ..()
+	if(owner.stasis_value > 0) // Decrease the effective tickrate when in stasis.
+		seconds_per_tick /= owner.stasis_value
 	handle_pulse()
 	if(pulse)
 		if(pulse == PULSE_2FAST)
@@ -346,9 +348,7 @@
 
 	. = "[pulsesound] pulse"
 
-// Example heart item that has significantly higher statistics.
-// Also to be used for the Galatean Bio-augments PRs.
-// TODO: After refactoring the organ selector, make it so that this is a selectable heart type(For Galateans)
+// Galatean boosted heart
 /obj/item/organ/internal/heart/boosted_heart
 	name = "boosted heart"
 	desc = "Intended for athletes, some workers, and soldiers, this improved heart increases blood flow and circulation." \
