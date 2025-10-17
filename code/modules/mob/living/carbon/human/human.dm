@@ -1309,6 +1309,7 @@
 
 	..()
 
+/// Passes the gas_mixture to the lungs for them to deal with. If lungs exist.
 /mob/living/carbon/human/handle_breath(datum/gas_mixture/breath)
 	if(status_flags & GODMODE)
 		return

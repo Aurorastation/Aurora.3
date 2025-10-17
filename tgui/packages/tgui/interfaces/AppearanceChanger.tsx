@@ -103,25 +103,15 @@ export const GenderWindow = (props, context) => {
   const { act, data } = useBackend<ChangerData>(context);
 
   return (
-    <Section title="Gender and Pronouns">
-      {data.valid_genders.map((new_gender) => (
+    <Section title="Pronouns">
+      {data.valid_pronouns.map((pronoun) => (
         <Button
-          key={new_gender}
-          content={capitalize(new_gender)}
-          selected={data.owner_gender === new_gender}
-          onClick={() => act('gender', { gender: new_gender })}
+          key={pronoun}
+          content={capitalize(pronoun)}
+          selected={data.owner_pronouns === pronoun}
+          onClick={() => act('pronoun', { pronouns: pronoun })}
         />
       ))}
-      <Section title="Pronouns">
-        {data.valid_pronouns.map((pronoun) => (
-          <Button
-            key={pronoun}
-            content={capitalize(pronoun)}
-            selected={data.owner_pronouns === pronoun}
-            onClick={() => act('pronoun', { pronouns: pronoun })}
-          />
-        ))}
-      </Section>
     </Section>
   );
 };

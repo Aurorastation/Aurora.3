@@ -664,13 +664,20 @@
 			sprint_cost_factor -= 0.35 * chem_effects[CE_ADRENALINE]
 			stamina_recovery += max ((stamina_recovery * 0.7 * chem_effects[CE_ADRENALINE]), 5)
 
-		var/obj/item/clothing/C = wear_suit
-		if(!(C && (C.body_parts_covered & HANDS) && !(C.heat_protection & HANDS)) && !gloves)
-			for(var/obj/item/I in src)
-				if(I.contaminated && !(species.flags & PHORON_IMMUNE))
-					if(I == r_hand)
+		var/obj/item/clothing/suit = wear_suit
+		var/protected = FALSE
+		if(suit && (suit.body_parts_covered & HANDS) && (suit.heat_protection & HANDS))
+			protected = TRUE
+
+		if(gloves && (gloves.heat_protection & HANDS))
+			protected = TRUE
+
+		if(!protected)
+			for(var/obj/item/held_item in src)
+				if(held_item.contaminated && !(species.flags & PHORON_IMMUNE))
+					if(held_item == r_hand)
 						apply_damage(GLOB.vsc.plc.CONTAMINATION_LOSS, DAMAGE_BURN, BP_R_HAND)
-					else if(I == l_hand)
+					else if(held_item == l_hand)
 						apply_damage(GLOB.vsc.plc.CONTAMINATION_LOSS, DAMAGE_BURN, BP_L_HAND)
 					else
 						adjustFireLoss(GLOB.vsc.plc.CONTAMINATION_LOSS)

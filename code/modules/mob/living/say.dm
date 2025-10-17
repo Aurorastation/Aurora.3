@@ -357,6 +357,8 @@ var/list/channel_to_radio_key = new
 	var/list/langchat_styles = list()
 	if(istype(speaking, /datum/language/noise))
 		langchat_styles = list("emote", "langchat_small")
+	if(istype(speaking, /datum/language/noise))
+		langchat_styles = list("emote", "langchat_small")
 
 	langchat_speech(message, get_hearers_in_view(message_range, src), speaking, additional_styles = langchat_styles)
 
