@@ -74,7 +74,7 @@
 	brain_scrambling = min(brain_scrambling + (severity == EMP_LIGHT ? 50 : 75), 100)
 	shake_camera(owner, 1 SECOND, 3)
 	to_chat(owner, FONT_LARGE(SPAN_MACHINE_DANGER("Your internal connections seize up and snap at the surge of electromagnetic current!")))
-	emp_damage_counter++
+	add_emp_damage_counter()
 	spark(owner, rand(3, 5), GLOB.alldirs)
 
 /obj/item/organ/internal/machine/posibrain/die()
@@ -158,15 +158,16 @@
  */
 /obj/item/organ/internal/machine/posibrain/proc/clear_emp_damage_counter()
 	emp_damage_counter = 0
+	owner.remove_movespeed_modifier(/datum/movespeed_modifier/synth_emp)
 	SEND_SIGNAL(owner, COMSIG_SYNTH_EMP_DAMAGE_CLEARED)
 
 /**
- * This proc adds to the burst damage counter. The more burst damage we sustain, the greater debilitation we suffer, and the more time it takes to recover.
- * See code\datums\components\synthetic_burst_damage\synthetic_burst_damage.dm
+ * This proc adds to the EMP damage counter, and automatically starts a unique/override timer to clear it.
  */
 /obj/item/organ/internal/machine/posibrain/proc/add_emp_damage_counter()
 	emp_damage_counter = min(emp_damage_counter + 1, emp_damage_maximum)
-	handle_burst_damage()
+	handle_emp_damage()
+	addtimer(CALLBACK(src, PROC_REF(clear_emp_damage_counter)), emp_damage_counter * 20, TIMER_OVERRIDE | TIMER_UNIQUE)
 
 /**
  * Generates a random hex number for cool hacking aesthetic.
@@ -278,16 +279,16 @@
 					to_chat(owner, SPAN_MACHINE_DANGER(pick(extreme_fragmentation_messages)))
 
 /**
- * Handles burst damage effects. See code\datums\components\synthetic_burst_damage\synthetic_burst_damage.dm
+ * Handles EMP damage effects.
  */
-/obj/item/organ/internal/machine/posibrain/proc/handle_burst_damage()
+/obj/item/organ/internal/machine/posibrain/proc/handle_emp_damage()
 	playsound(owner, 'sound/species/synthetic/synthetic_shock.ogg')
 	switch(emp_damage_counter)
 		if(1)
 			var/obj/item/organ/internal/machine/cooling_unit/cooling = owner.internal_organs_by_name[BP_COOLING_UNIT]
 			if(istype(cooling))
-				to_chat(owner, FONT_LARGE(SPAN_DANGER("Your cooling unit's power circuits struggle and spark against the electromagnetic current!")))
-				cooling.thermostat = cooling.thermostat_max
+				to_chat(owner, FONT_LARGE(SPAN_DANGER("Your cooling unit's power circuits struggle and burn under the electromagnetic current!")))
+				cooling.update_thermostat(cooling.thermostat_min + round(rand(10, 20)))
 			shake_camera(owner, 0.5 SECONDS, 1)
 			owner.add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/synth_emp)
 		if(2)
@@ -334,6 +335,17 @@
 			if(2)
 				damage_points += 2
 			if(3)
+				damage_points += 3
+
+	var/datum/component/synthetic_endoskeleton/endoskeleton = owner.GetComponent(/datum/component/synthetic_endoskeleton)
+	if(endoskeleton && endoskeleton.damage)
+		var/damage_ratio = endoskeleton.damage_maximum / endoskeleton.damage
+		switch(damage_ratio)
+			if(0.3 to 0.5)
+				damage_points++
+			if(0.5 to 0.75)
+				damage_points += 2
+			if(0.75 to INFINITY)
 				damage_points += 3
 
 	if(damage_points)

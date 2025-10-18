@@ -101,8 +101,6 @@
 			if(internal.get_status())
 				break
 
-	SEND_SIGNAL(owner, COMSIG_MACHINE_INTERNAL_DAMAGE, amount)
-
 	. = ..()
 
 /obj/item/organ/internal/machine/emp_act(severity)
@@ -229,11 +227,6 @@
 	if(istype(brain))
 		brain.damage_integrity(2)
 	return TRUE
-
-/**
- * Apply the burst damage effects.
- */
-/obj/item/organ/internal/machine/proc/burst_damage_effects()
 
 /**
  * Returns extra diagnostics info, viewable from the diagnostics unit.

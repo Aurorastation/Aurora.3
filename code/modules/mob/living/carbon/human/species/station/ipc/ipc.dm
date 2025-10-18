@@ -178,23 +178,37 @@
 	human.bodytemperature += base_heat_gain
 
 /datum/species/machine/handle_stance_damage(mob/living/carbon/human/H, damage_only)
+	var/stance_damage = 0
 	var/obj/item/organ/internal/machine/hydraulics/hydraulics = H.internal_organs_by_name[BP_HYDRAULICS]
 	if(!hydraulics)
 		return 6 //no hydraulics, no party
 
 	if(hydraulics.status & ORGAN_DEAD)
 		return 5
-	else
-		switch(hydraulics.get_integrity())
-			if(0 to IPC_INTEGRITY_THRESHOLD_VERY_HIGH)
-				to_chat(H, SPAN_MACHINE_WARNING("Your hydraulics are on the verge of breaking completely!"))
-				spark(H, rand(3, 4), GLOB.alldirs)
-				return 4
-			if(IPC_INTEGRITY_THRESHOLD_VERY_HIGH to IPC_INTEGRITY_THRESHOLD_HIGH)
-				to_chat(H, SPAN_MACHINE_WARNING("Your hydraulics spark and whine!"))
-				spark(H, rand(1, 3), GLOB.alldirs)
-				return 2
-	return 0
+
+	switch(hydraulics.get_integrity())
+		if(0 to IPC_INTEGRITY_THRESHOLD_VERY_HIGH)
+			to_chat(H, SPAN_MACHINE_WARNING("Your hydraulics are on the verge of breaking completely!"))
+			spark(H, rand(3, 4), GLOB.alldirs)
+			stance_damage += 4
+		if(IPC_INTEGRITY_THRESHOLD_VERY_HIGH to IPC_INTEGRITY_THRESHOLD_HIGH)
+			to_chat(H, SPAN_MACHINE_WARNING("Your hydraulics spark and whine!"))
+			spark(H, rand(1, 3), GLOB.alldirs)
+			stance_damage += 2
+
+	var/datum/component/synthetic_endoskeleton/endoskeleton = H.GetComponent(/datum/component/synthetic_endoskeleton)
+	if(!endoskeleton)
+		stance_damage += 6 //how?
+	var/damage_ratio = endoskeleton.damage_maximum / endoskeleton.damage
+	switch(damage_ratio)
+		if(0.3 to 0.5)
+			stance_damage += 1
+		if(0.5 to 0.75)
+			stance_damage += 2
+		if(0.75 to INFINITY)
+			stance_damage += 3
+
+	return stance_damage
 
 /datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	. = ..()

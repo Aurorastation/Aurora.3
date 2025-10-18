@@ -43,8 +43,8 @@
  */
 #define COMSIG_LIVER_FILTER_EVENT "liver_filter_event"
 
-/// Raised when an internal organ of subtype /machine takes internal damage. Used for the synthetic_burst_damage component.
-#define COMSIG_MACHINE_INTERNAL_DAMAGE "machine_internal_damage"
+/// Raised external organ (a limb) takes damage. Used for the synthetic endoskeleton at the moment.
+#define COMSIG_EXTERNAL_ORGAN_DAMAGE "machine_internal_damage"
 
 /// Sent when the burst damage is cleared by the posibrain.
 #define COMSIG_SYNTH_EMP_DAMAGE_CLEARED "burst_damage_cleared"
