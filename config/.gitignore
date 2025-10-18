@@ -1,4 +1,5 @@
 #ignore everything here, except subdirectories.
 /*
+/synthetic_messages/*
 /lore_radio/*
 !/*/

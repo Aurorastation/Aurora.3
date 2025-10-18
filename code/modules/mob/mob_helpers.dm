@@ -1357,3 +1357,7 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 		message_notifications.Cut(1, 2)
 
 	message_notifications[key_check] = world.time + next_message_time
+
+/// Gets a mob's strength.
+/mob/proc/get_mob_strength()
+	return mob_weight + mob_strength
