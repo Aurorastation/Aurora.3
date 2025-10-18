@@ -80,10 +80,6 @@
 /obj/item/stack/cable_coil,
 /turf/template_noop,
 /area/template_noop)
-"bv" = (
-/obj/structure/cart/storage/janitorialcart,
-/turf/template_noop,
-/area/template_noop)
 "bw" = (
 /obj/structure/table/rack/no_cargo,
 /obj/item/rfd/piping,
@@ -611,6 +607,10 @@
 /obj/structure/table/rack/no_cargo,
 /turf/template_noop,
 /area/template_noop)
+"nS" = (
+/obj/machinery/media/jukebox/classic,
+/turf/template_noop,
+/area/template_noop)
 "nW" = (
 /obj/structure/closet/bombclosetsecurity,
 /turf/template_noop,
@@ -686,10 +686,6 @@
 "qo" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
 /obj/structure/closet/crate/miningcart/ore,
-/turf/template_noop,
-/area/template_noop)
-"qI" = (
-/obj/machinery/media/jukebox/classic,
 /turf/template_noop,
 /area/template_noop)
 "qM" = (
@@ -3597,7 +3593,7 @@ Gz
 Gz
 Gz
 Gz
-bv
+vG
 Gz
 Gz
 Gz
@@ -5016,7 +5012,7 @@ MW
 MW
 Gz
 Gz
-qI
+nS
 nn
 sW
 HU
@@ -5455,7 +5451,7 @@ Gz
 Gz
 Gz
 sW
-qI
+nS
 Gz
 Gz
 eB
@@ -5559,7 +5555,7 @@ Oz
 Gz
 Gz
 Gz
-qI
+nS
 nn
 Gz
 Gz

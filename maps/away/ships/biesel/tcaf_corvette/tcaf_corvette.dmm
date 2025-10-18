@@ -2643,6 +2643,18 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/tcaf_corvette/hydroponics)
+"jy" = (
+/obj/effect/floor_decal/industrial/outline/custodial,
+/obj/machinery/alarm/south{
+	req_one_access = list(204)
+	},
+/obj/structure/cart/storage/janitorialcart/full{
+	dir = 4
+	},
+/obj/item/reagent_containers/glass/bucket,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/full,
+/area/tcaf_corvette/custodial)
 "jz" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -4469,6 +4481,18 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/tcaf_corvette/storage)
+"qp" = (
+/obj/effect/floor_decal/corner_wide/brown{
+	dir = 6
+	},
+/obj/machinery/media/jukebox/classic{
+	anchored = 1;
+	density = 0
+	},
+/obj/effect/floor_decal/industrial/outline/service,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
+/area/tcaf_corvette/messhall)
 "qq" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
@@ -11171,18 +11195,6 @@
 	},
 /turf/simulated/floor,
 /area/tcaf_corvette/workshop)
-"Sd" = (
-/obj/effect/floor_decal/industrial/outline/custodial,
-/obj/machinery/alarm/south{
-	req_one_access = list(204)
-	},
-/obj/structure/cart/storage/janitorialcart{
-	dir = 4
-	},
-/obj/item/reagent_containers/glass/bucket,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/full,
-/area/tcaf_corvette/custodial)
 "Sf" = (
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 10
@@ -11669,18 +11681,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/tcaf_corvette/central_ring)
-"TG" = (
-/obj/effect/floor_decal/corner_wide/brown{
-	dir = 6
-	},
-/obj/machinery/media/jukebox/classic{
-	anchored = 1;
-	density = 0
-	},
-/obj/effect/floor_decal/industrial/outline/service,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
-/area/tcaf_corvette/messhall)
 "TI" = (
 /obj/machinery/atmospherics/unary/engine,
 /turf/simulated/floor,
@@ -110863,7 +110863,7 @@ qQ
 bU
 Rq
 lm
-TG
+qp
 Ps
 GP
 zF
@@ -113679,7 +113679,7 @@ Ne
 ml
 UP
 KO
-Sd
+jy
 ml
 uY
 Ro

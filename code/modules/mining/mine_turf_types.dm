@@ -1,7 +1,7 @@
 // These are pricey, but damn do they look nice.
 /turf/simulated/lava
 	name = "lava"
-	desc = "Toasty."
+	desc = "Liquid rock; it can melt flesh from bone in seconds."
 	icon = 'icons/turf/smooth/lava.dmi'
 	icon_state = "smooth"
 	gender = PLURAL
@@ -37,11 +37,42 @@
 			else
 				L.bodytemperature = min(L.bodytemperature + 150, 1000)
 		else
-			L.IgniteMob(15)
-			return TRUE
+			var/target_zone
+			if(L.lying)
+				target_zone = pick(BP_ALL_LIMBS)
+			else
+				target_zone = pick(BP_L_FOOT, BP_R_FOOT, BP_L_LEG, BP_R_LEG)
+
+	//Try to apply the damage
+			var/success = L.apply_damage(50, DAMAGE_BURN, target_zone, used_weapon = src, armor_pen = 50)
+	//Apply weakness, so the victim doesn't walk into more lava
+			L.Weaken(10)
+			L.IgniteMob(3)
+
+	//If successfully applied, give the message
+			if(success)
+				if(!ishuman(L))
+					L.visible_message(SPAN_DANGER("[L] falls into \the [src]!"))
+					return
+
+				var/mob/living/carbon/human/human = L
+				var/obj/item/organ/organ = human.get_organ(target_zone)
+
+				if(isipc(L) || isrobot(L))
+					playsound(src, 'sound/weapons/smash.ogg', 100, TRUE)
+				else
+					playsound(src, 'sound/effects/meatsizzle.ogg', 100, TRUE)
+
+				human.visible_message(SPAN_DANGER("\The [human] slams into \the [src]!"),
+										SPAN_WARNING(FONT_LARGE(SPAN_DANGER("You step on \the [src], feel instant pain, and the skin on your [organ.name] begins to burn away!"))),
+										SPAN_WARNING("<b>You instant pain, and the skin on your [organ.name] begins to burn away!</b>"))
+		return TRUE
 	..()
 
 /turf/simulated/lava/Exited(atom/movable/AM, atom/newloc)
+	if(locate(/obj/structure/lattice/catwalk, src))	//should prevent people in lava from seeing messages about exiting lava
+		return TRUE
+
 	if(istype(AM, /mob/living))
 		var/mob/living/L = AM
 		if(!istype(newloc, /turf/simulated/lava))

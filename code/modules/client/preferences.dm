@@ -311,7 +311,6 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 		O.appearance = MA
 		O.dir = D
 		O.hud_layerise()
-		O.plane = 11 //THIS IS DUMB. Figure out a way to remove emissive blockers from the mob and their overlays.
 		var/list/screen_locs = preview_screen_locs["[D]"]
 		var/screen_x = screen_locs[1]
 		var/screen_x_minor = screen_locs[2]

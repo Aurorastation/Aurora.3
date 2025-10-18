@@ -58,7 +58,7 @@
 /obj/effect/overlay/street_light
 	icon = 'icons/obj/structure/urban/poles.dmi'
 	icon_state = "street_light"
-	plane = EFFECTS_ABOVE_LIGHTING_PLANE
+	plane = ABOVE_LIGHTING_PLANE
 
 /obj/effect/overlay/street_light/classic
 	icon_state = "classic_lamp_light"

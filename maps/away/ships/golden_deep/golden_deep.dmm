@@ -4969,6 +4969,15 @@
 	},
 /turf/simulated/floor/lino/diamond,
 /area/golden_deep/hoplan)
+"uy" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/obj/machinery/media/jukebox/classic{
+	anchored = 1
+	},
+/turf/simulated/floor/wood,
+/area/golden_deep/lounge)
 "uz" = (
 /obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/interior,
@@ -6775,20 +6784,6 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/golden_deep/workshop)
-"Cr" = (
-/obj/machinery/light/small{
-	dir = 4
-	},
-/obj/structure/cart/storage/janitorialcart{
-	dir = 4
-	},
-/obj/item/reagent_containers/glass/bucket,
-/obj/structure/reagent_dispensers/peppertank/spacecleaner{
-	pixel_y = 29
-	},
-/obj/effect/floor_decal/industrial/outline/custodial,
-/turf/simulated/floor/tiled/dark/full,
-/area/golden_deep/custodial)
 "Cs" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 6
@@ -8153,15 +8148,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/golden_deep/private_lounge)
-"HD" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 5
-	},
-/obj/machinery/media/jukebox/classic{
-	anchored = 1
-	},
-/turf/simulated/floor/wood,
-/area/golden_deep/lounge)
 "HE" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -9728,16 +9714,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/golden_deep/eva)
-"Ob" = (
-/obj/machinery/media/jukebox/classic{
-	anchored = 1
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/sign/poster/engineering/bay_65{
-	pixel_y = -32
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/golden_deep/owned_lounge)
 "Od" = (
 /obj/machinery/atmospherics/unary/engine{
 	dir = 4
@@ -10746,6 +10722,20 @@
 /obj/effect/floor_decal/industrial/hatch_tiny/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/golden_deep/portprop)
+"RP" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/structure/cart/storage/janitorialcart/full{
+	dir = 4
+	},
+/obj/item/reagent_containers/glass/bucket,
+/obj/structure/reagent_dispensers/peppertank/spacecleaner{
+	pixel_y = 29
+	},
+/obj/effect/floor_decal/industrial/outline/custodial,
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/custodial)
 "RR" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -12277,6 +12267,16 @@
 	},
 /turf/simulated/floor/marble/dark,
 /area/golden_deep/hoplan)
+"Ym" = (
+/obj/machinery/media/jukebox/classic{
+	anchored = 1
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/sign/poster/engineering/bay_65{
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/golden_deep/owned_lounge)
 "Yn" = (
 /obj/machinery/atmospherics/portables_connector/aux{
 	dir = 4
@@ -45277,7 +45277,7 @@ pL
 tM
 jK
 jK
-Ob
+Ym
 Uw
 Rt
 Rt
@@ -110005,7 +110005,7 @@ Bu
 SG
 pG
 mk
-Cr
+RP
 Yf
 WF
 Hj
@@ -113630,7 +113630,7 @@ oC
 Re
 IR
 mS
-HD
+uy
 SS
 eO
 Rt

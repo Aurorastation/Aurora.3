@@ -184,6 +184,9 @@ SUBSYSTEM_DEF(explosives)
 		E.set_up(epicenter)
 		E.start()
 
+	if(power >= 9)
+		new /obj/effect/shockwave(epicenter, power / 2)
+
 	var/x0 = epicenter.x
 	var/y0 = epicenter.y
 	var/z0 = epicenter.z
@@ -328,6 +331,9 @@ SUBSYSTEM_DEF(explosives)
 	var/close_dist = round(power + world.view - 2, 1)
 
 	var/sound/explosion_sound = sound(SFX_EXPLOSION)
+
+	if(power >= 100)
+		new /obj/effect/shockwave(epicenter, power / 60)
 
 	for (var/thing in GLOB.player_list)
 		var/mob/M = thing
