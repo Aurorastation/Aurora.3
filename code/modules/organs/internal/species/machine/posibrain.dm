@@ -153,8 +153,7 @@
 		to_chat(owner, SPAN_DANGER("Your internal software throws exceptions at you: faulty systems detected! Warning! Warning!"))
 
 /**
- * This proc clears the burst damage counter
- * See code\datums\components\synthetic_burst_damage\synthetic_burst_damage.dm
+ * This proc clears the EMP damage counter.
  */
 /obj/item/organ/internal/machine/posibrain/proc/clear_emp_damage_counter()
 	emp_damage_counter = 0
