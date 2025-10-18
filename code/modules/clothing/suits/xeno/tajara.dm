@@ -369,3 +369,17 @@
 	item_state = "explorer_jacket"
 	contained_sprite = TRUE
 	allowed = list(/obj/item/grenade/dynamite, /obj/item/melee/whip, /obj/item/gun/projectile/revolver, /obj/item/pickaxe)
+
+/obj/item/clothing/suit/storage/tajaran/pra_cop
+	name = "PRA NPD jacket"
+	desc = "A warm and thick jacket with the markings of the PRA national police department."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "taj_cop_suit"
+	item_state = "taj_cop_suit"
+	contained_sprite = TRUE
+
+/obj/item/clothing/suit/storage/tajaran/pra_cop/rural
+	name = "rural PRA NPD jacket"
+	desc = "A jacket with the markings of the PRA national police department that can commonly be found in the rural parts of the PRA."
+	icon_state = "taj_cop_suit_rural"
+	item_state = "taj_cop_suit_rural"

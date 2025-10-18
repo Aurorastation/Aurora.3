@@ -403,6 +403,24 @@
 	item_state = "psis"
 	starting_accessories = (/obj/item/clothing/accessory/holster/hip)
 
+/obj/item/clothing/under/tajaran/pra_cop
+	name = "PRA NPD uniform"
+	desc = "A dark uniform bearing the markings of the PRA national police department. It is most commonly found within the cities of the PRA."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "taj_cop_uniform"
+	item_state = "taj_cop_uniform"
+	// desc_extended = "The Raakti Shariim (Royal Peacekeepers in Ceti Basic) are the New Kingdom of Adhomai's policing and \
+	// 	peacekeeping force, working closely with both the Royal Constabulary and the Royal Ministry of Intelligence to \
+	// 	seek out internal threats to the Kingdom such as spies, terrorists, and other domestic enemies to the crown. \
+	// 	The Raakti Shariim's uniforms incorporate a dark, navy blue paired with a lilac accent and pale-gold twin-sun \
+	// 	insignia."
+
+/obj/item/clothing/under/tajaran/pra_cop/rural
+	name = "rural PRA NPD uniform"
+	desc = "A light uniform bearing the markings of the PRA national police department. It is most commonly found in the rural parts of the PRA."
+	icon_state = "taj_cop_uniform_rural"
+	item_state = "taj_cop_uniform_rural"
+
 // Red Polka Dot Dress
 /obj/item/clothing/under/dress/tajaran/polka_dot
 	name = "red polka dot dress"

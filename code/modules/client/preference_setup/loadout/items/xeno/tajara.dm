@@ -791,3 +791,49 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	colorable_cloaks["royal cloak (hooded)"] = /obj/item/clothing/suit/storage/hooded/tajaran/colorable/royal
 	colorable_cloaks["amohda cloak"] = /obj/item/clothing/suit/storage/hooded/tajaran/colorable/amohda
 	gear_tweaks += new /datum/gear_tweak/path(colorable_cloaks)
+
+/datum/gear/suit/taj_cop
+	display_name = "PRA cop jacket selection"
+	description = "A selection of jackets for PRA cops."
+	path = /obj/item/clothing/suit/storage/tajaran/pra_cop
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	sort_category = "Xenowear - Tajara"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/suit/taj_cop/New()
+	..()
+	var/list/cop_jackets = list()
+	cop_jackets["city jacket"] = /obj/item/clothing/suit/storage/tajaran/pra_cop
+	cop_jackets["rural jacket"] = /obj/item/clothing/suit/storage/tajaran/pra_cop/rural
+	gear_tweaks += new /datum/gear_tweak/path(cop_jackets)
+
+/datum/gear/uniform/taj_cop
+	display_name = "PRA cop uniform selection"
+	description = "A selection of uniforms for PRA cops."
+	path = /obj/item/clothing/under/tajaran/pra_cop
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	sort_category = "Xenowear - Tajara"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/uniform/taj_cop/New()
+	..()
+	var/list/cop_uniform = list()
+	cop_uniform["city uniform"] = /obj/item/clothing/under/tajaran/pra_cop
+	cop_uniform["rural uniform"] = /obj/item/clothing/under/tajaran/pra_cop/rural
+	gear_tweaks += new /datum/gear_tweak/path(cop_uniform)
+
+/datum/gear/head/taj_cop
+	display_name = "PRA cop hat selection"
+	description = "A selection of hats for PRA cops."
+	path = /obj/item/clothing/head/tajaran/pra_cop
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	sort_category = "Xenowear - Tajara"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/head/taj_cop/New()
+	..()
+	var/list/cop_hat = list()
+	cop_hat["city pilotka"] = /obj/item/clothing/head/tajaran/pra_cop
+	cop_hat["city woolen hat"] = /obj/item/clothing/head/tajaran/pra_cop/winter
+	cop_hat["rural hat"] = /obj/item/clothing/head/tajaran/pra_cop/rural
+	gear_tweaks += new /datum/gear_tweak/path(cop_hat)

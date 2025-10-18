@@ -249,3 +249,31 @@
 	known to deploy their agents against off-world targets. Republican spies, enforces and collaborators are present in Mendell City's district six, carrying out orders or watching their fellow Tajara."
 	icon_state = "psis_hat"
 	item_state = "psis_hat"
+
+/obj/item/clothing/head/tajaran/pra_cop
+	name = "PRA NPD pilotka"
+	desc = "A hat issued to the PRA national police department, to be worn during the summer months."
+	// desc_extended = "The People's Strategic Intelligence service is the main intelligence agency of the People's Republic. In the wake of the revolution that had won the species their independence, \
+	the budding government recognized the need for covert operations. Several agents and informants are employed by the PSIS, both in domestic and foreign theaters. The agency makes use of \
+	espionage, sabotage, assassination, interrogation, blackmail, and all other short of subterfuge, during their operations. Subversive elements within the People's Republican are dealt with \
+	quickly, usually through night raids and abductions conducted with aid of black unmarked cars. Tajara residing in other systems are not truly safe from the Intelligence Service, as they are \
+	known to deploy their agents against off-world targets. Republican spies, enforces and collaborators are present in Mendell City's district six, carrying out orders or watching their fellow Tajara."
+	icon_state = "taj_cop_pilotka"
+	item_state = "taj_cop_pilotka"
+
+/obj/item/clothing/head/tajaran/pra_cop/winter
+	name = "PRA NPD woolen hat"
+	desc = "A warm hat issued to the PRA national police department, to be worn during the colder months."
+	// desc_extended = "The People's Strategic Intelligence service is the main intelligence agency of the People's Republic. In the wake of the revolution that had won the species their independence, \
+	the budding government recognized the need for covert operations. Several agents and informants are employed by the PSIS, both in domestic and foreign theaters. The agency makes use of \
+	espionage, sabotage, assassination, interrogation, blackmail, and all other short of subterfuge, during their operations. Subversive elements within the People's Republican are dealt with \
+	quickly, usually through night raids and abductions conducted with aid of black unmarked cars. Tajara residing in other systems are not truly safe from the Intelligence Service, as they are \
+	known to deploy their agents against off-world targets. Republican spies, enforces and collaborators are present in Mendell City's district six, carrying out orders or watching their fellow Tajara."
+	icon_state = "taj_cop_hat"
+	item_state = "taj_cop_hat"
+
+/obj/item/clothing/head/tajaran/pra_cop/rural
+	name = "PRA NPD hat"
+	desc = "A hat issued to the PRA national police department, to be worn by cops working in the rural parts of the country."
+	icon_state = "taj_cop_hat_rural"
+	item_state = "taj_cop_hat_rural"
