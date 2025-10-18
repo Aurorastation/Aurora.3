@@ -18,6 +18,9 @@ export type DiagnosticsData = {
   limbs: Limb[];
 
   armor_data: ArmorDamage[];
+
+  endoskeleton_damage: number;
+  endoskeleton_damage_maximum: number;
 };
 
 type ArmorDamage = {
@@ -97,6 +100,24 @@ export const DiagnosticsWindow = (props, context) => {
           Battery charge at{' '}
           <Box as="span" bold textColor={damageLabel(data.charge_percent)}>
             {data.charge_percent}%
+          </Box>
+          .
+        </Box>
+        <Box>
+          Endoskeleton status:{' '}
+          <Box
+            as="span"
+            bold
+            textColor={endoskeletonDamageLabel(
+              data.endoskeleton_damage,
+              data.endoskeleton_damage_maximum
+            )}>
+            {capitalize(
+              describeEndoskeletonIntegrity(
+                data.endoskeleton_damage,
+                data.endoskeleton_damage_maximum
+              )
+            )}
           </Box>
           .
         </Box>
@@ -266,6 +287,38 @@ const organDamageLabel = (damage, max_damage) => {
   } else if (damage > max_damage * 0.5) {
     return 'orange';
   } else if (damage > max_damage * 0.25) {
+    return 'yellow';
+  } else if (damage > 0) {
+    return 'good';
+  } else {
+    return 'green';
+  }
+};
+
+const describeEndoskeletonIntegrity = (damage, max_damage = 200) => {
+  if (damage >= max_damage) {
+    return 'completely destroyed';
+  } else if (damage > max_damage * 0.75) {
+    return 'extremely mangled';
+  } else if (damage > max_damage * 0.5) {
+    return 'severely damaged';
+  } else if (damage > max_damage * 0.3) {
+    return 'damaged';
+  } else if (damage > 0) {
+    return 'mostly fine';
+  } else if (damage <= 0) {
+    return 'fine';
+  } else {
+    return 'unknown';
+  }
+};
+
+const endoskeletonDamageLabel = (damage, max_damage = 200) => {
+  if (damage > max_damage * 0.75) {
+    return 'bad';
+  } else if (damage > max_damage * 0.5) {
+    return 'orange';
+  } else if (damage > max_damage * 0.3) {
     return 'yellow';
   } else if (damage > 0) {
     return 'good';
