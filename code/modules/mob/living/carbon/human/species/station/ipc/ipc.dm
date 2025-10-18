@@ -198,7 +198,8 @@
 
 	var/datum/component/synthetic_endoskeleton/endoskeleton = H.GetComponent(/datum/component/synthetic_endoskeleton)
 	if(!endoskeleton)
-		stance_damage += 6 //how?
+		return 6 //how?
+
 	var/damage_ratio = endoskeleton.damage_maximum / endoskeleton.damage
 	switch(damage_ratio)
 		if(0.3 to 0.5)
