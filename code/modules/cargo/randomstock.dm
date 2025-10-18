@@ -120,6 +120,11 @@ GLOBAL_LIST_EMPTY(random_stock_large)
 				var/obj/structure/table/B = A
 				if(!B.no_cargo)
 					tables |= B
+			else if(istype(A, /obj/structure/crate_shelf))
+				var/obj/structure/crate_shelf/shelf = A
+				for(var/obj/I in shelf.shelf_contents)
+					if (istype(I, /obj/structure/closet/crate))
+						containers |= I
 
 /datum/cargospawner/proc/start()
 	if (!SSatlas.current_map.warehouse_basearea || !length(warehouseturfs))
