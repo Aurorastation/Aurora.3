@@ -188,13 +188,13 @@
 	..()
 	recipes += new /datum/stack_recipe_list("[display_name] recipes",
 		list(
-			new /datum/stack_recipe("box", /obj/item/storage/box),
+			new /datum/stack_recipe("box", /obj/item/storage/box/blank),
 			new /datum/stack_recipe("donut box", /obj/item/storage/box/fancy/donut/empty),
 			new /datum/stack_recipe("egg carton", /obj/item/storage/box/fancy/egg_box),
 			new /datum/stack_recipe("candle pack", /obj/item/storage/box/fancy/candle_box/empty),
 			new /datum/stack_recipe("crayon box", /obj/item/storage/box/fancy/crayons/empty),
 			new /datum/stack_recipe("pizza box", /obj/item/pizzabox),
-			new /datum/stack_recipe("papersack", /obj/item/storage/box/papersack),
+			new /datum/stack_recipe("papersack", /obj/item/storage/box/unique/papersack),
 			new /datum/stack_recipe("cardborg suit", /obj/item/clothing/suit/cardborg, 3),
 			new /datum/stack_recipe("cardborg helmet", /obj/item/clothing/head/cardborg)
 		))

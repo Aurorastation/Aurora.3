@@ -367,6 +367,10 @@
 	 */
 	var/snore_key = "snore"
 	/**
+	 * Whether or not this species snores when sleeping
+	 */
+	var/snores = TRUE
+	/**
 	 * Whether this species can choose to sleep indefinitely
 	 */
 	var/indefinite_sleep = FALSE

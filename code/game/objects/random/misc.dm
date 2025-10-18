@@ -170,7 +170,7 @@
 	desc = "Arcade loot!"
 	icon_state = "toy"
 	spawnlist = list(
-		/obj/item/storage/box/snappops = 11,
+		/obj/item/storage/box/unique/snappops = 11,
 		/obj/item/clothing/under/syndicate/tacticool = 5,
 		/obj/item/toy/sword = 22,
 		/obj/item/gun/projectile/revolver/capgun = 11,
@@ -438,14 +438,11 @@
 /obj/random/smalltank
 	name = "random small tank"
 	icon_state = "airtank"
-
-/obj/random/smalltank/item_to_spawn()
-	if (prob(40))
-		return /obj/item/tank/emergency_oxygen
-	else if (prob(60))
-		return /obj/item/tank/emergency_oxygen/engi
-	else
-		return /obj/item/tank/emergency_oxygen/double
+	problist = list(
+		/obj/item/tank/emergency_oxygen = 3,
+		/obj/item/tank/emergency_oxygen/engi = 2,
+		/obj/item/tank/emergency_oxygen/double = 1,
+	)
 
 /obj/random/pottedplant
 	name = "random potted plant, big"
@@ -640,4 +637,13 @@
 		/obj/random/plushie = 1,
 		/obj/random/med_stack = 1,
 		/obj/item/reagent_containers/glass/bottle/ammonia = 1,
+	)
+
+/obj/random/holoturret
+	name = "random holoturret"
+	desc = "This is a random turret item. It could be active or simply a statue."
+	icon_state = "holoturret"
+	problist = list(
+		/obj/machinery/porta_turret/hologram = 1,
+		/obj/structure/unathi_statue/warrior/right = 1,
 	)

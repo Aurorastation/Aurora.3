@@ -150,7 +150,7 @@
 	psi_deaf = TRUE
 
 	sleeps_upright = TRUE
-	snore_key = "beep"
+	snores = FALSE
 	indefinite_sleep = TRUE
 
 	natural_armor_type = /datum/component/armor/synthetic

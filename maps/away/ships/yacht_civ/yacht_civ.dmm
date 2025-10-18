@@ -550,9 +550,9 @@
 /area/ship/yacht_civ/hallway_mid)
 "ff" = (
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/item/storage/box/produce,
+/obj/item/storage/box/large/produce,
 /obj/structure/closet/secure_closet/refrigerator/standard,
-/obj/item/storage/box/produce,
+/obj/item/storage/box/large/produce,
 /obj/item/reagent_containers/food/condiment/flour,
 /obj/item/reagent_containers/food/condiment/flour,
 /obj/item/reagent_containers/food/condiment/flour,
@@ -1548,7 +1548,7 @@
 /area/ship/yacht_civ/hallway_aft)
 "om" = (
 /obj/structure/table/steel,
-/obj/item/storage/box/flares{
+/obj/item/storage/box/large/flares{
 	pixel_x = 13;
 	pixel_y = 3
 	},

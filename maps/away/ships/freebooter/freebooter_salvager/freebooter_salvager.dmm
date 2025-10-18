@@ -4687,7 +4687,7 @@
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = -11
 	},
@@ -7847,7 +7847,7 @@
 	pixel_x = 10;
 	pixel_y = -2
 	},
-/obj/item/storage/box/condiment{
+/obj/item/storage/box/large/condiment{
 	pixel_y = 16;
 	pixel_x = 3
 	},
@@ -8537,7 +8537,7 @@
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = -11
 	},
