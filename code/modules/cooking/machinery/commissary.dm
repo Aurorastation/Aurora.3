@@ -324,22 +324,11 @@
 				to_chat(usr, SPAN_WARNING("Device locked."))
 				return FALSE
 
-			switch(input("What account would you like to select?", "Destination Account") as null|anything in list("Service", "Operations", "Command", "Medical", "Security", "Engineering", "Science"))
-				if("Service")
-					destinationact = "Service"
-				if("Operations")
-					destinationact = "Operations"
-				if("Command")
-					destinationact = "Command"
-				if("Medical")
-					destinationact = "Medical"
-				if("Security")
-					destinationact = "Security"
-				if("Engineering")
-					destinationact = "Engineering"
-				if("Science")
-					destinationact = "Science"
-			. = TRUE
+			var/dest = tgui_input_list(usr, "What account would you like to select?", "Destination Account", assoc_to_keys(SSeconomy.department_accounts))
+			if(!dest)
+				return FALSE
+			destinationact = dest
+			return TRUE
 
 /obj/structure/cash_register/commissary/proc/clear_order()
 	buying.Cut()
