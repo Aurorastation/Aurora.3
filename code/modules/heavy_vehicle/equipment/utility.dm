@@ -909,7 +909,8 @@
 		jukebox.attack_hand(user)
 
 /obj/item/mecha_equipment/subwoofers/uninstalled()
-	jukebox.StopPlaying()
+	if(jukebox)
+		jukebox.StopPlaying()
 	update_icon()
 	. = ..()
 
@@ -919,6 +920,9 @@
 
 /obj/item/mecha_equipment/subwoofers/update_icon()
 	to_chat(world, "running update_icon")
+	if(!jukebox)
+		jukebox = new /obj/machinery/media/jukebox/mounted(src)
+		jukebox.parent = src
 	if(jukebox.music_player.playing)
 		icon_state = "[initial(icon_state)]-on"
 	else

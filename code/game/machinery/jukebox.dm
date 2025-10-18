@@ -89,7 +89,7 @@
 		src.add_fingerprint(user)
 
 	if(attacking_item.iswrench())
-		if(music_player.playing)
+		if(music_player && music_player.playing)
 			StopPlaying()
 		user.visible_message(SPAN_WARNING("[user] has [anchored ? "un" : ""]secured \the [src]."), "<span class='notice'>You [anchored ? "un" : ""]secure \the [src].")
 		anchored = !anchored
@@ -103,15 +103,16 @@
 
 /obj/machinery/media/jukebox/proc/StartPlaying()
 	StopPlaying()
-	if(!music_player.selection)
+	if(music_player && !music_player.selection)
 		return
-
-	music_player.StartPlaying()
+	if(music_player)
+		music_player.StartPlaying()
 	update_use_power(POWER_USE_ACTIVE)
 	update_icon()
 
 /obj/machinery/media/jukebox/proc/StopPlaying()
-	music_player.StopPlaying()
+	if(music_player)
+		music_player.StopPlaying()
 	update_use_power(POWER_USE_IDLE)
 	update_icon()
 
@@ -243,7 +244,7 @@
 /obj/machinery/media/jukebox/phonograph/update_icon()
 	ClearOverlays()
 	icon_state = state_base
-	if(music_player.playing)
+	if(music_player && music_player.playing)
 		AddOverlays("[state_base]-running")
 
 /obj/machinery/media/jukebox/gramophone
@@ -266,7 +267,7 @@
 /obj/machinery/media/jukebox/gramophone/update_icon()
 	ClearOverlays()
 	icon_state = state_base
-	if(music_player.playing)
+	if(music_player && music_player.playing)
 		AddOverlays("[state_base]-running")
 
 /obj/machinery/media/jukebox/calliope
@@ -328,5 +329,6 @@
 	return GLOB.heavy_vehicle_state
 
 /obj/machinery/media/jukebox/mounted/update_icon()
-	parent.update_icon()
+	if(parent)
+		parent.update_icon()
 
