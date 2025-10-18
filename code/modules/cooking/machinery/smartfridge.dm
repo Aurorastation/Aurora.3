@@ -21,7 +21,7 @@
 	var/is_secure = 0
 	var/machineselect = 0
 
-	var/list/accepted_items = list(/obj/item/reagent_containers/food/snacks/grown, /obj/item/seeds)
+	var/list/accepted_items = list(/obj/item/reagent_containers/food/snacks/grown, /obj/item/seeds, /obj/item/mollusc)
 
 	var/cooling = 0 //Whether or not to vend products at the cooling temperature
 	var/heating = 0 //Whether or not to vend products at the heating temperature
