@@ -141,6 +141,7 @@
 /obj/item/modular_computer/console/preset/supply/machinist/install_default_hardware()
 	..()
 	ai_slot = new /obj/item/computer_hardware/ai_slot(src)
+	access_cable_dongle = new /obj/item/computer_hardware/access_cable_dongle(src)
 
 // ERT
 /obj/item/modular_computer/console/preset/ert/install_default_hardware()

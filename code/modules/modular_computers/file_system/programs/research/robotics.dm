@@ -13,12 +13,6 @@
 	/// The diagnostics module associated with this program.
 	var/datum/tgui_module/ipc_diagnostic/diagnostic
 
-/datum/computer_file/program/robotics/ui_data(mob/user)
-	. = ..()
-	var/list/data = list()
-
-	return data
-
 /datum/computer_file/program/robotics/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(!ishuman(ui.user))
