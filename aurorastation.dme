@@ -2130,6 +2130,7 @@
 #include "code\modules\cooking\plasticbag.dm"
 #include "code\modules\cooking\plates.dm"
 #include "code\modules\cooking\trays.dm"
+#include "code\modules\cooking\machinery\commissary.dm"
 #include "code\modules\cooking\machinery\foodcart.dm"
 #include "code\modules\cooking\machinery\gibber.dm"
 #include "code\modules\cooking\machinery\icecream.dm"
