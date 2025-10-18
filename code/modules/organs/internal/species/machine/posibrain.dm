@@ -58,6 +58,15 @@
 	QDEL_NULL(sizzle)
 	return ..()
 
+/obj/item/organ/internal/machine/posibrain/rejuvenate()
+	. = ..()
+	var/datum/component/synthetic_endoskeleton/endoskeleton = owner.GetComponent(/datum/component/synthetic_endoskeleton)
+	if(endoskeleton)
+		endoskeleton.heal_damage(endoskeleton.damage_maximum)
+	emp_damage_counter = 0
+	brain_scrambling = 0
+	remove_fragmentation(max_damage)
+
 /obj/item/organ/internal/machine/posibrain/attack_self(mob/user)
 	. = ..()
 	if(user.stat == DEAD)
@@ -448,6 +457,9 @@
 /obj/item/organ/internal/machine/posibrain/Topic(href, href_list)
 	. = ..()
 	if(href_list["resist_self_preservation"])
+		if(owner.stat || owner.incapacitated(INCAPACITATION_KNOCKOUT))
+			return
+
 		if(owner.confused)
 			to_chat(owner, SPAN_DANGER(FONT_LARGE("You reform your neural patterns to brute-force your self preservation!")))
 			owner.confused = max(owner.confused - 100, 0)
