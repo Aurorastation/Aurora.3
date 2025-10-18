@@ -63,7 +63,7 @@
 	handle_casings = HOLD_CASINGS
 	fire_sound = 'sound/weapons/gunshot/gunshot_shotgun2.ogg'
 	is_wieldable = TRUE
-	var/rack_sound = /singleton/sound_category/shotgun_pump
+	var/rack_sound = SFX_PUMP_SHOTGUN
 	var/rack_verb = "pump"
 	///Whether the item icon has a cycling animation
 	var/cycle_anim = TRUE
@@ -237,7 +237,7 @@
 	caliber = "gauss"
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 1)
 	ammo_type = /obj/item/ammo_casing/gauss
-	fire_sound = /singleton/sound_category/gauss_fire_sound
+	fire_sound = SFX_SHOOT_GAUSS
 	fire_delay = ROF_INTERMEDIATE
 
 	can_sawoff = FALSE

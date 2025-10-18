@@ -5166,7 +5166,7 @@
 /turf/simulated/floor/carpet/red,
 /area/hiskyn_ship/captain)
 "nsb" = (
-/obj/machinery/media/jukebox{
+/obj/machinery/media/jukebox/classic{
 	anchored = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,

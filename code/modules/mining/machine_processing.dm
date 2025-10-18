@@ -274,7 +274,7 @@
 	P.stamps += "<HR><i>This paper has been stamped by the SCC Ore Processing System.</i>"
 
 	user.visible_message("\The [src] rattles and prints out a sheet of paper.")
-	playsound(get_turf(src), 'sound/bureaucracy/print_short.ogg', 50, 1)
+	playsound(get_turf(src), 'sound/items/bureaucracy/print_short.ogg', 50, 1)
 
 	// reset
 	output_mats = list()

@@ -125,7 +125,7 @@
 	if(!emagged)
 		emmaged = TRUE
 		spark(src, 3)
-		playsound(src, /singleton/sound_category/spark_sound, 50, 1)
+		playsound(src, SFX_SPARKS, 50, 1)
 		return TRUE
 
 /obj/machinery/computer/slot_machine/ui_interact(mob/living/user)
@@ -168,7 +168,7 @@
 		spin(usr)
 
 	else if(href_list["refund"])
-		playsound(src, /singleton/sound_category/button_sound, clickvol)
+		playsound(src, SFX_BUTTON, clickvol)
 		if(balance > 0)
 			give_payout(balance, usr)
 			balance = 0

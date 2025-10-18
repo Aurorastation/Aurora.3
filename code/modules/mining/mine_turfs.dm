@@ -724,7 +724,7 @@ GLOBAL_LIST_INIT(mineral_can_smooth_with, list(
 	var/dug = 0 //Increments by 1 everytime it's dug. 11 is the last integer that should ever be here.
 	var/digging
 	has_resources = 1
-	footstep_sound = /singleton/sound_category/asteroid_footstep
+	footstep_sound = SFX_FOOTSTEP_ASTEROID
 	does_footprint = TRUE
 
 	roof_type = null

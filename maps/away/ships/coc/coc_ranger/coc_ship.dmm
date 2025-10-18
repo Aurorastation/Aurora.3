@@ -1492,7 +1492,7 @@
 /area/ship/ranger_corvette/engine1)
 "fJE" = (
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/machinery/media/jukebox{
+/obj/machinery/media/jukebox/classic{
 	anchored = 1
 	},
 /obj/item/disk/tech_disk{

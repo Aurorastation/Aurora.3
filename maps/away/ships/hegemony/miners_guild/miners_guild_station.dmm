@@ -6464,7 +6464,7 @@
 /area/shuttle/miners_guild)
 "YT" = (
 /obj/effect/floor_decal/corner/green/diagonal,
-/obj/machinery/media/jukebox,
+/obj/machinery/media/jukebox/classic,
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild/canteen)
 "YX" = (

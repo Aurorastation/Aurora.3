@@ -187,7 +187,7 @@
 		var/obj/item/material/kitchen/utensil/U = attacking_item
 		if(istype(attacking_item, /obj/item/material/kitchen/utensil/fork) && (is_liquid))
 			to_chat(user, SPAN_NOTICE("You uselessly pass \the [U] through \the [src]."))
-			playsound(user.loc, /singleton/sound_category/generic_pour_sound, 10, 1)
+			playsound(user.loc, SFX_POUR, 10, 1)
 			return
 		else
 			if(U.scoop_food)

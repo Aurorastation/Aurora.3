@@ -35,7 +35,7 @@ GLOBAL_LIST_INIT_TYPED(bluespace_inhibitors, /obj/machinery/anti_bluespace, null
 
 /obj/machinery/anti_bluespace/emag_act()
 	spark(src, 3)
-	playsound(src, /singleton/sound_category/spark_sound, 50, 1)
+	playsound(src, SFX_SPARKS, 50, 1)
 	emp_act(EMP_HEAVY)
 	return TRUE
 

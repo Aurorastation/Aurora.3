@@ -3843,7 +3843,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/starboardwep)
 "wK" = (
-/obj/machinery/media/jukebox{
+/obj/machinery/media/jukebox/classic{
 	anchored = 1
 	},
 /obj/effect/floor_decal/corner_wide/dark_blue{

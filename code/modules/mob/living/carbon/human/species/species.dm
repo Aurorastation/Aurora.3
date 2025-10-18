@@ -324,8 +324,8 @@
 	)
 
 	var/zombie_type	//What zombie species they become
-	var/bodyfall_sound = /singleton/sound_category/bodyfall_sound //default, can be used for species specific falling sounds
-	var/footsound = /singleton/sound_category/blank_footsteps //same as above but for footsteps without shoes
+	var/bodyfall_sound = SFX_BODYFALL //default, can be used for species specific falling sounds
+	var/footsound = SFX_FOOTSTEP_BLANK //same as above but for footsteps without shoes
 
 	/// Sets the base "tint" of the species' sprite, which is then adjusted by the skin tone
 	var/list/character_color_presets

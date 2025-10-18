@@ -5,7 +5,7 @@
 	icon = 'icons/turf/jungle.dmi'
 	icon_state = "greygrass"
 	color = "#799c4b"
-	footstep_sound = /singleton/sound_category/grass_footstep
+	footstep_sound = SFX_FOOTSTEP_GRASS
 
 /turf/simulated/floor/exoplanet/grass/Initialize()
 	. = ..()
@@ -45,7 +45,7 @@
 	icon_state = "marsh"
 	color = null
 	has_edge_icon = null
-	footstep_sound = /singleton/sound_category/water_footstep
+	footstep_sound = SFX_FOOTSTEP_WATER
 
 /turf/simulated/floor/exoplanet/grass/marsh/Initialize()
 	. = ..()

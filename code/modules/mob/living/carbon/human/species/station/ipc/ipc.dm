@@ -122,7 +122,7 @@
 	max_hydration_factor = -1
 	max_nutrition_factor = -1
 
-	bodyfall_sound = /singleton/sound_category/bodyfall_machine_sound
+	bodyfall_sound = SFX_BODYFALL_MACHINE
 
 	possible_cultures = list(
 		/singleton/origin_item/culture/ipc_sol,

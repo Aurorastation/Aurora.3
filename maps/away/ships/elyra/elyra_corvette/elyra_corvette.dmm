@@ -8895,7 +8895,7 @@
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 1
 	},
-/obj/machinery/media/jukebox{
+/obj/machinery/media/jukebox/classic{
 	anchored = 1;
 	density = 0;
 	pixel_y = 23

@@ -3911,7 +3911,7 @@
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 4
 	},
-/obj/machinery/media/jukebox{
+/obj/machinery/media/jukebox/classic{
 	anchored = 1
 	},
 /obj/machinery/light/colored/decayed{
