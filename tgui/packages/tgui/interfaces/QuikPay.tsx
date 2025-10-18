@@ -32,22 +32,22 @@ export const QuikPay = (props, context) => {
         <Section
           title="Ordering"
           buttons={
-          <>
-            <Button
-              ontent={data.editmode ? 'Unlocked' : 'Locked'}
-              color={data.editmode ? 'bad' : ''}
-              icon={data.editmode ? 'lock-open' : 'lock'}
-              onClick={() => act('locking')}
-            />
-            {data.editmode ? (
-            <Button
-              content="Select Account"
-              icon="check"
-              color={data.sum ? 'good' : ''}
-              onClick={() => act('accountselect')}
-            />
-            ) : null}
-          </>
+            <>
+              <Button
+                content={data.editmode ? 'Unlocked' : 'Locked'}
+                color={data.editmode ? 'bad' : ''}
+                icon={data.editmode ? 'lock-open' : 'lock'}
+                onClick={() => act('locking')}
+              />
+              {data.editmode ? (
+                <Button
+                  content="Select Account"
+                  icon="check"
+                  color={data.sum ? 'good' : ''}
+                  onClick={() => act('accountselect')}
+                />
+              ) : null}
+            </>
           }>
           {data.editmode ? <AddItems /> : ''}
           {data.items.length < 1 ? 'No items available.' : <ItemWindow />}
