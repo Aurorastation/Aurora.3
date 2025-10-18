@@ -16,13 +16,8 @@
 	/obj/item/clothing/mask/smokable/ecig,
 	/obj/item/reagent_containers/ecig_cartridge
 	)
-	display_tiers = list(
-		"3" = "-1",
-		"6" = "-2",
-		"9" = "-3",
-		"12" = "-4"
-	)
-	infinity_tier = "-5"
+	display_tiers = 5
+	display_tier_amt = 3
 
 /obj/machinery/smartfridge/tradeshelf/clothing
 	name = "clothing shelf"
@@ -33,11 +28,8 @@
 	/obj/item/storage/belt,
 	/obj/item/clothing
 	)
-	display_tiers = list(
-		"5" = "-1",
-		"10" = "-2"
-	)
-	infinity_tier = "-3"
+	display_tiers = 3
+	display_tier_amt = 5
 
 /obj/machinery/smartfridge/tradeshelf/food
 	name = "food and drinks shelf"
@@ -51,12 +43,8 @@
 	accepted_items = list(/obj/item/reagent_containers/food,
 	/obj/item/storage/box/fancy/cookiesnack
 	)
-	display_tiers = list(
-		"5" = "-1",
-		"10" = "-2",
-		"15" = "-3"
-	)
-	infinity_tier = "-4"
+	display_tiers = 4
+	display_tier_amt = 5
 
 /obj/machinery/smartfridge/tradeshelf/toy
 	name = "toy shelf"
@@ -73,12 +61,8 @@
 	/obj/item/storage/box/fancy/crayons,
 	/obj/item/melee/dinograbber
 	)
-	display_tiers = list(
-		"5" = "-1",
-		"10" = "-2",
-		"15" = "-3"
-	)
-	infinity_tier = "-4"
+	display_tiers = 4
+	display_tier_amt = 5
 
 // -------------------------------------------------
 /obj/structure/cash_register/commissary
