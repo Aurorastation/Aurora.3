@@ -1,0 +1,4 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - rscadd: "Made (most) living creature systems tick-invariant. As a rule of thumb, the rate at which things like pain, damage over time, etc, is no longer affected by server lag."

@@ -1186,47 +1186,47 @@
 		human_user.bloody_hands(src)
 	return 1
 
-/mob/living/proc/handle_statuses()
-	handle_stunned()
-	handle_weakened()
-	handle_stuttering()
-	handle_silent()
-	handle_drugged()
-	handle_slurring()
+/mob/living/proc/handle_statuses(seconds_per_tick)
+	handle_stunned(seconds_per_tick)
+	handle_weakened(seconds_per_tick)
+	handle_stuttering(seconds_per_tick)
+	handle_silent(seconds_per_tick)
+	handle_drugged(seconds_per_tick)
+	handle_slurring(seconds_per_tick)
 
-/mob/living/proc/handle_stunned()
+/mob/living/proc/handle_stunned(seconds_per_tick)
 	if(stunned)
-		AdjustStunned(-1)
+		AdjustStunned(-seconds_per_tick)
 	return stunned
 
-/mob/living/proc/handle_weakened()
+/mob/living/proc/handle_weakened(seconds_per_tick)
 	if(weakened)
-		weakened = max(weakened-1,0)
+		weakened = max(weakened - seconds_per_tick,0)
 	return weakened
 
-/mob/living/proc/handle_stuttering()
+/mob/living/proc/handle_stuttering(seconds_per_tick)
 	if(stuttering)
-		stuttering = max(stuttering-1, 0)
+		stuttering = max(stuttering - seconds_per_tick, 0)
 	return stuttering
 
-/mob/living/proc/handle_silent()
+/mob/living/proc/handle_silent(seconds_per_tick)
 	if(silent)
-		silent = max(silent-1, 0)
+		silent = max(silent - seconds_per_tick, 0)
 	return silent
 
-/mob/living/proc/handle_drugged()
+/mob/living/proc/handle_drugged(seconds_per_tick)
 	if(druggy)
-		druggy = max(druggy-1, 0)
+		druggy = max(druggy - seconds_per_tick, 0)
 	return druggy
 
-/mob/living/proc/handle_slurring()
+/mob/living/proc/handle_slurring(seconds_per_tick)
 	if(slurring)
-		slurring = max(slurring-1, 0)
+		slurring = max(slurring - seconds_per_tick, 0)
 	return slurring
 
-/mob/living/proc/handle_paralysed() // Currently only used by simple_animal.dm, treated as a special case in other mobs
+/mob/living/proc/handle_paralysed(seconds_per_tick) // Currently only used by simple_animal.dm, treated as a special case in other mobs
 	if(paralysis)
-		AdjustParalysis(-1)
+		AdjustParalysis(-seconds_per_tick)
 	return paralysis
 
 //Check for brain worms in head.

@@ -17,7 +17,7 @@
 	return 1
 
 
-/mob/living/carbon/alien/handle_mutations_and_radiation()
+/mob/living/carbon/alien/handle_mutations_and_radiation(seconds_per_tick)
 
 	// Currently both Dionaea and larvae like to eat radiation, so I'm defining the
 	// rad absorbtion here. This will need to be changed if other baby aliens are added.
@@ -25,15 +25,15 @@
 	if(!total_radiation)
 		return
 
-	var/rads = total_radiation/25
-	apply_radiation(rads*-1)
+	var/rads = total_radiation / 25 * seconds_per_tick
+	apply_radiation(-rads)
 	adjustNutritionLoss(-rads)
 	heal_overall_damage(rads,rads)
-	adjustOxyLoss(-(rads))
-	adjustToxLoss(-(rads))
+	adjustOxyLoss(-rads)
+	adjustToxLoss(-rads)
 	return
 
-/mob/living/carbon/alien/handle_regular_status_updates()
+/mob/living/carbon/alien/handle_regular_status_updates(seconds_per_tick)
 
 	if(status_flags & GODMODE)	return 0
 
@@ -55,10 +55,10 @@
 			blinded = 1
 			set_stat(UNCONSCIOUS)
 			if(getHalLoss() > 0)
-				adjustHalLoss(-3)
+				adjustHalLoss(-(3 * seconds_per_tick))
 
 		if(sleeping)
-			adjustHalLoss(-3)
+			adjustHalLoss(-(3 * seconds_per_tick))
 			if (mind)
 				if(mind.active && client != null)
 					sleeping = max(sleeping-1, 0)
@@ -66,12 +66,12 @@
 			set_stat(UNCONSCIOUS)
 		else if(resting)
 			if(getHalLoss() > 0)
-				adjustHalLoss(-3)
+				adjustHalLoss(-(3 * seconds_per_tick))
 
 		else
 			set_stat(CONSCIOUS)
 			if(getHalLoss() > 0)
-				adjustHalLoss(-1)
+				adjustHalLoss(-seconds_per_tick)
 
 		// Eyes and blindness.
 		if(!has_eyes())
@@ -79,10 +79,10 @@
 			blinded =    1
 			eye_blurry = 1
 		else if(eye_blind)
-			eye_blind =  max(eye_blind-1,0)
+			eye_blind =  max(eye_blind - seconds_per_tick,0)
 			blinded =    1
 		else if(eye_blurry)
-			eye_blurry = max(eye_blurry-1, 0)
+			eye_blurry = max(eye_blurry - seconds_per_tick, 0)
 
 		update_icon()
 

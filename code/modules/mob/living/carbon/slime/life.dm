@@ -70,7 +70,7 @@
 	temp_change = (temperature - current)
 	return temp_change
 
-/mob/living/carbon/slime/handle_chemicals_in_body()
+/mob/living/carbon/slime/handle_chemicals_in_body(seconds_per_tick)
 	chem_effects.Cut()
 	analgesic = FALSE
 
@@ -90,7 +90,7 @@
 
 	return //TODO: DEFERRED
 
-/mob/living/carbon/slime/handle_regular_status_updates()
+/mob/living/carbon/slime/handle_regular_status_updates(seconds_per_tick)
 
 	src.blinded = null
 
@@ -100,12 +100,11 @@
 		death()
 		return
 
-	if(prob(30))
-		adjustOxyLoss(-1)
-		adjustToxLoss(-1)
-		adjustFireLoss(-1)
-		adjustCloneLoss(-1)
-		adjustBruteLoss(-1)
+	adjustOxyLoss(-(0.3 * seconds_per_tick))
+	adjustToxLoss(-(0.3 * seconds_per_tick))
+	adjustFireLoss(-(0.3 * seconds_per_tick))
+	adjustCloneLoss(-(0.3 * seconds_per_tick))
+	adjustBruteLoss(-(0.3 * seconds_per_tick))
 
 	if(src.stat == DEAD)
 		src.lying = TRUE
@@ -113,14 +112,14 @@
 	else
 		if(src.paralysis || src.stunned || src.weakened || (status_flags && FAKEDEATH)) //Stunned etc.
 			if(src.stunned > 0)
-				AdjustStunned(-1)
+				AdjustStunned(-seconds_per_tick)
 				set_stat(CONSCIOUS)
 			if(src.weakened > 0)
-				AdjustWeakened(-1)
+				AdjustWeakened(-seconds_per_tick)
 				src.lying = FALSE
 				set_stat(CONSCIOUS)
 			if(src.paralysis > 0)
-				AdjustParalysis(-1)
+				AdjustParalysis(-seconds_per_tick)
 				src.blinded = FALSE
 				src.lying = FALSE
 				set_stat(CONSCIOUS)

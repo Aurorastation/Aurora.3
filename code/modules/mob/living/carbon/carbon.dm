@@ -25,16 +25,16 @@
 		handle_breathing()
 
 		//Chemicals in the body
-		handle_chemicals_in_body()
+		handle_chemicals_in_body(seconds_per_tick)
 
 		//Random events (vomiting etc)
-		handle_random_events()
+		handle_random_events(seconds_per_tick)
 
 		// eye, ear, brain damages
-		handle_disabilities()
+		handle_disabilities(seconds_per_tick)
 
 		//all special effects, stunned, weakened, jitteryness, hallucination, sleeping, etc
-		handle_statuses()
+		handle_statuses(seconds_per_tick)
 
 		. = 1
 

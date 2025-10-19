@@ -72,7 +72,7 @@
 	. = ..(gibbed, species.death_message, species.death_message_range)
 
 	if(!gibbed) //We want to handle organs one last time to make sure that hearts don't report a positive pulse after death.
-		handle_organs()
+		handle_organs(1)
 
 	handle_hud_list()
 

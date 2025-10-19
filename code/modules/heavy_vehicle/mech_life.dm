@@ -1,7 +1,7 @@
-/mob/living/heavy_vehicle/handle_disabilities()
+/mob/living/heavy_vehicle/handle_disabilities(seconds_per_tick)
 	return
 
-/mob/living/heavy_vehicle/handle_status_effects()
+/mob/living/heavy_vehicle/handle_status_effects(seconds_per_tick)
 	return
 
 /mob/living/heavy_vehicle/Life(seconds_per_tick, times_fired)

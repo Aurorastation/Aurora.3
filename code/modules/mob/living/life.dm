@@ -17,15 +17,15 @@
 
 	blinded = 0 // Placing this here just show how out of place it is.
 
-	if(handle_regular_status_updates())
-		handle_status_effects()
+	if(handle_regular_status_updates(seconds_per_tick))
+		handle_status_effects(seconds_per_tick)
 
 	if(stat != DEAD)
 		if(LAZYLEN(auras))
 			aura_check(AURA_TYPE_LIFE)
 		if(!InStasis())
 			//Mutations and radiation
-			handle_mutations_and_radiation()
+			handle_mutations_and_radiation(seconds_per_tick)
 
 	//Check if we're on fire
 	handle_fire(seconds_per_tick, environment)
@@ -52,13 +52,13 @@
 /mob/living/proc/handle_breathing()
 	return
 
-/mob/living/proc/handle_mutations_and_radiation()
+/mob/living/proc/handle_mutations_and_radiation(seconds_per_tick)
 	return
 
-/mob/living/proc/handle_chemicals_in_body()
+/mob/living/proc/handle_chemicals_in_body(seconds_per_tick)
 	return
 
-/mob/living/proc/handle_random_events()
+/mob/living/proc/handle_random_events(seconds_per_tick)
 	return
 
 /mob/living/proc/update_pulling()
@@ -67,7 +67,7 @@
 			stop_pulling()
 
 //This updates the health and status of the mob (conscious, unconscious, dead)
-/mob/living/proc/handle_regular_status_updates()
+/mob/living/proc/handle_regular_status_updates(seconds_per_tick)
 	updatehealth()
 	if(stat != DEAD)
 		if(paralysis)
@@ -78,33 +78,33 @@
 			set_stat(CONSCIOUS)
 		return 1
 
-/mob/living/proc/handle_status_effects()
+/mob/living/proc/handle_status_effects(seconds_per_tick)
 	if(paralysis)
-		paralysis = max(paralysis-1,0)
+		paralysis = max(paralysis - seconds_per_tick,0)
 	if(stunned)
-		stunned = max(stunned-1,0)
+		stunned = max(stunned - seconds_per_tick,0)
 		if(!stunned)
 			update_icon()
 
 	if(weakened)
-		weakened = max(weakened-1,0)
+		weakened = max(weakened - seconds_per_tick,0)
 		if(!weakened)
 			update_icon()
 
 	if(confused)
-		confused = max(0, confused - 1)
+		confused = max(0, confused - seconds_per_tick)
 
-/mob/living/proc/handle_disabilities()
+/mob/living/proc/handle_disabilities(seconds_per_tick)
 	//Eyes
 	if(sdisabilities & BLIND || stat)	//blindness from disability or unconsciousness doesn't get better on its own
 		eye_blind = max(eye_blind, 1)
 	else if(eye_blind)			//blindness, heals slowly over time
-		eye_blind = max(eye_blind-1,0)
+		eye_blind = max(eye_blind - seconds_per_tick,0)
 	else if(eye_blurry)			//blurry eyes heal slowly
-		eye_blurry = max(eye_blurry-1, 0)
+		eye_blurry = max(eye_blurry - seconds_per_tick, 0)
 
 	//Ears
-	handle_hearing()
+	handle_hearing(seconds_per_tick)
 
 	if((is_pacified()) && a_intent == I_HURT && !is_berserk())
 		to_chat(src, SPAN_NOTICE("You don't feel like harming anybody."))
@@ -153,10 +153,10 @@
 	else if(!client.adminobs)
 		reset_view(null)
 
-/mob/living/proc/handle_hearing()
+/mob/living/proc/handle_hearing(seconds_per_tick)
 	// deafness heals slowly over time, unless ear_damage is over HEARING_DAMAGE_LIMIT
 	if(ear_damage < HEARING_DAMAGE_LIMIT)
-		adjustEarDamage(-0.05, -1)
+		adjustEarDamage(-(seconds_per_tick / 20), -seconds_per_tick)
 	if(sdisabilities & DEAF) //disabled-deaf, doesn't get better on its own
 		setEarDamage(-1, max(ear_deaf, 1))
 

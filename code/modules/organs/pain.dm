@@ -47,7 +47,7 @@
 
 	next_pain_time = world.time + 5 SECONDS
 
-/mob/living/carbon/human/proc/handle_pain()
+/mob/living/carbon/human/proc/handle_pain(seconds_per_tick)
 	if(stat >= DEAD)
 		return
 	if(!can_feel_pain())
@@ -69,7 +69,7 @@
 	if(damaged_organ && chem_effects[CE_PAINKILLER] < maxdam)
 		if(maxdam > 10 && paralysis)
 			paralysis = max(0, paralysis - round(maxdam / 10))
-		if(maxdam > 50 && prob(maxdam / 5))
+		if(maxdam > 50 && SPT_PROB(maxdam / 5, seconds_per_tick))
 			to_chat(src, SPAN_WARNING("A bolt of pain shoots through your body, causing your hands to spasm!"))
 			drop_item()
 		var/burning = damaged_organ.burn_dam > damaged_organ.brute_dam
@@ -86,7 +86,7 @@
 
 	// Damage to internal organs hurts a lot.
 	for(var/obj/item/organ/internal/I in internal_organs)
-		if(prob(1) && !((I.status & ORGAN_DEAD) || BP_IS_ROBOTIC(I)) && I.damage > 5)
+		if(SPT_PROB(1, seconds_per_tick) && !((I.status & ORGAN_DEAD) || BP_IS_ROBOTIC(I)) && I.damage > 5)
 			var/obj/item/organ/external/parent = get_organ(I.parent_organ)
 			var/pain = 10
 			var/message = I.unknown_pain_location ? "You feel a dull pain in your [parent.name]..." : "You feel a dull pain radiating from your [I.name]..."
@@ -98,7 +98,7 @@
 				message = I.unknown_pain_location ? "You feel a sharp pain in your [parent.name]!" : "You feel a sharp pain radiating from your [I.name]!"
 			src.custom_pain(message, pain, affecting = parent)
 
-	if(prob(1))
+	if(SPT_PROB(1, seconds_per_tick))
 		switch(getToxLoss())
 			if(5 to 17)
 				custom_pain("Your body stings slightly.", getToxLoss())

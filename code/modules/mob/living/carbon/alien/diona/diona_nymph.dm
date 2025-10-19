@@ -293,7 +293,7 @@
 		. += "You have enough biomass to grow!"
 
 //Overriding this function from /mob/living/carbon/alien/life.dm
-/mob/living/carbon/alien/diona/handle_regular_status_updates()
+/mob/living/carbon/alien/diona/handle_regular_status_updates(seconds_per_tick)
 	if(status_flags & GODMODE)
 		return FALSE
 
@@ -302,8 +302,8 @@
 		silent = FALSE
 	else
 		updatehealth()
-		handle_stunned()
-		handle_weakened()
+		handle_stunned(seconds_per_tick)
+		handle_weakened(seconds_per_tick)
 		if(health <= 0)
 			cleanupTransfer()
 			death()
@@ -322,7 +322,7 @@
 		if(sleeping)
 			if(mind)
 				if(mind.active && client)
-					sleeping = max(sleeping-1, 0)
+					sleeping = max(sleeping - seconds_per_tick, 0)
 			blinded = TRUE
 			set_stat(UNCONSCIOUS)
 		else if(!resting)
@@ -334,17 +334,17 @@
 			blinded =    TRUE
 			eye_blurry = TRUE
 		else if(eye_blind)
-			eye_blind =  max(eye_blind-1,0)
+			eye_blind =  max(eye_blind - seconds_per_tick,0)
 			blinded =    TRUE
 		else if(eye_blurry)
-			eye_blurry = max(eye_blurry-1, 0)
+			eye_blurry = max(eye_blurry - seconds_per_tick, 0)
 
 		//Ears
 		if(sdisabilities & DEAF)	//disabled-deaf, doesn't get better on its own
 			ear_deaf = max(ear_deaf, 1)
 		else if(ear_deaf)			//deafness, heals slowly over time
-			ear_deaf = max(ear_deaf-1, 0)
-			ear_damage = max(ear_damage-0.05, 0)
+			ear_deaf = max(ear_deaf - seconds_per_tick, 0)
+			ear_damage = max(ear_damage - (seconds_per_tick / 20), 0)
 
 		update_icon()
 

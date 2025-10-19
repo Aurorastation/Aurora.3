@@ -18,13 +18,13 @@
 	..()
 
 //Main handling proc, called in life()
-/mob/living/carbon/proc/handle_hallucinations()
-	hallucination -= 1	//Tick down the duration
+/mob/living/carbon/proc/handle_hallucinations(seconds_per_tick)
+	hallucination -= seconds_per_tick	//Tick down the duration
 
 	//Good/bad chems affecting duration
 	if(chem_effects[CE_HALLUCINATE] < 0)
-		hallucination = max(0, hallucination - abs(chem_effects[CE_HALLUCINATE]))
-	if(chem_effects[CE_HALLUCINATE] > 0 && prob(chem_effects[CE_HALLUCINATE]*20))
+		hallucination = max(0, hallucination - (abs(chem_effects[CE_HALLUCINATE]) * seconds_per_tick))
+	if(chem_effects[CE_HALLUCINATE] > 0 && SPT_PROB(chem_effects[CE_HALLUCINATE] * 20, seconds_per_tick))
 		hallucination += chem_effects[CE_HALLUCINATE]
 
 	if(hallucination <= 0)  //We're done

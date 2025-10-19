@@ -8,7 +8,7 @@
 	if(stat != DEAD)
 		diona_handle_light(DS)
 
-/mob/living/carbon/alien/diona/handle_chemicals_in_body()
+/mob/living/carbon/alien/diona/handle_chemicals_in_body(seconds_per_tick)
 	chem_effects.Cut()
 	analgesic = 0
 

@@ -59,19 +59,19 @@
 
 		//Organs
 		handle_organs(seconds_per_tick)
-		stabilize_body_temperature() //Body temperature adjusts itself (self-regulation)
+		stabilize_body_temperature(seconds_per_tick) //Body temperature adjusts itself (self-regulation)
 
 		//Random events (vomiting etc)
-		handle_random_events()
+		handle_random_events(seconds_per_tick)
 
-		handle_shock(shock_value)
+		handle_shock(seconds_per_tick, shock_value)
 
-		handle_pain()
+		handle_pain(seconds_per_tick)
 
-		handle_fever()
+		handle_fever(seconds_per_tick)
 
 		//Handles regenerating stamina if we have sufficient air and no oxyloss
-		handle_stamina(shock_value)
+		handle_stamina(seconds_per_tick, shock_value)
 
 		if (is_diona())
 			diona_handle_light(DS)
@@ -147,7 +147,7 @@
 	else
 		return ONE_ATMOSPHERE + pressure_difference
 
-/mob/living/carbon/human/handle_disabilities()
+/mob/living/carbon/human/handle_disabilities(seconds_per_tick)
 	..()
 	//Vision
 	var/obj/item/organ/vision
@@ -171,12 +171,12 @@
 		//blindness
 		if(!(sdisabilities & BLIND))
 			if(!src.is_diona() && equipment_tint_total >= TINT_BLIND)	// Covered eyes, heal faster
-				eye_blurry = max(eye_blurry-2, 0)
+				eye_blurry = max(eye_blurry - (2 * seconds_per_tick), 0)
 			else
-				eye_blurry = max(eye_blurry-1, 0)
+				eye_blurry = max(eye_blurry - seconds_per_tick, 0)
 
 	if (disabilities & EPILEPSY)
-		if ((prob(1) && paralysis < 1))
+		if ((SPT_PROB(1, seconds_per_tick) && paralysis < 1))
 			to_chat(src, SPAN_WARNING("You have a seizure!"))
 			for(var/mob/O in viewers(src, null))
 				if(O == src)
@@ -185,13 +185,13 @@
 			Paralyse(10)
 			make_jittery(1000)
 	if (disabilities & COUGHING)
-		if ((prob(5) && paralysis <= 1))
+		if ((SPT_PROB(5, seconds_per_tick) && paralysis <= 1))
 			drop_item()
 			emote("cough")
 			return
 
 	if((disabilities & ASTHMA) && getOxyLoss() >= 10)
-		if(prob(5))
+		if(SPT_PROB(5, seconds_per_tick))
 			emote("cough")
 
 	if(disabilities & STUTTERING)
@@ -199,11 +199,11 @@
 		if(aid < 3 && prob(10/aid)) //NOSTUTTER at 2 or above prevents it completely.
 			stuttering = max(10/aid, stuttering)
 
-/mob/living/carbon/human/handle_mutations_and_radiation()
+/mob/living/carbon/human/handle_mutations_and_radiation(seconds_per_tick)
 	if(InStasis())
 		return
 
-	if(getFireLoss() && ((mutations & COLD_RESISTANCE) || prob(1)))
+	if(getFireLoss() && ((mutations & COLD_RESISTANCE) || SPT_PROB(1, seconds_per_tick)))
 		heal_organ_damage(0,1)
 
 	// DNA2 - Gene processing.
@@ -222,20 +222,20 @@
 			return
 		else
 			var/damage = 0
-			total_radiation -= 1 * RADIATION_SPEED_COEFFICIENT
-			if(prob(25))
+			total_radiation -= 1 * RADIATION_SPEED_COEFFICIENT * seconds_per_tick
+			if(SPT_PROB(25, seconds_per_tick))
 				damage = 2
 
 			if (total_radiation > 50)
 				damage = 3
-				total_radiation -= 1 * RADIATION_SPEED_COEFFICIENT
-				if(prob(5) && prob(100 * RADIATION_SPEED_COEFFICIENT))
+				total_radiation -= 1 * RADIATION_SPEED_COEFFICIENT * seconds_per_tick
+				if(SPT_PROB(0.5, seconds_per_tick))
 					src.apply_radiation(-5 * RADIATION_SPEED_COEFFICIENT)
 					to_chat(src, SPAN_WARNING("You feel weak."))
 					Weaken(3)
 					if(!lying)
 						emote("collapse")
-				if(prob(5) && prob(100 * RADIATION_SPEED_COEFFICIENT) && species.name == SPECIES_HUMAN) //apes go bald
+				if(SPT_PROB(0.5, seconds_per_tick) && species.name == SPECIES_HUMAN) //apes go bald
 					if((h_style != "Bald" || f_style != "Shaved" ))
 						to_chat(src, SPAN_WARNING("Your hair falls out."))
 						h_style = "Bald"
@@ -245,10 +245,10 @@
 			if (total_radiation > 75)
 				src.apply_radiation(-1 * RADIATION_SPEED_COEFFICIENT)
 				damage = 7
-				if(prob(5))
+				if(SPT_PROB(5, seconds_per_tick))
 					take_overall_damage(0, 10 * RADIATION_SPEED_COEFFICIENT, used_weapon = "Radiation Burns")
 					to_chat(src, SPAN_WARNING("You feel a burning sensation!"))
-				if(prob(1))
+				if(SPT_PROB(1, seconds_per_tick))
 					to_chat(src, SPAN_WARNING("You feel strange!"))
 					adjustCloneLoss(5 * RADIATION_SPEED_COEFFICIENT)
 					emote("gasp")
@@ -256,7 +256,7 @@
 
 
 			if(damage)
-				adjustToxLoss(damage * RADIATION_SPEED_COEFFICIENT)
+				adjustToxLoss(damage * RADIATION_SPEED_COEFFICIENT * seconds_per_tick)
 				updatehealth()
 				if(organs.len)
 					var/obj/item/organ/external/O = pick(organs)
@@ -437,9 +437,9 @@
 		baseline += clothing.body_temperature_change
 	return baseline
 
-/mob/living/carbon/human/proc/stabilize_body_temperature()
+/mob/living/carbon/human/proc/stabilize_body_temperature(seconds_per_tick)
 	if (species.passive_temp_gain) // We produce heat naturally.
-		bodytemperature += species.passive_temp_gain
+		bodytemperature += species.passive_temp_gain * seconds_per_tick
 	if (species.body_temperature == null)
 		return //this species doesn't have metabolic thermoregulation
 
@@ -452,17 +452,17 @@
 
 	if(bodytemperature < species.cold_level_1) //260.15 is 310.15 - 50, the temperature where you start to feel effects.
 		if(nutrition >= 2) //If we are very, very cold we'll use up quite a bit of nutriment to heat us up.
-			adjustNutritionLoss(2)
+			adjustNutritionLoss(2 * seconds_per_tick)
 		var/recovery_amt = max((body_temperature_difference / BODYTEMP_AUTORECOVERY_DIVISOR), BODYTEMP_AUTORECOVERY_MINIMUM)
-		bodytemperature += recovery_amt
+		bodytemperature += recovery_amt * seconds_per_tick
 	else if(species.cold_level_1 <= bodytemperature && bodytemperature <= species.heat_level_1)
 		var/recovery_amt = body_temperature_difference / BODYTEMP_AUTORECOVERY_DIVISOR
-		bodytemperature += recovery_amt
+		bodytemperature += recovery_amt * seconds_per_tick
 	else if(bodytemperature > species.heat_level_1) //360.15 is 310.15 + 50, the temperature where you start to feel effects.
 		if(hydration >= 2)
-			adjustHydrationLoss(2)
+			adjustHydrationLoss(2 * seconds_per_tick)
 			if((species.flags & CAN_SWEAT) && fire_stacks == 0)
-				fire_stacks = -1
+				fire_stacks = -seconds_per_tick
 		var/recovery_amt = min((body_temperature_difference / BODYTEMP_AUTORECOVERY_DIVISOR), -BODYTEMP_AUTORECOVERY_MINIMUM)	//We're dealing with negative numbers
 		bodytemperature += recovery_amt
 
@@ -595,7 +595,7 @@
 
 	return min(1,thermal_protection)
 
-/mob/living/carbon/human/handle_chemicals_in_body()
+/mob/living/carbon/human/handle_chemicals_in_body(seconds_per_tick)
 	if(InStasis())
 		return
 
@@ -618,7 +618,7 @@
 			adjustToxLoss(chem_effects[CE_TOXIN])
 
 		if(CE_EMETIC in chem_effects)
-			if(prob(chem_effects[CE_EMETIC]))
+			if(SPT_PROB(chem_effects[CE_EMETIC], seconds_per_tick))
 				delayed_vomit()
 
 		if(CE_ITCH in chem_effects)
@@ -626,28 +626,28 @@
 			if(CE_NOITCH in chem_effects)
 				itching -= chem_effects[CE_NOITCH]
 			if(itching < 5)
-				if(prob(5))
+				if(SPT_PROB(5, seconds_per_tick))
 					to_chat(src, SPAN_WARNING(pick("You have an annoying itch.", "You have a slight itch.")))
 			if(itching >= 5)
-				if(prob(2))
+				if(SPT_PROB(2, seconds_per_tick))
 					to_chat(src, SPAN_WARNING(pick("The itch is becoming progressively worse.", "You need to scratch that itch!", "The itch isn't going!")))
 
 		if(CE_HAUNTED in chem_effects)
 			var/haunted = chem_effects[CE_HAUNTED]
 			if(haunted < 5)
-				if(prob(20))
+				if(SPT_PROB(20, seconds_per_tick))
 					set_see_invisible(SEE_INVISIBLE_CULT)
-				if(prob(5))
+				if(SPT_PROB(5, seconds_per_tick))
 					emote("shiver")
 					to_chat(src, SPAN_GOOD(pick("You hear the clinking of dinner plates and laughter.", "You hear a distant voice of someone you know talking to you.", "Fond memories of a departed loved one flocks to your mind.", "You feel the reassuring presence of a departed loved one.", "You feel a hand squeezing yours.")))
 			if(haunted >= 5)
 				set_see_invisible(SEE_INVISIBLE_CULT)
 				make_jittery(5)
-				if(prob(5))
+				if(SPT_PROB(5, seconds_per_tick))
 					visible_message("<b>[src]</b> trembles uncontrollably.", SPAN_WARNING("You tremble uncontrollably."))
 					to_chat(src, SPAN_CULT(pick("You feel fingers tracing up your back.", "You hear the distant wailing and sobbing of a departed loved one.", "You feel like you are being closely watched.", "You hear the hysterical laughter of a departed loved one.", "You no longer feel the reassuring presence of a departed loved one.", "You feel a hand taking hold of yours, digging its nails into you as it clings on.")))
 			if(haunted >= 10)
-				if(prob(5))
+				if(SPT_PROB(5, seconds_per_tick))
 					emote(pick("shiver", "twitch"))
 					to_chat(src, SPAN_CULT(pick("You feel a cold and threatening air wrapping around you.", "Whispering shadows, ceaseless in their demands, twist your thoughts...", "The whispering, anything to make them stop!", "Your head spins amid the cacophony of screaming, wailing and maniacal laughter of distant loved ones.", "You feel vestiges of decaying souls cling to you, trying to re-enter the world of the living.")))
 
@@ -733,7 +733,7 @@
 
 	return //TODO: DEFERRED
 
-/mob/living/carbon/human/handle_regular_status_updates()
+/mob/living/carbon/human/handle_regular_status_updates(seconds_per_tick)
 	if(!handle_some_updates())
 		return 0
 
@@ -741,7 +741,7 @@
 		return 0
 
 	if(recently_slept)
-		recently_slept -= 1
+		recently_slept -= seconds_per_tick
 
 	//SSD check, if a logged player is awake put them back to sleep!
 	if(species.show_ssd && (!client && !vr_mob) && !teleop && ((world.realtime - disconnect_time) >= 5 MINUTES)) //only sleep after 5 minutes, should help those with intermittent internet connections
@@ -760,7 +760,7 @@
 
 		if(hallucination)
 			if(HAS_TRAIT(src, TRAIT_BYPASS_HALLUCINATION_RESTRICTION) || !((species.flags & NO_POISON) && (species.flags & IS_PLANT)))
-				handle_hallucinations()
+				handle_hallucinations(seconds_per_tick)
 
 		if(get_shock() >= species.total_health)
 			if(!stat && !paralysis)
@@ -1179,16 +1179,16 @@
 	var/coord_row_offset = 8
 	return "EAST[coord_col]:[coord_col_offset],NORTH[coord_row]:[coord_row_offset]"
 
-/mob/living/carbon/human/handle_random_events()
+/mob/living/carbon/human/handle_random_events(seconds_per_tick)
 	if(InStasis())
 		return
 
 	// Puke if toxloss is too high
 	if(!stat)
 		if (getToxLoss() >= 45 && !lastpuke)
-			if (prob(3))
+			if (SPT_PROB(3, seconds_per_tick))
 				delayed_vomit()
-			else if (prob(1))
+			else if (SPT_PROB(1, seconds_per_tick))
 				vomit()
 
 	//0.1% chance of playing a scary sound to someone who's in complete darkness
@@ -1199,7 +1199,7 @@
 
 		if(HAS_TRAIT(src, TRAIT_ORIGIN_DARK_AFRAID))
 			if(T.get_lumcount() < 0.1)
-				if(prob(2))
+				if(SPT_PROB(2, seconds_per_tick))
 					var/list/assunzione_messages = list(
 						"You feel a bit afraid...",
 						"You feel somewhat nervous...",
@@ -1210,14 +1210,13 @@
 
 		if(HAS_TRAIT(src, TRAIT_ORIGIN_LIGHT_SENSITIVE))
 			if(T.get_lumcount() > 0.8)
-				if(prob(1))
-					if(prob(5))
-						var/list/eye_sensitivity_messages = list(
-							"Your eyes tire a bit.",
-							"Your eyes sting a little.",
-							"Your vision feels a bit strained."
-						)
-						to_chat(src, SPAN_WARNING(pick(eye_sensitivity_messages)))
+				if(SPT_PROB(0.05, seconds_per_tick))
+					var/list/eye_sensitivity_messages = list(
+						"Your eyes tire a bit.",
+						"Your eyes sting a little.",
+						"Your vision feels a bit strained."
+					)
+					to_chat(src, SPAN_WARNING(pick(eye_sensitivity_messages)))
 
 /mob/living/carbon/human/proc/handle_changeling()
 	if(mind)
@@ -1229,7 +1228,7 @@
  * This proc assumes that if traumatic_shock = null, then a shock value was NOT passed in, and thus it calculates it itself.
  * If you for some reason need to call this alongside a lot of other shit that needs shock, make sure you cache that value, because calculating it is expensive.
  */
-/mob/living/carbon/human/proc/handle_shock(traumatic_shock = null)
+/mob/living/carbon/human/proc/handle_shock(seconds_per_tick, traumatic_shock = null)
 	if(status_flags & GODMODE)
 		return 0
 	var/is_asystole = is_asystole()
@@ -1244,20 +1243,20 @@
 		return
 
 	if(is_asystole)
-		shock_stage = max(shock_stage + 1, 61)
+		shock_stage = max(shock_stage + seconds_per_tick, 61)
 
 	if(isnull(traumatic_shock))
 		traumatic_shock = get_shock()
 
 	if(traumatic_shock >= max(30, 0.8*shock_stage))
-		shock_stage += 1
+		shock_stage += seconds_per_tick
 	else if (!is_asystole)
 		shock_stage = min(shock_stage, 160)
-		var/recovery = 1
+		var/recovery = seconds_per_tick
 		if(traumatic_shock < 0.5 * shock_stage) //lower shock faster if pain is gone completely
-			recovery++
+			recovery += seconds_per_tick
 		if(traumatic_shock < 0.25 * shock_stage)
-			recovery++
+			recovery += seconds_per_tick
 		shock_stage = max(shock_stage - recovery, 0)
 		return
 
@@ -1270,7 +1269,7 @@
 	if(shock_stage >= 30)
 		if(shock_stage == 30)
 			visible_message("<b>[src]</b> is having trouble keeping [get_pronoun("his")] eyes open.")
-		if(prob(30))
+		if(SPT_PROB(30, seconds_per_tick))
 			eye_blurry = max(2, eye_blurry)
 			stuttering = max(stuttering, 5)
 
@@ -1280,17 +1279,17 @@
 	if (shock_stage >= 60)
 		if(shock_stage == 60)
 			visible_message("<b>[src]</b>'s body becomes limp.", SPAN_DANGER("Your body becomes limp."))
-		if (prob(2))
+		if (SPT_PROB(2, seconds_per_tick))
 			custom_pain("[pick("The pain is excruciating", "Please, just end the pain", "Your whole body is going numb")]!", shock_stage, nohalloss = TRUE)
 			Weaken(20)
 
 	if(shock_stage >= 80)
-		if (prob(5))
+		if (SPT_PROB(5, seconds_per_tick))
 			custom_pain("[pick("The pain is excruciating", "Please, just end the pain", "Your whole body is going numb")]!", shock_stage, nohalloss = TRUE)
 			Weaken(20)
 
 	if(shock_stage >= 120)
-		if (prob(2))
+		if (SPT_PROB(2, seconds_per_tick))
 			custom_pain("[pick("You black out", "You feel like you could die any moment now", "You're about to lose consciousness")]!", shock_stage, nohalloss = TRUE)
 			Paralyse(5)
 
@@ -1495,7 +1494,7 @@
  * This proc assumes that if shock_value = null, then a shock value was NOT passed in, and thus it calculates it itself.
  * If you for some reason need to call this alongside a lot of other shit that needs shock, make sure you cache that value, because calculating it is expensive.
  */
-/mob/living/carbon/human/proc/handle_stamina(traumatic_shock = null)
+/mob/living/carbon/human/proc/handle_stamina(seconds_per_tick, traumatic_shock = null)
 	if (species.stamina == -1) //If species stamina is -1, it has special mechanics which will be handled elsewhere
 		return //so quit this function
 
@@ -1509,19 +1508,19 @@
 		return
 
 	if (nutrition <= 0)
-		if (prob(1.5))
+		if (SPT_PROB(1.5, seconds_per_tick))
 			to_chat(src, SPAN_WARNING("You feel hungry and exhausted, eat something to regain your energy!"))
 		return
 
 	if (hydration <= 0)
-		if (prob(1.5))
+		if (SPT_PROB(1.5, seconds_per_tick))
 			to_chat(src, SPAN_WARNING("You feel thirsty and exhausted, drink something to regain your energy!"))
 		return
 
 	if (stamina != max_stamina)
 		//Any suffocation damage slows stamina regen.
 		//This includes oxyloss from low blood levels
-		var/regen = stamina_recovery * (1 - min(((getOxyLoss()) / exhaust_threshold) + (traumatic_shock / exhaust_threshold), 1))
+		var/regen = stamina_recovery * (1 - min(((getOxyLoss()) / exhaust_threshold) + (traumatic_shock / exhaust_threshold), 1)) * seconds_per_tick
 		if(is_drowsy())
 			regen *= 0.85
 		if (regen > 0)
@@ -1555,29 +1554,29 @@
 
 //Fevers
 //This handles infection fevers as well as fevers caused by chem effects
-/mob/living/carbon/human/proc/handle_fever()
+/mob/living/carbon/human/proc/handle_fever(seconds_per_tick)
 	var/normal_temp = species?.body_temperature || (T0C+37)
 	//If we have infections, they give us a fever. Get all of their germ levels and find what our bodytemp will raise by.
 	var/fever = get_infection_germ_level() / INFECTION_LEVEL_ONE
 	//See what chemicals in our body affect our fever for better or worse
 	if(CE_FEVER in chem_effects)
-		fever += chem_effects[CE_FEVER]
+		fever += chem_effects[CE_FEVER] * seconds_per_tick
 	if(CE_NOFEVER in chem_effects)
-		fever -= chem_effects[CE_NOFEVER]
+		fever -= chem_effects[CE_NOFEVER] * seconds_per_tick
 
 	//Apply changes to body temp. I absolutely hate body temp code -Doxx
 	if(fever < 0) //If we have enough anti-fever meds to bring us back towards normal temperature, do so.
 		if(bodytemperature >= normal_temp)  //We don't have any effect if we're colder than normal.
-			bodytemperature = max(bodytemperature + fever, normal_temp)
+			bodytemperature = max(bodytemperature + (fever * seconds_per_tick), normal_temp)
 		return
 	if(fever > 0) //We're getting a fever, raise body temp. 10C above normal is our max for fevers.
 		if(bodytemperature < normal_temp) //If we're colder than usual, we'll slowly raise to normal temperature
-			bodytemperature = min(bodytemperature + fever, normal_temp)
+			bodytemperature = min(bodytemperature + (fever * seconds_per_tick), normal_temp)
 		else if(bodytemperature <= normal_temp + 10) //If we're hotter than max due to like, being on fire, don't keep increasing.
-			bodytemperature = normal_temp + min(fever, 10) //We use normal_temp here to maintain a steady temperature, otherwise even a small infection steadily increases bodytemp to max. This way it's easier to diagnose the intensity of an infection based on how bad the fever is.
+			bodytemperature = normal_temp + (min(fever, 10) * seconds_per_tick) //We use normal_temp here to maintain a steady temperature, otherwise even a small infection steadily increases bodytemp to max. This way it's easier to diagnose the intensity of an infection based on how bad the fever is.
 	//Apply side effects for having a fever. Separate from body temp changes.
 	if(fever >= 2)
-		do_fever_effects(fever)
+		do_fever_effects(seconds_per_tick, fever)
 
 
 //Getting the total germ level for all infected organs, affects fever
@@ -1591,13 +1590,13 @@
 			germs += E.germ_level
 	return germs
 
-/mob/living/carbon/human/proc/do_fever_effects(var/fever)
+/mob/living/carbon/human/proc/do_fever_effects(seconds_per_tick, var/fever)
 	var/list/fever_messages = list("You feel cold and clammy...", "You shiver as if a breeze has passed through.", "Your muscles ache.", "You feel tired and fatigued.")
 	notify_message(SPAN_WARNING(pick(fever_messages)), 30 SECONDS, key = "fever_effect_message")
-	if(prob(25)) // once every 8 seconds, roughly
+	if(SPT_PROB(25, seconds_per_tick)) // once every 8 seconds, roughly
 		drowsiness += 5
-	if(prob(20))
+	if(SPT_PROB(20, seconds_per_tick))
 		adjustHalLoss(5 * min(fever, 5)) // muscle pain from fever
-	if(fever >= 7 && prob(10)) // your organs are boiling, figuratively speaking
+	if(fever >= 7 && SPT_PROB(10, seconds_per_tick)) // your organs are boiling, figuratively speaking
 		var/obj/item/organ/internal/IO = pick(internal_organs)
 		IO.take_internal_damage(1)

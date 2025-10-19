@@ -1,7 +1,7 @@
 /mob/living/carbon/brain/handle_breathing()
 	return
 
-/mob/living/carbon/brain/handle_mutations_and_radiation()
+/mob/living/carbon/brain/handle_mutations_and_radiation(seconds_per_tick)
 	if (total_radiation)
 		if (total_radiation > RADS_MAX)
 			total_radiation = RADS_MAX
@@ -12,15 +12,15 @@
 
 		switch(total_radiation)
 			if(RADS_LOW to RADS_MED-1)
-				apply_radiation(-1)
-				if(prob(25))
+				apply_radiation(-seconds_per_tick)
+				if(SPT_PROB(25, seconds_per_tick))
 					adjustToxLoss(1)
 					updatehealth()
 
 			if(RADS_MED to RADS_HIGH-1)
-				apply_radiation(-2)
-				adjustToxLoss(1)
-				if(prob(5))
+				apply_radiation(-(2 * seconds_per_tick))
+				adjustToxLoss(seconds_per_tick)
+				if(SPT_PROB(5, seconds_per_tick))
 					apply_radiation(-5)
 					if(!container)
 						to_chat(src, SPAN_WARNING("You feel weak."))
@@ -29,8 +29,8 @@
 				updatehealth()
 
 			if(RADS_HIGH to RADS_MAX)
-				apply_radiation(-3)
-				adjustToxLoss(3)
+				apply_radiation(-(3 * seconds_per_tick))
+				adjustToxLoss((3 * seconds_per_tick))
 				updatehealth()
 
 
@@ -71,7 +71,7 @@
 		adjustFireLoss(5.0*discomfort)
 
 
-/mob/living/carbon/brain/handle_chemicals_in_body()
+/mob/living/carbon/brain/handle_chemicals_in_body(seconds_per_tick)
 	chem_effects.Cut()
 	analgesic = 0
 
@@ -84,18 +84,18 @@
 	if(CE_PAINKILLER in chem_effects)
 		analgesic = chem_effects[CE_PAINKILLER]
 
-	confused = max(0, confused - 1)
+	confused = max(0, confused - seconds_per_tick)
 	// decrement dizziness counter, clamped to 0
 	if(resting)
-		dizziness = max(0, dizziness - 5)
+		dizziness = max(0, dizziness - (5 * seconds_per_tick))
 	else
-		dizziness = max(0, dizziness - 1)
+		dizziness = max(0, dizziness - seconds_per_tick)
 
 	updatehealth()
 
 	return //TODO: DEFERRED
 
-/mob/living/carbon/brain/handle_regular_status_updates()	//TODO: comment out the unused bits >_>
+/mob/living/carbon/brain/handle_regular_status_updates(seconds_per_tick)	//TODO: comment out the unused bits >_>
 	updatehealth()
 
 	if(stat == DEAD)	//DEAD. BROWN BREAD. SWIMMING WITH THE SPESS CARP
@@ -126,15 +126,14 @@
 						emote("alarm")
 						to_chat(src, SPAN_WARNING("Major electrical distruption detected: System rebooting."))
 						alert = 1
-					if(prob(75))
-						emp_damage -= 1
+					emp_damage -= 0.75 * seconds_per_tick
 				if(20)
 					alert = 0
 					blinded = 0
 					eye_blind = 0
 					ear_deaf = 0
 					silent = 0
-					emp_damage -= 1
+					emp_damage -= seconds_per_tick
 				if(11 to 19)//Moderate level of EMP damage, resulting in nearsightedness and ear damage
 					eye_blurry = 1
 					ear_damage = 1
@@ -142,27 +141,25 @@
 						emote("alert")
 						to_chat(src, SPAN_WARNING("Primary systems are now online."))
 						alert = 1
-					if(prob(50))
-						emp_damage -= 1
+					emp_damage -= 0.5 * seconds_per_tick
 				if(10)
 					alert = 0
 					eye_blurry = 0
 					ear_damage = 0
-					emp_damage -= 1
+					emp_damage -= seconds_per_tick
 				if(2 to 9)//Low level of EMP damage, has few effects(handled elsewhere)
 					if(!alert)
 						emote("notice")
 						to_chat(src, SPAN_WARNING("System reboot nearly complete."))
 						alert = 1
-					if(prob(25))
-						emp_damage -= 1
+					emp_damage -= 0.25 * seconds_per_tick
 				if(1)
 					alert = 0
 					to_chat(src, SPAN_WARNING("All systems restored."))
 					emp_damage -= 1
 
 		//Other
-		handle_statuses()
+		handle_statuses(seconds_per_tick)
 	return 1
 
 /mob/living/carbon/brain/handle_regular_hud_updates()

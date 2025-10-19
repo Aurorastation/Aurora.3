@@ -8,7 +8,7 @@
 
 	//Status updates, death etc.
 	clamp_values()
-	handle_regular_status_updates()
+	handle_regular_status_updates(seconds_per_tick)
 	handle_actions()
 
 	if(client)
@@ -67,7 +67,7 @@
 			lights_on = 0
 			set_light(0)
 
-/mob/living/silicon/robot/handle_regular_status_updates()
+/mob/living/silicon/robot/handle_regular_status_updates(seconds_per_tick)
 	if(camera && !scrambled_codes)
 		if(stat == DEAD || wires.is_cut(WIRE_CAMERA))
 			camera.set_status(0)
@@ -90,11 +90,11 @@
 		if(paralysis || stunned || weakened || !has_power) //Stunned etc.
 			set_stat(UNCONSCIOUS)
 			if(stunned > 0)
-				AdjustStunned(-1)
+				AdjustStunned(-seconds_per_tick)
 			if(weakened > 0)
-				AdjustWeakened(-1)
+				AdjustWeakened(-seconds_per_tick)
 			if(paralysis > 0)
-				AdjustParalysis(-1)
+				AdjustParalysis(-seconds_per_tick)
 				blinded = TRUE
 			else
 				blinded = FALSE
@@ -116,7 +116,7 @@
 	if(ear_deaf > 0)
 		ear_deaf--
 	if(ear_damage < 25)
-		ear_damage -= 0.05
+		ear_damage -= (seconds_per_tick / 20)
 		ear_damage = max(ear_damage, 0)
 
 	if((sdisabilities & BLIND))
