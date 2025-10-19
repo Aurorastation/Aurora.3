@@ -63,20 +63,16 @@
 /area/shuttle/orion_miner/main_engineering_port)
 "aL" = (
 /obj/structure/table/reinforced/steel,
-/obj/item/paper_bin{
-	pixel_y = 5;
-	pixel_x = -6
-	},
 /obj/item/folder/blue{
 	pixel_y = 7;
 	pixel_x = 6
 	},
-/obj/item/pen/black{
-	pixel_x = 6;
-	pixel_y = 4
+/obj/item/flame/lighter/zippo{
+	pixel_x = -5
 	},
-/obj/item/pen/black{
-	pixel_x = 6
+/obj/item/material/ashtray{
+	pixel_x = -6;
+	pixel_y = 10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_miner/bridge)
@@ -206,6 +202,10 @@
 	pixel_x = 7;
 	pixel_y = -5
 	},
+/obj/item/reagent_containers/food/drinks/carton/milk{
+	pixel_x = -5;
+	pixel_y = -5
+	},
 /turf/simulated/floor/tiled/full,
 /area/shuttle/orion_miner/mess_hall)
 "bR" = (
@@ -305,6 +305,12 @@
 	},
 /obj/machinery/recharge_station,
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/item/device/gps/stationary/mining_shuttle{
+	pixel_y = 27;
+	name = "static GPS (Orion Miner)";
+	gpstag = "OMINER";
+	pixel_x = -1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_miner/bridge)
 "cp" = (
@@ -420,6 +426,11 @@
 /obj/effect/floor_decal/industrial/outline/medical,
 /turf/simulated/floor/tiled/white,
 /area/shuttle/orion_miner/medbay)
+"dj" = (
+/obj/structure/railing/mapped,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/shuttle/orion_miner/cargo_bay)
 "dm" = (
 /obj/machinery/atmospherics/pipe/tank/air{
 	dir = 8
@@ -830,13 +841,6 @@
 	},
 /turf/simulated/floor/marble,
 /area/shuttle/orion_miner/mess_hall)
-"gF" = (
-/obj/structure/ship_weapon_dummy,
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/turf/simulated/floor/reinforced,
-/area/shuttle/orion_miner/grauwolf)
 "gM" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
@@ -1119,11 +1123,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/orion_miner/cargo_bay)
-"jn" = (
-/obj/structure/railing/mapped,
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled,
-/area/shuttle/orion_miner/cargo_bay)
 "jq" = (
 /obj/effect/floor_decal/corner/paleblue,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -1258,6 +1257,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_miner/main_engineering_port)
+"kN" = (
+/obj/machinery/portable_atmospherics/hydroponics,
+/obj/effect/floor_decal/corner/dark_green/diagonal,
+/obj/effect/floor_decal/industrial/outline/service,
+/obj/machinery/light/colored/violet,
+/turf/simulated/floor/tiled,
+/area/shuttle/orion_miner/hydro)
 "kO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -1932,13 +1938,16 @@
 	pixel_x = -7;
 	pixel_y = 3
 	},
-/obj/item/material/ashtray{
-	pixel_x = 5;
-	pixel_y = 8
+/obj/item/paper_bin{
+	pixel_y = 5;
+	pixel_x = 5
 	},
-/obj/item/flame/lighter/zippo{
-	pixel_x = 5;
-	pixel_y = -2
+/obj/item/pen/black{
+	pixel_x = 6;
+	pixel_y = 4
+	},
+/obj/item/pen/black{
+	pixel_x = 6
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_miner/bridge)
@@ -2278,13 +2287,6 @@
 	dir = 5
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/orion_miner/hydro)
-"ve" = (
-/obj/machinery/portable_atmospherics/hydroponics,
-/obj/effect/floor_decal/corner/dark_green/diagonal,
-/obj/effect/floor_decal/industrial/outline/service,
-/obj/machinery/light/colored/violet,
-/turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/hydro)
 "vj" = (
 /obj/machinery/ammunition_loader/grauwolf{
@@ -3899,19 +3901,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/mess_hall)
-"Iy" = (
-/obj/structure/bed/stool/chair/shuttle,
-/obj/effect/floor_decal/industrial/outline_corner/security{
-	dir = 10
-	},
-/obj/effect/floor_decal/industrial/outline_segment/security{
-	dir = 6
-	},
-/obj/effect/floor_decal/industrial/outline_segment/security{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/shuttle/orion_miner/bridge)
 "IB" = (
 /obj/effect/shuttle_landmark/ship/orion_miner{
 	dir = 1
@@ -4459,6 +4448,19 @@
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/cargo_bay)
+"OZ" = (
+/obj/structure/bed/stool/chair/shuttle,
+/obj/effect/floor_decal/industrial/outline_corner/security{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/outline_segment/security{
+	dir = 6
+	},
+/obj/effect/floor_decal/industrial/outline_segment/security{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/orion_miner/bridge)
 "Pb" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/arrow/yellow{
@@ -4902,6 +4904,13 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/shuttle/orion_miner/dorm)
+"RZ" = (
+/obj/structure/ship_weapon_dummy,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced,
+/area/shuttle/orion_miner/grauwolf)
 "Sa" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/shuttle/orion_miner/eva)
@@ -5752,6 +5761,10 @@
 /obj/machinery/light/colored/red,
 /obj/machinery/telecomms/allinone/ship,
 /obj/effect/floor_decal/industrial/hatch/security,
+/obj/item/device/multitool{
+	pixel_x = -7;
+	pixel_y = 5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_miner/main_engineering_stbd)
 "YV" = (
@@ -37121,7 +37134,7 @@ yk
 Pw
 ms
 oC
-ve
+kN
 Jq
 Jq
 Bd
@@ -37145,7 +37158,7 @@ yK
 rX
 rX
 lE
-gF
+RZ
 RT
 rW
 pN
@@ -37900,7 +37913,7 @@ OG
 xK
 xD
 CX
-jn
+dj
 Bh
 gn
 fo
@@ -38157,7 +38170,7 @@ xK
 xK
 Db
 Eb
-jn
+dj
 sU
 lo
 fo
@@ -38424,7 +38437,7 @@ Wt
 pv
 Tp
 NB
-Iy
+OZ
 Qz
 im
 SA
