@@ -1,0 +1,7 @@
+author: Kano
+
+delete-after: True
+
+changes:
+  - rscadd: "Added an interactive away site, Outpost Nemora. Lot's of traps, horde cleaning and some story!"
+  - rscadd: "Ported storytelling holopads from Paradise Station."
