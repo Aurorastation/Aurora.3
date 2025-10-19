@@ -2,9 +2,9 @@
 #define FUSION_RUPTURE_THRESHOLD		25000
 #define FUSION_REACTANT_CAP				10000
 #define FUSION_WARNING_DELAY 			20
-#define FUSION_BLACKBODY_MULTIPLIER		28
+#define FUSION_BLACKBODY_MULTIPLIER		64
 #define FUSION_INTEGRITY_RATE_LIMIT		0.11
-#define FUSION_TICK_MAX_TEMP_CHANGE		0.2
+#define FUSION_TICK_MAX_TEMP_CHANGE		0.3
 
 /obj/effect/fusion_em_field
 	name = "electromagnetic field"
@@ -105,7 +105,7 @@
 
 	var/power_log_base = 1.4
 	var/power_multiplier = 3
-	var/power_power = 3.2
+	var/power_power = 6.0
 
 	var/aaa_minimum_energy_level_multiplier = 1.0
 
@@ -231,7 +231,7 @@
 	field_strength_entropy_multiplier = clamp((owned_core.field_strength ** 1.075) / 40, 0.8, 2.0)
 	// Energy decay (entropy tax).
 	if(plasma_temperature >= 1)
-		var/lost = plasma_temperature * 0.0045
+		var/lost = plasma_temperature * 0.0005
 		radiation += lost
 		var/temp_change = 0 - (lost * field_strength_entropy_multiplier)
 		adjust_temperature(temp_change, cause = "Containment Entropy")
@@ -439,12 +439,10 @@
 
 /obj/effect/fusion_em_field/proc/AddEnergy(a_energy, a_plasma_temperature)
 	// Boost gyro effects at low temperatures for faster startup
-	if(plasma_temperature <= 75000)
+	if(plasma_temperature <= 5000)
 		a_energy = a_energy * 32
-	else if(plasma_temperature <= 250000)
+	else if(plasma_temperature <= 75000)
 		a_energy = a_energy * 8
-	else if(plasma_temperature <= 1000000)
-		a_energy = a_energy * 2
 	energy += a_energy / 2
 
 	plasma_temperature += a_plasma_temperature
