@@ -574,7 +574,7 @@
 	M.add_chemical_effect(CE_PULSE, -1)
 	var/message_list = list("You feel soothed and at ease.", "You feel like sharing the wonderful memories and feelings you're experiencing.", "You feel like you're floating off the ground.", "You don't want this feeling to end.", "You wish to please all those around you.", "You feel particularly susceptible to persuasion.", "Everyone is so trustworthy nowadays.")
 	var/message_type = "good"
-	if(isskrell(M))
+	if(M.psi && M.psi.get_rank() >= PSI_RANK_SENSITIVE)
 		message_list += list("You can see the thoughts of those around you dancing in the air.", "You feel as if your mind has opened even further, your thought-field expanding.", "It's difficult to contain your thoughts - but why hide them anyway?")
 		message_type = "alium"
 	else
