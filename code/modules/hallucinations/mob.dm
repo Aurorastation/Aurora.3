@@ -25,7 +25,7 @@
 	if(chem_effects[CE_HALLUCINATE] < 0)
 		hallucination = max(0, hallucination - (abs(chem_effects[CE_HALLUCINATE]) * seconds_per_tick))
 	if(chem_effects[CE_HALLUCINATE] > 0 && SPT_PROB(chem_effects[CE_HALLUCINATE] * 20, seconds_per_tick))
-		hallucination += chem_effects[CE_HALLUCINATE]
+		hallucination += chem_effects[CE_HALLUCINATE] * seconds_per_tick
 
 	if(hallucination <= 0)  //We're done
 		hallucination = 0
