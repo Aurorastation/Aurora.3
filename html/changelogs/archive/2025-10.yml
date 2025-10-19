@@ -220,3 +220,61 @@
 2025-10-15:
   JohnWildkins:
   - rscdel: Reverts to 2024-style lobby screens due to performance concerns.
+2025-10-17:
+  Evandorf:
+  - rscadd: Added a new away site; Hiskyn Pirate Treasure Trove. Intended to be a
+      high risk, high reward dive into boobytrapped ruins. Be warned and have fun.
+  - rscadd: Lava is now more dangerous and you will suffer immediate burns from stepping
+      in it. Don't step in lava.
+  - bugfix: Adjusted random item spawning to prevent null errors and adjusted some
+      random items to use problists.
+  - rscadd: Created pre-deployed and random variants of certain things like mines
+      and shield wall generators.
+  - bugfix: Radioactive spills will give off radiation correctly, and some radioactive
+      waste barrels are more hazardous, though labelled appropriately.
+  - rscadd: Added a handful of environmental traps and sprites where appropriately.
+  - bugfix: Fixed some corpse spawners not updating the sprites correctly after load.
+  - bugfix: Set correct icons for certain step triggers. Doing so caused dirty var
+      errors in some existing maps and those were corrected as well.
+  FabianK3:
+  - rscadd: Update the repositories triage bot to run every full hour with an adjusted
+      rate limit.
+  FlamingLily:
+  - bugfix: Replaces the generic smartfridge in the hydroponics mini-chemlab with
+      an !insecure! chemistry smartfridge.
+  Hellfirejag:
+  - bugfix: Fixed upgrade hints for chemical heaters.
+  - rscadd: Improved upgrade hints for chemical heaters, autolathes, mechfabs, protolathes,
+      and circuit imprinters. Their mechanics hints now state the actual current numerical
+      effects.
+  JohnWildkins:
+  - server: Increased TGUI connection lost timer from 20s to 45s, making it more likely
+      to auto-reconnect after server restart.
+  MattAtlas (porting), CM and /tg/ coders (original code):
+  - experiment: Replaced our renderer system with TG and CM's planemasters.
+  - rscadd: Open space now has a gaussian blur filter.
+  - bugfix: Fixed esoteric smoothing behaviour that was a bug for a long time; lattices
+      should no longer smooth with nothing.
+  TheGreyWolf:
+  - bugfix: Fixed crafting a janitorial cart also gave several janitorial supplies
+      with it.
+  - rscadd: Crates now takes half as long to hoist up on tables.
+  - rscadd: Crates now have a message when put on a table.
+  - rscadd: Cargo packages and other heavy objects can now be put beside you without
+      risking the health of your foot.
+  - rscadd: The cargo and janitorial tugs are now faster, but don't gain speed when
+      emagged.
+  - rscadd: Added a hint to the cargo, janitorial and mining tugs that they can run
+      over people when emagged.
+  nauticall:
+  - rscadd: 'The following items have been added to cargo (1): pig, Cleanbot, Farmbot,
+      Medibot, autopsy scanner, package/gift wrapping paper, PDA, universal (tape)
+      recorder.'
+  - rscadd: 'The following items have been added to cargo (2): IV stand, camping set
+      & sleeping bags, InUs Game-Helm, paper scanner, data drives, produce boxes.'
+  - qol: Moved certain cargo items to other categories.
+  - qol: Modified the pricing of blood, hydroponics trays, certain drink canisters,
+      organ coolers, animals, and some security items. Made folders and SBS blood
+      come in multiple per order.
+  - spellcheck: Miscellaneous spellchecks and grammar fixes in cargo.
+  - rscdel: Capped the amount of pizza boxes available in mining vendors to 2.
