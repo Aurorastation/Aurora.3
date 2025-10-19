@@ -936,6 +936,7 @@
 #include "code\game\machinery\chem_heater.dm"
 #include "code\game\machinery\cloning.dm"
 #include "code\game\machinery\constructable_frame.dm"
+#include "code\game\machinery\controlhub.dm"
 #include "code\game\machinery\crusher_piston.dm"
 #include "code\game\machinery\cryo.dm"
 #include "code\game\machinery\cryopod.dm"
