@@ -70,6 +70,7 @@ changes:
   - bugfix: "Fixed runtime in Electrical Storm event."
   - bugfix: "Fixed some bounties returning 0 credit reward due to rounding issues."
   - bugfix: "Removed old fusion debug vars, fixed outdated maths."
+  - bugfix: "Fixed Horizon kitchen alt fridge being swapped w/ empty freezer."
   - rscdel: "Disabled 'Mundane News' and 'Economic News' events for the duration that the SCCV Horizon is outside comms range."
   - code_imp: "Updated more code comments to DMDocs."
   - code_imp: "Corrected poison/venom for greimorian variable naming."
