@@ -1,7 +1,0 @@
-
-author: Mneme
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed a broken pipe at the upper bar disposal."
