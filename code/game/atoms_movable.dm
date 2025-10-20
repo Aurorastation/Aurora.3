@@ -372,17 +372,16 @@
 /atom/movable/proc/update_emissive_blocker()
 	switch (blocks_emissive)
 		if (EMISSIVE_BLOCK_GENERIC)
-			em_block = fast_emissive_blocker(src)
+			var/mutable_appearance/gen_emissive_blocker = mutable_appearance(icon, icon_state, plane = EMISSIVE_PLANE, alpha = src.alpha)
+			gen_emissive_blocker.color = GLOB.em_block_color
+			gen_emissive_blocker.dir = dir
+			gen_emissive_blocker.appearance_flags |= appearance_flags
+			em_block = gen_emissive_blocker
+
 		if (EMISSIVE_BLOCK_UNIQUE)
-			if (!em_block && !QDELING(src))
-				appearance_flags |= KEEP_TOGETHER
-				render_target = REF(src)
-				em_block = emissive_blocker(
-					icon = icon,
-					icon_state = icon_state,
-					appearance_flags = appearance_flags,
-					source = render_target
-				)
+			render_target = REF(src)
+			em_block = new(src, render_target)
+
 	return em_block
 
 /atom/movable/update_icon()

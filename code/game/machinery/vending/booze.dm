@@ -190,3 +190,6 @@
 		/obj/item/reagent_containers/food/drinks/carton/cranberryjuice = 1,
 		/obj/item/reagent_containers/food/drinks/ice = 9
 	)
+
+/obj/machinery/vending/boozeomat/bar
+	layer = BELOW_TABLE_LAYER

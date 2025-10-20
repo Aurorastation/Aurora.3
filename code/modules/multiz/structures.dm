@@ -510,6 +510,9 @@
 /obj/structure/platform/cutout/CanPass()
 	return TRUE
 
+/obj/structure/platform/bar
+	layer = ABOVE_HUMAN_LAYER
+
 /// No special CanPass for this one.
 /obj/structure/platform_deco
 	name = "platform"

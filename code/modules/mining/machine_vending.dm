@@ -17,7 +17,7 @@ GLOBAL_LIST_INIT(minevendor_list, list(
 	new /datum/data/mining_equipment(/obj/item/stack/flag/yellow,								10,					50),
 	new /datum/data/mining_equipment(/obj/item/stack/flag/purple,								10,					50),
 	new /datum/data/mining_equipment(/obj/item/storage/bag/ore,									25,					50),
-	new /datum/data/mining_equipment(pick(subtypesof(/obj/item/pizzabox)), 									25,					50),
+	new /datum/data/mining_equipment(pick(subtypesof(/obj/item/pizzabox)), 						2, 					50),
 	new /datum/data/mining_equipment(/obj/item/device/flashlight/lantern,						10,					75),
 	new /datum/data/mining_equipment(/obj/item/shovel,											15,					100),
 	new /datum/data/mining_equipment(/obj/item/pickaxe,											10,					100),

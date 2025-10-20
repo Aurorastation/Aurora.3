@@ -30,6 +30,15 @@
 	. += ..()
 	. += "ALT-click the [src] to lock or unlock it (if you have the appropriate ID access)."
 
+/obj/machinery/shieldwallgen/active
+	power_state = POWER_STARTING
+	is_powered = TRUE
+	wrenched = TRUE
+	anchored = TRUE
+	locked = FALSE
+	icon_state = "Shield_Gen +a"
+	storedpower = 9000000
+
 /obj/machinery/shieldwallgen/update_icon()
 	if(power_state >= POWER_STARTING)
 		icon_state = "Shield_Gen +a"
