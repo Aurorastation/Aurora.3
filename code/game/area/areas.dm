@@ -111,7 +111,7 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 	/// You probably shouldn't be setting this to true on any planet-based maps, or on any indoors areas.
 	var/needs_starlight = FALSE
 
-	/// defaults toTRUE, false disables hostile events (like drone uprising).
+	/// defaults to TRUE, false disables hostile events (like drone uprising).
 	var/hostile_events = TRUE
 
 /**
