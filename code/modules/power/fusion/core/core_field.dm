@@ -101,13 +101,11 @@
 
 	var/vfx_radius_actual
 	//var/vfx_radius_visual
-	var/pause_rupture = TRUE
+	var/pause_rupture = FALSE
 
-	var/power_log_base = 1.4
-	var/power_multiplier = 3
-	var/power_power = 6.0
-
-	var/aaa_minimum_energy_level_multiplier = 1.0
+	var/power_log_base = 1.35
+	var/power_multiplier = 3.5
+	var/power_power = 2.9
 
 /obj/effect/fusion_em_field/proc/UpdateVisuals()
 	//Take the particle system and edit it
@@ -231,7 +229,7 @@
 	field_strength_entropy_multiplier = clamp((owned_core.field_strength ** 1.075) / 40, 0.8, 2.0)
 	// Energy decay (entropy tax).
 	if(plasma_temperature >= 1)
-		var/lost = plasma_temperature * 0.0005
+		var/lost = plasma_temperature * 0.00125
 		radiation += lost
 		var/temp_change = 0 - (lost * field_strength_entropy_multiplier)
 		adjust_temperature(temp_change, cause = "Containment Entropy")
