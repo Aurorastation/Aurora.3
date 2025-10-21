@@ -597,7 +597,7 @@
 				if(possible_s_reacts[cur_s_react] < 1)
 					continue
 				var/singleton/fusion_reaction/cur_reaction = get_fusion_reaction(cur_p_react, cur_s_react)
-				if(cur_reaction && plasma_temperature >= (cur_reaction.minimum_energy_level * aaa_minimum_energy_level_multiplier)&& possible_s_reacts[cur_p_react] >= cur_reaction.minimum_p_react)
+				if(cur_reaction && plasma_temperature >= (cur_reaction.minimum_energy_level)&& possible_s_reacts[cur_p_react] >= cur_reaction.minimum_p_react)
 					LAZYDISTINCTADD(possible_reactions, cur_reaction)
 
 			// If there are no possible reactions here, abandon this primary reactant and move on.
@@ -621,7 +621,7 @@
 				// Make sure we have enough energy.
 				// First, if minimum_reaction_temperature not set, make it the same as minimum_energy_level.
 				if(!cur_reaction.minimum_reaction_temperature)
-					cur_reaction.minimum_reaction_temperature = (cur_reaction.minimum_energy_level * 0.8 * aaa_minimum_energy_level_multiplier)
+					cur_reaction.minimum_reaction_temperature = (cur_reaction.minimum_energy_level * 0.8)
 				if(plasma_temperature < cur_reaction.minimum_reaction_temperature)
 					continue
 
@@ -631,7 +631,7 @@
 						continue
 
 				// Randomly determined amount to react. Starts at up to 1/20th, scales to up to 2/3rd at 20x min temp
-				var/temp_over_min = plasma_temperature / (cur_reaction.minimum_energy_level * 20 * aaa_minimum_energy_level_multiplier)
+				var/temp_over_min = plasma_temperature / (cur_reaction.minimum_energy_level * 20)
 				var/max_react_percent = clamp(temp_over_min, (1/20), (2/3))
 				var/amount_reacting = rand(1, (max_num_reactants * max_react_percent))
 
