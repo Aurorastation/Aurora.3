@@ -91,13 +91,12 @@
 	if(!langchat_image_untranslated)
 		langchat_image_untranslated = image(null, src)
 		langchat_image_untranslated.layer = 20
-		langchat_image_untranslated.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+		langchat_image_untranslated.plane = RUNECHAT_PLANE
 		langchat_image_untranslated.appearance_flags = NO_CLIENT_COLOR|KEEP_APART|RESET_COLOR|RESET_TRANSFORM
 		langchat_image_untranslated.maptext_y = langchat_height
 		langchat_image_untranslated.maptext_height = 64
 		langchat_image_untranslated.maptext_y -= LANGCHAT_MESSAGE_POP_Y_SINK
 		langchat_image_untranslated.maptext_x = get_maxptext_x_offset(langchat_image_untranslated)
-		langchat_image_untranslated.filters = filter(type="drop_shadow", size = 1, color = COLOR_BLACK)
 
 	langchat_image_untranslated.pixel_y = 0
 	langchat_image_untranslated.alpha = 0
