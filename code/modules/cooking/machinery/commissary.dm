@@ -59,7 +59,10 @@
 	/obj/item/storage/box/unique/snappops,
 	/obj/item/haircomb,
 	/obj/item/storage/box/fancy/crayons,
-	/obj/item/melee/dinograbber
+	/obj/item/melee/dinograbber,
+	/obj/item/device/laser_pointer,
+	/obj/item/deck,
+	/obj/item/storage/pill_bottle/dice
 	)
 	display_tiers = 4
 	display_tier_amt = 5
