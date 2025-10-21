@@ -1,0 +1,8 @@
+
+author: Kano
+
+delete-after: True
+
+changes:
+  - rscadd: "Added a new Odyssey map, decrepit shipyard."
+  - bugfix: "Recolored the hydrogen tank sprite and fixed its wrong icon path."
