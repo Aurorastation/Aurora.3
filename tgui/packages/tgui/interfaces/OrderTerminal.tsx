@@ -66,9 +66,7 @@ export const ItemWindow = (props) => {
             <Button
               content="Buy"
               icon="calendar"
-              onClick={(e, value) =>
-                act('buy', { buying: item.name, amount: 1 })
-              }
+              onClick={(value) => act('buy', { buying: item.name, amount: 1 })}
             />
           </LabeledList.Item>
         ))}
@@ -113,10 +111,11 @@ export const AddItems = (props) => {
       />
       <NumberInput
         value={data.new_price}
+        step={1}
         minValue={0}
         maxValue={100}
         stepPixelSize={5}
-        onDrag={(e, value) => act('set_new_price', { set_new_price: value })}
+        onDrag={(value) => act('set_new_price', { set_new_price: value })}
       />
       <Button content="Add" onClick={() => act('add')} />
     </Section>

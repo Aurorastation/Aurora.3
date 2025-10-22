@@ -96,12 +96,12 @@ export const LawManagement = (props) => {
       ) : (
         ''
       )}
-      {data.ion_laws && data.ion_laws.length ? <Ionlaws /> : ''}
-      {data.inherent_laws && data.inherent_laws.length ? <InherentLaws /> : ''}
-      {data.supplied_laws && data.supplied_laws.length ? <SuppliedLaws /> : ''}
+      {data.ion_laws?.length ? <Ionlaws /> : ''}
+      {data.inherent_laws?.length ? <InherentLaws /> : ''}
+      {data.supplied_laws?.length ? <SuppliedLaws /> : ''}
       <LabeledList>
         <LabeledList.Item label="State on Channel">
-          {data.channels && data.channels.length
+          {data.channels?.length
             ? data.channels.map((channel) => (
                 <Button
                   key={channel.channel}
@@ -266,7 +266,7 @@ export const InherentLaws = (props) => {
             ''
           )}
         </Table.Row>
-        {data.zeroth_laws && data.zeroth_laws.length
+        {data.zeroth_laws?.length
           ? data.zeroth_laws.map((law) => (
               <Table.Row key={law.ref}>
                 <Table.Cell>
@@ -427,7 +427,7 @@ export const LawSets = (props) => {
         for decomissioning.
         <Box textAlign="center">-Stellar Corporate Conglomerate</Box>
       </NoticeBox>
-      {data.law_sets && data.law_sets.length
+      {data.law_sets?.length
         ? data.law_sets.map((set) => (
             <Section
               title={set.name}
@@ -460,7 +460,7 @@ export const LawSets = (props) => {
                   <Table.Cell>Index</Table.Cell>
                   <Table.Cell>Law</Table.Cell>
                 </Table.Row>
-                {set.laws.ion_laws && set.laws.ion_laws.length
+                {set.laws.ion_laws?.length
                   ? set.laws.ion_laws.map((law) => (
                       <Table.Row key={law.ref}>
                         <Table.Cell>{law.index}</Table.Cell>
@@ -468,8 +468,8 @@ export const LawSets = (props) => {
                       </Table.Row>
                     ))
                   : ''}
-                {(set.laws.inherent_laws && set.laws.inherent_laws.length) ||
-                (set.laws.zeroth_laws && set.laws.zeroth_laws.length) ? (
+                {set.laws.inherent_laws?.length ||
+                set.laws.zeroth_laws?.length ? (
                   <>
                     {set.laws.zeroth_laws.length
                       ? set.laws.zeroth_laws.map((law) => (
@@ -489,7 +489,7 @@ export const LawSets = (props) => {
                 ) : (
                   ''
                 )}
-                {set.laws.supplied_laws && set.laws.supplied_laws.length
+                {set.laws.supplied_laws?.length
                   ? set.laws.supplied_laws.map((law) => (
                       <Table.Row key={law.ref}>
                         <Table.Cell>{law.index}</Table.Cell>

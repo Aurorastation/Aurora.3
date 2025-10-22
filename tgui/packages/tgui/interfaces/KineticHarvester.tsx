@@ -50,7 +50,7 @@ export const HarvestWindow = (props) => {
       }
     >
       {data.status ? (
-        data.materials && data.materials.length ? (
+        data.materials?.length ? (
           data.materials.map((material) => (
             <Section
               title={
@@ -88,7 +88,7 @@ export const HarvestWindow = (props) => {
                     />
                   </>
                 ) : (
-                  <NoticeBox warning>
+                  <NoticeBox danger>
                     Not enough cubic units harvested.
                   </NoticeBox>
                 )

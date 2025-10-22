@@ -100,7 +100,7 @@ export const AllWarrants = (props) => {
           <Button content="Add Warrant" onClick={() => act('addwarrant')} />
         }
       >
-        {data.allwarrants && data.allwarrants.length ? (
+        {data.allwarrants?.length ? (
           <Table>
             <Table.Row header>
               <Table.Cell>Name</Table.Cell>
@@ -129,7 +129,7 @@ export const AllWarrants = (props) => {
         )}
       </Section>
       <Section title="Search Warrants">
-        {data.allwarrants && data.allwarrants.length ? (
+        {data.allwarrants?.length ? (
           <Table>
             <Table.Row header>
               <Table.Cell>Name</Table.Cell>

@@ -14,7 +14,7 @@ export type MapData = {
   pois: { name: string; desc: string; x: number; y: number; z: number }[];
 };
 
-export const Map = (props) => {
+export const MiniMap = (props) => {
   const { act, data } = useBackend<MapData>();
 
   const [minimapZoom, setMinimapZoom] = useLocalState<number>(
@@ -91,7 +91,7 @@ export const Map = (props) => {
             value={minimapZoom}
             minValue={100}
             maxValue={200}
-            onChange={(value) => setMinimapZoom(value)}
+            onChange={(e, value) => setMinimapZoom(value)}
           >
             Zoom: {minimapZoom}%
           </Slider>

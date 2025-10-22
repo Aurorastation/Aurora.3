@@ -28,7 +28,7 @@ export const SpaceHeater = (props) => {
   const { act, data } = useBackend<SpaceHeaterData>();
 
   return (
-    <Window width="382" height="277">
+    <Window width={382} height={277}>
       <Window.Content>
         <Section
           title="Device Configuration"
@@ -109,7 +109,7 @@ export const SpaceHeater = (props) => {
                     maxValue={data.set_temperature_max}
                     step={1}
                     stepPixelSize={2}
-                    onDrag={(e, value) =>
+                    onDrag={(value) =>
                       act('tempSet', {
                         set_temperature: value,
                       })

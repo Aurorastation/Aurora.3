@@ -52,7 +52,7 @@ export const FusionCoreControl = (props) => {
   return (
     <Window width={800} height={500} theme={data.manufacturer}>
       <Window.Content scrollable>
-        {data.cores && data.cores.length ? (
+        {data.cores?.length ? (
           data.cores.map((core) => (
             <Section
               title={'INDRA Core ' + core.id}
@@ -134,10 +134,11 @@ export const FusionCoreControl = (props) => {
                         <NumberInput
                           value={core.field_strength}
                           unit="tesla"
+                          step={1}
                           minValue={20}
                           maxValue={core.field_strength_max * 100}
                           stepPixelSize={15}
-                          onDrag={(e, value) =>
+                          onDrag={(value) =>
                             act('strength', {
                               strength: value,
                               machine: core.ref,
@@ -182,7 +183,7 @@ export const FusionCoreControl = (props) => {
                 <Flex.Item grow={1}>
                   <Box m={2}>
                     <Box fontSize={1.5}>Reactants</Box>
-                    {core.reactants && core.reactants.length ? (
+                    {core.reactants?.length ? (
                       core.reactants.map((reactant) => (
                         <Section key={reactant.name}>
                           <Dimmer>

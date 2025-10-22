@@ -132,7 +132,7 @@ export const Users = (props) => {
             : null}
         </Tabs>
       </Section>
-      {data.active && data.active.can_interact ? <Chat /> : <AllUsers />}
+      {data.active?.can_interact ? <Chat /> : <AllUsers />}
     </Section>
   );
 };
@@ -155,8 +155,7 @@ export const AllUsers = (props) => {
         }}
         value={searchTerm}
       />
-      {data.users &&
-        data.users.length &&
+      {data.users?.length &&
         data.users
           .filter(
             (usr) =>
@@ -195,7 +194,7 @@ export const Chat = (props) => {
       title="Conversation"
       buttons={
         <>
-          {data.active && data.active.can_manage && !data.active.direct ? (
+          {data.active?.can_manage && !data.active.direct ? (
             <>
               <Button
                 key={data.active.ref}
@@ -259,14 +258,14 @@ export const Chat = (props) => {
           )}
           <Button
             content="Leave"
-            disabled={data.active && data.active.direct}
+            disabled={data.active?.direct}
             onClick={() =>
               act('leave', { leave: data.active ? data.active.ref : '' })
             }
           />
           <Button
             content="Enable STT"
-            selected={data.active && data.active.focused}
+            selected={data.active?.focused}
             onClick={() =>
               act('focus', { focus: data.active ? data.active.ref : '' })
             }
@@ -370,7 +369,7 @@ export const ChannelsWindow = (props) => {
               value={channelName}
               strict
               onChange={(v) => setChannelName(v)}
-              onChange={() => {
+              onChange={(v) => {
                 act('new_channel', { new_channel: channelName });
                 setCreatingChannelName(0);
               }}

@@ -21,7 +21,7 @@ export type AtmoScrubberData = {
   on: BooleanLike;
   hasHoldingTank: BooleanLike;
   holdingTankName: string[];
-  holdingTankPressure: string[];
+  holdingTankPressure: number;
 };
 
 export const AtmoScrubber = (props) => {
@@ -30,8 +30,8 @@ export const AtmoScrubber = (props) => {
   const [tank_color] = useLocalState('tank_color', '');
   const [cell_color] = useLocalState('tank_color', '');
 
-  const tank_presure_color = tank_color
-    ? { color: tank_color }
+  const tank_pressure_color = tank_color
+    ? { color: tank_color.toString() }
     : {
         ranges: {
           good: [-Infinity, 500],
@@ -57,7 +57,7 @@ export const AtmoScrubber = (props) => {
           <LabeledList>
             <LabeledList.Item label="Tank Pressure">
               <ProgressBar
-                {...tank_presure_color}
+                color={tank_pressure_color.toString()}
                 minValue={0}
                 maxValue={1024}
                 value={data.tankPressure}
@@ -71,7 +71,7 @@ export const AtmoScrubber = (props) => {
             <LabeledList.Item label="Load">{data.powerDraw} W</LabeledList.Item>
             <LabeledList.Item label="Cell Charge">
               <ProgressBar
-                {...cell_charge_color}
+                color={cell_charge_color.toString()}
                 minValue={0}
                 maxValue={data.cellMaxCharge}
                 value={data.cellCharge}
@@ -94,7 +94,7 @@ export const AtmoScrubber = (props) => {
               </LabeledList.Item>
               <LabeledList.Item label="Tank Pressure">
                 <ProgressBar
-                  {...tank_presure_color}
+                  color={tank_pressure_color.toString()}
                   minValue={0}
                   maxValue={1024}
                   value={data.holdingTankPressure}

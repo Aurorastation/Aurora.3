@@ -168,7 +168,7 @@ export const CommandCommunications = (props) => {
             </Stack.Item>
           </Stack>
         </Section>
-        <Collapsible content="Status Display Settings">
+        <Collapsible title="Status Display Settings">
           <Section
             title="Status Display Settings"
             buttons={

@@ -60,7 +60,7 @@ export const Autolathe = (props) => {
   const [tab, setTab] = useLocalState('tab', 'All');
 
   return (
-    <Window theme="hephaestus" width="1000" height="700">
+    <Window theme="hephaestus" width={1000} height={700}>
       <Window.Content scrollable>
         <Stack vertical fill>
           <Stack.Item>
@@ -160,7 +160,7 @@ export const CategoryData = (props) => {
           )
           .map((recipe) =>
             recipe.category === tab || tab === 'All' ? (
-              <Table.Row>
+              <Table.Row key={tab}>
                 <Table.Cell py={0.25}>
                   <Button
                     content={

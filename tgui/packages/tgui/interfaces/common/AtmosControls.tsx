@@ -218,8 +218,6 @@ export const Scrubber = (props: ScrubberProps, context) => {
               <Button
                 key={filter.gas_id}
                 icon={filter.enabled ? 'check-square-o' : 'square-o'}
-                content={getGasLabel(filter.gas_id, filter.gas_name)}
-                title={filter.gas_name}
                 selected={filter.enabled}
                 onClick={() =>
                   act('toggle_filter', {
@@ -227,7 +225,9 @@ export const Scrubber = (props: ScrubberProps, context) => {
                     val: filter.gas_id,
                   })
                 }
-              />
+              >
+                {getGasLabel(filter.gas_id, filter.gas_name)}
+              </Button>
             ))) ||
             'N/A'}
         </LabeledList.Item>

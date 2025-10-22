@@ -1,6 +1,7 @@
 import {
   Box,
   Button,
+  Collapsible,
   Dropdown,
   LabeledList,
   Section,
@@ -61,97 +62,113 @@ export const GunneryWindow = (props) => {
   }
   if (!data.targeting) {
     return (
-      <Section collapsing title="Targeting Information">
-        <Box bold>No target designated.</Box>
+      <Section>
+        <Collapsible title="Targeting Information">
+          <Box bold>No target designated.</Box>
+        </Collapsible>
       </Section>
     );
   } else {
     return (
       <Section>
-        <Section collapsing title="Lock-On Information">
-          <LabeledList>
-            <LabeledList.Item label="Target">{target_name}</LabeledList.Item>
-            <LabeledList.Item label="Type">
-              {data.targeting.shiptype}
-            </LabeledList.Item>
-            <LabeledList.Item label="Distance">
-              {data.targeting.distance} click(s)
-            </LabeledList.Item>
-          </LabeledList>
+        <Section>
+          <Collapsible title="Lock-On Information">
+            <LabeledList>
+              <LabeledList.Item label="Target">{target_name}</LabeledList.Item>
+              <LabeledList.Item label="Type">
+                {data.targeting.shiptype}
+              </LabeledList.Item>
+              <LabeledList.Item label="Distance">
+                {data.targeting.distance} click(s)
+              </LabeledList.Item>
+            </LabeledList>
+          </Collapsible>
         </Section>
-        <Section collapsing title="Targeting Calibration">
-          <Dropdown
-            options={entry_points}
-            displayText={data.selected_entrypoint}
-            width="100%"
-            onSelected={(value) =>
-              act('select_entrypoint', { entrypoint: value })
-            }
-          />
-          {data.z_levels ? (
-            <Section>
-              <Box bold>Deck Filter</Box>
-              <Dropdown
-                options={z_levels}
-                displayText={data.selected_z}
-                width="100%"
-                onSelected={(value) => act('select_z', { z: value })}
-              />
-            </Section>
-          ) : (
-            ''
-          )}
-          {data.mobile_platform ? (
-            <Section>
-              <Dropdown
-                options={platform_directions}
-                displayText={data.platform_direction}
-                width="100%"
-                onSelected={(value) =>
-                  act('platform_direction', { dir: value })
-                }
-              />
-            </Section>
-          ) : (
-            ''
-          )}
+        <Section>
+          <Collapsible title="Targeting Calibration">
+            <Dropdown
+              options={entry_points}
+              selected={data.selected_entrypoint}
+              displayText={data.selected_entrypoint}
+              width="100%"
+              onSelected={(value) =>
+                act('select_entrypoint', { entrypoint: value })
+              }
+            />
+            {data.z_levels ? (
+              <Section>
+                <Box bold>Deck Filter</Box>
+                <Dropdown
+                  options={z_levels}
+                  selected={data.selected_z.toString()}
+                  displayText={data.selected_z}
+                  width="100%"
+                  onSelected={(value) => act('select_z', { z: value })}
+                />
+              </Section>
+            ) : (
+              ''
+            )}
+            {data.mobile_platform ? (
+              <Section>
+                <Dropdown
+                  options={platform_directions}
+                  selected={data.platform_direction}
+                  displayText={data.platform_direction}
+                  width="100%"
+                  onSelected={(value) =>
+                    act('platform_direction', { dir: value })
+                  }
+                />
+              </Section>
+            ) : (
+              ''
+            )}
+          </Collapsible>
         </Section>
-        <Section collapsing title="Scan">
-          {MinimapView({
-            map_image: data.entry_point_map_image,
-            x: data.entry_point_x,
-            y: data.entry_point_y,
-          })}
+        <Section>
+          <Collapsible title="Scan">
+            {MinimapView({
+              map_image: data.entry_point_map_image,
+              x: data.entry_point_x,
+              y: data.entry_point_y,
+            })}
+          </Collapsible>
         </Section>
-        <Section collapsing title="Weaponry Control">
-          <Dropdown
-            options={gun_names}
-            width="100%"
-            displayText={cannon_name ? cannon_name : ''}
-            onSelected={(value) => act('select_gun', { gun: value })}
-          />
-          {data.cannon && (
-            <Section>
-              <LabeledList>
-                <LabeledList.Item label="Type">{cannon_name}</LabeledList.Item>
-                <LabeledList.Item label="Caliber">
-                  {cannon_caliber}
-                </LabeledList.Item>
-                <LabeledList.Item label="Loaded">
-                  {data.cannon.ammunition}
-                </LabeledList.Item>
-                <LabeledList.Item label="Ammunition Type">
-                  {data.cannon.ammunition_type}
-                </LabeledList.Item>
-              </LabeledList>
-              <Button
-                color="red"
-                icon="exclamation-triangle"
-                content="FIRE"
-                onClick={() => act('fire')}
-              />
-            </Section>
-          )}
+        <Section>
+          <Collapsible title="Weaponry Control">
+            <Dropdown
+              options={gun_names}
+              selected={cannon_name ? cannon_name : ''}
+              width="100%"
+              displayText={cannon_name ? cannon_name : ''}
+              onSelected={(value) => act('select_gun', { gun: value })}
+            />
+            {data.cannon && (
+              <Section>
+                <LabeledList>
+                  <LabeledList.Item label="Type">
+                    {cannon_name}
+                  </LabeledList.Item>
+                  <LabeledList.Item label="Caliber">
+                    {cannon_caliber}
+                  </LabeledList.Item>
+                  <LabeledList.Item label="Loaded">
+                    {data.cannon.ammunition}
+                  </LabeledList.Item>
+                  <LabeledList.Item label="Ammunition Type">
+                    {data.cannon.ammunition_type}
+                  </LabeledList.Item>
+                </LabeledList>
+                <Button
+                  color="red"
+                  icon="exclamation-triangle"
+                  content="FIRE"
+                  onClick={() => act('fire')}
+                />
+              </Section>
+            )}
+          </Collapsible>
         </Section>
       </Section>
     );

@@ -41,8 +41,8 @@ type ShuttleAssignment = {
 
 const num2bearing = (num) => {
   let bearing = '000';
-  if (num < 10) bearing = '00' + num;
-  else if (num < 100) bearing = '0' + num;
+  if (num < 10) bearing = `00${num}`;
+  else if (num < 100) bearing = `0${num}`;
   else bearing = num;
   return bearing;
 };
@@ -213,7 +213,7 @@ export const AllShuttles = (props) => {
                 />
               }
             >
-              {data.shuttle_manifest && data.shuttle_manifest.length ? (
+              {data.shuttle_manifest?.length ? (
                 <Flex>
                   <Table>
                     <Table.Row header>

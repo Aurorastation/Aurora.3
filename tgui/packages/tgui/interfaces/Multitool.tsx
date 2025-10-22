@@ -21,7 +21,8 @@ export const Multitool = (props) => {
       <Window.Content scrollable>
         <Section title="Smart Track">
           <Button
-            disabled={data.selected_io}
+            // biome-ignore lint/complexity/noUselessTernary: Type issues
+            disabled={data.selected_io ? true : false}
             color={data.tracking_apc ? 'good' : ''}
             content={
               data.selected_io

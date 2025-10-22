@@ -14,7 +14,7 @@ export const Infrared = (props) => {
   return (
     <Window>
       <Window.Content scrollable>
-        <Button
+        <Button.Checkbox
           content={data.active ? 'Active' : 'Inactive'}
           checked={data.active}
           onClick={() => act('state')}

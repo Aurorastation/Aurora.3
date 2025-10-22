@@ -60,19 +60,14 @@ export const CookingCodex = (props) => {
               })
               .sort((a, b) => a.result.localeCompare(b.result))
               .map((recipe) => (
-                <Table.Row header className="candystripe" key={recipe}>
+                <Table.Row header className="candystripe" key={recipe.result}>
                   <Table.Cell textAlign="right" verticalAlign="middle" pl="5px">
                     {recipe.result.toLocaleLowerCase()}
                   </Table.Cell>
                   <Table.Cell>
-                    <Box
-                      as="img"
-                      m={0}
-                      src={`data:image/jpeg;base64,${recipe.result_image}`}
-                      width="60px"
-                      height="60px"
-                      style={{}}
-                    />
+                    <Box as="img" m={0} width="60px" height="60px">
+                      {`data:image/jpeg;base64,${recipe.result_image}`}
+                    </Box>
                   </Table.Cell>
                   <Table.Cell verticalAlign="middle">
                     {recipe.ingredients.toLocaleLowerCase()}

@@ -89,7 +89,7 @@ export const CryoContent = (props) => {
     <Fragment>
       <Section
         title="Occupant"
-        flexGrow="1"
+        flexGrow={true}
         buttons={
           <Button
             icon="user-slash"
@@ -172,7 +172,7 @@ export const CryoContent = (props) => {
         ) : (
           <Flex height="100%" textAlign="center">
             <Flex.Item grow="1" align="center" color="label">
-              <Icon name="user-slash" mb="0.5rem" size="5" />
+              <Icon name="user-slash" mb="0.5rem" size={5} />
               <br />
               No occupant detected.
             </Flex.Item>

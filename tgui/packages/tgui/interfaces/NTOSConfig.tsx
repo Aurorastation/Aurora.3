@@ -9,7 +9,7 @@ import {
   Slider,
   Stack,
 } from 'tgui-core/components';
-import { round, toFixed } from 'tgui-core/math';
+import { toFixed } from 'tgui-core/math';
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
 import { NtosWindow } from '../layouts';

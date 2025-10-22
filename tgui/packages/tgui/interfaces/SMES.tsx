@@ -116,7 +116,7 @@ export const SMESWindow = (props) => {
               maxValue={data.charge_max}
               unit="W"
               step={5000}
-              onDrag={(e, value) => act('input', { input: value })}
+              onDrag={(value) => act('input', { input: value })}
             />
           </LabeledList.Item>
           <LabeledList.Item label="Input Load">
@@ -156,7 +156,7 @@ export const SMESWindow = (props) => {
               maxValue={data.output_max}
               unit="W"
               step={5000}
-              onDrag={(e, value) => act('output', { output: value })}
+              onDrag={(value) => act('output', { output: value })}
             />
           </LabeledList.Item>
           <LabeledList.Item label="Output Load">

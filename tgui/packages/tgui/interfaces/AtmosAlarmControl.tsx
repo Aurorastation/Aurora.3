@@ -48,7 +48,7 @@ export const AtmosAlarmControl = (props) => {
               <Table.Cell>Department</Table.Cell>
               <Table.Cell>Area</Table.Cell>
             </Table.Row>
-            {data.alarms && data.alarms.length ? (
+            {data.alarms?.length ? (
               data.alarms
                 // Search still doesn't work properly. While it correctly handles name searches now, it still won't search by dept or deck.
                 .filter(

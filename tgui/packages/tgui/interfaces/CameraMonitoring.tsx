@@ -30,7 +30,7 @@ export const CameraMonitoring = (props) => {
   return (
     <NtosWindow height={800} width={900}>
       <NtosWindow.Content scrollable>
-        {data.networks && data.networks.length ? (
+        {data.networks?.length ? (
           <ShowNetworks />
         ) : (
           <NoticeBox>No networks available.</NoticeBox>

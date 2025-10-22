@@ -1,4 +1,10 @@
-import { Box, Button, Section } from 'tgui-core/components';
+import {
+  Box,
+  Button,
+  LabeledList,
+  NumberInput,
+  Section,
+} from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
 import { Window } from '../layouts';
@@ -27,19 +33,29 @@ export const FireAlarm = (props) => {
           </Button>
         </Section>
         <Section title="Timed Lockdown">
-          <Box title="Current Timer">
+          <Box>
+            Current Timer:{' '}
             {data.time > 1
-              ? (data.time / 10).toFixed(0).toString() + ' seconds'
+              ? `${(data.time / 10).toFixed(0).toString()} seconds`
               : 'Not Set'}
           </Box>
-          <Button.Input
-            content="Set Activation Timer"
-            onCommit={(e, value) => {
-              act('set_timer', {
-                set_timer: value,
-              });
-            }}
-          />
+          <LabeledList>
+            <LabeledList.Item label="Set Activation Timer">
+              <NumberInput
+                animated
+                value={
+                  data.time > 1
+                    ? `${(data.time / 10).toFixed(0).toString()} seconds`
+                    : 'Not Set'
+                }
+                width="75px"
+                minValue={0}
+                maxValue={600}
+                step={2}
+                onChange={(value) => act('set_timer', { set_timer: value })}
+              />
+            </LabeledList.Item>
+          </LabeledList>
           <br />
           <Button
             onClick={() => act('start_timer')}

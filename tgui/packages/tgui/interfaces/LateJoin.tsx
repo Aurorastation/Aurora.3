@@ -24,7 +24,7 @@ export type LateJoinData = {
 type Job = {
   title: string;
   department: string;
-  head: BooleanLike;
+  head: boolean;
   total_positions: number;
   current_positions: number;
 };
@@ -39,14 +39,9 @@ export const LateJoin = (props) => {
           <Section textAlign="center">
             Welcome, <Box bold>{`${data.character_name}.`}</Box>
             {
-              <Box
-                as="img"
-                m={0}
-                src={`data:image/jpeg;base64,${data.character_image}`}
-                width="35%"
-                height="35%"
-                style={{}}
-              />
+              <Box as="img" m={0} width="35%" height="35%" style={{}}>
+                {`data:image/jpeg;base64,${data.character_image}`}
+              </Box>
             }
           </Section>
           <LabeledList>

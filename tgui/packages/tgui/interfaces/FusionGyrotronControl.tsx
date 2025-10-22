@@ -51,6 +51,7 @@ export const FusionGyrotronControl = (props) => {
                 <LabeledList.Item label="Strength">
                   <NumberInput
                     value={gyrotron.energy}
+                    step={1}
                     minValue={1}
                     maxValue={250}
                     unit="x"
@@ -66,11 +67,12 @@ export const FusionGyrotronControl = (props) => {
                 <LabeledList.Item label="Fire Delay">
                   <NumberInput
                     value={gyrotron.firedelay}
+                    step={1}
                     minValue={2}
                     maxValue={10}
                     stepPixelSize={15}
                     unit="ds"
-                    onDrag={(e, value) =>
+                    onDrag={(value) =>
                       act('modifyrate', {
                         modifyrate: value,
                         machine: gyrotron.ref,

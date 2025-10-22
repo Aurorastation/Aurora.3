@@ -23,7 +23,7 @@ export const Tank = (props) => {
 
   const [tank_color] = useLocalState('color', '');
 
-  const tank_presure_color = tank_color.toString()
+  const tank_pressure_color = tank_color.toString()
     ? { color: tank_color }
     : {
         ranges: {
@@ -40,7 +40,7 @@ export const Tank = (props) => {
           <LabeledList>
             <LabeledList.Item label="Tank Pressure">
               <ProgressBar
-                color={tank_presure_color.toString()}
+                color={tank_pressure_color.toString()}
                 minValue={0}
                 maxValue={1024}
                 value={data.tankPressure}

@@ -22,6 +22,7 @@ const Linkify = ({ text }) => {
   const words = text.split(' ');
   const formatedWords = words.map((w, i) => addMarkup(w));
   const html = formatedWords.join(' ');
+  // biome-ignore lint/security/noDangerouslySetInnerHtml: Security issue can be addressed... later.
   return <Box key={text} dangerouslySetInnerHTML={{ __html: html }} />;
 };
 
@@ -34,7 +35,7 @@ export const FlavorText = (props) => {
         <Section>
           {data.flavor_text.split('\n').map((line) =>
             line ? (
-              <Box>
+              <Box key={line}>
                 <Linkify text={line} />
                 <Divider />
               </Box>

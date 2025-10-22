@@ -118,7 +118,7 @@ export const AccessModification = (props) => {
         </LabeledList.Item>
       </LabeledList>
       <Section title="Assignments">
-        <Collapsible content="Collapse" open>
+        <Collapsible title="Collapse" open>
           <LabeledList>
             <LabeledList.Item label="Custom" labelColor="white">
               <Button

@@ -1,4 +1,4 @@
-import { Button, Section, Table } from 'tgui-core/components';
+import { Button, Collapsible, Section, Table } from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
 import { NtosWindow } from '../layouts';
@@ -58,44 +58,46 @@ export const NTOSMain = (props) => {
             })}
           </Table>
         </Section>
-        <Section collapsing title="NtOS Services">
-          <Table>
-            {services.map((service) => {
-              return (
-                <Table.Row key={service.filename}>
-                  <Table.Cell>
-                    <Button
-                      fluid
-                      key={service.filename}
-                      content={service.desc}
-                      color="transparent"
-                      selected={service.running}
-                      onClick={() =>
-                        act('PC_toggleservice', {
-                          service_to_toggle: service.filename,
-                        })
-                      }
-                    />
-                  </Table.Cell>
-                  <Table.Cell collapsing>
-                    {!!service.running && (
+        <Section title="NtOS Services">
+          <Collapsible open>
+            <Table>
+              {services.map((service) => {
+                return (
+                  <Table.Row key={service.filename}>
+                    <Table.Cell>
                       <Button
+                        fluid
+                        key={service.filename}
+                        content={service.desc}
                         color="transparent"
-                        icon="times"
-                        tooltip="Disable Service"
-                        tooltipPosition="left"
+                        selected={service.running}
                         onClick={() =>
                           act('PC_toggleservice', {
                             service_to_toggle: service.filename,
                           })
                         }
                       />
-                    )}
-                  </Table.Cell>
-                </Table.Row>
-              );
-            })}
-          </Table>
+                    </Table.Cell>
+                    <Table.Cell collapsing>
+                      {!!service.running && (
+                        <Button
+                          color="transparent"
+                          icon="times"
+                          tooltip="Disable Service"
+                          tooltipPosition="left"
+                          onClick={() =>
+                            act('PC_toggleservice', {
+                              service_to_toggle: service.filename,
+                            })
+                          }
+                        />
+                      )}
+                    </Table.Cell>
+                  </Table.Row>
+                );
+              })}
+            </Table>
+          </Collapsible>
         </Section>
       </NtosWindow.Content>
     </NtosWindow>

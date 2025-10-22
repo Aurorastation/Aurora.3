@@ -106,6 +106,7 @@ const SendWindow = (props) => {
         <LabeledList.Item label="Sending To">
           <Dropdown
             options={data.departments}
+            selected={data.destination}
             onSelected={(value) =>
               act('select_destination', { select_destination: value })
             }

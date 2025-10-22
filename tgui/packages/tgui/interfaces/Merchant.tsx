@@ -84,9 +84,8 @@ export const Hailed = (props) => {
                 {capitalizeAll(trade)}
               </Box>
               <LabeledControls>
-                <LabeledControls.Item>
+                <LabeledControls.Item label="Trade">
                   <Button
-                    content="Trade"
                     onClick={() =>
                       act('PRG_offer_item', {
                         PRG_offer_item: data.trades.indexOf(trade),
@@ -94,9 +93,8 @@ export const Hailed = (props) => {
                     }
                   />
                 </LabeledControls.Item>
-                <LabeledControls.Item>
+                <LabeledControls.Item label="Money">
                   <Button
-                    content="Money"
                     onClick={() =>
                       act('PRG_offer_money_for_item', {
                         PRG_offer_money_for_item: data.trades.indexOf(trade),
@@ -104,9 +102,8 @@ export const Hailed = (props) => {
                     }
                   />
                 </LabeledControls.Item>
-                <LabeledControls.Item>
+                <LabeledControls.Item label="Ask Cost">
                   <Button
-                    content="Ask Cost"
                     onClick={() =>
                       act('PRG_how_much_do_you_want', {
                         PRG_how_much_do_you_want: data.trades.indexOf(trade),
@@ -114,9 +111,8 @@ export const Hailed = (props) => {
                     }
                   />
                 </LabeledControls.Item>
-                <LabeledControls.Item>
+                <LabeledControls.Item label="Bulk">
                   <Button
-                    content="Bulk"
                     onClick={() =>
                       act('PRG_bulk_money_for_item', {
                         PRG_bulk_money_for_item: data.trades.indexOf(trade),
@@ -131,31 +127,21 @@ export const Hailed = (props) => {
       ) : (
         <Section title="Communications">
           <LabeledControls>
-            <LabeledControls.Item>
-              <Button
-                content="Show Goods"
-                onClick={() => act('PRG_show_trades')}
-              />
+            <LabeledControls.Item label="Show Goods">
+              <Button onClick={() => act('PRG_show_trades')} />
             </LabeledControls.Item>
-            <LabeledControls.Item>
-              <Button
-                content="Sell Items"
-                onClick={() => act('PRG_sell_items')}
-              />
+            <LabeledControls.Item label="Sell Items">
+              <Button onClick={() => act('PRG_sell_items')} />
             </LabeledControls.Item>
-            <LabeledControls.Item />
-            <LabeledControls.Item>
-              <Button
-                content="Compliment"
-                onClick={() => act('PRG_compliment')}
-              />
+            <LabeledControls.Item label="" />
+            <LabeledControls.Item label="Compliment">
+              <Button onClick={() => act('PRG_compliment')} />
             </LabeledControls.Item>
-            <LabeledControls.Item>
-              <Button content="Insult" onClick={() => act('PRG_insult')} />
+            <LabeledControls.Item label="Insult">
+              <Button onClick={() => act('PRG_insult')} />
             </LabeledControls.Item>
-            <LabeledControls.Item>
+            <LabeledControls.Item label="Information">
               <Button
-                content="Information"
                 tooltip="This will give you information on what the merchant would want for a trade."
                 onClick={() => act('PRG_what_do_you_want')}
               />
@@ -164,20 +150,23 @@ export const Hailed = (props) => {
           <LabeledList>
             <LabeledList.Item label="Bribe">
               <Button
-                content="100电"
                 tooltip="This will pay them an amount of credits to stay in the sector longer."
                 onClick={() => act('PRG_bribe', { PRG_bribe: 100 })}
-              />
+              >
+                "100电"
+              </Button>
               <Button
-                content="500电"
                 tooltip="This will pay them an amount of credits to stay in the sector longer."
                 onClick={() => act('PRG_bribe', { PRG_bribe: 100 })}
-              />
+              >
+                "500电"
+              </Button>
               <Button
-                content="1000电"
                 tooltip="This will pay them an amount of credits to stay in the sector longer."
                 onClick={() => act('PRG_bribe', { PRG_bribe: 1000 })}
-              />
+              >
+                "1000电"
+              </Button>
             </LabeledList.Item>
           </LabeledList>
         </Section>
@@ -206,36 +195,23 @@ export const MainMenu = (props) => {
       }
     >
       <LabeledControls>
-        <LabeledControls.Item>
-          <Button
-            content="Open Communications"
-            onClick={() => act('PRG_merchant_list')}
-          />
+        <LabeledControls.Item label="Open Communications">
+          <Button onClick={() => act('PRG_merchant_list')} />
         </LabeledControls.Item>
-        <LabeledControls.Item>
+        <LabeledControls.Item label="Test Fire">
           <Button
-            content="Test Fire"
             tooltip="This will test fire your transponder."
             onClick={() => act('PRG_test_fire')}
           />
         </LabeledControls.Item>
-        <LabeledControls.Item>
-          <Button
-            content="Connect Pad"
-            onClick={() => act('PRG_connect_pad')}
-          />
+        <LabeledControls.Item label="Connect Pad">
+          <Button onClick={() => act('PRG_connect_pad')} />
         </LabeledControls.Item>
-        <LabeledControls.Item>
-          <Button
-            content="Deposit Credits"
-            onClick={() => act('PRG_transfer_to_bank')}
-          />
+        <LabeledControls.Item label="Deposit Credits">
+          <Button onClick={() => act('PRG_transfer_to_bank')} />
         </LabeledControls.Item>
-        <LabeledControls.Item>
-          <Button
-            content="Retrieve Credits"
-            onClick={() => act('PRG_get_money')}
-          />
+        <LabeledControls.Item label="Retrieve Credits">
+          <Button onClick={() => act('PRG_get_money')} />
         </LabeledControls.Item>
       </LabeledControls>
       <LabeledList>

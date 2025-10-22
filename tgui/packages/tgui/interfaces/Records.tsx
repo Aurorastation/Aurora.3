@@ -294,25 +294,27 @@ export const ListActive = (props) => {
       <Box
         as="img"
         m={0}
-        src={`data:image/jpeg;base64,${data.front}`}
         width="30%"
         height="30%"
         style={{
           width: `${64}px`,
           height: `${64}px`,
         }}
-      />
+      >
+        {`data:image/jpeg;base64,${data.front}`}
+      </Box>
       <Box
         as="img"
         m={0}
-        src={`data:image/jpeg;base64,${data.side}`}
         width="30%"
         height="30%"
         style={{
           width: `${64}px`,
           height: `${64}px`,
         }}
-      />
+      >
+        {`data:image/jpeg;base64,${data.side}`}
+      </Box>
       <LabeledList>
         <LabeledList.Item label="ID">#{data.active.id}</LabeledList.Item>
         <LabeledList.Item label="Name">{data.active.name}</LabeledList.Item>

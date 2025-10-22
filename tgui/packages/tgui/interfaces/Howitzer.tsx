@@ -44,7 +44,7 @@ export const Howitzer = (props) => {
             />
           </LabeledControls.Item>
           <LabeledControls.Item label="Fire Control">
-            <Button name="Fire" content="Fire" onClick={() => act('fire')} />
+            <Button content="Fire" onClick={() => act('fire')} />
           </LabeledControls.Item>
         </LabeledControls>
       </Window.Content>

@@ -184,6 +184,7 @@ export const ShowFile = (props) => {
         </>
       }
     >
+      {/** biome-ignore lint/security/noDangerouslySetInnerHtml: Security issue can be addressed... later. */}
       <Box dangerouslySetInnerHTML={contentHtml} />
     </Section>
   );

@@ -27,7 +27,7 @@ export const DamageMenu = (props) => {
             </Table.Row>
             {data.limbs.map((limb) =>
               limb.present ? (
-                <Table.Row>
+                <Table.Row key={limb.name}>
                   <Table.Cell key={limb.name}>{limb.name}</Table.Cell>
                   <Table.Cell>
                     <Button
@@ -82,7 +82,7 @@ export const DamageMenu = (props) => {
             </Table.Row>
             {data.organs.map((organ) =>
               organ.present ? (
-                <Table.Row>
+                <Table.Row key={organ.name}>
                   <Table.Cell key={organ.name}>{organ.name}</Table.Cell>
                   <Table.Cell>
                     <Button

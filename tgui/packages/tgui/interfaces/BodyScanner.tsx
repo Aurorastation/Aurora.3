@@ -290,7 +290,7 @@ export const ScannerWindow = (props) => {
               </LabeledList.Item>
               <LabeledList.Item label="Est. Paralysis Level">
                 {data.paralysis
-                  ? Math.round(data.paralysis / 4) + ' Seconds Left'
+                  ? `${Math.round(data.paralysis / 4)} Seconds Left`
                   : 'None'}
               </LabeledList.Item>
             </LabeledList>

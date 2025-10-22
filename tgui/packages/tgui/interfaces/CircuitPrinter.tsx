@@ -58,9 +58,11 @@ export const CircuitPrinter = (props) => {
             {data.circuits.map((circuit) =>
               circuit.category === category ? (
                 <Button
-                  content={circuit.name}
+                  key={circuit.name}
                   onClick={() => act('build', { build: circuit.path })}
-                />
+                >
+                  {circuit.name}
+                </Button>
               ) : (
                 ''
               ),

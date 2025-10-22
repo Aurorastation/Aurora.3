@@ -1,4 +1,4 @@
-import { Box, Button, Section, Table } from 'tgui-core/components';
+import { Box, Button, Collapsible, Section, Table } from 'tgui-core/components';
 import { capitalizeAll } from 'tgui-core/string';
 import { useBackend } from '../backend';
 import { Window } from '../layouts';
@@ -58,7 +58,6 @@ export const VoteWindow = (props) => {
 
   return (
     <Section
-      collapsing
       title={data.question}
       buttons={
         data.is_staff ? (
@@ -68,51 +67,53 @@ export const VoteWindow = (props) => {
         )
       }
     >
-      <Table>
-        <Table.Row header>
-          <Table.Cell>
-            <Box bold>Choices</Box>
-          </Table.Cell>
-          <Table.Cell textAlign="right">
-            <Box bold>Votes</Box>
-          </Table.Cell>
-          {extra_column && <Table.Cell textAlign="center" />}
-          {required_players_column && (
-            <Table.Cell textAlign="center">Minimum Players</Table.Cell>
-          )}
-        </Table.Row>
-        {data.choices.map((choice) => (
-          <Table.Row key={choice.choice}>
+      <Collapsible open>
+        <Table>
+          <Table.Row header>
             <Table.Cell>
-              <Button
-                content={capitalizeAll(choice.choice)}
-                selected={choice.choice === data.voted}
-                onClick={(value) => act('vote', { vote: choice })}
-              />
+              <Box bold>Choices</Box>
             </Table.Cell>
-            <Table.Cell textAlign="center">{choice.votes}</Table.Cell>
-            {extra_column && (
-              <Table.Cell textAlign="center">{choice.extra}</Table.Cell>
-            )}
+            <Table.Cell textAlign="right">
+              <Box bold>Votes</Box>
+            </Table.Cell>
+            {extra_column && <Table.Cell textAlign="center" />}
             {required_players_column && (
-              <Table.Cell
-                textAlign="center"
-                color={(() => {
-                  if (choice.required_players < data.total_players_ready) {
-                    return 'white';
-                  } else if (choice.required_players < data.total_players) {
-                    return 'lightgray';
-                  } else {
-                    return 'gray';
-                  }
-                })()}
-              >
-                {choice.required_players ? choice.required_players : ''}
-              </Table.Cell>
+              <Table.Cell textAlign="center">Minimum Players</Table.Cell>
             )}
           </Table.Row>
-        ))}
-      </Table>
+          {data.choices.map((choice) => (
+            <Table.Row key={choice.choice}>
+              <Table.Cell>
+                <Button
+                  content={capitalizeAll(choice.choice)}
+                  selected={choice.choice === data.voted}
+                  onClick={(value) => act('vote', { vote: choice })}
+                />
+              </Table.Cell>
+              <Table.Cell textAlign="center">{choice.votes}</Table.Cell>
+              {extra_column && (
+                <Table.Cell textAlign="center">{choice.extra}</Table.Cell>
+              )}
+              {required_players_column && (
+                <Table.Cell
+                  textAlign="center"
+                  color={(() => {
+                    if (choice.required_players < data.total_players_ready) {
+                      return 'white';
+                    } else if (choice.required_players < data.total_players) {
+                      return 'lightgray';
+                    } else {
+                      return 'gray';
+                    }
+                  })()}
+                >
+                  {choice.required_players ? choice.required_players : ''}
+                </Table.Cell>
+              )}
+            </Table.Row>
+          ))}
+        </Table>
+      </Collapsible>
     </Section>
   );
 };
@@ -120,50 +121,52 @@ export const VoteWindow = (props) => {
 export const StartVoteWindow = (props) => {
   const { act, data } = useBackend<VotingData>();
   return (
-    <Section collapsing title="Start a Vote">
-      <Box>
-        <Button
-          content="Restart"
-          disabled={!data.allow_vote_restart}
-          onClick={(value) => act('restart')}
-        />
-      </Box>
-      <Box>
-        <Button
-          content="Crew Transfer"
-          disabled={!data.allow_vote_restart}
-          tooltip="Disallowed on Code Red or above."
-          onClick={(value) => act('crew_transfer')}
-        />
-      </Box>
-      <Box>
-        <Button
-          content="Toggle Restart / Crew Transfer Voting"
-          disabled={!data.is_staff}
-          onClick={(value) => act('toggle_restart')}
-        />
-      </Box>
-      <Box>
-        <Button
-          content="Toggle Gamemode Voting"
-          disabled={!data.is_staff || !data.allow_vote_mode}
-          onClick={(value) => act('toggle_gamemode')}
-        />
-      </Box>
-      <Box>
-        <Button
-          content="Add Antagonist Type"
-          disabled={!data.allow_extra_antags}
-          onClick={(value) => act('add_antagonist')}
-        />
-      </Box>
-      <Box>
-        <Button
-          content="Custom"
-          disabled={!data.is_staff}
-          onClick={(value) => act('custom')}
-        />
-      </Box>
+    <Section title="Start a Vote">
+      <Collapsible open>
+        <Box>
+          <Button
+            content="Restart"
+            disabled={!data.allow_vote_restart}
+            onClick={(value) => act('restart')}
+          />
+        </Box>
+        <Box>
+          <Button
+            content="Crew Transfer"
+            disabled={!data.allow_vote_restart}
+            tooltip="Disallowed on Code Red or above."
+            onClick={(value) => act('crew_transfer')}
+          />
+        </Box>
+        <Box>
+          <Button
+            content="Toggle Restart / Crew Transfer Voting"
+            disabled={!data.is_staff}
+            onClick={(value) => act('toggle_restart')}
+          />
+        </Box>
+        <Box>
+          <Button
+            content="Toggle Gamemode Voting"
+            disabled={!data.is_staff || !data.allow_vote_mode}
+            onClick={(value) => act('toggle_gamemode')}
+          />
+        </Box>
+        <Box>
+          <Button
+            content="Add Antagonist Type"
+            disabled={!data.allow_extra_antags}
+            onClick={(value) => act('add_antagonist')}
+          />
+        </Box>
+        <Box>
+          <Button
+            content="Custom"
+            disabled={!data.is_staff}
+            onClick={(value) => act('custom')}
+          />
+        </Box>
+      </Collapsible>
     </Section>
   );
 };

@@ -90,7 +90,7 @@ const DispenseButton = (props) => {
       <Button.Input
         key={quantity}
         content={quantity}
-        onCommit={(e, value: string) => {
+        onCommit={(value: string) => {
           act(operation, {
             [operation]: reagent.typepath,
             amount: parseFloat(value),
@@ -271,7 +271,6 @@ export const ChemMaster = (props) => {
                       key={icon}
                       className={icon}
                       style={{
-                        '-ms-interpolation-mode': 'bicubic',
                         transform: 'scale(1.5)',
                       }}
                     />
@@ -310,7 +309,6 @@ export const ChemMaster = (props) => {
                         key={icon}
                         className={icon}
                         style={{
-                          '-ms-interpolation-mode': 'bicubic',
                           transform: 'scale(1.5)',
                         }}
                       />

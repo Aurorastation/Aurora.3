@@ -34,8 +34,8 @@ export const ListViewer = (props) => {
             {data.listvar.map((list) => (
               <Box key={list.key}>
                 <Table.Row>
-                  <Table.Cell label={list.key}>{list.key}</Table.Cell>
-                  <Table.Cell label={list.key}>{list.value}</Table.Cell>
+                  <Table.Cell>{list.key}</Table.Cell>
+                  <Table.Cell>{list.value}</Table.Cell>
                   <Table.Cell>
                     <Button
                       onClick={() =>

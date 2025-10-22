@@ -68,12 +68,18 @@ export const EscapeShuttleControlConsole = (props) => {
           {data.auth_list.map((auth) =>
             auth.auth_hash ? (
               <Button
+                key={auth.auth_hash}
                 content={auth.auth_name}
                 icon="eject"
                 onClick={() => act('removeid', { removeid: auth.auth_hash })}
               />
             ) : (
-              <Button content="" icon="eject" onClick={() => act('scanid')} />
+              <Button
+                key={auth.auth_hash}
+                content=""
+                icon="eject"
+                onClick={() => act('scanid')}
+              />
             ),
           )}
         </Section>
