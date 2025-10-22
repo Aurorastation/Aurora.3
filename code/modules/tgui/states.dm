@@ -65,13 +65,10 @@
  */
 /mob/proc/shared_ui_interaction(src_object)
 	// Close UIs if mindless.
-	to_world("<b>/mob/proc/shared_ui_interaction([src_object])</b>")
 	if(!client && !HAS_TRAIT(src, TRAIT_PRESERVE_UI_WITHOUT_CLIENT))
-		to_world("<b>!client && !HAS_TRAIT(src, TRAIT_PRESERVE_UI_WITHOUT_CLIENT)</b>")
 		return UI_CLOSE
 	// Disable UIs if unconscious.
 	else if(stat)
-		to_world("<b>stat (unconscious)</b>")
 		return UI_DISABLED
 	// Update UIs if incapicitated but conscious.
 	else if(incapacitated())
