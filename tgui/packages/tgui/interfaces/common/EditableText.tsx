@@ -1,5 +1,5 @@
 import { useBackend, useLocalState } from 'tgui/backend';
-import { Input, Stack, Box, Button } from 'tgui-core/components';
+import { Box, Button, Input, Stack } from 'tgui-core/components';
 
 type Props = {
   color?: string;
@@ -26,7 +26,7 @@ export const EditableText = (props: Props, context) => {
   const { act } = useBackend();
   const [editing, setEditing] = useLocalState<boolean>(
     `editing_${field}`,
-    false
+    false,
   );
 
   return editing ? (
@@ -54,7 +54,8 @@ export const EditableText = (props: Props, context) => {
             'text-decoration-thickness': '1px',
             'text-underline-offset': '1px',
           }}
-          onClick={() => setEditing(true)}>
+          onClick={() => setEditing(true)}
+        >
           {!text ? '(none)' : text}
         </Box>
       </Stack.Item>

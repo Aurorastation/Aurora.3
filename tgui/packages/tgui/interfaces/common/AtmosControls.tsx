@@ -1,7 +1,12 @@
+import {
+  Button,
+  LabeledList,
+  NumberInput,
+  Section,
+} from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { decodeHtmlEntities } from 'tgui-core/string';
 import { useBackend } from '../../backend';
-import { Button, LabeledList, NumberInput, Section } from 'tgui-core/components';
 import { getGasLabel } from '../../constants';
 
 export type VentProps = {
@@ -61,7 +66,8 @@ export const Vent = (props: VentProps, context) => {
             })
           }
         />
-      }>
+      }
+    >
       <LabeledList>
         <LabeledList.Item label="Mode">
           <Button
@@ -179,7 +185,8 @@ export const Scrubber = (props: ScrubberProps, context) => {
             })
           }
         />
-      }>
+      }
+    >
       <LabeledList>
         <LabeledList.Item label="Mode">
           <Button

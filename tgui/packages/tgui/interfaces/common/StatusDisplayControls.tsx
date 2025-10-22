@@ -1,5 +1,5 @@
+import { Button, Flex, Input, Section } from 'tgui-core/components';
 import { useBackend, useSharedState } from '../../backend';
-import { Flex, Input, Section, Button } from 'tgui-core/components';
 
 type Data = {
   upperText: string;
@@ -17,11 +17,11 @@ export const StatusDisplayControls = (props) => {
 
   const [upperText, setUpperText] = useSharedState(
     'statusUpperText',
-    initialUpper
+    initialUpper,
   );
   const [lowerText, setLowerText] = useSharedState(
     'statusLowerText',
-    initialLower
+    initialLower,
   );
 
   return (

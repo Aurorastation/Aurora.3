@@ -1,6 +1,6 @@
-import { BooleanLike } from '../tgui-core/react';
-import { useBackend } from '../../backend';
 import { Button, Icon, Section, Table, Tooltip } from 'tgui-core/components';
+import { useBackend } from '../../backend';
+import type { BooleanLike } from '../tgui-core/react';
 
 type ManifestData = {
   manifest: { department: Crew[] };
@@ -29,14 +29,16 @@ export const ManifestSection = (props) => {
             title={dept}
             textAlign="center"
             className={'border-dept-' + dept.toLowerCase()}
-            backgroundColor="rgba(10, 10, 10, 0.75)">
+            backgroundColor="rgba(10, 10, 10, 0.75)"
+          >
             <Table>
               {deptCrew.map((crewmate) => {
                 return (
                   <Table.Row
                     key={crewmate.name}
                     bold={crewmate.head}
-                    overflow="hidden">
+                    overflow="hidden"
+                  >
                     <Table.Cell width="50%" textAlign="center" pt="10px" nowrap>
                       {crewmate.name}
                     </Table.Cell>
@@ -45,7 +47,8 @@ export const ManifestSection = (props) => {
                       textAlign="right"
                       pr="2%"
                       pt="10px"
-                      nowrap>
+                      nowrap
+                    >
                       {crewmate.rank}
                     </Table.Cell>
                     <Table.Cell textAlign="right" width="5%" pr="3%" pt="10px">
