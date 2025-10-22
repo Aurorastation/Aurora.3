@@ -79,6 +79,7 @@
 	name = "Service Maintenance"
 	location_ew = LOC_STARBOARD
 	location_ns = LOC_FORE
+	hostile_events = FALSE
 
 /area/horizon/maintenance/deck_2/service/port
 	name = "Service Maintenance"
@@ -185,6 +186,12 @@
 	icon_state = "maintcentral"
 	location_ew = LOC_STARBOARD
 	location_ns = LOC_FORE
+
+/area/horizon/maintenance/deck_3/crewlounge
+	name = "Crew Lounge Maintenance"
+	location_ew = LOC_STARBOARD
+	location_ns = LOC_FORE
+	hostile_events = FALSE
 
 /// SUBSTATIONS (Subtype of maint)
 /area/horizon/maintenance/substation
