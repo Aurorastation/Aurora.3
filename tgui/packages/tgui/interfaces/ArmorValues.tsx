@@ -28,7 +28,7 @@ export const ArmorValues = (props) => {
           <Divider />
           {Object.keys(data.armor_values).map((line) =>
             line ? (
-              <Box>
+              <Box key={data.armor_values[line]}>
                 <Box pb={1}>{capitalize(line)}</Box>
                 <ProgressBar
                   ranges={{

@@ -90,7 +90,7 @@ export const SpeciesWindow = (props) => {
 
   return (
     <Section title="Species">
-      <Collapsible content="Species">
+      <Collapsible title="Species">
         {data.valid_species.map((species) => (
           <Button
             key={species}
@@ -148,6 +148,7 @@ export const BodyWindow = (props) => {
       <Section title="Height">
         <NumberInput
           value={data.owner_height}
+          step={1}
           maxValue={data.height_max}
           minValue={data.height_min}
           unit="cm"
@@ -291,7 +292,7 @@ export const HairWindow = (props) => {
 
   return (
     <Section title="Hair Styles">
-      <Collapsible content="Hair Styles">
+      <Collapsible title="Hair Styles">
         {data.valid_hair_styles.map((new_hair_style) => (
           <Button
             key={new_hair_style}
@@ -301,7 +302,7 @@ export const HairWindow = (props) => {
           />
         ))}
       </Collapsible>
-      <Collapsible content="Gradient Styles">
+      <Collapsible title="Gradient Styles">
         {data.valid_gradient_styles.map((new_gradient_style) => (
           <Button
             key={new_gradient_style}
@@ -312,7 +313,7 @@ export const HairWindow = (props) => {
         ))}
       </Collapsible>
       {data.change_facial_hair && data.valid_facial_hair_styles.length && (
-        <Collapsible content="Facial Hair Styles">
+        <Collapsible title="Facial Hair Styles">
           {data.valid_facial_hair_styles.map((new_facial_hair_style) => (
             <Button
               key={new_facial_hair_style}
