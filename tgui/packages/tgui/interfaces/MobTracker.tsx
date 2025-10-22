@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import { Box, Button, Flex, LabeledList, Section } from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Section, Box, Button, LabeledList, Flex } from '../components';
 import { Window } from '../layouts';
 
 export type MobTrackerData = {
@@ -16,11 +16,11 @@ export const MobTracker = (props, context) => {
 
   const total_entities = Object.values(data.areas_containing_mobs || {}).reduce(
     (sum, count) => sum + count,
-    0
+    0,
   );
 
   const total_objects = Object.values(
-    data.areas_containing_objects || {}
+    data.areas_containing_objects || {},
   ).reduce((sum, count) => sum + count, 0);
 
   return (
@@ -34,7 +34,8 @@ export const MobTracker = (props, context) => {
             flexDirection="column"
             align="center"
             justify="center"
-            fontFamily="monospace">
+            fontFamily="monospace"
+          >
             <Box fontSize="24px" mb={1}>
               NO DATA AVAILABLE
             </Box>
@@ -51,7 +52,8 @@ export const MobTracker = (props, context) => {
                   style={{
                     padding: '8px',
                     lineHeight: '1.2',
-                  }}>
+                  }}
+                >
                   <LabeledList>
                     <LabeledList.Item label="SCANNED AREAS">
                       {Object.keys(data.areas_containing_mobs || {}).length}
@@ -80,17 +82,19 @@ export const MobTracker = (props, context) => {
                       icon="refresh"
                       onClick={() => act('refresh_the_ui')}
                     />
-                  }>
+                  }
+                >
                   <LabeledList>
                     {Object.entries(data.areas_containing_mobs || {}).map(
                       ([area_name, count]) => (
                         <LabeledList.Item
                           key={area_name}
                           label={area_name.toUpperCase().padEnd(20)}
-                          color={count >= 5 ? 'red' : 'yellow'}>
+                          color={count >= 5 ? 'red' : 'yellow'}
+                        >
                           {count} ENTITY(S) FOUND
                         </LabeledList.Item>
-                      )
+                      ),
                     )}
                   </LabeledList>
                 </Section>
@@ -106,7 +110,8 @@ export const MobTracker = (props, context) => {
                   style={{
                     padding: '8px',
                     lineHeight: '1.2',
-                  }}>
+                  }}
+                >
                   <LabeledList>
                     <LabeledList.Item label="SCANNED AREAS">
                       {Object.keys(data.areas_containing_objects || {}).length}
@@ -128,16 +133,18 @@ export const MobTracker = (props, context) => {
                   style={{
                     padding: '8px',
                     lineHeight: '1.2',
-                  }}>
+                  }}
+                >
                   <LabeledList>
                     {Object.entries(data.areas_containing_objects || {}).map(
                       ([area_name, count]) => (
                         <LabeledList.Item
                           key={area_name}
-                          label={area_name.toUpperCase().padEnd(20)}>
+                          label={area_name.toUpperCase().padEnd(20)}
+                        >
                           {count} OBJECT(S) FOUND
                         </LabeledList.Item>
-                      )
+                      ),
                     )}
                   </LabeledList>
                 </Section>
