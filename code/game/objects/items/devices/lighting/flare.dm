@@ -9,7 +9,6 @@
 	item_state = "flare"
 	action_button_name = null //just pull it manually, neckbeard.
 	var/fuel = 0
-	uv_intensity = 100
 	var/on_damage = 7
 	var/produce_heat = 1500
 	power_use = FALSE
@@ -94,7 +93,6 @@
 	light_color = LIGHT_COLOR_FIRE
 	icon_state = "torch"
 	item_state = "torch"
-	uv_intensity = 40
 	produce_heat = 1000
 	on_damage = 10
 

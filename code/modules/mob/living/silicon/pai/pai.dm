@@ -153,7 +153,7 @@
 	..()
 	if(istype(loc, /obj/item/holder/pai))
 		var/obj/item/holder/pai/P = loc
-		P.set_light(light_range, light_power, light_color, uv_intensity)
+		P.set_light(light_range, light_power, light_color)
 
 /mob/living/silicon/pai/Initialize(mapload)
 	var/obj/item/device/paicard/paicard = loc

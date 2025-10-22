@@ -9,7 +9,6 @@
 	icon_state = "glowstick"
 	item_state = "glowstick"
 	produce_heat = 0
-	uv_intensity = 255
 	activation_sound = 'sound/items/glowstick.ogg'
 	toggle_sound = null
 

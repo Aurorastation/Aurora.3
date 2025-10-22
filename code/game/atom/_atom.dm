@@ -74,8 +74,6 @@
 	var/tmp/datum/dynamic_light_source/light
 	///Any light sources that are "inside" of us, for example, if src here was a mob that's carrying a flashlight, that flashlight's light source would be part of this list.
 	var/tmp/list/hybrid_light_sources
-	/// If this light is good for dionae.
-	var/uv_intensity = 50
 
 	//Values should avoid being close to -16, 16, -48, 48 etc.
 	//Best keep them within 10 units of a multiple of 32, as when the light is closer to a wall, the probability

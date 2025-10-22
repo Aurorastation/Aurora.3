@@ -183,5 +183,7 @@
 	. = light_flags
 	light_flags = new_value
 
+#define SCALE(targ,min,max) (targ - min) / (max - min)
 /turf/proc/get_uv_lumcount(low, high)
-	return //todomatt: UNFUCK THIS
+	return SCALE(luminosity, 0, 1)
+#undef SCALE

@@ -8,7 +8,6 @@
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	light_color = LIGHT_COLOR_HALOGEN
-	uv_intensity = 50
 	light_system = DIRECTIONAL_LIGHT
 	light_range = 4
 
@@ -305,7 +304,6 @@
 	item_state = "heavyflashlight"
 	light_range = 4
 	w_class = WEIGHT_CLASS_NORMAL
-	uv_intensity = 60
 	matter = list(MATERIAL_PLASTIC = 100, MATERIAL_GLASS = 70)
 
 /obj/item/device/flashlight/heavy/on
@@ -320,7 +318,6 @@
 	light_range = 5
 	efficiency_modifier = 0.8
 	w_class = WEIGHT_CLASS_NORMAL
-	uv_intensity = 70
 	attack_verb = list("slammed", "whacked", "bashed", "thunked", "battered", "bludgeoned", "thrashed")
 	matter = list(MATERIAL_ALUMINIUM = 200, MATERIAL_GLASS = 100)
 	hitsound = 'sound/weapons/smash.ogg'
@@ -344,7 +341,6 @@
 	item_state = "flashlight"
 	w_class = WEIGHT_CLASS_TINY
 	light_range = 6
-	uv_intensity = 200
 	on = TRUE //Bio-luminesence has one setting, on.
 	always_on = TRUE
 	power_usage = FALSE

@@ -11,7 +11,6 @@
 	var/list/scanned = list()
 	var/list/stored_alpha = list()
 	var/list/reset_objects = list()
-	uv_intensity = 255
 	var/range = 3
 	var/on = 0
 	var/step_alpha = 50

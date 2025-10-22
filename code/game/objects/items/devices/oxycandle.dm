@@ -11,7 +11,6 @@
 	var/on = FALSE
 	var/activation_sound = 'sound/items/flare.ogg'
 	light_color = LIGHT_COLOR_FLARE
-	uv_intensity = 50
 	light_range = 2 // Moderate bright.
 	light_power = 2
 	action_button_name = null
