@@ -17,7 +17,7 @@
 	spawn_weight = 0
 	sectors = list(ALL_POSSIBLE_SECTORS)
 	template_flags = TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
-	unit_test_groups = list(1)
+	unit_test_groups = list(3)
 
 /singleton/submap_archetype/decrepit_shipyard
 	map = "Decrepit Shipyard"
