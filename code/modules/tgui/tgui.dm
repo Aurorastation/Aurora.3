@@ -69,7 +69,6 @@
 	// Deprecated
 	if(ui_x && ui_y)
 		src.window_size = list(ui_x, ui_y)
-	to_chat(world, "datum/tgui/New([user],[src_object],[interface],[title],[ui_x],[ui_y])")
 
 /datum/tgui/Destroy()
 	user = null

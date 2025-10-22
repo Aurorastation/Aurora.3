@@ -5,6 +5,7 @@
 		"**/.pnp.*": true
 	},
 	"editor.codeActionsOnSave": {
+		"source.organizeImports.biome": "explicit",
 		"source.fixAll.biome": "explicit"
 	},
 	"files.eol": "\n",

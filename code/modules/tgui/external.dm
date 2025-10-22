@@ -183,10 +183,8 @@
  * return bool If TRUE, prevents propagation of the topic call.
  */
 /proc/tgui_Topic(href_list)
-	to_chat(world, "<b>/proc/tgui_Topic(href_list)</b>")
 	// Skip non-tgui topics
 	if(!href_list["tgui"])
-		to_chat(world, "!href_list["tgui"]")
 		return FALSE
 	var/type = href_list["type"]
 	// Unconditionally collect tgui logs
@@ -199,7 +197,6 @@
 	// Reload all tgui windows
 	if(type == "cacheReloaded")
 		if(!check_rights(R_ADMIN) || usr.client.tgui_cache_reloaded)
-			to_chat(world, "!check_rights(R_ADMIN) || usr.client.tgui_cache_reloaded")
 			return TRUE
 		// Mark as reloaded
 		usr.client.tgui_cache_reloaded = TRUE
@@ -209,7 +206,6 @@
 			var/datum/tgui_window/window = windows[window_id]
 			if (window.status == TGUI_WINDOW_READY)
 				window.on_message(type, null, href_list)
-		to_chat(world, "type == cacheReloaded")
 		return TRUE
 	// Locate window
 	var/window_id = href_list["window_id"]
@@ -226,7 +222,6 @@
 	// Decode payload
 	var/payload
 	if(href_list["payload"])
-		to_chat(world, "href_list payload")
 		var/payload_text = href_list["payload"]
 
 		if (!rustg_json_is_valid(payload_text))

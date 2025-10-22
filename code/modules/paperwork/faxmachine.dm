@@ -78,7 +78,6 @@ GLOBAL_LIST_EMPTY(admin_departments)
 /obj/machinery/photocopier/faxmachine/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
-		to_chat(world,"<b>UI did not exist: creating it now!</b>")
 		ui = new(user, src, "Fax", "Fax Machine", 400, 500)
 		ui.open()
 

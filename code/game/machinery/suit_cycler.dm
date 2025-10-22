@@ -320,7 +320,7 @@
 		"in_use" = active,
 		"locked" = locked,
 		"emagged" = emagged,
-		"has_access" = allowed(user),
+		"has_access" = !isobserver(user) ? allowed(user): FALSE,
 		"can_repair" = can_repair,
 		"model_text" = model_text,
 		"radiation_level" = radiation_level,
