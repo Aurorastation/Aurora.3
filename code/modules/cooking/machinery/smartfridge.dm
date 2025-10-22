@@ -198,6 +198,10 @@
 						/obj/item/reagent_containers/food/drinks,
 						/obj/item/reagent_containers/food/condiment)
 
+/obj/machinery/smartfridge/drinks/bar
+	density = FALSE
+	layer = BELOW_TABLE_LAYER
+
 /obj/machinery/smartfridge/drying_rack
 	name = "\improper Drying Rack"
 	desc = "A machine for drying plants."

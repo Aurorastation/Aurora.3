@@ -98,6 +98,7 @@
 	name = "Service Maintenance"
 	location_ew = LOC_STARBOARD
 	location_ns = LOC_FORE
+	hostile_events = FALSE
 
 /area/horizon/maintenance/deck_2/service/port
 	name = "Service Maintenance"
@@ -227,6 +228,12 @@
 	name = "Auxiliary Atmospherics"
 	subdepartment = SUBLOC_ATMOS
 	location_ew = LOC_PORT
+
+/area/horizon/maintenance/deck_3/crewlounge
+	name = "Crew Lounge Maintenance"
+	location_ew = LOC_STARBOARD
+	location_ns = LOC_FORE
+	hostile_events = FALSE
 
 /// SUBSTATIONS (Subtype of maint)
 /area/horizon/maintenance/substation
