@@ -279,6 +279,12 @@
 					var/rand_vals = ground_ore_levels[ground_resources_roll][OT]
 					gen_turf.resources[OT] = rand(rand_vals[1], rand_vals[2])
 
+		if(SSlighting.initialized) //don't generate lighting overlays before SSlighting in case these templates are loaded before
+			var/area/A = gen_turf.loc
+			if(A?.area_has_base_lighting)
+				continue
+			gen_turf.static_lighting_build_overlay()
+
 		if(gen_turf.density) // No need to check flora/fauna/grass if we're a wall
 			continue
 

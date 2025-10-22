@@ -214,12 +214,16 @@ GLOBAL_LIST_INIT(mineral_can_smooth_with, list(
 	if(is_station_level(z))
 		GLOB.station_turfs += src
 
+	if (light_range && light_power)
+		update_light()
+
 	//Get area light
 	var/area/current_area = loc
 	if(current_area?.lighting_effect)
 		overlays += current_area.lighting_effect
 
-	//has_opaque_atom = TRUE todomatt: ??
+	if(opacity)
+		directional_opacity = ALL_CARDINALS
 
 	if(smoothing_flags)
 		canSmoothWith = asteroid_can_smooth_with
