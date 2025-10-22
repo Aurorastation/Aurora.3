@@ -142,7 +142,7 @@ export const CategoryData = (props) => {
           autoSelect
           placeholder="Search by name"
           maxLength={512}
-          onInput={(e, value) => {
+          onChange={(value) => {
             setSearchTerm(value);
           }}
           value={searchTerm}
@@ -170,7 +170,7 @@ export const CategoryData = (props) => {
                     }
                     tooltip={
                       !recipe.enabled
-                        ? 'Security Level Needed: ' + recipe.security_level
+                        ? `Security Level Needed: ${recipe.security_level}`
                         : ''
                     }
                     color={!recipe.enabled || recipe.can_make ? null : 'orange'}
@@ -289,7 +289,7 @@ export const QueueData = (props) => {
   return (
     <Section fill title="Queue">
       <LabeledList>
-        {data.queue && data.queue.length ? (
+        {data.queue?.length ? (
           data.queue.map((queue_item) => (
             <LabeledList.Item
               key={queue_item.ref}

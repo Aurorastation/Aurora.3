@@ -80,7 +80,7 @@ const TurbineWorking = (props) => {
             bad: [90, Infinity],
           }}
         >
-          {toFixed(bearing_heat) + '%'}
+          {`${toFixed(bearing_heat)}%`}
         </ProgressBar>
       </LabeledList.Item>
     </LabeledList>

@@ -123,7 +123,7 @@ export const NTMonitor = (props) => {
           </LabeledList>
         </Section>
         <Section title="System Logs">
-          {data.ntnetlogs && data.ntnetlogs.length ? (
+          {data.ntnetlogs?.length ? (
             data.ntnetlogs.map((log) => (
               <Box key={log} backgroundColor="#000000">
                 {log}
@@ -134,7 +134,7 @@ export const NTMonitor = (props) => {
           )}
         </Section>
         <Section title="Message Logs">
-          {data.ntnetmessages && data.ntnetmessages.length ? (
+          {data.ntnetmessages?.length ? (
             data.ntnetmessages.map((log) => (
               <Box key={log} backgroundColor="#000000">
                 {log}

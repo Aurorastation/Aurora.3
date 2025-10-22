@@ -78,7 +78,7 @@ export const ShowArticle = (props) => {
         </>
       }
     >
-      <Box dangerouslySetInnerHtml={contentHtml} />
+      <Box dangerouslySetInnerHTML={contentHtml} />
     </Section>
   );
 };
@@ -91,9 +91,7 @@ export const ShowArticleList = (props) => {
       title="Available Articles"
       buttons={
         <Button
-          content={
-            (data.showing_archived ? 'Hide' : 'Show') + ' Archived Files'
-          }
+          content={`${data.showing_archived ? 'Hide' : 'Show'} Archived Files`}
           onClick={() => act('PRG_toggle_archived')}
         />
       }

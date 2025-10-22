@@ -89,7 +89,7 @@ export const CommandCommunications = (props) => {
                       </Box>
                     </Box>
                   ) : (
-                    'Send Emergency Message To ' + data.boss_short
+                    `Send Emergency Message To ${data.boss_short}`
                   )
                 }
                 icon="compass"
@@ -209,13 +209,13 @@ export const CommandCommunications = (props) => {
                 value={firstLine}
                 placeholder="First line"
                 width={20}
-                onInput={(e, v) => setFirstLine(v)}
+                onChange={(v) => setFirstLine(v)}
               />
               <Input
                 value={secondLine}
                 placeholder="Second line"
                 width={20}
-                onInput={(e, v) => setSecondLine(v)}
+                onChange={(v) => setSecondLine(v)}
               />
             </Section>
             <Section title="Alerts">
@@ -263,11 +263,7 @@ export const CommandCommunications = (props) => {
           </Section>
         </Collapsible>
         <Section title="Message List">
-          {data.messages && data.messages.length ? (
-            <MessageList />
-          ) : (
-            'There are no messages.'
-          )}
+          {data.messages?.length ? <MessageList /> : 'There are no messages.'}
         </Section>
       </NtosWindow.Content>
     </NtosWindow>
@@ -318,7 +314,7 @@ export const MessageList = (props) => {
             }
           >
             <Box
-              style={{ 'white-space': 'pre-line' }}
+              // biome-ignore lint/security/noDangerouslySetInnerHtml: Security issue can be addressed... later.
               dangerouslySetInnerHTML={processMessage(message.contents)}
             />
           </Section>

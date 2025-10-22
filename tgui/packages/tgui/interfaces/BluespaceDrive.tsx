@@ -47,9 +47,7 @@ export const BluespaceDrive = (props) => {
                 unit="°"
                 minValue={0}
                 maxValue={359}
-                onChange={(e, value) =>
-                  act('set_rotation', { rotation: value })
-                }
+                onChange={(value) => act('set_rotation', { rotation: value })}
               />
             </LabeledControls.Item>
             <LabeledControls.Item label="Jump">

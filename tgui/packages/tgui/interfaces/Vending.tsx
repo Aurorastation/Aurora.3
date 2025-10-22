@@ -76,7 +76,7 @@ export const ShowAllItems = (props) => {
               placeholder="Search by name"
               width="40vw"
               maxLength={512}
-              onInput={(e, value) => {
+              onChange={(value) => {
                 setSearchTerm(value);
               }}
               value={searchTerm}
@@ -114,7 +114,6 @@ export const ShowAllItems = (props) => {
                 as="img"
                 className={product.icon_tag}
                 style={{
-                  '-ms-interpolation-mode': 'nearest-neighbor',
                   transform: 'scale(1.5) translate(30%, 30%)',
                 }}
               />

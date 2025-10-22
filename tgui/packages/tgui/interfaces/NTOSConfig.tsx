@@ -9,7 +9,7 @@ import {
   Slider,
   Stack,
 } from 'tgui-core/components';
-import { toFixed } from 'tgui-core/math';
+import { round, toFixed } from 'tgui-core/math';
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
 import { NtosWindow } from '../layouts';
@@ -67,7 +67,7 @@ const BatteryStatus = (props) => {
               average: [0.25, 0.5],
               bad: [-Infinity, 0.25],
             }}
-            value={toFixed(battery.percent / 100)}
+            value={Math.round(battery.percent / 100)}
           />
         </LabeledList.Item>
       </LabeledList>

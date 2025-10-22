@@ -85,14 +85,14 @@ export const ShowNetworkCameras = (props) => {
           placeholder="Search by name"
           width="40vw"
           maxLength={512}
-          onInput={(e, value) => {
+          onChange={(value) => {
             setSearchTerm(value);
           }}
           value={searchTerm}
         />
       }
     >
-      {data.cameras && data.cameras.length ? (
+      {data.cameras?.length ? (
         data.cameras
           .filter(
             (c) => c.name?.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1,

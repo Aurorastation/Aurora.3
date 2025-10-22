@@ -124,7 +124,7 @@ export const MainPage = (props) => {
 
   return (
     <Stack vertical>
-      <Section title={'Welcome, ' + data.username}>
+      <Section title={`Welcome, ${data.username}`}>
         <Stack vertical>
           <Stack.Item fontSize={1.4} bold>
             Your Basket
@@ -173,7 +173,7 @@ export const MainPage = (props) => {
             autoSelect
             placeholder="Search by name"
             maxLength={512}
-            onInput={(e, value) => {
+            onChange={(value) => {
               setSearchTerm(value);
             }}
             value={searchTerm}
@@ -211,7 +211,7 @@ export const MainPage = (props) => {
                 key={item.name}
                 buttons={
                   <Button
-                    content={item.price_adjusted.toFixed(2) + '电'}
+                    content={`${item.price_adjusted.toFixed(2)}电`}
                     disabled={
                       !item.supplier_data.available && item.price_adjusted <= 0
                     }
@@ -238,7 +238,7 @@ export const MainPage = (props) => {
                             <Icon name="lock" /> {item.access}
                           </Tooltip>
                         ) : (
-                          <>None</>
+                          'None'
                         )}
                       </LabeledList.Item>
                     </LabeledList>
@@ -318,6 +318,7 @@ export const ShowTrackingStatus = (props) => {
 
   return (
     <Section title="Tracking Information">
+      {/** biome-ignore lint/security/noDangerouslySetInnerHtml: Security issue to be tackled... later. */}
       <Box dangerouslySetInnerHTML={contentHtml} />
     </Section>
   );

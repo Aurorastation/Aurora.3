@@ -91,7 +91,7 @@ export const Map = (props) => {
             value={minimapZoom}
             minValue={100}
             maxValue={200}
-            onChange={(e, value) => setMinimapZoom(value)}
+            onChange={(value) => setMinimapZoom(value)}
           >
             Zoom: {minimapZoom}%
           </Slider>

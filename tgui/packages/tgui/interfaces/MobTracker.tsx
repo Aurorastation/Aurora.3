@@ -11,8 +11,8 @@ export type MobTrackerData = {
   no_data_description: string;
 };
 
-export const MobTracker = (props, context) => {
-  const { act, data } = useBackend<MobTrackerData>(context);
+export const MobTracker = (props) => {
+  const { act, data } = useBackend<MobTrackerData>();
 
   const total_entities = Object.values(data.areas_containing_mobs || {}).reduce(
     (sum, count) => sum + count,
@@ -24,7 +24,7 @@ export const MobTracker = (props, context) => {
   ).reduce((sum, count) => sum + count, 0);
 
   return (
-    <Window resizable theme={data.tgui_theme || 'default'}>
+    <Window theme={data.tgui_theme || 'default'}>
       <Window.Content scrollable>
         {data.disabled ? (
           <Box

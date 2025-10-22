@@ -117,9 +117,7 @@ export const AtmoScrubber = (props) => {
                 value={data.rate}
                 minValue={data.minrate}
                 maxValue={data.maxrate}
-                onChange={(e, value) =>
-                  act('setVolume', { targetVolume: value })
-                }
+                onChange={(value) => act('setVolume', { targetVolume: value })}
               >
                 {data.rate}
               </Slider>

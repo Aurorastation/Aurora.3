@@ -21,9 +21,9 @@ export type TankData = {
 export const Tank = (props) => {
   const { act, data } = useBackend<TankData>();
 
-  const [tank_color, setColor] = useLocalState('color', '');
+  const [tank_color] = useLocalState('color', '');
 
-  const tank_presure_color = tank_color
+  const tank_presure_color = tank_color.toString()
     ? { color: tank_color }
     : {
         ranges: {
@@ -40,7 +40,7 @@ export const Tank = (props) => {
           <LabeledList>
             <LabeledList.Item label="Tank Pressure">
               <ProgressBar
-                {...tank_presure_color}
+                color={tank_presure_color.toString()}
                 minValue={0}
                 maxValue={1024}
                 value={data.tankPressure}
@@ -72,7 +72,7 @@ export const Tank = (props) => {
                 value={data.releasePressure}
                 minValue={0}
                 maxValue={data.maxReleasePressure}
-                onChange={(e, value) =>
+                onChange={(value) =>
                   act('setReleasePressure', { release_pressure: value })
                 }
               >

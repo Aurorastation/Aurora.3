@@ -148,7 +148,7 @@ export function SettingsGeneral(props) {
                 value={fontSize}
                 unit="px"
                 format={(value) => toFixed(value)}
-                onChange={(e, value) =>
+                onChange={(value) =>
                   dispatch(updateSettings({ fontSize: value }))
                 }
               />
@@ -163,7 +163,7 @@ export function SettingsGeneral(props) {
             maxValue={5}
             value={lineHeight}
             format={(value) => toFixed(value, 2)}
-            onChange={(e, value) =>
+            onChange={(value) =>
               dispatch(
                 updateSettings({
                   lineHeight: value,

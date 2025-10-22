@@ -22,11 +22,7 @@ export const AreaAtmos = (props) => {
     <Window width={500} height={300}>
       <Window.Content scrollable>
         {' '}
-        {data.scrubbers && data.scrubbers.length ? (
-          <AreaScrubbers />
-        ) : (
-          <AreaScan />
-        )}
+        {data.scrubbers?.length ? <AreaScrubbers /> : <AreaScan />}
       </Window.Content>
     </Window>
   );

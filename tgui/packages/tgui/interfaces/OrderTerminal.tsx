@@ -109,7 +109,7 @@ export const AddItems = (props) => {
     <Section>
       <Input
         value={data.new_item}
-        onChange={(e, value) => act('set_new_item', { set_new_item: value })}
+        onChange={(value) => act('set_new_item', { set_new_item: value })}
       />
       <NumberInput
         value={data.new_price}

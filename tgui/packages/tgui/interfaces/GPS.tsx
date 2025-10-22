@@ -49,13 +49,11 @@ export const GPS = (props) => {
             <LabeledControls.Item label="Set New Tag">
               <Input
                 placeholder={data.own_tag}
-                onChange={(e, value) => act('tag', { tag: value })}
+                onChange={(value) => act('tag', { tag: value })}
               />
             </LabeledControls.Item>
             <LabeledControls.Item label="Track New Tag">
-              <Input
-                onChange={(e, value) => act('add_tag', { add_tag: value })}
-              />
+              <Input onChange={(value) => act('add_tag', { add_tag: value })} />
             </LabeledControls.Item>
           </LabeledControls>
         </Section>
@@ -88,10 +86,7 @@ export const GPS = (props) => {
                   <Button
                     content="Compass"
                     disabled={data.own_tag === track.gps.tag}
-                    selected={
-                      data.compass_list &&
-                      data.compass_list.includes(track.gps.tag)
-                    }
+                    selected={data.compass_list?.includes(track.gps.tag)}
                     onClick={() => act('compass', { compass: track.gps.tag })}
                   />
                 </Table.Cell>

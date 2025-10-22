@@ -84,7 +84,7 @@ export const CapacitorWindow = (props) => {
             maxValue={data.max_charge_rate}
             step={10000}
             stepPixelSize={3}
-            onDrag={(e, v) => act('charge_rate', { charge_rate: v })}
+            onDrag={(v) => act('charge_rate', { charge_rate: v })}
             unit="W"
           />
         </LabeledList.Item>

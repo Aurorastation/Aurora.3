@@ -30,7 +30,7 @@ export const CookingCodex = (props) => {
               placeholder="Search"
               width="40vw"
               maxLength={512}
-              onInput={(e, value) => {
+              onChange={(value) => {
                 setSearchTerm(value);
               }}
               value={searchTerm}
@@ -71,9 +71,7 @@ export const CookingCodex = (props) => {
                       src={`data:image/jpeg;base64,${recipe.result_image}`}
                       width="60px"
                       height="60px"
-                      style={{
-                        '-ms-interpolation-mode': 'nearest-neighbor',
-                      }}
+                      style={{}}
                     />
                   </Table.Cell>
                   <Table.Cell verticalAlign="middle">

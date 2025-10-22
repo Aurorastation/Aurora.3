@@ -40,19 +40,18 @@ export const Signaler = (props) => {
                 stepPixelSize={6}
                 format={(value) => toFixed(value, 2)}
                 width="80px"
-                onChange={(e, value) => act('freq', { freq: value * 10 })}
+                onChange={(value) => act('freq', { freq: value * 10 })}
               />
             </LabeledList.Item>
             <LabeledList.Item label="Code">
               <NumberInput
-                animate
                 step={1}
                 stepPixelSize={6}
                 minValue={1}
                 maxValue={100}
                 value={data.code}
                 width="80px"
-                onDrag={(e, value) =>
+                onChange={(value) =>
                   act('code', {
                     code: value,
                   })

@@ -39,7 +39,7 @@ export const SmartFridge = (props) => {
               <Input
                 selfClear
                 placeholder="Search..."
-                onInput={(e, value) => {
+                onChange={(value) => {
                   setSearchTerm(value);
                 }}
                 value={searchTerm}
@@ -56,6 +56,7 @@ export const SmartFridge = (props) => {
             data.locked === -1 ? (
               <BlockQuote>
                 <Box color="bad">
+                  {/** biome-ignore lint/suspicious/noCommentText: Stylistic */}
                   Sec.re ACC_** //:securi_ntdiag##or 1%($...
                 </Box>
               </BlockQuote>

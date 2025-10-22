@@ -42,12 +42,12 @@ export const RCON = (props) => {
   return (
     <NtosWindow>
       <NtosWindow.Content scrollable>
-        {data.smes_info && data.smes_info.length ? (
+        {data.smes_info?.length ? (
           <SMESInfo />
         ) : (
           <NoticeBox>No SMES units found.</NoticeBox>
         )}
-        {data.breaker_info && data.breaker_info.length ? (
+        {data.breaker_info?.length ? (
           <BreakerInfo />
         ) : (
           <NoticeBox>No breaker boxes found.</NoticeBox>
@@ -73,7 +73,7 @@ export const SMESInfo = (props) => {
             placeholder="Search by SMES name"
             width="40vw"
             maxLength={512}
-            onInput={(e, value) => {
+            onChange={(value) => {
               setSmesSearchTerm(value);
             }}
             value={smesSearchTerm}
@@ -107,9 +107,9 @@ export const SMESInfo = (props) => {
                     maxValue={smes.input_level_max}
                     width={8}
                     unit="W"
-                    step="50000"
+                    step={50000}
                     stepPixelSize={10}
-                    onChange={(e, v) =>
+                    onChange={(v) =>
                       act('smes_in_set', {
                         smes_in_set: smes.RCON_tag,
                         value: v,
@@ -154,10 +154,10 @@ export const SMESInfo = (props) => {
                     minValue={0}
                     maxValue={smes.output_level_max}
                     unit="W"
-                    step="50000"
+                    step={50000}
                     width={8}
                     stepPixelSize={10}
-                    onChange={(e, v) =>
+                    onChange={(v) =>
                       act('smes_out_set', {
                         smes_out_set: smes.RCON_tag,
                         value: v,
@@ -220,7 +220,7 @@ export const BreakerInfo = (props) => {
             placeholder="Search by breaker name"
             width="40vw"
             maxLength={512}
-            onInput={(e, value) => {
+            onChange={(value) => {
               setBreakerSearchTerm(value);
             }}
             value={breakerSearchTerm}

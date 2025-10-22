@@ -39,7 +39,7 @@ export const PlayerPanel = (props) => {
               placeholder="Search by ckey, name, or assignment"
               width="40vw"
               maxLength={512}
-              onInput={(e, value) => {
+              onChange={(value) => {
                 setSearchTerm(value);
               }}
               value={searchTerm}

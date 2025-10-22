@@ -114,7 +114,7 @@ export const AccountWindow = (props) => {
               <Table.Row key={account.account_number}>
                 <Table.Cell>
                   <Button
-                    content={'#' + account.account_number}
+                    content={`#${account.account_number}`}
                     onClick={() => setActive(account.account_number)}
                   />
                 </Table.Cell>
@@ -133,7 +133,7 @@ export const AccountWindow = (props) => {
                 <Input
                   placeholder="Insert name"
                   value={new_name}
-                  onInput={(e, value) => setNewName(value)}
+                  onBlur={(value) => setNewName(value)}
                 />
                 <NumberInput
                   value={new_funds}
@@ -142,7 +142,7 @@ export const AccountWindow = (props) => {
                   maxValue={data.station_account_money}
                   step={50}
                   stepPixelSize={10}
-                  onDrag={(e, value) => setNewFunds(value)}
+                  onDrag={(value) => setNewFunds(value)}
                 />
                 <Button
                   content="Create"
@@ -181,6 +181,7 @@ export const SpecificAccountData = (props) => {
     <Section>
       {data.accounts.map((account) =>
         account.account_number === active ? (
+          // biome-ignore lint/correctness/useJsxKeyInIterable: False positive
           <Section
             title="Account Details"
             buttons={
@@ -243,9 +244,10 @@ export const SpecificAccountData = (props) => {
                       <NumberInput
                         value={funds_to_add}
                         unit="电"
+                        step={1}
                         minValue={0}
                         maxValue={10000}
-                        onDrag={(e, value) => setFundsToAdd(value)}
+                        onDrag={(value) => setFundsToAdd(value)}
                       />
                       <Button
                         content="Add"
@@ -272,10 +274,11 @@ export const SpecificAccountData = (props) => {
                     <>
                       <NumberInput
                         value={funds_to_remove}
+                        step={1}
                         unit="电"
                         minValue={0}
                         maxValue={10000}
-                        onDrag={(e, value) => setFundsToRemove(value)}
+                        onDrag={(value) => setFundsToRemove(value)}
                       />
                       <Button
                         content="Remove"
@@ -307,7 +310,7 @@ export const SpecificAccountData = (props) => {
                 {account.transactions.map((transaction) => (
                   <Table.Row key={transaction.ref}>
                     <Table.Cell>
-                      {transaction.date + ', ' + transaction.time}
+                      {`${transaction.date}, ${transaction.time}`}
                     </Table.Cell>
                     <Table.Cell>{transaction.target_name}</Table.Cell>
                     <Table.Cell>{transaction.purpose}</Table.Cell>

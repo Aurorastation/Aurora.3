@@ -71,7 +71,7 @@ type DistressBeaconData = {
 
 const SensorSection = (act, data: SensorsData) => {
   let range_choice_max = 0;
-  if (data.range_choices && data.range_choices.length) {
+  if (data.range_choices?.length) {
     range_choice_max = data.range_choices[data.range_choices.length - 1];
   } else {
     range_choice_max = 0;
@@ -81,9 +81,7 @@ const SensorSection = (act, data: SensorsData) => {
       title="Sensor Array Control"
       buttons={
         <Button
-          content={
-            'Sector Map View ' + (data.viewing ? 'Engaged' : 'Disengaged')
-          }
+          content={`Sector Map View ${data.viewing ? 'Engaged' : 'Disengaged'}`}
           onClick={() => act('viewing')}
         />
       }
@@ -131,9 +129,7 @@ const SensorSection = (act, data: SensorsData) => {
               value={data.desired_range}
               minValue={1}
               maxValue={range_choice_max}
-              onChange={(e, value) =>
-                act('range_choice', { range_choice: value })
-              }
+              onChange={(value) => act('range_choice', { range_choice: value })}
             >
               Desired Range: {data.desired_range} / {range_choice_max}
             </Slider>
@@ -230,7 +226,7 @@ const SensorSection = (act, data: SensorsData) => {
 
 const ContactsSection = (act, data: SensorsData) => (
   <Section title="Sensor Contacts">
-    {data.contacts && data.contacts.length ? (
+    {data.contacts?.length ? (
       <Table>
         <Table.Row header>
           <Table.Cell />
@@ -279,6 +275,7 @@ const ContactsSection = (act, data: SensorsData) => (
 const ContactDetailsSection = (act, data: SensorsData) => {
   if (data.contact_details && data.contact_details !== '') {
     const contact_details = (
+      // biome-ignore lint/security/noDangerouslySetInnerHtml: Security issue to be tackled... later.
       <div dangerouslySetInnerHTML={{ __html: data.contact_details }} />
     );
     return (
@@ -304,7 +301,7 @@ const ContactDetailsSection = (act, data: SensorsData) => {
   }
 };
 
-const CompassSection = (context, act, data: SensorsData) => (
+const CompassSection = (data: SensorsData) => (
   <Section title="Sensor Contacts Compass">
     <Box textAlign="center">
       <svg height={200} width={200} viewBox="0 0 100 100">
@@ -326,7 +323,7 @@ const CompassSection = (context, act, data: SensorsData) => (
             fill="#5c83b0"
             stroke="white"
             stroke-width="0.5"
-            transform={'rotate(' + data.direction + ' 50 50)'}
+            transform={`rotate(${data.direction} 50 50)`}
           />
           {[0, 45, 90, 135, 180, 225, 270, 315].map((b) => (
             <rect // compass bearings
@@ -336,7 +333,7 @@ const CompassSection = (context, act, data: SensorsData) => (
               x="50"
               y="58"
               fill="#3e6189"
-              transform={'rotate(' + b + ' 50 50)'}
+              transform={`rotate(${b} 50 50)`}
             />
           ))}
           {data.contacts
@@ -349,7 +346,7 @@ const CompassSection = (context, act, data: SensorsData) => (
                 x="49.5"
                 y="58"
                 fill={contact.color}
-                transform={'rotate(' + (contact.bearing + 180) + ' 50 50)'}
+                transform={`rotate(${contact.bearing + 180} 50 50)`}
               />
             ))}
           {data.contacts
@@ -362,7 +359,7 @@ const CompassSection = (context, act, data: SensorsData) => (
                   x={50 - 2}
                   y={50 - 2 - clamp((contact.distance / 2) * 8, 0, 40)}
                   fill={contact.color}
-                  transform={'rotate(' + contact.bearing + ' 50 50)'}
+                  transform={`rotate(${contact.bearing} 50 50)`}
                 />
                 <text // contact bearing on edge of compass
                   x="50"
@@ -370,7 +367,7 @@ const CompassSection = (context, act, data: SensorsData) => (
                   text-anchor="middle"
                   fill="white"
                   font-size="5"
-                  transform={'rotate(' + contact.bearing + ' 50 50)'}
+                  transform={`rotate(${contact.bearing} 50 50)`}
                 >
                   {contact.bearing}
                 </text>
@@ -384,7 +381,7 @@ const CompassSection = (context, act, data: SensorsData) => (
               text-anchor="middle"
               fill="white"
               font-size="8"
-              transform={'rotate(' + b + ' 50 50)'}
+              transform={`rotate(${b} 50 50)`}
             >
               {b}
             </text>
@@ -397,7 +394,7 @@ const CompassSection = (context, act, data: SensorsData) => (
 
 const DatalinksSection = (act, data: SensorsData) => (
   <Section title="Datalinks">
-    {data.datalink_requests && data.datalink_requests.length ? (
+    {data.datalink_requests?.length ? (
       <Table>
         <Table.Row header>
           <Table.Cell>Datalink Requests:</Table.Cell>
@@ -431,7 +428,7 @@ const DatalinksSection = (act, data: SensorsData) => (
     ) : (
       ''
     )}
-    {data.datalinked && data.datalinked.length ? (
+    {data.datalinked?.length ? (
       <Table>
         <Table.Row header>
           <Table.Cell>Active Datalinks:</Table.Cell>
@@ -455,8 +452,7 @@ const DatalinksSection = (act, data: SensorsData) => (
     ) : (
       ''
     )}
-    {data.contacts &&
-    data.contacts.length &&
+    {data.contacts?.length &&
     data.contacts.some((contact) => contact.can_datalink) ? (
       <Table>
         <Table.Row header>
@@ -543,7 +539,7 @@ const IFFSection = (act, data: SensorsData) => (
 
 const DistressSection = (act, data: SensorsData) => (
   <Section title="Distress Beacons">
-    {data.distress_beacons && data.distress_beacons.length ? (
+    {data.distress_beacons?.length ? (
       <Table>
         <Table.Row header>
           <Table.Cell />
@@ -616,7 +612,7 @@ export const Sensors = (props) => {
           ''
         )}
         {SensorSection(act, data)}
-        {CompassSection(context, act, data)}
+        {CompassSection(data)}
         {ContactsSection(act, data)}
         {ContactDetailsSection(act, data)}
         {DatalinksSection(act, data)}

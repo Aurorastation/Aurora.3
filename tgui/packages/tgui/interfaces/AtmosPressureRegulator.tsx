@@ -73,7 +73,7 @@ export const AtmosPressureRegulator = (props) => {
                 minValue={0}
                 maxValue={max_pressure}
                 step={10}
-                onChange={(_, value) =>
+                onChange={(value) =>
                   act('pressure', {
                     pressure: value,
                   })
@@ -95,11 +95,12 @@ export const AtmosPressureRegulator = (props) => {
               <NumberInput
                 animated
                 value={rate}
+                step={1}
                 width="63px"
                 unit="L/s"
                 minValue={0}
                 maxValue={max_rate}
-                onChange={(_, value) =>
+                onChange={(value) =>
                   act('rate', {
                     rate: value,
                   })

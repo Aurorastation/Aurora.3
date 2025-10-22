@@ -112,8 +112,8 @@ export const Uplink = (props) => {
             </Table.Row>
           </Table>
         </Section>
-        {data.menu === 0 ? ItemCategoriesSection(context, act, data) : ''}
-        {data.menu === 1 ? ItemSection(context, act, data) : ''}
+        {data.menu === 0 ? ItemCategoriesSection(act, data) : ''}
+        {data.menu === 1 ? ItemSection(act, data) : ''}
         {data.menu === 2 ? ExploitSection(act, data) : ''}
         {data.menu === 21 ? ExploitRecordSection(act, data) : ''}
         {data.menu === 3 ? ContractsSection(act, data) : ''}
@@ -123,28 +123,26 @@ export const Uplink = (props) => {
   );
 };
 
-const ItemCategoriesSection = (context: any, act: any, data: UplinkData) => {
+const ItemCategoriesSection = (act: any, data: UplinkData) => {
   const [searchTerm, setSearchTerm] = useLocalState<string>(`searchTerm`, ``);
 
   return (
     <Section
-      title={'Gear ' + (!searchTerm ? 'categories' : 'search')}
+      title={`Gear ${!searchTerm ? 'categories' : 'search'}`}
       buttons={ItemSearch()}
     >
-      {!searchTerm
-        ? CategoriesList(act, data)
-        : ItemSection(context, act, data)}
+      {!searchTerm ? CategoriesList(act, data) : ItemSection(act, data)}
     </Section>
   );
 };
 
-const ItemSearch = (context: any) => {
+const ItemSearch = () => {
   const [searchTerm, setSearchTerm] = useLocalState<string>(`searchTerm`, ``);
   return (
     <Input
       value={searchTerm}
       placeholder="Search"
-      onInput={(e, value) => {
+      onChange={(value) => {
         setSearchTerm(value);
       }}
     />
@@ -165,7 +163,7 @@ const CategoriesList = (act: any, data: UplinkData) => (
   </LabeledList>
 );
 
-const ItemSection = (context: any, act: any, data: UplinkData) => {
+const ItemSection = (act: any, data: UplinkData) => {
   const [sortDesc, setSortDesc] = useLocalState<boolean>(`sortDesc`, true);
 
   const [searchTerm] = useLocalState<string>(`searchTerm`, ``);
@@ -173,7 +171,7 @@ const ItemSection = (context: any, act: any, data: UplinkData) => {
   if (searchTerm) {
     if (data.menu === 0 && searchTerm.length <= 2) {
       return (
-        <span class="white">
+        <span className="white">
           <i>Three characters required for all search.</i>
         </span>
       );
@@ -207,14 +205,14 @@ const ItemSection = (context: any, act: any, data: UplinkData) => {
 
   return (
     <Section title="Request Gear" buttons={data.menu === 1 ? ItemSearch() : ''}>
-      <span class="white">
+      <span className="white">
         <i>
           Each item costs a number of telecrystals or bluecrystals as indicated
           by the numbers following their name.
         </i>
       </span>
       <br />
-      <span class="white">
+      <span className="white">
         <b>
           Note that when buying items, bluecrystals are prioritised over
           telecrystals.
@@ -243,17 +241,17 @@ const ItemSection = (context: any, act: any, data: UplinkData) => {
                 />
               </Table.Cell>
               <Table.Cell>
-                {item.bc_cost ? item.bc_cost + ' BC' : ''}{' '}
+                {item.bc_cost ? `${item.bc_cost} BC` : ''}{' '}
               </Table.Cell>
               <Table.Cell>
-                {item.tc_cost ? item.tc_cost + ' TC' : ''}{' '}
+                {item.tc_cost ? `${item.tc_cost} TC` : ''}{' '}
               </Table.Cell>
               <Table.Cell>
-                {item.left < 42 ? item.left + ' LEFT' : ''}{' '}
+                {item.left < 42 ? `${item.left} LEFT` : ''}{' '}
               </Table.Cell>
             </Table.Row>
             <Table.Row color={item.can_buy ? null : 'gray'}>
-              <Table.Cell colspan={4}>
+              <Table.Cell colSpan={4}>
                 <Box width="75%">
                   {item.description}
                   <br />
@@ -286,7 +284,7 @@ const ExploitSection = (act: any, data: UplinkData) => {
               <Button
                 content={exploit.name}
                 color={'purple'}
-                icon={exploit.has_exploitables ? 'warning' : null}
+                icon={exploit.has_exploitables ? 'warning' : ''}
                 onClick={() => act('menu', { menu: 21, id: exploit.id })}
               />
               <br />
@@ -322,11 +320,7 @@ const ExploitRecordSection = (act: any, data: UplinkData) => {
           </LabeledList.Item>
           <LabeledList.Item label="Acquired Information" />
         </LabeledList>
-        <span
-          style={{
-            'white-space': 'pre-line',
-          }}
-        >
+        <span>
           {exploit.tgui_exploit_record
             ? exploit.tgui_exploit_record
             : 'No additional information acquired.'}
@@ -355,7 +349,7 @@ const ContractsSection = (act: any, data: UplinkData) => (
             <Table.Cell>Title</Table.Cell>
           </Table.Row>
           <Table.Row>
-            <Table.Cell colspan={999} textAlign="center">
+            <Table.Cell colSpan={999} textAlign="center">
               <Box backgroundColor={data.contracts_view === 1 ? 'good' : 'bad'}>
                 {data.contracts_view === 1
                   ? 'Available Contracts'

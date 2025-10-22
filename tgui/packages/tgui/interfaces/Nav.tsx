@@ -30,7 +30,7 @@ const FlightSection = (act, data) => (
     title="Flight Data"
     buttons={
       <Button
-        content={'Sector Map View ' + (data.viewing ? 'Engaged' : 'Disengaged')}
+        content={`Sector Map View ${data.viewing ? 'Engaged' : 'Disengaged'}`}
         onClick={() => act('viewing')}
       />
     }

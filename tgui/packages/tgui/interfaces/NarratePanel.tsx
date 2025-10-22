@@ -53,7 +53,7 @@ export const NarratePanel = (props) => {
             fluid
             strict
             placeholder="Input your narration here..."
-            onInput={(e, value) => setNarrateText(value)}
+            onChange={(value) => setNarrateText(value)}
             selfClear
             autoFocus
             autoSelect

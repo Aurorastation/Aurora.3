@@ -17,7 +17,7 @@ export const Maglock = (props) => {
           <LabeledList>
             <LabeledList.Item label="Passcode">
               <Input
-                onChange={(e, value) => act('passcode', { passcode: value })}
+                onChange={(value) => act('passcode', { passcode: value })}
               />
             </LabeledList.Item>
           </LabeledList>
@@ -36,9 +36,7 @@ export const ConfigureWindow = (props) => {
       <LabeledList>
         <LabeledList.Item label="Passcode">
           <Input
-            onChange={(e, value) =>
-              act('set_passcode', { set_passcode: value })
-            }
+            onChange={(value) => act('set_passcode', { set_passcode: value })}
           />
         </LabeledList.Item>
         <LabeledList.Item label="Lock">

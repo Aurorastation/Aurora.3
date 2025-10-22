@@ -24,7 +24,7 @@ export const Howitzer = (props) => {
               minValue={0}
               maxValue={360}
               unit="°"
-              onChange={(e, value) =>
+              onChange={(value) =>
                 act('set_horizontal_angle', { horizontal_angle: value })
               }
             />
@@ -38,7 +38,7 @@ export const Howitzer = (props) => {
               minValue={0}
               maxValue={90}
               unit="°"
-              onChange={(e, value) =>
+              onChange={(value) =>
                 act('set_vertical_angle', { vertical_angle: value })
               }
             />

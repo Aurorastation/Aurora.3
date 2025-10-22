@@ -34,7 +34,7 @@ export const AtmosAlarmControl = (props) => {
                 placeholder="Search by name"
                 width="40vw"
                 maxLength={512}
-                onInput={(e, value) => {
+                onChange={(value) => {
                   setSearchTerm(value);
                 }}
                 value={searchTerm}

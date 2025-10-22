@@ -72,7 +72,7 @@ export const ChatClient = (props) => {
                 <Input
                   value={data.ringtone}
                   placeholder={data.ringtone}
-                  onChange={(e, v) => act('ringtone', { ringtone: v })}
+                  onChange={(v) => act('ringtone', { ringtone: v })}
                 />
               ) : (
                 ''
@@ -91,7 +91,7 @@ export const ChatClient = (props) => {
             </>
           }
         >
-          {data.users && data.users.length ? <Users /> : 'There are no users.'}
+          {data.users?.length ? <Users /> : 'There are no users.'}
           {!data.active ? <ChannelsWindow /> : ''}
         </Section>
       </NtosWindow.Content>
@@ -150,7 +150,7 @@ export const AllUsers = (props) => {
         height="10%"
         width="40%"
         maxLength={512}
-        onInput={(e, value) => {
+        onChange={(value) => {
           setSearchTerm(value);
         }}
         value={searchTerm}
@@ -210,8 +210,8 @@ export const Chat = (props) => {
                   placeholder="New Password"
                   value={password}
                   strict
-                  onInput={(e, v) => setPassword(v)}
-                  onChange={(e, v) => {
+                  onChange={(v) => setPassword(v)}
+                  onChange={(v) => {
                     act('set_password', {
                       password: password,
                       target: data.active ? data.active.ref : '',
@@ -234,8 +234,8 @@ export const Chat = (props) => {
                 <Input
                   placeholder="New Title"
                   value={title}
-                  onInput={(e, v) => setTitle(v)}
-                  onChange={(e, v) => {
+                  onChange={(v) => setTitle(v)}
+                  onChange={(v) => {
                     act('change_title', {
                       title: title,
                       target: data.active ? data.active.ref : '',
@@ -294,8 +294,8 @@ export const Chat = (props) => {
           width="100%"
           selfClear
           strict
-          onInput={(e, v) => setNewMessage(v)}
-          onChange={(e, v) =>
+          onChange={(v) => setNewMessage(v)}
+          onChange={(v) =>
             act('send', {
               message: newMessage,
               target: data.active ? data.active.ref : '',
@@ -369,7 +369,7 @@ export const ChannelsWindow = (props) => {
               placeholder="New Channel Name"
               value={channelName}
               strict
-              onInput={(e, v) => setChannelName(v)}
+              onChange={(v) => setChannelName(v)}
               onChange={() => {
                 act('new_channel', { new_channel: channelName });
                 setCreatingChannelName(0);
@@ -389,7 +389,7 @@ export const ChannelsWindow = (props) => {
           height="10%"
           width="40%"
           maxLength={512}
-          onInput={(e, value) => {
+          onChange={(value) => {
             setChannelSearchTerm(value);
           }}
           value={channelSearchTerm}
@@ -419,8 +419,8 @@ export const ChannelsWindow = (props) => {
                           placeholder="Enter Password"
                           value={joinPassword}
                           strict
-                          onInput={(e, v) => setJoinPassword(v)}
-                          onChange={(e, v) => {
+                          onChange={(v) => setJoinPassword(v)}
+                          onChange={(v) => {
                             act('join', {
                               target: channel.ref,
                               password: joinPassword,

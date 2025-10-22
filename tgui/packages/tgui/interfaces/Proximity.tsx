@@ -40,7 +40,7 @@ export const Proximity = (props) => {
                 unit="s"
                 value={data.time}
                 format={(value) => Math.round(value)}
-                onChange={(e, value) => act('tp', { tp: value })}
+                onChange={(value) => act('tp', { tp: value })}
               />
             </LabeledList.Item>
           </LabeledList>

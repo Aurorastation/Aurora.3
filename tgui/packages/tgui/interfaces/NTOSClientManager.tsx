@@ -26,7 +26,7 @@ const DeviceEnrollment = (props) => {
   if (!ntnet_status) {
     return (
       <Section title="Device Enrollment">
-        <NoticeBox warning>
+        <NoticeBox danger>
           NTNet download servers are currently unavailable. Enrollment is not
           possible at this time.
         </NoticeBox>

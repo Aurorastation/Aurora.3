@@ -50,7 +50,7 @@ const ManifestTable = (act, spawner: Spawner) => (
         if (spawned_mob_name) {
           return (
             <Table.Cell>
-              {' - ' + spawned_mob_name + ' '}
+              {` - ${spawned_mob_name} `}
               {spawner.can_jump_to ? (
                 <Tooltip content="Follow mob">
                   <Button
@@ -118,7 +118,7 @@ export const GhostSpawner = (props) => {
       ),
       colors.length,
     ).map((p) =>
-      p.map((l, i) => (loc_to_color[l] = colors[i % colors.length])),
+      p.map((l, i) => loc_to_color[l] === colors[i % colors.length]),
     );
   }
 
@@ -134,7 +134,7 @@ export const GhostSpawner = (props) => {
               placeholder="Search by name"
               width="40vw"
               maxLength={512}
-              onInput={(e, value) => {
+              onChange={(value) => {
                 setSearchTerm(value);
               }}
               value={searchTerm}

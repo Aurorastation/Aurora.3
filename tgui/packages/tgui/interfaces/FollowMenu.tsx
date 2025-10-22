@@ -32,7 +32,7 @@ export const FollowMenu = (props) => {
               placeholder="Search by name"
               width="40vw"
               maxLength={512}
-              onInput={(e, value) => {
+              onChange={(value) => {
                 setSearchTerm(value);
               }}
               value={searchTerm}
@@ -41,9 +41,8 @@ export const FollowMenu = (props) => {
         >
           {data.categories.sort().map((category) => (
             <Section title="" key={category}>
-              <Collapsible open={1} title={category}>
-                {data.ghosts &&
-                  data.ghosts.length &&
+              <Collapsible open={true} title={category}>
+                {data.ghosts?.length &&
                   data.ghosts
                     .filter(
                       (ghost) =>

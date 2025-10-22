@@ -37,7 +37,7 @@ export const LateJoin = (props) => {
       <Window.Content scrollable>
         <Section>
           <Section textAlign="center">
-            Welcome, <Box bold>{data.character_name + '.'}</Box>
+            Welcome, <Box bold>{`${data.character_name}.`}</Box>
             {
               <Box
                 as="img"
@@ -45,9 +45,7 @@ export const LateJoin = (props) => {
                 src={`data:image/jpeg;base64,${data.character_image}`}
                 width="35%"
                 height="35%"
-                style={{
-                  '-ms-interpolation-mode': 'nearest-neighbor',
-                }}
+                style={{}}
               />
             }
           </Section>
@@ -94,7 +92,7 @@ export const JobsList = (props) => {
         <Section
           title={department}
           key={department}
-          className={'border-dept-' + department.toLowerCase()}
+          className={`border-dept-${department.toLowerCase()}`}
         >
           {data.jobs_list
             .filter((job) => job.department === department)

@@ -43,7 +43,7 @@ export const ChemCodex = (props) => {
               placeholder="Search by name"
               width="40vw"
               maxLength={512}
-              onInput={(e, value) => {
+              onChange={(value) => {
                 setSearchTerm(value);
               }}
               value={searchTerm}
@@ -59,7 +59,7 @@ export const ChemCodex = (props) => {
           )
           .map((reaction) => (
             <Section
-              title={reaction.result.name + '(' + reaction.result.amount + 'u)'}
+              title={`${reaction.result.name}(${reaction.result.amount}u)`}
               key={reaction.result.name}
             >
               <NoticeBox>{reaction.result.description}</NoticeBox>

@@ -50,7 +50,7 @@ export const Holopad = (props) => {
                 placeholder="Search by holopad name"
                 width="40vw"
                 maxLength={512}
-                onInput={(e, value) => {
+                onChange={(value) => {
                   setSearchTerm(value);
                 }}
                 value={searchTerm}

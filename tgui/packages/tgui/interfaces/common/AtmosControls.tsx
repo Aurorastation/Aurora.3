@@ -115,7 +115,7 @@ export const Vent = (props: VentProps, context) => {
               minValue={0}
               step={10}
               maxValue={5066}
-              onChange={(e, value) =>
+              onChange={(value) =>
                 act('set_internal_pressure', {
                   ref: refID,
                   value,
@@ -143,7 +143,7 @@ export const Vent = (props: VentProps, context) => {
               minValue={0}
               step={10}
               maxValue={5066}
-              onChange={(e, value) =>
+              onChange={(value) =>
                 act('set_external_pressure', {
                   ref: refID,
                   value,

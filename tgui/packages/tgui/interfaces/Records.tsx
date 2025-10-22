@@ -143,7 +143,7 @@ export const ListAllRecords = (props) => {
             autoFocus
             autoSelect
             maxLength={512}
-            onInput={(e, value) => {
+            onChange={(value) => {
               setSearchTerm(value);
             }}
             value={searchTerm}
@@ -175,7 +175,7 @@ export const ListAllRecords = (props) => {
               }
               onClick={() => act('setactive', { setactive: record.id })}
             >
-              {record.id + ': ' + record.name + ' (' + record.rank + ')'}
+              {`${record.id}: ${record.name} (${record.rank})`}
             </Tabs.Tab>
           ))}
       </Tabs>
@@ -298,8 +298,6 @@ export const ListActive = (props) => {
         width="30%"
         height="30%"
         style={{
-          '-ms-interpolation-mode': 'nearest-neighbor',
-          'pointer-events': 'none',
           width: `${64}px`,
           height: `${64}px`,
         }}
@@ -311,8 +309,6 @@ export const ListActive = (props) => {
         width="30%"
         height="30%"
         style={{
-          '-ms-interpolation-mode': 'nearest-neighbor',
-          'pointer-events': 'none',
           width: `${64}px`,
           height: `${64}px`,
         }}
@@ -331,7 +327,7 @@ export const ListActive = (props) => {
                 <Input
                   placeholder={data.active.species}
                   width="100%"
-                  onInput={(e, v) =>
+                  onChange={(v) =>
                     act('editrecord', {
                       key: 'species',
                       value: v,
@@ -452,7 +448,7 @@ export const ListActive = (props) => {
                 <Input
                   placeholder={data.active.fingerprint}
                   width="100%"
-                  onInput={(e, v) =>
+                  onChange={(v) =>
                     act('editrecord', {
                       key: 'fingerprint',
                       value: v,
@@ -482,7 +478,7 @@ export const ListActive = (props) => {
                     <Input
                       placeholder={data.active.medical.blood_dna}
                       width="100%"
-                      onInput={(e, v) =>
+                      onChange={(v) =>
                         act('editrecord', {
                           record_type: 'medical',
                           key: 'blood_dna',
@@ -511,7 +507,7 @@ export const ListActive = (props) => {
                     <Input
                       placeholder={data.active.medical.disabilities}
                       width="100%"
-                      onInput={(e, v) =>
+                      onChange={(v) =>
                         act('editrecord', {
                           record_type: 'medical',
                           key: 'fingerprint',
@@ -540,7 +536,7 @@ export const ListActive = (props) => {
                     <Input
                       placeholder={data.active.medical.allergies}
                       width="100%"
-                      onInput={(e, v) =>
+                      onChange={(v) =>
                         act('editrecord', {
                           record_type: 'medical',
                           key: 'allergies',
@@ -569,7 +565,7 @@ export const ListActive = (props) => {
                     <Input
                       placeholder={data.active.medical.diseases}
                       width="100%"
-                      onInput={(e, v) =>
+                      onChange={(v) =>
                         act('editrecord', {
                           record_type: 'medical',
                           key: 'diseases',
@@ -604,7 +600,7 @@ export const ListActive = (props) => {
                     <Input
                       placeholder={data.active.citizenship}
                       width="100%"
-                      onInput={(e, v) =>
+                      onChange={(v) =>
                         act('editrecord', {
                           key: 'citizenship',
                           value: v,
@@ -632,7 +628,7 @@ export const ListActive = (props) => {
                     <Input
                       placeholder={data.active.religion}
                       width="100%"
-                      onInput={(e, v) =>
+                      onChange={(v) =>
                         act('editrecord', {
                           key: 'religion',
                           value: v,
@@ -660,7 +656,7 @@ export const ListActive = (props) => {
                     <Input
                       placeholder={data.active.employer}
                       width="100%"
-                      onInput={(e, v) =>
+                      onChange={(v) =>
                         act('editrecord', {
                           key: 'employer',
                           value: v,
@@ -711,8 +707,7 @@ export const ListActive = (props) => {
       {recordTab === 'Security' ? (
         <>
           <Section title="Incidents">
-            {data.active.security.incidents &&
-            data.active.security.incidents.length
+            {data.active.security.incidents?.length
               ? data.active.security.incidents.map((incident) => (
                   <Box backgroundColor="#223449" key={incident.id}>
                     <Collapsible title={incident.datetime}>
@@ -721,7 +716,7 @@ export const ListActive = (props) => {
                       </Box>
                       <Box color="red">
                         {incident.fine
-                          ? 'Fined ' + incident.fine.toFixed(2) + '电.'
+                          ? `Fined ${incident.fine.toFixed(2)}电.`
                           : 'Sentenced to ' +
                             incident.brig_sentence +
                             ' minutes of brig time.'}
