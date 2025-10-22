@@ -1,8 +1,15 @@
+import { sortBy } from 'es-toolkit';
+import {
+  Box,
+  Button,
+  LabeledList,
+  NoticeBox,
+  Section,
+  Table,
+} from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Box, Button, LabeledList, NoticeBox, Section, Table } from 'tgui-core/components';
 import { NtosWindow } from '../layouts';
-import { sortBy } from 'es-toolkit';
 
 export type PowerData = {
   all_sensors: Sensor[];
@@ -54,7 +61,8 @@ export const ShowMasterList = (props) => {
   return (
     <Section
       title="Sensor Monitoring"
-      buttons={<Button content="Scan" onClick={() => act('refresh')} />}>
+      buttons={<Button content="Scan" onClick={() => act('refresh')} />}
+    >
       {data.all_sensors && data.all_sensors.length ? (
         data.all_sensors.map((sensor) => (
           <Box key={sensor.name}>
@@ -81,7 +89,8 @@ export const SensorMonitoring = (props) => {
   return (
     <Section
       title={'Network Information: ' + data.focus.name}
-      buttons={<Button content="Return" onClick={() => act('clear')} />}>
+      buttons={<Button content="Return" onClick={() => act('clear')} />}
+    >
       <LabeledList>
         <LabeledList.Item label="Network Load">
           {data.focus.load_percentage}%
@@ -128,7 +137,8 @@ export const SensorMonitoring = (props) => {
                           : apc.cell_charge > 50
                             ? 'average'
                             : 'bad'
-                      }>
+                      }
+                    >
                       {apc.cell_charge + '%'}
                     </Box>
                   ) : (

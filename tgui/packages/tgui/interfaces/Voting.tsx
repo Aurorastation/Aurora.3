@@ -1,7 +1,7 @@
-import { useBackend } from '../backend';
+import { Box, Button, Section, Table } from 'tgui-core/components';
 import { capitalizeAll } from 'tgui-core/string';
+import { useBackend } from '../backend';
 import { Window } from '../layouts';
-import { Section, Button, Box, Table } from 'tgui-core/components';
 
 type VoteChoice = {
   choice: string;
@@ -66,7 +66,8 @@ export const VoteWindow = (props) => {
         ) : (
           ''
         )
-      }>
+      }
+    >
       <Table>
         <Table.Row header>
           <Table.Cell>
@@ -104,7 +105,8 @@ export const VoteWindow = (props) => {
                   } else {
                     return 'gray';
                   }
-                })()}>
+                })()}
+              >
                 {choice.required_players ? choice.required_players : ''}
               </Table.Cell>
             )}

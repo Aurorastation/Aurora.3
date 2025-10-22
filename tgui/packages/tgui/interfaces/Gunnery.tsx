@@ -1,8 +1,13 @@
+import {
+  Box,
+  Button,
+  Dropdown,
+  LabeledList,
+  Section,
+} from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { capitalizeAll } from 'tgui-core/string';
 import { useBackend } from '../backend';
-import { Button, Section, Box, LabeledList } from 'tgui-core/components';
-import { Dropdown } from 'tgui-core/components';
 import { Window } from '../layouts';
 import { MinimapView } from './common/MinimapView';
 
@@ -39,7 +44,7 @@ type Targeting = {
 export const GunneryWindow = (props) => {
   const { act, data } = useBackend<GunneryData>();
   const { entry_points, z_levels, guns, platform_directions } = data;
-  let gun_names: String[];
+  let gun_names: string[];
   gun_names = [];
   gun_names = guns.map((gun) => {
     return capitalizeAll(gun.name);

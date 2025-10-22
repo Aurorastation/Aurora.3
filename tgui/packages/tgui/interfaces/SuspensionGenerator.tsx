@@ -1,6 +1,11 @@
+import {
+  Button,
+  LabeledList,
+  ProgressBar,
+  Section,
+} from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Button, LabeledList, ProgressBar, Section } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type SuspensionData = {
@@ -35,7 +40,8 @@ export const SuspensionGenerator = (props) => {
                   tooltip="Cannot be enabled while unanchored."
                   onClick={() => act('togglefield')}
                 />
-              }>
+              }
+            >
               <ProgressBar
                 ranges={{
                   good: [75, 100],
@@ -44,7 +50,8 @@ export const SuspensionGenerator = (props) => {
                 }}
                 value={data.charge}
                 minValue={0}
-                maxValue={100}>
+                maxValue={100}
+              >
                 {data.charge}%
               </ProgressBar>
             </LabeledList.Item>

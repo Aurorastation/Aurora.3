@@ -1,6 +1,16 @@
+import {
+  Box,
+  Button,
+  Collapsible,
+  Input,
+  LabeledList,
+  NoticeBox,
+  NumberInput,
+  ProgressBar,
+  Section,
+} from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend, useLocalState } from '../backend';
-import { Box, Button, Collapsible, Input, LabeledList, NoticeBox, NumberInput, ProgressBar, Section } from 'tgui-core/components';
 import { NtosWindow } from '../layouts';
 
 export type RCONData = {
@@ -51,7 +61,7 @@ export const SMESInfo = (props) => {
   const { act, data } = useBackend<RCONData>();
   const [smesSearchTerm, setSmesSearchTerm] = useLocalState<string>(
     `smesSearchTerm`,
-    ``
+    ``,
   );
 
   return (
@@ -68,12 +78,13 @@ export const SMESInfo = (props) => {
             }}
             value={smesSearchTerm}
           />
-        }>
+        }
+      >
         {data.smes_info
           .filter(
             (s) =>
               s.RCON_tag.toLowerCase().indexOf(smesSearchTerm.toLowerCase()) >
-              -1
+              -1,
           )
           .map((smes) => (
             <Section title={smes.RCON_tag} key={smes.RCON_tag}>
@@ -197,7 +208,7 @@ export const BreakerInfo = (props) => {
   const { act, data } = useBackend<RCONData>();
   const [breakerSearchTerm, setBreakerSearchTerm] = useLocalState<string>(
     `breakerSearchTerm`,
-    ``
+    ``,
   );
 
   return (
@@ -214,14 +225,15 @@ export const BreakerInfo = (props) => {
             }}
             value={breakerSearchTerm}
           />
-        }>
+        }
+      >
         <LabeledList>
           {data.breaker_info
             .filter(
               (b) =>
                 b.RCON_tag.toLowerCase().indexOf(
-                  breakerSearchTerm.toLowerCase()
-                ) > -1
+                  breakerSearchTerm.toLowerCase(),
+                ) > -1,
             )
             .map((breaker) => (
               <LabeledList.Item label={breaker.RCON_tag} key={breaker.RCON_tag}>

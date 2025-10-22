@@ -1,14 +1,19 @@
-import { useBackend } from '../backend';
-import { Button, LabeledList, Section, ProgressBar } from 'tgui-core/components';
-import { Window } from '../layouts';
+import {
+  Button,
+  LabeledList,
+  ProgressBar,
+  Section,
+} from 'tgui-core/components';
 import { toFixed } from 'tgui-core/math';
+import { useBackend } from '../backend';
+import { Window } from '../layouts';
 
 export const TurbineComputer = (props) => {
   const { act, data } = useBackend();
   const { compressor, compressor_broken, turbine, turbine_broken, online } =
     data;
   const operational = Boolean(
-    compressor && !compressor_broken && turbine && !turbine_broken
+    compressor && !compressor_broken && turbine && !turbine_broken,
   );
   return (
     <Window width={400} height={200}>
@@ -23,7 +28,8 @@ export const TurbineComputer = (props) => {
               disabled={!operational}
               onClick={() => act('toggle_power')}
             />
-          }>
+          }
+        >
           {operational ? <TurbineWorking /> : <TurbineBroken />}
         </Section>
       </Window.Content>
@@ -40,12 +46,14 @@ const TurbineBroken = (props) => {
     <LabeledList>
       <LabeledList.Item
         label="Compressor Status"
-        color={!compressor || compressor_broken ? 'bad' : 'good'}>
+        color={!compressor || compressor_broken ? 'bad' : 'good'}
+      >
         {compressor_broken ? (compressor ? 'Offline' : 'Missing') : 'Online'}
       </LabeledList.Item>
       <LabeledList.Item
         label="Turbine Status"
-        color={!turbine || turbine_broken ? 'bad' : 'good'}>
+        color={!turbine || turbine_broken ? 'bad' : 'good'}
+      >
         {turbine_broken ? (turbine ? 'Offline' : 'Missing') : 'Online'}
       </LabeledList.Item>
     </LabeledList>
@@ -70,7 +78,8 @@ const TurbineWorking = (props) => {
             good: [-Infinity, 60],
             average: [60, 90],
             bad: [90, Infinity],
-          }}>
+          }}
+        >
           {toFixed(bearing_heat) + '%'}
         </ProgressBar>
       </LabeledList.Item>

@@ -1,9 +1,9 @@
-import { Loader } from './common/Loader';
-import { InputButtons } from './common/InputButtons';
-import { useBackend, useLocalState } from '../backend';
-import { KEY_ENTER, KEY_ESCAPE } from 'tgui-core/keycodes';
 import { Box, Section, Stack, TextArea } from 'tgui-core/components';
+import { KEY_ENTER, KEY_ESCAPE } from 'tgui-core/keycodes';
+import { useBackend, useLocalState } from '../backend';
 import { Window } from '../layouts';
+import { InputButtons } from './common/InputButtons';
+import { Loader } from './common/Loader';
 
 type TextInputData = {
   large_buttons: boolean;
@@ -34,10 +34,7 @@ export const TextInputModal = (props) => {
     timeout,
     title,
   } = data;
-  const [input, setInput] = useLocalState<string>(
-    'input',
-    placeholder || ''
-  );
+  const [input, setInput] = useLocalState<string>('input', placeholder || '');
   const onType = (value: string) => {
     if (value === input) {
       return;
@@ -68,7 +65,8 @@ export const TextInputModal = (props) => {
           if (keyCode === KEY_ESCAPE) {
             act('cancel');
           }
-        }}>
+        }}
+      >
         <Section fill>
           <Stack fill vertical>
             <Stack.Item>

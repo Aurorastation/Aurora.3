@@ -1,5 +1,5 @@
+import { Box, Button, Section, Table } from 'tgui-core/components';
 import { useBackend } from '../backend';
-import { Button, Section, Box, Table } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type OreListData = {

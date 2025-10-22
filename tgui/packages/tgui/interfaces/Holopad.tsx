@@ -1,6 +1,6 @@
+import { Button, Input, Section } from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend, useLocalState } from '../backend';
-import { Button, Input, Section } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type HolopadData = {
@@ -19,10 +19,7 @@ type Pad = {
 export const Holopad = (props) => {
   const { act, data } = useBackend<HolopadData>();
 
-  const [searchTerm, setSearchTerm] = useLocalState<string>(
-    `searchTerm`,
-    ``
-  );
+  const [searchTerm, setSearchTerm] = useLocalState<string>(`searchTerm`, ``);
 
   return (
     <Window>
@@ -59,7 +56,8 @@ export const Holopad = (props) => {
                 value={searchTerm}
               />
             </>
-          }>
+          }
+        >
           {data.holopad_list.length ? (
             <HolopadList />
           ) : (
@@ -74,16 +72,13 @@ export const Holopad = (props) => {
 export const HolopadList = (props) => {
   const { act, data } = useBackend<HolopadData>();
 
-  const [searchTerm, setSearchTerm] = useLocalState<string>(
-    `searchTerm`,
-    ``
-  );
+  const [searchTerm, setSearchTerm] = useLocalState<string>(`searchTerm`, ``);
 
   return (
     <Section>
       {data.holopad_list
         .filter(
-          (pad) => pad.id?.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1
+          (pad) => pad.id?.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1,
         )
         .map((holopad) => (
           <Button

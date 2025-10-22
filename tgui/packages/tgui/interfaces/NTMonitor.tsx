@@ -1,6 +1,13 @@
+import {
+  Box,
+  Button,
+  LabeledList,
+  NoticeBox,
+  Section,
+  Table,
+} from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Box, Button, LabeledList, NoticeBox, Section, Table } from 'tgui-core/components';
 import { NtosWindow } from '../layouts';
 
 export type MonitorData = {
@@ -104,7 +111,8 @@ export const NTMonitor = (props) => {
                 onClick={() => act('purgelogs')}
               />
             </>
-          }>
+          }
+        >
           <LabeledList>
             <LabeledList.Item label="Intrusion Detection">
               {data.idsstatus ? 'Enabled' : 'Disabled'}

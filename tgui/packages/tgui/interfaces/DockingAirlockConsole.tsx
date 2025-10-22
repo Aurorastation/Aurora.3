@@ -1,5 +1,11 @@
+import {
+  Box,
+  Button,
+  LabeledList,
+  ProgressBar,
+  Section,
+} from 'tgui-core/components';
 import { useBackend } from '../backend';
-import { Box, Button, LabeledList, ProgressBar, Section } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type StatusData = {
@@ -64,7 +70,8 @@ export const DockingAirlockConsole = (props) => {
                   }}
                   value={data.chamber_pressure}
                   minValue={0}
-                  maxValue={200}>
+                  maxValue={200}
+                >
                   {data.chamber_pressure} kPa
                 </ProgressBar>
               </LabeledList.Item>

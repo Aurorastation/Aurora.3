@@ -1,6 +1,11 @@
+import {
+  Button,
+  LabeledList,
+  ProgressBar,
+  Section,
+} from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Button, LabeledList, ProgressBar, Section } from 'tgui-core/components';
 import { NtosWindow } from '../layouts';
 
 export type CrusherData = {
@@ -34,7 +39,8 @@ export const CrusherControl = (props) => {
                 onClick={() => act('initialize')}
               />
             )
-          }>
+          }
+        >
           {data.piston_count === 0 ? (
             'No pistons detected.'
           ) : (
@@ -95,7 +101,8 @@ export const PistonMonitoring = (props) => {
         {data.status_pistons.map((piston) => (
           <LabeledList.Item
             key={piston.piston}
-            label={'Piston' + piston.piston}>
+            label={'Piston' + piston.piston}
+          >
             <ProgressBar
               ranges={{
                 good: [75, 100],

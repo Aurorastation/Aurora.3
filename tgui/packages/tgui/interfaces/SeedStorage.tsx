@@ -1,6 +1,6 @@
+import { Button, Section, Table } from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Button, Section, Table } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type SeedData = {
@@ -44,7 +44,8 @@ export const SeedStorage = (props) => {
               color="bad"
               onClick={() => act('purge')}
             />
-          }>
+          }
+        >
           <Table>
             <Table.Row header>
               <Table.Cell>Name</Table.Cell>

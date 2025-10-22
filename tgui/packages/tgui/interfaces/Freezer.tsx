@@ -1,6 +1,6 @@
+import { Box, Button, Knob, ProgressBar, Section } from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Section, Button, Knob, Box, ProgressBar } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type FreezerData = {
@@ -32,7 +32,8 @@ export const Freezer = (props) => {
               color={!data.on && 'danger'}
               onClick={() => act('power')}
             />
-          }>
+          }
+        >
           <Box textAlign="center">
             <b>Gas Pressure: </b> {data.gasPressure} kPa
           </Box>
@@ -63,7 +64,8 @@ export const Freezer = (props) => {
             }}
             value={data.gasTemperature}
             minValue={data.minGasTemperature}
-            maxValue={data.maxGasTemperature}>
+            maxValue={data.maxGasTemperature}
+          >
             <Box>{data.gasTemperature} K</Box>
           </ProgressBar>
           <Box>
@@ -80,7 +82,8 @@ export const Freezer = (props) => {
             }}
             value={data.targetGasTemperature}
             minValue={data.minGasTemperature}
-            maxValue={data.maxGasTemperature}>
+            maxValue={data.maxGasTemperature}
+          >
             <Box>{data.targetGasTemperature} K</Box>
           </ProgressBar>
           <Knob

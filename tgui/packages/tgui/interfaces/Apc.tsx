@@ -1,6 +1,13 @@
+import {
+  BlockQuote,
+  Box,
+  Button,
+  LabeledList,
+  ProgressBar,
+  Section,
+} from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Section, Box, Button, BlockQuote, LabeledList, ProgressBar } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type APCData = {
@@ -55,7 +62,8 @@ export const FailWindow = (props) => {
           color="bad"
           onClick={() => act('reboot')}
         />
-      }>
+      }
+    >
       <Box color="red">
         I/O regulator malfuction detected! Waiting for system reboot...
       </Box>

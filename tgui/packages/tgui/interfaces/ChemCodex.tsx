@@ -1,5 +1,5 @@
-import { useBackend, useLocalState } from '../backend';
 import { Input, LabeledList, NoticeBox, Section } from 'tgui-core/components';
+import { useBackend, useLocalState } from '../backend';
 import { NtosWindow } from '../layouts';
 
 export type CodexData = {
@@ -28,10 +28,7 @@ type Reagent = {
 
 export const ChemCodex = (props) => {
   const { act, data } = useBackend<CodexData>();
-  const [searchTerm, setSearchTerm] = useLocalState<string>(
-    `searchTerm`,
-    ``
-  );
+  const [searchTerm, setSearchTerm] = useLocalState<string>(`searchTerm`, ``);
 
   return (
     <NtosWindow>
@@ -58,12 +55,13 @@ export const ChemCodex = (props) => {
             (reaction) =>
               reaction.result.name
                 .toLowerCase()
-                .indexOf(searchTerm.toLowerCase()) > -1
+                .indexOf(searchTerm.toLowerCase()) > -1,
           )
           .map((reaction) => (
             <Section
               title={reaction.result.name + '(' + reaction.result.amount + 'u)'}
-              key={reaction.result.name}>
+              key={reaction.result.name}
+            >
               <NoticeBox>{reaction.result.description}</NoticeBox>
               <Section title="Required Reagents">
                 <LabeledList>
@@ -77,12 +75,13 @@ export const ChemCodex = (props) => {
                   <LabeledList>
                     {reaction.catalysts.length
                       ? reaction.catalysts.map((catalyst) => (
-                        <LabeledList.Item
-                          label={catalyst.name}
-                          key={catalyst.name}>
-                          {catalyst.amount}u
-                        </LabeledList.Item>
-                      ))
+                          <LabeledList.Item
+                            label={catalyst.name}
+                            key={catalyst.name}
+                          >
+                            {catalyst.amount}u
+                          </LabeledList.Item>
+                        ))
                       : 'No catalysts present for this recipe.'}
                   </LabeledList>
                 </Section>
@@ -90,12 +89,13 @@ export const ChemCodex = (props) => {
                   <LabeledList>
                     {reaction.inhibitors.length
                       ? reaction.inhibitors.map((inhibitor) => (
-                        <LabeledList.Item
-                          label={inhibitor.name}
-                          key={inhibitor.name}>
-                          {inhibitor.amount}u
-                        </LabeledList.Item>
-                      ))
+                          <LabeledList.Item
+                            label={inhibitor.name}
+                            key={inhibitor.name}
+                          >
+                            {inhibitor.amount}u
+                          </LabeledList.Item>
+                        ))
                       : 'No inhibitors present for this recipe.'}
                   </LabeledList>
                 </Section>

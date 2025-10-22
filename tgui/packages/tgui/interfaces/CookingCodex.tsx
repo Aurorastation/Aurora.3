@@ -1,5 +1,5 @@
-import { useBackend, useLocalState } from '../backend';
 import { Box, Input, Section, Table } from 'tgui-core/components';
+import { useBackend, useLocalState } from '../backend';
 import { NtosWindow } from '../layouts';
 
 export type CodexData = {
@@ -15,10 +15,7 @@ type Recipe = {
 
 export const CookingCodex = (props) => {
   const { act, data } = useBackend<CodexData>();
-  const [searchTerm, setSearchTerm] = useLocalState<string>(
-    `searchTerm`,
-    ``
-  );
+  const [searchTerm, setSearchTerm] = useLocalState<string>(`searchTerm`, ``);
 
   return (
     <NtosWindow theme="idris">
@@ -38,7 +35,8 @@ export const CookingCodex = (props) => {
               }}
               value={searchTerm}
             />
-          }>
+          }
+        >
           <Table collapsing pl="20px" pr="20px">
             <Table.Row header className="candystripe">
               <Table.Cell textAlign="right">Result</Table.Cell>

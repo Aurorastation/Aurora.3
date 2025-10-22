@@ -1,6 +1,17 @@
+import {
+  Box,
+  Button,
+  Divider,
+  Input,
+  LabeledList,
+  NoticeBox,
+  NumberInput,
+  Section,
+  Stack,
+  Table,
+} from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend, useLocalState, useSharedState } from '../backend';
-import { Box, Button, Divider, Input, LabeledList, NoticeBox, NumberInput, Section, Stack, Table } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type ATMData = {
@@ -46,7 +57,8 @@ export const ATM = (props) => {
                 onClick={() => act('logout')}
               />
             )
-          }>
+          }
+        >
           {data.ticks_left_locked_down ? (
             <NoticeBox color="red">
               This machine is locked down! Please contact Idris technical
@@ -111,19 +123,13 @@ export const LoginWindow = (props) => {
 export const AuthenticatedWindow = (props) => {
   const { act, data } = useBackend<ATMData>();
   const [withdraw, setWithdraw] = useLocalState<number>('withdraw', 0);
-  const [security, setSecurity] = useLocalState<boolean>(
-    'security',
-    false
-  );
-  const [transfer, setTransfer] = useLocalState<boolean>(
-    'transfer',
-    false
-  );
+  const [security, setSecurity] = useLocalState<boolean>('security', false);
+  const [transfer, setTransfer] = useLocalState<boolean>('transfer', false);
   const [target, setTarget] = useLocalState<string>('target', '');
   const [funds, setFunds] = useLocalState<number>('funds', 0);
   const [purpose, setPurpose] = useLocalState<string>(
     'purpose',
-    'Funds transfer'
+    'Funds transfer',
   );
   const [logs, setLogs] = useLocalState<boolean>('logs', false);
 
@@ -285,7 +291,8 @@ export const AuthenticatedWindow = (props) => {
               icon="print"
               onClick={() => act('print_transaction')}
             />
-          }>
+          }
+        >
           <Table>
             <Table.Row header>
               <Table.Cell>Date</Table.Cell>

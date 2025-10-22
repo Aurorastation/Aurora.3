@@ -1,7 +1,17 @@
+import {
+  BlockQuote,
+  Box,
+  Button,
+  Divider,
+  LabeledList,
+  ProgressBar,
+  Section,
+  Slider,
+  Stack,
+} from 'tgui-core/components';
 import { toFixed } from 'tgui-core/math';
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { BlockQuote, Box, Button, Divider, LabeledList, ProgressBar, Section, Slider, Stack } from 'tgui-core/components';
 import { NtosWindow } from '../layouts';
 
 type BatteryData = {
@@ -81,7 +91,8 @@ const ResourceUsage = (props) => {
             average: [0.5, 0.75],
             bad: [0.75, Infinity],
           }}
-          value={disk_used / disk_size}>
+          value={disk_used / disk_size}
+        >
           {remainingSpace} GQ free of {disk_size} GQ (
           {toFixed((disk_used / disk_size) * 100)}%)
         </ProgressBar>
@@ -126,9 +137,7 @@ export const NTOSConfig = (props) => {
                 value={message_range}
                 step={1}
                 stepPixelSize={30}
-                onChange={(_, value) =>
-                  act('audmessage', { 'new_range': value })
-                }
+                onChange={(_, value) => act('audmessage', { new_range: value })}
               />
             </LabeledList.Item>
             {!(typeof brightness === 'undefined') && (
@@ -140,7 +149,7 @@ export const NTOSConfig = (props) => {
                   stepPixelSize={30}
                   value={brightness}
                   onChange={(_, value) =>
-                    act('brightness', { 'new_brightness': value })
+                    act('brightness', { new_brightness: value })
                   }
                 />
               </LabeledList.Item>
@@ -164,15 +173,17 @@ export const NTOSConfig = (props) => {
                           color={!critical && enabled ? 'bad' : 'good'}
                           icon="power-off"
                           onClick={() =>
-                            act('PC_toggle_component', { 'component': name })
-                          }>
+                            act('PC_toggle_component', { component: name })
+                          }
+                        >
                           {critical
                             ? 'N/A'
                             : enabled
                               ? 'Power Off'
                               : 'Power On'}
                         </Button>
-                      }>
+                      }
+                    >
                       <BlockQuote>{desc}</BlockQuote>
                       {power_usage > 0 && (
                         <Box as="span">Power Usage: {power_usage} W</Box>

@@ -1,13 +1,20 @@
+import {
+  Box,
+  Button,
+  Input,
+  LabeledList,
+  Section,
+  Table,
+} from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend, useLocalState } from '../backend';
-import { Box, Button, Input, Section, LabeledList, Table } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type UplinkData = {
-  menu: Number;
+  menu: number;
   welcome: string;
-  telecrystals: Number;
-  bluecrystals: Number;
+  telecrystals: number;
+  bluecrystals: number;
 
   categories: { name: string; ref: string }[];
   items: ItemData[];
@@ -16,10 +23,10 @@ export type UplinkData = {
   exploit: ExploitData;
   exploit_exists: BooleanLike;
 
-  contracts_found: Number;
-  contracts_view: Number;
+  contracts_found: number;
+  contracts_view: number;
   contracts: ContractData[];
-  contracts_pages: Number[];
+  contracts_pages: number[];
   contract: ContractData;
 };
 
@@ -50,11 +57,11 @@ type ExploitData = {
 
 type ContractData = {
   id: number;
-  contractee: String;
-  title: String;
+  contractee: string;
+  title: string;
   status: BooleanLike;
-  description: String;
-  reward_other: String;
+  description: string;
+  reward_other: string;
 };
 
 export const Uplink = (props) => {
@@ -116,20 +123,14 @@ export const Uplink = (props) => {
   );
 };
 
-const ItemCategoriesSection = function (
-  context: any,
-  act: any,
-  data: UplinkData
-) {
-  const [searchTerm, setSearchTerm] = useLocalState<string>(
-    `searchTerm`,
-    ``
-  );
+const ItemCategoriesSection = (context: any, act: any, data: UplinkData) => {
+  const [searchTerm, setSearchTerm] = useLocalState<string>(`searchTerm`, ``);
 
   return (
     <Section
       title={'Gear ' + (!searchTerm ? 'categories' : 'search')}
-      buttons={ItemSearch()}>
+      buttons={ItemSearch()}
+    >
       {!searchTerm
         ? CategoriesList(act, data)
         : ItemSection(context, act, data)}
@@ -137,11 +138,8 @@ const ItemCategoriesSection = function (
   );
 };
 
-const ItemSearch = function (context: any) {
-  const [searchTerm, setSearchTerm] = useLocalState<string>(
-    `searchTerm`,
-    ``
-  );
+const ItemSearch = (context: any) => {
+  const [searchTerm, setSearchTerm] = useLocalState<string>(`searchTerm`, ``);
   return (
     <Input
       value={searchTerm}
@@ -153,27 +151,22 @@ const ItemSearch = function (context: any) {
   );
 };
 
-const CategoriesList = function (act: any, data: UplinkData) {
-  return (
-    <LabeledList>
-      {data.categories?.map((category) => (
-        <LabeledList.Item key={category.name}>
-          <Button
-            content={category.name}
-            color={'purple'}
-            onClick={() => act('menu', { menu: 1, category: category.ref })}
-          />
-        </LabeledList.Item>
-      ))}
-    </LabeledList>
-  );
-};
+const CategoriesList = (act: any, data: UplinkData) => (
+  <LabeledList>
+    {data.categories?.map((category) => (
+      <LabeledList.Item key={category.name}>
+        <Button
+          content={category.name}
+          color={'purple'}
+          onClick={() => act('menu', { menu: 1, category: category.ref })}
+        />
+      </LabeledList.Item>
+    ))}
+  </LabeledList>
+);
 
-const ItemSection = function (context: any, act: any, data: UplinkData) {
-  const [sortDesc, setSortDesc] = useLocalState<boolean>(
-    `sortDesc`,
-    true
-  );
+const ItemSection = (context: any, act: any, data: UplinkData) => {
+  const [sortDesc, setSortDesc] = useLocalState<boolean>(`sortDesc`, true);
 
   const [searchTerm] = useLocalState<string>(`searchTerm`, ``);
 
@@ -188,7 +181,7 @@ const ItemSection = function (context: any, act: any, data: UplinkData) {
     data.items = data.items?.filter(
       (i) =>
         i.name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1 ||
-        i.description.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1
+        i.description.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1,
     );
   }
   // sort by item cost first
@@ -213,9 +206,7 @@ const ItemSection = function (context: any, act: any, data: UplinkData) {
   });
 
   return (
-    <Section
-      title="Request Gear"
-      buttons={data.menu === 1 ? ItemSearch() : ''}>
+    <Section title="Request Gear" buttons={data.menu === 1 ? ItemSearch() : ''}>
       <span class="white">
         <i>
           Each item costs a number of telecrystals or bluecrystals as indicated
@@ -277,7 +268,7 @@ const ItemSection = function (context: any, act: any, data: UplinkData) {
   );
 };
 
-const ExploitSection = function (act: any, data: UplinkData) {
+const ExploitSection = (act: any, data: UplinkData) => {
   const exploit_sort = (a: ExploitData, b: ExploitData) => {
     return a.name.localeCompare(b.name);
   };
@@ -306,7 +297,7 @@ const ExploitSection = function (act: any, data: UplinkData) {
   );
 };
 
-const ExploitRecordSection = function (act: any, data: UplinkData) {
+const ExploitRecordSection = (act: any, data: UplinkData) => {
   if (data.exploit_exists && data.exploit) {
     const exploit = data.exploit;
     return (
@@ -334,7 +325,8 @@ const ExploitRecordSection = function (act: any, data: UplinkData) {
         <span
           style={{
             'white-space': 'pre-line',
-          }}>
+          }}
+        >
           {exploit.tgui_exploit_record
             ? exploit.tgui_exploit_record
             : 'No additional information acquired.'}
@@ -350,115 +342,107 @@ const ExploitRecordSection = function (act: any, data: UplinkData) {
   }
 };
 
-const ContractsSection = function (act: any, data: UplinkData) {
-  return (
-    <Section title="Available Contracts">
-      {!data.contracts_found ? (
-        <Box>No Contracts Available.</Box>
-      ) : (
-        <Box>
-          <Table>
-            <Table.Row>
-              <Table.Cell>ID</Table.Cell>
-              <Table.Cell>Contractor</Table.Cell>
-              <Table.Cell>Title</Table.Cell>
-            </Table.Row>
-            <Table.Row>
-              <Table.Cell colspan={999} textAlign="center">
-                <Box
-                  backgroundColor={data.contracts_view === 1 ? 'good' : 'bad'}>
-                  {data.contracts_view === 1
-                    ? 'Available Contracts'
-                    : 'Closed Contracts'}
-                </Box>
+const ContractsSection = (act: any, data: UplinkData) => (
+  <Section title="Available Contracts">
+    {!data.contracts_found ? (
+      <Box>No Contracts Available.</Box>
+    ) : (
+      <Box>
+        <Table>
+          <Table.Row>
+            <Table.Cell>ID</Table.Cell>
+            <Table.Cell>Contractor</Table.Cell>
+            <Table.Cell>Title</Table.Cell>
+          </Table.Row>
+          <Table.Row>
+            <Table.Cell colspan={999} textAlign="center">
+              <Box backgroundColor={data.contracts_view === 1 ? 'good' : 'bad'}>
+                {data.contracts_view === 1
+                  ? 'Available Contracts'
+                  : 'Closed Contracts'}
+              </Box>
+            </Table.Cell>
+          </Table.Row>
+          {data.contracts.map((contract: ContractData) => (
+            <Table.Row key={contract.id}>
+              <Table.Cell>{contract.id}</Table.Cell>
+              <Table.Cell>{contract.contractee}</Table.Cell>
+              <Table.Cell>{contract.title}</Table.Cell>
+              <Table.Cell>
+                <Button
+                  content="View"
+                  color={'purple'}
+                  onClick={() => act('menu', { menu: 31, id: contract.id })}
+                />
               </Table.Cell>
             </Table.Row>
-            {data.contracts.map((contract: ContractData) => (
-              <Table.Row key={contract.id}>
-                <Table.Cell>{contract.id}</Table.Cell>
-                <Table.Cell>{contract.contractee}</Table.Cell>
-                <Table.Cell>{contract.title}</Table.Cell>
-                <Table.Cell>
-                  <Button
-                    content="View"
-                    color={'purple'}
-                    onClick={() => act('menu', { menu: 31, id: contract.id })}
-                  />
-                </Table.Cell>
-              </Table.Row>
-            ))}
-          </Table>
-          <Box>
-            {data.contracts_pages.map((page_n: Number) => (
-              <Button
-                key={page_n}
-                content={page_n}
-                color={'purple'}
-                onClick={() => act('contract_page', { contract_page: page_n })}
-              />
-            ))}
-          </Box>
+          ))}
+        </Table>
+        <Box>
+          {data.contracts_pages.map((page_n: number) => (
+            <Button
+              key={page_n}
+              content={page_n}
+              color={'purple'}
+              onClick={() => act('contract_page', { contract_page: page_n })}
+            />
+          ))}
         </Box>
-      )}
-      <Box>
-        {data.contracts_view === 1 ? (
-          <Button
-            content="View Expired Contracts"
-            color={'purple'}
-            onClick={() => act('contract_view', { contract_view: 2 })}
-          />
-        ) : (
-          <Button
-            content="View Open Contracts"
-            color={'purple'}
-            onClick={() => act('contract_view', { contract_view: 1 })}
-          />
-        )}
       </Box>
-    </Section>
-  );
-};
-
-const ContractDetailsSection = function (act: any, data: UplinkData) {
-  return (
-    <Section title="Viewing Contract">
-      {data.contracts_found === 1 ? (
-        <LabeledList>
-          <LabeledList.Item label="ID">{data.contract.id}</LabeledList.Item>
-          <LabeledList.Item label="Contractee">
-            {data.contract.contractee}
-          </LabeledList.Item>
-          <LabeledList.Item label="Status">
-            <Box
-              backgroundColor={data.contract.status === true ? 'good' : 'bad'}>
-              {data.contract.status === true ? 'Open' : 'Closed'}
-            </Box>
-          </LabeledList.Item>
-          <LabeledList.Item label="Title">
-            {data.contract.title}
-          </LabeledList.Item>
-          <LabeledList.Item label="Description">
-            {data.contract.description}
-          </LabeledList.Item>
-          <LabeledList.Item label="Reward">
-            {data.contract.reward_other}
-          </LabeledList.Item>
-        </LabeledList>
-      ) : (
-        <Box>{'Failed to retrieve contract information!'}</Box>
-      )}
-      <br />
-      {data.contracts_found === 1 ? (
+    )}
+    <Box>
+      {data.contracts_view === 1 ? (
         <Button
-          content="View Reports And Updates"
+          content="View Expired Contracts"
           color={'purple'}
-          onClick={() =>
-            act('contract_interact', { contract_interact: data.contract.id })
-          }
+          onClick={() => act('contract_view', { contract_view: 2 })}
         />
       ) : (
-        ''
+        <Button
+          content="View Open Contracts"
+          color={'purple'}
+          onClick={() => act('contract_view', { contract_view: 1 })}
+        />
       )}
-    </Section>
-  );
-};
+    </Box>
+  </Section>
+);
+
+const ContractDetailsSection = (act: any, data: UplinkData) => (
+  <Section title="Viewing Contract">
+    {data.contracts_found === 1 ? (
+      <LabeledList>
+        <LabeledList.Item label="ID">{data.contract.id}</LabeledList.Item>
+        <LabeledList.Item label="Contractee">
+          {data.contract.contractee}
+        </LabeledList.Item>
+        <LabeledList.Item label="Status">
+          <Box backgroundColor={data.contract.status === true ? 'good' : 'bad'}>
+            {data.contract.status === true ? 'Open' : 'Closed'}
+          </Box>
+        </LabeledList.Item>
+        <LabeledList.Item label="Title">{data.contract.title}</LabeledList.Item>
+        <LabeledList.Item label="Description">
+          {data.contract.description}
+        </LabeledList.Item>
+        <LabeledList.Item label="Reward">
+          {data.contract.reward_other}
+        </LabeledList.Item>
+      </LabeledList>
+    ) : (
+      <Box>{'Failed to retrieve contract information!'}</Box>
+    )}
+    <br />
+    {data.contracts_found === 1 ? (
+      <Button
+        content="View Reports And Updates"
+        color={'purple'}
+        onClick={() =>
+          act('contract_interact', { contract_interact: data.contract.id })
+        }
+      />
+    ) : (
+      ''
+    )}
+  </Section>
+);

@@ -1,7 +1,13 @@
-import { useBackend } from '../backend';
-import { Button, Knob, LabeledControls, Section, LabeledList } from 'tgui-core/components';
-import { Window } from '../layouts';
+import {
+  Button,
+  Knob,
+  LabeledControls,
+  LabeledList,
+  Section,
+} from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
+import { useBackend } from '../backend';
+import { Window } from '../layouts';
 
 export type BluespaceDriveData = {
   energized: BooleanLike;

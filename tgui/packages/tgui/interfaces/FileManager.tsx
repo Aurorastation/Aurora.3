@@ -1,6 +1,6 @@
+import { Box, Button, NoticeBox, Section, Table } from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Box, Button, NoticeBox, Section, Table } from 'tgui-core/components';
 import { NtosWindow } from '../layouts';
 import { sanitizeText } from '../sanitize';
 
@@ -60,7 +60,8 @@ export const ShowFiles = (props) => {
           icon="folder"
           onClick={() => act('PRG_newtextfile')}
         />
-      }>
+      }
+    >
       <Table>
         <Table.Row header>
           <Table.Cell>Name</Table.Cell>
@@ -181,7 +182,8 @@ export const ShowFile = (props) => {
             }
           />
         </>
-      }>
+      }
+    >
       <Box dangerouslySetInnerHTML={contentHtml} />
     </Section>
   );

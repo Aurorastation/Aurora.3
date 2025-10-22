@@ -1,5 +1,11 @@
+import {
+  Button,
+  LabeledList,
+  NoticeBox,
+  Section,
+  Table,
+} from 'tgui-core/components';
 import { useBackend } from '../backend';
-import { Button, LabeledList, NoticeBox, Section, Table } from 'tgui-core/components';
 import { NtosWindow } from '../layouts';
 
 export type WarrantData = {
@@ -47,7 +53,8 @@ export const ActiveWarrantEdit = (props) => {
             onClick={() => act('deletewarrant')}
           />
         </>
-      }>
+      }
+    >
       <LabeledList>
         <LabeledList.Item label="Name">
           {data.active_warrant.name}&nbsp;
@@ -91,7 +98,8 @@ export const AllWarrants = (props) => {
         title="Arrest Warrants"
         buttons={
           <Button content="Add Warrant" onClick={() => act('addwarrant')} />
-        }>
+        }
+      >
         {data.allwarrants && data.allwarrants.length ? (
           <Table>
             <Table.Row header>

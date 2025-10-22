@@ -1,6 +1,6 @@
+import { Button, Input, NoticeBox, Section } from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend, useLocalState } from '../backend';
-import { Button, Input, NoticeBox, Section } from 'tgui-core/components';
 import { NtosWindow } from '../layouts';
 
 export type CameraData = {
@@ -53,7 +53,8 @@ export const ShowNetworks = (props) => {
           icon="user-circle"
           onClick={() => act('reset')}
         />
-      }>
+      }
+    >
       {data.networks
         .filter((n) => n.has_access)
         .map((network) => (
@@ -72,10 +73,7 @@ export const ShowNetworks = (props) => {
 
 export const ShowNetworkCameras = (props) => {
   const { act, data } = useBackend<CameraData>();
-  const [searchTerm, setSearchTerm] = useLocalState<string>(
-    `searchTerm`,
-    ``
-  );
+  const [searchTerm, setSearchTerm] = useLocalState<string>(`searchTerm`, ``);
 
   return (
     <Section
@@ -92,11 +90,12 @@ export const ShowNetworkCameras = (props) => {
           }}
           value={searchTerm}
         />
-      }>
+      }
+    >
       {data.cameras && data.cameras.length ? (
         data.cameras
           .filter(
-            (c) => c.name?.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1
+            (c) => c.name?.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1,
           )
           .map((camera) => (
             <Button

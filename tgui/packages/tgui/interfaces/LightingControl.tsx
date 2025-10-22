@@ -1,5 +1,5 @@
-import { useBackend } from '../backend';
 import { Button, LabeledList, Section } from 'tgui-core/components';
+import { useBackend } from '../backend';
 import { NtosWindow } from '../layouts';
 
 export type LightingData = {
@@ -22,7 +22,8 @@ export const LightingControl = (props) => {
               icon="check"
               onClick={() => act('set')}
             />
-          }>
+          }
+        >
           <LabeledList>
             <LabeledList.Item label="Target Areas">
               <Button

@@ -1,6 +1,13 @@
+import {
+  AnimatedNumber,
+  Button,
+  LabeledList,
+  NumberInput,
+  ProgressBar,
+  Section,
+} from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { AnimatedNumber, Button, LabeledList, ProgressBar, NumberInput, Section } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 type Data = {
@@ -111,7 +118,8 @@ export const AtmosPump = (props) => {
                   })()}
                   minValue={0}
                   maxValue={max_power_draw}
-                  value={power_draw}>
+                  value={power_draw}
+                >
                   {power_draw} W
                   <AnimatedNumber value={power_draw} />
                 </ProgressBar>

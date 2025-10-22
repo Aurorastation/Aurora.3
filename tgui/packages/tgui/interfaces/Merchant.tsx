@@ -1,7 +1,14 @@
+import {
+  Box,
+  Button,
+  LabeledControls,
+  LabeledList,
+  NoticeBox,
+  Section,
+} from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { capitalizeAll } from 'tgui-core/string';
 import { useBackend } from '../backend';
-import { Box, Button, LabeledControls, LabeledList, NoticeBox, Section } from 'tgui-core/components';
 import { NtosWindow } from '../layouts';
 
 export type MerchantData = {
@@ -47,7 +54,8 @@ export const ModeWindow = (props) => {
             onClick={() => act('PRG_scroll', { PRG_scroll: 'right' })}
           />
         </>
-      }>
+      }
+    >
       <Box fontSize={1.5} bold>
         {data.traderName}
       </Box>
@@ -68,7 +76,8 @@ export const Hailed = (props) => {
           title="Communications"
           buttons={
             <Button icon="arrow-left" onClick={() => act('PRG_show_trades')} />
-          }>
+          }
+        >
           {data.trades.map((trade) => (
             <Section key={trade}>
               <Box fontSize={1.5} textAlign="centre" bold>
@@ -194,7 +203,8 @@ export const MainMenu = (props) => {
     <Section
       title={
         'Orion Express Trade Interface' + ' (Balance: ' + data.bank + '电)'
-      }>
+      }
+    >
       <LabeledControls>
         <LabeledControls.Item>
           <Button
@@ -249,7 +259,8 @@ export const TempWindow = (props) => {
           icon="play"
           onClick={() => act('PRG_continue')}
         />
-      }>
+      }
+    >
       <NoticeBox>{data.temp}</NoticeBox>
     </Section>
   );

@@ -1,5 +1,12 @@
+import {
+  BlockQuote,
+  Box,
+  Button,
+  Input,
+  NoticeBox,
+  Section,
+} from 'tgui-core/components';
 import { useBackend, useLocalState } from '../backend';
-import { BlockQuote, Box, Button, Input, NoticeBox, Section } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type PsiData = {
@@ -20,10 +27,7 @@ type Psionic = {
 export const PsionicShop = (props) => {
   const { act, data } = useBackend<PsiData>();
 
-  const [searchTerm, setSearchTerm] = useLocalState<string>(
-    `searchTerm`,
-    ``
-  );
+  const [searchTerm, setSearchTerm] = useLocalState<string>(`searchTerm`, ``);
 
   return (
     <Window theme="wizard">
@@ -42,7 +46,8 @@ export const PsionicShop = (props) => {
               }}
               value={searchTerm}
             />
-          }>
+          }
+        >
           <Box fontSize={1.4}>
             You are{' '}
             <Box as="span" bold>
@@ -76,16 +81,14 @@ export const PsionicShop = (props) => {
 export const PsionicsList = (props) => {
   const { act, data } = useBackend<PsiData>();
 
-  const [searchTerm, setSearchTerm] = useLocalState<string>(
-    `searchTerm`,
-    ``
-  );
+  const [searchTerm, setSearchTerm] = useLocalState<string>(`searchTerm`, ``);
 
   return (
     <Section>
       {data.available_psionics
         .filter(
-          (psi) => psi.name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1
+          (psi) =>
+            psi.name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1,
         )
         .map((psi) => (
           <Section
@@ -102,7 +105,8 @@ export const PsionicsList = (props) => {
                 }
                 onClick={() => act('buy', { buy: psi.path })}
               />
-            }>
+            }
+          >
             <BlockQuote>{psi.desc}</BlockQuote>
           </Section>
         ))}

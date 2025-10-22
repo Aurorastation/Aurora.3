@@ -1,6 +1,13 @@
+import {
+  Box,
+  Button,
+  Knob,
+  LabeledList,
+  ProgressBar,
+  Section,
+} from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Section, Box, ProgressBar, Button, Knob, LabeledList } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type PumpData = {
@@ -46,7 +53,8 @@ export const PortablePump = (props) => {
                 onClick={() => act('direction')}
               />
             </>
-          }>
+          }
+        >
           <LabeledList>
             <LabeledList.Item label="Tank Pressure">
               {data.tankPressure} kPa
@@ -81,7 +89,8 @@ export const PortablePump = (props) => {
                 onClick={() => act('remove_tank')}
               />
             )
-          }>
+          }
+        >
           {data.hasHoldingTank ? (
             <HoldingTankWindow />
           ) : (

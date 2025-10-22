@@ -1,5 +1,5 @@
+import { Button, Divider, LabeledList, Section } from 'tgui-core/components';
 import { useBackend } from '../backend';
-import { Button, Section, LabeledList, Divider } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type TurboLiftData = {

@@ -1,8 +1,22 @@
-import { Loader } from './common/Loader';
+import {
+  Autofocus,
+  Box,
+  Button,
+  Flex,
+  Section,
+  Stack,
+} from 'tgui-core/components';
+import {
+  KEY_ENTER,
+  KEY_ESCAPE,
+  KEY_LEFT,
+  KEY_RIGHT,
+  KEY_SPACE,
+  KEY_TAB,
+} from 'tgui-core/keycodes';
 import { useBackend, useLocalState } from '../backend';
-import { KEY_ENTER, KEY_ESCAPE, KEY_LEFT, KEY_RIGHT, KEY_SPACE, KEY_TAB } from 'tgui-core/keycodes';
-import { Autofocus, Box, Button, Flex, Section, Stack } from 'tgui-core/components';
 import { Window } from '../layouts';
+import { Loader } from './common/Loader';
 
 type AlertModalData = {
   autofocus: boolean;
@@ -65,7 +79,8 @@ export const AlertModal = (props) => {
             e.preventDefault();
             onKey(KEY_INCREMENT);
           }
-        }}>
+        }}
+      >
         <Section fill>
           <Stack fill vertical>
             <Stack.Item grow m={1}>
@@ -100,7 +115,8 @@ const ButtonDisplay = (props) => {
       direction={!swapped_buttons ? 'row-reverse' : 'row'}
       fill
       justify="space-around"
-      wrap>
+      wrap
+    >
       {buttons?.map((button, index) =>
         !!large_buttons && buttons.length < 3 ? (
           <Flex.Item grow key={index}>
@@ -118,7 +134,7 @@ const ButtonDisplay = (props) => {
               selected={selected === index}
             />
           </Flex.Item>
-        )
+        ),
       )}
     </Flex>
   );
@@ -144,7 +160,8 @@ const AlertButton = (props) => {
       pt={large_buttons ? 0.33 : 0}
       selected={selected}
       textAlign="center"
-      width={!large_buttons && buttonWidth}>
+      width={!large_buttons && buttonWidth}
+    >
       {!large_buttons ? button : button.toUpperCase()}
     </Button>
   );

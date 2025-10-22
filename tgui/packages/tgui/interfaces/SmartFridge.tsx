@@ -1,6 +1,13 @@
+import {
+  BlockQuote,
+  Box,
+  Button,
+  Input,
+  LabeledList,
+  Section,
+} from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend, useLocalState } from '../backend';
-import { BlockQuote, Box, Button, LabeledList, Section, Input } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type FridgeData = {
@@ -20,10 +27,7 @@ type Item = {
 
 export const SmartFridge = (props) => {
   const { act, data } = useBackend<FridgeData>();
-  const [searchTerm, setSearchTerm] = useLocalState<string>(
-    `searchTerm`,
-    ``
-  );
+  const [searchTerm, setSearchTerm] = useLocalState<string>(`searchTerm`, ``);
 
   return (
     <Window>
@@ -46,7 +50,8 @@ export const SmartFridge = (props) => {
                 onClick={() => act('switch_sort_alphabetically')}
               />
             </Section>
-          }>
+          }
+        >
           {data.secure ? (
             data.locked === -1 ? (
               <BlockQuote>
@@ -76,12 +81,12 @@ export const ContentsWindow = (props) => {
   const [searchTerm] = useLocalState<string>(`searchTerm`, ``);
   const itemList = data.contents.filter(
     (item) =>
-      item.display_name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1
+      item.display_name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1,
   );
   const itemListSorted = data.sort_alphabetically
     ? itemList.sort((item1, item2) => {
-      return item1.display_name.localeCompare(item2.display_name);
-    })
+        return item1.display_name.localeCompare(item2.display_name);
+      })
     : itemList;
 
   return (

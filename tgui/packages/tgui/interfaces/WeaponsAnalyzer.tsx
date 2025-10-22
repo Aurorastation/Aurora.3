@@ -1,7 +1,7 @@
-import type { BooleanLike } from 'tgui-core/react';
-import { useBackend } from '../backend';
-import { capitalizeAll } from 'tgui-core/string';
 import { BlockQuote, Button, LabeledList, Section } from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { capitalizeAll } from 'tgui-core/string';
+import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
 export type AnalyzerData = {

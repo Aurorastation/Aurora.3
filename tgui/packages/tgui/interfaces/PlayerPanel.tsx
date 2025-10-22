@@ -1,6 +1,6 @@
+import { Box, Button, Input, Section, Table } from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend, useLocalState } from '../backend';
-import { Input, Box, Button, Section, Table } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type PanelData = {
@@ -25,10 +25,7 @@ type Player = {
 export const PlayerPanel = (props) => {
   const { act, data } = useBackend<PanelData>();
 
-  const [searchTerm, setSearchTerm] = useLocalState<string>(
-    `searchTerm`,
-    ``
-  );
+  const [searchTerm, setSearchTerm] = useLocalState<string>(`searchTerm`, ``);
 
   return (
     <Window theme="admin">
@@ -47,7 +44,8 @@ export const PlayerPanel = (props) => {
               }}
               value={searchTerm}
             />
-          }>
+          }
+        >
           <Table>
             <Table.Row header>
               <Table.Cell>Name</Table.Cell>
@@ -69,7 +67,7 @@ export const PlayerPanel = (props) => {
                     .indexOf(searchTerm.toLowerCase()) > -1 ||
                   player.assigment
                     ?.toLowerCase()
-                    .indexOf(searchTerm.toLowerCase()) > -1
+                    .indexOf(searchTerm.toLowerCase()) > -1,
               )
               .map((player) => (
                 <Table.Row key={player.name}>

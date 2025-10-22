@@ -1,6 +1,14 @@
+import {
+  Box,
+  Button,
+  Flex,
+  Knob,
+  LabeledList,
+  ProgressBar,
+  Section,
+} from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Box, Button, Flex, LabeledList, Knob, ProgressBar, Section } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type SpaceHeaterData = {
@@ -31,7 +39,8 @@ export const SpaceHeater = (props) => {
               color={!data.is_on ? 'red' : 'green'}
               onClick={() => act('powerToggle')}
             />
-          }>
+          }
+        >
           <Box>
             <Section fill title="Power Status">
               <LabeledList>

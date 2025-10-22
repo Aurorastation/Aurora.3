@@ -1,6 +1,14 @@
+import {
+  BlockQuote,
+  Box,
+  Button,
+  Flex,
+  LabeledList,
+  Section,
+  Table,
+} from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { BlockQuote, Box, Button, Flex, LabeledList, Section, Table } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type ScannerData = {
@@ -133,7 +141,8 @@ export const ScannerWindow = (props) => {
                 />
               </>
             ) : null
-          }>
+          }
+        >
           <LabeledList>
             <LabeledList.Item label="Name">{data.name}</LabeledList.Item>
             {data.has_detailed_view ? (
@@ -144,18 +153,21 @@ export const ScannerWindow = (props) => {
             {data.has_detailed_view ? (
               <LabeledList.Item
                 label="Status"
-                color={consciousnessLabel(data.stat)}>
+                color={consciousnessLabel(data.stat)}
+              >
                 {consciousnessText(data.stat)}
               </LabeledList.Item>
             ) : null}
             <LabeledList.Item
               label="Brain Activity"
-              color={progressClass(data.brain_activity)}>
+              color={progressClass(data.brain_activity)}
+            >
               {brainText(data.brain_activity)}
             </LabeledList.Item>
             <LabeledList.Item
               label="Pulse"
-              color={progressClass(data.brain_activity)}>
+              color={progressClass(data.brain_activity)}
+            >
               {data.pulse} BPM
             </LabeledList.Item>
             {data.has_detailed_view ? (
@@ -166,14 +178,16 @@ export const ScannerWindow = (props) => {
             {data.has_detailed_view ? null : (
               <LabeledList.Item
                 label="Blood Oxygenation"
-                color={progressClass(data.blood_o2)}>
+                color={progressClass(data.blood_o2)}
+              >
                 {Math.round(data.blood_o2)}%
               </LabeledList.Item>
             )}
             {data.has_detailed_view ? null : (
               <LabeledList.Item
                 label="Blood Volume"
-                color={progressClass(data.brain_activity)}>
+                color={progressClass(data.brain_activity)}
+              >
                 {Math.round(data.blood_volume)}%
               </LabeledList.Item>
             )}
@@ -186,17 +200,20 @@ export const ScannerWindow = (props) => {
             <LabeledList>
               <LabeledList.Item
                 label="Blood Pressure"
-                color={getPressureClass(data.blood_pressure_level)}>
+                color={getPressureClass(data.blood_pressure_level)}
+              >
                 {data.blood_pressure}
               </LabeledList.Item>
               <LabeledList.Item
                 label="Blood Oxygenation"
-                color={progressClass(data.blood_o2)}>
+                color={progressClass(data.blood_o2)}
+              >
                 {Math.round(data.blood_o2)}%
               </LabeledList.Item>
               <LabeledList.Item
                 label="Blood Volume"
-                color={progressClass(data.brain_activity)}>
+                color={progressClass(data.brain_activity)}
+              >
                 {Math.round(data.blood_volume)}%
               </LabeledList.Item>
               <LabeledList.Item label="Blood Type">
@@ -261,12 +278,14 @@ export const ScannerWindow = (props) => {
             <LabeledList>
               <LabeledList.Item
                 label="Radiation Level"
-                color={data.rads !== 0 ? 'yellow' : 'white'}>
+                color={data.rads !== 0 ? 'yellow' : 'white'}
+              >
                 {Math.round(data.rads)} Gy
               </LabeledList.Item>
               <LabeledList.Item
                 label="Genetic Damage"
-                color={data.cloneLoss !== 'None' ? 'orange' : 'white'}>
+                color={data.cloneLoss !== 'None' ? 'orange' : 'white'}
+              >
                 {data.cloneLoss}
               </LabeledList.Item>
               <LabeledList.Item label="Est. Paralysis Level">
@@ -284,22 +303,26 @@ export const ScannerWindow = (props) => {
             <LabeledList>
               <LabeledList.Item
                 label="Brute Trauma"
-                color={damageLabel(data.bruteLoss)}>
+                color={damageLabel(data.bruteLoss)}
+              >
                 {data.bruteLoss}
               </LabeledList.Item>
               <LabeledList.Item
                 label="Burn Severity"
-                color={damageLabel(data.fireLoss)}>
+                color={damageLabel(data.fireLoss)}
+              >
                 {data.fireLoss}
               </LabeledList.Item>
               <LabeledList.Item
                 label="Oxygen Deprivation"
-                color={damageLabel(data.oxyLoss)}>
+                color={damageLabel(data.oxyLoss)}
+              >
                 {data.oxyLoss}
               </LabeledList.Item>
               <LabeledList.Item
                 label="Toxin Exposure"
-                color={damageLabel(data.toxLoss)}>
+                color={damageLabel(data.toxLoss)}
+              >
                 {data.toxLoss}
               </LabeledList.Item>
             </LabeledList>
@@ -375,7 +398,8 @@ export const OrganWindow = (props) => {
             {organ.wounds}
           </Table.Cell>
           <Table.Cell
-            color={organ.infection !== 'Healthy' ? 'yellow' : 'white'}>
+            color={organ.infection !== 'Healthy' ? 'yellow' : 'white'}
+          >
             {organ.infection}
           </Table.Cell>
         </Table.Row>

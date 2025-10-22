@@ -1,6 +1,13 @@
+import {
+  Button,
+  LabeledList,
+  NoticeBox,
+  ProgressBar,
+  Section,
+  Table,
+} from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Button, LabeledList, NoticeBox, ProgressBar, Section, Table } from 'tgui-core/components';
 import { NtosWindow } from '../layouts';
 
 export type AIData = {
@@ -100,7 +107,8 @@ export const MaintenanceWindow = (props) => {
               onClick={() => act('PRG_uploadNTDefault')}
             />
           </>
-        }>
+        }
+      >
         {data.ai_laws && data.ai_laws.length ? (
           <Table>
             <Table.Row header>

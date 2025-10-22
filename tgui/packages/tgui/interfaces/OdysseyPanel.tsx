@@ -1,6 +1,12 @@
+import {
+  Box,
+  Button,
+  LabeledList,
+  NoticeBox,
+  Section,
+} from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Box, Button, LabeledList, NoticeBox, Section } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type OdysseyData = {
@@ -35,7 +41,8 @@ export const OdysseyPanel = (props) => {
               disabled={!data.is_storyteller}
               onClick={() => act('edit_scenario_name')}
             />
-          }>
+          }
+        >
           {data.scenario_desc}{' '}
           <Button
             icon="pencil"
@@ -50,7 +57,8 @@ export const OdysseyPanel = (props) => {
               as="span"
               color={
                 data.scenario_canonicity === 'Non-Canon' ? 'orange' : 'green'
-              }>
+              }
+            >
               {data.scenario_canonicity}
             </Box>{' '}
             scenario. Please remember that the one thing you cannot change about
@@ -118,7 +126,8 @@ export const RoleDisplay = (props) => {
             ) : (
               ''
             )
-          }>
+          }
+        >
           {role.desc}{' '}
           {data.is_storyteller ? (
             <Button

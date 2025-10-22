@@ -1,5 +1,5 @@
-import { useBackend } from '../backend';
 import { Box, Divider, Section } from 'tgui-core/components';
+import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
 export type FlavorTextData = {
@@ -38,7 +38,7 @@ export const FlavorText = (props) => {
                 <Linkify text={line} />
                 <Divider />
               </Box>
-            ) : null
+            ) : null,
           )}
         </Section>
       </Window.Content>

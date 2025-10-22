@@ -1,6 +1,11 @@
+import {
+  Button,
+  LabeledList,
+  ProgressBar,
+  Section,
+} from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Button, LabeledList, ProgressBar, Section } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type EngineData = {
@@ -46,7 +51,8 @@ export const TrainEngine = (props) => {
                   }}
                   value={data.cell_charge}
                   minValue={0}
-                  maxValue={100}>
+                  maxValue={100}
+                >
                   {data.cell_charge}%
                 </ProgressBar>
               ) : (

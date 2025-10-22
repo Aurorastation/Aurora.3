@@ -1,6 +1,15 @@
+import {
+  Box,
+  Button,
+  Input,
+  LabeledList,
+  NumberInput,
+  Section,
+  Table,
+  Tabs,
+} from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend, useLocalState } from '../backend';
-import { Box, Button, Input, LabeledList, NumberInput, Section, Table, Tabs } from 'tgui-core/components';
 import { NtosWindow } from '../layouts';
 
 export type DatabaseData = {
@@ -65,10 +74,7 @@ export const AccountWindow = (props) => {
   const { act, data } = useBackend<DatabaseData>();
   const [active, setActive] = useLocalState('active', 'none');
   const [tab, setTab] = useLocalState('tab', 'All Accounts');
-  const [make_new_acc, setMakeNewAcc] = useLocalState(
-    'make_new_acc',
-    0
-  );
+  const [make_new_acc, setMakeNewAcc] = useLocalState('make_new_acc', 0);
   const [new_name, setNewName] = useLocalState('new_name', '');
   const [new_funds, setNewFunds] = useLocalState('new_funds', 0);
 
@@ -81,7 +87,8 @@ export const AccountWindow = (props) => {
           icon="print"
           onClick={() => act('print')}
         />
-      }>
+      }
+    >
       {active ? (
         <Tabs>
           <Tabs.Tab onClick={() => setTab('All Accounts')}>
@@ -119,7 +126,8 @@ export const AccountWindow = (props) => {
             title="New Account Creation"
             buttons={
               <Button content="Begin" onClick={() => setMakeNewAcc(1)} />
-            }>
+            }
+          >
             {make_new_acc ? (
               <>
                 <Input
@@ -162,17 +170,11 @@ export const SpecificAccountData = (props) => {
   const [active, setActive] = useLocalState('active', 'none');
   const [tab, setTab] = useLocalState('tab', 'All Accounts');
   const [adding_funds, setAdding] = useLocalState('adding_funds', 0);
-  const [removing_funds, setRemoving] = useLocalState(
-    'removing_funds',
-    0
-  );
-  const [funds_to_add, setFundsToAdd] = useLocalState(
-    'funds_to_add',
-    0
-  );
+  const [removing_funds, setRemoving] = useLocalState('removing_funds', 0);
+  const [funds_to_add, setFundsToAdd] = useLocalState('funds_to_add', 0);
   const [funds_to_remove, setFundsToRemove] = useLocalState(
     'funds_to_remove',
-    0
+    0,
   );
 
   return (
@@ -210,7 +212,8 @@ export const SpecificAccountData = (props) => {
                   }
                 />
               </>
-            }>
+            }
+          >
             <LabeledList>
               <LabeledList.Item label="Number">
                 {account.account_number}
@@ -317,7 +320,7 @@ export const SpecificAccountData = (props) => {
           </Section>
         ) : (
           ''
-        )
+        ),
       )}
     </Section>
   );

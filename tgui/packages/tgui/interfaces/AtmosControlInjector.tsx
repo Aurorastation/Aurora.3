@@ -1,6 +1,6 @@
+import { Button, LabeledList, Section } from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Section, LabeledList, Button } from 'tgui-core/components';
 import { Window } from '../layouts';
 import { AtmosControl } from './AtmosControl';
 

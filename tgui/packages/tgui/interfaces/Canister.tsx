@@ -1,7 +1,14 @@
-import { useBackend } from '../backend';
-import { Section, Box, ProgressBar, Knob, Button, LabeledList } from 'tgui-core/components';
-import { Window } from '../layouts';
+import {
+  Box,
+  Button,
+  Knob,
+  LabeledList,
+  ProgressBar,
+  Section,
+} from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
+import { useBackend } from '../backend';
+import { Window } from '../layouts';
 
 export type CanisterData = {
   name: string;
@@ -23,7 +30,7 @@ type Tank = {
 
 export const Canister = (props) => {
   const { act, data } = useBackend<CanisterData>();
-  let port_string = data.portConnected ? 'Connected' : 'Disconnected';
+  const port_string = data.portConnected ? 'Connected' : 'Disconnected';
 
   return (
     <Window>
@@ -38,7 +45,8 @@ export const Canister = (props) => {
                 onClick={() => act('relabel')}
               />
             )
-          }>
+          }
+        >
           <LabeledList>
             <LabeledList.Item label="Tank Label">{data.name}</LabeledList.Item>
             <LabeledList.Item label="Tank Pressure">
@@ -60,7 +68,8 @@ export const Canister = (props) => {
                 onClick={() => act('remove_tank')}
               />
             )
-          }>
+          }
+        >
           {data.hasHoldingTank ? (
             <HoldingTankWindow />
           ) : (

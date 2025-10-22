@@ -1,5 +1,5 @@
-import { useBackend } from '../backend';
 import { Button, Section, Table } from 'tgui-core/components';
+import { useBackend } from '../backend';
 import { NtosWindow } from '../layouts';
 
 export type TrackerData = {

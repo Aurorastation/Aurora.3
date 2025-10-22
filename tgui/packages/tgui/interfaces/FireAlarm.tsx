@@ -1,10 +1,10 @@
+import { Box, Button, Section } from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Section, Button, Box } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type FireAlarmData = {
-  alertLevel: String;
+  alertLevel: string;
   time: number;
   active: BooleanLike;
   timing: BooleanLike;
@@ -43,7 +43,8 @@ export const FireAlarm = (props) => {
           <br />
           <Button
             onClick={() => act('start_timer')}
-            disabled={data.timing || !data.time}>
+            disabled={data.timing || !data.time}
+          >
             Start Timer
           </Button>
           <Button onClick={() => act('stop_timer')} disabled={!data.timing}>

@@ -1,6 +1,14 @@
+import {
+  Box,
+  Button,
+  Input,
+  Section,
+  Stack,
+  Table,
+  Tabs,
+} from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend, useLocalState } from '../backend';
-import { Box, Button, Input, Section, Stack, Table, Tabs } from 'tgui-core/components';
 import { NtosWindow } from '../layouts';
 
 export type ChatData = {
@@ -38,12 +46,9 @@ export const ChatClient = (props) => {
   const { act, data } = useBackend<ChatData>();
   const [editingRingtone, setEditingRingtone] = useLocalState(
     'editingRingtone',
-    0
+    0,
   );
-  const [searchTerm, setSearchTerm] = useLocalState<string>(
-    `searchTerm`,
-    ``
-  );
+  const [searchTerm, setSearchTerm] = useLocalState<string>(`searchTerm`, ``);
 
   return (
     <NtosWindow width={700}>
@@ -84,7 +89,8 @@ export const ChatClient = (props) => {
                 ''
               )}
             </>
-          }>
+          }
+        >
           {data.users && data.users.length ? <Users /> : 'There are no users.'}
           {!data.active ? <ChannelsWindow /> : ''}
         </Section>
@@ -95,10 +101,7 @@ export const ChatClient = (props) => {
 
 export const Users = (props) => {
   const { act, data } = useBackend<ChatData>();
-  const [searchTerm, setSearchTerm] = useLocalState<string>(
-    `searchTerm`,
-    ``
-  );
+  const [searchTerm, setSearchTerm] = useLocalState<string>(`searchTerm`, ``);
 
   return (
     <Section>
@@ -107,23 +110,25 @@ export const Users = (props) => {
           <Tabs.Tab
             height="20%"
             selected={!data.active}
-            onClick={() => act('set_active', { set_active: null })}>
+            onClick={() => act('set_active', { set_active: null })}
+          >
             All
           </Tabs.Tab>
           {data.channels?.length
             ? data.channels
-              .filter((chn) => chn.can_interact)
-              .map((channel) => (
-                <Tabs.Tab
-                  height="10%"
-                  key={channel.ref}
-                  selected={data.active && data.active.ref === channel.ref}
-                  onClick={() =>
-                    act('set_active', { set_active: channel.ref })
-                  }>
-                  {channel.title}
-                </Tabs.Tab>
-              ))
+                .filter((chn) => chn.can_interact)
+                .map((channel) => (
+                  <Tabs.Tab
+                    height="10%"
+                    key={channel.ref}
+                    selected={data.active && data.active.ref === channel.ref}
+                    onClick={() =>
+                      act('set_active', { set_active: channel.ref })
+                    }
+                  >
+                    {channel.title}
+                  </Tabs.Tab>
+                ))
             : null}
         </Tabs>
       </Section>
@@ -134,10 +139,7 @@ export const Users = (props) => {
 
 export const AllUsers = (props) => {
   const { act, data } = useBackend<ChatData>();
-  const [searchTerm, setSearchTerm] = useLocalState<string>(
-    `searchTerm`,
-    ``
-  );
+  const [searchTerm, setSearchTerm] = useLocalState<string>(`searchTerm`, ``);
 
   return (
     <Stack vertical>
@@ -158,7 +160,8 @@ export const AllUsers = (props) => {
         data.users
           .filter(
             (usr) =>
-              usr.username?.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1
+              usr.username?.toLowerCase().indexOf(searchTerm.toLowerCase()) >
+              -1,
           )
           .map((user) => (
             <Stack.Item key={user.ref}>
@@ -174,25 +177,16 @@ export const AllUsers = (props) => {
 
 export const Chat = (props) => {
   const { act, data } = useBackend<ChatData>();
-  const [newMessage, setNewMessage] = useLocalState<string>(
-    `newMessage`,
-    ``
-  );
+  const [newMessage, setNewMessage] = useLocalState<string>(`newMessage`, ``);
 
   const [creatingJoinPassword, setCreatingJoinPassword] = useLocalState(
     'creatingJoinPassword',
-    0
+    0,
   );
 
-  const [password, setPassword] = useLocalState<string>(
-    `password`,
-    ``
-  );
+  const [password, setPassword] = useLocalState<string>(`password`, ``);
 
-  const [creatingTitle, setCreatingTitle] = useLocalState(
-    'creatingTitle',
-    0
-  );
+  const [creatingTitle, setCreatingTitle] = useLocalState('creatingTitle', 0);
 
   const [title, setTitle] = useLocalState<string>(`title`, ``);
 
@@ -278,7 +272,8 @@ export const Chat = (props) => {
             }
           />
         </>
-      }>
+      }
+    >
       {data.active &&
         data.msg &&
         data.msg.map((message) => (
@@ -286,7 +281,8 @@ export const Chat = (props) => {
             key={message}
             preserveWhitespace
             fontFamily="arial"
-            backgroundColor="#000000">
+            backgroundColor="#000000"
+          >
             {message}
           </Box>
         ))}
@@ -339,28 +335,22 @@ export const ChannelsWindow = (props) => {
   const { act, data } = useBackend<ChatData>();
   const [channelSearchTerm, setChannelSearchTerm] = useLocalState<string>(
     `channelSearchTerm`,
-    ``
+    ``,
   );
 
   const [creatingChannelName, setCreatingChannelName] = useLocalState(
     'creatingChannelName',
-    0
+    0,
   );
 
-  const [channelName, setChannelName] = useLocalState(
-    'channelName',
-    ''
-  );
+  const [channelName, setChannelName] = useLocalState('channelName', '');
 
   const [enteringJoinPassword, setEnteringJoinPassword] = useLocalState(
     'enteringJoinPassword',
-    0
+    0,
   );
 
-  const [joinPassword, setJoinPassword] = useLocalState(
-    'joinPassword',
-    ''
-  );
+  const [joinPassword, setJoinPassword] = useLocalState('joinPassword', '');
 
   return (
     <Section
@@ -389,7 +379,8 @@ export const ChannelsWindow = (props) => {
             ''
           )}
         </>
-      }>
+      }
+    >
       <Stack vertical>
         <Input
           autoFocus
@@ -405,49 +396,50 @@ export const ChannelsWindow = (props) => {
         />
         {data.channels?.length
           ? data.channels
-            .filter(
-              (chn) =>
-                chn.title
-                  ?.toLowerCase()
-                  .indexOf(channelSearchTerm.toLowerCase()) > -1 && !chn.direct
-            )
-            .map((channel) => (
-              <Stack.Item key={channel.ref}>
-                {channel.password ? (
-                  <>
-                    <Button
-                      content={channel.title}
-                      onClick={() => {
-                        setJoinPassword('');
-                        setEnteringJoinPassword(enteringJoinPassword ? 0 : 1);
-                      }}
-                    />
-                    {enteringJoinPassword ? (
-                      <Input
-                        placeholder="Enter Password"
-                        value={joinPassword}
-                        strict
-                        onInput={(e, v) => setJoinPassword(v)}
-                        onChange={(e, v) => {
-                          act('join', {
-                            target: channel.ref,
-                            password: joinPassword,
-                          });
-                          setEnteringJoinPassword(0);
+              .filter(
+                (chn) =>
+                  chn.title
+                    ?.toLowerCase()
+                    .indexOf(channelSearchTerm.toLowerCase()) > -1 &&
+                  !chn.direct,
+              )
+              .map((channel) => (
+                <Stack.Item key={channel.ref}>
+                  {channel.password ? (
+                    <>
+                      <Button
+                        content={channel.title}
+                        onClick={() => {
+                          setJoinPassword('');
+                          setEnteringJoinPassword(enteringJoinPassword ? 0 : 1);
                         }}
                       />
-                    ) : (
-                      ''
-                    )}
-                  </>
-                ) : (
-                  <Button
-                    content={channel.title}
-                    onClick={() => act('join', { target: channel.ref })}
-                  />
-                )}
-              </Stack.Item>
-            ))
+                      {enteringJoinPassword ? (
+                        <Input
+                          placeholder="Enter Password"
+                          value={joinPassword}
+                          strict
+                          onInput={(e, v) => setJoinPassword(v)}
+                          onChange={(e, v) => {
+                            act('join', {
+                              target: channel.ref,
+                              password: joinPassword,
+                            });
+                            setEnteringJoinPassword(0);
+                          }}
+                        />
+                      ) : (
+                        ''
+                      )}
+                    </>
+                  ) : (
+                    <Button
+                      content={channel.title}
+                      onClick={() => act('join', { target: channel.ref })}
+                    />
+                  )}
+                </Stack.Item>
+              ))
           : null}
       </Stack>
     </Section>

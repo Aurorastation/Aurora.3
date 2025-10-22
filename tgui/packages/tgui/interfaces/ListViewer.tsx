@@ -1,5 +1,5 @@
-import { useBackend } from '../backend';
 import { Box, Button, Section, Table } from 'tgui-core/components';
+import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
 export type ListData = {
@@ -23,7 +23,8 @@ export const ListViewer = (props) => {
             <Button onClick={() => act('open_whole_list')}>
               Open Whole List
             </Button>
-          }>
+          }
+        >
           <Table preserveWhitespace>
             <Table.Row header>
               <Table.Cell>Key</Table.Cell>
@@ -39,7 +40,8 @@ export const ListViewer = (props) => {
                     <Button
                       onClick={() =>
                         act('open_entry', { open_entry_key: list.key })
-                      }>
+                      }
+                    >
                       Edit
                     </Button>
                   </Table.Cell>

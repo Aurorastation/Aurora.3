@@ -1,6 +1,13 @@
+import {
+  Box,
+  Button,
+  Collapsible,
+  Input,
+  Section,
+  Stack,
+} from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend, useLocalState } from '../backend';
-import { Box, Button, Collapsible, Input, Section, Stack } from 'tgui-core/components';
 import { NtosWindow } from '../layouts';
 import { sanitizeText } from '../sanitize';
 
@@ -52,17 +59,11 @@ export const CommandCommunications = (props) => {
   const { act, data } = useBackend<CommsData>();
   const [choosingAlert, setChoosingAlert] = useLocalState<boolean>(
     `choosingAlert`,
-    false
+    false,
   );
 
-  const [firstLine, setFirstLine] = useLocalState<string>(
-    `firstLine`,
-    ''
-  );
-  const [secondLine, setSecondLine] = useLocalState<string>(
-    `secondLine`,
-    ''
-  );
+  const [firstLine, setFirstLine] = useLocalState<string>(`firstLine`, '');
+  const [secondLine, setSecondLine] = useLocalState<string>(`secondLine`, '');
 
   return (
     <NtosWindow width={600} height={500}>
@@ -176,7 +177,8 @@ export const CommandCommunications = (props) => {
                 icon="trash"
                 onClick={() => act('setstatus', { target: 'blank' })}
               />
-            }>
+            }
+          >
             <Button
               content="Ship Time"
               icon="clock"
@@ -201,7 +203,8 @@ export const CommandCommunications = (props) => {
                     })
                   }
                 />
-              }>
+              }
+            >
               <Input
                 value={firstLine}
                 placeholder="First line"
@@ -275,7 +278,7 @@ export const MessageList = (props) => {
   const { act, data } = useBackend<CommsData>();
   const [viewingMessage, setViewingMessage] = useLocalState<number | null>(
     'viewingMessage',
-    null
+    null,
   );
 
   return viewingMessage ? (
@@ -312,7 +315,8 @@ export const MessageList = (props) => {
                   onClick={() => act('delmessage', { messageid: message.id })}
                 />
               </>
-            }>
+            }
+          >
             <Box
               style={{ 'white-space': 'pre-line' }}
               dangerouslySetInnerHTML={processMessage(message.contents)}

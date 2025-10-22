@@ -1,6 +1,6 @@
+import { Button, Section, Table } from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Button, Section, Table } from 'tgui-core/components';
 import { NtosWindow } from '../layouts';
 
 export type SensorsData = {
@@ -54,7 +54,8 @@ export const SuitSensors = (props) => {
                       crewmember.stype > 0 && data.security_level > 1
                         ? getPulseClass(crewmember.tpulse)
                         : ''
-                    }>
+                    }
+                  >
                     {crewmember.stype > 0 && data.security_level > 1
                       ? crewmember.pulse + ' BPM'
                       : 'N/A'}
@@ -65,7 +66,8 @@ export const SuitSensors = (props) => {
                       crewmember.stype > 0 && data.security_level > 1
                         ? getChargeClass(crewmember.cellCharge)
                         : ''
-                    }>
+                    }
+                  >
                     {crewmember.stype > 0 && data.security_level > 1
                       ? Math.round(crewmember.cellCharge) + '%'
                       : 'N/A'}
@@ -77,7 +79,8 @@ export const SuitSensors = (props) => {
                     crewmember.stype > 1 && data.security_level > 1
                       ? getPressureClass(crewmember.tpressure)
                       : ''
-                  }>
+                  }
+                >
                   {crewmember.stype > 1 && data.security_level > 1
                     ? crewmember.pressure
                     : 'N/A'}
@@ -87,7 +90,8 @@ export const SuitSensors = (props) => {
                     crewmember.stype > 1 && data.security_level > 1
                       ? getOxyClass(crewmember.oxyg)
                       : ''
-                  }>
+                  }
+                >
                   {crewmember.stype > 1 && data.security_level > 1
                     ? toOxyLabel(crewmember.oxyg)
                     : 'N/A'}
@@ -101,13 +105,13 @@ export const SuitSensors = (props) => {
                 <Table.Cell>
                   {crewmember.stype > 2 && data.security_level > 2
                     ? crewmember.area +
-                    ' (' +
-                    crewmember.x +
-                    ', ' +
-                    crewmember.y +
-                    ', ' +
-                    crewmember.z +
-                    ')'
+                      ' (' +
+                      crewmember.x +
+                      ', ' +
+                      crewmember.y +
+                      ', ' +
+                      crewmember.z +
+                      ')'
                     : 'N/A'}
                 </Table.Cell>
                 {data.isAI ? (

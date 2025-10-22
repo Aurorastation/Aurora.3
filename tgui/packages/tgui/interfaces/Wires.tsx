@@ -1,8 +1,15 @@
+import {
+  Box,
+  Button,
+  LabeledList,
+  NoticeBox,
+  Section,
+  Stack,
+} from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
-import { useBackend } from '../backend';
-import { Box, Button, LabeledList, NoticeBox, Section, Stack } from 'tgui-core/components';
-import { Window } from '../layouts';
 import { capitalize } from 'tgui-core/string';
+import { useBackend } from '../backend';
+import { Window } from '../layouts';
 
 type Data = {
   manufacturer: string;
@@ -100,7 +107,8 @@ const WireMap = (props) => {
                   }
                 />
               </>
-            }>
+            }
+          >
             {!!wire.wire && <i>({wire.wire})</i>}
           </LabeledList.Item>
         ))}

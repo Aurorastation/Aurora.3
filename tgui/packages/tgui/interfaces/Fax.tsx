@@ -1,8 +1,15 @@
-import { useBackend } from '../backend';
-import type { BooleanLike } from 'tgui-core/react';
+import {
+  BlockQuote,
+  Box,
+  Button,
+  Dropdown,
+  LabeledList,
+  Section,
+} from 'tgui-core/components';
 import { round } from 'tgui-core/math';
+import type { BooleanLike } from 'tgui-core/react';
 import { capitalizeAll } from 'tgui-core/string';
-import { Section, Box, Button, BlockQuote, Dropdown, LabeledList } from 'tgui-core/components';
+import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
 type PDA = {
@@ -19,8 +26,8 @@ type FaxData = {
   paper: string;
   world_time: number;
   alertpdas: PDA[];
-  department: String;
-  departments: String[];
+  department: string;
+  departments: string[];
 };
 
 export const Fax = (props) => {

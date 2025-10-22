@@ -1,6 +1,6 @@
+import { Button, Input, LabeledList, Section } from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { LabeledList, Input, Section, Button } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type MaglockData = {

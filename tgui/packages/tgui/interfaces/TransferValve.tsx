@@ -1,12 +1,12 @@
-import { useBackend } from '../backend';
-import { Button, Section, LabeledList, Flex } from 'tgui-core/components';
-import { Window } from '../layouts';
+import { Button, Flex, LabeledList, Section } from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
+import { useBackend } from '../backend';
+import { Window } from '../layouts';
 
 export type TransferValveData = {
-  tankOne: String[];
-  tankTwo: String[];
-  valveAttachment: String[];
+  tankOne: string[];
+  tankTwo: string[];
+  valveAttachment: string[];
   valveOpen: BooleanLike;
 };
 

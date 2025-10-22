@@ -1,6 +1,14 @@
+import {
+  Box,
+  Button,
+  LabeledList,
+  NoticeBox,
+  Section,
+  Table,
+  Tabs,
+} from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Box, Button, LabeledList, NoticeBox, Section, Table, Tabs } from 'tgui-core/components';
 import { NtosWindow } from '../layouts';
 
 export type LawData = {
@@ -61,12 +69,14 @@ export const LawManager = (props) => {
         <Tabs>
           <Tabs.Tab
             onClick={() => act('set_view', { set_view: 0 })}
-            selected={data.view === 0}>
+            selected={data.view === 0}
+          >
             Law Management
           </Tabs.Tab>
           <Tabs.Tab
             onClick={() => act('set_view', { set_view: 1 })}
-            selected={data.view === 1}>
+            selected={data.view === 1}
+          >
             Law Sets
           </Tabs.Tab>
         </Tabs>
@@ -93,15 +103,15 @@ export const LawManagement = (props) => {
         <LabeledList.Item label="State on Channel">
           {data.channels && data.channels.length
             ? data.channels.map((channel) => (
-              <Button
-                key={channel.channel}
-                content={channel.channel}
-                selected={data.channel === channel.channel}
-                onClick={() =>
-                  act('law_channel', { law_channel: channel.channel })
-                }
-              />
-            ))
+                <Button
+                  key={channel.channel}
+                  content={channel.channel}
+                  selected={data.channel === channel.channel}
+                  onClick={() =>
+                    act('law_channel', { law_channel: channel.channel })
+                  }
+                />
+              ))
             : ''}
         </LabeledList.Item>
         <LabeledList.Item label="State Laws">
@@ -258,43 +268,45 @@ export const InherentLaws = (props) => {
         </Table.Row>
         {data.zeroth_laws && data.zeroth_laws.length
           ? data.zeroth_laws.map((law) => (
-            <Table.Row key={law.ref}>
-              <Table.Cell>
-                <Box color="red" as="span">
-                  0
-                </Box>
-              </Table.Cell>
-              <Table.Cell>{law.law}</Table.Cell>
-              <Table.Cell>
-                <Button
-                  content={law.state ? 'Yes' : 'No'}
-                  color={law.state ? 'green' : 'red'}
-                  onClick={() =>
-                    act('state_law', { state_law: !law.state, ref: law.ref })
-                  }
-                />
-              </Table.Cell>
-              {data.isMalf ? (
-                <>
-                  <Table.Cell>
-                    <Button
-                      content="Edit"
-                      onClick={() => act('edit_law', { edit_law: law.ref })}
-                    />
-                  </Table.Cell>
-                  <Table.Cell>
-                    <Button
-                      content="Delete"
-                      color="red"
-                      onClick={() => act('delete_law', { delete_law: law.ref })}
-                    />
-                  </Table.Cell>
-                </>
-              ) : (
-                ''
-              )}
-            </Table.Row>
-          ))
+              <Table.Row key={law.ref}>
+                <Table.Cell>
+                  <Box color="red" as="span">
+                    0
+                  </Box>
+                </Table.Cell>
+                <Table.Cell>{law.law}</Table.Cell>
+                <Table.Cell>
+                  <Button
+                    content={law.state ? 'Yes' : 'No'}
+                    color={law.state ? 'green' : 'red'}
+                    onClick={() =>
+                      act('state_law', { state_law: !law.state, ref: law.ref })
+                    }
+                  />
+                </Table.Cell>
+                {data.isMalf ? (
+                  <>
+                    <Table.Cell>
+                      <Button
+                        content="Edit"
+                        onClick={() => act('edit_law', { edit_law: law.ref })}
+                      />
+                    </Table.Cell>
+                    <Table.Cell>
+                      <Button
+                        content="Delete"
+                        color="red"
+                        onClick={() =>
+                          act('delete_law', { delete_law: law.ref })
+                        }
+                      />
+                    </Table.Cell>
+                  </>
+                ) : (
+                  ''
+                )}
+              </Table.Row>
+            ))
           : ''}
         {data.inherent_laws.map((law) => (
           <Table.Row key={law.index}>
@@ -408,7 +420,8 @@ export const LawSets = (props) => {
         ) : (
           ''
         )
-      }>
+      }
+    >
       <NoticeBox>
         Remember: Stating laws other than those currently loading may be grounds
         for decomissioning.
@@ -416,76 +429,77 @@ export const LawSets = (props) => {
       </NoticeBox>
       {data.law_sets && data.law_sets.length
         ? data.law_sets.map((set) => (
-          <Section
-            title={set.name}
-            key={set.name}
-            buttons={
-              <>
-                <Button
-                  content="State Laws"
-                  onClick={() =>
-                    act('state_law_set', { state_law_set: set.ref })
-                  }
-                />
-                {data.isMalf ? (
+            <Section
+              title={set.name}
+              key={set.name}
+              buttons={
+                <>
                   <Button
-                    content="Add Laws"
-                    color="red"
+                    content="State Laws"
                     onClick={() =>
-                      act('transfer_laws', { transfer_laws: set.ref })
+                      act('state_law_set', { state_law_set: set.ref })
                     }
                   />
-                ) : (
-                  ''
-                )}
-              </>
-            }>
-            <Box>{set.header}</Box>
-            <Table>
-              <Table.Row header>
-                <Table.Cell>Index</Table.Cell>
-                <Table.Cell>Law</Table.Cell>
-              </Table.Row>
-              {set.laws.ion_laws && set.laws.ion_laws.length
-                ? set.laws.ion_laws.map((law) => (
-                  <Table.Row key={law.ref}>
-                    <Table.Cell>{law.index}</Table.Cell>
-                    <Table.Cell>{law.law}</Table.Cell>
-                  </Table.Row>
-                ))
-                : ''}
-              {(set.laws.inherent_laws && set.laws.inherent_laws.length) ||
-              (set.laws.zeroth_laws && set.laws.zeroth_laws.length) ? (
-                <>
-                  {set.laws.zeroth_laws.length
-                    ? set.laws.zeroth_laws.map((law) => (
+                  {data.isMalf ? (
+                    <Button
+                      content="Add Laws"
+                      color="red"
+                      onClick={() =>
+                        act('transfer_laws', { transfer_laws: set.ref })
+                      }
+                    />
+                  ) : (
+                    ''
+                  )}
+                </>
+              }
+            >
+              <Box>{set.header}</Box>
+              <Table>
+                <Table.Row header>
+                  <Table.Cell>Index</Table.Cell>
+                  <Table.Cell>Law</Table.Cell>
+                </Table.Row>
+                {set.laws.ion_laws && set.laws.ion_laws.length
+                  ? set.laws.ion_laws.map((law) => (
                       <Table.Row key={law.ref}>
                         <Table.Cell>{law.index}</Table.Cell>
                         <Table.Cell>{law.law}</Table.Cell>
                       </Table.Row>
                     ))
-                    : ''}
-                  {set.laws.inherent_laws.map((law) => (
-                    <Table.Row key={law.ref}>
-                      <Table.Cell>{law.index}</Table.Cell>
-                      <Table.Cell>{law.law}</Table.Cell>
-                    </Table.Row>
-                  ))}
-                </>
-              ) : (
-                ''
-              )}
-              {set.laws.supplied_laws && set.laws.supplied_laws.length
-                ? set.laws.supplied_laws.map((law) => (
-                  <Table.Row key={law.ref}>
-                    <Table.Cell>{law.index}</Table.Cell>
-                    <Table.Cell>{law.law}</Table.Cell>
-                  </Table.Row>
-                ))
-                : ''}
-            </Table>
-          </Section>
-        ))
+                  : ''}
+                {(set.laws.inherent_laws && set.laws.inherent_laws.length) ||
+                (set.laws.zeroth_laws && set.laws.zeroth_laws.length) ? (
+                  <>
+                    {set.laws.zeroth_laws.length
+                      ? set.laws.zeroth_laws.map((law) => (
+                          <Table.Row key={law.ref}>
+                            <Table.Cell>{law.index}</Table.Cell>
+                            <Table.Cell>{law.law}</Table.Cell>
+                          </Table.Row>
+                        ))
+                      : ''}
+                    {set.laws.inherent_laws.map((law) => (
+                      <Table.Row key={law.ref}>
+                        <Table.Cell>{law.index}</Table.Cell>
+                        <Table.Cell>{law.law}</Table.Cell>
+                      </Table.Row>
+                    ))}
+                  </>
+                ) : (
+                  ''
+                )}
+                {set.laws.supplied_laws && set.laws.supplied_laws.length
+                  ? set.laws.supplied_laws.map((law) => (
+                      <Table.Row key={law.ref}>
+                        <Table.Cell>{law.index}</Table.Cell>
+                        <Table.Cell>{law.law}</Table.Cell>
+                      </Table.Row>
+                    ))
+                  : ''}
+              </Table>
+            </Section>
+          ))
         : ''}
     </Section>
   );

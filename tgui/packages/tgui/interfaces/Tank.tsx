@@ -1,8 +1,13 @@
-import { useBackend } from '../backend';
-import { useLocalState } from '../backend';
-import { Button, Section, LabeledList, ProgressBar, Slider } from 'tgui-core/components';
-import { Window } from '../layouts';
+import {
+  Button,
+  LabeledList,
+  ProgressBar,
+  Section,
+  Slider,
+} from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
+import { useBackend, useLocalState } from '../backend';
+import { Window } from '../layouts';
 
 export type TankData = {
   tankPressure: number;
@@ -21,12 +26,12 @@ export const Tank = (props) => {
   const tank_presure_color = tank_color
     ? { color: tank_color }
     : {
-      ranges: {
-        good: [200, Infinity],
-        bad: [-Infinity, 100],
-        average: [100, 200],
-      },
-    };
+        ranges: {
+          good: [200, Infinity],
+          bad: [-Infinity, 100],
+          average: [100, 200],
+        },
+      };
 
   return (
     <Window>
@@ -38,7 +43,8 @@ export const Tank = (props) => {
                 {...tank_presure_color}
                 minValue={0}
                 maxValue={1024}
-                value={data.tankPressure}>
+                value={data.tankPressure}
+              >
                 {data.tankPressure} kPa
               </ProgressBar>
             </LabeledList.Item>
@@ -53,7 +59,8 @@ export const Tank = (props) => {
                   disabled={!data.maskConnected}
                   onClick={() => act('toggleReleaseValve')}
                 />
-              }>
+              }
+            >
               {data.valveOpen ? 'OPEN' : 'CLOSED'}
             </LabeledList.Item>
 
@@ -67,7 +74,8 @@ export const Tank = (props) => {
                 maxValue={data.maxReleasePressure}
                 onChange={(e, value) =>
                   act('setReleasePressure', { release_pressure: value })
-                }>
+                }
+              >
                 {data.releasePressure} kPa
               </Slider>
             </LabeledList.Item>

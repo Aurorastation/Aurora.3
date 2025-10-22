@@ -1,6 +1,11 @@
+import {
+  Button,
+  LabeledList,
+  NumberInput,
+  Section,
+} from 'tgui-core/components';
 import { toFixed } from 'tgui-core/math';
 import { useBackend } from '../backend';
-import { Button, NumberInput, Section, LabeledList } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type SignalerData = {
@@ -22,7 +27,8 @@ export const Signaler = (props) => {
               icon="wifi"
               onClick={() => act('send')}
             />
-          }>
+          }
+        >
           <LabeledList>
             <LabeledList.Item label="Frequency">
               <NumberInput

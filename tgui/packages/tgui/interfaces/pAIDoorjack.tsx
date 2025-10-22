@@ -1,6 +1,6 @@
+import { Button, NoticeBox, ProgressBar, Section } from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Button, NoticeBox, ProgressBar, Section } from 'tgui-core/components';
 import { NtosWindow } from '../layouts';
 
 export type DoorjackData = {
@@ -36,7 +36,8 @@ export const pAIDoorjack = (props) => {
                   <ProgressBar
                     value={data.progress}
                     maxValue={1000}
-                    minValue={0}>
+                    minValue={0}
+                  >
                     {data.progress / 10}%
                   </ProgressBar>{' '}
                   <Button content="Cancel" onClick={() => act('cancel')} />

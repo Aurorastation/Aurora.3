@@ -1,8 +1,17 @@
 import { Fragment } from 'react';
-import { Window } from '../layouts';
-import { useBackend } from '../backend';
-import { AnimatedNumber, Box, Button, Flex, Icon, LabeledList, ProgressBar, Section } from 'tgui-core/components';
+import {
+  AnimatedNumber,
+  Box,
+  Button,
+  Flex,
+  Icon,
+  LabeledList,
+  ProgressBar,
+  Section,
+} from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
+import { useBackend } from '../backend';
+import { Window } from '../layouts';
 
 export type CryoData = {
   isOperating: BooleanLike;
@@ -85,10 +94,12 @@ export const CryoContent = (props) => {
           <Button
             icon="user-slash"
             onClick={() => act('ejectOccupant')}
-            disabled={!data.hasOccupant}>
+            disabled={!data.hasOccupant}
+          >
             Eject
           </Button>
-        }>
+        }
+      >
         {data.hasOccupant ? (
           <LabeledList>
             <LabeledList.Item label="Occupant">
@@ -96,23 +107,27 @@ export const CryoContent = (props) => {
             </LabeledList.Item>
             <LabeledList.Item
               label="Status"
-              color={statNames[data.occupant.stat][0]}>
+              color={statNames[data.occupant.stat][0]}
+            >
               {statNames[data.occupant.stat][1]}
             </LabeledList.Item>
             <LabeledList.Divider />
             <LabeledList.Item
               label="Brain Activity"
-              color={progressClass(data.occupant.brainActivity)}>
+              color={progressClass(data.occupant.brainActivity)}
+            >
               {brainText(data.occupant.brainActivity)}
             </LabeledList.Item>
             <LabeledList.Item
               label="Pulse Rate"
-              color={progressClass(data.occupant.brainActivity)}>
+              color={progressClass(data.occupant.brainActivity)}
+            >
               {data.occupant.pulse} BPM
             </LabeledList.Item>
             <LabeledList.Item
               label="Blood Pressure"
-              color={getPressureClass(data.occupant.bloodPressureLevel)}>
+              color={getPressureClass(data.occupant.bloodPressureLevel)}
+            >
               {data.occupant.bloodPressure}
             </LabeledList.Item>
             <LabeledList.Item label="Blood Oxygenation">
@@ -122,7 +137,8 @@ export const CryoContent = (props) => {
                   bad: [0.01, 50],
                   average: [50.01, 90],
                   good: [90.01, Infinity],
-                }}>
+                }}
+              >
                 <AnimatedNumber
                   value={Math.round(data.occupant.bloodOxygenation)}
                 />
@@ -144,7 +160,8 @@ export const CryoContent = (props) => {
               <LabeledList.Item key={damageType.label} label={damageType.label}>
                 <ProgressBar
                   value={data.occupant[damageType.type] / 100}
-                  ranges={{ bad: [0.01, Infinity] }}>
+                  ranges={{ bad: [0.01, Infinity] }}
+                >
                   <AnimatedNumber
                     value={Math.round(data.occupant[damageType.type])}
                   />
@@ -168,22 +185,26 @@ export const CryoContent = (props) => {
           <Button
             icon="eject"
             onClick={() => act('ejectBeaker')}
-            disabled={!data.isBeakerLoaded}>
+            disabled={!data.isBeakerLoaded}
+          >
             Eject Beaker
           </Button>
-        }>
+        }
+      >
         <LabeledList>
           <LabeledList.Item label="Power">
             <Button
               icon="power-off"
               onClick={() => act(data.isOperating ? 'switchOff' : 'switchOn')}
-              selected={data.isOperating}>
+              selected={data.isOperating}
+            >
               {data.isOperating ? 'On' : 'Off'}
             </Button>
           </LabeledList.Item>
           <LabeledList.Item
             label="Temperature"
-            color={data.cellTemperatureStatus}>
+            color={data.cellTemperatureStatus}
+          >
             <AnimatedNumber value={data.cellTemperature} /> K
           </LabeledList.Item>
           <LabeledList.Item label="Beaker">
@@ -195,19 +216,22 @@ export const CryoContent = (props) => {
             <Button
               icon="play"
               onClick={() => act('goSlow')}
-              selected={data.currentStasisMult === data.slowStasisMult}>
+              selected={data.currentStasisMult === data.slowStasisMult}
+            >
               Prioritize Stasis
             </Button>
             <Button
               icon="forward"
               onClick={() => act('goRegular')}
-              selected={data.currentStasisMult === 1}>
+              selected={data.currentStasisMult === 1}
+            >
               Balanced
             </Button>
             <Button
               icon="forward-fast"
               onClick={() => act('goFast')}
-              selected={data.currentStasisMult === data.fastStasisMult}>
+              selected={data.currentStasisMult === data.fastStasisMult}
+            >
               Prioritize Metabolism
             </Button>
           </LabeledList.Item>

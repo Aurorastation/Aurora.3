@@ -1,5 +1,5 @@
-import { useBackend } from '../backend';
 import { Box, Section, Table } from 'tgui-core/components';
+import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
 export type VaurcaData = {
@@ -30,7 +30,8 @@ export const HivenetManifest = (props) => {
               title={hive}
               textAlign="center"
               className={'border-dept-' + hiveData.color.toLowerCase()}
-              backgroundColor="rgba(10, 10, 10, 0.7)">
+              backgroundColor="rgba(10, 10, 10, 0.7)"
+            >
               <Table>
                 {hiveData.vaurca.map((vaurca) => {
                   return (
@@ -38,7 +39,8 @@ export const HivenetManifest = (props) => {
                       pb={1}
                       key={vaurca.name}
                       bold={vaurca.bold}
-                      overflow="hidden">
+                      overflow="hidden"
+                    >
                       <Table.Cell>
                         <Box fontSize="1.5rem" textAlign="center">
                           {' - '}

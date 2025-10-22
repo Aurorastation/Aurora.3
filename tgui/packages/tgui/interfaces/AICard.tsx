@@ -1,6 +1,6 @@
+import { Button, LabeledList, Section, Table } from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { LabeledList, Section, Table, Button } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type AIData = {

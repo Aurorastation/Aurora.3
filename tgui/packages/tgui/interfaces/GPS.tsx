@@ -1,6 +1,12 @@
+import {
+  Button,
+  Input,
+  LabeledControls,
+  Section,
+  Table,
+} from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Button, Input, LabeledControls, Section, Table } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type GPSData = {
@@ -37,7 +43,8 @@ export const GPS = (props) => {
               <Button content="Track All" onClick={() => act('add_all')} />
               <Button content="Untrack All" onClick={() => act('clear_all')} />
             </>
-          }>
+          }
+        >
           <LabeledControls>
             <LabeledControls.Item label="Set New Tag">
               <Input

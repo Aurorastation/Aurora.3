@@ -1,9 +1,15 @@
-import { Loader } from './common/Loader';
-import { InputButtons } from './common/InputButtons';
+import {
+  Box,
+  Button,
+  RestrictedInput,
+  Section,
+  Stack,
+} from 'tgui-core/components';
 import { KEY_ENTER, KEY_ESCAPE } from 'tgui-core/keycodes';
 import { useBackend, useLocalState } from '../backend';
-import { Box, Button, RestrictedInput, Section, Stack } from 'tgui-core/components';
 import { Window } from '../layouts';
+import { InputButtons } from './common/InputButtons';
+import { Loader } from './common/Loader';
 
 type NumberInputData = {
   init_value: number;
@@ -50,7 +56,8 @@ export const NumberInputModal = (props) => {
           if (keyCode === KEY_ESCAPE) {
             act('cancel');
           }
-        }}>
+        }}
+      >
         <Section fill>
           <Stack fill vertical>
             <Stack.Item grow>

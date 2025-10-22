@@ -1,7 +1,7 @@
+import { Box, Button, NoticeBox, Section } from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { capitalize } from 'tgui-core/string';
 import { useBackend } from '../backend';
-import { Box, Button, NoticeBox, Section } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type HarvesterData = {
@@ -47,7 +47,8 @@ export const HarvestWindow = (props) => {
           color={data.status ? 'good' : 'bad'}
           onClick={() => act('toggle_power')}
         />
-      }>
+      }
+    >
       {data.status ? (
         data.materials && data.materials.length ? (
           data.materials.map((material) => (
@@ -68,7 +69,8 @@ export const HarvestWindow = (props) => {
                     act('toggle_harvest', { toggle_harvest: material.material })
                   }
                 />
-              }>
+              }
+            >
               {material.harvest ? (
                 material.amount ? (
                   <>

@@ -1,7 +1,7 @@
+import { Button, LabeledList, NoticeBox, Section } from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
 import { Window } from '../layouts';
-import type { BooleanLike } from 'tgui-core/react';
-import { Button, LabeledList, NoticeBox, Section } from 'tgui-core/components';
 
 export type AccessTerminalData = {
   is_card_in: BooleanLike;
@@ -27,7 +27,8 @@ export const AccessTerminal = (props) => {
             ) : (
               <Button content="Insert Card" onClick={() => act('insert_id')} />
             )
-          }>
+          }
+        >
           {data.is_card_in ? (
             <LabeledList>
               <LabeledList.Item label="Registered Name">

@@ -1,6 +1,12 @@
+import {
+  Button,
+  LabeledList,
+  Section,
+  Table,
+  Tabs,
+} from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Button, LabeledList, Section, Table, Tabs } from 'tgui-core/components';
 import { NtosWindow } from '../layouts';
 
 export type CargoData = {
@@ -71,7 +77,8 @@ export const CargoDelivery = (props) => {
                       page: 'order_overview',
                       order_overview: data.order_details.order_id.toString(),
                     })
-                  }>
+                  }
+                >
                   Overview
                 </Tabs.Tab>
                 <Tabs.Tab
@@ -80,7 +87,8 @@ export const CargoDelivery = (props) => {
                       page: 'order_payment',
                       order_payment: data.order_details.order_id.toString(),
                     })
-                  }>
+                  }
+                >
                   Payment
                 </Tabs.Tab>
               </>
@@ -239,7 +247,8 @@ export const Payment = (props) => {
           color="green"
           onClick={() => act('deliver', { deliver: 'true' })}
         />
-      }>
+      }
+    >
       <LabeledList>
         <LabeledList.Item label="Price">
           {data.order_details.price.toFixed(2)} 电

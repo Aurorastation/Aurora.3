@@ -1,5 +1,5 @@
-import { useBackend } from '../backend';
 import { BlockQuote, Box, Button, Input, Section } from 'tgui-core/components';
+import { useBackend } from '../backend';
 import { Window } from '../layouts';
 
 export type pAIData = {
@@ -24,7 +24,8 @@ export const pAIRecruitment = (props) => {
               color="good"
               onClick={() => act('submit_candidate')}
             />
-          }>
+          }
+        >
           <BlockQuote>
             Please configure your pAI personality&apos;s options. Remember, what
             you enter here could determine whether or not the user requesting a

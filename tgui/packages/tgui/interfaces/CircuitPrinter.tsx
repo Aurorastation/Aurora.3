@@ -1,6 +1,11 @@
+import {
+  Button,
+  LabeledList,
+  ProgressBar,
+  Section,
+} from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Button, LabeledList, ProgressBar, Section } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type PrinterData = {
@@ -38,7 +43,8 @@ export const CircuitPrinter = (props) => {
                 }}
                 value={data.metal}
                 minValue={0}
-                maxValue={data.metal_max}>
+                maxValue={data.metal_max}
+              >
                 {data.metal} sheets
               </ProgressBar>
             </LabeledList.Item>
@@ -57,7 +63,7 @@ export const CircuitPrinter = (props) => {
                 />
               ) : (
                 ''
-              )
+              ),
             )}
           </Section>
         ))}

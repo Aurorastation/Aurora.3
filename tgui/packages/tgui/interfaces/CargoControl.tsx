@@ -1,6 +1,13 @@
+import {
+  Box,
+  Button,
+  LabeledList,
+  Section,
+  Table,
+  Tabs,
+} from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Box, Button, LabeledList, Section, Table, Tabs } from 'tgui-core/components';
 import { NtosWindow } from '../layouts';
 
 export type CargoData = {
@@ -133,46 +140,55 @@ export const CargoControl = (props) => {
                 onClick={() => act('shuttle_force')}
               />
             </>
-          }>
+          }
+        >
           <Tabs>
             <Tabs.Tab
               onClick={() => act('page', { page: 'overview_main' })}
-              selected={data.page === 'overview_main'}>
+              selected={data.page === 'overview_main'}
+            >
               Main
             </Tabs.Tab>
             <Tabs.Tab
               onClick={() => act('page', { page: 'overview_submitted' })}
-              selected={data.page === 'overview_submitted'}>
+              selected={data.page === 'overview_submitted'}
+            >
               Submitted
             </Tabs.Tab>
             <Tabs.Tab
               onClick={() => act('page', { page: 'overview_approved' })}
-              selected={data.page === 'overview_approved'}>
+              selected={data.page === 'overview_approved'}
+            >
               Approved
             </Tabs.Tab>
             <Tabs.Tab
               onClick={() => act('page', { page: 'overview_shipped' })}
-              selected={data.page === 'overview_shipped'}>
+              selected={data.page === 'overview_shipped'}
+            >
               Shipped
             </Tabs.Tab>
             <Tabs.Tab
               onClick={() => act('page', { page: 'overview_delivered' })}
-              selected={data.page === 'overview_delivered'}>
+              selected={data.page === 'overview_delivered'}
+            >
               Delivered
             </Tabs.Tab>
             <Tabs.Tab
               onClick={() => act('page', { page: 'overview_shipments' })}
-              selected={data.page === 'overview_shipments'}>
+              selected={data.page === 'overview_shipments'}
+            >
               Shipments
             </Tabs.Tab>
             <Tabs.Tab
               onClick={() => act('page', { page: 'bounties' })}
-              selected={data.page === 'bounties'}>
+              selected={data.page === 'bounties'}
+            >
               Bounties
             </Tabs.Tab>
             <Tabs.Tab
               onClick={() => act('page', { page: 'settings' })} // WHY IS IT DIFFERENT NOW? WHY AREN'T THEY ALL THE SAME FORMAT??
-              selected={data.page === 'settings'}>
+              selected={data.page === 'settings'}
+            >
               Settings
             </Tabs.Tab>
           </Tabs>
@@ -575,7 +591,8 @@ export const Bounties = (props) => {
           icon="print"
           onClick={() => act('bounty_print')}
         />
-      }>
+      }
+    >
       <Table>
         <Table.Row header>
           <Table.Cell>Name</Table.Cell>

@@ -1,6 +1,6 @@
+import { Box, LabeledList, ProgressBar, Section } from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Box, LabeledList, ProgressBar, Section } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type SupermatterData = {
@@ -59,7 +59,8 @@ export const SupermatterWindow = (props) => {
             }}
             value={data.ambient_temp}
             minValue={0}
-            maxValue={10000}>
+            maxValue={10000}
+          >
             {data.ambient_temp} K
           </ProgressBar>
         </LabeledList.Item>

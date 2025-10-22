@@ -1,6 +1,12 @@
+import {
+  Box,
+  Button,
+  LabeledList,
+  NumberInput,
+  Section,
+} from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Button, Box, LabeledList, Section, NumberInput } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type ShieldData = {
@@ -35,7 +41,8 @@ export const ShieldGenerator = (props) => {
               icon={data.active ? 'power-off' : 'times'}
               onClick={() => act('toggle')}
             />
-          }>
+          }
+        >
           <LabeledList>
             <LabeledList.Item label="Capacitor">
               {data.owned_capacitor ? (

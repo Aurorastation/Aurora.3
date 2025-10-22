@@ -1,6 +1,14 @@
+import {
+  Box,
+  Button,
+  LabeledList,
+  NoticeBox,
+  NumberInput,
+  ProgressBar,
+  Section,
+} from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Box, Button, LabeledList, NoticeBox, NumberInput, ProgressBar, Section } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type CapacitorData = {
@@ -46,7 +54,8 @@ export const CapacitorWindow = (props) => {
           disabled={!data.anchored && !data.active}
           onClick={() => act('toggle')}
         />
-      }>
+      }
+    >
       <Box fontSize={1.5}>
         Capacitor status:{' '}
         <Box as="span" bold color={data.time_since_fail > 2 ? 'good' : 'bad'}>
@@ -63,7 +72,8 @@ export const CapacitorWindow = (props) => {
             }}
             value={data.stored_charge}
             minValue={0}
-            maxValue={data.max_charge}>
+            maxValue={data.max_charge}
+          >
             {data.stored_charge} / {data.max_charge} W
           </ProgressBar>
         </LabeledList.Item>

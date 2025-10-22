@@ -1,6 +1,13 @@
+import {
+  Button,
+  Divider,
+  Dropdown,
+  Input,
+  LabeledList,
+  NumberInput,
+  Section,
+} from 'tgui-core/components';
 import { useBackend, useLocalState } from '../backend';
-import { Button, Divider, Input, LabeledList, NumberInput, Section } from 'tgui-core/components';
-import { Dropdown } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type NarrateData = {
@@ -10,25 +17,13 @@ export type NarrateData = {
 
 export const NarratePanel = (props) => {
   const { act, data } = useBackend<NarrateData>();
-  const [narrateText, setNarrateText] = useLocalState(
-    'narrateText',
-    ''
-  );
-  const [narrateSize, setNarrateSize] = useLocalState(
-    'narrateSize',
-    2
-  );
-  const [narrateRange, setNarrateRange] = useLocalState(
-    'narrateRange',
-    7
-  );
-  const [narrateStyle, setNarrateStyle] = useLocalState(
-    'textStyle',
-    'notice'
-  );
+  const [narrateText, setNarrateText] = useLocalState('narrateText', '');
+  const [narrateSize, setNarrateSize] = useLocalState('narrateSize', 2);
+  const [narrateRange, setNarrateRange] = useLocalState('narrateRange', 7);
+  const [narrateStyle, setNarrateStyle] = useLocalState('textStyle', 'notice');
   const [narrateLocation, setNarrateLocation] = useLocalState(
     'narrateLocation',
-    'View'
+    'View',
   );
 
   return (
@@ -52,7 +47,8 @@ export const NarratePanel = (props) => {
                 })
               }
             />
-          }>
+          }
+        >
           <Input
             fluid
             strict

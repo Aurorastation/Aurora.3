@@ -1,7 +1,15 @@
+import {
+  Box,
+  Button,
+  Flex,
+  Input,
+  LabeledList,
+  NoticeBox,
+  Section,
+} from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { capitalizeAll } from 'tgui-core/string';
 import { useBackend, useLocalState } from '../backend';
-import { Box, Button, Flex, Input, LabeledList, NoticeBox, Section } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type VendingData = {
@@ -54,10 +62,7 @@ export const Vending = (props) => {
 
 export const ShowAllItems = (props) => {
   const { act, data } = useBackend<VendingData>();
-  const [searchTerm, setSearchTerm] = useLocalState<string>(
-    `searchTerm`,
-    ``
-  );
+  const [searchTerm, setSearchTerm] = useLocalState<string>(`searchTerm`, ``);
 
   return (
     <>
@@ -92,7 +97,7 @@ export const ShowAllItems = (props) => {
         {data.products
           .filter(
             (product) =>
-              product.name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1
+              product.name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1,
           )
           ?.map((product) => (
             <Button
@@ -103,7 +108,8 @@ export const ShowAllItems = (props) => {
               style={{
                 height: '70px',
                 width: '70px',
-              }}>
+              }}
+            >
               <Box
                 as="img"
                 className={product.icon_tag}
@@ -148,7 +154,8 @@ export const ShowVendingItem = (props) => {
           color="bad"
           onClick={() => act('cancelpurchase')}
         />
-      }>
+      }
+    >
       <LabeledList>
         <LabeledList.Item label="Selected Item">
           {capitalizeAll(data.sel_name)}

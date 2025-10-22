@@ -1,10 +1,17 @@
-import type { BooleanLike } from 'tgui-core/react';
-import { useBackend } from '../backend';
-import { Box, Button, Section, Table, ProgressBar, Slider } from 'tgui-core/components';
-import { NtosWindow } from '../layouts';
-import { round, clamp } from 'tgui-core/math';
 import { Color } from 'tgui-core/color';
+import {
+  Box,
+  Button,
+  ProgressBar,
+  Section,
+  Slider,
+  Table,
+} from 'tgui-core/components';
+import { clamp, round } from 'tgui-core/math';
+import type { BooleanLike } from 'tgui-core/react';
 import { capitalizeAll } from 'tgui-core/string';
+import { useBackend } from '../backend';
+import { NtosWindow } from '../layouts';
 
 export type SensorsData = {
   viewing: BooleanLike;
@@ -62,7 +69,7 @@ type DistressBeaconData = {
   bearing: number;
 };
 
-const SensorSection = function (act, data: SensorsData) {
+const SensorSection = (act, data: SensorsData) => {
   let range_choice_max = 0;
   if (data.range_choices && data.range_choices.length) {
     range_choice_max = data.range_choices[data.range_choices.length - 1];
@@ -79,7 +86,8 @@ const SensorSection = function (act, data: SensorsData) {
           }
           onClick={() => act('viewing')}
         />
-      }>
+      }
+    >
       <Table>
         <Table.Row>
           <Table.Cell>State:</Table.Cell>
@@ -108,7 +116,8 @@ const SensorSection = function (act, data: SensorsData) {
                 default:
                   return null;
               }
-            })()}>
+            })()}
+          >
             {data.status}
           </Table.Cell>
         </Table.Row>
@@ -124,7 +133,8 @@ const SensorSection = function (act, data: SensorsData) {
               maxValue={range_choice_max}
               onChange={(e, value) =>
                 act('range_choice', { range_choice: value })
-              }>
+              }
+            >
               Desired Range: {data.desired_range} / {range_choice_max}
             </Slider>
             <ProgressBar
@@ -132,11 +142,12 @@ const SensorSection = function (act, data: SensorsData) {
               backgroundColor={Color.lerp(
                 new Color(62, 97, 137, 0),
                 new Color(189, 32, 32),
-                data.range / range_choice_max
+                data.range / range_choice_max,
               )}
               minValue={1}
               maxValue={range_choice_max}
-              value={data.range}>
+              value={data.range}
+            >
               Current Range: {data.range} / {range_choice_max}
             </ProgressBar>
           </Table.Cell>
@@ -166,7 +177,7 @@ const SensorSection = function (act, data: SensorsData) {
               backgroundColor={Color.lerp(
                 Color.fromHex('#20b142'),
                 Color.fromHex('#db2828'),
-                data.health / data.max_health
+                data.health / data.max_health,
               )}
               color={(() => {
                 if (data.health > (data.max_health / 3) * 2) {
@@ -179,7 +190,8 @@ const SensorSection = function (act, data: SensorsData) {
               })()}
               minValue={0}
               maxValue={data.max_health}
-              value={data.health}>
+              value={data.health}
+            >
               {data.health} / {data.max_health}
             </ProgressBar>
           </Table.Cell>
@@ -192,7 +204,7 @@ const SensorSection = function (act, data: SensorsData) {
               backgroundColor={Color.lerp(
                 Color.fromHex('#20b142'),
                 Color.fromHex('#db2828'),
-                data.heat / data.critical_heat
+                data.heat / data.critical_heat,
               )}
               color={(() => {
                 if (data.heat > (data.critical_heat / 3) * 2) {
@@ -205,7 +217,8 @@ const SensorSection = function (act, data: SensorsData) {
               })()}
               minValue={0}
               maxValue={data.critical_heat}
-              value={data.heat}>
+              value={data.heat}
+            >
               {data.heat} / {data.critical_heat}
             </ProgressBar>
           </Table.Cell>
@@ -215,57 +228,55 @@ const SensorSection = function (act, data: SensorsData) {
   );
 };
 
-const ContactsSection = function (act, data: SensorsData) {
-  return (
-    <Section title="Sensor Contacts">
-      {data.contacts && data.contacts.length ? (
-        <Table>
-          <Table.Row header>
-            <Table.Cell />
-            <Table.Cell title="Designation">Designation</Table.Cell>
-            <Table.Cell title="Bearing">B</Table.Cell>
-            <Table.Cell title="X Grid Coordinate">X</Table.Cell>
-            <Table.Cell title="Y Grid Coordinate">Y</Table.Cell>
-            <Table.Cell title="Grid Coordinate Distance/Range">D</Table.Cell>
-            <Table.Cell title="Color">C</Table.Cell>
+const ContactsSection = (act, data: SensorsData) => (
+  <Section title="Sensor Contacts">
+    {data.contacts && data.contacts.length ? (
+      <Table>
+        <Table.Row header>
+          <Table.Cell />
+          <Table.Cell title="Designation">Designation</Table.Cell>
+          <Table.Cell title="Bearing">B</Table.Cell>
+          <Table.Cell title="X Grid Coordinate">X</Table.Cell>
+          <Table.Cell title="Y Grid Coordinate">Y</Table.Cell>
+          <Table.Cell title="Grid Coordinate Distance/Range">D</Table.Cell>
+          <Table.Cell title="Color">C</Table.Cell>
+        </Table.Row>
+        {data.contacts.map((contact: ContactData, i) => (
+          <Table.Row key={contact.name}>
+            <Table.Cell title="Scan">
+              <Button
+                content={'Scan'}
+                onClick={() => act('scan', { scan: contact.ref })}
+              />
+            </Table.Cell>
+            <Table.Cell title="Designation">
+              {capitalizeAll(contact.name)}
+            </Table.Cell>
+            {contact.landed ? (
+              ''
+            ) : (
+              <>
+                <Table.Cell title="Bearing">{contact.bearing}</Table.Cell>
+                <Table.Cell title="X Grid Coordinate">{contact.x}</Table.Cell>
+                <Table.Cell title="Y Grid Coordinate">{contact.y}</Table.Cell>
+                <Table.Cell title="Grid Coordinate Distance/Range">
+                  {new String(round(contact.distance, 2)).padStart(6, '0')}
+                </Table.Cell>
+                <Table.Cell title="Color" color={contact.color}>
+                  ██
+                </Table.Cell>
+              </>
+            )}
           </Table.Row>
-          {data.contacts.map((contact: ContactData, i) => (
-            <Table.Row key={contact.name}>
-              <Table.Cell title="Scan">
-                <Button
-                  content={'Scan'}
-                  onClick={() => act('scan', { scan: contact.ref })}
-                />
-              </Table.Cell>
-              <Table.Cell title="Designation">
-                {capitalizeAll(contact.name)}
-              </Table.Cell>
-              {contact.landed ? (
-                ''
-              ) : (
-                <>
-                  <Table.Cell title="Bearing">{contact.bearing}</Table.Cell>
-                  <Table.Cell title="X Grid Coordinate">{contact.x}</Table.Cell>
-                  <Table.Cell title="Y Grid Coordinate">{contact.y}</Table.Cell>
-                  <Table.Cell title="Grid Coordinate Distance/Range">
-                    {new String(round(contact.distance, 2)).padStart(6, '0')}
-                  </Table.Cell>
-                  <Table.Cell title="Color" color={contact.color}>
-                    ██
-                  </Table.Cell>
-                </>
-              )}
-            </Table.Row>
-          ))}
-        </Table>
-      ) : (
-        ''
-      )}
-    </Section>
-  );
-};
+        ))}
+      </Table>
+    ) : (
+      ''
+    )}
+  </Section>
+);
 
-const ContactDetailsSection = function (act, data: SensorsData) {
+const ContactDetailsSection = (act, data: SensorsData) => {
   if (data.contact_details && data.contact_details !== '') {
     const contact_details = (
       <div dangerouslySetInnerHTML={{ __html: data.contact_details }} />
@@ -293,280 +304,274 @@ const ContactDetailsSection = function (act, data: SensorsData) {
   }
 };
 
-const CompassSection = function (context, act, data: SensorsData) {
-  return (
-    <Section title="Sensor Contacts Compass">
-      <Box textAlign="center">
-        <svg height={200} width={200} viewBox="0 0 100 100">
-          <rect width="100" height="100" />
-          <g>
-            {[8, 16, 24, 32, 40, 48].map((r) => (
-              <circle
-                key={r}
-                r={r}
-                cx={50}
-                cy={50}
-                fill="none"
-                stroke="#3e6189"
-                stroke-width="0.5"
-              />
-            ))}
-            <polygon // ship direction triangle
-              points="50,45 55,55 45,55"
-              fill="#5c83b0"
-              stroke="white"
+const CompassSection = (context, act, data: SensorsData) => (
+  <Section title="Sensor Contacts Compass">
+    <Box textAlign="center">
+      <svg height={200} width={200} viewBox="0 0 100 100">
+        <rect width="100" height="100" />
+        <g>
+          {[8, 16, 24, 32, 40, 48].map((r) => (
+            <circle
+              key={r}
+              r={r}
+              cx={50}
+              cy={50}
+              fill="none"
+              stroke="#3e6189"
               stroke-width="0.5"
-              transform={'rotate(' + data.direction + ' 50 50)'}
             />
-            {[0, 45, 90, 135, 180, 225, 270, 315].map((b) => (
-              <rect // compass bearings
-                key={b}
-                width="0.5"
+          ))}
+          <polygon // ship direction triangle
+            points="50,45 55,55 45,55"
+            fill="#5c83b0"
+            stroke="white"
+            stroke-width="0.5"
+            transform={'rotate(' + data.direction + ' 50 50)'}
+          />
+          {[0, 45, 90, 135, 180, 225, 270, 315].map((b) => (
+            <rect // compass bearings
+              key={b}
+              width="0.5"
+              height={32}
+              x="50"
+              y="58"
+              fill="#3e6189"
+              transform={'rotate(' + b + ' 50 50)'}
+            />
+          ))}
+          {data.contacts
+            ?.filter((c) => !c.landed)
+            .map((contact: ContactData, i) => (
+              <rect // contact lines
+                key={i}
+                width="1.0"
                 height={32}
-                x="50"
+                x="49.5"
                 y="58"
-                fill="#3e6189"
-                transform={'rotate(' + b + ' 50 50)'}
+                fill={contact.color}
+                transform={'rotate(' + (contact.bearing + 180) + ' 50 50)'}
               />
             ))}
-            {data.contacts
-              ?.filter((c) => !c.landed)
-              .map((contact: ContactData, i) => (
-                <rect // contact lines
-                  key={i}
-                  width="1.0"
-                  height={32}
-                  x="49.5"
-                  y="58"
-                  fill={contact.color}
-                  transform={'rotate(' + (contact.bearing + 180) + ' 50 50)'}
-                />
-              ))}
-            {data.contacts
-              ?.filter((c) => !c.landed)
-              .map((contact: ContactData, i) => (
-                <>
-                  <rect
-                    width="4"
-                    height="4"
-                    x={50 - 2}
-                    y={50 - 2 - clamp((contact.distance / 2) * 8, 0, 40)}
-                    fill={contact.color}
-                    transform={'rotate(' + contact.bearing + ' 50 50)'}
-                  />
-                  <text // contact bearing on edge of compass
-                    x="50"
-                    y="2"
-                    text-anchor="middle"
-                    fill="white"
-                    font-size="5"
-                    transform={'rotate(' + contact.bearing + ' 50 50)'}>
-                    {contact.bearing}
-                  </text>
-                </>
-              ))}
-            {[0, 45, 90, 135, 180, 225, 270, 315].map((b) => (
-              <text // compass bearings on edge of compass
-                key={b}
-                x="50"
-                y="8"
-                text-anchor="middle"
-                fill="white"
-                font-size="8"
-                transform={'rotate(' + b + ' 50 50)'}>
-                {b}
-              </text>
-            ))}
-          </g>
-        </svg>
-      </Box>
-    </Section>
-  );
-};
-
-const DatalinksSection = function (act, data: SensorsData) {
-  return (
-    <Section title="Datalinks">
-      {data.datalink_requests && data.datalink_requests.length ? (
-        <Table>
-          <Table.Row header>
-            <Table.Cell>Datalink Requests:</Table.Cell>
-          </Table.Row>
-          {data.datalink_requests.map((request) => (
-            <Table.Row key={request.name}>
-              <Table.Cell>
-                <Button
-                  content={'Accept'}
-                  onClick={() =>
-                    act('accept_datalink_requests', {
-                      accept_datalink_requests: request.ref,
-                    })
-                  }
-                />
-              </Table.Cell>
-              <Table.Cell>
-                <Button
-                  content={'Decline'}
-                  onClick={() =>
-                    act('decline_datalink_requests', {
-                      decline_datalink_requests: request.ref,
-                    })
-                  }
-                />
-              </Table.Cell>
-              <Table.Cell>{capitalizeAll(request.name)}</Table.Cell>
-            </Table.Row>
-          ))}
-        </Table>
-      ) : (
-        ''
-      )}
-      {data.datalinked && data.datalinked.length ? (
-        <Table>
-          <Table.Row header>
-            <Table.Cell>Active Datalinks:</Table.Cell>
-          </Table.Row>
-          {data.datalinked.map((datalinked) => (
-            <Table.Row key={datalinked.name}>
-              <Table.Cell>{capitalizeAll(datalinked.name)}</Table.Cell>
-              <Table.Cell>
-                <Button
-                  content={'Rescind'}
-                  onClick={() =>
-                    act('remove_datalink', {
-                      remove_datalink: datalinked.ref,
-                    })
-                  }
-                />
-              </Table.Cell>
-            </Table.Row>
-          ))}
-        </Table>
-      ) : (
-        ''
-      )}
-      {data.contacts &&
-      data.contacts.length &&
-      data.contacts.some((contact) => contact.can_datalink) ? (
-        <Table>
-          <Table.Row header>
-            <Table.Cell>Potential Datalinks:</Table.Cell>
-          </Table.Row>
           {data.contacts
-            .filter((contact) => contact.can_datalink)
-            .map((contact) => (
-              <Table.Row key={contact.name}>
-                <Table.Cell>{capitalizeAll(contact.name)}</Table.Cell>
-                <Table.Cell>
-                  <Button
-                    content={'Request'}
-                    onClick={() =>
-                      act('request_datalink', {
-                        request_datalink: contact.ref,
-                      })
-                    }
-                  />
-                </Table.Cell>
-              </Table.Row>
+            ?.filter((c) => !c.landed)
+            .map((contact: ContactData, i) => (
+              <>
+                <rect
+                  width="4"
+                  height="4"
+                  x={50 - 2}
+                  y={50 - 2 - clamp((contact.distance / 2) * 8, 0, 40)}
+                  fill={contact.color}
+                  transform={'rotate(' + contact.bearing + ' 50 50)'}
+                />
+                <text // contact bearing on edge of compass
+                  x="50"
+                  y="2"
+                  text-anchor="middle"
+                  fill="white"
+                  font-size="5"
+                  transform={'rotate(' + contact.bearing + ' 50 50)'}
+                >
+                  {contact.bearing}
+                </text>
+              </>
             ))}
-        </Table>
-      ) : (
-        ''
-      )}
-    </Section>
-  );
-};
+          {[0, 45, 90, 135, 180, 225, 270, 315].map((b) => (
+            <text // compass bearings on edge of compass
+              key={b}
+              x="50"
+              y="8"
+              text-anchor="middle"
+              fill="white"
+              font-size="8"
+              transform={'rotate(' + b + ' 50 50)'}
+            >
+              {b}
+            </text>
+          ))}
+        </g>
+      </svg>
+    </Box>
+  </Section>
+);
 
-const IFFSection = function (act, data: SensorsData) {
-  return (
-    <Section title="IFF Management">
+const DatalinksSection = (act, data: SensorsData) => (
+  <Section title="Datalinks">
+    {data.datalink_requests && data.datalink_requests.length ? (
       <Table>
-        <Table.Row>
-          <Table.Cell>State:</Table.Cell>
-          <Table.Cell>
-            <Button
-              content={data.id_on ? 'Active' : 'Inactive'}
-              color={data.id_on ? 'good' : 'bad'}
-              icon={data.id_on ? 'toggle-on' : 'toggle-off'}
-              onClick={() => act('toggle_id')}
-            />
-          </Table.Cell>
+        <Table.Row header>
+          <Table.Cell>Datalink Requests:</Table.Cell>
         </Table.Row>
-        <Table.Row>
-          <Table.Cell>Status:</Table.Cell>
-          <Table.Cell>{data.id_status}</Table.Cell>
-        </Table.Row>
-        <Table.Row>
-          <Table.Cell>Class:</Table.Cell>
-          <Table.Cell>{data.id_class}</Table.Cell>
-        </Table.Row>
-        <Table.Row>
-          <Table.Cell>Designation:</Table.Cell>
-          <Table.Cell>{data.id_name}</Table.Cell>
-        </Table.Row>
-        {data.can_change_class || data.can_change_name ? (
-          <Table.Row>
-            <Table.Cell />
+        {data.datalink_requests.map((request) => (
+          <Table.Row key={request.name}>
             <Table.Cell>
-              {data.can_change_class ? (
-                <Button
-                  content={'Change Class'}
-                  onClick={() => act('change_ship_class')}
-                />
-              ) : (
-                ''
-              )}
-              {data.can_change_name ? (
-                <Button
-                  content={'Change Designation'}
-                  onClick={() => act('change_ship_name')}
-                />
-              ) : (
-                ''
-              )}
+              <Button
+                content={'Accept'}
+                onClick={() =>
+                  act('accept_datalink_requests', {
+                    accept_datalink_requests: request.ref,
+                  })
+                }
+              />
+            </Table.Cell>
+            <Table.Cell>
+              <Button
+                content={'Decline'}
+                onClick={() =>
+                  act('decline_datalink_requests', {
+                    decline_datalink_requests: request.ref,
+                  })
+                }
+              />
+            </Table.Cell>
+            <Table.Cell>{capitalizeAll(request.name)}</Table.Cell>
+          </Table.Row>
+        ))}
+      </Table>
+    ) : (
+      ''
+    )}
+    {data.datalinked && data.datalinked.length ? (
+      <Table>
+        <Table.Row header>
+          <Table.Cell>Active Datalinks:</Table.Cell>
+        </Table.Row>
+        {data.datalinked.map((datalinked) => (
+          <Table.Row key={datalinked.name}>
+            <Table.Cell>{capitalizeAll(datalinked.name)}</Table.Cell>
+            <Table.Cell>
+              <Button
+                content={'Rescind'}
+                onClick={() =>
+                  act('remove_datalink', {
+                    remove_datalink: datalinked.ref,
+                  })
+                }
+              />
             </Table.Cell>
           </Table.Row>
-        ) : (
-          ''
-        )}
+        ))}
       </Table>
-    </Section>
-  );
-};
-
-const DistressSection = function (act, data: SensorsData) {
-  return (
-    <Section title="Distress Beacons">
-      {data.distress_beacons && data.distress_beacons.length ? (
-        <Table>
-          <Table.Row header>
-            <Table.Cell />
-            <Table.Cell>Vessel</Table.Cell>
-            <Table.Cell>Bearing</Table.Cell>
-            <Table.Cell>Sender</Table.Cell>
-          </Table.Row>
-          {data.distress_beacons.map((beacon: DistressBeaconData) => (
-            <Table.Row key={beacon.caller}>
+    ) : (
+      ''
+    )}
+    {data.contacts &&
+    data.contacts.length &&
+    data.contacts.some((contact) => contact.can_datalink) ? (
+      <Table>
+        <Table.Row header>
+          <Table.Cell>Potential Datalinks:</Table.Cell>
+        </Table.Row>
+        {data.contacts
+          .filter((contact) => contact.can_datalink)
+          .map((contact) => (
+            <Table.Row key={contact.name}>
+              <Table.Cell>{capitalizeAll(contact.name)}</Table.Cell>
               <Table.Cell>
                 <Button
-                  content={'Listen'}
+                  content={'Request'}
                   onClick={() =>
-                    act('play_message', { play_message: beacon.caller })
+                    act('request_datalink', {
+                      request_datalink: contact.ref,
+                    })
                   }
                 />
               </Table.Cell>
-              <Table.Cell>{beacon.caller}</Table.Cell>
-              <Table.Cell>{beacon.bearing}</Table.Cell>
-              <Table.Cell>{beacon.sender}</Table.Cell>
             </Table.Row>
           ))}
-        </Table>
+      </Table>
+    ) : (
+      ''
+    )}
+  </Section>
+);
+
+const IFFSection = (act, data: SensorsData) => (
+  <Section title="IFF Management">
+    <Table>
+      <Table.Row>
+        <Table.Cell>State:</Table.Cell>
+        <Table.Cell>
+          <Button
+            content={data.id_on ? 'Active' : 'Inactive'}
+            color={data.id_on ? 'good' : 'bad'}
+            icon={data.id_on ? 'toggle-on' : 'toggle-off'}
+            onClick={() => act('toggle_id')}
+          />
+        </Table.Cell>
+      </Table.Row>
+      <Table.Row>
+        <Table.Cell>Status:</Table.Cell>
+        <Table.Cell>{data.id_status}</Table.Cell>
+      </Table.Row>
+      <Table.Row>
+        <Table.Cell>Class:</Table.Cell>
+        <Table.Cell>{data.id_class}</Table.Cell>
+      </Table.Row>
+      <Table.Row>
+        <Table.Cell>Designation:</Table.Cell>
+        <Table.Cell>{data.id_name}</Table.Cell>
+      </Table.Row>
+      {data.can_change_class || data.can_change_name ? (
+        <Table.Row>
+          <Table.Cell />
+          <Table.Cell>
+            {data.can_change_class ? (
+              <Button
+                content={'Change Class'}
+                onClick={() => act('change_ship_class')}
+              />
+            ) : (
+              ''
+            )}
+            {data.can_change_name ? (
+              <Button
+                content={'Change Designation'}
+                onClick={() => act('change_ship_name')}
+              />
+            ) : (
+              ''
+            )}
+          </Table.Cell>
+        </Table.Row>
       ) : (
-        'None received.'
+        ''
       )}
-    </Section>
-  );
-};
+    </Table>
+  </Section>
+);
+
+const DistressSection = (act, data: SensorsData) => (
+  <Section title="Distress Beacons">
+    {data.distress_beacons && data.distress_beacons.length ? (
+      <Table>
+        <Table.Row header>
+          <Table.Cell />
+          <Table.Cell>Vessel</Table.Cell>
+          <Table.Cell>Bearing</Table.Cell>
+          <Table.Cell>Sender</Table.Cell>
+        </Table.Row>
+        {data.distress_beacons.map((beacon: DistressBeaconData) => (
+          <Table.Row key={beacon.caller}>
+            <Table.Cell>
+              <Button
+                content={'Listen'}
+                onClick={() =>
+                  act('play_message', { play_message: beacon.caller })
+                }
+              />
+            </Table.Cell>
+            <Table.Cell>{beacon.caller}</Table.Cell>
+            <Table.Cell>{beacon.bearing}</Table.Cell>
+            <Table.Cell>{beacon.sender}</Table.Cell>
+          </Table.Row>
+        ))}
+      </Table>
+    ) : (
+      'None received.'
+    )}
+  </Section>
+);
 
 export const Sensors = (props) => {
   const { act, data } = useBackend<SensorsData>();
@@ -585,7 +590,7 @@ export const Sensors = (props) => {
       'white',
     ];
 
-    let bearing_color_map: Map<number, string> = new Map();
+    const bearing_color_map: Map<number, string> = new Map();
 
     data.contacts?.forEach((contact, i) => {
       if (!bearing_color_map[contact.bearing]) {

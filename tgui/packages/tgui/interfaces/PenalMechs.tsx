@@ -1,6 +1,6 @@
+import { Button, Section, Table } from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Button, Section, Table } from 'tgui-core/components';
 import { NtosWindow } from '../layouts';
 
 export type MechsData = {

@@ -1,5 +1,5 @@
-import { useBackend, useLocalState } from '../backend';
 import { Section, Table, Tabs } from 'tgui-core/components';
+import { useBackend, useLocalState } from '../backend';
 import { NtosWindow } from '../layouts';
 
 export type JanitorData = {
@@ -32,7 +32,8 @@ export const Janitor = (props) => {
               <Tabs.Tab
                 key={cat}
                 selected={tab === cat}
-                onClick={() => setTab(cat)}>
+                onClick={() => setTab(cat)}
+              >
                 {cat}
               </Tabs.Tab>
             ))}
@@ -57,7 +58,7 @@ export const Janitor = (props) => {
                     <Table.Cell>{supply.dir}</Table.Cell>
                     <Table.Cell>{supply.status}</Table.Cell>
                   </Table.Row>
-                )
+                ),
             )}
           </Table>
         </Section>

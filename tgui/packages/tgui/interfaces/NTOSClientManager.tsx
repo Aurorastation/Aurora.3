@@ -1,6 +1,15 @@
+import {
+  BlockQuote,
+  Box,
+  Button,
+  Dropdown,
+  LabeledList,
+  NoticeBox,
+  Section,
+  Tabs,
+} from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend, useLocalState } from '../backend';
-import { BlockQuote, Box, Button, Dropdown, LabeledList, NoticeBox, Section, Tabs } from 'tgui-core/components';
 import { NtosWindow } from '../layouts';
 
 type NTOSClientData = {
@@ -12,14 +21,8 @@ type NTOSClientData = {
 const DeviceEnrollment = (props) => {
   const { act, data } = useBackend<NTOSClientData>();
   const { available_presets, ntnet_status } = data;
-  const [deviceType, setDeviceType] = useLocalState(
-    'setDeviceType',
-    1
-  );
-  const [devicePreset, setDevicePreset] = useLocalState(
-    'setDevicePreset',
-    ''
-  );
+  const [deviceType, setDeviceType] = useLocalState('setDeviceType', 1);
+  const [devicePreset, setDevicePreset] = useLocalState('setDevicePreset', '');
   if (!ntnet_status) {
     return (
       <Section title="Device Enrollment">
@@ -35,12 +38,14 @@ const DeviceEnrollment = (props) => {
         <Tabs>
           <Tabs.Tab
             selected={deviceType === 1}
-            onClick={() => setDeviceType(1)}>
+            onClick={() => setDeviceType(1)}
+          >
             Company Device
           </Tabs.Tab>
           <Tabs.Tab
             selected={deviceType === 2}
-            onClick={() => setDeviceType(2)}>
+            onClick={() => setDeviceType(2)}
+          >
             Private Device
           </Tabs.Tab>
         </Tabs>
@@ -67,10 +72,11 @@ const DeviceEnrollment = (props) => {
               }
               onClick={() =>
                 act('enroll', {
-                  'enroll_type': deviceType,
-                  'enroll_preset': devicePreset,
+                  enroll_type: deviceType,
+                  enroll_preset: devicePreset,
                 })
-              }>
+              }
+            >
               Confirm
             </Button>
           </LabeledList.Item>

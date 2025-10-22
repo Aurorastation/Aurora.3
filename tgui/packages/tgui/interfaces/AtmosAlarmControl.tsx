@@ -1,6 +1,6 @@
+import { Button, Input, NoticeBox, Section, Table } from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend, useLocalState } from '../backend';
-import { Button, Input, NoticeBox, Section, Table } from 'tgui-core/components';
 import { NtosWindow } from '../layouts';
 
 export type AlarmData = {
@@ -18,10 +18,7 @@ type Alarm = {
 
 export const AtmosAlarmControl = (props) => {
   const { act, data } = useBackend<AlarmData>();
-  const [searchTerm, setSearchTerm] = useLocalState<string>(
-    `searchTerm`,
-    ``
-  );
+  const [searchTerm, setSearchTerm] = useLocalState<string>(`searchTerm`, ``);
 
   return (
     <NtosWindow>
@@ -43,7 +40,8 @@ export const AtmosAlarmControl = (props) => {
                 value={searchTerm}
               />
             </>
-          }>
+          }
+        >
           <Table>
             <Table.Row header>
               <Table.Cell>Deck</Table.Cell>
@@ -57,7 +55,7 @@ export const AtmosAlarmControl = (props) => {
                   (alarm) =>
                     alarm.searchname
                       ?.toLowerCase()
-                      .indexOf(searchTerm.toLowerCase()) > -1
+                      .indexOf(searchTerm.toLowerCase()) > -1,
                 )
                 .sort((a, b) => a.dept?.localeCompare(b?.dept))
                 .map((alarm) => (

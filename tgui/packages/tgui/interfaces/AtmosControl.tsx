@@ -1,6 +1,6 @@
-import { useBackend } from '../backend';
-import { Section, LabeledList, NoticeBox } from 'tgui-core/components';
+import { LabeledList, NoticeBox, Section } from 'tgui-core/components';
 import { capitalize } from 'tgui-core/string';
+import { useBackend } from '../backend';
 
 export type AtmosData = {
   sensors: Sensor[];
@@ -40,12 +40,13 @@ export const SensorData = (props) => {
               datapoint.data !== null ? (
                 <LabeledList.Item
                   key={datapoint.datapoint}
-                  label={capitalize(datapoint.datapoint)}>
+                  label={capitalize(datapoint.datapoint)}
+                >
                   {datapoint.data} {datapoint.unit}
                 </LabeledList.Item>
               ) : (
                 ''
-              )
+              ),
             )}
           </LabeledList>
         </Section>

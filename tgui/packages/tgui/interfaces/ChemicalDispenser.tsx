@@ -1,6 +1,15 @@
+import {
+  AnimatedNumber,
+  Box,
+  Button,
+  Divider,
+  LabeledControls,
+  NumberInput,
+  Section,
+  Stack,
+} from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { AnimatedNumber, Box, Button, Divider, LabeledControls, NumberInput, Section, Stack } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type DispenserData = {
@@ -65,10 +74,10 @@ export const ChemicalDispenser = (props) => {
             'Container Display' +
             (data.is_beaker_loaded
               ? ' (' +
-              data.beaker_current_volume +
-              '/' +
-              data.beaker_max_volume +
-              'u)'
+                data.beaker_current_volume +
+                '/' +
+                data.beaker_max_volume +
+                'u)'
               : '')
           }
           buttons={
@@ -81,7 +90,8 @@ export const ChemicalDispenser = (props) => {
             ) : (
               ''
             )
-          }>
+          }
+        >
           {!data.is_beaker_loaded ? 'No container loaded.' : <BeakerContents />}
         </Section>
       </Window.Content>

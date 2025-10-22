@@ -1,7 +1,7 @@
-import { useBackend } from '../backend';
-import { Button, Section, LabeledList } from 'tgui-core/components';
-import { Window } from '../layouts';
+import { Button, LabeledList, Section } from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
+import { useBackend } from '../backend';
+import { Window } from '../layouts';
 
 export type ScannerData = {
   enabled: BooleanLike;
@@ -43,7 +43,8 @@ export const OreDetector = (props) => {
                   disabled={!data.search_ores.length}
                   onClick={() => act('toggle')}
                 />
-              }>
+              }
+            >
               {get_status()}
             </LabeledList.Item>
           </LabeledList>
@@ -58,7 +59,8 @@ export const OreDetector = (props) => {
                   <Button onClick={() => act('select_ore', { ore_name: ore })}>
                     Toggle
                   </Button>
-                }>
+                }
+              >
                 {ore_enabled(ore) ? 'ENABLED' : 'DISABLED'}
               </LabeledList.Item>
             ))}
