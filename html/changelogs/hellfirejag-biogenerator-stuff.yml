@@ -1,0 +1,8 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - bugfix: "Fixed upgrade hints for biogenerators. Upgrade hints now show the actual current numerical effects of parts."
+  - rscadd: "Added mechanics hints for biogenerators."
+  - rscadd: "Biogenerators now also require capacitors, which increase their processing speed."
+  - rscadd: "Biogenerators can now produce splints, as well as more variety of stickers."
+  - balance: "Small biogenerators such as the one in the garden aren't as strongly upgraded by better parts as the full-sized biogenerator."
