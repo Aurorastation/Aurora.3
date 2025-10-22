@@ -100,7 +100,7 @@
 		// If the item has a description regarding game mechanics, show it.
 		if(desc_mechanics)
 			. += FONT_SMALL(SPAN_NOTICE("<b>Mechanics</b>"))
-			. += FONT_SMALL(SPAN_NOTICE("[desc_mechanics]"))
+			. += FONT_SMALL("[desc_mechanics]")
 		// If the item has a description with assembly/disassembly instructions, show it.
 		if(desc_build)
 			. += FONT_SMALL(SPAN_NOTICE("<b>Assembly/Disassembly</b>"))
@@ -109,12 +109,12 @@
 		// If the item has a description about its upgrade components and what they do, show it.
 		// This one doesnt come prepended with a hyphen because theyre added when the desc is dynamically built.
 		if(desc_upgrade)
-			. += FONT_SMALL(SPAN_NOTICE("<b>Upgrades</b>"))
-			. += FONT_SMALL(SPAN_NOTICE("[desc_upgrade]"))
+			. += FONT_SMALL("<b>Upgrades</b>")
+			. += FONT_SMALL("[desc_upgrade]")
 		// If the item has an antagonist description and the user is an antagonist/ghost, show it.
 		if(desc_antag && (player_is_antag(user.mind) || isghost(user) || isstoryteller(user)))
 			. += FONT_SMALL(SPAN_ALERT("<b>Antagonism</b>"))
-			. += FONT_SMALL(SPAN_ALERT("[desc_antag]"))
+			. += FONT_SMALL("[desc_antag]")
 	else
 		// Checks if the object has a extended description, a mechanics description, and/or an antagonist description (and if the user is an antagonist).
 		if(desc_extended || desc_mechanics || desc_build || desc_upgrade || (desc_antag && player_is_antag(user.mind)))
@@ -204,7 +204,7 @@
 			if(!first_line)
 				desc_mechanics += "</br>"
 			first_line = FALSE
-			desc_mechanics += SPAN_NOTICE("- [mechanics_hint]")
+			desc_mechanics += SPAN_NOTICE("[mechanics_hint]")
 
 	desc_build = ""
 	if(length(assembly_hints) || length(disassembly_hints))
@@ -213,7 +213,7 @@
 			if(!first_line)
 				desc_build += "</br>"
 			first_line = FALSE
-			desc_build += SPAN_NOTICE("- [assembly_hint]")
+			desc_build += SPAN_NOTICE("[assembly_hint]")
 		// Make sure line breaks work reliably whether or not there's only assembly, only disassembly, or both types available.
 		if (length(assembly_hints) && length(disassembly_hints))
 			desc_build += "</br>"
@@ -222,7 +222,7 @@
 			if(!first_line)
 				desc_build += "</br>"
 			first_line = FALSE
-			desc_build += SPAN_ALERT("- [disassembly_hint]")
+			desc_build += SPAN_ALERT("[disassembly_hint]")
 
 	desc_upgrade = ""
 	if(length(upgrade_hints))
@@ -230,7 +230,7 @@
 		for(var/upgrade_hint in upgrade_hints)
 			if(!first_line)
 				desc_upgrade += "<br>"
-			desc_upgrade += "- [upgrade_hint]"
+			desc_upgrade += "[upgrade_hint]"
 			first_line = FALSE
 
 	desc_antag = ""
@@ -240,7 +240,7 @@
 			if(!first_line)
 				desc_antag += "</br>"
 			first_line = FALSE
-			desc_antag += SPAN_WARNING("- [antagonist_hint]")
+			desc_antag += SPAN_WARNING("[antagonist_hint]")
 
 	desc_feedback = ""
 	if(length(feedback_hints))

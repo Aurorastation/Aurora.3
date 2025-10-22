@@ -76,3 +76,224 @@
   - qol: You can now use the Himeo voidsuit modkit on industrial rigs, as well as
       rig assemblies.
   - imageadd: Changed the rest of the Himean suits to match the new palette.
+2025-10-06:
+  Batrachophrenoboocosmomachia:
+  - balance: Fusion reaction modifications. Higher radiation and temperature output,
+      comparable power output.
+  - balance: Increased rad resistance modifier of Borosilicate Windows from 1 -> 4
+      and (closed) Blast Doors from 1 -> 6.
+  - balance: INDRA Field Strength minima/maxima changed from 1-100 -> 20-120. Power
+      costs increased significantly.
+  - balance: INDRA instability increase per tick now limited, similar to Supermatter
+      (prevents sudden instability spike from instantly nuking it).
+  - balance: APC cell charge rate increased 10x.
+  - balance: Rebalanced contents of INDRA hard storage compartment.
+  - balance: SMES coils capacities halved, throughputs doubled.
+  - balance: SMES unit maximum coil capacity increased from 6 -> 8.
+  - balance: TEG maximum power output increased from 500000 -> 2500000.
+  - balance: Power wasted from exceeding TEG maximum power output decreased from 50%
+      to 33%.
+  - balance: Portable generators of all types have had their power generation capacity
+      doubled.
+  - rscadd: New 'Fusion Codex' app added for all crew with ACCESS_ENGINE that details
+      all available nuclear fusion chains.
+  - rscadd: Boron added as a singleton/reagent. Poisonous to vaurca, still usable
+      in nuclear fusion as fuel assembly rods.
+  - rscadd: INDRA Field Strength now scales plasma temperature entropy, power output
+      from temperature multiplier, and instability increase per tick.
+  - refactor: '''Boron'' gas renamed to ''Helium-3''. Boron is not a gas. Deal with
+      it.'
+  - refactor: '''Steam'' gas renamed to ''Water Vapor''.'
+  - code_imp: Descriptions added to gas singletons for future use.
+  - qol: Minor remap of INDRA control room for usability.
+  - qol: Standardized gas canister naming conventions.
+  - qol: INDRA and APC TGUI interfaces now use use kW, MW abbreviations for high wattages.
+  - bugfix: INDRA Kinetic Harvester no longer rapidly deselects materials for harvest
+      when too many are being generated at once.
+  - bugfix: INDRA EM Field effect no longer considers the camera within its reactor
+      chamber a destabilizing influence.
+  - bugfix: INDRA reactor core now produces radiation as intended.
+  - bugfix: Deuterium and Tritium canisters no longer contain 50% standard hydrogen
+      (inheritance issue).
+  - qol: Integrated Electronics camera can now be configured for different camera
+      networks
+  - qol: Reduced Integrated Electronics speaker functions cooldown from 4s -> 1s,
+      for translating busier conversations. Behave.
+  - qol: Add Integrated Electronics component 'size' value to displayed properties.
+  - balance: Increase maximum components and complexity of integrated circuit 'electronic
+      implant' assembly by 25%.
+  ElorgRHG:
+  - imageadd: Resprited or otherwise repaletted most if not all Zeng-Hu clothing,
+      from job uniforms to labcoats.
+  - imageadd: The alternate version of the Zeng-Hu cap now has a sprite.
+  FabianK3:
+  - code_imp: Added a new Github action workflow to the repository to handle stale
+      issues and pull requests.
+  FlamingLily:
+  - rscadd: Added another slot to Hangar Technician.
+  Hellfirejag:
+  - rscadd: Psionic jumpstarters now work on skrell, upgrading the user to an antagonist
+      level psion.
+  - rscadd: Added a new lesser version of the psionic jumpstarter, called a psionic
+      awakener, to the uplink. It sets the user to the same level of psionic as a
+      Skrell, while being significantly cheaper than the full jumpstarter.
+  JohnWildkins:
+  - bugfix: Fix atmospheric pipes becoming invisible or failing to be wrenched down.
+  Kano, KingOfThePing:
+  - rscadd: Added an elevator animation logic for cargo elevator, heavily inspired
+      from CM.
+  - rscadd: Added hatch and shaft sprites for cargo elevator, made by KingOfThePing!
+  - rscadd: Ported some sounds and sprites from CM.
+  MattAtlas:
+  - experiment: Moved limb icon updating to signals. This should reduce lag by a considerable
+      amount.
+  RustingWithYou, GMR25, Flpfs:
+  - rscadd: Adds a new Ve'katak Phalanx uniform for future off-ship use.
+  - imageadd: Standardises the existing Ve'katak Phalanx uniforms.
+  - rscadd: Allows physicians to take the Phalanx medical uniform in the loadout.
+  TheGreyWolf:
+  - rscdel: Drobes no longer contains mechanically relevant items, such as insulated
+      gloves or bags.
+  - rscadd: Bags, holsters and webbings were added to relevant department lockers,
+      such as security and engineering lockers. This includes alt versions of them
+      where relevant.
+  - rscadd: Engineering lockers now start with insulated gloves in them.
+  - rscadd: Added the ability to make retail shelves and clothing racks from plastic.
+  - bugfix: Fixed table frames giving duplicate rods when dismantled.
+  - bugfix: Fixed racks giving back rods when they were made with plastic.
+  - bugfix: There are now four spawn spots for hangar techs, to fit the amount of
+      slots they have.
+  - rscadd: Journals and notepads in the loadout now spawns with 5 blank pieces of
+      paper.
+2025-10-07:
+  FabianK3:
+  - bugfix: Fixed missing permission for cache access in the issue triage workflow
+      in the repository.
+  - bugfix: Fixed exempt labels getting ignore in the CI/CD stale triage action in
+      the repository.
+  Hellfirejag:
+  - balance: Stasis beds now only go up to 30x stasis modifier when fully part upgraded,
+      down from 90.
+  - rscdel: Stasis beds are no longer upgraded using Capacitors, only scanning modules
+      contribute to the stasis modifier.
+2025-10-08:
+  Batrachophrenoboocosmomachia:
+  - code_imp: Added set definitions for several Horizon-specific containers.
+  - code_imp: Updated 'full' material stacks on the Horizon from sneaky var-edited
+      singles to properly defined full stacks
+  - code_imp: Cleaned up all Air Alarms, Fire Alarms, and APCs on the Horizon that
+      were directional children with their dir var edited.
+  - code_imp: Cleaned up all Power Cables on the Horizon that had d1 or d2 var edited
+      instead of just icon_state.
+  - code_imp: Adjusted pixel shifts for 'south' (north-facing) Air Alarms, Fire Alarms,
+      APCs, and Extinguisher Cabinets to address layering issues when standing vs.
+      leaning.
+  - code_imp: Minor refactor of shuttle/* Air Alarms and APCs to reduce excess children;
+      req_one_access perms now assigned based on /area/horizon/shuttle/*.
+  - qol: Adds feedback hint for uses remaining to Emag cards.
+  - qol: Added Tip about the shift-click behavior of the 'up-hint'/'Look Up' button.
+  - bugfix: See-through turfs (like lattices/catwalks over open space) can now be
+      Looked Up through from below.
+  - bugfix: Fixed the shift-click behavior of 'up-hint'/'Look Up' button, allowing
+      you to see nearby turfs that can be Looked Up through.
+  - bugfix: Maintenance Panels located on the floor have had their layering issues
+      fixed.
+  - bugfix: Borg eye emissive effects MAYBE no longer visible through higher z-levels.
+  - bugfix: Added missing leanable component to window/shuttle obj type.
+  - bugfix: Add missing APC to D1 maintenance area.
+  FabianK3:
+  - bugfix: Added missing APC to D2 service/bridge stairwell.
+  Fyni:
+  - rscadd: Adds the autopsy scanner to the protolathe, available at round start under
+      biotech
+  MattAtlas:
+  - experiment: Shields have been reworked to be far more performant, and genericized
+      to allow anything to have an energy field.
+  nauticall:
+  - imageadd: Resprited boxes; made them both colorable and modular.
+  - code_imp: Repathed box paths behind the scenes.
+2025-10-10:
+  ChangeMe:
+  - rscadd: Species capable of indefinite sleep, can now voluntarily wake up from
+      sleeping at will by pressing 'Sleep' again.
+  - sounddel: IPCs will no longer beep when sleeping.
+2025-10-15:
+  JohnWildkins:
+  - rscdel: Reverts to 2024-style lobby screens due to performance concerns.
+2025-10-17:
+  Evandorf:
+  - rscadd: Added a new away site; Hiskyn Pirate Treasure Trove. Intended to be a
+      high risk, high reward dive into boobytrapped ruins. Be warned and have fun.
+  - rscadd: Lava is now more dangerous and you will suffer immediate burns from stepping
+      in it. Don't step in lava.
+  - bugfix: Adjusted random item spawning to prevent null errors and adjusted some
+      random items to use problists.
+  - rscadd: Created pre-deployed and random variants of certain things like mines
+      and shield wall generators.
+  - bugfix: Radioactive spills will give off radiation correctly, and some radioactive
+      waste barrels are more hazardous, though labelled appropriately.
+  - rscadd: Added a handful of environmental traps and sprites where appropriately.
+  - bugfix: Fixed some corpse spawners not updating the sprites correctly after load.
+  - bugfix: Set correct icons for certain step triggers. Doing so caused dirty var
+      errors in some existing maps and those were corrected as well.
+  FabianK3:
+  - rscadd: Update the repositories triage bot to run every full hour with an adjusted
+      rate limit.
+  FlamingLily:
+  - bugfix: Replaces the generic smartfridge in the hydroponics mini-chemlab with
+      an !insecure! chemistry smartfridge.
+  Hellfirejag:
+  - bugfix: Fixed upgrade hints for chemical heaters.
+  - rscadd: Improved upgrade hints for chemical heaters, autolathes, mechfabs, protolathes,
+      and circuit imprinters. Their mechanics hints now state the actual current numerical
+      effects.
+  JohnWildkins:
+  - server: Increased TGUI connection lost timer from 20s to 45s, making it more likely
+      to auto-reconnect after server restart.
+  MattAtlas (porting), CM and /tg/ coders (original code):
+  - experiment: Replaced our renderer system with TG and CM's planemasters.
+  - rscadd: Open space now has a gaussian blur filter.
+  - bugfix: Fixed esoteric smoothing behaviour that was a bug for a long time; lattices
+      should no longer smooth with nothing.
+  TheGreyWolf:
+  - bugfix: Fixed crafting a janitorial cart also gave several janitorial supplies
+      with it.
+  - rscadd: Crates now takes half as long to hoist up on tables.
+  - rscadd: Crates now have a message when put on a table.
+  - rscadd: Cargo packages and other heavy objects can now be put beside you without
+      risking the health of your foot.
+  - rscadd: The cargo and janitorial tugs are now faster, but don't gain speed when
+      emagged.
+  - rscadd: Added a hint to the cargo, janitorial and mining tugs that they can run
+      over people when emagged.
+  nauticall:
+  - rscadd: 'The following items have been added to cargo (1): pig, Cleanbot, Farmbot,
+      Medibot, autopsy scanner, package/gift wrapping paper, PDA, universal (tape)
+      recorder.'
+  - rscadd: 'The following items have been added to cargo (2): IV stand, camping set
+      & sleeping bags, InUs Game-Helm, paper scanner, data drives, produce boxes.'
+  - qol: Moved certain cargo items to other categories.
+  - qol: Modified the pricing of blood, hydroponics trays, certain drink canisters,
+      organ coolers, animals, and some security items. Made folders and SBS blood
+      come in multiple per order.
+  - spellcheck: Miscellaneous spellchecks and grammar fixes in cargo.
+  - rscdel: Capped the amount of pizza boxes available in mining vendors to 2.
+2025-10-20:
+  Ben10083:
+  - rscadd: AI can can now be fixed with Nanopaste.
+  - bugfix: Adds missing blast door to AI Core area.
+  Kano:
+  - rscadd: Added an interactive away site, Outpost Nemora. Lot's of traps, horde
+      cleaning and some story!
+  - rscadd: Ported storytelling holopads from Paradise Station.
+  Mneme:
+  - bugfix: Fixed a broken pipe at the upper bar disposal.
+  - rscadd: Created a control hub system that allows for the control of multiple different
+      types of buttons from one location.
+  - rscadd: Created a light switch variant that can control the color and brightness
+      of the lighting.
+  - rscadd: Created a new secure safe variant that is controlled with an ID card.
+  - qol: Remodeled the Bar
+  - qol: Connected the Deck Two Stairwell and the Bar via maintenance.
+  TheGreyWolf:
+  - rscadd: The light replacer is now much faster when loading from a box of lights.

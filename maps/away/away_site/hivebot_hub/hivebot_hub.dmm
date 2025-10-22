@@ -658,16 +658,6 @@
 /obj/structure/girder,
 /turf/simulated/floor/airless,
 /area/hivebothub/dorm1)
-"dK" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/cart/storage/janitorialcart{
-	dir = 4
-	},
-/turf/simulated/floor/airless,
-/area/hivebothub/atmos)
 "dY" = (
 /obj/effect/landmark/entry_point/east{
 	name = "east, secure storage"
@@ -839,6 +829,16 @@
 	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/portdocks)
+"eU" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cart/storage/janitorialcart/full{
+	dir = 4
+	},
+/turf/simulated/floor/airless,
+/area/hivebothub/atmos)
 "eX" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -3294,7 +3294,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/crate,
-/obj/item/storage/box/shotgunammo,
+/obj/item/storage/box/shells/slugs,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/portdocks)
 "vW" = (
@@ -3958,6 +3958,12 @@
 	},
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/portdocks)
+"AA" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/portable_atmospherics/canister/tritium,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/hivebothub/secure)
 "AF" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -4250,8 +4256,8 @@
 	opened = 1
 	},
 /obj/item/gun/energy/disruptorpistol,
-/obj/item/storage/box/beanbags,
-/obj/item/storage/box/beanbags,
+/obj/item/storage/box/shells/beanbags,
+/obj/item/storage/box/shells/beanbags,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/bridge)
 "Co" = (
@@ -6663,12 +6669,6 @@
 	},
 /turf/simulated/floor/carpet,
 /area/hivebothub/dorm2)
-"SI" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/portable_atmospherics/canister/hydrogen/tritium,
-/turf/simulated/floor/tiled/dark/full/airless,
-/area/hivebothub/secure)
 "SY" = (
 /obj/item/ore/glass{
 	pixel_y = 7;
@@ -6951,12 +6951,6 @@
 /obj/structure/cable/yellow,
 /turf/simulated/floor/airless,
 /area/hivebothub/portdocks)
-"UY" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/portable_atmospherics/canister/hydrogen/deuterium,
-/turf/simulated/floor/tiled/dark/full/airless,
-/area/hivebothub/secure)
 "Va" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/decal/cleanable/dirt,
@@ -7552,6 +7546,12 @@
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
 /turf/space/dynamic,
 /area/hivebothub/exterior)
+"Zi" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/portable_atmospherics/canister/deuterium,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/hivebothub/secure)
 "Zj" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille,
 /obj/effect/landmark/entry_point/west{
@@ -38373,7 +38373,7 @@ NV
 aK
 FS
 mH
-dK
+eU
 Zf
 aK
 aK
@@ -41468,8 +41468,8 @@ KX
 jR
 UL
 lT
-UY
-SI
+Zi
+AA
 UL
 UL
 UL

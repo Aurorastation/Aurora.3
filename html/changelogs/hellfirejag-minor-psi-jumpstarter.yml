@@ -1,5 +1,0 @@
-author: Hellfirejag
-delete-after: True
-changes:
-  - rscadd: "Psionic jumpstarters now work on skrell, upgrading the user to an antagonist level psion."
-  - rscadd: "Added a new lesser version of the psionic jumpstarter, called a psionic awakener, to the uplink. It sets the user to the same level of psionic as a Skrell, while being significantly cheaper than the full jumpstarter."

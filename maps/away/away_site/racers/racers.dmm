@@ -456,7 +456,7 @@
 /obj/item/material/knife{
 	pixel_x = -9
 	},
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3
 	},
 /turf/simulated/floor/tiled/white,
@@ -2958,7 +2958,7 @@
 "olo" = (
 /obj/structure/dispenser/oxygen,
 /obj/item/tank/oxygen,
-/obj/item/storage/box/stunshells{
+/obj/item/storage/box/shells/stunshells{
 	pixel_x = 1;
 	pixel_y = 15
 	},
@@ -3736,7 +3736,7 @@
 /obj/item/reagent_containers/food/snacks/koisbar,
 /obj/item/reagent_containers/food/snacks/koisbar,
 /obj/item/reagent_containers/food/snacks/koisbar,
-/obj/item/storage/box/monkeycubes/neaeracubes,
+/obj/item/storage/box/unique/monkeycubes/neaeracubes,
 /turf/simulated/floor/plating,
 /area/racers)
 "scQ" = (

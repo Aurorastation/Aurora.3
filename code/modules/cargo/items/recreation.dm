@@ -368,3 +368,17 @@
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
+
+/singleton/cargo_item/game_helm
+	category = "recreation"
+	name = "InUs Game-Helm"
+	supplier = "orion"
+	description = "A popular portable gaming console with thousands of games available for play."
+	price = 150
+	items = list(
+		/obj/item/gamehelm
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1

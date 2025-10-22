@@ -1,6 +1,12 @@
+import {
+  Button,
+  LabeledList,
+  NoticeBox,
+  NumberInput,
+  Section,
+} from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Button, LabeledList, NoticeBox, NumberInput, Section } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type FusionGyrotronData = {
@@ -15,6 +21,7 @@ type Gyrotron = {
   active: BooleanLike;
   firedelay: number;
   energy: number;
+  power_status: string;
 };
 
 export const FusionGyrotronControl = (props) => {
@@ -35,20 +42,20 @@ export const FusionGyrotronControl = (props) => {
                   color={gyrotron.active ? 'good' : 'bad'}
                   onClick={() => act('toggle', { machine: gyrotron.ref })}
                 />
-              }>
+              }
+            >
               <NoticeBox>
-                Power consumption per shot:{' '}
-                {gyrotron.energy * data.gyro_power_constant} watts.
+                Power consumption per shot: {gyrotron.power_status}
               </NoticeBox>
               <LabeledList>
                 <LabeledList.Item label="Strength">
                   <NumberInput
                     value={gyrotron.energy}
                     minValue={1}
-                    maxValue={50}
+                    maxValue={250}
                     unit="x"
                     stepPixelSize={15}
-                    onDrag={(e, value) =>
+                    onChange={(e, value) =>
                       act('modifypower', {
                         modifypower: value,
                         machine: gyrotron.ref,

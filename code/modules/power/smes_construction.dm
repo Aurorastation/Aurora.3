@@ -1,22 +1,26 @@
-// BUILDABLE SMES(Superconducting Magnetic Energy Storage) UNIT
-//
-// Last Change 1.1.2015 by Atlantis - Happy New Year!
-//
-// This is subtype of SMES that should be normally used. It can be constructed, deconstructed and hacked.
-// It also supports RCON System which allows you to operate it remotely, if properly set.
+/**
+ * BUILDABLE SMES (Superconducting Magnetic Energy Storage) UNIT
+ * AKA PSUs- both 'SMES unit' and 'PSU' will be used interchangeably in documentation and in-game.
+ *
+ * PSUs are linked by the RCON System, allowing for remote management of all linked
+ * It also supports RCON System which allows you to operate it remotely, if properly set.
+ *
+ * This is subtype of SMES that should be normally used. It can be constructed, deconstructed and hacked.
+ */
 
-//MAGNETIC COILS - These things actually store and transmit power within the SMES. Different types have different
+/// MAGNETIC COILS - These things actually store and transmit power within the SMES. Different types have different properties
 /obj/item/smes_coil
 	name = "superconductive magnetic coil"
 	desc = "Standard superconductive magnetic coil with balanced capacity and I/O rating."
 	icon = 'icons/obj/stock_parts.dmi'
 	icon_state = "smes_coil"
-	w_class = WEIGHT_CLASS_BULKY 			// It's LARGE (backpack size)
-	var/ChargeCapacity = 5000000
-	var/IOCapacity = 250000
+	/// It's LARGE (backpack sized)
+	w_class = WEIGHT_CLASS_BULKY
+	var/ChargeCapacity = 2500000
+	var/IOCapacity = 500000
 
-/obj/item/smes_coil/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/smes_coil/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(is_adjacent)
 		. += "The label reads: Only certified professionals are allowed to handle and install this component."
 		. += "Charge capacity: [ChargeCapacity/1000000] MJ."
@@ -27,25 +31,24 @@
 	name = "basic superconductive magnetic coil"
 	desc = "Cheaper model of the standard superconductive magnetic coil. Its capacity and I/O rating are considerably lower."
 	icon_state = "smes_coil_weak"
-	ChargeCapacity = 1000000
-	IOCapacity = 150000
+	ChargeCapacity = 500000
+	IOCapacity = 300000
 
 // 1000% Charge Capacity, 20% I/O Capacity
 /obj/item/smes_coil/super_capacity
 	name = "superconductive capacitance coil"
 	desc = "Specialised version of the standard superconductive magnetic coil. It has significantly stronger containment field, allowing for immense power storage. However its I/O rating is much lower."
 	icon_state = "smes_coil_capacitance"
-	ChargeCapacity = 50000000
-	IOCapacity = 50000
+	ChargeCapacity = 25000000
+	IOCapacity = 100000
 
 // 10% Charge Capacity, 400% I/O Capacity. Technically turns SMES into large super capacitor.Ideal for shields.
 /obj/item/smes_coil/super_io
 	name = "superconductive transmission coil"
 	desc = "Specialised version of the standard superconductive magnetic coil. While it's almost useless for power storage it can rapidly transfer power, making it useful in systems that require large throughput."
 	icon_state = "smes_coil_transmission"
-	ChargeCapacity = 500000
-	IOCapacity = 1000000
-
+	ChargeCapacity = 250000
+	IOCapacity = 2000000
 
 // SMES SUBTYPES - THESE ARE MAPPED IN AND CONTAIN DIFFERENT TYPES OF COILS
 
@@ -66,63 +69,90 @@
 /obj/machinery/power/smes/buildable/main_engine
 	cur_coils = 4
 	input_attempt = TRUE
-	input_level = 500000
+	input_level = 1000000
 	output_attempt = TRUE
-	output_level = 500000
+	output_level = 1000000
 	charge =1.5e+7
 
-// For the substation SMES around the Horizon.
+/// For the substation SMES around the Horizon.
 /obj/machinery/power/smes/buildable/substation
-	input_level = 150000
-	output_level = 140000
+	input_level = 250000
+	output_level = 240000
+
+// Telecomms substation. Based on shuttle settings; those boxes are power-hungry.
+/obj/machinery/power/smes/buildable/telecomms/Initialize()
+	. = ..()
+	component_parts += new /obj/item/smes_coil/super_io(src)
+	input_attempt = TRUE
+	output_attempt = TRUE
+	input_level = 2000000
+	output_level = 2000000
+	charge = 5.55e+007
 
 // The Horizon's shuttles want something with decent capacity to sustain themselves and enough transmission to meet their energy needs.
 /obj/machinery/power/smes/buildable/horizon_shuttle/Initialize()
 	. = ..()
 	component_parts += new /obj/item/smes_coil/super_io(src)
 	component_parts += new /obj/item/smes_coil/super_capacity(src)
-	input_attempt = TRUE
-	output_attempt = TRUE
-	input_level = 1300000
-	output_level = 1300000
-	charge = 5.55e+007
-
-/obj/machinery/power/smes/buildable/third_party_shuttle/Initialize() //Identical to the horizon_shuttle for now as we try to work out specifics
-	. = ..()
-	component_parts += new /obj/item/smes_coil/super_io(src)
 	component_parts += new /obj/item/smes_coil/super_capacity(src)
 	input_attempt = TRUE
 	output_attempt = TRUE
-	input_level = 1300000
-	output_level = 1300000
+	input_level = 2700000
+	output_level = 2700000
+	charge = 5.55e+007
+
+//Identical to the horizon_shuttle for now as we try to work out specifics
+/obj/machinery/power/smes/buildable/third_party_shuttle/Initialize()
+	. = ..()
+	component_parts += new /obj/item/smes_coil/super_io(src)
+	component_parts += new /obj/item/smes_coil/super_capacity(src)
+	component_parts += new /obj/item/smes_coil/super_capacity(src)
+	input_attempt = TRUE
+	output_attempt = TRUE
+	input_level = 2700000
+	output_level = 2700000
 	charge = 5.55e+007
 
 /obj/machinery/power/smes/buildable/third_party_shuttle/empty/Initialize()
 	. = ..()
 	charge = 0
 
-/obj/machinery/power/smes/buildable/autosolars/Initialize() //for third parties that have their solars autostart, It's slightly upgraded for them
+/obj/machinery/power/smes/buildable/third_party_shuttle/low_charge/Initialize()
 	. = ..()
-	component_parts += new /obj/item/smes_coil/super_capacity(src)
+	output_level = 0
+	charge = 10.55e+005
+
+//for third parties that have their solars autostart, It's slightly upgraded for them
+/obj/machinery/power/smes/buildable/autosolars/Initialize()
+	. = ..()
 	component_parts += new /obj/item/smes_coil/super_io(src)
+	component_parts += new /obj/item/smes_coil/super_capacity(src)
+	component_parts += new /obj/item/smes_coil/super_capacity(src)
 	input_attempt = TRUE
 	output_attempt = TRUE
-	input_level = 1000000
-	output_level = 1000000
+	input_level = 2700000
+	output_level = 2700000
 	charge = 3.02024e+006
 
 // END SMES SUBTYPES
 
 // SMES itself
 /obj/machinery/power/smes/buildable
-	max_coils = 6 				// 30M capacity, 1.5MW input/output when fully upgraded /w default coils
-	var/cur_coils = 1 			// Current amount of installed coils
-	var/safeties_enabled = 1 	// If 0 modifications can be done without discharging the SMES, at risk of critical failure.
-	var/failing = 0 			// If 1 critical failure has occured and SMES explosion is imminent.
+	/// 20 MJ capacity, 8 MW input/output when fully upgraded /w default coils
+	max_coils = 8
+	/// Current amount of installed coils
+	var/cur_coils = 1
+	/// If 0 modifications can be done without discharging the SMES, at risk of critical failure.
+	var/safeties_enabled = 1
+	/// If 1 critical failure has occured and SMES explosion is imminent.
+	var/failing = 0
 	var/datum/wires/smes/wires
-	var/grounding = 1			// Cut to quickly discharge, at cost of "minor" electrical issues in output powernet.
-	var/RCon = 1				// Cut to disable AI and remote control.
-	var/RCon_tag = "NO_TAG"		// RCON tag, change to show it on SMES Remote control console.
+	/// Cut to quickly discharge, at cost of "minor" electrical issues in output powernet.
+	var/grounding = 1
+	/// Cut to disable AI and remote control.
+	var/RCon = 1
+	/// RCON tag, change to show it on SMES Remote control console.
+	var/RCon_tag = "NO_TAG"
 	charge = 0
 	should_be_mapped = 1
 	component_types = list(
@@ -347,8 +377,6 @@
 					explosion(src.loc,1,2,4,8)
 					// Not sure if this is necessary, but just in case the SMES *somehow* survived..
 					qdel(src)
-
-
 
 // Proc: apcs_overload()
 // Parameters: 3 (failure_chance - chance to actually break the APC, overload_chance - Chance of breaking lights, reboot_chance - Chance of temporarily disabling the APC)

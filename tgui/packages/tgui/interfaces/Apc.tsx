@@ -10,8 +10,8 @@ export type APCData = {
   fail_time: number;
   silicon_user: BooleanLike;
   is_AI_or_robot: BooleanLike;
-  total_load: number;
-  total_charging: number;
+  total_load: string;
+  total_charging: string;
   is_operating: BooleanLike;
   external_power: number;
   charge_mode: BooleanLike;
@@ -26,7 +26,7 @@ export type APCData = {
 
 type PowerChannel = {
   name: string;
-  power_load: number;
+  power_load: string;
   status: number;
 };
 
@@ -169,7 +169,7 @@ export const APCWindow = (props) => {
             <LabeledList.Item label={channel.name} key={channel.name}>
               <Box color={channelStatClass(channel.status)}>
                 [{channelStatus(channel.status)}] | [
-                {channelPower(channel.status)}] | {channel.power_load} W
+                {channelPower(channel.status)}] | {channel.power_load}
               </Box>
               {(!data.locked && !data.silicon_user) || data.is_AI_or_robot ? (
                 <Section>
@@ -200,9 +200,9 @@ export const APCWindow = (props) => {
             </LabeledList.Item>
           ))}
           <LabeledList.Item label="Total Load">
-            {data.total_load}W
+            {data.total_load}
             {data.total_charging
-              ? ` (+ ${data.total_charging}W Charging)`
+              ? ` (+ ${data.total_charging} Charging)`
               : null}
           </LabeledList.Item>
         </LabeledList>

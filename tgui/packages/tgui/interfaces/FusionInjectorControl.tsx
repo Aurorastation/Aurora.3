@@ -1,7 +1,15 @@
+import {
+  Box,
+  Button,
+  LabeledList,
+  NoticeBox,
+  ProgressBar,
+  Section,
+  Slider,
+} from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
 import { capitalize } from 'tgui-core/string';
 import { useBackend } from '../backend';
-import { Box, Button, LabeledList, NoticeBox, ProgressBar, Section, Slider } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type FusionGyrotronControl = {
@@ -66,7 +74,8 @@ export const FusionInjectorControl = (props) => {
                       act('toggle_injecting', { machine: injector.ref })
                     }
                   />
-                }>
+                }
+              >
                 <LabeledList>
                   <LabeledList.Item label="Status">
                     <Box as="span" color={injector.injecting ? 'good' : 'bad'}>

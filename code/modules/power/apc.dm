@@ -85,7 +85,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 	var/areastring = null
 	var/obj/item/cell/cell
 	/// Cap for how fast APC cells charge, as a percentage-per-tick (0.01 means cellcharge is capped to 1% per second)
-	var/chargelevel = 0.0005
+	var/chargelevel = 0.005
 	var/cellused = 0
 	/// Initial cell charge %
 	var/start_charge = 90
@@ -936,8 +936,8 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 	data["fail_time"] = failure_timer * 2
 	data["silicon_user"] = isAdmin || issilicon(user)
 	data["is_AI_or_robot"] = isAI(user) || isrobot(user)
-	data["total_load"] = round(lastused_total)
-	data["total_charging"] = round(lastused_charging)
+	data["total_load"] = power_wattage_readable(lastused_total)
+	data["total_charging"] = power_wattage_readable(lastused_charging)
 	data["is_operating"] = operating
 	data["charge_mode"] = chargemode
 	data["external_power"] = main_status
@@ -947,9 +947,9 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 	data["emergency_mode"] = !emergency_lights
 	data["time"] = time
 	data["power_channels"] = list(
-		list("name" = "Equipment", "power_load" = lastused_equip, "status" = equipment),
-		list("name" = "Lighting", "power_load" = round(lastused_light), "status" = lighting),
-		list("name" = "Environment", "power_load" = round(lastused_environ), "status" = environ)
+		list("name" = "Equipment", "power_load" = power_wattage_readable(lastused_equip), "status" = equipment),
+		list("name" = "Lighting", "power_load" = power_wattage_readable(lastused_light), "status" = lighting),
+		list("name" = "Environment", "power_load" = power_wattage_readable(lastused_environ), "status" = environ)
 	)
 	return data
 
@@ -1469,7 +1469,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 
 /obj/machinery/power/apc/south
 	dir = SOUTH
-	pixel_y = -4
+	pixel_y = -8
 
 /obj/machinery/power/apc/critical
 	is_critical = TRUE
@@ -1488,7 +1488,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 
 /obj/machinery/power/apc/critical/south
 	dir = SOUTH
-	pixel_y = -4
+	pixel_y = -8
 
 /obj/machinery/power/apc/low
 	cell_type = /obj/item/cell
@@ -1507,7 +1507,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 
 /obj/machinery/power/apc/low/south
 	dir = SOUTH
-	pixel_y = -4
+	pixel_y = -8
 
 /obj/machinery/power/apc/high
 	cell_type = /obj/item/cell/high
@@ -1526,7 +1526,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 
 /obj/machinery/power/apc/high/south
 	dir = SOUTH
-	pixel_y = -4
+	pixel_y = -8
 
 /obj/machinery/power/apc/isolation
 	cell_type = /obj/item/cell
@@ -1547,7 +1547,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 
 /obj/machinery/power/apc/isolation/south
 	dir = SOUTH
-	pixel_y = -4
+	pixel_y = -8
 
 /obj/machinery/power/apc/vault
 	cell_type = /obj/item/cell
@@ -1567,91 +1567,41 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 
 /obj/machinery/power/apc/vault/south
 	dir = SOUTH
-	pixel_y = -4
+	pixel_y = -8
 
-/obj/machinery/power/apc/shuttle/intrepid
+/obj/machinery/power/apc/shuttle
 	cell_type = /obj/item/cell/high
 	req_access = null
-	req_one_access = list(ACCESS_ENGINE_EQUIP, ACCESS_INTREPID)
 
-/obj/machinery/power/apc/shuttle/intrepid/north
+/obj/machinery/power/apc/shuttle/north
 	dir = NORTH
 	pixel_y = 22
 
-/obj/machinery/power/apc/shuttle/intrepid/east
+/obj/machinery/power/apc/shuttle/east
 	dir = EAST
 	pixel_x = 12
 
-/obj/machinery/power/apc/shuttle/intrepid/west
+/obj/machinery/power/apc/shuttle/west
 	dir = WEST
 	pixel_x = -12
 
-/obj/machinery/power/apc/shuttle/intrepid/south
+/obj/machinery/power/apc/shuttle/south
 	dir = SOUTH
-	pixel_y = -4
+	pixel_y = -8
 
-/obj/machinery/power/apc/shuttle/canary
-	cell_type = /obj/item/cell/high
-	req_access = null
-	req_one_access = list(ACCESS_ENGINE_EQUIP, ACCESS_CANARY)
+/// Assigns req_one_access perms associated with the area of the shuttle its mapped in.
+/obj/machinery/power/apc/shuttle/Initialize()
+	. = ..()
+	var/area = get_area(src)
 
-/obj/machinery/power/apc/shuttle/canary/north
-	dir = NORTH
-	pixel_y = 22
-
-/obj/machinery/power/apc/shuttle/canary/east
-	dir = EAST
-	pixel_x = 12
-
-/obj/machinery/power/apc/shuttle/canary/west
-	dir = WEST
-	pixel_x = -12
-
-/obj/machinery/power/apc/shuttle/canary/south
-	dir = SOUTH
-	pixel_y = -4
-
-ABSTRACT_TYPE(/obj/machinery/power/apc/shuttle/quark)
-	cell_type = /obj/item/cell/high
-	req_access = null
-	req_one_access = list(ACCESS_ENGINE_EQUIP, ACCESS_QUARK)
-
-/obj/machinery/power/apc/shuttle/quark/north
-	dir = NORTH
-	pixel_y = 22
-
-/obj/machinery/power/apc/shuttle/quark/east
-	dir = EAST
-	pixel_x = 12
-
-/obj/machinery/power/apc/shuttle/quark/west
-	dir = WEST
-	pixel_x = -12
-
-/obj/machinery/power/apc/shuttle/quark/south
-	dir = SOUTH
-	pixel_y = -4
-
-/obj/machinery/power/apc/shuttle/spark
-	cell_type = /obj/item/cell/high
-	req_access = null
-	req_one_access = list(ACCESS_ENGINE_EQUIP, ACCESS_SPARK)
-
-/obj/machinery/power/apc/shuttle/spark/north
-	dir = NORTH
-	pixel_y = 22
-
-/obj/machinery/power/apc/shuttle/spark/east
-	dir = EAST
-	pixel_x = 12
-
-/obj/machinery/power/apc/shuttle/spark/west
-	dir = WEST
-	pixel_x = -12
-
-/obj/machinery/power/apc/shuttle/spark/south
-	dir = SOUTH
-	pixel_y = -4
+	if(istype(area, /area/horizon/shuttle/intrepid))
+		req_one_access = list(ACCESS_ENGINE_EQUIP, ACCESS_INTREPID)
+	if(istype(area, /area/horizon/shuttle/quark))
+		req_one_access = list(ACCESS_ENGINE_EQUIP, ACCESS_QUARK)
+	if(istype(area, /area/horizon/shuttle/mining))
+		req_one_access = list(ACCESS_ENGINE_EQUIP, ACCESS_SPARK)
+	if(istype(area, /area/horizon/shuttle/canary))
+		req_one_access = list(ACCESS_ENGINE_EQUIP, ACCESS_CANARY)
 
 // Construction site APC, starts turned off
 /obj/machinery/power/apc/high/inactive
@@ -1680,7 +1630,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc/shuttle/quark)
 
 /obj/machinery/power/apc/super/south
 	dir = SOUTH
-	pixel_y = -4
+	pixel_y = -8
 
 /obj/machinery/power/apc/super/critical
 	is_critical = TRUE
@@ -1699,7 +1649,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc/shuttle/quark)
 
 /obj/machinery/power/apc/super/critical/south
 	dir = SOUTH
-	pixel_y = -4
+	pixel_y = -8
 
 /obj/machinery/power/apc/hyper
 	cell_type = /obj/item/cell/hyper
@@ -1718,7 +1668,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc/shuttle/quark)
 
 /obj/machinery/power/apc/hyper/south
 	dir = SOUTH
-	pixel_y = -4
+	pixel_y = -8
 
 /obj/machinery/power/apc/empty
 	start_charge = 0
@@ -1737,7 +1687,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc/shuttle/quark)
 
 /obj/machinery/power/apc/empty/south
 	dir = SOUTH
-	pixel_y = -4
+	pixel_y = -8
 
 #undef UPDATE_CELL_IN
 #undef UPDATE_OPENED1
