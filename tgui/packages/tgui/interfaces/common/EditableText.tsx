@@ -21,7 +21,7 @@ type Props = {
  */
 export const EditableText = (props: Props, context) => {
   const { color, field, target_ref, text } = props;
-  if (!field) return <> </>;
+  if (!field) return null;
 
   const { act } = useBackend();
   const [editing, setEditing] = useLocalState<boolean>(
@@ -36,7 +36,7 @@ export const EditableText = (props: Props, context) => {
       width="50%"
       maxLength={512}
       onEscape={() => setEditing(false)}
-      onEnter={(event, value) => {
+      onEnter={(value) => {
         setEditing(false);
         act('edit_field', { field: field, ref: target_ref, value: value });
       }}

@@ -65,7 +65,7 @@ export const ChatClient = (props) => {
                 onClick={() => act('mute_message')}
               />
               <Button
-                content={'Ringtone: ' + data.ringtone}
+                content={`Ringtone: ${data.ringtone}`}
                 onClick={() => setEditingRingtone(editingRingtone ? 0 : 1)}
               />
               {editingRingtone ? (
@@ -208,9 +208,8 @@ export const Chat = (props) => {
                 <Input
                   placeholder="New Password"
                   value={password}
-                  strict
-                  onChange={(v) => setPassword(v)}
                   onChange={(v) => {
+                    setPassword(v);
                     act('set_password', {
                       password: password,
                       target: data.active ? data.active.ref : '',
@@ -233,8 +232,8 @@ export const Chat = (props) => {
                 <Input
                   placeholder="New Title"
                   value={title}
-                  onChange={(v) => setTitle(v)}
                   onChange={(v) => {
+                    setTitle(v);
                     act('change_title', {
                       title: title,
                       target: data.active ? data.active.ref : '',
@@ -292,14 +291,13 @@ export const Chat = (props) => {
           placeholder="Type your message. Press enter to send."
           width="100%"
           selfClear
-          strict
-          onChange={(v) => setNewMessage(v)}
-          onChange={(v) =>
+          onChange={(v) => {
+            setNewMessage(v);
             act('send', {
               message: newMessage,
               target: data.active ? data.active.ref : '',
-            })
-          }
+            });
+          }}
         />
       </Box>
       <Box py={2}>
@@ -367,9 +365,8 @@ export const ChannelsWindow = (props) => {
             <Input
               placeholder="New Channel Name"
               value={channelName}
-              strict
-              onChange={(v) => setChannelName(v)}
               onChange={(v) => {
+                setChannelName(v);
                 act('new_channel', { new_channel: channelName });
                 setCreatingChannelName(0);
               }}
@@ -417,9 +414,8 @@ export const ChannelsWindow = (props) => {
                         <Input
                           placeholder="Enter Password"
                           value={joinPassword}
-                          strict
-                          onChange={(v) => setJoinPassword(v)}
                           onChange={(v) => {
+                            setJoinPassword(v);
                             act('join', {
                               target: channel.ref,
                               password: joinPassword,

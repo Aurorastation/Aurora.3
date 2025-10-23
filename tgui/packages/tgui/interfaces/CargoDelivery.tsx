@@ -227,7 +227,7 @@ export const Payment = (props) => {
 
   return (
     <Section
-      title={'Payment: Order No. ' + data.order_details.order_id}
+      title={`Payment: Order No. ${data.order_details.order_id}`}
       buttons={
         <Button
           content={

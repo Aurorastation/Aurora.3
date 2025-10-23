@@ -11,7 +11,7 @@ export const BeakerContents = (props) => {
       {beakerContents.map((chemical) => (
         <Box key={chemical.name} color="label">
           <AnimatedNumber initial={0} value={chemical.volume} />
-          {' units of ' + chemical.name}
+          {` units of ${chemical.name}`}
         </Box>
       ))}
     </Box>
