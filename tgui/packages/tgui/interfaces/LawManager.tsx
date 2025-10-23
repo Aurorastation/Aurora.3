@@ -193,7 +193,7 @@ export const Ionlaws = (props) => {
   const { act, data } = useBackend<LawData>();
 
   return (
-    <Section title={data.ion_law_nr + ' Laws'}>
+    <Section title={`${data.ion_law_nr} Laws`}>
       <Table>
         <Table.Row header>
           <Table.Cell>Index</Table.Cell>

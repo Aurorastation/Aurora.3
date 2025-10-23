@@ -36,7 +36,7 @@ export type ScrubberProps = {
   }[];
 };
 
-export const Vent = (props: VentProps, context) => {
+export const Vent = (props: VentProps) => {
   const { act } = useBackend();
   const {
     refID,
@@ -167,7 +167,7 @@ export const Vent = (props: VentProps, context) => {
   );
 };
 
-export const Scrubber = (props: ScrubberProps, context) => {
+export const Scrubber = (props: ScrubberProps) => {
   const { act } = useBackend();
   const { long_name, power, scrubbing, refID, widenet, filter_types } = props;
   return (

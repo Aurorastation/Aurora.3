@@ -255,7 +255,7 @@ const CryoBeaker = (props) => {
           {data.beakerVolume ? (
             <AnimatedNumber
               value={data.beakerVolume}
-              format={(v) => Math.round(v) + ' units remaining'}
+              format={(v) => `${Math.round(v)} units remaining`}
             />
           ) : (
             'Beaker is empty'

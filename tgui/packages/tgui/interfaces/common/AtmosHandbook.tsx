@@ -45,15 +45,12 @@ type Gas = {
   reactions: { [key: string]: string } | [];
 };
 
-const GasSearchBar = (
-  props: {
-    title: ReactNode;
-    onChange: (inputValue: string) => void;
-    activeInput: boolean;
-    setActiveInput: (toggle: boolean) => void;
-  },
-  context,
-) => {
+const GasSearchBar = (props: {
+  title: ReactNode;
+  onChange: (inputValue: string) => void;
+  activeInput: boolean;
+  setActiveInput: (toggle: boolean) => void;
+}) => {
   const { title, onChange, activeInput, setActiveInput } = props;
   return (
     <Flex align="center">
@@ -94,7 +91,7 @@ const GasHandbook = (props) => {
     <Section
       title={
         <GasSearchBar
-          title={relevantGas ? 'Gas: ' + relevantGas.name : 'Gas Lookup'}
+          title={relevantGas ? `Gas: ${relevantGas.name}` : 'Gas Lookup'}
           onChange={(keyword) =>
             setActiveGasId(
               gasInfo.find((gas) =>
@@ -111,7 +108,7 @@ const GasHandbook = (props) => {
         <>
           <Box mb="0.5em">{relevantGas.description}</Box>
           <Box mb="0.5em">
-            {'Specific heat: ' + relevantGas.specific_heat + ' Joule/KelvinMol'}
+            {`Specific heat: ${relevantGas.specific_heat} Joule/KelvinMol`}
           </Box>
           <Box mb="0.5em">{'Relevant Reactions:'}</Box>
           {Object.entries(relevantGas.reactions).map(
@@ -151,7 +148,7 @@ const ReactionHandbook = (props) => {
         <GasSearchBar
           title={
             relevantReaction
-              ? 'Reaction: ' + relevantReaction.name
+              ? `Reaction: ${relevantReaction.name}`
               : 'Reaction Lookup'
           }
           onChange={(keyword) =>
@@ -187,7 +184,7 @@ const ReactionHandbook = (props) => {
                           style={{ 'border-bottom': 'dotted 2px' }}
                           shrink
                         >
-                          {factor.factor_name + ':'}
+                          {`${factor.factor_name}:`}
                         </Flex.Item>
                       </Flex>
                     </Tooltip>
@@ -206,10 +203,7 @@ const ReactionHandbook = (props) => {
   );
 };
 
-export const AtmosHandbookContent = (
-  props: { vertical?: boolean },
-  context,
-) => {
+export const AtmosHandbookContent = (props: { vertical?: boolean }) => {
   return props.vertical ? (
     <>
       <GasHandbook />

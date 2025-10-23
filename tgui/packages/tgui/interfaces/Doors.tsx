@@ -27,7 +27,7 @@ export type DoorsData = {
 
 export const Doors = (props) => {
   const { act, data } = useBackend<DoorsData>();
-  const door_title = data.doorArea + '(' + data.doorName + ')';
+  const door_title = `${data.doorArea}(${data.doorName})`;
   return (
     <Window>
       <Window.Content scrollable>
@@ -248,7 +248,7 @@ const get_power_status_message = (state, time) => {
     return 'Online';
   } else {
     const timeleft = Math.max(Math.round((state - time) / 10), 0);
-    return 'Interrupted, ' + timeleft + 's remaining';
+    return `Interrupted, ${timeleft}s remaining`;
   }
 };
 
@@ -262,6 +262,6 @@ const get_electrified_message = (electrified, time) => {
       Math.round((electrified - time) / 10),
       0,
     );
-    return 'Electrified, ' + electrified_message + 's remaining';
+    return `Electrified, ${electrified_message}s remaining`;
   }
 };

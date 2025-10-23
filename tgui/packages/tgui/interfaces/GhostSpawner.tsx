@@ -74,7 +74,7 @@ const ManifestTable = (act, spawner: Spawner) => (
       };
 
       return (
-        <Table.Row pb={1} key={page} overflow="hidden">
+        <Table.Row pb={1} key={page[0]} overflow="hidden">
           {ManifestCell(act, spawner, spawned_mob_name_1)}
           {ManifestCell(act, spawner, spawned_mob_name_2)}
         </Table.Row>
@@ -190,7 +190,7 @@ export const GhostSpawner = (props) => {
                         {spawner.manifest.length > 0 ? (
                           <Box
                             style={{
-                              'background-color': 'rgba(0, 0, 0, 0.25)',
+                              backgroundColor: 'rgba(0, 0, 0, 0.25)',
                               border: '1px solid rgba(0, 0, 0, 0.5)',
                             }}
                             mt={2}

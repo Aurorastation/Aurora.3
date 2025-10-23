@@ -29,7 +29,7 @@ export const HivenetManifest = (props) => {
               key={hive}
               title={hive}
               textAlign="center"
-              className={'border-dept-' + hiveData.color.toLowerCase()}
+              className={`border-dept-${hiveData.color.toLowerCase()}`}
               backgroundColor="rgba(10, 10, 10, 0.7)"
             >
               <Table>

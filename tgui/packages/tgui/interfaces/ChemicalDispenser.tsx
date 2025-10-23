@@ -44,7 +44,7 @@ export const ChemicalDispenser = (props) => {
         <Section>
           <LabeledControls>
             {data.preset_dispense_amounts.map((number) => (
-              <LabeledControls.Item key={number}>
+              <LabeledControls.Item label="" key={number}>
                 <Button
                   content={number}
                   icon="chevron-circle-down"
@@ -107,7 +107,7 @@ export const ChemTable = (props) => {
       {data.chemicals.map((chemical) => (
         <Button
           key={chemical.label}
-          content={chemical.label + ' (' + chemical.amount + ')'}
+          content={`${chemical.label} (${chemical.amount})`}
           icon="tint"
           width="170px"
           lineHeight={1.75}

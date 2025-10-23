@@ -101,7 +101,7 @@ export const PistonMonitoring = (props) => {
         {data.status_pistons.map((piston) => (
           <LabeledList.Item
             key={piston.piston}
-            label={'Piston' + piston.piston}
+            label={`Piston${piston.piston}`}
           >
             <ProgressBar
               ranges={{

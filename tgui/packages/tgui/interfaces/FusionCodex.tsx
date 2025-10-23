@@ -27,7 +27,7 @@ type Product = {
   amount: number;
 };
 
-export const FusionCodex = (props, context) => {
+export const FusionCodex = (props) => {
   const { act, data } = useBackend<CodexData>();
   const [searchTerm, setSearchTerm] = useLocalState<string>(`searchTerm`, ``);
 

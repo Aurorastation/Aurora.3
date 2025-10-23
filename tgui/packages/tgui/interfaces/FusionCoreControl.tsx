@@ -55,7 +55,7 @@ export const FusionCoreControl = (props) => {
         {data.cores?.length ? (
           data.cores.map((core) => (
             <Section
-              title={'INDRA Core ' + core.id}
+              title={`INDRA Core ${core.id}`}
               key={core.id}
               buttons={
                 core.field ? (
@@ -174,7 +174,7 @@ export const FusionCoreControl = (props) => {
                             Core offline.
                           </Box>
                         ) : (
-                          round(core.temperature, 0.1) + ' kelvin'
+                          `${round(core.temperature, 0.1)} kelvin`
                         )}
                       </LabeledList.Item>
                     </LabeledList>

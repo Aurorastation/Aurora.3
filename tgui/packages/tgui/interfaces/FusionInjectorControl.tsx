@@ -33,7 +33,7 @@ export const FusionInjectorControl = (props) => {
   return (
     <Window theme={data.manufacturer}>
       <Window.Content scrollable>
-        {data.injectors && data.injectors.length ? (
+        {data.injectors?.length ? (
           <>
             <Section title="Global Controls">
               <LabeledList>
@@ -63,7 +63,7 @@ export const FusionInjectorControl = (props) => {
 
             {data.injectors.map((injector) => (
               <Section
-                title={'Injector ' + injector.id}
+                title={`Injector ${injector.id}`}
                 key={injector.id}
                 buttons={
                   <Button
