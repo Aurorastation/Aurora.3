@@ -1,6 +1,7 @@
 import {
   Box,
   Button,
+  Image,
   LabeledList,
   NoticeBox,
   Section,
@@ -39,9 +40,11 @@ export const LateJoin = (props) => {
           <Section textAlign="center">
             Welcome, <Box bold>{`${data.character_name}.`}</Box>
             {
-              <Box as="img" m={0} width="35%" height="35%" style={{}}>
-                {`data:image/jpeg;base64,${data.character_image}`}
-              </Box>
+              <Image
+                width="35%"
+                height="35%"
+                src={`data:image/jpeg;base64,${data.character_image}`}
+              />
             }
           </Section>
           <LabeledList>

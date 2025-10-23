@@ -1,4 +1,4 @@
-import { Box, Input, Section, Table } from 'tgui-core/components';
+import { Image, Input, Section, Table } from 'tgui-core/components';
 import { useBackend, useLocalState } from '../backend';
 import { NtosWindow } from '../layouts';
 
@@ -65,9 +65,11 @@ export const CookingCodex = (props) => {
                     {recipe.result.toLocaleLowerCase()}
                   </Table.Cell>
                   <Table.Cell>
-                    <Box as="img" m={0} width="60px" height="60px">
-                      {`data:image/jpeg;base64,${recipe.result_image}`}
-                    </Box>
+                    <Image
+                      width="60px"
+                      height="60px"
+                      src={`data:image/jpeg;base64,${recipe.result_image}`}
+                    />
                   </Table.Cell>
                   <Table.Cell verticalAlign="middle">
                     {recipe.ingredients.toLocaleLowerCase()}

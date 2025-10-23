@@ -1,4 +1,3 @@
-import { chunk } from 'es-toolkit/compat';
 import { NoticeBox, Section, Slider, Table, Tabs } from 'tgui-core/components';
 import { useBackend, useLocalState } from '../backend';
 import { NtosWindow } from '../layouts';
@@ -73,10 +72,9 @@ export const MiniMap = (props) => {
           {showLegend ? (
             <NoticeBox color="grey">
               <Table>
-                {chunk(data.dept_colors_map, 2).map((a) => (
+                {data.dept_colors_map.map((a: any) => (
                   <Table.Row key={a}>
-                    <Table.Cell color={a[0].c}>{a[0].d}</Table.Cell>
-                    <Table.Cell color={a[1].c}>{a[1].d}</Table.Cell>
+                    <Table.Cell color={a.d}>{a.c}</Table.Cell>
                   </Table.Row>
                 ))}
               </Table>
