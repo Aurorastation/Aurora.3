@@ -297,3 +297,30 @@
   - qol: Connected the Deck Two Stairwell and the Bar via maintenance.
   TheGreyWolf:
   - rscadd: The light replacer is now much faster when loading from a box of lights.
+2025-10-23:
+  4000daniel1:
+  - balance: Implemented a delay to loading the PEAC. This delay can be bypassed by
+      having someone else click on you with the ammo in their hand, performing an
+      'assisted reload'.
+  FlamingLily:
+  - bugfix: Punji sticks no longer infect prosthetic limbs.
+  Hellfirejag:
+  - bugfix: Fixed upgrade hints for biogenerators. Upgrade hints now show the actual
+      current numerical effects of parts.
+  - rscadd: Added mechanics hints for biogenerators.
+  - rscadd: Biogenerators now also require capacitors, which increase their processing
+      speed.
+  - rscadd: Biogenerators can now produce splints, as well as more variety of stickers.
+  - balance: Small biogenerators such as the one in the garden aren't as strongly
+      upgraded by better parts as the full-sized biogenerator.
+  - bugfix: Wulumunusha now plays its psionic-specific messages for anyone at least
+      psi-sensitive, not just skrell.
+  Hellfirejag & The Ill-Fated:
+  - rscadd: Added a large number of new passcards for a variety of Solarian states.
+  Mneme:
+  - bugfix: Removed an errant holopad under a scrubber from the bar.
+  - bugfix: Added a check to areas to prevent hostile events from spawning in areas
+      that are not intended to have them.
+  - qol: Relocated the bar's smartfridge interaction point.
+  TheGreyWolf:
+  - rscadd: The display in the operations lobby now show the elevator status.

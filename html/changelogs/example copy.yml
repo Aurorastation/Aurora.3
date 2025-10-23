@@ -1,4 +1,0 @@
-author: Hellfirejag
-delete-after: True
-changes:
-  - bugfix: "Wulumunusha now plays its psionic-specific messages for anyone at least psi-sensitive, not just skrell."
