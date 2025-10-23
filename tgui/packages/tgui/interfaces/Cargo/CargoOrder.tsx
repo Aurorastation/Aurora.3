@@ -11,9 +11,9 @@ import {
   Tooltip,
 } from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
-import { useBackend, useLocalState } from '../backend';
-import { NtosWindow } from '../layouts';
-import { sanitizeText } from '../sanitize';
+import { useBackend, useLocalState } from '../../backend';
+import { NtosWindow } from '../../layouts';
+import { sanitizeText } from '../../sanitize';
 
 export type CargoData = {
   username: string;
