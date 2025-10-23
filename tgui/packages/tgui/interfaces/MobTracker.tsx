@@ -27,7 +27,7 @@ export const MobTracker = (props) => {
     <Window theme={data.tgui_theme || 'default'}>
       <Window.Content scrollable>
         {data.disabled ? (
-          <Box
+          <Flex
             textAlign="center"
             height="100%"
             display="flex"
@@ -36,11 +36,14 @@ export const MobTracker = (props) => {
             justify="center"
             fontFamily="monospace"
           >
-            <Box fontSize="24px" mb={1}>
-              NO DATA AVAILABLE
-            </Box>
+            <Flex.Item>
+              {' '}
+              <Box fontSize="24px" mb={1}>
+                NO DATA AVAILABLE
+              </Box>
+            </Flex.Item>
             <Box fontSize="12px">{data.no_data_description}</Box>
-          </Box>
+          </Flex>
         ) : (
           <div>
             <Flex direction="row" align="stretch">

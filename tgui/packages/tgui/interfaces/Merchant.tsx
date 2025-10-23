@@ -41,7 +41,7 @@ export const ModeWindow = (props) => {
 
   return (
     <Section
-      title={'Orion Express Goods Trading' + ' (Balance: ' + data.bank + '电)'}
+      title={`Orion Express Goods Trading (Balance: ${data.bank}电)`}
       buttons={
         <>
           <Button
@@ -189,11 +189,7 @@ export const MainMenu = (props) => {
   const { act, data } = useBackend<MerchantData>();
 
   return (
-    <Section
-      title={
-        'Orion Express Trade Interface' + ' (Balance: ' + data.bank + '电)'
-      }
-    >
+    <Section title={`Orion Express Trade Interface (Balance: ${data.bank}电)`}>
       <LabeledControls>
         <LabeledControls.Item label="Open Communications">
           <Button onClick={() => act('PRG_merchant_list')} />

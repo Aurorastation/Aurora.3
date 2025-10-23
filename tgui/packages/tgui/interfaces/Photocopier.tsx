@@ -72,7 +72,6 @@ const PrintOptions = (props) => {
       <Box>
         Copies to Print:
         <NumberInput
-          animate
           width={2.6}
           height={1.65}
           step={1}
@@ -80,7 +79,7 @@ const PrintOptions = (props) => {
           minValue={1}
           maxValue={10}
           value={num_copies}
-          onDrag={(value) =>
+          onDrag={(e, value) =>
             act('set_copies', {
               num_copies: value,
             })

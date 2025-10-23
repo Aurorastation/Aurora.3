@@ -7,6 +7,7 @@ import {
   LabeledList,
   Tooltip,
 } from 'tgui-core/components';
+
 import { useBackend } from '../../backend';
 
 export const RecipeLookup = (props) => {
@@ -184,7 +185,7 @@ export const RecipeLookup = (props) => {
           height="50px"
           position="relative"
           style={{
-            'background-color': 'black',
+            backgroundColor: 'black',
           }}
         >
           <Chart.Line

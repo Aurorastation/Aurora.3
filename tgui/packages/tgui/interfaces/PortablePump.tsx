@@ -115,7 +115,7 @@ export const PortablePump = (props) => {
             unit="kPa"
             minValue={data.minpressure}
             maxValue={data.maxpressure}
-            onDrag={(value) =>
+            onDrag={(e, value) =>
               act('pressure_set', {
                 pressure_set: value,
               })

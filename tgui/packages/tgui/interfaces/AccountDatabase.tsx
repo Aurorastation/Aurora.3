@@ -142,7 +142,7 @@ export const AccountWindow = (props) => {
                   maxValue={data.station_account_money}
                   step={50}
                   stepPixelSize={10}
-                  onDrag={(value) => setNewFunds(value)}
+                  onDrag={(e, value) => setNewFunds(value)}
                 />
                 <Button
                   content="Create"
@@ -247,7 +247,7 @@ export const SpecificAccountData = (props) => {
                         step={1}
                         minValue={0}
                         maxValue={10000}
-                        onDrag={(value) => setFundsToAdd(value)}
+                        onDrag={(e, value) => setFundsToAdd(value)}
                       />
                       <Button
                         content="Add"
@@ -278,7 +278,7 @@ export const SpecificAccountData = (props) => {
                         unit="电"
                         minValue={0}
                         maxValue={10000}
-                        onDrag={(value) => setFundsToRemove(value)}
+                        onDrag={(e, value) => setFundsToRemove(value)}
                       />
                       <Button
                         content="Remove"

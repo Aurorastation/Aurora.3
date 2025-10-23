@@ -132,7 +132,7 @@ export const PortableGenerator = (props) => {
                 maxValue={data.output_max}
                 step={1}
                 stepPixelSize={25}
-                onDrag={(value) =>
+                onDrag={(e, value) =>
                   act('set_power', {
                     set_power: value,
                   })

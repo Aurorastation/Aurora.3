@@ -51,7 +51,7 @@ export const FusionInjectorControl = (props) => {
                     maxValue={100}
                     step={1}
                     stepPixelSize={5}
-                    onDrag={(value) =>
+                    onDrag={(e, value) =>
                       act('global_rate', {
                         global_rate: value,
                       })
@@ -89,7 +89,7 @@ export const FusionInjectorControl = (props) => {
                       maxValue={100}
                       step={1}
                       stepPixelSize={5}
-                      onDrag={(value) =>
+                      onDrag={(e, value) =>
                         act('injection_rate', {
                           new_injection_rate: value,
                           machine: injector.ref,

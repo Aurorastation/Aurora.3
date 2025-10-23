@@ -115,7 +115,7 @@ export const AddItems = (props) => {
         maxValue={100}
         step={1}
         stepPixelSize={5}
-        onDrag={(value) => act('set_new_price', { set_new_price: value })}
+        onDrag={(e, value) => act('set_new_price', { set_new_price: value })}
       />
       <Button content="Add" onClick={() => act('add')} />
     </Section>

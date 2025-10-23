@@ -1,3 +1,5 @@
+// KNOWN ISSUES: Timer doesn't tick actual seconds, (laggy as hell). Works, just not accurately.
+
 /obj/machinery/firealarm
 	name = "fire alarm"
 	desc = "<i>\"Pull this in case of emergency\"</i>. Thus, keep pulling it forever."

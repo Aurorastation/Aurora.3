@@ -72,7 +72,7 @@ export const FusionGyrotronControl = (props) => {
                     maxValue={10}
                     stepPixelSize={15}
                     unit="ds"
-                    onDrag={(value) =>
+                    onDrag={(e, value) =>
                       act('modifyrate', {
                         modifyrate: value,
                         machine: gyrotron.ref,

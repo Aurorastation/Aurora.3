@@ -42,7 +42,7 @@ export const Freezer = (props) => {
             value={data.powerSetting}
             minValue={0}
             maxValue={100}
-            onDrag={(value) =>
+            onDrag={(e, value) =>
               act('setPower', {
                 setPower: value,
               })
@@ -92,7 +92,7 @@ export const Freezer = (props) => {
             minValue={0}
             maxValue={1000}
             unit="K"
-            onDrag={(value) =>
+            onDrag={(e, value) =>
               act('temp', {
                 temp: value,
               })

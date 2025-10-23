@@ -38,7 +38,7 @@ export const Timer = (props) => {
                 step={1}
                 unit="s"
                 value={data.time}
-                onDrag={(value) => act('tp', { tp: Math.round(value) })}
+                onDrag={(e, value) => act('tp', { tp: Math.round(value) })}
               />
             </LabeledList.Item>
           </LabeledList>

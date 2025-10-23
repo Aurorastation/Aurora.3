@@ -51,7 +51,6 @@ export const NarratePanel = (props) => {
         >
           <Input
             fluid
-            strict
             placeholder="Input your narration here..."
             onChange={(value) => setNarrateText(value)}
             selfClear
@@ -68,7 +67,7 @@ export const NarratePanel = (props) => {
                 unit="px"
                 step={1}
                 stepPixelSize={10}
-                onDrag={(value) => setNarrateSize(value)}
+                onDrag={(e, value) => setNarrateSize(value)}
               />
             </LabeledList.Item>
             <LabeledList.Item label="Narrate Range">
@@ -79,12 +78,13 @@ export const NarratePanel = (props) => {
                 unit="tiles"
                 step={1}
                 stepPixelSize={3}
-                onDrag={(value) => setNarrateRange(value)}
+                onDrag={(e, value) => setNarrateRange(value)}
               />
             </LabeledList.Item>
             <LabeledList.Item label="Style">
               <Dropdown
                 options={data.narrate_styles}
+                selected={narrateStyle}
                 displayText={narrateStyle}
                 width="50%"
                 onSelected={(value) => setNarrateStyle(value)}

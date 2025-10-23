@@ -17,7 +17,7 @@ type GasmixParserProps = {
   temperatureOnClick?: () => void;
   volumeOnClick?: () => void;
   pressureOnClick?: () => void;
-  reactionOnClick?: (reaction_id: string) => any;
+  reactionOnClick?: (reaction_id: string) => void;
   // Whether we need to show the number of the reaction or not
   detailedReactions?: boolean;
 };
@@ -39,7 +39,7 @@ export const GasmixParser = (props: GasmixParserProps) => {
 
   return !total_moles ? (
     <Box nowrap italic mb="10px">
-      {'No Gas Detected!'}
+      No Gas Detected!
     </Box>
   ) : (
     <LabeledList {...rest}>
@@ -104,7 +104,7 @@ export const GasmixParser = (props: GasmixParserProps) => {
               reactionOnClick ? (
                 <Button
                   content={reaction[1]}
-                  onClick={reactionOnClick(reaction[0])}
+                  onClick={() => reactionOnClick(reaction[0])}
                 />
               ) : (
                 reaction[1]
@@ -117,7 +117,7 @@ export const GasmixParser = (props: GasmixParserProps) => {
       ) : (
         <LabeledList.Item label="Gas Reactions">
           {reactions.length
-            ? reactions.map((reaction) =>
+            ? reactions.map((reaction, index) =>
                 reactionOnClick ? (
                   <Box key={reaction[1]} mb="0.5em">
                     <Button
