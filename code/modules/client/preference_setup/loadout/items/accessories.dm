@@ -408,10 +408,7 @@ ABSTRACT_TYPE(/datum/gear/accessory)
 	passcard["passcard, tau ceti"] = /obj/item/clothing/accessory/badge/passcard
 	passcard["passcard, sol"] = /obj/item/clothing/accessory/badge/passcard/sol
 	passcard["passcard, callisto"] = /obj/item/clothing/accessory/badge/passcard/sol/callisto
-	passcard["passcard, cytherean"] = /obj/item/clothing/accessory/badge/passcard/sol/cytherean
 	passcard["passcard, europa"] = /obj/item/clothing/accessory/badge/passcard/sol/europa
-	passcard["passcard, jintarian"] = /obj/item/clothing/accessory/badge/passcard/sol/jintarian
-	passcard["passcard, jovian"] = /obj/item/clothing/accessory/badge/passcard/sol/jupiter
 	passcard["passcard, solarian konyang"] = /obj/item/clothing/accessory/badge/passcard/sol/konyang
 	passcard["passcard, luna"] = /obj/item/clothing/accessory/badge/passcard/sol/luna
 	passcard["passcard, solarian mictlan"] = /obj/item/clothing/accessory/badge/passcard/sol/mictlan
@@ -422,7 +419,7 @@ ABSTRACT_TYPE(/datum/gear/accessory)
 	passcard["passcard, san colette"] = /obj/item/clothing/accessory/badge/passcard/sol/san_colette
 	passcard["passcard, sankt frederick"] = /obj/item/clothing/accessory/badge/passcard/sol/sankt_frederick
 	passcard["passcard, silversun"] = /obj/item/clothing/accessory/badge/passcard/sol/silversun
-	passcard["passcard, silversun"] = /obj/item/clothing/accessory/badge/passcard/sol/silversun/idris
+	passcard["passcard, silversun idris employee"] = /obj/item/clothing/accessory/badge/passcard/sol/silversun/idris
 	passcard["passcard, venus"] = /obj/item/clothing/accessory/badge/passcard/sol/venus
 	passcard["passcard, visegrad"] = /obj/item/clothing/accessory/badge/passcard/sol/visegrad
 	passcard["passcard, eridani"] = /obj/item/clothing/accessory/badge/passcard/eridani
