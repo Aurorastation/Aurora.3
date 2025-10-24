@@ -55,6 +55,7 @@
 
 /datum/gear/faction/idris_passcard
 	display_name = "idris silversun passcard"
+	description = "A passcard issued to Idris employees currently or formerly employed on the planet Silversun."
 	path = /obj/item/clothing/accessory/badge/passcard/sol/silversun/idris
 	slot = slot_tie
 	faction = "Idris Incorporated"
