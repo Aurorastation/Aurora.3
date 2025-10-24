@@ -337,14 +337,6 @@
 	icon_state = "passcard_callisto"
 	item_state = "passcard_callisto"
 
-/obj/item/clothing/accessory/badge/passcard/sol/cytherean
-	name = "cytherean passcard"
-	desc = "A passcard issued to citizens of the Alliance of Sovereign Solarian Nations from the Cytherean Venusian cloud-cities."
-	desc_extended = "The luxuriant Cytherean lifestyle is represented no better than in its identification cards; gaudy, with built-in neon flashing lights and doubling as a business card. The font is infamous for \
-	its illegibility."
-	icon_state = "passcard_cytherean"
-	item_state = "passcard_cytherean"
-
 /obj/item/clothing/accessory/badge/passcard/sol/europa
 	name = "europan passcard"
 	desc = "A passcard issued to the citizens of the Sovereign Solarian Confederation of Europa."
@@ -353,22 +345,6 @@
 	This example bears the Europan flag, with a background depicting a deep-ocean scene featuring native sea life, with a Bone Whale, several batsharks, and a large school of light-shrimp.  "
 	icon_state = "passcard_europa"
 	item_state = "passcard_europa"
-
-/obj/item/clothing/accessory/badge/passcard/sol/jintarian
-	name = "jintarian passcard"
-	desc = "A... 'passcard' manufactured by a Venusian living on the surface of their hostile Solarian world."
-	desc_extended = "In sharp contrast to the passcards wielded in the skies of their world, the common Jintarian passcard is a cobbled-together mess of a stolen corporate identification card with an ID-strip \
-	duct taped to the edge. Traditionally worn by free-runners on the back of their clothing, so that the people in their dust may know who it was that just outpaced them."
-	icon_state = "passcard_jintarian"
-	item_state = "passcard_jintarian"
-
-/obj/item/clothing/accessory/badge/passcard/sol/jupiter
-	name = "jovian passcard"
-	desc = "A passcard issued to citizens of Sol Alliance, hailing from Jupiter or its moons."
-	desc_extended = "Due to its status as a trading hub for the Jewel Worlds of the Sol system, Jovian Solarians are among the most populous type to exist outside Earth proper, numbering in the billions. \
-	Originally given out as a celebration of fifty years of Jovian settlement, these passcards have since been introduced as a display of pride in their mutual orbit."
-	icon_state = "passcard_jovian"
-	item_state = "passcard_jovian"
 
 /obj/item/clothing/accessory/badge/passcard/sol/konyang
 	name = "konyang passcard"
