@@ -455,7 +455,7 @@
 	item_state = "passcard_sanktfrederick"
 
 /obj/item/clothing/accessory/badge/passcard/sol/silversun
-	name = "silversun commemorative passcard"
+	name = "silversun passcard"
 	desc = "A passcard issued to citizens of the Sovereign Solarian Republic of Silversun."
 	desc_extended = "This identification document is a standardized form adopted across the Alliance. \
 	Encrypted with detailed personal and biometric information, these cards verify identity and citizenship. \
@@ -463,6 +463,14 @@
 	A faint watermark of rising suns and silver waves frame the edges of the card."
 	icon_state = "passcard_silversun"
 	item_state = "passcard_silversun"
+
+/obj/item/clothing/accessory/badge/passcard/sol/silversun/idris
+	name = "silversun commemorative passcard"
+	desc = "A passcard issued to Idris employees currently or formerly employed or residing on the planet Silversun."
+	desc_extended = "While Silversun itself is a member of the Sol Alliance, Idris Incorporated has secured a number of obscure patents, permits, and bureaucratic channels that allows them to commemorate \
+	faithful employees from the resort world with unique passcards that double as membership cards to some of the cheaper resorts on-world."
+	icon_state = "passcard_silversun_idris"
+	item_state = "passcard_silversun_idris"
 
 /obj/item/clothing/accessory/badge/passcard/sol/venus
 	name = "venus passcard"
