@@ -445,8 +445,8 @@
 	desc = "A passcard issued to Idris employees currently or formerly employed or residing on the planet Silversun."
 	desc_extended = "While Silversun itself is a member of the Sol Alliance, Idris Incorporated has secured a number of obscure patents, permits, and bureaucratic channels that allows them to commemorate \
 	faithful employees from the resort world with unique passcards that double as membership cards to some of the cheaper resorts on-world."
-	icon_state = "passcard_silversun_idris"
-	item_state = "passcard_silversun_idris"
+	icon_state = "passcard_silversun_alt"
+	item_state = "passcard_silversun_alt"
 
 /obj/item/clothing/accessory/badge/passcard/sol/venus
 	name = "venus passcard"
