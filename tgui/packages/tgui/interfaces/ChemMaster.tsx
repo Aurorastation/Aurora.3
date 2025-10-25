@@ -54,7 +54,7 @@ const ReagentFactory = (props) => {
         ? reagents.map((reagent) => (
             <Table.Row key={reagent.name}>
               <Section
-                title={reagent.name + ' (' + reagent.volume + ')'}
+                title={`${reagent.name} (${reagent.volume})`}
                 buttons={
                   reagent.name === 'Blood' && clickOperation === 'add' ? (
                     <Button
@@ -189,7 +189,7 @@ export const ChemMaster = (props) => {
           </Table>
         </Section>
         <Divider />
-        <Section title={data.machine_name.split(' ')[0] + ' Content'}>
+        <Section title={`${data.machine_name.split(' ')[0]} Content`}>
           <Stack vertical>
             <Stack.Item>
               <Flex fill>

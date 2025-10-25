@@ -21,7 +21,7 @@ type Data = {
   flow_rate: number;
 };
 
-export const AtmosPump = (props) => {
+export const AtmosPump = () => {
   const { act, data } = useBackend<Data>();
   const {
     on,

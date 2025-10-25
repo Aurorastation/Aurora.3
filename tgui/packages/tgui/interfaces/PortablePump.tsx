@@ -44,6 +44,7 @@ export const PortablePump = (props) => {
               <Button
                 content={data.on ? 'On' : 'Off'}
                 icon={data.on ? 'power-off' : 'times'}
+                disabled={!data.cellCharge}
                 color={!data.on && 'danger'}
                 onClick={() => act('power')}
               />

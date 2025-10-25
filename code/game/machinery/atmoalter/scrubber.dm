@@ -110,7 +110,8 @@
 /obj/machinery/portable_atmospherics/powered/scrubber/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "AtmoScrubber", ui_x=500, ui_y=380)
+		to_chat(world, "No existing ui detected. Creating new one.")
+		ui = new(user, src, "AtmosScrubber", "Portable Air Scrubber", 500, 380)
 		ui.open()
 
 /obj/machinery/portable_atmospherics/powered/scrubber/ui_data(mob/user)

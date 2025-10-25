@@ -24,7 +24,7 @@ export type AtmoScrubberData = {
   holdingTankPressure: number;
 };
 
-export const AtmoScrubber = (props) => {
+export const AtmoScrubber = () => {
   const { act, data } = useBackend<AtmoScrubberData>();
 
   const [tank_color] = useLocalState('tank_color', '');
@@ -53,7 +53,18 @@ export const AtmoScrubber = (props) => {
   return (
     <Window>
       <Window.Content>
-        <Section title="Atmos Scrubber">
+        <Section
+          title="Scrubber Status"
+          buttons={
+            <Button
+              content={data.on ? 'On' : 'Off'}
+              icon={data.on ? 'power-off' : 'times'}
+              disabled={!data.cellCharge}
+              color={!data.on && 'danger'}
+              onClick={() => act('togglePower')}
+            />
+          }
+        >
           <LabeledList>
             <LabeledList.Item label="Tank Pressure">
               <ProgressBar
@@ -68,16 +79,20 @@ export const AtmoScrubber = (props) => {
             <LabeledList.Item label="Port Status">
               {data.portConnected ? 'Connected' : 'Disconnected'}
             </LabeledList.Item>
-            <LabeledList.Item label="Load">{data.powerDraw} W</LabeledList.Item>
+            <LabeledList.Item label="Power Draw">
+              {data.powerDraw} W
+            </LabeledList.Item>
             <LabeledList.Item label="Cell Charge">
               <ProgressBar
-                color={cell_charge_color.toString()}
+                ranges={{
+                  good: [data.cellMaxCharge * 0.8, data.cellMaxCharge],
+                  average: [data.cellMaxCharge * 0.4, data.cellMaxCharge * 0.8],
+                  bad: [0, data.cellMaxCharge * 0.4],
+                }}
+                value={data.cellCharge}
                 minValue={0}
                 maxValue={data.cellMaxCharge}
-                value={data.cellCharge}
-              >
-                {data.cellCharge}
-              </ProgressBar>
+              />
             </LabeledList.Item>
           </LabeledList>
         </Section>
@@ -107,7 +122,7 @@ export const AtmoScrubber = (props) => {
         ) : (
           ''
         )}
-        <Section title="Power Regulator Status">
+        <Section title="Regulator Status">
           <LabeledList>
             <LabeledList.Item label="Volume Rate">
               <Slider
@@ -117,17 +132,12 @@ export const AtmoScrubber = (props) => {
                 value={data.rate}
                 minValue={data.minrate}
                 maxValue={data.maxrate}
-                onChange={(value) => act('setVolume', { targetVolume: value })}
+                onChange={(e, value) =>
+                  act('setVolume', { targetVolume: value })
+                }
               >
                 {data.rate}
               </Slider>
-            </LabeledList.Item>
-            <LabeledList.Item label="Power Switch">
-              <Button
-                icon="power-off"
-                selected={data.on}
-                onClick={() => act('togglePower')}
-              />
             </LabeledList.Item>
           </LabeledList>
         </Section>

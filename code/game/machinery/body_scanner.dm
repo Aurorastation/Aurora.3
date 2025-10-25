@@ -332,6 +332,15 @@
 
 	ui_interact(user)
 
+/obj/machinery/body_scanconsole/ui_interact(mob/user, var/datum/tgui/ui)
+	if(!get_connected())
+		to_chat(usr, SPAN_WARNING("[icon2html(src, usr)]Error: No body scanner detected."))
+		return
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "BodyScanner", tgui_name, 750, 600)
+		ui.open()
+
 /obj/machinery/body_scanconsole/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
@@ -352,15 +361,6 @@
 			connected_displays += D
 			RegisterSignal(D, COMSIG_QDELETING, PROC_REF(on_connected_display_deletion))
 	return !!length(connected_displays)
-
-/obj/machinery/body_scanconsole/ui_interact(mob/user, var/datum/tgui/ui)
-	if(!get_connected())
-		to_chat(usr, SPAN_WARNING("[icon2html(src, usr)]Error: No body scanner detected."))
-		return
-	ui = SStgui.try_update_ui(user, src, ui)
-	if(!ui)
-		ui = new(user, src, "BodyScanner", tgui_name, 850, 500)
-		ui.open()
 
 /obj/machinery/body_scanconsole/proc/on_connected_display_deletion(datum/source)
 	SIGNAL_HANDLER

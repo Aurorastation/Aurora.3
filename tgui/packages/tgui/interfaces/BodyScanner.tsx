@@ -196,7 +196,7 @@ export const ScannerWindow = (props) => {
       </Flex.Item>
       {data.has_detailed_view ? (
         <Flex.Item>
-          <Section title="Blood Status" width="50vw" minWidth="300px" fill>
+          <Section title="Blood Status" minWidth="300px" fill>
             <LabeledList>
               <LabeledList.Item
                 label="Blood Pressure"
@@ -274,7 +274,7 @@ export const ScannerWindow = (props) => {
       ) : null}
       {data.has_detailed_view ? (
         <Flex.Item>
-          <Section title="Symptom Status" width="46vw" minWidth="300px" fill>
+          <Section title="Symptom Status" minWidth="300px" fill>
             <LabeledList>
               <LabeledList.Item
                 label="Radiation Level"
@@ -299,7 +299,7 @@ export const ScannerWindow = (props) => {
       ) : null}
       {data.has_detailed_view ? (
         <Flex.Item>
-          <Section title="Damage Status" width="50vw" minWidth="300px" fill>
+          <Section title="Damage Status" minWidth="300px" fill>
             <LabeledList>
               <LabeledList.Item
                 label="Brute Trauma"
