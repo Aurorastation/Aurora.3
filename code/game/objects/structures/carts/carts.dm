@@ -8,6 +8,7 @@ ABSTRACT_TYPE(/obj/structure/cart)
 	build_amt = 15
 	material = DEFAULT_WALL_MATERIAL
 	slowdown = 0
+	atom_flags = CRITICAL_ATOM
 	var/movesound = 'sound/effects/roll.ogg'
 	var/driving
 	var/mob/living/pulling
