@@ -79,7 +79,8 @@
 		/obj/item/reagent_containers/food/drinks/carton/mutthir = 1,
 		/obj/item/reagent_containers/food/drinks/boba = 2,
 		/obj/item/reagent_containers/food/drinks/ice = 9,
-		/obj/item/storage/box/fancy/vkrexi_swollen_organ = 1
+		/obj/item/storage/box/fancy/vkrexi_swollen_organ = 1,
+		/obj/item/reagent_containers/food/drinks/bottle/redstaff = 2
 	)
 	contraband = list(
 		/obj/item/reagent_containers/food/drinks/tea = 10
@@ -189,3 +190,6 @@
 		/obj/item/reagent_containers/food/drinks/carton/cranberryjuice = 1,
 		/obj/item/reagent_containers/food/drinks/ice = 9
 	)
+
+/obj/machinery/vending/boozeomat/bar
+	layer = BELOW_TABLE_LAYER

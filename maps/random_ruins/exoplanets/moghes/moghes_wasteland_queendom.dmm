@@ -55,7 +55,7 @@
 /obj/item/clothing/suit/armor/unathi,
 /obj/item/gun/projectile/shotgun/pump/rifle/magazine_fed/crackrifle,
 /obj/item/gun/projectile/shotgun/wallgun,
-/obj/item/storage/box/wallgunammo,
+/obj/item/storage/box/shells/wallgunammo,
 /obj/item/gun/projectile/automatic/tempestsmg,
 /obj/item/ammo_magazine/tempestsmg,
 /obj/effect/floor_decal/spline/plain/blue,

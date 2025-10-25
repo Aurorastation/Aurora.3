@@ -26,6 +26,7 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/shield_capacitor/LateInitialize()
+	. = ..()
 	for(var/obj/machinery/shield_gen/possible_gen in range(1, src))
 		if(get_dir(src, possible_gen) == dir)
 			possible_gen.owned_capacitor = src
@@ -137,4 +138,4 @@
 		..()
 
 /obj/machinery/shield_capacitor/multiz
-	max_charge_rate = 1250000	//1250 kW
+	max_charge_rate = 1250000

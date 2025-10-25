@@ -40,6 +40,8 @@
 
 /obj/structure/closet/secure_closet/hangar_tech/fill()
 	..()
+	new /obj/item/storage/backpack/industrial(src)
+	new /obj/item/storage/backpack/duffel/eng(src)
 	new /obj/item/clothing/under/rank/hangar_technician(src)
 	new /obj/item/device/radio/headset/headset_cargo(src)
 	new /obj/item/device/radio/headset/headset_cargo/alt(src)
@@ -48,6 +50,7 @@
 	new /obj/item/device/price_scanner(src)
 	new /obj/item/device/cratescanner(src)
 	new /obj/item/clipboard(src)
+	new /obj/item/storage/belt/utility(src)
 	new /obj/item/device/flashlight/marshallingwand(src)
 
 // Machinist
@@ -67,6 +70,9 @@
 	new /obj/item/device/multitool(src)
 	new /obj/item/ipc_tag_scanner(src)
 	new /obj/item/device/robotanalyzer(src)
+	new /obj/item/storage/belt/utility(src)
+	new /obj/item/storage/belt/utility/alt(src)
+	new /obj/item/storage/toolbox/mechanical(src)
 
 // Miner
 /obj/structure/closet/secure_closet/miner
@@ -80,6 +86,7 @@
 		new /obj/item/storage/backpack/industrial(src)
 	else
 		new /obj/item/storage/backpack/satchel/eng(src)
+	new /obj/item/storage/backpack/duffel/eng(src)
 	new /obj/item/device/radio/headset/headset_cargo(src)
 	new /obj/item/clothing/gloves/black(src)
 	new /obj/item/device/analyzer(src)

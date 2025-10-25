@@ -10,7 +10,7 @@
 	icon_state = "flag_boxed"
 	var/flag_path
 
-	///Boolean, set to `TRUE` if a flag is large (2x1)
+	/// Boolean, set to `TRUE` if a flag is large (2x1)
 	var/flag_size = FALSE
 
 	var/obj/structure/sign/flag/flag_structure
@@ -23,17 +23,17 @@
 	icon = 'icons/obj/structure/flags.dmi'
 	icon_state = "flag"
 
-	///If a big flag, the other half of the flag is referenced here
+	/// If a big flag, the other half of the flag is referenced here
 	var/obj/structure/sign/flag/linked_flag
+	/// For returning your flag
+	var/obj/item/flag/flag_item
 
-	var/obj/item/flag/flag_item //For returning your flag
-
-	///Boolean, if we've been torn down
+	/// Boolean, if we've been torn down
 	var/ripped = FALSE
 
-	///Default offset value. Used in accurately locating the turf we're standing on.
+	/// Default offset value. Used in accurately locating the turf we're standing on.
 	var/offset_constant = 32
-	///Boolean, set to TRUE if someone is folding the banner.
+	/// Boolean, set to TRUE if someone is folding the banner.
 	var/currently_folding = FALSE
 	var/ripped_outline_state = "flag_ripped"
 	var/flag_path
@@ -44,6 +44,13 @@
 	var/icon/rolled_outline
 	var/unmovable = FALSE
 	var/stand_icon = "banner_stand"
+
+/obj/structure/sign/flag/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "With the HELP intent, use an empty hand on this to examine it."
+	. += "With the DISARM intent, use an empty hand on this to fold it back up."
+	. += "With the GRAB intent, use an empty hand on this to salute it. How patriotic!"
+	. += "With the HURT intent, use an empty hand on this rip it down. You will receive a prompt to confirm the action."
 
 /obj/structure/sign/flag/Initialize(mapload, var/newdir, var/linked_flag_path, var/deploy, var/icon_file, var/item_flag_path)
 	. = ..()
@@ -88,7 +95,7 @@
 			icon = flag_icon
 			return
 		for(var/obj/A in T)
-			if(istype(A, /obj/structure/window))
+			if(istype(A, /obj/structure/window) || istype(A, /obj/effect/map_effect/window_spawner))
 				icon = flag_icon
 				return
 		banner_icon = new('icons/obj/structure/flags.dmi', stand_icon)

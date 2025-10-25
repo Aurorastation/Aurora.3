@@ -10,20 +10,55 @@
 	var/obj/item/reagent_containers/glass/beaker = null
 	var/points = 0
 	var/menustat = "menu"
+
+	/**
+	 * Upgrading the biogenerator's manipulators makes it consume less biomass to make items.
+	 * Biomass costs are divided by this variable, and are calculated as the sum of its manipulator part ratings.
+	 */
 	var/build_eff = 1
+
+	/**
+	 * Upgrading the biogenerator's matter bins makes it generate more biomass from nutriment.
+	 * This multiplier is calculated as the sum of the machine's matter bin part ratings.
+	 * Biomass generation is equal to eat_eff * biomass_from_nutriment.
+	 */
 	var/eat_eff = 1
+
+	/**
+	 * Upgrading the biogenerator's capacitors makes it process nutriments faster.
+	 * Nutriment processing times are divided by this variable, and are calculated as the sum of its capacitor part ratings.
+	 */
+	var/processing_time_divisor = 1
+
+	/// The amount of biomass this machine generates per unit of nutriment consumed.
+	var/biomass_per_nutriment = 10
+
+	/// The maximum number of items this machine can store at a time for processing.
 	var/capacity = 100
+
+	var/ref_for_ui
 
 	component_types = list(
 		/obj/item/circuitboard/biogenerator,
 		/obj/item/stock_parts/matter_bin,
-		/obj/item/stock_parts/manipulator
+		/obj/item/stock_parts/manipulator,
+		/obj/item/stock_parts/capacitor
 	)
+
+/obj/machinery/biogenerator/mechanics_hints(mob/user, distance, is_adjacent)
+	. = ..()
+	. += "Food can be placed inside this machine by either left clicking it with food items directly, or by left clicking on it with a plant bag."
+	. += "Any nutriments inside food are converted into biomass, which can be used by this machine to create a variety of useful items."
+	. += "Non-nutriment reagents will clog up the machine, making it take longer to process foods."
 
 /obj/machinery/biogenerator/upgrade_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	. += "Upgraded <b>manipulators</b> will increase the nutrients provided by new inputs."
-	. += "Upgraded <b>matter bins</b> will decrease the conversion cost of bio-goods."
+	. += "Upgraded <b>manipulators</b> will decrease the cost of bio-goods."
+	. += "The current cost decrease is [round((1 - (1/build_eff)) * 100)]%."
+	. += "Upgraded <b>matter bins</b> will increase the biomass generated from nutriments."
+	. += "The current amount of biomass produced is [biomass_per_nutriment * eat_eff] per unit of nutriment."
+	. += "Upgraded <b>capacitors</b> will increase the rate at which nutriments are processed."
+	. += "The current processing speed increase is [round((1 - (1/processing_time_divisor)) * 100)]%."
 
 #define BIOGEN_FOOD "Food"
 #define BIOGEN_ITEMS "Items"
@@ -226,7 +261,12 @@ ITEMS
 	object = /obj/item/flame/lighter/random
 	cost = 100
 
-/singleton/biorecipe/item/pottedplant
+/singleton/biorecipe/item/potted_plant
+	name = "Large Plant Pot"
+	object = /obj/random/pottedplant
+	cost = 750
+
+/singleton/biorecipe/item/pottedplant_small
 	name = "Small Plant Pot"
 	object = /obj/random/pottedplant_small
 	cost = 300
@@ -244,6 +284,21 @@ ITEMS
 /singleton/biorecipe/item/goldstar
 	name = "Gold Star Sticker Sheet"
 	object = /obj/item/storage/stickersheet/goldstar
+	cost = 600
+
+/singleton/biorecipe/item/googly_eye
+	name = "Googly Eye Sticker Sheet"
+	object = /obj/item/storage/stickersheet/googly_eye
+	cost = 600
+
+/singleton/biorecipe/item/generic
+	name = "Generic Sticker Sheet"
+	object = /obj/item/storage/stickersheet/generic
+	cost = 600
+
+/singleton/biorecipe/item/hearts
+	name = "Heart Sticker Sheet"
+	object = /obj/item/storage/stickersheet/hearts
 	cost = 600
 
 /singleton/biorecipe/item/plantbag
@@ -369,7 +424,7 @@ MEDICAL
 	cost = 500
 
 /singleton/biorecipe/medical
-	name = "Bruise Pack"
+	name = "Roll of Gauze"
 	class = BIOGEN_MEDICAL
 	object = /obj/item/stack/medical/bruise_pack
 	cost = 400
@@ -384,6 +439,11 @@ MEDICAL
 	object = /obj/item/reagent_containers/pill/perconol
 	cost = 250
 	amount = list(1,2,3,5,7)
+
+/singleton/biorecipe/medical/splints
+	name = "Splints"
+	object = /obj/item/stack/medical/splint
+	cost = 400
 
 /*
 CONSTRUCTION
@@ -536,6 +596,7 @@ EMAG/ILLEGAL
 	R.my_atom = src
 	beaker = new /obj/item/reagent_containers/glass/bottle(src)
 	update_icon()
+	ref_for_ui = "[REF(src)]"
 
 /obj/machinery/biogenerator/on_reagent_change()			//When the reagents change, change the icon as well.
 	update_icon()
@@ -618,8 +679,8 @@ EMAG/ILLEGAL
 			if("menu")
 				if (beaker)
 					dat += "<table style='width:100%'><tr><td colspan='6'><H2>Commands</H2></td></tr>"
-					dat += "<tr><td colspan='2'><A href='byond://?src=[REF(src)];action=activate'>Activate Biogenerator</A></td></tr>"
-					dat += "<tr><td colspan='2'><A href='byond://?src=[REF(src)];action=detach'>Detach Container</A><BR></td></tr>"
+					dat += "<tr><td colspan='2'><A href='byond://?src=[ref_for_ui];action=activate'>Activate Biogenerator</A></td></tr>"
+					dat += "<tr><td colspan='2'><A href='byond://?src=[ref_for_ui];action=detach'>Detach Container</A><BR></td></tr>"
 					dat += "<tr><td colspan='2'>Name</td><td colspan='2'>Cost</td><td colspan='4'>Production Amount</td></tr>"
 					var/lastclass = "Commands"
 
@@ -639,7 +700,7 @@ EMAG/ILLEGAL
 								if(num*round(current_recipe.cost/build_eff) > points)
 									dat += "<div class='no-build inline'>([fakenum][num])</div>"
 								else
-									dat += "<A href='byond://?src=[REF(src)];action=create;itemtype=[current_recipe.type];count=[num]'>([fakenum][num])</A>"
+									dat += "<A href='byond://?src=[ref_for_ui];action=create;itemtype=[current_recipe.type];count=[num]'>([fakenum][num])</A>"
 							dat += "</td>"
 							dat += "</tr>"
 
@@ -649,13 +710,13 @@ EMAG/ILLEGAL
 					dat += "<BR><FONT COLOR=red>No beaker inside. Please insert a beaker.</FONT><BR>"
 			if("nopoints")
 				dat += "You do not have biomass to create products.<BR>Please put growns into the reactor and activate it.<BR>"
-				dat += "<A href='byond://?src=[REF(src)];action=menu'>Return to menu</A>"
+				dat += "<A href='byond://?src=[ref_for_ui];action=menu'>Return to menu</A>"
 			if("complete")
 				dat += "Operation complete.<BR>"
-				dat += "<A href='byond://?src=[REF(src)];action=menu'>Return to menu</A>"
+				dat += "<A href='byond://?src=[ref_for_ui];action=menu'>Return to menu</A>"
 			if("void")
 				dat += "<FONT COLOR=red>Error: No growns inside.</FONT><BR>Please put growns into the reactor.<BR>"
-				dat += "<A href='byond://?src=[REF(src)];action=menu'>Return to menu</A>"
+				dat += "<A href='byond://?src=[ref_for_ui];action=menu'>Return to menu</A>"
 	dat += "</body></html>"
 
 	var/datum/browser/biogen_win = new(user, "biogenerator", "Biogenerator", 450, 500)
@@ -677,9 +738,7 @@ EMAG/ILLEGAL
 	var/S = 0
 	for(var/obj/item/reagent_containers/food/snacks/I in contents)
 		S += 5
-		if(REAGENT_VOLUME(I.reagents, /singleton/reagent/nutriment) < 0.1)
-			points += 1
-		else points += REAGENT_VOLUME(I.reagents, /singleton/reagent/nutriment) * 10 * eat_eff
+		points += REAGENT_VOLUME(I.reagents, /singleton/reagent/nutriment) * biomass_per_nutriment * eat_eff
 		qdel(I)
 		CHECK_TICK
 	if(S)
@@ -689,7 +748,7 @@ EMAG/ILLEGAL
 		playsound(src.loc, 'sound/machines/juicer.ogg', 50, 1)
 		intent_message(MACHINE_SOUND)
 		use_power_oneoff(S * 30)
-		sleep((S + 1.5 SECONDS) / eat_eff)
+		sleep((S + 1.5 SECONDS) / processing_time_divisor)
 		processing = 0
 		update_icon()
 	else
@@ -760,9 +819,9 @@ EMAG/ILLEGAL
 	return 1
 
 /obj/machinery/biogenerator/Topic(href, href_list)
-	if(stat & BROKEN) return
-	if(usr.stat || usr.restrained()) return
-	if(!in_range(src, usr)) return
+	..() // Run the base topic code so that our mechanics hints still work.
+	if(stat & BROKEN || usr.stat || usr.restrained() || !in_range(src, usr))
+		return
 
 	usr.set_machine(src)
 
@@ -785,15 +844,20 @@ EMAG/ILLEGAL
 	..()
 	var/man_rating = 0
 	var/bin_rating = 0
+	var/capacitor_rating = 0
 
 	for(var/obj/item/stock_parts/P in component_parts)
 		if(ismatterbin(P))
 			bin_rating += P.rating
+		else if(iscapacitor(P))
+			capacitor_rating += P.rating
 		else if(ismanipulator(P))
 			man_rating += P.rating
 
-	build_eff = man_rating
-	eat_eff = bin_rating
+	// We're doing a lot of division with these variables, so all of these have to be sanity checked to prevent any accidental divisions by zero.
+	build_eff = max(1, man_rating)
+	eat_eff = max(1, bin_rating)
+	processing_time_divisor = max(1, capacitor_rating)
 
 /obj/machinery/biogenerator/small
 	icon_state = "biogen_small"
@@ -803,7 +867,8 @@ EMAG/ILLEGAL
 	component_types = list(
 		/obj/item/circuitboard/biogenerator/small,
 		/obj/item/stock_parts/matter_bin,
-		/obj/item/stock_parts/manipulator
+		/obj/item/stock_parts/manipulator,
+		/obj/item/stock_parts/capacitor
 	)
 
 /obj/machinery/biogenerator/small/north
@@ -826,5 +891,8 @@ EMAG/ILLEGAL
 
 /obj/machinery/biogenerator/small/RefreshParts()
 	..()
-	build_eff = max(build_eff - 1, 1)
-	eat_eff = max(eat_eff - 1, 1)
+	// Upgraded parts are less efficient on small biogenerators.
+	// Tier 3 parts are equivalent to tier 2 parts for them, while tier 2 parts are only 33% more effective than tier 1 parts.
+	build_eff = max(build_eff * 0.667, 1)
+	eat_eff = max(eat_eff * 0.667, 1)
+	processing_time_divisor = max(processing_time_divisor * 0.667, 1)

@@ -152,7 +152,7 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 	// Don't process if we're in a freezer, an MMI or a stasis bag.or a freezer or something I dunno
 	if(istype(loc,/obj/item/device/mmi))
 		return
-	if(istype(loc,/obj/structure/closet/body_bag/cryobag) || istype(loc,/obj/structure/closet/crate/freezer) || istype(loc,/obj/item/storage/box/freezer))
+	if(istype(loc,/obj/structure/closet/body_bag/cryobag) || istype(loc,/obj/structure/closet/crate/freezer) || istype(loc,/obj/item/storage/box/unique/freezer))
 		return
 	//Process infections
 	if ((status & ORGAN_ROBOT) || (owner && owner.species && (owner.species.flags & IS_PLANT)))
@@ -436,7 +436,10 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 	var/obj/item/organ/external/affected = owner.get_organ(parent_organ)
 	if(affected) affected.internal_organs -= src
 
-	loc = get_turf(owner)
+	var/turf/T = get_turf(owner)
+	// to avoid brains and things like that getting put into nullspace and thus entering spatial grids
+	if(!isnull(T))
+		loc = T
 	START_PROCESSING(SSprocessing, src)
 	rejecting = null
 	if (!reagents)

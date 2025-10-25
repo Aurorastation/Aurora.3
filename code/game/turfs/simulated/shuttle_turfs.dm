@@ -24,6 +24,14 @@
 /turf/simulated/wall/shuttle/Initialize(mapload)
 	. = ..(mapload, MATERIAL_SHUTTLE, MATERIAL_SHUTTLE)
 
+/turf/simulated/wall/shuttle/disassembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "You can deconstruct this by with the following steps:<br>\
+	Cut the outer grill with wirecutters, then unscrew them.<br>\
+	Slice the cover with a welder, then pry it off with a crowbar.<br>\
+	Use a wrench to loosen the anchor bolts, then cut the supports with a welder.<br>\
+	Pry off the sheath with a crowbar to expose the girder."
+
 /turf/simulated/wall/shuttle/cardinal
 	smoothing_flags = SMOOTH_TRUE
 

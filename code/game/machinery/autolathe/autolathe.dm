@@ -45,8 +45,11 @@
 
 /obj/machinery/autolathe/upgrade_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	. += "Upgraded <b>matter bins</b> will increase material storage capacity."
-	. += "Upgraded <b>manipulators</b> will improve material use efficiency and increase fabrication speed."
+	. += "- Upgraded <b>matter bins</b> will increase material storage capacity."
+	. += SPAN_NOTICE("	- The current storage limit per material type is <b>[storage_capacity[DEFAULT_WALL_MATERIAL] / 2000]</b> sheets")
+	. += "- Upgraded <b>manipulators</b> will improve material use efficiency and increase fabrication speed."
+	. += SPAN_NOTICE("	- The current material cost reduction is <b>[round((1 - mat_efficiency) * 100)]%</b>")
+	. += SPAN_NOTICE("	- The current build speed increase is <b>[round((1 - mat_efficiency) * 100)]%</b>")
 
 /obj/machinery/autolathe/Initialize()
 	..()
@@ -56,6 +59,7 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/autolathe/LateInitialize()
+	. = ..()
 	populate_lathe_recipes()
 
 /obj/machinery/autolathe/Destroy()

@@ -157,9 +157,9 @@
 /area/adhomai_archeology)
 "F" = (
 /obj/structure/closet/crate/secure/large,
-/obj/item/storage/box/dynamite,
-/obj/item/storage/box/dynamite,
-/obj/item/storage/box/dynamite,
+/obj/item/storage/box/unique/dynamite,
+/obj/item/storage/box/unique/dynamite,
+/obj/item/storage/box/unique/dynamite,
 /turf/simulated/floor/exoplanet/carpet/rubber,
 /area/adhomai_archeology)
 "H" = (

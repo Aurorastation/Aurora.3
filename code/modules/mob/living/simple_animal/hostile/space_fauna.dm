@@ -91,7 +91,7 @@
 		return
 	if(istype(last_found_target, /obj/effect/energy_field))
 		var/obj/effect/energy_field/e = last_found_target
-		e.Stress(rand(1,2))
+		e.damage_field(rand(1,2))
 		visible_message(SPAN_DANGER("\the [src] bites \the [e]!"))
 		src.do_attack_animation(e)
 		return e
@@ -187,7 +187,7 @@
 /mob/living/simple_animal/hostile/carp/shark/reaver/eel/Initialize()
 	. = ..()
 	eye_overlay = image(icon, "eel_eyeglow")
-	eye_overlay.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+	eye_overlay.plane = ABOVE_LIGHTING_PLANE
 	eye_overlay.appearance_flags = KEEP_APART
 	AddOverlays(eye_overlay)
 	set_light(MINIMUM_USEFUL_LIGHT_RANGE, 2, LIGHT_COLOR_TUNGSTEN)
