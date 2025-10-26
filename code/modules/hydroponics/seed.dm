@@ -808,7 +808,7 @@
 					yield_mod = 0
 					total_yield = GET_SEED_TRAIT(src, TRAIT_YIELD)
 				else
-					total_yield = GET_SEED_TRAIT(src, TRAIT_YIELD) + rand(yield_mod)
+					total_yield = GET_SEED_TRAIT(src, TRAIT_YIELD) + clamp(rand(yield_mod), 0, 4)
 				total_yield = max(1,total_yield)
 
 		// If the plant is stunted, you get half the yield.
