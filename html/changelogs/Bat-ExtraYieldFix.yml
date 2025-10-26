@@ -10,4 +10,5 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - balance: "Caps yield_mod effects from fertilizer to prevent plants with TRAIT_HARVEST_REPEAT from generating lag-inducing numbers of fruits."
+  - balance: "Caps yield_mod effects from fertilizer."
+  - rscdel: "Removes TRAIT_HARVEST_REPEAT to address fertilizer exploit."
