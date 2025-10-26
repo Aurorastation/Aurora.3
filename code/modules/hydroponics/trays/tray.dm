@@ -85,11 +85,16 @@
 	/// Currently displayed growth stage, set in update_icon.
 	var/displayed_stage
 
-
-	/**
+	/*
 	Reagent information for process(), consider moving this to a controller along
 	with cycle information under 'mechanical concerns' at some point.
 	*/
+
+	/**
+	 * Toxin levels beyond the plant's tolerance cause damage, but
+	 * toxins are sucked up each tick and slowly reduce over time.
+	 * The current water in the tray will dilute toxins.
+	 */
 	var/global/list/toxic_reagents = list(
 		/singleton/reagent/dylovene =			 -2,
 		/singleton/reagent/toxin =				  2,
@@ -103,6 +108,10 @@
 		/singleton/reagent/radium =				  2,
 		/singleton/reagent/drugs/raskara_dust =		2.5
 		)
+	/**
+	 * Nutrients increase the plant's nutrilevel by the given amount
+	 * multiplied by the number of units added. Includes fertilizers.
+	 */
 	var/global/list/nutrient_reagents = list(
 		/singleton/reagent/drink/milk =				 0.1,
 		/singleton/reagent/alcohol/beer =			0.25,
@@ -119,6 +128,10 @@
 		/singleton/reagent/toxin/fertilizer/left4zed =				1,
 		/singleton/reagent/toxin/fertilizer/monoammoniumphosphate =	1
 		)
+	/**
+	 * Weedkillers decrease the plant's weedlevel by the given amount
+	 * multiplied by the number of units added.
+	 */
 	var/global/list/weedkiller_reagents = list(
 		/singleton/reagent/hydrazine =			-4,
 		/singleton/reagent/phosphorus =			-2,
@@ -129,11 +142,19 @@
 		/singleton/reagent/toxin/plantbgone =	-8,
 		/singleton/reagent/adminordrazine =		-5
 		)
+	/**
+	 * Pestkillers decrease the plant's pestlevel by the given amount
+	 * multiplied by the number of units added.
+	 */
 	var/global/list/pestkiller_reagents = list(
 		/singleton/reagent/sugar =           2,
 		/singleton/reagent/diethylamine =   -2,
 		/singleton/reagent/adminordrazine = -5
 		)
+	/**
+	 * 'Water reagents' will affect the plant's waterlevel by the given amount
+	 * multiplied by the number of units added.
+	 */
 	var/global/list/water_reagents = list(
 		/singleton/reagent/water =					  1,
 		/singleton/reagent/adminordrazine =			  1,
@@ -144,8 +165,10 @@
 		/singleton/reagent/water =					  1,
 		/singleton/reagent/drink/sodawater =		  1
 		)
-
-	/// Beneficial reagents also have values for modifying yield_mod and mut_mod (in that order).
+	/**
+	 * Beneficial reagents also have values for modifying health, yield_mod and
+	 * mut_mod (in that order).
+	 */
 	var/global/list/beneficial_reagents = list(
 		/singleton/reagent/alcohol/beer=list( -0.05, 0,   0  ),
 		/singleton/reagent/hydrazine =			list( -2,    0,   0  ),
@@ -165,10 +188,9 @@
 		/singleton/reagent/toxin/fertilizer/robustharvest =	list(  0,	0.2, 0  ),
 		/singleton/reagent/toxin/fertilizer/left4zed =		list(  0,	0,   0.2)
 		)
-
 	/**
-	Mutagen list specifies minimum value for the mutation to take place, rather
-	than a bound as the lists above specify.
+	* Mutagen list specifies minimum value for the mutation to take place, rather
+	* than a bound as the lists above specify.
 	*/
 	var/global/list/mutagenic_reagents = list(
 		/singleton/reagent/radium =   8,

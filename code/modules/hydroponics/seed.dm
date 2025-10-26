@@ -800,22 +800,28 @@
 			return
 
 		var/total_yield = 0
+		var/extra_yield = 0
 		if(!isnull(force_amount))
 			total_yield = force_amount
 		else
 			if(GET_SEED_TRAIT(src, TRAIT_YIELD) > -1)
 				if(isnull(yield_mod) || yield_mod < 1)
 					yield_mod = 0
-					total_yield = GET_SEED_TRAIT(src, TRAIT_YIELD)
 				else
-					total_yield = GET_SEED_TRAIT(src, TRAIT_YIELD) + rand(yield_mod)
-				total_yield = max(1,total_yield)
+					extra_yield = rand(0, yield_mod)
+				total_yield = max(1,GET_SEED_TRAIT(src, TRAIT_YIELD))
 
 		// If the plant is stunted, you get half the yield.
 		if(stunted_status)
 			total_yield *= 0.5
+			extra_yield *= 0.5
 
-		for(var/i = 0;i<total_yield;i++)
+		// Apply extra_yield only once.
+		if(extra_yield)
+			for(var/x = 1 to extra_yield)
+				spawn_seed(get_turf(user))
+
+		for(var/y = 1 to total_yield)
 			spawn_seed(get_turf(user))
 
 /datum/seed/proc/spawn_seed(var/turf/spawning_loc)
