@@ -131,6 +131,41 @@
 /// The floating point equivalent of Cotangent(x)
 #define FCOT(x) (FCOS(x)/FSIN(x))
 
+// RADIAN HYPERBOLICS
+
+/**
+ * The floating point equivalent of HyperbolicSine(x), that accepts and returns floating point values.
+ * This function is written using the first 3 terms of the Maclaurin Series definition for SinH(x).
+ * It only falls within the floating point precision limit out to a distance of +- pi/2, so it is self clamping to this range.
+ */
+#define FSINH(x) { \
+	x = PLUSMINUSFMOD(x, PIOVERTWO);\
+	return x + ((x ** 3)/6) + ((x ** 5)/120)}
+
+/// The floating point equivalent of HyperbolicCosecant(x)
+#define FCSCH(x) (1 / FSINH(x))
+
+/**
+ * The floating point equivalent of HyperbolicCosine(x), that accepts and returns floating point values.
+ * This function is written using the first 3 terms of the Maclaurin Series definition for Cosh(x).
+ * It only falls within the floating point precision limit out to a distance of +- pi/2, so it is self clamping to this range.
+ */
+#define FCOSH(x) { \
+	x = FMOD(x, PIOVERONE); \
+	return 1 + ((x ** 2)/2) + ((x ** 4)/24)}
+
+/// The floating point equivalent of HyperbolicSecant(x)
+#define FSECH(x) (1 / FCOSH(x))
+
+/**
+ * The floating point equivalent of HyperbolicTangent(x)
+ * This function is particularly useful as its a viable linear approximation of the Logistic Equation.
+ */
+#define FTANH(x) (FSINH(x)/FCOSH(x))
+
+/// The floating point equivalent of HyperbolicCotangent(x)
+#define FCOTH(x) (FCOSH(x)/FSINH(x))
+
 // TODO: TCJ needs to write N-precision variants of these that use a while loop
-// TODO: TCJ also needs to write Arcsin, Arccos, Arctan, as well as hyperbolic forms of all of these.
+// TODO: TCJ also needs to write Arcsin, Arccos, and Arctan
 // TODO: TCJ Add Desmos links to code comments to actually prove what I'm doing here is correct.
