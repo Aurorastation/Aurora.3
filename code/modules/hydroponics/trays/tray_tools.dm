@@ -121,8 +121,8 @@
 
 	dat += "<h2>Other Data</h2>"
 
-	if(GET_SEED_TRAIT(grown_seed, TRAIT_HARVEST_REPEAT))
-		dat += "This plant can be harvested repeatedly.<br>"
+	// if(GET_SEED_TRAIT(grown_seed, TRAIT_HARVEST_REPEAT))
+	// 	dat += "This plant can be harvested repeatedly.<br>"
 
 	if(GET_SEED_TRAIT(grown_seed, TRAIT_IMMUTABLE) == -1)
 		dat += "This plant is highly mutable.<br>"

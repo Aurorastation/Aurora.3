@@ -387,13 +387,13 @@
 	stunted = FALSE
 	lastproduce = age
 
-	if(!GET_SEED_TRAIT(seed, TRAIT_HARVEST_REPEAT))
-		yield_mod = 0
-		seed = null
-		dead = 0
-		age = 0
-		sampled = 0
-		mutation_mod = 0
+	// if(!GET_SEED_TRAIT(seed, TRAIT_HARVEST_REPEAT))
+	yield_mod = 0
+	seed = null
+	dead = 0
+	age = 0
+	sampled = 0
+	mutation_mod = 0
 
 	check_health()
 	return

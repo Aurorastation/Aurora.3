@@ -64,7 +64,7 @@
 /datum/seed/New()
 	SET_SEED_TRAIT(src, TRAIT_SPOROUS, 0)
 	SET_SEED_TRAIT(src, TRAIT_IMMUTABLE, 0)
-	SET_SEED_TRAIT(src, TRAIT_HARVEST_REPEAT, 0)
+	// SET_SEED_TRAIT(src, TRAIT_HARVEST_REPEAT, 0)
 	SET_SEED_TRAIT(src, TRAIT_PRODUCES_POWER, 0)
 	SET_SEED_TRAIT(src, TRAIT_JUICY, 0)
 	SET_SEED_TRAIT(src, TRAIT_EXPLOSIVE, 0)
@@ -457,8 +457,8 @@
 	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, get_random_colour(0,75,190))
 	update_growth_stages()
 
-	if(prob(20))
-		SET_SEED_TRAIT(src, TRAIT_HARVEST_REPEAT, 1)
+	// if(prob(20))
+	// 	SET_SEED_TRAIT(src, TRAIT_HARVEST_REPEAT, 1)
 
 	if(prob(15))
 		if(prob(15))
@@ -661,8 +661,8 @@
 					SET_SEED_TRAIT(src, TRAIT_SPOROUS,         !GET_SEED_TRAIT(src, TRAIT_SPOROUS))
 			if(9)
 				SET_SEED_TRAIT_BOUNDED(src, TRAIT_MATURATION,          GET_SEED_TRAIT(src, TRAIT_MATURATION)+(rand(-1,1)*degree), 30, 0, null)
-				if(prob(degree*5))
-					SET_SEED_TRAIT(src, TRAIT_HARVEST_REPEAT, !GET_SEED_TRAIT(src, TRAIT_HARVEST_REPEAT))
+				// if(prob(degree*5))
+				// 	SET_SEED_TRAIT(src, TRAIT_HARVEST_REPEAT, !GET_SEED_TRAIT(src, TRAIT_HARVEST_REPEAT))
 			if(10)
 				if(prob(degree*2))
 					SET_SEED_TRAIT(src, TRAIT_BIOLUM,         !GET_SEED_TRAIT(src, TRAIT_BIOLUM))
@@ -767,7 +767,7 @@
 		if(GENE_PIGMENT)
 			traits_to_copy = list(TRAIT_PLANT_COLOUR,TRAIT_PRODUCT_COLOUR,TRAIT_BIOLUM_COLOUR,TRAIT_LEAVES_COLOUR)
 		if(GENE_STRUCTURE)
-			traits_to_copy = list(TRAIT_PLANT_ICON,TRAIT_PRODUCT_ICON,TRAIT_HARVEST_REPEAT, TRAIT_SPOROUS, TRAIT_LARGE)
+			traits_to_copy = list(TRAIT_PLANT_ICON,TRAIT_PRODUCT_ICON, TRAIT_SPOROUS, TRAIT_LARGE)
 		if(GENE_FRUIT)
 			traits_to_copy = list(TRAIT_STINGS,TRAIT_EXPLOSIVE,TRAIT_FLESH_COLOUR,TRAIT_JUICY)
 		if(GENE_SPECIAL)
@@ -812,7 +812,7 @@
 					// To ensure that low yield (2 or less) plants also enjoy a good boost from fertilizer, we artificially inflate the effect fertilizer has on them.
 					var/temp_yield = total_yield
 					if(total_yield <= 2)
-						var/temp_yield = total_yield + 3
+						temp_yield = total_yield + 3
 					total_yield = GET_SEED_TRAIT(src, TRAIT_YIELD) + clamp(rand(yield_mod), max(temp_yield/1.5, 1), (temp_yield)*1.5)
 				total_yield = max(1,total_yield)
 

@@ -83,10 +83,10 @@
 			seed_type["maturation"] = GET_SEED_TRAIT(seed, TRAIT_MATURATION)
 			seed_type["production"] = GET_SEED_TRAIT(seed, TRAIT_PRODUCTION)
 			seed_type["potency"] = GET_SEED_TRAIT(seed, TRAIT_POTENCY)
-			if(GET_SEED_TRAIT(seed, TRAIT_HARVEST_REPEAT))
-				seed_type["harvest"] = "multiple"
-			else
-				seed_type["harvest"] = "single"
+			// if(GET_SEED_TRAIT(seed, TRAIT_HARVEST_REPEAT))
+			// 	seed_type["harvest"] = "multiple"
+			// else
+			seed_type["harvest"] = "single"
 
 		if("temperature" in scanner)
 			data["scan_temperature"] = TRUE
