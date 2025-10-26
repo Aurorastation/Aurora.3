@@ -14,7 +14,7 @@
 		MATERIAL_ALUMINIUM = 20000,
 		MATERIAL_GLASS = 12500,
 		DEFAULT_WALL_MATERIAL = 10000,
-		MATERIAL_PLASTEEL = 8000
+		MATERIAL_PLASTEEL = 8000,
 		MATERIAL_LEAD = 5500,
 	)
 
@@ -46,7 +46,7 @@
 	name = "Rescue Suit Control Module Assembly"
 	desc = "An assembly for a durable suit designed for medical rescue in high risk areas."
 	build_path = /obj/item/rig_assembly/medical
-	materials = list(MATERIAL_GLASS = 22500, MATERIAL_ALUMINIUM = 20000, DEFAULT_WALL_MATERIAL = 8500, MATERIAL_LEAD = 2500, MATERIAL_PLASTEEL = 1000)
+	materials = list(MATERIAL_GLASS = 17500, MATERIAL_ALUMINIUM = 15000, DEFAULT_WALL_MATERIAL = 8500, MATERIAL_LEAD = 2500, MATERIAL_PLASTEEL = 1000)
 
 /datum/design/rig/hazard
 	name = "Hazard Hardsuit Control Module"
