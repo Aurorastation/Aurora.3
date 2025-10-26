@@ -812,7 +812,7 @@
 					// To ensure that low yield (2 or less) plants also enjoy a good boost from fertilizer, we artificially inflate the effect fertilizer has on them.
 					var/temp_yield = total_yield
 					if(total_yield <= 2)
-						var/temp_yield += 3
+						var/temp_yield = total_yield + 3
 					total_yield = GET_SEED_TRAIT(src, TRAIT_YIELD) + clamp(rand(yield_mod), max(temp_yield/1.5, 1), (temp_yield)*1.5)
 				total_yield = max(1,total_yield)
 
