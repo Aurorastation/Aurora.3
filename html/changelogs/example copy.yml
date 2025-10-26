@@ -1,0 +1,4 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - rscadd: "Added a set of helper functions for developers to perform trigonometry using radian inputs instead of degrees."
