@@ -131,5 +131,5 @@
 /// The floating point equivalent of Cotangent(x)
 #define FCOT(x) (FCOS(x)/FSIN(x))
 
-// TODO: TCJ needs to write N step precision variants of these that use a while loop
+// TODO: TCJ needs to write N-precision variants of these that use a while loop
 // TODO: TCJ also needs to write Arcsin, Arccos, Arctan, as well as hyperbolic forms of all of these.
