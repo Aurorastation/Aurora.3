@@ -81,14 +81,22 @@
  * This is the one you should override for custom logic.
  */
 /singleton/scenario/proc/setup_away_site()
-	// load the site
+	// We are loading a new Z level, temporarily disable updating to avoid index out of bound errors
+	SSzcopy.can_fire = FALSE
+
+	// Load the site
 	var/list/bounds = scenario_site.load_new_z()
 	for(var/z_index in bounds[MAP_MINZ] to bounds[MAP_MAXZ])
 		SSodyssey.scenario_zlevels += world.maxz
 	base_area = new base_area()
 
-	// regenerate minimaps
+	// Regenerate minimaps
 	SSholomap.generate_all_minimaps()
+
+	// Refresh zcopy list to include newly added levels
+	SSzcopy.calculate_zstack_limits()
+	// Z levels loaded, mission accomplished
+	SSzcopy.can_fire = TRUE
 
 /**
  * This proc sends the early message to the Horizon. It is supposed to be sent around 5 minutes in, telling them to get ready for the expedition and to start going there.
