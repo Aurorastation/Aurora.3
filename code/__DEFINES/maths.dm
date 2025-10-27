@@ -267,9 +267,9 @@
  * Unlike standard Arctan, it has significantly less downsides, and will only fail if given the directionless vector <0,0>.
  */
 #define FNARCTAN2(x, y, n) { \
-	if(x > 0) return FARCTAN(y/x, n); \
-	if (x < 0 & y >= 0) return FARCTAN(y/x, n) + PIOVERONE; \
-	if (x < 0 & y < 0) return FARCTAN(y/x, n) - PIOVERONE; \
+	if(x > 0) return FNARCTAN(y/x, n); \
+	if (x < 0 & y >= 0) return FNARCTAN(y/x, n) + PIOVERONE; \
+	if (x < 0 & y < 0) return FNARCTAN(y/x, n) - PIOVERONE; \
 	if (y > 0) return PIOVER2; \
 	if (y < 0) return -PIOVER2; \
 	return null}
