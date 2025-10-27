@@ -187,7 +187,7 @@
 /mob/living/simple_animal/hostile/carp/shark/reaver/eel/Initialize()
 	. = ..()
 	eye_overlay = image(icon, "eel_eyeglow")
-	eye_overlay.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+	eye_overlay.plane = ABOVE_LIGHTING_PLANE
 	eye_overlay.appearance_flags = KEEP_APART
 	AddOverlays(eye_overlay)
 	set_light(MINIMUM_USEFUL_LIGHT_RANGE, 2, LIGHT_COLOR_TUNGSTEN)

@@ -171,7 +171,7 @@ SUBSYSTEM_DEF(zcopy)
 		if (!T.below)	// Z-turf on the bottom-most level, just fake-copy space.
 			flush_z_state(T)
 			if(T.z_flags & ZM_MIMIC_BASETURF)
-				simple_appearance_copy(T, get_base_turf_by_area(T), OPENTURF_MAX_PLANE)
+				simple_appearance_copy(T, get_base_turf_by_area(T), OPEN_SPACE_PLANE_END)
 			else
 				simple_appearance_copy(T, SSskybox.space_appearance_cache[(((T.x + T.y) ^ ~(T.x * T.y) + T.z) % 25) + 1])
 
@@ -199,7 +199,7 @@ SUBSYSTEM_DEF(zcopy)
 		var/turf_depth
 		turf_depth = T.z_depth = zlev_maximums[Td.z] - Td.z
 
-		var/t_target = OPENTURF_MAX_PLANE - turf_depth	// This is where the turf (but not the copied atoms) gets put.
+		var/t_target = OPEN_SPACE_PLANE_END - turf_depth	// This is where the turf (but not the copied atoms) gets put.
 
 
 		// Turf is set to mimic baseturf, handle that and bail.
@@ -261,7 +261,7 @@ SUBSYSTEM_DEF(zcopy)
 			var/atom/movable/openspace/turf_mimic/DC = T.below.mimic_above_copy
 			DC.appearance = T.below
 			DC.mouse_opacity = initial(DC.mouse_opacity)
-			DC.plane = OPENTURF_MAX_PLANE
+			DC.plane = OPEN_SPACE_PLANE_END
 
 		else if (T.below.mimic_above_copy)
 			QDEL_NULL(T.below.mimic_above_copy)
@@ -301,7 +301,7 @@ SUBSYSTEM_DEF(zcopy)
 					// If we're a turf overlay (the mimic for a non-OVERWRITE turf), we need to make sure copies of us respect space parallax too
 					if (T.z_eventually_space)
 						// Yes, this is an awful hack; I don't want to add yet another override_* var.
-						override_depth = OPENTURF_MAX_PLANE - SPACE_PLANE
+						override_depth = OPEN_SPACE_PLANE_END - SPACE_PLANE
 
 				if (/atom/movable/openspace/turf_mimic)
 					original_z += 1
@@ -385,7 +385,7 @@ SUBSYSTEM_DEF(zcopy)
 
 		OO.appearance = OO.associated_atom
 		OO.z_flags = OO.associated_atom.z_flags
-		OO.plane = OPENTURF_MAX_PLANE - OO.depth
+		OO.plane = OPEN_SPACE_PLANE_END - OO.depth
 
 		OO.opacity = FALSE
 		OO.queued = 0
@@ -464,7 +464,7 @@ SUBSYSTEM_DEF(zcopy)
 	// Don't fixup the root object's plane.
 	if (depth > 0)
 		switch (appearance:plane)
-			if (DEFAULT_PLANE, FLOAT_PLANE)
+			if (GAME_PLANE, FLOAT_PLANE)
 				plane_needs_fix = FALSE //For lint
 			else
 				plane_needs_fix = TRUE
@@ -513,7 +513,7 @@ SUBSYSTEM_DEF(zcopy)
 
 	var/mutable_appearance/MA = new(appearance)
 	if (plane_needs_fix)
-		MA.plane = depth == 0 ? DEFAULT_PLANE : FLOAT_PLANE
+		MA.plane = depth == 0 ? GAME_PLANE : FLOAT_PLANE
 		MA.layer = FLY_LAYER	// probably fine
 
 	if (fixed_overlays)
@@ -584,7 +584,7 @@ SUBSYSTEM_DEF(zcopy)
 		VTO.computed_depth = SSzcopy.zlev_maximums[Tbelow.z] - Tbelow.z
 		VTO.appearance = Tbelow
 		VTO.parent = Tbelow
-		VTO.plane = OPENTURF_MAX_PLANE - VTO.computed_depth
+		VTO.plane = OPEN_SPACE_PLANE_END - VTO.computed_depth
 		found_oo += VTO
 		temp_objects += VTO
 
@@ -616,7 +616,7 @@ SUBSYSTEM_DEF(zcopy)
 		atoms_list_list -= "0"
 
 	for (var/d in 0 to OPENTURF_MAX_DEPTH)
-		var/pl = OPENTURF_MAX_PLANE - d
+		var/pl = OPEN_SPACE_PLANE_END - d
 		if (!atoms_list_list["[pl]"])
 			out += "<strong>Depth [d], plane [pl] — empty</strong>"
 			continue
