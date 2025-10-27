@@ -514,6 +514,9 @@
 	},
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/gridded,
 /area/shuttle/decrepit_shipyard_shuttle)
 "kc" = (
@@ -563,6 +566,7 @@
 	icon_state = "1-2"
 	},
 /obj/effect/map_effect/marker/airlock/shuttle/decrepit_shipyard_shuttle,
+/obj/effect/landmark/entry_point/aft,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/decrepit_shipyard_shuttle)
 "kM" = (
@@ -1116,9 +1120,6 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/operations,
-/obj/structure/cable/yellow{
-	icon_state = "1-2"
-	},
 /turf/simulated/floor/tiled/gridded,
 /area/shuttle/decrepit_shipyard_shuttle)
 "wP" = (
@@ -1133,12 +1134,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
-/obj/structure/cable/yellow{
-	icon_state = "2-4"
-	},
 /obj/structure/railing/mapped{
 	density = 0;
 	icon_state = "railing0-0"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/gridded,
 /area/shuttle/decrepit_shipyard_shuttle)
@@ -1173,6 +1174,9 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/light/floor/decayed,
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/gridded,
 /area/shuttle/decrepit_shipyard_shuttle)
 "xn" = (
@@ -1420,14 +1424,18 @@
 /turf/simulated/floor/marble/dark,
 /area/shuttle/decrepit_shipyard_shuttle)
 "Bq" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
+/obj/effect/map_effect/window_spawner/full/shuttle/industrial,
+/obj/effect/landmark/entry_point/fore,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/shuttle/decrepit_shipyard_shuttle)
 "Bs" = (
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/floor_decal/industrial/hatch_tiny/yellow,
 /obj/machinery/atmospherics/binary/pump/aux{
 	name = "Auxiliary Air to Airlock"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/gridded,
 /area/shuttle/decrepit_shipyard_shuttle)
@@ -1571,7 +1579,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/cable/yellow{
-	icon_state = "1-4"
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/gridded,
 /area/shuttle/decrepit_shipyard_shuttle)
@@ -1701,6 +1709,10 @@
 /obj/structure/bed/stool/chair/padded/beige,
 /turf/simulated/floor/wood/walnut,
 /area/shuttle/decrepit_shipyard_shuttle)
+"Hh" = (
+/obj/effect/landmark/entry_point/starboard,
+/turf/simulated/wall/shuttle/space_ship/industrial,
+/area/shuttle/decrepit_shipyard_shuttle)
 "Hp" = (
 /obj/structure/bed/stool/chair/shuttle/double{
 	pixel_x = -8;
@@ -1786,6 +1798,16 @@
 /obj/item/hullbeacon/red,
 /turf/simulated/floor/reinforced/airless,
 /area/shuttle/decrepit_shipyard_shuttle)
+"KA" = (
+/obj/effect/floor_decal/industrial/hatch_door/yellow{
+	dir = 1
+	},
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/shuttle/decrepit_shipyard_shuttle,
+/obj/effect/landmark/entry_point/aft,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
 "KN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -1813,6 +1835,9 @@
 /obj/structure/railing/mapped{
 	density = 0;
 	icon_state = "railing0-0"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled/gridded,
 /area/shuttle/decrepit_shipyard_shuttle)
@@ -1859,6 +1884,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/structure/lattice/catwalk/indoor,
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor,
 /area/shuttle/decrepit_shipyard_shuttle)
 "Mk" = (
@@ -1971,6 +1999,11 @@
 	dir = 8
 	},
 /turf/simulated/floor/marble/dark,
+/area/shuttle/decrepit_shipyard_shuttle)
+"NS" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
+/obj/effect/landmark/entry_point/port,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/decrepit_shipyard_shuttle)
 "Oo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
@@ -2131,6 +2164,11 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/decrepit_shipyard_shuttle)
+"Rb" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
+/obj/effect/landmark/entry_point/starboard,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
 "Rp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
@@ -2225,6 +2263,9 @@
 	},
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/cable/yellow{
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/tiled/gridded,
 /area/shuttle/decrepit_shipyard_shuttle)
 "St" = (
@@ -2265,6 +2306,10 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"Tb" = (
+/obj/effect/landmark/entry_point/port,
+/turf/simulated/wall/shuttle/space_ship/industrial,
 /area/shuttle/decrepit_shipyard_shuttle)
 "Tn" = (
 /obj/structure/railing/mapped{
@@ -2577,9 +2622,6 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/obj/structure/cable/yellow{
-	icon_state = "1-2"
-	},
 /turf/simulated/floor/tiled/gridded,
 /area/shuttle/decrepit_shipyard_shuttle)
 "ZL" = (
@@ -2725,7 +2767,7 @@ RH
 cH
 cH
 cH
-RH
+Rb
 cH
 cH
 cH
@@ -2925,7 +2967,7 @@ in
 (7,1,1) = {"
 in
 ay
-pW
+KA
 mX
 LM
 Qn
@@ -2946,7 +2988,7 @@ cH
 sc
 tj
 kc
-RH
+dv
 in
 in
 in
@@ -3025,7 +3067,7 @@ ds
 AL
 ux
 RH
-Bq
+RH
 in
 "}
 (9,1,1) = {"
@@ -3149,7 +3191,7 @@ RH
 cH
 cH
 cH
-RH
+NS
 cH
 cH
 cH
@@ -3440,7 +3482,7 @@ CJ
 CJ
 CJ
 ax
-CJ
+Hh
 NJ
 rX
 CJ
@@ -3713,7 +3755,7 @@ CJ
 zO
 tj
 AY
-tM
+Bq
 bl
 in
 "}
@@ -3970,7 +4012,7 @@ CJ
 CJ
 CJ
 sd
-CJ
+Tb
 oZ
 nA
 CJ
