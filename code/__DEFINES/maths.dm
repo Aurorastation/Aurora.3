@@ -91,6 +91,11 @@
 /// The common angle that corresponds with "East", technically equal to 0pi, but this exact value is needed for domain definitions.
 #define TWOPI = 6.28318530718
 
+// Standard Trig Functions
+/// Converts an Angle (in degrees) to an Angle (in Radians)
+#define RADIANFROMDEGREE(x) (x * 0.0174532925199)
+
+// ALL OF THESE ACCEPT ANGLES IN RADIANS, NOT DEGREES.
 /**
  * The floating point equivalent of Sine(x), that accepts and returns floating point values.
  * Outputs the Y directional value for a given Angle(in Radians)
@@ -151,7 +156,7 @@
  */
 #define FARCCOS(x) { \
 	x = PLUSMINUSFMOD(x, 1); \
-	return PIOVERTWO - x - ((x ** 3) / 6) - (3 * (x ** 5) / 40) - (5 * (x ** 7) / 112)}
+	return PIOVERTWO - x - ((x ** 3)/6) - (3*(x ** 5)/40) - (5*(x ** 7)/112)}
 
 /**
  * The floating point equivalent of Arctan(x), that accepts and returns floating point values.
@@ -159,7 +164,7 @@
  */
 #define FARCTAN(x) { \
 	x = PLUSMINUSFMOD(x, 1); \
-	return x - ((x ** 3) / 3) + ((x ** 5) / 5) - ((x ** 7) / 7) + ((x ** 9) / 9)}
+	return x - ((x ** 3)/3) + ((x ** 5)/5) - ((x ** 7)/7) + ((x ** 9)/9)}
 
 // RADIAN HYPERBOLICS
 
