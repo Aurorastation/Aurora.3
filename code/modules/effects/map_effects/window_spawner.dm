@@ -249,6 +249,11 @@
 	frame_color = "#6C7364"
 	color = "#6C7364"
 
+/obj/effect/map_effect/window_spawner/full/shuttle/industrial
+	icon_state = "full_rwindow_shuttle"
+	frame_color = "#6E5B4A"
+	color = "#6E5B4A"
+
 //Coalition window frames
 /obj/effect/map_effect/window_spawner/full/shuttle/coalition
 	name = "coalition reinforced window spawner"

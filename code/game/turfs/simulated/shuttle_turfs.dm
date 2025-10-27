@@ -177,6 +177,9 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary
 	color = "#5b5b5b"
 
+/turf/simulated/wall/shuttle/space_ship/industrial
+	color = "#6E5B4A"
+
 //--Unique Shuttles--//
 
 /turf/simulated/wall/shuttle/unique
