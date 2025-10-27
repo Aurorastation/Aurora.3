@@ -373,6 +373,9 @@
 /obj/item/clothing/suit/storage/tajaran/pra_cop
 	name = "PRA NPD jacket"
 	desc = "A warm and thick jacket with the markings of the PRA national police department."
+	desc_extended = "The National Police Department is the largest and best equipped police force on Adhomai. \
+	Responsible for law enforcement in the People's Republic, the olive drab uniforms and polished badges have maintained peace and order, \
+	or inspired fear, within the population since the nation's founding."
 	icon = 'icons/obj/tajara_items.dmi'
 	icon_state = "taj_cop_suit"
 	item_state = "taj_cop_suit"
