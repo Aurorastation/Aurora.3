@@ -241,7 +241,7 @@
 	return x - ((x ** 3)/3) + ((x ** 5)/5) - ((x ** 7)/7) + ((x ** 9)/9)}
 
 /**
- * Floating Point Arccos(x) to any n desired precision, as defined by the Taylor-series expansion of Arccos(x)
+ * Floating Point Arctan(x) to any n desired precision, as defined by the Taylor-series expansion of Arctan(x)
  * Where x is the (y over x) value of any vector EXCEPT ones that fall upon one of the axies, and the output is the angle that vector forms with the X axis.
  * This function is not sanitized in any way, so if you give it an input beyond your desired precision limit, that's your own skill issue.
  * !Just use FNARCTAN2(x, y, n)!
