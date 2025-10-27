@@ -161,10 +161,23 @@
 /**
  * The floating point equivalent of Arctan(x), that accepts and returns floating point values.
  * This function is written using the first 5 terms for the Maclaurin series definition for Arctan(x)
+ * You should not be using this unless you know what you're doing, if you're calculating angles you should be using FARCTAN2(x,y) instead.
  */
 #define FARCTAN(x) { \
 	x = PLUSMINUSFMOD(x, 1); \
 	return x - ((x ** 3)/3) + ((x ** 5)/5) - ((x ** 7)/7) + ((x ** 9)/9)}
+
+/**
+ * Arctan's big older brother. Unlike arctan, you supply it a whole vector, and it will always output the angle no matter where that vector is.
+ * Unlike standard Arctan, it has significantly less downsides, and will only fail if given the directionless vector <0,0>.
+ */
+#define FARCTAN2(x, y) { \
+	if(x > 0) return FARCTAN(y/x); \
+	if (x < 0 & y >= 0) return FARCTAN(y/x) + PIOVERONE; \
+	if (x < 0 & y < 0) return FARCTAN(y/x) - PIOVERONE; \
+	if (y > 0) return PIOVER2; \
+	if (y < 0) return -PIOVER2; \
+	return null}
 
 // RADIAN HYPERBOLICS
 
