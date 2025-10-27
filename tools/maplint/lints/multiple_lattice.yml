@@ -1,3 +1,13 @@
 /obj/structure/lattice:
   banned_neighbors:
   - =/obj/structure/lattice
+
+# Ceiling type is an exception and shouldn't conflict with anything but itself
+/obj/structure/lattice/ceiling:
+  banned_neighbors:
+  - =/obj/structure/lattice/ceiling
+
+/obj/structure/lattice/catwalk:
+  banned_neighbors:
+  - /obj/structure/lattice/catwalk
+

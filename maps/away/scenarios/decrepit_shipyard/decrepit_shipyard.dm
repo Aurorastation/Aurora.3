@@ -106,6 +106,12 @@
 	master_tag = "airlock_decrepit_shipyard_shuttle_starboard"
 	cycle_to_external_air = TRUE
 
+// Transit landmark
+/obj/effect/shuttle_landmark/decrepit_shipyard_shuttle/transit
+	name = "In transit"
+	landmark_tag = "nav_decrepit_shipyard_transit"
+	base_turf = /turf/space/transit/north
+
 // ---- Mapmanip markers
 
 // Functional shuttle variations
