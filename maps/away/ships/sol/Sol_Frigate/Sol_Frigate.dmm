@@ -434,6 +434,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
+/obj/machinery/light{
+	name = "adjusted light fixture";
+	pixel_x = 16
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/sickbay)
 "ce" = (
@@ -3191,8 +3195,8 @@
 /obj/effect/floor_decal/corner/lime{
 	dir = 9
 	},
-/obj/machinery/light{
-	dir = 8
+/obj/machinery/bodyscanner{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/sickbay)
@@ -3998,6 +4002,21 @@
 /obj/structure/closet/walllocker/emerglocker/east,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/Starboard_docking_port)
+"sb" = (
+/obj/effect/floor_decal/corner/lime{
+	dir = 5
+	},
+/obj/machinery/iv_drip,
+/obj/structure/cable/blue{
+	icon_state = "4-8"
+	},
+/obj/machinery/light{
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_x = -16
+	},
+/turf/simulated/floor/tiled/white,
+/area/ship/Sol_Frigate/sickbay)
 "sc" = (
 /obj/machinery/smartfridge/foodheater/buffet,
 /obj/machinery/door/firedoor/noid{
@@ -8205,6 +8224,7 @@
 	pixel_y = 12;
 	pixel_x = -8
 	},
+/obj/item/device/advanced_healthanalyzer,
 /turf/simulated/floor/tiled/white,
 /area/ship/Sol_Frigate/sickbay)
 "Ls" = (
@@ -48732,7 +48752,7 @@ xG
 Nc
 Nc
 IT
-SF
+sb
 PH
 iL
 Ln
