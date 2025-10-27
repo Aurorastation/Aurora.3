@@ -218,5 +218,4 @@
 #define FEXP(x) (FSINH(x) + FCOSH(x))
 
 // TODO: TCJ needs to write N-precision variants of these that use a while loop
-// TODO: TCJ also needs to write Arcsin, Arccos, and Arctan
 // TODO: TCJ Add Desmos links to code comments to actually prove what I'm doing here is correct.
