@@ -92,6 +92,8 @@
 #define TWOPI = 6.28318530718
 
 // Standard Trig Functions
+// !DEAR MAINTAINER: NONE OF THESE ARE MAGIC NUMBERS. -TCJ!
+
 /// Converts an Angle (in degrees) to an Angle (in Radians)
 #define RADIANFROMDEGREE(x) (x * 0.0174532925199)
 
