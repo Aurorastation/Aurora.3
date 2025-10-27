@@ -93,6 +93,7 @@
 
 /**
  * The floating point equivalent of Sine(x), that accepts and returns floating point values.
+ * Outputs the Y directional value for a given Angle(in Radians)
  * This function is written using the first 3 terms of the Maclaurin Series definition for Sin(x).
  * It only falls within the floating point precision limit out to a distance of +- pi/2, so it is self clamping to this range.
  */
@@ -115,6 +116,7 @@
 
 /**
  * The floating point equivalent of Cosine(x), that accepts and returns floating point values.
+ * Outputs the X directional value for a given Angle(in Radians)
  * This function is written using the first 3 terms of the Taylor Series definition for Sin(x-pi/2).
  * It only falls within the floating point precision limit out to a distance of +- pi/2, so it is self clamping to this range.
  */
@@ -130,6 +132,34 @@
 
 /// The floating point equivalent of Cotangent(x)
 #define FCOT(x) (FCOS(x)/FSIN(x))
+
+// RADIAN ARC FUNCTIONS
+
+/**
+ * The floating point equivalent of Arcsine(x), that accepts and returns floating point values.
+ * Returns the Angle(in Radians) from the Y value of a NORMALIZED vector.
+ * This function is written using the first 4 terms for the Maclaurin series definition for Arcsin(x)
+ */
+#define FARCSIN(x) { \
+	x = PLUSMINUSFMOD(x, 1); \
+	return x + ((x ** 3)/3) + (3 * (x ** 5) / 10) + (5 * (x ** 7) / 42)}
+
+/**
+ * The floating point equivalent of Arccos(x), that accepts and returns floating point values.
+ * Returns the Angle(in Radians) from the X value of a NORMALIZED vector.
+ * This function is written using the first 4 terms for the Maclaurin series definition for Arccos(x)
+ */
+#define FARCCOS(x) { \
+	x = PLUSMINUSFMOD(x, 1); \
+	return PIOVERTWO - x - ((x ** 3) / 6) - (3 * (x ** 5) / 40) - (5 * (x ** 7) / 112)}
+
+/**
+ * The floating point equivalent of Arctan(x), that accepts and returns floating point values.
+ * This function is written using the first 5 terms for the Maclaurin series definition for Arctan(x)
+ */
+#define FARCTAN(x) { \
+	x = PLUSMINUSFMOD(x, 1); \
+	return x - ((x ** 3) / 3) + ((x ** 5) / 5) - ((x ** 7) / 7) + ((x ** 9) / 9)}
 
 // RADIAN HYPERBOLICS
 
