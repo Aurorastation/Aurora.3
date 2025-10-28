@@ -385,7 +385,7 @@
 		var/datum/record/general/R = SSrecords.find_record("name", perpname)
 		if(istype(R))
 			medical = R.physical_status
-			bloodtype = R.medical.blood_type //M.blood_type
+			bloodtype = R.medical.blood_type
 
 		msg += "<span class = 'deptradio'>Physical Status:</span> <a href='byond://?src=[REF(src)];medical=1'>\[[medical]\]</a>\n"
 		msg += "<span class = 'deptradio'>Medical Records:</span> <a href='byond://?src=[REF(src)];medrecord=`'>\[View\]</a> <a href='byond://?src=[REF(src)];medrecordadd=`'>\[Add Comment\]</a>\n"
