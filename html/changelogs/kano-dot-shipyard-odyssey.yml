@@ -5,4 +5,5 @@ delete-after: True
 
 changes:
   - rscadd: "Added a new Odyssey map, decrepit shipyard."
+  - rscadd: "Added a map marker that randomly breaks stuff in a room. Adminbuse compatible!"
   - bugfix: "Recolored the hydrogen tank sprite and fixed its wrong icon path."

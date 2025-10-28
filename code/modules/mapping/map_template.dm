@@ -65,6 +65,7 @@
 
 	//Since SSicon_smooth.add_to_queue() manually wakes the subsystem, we have to use enable/disable.
 	SSicon_smooth.can_fire = FALSE
+	SSzcopy.can_fire = FALSE // note to self, remove this
 
 	var/datum/space_level/base_level = null
 	for(var/traits_for_level in traits)
@@ -101,7 +102,9 @@
 		create_lighting_overlays_zlevel(light_z)
 	log_game("Z-level [name] loaded at [x], [y], [world.maxz]")
 	message_admins("Z-level [name] loaded at [x], [y], [world.maxz]")
+	SSzcopy.calculate_zstack_limits() // note to self, remove this
 	SSicon_smooth.can_fire = TRUE
+	SSzcopy.can_fire = TRUE // note to self, remove this
 	loaded++
 
 	return bounds

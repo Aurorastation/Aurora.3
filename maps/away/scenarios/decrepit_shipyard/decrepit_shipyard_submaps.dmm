@@ -67,6 +67,9 @@
 	dir = 8;
 	name = "Air to Distro"
 	},
+/obj/machinery/light/small/decayed{
+	dir = 1
+	},
 /turf/simulated/floor,
 /area/shuttle/decrepit_shipyard_shuttle)
 "bd" = (
@@ -154,7 +157,6 @@
 	pixel_x = -8;
 	dir = 1
 	},
-/obj/machinery/light/floor/decayed,
 /turf/simulated/floor/tiled/gridded,
 /area/shuttle/decrepit_shipyard_shuttle)
 "cW" = (
@@ -520,11 +522,11 @@
 /turf/simulated/floor/tiled/gridded,
 /area/shuttle/decrepit_shipyard_shuttle)
 "kc" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/computer/ship/helm/terminal{
 	dir = 1;
 	req_access = list(204)
 	},
+/obj/effect/floor_decal/industrial/outline/security,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/decrepit_shipyard_shuttle)
 "ko" = (
@@ -584,10 +586,10 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/decrepit_shipyard_shuttle)
 "lc" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/computer/ship/sensors/terminal{
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/outline/security,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/decrepit_shipyard_shuttle)
 "lp" = (
@@ -708,8 +710,19 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/decrepit_shipyard_shuttle)
 "nS" = (
-/obj/machinery/alarm/north,
 /obj/structure/table/reinforced/steel,
+/obj/machinery/alarm/north,
+/obj/item/paper_bin{
+	pixel_x = 7;
+	pixel_y = 8
+	},
+/obj/item/pen/black{
+	pixel_x = 4;
+	pixel_y = 3
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/decrepit_shipyard_shuttle)
 "oc" = (
@@ -742,6 +755,7 @@
 	dir = 1;
 	pixel_y = 10
 	},
+/obj/effect/map_effect/randomized_destruction/mild/high_range,
 /turf/simulated/floor/tiled/gridded,
 /area/shuttle/decrepit_shipyard_shuttle)
 "oq" = (
@@ -835,6 +849,18 @@
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/gridded,
 /area/shuttle/decrepit_shipyard_shuttle)
+"qu" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/device/binoculars{
+	pixel_x = 5;
+	pixel_y = 5
+	},
+/obj/item/device/flashlight/lamp{
+	pixel_y = 1;
+	pixel_x = -7
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
 "qD" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/yellow{
 	dir = 4
@@ -903,6 +929,9 @@
 /obj/machinery/light/floor{
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/decrepit_shipyard_shuttle)
 "sd" = (
@@ -933,6 +962,7 @@
 	},
 /obj/effect/floor_decal/corner/black,
 /obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/effect/map_effect/randomized_destruction/mild/high_range,
 /turf/simulated/floor/tiled,
 /area/shuttle/decrepit_shipyard_shuttle)
 "sL" = (
@@ -1194,6 +1224,17 @@
 	},
 /turf/simulated/floor/marble/dark,
 /area/shuttle/decrepit_shipyard_shuttle)
+"xA" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 1
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/effect/map_effect/randomized_destruction/mild/high_range,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
 "xG" = (
 /obj/structure/platform_stairs/south_north_solo{
 	dir = 1
@@ -1226,6 +1267,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/blue{
 	dir = 4
 	},
+/obj/effect/map_effect/randomized_destruction/mild/high_range,
 /turf/simulated/floor/tiled,
 /area/shuttle/decrepit_shipyard_shuttle)
 "yV" = (
@@ -1289,9 +1331,13 @@
 /area/shuttle/decrepit_shipyard_shuttle)
 "zO" = (
 /obj/effect/floor_decal/corner_wide/dark_blue/diagonal,
-/obj/machinery/light/floor/decayed{
+/obj/machinery/light/floor{
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
+/obj/structure/extinguisher_cabinet/north,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/decrepit_shipyard_shuttle)
 "zY" = (
@@ -1348,13 +1394,17 @@
 /area/shuttle/decrepit_shipyard_shuttle)
 "AL" = (
 /obj/structure/table/reinforced/steel,
-/obj/structure/railing/mapped{
-	density = 0;
-	icon_state = "railing0-0"
-	},
 /obj/structure/lattice/catwalk/indoor/urban,
 /obj/machinery/atmospherics/pipe/simple/hidden/blue{
 	dir = 9
+	},
+/obj/item/device/binoculars{
+	pixel_x = 6;
+	pixel_y = -2
+	},
+/obj/structure/railing/mapped{
+	density = 0;
+	icon_state = "railing0-0"
 	},
 /turf/simulated/floor,
 /area/shuttle/decrepit_shipyard_shuttle)
@@ -1470,7 +1520,10 @@
 /area/shuttle/decrepit_shipyard_shuttle)
 "CD" = (
 /obj/structure/table/reinforced/steel,
-/obj/machinery/alarm/north,
+/obj/item/clothing/head/helmet/pilot{
+	pixel_x = -6;
+	pixel_y = -6
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/decrepit_shipyard_shuttle)
 "CJ" = (
@@ -1614,10 +1667,10 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/decrepit_shipyard_shuttle)
 "ED" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/computer/shuttle_control/explore/terminal/decrepit_shipyard_shuttle{
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/outline/security,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/decrepit_shipyard_shuttle)
 "Fj" = (
@@ -2022,10 +2075,21 @@
 /turf/simulated/floor/tiled,
 /area/shuttle/decrepit_shipyard_shuttle)
 "Oy" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/computer/ship/engines/terminal{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/outline/security,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"OB" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 1
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/effect/map_effect/randomized_destruction/severe/low_range,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/decrepit_shipyard_shuttle)
 "Pm" = (
@@ -2229,6 +2293,14 @@
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/decrepit_shipyard_shuttle)
+"RT" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/device/binoculars{
+	pixel_x = 6;
+	pixel_y = -2
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
 "Sb" = (
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
 /obj/effect/map_effect/marker_helper/airlock/interior,
@@ -2256,6 +2328,13 @@
 	dir = 4
 	},
 /turf/simulated/floor/marble/dark,
+/area/shuttle/decrepit_shipyard_shuttle)
+"Sm" = (
+/obj/effect/floor_decal/corner_wide/dark_blue/diagonal,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/decrepit_shipyard_shuttle)
 "Ss" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -2360,6 +2439,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/decrepit_shipyard_shuttle)
+"Un" = (
+/obj/effect/floor_decal/corner_wide/dark_blue/diagonal,
+/obj/structure/extinguisher_cabinet/north,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/decrepit_shipyard_shuttle)
 "Up" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/red{
 	dir = 1
@@ -2377,6 +2461,7 @@
 /obj/machinery/light/floor/decayed{
 	dir = 1
 	},
+/obj/effect/map_effect/randomized_destruction/severe/low_range,
 /turf/simulated/floor/tiled/gridded,
 /area/shuttle/decrepit_shipyard_shuttle)
 "UJ" = (
@@ -2459,6 +2544,7 @@
 	dir = 1;
 	pixel_y = 10
 	},
+/obj/effect/map_effect/randomized_destruction/mild/high_range,
 /turf/simulated/floor/tiled/gridded,
 /area/shuttle/decrepit_shipyard_shuttle)
 "Wo" = (
@@ -2478,7 +2564,9 @@
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
 	},
-/obj/structure/curtain/open/bar,
+/obj/structure/curtain/open/bed{
+	name = "curtain"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/decrepit_shipyard_shuttle)
 "WD" = (
@@ -2500,6 +2588,9 @@
 	dir = 10
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
+/obj/machinery/light/small/decayed{
+	dir = 1
+	},
 /turf/simulated/floor,
 /area/shuttle/decrepit_shipyard_shuttle)
 "WU" = (
@@ -2879,7 +2970,7 @@ hL
 GD
 iV
 cH
-Ef
+qu
 Oy
 RH
 RH
@@ -2932,7 +3023,7 @@ hL
 vU
 xn
 cH
-hd
+Un
 tj
 lc
 RH
@@ -2978,9 +3069,9 @@ la
 Ra
 or
 Wz
-pt
-pt
-pt
+xA
+OB
+xA
 pt
 KN
 gh
@@ -3038,7 +3129,7 @@ ad
 AE
 xG
 jB
-hd
+Sm
 XA
 ED
 RH
@@ -3091,8 +3182,8 @@ AX
 RN
 bD
 cH
+nS
 CD
-Ef
 RH
 RH
 in
@@ -3477,7 +3568,7 @@ in
 in
 in
 in
-CJ
+in
 CJ
 CJ
 CJ
@@ -3539,7 +3630,7 @@ CJ
 PX
 gF
 CJ
-Wo
+CJ
 Jt
 Wo
 CJ
@@ -3805,7 +3896,7 @@ DV
 VW
 RE
 jB
-hd
+Sm
 hd
 Eu
 tM
@@ -3859,7 +3950,7 @@ aN
 uw
 CJ
 nS
-Ef
+RT
 tM
 tM
 YX
@@ -3963,7 +4054,7 @@ CJ
 gr
 AG
 CJ
-Du
+CJ
 cE
 Du
 CJ
@@ -4007,7 +4098,7 @@ in
 in
 in
 in
-CJ
+in
 CJ
 CJ
 CJ
