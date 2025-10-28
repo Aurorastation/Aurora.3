@@ -1,5 +1,5 @@
 /area/ship/ssrm_corvette
-	name = "Sol Recon Corvette"
+	name = "Malebranche"
 	requires_power = TRUE
 	dynamic_lighting = TRUE
 	no_light_control = FALSE
@@ -8,94 +8,94 @@
 	ambience = AMBIENCE_ENGINEERING
 
 /area/ship/ssrm_corvette/hallway
-	name = "Sol Recon Corvette - Hallway"
+	name = "Malebranche - Command Deck Hallway"
 
 /area/ship/ssrm_corvette/cic
-	name = "Sol Recon Corvette - CIC"
+	name = "Malebranche - CIC"
 
 /area/ship/ssrm_corvette/telecomms
-	name = "Sol Recon Corvette - Telecommunications"
+	name = "Malebranche - Telecommunications"
 
 /area/ship/ssrm_corvette/docking_port
-	name = "Sol Recon Corvette - Docking Port"
+	name = "Malebranche - Command Deck Docking Port"
 
 /area/ship/ssrm_corvette/starboard_thrusters
-	name = "Sol Recon Corvette - Starboard Thrusters"
+	name = "Malebranche - Starboard Thrusters"
 
 /area/ship/ssrm_corvette/atmospherics
-	name = "Sol Recon Corvette - Atmospherics"
+	name = "Malebranche - Command Deck Atmospherics"
 
 /area/ship/ssrm_corvette/port_thrusters
-	name = "Sol Recon Corvette - Port Thrusters"
+	name = "Malebranche - Port Thrusters"
 
 /area/ship/ssrm_corvette/engineering
-	name = "Sol Recon Corvette - Engineering"
+	name = "Malebranche - Command Deck Engineering"
 
 /area/ship/ssrm_corvette/synthroom
-	name = "Sol Recon Corvette - Utilities Closet"
+	name = "Malebranche - Command Deck Utilities Closet"
 
 /area/ship/ssrm_corvette/bunks
-	name = "Sol Recon Corvette - Crew Bunks"
+	name = "Malebranche - Crew Bunks"
 
 /area/ship/ssrm_corvette/eva_preperation
-	name = "Sol Recon Corvette - EVA Preperation"
+	name = "Malebranche - Command Deck EVA Preperation"
 
 /area/ship/ssrm_corvette/armoury
-	name = "Sol Recon Corvette - Armoury"
+	name = "Malebranche - AI Core Entrance"
 
 /area/ship/ssrm_corvette/brig
-	name = "Sol Recon Corvette - Brig"
+	name = "Malebranche - AI Core"
 
 /area/ship/ssrm_corvette/starboard_battery
-	name = "Sol Recon Corvette - Starboard Battery"
+	name = "Malebranche - Starboard Battery"
 
 /area/ship/ssrm_corvette/starboard_gunnery
-	name = "Sol Recon Corvette - Starboard Gunnery"
+	name = "Malebranche - Starboard Gunnery"
 
 /area/ship/ssrm_corvette/port_battery
-	name = "Sol Recon Corvette - Port Battery"
+	name = "Malebranche - Port Battery"
 
 /area/ship/ssrm_corvette/port_gunnery
-	name = "Sol Recon Corvette - Port Gunnery"
+	name = "Malebranche - Port Gunnery"
 
 /area/ship/ssrm_corvette/crew_lounge
-	name = "Sol Recon Corvette - Crew Lounge"
+	name = "Malebranche - Command Deck Lounge"
 
 /area/ship/ssrm_corvette/head
-	name = "Sol Recon Corvette - Head"
+	name = "Malebranche - Head"
 
 /area/ship/ssrm_corvette/safe_room
-	name = "Sol Recon Corvette - Secure Storage"
+	name = "Malebranche - Secure Storage"
 
 /area/ship/ssrm_corvette/captain_office
-	name = "Sol Recon Corvette - Captain's Office"
+	name = "Malebranche - Captain's Office"
 
 /area/ship/ssrm_corvette/captain_cabin
-	name = "Sol Recon Corvette - Captain's Cabin"
+	name = "Malebranche - Captain's Cabin"
 
 /area/ship/ssrm_corvette/cpo_cabin
-	name = "Sol Recon Corvette - Chief Petty Officer's Cabin"
+	name = "Malebranche - Quartermaster's Cabin"
 
 /area/ship/ssrm_corvette/canteen
-	name = "Sol Recon Corvette - Mess Hall"
+	name = "Malebranche - Command Deck Stairwell"
 
 /area/ship/ssrm_corvette/freezer
-	name = "Sol Recon Corvette - Freezer"
+	name = "Malebranche - Freezer"
 
 /area/ship/ssrm_corvette/garage
-	name = "Sol Recon Corvette - Garage"
+	name = "Malebranche - Maintenance"
 
 /area/ship/ssrm_corvette/infirmary
-	name = "Sol Recon Corvette - Infirmary"
+	name = "Malebranche - Infirmary"
 
 /area/ship/ssrm_corvette/cryo
-	name = "Sol Recon Corvette - Cryogenics"
+	name = "Malebranche - Deck Crew Cryogenics"
 
 /area/ship/ssrm_corvette/reactor
-	name = "Sol Recon Corvette - Reactor Compartment"
+	name = "Malebranche - Command Deck Reactor Compartment"
 
 // Shuttles
 /area/shuttle/ssrm_shuttle
-	name = "Sol Recon Corvette - Shuttle"
+	name = "Malebranche - Shuttle"
 	icon_state = "shuttle2"
 	requires_power = TRUE
