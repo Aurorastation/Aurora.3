@@ -4596,7 +4596,7 @@
 "Bh" = (
 /obj/effect/decal/fake_object{
 	desc = "What jerk stacked these here?";
-	icon = 'icons/obj/crate.dmi';
+	icon = 'icons/obj/containers/crate.dmi';
 	icon_state = "tcfl_crate_preview";
 	name = "inconveniently placed crate";
 	pixel_x = 1
@@ -4604,7 +4604,7 @@
 /obj/effect/decal/fake_object{
 	density = 1;
 	desc = "What jerk stacked these here?";
-	icon = 'icons/obj/crate.dmi';
+	icon = 'icons/obj/containers/crate.dmi';
 	icon_state = "tcfl_crate_preview";
 	name = "inconveniently placed crate";
 	pixel_x = 3;
@@ -4612,7 +4612,7 @@
 	},
 /obj/effect/decal/fake_object{
 	desc = "What jerk stacked these here?";
-	icon = 'icons/obj/crate.dmi';
+	icon = 'icons/obj/containers/crate.dmi';
 	icon_state = "tcfl_crate_preview";
 	name = "inconveniently placed crate";
 	pixel_x = 2;
@@ -8513,7 +8513,7 @@
 "Xw" = (
 /obj/effect/decal/fake_object{
 	desc = "A crate of military supplies.";
-	icon = 'icons/obj/crate.dmi';
+	icon = 'icons/obj/containers/crate.dmi';
 	icon_state = "dropcrate";
 	name = "metal crate";
 	pixel_x = 1;
