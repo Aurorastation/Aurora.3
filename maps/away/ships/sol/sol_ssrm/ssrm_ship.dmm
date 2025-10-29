@@ -7123,6 +7123,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssrm_corvette/starboard_battery)
+"qzg" = (
+/obj/item/hullbeacon/green,
+/turf/simulated/floor/reinforced,
+/area/space)
 "qzA" = (
 /obj/effect/floor_decal/industrial/outline_corner/grey,
 /obj/effect/floor_decal/industrial/outline_segment/grey{
@@ -40056,7 +40060,7 @@ xRX
 xRX
 xRX
 xRX
-tkQ
+qzg
 xRX
 xRX
 xRX
@@ -40326,7 +40330,7 @@ aDG
 aDG
 aDG
 aDG
-tkQ
+aDG
 aDG
 aDG
 aDG
@@ -40364,7 +40368,7 @@ aDG
 aDG
 aDG
 aDG
-tkQ
+qzg
 xRX
 xRX
 xRX
@@ -44438,7 +44442,7 @@ aDG
 aDG
 aDG
 dYb
-tkQ
+aDG
 aDG
 aDG
 aDG
