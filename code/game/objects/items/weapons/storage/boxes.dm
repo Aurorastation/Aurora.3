@@ -811,7 +811,7 @@
 	starts_with = list(/obj/item/light/tube/colored/magenta = 14, /obj/item/light/bulb/colored/magenta = 7)
 
 /obj/item/storage/box/kitchen
-	name = "kitchen supplies"
+	name = "galley supplies"
 	illustration = "knife"
 	desc = "Contains an assortment of utensils and containers useful in the preparation of food and drinks."
 
