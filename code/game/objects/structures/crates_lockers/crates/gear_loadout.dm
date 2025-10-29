@@ -291,7 +291,7 @@
 	new /obj/item/device/modkit/multi_species(src)
 
 /obj/structure/closet/crate/gear_loadout/nanotrasen/suit/fill()
-	new /obj/item/rig/nanotrasen(src)
+	new /obj/item/rig/nexus(src)
 	new /obj/item/voidsuit_modkit_multi/nanotrasen(src)
 
 /obj/structure/closet/crate/gear_loadout/hephaestus/fill()
@@ -848,10 +848,10 @@
 	new /obj/item/ammo_magazine/c45m(src)
 
 /obj/structure/closet/crate/gear_loadout/nanotrasen/fill()
-	new /obj/item/rig/nanotrasen(src)
-	new /obj/item/rig/nanotrasen(src)
-	new /obj/item/rig/nanotrasen(src)
-	new /obj/item/rig/nanotrasen(src)
+	new /obj/item/rig/nexus(src)
+	new /obj/item/rig/nexus(src)
+	new /obj/item/rig/nexus(src)
+	new /obj/item/rig/nexus(src)
 	new /obj/item/storage/box/nanotrasen_hardsuit(src)
 	new /obj/item/gun/energy/laser/shotgun(src)
 	new /obj/item/gun/energy/laser/shotgun(src)
@@ -869,7 +869,7 @@
 	new /obj/item/shield/riot/tact(src)
 
 /obj/structure/closet/crate/gear_loadout/nanotrasen/single/fill()
-	new /obj/item/rig/nanotrasen(src)
+	new /obj/item/rig/nexus(src)
 	new /obj/item/voidsuit_modkit_multi/nanotrasen(src)
 	new /obj/item/gun/energy/rifle(src)
 	new /obj/item/gun/energy/pistol(src)
