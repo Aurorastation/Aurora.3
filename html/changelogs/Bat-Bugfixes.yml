@@ -55,7 +55,7 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Adds missing fire alarm to Paramedic Quarters."
+  - balance: "Budget insulated gloves no longer able to be manually restocked in YouTool (random insulation coefficient reroll exploit)."
   - bugfix: "Replaces missing req_access values from D3 Medical Equipment Storage."
   - bugfix: "Emitters can be rotated again (alt-click lock toggling disabled)."
   - bugfix: "Lights no longer explode when toggled off and on."
@@ -72,6 +72,7 @@ changes:
   - bugfix: "Removes old fusion debug vars, fixed outdated maths."
   - bugfix: "Fixes Horizon kitchen alt fridge being swapped w/ empty freezer."
   - bugfix: "Fixes chameleon projector sometimes turning user invisible."
-  - rscdel: "Disables 'Mundane News' and 'Economic News' events for the duration that the SCCV Horizon is outside comms range."
   - code_imp: "Updates more code comments to DMDocs."
   - code_imp: "Corrects poison/venom for greimorian variable naming."
+  - rscadd: "Adds missing fire alarm to Paramedic Quarters."
+  - rscdel: "Disables 'Mundane News' and 'Economic News' events for the duration that the SCCV Horizon is outside comms range."
