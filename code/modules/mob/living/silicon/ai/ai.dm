@@ -779,8 +779,10 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 
 
 /mob/living/silicon/ai/attackby(obj/item/attacking_item, mob/user)
-	if(istype(attacking_item, /obj/item/aicard))
+	if(user.a_intent == I_HURT) // So you can attack an AI with a wrench, if you really wanted to.
+		return ..()
 
+	if(istype(attacking_item, /obj/item/aicard))
 		var/obj/item/aicard/card = attacking_item
 		card.grab_ai(src, user)
 

@@ -317,39 +317,25 @@
 	icon_state = "passcard_ceti_m"
 	item_state = "passcard_ceti_m"
 
+// Solarian Alliance passcards
 /obj/item/clothing/accessory/badge/passcard/sol
 	name = "\improper ASSN passcard"
-	desc = "A passcard issued to citizens of the Alliance of Sovereign Solarian Nations, typically from planets such as the Jewel Worlds or smaller zones of authority."
-	desc_extended = "A passcard is a modern evolution of the state-issued identification card, with all the functionality of a driver's license, birth certificate, passport, or other document, \
-	updated as necessary or able by a central government. The concept was pioneered in the early days of the Sol Alliance, and continues in most human stellar nations to this day, owing to the availability \
-	and price of consumer plastics and self-powered microholograms."
+	desc = "A passcard issued to citizens of the Alliance of Sovereign Solarian Nations."
+	desc_extended = "This identification document is a standardized form adopted across the Alliance. \
+	Encrypted with detailed personal and biometric information, these cards verify identity and citizenship. \
+	This example bears only the Solarian flag, the background features Unity Station with a diverse range of civilian and military vessels visible in the periphery. \
+	These cards are issued directly by the Solarian Federal Government or by member-states that elect not to produce their own variants."
 	icon_state = "passcard_sol"
 	item_state = "passcard_sol"
 
-/obj/item/clothing/accessory/badge/passcard/sol/pluto
-	name = "plutonian passcard"
-	desc = "A passcard issued to citizens of the Solarian planetoid, Pluto."
-	desc_extended = "Plutonian passcards, in addition to the features of their cousins in the greater Sol Alliance, include details such as Party membership and occupation, available for viewing by personnel \
-	with the appropriate scanning measures."
-	icon_state = "passcard_pluto"
-	item_state = "passcard_pluto"
-
-/obj/item/clothing/accessory/badge/passcard/sol/jupiter
-	name = "jovian passcard"
-	desc = "A passcard issued to citizens of Sol Alliance, hailing from Jupiter or its moons."
-	desc_extended = "Due to its status as a trading hub for the Jewel Worlds of the Sol system, Jovian Solarians are among the most populous type to exist outside Earth proper, numbering in the billions. \
-	Originally given out as a celebration of fifty years of Jovian settlement, these passcards have since been introduced as a display of pride in their mutual orbit."
-	icon_state = "passcard_jovian"
-	item_state = "passcard_jovian"
-
-/obj/item/clothing/accessory/badge/passcard/sol/europa
-	name = "europan passcard"
-	desc = "A passcard issued to citizens of the Alliance of Sovereign Solarian Nations, hailing from the murky Jovian moon of Europa."
-	desc_extended = "The Europan passcard, boasting a difficult-to-align identification strip, fragile materials, and an unfortunate resemblance to the ZHS Abaddon research vessel legendary for its supposed \
-	loss to the Cetus, is almost universally reviled by Europans, border agents, and choking sea creatures alike. To carry one aboard a submarine is said to bring bad luck so foul as to serve as a beacon \
-	to the darkest forces known to sailors."
-	icon_state = "passcard_europa"
-	item_state = "passcard_europa"
+/obj/item/clothing/accessory/badge/passcard/sol/callisto
+	name = "callisto passcard"
+	desc = "A passcard issued to the citizens of the Sovereign Solarian Commonwealth of Callisto."
+	desc_extended = "This identification document is a standardized form adopted across the Alliance. \
+	Encrypted with detailed personal and biometric information, these cards verify identity and citizenship. \
+	This example bears the Callistean flag, with a background showcasing the skyline of New Edinburg, prominently featuring the Callistean parliament building."
+	icon_state = "passcard_callisto"
+	item_state = "passcard_callisto"
 
 /obj/item/clothing/accessory/badge/passcard/sol/cytherean
 	name = "cytherean passcard"
@@ -359,6 +345,15 @@
 	icon_state = "passcard_cytherean"
 	item_state = "passcard_cytherean"
 
+/obj/item/clothing/accessory/badge/passcard/sol/europa
+	name = "europan passcard"
+	desc = "A passcard issued to the citizens of the Sovereign Solarian Confederation of Europa."
+	desc_extended = "This identification document is a standardized form adopted across the Alliance. \
+	Encrypted with detailed personal and biometric information, these cards verify identity and citizenship. \
+	This example bears the Europan flag, with a background depicting a deep-ocean scene featuring native sea life, with a Bone Whale, several batsharks, and a large school of light-shrimp.  "
+	icon_state = "passcard_europa"
+	item_state = "passcard_europa"
+
 /obj/item/clothing/accessory/badge/passcard/sol/jintarian
 	name = "jintarian passcard"
 	desc = "A... 'passcard' manufactured by a Venusian living on the surface of their hostile Solarian world."
@@ -367,27 +362,126 @@
 	icon_state = "passcard_jintarian"
 	item_state = "passcard_jintarian"
 
-/obj/item/clothing/accessory/badge/passcard/sol/silversun
-	name = "silversun commemorative passcard"
-	desc = "A passcard issued to Idris employees currently or formerly employed or residing on the planet Silversun."
-	desc_extended = "While Silversun itself is a member of the Sol Alliance, Idris Incorporated has secured a number of obscure patents, permits, and bureaucratic channels that allows them to commemorate \
-	faithful employees from the resort world with unique passcards that double as membership cards to some of the cheaper resorts on-world."
-	icon_state = "passcard_silversun"
-	item_state = "passcard_silversun"
+/obj/item/clothing/accessory/badge/passcard/sol/jupiter
+	name = "jovian passcard"
+	desc = "A passcard issued to citizens of Sol Alliance, hailing from Jupiter or its moons."
+	desc_extended = "Due to its status as a trading hub for the Jewel Worlds of the Sol system, Jovian Solarians are among the most populous type to exist outside Earth proper, numbering in the billions. \
+	Originally given out as a celebration of fifty years of Jovian settlement, these passcards have since been introduced as a display of pride in their mutual orbit."
+	icon_state = "passcard_jovian"
+	item_state = "passcard_jovian"
+
+/obj/item/clothing/accessory/badge/passcard/sol/konyang
+	name = "konyang passcard"
+	desc = "A passcard issued to inhabitants of Konyang who still claim citizenship with the Solarian Alliance."
+	desc_extended = "This identification document is a standardized form adopted across the Alliance. \
+	Encrypted with detailed personal and biometric information, these cards verify identity and citizenship. \
+	This example bears the flag of the former Sovereign Solarian Republic of Konyang and is issued to those konyangers who maintain Solarian Citizenship. \
+	The background depicts a weathered reinforced blast door set into the side of a hill.  Along the bottom edge, the inscription reads, “Together in Spirit and Purpose.”"
+	icon_state = "passcard_solyang"
+	item_state = "passcard_solyang"
 
 /obj/item/clothing/accessory/badge/passcard/sol/luna
 	name = "lunarian passcard"
-	desc = "A passcard issued to Solarian citizens from the moon of Earth, Luna."
-	desc_extended = "Not only does the Lunarian passcard bring power, prestige, and a heritage of grace; it also brings an invitation to almost every high society open gathering on the planet, and earns priority \
-	in most reservations for the world's restaurants. If ever there was a silver spoon, it sits here."
-	icon_state = "passcard_moon"
-	item_state = "passcard_moon"
+	desc = "A passcard issued to the citizens of the Sovereign Solarian Federal Republic of Luna."
+	desc_extended = "This identification document is a standardized form adopted across the Alliance. \
+	Encrypted with detailed personal and biometric information, these cards verify identity and citizenship. \
+	This example bears the Lunan tri-color, with a split background scene: one half depicts the Apollo 11 Eagle lander, while the other features the Pervoprohodets LK Lander. \
+	A banner across both halves reads, “Mankind’s first steps.”"
+	icon_state = "passcard_luna"
+	item_state = "passcard_luna"
+
+/obj/item/clothing/accessory/badge/passcard/sol/mictlan
+	name = "mictlan passcard"
+	desc = "A passcard issued to inhabitants of Mictlan who still claim citizenship with the Solarian Alliance."
+	desc_extended = "This identification document is a standardized form adopted across the Alliance. \
+	Encrypted with detailed personal and biometric information, these cards verify identity and citizenship. \
+	This example bears the flag of the former Sovereign Solarian Republic of Mictlan, and is issued to those Mictlani who retain Solarian citizenship. \
+	The background depicts a vibrant festival in a city square, alive with flickering candles, painted faces and exotic costumes. \
+	Watermarked in the center of the scene are the words, “Legacy and loyalty.”"
+	icon_state = "passcard_soltlan"
+	item_state = "passcard_soltlan"
+
+/obj/item/clothing/accessory/badge/passcard/sol/new_hai_phong
+	name = "new hai phong passcard"
+	desc = "A passcard issued to citizens of the Sovereign Solarian Democratic Socialist Republic of New Hai Phong."
+	desc_extended = "This identification document is a standardized form adopted across the Alliance. \
+	Encrypted with detailed personal and biometric information, these cards verify identity and citizenship. \
+	This example bears the New Hai Phongese flag, with the motto “Forged in Industry, Bound in Unity.” displayed over a background split evenly between densely packed urban sprawl and vast industrial zones."
+	icon_state = "passcard_nhp"
+	item_state = "passcard_nhp"
+
+/obj/item/clothing/accessory/badge/passcard/sol/pluto
+	name = "plutonian passcard"
+	desc = "A passcard issued to the citizens of the Special Administrative Zone of Pluto."
+	desc_extended = "This identification document is a standardized form adopted across the Alliance. \
+	Encrypted with detailed personal and biometric information, these cards verify identity and citizenship. \
+	This example bears the Plutonian flag, with a background depicting the Plutonian skyline and a trio of massive Helium-3 refineries suspended in orbit. \
+	Beneath the scene are the words:  “From hardship, strength; from struggle, solidarity.”"
+	icon_state = "passcard_pluto"
+	item_state = "passcard_pluto"
+
+/obj/item/clothing/accessory/badge/passcard/sol/restricted_mandate
+	name = "restricted mandate passcard"
+	desc = "A restricted pass card issued to residents of the Reconstruction Mandates."
+	desc_extended = "This restricted variant of the Solarian passcard contains enhanced security features and personal biometric encryption. \
+	This example bears the combined flags of the Northern, and Southern Mandates, set against a plain background marked by a bold red warning banner stating, “State of emergency declared in this jurisdiction. Certain civil liberties have been temporarily suspended.”"
+	icon_state = "passcard_restricted_mand"
+	item_state = "passcard_restricted_mand"
+
+/obj/item/clothing/accessory/badge/passcard/sol/restricted_mars
+	name = "restricted mars passcard"
+	desc = "A restricted passcard issued to residents of the Sovereign Solarian Union of Mars."
+	desc_extended = "This restricted variant of the Solarian passcard contains enhanced security features and personal biometric encryption. \
+	This example bears the Martian flag, set against a plain background marked by a bold red warning banner stating, “State of emergency declared in this jurisdiction. Certain civil liberties have been temporarily suspended.”"
+	icon_state = "passcard_restricted_mars"
+	item_state = "passcard_restricted_mars"
+
+/obj/item/clothing/accessory/badge/passcard/sol/san_colette
+	name = "san colette passcard"
+	desc = "A passcard issued to citizens of the Sovereign Solarian Republic of San Colette."
+	desc_extended = "This identification document is a standardized form adopted across the Alliance. \
+	Encrypted with detailed personal and biometric information, these cards verify identity and citizenship. \
+	This example bears the Colettish tri-color, the background features a reproduction of the painting “Los Voluntarios”, depicting the courageous final stand of Colettish volunteers amidst the ruins of Nueva Isabela against the Solarian Restoration Front."
+	icon_state = "passcard_sancolette"
+	item_state = "passcard_sancolette"
+
+/obj/item/clothing/accessory/badge/passcard/sol/sankt_frederick
+	name = "sankt frederick passcard"
+	desc = "A passcard issued to citizens of the Sovereign Solarian Free State of Sankt Frederick"
+	desc_extended = "This identification document is a standardized form adopted across the Alliance. \
+	Encrypted with detailed personal and biometric information, these cards verify identity and citizenship. \
+	It bears the tricolor of Sankt Frederick, while the background is overprinted with a reproduction of the painting ‘The Last Harvest’, depicting a swarm of farmhands laboring across a river valley at dusk."
+	icon_state = "passcard_sanktfrederick"
+	item_state = "passcard_sanktfrederick"
+
+/obj/item/clothing/accessory/badge/passcard/sol/silversun
+	name = "silversun commemorative passcard"
+	desc = "A passcard issued to citizens of the Sovereign Solarian Republic of Silversun."
+	desc_extended = "This identification document is a standardized form adopted across the Alliance. \
+	Encrypted with detailed personal and biometric information, these cards verify identity and citizenship. \
+	This example bears the Silversun flag. The background depicts a serene ocean beneath a cloud-streaked sky, dotted with sleek vessels and sprawling floating settlements. \
+	A faint watermark of rising suns and silver waves frame the edges of the card."
+	icon_state = "passcard_silversun"
+	item_state = "passcard_silversun"
+
+/obj/item/clothing/accessory/badge/passcard/sol/venus
+	name = "venus passcard"
+	desc = "A passcard issued to the citizens of the Sovereign Solarian Republic of Venus."
+	desc_extended = "This identification document is a standardized form adopted across the Alliance. \
+	Encrypted with detailed personal and biometric information, these cards verify identity and citizenship. \
+	This example bears the Venusian flag, with a background depicting an immense aerostat anchored amid dark, swirling gas clouds. \
+	Beneath the scene, the watermark reads, “Star of the Alliance.”  "
+	icon_state = "passcard_venus"
+	item_state = "passcard_venus"
 
 /obj/item/clothing/accessory/badge/passcard/sol/visegrad
 	name = "visegradi passcard"
-	desc = "A passcard issued to Solarian citizens from the outer ring planet Visegrad."
-	desc_extended = "The Visegradi passcard is an unusual thing, as many Solarian outer ring planets did not issue passcards at all, especially high-quality holographic ones. Predominantly seen in the hands of the \
-	urban population who could justify paying the government fee to acquire one, their manufacture is still undertaken by the Southern Solarian Military District that now controls Visegrad."
+	desc = "A passcard issued to citizens of the Sovereign Solarian Free Republic of Visegrad."
+	desc_extended = "This identification document is a standardized form adopted across the Alliance. \
+	Encrypted with detailed personal and biometric information, these cards verify identity and citizenship. \
+	This example bears the Visegradi flag, with a background featuring a Solarian Navy Carrier looming over the planet.  \
+	In the distance, a network of orbital defense platforms can be seen. \
+	A faint watermind reading “From Ruin, Resolve” encircles the card’s edges."
 	icon_state = "passcard_visegrad"
 	item_state = "passcard_visegrad"
 

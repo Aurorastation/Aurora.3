@@ -4392,10 +4392,10 @@
 	dir = 1;
 	level = 2
 	},
-/obj/item/storage/box/condiment{
+/obj/item/storage/box/large/condiment{
 	pixel_y = 2
 	},
-/obj/item/storage/box/condimentbottles{
+/obj/item/storage/box/large/condimentbottles{
 	pixel_y = 5
 	},
 /obj/random/dirt_75,
@@ -5119,7 +5119,7 @@
 	req_access = list(212)
 	},
 /obj/item/clothing/under/dominia/priest,
-/obj/item/clothing/accessory/poncho/dominia/red,
+/obj/item/clothing/accessory/poncho/dominia_cape/tribunalist,
 /obj/item/clothing/head/beret/dominia/priest,
 /obj/item/flame/lighter/zippo/dominia,
 /obj/item/clothing/accessory/flagpatch/dominia,
@@ -6258,7 +6258,7 @@
 	pixel_x = 4;
 	pixel_y = 4
 	},
-/obj/item/storage/box/tea/tieguanyin{
+/obj/item/storage/box/unique/tea/tieguanyin{
 	desc = "A tin bearing the logo of a Dominian tea company located on Sun Reach. This one contains a bag of tieguanyin, a type of oolong tea.";
 	pixel_x = 14;
 	pixel_y = 3
@@ -7089,8 +7089,8 @@
 "nhX" = (
 /obj/effect/floor_decal/industrial/outline/service,
 /obj/structure/closet/secure_closet/refrigerator,
-/obj/item/storage/box/produce,
-/obj/item/storage/box/produce,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/reagent_containers/food/condiment/enzyme,
@@ -7721,7 +7721,7 @@
 	pixel_y = -14;
 	pixel_x = 10
 	},
-/obj/item/storage/box/sharps{
+/obj/item/storage/box/unique/sharps{
 	pixel_x = -6;
 	pixel_y = -14
 	},

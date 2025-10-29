@@ -173,7 +173,49 @@
 	description = "A large box of random, leftover produce."
 	price = 35
 	items = list(
-		/obj/item/storage/box/produce
+		/obj/item/storage/box/large/produce
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/producebox_adhomai
+	category = "hospitality"
+	name = "adhomian produce box"
+	supplier = "zharkov"
+	description = "A large box of random, leftover produce from Adhomai."
+	price = 45
+	items = list(
+		/obj/item/storage/box/large/produce/adhomai
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/producebox_moghes
+	category = "hospitality"
+	name = "moghresian produce box"
+	supplier = "hephaestus"
+	description = "A large box of random, leftover produce from Moghes."
+	price = 45
+	items = list(
+		/obj/item/storage/box/large/produce/moghes
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/producebox_nralakk
+	category = "hospitality"
+	name = "skrellian produce box"
+	supplier = "hephaestus"
+	description = "A large box of random, leftover produce from various Skrellian worlds."
+	price = 50
+	items = list(
+		/obj/item/storage/box/large/produce/nralakk
 	)
 	access = 0
 	container_type = "crate"
@@ -182,7 +224,7 @@
 
 /singleton/cargo_item/spacespices
 	category = "hospitality"
-	name = "space spices"
+	name = "space spices (x2)"
 	supplier = "getmore"
 	description = "An exotic blend of spices for cooking. It must flow."
 	price = 15
@@ -192,7 +234,7 @@
 	access = 0
 	container_type = "freezer"
 	groupable = TRUE
-	spawn_amount = 1
+	spawn_amount = 2
 
 /singleton/cargo_item/sliced_bread
 	category = "hospitality"
@@ -1388,7 +1430,7 @@
 	description = "A box containing some tins of green tea leaves."
 	price = 20
 	items = list(
-		/obj/item/storage/box/tea
+		/obj/item/storage/box/unique/tea
 	)
 	access = 0
 	container_type = "crate"
@@ -1401,7 +1443,7 @@
 	description = "A box containing some tins of oolong tea leaves."
 	price = 20
 	items = list(
-		/obj/item/storage/box/tea/tieguanyin
+		/obj/item/storage/box/unique/tea/tieguanyin
 	)
 	access = 0
 	container_type = "crate"
@@ -1414,7 +1456,7 @@
 	description = "A box containing some tins of black tea leaves."
 	price = 20
 	items = list(
-		/obj/item/storage/box/tea/jaekseol
+		/obj/item/storage/box/unique/tea/jaekseol
 	)
 	access = 0
 	container_type = "crate"

@@ -993,6 +993,13 @@
 /obj/structure/table/stone/marble,
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell/interior)
+"fi" = (
+/obj/item/storage/box/tactical/frags,
+/obj/item/storage/box/tactical/frags,
+/obj/item/storage/box/tactical/frags,
+/obj/item/storage/box/tactical/frags,
+/turf/simulated/floor/reinforced,
+/area/city/mendell)
 "fk" = (
 /obj/item/clothing/under/suit_jacket/nt_skirtsuit,
 /obj/item/clothing/under/suit_jacket/nt_skirtsuit,
@@ -2312,18 +2319,6 @@
 "mO" = (
 /turf/simulated/floor/shuttle/dark_blue,
 /area/city/mendell)
-"mQ" = (
-/obj/effect/decal/fake_object{
-	desc = "A crate of military supplies.";
-	icon = 'icons/obj/containers/crate.dmi';
-	icon_state = "dropcrate";
-	name = "metal crate";
-	pixel_x = 1;
-	pixel_y = 4
-	},
-/obj/effect/floor_decal/industrial/hatch/red,
-/turf/simulated/floor/tiled/dark,
-/area/city/mendell)
 "mR" = (
 /obj/machinery/door/airlock/external{
 	dir = 4
@@ -2457,24 +2452,6 @@
 	name = "small tiles"
 	},
 /area/city/mendell/interior)
-"nU" = (
-/obj/structure/table/rack,
-/obj/item/melee/energy/sword/knife/sol,
-/obj/item/melee/energy/sword/knife/sol,
-/obj/item/melee/energy/sword/knife/sol,
-/obj/item/melee/energy/sword/knife/sol,
-/obj/item/gun/projectile/shotgun/pump/combat/sol,
-/obj/item/gun/projectile/shotgun/pump/combat/sol,
-/obj/item/gun/projectile/shotgun/pump/combat/sol,
-/obj/item/gun/projectile/shotgun/pump/combat/sol,
-/obj/item/storage/box/incendiaryshells,
-/obj/item/storage/box/shotgunshells,
-/obj/item/storage/box/shotgunshells,
-/obj/item/storage/box/shotgunshells,
-/obj/item/storage/box/shotgunshells,
-/obj/item/storage/box/shotgunshells,
-/turf/simulated/floor/reinforced,
-/area/city/mendell)
 "nY" = (
 /obj/structure/bedsheetbin,
 /obj/structure/table/wood,
@@ -2786,12 +2763,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell)
-"pY" = (
-/obj/structure/cart/storage/janitorialcart/full{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/city/mendell/interior)
 "qh" = (
 /obj/machinery/door/airlock/glass_centcom{
 	dir = 1
@@ -3765,33 +3736,6 @@
 	icon_state = "wood_cherry"
 	},
 /area/city/mendell/interior)
-"vQ" = (
-/obj/effect/decal/fake_object{
-	desc = "What jerk stacked these here?";
-	icon = 'icons/obj/containers/crate.dmi';
-	icon_state = "tcfl_crate_preview";
-	name = "inconveniently placed crate";
-	pixel_x = 1
-	},
-/obj/effect/decal/fake_object{
-	density = 1;
-	desc = "What jerk stacked these here?";
-	icon = 'icons/obj/containers/crate.dmi';
-	icon_state = "tcfl_crate_preview";
-	name = "inconveniently placed crate";
-	pixel_x = 3;
-	pixel_y = 8
-	},
-/obj/effect/decal/fake_object{
-	desc = "What jerk stacked these here?";
-	icon = 'icons/obj/containers/crate.dmi';
-	icon_state = "tcfl_crate_preview";
-	name = "inconveniently placed crate";
-	pixel_x = 2;
-	pixel_y = 19
-	},
-/turf/simulated/floor/tiled/dark,
-/area/city/mendell)
 "vS" = (
 /obj/structure/curtain/black{
 	icon_state = "open";
@@ -4183,13 +4127,6 @@
 /obj/item/storage/box/fancy/cigarettes/cigar,
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell/interior)
-"xZ" = (
-/obj/item/storage/box/frags,
-/obj/item/storage/box/frags,
-/obj/item/storage/box/frags,
-/obj/item/storage/box/frags,
-/turf/simulated/floor/reinforced,
-/area/city/mendell)
 "ya" = (
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/industrial/warning,
@@ -4656,6 +4593,33 @@
 	name = "hex flooring"
 	},
 /area/city/mendell/interior)
+"Bh" = (
+/obj/effect/decal/fake_object{
+	desc = "What jerk stacked these here?";
+	icon = 'icons/obj/containers/crate.dmi';
+	icon_state = "tcfl_crate_preview";
+	name = "inconveniently placed crate";
+	pixel_x = 1
+	},
+/obj/effect/decal/fake_object{
+	density = 1;
+	desc = "What jerk stacked these here?";
+	icon = 'icons/obj/containers/crate.dmi';
+	icon_state = "tcfl_crate_preview";
+	name = "inconveniently placed crate";
+	pixel_x = 3;
+	pixel_y = 8
+	},
+/obj/effect/decal/fake_object{
+	desc = "What jerk stacked these here?";
+	icon = 'icons/obj/containers/crate.dmi';
+	icon_state = "tcfl_crate_preview";
+	name = "inconveniently placed crate";
+	pixel_x = 2;
+	pixel_y = 19
+	},
+/turf/simulated/floor/tiled/dark,
+/area/city/mendell)
 "Bl" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -4767,6 +4731,12 @@
 	icon_state = "wood"
 	},
 /area/city/mendell)
+"BK" = (
+/obj/structure/cart/storage/janitorialcart/full{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/city/mendell/interior)
 "BL" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -5123,6 +5093,24 @@
 /obj/item/reagent_containers/food/snacks/burger/superbite,
 /turf/simulated/floor/tiled/white,
 /area/city/mendell/interior)
+"Do" = (
+/obj/structure/table/rack,
+/obj/item/melee/energy/sword/knife/sol,
+/obj/item/melee/energy/sword/knife/sol,
+/obj/item/melee/energy/sword/knife/sol,
+/obj/item/melee/energy/sword/knife/sol,
+/obj/item/gun/projectile/shotgun/pump/combat/sol,
+/obj/item/gun/projectile/shotgun/pump/combat/sol,
+/obj/item/gun/projectile/shotgun/pump/combat/sol,
+/obj/item/gun/projectile/shotgun/pump/combat/sol,
+/obj/item/storage/box/shells/incendiaryshells,
+/obj/item/storage/box/shells/buckshot,
+/obj/item/storage/box/shells/buckshot,
+/obj/item/storage/box/shells/buckshot,
+/obj/item/storage/box/shells/buckshot,
+/obj/item/storage/box/shells/buckshot,
+/turf/simulated/floor/reinforced,
+/area/city/mendell)
 "Dt" = (
 /turf/simulated/floor/lino,
 /area/city/mendell/interior)
@@ -8521,6 +8509,18 @@
 	dir = 8
 	},
 /turf/simulated/floor/wood,
+/area/city/mendell)
+"Xw" = (
+/obj/effect/decal/fake_object{
+	desc = "A crate of military supplies.";
+	icon = 'icons/obj/containers/crate.dmi';
+	icon_state = "dropcrate";
+	name = "metal crate";
+	pixel_x = 1;
+	pixel_y = 4
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/tiled/dark,
 /area/city/mendell)
 "XA" = (
 /obj/structure/table/rack,
@@ -14044,7 +14044,7 @@ VN
 Pk
 Or
 Or
-mQ
+Xw
 xq
 xq
 vx
@@ -14394,7 +14394,7 @@ Nc
 Or
 kH
 Pk
-vQ
+Bh
 vF
 Pk
 KL
@@ -19084,7 +19084,7 @@ Eq
 Eq
 Eq
 CP
-pY
+BK
 un
 JU
 CP
@@ -28475,7 +28475,7 @@ xD
 xD
 Or
 eI
-xZ
+fi
 ro
 Or
 Jy
@@ -28561,7 +28561,7 @@ xD
 xD
 xD
 fK
-nU
+Do
 xD
 ro
 Or
@@ -28648,7 +28648,7 @@ xD
 xD
 xD
 fK
-nU
+Do
 xD
 ro
 Or
@@ -28735,7 +28735,7 @@ xD
 xD
 xD
 fK
-nU
+Do
 xD
 ro
 fK
@@ -28822,7 +28822,7 @@ xD
 xD
 xD
 Or
-nU
+Do
 xD
 ro
 Or
@@ -30911,7 +30911,7 @@ xD
 xD
 Or
 eI
-xZ
+fi
 Ni
 Or
 Jy

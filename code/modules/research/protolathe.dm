@@ -37,8 +37,11 @@
 
 /obj/machinery/r_n_d/protolathe/upgrade_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	. += "Upgraded <b>matter bins</b> will increase material storage capacity."
-	. += "Upgraded <b>manipulators</b> will improve material use efficiency and increase fabrication speed."
+	. += "- Upgraded <b>matter bins</b> will increase material storage capacity."
+	. += SPAN_NOTICE("	- The current storage capacity is <b>[max_material_storage / 2000]</b> sheets")
+	. += "- Upgraded <b>manipulators</b> will improve material use efficiency and increase fabrication speed."
+	. += SPAN_NOTICE("	- The current speed increase is <b>[round((1 - (1 / production_speed)) * 100)]%</b>")
+	. += SPAN_NOTICE("	- The current cost reduction is <b>[round((1 - mat_efficiency) * 100)]%</b>")
 
 ///Returns the total of all the stored materials
 /obj/machinery/r_n_d/protolathe/proc/TotalMaterials()

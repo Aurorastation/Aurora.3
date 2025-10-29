@@ -26,7 +26,8 @@
 		/obj/item/computer_hardware,
 		/obj/item/pipe,
 		/obj/item/smallDelivery,
-		/obj/item/gift
+		/obj/item/gift,
+		/obj/item/fuel_assembly
 		)
 
 	var/list/cant_hold
