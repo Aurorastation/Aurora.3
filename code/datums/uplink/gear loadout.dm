@@ -158,13 +158,13 @@
 	telecrystal_cost = 10
 
 /datum/uplink_item/item/gear_loadout/nanotrasen
-	name = "NanoTrasen Assets (Group)"
+	name = "NanoTrasen/Nexus Assets (Group)"
 	desc = "A crate containing gear for a group. The hardsuits are are only usable by humans and skrell."
 	path = /obj/structure/closet/crate/gear_loadout/nanotrasen
 	telecrystal_cost = 35
 
 /datum/uplink_item/item/gear_loadout/nanotrasen_single
-	name = "NanoTrasen Assets (Single)"
+	name = "NanoTrasen/Nexus Assets (Single)"
 	desc = "A crate containing gear for a single individual. The hardsuit is only usable by humans and skrell."
 	path = /obj/structure/closet/crate/gear_loadout/nanotrasen/single
 	telecrystal_cost = 10
