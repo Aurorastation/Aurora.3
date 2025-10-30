@@ -1,4 +1,4 @@
-GLOBAL_DATUM_INIT(captain_announcement, /datum/announcement/minor, new(do_newscast = 1))
+GLOBAL_DATUM_INIT(captain_announcement, /datum/announcement/minor, new(do_newscast = TRUE))
 
 /datum/job/captain
 	title = "Captain"

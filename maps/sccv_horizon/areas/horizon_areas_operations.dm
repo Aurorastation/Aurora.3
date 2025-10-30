@@ -83,6 +83,7 @@
 
 /area/horizon/hangar/control
 	name = "Hangar Control Room"
+	holomap_color = HOLOMAP_AREACOLOR_COMMAND
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/horizon/hangar/intrepid
@@ -95,6 +96,7 @@
 
 /area/horizon/hangar/operations
 	name = "Starboard Auxiliary Hangar"
+	holomap_color = HOLOMAP_AREACOLOR_OPERATIONS
 	area_blurb = "A big, open room, home to the SCCV Horizon's mining shuttle, the Spark."
 	area_blurb_category = "hanger"
 

@@ -1,9 +1,0 @@
-
-author: Mneme
-
-delete-after: True
-
-changes:
-  - bugfix: "Removed an errant holopad under a scrubber from the bar."
-  - bugfix: "Added a check to areas to prevent hostile events from spawning in areas that are not intended to have them."
-  - qol: "Relocated the bar's smartfridge interaction point."

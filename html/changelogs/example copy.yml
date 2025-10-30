@@ -1,4 +1,4 @@
 author: Hellfirejag
 delete-after: True
 changes:
-  - bugfix: "Wulumunusha now plays its psionic-specific messages for anyone at least psi-sensitive, not just skrell."
+  - rscadd: "Molluscs grown in hydroponics can now be harvested by plant bags, as well as be stored in the smartfridge."
