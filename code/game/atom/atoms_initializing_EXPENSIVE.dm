@@ -132,9 +132,11 @@
 	if(light_system != MOVABLE_LIGHT && light_system != DIRECTIONAL_LIGHT && light_power && light_range)
 		update_light()
 
+	if(loc)
+		SEND_SIGNAL(loc, COMSIG_ATOM_INITIALIZED_ON, src) // used for large_object_transparency component
+
 	if(isturf(loc) && opacity)
 		var/turf/opaque_turf = loc
-		opaque_turf.has_opaque_atom = TRUE // No need to recalculate it in this case, it's guaranteed to be on afterwards anyways.
 		opaque_turf.directional_opacity = ALL_CARDINALS // No need to recalculate it in this case, it's guaranteed to be on afterwards anyways.
 
 	if(update_icon_on_init)
