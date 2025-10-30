@@ -67,6 +67,11 @@ GLOBAL_LIST_INIT(mimic_defines, list("ZM_MIMIC_BELOW",
 ///Shuttle transition will delete this.
 #define MOVABLE_FLAG_DEL_SHUTTLE FLAG(3)
 
+// Atom flags
+
+/// Use when this shouldn't be obscured by large icons.
+#define CRITICAL_ATOM FLAG(20)
+
 // Obj flags
 
 /// Can this object be rotated?

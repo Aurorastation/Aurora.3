@@ -55,6 +55,8 @@
 	var/old_is_open = is_open()
 	var/list/old_resources = resources ? resources.Copy() : null
 
+	SEND_SIGNAL(src, COMSIG_TURF_CHANGE, path)
+
 	//static lighting
 	var/old_lighting_object = static_lighting_object
 	var/old_lighting_corner_NE = lighting_corner_NE

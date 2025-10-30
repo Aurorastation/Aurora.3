@@ -18,6 +18,7 @@
 	see_invisible = SEE_INVISIBLE_OBSERVER
 	add_verb(src, /mob/abstract/ghost/proc/dead_tele)
 	ghost_multitool = new(src)
+	update_sight()
 
 /mob/abstract/ghost/Destroy()
 	QDEL_NULL(ghost_multitool)

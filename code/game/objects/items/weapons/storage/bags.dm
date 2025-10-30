@@ -127,7 +127,7 @@
 	max_storage_space = 100
 	max_w_class = WEIGHT_CLASS_NORMAL
 	w_class = WEIGHT_CLASS_SMALL
-	can_hold = list(/obj/item/reagent_containers/food/snacks/grown,/obj/item/seeds,/obj/item/grown)
+	can_hold = list(/obj/item/reagent_containers/food/snacks/grown, /obj/item/seeds, /obj/item/grown, /obj/item/mollusc)
 
 /obj/item/storage/bag/plants/full
 	starts_with = list(/obj/random_produce/box = 50)

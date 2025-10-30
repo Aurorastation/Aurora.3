@@ -943,7 +943,7 @@
 	},
 /obj/item/clothing/head/beret/corporate/zavod,
 /obj/item/clothing/head/softcap/zavod/alt,
-/obj/item/clothing/suit/storage/toggle/labcoat/zavodskoi/alt,
+/obj/item/clothing/suit/storage/toggle/labcoat/alt,
 /obj/item/clothing/under/rank/engineer/zavod,
 /obj/item/clothing/under/rank/medical/surgeon/zavod,
 /obj/random/gloves,
@@ -953,7 +953,7 @@
 	dir = 10
 	},
 /obj/item/clothing/suit/storage/toggle/corp/zavod,
-/obj/item/clothing/suit/storage/toggle/labcoat/zavodskoi/letterman/alt,
+/obj/item/clothing/suit/storage/toggle/labcoat/zavodskoi/alt,
 /obj/item/clothing/head/sidecap/zavod,
 /obj/structure/closet,
 /obj/item/storage/backpack/messenger/zavod,
@@ -3101,7 +3101,7 @@
 	pixel_x = 32
 	},
 /obj/item/clothing/suit/storage/toggle/corp/orion,
-/obj/item/clothing/suit/storage/toggle/labcoat/orion/letterman,
+/obj/item/clothing/suit/storage/toggle/labcoat/orion,
 /obj/item/clothing/under/librarian/orion,
 /obj/item/clothing/under/rank/chef/orion,
 /obj/random/gloves,

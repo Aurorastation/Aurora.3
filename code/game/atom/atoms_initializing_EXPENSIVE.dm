@@ -134,9 +134,10 @@
 
 	if(isturf(loc) && opacity)
 		var/turf/opaque_turf = loc
+		opaque_turf.has_opaque_atom = TRUE // No need to recalculate it in this case, it's guaranteed to be on afterwards anyways.
 		opaque_turf.directional_opacity = ALL_CARDINALS // No need to recalculate it in this case, it's guaranteed to be on afterwards anyways.
 
-	if (update_icon_on_init)
+	if(update_icon_on_init)
 		SSicon_update.add_to_queue(src)
 
 	//Finally an aurora snowflake code that matters,

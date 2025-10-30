@@ -111,6 +111,9 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 	/// You probably shouldn't be setting this to true on any planet-based maps, or on any indoors areas.
 	var/needs_starlight = FALSE
 
+	/// defaults to TRUE, false disables hostile events (like drone uprising).
+	var/hostile_events = TRUE
+
 /**
  * Don't move this to Initialize(). Things in here need to run before SSatoms does.
  */
@@ -536,6 +539,9 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 		//Although hostile mobs instadying to turrets is fun
 		//If there's no AI they'll just be hit with stunbeams all day and spam the attack logs.
 		if (istype(A, /area/turret_protected) || LAZYLEN(A.turret_controls))
+			continue
+
+		if(!A.hostile_events)
 			continue
 
 		if(filter_players)

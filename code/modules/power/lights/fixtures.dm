@@ -274,7 +274,7 @@
 /obj/machinery/light/proc/use_emergency_power(pwr = 0.2)
 	if (!has_emergency_power(pwr))
 		return FALSE
-	if (cell.charge > 300)	//it's meant to handle 120 W, ya doofus
+	if (cell.charge > 600) // Default mini-cell max is 500.
 		visible_message(SPAN_WARNING("\The [src] short-circuits!"), SPAN_WARNING("You hear glass breaking."))
 		broken()
 		return FALSE
