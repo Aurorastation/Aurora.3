@@ -17,7 +17,7 @@
 		for (var/next_filter in devices)
 			send_to_filter(source, signal, next_filter, start_point, range)
 
-//Sends a signal to all machines belonging to a given filter. Should be called by post_signal()
+/// Sends a signal to all machines belonging to a given filter. Should be called by post_signal()
 /datum/radio_frequency/proc/send_to_filter(obj/source, datum/signal/signal, filter, turf/start_point = null, range = null)
 	if (range && !start_point)
 		return

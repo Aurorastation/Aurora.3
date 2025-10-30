@@ -109,7 +109,7 @@ GLOBAL_LIST(fusion_reactions)
 	energy_production = 18
 	products = list(GAS_DEUTERIUM = 1)
 	radiation = 48
-	instability = 2.8
+	instability = 2.1
 	minimum_energy_level = 200000
 	priority = 9
 
@@ -164,7 +164,7 @@ GLOBAL_LIST(fusion_reactions)
 	energy_consumption = 1
 	energy_production = 40
 	radiation = 18
-	instability = 2.8
+	instability = 2.2
 	products = list(GAS_TRITIUM = 2)
 	minimum_energy_level = 2000000
 	priority = 30
@@ -200,7 +200,7 @@ GLOBAL_LIST(fusion_reactions)
 	energy_production = 10
 	products = list(GAS_HELIUM = 2)
 	radiation = 36
-	instability = 5
+	instability = 3
 	minimum_energy_level = 25000
 	priority = 19
 
@@ -221,7 +221,7 @@ GLOBAL_LIST(fusion_reactions)
 	p_react = GAS_HELIUMFUEL
 	s_react = GAS_HELIUMFUEL
 	energy_consumption = 2
-	energy_production = 96
+	energy_production = 128
 	products = list(GAS_HELIUM = 1, GAS_HYDROGEN = 2)
 	radiation = 1
 	minimum_energy_level = 3200000

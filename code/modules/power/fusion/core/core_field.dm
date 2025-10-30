@@ -226,7 +226,7 @@
 	// Roundstart update
 	if(field_strength < 20)
 		field_strength = 20
-	field_strength_entropy_multiplier = clamp((owned_core.field_strength ** 1.075) / 40, 0.8, 2.0)
+	field_strength_entropy_multiplier = clamp((owned_core.field_strength ** 1.075) / 100, 0.33, 1.67)
 	// Energy decay (entropy tax).
 	if(plasma_temperature >= 1)
 		var/lost = plasma_temperature * 0.00125
@@ -597,7 +597,7 @@
 				if(possible_s_reacts[cur_s_react] < 1)
 					continue
 				var/singleton/fusion_reaction/cur_reaction = get_fusion_reaction(cur_p_react, cur_s_react)
-				if(cur_reaction && plasma_temperature >= (cur_reaction.minimum_energy_level)&& possible_s_reacts[cur_p_react] >= cur_reaction.minimum_p_react)
+				if(cur_reaction && plasma_temperature >= cur_reaction.minimum_energy_level && possible_s_reacts[cur_p_react] >= cur_reaction.minimum_p_react)
 					LAZYDISTINCTADD(possible_reactions, cur_reaction)
 
 			// If there are no possible reactions here, abandon this primary reactant and move on.
@@ -632,7 +632,7 @@
 
 				// Randomly determined amount to react. Starts at up to 1/20th, scales to up to 2/3rd at 20x min temp
 				var/temp_over_min = plasma_temperature / (cur_reaction.minimum_energy_level * 20)
-				var/max_react_percent = clamp(temp_over_min, (1/20), (2/3))
+				var/max_react_percent = clamp(temp_over_min, (1/10), (2/3))
 				var/amount_reacting = rand(1, (max_num_reactants * max_react_percent))
 
 				// Removing the reacting substances from the list of substances that are primed to react this cycle.
