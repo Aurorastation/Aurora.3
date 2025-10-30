@@ -1004,13 +1004,13 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/obj/structure/closet/walllocker/emerglocker/east,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
 /obj/structure/bed/handrail{
 	dir = 8
 	},
+/obj/structure/closet/walllocker/emerglocker/east,
 /obj/item/storage/bag/inflatable,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/orion_miner/grauwolf)
@@ -1081,6 +1081,9 @@
 /obj/structure/bed/handrail,
 /obj/structure/cable/green{
 	icon_state = "4-8"
+	},
+/obj/machinery/light_switch{
+	pixel_y = -19
 	},
 /turf/simulated/floor/carpet/orange,
 /area/shuttle/orion_miner/dorm)
@@ -1382,9 +1385,15 @@
 /area/shuttle/orion_miner/mess_hall)
 "lP" = (
 /obj/structure/cable/green{
-	icon_state = "0-2"
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
-/obj/machinery/power/apc/west,
+/obj/machinery/light_switch{
+	dir = 8;
+	pixel_x = -20;
+	pixel_y = -1
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/orion_miner/tech_storage)
 "lU" = (
@@ -2474,7 +2483,10 @@
 /obj/item/reagent_containers/toothpaste,
 /obj/random/soap,
 /obj/item/haircomb,
-/obj/machinery/alarm/east,
+/obj/machinery/light_switch{
+	dir = 4;
+	pixel_x = 22
+	},
 /turf/simulated/floor/marble,
 /area/shuttle/orion_miner/bathroom)
 "wR" = (
@@ -3786,6 +3798,7 @@
 	},
 /obj/machinery/power/apc/low/south,
 /obj/structure/cable/green,
+/obj/machinery/alarm/west,
 /turf/simulated/floor/marble,
 /area/shuttle/orion_miner/bathroom)
 "Hh" = (
@@ -4077,6 +4090,11 @@
 /obj/machinery/vending/hydronutrients/hydroponics,
 /obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/effect/floor_decal/industrial/outline/service,
+/obj/machinery/light_switch{
+	dir = 4;
+	pixel_x = 22;
+	pixel_y = 4
+	},
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/hydro)
 "KR" = (
@@ -5628,9 +5646,6 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
-/obj/machinery/light/colored/decayed{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
@@ -5639,6 +5654,9 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
+	},
+/obj/machinery/light/colored/decayed{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/orion_miner/grauwolf)
@@ -5871,6 +5889,10 @@
 "Zz" = (
 /obj/machinery/autolathe,
 /obj/effect/floor_decal/industrial/outline/engineering,
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc/low/north,
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/tech_storage)
 "ZB" = (
