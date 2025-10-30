@@ -1,32 +1,30 @@
 /datum/map_template/ruin/away_site/pirate_base
-	name = "pirate base"
-	description = "An asteroid with a occupied hangar carved into it."
+	name = "warp gate and control station"
+	description = "A titanic ring structure, partially integrated into an asteroid where the warp gate control station sits."
 
 	prefix = "away_site/pirate_base/"
 	suffix = "pirate_base.dmm"
 
 	sectors = list(ALL_POSSIBLE_SECTORS)
 	spawn_weight = 1
-	ship_cost = 1
+	spawn_cost = 3
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 	id = "pirate"
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/pirate_ship)
 	unit_test_groups = list(2)
 
 /singleton/submap_archetype/pirate
-	map = "pirate base"
-	descriptor = "An asteroid with a occupied hangar carved into it."
+	map = "warp gate and control station"
+	descriptor = "A titanic ring structure, partially integrated into an asteroid where the warp gate control station sits."
 
 /obj/effect/overmap/visitable/sector/pirate
-	name = "asteroid lair"
-	desc = "Scans reveal that there is a unregistered structure within this asteroid, as well as an unpowered vessel docked in a makeshift hangar on the south outer layer. Scans of the vessel indicate that it was reported as stolen several months ago."
+	name = "warp gate and control station"
+	desc = "A titanic ring structure, partially integrated into an asteroid where the warp gate control station sits."
 	icon_state = "object"
 	initial_generic_waypoints = list(
 		"nav_pirate_1",
 		"nav_pirate_2",
-		"nav_pirate_3"
-	)
-	initial_restricted_waypoints = list(
-		"Wanted Vessel" = list("nav_hangar_pirate_ship")
+		"nav_pirate_3",
+		"nav_hangar_pirate_ship"
 	)
 
 /obj/effect/shuttle_landmark/pirate_ship
@@ -77,7 +75,7 @@
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/pirate_ship/hangar
-	name = "Asteroid Lair Hangar"
+	name = "Landing Pad"
 	landmark_tag = "nav_hangar_pirate_ship"
 	docking_controller = "pirate_ship_shuttle_dock"
 	base_area = /area/mine

@@ -6781,7 +6781,6 @@
 /turf/simulated/floor/plating,
 /area/ship/ssrm_corvette/atmospherics)
 "pBo" = (
-/obj/structure/lattice,
 /obj/structure/lattice/catwalk,
 /turf/template_noop,
 /area/space)

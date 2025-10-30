@@ -5,55 +5,55 @@
 	requires_power = TRUE
 
 /area/piratebase/equipment
-	name = "Equipment Storage"
+	name = "Warp Gate Control Station - Primary Warp Core"
 	icon_state = "eva"
 
 /area/piratebase/living
-	name = "Lounge"
+	name = "Warp Gate Control Station - Control Room"
 	icon_state = "crew_area"
 
 /area/piratebase/kitchen
-	name = "Kitchen"
+	name = "Warp Gate Control Station - Meeting Room"
 	icon_state = "kitchen"
 
 /area/piratebase/quarters
-	name = "Living Quarters"
+	name = "Warp Gate Control Station - Living Quarters"
 	icon_state = "crew_quarters"
 
 /area/piratebase/atmos
-	name = "Atmospherics"
+	name = "Warp Gate Control Station - Atmospherics"
 	icon_state = "atmos"
 
 /area/piratebase/power
-	name = "Engineering"
+	name = "Warp Gate Control Station - Engineering"
 	icon_state = "engine"
 
 /area/piratebase/hallway_north
-	name = "North Hallway"
+	name = "Warp Gate Control Station - North Hallway"
 	icon_state = "hallC1"
 
 /area/piratebase/hallway_south
-	name = "South Hallway"
+	name = "Warp Gate Control Station - South Hallway"
 	icon_state = "hallC1"
 
 /area/piratebase/maint_north
-	name = "North Maintenance"
+	name = "Warp Gate Control Station - North Maintenance"
 	icon_state = "maintenance"
 
 /area/piratebase/maint_south
-	name = "South Maintenance"
+	name = "Warp Gate Control Station - South Maintenance"
 	icon_state = "maintenance"
 
 /area/piratebase/medbay
-	name = "Medical Bay"
+	name = "Warp Gate Control Station - Medical Bay"
 	icon_state = "medbay"
 
 /area/piratebase/eva
-	name = "EVA Storage"
+	name = "Warp Gate Control Station - EVA Storage"
 	icon_state = "eva"
 
 /area/piratebase/maint_airlock
-	name = "Maintenance Airlock"
+	name = "Warp Gate Control Station - Maintenance Airlock"
 	icon_state = "maintenance"
 
 // Shuttle

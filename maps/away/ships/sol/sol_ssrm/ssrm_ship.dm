@@ -9,7 +9,6 @@
 	spawn_weight = 1
 	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 	ship_cost = 3 // to claim all the awaysite spots to reduce lag
-	spawn_cost = 3 // to claim all the awaysite spots to reduce lag
 	id = "ssrm_corvette"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/ssrm_shuttle)
 
