@@ -62,12 +62,14 @@
 
 /obj/item/storage/box/update_icon()
 	. = ..()
-	if(illustration)
+	if(label)
 		var/image/label_img = image(icon, label)
-		var/image/illustration_img = image(icon, illustration)
 		label_img.appearance_flags |= RESET_COLOR
-		illustration_img.appearance_flags |= RESET_COLOR
 		AddOverlays(label_img)
+
+	if(illustration)
+		var/image/illustration_img = image(icon, illustration)
+		illustration_img.appearance_flags |= RESET_COLOR
 		AddOverlays(illustration_img)
 
 /obj/item/storage/box/Initialize()
@@ -172,6 +174,7 @@
 	name = "emergency survival box"
 	desc = "A faithful box that will remain with you, no matter where you go, and probably save you."
 	color = COLOR_REDBOX
+	label = null
 	illustration = "survival"
 	max_storage_space = DEFAULT_BOX_STORAGE
 	can_hold = list(
@@ -454,8 +457,6 @@
 /obj/item/storage/box/handcuffs
 	name = "box of spare handcuffs"
 	desc = "A box full of handcuffs."
-	icon_state = "secbox"
-	item_state = "secbox"
 	illustration = "handcuff"
 	starts_with = list(/obj/item/handcuffs = 7)
 
@@ -501,18 +502,21 @@
 /obj/item/storage/box/psireceiver
 	name = "box of psionic receivers"
 	desc = "A box of psionic receivers, which can be surgically implanted to act as a replacement for an underdeveloped or non-existent zona bovinae. This one has a large sticker on the side reading FOR RESEARCH USE ONLY."
+	color = COLOR_PURPLE_GRAY
 	illustration = "implant"
 	starts_with = list(/obj/item/organ/internal/augment/psi = 4)
 
 /obj/item/storage/box/tethers
 	name = "box of tethering devices"
 	desc = "A box containing eight electro-tethers, used primarily to keep track of partners during expeditions."
+	color = COLOR_PURPLE_GRAY
 	starts_with = list(/obj/item/tethering_device = 8)
 	make_exact_fit = TRUE
 
 /obj/item/storage/box/chemimp
 	name = "boxed chemical implant kit"
 	desc = "Box of stuff used to implant chemicals."
+	color = COLOR_PURPLE_GRAY
 	illustration = "implant"
 	starts_with = list(/obj/item/implantcase/chem = 4, /obj/item/implanter = 1, /obj/item/implantpad = 1)
 
@@ -535,18 +539,21 @@
 /obj/item/storage/box/drinkingglasses
 	name = "box of drinking glasses"
 	desc = "It has a picture of drinking glasses on it."
+	color = COLOR_BLUE_GRAY
 	illustration = "drinkglass"
 	starts_with = list(/obj/item/reagent_containers/food/drinks/drinkingglass = 6)
 
 /obj/item/storage/box/cdeathalarm_kit
 	name = "death alarm kit"
 	desc = "Box of stuff used to implant death alarms."
+	color = COLOR_GUNMETAL
 	illustration = "implant"
 	starts_with = list(/obj/item/implanter = 1, /obj/item/implantcase/death_alarm = 6, /obj/item/implantpad = 1)
 
 /obj/item/storage/box/large/condimentbottles
 	name = "box of condiment bottles"
 	desc = "It has a large ketchup smear on it."
+	color = COLOR_YELLOW_GRAY
 	illustration = "condiment"
 	starts_with = list(/obj/item/reagent_containers/food/condiment = 6)
 
@@ -559,6 +566,7 @@
 /obj/item/storage/box/janitorgloves
 	name = "janitorial gloves box"
 	desc = "A box full of janitorial gloves of all shapes and sizes."
+	color = COLOR_PURPLE_GRAY
 	make_exact_fit = TRUE
 	can_hold = list(
 		/obj/item/clothing/gloves/janitor
@@ -673,12 +681,14 @@
 /obj/item/storage/box/ids
 	name = "box of spare IDs"
 	desc = "Has so many empty IDs."
+	color = COLOR_PALE_BLUE_GRAY
 	illustration = "id"
 	starts_with = list(/obj/item/card/id = 7)
 
 /obj/item/storage/box/zipties
 	name = "box of zipties"
 	desc = "A box full of zipties."
+	color = COLOR_GUNMETAL
 	illustration = "handcuff"
 	starts_with = list(/obj/item/handcuffs/ziptie = 7)
 
@@ -783,36 +793,43 @@
 /obj/item/storage/box/lights/colored/red
 	name = "box of red lights"
 	illustration = "lightmixed"
+	color = COLOR_RED_GRAY
 	starts_with = list(/obj/item/light/tube/colored/red = 14, /obj/item/light/bulb/colored/red = 7)
 
 /obj/item/storage/box/lights/colored/green
 	name = "box of green lights"
 	illustration = "lightmixed"
+	color = COLOR_GREEN_GRAY
 	starts_with = list(/obj/item/light/tube/colored/green = 14, /obj/item/light/bulb/colored/green = 7)
 
 /obj/item/storage/box/lights/colored/blue
 	name = "box of blue lights"
 	illustration = "lightmixed"
+	color = COLOR_BLUE_GRAY
 	starts_with = list(/obj/item/light/tube/colored/blue = 14, /obj/item/light/bulb/colored/blue = 7)
 
 /obj/item/storage/box/lights/colored/cyan
 	name = "box of cyan lights"
 	illustration = "lightmixed"
+	color = COLOR_LIGHT_CYAN
 	starts_with = list(/obj/item/light/tube/colored/cyan = 14, /obj/item/light/bulb/colored/cyan = 7)
 
 /obj/item/storage/box/lights/colored/yellow
 	name = "box of yellow lights"
 	illustration = "lightmixed"
+	color = COLOR_YELLOW_GRAY
 	starts_with = list(/obj/item/light/tube/colored/yellow = 14, /obj/item/light/bulb/colored/yellow = 7)
 
 /obj/item/storage/box/lights/colored/magenta
 	name = "box of magenta lights"
 	illustration = "lightmixed"
+	color = COLOR_PALE_PINK
 	starts_with = list(/obj/item/light/tube/colored/magenta = 14, /obj/item/light/bulb/colored/magenta = 7)
 
 /obj/item/storage/box/kitchen
 	name = "kitchen supplies"
 	illustration = "knife"
+	color = COLOR_GRAY80
 	desc = "Contains an assortment of utensils and containers useful in the preparation of food and drinks."
 
 /obj/item/storage/box/kitchen/fill()
@@ -903,6 +920,7 @@
 /obj/item/storage/box/large/produce
 	name = "produce box"
 	desc = "A large box of random, leftover produce."
+	color = COLOR_GREEN_GRAY
 	icon_state = "largebox"
 	illustration = "fruit"
 	starts_with = list(/obj/random_produce/box = 15)
@@ -955,6 +973,10 @@
 	starts_with = list(/obj/item/reagent_containers/food/snacks/crabmeat = 5)
 
 /obj/item/storage/box/toothpaste
+	name = "dental hygiene box"
+	desc = "A box filled with dental hygiene products for taking care of those pearly whites."
+	color = COLOR_BLUE_GRAY
+	starts_with = list(/obj/item/reagent_containers/food/snacks/crabmeat = 5)
 	can_hold = list(/obj/item/reagent_containers/toothpaste,
 					/obj/item/reagent_containers/toothbrush,
 					/obj/item/reagent_containers/food/drinks/flask/vacuumflask/mouthwash,
