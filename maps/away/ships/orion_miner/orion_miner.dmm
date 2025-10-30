@@ -550,12 +550,10 @@
 /obj/structure/bed/handrail{
 	pixel_y = 7
 	},
-/obj/machinery/atm{
-	dir = 4;
-	pixel_x = 16;
-	pixel_y = 6
-	},
 /obj/random/dirt_75,
+/obj/machinery/light/colored/decayed{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/mess_hall)
 "dW" = (
@@ -2337,7 +2335,6 @@
 /area/shuttle/orion_miner/cargo_bay)
 "vv" = (
 /obj/machinery/appliance/cooker/stove,
-/obj/machinery/alarm/north,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
@@ -2689,6 +2686,7 @@
 /obj/machinery/light/colored/violet{
 	dir = 1
 	},
+/obj/machinery/alarm/east,
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/hydro)
 "yK" = (
@@ -2999,7 +2997,7 @@
 	dir = 5
 	},
 /obj/structure/closet/secure_closet/medical/empty{
-	req_access = null
+	req_access = list(201)
 	},
 /obj/item/reagent_containers/inhaler/pneumalin,
 /obj/item/reagent_containers/inhaler/pneumalin,
@@ -4079,7 +4077,6 @@
 /obj/machinery/vending/hydronutrients/hydroponics,
 /obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/effect/floor_decal/industrial/outline/service,
-/obj/machinery/alarm/east,
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/hydro)
 "KR" = (
@@ -4503,10 +4500,14 @@
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/orion_miner/tech_storage)
 "Pf" = (
-/obj/machinery/alarm/west,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
+/obj/machinery/atm{
+	dir = 8;
+	pixel_x = -16;
+	pixel_y = 6
+	},
 /turf/simulated/floor/tiled/full,
 /area/shuttle/orion_miner/mess_hall)
 "Pi" = (
@@ -5178,6 +5179,7 @@
 /obj/structure/disposalpipe/junction{
 	dir = 1
 	},
+/obj/machinery/alarm/west,
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/mess_hall)
 "Uc" = (
@@ -5186,14 +5188,18 @@
 	pixel_y = 13
 	},
 /obj/effect/floor_decal/spline/plain/black,
-/obj/machinery/light/colored/decayed{
-	dir = 4
-	},
 /obj/item/reagent_containers/spray/cleaner{
 	pixel_x = -5;
 	pixel_y = 4
 	},
 /obj/machinery/power/outlet,
+/obj/machinery/button/remote/blast_door{
+	dir = 4;
+	id = "om_blast";
+	name = "Exterior Window Lockdown";
+	pixel_x = 20;
+	pixel_y = 4
+	},
 /turf/simulated/floor/marble,
 /area/shuttle/orion_miner/mess_hall)
 "Uf" = (
