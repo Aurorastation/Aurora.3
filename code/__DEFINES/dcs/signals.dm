@@ -15,10 +15,16 @@
 
 // /atom signals
 
+/// Called from atom/Initialize() of target: (atom/target)
+#define COMSIG_ATOM_INITIALIZED_ON "atom_initialized_on"
+
 // /area signals
 #define COMSIG_AREA_FIRE_ALARM "fire_alarm"
 
 // /turf signals
+
+/// From base of turf/ChangeTurf(): (path)
+#define COMSIG_TURF_CHANGE "turf_change"
 
 // /atom/movable signals
 

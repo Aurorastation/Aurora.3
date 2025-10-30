@@ -75,7 +75,7 @@ GLOBAL_LIST(fusion_reactions)
 	p_react = GAS_HYDROGEN
 	s_react = GAS_HYDROGEN
 	energy_consumption = 4
-	energy_production = 19
+	energy_production = 32
 	products = list(GAS_DEUTERIUM = 1)
 	radiation = 3
 	minimum_energy_level = 400000
@@ -95,7 +95,7 @@ GLOBAL_LIST(fusion_reactions)
 	p_react = GAS_HYDROGEN
 	s_react = GAS_HELIUMFUEL
 	energy_consumption = 2
-	energy_production = 12
+	energy_production = 24
 	products = list(GAS_HYDROGEN = 2)
 	radiation = 32
 	instability = 1.8
@@ -151,7 +151,7 @@ GLOBAL_LIST(fusion_reactions)
 	p_react = "lithium"
 	s_react = GAS_HYDROGEN
 	energy_consumption = 3
-	energy_production = 5
+	energy_production = 15
 	products = list(GAS_DEUTERIUM = 1, GAS_HELIUM = 1)
 	radiation = 22
 	instability = 0.35
@@ -160,7 +160,6 @@ GLOBAL_LIST(fusion_reactions)
 
 /singleton/fusion_reaction/lithium_deuterium
 	p_react = "lithium"
-	minimum_p_react = 2000
 	s_react = GAS_DEUTERIUM
 	energy_consumption = 1
 	energy_production = 40

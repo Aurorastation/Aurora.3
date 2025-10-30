@@ -300,7 +300,10 @@
 			//If it's a Vaurca, there's a chance the spear wouldn't go in deep enough to apply an infection
 			//You're still damaged by falling on it though, which happens above, but at least you're spared the infection
 			//Glory to your carapace
-			if(isvaurca(L) && prob(50))
+
+			//Also, don't infect robotic limbs with infections!!!!!!!!!!!
+			//Something something the certainty of steel
+			if(isvaurca(L) && prob(50) || organ.robotic == ROBOTIC_MECHANICAL)
 				return
 
 			organ.germ_level += INFECTION_LEVEL_TWO
