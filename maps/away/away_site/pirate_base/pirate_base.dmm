@@ -65,6 +65,7 @@
 	dir = 6
 	},
 /obj/random/dirt_75,
+/obj/machinery/deployable/barrier,
 /turf/simulated/floor/tiled,
 /area/piratebase/hallway_south)
 "aJ" = (
@@ -161,6 +162,7 @@
 	dir = 4
 	},
 /obj/machinery/space_heater,
+/obj/item/tape/engineering,
 /turf/simulated/floor/tiled,
 /area/piratebase/hallway_north)
 "bm" = (
@@ -239,6 +241,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/piratebase/hallway_north)
+"bM" = (
+/obj/structure/table/rack/folding_table,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
+/area/mine)
 "bN" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -293,6 +299,9 @@
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube_empty"
+	},
+/obj/structure/barricade/liquid{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/piratebase/hallway_south)
@@ -361,6 +370,8 @@
 /area/piratebase/maint_north)
 "cH" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_burned,
+/obj/effect/decal/cleanable/floor_damage/random_burned,
 /turf/simulated/floor/exoplanet/barren,
 /area/piratebase/hallway_north)
 "cK" = (
@@ -431,6 +442,17 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/piratebase/maint_north)
+"dm" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 10
+	},
+/obj/effect/decal/cleanable/liquid_fuel/flamethrower_fuel,
+/obj/item/flamethrower/full,
+/obj/item/tape/engineering,
+/obj/item/paper/pirate_base/kois,
+/obj/structure/table/rack/folding_table,
+/turf/simulated/floor/tiled,
+/area/piratebase/hallway_north)
 "dr" = (
 /obj/random/tech_supply{
 	pixel_x = -9;
@@ -479,6 +501,7 @@
 /obj/machinery/door/airlock/glass,
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid,
+/obj/effect/decal/cleanable/liquid_fuel/flamethrower_fuel,
 /obj/item/tape/engineering,
 /turf/simulated/floor/plating,
 /area/piratebase/hallway_north)
@@ -709,15 +732,8 @@
 	dir = 1
 	},
 /obj/structure/table/standard,
-/obj/item/reagent_containers/food/drinks/waterbottle{
-	pixel_x = 1;
-	pixel_y = 5
-	},
-/obj/item/reagent_containers/food/drinks/waterbottle{
-	pixel_x = -6;
-	pixel_y = -5
-	},
-/obj/item/reagent_containers/food/snacks/koisbar,
+/obj/effect/decal/cleanable/floor_damage/random_burned,
+/obj/effect/decal/cleanable/liquid_fuel/flamethrower_fuel,
 /turf/simulated/floor/exoplanet/barren,
 /area/piratebase/hallway_north)
 "fr" = (
@@ -829,7 +845,9 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/structure/table/standard,
-/obj/item/clothing/mask/gas/vaurca/filter,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_burned,
+/obj/effect/decal/cleanable/floor_damage/random_burned,
+/obj/item/reagent_containers/food/snacks/friedkois,
 /turf/simulated/floor/exoplanet/barren,
 /area/piratebase/hallway_north)
 "gn" = (
@@ -879,6 +897,14 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
+/area/piratebase/hallway_north)
+"gy" = (
+/obj/effect/decal/cleanable/floor_damage/random_tiled_burned,
+/obj/effect/decal/cleanable/floor_damage/random_burned,
+/obj/effect/decal/cleanable/liquid_fuel/flamethrower_fuel,
+/obj/effect/decal/cleanable/liquid_fuel/flamethrower_fuel,
+/obj/item/trash/koisbar,
+/turf/simulated/floor/plating/asteroid,
 /area/piratebase/hallway_north)
 "gC" = (
 /obj/item/stack/flag/red/planted,
@@ -962,6 +988,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/piratebase/equipment)
+"he" = (
+/obj/random/dirt_75,
+/obj/machinery/floodlight,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
+/area/mine)
 "hj" = (
 /obj/random/dirt_75,
 /obj/machinery/atmospherics/pipe/manifold/visible/green,
@@ -1087,6 +1118,9 @@
 /obj/machinery/alarm/north,
 /obj/structure/table/standard,
 /obj/item/reagent_containers/food/snacks/koiskebab1,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_burned,
+/obj/effect/decal/cleanable/floor_damage/random_burned,
+/obj/effect/decal/cleanable/liquid_fuel/flamethrower_fuel,
 /turf/simulated/floor/exoplanet/barren,
 /area/piratebase/hallway_north)
 "if" = (
@@ -1328,6 +1362,8 @@
 /turf/simulated/floor/tiled/full,
 /area/piratebase/hallway_south)
 "ka" = (
+/obj/effect/decal/cleanable/floor_damage/random_tiled_burned,
+/obj/effect/decal/cleanable/liquid_fuel/flamethrower_fuel,
 /turf/simulated/floor/plating/asteroid,
 /area/piratebase/hallway_north)
 "ke" = (
@@ -1420,6 +1456,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/piratebase/power)
+"kK" = (
+/obj/machinery/floodlight,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
+/area/mine)
 "kL" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -1427,7 +1467,8 @@
 "kQ" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
-/obj/item/trash/koisbar,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_burned,
+/obj/effect/decal/cleanable/floor_damage/random_burned,
 /turf/simulated/floor/exoplanet/barren,
 /area/piratebase/hallway_north)
 "kR" = (
@@ -1598,6 +1639,15 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/airless,
 /area/mine)
+"mk" = (
+/obj/structure/structural_support{
+	pixel_y = 8
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_burned,
+/obj/effect/decal/cleanable/liquid_fuel/flamethrower_fuel,
+/turf/simulated/floor/plating/asteroid,
+/area/piratebase/hallway_north)
 "mn" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/plating,
@@ -1651,6 +1701,13 @@
 /obj/structure/particle_accelerator/particle_emitter/center,
 /turf/simulated/floor/plating,
 /area/piratebase/equipment)
+"mM" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 9
+	},
+/obj/machinery/deployable/barrier,
+/turf/simulated/floor/tiled,
+/area/piratebase/hallway_south)
 "mQ" = (
 /obj/random/dirt_75,
 /obj/random/loot,
@@ -1778,10 +1835,8 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
 /obj/structure/table/standard,
-/obj/item/reagent_containers/food/snacks/koisbar,
-/obj/item/reagent_containers/food/snacks/koisbar,
-/obj/item/reagent_containers/food/snacks/koisbar,
-/obj/item/reagent_containers/food/snacks/friedkois,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_burned,
+/obj/effect/decal/cleanable/floor_damage/random_burned,
 /turf/simulated/floor/exoplanet/barren,
 /area/piratebase/hallway_north)
 "nT" = (
@@ -1881,6 +1936,8 @@
 /obj/structure/table/standard,
 /obj/item/gun/projectile/tanto,
 /obj/item/ammo_magazine/a10mm,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_burned,
+/obj/effect/decal/cleanable/floor_damage/random_burned,
 /turf/simulated/floor/exoplanet/barren,
 /area/piratebase/hallway_north)
 "oP" = (
@@ -1904,6 +1961,7 @@
 	dir = 1
 	},
 /obj/item/trash/koisbar,
+/obj/effect/decal/cleanable/floor_damage/random_burned,
 /turf/simulated/floor/exoplanet/barren,
 /area/piratebase/hallway_north)
 "pa" = (
@@ -2013,6 +2071,16 @@
 /obj/random/tech_supply,
 /turf/simulated/floor/tiled,
 /area/piratebase/power)
+"py" = (
+/obj/random/dirt_75,
+/obj/structure/table/rack,
+/obj/item/clothing/head/cone,
+/obj/item/clothing/head/cone,
+/obj/item/clothing/head/cone,
+/obj/item/clothing/head/cone,
+/obj/item/clothing/head/cone,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
+/area/mine)
 "pz" = (
 /obj/structure/table/steel,
 /obj/effect/floor_decal/corner/grey/full{
@@ -2034,6 +2102,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/piratebase/kitchen)
+"pH" = (
+/obj/structure/barricade/liquid{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/piratebase/hallway_south)
 "pJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/random/dirt_75,
@@ -2372,6 +2446,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/piratebase/atmos)
+"ry" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/effect/decal/cleanable/floor_damage/random_burned,
+/obj/item/clothing/mask/gas/vaurca/filter,
+/turf/simulated/floor/exoplanet/barren,
+/area/piratebase/hallway_north)
 "rD" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/black,
@@ -2424,13 +2504,13 @@
 /turf/simulated/floor/plating,
 /area/piratebase/hallway_south)
 "sb" = (
-/obj/structure/table/standard,
 /obj/item/gun/projectile/tanto,
 /obj/item/ammo_magazine/a10mm,
 /obj/item/clothing/glasses/safety/goggles/goon/pmc{
 	pixel_x = 8;
 	pixel_y = 11
 	},
+/obj/structure/table/rack/folding_table,
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "sc" = (
@@ -2551,6 +2631,10 @@
 /area/piratebase/power)
 "te" = (
 /obj/effect/floor_decal/industrial/outline/grey,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_burned,
+/obj/effect/decal/cleanable/floor_damage/random_burned,
+/obj/effect/decal/cleanable/liquid_fuel/flamethrower_fuel,
+/obj/effect/decal/cleanable/liquid_fuel/flamethrower_fuel,
 /turf/simulated/floor/exoplanet/barren,
 /area/piratebase/hallway_north)
 "ti" = (
@@ -2647,6 +2731,7 @@
 /obj/structure/structural_support{
 	pixel_y = 8
 	},
+/obj/effect/decal/cleanable/floor_damage/random_burned,
 /turf/simulated/floor/plating/asteroid,
 /area/piratebase/hallway_north)
 "tZ" = (
@@ -2787,6 +2872,7 @@
 	dir = 10
 	},
 /obj/random/dirt_75,
+/obj/machinery/deployable/barrier,
 /turf/simulated/floor/plating,
 /area/piratebase/maint_airlock)
 "vc" = (
@@ -2869,6 +2955,13 @@
 "vz" = (
 /turf/simulated/floor/airless/ceiling,
 /area/mine)
+"vD" = (
+/obj/item/clothing/head/cone{
+	pixel_x = 12;
+	pixel_y = 4
+	},
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
+/area/mine)
 "vG" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
@@ -2944,6 +3037,13 @@
 "wc" = (
 /turf/simulated/wall/r_wall,
 /area/piratebase/atmos)
+"wd" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_burned,
+/obj/effect/decal/cleanable/floor_damage/random_burned,
+/obj/effect/decal/cleanable/liquid_fuel/flamethrower_fuel,
+/turf/simulated/floor/exoplanet/barren,
+/area/piratebase/hallway_north)
 "we" = (
 /obj/random/dirt_75,
 /obj/structure/inflatable/door,
@@ -3188,7 +3288,7 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
 /obj/structure/table/standard,
-/obj/structure/closet/crate/freezer/kois/rations,
+/obj/effect/decal/cleanable/floor_damage/random_burned,
 /turf/simulated/floor/exoplanet/barren,
 /area/piratebase/hallway_north)
 "xQ" = (
@@ -3229,6 +3329,13 @@
 /obj/item/stack/flag/red/planted,
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
+"yd" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/liquid_fuel/flamethrower_fuel,
+/obj/item/tape/engineering,
+/obj/structure/table/rack/folding_table,
+/turf/simulated/floor/tiled,
+/area/piratebase/hallway_north)
 "yf" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 1
@@ -3317,6 +3424,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/piratebase/maint_north)
+"yU" = (
+/obj/structure/barricade/liquid,
+/turf/simulated/floor/exoplanet/asteroid/ash,
+/area/mine)
 "yX" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
@@ -3449,6 +3560,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/piratebase/hallway_north)
+"zS" = (
+/obj/effect/decal/cleanable/liquid_fuel/flamethrower_fuel,
+/turf/simulated/floor/plating/asteroid,
+/area/piratebase/hallway_north)
 "zU" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
@@ -3476,6 +3591,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/piratebase/maint_north)
+"zX" = (
+/obj/structure/barricade/liquid,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
+/area/mine)
 "Aa" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/random/dirt_75,
@@ -3530,6 +3649,14 @@
 	dir = 4
 	},
 /obj/structure/table/rack/folding_table,
+/obj/item/paper/pirate_base/warpcorenote{
+	pixel_x = 5;
+	pixel_y = 12
+	},
+/obj/item/pen/black{
+	pixel_x = -3;
+	pixel_y = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/piratebase/equipment)
 "Al" = (
@@ -3545,6 +3672,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/piratebase/maint_north)
+"Am" = (
+/obj/machinery/deployable/barrier,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
+/area/mine)
 "An" = (
 /obj/random/dirt_75,
 /obj/structure/trash_pile,
@@ -3579,6 +3710,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/piratebase/power)
+"Ax" = (
+/obj/random/dirt_75,
+/obj/structure/table/rack,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
+/area/mine)
 "Ay" = (
 /obj/structure/cable{
 	icon_state = "1-4"
@@ -3623,6 +3759,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/piratebase/maint_south)
+"AY" = (
+/obj/structure/structural_support{
+	pixel_y = 8
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_burned,
+/turf/simulated/floor/plating/asteroid,
+/area/piratebase/hallway_north)
 "AZ" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -3640,6 +3784,15 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
+/area/piratebase/hallway_north)
+"Bh" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/random/dirt_75,
+/obj/item/trash/cigbutt/cigarbutt/alt{
+	pixel_x = -1;
+	pixel_y = 4
+	},
+/turf/simulated/floor/exoplanet/barren,
 /area/piratebase/hallway_north)
 "Bm" = (
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -3686,6 +3839,14 @@
 	},
 /obj/random/dirt_75,
 /obj/structure/reagent_dispensers/watertank,
+/obj/item/reagent_containers/food/drinks/waterbottle{
+	pixel_x = -6;
+	pixel_y = -5
+	},
+/obj/item/reagent_containers/food/drinks/waterbottle{
+	pixel_x = 1;
+	pixel_y = 5
+	},
 /turf/simulated/floor/tiled,
 /area/piratebase/hallway_north)
 "Bu" = (
@@ -4205,6 +4366,7 @@
 	dir = 9
 	},
 /obj/random/dirt_75,
+/obj/machinery/deployable/barrier,
 /turf/simulated/floor/plating,
 /area/piratebase/maint_airlock)
 "Fh" = (
@@ -4251,6 +4413,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/machinery/power/radial_floodlight,
 /turf/simulated/floor/tiled,
 /area/piratebase/eva)
 "Fz" = (
@@ -4296,6 +4459,12 @@
 /obj/item/bedsheet/blue,
 /turf/simulated/floor/wood,
 /area/piratebase/quarters)
+"FT" = (
+/obj/effect/decal/cleanable/floor_damage/random_tiled_burned,
+/obj/effect/decal/cleanable/liquid_fuel/flamethrower_fuel,
+/obj/item/reagent_containers/food/snacks/friedkois,
+/turf/simulated/floor/plating/asteroid,
+/area/piratebase/hallway_north)
 "FU" = (
 /obj/effect/floor_decal/corner/grey/full{
 	dir = 8
@@ -4547,6 +4716,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/machinery/deployable/barrier,
 /turf/simulated/floor/tiled,
 /area/piratebase/hallway_south)
 "Hx" = (
@@ -5062,6 +5232,14 @@
 	pixel_y = 9;
 	pixel_x = -7
 	},
+/obj/item/pen/fountain/silver{
+	pixel_x = -5;
+	pixel_y = -1
+	},
+/obj/item/modular_computer/handheld/pda/civilian{
+	pixel_x = 6;
+	pixel_y = 9
+	},
 /turf/simulated/floor/tiled,
 /area/piratebase/hallway_south)
 "KG" = (
@@ -5389,6 +5567,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/piratebase/hallway_north)
+"MJ" = (
+/obj/machinery/floodlight,
+/turf/simulated/floor/airless/ceiling,
+/area/mine)
 "MM" = (
 /obj/random/junk,
 /obj/random/dirt_75,
@@ -5513,6 +5695,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/piratebase/power)
+"Nu" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/effect/decal/cleanable/floor_damage/random_burned,
+/turf/simulated/floor/exoplanet/barren,
+/area/piratebase/hallway_north)
 "Nz" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -5556,7 +5743,9 @@
 /area/piratebase/maint_south)
 "NP" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/reagent_containers/food/snacks/koisbar,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_burned,
+/obj/effect/decal/cleanable/floor_damage/random_burned,
+/obj/effect/decal/cleanable/liquid_fuel/flamethrower_fuel,
 /turf/simulated/floor/exoplanet/barren,
 /area/piratebase/hallway_north)
 "NQ" = (
@@ -6224,7 +6413,7 @@
 /turf/simulated/floor/tiled,
 /area/piratebase/kitchen)
 "RH" = (
-/obj/item/tape/engineering,
+/obj/effect/decal/cleanable/floor_damage/random_burned,
 /turf/simulated/floor/plating/asteroid,
 /area/piratebase/hallway_north)
 "RL" = (
@@ -6367,6 +6556,7 @@
 	master_tag = "airlock_pirate_base_main";
 	name = "airlock_pirate_base_main"
 	},
+/obj/item/paper/pirate_base/airlock,
 /turf/simulated/floor/plating,
 /area/piratebase/hallway_south)
 "SI" = (
@@ -6428,6 +6618,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
+/obj/machinery/deployable/barrier,
 /turf/simulated/floor/tiled,
 /area/piratebase/hallway_south)
 "SX" = (
@@ -6486,11 +6677,7 @@
 "Tu" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
-/obj/item/trash/cigbutt/cigarbutt/alt{
-	pixel_x = -1;
-	pixel_y = 4
-	},
-/obj/structure/reagent_dispensers/fueltank,
+/obj/effect/decal/cleanable/floor_damage/random_burned,
 /turf/simulated/floor/exoplanet/barren,
 /area/piratebase/hallway_north)
 "TA" = (
@@ -6636,19 +6823,16 @@
 /area/piratebase/kitchen)
 "Uz" = (
 /obj/structure/table/standard,
-/obj/item/modular_computer/handheld/pda/civilian{
-	pixel_x = 6;
-	pixel_y = 9
-	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube_empty"
 	},
-/obj/item/pen/fountain/silver{
-	pixel_x = -5;
-	pixel_y = -1
+/obj/item/melee/telebaton,
+/obj/item/clothing/head/beret/corporate/pmc{
+	pixel_x = -7;
+	pixel_y = 2
 	},
 /turf/simulated/floor/plating,
 /area/piratebase/hallway_south)
@@ -7153,6 +7337,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/piratebase/eva)
+"Yr" = (
+/obj/random/dirt_75,
+/obj/structure/barricade/liquid,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
+/area/mine)
 "Yu" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 4
@@ -40628,10 +40817,10 @@ QB
 Cb
 QB
 QB
-kk
-kk
-kk
-kk
+cn
+cn
+cn
+cn
 kk
 uU
 Fe
@@ -40886,7 +41075,7 @@ JF
 IW
 xr
 Jw
-GG
+xu
 mI
 mI
 kk
@@ -40948,7 +41137,7 @@ sB
 sB
 sB
 sB
-sB
+kK
 kz
 kz
 kz
@@ -41143,7 +41332,7 @@ jZ
 Ji
 fR
 CC
-GG
+xu
 mI
 mI
 mI
@@ -41391,16 +41580,16 @@ Rn
 Ji
 Rh
 ci
-Ji
-IW
+pH
+mM
 IW
 ZJ
 uE
 kV
 zh
 XC
-GG
-GG
+xu
+xu
 mI
 sB
 sB
@@ -41410,13 +41599,13 @@ mV
 mV
 kz
 kz
-kz
-kz
-kz
+Ax
+py
+he
 sB
 sB
 sB
-sB
+Am
 sB
 sB
 sB
@@ -41653,13 +41842,13 @@ TJ
 nq
 OP
 lW
-GG
+xu
 CY
 bC
-GG
+xu
 cN
 cN
-vz
+MJ
 sB
 sB
 sB
@@ -41667,17 +41856,17 @@ mV
 mV
 mV
 mV
+Ax
 kz
 kz
-kz
-kz
+Yr
 sB
 sB
+Am
+Am
+vD
 sB
-sB
-sB
-sB
-sB
+vD
 sB
 sB
 sB
@@ -41910,11 +42099,11 @@ SW
 DJ
 ws
 Tg
-GG
+xu
 JH
 Df
-GG
-GG
+xu
+xu
 tz
 cN
 sB
@@ -41927,7 +42116,7 @@ mV
 nT
 nT
 sB
-sB
+zX
 sB
 sB
 sB
@@ -42167,7 +42356,7 @@ XY
 nq
 Uc
 lW
-GG
+xu
 Sv
 SH
 dX
@@ -42424,7 +42613,7 @@ sP
 cV
 km
 lW
-GG
+xu
 rZ
 LE
 dX
@@ -42441,7 +42630,7 @@ sB
 sB
 sB
 sB
-sB
+kK
 nT
 nT
 nT
@@ -42681,11 +42870,11 @@ wD
 GG
 Uc
 Tg
-GG
+xu
 JH
 Df
-GG
-GG
+xu
+xu
 tz
 cN
 nT
@@ -42699,14 +42888,14 @@ Go
 sB
 nT
 nT
-nT
+yU
 nT
 nT
 Go
 sB
 sB
 sB
-sB
+vD
 sB
 Go
 mV
@@ -42938,10 +43127,10 @@ GG
 GG
 Uc
 lW
-GG
+xu
 CY
 Ia
-GG
+xu
 hp
 cN
 cN
@@ -42956,12 +43145,12 @@ sB
 sB
 nT
 nT
-nT
+yU
 sB
 sB
 sB
-sB
-sB
+Am
+vD
 sB
 sB
 mV
@@ -43198,8 +43387,8 @@ Ji
 rJ
 we
 XC
-GG
-GG
+xu
+xu
 nT
 nT
 mV
@@ -43211,12 +43400,12 @@ sB
 sB
 sB
 sB
-sB
-sB
-sB
-sB
-sB
-sB
+kK
+bM
+bM
+Am
+Am
+Am
 sB
 sB
 sB
@@ -43456,7 +43645,7 @@ TJ
 nq
 mt
 JA
-GG
+xu
 Fs
 nT
 vV
@@ -43692,7 +43881,7 @@ LM
 vd
 gS
 Ql
-Ap
+mk
 of
 mI
 mI
@@ -43713,7 +43902,7 @@ lU
 eh
 IA
 Li
-GG
+xu
 nT
 nT
 VP
@@ -43950,10 +44139,10 @@ WI
 WI
 Ql
 ie
-of
-of
+kQ
+Bh
 mI
-Ap
+AY
 Tu
 mI
 mI
@@ -43969,8 +44158,8 @@ KW
 eW
 Ac
 Ac
-GG
-GG
+xu
+xu
 nT
 LI
 mI
@@ -44032,7 +44221,7 @@ sB
 sB
 sB
 sB
-sB
+kK
 sB
 sB
 sB
@@ -44207,11 +44396,11 @@ Vw
 iK
 Ql
 fp
-te
+wd
 nF
 xN
 oM
-of
+Tu
 mI
 mI
 mI
@@ -44221,12 +44410,12 @@ mI
 mI
 xu
 GG
-GG
-GG
-GG
-GG
-GG
-GG
+xu
+xu
+xu
+xu
+xu
+xu
 xu
 nT
 mI
@@ -44461,7 +44650,7 @@ ff
 BC
 Ni
 vk
-iK
+dm
 mn
 RH
 ka
@@ -44718,10 +44907,10 @@ ff
 Vw
 vk
 vk
-vd
+yd
 dN
 RH
-ka
+gy
 te
 cH
 Pu
@@ -44977,9 +45166,9 @@ EJ
 vd
 bj
 mn
-RH
-ka
-te
+zS
+FT
+ry
 tS
 mI
 mI
@@ -45235,8 +45424,8 @@ Gz
 Xr
 Ql
 oU
-te
-te
+Nu
+Nu
 mI
 mI
 XT
@@ -48361,7 +48550,7 @@ mI
 mI
 mI
 sB
-sB
+kK
 sB
 sB
 sB
