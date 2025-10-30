@@ -330,7 +330,7 @@
 		has_items = TRUE
 	if(my_lightreplacer)
 		if(istype(my_lightreplacer, /obj/item/device/lightreplacer/advanced))
-			AddOverlays("cart_adv_lightreplacer")
+			AddOverlays("cart_adv_replacer")
 		else
 			AddOverlays("cart_replacer")
 		has_items = TRUE
