@@ -185,6 +185,7 @@
 
 /area/horizon/maintenance/deck_3/cafe
 	name = "Cafe Maintenance"
+	hostile_events = FALSE
 
 /area/horizon/maintenance/deck_3/aft/holodeck
 	name = "Holodeck Maintenance"
