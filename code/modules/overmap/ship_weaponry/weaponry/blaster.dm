@@ -34,7 +34,7 @@
 		var/mob/M = target
 		M.visible_message(SPAN_DANGER("<font size=5>\The [src] disintegrates [M]'s chest and blasts them into pieces!</font>"))
 	if(isturf(target) || isobj(target))
-		explosion(target, 2, 5, 7)
+		explosion(target, 1, 4, 4)
 
 /obj/machinery/ammunition_loader/blaster
 	name = "mining blaster loader"
