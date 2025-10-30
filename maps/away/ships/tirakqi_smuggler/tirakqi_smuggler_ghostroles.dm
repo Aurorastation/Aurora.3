@@ -2,13 +2,15 @@
 	short_name = "tirakqi_crew"
 	name = "Ti'Rakqi Lu'fup"
 	desc = "You crew the ship, mop the floors, cook the meals, and shoot whoever gets too close to the goods. Try to show some initiative!"
+	desc_ooc = "While you may be capable of playing a Vaurca as this role, \
+	it should be restricted to Xi'larx C'thur and failure to abide by this restriction could lead to administrative action."
 	tags = list("External")
 
 	spawnpoints = list("tirakqi_crew")
 	max_count = 2
 
 	outfit = /obj/outfit/admin/tirakqi_crew
-	possible_species = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
+	possible_species = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Ti'Rakqi Lu'fup"
@@ -41,6 +43,12 @@
 		/obj/item/clothing/shoes/jackboots,
 		/obj/item/clothing/shoes/workboots/brown,
 		/obj/item/clothing/shoes/combat
+		)
+
+	species_shoes = list(
+		SPECIES_VAURCA_WORKER = /obj/item/clothing/shoes/jackboots/toeless,
+		SPECIES_VAURCA_WARRIOR = /obj/item/clothing/shoes/jackboots/toeless,
+		SPECIES_VAURCA_ATTENDANT = /obj/item/clothing/shoes/jackboots/toeless
 	)
 
 	head = list(
@@ -116,13 +124,15 @@
 	short_name = "tirakqi_medic"
 	name = "Ti'Rakqi Medic"
 	desc = "You're a trained doctor serving as a Qu'oot with the Ti'Rakqi! Try to keep the crew alive or you may find yourself stranded in space."
+	desc_ooc = "While you may be capable of playing a Vaurca as this role, \
+	it should be restricted to Xi'larx C'thur and failure to abide by this restriction could lead to administrative action. /"
 	tags = list("External")
 
 	spawnpoints = list("tirakqi_medic")
 	max_count = 1
 
 	outfit = /obj/outfit/admin/tirakqi_crew/medic
-	possible_species = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
+	possible_species = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Ti'Rakqi Medic"
@@ -143,18 +153,19 @@
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat
 	glasses = /obj/item/clothing/glasses/hud/health
 
-
 /datum/ghostspawner/human/tirakqi_engineer
 	short_name = "tirakqi_engineer"
 	name = "Ti'Rakqi Engineer"
 	desc = "You're a trained engineer serving as a Qu'oot with the Ti'Rakqi! Try to keep the ship functioning or you may find yourself stranded in space."
+	desc_ooc = "While you may be capable of playing a Vaurca as this role, \
+	it should be restricted to Xi'larx C'thur and failure to abide by this restriction could lead to administrative action."
 	tags = list("External")
 
 	spawnpoints = list("tirakqi_engineer")
 	max_count = 1
 
 	outfit = /obj/outfit/admin/tirakqi_crew/engineer
-	possible_species = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
+	possible_species = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Ti'Rakqi Engineer"
