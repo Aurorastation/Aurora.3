@@ -416,6 +416,10 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 	density = TRUE
 	layer = ABOVE_HUMAN_LAYER
 
+/obj/structure/shipping_container_old/Initialize()
+	. = ..()
+	AddComponent(/datum/component/large_transparency)
+
 /obj/effect/overlay/container_logo
 	name = "Hephaestus Industries emblem"
 	icon = 'icons/obj/structure/industrial/shipping_containers_old.dmi'

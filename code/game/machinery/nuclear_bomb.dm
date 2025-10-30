@@ -6,6 +6,8 @@ GLOBAL_VAR(bomb_set)
 	icon = 'icons/obj/nuke.dmi'
 	icon_state = "idle"
 	density = 1
+	atom_flags = CRITICAL_ATOM
+
 	var/deployable = 0
 	var/extended = 0
 	var/lighthack = 0
