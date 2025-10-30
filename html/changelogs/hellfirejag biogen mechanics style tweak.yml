@@ -1,0 +1,4 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - rscadd: "Tweaked the mechanics hints of the biogenerator for better readability."
