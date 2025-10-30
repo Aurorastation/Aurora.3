@@ -2,9 +2,9 @@
 #define FUSION_RUPTURE_THRESHOLD		25000
 #define FUSION_REACTANT_CAP				10000
 #define FUSION_WARNING_DELAY 			20
-#define FUSION_BLACKBODY_MULTIPLIER		28
+#define FUSION_BLACKBODY_MULTIPLIER		350
 #define FUSION_INTEGRITY_RATE_LIMIT		0.11
-#define FUSION_TICK_MAX_TEMP_CHANGE		0.2
+#define FUSION_TICK_MAX_TEMP_CHANGE		0.3
 
 /obj/effect/fusion_em_field
 	name = "electromagnetic field"
@@ -68,7 +68,7 @@
 
 	var/light_min_range = 2
 	var/light_min_power = 0.2
-	var/light_max_range = 18
+	var/light_max_range = 24
 	var/light_max_power = 1
 
 	var/last_range
@@ -101,13 +101,11 @@
 
 	var/vfx_radius_actual
 	//var/vfx_radius_visual
-	var/pause_rupture = TRUE
+	var/pause_rupture = FALSE
 
-	var/power_log_base = 1.4
-	var/power_multiplier = 3
-	var/power_power = 3.2
-
-	var/aaa_minimum_energy_level_multiplier = 1.0
+	var/power_log_base = 1.35
+	var/power_multiplier = 3.5
+	var/power_power = 2.9
 
 /obj/effect/fusion_em_field/proc/UpdateVisuals()
 	//Take the particle system and edit it
@@ -231,7 +229,7 @@
 	field_strength_entropy_multiplier = clamp((owned_core.field_strength ** 1.075) / 40, 0.8, 2.0)
 	// Energy decay (entropy tax).
 	if(plasma_temperature >= 1)
-		var/lost = plasma_temperature * 0.0045
+		var/lost = plasma_temperature * 0.00125
 		radiation += lost
 		var/temp_change = 0 - (lost * field_strength_entropy_multiplier)
 		adjust_temperature(temp_change, cause = "Containment Entropy")
@@ -439,12 +437,10 @@
 
 /obj/effect/fusion_em_field/proc/AddEnergy(a_energy, a_plasma_temperature)
 	// Boost gyro effects at low temperatures for faster startup
-	if(plasma_temperature <= 75000)
+	if(plasma_temperature <= 5000)
 		a_energy = a_energy * 32
-	else if(plasma_temperature <= 250000)
+	else if(plasma_temperature <= 75000)
 		a_energy = a_energy * 8
-	else if(plasma_temperature <= 1000000)
-		a_energy = a_energy * 2
 	energy += a_energy / 2
 
 	plasma_temperature += a_plasma_temperature
@@ -601,7 +597,7 @@
 				if(possible_s_reacts[cur_s_react] < 1)
 					continue
 				var/singleton/fusion_reaction/cur_reaction = get_fusion_reaction(cur_p_react, cur_s_react)
-				if(cur_reaction && plasma_temperature >= (cur_reaction.minimum_energy_level * aaa_minimum_energy_level_multiplier)&& possible_s_reacts[cur_p_react] >= cur_reaction.minimum_p_react)
+				if(cur_reaction && plasma_temperature >= (cur_reaction.minimum_energy_level)&& possible_s_reacts[cur_p_react] >= cur_reaction.minimum_p_react)
 					LAZYDISTINCTADD(possible_reactions, cur_reaction)
 
 			// If there are no possible reactions here, abandon this primary reactant and move on.
@@ -625,7 +621,7 @@
 				// Make sure we have enough energy.
 				// First, if minimum_reaction_temperature not set, make it the same as minimum_energy_level.
 				if(!cur_reaction.minimum_reaction_temperature)
-					cur_reaction.minimum_reaction_temperature = (cur_reaction.minimum_energy_level * 0.8 * aaa_minimum_energy_level_multiplier)
+					cur_reaction.minimum_reaction_temperature = (cur_reaction.minimum_energy_level * 0.8)
 				if(plasma_temperature < cur_reaction.minimum_reaction_temperature)
 					continue
 
@@ -635,7 +631,7 @@
 						continue
 
 				// Randomly determined amount to react. Starts at up to 1/20th, scales to up to 2/3rd at 20x min temp
-				var/temp_over_min = plasma_temperature / (cur_reaction.minimum_energy_level * 20 * aaa_minimum_energy_level_multiplier)
+				var/temp_over_min = plasma_temperature / (cur_reaction.minimum_energy_level * 20)
 				var/max_react_percent = clamp(temp_over_min, (1/20), (2/3))
 				var/amount_reacting = rand(1, (max_num_reactants * max_react_percent))
 
@@ -738,86 +734,92 @@
 	var/use_range
 	var/use_power = 0
 	var/temp_mod = ((plasma_temperature-5000)/28000)
+	/// super-duper brightness for super-duper temps (its a range multiplier)
+	var/super = 1.0
 
 	// Using real values for black-body radiation means the fusion reactor will almost always zip to top temp color.
 	// This multiplier scales the below temperatures to better match intended range of temps in gameplay.
 	var/effective_plasma_temperature = plasma_temperature / FUSION_BLACKBODY_MULTIPLIER
 
-	use_range = light_min_range + Ceil((light_max_range-light_min_range)*temp_mod)
-	use_power = light_min_power + Ceil((light_max_power-light_min_power)*temp_mod)
+	use_range = light_min_range + Ceil((light_max_range-light_min_range)*temp_mod*super)
+	use_power = light_min_power + Ceil((light_max_power-light_min_power)*temp_mod*super)
 	switch (effective_plasma_temperature)
 		if (-INFINITY to 1000)
 			light_color = "#ff5800"
-			alpha = 30
+			alpha = 60
 		if (1000 to 1400)
 			light_color = "#ff6500"
-			alpha = 40
+			alpha = 80
 		if (1400 to 1800)
 			light_color = "#ff7e00"
-			alpha = 50
+			alpha = 100
 		if (1800 to 2200)
 			light_color = "#ff932c"
-			alpha = 60
+			alpha = 120
 		if (2200 to 2600)
 			light_color = "#ffa54f"
-			alpha = 70
+			alpha = 130
 		if (2600 to 3000)
 			light_color = "#ffb46b"
-			alpha = 80
+			alpha = 140
 		if (3000 to 4000)
 			light_color = "#ffd1a3"
-			alpha = 90
+			alpha = 150
 		if (4000 to 5400)
 			light_color = "#ffebdc"
-			alpha = 100
+			alpha = 140
 		if (5400 to 6200)
 			light_color = "#fff5f5"
-			alpha = 110
+			alpha = 150
 		if (6200 to 7000)
 			light_color = "#f5f3ff"
-			alpha = 120
+			alpha = 160
 		if (7000 to 8000)
 			light_color = "#e3e9ff"
-			alpha = 130
+			alpha = 170
 		if (8000 to 9000)
 			light_color = "#d6e1ff"
-			alpha = 140
+			alpha = 180
 		if (9000 to 10000)
 			light_color = "#ccdbff"
-			alpha = 150
+			alpha = 190
 		if (1000 to 11000)
 			light_color = "#c4d7ff"
-			alpha = 160
+			alpha = 200
 		if (11000 to 12000)
 			light_color = "#bfd3ff"
-			alpha = 170
+			alpha = 205
 		if (12000 to 13000)
 			light_color = "#bad0ff"
-			alpha = 180
+			alpha = 210
 		if (13000 to 14000)
 			light_color = "#b6ceff"
-			alpha = 190
+			alpha = 215
 		if (14000 to 15000)
 			light_color = "#b3ccff"
-			alpha = 200
+			alpha = 220
 		if (15000 to 16000)
 			light_color = "#b0caff"
-			alpha = 210
+			alpha = 225
 		if (16000 to 17000)
 			light_color = "#aec8ff"
-			alpha = 220
+			alpha = 230
 		if (17000 to 18000)
 			light_color = "#acc7ff"
-			alpha = 230
+			alpha = 235
 		if (18000 to 20000)
 			light_color = "#a8c5ff"
-			alpha = 230
-		if (20000 to 23000)
-			light_color = "#94c2ff"
-			alpha = 230
-		if (23000 to INFINITY)
-			light_color = "#74a2ff"
 			alpha = 240
+		if (20000 to 25000)
+			light_color = "#94c2ff"
+			alpha = 245
+		if (25000 to 32000)
+			light_color = "#699bff"
+			alpha = 250
+		if (32000 to INFINITY)
+			light_color = "#1f69ff"
+			alpha = 255
+			super = 3.0
 
 	if (last_range != use_range || last_power != use_power || color != light_color)
 		set_light(use_range / 6, use_power ? 6 : 0, light_color)
