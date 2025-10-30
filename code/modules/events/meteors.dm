@@ -25,12 +25,12 @@
 	endWhen = worst_case_end()
 
 /datum/event/meteor_wave/announce()
-	command_announcement.Announce(SSatlas.current_map.meteors_detected_message, "Meteor Alert", new_sound = 'sound/AI/meteors_detected_message.ogg', zlevels = affecting_z)
+	command_announcement.Announce(SSatlas.current_map.meteors_detected_message, "Warp Debris Alert", new_sound = 'sound/AI/meteors_detected_message.ogg', zlevels = affecting_z)
 
 /datum/event/meteor_wave/announce_start()
 	. = ..()
 	if(.)
-		command_announcement.Announce(SSatlas.current_map.meteor_contact_message, "Meteor Alert", zlevels = affecting_z)
+		command_announcement.Announce(SSatlas.current_map.meteor_contact_message, "Warp Debris Alert", zlevels = affecting_z)
 
 /datum/event/meteor_wave/announce_end(var/faked)
 	if(faked)
@@ -38,7 +38,7 @@
 	. = ..()
 	if(.)
 		spawn(100)//We give 10 seconds before announcing, for the last wave of meteors to hit the station
-			command_announcement.Announce(SSatlas.current_map.meteor_end_message, "Meteor Alert", zlevels = affecting_z)
+			command_announcement.Announce(SSatlas.current_map.meteor_end_message, "Warp Debris Alert", zlevels = affecting_z)
 
 /datum/event/meteor_wave/tick()
 	if(waves && activeFor >= next_meteor)
@@ -102,12 +102,12 @@
 	ic_name = "a dust belt"
 
 /datum/event/meteor_wave/dust/announce()
-	command_announcement.Announce(SSatlas.current_map.dust_detected_message, "Dust Belt Alert", new_sound = 'sound/AI/dust_detected_message.ogg', zlevels = affecting_z)
+	command_announcement.Announce(SSatlas.current_map.dust_detected_message, "Warp Debris Alert", new_sound = 'sound/AI/dust_detected_message.ogg', zlevels = affecting_z)
 
 /datum/event/meteor_wave/dust/announce_start()
 	. = ..()
 	if(.)
-		command_announcement.Announce(SSatlas.current_map.dust_contact_message, "Dust Belt Alert", new_sound = 'sound/AI/dust_contact_message.ogg', zlevels = affecting_z)
+		command_announcement.Announce(SSatlas.current_map.dust_contact_message, "Warp Debris Alert", new_sound = 'sound/AI/dust_contact_message.ogg', zlevels = affecting_z)
 
 /datum/event/meteor_wave/dust/announce_end(var/faked)
 	if(faked)
@@ -115,7 +115,7 @@
 	. = ..()
 	if(.)
 		spawn(100)//We give 10 seconds before announcing, for the last wave of meteors to hit the station
-			command_announcement.Announce(SSatlas.current_map.dust_end_message, "Dust Belt Alert", , new_sound = 'sound/AI/dust_end_message.ogg', zlevels = affecting_z)
+			command_announcement.Announce(SSatlas.current_map.dust_end_message, "Warp Debris Alert", , new_sound = 'sound/AI/dust_end_message.ogg', zlevels = affecting_z)
 
 /datum/event/meteor_wave/dust/get_meteors()
 	return SSatlas.current_sector.meteors_dust

@@ -88,21 +88,21 @@
 	emergency_shuttle_recall_message = "Attention all hands: the emergency evacuation has been canceled."
 	emergency_shuttle_called_message = "Attention all hands: an emergency evacuation has been called. It will start in approximately %ETA%."
 
-	meteors_detected_message = "A meteor storm has been detected on collision course with the ship. Estimated three minutes until impact, please activate the shielding fields and seek shelter in the central areas."
-	meteor_contact_message = "Contact with meteor wave imminent, all hands brace for impact."
-	meteor_end_message = "The ship has cleared the meteor shower, please return to your stations."
+	meteors_detected_message = "Attention all hands. A cloud of residual warp-ejected debris is approaching the ship. Prepare for impact."
+	meteor_contact_message = "All hands, brace for impact. Warp debris colliding now."
+	meteor_end_message = "The ship has cleared the warp debris."
 
-	ship_meteor_contact_message = "Debris from a nearby derelict are on collision course with the ship. Prepare for impact."
-	ship_detected_end_message = "Ship debris colliding now, all hands brace for impact."
-	ship_meteor_end_message = "The last of the ship debris has hit or passed by the ship, it is now safe to commence repairs."
+	ship_meteor_contact_message = "Attention all hands. Debris from a destroyed landing craft are on a collision course with the ship. Prepare for impact."
+	ship_detected_end_message = "All hands, brace for impact. Ship debris colliding now."
+	ship_meteor_end_message = "The ship has cleared the debris field."
 
-	dust_detected_message = "A belt of space dust is approaching the ship."
-	dust_contact_message = "The ship is now passing through a belt of space dust."
-	dust_end_message = "The ship has now passed through the belt of space dust."
+	dust_detected_message = "Attention all hands. A cloud of residual warp-ejected debris is approaching the ship. Prepare for impact."
+	dust_contact_message = "All hands, brace for impact. Warp debris colliding now."
+	dust_end_message = "The ship has cleared the warp debris."
 
 	radiation_detected_message = "High levels of radiation detected near the ship. Please evacuate into one of the shielded maintenance tunnels."
-	radiation_contact_message = "The ship has entered the radiation belt. Please remain in a sheltered area until the ship has passed through it and engineering has given the all-clear."
-	radiation_end_message = "The ship has passed the radiation belt. Please await an all-clear from engineering staff before exiting maintenance as there may be residual radiation. Immediately make your way to the medbay if you experience any unusual symptoms. Maintenance will lose all-access again shortly."
+	radiation_contact_message = "Radiation levels spiking. Please remain in a sheltered area until the ship has passed through it and engineering has given the all-clear."
+	radiation_end_message = "The radiation source has passed. Please await an all-clear from engineering staff before exiting maintenance as there may be residual radiation. Immediately make your way to the medbay if you experience any unusual symptoms. Maintenance will lose all-access again shortly."
 
 	rogue_drone_detected_messages = list("Combat drone swarms from a nearby facility have engaged the ship. If any are sighted in the area, approach with caution.",
 													"Malfunctioning combat drones have been detected close to the ship. If any are sighted in the area, approach with caution.")
