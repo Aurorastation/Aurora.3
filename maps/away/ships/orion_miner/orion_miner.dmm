@@ -1730,15 +1730,15 @@
 /turf/simulated/floor/carpet/orange,
 /area/shuttle/orion_miner/corridor/vestibule)
 "oW" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4
-	},
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/hatch/firefighting_closet,
 /obj/structure/extinguisher_cabinet/west,
 /obj/item/ship_ammunition/grauwolf_bundle,
 /obj/item/ship_ammunition/grauwolf_bundle,
 /obj/item/ship_ammunition/grauwolf_bundle,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_miner/ammo_storage)
 "pa" = (
@@ -2902,9 +2902,6 @@
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/hydro)
 "At" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4
-	},
 /obj/machinery/light/colored/decayed{
 	dir = 1
 	},
@@ -2914,6 +2911,9 @@
 /obj/item/ship_ammunition/grauwolf_probe,
 /obj/item/ship_ammunition/grauwolf_probe,
 /obj/effect/floor_decal/industrial/hatch/firefighting_closet,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_miner/ammo_storage)
 "Au" = (
@@ -2997,10 +2997,10 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
+	dir = 4
 	},
 /obj/structure/cable/green{
 	icon_state = "2-4"
@@ -3038,7 +3038,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
 /obj/machinery/power/apc/low/east,
