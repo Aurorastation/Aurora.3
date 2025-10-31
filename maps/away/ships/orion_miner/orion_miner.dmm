@@ -300,9 +300,6 @@
 /area/shuttle/orion_miner/corridor)
 "cg" = (
 /obj/machinery/vending/cigarette,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
-	},
 /obj/machinery/light/colored/decayed,
 /obj/effect/floor_decal/industrial/outline/service,
 /turf/simulated/floor/tiled,
@@ -362,7 +359,9 @@
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/orion_miner/eva)
 "cI" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/cyan,
+/obj/machinery/atmospherics/pipe/manifold/hidden/cyan{
+	dir = 4
+	},
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
@@ -370,11 +369,9 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/meter{
@@ -411,9 +408,6 @@
 /area/shuttle/orion_miner/mess_hall)
 "cS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -487,19 +481,26 @@
 /obj/structure/disposalpipe/junction{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 4
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/industrial/outline_door/yellow,
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/corridor/vestibule)
 "dJ" = (
 /obj/effect/floor_decal/corner/black/diagonal,
-/obj/structure/closet/secure_closet/cabinet/beer,
+/obj/structure/closet{
+	name = "drinks cabinet"
+	},
 /obj/random/dirt_75,
 /obj/random/booze,
 /obj/random/booze,
+/obj/item/storage/box/fancy/yoke/alcoholic/random,
+/obj/item/storage/box/fancy/yoke/alcoholic/random,
+/obj/item/storage/box/fancy/yoke/alcoholic/random,
+/obj/item/storage/box/fancy/yoke/alcoholic/random,
+/obj/item/storage/box/fancy/yoke/alcoholic/random,
+/obj/item/storage/box/fancy/yoke/beer,
+/obj/item/storage/box/fancy/yoke/beer,
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/mess_hall)
 "dK" = (
@@ -690,9 +691,6 @@
 /turf/simulated/floor/tiled/full,
 /area/shuttle/orion_miner/corridor)
 "fy" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/shuttle/orion_miner/main_engineering_stbd)
@@ -1284,6 +1282,9 @@
 	dir = 5
 	},
 /obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_miner/main_engineering_stbd)
 "kT" = (
@@ -1292,6 +1293,9 @@
 /turf/simulated/floor/plating,
 /area/shuttle/orion_miner/main_engineering_stbd)
 "kU" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_miner/main_engineering_stbd)
@@ -1541,13 +1545,13 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/corridor/vestibule)
 "ny" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor,
@@ -1710,19 +1714,10 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/orion_miner/bridge)
 "oS" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
-	dir = 10
-	},
 /obj/structure/cable/green{
 	icon_state = "2-8"
 	},
 /obj/structure/table/glass,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
-	},
 /obj/random/pottedplant_small{
 	pixel_x = -7;
 	pixel_y = 11
@@ -2010,6 +2005,9 @@
 /obj/machinery/power/apc/super/critical/east,
 /obj/structure/disposalpipe/segment,
 /obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_miner/main_engineering_stbd)
 "rq" = (
@@ -2249,7 +2247,6 @@
 /turf/simulated/floor/tiled/full,
 /area/shuttle/orion_miner/cargo_bay)
 "tK" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/cyan,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -2260,9 +2257,16 @@
 	dir = 8;
 	icon_state = "pipe-j2"
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
+	dir = 10
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/orion_miner/corridor/vestibule)
 "tL" = (
@@ -2468,6 +2472,9 @@
 	dir = 1
 	},
 /obj/random/dirt_75,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/corridor/vestibule)
 "wO" = (
@@ -3646,11 +3653,10 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 1
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
+	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/corridor/vestibule)
@@ -3776,19 +3782,13 @@
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/orion_miner/mess_hall)
 "GY" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
-	dir = 4
-	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/corridor/vestibule)
 "Hb" = (
@@ -4023,7 +4023,9 @@
 	},
 /obj/machinery/power/apc/west,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/orion_miner/eva)
 "JY" = (
@@ -4101,10 +4103,7 @@
 /obj/effect/floor_decal/industrial/outline_door/operations{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -4149,9 +4148,6 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -4653,9 +4649,7 @@
 /obj/effect/floor_decal/industrial/outline_door/operations{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
-	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/orion_miner/eva)
 "Qh" = (
@@ -5053,6 +5047,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline_door/yellow,
+/obj/structure/extinguisher_cabinet/east,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_miner/main_engineering_stbd)
 "SQ" = (
@@ -5063,7 +5058,9 @@
 	icon_state = "1-2"
 	},
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/cyan{
 	dir = 4
 	},
@@ -5074,9 +5071,6 @@
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/corridor/vestibule)
 "SY" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4
-	},
 /obj/machinery/vending/cola,
 /obj/effect/floor_decal/industrial/outline/service,
 /turf/simulated/floor/tiled,
@@ -5257,14 +5251,14 @@
 /obj/item/device/suit_cooling_unit,
 /obj/item/device/suit_cooling_unit,
 /obj/item/device/suit_cooling_unit,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
-	},
 /obj/machinery/light/colored/decayed,
 /obj/item/tank/jetpack/oxygen,
 /obj/item/tank/jetpack/oxygen,
 /obj/item/tank/jetpack/oxygen,
 /obj/item/tank/jetpack/oxygen,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/orion_miner/eva)
 "Up" = (
@@ -5342,9 +5336,6 @@
 /area/shuttle/orion_miner/corridor/central)
 "UR" = (
 /obj/machinery/portable_atmospherics/powered/scrubber,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
 /obj/machinery/alarm/north,
 /turf/simulated/floor/plating,
 /area/shuttle/orion_miner/main_engineering_stbd)
@@ -5468,7 +5459,6 @@
 /turf/simulated/floor/plating,
 /area/shuttle/orion_miner/corridor)
 "Wj" = (
-/obj/structure/extinguisher_cabinet/north,
 /obj/machinery/recharge_station,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
@@ -5694,6 +5684,9 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_miner/main_engineering_stbd)
 "Ym" = (
@@ -5848,10 +5841,10 @@
 /turf/simulated/floor/tiled/white,
 /area/shuttle/orion_miner/medbay)
 "Zq" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1
-	},
 /obj/structure/dispenser/oxygen,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/orion_miner/eva)
 "Zw" = (
