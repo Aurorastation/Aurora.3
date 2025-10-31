@@ -825,7 +825,7 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 	name = "cash compartment"
 
 /obj/structure/cash_register/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
-	if(user == over && ishuman(over))
+	if(user == over && ishuman(over) && storage_compartment)
 		var/mob/living/carbon/human/H = over
 		storage_compartment.open(H)
 
