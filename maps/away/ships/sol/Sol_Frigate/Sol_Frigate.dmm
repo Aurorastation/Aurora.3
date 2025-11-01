@@ -5469,7 +5469,6 @@
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable/blue{
 	icon_state = "4-8"
 	},
@@ -9691,8 +9690,7 @@
 "SV" = (
 /obj/structure/filingcabinet/chestdrawer,
 /obj/item/device/flashlight/lamp{
-	pixel_y = 10;
-	layer = 3.5
+	pixel_y = 9
 	},
 /turf/simulated/floor/carpet,
 /area/ship/Sol_Frigate/captain_cabin)
@@ -10521,11 +10519,6 @@
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/dark,
 /area/ship/Sol_Frigate/engineering)
-"Xy" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/lattice/catwalk,
-/turf/space/dynamic,
-/area/space)
 "Xz" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -42867,7 +42860,7 @@ rl
 rl
 rl
 rl
-Xy
+rl
 rl
 rl
 rl
