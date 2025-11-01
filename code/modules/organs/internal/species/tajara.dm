@@ -100,6 +100,7 @@
 	else
 		if(vision_color)
 			owner.add_client_color(vision_color)
+	owner.update_sight()
 
 /obj/item/organ/internal/eyes/night/proc/disable_night_vision()
 	if(!owner)
@@ -115,6 +116,7 @@
 	else
 		if(vision_color)
 			owner.remove_client_color(vision_color)
+	owner.update_sight()
 
 /obj/item/organ/internal/stomach/tajara
 	name = "reinforced stomach"

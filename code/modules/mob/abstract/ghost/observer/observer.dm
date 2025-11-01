@@ -55,6 +55,7 @@
 		var/originaldesc = desc
 		var/o_transform = transform
 		set_appearance(body)
+		underlays.Cut()
 		appearance_flags = KEEP_TOGETHER
 		desc = originaldesc
 		transform = o_transform
@@ -600,8 +601,8 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
  * We use this proc to set appearance because doing so resets the plane.
  * We want the plane to stay at GHOST_PLANE to avoid weird overlaying stuff.
  */
-/mob/abstract/ghost/observer/proc/set_appearance(new_appearance)
-	appearance = new_appearance
+/mob/abstract/ghost/observer/proc/set_appearance(mob/body)
+	appearance = body.appearance
 	plane = GHOST_PLANE
 
 /mob/abstract/ghost/observer/MayRespawn(var/feedback = 0, var/respawn_type = null)

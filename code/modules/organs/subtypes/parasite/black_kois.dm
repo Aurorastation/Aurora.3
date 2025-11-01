@@ -86,6 +86,7 @@
 
 		owner.lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
 		owner.add_client_color(/datum/client_color/vaurca)
+		owner.update_sight()
 
 		if(prob(10))
 			if(owner.can_feel_pain())

@@ -2,7 +2,7 @@
 	stat = DEAD
 
 	/// Is the ghost able to see things humans can't?
-	var/ghostvision = FALSE
+	var/ghostvision = TRUE
 	/// This variable generally controls whether a ghost has restrictions on where it can go or not (ex. if the ghost can bypass holy places).
 	var/has_ghost_restrictions = TRUE
 	/// If the ghost has antagHUD.
@@ -165,9 +165,9 @@
 		set_sight(sight|SEE_TURFS|SEE_MOBS|SEE_OBJS)
 
 	if(ghostvision)
-		set_see_invisible(SEE_INVISIBLE_LEVEL_TWO) //overmap viewing breaks if this is lower
+		set_see_invisible(SEE_INVISIBLE_OBSERVER) //overmap viewing breaks if this is lower
 	else
-		set_see_invisible(SEE_INVISIBLE_LEVEL_ONE)
+		set_see_invisible(SEE_INVISIBLE_LIVING)
 
 /mob/abstract/ghost/proc/on_restricted_level(var/check)
 	if(!check)

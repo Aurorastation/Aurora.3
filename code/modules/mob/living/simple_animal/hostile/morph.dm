@@ -95,10 +95,10 @@
 	set desc = "Toggles whether you see light or not."
 	set category = "Abilities"
 
-	if(see_invisible == SEE_INVISIBLE_NOLIGHTING)
-		see_invisible = SEE_INVISIBLE_LIVING
+	if(lighting_alpha == LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE)
+		lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE
 	else
-		lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
+		lighting_alpha = LIGHTING_PLANE_ALPHA_VISIBLE
 
 /mob/living/simple_animal/hostile/morph/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	if(morphed)

@@ -737,6 +737,7 @@
 	var/obj/item/organ/internal/eyes/night/NE = H.get_eyes()
 	if(istype(NE) && NE.night_vision && NE.can_change_invisible())
 		H.lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
+		H.update_sight()
 
 	return 1
 
