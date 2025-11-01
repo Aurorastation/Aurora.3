@@ -2623,7 +2623,6 @@
 #include "code\modules\mob\abstract\freelook\ai\update_triggers.dm"
 #include "code\modules\mob\abstract\freelook\blueprints\blueprints.dm"
 #include "code\modules\mob\abstract\ghost\ghost.dm"
-#include "code\modules\mob\abstract\ghost\observer\login.dm"
 #include "code\modules\mob\abstract\ghost\observer\logout.dm"
 #include "code\modules\mob\abstract\ghost\observer\observer.dm"
 #include "code\modules\mob\abstract\ghost\observer\say.dm"
