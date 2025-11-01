@@ -72,8 +72,8 @@
 /obj/effect/floor_decal/industrial/warning,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/random/tech_supply{
-	pixel_x = 15
+/obj/item/storage/toolbox/electrical{
+	pixel_y = 11
 	},
 /turf/simulated/floor/tiled,
 /area/piratebase/power)
@@ -327,6 +327,15 @@
 /obj/machinery/computer/ship/sensors/terminal,
 /turf/simulated/floor/tiled/white,
 /area/piratebase/living)
+"cz" = (
+/obj/random/dirt_75,
+/obj/machinery/portable_atmospherics/canister/empty/phoron,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/piratebase/equipment)
 "cA" = (
 /obj/structure/structural_support{
 	pixel_y = 8
@@ -393,6 +402,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/airless/ceiling,
 /area/mine)
+"cR" = (
+/obj/effect/floor_decal/industrial/outline,
+/obj/machinery/atmospherics/unary/freezer{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/piratebase/equipment)
 "cT" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -442,6 +458,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/piratebase/maint_north)
+"di" = (
+/obj/machinery/door/airlock/hatch{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/mine)
 "dm" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 10
@@ -469,6 +491,14 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/piratebase/power)
+"dw" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/turf/simulated/floor/plating/asteroid,
+/area/piratebase/equipment)
 "dy" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
@@ -806,13 +836,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/piratebase/hallway_south)
-"fU" = (
-/obj/machinery/meter,
-/obj/machinery/atmospherics/pipe/manifold/visible/purple{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/piratebase/equipment)
 "fY" = (
 /turf/simulated/mineral/surface,
 /area/space)
@@ -977,17 +1000,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/piratebase/hallway_north)
-"gY" = (
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/structure/reagent_dispensers/coolanttank,
-/obj/machinery/atmospherics/portables_connector{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/piratebase/equipment)
 "he" = (
 /obj/random/dirt_75,
 /obj/machinery/floodlight,
@@ -1178,6 +1190,7 @@
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
+/obj/structure/particle_accelerator/particle_emitter/left,
 /turf/simulated/floor/tiled/full,
 /area/piratebase/power)
 "iK" = (
@@ -1299,7 +1312,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/green{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/purple{
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 6
 	},
 /turf/simulated/floor/plating,
@@ -1338,6 +1351,10 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/machinery/alarm/north,
+/obj/structure/AIcore/deactivated{
+	desc = "A torn apart AI. Unsalvagable.";
+	name = "scrapped AI"
+	},
 /turf/simulated/floor/bluegrid,
 /area/piratebase/living)
 "jW" = (
@@ -1427,20 +1444,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
-"kD" = (
-/obj/random/dirt_75,
-/obj/machinery/atmospherics/portables_connector{
-	dir = 4
-	},
-/obj/machinery/portable_atmospherics/canister/empty/phoron,
-/turf/simulated/floor/plating,
-/area/piratebase/equipment)
 "kE" = (
 /turf/simulated/floor/plating,
 /area/piratebase/maint_north)
 "kG" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden/purple,
+/obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /turf/simulated/floor/plating,
 /area/piratebase/equipment)
 "kI" = (
@@ -1685,7 +1694,7 @@
 /area/piratebase/hallway_south)
 "mB" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden/purple,
+/obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /turf/simulated/floor/tiled/dark,
 /area/piratebase/equipment)
 "mE" = (
@@ -1942,6 +1951,7 @@
 /area/piratebase/hallway_north)
 "oP" = (
 /obj/effect/floor_decal/industrial/outline,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/piratebase/equipment)
 "oQ" = (
@@ -1984,7 +1994,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/purple{
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 9
 	},
 /turf/simulated/floor/plating,
@@ -2052,6 +2062,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/piratebase/kitchen)
+"pu" = (
+/turf/simulated/wall/r_wall,
+/area/mine)
 "pw" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/random/soap{
@@ -2174,6 +2187,12 @@
 /obj/item/clothing/accessory/stethoscope,
 /turf/simulated/floor/tiled/white,
 /area/piratebase/medbay)
+"qc" = (
+/obj/machinery/atmospherics/pipe/manifold/visible/purple{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/piratebase/equipment)
 "qe" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -2649,7 +2668,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/green{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/purple,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/plating,
 /area/piratebase/equipment)
 "tr" = (
@@ -2707,11 +2726,15 @@
 /turf/simulated/floor/plating,
 /area/piratebase/maint_north)
 "tF" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /obj/structure/bed/stool/chair/office/light{
-	dir = 8
+	dir = 4
 	},
-/obj/random/dirt_75,
-/obj/random/dirt_75,
+/obj/item/clothing/glasses/welding,
+/obj/item/weldingtool{
+	pixel_y = 4
+	},
 /turf/simulated/floor/tiled,
 /area/piratebase/power)
 "tL" = (
@@ -2725,6 +2748,9 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
 /obj/structure/closet/toolcloset,
+/obj/random/tech_supply{
+	pixel_x = 15
+	},
 /turf/simulated/floor/plating,
 /area/piratebase/power)
 "tS" = (
@@ -3732,6 +3758,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/piratebase/maint_north)
+"AA" = (
+/obj/machinery/door/airlock/hatch{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/piratebase/equipment)
 "AH" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 1
@@ -3808,9 +3840,7 @@
 /turf/simulated/floor/plating,
 /area/piratebase/maint_north)
 "Bo" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/purple{
-	dir = 9
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /turf/simulated/floor/tiled/dark/full,
 /area/piratebase/equipment)
 "Bp" = (
@@ -4482,9 +4512,6 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/structure/AIcore/deactivated{
-	desc = "A torn apart AI. Unsalvagable."
-	},
 /turf/simulated/floor/bluegrid,
 /area/piratebase/living)
 "Ga" = (
@@ -4592,8 +4619,8 @@
 /turf/simulated/floor/plating,
 /area/piratebase/hallway_south)
 "GF" = (
-/obj/structure/particle_accelerator/particle_emitter/right,
 /obj/effect/floor_decal/industrial/outline/engineering,
+/obj/machinery/pipedispenser,
 /turf/simulated/floor/tiled/dark,
 /area/piratebase/equipment)
 "GG" = (
@@ -4644,7 +4671,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/green{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/visible/purple,
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux,
 /turf/simulated/floor/plating,
 /area/piratebase/equipment)
 "GP" = (
@@ -4664,7 +4691,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/purple,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/plating,
 /area/piratebase/equipment)
 "Hb" = (
@@ -4782,7 +4809,7 @@
 "HV" = (
 /obj/random/dirt_75,
 /obj/machinery/atmospherics/pipe/simple/hidden/green,
-/obj/machinery/atmospherics/pipe/simple/hidden/purple,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/plating,
 /area/piratebase/equipment)
 "HW" = (
@@ -4937,12 +4964,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/piratebase/maint_north)
-"IJ" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/piratebase/equipment)
 "IN" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
@@ -4997,6 +5018,13 @@
 	},
 /turf/simulated/floor/exoplanet/asteroid/ash,
 /area/mine)
+"Jc" = (
+/obj/random/dirt_75,
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/turf/simulated/floor/plating/asteroid,
+/area/piratebase/equipment)
 "Ji" = (
 /turf/simulated/floor/tiled,
 /area/piratebase/hallway_south)
@@ -5158,7 +5186,10 @@
 /area/piratebase/hallway_north)
 "Kr" = (
 /obj/random/dirt_75,
-/obj/structure/particle_accelerator/particle_emitter/left,
+/obj/structure/particle_accelerator/particle_emitter/left{
+	desc = "This emits alpha particles, you might not want to stand near this end. <span class = 'warning'>This is the one with the faulty lens...</span>";
+	name = "faulty EM Containment Grid"
+	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
@@ -5177,7 +5208,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/green{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/purple{
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -5626,7 +5657,6 @@
 /area/piratebase/kitchen)
 "Nh" = (
 /obj/random/dirt_75,
-/obj/machinery/portable_atmospherics/powered/scrubber,
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
@@ -5990,10 +6020,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/asteroid/ash,
 /area/mine)
-"Pz" = (
-/obj/machinery/pipedispenser,
-/turf/simulated/floor/tiled/dark,
-/area/piratebase/equipment)
 "PA" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -6085,6 +6111,13 @@
 	},
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
+"Qb" = (
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/purple{
+	dir = 9
+	},
+/turf/simulated/floor/plating,
+/area/piratebase/equipment)
 "Qc" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/portable_atmospherics/canister/empty/oxygen,
@@ -6183,9 +6216,6 @@
 "QE" = (
 /obj/structure/table/steel,
 /obj/random/dirt_75,
-/obj/item/storage/toolbox/electrical{
-	pixel_y = 11
-	},
 /obj/item/storage/toolbox/mechanical{
 	pixel_y = 3;
 	pixel_x = 2
@@ -6309,11 +6339,8 @@
 "Rv" = (
 /obj/structure/table/steel,
 /obj/random/dirt_75,
-/obj/item/clothing/glasses/welding,
-/obj/item/weldingtool{
-	pixel_y = 4
-	},
 /obj/machinery/alarm/north,
+/obj/item/stack/cable_coil,
 /turf/simulated/floor/tiled,
 /area/piratebase/power)
 "Rx" = (
@@ -6547,6 +6574,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
+/obj/machinery/portable_atmospherics/powered/scrubber,
 /turf/simulated/floor/plating,
 /area/piratebase/maint_north)
 "SH" = (
@@ -6777,9 +6805,10 @@
 /area/piratebase/maint_airlock)
 "Uk" = (
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/unary/freezer{
+/obj/machinery/atmospherics/pipe/manifold/visible/purple{
 	dir = 1
 	},
+/obj/machinery/meter,
 /turf/simulated/floor/plating,
 /area/piratebase/equipment)
 "Un" = (
@@ -6972,13 +7001,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/piratebase/living)
-"VK" = (
-/obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/manifold/visible/purple{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/piratebase/equipment)
 "VN" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -7137,6 +7159,7 @@
 /turf/simulated/floor/tiled,
 /area/piratebase/hallway_north)
 "WJ" = (
+/obj/machinery/atmospherics/portables_connector,
 /obj/machinery/power/portgen/basic/fusion,
 /turf/simulated/floor/plating,
 /area/piratebase/equipment)
@@ -7293,7 +7316,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/purple,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/plating,
 /area/piratebase/equipment)
 "Yb" = (
@@ -43855,8 +43878,8 @@ qX
 SL
 dc
 HK
-kD
-ii
+QX
+cz
 oP
 SL
 FZ
@@ -44112,9 +44135,9 @@ qX
 SL
 kW
 Vh
-fU
+QX
 Uk
-oP
+cR
 SL
 jV
 sc
@@ -44369,9 +44392,9 @@ SL
 DD
 xs
 hj
-VK
-Uk
-oP
+ii
+qc
+cR
 SL
 Ez
 Hp
@@ -44617,7 +44640,7 @@ PR
 ti
 qX
 qX
-QX
+ii
 WJ
 tj
 uc
@@ -44627,7 +44650,7 @@ jz
 HV
 tq
 Bo
-ii
+Qb
 QX
 SL
 SL
@@ -44873,8 +44896,8 @@ bu
 Ye
 VN
 cZ
-XW
 mg
+UW
 UW
 Co
 wA
@@ -44882,8 +44905,8 @@ mB
 Ha
 GN
 Kr
-gY
-gY
+XW
+XW
 At
 iO
 ii
@@ -45130,8 +45153,8 @@ bu
 PR
 PR
 eu
-ii
 xG
+ii
 gF
 QX
 Qu
@@ -45387,8 +45410,8 @@ HI
 Ge
 Ge
 ab
-IJ
 qh
+iN
 iN
 iN
 jb
@@ -46161,12 +46184,12 @@ mI
 PR
 qX
 qX
-YT
+AA
 qX
 YT
 qX
 SL
-Pz
+eJ
 iO
 Cc
 DD
@@ -46416,9 +46439,9 @@ PR
 wm
 PR
 mI
-mI
+pu
 qX
-qX
+QX
 qX
 qX
 qX
@@ -46674,8 +46697,8 @@ wm
 PR
 mI
 mI
-mI
-mI
+pu
+di
 qX
 YT
 qX
@@ -46932,7 +46955,7 @@ PR
 PR
 mI
 mI
-mI
+PR
 qX
 qX
 qX
@@ -47190,14 +47213,14 @@ wm
 wm
 wm
 wm
-gG
+Jc
 gG
 gG
 gG
 gG
 sY
 sY
-sY
+dw
 gG
 YT
 qX
