@@ -74,7 +74,7 @@
 
 		// We don't want to obliterate small offships (lucky 7 APCs or fewer).
 		if(LAZYLEN(valid_apcs) < 8)
-			LAZYREMOVE(victim_apc, valid_apcs)
+			LAZYREMOVE(valid_apcs, victim_apc)
 
 		// Main breaker is turned off, or we rolled lucky. Consider this APC protected.
 		if(!victim_apc.operating || storm_damage <= (80 - (severity * 25)))

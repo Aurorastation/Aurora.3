@@ -60,6 +60,7 @@
 	var/old_is_open = is_open()
 	var/list/old_resources = resources ? resources.Copy() : null
 
+	SEND_SIGNAL(src, COMSIG_TURF_CHANGE, path)
 	changing_turf = TRUE
 
 	if(connections)

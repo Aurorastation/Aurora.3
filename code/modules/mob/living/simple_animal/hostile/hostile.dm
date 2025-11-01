@@ -76,6 +76,10 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 	if(!faction) //No faction, no reason to attack anybody.
 		return null
 
+	// Reduce spam for when you put 20 rogue maint drones in a box.
+	if(!isturf(loc) && prob(33))
+		return null
+
 	var/atom/T = null
 	var/target_range = INFINITY
 	for (var/atom/A in targets)
@@ -430,6 +434,10 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 /mob/living/simple_animal/hostile/proc/DestroySurroundings(var/bypass_prob = FALSE)
 	if(ON_ATTACK_COOLDOWN(src))
 		return FALSE
+
+	// Can't break shit from inside crates and whatnot.
+	if(!isturf(loc))
+		return
 
 	if(prob(break_stuff_probability) || bypass_prob) //bypass_prob is used to make mob destroy things in the way to our target
 		for(var/card_dir in GLOB.cardinals) // North, South, East, West
