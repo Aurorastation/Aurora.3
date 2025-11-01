@@ -1497,7 +1497,7 @@
 		return
 	if((mutations & XRAY))
 		set_sight(sight|SEE_TURFS|SEE_MOBS|SEE_OBJS)
-	sync_lighting_plane_alpha()
+	lighting_alpha = default_lighting_alpha
 
 /**
  * This proc assumes that if shock_value = null, then a shock value was NOT passed in, and thus it calculates it itself.

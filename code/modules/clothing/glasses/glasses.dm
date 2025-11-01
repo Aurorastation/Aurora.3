@@ -19,6 +19,7 @@ BLIND     // can't see anything
 	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = SLOT_EYES
 	body_parts_covered = EYES
+	light_system = MOVABLE_LIGHT
 	var/vision_flags = 0
 	var/darkness_view = 0//Base human is 2
 	var/prescription = 0
@@ -79,18 +80,18 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses/attack_self(mob/user)
 	if(toggleable)
 		if(active)
-			active = 0
+			active = FALSE
 			if(toggle_changes_appearance)
 				icon_state = off_state
 				item_state = off_state
 				user.update_inv_glasses()
 			flash_protection = FLASH_PROTECTION_NONE
 			tint = TINT_NONE
-			to_chat(usr, "You deactivate the optical matrix on the [src].")
+			to_chat(usr, SPAN_NOTICE("You deactivate the optical matrix on the [src]."))
 			if(activated_color)
-				set_light(0)
+				set_light_on(active)
 		else
-			active = 1
+			active = TRUE
 			if(toggle_changes_appearance)
 				icon_state = initial(icon_state)
 				item_state = initial(icon_state)
@@ -99,9 +100,10 @@ BLIND     // can't see anything
 				sound_to(usr, activation_sound)
 			flash_protection = initial(flash_protection)
 			tint = initial(tint)
-			to_chat(usr, "You activate the optical matrix on the [src].")
+			to_chat(usr, SPAN_NOTICE("You activate the optical matrix on the [src]."))
 			if(activated_color)
-				set_light(2, 0.4, activated_color)
+				set_light_range_power_color(2, 0.4, activated_color)
+				set_light_on(active)
 	user.update_action_buttons()
 	user.update_inv_l_hand(0)
 	user.update_inv_r_hand(1)

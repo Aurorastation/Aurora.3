@@ -40,6 +40,8 @@
 	var/damage_multiplier = 1 //multiplies melee combat damage
 	var/icon_update = 1 //whether icon updating shall take place
 
+	var/default_lighting_alpha = LIGHTING_PLANE_ALPHA_VISIBLE
+
 	var/lipstick_color = null	//no lipstick by default
 
 	var/age = 30		//Player's age (pure fluff)
