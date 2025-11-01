@@ -1,0 +1,4 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - balance: "Tweaked the costs of Advanced EVA, Medical, and Science hardsuits to reflect that the manufactured ones don't actually come with the fancy modules."

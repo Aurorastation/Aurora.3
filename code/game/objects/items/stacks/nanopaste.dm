@@ -36,35 +36,47 @@
 	var/application_time = time_to_apply // Local variant declared inside the proc so changes to it do not persist.
 
 	if(!ismob(target_mob) || !istype(user))
-		return 0
+		return FALSE
 	if (!can_use(1, user))
-		return 0
+		return FALSE
+	if(isrobot(target_mob) || isAI(target_mob))
+		if (isrobot(target_mob))	//Repairing cyborgs
+			var/mob/living/silicon/robot/R = target_mob
+			if (!R.getBruteLoss() && !R.getFireLoss())
+				to_chat(user, SPAN_NOTICE("All [R]'s systems are nominal."))
+				return FALSE
+		else if (isAI(target_mob))  //Repairing AIs
+			var/mob/living/silicon/ai/A = target_mob
+			if (!A.getBruteLoss() && !A.getFireLoss())
+				to_chat(user, SPAN_NOTICE("All of [A]'s systems are nominal."))
+				return FALSE
 
-	if (isrobot(target_mob))	//Repairing cyborgs
-		var/mob/living/silicon/robot/R = target_mob
-		if (R.getBruteLoss() || R.getFireLoss() )
+		if(target_mob == user)
+			application_time *= application_multiplier // It takes longer to apply nanopaste to yourself than to someone else.
 
-			if(target_mob == user)
-				application_time *= application_multiplier // It takes longer to apply nanopaste to yourself than to someone else.
-
-			if (application_in_progress == FALSE)
-				application_in_progress = TRUE
-				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-				user.visible_message(SPAN_NOTICE("\The [user] begins to apply some [src] to \the [target_mob]."),\
-										SPAN_NOTICE("You begin to apply some [src] to \the [target_mob]."))
-				if(do_mob(user, target_mob, application_time))
+		if (application_in_progress == FALSE)
+			application_in_progress = TRUE
+			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+			user.visible_message(SPAN_NOTICE("\The [user] begins to apply some [src] to \the [target_mob]."),\
+									SPAN_NOTICE("You begin to apply some [src] to \the [target_mob]."))
+			if(do_mob(user, target_mob, application_time))
+				if(isrobot(target_mob))
+					var/mob/living/silicon/robot/R = target_mob
 					R.adjustBruteLoss(-15)
 					R.adjustFireLoss(-15)
 					R.updatehealth()
-					use(1)
-					user.visible_message(SPAN_NOTICE("\The [user] successfully applies some [src] at [R]'s damaged areas."),\
-											SPAN_NOTICE("You successfully apply some [src] at [R]'s damaged areas."))
-				application_in_progress = FALSE
-			else
-				to_chat(user, SPAN_WARNING("You are too focused applying \the [src] to do it multiple times simultaneously!"))
-
+				else if(isAI(target_mob))
+					var/mob/living/silicon/ai/A = target_mob
+					A.adjustBruteLoss(-15)
+					A.adjustFireLoss(-15)
+					A.updatehealth()
+				use(1)
+				user.visible_message(SPAN_NOTICE("\The [user] successfully applies some [src] on [target_mob]'s damaged areas."),\
+										SPAN_NOTICE("You successfully apply some [src] on [target_mob]'s damaged areas."))
+			application_in_progress = FALSE
 		else
-			to_chat(user, SPAN_NOTICE("All [R]'s systems are nominal."))
+			to_chat(user, SPAN_WARNING("You are too focused applying \the [src] to do it multiple times simultaneously!"))
+
 
 	else if(ishuman(target_mob))		//Repairing robolimbs
 		var/mob/living/carbon/human/H = target_mob
@@ -125,11 +137,11 @@
 /obj/item/stack/nanopaste/surge/attack(mob/living/target_mob, mob/living/user, target_zone)
 	var/mob/living/carbon/human/M = target_mob
 	if (!istype(M) || !istype(user))
-		return 0
+		return FALSE
 
 	if(used)
 		to_chat(user, SPAN_WARNING("[src] has depleted it's nanites."))
-		return 0
+		return FALSE
 
 	if (isipc(M))
 		var/obj/item/organ/internal/machine/surge/s = M.internal_organs_by_name[BP_SURGE_PROTECTOR]
@@ -140,7 +152,7 @@
 			)
 
 			if (!do_mob(user, M, 2))
-				return 0
+				return FALSE
 
 			s = new /obj/item/organ/internal/machine/surge()
 			M.internal_organs += s
@@ -152,7 +164,7 @@
 			to_chat(M, SPAN_NOTICE("You can feel nanites inside you creating something new. An internal OS voice states \"Warning: surge prevention module has been installed, it has [s.surge_left] preventions left!\""))
 			amount = 0
 			used = TRUE
-			return 1
+			return TRUE
 		else
 			if(!s.surge_left)
 				user.visible_message(
@@ -161,7 +173,7 @@
 				)
 
 				if (!do_mob(user, M, 2))
-					return 0
+					return FALSE
 
 				s.surge_left = rand(2, 5)
 				s.broken = 0
@@ -174,10 +186,10 @@
 				to_chat(M,  SPAN_NOTICE("You can feel nanites inside you regenerating your surge prevention module. An internal OS voice states \"Warning: surge prevention module repaired, it has [s.surge_left] preventions left!\""))
 				amount = 0
 				used = TRUE
-				return 1
+				return TRUE
 
 			to_chat(user, SPAN_WARNING("[(M == user) ? ("You already have") : ("[M] already has")] fully functional surge prevention module installed."))
-			return 0
+			return FALSE
 	else
 		to_chat(user, SPAN_WARNING("[src]'s nanites refuse to work on [(M == user) ? ("you") : (M)]."))
-		return 0
+		return FALSE

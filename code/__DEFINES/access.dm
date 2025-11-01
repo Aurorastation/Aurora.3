@@ -886,3 +886,7 @@
 #define ACCESS_HIMEO_PATROL_SHIP 253
 	id = ACCESS_HIMEO_PATROL_SHIP
 	desc = "Himean Military Patrol Vessel"
+
+#define ACCESS_QUARANTINED_OUTPOST_ENGINEER 254
+	id = ACCESS_QUARANTINED_OUTPOST_ENGINEER
+	desc = "Outpost Nemora, Engineering Clearance"

@@ -19,6 +19,22 @@
 	. = ..()
 	icon_state = "lavarocks[rand(1,3)]"
 
+/obj/structure/flora/rock/stalagmite
+	name = "stalagmite"
+	desc = "A pointy pile of rocks."
+	icon_state = "stalagmite1"
+
+/obj/structure/flora/rock/stalagmite/random/Initialize(mapload)
+	. = ..()
+	icon_state = "stalagmite[rand(1,4)]"
+
+/obj/structure/flora/rock/stalagmite/brown
+	icon = 'icons/obj/flora/rocks_brown.dmi'
+
+/obj/structure/flora/rock/stalagmite/brown/random/Initialize(mapload)
+	. = ..()
+	icon_state = "stalagmite[rand(1,6)]"
+
 /obj/structure/flora/rock/ice
 	name = "ice"
 	desc = "A large formation made of ice."

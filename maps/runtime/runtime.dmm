@@ -2948,6 +2948,12 @@
 /obj/machinery/shipsensors,
 /turf/template_noop,
 /area/engineering)
+"EY" = (
+/obj/effect/landmark/minimap_poi{
+	desc = "Minimap description ayup"
+	},
+/turf/simulated/floor/plating,
+/area/construction)
 "Fn" = (
 /obj/machinery/light{
 	brightness_range = 16;
@@ -9331,7 +9337,7 @@ de
 yk
 dq
 dq
-de
+EY
 de
 rE
 WV
