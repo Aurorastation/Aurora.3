@@ -328,7 +328,7 @@
 	description = "A suite of chemical glands, tailored genetic therapies, and skeletal reinforcements that are aimed towards Galatean Off-worlders. These bioaugmentations serve to eliminate the weakness experienced by Off-worlders in standard terrestrial gravity."
 	path = /obj/item/organ/internal/augment/bioaug/gravity_adaptations
 	origin_restriction = list(/singleton/origin_item/origin/galatea)
-	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD)
+	whitelisted = list(SPECIES_HUMAN_OFFWORLD)
 	cost = 1
 
 /datum/gear/augment/mind_blanker
