@@ -234,6 +234,11 @@
 	/// Holder var for the item outline filter, null when no outline filter on the item.
 	var/outline_filter
 
+	// Persistency
+	// Set this to true if you want the item to become persistent trash
+	// Requires the usual implementation requirements for new persistent types but provides a single implementation for trash logic
+	var/persistency_considered_trash = FALSE
+
 /obj/item/Initialize(mapload, ...)
 	. = ..()
 	if(islist(armor))
@@ -337,7 +342,7 @@
 	//Changed this switch to ranges instead of tiered values, to cope with granularity and also
 	//things outside its range ~Nanako
 
-	. = ..(user, distance, "", "It is a [size] item.", get_extended = get_extended)
+	. = ..(user, distance, is_adjacent, "It is a [size] item.", get_extended = get_extended)
 	var/datum/component/armor/armor_component = GetComponent(/datum/component/armor)
 	if(armor_component)
 		. += FONT_SMALL(SPAN_NOTICE("\[?\] This item has armor values. <a href='byond://?src=[REF(src)];examine_armor=1'>\[Show Armor Values\]</a>"))
@@ -480,18 +485,44 @@
 
 	if(item_flags & ITEM_FLAG_HELD_MAP_TEXT)
 		check_maptext()
-
 	if(zoom)
 		zoom(user) //binoculars, scope, etc
 
 	SEND_SIGNAL(src, COMSIG_ITEM_DROPPED, user)
-
 	in_inventory = FALSE
 
 	if(user && (z_flags & ZMM_MANGLE_PLANES))
 		addtimer(CALLBACK(user, /mob/proc/check_emissive_equipment), 0, TIMER_UNIQUE)
 
 	user?.update_equipment_speed_mods()
+	try_make_persistent_trash()
+
+/obj/item/pipe_eject(var/direction)
+	SHOULD_CALL_PARENT(TRUE)
+	..()
+	try_make_persistent_trash() // Trash that gets thrown into disposal bins and ends up in the disposal areas shouldn't be persistent after all
+
+/obj/item/proc/try_make_persistent_trash()
+	SHOULD_NOT_OVERRIDE(TRUE)
+	PROTECTED_PROC(TRUE)
+	if(!persistency_considered_trash)
+		return
+
+	if(in_storage) // Items getting moved into storages (lunchboxes, backpacks) triggers the dropped handler and requires no persistency as a result
+		SSpersistence.deregister_track(src)
+		return
+
+	// Trash-like items should become only persistent when they are not dropped in an area flagged with AREA_FLAG_PREVENT_PERSISTENT_TRASH
+	var/turf/T = get_turf(src)
+	if(T)
+		var/area/A = get_area(T)
+		if(A && !(A.area_flags & AREA_FLAG_PREVENT_PERSISTENT_TRASH))
+			persistance_expiration_time_days = 3 // Ensure expiration date is set to prevent long term trash
+			SSpersistence.register_track(src, usr == null ? null : ckey(usr.key))
+			return
+
+	// Fallback - No persistency
+	SSpersistence.deregister_track(src)
 
 /obj/item/proc/remove_item_verbs(mob/user)
 	if(ismech(user)) //very snowflake, but necessary due to how mechs work
@@ -602,6 +633,9 @@
 		addtimer(CALLBACK(user, /mob/proc/check_emissive_equipment), 0, TIMER_UNIQUE)
 
 	user.update_equipment_speed_mods()
+
+	if(persistency_considered_trash || persistence_track_active) // The moment trash like items get picked up they are no longer persistent
+		SSpersistence.deregister_track(src)
 
 /obj/item/proc/check_equipped(var/mob/user, var/slot, var/assisted_equip = FALSE)
 	return TRUE
@@ -902,7 +936,7 @@ GLOBAL_LIST_INIT(slot_flags_enumeration, list(
 
 /mob/living/carbon/verb/showoff()
 	set name = "Show Held Item"
-	set category = "Object"
+	set category = "Object.Held"
 
 	var/obj/item/I = get_active_hand()
 	if(I && !I.abstract)

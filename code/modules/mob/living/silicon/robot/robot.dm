@@ -823,7 +823,7 @@
 			user.put_in_active_hand(broken_device)
 
 //Robots take half damage from basic attacks.
-/mob/living/silicon/robot/attack_generic(var/mob/user, var/damage, var/attack_message)
+/mob/living/silicon/robot/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	return ..(user,FLOOR(damage/2, 1),attack_message)
 
 /mob/living/silicon/robot/proc/allowed(mob/M)
@@ -1031,7 +1031,7 @@
 
 /mob/living/silicon/robot/mode()
 	set name = "Activate Held Object"
-	set category = "IC"
+	set category = "Object.Held"
 	set src = usr
 
 	var/obj/item/W = get_active_hand()

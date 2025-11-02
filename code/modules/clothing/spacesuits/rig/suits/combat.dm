@@ -3,7 +3,7 @@
 	desc = "A sleek and dangerous hardsuit for active combat. This one is a Stellar Corporate Conglomerate design in color scheme and make."
 	icon = 'icons/obj/item/clothing/rig/combat.dmi'
 	icon_state = "combat_rig"
-	icon_supported_species_tags = list("skr")
+	icon_supported_species_tags = list("skr", "taj", "unat", "ipc")
 	suit_type = "combat hardsuit"
 	armor = list(
 		MELEE = ARMOR_MELEE_MAJOR,
@@ -19,11 +19,13 @@
 	offline_vision_restriction = TINT_HEAVY
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/combat
+	boot_type =  /obj/item/clothing/shoes/magboots/rig/chonk
+
 	allowed = list(/obj/item/gun,/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/melee/baton)
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT
 
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL)
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_TAJARA, BODYTYPE_UNATHI, BODYTYPE_IPC, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU)
 
 /obj/item/clothing/head/helmet/space/rig/combat
 	light_overlay = "helmet_light_dual_cyan"
@@ -64,6 +66,7 @@
 	species_restricted = list(BODYTYPE_HUMAN)
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/military
+	boot_type =  /obj/item/clothing/shoes/magboots/rig/heavy
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY
 
@@ -71,7 +74,7 @@
 	light_overlay = "helmet_light_dual_green"
 	light_color = "#3e7c3e"
 
-/obj/item/rig/military/equipped
+/obj/item/rig/military/event
 	initial_modules = list(
 		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/mounted/pulse,
@@ -94,6 +97,16 @@
 		/obj/item/rig_module/chem_dispenser/combat,
 		/obj/item/rig_module/grenade_launcher/frag,
 		/obj/item/rig_module/grenade_launcher,
+		/obj/item/rig_module/vision/nvg
+		)
+
+/obj/item/rig/military/equipped
+	initial_modules = list(
+		/obj/item/rig_module/actuators/combat,
+		/obj/item/rig_module/power_sink,
+		/obj/item/rig_module/maneuvering_jets,
+		/obj/item/rig_module/chem_dispenser/combat,
+		/obj/item/rig_module/grenade_launcher/frag,
 		/obj/item/rig_module/vision/nvg
 		)
 
@@ -169,6 +182,7 @@
 	offline_vision_restriction = TINT_HEAVY
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/tcfl
+	boot_type =  /obj/item/clothing/shoes/magboots/rig/heavy
 
 	allowed = list(
 		/obj/item/device/flashlight,
@@ -222,6 +236,8 @@
 	offline_slowdown = 2
 	offline_vision_restriction = TINT_HEAVY
 
+	boot_type =  /obj/item/clothing/shoes/magboots/rig/heavy
+
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY | MODULE_VAURCA
@@ -274,6 +290,7 @@
 	offline_slowdown = 2
 	offline_vision_restriction = TINT_HEAVY
 
+	boot_type =  /obj/item/clothing/shoes/magboots/rig/heavy
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY | MODULE_VAURCA
@@ -342,6 +359,8 @@
 	offline_slowdown = 2
 	offline_vision_restriction = TINT_HEAVY
 
+	boot_type =  /obj/item/clothing/shoes/magboots/rig/heavy
+
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY | MODULE_VAURCA
@@ -403,13 +422,52 @@
 	max_heat_protection_temperature = ARMOR_MAX_HEAT_PROTECTION_TEMPERATURE
 
 	glove_type = /obj/item/clothing/gloves/powerfist
-	boot_type =  /obj/item/clothing/shoes
+	boot_type =  /obj/item/clothing/shoes/magboots/rig/chonk
 
 /obj/item/rig/bunker/equipped
 	initial_modules = list(
 		/obj/item/rig_module/actuators/combat,
 		/obj/item/rig_module/device/drill,
 		/obj/item/rig_module/fabricator/energy_net
+		)
+
+/obj/item/rig/bunker/ninja // Ninjas have breachers, so it was approved they can have the unnerfed version.
+	initial_modules = list(
+		/obj/item/rig_module/actuators/combat,
+		/obj/item/rig_module/vision/thermal,
+		/obj/item/rig_module/maneuvering_jets,
+		/obj/item/rig_module/recharger,
+		/obj/item/rig_module/mounted/ion,
+		/obj/item/rig_module/fabricator/energy_net,
+		/obj/item/rig_module/device/drill,
+		)
+
+/obj/item/rig/bunker/nerfed
+	name = "bunker suit control module"
+	desc = "A powerful niche-function hardsuit utilized by Ceres' Lance to apprehend synthetics. This is a lighter version with more standard hardsuit plating."
+	armor = list(
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_MAJOR,
+		LASER = ARMOR_LASER_MEDIUM,
+		ENERGY = ARMOR_ENERGY_SMALL,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_SMALL
+	)
+	offline_vision_restriction = TINT_HEAVY
+	slowdown = 1
+
+	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+
+	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY | MODULE_VAURCA
+
+/obj/item/rig/bunker/nerfed/equipped
+	initial_modules = list(
+		/obj/item/rig_module/actuators/combat,
+		/obj/item/rig_module/vision/thermal,
+		/obj/item/rig_module/maneuvering_jets,
+		/obj/item/rig_module/recharger,
+		/obj/item/rig_module/mounted/ion
 		)
 
 /obj/item/rig/jinxiang
@@ -440,6 +498,7 @@
 	max_heat_protection_temperature = ARMOR_MAX_HEAT_PROTECTION_TEMPERATURE
 
 	glove_type = /obj/item/clothing/gloves/powerfist
+	boot_type =  /obj/item/clothing/shoes/magboots/rig/chonk
 
 /obj/item/rig/jinxiang/equipped
 	initial_modules = list(
@@ -479,6 +538,7 @@
 	siemens_coefficient = 0.1
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/nanotrasen
+	boot_type =  /obj/item/clothing/shoes/magboots/rig/heavy
 
 	slowdown = 1
 	offline_slowdown = 2

@@ -146,7 +146,8 @@
 	surgerysound = 'sound/items/surgery/hemostat.ogg'
 	drop_sound = 'sound/items/drop/wirecutter.ogg'
 	pickup_sound = 'sound/items/pickup/wirecutter.ogg'
-	var/bomb_defusal_chance = 30 // 30% chance to safely defuse a bomb
+	/// 30% chance to safely defuse a bomb
+	var/bomb_defusal_chance = 30
 	build_from_parts = TRUE
 	worn_overlay = "head"
 
@@ -319,7 +320,7 @@
 
 /obj/item/weldingtool/use_tool(atom/target, mob/living/user, delay, amount, volume, datum/callback/extra_checks)
 	var/image/welding_sparks = image('icons/effects/effects.dmi', welding_state)
-	welding_sparks.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+	welding_sparks.plane = ABOVE_LIGHTING_PLANE
 	target.AddOverlays(welding_sparks)
 	. = ..()
 	target.CutOverlays(welding_sparks)

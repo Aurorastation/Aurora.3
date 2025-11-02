@@ -156,7 +156,7 @@
 		. += SPAN_NOTICE("It has the following hardpoints:")
 		for(var/hardpoint in hardpoints)
 			var/obj/item/I = hardpoints[hardpoint]
-			. += "- <b>[hardpoint]</b>: [istype(I) ? SPAN_NOTICE("<i>[I]</i>") : "nothing"]."
+			. += "- <b>[hardpoint]</b>: [istype(I) ? "<a href='byond://?src=[REF(src)];examine=[REF(I)]'>[I.name]</a>" : "nothing"]."
 	else
 		. += "It has <b>no visible hardpoints</b>."
 

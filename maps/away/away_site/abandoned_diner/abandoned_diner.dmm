@@ -1458,10 +1458,10 @@
 /obj/structure/table/reinforced/steel,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/extinguisher_cabinet/east,
-/obj/item/storage/box/condiment{
+/obj/item/storage/box/large/condiment{
 	pixel_y = 13
 	},
-/obj/item/storage/box/condiment{
+/obj/item/storage/box/large/condiment{
 	pixel_y = 3
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1601,7 +1601,7 @@
 /obj/effect/floor_decal/corner_wide/blue{
 	dir = 9
 	},
-/obj/structure/janitorialcart/full{
+/obj/structure/cart/storage/janitorialcart/full{
 	dir = 8
 	},
 /obj/item/reagent_containers/glass/bucket,

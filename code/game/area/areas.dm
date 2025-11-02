@@ -14,7 +14,8 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 	var/uid
 	///Bitflag (Any of `AREA_FLAG_*`). See `code\__DEFINES\misc.dm`.
 	var/area_flags
-	var/holomap_color // Color of this area on the holomap. Must be a hex color (as string) or null.
+	/// Color of this area on the holomap. Must be a hex color (as string) or null.
+	var/holomap_color
 
 	///Do we have an active fire alarm?
 	var/fire = FALSE
@@ -33,22 +34,27 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 	invisibility = INVISIBILITY_LIGHTING
 
 	var/obj/machinery/power/apc/apc = null
-	var/turf/base_turf // The base turf type of the area, which can be used to override the z-level's base turf.
+	/// The base turf type of the area, which can be used to override the z-level's base turf.
+	var/turf/base_turf
 
 	var/lightswitch = FALSE
 
 	var/eject = null
 
 	var/requires_power = 1
-	var/always_unpowered = 0	//this gets overridden to 1 for space in area/New()
+	/// This gets overridden to 1 for space in area/New()
+	var/always_unpowered = 0
 
-	var/power_equip = 1 // Status vars
+	// Status vars
+	var/power_equip = 1
 	var/power_light = 1
 	var/power_environ = 1
-	var/used_equip = 0 // Continuous drain; don't touch these directly.
+	// Continuous drain; don't touch these directly.
+	var/used_equip = 0
 	var/used_light = 0
 	var/used_environ = 0
-	var/oneoff_equip 	= 0 // Used once and cleared each tick.
+	// Used once and cleared each tick.
+	var/oneoff_equip 	= 0
 	var/oneoff_light 	= 0
 	var/oneoff_environ 	= 0
 
@@ -71,8 +77,10 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 	///Used to decide what kind of reverb the area makes sound have
 	var/sound_environment = SOUND_AREA_STANDARD_STATION
 
-	var/no_light_control = FALSE // If TRUE, lights in area cannot be toggled with light controller.
-	var/allow_nightmode = FALSE // If TRUE, lights in area will be darkened by the night mode controller.
+	/// If TRUE, lights in area cannot be toggled with light controller.
+	var/no_light_control = FALSE
+	/// If TRUE, lights in area will be darkened by the night mode controller.
+	var/allow_nightmode = FALSE
 	var/emergency_lights = FALSE
 
 	/**
@@ -98,7 +106,17 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 
 	var/tmp/is_outside = OUTSIDE_NO
 
-// Don't move this to Initialize(). Things in here need to run before SSatoms does.
+	/// Should the turfs in this area render starlight accurate to the starlight of the local sector?
+	/// This is intended for use with EVA areas of ships - such as the wings of the Horizon, for instance.
+	/// You probably shouldn't be setting this to true on any planet-based maps, or on any indoors areas.
+	var/needs_starlight = FALSE
+
+	/// defaults to TRUE, false disables hostile events (like drone uprising).
+	var/hostile_events = TRUE
+
+/**
+ * Don't move this to Initialize(). Things in here need to run before SSatoms does.
+ */
 /area/New()
 	// DMMS hook - Required for areas to work properly.
 	if (!GLOB.areas_by_type[type])
@@ -172,7 +190,14 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 /area/proc/is_no_crew_expected()
 	return area_flags & AREA_FLAG_NO_CREW_EXPECTED
 
-/area/proc/set_lightswitch(var/state) // Set lights in area. TRUE for on, FALSE for off, NULL for initial state.
+/**
+ * Set lights in area.
+ *
+ * * state - TRUE for on, FALSE for off, NULL for initial state
+ *
+ * Returns `TRUE`
+ */
+/area/proc/set_lightswitch(var/state)
 	if(isnull(state))
 		state = initial(lightswitch)
 
@@ -292,7 +317,8 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 #define DO_PARTY(COLOR) animate(color = COLOR, time = 0.5 SECONDS, easing = QUAD_EASING)
 
 /area/update_icon()
-	if ((fire || eject || party || radiation_active) && (!requires_power||power_environ) && !istype(src, /area/space)) //If it doesn't require power, can still activate this proc.
+	// If it doesn't require power, can still activate this proc.
+	if ((fire || eject || party || radiation_active) && (!requires_power||power_environ) && !istype(src, /area/space))
 		if(radiation_active)
 			color = "#30e63f"
 			animate(src)	// stop any current animations.
@@ -404,24 +430,40 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 	for(var/atom/movable/recipient as anything in gone.important_recursive_contents[RECURSIVE_CONTENTS_AREA_SENSITIVE])
 		SEND_SIGNAL(recipient, COMSIG_EXIT_AREA, src)
 
-// Play Ambience
+/**
+ * Plays ambiance for the provided mob.
+ *
+ * * mob/living/L - Affected mob.
+ */
 /area/proc/play_ambience(var/mob/living/L)
 	if((world.time >= L.client.ambience_last_played_time + 5 MINUTES) && prob(20))
 		var/picked_ambience = pick(ambience)
 		L << sound(picked_ambience, volume = VOLUME_AMBIENCE, channel = CHANNEL_AMBIENCE)
 		L.client.ambience_last_played_time = world.time
 
-// Stop Ambience
+/**
+ * Stops ambiance for the provided mob.
+ *
+ * * mob/living/L - Affected mob.
+ */
 /area/proc/stop_ambience(var/mob/living/L)
 	L << sound(null, channel = 2)
 
-// Play Music
+/**
+ * Plays music for the provided mob.
+ *
+ * * mob/living/L - Affected mob.
+ */
 /area/proc/play_music(var/mob/living/L)
 	if(src.music.len)
 		var/picked_music = pick(music)
 		L << sound(picked_music, volume = VOLUME_MUSIC, channel = 4)
 
-// Stop Music
+/**
+ * Stops music for the provided mob.
+ *
+ * * mob/living/L - Affected mob.
+ */
 /area/proc/stop_music(var/mob/living/L)
 	L << sound(null, channel = 4)
 
@@ -467,8 +509,14 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 		return FALSE
 	return has_gravity
 
-//A useful proc for events.
-//This returns a random area of the station which is meaningful. Ie, a room somewhere
+/**
+ * Useful proc for events.
+ * This returns a random area of the station which is meaningful. Ie, a room somewhere
+ *
+ * * filter_players - Default FALSE. If TRUE, skips areas without any players in them.
+ *
+ * Returns /area/
+ */
 /proc/random_station_area(var/filter_players = FALSE)
 	var/list/possible = list()
 	for(var/Y in GLOB.the_station_areas)
@@ -497,6 +545,9 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 		//Although hostile mobs instadying to turrets is fun
 		//If there's no AI they'll just be hit with stunbeams all day and spam the attack logs.
 		if (istype(A, /area/turret_protected) || LAZYLEN(A.turret_controls))
+			continue
+
+		if(!A.hostile_events)
 			continue
 
 		if(filter_players)

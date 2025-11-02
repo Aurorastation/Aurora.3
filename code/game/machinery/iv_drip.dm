@@ -5,25 +5,26 @@
 	icon_state = "iv_stand"
 	anchored = 0
 	density = FALSE
-	pass_flags_self = PASSTABLE
+	pass_flags_self = PASSTABLE | LETPASSCLICKS
 	var/tipped = FALSE
 	var/last_full // Spam check
 	var/last_warning
 
-	// Blood Stuff
+	/// Blood Stuff
 	var/mob/living/carbon/human/attached = null
 	var/obj/item/organ/external/vein = null
 	var/obj/item/reagent_containers/beaker = null
 	var/transfer_amount = REM
 	var/transfer_limit = 4
-	var/mode = TRUE // TRUE is injecting, FALSE is taking blood.
+	/// TRUE is injecting, FALSE is taking blood.
+	var/mode = TRUE
 	var/toggle_stop = TRUE
 	var/blood_message_sent = FALSE
 	var/attach_delay = 5
 	var/armor_check = TRUE
 	var/adv_scan = FALSE
 
-	// Supplemental Gas Stuff
+	/// Supplemental Gas Stuff
 	var/mob/living/carbon/human/breather = null
 	var/obj/item/clothing/mask/breath/breath_mask = null
 	var/obj/item/tank/tank = null
@@ -32,13 +33,17 @@
 	var/list/tank_blacklist = list(/obj/item/tank/emergency_oxygen, /obj/item/tank/jetpack)
 	var/valve_open = FALSE
 	var/tank_active = FALSE
-	var/epp = TRUE // Emergency Positive Pressure system. Can be toggled if you want to turn it off
+	/// Emergency Positive Pressure system. Can be toggled if you want to turn it off
+	var/epp = TRUE
 	var/epp_active = FALSE
 
-	//Matrix stuff
+	/// Matrix stuff
 	var/matrix/iv_matrix
 
-	//What we accept as a container for IV transfers. Prevents attaching food and organs to IVs.
+	/// The beam drawn from the IV to the patient.
+	var/datum/beam/patient_beam
+
+	/// What we accept as a container for IV transfers. Prevents attaching food and organs to IVs.
 	var/list/accepted_containers = list(
 		/obj/item/reagent_containers/blood,
 		/obj/item/reagent_containers/glass/beaker,
@@ -59,16 +64,19 @@
 
 /obj/machinery/iv_drip/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	. += "IV drips can be supplied beakers/bloodpacks for reagent transfusions, as well as one breath mask and gas tank for supplemental gas therapy."
-	. += "Use a wrench when it has a tank installed to secure it. Use it again to unsecure it before removal."
-	. += "Click-drag to attach/detach the IV or secure/remove the breath mask on your target."
-	. += "Click the stand with an empty hand to toggle between various modes."
-	. += "ALT-Click the stand to remove items contained in the stand."
+	. += "- IV drips can be supplied beakers/bloodpacks for reagent transfusions, as well as one breath mask and gas tank for supplemental gas therapy."
+	. += "- Use a wrench when it has a tank installed to secure it. Use it again to unsecure it before removal."
+	. += "- Click-drag to attach/detach the IV or secure/remove the breath mask on your target."
+	. += "- Click the stand with an empty hand to toggle between various modes."
+	. += "- ALT-Click the stand to remove items contained in the stand."
 
 /obj/machinery/iv_drip/upgrade_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	. += "Upgraded <b>scanning modules</b> will provide the exact volume and composition of attached beakers."
-	. += "Upgraded <b>manipulators</b> will allow patients to be hooked to IV through armor and increase the maximum reagent transfer rate."
+	. += "- Upgraded <b>scanning modules</b> will provide the exact volume and composition of attached beakers."
+	. += adv_scan ? SPAN_GOOD("	- Advanced Scan is enabled") : SPAN_ALERT("	- Advanced Scan is not enabled")
+	. += "- Upgraded <b>manipulators</b> will allow patients to be hooked to IV through armor and increase the maximum reagent transfer rate."
+	. += SPAN_NOTICE("	- Maximum transfer rate is <b>[transfer_limit]u/s</b>")
+	. += armor_check ? SPAN_ALERT("	- Armor punch-through is not enabled") : SPAN_GOOD("	- Armor punch-through is enabled")
 
 /obj/machinery/iv_drip/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -106,8 +114,7 @@
 
 /obj/machinery/iv_drip/Destroy()
 	if(attached)
-		attached = null
-		vein = null
+		clear_attached()
 	QDEL_NULL(beaker)
 	if(breather)
 		breath_mask_rip()
@@ -285,8 +292,7 @@
 				if((beaker.reagents.has_reagent(/singleton/reagent/blood) || beaker.reagents.has_reagent(/singleton/reagent/saline)) && attached.get_blood_volume() >= 100)
 					visible_message("\The <b>[src]</b> flashes a warning light, disengaging from [attached]'s [vein.name] automatically!")
 					playsound(src, 'sound/machines/buzz-two.ogg', 100, extrarange = SILENCED_SOUND_EXTRARANGE)
-					vein = null
-					attached = null
+					clear_attached()
 					blood_message_sent = FALSE
 					update_icon()
 					return
@@ -328,25 +334,22 @@
 			if("IV drip")
 				if(attached)
 					visible_message("[user] detaches \the [src] from [attached]'s [vein.name].")
-					vein = null
-					attached = null
+					clear_attached()
 					blood_message_sent = FALSE
 					update_icon()
 					return
-				attached = over
+				set_attached(over)
 				vein = attached.get_organ(user.zone_sel.selecting)
 				var/checking = attached.can_inject(user, TRUE, user.zone_sel.selecting, armor_check)
 				if(!checking)
-					attached = null
-					vein = null
+					clear_attached()
 					return
 				if(armor_check)
 					var/attach_time = attach_delay
 					attach_time *= checking
 					if(!do_mob(user, attached, attach_time))
 						to_chat(user, SPAN_DANGER("Failed to insert \the [src]. You and [attached] must stay still!"))
-						attached = null
-						vein = null
+						clear_attached()
 						return
 				visible_message("[user][armor_check ? "" : " swiftly"] inserts \the [src] in \the [attached]'s [vein.name].")
 				update_icon()
@@ -591,8 +594,7 @@
 /obj/machinery/iv_drip/proc/iv_rip()
 	attached.visible_message(SPAN_WARNING("The needle is ripped out of [attached]'s [vein.name]."), SPAN_DANGER("The needle <B>painfully</B> rips out of your [vein.name]."))
 	vein.take_damage(brute = 5, damage_flags = DAMAGE_FLAG_SHARP)
-	vein = null
-	attached = null
+	clear_attached()
 
 /obj/machinery/iv_drip/proc/breath_mask_rip()
 	if(valve_open)
@@ -640,7 +642,7 @@
 	update_icon()
 
 /obj/machinery/iv_drip/verb/toggle_mode()
-	set category = "Object"
+	set category = "Object.IV Drip"
 	set name = "Toggle Mode"
 	set src in view(1)
 
@@ -652,7 +654,7 @@
 	update_icon()
 
 /obj/machinery/iv_drip/verb/toggle_stop()
-	set category = "Object"
+	set category = "Object.IV Drip"
 	set name = "Toggle Stop"
 	set src in view(1)
 
@@ -663,7 +665,7 @@
 	playsound(usr, 'sound/machines/click.ogg', 50, extrarange = SILENCED_SOUND_EXTRARANGE)
 
 /obj/machinery/iv_drip/verb/toggle_valve()
-	set category = "Object"
+	set category = "Object.IV Drip"
 	set name = "Toggle Valve"
 	set src in view(1)
 
@@ -691,7 +693,7 @@
 		return
 
 /obj/machinery/iv_drip/verb/toggle_epp()
-	set category = "Object"
+	set category = "Object.IV Drip"
 	set name = "Toggle EPP"
 	set src in view(1)
 
@@ -708,7 +710,7 @@
 	playsound(usr, 'sound/machines/click.ogg', 50, extrarange = SILENCED_SOUND_EXTRARANGE)
 
 /obj/machinery/iv_drip/verb/transfer_rate()
-	set category = "Object"
+	set category = "Object.IV Drip"
 	set name = "Set Transfer Rate"
 	set src in view(1)
 
@@ -744,3 +746,20 @@
 		armor_check = FALSE
 	if(scanner >= 2)
 		adv_scan = TRUE
+
+/**
+ * Wrapper for setting the attached variable.
+ */
+/obj/machinery/iv_drip/proc/set_attached(mob/attachee)
+	attached = attachee
+	patient_beam = Beam(attached, "iv_beam", 'icons/effects/beam.dmi', -1, 2)
+
+/**
+ * Wrapper for clearing the attached variable.
+ */
+/obj/machinery/iv_drip/proc/clear_attached()
+	attached = null
+	vein = null
+	if(patient_beam)
+		patient_beam.End()
+		patient_beam = null

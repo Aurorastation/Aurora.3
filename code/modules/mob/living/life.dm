@@ -10,10 +10,10 @@
 	if(!loc)
 		return FALSE
 
-	var/datum/gas_mixture/gas_environment = loc.return_air()
+	var/datum/gas_mixture/environment = loc.return_air()
 	//Handle temperature/pressure differences between body and environment
-	if(gas_environment)
-		handle_environment(gas_environment)
+	if(environment)
+		handle_environment(environment)
 
 	blinded = 0 // Placing this here just show how out of place it is.
 
@@ -28,7 +28,7 @@
 			handle_mutations_and_radiation()
 
 	//Check if we're on fire
-	handle_fire()
+	handle_fire(seconds_per_tick, environment)
 
 	update_pulling()
 
@@ -182,7 +182,7 @@
 		set_sight_flags &= ~BLIND
 
 	set_sight(set_sight_flags)
-	set_see_invisible(initial(see_invisible))
+	set_see_invisible(see_invisible)
 
 /mob/living/proc/update_dead_sight()
 	set_sight(sight|SEE_TURFS|SEE_MOBS|SEE_OBJS)

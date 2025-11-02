@@ -76,6 +76,10 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 	if(!faction) //No faction, no reason to attack anybody.
 		return null
 
+	// Reduce spam for when you put 20 rogue maint drones in a box.
+	if(!isturf(loc) && prob(33))
+		return null
+
 	var/atom/T = null
 	var/target_range = INFINITY
 	for (var/atom/A in targets)
@@ -152,7 +156,7 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 				set_last_found_target(tmp_target_mob)
 			change_stance(HOSTILE_STANCE_ATTACK)
 
-/mob/living/simple_animal/hostile/attack_generic(var/mob/user, var/damage, var/attack_message)
+/mob/living/simple_animal/hostile/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	..()
 	if(last_found_target != user)
 		set_last_found_target(user)
@@ -255,7 +259,7 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 		var/mob/living/L = last_found_target
 		if(L.paralysis)
 			return
-		on_attack_mob(L, L.attack_generic(src, rand(melee_damage_lower, melee_damage_upper), attacktext, armor_penetration, attack_flags, damage_type))
+		on_attack_mob(L, L.attack_generic(src, rand(melee_damage_lower, melee_damage_upper), attacktext, environment_smash, armor_penetration, attack_flags, damage_type))
 		target = L
 	else if(istype(last_found_target, /obj/machinery/bot))
 		var/obj/machinery/bot/B = last_found_target
@@ -431,6 +435,10 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 	if(ON_ATTACK_COOLDOWN(src))
 		return FALSE
 
+	// Can't break shit from inside crates and whatnot.
+	if(!isturf(loc))
+		return
+
 	if(prob(break_stuff_probability) || bypass_prob) //bypass_prob is used to make mob destroy things in the way to our target
 		for(var/card_dir in GLOB.cardinals) // North, South, East, West
 			var/turf/target_turf = get_step(src, card_dir)
@@ -439,7 +447,7 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 			found_obj = locate(/obj/effect/energy_field) in target_turf
 			if(found_obj && !found_obj.invisibility && found_obj.density)
 				var/obj/effect/energy_field/e = found_obj
-				e.Stress(rand(0.5, 1.5))
+				e.damage_field(rand(0.5, 1.5))
 				visible_message(SPAN_DANGER("[capitalize_first_letters(src.name)] [attacktext] \the [e]!"))
 				src.do_attack_animation(e)
 				set_last_found_target(e)

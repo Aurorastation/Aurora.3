@@ -415,5 +415,74 @@
 
 	return test_status
 
+/datum/unit_test/map_test/no_map_spawn_guaranteed_flag
+	name = "MAP: Check for Spawn Guaranteed flag"
+	/// Away sites that are allowed to always populate. Usually sector-specific locations only.
+	var/list/do_not_check_site_types = list(
+		/datum/map_template/ruin/away_site/hegemony_waypoint
+	)
+
+/datum/unit_test/map_test/no_map_spawn_guaranteed_flag/start_test()
+	var/test_status = UNIT_TEST_PASSED
+
+	for (var/site_id in SSmapping.away_sites_templates)
+		var/datum/map_template/ruin/away_site/site = SSmapping.away_sites_templates[site_id]
+
+		if(is_type_in_list(site, do_not_check_site_types))
+			TEST_DEBUG("Skipping away site [site.name] as it is in the do not check list.")
+			continue
+
+		if (site.template_flags & TEMPLATE_FLAG_SPAWN_GUARANTEED)
+			test_status = TEST_FAIL("Away site [site.name] has the debug flag TEMPLATE_FLAG_SPAWN_GUARANTEED set.")
+		else
+			TEST_DEBUG("Away site [site.name] does not have the flag set.")
+
+	if(test_status == UNIT_TEST_PASSED)
+		TEST_PASS("All away sites are free of offending debug flags.")
+	else
+		TEST_FAIL("Some away sites have the offending debug flag TEMPLATE_FLAG_SPAWN_GUARANTEED set.")
+
+	return test_status
+
+// At present, only fire alarms have NSEW as immediate children, whereas APCs and Air Alarms also have them as sub-children.
+// In the future, areas should have additional vars to populate APC data automatically, allowing them to have directional
+// immediate children too for mapping testing.
+/datum/unit_test/map_test/no_panel_dir_var_edits
+	name = "MAP: Check for Fire Alarm dir var edits"
+
+/datum/unit_test/map_test/no_panel_dir_var_edits/start_test()
+	var/test_status = UNIT_TEST_PASSED
+	var/checks = 0
+	var/failed_checks = 0
+	var/firealarm_increment
+	var/turf/T
+
+	for(var/obj/machinery/firealarm/F in world)
+		T = get_turf(F)
+		firealarm_increment = 0
+		if(istype(F, /obj/machinery/firealarm/north))
+			if(F.dir != NORTH)
+				firealarm_increment++
+		if(istype(F, /obj/machinery/firealarm/south))
+			if(F.dir != SOUTH)
+				firealarm_increment++
+		if(istype(F, /obj/machinery/firealarm/east))
+			if(F.dir != EAST)
+				firealarm_increment++
+		if(istype(F, /obj/machinery/firealarm/west))
+			if(F.dir != WEST)
+				firealarm_increment++
+		checks++
+		if(firealarm_increment > 1)
+			failed_checks++
+			TEST_FAIL("Manually var edited [F] at ([F.x],[F.y],[F.z]) in [T.loc].")
+
+	if(failed_checks)
+		TEST_FAIL("\[[failed_checks] / [checks]\] Some fire alarms had their dir var manually edited instead of using a preset variant. Please also check new APCs and air alarms in the area.")
+	else
+		TEST_PASS("All \[[checks]\] fire alarms mapped properly.")
+
+	return test_status
+
 #undef SUCCESS
 #undef FAILURE

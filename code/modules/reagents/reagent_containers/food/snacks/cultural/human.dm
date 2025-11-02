@@ -296,6 +296,53 @@
 	icon_state = "mozzarella_stick"
 	filling_color = "#fabe17"
 
+/obj/item/reagent_containers/food/snacks/jambalaya
+	name = "jambalaya"
+	desc = "A Creole/Cajun-American dish popularized in Louisiana with origins in Africa and Asia. It is a flavorful mixture of seafood, meats, rice, spices and vegetables. A real celebration of all that is food."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "jambalaya"
+	trash = /obj/item/trash/shakshouka
+	reagents_to_add = list(/singleton/reagent/nutriment/protein = 6, /singleton/reagent/nutriment = 6)
+	reagent_data = list(/singleton/reagent/nutriment/protein = list("chicken" = 5, "shrimp" = 5, "sausage" = 4), /singleton/reagent/nutriment = list("rice" = 5, "rich spicy flavors" = 5))
+	filling_color = "#c06917"
+
+/obj/item/reagent_containers/food/snacks/jambalaya/update_icon()
+	var/percent_jambalaya = round((reagents.total_volume / 12) * 100)
+	switch(percent_jambalaya)
+		if(0 to 50)
+			icon_state = "jambalaya_half"
+		else
+			icon_state = "jambalaya"
+
+/obj/item/reagent_containers/food/snacks/bowl/pop_shrimp_bowl
+	name = "bowl of pop shrimp" //Popcorn shrimp were invented in the 70's (after the timeline divergence date) so I figured I'd call them something similar but different in this universe.
+	desc = "A bowl of fried shrimp so small and crunchy you can just pop them right in your mouth!"
+	icon = 'icons/obj/item/reagent_containers/food/fryer.dmi'
+	icon_state = "popshrimp_full"
+	unitname = "pop shrimp"
+	filling_color = "#be7017"
+	trash = /obj/item/trash/snack_bowl
+	vendingobject = /obj/item/reagent_containers/food/snacks/pop_shrimp
+	bitesize = 1
+	reagents_to_add = list(/singleton/reagent/nutriment/protein/seafood = 5, /singleton/reagent/nutriment = 1)
+	reagent_data = list(/singleton/reagent/nutriment/protein/seafood = list("crunchy fried shrimp" = 5), /singleton/reagent/nutriment = list("seasoning" = 5))
+
+/obj/item/reagent_containers/food/snacks/bowl/pop_shrimp_bowl/update_icon()
+	switch(reagents.total_volume)
+		if(1 to 3)
+			icon_state = "popshrimp_half"
+		if(4 to INFINITY)
+			icon_state = "popshrimp_full"
+
+/obj/item/reagent_containers/food/snacks/pop_shrimp
+	name = "pop shrimp"
+	gender = PLURAL
+	desc = "A handful of crunchy, fried shrampies!"
+	icon = 'icons/obj/item/reagent_containers/food/fryer.dmi'
+	icon_state = "popshrimp"
+	bitesize = 10
+	filling_color = "#be7017"
+
 // Konyang
 
 /obj/item/reagent_containers/food/snacks/mossbowl
@@ -348,7 +395,7 @@
 
 /obj/item/reagent_containers/food/snacks/ricetub/verb/remove_sticks()
 	set name = "Remove Chopsticks"
-	set category = "Object"
+	set category = "Object.Held"
 	set src in usr
 
 	var/obj/item/material/kitchen/utensil/fork/chopsticks/bamboo/S = new()
@@ -499,7 +546,7 @@
 	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
 	icon_state = "dynpozole"
 	reagent_data = list(/singleton/reagent/nutriment = list("peppermint" = 2, "salad" = 4, "hot stew" = 2))
-	reagents_to_add = list(/singleton/reagent/nutriment = 8, /singleton/reagent/water = 5, /singleton/reagent/drink/dynjuice =2)
+	reagents_to_add = list(/singleton/reagent/nutriment/protein = 5, /singleton/reagent/nutriment = 4, /singleton/reagent/water = 5, /singleton/reagent/drink/dynjuice =2)
 
 /obj/item/reagent_containers/food/snacks/elotes
 	name = "elotes"
@@ -577,6 +624,28 @@
 	filling_color = "#dbb06f"
 	reagents_to_add = list(/singleton/reagent/nutriment/protein/seafood/mollusc = 6, /singleton/reagent/nutriment = 2, /singleton/reagent/water = 5, /singleton/reagent/sodiumchloride = 2)
 	reagent_data = list(/singleton/reagent/nutriment/protein/seafood/mollusc = list("pillowy scallops" = 10, "salt" = 5), /singleton/reagent/nutriment = list("butter" = 10))
+
+/obj/item/reagent_containers/food/snacks/voidsman_stew
+	name = "voidsman's stew"
+	desc = "Fried fish balls in a light sauce. This dish predates the Imperial liberation of Sun Reach, being originally known as a 'freebooter stew'. The name was changed by the Viceroy's orders to honor those who died fighting the pirate lords."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "voidsman_stew"
+	trash = /obj/item/trash/wooden_platter
+	reagents_to_add = list(/singleton/reagent/nutriment/protein = 8, /singleton/reagent/nutriment = 4, /singleton/reagent/nutriment/triglyceride = 4, /singleton/reagent/spacespice = 2)
+	reagent_data = list(/singleton/reagent/nutriment = list("hot stew" = 3, "spices" = 1, "vegetables" = 1, "fish" = 2))
+	bitesize = 3
+	filling_color = "#4D2009"
+
+/obj/item/reagent_containers/food/snacks/carian_stroganoff
+	name = "carian stroganoff"
+	desc = "Meaty mushrooms drenched in a creamy sauce. Caria has a variety of mushroom dishes, but the rich flavours of Carian stroganoff made it popular when brought to Moroz and to the rest of the Spur."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "carian_stroganoff"
+	trash = /obj/item/trash/wooden_platter
+	reagents_to_add = list(/singleton/reagent/nutriment/protein = 6, /singleton/reagent/nutriment = 4)
+	reagent_data = list(/singleton/reagent/nutriment = list("creamy sauce" = 2, "savory spices" = 2), /singleton/reagent/nutriment = list("fried mushrooms" = 4))
+	bitesize = 3
+	filling_color = "#986E55"
 
 //New Hai Phong
 

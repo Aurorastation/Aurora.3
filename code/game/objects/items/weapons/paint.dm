@@ -15,8 +15,10 @@
 	unacidable = 0
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	fragile = 0
-	var/paint_reagent = null //name of the reagent responsible for colouring the paint
-	var/paint_type = null //used for colouring detective technicolor coat and hat
+	/// Name of the reagent responsible for colouring the paint.
+	var/paint_reagent = null
+	/// Used for colouring detective technicolor coat and hat.
+	var/paint_type = null
 	reagents_to_add = list(/singleton/reagent/paint = 4/5)
 
 /obj/item/reagent_containers/glass/paint/Initialize()

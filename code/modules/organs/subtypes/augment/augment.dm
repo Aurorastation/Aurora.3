@@ -3,7 +3,7 @@
 	icon = 'icons/obj/organs/augments.dmi'
 	icon_state = "augment"
 	parent_organ = BP_CHEST
-	organ_tag = "augment"
+	organ_tag = "augment" // All augments are required to have a UNIQUE organ_tag. This is used to check organ stacking.
 	robotic = ROBOTIC_MECHANICAL
 	emp_coeff = 2
 	is_augment = TRUE
@@ -36,7 +36,8 @@
 	var/supports_limb = FALSE
 
 /obj/item/organ/internal/augment/Initialize()
-	robotize()
+	if(robotic == ROBOTIC_MECHANICAL)
+		robotize()
 	. = ..()
 
 /obj/item/organ/internal/augment/refresh_action_button()
@@ -82,3 +83,13 @@
 /obj/item/organ/internal/augment/proc/do_bruised_act()
 	spark(get_turf(owner), 3)
 	return FALSE
+
+/obj/item/organ/internal/augment/bioaug
+	name = "bioaugment"
+	icon = 'icons/obj/organs/bioaugs.dmi'
+	icon_state = "boosted_heart"
+	robotic = FALSE
+	species_restricted = list(
+		SPECIES_HUMAN_OFFWORLD,
+		SPECIES_HUMAN,
+	)

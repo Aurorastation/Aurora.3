@@ -3,11 +3,16 @@
 ////////////////////////////////////////
 
 #define AALARM_MODE_SCRUBBING	1
-#define AALARM_MODE_REPLACEMENT	2 //like scrubbing, but faster.
-#define AALARM_MODE_PANIC		3 //constantly sucks all air
-#define AALARM_MODE_CYCLE		4 //sucks off all air, then refill and switches to scrubbing
-#define AALARM_MODE_FILL		5 //emergency fill
-#define AALARM_MODE_OFF			6 //Shuts it all down.
+/// Like scrubbing, but faster.
+#define AALARM_MODE_REPLACEMENT	2
+/// Constantly sucks all air
+#define AALARM_MODE_PANIC		3
+/// Sucks out all air, then refill and switches to scrubbing
+#define AALARM_MODE_CYCLE		4
+/// Emergency fill
+#define AALARM_MODE_FILL		5
+/// Shuts it all down.
+#define AALARM_MODE_OFF			6
 
 #define AALARM_SCREEN_MAIN		1
 #define AALARM_SCREEN_VENT		2
@@ -90,7 +95,7 @@ pixel_x = -10;
 dir = EAST; \
 pixel_x = 10;
 
-//all air alarms in area are connected via magic
+/// All air alarms in area are connected via magic
 /area
 	var/list/air_vent_names = list()
 	var/list/air_scrub_names = list()
@@ -296,6 +301,39 @@ pixel_x = 10;
 /obj/machinery/alarm/warm/south
 	PRESET_SOUTH
 
+/// Air alarm parent objs for Horizon shuttles. Handles access control without needing to manually override anything in mapping.
+/obj/machinery/alarm/shuttle
+	desc = "A device that controls the local air regulation machinery. This one is designed for use in shuttles."
+	req_access = null
+	highpower = 1
+
+/obj/machinery/alarm/shuttle/north
+	PRESET_NORTH
+
+/obj/machinery/alarm/shuttle/east
+	PRESET_EAST
+
+/obj/machinery/alarm/shuttle/west
+	PRESET_WEST
+
+/obj/machinery/alarm/shuttle/south
+	PRESET_SOUTH
+
+/// Assigns req_one_access perms associated with the area of the shuttle its mapped in.
+/obj/machinery/alarm/shuttle/Initialize()
+	. = ..()
+	var/area = get_area(src)
+
+	if(istype(area, /area/horizon/shuttle/intrepid))
+		req_one_access = list(ACCESS_ENGINE_EQUIP, ACCESS_ATMOSPHERICS, ACCESS_INTREPID)
+	if(istype(area, /area/horizon/shuttle/quark))
+		req_one_access = list(ACCESS_ENGINE_EQUIP, ACCESS_ATMOSPHERICS, ACCESS_QUARK)
+	if(istype(area, /area/horizon/shuttle/mining))
+		req_one_access = list(ACCESS_ENGINE_EQUIP, ACCESS_ATMOSPHERICS, ACCESS_SPARK)
+	if(istype(area, /area/horizon/shuttle/canary))
+		req_one_access = list(ACCESS_ENGINE_EQUIP, ACCESS_ATMOSPHERICS, ACCESS_CANARY)
+
+
 /obj/machinery/alarm/server/Initialize()
 	. = ..()
 	TLV[GAS_OXYGEN] =			list(-1.0, -1.0,-1.0,-1.0) // Partial pressure, kpa
@@ -309,14 +347,18 @@ pixel_x = 10;
 //For colder alarms, allowing pressure to drop a bit below normal is necessary. Pressure fluctuates downwards
 //While temperature stabilises.
 
-//Kitchen freezer
+/**
+ * Kitchen freezer
+ */
 /obj/machinery/alarm/freezer/Initialize()
 	. = ..()
 	TLV[GAS_OXYGEN] = list(16, 17, 135, 140) // Partial pressure, kpa
 	TLV["pressure"] = list(ONE_ATMOSPHERE*0.50,ONE_ATMOSPHERE*0.70,ONE_ATMOSPHERE*1.10,ONE_ATMOSPHERE*1.20)
 	TLV["temperature"] = list(0, 0, 273, T0C+40) // No lower limits. Alarm above 0c. Major alarm at harmful heat
 
-//Refridgerated area, cold but above-freezing
+/**
+ * Refridgerated area, cold but above-freezing
+ */
 /obj/machinery/alarm/cold/Initialize()
 	. = ..()
 	TLV["pressure"] =		list(ONE_ATMOSPHERE*0.70,ONE_ATMOSPHERE*0.80,ONE_ATMOSPHERE*1.10,ONE_ATMOSPHERE*1.20) /* kpa */
@@ -329,6 +371,7 @@ pixel_x = 10;
 	return ..()
 
 /obj/machinery/alarm/LateInitialize()
+	. = ..()
 	apply_mode()
 
 /obj/machinery/alarm/Initialize(mapload, var/dir, var/building = 0)
@@ -357,7 +400,7 @@ pixel_x = 10;
 
 /obj/machinery/alarm/set_pixel_offsets()
 	pixel_x = ((src.dir & (NORTH|SOUTH)) ? 0 : (src.dir == EAST ? 10 : -10))
-	pixel_y = ((src.dir & (NORTH|SOUTH)) ? (src.dir == NORTH ? 21 : -6) : 0)
+	pixel_y = ((src.dir & (NORTH|SOUTH)) ? (src.dir == NORTH ? 21 : -4) : 0)
 
 /obj/machinery/alarm/proc/first_run()
 	alarm_area = get_area(src)
@@ -499,8 +542,9 @@ pixel_x = 10;
 
 			environment.merge(gas)
 
-
-// Returns whether this air alarm thinks there is a breach, given the sensors that are available to it.
+/**
+ * Returns whether this air alarm thinks there is a breach, given the sensors that are available to it.
+ */
 /obj/machinery/alarm/proc/breach_detected()
 	var/turf/simulated/location = loc
 
@@ -575,7 +619,10 @@ pixel_x = 10;
 	frequency = new_frequency
 	radio_connection = SSradio.add_object(src, frequency, RADIO_TO_AIRALARM)
 
-/obj/machinery/alarm/proc/send_signal(var/target, var/list/command)//sends signal 'command' to 'target'. Returns 0 if no radio connection, 1 otherwise
+/**
+ * Sends signal 'command' to 'target'. Returns 0 if no radio connection, 1 otherwise
+ */
+/obj/machinery/alarm/proc/send_signal(var/target, var/list/command)
 	if(!radio_connection)
 		return 0
 
@@ -676,8 +723,10 @@ pixel_x = 10;
 	var/remote_access = 0
 	if(state)
 		var/list/href = state.href_list(user)
-		remote_connection = href["remote_connection"]	// Remote connection means we're non-adjacent/connecting from another computer
-		remote_access = href["remote_access"]			// Remote access means we also have the privilege to alter the air alarm.
+		/// Remote connection means we're non-adjacent/connecting from another computer
+		remote_connection = href["remote_connection"]
+		/// Remote access means we also have the privilege to alter the air alarm.
+		remote_access = href["remote_access"]
 
 	data["locked"] = locked && !issilicon(user)
 	data["remote_connection"] = remote_connection
@@ -982,18 +1031,6 @@ pixel_x = 10;
 				update_icon()
 				return TRUE
 
-			if (attacking_item.GetID())// trying to unlock the interface with an ID card
-				if(stat & (NOPOWER|BROKEN))
-					to_chat(user, SPAN_NOTICE("Nothing happens."))
-					return TRUE
-				else
-					if(allowed(usr) && !wires.is_cut(WIRE_IDSCAN))
-						locked = !locked
-						to_chat(user, SPAN_NOTICE("You [ locked ? "lock" : "unlock"] the Air Alarm interface."))
-					else
-						to_chat(user, SPAN_WARNING("Access denied."))
-				return TRUE
-
 		if(1)
 			if(attacking_item.iscoil())
 				var/obj/item/stack/cable_coil/C = attacking_item
@@ -1033,6 +1070,27 @@ pixel_x = 10;
 				return TRUE
 
 	return ..()
+
+/obj/machinery/alarm/AltClick(mob/user)
+	if(Adjacent(user))
+		if(stat & (NOPOWER|BROKEN))
+			to_chat(user, SPAN_NOTICE("Nothing happens."))
+			return TRUE
+
+		else if(allowed(user))
+			locked = !locked
+			if(locked)
+				playsound(src, 'sound/machines/terminal/terminal_button03.ogg', 35, FALSE)
+			else
+				playsound(src, 'sound/machines/terminal/terminal_button01.ogg', 35, FALSE)
+			balloon_alert(user, locked ? "locked" : "unlocked")
+			updateUsrDialog()
+
+		else
+			to_chat(user, SPAN_NOTICE("Access denied."))
+			playsound(src, 'sound/machines/terminal/terminal_error.ogg', 25, FALSE)
+			balloon_alert(user, "access denied!")
+		return TRUE
 
 /obj/machinery/alarm/power_change()
 	..()

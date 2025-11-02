@@ -91,6 +91,10 @@
 	if(locate(/obj/effect/overlay/wallrot) in src)
 		. += SPAN_WARNING("There is fungus growing on [src].")
 
+/turf/simulated/wall/mouse_drop_receive(atom/dropping, mob/user, params)
+	//Adds the component only once. We do it here & not in Initialize() because there are tons of walls & we don't want to add to their init times
+	LoadComponent(/datum/component/leanable, dropping)
+
 // Walls always hide the stuff below them.
 /turf/simulated/wall/levelupdate(mapload)
 	if (mapload)

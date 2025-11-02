@@ -1,10 +1,10 @@
 /*
- *	Absorbs /obj/item/secstorage.
- *	Reimplements it only slightly to use existing storage functionality.
+ * Absorbs /obj/item/secstorage.
+ * Reimplements it only slightly to use existing storage functionality.
  *
- *	Contains:
- *		Secure Briefcase
- *		Wall Safe
+ * Contains:
+ * * Secure Briefcase
+ * * Wall Safe
  */
 
 // -----------------------------
@@ -196,3 +196,37 @@ ABSTRACT_TYPE(/obj/item/storage/secure)
 	..()
 	//new /obj/item/storage/lockbox/clusterbang(src) This item is currently broken... and probably shouldnt exist to begin with (even though it's cool)
 */
+
+// -----------------------------
+//    ID-Access Secure Safe
+// -----------------------------
+
+/obj/item/storage/secure/safe/id_lock
+	name = "ID-locked safe"
+	desc = "A secure safe with an ID card scanner instead of a combination lock."
+
+/obj/item/storage/secure/safe/id_lock/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/card/id))
+		if(!allowed(user))
+			to_chat(user, SPAN_WARNING("Access denied."))
+			return
+		if(locked)
+			playsound(src, 'sound/machines/boop1.ogg', 30, 1)
+			to_chat(user, SPAN_NOTICE("\The [src] beeps and unlocks."))
+			locked = 0
+			ClearOverlays()
+			AddOverlays(icon_opened)
+		else
+			playsound(src, 'sound/machines/boop2.ogg', 30, 1)
+			to_chat(user, SPAN_NOTICE("\The [src] beeps and locks."))
+			locked = 1
+			ClearOverlays()
+			close(user)
+		return
+	return ..()
+
+/obj/item/storage/secure/safe/id_lock/attack_self(mob/user)
+	if(!locked)
+		open(user)
+	else
+		to_chat(user, SPAN_WARNING("\The [src] is locked. Swipe an authorized ID card to unlock it."))

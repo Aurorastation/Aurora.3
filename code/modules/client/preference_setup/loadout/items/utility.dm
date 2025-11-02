@@ -46,13 +46,13 @@
 /datum/gear/utility/journal
 	display_name = "journal"
 	description = "A journal, kind of like a folder, but bigger! And personal."
-	path = /obj/item/journal
+	path = /obj/item/journal/filled
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/utility/notepad
 	display_name = "notepad"
 	description = "A notepad for jotting down notes in meetings or interrogations."
-	path = /obj/item/journal/notepad
+	path = /obj/item/journal/notepad/filled
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/utility/fountainpen
@@ -206,7 +206,8 @@
 	music_cartridges["Konyang Vibes 2463"] = /obj/item/music_cartridge/konyang_retrowave
 	music_cartridges["Top of the Charts 66 (Venusian Hits)"] = /obj/item/music_cartridge/venus_funkydisco
 	music_cartridges["SCC Welcome Package"] = /obj/item/music_cartridge/audioconsole
-	music_cartridges["Spacer Classics Vol. 1"] = /obj/item/music_cartridge/
+	music_cartridges["Spacer Classics Vol. 1"] = /obj/item/music_cartridge/ss13
 	music_cartridges["Indulgence EP (X-Rock)"] = /obj/item/music_cartridge/xanu_rock
 	music_cartridges["Electro-Swing of Adhomai"] = /obj/item/music_cartridge/adhomai_swing
+	music_cartridges["Europa: Best of the 50s"] = /obj/item/music_cartridge/europa_various
 	gear_tweaks += new /datum/gear_tweak/path(music_cartridges)

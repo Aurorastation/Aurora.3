@@ -3,7 +3,7 @@
 
 ////////////////////////////////////////////MUFFINS////////////////////////////////////////////
 /singleton/recipe/muffin
-	appliance = OVEN
+	appliance = OVEN | MICROWAVE
 	reagents = list(/singleton/reagent/drink/milk = 20, /singleton/reagent/sugar = 20)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	items = list(
@@ -109,14 +109,14 @@
 	result = /obj/item/reagent_containers/food/snacks/waffles
 
 /singleton/recipe/soywafers
-	appliance = OVEN
+	appliance = OVEN | MICROWAVE
 	fruit = list("soybeans" = 1)
 	reagents = list(/singleton/reagent/nutriment/flour = 10)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/soywafers
 
 /singleton/recipe/rofflewaffles
-	appliance = OVEN
+	appliance = OVEN | MICROWAVE
 	reagents = list(/singleton/reagent/drugs/psilocybin = 5, /singleton/reagent/sugar = 10)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/dough,
@@ -204,6 +204,18 @@
 	)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/storage/box/fancy/food/cakepopjar
+
+/singleton/recipe/cranberry_orange_rolls
+	appliance = OVEN
+	fruit = list("cranberries" = 1, "orange"  = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/doughslice,
+		/obj/item/reagent_containers/food/snacks/doughslice,
+		/obj/item/reagent_containers/food/snacks/doughslice
+	)
+	reagents = list(/singleton/reagent/sugar = 5, /singleton/reagent/drink/milk/cream = 5)
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify and replace
+	result = /obj/item/reagent_containers/food/snacks/sliceable/cranberry_orange_rolls
 
 // Cakes.
 //============
@@ -324,6 +336,12 @@
 	fruit = list("cherries" = 1)
 	reagents = list(/singleton/reagent/sugar = 10)
 	result = /obj/item/reagent_containers/food/snacks/cherrypie
+
+/singleton/recipe/pie/cranberry
+	fruit = list("cranberries" = 1)
+	reagents = list(/singleton/reagent/sugar = 10)
+	result = /obj/item/reagent_containers/food/snacks/sliceable/cranberry_pie
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify and replace
 
 /singleton/recipe/pie/amanita
 	fruit = null

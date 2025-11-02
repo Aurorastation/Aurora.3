@@ -41,7 +41,7 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
  * WORKING :
  *
  * 1) Makes an associative mapping of model_keys with model
- *		e.g aa = /turf/unsimulated/wall{icon_state = "rock"}
+ * 		e.g aa = /turf/unsimulated/wall{icon_state = "rock"}
  * 2) Read the map line by line, parsing the result (using parse_grid)
  *
  */
@@ -543,6 +543,7 @@ GLOBAL_LIST_INIT(_preloader_path, null)
 /area/template_noop
 	name = "Area Passthrough"
 	icon_state = "noop"
+	area_flags = AREA_FLAG_PREVENT_PERSISTENT_TRASH
 
 /turf/template_noop
 	name = "Turf Passthrough"

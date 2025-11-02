@@ -338,7 +338,7 @@
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = -11
 	},
@@ -708,7 +708,7 @@
 	pixel_y = 21
 	},
 /obj/structure/table/stone/marble,
-/obj/item/storage/box/condiment,
+/obj/item/storage/box/large/condiment,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/sol{
 	pixel_y = 13;
 	pixel_x = -4
@@ -1459,7 +1459,7 @@
 /area/space)
 "dll" = (
 /obj/effect/floor_decal/industrial/outline/custodial,
-/obj/structure/janitorialcart/full{
+/obj/structure/cart/storage/janitorialcart/full{
 	dir = 8
 	},
 /obj/machinery/alarm/north{
@@ -5951,8 +5951,8 @@
 /obj/item/ammo_magazine/c762/sol,
 /obj/item/ammo_magazine/c762/sol,
 /obj/item/gun/projectile/shotgun/pump/combat/sol,
-/obj/item/storage/box/shotgunshells,
-/obj/item/storage/box/shotgunshells,
+/obj/item/storage/box/shells/buckshot,
+/obj/item/storage/box/shells/buckshot,
 /obj/item/grenade/frag,
 /obj/item/grenade/frag,
 /obj/machinery/light,
@@ -7843,7 +7843,7 @@
 /obj/item/material/stool/chair/wheelchair,
 /obj/item/cane/crutch,
 /obj/item/cane/crutch,
-/obj/item/storage/box/monkeycubes,
+/obj/item/storage/box/unique/monkeycubes,
 /obj/item/storage/box/autoinjectors,
 /obj/item/storage/box/inhalers_auto,
 /obj/item/storage/box/syringes,
@@ -8758,7 +8758,7 @@
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = -11
 	},
@@ -9593,7 +9593,7 @@
 	pixel_x = 5;
 	pixel_y = -4
 	},
-/obj/item/storage/box/sharps{
+/obj/item/storage/box/unique/sharps{
 	pixel_y = -14;
 	pixel_x = 5
 	},
@@ -9748,7 +9748,7 @@
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = -11
 	},

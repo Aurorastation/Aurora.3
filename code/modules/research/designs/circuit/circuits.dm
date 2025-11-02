@@ -1,7 +1,7 @@
 /datum/design/circuit
 	build_type = IMPRINTER
 	req_tech = list(TECH_DATA = 2)
-	materials = list(MATERIAL_GLASS = 2000)
+	materials = list(MATERIAL_GLASS = 2000, MATERIAL_PHORON = 25)
 	chemicals = list(/singleton/reagent/acid = 20)
 
 /datum/design/circuit/AssembleDesignDesc()

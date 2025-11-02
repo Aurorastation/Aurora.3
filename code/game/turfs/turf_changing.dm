@@ -60,6 +60,7 @@
 	var/old_is_open = is_open()
 	var/list/old_resources = resources ? resources.Copy() : null
 
+	SEND_SIGNAL(src, COMSIG_TURF_CHANGE, path)
 	changing_turf = TRUE
 
 	if(connections)
@@ -73,6 +74,10 @@
 	var/list/old_signal_procs = _signal_procs?.Copy()
 
 	var/turf/new_turf = new path(src)
+
+	// If the area requires starlight, we need to fill it back in with starlight after the change.
+	// Particularly necessary so shuttles don't leave dark patches after undocking with starlit turfs.
+	update_starlight()
 
 	// WARNING WARNING
 	// Turfs DO NOT lose their signals when they get replaced, REMEMBER THIS

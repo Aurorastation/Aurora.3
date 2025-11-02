@@ -335,7 +335,7 @@
 	icon_state = "suspenders"
 	item_state = "suspenders"
 	gender = PLURAL
-	slot = ACCESSORY_SLOT_PANTS
+	slot = ACCESSORY_SLOT_GENERIC
 
 /obj/item/clothing/accessory/scarf
 	name = "scarf"
@@ -395,7 +395,7 @@
 	icon_state = "chaps"
 	item_state = "chaps"
 	gender = PLURAL
-	slot = ACCESSORY_SLOT_PANTS
+	slot = ACCESSORY_SLOT_GENERIC
 
 /obj/item/clothing/accessory/chaps/black
 	name = "black chaps"
@@ -425,8 +425,8 @@
 	protects_against_weather = TRUE
 
 /obj/item/clothing/accessory/poncho/verb/toggle_hide_tail()
-	set name = "Toggle Tail Coverage"
-	set category = "Object"
+	set name = "Toggle Poncho Tail Coverage"
+	set category = "Object.Equipped"
 	set src in usr
 
 	if(allow_tail_hiding)
@@ -995,6 +995,30 @@
 	icon_state = "idrissec_patch"
 	overlay_state = "idrissec_patch"
 
+/obj/item/clothing/accessory/sleevepatch/kog/pra
+	name = "\improper KOG Motorheads shoulder tabs"
+	desc = "A patch attached to the shoulders of a uniform or armor. This one denotes the wearer as a member of KOG's PRA division the Motorheads."
+	desc_extended = "Kazarrhaldiye Operations Group splits employees based on nationality to remove possible political tensions. The PRA division, called the Motorheads, specializes in motorized warfare and quick response force operations."
+	icon_state = "kog_tabs_pra"
+	overlay_state = "kog_tabs_pra"
+	flippable = 0
+
+/obj/item/clothing/accessory/sleevepatch/kog/ala
+	name = "\improper KOG Last Chancers shoulder tabs"
+	desc = "A patch attached to the shoulders of a uniform or armor. This one denotes the wearer as a member of KOG's DPRA/ALA division the Last Chancers."
+	desc_extended = "Kazarrhaldiye Operations Group splits employees based on nationality to remove possible political tensions. The ALA/DPRA division, known as the Last Chancers, focus on sabatoge and explosives. They have become infamous for nighttime infiltrations wherein their explosive expertise leads to devastating effects."
+	icon_state = "kog_tabs_ala"
+	overlay_state = "kog_tabs_ala"
+	flippable = 0
+
+/obj/item/clothing/accessory/sleevepatch/kog/nka
+	name = "\improper KOG Starry Knights shoulder tabs"
+	desc = "A patch attached to the shoulders of a uniform or armor. This one denotes the wearer as a member of KOG's NKA division the Starry Knights."
+	desc_extended = "Kazarrhaldiye Operations Group splits employees based on nationality to remove possible political tensions. The NKA divison, called the Starry Knights, are the defensive experts of the KOG. Using datasets regarding various entities of the Spur, the Starry Knights are capable of preparing an adaptable and formidable defense."
+	icon_state = "kog_tabs_nka"
+	overlay_state = "kog_tabs_nka"
+	flippable = 0
+
 /obj/item/clothing/accessory/kneepads
 	name = "kneepads"
 	desc = "A pair of synthetic kneepads. Doesn't provide protection from more than arthritis."
@@ -1003,7 +1027,7 @@
 	item_state = "kneepads"
 	contained_sprite = TRUE
 	gender = PLURAL
-	slot = ACCESSORY_SLOT_PANTS
+	slot = ACCESSORY_SLOT_GENERIC
 
 /obj/item/clothing/accessory/blood_patch
 	name = "O- blood patch"
@@ -1381,7 +1405,7 @@
 	icon = 'icons/obj/item/clothing/accessory/led_collar.dmi'
 	icon_state = "led_collar"
 	item_state = "led_collar"
-	plane = EFFECTS_ABOVE_LIGHTING_PLANE
+	plane = ABOVE_LIGHTING_PLANE
 	contained_sprite = TRUE
 	slot = ACCESSORY_SLOT_UTILITY_MINOR
 
@@ -1399,6 +1423,6 @@
 
 /obj/item/clothing/accessory/led_collar/get_accessory_mob_overlay(var/mob/living/carbon/human/H, var/force = FALSE)
 	var/image/I = ..()
-	I.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+	I.plane = ABOVE_LIGHTING_PLANE
 	I.appearance_flags |= KEEP_APART
 	return I

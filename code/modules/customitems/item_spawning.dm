@@ -341,6 +341,9 @@ GLOBAL_LIST_EMPTY(character_id_to_custom_items_mapping)
 		if(target_mob.equip_to_storage(newitem))
 			return TRUE
 
+		if(target_mob.put_in_any_hand_if_possible(newitem))
+			return TRUE
+
 		newitem.forceMove(get_turf(target_mob.loc))
-		to_chat(target_mob, "A custom item has been placed on the floor as there was no space for it on your mob.")
+		to_chat(target_mob, SPAN_ALERT("A custom item has been placed on the floor as there was no space for it on your mob."))
 		return TRUE

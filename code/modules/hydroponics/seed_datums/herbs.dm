@@ -9,18 +9,17 @@
 
 /datum/seed/mint/setup_traits()
 	..()
-	set_trait(TRAIT_MATURATION,3)
-	set_trait(TRAIT_PRODUCTION,3)
-	set_trait(TRAIT_YIELD,3)
-	set_trait(TRAIT_POTENCY,2)
-	set_trait(TRAIT_PRODUCT_ICON,"herb")
-	set_trait(TRAIT_PRODUCT_COLOUR,"#4dd298")
-	set_trait(TRAIT_PLANT_ICON,"herb")
-	set_trait(TRAIT_IDEAL_LIGHT, 6)
+	SET_SEED_TRAIT(src, TRAIT_MATURATION, 3)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCTION, 3)
+	SET_SEED_TRAIT(src, TRAIT_YIELD, 3)
+	SET_SEED_TRAIT(src, TRAIT_POTENCY, 2)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_ICON, "herb")
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#4dd298")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_ICON, "herb")
+	SET_SEED_TRAIT(src, TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_HIGH)
 
 /obj/item/seeds/mintseed
 	seed_type = "mint"
-
 
 /datum/seed/tea
 	name = "tea"
@@ -31,14 +30,14 @@
 
 /datum/seed/tea/setup_traits()
 	..()
-	set_trait(TRAIT_MATURATION,3)
-	set_trait(TRAIT_PRODUCTION,3)
-	set_trait(TRAIT_YIELD,3)
-	set_trait(TRAIT_POTENCY,2)
-	set_trait(TRAIT_PRODUCT_ICON,"herb")
-	set_trait(TRAIT_PRODUCT_COLOUR,"#4fd24d")
-	set_trait(TRAIT_PLANT_ICON,"herb")
-	set_trait(TRAIT_IDEAL_LIGHT, 6)
+	SET_SEED_TRAIT(src, TRAIT_MATURATION, 3)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCTION, 3)
+	SET_SEED_TRAIT(src, TRAIT_YIELD, 3)
+	SET_SEED_TRAIT(src, TRAIT_POTENCY, 2)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_ICON, "herb")
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#4fd24d")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_ICON, "herb")
+	SET_SEED_TRAIT(src, TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_HIGH)
 
 /obj/item/seeds/teaseed
 	seed_type = "tea"
@@ -51,14 +50,14 @@
 
 /datum/seed/sencha/setup_traits()
 	..()
-	set_trait(TRAIT_MATURATION,3)
-	set_trait(TRAIT_PRODUCTION,3)
-	set_trait(TRAIT_YIELD,3)
-	set_trait(TRAIT_POTENCY,2)
-	set_trait(TRAIT_PRODUCT_ICON,"herb")
-	set_trait(TRAIT_PRODUCT_COLOUR,"#0E1F0E")
-	set_trait(TRAIT_PLANT_ICON,"herb")
-	set_trait(TRAIT_IDEAL_LIGHT, 6)
+	SET_SEED_TRAIT(src, TRAIT_MATURATION, 3)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCTION, 3)
+	SET_SEED_TRAIT(src, TRAIT_YIELD, 3)
+	SET_SEED_TRAIT(src, TRAIT_POTENCY, 2)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_ICON, "herb")
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#0E1F0E")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_ICON, "herb")
+	SET_SEED_TRAIT(src, TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_HIGH)
 
 /obj/item/seeds/sencha
 	seed_type = "sencha"
@@ -71,14 +70,14 @@
 
 /datum/seed/tieguanyin/setup_traits()
 	..()
-	set_trait(TRAIT_MATURATION,3)
-	set_trait(TRAIT_PRODUCTION,3)
-	set_trait(TRAIT_YIELD,3)
-	set_trait(TRAIT_POTENCY,2)
-	set_trait(TRAIT_PRODUCT_ICON,"herb")
-	set_trait(TRAIT_PRODUCT_COLOUR,"#5C6447")
-	set_trait(TRAIT_PLANT_ICON,"herb")
-	set_trait(TRAIT_IDEAL_LIGHT, 6)
+	SET_SEED_TRAIT(src, TRAIT_MATURATION, 3)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCTION, 3)
+	SET_SEED_TRAIT(src, TRAIT_YIELD, 3)
+	SET_SEED_TRAIT(src, TRAIT_POTENCY, 2)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_ICON, "herb")
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#5C6447")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_ICON, "herb")
+	SET_SEED_TRAIT(src, TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_HIGH)
 
 /obj/item/seeds/tieguanyin
 	seed_type = "tieguanyin"
@@ -91,14 +90,14 @@
 
 /datum/seed/jaekseol/setup_traits()
 	..()
-	set_trait(TRAIT_MATURATION,3)
-	set_trait(TRAIT_PRODUCTION,3)
-	set_trait(TRAIT_YIELD, 2)
-	set_trait(TRAIT_POTENCY,2)
-	set_trait(TRAIT_PRODUCT_ICON,"herb")
-	set_trait(TRAIT_PRODUCT_COLOUR,"#534337")
-	set_trait(TRAIT_PLANT_ICON,"herb")
-	set_trait(TRAIT_IDEAL_LIGHT, 6)
+	SET_SEED_TRAIT(src, TRAIT_MATURATION, 3)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCTION, 3)
+	SET_SEED_TRAIT(src, TRAIT_YIELD, 2)
+	SET_SEED_TRAIT(src, TRAIT_POTENCY, 2)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_ICON, "herb")
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#534337")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_ICON, "herb")
+	SET_SEED_TRAIT(src, TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_HIGH)
 
 /obj/item/seeds/jaekseol
 	seed_type = "jaekseol"
@@ -112,14 +111,14 @@
 
 /datum/seed/coca/setup_traits()
 	..()
-	set_trait(TRAIT_MATURATION, 3)
-	set_trait(TRAIT_PRODUCTION, 3)
-	set_trait(TRAIT_YIELD, 3)
-	set_trait(TRAIT_POTENCY, 2)
-	set_trait(TRAIT_PRODUCT_ICON, "herb")
-	set_trait(TRAIT_PRODUCT_COLOUR, "#056608")
-	set_trait(TRAIT_PLANT_ICON, "herb")
-	set_trait(TRAIT_IDEAL_LIGHT, 6)
+	SET_SEED_TRAIT(src, TRAIT_MATURATION, 3)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCTION, 3)
+	SET_SEED_TRAIT(src, TRAIT_YIELD, 3)
+	SET_SEED_TRAIT(src, TRAIT_POTENCY, 2)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_ICON, "herb")
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#056608")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_ICON, "herb")
+	SET_SEED_TRAIT(src, TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_HIGH)
 
 /obj/item/seeds/cocaseed
 	seed_type = "coca"

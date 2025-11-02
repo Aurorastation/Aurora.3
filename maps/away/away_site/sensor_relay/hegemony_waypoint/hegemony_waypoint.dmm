@@ -77,6 +77,9 @@
 /obj/effect/map_effect/marker/airlock/hegemony_waypoint/east,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/random/dirt_75,
+/obj/effect/landmark/entry_point/port{
+	name = "port, eastern airlock"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/hegemony_waypoint/hallway)
 "cg" = (
@@ -435,6 +438,23 @@
 "iu" = (
 /obj/structure/lattice,
 /turf/space/dynamic,
+/area/hegemony_waypoint/exterior)
+"iB" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/structure/lattice/catwalk/indoor,
+/obj/effect/landmark/entry_point/port{
+	name = "port, upper solar array"
+	},
+/turf/simulated/floor/airless,
 /area/hegemony_waypoint/exterior)
 "jo" = (
 /obj/effect/floor_decal/corner_wide/brown{
@@ -915,6 +935,13 @@
 /obj/effect/shuttle_landmark/hegemony_waypoint/east,
 /turf/template_noop,
 /area/space)
+"sm" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, southern exterior"
+	},
+/turf/simulated/floor/airless,
+/area/hegemony_waypoint/exterior)
 "sq" = (
 /obj/effect/floor_decal/corner/yellow/diagonal,
 /obj/structure/table/steel,
@@ -944,10 +971,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_waypoint/hallway)
 "sB" = (
-/obj/effect/map_effect/map_helper/ruler_tiles_3,
-/obj/effect/overmap/visitable/sector/hegemony_waypoint,
-/turf/template_noop,
-/area/space)
+/obj/structure/lattice/catwalk/indoor,
+/obj/effect/overmap/visitable/ship/stationary/hegemony_waypoint,
+/turf/simulated/floor/airless,
+/area/hegemony_waypoint/exterior)
 "sJ" = (
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 6
@@ -1121,6 +1148,12 @@
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
+/area/hegemony_waypoint/hallway)
+"wh" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, northern docking arm"
+	},
+/turf/simulated/wall/shuttle/raider,
 /area/hegemony_waypoint/hallway)
 "wj" = (
 /obj/effect/floor_decal/industrial/hatch/grey,
@@ -1417,6 +1450,23 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_waypoint/hallway)
+"AW" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/structure/lattice/catwalk/indoor,
+/obj/effect/landmark/entry_point/port{
+	name = "port, lower solar array"
+	},
+/turf/simulated/floor/airless,
+/area/hegemony_waypoint/exterior)
 "Bi" = (
 /obj/machinery/power/smes/buildable/third_party_shuttle/empty,
 /obj/structure/cable/green{
@@ -1628,6 +1678,9 @@
 /obj/effect/map_effect/marker/airlock/hegemony_waypoint/north,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/random/dirt_75,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, north airlock"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/hegemony_waypoint/hallway)
 "GO" = (
@@ -2083,6 +2136,9 @@
 /obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock/hegemony_waypoint/south,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/landmark/entry_point/north{
+	name = "north, south airlock"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/hegemony_waypoint/hallway)
 "Nf" = (
@@ -2168,6 +2224,13 @@
 "OV" = (
 /turf/template_noop,
 /area/space)
+"OY" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, northern exterior"
+	},
+/turf/simulated/floor/airless,
+/area/hegemony_waypoint/exterior)
 "Pj" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
@@ -32198,11 +32261,11 @@ OV
 OV
 OV
 OV
-sB
+mT
 jq
 jq
 jq
-jq
+OY
 jq
 jq
 jq
@@ -32983,7 +33046,7 @@ jq
 KX
 mp
 xw
-jq
+sB
 jq
 jq
 jq
@@ -33469,7 +33532,7 @@ OV
 jq
 gB
 gB
-gB
+wh
 gB
 gB
 oV
@@ -33767,7 +33830,7 @@ jq
 jq
 jq
 jq
-jq
+sm
 jq
 jq
 jq
@@ -41976,7 +42039,7 @@ Ao
 tt
 OV
 gk
-Jt
+iB
 tt
 OV
 gk
@@ -41992,7 +42055,7 @@ Jt
 tt
 OV
 gk
-Jt
+AW
 tt
 OV
 gk

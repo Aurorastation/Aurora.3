@@ -1,7 +1,5 @@
 /mob/abstract/ghost
 	stat = DEAD
-	layer = OBSERVER_LAYER
-	plane = OBSERVER_PLANE
 
 	/// Toggle darkness.
 	var/see_darkness = FALSE
@@ -22,6 +20,7 @@
 	see_invisible = SEE_INVISIBLE_OBSERVER
 	add_verb(src, /mob/abstract/ghost/proc/dead_tele)
 	ghost_multitool = new(src)
+	update_sight()
 
 /mob/abstract/ghost/Destroy()
 	QDEL_NULL(ghost_multitool)

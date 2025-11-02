@@ -18,6 +18,7 @@
 	var/seclevel
 	///looping sound datum for our fire alarm siren.
 	var/datum/looping_sound/firealarm/soundloop
+	always_area_sensitive = TRUE
 
 /obj/machinery/firealarm/Initialize(mapload, var/dir, var/building = 0)
 	. = ..(mapload)
@@ -275,7 +276,7 @@
 /obj/machinery/firealarm/set_pixel_offsets()
 	// Overwrite the mapped in values.
 	pixel_x = ((dir & (NORTH|SOUTH)) ? 0 : (dir == EAST ? 22 : -22))
-	pixel_y = ((dir & (NORTH|SOUTH)) ? (dir == NORTH ? 32 : -17) : 0)
+	pixel_y = ((dir & (NORTH|SOUTH)) ? (dir == NORTH ? 32 : -19) : 0)
 
 // Convenience subtypes for mappers.
 /obj/machinery/firealarm/north
@@ -292,7 +293,7 @@
 
 /obj/machinery/firealarm/south
 	dir = SOUTH
-	pixel_y = -17
+	pixel_y = -19
 
 /*
 FIRE ALARM CIRCUIT
