@@ -42,3 +42,9 @@
  * Raised on an entity whose liver is attempting to filter blood.
  */
 #define COMSIG_LIVER_FILTER_EVENT "liver_filter_event"
+
+/**
+ * Raised on an entity with the gravity weakness feature that is about to take damage from said weakness.
+ * Set the canceled variable to true in order to negate said weakness.
+ */
+#define COMSIG_GRAVITY_WEAKNESS_EVENT "gravity_weakness_event"

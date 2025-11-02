@@ -823,6 +823,24 @@
 	item_state = "legbrace"
 	drop_sound = 'sound/items/drop/gun.ogg'
 
+/obj/item/clothing/accessory/offworlder/bracer/on_attached(obj/item/clothing/S, mob/user)
+	. = ..()
+	if(!user)
+		return
+
+	RegisterSignal(user, COMSIG_GRAVITY_WEAKNESS_EVENT, PROC_REF(negate_weakness))
+
+/obj/item/clothing/accessory/offworlder/bracer/on_removed(mob/user)
+	. = ..()
+	if(!user)
+		return
+
+	UnregisterSignal(user, COMSIG_GRAVITY_WEAKNESS_EVENT)
+
+/obj/item/clothing/accessory/offworlder/bracer/proc/negate_weakness(var/equipee, var/canceled)
+	SIGNAL_HANDLER
+	*canceled = TRUE //TODO: TCJ just make this a component I can shove onto anything.
+
 /obj/item/clothing/accessory/offworlder/bracer/neckbrace
 	name = "neckbrace"
 	desc = "A lightweight polymer frame meant to brace and hold someone's neck upright comfortably."

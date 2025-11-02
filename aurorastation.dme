@@ -3108,6 +3108,7 @@
 #include "code\modules\organs\subtypes\augment\augments\fluff.dm"
 #include "code\modules\organs\subtypes\augment\augments\fuel_cell.dm"
 #include "code\modules\organs\subtypes\augment\augments\gustatorial_centre.dm"
+#include "code\modules\organs\subtypes\augment\augments\gravity_adaptations.dm"
 #include "code\modules\organs\subtypes\augment\augments\health_analyzer.dm"
 #include "code\modules\organs\subtypes\augment\augments\language_processor.dm"
 #include "code\modules\organs\subtypes\augment\augments\lighter.dm"

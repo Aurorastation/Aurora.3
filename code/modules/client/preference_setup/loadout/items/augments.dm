@@ -323,6 +323,14 @@
 	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD)
 	cost = 2
 
+/datum/gear/augment/gravity_adaptations
+	display_name = "Gravity Adaptations"
+	description = "A suite of chemical glands, tailored genetic therapies, and skeletal reinforcements that are aimed towards Galatean Off-worlders. These bioaugmentations serve to eliminate the weakness experienced by Off-worlders in standard terrestrial gravity."
+	path = /obj/item/organ/internal/augment/bioaug/gravity_adaptations
+	origin_restriction = list(/singleton/origin_item/origin/galatea)
+	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD)
+	cost = 1
+
 /datum/gear/augment/mind_blanker
 	display_name = "Galatean Mind Blanker"
 	description = "A small, discrete organ attached near the base of the brainstem. Any attempt to read the mind of an individual with this augment installed will fail, as will attempts at psychic brainwashing."
