@@ -145,13 +145,13 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 
 		var/request_id = text2num(href_list["linkingrequest"])
 
-		if (!establish_db_connection(GLOB.dbcon))
+		if (!SSdbcore.Connect())
 			to_chat(src, SPAN_WARNING("Action failed! Database link could not be established!"))
 			return
 
 
-		var/DBQuery/check_query = GLOB.dbcon.NewQuery("SELECT player_ckey, status FROM ss13_player_linking WHERE id = :id:")
-		check_query.Execute(list("id" = request_id))
+		var/datum/db_query/check_query = SSdbcore.NewQuery("SELECT player_ckey, status FROM ss13_player_linking WHERE id = :id",list("id" = request_id))
+		check_query.Execute()
 
 		if (!check_query.NextRow())
 			to_chat(src, SPAN_WARNING("No request found!"))
@@ -161,18 +161,20 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 			to_chat(src, SPAN_WARNING("Request authentication failed!"))
 			return
 
+		qdel(check_query)
+
 		var/query_contents = ""
 		var/list/query_details = list("new_status", "id")
 		var/feedback_message = ""
 		switch (href_list["linkingaction"])
 			if ("accept")
-				query_contents = "UPDATE ss13_player_linking SET status = :new_status:, updated_at = NOW() WHERE id = :id:"
+				query_contents = "UPDATE ss13_player_linking SET status = :new_status, updated_at = NOW() WHERE id = :id"
 				query_details["new_status"] = "confirmed"
 				query_details["id"] = request_id
 
 				feedback_message = SPAN_DANGER("<b>Account successfully linked!</b>")
 			if ("deny")
-				query_contents = "UPDATE ss13_player_linking SET status = :new_status:, deleted_at = NOW() WHERE id = :id:"
+				query_contents = "UPDATE ss13_player_linking SET status = :new_status, deleted_at = NOW() WHERE id = :id"
 				query_details["new_status"] = "rejected"
 				query_details["id"] = request_id
 
@@ -181,8 +183,9 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 				to_chat(src, SPAN_WARNING("Invalid command sent."))
 				return
 
-		var/DBQuery/update_query = GLOB.dbcon.NewQuery(query_contents)
-		update_query.Execute(query_details)
+		var/datum/db_query/update_query = SSdbcore.NewQuery(query_contents,query_details)
+		update_query.Execute()
+		qdel(update_query)
 
 		if (href_list["linkingaction"] == "accept" && alert("To complete the process, you have to visit the website. Do you want to do so now?",,"Yes","No") == "Yes")
 			process_webint_link("interface/user/link")
@@ -547,16 +550,19 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 // Returns null if no DB connection can be established, or -1 if the requested key was not found in the database
 
 /proc/get_player_age(key)
-	if(!establish_db_connection(GLOB.dbcon))
+	if(!SSdbcore.Connect())
 		return null
 
-	var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT datediff(Now(),firstseen) as age FROM ss13_player WHERE ckey = :ckey:")
-	query.Execute(list("ckey"=ckey(key)))
+	var/datum/db_query/query = SSdbcore.NewQuery("SELECT datediff(Now(),firstseen) as age FROM ss13_player WHERE ckey = :ckey",list("ckey"=ckey(key)))
+	query.Execute()
+	var/age = -1
 
 	if(query.NextRow())
-		return text2num(query.item[1])
-	else
-		return -1
+		age = text2num(query.item[1])
+		qdel(query)
+		return age
+	qdel(query)
+	return age
 
 /client/proc/log_client_to_db()
 	set waitfor = FALSE
@@ -564,12 +570,12 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 	if (IsGuestKey(src.key))
 		return
 
-	if(!establish_db_connection(GLOB.dbcon))
+	if(!SSdbcore.Connect())
 		return
 
-	var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT datediff(Now(),firstseen) as age, whitelist_status, account_join_date, DATEDIFF(NOW(), account_join_date), ckey_is_external FROM ss13_player WHERE ckey = :ckey:")
+	var/datum/db_query/query = SSdbcore.NewQuery("SELECT datediff(Now(),firstseen) as age, whitelist_status, account_join_date, DATEDIFF(NOW(), account_join_date), ckey_is_external FROM ss13_player WHERE ckey = :ckey",list("ckey"=ckey(key)))
 
-	if(!query.Execute(list("ckey"=ckey(key))))
+	if(!query.Execute())
 		return
 
 	var/found = 0
@@ -587,25 +593,29 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 			if (!account_join_date)
 				account_age = -1
 			else
-				var/DBQuery/query_datediff = GLOB.dbcon.NewQuery("SELECT DATEDIFF(NOW(), [account_join_date])")
+				var/datum/db_query/query_datediff = SSdbcore.NewQuery("SELECT DATEDIFF(NOW(), :joindate)",list("joindate"=account_join_date))
 				if (!query_datediff.Execute())
+					qdel(query_datediff)
 					return
 				if (query_datediff.NextRow())
 					account_age = text2num(query_datediff.item[1])
+				qdel(query_datediff)
 
-	var/DBQuery/query_ip = GLOB.dbcon.NewQuery("SELECT ckey FROM ss13_player WHERE ip = '[address]'")
+	var/datum/db_query/query_ip = SSdbcore.NewQuery("SELECT ckey FROM ss13_player WHERE ip = :address",list("address"=address))
 	query_ip.Execute()
 	related_accounts_ip = ""
 	while(query_ip.NextRow())
 		related_accounts_ip += "[query_ip.item[1]], "
 		break
+	qdel(query_ip)
 
-	var/DBQuery/query_cid = GLOB.dbcon.NewQuery("SELECT ckey FROM ss13_player WHERE computerid = '[computer_id]'")
+	var/datum/db_query/query_cid = SSdbcore.NewQuery("SELECT ckey FROM ss13_player WHERE computerid = :computerid",list("computerid"=computer_id))
 	query_cid.Execute()
 	related_accounts_cid = ""
 	while(query_cid.NextRow())
 		related_accounts_cid += "[query_cid.item[1]], "
 		break
+	qdel(query_cid)
 
 	var/admin_rank = "Player"
 	if(src.holder)
@@ -613,12 +623,14 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 
 	if(found)
 		//Player already identified previously, we need to just update the 'lastseen', 'ip', 'computer_id', 'byond_version' and 'byond_build' variables
-		var/DBQuery/query_update = GLOB.dbcon.NewQuery("UPDATE ss13_player SET lastseen = Now(), ip = :ip:, computerid = :computerid:, lastadminrank = :lastadminrank:, account_join_date = :account_join_date:, byond_version = :byond_version:, byond_build = :byond_build: WHERE ckey = :ckey:")
-		query_update.Execute(list("ckey"=ckey(key),"ip"=src.address,"computerid"=src.computer_id,"lastadminrank"=admin_rank,"account_join_date"=account_join_date,"byond_version"=byond_version,"byond_build"=byond_build))
+		var/datum/db_query/query_update = SSdbcore.NewQuery("UPDATE ss13_player SET lastseen = Now(), ip = :ip, computerid = :computerid, lastadminrank = :lastadminrank, account_join_date = :account_join_date, byond_version = :byond_version, byond_build = :byond_build WHERE ckey = :ckey",list("ckey"=ckey(key),"ip"=src.address,"computerid"=src.computer_id,"lastadminrank"=admin_rank,"account_join_date"=account_join_date,"byond_version"=byond_version,"byond_build"=byond_build))
+		query_update.Execute()
+		qdel(query_update)
 	else if (!GLOB.config.access_deny_new_players)
 		//New player!! Need to insert all the stuff
-		var/DBQuery/query_insert = GLOB.dbcon.NewQuery("INSERT INTO ss13_player (ckey, ckey_is_external, firstseen, lastseen, ip, computerid, lastadminrank, account_join_date, byond_version, byond_build) VALUES (:ckey:, :ckey_is_external:, Now(), Now(), :ip:, :computerid:, :lastadminrank:, :account_join_date:, :byond_version:, :byond_build:)")
-		query_insert.Execute(list("ckey"=ckey(key), "ckey_is_external"=src.ckey_is_external,"ip"=src.address,"computerid"=src.computer_id,"lastadminrank"=admin_rank,"account_join_date"=account_join_date,"byond_version"=byond_version,"byond_build"=byond_build))
+		var/datum/db_query/query_insert = SSdbcore.NewQuery("INSERT INTO ss13_player (ckey, ckey_is_external, firstseen, lastseen, ip, computerid, lastadminrank, account_join_date, byond_version, byond_build) VALUES (:ckey, :ckey_is_external, Now(), Now(), :ip, :computerid, :lastadminrank, :account_join_date, :byond_version, :byond_build)",list("ckey"=ckey(key), "ckey_is_external"=src.ckey_is_external,"ip"=src.address,"computerid"=src.computer_id,"lastadminrank"=admin_rank,"account_join_date"=account_join_date,"byond_version"=byond_version,"byond_build"=byond_build))
+		query_insert.Execute()
+		qdel(query_insert)
 	else
 		// Flag as -1 to know we have to kiiick them.
 		player_age = -1
@@ -746,17 +758,19 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 	if (!GLOB.config.webint_url || !GLOB.config.sql_enabled)
 		return
 
-	if (!establish_db_connection(GLOB.dbcon))
+	if (!SSdbcore.Connect())
 		return
 
 	var/list/requests = list()
 	var/list/query_details = list("ckey" = ckey)
 
-	var/DBQuery/select_query = GLOB.dbcon.NewQuery("SELECT id, forum_id, forum_username, datediff(Now(), created_at) as request_age FROM ss13_player_linking WHERE status = 'new' AND player_ckey = :ckey: AND deleted_at IS NULL")
-	select_query.Execute(query_details)
+	var/datum/db_query/select_query = SSdbcore.NewQuery("SELECT id, forum_id, forum_username, datediff(Now(), created_at) as request_age FROM ss13_player_linking WHERE status = 'new' AND player_ckey = :ckey AND deleted_at IS NULL",query_details)
+	select_query.Execute()
 
 	while (select_query.NextRow())
 		requests.Add(list(list("id" = text2num(select_query.item[1]), "forum_id" = text2num(select_query.item[2]), "forum_username" = select_query.item[3], "request_age" = select_query.item[4])))
+
+	qdel(select_query)
 
 	if (!requests.len)
 		return
@@ -783,15 +797,17 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 	if (!GLOB.config.webint_url || !GLOB.config.sql_enabled)
 		return
 
-	if (!establish_db_connection(GLOB.dbcon))
+	if (!SSdbcore.Connect())
 		return
 
-	var/DBQuery/select_query = GLOB.dbcon.NewQuery("SELECT COUNT(*) AS request_count FROM ss13_player_linking WHERE status = 'new' AND player_ckey = :ckey: AND deleted_at IS NULL")
-	select_query.Execute(list("ckey" = ckey))
+	var/datum/db_query/select_query = SSdbcore.NewQuery("SELECT COUNT(*) AS request_count FROM ss13_player_linking WHERE status = 'new' AND player_ckey = :ckey AND deleted_at IS NULL",list("ckey" = ckey))
+	select_query.Execute()
 
 	if (select_query.NextRow())
 		if (text2num(select_query.item[1]) > 0)
 			return "You have [select_query.item[1]] account linking requests pending review. Click <a href='byond://?JSlink=linking;notification=:src_ref'>here</a> to see them!"
+
+	qdel(select_query)
 
 	return null
 
@@ -855,17 +871,21 @@ GLOBAL_LIST_INIT(localhost_addresses, list(
 		ip_intel = res.intel
 
 /client/proc/findJoinDate()
-	var/list/http = world.Export("http://byond.com/members/[ckey]?format=text")
-	if(!http)
-		LOG_DEBUG("ACCESS CONTROL: Failed to connect to byond age check for [ckey]")
+	var/datum/http_request/req = http_create_request(RUSTG_HTTP_METHOD_GET,"http://byond.com/members/[ckey]?format=text")
+
+	req.begin_async()
+	UNTIL(req.is_complete())
+
+	var/datum/http_response/resp = req.into_response()
+
+	if(resp.errored)
+		LOG_DEBUG("ACCESS CONTROL: Failed to connect to byond age check for [ckey] - Error: [resp.error]")
 		return
-	var/F = file2text(http["CONTENT"])
-	if(F)
-		var/regex/R = regex("joined = \"(\\d{4}-\\d{2}-\\d{2})\"")
-		if(R.Find(F))
-			. = R.group[1]
-		else
-			CRASH("Age check regex failed for [src.ckey]")
+	var/regex/R = regex("joined = \"(\\d{4}-\\d{2}-\\d{2})\"")
+	if(R.Find(resp.body))
+		. = R.group[1]
+	else
+		CRASH("Age check regex failed for [src.ckey]")
 
 /client/Click(atom/object, atom/location, control, params)
 	SEND_SIGNAL(src, COMSIG_CLIENT_CLICK, object, location, control, params, usr)

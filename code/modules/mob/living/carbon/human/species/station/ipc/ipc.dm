@@ -212,15 +212,15 @@
 	if (!target || !player)
 		return
 
-	if (establish_db_connection(GLOB.dbcon) && target.character_id)
+	if (SSdbcore.Connect() && target.character_id)
 		var/status = FALSE
 		var/sql_status = FALSE
 		if (target.internal_organs_by_name[BP_IPCTAG])
 			status = TRUE
 
 		var/list/query_details = list("char_id" = target.character_id)
-		var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT tag_status FROM ss13_characters_ipc_tags WHERE char_id = :char_id:")
-		query.Execute(query_details)
+		var/datum/db_query/query = SSdbcore.NewQuery("SELECT tag_status FROM ss13_characters_ipc_tags WHERE char_id = :char_id",query_details)
+		query.Execute()
 
 		if (query.NextRow())
 			sql_status = text2num(query.item[1])
@@ -228,8 +228,10 @@
 				return
 
 			query_details["status"] = status
-			var/DBQuery/update_query = GLOB.dbcon.NewQuery("UPDATE ss13_characters_ipc_tags SET tag_status = :status: WHERE char_id = :char_id:")
-			update_query.Execute(query_details)
+			var/datum/db_query/update_query = SSdbcore.NewQuery("UPDATE ss13_characters_ipc_tags SET tag_status = :status: WHERE char_id = :char_id",query_details)
+			update_query.Execute()
+			qdel(update_query)
+		qdel(query)
 
 /datum/species/machine/get_light_color(mob/living/carbon/human/H)
 	if (!istype(H))
