@@ -70,18 +70,21 @@
 	var/light_rgb = COLOR_WHITE
 	power_draw_idle = 0 // Adjusted based on brightness.
 
+	light_system = MOVABLE_LIGHT
+
 /obj/item/integrated_circuit/output/light/do_work()
 	light_toggled = !light_toggled
 	update_lighting()
 
 /obj/item/integrated_circuit/output/light/proc/update_lighting()
 	if(assembly)
-		var/atom/atom_holder = assembly.get_assembly_holder()
-		if(light_toggled)
-			atom_holder.set_light(light_brightness, light_brightness, light_rgb, 0)
-		else
-			atom_holder.set_light(0)
-	power_draw_idle = light_toggled ? light_brightness * 2 : 0
+		var/atom/movable/atom_holder = assembly.get_assembly_holder()
+		if(istype(atom_holder))
+			if(light_toggled)
+				atom_holder.set_light_on(FALSE) //make sure the atom holder has movable_light set
+			else
+				atom_holder.set_light_on(TRUE)
+			power_draw_idle = light_toggled ? light_brightness * 2 : 0
 
 /obj/item/integrated_circuit/output/light/disconnect_all()
 	..()
@@ -96,6 +99,10 @@
 		brightness = clamp(brightness, 0, 6)
 		light_rgb = new_color
 		light_brightness = brightness
+
+	var/atom/movable/atom_holder = assembly.get_assembly_holder()
+	if(istype(atom_holder))
+		atom_holder.set_light_range_power_color(light_brightness, light_brightness, light_rgb)
 
 	..()
 

@@ -228,6 +228,8 @@
 		"<b>Alt Click(Icon):</b> Light up a large area in front of the mech.",
 	)
 
+	light_system = MOVABLE_LIGHT
+
 /obj/item/mecha_equipment/light/attack_self(var/mob/user)
 	. = ..()
 	if(.)
@@ -249,10 +251,10 @@
 /obj/item/mecha_equipment/light/update_icon()
 	if(on)
 		icon_state = "[initial(icon_state)]-on"
-		set_light(light_range, 1)
 	else
 		icon_state = "[initial(icon_state)]"
-		set_light(0)
+	set_light_on(on)
+
 
 /obj/item/mecha_equipment/light/uninstalled()
 	on = FALSE

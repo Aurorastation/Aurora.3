@@ -441,7 +441,7 @@
 			lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
 		if ("Normal vision")
 			vision_flags = 0
-			see_invisible = LIGHTING_PLANE_ALPHA_VISIBLE
+			lighting_alpha = LIGHTING_PLANE_ALPHA_VISIBLE
 
 	to_chat(usr, SPAN_NOTICE("\The [src]'s vision mode is now <b>[mode]</b>."))
 
