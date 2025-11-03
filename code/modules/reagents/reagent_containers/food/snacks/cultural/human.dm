@@ -1067,3 +1067,56 @@ ABSTRACT_TYPE(/obj/item/reagent_containers/food/snacks/bowl)
 			icon_state = "fireloaf_half"
 		if(50 to INFINITY)
 			icon_state = "fireloaf"
+
+//Sankt Frederick
+
+/obj/item/reagent_containers/food/snacks/bierock
+	name = "bierock"
+	desc = "A bun filled with meat, cabbage and seasoning. It originates in Eastern Europe but has also become an iconic food for the Solarian world of Sankt Frederick, where this dish is made either traditionally or with fish instead of meat."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "bierock"
+	bitesize = 2
+	filling_color = "#7e5527"
+	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/nutriment/protein = 6)
+	reagent_data = list(/singleton/reagent/nutriment = list("bun" = 5, "cabbage" =5), /singleton/reagent/nutriment/protein = list("seasoned meat" = 5))
+
+/obj/item/reagent_containers/food/snacks/bierock/update_icon()
+	var/expected_initial_reagent_volume
+	for(var/k in src.reagents_to_add)
+		expected_initial_reagent_volume += reagents_to_add[k]
+	var/percent_bierock = round((reagents.total_volume / expected_initial_reagent_volume) * 100)
+	switch(percent_bierock)
+		if(0 to 49)
+			icon_state = "bierock_half"
+		if(50 to INFINITY)
+			icon_state = "bierock"
+
+/obj/item/reagent_containers/food/snacks/bowl/belinas
+	name = "belinas"
+	gender = PLURAL
+	desc = "Tiny little mini-pancakes with cream cheese and salmon. This dish originates in eastern Europe and has been popularized in the solarian world Sankt Frederick, especially in large gatherings and events."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "belinas_full"
+	unitname = "belina"
+	filling_color = "#c98151"
+	trash = /obj/item/trash/plate
+	vendingobject = /obj/item/reagent_containers/food/snacks/belina
+	bitesize = 2
+	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/nutriment/protein/cream_cheese = 8, /singleton/reagent/nutriment/protein/seafood = 8)
+	reagent_data = list(/singleton/reagent/nutriment = list("pancake" = 4), /singleton/reagent/nutriment/protein/cream_cheese = list("cream cheese" =5), /singleton/reagent/nutriment/protein/seafood = list("salmon" = 5))
+
+/obj/item/reagent_containers/food/snacks/bowl/belinas/update_icon()
+	switch(reagents.total_volume)
+		if(1 to 3)
+			icon_state = "belinas_few"
+		if(4 to 8)
+			icon_state = "belinas_half"
+		if(9 to INFINITY)
+			icon_state = "belinas_full"
+
+/obj/item/reagent_containers/food/snacks/belina
+	name = "belina"
+	desc = "A mini pancake with cream cheese, salmon and a garnish."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "belina"
+	filling_color = "#c98151"

@@ -3861,3 +3861,31 @@
 	glass_icon_state = "b52glass"
 	glass_name = "glass of B-52"
 	glass_desc = "Kahlua, Irish cream, and congac. You will get bombed."
+
+/singleton/reagent/alcohol/prince_pallav_blonde_ale
+	name = "Prince Pallav Blonde Ale"
+	description = "A golden ale brewed in Foy-Niljen, Prince Pallav has defined Xanan brewing for over two decades. Smooth, lightly sweet, and impeccably balanced, it remains the undisputed favorite of the Republic, edging out Whistling Forest by a wide margin."
+	color = "#b98f19"
+	strength = 5
+	taste_description = "light honeyed maltiness"
+	carbonated = TRUE
+
+	value = 0.18
+
+	glass_icon_state = "prince_pallav"
+	glass_name = "glass of Prince Pallav Blonde Ale"
+	glass_desc = "This beer thinks it's better than you."
+
+/singleton/reagent/alcohol/marienthal_stout
+	name = "Marienthal Stout"
+	description = "A full-bodied stout brewed in the river valleys of Marienthal County, Sankt Frederick. Strong and dark as tilled soil, Marienthal Stout has become one of the Free State’s most recognizable exports, carving out a respectable presence within the rest of Alliance due to its rich, earthy flavor, and affordable price tag."
+	color = "#a7700c"
+	strength = 6
+	taste_description = "a hard day's work"
+	carbonated = TRUE
+
+	value = 0.1
+
+	glass_icon_state = "marienthal"
+	glass_name = "glass of Marienthal Stout"
+	glass_desc = "It doesn't get much more blue collar than a glass of this classic Solarian beer."

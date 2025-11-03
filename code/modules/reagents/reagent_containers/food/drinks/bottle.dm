@@ -1043,6 +1043,31 @@
 	icon_state = "burukutu"
 	reagents_to_add = list(/singleton/reagent/alcohol/burukutu = 30)
 
+/obj/item/reagent_containers/food/drinks/bottle/small/marienthal
+	name = "Marienthal Stout"
+	desc = "A full-bodied stout brewed in the river valleys of Marienthal County, Sankt Frederick. Strong and dark as tilled soil, Marienthal Stout has become one of the Free State’s most recognizable exports, carving out a respectable presence within the rest of Alliance due to its rich, earthy flavor, and affordable price tag."
+	icon_state = "marienthal"
+	item_state = "beer"
+	reagents_to_add = list(/singleton/reagent/alcohol/marienthal_stout = 30)
+
+/obj/item/reagent_containers/food/drinks/bottle/small/marienthal/update_icon()
+	. = ..()
+	if(is_open_container())
+		icon_state = "[initial(icon_state)]_open"
+	else
+		icon_state = initial(icon_state)
+
+/obj/item/reagent_containers/food/drinks/bottle/small/marienthal/open(mob/user)
+    . = ..()
+    update_icon()
+
+/obj/item/reagent_containers/food/drinks/bottle/small/prince_pallav
+	name = "\improper Prince Pallav Blonde Ale"
+	desc = "A golden ale brewed in Foy-Niljen, Prince Pallav has defined Xanan brewing for over two decades. Smooth, lightly sweet, and impeccably balanced, it remains the undisputed favorite of the Republic, edging out Whistling Forest by a wide margin."
+	icon_state = "prince_pallav"
+	item_state = "beer"
+	reagents_to_add = list(/singleton/reagent/alcohol/prince_pallav_blonde_ale = 30)
+
 // Butanol-based alcoholic drinks
 //=====================================
 //These are mainly for unathi, and have very little (but still some) effect on other species
