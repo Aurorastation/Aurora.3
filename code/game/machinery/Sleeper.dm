@@ -75,7 +75,7 @@
 					occupant.vessel.trans_to_obj(beaker, pumped + 1)
 					if(occupant.intoxication > 0)
 						//Removes alcohol in the bloodstream if present
-						occupant.intoxication -= min(occupant.intoxication, 1)
+						occupant.intoxication -= min(occupant.intoxication, seconds_per_tick)
 		else
 			toggle_filter()
 	if(pump)
