@@ -122,6 +122,10 @@
 	if(thisarea.lighting_effect)
 		new_turf.AddOverlays(thisarea.lighting_effect)
 
+	if(GLOB.config.starlight)
+		for(var/turf/space/S in RANGE_TURFS(1, src))
+			S.update_starlight()
+
 	new_turf.above = old_above
 
 	if(ispath(path, /turf/simulated))

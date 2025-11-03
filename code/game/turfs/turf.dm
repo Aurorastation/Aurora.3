@@ -209,7 +209,7 @@
 	// We do this prior to the unique space logic so this also covers space turfs within a needs_starlight area.
 	var/area/A = get_area(src)
 	if(A.needs_starlight)
-		set_light(SSatlas.current_sector.starlight_range, SSatlas.current_sector.starlight_power, l_color = SSskybox.background_color)
+		set_light(SSatlas.current_sector.starlight_range, SSatlas.current_sector.starlight_power, SSskybox.background_color)
 		return TRUE
 	else // If we aren't assigning starlight lighting, set the lighting to default so it's possible to undo starlight lighting if an area changes.
 		set_default_lighting()

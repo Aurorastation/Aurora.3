@@ -139,15 +139,15 @@
 /mob/living/silicon/pai/proc/toggle_flashlight()
 	flashlight_active = !flashlight_active
 	if(flashlight_active)
-		set_light(4, 1, COLOR_BRIGHT_GREEN, angle = 45)
+		set_light(4, 1, COLOR_BRIGHT_GREEN)
 	else
 		set_light(0)
 
-/mob/living/silicon/pai/set_light(l_range, l_power, l_color, uv, angle, no_update)
+/mob/living/silicon/pai/set_light(l_range, l_power, l_color)
 	..()
 	if(istype(loc, /obj/item/holder/pai))
 		var/obj/item/holder/pai/P = loc
-		P.set_light(l_range, l_power, l_color, uv, angle, no_update)
+		P.set_light(l_range, l_power, l_color)
 
 /mob/living/silicon/pai/post_scoop()
 	..()
