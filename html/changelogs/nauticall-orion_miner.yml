@@ -58,4 +58,5 @@ changes:
   - rscadd: "Added the Orion Miner, a mining mega-shuttle for use by crew who want to just mine."
   - refactor: "Ore processing machine code has been slightly streamlined to remove redundancy and retain functionality even when moved (i.e. with shuttles)."
   - imageadd: "Resprited the slimline stabilization kit to be more compact."
-  - rscadd: "Increases landing zone sizes for Odyssey away sites."
+  - experiment: "Increases shuttle max size standards to 44 x 20. Reflected in guidelines_shuttles.dmm."
+  - rscadd: "Increases landing zone sizes for Odyssey away sites to 44 x 20."
