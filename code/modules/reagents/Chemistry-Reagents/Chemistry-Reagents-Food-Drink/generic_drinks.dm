@@ -3862,7 +3862,7 @@
 	glass_name = "glass of B-52"
 	glass_desc = "Kahlua, Irish cream, and congac. You will get bombed."
 
-/singleton/reagent/alcohol/prince_pallav_blonde_ale
+/singleton/reagent/alcohol/beer/prince_pallav_blonde_ale
 	name = "Prince Pallav Blonde Ale"
 	description = "A golden ale brewed in Foy-Niljen, Prince Pallav has defined Xanan brewing for over two decades. Smooth, lightly sweet, and impeccably balanced, it remains the undisputed favorite of the Republic, edging out Whistling Forest by a wide margin."
 	color = "#b98f19"
@@ -3876,7 +3876,7 @@
 	glass_name = "glass of Prince Pallav Blonde Ale"
 	glass_desc = "This beer thinks it's better than you."
 
-/singleton/reagent/alcohol/marienthal_stout
+/singleton/reagent/alcohol/beer/marienthal_stout
 	name = "Marienthal Stout"
 	description = "A full-bodied stout brewed in the river valleys of Marienthal County, Sankt Frederick. Strong and dark as tilled soil, Marienthal Stout has become one of the Free State’s most recognizable exports, carving out a respectable presence within the rest of Alliance due to its rich, earthy flavor, and affordable price tag."
 	color = "#a7700c"

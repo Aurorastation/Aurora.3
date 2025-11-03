@@ -1048,7 +1048,7 @@
 	desc = "A full-bodied stout brewed in the river valleys of Marienthal County, Sankt Frederick. Strong and dark as tilled soil, Marienthal Stout has become one of the Free State’s most recognizable exports, carving out a respectable presence within the rest of Alliance due to its rich, earthy flavor, and affordable price tag."
 	icon_state = "marienthal"
 	item_state = "beer"
-	reagents_to_add = list(/singleton/reagent/alcohol/marienthal_stout = 30)
+	reagents_to_add = list(/singleton/reagent/alcohol/beer/marienthal_stout = 30)
 
 /obj/item/reagent_containers/food/drinks/bottle/small/marienthal/update_icon()
 	. = ..()
@@ -1066,7 +1066,7 @@
 	desc = "A golden ale brewed in Foy-Niljen, Prince Pallav has defined Xanan brewing for over two decades. Smooth, lightly sweet, and impeccably balanced, it remains the undisputed favorite of the Republic, edging out Whistling Forest by a wide margin."
 	icon_state = "prince_pallav"
 	item_state = "beer"
-	reagents_to_add = list(/singleton/reagent/alcohol/prince_pallav_blonde_ale = 30)
+	reagents_to_add = list(/singleton/reagent/alcohol/beer/prince_pallav_blonde_ale = 30)
 
 // Butanol-based alcoholic drinks
 //=====================================
