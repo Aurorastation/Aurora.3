@@ -10,6 +10,7 @@
 /area/ship/sadar_scout/exterior
 	name = "Ancient Expeditionary Vessel - Exterior"
 	requires_power = FALSE
+	needs_starlight = TRUE
 
 /area/ship/sadar_scout/thrusters
 	name = "Ancient Expeditionary Vessel - Propulsion"

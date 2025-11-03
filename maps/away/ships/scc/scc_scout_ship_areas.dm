@@ -52,6 +52,7 @@
 /area/ship/scc_scout_ship/exterior
 	name = "Exterior Catwalks/Lattices"
 	icon_state = "exterior"
+	needs_starlight = TRUE
 
 // ---------------------- shuttle
 

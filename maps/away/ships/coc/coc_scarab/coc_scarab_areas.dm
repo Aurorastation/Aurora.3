@@ -127,6 +127,7 @@
 	name = "Scarab Salvage Vessel - Exterior"
 	requires_power = FALSE
 	icon_state = "exterior"
+	needs_starlight = TRUE
 
 // Shuttle
 /area/shuttle/coc_scarab

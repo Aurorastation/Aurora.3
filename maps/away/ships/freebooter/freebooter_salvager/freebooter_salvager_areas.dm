@@ -46,6 +46,7 @@
 /area/ship/freebooter_salvager/exterior
 	name = "Freebooter Salvager Exterior"
 	icon_state = "exterior"
+	needs_starlight = TRUE
 
 /area/ship/freebooter_salvager/forehallway
 	name = "Freebooter Salvager Fore Hallway"
