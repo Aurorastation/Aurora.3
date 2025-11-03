@@ -124,7 +124,7 @@ would spawn and follow the beaker, even if it is carried or thrown.
 
 /obj/effect/smoke/Destroy()
 	if(opacity)
-	set_opacity(FALSE)
+		set_opacity(FALSE)
 	return ..()
 
 /obj/effect/smoke/proc/kill()
