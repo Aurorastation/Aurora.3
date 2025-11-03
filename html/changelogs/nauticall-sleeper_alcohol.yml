@@ -55,5 +55,5 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "The sleeper can now dialyze alcohol from an intoxicated patient, albeit slowly. Decreases BAC by about 0.05 per minute."
-  - balance: "Ethylredoxrazine has been buffed to now decrease BAC by about 0.1 every minute."
+  - rscadd: "The sleeper can now dialyze alcohol from an intoxicated patient, albeit slowly. Decreases BAC by about 0.05 per minute (~0.1 per 2 minutes)."
+  - balance: "Ethylredoxrazine has been buffed to now decrease BAC by about 0.07-0.08 every minute (0.1 every ~1.2 minutes)."

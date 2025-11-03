@@ -806,7 +806,7 @@
 	. = ..()
 
 #define ETHYL_INTOX_COST	3 //The cost of power to remove one unit of intoxication from the patient
-#define ETHYL_REAGENT_POWER	30 //The amount of power in one unit of ethyl
+#define ETHYL_REAGENT_POWER	20 //The amount of power in one unit of ethyl
 
 //Ethylredoxrazine will remove a number of units of alcoholic substances from the patient's blood and stomach, equal to its pow
 //Once all alcohol in the body is neutralised, it will then cure intoxication and sober the patient up
