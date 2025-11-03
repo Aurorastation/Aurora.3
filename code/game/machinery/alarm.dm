@@ -115,7 +115,6 @@ pixel_x = 10;
 	clicksound = /singleton/sound_category/button_sound
 	clickvol = 30
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
-	z_flags = ZMM_MANGLE_PLANES
 
 	var/alarm_id = null
 	var/frequency = 1439

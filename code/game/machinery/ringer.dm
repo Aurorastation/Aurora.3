@@ -21,7 +21,6 @@ pixel_x = 8;
 	icon_state = "bell"
 	anchored = TRUE
 	appearance_flags = TILE_BOUND // prevents people from viewing the overlay through a wall
-	z_flags = ZMM_MANGLE_PLANES
 
 	req_access = list() //what access it needs to link your pda
 

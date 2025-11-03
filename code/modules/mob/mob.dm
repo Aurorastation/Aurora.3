@@ -1574,16 +1574,6 @@
 		// if(thing.item_flags & SLOWS_WHILE_IN_HAND)
 		. += thing
 
-/mob/proc/check_emissive_equipment()
-	var/old_zflags = z_flags
-	z_flags &= ~ZMM_MANGLE_PLANES
-	for(var/atom/movable/AM in get_equipped_items(INCLUDE_POCKETS|INCLUDE_HELD))
-		if(AM.z_flags & ZMM_MANGLE_PLANES)
-			z_flags |= ZMM_MANGLE_PLANES
-			break
-	if(old_zflags != z_flags)
-		UPDATE_OO_IF_PRESENT
-
 ///Set the lighting plane hud alpha to the mobs lighting_alpha var
 /mob/proc/sync_lighting_plane_alpha()
 	if(hud_used)

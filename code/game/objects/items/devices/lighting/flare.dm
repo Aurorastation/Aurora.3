@@ -75,6 +75,7 @@
 		SPAN_NOTICE("\The [src] sputters out.")
 	)
 	update_icon()
+	set_light_on(on)
 
 /obj/item/device/flashlight/flare/proc/update_damage()
 	if(on)
@@ -118,12 +119,12 @@
 		H.update_inv_l_hand()
 		H.update_inv_r_hand()
 
-
 /obj/item/device/flashlight/flare/torch/proc/light(mob/user)
 	user.visible_message(SPAN_NOTICE("\The [user] lights \the [src]."),	SPAN_NOTICE("You light \the [src]."))
 	force = on_damage
 	damtype = "fire"
 	on = TRUE
+	set_light_on(on)
 	START_PROCESSING(SSprocessing, src)
 	update_icon()
 

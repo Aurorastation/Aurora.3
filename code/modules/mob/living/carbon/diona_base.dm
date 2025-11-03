@@ -493,7 +493,7 @@ Lightstates:
 		light_factor = 1
 
 	if (T)
-		var/raw = min(T.get_lumcount(0, 2) * light_factor * 5.5, 5.5)
+		var/raw = min(T.get_lumcount(0, 1) * light_factor * 5.5, 5.5)
 		return raw - 1.5
 
 /// Getter for health.

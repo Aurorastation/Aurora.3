@@ -12,8 +12,6 @@
 
 // Movable flags.
 #define ZMM_IGNORE 1	//! Do not copy this movable.
-#define ZMM_MANGLE_PLANES  2	//! Check this movable's overlays/underlays for explicit plane use and mangle for compatibility with Z-Mimic. If you're using emissive overlays, you probably should be using this flag. Expensive, only use if necessary.
-//TODOMATT: remove ZMM_MANGLE_PLANES if things work fine without it
 
 // Convenience flag.
 #define ZM_MIMIC_DEFAULTS (ZM_MIMIC_BELOW)

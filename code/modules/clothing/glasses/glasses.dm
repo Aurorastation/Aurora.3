@@ -1169,11 +1169,9 @@ BLIND     // can't see anything
 	if(active && slot == slot_glasses)
 		user.AddOverlays(mob_overlay, ATOM_ICON_CACHE_PROTECTED)
 		user.AddOverlays(mob_overlay_emis, TRUE)
-		user.z_flags |= ZMM_MANGLE_PLANES
 	else
 		user.CutOverlays(mob_overlay, ATOM_ICON_CACHE_PROTECTED)
 		user.AddOverlays(mob_overlay_emis, TRUE)
-		user.z_flags &= ZMM_MANGLE_PLANES
 	return ..()
 
 /obj/item/clothing/glasses/eyepatch/hud/Destroy()

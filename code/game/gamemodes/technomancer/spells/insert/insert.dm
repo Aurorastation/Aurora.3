@@ -25,7 +25,7 @@
 	..(newloc)
 	host = newloc
 	origin = user
-	if(light_color)
+	if(light_color && inserter)
 		set_light_range_power_color(inserter.spell_light_range, inserter.spell_light_intensity, inserter.spell_color)
 	on_insert()
 

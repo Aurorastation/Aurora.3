@@ -492,9 +492,6 @@
 	SEND_SIGNAL(src, COMSIG_ITEM_DROPPED, user)
 	in_inventory = FALSE
 
-	if(user && (z_flags & ZMM_MANGLE_PLANES))
-		addtimer(CALLBACK(user, /mob/proc/check_emissive_equipment), 0, TIMER_UNIQUE)
-
 	user?.update_equipment_speed_mods()
 	try_make_persistent_trash()
 
@@ -629,9 +626,6 @@
 
 	//Ěent for observable
 	SEND_SIGNAL(src, COMSIG_ITEM_REMOVE, src)
-
-	if(user && (z_flags & ZMM_MANGLE_PLANES))
-		addtimer(CALLBACK(user, /mob/proc/check_emissive_equipment), 0, TIMER_UNIQUE)
 
 	user.update_equipment_speed_mods()
 
