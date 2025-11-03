@@ -7,7 +7,7 @@
 	suffix = "yacht.dmm"
 
 	spawn_cost = 0.5
-	spawn_weight = 0.5
+	spawn_weight = 0 // Disabled for debloating. Feel free to enable again if reworked or relevant.
 	sectors = list(SECTOR_ROMANOVICH, SECTOR_TAU_CETI, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, ALL_COALITION_SECTORS, SECTOR_TABITI, SECTOR_AEMAQ, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, SECTOR_GAKAL, SECTOR_UUEOAESA)
 
 	unit_test_groups = list(3)
