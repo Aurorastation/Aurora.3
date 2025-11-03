@@ -26,7 +26,7 @@
 	var/disallow_occupant_types = list()
 	var/display_loading_message = TRUE
 
-	// rate at which alcohol is removed per tick (see process())
+	/// rate at which alcohol is removed per tick (see process())
 	var/intoxication_removal_rate = 1
 
 	idle_power_usage = 15
@@ -76,7 +76,7 @@
 					pumped++
 				if(ishuman(occupant))
 					occupant.vessel.trans_to_obj(beaker, pumped + 1)
-					if(occupant.intoxication > 0)
+					if(occupant.intoxication)
 						//Removes alcohol in the bloodstream if present
 						occupant.intoxication -= min(occupant.intoxication, (seconds_per_tick * intoxication_removal_rate))
 		else
