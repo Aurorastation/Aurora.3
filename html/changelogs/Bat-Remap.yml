@@ -1,5 +1,5 @@
 # Your name.
-author: Batrachophrenoboocosmomachia
+author: Batrachophrenoboocosmomachia, SleepyGemmy
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -19,3 +19,8 @@ changes:
   - spellcheck: "Renames the Kitchen to the Galley."
   - spellcheck: "Renames the Dining Hall to the Mess Hall."
   - spellcheck: "Renames each Washroom to the Head."
+  - bugfix: "Fixed custodians not having access to the engineering meeting room maintenance doors."
+  - bugfix: "Fixed custodians not having access to the library maintenance door."
+  - bugfix: "Fixed the main maintenance door behind the commissary not having the regular maintenance access along its other access requirements."
+  - bugfix: "Added a light to the hallway outside the commissary."
+  - bugfix: "Fixed telecoms requiring both engineering and atmospherics access instead of either."
