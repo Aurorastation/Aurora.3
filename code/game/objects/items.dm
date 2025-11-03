@@ -1360,7 +1360,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 /obj/item/proc/apply_outline(mob/user, outline_color = null)
 	if(!(in_inventory || in_storage) || QDELETED(src) || isobserver(user)) //cancel if the item isn't in an inventory, is being deleted, or if the person hovering is a ghost (so that people spectating you don't randomly make your items glow)
 		return
-	var/theme = lowertext(user.client.prefs.UI_style)
+	var/theme = lowertext(user.client.prefs.ui_style)
 	if(!outline_color) //if we weren't provided with a color, take the theme's color
 		switch(theme) //yeah it kinda has to be this way
 			if("midnight")

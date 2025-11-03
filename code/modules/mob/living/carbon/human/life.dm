@@ -1169,9 +1169,9 @@
 #undef POSING_STRING
 
 /mob/living/carbon/human/proc/add_status_to_hud(var/set_overlay, var/set_status_message)
-	var/atom/movable/screen/status/new_status = new /atom/movable/screen/status(null, ui_style2icon(client.prefs.UI_style), set_overlay, set_status_message)
-	new_status.alpha = client.prefs.UI_style_alpha
-	new_status.color = client.prefs.UI_style_color
+	var/atom/movable/screen/status/new_status = new /atom/movable/screen/status(null, ui_style2icon(client.prefs.ui_style), set_overlay, set_status_message)
+	new_status.alpha = client.prefs.ui_style_alpha
+	new_status.color = client.prefs.ui_style_color
 	new_status.screen_loc = get_status_loc(status_overlays ? LAZYLEN(status_overlays) + 1 : 1)
 	client.screen += new_status
 	LAZYSET(status_overlays, set_overlay, new_status)

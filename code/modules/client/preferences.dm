@@ -21,11 +21,11 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 	var/lastchangelog = ""				//Saved changlog filesize to detect if there was a change
 	var/ooccolor = "#010000"			//Whatever this is set to acts as 'reset' color and is thus unusable as an actual custom color
 	var/list/be_special_role = list()		//Special role selection
-	var/UI_style = "Midnight"
+	var/ui_style = "Midnight"
 	var/toggles = TOGGLES_DEFAULT
 	var/sfx_toggles = ASFX_DEFAULT
-	var/UI_style_color = "#ffffff"
-	var/UI_style_alpha = 255
+	var/ui_style_color = "#ffffff"
+	var/ui_style_alpha = 255
 	var/tgui_fancy = TRUE
 	var/tgui_lock = FALSE
 	var/tgui_inputs = TRUE
@@ -531,11 +531,11 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 	for(var/ckey in GLOB.preferences_datums)
 		var/datum/preferences/D = GLOB.preferences_datums[ckey]
 		if(D == src)
-			if(!establish_db_connection(GLOB.dbcon))
+			if(!SSdbcore.Connect())
 				return open_load_dialog_file(user)
 
-			var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT id, name FROM ss13_characters WHERE ckey = :ckey: AND deleted_at IS NULL ORDER BY id ASC")
-			query.Execute(list("ckey" = user.client.ckey))
+			var/datum/db_query/query = SSdbcore.NewQuery("SELECT id, name FROM ss13_characters WHERE ckey = :ckey AND deleted_at IS NULL ORDER BY id ASC",list("ckey" = user.client.ckey))
+			query.Execute()
 
 			dat += "<b>Select a character slot to load</b><hr>"
 			var/name
@@ -550,11 +550,12 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 					dat += "<a href='byond://?src=[REF(src)];changeslot=[id];'>[name]</a><br>"
 
 			dat += "<hr>"
-			dat += "<b>[query.RowCount()]/[GLOB.config.character_slots] slots used</b><br>"
-			if (query.RowCount() < GLOB.config.character_slots)
+			dat += "<b>[length(query.rows)]/[GLOB.config.character_slots] slots used</b><br>"
+			if (length(query.rows) < GLOB.config.character_slots)
 				dat += "<a href='byond://?src=[REF(src)];new_character_sql=1'>New Character</a>"
 			else
 				dat += "<strike>New Character</strike>"
+			qdel(query)
 
 	dat += "<hr>"
 	dat += "<a href='byond://?src=[REF(src)];close_load_dialog=1'>Close</a><br>"

@@ -178,14 +178,14 @@ GLOBAL_LIST_INIT(valid_bloodtypes, list(
 			try
 				pref.body_markings = json_decode(pref.body_markings)
 			catch (var/exception/e)
-				LOG_DEBUG("BODY MARKINGS: Caught [e]. Initial value: [before]")
+				log_module_preferences("BODY MARKINGS: Caught [e]. Initial value: [before]")
 				pref.body_markings = list()
 		if (istext(pref.disabilities))
 			var/before = pref.disabilities
 			try
 				pref.disabilities = json_decode(pref.disabilities)
 			catch (var/exception/e)
-				LOG_DEBUG("DISABILITIES: Caught [e]. Initial value: [before]")
+				log_module_preferences("DISABILITIES: Caught [e]. Initial value: [before]")
 				pref.disabilities = list()
 
 	var/datum/species/mob_species = GLOB.all_species[pref.species]

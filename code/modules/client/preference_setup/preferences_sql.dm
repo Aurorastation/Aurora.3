@@ -1,6 +1,6 @@
 // Set this to 1 if you want to debug the SQL saves.
 // I got tired as hell from writing these debug lines and deleting them later.
-
+#define SQL_PREF_DEBUG
 /*
  * A proc for dynamically loading a character from the database.
  * See the category items for procs on what pieces are given.
@@ -8,12 +8,13 @@
  * Each query is cached as well, after generation. Only things recompiled are the arguments and the finalized query text (with arguments in it).
  */
 /datum/category_group/player_setup_category/proc/handle_sql_loading(var/role_type)
+	SHOULD_NOT_SLEEP(FALSE)
 	var/static/list/query_cache
 
 	// We aren't loading this category. Bye.
 	if (role_type && !(sql_role & role_type))
 #ifdef SQL_PREF_DEBUG
-		LOG_DEBUG("SQL CHARACTER LOAD: Bad role_type, returned. Looking for: [role_type], had: [sql_role]. Conjunction: [sql_role & role_type].")
+		log_module_preferences("SQL CHARACTER LOAD: Bad role_type, returned. Looking for: [role_type], had: [sql_role]. Conjunction: [sql_role & role_type].")
 #endif
 		return
 
@@ -70,7 +71,7 @@
 			var/list/arg_names = tables[table]["args"]
 			count = arg_names.len
 			for (i = 1, i <= count, i++)
-				query += "[arg_names[i]] = :[arg_names[i]]:"
+				query += "[arg_names[i]] = :[arg_names[i]]"
 
 				if (i != count)
 					query += " AND "
@@ -78,7 +79,7 @@
 					query += ";"
 
 #ifdef SQL_PREF_DEBUG
-			LOG_DEBUG("SQL CHARACTER LOAD: Cached query [query] with variables [json_encode(var_names)]")
+			log_module_preferences("SQL CHARACTER LOAD: Cached query [query] with variables [json_encode(var_names)]")
 #endif
 			// Save it.
 			query_cache[type][query] = var_names
@@ -90,21 +91,19 @@
 	var/list/arg_list = gather_load_parameters()
 
 #ifdef SQL_PREF_DEBUG
-	LOG_DEBUG("SQL CHARACTER LOAD: Started loading with arguments: [json_encode(arg_list)]. Role type: [role_type]")
+	log_module_preferences("SQL CHARACTER LOAD: Started loading with arguments: [json_encode(arg_list)]. Role type: [role_type]")
 #endif
 
 	for (var/query_text in query_cache[type])
-		var/DBQuery/query = GLOB.dbcon.NewQuery(query_text)
-		query.Execute(arg_list)
-		if (query.ErrorMsg())
-			log_world("ERROR: SQL CHARACTER LOAD: SQL query error: [query.ErrorMsg()]")
-			LOG_DEBUG("SQL CHARACTER LOAD: query args: [json_encode(arg_list)]")
+		var/datum/db_query/query = SSdbcore.NewQuery(query_text,arg_list)
+		if (!query.Execute())
+			log_module_preferences("ERROR: SQL CHARACTER LOAD: SQL query error: [query.last_error]")
 
 			continue
 
 #ifdef SQL_PREF_DEBUG
 		else
-			LOG_DEBUG("SQL CHARACTER LOAD: Successfully executed query: [query_text]")
+			log_module_preferences("SQL CHARACTER LOAD: Successfully executed query: [query_text]")
 #endif
 
 		// Each query should only return exactly 1 row.
@@ -118,8 +117,9 @@
 					else
 						cc.preferences.vars[layers[1]][layers[2]] = query.item[i]
 				catch(var/exception/e)
-					log_world("ERROR: SQL CHARACTER LOAD: bad variable name: [e.name]")
-					LOG_DEBUG("SQL CHARACTER LOAD: var name: [var_names[i]]")
+					log_module_preferences("ERROR: SQL CHARACTER LOAD: bad variable name: [e.name]")
+
+		qdel(query)
 
 /datum/category_group/player_setup_category/proc/gather_load_parameters()
 	var/list/arg_list = list()
@@ -140,7 +140,7 @@
 	// We aren't loading this category. Bye.
 	if (role_type && !(sql_role & role_type))
 #ifdef SQL_PREF_DEBUG
-		LOG_DEBUG("SQL CHARACTER SAVE: Bad role_type, returned. Looking for: [role_type], had: [sql_role]. Conjunction: [sql_role & role_type].")
+		log_module_preferences("SQL CHARACTER SAVE: Bad role_type, returned. Looking for: [role_type], had: [sql_role]. Conjunction: [sql_role & role_type].")
 #endif
 		return
 
@@ -177,7 +177,7 @@
 			// Process the args.
 			var/list/arg_names = list()
 			for (var/variable in var_names)
-				arg_names += ":[variable]:"
+				arg_names += ":[variable]"
 
 			query += "[jointext(arg_names, ", ")]) ON DUPLICATE KEY UPDATE"
 
@@ -195,7 +195,7 @@
 			query = replacetext(query, ",", "", length(query) - 1)
 
 #ifdef SQL_PREF_DEBUG
-			LOG_DEBUG("SQL CHARACTER SAVE: Cached query [query].")
+			log_module_preferences("SQL CHARACTER SAVE: Cached query [query].")
 #endif
 
 			// Save it.
@@ -205,45 +205,34 @@
 	var/list/arg_list = gather_save_parameters()
 
 #ifdef SQL_PREF_DEBUG
-	LOG_DEBUG("SQL CHARACTER SAVE: Started saving with arguments: [json_encode(arg_list)]. Role type: [role_type]")
+	log_module_preferences("SQL CHARACTER SAVE: Started saving with arguments: [json_encode(arg_list)]. Role type: [role_type]")
 #endif
 
 	// Typecast the collection so we can access its preferences var.
 	var/datum/category_collection/player_setup_collection/cc = collection
 	for (var/query_text in query_cache[type])
-		var/DBQuery/query = GLOB.dbcon.NewQuery(query_text)
-		query.Execute(arg_list)
-
-		if (query.ErrorMsg())
-			log_world("ERROR: SQL CHARACTER SAVE: SQL query error: [query.ErrorMsg()]")
-			LOG_DEBUG("SQL CHARACTER SAVE: query args: [json_encode(arg_list)]")
+		var/datum/db_query/query = SSdbcore.NewQuery(query_text,arg_list)
+		if (!query.Execute())
+			log_module_preferences("ERROR: SQL CHARACTER SAVE: SQL query error: [query.last_error]")
 
 			continue
 
 #ifdef SQL_PREF_DEBUG
 		else
-			LOG_DEBUG("SQL CHARACTER SAVE: Successfully executed query: [query_text]")
+			log_module_preferences("SQL CHARACTER SAVE: Successfully executed query: [query_text]")
 #endif
 
 		if ((role_type & SQL_CHARACTER) && !cc.preferences.current_character)
 			// No current character, means we're doing insert queries.
 			// Quickly nab the new ID and substitute it within the args.
-			query = GLOB.dbcon.NewQuery("SELECT LAST_INSERT_ID() AS new_id")
-			query.Execute()
-
-			if (query.NextRow())
-				arg_list["id"] = text2num(query.item[1])
-				arg_list["char_id"] = text2num(query.item[1])
-				cc.preferences.current_character = text2num(query.item[1])
+			arg_list["id"] = query.last_insert_id
+			arg_list["char_id"] = query.last_insert_id
+			cc.preferences.current_character = query.last_insert_id
 
 #ifdef SQL_PREF_DEBUG
-				LOG_DEBUG("SQL CHARACTER SAVE: Successfully set character ID to [cc.preferences.current_character]")
+			log_module_preferences("SQL CHARACTER SAVE: Successfully set character ID to [cc.preferences.current_character]")
 #endif
-
-			else
-				log_world("ERROR: SQL CHARACTER SAVE: New ID was not recovered.")
-				if (query.ErrorMsg())
-					log_world("ERROR: SQL CHARACTER SAVE: SQL query error from last_insert_id: [query.ErrorMsg()]")
+		qdel(query)
 
 /datum/category_group/player_setup_category/proc/gather_save_parameters()
 	var/list/arg_list = list()

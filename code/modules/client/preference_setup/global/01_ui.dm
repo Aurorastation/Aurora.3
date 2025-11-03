@@ -3,9 +3,9 @@
 	sort_order = 1
 
 /datum/category_item/player_setup_item/player_global/ui/load_preferences(var/savefile/S)
-	S["UI_style"]				>> pref.UI_style
-	S["UI_style_color"]			>> pref.UI_style_color
-	S["UI_style_alpha"]			>> pref.UI_style_alpha
+	S["ui_style"]				>> pref.ui_style
+	S["ui_style_color"]			>> pref.ui_style_color
+	S["ui_style_alpha"]			>> pref.ui_style_alpha
 	S["tgui_fancy"]				>> pref.tgui_fancy
 	S["tgui_lock"]				>> pref.tgui_lock
 	S["ooccolor"]				>> pref.ooccolor
@@ -18,9 +18,9 @@
 	S["ui_scale"]				>> pref.ui_scale
 
 /datum/category_item/player_setup_item/player_global/ui/save_preferences(var/savefile/S)
-	S["UI_style"]				<< pref.UI_style
-	S["UI_style_color"]			<< pref.UI_style_color
-	S["UI_style_alpha"]			<< pref.UI_style_alpha
+	S["ui_style"]				<< pref.ui_style
+	S["ui_style_color"]			<< pref.ui_style_color
+	S["ui_style_alpha"]			<< pref.ui_style_alpha
 	S["tgui_fancy"]				<< pref.tgui_fancy
 	S["tgui_lock"]				<< pref.tgui_lock
 	S["ooccolor"]				<< pref.ooccolor
@@ -36,9 +36,9 @@
 	return list(
 		"ss13_player_preferences" = list(
 			"vars" = list(
-				"UI_style",
-				"UI_style_color",
-				"UI_style_alpha",
+				"ui_style",
+				"ui_style_color",
+				"ui_style_alpha",
 				"tgui_fancy",
 				"tgui_lock",
 				"ooccolor",
@@ -60,9 +60,9 @@
 /datum/category_item/player_setup_item/player_global/ui/gather_save_query()
 	return list(
 		"ss13_player_preferences" = list(
-			"UI_style",
-			"UI_style_color",
-			"UI_style_alpha",
+			"ui_style",
+			"ui_style_color",
+			"ui_style_alpha",
 			"tgui_fancy",
 			"tgui_lock",
 			"ooccolor",
@@ -80,9 +80,9 @@
 /datum/category_item/player_setup_item/player_global/ui/gather_save_parameters()
 	return list(
 		"ckey" = PREF_CLIENT_CKEY,
-		"UI_style_alpha" = pref.UI_style_alpha,
-		"UI_style_color" = pref.UI_style_color,
-		"UI_style" = pref.UI_style,
+		"ui_style_alpha" = pref.ui_style_alpha,
+		"ui_style_color" = pref.ui_style_color,
+		"ui_style" = pref.ui_style,
 		"tgui_fancy" = pref.tgui_fancy,
 		"tgui_lock" = pref.tgui_lock,
 		"ooccolor" = pref.ooccolor,
@@ -96,9 +96,9 @@
 	)
 
 /datum/category_item/player_setup_item/player_global/ui/sanitize_preferences()
-	pref.UI_style = sanitize_inlist(pref.UI_style, GLOB.all_ui_styles, initial(pref.UI_style))
-	pref.UI_style_color = sanitize_hexcolor(pref.UI_style_color, initial(pref.UI_style_color))
-	pref.UI_style_alpha = sanitize_integer(text2num(pref.UI_style_alpha), 0, 255, initial(pref.UI_style_alpha))
+	pref.ui_style = sanitize_inlist(pref.ui_style, GLOB.all_ui_styles, initial(pref.ui_style))
+	pref.ui_style_color = sanitize_hexcolor(pref.ui_style_color, initial(pref.ui_style_color))
+	pref.ui_style_alpha = sanitize_integer(text2num(pref.ui_style_alpha), 0, 255, initial(pref.ui_style_alpha))
 	pref.clientfps = sanitize_integer(text2num(pref.clientfps), 0, 1000, initial(pref.clientfps))
 	pref.tgui_fancy = sanitize_bool(pref.tgui_fancy, TRUE)
 	pref.tgui_lock = sanitize_bool(pref.tgui_lock, FALSE)
@@ -111,10 +111,10 @@
 /datum/category_item/player_setup_item/player_global/ui/content(mob/user)
 	var/list/dat = list()
 	dat += "<b>UI Settings</b><br>"
-	dat += "<b>UI Style:</b> <a href='byond://?src=[REF(src)];select_style=1'><b>[pref.UI_style]</b></a><br>"
+	dat += "<b>UI Style:</b> <a href='byond://?src=[REF(src)];select_style=1'><b>[pref.ui_style]</b></a><br>"
 	dat += "<b>Custom UI</b> (recommended for White UI):<br>"
-	dat += "-Color: <a href='byond://?src=[REF(src)];select_color=1'><b>[pref.UI_style_color]</b></a> [HTML_RECT(pref.UI_style_color)] - <a href='byond://?src=[REF(src)];reset=ui'>reset</a><br>"
-	dat += "-Alpha(transparency): <a href='byond://?src=[REF(src)];select_alpha=1'><b>[pref.UI_style_alpha]</b></a> - <a href='byond://?src=[REF(src)];reset=alpha'>reset</a><br>"
+	dat += "-Color: <a href='byond://?src=[REF(src)];select_color=1'><b>[pref.ui_style_color]</b></a> [HTML_RECT(pref.ui_style_color)] - <a href='byond://?src=[REF(src)];reset=ui'>reset</a><br>"
+	dat += "-Alpha(transparency): <a href='byond://?src=[REF(src)];select_alpha=1'><b>[pref.ui_style_alpha]</b></a> - <a href='byond://?src=[REF(src)];reset=alpha'>reset</a><br>"
 	dat += "<b>Tooltip Style:</b> <a href='byond://?src=[REF(src)];select_tooltip_style=1'><b>[pref.tooltip_style]</b></a><br>"
 	dat += "<b>TGUI Fancy:</b> <a href='byond://?src=[REF(src)];select_tguif=1'><b>[pref.tgui_fancy ? "ON" : "OFF"]</b></a><br>"
 	dat += "<b>TGUI Lock:</b> <a href='byond://?src=[REF(src)];select_tguil=1'><b>[pref.tgui_lock ? "ON" : "OFF"]</b></a><br>"
@@ -135,21 +135,21 @@
 
 /datum/category_item/player_setup_item/player_global/ui/OnTopic(var/href,var/list/href_list, var/mob/user)
 	if(href_list["select_style"])
-		var/UI_style_new = input(user, "Choose UI style.", "Character Preference", pref.UI_style) as null|anything in GLOB.all_ui_styles
-		if(!UI_style_new || !CanUseTopic(user)) return TOPIC_NOACTION
-		pref.UI_style = UI_style_new
+		var/ui_style_new = input(user, "Choose UI style.", "Character Preference", pref.ui_style) as null|anything in GLOB.all_ui_styles
+		if(!ui_style_new || !CanUseTopic(user)) return TOPIC_NOACTION
+		pref.ui_style = ui_style_new
 		return TOPIC_REFRESH
 
 	else if(href_list["select_color"])
-		var/UI_style_color_new = input(user, "Choose UI color, dark colors are not recommended!", "Global Preference", pref.UI_style_color) as color|null
-		if(isnull(UI_style_color_new) || !CanUseTopic(user)) return TOPIC_NOACTION
-		pref.UI_style_color = UI_style_color_new
+		var/ui_style_color_new = input(user, "Choose UI color, dark colors are not recommended!", "Global Preference", pref.ui_style_color) as color|null
+		if(isnull(ui_style_color_new) || !CanUseTopic(user)) return TOPIC_NOACTION
+		pref.ui_style_color = ui_style_color_new
 		return TOPIC_REFRESH
 
 	else if(href_list["select_alpha"])
-		var/UI_style_alpha_new = input(user, "Select UI alpha (transparency) level, between 50 and 255.", "Global Preference", pref.UI_style_alpha) as num|null
-		if(isnull(UI_style_alpha_new) || (UI_style_alpha_new < 50 || UI_style_alpha_new > 255) || !CanUseTopic(user)) return TOPIC_NOACTION
-		pref.UI_style_alpha = UI_style_alpha_new
+		var/ui_style_alpha_new = input(user, "Select UI alpha (transparency) level, between 50 and 255.", "Global Preference", pref.ui_style_alpha) as num|null
+		if(isnull(ui_style_alpha_new) || (ui_style_alpha_new < 50 || ui_style_alpha_new > 255) || !CanUseTopic(user)) return TOPIC_NOACTION
+		pref.ui_style_alpha = ui_style_alpha_new
 		return TOPIC_REFRESH
 
 	else if(href_list["select_tguif"])
@@ -213,9 +213,9 @@
 	else if(href_list["reset"])
 		switch(href_list["reset"])
 			if("ui")
-				pref.UI_style_color = initial(pref.UI_style_color)
+				pref.ui_style_color = initial(pref.ui_style_color)
 			if("alpha")
-				pref.UI_style_alpha = initial(pref.UI_style_alpha)
+				pref.ui_style_alpha = initial(pref.ui_style_alpha)
 			if("ooc")
 				pref.ooccolor = initial(pref.ooccolor)
 			if("fps")

@@ -251,6 +251,7 @@
 #include "code\__HELPERS\logging\modules\customitems.dm"
 #include "code\__HELPERS\logging\modules\exoplanets.dm"
 #include "code\__HELPERS\logging\modules\ghostroles.dm"
+#include "code\__HELPERS\logging\modules\preferences.dm"
 #include "code\__HELPERS\logging\modules\ruins.dm"
 #include "code\__HELPERS\logging\modules\sectors.dm"
 #include "code\__HELPERS\logging\subsystems\_subsystems.dm"

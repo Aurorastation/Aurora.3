@@ -117,8 +117,7 @@
 				try
 					pref.vars[preference] = text2num(jobs[preference])
 				catch(var/exception/e)
-					LOG_DEBUG("LOADING: Bad job preference key: [preference].")
-					log_debug(e.desc)
+					log_module_preferences("LOADING: Bad job preference key: [preference]. [e.desc]")
 
 	pref.alternate_option  = sanitize_integer(text2num(pref.alternate_option), 0, 1, initial(pref.alternate_option))
 	pref.job_civilian_high = sanitize_integer(text2num(pref.job_civilian_high), 0, 65535, initial(pref.job_civilian_high))
