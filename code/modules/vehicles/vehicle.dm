@@ -50,6 +50,10 @@
 	. = ..()
 	setup_vehicle()
 
+/obj/vehicle/Destroy()
+	QDEL_NULL(cell)
+	return ..()
+
 /obj/vehicle/proc/setup_vehicle()
 	LAZYADD(can_buckle, /mob/living)
 
