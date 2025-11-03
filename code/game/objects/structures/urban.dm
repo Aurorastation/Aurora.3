@@ -821,6 +821,10 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 	if(storage_type)
 		storage_compartment = new storage_type(src)
 
+/obj/structure/cash_register/Destroy()
+	QDEL_NULL(storage_compartment)
+	return ..()
+
 /obj/item/storage/toolbox/cash_register_storage
 	name = "cash compartment"
 
