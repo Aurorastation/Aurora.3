@@ -73,6 +73,9 @@
 					pumped++
 				if(ishuman(occupant))
 					occupant.vessel.trans_to_obj(beaker, pumped + 1)
+					if(occupant.intoxication > 0)
+						//Removes alcohol in the bloodstream if present
+						occupant.intoxication -= min(occupant.intoxication, 1)
 		else
 			toggle_filter()
 	if(pump)
@@ -139,6 +142,7 @@
 		data["brain_activity"] = occupant.get_brain_result()
 		data["blood_pressure"] = occupant.get_blood_pressure()
 		data["blood_pressure_level"] = occupant.get_blood_pressure_alert()
+		data["bac"] = occupant.get_blood_alcohol()
 		data["blood_o2"] = occupant.get_blood_oxygenation()
 		data["bloodreagents"] = list()
 		var/list/blood_reagents = list()

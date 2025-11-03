@@ -806,7 +806,7 @@
 	. = ..()
 
 #define ETHYL_INTOX_COST	3 //The cost of power to remove one unit of intoxication from the patient
-#define ETHYL_REAGENT_POWER	20 //The amount of power in one unit of ethyl
+#define ETHYL_REAGENT_POWER	30 //The amount of power in one unit of ethyl
 
 //Ethylredoxrazine will remove a number of units of alcoholic substances from the patient's blood and stomach, equal to its pow
 //Once all alcohol in the body is neutralised, it will then cure intoxication and sober the patient up
@@ -815,7 +815,7 @@
 	description = "Ethylredoxrazine is a powerful medication which oxidises ethanol in the bloodstream, reducing the burden on the liver to complete this task. Ethylredoxrazine also blocks the reuptake of neurotransmitters responsible for symptoms of alcohol intoxication."
 	reagent_state = SOLID
 	color = "#605048"
-	metabolism = REM * 0.3
+	metabolism = REM
 	overdose = REAGENTS_OVERDOSE
 	scannable = TRUE
 	taste_description = "bitterness"
