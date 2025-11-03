@@ -1058,8 +1058,8 @@
 		icon_state = initial(icon_state)
 
 /obj/item/reagent_containers/food/drinks/bottle/small/marienthal/open(mob/user)
-    . = ..()
-    update_icon()
+	. = ..()
+	update_icon()
 
 /obj/item/reagent_containers/food/drinks/bottle/small/prince_pallav
 	name = "\improper Prince Pallav Blonde Ale"
