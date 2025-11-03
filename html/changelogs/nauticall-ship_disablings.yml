@@ -55,5 +55,6 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscdel: "Removes the following offship maps from rotation: Casino Ship, Dominian Unathi Privateer, Freebooter Ship, Miners Guild Station, NKA Merchant Ship, Database Freighter, SFA Patrol Ship, Tajaran Smuggler, Unathi Pirate Izharshan Ship, and Unathi Pirate Tarwa Ship."
+  - rscdel: "Removes the following offship maps from rotation (1/2): Casino Ship, Dominian Unathi Privateer, Freebooter Ship, Miners Guild Station, NKA Merchant Ship, Database Freighter."
+  - rscdel: "Removes the following offship maps too (2/2): SFA Patrol Ship, Tajaran Smuggler, Unathi Pirate Izharshan Ship, Unathi Pirate Tarwa Ship, COC Surveyor, Dominian Science Vessel."
   - code_imp: "The Freebooter Salvager will now take the place of the old Freebooter Ship; spawn weight was adjusted to 1 (normal)."
