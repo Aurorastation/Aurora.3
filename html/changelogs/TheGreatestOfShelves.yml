@@ -1,7 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - rscadd: "Added crate shelves."
-  - rscadd: "Remapped the warehouse to fit the crate shelves."

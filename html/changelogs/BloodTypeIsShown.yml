@@ -1,7 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - rscadd: "The medical records can now see and edit blood types."
-  - rscadd: "Medhuds now show blood types of people that are examined, based on their medical record."
