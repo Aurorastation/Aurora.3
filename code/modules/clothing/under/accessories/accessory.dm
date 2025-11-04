@@ -11,6 +11,8 @@
 		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/accessories.dmi'
 	)
 
+	light_system = MOVABLE_LIGHT
+
 	var/slot = ACCESSORY_SLOT_GENERIC
 
 	/// Determines how accessories will layer over eachother, with lower being beneath everything, and upper above
@@ -119,13 +121,6 @@
 
 /obj/item/clothing/accessory/proc/on_clothing_change(var/mob/user)
 	update_light()
-
-/obj/item/clothing/accessory/get_light_atom()
-	if(isclothing(loc))
-		if(ismob(loc.loc))
-			return loc.loc
-		return loc
-	return ..()
 
 //default attackby behaviour
 /obj/item/clothing/accessory/attackby(obj/item/attacking_item, mob/user)
@@ -1412,14 +1407,15 @@
 /obj/item/clothing/accessory/led_collar/Initialize()
 	. = ..()
 	color = pick("#00FFFF", "#FF0000", "#FF00FF", "#FF6600", "#CC00CC")
-	set_light(MINIMUM_USEFUL_LIGHT_RANGE, 1.2, color)
+	set_light_range_power_color(MINIMUM_USEFUL_LIGHT_RANGE, 1.2, color)
+	set_light_on(TRUE)
 
 /obj/item/clothing/accessory/led_collar/attack_self(mob/user)
 	. = ..()
 	var/new_color = input(user, "Select the color of \the [src]", "LED Collar Color Selection", color) as null|color
 	if(new_color)
 		color = new_color
-		set_light(MINIMUM_USEFUL_LIGHT_RANGE, 1.2, color)
+		set_light_range_power_color(MINIMUM_USEFUL_LIGHT_RANGE, 1.2, color)
 
 /obj/item/clothing/accessory/led_collar/get_accessory_mob_overlay(var/mob/living/carbon/human/H, var/force = FALSE)
 	var/image/I = ..()

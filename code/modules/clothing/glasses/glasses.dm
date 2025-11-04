@@ -19,9 +19,12 @@ BLIND     // can't see anything
 	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = SLOT_EYES
 	body_parts_covered = EYES
+	light_system = MOVABLE_LIGHT
 	var/vision_flags = 0
 	var/darkness_view = 0//Base human is 2
 	var/prescription = 0
+	/// The amount of nightvision these glasses have. This should be a number between 0 and 1.
+	var/lighting_alpha = LIGHTING_PLANE_ALPHA_VISIBLE
 	var/see_invisible = -1
 	var/toggleable = 0
 	var/toggle_changes_appearance = TRUE
@@ -77,18 +80,18 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses/attack_self(mob/user)
 	if(toggleable)
 		if(active)
-			active = 0
+			active = FALSE
 			if(toggle_changes_appearance)
 				icon_state = off_state
 				item_state = off_state
 				user.update_inv_glasses()
 			flash_protection = FLASH_PROTECTION_NONE
 			tint = TINT_NONE
-			to_chat(usr, "You deactivate the optical matrix on the [src].")
+			to_chat(usr, SPAN_NOTICE("You deactivate the optical matrix on the [src]."))
 			if(activated_color)
-				set_light(0)
+				set_light_on(active)
 		else
-			active = 1
+			active = TRUE
 			if(toggle_changes_appearance)
 				icon_state = initial(icon_state)
 				item_state = initial(icon_state)
@@ -97,9 +100,10 @@ BLIND     // can't see anything
 				sound_to(usr, activation_sound)
 			flash_protection = initial(flash_protection)
 			tint = initial(tint)
-			to_chat(usr, "You activate the optical matrix on the [src].")
+			to_chat(usr, SPAN_NOTICE("You activate the optical matrix on the [src]."))
 			if(activated_color)
-				set_light(2, 0.4, activated_color)
+				set_light_range_power_color(2, 0.4, activated_color)
+				set_light_on(active)
 	user.update_action_buttons()
 	user.update_inv_l_hand(0)
 	user.update_inv_r_hand(1)
@@ -120,7 +124,7 @@ BLIND     // can't see anything
 	origin_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
 	toggleable = 1
 	vision_flags = SEE_TURFS
-	see_invisible = SEE_INVISIBLE_NOLIGHTING
+	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
 	item_flags = ITEM_FLAG_AIRTIGHT
 	activated_color = LIGHT_COLOR_GREEN
 
@@ -225,7 +229,7 @@ BLIND     // can't see anything
 	origin_tech = list(TECH_MAGNET = 2)
 	darkness_view = 7
 	toggleable = 1
-	see_invisible = SEE_INVISIBLE_NOLIGHTING
+	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
 	off_state = "denight"
 
 /obj/item/clothing/glasses/night/Initialize()
@@ -1048,7 +1052,7 @@ BLIND     // can't see anything
 	origin_tech = list(TECH_MAGNET = 3)
 	toggleable = 1
 	vision_flags = SEE_MOBS
-	see_invisible = SEE_INVISIBLE_NOLIGHTING
+	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
 	flash_protection = FLASH_PROTECTION_REDUCED
 	item_flags = ITEM_FLAG_AIRTIGHT
 
@@ -1165,11 +1169,9 @@ BLIND     // can't see anything
 	if(active && slot == slot_glasses)
 		user.AddOverlays(mob_overlay, ATOM_ICON_CACHE_PROTECTED)
 		user.AddOverlays(mob_overlay_emis, TRUE)
-		user.z_flags |= ZMM_MANGLE_PLANES
 	else
 		user.CutOverlays(mob_overlay, ATOM_ICON_CACHE_PROTECTED)
 		user.AddOverlays(mob_overlay_emis, TRUE)
-		user.z_flags &= ZMM_MANGLE_PLANES
 	return ..()
 
 /obj/item/clothing/glasses/eyepatch/hud/Destroy()
@@ -1229,7 +1231,7 @@ BLIND     // can't see anything
 	name = "MESpatch"
 	desc = "An optical meson scanner display that connects directly to the optic nerve of the user, giving you cool green vision at the low cost of your only other eye."
 	vision_flags = SEE_TURFS
-	see_invisible = SEE_INVISIBLE_NOLIGHTING
+	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
 	eye_color = COLOR_LIME
 
 /obj/item/clothing/glasses/eyepatch/hud/meson/Initialize()
@@ -1255,7 +1257,7 @@ BLIND     // can't see anything
 	name = "HEATpatch"
 	desc = "A thermal-type heads-up display that connects directly to the optic nerve of the user. Double the tacticool, half the eyes."
 	vision_flags = SEE_MOBS
-	see_invisible = SEE_INVISIBLE_NOLIGHTING
+	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
 	eye_color = COLOR_ORANGE
 
 /obj/item/clothing/glasses/eyepatch/hud/thermal/Initialize()
@@ -1273,7 +1275,7 @@ BLIND     // can't see anything
 	name = "NITEpatch"
 	desc = "A light-amplifying display that connects directly to the optic nerve of the user. Helps you avoid a battery charge from bumping an officer in the dark."
 	darkness_view = 7
-	see_invisible = SEE_INVISIBLE_NOLIGHTING
+	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
 	eye_color = COLOR_GREEN
 
 /obj/item/clothing/glasses/eyepatch/hud/night/Initialize()

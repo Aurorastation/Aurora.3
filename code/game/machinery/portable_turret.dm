@@ -201,6 +201,7 @@
 	spark_system = null
 	if(fast_processing)
 		STOP_PROCESSING(SSfast_process, src)
+	QDEL_NULL(installation)
 
 	clear_from_target_grid()
 

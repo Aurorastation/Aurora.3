@@ -450,6 +450,8 @@
 	var/snore_key = "snore"
 	/// Whether this species can choose to sleep indefinitely
 	var/indefinite_sleep = FALSE
+	/// The default lighting alpha of this species. Override to set innate NVGs.
+	var/default_lighting_alpha = LIGHTING_PLANE_ALPHA_VISIBLE
 
 /datum/species/proc/get_eyes(var/mob/living/carbon/human/H)
 	return
@@ -736,7 +738,8 @@
 
 	var/obj/item/organ/internal/eyes/night/NE = H.get_eyes()
 	if(istype(NE) && NE.night_vision && NE.can_change_invisible())
-		H.set_see_invisible(SEE_INVISIBLE_NOLIGHTING)
+		H.lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
+		H.update_sight()
 
 	return 1
 
