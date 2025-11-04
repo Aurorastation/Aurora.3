@@ -17,3 +17,4 @@ changes:
   - bugfix: "More tightly restricted access on server hall maints door (also names it correctly.)"
   - bugfix: "Gives machine shop a bit better window coverage."
   - bugfix: "Changes location of a door in D3 Civilian Substation."
+  - bugfix: "Replaces missing recharger in Sec."
