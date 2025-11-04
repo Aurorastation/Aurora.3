@@ -119,7 +119,7 @@
 	name = "Port Stairwell"
 	horizon_deck = 3
 
-// Bridge Stairwell (Captain/Kitchen/Hydro)
+// Bridge Stairwell (Captain/Galley/Hydro)
 /area/horizon/stairwell/bridge
 	name = "Horizon - Bridge Stairwell (PARENT AREA - DON'T USE)"
 	icon_state = "bridge_stairs"
@@ -242,19 +242,19 @@
 
 // Rad shielded because common afk area.
 /area/horizon/crew/washroom
-	name = "Horizon - Washroom (PARENT AREA - DON'T USE)"
+	name = "Horizon - Head (PARENT AREA - DON'T USE)"
 	icon_state = "washroom"
 	area_flags = AREA_FLAG_RAD_SHIELDED
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/horizon/crew/washroom/deck_2
-	name = "Washroom"
+	name = "Head"
 	icon_state = "washroom"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 	horizon_deck = 2
 
 /area/horizon/crew/washroom/deck_3
-	name = "Washroom"
+	name = "Head"
 	icon_state = "washroom"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 	horizon_deck = 3
