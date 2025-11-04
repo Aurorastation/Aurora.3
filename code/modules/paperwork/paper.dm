@@ -69,7 +69,7 @@
 		return
 	if(name != initial(name))
 		. += "It's titled '[name]'."
-	if(distance <= 1)
+	if(distance <= 1 || in_slide_projector(user))
 		show_content(user)
 	else
 		. += SPAN_NOTICE("You have to go closer if you want to read it.")
