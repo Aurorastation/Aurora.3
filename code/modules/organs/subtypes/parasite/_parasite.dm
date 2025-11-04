@@ -30,6 +30,7 @@
 
 /obj/item/organ/internal/parasite/Initialize()
 	. = ..()
+	to_chat(world, "[src] /obj/item/organ/internal/parasite/process()")
 	get_infect_speed()
 
 /obj/item/organ/internal/parasite/proc/get_infect_speed() //Slightly randomizes how fast each infection progresses.
@@ -37,6 +38,7 @@
 
 /obj/item/organ/internal/parasite/process()
 	..()
+	to_chat(world, "[src] /obj/item/organ/internal/parasite/process()")
 	if(!owner)
 		return
 
@@ -75,6 +77,7 @@
 	return
 
 /mob/living/carbon/human/proc/infest_with_parasite(var/mob/living/carbon/victim, var/parasite_type, var/obj/item/organ/external/organ_to_infest, var/chance_to_infest = 100, var/parasite_limit = 3)
+	to_chat(world, "/mob/living/carbon/human/proc/infest_with_parasite([victim], [parasite_type], [organ_to_infest], [chance_to_infest])")
 	if(ishuman(victim))
 		var/mob/living/carbon/human/H = victim
 		if(BP_IS_ROBOTIC(organ_to_infest))

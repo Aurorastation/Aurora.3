@@ -1140,13 +1140,18 @@ Note that amputating the affected organ does in fact remove the infection from t
 			for(var/obj/item/organ/I in internal_organs)
 				I.removed()
 				if(istype(loc,/turf))
-					INVOKE_ASYNC(I, TYPE_PROC_REF(/atom/movable, throw_at), get_edge_target_turf(src, pick(GLOB.alldirs)), rand(1,3), 4)
+					if(istype(I, /obj/item/organ/internal/parasite))
+						qdel(I)
+					else
+						INVOKE_ASYNC(I, TYPE_PROC_REF(/atom/movable, throw_at), get_edge_target_turf(src, pick(GLOB.alldirs)), rand(1,3), 4)
 
 			var/turf/Tloc = get_turf(src)
 			for(var/obj/item/I in src)
 				if(I.w_class <= 2)
 					qdel(I)
 					continue
+				if(istype(I, /obj/item/organ/internal/parasite))
+					qdel(I)
 				I.forceMove(Tloc)
 				INVOKE_ASYNC(I, TYPE_PROC_REF(/atom/movable, throw_at), get_edge_target_turf(src, pick(GLOB.alldirs)), rand(1,3), 4)
 
