@@ -31,7 +31,7 @@
 	minbodytemp = 0
 
 	flying = TRUE
-	see_invisible = SEE_INVISIBLE_NOLIGHTING
+	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
 	sample_data = list("Cellular biochemistry include bioluminescent reactions", "Tissue sample contains micro-gas release structures")
 
 /mob/living/simple_animal/cosmozoan/Initialize()

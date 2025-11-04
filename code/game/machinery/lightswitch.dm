@@ -12,8 +12,6 @@
 	var/area/area = null
 	var/otherarea = null
 	power_channel = AREA_USAGE_LIGHT
-	z_flags = ZMM_MANGLE_PLANES
-	//	luminosity = 1
 
 /obj/machinery/light_switch/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -39,7 +37,7 @@
 	ClearOverlays()
 	if(!(stat & NOPOWER))
 		var/switch_overlay = image(icon, "light[on]-overlay")
-		var/emissive_overlay = emissive_appearance(icon, "light[on]-overlay")
+		emissive_overlay = emissive_appearance(icon, "light[on]-overlay")
 		AddOverlays(switch_overlay)
 		AddOverlays(emissive_overlay)
 		if (!light_range || light_color != on ? "#82ff4c" : "#f86060")

@@ -11,7 +11,6 @@
 	opacity = 1
 	//Just 300 Watts here. Power is drawn by the piston when it moves
 	idle_power_usage = 300
-	z_flags = ZMM_MANGLE_PLANES
 
 	var/obj/machinery/crusher_piston/pstn //Piston
 
@@ -158,7 +157,6 @@
 		icon_state = asmtype
 
 	var/image_overlay
-	var/emissive_overlay
 	if(powered(AREA_USAGE_EQUIP))
 		if(blocked == 1)
 			image_overlay = image(icon, "[asmtype]-overlay-red")

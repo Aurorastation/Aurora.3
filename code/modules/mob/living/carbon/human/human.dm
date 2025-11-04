@@ -1553,6 +1553,8 @@
 	nutrition_loss = HUNGER_FACTOR * species.nutrition_loss_factor
 	hydration_loss = THIRST_FACTOR * species.hydration_loss_factor
 
+	default_lighting_alpha = species.default_lighting_alpha
+
 	speech_bubble_type = species.possible_speech_bubble_types[1]
 	if(typing_indicator)
 		adjust_typing_indicator_offsets(typing_indicator)
