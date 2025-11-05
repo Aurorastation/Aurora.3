@@ -40,6 +40,8 @@
 	var/emp_damage_maximum = 3
 	/// The amount of seconds the brain should be scrambled for, while this is above 0, it'll add a flat 2 evaluate_damage()'s damage points
 	var/brain_scrambling = 0
+	/// Whether or not the positronic's self-preservation is toggled. Basically knocks the IPC out.
+	var/self_preservation_activated = FALSE
 	/// The looping sound played when an IPC is sizzling from burn damage.
 	var/datum/looping_sound/ipc_sizzling/sizzle
 
@@ -51,6 +53,7 @@
 		set_max_damage(species.total_health)
 	else
 		set_max_damage(200)
+	RegisterSignal(owner, COMSIG_SYNTH_SELF_PRESERVATION_TOGGLED, PROC_REF(toggle_self_preservation))
 	sizzle = new(owner)
 
 /obj/item/organ/internal/machine/posibrain/Destroy()
@@ -376,7 +379,7 @@
 		"Critical error: rebooting subroutine...",
 		"Several neural pathways cease functioning. You'll need time to sort that out later.",
 		"Your software warns you of dangerously low neural coherence.",
-		"Your self preservation subroutines threaten to kick in. [SPAN_DANGER("WARNING. WARNING.")]"
+		"Your self-preservation subroutines threaten to kick in. [SPAN_DANGER("WARNING. WARNING.")]"
 	)
 	if(prob(damage_probability))
 		to_chat(owner, SPAN_MACHINE_WARNING(pick(medium_integrity_damage_messages)))
@@ -430,7 +433,7 @@
 	to_chat(owner, SPAN_MACHINE_VISION(FONT_LARGE(pick(GLOB.low_integrity_messages))))
 
 /obj/item/organ/internal/machine/posibrain/proc/rampant_self_preservation()
-	to_chat(owner, SPAN_MACHINE_WARNING(FONT_LARGE("Your self preservation erroneously kicks in! [SPAN_DANGER("RETURN TO SAFETY.")] <a href='byond://?src=[REF(src)];resist_self_preservation=1'>Resist it!</a>")))
+	to_chat(owner, SPAN_MACHINE_WARNING(FONT_LARGE("Your self-preservation erroneously kicks in! [SPAN_DANGER("RETURN TO SAFETY.")] <a href='byond://?src=[REF(src)];resist_self_preservation=1'>Resist it!</a>")))
 	owner.balloon_alert(owner, "self-preservation activated")
 	owner.confused = 100
 
@@ -454,6 +457,17 @@
 	cooling_unit.locked_thermostat = FALSE
 	cooling_unit.take_internal_damage(20)
 
+/obj/item/organ/internal/machine/posibrain/proc/toggle_self_preservation()
+	SIGNAL_HANDLER
+	if(self_preservation_activated)
+		owner.visible_message(SPAN_WARNING("A crackle of electricity is heard as [owner]'s limbs twitch almost imperceptibly."), SPAN_MACHINE_WARNING("Your control is restored to you as your self-preservation protocols ease up."))
+		playsound(owner, 'sound/species/synthetic/synthetic_restart.ogg', 100)
+		self_preservation_activated = FALSE
+	else
+		owner.visible_message(SPAN_DANGER("[owner]'s limbs seize up as the light from [owner.get_pronoun("his")] eyes fades."), SPAN_MACHINE_DANGER("You lose control over your limbs as your self-preservation protocols take over!"))
+		playsound(owner, 'sound/species/synthetic/synthetic_stun.ogg', 100)
+		self_preservation_activated = TRUE
+
 /obj/item/organ/internal/machine/posibrain/Topic(href, href_list)
 	. = ..()
 	if(href_list["resist_self_preservation"])
@@ -461,7 +475,7 @@
 			return
 
 		if(owner.confused)
-			to_chat(owner, SPAN_DANGER(FONT_LARGE("You reform your neural patterns to brute-force your self preservation!")))
+			to_chat(owner, SPAN_DANGER(FONT_LARGE("You reform your neural patterns to brute-force your self-preservation!")))
 			owner.confused = max(owner.confused - 100, 0)
 
 /obj/item/organ/internal/machine/posibrain/circuit

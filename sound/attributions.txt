@@ -37,8 +37,8 @@ ATTRIBUTION SECTION START
 sound/weapons/reloads/pistol_metal_slide 7-9.ogg - Gary Guns Mixed.wav by GaryQ | License: Creative Commons 0. Obtained from www.freesound.org (not available anymore)
 sound/weapons/reloads/pistol_metal_slide 10.ogg - PistolReloadSound.wav by MaximBomba | License: Creative Commons 0. Obtained from https://freesound.org/people/MaximBomba/sounds/432139/
 sound/weapons/reloads/pistol_metal_slide 11.ogg - Browning Hi-Power handgun being reloaded while empty. Full sequence by serøtōnin | License: Creative Commons 0. Obtained from https://freesound.org/people/ser%C3%B8t%C5%8Dnin/sounds/674569/
-sound/weapons/reloads/pistol_polymer_slide 4.ogg - M9 Reload.wav by oneshotofficial | License: Creative Commons 0. Obtained from https://freesound.org/people/oneshotofficial/sounds/616758/ 
-sound/weapons/reloads/pistol_polymer_slide 5.ogg - Gary Guns Mixed.wav by GaryQ | License: Creative Commons 0. Obtained from www.freesound.org (not available anymore) 
+sound/weapons/reloads/pistol_polymer_slide 4.ogg - M9 Reload.wav by oneshotofficial | License: Creative Commons 0. Obtained from https://freesound.org/people/oneshotofficial/sounds/616758/
+sound/weapons/reloads/pistol_polymer_slide 5.ogg - Gary Guns Mixed.wav by GaryQ | License: Creative Commons 0. Obtained from www.freesound.org (not available anymore)
 sound/weapons/reloads/shotgun_pump 7-8.ogg - pump shotgun.WAV by shaana | License: Attribution NonCommercial 4.0. Obtained from https://freesound.org/people/shaana/sounds/222131/
 sound/weapons/reloads/rifle_slide 3.ogg - Uzi submachine gun being reloaded while empty. Full sequence by serøtōnin | License: Creative Commons 0. Obtained from https://freesound.org/people/ser%C3%B8t%C5%8Dnin/sounds/677160/
 sound/weapons/reloads/rifle_slide 10.ogg - AK-47 Assault Rifle being unloaded and reloaded by serøtōnin | License: Creative Commons 0. Obtained from https://freesound.org/people/ser%C3%B8t%C5%8Dnin/sounds/674742/
@@ -203,4 +203,6 @@ sound/species/synthetic/access_cable_out.ogg -- https://freesound.org/s/15545/ -
 sound/species/synthetic/synthetic_shock.ogg -- https://freesound.org/s/488665/ -- License: Creative Commons 0
 sound/species/synthetic/fragmentation.ogg -- https://freesound.org/s/390531/ -- License: Creative Commons 0
 sound/species/synthetic/sizzle_*.ogg -- https://freesound.org/s/35872/ -- License: Attribution NonCommercial 3.0
+sound/species/synthetic/synthetic_bootup.ogg -- https://freesound.org/s/320664/ -- License: Creative Commons 0 mixed with VHS Startup by Sassaby -- https://freesound.org/s/264934/ -- License: Creative Commons 0
+sound/species/synthetic/synthetic_restart.ogg -- https://freesound.org/s/176796/ -- License: Attribution 4.0, remixed with Audacity
 ATTRIBUTIONS SECTION END

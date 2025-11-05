@@ -48,3 +48,9 @@
 
 /// Sent when the burst damage is cleared by the posibrain.
 #define COMSIG_SYNTH_EMP_DAMAGE_CLEARED "emp_damage_cleared"
+
+/// Sent when the synthetic enters self-preservation mode for whatever reason.
+#define COMSIG_SYNTH_SELF_PRESERVATION_TOGGLED "synth_self_preservation_toggle"
+
+/// Sent when endoskeleton repair is done.
+#define COMSIG_SYNTH_ENDOSKELETON_REPAIR "synth_endoskeleton_repair"

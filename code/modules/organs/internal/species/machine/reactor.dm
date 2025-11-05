@@ -51,7 +51,7 @@
 	if(power_supply_type & POWER_SUPPLY_SOLAR)
 		var/turf/T = get_turf(src)
 		if(T)
-			var/power_generation = T.get_uv_lumcount(1, 2) * base_power_generation
+			var/power_generation = T.get_lumcount(1, 2) * base_power_generation
 			if(power_generation)
 				generate_power(power_generation)
 

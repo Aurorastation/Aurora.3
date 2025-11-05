@@ -723,3 +723,50 @@
 			bio_reactor.bio_reagents.trans_type_to(tool, reagent_type, reagent_amount)
 	playsound(target, 'sound/effects/drain_blood.ogg', 50)
 	user.visible_message(SPAN_NOTICE("[user] extracts the refuse in [target]'s biological reactor."), SPAN_NOTICE("You drain the refuse in [target]'s biological reactor to [tool]."))
+
+/singleton/surgery_step/robotics/repair_endoskeleton
+	name = "Repair Endoskeleton"
+	allowed_tools = list(
+		/obj/item/weldingtool = 100,
+		/obj/item/gun/energy/plasmacutter = 50
+	)
+
+	min_duration = 15
+	max_duration = 25
+
+/singleton/surgery_step/robotics/repair_endoskeleton/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
+
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	if(tool.iswelder())
+		var/obj/item/weldingtool/welder = tool
+		if(!welder.isOn() || welder.get_fuel() < 5)
+			return FALSE
+	var/datum/component/synthetic_endoskeleton/endoskeleton = target.GetComponent(/datum/component/synthetic_endoskeleton)
+	if(!istype(endoskeleton))
+		return FALSE
+
+	return affected && affected.open == ORGAN_ENCASED_RETRACTED && target_zone != BP_MOUTH && endoskeleton.damage > 0
+
+/singleton/surgery_step/robotics/repair_endoskeleton/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	user.visible_message("<b>[user]</b> begins to repair the support structures of [target]'s endoskeleton with \the [tool]." , \
+		SPAN_NOTICE("You begin to repair the support structures of [target]'s endoskeleton  with \the [tool]."))
+	..()
+
+/singleton/surgery_step/robotics/repair_endoskeleton/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(tool.iswelder())
+		var/obj/item/weldingtool/welder = tool
+		if(!welder.isOn() && !welder.use(2, user))
+			user.visible_message(SPAN_WARNING("[user]'s [tool] shut off before the procedure was finished."), \
+			SPAN_WARNING("Your [tool] is shut off!"))
+			return
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	user.visible_message("<b>[user]</b> finishes repairing damage to [target]'s endoskeleton with \the [tool].", \
+		SPAN_NOTICE("You finish repairing damage to [target]'s endoskeleton with \the [tool]."))
+	SEND_SIGNAL(target, COMSIG_SYNTH_ENDOSKELETON_REPAIR, rand(30, 50))
+
+/singleton/surgery_step/robotics/repair_endoskeleton/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	user.visible_message(SPAN_WARNING("[user]'s [tool.name] slips, damaging some of the support structure of [target]'s endoskeleton!"),
+		SPAN_WARNING("Your [tool.name] slips, damaging some of the support structure of [target]'s [affected.name]!"))
+	target.apply_damage(rand(5,10), DAMAGE_BURN, affected)

@@ -199,6 +199,9 @@
 		var/obj/item/organ/internal/machine/power_core/C = internal_organs_by_name[BP_CELL]
 		if(istype(C) && C.is_usable() && C.percent())
 			return FALSE
+		var/obj/item/organ/internal/machine/posibrain/posi = internal_organs_by_name[BP_BRAIN]
+		if(istype(posi) && !posi.self_preservation_activated)
+			return FALSE
 		return TRUE
 	else if(should_have_organ(BP_HEART))
 		var/obj/item/organ/internal/heart/heart = internal_organs_by_name[BP_HEART]
