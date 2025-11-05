@@ -2,7 +2,7 @@
 	name = "computer"
 	icon = 'icons/obj/machinery/modular_console.dmi'
 	icon_state = "computer"
-	layer = ABOVE_HUMAN_LAYER
+	layer = ABOVE_STRUCTURE_LAYER
 	density = 1
 	anchored = 1.0
 	idle_power_usage = 300
@@ -78,8 +78,8 @@
 
 /obj/machinery/computer/update_icon()
 
-	if(dir != SOUTH)
-		layer = BELOW_WINDOW_LAYER
+	if(dir == SOUTH)
+		layer = ABOVE_HUMAN_LAYER
 	ClearOverlays()
 	if(stat & NOPOWER)
 		set_light(0)

@@ -47,18 +47,18 @@
 
 /obj/machinery/biogenerator/mechanics_hints(mob/user, distance, is_adjacent)
 	. = ..()
-	. += "Food can be placed inside this machine by either left clicking it with food items directly, or by left clicking on it with a plant bag."
-	. += "Any nutriments inside food are converted into biomass, which can be used by this machine to create a variety of useful items."
-	. += "Non-nutriment reagents will clog up the machine, making it take longer to process foods."
+	. += "- Food can be placed inside this machine by either left clicking it with food items directly, or by left clicking on it with a plant bag."
+	. += "- Any <b>nutriments</b> inside food are converted into biomass, which can be used by this machine to create a variety of useful items."
+	. += "- <b>Non-nutriment</b> reagents will clog up the machine, making it take longer to process foods."
 
 /obj/machinery/biogenerator/upgrade_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	. += "Upgraded <b>manipulators</b> will decrease the cost of bio-goods."
-	. += "The current cost decrease is [round((1 - (1/build_eff)) * 100)]%."
-	. += "Upgraded <b>matter bins</b> will increase the biomass generated from nutriments."
-	. += "The current amount of biomass produced is [biomass_per_nutriment * eat_eff] per unit of nutriment."
-	. += "Upgraded <b>capacitors</b> will increase the rate at which nutriments are processed."
-	. += "The current processing speed increase is [round((1 - (1/processing_time_divisor)) * 100)]%."
+	. += "- Upgraded <b>manipulators</b> will decrease the cost of bio-goods."
+	. += SPAN_NOTICE("	- The current cost decrease is <b>[round((1 - (1/build_eff)) * 100)]%</b>.")
+	. += "- Upgraded <b>matter bins</b> will increase the biomass generated from nutriments."
+	. += SPAN_NOTICE("	- The current amount of biomass produced is <b>[biomass_per_nutriment * eat_eff]</b> per unit of nutriment.")
+	. += "- Upgraded <b>capacitors</b> will increase the rate at which nutriments are processed."
+	. += SPAN_NOTICE("	- The current processing speed increase is <b>[round((1 - (1/processing_time_divisor)) * 100)]%</b>.")
 
 #define BIOGEN_FOOD "Food"
 #define BIOGEN_ITEMS "Items"

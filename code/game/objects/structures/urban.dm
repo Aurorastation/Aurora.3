@@ -416,6 +416,10 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 	density = TRUE
 	layer = ABOVE_HUMAN_LAYER
 
+/obj/structure/shipping_container_old/Initialize()
+	. = ..()
+	AddComponent(/datum/component/large_transparency)
+
 /obj/effect/overlay/container_logo
 	name = "Hephaestus Industries emblem"
 	icon = 'icons/obj/structure/industrial/shipping_containers_old.dmi'
@@ -821,7 +825,7 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 	name = "cash compartment"
 
 /obj/structure/cash_register/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
-	if(user == over && ishuman(over))
+	if(user == over && ishuman(over) && storage_compartment)
 		var/mob/living/carbon/human/H = over
 		storage_compartment.open(H)
 

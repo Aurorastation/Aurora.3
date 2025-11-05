@@ -290,8 +290,8 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 	melee_damage_lower = 5
 	melee_damage_upper = 10
 	armor_penetration = 5
-	poison_per_bite = 1
-	poison_type = /singleton/reagent/soporific // sweet, horrible dreams for its undoubting victims
+	venom_per_bite = 1
+	venom_type = /singleton/reagent/soporific // sweet, horrible dreams for its undoubting victims
 
 /mob/living/simple_animal/hostile/giant_spider/lesser_abomination/Initialize()
 	. = ..()

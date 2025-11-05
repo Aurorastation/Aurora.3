@@ -38,12 +38,22 @@ export const QuikPay = (props) => {
         <Section
           title="Ordering"
           buttons={
-            <Button
-              content={data.editmode ? 'Unlocked' : 'Locked'}
-              color={data.editmode ? 'bad' : ''}
-              icon={data.editmode ? 'lock-open' : 'lock'}
-              onClick={() => act('locking')}
-            />
+            <>
+              <Button
+                content={data.editmode ? 'Unlocked' : 'Locked'}
+                color={data.editmode ? 'bad' : ''}
+                icon={data.editmode ? 'lock-open' : 'lock'}
+                onClick={() => act('locking')}
+              />
+              {data.editmode ? (
+                <Button
+                  content="Select Account"
+                  icon="check"
+                  color={data.sum ? 'good' : ''}
+                  onClick={() => act('accountselect')}
+                />
+              ) : null}
+            </>
           }
         >
           {data.editmode ? <AddItems /> : ''}
@@ -66,8 +76,19 @@ export const ItemWindow = (props) => {
             <Button
               content="Buy"
               icon="calendar"
-              onClick={(value) => act('buy', { buying: item.name, amount: 1 })}
+              onClick={() => act('buy', { buying: item.name, amount: 1 })}
             />
+            {data.editmode ? (
+              <>
+                &nbsp;
+                <Button
+                  content="Delete"
+                  icon="trash"
+                  color="bad"
+                  onClick={() => act('remove', { removing: item.name })}
+                />
+              </>
+            ) : null}
           </LabeledList.Item>
         ))}
       </LabeledList>
@@ -115,7 +136,7 @@ export const AddItems = (props) => {
         maxValue={100}
         step={1}
         stepPixelSize={5}
-        onDrag={(e, value) => act('set_new_price', { set_new_price: value })}
+        onDrag={(value) => act('set_new_price', { set_new_price: value })}
       />
       <Button content="Add" onClick={() => act('add')} />
     </Section>
