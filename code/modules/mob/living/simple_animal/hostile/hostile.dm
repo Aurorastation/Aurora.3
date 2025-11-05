@@ -520,42 +520,6 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 				return UnarmedAttack(target, TRUE)
 	return ..()
 
-/mob/living/simple_animal/hostile/proc/check_horde()
-	if(GLOB.evacuation_controller.is_prepared())
-		if(!enroute && !last_found_target)	//The shuttle docked, all monsters rush for the escape hallway
-			if(!shuttletarget && GLOB.escape_list.len) //Make sure we didn't already assign it a target, and that there are targets to pick
-				shuttletarget = pick(GLOB.escape_list) //Pick a shuttle target
-			enroute = 1
-			stop_automated_movement = 1
-			if(!src.stat)
-				horde()
-
-		if(get_dist(src, shuttletarget) <= 2)		//The monster reached the escape hallway
-			enroute = 0
-			stop_automated_movement = 0
-
-/mob/living/simple_animal/hostile/proc/horde()
-	var/turf/T = get_step_to(src, shuttletarget)
-	for(var/atom/A in T)
-		if(istype(A,/obj/machinery/door/airlock))
-			var/obj/machinery/door/airlock/D = A
-			D.open(1)
-		else if(istype(A,/obj/structure/simple_door))
-			var/obj/structure/simple_door/D = A
-			if(D.density)
-				D.Open()
-		else if(istype(A,/obj/structure/cult/pylon))
-			A.attack_generic(src, rand(melee_damage_lower, melee_damage_upper))
-		else if(istype(A, /obj/structure/window) || istype(A, /obj/structure/closet) || istype(A, /obj/structure/table) || istype(A, /obj/structure/grille))
-			A.attack_generic(src, rand(melee_damage_lower, melee_damage_upper))
-	Move(T)
-	var/atom/target = FindTarget()
-	if(istype(target) && !QDELETED(target))
-		set_last_found_target(target)
-	if(!last_found_target || enroute)
-		if(!src.stat)
-			horde()
-
 //////////////////////////////
 ///////VALIDATOR PROCS////////
 //////////////////////////////

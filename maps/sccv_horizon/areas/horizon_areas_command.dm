@@ -85,7 +85,7 @@
 	icon_state = "bridge"
 
 /area/horizon/command/bridge/minibar
-	name = "Bridge Break Room"
+	name = "Bridge Wardoom"
 	icon_state = "bridge"
 
 /area/horizon/command/bridge/aibunker

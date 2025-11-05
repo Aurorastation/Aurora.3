@@ -59,6 +59,7 @@
 	origin_tech = list(TECH_COMBAT = 1)
 	attack_verb = list("struck", "hit", "bashed")
 	zoomdevicename = "scope"
+	light_system = DIRECTIONAL_LIGHT
 
 /*
  * Suppression vars
@@ -461,9 +462,11 @@
 
 			handle_post_fire() // should be safe to not include arguments here, as there are failsafes in effect (?)
 
+			var/prev_light = light_range
 			if (muzzle_flash)
-				set_light(muzzle_flash)
-				addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, set_light), 0), 2, TIMER_UNIQUE | TIMER_OVERRIDE)
+				set_light_range(muzzle_flash)
+				set_light_on(TRUE)
+				addtimer(CALLBACK(src, PROC_REF(reset_light_range), prev_light), 0.5 SECONDS)
 			update_icon()
 
 		if(i < burst)
@@ -476,6 +479,12 @@
 	next_fire_time = world.time + shoot_time
 
 	accuracy = initial(accuracy)	//Reset the gun's accuracy
+
+/// called by a timer to remove the light range from muzzle flash
+/obj/item/gun/proc/reset_light_range(lightrange)
+	set_light_range(lightrange)
+	if(lightrange <= 0)
+		set_light_on(FALSE)
 
 //obtains the next projectile to fire
 /obj/item/gun/proc/consume_next_projectile()
@@ -515,8 +524,11 @@
 				)
 
 		if(muzzle_flash)
-			set_light(muzzle_flash)
-			addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, set_light), 0), 2)
+			var/prev_light = light_range
+			if (muzzle_flash)
+				set_light_range(muzzle_flash)
+				set_light_on(TRUE)
+				addtimer(CALLBACK(src, PROC_REF(reset_light_range), prev_light), 0.5 SECONDS)
 
 	if(recoil)
 		shake_camera(user, recoil + 1, recoil)

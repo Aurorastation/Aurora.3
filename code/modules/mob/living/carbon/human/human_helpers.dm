@@ -79,7 +79,9 @@
 		equipment_prescription = equipment_prescription || G.prescription
 		if(G.overlay)
 			equipment_overlays |= G.overlay
-		if(G.see_invisible >= 0)
+		if(G.lighting_alpha != lighting_alpha)
+			lighting_alpha = G.lighting_alpha
+		if(G.see_invisible)
 			if(equipment_see_invis)
 				equipment_see_invis = min(equipment_see_invis, G.see_invisible)
 			else

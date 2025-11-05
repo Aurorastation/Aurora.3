@@ -250,8 +250,6 @@ SUBSYSTEM_DEF(zcopy)
 			TO.plane = t_target
 			TO.mouse_opacity = initial(TO.mouse_opacity)
 
-		T.queue_ao(T.ao_neighbors_mimic == null)	// If ao_neighbors hasn't been set yet, we need to do a rebuild
-
 		// Explicitly copy turf delegates so they show up properly on below levels.
 		//   I think it's possible to get this to work without discrete delegate copy objects, but I'd rather this just work.
 		if ((T.below.z_flags & (ZM_MIMIC_BELOW|ZM_MIMIC_OVERWRITE)) == ZM_MIMIC_BELOW)
@@ -273,11 +271,6 @@ SUBSYSTEM_DEF(zcopy)
 			var/atom/movable/object = thing
 			if (QDELETED(object) || (object.z_flags & ZMM_IGNORE) || object.loc != T.below || object.invisibility == INVISIBILITY_ABSTRACT)
 				// Don't queue deleted stuff, stuff that's not visible, blacklisted stuff, or stuff that's centered on another tile but intersects ours.
-				continue
-
-			// Special case: these are merged into the shadower to reduce memory usage.
-			if (object.type == /atom/movable/lighting_overlay)
-				//T.shadower.copy_lighting(object)
 				continue
 
 			if (!object.bound_overlay)	// Generate a new overlay if the atom doesn't already have one.
@@ -393,13 +386,6 @@ SUBSYSTEM_DEF(zcopy)
 		if (OO.bound_overlay)	// If we have a bound overlay, queue it too.
 			OO.update_above()
 
-		// If an atom has explicit plane sets on its overlays/underlays, we need to replace the appearance so they can be mangled to work with our planing.
-		if (OO.z_flags & ZMM_MANGLE_PLANES)
-			var/new_appearance = fixup_appearance_planes(OO.appearance)
-			if (new_appearance)
-				OO.appearance = new_appearance
-				OO.have_performed_fixup = TRUE
-
 		if (no_mc_tick)
 			CHECK_TICK
 		else if (MC_TICK_CHECK)
@@ -438,93 +424,6 @@ SUBSYSTEM_DEF(zcopy)
 		TO.mouse_opacity = initial(TO.mouse_opacity)
 		if (TO.plane == 0 && target_plane)
 			TO.plane = target_plane
-
-/// Generate a new appearance from `appearance` with planes mangled to work with Z-Mimic. Do not pass a depth.
-/datum/controller/subsystem/zcopy/proc/fixup_appearance_planes(appearance, depth = 0)
-
-	// Adding this to guard against a reported runtime - supposed to be impossible, so cause is unclear.
-	if(!appearance)
-		return null
-
-	if (fixup_known_good[appearance])
-		fixup_hit += 1
-		return null
-	if (fixup_cache[appearance])
-		fixup_hit += 1
-		return fixup_cache[appearance]
-
-	// If you have more than 4 layers of overlays within overlays, I dunno what to say.
-	if (depth > 4)
-		var/icon_name = "[appearance:icon]"
-		WARNING("Fixup of appearance with icon [icon_name || "<unknown file>"] exceeded maximum recursion limit, bailing")
-		return null
-
-	var/plane_needs_fix = FALSE
-
-	// Don't fixup the root object's plane.
-	if (depth > 0)
-		switch (appearance:plane)
-			if (GAME_PLANE, FLOAT_PLANE)
-				plane_needs_fix = FALSE //For lint
-			else
-				plane_needs_fix = TRUE
-
-	// Scan & fix overlays
-	var/list/fixed_overlays
-	if (appearance:overlays:len)
-		var/mutated = FALSE
-		var/fixed_appearance
-		for (var/i in 1 to appearance:overlays:len)
-			if ((fixed_appearance = .(appearance:overlays[i], depth + 1)))
-				mutated = TRUE
-				if (!fixed_overlays)
-					fixed_overlays = new( length(appearance:overlays))
-				fixed_overlays[i] = fixed_appearance
-
-		if (mutated)
-			for (var/i in 1 to length(fixed_overlays))
-				if (fixed_overlays[i] == null)
-					fixed_overlays[i] = appearance:overlays[i]
-
-	// Scan & fix underlays
-	var/list/fixed_underlays
-	if (appearance:underlays:len)
-		var/mutated = FALSE
-		var/fixed_appearance
-		for (var/i in 1 to appearance:underlays:len)
-			if ((fixed_appearance = .(appearance:underlays[i], depth + 1)))
-				mutated = TRUE
-				if (!fixed_underlays)
-					fixed_underlays = new( length(appearance:underlays))
-				fixed_underlays[i] = fixed_appearance
-
-		if (mutated)
-			for (var/i in 1 to  length(fixed_overlays))
-				if (fixed_underlays[i] == null)
-					fixed_underlays[i] = appearance:underlays[i]
-
-	// If we did nothing (no violations), don't bother creating a new appearance
-	if (!plane_needs_fix && !fixed_overlays && !fixed_underlays)
-		fixup_noop += 1
-		fixup_known_good[appearance] = TRUE
-		return null
-
-	fixup_miss += 1
-
-	var/mutable_appearance/MA = new(appearance)
-	if (plane_needs_fix)
-		MA.plane = depth == 0 ? GAME_PLANE : FLOAT_PLANE
-		MA.layer = FLY_LAYER	// probably fine
-
-	if (fixed_overlays)
-		MA.overlays = fixed_overlays
-
-	if (fixed_underlays)
-		MA.underlays = fixed_underlays
-
-	fixup_cache[appearance] = MA.appearance
-
-	return MA
 
 #define FMT_DEPTH(X) (X == null ? "(null)" : X)
 

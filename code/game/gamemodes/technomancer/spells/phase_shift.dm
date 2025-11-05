@@ -17,7 +17,8 @@
 
 /obj/item/spell/phase_shift/Initialize()
 	. = ..()
-	set_light(3, 2, l_color = "#FA58F4")
+	set_light_range_power_color(3, 2, "#FA58F4")
+	set_light_on(TRUE)
 
 /obj/effect/phase_shift
 	name = "rift"
@@ -30,7 +31,8 @@
 
 /obj/effect/phase_shift/Initialize(mapload, ...)
 	. = ..()
-	set_light(3, 5, l_color = "#FA58F4")
+	set_light_range_power_color(3, 5, "#FA58F4")
+	set_light_on(TRUE)
 	START_PROCESSING(SSprocessing, src)
 
 /obj/effect/phase_shift/Destroy()
