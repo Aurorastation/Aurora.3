@@ -63,7 +63,7 @@
 /obj/structure/sign/double/barsign/kitchensign
 	icon = 'icons/obj/kitchensigns.dmi'
 	icon_state = "off"
-	req_access = list(ACCESS_KITCHEN)
+	req_access = list(ACCESS_GALLEY)
 	choice_types = /singleton/sign/double/kitchen
 
 /obj/structure/sign/double/barsign/kitchensign/mirrored // Visible from the other end of the sign.
@@ -73,7 +73,7 @@
 	icon = 'icons/obj/marketsigns.dmi'
 	icon_state = "off"
 	req_access = null
-	req_one_access = list(ACCESS_CARGO, ACCESS_JANITOR, ACCESS_ROBOTICS, ACCESS_MINING, ACCESS_PARAMEDIC, ACCESS_HYDROPONICS, ACCESS_KITCHEN, ACCESS_LIBRARY)
+	req_one_access = list(ACCESS_CARGO, ACCESS_JANITOR, ACCESS_ROBOTICS, ACCESS_MINING, ACCESS_PARAMEDIC, ACCESS_HYDROPONICS, ACCESS_GALLEY, ACCESS_LIBRARY)
 	choice_types = /singleton/sign/double/market
 
 /obj/structure/sign/double/barsign/marketsign/set_sign()
@@ -87,13 +87,13 @@
 	var/name = "Holographic Projector"
 	var/icon_state = "off"
 	var/desc = "A holographic projector, displaying different saved themes. It is turned off right now."
-	var/desc_extended = "To change the displayed theme, use your bartender's or chef's or other applicable ID on it and select something from the menu. There are three different selections for the bar, kitchen and commissiary."
+	var/desc_extended = "To change the displayed theme, use your bartender's or chef's or other applicable ID on it and select something from the menu. There are three different selections for the bar, galley and commissiary."
 
 /singleton/sign/double/off // Here start the different bar signs. To add any new ones, just copy the format, make sure its in the .dmi and write away. -KingOfThePing
 	name = "Holgraphic Projector"
 	icon_state = "off"
 	desc = "A holographic projector, displaying different saved themes. It is turned off right now."
-	desc_extended = "To change the displayed theme, use your bartender's or chef's ID on it and select something from the menu. There are two different selections for the bar and the kitchen."
+	desc_extended = "To change the displayed theme, use your bartender's or chef's ID on it and select something from the menu. There are two different selections for the bar and the galley."
 
 /singleton/sign/double/bar/whiskey_implant
 	name = "Whiskey Implant"
@@ -192,8 +192,8 @@
 /singleton/sign/double/kitchen/event_horizon // Start of the kitchen signs. Don't mix it up.
 	name = "Event Horizon"
 	icon_state = "Event Horizon"
-	desc = "The SCCV Horizon's kitchen franchise sign."
-	desc_extended = "The SCCV Horizon's dining area was the testing ground for the SCC to experiment with food franchising. The goal was to provide better food perparing processes, food quality and, of course, to maybe capitalize on this. To remember where it all started, the name 'Event Horizon' was chosen."
+	desc = "The SCCV Horizon's galley franchise sign."
+	desc_extended = "The SCCV Horizon's mess area was the testing ground for the SCC to experiment with food franchising. The goal was to provide better food perparing processes, food quality and, of course, to maybe capitalize on this. To remember where it all started, the name 'Event Horizon' was chosen."
 /singleton/sign/double/kitchen/paradise_sands
 	name = "Paradise Sands"
 	icon_state = "Paradise Sands"

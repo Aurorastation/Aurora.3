@@ -791,3 +791,22 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	colorable_cloaks["royal cloak (hooded)"] = /obj/item/clothing/suit/storage/hooded/tajaran/colorable/royal
 	colorable_cloaks["amohda cloak"] = /obj/item/clothing/suit/storage/hooded/tajaran/colorable/amohda
 	gear_tweaks += new /datum/gear_tweak/path(colorable_cloaks)
+
+/datum/gear/taj_rations
+	display_name = "tajaran field ration selection"
+	description = "A selection of tajaran field ration boxes."
+	cost = 2
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	sort_category = "Xenowear - Tajara"
+	path = /obj/item/storage/field_ration
+
+/datum/gear/taj_rations/New()
+	..()
+	var/list/tajrations = list()
+	tajrations["pra worker's meal"] = /obj/item/storage/field_ration/army
+	tajrations["pra nt sponsored"] = /obj/item/storage/field_ration/nanotrasen
+	tajrations["nka imperial army"] = /obj/item/storage/field_ration/nka/army
+	tajrations["nka royal navy"] = /obj/item/storage/field_ration/nka/navy
+	tajrations["dpra"] = /obj/item/storage/field_ration/dpra
+	gear_tweaks += new /datum/gear_tweak/path(tajrations)
