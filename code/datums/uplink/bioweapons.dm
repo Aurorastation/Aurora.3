@@ -21,7 +21,7 @@
 	path = /obj/item/storage/box/syndie_kit/heartworms
 
 /datum/uplink_item/item/bioweapons/greimorians_kit
-	name = "Parasitic Eggs Kit - Heart Fluke"
+	name = "Parasitic Eggs Kit - Greimorian Clade"
 	desc = "Contains the eggs of a Greimorian clade. Semi-lethal and incapacitating. Compatible with most sapient bipedal species (including Earth monkeys)."
 	telecrystal_cost = 4
 	path = /obj/item/storage/box/syndie_kit/greimorians
