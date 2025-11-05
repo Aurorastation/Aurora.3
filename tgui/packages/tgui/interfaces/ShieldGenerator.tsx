@@ -81,29 +81,30 @@ export const ShieldGenerator = (props) => {
               <LabeledList.Item label="Coverage Radius">
                 <NumberInput
                   value={data.field_radius}
+                  step={1}
                   minValue={data.min_field_radius}
                   maxValue={data.max_field_radius}
-                  onDrag={(e, value) => act('size_set', { size_set: value })}
+                  onDrag={(value) => act('size_set', { size_set: value })}
                 />
               </LabeledList.Item>
               <LabeledList.Item label="Charge Rate">
                 <NumberInput
                   value={data.strengthen_rate}
+                  step={1}
                   minValue={1}
                   maxValue={data.max_strengthen_rate}
                   stepPixelSize={20}
-                  onDrag={(e, value) =>
-                    act('charge_set', { charge_set: value })
-                  }
+                  onDrag={(value) => act('charge_set', { charge_set: value })}
                 />
               </LabeledList.Item>
               <LabeledList.Item label="Maximum Field Strength">
                 <NumberInput
                   value={data.target_field_strength}
+                  step={1}
                   minValue={1}
                   maxValue={10}
                   stepPixelSize={10}
-                  onDrag={(e, value) => act('field_set', { field_set: value })}
+                  onDrag={(value) => act('field_set', { field_set: value })}
                 />
               </LabeledList.Item>
             </LabeledList>

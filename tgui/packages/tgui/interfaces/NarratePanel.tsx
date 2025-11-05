@@ -67,7 +67,7 @@ export const NarratePanel = (props) => {
                 unit="px"
                 step={1}
                 stepPixelSize={10}
-                onDrag={(e, value) => setNarrateSize(value)}
+                onChange={(value) => setNarrateSize(value)}
               />
             </LabeledList.Item>
             <LabeledList.Item label="Narrate Range">
@@ -78,7 +78,7 @@ export const NarratePanel = (props) => {
                 unit="tiles"
                 step={1}
                 stepPixelSize={3}
-                onDrag={(e, value) => setNarrateRange(value)}
+                onChange={(value) => setNarrateRange(value)}
               />
             </LabeledList.Item>
             <LabeledList.Item label="Style">

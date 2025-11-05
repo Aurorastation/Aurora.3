@@ -61,7 +61,7 @@ export const Proximity = (props) => {
                 maxValue={5}
                 step={1}
                 value={data.range}
-                onDrag={(e, value) => act('range', { range: value })}
+                onChange={(value) => act('range', { range: value })}
               />
             </LabeledList.Item>
           </LabeledList>

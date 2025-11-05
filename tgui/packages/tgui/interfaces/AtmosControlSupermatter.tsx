@@ -78,7 +78,7 @@ export const InputWindow = (props) => {
           maxValue={data.maxrate}
           unit="L/s"
           step={10}
-          onDrag={(e, value) =>
+          onChange={(value) =>
             act('in_set_flowrate', { in_set_flowrate: value })
           }
         />
@@ -107,7 +107,7 @@ export const OutputWindow = (props) => {
             maxValue={data.maxpressure}
             unit="kPa"
             step={100}
-            onDrag={(e, value) =>
+            onChange={(value) =>
               act('out_set_pressure', { out_set_pressure: value })
             }
           />
