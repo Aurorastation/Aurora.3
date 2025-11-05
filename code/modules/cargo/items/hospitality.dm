@@ -590,7 +590,7 @@
 	category = "hospitality"
 	name = "cream cheese container"
 	supplier = "getmore"
-	description = "A single container of cheese of the creamed variety."
+	description = "A single container of cheese, it seems to be of the creamed variety."
 	price = 4.50
 	items = list(
 		/obj/item/reagent_containers/food/condiment/cream_cheese
