@@ -67,7 +67,7 @@
 		var/datum/component/synthetic_endoskeleton/endoskeleton = ipc.GetComponent(/datum/component/synthetic_endoskeleton)
 		if(istype(endoskeleton))
 			data["endoskeleton_damage"] = endoskeleton.damage
-			data["endoskeleton_damage_maximum"] = endoskeleton.damage_maximum
+			data["endoskeleton_max_damage"] = endoskeleton.max_damage
 
 		var/datum/component/armor/synthetic/synth_armor = ipc.GetComponent(/datum/component/armor/synthetic)
 		if(istype(synth_armor))

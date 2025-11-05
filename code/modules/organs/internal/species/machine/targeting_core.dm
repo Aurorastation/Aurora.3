@@ -66,7 +66,7 @@
 		if(magazine)
 			do_reload(user, gun, magazine)
 		else
-			to_chat(owner, SPAN_DANGER("Your targeting core can't locate any applicable magazines!"))
+			to_chat(owner, SPAN_DANGER("Your hands come up empty!"))
 
 /**
 * Reloads the gun itself.
@@ -82,4 +82,5 @@
 	if(istype(storage))
 		for(var/obj/item/item in storage.contents)
 			if(item.type == magazine_type)
+				storage.remove_from_storage(item)
 				return item

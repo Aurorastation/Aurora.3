@@ -20,7 +20,7 @@ export type DiagnosticsData = {
   armor_data: ArmorDamage[];
 
   endoskeleton_damage: number;
-  endoskeleton_damage_maximum: number;
+  endoskeleton_max_damage: number;
 };
 
 type ArmorDamage = {
@@ -110,12 +110,12 @@ export const DiagnosticsWindow = (props, context) => {
             bold
             textColor={endoskeletonDamageLabel(
               data.endoskeleton_damage,
-              data.endoskeleton_damage_maximum
+              data.endoskeleton_max_damage
             )}>
             {capitalize(
               describeEndoskeletonIntegrity(
                 data.endoskeleton_damage,
-                data.endoskeleton_damage_maximum
+                data.endoskeleton_max_damage
               )
             )}
           </Box>

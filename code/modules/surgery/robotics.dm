@@ -761,12 +761,12 @@
 			user.visible_message(SPAN_WARNING("[user]'s [tool] shut off before the procedure was finished."), \
 			SPAN_WARNING("Your [tool] is shut off!"))
 			return
-	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<b>[user]</b> finishes repairing damage to [target]'s endoskeleton with \the [tool].", \
 		SPAN_NOTICE("You finish repairing damage to [target]'s endoskeleton with \the [tool]."))
 	SEND_SIGNAL(target, COMSIG_SYNTH_ENDOSKELETON_REPAIR, rand(30, 50))
 
 /singleton/surgery_step/robotics/repair_endoskeleton/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_WARNING("[user]'s [tool.name] slips, damaging some of the support structure of [target]'s endoskeleton!"),
-		SPAN_WARNING("Your [tool.name] slips, damaging some of the support structure of [target]'s [affected.name]!"))
+		SPAN_WARNING("Your [tool.name] slips, damaging some of the support structure of [target]'s endoskeleton!"))
 	target.apply_damage(rand(5,10), DAMAGE_BURN, affected)

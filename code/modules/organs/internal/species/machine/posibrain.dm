@@ -37,7 +37,7 @@
 	/// Stores the current status of EMP damage.
 	var/emp_damage_counter = 0
 	/// Maximum EMP damage points we can have.
-	var/emp_damage_maximum = 3
+	var/emp_max_damage = 3
 	/// The amount of seconds the brain should be scrambled for, while this is above 0, it'll add a flat 2 evaluate_damage()'s damage points
 	var/brain_scrambling = 0
 	/// Whether or not the positronic's self-preservation is toggled. Basically knocks the IPC out.
@@ -53,7 +53,7 @@
 		set_max_damage(species.total_health)
 	else
 		set_max_damage(200)
-	RegisterSignal(owner, COMSIG_SYNTH_SELF_PRESERVATION_TOGGLED, PROC_REF(toggle_self_preservation))
+	RegisterSignal(owner, COMSIG_SYNTH_SET_SELF_PRESERVATION, PROC_REF(set_self_preservation))
 	sizzle = new(owner)
 
 /obj/item/organ/internal/machine/posibrain/Destroy()
@@ -63,9 +63,7 @@
 
 /obj/item/organ/internal/machine/posibrain/rejuvenate()
 	. = ..()
-	var/datum/component/synthetic_endoskeleton/endoskeleton = owner.GetComponent(/datum/component/synthetic_endoskeleton)
-	if(endoskeleton)
-		endoskeleton.heal_damage(endoskeleton.damage_maximum)
+	SEND_SIGNAL(owner, COMSIG_SYNTH_ENDOSKELETON_FULL_REPAIR)
 	emp_damage_counter = 0
 	brain_scrambling = 0
 	remove_fragmentation(max_damage)
@@ -176,7 +174,7 @@
  * This proc adds to the EMP damage counter, and automatically starts a unique/override timer to clear it.
  */
 /obj/item/organ/internal/machine/posibrain/proc/add_emp_damage_counter()
-	emp_damage_counter = min(emp_damage_counter + 1, emp_damage_maximum)
+	emp_damage_counter = min(emp_damage_counter + 1, emp_max_damage)
 	handle_emp_damage()
 	addtimer(CALLBACK(src, PROC_REF(clear_emp_damage_counter)), emp_damage_counter * 20, TIMER_OVERRIDE | TIMER_UNIQUE)
 
@@ -350,14 +348,16 @@
 
 	var/datum/component/synthetic_endoskeleton/endoskeleton = owner.GetComponent(/datum/component/synthetic_endoskeleton)
 	if(endoskeleton && endoskeleton.damage)
-		var/damage_ratio = endoskeleton.damage_maximum / endoskeleton.damage
+		var/damage_ratio = endoskeleton.damage / endoskeleton.max_damage
 		switch(damage_ratio)
 			if(0.3 to 0.5)
 				damage_points++
 			if(0.5 to 0.75)
 				damage_points += 2
-			if(0.75 to INFINITY)
-				damage_points += 3
+			if(0.75 to 0.85)
+				damage_points += 4
+			if(0.85 to INFINITY)
+				damage_points += 5
 
 	if(damage_points)
 		damage_points = min(6, damage_points)
@@ -457,15 +457,21 @@
 	cooling_unit.locked_thermostat = FALSE
 	cooling_unit.take_internal_damage(20)
 
-/obj/item/organ/internal/machine/posibrain/proc/toggle_self_preservation()
+/obj/item/organ/internal/machine/posibrain/proc/set_self_preservation(atom/source, state)
 	SIGNAL_HANDLER
-	if(self_preservation_activated)
+	if(state == self_preservation_activated)
+		return
+
+	self_preservation_activated = state
+	if(!self_preservation_activated)
 		owner.visible_message(SPAN_WARNING("A crackle of electricity is heard as [owner]'s limbs twitch almost imperceptibly."), SPAN_MACHINE_WARNING("Your control is restored to you as your self-preservation protocols ease up."))
-		playsound(owner, 'sound/species/synthetic/synthetic_restart.ogg', 100)
+		if(!is_broken())
+			playsound(owner, 'sound/species/synthetic/synthetic_restart.ogg', 100)
 		self_preservation_activated = FALSE
 	else
-		owner.visible_message(SPAN_DANGER("[owner]'s limbs seize up as the light from [owner.get_pronoun("his")] eyes fades."), SPAN_MACHINE_DANGER("You lose control over your limbs as your self-preservation protocols take over!"))
-		playsound(owner, 'sound/species/synthetic/synthetic_stun.ogg', 100)
+		owner.visible_message(SPAN_DANGER("[owner]'s limbs seize up as the light from [owner.get_pronoun("his")] eyes fades."), FONT_LARGE(SPAN_MACHINE_DANGER("You lose control over your limbs as your self-preservation protocols take over!")))
+		if(!is_broken())
+			playsound(owner, 'sound/species/synthetic/synthetic_stun.ogg', 100)
 		self_preservation_activated = TRUE
 
 /obj/item/organ/internal/machine/posibrain/Topic(href, href_list)

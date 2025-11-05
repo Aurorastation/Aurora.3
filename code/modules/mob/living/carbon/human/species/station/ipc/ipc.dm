@@ -200,7 +200,7 @@
 	if(!endoskeleton)
 		return 6 //how?
 
-	var/damage_ratio = endoskeleton.damage_maximum / endoskeleton.damage
+	var/damage_ratio = endoskeleton.damage / endoskeleton.max_damage
 	switch(damage_ratio)
 		if(0.3 to 0.5)
 			stance_damage += 1
