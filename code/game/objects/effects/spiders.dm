@@ -84,6 +84,7 @@
 		return prob(30)
 	return TRUE
 
+/// The effect/spider/eggcluster is only for egg clusters spawned in-world, not implanted by a worker.
 /obj/effect/spider/eggcluster
 	name = "egg cluster"
 	desc = "They seem to pulse slightly with an inner life."
@@ -111,25 +112,16 @@
 /obj/effect/spider/eggcluster/process()
 	amount_grown += rand(0, 2)
 
-	var/obj/item/organ/external/O = null
-	if(isorgan(loc))
-		O = loc
-
 	if(amount_grown >= 100)
 		var/num = rand(6,24)
 
 		for(var/i = 0, i < num, i++)
-			var/spiderling = new /obj/effect/spider/spiderling(src.loc, src, 0.75)
-			if(O)
-				O.implants += spiderling
+			new /obj/effect/spider/spiderling(src.loc, src, 0.75)
 		qdel(src)
 
 /obj/effect/spider/eggcluster/proc/take_damage(var/damage)
 	health -= damage
 	if(health <= 0)
-		var/obj/item/organ/external/O = loc
-		if(istype(O) && O.owner)
-			to_chat(O.owner, SPAN_WARNING("You feel something dissolve in your [O.name]..."))
 		qdel(src)
 
 /obj/effect/spider/spiderling
@@ -160,15 +152,6 @@
 		/mob/living/simple_animal/hostile/giant_spider/hunter,
 		/mob/living/simple_animal/hostile/giant_spider/bombardier
 		)
-
-// Variant for the type spawned by infestation events.
-/obj/effect/spider/spiderling/infestation_event
-
-// Variant for the type spawned by egg clusters.
-/obj/effect/spider/spiderling/parasitic
-
-	can_mature_chance = 75
-	growth_rate = 15
 
 /obj/effect/spider/spiderling/Initialize(var/mapload, var/atom/parent, var/new_growth_rate = 1, var/list/new_possible_offspring = possible_offspring)
 	. = ..(mapload)

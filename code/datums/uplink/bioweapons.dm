@@ -20,8 +20,14 @@
 	telecrystal_cost = 5
 	path = /obj/item/storage/box/syndie_kit/heartworms
 
-/datum/uplink_item/item/bioweapons/greimorian_eggs
-	name = "Greimorian Eggs"
+/datum/uplink_item/item/bioweapons/greimorians_kit
+	name = "Parasitic Eggs Kit - Heart Fluke"
+	desc = "Contains the eggs of a Greimorian clade. Semi-lethal and incapacitating. Compatible with most sapient bipedal species (including Earth monkeys)."
+	telecrystal_cost = 4
+	path = /obj/item/storage/box/syndie_kit/greimorians
+
+/datum/uplink_item/item/bioweapons/greimorian_eggcluster
+	name = "Greimorian Egg Cluster"
 	desc = "A cluster of greimorian eggs. (They will be planted at your feet on-purchase and CANNOT be moved, so make sure you're where you want them to be)"
 	telecrystal_cost = 4
 	path = /obj/effect/spider/eggcluster

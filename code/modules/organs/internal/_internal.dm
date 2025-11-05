@@ -37,6 +37,7 @@
 		if(istype(E)) E.internal_organs -= src
 	return ..()
 
+/// Sets the internal organ as belonging to the targeted external organ, and matches the target's species/robotness. Also updates all organ lists belonging to the owner.
 /obj/item/organ/internal/replaced(var/mob/living/carbon/human/target, var/obj/item/organ/external/affected)
 	if(!istype(target))
 		return 0

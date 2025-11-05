@@ -1049,15 +1049,13 @@
 
 		victim.add_chemical_effect(CE_PULSE, -2)
 		var/dose = victim.chem_doses[type]
-		if(dose < 2)
+		if(dose > 2)
 			if(ishuman(victim) && (dose == metabolism * 2 || prob(3)))
 				victim.emote("yawn")
-		else if(dose < 12)
+		if(dose > 20)
 			victim.eye_blurry = max(victim.eye_blurry, 10)
+		if(dose > 40)
 			victim.Weaken(1)
-		else if(dose >= 24)
-			if(prob(50))
-				victim.Weaken(4)
 			victim.drowsiness = max(victim.drowsiness, 20)
 
 		if(victim.chem_effects[CE_ANTIPARASITE])
@@ -1066,7 +1064,7 @@
 		if(!victim.internal_organs_by_name[BP_GREIMORIAN_EGGCLUSTER])
 			var/obj/item/organ/external/affected = pick(victim.organs)
 			var/obj/item/organ/internal/parasite/greimorian_eggcluster/infest = new()
-			infest.parent_organ = affected
+			infest.parent_organ = affected.limb_name
 			infest.replaced(victim, affected)
 
 /singleton/reagent/toxin/malignant_tumour_cells
