@@ -63,7 +63,6 @@
 	density = 1
 	clicksound = /singleton/sound_category/button_sound
 	manufacturer = "idris"
-	z_flags = ZMM_MANGLE_PLANES
 
 	// Every vending machine has one of these.
 	/// `icon_state` when off. Defined on init.

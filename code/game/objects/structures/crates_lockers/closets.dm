@@ -168,8 +168,10 @@
 
 /obj/structure/closet/proc/can_open()
 	if(welded || locked)
-		return 0
-	return 1
+		return FALSE
+	if(istype(loc, /obj/structure/crate_shelf))
+		return FALSE
+	return TRUE
 
 /obj/structure/closet/proc/can_close()
 	for(var/obj/structure/closet/closet in get_turf(src))
@@ -743,6 +745,10 @@
 		return 0
 
 /obj/structure/closet/proc/mob_breakout(var/mob/living/escapee)
+	if(istype(loc, /obj/structure/crate_shelf))
+		var/obj/structure/crate_shelf/shelf = loc
+		shelf.relay_container_resist_act(escapee, src)
+		return
 
 	//Improved by nanako
 	//Now it actually works, also locker breakout time stacks with locking and welding

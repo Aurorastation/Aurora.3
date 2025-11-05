@@ -68,6 +68,6 @@
 #define SUBLOC_CHAPEL		"Chapel"
 #define SUBLOC_CUSTODIAL	"Custodial"
 #define SUBLOC_HYDRO		"Hydroponics"
-#define SUBLOC_KITCHEN		"Kitchen"
+#define SUBLOC_GALLEY		"Galley"
 #define SUBLOC_LIBRARY		"Library"
 

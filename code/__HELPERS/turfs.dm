@@ -160,6 +160,7 @@
 				source.change_area(source.loc, base_area)
 			else
 				. += transport_turf_contents(source, target, ignore_background)
+
 	//change the old turfs
 	for(var/turf/source in translation)
 		if(ignore_background && (source.turf_flags & TURF_FLAG_BACKGROUND))

@@ -12,8 +12,6 @@
 	var/area/area = null
 	var/otherarea = null
 	power_channel = AREA_USAGE_LIGHT
-	z_flags = ZMM_MANGLE_PLANES
-	//	luminosity = 1
 
 /obj/machinery/light_switch/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -39,7 +37,7 @@
 	ClearOverlays()
 	if(!(stat & NOPOWER))
 		var/switch_overlay = image(icon, "light[on]-overlay")
-		var/emissive_overlay = emissive_appearance(icon, "light[on]-overlay")
+		emissive_overlay = emissive_appearance(icon, "light[on]-overlay")
 		AddOverlays(switch_overlay)
 		AddOverlays(emissive_overlay)
 		if (!light_range || light_color != on ? "#82ff4c" : "#f86060")
@@ -87,7 +85,7 @@
 
 /obj/machinery/light_switch/idris
 	name = "idris smart switch"
-	desc = "A smart lightswitch designed by Idris Incorporated for entertainment venues, this one has additional controls for adjusting the color and brightness of the room's lighting."
+	desc = "A smart lightswitch designed by Idris Incorporated for entertainment venues, this one has additional controls for adjusting the color and brightness of the compartment's lighting."
 	var/current_light_color = LIGHT_COLOR_HALOGEN
 	var/current_brightness = 1.0
 	var/static/list/color_options = list(
