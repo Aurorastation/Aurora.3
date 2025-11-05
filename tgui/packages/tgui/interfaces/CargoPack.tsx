@@ -1,6 +1,6 @@
 import { Section, Table } from 'tgui-core/components';
-import { useBackend } from '../../backend';
-import { Window } from '../../layouts';
+import { useBackend } from '../backend';
+import { Window } from '../layouts';
 
 export type CargoPackData = {
   cargo_pack_details: PackageData[];

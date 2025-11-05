@@ -6,8 +6,8 @@ import {
   Tabs,
 } from 'tgui-core/components';
 import type { BooleanLike } from 'tgui-core/react';
-import { useBackend } from '../../backend';
-import { NtosWindow } from '../../layouts';
+import { useBackend } from '../backend';
+import { NtosWindow } from '../layouts';
 
 export type CargoData = {
   have_id_slot: BooleanLike;

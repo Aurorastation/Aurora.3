@@ -198,9 +198,8 @@ export const ListActive = (props) => {
     false,
   );
   const [editingBloodType, setEditingBloodType] = useLocalState<boolean>(
-    context,
     'editingBloodType',
-    false
+    false,
   );
   const [editingFingerprint, setEditingFingerprint] = useLocalState<boolean>(
     'editingFingerprint',

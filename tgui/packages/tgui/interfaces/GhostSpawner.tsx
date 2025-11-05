@@ -107,21 +107,6 @@ export const GhostSpawner = (props) => {
 
   const loc_to_color: Map<string, string> = new Map();
 
-  if (spawners) {
-    paginate(
-      Array.from(
-        new Set(
-          spawners
-            .filter((s) => s.spawn_overmap_location)
-            .map((s) => s.spawn_overmap_location),
-        ),
-      ),
-      colors.length,
-    ).map((p) =>
-      p.map((l, i) => loc_to_color[l] === colors[i % colors.length]),
-    );
-  }
-
   return (
     <Window width={1000} height={700}>
       <Window.Content scrollable>

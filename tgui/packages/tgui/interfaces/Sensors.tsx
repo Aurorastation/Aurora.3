@@ -134,12 +134,11 @@ const SensorSection = (act, data: SensorsData) => {
               Desired Range: {data.desired_range} / {range_choice_max}
             </Slider>
             <ProgressBar
-              animated
               backgroundColor={Color.lerp(
                 new Color(62, 97, 137, 0),
                 new Color(189, 32, 32),
                 data.range / range_choice_max,
-              )}
+              ).toString()}
               minValue={1}
               maxValue={range_choice_max}
               value={data.range}
@@ -169,12 +168,11 @@ const SensorSection = (act, data: SensorsData) => {
           <Table.Cell>Integrity:</Table.Cell>
           <Table.Cell>
             <ProgressBar
-              animated
               backgroundColor={Color.lerp(
                 Color.fromHex('#20b142'),
                 Color.fromHex('#db2828'),
                 data.health / data.max_health,
-              )}
+              ).toString()}
               color={(() => {
                 if (data.health > (data.max_health / 3) * 2) {
                   return 'green';
@@ -196,12 +194,11 @@ const SensorSection = (act, data: SensorsData) => {
           <Table.Cell>Temperature:</Table.Cell>
           <Table.Cell>
             <ProgressBar
-              animated
               backgroundColor={Color.lerp(
                 Color.fromHex('#20b142'),
                 Color.fromHex('#db2828'),
                 data.heat / data.critical_heat,
-              )}
+              ).toString()}
               color={(() => {
                 if (data.heat > (data.critical_heat / 3) * 2) {
                   return 'red';
@@ -230,37 +227,33 @@ const ContactsSection = (act, data: SensorsData) => (
       <Table>
         <Table.Row header>
           <Table.Cell />
-          <Table.Cell title="Designation">Designation</Table.Cell>
-          <Table.Cell title="Bearing">B</Table.Cell>
-          <Table.Cell title="X Grid Coordinate">X</Table.Cell>
-          <Table.Cell title="Y Grid Coordinate">Y</Table.Cell>
-          <Table.Cell title="Grid Coordinate Distance/Range">D</Table.Cell>
-          <Table.Cell title="Color">C</Table.Cell>
+          <Table.Cell>Designation</Table.Cell>
+          <Table.Cell>Bearing</Table.Cell>
+          <Table.Cell>X Grid Coordinate</Table.Cell>
+          <Table.Cell>Y Grid Coordinate</Table.Cell>
+          <Table.Cell>Grid Coordinate Distance/Range</Table.Cell>
+          <Table.Cell>Color</Table.Cell>
         </Table.Row>
         {data.contacts.map((contact: ContactData, i) => (
           <Table.Row key={contact.name}>
-            <Table.Cell title="Scan">
+            <Table.Cell>
               <Button
                 content={'Scan'}
                 onClick={() => act('scan', { scan: contact.ref })}
               />
             </Table.Cell>
-            <Table.Cell title="Designation">
-              {capitalizeAll(contact.name)}
-            </Table.Cell>
+            <Table.Cell>{capitalizeAll(contact.name)}</Table.Cell>
             {contact.landed ? (
               ''
             ) : (
               <>
-                <Table.Cell title="Bearing">{contact.bearing}</Table.Cell>
-                <Table.Cell title="X Grid Coordinate">{contact.x}</Table.Cell>
-                <Table.Cell title="Y Grid Coordinate">{contact.y}</Table.Cell>
-                <Table.Cell title="Grid Coordinate Distance/Range">
+                <Table.Cell>{contact.bearing}</Table.Cell>
+                <Table.Cell>{contact.x}</Table.Cell>
+                <Table.Cell>{contact.y}</Table.Cell>
+                <Table.Cell>
                   {new String(round(contact.distance, 2)).padStart(6, '0')}
                 </Table.Cell>
-                <Table.Cell title="Color" color={contact.color}>
-                  ██
-                </Table.Cell>
+                <Table.Cell color={contact.color}>██</Table.Cell>
               </>
             )}
           </Table.Row>
