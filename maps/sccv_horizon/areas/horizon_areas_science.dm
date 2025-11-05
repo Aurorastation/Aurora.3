@@ -44,9 +44,6 @@
 	icon_state = "xeno_lab"
 	subdepartment = SUBLOC_XENOBIO
 
-/area/horizon/rnd/xenobiology/hazardous
-	name = "Hazardous Containment"
-
 /area/horizon/rnd/xenobiology/dissection
 	name = "Dissection"
 

@@ -41,9 +41,6 @@
 	///Overlay of a screen to display on the zombie's monitor
 	var/image/screen_overlay
 
-	///Emissive overlay of above
-	var/image/emissive_overlay
-
 	///IPC corpse to spawn on the simplemob's death
 	var/corpse = /obj/effect/landmark/corpse/ipc_zombie
 

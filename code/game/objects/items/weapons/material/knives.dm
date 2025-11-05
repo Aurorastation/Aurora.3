@@ -2,7 +2,7 @@
  * Knives. They stab your eyes out, and fit into boots. Copypasted the screwdriver code
  */
 /obj/item/material/knife
-	name = "kitchen knife"
+	name = "chef's knife"
 	icon = 'icons/obj/kitchen.dmi'
 	contained_sprite = TRUE
 	icon_state = "knife"

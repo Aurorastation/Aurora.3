@@ -193,10 +193,10 @@
 	desc = "Crematorium"
 	region = ACCESS_REGION_GENERAL
 
-#define ACCESS_KITCHEN 28
-/datum/access/kitchen
-	id = ACCESS_KITCHEN
-	desc = "Kitchen"
+#define ACCESS_GALLEY 28
+/datum/access/galley
+	id = ACCESS_GALLEY
+	desc = "Galley"
 	region = ACCESS_REGION_GENERAL
 
 #define ACCESS_ROBOTICS 29

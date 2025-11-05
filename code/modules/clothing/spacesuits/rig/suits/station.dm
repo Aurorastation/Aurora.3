@@ -2,7 +2,7 @@
 	camera = /obj/machinery/camera/network/mining
 	light_overlay = "helmet_light_dual"
 	light_color = "#ffcf2f"
-	brightness_on = 6
+	light_range = 6
 
 /obj/item/clothing/head/helmet/space/rig/industrial/himeo
 	light_overlay = "helmet_light_himeo"

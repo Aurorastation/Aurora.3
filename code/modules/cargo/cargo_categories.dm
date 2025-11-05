@@ -88,7 +88,7 @@
 /singleton/cargo_category/hospitality
 	name = "hospitality"
 	display_name = "Hospitality"
-	description = "Food, beverage, and supplies for hospitality establishments like the bar or kitchen."
+	description = "Food, beverage, and supplies for hospitality establishments like the bar or galley."
 	icon = "utensils"
 	price_modifier = 1
 
