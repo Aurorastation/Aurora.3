@@ -274,6 +274,15 @@
 	color = COLOR_TILED
 	build_type = null
 
+/singleton/flooring/tiling/bitile/middle
+	icon_base = "bitile_middle"
+
+/singleton/flooring/tiling/bitile/light
+	color = COLOR_GRAY70
+
+/singleton/flooring/tiling/bitile/light/middle
+	icon_base = "bitile_middle"
+
 /singleton/flooring/tiling/gridded
 	icon_base = "grid"
 	color = COLOR_GRAY40

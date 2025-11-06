@@ -1,6 +1,6 @@
 /obj/machinery/space_heater
 	name = "portable temperature control unit"
-	desc = "A portable temperature control unit. It can heat or cool a room to your liking."
+	desc = "A portable temperature control unit. It can heat or cool a compartment to your liking."
 	icon = 'icons/obj/atmos.dmi'
 	icon_state = "sheater-off"
 	anchored = FALSE
@@ -190,7 +190,7 @@
 //For mounting on walls in planetary buildings and stuff.
 /obj/machinery/space_heater/stationary
 	name = "stationary temperature control unit"
-	desc = "A stationary temperature control unit. It can heat or cool a room to your liking."
+	desc = "A stationary temperature control unit. It can heat or cool a compartment to your liking."
 	anchored = TRUE
 	can_be_unanchored = FALSE
 	density = FALSE

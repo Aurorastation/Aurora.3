@@ -121,7 +121,6 @@
 	if(!PN)
 		return 1
 
-	set_light(12)
 	PN.trigger_warning()
 	// found a powernet, so drain up to max power from it
 	drained = PN.draw_power(drain_rate * seconds_per_tick)

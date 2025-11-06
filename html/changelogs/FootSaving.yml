@@ -1,6 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - rscadd: "Cargo packages and other heavy objects can now be put beside you without risking the health of your foot."

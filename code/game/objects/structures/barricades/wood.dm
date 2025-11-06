@@ -35,3 +35,11 @@
 		return
 
 	. = ..()
+
+/obj/structure/barricade/wooden/road
+	name = "road barrier"
+	desc = "A barrier made of wood. Someone didn't want you crossing this without thought."
+	icon_state = "roadbarrierwood"
+	barricade_type = "roadbarrierwood"
+	health = 50
+	maxhealth = 50
