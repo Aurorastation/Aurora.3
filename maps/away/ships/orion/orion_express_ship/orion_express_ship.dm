@@ -2,7 +2,7 @@
 	name = "Orion Express Mobile Station"
 	description = "The Traveler-class mobile station is a relatively old design, but nonetheless venerable and one of the building blocks of interstellar commerce. While relatively small, is a treasured asset in the Orion Express corporation's fleet, and has been referred to as “the gas station of the stars”, offering food, supplies, and fuel to anyone who may need it."
 
-	prefix = "ships/orion_express_ship/"
+	prefix = "ships/orion/orion_express_ship/"
 	suffix = "orion_express_ship.dmm"
 
 	sectors = list(ALL_CORPORATE_SECTORS)
