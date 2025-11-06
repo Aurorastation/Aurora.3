@@ -51,16 +51,44 @@
 		return
 
 /obj/machinery/gibber/autogibber/CollidedWith(atom/bumped_atom)
-	. = ..()
 	if(stat & (NOPOWER|BROKEN))
 		return
 	if(!input_plate)
 		return
 	if(!ismob(bumped_atom))
 		return
-	var/mob/M = bumped_atom
-	if(M.loc == input_plate)
-		move_into_gibber(victim = bumped_atom, automatic = TRUE)
+	var/mob/victim_mob = bumped_atom
+	var/mob/living/carbon/human/victim_human
+	// A lot of reused code here but it's needed to prevent CollidedWith from running DoMob, which makes SpaceDMM sad because of SHOULD_NOT_SLEEP and etc etc etc.
+	if(ishuman(victim_mob))
+		victim_human = victim_mob
+
+	if(occupant)
+		if(victim_human.client)
+			to_chat(victim_human, SPAN_DANGER("[src] is full, you can't fit!"))
+		return FALSE
+
+	if(operating)
+		if(victim_human.client)
+			to_chat(victim_human, SPAN_DANGER("[src] is locked and running, it won't let you in!"))
+		return FALSE
+
+	if(ishuman(victim_human) && !emagged)
+		if(victim_human.client)
+			to_chat(victim_human, SPAN_DANGER("\The [src]'s safety guard is engaged!"))
+		return FALSE
+
+	if(istype(victim_mob, /mob) && victim_mob.loc == input_plate)
+		visible_message(SPAN_DANGER("[victim_mob] gets automatically fed into \the [src]!"))
+	else
+		return FALSE
+	if(victim_human.client)
+		victim_human.client.perspective = EYE_PERSPECTIVE
+		victim_human.client.eye = src
+	victim_mob.forceMove(src)
+	occupant = victim_mob
+	startgibbing(victim_mob)
+	update_icon()
 
 /obj/machinery/gibber/Initialize()
 	. = ..()
@@ -126,41 +154,32 @@
  */
 /obj/machinery/gibber/proc/move_into_gibber(var/mob/user, var/mob/victim, var/automatic = FALSE)
 	// All of these check for a user because if the machine is working autonomously, there's no one to send messages to in most cases we'd want to.
-	if(occupant && user)
+	if(occupant)
 		to_chat(user, SPAN_DANGER("[src] is full, empty it first!"))
 		return FALSE
 
-	if(operating && user)
+	if(operating)
 		to_chat(user, SPAN_DANGER("[src] is locked and running, wait for it to finish."))
 		return FALSE
 
-	if(!(iscarbon(victim) || isanimal(victim)) && user)
+	if(!(iscarbon(victim) || isanimal(victim)))
 		to_chat(user, SPAN_DANGER("This is not suitable for [src]!"))
 		return FALSE
 
-	if(ishuman(victim) && !emagged && !victim.isMonkey() && user)
+	if(ishuman(victim) && !emagged && !victim.isMonkey())
 		to_chat(user, SPAN_DANGER("[src]'s safety guard is engaged!"))
 		return FALSE
 
-	if(victim.abiotic(1) && user)
+	if(victim.abiotic(1))
 		to_chat(user, SPAN_DANGER("[victim] may not have abiotic items on."))
 		return FALSE
 
-	if(!automatic && user)
-		user.visible_message(SPAN_DANGER("[user] starts to put [victim] into [src]!"))
-		add_fingerprint(user)
-		if(!do_mob(user, victim, 30 SECONDS) || occupant || !victim.Adjacent(src) || !user.Adjacent(src) || !victim.Adjacent(user))
-			return
+	user.visible_message(SPAN_DANGER("[user] starts to put [victim] into [src]!"))
+	add_fingerprint(user)
+	if(!do_mob(user, victim, 30 SECONDS) || occupant || !victim.Adjacent(src) || !user.Adjacent(src) || !victim.Adjacent(user))
+		return
 
-		user.visible_message(SPAN_DANGER("[user] stuffs [victim] into [src]!"))
-
-	// Moving to the automatic variant now.
-	else
-		visible_message(SPAN_DANGER("\The [src] begins to automatically scoop [victim] in!"))
-		if(istype(victim, /mob))
-			if(!do_after(victim, 15) || !victim.Adjacent(src))
-				return
-		visible_message(SPAN_DANGER("[victim] gets automatically fed into \the [src]!"))
+	user.visible_message(SPAN_DANGER("[user] stuffs [victim] into [src]!"))
 
 	if(victim.client)
 		victim.client.perspective = EYE_PERSPECTIVE
