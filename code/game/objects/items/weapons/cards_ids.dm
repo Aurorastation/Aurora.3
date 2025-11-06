@@ -770,7 +770,8 @@
 	var/list/pilot_access = list()
 	for(var/mob/pilot as anything in exosuit.pilots)
 		var/obj/item/ID = pilot.GetIdCard()
-		pilot_access |= ID.GetAccess()
+		if(ID)
+			pilot_access |= ID.GetAccess()
 	return pilot_access
 
 #undef ID_CARD_UNSET

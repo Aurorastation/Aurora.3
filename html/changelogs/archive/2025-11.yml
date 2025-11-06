@@ -91,3 +91,50 @@
   nauticall:
   - bugfix: Fixed some small graphical bugs relating to boxes.
   - imageadd: Colorized some boxes to take advantage of the box colorization update.
+2025-11-05:
+  Batrachophrenoboocosmomachia, SleepyGemmy:
+  - qol: Hugely expands the Horizon's maints and adjusts/expands much of the aft of
+      the ship.
+  - rscadd: Adds a new Vault to Horizon (Deck 3 aft, behind the Gym).
+  - rscdel: Removes Xenobiology Hazardous Specimens compartment.
+  - rscdel: Removes Medical Emergency Storage compartment.
+  - spellcheck: Replaces a few mentions of 'room' with 'compartment.'
+  - spellcheck: Renames the Bridge Break Room to Bridge Wardroom.
+  - spellcheck: Renames the Kitchen to the Galley.
+  - spellcheck: Renames the Dining Hall to the Mess Hall.
+  - spellcheck: Renames each Washroom to the Head.
+  - bugfix: Fixes custodians not having access to the engineering meeting room maintenance
+      doors.
+  - bugfix: Fixes custodians not having access to the library maintenance door.
+  - bugfix: Fixes the main maintenance door behind the commissary not having the regular
+      maintenance access along its other access requirements.
+  - bugfix: Adds a light to the hallway outside the commissary.
+  - bugfix: Fixes telecomms requiring both engineering and atmospherics access instead
+      of either.
+  MattAtlas (porting), CM and /tg/ coders (original code):
+  - experiment: Replaced our renderer system with TG and CM's planemasters.
+  - rscadd: Open space now has a gaussian blur filter.
+  - bugfix: Fixed esoteric smoothing behaviour that was a bug for a long time; lattices
+      should no longer smooth with nothing.
+  MattAtlas (porting), TiviPlus, A-lexa, Synclt21, Azarak, harryob, MorrowWolf, Zonespace (code):
+  - experiment: Replaced our lighting engine with CM's. There may be bugs!
+2025-11-06:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Updates lights in several areas to look better with the new lighting system
+      (based on test merge).
+  - bugfix: Replaces flooring with plating beneath a grate in D1 maints.
+  - bugfix: Updates area assignment in D3 maints.
+  - bugfix: Moves gas canisters out of the way of the door in D1 combustion turbine
+      maints (whoops!)
+  - bugfix: More tightly restricted access on server hall maints door (also names
+      it correctly.)
+  - bugfix: Gives machine shop a bit better window coverage.
+  - bugfix: Changes location of a door in D3 Civilian Substation.
+  - bugfix: Replaces missing recharger in Sec.
+  - bugfix: Untangled a few crossed air vents/pumps.
+  - bugfix: Fixed a disposals link when routing parcels from certain locations to
+      others.
+  - bugfix: Fixed dirty wiring vars.
+  FlamingLily:
+  - rscadd: Added one (1) light to the Hydroponics bay. (Also switches the fuel tank
+      and the biogenerator to make the light a little less out of place).

@@ -64,7 +64,6 @@
 	var/explosion_point = 1000
 
 	light_color = "#8A8A00"
-	uv_intensity = 255
 	var/warning_color = "#B8B800"
 	var/emergency_color = "#D9D900"
 	var/rotation_angle = 0
