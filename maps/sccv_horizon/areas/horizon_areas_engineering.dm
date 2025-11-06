@@ -128,7 +128,7 @@
 	name = "Atmos Storage maintenance"
 	icon_state = "atmos_storage"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
-	area_blurb = "Pipe's metal clanking when rolling around the floor, gas canisters blinking in the corner of the room. \
+	area_blurb = "The metal clanking of pipes being jostled; gas canister telltales blinking out from corners. \
 	It's as organized as you would expect a hidden away storage to be."
 	horizon_deck = 2
 
