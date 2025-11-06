@@ -1,0 +1,6 @@
+author: ChangeMe
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixes foreign speech displaying the translated versions in pop-up maptext for non-fluent listeners."
