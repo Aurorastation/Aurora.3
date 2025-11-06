@@ -1,26 +1,39 @@
 
 /obj/machinery/gibber
-	name = "gibber"
-	desc = "The name isn't descriptive enough?"
-	desc_extended = "WARNING : Insurance no longer covers entertaining intrusive thoughts. Keep your limbs to yourself."
+	name = "autobutcher"
+	desc = "Also known as the gibber, affectionately."
+	desc_extended = "WARNING: Insurance no longer covers entertaining intrusive thoughts. Keep your limbs to yourself."
 	icon = 'icons/obj/machinery/cooking_machines.dmi'
 	icon_state = "grinder"
-	density = 1
+	density = TRUE
 	anchored = TRUE
 	req_access = list(ACCESS_GALLEY,ACCESS_MORGUE)
 
-	var/operating = 0 //Is it on?
-	var/dirty = 0 // Does it need cleaning?
-	var/mob/living/occupant // Mob who has been put inside
-	var/gib_time = 40        // Time from starting until meat appears
-	var/gib_throw_dir = WEST // Direction to spit meat and gibs in.
+	/// Is it on?
+	var/operating = FALSE
+	/// Does it need cleaning?
+	var/dirty = FALSE
+	/// Mob who has been put inside
+	var/mob/living/occupant
+	/// Time from starting until meat appears
+	var/gib_time = 4 SECONDS
+	/// Direction to spit meat and gibs in.
+	var/gib_throw_dir = WEST
 
 	idle_power_usage = 2
 	active_power_usage = 500
 
-//auto-gibs anything that bumps into it
+/// Auto-gibs anything that moves onto its input plate. This is a fun variant, someone map it in somewhere!
 /obj/machinery/gibber/autogibber
 	var/turf/input_plate
+
+/obj/machinery/gibber/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "The safety guard is [emagged ? SPAN_DANGER("disabled") : "enabled"]."
+
+/obj/machinery/gibber/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This can be emagged to let you feed people into it; it also removes the ID access requirements."
 
 /obj/machinery/gibber/autogibber/Initialize()
 	. = ..()
@@ -39,16 +52,15 @@
 
 /obj/machinery/gibber/autogibber/CollidedWith(atom/bumped_atom)
 	. = ..()
-
+	if(stat & (NOPOWER|BROKEN))
+		return
 	if(!input_plate)
 		return
 	if(!ismob(bumped_atom))
 		return
 	var/mob/M = bumped_atom
 	if(M.loc == input_plate)
-		M.forceMove(src)
-		M.gib()
-
+		move_into_gibber(victim = bumped_atom, automatic = TRUE)
 
 /obj/machinery/gibber/Initialize()
 	. = ..()
@@ -56,11 +68,11 @@
 
 /obj/machinery/gibber/update_icon()
 	ClearOverlays()
-	if (dirty)
+	if(dirty)
 		AddOverlays("grbloody")
 	if(stat & (NOPOWER|BROKEN))
 		return
-	if (!occupant)
+	if(!occupant)
 		AddOverlays("grjam")
 	else if (operating)
 		AddOverlays("gruse")
@@ -80,10 +92,6 @@
 		to_chat(user, SPAN_DANGER("[src] is locked and running, wait for it to finish."))
 		return
 	startgibbing(user)
-
-/obj/machinery/gibber/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += "The safety guard is [emagged ? SPAN_DANGER("disabled") : "enabled"]."
 
 /obj/machinery/gibber/emag_act(var/remaining_charges, var/mob/user)
 	emagged = !emagged
@@ -112,34 +120,48 @@
 		return
 	move_into_gibber(user, dropped)
 
-/obj/machinery/gibber/proc/move_into_gibber(var/mob/user,var/mob/living/victim)
-
-	if(occupant)
+/**
+ * Moves the victim into the gibber. This can be triggered by a user trying to place the victim inside, or by
+ * being sucked in via the input plate.
+ */
+/obj/machinery/gibber/proc/move_into_gibber(var/mob/user, var/mob/victim, var/automatic = FALSE)
+	// All of these check for a user because if the machine is working autonomously, there's no one to send messages to in most cases we'd want to.
+	if(occupant && user)
 		to_chat(user, SPAN_DANGER("[src] is full, empty it first!"))
-		return
+		return FALSE
 
-	if(operating)
+	if(operating && user)
 		to_chat(user, SPAN_DANGER("[src] is locked and running, wait for it to finish."))
-		return
+		return FALSE
 
-	if(!(iscarbon(victim) || isanimal(victim)))
+	if(!(iscarbon(victim) || isanimal(victim)) && user)
 		to_chat(user, SPAN_DANGER("This is not suitable for [src]!"))
-		return
+		return FALSE
 
-	if(ishuman(victim) && !emagged && !victim.isMonkey())
+	if(ishuman(victim) && !emagged && !victim.isMonkey() && user)
 		to_chat(user, SPAN_DANGER("[src]'s safety guard is engaged!"))
-		return
+		return FALSE
 
-
-	if(victim.abiotic(1))
+	if(victim.abiotic(1) && user)
 		to_chat(user, SPAN_DANGER("[victim] may not have abiotic items on."))
-		return
+		return FALSE
 
-	user.visible_message(SPAN_DANGER("[user] starts to put [victim] into [src]!"))
-	add_fingerprint(user)
-	if(!do_mob(user, victim, 30 SECONDS) || occupant || !victim.Adjacent(src) || !user.Adjacent(src) || !victim.Adjacent(user))
-		return
-	user.visible_message(SPAN_DANGER("[user] stuffs [victim] into [src]!"))
+	if(!automatic && user)
+		user.visible_message(SPAN_DANGER("[user] starts to put [victim] into [src]!"))
+		add_fingerprint(user)
+		if(!do_mob(user, victim, 30 SECONDS) || occupant || !victim.Adjacent(src) || !user.Adjacent(src) || !victim.Adjacent(user))
+			return
+
+		user.visible_message(SPAN_DANGER("[user] stuffs [victim] into [src]!"))
+
+	// Moving to the automatic variant now.
+	else
+		visible_message(SPAN_DANGER("\The [src] begins to automatically scoop [victim] in!"))
+		if(istype(victim, /mob))
+			if(!do_after(victim, 15) || !victim.Adjacent(src))
+				return
+		visible_message(SPAN_DANGER("[victim] gets automatically fed into \the [src]!"))
+
 	if(victim.client)
 		victim.client.perspective = EYE_PERSPECTIVE
 		victim.client.eye = src
@@ -170,7 +192,6 @@
 	occupant = null
 	update_icon()
 	return
-
 
 /obj/machinery/gibber/proc/startgibbing(mob/user as mob)
 	if(operating)
@@ -219,12 +240,11 @@
 
 	spawn(gib_time)
 
-		operating = 0
+		operating = FALSE
 		occupant.gib()
 		occupant = null
 
 		playsound(loc, 'sound/effects/splat.ogg', 50, 1)
-		operating = 0
 		for (var/obj/thing in contents)
 			// Todo: unify limbs and internal organs
 			// There's a chance that the gibber will fail to destroy some evidence.

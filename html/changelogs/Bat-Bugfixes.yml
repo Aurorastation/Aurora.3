@@ -5,3 +5,6 @@ delete-after: True
 changes:
   - bugfix: "Fixes foreign speech displaying the translated versions in pop-up maptext for non-fluent listeners."
   - bugfix: "Adds missing Omni Gas Mixer, Gas Meter options from RFD-P."
+  - bugfix: "Adds missing circuit boards for bioballistic delivery system, lysis-isolation centrifuge, and gibber to allow for construction and deconstruction."
+  - code_imp: "Cleans up a lot of old gibber code."
+  - code_imp: "Simplifies and unifies a lot of circuit board naming code."
