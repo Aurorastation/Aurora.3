@@ -362,9 +362,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/cyan{
 	dir = 4
 	},
-/obj/structure/cable/green{
-	icon_state = "1-4"
-	},
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -533,6 +530,13 @@
 	pixel_y = 2;
 	pixel_x = 5
 	},
+/obj/machinery/button/remote/blast_door{
+	dir = 4;
+	id = "om_blast";
+	name = "Exterior Window Lockdown";
+	pixel_x = 20;
+	pixel_y = 4
+	},
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/tech_storage)
 "dM" = (
@@ -679,6 +683,12 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/shuttle/orion_miner/main_engineering_stbd)
+"fg" = (
+/obj/effect/landmark{
+	name = "carpspawn"
+	},
+/turf/template_noop,
+/area/space)
 "fo" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled,
@@ -1548,7 +1558,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
 /area/shuttle/orion_miner/corridor/vestibule)
 "ny" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
@@ -1714,9 +1728,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/orion_miner/bridge)
 "oS" = (
-/obj/structure/cable/green{
-	icon_state = "2-8"
-	},
 /obj/structure/table/glass,
 /obj/random/pottedplant_small{
 	pixel_x = -7;
@@ -2247,12 +2258,6 @@
 /turf/simulated/floor/tiled/full,
 /area/shuttle/orion_miner/cargo_bay)
 "tK" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/structure/cable/green{
-	icon_state = "1-4"
-	},
 /obj/structure/disposalpipe/junction{
 	dir = 8;
 	icon_state = "pipe-j2"
@@ -2266,6 +2271,12 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 10
+	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/orion_miner/corridor/vestibule)
@@ -3248,6 +3259,14 @@
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
 /obj/structure/window/shuttle/scc_space_ship/cardinal,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 2;
+	icon_state = "pdoor0";
+	id = "om_blast";
+	name = "Exterior Lockdown Blast Door";
+	opacity = 0
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/orion_miner/hydro)
 "CP" = (
@@ -3658,7 +3677,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 5
 	},
-/turf/simulated/floor/tiled,
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/plating,
 /area/shuttle/orion_miner/corridor/vestibule)
 "Gi" = (
 /obj/effect/floor_decal/corner/paleblue/full{
@@ -3782,9 +3805,6 @@
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/orion_miner/mess_hall)
 "GY" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
 /obj/random/dirt_75,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -4082,6 +4102,14 @@
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
 /obj/structure/window/shuttle/scc_space_ship/cardinal,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 2;
+	icon_state = "pdoor0";
+	id = "om_blast";
+	name = "Exterior Lockdown Blast Door";
+	opacity = 0
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/orion_miner/tech_storage)
 "KF" = (
@@ -4450,6 +4478,13 @@
 /obj/machinery/light/colored/violet{
 	dir = 1
 	},
+/obj/machinery/button/remote/blast_door{
+	dir = 8;
+	id = "om_blast";
+	name = "Exterior Window Lockdown";
+	pixel_x = -20;
+	pixel_y = 4
+	},
 /turf/simulated/floor/tiled,
 /area/shuttle/orion_miner/hydro)
 "OY" = (
@@ -4554,6 +4589,13 @@
 /obj/effect/floor_decal/industrial/hatch/operations,
 /obj/structure/cargo_receptacle,
 /obj/random/dirt_75,
+/obj/machinery/button/remote/blast_door{
+	dir = 8;
+	id = "om_blast";
+	name = "Exterior Window Lockdown";
+	pixel_x = -20;
+	pixel_y = 4
+	},
 /turf/simulated/floor/tiled/full,
 /area/shuttle/orion_miner/cargo_bay)
 "Pt" = (
@@ -5068,7 +5110,8 @@
 	dir = 1
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/tiled,
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
 /area/shuttle/orion_miner/corridor/vestibule)
 "SY" = (
 /obj/machinery/vending/cola,
@@ -28185,7 +28228,7 @@ iS
 iS
 iS
 iS
-iS
+fg
 iS
 iS
 iS
@@ -29252,7 +29295,7 @@ iS
 iS
 iS
 iS
-iS
+fg
 iS
 iS
 iS
@@ -29436,7 +29479,7 @@ iS
 iS
 iS
 iS
-iS
+fg
 iS
 iS
 iS
@@ -44927,7 +44970,7 @@ iS
 iS
 iS
 iS
-iS
+fg
 iS
 iS
 iS
@@ -45369,7 +45412,7 @@ iS
 iS
 iS
 iS
-iS
+fg
 iS
 iS
 iS
@@ -47716,7 +47759,7 @@ iS
 iS
 iS
 iS
-iS
+fg
 iS
 iS
 iS
