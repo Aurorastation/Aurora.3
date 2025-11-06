@@ -1,0 +1,8 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "The investigation office had a second desk added and a couple of items in the forensic lab were moved around."
+  - rscadd: "The weapon crate in evidence storage now has a lock."
+  - qol: "The interrogation room is now next to the investigation office."
