@@ -11,4 +11,5 @@ changes:
   - bugfix: "Fixes shouted speech langchat; now correctly biggified."
   - bugfix: "Adds missing Omni Gas Mixer, Gas Meter options from RFD-P."
   - bugfix: "Adds missing circuit boards for bioballistic delivery system, lysis-isolation centrifuge, and autobutcher to allow for construction and deconstruction."
+  - bugfix: "Fixes empty algae chips bag having description set for its name."
   - qol: "Added helpful feedback hint to move closer when someone speaks aloud within 4 tiles while you're in vacuum (as features go, this one felt more like a bug to experience)."
