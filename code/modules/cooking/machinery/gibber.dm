@@ -51,12 +51,13 @@
 		return
 
 /obj/machinery/gibber/autogibber/CollidedWith(atom/bumped_atom)
+	. = ..()
 	if(stat & (NOPOWER|BROKEN))
-		return
+		return FALSE
 	if(!input_plate)
-		return
+		return FALSE
 	if(!ismob(bumped_atom))
-		return
+		return FALSE
 	var/mob/victim_mob = bumped_atom
 	var/mob/living/carbon/human/victim_human
 	// A lot of reused code here but it's needed to prevent CollidedWith from running DoMob, which makes SpaceDMM sad because of SHOULD_NOT_SLEEP and etc etc etc.
