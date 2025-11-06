@@ -256,7 +256,7 @@
 /obj/item/trap/punji/attack_mob(mob/living/L)
 
 	//Reveal the trap, if not already visible
-	hide(FALSE)
+	invisibility = 0
 
 	//Select a target zone
 	var/target_zone
@@ -300,7 +300,10 @@
 			//If it's a Vaurca, there's a chance the spear wouldn't go in deep enough to apply an infection
 			//You're still damaged by falling on it though, which happens above, but at least you're spared the infection
 			//Glory to your carapace
-			if(isvaurca(L) && prob(50))
+
+			//Also, don't infect robotic limbs with infections!!!!!!!!!!!
+			//Something something the certainty of steel
+			if(isvaurca(L) && prob(50) || organ.robotic == ROBOTIC_MECHANICAL)
 				return
 
 			organ.germ_level += INFECTION_LEVEL_TWO
@@ -351,6 +354,57 @@
 /obj/item/trap/punji/deployed
 	deployed = TRUE
 	anchored = TRUE
+
+/obj/item/trap/punji/deployed/hidden
+	invisibility = INVISIBILITY_MAXIMUM
+
+/obj/item/trap/jagged_rock
+	name = "treacherous rock"
+	desc = "A jagged and dangerous outcropping."
+	icon = 'icons/obj/flora/rocks_grey.dmi'
+	icon_state = "basalt"
+	anchored = TRUE
+	invisibility = 0
+
+/obj/item/trap/jagged_rock/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	if(isliving(arrived))
+		var/mob/living/L = arrived
+		attack_mob(L)
+		update_icon()
+
+/obj/item/trap/jagged_rock/attack_mob(mob/living/L)
+
+	//Select a target zone
+	var/target_zone
+	if(L.lying)
+		target_zone = pick(BP_L_FOOT, BP_R_FOOT, BP_L_LEG, BP_R_LEG, BP_L_HAND, BP_L_ARM, BP_R_HAND, BP_R_ARM)
+	else
+		target_zone = pick(BP_L_FOOT, BP_R_FOOT, BP_L_LEG, BP_R_LEG)
+
+	//Try to apply the damage
+	var/success = L.apply_damage(50, DAMAGE_BRUTE, target_zone, used_weapon = src, armor_pen = activated_armor_penetration)
+	//Apply weakness, so the victim doesn't walk immediately back out of the trap
+	L.Weaken(10)
+
+	//If successfully applied, give the message
+	if(success)
+
+		//Give a simple message and return if it's not a human
+		if(!ishuman(L))
+			L.visible_message(SPAN_DANGER("[L] slams into \the [src]!"))
+			return
+
+		var/mob/living/carbon/human/human = L
+		var/obj/item/organ/organ = human.get_organ(target_zone)
+
+		if(isipc(L) || isrobot(L))
+			playsound(src, 'sound/weapons/smash.ogg', 100, TRUE)
+		else
+			playsound(src, 'sound/weapons/heavysmash.ogg', 100, TRUE)
+
+		human.visible_message(SPAN_DANGER("\The [human] slams into \the [src]!"),
+								SPAN_WARNING(FONT_LARGE(SPAN_DANGER("You crash on \the [src], feel your body crumble, and something sharp penetrate your [organ.name]!"))),
+								SPAN_WARNING("<b>You feel your body crumble, and something sharp penetrate your [organ.name]!</b>"))
 
 /**
  * # Animal trap

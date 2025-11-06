@@ -2,12 +2,12 @@
 	name = "computer"
 	icon = 'icons/obj/machinery/modular_console.dmi'
 	icon_state = "computer"
+	layer = ABOVE_STRUCTURE_LAYER
 	density = 1
 	anchored = 1.0
 	idle_power_usage = 300
 	active_power_usage = 300
 	clicksound = /singleton/sound_category/keyboard_sound
-	z_flags = ZMM_MANGLE_PLANES
 
 	var/circuit = null //The path to the circuit board type. If circuit==null, the computer can't be disassembled.
 	var/processing = 0
@@ -76,15 +76,9 @@
 		set_broken()
 
 /obj/machinery/computer/update_icon()
-	switch(dir)
-		if(NORTH)
-			layer = ABOVE_HUMAN_LAYER
-		if(SOUTH)
-			reset_plane_and_layer()
-		if(EAST)
-			layer = ABOVE_HUMAN_LAYER
-		if(WEST)
-			layer = ABOVE_HUMAN_LAYER
+
+	if(dir == SOUTH)
+		layer = ABOVE_HUMAN_LAYER
 	ClearOverlays()
 	if(stat & NOPOWER)
 		set_light(0)

@@ -237,6 +237,10 @@
 
 	attack_verb = list("hit", "bludgeoned", "whacked")
 
+	light_system = MOVABLE_LIGHT
+	light_range = 1
+	light_color = LIGHT_COLOR_LAVA
+
 	//Amount of OUCH when it's thrown
 	force = 3
 	throwforce = 5
@@ -299,6 +303,7 @@
 	max_fuel = 40
 	matter = list(DEFAULT_WALL_MATERIAL = 100, MATERIAL_GLASS = 120)
 	origin_tech = list(TECH_ENGINEERING = 4, TECH_BIO = 4)
+	light_color = LIGHT_COLOR_BLUE
 
 	var/last_gen = 0
 	var/fuelgen_delay = 400 //The time, in deciseconds, required to regenerate one unit of fuel
@@ -320,7 +325,7 @@
 
 /obj/item/weldingtool/use_tool(atom/target, mob/living/user, delay, amount, volume, datum/callback/extra_checks)
 	var/image/welding_sparks = image('icons/effects/effects.dmi', welding_state)
-	welding_sparks.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+	welding_sparks.plane = ABOVE_LIGHTING_PLANE
 	target.AddOverlays(welding_sparks)
 	. = ..()
 	target.CutOverlays(welding_sparks)
@@ -333,11 +338,14 @@
 		item_state = "[initial(item_state)]"
 
 	if(welding == 2)
-		set_light(0.7, 2, l_color = LIGHT_COLOR_CYAN)
+		set_light_range_power_color(light_range * 1.5, light_power * 1.5, light_color)
+		set_light_on(TRUE)
 	else if (welding == 1)
-		set_light(0.6, 1.5, l_color = LIGHT_COLOR_LAVA)
+		set_light_range_power_color(light_range, light_power, light_color)
+		set_light_on(TRUE)
 	else
-		set_light(0)
+		set_light_range_power_color(light_range, light_power, light_color)
+		set_light_on(FALSE)
 
 /obj/item/weldingtool/update_icon()
 	ClearOverlays()

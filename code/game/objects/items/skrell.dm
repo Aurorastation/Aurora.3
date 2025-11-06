@@ -50,11 +50,10 @@
 	icon_state = "starprojection"
 	mouse_opacity = TRUE
 	duration = 30 SECONDS
-	plane = EFFECTS_ABOVE_LIGHTING_PLANE
+	plane = ABOVE_LIGHTING_PLANE
 	light_power = 1
 	light_range = 1
 	light_color = LIGHT_COLOR_HALOGEN
-	z_flags = ZMM_MANGLE_PLANES
 	var/global/image/glow_state
 
 /obj/effect/temp_visual/constellation/Initialize()

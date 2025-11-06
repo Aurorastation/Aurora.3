@@ -1,6 +1,6 @@
 /turf/simulated/wall
 	name = "wall"
-	desc = "A huge chunk of metal used to seperate rooms."
+	desc = "A huge chunk of metal used to seperate compartments."
 	icon = 'icons/turf/smooth/wall_preview.dmi'
 	icon_state = "wall"
 	opacity = TRUE

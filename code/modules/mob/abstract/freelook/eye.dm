@@ -22,7 +22,6 @@
 	var/mob/owner = null
 	var/list/visibleChunks = list()
 
-	var/ghostimage = null
 	var/datum/visualnet/visualnet
 	///Set if the eye uses special click handling. Distinct from parent mob click handling for AI eye.
 	var/click_handler_type = /datum/click_handler/eye
@@ -30,21 +29,7 @@
 	///Whether or not our eye uses normal living vision handling
 	var/living_eye = TRUE
 
-/mob/abstract/eye/New()
-	ghostimage = image(src.icon,src,src.icon_state)
-	SSmobs.ghost_darkness_images |= ghostimage //so ghosts can see the eye when they disable darkness
-	SSmobs.ghost_sightless_images |= ghostimage //so ghosts can see the eye when they disable ghost sight
-	updateallghostimages()
-	..()
-
 /mob/abstract/eye/Destroy()
-	if (ghostimage)
-		SSmobs.ghost_darkness_images -= ghostimage
-		SSmobs.ghost_sightless_images -= ghostimage
-		qdel(ghostimage)
-		ghostimage = null
-		updateallghostimages()
-
 	release(owner)
 	owner = null
 	visualnet = null

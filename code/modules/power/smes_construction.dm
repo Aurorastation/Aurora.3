@@ -117,6 +117,11 @@
 	. = ..()
 	charge = 0
 
+/obj/machinery/power/smes/buildable/third_party_shuttle/low_charge/Initialize()
+	. = ..()
+	output_level = 0
+	charge = 10.55e+005
+
 //for third parties that have their solars autostart, It's slightly upgraded for them
 /obj/machinery/power/smes/buildable/autosolars/Initialize()
 	. = ..()

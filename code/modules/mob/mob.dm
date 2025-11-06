@@ -1574,15 +1574,15 @@
 		// if(thing.item_flags & SLOWS_WHILE_IN_HAND)
 		. += thing
 
-/mob/proc/check_emissive_equipment()
-	var/old_zflags = z_flags
-	z_flags &= ~ZMM_MANGLE_PLANES
-	for(var/atom/movable/AM in get_equipped_items(INCLUDE_POCKETS|INCLUDE_HELD))
-		if(AM.z_flags & ZMM_MANGLE_PLANES)
-			z_flags |= ZMM_MANGLE_PLANES
-			break
-	if(old_zflags != z_flags)
-		UPDATE_OO_IF_PRESENT
+///Set the lighting plane hud alpha to the mobs lighting_alpha var
+/mob/proc/sync_lighting_plane_alpha()
+	if(hud_used)
+		var/atom/movable/screen/plane_master/lighting/lighting = hud_used.plane_masters["[LIGHTING_PLANE]"]
+		if (lighting)
+			lighting.alpha = lighting_alpha
+		var/atom/movable/screen/plane_master/lighting/exterior_lighting = hud_used.plane_masters["[EXTERIOR_LIGHTING_PLANE]"]
+		if (exterior_lighting)
+			exterior_lighting.alpha = min(GLOB.minimum_exterior_lighting_alpha, lighting_alpha)
 
 #undef UNBUCKLED
 #undef PARTIALLY_BUCKLED

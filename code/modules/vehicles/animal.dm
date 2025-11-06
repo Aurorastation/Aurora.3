@@ -40,6 +40,10 @@
 	. += "Click-drag yourself onto the animal to climb onto it."
 	. += "Click-drag it onto yourself to access its mounted storage."
 
+/obj/vehicle/animal/Destroy()
+	QDEL_NULL(storage_compartment)
+	return ..()
+
 /obj/vehicle/animal/setup_vehicle()
 	..()
 	on = TRUE
