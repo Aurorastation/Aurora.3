@@ -12,7 +12,6 @@
 	)
 	organ_presets = list(
 		ORGAN_PREF_ELECTRICPOWER = /singleton/synthetic_organ_preset/reactor/electric,
-		ORGAN_PREF_KINETICPOWER = /singleton/synthetic_organ_preset/reactor/kinetic,
 		ORGAN_PREF_BIOPOWER = /singleton/synthetic_organ_preset/reactor/biological,
 		ORGAN_PREF_SOLARPOWER = /singleton/synthetic_organ_preset/reactor/solar,
 	)
