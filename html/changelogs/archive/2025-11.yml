@@ -118,3 +118,23 @@
       should no longer smooth with nothing.
   MattAtlas (porting), TiviPlus, A-lexa, Synclt21, Azarak, harryob, MorrowWolf, Zonespace (code):
   - experiment: Replaced our lighting engine with CM's. There may be bugs!
+2025-11-06:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Updates lights in several areas to look better with the new lighting system
+      (based on test merge).
+  - bugfix: Replaces flooring with plating beneath a grate in D1 maints.
+  - bugfix: Updates area assignment in D3 maints.
+  - bugfix: Moves gas canisters out of the way of the door in D1 combustion turbine
+      maints (whoops!)
+  - bugfix: More tightly restricted access on server hall maints door (also names
+      it correctly.)
+  - bugfix: Gives machine shop a bit better window coverage.
+  - bugfix: Changes location of a door in D3 Civilian Substation.
+  - bugfix: Replaces missing recharger in Sec.
+  - bugfix: Untangled a few crossed air vents/pumps.
+  - bugfix: Fixed a disposals link when routing parcels from certain locations to
+      others.
+  - bugfix: Fixed dirty wiring vars.
+  FlamingLily:
+  - rscadd: Added one (1) light to the Hydroponics bay. (Also switches the fuel tank
+      and the biogenerator to make the light a little less out of place).
