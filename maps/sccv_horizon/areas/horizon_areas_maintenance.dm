@@ -128,6 +128,9 @@
 /area/horizon/maintenance/deck_2/cargo_compartment
 	name = "Auxiliary Cargo Maintenance"
 
+/area/horizon/maintenance/deck_2/elevator
+	name = "Elevator Maintenance"
+
 /area/horizon/maintenance/deck_2/central_ring
 	name = "Central Ring Maintenance"
 
