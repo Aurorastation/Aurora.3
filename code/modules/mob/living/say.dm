@@ -249,10 +249,11 @@ var/list/channel_to_radio_key = new
 		verb = say_quote(message, speaking, is_singing, whisper)
 
 	var/is_shouting = FALSE
-	for(var/verb_to_check in speaking.shout_verb)
-		if(verb_to_check == verb)
-			is_shouting = TRUE
-			continue
+	if(speaking)
+		for(var/verb_to_check in speaking.shout_verb)
+			if(verb_to_check == verb)
+				is_shouting = TRUE
+				continue
 
 	if(is_muzzled())
 		to_chat(src, SPAN_DANGER("You're muzzled and cannot speak!"))
