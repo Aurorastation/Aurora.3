@@ -132,7 +132,7 @@
 
 /mob/living/silicon/robot/drone/mining/update_robot_light()
 	if(lights_on)
-		set_light(5, 1, LIGHT_COLOR_FIRE, angle = LIGHT_OMNI)
+		set_light(5, 1, LIGHT_COLOR_FIRE)
 	else
 		set_light(0)
 

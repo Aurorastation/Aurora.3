@@ -8,6 +8,8 @@
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
 	w_class = WEIGHT_CLASS_TINY
 	light_color = "#E09D37"
+	light_range = 2
+	light_power = CANDLE_LUM
 	var/wax = 3200
 	var/start_lit = FALSE
 
@@ -47,8 +49,7 @@
 	if(!src.lit)
 		src.lit = 1
 		playsound(src.loc, 'sound/items/cigs_lighters/cig_light.ogg', 50, 1)
-		//src.damtype = "fire"
-		set_light(CANDLE_LUM)
+		set_light_on(TRUE)
 		update_icon()
 		START_PROCESSING(SSprocessing, src)
 
@@ -76,4 +77,4 @@
 		to_chat(user, SPAN_NOTICE("You snuff out the flame."))
 		playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
 		update_icon()
-		set_light(0)
+		set_light_on(FALSE)
