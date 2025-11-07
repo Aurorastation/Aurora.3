@@ -1,6 +1,0 @@
-author: Hellfirejag
-delete-after: True
-changes:
-  - rscadd: "Added a 'Gravity Adaptations' bioaug as a new loadout item available to Galatean Off-Worlders. These work similarly to hardsuits and legbraces by protecting the character from gravity sickness."
-  - rscadd: "Gravity Adaptations can also be bought in antag uplinks."
-  - refactor: "Refactored Off-worlder gravity weakness to use the new COMSIG_GRAVITY_WEAKNESS_EVENT signal, so that more things can interact with it without needing to be hardcoded."
