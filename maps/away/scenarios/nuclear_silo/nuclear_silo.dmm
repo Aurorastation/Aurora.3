@@ -16178,6 +16178,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/nuclear_silo/lower_level/medbay)
+"JJ" = (
+/obj/effect/shuttle_landmark/nuclear_silo/surface/north_2a{
+	dir = 2
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/nuclear_silo/outside/landing)
 "JK" = (
 /obj/structure/bed/stool/chair/office/light{
 	dir = 1
@@ -132924,7 +132930,7 @@ xu
 aN
 EG
 aN
-Vf
+JJ
 EG
 EG
 BG
