@@ -152,25 +152,55 @@
 		to_chat(usr, SPAN_WARNING("You check your watch, realising it's closed."))
 	else
 
-		var/adhomian_year = GLOB.game_year + 1158
-		var/current_month = text2num(time2text(world.realtime, "MM"))
-		var/current_day = text2num(time2text(world.realtime, "DD"))
-		var/adhomian_day
-		var/adhomian_month = src.months[Ceiling(current_month/3)]
-		switch(current_month)
-			if(2, 5, 8, 11)
-				current_day += 31
-			if(6, 9, 12)
-				current_day += 61
-			if(3)
-				current_day += 59 + isLeap(text2num(time2text(world.realtime, "YYYY"))) // we can conveniently use the result of `isLeap` to add 1 when we are in a leap year
-		var/real_time = text2num(time2text(world.time + (REALTIMEOFDAY - (TIME_OFFSET HOURS)), "hh"))
-		var/adhomian_time = real_time
-		if(ISEVEN(current_day))
-			adhomian_time = real_time + 24
-		adhomian_day = FLOOR(current_day / 2, 1)
-		to_chat(usr, "You check your [src.name], glancing over at the watch face, reading the time to be '[adhomian_time]'. Today's date is the '[adhomian_day]th day of [adhomian_month], [adhomian_year]'.")
+		// var/adhomian_year = GLOB.game_year + 1158
+		// var/current_month = text2num(time2text(world.realtime, "MM"))
+		// var/current_day = text2num(time2text(world.realtime, "DD"))
+		// var/adhomian_day
+		// var/adhomian_month = src.months[Ceiling(current_month/3)]
+		// switch(current_month)
+		// 	if(2, 5, 8, 11)
+		// 		current_day += 31
+		// 	if(6, 9, 12)
+		// 		current_day += 61
+		// 	if(3)
+		// 		current_day += 59 + isLeap(text2num(time2text(world.realtime, "YYYY"))) // we can conveniently use the result of `isLeap` to add 1 when we are in a leap year
+		// var/real_time = text2num(time2text(world.time + (REALTIMEOFDAY - (TIME_OFFSET HOURS)), "hh"))
+		// var/adhomian_time = text2num(worldtime2text()) //real_time
+		// if(ISEVEN(current_day))
+		// 	adhomian_time += 24
+		// adhomian_day = FLOOR(current_day / 2, 1)
+		to_chat(usr, datecalc())
 
+/obj/item/clothing/wrists/watch/pocketwatch/adhomai/proc/datecalc()
+	var/adhomian_year = GLOB.game_year + 1158
+	var/current_month = text2num(time2text(world.time, "MM"))
+	var/current_day = text2num(time2text(world.time, "DD"))
+	var/adhomian_day
+	var/adhomian_month = src.months[Ceiling(current_month/3)]
+	switch(current_month)
+		if(2, 5, 8, 11)
+			current_day += 31
+		if(6, 9, 12)
+			current_day += 61
+		if(3)
+			current_day += 59 + isLeap(text2num(time2text(world.realtime, "YYYY"))) // we can conveniently use the result of `isLeap` to add 1 when we are in a leap year
+	var/real_time = text2num(time2text(world.time + (REALTIMEOFDAY - (TIME_OFFSET HOURS)), "hh"))
+	var/adhomian_time = real_time
+	var/adhomian_minute = time2text(world.time + (REALTIMEOFDAY - (TIME_OFFSET HOURS)), "mm")
+	if(ISEVEN(current_day))
+			adhomian_time += 24
+	adhomian_day = FLOOR(current_day / 2, 1)
+	return "You check your [src.name], glancing over at the watch face, reading the time to be '[adhomian_time]:[adhomian_minute]'. Today's date is the '[adhomian_day]th day of [adhomian_month], [adhomian_year]'.
+
+
+
+// /proc/worldtime2minutes()
+// 	if (!roundstart_hour)
+// 		worldtime2text()
+// 	. = text2num(time2text(world.time + (roundstart_hour HOURS), "mm"))
+
+
+'[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [GLOB.game_year]'.")
 
 /obj/item/flame/lighter/adhomai
 	name = "adhomian lighter"
