@@ -1,9 +1,9 @@
-/*
-	Coatings are used in cooking. Dipping food items in a reagent container with a coating in it
-	allows it to be covered in that, which will add a masked overlay to the sprite.
-
-	Coatings have both a raw and a cooked image. Raw coating is generally unhealthy
-	Generally coatings are intended for deep frying foods
+/**
+ * Coatings are used in cooking. Dipping food items in a reagent container with a coating in it
+ * allows it to be covered in that, which will add a masked overlay to the sprite.
+ *
+ * Coatings have both a raw and a cooked image. Raw coating is generally unhealthy
+ * Generally coatings are intended for deep frying foodsGenerally coatings are intended for deep frying foods
 */
 /singleton/reagent/nutriment/coating
 	nutriment_factor = 4 //Less dense than the food itself, but coatings still add extra calories
@@ -29,13 +29,13 @@
 			H.delayed_vomit()
 	. = ..()
 
-/singleton/reagent/nutriment/coating/initialize_data(var/list/newdata, var/datum/reagents/holder) // Called when the reagent is created.
+/// Called when the reagent is created.
+/singleton/reagent/nutriment/coating/initialize_data(var/list/newdata, var/datum/reagents/holder)
 	var/list/data = ..()
 	LAZYSET(data, "cooked", istype(holder?.my_atom,/obj/item/reagent_containers/food/snacks))
 	if(data["cooked"])
 		name = cooked_name
 	return data
-
 		//Batter which is part of objects at compiletime spawns in a cooked state
 
 /singleton/reagent/nutriment/coating/mix_data(var/list/newdata, var/newamount, var/datum/reagents/holder)
@@ -270,8 +270,8 @@
 	condiment_name = "hotsauce"
 	condiment_desc = "Hot sauce. It's in the name."
 	condiment_icon_state = "hotsauce"
-
-	var/agony_dose = 15 // Capsaicin required to proc agony. (3 to 5 chilis.)
+	/// Capsaicin required to proc agony. (3 to 5 chilis.)
+	var/agony_dose = 15
 	var/agony_amount = 1
 	var/discomfort_message = SPAN_DANGER("Your insides feel uncomfortably hot.")
 	var/slime_temp_adj = 10
