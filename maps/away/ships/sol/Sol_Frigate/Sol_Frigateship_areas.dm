@@ -1,4 +1,4 @@
-/area/ship/Sol_Frigate
+/area/ship/sol_frigate
 	name = "Solarian Frigate"
 	requires_power = TRUE
 	dynamic_lighting = TRUE
@@ -7,90 +7,90 @@
 	area_flags = AREA_FLAG_RAD_SHIELDED
 	ambience = AMBIENCE_ENGINEERING
 
-/area/ship/Sol_Frigate/hallway_fore
+/area/ship/sol_frigate/hallway_fore
 	name = "Solarian Frigate - Fore Hallway"
 
-/area/ship/Sol_Frigate/hallway_mid
+/area/ship/sol_frigate/hallway_mid
 	name = "Solarian Frigate - Midships Hallway"
 
-/area/ship/Sol_Frigate/cic
+/area/ship/sol_frigate/cic
 	name = "Solarian Frigate - CIC"
 
-/area/ship/Sol_Frigate/Port_docking_port
+/area/ship/sol_frigate/Port_docking_port
 	name = "Solarian Frigate - Port Docking Port"
 
-/area/ship/Sol_Frigate/Starboard_docking_port
+/area/ship/sol_frigate/Starboard_docking_port
 	name = "Solarian Frigate - Starboard Docking Port"
 
-/area/ship/Sol_Frigate/starboard_thrusters
+/area/ship/sol_frigate/starboard_thrusters
 	name = "Solarian Frigate - Starboard Thrusters"
 
-/area/ship/Sol_Frigate/port_thrusters
+/area/ship/sol_frigate/port_thrusters
 	name = "Solarian Frigate - Port Thrusters"
 
-/area/ship/Sol_Frigate/engineering
+/area/ship/sol_frigate/engineering
 	name = "Solarian Frigate - Engineering"
 
-/area/ship/Sol_Frigate/ocountry
+/area/ship/sol_frigate/ocountry
 	name = "Solarian Frigate - Officer's Country"
 
-/area/ship/Sol_Frigate/oquarters
+/area/ship/sol_frigate/oquarters
 	name = "Solarian Frigate - Officer's Stateroom"
 
-/area/ship/Sol_Frigate/bunks
+/area/ship/sol_frigate/bunks
 	name = "Solarian Frigate - Crew Berthing Compartment"
 
-/area/ship/Sol_Frigate/eva_storage
+/area/ship/sol_frigate/eva_storage
 	name = "Solarian Frigate - EVA Storage"
 
-/area/ship/Sol_Frigate/armoury
+/area/ship/sol_frigate/armoury
 	name = "Solarian Frigate - Armoury"
 
-/area/ship/Sol_Frigate/brig
+/area/ship/sol_frigate/brig
 	name = "Solarian Frigate - Brig"
 
-/area/ship/Sol_Frigate/starboard_battery
+/area/ship/sol_frigate/starboard_battery
 	name = "Solarian Frigate - Starboard Battery"
 
-/area/ship/Sol_Frigate/starboard_gunnery
+/area/ship/sol_frigate/starboard_gunnery
 	name = "Solarian Frigate - Aft Hallway"
 
-/area/ship/Sol_Frigate/port_battery
+/area/ship/sol_frigate/port_battery
 	name = "Solarian Frigate - Port Battery"
 
-/area/ship/Sol_Frigate/crew_lounge
+/area/ship/sol_frigate/crew_lounge
 	name = "Solarian Frigate - Hydroponics"
 
-/area/ship/Sol_Frigate/head
+/area/ship/sol_frigate/head
 	name = "Solarian Frigate - Head"
 
-/area/ship/Sol_Frigate/safe_room
+/area/ship/sol_frigate/safe_room
 	name = "Solarian Frigate - Cargo Hold"
 
-/area/ship/Sol_Frigate/captain_office
+/area/ship/sol_frigate/captain_office
 	name = "Solarian Frigate - Captain's Office"
 
-/area/ship/Sol_Frigate/captain_cabin
+/area/ship/sol_frigate/captain_cabin
 	name = "Solarian Frigate - Captain's Cabin"
 
 
-/area/ship/Sol_Frigate/canteen
+/area/ship/sol_frigate/canteen
 	name = "Solarian Frigate - Mess Hall"
 
-/area/ship/Sol_Frigate/freezer
+/area/ship/sol_frigate/freezer
 	name = "Solarian Frigate - Freezer"
 
-/area/ship/Sol_Frigate/Exo_Bay
+/area/ship/sol_frigate/Exo_Bay
 	name = "Solarian Frigate - Exosuit Bay"
 
-/area/ship/Sol_Frigate/sickbay
+/area/ship/sol_frigate/sickbay
 	name = "Solarian Frigate - Sick Bay"
 
-/area/ship/Sol_Frigate/hangar
+/area/ship/sol_frigate/hangar
 	name = "Solarian Frigate - Hangar"
 
 // Shuttles
-/area/shuttle/Solfrig_shuttle
+/area/shuttle/solfrig_shuttle
 	name = "Solarian Frigate Shuttle"
 	icon_state = "shuttle2"
 	requires_power = TRUE

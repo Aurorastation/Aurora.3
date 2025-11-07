@@ -81,4 +81,3 @@
 
 	assigned_role = "Sol Navy Synthetic"
 	special_role = "Sol Navy Synthetic"
-
