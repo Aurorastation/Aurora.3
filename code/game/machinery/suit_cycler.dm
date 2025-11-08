@@ -35,7 +35,6 @@
 	icon_state = "base"
 
 	req_access = list(ACCESS_CAPTAIN, ACCESS_HEADS)
-	z_flags = ZMM_MANGLE_PLANES
 	/// PLEASE HOLD.
 	var/active = FALSE
 	/// The cycler won't start with a living thing inside it unless safeties are off.

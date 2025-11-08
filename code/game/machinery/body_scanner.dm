@@ -261,7 +261,6 @@
 	var/has_external_injuries = FALSE
 	density = FALSE
 	anchored = TRUE
-	z_flags = ZMM_MANGLE_PLANES
 	component_types = list(
 			/obj/item/circuitboard/bodyscannerconsole,
 			/obj/item/stock_parts/scanning_module = 2,

@@ -81,7 +81,7 @@
 		var/area/A = get_area(src)
 		if(A.fire)
 			AddOverlays("fire1")
-			set_light(l_range = L_WALLMOUNT_HI_RANGE, l_power = L_WALLMOUNT_HI_POWER, l_color = COLOR_RED)
+			set_light(L_WALLMOUNT_HI_RANGE, L_WALLMOUNT_HI_POWER, COLOR_RED)
 		else
 			AddOverlays("fire0")
 			set_light(0)

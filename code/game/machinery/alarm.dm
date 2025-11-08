@@ -115,7 +115,6 @@ pixel_x = 10;
 	clicksound = /singleton/sound_category/button_sound
 	clickvol = 30
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
-	z_flags = ZMM_MANGLE_PLANES
 
 	var/alarm_id = null
 	var/frequency = 1439
@@ -583,7 +582,7 @@ pixel_x = 10;
 	alarm_overlay = image(icon, "alarm[icon_level]")
 	AddOverlays(alarm_overlay)
 
-	var/emissive_overlay = emissive_appearance(icon, "alarm[icon_level]")
+	emissive_overlay = emissive_appearance(icon, "alarm[icon_level]")
 	AddOverlays(emissive_overlay)
 
 	var/new_color = null
@@ -595,7 +594,8 @@ pixel_x = 10;
 		if (2)
 			new_color = COLOR_RED_LIGHT
 
-	set_light(l_range = L_WALLMOUNT_RANGE, l_power = L_WALLMOUNT_POWER, l_color = new_color)
+	if(light_color != new_color)
+		set_light(L_WALLMOUNT_RANGE, L_WALLMOUNT_POWER, new_color)
 
 	if(regulating_temperature)
 		AddOverlays("alarm_fan_on")

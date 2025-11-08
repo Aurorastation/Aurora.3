@@ -16,9 +16,6 @@ SUBSYSTEM_DEF(mobs)
 	var/list/greatworms = list()
 	var/list/greatasses = list()
 
-	var/list/ghost_darkness_images = list()	//this is a list of images for things ghosts should still be able to see when they toggle darkness
-	var/list/ghost_sightless_images = list()	//this is a list of images for things ghosts should still be able to see even without ghost sight
-
 	// Devour types (these are typecaches). Only simple_animals check these, other types are handled specially.
 	var/list/mtl_synthetic = list(
 		/mob/living/simple_animal/hostile/hivebot

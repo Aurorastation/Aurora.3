@@ -53,7 +53,7 @@
 	attack_emote = "nashes at"
 
 	flying = TRUE
-	see_invisible = SEE_INVISIBLE_NOLIGHTING
+	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
 
 	smart_melee = FALSE
 	sample_data = list("Cellular structure shows adaptation for survival in vacuum", "Genetic biomarkers identified linked with agressiveness", "Tissue sample contains micro-gas release structures")
@@ -307,5 +307,5 @@
 	attack_emote = "nashes at"
 
 	flying = TRUE
-	see_invisible = SEE_INVISIBLE_NOLIGHTING
+	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
 	sample_data = list("Cellular structure shows adaptation for survival in vacuum", "Genetic biomarkers identified linked with agressiveness", "Tissue sample contains micro-gas release structures")
