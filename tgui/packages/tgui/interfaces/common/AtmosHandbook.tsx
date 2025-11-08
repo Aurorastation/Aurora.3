@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { useState } from 'react';
 import {
   Box,
   Button,
@@ -9,7 +10,7 @@ import {
   Stack,
   Tooltip,
 } from 'tgui-core/components';
-import { useBackend, useLocalState } from '../../backend';
+import { useBackend } from '../../backend';
 
 /**
  * This describes something that influences a particular reaction
@@ -77,15 +78,9 @@ const GasSearchBar = (props: {
 const GasHandbook = (props) => {
   const { act, data } = useBackend<{ gasInfo: Gas[] }>();
   const { gasInfo } = data;
-  const [activeGasId, setActiveGasId] = useLocalState('activeGasId', '');
-  const [activeReactionId, setActiveReactionId] = useLocalState(
-    'activeReactionId',
-    '',
-  );
-  const [gasActiveInput, setGasActiveInput] = useLocalState(
-    'gasActiveInput',
-    false,
-  );
+  const [activeGasId, setActiveGasId] = useState('');
+  const [activeReactionId, setActiveReactionId] = useState('');
+  const [gasActiveInput, setGasActiveInput] = useState(false);
   const relevantGas = gasInfo.find((gas) => gas.id === activeGasId);
   return (
     <Section
@@ -130,15 +125,9 @@ const GasHandbook = (props) => {
 const ReactionHandbook = (props) => {
   const { act, data } = useBackend<{ reactionInfo: Reaction[] }>();
   const { reactionInfo } = data;
-  const [activeGasId, setActiveGasId] = useLocalState('activeGasId', '');
-  const [activeReactionId, setActiveReactionId] = useLocalState(
-    'activeReactionId',
-    '',
-  );
-  const [reactionActiveInput, setReactionActiveInput] = useLocalState(
-    'reactionActiveInput',
-    false,
-  );
+  const [activeGasId, setActiveGasId] = useState('');
+  const [activeReactionId, setActiveReactionId] = useState('');
+  const [reactionActiveInput, setReactionActiveInput] = useState(false);
   const relevantReaction = reactionInfo?.find(
     (reaction) => reaction.id === activeReactionId,
   );
@@ -222,10 +211,7 @@ export const AtmosHandbookContent = (props: { vertical?: boolean }) => {
 };
 
 export const atmosHandbookHooks = () => {
-  const [activeGasId, setActiveGasId] = useLocalState('activeGasId', '');
-  const [activeReactionId, setActiveReactionId] = useLocalState(
-    'activeReactionId',
-    '',
-  );
+  const [activeGasId, setActiveGasId] = useState('');
+  const [activeReactionId, setActiveReactionId] = useState('');
   return [setActiveGasId, setActiveReactionId];
 };

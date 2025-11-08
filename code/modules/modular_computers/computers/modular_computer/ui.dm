@@ -38,7 +38,10 @@
 /obj/item/modular_computer/proc/get_header_data(list/data)
 	LAZYINITLIST(data)
 	data["PC_batteryicon"] = get_battery_icon()
-	data["PC_showbatteryicon"] = !!battery_module
+	var/battery_powered = FALSE
+	if(battery_module)
+		battery_powered = TRUE
+	data["PC_showbatteryicon"] = battery_powered
 	data["PC_batterypercent"] = battery_module ? "[round(battery_module.battery.percent())] %" : "N/C"
 	data["PC_apclinkicon"] = (tesla_link?.enabled && apc_powered) ? "charging.gif" : ""
 	data["PC_device_theme"] = active_program ? active_program.tgui_theme : "scc"

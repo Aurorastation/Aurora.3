@@ -149,20 +149,16 @@ SUBSYSTEM_DEF(tgui)
 		datum/src_object,
 		datum/tgui/ui)
 	// Look up a UI if it wasn't passed
-	// to_chat(world, "/datum/controller/subsystem/tgui/proc/try_update_ui()")
-	if(!isnull(ui))
-		// to_chat(world, "!isnull(ui)")
+	if(isnull(ui))
 		ui = get_open_ui(user, src_object)
 	// Couldn't find a UI.
 	if(isnull(ui))
-		// to_chat(world, "isnull(ui)")
 		return null
 	ui.process_status()
 	// UI ended up with the closed status
 	// or is actively trying to close itself.
 	// FIXME: Doesn't actually fix the paper bug.
 	if(ui.status <= UI_CLOSE)
-		// to_chat(world, "ui.status <= UI_CLOSE")
 		ui.close()
 		return null
 	ui.send_update()

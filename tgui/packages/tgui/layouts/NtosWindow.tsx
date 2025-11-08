@@ -24,7 +24,8 @@ export type NTOSData = {
   alert_style: number;
   alert_color: string;
   alert_name: string;
-  PC_batteryicon: string | null;
+  PC_showbatteryicon: BooleanLike;
+  PC_batteryicon: string;
   PC_batterypercent: string | null;
   PC_device_theme: string;
   PC_lowpower_mode: BooleanLike;
@@ -59,6 +60,7 @@ export const NtosWindow = (props) => {
   const { act, data } = useBackend<NTOSData>();
   const {
     PC_device_theme,
+    PC_showbatteryicon,
     PC_batteryicon,
     PC_batterypercent,
     PC_ntneticon,
@@ -108,7 +110,7 @@ export const NtosWindow = (props) => {
                 />
               )}
             </Box>
-            {!!PC_batteryicon && (
+            {PC_showbatteryicon ? (
               <Box inline mr={1}>
                 <img
                   className="NtosHeader__icon"
@@ -116,6 +118,8 @@ export const NtosWindow = (props) => {
                 />
                 {PC_batterypercent}
               </Box>
+            ) : (
+              <Box>''</Box>
             )}
             {!!PC_showexitprogram && (
               <Button

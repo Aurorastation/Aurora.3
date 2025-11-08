@@ -72,7 +72,7 @@ export const ChatClient = (props) => {
                 <Input
                   value={data.ringtone}
                   placeholder={data.ringtone}
-                  onChange={(v) => act('ringtone', { ringtone: v })}
+                  onEnter={(v) => act('ringtone', { ringtone: v })}
                 />
               ) : (
                 ''
@@ -150,7 +150,7 @@ export const AllUsers = (props) => {
         height="10%"
         width="40%"
         maxLength={512}
-        onChange={(value) => {
+        onEnter={(value) => {
           setSearchTerm(value);
         }}
         value={searchTerm}
@@ -208,7 +208,7 @@ export const Chat = (props) => {
                 <Input
                   placeholder="New Password"
                   value={password}
-                  onChange={(v) => {
+                  onEnter={(v) => {
                     setPassword(v);
                     act('set_password', {
                       password: password,
@@ -232,7 +232,7 @@ export const Chat = (props) => {
                 <Input
                   placeholder="New Title"
                   value={title}
-                  onChange={(v) => {
+                  onEnter={(v) => {
                     setTitle(v);
                     act('change_title', {
                       title: title,
@@ -291,7 +291,7 @@ export const Chat = (props) => {
           placeholder="Type your message. Press enter to send."
           width="100%"
           selfClear
-          onChange={(v) => {
+          onEnter={(v) => {
             setNewMessage(v);
             act('send', {
               message: newMessage,
@@ -365,7 +365,7 @@ export const ChannelsWindow = (props) => {
             <Input
               placeholder="New Channel Name"
               value={channelName}
-              onChange={(v) => {
+              onEnter={(v) => {
                 setChannelName(v);
                 act('new_channel', { new_channel: channelName });
                 setCreatingChannelName(0);
@@ -385,7 +385,7 @@ export const ChannelsWindow = (props) => {
           height="10%"
           width="40%"
           maxLength={512}
-          onChange={(value) => {
+          onEnter={(value) => {
             setChannelSearchTerm(value);
           }}
           value={channelSearchTerm}
@@ -414,7 +414,7 @@ export const ChannelsWindow = (props) => {
                         <Input
                           placeholder="Enter Password"
                           value={joinPassword}
-                          onChange={(v) => {
+                          onEnter={(v) => {
                             setJoinPassword(v);
                             act('join', {
                               target: channel.ref,
