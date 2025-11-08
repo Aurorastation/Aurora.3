@@ -82,7 +82,7 @@
 
 	// Extremely short expiration time for a food item.
 	persistence_expiration_time_days = 1
-	allow_persistence = TRUE
+	persistence_supported = TRUE
 
 /obj/item/mollusc/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -100,6 +100,7 @@
 		if(istype(object, /obj/machinery/smartfridge))
 			var/obj/machinery/smartfridge/O = object
 			O.add_fruit_from_turf()
+			break
 
 /obj/item/mollusc/barnacle
 	name = "barnacle"

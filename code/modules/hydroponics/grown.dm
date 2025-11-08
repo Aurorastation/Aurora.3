@@ -16,7 +16,7 @@
 
 	// For storage in a smartfridge, we only keep most snacks for at most 2 days.
 	persistence_expiration_time_days = 2
-	allow_persistence = TRUE
+	persistence_supported = TRUE
 
 /obj/item/reagent_containers/food/snacks/grown/Initialize(loca, planttype)
 	. = ..()
@@ -372,6 +372,7 @@
 		if(istype(object, /obj/machinery/smartfridge))
 			var/obj/machinery/smartfridge/O = object
 			O.add_fruit_from_turf()
+			break
 
 /obj/item/reagent_containers/food/snacks/fruit_slice
 	name = "fruit slice"

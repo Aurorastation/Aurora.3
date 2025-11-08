@@ -80,7 +80,7 @@
 	/// Expiration time used when saving/updating a persistent type, this can be changed depending on the use case by assigning a new value
 	var/persistence_expiration_time_days = PERSISTENT_DEFAULT_EXPIRATION_DAYS
 	/// Objects that wish to check "only persistable" items can check this variable.
-	var/allow_persistence = FALSE
+	var/persistence_supported = FALSE
 	/* END PERSISTENCE VARS */
 
 /obj/Destroy()

@@ -15,7 +15,7 @@ GLOBAL_LIST_EMPTY(plant_seed_sprites)
 	// Extremely short expiration time, largely just for xenobotanists to 'save' their progress between rounds.
 	// TODO: Seed data currently isn't persistent
 	persistence_expiration_time_days = 1
-	allow_persistence = TRUE
+	persistence_supported = TRUE
 
 /obj/item/seeds/Initialize()
 	update_seed()
@@ -115,6 +115,7 @@ GLOBAL_LIST_EMPTY(plant_seed_sprites)
 		if(istype(object, /obj/machinery/smartfridge))
 			var/obj/machinery/smartfridge/O = object
 			O.add_fruit_from_turf()
+			break
 
 /obj/item/seeds/cutting
 	name = SEED_NOUN_CUTTINGS

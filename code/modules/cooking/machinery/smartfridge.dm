@@ -375,7 +375,7 @@
 		attacking_item.forceMove(src)
 		item_quants[attacking_item.name]++
 
-		if(attacking_item.allow_persistence)
+		if(attacking_item.persistence_supported)
 			// Persistent smartfridge contents, adding items to the smartfridge makes them appear in later rounds.
 			// Items added by this in general should have an extremely short persistent duration.
 			SSpersistence.register_track(attacking_item, ckey(usr.ckey))
@@ -395,7 +395,7 @@
 				item_quants[G.name]++
 				plants_loaded++
 
-				if(G.allow_persistence)
+				if(G.persistence_supported)
 					// As above with adding a single persistent item, if we're adding a whole bag full of items, we can make those persist too.
 					SSpersistence.register_track(G, ckey(usr.ckey))
 		if(plants_loaded)
@@ -493,7 +493,7 @@
 						else
 							O.forceMove(loc)
 
-						if(O.allow_persistence)
+						if(O.persistence_supported)
 							// A human took a fruit out, now de-persist it.
 							SSpersistence.deregister_track(O)
 
@@ -527,7 +527,7 @@
 		return FALSE
 	throw_item.throw_at(target,16,3,src)
 
-	if(throw_item.allow_persistence)
+	if(throw_item.persistence_supported)
 		// Machine threw the item, but let's remove it from persistence tracking anyways so as to encourage people to pick up the fruits and either eat or put them back.
 		SSpersistence.deregister_track(throw_item)
 
