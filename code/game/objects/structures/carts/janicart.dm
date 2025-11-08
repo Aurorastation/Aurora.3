@@ -256,7 +256,7 @@
 						to_chat(user, SPAN_NOTICE("You take [my_bucket] from [src]."))
 						my_bucket = null
 				if(/obj/item/clothing/suit/caution)
-					if(signs?.len)
+					if(signs)
 						user.put_in_hands(src[chosen_item])
 						to_chat(user, SPAN_NOTICE("You take [signs[chosen_item]] from [src]."))
 						signs -= 1
