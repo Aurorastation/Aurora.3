@@ -80,9 +80,26 @@
 	var/meat_type = /obj/item/reagent_containers/food/snacks/fish/mollusc
 	var/shell_type = /obj/item/trash/mollusc_shell
 
+	// Extremely short expiration time for a food item.
+	persistence_expiration_time_days = 1
+	allow_persistence = TRUE
+
 /obj/item/mollusc/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "You will need a sharp or edged implement to pry it open. You can also try opening it in your hand if you're strong enough."
+
+/*#############################################
+				PERSISTENT
+#############################################*/
+
+/obj/item/mollusc/persistence_apply_content(content, x, y, z)
+	src.x = x
+	src.y = y
+	src.z = z
+	for(var/obj/object in loc)
+		if(istype(object, /obj/machinery/smartfridge))
+			var/obj/machinery/smartfridge/O = object
+			O.add_fruit_from_turf()
 
 /obj/item/mollusc/barnacle
 	name = "barnacle"

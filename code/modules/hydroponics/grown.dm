@@ -14,6 +14,10 @@
 	var/datum/seed/seed
 	var/potency = -1
 
+	// For storage in a smartfridge, we only keep most snacks for at most 2 days.
+	persistence_expiration_time_days = 2
+	allow_persistence = TRUE
+
 /obj/item/reagent_containers/food/snacks/grown/Initialize(loca, planttype)
 	. = ..()
 	if(!dried_type)
@@ -355,6 +359,19 @@
 		reagents.remove_any(rand(1,3)) //Todo, make it actually remove the reagents the seed uses.
 		seed.do_thorns(H,src)
 		seed.do_sting(H,src,pick(BP_R_HAND,BP_L_HAND))
+
+/*#############################################
+				PERSISTENT
+#############################################*/
+
+/obj/item/reagent_containers/food/snacks/grown/persistence_apply_content(content, x, y, z)
+	src.x = x
+	src.y = y
+	src.z = z
+	for(var/obj/object in loc)
+		if(istype(object, /obj/machinery/smartfridge))
+			var/obj/machinery/smartfridge/O = object
+			O.add_fruit_from_turf()
 
 /obj/item/reagent_containers/food/snacks/fruit_slice
 	name = "fruit slice"

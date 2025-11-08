@@ -12,6 +12,11 @@ GLOBAL_LIST_EMPTY(plant_seed_sprites)
 	var/datum/seed/seed
 	var/modified = 0
 
+	// Extremely short expiration time, largely just for xenobotanists to 'save' their progress between rounds.
+	// TODO: Seed data currently isn't persistent
+	persistence_expiration_time_days = 1
+	allow_persistence = TRUE
+
 /obj/item/seeds/Initialize()
 	update_seed()
 	. = ..()
@@ -97,6 +102,19 @@ GLOBAL_LIST_EMPTY(plant_seed_sprites)
 	var/higher_light_tolerance = GET_SEED_TRAIT(seed, TRAIT_IDEAL_LIGHT) + GET_SEED_TRAIT(seed, TRAIT_LIGHT_TOLERANCE)
 
 	. += SPAN_NOTICE("This grows optimally between <b>[lower_heat_preference] and [higher_heat_preference] kelvin</b>, and between <b>[lower_light_preference] and [higher_light_preference] lumens.</b> It is capable of any growth at all between <b>[lower_heat_tolerance] and [higher_heat_tolerance] kelvin</b>, and between <b>[lower_light_tolerance] and [higher_light_tolerance] lumens.</b>")
+
+/*#############################################
+				PERSISTENT
+#############################################*/
+
+/obj/item/seeds/persistence_apply_content(content, x, y, z)
+	src.x = x
+	src.y = y
+	src.z = z
+	for(var/obj/object in loc)
+		if(istype(object, /obj/machinery/smartfridge))
+			var/obj/machinery/smartfridge/O = object
+			O.add_fruit_from_turf()
 
 /obj/item/seeds/cutting
 	name = SEED_NOUN_CUTTINGS

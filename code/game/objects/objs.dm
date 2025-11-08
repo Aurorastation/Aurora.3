@@ -66,17 +66,21 @@
 	/* END ACCESS VARS */
 
 	/* START PERSISTENCE VARS */
-	// State check if the subsystem is tracking the object, used for easy state checking without iterating the register
+	/// State check if the subsystem is tracking the object, used for easy state checking without iterating the register
 	var/persistence_track_active = FALSE
-	// Tracking ID of the object used by the persistence subsystem
+	/// Tracking ID of the object used by the persistence subsystem
 	var/persistence_track_id = 0
-	// Author ckey of the object used in persistence subsystem
-	// Note: Not every type can have an author, like generated dirt for example
-	// Additionally, the ckey is only an indicator, for example: A player could pin a paper without having written it
-	// This should be considered for any moderation purpose
+	/**
+	 * Author ckey of the object used in persistence subsystem
+	 * Note: Not every type can have an author, like generated dirt for example
+	 * Additionally, the ckey is only an indicator, for example: A player could pin a paper without having written it
+	 * This should be considered for any moderation purpose
+	 */
 	var/persistence_author_ckey = null
-	// Expiration time used when saving/updating a persistent type, this can be changed depending on the use case by assigning a new value
-	var/persistance_expiration_time_days = PERSISTENT_DEFAULT_EXPIRATION_DAYS
+	/// Expiration time used when saving/updating a persistent type, this can be changed depending on the use case by assigning a new value
+	var/persistence_expiration_time_days = PERSISTENT_DEFAULT_EXPIRATION_DAYS
+	/// Objects that wish to check "only persistable" items can check this variable.
+	var/allow_persistence = FALSE
 	/* END PERSISTENCE VARS */
 
 /obj/Destroy()

@@ -21,6 +21,10 @@
 	var/is_secure = 0
 	var/machineselect = 0
 
+	/**
+	 * The list of unique item types that the smartfridge will accept.
+	 * Also review similar lists on containers such as plant bags if you add anything to this.
+	 */
 	var/list/accepted_items = list(/obj/item/reagent_containers/food/snacks/grown, /obj/item/seeds, /obj/item/mollusc)
 
 	var/cooling = 0 //Whether or not to vend products at the cooling temperature
@@ -96,13 +100,23 @@
 		item_quants[g.name]++
 	update_overlays()
 
-/obj/machinery/smartfridge/Initialize()
+/obj/machinery/smartfridge/Initialize(mapload)
+	if(mapload) // Attempt to load persistent items.
+		add_fruit_from_turf()
+
 	. = ..()
 	if(is_secure)
 		wires = new/datum/wires/smartfridge/secure(src)
 	else
 		wires = new(src)
 	update_icon()
+
+/obj/machinery/smartfridge/proc/add_fruit_from_turf()
+	for(var/obj/item/I in loc)
+		if(length(contents) >= max_n_of_items) break // Don't bypass the content max
+		if(!accept_check(I)) continue // Skip items we can't hold.
+		I.forceMove(src)
+		item_quants[I.name]++
 
 /obj/machinery/smartfridge/Destroy()
 	qdel(wires)
@@ -360,6 +374,12 @@
 		user.remove_from_mob(attacking_item)
 		attacking_item.forceMove(src)
 		item_quants[attacking_item.name]++
+
+		if(attacking_item.allow_persistence)
+			// Persistent smartfridge contents, adding items to the smartfridge makes them appear in later rounds.
+			// Items added by this in general should have an extremely short persistent duration.
+			SSpersistence.register_track(attacking_item, ckey(usr.ckey))
+
 		user.visible_message("<b>[user]</b> adds \a [attacking_item] to [src].", SPAN_NOTICE("You add [attacking_item] to [src]."))
 		update_overlays()
 		return
@@ -374,6 +394,10 @@
 				P.remove_from_storage(G,src)
 				item_quants[G.name]++
 				plants_loaded++
+
+				if(G.allow_persistence)
+					// As above with adding a single persistent item, if we're adding a whole bag full of items, we can make those persist too.
+					SSpersistence.register_track(G, ckey(usr.ckey))
 		if(plants_loaded)
 			user.visible_message("<b>[user]</b> loads [src] with [P].", SPAN_NOTICE("You load [src] with [P]."))
 			if(length(P.contents) > 0)
@@ -468,6 +492,11 @@
 							user.put_in_hands(O)
 						else
 							O.forceMove(loc)
+
+						if(O.allow_persistence)
+							// A human took a fruit out, now de-persist it.
+							SSpersistence.deregister_track(O)
+
 						i--
 						update_overlays()
 						if(i <= 0)
@@ -497,6 +526,11 @@
 	if(!throw_item)
 		return FALSE
 	throw_item.throw_at(target,16,3,src)
+
+	if(throw_item.allow_persistence)
+		// Machine threw the item, but let's remove it from persistence tracking anyways so as to encourage people to pick up the fruits and either eat or put them back.
+		SSpersistence.deregister_track(throw_item)
+
 	visible_message(SPAN_DANGER("[src] launches [throw_item.name] at [target.name]!"))
 	return TRUE
 

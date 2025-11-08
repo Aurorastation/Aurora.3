@@ -1,0 +1,4 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - rscadd: "PERSISTENCE: Hydroponics and xenobotany smartfridges now have short-duration persistent contents. Grown foods added to a smartfridge will persist between rounds for up to 2 days."
