@@ -107,7 +107,22 @@ GLOBAL_LIST_EMPTY(plant_seed_sprites)
 				PERSISTENT
 #############################################*/
 
+/obj/item/seeds/persistence_get_content()
+	var/list/content = list()
+	if (seed) // Retain seed traits (mutations) between rounds
+		content["seed_datum"] = seed
+	if (seed_type) // Retain seed visual changes between rounds
+		content["seed_type"] = seed_type
+
+	return content
+
 /obj/item/seeds/persistence_apply_content(content, x, y, z)
+	if (content["seed_datum"]) // Apply any seed mutations
+		seed = content["seed_datum"]
+	if (content["seed_type"]) // Apply any seed visual changes
+		seed_type = content["seed_type"]
+	update_seed()
+
 	src.x = x
 	src.y = y
 	src.z = z
