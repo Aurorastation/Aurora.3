@@ -64,6 +64,11 @@ type ByondType = {
   strictMode: boolean;
 
   /**
+   * The external URL for the IndexedDB IFrame to use as the origin
+   */
+  storageCdn: string;
+
+  /**
    * Makes a BYOND call.
    *
    * If path is empty, this will trigger a Topic call.
@@ -141,11 +146,6 @@ type ByondType = {
    * Uses a special encoding to preserve `Infinity` and `NaN`.
    */
   parseJson(text: string): any;
-
-  /**
-   * Downloads a blob, platform-agnostic
-   */
-  saveBlob(blob: Blob, filename: string, ext: string): void;
 
   /**
    * Sends a message to `/datum/tgui_window` which hosts this window instance.
