@@ -20,6 +20,7 @@
 	slot_flags = SLOT_HEAD
 	body_parts_covered = HEAD
 	attack_verb = list("bapped")
+	persistence_supported = TRUE
 
 	///What's actually written on the paper.
 	var/info

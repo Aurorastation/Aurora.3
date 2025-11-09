@@ -11,6 +11,7 @@
 	drop_sound = 'sound/items/drop/wrapper.ogg'
 	pickup_sound = 'sound/items/pickup/wrapper.ogg'
 	persistency_considered_trash = TRUE
+	persistence_supported = TRUE
 
 /obj/item/trash/attack(mob/living/target_mob, mob/living/user, target_zone)
 	return
