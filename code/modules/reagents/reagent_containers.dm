@@ -361,12 +361,24 @@
 
 /obj/item/reagent_containers/persistence_get_content()
 	var/list/content = list()
-	content["reagents"] = reagents // Retain reagent contents between rounds.
+	if(istype(reagents, /datum/reagents))
+		var/datum/reagents/old_reagents = reagents
+		old_reagents.my_atom = null // DON'T keep a reference though.
+		content["reagents"] = old_reagents // Retain reagent contents between rounds.
+	return content
 
 // This will only apply to reagent containers that have persistence_supported set to TRUE. It is defaulted to false.
 // We have thousands of items that would want to use this logic and I'm not putting it on all of them by hand.
 // Override it if you want to use persistence with something else.
 /obj/item/reagent_containers/persistence_apply_content(content, x, y, z)
 	..()
-	if (content["reagents"]) // Apply previous reagent contents.
-		reagents = content["reagents"]
+	var/old_reagents = content["reagents"]
+	if(istype(old_reagents, /datum/reagents))
+		var/datum/reagents/reagents = old_reagents
+		// Apply previous reagent contents, except for the atom reference.
+		src.reagents.primary_reagent = reagents.primary_reagent
+		src.reagents.reagent_volumes = reagents.reagent_volumes
+		src.reagents.reagent_data = reagents.reagent_data
+		src.reagents.total_volume = reagents.total_volume
+		src.reagents.maximum_volume = reagents.maximum_volume
+		src.reagents.thermal_energy = reagents.thermal_energy
