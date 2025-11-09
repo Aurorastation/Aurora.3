@@ -122,7 +122,7 @@ PROCESSING_SUBSYSTEM_DEF(nanoui)
 			ui.close()
 			.++
 
-	*manager/close_user_uis mob [user.name] closed [open_uis.len] of [.] uis")
+	//testing("nanomanager/close_user_uis mob [user.name] closed [open_uis.len] of [.] uis")
 
 /**
  * Add a /nanoui ui to the list of open uis
