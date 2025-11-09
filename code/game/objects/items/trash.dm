@@ -15,6 +15,17 @@
 /obj/item/trash/attack(mob/living/target_mob, mob/living/user, target_zone)
 	return
 
+/obj/item/trash/persistence_get_content()
+	SHOULD_CALL_PARENT(FALSE)
+	var/list/content = list()
+	return content
+
+/obj/item/trash/persistence_apply_content(content, x, y, z)
+	SHOULD_CALL_PARENT(FALSE)
+	src.x = x
+	src.y = y
+	src.z = z
+
 /obj/item/trash/koisbar
 	name = "\improper k'ois bar wrapper"
 	icon_state = "koisbar"
