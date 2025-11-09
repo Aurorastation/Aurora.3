@@ -41,6 +41,12 @@
 	)
 	//The above list a misnomer. This basically means that anything in this list has their own way of handling reagent transfers and should be ignored in afterattack.
 
+	// We're generalized at the level of all reagent containers supporting persistence.
+	persistence_supported = TRUE
+	// For smartfridge storage, these should not be kept for longer than a day.
+	// This can be set higher for any children of this type.
+	persistence_expiration_time_days = 1
+
 /obj/item/reagent_containers/verb/set_APTFT() //set amount_per_transfer_from_this
 	set name = "Set transfer amount"
 	set category = "Object"
