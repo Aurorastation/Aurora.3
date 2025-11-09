@@ -10,7 +10,7 @@ GLOBAL_LIST_EMPTY(plant_seed_sprites)
 	storage_slot_sort_by_name = TRUE
 	var/seed_type
 	var/datum/seed/seed
-	var/modified = 0
+	var/modified = FALSE
 
 	// Extremely short expiration time, largely just for xenobotanists to 'save' their progress between rounds.
 	// TODO: Seed data currently isn't persistent
@@ -113,6 +113,7 @@ GLOBAL_LIST_EMPTY(plant_seed_sprites)
 		content["seed_datum"] = seed
 	if (seed_type) // Retain seed visual changes between rounds
 		content["seed_type"] = seed_type
+	content["modified"] = modified // Retain whether the plant is a mutant or not.
 
 	return content
 
@@ -121,7 +122,8 @@ GLOBAL_LIST_EMPTY(plant_seed_sprites)
 		seed = content["seed_datum"]
 	if (content["seed_type"]) // Apply any seed visual changes
 		seed_type = content["seed_type"]
-	update_seed()
+	modified = content["modified"] // Apply the mutant status if previously stored.
+	update_seed() // Update the seed's visuals per previously stored values.
 
 	src.x = x
 	src.y = y

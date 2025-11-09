@@ -359,10 +359,17 @@
 				PERSISTENT
 #############################################*/
 
+/obj/item/reagent_containers/persistence_get_content()
+	var/list/content = list()
+	content["reagents"] = reagents // Retain reagent contents between rounds.
+
 // This will only apply to reagent containers that have persistence_supported set to TRUE. It is defaulted to false.
 // We have thousands of items that would want to use this logic and I'm not putting it on all of them by hand.
 // Override it if you want to use persistence with something else.
 /obj/item/reagent_containers/persistence_apply_content(content, x, y, z)
+	if (content["reagents"]) // Apply previous reagent contents.
+		reagents = content["reagents"]
+
 	src.x = x
 	src.y = y
 	src.z = z
