@@ -118,9 +118,9 @@
 	if (!isturf(src))
 		cleanup_events(src)
 
-	// var/ui_key = REF(src)
-	// if(LAZYISIN(SSnanoui.open_uis, ui_key))
-		// SSnanoui.close_uis(src)
+	var/ui_key = REF(src)
+	if(LAZYISIN(SSnanoui.open_uis, ui_key))
+		SSnanoui.close_uis(src)
 
 	//BEGIN: ECS SHIT
 	var/list/dc = _datum_components

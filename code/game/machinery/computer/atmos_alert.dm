@@ -24,7 +24,7 @@ GLOBAL_LIST_EMPTY(minor_air_alarms)
 
 /obj/machinery/computer/atmos_alert/attack_hand(mob/user)
 	ui_interact(user)
-/*
+
 /obj/machinery/computer/atmos_alert/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	var/data[0]
 	var/major_alarms[0]
@@ -45,7 +45,7 @@ GLOBAL_LIST_EMPTY(minor_air_alarms)
 		ui.set_initial_data(data)
 		ui.open()
 		ui.set_auto_update(1)
-*/
+
 /obj/machinery/computer/atmos_alert/update_icon()
 	if(!(stat & (NOPOWER|BROKEN)))
 		var/list/alarms = GLOB.atmosphere_alarm.major_alarms()

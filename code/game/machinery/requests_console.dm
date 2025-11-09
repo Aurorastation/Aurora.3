@@ -237,7 +237,7 @@ GLOBAL_LIST_INIT_TYPED(allConsoles, /obj/machinery/requests_console, list())
 	if(..(user))
 		return
 	ui_interact(user)
-/*
+
 /obj/machinery/requests_console/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	var/data[0]
 
@@ -292,7 +292,7 @@ GLOBAL_LIST_INIT_TYPED(allConsoles, /obj/machinery/requests_console, list())
 		ui = new(user, src, ui_key, "requests_console.tmpl", "[department] Requests Console", 520, 410)
 		ui.set_initial_data(data)
 		ui.open()
-*/
+
 /obj/machinery/requests_console/Topic(href, href_list)
 	if(..())	return
 	usr.set_machine(src)

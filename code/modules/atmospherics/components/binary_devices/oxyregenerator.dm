@@ -156,7 +156,7 @@
 		icon_state = "off"
 	else
 		icon_state = "[use_power ? "on" : "off"]"
-/*
+
 /obj/machinery/atmospherics/binary/oxyregenerator/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1)
 	var/data[0]
 	data["on"] = use_power ? 1 : 0
@@ -180,7 +180,7 @@
 		ui.set_initial_data(data)
 		ui.open()
 		ui.set_auto_update(1)
-*/
+
 /obj/machinery/atmospherics/binary/oxyregenerator/Topic(href, href_list)
 	if(..())
 		return 1

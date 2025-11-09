@@ -31,7 +31,7 @@
 
 		if(WIRE_TRANSMIT)
 			R.set_broadcasting(!R.get_broadcasting() && !is_cut(WIRE_SIGNAL))
-	// SSnanoui.update_uis(holder)
+	SSnanoui.update_uis(holder)
 
 /datum/wires/radio/on_cut(wire, mend, source)
 	var/obj/item/device/radio/R = holder
@@ -45,4 +45,4 @@
 
 		if(WIRE_TRANSMIT)
 			R.set_broadcasting(mend && !is_cut(WIRE_SIGNAL))
-	// SSnanoui.update_uis(holder)
+	SSnanoui.update_uis(holder)

@@ -116,7 +116,7 @@
 		return
 
 	// ui_interact(user)
-/*
+
 /obj/machinery/media/jukebox/ui_interact(mob/user, ui_key = "jukebox", var/datum/nanoui/ui = null, var/force_open = 1)
 	var/title = "Music Player"
 	var/data[0]
@@ -141,7 +141,7 @@
 		ui.set_initial_data(data)
 		// open the new ui window
 		ui.open()
-*/
+
 /obj/machinery/media/jukebox/attack_ai(mob/user as mob)
 	if(!ai_can_interact(user))
 		return

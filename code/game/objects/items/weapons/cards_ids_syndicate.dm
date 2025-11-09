@@ -52,7 +52,7 @@
 				..()
 	else
 		..()
-/*
+
 /obj/item/card/id/syndicate/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	var/data[0]
 	var/entries[0]
@@ -76,7 +76,7 @@
 		ui = new(user, src, ui_key, "agent_id_card.tmpl", "Agent id", 600, 400)
 		ui.set_initial_data(data)
 		ui.open()
-*/
+
 /obj/item/card/id/syndicate/proc/register_user(var/mob/user)
 	if(!istype(user) || user == registered_user)
 		return FALSE
@@ -253,7 +253,7 @@
 					. = 1
 
 	// Always update the UI, or buttons will spin indefinitely
-	// SSnanoui.update_uis(src)
+	SSnanoui.update_uis(src)
 
 GLOBAL_LIST_INIT_TYPED(id_card_states, /datum/card_state, null)
 /proc/id_card_states()

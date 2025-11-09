@@ -1,4 +1,3 @@
-/*
 /mob/living/carbon/human/proc/change_appearance(var/flags = APPEARANCE_ALL_HAIR, var/mob/user = src, var/check_species_whitelist = TRUE, var/list/species_whitelist = list(), var/list/species_blacklist = list(), var/list/culture_restriction = list(), var/list/origin_restriction = list(), var/datum/ui_state/ui_state = GLOB.always_state, var/datum/state_object = src, var/update_id = FALSE)
 	var/datum/tgui_module/appearance_changer/AC = new /datum/tgui_module/appearance_changer(src, check_species_whitelist, species_whitelist, species_blacklist, culture_restriction, origin_restriction, ui_state, state_object, update_id)
 	AC.flags = flags
@@ -21,7 +20,7 @@
 		if(istype(tag))
 			tag.modify_tag_data(TRUE)
 	return 1
-*/
+
 /mob/living/carbon/human/proc/change_gender(var/set_gender, var/ignore_gender_check = FALSE)
 	if(gender == set_gender && !ignore_gender_check)
 		return

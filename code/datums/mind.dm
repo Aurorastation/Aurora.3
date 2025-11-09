@@ -94,7 +94,7 @@
 			current.remove_vampire_powers()
 		current.mind = null
 
-		// SSnanoui.user_transferred(current, new_character)
+		SSnanoui.user_transferred(current, new_character)
 		SStgui.on_transfer(current, new_character)
 		if(current.client && GLOB.ticket_panels[current.client])
 			var/datum/ticket_panel/tp = GLOB.ticket_panels[current.client]

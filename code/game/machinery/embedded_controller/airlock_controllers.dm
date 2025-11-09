@@ -51,7 +51,7 @@
 //Advanced airlock controller for when you want a more versatile airlock controller - useful for turning simple access control rooms into airlocks
 /obj/machinery/embedded_controller/radio/airlock/advanced_airlock_controller
 	name = "Advanced Airlock Controller"
-/*
+
 /obj/machinery/embedded_controller/radio/airlock/advanced_airlock_controller/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	var/data[0]
 
@@ -74,7 +74,7 @@
 		ui.open()
 
 		ui.set_auto_update(1)
-*/
+
 /obj/machinery/embedded_controller/radio/airlock/advanced_airlock_controller/Topic(href, href_list)
 	if(..())
 		return
@@ -110,7 +110,7 @@
 	name = "Airlock Controller"
 	tag_secure = TRUE
 
-/*
+
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	var/data[0]
 
@@ -131,7 +131,7 @@
 		ui.open()
 
 		ui.set_auto_update(1)
-*/
+
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller/Topic(href, href_list)
 	if(..())
 		return
@@ -175,7 +175,7 @@
 			icon_state = "access_control_standby"
 	else
 		icon_state = "access_control_off"
-/*
+
 /obj/machinery/embedded_controller/radio/airlock/access_controller/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	var/data[0]
 
@@ -195,7 +195,7 @@
 		ui.open()
 
 		ui.set_auto_update(1)
-*/
+
 /obj/machinery/embedded_controller/radio/airlock/access_controller/Topic(href, href_list)
 	if(..())
 		return
