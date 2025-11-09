@@ -135,7 +135,7 @@ ABSTRACT_TYPE(/datum/computer_file/program)
 	var/datum/computer_file/program/temp = ..(rename, computer)
 	temp.required_access_run = required_access_run
 	temp.required_access_download = required_access_download
-	// temp.nanomodule_path = nanomodule_path
+	temp.nanomodule_path = nanomodule_path
 	temp.filedesc = filedesc
 	temp.program_icon_state = program_icon_state
 	temp.requires_ntnet = requires_ntnet
@@ -325,13 +325,11 @@ ABSTRACT_TYPE(/datum/computer_file/program)
 		return NM.check_eye(user)
 	else
 		return -1
-	return
 
 /// Relays the call to nano module, if we have one
 /datum/computer_file/program/proc/grants_equipment_vision(var/mob/user)
 	if(NM)
 		return NM.grants_equipment_vision(user)
-	return
 
 /datum/computer_file/program/proc/message_dead(var/message)
 	for(var/mob/M in GLOB.player_list)
