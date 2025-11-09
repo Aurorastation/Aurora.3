@@ -1408,8 +1408,6 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	content["icon"] = icon
 	content["icon_state"] = icon_state
 	content["item_state"] = item_state
-	content["drop_sound"] = drop_sound
-	content["pickup_sound"] = pickup_sound
 	return content
 
 /obj/item/persistence_apply_content(content, x, y, z)
@@ -1419,8 +1417,6 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	icon = file(content["icon"])
 	icon_state = content["icon_state"]
 	item_state = content["item_state"]
-	drop_sound = file(content["drop_sound"])
-	pickup_sound = file(content["pickup_sound"])
 	src.x = x
 	src.y = y
 	src.z = z

@@ -282,7 +282,7 @@ SUBSYSTEM_DEF(persistence)
  * The ckey is an optional argument and is used for tracking user generated content by adding an author to the persistent data.
  */
 /datum/controller/subsystem/persistence/proc/register_track(var/obj/new_track, var/ckey)
-	if(new_track.persistence_track_active) // Prevent multiple registers per object and removes the need to check the register if it's already in there
+	if(!new_track.should_persist() || new_track.persistence_track_active) // Prevent multiple registers per object and removes the need to check the register if it's already in there
 		return
 
 	var/turf/T = get_turf(new_track)

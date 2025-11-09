@@ -32,6 +32,10 @@
 
 /obj/item/reagent_containers/food/proc/on_consume(var/mob/user, var/mob/target)
 	var/slot = target.get_inventory_slot(src)
+	// Taking any bites out of food causes it to be no longer persistable.
+	persistence_supported = FALSE
+	// In case of fringe nonsense where someone somehow bit a currently persistent sandwich.
+	SSpersistence.deregister_track(src)
 	if(!reagents.total_volume)
 		if(bitecount==1)
 			target.visible_message("<b>[target]</b> [is_liquid ? "drinks" : "eats"] \the [src].", SPAN_NOTICE("You [is_liquid ? "drink" : "eat"] \the [src]."))
@@ -59,8 +63,6 @@
 
 /obj/item/reagent_containers/food/persistence_get_content()
 	var/list/content = ..()
-	content["bite_size"] = bitesize
-	content["bite_count"] = bitecount
 	content["filling_color"] = filling_color
 	if(ingredient_name)
 		content["ingredient_name"] = ingredient_name
@@ -68,8 +70,6 @@
 
 /obj/item/reagent_containers/food/persistence_apply_content(content, x, y, z)
 	..()
-	bitesize = content["bite_size"]
-	bitecount = content["bite_count"]
 	filling_color = content["filling_color"]
 	if(content["ingredient_name"])
 		ingredient_name = content["ingredient_name"]
