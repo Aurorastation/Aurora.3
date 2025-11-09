@@ -361,10 +361,12 @@
 
 /obj/item/reagent_containers/persistence_get_content()
 	var/list/content = list()
-	if(istype(reagents, /datum/reagents))
-		var/datum/reagents/old_reagents = reagents
-		old_reagents.my_atom = null // DON'T keep a reference though.
-		content["reagents"] = old_reagents // Retain reagent contents between rounds.
+	content["primary_reagent"] = reagents.primary_reagent
+	content["reagent_volumes"] = reagents.reagent_volumes
+	content["reagent_data"] = reagents.reagent_data
+	content["total_volume"] = reagents.total_volume
+	content["maximum_volume"] = reagents.maximum_volume
+	content["thermal_energy"] = reagents.thermal_energy
 	return content
 
 // This will only apply to reagent containers that have persistence_supported set to TRUE. It is defaulted to false.
@@ -372,13 +374,9 @@
 // Override it if you want to use persistence with something else.
 /obj/item/reagent_containers/persistence_apply_content(content, x, y, z)
 	..()
-	var/old_reagents = content["reagents"]
-	if(istype(old_reagents, /datum/reagents))
-		var/datum/reagents/reagents = old_reagents
-		// Apply previous reagent contents, except for the atom reference.
-		src.reagents.primary_reagent = reagents.primary_reagent
-		src.reagents.reagent_volumes = reagents.reagent_volumes
-		src.reagents.reagent_data = reagents.reagent_data
-		src.reagents.total_volume = reagents.total_volume
-		src.reagents.maximum_volume = reagents.maximum_volume
-		src.reagents.thermal_energy = reagents.thermal_energy
+	reagents.primary_reagent = content["primary_reagent"]
+	reagents.reagent_volumes = content["reagent_volumes"]
+	reagents.reagent_data = content["reagent_data"]
+	reagents.total_volume = content["total_volume"]
+	reagents.maximum_volume = content["maximum_volume"]
+	reagents.thermal_energy = content["thermal_energy"]
