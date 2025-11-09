@@ -354,3 +354,20 @@
 
 /obj/item/reagent_containers/proc/on_pour()
 	playsound(src, /singleton/sound_category/generic_pour_sound, 25, 1)
+
+/*#############################################
+				PERSISTENT
+#############################################*/
+
+// This will only apply to reagent containers that have persistence_supported set to TRUE. It is defaulted to false.
+// We have thousands of items that would want to use this logic and I'm not putting it on all of them.
+// Override it if you want to use persistence with something else.
+/obj/item/reagent_containers/persistence_apply_content(content, x, y, z)
+	src.x = x
+	src.y = y
+	src.z = z
+	for(var/obj/object in loc)
+		if(istype(object, /obj/machinery/smartfridge))
+			var/obj/machinery/smartfridge/O = object
+			O.add_fruit_from_turf()
+			break

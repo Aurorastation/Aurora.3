@@ -360,20 +360,6 @@
 		seed.do_thorns(H,src)
 		seed.do_sting(H,src,pick(BP_R_HAND,BP_L_HAND))
 
-/*#############################################
-				PERSISTENT
-#############################################*/
-
-/obj/item/reagent_containers/food/snacks/grown/persistence_apply_content(content, x, y, z)
-	src.x = x
-	src.y = y
-	src.z = z
-	for(var/obj/object in loc)
-		if(istype(object, /obj/machinery/smartfridge))
-			var/obj/machinery/smartfridge/O = object
-			O.add_fruit_from_turf()
-			break
-
 /obj/item/reagent_containers/food/snacks/fruit_slice
 	name = "fruit slice"
 	desc = "A slice of some tasty fruit."
