@@ -398,7 +398,7 @@
 		return
 
 	ui_interact(user)
-/*
+
 /obj/item/organ/internal/vaurca/preserve/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	var/mob/living/carbon/location = null
 
@@ -449,7 +449,7 @@
 		ui.open()
 		// auto update every Master Controller tick
 		ui.set_auto_update(1)
-*/
+
 /obj/item/organ/internal/vaurca/preserve/Topic(href, href_list)
 	..()
 	if (usr.stat|| usr.restrained())

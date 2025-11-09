@@ -274,7 +274,7 @@
 			user << browse(null, "window=AMcontrol")
 			return
 	return ui_interact(user)
-/*
+
 /obj/machinery/power/am_control_unit/ui_interact(mob/user, ui_key = "main")
 	if(!user)
 		return
@@ -311,7 +311,6 @@
 		// The UI is already open so push the new data to it
 		ui.push_data(data)
 
-*/
 /obj/machinery/power/am_control_unit/Topic(href, href_list)
 	if(..())
 		return TRUE

@@ -27,7 +27,7 @@
 	has_off_keyboards = TRUE
 	can_pass_under = FALSE
 	light_power_on = 1
-/*
+
 /obj/machinery/computer/ship/engines/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	if(!connected)
 		display_reconnect_dialog(user, "ship control systems")
@@ -61,7 +61,7 @@
 		ui.set_initial_data(data)
 		ui.open()
 		ui.set_auto_update(1)
-*/
+
 /obj/machinery/computer/ship/engines/Topic(href, href_list)
 	if(..())
 		return TOPIC_HANDLED

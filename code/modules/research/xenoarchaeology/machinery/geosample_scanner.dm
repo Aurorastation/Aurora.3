@@ -117,7 +117,7 @@
 		num_reagent_types += 1
 	if(total_purity && fresh_coolant)
 		coolant_purity = total_purity / fresh_coolant
-/*
+
 /obj/machinery/radiocarbon_spectrometer/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 
 	if(user.stat)
@@ -161,7 +161,7 @@
 		ui.open()
 		// auto update every Master Controller tick
 		ui.set_auto_update(1)
-*/
+
 /obj/machinery/radiocarbon_spectrometer/process()
 	if(scanning)
 		if(!scanned_item || scanned_item.loc != src)
