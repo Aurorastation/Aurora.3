@@ -16,7 +16,6 @@
 	var/is_liquid = TRUE
 	var/empty_icon_state
 
-
 /obj/item/reagent_containers/food/self_feed_message(var/mob/user)
 	to_chat(user, SPAN_NOTICE("You [is_liquid ? "drink from" : "eat"] \the [src]."))
 
