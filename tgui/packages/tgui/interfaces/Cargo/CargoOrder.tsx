@@ -318,7 +318,7 @@ export const ShowTrackingStatus = (props) => {
 
   return (
     <Section title="Tracking Information">
-      {/** biome-ignore lint/security/noDangerouslySetInnerHtml: Security issue to be tackled... later. */}
+      {/** biome-ignore lint/security/noDangerouslySetInnerHtml: Is sanitized by DOMPurify. */}
       <Box dangerouslySetInnerHTML={contentHtml} />
     </Section>
   );

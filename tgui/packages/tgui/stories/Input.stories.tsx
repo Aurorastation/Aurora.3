@@ -4,7 +4,6 @@
  * @license MIT
  */
 
-import { useState } from 'react';
 import {
   Box,
   DraggableControl,
@@ -16,24 +15,21 @@ import {
   Section,
   Slider,
 } from 'tgui-core/components';
+import { useLocalState } from '../backend';
 
 export const meta = {
   title: 'Input',
   render: () => <Story />,
 };
 
-function Story() {
-  const [number, setNumber] = useState(0);
-  const [text, setText] = useState('Sample text');
-
+const Story = (props) => {
+  const [string, setNumber] = useLocalState('string', 0);
+  const [text, setText] = useLocalState('text', 'Sample text');
   return (
     <Section>
       <LabeledList>
         <LabeledList.Item label="Input (onChange)">
-          <Input value={text} onChange={setText} />
-        </LabeledList.Item>
-        <LabeledList.Item label="Input (onInput)">
-          <Input value={text} onChange={setText} />
+          <Input value={text} onChange={(value) => setText(value)} />
         </LabeledList.Item>
         <LabeledList.Item label="NumberInput (onChange)">
           <NumberInput
@@ -41,7 +37,7 @@ function Story() {
             width="40px"
             step={1}
             stepPixelSize={5}
-            value={number}
+            value={string}
             minValue={-100}
             maxValue={100}
             onChange={(value) => setNumber(value)}
@@ -53,13 +49,72 @@ function Story() {
             width="40px"
             step={1}
             stepPixelSize={5}
-            value={number}
+            value={string}
             minValue={-100}
             maxValue={100}
-            onChange={(value) => setNumber(value)}
+            onDrag={(value) => setNumber(value)}
           />
+        </LabeledList.Item>
+        <LabeledList.Item label="Slider (onDrag)">
+          <Slider
+            step={1}
+            stepPixelSize={5}
+            value={string}
+            minValue={-100}
+            maxValue={100}
+            onDrag={(value) => setNumber(string)}
+          />
+        </LabeledList.Item>
+        <LabeledList.Item label="Knob (onDrag)">
+          <Knob
+            inline
+            size={1}
+            step={1}
+            stepPixelSize={2}
+            value={string}
+            minValue={-100}
+            maxValue={100}
+            onDrag={(e, value) => setNumber(value)}
+          />
+          <Knob
+            ml={1}
+            inline
+            bipolar
+            size={1}
+            step={1}
+            stepPixelSize={2}
+            value={string}
+            minValue={-100}
+            maxValue={100}
+            onDrag={(e, value) => setNumber(value)}
+          />
+        </LabeledList.Item>
+        <LabeledList.Item label="Rotating Icon">
+          <Box inline position="relative">
+            <DraggableControl
+              value={string}
+              minValue={-100}
+              maxValue={100}
+              dragMatrix={[0, -1]}
+              step={1}
+              stepPixelSize={5}
+              onDrag={(e, value) => setNumber(value)}
+            >
+              {(control) => (
+                <Box onMouseDown={control.handleDragStart}>
+                  <Icon
+                    size={4}
+                    color="yellow"
+                    name="times"
+                    rotation={control.displayValue * 4}
+                  />
+                  {control.inputElement}
+                </Box>
+              )}
+            </DraggableControl>
+          </Box>
         </LabeledList.Item>
       </LabeledList>
     </Section>
   );
-}
+};

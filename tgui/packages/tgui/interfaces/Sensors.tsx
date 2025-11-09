@@ -12,6 +12,7 @@ import type { BooleanLike } from 'tgui-core/react';
 import { capitalizeAll } from 'tgui-core/string';
 import { useBackend } from '../backend';
 import { NtosWindow } from '../layouts';
+import { sanitizeText } from '../sanitize';
 
 export type SensorsData = {
   viewing: BooleanLike;
@@ -266,10 +267,11 @@ const ContactsSection = (act, data: SensorsData) => (
 );
 
 const ContactDetailsSection = (act, data: SensorsData) => {
+  const contentHtml = { __html: sanitizeText(data.contact_details) };
   if (data.contact_details && data.contact_details !== '') {
     const contact_details = (
-      // biome-ignore lint/security/noDangerouslySetInnerHtml: Security issue to be tackled... later.
-      <div dangerouslySetInnerHTML={{ __html: data.contact_details }} />
+      // biome-ignore lint/security/noDangerouslySetInnerHtml: Is sanitized by DOMPurify.
+      <div dangerouslySetInnerHTML={contentHtml} />
     );
     return (
       <Section title="Sensor Contact Details">

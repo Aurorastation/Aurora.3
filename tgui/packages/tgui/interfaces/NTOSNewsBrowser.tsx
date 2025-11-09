@@ -78,6 +78,7 @@ export const ShowArticle = (props) => {
         </>
       }
     >
+      {/** biome-ignore lint/security/noDangerouslySetInnerHtml: Is sanitized by DOMPurify. */}
       <Box dangerouslySetInnerHTML={contentHtml} />
     </Section>
   );

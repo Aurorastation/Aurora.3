@@ -155,7 +155,7 @@ export const FormatWildcards = (props) => {
         >
           Trim:
           <br />
-          {basicUsed + '/' + basicMax}
+          {`${basicUsed}/${basicMax}`}
         </Tabs.Tab>
       )}
 
@@ -174,7 +174,7 @@ export const FormatWildcards = (props) => {
             selected={selectedWildcard === wildcard}
             onClick={() => setWildcardTab(wildcard)}
           >
-            {wildcard + ':'}
+            {`${wildcard}:`}
             <br />
             {wcLeftStr}
           </Tabs.Tab>
@@ -273,7 +273,7 @@ const RegionAccessList = (props) => {
     const entryName =
       !wcAccess[id] && trimAccess.includes(id)
         ? entry.desc
-        : entry.desc + ' (' + accessFlagNames[accessFlags[id]] + ')';
+        : `${entry.desc}·(${accessFlagNames[accessFlags[id]]})`;
 
     return (
       <Button.Checkbox

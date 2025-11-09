@@ -184,7 +184,7 @@ export const ShowFile = (props) => {
         </>
       }
     >
-      {/** biome-ignore lint/security/noDangerouslySetInnerHtml: Security issue can be addressed... later. */}
+      {/** biome-ignore lint/security/noDangerouslySetInnerHtml: Is sanitized by DOMPurify. */}
       <Box dangerouslySetInnerHTML={contentHtml} />
     </Section>
   );

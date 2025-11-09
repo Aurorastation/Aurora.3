@@ -314,7 +314,7 @@ export const MessageList = (props) => {
             }
           >
             <Box
-              // biome-ignore lint/security/noDangerouslySetInnerHtml: Security issue can be addressed... later.
+              // biome-ignore lint/security/noDangerouslySetInnerHtml: Is sanitized by DOMPurify.
               dangerouslySetInnerHTML={processMessage(message.contents)}
             />
           </Section>

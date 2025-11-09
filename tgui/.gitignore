@@ -1,5 +1,5 @@
-## NPM garbage
-node_modules
+# JavaScript tools
+**/node_modules
 *.log
 
 ## Build artifacts
