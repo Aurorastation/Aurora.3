@@ -14,8 +14,8 @@
 	var/datum/seed/seed
 	var/potency = -1
 
-	// For storage in a smartfridge, we only keep most snacks for at most 2 days.
-	persistence_expiration_time_days = 2
+	// For storage in a smartfridge, we only keep most snacks for at most a day.
+	persistence_expiration_time_days = 1
 	persistence_supported = TRUE
 
 /obj/item/reagent_containers/food/snacks/grown/Initialize(loca, planttype)
