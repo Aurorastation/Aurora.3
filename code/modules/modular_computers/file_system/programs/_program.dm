@@ -1,4 +1,4 @@
-/*
+
 /obj/item/modular_computer/initial_data()
 	return list("_PC" = get_header_data())
 
@@ -18,7 +18,7 @@
 /datum/nano_module/program/New(var/host, var/topic_manager, var/program)
 	..()
 	src.program = program
-*/
+
 /datum/topic_manager/program
 	var/datum/program
 
