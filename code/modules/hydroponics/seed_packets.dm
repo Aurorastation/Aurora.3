@@ -117,7 +117,9 @@ GLOBAL_LIST_EMPTY(plant_seed_sprites)
 	return content
 
 /obj/item/seeds/persistence_apply_content(content, x, y, z)
-	..()
+	src.x = x
+	src.y = y
+	src.z = z
 	if (content["seed_datum"]) // Apply any seed mutations
 		seed = content["seed_datum"]
 	if (content["seed_type"]) // Apply any seed visual changes

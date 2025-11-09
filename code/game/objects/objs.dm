@@ -365,6 +365,4 @@
  *	x,y,z = x-y-z coordinates of object, can be null.
  */
 /obj/proc/persistence_apply_content(content, x, y, z)
-	src.x = x
-	src.y = y
-	src.z = z
+	return

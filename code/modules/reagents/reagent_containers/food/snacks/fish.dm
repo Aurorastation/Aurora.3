@@ -93,7 +93,9 @@
 #############################################*/
 
 /obj/item/mollusc/persistence_apply_content(content, x, y, z)
-	..()
+	src.x = x
+	src.y = y
+	src.z = z
 	for(var/obj/object in loc)
 		if(istype(object, /obj/machinery/smartfridge))
 			var/obj/machinery/smartfridge/O = object

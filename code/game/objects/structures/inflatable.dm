@@ -291,6 +291,11 @@
 	icon_state = "folded_wall-torn"
 	persistency_considered_trash = TRUE
 
+/obj/item/inflatable/torn/persistence_apply_content(content, x, y, z)
+	src.x = x
+	src.y = y
+	src.z = z
+
 /obj/item/inflatable/torn/attack_self(mob/user)
 	to_chat(user, SPAN_NOTICE("The inflatable wall is too torn to be inflated!"))
 	add_fingerprint(user)
@@ -300,6 +305,11 @@
 	desc = "A folded membrane which rapidly expands into a simple door on activation. It is too torn to be usable."
 	icon_state = "folded_door-torn"
 	persistency_considered_trash = TRUE
+
+/obj/item/inflatable/door/torn/persistence_apply_content(content, x, y, z)
+	src.x = x
+	src.y = y
+	src.z = z
 
 /obj/item/inflatable/door/torn/attack_self(mob/user)
 	to_chat(user, SPAN_NOTICE("The inflatable door is too torn to be inflated!"))
