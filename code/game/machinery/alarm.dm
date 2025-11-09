@@ -713,7 +713,7 @@ pixel_x = 10;
 	return interact(user)
 
 /obj/machinery/alarm/interact(mob/user)
-	// ui_interact(user)
+	ui_interact(user)
 	if (panel_open)
 		wires.interact(user)
 

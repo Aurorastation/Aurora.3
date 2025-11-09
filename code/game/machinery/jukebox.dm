@@ -115,7 +115,7 @@
 		to_chat(usr, "\The [src] doesn't appear to function.")
 		return
 
-	// ui_interact(user)
+	ui_interact(user)
 
 /obj/machinery/media/jukebox/ui_interact(mob/user, ui_key = "jukebox", var/datum/nanoui/ui = null, var/force_open = 1)
 	var/title = "Music Player"
