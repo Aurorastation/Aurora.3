@@ -382,5 +382,5 @@
 	for(var/obj/object in loc)
 		if(istype(object, /obj/machinery/smartfridge))
 			var/obj/machinery/smartfridge/O = object
-			O.add_fruit_from_turf()
+			O.add_item_from_turf()
 			break

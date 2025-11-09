@@ -102,7 +102,7 @@
 
 /obj/machinery/smartfridge/Initialize(mapload)
 	if(mapload) // Attempt to load persistent items.
-		add_fruit_from_turf()
+		add_item_from_turf()
 
 	. = ..()
 	if(is_secure)
@@ -111,7 +111,7 @@
 		wires = new(src)
 	update_icon()
 
-/obj/machinery/smartfridge/proc/add_fruit_from_turf()
+/obj/machinery/smartfridge/proc/add_item_from_turf()
 	for(var/obj/item/I in loc)
 		if(length(contents) >= max_n_of_items) break // Don't bypass the content max
 		if(!accept_check(I)) continue // Skip items we can't hold.
