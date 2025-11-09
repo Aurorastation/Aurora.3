@@ -2,5 +2,4 @@ author: Hellfirejag
 delete-after: True
 changes:
   - rscadd: "PERSISTENCE: Hydroponics and Xenobotany smartfridges now have short-duration persistent contents. Grown foods added to a smartfridge will persist between rounds for up to 1 day."
-  - rscadd: "PERSISTENCE: Chemistry Smartfridges now store drugs for up to 1 day."
   - rscadd: "PERSISTENCE: Smartfridges in general now support persistence, but they only do so for items that have allow_persistence set to TRUE. As a hint to new contributors, every single 'Shelf' in the commissary is secretly a smartfridge with its own list. Have fun with that and enjoy adding new persistent items."
