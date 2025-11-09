@@ -355,7 +355,9 @@
  * RETURN: Associated list with custom information (e.g.: ["test" = "abc", "counter" = 123])
  */
 /obj/proc/persistence_get_content()
-	return
+	SHOULD_CALL_PARENT(TRUE)
+	var/list/content = list()
+	return content
 
 /**
  * Called by the persistence subsystem to apply persistent data on the created object.
@@ -365,4 +367,5 @@
  *	x,y,z = x-y-z coordinates of object, can be null.
  */
 /obj/proc/persistence_apply_content(content, x, y, z)
+	SHOULD_CALL_PARENT(TRUE)
 	return

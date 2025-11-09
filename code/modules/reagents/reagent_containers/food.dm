@@ -57,8 +57,22 @@
 				P.update_icon()
 		qdel(src)
 
+/obj/item/reagent_containers/food/persistence_get_content()
+	var/list/content = ..()
+	content["bite_size"] = bitesize
+	content["bite_count"] = bitecount
+	content["filling_color"] = filling_color
+	if(ingredient_name)
+		content["ingredient_name"] = ingredient_name
+	return content
+
 /obj/item/reagent_containers/food/persistence_apply_content(content, x, y, z)
 	..()
+	bitesize = content["bite_size"]
+	bitecount = content["bite_count"]
+	filling_color = content["filling_color"]
+	if(content["ingredient_name"])
+		ingredient_name = content["ingredient_name"]
 	for(var/obj/object in loc)
 		if(istype(object, /obj/machinery/smartfridge))
 			var/obj/machinery/smartfridge/O = object

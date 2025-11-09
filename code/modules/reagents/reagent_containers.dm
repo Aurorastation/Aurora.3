@@ -360,7 +360,7 @@
 #############################################*/
 
 /obj/item/reagent_containers/persistence_get_content()
-	var/list/content = list()
+	var/list/content = ..()
 	content["primary_reagent"] = reagents.primary_reagent
 	content["reagent_volumes"] = reagents.reagent_volumes
 	content["reagent_data"] = reagents.reagent_data
@@ -373,9 +373,7 @@
 // We have thousands of items that would want to use this logic and I'm not putting it on all of them by hand.
 // Override it if you want to use persistence with something else.
 /obj/item/reagent_containers/persistence_apply_content(content, x, y, z)
-	src.x = x
-	src.y = y
-	src.z = z
+	..()
 	reagents.primary_reagent = content["primary_reagent"]
 	reagents.reagent_volumes = content["reagent_volumes"]
 	reagents.reagent_data = content["reagent_data"]

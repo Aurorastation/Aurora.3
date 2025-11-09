@@ -796,16 +796,14 @@
 #############################################*/
 
 /obj/item/paper/persistence_get_content()
-	var/list/content = list()
+	var/list/content = ..()
 	content["title"] = name
 	content["text"] = info
 	return content
 
 /obj/item/paper/persistence_apply_content(content, x, y, z)
+	..()
 	set_content(content["title"], content["text"])
-	src.x = x
-	src.y = y
-	src.z = z
 	for(var/obj/object in loc) // Pin to noticeboard
 		if(istype(object, /obj/structure/noticeboard))
 			var/obj/structure/noticeboard/notice_board = object
