@@ -482,7 +482,6 @@
 	// For the hilarious interaction of hydroponics stocking the commissary with disgusting slop nobody wants.
 	// Have fun yelling at your local botanist when the commissary inevitably has too many of these.
 	persistence_expiration_time_days = 60
-	persistence_supported = TRUE
 
 /obj/item/reagent_containers/food/snacks/liquidfood/Initialize()
 	set_flavor()
