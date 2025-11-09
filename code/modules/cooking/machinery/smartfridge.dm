@@ -47,10 +47,17 @@
 	var/datum/wires/smartfridge/wires = null
 	atmos_canpass = CANPASS_DENSITY
 
+	/**
+	 * Controls whether or not the smartfridge will add and remove items from persistence.
+	 * Useful for vendors that spawn with persist-able items.
+	 */
+	var/do_persistence = TRUE
+
 /obj/machinery/smartfridge/secure
 	is_secure = 1
 
 /obj/machinery/smartfridge/stocked
+	do_persistence = FALSE
 	var/list/starting_produce = list(
 		"apple" = 24,
 		"banana" = 24,
@@ -375,9 +382,10 @@
 		attacking_item.forceMove(src)
 		item_quants[attacking_item.name]++
 
-		// Persistent smartfridge contents, adding items to the smartfridge makes them appear in later rounds.
-		// Items added by this in general should have an extremely short persistent duration.
-		SSpersistence.register_track(attacking_item, ckey(usr.ckey))
+		if(do_persistence)
+			// Persistent smartfridge contents, adding items to the smartfridge makes them appear in later rounds.
+			// Items added by this in general should have an extremely short persistent duration.
+			SSpersistence.register_track(attacking_item, ckey(usr.ckey))
 
 		user.visible_message("<b>[user]</b> adds \a [attacking_item] to [src].", SPAN_NOTICE("You add [attacking_item] to [src]."))
 		update_overlays()
@@ -393,8 +401,10 @@
 				P.remove_from_storage(G,src)
 				item_quants[G.name]++
 				plants_loaded++
-				// As above with adding a single persistent item, if we're adding a whole bag full of items, we can make those persist too.
-				SSpersistence.register_track(G, ckey(usr.ckey))
+
+				if(do_persistence)
+					// As above with adding a single persistent item, if we're adding a whole bag full of items, we can make those persist too.
+					SSpersistence.register_track(G, ckey(usr.ckey))
 		if(plants_loaded)
 			user.visible_message("<b>[user]</b> loads [src] with [P].", SPAN_NOTICE("You load [src] with [P]."))
 			if(length(P.contents) > 0)
@@ -490,7 +500,7 @@
 						else
 							O.forceMove(loc)
 
-						if(O.persistence_supported)
+						if(do_persistence && O.persistence_supported)
 							// A human took a fruit out, now de-persist it.
 							SSpersistence.deregister_track(O)
 
