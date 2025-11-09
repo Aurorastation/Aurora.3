@@ -13,7 +13,6 @@ GLOBAL_LIST_EMPTY(plant_seed_sprites)
 	var/modified = FALSE
 
 	// Extremely short expiration time, largely just for xenobotanists to 'save' their progress between rounds.
-	// TODO: Seed data currently isn't persistent
 	persistence_expiration_time_days = 1
 	persistence_supported = TRUE
 
@@ -118,16 +117,13 @@ GLOBAL_LIST_EMPTY(plant_seed_sprites)
 	return content
 
 /obj/item/seeds/persistence_apply_content(content, x, y, z)
+	..()
 	if (content["seed_datum"]) // Apply any seed mutations
 		seed = content["seed_datum"]
 	if (content["seed_type"]) // Apply any seed visual changes
 		seed_type = content["seed_type"]
 	modified = content["modified"] // Apply the mutant status if previously stored.
 	update_seed() // Update the seed's visuals per previously stored values.
-
-	src.x = x
-	src.y = y
-	src.z = z
 	for(var/obj/object in loc)
 		if(istype(object, /obj/machinery/smartfridge))
 			var/obj/machinery/smartfridge/O = object

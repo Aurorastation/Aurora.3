@@ -8,6 +8,11 @@
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	possible_transfer_amounts = null
 	volume = 50 //Sets the default container amount for all food items.
+	persistence_supported = TRUE
+	// For smartfridge storage, these should not be kept for longer than a day.
+	// This can be set higher for any children of this type.
+	persistence_expiration_time_days = 1
+
 	var/bitesize = 1
 	var/bitecount = 0
 	var/filling_color = "#FFFFFF" //Used by sandwiches
@@ -51,3 +56,11 @@
 					P.grease = TRUE
 				P.update_icon()
 		qdel(src)
+
+/obj/item/reagent_containers/food/persistence_apply_content(content, x, y, z)
+	..()
+	for(var/obj/object in loc)
+		if(istype(object, /obj/machinery/smartfridge))
+			var/obj/machinery/smartfridge/O = object
+			O.add_item_from_turf()
+			break

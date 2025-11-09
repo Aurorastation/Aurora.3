@@ -41,11 +41,6 @@
 	)
 	//The above list a misnomer. This basically means that anything in this list has their own way of handling reagent transfers and should be ignored in afterattack.
 
-	// We're generalized at the level of all reagent containers supporting persistence.
-	persistence_supported = TRUE
-	// For smartfridge storage, these should not be kept for longer than a day.
-	// This can be set higher for any children of this type.
-	persistence_expiration_time_days = 1
 
 /obj/item/reagent_containers/verb/set_APTFT() //set amount_per_transfer_from_this
 	set name = "Set transfer amount"
@@ -373,14 +368,6 @@
 // We have thousands of items that would want to use this logic and I'm not putting it on all of them by hand.
 // Override it if you want to use persistence with something else.
 /obj/item/reagent_containers/persistence_apply_content(content, x, y, z)
+	..()
 	if (content["reagents"]) // Apply previous reagent contents.
 		reagents = content["reagents"]
-
-	src.x = x
-	src.y = y
-	src.z = z
-	for(var/obj/object in loc)
-		if(istype(object, /obj/machinery/smartfridge))
-			var/obj/machinery/smartfridge/O = object
-			O.add_item_from_turf()
-			break

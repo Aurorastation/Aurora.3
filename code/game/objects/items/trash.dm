@@ -27,6 +27,7 @@
 	return content
 
 /obj/item/trash/persistence_apply_content(content, x, y, z)
+	..()
 	name = content["name"]
 	desc = content["desc"]
 	icon = file(content["icon"])
@@ -34,9 +35,6 @@
 	item_state = content["item_state"]
 	drop_sound = file(content["drop_sound"])
 	pickup_sound = file(content["pickup_sound"])
-	src.x = x
-	src.y = y
-	src.z = z
 
 /obj/item/trash/koisbar
 	name = "\improper k'ois bar wrapper"
