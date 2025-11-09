@@ -5185,7 +5185,6 @@ var Worker = class {
       this.emitter.emit('fail');
       return;
     }
-    /*
     if (this.target.onlyWhen) {
       const result = await this.target.onlyWhen(this.context);
       if (!result) {
@@ -5195,7 +5194,6 @@ var Worker = class {
       }
       this.debugLog('Needs rebuild based on onlyWhen condition');
     }
-*/
     this.debugLog('Comparing inputs and outputs');
     const fileMapper = async (fileIo) => {
       const optionalPaths =
