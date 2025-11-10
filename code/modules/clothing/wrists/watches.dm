@@ -6,6 +6,11 @@
 	item_state = "watch"
 	var/wired = TRUE
 	var/screwed = TRUE
+	action_button_name = "Check time"
+	default_action_type = /datum/action/item_action/watch
+
+// /obj/item/clothing/wrists/watch/attack_self(mob/user)
+// 	checktime(user)
 
 /obj/item/clothing/wrists/watch/silver
 	desc = "It's a GaussIo ZeitMeister, a finely tuned wristwatch encased in silver."
