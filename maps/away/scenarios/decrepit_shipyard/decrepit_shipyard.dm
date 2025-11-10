@@ -34,15 +34,36 @@
 	generic_object = FALSE
 	comms_support = TRUE
 	icon = 'icons/obj/overmap/overmap_stationary.dmi'
-	icon_state = "waystation"
+	icon_state = "depot"
 	color = "#afa181"
 	designer = "Unknown"
-	volume = "yuh" // change this after the map is complete
+	volume = "74 meters length, 125 meters beam/width, 52 meters vertical height"
 	weapons = "Not apparent"
 	sizeclass = "Industrial Outpost"
 
 	initial_generic_waypoints = list(
-		// docks
+		// shuttle dock
+		"nav_decrepit_shipyard_drydock",
+		// south-east docking arm
+		"nav_decrepit_shipyard_dock_1a",
+		"nav_decrepit_shipyard_dock_1b",
+		"nav_decrepit_shipyard_dock_1c",
+		"nav_decrepit_shipyard_dock_1d",
+		// visitors docking
+		"nav_decrepit_shipyard_dock_2a",
+		"nav_decrepit_shipyard_dock_2b",
+		"nav_decrepit_shipyard_dock_2c",
+		"nav_decrepit_shipyard_dock_2d",
+		// dry dock (space docking)
+		"nav_decrepit_shipyard_dock_3a",
+		"nav_decrepit_shipyard_dock_3b",
+		"nav_decrepit_shipyard_dock_3c",
+		"nav_decrepit_shipyard_dock_3d",
+		// space
+		"nav_decrepit_shipyard_space_4a",
+		"nav_decrepit_shipyard_space_4b",
+		"nav_decrepit_shipyard_space_4c",
+		"nav_decrepit_shipyard_space_4d"
 	)
 
 // ---- Shuttle
@@ -114,20 +135,10 @@
 
 // ---- Mapmanip markers
 
-// Functional shuttle variations
-
 /obj/effect/map_effect/marker/mapmanip/submap/extract/decrepit_shipyard/functional_shuttle
 	name = "functional_shuttle"
 
 /obj/effect/map_effect/marker/mapmanip/submap/insert/decrepit_shipyard/functional_shuttle
 	name = "functional_shuttle"
-
-// Scrapped shuttle variations
-
-/obj/effect/map_effect/marker/mapmanip/submap/extract/decrepit_shipyard/scrapped_shuttle
-	name = "scrapped_shuttle"
-
-/obj/effect/map_effect/marker/mapmanip/submap/insert/decrepit_shipyard/scrapped_shuttle
-	name = "scrapped_shuttle"
 
 

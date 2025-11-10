@@ -17,14 +17,12 @@
 	roles = list(
 		/singleton/role/generic_crew,
 		/singleton/role/generic_engineer,
-		/singleton/role/generic_research,
 		/singleton/role/generic_medical,
 		/singleton/role/generic_security,
-		/singleton/role/generic_miner,
 		/singleton/role/generic_business,
 	)
 	default_outfit = /obj/outfit/admin/generic
-	//actor_accesses = list(/datum/access/decrepit_shipyard_access)
+	actor_accesses = list(/datum/access/decrepit_shipyard_staff)
 	radio_frequency_name = "Shipyard #117-B"
 
 	base_area = /area/decrepit_shipyard

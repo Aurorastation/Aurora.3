@@ -58,8 +58,8 @@
 	return
 
 /obj/structure/lattice/proc/check_for_duplicates()
-	for(var/obj/structure/lattice/LAT in get_turf(src))
-		if(LAT == src || istype(LAT, /obj/structure/lattice/ceiling))
+	for(var/obj/structure/lattice/found_lattice in get_turf(src))
+		if(found_lattice == src || istype(found_lattice, /obj/structure/lattice/ceiling))
 			continue
 		return TRUE
 	return FALSE
@@ -85,7 +85,7 @@
 		return
 
 /obj/structure/lattice/ceiling
-	layer = ABOVE_HUMAN_LAYER
+	layer = ABOVE_ABOVE_HUMAN_LAYER
 	canSmoothWith = list(
 		/obj/structure/lattice/ceiling,
 		/turf/simulated/wall,
@@ -97,12 +97,13 @@
 
 /obj/structure/lattice/ceiling/Initialize()
 	. = ..()
-	//AddComponent(/datum/component/large_transparency, 0, 0, 0, 0)
+	AddComponent(/datum/component/large_transparency, 0, 0, 0, 0)
 
 /obj/structure/lattice/ceiling/check_for_duplicates()
-	for(var/obj/structure/lattice/LAT in get_turf(src))
-		if(LAT != src && LAT.type == type)
-			return TRUE
+	for(var/obj/structure/lattice/ceiling/found_lattice in get_turf(src))
+		if(found_lattice == src)
+			continue
+		return TRUE
 	return FALSE
 
 /obj/structure/lattice/catwalk

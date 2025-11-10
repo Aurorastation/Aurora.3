@@ -8,7 +8,7 @@ ABSTRACT_TYPE(/obj/effect/map_effect/randomized_destruction)
 	/// Weighted assoc list that determines the destruction severity per picked turf, candidate is picked by `pick_weight()`
 	// we can't use integer numbers as a key, because Byond will flatten them and make this a regular list instead of assoc list
 	// we can't use defines like "[SEVERE_DESTRUCTION]" = 1 either without handling this in a proc, because non-constant. This shit is so ass
-	var/list/severity = list(
+	var/list/possible_severities = list(
 		"1" = 1, // Severe destruction
 		"2" = 1, // Moderate
 		"3" = 1, // Mild
@@ -25,29 +25,29 @@ ABSTRACT_TYPE(/obj/effect/map_effect/randomized_destruction)
 		/obj/machinery/access_button,
 		/obj/machinery/shipsensors,
 		/obj/machinery/iff_beacon,
+		/obj/structure/fuel_port,
 
 	))
 
 /obj/effect/map_effect/randomized_destruction/Initialize(mapload)
 	. = ..()
 	if(mapload)
-		addtimer(CALLBACK(src, PROC_REF(start_destruction)), 3 MINUTES)
+		addtimer(CALLBACK(src, PROC_REF(start_destruction)), 90 SECONDS)
 		return
 
 	start_destruction()
 
 /obj/effect/map_effect/randomized_destruction/proc/start_destruction()
-	var/area/A = get_area(src)
-	var/list/turf_pool = get_area_turfs(A)
+	var/list/turf_pool = get_area_turfs(get_area(src))
 	var/list/picked_turfs = list()
 	for(var/i in 0 to round(rand(max_turf_amount / 2, max_turf_amount)))
 		picked_turfs += pick_n_take(turf_pool)
 
 	var/chosen_severity
 	for(var/turf/T in picked_turfs)
-		chosen_severity = text2num(pick_weight(severity)) // severity value that'll also affect every applicaple atom in turfs content
+		chosen_severity = text2num(pick_weight(possible_severities)) // severity value that'll also affect every applicaple atom in turfs content
 		for(var/atom/thing in T.contents)
-			if(is_type_in_typecache(thing, ignored_atoms))
+			if(!thing.simulated || is_type_in_typecache(thing, ignored_atoms))
 				continue
 			thing.ex_act(chosen_severity)
 		T.ex_act(chosen_severity)
@@ -58,7 +58,7 @@ ABSTRACT_TYPE(/obj/effect/map_effect/randomized_destruction)
 
 // Mild impact
 ABSTRACT_TYPE(/obj/effect/map_effect/randomized_destruction/mild)
-	severity = list(
+	possible_severities = list(
 		"1" = 0, // Severe		0%
 		"2" = 1, // Moderate	25%
 		"3" = 3, // Mild		75%
@@ -76,7 +76,7 @@ ABSTRACT_TYPE(/obj/effect/map_effect/randomized_destruction/mild)
 
 // Severe impact
 ABSTRACT_TYPE(/obj/effect/map_effect/randomized_destruction/severe)
-	severity = list(
+	possible_severities = list(
 		"1" = 2, // Severe		10%
 		"2" = 9, // Moderate	45%
 		"3" = 9, // Mild		45%

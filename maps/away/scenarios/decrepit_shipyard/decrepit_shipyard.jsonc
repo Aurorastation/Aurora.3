@@ -8,15 +8,5 @@
 		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/decrepit_shipyard/functional_shuttle",
 		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/decrepit_shipyard/functional_shuttle",
 		"submaps_can_repeat": false
-	},
-	{
-		"type": "SubmapExtractInsert",
-		"submap_size_x": 11,
-		"submap_size_y": 23,
-		"submap_size_z": 1,
-		"submaps_dmm": "decrepit_shipyard_submaps.dmm",
-		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/decrepit_shipyard/scrapped_shuttle",
-		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/decrepit_shipyard/scrapped_shuttle",
-		"submaps_can_repeat": false
 	}
 ]
