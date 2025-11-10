@@ -46,31 +46,70 @@
 		return FALSE
 	return TRUE
 
-/obj/machinery/computer/security/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1)
-	if(..())
-		return
+/obj/machinery/computer/security/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "CameraMonitoring", name)
+		ui.open()
 
-	var/data[0]
-	var/list/all_networks[0]
-	for(var/nw in network)
-		all_networks.Add(list(list(
-							"tag" = nw,
-							"has_access" = can_access_network(user, get_camera_access(nw))
-							)))
+/obj/machinery/computer/security/ui_data(mob/user)
+	var/list/data = list()
+	var/list/all_networks = list()
+	data["current_camera"] = current_camera ? current_camera.nano_structure() : null
+	data["current_network"] = current_network
+
+
+	for(var/added_network in SSatlas.current_map.station_networks)
+		all_networks += list(
+			list(
+				"tag" = added_network,
+				"has_access" = can_access_network(user, get_camera_access(added_network))
+			)
+		)
+
+	network = all_networks
 
 	data["networks"] = all_networks
 
 	if(current_network)
 		data["cameras"] = GLOB.camera_repository.cameras_in_network(current_network)
-		data["current_camera"] = current_camera ? current_camera.nano_structure() : null
-		data["current_network"] = current_network
 
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		ui = new(user, src, ui_key, "sec_camera.tmpl", "Camera Console", 900, 800)
+	return data
 
-		ui.set_initial_data(data)
-		ui.open()
+/obj/machinery/computer/security/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	if(..())
+		return TRUE
+	switch(action)
+		if("switch_camera")
+			var/obj/machinery/camera/C = locate(params["switch_camera"]) in GLOB.cameranet.cameras
+			if(!C)
+				return
+			if(!(current_network in C.network))
+				return
+
+			var/access_granted = FALSE
+			for(var/network in C.network)
+				if(can_access_network(usr, get_camera_access(network)))
+					access_granted = TRUE //We only need access to one of the networks.
+			if(!access_granted)
+				to_chat(usr, SPAN_WARNING("Access unauthorized."))
+				return
+
+			switch_to_camera(usr, C)
+			return TRUE
+
+		if("switch_network")
+			// Either security access, or access to the specific camera network's department is required in order to access the network.
+			if(can_access_network(usr, get_camera_access(params["switch_network"])))
+				current_network = params["switch_network"]
+			else
+				to_chat(usr, SPAN_WARNING("\The [ui_host()] shows an \"Network access denied\" error message."))
+			return TRUE
+
+		if("reset")
+			reset_current()
+			usr.reset_view(current_camera)
+			return TRUE
 
 /obj/machinery/computer/security/proc/can_access_network(var/mob/user, var/network_access)
 	// No access passed, or 0 which is considered no access requirement. Allow it.
@@ -79,44 +118,12 @@
 
 	return (check_camera_access(user, ACCESS_SECURITY) && GLOB.security_level >= SEC_LEVEL_BLUE) || check_camera_access(user, network_access)
 
-/obj/machinery/computer/security/Topic(href, href_list)
-	if(..())
-		return TRUE
-	if(href_list["switch_camera"])
-		var/obj/machinery/camera/C = locate(href_list["switch_camera"]) in GLOB.cameranet.cameras
-		if(!C)
-			return
-		if(!(current_network in C.network))
-			return
-
-		var/access_granted = FALSE
-		for(var/network in C.network)
-			if(can_access_network(usr, get_camera_access(network)))
-				access_granted = TRUE //We only need access to one of the networks.
-		if(!access_granted)
-			to_chat(usr, SPAN_WARNING("Access unauthorized."))
-			return
-
-		switch_to_camera(usr, C)
-		return 1
-	else if(href_list["switch_network"])
-		if(href_list["switch_network"] in network)
-			current_network = href_list["switch_network"]
-		return 1
-	else if(href_list["reset"])
-		reset_current()
-		usr.reset_view(current_camera)
-		return 1
-
 /obj/machinery/computer/security/attack_hand(var/mob/user as mob)
 	if (!(src.z in GetConnectedZlevels(starting_z_level)))
 		to_chat(user, "Unable to establish a connection.")
 		return
 	if(stat & (NOPOWER|BROKEN))	return
 
-	if(!isAI(user))
-		user.set_machine(src)
-		user.reset_view(current_camera)
 	ui_interact(user)
 
 /obj/machinery/computer/security/proc/switch_to_camera(var/mob/user, var/obj/machinery/camera/C)
