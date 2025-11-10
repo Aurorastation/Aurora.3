@@ -2178,3 +2178,12 @@ All custom items with worn sprites must follow the contained sprite system: http
 	SEND_SIGNAL(K, COMSIG_ITEM_UPDATE_STATE, K)
 	K.update_icon()
 
+/obj/item/clothing/suit/storage/toggle/leather_jacket/fluff/sheperd_coat //Shepherd's embroidered jacket - Shepherd - NekoMarbles
+	name = "embroidered leather jacket"
+	desc = "This leather jacket has been roughly painted cyan on the left arm and purple on the right arm. There appears to be an uppercase omega symbol on the \
+	back, drawn in the same paint from the respective halves of the jacket.  You can see a faint NT logo beneath the omega symbol if you look hard enough."
+	icon = 'icons/obj/custom_items/sheperd_coat.dmi'
+	icon_override = 'icons/obj/custom_items/sheperd_coat.dmi'
+	icon_state = "sheperd_coat"
+	item_state = "sheperd_coat"
+	contained_sprite = TRUE
