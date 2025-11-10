@@ -22,7 +22,7 @@
 
 	D.visible_message(SPAN_DANGER("[A] suplexes [D]!"))
 	D.forceMove(A.loc)
-	D.apply_damage(30, DAMAGE_BRUTE)
+	D.apply_damage(15, DAMAGE_BRUTE)
 	D.apply_effect(6, WEAKEN)
 	add_logs(A, D, "suplexed")
 
@@ -30,7 +30,7 @@
 
 	D.SpinAnimation(10,1)
 	spawn(3)
-		A.apply_effect(4, WEAKEN)
+		A.apply_effect(6, WEAKEN)
 	return
 
 /datum/martial_art/wrestling/disarm_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
