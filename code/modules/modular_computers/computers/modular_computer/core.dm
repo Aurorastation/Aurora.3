@@ -151,7 +151,7 @@
 
 /obj/item/modular_computer/CouldNotUseTopic(var/mob/user)
 	..()
-	if(user.machine == src)
+	if(user && user.machine == src)
 		user.unset_machine()
 
 /obj/item/modular_computer/emag_act(var/remaining_charges, var/mob/user)
