@@ -40,11 +40,9 @@
 		if(vampire && !(vampire.status & VAMP_ISTHRALL))
 			to_chat(user, SPAN_NOTICE("Your reflection appears distorted on the surface of \the [src]."))
 
-	/*
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		H.change_appearance(APPEARANCE_ALL_HAIR, H, FALSE, ui_state = GLOB.default_state, state_object = src)
-	*/
 
 /obj/structure/mirror/proc/shatter()
 	if(shattered)	return
@@ -187,8 +185,7 @@
 		var/datum/vampire/vampire = user.mind.antag_datums[MODE_VAMPIRE]
 		if(vampire && !(vampire.status & VAMP_ISTHRALL))
 			to_chat(user, SPAN_NOTICE("Your reflection appears distorted on the surface of \the [src]."))
-	/*
+
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		H.change_appearance(APPEARANCE_HAIR, H, FALSE, ui_state = GLOB.default_state, state_object = src)
-	*/
