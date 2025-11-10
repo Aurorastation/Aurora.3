@@ -294,7 +294,7 @@
 					if(L["amount"] > 1)
 						L["amount"]--
 					else
-						items.Cut(index, index+1)
+						buying.Cut(index, index+1)
 			. = TRUE
 
 		if("confirm")
