@@ -81,7 +81,7 @@
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/nralakk
 	name = "\improper Nralakk coffee cup"
 	desc = "A purple coffee cup emblazoned with the flag of the Nralakk Federation."
-	icon_state = "coffeecup_jarg"
+	icon_state = "coffeecup_nral"
 
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/sancolette
 	name = "\improper San Colette coffee cup"
