@@ -30,7 +30,7 @@
 
 	card_slot.eject_id(usr)
 
-	update_uis()
+	SStgui.update_uis(src)
 	to_chat(usr, SPAN_NOTICE("You remove the card from \the [src]."))
 
 
@@ -48,7 +48,7 @@
 
 	uninstall_component(usr, portable_drive, put_in_hands = TRUE)
 	verbs -= /obj/item/modular_computer/proc/eject_usb
-	update_uis()
+	SStgui.update_uis(src)
 
 /obj/item/modular_computer/proc/eject_item()
 	set name = "Eject Stored Item"
@@ -74,7 +74,7 @@
 		card_slot.stored_item.forceMove(get_turf(src))
 
 	card_slot.stored_item = null
-	update_uis()
+	SStgui.update_uis(src)
 	verbs -= /obj/item/modular_computer/proc/eject_item
 	to_chat(usr, SPAN_NOTICE("You remove \the [I] from \the [src]."))
 
@@ -96,7 +96,7 @@
 
 	uninstall_component(usr, battery_module, put_in_hands = TRUE)
 	verbs -= /obj/item/modular_computer/proc/eject_battery
-	update_uis()
+	SStgui.update_uis(src)
 
 /obj/item/modular_computer/proc/eject_ai()
 	set name = "Eject AI Storage"
@@ -121,7 +121,7 @@
 	ai_slot.stored_card = null
 	ai_slot.update_power_usage()
 	verbs -= /obj/item/modular_computer/proc/eject_ai
-	update_uis()
+	SStgui.update_uis(src)
 
 /obj/item/modular_computer/proc/eject_personal_ai()
 	set name = "Eject Personal AI"
@@ -137,7 +137,7 @@
 
 	uninstall_component(usr, personal_ai, put_in_hands = TRUE)
 	verbs -= /obj/item/modular_computer/proc/eject_personal_ai
-	update_uis()
+	SStgui.update_uis(src)
 
 /obj/item/modular_computer/AltClick(var/mob/user)
 	if(use_check_and_message(user, 32))
@@ -239,7 +239,7 @@
 			eject_id()
 
 		card_slot.insert_id(I)
-		update_uis()
+		SStgui.update_uis(src)
 		to_chat(user, SPAN_NOTICE("You insert \the [I] into \the [src]."))
 		return TRUE
 	if(is_type_in_list(attacking_item, card_slot?.allowed_items))
@@ -252,7 +252,7 @@
 
 		user.drop_from_inventory(attacking_item, src)
 		card_slot.stored_item = attacking_item
-		update_uis()
+		SStgui.update_uis(src)
 		verbs += /obj/item/modular_computer/proc/eject_item
 		to_chat(user, SPAN_NOTICE("You insert \the [attacking_item] into \the [src]."))
 		return TRUE
