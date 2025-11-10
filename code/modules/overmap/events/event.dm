@@ -289,14 +289,6 @@
 	movable_speed = 60
 	dir_change_chance = 0
 
-/obj/effect/overmap/event/downed_ship
-	name = "asteroid field"
-	events = list(/datum/event/meteor_wave/downed_ship)
-	difficulty = EVENT_LEVEL_MAJOR
-	movable_event_chance = 1
-	movable_speed = 30
-	dir_change_chance = 0
-
 /obj/effect/overmap/event/ion
 	name = "ion cloud"
 	events = list(/datum/event/ionstorm)
@@ -378,14 +370,6 @@
 	radius = 3
 	opacity = 1
 	hazards = /obj/effect/overmap/event/carp/major
-
-/datum/overmap_event/downed_ship
-	name = "derelict ship"
-	// Disabled for now.
-	count = 0
-	radius = 1
-	opacity = 0
-	hazards = /obj/effect/overmap/event/downed_ship
 
 // see comment at code/modules/events/gravity.dm
 // tl;dr gravity is handled globally, meaning if the horizon loses gravity, everyone does

@@ -12,3 +12,5 @@ delete-after: True
 changes:
   - balance: "Reduces the total quantity of hazards spawned on the overmap to reduce general transit time (fewer dead ends, etc.)"
   - balance: "Modifies the likelihood of certain hazards being movable as well as their relative speeds."
+  - bugfix: "Removes duplicated 'meteor wave' announcement procing when ship encounters/exits dust belts."
+  - qol: "Updates meteor impact warning text to be more impactful now that primary cause of false positives is removed."
