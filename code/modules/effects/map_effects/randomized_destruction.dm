@@ -32,7 +32,7 @@ ABSTRACT_TYPE(/obj/effect/map_effect/randomized_destruction)
 /obj/effect/map_effect/randomized_destruction/Initialize(mapload)
 	. = ..()
 	if(mapload)
-		addtimer(CALLBACK(src, PROC_REF(start_destruction)), 90 SECONDS)
+		addtimer(CALLBACK(src, PROC_REF(start_destruction)), 180 SECONDS) // delayed to make sure everything is initialized properly, and avoid unit tests screaming
 		return
 
 	start_destruction()
