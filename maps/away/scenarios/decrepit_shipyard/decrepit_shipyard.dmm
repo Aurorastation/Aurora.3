@@ -7109,6 +7109,16 @@
 	},
 /turf/simulated/floor,
 /area/decrepit_shipyard/workshop)
+"eWm" = (
+/obj/effect/decal/curb{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/obj/effect/landmark/minimap_poi{
+	name = "Central Bridge"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/decrepit_shipyard/central_hallway)
 "eWz" = (
 /turf/simulated/wall/r_wall,
 /area/decrepit_shipyard/engineering_west_maintenance)
@@ -25329,7 +25339,7 @@
 	},
 /obj/effect/decal/curb,
 /obj/structure/lattice/catwalk/indoor/urban,
-/obj/structure/shipping_container/corp/einstein,
+/obj/structure/shipping_container/colored/green,
 /turf/simulated/floor,
 /area/decrepit_shipyard/transport_tunnels_south)
 "rjc" = (
@@ -25706,6 +25716,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/ridged,
 /area/decrepit_shipyard/engine_room)
+"rxC" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/effect/landmark/minimap_poi{
+	name = "Commercial Atrium"
+	},
+/turf/simulated/floor,
+/area/decrepit_shipyard/commercial_atrium)
 "ryX" = (
 /turf/simulated/floor/tiled/full,
 /area/decrepit_shipyard/mess_hall)
@@ -27413,13 +27430,6 @@
 /obj/structure/trash_pile,
 /turf/simulated/floor,
 /area/decrepit_shipyard/north_west_maintenance)
-"sEC" = (
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/effect/landmark/minimap_poi{
-	name = "Commercial Atrium"
-	},
-/turf/simulated/floor,
-/area/decrepit_shipyard/commercial_atrium)
 "sEJ" = (
 /obj/random/dirt_75,
 /obj/machinery/light/small/emergency{
@@ -31880,16 +31890,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/decrepit_shipyard/docking_arm)
-"wnV" = (
-/obj/effect/decal/curb{
-	dir = 1
-	},
-/obj/random/dirt_75,
-/obj/effect/landmark/minimap_poi{
-	name = "Central Bridge"
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/decrepit_shipyard/central_hallway)
 "woc" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/light/small/emergency{
@@ -129080,7 +129080,7 @@ sTG
 fdH
 uYq
 eXY
-sEC
+rxC
 uix
 tVn
 tVn
@@ -132947,7 +132947,7 @@ leA
 leA
 atZ
 vur
-wnV
+eWm
 qyq
 leA
 leA
