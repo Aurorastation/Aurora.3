@@ -802,7 +802,7 @@
 "aDe" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped,
-/turf/simulated/floor,
+/turf/space,
 /area/decrepit_shipyard/exterior)
 "aDL" = (
 /obj/effect/floor_decal/corner/grey{
