@@ -2086,6 +2086,35 @@ All custom items with worn sprites must follow the contained sprite system: http
 		else
 			collapse()
 
+/obj/item/organ/internal/augment/fluff/kath_legbrace/Initialize()
+	. = ..()
+	if(!owner)
+		return
+	RegisterSignal(owner, COMSIG_BONE_FIX, PROC_REF(negate_healing), override = TRUE)
+	var/obj/item/organ/external/parent = owner.get_organ(parent_organ)
+	parent.fracture(TRUE)
+
+/obj/item/organ/internal/augment/fluff/kath_legbrace/replaced()
+	. = ..()
+	if(!owner)
+		return
+	RegisterSignal(owner, COMSIG_BONE_FIX, PROC_REF(negate_healing), override = TRUE)
+	var/obj/item/organ/external/parent = owner.get_organ(parent_organ)
+	parent.fracture(TRUE)
+
+/obj/item/organ/internal/augment/fluff/kath_legbrace/removed()
+	. = ..()
+	if(!owner)
+		return
+	UnregisterSignal(owner, COMSIG_BONE_FIX)
+
+/obj/item/organ/internal/augment/fluff/kath_legbrace/proc/negate_healing(var/owner, var/canceled, var/obj/item/organ/external/affected, var/mob/living/fixer)
+	SIGNAL_HANDLER
+	if(affected.limb_name == BP_R_LEG)
+		*canceled = TRUE
+		fixer.visible_message(SPAN_WARNING("[fixer] seems to be unable to set the bone in [owner]'s [affected.name]."), \
+			SPAN_WARNING("The bone in [owner]'s [affected.name] appears to be impossible to set correctly!"))
+
 /obj/item/organ/internal/augment/fluff/kath_legbrace/proc/collapse(var/prob_chance = 20, var/weaken_strength = 2, var/pain_strength = 40)
 	if(prob(prob_chance))
 		var/obj/item/organ/external/E = owner.organs_by_name[parent_organ]

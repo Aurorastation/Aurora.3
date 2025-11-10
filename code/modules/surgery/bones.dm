@@ -66,6 +66,11 @@
 
 /singleton/surgery_step/set_bone/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	var/canceled = FALSE
+	SEND_SIGNAL(target, COMSIG_BONE_FIX, &canceled, affected, user)
+	if(canceled)
+		affected.stage = BONE_PRE_OP
+		return
 	if(affected.status & ORGAN_BROKEN)
 		user.visible_message("<b>[user]</b> sets the bone in [target]'s [affected.name] in place with \the [tool].", \
 			SPAN_NOTICE("You set the bone in [target]'s [affected.name] in place with \the [tool]."))

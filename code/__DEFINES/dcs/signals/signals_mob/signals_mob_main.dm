@@ -45,3 +45,6 @@
 
 /// From /obj/item/organ/external/take_damage. Updates the limb's colour matrix. Very laggy, so we do it on reaction to stuff.
 #define COMSIG_UPDATE_LIMB_IMAGE "update_limb_image"
+
+/// For when bone is fixed with surgery
+#define COMSIG_BONE_FIX "fix_bone"
