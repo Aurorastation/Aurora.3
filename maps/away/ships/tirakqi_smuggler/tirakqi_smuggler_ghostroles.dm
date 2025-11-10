@@ -75,20 +75,28 @@
 /obj/outfit/admin/tirakqi_crew/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 
-	H.h_style = pick("Headtails", "Headtails", "Long Headtails", "Short Headtails", "Very Short Headtails", "Short Headtails, tucked", "Short Headtails, slicked", "Headtails, behind")
-	H.f_style = pick("Shaved", "Shaved", "Shaved", "Shaved", "Tuux Chin Patch", "Tuux Chops", "Tuux Tri-Point", "Tuux Monotail")
+	if(isvaurca(H))
+		H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/vaurca/filter(H), slot_wear_mask)
+		var/obj/item/organ/internal/vaurca/preserve/preserve = H.internal_organs_by_name[BP_PHORON_RESERVE]
+		H.internal = preserve
+		H.internals.icon_state = "internal1"
+		H.equip_or_collect(new /obj/item/reagent_containers/food/snacks/koisbar, slot_in_backpack)
+		H.update_body()
+	if(isskrell(H))
+		H.h_style = pick("Headtails", "Headtails", "Long Headtails", "Short Headtails", "Very Short Headtails", "Short Headtails, tucked", "Short Headtails, slicked", "Headtails, behind")
+		H.f_style = pick("Shaved", "Shaved", "Shaved", "Shaved", "Tuux Chin Patch", "Tuux Chops", "Tuux Tri-Point", "Tuux Monotail")
 
-	H.r_skin = pick(50, 80, 100, 120, 140, 170)
-	H.g_skin = pick(50, 80, 100, 120, 140, 170)
-	H.b_skin = pick(50, 80, 100, 120, 140, 170)
+		H.r_skin = pick(50, 80, 100, 120, 140, 170)
+		H.g_skin = pick(50, 80, 100, 120, 140, 170)
+		H.b_skin = pick(50, 80, 100, 120, 140, 170)
 
-	H.r_hair = H.r_skin - pick(0, 10, 20, 30)
-	H.g_hair = H.g_skin - pick(0, 10, 20, 30)
-	H.b_hair = H.b_skin - pick(0, 10, 20, 30)
+		H.r_hair = H.r_skin - pick(0, 10, 20, 30)
+		H.g_hair = H.g_skin - pick(0, 10, 20, 30)
+		H.b_hair = H.b_skin - pick(0, 10, 20, 30)
 
-	H.r_facial = H.r_hair
-	H.g_facial = H.g_hair
-	H.b_facial = H.b_hair
+		H.r_facial = H.r_hair
+		H.g_facial = H.g_hair
+		H.b_facial = H.b_hair
 
 /datum/ghostspawner/human/tirakqi_captain
 	short_name = "tirakqi_captain"
@@ -125,7 +133,7 @@
 	name = "Ti'Rakqi Medic"
 	desc = "You're a trained doctor serving as a Qu'oot with the Ti'Rakqi! Try to keep the crew alive or you may find yourself stranded in space."
 	desc_ooc = "While you may be capable of playing a Vaurca as this role, \
-	it should be restricted to Xi'larx C'thur and failure to abide by this restriction could lead to administrative action. /"
+	it should be restricted to Xi'larx C'thur and failure to abide by this restriction could lead to administrative action."
 	tags = list("External")
 
 	spawnpoints = list("tirakqi_medic")
