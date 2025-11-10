@@ -43,6 +43,12 @@
  */
 #define COMSIG_LIVER_FILTER_EVENT "liver_filter_event"
 
+/**
+ * Raised on an entity with the gravity weakness feature that is about to take damage from said weakness.
+ * Set the canceled variable to true in order to negate said weakness.
+ */
+#define COMSIG_GRAVITY_WEAKNESS_EVENT "gravity_weakness_event"
+
 /// Raised external organ (a limb) takes damage. Used for the synthetic endoskeleton at the moment. Must supply damage.
 #define COMSIG_EXTERNAL_ORGAN_DAMAGE "machine_internal_damage"
 
