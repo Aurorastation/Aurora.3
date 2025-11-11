@@ -351,7 +351,12 @@
 
 /**
  * Called by the persistence subsystem to retrieve relevant persistent information to be stored in the database.
- * Expected to be overriden by derived objects.
+ * This operates on a parent-child hierarchy, where the objects are expected to call their parent. Use var/list/content = ..() as your first line to make this work.
+ * Each parent is responsible for handling the variables it particularly cares about.
+ * Make sure to use SAVE_IF_DIFFERENT() for saving your variables if you're adding a new one.
+ *
+ * If you need to override the entire parent hierarchy for snowflake cases, make sure you put SHOULD_CALL_PARENT(FALSE) as your first line.
+ *
  * RETURN: Associated list with custom information (e.g.: ["test" = "abc", "counter" = 123])
  */
 /obj/proc/persistence_get_content()
@@ -361,11 +366,20 @@
 
 /**
  * Called by the persistence subsystem to apply persistent data on the created object.
- * Expected to be overriden by derived objects.
+ * This operates on a parent-child hierarchy, where the objects are expected to call their parent. Use ..() as your first line to make this work.
+ * Each parent is responsible for handling the variables it particularly cares about.
+ * Make sure to use SET_IF_EXISTS() for setting your variables if you're adding a new one.
+ *
+ * If you need to override the entire parent hierarchy for snowflake cases, make sure you replace ..() with SHOULD_CALL_PARENT(FALSE)
+ *
  * PARAMS:
  * 	content = Associated list with custom information (e.g.: ["test" = "abc", "counter" = 123]).
  *	x,y,z = x-y-z coordinates of object, can be null.
  */
 /obj/proc/persistence_apply_content(content, x, y, z)
 	SHOULD_CALL_PARENT(TRUE)
+	// We handle the positional placement here since these are completely universal to all objects.
+	src.x = x
+	src.y = y
+	src.z = z
 	return
