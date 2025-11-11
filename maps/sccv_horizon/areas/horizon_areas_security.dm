@@ -120,6 +120,13 @@
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 	horizon_deck = 3
 
+/area/horizon/security/custodial
+	name = "Security Custodial Closet"
+	icon_state = "security"
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+	area_blurb = "A strong, concentrated smell of many cleaning supplies linger within this room."
+	horizon_deck = 3
+
 /area/horizon/security/checkpoint
 	name = "Hangar Checkpoint"
 	icon_state = "checkpoint1"

@@ -26,6 +26,9 @@
 	var/disallow_occupant_types = list()
 	var/display_loading_message = TRUE
 
+	/// rate at which alcohol is removed per tick (see process())
+	var/intoxication_removal_rate = 1
+
 	idle_power_usage = 15
 	active_power_usage = 250 //builtin health analyzer, dialysis machine, injectors.
 	var/stasis_power = 500
@@ -60,7 +63,7 @@
 	update_icon()
 	parts_power_usage = active_power_usage
 
-/obj/machinery/sleeper/process()
+/obj/machinery/sleeper/process(seconds_per_tick)
 	if(stat & (NOPOWER|BROKEN))
 		return
 
@@ -73,6 +76,9 @@
 					pumped++
 				if(ishuman(occupant))
 					occupant.vessel.trans_to_obj(beaker, pumped + 1)
+					if(occupant.intoxication)
+						//Removes alcohol in the bloodstream if present
+						occupant.intoxication -= min(occupant.intoxication, (seconds_per_tick * intoxication_removal_rate))
 		else
 			toggle_filter()
 	if(pump)
@@ -139,6 +145,7 @@
 		data["brain_activity"] = occupant.get_brain_result()
 		data["blood_pressure"] = occupant.get_blood_pressure()
 		data["blood_pressure_level"] = occupant.get_blood_pressure_alert()
+		data["bac"] = occupant.get_blood_alcohol()
 		data["blood_o2"] = occupant.get_blood_oxygenation()
 		data["bloodreagents"] = list()
 		var/list/blood_reagents = list()

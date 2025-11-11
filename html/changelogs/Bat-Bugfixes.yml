@@ -1,0 +1,21 @@
+author: Batrachophrenoboocosmomachia
+
+delete-after: True
+
+changes:
+  - spellcheck: "Renames 'gibber' to 'autobutcher'."
+  - code_imp: "Cleans up a lot of old autobutcher code."
+  - code_imp: "Simplifies and unifies a lot of circuit board naming code."
+  - code_imp: "Updates various code comments to DMDocs format."
+  - balance: "Slightly increased damage of beating someone with a ladder."
+  - bugfix: "Fixes foreign speech displaying the translated versions in langchat for non-fluent listeners."
+  - bugfix: "Fixes whispered speech langchat; whispers are now correctly italicized."
+  - bugfix: "Fixes shouted speech langchat; shouts are now correctly biggified."
+  - bugfix: "Adds missing Omni Gas Mixer, Gas Meter options from RFD-P."
+  - bugfix: "Adds missing circuit boards for bioballistic delivery system, lysis-isolation centrifuge, and autobutcher to allow for construction and deconstruction."
+  - bugfix: "Fixes empty algae chips bag having description set for its name."
+  - bugfix: "Adds fallback_specific_heat values to several reagents that were missing them."
+  - bugfix: "Fixes antimateriel projectiles being erroneously damage-capped when hitting walls."
+  - bugfix: "Fixes laser beam effects not using the base colors of their beam VFX."
+  - qol: "Added helpful feedback hint to move closer when someone speaks aloud within 4 tiles while you're in vacuum (as features go, this one felt more like a bug to experience)."
+  - qol: "Updated various examine hints."

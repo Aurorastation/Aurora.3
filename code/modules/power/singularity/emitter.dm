@@ -14,7 +14,7 @@
 	req_access = list(ACCESS_ENGINE_EQUIP)
 	obj_flags = OBJ_FLAG_ROTATABLE | OBJ_FLAG_SIGNALER
 	var/id
-	/// uses powernet power, not APC power
+	/// Uses powernet power, not APC power.
 	use_power = POWER_USE_OFF
 	/// 30 kW laser. I guess that means 30 kJ per shot.
 	active_power_usage = 30000
@@ -30,7 +30,7 @@
 	var/shot_counter = 0
 	var/state = EMITTER_LOOSE
 	var/locked = FALSE
-	/// special emitters notify admins if something happens to them, to prevent grief
+	/// Special emitters notify admins if something happens to them, to prevent grief.
 	var/special_emitter = FALSE
 
 	var/_wifi_id
