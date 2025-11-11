@@ -5,7 +5,7 @@
 	damage_type = DAMAGE_BURN
 	check_armor = ENERGY
 
-//releases a burst of light on impact or after travelling a distance
+/// Releases a burst of light on impact or after travelling a distance.
 /obj/projectile/energy/flash
 	name = "chemical shell"
 	icon_state = "bullet"
@@ -36,7 +36,7 @@
 	single_spark(T)
 	new /obj/effect/smoke/illumination(T, brightness=max(flash_range*2, brightness), lifetime=light_duration)
 
-//blinds people like the flash round, but can also be used for temporary illumination
+/// blinds people like the flash round, but can also be used for temporary illumination
 /obj/projectile/energy/flash/flare
 	damage = 10
 	flash_range = 1

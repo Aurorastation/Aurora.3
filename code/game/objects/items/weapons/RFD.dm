@@ -778,7 +778,9 @@ ABSTRACT_TYPE(/obj/item/rfd)
 		"Pressure Regulator" = PIPE_PASSIVE_GATE,
 		"High Power Gas Pump" = PIPE_VOLUME_PUMP,
 		"Gas Filter" = PIPE_GAS_FILTER_M,
-		"Omni Gas Filter" = PIPE_OMNI_FILTER
+		"Omni Gas Filter" = PIPE_OMNI_FILTER,
+		"Omni Gas Mixer" = PIPE_OMNI_MIXER,
+		"Gas Meter" = "gasmeter"
 	)
 
 /obj/item/rfd/piping/mechanics_hints(mob/user, distance, is_adjacent)
@@ -797,13 +799,13 @@ ABSTRACT_TYPE(/obj/item/rfd)
 	if(istype(get_area(A), /area/shuttle) || istype(get_area(A), /turf/space))
 		to_chat(user, SPAN_WARNING("You can't materialize a pipe here!"))
 		return FALSE
-	var/turf/T = get_turf(A)
-	if(!is_station_level(T.z))
+	var/turf/target_turf = get_turf(A)
+	if(!is_station_level(target_turf.z))
 		to_chat(user, SPAN_WARNING("You can't materialize a pipe on this level!"))
 		return FALSE
-	return do_pipe(T, user)
+	return do_pipe(target_turf, user)
 
-/obj/item/rfd/piping/proc/do_pipe(var/turf/T, var/mob/user)
+/obj/item/rfd/piping/proc/do_pipe(var/turf/target_turf, var/mob/user)
 	if(working)
 		return FALSE
 
@@ -816,21 +818,26 @@ ABSTRACT_TYPE(/obj/item/rfd)
 	playsound(get_turf(src), 'sound/items/rfd_start.ogg', 50, FALSE)
 
 	working = TRUE
-	user.visible_message(SPAN_NOTICE("[user] holds \the [src] towards \the [T]."), SPAN_NOTICE("You start laying down a pipe..."))
+	user.visible_message(SPAN_NOTICE("[user] holds \the [src] towards \the [target_turf]."), SPAN_NOTICE("You start laying down a pipe..."))
 
 	if((build_delay && !do_after(user, build_delay)) || (!useResource(build_cost, user)))
 		playsound(get_turf(src), 'sound/items/rfd_interrupt.ogg', 50, FALSE)
 		working = FALSE
 		return FALSE
 
-	if(build_delay && !can_use(user, T))
+	if(build_delay && !can_use(user, target_turf))
 		return FALSE
 
-	// Special case handling for bent pipes. They require a non-cardinal direction
-	var/pipe_dir = NORTH
-	if(selected_pipe in list(PIPE_SIMPLE_BENT, PIPE_SUPPLY_BENT, PIPE_SCRUBBERS_BENT, PIPE_FUEL_BENT, PIPE_AUX_BENT))
-		pipe_dir = NORTHEAST
-	new /obj/item/pipe(T, selected_pipe, pipe_dir)
+	// Special case for meters- technically it's not a pipe, we can't create a new /obj/item/pipe. Duh.
+	if(selected_pipe == "gasmeter")
+		new /obj/item/pipe_meter(target_turf)
+
+	else
+		// Special case handling for bent pipes. They require a non-cardinal direction
+		var/pipe_dir = NORTH
+		if(selected_pipe in list(PIPE_SIMPLE_BENT, PIPE_SUPPLY_BENT, PIPE_SCRUBBERS_BENT, PIPE_FUEL_BENT, PIPE_AUX_BENT))
+			pipe_dir = NORTHEAST
+		new /obj/item/pipe(target_turf, selected_pipe, pipe_dir)
 
 	playsound(get_turf(src), 'sound/items/rfd_end.ogg', 50, FALSE)
 	working = FALSE

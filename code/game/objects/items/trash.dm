@@ -452,5 +452,6 @@
 	icon_state = "mac_trash_fiery"
 
 /obj/item/trash/algaechips
-	name = "It looks like someone left some strands of algae in it."
+	name = "empty algae chips bag"
+	desc = "It looks like someone left some strands of algae in it."
 	icon_state = "algaechips"

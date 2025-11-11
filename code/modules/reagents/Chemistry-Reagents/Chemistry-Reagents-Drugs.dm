@@ -783,6 +783,7 @@
 /singleton/reagent/drugs/dionae_stimulant/diet
 	name = "diet Diesel"
 	description = "Diesel produced straight from the Narrows that has been made \"diet\" or decontaminated of radiation, making it safe for distribution around the Orion Spur."
+	fallback_specific_heat = 1
 
 /singleton/reagent/drugs/dionae_stimulant/diet/initial_effect(mob/living/carbon/M, alien, datum/reagents/holder)
 	return
