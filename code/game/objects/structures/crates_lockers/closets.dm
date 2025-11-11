@@ -422,6 +422,9 @@
 		if(welded)
 			to_chat(user, SPAN_WARNING("[attacking_item] detects that [src] is welded shut, and refuses to scan."))
 			return
+		if(istype(loc, /obj/structure/crate_shelf))
+			to_chat(user, SPAN_WARNING("[attacking_item] can't scan the [src] while it is on \the [loc]."))
+			return
 		Cscanner.print_contents(name, contents, src.loc)
 	else if(istype(attacking_item, /obj/item/stack/packageWrap))
 		return
