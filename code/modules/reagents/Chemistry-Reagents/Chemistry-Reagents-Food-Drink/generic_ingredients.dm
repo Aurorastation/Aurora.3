@@ -192,6 +192,19 @@
 	condiment_icon_state = "mayonnaise"
 	condiment_center_of_mass = list("x"=16, "y"=8)
 
+/singleton/reagent/nutriment/protein/cream_cheese
+	name = "Cream Cheese"
+	description = "Cheese of the creamed variety."
+	taste_description = "cream cheese"
+	reagent_state = LIQUID
+	nutriment_factor = 3
+	color = "#ffffff"
+	condiment_name = "cream cheese"
+	condiment_desc = "Cheese of the creamed variety."
+	condiment_icon_state = "cream_cheese"
+	value = 0.2
+	taste_mult = 2
+
 /singleton/reagent/sodiumchloride
 	name = "Salt"
 	description = "A salt made of sodium chloride. Commonly used to season food."
