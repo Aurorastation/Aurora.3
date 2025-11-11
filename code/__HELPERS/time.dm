@@ -129,33 +129,37 @@ var/real_round_start_time
 		hourT = " and [hour] hour[(hour != 1)? "s":""]"
 	return "[day] day[(day != 1)? "s":""][hourT][minuteT][secondT]"
 
+/**
+ * The current time on Adhomai
+ */
 /proc/tajaran_time()
 	var/adhomian_time = worldtime2hours()
-	var/adhomian_minute = worldtime2minutes() // make it display 08 when the time is in single digits
+	var/adhomian_minute = worldtime2minutes()
 	var/adhomian_day = tajaran_date()
 	if(ISODD(adhomian_day))
 		adhomian_time += 24
-	if(adhomian_minute < 10)
+	if(adhomian_minute < 10) // make it display 5:08 instead of 5:8 when the time is in single digits
 		adhomian_minute = "0[adhomian_minute]"
 	return "[adhomian_time]:[adhomian_minute]"
 
+/**
+ * The current month/season on Adhomai
+ */
 /proc/tajaran_month()
-	// Set of tajaran months/seasons
 	var/static/months = list("Menshe-aysaif", "Sil'nryy-aysaif", "Menshe-rhazzimy", "Sil'nryy-rhazzimy")
 
-	// Fetch the current ingame month
 	var/adhomian_month = text2num(time2text(world.time, "MM"))
 
-	// Now the actual month is set
 	adhomian_month = months[Ceiling(adhomian_month/3)]
 
 	return adhomian_month
 
+/**
+ * The current date on Adhomai
+ */
 /proc/tajaran_date()
-	// Fetch the current ingame month
 	var/adhomian_day = text2num(time2text(world.time, "DD"))
 	var/current_month = text2num(time2text(world.time, "MM"))
-	// Depending on the month we change the date a bit
 	switch(current_month)
 		if(2, 5, 8, 11)
 			adhomian_day += 31
@@ -166,12 +170,17 @@ var/real_round_start_time
 
 	adhomian_day = FLOOR(adhomian_day / 2, 1)
 
-	// Insert the hour on adhomai, the current minutes, the current date on adhomai and current month and finally the year in the tajaran calendar
 	return adhomian_day
 
+/**
+ * The current year on Adhomai
+ */
 /proc/tajaran_year()
 	return GLOB.game_year + 1158
 
+/**
+ * The full year, month and date on Adhomai
+ */
 /proc/tajaran_full_date()
 	var/adhomian_month = text2num(time2text(world.time, "MM"))
 	adhomian_month = Ceiling(adhomian_month/3)
