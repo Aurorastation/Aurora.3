@@ -146,3 +146,29 @@
   - rscadd: Gravity Adaptations can also be bought in antag uplinks.
   - refactor: Refactored Off-worlder gravity weakness to use the new COMSIG_GRAVITY_WEAKNESS_EVENT
       signal, so that more things can interact with it without needing to be hardcoded.
+2025-11-11:
+  FlamingLily:
+  - rscadd: Adds beer, soda, and zo'ra yoke cans to the maints spawn pool (which includes
+      cargo spawns)
+  Hellfirejag:
+  - bugfix: Fixed sanitization for writing names on takeaway cups.
+  Merlin1230:
+  - spellcheck: Changes some mentions of Jargon into Nralakk or some abbreviation.
+  TheGreyWolf:
+  - bugfix: Fixed the quikpay and cash register's ability to remove items from the
+      buying list.
+  - rscadd: The investigation office had a second desk added and a couple of items
+      in the forensic lab were moved around.
+  - rscadd: The weapon crate in evidence storage now has a lock.
+  - qol: The interrogation room is now next to the investigation office.
+  arrow768:
+  - server: Changed the PRISM Subsystem to use the new DBCore
+  - server: Changed the Cargo Subsystem to use the new DBCore
+  hazelmouse:
+  - rscadd: Several offships now render starlight more properly in their exterior
+      areas.
+  nauticall:
+  - rscadd: The sleeper can now dialyze alcohol from an intoxicated patient, albeit
+      slowly. Decreases BAC by about 0.05 per minute (~0.1 per 2 minutes).
+  - balance: Ethylredoxrazine has been buffed to now decrease BAC by about 0.07-0.08
+      every minute (0.1 every ~1.2 minutes).
