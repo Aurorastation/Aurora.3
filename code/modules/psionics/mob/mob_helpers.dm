@@ -13,10 +13,6 @@
 	SEND_SIGNAL(src, COMSIG_PSI_MIND_POWER, user, &cancelled)
 	if(cancelled || (!has_zona_bovinae() && !has_psi_aug()))
 		return SPAN_WARNING("[src]'s mind is inaccessible, like hitting a brick wall.")
-
-	for (var/obj/item/implant/mindshield/I in src)
-		if (I.implanted)
-			return SPAN_WARNING("[src]'s mind is inaccessible, like hitting a brick wall.")
 	return FALSE
 
 /mob/living/proc/has_zona_bovinae()

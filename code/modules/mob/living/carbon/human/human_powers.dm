@@ -240,8 +240,28 @@
 		if(M.stat == 2)
 			M.gib()
 
+/**
+ * Check the "effective psi-sensitivity" of a mob.
+ * This can be influenced by anything wishing to reply to the signal, such as implants, drugs, other psi-powers, etc.
+ * It also includes the actual psi-sensitivity of real psionics such as Skrell.
+ * This can technically return negative numbers or floats, so you'll need to check > 0 or <= 0 if you need it as a boolean.
+ */
+/mob/proc/check_psi_sensitivity()
+	var/effective_sensitivity = 0
+	SEND_SIGNAL(src, COMSIG_PSI_CHECK_SENSITIVITY, &effective_sensitivity)
+	return effective_sensitivity
 
-// Simple mobs cannot use Skrellepathy
+/mob/living/check_psi_sensitivity()
+	var/effective_sensitivity = ..()
+	if(psi)
+		effective_sensitivity += psi.get_rank()
+	return effective_sensitivity
+
+/**
+ * A binary yes or no check as to whether or not a target has a Psi Complexus.
+ * This proc is to be DEPRECATED, nothing new should check it.
+ * Use check_psi_sensitivity() instead for all your psionic interactions.
+ */ //TODO: TCJ eventually make this check for a PsionicComponent rather than a Psi Complexus
 /mob/proc/has_psionics()
 	return FALSE
 
@@ -327,15 +347,13 @@
 			to_chat(M,"<span class='notice'>[src] telepathically says to [target]:</span> [text]")
 
 	var/mob/living/carbon/human/H = target
-	if (target.has_psionics())
+	if (target.check_psi_sensitivity())
 		to_chat(H,"<span class='psychic'>You instinctively sense [src] sending their thoughts into your mind, hearing:</span> [text]")
 	else if(prob(25) && (target.mind && target.mind.assigned_role=="Chaplain"))
 		to_chat(H,"<span class='changeling'>You sense [src]'s thoughts enter your mind, whispering quietly:</span> [text]")
 	else
 		to_chat(H,"<span class='alium'>You feel pressure behind your eyes as alien thoughts enter your mind:</span> [text]")
 		if(istype(H))
-			if (target.has_psionics())
-				return
 			if(prob(10) && !(H.species.flags & NO_BLOOD))
 				to_chat(H,SPAN_WARNING("Your nose begins to bleed..."))
 				H.drip(3)
