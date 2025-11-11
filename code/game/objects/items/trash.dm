@@ -11,23 +11,9 @@
 	drop_sound = 'sound/items/drop/wrapper.ogg'
 	pickup_sound = 'sound/items/pickup/wrapper.ogg'
 	persistency_considered_trash = TRUE
-	persistence_supported = TRUE
 
 /obj/item/trash/attack(mob/living/target_mob, mob/living/user, target_zone)
 	return
-
-// Snowflake case to save on database space
-/obj/item/trash/persistence_get_content()
-	SHOULD_CALL_PARENT(FALSE)
-	var/list/content = list()
-	return content
-
-// Snowflake case to save on database space
-/obj/item/trash/persistence_apply_content(content, x, y, z)
-	SHOULD_CALL_PARENT(FALSE)
-	src.x = x
-	src.y = y
-	src.z = z
 
 /obj/item/trash/koisbar
 	name = "\improper k'ois bar wrapper"

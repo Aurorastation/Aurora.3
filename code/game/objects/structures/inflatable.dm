@@ -290,14 +290,6 @@
 	desc = "A folded membrane which rapidly expands into a large cubical shape on activation. It is too torn to be usable."
 	icon_state = "folded_wall-torn"
 	persistency_considered_trash = TRUE
-	persistence_supported = TRUE
-
-// Snowflake case since this is trash-like and we need to save on database space.
-/obj/item/inflatable/torn/persistence_apply_content(content, x, y, z)
-	SHOULD_CALL_PARENT(FALSE)
-	src.x = x
-	src.y = y
-	src.z = z
 
 /obj/item/inflatable/torn/attack_self(mob/user)
 	to_chat(user, SPAN_NOTICE("The inflatable wall is too torn to be inflated!"))
@@ -308,14 +300,6 @@
 	desc = "A folded membrane which rapidly expands into a simple door on activation. It is too torn to be usable."
 	icon_state = "folded_door-torn"
 	persistency_considered_trash = TRUE
-	persistence_supported = TRUE
-
-// Snowflake case since this is trash-like and we need to save on database space.
-/obj/item/inflatable/door/torn/persistence_apply_content(content, x, y, z)
-	SHOULD_CALL_PARENT(FALSE)
-	src.x = x
-	src.y = y
-	src.z = z
 
 /obj/item/inflatable/door/torn/attack_self(mob/user)
 	to_chat(user, SPAN_NOTICE("The inflatable door is too torn to be inflated!"))

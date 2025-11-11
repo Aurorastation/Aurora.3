@@ -282,7 +282,7 @@ SUBSYSTEM_DEF(persistence)
  * The ckey is an optional argument and is used for tracking user generated content by adding an author to the persistent data.
  */
 /datum/controller/subsystem/persistence/proc/register_track(var/obj/new_track, var/ckey)
-	if(!new_track.should_persist() || new_track.persistence_track_active) // Prevent multiple registers per object and removes the need to check the register if it's already in there
+	if(new_track.persistence_track_active) // Prevent multiple registers per object and removes the need to check the register if it's already in there
 		return
 
 	var/turf/T = get_turf(new_track)
@@ -302,3 +302,17 @@ SUBSYSTEM_DEF(persistence)
 
 	old_track.persistence_track_active = FALSE
 	GLOB.persistence_register -= old_track
+
+/*#############################################
+			Persistence Helper-Macros
+#############################################*/
+
+/**
+ * Saves a given variable to the persistence content of an item if and only if that variable is different from its initial value.
+ * Input 1 must be a var/list/content, see any example of persistence_get_content()
+ * Input 2 can be any variable that is not a datum or reference.
+ * Input 3 must be a string that matches the name of the variable you wish to set.
+ */
+#define SAVE_IF_DIFFERENT(content, var_to_save, save_name) if(var_to_save != initial(var_to_save)) {content[save_name] = var_to_save}
+
+#define SET_IF_EXISTS(content, var_to_set, save_name) if(content[save_name]) {var_to_set = content[save_name]}

@@ -1403,20 +1403,20 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 /obj/item/persistence_get_content()
 	var/list/content = ..()
-	content["name"] = name
-	content["desc"] = desc
-	content["icon"] = icon
-	content["icon_state"] = icon_state
-	content["item_state"] = item_state
+	SAVE_IF_DIFFERENT(content, name, "name")
+	SAVE_IF_DIFFERENT(content, desc, "desc")
+	SAVE_IF_DIFFERENT(content, icon, "icon")
+	SAVE_IF_DIFFERENT(content, icon_state, "icon_state")
+	SAVE_IF_DIFFERENT(content, item_state, "item_state")
 	return content
 
 /obj/item/persistence_apply_content(content, x, y, z)
 	..()
-	name = content["name"]
-	desc = content["desc"]
-	icon = file(content["icon"])
-	icon_state = content["icon_state"]
-	item_state = content["item_state"]
+	SET_IF_EXISTS(content, name, "name")
+	SET_IF_EXISTS(content, desc, "desc")
+	SET_IF_EXISTS(content, icon, "icon")
+	SET_IF_EXISTS(content, icon_state, "icon_state")
+	SET_IF_EXISTS(content, item_state, "item_state")
 	src.x = x
 	src.y = y
 	src.z = z

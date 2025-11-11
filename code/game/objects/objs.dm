@@ -369,6 +369,3 @@
 /obj/proc/persistence_apply_content(content, x, y, z)
 	SHOULD_CALL_PARENT(TRUE)
 	return
-
-/obj/proc/should_persist()
-	return persistence_supported

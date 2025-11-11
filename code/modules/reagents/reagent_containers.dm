@@ -361,12 +361,12 @@
 
 /obj/item/reagent_containers/persistence_get_content()
 	var/list/content = ..()
-	content["primary_reagent"] = reagents.primary_reagent
-	content["reagent_volumes"] = reagents.reagent_volumes
-	content["reagent_data"] = reagents.reagent_data
-	content["total_volume"] = reagents.total_volume
-	content["maximum_volume"] = reagents.maximum_volume
-	content["thermal_energy"] = reagents.thermal_energy
+	SAVE_IF_DIFFERENT(content, reagents.primary_reagent, "primary_reagent")
+	SAVE_IF_DIFFERENT(content, reagents.reagent_volumes, "reagent_volumes")
+	SAVE_IF_DIFFERENT(content, reagents.reagent_data, "reagent_data")
+	SAVE_IF_DIFFERENT(content, reagents.total_volume, "total_volume")
+	SAVE_IF_DIFFERENT(content, reagents.maximum_volume, "maximum_volume")
+	SAVE_IF_DIFFERENT(content, reagents.thermal_energy, "thermal_energy")
 	return content
 
 // This will only apply to reagent containers that have persistence_supported set to TRUE. It is defaulted to false.
@@ -374,9 +374,9 @@
 // Override it if you want to use persistence with something else.
 /obj/item/reagent_containers/persistence_apply_content(content, x, y, z)
 	..()
-	reagents.primary_reagent = content["primary_reagent"]
-	reagents.reagent_volumes = content["reagent_volumes"]
-	reagents.reagent_data = content["reagent_data"]
-	reagents.total_volume = content["total_volume"]
-	reagents.maximum_volume = content["maximum_volume"]
-	reagents.thermal_energy = content["thermal_energy"]
+	SET_IF_EXISTS(content, reagents.primary_reagent, "primary_reagent")
+	SET_IF_EXISTS(content, reagents.reagent_volumes, "reagent_volumes")
+	SET_IF_EXISTS(content, reagents.reagent_data, "reagent_data")
+	SET_IF_EXISTS(content, reagents.total_volume, "total_volume")
+	SET_IF_EXISTS(content, reagents.maximum_volume, "maximum_volume")
+	SET_IF_EXISTS(content, reagents.thermal_energy, "thermal_energy")
