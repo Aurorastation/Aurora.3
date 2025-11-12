@@ -56,7 +56,7 @@
 
 	to_chat(usr, "<b><i>You flex your muscles and have a revelation...</i></b>")
 	to_chat(usr, "<span class='notice'>Clinch</span>: Grab. Passively gives you a chance to immediately aggressively grab someone. Not always successful.")
-	to_chat(usr, "<span class='notice'>Suplex</span>: Disarm someone you are grabbing. Suplexes your target to the floor. Greatly injures them and leaves both you and your target on the floor.")
+	to_chat(usr, "<span class='notice'>Suplex</span>: Disarm someone you are grabbing. Suplexes your target to the floor. Injures them and leaves both you and your target on the floor for a short duration.")
 	to_chat(usr, "<span class='notice'>Advanced grab</span>: Grab. Passively causes pain when grabbing someone.")
 
 /obj/item/martial_manual/wrestling
