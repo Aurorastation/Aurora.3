@@ -21,7 +21,6 @@
 	SEND_SIGNAL(src, COMSIG_PSI_MIND_POWER, user, &cancelled)
 	if(cancelled || (!has_zona_bovinae() && !has_psi_aug())) // TODO: TCJ go make the Zona Bovinae a real organ with a psi_check_sensitivity registration so you can remove it from this.
 		return SPAN_WARNING("[src]'s mind is inaccessible, like hitting a brick wall.")
-	return FALSE
 
 /**
  * Check the "effective psi-sensitivity" of a mob. AKA: The target's RECEIVING statistic.
