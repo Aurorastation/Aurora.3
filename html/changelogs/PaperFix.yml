@@ -1,7 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - bugfix: "Papers no longer show their message twice when examined."
-  - bugfix: "The slide projector projections can now be examined again."
