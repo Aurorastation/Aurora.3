@@ -476,7 +476,7 @@
 		to_chat(M, SPAN_GOOD(pick("You can almost see the currents of air as they dance around you.", "You see the colours around you beginning to bleed together.", "You feel safe and comfortable.")))
 
 /singleton/reagent/wulumunusha/overdose(mob/living/carbon/M, alien, removed = 0, scale = 1, datum/reagents/holder)
-	if(!M.psi || M.check_psi_sensitivity() < PSI_RANK_SENSITIVE)
+	if(!M.psi && M.check_psi_sensitivity() < PSI_RANK_SENSITIVE)
 		return
 
 	M.hallucination = max(M.hallucination, 10 * scale)	//light hallucinations that afflict the psionically sensitive.
