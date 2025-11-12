@@ -177,7 +177,7 @@
 	requires_contact = TRUE
 	instant_contact = TRUE
 
-	// Vars that determine movability, current moving direction, and moving speed //
+	// Vars that determine movability, current moving direction, and moving speed
 	/// Whether this event can move or not
 	var/movable_event = FALSE
 	/// The percentage chance that this event will turn itself into a mobile version
@@ -186,7 +186,7 @@
 	var/moving_dir = null
 	/// How many times the event has to process before moving (2 seconds per).
 	/// This is automatically randomized to be 1/3 higher or lower on init, so not all events fire simultaneously.
-	var/movable_speed = 90
+	var/movable_speed = 75
 	/// Ticks up each process until move speed is matched, at which point the event will move
 	var/move_counter = 0
 	/// Percentage chance that the event changes direction
@@ -267,8 +267,8 @@
 	event_icon_states = list("meteor1", "meteor2", "meteor3", "meteor4")
 	difficulty = EVENT_LEVEL_MAJOR
 	// Faster than carp, but only ever move in a single direction.
-	movable_event_chance = 10
-	movable_speed = 60
+	movable_event_chance = 20
+	movable_speed = 50
 	dir_change_chance = 0
 
 /obj/effect/overmap/event/electric
@@ -286,7 +286,7 @@
 	can_be_destroyed = FALSE
 	// Faster than carp, but only ever move in a single direction.
 	movable_event_chance = 20
-	movable_speed = 60
+	movable_speed = 40
 	dir_change_chance = 0
 
 /obj/effect/overmap/event/ion
@@ -305,7 +305,7 @@
 	events = list(/datum/event/carp_migration/overmap)
 	difficulty = EVENT_LEVEL_MODERATE
 	event_icon_states = list("carp")
-	movable_event_chance = 20
+	movable_event_chance = 30
 
 /obj/effect/overmap/event/carp/major
 	name = "carp school"
@@ -332,16 +332,16 @@
 
 /datum/overmap_event/meteor
 	name = "asteroid field"
-	count = 12
-	radius = 5
+	count = 15
+	radius = 4
 	opacity = 1
 	continuous = FALSE
 	hazards = /obj/effect/overmap/event/meteor
 
 /datum/overmap_event/electric
 	name = "electrical storm"
-	count = 7
-	radius = 3
+	count = 6
+	radius = 2
 	hazards = /obj/effect/overmap/event/electric
 
 /datum/overmap_event/dust
@@ -353,7 +353,7 @@
 
 /datum/overmap_event/ion
 	name = "ion cloud"
-	count = 6
+	count = 5
 	radius = 2
 	hazards = /obj/effect/overmap/event/ion
 
