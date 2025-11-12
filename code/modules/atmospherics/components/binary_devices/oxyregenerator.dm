@@ -174,9 +174,9 @@
 		data["co2"] = 0
 		data["o2"] = 0
 		// update the ui if it exists, returns null if no ui is passed/found
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SStgui.try_update_ui(user, src, ui) // NANO NANOUI REPLACEME
 	if(!ui)
-		ui = new(user, src, ui_key, "oxyregenerator.tmpl", "Oxygen Regeneration System", 440, 300)
+		ui = new(user, src, "UI_NAME", "UI_WINDOW_NAME") // NANO NANOUI REPLACEMEoxyregenerator.tmpl", "Oxygen Regeneration System", 440, 300)
 		ui.set_initial_data(data)
 		ui.open()
 		ui.set_auto_update(1)

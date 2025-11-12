@@ -5,8 +5,6 @@
 // When implementing new program based device, use this to run the program.
 /datum/computer_file/program/proc/run_program(var/mob/user)
 	if(can_run(user, 1) || !requires_access_to_run)
-		if(nanomodule_path)
-			NM = new nanomodule_path(src, new /datum/topic_manager/program(src), src)
 		if(requires_ntnet && network_destination)
 			generate_network_log("Connection opened to [network_destination].")
 		program_state = PROGRAM_STATE_ACTIVE
@@ -18,10 +16,6 @@
 	program_state = PROGRAM_STATE_KILLED
 	if(network_destination)
 		generate_network_log("Connection to [network_destination] closed.")
-
-	if(NM)
-		qdel(NM)
-		NM = null
 
 	return TRUE
 

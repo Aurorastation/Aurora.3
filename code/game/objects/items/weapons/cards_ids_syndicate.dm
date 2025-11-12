@@ -71,9 +71,9 @@
 	data["electronic_warfare"] = electronic_warfare
 	data["entries"] = entries
 
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SStgui.try_update_ui(user, src, ui) // NANO NANOUI REPLACEME
 	if (!ui)
-		ui = new(user, src, ui_key, "agent_id_card.tmpl", "Agent id", 600, 400)
+		ui = new(user, src, "UI_NAME", "UI_WINDOW_NAME") // NANO NANOUI REPLACEMEagent_id_card.tmpl", "Agent id", 600, 400)
 		ui.set_initial_data(data)
 		ui.open()
 
@@ -253,7 +253,7 @@
 					. = 1
 
 	// Always update the UI, or buttons will spin indefinitely
-	SSnanoui.update_uis(src)
+	SStgui.update_uis(src)
 
 GLOBAL_LIST_INIT_TYPED(id_card_states, /datum/card_state, null)
 /proc/id_card_states()

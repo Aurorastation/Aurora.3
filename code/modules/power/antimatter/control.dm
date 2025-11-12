@@ -275,7 +275,19 @@
 			return
 	return ui_interact(user)
 
-/obj/machinery/power/am_control_unit/ui_interact(mob/user, ui_key = "main")
+/obj/machinery/power/am_control_unit/ui_interact(mob/user, var/datum/tgui/ui)
+	to_chat(user, "Nothing seems to happen.")
+	// Disabled during TGUI react update- not being updated.
+	/*
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "AM_Control", tgui_name, 750, 600)
+		ui.open()
+	*/
+
+// Disabled during TGUI react update- not being updated.
+/*
+/obj/machinery/power/am_control_unit/ui_data(mob/user)
 	if(!user)
 		return
 
@@ -297,21 +309,7 @@
 		"fueljar" = fueljar_data,
 		"siliconUser" = issilicon(user)
 	)
-
-	var/datum/nanoui/ui = SSnanoui.get_open_ui(user, src, ui_key)
-	if (!ui)
-		// the ui does not exist, so we'll create a new one
-		ui = new(user, src, ui_key, "ame.tmpl", "Antimatter Control Unit", 500, data["siliconUser"] ? 465 : 390)
-		// When the UI is first opened this is the data it will use
-		ui.set_initial_data(data)
-		ui.open()
-		// Auto update every Master Controller tick
-		ui.set_auto_update(TRUE)
-	else
-		// The UI is already open so push the new data to it
-		ui.push_data(data)
-
-/obj/machinery/power/am_control_unit/Topic(href, href_list)
+/obj/machinery/power/am_control_unit/ui_act(href, href_list)
 	if(..())
 		return TRUE
 	if(href_list["close"])
@@ -362,3 +360,4 @@
 
 	updateDialog()
 	return TRUE
+*/

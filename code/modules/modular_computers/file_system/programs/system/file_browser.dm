@@ -15,7 +15,7 @@
 	var/error
 
 /datum/computer_file/program/filemanager/ui_data(mob/user)
-	var/list/data = list()
+	var/list/data = initial_data()
 
 	var/obj/item/computer_hardware/hard_drive/HDD
 	var/obj/item/computer_hardware/hard_drive/portable/RHDD

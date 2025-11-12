@@ -64,10 +64,10 @@
 		"secure" = program.memory["secure"]
 	)
 
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SStgui.try_update_ui(user, src, ui) // NANO NANOUI REPLACEME
 
 	if (!ui)
-		ui = new(user, src, ui_key, "advanced_airlock_console.tmpl", name, 470, 290)
+		ui = new(user, src, "UI_NAME", "UI_WINDOW_NAME") // NANO NANOUI REPLACEMEadvanced_airlock_console.tmpl", name, 470, 290)
 
 		ui.set_initial_data(data)
 
@@ -121,10 +121,10 @@
 		"processing" = program.memory["processing"]
 	)
 
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SStgui.try_update_ui(user, src, ui) // NANO NANOUI REPLACEME
 
 	if (!ui)
-		ui = new(user, src, ui_key, "simple_airlock_console.tmpl", name, 470, 290)
+		ui = new(user, src, "UI_NAME", "UI_WINDOW_NAME") // NANO NANOUI REPLACEMEsimple_airlock_console.tmpl", name, 470, 290)
 
 		ui.set_initial_data(data)
 
@@ -185,10 +185,10 @@
 		"processing" = program.memory["processing"]
 	)
 
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SStgui.try_update_ui(user, src, ui) // NANO NANOUI REPLACEME
 
 	if (!ui)
-		ui = new(user, src, ui_key, "door_access_console.tmpl", name, 330, 220)
+		ui = new(user, src, "UI_NAME", "UI_WINDOW_NAME") // NANO NANOUI REPLACEMEdoor_access_console.tmpl", name, 330, 220)
 
 		ui.set_initial_data(data)
 

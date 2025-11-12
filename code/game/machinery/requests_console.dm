@@ -287,9 +287,9 @@ GLOBAL_LIST_INIT_TYPED(allConsoles, /obj/machinery/requests_console, list())
 	data["lid"] = lid
 	data["paper"] = paperstock
 
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SStgui.try_update_ui(user, src, ui) // NANO NANOUI REPLACEME
 	if (!ui)
-		ui = new(user, src, ui_key, "requests_console.tmpl", "[department] Requests Console", 520, 410)
+		ui = new(user, src, "UI_NAME", "UI_WINDOW_NAME") // NANO NANOUI REPLACEMErequests_console.tmpl", "[department] Requests Console", 520, 410)
 		ui.set_initial_data(data)
 		ui.open()
 
