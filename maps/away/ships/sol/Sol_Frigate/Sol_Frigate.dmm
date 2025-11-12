@@ -440,12 +440,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/sol_frigate/sickbay)
-"ce" = (
-/obj/effect/shuttle_landmark/sol_frigate/transit{
-	dir = 1
-	},
-/turf/space,
-/area/space)
 "cg" = (
 /obj/structure/bookcase/libraryspawn/nonfiction,
 /turf/simulated/floor/wood,
@@ -768,7 +762,6 @@
 /area/ship/sol_frigate/starboard_gunnery)
 "dt" = (
 /obj/machinery/door/airlock/external,
-/obj/effect/map_effect/marker/airlock/docking/sol_frigate/shuttle_port,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/machinery/access_button{
 	pixel_x = -33;
@@ -1140,12 +1133,6 @@
 	},
 /turf/simulated/wall/shuttle/raider,
 /area/ship/sol_frigate/starboard_thrusters)
-"eX" = (
-/obj/effect/shuttle_landmark/sol_frigate/dock_starboard{
-	dir = 1
-	},
-/turf/template_noop,
-/area/space)
 "fb" = (
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/hangar)
@@ -1713,7 +1700,6 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5
 	},
-/obj/machinery/power/apc/north,
 /obj/structure/cable/blue{
 	icon_state = "0-4"
 	},
@@ -2364,7 +2350,6 @@
 	dir = 4;
 	pixel_y = -6
 	},
-/obj/effect/map_effect/marker/airlock/docking/sol_frigate/shuttle_port,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
 	},
@@ -2734,7 +2719,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/engineering)
 "mi" = (
-/obj/effect/map_effect/marker/airlock/docking/sol_frigate/shuttle_port,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
 	},
@@ -3356,7 +3340,6 @@
 	},
 /obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/docking/sol_frigate/shuttle_port,
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/hangar)
@@ -4268,7 +4251,6 @@
 /area/ship/sol_frigate/hallway_fore)
 "tz" = (
 /obj/machinery/door/airlock/external,
-/obj/effect/map_effect/marker/airlock/docking/sol_frigate/shuttle_port,
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	pixel_x = -24;
@@ -4631,7 +4613,6 @@
 "uy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/power/apc/east,
 /obj/structure/cable/blue{
 	icon_state = "0-2"
 	},
@@ -4883,10 +4864,6 @@
 	temperature = 253.15
 	},
 /area/ship/sol_frigate/freezer)
-"vO" = (
-/obj/effect/map_effect/marker/airlock/docking/sol_frigate/shuttle_port,
-/turf/simulated/floor/tiled/dark,
-/area/ship/sol_frigate/hangar)
 "vQ" = (
 /turf/simulated/floor/wood,
 /area/ship/sol_frigate/captain_office)
@@ -5861,7 +5838,8 @@
 	dir = 4
 	},
 /obj/effect/shuttle_landmark/sol_frigate/dock_port{
-	dir = 8
+	dir = 8;
+	name = "port dock"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/docking/sol_frigate/port_dock,
@@ -8548,7 +8526,8 @@
 	dir = 4
 	},
 /obj/effect/shuttle_landmark/sol_frigate/dock_starboard{
-	dir = 4
+	dir = 4;
+	name = "starboard dock"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/docking/sol_frigate/starboard_dock,
@@ -9028,7 +9007,6 @@
 	pixel_x = 28;
 	req_access = list(222)
 	},
-/obj/effect/map_effect/marker/airlock/docking/sol_frigate/shuttle_port,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/door/blast/shutters/open{
 	id = "SFLD"
@@ -9720,7 +9698,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/door/firedoor/noid,
 /obj/structure/cable/blue{
 	icon_state = "4-8"
 	},
@@ -9794,7 +9771,9 @@
 /area/ship/sol_frigate/hangar)
 "TO" = (
 /obj/machinery/door/airlock/external,
-/obj/effect/shuttle_landmark/sol_frigate/dock_aft,
+/obj/effect/shuttle_landmark/sol_frigate/dock_aft{
+	name = "aft dock"
+	},
 /obj/effect/map_effect/marker/airlock/docking/sol_frigate/aft_dock,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
@@ -16466,7 +16445,7 @@ Xc
 Xc
 Xc
 Xc
-ce
+Xc
 Xc
 Xc
 Xc
@@ -44649,7 +44628,7 @@ pK
 XZ
 Hw
 pK
-vO
+fb
 oN
 Lf
 pX
@@ -44927,7 +44906,7 @@ xs
 xs
 xs
 MO
-eX
+MO
 MO
 MO
 MO
