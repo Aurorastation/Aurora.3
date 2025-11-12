@@ -113,8 +113,6 @@ Quick adjacency (to turf):
 */
 /turf/proc/ClickCross(target_dir, border_only, target, atom/movable/mover)
 	for(var/obj/O in src)
-		if((mover && O.CanPass(mover, target_dir)) || (!mover && !O.density))
-			continue
 
 		//If there's a dense object on the turf, only allow the click to pass if you can throw items over it or it has a special flag.
 		if(O == target || O == mover || (O.pass_flags_self & (LETPASSTHROW|LETPASSCLICKS)))
