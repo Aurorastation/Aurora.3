@@ -108,7 +108,9 @@ ABSTRACT_TYPE(/datum/computer_file/program)
 		computer.enabled_services -= src
 		UnregisterSignal(computer, COMSIG_QDELETING)
 	computer = null
-	..()
+
+	. = ..()
+	GC_TEMPORARY_HARDDEL
 
 /datum/computer_file/program/ui_host()
 	if(computer)
