@@ -33,11 +33,17 @@
 
 /obj/item/organ/internal/augment/bioaug/mind_blanker/proc/cancel_power(var/implantee, var/caster, var/cancelled)
 	SIGNAL_HANDLER
+	if(is_broken())
+		return
+
 	*cancelled = TRUE
 	to_chat(implantee, SPAN_DANGER("Your mind wriggles as it repulses an outside thought."))
 
 /obj/item/organ/internal/augment/bioaug/mind_blanker/proc/modify_sensitivity(var/implantee, var/effective_sensitivity)
 	SIGNAL_HANDLER
+	if(is_broken())
+		return
+
 	*effective_sensitivity += sensitivity_modifier
 
 /obj/item/organ/internal/augment/bioaug/mind_blanker_lethal
@@ -75,6 +81,9 @@
 
 /obj/item/organ/internal/augment/bioaug/mind_blanker_lethal/proc/cancel_power_lethal(var/implantee, var/caster, var/cancelled)
 	SIGNAL_HANDLER
+	if(is_broken())
+		return
+
 	*cancelled = TRUE
 	to_chat(implantee, SPAN_DANGER("Your mind wriggles as it repulses an outside thought."))
 	if(isliving(caster))
@@ -85,4 +94,7 @@
 
 /obj/item/organ/internal/augment/bioaug/mind_blanker_lethal/proc/modify_sensitivity(var/implantee, var/effective_sensitivity)
 	SIGNAL_HANDLER
+	if(is_broken())
+		return
+
 	*effective_sensitivity += sensitivity_modifier

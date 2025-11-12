@@ -241,23 +241,6 @@
 			M.gib()
 
 /**
- * Check the "effective psi-sensitivity" of a mob.
- * This can be influenced by anything wishing to reply to the signal, such as implants, drugs, other psi-powers, etc.
- * It also includes the actual psi-sensitivity of real psionics such as Skrell.
- * This can technically return negative numbers or floats, so you'll need to check > 0 or <= 0 if you need it as a boolean.
- */
-/mob/proc/check_psi_sensitivity()
-	var/effective_sensitivity = 0
-	SEND_SIGNAL(src, COMSIG_PSI_CHECK_SENSITIVITY, &effective_sensitivity)
-	return effective_sensitivity
-
-/mob/living/check_psi_sensitivity()
-	var/effective_sensitivity = ..()
-	if(psi)
-		effective_sensitivity += psi.get_rank()
-	return effective_sensitivity
-
-/**
  * A binary yes or no check as to whether or not a target has a Psi Complexus.
  * This proc is to be DEPRECATED, nothing new should check it.
  * Use check_psi_sensitivity() instead for all your psionic interactions.

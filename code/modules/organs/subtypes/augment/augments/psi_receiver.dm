@@ -31,4 +31,7 @@
 
 /obj/item/organ/internal/augment/psi/proc/modify_sensitivity(var/implantee, var/effective_sensitivity)
 	SIGNAL_HANDLER
+	if(is_broken())
+		return
+
 	*effective_sensitivity += sensitivity_modifier
