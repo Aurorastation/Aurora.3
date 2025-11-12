@@ -6,9 +6,9 @@
 	desc = "It turns lights on and off. What are you, simple?"
 	icon = 'icons/obj/machinery/button.dmi'
 	icon_state = "light-p"
-	anchored = 1.0
+	anchored = TRUE
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
-	var/on = 1
+	var/on = TRUE
 	var/area/area = null
 	var/otherarea = null
 	power_channel = AREA_USAGE_LIGHT
@@ -82,6 +82,24 @@
 		return
 
 	power_change()
+
+/obj/machinery/light_switch/north
+	dir = NORTH
+	pixel_y = 30
+
+/obj/machinery/light_switch/south
+	dir = SOUTH
+	pixel_y = -18
+
+/obj/machinery/light_switch/east
+	dir = EAST
+	pixel_x = 22
+	pixel_y = 5
+
+/obj/machinery/light_switch/west
+	dir = WEST
+	pixel_x = -22
+	pixel_y = 5
 
 /obj/machinery/light_switch/idris
 	name = "idris smart switch"
