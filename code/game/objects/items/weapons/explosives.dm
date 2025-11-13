@@ -158,5 +158,5 @@
 /obj/item/plastique/dirty/explode(turf/location)
 	if(location)
 		SSradiation.radiate(src, 250)
-		new /obj/effect/decal/cleanable/greenglow(get_turf(src))
+		new /obj/effect/decal/cleanable/greenglow/radioactive(get_turf(src))
 	..()
