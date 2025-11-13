@@ -16,7 +16,9 @@
 /obj/structure/reagent_dispensers/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Use Help intent to fill a container in your hand from this, and use any other intent to empty the container into this."
-	. += "Right-click this to change the amount transferred per use."
+	. += "In the right-click menu, you can set the amount transferred per use."
+	if(can_tamper)
+		. += "Using a wrench on this with the Harm intent will open or close the faucet; an open faucet will cause it to continuously leak its contents."
 
 /obj/structure/reagent_dispensers/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -477,6 +479,12 @@
 	amount_per_transfer_from_this = 300
 	reagents_to_add = list(/singleton/reagent/radioactive_waste = 1000)
 
+/obj/structure/reagent_dispensers/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(can_tamper)
+		. += "Using a wrench on this with the Harm intent will open or close the faucet; an open faucet will cause it to continuously leak its contents."
+		. += "This hint is being repeated for emphasis. MAKING THIS LEAK WILL CAUSE EVERYONE NEARBY TO HAVE A BAD TIME."
+
 /// Only use this if you want active radiation.
 /obj/structure/reagent_dispensers/radioactive_waste/hazardous
 	name = "leaking radioactive waste barrel"
@@ -508,11 +516,16 @@
 	if(!is_leaking && reagents.total_volume <= 0)
 		STOP_PROCESSING(SSprocessing,src)
 		return
+
 	else
 		if(reagents.total_volume > 0)
 			SSradiation.radiate(src, radioactivity)
 
-		if(is_leaking)
-			var/splash_amount = min(amount_per_transfer_from_this, 10)
+		/// The residue probably still isn't very nice.
+		else
+			SSradiation.radiate(src, radioactivity / 4)
+
+		if(is_leaking && prob(10))
+			var/splash_amount = min(amount_per_transfer_from_this, rand(2,10))
 			reagents.trans_to_turf(get_turf(src), splash_amount)
 			return
