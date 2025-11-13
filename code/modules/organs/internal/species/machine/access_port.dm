@@ -112,7 +112,7 @@
 /obj/item/organ/internal/machine/access_port/insert_cable(obj/item/access_cable/cable, mob/user)
 	. = ..()
 	insert_item(cable)
-	cable.create_cable(user, owner)
+	cable.create_cable(owner)
 
 /obj/item/organ/internal/machine/access_port/cable_interact(obj/item/access_cable/cable, mob/user)
 	var/obj/item/organ/internal/machine/internal_diagnostics/diagnostics_unit = owner.internal_organs_by_name[BP_DIAGNOSTICS_SUITE]
@@ -139,8 +139,8 @@
 
 	/// Where this cable is extending from.
 	var/obj/source
-	///The actual source of the /datum/beam coming from the cable.
-	var/atom/movable/beam_source
+	/// If the source is an object in another object (like an organ), then this is where we actually want the cable beam to extend from physically.
+	var/atom/movable/beam_anchor
 	/// Where this cable is attached to.
 	var/obj/target
 	/// The actual target of the /datum/beam coming from the cable.
@@ -150,23 +150,23 @@
 	/// The range this cable has. Past this range, it will disconnect.
 	var/range = 3
 
-/obj/item/access_cable/Initialize(mapload, atom/movable/new_source, atom/movable/override_beam_source)
+/obj/item/access_cable/Initialize(mapload, atom/movable/cable_source, atom/movable/cable_beam_anchor)
 	. = ..()
-	if(!new_source)
+	if(!cable_source)
 		log_debug("Access cable spawned without a source: [x] [y] [z]")
 		qdel_self()
 		return
 
-	source = new_source
-	if(override_beam_source)
-		beam_source = override_beam_source
+	source = cable_source
+	if(cable_beam_anchor)
+		beam_anchor = cable_beam_anchor
 	RegisterSignal(src, COMSIG_MOVABLE_MOVED, PROC_REF(check_retract_range), TRUE)
 
 /obj/item/access_cable/Destroy()
 	source = null
 	target = null
+	beam_anchor = null
 	beam_target = null
-	beam_source = null
 	if(cable)
 		cable.End()
 		QDEL_NULL(cable)
@@ -178,19 +178,18 @@
  * For example, the source of a synthetic access cable is the power port, although that's physically inside a human mob and so we can't draw a beam to it.
  * We have to draw a beam from the human in that case.
  */
-/obj/item/access_cable/proc/create_cable(var/atom/new_source, var/atom/new_target)
+/obj/item/access_cable/proc/create_cable(var/atom/new_target)
 	clear_cable_visuals()
-	beam_source = new_source
 	beam_target = new_target
-	RegisterSignal(beam_source, COMSIG_MOVABLE_MOVED, PROC_REF(check_retract_range), TRUE)
+	RegisterSignal(beam_anchor ? beam_anchor : source, COMSIG_MOVABLE_MOVED, PROC_REF(check_retract_range), TRUE)
 	RegisterSignal(beam_target, COMSIG_MOVABLE_MOVED, PROC_REF(check_retract_range), TRUE)
-	cable = new(beam_source, beam_target, beam_icon_state = "cable", time = -1, maxdistance = range + 1)
+	cable = new(beam_anchor ? beam_anchor : source, beam_target, beam_icon_state = "cable", time = -1, maxdistance = range + 1)
 	cable.Start()
 
 /obj/item/access_cable/dropped(mob/user)
 	. = ..()
 	clear_cable_visuals()
-	create_cable(beam_source, src)
+	create_cable(src)
 
 /obj/item/access_cable/pickup(mob/user)
 	. = ..()
@@ -220,9 +219,7 @@
  * Retracts the cable back into the parent object.
  */
 /obj/item/access_cable/proc/clear_cable_full()
-	if(beam_source)
-		UnregisterSignal(beam_source, COMSIG_MOVABLE_MOVED)
-
+	UnregisterSignal(beam_anchor ? beam_anchor : source, COMSIG_MOVABLE_MOVED)
 	if(target)
 		target.remove_cable(src)
 	target = null

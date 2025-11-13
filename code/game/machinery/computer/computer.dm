@@ -237,7 +237,7 @@
 /obj/machinery/computer/insert_cable(obj/item/access_cable/cable, mob/user)
 	. = ..()
 	inserted_cable = cable
-	cable.create_cable(cable.beam_source, src)
+	cable.create_cable(src)
 
 /obj/machinery/computer/cable_interact(obj/item/access_cable/cable, mob/user)
 	. = ..()

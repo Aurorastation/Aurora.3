@@ -20,7 +20,7 @@
 /obj/item/computer_hardware/universal_port/insert_cable(obj/item/access_cable/cable, mob/user)
 	. = ..()
 	access_cable = cable
-	cable.create_cable(cable.beam_source, parent_computer)
+	cable.create_cable(parent_computer)
 
 /obj/item/computer_hardware/universal_port/cable_interact(obj/item/access_cable/cable, mob/user)
 	. = ..()

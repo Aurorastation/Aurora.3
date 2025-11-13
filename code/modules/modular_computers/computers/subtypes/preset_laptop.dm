@@ -128,6 +128,10 @@
 	desc = "A portable computer with support for specialized robotics software."
 	_app_preset_type = /datum/modular_computer_app_presets/supply/machinist
 
+/obj/item/modular_computer/laptop/preset/supply/robotics/install_default_hardware()
+	..()
+	access_cable_dongle = new /obj/item/computer_hardware/access_cable_dongle(src)
+
 // Representative
 /obj/item/modular_computer/laptop/preset/representative
 	name = "representative's laptop"
