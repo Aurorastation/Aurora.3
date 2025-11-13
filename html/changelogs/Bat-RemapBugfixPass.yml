@@ -19,5 +19,6 @@ changes:
   - bugfix: "Slight Xenoarchaeology Storage compartment adjustments."
   - bugfix: "Improves lighting in Shield Generator compartment."
   - bugfix: "Fixes Spark cargo bay doors being atmos-impermeable (thus screwing with the airlock sensor)."
+  - bugfix: "Lights in rooms with light switches now correctly toggle on automatically at round start if a character joins the round in one."
   - rscadd: "Adds light switches to many rooms that were missing them."
   - code_imp: "Adds directional variants for light switches for easier mapping."

@@ -55,19 +55,18 @@
 	var/area/A = get_area(src)
 	if(!A)
 		return
-
 	A.lightswitch = on
 
-	for(var/obj/machinery/light_switch/L in area)
-		L.on = on
-		L.update_icon()
+	for(var/obj/machinery/light_switch/light_switch in area)
+		light_switch.on = on
+		light_switch.update_icon()
 
-	for (var/obj/machinery/light/L in area)
+	for (var/obj/machinery/light/light in area)
 		if (on)
-			L.stat &= ~POWEROFF
+			light.stat &= ~POWEROFF
 		else
-			L.stat |= POWEROFF
-		L.update()
+			light.stat |= POWEROFF
+		light.update()
 
 /obj/machinery/light_switch/power_change()
 	if(!otherarea)
