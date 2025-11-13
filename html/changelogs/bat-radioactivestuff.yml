@@ -15,5 +15,5 @@ changes:
   - balance: "Adds increased taste_mult values to radioactive waste, napalm, and nitroglycerin; it should be noticeable if your drink is spiked with any of them."
   - balance: "Both uranium and radioactive waste reagents will create radioactive pools on the floor if spilled (uranium weak, radioactive waste medium/strong)."
   - rscadd: "Adds a radioactive waste chemical canister to the Uplink (5 tc)."
-  - code_imp: "Adds additional variants of greenglow/radioactivbe decal and radioactive_waste/hazardous obj that are more or less radioactive for mapping and ST use."
+  - code_imp: "Adds additional variants of greenglow/radioactive decal and radioactive_waste/hazardous obj that are more or less radioactive for mapping and ST use."
   - qol: "Adds more examine hints to reagent dispensers."
