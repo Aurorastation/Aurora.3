@@ -1,7 +1,0 @@
-author: FabianK3
-
-delete-after: True
-
-changes:
-  - rscadd: "Added a storage maintenance room behind the atmos locker room."
-  - qol: "Refactoring of multiple places after aft remap changes."
