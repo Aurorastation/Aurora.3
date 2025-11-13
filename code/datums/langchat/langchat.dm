@@ -190,9 +190,6 @@
 			langchat_listeners_untranslated += listener
 			langchat_listeners -= listener
 
-	if(length(langchat_listeners_untranslated))
-		langchat_make_image_untranslated(override_color)
-
 	if(length(message) > LANGCHAT_LONGEST_TEXT)
 		truncated_message = copytext_char(message, 1, LANGCHAT_LONGEST_TEXT - 5) + "..."
 		text_left = "..." + copytext_char(message, LANGCHAT_LONGEST_TEXT - 5)
@@ -244,6 +241,7 @@
 
 	if(language)
 		message = language.scramble(message, languages)
+		text_to_display = message
 
 	if(length(text_to_display) > LANGCHAT_LONGEST_TEXT)
 		text_to_display = copytext_char(text_to_display, 1, LANGCHAT_LONGEST_TEXT + 1) + "..."

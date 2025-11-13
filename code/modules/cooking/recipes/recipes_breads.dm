@@ -43,14 +43,12 @@
 
 /singleton/recipe/creamcheesebread
 	appliance = OVEN
+	reagents = list(/singleton/reagent/nutriment/protein/cream_cheese = 15)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/dough,
-		/obj/item/reagent_containers/food/snacks/dough,
-		/obj/item/reagent_containers/food/snacks/cheesewedge,
-		/obj/item/reagent_containers/food/snacks/cheesewedge
+		/obj/item/reagent_containers/food/snacks/dough
 	)
 	result = /obj/item/reagent_containers/food/snacks/sliceable/creamcheesebread
-
 
 /singleton/recipe/meatbread
 	appliance = OVEN
@@ -250,6 +248,40 @@
 		/obj/item/reagent_containers/food/snacks/toast
 	)
 	result = /obj/item/reagent_containers/food/snacks/pbtoast
+
+/singleton/recipe/cream_cheese_toast
+	appliance = MIX
+	reagents = list(/singleton/reagent/nutriment/protein/cream_cheese = 5)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/toast
+	)
+	result = /obj/item/reagent_containers/food/snacks/cream_cheese_toast
+
+/singleton/recipe/cream_cheese_bagel
+	appliance = MIX
+	reagents = list(/singleton/reagent/nutriment/protein/cream_cheese = 5)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/bagel
+	)
+	result = /obj/item/reagent_containers/food/snacks/bagel/cream_cheese
+
+/singleton/recipe/smoked_salmon_bagel
+	appliance = MIX
+	reagents = list(/singleton/reagent/nutriment/protein/cream_cheese = 5)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/bagel,
+		/obj/item/reagent_containers/food/snacks/fish/fishfillet
+	)
+	result = /obj/item/reagent_containers/food/snacks/bagel/smoked_salmon
+
+/singleton/recipe/salmon_bagel_alt
+	appliance = MIX
+	items = list(
+		/obj/item/reagent_containers/food/snacks/bagel/cream_cheese,
+		/obj/item/reagent_containers/food/snacks/fish/fishfillet
+	)
+	result = /obj/item/reagent_containers/food/snacks/bagel/smoked_salmon
+
 
 /singleton/recipe/ntella_bread
 	appliance = MIX

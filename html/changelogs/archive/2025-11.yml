@@ -146,3 +146,75 @@
   - rscadd: Gravity Adaptations can also be bought in antag uplinks.
   - refactor: Refactored Off-worlder gravity weakness to use the new COMSIG_GRAVITY_WEAKNESS_EVENT
       signal, so that more things can interact with it without needing to be hardcoded.
+2025-11-11:
+  FlamingLily:
+  - rscadd: Adds beer, soda, and zo'ra yoke cans to the maints spawn pool (which includes
+      cargo spawns)
+  Hellfirejag:
+  - bugfix: Fixed sanitization for writing names on takeaway cups.
+  Merlin1230:
+  - spellcheck: Changes some mentions of Jargon into Nralakk or some abbreviation.
+  TheGreyWolf:
+  - bugfix: Fixed the quikpay and cash register's ability to remove items from the
+      buying list.
+  - rscadd: The investigation office had a second desk added and a couple of items
+      in the forensic lab were moved around.
+  - rscadd: The weapon crate in evidence storage now has a lock.
+  - qol: The interrogation room is now next to the investigation office.
+  arrow768:
+  - server: Changed the PRISM Subsystem to use the new DBCore
+  - server: Changed the Cargo Subsystem to use the new DBCore
+  hazelmouse:
+  - rscadd: Several offships now render starlight more properly in their exterior
+      areas.
+  nauticall:
+  - rscadd: The sleeper can now dialyze alcohol from an intoxicated patient, albeit
+      slowly. Decreases BAC by about 0.05 per minute (~0.1 per 2 minutes).
+  - balance: Ethylredoxrazine has been buffed to now decrease BAC by about 0.07-0.08
+      every minute (0.1 every ~1.2 minutes).
+2025-11-12:
+  Batrachophrenoboocosmomachia:
+  - spellcheck: Renames 'gibber' to 'autobutcher'.
+  - code_imp: Cleans up a lot of old autobutcher code.
+  - code_imp: Simplifies and unifies a lot of circuit board naming code.
+  - code_imp: Updates various code comments to DMDocs format.
+  - balance: Slightly increased damage of beating someone with a ladder.
+  - bugfix: Fixes foreign speech displaying the translated versions in langchat for
+      non-fluent listeners.
+  - bugfix: Fixes whispered speech langchat; whispers are now correctly italicized.
+  - bugfix: Fixes shouted speech langchat; shouts are now correctly biggified.
+  - bugfix: Adds missing Omni Gas Mixer, Gas Meter options from RFD-P.
+  - bugfix: Adds missing circuit boards for bioballistic delivery system, lysis-isolation
+      centrifuge, and autobutcher to allow for construction and deconstruction.
+  - bugfix: Fixes empty algae chips bag having description set for its name.
+  - bugfix: Adds fallback_specific_heat values to several reagents that were missing
+      them.
+  - bugfix: Fixes antimateriel projectiles being erroneously damage-capped when hitting
+      walls.
+  - bugfix: Fixes laser beam effects not using the base colors of their beam VFX.
+  - qol: Added helpful feedback hint to move closer when someone speaks aloud within
+      4 tiles while you're in vacuum (as features go, this one felt more like a bug
+      to experience).
+  - qol: Updated various examine hints.
+  FabianK3:
+  - rscadd: Added a storage maintenance room behind the atmos locker room.
+  - qol: Refactoring of multiple places after aft remap changes.
+  TheGreyWolf:
+  - bugfix: Papers no longer show their message twice when examined.
+  - bugfix: The slide projector projections can now be examined again.
+  Tomixcomics:
+  - rscadd: Added cream cheese to the game.
+  - rscadd: Added multiple new recipes to the game.
+  - rscadd: Added 2 new beer types to the game.
+  - rscadd: Added a selection of beer bottles to the Booze-o-mat.
+  - qol: Changed some recipes around to include cream cheese instead of cheese blocks.
+  arrow768:
+  - server: Changed the Statistics Subsystem to use the new DBCore
+  nauticall:
+  - rscadd: Added the Orion Miner, a mining mega-shuttle for use by crew who want
+      to just mine.
+  - refactor: Ore processing machine code has been slightly streamlined to remove
+      redundancy and retain functionality even when moved (i.e. with shuttles).
+  - imageadd: Resprited the slimline stabilization kit to be more compact.
+  - experiment: Increases shuttle max size standards to 44 x 20. Reflected in guidelines_shuttles.dmm.
+  - rscadd: Increases landing zone sizes for Odyssey away sites to 44 x 20.

@@ -124,6 +124,14 @@
 	area_blurb = "The softly reassuring sounds of churning humming whirring resound gently from the distribution control compartment below."
 	horizon_deck = 2
 
+/area/horizon/engineering/atmos/storage_maintenance
+	name = "Atmos Storage maintenance"
+	icon_state = "atmos_storage"
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+	area_blurb = "The metal clanking of pipes being jostled; gas canister telltales blinking out from corners. \
+	It's as organized as you would expect a hidden away storage to be."
+	horizon_deck = 2
+
 /area/horizon/engineering/atmos/air
 	name = "Air Mixing"
 

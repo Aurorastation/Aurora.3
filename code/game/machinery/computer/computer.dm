@@ -9,7 +9,8 @@
 	active_power_usage = 300
 	clicksound = /singleton/sound_category/keyboard_sound
 
-	var/circuit = null //The path to the circuit board type. If circuit==null, the computer can't be disassembled.
+	/// The path to the circuit board type. If circuit==null, the computer can't be disassembled.
+	var/circuit = null
 	var/processing = 0
 
 	var/icon_screen = "computer_generic"
@@ -25,7 +26,7 @@
 	var/has_off_keyboards = FALSE
 	var/can_pass_under = TRUE
 
-	// The zlevel that this computer is spawned on.
+	/// The zlevel that this computer is spawned on.
 	var/starting_z_level = null
 
 	/// The access cable inserted into this computer, if any.

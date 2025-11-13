@@ -12,7 +12,7 @@
 /singleton/reagent/acetone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.adjustToxLoss(removed * 3)
 
-/singleton/reagent/acetone/touch_obj(var/obj/O, var/amount, var/datum/reagents/holder)	//I copied this wholesale from ethanol and could likely be converted into a shared proc. ~Techhead
+/singleton/reagent/acetone/touch_obj(var/obj/O, var/amount, var/datum/reagents/holder)
 	if(istype(O, /obj/item/paper))
 		var/obj/item/paper/paperaffected = O
 		paperaffected.clearpaper()

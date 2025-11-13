@@ -6,6 +6,45 @@
 
 /obj/machinery/mineral
 	var/id //used for linking machines to consoles
+	var/is_processing_machine = FALSE //used to check for initializing machines
+	var/turf/input_turf
+	var/turf/output_turf
+
+// Locate our output and input machinery.
+/obj/machinery/mineral/proc/setup_io()
+	for(var/dir in GLOB.cardinals)
+		var/input_spot = locate(/obj/machinery/mineral/input, get_step(src, dir))
+		if(input_spot)
+			input_turf = get_turf(input_spot) // thought of qdeling the spots here, but it's useful when rebuilding a destroyed machine
+			break
+	for(var/dir in GLOB.cardinals)
+		var/output_spot = locate(/obj/machinery/mineral/output, get_step(src, dir))
+		if(output_turf)
+			output_turf = get_turf(output_spot)
+			break
+
+	if(!input_turf)
+		input_turf = get_step(src, REVERSE_DIR(dir))
+	if(!output_turf)
+		output_turf = get_step(src, dir)
+
+/obj/machinery/mineral/proc/reset_io()
+	input_turf = null
+	output_turf = null
+
+	setup_io()
+
+/obj/machinery/mineral/Initialize()
+	. = ..()
+	if(is_processing_machine)
+		// checks for movement (i.e. shuttles) and calls reset_io()
+		RegisterSignal(src, COMSIG_MOVABLE_MOVED, PROC_REF(reset_io))
+
+/obj/machinery/mineral/Destroy()
+	if(is_processing_machine)
+		UnregisterSignal(src, COMSIG_MOVABLE_MOVED, PROC_REF(reset_io))
+
+	return ..()
 
 /**********************Mineral processing unit console**************************/
 
@@ -314,9 +353,8 @@ GLOBAL_LIST_EMPTY_TYPED(alloy_data, /datum/alloy)
 	icon_state = "furnace-off"
 	density = TRUE
 	anchored = TRUE
+	is_processing_machine = TRUE
 	light_range = 3
-	var/turf/input
-	var/turf/output
 
 	///The ore redemption console that is linked to us
 	var/obj/machinery/mineral/processing_unit_console/console
@@ -371,23 +409,7 @@ GLOBAL_LIST_EMPTY_TYPED(alloy_data, /datum/alloy)
 
 /obj/machinery/mineral/processing_unit/LateInitialize()
 	. = ..()
-
-	//Locate our output and input machinery.
-	for(var/dir in GLOB.cardinals)
-		var/input_spot = locate(/obj/machinery/mineral/input, get_step(src, dir))
-		if(input_spot)
-			input = get_turf(input_spot) // thought of qdeling the spots here, but it's useful when rebuilding a destroyed machine
-			break
-	for(var/dir in GLOB.cardinals)
-		var/output_spot = locate(/obj/machinery/mineral/output, get_step(src, dir))
-		if(output)
-			output = get_turf(output_spot)
-			break
-
-	if(!input)
-		input = get_step(src, REVERSE_DIR(dir))
-	if(!output)
-		output = get_step(src, dir)
+	setup_io()
 
 /obj/machinery/mineral/processing_unit/Destroy()
 	if(console)
@@ -420,14 +442,14 @@ GLOBAL_LIST_EMPTY_TYPED(alloy_data, /datum/alloy)
 /obj/machinery/mineral/processing_unit/process(seconds_per_tick)
 	..()
 
-	if(!src.output || !src.input)
+	if(!src.output_turf || !src.input_turf)
 		return
 
 	var/list/tick_alloys = list()
 
 	//Grab some more ore to process this tick.
 	for(var/_ in 1 to ROUND_UP(sheets_per_second*seconds_per_tick))
-		var/obj/item/ore/O = locate() in input
+		var/obj/item/ore/O = locate() in input_turf
 		if(!O)
 			break
 		if(!isnull(ores_stored[O.material]))
@@ -493,7 +515,7 @@ GLOBAL_LIST_EMPTY_TYPED(alloy_data, /datum/alloy)
 						for(var/_ in 1 to total)
 							if(console)
 								console.alloy_mats[A] = console.alloy_mats[A] + 1
-							new A.product(output)
+							new A.product(output_turf)
 
 			//Compressing materials
 			else if(ores_processing[metal] & SMELTER_MODE_COMPRESSING && O.compresses_to)
@@ -513,7 +535,7 @@ GLOBAL_LIST_EMPTY_TYPED(alloy_data, /datum/alloy)
 					ores_stored[metal] -= 2
 					sheets += 2
 					console.output_mats[M] += 1
-					new M.stack_type(output)
+					new M.stack_type(output_turf)
 
 			//Smelting materials
 			else if(ores_processing[metal] & SMELTER_MODE_SMELTING && O.smelts_to)
@@ -531,7 +553,7 @@ GLOBAL_LIST_EMPTY_TYPED(alloy_data, /datum/alloy)
 					sheets++
 					if(console)
 						console.output_mats[M] += 1
-					new M.stack_type(output)
+					new M.stack_type(output_turf)
 			else
 				if(console)
 					console.points -= O.worth * 3 //reee wasting our materials!
@@ -541,7 +563,7 @@ GLOBAL_LIST_EMPTY_TYPED(alloy_data, /datum/alloy)
 				if(console)
 					console.input_mats[O] += 1
 					console.waste++
-				new /obj/item/ore/slag(output)
+				new /obj/item/ore/slag(output_turf)
 
 	if(console)
 		console.updateUsrDialog()
