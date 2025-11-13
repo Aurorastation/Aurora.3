@@ -150,7 +150,7 @@
 		. = TRUE
 	if(action == "PC_takecable")
 		if(access_cable_dongle && access_cable_dongle.access_cable)
-			if(access_cable.loc == access_cable_dongle)
+			if(access_cable_dongle.access_cable.loc == access_cable_dongle)
 				access_cable_dongle.take_cable(usr)
 			else
 				access_cable_dongle.access_cable.retract()

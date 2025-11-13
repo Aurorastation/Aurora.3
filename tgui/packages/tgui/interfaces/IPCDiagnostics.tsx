@@ -2,7 +2,6 @@ import { BooleanLike } from 'common/react';
 import { capitalize } from 'common/string';
 import { useBackend } from '../backend';
 import { AnimatedNumber, Box, Collapsible, Divider, LabeledList, Section } from '../components';
-import { Window } from '../layouts';
 
 export type DiagnosticsData = {
   broken: BooleanLike;
@@ -48,34 +47,6 @@ type Limb = {
 };
 
 export const IPCDiagnostics = (props, context) => {
-  const { act, data } = useBackend<DiagnosticsData>(context);
-
-  return (
-    <Window
-      resizable
-      theme={data.broken ? 'spookyconsole' : data.machine_ui_theme}>
-      <Window.Content scrollable>
-        {data.broken ? <Broken /> : <DiagnosticsWindow />}
-      </Window.Content>
-    </Window>
-  );
-};
-
-export const Broken = (props, context) => {
-  const { act, data } = useBackend<DiagnosticsData>(context);
-
-  return (
-    <Section title="CRITICAL ERROR 0x0127F29">
-      <Box as="span" textColor="red" fontSize={3}>
-        ERROR ER0RR $R0RRO$!R41.%%!!(%$^^__+ @#F0E4/ERROR ER0RR
-        $R0RRO$!R41.%%!!(%$^^__+ @#F0E4/ERROR ER0RR $R0RRO$!R41.%%!!(%$^^__+
-        @#F0E4/ERROR ER0RR $R0RRO$!R41.%%!!(%$^^__+ @#F0E4/
-      </Box>
-    </Section>
-  );
-};
-
-export const DiagnosticsWindow = (props, context) => {
   const { act, data } = useBackend<DiagnosticsData>(context);
 
   return (

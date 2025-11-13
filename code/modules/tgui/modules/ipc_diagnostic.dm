@@ -12,7 +12,7 @@
 /datum/tgui_module/ipc_diagnostic/ui_interact(var/mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "IPCDiagnostics", "Internal Diagnostics", 400, 600)
+		ui = new(user, src, "DiagnosticsUnit", "Diagnostics Unit", 400, 600)
 		ui.open()
 
 /datum/tgui_module/ipc_diagnostic/ui_data(mob/user)

@@ -1,5 +1,5 @@
 import { useBackend } from '../backend';
-import { NoticeBox, Section } from '../components';
+import { NoticeBox } from '../components';
 import { NtosWindow } from '../layouts';
 import { IPCDiagnostics } from './IPCDiagnostics';
 
@@ -50,13 +50,13 @@ export const RoboticsComputer = (props, context) => {
 
   return (
     <NtosWindow resizable>
-      <Section title="Robotics Interface">
+      <NtosWindow.Content scrollable>
         {!data.patient_name ? (
           <NoticeBox>You must run a diagnostic first.</NoticeBox>
         ) : (
           <IPCDiagnostics />
         )}
-      </Section>
+      </NtosWindow.Content>
     </NtosWindow>
   );
 };
