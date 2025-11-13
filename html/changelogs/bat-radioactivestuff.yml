@@ -10,7 +10,7 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - balance: "Dirty bomb 'greenglow' decal left behind is now actually radioactive to make more persistently hazardous."
+  - balance: "Dirty bomb cleanable 'greenglow' decal left behind is now actually radioactive to make it more persistently hazardous."
   - balance: "'Radioactive waste' rare Warehouse spawn submap now uses low-radioactivity variants for some of its contents and also been given a radioactive gear crate."
   - balance: "Adds increased taste_mult values to radioactive waste, napalm, and nitroglycerin; it should be noticeable if your drink is spiked with any of them."
   - balance: "Both uranium and radioactive waste reagents will create radioactive pools on the floor if spilled (uranium weak, radioactive waste medium/strong)."
