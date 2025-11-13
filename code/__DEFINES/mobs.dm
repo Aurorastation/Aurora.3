@@ -192,6 +192,7 @@
 #define BP_AUG_FLUFF_L_HAND_BIO	  "left hand bioaug"
 #define BP_AUG_GLARE_DAMPENER     "glare dampeners"
 #define BP_AUG_GUSTATORIAL        "integrated gustatorial centre"
+#define BP_AUG_GRAV_ADAPTATION	  "gravity adaptations"
 #define BP_AUG_HAIR               "synthetic hair extensions"
 #define BP_AUG_HEALTHSCAN         "integrated health scanner"
 #define BP_AUG_LANGUAGE           "integrated language processor"

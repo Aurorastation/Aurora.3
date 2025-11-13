@@ -129,7 +129,7 @@
 	apply_preset_data(new_preset)
 
 /**
- * Applies the preset data to the organ.
+ * Applies the preset data to the organ. Needs a preset object supplied, not just a type.
  */
 /obj/item/organ/internal/machine/proc/apply_preset_data(singleton/synthetic_organ_preset/preset)
 	if(!istype(preset))
