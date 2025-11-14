@@ -997,8 +997,8 @@
 	var/vend_id = "generic"
 	var/charges = 0
 
-/obj/item/device/vending_refill/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/device/vending_refill/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(charges > 0)
 		. +=  "It can restock [charges] item(s)."
 	else

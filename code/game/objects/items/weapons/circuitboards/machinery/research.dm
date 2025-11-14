@@ -1,7 +1,3 @@
-#ifndef T_BOARD
-#error T_BOARD macro is not defined but we need it!
-#endif
-
 /obj/item/circuitboard/rdserver
 	name = T_BOARD("R&D server")
 	build_path = /obj/machinery/r_n_d/server
@@ -63,7 +59,7 @@
 							"/obj/item/reagent_containers/glass/beaker" = 2)
 
 /obj/item/circuitboard/mechfab
-	name = "Circuit board (Exosuit Fabricator)"
+	name = T_BOARD("mechatronic fabricator")
 	build_path = /obj/machinery/mecha_part_fabricator
 	board_type = BOARD_MACHINE
 	origin_tech = list(TECH_DATA = 3, TECH_ENGINEERING = 3)
@@ -85,7 +81,7 @@
 							"/obj/item/stock_parts/console_screen" = 1)
 
 /obj/item/circuitboard/ntnet_relay
-	name = "Circuit board (NTNet Quantum Relay)"
+	name = T_BOARD("NTNet Quantum Relay")
 	build_path = /obj/machinery/ntnet_relay
 	board_type = BOARD_MACHINE
 	origin_tech = list(TECH_DATA = 4)

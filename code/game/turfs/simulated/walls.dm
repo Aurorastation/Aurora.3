@@ -149,7 +149,7 @@
 	var/damage = proj_damage
 
 	//cap the amount of damage, so that things like emitters can't destroy walls in one hit.
-	if(hitting_projectile.anti_materiel_potential > 1)
+	if(hitting_projectile.anti_materiel_potential <= 1)
 		damage = min(proj_damage, 100)
 
 	take_damage(damage)

@@ -131,6 +131,11 @@
 /obj/machinery/botany/extractor
 	name = "lysis-isolation centrifuge"
 	icon_state = "centrifuge"
+	component_types = list(
+			/obj/item/circuitboard/botany_extractor,
+			/obj/item/stock_parts/manipulator = 3,
+			/obj/item/stock_parts/scanning_module = 1
+		)
 
 	var/datum/seed/genetics // Currently scanned seed genetic structure.
 	var/degradation = 0     // Increments with each scan, stops allowing gene mods after a certain point.
@@ -263,6 +268,11 @@
 	name = "bioballistic delivery system"
 	icon_state = "traitgun"
 	disk_needs_genes = 1
+	component_types = list(
+			/obj/item/circuitboard/botany_editor,
+			/obj/item/stock_parts/manipulator = 3,
+			/obj/item/stock_parts/scanning_module = 1
+		)
 
 /obj/machinery/botany/editor/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 
@@ -330,3 +340,14 @@
 
 	usr.set_machine(src)
 	src.add_fingerprint(usr)
+
+/obj/item/circuitboard/botany_extractor
+	name = T_BOARD("lysis-isolation centrifuge")
+	build_path = /obj/machinery/botany/extractor
+	origin_tech = list(TECH_DATA = 3)
+
+
+/obj/item/circuitboard/botany_editor
+	name = T_BOARD("bioballistic delivery system")
+	build_path = /obj/machinery/botany/editor
+	origin_tech = list(TECH_DATA = 3)

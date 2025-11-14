@@ -20,6 +20,7 @@ export type SleeperData = {
   blood_pressure: number[];
   blood_pressure_level: number;
   blood_o2: number;
+  bac: number;
   bloodreagents: Reagent[];
   hasstomach: BooleanLike;
   stomachreagents: Reagent[];
@@ -129,6 +130,11 @@ export const OccupantStatus = (props) => {
                 color={progressClass(data.blood_o2)}
               >
                 {Math.round(data.blood_o2)}
+              </LabeledList.Item>
+              <LabeledList.Item
+                label="Blood Alcohol Content"
+                color={bacClass(data.bac)}>
+                {data.bac}
               </LabeledList.Item>
             </LabeledList>
           </Section>
@@ -290,6 +296,18 @@ const progressClass = (value) => {
     return 'average';
   } else {
     return 'green';
+  }
+};
+
+const bacClass = (value) => {
+  if (value < 0.05) {
+    return 'green';
+  } else if (value < 0.1) {
+    return 'yellow';
+  } else if (value < 0.2) {
+    return 'average';
+  } else {
+    return 'bad';
   }
 };
 

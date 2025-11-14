@@ -1,7 +1,3 @@
-#ifndef T_BOARD
-#error T_BOARD macro is not defined but we need it!
-#endif
-
 /obj/item/circuitboard/security
 	name = T_BOARD("security camera monitor")
 	build_path = /obj/machinery/computer/security
