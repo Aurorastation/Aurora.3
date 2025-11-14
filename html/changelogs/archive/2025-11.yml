@@ -218,3 +218,22 @@
   - imageadd: Resprited the slimline stabilization kit to be more compact.
   - experiment: Increases shuttle max size standards to 44 x 20. Reflected in guidelines_shuttles.dmm.
   - rscadd: Increases landing zone sizes for Odyssey away sites to 44 x 20.
+2025-11-14:
+  Batrachophrenoboocosmomachia:
+  - balance: Reduces the total quantity of hazards spawned on the overmap to reduce
+      general transit time (fewer dead ends, etc.)
+  - balance: Reduces the advanced warning time of Comet Expulsion event from 60s ->
+      20s.
+  - balance: Modifies the likelihood of certain hazards being movable as well as their
+      relative speeds.
+  - bugfix: Removes duplicated 'meteor wave' announcement procing when ship encounters/exits
+      dust belts.
+  - qol: Updates meteor impact warning text to be more impactful now that primary
+      cause of false positives is removed.
+  - qol: Lowers volume of Comet Expulsion Event announcement sound to reduce incidents
+      of ears bleeding.
+  ElorgRHG:
+  - bugfix: Fixes some Zo'ra soda cans not having a crushed can sprite.
+  TheGreyWolf:
+  - bugfix: Fixed the interrogation intercom and readded the missing sharps box to
+      the forensic lab.
