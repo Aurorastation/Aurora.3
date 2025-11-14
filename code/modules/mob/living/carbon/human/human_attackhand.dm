@@ -330,7 +330,7 @@
 					return FALSE
 				// Skill difference will be negative if the opponent is stronger than us.
 				if(skill_difference < 0)
-					disarm_cost += -(skill_difference * 100)
+					disarm_cost += -(skill_difference * 50)
 				potato.use(disarm_cost)
 			else
 				if(M.max_stamina > 0)
@@ -344,7 +344,7 @@
 						return FALSE
 					// Skill difference will be negative if the opponent is stronger than us.
 					if(skill_difference < 0)
-						disarm_cost += -(skill_difference * 10)
+						disarm_cost = max(0, disarm_cost - (skill_difference * 5))
 					M.stamina = clamp(M.stamina - disarm_cost, 0, M.max_stamina) // attempting to knock something out of someone's hands, or pushing them over, is exhausting!
 				else if(M.max_stamina <= 0)
 					disarm_cost = M.max_nutrition / 6
