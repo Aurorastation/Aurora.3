@@ -37,6 +37,7 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 	/// The base turf type of the area, which can be used to override the z-level's base turf.
 	var/turf/base_turf
 
+	/// If this area has a light switch (or multiple), do the lights start on or off? FALSE = off, TRUE = on.
 	var/lightswitch = FALSE
 
 	var/eject = null

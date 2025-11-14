@@ -6,9 +6,9 @@
 	desc = "It turns lights on and off. What are you, simple?"
 	icon = 'icons/obj/machinery/button.dmi'
 	icon_state = "light-p"
-	anchored = 1.0
+	anchored = TRUE
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
-	var/on = 1
+	var/on = TRUE
 	var/area/area = null
 	var/otherarea = null
 	power_channel = AREA_USAGE_LIGHT
@@ -55,19 +55,18 @@
 	var/area/A = get_area(src)
 	if(!A)
 		return
-
 	A.lightswitch = on
 
-	for(var/obj/machinery/light_switch/L in area)
-		L.on = on
-		L.update_icon()
+	for(var/obj/machinery/light_switch/light_switch in area)
+		light_switch.on = on
+		light_switch.update_icon()
 
-	for (var/obj/machinery/light/L in area)
+	for (var/obj/machinery/light/light in area)
 		if (on)
-			L.stat &= ~POWEROFF
+			light.stat &= ~POWEROFF
 		else
-			L.stat |= POWEROFF
-		L.update()
+			light.stat |= POWEROFF
+		light.update()
 
 /obj/machinery/light_switch/power_change()
 	if(!otherarea)
@@ -82,6 +81,24 @@
 		return
 
 	power_change()
+
+/obj/machinery/light_switch/north
+	dir = NORTH
+	pixel_y = 30
+
+/obj/machinery/light_switch/south
+	dir = SOUTH
+	pixel_y = -18
+
+/obj/machinery/light_switch/east
+	dir = EAST
+	pixel_x = 22
+	pixel_y = 5
+
+/obj/machinery/light_switch/west
+	dir = WEST
+	pixel_x = -22
+	pixel_y = 5
 
 /obj/machinery/light_switch/idris
 	name = "idris smart switch"
