@@ -32,10 +32,10 @@
 	desc = "A high-tech titanium pod, capable of transporting its passenger right into the action at considerable ranges. The metal foam dispensers lining the top prevent most hull breaches on station ingress."
 	icon_state = "syndie_pod"
 
-/obj/vehicle/droppod/MouseDrop()
+/obj/vehicle/droppod/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	return
 
-/obj/vehicle/droppod/MouseDrop_T()
+/obj/vehicle/droppod/mouse_drop_receive(atom/dropped, mob/user, params)
 	return
 
 /obj/vehicle/droppod/emag_act()
@@ -189,26 +189,23 @@
 		switch(target)
 			if("recreational_areas")
 				var/list/recreational_areas_list = list(
-					/area/horizon/crew_quarters/fitness/hallway = 25,
-					/area/horizon/crew_quarters/fitness/changing = 25,
-					/area/horizon/crew_quarters/fitness/pool = 25,
-					/area/horizon/crew_quarters/fitness/gym = 25
+					/area/horizon/crew/fitness/changing = 25,
+					/area/horizon/crew/fitness/gym = 25
 					)
 				A = pickweight(recreational_areas_list)
 			if("operations")
 				var/list/ops_list = list(
-					/area/operations/break_room = 15,
-					/area/maintenance/wing/starboard = 20,
-					/area/maintenance/wing/starboard/deck1 = 20,
-					/area/operations/office = 10,
-					/area/operations/storage = 15,
-					/area/outpost/mining_main/refinery = 20
+					/area/horizon/operations/break_room = 15,
+					/area/horizon/maintenance/deck_1/operations/starboard = 20,
+					/area/horizon/operations/office = 10,
+					/area/horizon/operations/warehouse = 15,
+					/area/horizon/operations/mining_main/refinery = 20
 					)
 				A = pickweight(ops_list)
 			if("starboard_wing")
 				var/list/starboard_wing_list = list(
-					/area/maintenance/wing/starboard = 50,
-					/area/maintenance/wing/starboard/far = 50
+					/area/horizon/maintenance/deck_1/wing/starboard = 50,
+					/area/horizon/maintenance/deck_1/wing/starboard/far = 50
 					)
 				A = pickweight(starboard_wing_list)
 		if(A)

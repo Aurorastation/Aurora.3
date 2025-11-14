@@ -90,7 +90,7 @@
 		if(!B.brainmob.key)
 			var/ghost_can_reenter = 0
 			if(B.brainmob.mind)
-				for(var/mob/abstract/observer/G in GLOB.player_list)
+				for(var/mob/abstract/ghost/observer/G in GLOB.player_list)
 					if(G.can_reenter_corpse && G.mind == B.brainmob.mind)
 						ghost_can_reenter = 1
 						break
@@ -319,7 +319,8 @@
 	return positronic
 
 /mob/living/simple_animal/spiderbot/Move(newloc, direct)
-	..(newloc,direct)
+	. = ..()
+
 	if (underdoor)
 		underdoor = 0
 		if ((layer == UNDERDOOR))//if this is false, then we must have used hide, or had our layer changed by something else. We wont do anymore checks for this move proc
@@ -331,6 +332,13 @@
 			if (!underdoor)
 				spawn(3)//A slight delay to let us finish walking out from under the door
 					layer = initial(layer)
+
+/mob/living/simple_animal/spiderbot/zMove(direction)
+	if(istype(loc, /mob/living/heavy_vehicle))
+		var/mob/living/heavy_vehicle/mech = loc
+		mech.zMove(direction)
+		return
+	..()
 
 /mob/living/simple_animal/spiderbot/get_bullet_impact_effect_type(var/def_zone)
 	return BULLET_IMPACT_METAL

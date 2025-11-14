@@ -50,7 +50,7 @@
 
 /mob/living/simple_animal/hostile/commanded/dog/verb/befriend()
 	set name = "Befriend Dog"
-	set category = "IC"
+	set category = "IC.Critters"
 	set src in view(1)
 
 	if(!master)
@@ -78,12 +78,12 @@
 /mob/living/simple_animal/hostile/commanded/dog/columbo
 	name = "Lt. Columbo"
 	short_name = "Columbo"
-	desc = "A dog trained to listen and obey its owner commands. This one looks about three days from retirement."
+	desc = "A dog trained to listen and obey its owner's commands. This one looks about three days from retirement."
 	named = TRUE
 	gender = MALE
 
-	melee_damage_lower = 5
-	melee_damage_upper = 10
+	health = 125
+	maxHealth = 125
 
 	icon_state = "columbo"
 	icon_living = "columbo"

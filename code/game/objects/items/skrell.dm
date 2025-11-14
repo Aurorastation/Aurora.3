@@ -11,13 +11,13 @@
 	var/selected_constellation
 	var/projection_ready = TRUE
 
+/obj/item/stellascope/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "\The [src] displays the \"[selected_constellation]\"."
+
 /obj/item/stellascope/Initialize()
 	. = ..()
 	pick_constellation()
-
-/obj/item/stellascope/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += "\The [src] displays the \"[selected_constellation]\"."
 
 /obj/item/stellascope/throw_impact(atom/hit_atom)
 	..()
@@ -50,11 +50,10 @@
 	icon_state = "starprojection"
 	mouse_opacity = TRUE
 	duration = 30 SECONDS
-	plane = EFFECTS_ABOVE_LIGHTING_PLANE
+	plane = ABOVE_LIGHTING_PLANE
 	light_power = 1
 	light_range = 1
 	light_color = LIGHT_COLOR_HALOGEN
-	z_flags = ZMM_MANGLE_PLANES
 	var/global/image/glow_state
 
 /obj/effect/temp_visual/constellation/Initialize()
@@ -89,14 +88,14 @@
 	var/working = FALSE
 	var/message_frequency = 5
 
+/obj/item/skrell_projector/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(selected_world && working)
+		. += "\The [src] displays a hologram of [selected_world]."
+
 /obj/item/skrell_projector/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
-
-/obj/item/skrell_projector/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(selected_world && working)
-		. += "\The [src] displays a hologram of [selected_world]."
 
 /obj/item/skrell_projector/attack_self(mob/user as mob)
 	working = !working
@@ -233,9 +232,9 @@
 	desc = "An ear-tag that shows the wearer is loyal to the Nralakk Federation. A small cable travels into the ear canal..."
 	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = SLOT_EARS
-	icon = 'icons/obj/item/skrell/jargtag.dmi'
-	icon_state = "jargtag"
-	item_state = "jargtag"
+	icon = 'icons/obj/item/skrell/nraltag.dmi'
+	icon_state = "nraltag"
+	item_state = "nraltag"
 	contained_sprite = TRUE
 	var/fried = FALSE // Doesn't work anymore
 
@@ -285,7 +284,7 @@
 /obj/item/clothing/accessory/badge/starlight
 	name = "starlight zone residency card"
 	desc = "A residency card given to Skrell who reside within the Starlight Zone in District Eight."
-	icon = 'icons/clothing/accessories/passcards.dmi'
+	icon = 'icons/obj/item/clothing/accessory/passcards.dmi'
 	icon_state = "resident_starlight"
 	item_state = "resident_starlight"
 	flippable = FALSE

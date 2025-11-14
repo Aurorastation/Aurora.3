@@ -1,4 +1,3 @@
-@use 'sass:color';
 @use 'sass:map';
 
 $background: #131313;
@@ -6,6 +5,7 @@ $button: #1f1f1f;
 $lightMode: #ffffff;
 $lightBorder: #bbbbbb;
 $lightHover: #eaeaea;
+$scrollbar-color-multiplier: 1 !default;
 
 ////////////////////////////////////////////////
 // Normal chat colors
@@ -13,6 +13,7 @@ $say: #a4bad6;
 $radio: #1ecc43;
 $me: #5975da;
 $ooc: #cca300;
+$looc: #e362b4;
 
 ////////////////////////////////////////////////
 // Subchannel chat colors
@@ -31,27 +32,32 @@ $service: #7fc732;
 $supply: #c09141;
 $hail: #8b4cd8;
 $ent: #cfcfcf;
+$cling: #376340;
+$exped: #d6bc67;
 
 $_channel_map: (
-  'say': $say,
-  'radio': $radio,
-  'me': $me,
-  'ooc': $ooc,
-  'ai': $ai,
-  'admin': $admin,
-  'binary': $binary,
-  'centcom': $centcom,
-  'command': $command,
-  'engi': $engi,
-  'hive': $hive,
-  'medical': $medical,
-  'science': $science,
-  'security': $security,
-  'syndicate': $syndicate,
-  'service': $service,
-  'supply': $supply,
-  'hail': $hail,
-  'ent': $ent,
+  'Say': $say,
+  'Comm': $radio,
+  'Radio': $radio,
+  'Me': $me,
+  'OOC': $ooc,
+  'LOOC': $looc,
+  'AI': $ai,
+  'io': $binary,
+  'Cmd': $command,
+  'Engi': $engi,
+  'Med': $medical,
+  'Sci': $science,
+  'Sec': $security,
+  'Merc': $syndicate,
+  'Synd': $syndicate,
+  'Pen': $syndicate,
+  'Svc': $service,
+  'Supp': $supply,
+  'Hail': $hail,
+  'Ent': $ent,
+  'Cling': $cling,
+  'Exped': $exped,
 );
 
 $channel_keys: map.keys($_channel_map) !default;

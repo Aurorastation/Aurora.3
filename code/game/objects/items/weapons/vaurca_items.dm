@@ -49,18 +49,30 @@
 	build_from_parts = TRUE
 	worn_overlay = "face"
 	contained_sprite = TRUE
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/head.dmi'
+	)
+	species_restricted = list(BODYTYPE_VAURCA, BODYTYPE_VAURCA_BULWARK)
 
 /obj/item/clothing/head/expression/skrell
 	name = "skrell expression mask"
 	desc = "A mask that allows emotively challenged aliens to convey facial expressions. This one depicts a Skrell."
 	icon_state = "skrell_helmet"
 	item_state = "skrell_helmet"
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/head.dmi'
+	)
+	species_restricted = list(BODYTYPE_VAURCA, BODYTYPE_VAURCA_BULWARK)
 
 /obj/item/clothing/head/expression/unathi
 	name = "unathi expression mask"
 	desc = "A mask that allows emotively challenged aliens to convey facial expressions. This one depicts a Unathi."
 	icon_state = "unathi_helmet"
 	item_state = "unathi_helmet"
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/head.dmi'
+	)
+	species_restricted = list(BODYTYPE_VAURCA, BODYTYPE_VAURCA_BULWARK)
 
 /obj/item/clothing/head/shroud
 	name = "vaurcan shroud"
@@ -274,7 +286,6 @@
 
 	species_restricted = list(BODYTYPE_VAURCA, BODYTYPE_VAURCA_WARFORM, BODYTYPE_VAURCA_BULWARK)
 	sprite_sheets = list(
-		BODYTYPE_VAURCA_WARFORM = 'icons/mob/species/warriorform/shoes.dmi',
 		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/shoes.dmi'
 	)
 
@@ -291,11 +302,11 @@
 
 	species_restricted = list(BODYTYPE_VAURCA)
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_SMALL,
-		laser = ARMOR_LASER_SMALL,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_SMALL,
+		LASER = ARMOR_LASER_SMALL,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED
 	)
 /obj/item/clothing/head/helmet/space/void/scout
 	name = "scout helmet"
@@ -307,11 +318,11 @@
 
 	species_restricted = list(BODYTYPE_VAURCA)
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_SMALL,
-		laser = ARMOR_LASER_SMALL,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_SMALL,
+		LASER = ARMOR_LASER_SMALL,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED
 	)
 	light_overlay = "helmet_light_dual_green"
 	light_color = "#3e7c3e"
@@ -326,12 +337,12 @@
 
 	species_restricted = list(BODYTYPE_VAURCA)
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_MAJOR,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_MINOR
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_MAJOR,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_MINOR
 	)
 /obj/item/clothing/head/helmet/space/void/commando
 	name = "commando helmet"
@@ -343,12 +354,12 @@
 
 	species_restricted = list(BODYTYPE_VAURCA)
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_MAJOR,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_MINOR
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_MAJOR,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_SHIELDED,
+		RAD = ARMOR_RAD_MINOR
 	)
 
 	light_overlay = "helmet_light_dual_green"
@@ -364,11 +375,11 @@
 	w_class = WEIGHT_CLASS_SMALL
 	filtered_gases = list(GAS_NITROGEN, GAS_N2O)
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_MINOR,
-		laser = ARMOR_LASER_SMALL,
-		bio = ARMOR_BIO_STRONG,
-		rad = ARMOR_RAD_MINOR
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MINOR,
+		LASER = ARMOR_LASER_SMALL,
+		BIO = ARMOR_BIO_STRONG,
+		RAD = ARMOR_RAD_MINOR
 	)
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "m_metalg"

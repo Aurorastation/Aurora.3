@@ -120,7 +120,7 @@
 "dg" = (
 /obj/structure/closet/cabinet,
 /obj/item/clothing/accessory/storage/bandolier,
-/obj/item/storage/box/shotgunshells,
+/obj/item/storage/box/shells/buckshot,
 /obj/item/storage/box/fancy/candle_box,
 /obj/item/flame/lighter/zippo,
 /obj/item/stack/material/cardboard/full,
@@ -338,7 +338,7 @@
 	pixel_x = -9
 	},
 /obj/item/reagent_containers/cooking_container/board/bowl,
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_y = 9
 	},
 /turf/simulated/floor/exoplanet/tiled/white{
@@ -1560,7 +1560,7 @@
 	},
 /area/moghes_bar)
 "WN" = (
-/obj/structure/janitorialcart/full,
+/obj/structure/cart/storage/janitorialcart/full,
 /obj/item/clothing/gloves/janitor/unathi,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5

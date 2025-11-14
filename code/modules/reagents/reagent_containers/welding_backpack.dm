@@ -2,7 +2,7 @@
 	name = "welding kit"
 	desc = "A heavy-duty, portable welding fluid carrier."
 	slot_flags = SLOT_BACK
-	icon = 'icons/obj/item/tools/welderpack.dmi'
+	icon = 'icons/obj/item/reagent_containers/weldpack.dmi'
 	icon_state = "welderpack"
 	item_state = "welderpack"
 	contained_sprite = TRUE
@@ -15,8 +15,8 @@
 	drop_sound = 'sound/items/drop/backpack.ogg'
 	pickup_sound = 'sound/items/pickup/backpack.ogg'
 
-/obj/item/reagent_containers/weldpack/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/reagent_containers/weldpack/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(ishuman(loc) && user != loc) // what if we want to sneak some reagents out of somewhere?
 		return
 	if(reagents.total_volume)

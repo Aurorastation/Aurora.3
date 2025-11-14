@@ -1,4 +1,4 @@
-var/list/mob_icon_icon_states = list()
+GLOBAL_LIST_INIT(mob_icon_icon_states, list())
 
 /obj/item/proc/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot, var/main_call = TRUE)
 	SHOULD_NOT_SLEEP(TRUE)
@@ -6,12 +6,12 @@ var/list/mob_icon_icon_states = list()
 	RETURN_TYPE(/image)
 
 	// If we don't actually need to offset this, don't bother with any of the generation/caching.
-	if(!mob_icon_icon_states[mob_icon])
-		mob_icon_icon_states[mob_icon] = icon_states(mob_icon)
+	if(!GLOB.mob_icon_icon_states[mob_icon])
+		GLOB.mob_icon_icon_states[mob_icon] = icon_states(mob_icon)
 	var/needs_shift = !(H.species.bodytype in sprite_sheets)
 	if(!needs_shift && length(item_icons))
 		needs_shift = (slot in item_icons)
-	if(LAZYLEN(H.species.equip_adjust) && H.species.equip_adjust[slot] && length(H.species.equip_adjust[slot]) && (mob_state in mob_icon_icon_states[mob_icon]) && needs_shift)
+	if(LAZYLEN(H.species.equip_adjust) && H.species.equip_adjust[slot] && length(H.species.equip_adjust[slot]) && (mob_state in GLOB.mob_icon_icon_states[mob_icon]) && needs_shift)
 		// Check the cache for previously made icons.
 		var/image_key_mod = get_image_key_mod()
 		var/image_key = "[mob_icon]-[mob_state]-[color]-[slot][!isnull(image_key_mod) ? "-[image_key_mod]" : ""]"

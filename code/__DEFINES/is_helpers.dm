@@ -13,7 +13,7 @@
 
 #define isbrain(A) istype(A, /mob/living/carbon/brain)
 
-#define isvirtualmob(A) istype(A, /mob/abstract/observer/virtual)
+#define isvirtualmob(A) istype(A, /mob/abstract/ghost/observer/virtual)
 
 #define iscarbon(A) istype(A, /mob/living/carbon)
 
@@ -37,7 +37,15 @@
 
 #define isspaceturf(A) istype(A, /turf/space)
 
-#define isobserver(A) istype(A, /mob/abstract/observer)
+#define ischasm(A) (istype(A, /turf/simulated/floor/exoplanet/abyss) || istype(A, /turf/simulated/abyss))
+
+#define isghost(A) istype(A, /mob/abstract/ghost)
+
+#define isobserver(A) istype(A, /mob/abstract/ghost/observer)
+
+#define isstoryteller(A) istype(A, /mob/abstract/ghost/storyteller)
+
+#define isabstractmob(A) istype(A, /mob/abstract)
 
 #define isorgan(A) istype(A, /obj/item/organ/external)
 
@@ -70,3 +78,5 @@
 #define isprojectile(A) istype(A, /obj/projectile)
 #define isbeam(A) istype(A, /obj/projectile/beam)
 #define isenergy(A) istype(A, /obj/projectile/energy)
+
+#define istransparentturf(A) (HAS_TRAIT(A, TURF_Z_TRANSPARENT_TRAIT))

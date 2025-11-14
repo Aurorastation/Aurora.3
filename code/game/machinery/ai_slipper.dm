@@ -1,6 +1,6 @@
 /obj/machinery/ai_slipper
 	name = "\improper AI Liquid Dispenser"
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/obj/machinery/ai_slipper.dmi'
 	icon_state = "motion0"
 	anchored = 1.0
 	idle_power_usage = 10
@@ -68,22 +68,23 @@
 			return
 
 	user.set_machine(src)
-	var/loc = src.loc
+	var/turf/loc = src.loc
 	if (istype(loc, /turf))
-		loc = loc:loc
+		loc = loc.loc
 	if (!istype(loc, /area))
 		to_chat(user, "Turret badly positioned - loc.loc is [loc].")
 		return
 	var/area/area = loc
-	var/t = "<TT><B>AI Liquid Dispenser</B> ([area.name])<HR>"
+	var/area_display_name = get_area_display_name(area)
+	var/t = "<TT><B>AI Liquid Dispenser</B> ([area_display_name])<HR>"
 
 	if(src.locked && (!istype(user, /mob/living/silicon)))
 		t += "<I>(Swipe ID card to unlock control panel.)</I><BR>"
 	else
-		t += "Dispenser [(src.disabled ? "deactivated" : "activated")] - <A href='?src=[REF(src)];toggleOn=1'>[(src.disabled ? "Enable" : "Disable")]?</a><br>\n"
-		t += "Uses Left: [uses]. <A href='?src=[REF(src)];toggleUse=1'>Activate the dispenser?</A><br>\n"
+		t += "Dispenser [(src.disabled ? "deactivated" : "activated")] - <A href='byond://?src=[REF(src)];toggleOn=1'>[(src.disabled ? "Enable" : "Disable")]?</a><br>\n"
+		t += "Uses Left: [uses]. <A href='byond://?src=[REF(src)];toggleUse=1'>Activate the dispenser?</A><br>\n"
 
-	user << browse(t, "window=computer;size=575x450")
+	user << browse(HTML_SKELETON(t), "window=computer;size=575x450")
 	onclose(user, "computer")
 	return
 

@@ -62,6 +62,7 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	"log_subsystems_ghostroles" = TRUE,	// Ghost Roles
 	"log_subsystems_law" = TRUE,	// Law
 	"log_subsystems_cargo" = TRUE, // Cargo
+	"log_subsystems_persistence" = TRUE, // Persistence
 	"log_subsystems_documents" = TRUE, // Documents
 	"log_subsystems_fail2topic" = TRUE, // Fail2Topic
 	"log_subsystems_mapfinalization" = TRUE, // Map Finalization
@@ -120,6 +121,7 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	"world_subsystems_ghostroles_log" = "subsystems/ghostroles.log",
 	"world_subsystems_law_log" = "subsystems/law.log",
 	"world_subsystems_cargo_log" = "subsystems/cargo.log",
+	"world_subsystems_persistence_log" = "subsystems/persistence.log",
 	"world_subsystems_documents_log" = "subsystems/documents.log",
 	"world_subsystems_fail2topic_log" = "subsystems/fail2topic.log",
 	"world_subsystems_mapfinalization_log" = "subsystems/mapfinalization.log",
@@ -252,6 +254,7 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	var/forum_passphrase
 	var/rulesurl
 	var/githuburl
+	var/mainsiteurl
 
 	//Alert level description
 	var/alert_desc_green = "All threats to the ship have passed. Security may not have weapons visible, privacy laws are once again fully enforced."
@@ -439,8 +442,11 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	var/ntsl_port = "1945"
 	var/ntsl_disabled = TRUE
 
-	// Is external Auth enabled
-	var/external_auth = FALSE
+	/// Is external Auth enabled
+	// 0 - disabled.
+	// 1 - only users with linked ckeys can authenticate.
+	// 2 - users with a forum account and no linked ckeys can also authenticate.
+	var/external_auth = 0
 
 	// fail2topic settings
 	var/fail2topic_rate_limit = 5 SECONDS
@@ -475,6 +481,8 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	var/asset_simple_preload
 	var/asset_cdn_webroot = ""
 	var/asset_cdn_url = null
+
+	var/storage_cdn_iframe = "https://aurorastation.github.io/Aurora.3/iframe.html"
 
 GENERAL_PROTECT_DATUM(/datum/configuration)
 
@@ -648,6 +656,9 @@ GENERAL_PROTECT_DATUM(/datum/configuration)
 
 				if ("githuburl")
 					GLOB.config.githuburl = value
+
+				if ("mainsiteurl")
+					GLOB.config.mainsiteurl = value
 
 				if ("ghosts_can_possess_animals")
 					GLOB.config.ghosts_can_possess_animals = value
@@ -1032,7 +1043,9 @@ GENERAL_PROTECT_DATUM(/datum/configuration)
 					ntsl_disabled = text2num(value)
 
 				if ("external_auth")
-					external_auth = TRUE
+					external_auth = text2num(value)
+					if (external_auth > 2 || external_auth < 0)
+						external_auth = 0
 
 				if ("fail2topic_rate_limit")
 					fail2topic_rate_limit = text2num(value) SECONDS
@@ -1082,6 +1095,9 @@ GENERAL_PROTECT_DATUM(/datum/configuration)
 					asset_cdn_webroot = (value[length(value)] != "/" ? (value + "/") : value)
 				if("asset_cdn_url")
 					asset_cdn_url = (value[length(value)] != "/" ? (value + "/") : value)
+
+				if("storage_cdn_iframe")
+					storage_cdn_iframe = value
 
 				else
 					log_config("Unknown setting in configuration: '[name]'")
@@ -1176,6 +1192,8 @@ GENERAL_PROTECT_DATUM(/datum/configuration)
 	load_logging_config()
 	load_away_sites_config()
 	load_exoplanets_config()
+
+	Master.OnConfigLoad()
 
 /datum/configuration/proc/save_logging_config()
 	rustg_file_write(json_encode(GLOB.config.logsettings), "config/logging.json")

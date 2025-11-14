@@ -21,16 +21,16 @@
 	density = TRUE
 	// opacity = TRUE
 
-	///The atmospherics interface used to give gasses to the drive
+	/// The atmospherics interface used to give gasses to the drive
 	var/obj/machinery/atmospherics/portables_connector/atmos_interface
 
-	///The interface used to give fuel (phoron) to the drive
+	/// The interface used to give fuel (phoron) to the drive
 	var/obj/machinery/atmospherics/portables_connector/fuel_interface
 
-	///The internal gas that the drive uses, fed by the `atmos_interface`
+	/// The internal gas that the drive uses, fed by the `atmos_interface`
 	var/datum/gas_mixture/internal_gas = new()
 
-	///The fuel gas that the drive uses, fed by the `fuel_interface`
+	/// The fuel gas that the drive uses, fed by the `fuel_interface`
 	var/datum/gas_mixture/fuel_gas = new()
 
 	/**
@@ -45,20 +45,17 @@
 	var/static/list/gas_mole_to_power_factor = list(
 		GAS_PHORON = 1,
 
-		/* Common gasses */
-		GAS_HYDROGEN = 0.7,
-		GAS_OXYGEN = 0.9,
-		GAS_NITROGEN = 0.3,
 		GAS_CO2 = 0.24,
-		GAS_N2O = 0.5,
-
-		/* Uncommon gasses, if you work out to get them, you deserve better power */
+		GAS_NITROGEN = 0.3,
+		GAS_N2O = 0.32,
+		GAS_HELIUM = 0.4,
+		GAS_HYDROGEN = 0.8,
+		GAS_OXYGEN = 0.85,
 		GAS_SULFUR = 1.2,
-		GAS_CHLORINE = 1,
-		GAS_HELIUM = 1.6,
-		GAS_DEUTERIUM = 1.67,
-		GAS_TRITIUM = 1.68,
-		GAS_BORON = 1.69
+		GAS_CHLORINE = 2.75,
+		GAS_DEUTERIUM = 3,
+		GAS_TRITIUM = 4,
+		GAS_HELIUMFUEL = 6
 	)
 
 	/**
@@ -68,28 +65,28 @@
 	 */
 	var/static/minimum_phoron_moles_per_jump = 1000 //About half of a full canister
 
-	///The power given to the drive, due to gasses
+	/// The power given to the drive, due to gases
 	var/power_from_gas
 
-	///The rotation we'll be using to jump
+	/// The rotation we'll be using to jump
 	var/rotation = 0
 
-	///The angle we'll be using to jump
+	/// The angle we'll be using to jump
 	var/angle = 60
 
-	///If the drive is energized
+	/// If the drive is energized
 	var/energized = FALSE
 
-	///The looping sound that plays when the drive is energized
+	/// The looping sound that plays when the drive is energized
 	var/datum/looping_sound/bluespace_drive/energized_looping_sound
 
-	///The timer id for the initiate jump sequence
+	/// The timer id for the initiate jump sequence
 	var/initiate_jump_timer_id
 
-	///The singularity that this drive made
+	/// The singularity that this drive made
 	var/obj/singularity/bluespace_drive/our_singularity
 
-	///Our bluespace jump event
+	/// Our bluespace jump event
 	var/datum/event/bluespace_jump/bluespace_jump_event
 
 
@@ -113,6 +110,7 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/bluespacedrive/LateInitialize()
+	. = ..()
 	if(SSatlas.current_map.use_overmap && !linked)
 		var/my_sector = GLOB.map_sectors["[z]"]
 		if(istype(my_sector, /obj/effect/overmap/visitable/ship))
@@ -496,6 +494,7 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/computer/bluespacedrive/LateInitialize()
+	. = ..()
 
 	linked_bluespace_drive = locate() in get_area(src)
 
@@ -524,6 +523,8 @@
 	data["charge"] = (linked_bluespace_drive.internal_gas.total_moles || linked_bluespace_drive.fuel_gas.total_moles) ? TRUE : FALSE
 	data["rotation"] = linked_bluespace_drive.rotation
 	data["jumping"] = linked_bluespace_drive.initiate_jump_timer_id ? TRUE : FALSE
+	data["jump_power"] = linked_bluespace_drive.power_from_gas / (10 KILO)
+	data["fuel_gas"] = linked_bluespace_drive.fuel_gas.total_moles
 
 	return data
 
@@ -714,7 +715,7 @@
 		<h3>The [/obj/machinery/bluespacedrive::name] comes equipped with:</h3><BR>
 		<ul style="list-style:circle">
 			<li>Two separate gas feeding circuits: A Phoron line on the west and a moderator gas mix line on the north.</li>
-			<li>Two independent power circuits: The primary circuit, which feeds the outer shield ring, the room APC and the drive itself, and the secondary circuit, which feeds the inner shield ring.</li>
+			<li>Two independent power circuits: The primary circuit, which feeds the outer shield ring, the compartment APC and the drive itself, and the secondary circuit, which feeds the inner shield ring.</li>
 			<li>A same-room control console.</li>
 		</ul>
 

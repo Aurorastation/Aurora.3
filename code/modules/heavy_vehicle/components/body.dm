@@ -6,13 +6,13 @@
 	center_of_mass = list("x"=24, "y"=20)
 
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_PISTOL,
-		laser = ARMOR_LASER_PISTOL,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_RESISTANT,
-		rad = ARMOR_RAD_MINOR
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_PISTOL,
+		LASER = ARMOR_LASER_PISTOL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_PADDED,
+		BIO = ARMOR_BIO_RESISTANT,
+		RAD = ARMOR_RAD_MINOR
 	)
 
 	var/mech_health = 600
@@ -67,11 +67,11 @@
 	. = ..()
 
 	if(!cell)
-		. += SPAN_WARNING("It is missing a <a href='?src=[REF(src)];info=cell'>power cell</a>.")
+		. += SPAN_WARNING("It is missing a <a href='byond://?src=[REF(src)];info=cell'>power core</a>.")
 	if(!diagnostics)
-		. += SPAN_WARNING("It is missing a <a href='?src=[REF(src)];info=diagnostics'>diagnostics unit</a>.")
+		. += SPAN_WARNING("It is missing a <a href='byond://?src=[REF(src)];info=diagnostics'>diagnostics unit</a>.")
 	if(!mech_armor)
-		. += SPAN_WARNING("It is missing <a href='?src=[REF(src)];info=diagnostics'>armor plating</a>.")
+		. += SPAN_WARNING("It is missing <a href='byond://?src=[REF(src)];info=diagnostics'>armor plating</a>.")
 
 /obj/item/mech_component/chassis/Topic(href, href_list)
 	. = ..()
@@ -79,7 +79,7 @@
 		return
 	switch(href_list["info"])
 		if("cell")
-			to_chat(usr, SPAN_NOTICE("A power cell can be created at a mechatronic fabricator."))
+			to_chat(usr, SPAN_NOTICE("A power core can be created at a mechatronic fabricator."))
 		if("diagnostics")
 			to_chat(usr, SPAN_NOTICE("A diagnostics unit can be created at a mechatronic fabricator."))
 		if("armor")
@@ -132,9 +132,9 @@
 			return
 		if(install_component(attacking_item, user))
 			diagnostics = attacking_item
-	else if(istype(attacking_item, /obj/item/cell))
+	else if(istype(attacking_item, /obj/item/cell/mecha))
 		if(cell)
-			to_chat(user, SPAN_WARNING("\The [src] already has a cell installed."))
+			to_chat(user, SPAN_WARNING("\The [src] already has a core installed."))
 			return
 		if(install_component(attacking_item,user))
 			cell = attacking_item
@@ -147,8 +147,8 @@
 	else
 		return ..()
 
-/obj/item/mech_component/chassis/MouseDrop_T(atom/dropping, mob/user)
-	var/obj/machinery/portable_atmospherics/canister/C = dropping
+/obj/item/mech_component/chassis/mouse_drop_receive(atom/dropped, mob/user, params)
+	var/obj/machinery/portable_atmospherics/canister/C = dropped
 	if(istype(C) && do_after(user, 5, src))
 		to_chat(user, SPAN_NOTICE("You install the canister into \the [src]."))
 		if(air_supply)

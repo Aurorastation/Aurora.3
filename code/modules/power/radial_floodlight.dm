@@ -7,9 +7,9 @@
 	density = TRUE
 	active_power_usage = 800
 	light_color = LIGHT_COLOR_TUNGSTEN
+	light_range = 8
 
 	var/on = FALSE
-	var/brightness_on = 12
 
 /obj/machinery/power/radial_floodlight/proc/toggle_active(var/force_state)
 	if(!isnull(force_state))
@@ -19,7 +19,7 @@
 	else
 		on = !on
 	if(on)
-		set_light(brightness_on, 1)
+		set_light(light_range, 1)
 		START_PROCESSING(SSprocessing, src)
 	else
 		set_light(0)
@@ -63,5 +63,5 @@
 	ClearOverlays()
 	if(on)
 		var/image/light = image(icon, src, "[icon_state]-light")
-		light.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+		light.plane = ABOVE_LIGHTING_PLANE
 		AddOverlays(light)

@@ -3,7 +3,7 @@
 
 //Random egg
 /proc/Random_Egg()
-	to_world("<h3>There is a golden egg hidden somewhere on the station...</h3>")
+	to_world("<h3>There is a golden egg hidden somewhere on the [station_name(TRUE)]...</h3>")
 	var/list/Floorlist = list()
 	for(var/turf/T in world)
 		var/turf/simulated/floor/F = T

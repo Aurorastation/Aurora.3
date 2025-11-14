@@ -19,6 +19,7 @@
 	. = INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/computer/pod/LateInitialize()
+	. = ..()
 	for(var/obj/machinery/mass_driver/M in SSmachinery.machinery)
 		if(M.id == id)
 			connected = M
@@ -67,23 +68,23 @@
 	if(connected)
 		var/d2
 		if(timing)	//door controls do not need timers.
-			d2 = "<A href='?src=[REF(src)];time=0'>Stop Time Launch</A>"
+			d2 = "<A href='byond://?src=[REF(src)];time=0'>Stop Time Launch</A>"
 		else
-			d2 = "<A href='?src=[REF(src)];time=1'>Initiate Time Launch</A>"
+			d2 = "<A href='byond://?src=[REF(src)];time=1'>Initiate Time Launch</A>"
 		var/second = time % 60
 		var/minute = (time - second) / 60
-		dat += "<HR>\nTimer System: [d2]\nTime Left: [minute ? "[minute]:" : null][second] <A href='?src=[REF(src)];tp=-30'>-</A> <A href='?src=[REF(src)];tp=-1'>-</A> <A href='?src=[REF(src)];tp=1'>+</A> <A href='?src=[REF(src)];tp=30'>+</A>"
+		dat += "<HR>\nTimer System: [d2]\nTime Left: [minute ? "[minute]:" : null][second] <A href='byond://?src=[REF(src)];tp=-30'>-</A> <A href='byond://?src=[REF(src)];tp=-1'>-</A> <A href='byond://?src=[REF(src)];tp=1'>+</A> <A href='byond://?src=[REF(src)];tp=30'>+</A>"
 		var/temp = ""
 		var/list/L = list( 0.25, 0.5, 1, 2, 4, 8, 16 )
 		for(var/t in L)
 			if(t == connected.power)
 				temp += "[t] "
 			else
-				temp += "<A href = '?src=[REF(src)];power=[t]'>[t]</A> "
-		dat += "<HR>\nPower Level: [temp]<BR>\n<A href = '?src=[REF(src)];alarm=1'>Firing Sequence</A><BR>\n<A href = '?src=[REF(src)];drive=1'>Test Fire Driver</A><BR>\n<A href = '?src=[REF(src)];door=1'>Toggle Outer Door</A><BR>"
+				temp += "<A href='byond://?src=[REF(src)];power=[t]'>[t]</A> "
+		dat += "<HR>\nPower Level: [temp]<BR>\n<A href='byond://?src=[REF(src)];alarm=1'>Firing Sequence</A><BR>\n<A href='byond://?src=[REF(src)];drive=1'>Test Fire Driver</A><BR>\n<A href='byond://?src=[REF(src)];door=1'>Toggle Outer Door</A><BR>"
 	else
-		dat += "<BR>\n<A href = '?src=[REF(src)];door=1'>Toggle Outer Door</A><BR>"
-	dat += "<BR><BR><A href='?src=[REF(user)];mach_close=computer'>Close</A></TT></BODY></HTML>"
+		dat += "<BR>\n<A href='byond://?src=[REF(src)];door=1'>Toggle Outer Door</A><BR>"
+	dat += "<BR><BR><A href='byond://?src=[REF(user)];mach_close=computer'>Close</A></TT></BODY></HTML>"
 	user << browse(dat, "window=computer;size=400x500")
 	add_fingerprint(usr)
 	onclose(user, "computer")
@@ -155,7 +156,7 @@
 
 /obj/machinery/computer/pod/old/syndicate/attack_hand(var/mob/user as mob)
 	if(!allowed(user))
-		to_chat(user, SPAN_WARNING("Access Denied"))
+		to_chat(user, SPAN_WARNING("Access denied"))
 		return
 	else
 		..()

@@ -1,14 +1,14 @@
-var/global/list/robot_modules = list(
-	"Service" 		= /obj/item/robot_module/service/butler,
-	"Clerical" 		= /obj/item/robot_module/service/clerical,
-	"Research" 		= /obj/item/robot_module/research,
-	"Mining" 		= /obj/item/robot_module/miner,
-	"Rescue" 		= /obj/item/robot_module/medical/rescue,
-	"Medical" 		= /obj/item/robot_module/medical/general,
-	"Engineering"	= /obj/item/robot_module/engineering/general,
-	"Construction"	= /obj/item/robot_module/engineering/construction,
-	"Custodial" 	= /obj/item/robot_module/janitor
-)
+GLOBAL_LIST_INIT(robot_modules, list(
+	"Service" = /obj/item/robot_module/service/butler,
+	"Clerical" = /obj/item/robot_module/service/clerical,
+	"Research" = /obj/item/robot_module/research,
+	"Mining" = /obj/item/robot_module/miner,
+	"Rescue" = /obj/item/robot_module/medical/rescue,
+	"Medical" = /obj/item/robot_module/medical/general,
+	"Engineering" = /obj/item/robot_module/engineering/general,
+	"Construction" = /obj/item/robot_module/engineering/construction,
+	"Custodial" = /obj/item/robot_module/janitor
+))
 
 /obj/item/robot_module
 	name = "robot module"
@@ -573,9 +573,34 @@ var/global/list/robot_modules = list(
 	modules += new /obj/item/extinguisher/mini(src) // For navigating space and/or low grav, and just being useful.
 	modules += new /obj/item/device/flash(src) // Non-lethal tool that prevents any 'borg from going lethal on Crew so long as it's an option according to laws.
 	modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
+	modules += new /obj/item/wetfloor_holder(src) // Holds caution signs.
 	emag = new /obj/item/reagent_containers/spray(src)
 	emag.reagents.add_reagent(/singleton/reagent/lube, 250)
 	emag.name = "Lube spray"
+
+/obj/item/wetfloor_holder
+	name = "deployable wet floor sign"
+	desc = "A module that deploys a Wet Floor sign."
+	icon = 'icons/obj/janitor.dmi'
+	icon_state = "caution"
+	var/obj/item/clothing/suit/caution/held
+
+/obj/item/wetfloor_holder/Destroy()
+	QDEL_NULL(held)
+	return ..()
+
+/obj/item/wetfloor_holder/Initialize()
+	. = ..()
+	held = new /obj/item/clothing/suit/caution(src)
+
+/obj/item/wetfloor_holder/attack_self(mob/user as mob)
+	if(!held)
+		to_chat(user, SPAN_NOTICE("The module is empty."))
+		return
+	var/obj/item/clothing/suit/caution/R = new /obj/item/clothing/suit/caution(user.loc)
+	to_chat(user, SPAN_NOTICE("You deploy \the [R]."))
+	R.add_fingerprint(user)
+	QDEL_NULL(held)
 
 /obj/item/robot_module/janitor/respawn_consumable(var/mob/living/silicon/robot/R, var/amount)
 	..()
@@ -794,7 +819,7 @@ var/global/list/robot_modules = list(
 		"Cooler Master" =  list(ROBOT_CHASSIS = "coolermaster_sci", ROBOT_PANEL = "coolermaster", ROBOT_EYES = "coolermaster"),
 		"Phage" =          list(ROBOT_CHASSIS = "phage_sci", ROBOT_PANEL = "phage", ROBOT_EYES = "phage")
 	)
-	specialized_access_types = list(/datum/job/scientist, /datum/job/xenobiologist, /datum/job/xenobotanist)
+	specialized_access_types = list(/datum/job/scientist, /datum/job/xenobiologist, /datum/job/xenobotanist, /datum/job/machinist)
 
 /obj/item/robot_module/research/Initialize()
 	. = ..()

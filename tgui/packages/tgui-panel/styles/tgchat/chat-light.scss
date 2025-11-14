@@ -366,6 +366,14 @@ em {
 .ooc .admin {
   color: #b82e00;
 }
+.aooc {
+  color: #d1021e;
+  font-weight: bold;
+}
+.storyteller {
+  color: #5237e9;
+  font-weight: bold;
+}
 
 /* Admin: Private Messages */
 .pm .howto {
@@ -467,7 +475,7 @@ em {
   color: #6eaa2c;
 }
 .expradio {
-  color: #5a3975;
+  color: #d6bc67;
 }
 
 /* Miscellaneous */
@@ -647,6 +655,11 @@ h2.alert {
   &--deep-cyan {
     @extend .examine_block;
     border-color: #0a5c47;
+  }
+
+  &--odyssey {
+    @extend .examine_block;
+    border-color: #0077ff;
   }
 }
 

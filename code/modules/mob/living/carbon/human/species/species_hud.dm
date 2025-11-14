@@ -30,6 +30,7 @@
 		"head" =         list("loc" = ui_head,      "name" = "hat",          "slot" = slot_head,      "state" = "hair",   "toggle" = 1),
 		"shoes" =        list("loc" = ui_shoes,     "name" = "shoes",        "slot" = slot_shoes,     "state" = "shoes",  "toggle" = 1),
 		"wrists" =       list("loc" = ui_wrists,    "name" = "wrists",       "slot" = slot_wrists,    "state" = "wrists", "toggle" = 1),
+		"pants" =        list("loc" = ui_pants,     "name" = "pants",        "slot" = slot_pants,     "state" = "pants",  "toggle" = 1),
 		"suit storage" = list("loc" = ui_sstore1,   "name" = "suit storage", "slot" = slot_s_store,   "state" = "suitstore"),
 		"back" =         list("loc" = ui_back,      "name" = "back",         "slot" = slot_back,      "state" = "back", "slot_type" = /atom/movable/screen/inventory/back),
 		"id" =           list("loc" = ui_id,        "name" = "id",           "slot" = slot_wear_id,   "state" = "id"),
@@ -65,18 +66,20 @@
 	has_m_intent = TRUE
 	gear = list(
 		"i_clothing" =   list("loc" = ui_iclothing, "name" = "uniform",      "slot" = slot_w_uniform, "state" = "center", "toggle" = 1),
-		"o_clothing" =   list("loc" = ui_shoes,     "name" = "suit",         "slot" = slot_wear_suit, "state" = "suit",   "toggle" = 1),
-		"l_ear" =        list("loc" = ui_glasses,   "name" = "left ear",     "slot" = slot_l_ear,     "state" = "l_ear",   "toggle" = 1),
-		"r_ear" =        list("loc" = ui_wrists,	"name" = "right ear",    "slot" = slot_r_ear,     "state" = "r_ear",   "toggle" = 1),
-		"head" =         list("loc" = ui_mask, 		"name" = "hat",          "slot" = slot_head,      "state" = "hair",   "toggle" = 1),
+		"o_clothing" =   list("loc" = ui_oclothing, "name" = "suit",         "slot" = slot_wear_suit, "state" = "suit",   "toggle" = 1),
+		"mask" =         list("loc" = ui_mask,		"name" = "mask",         "slot" = slot_wear_mask, "state" = "mask",   "toggle" = 1),
+		"eyes" =         list("loc" = ui_glasses,  	"name" = "glasses",      "slot" = slot_glasses,   "state" = "glasses","toggle" = 1),
+		"l_ear" =        list("loc" = ui_l_ear,   	"name" = "left ear",     "slot" = slot_l_ear,     "state" = "l_ear",  "toggle" = 1),
+		"r_ear" =        list("loc" = ui_r_ear,		"name" = "right ear",    "slot" = slot_r_ear,     "state" = "r_ear",  "toggle" = 1),
+		"wrists" =       list("loc" = ui_wrists,    "name" = "wrists",       "slot" = slot_wrists,    "state" = "wrists", "toggle" = 1),
+		"head" =         list("loc" = ui_head, 		"name" = "hat",          "slot" = slot_head,      "state" = "hair",   "toggle" = 1),
+		"pants" =        list("loc" = ui_pants,     "name" = "pants",        "slot" = slot_pants,     "state" = "pants",  "toggle" = 1),
 		"suit storage" = list("loc" = ui_sstore1,   "name" = "suit storage", "slot" = slot_s_store,   "state" = "suitstore"),
 		"back" =         list("loc" = ui_back,      "name" = "back",         "slot" = slot_back,      "state" = "back"),
 		"id" =           list("loc" = ui_id,        "name" = "id",           "slot" = slot_wear_id,   "state" = "id"),
 		"storage1" =     list("loc" = ui_storage1,  "name" = "left Pocket",  "slot" = slot_l_store,   "state" = "pocket"),
 		"storage2" =     list("loc" = ui_storage2,  "name" = "right Pocket", "slot" = slot_r_store,   "state" = "pocket"),
-		"belt" =         list("loc" = ui_belt,      "name" = "belt",         "slot" = slot_belt,      "state" = "belt"),
-		"mask" =         list("loc" = ui_oclothing,	"name" = "mask",         "slot" = slot_wear_mask, "state" = "mask",   "toggle" = 1),
-		"eyes" =         list("loc" = ui_gloves,   	"name" = "glasses",      "slot" = slot_glasses,   "state" = "glasses","toggle" = 1)
+		"belt" =         list("loc" = ui_belt,      "name" = "belt",         "slot" = slot_belt,      "state" = "belt")
 		)
 
 /datum/hud_data/monkey

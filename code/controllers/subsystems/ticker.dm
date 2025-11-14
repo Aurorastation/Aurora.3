@@ -1,4 +1,4 @@
-#define LOBBY_TIME 180
+#define LOBBY_TIME 150
 
 #define SETUP_OK 0
 #define SETUP_REVOTE 1
@@ -7,9 +7,7 @@
 ///The time at which the next automatic transfer vote will be called
 GLOBAL_VAR_INIT(next_transfer_time, null)
 
-var/datum/controller/subsystem/ticker/SSticker
-
-/datum/controller/subsystem/ticker
+SUBSYSTEM_DEF(ticker)
 	// -- Subsystem stuff --
 	name = "Ticker"
 
@@ -27,7 +25,7 @@ var/datum/controller/subsystem/ticker/SSticker
 	var/datum/game_mode/mode = null
 	var/post_game = 0
 
-	var/login_music			// music played in pregame lobby
+	var/list/login_music			// music played in pregame lobby
 
 	var/list/datum/mind/minds = list()//The people in the game. Used for objective tracking.
 
@@ -53,10 +51,11 @@ var/datum/controller/subsystem/ticker/SSticker
 	var/atom/movable/screen/cinematic = null
 
 	var/list/default_lobby_tracks = list(
-		'sound/music/lobby/space.ogg',
-		'sound/music/lobby/traitor.ogg',
-		'sound/music/lobby/title2.ogg',
-		'sound/music/lobby/clouds.s3m'
+		'sound/music/lobby/yuki_satellites.xm',
+		'sound/music/lobby/snow.ogg',
+		'sound/music/lobby/saturn.ogg',
+		'sound/music/lobby/kaaistoep.ogg',
+		'sound/music/lobby/saturn.ogg'
 	)
 
 	var/lobby_ready = FALSE
@@ -64,13 +63,13 @@ var/datum/controller/subsystem/ticker/SSticker
 
 	var/list/roundstart_callbacks
 
+	/// Used to prevent players from readying or unreadying, such as for Odyssey's setup.
+	var/prevent_unready = FALSE
+
 	// Pre-game ready menu handling
 	var/total_players = 0
 	var/total_players_ready = 0
 	var/list/ready_player_jobs
-
-/datum/controller/subsystem/ticker/New()
-	NEW_SS_GLOBAL(SSticker)
 
 /datum/controller/subsystem/ticker/Initialize(timeofday)
 	pregame()
@@ -182,7 +181,7 @@ var/datum/controller/subsystem/ticker/SSticker
 		game_finished = TRUE
 		mode_finished = TRUE
 	else
-		game_finished = (evacuation_controller.round_over() || mode.station_was_nuked)
+		game_finished = (GLOB.evacuation_controller.round_over() || mode.station_was_nuked)
 		mode_finished = (!post_game && mode.check_finished())
 
 	if(!mode.explosion_in_progress && game_finished && (mode_finished || post_game))
@@ -194,13 +193,13 @@ var/datum/controller/subsystem/ticker/SSticker
 		spawn(50)
 			callHook("roundend")
 
-			if (universe_has_ended)
+			if (GLOB.universe_has_ended)
 				if(mode.station_was_nuked)
 					feedback_set_details("end_proper","nuke")
 				else
 					feedback_set_details("end_proper","universe destroyed")
 				if(!delay_end)
-					to_world(SPAN_NOTICE("<b>Rebooting due to destruction of station in [restart_timeout/10] seconds</b>"))
+					to_world(SPAN_NOTICE("<b>Rebooting due to destruction of \the [SSatlas.current_map.station_name] in [restart_timeout/10] seconds</b>"))
 			else
 				feedback_set_details("end_proper","proper completion")
 				if(!delay_end)
@@ -250,7 +249,7 @@ var/datum/controller/subsystem/ticker/SSticker
 			if(Player.stat != DEAD)
 				var/turf/playerTurf = get_turf(Player)
 				var/area/playerArea = get_area(playerTurf)
-				if(evacuation_controller.round_over() && evacuation_controller.evacuation_type == TRANSFER_EMERGENCY)
+				if(GLOB.evacuation_controller.round_over() && GLOB.evacuation_controller.evacuation_type == TRANSFER_EMERGENCY)
 					if(is_station_level(playerTurf.z) && is_station_area(playerArea))
 						to_chat(Player, SPAN_GOOD(SPAN_BOLD("You managed to survive the events on [station_name()] as [Player.real_name].")))
 					else
@@ -262,8 +261,8 @@ var/datum/controller/subsystem/ticker/SSticker
 				else
 					to_chat(Player, SPAN_NOTICE(SPAN_BOLD("You missed the crew transfer after the events on [station_name()] as [Player.real_name].")))
 			else
-				if(istype(Player,/mob/abstract/observer))
-					var/mob/abstract/observer/O = Player
+				if(isobserver(Player))
+					var/mob/abstract/ghost/observer/O = Player
 					if(!O.started_as_observer)
 						to_chat(Player, SPAN_WARNING(SPAN_BOLD("You did not survive the events on [station_name()]...")))
 				else
@@ -422,7 +421,7 @@ var/datum/controller/subsystem/ticker/SSticker
 		to_world(SPAN_VOTE(SPAN_BOLD("Tip of the round:") + " [html_encode(message)]"))
 
 /datum/controller/subsystem/ticker/proc/print_testmerges()
-	var/data = revdata.testmerge_overview()
+	var/data = GLOB.revdata.testmerge_overview()
 
 	if (data)
 		to_world(data)
@@ -432,9 +431,9 @@ var/datum/controller/subsystem/ticker/SSticker
 	sleep(1)	// Sleep so the MC has a chance to update its init time.
 	if(!login_music)
 		if(SSatlas.current_sector && SSatlas.current_sector.lobby_tracks)
-			login_music = pick(SSatlas.current_sector.lobby_tracks)
+			login_music = SSatlas.current_sector.lobby_tracks
 		else
-			login_music = pick(default_lobby_tracks)
+			login_music = default_lobby_tracks
 
 	if (is_revote)
 		pregame_timeleft = LOBBY_TIME
@@ -446,7 +445,7 @@ var/datum/controller/subsystem/ticker/SSticker
 		LAZYINITLIST(ready_player_jobs)
 
 		if (dynamic_time <= GLOB.config.vote_autogamemode_timeleft)
-			pregame_timeleft = GLOB.config.vote_autogamemode_timeleft + 10
+			pregame_timeleft = GLOB.config.vote_autogamemode_timeleft + 60
 			LOG_DEBUG("SSticker: dynamic set pregame time [dynamic_time]s was less than or equal to configured autogamemode vote time [GLOB.config.vote_autogamemode_timeleft]s, clamping.")
 		else
 			pregame_timeleft = dynamic_time
@@ -488,7 +487,7 @@ var/datum/controller/subsystem/ticker/SSticker
 	var/datum/space_sector/current_sector = SSatlas.current_sector
 	var/html = SPAN_NOTICE("Current sector: [current_sector].") + {"\
 		<span> \
-			<a href='?src=[REF(src)];current_sector_show_sites_id=1'>Click here</a> \
+			<a href='byond://?src=[REF(src)];current_sector_show_sites_id=1'>Click here</a> \
 			to see every possible site/ship that can potentially spawn here.\
 		</span>\
 	"}
@@ -532,6 +531,15 @@ var/datum/controller/subsystem/ticker/SSticker
 		current_state = GAME_STATE_PREGAME
 		to_world("<span class='danger'>Serious error in mode setup!</span> Reverting to pre-game lobby.")
 		return SETUP_REVOTE
+
+	// This proc must return TRUE on success.
+	if(!mode.pre_game_setup())
+		current_state = GAME_STATE_PREGAME
+		to_world("<span class='danger'>Round start pre-game setup failed! Reverting to pre-game lobby.")
+		prevent_unready = FALSE
+		return SETUP_REVOTE
+
+	prevent_unready = FALSE
 
 	SSjobs.ResetOccupations()
 	src.mode.create_antagonists()
@@ -759,9 +767,10 @@ var/datum/controller/subsystem/ticker/SSticker
 	for(var/mob/living/carbon/human/player in GLOB.player_list)
 		if(player && player.mind && player.mind.assigned_role)
 			if(!player_is_antag(player.mind, only_offstation_roles = 1))
+				equip_custom_items(player, body_only = TRUE) // Equips body-related custom items, like augments and prosthetics.
 				SSjobs.EquipAugments(player, player.client.prefs)
 				SSjobs.EquipRank(player, player.mind.assigned_role, 0)
-				equip_custom_items(player)
+				equip_custom_items(player, body_only = FALSE) // Equips all other custom items.
 
 		CHECK_TICK
 

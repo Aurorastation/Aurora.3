@@ -161,7 +161,7 @@
 
 	var/out = "<B>[name]</B>[(current&&(current.real_name!=name))?" (as [current.real_name])":""]<br>"
 	out += "Mind currently owned by key: [key] [active?"(synced)":"(not synced)"]<br>"
-	out += "Assigned role: [assigned_role]. <a href='?src=[REF(src)];role_edit=1'>Edit</a><br>"
+	out += "Assigned role: [assigned_role]. <a href='byond://?src=[REF(src)];role_edit=1'>Edit</a><br>"
 	out += "<hr>"
 	out += "Factions and special roles:<br><table>"
 	for(var/antag_type in GLOB.all_antag_types)
@@ -178,16 +178,16 @@
 				out += "(<span class='good'>complete</span>)"
 			else
 				out += "(<span class='warning'>incomplete</span>)"
-			out += " <a href='?src=[REF(src)];obj_completed=[REF(O)]'>\[toggle\]</a>"
-			out += " <a href='?src=[REF(src)];obj_delete=[REF(O)]'>\[remove\]</a><br>"
+			out += " <a href='byond://?src=[REF(src)];obj_completed=[REF(O)]'>\[toggle\]</a>"
+			out += " <a href='byond://?src=[REF(src)];obj_delete=[REF(O)]'>\[remove\]</a><br>"
 			num++
-		out += "<br><a href='?src=[REF(src)];obj_announce=1'>\[announce objectives\]</a>"
+		out += "<br><a href='byond://?src=[REF(src)];obj_announce=1'>\[announce objectives\]</a>"
 
 	else
 		out += "None."
-	out += "<br><a href='?src=[REF(src)];obj_add=1'>\[add\]</a>"
-	out += "<b>Ambitions:</b> [ambitions ? ambitions : "None"] <a href='?src=[REF(src)];amb_edit=[REF(src)]'>\[edit\]</a></br>"
-	usr << browse(out, "window=edit_memory[src]")
+	out += "<br><a href='byond://?src=[REF(src)];obj_add=1'>\[add\]</a>"
+	out += "<b>Ambitions:</b> [ambitions ? ambitions : "None"] <a href='byond://?src=[REF(src)];amb_edit=[REF(src)]'>\[edit\]</a></br>"
+	usr << browse(HTML_SKELETON(out), "window=edit_memory[src]")
 
 /datum/mind/Topic(href, href_list)
 	if(!check_rights(R_ADMIN))	return
@@ -268,7 +268,7 @@
 
 				var/mob/def_target = null
 				var/objective_list[] = list(/datum/objective/assassinate, /datum/objective/protect, /datum/objective/debrain)
-				if (objective&&(objective.type in objective_list) && objective:target)
+				if (objective && (objective.type in objective_list) && objective.target)
 					def_target = objective.target.current
 
 				var/new_target = input("Select target:", "Objective target", def_target) as null|anything in possible_targets
@@ -279,13 +279,13 @@
 				if (!istype(M) || !M.mind || new_target == "Free objective")
 					new_objective = new objective_path
 					new_objective.owner = src
-					new_objective:target = null
+					new_objective.target = null
 					new_objective.explanation_text = "Free objective"
 				else
 					new_objective = new objective_path
 					new_objective.owner = src
-					new_objective:target = M.mind
-					new_objective.explanation_text = "[objective_type] [M.real_name], the [M.mind.special_role ? M.mind:special_role : M.mind:assigned_role]."
+					new_objective.target = M.mind
+					new_objective.explanation_text = "[objective_type] [M.real_name], the [M.mind.special_role ? M.mind.special_role : M.mind.assigned_role]."
 
 			if ("prevent")
 				new_objective = new /datum/objective/block
@@ -554,6 +554,15 @@
 
 //AI
 /mob/living/silicon/ai/mind_initialize()
+	..()
+	mind.assigned_role = "AI"
+
+//AI Shell / AI Spiderbot
+/mob/living/silicon/robot/shell/mind_initialize()
+	..()
+	mind.assigned_role = "AI"
+
+/mob/living/simple_animal/spiderbot/ai/mind_initialize()
 	..()
 	mind.assigned_role = "AI"
 

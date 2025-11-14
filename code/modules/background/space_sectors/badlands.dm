@@ -82,7 +82,23 @@
 	guaranteed_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/adhomai)
 	scheduled_port_visits = list("Thursday", "Sunday")
 	ports_of_call = list("the city of Nal'tor", "the city of Kaltir", "the city of Crevus")
-	cargo_price_coef = list("nt" = 1.2, "hpi" = 1.2, "zhu" = 1.2, "een" = 1.2, "get" = 1.2, "arz" = 1.2, "blm" = 1.2, "iac" = 1.2, "zsc" = 0.5, "vfc" = 1.2, "bis" = 1.2, "xmg" = 1.2, "npi" = 1.2)
+	cargo_price_coef = list(
+		"nanotrasen" = 1.2,
+		"orion" = 1.1,
+		"hephaestus" = 1.2,
+		"zeng_hu" = 1.2,
+		"eckharts" = 1.2,
+		"getmore" = 1.2,
+		"arizi" = 1.2,
+		"blam" = 1.2,
+		"iac" = 1.2,
+		"zharkov" = 0.5,
+		"virgo" = 1.2,
+		"bishop" = 1.2,
+		"xion" = 1.2,
+		"zavodskoi" = 1.2,
+		)
+
 	starlight_color = "#50b7bb"
 	starlight_power = 2
 	starlight_range = 4
@@ -138,7 +154,22 @@
 	starlight_color = "#f8711e"
 	starlight_power = 2
 	starlight_range = 4
-	cargo_price_coef = list("nt" = 1.5, "hpi" = 0.5, "zhu" = 1.5, "een" = 1.5, "get" = 1.2, "arz" = 0.5, "blm" = 1.2, "iac" = 1.0, "zsc" = 0.9, "vfc" = 1.2, "bis" = 1.5, "xmg" = 0.6, "npi" = 1.5)
+	cargo_price_coef = list(
+		"nanotrasen" = 1.5,
+		"orion" = 0.8,
+		"hephaestus" = 0.5,
+		"zeng_hu" = 1.5,
+		"eckharts" = 1.5,
+		"getmore" = 1.2,
+		"arizi" = 0.5,
+		"blam" = 1.2,
+		"iac" = 1.0,
+		"zharkov" = 0.9,
+		"virgo" = 1.2,
+		"bishop" = 1.5,
+		"xion" = 0.6,
+		"zavodskoi" = 1.5,
+		)
 	sector_welcome_message = 'sound/AI/welcome_hegemony.ogg'
 	scheduled_port_visits = list("Thursday", "Sunday")
 	ports_of_call = list("the city of Skalamar")

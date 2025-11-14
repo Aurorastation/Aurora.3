@@ -1,6 +1,5 @@
 // Stacked resources. They use a material datum for a lot of inherited values.
 /obj/item/stack/material
-	desc_info = "Use in your hand to bring up the recipe menu.  If you have enough sheets, click on something on the list to build it."
 	force = 11
 	throwforce = 5
 	w_class = WEIGHT_CLASS_NORMAL
@@ -15,6 +14,11 @@
 	var/apply_colour //temp pending icon rewrite
 	var/painted_colour
 	var/use_material_sound = TRUE
+
+/obj/item/stack/material/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Use in your hand to bring up the crafting menu."
+	. += "If you have enough sheets, click on something on the list to build it."
 
 /obj/item/stack/material/Initialize(mapload, amount)
 	. = ..()
@@ -609,6 +613,17 @@
 	icon_has_variants = TRUE
 
 /obj/item/stack/material/supermatter/full/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
+
+// Fusion fuel.
+/obj/item/stack/material/boron
+	name = "boron"
+	icon_state = "puck"
+	default_type = MATERIAL_BORON
+
+/obj/item/stack/material/boron/full/Initialize()
 	. = ..()
 	amount = max_amount
 	update_icon()

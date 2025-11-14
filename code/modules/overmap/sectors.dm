@@ -2,7 +2,7 @@
 //Overmap object representing zlevel(s)
 //===================================================================================
 /// Global object used to locate the overmap area.
-var/global/area/overmap/map_overmap
+GLOBAL_DATUM(map_overmap, /area/overmap)
 
 /obj/effect/overmap/visitable
 	name = "map object"
@@ -293,14 +293,14 @@ var/global/area/overmap/map_overmap
 
 	log_module_sectors("Putting overmap on [SSatlas.current_map.overmap_z]")
 	var/area/overmap/A = new
-	global.map_overmap = A
+	GLOB.map_overmap = A
 	for (var/square in block(locate(1,1,SSatlas.current_map.overmap_z), locate(SSatlas.current_map.overmap_size,SSatlas.current_map.overmap_size,SSatlas.current_map.overmap_z)))
 		var/turf/T = square
 		if(T.x == SSatlas.current_map.overmap_size || T.y == SSatlas.current_map.overmap_size)
 			T = T.ChangeTurf(/turf/unsimulated/map/edge)
 		else
 			T = T.ChangeTurf(/turf/unsimulated/map)
-		ChangeArea(T, A)
+		T.change_area(T.loc, A)
 
 	SSatlas.current_map.sealed_levels |= SSatlas.current_map.overmap_z
 

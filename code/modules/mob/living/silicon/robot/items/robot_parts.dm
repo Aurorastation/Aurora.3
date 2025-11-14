@@ -279,6 +279,11 @@
 					to_chat(user, SPAN_WARNING("\The [attacking_item] does not seem to fit. (The player has been banned from playing this role)"))
 					return
 
+				// So you cannot make a cyborg with a positronic in it.
+				if(istype(M, /obj/item/device/mmi/digital/posibrain))
+					to_chat(user, SPAN_WARNING("Positronic brains are not compatible with this kind of chassis."))
+					return
+
 				var/mob/living/silicon/robot/O = new /mob/living/silicon/robot(get_turf(src), TRUE)
 				if(!O)
 					return
@@ -306,7 +311,7 @@
 				callHook("borgify", list(O))
 				O.Namepick()
 				qdel(src)
-		else
+		else if(!istype(M, /obj/item/device/mmi/digital/posibrain))
 			to_chat(user, SPAN_WARNING("\The [attacking_item] can only be inserted after everything else is installed."))
 		return
 

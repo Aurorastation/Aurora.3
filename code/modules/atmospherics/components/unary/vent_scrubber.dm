@@ -1,8 +1,6 @@
 /obj/machinery/atmospherics/unary/vent_scrubber
 	name = "air scrubber"
 	desc = "Has a valve and pump attached to it."
-	desc_info = "This filters the atmosphere of harmful gas.  Filtered gas goes to the pipes connected to it, typically a scrubber pipe. \
-	It can be controlled from an Air Alarm.  It can be configured to drain all air rapidly with a 'panic syphon' from an air alarm."
 	icon = 'icons/atmos/vent_scrubber.dmi'
 	icon_state = "map_scrubber_off"
 
@@ -33,6 +31,21 @@
 
 	var/broadcast_status_next_process = FALSE
 
+/obj/machinery/atmospherics/unary/vent_scrubber/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This filters the atmosphere of harmful gas. Filtered gas goes to the pipes connected to it, typically a scrubber pipe."
+	. += "It can be controlled from an Air Alarm."
+	. += "It can be configured to drain all air rapidly with a 'panic siphon' from an air alarm."
+
+/obj/machinery/atmospherics/unary/vent_scrubber/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(distance <= 1)
+		. += "A small gauge in the corner reads [round(last_flow_rate, 0.1)] L/s at [round(last_power_draw)] W."
+	else
+		. += "You are too far away to read the gauge."
+	if(welded)
+		. += "It seems welded shut."
+
 /obj/machinery/atmospherics/unary/vent_scrubber/on
 	use_power = POWER_USE_IDLE
 	icon_state = "map_scrubber_on"
@@ -41,7 +54,7 @@
 	if(mapload)
 		var/turf/T = loc
 		var/image/I = image(icon, T, icon_state, dir, pixel_x, pixel_y)
-		I.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+		I.plane = ABOVE_LIGHTING_PLANE
 		I.color = color
 		I.alpha = 125
 		LAZYADD(T.blueprints, I)
@@ -150,11 +163,11 @@
 		"filter_2h" = (GAS_DEUTERIUM in scrubbing_gas),
 		"filter_3h" = (GAS_TRITIUM in scrubbing_gas),
 		"filter_he" = (GAS_HELIUM in scrubbing_gas),
-		"filter_b" = (GAS_BORON in scrubbing_gas),
+		"filter_b" = (GAS_HELIUMFUEL in scrubbing_gas),
 		"filter_so2" = (GAS_SULFUR in scrubbing_gas),
 		"filter_no2" = (GAS_NO2 in scrubbing_gas),
 		"filter_cl" = (GAS_CHLORINE in scrubbing_gas),
-		"filter_h2o" = (GAS_STEAM in scrubbing_gas),
+		"filter_h2o" = (GAS_WATERVAPOR in scrubbing_gas),
 		"sigtype" = "status"
 	)
 
@@ -299,10 +312,10 @@
 	else if(signal.data["toggle_he_scrub"])
 		toggle += GAS_HELIUM
 
-	if(!isnull(signal.data["b_scrub"]) && text2num(signal.data["b_scrub"]) != (GAS_BORON in scrubbing_gas))
-		toggle += GAS_BORON
+	if(!isnull(signal.data["b_scrub"]) && text2num(signal.data["b_scrub"]) != (GAS_HELIUMFUEL in scrubbing_gas))
+		toggle += GAS_HELIUMFUEL
 	else if(signal.data["toggle_b_scrub"])
-		toggle += GAS_BORON
+		toggle += GAS_HELIUMFUEL
 
 	if(!isnull(signal.data["so2_scrub"]) && text2num(signal.data["so2_scrub"]) != (GAS_SULFUR in scrubbing_gas))
 		toggle += GAS_SULFUR
@@ -319,10 +332,10 @@
 	else if(signal.data["toggle_cl_scrub"])
 		toggle += GAS_CHLORINE
 
-	if(!isnull(signal.data["h2o_scrub"]) && text2num(signal.data["h2o_scrub"]) != (GAS_STEAM in scrubbing_gas))
-		toggle += GAS_STEAM
+	if(!isnull(signal.data["h2o_scrub"]) && text2num(signal.data["h2o_scrub"]) != (GAS_WATERVAPOR in scrubbing_gas))
+		toggle += GAS_WATERVAPOR
 	else if(signal.data["toggle_h2o_scrub"])
-		toggle += GAS_STEAM
+		toggle += GAS_WATERVAPOR
 
 	scrubbing_gas ^= toggle
 
@@ -416,12 +429,3 @@
 		return TRUE
 
 	return ..()
-
-/obj/machinery/atmospherics/unary/vent_scrubber/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(distance <= 1)
-		. += "A small gauge in the corner reads [round(last_flow_rate, 0.1)] L/s at [round(last_power_draw)] W."
-	else
-		. += "You are too far away to read the gauge."
-	if(welded)
-		. +=  "It seems welded shut."

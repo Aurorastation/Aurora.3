@@ -20,6 +20,7 @@
 #define SLOT_HOLSTER    BITFLAG(14)
 #define SLOT_WRISTS     BITFLAG(15)
 #define SLOT_S_STORE    BITFLAG(16)
+#define SLOT_PANTS      BITFLAG(17)
 
 // Bitmasks for the flags_inv variable. These determine when a piece of clothing hides another, i.e. a helmet hiding glasses.
 #define HIDEGLOVES      0x1
@@ -32,9 +33,10 @@
 #define HIDEEYES		0x80 // Glasses.
 #define HIDEFACE		0x100// Dictates whether we appear as "Unknown".
 #define HIDEWRISTS		0x200
-#define BLOCKHEADHAIR   0x400// Hides the user's hair overlay. Leaves facial hair.
-#define BLOCKHAIR       0x800/// Hides the user's hair, facial and otherwise.
-#define ALWAYSDRAW		0x1000//If set, this item is always rendered even if its slot is hidden by other clothing
+#define HIDEPANTS		0x400
+#define BLOCKHEADHAIR   0x800// Hides the user's hair overlay. Leaves facial hair.
+#define BLOCKHAIR       0x1000/// Hides the user's hair, facial and otherwise.
+#define ALWAYSDRAW		0x2000//If set, this item is always rendered even if its slot is hidden by other clothing
 //Note that the item may still not be visible if its sprite is actually covered up.
 
 // Slots.
@@ -59,7 +61,7 @@
 #define slot_in_backpack 19
 #define slot_legcuffed   20
 #define slot_r_ear       21
-#define slot_legs        22
+#define slot_pants       22
 #define slot_tie         23
 #define slot_in_belt     24
 #define slot_wrists      25
@@ -81,6 +83,7 @@
 #define slot_wear_suit_str	"slot_suit"
 #define slot_l_ear_str		"slot_l_ear"
 #define slot_r_ear_str		"slot_r_ear"
+#define slot_pants_str		"slot_pants"
 #define slot_shoes_str 		"slot_shoes"
 #define slot_wrists_str 	"slot_wrists"
 #define slot_gloves_str 	"slot_gloves"
@@ -105,6 +108,8 @@
 #define WORN_ID		"_id"
 #define WORN_MASK	"_ma"
 #define WORN_WRISTS	"_wr"
+#define WORN_PANTS	"_pa"
+#define WORN_ACCESS	"_ac"
 
 // Bitflags for clothing parts.
 #define HEAD        0x1
@@ -144,8 +149,8 @@
 // Pressure limits.
 #define  HAZARD_HIGH_PRESSURE 550 // This determines at what pressure the ultra-high pressure red icon is displayed. (This one is set as a constant)
 #define WARNING_HIGH_PRESSURE 325 // This determines when the orange pressure icon is displayed (it is 0.7 * HAZARD_HIGH_PRESSURE)
-#define WARNING_LOW_PRESSURE  50  // This is when the gray low pressure icon is displayed. (it is 2.5 * HAZARD_LOW_PRESSURE)
 #define  HAZARD_LOW_PRESSURE  20  // This is when the black ultra-low pressure icon is displayed. (This one is set as a constant)
+#define WARNING_LOW_PRESSURE  50  // This is when the gray low pressure icon is displayed. (it is 2.5 * HAZARD_LOW_PRESSURE)
 
 #define FIRESUIT_MAX_PRESSURE       20 * ONE_ATMOSPHERE  // Firesuits and atmos voidsuits
 #define RIG_MAX_PRESSURE            10 * ONE_ATMOSPHERE  // Rigs
@@ -185,7 +190,6 @@
 // Fire.
 #define FIRE_MIN_STACKS          -20
 #define FIRE_MAX_STACKS           25
-#define FIRE_MAX_FIRESUIT_STACKS  20 // If the number of stacks goes above this firesuits won't protect you anymore. If not, you can walk around while on fire like a badass.
 
 #define THROWFORCE_SPEED_DIVISOR    5  // The throwing speed value at which the throwforce multiplier is exactly 1.
 #define THROWNOBJ_KNOCKBACK_SPEED   15 // The minumum speed of a w_class 2 thrown object that will cause living mobs it hits to be knocked back. Heavier objects can cause knockback at lower speeds.
@@ -202,3 +206,8 @@
 #define SUIT_NO_SENSORS EMPTY_BITFIELD
 #define SUIT_HAS_SENSORS FLAG(0)
 #define SUIT_LOCKED_SENSORS FLAG(1)
+
+// Modifiers for injections, used for syringes, hyposprays, and overloaders.
+#define INJECTION_FAIL     0
+#define BASE_INJECTION_MOD 1 // x1 multiplier with no effects
+#define SUIT_INJECTION_MOD 2 // x2 multiplier if target is wearing spacesuit

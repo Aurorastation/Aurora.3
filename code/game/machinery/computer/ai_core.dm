@@ -7,7 +7,7 @@
 	anchored = 0
 	build_amt = 4
 	var/state = 0
-	var/datum/ai_laws/laws = new /datum/ai_laws/nanotrasen
+	var/datum/ai_laws/laws = new /datum/ai_laws/conglomerate
 	var/obj/item/circuitboard/circuit = null
 	var/obj/item/device/mmi/brain = null
 
@@ -115,7 +115,7 @@
 				to_chat(usr, "Law module applied.")
 				return TRUE
 
-			if(istype(attacking_item, /obj/item/aiModule/nanotrasen))
+			if(istype(attacking_item, /obj/item/aiModule/conglomerate))
 				laws.add_inherent_law("Safeguard: Protect your assigned space station to the best of your ability. It is not something we can easily afford to replace.")
 				laws.add_inherent_law("Serve: Serve the crew of your assigned space station to the best of your abilities, with priority as according to their rank and role.")
 				laws.add_inherent_law("Protect: Protect the crew of your assigned space station to the best of your abilities, with priority as according to their rank and role.")
@@ -221,7 +221,7 @@
 
 /obj/structure/AIcore/deactivated/proc/check_malf(var/mob/living/silicon/ai/ai)
 	if(!ai) return
-	for (var/datum/mind/malfai in malf.current_antagonists)
+	for (var/datum/mind/malfai in GLOB.malf.current_antagonists)
 		if (ai.mind == malfai)
 			return 1
 

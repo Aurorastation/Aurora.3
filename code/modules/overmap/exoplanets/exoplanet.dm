@@ -61,8 +61,14 @@
 	var/list/possible_themes = list(/datum/exoplanet_theme)
 	var/datum/exoplanet_theme/theme
 
-	///What weather state to use for this planet initially. If null, will not initialize any weather system. Must be a typepath rather than an instance.
+	/// What weather state to use for this planet initially. If null, will not initialize any weather system. Must be a typepath rather than an instance.
 	var/singleton/state/weather/initial_weather_state = /singleton/state/weather/calm
+
+	/// Whether the weather system supports having watery weather
+	var/has_water_weather = FALSE
+
+	/// Whether the weather system supports having icy weather
+	var/has_icy_weather = FALSE
 
 	var/features_budget = 4
 	var/list/possible_features = list()
@@ -259,7 +265,6 @@
 					var/mob_type = pick(repopulate_types)
 					var/mob/S = new mob_type(T)
 					animals += S
-					GLOB.death_event.register(S, src, PROC_REF(remove_animal))
 					RegisterSignal(S, COMSIG_QDELETING, PROC_REF(remove_animal))
 					adapt_animal(S)
 			if(animals.len >= max_animal_count)
@@ -281,7 +286,6 @@
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/remove_animal(mob/M)
 	animals -= M
-	GLOB.death_event.unregister(M, src)
 	UnregisterSignal(M, COMSIG_QDELETING)
 	repopulate_types |= M.type
 
@@ -322,11 +326,11 @@
 		adapt_animal(A)
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/adapt_seed(var/datum/seed/S)
-	S.set_trait(TRAIT_IDEAL_HEAT,          atmosphere.temperature + rand(-5,5),800,70)
-	S.set_trait(TRAIT_HEAT_TOLERANCE,      S.get_trait(TRAIT_HEAT_TOLERANCE) + rand(-5,5),800,70)
-	S.set_trait(TRAIT_LOWKPA_TOLERANCE,    atmosphere.return_pressure() + rand(-5,-50),80,0)
-	S.set_trait(TRAIT_HIGHKPA_TOLERANCE,   atmosphere.return_pressure() + rand(5,50),500,110)
-	S.set_trait(TRAIT_SPREAD,0)
+	SET_SEED_TRAIT_BOUNDED(S, TRAIT_IDEAL_HEAT, atmosphere.temperature + rand(-5,5), 800, 70, null)
+	SET_SEED_TRAIT_BOUNDED(S, TRAIT_HEAT_TOLERANCE, GET_SEED_TRAIT(S, TRAIT_HEAT_TOLERANCE) + rand(-5,5), 800, 70, null)
+	SET_SEED_TRAIT_BOUNDED(S, TRAIT_LOWKPA_TOLERANCE, atmosphere.return_pressure() + rand(-5,-50), 80, 0, null)
+	SET_SEED_TRAIT_BOUNDED(S, TRAIT_HIGHKPA_TOLERANCE, atmosphere.return_pressure() + rand(5,50), 500, 110, null)
+	SET_SEED_TRAIT(S, TRAIT_SPREAD, 0)
 	if(S.exude_gasses)
 		S.exude_gasses -= badgas
 	if(atmosphere)
@@ -334,7 +338,7 @@
 			S.consume_gasses = list(pick(atmosphere.gas)) // ensure that if the plant consumes a gas, the atmosphere will have it
 		for(var/g in atmosphere.gas)
 			if(gas_data.flags[g] & XGM_GAS_CONTAMINANT)
-				S.set_trait(TRAIT_TOXINS_TOLERANCE, rand(10,15))
+				SET_SEED_TRAIT(S, TRAIT_TOXINS_TOLERANCE, rand(10,15))
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/adapt_animal(var/mob/living/simple_animal/A)
 	if(species[A.type])
@@ -416,7 +420,7 @@
 					break
 			// Landability check - try to find an already-open space for an LZ
 			if(attempts >= 10)
-				if(check_collision(T.loc, block_to_check))
+				if(check_collision(block_to_check))
 					valid = FALSE
 			else // If we're running low on attempts we try to make our own LZ, ignoring landability but still checking for ruins
 				new_type = /obj/effect/shuttle_landmark/automatic/clearing
@@ -436,11 +440,10 @@
 		atmosphere.adjust_gas(GAS_NITROGEN, MOLES_N2STANDARD)
 	else //let the fuckery commence
 		var/list/newgases = gas_data.gases.Copy()
-		if(prob(90)) //all phoron planet should be rare
-			newgases -= GAS_PHORON
+		newgases -= GAS_PHORON
 		if(prob(50)) //alium gas should be slightly less common than mundane shit
 			newgases -= GAS_ALIEN
-		newgases -= GAS_STEAM
+		newgases -= GAS_WATERVAPOR
 
 		var/total_moles = MOLES_CELLSTANDARD * rand(80,120)/100
 		var/badflag = 0
@@ -553,7 +556,9 @@
 /obj/effect/overmap/visitable/sector/exoplanet/proc/set_weather(var/singleton/state/weather/W)
 	initial_weather_state = W
 	//Tells all our levels exposed to the sky to force change the weather.
-	SSweather.setup_weather_system(map_z[length(map_z)], initial_weather_state)
+	var/obj/abstract/weather_system/new_weather_system = SSweather.setup_weather_system(map_z[length(map_z)], initial_weather_state)
+	new_weather_system.has_water_weather = has_water_weather
+	new_weather_system.has_icy_weather = has_icy_weather
 
 ///Setup the initial weather state for the planet. Doesn't apply it to our z levels however.
 /obj/effect/overmap/visitable/sector/exoplanet/proc/generate_weather()

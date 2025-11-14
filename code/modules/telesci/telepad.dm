@@ -18,7 +18,14 @@
 		/obj/item/stack/cable_coil{amount = 1}
 	)
 
+	parts_power_mgmt = FALSE
+
+/obj/machinery/telepad/upgrade_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Upgraded <b>capacitors</b> will improve the power efficiency of the telepad."
+
 /obj/machinery/telepad/RefreshParts()
+	..()
 	var/E
 	for(var/obj/item/stock_parts/capacitor/C in component_parts)
 		E += C.rating
@@ -91,6 +98,7 @@
 	icon = 'icons/obj/radio.dmi'
 	icon_state = "beacon"
 	item_state = "signaler"
+
 	origin_tech = list(TECH_BLUESPACE = 3)
 
 /obj/item/device/telepad_beacon/attack_self(mob/user)
@@ -121,8 +129,8 @@
 	var/emagged = 0
 	var/teleporting = 0
 
-/obj/item/rcs/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/rcs/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	. += "There are [rcharges] charge\s left."
 
 /obj/item/rcs/process()

@@ -270,7 +270,7 @@
 			gen_turf.resources[ORE_SAND] = rand(3, 5)
 			gen_turf.resources[ORE_COAL] = rand(3, 5)
 			if(ground_resources_roll)
-				var/image/resource_indicator = image('icons/obj/mining.dmi', null, "indicator_" + ground_resources_roll, gen_turf.layer, pick(GLOB.cardinals))
+				var/image/resource_indicator = image('icons/obj/mining.dmi', null, "indicator_" + ground_resources_roll, dir = pick(GLOB.cardinals))
 				resource_indicator.alpha = rand(30, 60)
 				gen_turf.resource_indicator = resource_indicator
 				if(!gen_turf.density)
@@ -278,6 +278,12 @@
 				for(var/OT in ground_ore_levels[ground_resources_roll])
 					var/rand_vals = ground_ore_levels[ground_resources_roll][OT]
 					gen_turf.resources[OT] = rand(rand_vals[1], rand_vals[2])
+
+		if(SSlighting.initialized) //don't generate lighting overlays before SSlighting in case these templates are loaded before
+			var/area/A = gen_turf.loc
+			if(A?.area_has_base_lighting)
+				continue
+			gen_turf.static_lighting_build_overlay()
 
 		if(gen_turf.density) // No need to check flora/fauna/grass if we're a wall
 			continue
@@ -331,7 +337,8 @@
 
 /datum/exoplanet_theme/proc/on_turf_generation(turf/T, area/use_area)
 	if(use_area && istype(T.loc, world.area))
-		ChangeArea(T, use_area) // Switch our generated turfs from world.area (space) to our chosen exoplanet area
+		T.change_area(T.loc, use_area) // Switch our generated turfs from world.area (space) to our chosen exoplanet area
+
 	if(surface_color && is_type_in_list(T, surface_turfs))
 		T.color = surface_color
 

@@ -1,4 +1,4 @@
-var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
+#define OVERMAP_SPEED_CONSTANT (1 SECOND)
 #define SHIP_MOVE_RESOLUTION 0.00001
 #define MOVING(speed) abs(speed) >= min_speed
 #define SANITIZE_SPEED(speed) SIGN(speed) * clamp(abs(speed), 0, max_speed)
@@ -74,6 +74,16 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 	if(LAZYLEN(colors))
 		color = pick(colors)
 
+/// Parent object for stationary objects that still need to access ship systems (such as the Sensor Relays)
+/obj/effect/overmap/visitable/ship/stationary
+	name = "generic station"
+	desc = "A generic space station, see if you can find the other twelve."
+	obfuscated_name = "unidentified stationary object"
+	unknown_id = "Unknown artificial structure"
+	static_vessel = TRUE
+	propulsion = "None equipped, flight incapable"
+	halted = TRUE // Cannot fly under any circumstances
+
 /obj/effect/overmap/visitable/ship/find_z_levels(var/fore_direction)
 	. = ..(fore_dir)
 
@@ -98,6 +108,8 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 
 /obj/effect/overmap/visitable/ship/get_scan_data(mob/user)
 	. = ..()
+	if (static_vessel) // full data already acquired from parent proc
+		return
 	if(!is_still())
 		. += "<br>Heading: [dir2angle(get_heading())], speed [get_speed() * 1000]"
 	if(instant_contact)
@@ -290,7 +302,7 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 		S.attempt_hook_up(src)
 	for(var/obj/machinery/computer/shuttle_control/explore/C in SSmachinery.machinery)
 		C.attempt_hook_up(src)
-	for(var/datum/ship_engine/E in ship_engines)
+	for(var/datum/ship_engine/E in GLOB.ship_engines)
 		if(check_ownership(E.holder))
 			engines |= E
 
@@ -387,6 +399,7 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 /obj/effect/overmap/visitable/ship/proc/get_speed_sensor_increase()
 	return min(get_speed() * 1000, 50) //Engines should never increase sensor visibility by more than 50.
 
+#undef OVERMAP_SPEED_CONSTANT
 #undef MOVING
 #undef SANITIZE_SPEED
 #undef CHANGE_SPEED_BY

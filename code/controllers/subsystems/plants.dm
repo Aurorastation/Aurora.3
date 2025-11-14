@@ -6,14 +6,22 @@ SUBSYSTEM_DEF(plants)
 	priority = SS_PRIORITY_PLANTS
 	runlevels = RUNLEVELS_PLAYING
 
-	var/list/product_descs = list()         // Stores generated fruit descs.
-	var/list/seeds = list()                 // All seed data stored here.
-	var/list/gene_tag_masks = list()        // Gene obfuscation for delicious trial and error goodness.
-	var/list/plant_icon_cache = list()      // Stores images of growth, fruits and seeds.
-	var/list/plant_sprites = list()         // List of all harvested product sprites.
-	var/list/plant_product_sprites = list() // List of all growth sprites plus number of growth stages.
-	var/list/gene_masked_list = list()      // Stores list of masked genes rather than recreating it later
-	var/list/plant_gene_datums = list()     // Stores gene masked list as datums
+	/// Stores generated fruit descs.
+	var/list/product_descs = list()
+	/// All seed data stored here.
+	var/list/seeds = list()
+	/// Gene obfuscation for delicious trial and error goodness.
+	var/list/gene_tag_masks = list()
+	/// Stores images of growth, fruits and seeds.
+	var/list/plant_icon_cache = list()
+	/// List of all harvested product sprites.
+	var/list/plant_sprites = list()
+	/// List of all growth sprites plus number of growth stages.
+	var/list/plant_product_sprites = list()
+	/// Stores list of masked genes rather than recreating it later
+	var/list/gene_masked_list = list()
+	/// Stores gene masked list as datums
+	var/list/plant_gene_datums = list()
 
 
 	var/list/processing = list()
@@ -114,7 +122,7 @@ SUBSYSTEM_DEF(plants)
 /datum/controller/subsystem/plants/proc/remove_plant(obj/effect/plant/plant)
 	processing -= plant
 
-// Proc for creating a random seed type.
+/// Proc for creating a random seed type.
 /datum/controller/subsystem/plants/proc/create_random_seed(var/survive_on_station)
 	var/datum/seed/seed = new()
 	seed.randomize()
@@ -129,15 +137,15 @@ SUBSYSTEM_DEF(plants)
 		if(seed.chems && !isnull(seed.chems[/singleton/reagent/acid/polyacid]))
 			seed.chems[/singleton/reagent/acid/polyacid] = null // Eating through the hull will make these plants completely inviable, albeit very dangerous.
 			seed.chems -= null // Setting to null does not actually remove the entry, which is weird.
-		seed.set_trait(TRAIT_IDEAL_HEAT,293)
-		seed.set_trait(TRAIT_HEAT_TOLERANCE,20)
-		seed.set_trait(TRAIT_IDEAL_LIGHT,8)
-		seed.set_trait(TRAIT_LIGHT_TOLERANCE,5)
-		seed.set_trait(TRAIT_LOWKPA_TOLERANCE,25)
-		seed.set_trait(TRAIT_HIGHKPA_TOLERANCE,200)
+		SET_SEED_TRAIT(seed, TRAIT_IDEAL_HEAT, 293)
+		SET_SEED_TRAIT(seed, TRAIT_HEAT_TOLERANCE, 20)
+		SET_SEED_TRAIT(seed, TRAIT_IDEAL_LIGHT, 8)
+		SET_SEED_TRAIT(seed, TRAIT_LIGHT_TOLERANCE, 5)
+		SET_SEED_TRAIT(seed, TRAIT_LOWKPA_TOLERANCE, 25)
+		SET_SEED_TRAIT(seed, TRAIT_HIGHKPA_TOLERANCE, 200)
 	return seed
 
-// Debug for testing seed genes.
+/// Debug for testing seed genes.
 /client/proc/show_plant_genes()
 	set category = "Debug"
 	set name = "Show Plant Genes"

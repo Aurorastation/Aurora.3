@@ -81,7 +81,8 @@
 	if (!istype(G))
 		G = M.r_hand
 
-	if(!M.Move(get_turf(src)))
+	var/turf/T = get_turf(src)
+	if(M.loc != T && !M.Move(T))
 		to_chat(M, SPAN_NOTICE("You fail to reach \the [src]."))
 		return
 
@@ -147,7 +148,7 @@
 		return FALSE
 	return TRUE
 
-/mob/abstract/observer/may_climb_ladders(var/ladder)
+/mob/abstract/ghost/observer/may_climb_ladders(var/ladder)
 	return TRUE
 
 /obj/structure/ladder/proc/climbLadder(var/mob/M, var/target_ladder)
@@ -258,8 +259,12 @@
 
 	var/obj/structure/stairs/staircase = locate() in target
 	var/target_dir = get_dir(mover, target)
+	// If moving laterally off a staircase...
 	if(!staircase && (target_dir != dir && target_dir != REVERSE_DIR(dir)))
-		INVOKE_ASYNC(src, PROC_REF(mob_fall), mover)
+		// And nothing blocks you from doing so...
+		if(CanPass(mover, target))
+			// Then fall over, idiot.
+			INVOKE_ASYNC(src, PROC_REF(mob_fall), mover)
 
 	return ..()
 
@@ -350,6 +355,7 @@
 	icon_state = "stairs_railing"
 	anchored = TRUE
 	density = TRUE
+	layer = ABOVE_ABOVE_HUMAN_LAYER
 
 /obj/structure/stairs_railing/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(mover?.movement_type & PHASING)
@@ -422,6 +428,7 @@
 	atom_flags = ATOM_FLAG_CHECKS_BORDER|ATOM_FLAG_ALWAYS_ALLOW_PICKUP
 	climbable = TRUE
 	color = COLOR_TILED
+	pass_flags_self = LETPASSTHROW|PASSSTRUCTURE|PASSRAILING
 
 /obj/structure/platform/dark
 	icon_state = "platform_dark"
@@ -434,8 +441,6 @@
 	if(istype(mover, /obj/projectile))
 		return TRUE
 	if(!istype(mover) || mover.pass_flags & PASSRAILING)
-		return TRUE
-	if(mover.throwing)
 		return TRUE
 	if(get_dir(mover, target) == REVERSE_DIR(dir))
 		return FALSE
@@ -461,10 +466,31 @@
 			var/climb_text = same_turf ? "over" : "down"
 			LAZYADD(climbers, user)
 			user.visible_message(SPAN_NOTICE("[user] starts climbing [climb_text] \the [src]..."), SPAN_NOTICE("You start climbing [climb_text] \the [src]..."))
-			if(do_after(user, 1 SECOND) && can_climb(user, TRUE))
-				user.visible_message(SPAN_NOTICE("[user] climbs [climb_text] \the [src]."), SPAN_NOTICE("You climb [climb_text] \the [src]."))
-				user.forceMove(next_turf)
-				LAZYREMOVE(climbers, user)
+
+			if(!do_after(user, 1 SECOND) || !can_climb(user, TRUE))
+				LAZYREMOVE(climbers, user) // Prevents early-cancellation not clearing the climber off the list
+				return
+
+			user.visible_message(SPAN_NOTICE("[user] climbs [climb_text] \the [src]."), SPAN_NOTICE("You climb [climb_text] \the [src]."))
+			user.forceMove(next_turf)
+			LAZYREMOVE(climbers, user)
+
+/obj/structure/platform/CollidedWith(atom/bumped_atom)
+	. = ..()
+	for(var/obj/other_obj in get_turf(src))
+		if(other_obj == src)
+			continue
+
+		if(other_obj.density)
+			return // Whatever other structure is blocking the hop-down effect.
+
+	if(get_dir(src, bumped_atom) == REVERSE_DIR(dir))
+		var/atom/movable/bumped_movable = bumped_atom
+		if(ismob(bumped_movable))
+			visible_message(SPAN_NOTICE("[bumped_movable] hops down the platform."))
+		else
+			visible_message(SPAN_NOTICE("[bumped_movable] goes over the platform."))
+		bumped_movable.forceMove(src.loc)
 
 /obj/structure/platform/ledge
 	icon_state = "ledge"
@@ -483,6 +509,9 @@
 
 /obj/structure/platform/cutout/CanPass()
 	return TRUE
+
+/obj/structure/platform/bar
+	layer = ABOVE_HUMAN_LAYER
 
 /// No special CanPass for this one.
 /obj/structure/platform_deco

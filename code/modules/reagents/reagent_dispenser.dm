@@ -1,8 +1,6 @@
 /obj/structure/reagent_dispensers
 	name = "strange dispenser"
 	desc = "What the fuck is this?"
-	desc_info = "Use HELP intent to fill a container in your hand from this, and use any other intent to empty the container into this. \
-	You can right-click this and change the amount transferred per use."
 	icon = 'icons/obj/reagent_dispensers.dmi'
 	icon_state = "watertank"
 	density = 1
@@ -15,18 +13,22 @@
 	var/can_tamper = TRUE
 	var/is_leaking = FALSE
 
+/obj/structure/reagent_dispensers/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Use Help intent to fill a container in your hand from this, and use any other intent to empty the container into this."
+	. += "Right-click this to change the amount transferred per use."
+
+/obj/structure/reagent_dispensers/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(distance > 2)
+		return
+	. += SPAN_NOTICE("It contains [reagents.total_volume] units of reagents.")
+
 /obj/structure/reagent_dispensers/Initialize()
 	. = ..()
 	create_reagents(capacity)
 	if (!possible_transfer_amounts)
 		src.verbs -= /obj/structure/reagent_dispensers/verb/set_APTFT
-		desc_info = ""
-
-/obj/structure/reagent_dispensers/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(distance > 2)
-		return
-	. += SPAN_NOTICE("It contains [reagents.total_volume] units of reagents.")
 
 /obj/structure/reagent_dispensers/verb/set_APTFT() //set amount_per_transfer_from_this
 	set name = "Set transfer amount"
@@ -70,7 +72,7 @@
 									SPAN_WARNING("You wrench \the [src]'s faucet [is_leaking ? "closed" : "open"]"))
 			is_leaking = !is_leaking
 			if (is_leaking)
-				message_admins("[key_name_admin(user)] wrench opened \the [src] at [loc.loc.name] ([loc.x],[loc.y],[loc.z]), leaking reagents. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[loc.x];Y=[loc.y];Z=[loc.z]'>JMP</a>)")
+				message_admins("[key_name_admin(user)] wrench opened \the [src] at [loc.loc.name] ([loc.x],[loc.y],[loc.z]), leaking reagents. (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[loc.x];Y=[loc.y];Z=[loc.z]'>JMP</a>)")
 				log_game("[key_name(user)] opened \the [src] at [loc.loc.name] ([loc.x],[loc.y],[loc.z]), leaking reagents.")
 				START_PROCESSING(SSprocessing,src)
 
@@ -128,8 +130,8 @@
 	var/obj/item/device/assembly_holder/rig = null
 	reagents_to_add = list(/singleton/reagent/fuel = 1000)
 
-/obj/structure/reagent_dispensers/fueltank/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/structure/reagent_dispensers/fueltank/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(distance > 2)
 		return
 	if (is_leaking)
@@ -169,7 +171,7 @@
 
 			var/obj/item/device/assembly_holder/H = attacking_item
 			if (istype(H.a_left,/obj/item/device/assembly/igniter) || istype(H.a_right,/obj/item/device/assembly/igniter))
-				message_admins("[key_name_admin(user)] rigged fueltank at [loc.loc.name] ([loc.x],[loc.y],[loc.z]) for explosion. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[loc.x];Y=[loc.y];Z=[loc.z]'>JMP</a>)")
+				message_admins("[key_name_admin(user)] rigged fueltank at [loc.loc.name] ([loc.x],[loc.y],[loc.z]) for explosion. (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[loc.x];Y=[loc.y];Z=[loc.z]'>JMP</a>)")
 				log_game("[key_name(user)] rigged fueltank at [loc.loc.name] ([loc.x],[loc.y],[loc.z]) for explosion.")
 
 			rig = attacking_item
@@ -181,7 +183,7 @@
 
 	return ..()
 
-/obj/structure/reagent_dispensers/fueltank/attack_ghost(mob/user as mob)
+/obj/structure/reagent_dispensers/fueltank/attack_ghost(mob/user)
 	if(user.client && user.client.inquisitive_ghost)
 		examine()
 	if(!user.client.holder)
@@ -342,7 +344,7 @@
 /obj/structure/reagent_dispensers/keg
 	name = "keg"
 	desc = "An empty keg."
-	icon_state = "beertankTEMP"
+	icon_state = "keg"
 	amount_per_transfer_from_this = 10
 
 /obj/structure/reagent_dispensers/keg/attackby(obj/item/attacking_item, mob/user)
@@ -367,10 +369,14 @@
 
 /obj/structure/reagent_dispensers/keg/beerkeg
 	name = "beer keg"
-	desc = "A beer keg"
+	desc = "A keg full of Virklunder beer, a simple brew from New Gibson."
+	icon_state = "keg_beer"
 	reagents_to_add = list(/singleton/reagent/alcohol/beer = 1000)
 
 /obj/structure/reagent_dispensers/keg/beerkeg/rice
+	name = "rice beer keg"
+	desc = "A keg full of Ebisu rice beer, a light lagered beer popular on Konyang."
+	icon_state = "keg_rice"
 	reagents_to_add = list(/singleton/reagent/alcohol/rice_beer = 1000)
 
 /obj/structure/reagent_dispensers/keg/xuizikeg
@@ -378,6 +384,12 @@
 	desc = "A keg full of Xuizi juice, blended flower buds from the Moghean Xuizi cactus. The export stamp of the Arizi Guild is imprinted on the side."
 	icon_state = "keg_xuizi"
 	reagents_to_add = list(/singleton/reagent/alcohol/butanol/xuizijuice = 1000)
+
+/obj/structure/reagent_dispensers/keg/kvass
+	name = "\improper Dorshafen kvass keg"
+	desc = "A keg full of Dorshafen Deluxe kvass, a fermented non-alcoholic mushroom drink. It is a common sight across workers homes in Himeo, and even abroad."
+	icon_state = "keg_kvass"
+	reagents_to_add = list(/singleton/reagent/drink/mushroom_kvass = 1000)
 
 /obj/structure/reagent_dispensers/keg/mead
 	name = "mead barrel"
@@ -390,6 +402,12 @@
 	desc = "A wooden sake barrel."
 	icon_state = "woodkeg"
 	reagents_to_add = list(/singleton/reagent/alcohol/sake = 1000)
+
+/obj/structure/reagent_dispensers/keg/kvass
+	name = "kvass keg"
+	desc = "A keg full of Dorshafen kvass - non-alcoholic, and a common sight in any workers home across Himeo."
+	icon_state = "keg_kvass"
+	reagents_to_add = list(/singleton/reagent/drink/mushroom_kvass = 1000)
 
 //Cooking oil tank
 /obj/structure/reagent_dispensers/cookingoil
@@ -458,3 +476,29 @@
 	icon_state = "chemical_barrel"
 	amount_per_transfer_from_this = 300
 	reagents_to_add = list(/singleton/reagent/radioactive_waste = 1000)
+
+/obj/structure/reagent_dispensers/radioactive_waste/hazardous // Only use this if you want active radiation.
+	name = "leaking radioactive waste barrel"
+	desc = "A metal barrel containing radioactive waste; the seals on this one seem to have failed and noxious fumes are escaping."
+	light_range = 2
+	light_color = "#64C864"
+
+/obj/structure/reagent_dispensers/radioactive_waste/hazardous/Initialize()
+	. = ..()
+	start_process()
+
+/obj/structure/reagent_dispensers/radioactive_waste/hazardous/proc/start_process()
+	START_PROCESSING(SSprocessing, src)
+
+/obj/structure/reagent_dispensers/radioactive_waste/hazardous/process()
+	if(!is_leaking && reagents.total_volume <= 0)
+		STOP_PROCESSING(SSprocessing,src)
+		return
+	else
+		if(reagents.total_volume > 0)
+			SSradiation.radiate(src,60)
+
+		if(is_leaking)
+			var/splash_amount = min(amount_per_transfer_from_this,60) //Hard limit of 60 per process
+			reagents.trans_to_turf(get_turf(src),splash_amount)
+			return

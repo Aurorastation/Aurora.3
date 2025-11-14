@@ -155,14 +155,17 @@
 
 /obj/effect/portal/spawner
 	name = "portal"
-	desc = "A bluespace tear in space, reaching directly to another point within this region. This one looks like a one-way portal to here, don't come too close."
-	desc_info = "This portal is a spawner portal. You cannot enter it to teleport, but it will periodically spawn things."
+	desc = "A bluespace tear in space, reaching directly to another point within this region. This one looks like a one-way portal to here; don't get too close."
 	does_teleport = FALSE
 	has_lifespan = FALSE
 	layer = OBJ_LAYER - 0.01
 	var/list/spawn_things = list() // The list things to spawn
 	var/num_of_spawns			   // How many times we want to spawn them before qdel
 	var/next_spawn
+
+/obj/effect/portal/spawner/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This portal is a spawner portal. You cannot enter it to teleport, but it will periodically spawn things."
 
 /obj/effect/portal/spawner/Initialize()
 	. = ..()
@@ -273,7 +276,6 @@
 /obj/effect/portal/revenant
 	name = "bluespace rift"
 	desc = "A bluespace tear in space, reaching directly to another point within this region. This one looks like a one-way portal to here, don't come too close."
-	desc_info = "This is a bluespace rift. It is a node wherein revenants can seep into this locale. To destroy it, you must bring a bluespace neutralizer near it."
 	icon_state = "portal_g"
 
 	does_teleport = FALSE
@@ -287,24 +289,28 @@
 	var/last_color_level = 5
 	var/health_timer = 10 MINUTES // you need to reduce the health by standing near it with a neutralizer
 
+/obj/effect/portal/revenant/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This is a bluespace rift. It is a node wherein revenants can seep into this locale. To destroy it, you must bring a bluespace neutralizer near it."
+
 /obj/effect/portal/revenant/Initialize(mapload)
 	. = ..()
-	if(revenants.revenant_rift)
+	if(GLOB.revenants.revenant_rift)
 		return INITIALIZE_HINT_QDEL
 	var/turf/T = get_turf(src)
 	log_and_message_admins("Revenant Bluespace Rift spawned at \the [get_area(T)]", null, T)
-	revenants.revenant_rift = src
+	GLOB.revenants.revenant_rift = src
 
 /obj/effect/portal/revenant/Destroy()
-	revenants.destroyed_rift()
+	GLOB.revenants.destroyed_rift()
 	visible_message(FONT_LARGE(SPAN_DANGER("\The [src] collapses!")))
 	new /obj/random/highvalue/no_crystal(src)
 	new /obj/random/highvalue/no_crystal(src)
 	for(var/thing in contents)
 		var/obj/O = thing
 		O.forceMove(get_turf(src))
-	var/area/A = get_area(src)
-	message_all_revenants(FONT_LARGE(SPAN_WARNING("The rift keeping us here has been destroyed in [A.name]!")))
+	var/area_display_name = get_area_display_name(get_area(src))
+	message_all_revenants(FONT_LARGE(SPAN_WARNING("The rift keeping us here has been destroyed in [area_display_name]!")))
 	return ..()
 
 /obj/effect/portal/revenant/attackby(obj/item/attacking_item, mob/user)
@@ -324,8 +330,8 @@
 	var/color_level = round((health_timer / 600) / 2) // this should give a value from 0 - 5
 	if(color_level == last_color_level)
 		return
-	var/area/A = get_area(src)
-	message_all_revenants(FONT_LARGE(SPAN_WARNING("The rift keeping us here is being attacked in [A.name]!")))
+	var/area_display_name = get_area_display_name(get_area(src))
+	message_all_revenants(FONT_LARGE(SPAN_WARNING("The rift keeping us here is being attacked in [area_display_name]!")))
 	last_color_level = color_level
 	switch(color_level)
 		if(0)

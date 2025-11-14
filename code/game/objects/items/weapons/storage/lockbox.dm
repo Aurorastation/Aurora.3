@@ -9,7 +9,7 @@
 	contained_sprite = TRUE
 	w_class = WEIGHT_CLASS_BULKY
 	max_w_class = WEIGHT_CLASS_NORMAL
-	max_storage_space = 14 //The sum of the w_classes of all the items in this storage item.
+	max_storage_space = DEFAULT_BOX_STORAGE //The sum of the w_classes of all the items in this storage item.
 	req_access = list(ACCESS_ARMORY)
 	var/locked = 1
 	var/broken = 0
@@ -36,7 +36,7 @@
 				to_chat(user, SPAN_NOTICE("You unlock \the [src]!"))
 				return
 		else
-			to_chat(user, SPAN_WARNING("Access Denied"))
+			to_chat(user, SPAN_WARNING("Access denied"))
 	else if(istype(attacking_item, /obj/item/melee/energy/blade))
 		if(emag_act(INFINITY, user, attacking_item, "The locker has been sliced open by [user] with an energy blade!", "You hear metal being sliced and sparks flying."))
 			var/obj/item/melee/energy/blade/blade = attacking_item

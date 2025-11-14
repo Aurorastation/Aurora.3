@@ -5,8 +5,8 @@
 	prefix = "away_site/shady/"
 	suffix = "shady.dmm"
 
-	sectors = list(SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, ALL_COALITION_SECTORS)
-	sectors_blacklist = list(SECTOR_BURZSIA, SECTOR_HANEUNIM)
+	sectors = list(ALL_TAU_CETI_SECTORS, ALL_BADLAND_SECTORS, ALL_COALITION_SECTORS, ALL_CRESCENT_EXPANSE_SECTORS)
+	sectors_blacklist = list(ALL_SPECIFIC_SECTORS)
 	spawn_weight = 1
 	spawn_cost = 1
 	id = "shady"
@@ -21,6 +21,10 @@
 	name = "shady asteroid"
 	desc = "An asteroid with a hangar carved out inside it. Scans detect an unregistered structure within, with multiple lifeforms present."
 	icon_state = "object"
+
+/obj/effect/map_effect/marker/airlock/shady
+	name = "Entrance Airlock"
+	master_tag = "airlock_shady"
 
 /area/hideout
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP

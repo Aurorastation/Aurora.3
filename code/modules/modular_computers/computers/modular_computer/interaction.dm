@@ -181,10 +181,10 @@
 	else if(scan_mode == SCANNER_GAS)
 		analyze_gases(A, user)
 
-/obj/item/modular_computer/attack_ghost(var/mob/abstract/observer/user)
+/obj/item/modular_computer/attack_ghost(var/mob/abstract/ghost/user)
 	if(enabled)
 		ui_interact(user)
-	else if(check_rights(R_ADMIN, 0, user))
+	else if(check_rights(R_ADMIN, 0, user) || isstoryteller(user))
 		var/response = alert(user, "This computer is turned off. Would you like to turn it on?", "Admin Override", "Yes", "No")
 		if(response == "Yes")
 			turn_on(user)
@@ -323,13 +323,13 @@
 		return TRUE
 	return ..()
 
-/obj/item/modular_computer/MouseDrop(atom/over_object)
-	var/mob/M = usr
+/obj/item/modular_computer/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	var/mob/M = user
 	if(use_check_and_message(M))
 		return
-	if(istype(over_object, /obj/machinery/power/apc) && tesla_link)
-		return over_object.attackby(src, M)
-	if(!istype(over_object, /atom/movable/screen) && !(over_object == src))
+	if(istype(over, /obj/machinery/power/apc) && tesla_link)
+		return over.attackby(src, M)
+	if(!istype(over, /atom/movable/screen) && !(over == src))
 		return attack_self(M)
 
 /obj/item/modular_computer/GetID()

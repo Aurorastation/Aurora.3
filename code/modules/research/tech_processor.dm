@@ -1,7 +1,7 @@
 /obj/machinery/r_n_d/tech_processor
 	name = "\improper R&D tech processor"
 	desc = "A highly advanced analytical computation engine, when connected to an R&D server with a multitool, it will start processing known technology and add research points to it."
-	icon_state = "tech_processor"
+	icon_state = "RD-server"
 
 	component_types = list(
 		/obj/item/circuitboard/rdtechprocessor,
@@ -18,11 +18,18 @@
 
 	var/heat_delay = 10
 
+	parts_power_mgmt = FALSE
+
+/obj/machinery/r_n_d/tech_processor/upgrade_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Upgraded <b>scanning modules</b> will increase speed at which research calculations are made and reduce active power usage."
+
 /obj/machinery/r_n_d/tech_processor/Destroy()
 	set_server(null)
 	return ..()
 
 /obj/machinery/r_n_d/tech_processor/RefreshParts()
+	..()
 	tech_rate = 0
 	for(var/obj/item/stock_parts/scanning_module/SM in component_parts)
 		tech_rate += SM.rating / 2
@@ -76,10 +83,10 @@
 /obj/machinery/r_n_d/tech_processor/update_icon()
 	ClearOverlays()
 	if(stat & (NOPOWER|BROKEN))
-		icon_state = "[initial(icon_state)]_off"
+		icon_state = "[initial(icon_state)]-off"
 	else if(!linked_server)
-		icon_state = "[initial(icon_state)]_unlinked"
+		icon_state = "[initial(icon_state)]-halt"
 	else
-		icon_state = initial(icon_state)
+		icon_state = "[initial(icon_state)]-on"
 	if(panel_open)
 		AddOverlays("[initial(icon_state)]_open")

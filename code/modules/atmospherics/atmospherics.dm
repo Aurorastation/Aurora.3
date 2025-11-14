@@ -13,7 +13,7 @@ Pipelines + Other Objects -> Pipe network
 	anchored = 1
 	idle_power_usage = 0
 	active_power_usage = 0
-	power_channel = ENVIRON
+	power_channel = AREA_USAGE_ENVIRON
 	var/nodealert = 0
 	var/power_rating //the maximum amount of power the machine can use to do work, affects how powerful the machine is, in Watts
 
@@ -52,6 +52,7 @@ Pipelines + Other Objects -> Pipe network
 // atmos_init() and Initialize() must be separate, as atmos_init() can be called multiple times after the machine has been initialized.
 
 /obj/machinery/atmospherics/LateInitialize()
+	. = ..()
 	atmos_init()
 
 /obj/machinery/atmospherics/attackby(obj/item/attacking_item, mob/user)

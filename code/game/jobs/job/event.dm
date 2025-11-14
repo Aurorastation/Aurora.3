@@ -123,11 +123,12 @@
 		SPECIES_VAURCA_BULWARK = null
 	)
 	belt_contents = list(
+		/obj/item/screwdriver = 1,
+		/obj/item/wrench = 1,
 		/obj/item/weldingtool/largetank = 1,
 		/obj/item/crowbar = 1,
 		/obj/item/wirecutters = 1,
 		/obj/item/stack/cable_coil/random = 1,
-		/obj/item/powerdrill = 1,
 		/obj/item/device/multitool = 1,
 		/obj/item/hammer = 1
 	)
@@ -215,5 +216,5 @@
 		SPECIES_SKRELL = 50,
 		SPECIES_SKRELL_AXIORI = 50
 	)
-	access = list(ACCESS_HYDROPONICS, ACCESS_BAR, ACCESS_KITCHEN)
+	access = list(ACCESS_HYDROPONICS, ACCESS_BAR, ACCESS_GALLEY)
 	outfit = /obj/outfit/job/bartender

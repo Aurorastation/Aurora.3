@@ -7,7 +7,7 @@
  */
 /mob/verb/up()
 	set name = "Move Upwards"
-	set category = "IC"
+	set category = "IC.Maneuver"
 
 	if(zMove(UP))
 		visible_message(SPAN_NOTICE("[src] has moved upwards."), SPAN_NOTICE("You move upwards."))
@@ -16,8 +16,8 @@
  * Verb for the mob to move down a z-level if possible.
  */
 /mob/verb/down()
-	set name = "Move Down"
-	set category = "IC"
+	set name = "Move Downwards"
+	set category = "IC.Maneuver"
 
 	if(zMove(DOWN))
 		visible_message(SPAN_NOTICE("[src] has moved downwards."), SPAN_NOTICE("You move downwards."))
@@ -112,7 +112,8 @@
 	else
 		to_chat(owner, SPAN_NOTICE("There is nothing of interest in this direction."))
 
-/mob/abstract/observer/zMove(direction)
+// Both observers and storytellers depend on this to be able to move through z-levels freely!
+/mob/abstract/ghost/zMove(direction)
 	var/turf/T = get_turf(src)
 	var/turf/destination = (direction == UP) ? GET_TURF_ABOVE(T) : GET_TURF_BELOW(T)
 	if(destination)
@@ -133,7 +134,7 @@
 		return TRUE
 	return FALSE
 
-/mob/abstract/observer/can_ztravel(var/direction)
+/mob/abstract/ghost/observer/can_ztravel(var/direction)
 	return TRUE
 
 /mob/living/carbon/human/can_ztravel(var/direction)
@@ -788,16 +789,15 @@
 	simulated = FALSE
 	anchored = TRUE
 	mouse_opacity = FALSE
+	/// The mob that this observer belongs to.
 	var/mob/living/owner
-	var/tile_shifted = FALSE
+	/// The physical open-space turf we are watching.
+	var/turf/target_turf
 
-/atom/movable/z_observer/Initialize(mapload, var/mob/living/user, var/tile_shift = FALSE)
+/atom/movable/z_observer/Initialize(mapload, var/mob/living/user, var/turf/given_turf)
 	. = ..()
 	owner = user
-	if(tile_shift)
-		var/turf/T = get_step(owner, owner.dir)
-		forceMove(T)
-		tile_shifted = TRUE
+	target_turf = given_turf
 	follow()
 	RegisterSignal(owner, COMSIG_MOVABLE_MOVED, PROC_REF(follow))
 
@@ -814,12 +814,11 @@
 	qdel(src)
 
 /atom/movable/z_observer/z_down/follow()
-	var/turf/down_step = get_step(tile_shifted ? src : owner, DOWN)
+	var/turf/down_step = get_step(target_turf, DOWN)
 	/// If we move down more than 1 step, don't move down again.
 	if((GET_Z(owner) - down_step.z) < 2)
 		forceMove(down_step)
-	var/turf/T = get_turf(tile_shifted ? get_step(owner, owner.dir) : owner)
-	if(T && TURF_IS_MIMICING(T))
+	if(owner.Adjacent(target_turf) && (get_dir(owner, target_turf) & owner.dir))
 		return
 	owner.reset_view(null)
 	owner.z_eye = null
@@ -828,6 +827,7 @@
 /atom/movable/z_observer/Destroy()
 	UnregisterSignal(owner, COMSIG_MOVABLE_MOVED)
 	owner = null
+	target_turf = null
 	. = ..()
 
 /atom/movable/z_observer/can_fall()

@@ -44,7 +44,6 @@
 		/obj/item/storage/box/syndie_kit             = TRADER_SUBTYPES_ONLY,
 		/obj/item/syndie/c4explosive                 = TRADER_ALL,
 		/obj/item/melee/energy/sword                 = TRADER_ALL,
-		/obj/item/melee/energy/sword/color           = TRADER_BLACKLIST,
 		/obj/item/melee/energy/axe                   = TRADER_THIS_TYPE,
 		/obj/item/shield/energy                      = TRADER_ALL,
 		/obj/item/clothing/gloves/force/syndicate    = TRADER_THIS_TYPE,

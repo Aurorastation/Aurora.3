@@ -9,7 +9,7 @@
 	icon = 'icons/mob/eye.dmi'
 	icon_state = "default-eye"
 	alpha = 127
-	density = 0
+	density = FALSE
 
 	var/sprint = 10
 	var/cooldown = 0
@@ -22,7 +22,6 @@
 	var/mob/owner = null
 	var/list/visibleChunks = list()
 
-	var/ghostimage = null
 	var/datum/visualnet/visualnet
 	///Set if the eye uses special click handling. Distinct from parent mob click handling for AI eye.
 	var/click_handler_type = /datum/click_handler/eye
@@ -30,21 +29,7 @@
 	///Whether or not our eye uses normal living vision handling
 	var/living_eye = TRUE
 
-/mob/abstract/eye/New()
-	ghostimage = image(src.icon,src,src.icon_state)
-	SSmobs.ghost_darkness_images |= ghostimage //so ghosts can see the eye when they disable darkness
-	SSmobs.ghost_sightless_images |= ghostimage //so ghosts can see the eye when they disable ghost sight
-	updateallghostimages()
-	..()
-
 /mob/abstract/eye/Destroy()
-	if (ghostimage)
-		SSmobs.ghost_darkness_images -= ghostimage
-		SSmobs.ghost_sightless_images -= ghostimage
-		qdel(ghostimage)
-		ghostimage = null
-		updateallghostimages()
-
 	release(owner)
 	owner = null
 	visualnet = null
@@ -67,7 +52,7 @@
 /mob/abstract/eye/pointed()
 	set popup_menu = 0
 	set src = usr.contents
-	return 0
+	return FALSE
 
 /mob/abstract/eye/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	SHOULD_CALL_PARENT(FALSE)
@@ -90,7 +75,7 @@
 	if(click_handler_type)
 		owner.PushClickHandler(click_handler_type)
 	setLoc(owner)
-	visualnet.update_eye_chunks(src, TRUE)
+	visualnet?.update_eye_chunks(src, TRUE)
 
 /mob/abstract/eye/proc/release(var/mob/user)
 	if(owner != user || !user)
@@ -99,7 +84,7 @@
 		return
 	remove_visual(owner)
 	LAZYREMOVE(owner.additional_vision_handlers, src)
-	visualnet.remove_eye(src)
+	visualnet?.remove_eye(src)
 	owner.eyeobj = null
 	if(owner.client)
 		owner.client.eye = owner
@@ -125,7 +110,7 @@
 	if(owner_follows_eye)
 		owner.forceMove(loc)
 
-	visualnet.update_eye_chunks(src)
+	visualnet?.update_eye_chunks(src)
 	return TRUE
 
 /mob/abstract/eye/proc/getLoc()

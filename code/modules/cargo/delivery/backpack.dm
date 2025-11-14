@@ -1,7 +1,6 @@
 /obj/item/cargo_backpack
 	name = "cargo pack"
 	desc = "A robust set of rigs and buckles that allows the wearer to carry two additional Orion Express delivery packages on their back."
-	desc_info = "To load packages onto your back, equip this item on the back slot, then click on it with a package in-hand. To unload a package, click on this item with an empty hand."
 	icon = 'icons/obj/orion_delivery.dmi'
 	icon_state = "package_pack"
 	item_state = "package_pack"
@@ -13,14 +12,19 @@
 
 	var/list/contained_packages
 
+/obj/item/cargo_backpack/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "To load packages onto your back, equip this item on the back slot, then click on it with a package in-hand."
+	. += "To unload a package, click on this item with an empty hand."
+
+/obj/item/cargo_backpack/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(length(contained_packages))
+		. += SPAN_NOTICE("\[?\] There are some packages loaded. <a href='byond://?src=[REF(src)];show_package_data=1>\[Show Package Data\]</a>")
+
 /obj/item/cargo_backpack/Destroy()
 	QDEL_LIST(contained_packages)
 	return ..()
-
-/obj/item/cargo_backpack/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(length(contained_packages))
-		. += FONT_SMALL(SPAN_NOTICE("\[?\] There are some packages loaded. <a href=?src=[REF(src)];show_package_data=1>\[Show Package Data\]</a>"))
 
 /obj/item/cargo_backpack/Topic(href, href_list)
 	if(href_list["show_package_data"])
@@ -71,6 +75,19 @@
 		north_overlay.layer = courier.layer + 0.01 // we want the tall backpack to render over hair and helmets
 		north_overlay.appearance_flags |= KEEP_APART
 		mob_overlay.AddOverlays(north_overlay)
+	return add_color_tag_to_overlay(mob_overlay)
+
+/obj/item/cargo_backpack/proc/add_color_tag_to_overlay(var/image/mob_overlay)
+	if(!mob_overlay)
+		return
+
+	for(var/package_index = 1 to length(contained_packages))
+		var/obj/item/cargo_package/package = contained_packages[package_index]
+		var/image/package_tag = image(icon, icon_state = "package_pack_[package_index]_tag")
+		package_tag.color = package.accent_color
+		mob_overlay.AddOverlays(package_tag)
+		package_index++
+
 	return mob_overlay
 
 /obj/item/cargo_backpack/attack_hand(mob/living/carbon/human/user)

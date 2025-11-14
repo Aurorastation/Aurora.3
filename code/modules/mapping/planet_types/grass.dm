@@ -12,6 +12,7 @@
 	rock_colors = list(COLOR_ASTEROID_ROCK, COLOR_GRAY80, COLOR_BROWN)
 	plant_colors = list("#3c772e","#27614b","#3f8d35","#185f18","#799628", "RANDOM")
 	possible_themes = list(/datum/exoplanet_theme/grass)
+	has_water_weather = TRUE
 	ruin_planet_type = PLANET_GRASS
 	ruin_allowed_tags = RUIN_LOWPOP|RUIN_SCIENCE|RUIN_HOSTILE|RUIN_WRECK|RUIN_NATURAL
 	soil_data = list("Low density organic matter layer", "Rich microbiome layer", "Moderate water layer", "Large rock particle layer", "Iron oxide layer")
@@ -80,19 +81,19 @@
 	..()
 	var/carnivore_prob = rand(100)
 	if(carnivore_prob < 30)
-		S.set_trait(TRAIT_CARNIVOROUS,2)
+		SET_SEED_TRAIT(S, TRAIT_CARNIVOROUS, 2)
 		if(prob(75))
-			S.get_trait(TRAIT_STINGS, 1)
+			SET_SEED_TRAIT(S, TRAIT_STINGS, 1)
 	else if(carnivore_prob < 60)
-		S.set_trait(TRAIT_CARNIVOROUS,1)
+		SET_SEED_TRAIT(S, TRAIT_CARNIVOROUS, 1)
 		if(prob(50))
-			S.get_trait(TRAIT_STINGS)
-	if(prob(15) || (S.get_trait(TRAIT_CARNIVOROUS) && prob(40)))
-		S.set_trait(TRAIT_BIOLUM,1)
-		S.set_trait(TRAIT_BIOLUM_COLOUR,get_random_colour(0,75,190))
+			SET_SEED_TRAIT(S, TRAIT_STINGS, 1)
+	if(prob(15) || (GET_SEED_TRAIT(S, TRAIT_CARNIVOROUS) && prob(40)))
+		SET_SEED_TRAIT(S, TRAIT_BIOLUM, 1)
+		SET_SEED_TRAIT(S, TRAIT_BIOLUM_COLOUR, get_random_colour(0,75,190))
 
 	if(prob(30))
-		S.set_trait(TRAIT_PARASITE,1)
+		SET_SEED_TRAIT(S, TRAIT_PARASITE, 1)
 
 /obj/effect/overmap/visitable/sector/exoplanet/grass/marsh
 	name = "marsh exoplanet"

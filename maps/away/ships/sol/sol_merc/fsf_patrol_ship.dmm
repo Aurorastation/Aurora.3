@@ -11,7 +11,8 @@
 /area/ship/fsf_patrol_ship/engineering)
 "aab" = (
 /obj/machinery/computer/ship/targeting{
-	dir = 1
+	dir = 1;
+	req_access = list(203)
 	},
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/corner/dark_blue{
@@ -377,7 +378,7 @@
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = -11
 	},
@@ -2267,7 +2268,7 @@
 /obj/item/gun/projectile/automatic/rifle/sol,
 /obj/item/ammo_magazine/c762/sol,
 /obj/item/gun/projectile/shotgun/pump/combat/sol,
-/obj/item/storage/box/shotgunshells,
+/obj/item/storage/box/shells/buckshot,
 /obj/item/clothing/accessory/storage/bandolier,
 /turf/simulated/floor,
 /area/ship/fsf_patrol_ship/armory)
@@ -3239,7 +3240,9 @@
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
-/obj/machinery/computer/ship/targeting,
+/obj/machinery/computer/ship/targeting{
+	req_access = list(203)
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship/grauwolf)
@@ -6170,8 +6173,8 @@
 	inserted_light = /obj/item/light/tube/colored/blue;
 	icon_state = "tube_empty"
 	},
-/obj/item/storage/box/flashbangs,
-/obj/item/storage/box/smokebombs,
+/obj/item/storage/box/tactical/flashbangs,
+/obj/item/storage/box/tactical/smokebombs,
 /obj/item/gun/energy/taser,
 /obj/item/gun/energy/taser,
 /turf/simulated/floor,

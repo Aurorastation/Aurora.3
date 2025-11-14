@@ -262,9 +262,10 @@
 			if((isskeleton(H)) && (!H.w_uniform) && (!H.wear_suit))
 				H.play_xylophone()
 		else
-			if (istype(src,/mob/living/carbon/human) && src:w_uniform)
+			if (istype(src,/mob/living/carbon/human))
 				var/mob/living/carbon/human/H = src
-				H.w_uniform.add_fingerprint(M)
+				if(H.w_uniform)
+					H.w_uniform.add_fingerprint(M)
 
 			var/show_ssd
 			var/mob/living/carbon/human/H
@@ -350,6 +351,12 @@
 
 // ++++ROCKDTBEN++++ MOB PROCS //END
 
+/**
+ * Checks the carbon's get_heat_protection (bitflags of covered areas). The maximum temp increase per tick is BODYTEMP_HEATING_MAX, so it
+ * compares how
+ * Limited per tick by BODYTEMP_HEATING_MAX.
+ * Only uses exposed_temperature param.
+ */
 /mob/living/carbon/fire_act(exposed_temperature, exposed_volume)
 	..()
 	var/temp_inc = max(min(BODYTEMP_HEATING_MAX*(1-get_heat_protection()), exposed_temperature - bodytemperature), 0)
@@ -391,7 +398,16 @@
 	set category = "IC"
 
 	if(usr.sleeping)
-		to_chat(usr, SPAN_WARNING("You are already asleep."))
+		if(species && species.indefinite_sleep) // Species can wake up at will when sleeping.
+			to_chat(usr, SPAN_NOTICE("You start to wake up."))
+			if(usr.sleeping_indefinitely)
+				to_chat(usr, SPAN_NOTICE("You will no longer sleep indefinitely."))
+				usr.sleeping_indefinitely = FALSE // Stop any glitches from happening with overriding indefinite sleep.
+
+			usr.sleeping = 1 // Wake up soon.
+			usr.eye_blurry = 1
+		else
+			to_chat(usr, SPAN_WARNING("You are already asleep."))
 		return
 	if(alert(src,"Are you sure you want to sleep for a while?", "Sleep", "Yes", "No") == "Yes")
 		willfully_sleeping = TRUE
@@ -500,8 +516,6 @@
 
 /mob/living/carbon/proc/can_feel_pain()
 	if (species && (species.flags & NO_PAIN))
-		return FALSE
-	if (is_berserk())
 		return FALSE
 	if ((mutations & HULK))
 		return FALSE

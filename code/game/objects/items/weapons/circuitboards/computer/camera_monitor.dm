@@ -1,7 +1,3 @@
-#ifndef T_BOARD
-#error T_BOARD macro is not defined but we need it!
-#endif
-
 /obj/item/circuitboard/security
 	name = T_BOARD("security camera monitor")
 	build_path = /obj/machinery/computer/security
@@ -21,7 +17,7 @@
 
 /obj/item/circuitboard/security/engineering/New()
 	..()
-	network = engineering_networks
+	network = GLOB.engineering_networks
 
 /obj/item/circuitboard/security/mining
 	name = T_BOARD("mining camera monitor")
@@ -67,7 +63,7 @@
 			to_chat(usr, "No input found please hang up and try your call again.")
 			return
 		var/list/tempnetwork = text2list(input, ",")
-		tempnetwork = difflist(tempnetwork,restricted_camera_networks,1)
+		tempnetwork = difflist(tempnetwork, GLOB.restricted_camera_networks, 1)
 		if(tempnetwork.len < 1)
 			to_chat(usr, "No network found please hang up and try your call again.")
 			return

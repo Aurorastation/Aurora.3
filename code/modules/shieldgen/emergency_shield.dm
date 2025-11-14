@@ -17,6 +17,10 @@
 	desc = "A forcefield which seems to be projected by the station's emergency atmosphere containment field."
 	health = 100
 
+/obj/machinery/shield/malfai/New()
+	..()
+	desc = "A forcefield which seems to be projected by the [station_name(TRUE)]'s emergency atmosphere containment field."
+
 /obj/machinery/shield/malfai/process()
 	health -= 0.5 // Slowly lose integrity over time
 	check_failure()
@@ -151,14 +155,19 @@
 	req_access = list(ACCESS_ENGINE)
 	var/health = 100
 	var/active = FALSE
-	var/malfunction = FALSE //Malfunction causes parts of the shield to slowly dissapate
+	// Malfunction causes parts of the shield to slowly dissapate
+	var/malfunction = FALSE
 	var/list/deployed_shields = list()
 	var/list/regenerating = list()
-	var/is_open = FALSE //Whether or not the wires are exposed
+	panel_open = FALSE
 	var/locked = FALSE
 	var/check_delay = 60	//periodically recheck if we need to rebuild a shield
 	use_power = POWER_USE_OFF
 	idle_power_usage = 0
+
+/obj/machinery/shieldgen/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "ALT-click the [src] to lock or unlock it (if you have the appropriate ID access)."
 
 /obj/machinery/shieldgen/Destroy()
 	collapse_shields()
@@ -285,7 +294,7 @@
 	if(locked)
 		to_chat(user, SPAN_WARNING("The machine is locked!"))
 		return
-	if(is_open)
+	if(panel_open)
 		to_chat(user, SPAN_WARNING("The panel must be closed before operating this machine."))
 		return
 
@@ -313,14 +322,14 @@
 /obj/machinery/shieldgen/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.isscrewdriver())
 		attacking_item.play_tool_sound(get_turf(src), 50)
-		if(is_open)
+		if(panel_open)
 			to_chat(user, SPAN_NOTICE("You close the panel."))
-			is_open = FALSE
+			panel_open = FALSE
 		else
 			to_chat(user, SPAN_NOTICE("You open the panel and expose the wiring."))
-			is_open = TRUE
+			panel_open = TRUE
 
-	else if(attacking_item.iscoil() && malfunction && is_open)
+	else if(attacking_item.iscoil() && malfunction && panel_open)
 		var/obj/item/stack/cable_coil/coil = attacking_item
 		to_chat(user, SPAN_NOTICE("You begin to replace the wires."))
 		//if(do_after(user, min(60, round( ((maxhealth/health)*10)+(malfunction*10) ))) //Take longer to repair heavier damage
@@ -348,16 +357,24 @@
 			to_chat(user, SPAN_NOTICE("You secure the [src] to the floor!"))
 			anchored = TRUE
 
-
-	else if(attacking_item.GetID())
-		if(src.allowed(user))
-			src.locked = !src.locked
-			to_chat(user, "The controls are now [src.locked ? "locked." : "unlocked."]")
-		else
-			to_chat(user, SPAN_WARNING("Access denied."))
-
 	else
 		..()
+
+/obj/machinery/shieldgen/AltClick(mob/user)
+	if(Adjacent(user))
+		add_fingerprint(user)
+		if(allowed(user))
+			locked = !locked
+			if(locked)
+				playsound(src, 'sound/machines/terminal/terminal_button03.ogg', 35, FALSE)
+			else
+				playsound(src, 'sound/machines/terminal/terminal_button01.ogg', 35, FALSE)
+			balloon_alert(user, locked ? "locked" : "unlocked")
+		else
+			to_chat(user, SPAN_WARNING("Access denied."))
+			playsound(src, 'sound/machines/terminal/terminal_error.ogg', 25, FALSE)
+			balloon_alert(user, "access denied!")
+		return
 
 
 /obj/machinery/shieldgen/update_icon()

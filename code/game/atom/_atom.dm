@@ -6,12 +6,17 @@
  */
 
 /atom
+	plane = GAME_PLANE
+	layer = TURF_LAYER
+	appearance_flags = DEFAULT_APPEARANCE_FLAGS
 
 	/// pass_flags that we are. If any of this matches a pass_flag on a moving thing, by default, we let them through.
 	var/pass_flags_self = NONE
 
 	///First atom flags var
 	var/flags_1 = NONE
+	///Intearaction flags
+	var/interaction_flags_atom = NONE
 
 	var/flags_ricochet = NONE
 
@@ -21,9 +26,6 @@
 	var/receive_ricochet_damage_coeff = 0.33
 
 	var/update_icon_on_init	= FALSE // Default to 'no'.
-
-	layer = TURF_LAYER
-	appearance_flags = DEFAULT_APPEARANCE_FLAGS
 
 	var/level = 2
 	var/atom_flags = 0
@@ -38,10 +40,12 @@
 	var/blood_color
 	var/last_bumped = 0
 	var/pass_flags = 0
-	var/throwpass = 0
-	var/germ_level = GERM_LEVEL_AMBIENT // The higher the germ level, the more germ on the atom.
-	var/simulated = 1 // Filter for actions. Used by lighting overlays.
-	var/fluorescent // Shows up under a UV light.
+	/// The higher the germ level, the more germ on the atom.
+	var/germ_level = GERM_LEVEL_AMBIENT
+	/// Filter for actions. Used by lighting overlays.
+	var/simulated = 1
+	/// Shows up under a UV light.
+	var/fluorescent
 
 	var/explosion_resistance
 
@@ -52,20 +56,77 @@
 
 	var/gfi_layer_rotation = GFI_ROTATION_DEFAULT
 
-	// Extra descriptions.
-	var/desc_extended = null // Regular text about the atom's extended description, if any exists.
-	var/desc_info = null // Blue text (SPAN_NOTICE()), informing the user about how to use the item or about game controls.
-	var/desc_antag = null // Red text (SPAN_ALERT()), informing the user about how they can use an object to antagonize.
+	//light stuff
+
+	///Light systems, only one of the three should be active at the same time.
+	var/light_system = STATIC_LIGHT
+	///Range of the light in tiles. Zero means no light.
+	var/light_range = 0
+	///Intensity of the light. The stronger, the less shadows you will see on the lit area.
+	var/light_power = 1
+	///Hexadecimal RGB string representing the colour of the light. White by default.
+	var/light_color = COLOR_WHITE
+	///Boolean variable for toggleable lights. Has no effect without the proper light_system, light_range and light_power values.
+	var/light_on = FALSE
+	///Bitflags to determine lighting-related atom properties.
+	var/light_flags = NONE
+	///Our light source. Don't fuck with this directly unless you have a good reason!
+	var/tmp/datum/dynamic_light_source/light
+	///Any light sources that are "inside" of us, for example, if src here was a mob that's carrying a flashlight, that flashlight's light source would be part of this list.
+	var/tmp/list/hybrid_light_sources
+
+	//Values should avoid being close to -16, 16, -48, 48 etc.
+	//Best keep them within 10 units of a multiple of 32, as when the light is closer to a wall, the probability
+	//that a shadow extends to opposite corners of the light mask square is increased, resulting in more shadow
+	//overlays.
+	///x offset for dynamic lights on this atom
+	var/light_pixel_x
+	///y offset for dynamic lights on this atom
+	var/light_pixel_y
+	///typepath for the lighting maskfor dynamic light sources
+	var/light_mask_type = null
+
+	/*
+	 * EXTRA DESCRIPTIONS
+	 * Adds additional information of different types about a given object.
+	 * get_examine_text() in "obj\game\code\atom\atom_examine.dm" handles structure, formatting, etc.
+	 *
+	 * Most of these vars only concern objs, but they are initialized here in case any functionality
+	 * is migrated elsewhere.
+	 *
+	 * These vars should not be set in the object definition, but in defined funcs just beneath definition.
+	 */
+
+	/// Text about the atom's damage/condition. Gets built by children of /atom/proc/condition_hints()
+	var/desc_damagecondition = null
+
+	/// Text about the atom's extended description, if any exists. Should be a regular string.
+	var/desc_extended = null
+
+	/// Informs the user about how to use the item or about game controls. Gets built by children of /atom/proc/mechanics_hints()
+	var/desc_mechanics = null
+
+	/// Informs the user about how to assemble or disassemble the item. Gets built by children of /atom/proc/build_hints()
+	var/desc_build = null
+
+	/// Blue text (SPAN_NOTICE()), informing the user about what upgrades the item has and what they do. Gets built by children of /atom/proc/upgrade_hints()
+	var/desc_upgrade = null
+
+	/// Informs the user about how they can use an object to antagonize. Gets built by children of /atom/proc/antag_hints()
+	var/desc_antag = null
+
+	/// Feedback text. Gets built by children of /atom/proc/feedback_hints()
+	var/desc_feedback = null
 
 	/* SSicon_update VARS */
 
-	///When was the last time (in `world.time`) that the icon of this atom was updated via `SSicon_update`
+	/// When was the last time (in `world.time`) that the icon of this atom was updated via `SSicon_update`
 	var/tmp/last_icon_update = null
 
-	///If the atom is currently queued to have it's icon updated in `SSicon_update`
+	/// If the atom is currently queued to have it's icon updated in `SSicon_update`
 	var/tmp/icon_update_queued = FALSE
 
-	///Delay to apply before updating the icon in `SSicon_update`
+	/// Delay to apply before updating the icon in `SSicon_update`
 	var/icon_update_delay = null
 
 	/// How this atom should react to having its astar blocking checked
@@ -91,13 +152,10 @@
 	if(light)
 		QDEL_NULL(light)
 
-	if(length(light_sources))
-		light_sources.Cut()
-
 	if(smoothing_flags & SMOOTH_QUEUED)
 		SSicon_smooth.remove_from_queues(src)
 
-	//We're being destroyed, no need to update the icon
+	// We're being destroyed, no need to update the icon
 	if(icon_update_queued)
 		SSicon_update.remove_from_queue(src)
 
@@ -107,7 +165,8 @@
 	if(length(atom_protected_overlay_cache))
 		LAZYCLEARLIST(atom_protected_overlay_cache)
 
-	orbiters = null // The component is attached to us normaly and will be deleted elsewhere
+	// The component is attached to us normaly and will be deleted elsewhere
+	orbiters = null
 
 	. = ..()
 
@@ -126,14 +185,23 @@
 	ricocheting_projectile.set_angle(new_angle_s)
 	return TRUE
 
-///Purpose: Determines if the object (or airflow) can pass this atom.
-///Called by: Movement, airflow.
-///Inputs: The moving atom (optional), target turf, "height" and air group
-///Outputs: Boolean if can pass.
-///**Please stop using this proc, use the `pass_flags_self` flags to determine what can pass unless you literally have no other choice**
+/**
+ * Purpose: Determines if the object (or airflow) can pass this atom.
+ * Called by: Movement, airflow.
+ *
+ * **PLEASE STOP USING THIS PROC, use the `pass_flags_self` flags to determine what can pass unless you literally have no other choice**
+ *
+ * * atom/movable/mover - The moving atom (can be null)
+ * * turf/target - Target turf
+ * * height - "height", whatever that means.
+ * * air_group - air group (ZAS bullshit)
+ *
+ * Returns Boolean if can pass.
+ */
 /atom/proc/CanPass(atom/movable/mover, turf/target, height=1.5, air_group = 0)
-	//I have condensed TG's `CanAllowThrough()` into this proc
-	if(mover) //Because some procs send null as a mover
+	// I have condensed TG's `CanAllowThrough()` into this proc
+	// Because some procs send null as a mover
+	if(mover)
 		if(mover.movement_type & PHASING)
 			return TRUE
 		if(mover.pass_flags & pass_flags_self)
@@ -144,7 +212,7 @@
 	return (!density || !height || air_group)
 
 /**
- * An atom we are buckled or is contained within us has tried to move
+ * An atom we are buckled or is contained within us has tried to move.
  */
 /atom/proc/relaymove(mob/living/user, direction)
 	SHOULD_NOT_SLEEP(TRUE)
@@ -247,3 +315,12 @@
 	if(pass_info.pass_flags & pass_flags_self)
 		return TRUE
 	. = !density
+
+///Setter for the `density` variable to append behavior related to its changing.
+/atom/proc/set_density(new_value)
+	SHOULD_CALL_PARENT(TRUE)
+	if(density == new_value)
+		return
+	. = density
+	density = new_value
+	SEND_SIGNAL(src, COMSIG_ATOM_DENSITY_CHANGED)

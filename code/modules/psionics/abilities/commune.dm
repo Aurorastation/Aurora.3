@@ -36,14 +36,13 @@
 		to_chat(user, SPAN_WARNING("Not even a psion of your level can speak to the dead."))
 		return
 
-	var/psi_blocked = target.is_psi_blocked()
+	var/psi_blocked = target.is_psi_blocked(user)
 	if(psi_blocked)
 		to_chat(user, psi_blocked)
 		return
 
 	user.visible_message(SPAN_NOTICE("<i>[user] blinks, their eyes briefly developing an unnatural shine.</i>"))
 	var/text = tgui_input_text(user, "What would you like to say?", "Commune", "", MAX_MESSAGE_LEN, TRUE)
-	text = sanitize(text)
 	if(!text)
 		return
 	text = formalize_text(text)

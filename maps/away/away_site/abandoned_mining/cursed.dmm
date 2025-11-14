@@ -1200,7 +1200,7 @@
 /turf/simulated/floor,
 /area/cursed/engineering)
 "gZj" = (
-/obj/item/storage/box/dynamite,
+/obj/item/storage/box/unique/dynamite,
 /turf/template_noop,
 /area/space)
 "hdf" = (
@@ -1757,7 +1757,7 @@
 /area/cursed/computer_core)
 "kLZ" = (
 /obj/structure/table/steel,
-/obj/item/storage/box/dynamite,
+/obj/item/storage/box/unique/dynamite,
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/space)
 "kMz" = (
@@ -2736,8 +2736,8 @@
 /area/cursed/living_area)
 "pYQ" = (
 /obj/structure/table/steel,
-/obj/item/storage/box/dynamite,
-/obj/item/storage/box/dynamite{
+/obj/item/storage/box/unique/dynamite,
+/obj/item/storage/box/unique/dynamite{
 	pixel_y = 11
 	},
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,

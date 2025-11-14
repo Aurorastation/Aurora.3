@@ -199,16 +199,16 @@ export const CargoControl = (props, context) => {
                   : 'Unauthorised'}
               </LabeledList.Item>
               <LabeledList.Item label="Price">
-                {data.order_details.price} 电
+                {data.order_details.price.toFixed(2)} 电
               </LabeledList.Item>
               <LabeledList.Item label="Operations Expense">
-                {data.order_details.price_cargo} 电
+                {data.order_details.price_cargo.toFixed(2)} 电
               </LabeledList.Item>
               <LabeledList.Item label="Personal Expense">
-                {data.order_details.price_customer} 电
+                {data.order_details.price_customer.toFixed(2)} 电
               </LabeledList.Item>
               <LabeledList.Item label="Personal Expense">
-                {data.order_details.price_customer} 电
+                {data.order_details.price_customer.toFixed(2)} 电
               </LabeledList.Item>
               <LabeledList.Item label="Ordered At">
                 {data.order_details.time_submitted}
@@ -246,7 +246,7 @@ export const CargoControl = (props, context) => {
                   <Table.Row key={item.name}>
                     <Table.Cell>{item.name}</Table.Cell>
                     <Table.Cell>{item.supplier_name}</Table.Cell>
-                    <Table.Cell>{item.price} 电</Table.Cell>
+                    <Table.Cell>{item.price.toFixed(2)} 电</Table.Cell>
                   </Table.Row>
                 ))}
               </Table>
@@ -287,11 +287,11 @@ export const MainWindow = (props, context) => {
       <Box bold>Welcome, {data.username}.</Box>
       <LabeledList>
         <LabeledList.Item label="Operations Fund">
-          {data.cargo_money} 电
+          {data.cargo_money.toFixed(2)} 电
         </LabeledList.Item>
       </LabeledList>
       {data.shuttle_has_arrive_time ? (
-        <Section title="Shuttle Information">
+        <Section title="Elevator Information">
           <LabeledList>
             <LabeledList.Item label="ETA">
               {data.shuttle_eta_minutes} minutes
@@ -299,7 +299,7 @@ export const MainWindow = (props, context) => {
           </LabeledList>
         </Section>
       ) : (
-        'Shuttle awaiting orders.'
+        'Elevator awaiting orders.'
       )}
     </Section>
   );
@@ -316,11 +316,11 @@ export const OverviewSubmitted = (props, context) => {
         <LabeledList.Item label="Submitted Orders Value">
           {data.order_submitted_value}
         </LabeledList.Item>
-        <LabeledList.Item label="Estimated Shuttle Time">
+        <LabeledList.Item label="Estimated Elevator Time">
           {data.order_approved_shuttle_time / 10} seconds
         </LabeledList.Item>
-        <LabeledList.Item label="Estimated Shuttle Cost">
-          {data.order_approved_shuttle_price} 电
+        <LabeledList.Item label="Estimated Elevator Fee">
+          {data.order_approved_shuttle_price.toFixed(2)} 电
         </LabeledList.Item>
       </LabeledList>
       <Table>
@@ -334,7 +334,7 @@ export const OverviewSubmitted = (props, context) => {
           <Table.Row key={order.order_id}>
             <Table.Cell>{order.order_id}</Table.Cell>
             <Table.Cell>{order.ordered_by}</Table.Cell>
-            <Table.Cell>{order.price_cargo} 电</Table.Cell>
+            <Table.Cell>{order.price_cargo.toFixed(2)} 电</Table.Cell>
             <Table.Cell>
               <Button
                 content="Approve"
@@ -389,11 +389,11 @@ export const OverviewApproved = (props, context) => {
         <LabeledList.Item label="Approved Orders Value">
           {data.order_approved_shuttle_time}
         </LabeledList.Item>
-        <LabeledList.Item label="Estimated Shuttle Time">
+        <LabeledList.Item label="Estimated Elevator Time">
           {data.order_approved_shuttle_time / 10} seconds
         </LabeledList.Item>
-        <LabeledList.Item label="Estimated Shuttle Cost">
-          {data.order_approved_shuttle_price} 电
+        <LabeledList.Item label="Estimated Elevator Fee">
+          {data.order_approved_shuttle_price.toFixed(2)} 电
         </LabeledList.Item>
       </LabeledList>
       <Table>
@@ -407,7 +407,7 @@ export const OverviewApproved = (props, context) => {
           <Table.Row key={order.order_id}>
             <Table.Cell>{order.order_id}</Table.Cell>
             <Table.Cell>{order.ordered_by}</Table.Cell>
-            <Table.Cell>{order.price_cargo} 电</Table.Cell>
+            <Table.Cell>{order.price_cargo.toFixed(2)} 电</Table.Cell>
             <Table.Cell>
               <Button
                 content="Details"
@@ -456,7 +456,7 @@ export const OverviewShipped = (props, context) => {
           <Table.Row key={order.order_id}>
             <Table.Cell>{order.order_id}</Table.Cell>
             <Table.Cell>{order.ordered_by}</Table.Cell>
-            <Table.Cell>{order.price_cargo} 电</Table.Cell>
+            <Table.Cell>{order.price_cargo.toFixed(2)} 电</Table.Cell>
             <Table.Cell>
               <Button
                 content="Details"
@@ -505,7 +505,7 @@ export const OverviewDelivered = (props, context) => {
           <Table.Row key={order.order_id}>
             <Table.Cell>{order.order_id}</Table.Cell>
             <Table.Cell>{order.ordered_by}</Table.Cell>
-            <Table.Cell>{order.price_cargo} 电</Table.Cell>
+            <Table.Cell>{order.price_cargo.toFixed(2)} 电</Table.Cell>
             <Table.Cell>
               <Button
                 content="Details"

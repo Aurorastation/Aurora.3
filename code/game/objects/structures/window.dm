@@ -11,8 +11,9 @@
 	icon_state = "window"
 	alpha = 196
 	density = TRUE
+	pass_flags_self = PASSWINDOW
 	w_class = WEIGHT_CLASS_NORMAL
-	layer = SIDE_WINDOW_LAYER
+	layer = OBJ_LAYER
 	anchored = TRUE
 	atom_flags = ATOM_FLAG_CHECKS_BORDER
 	obj_flags = OBJ_FLAG_ROTATABLE|OBJ_FLAG_MOVES_UNSUPPORTED
@@ -33,9 +34,8 @@
 
 	atmos_canpass = CANPASS_PROC
 
-/obj/structure/window/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-
+/obj/structure/window/condition_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(health == maxhealth)
 		. += SPAN_NOTICE("It looks fully intact.")
 	else
@@ -63,8 +63,6 @@
 	if(!full)
 		if(dir == SOUTH)
 			layer = ABOVE_HUMAN_LAYER
-		else
-			layer = SIDE_WINDOW_LAYER
 	QUEUE_SMOOTH(src)
 
 /obj/structure/window/proc/take_damage(var/damage = 0,  var/sound_effect = 1, message = TRUE)
@@ -238,7 +236,7 @@
 							"You hear a knocking sound.")
 	return
 
-/obj/structure/window/attack_generic(var/mob/user, var/damage)
+/obj/structure/window/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if(damage >= 10)
 		visible_message(SPAN_DANGER("[user] smashes into [src]!"))
@@ -399,7 +397,7 @@
 
 	update_nearby_tiles(need_rebuild=1)
 
-	..()
+	. = ..()
 
 	set_dir(ini_dir)
 	update_nearby_tiles(need_rebuild=1)
@@ -536,6 +534,8 @@
 	maximal_heat = T0C + 2000
 	damage_per_fire_tick = 1 // This should last for 80 fire ticks if the window is not damaged at all. The idea is that borosilicate windows have something like ablative layer that protects them for a while.
 	maxhealth = 40
+	/// Phoron-infused silicate
+	rad_resistance_modifier = 4
 
 /obj/structure/window/borosilicate/reinforced
 	name = "reinforced borosilicate glass pane"
@@ -567,6 +567,11 @@
 	smoothing_flags = SMOOTH_TRUE
 	can_be_unanchored = TRUE
 	layer = FULL_WINDOW_LAYER
+	rad_resistance_modifier = 4
+
+/obj/structure/window/shuttle/mouse_drop_receive(atom/dropping, mob/user, params)
+	//Adds the component only once. We do it here & not in Initialize() because there are tons of walls & we don't want to add to their init times
+	LoadComponent(/datum/component/leanable, dropping)
 
 /obj/structure/window/shuttle/legion
 	name = "reinforced cockpit window"
@@ -600,12 +605,14 @@
 	smoothing_flags = SMOOTH_MORE
 	canSmoothWith = list(
 		/obj/structure/window/shuttle/scc_space_ship,
-		/turf/simulated/wall/shuttle/scc_space_ship
+		/turf/simulated/wall/shuttle/scc_space_ship,
+		/turf/unsimulated/wall/shuttle/scc_space_ship
 	)
 	blend_overlay = "-wall"
 	attach_overlay = "attach"
 	can_blend_with = list(
 		/turf/simulated/wall/shuttle/scc_space_ship,
+		/turf/unsimulated/wall/shuttle/scc_space_ship,
 		/obj/structure/window/shuttle/scc_space_ship
 	)
 
@@ -781,6 +788,10 @@
 	qdel(src)
 	update_nearby_icons()
 
+/obj/structure/window/full/mouse_drop_receive(atom/dropping, mob/user, params)
+	//Adds the component only once. We do it here & not in Initialize() because there are tons of walls & we don't want to add to their init times
+	LoadComponent(/datum/component/leanable, dropping)
+
 /********** Full Windows **********/
 // Reinforced Window
 /obj/structure/window/full/reinforced
@@ -896,6 +907,7 @@
 	maxhealth = 160 // Two reinforced borosilicate glass panes worth of health, since that's the minimum you need to break through to get to the other side.
 	reinf = TRUE
 	maximal_heat = T0C + 4000
+	rad_resistance_modifier = 4
 
 #undef FULL_REINFORCED_WINDOW_DAMAGE_FORCE
 #undef REINFORCED_WINDOW_DAMAGE_FORCE

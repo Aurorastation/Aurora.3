@@ -6,7 +6,7 @@
 /datum/topic_command/get_faxmachines/run_command(queryparams)
 	var/list/faxlocations = list()
 
-	for (var/obj/machinery/photocopier/faxmachine/F in allfaxes)
+	for (var/obj/machinery/photocopier/faxmachine/F in GLOB.allfaxes)
 		faxlocations.Add(F.department)
 
 	statuscode = 200
@@ -26,9 +26,9 @@
 	var/list/faxes = list()
 	switch (queryparams["faxtype"])
 		if ("received")
-			faxes = arrived_faxes
+			faxes = GLOB.arrived_faxes
 		if ("sent")
-			faxes = sent_faxes
+			faxes = GLOB.sent_faxes
 
 	if (!faxes || !faxes.len)
 		statuscode = 404
@@ -60,9 +60,9 @@
 	var/list/faxes = list()
 	switch (queryparams["faxtype"])
 		if ("received")
-			faxes = arrived_faxes
+			faxes = GLOB.arrived_faxes
 		if ("sent")
-			faxes = sent_faxes
+			faxes = GLOB.sent_faxes
 
 	if (!faxes || !faxes.len)
 		statuscode = 500
@@ -163,8 +163,8 @@
 	if(reportannounce == 1)
 		command_announcement.Announce(reportbody, reporttitle, new_sound = 'sound/AI/commandreport.ogg', do_newscast = 1, msg_sanitized = 1);
 	if(reportannounce == 0)
-		to_world(SPAN_ALERT("New NanoTrasen Update available at all communication consoles."))
-		sound_to(world, ('sound/AI/commandreport.ogg'))
+		to_world(SPAN_ALERT("New [SSatlas.current_map.boss_name] Update available at all communication consoles."))
+		sound_to_playing_players('sound/AI/commandreport.ogg')
 
 
 	log_admin("[senderkey] has created a command report via the api: [reportbody]")
@@ -207,7 +207,7 @@
 	var/notifyresult = 1
 
 	//Send the fax
-	for (var/obj/machinery/photocopier/faxmachine/F in allfaxes)
+	for (var/obj/machinery/photocopier/faxmachine/F in GLOB.allfaxes)
 		if (F.department in targetlist)
 			sendresult = send_fax(F, faxtitle, faxbody, senderkey, stamptext)
 			if (sendresult == 1)
@@ -255,8 +255,8 @@
 		P.stamps += "<HR><i>This paper has been stamped by the Central Command Quantum Relay.</i>"
 
 	if(F.receivefax(P))
-		log_and_message_admins("[senderkey] sent a fax message to the [F.department] fax machine via the api. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[F.x];Y=[F.y];Z=[F.z]'>JMP</a>)")
-		sent_faxes += P
+		log_and_message_admins("[senderkey] sent a fax message to the [F.department] fax machine via the api. (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[F.x];Y=[F.y];Z=[F.z]'>JMP</a>)")
+		GLOB.sent_faxes += P
 		return TRUE
 	else
 		qdel(P)

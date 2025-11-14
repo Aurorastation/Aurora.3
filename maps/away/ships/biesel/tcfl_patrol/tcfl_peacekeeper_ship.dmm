@@ -2537,7 +2537,7 @@
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = -11
 	},
@@ -2587,12 +2587,6 @@
 /turf/simulated/floor/wood,
 /area/ship/tcfl_peacekeeper_ship)
 "pCa" = (
-/obj/structure/sign/poster{
-	icon_state = "tcflposter2";
-	pixel_x = 29;
-	pixel_y = 7;
-	poster_type = "/datum/poster/bay_68"
-	},
 /obj/structure/table/standard,
 /obj/item/device/megaphone/red{
 	pixel_y = -4
@@ -2604,6 +2598,9 @@
 /obj/item/pen/blue{
 	pixel_x = -9;
 	pixel_y = 6
+	},
+/obj/structure/sign/poster/lore/tcaf2{
+	pixel_x = 32
 	},
 /turf/simulated/floor/wood,
 /area/ship/tcfl_peacekeeper_ship)
@@ -2665,7 +2662,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/item/storage/box/flashbangs,
+/obj/item/storage/box/tactical/flashbangs,
 /obj/item/storage/belt/security,
 /turf/simulated/floor/shuttle/tan,
 /area/ship/tcfl_peacekeeper_ship)
@@ -2679,7 +2676,7 @@
 /obj/item/storage/box/zipties,
 /obj/item/device/flash,
 /obj/item/reagent_containers/spray/pepper,
-/obj/item/storage/box/smokebombs,
+/obj/item/storage/box/tactical/smokebombs,
 /obj/item/storage/belt/security,
 /turf/simulated/floor/shuttle/tan,
 /area/ship/tcfl_peacekeeper_ship)

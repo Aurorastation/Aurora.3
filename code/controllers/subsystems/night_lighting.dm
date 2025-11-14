@@ -50,7 +50,7 @@ SUBSYSTEM_DEF(nightlight)
 /datum/controller/subsystem/nightlight/proc/get_apc_list(var/whitelisted_only = 1)
 	var/list/obj/machinery/power/apc/lighting_apcs = list()
 
-	for (var/A in GLOB.all_areas)
+	for (var/A in get_sorted_areas())
 		var/area/B = A
 		if (B.no_light_control || (!(B.allow_nightmode) && whitelisted_only))
 			continue

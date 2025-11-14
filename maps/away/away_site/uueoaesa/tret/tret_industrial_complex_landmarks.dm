@@ -117,5 +117,3 @@
 /obj/effect/shuttle_landmark/tret_industrial/surface/far_4
 	name = "Surface, Far 4"
 	landmark_tag = "nav_tret_industrial_surface_far_4"
-
-// --------------------- fin

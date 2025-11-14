@@ -1,7 +1,7 @@
 /area/ai_monitored
 	name = "AI Monitored Area"
 	var/obj/machinery/camera/motioncamera = null
-	station_area = 1
+	station_area = TRUE
 
 /area/ai_monitored/LateInitialize()
 	// locate and store the motioncamera

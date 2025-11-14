@@ -193,10 +193,10 @@
 	desc = "Crematorium"
 	region = ACCESS_REGION_GENERAL
 
-#define ACCESS_KITCHEN 28
-/datum/access/kitchen
-	id = ACCESS_KITCHEN
-	desc = "Kitchen"
+#define ACCESS_GALLEY 28
+/datum/access/galley
+	id = ACCESS_GALLEY
+	desc = "Galley"
 	region = ACCESS_REGION_GENERAL
 
 #define ACCESS_ROBOTICS 29
@@ -462,6 +462,24 @@
 	id = ACCESS_SHIP_WEAPONS
 	desc = "Ship Weapons"
 	region = ACCESS_REGION_SUPPLY
+
+#define ACCESS_SPARK 76
+/datum/access/spark
+	id = ACCESS_SPARK
+	desc = "Spark Shuttle"
+	region = ACCESS_REGION_COMMAND
+
+#define ACCESS_QUARK 77
+/datum/access/quark
+	id = ACCESS_QUARK
+	desc = "Quark Shuttle"
+	region = ACCESS_REGION_COMMAND
+
+#define ACCESS_CANARY 78
+/datum/access/canary
+	id = ACCESS_CANARY
+	desc = "Canary Shuttle"
+	region = ACCESS_REGION_COMMAND
 
 /******************
 * Central Command *
@@ -824,3 +842,51 @@
 	id = ACCESS_LONE_SPACER
 	desc = "Independent Skiff Access"
 
+#define ACCESS_CRYO_OUTPOST 244
+/datum/access/cryo_outpost_access
+	id = ACCESS_CRYO_OUTPOST
+	desc = "Outpost #187-D Access"
+
+#define ACCESS_RUINED_PROPELLANT_DEPOT 245
+/datum/access/ruined_propellant_depot_access
+	id = ACCESS_RUINED_PROPELLANT_DEPOT
+	desc = "Propellant Depot AG5 Access"
+
+#define ACCESS_SPLF 246
+/datum/access/splf_access
+	id = ACCESS_SPLF
+	desc = "SPLF Access"
+
+#define ACCESS_NUCLEAR_MISSILE_SILO 247
+/datum/access/nuclear_missile_silo_access
+	id = ACCESS_NUCLEAR_MISSILE_SILO
+	desc = "Nuclear Missile Silo Access"
+
+#define ACCESS_NUCLEAR_MISSILE_SILO_HIGH 248
+/datum/access/nuclear_missile_silo_access_high
+	id = ACCESS_NUCLEAR_MISSILE_SILO_HIGH
+	desc = "Nuclear Missile Silo Access High Security"
+
+/datum/access/enviro_testing_facility_access_control
+	id = 249
+	desc = "Env-Test Facility Zoya, Control Access"
+
+/datum/access/enviro_testing_facility_access_medres
+	id = 250
+	desc = "Env-Test Facility Zoya, Medical-Research Access"
+
+/datum/access/enviro_testing_facility_access_engops
+	id = 251
+	desc = "Env-Test Facility Zoya, Engineering-Operations Access"
+
+/datum/access/enviro_testing_facility_access_sec
+	id = 252
+	desc = "Env-Test Facility Zoya, Security Access"
+
+#define ACCESS_HIMEO_PATROL_SHIP 253
+	id = ACCESS_HIMEO_PATROL_SHIP
+	desc = "Himean Military Patrol Vessel"
+
+#define ACCESS_QUARANTINED_OUTPOST_ENGINEER 254
+	id = ACCESS_QUARANTINED_OUTPOST_ENGINEER
+	desc = "Outpost Nemora, Engineering Clearance"

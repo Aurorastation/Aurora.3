@@ -3,9 +3,9 @@
 	icon_state = "spark"
 	damage = 0
 	damage_type = DAMAGE_BURN
-	check_armor = "energy"
+	check_armor = ENERGY
 
-//releases a burst of light on impact or after travelling a distance
+/// Releases a burst of light on impact or after travelling a distance.
 /obj/projectile/energy/flash
 	name = "chemical shell"
 	icon_state = "bullet"
@@ -34,9 +34,9 @@
 
 	new /obj/effect/decal/cleanable/ash(src.loc) //always use src.loc so that ash doesn't end up inside windows
 	single_spark(T)
-	new /obj/effect/effect/smoke/illumination(T, brightness=max(flash_range*2, brightness), lifetime=light_duration)
+	new /obj/effect/smoke/illumination(T, brightness=max(flash_range*2, brightness), lifetime=light_duration)
 
-//blinds people like the flash round, but can also be used for temporary illumination
+/// blinds people like the flash round, but can also be used for temporary illumination
 /obj/projectile/energy/flash/flare
 	damage = 10
 	flash_range = 1
@@ -101,7 +101,7 @@
 	name = "distortion"
 	icon = 'icons/obj/projectiles.dmi'
 	icon_state = "bfg"
-	check_armor = "bomb"
+	check_armor = BOMB
 	damage = 60
 	damage_type = DAMAGE_BRUTE
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE | PASSRAILING
@@ -171,7 +171,7 @@
 	name = "blaster bolt"
 	icon_state = "laser"
 	damage = 30
-	check_armor = "laser"
+	check_armor = LASER
 	damage_type = DAMAGE_BURN
 	damage_flags = DAMAGE_FLAG_LASER
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE | PASSRAILING

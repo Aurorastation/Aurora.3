@@ -35,6 +35,6 @@
 /mob/proc/examine_laws(var/mob/living/silicon/S)
 	return
 
-/mob/abstract/observer/examine_laws(var/mob/living/silicon/S)
+/mob/abstract/ghost/observer/examine_laws(var/mob/living/silicon/S)
 	if(antagHUD || is_admin(src))
 		return S.laws.get_laws(src)

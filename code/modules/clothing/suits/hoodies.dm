@@ -21,7 +21,7 @@
 
 /obj/item/clothing/suit/storage/hooded/verb/ToggleHood()
 	set name = "Toggle Coat Hood"
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in usr
 
 	if(use_check_and_message(usr))
@@ -30,12 +30,15 @@
 	SEND_SIGNAL(src, COMSIG_ITEM_UPDATE_STATE)
 	update_icon()
 
+/obj/item/clothing/suit/storage/hooded/AltClick(mob/user)
+	ToggleHood(user)
+
 //hoodies and the like
 
 /obj/item/clothing/suit/storage/hooded/wintercoat
 	name = "winter coat"
 	desc = "A heavy jacket made from animal furs."
-	icon = 'icons/obj/clothing/hoodies.dmi'
+	icon = 'icons/obj/item/clothing/suit/storage/toggle/hoodies.dmi'
 	icon_state = "coatwinter"
 	item_state = "coatwinter"
 	contained_sprite = TRUE
@@ -43,7 +46,7 @@
 	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
 	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
 	armor = list(
-		bio = ARMOR_BIO_MINOR
+		BIO = ARMOR_BIO_MINOR
 	)
 	siemens_coefficient = 0.75
 	protects_against_weather = TRUE
@@ -51,7 +54,7 @@
 /obj/item/clothing/head/winterhood
 	name = "winter hood"
 	desc = "A hood attached to a heavy winter jacket."
-	icon = 'icons/obj/clothing/hoodies.dmi'
+	icon = 'icons/obj/item/clothing/suit/storage/toggle/hoodies.dmi'
 	icon_state = "coatwinter_hood"
 	contained_sprite = TRUE
 	body_parts_covered = HEAD
@@ -219,18 +222,10 @@
 	icon_state = "coatheph"
 	item_state = "coatheph"
 
-/obj/item/clothing/suit/storage/hooded/wintercoat/heph/alt
-	icon_state = "coatheph_alt"
-	item_state = "coatheph_alt"
-
 /obj/item/clothing/suit/storage/hooded/wintercoat/nt
 	name = "nanotrasen winter coat"
 	icon_state = "coatnt"
 	item_state = "coatnt"
-
-/obj/item/clothing/suit/storage/hooded/wintercoat/nt/alt
-	icon_state = "coatnt_alt"
-	item_state = "coatnt_alt"
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/zeng
 	name = "zeng-hu winter coat"
@@ -292,7 +287,7 @@
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/verb/Toggle()
 	set name = "Toggle Coat Zipper"
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in usr
 	if(use_check_and_message(usr))
 		return 0

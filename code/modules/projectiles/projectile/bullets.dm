@@ -4,7 +4,7 @@
 	damage = 60
 	damage_type = DAMAGE_BRUTE
 	impact_sounds = list(BULLET_IMPACT_MEAT = SOUNDS_BULLET_MEAT, BULLET_IMPACT_METAL = SOUNDS_BULLET_METAL)
-	check_armor = "bullet"
+	check_armor = BULLET
 	embed = TRUE
 	sharp = TRUE
 	shrapnel_type = /obj/item/material/shard/shrapnel
@@ -39,16 +39,16 @@
 	icon_state = "pellets"
 	damage = 20
 
-	///Number of pellets that will be ejected from this bullet
+	/// Number of pellets that will be ejected from this bullet
 	var/pellets = 4
 
-	///The projectile will lose a pellet each time it travels this distance. Can be a non-integer.
+	/// The projectile will lose a pellet each time it travels this distance. Can be a non-integer.
 	var/range_step = 2
 
-	///Lower means the pellets spread more across body parts. If zero then this is considered a shrapnel explosion instead of a shrapnel cone
+	/// Lower means the pellets spread more across body parts. If zero then this is considered a shrapnel explosion instead of a shrapnel cone
 	var/base_spread = 90
 
-	///Higher means the pellets spread more across body parts with distance
+	/// Higher means the pellets spread more across body parts with distance
 	var/spread_step = 10
 
 /obj/projectile/bullet/pellet/proc/get_pellets(var/distance)
@@ -69,7 +69,7 @@
 	var/total_pellets = get_pellets(distance)
 	var/spread = max(base_spread - (spread_step*distance), 0)
 
-	//shrapnel explosions miss prone mobs with a chance that increases with distance
+	// Shrapnel explosions miss prone mobs with a chance that increases with distance
 	var/prone_chance = 0
 	if(!base_spread)
 		prone_chance = max(spread_step*(distance - 2), 0)
@@ -100,6 +100,7 @@
 	// if (hits >= total_pellets || pellets <= 0)
 	// 	return TRUE
 	if(hits)
+		damage *= hits
 		return BULLET_ACT_HIT //Technically not everything, but good enough
 	return BULLET_ACT_BLOCK //Nothing hit
 
@@ -124,7 +125,7 @@
 	agony = 50
 	embed = FALSE
 	var/balls = 4
-	///projectile will lose a fragment each time it travels this distance. Can be a non-integer.
+	/// Projectile will lose a fragment each time it travels this distance. Can be a non-integer.
 	var/range_step = 3
 	var/base_spread = 90
 	var/spread_step = 10
@@ -181,6 +182,10 @@
 	damage = 20
 	armor_penetration = 15
 
+/obj/projectile/bullet/pistol/polymer
+	damage = 12
+	armor_penetration = 30
+
 /obj/projectile/bullet/pistol/medium
 	damage = 30
 	armor_penetration = 0
@@ -199,7 +204,7 @@
 
 /obj/projectile/bullet/pistol/rubber //"rubber" bullets
 	name = "rubber bullet"
-	check_armor = "melee"
+	check_armor = MELEE
 	damage = 5
 	agony = 40
 	embed = 0
@@ -217,7 +222,7 @@
 
 /obj/projectile/bullet/shotgun/beanbag		//because beanbags are not bullets
 	name = "beanbag"
-	check_armor = "melee"
+	check_armor = MELEE
 	damage = 10
 	agony = 60
 	embed = 0
@@ -225,7 +230,7 @@
 
 /obj/projectile/bullet/shotgun/incendiary
 	name = "incendiary"
-	check_armor = "melee"
+	check_armor = MELEE
 	damage = 5
 	agony = 0
 	embed = 0
@@ -438,7 +443,7 @@
 	damage = 40
 	armor_penetration = 15
 	damage_type = DAMAGE_BRUTE
-	check_armor = "bullet"
+	check_armor = BULLET
 	embed = 1
 	sharp = 1
 	penetrating = 1

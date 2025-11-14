@@ -34,6 +34,7 @@
 	throwforce = 0
 	force = 0
 	item_flags = ITEM_FLAG_NO_BLUDGEON
+	light_system = MOVABLE_LIGHT
 	var/mob/living/carbon/human/owner
 	var/obj/item/technomancer_core/core
 	var/cast_methods = null			// Controls how the spell is casted.
@@ -236,7 +237,7 @@
 		if(core.loc != owner || (owner.back != core && owner.wrists != core)) //Make sure the core's being worn.
 			to_chat(owner, SPAN_DANGER("You need to be wearing a core on your back or your wrists!"))
 			return FALSE
-		if(!core.simple_operation && !technomancers.is_technomancer(owner.mind)) //Now make sure the person using this is the actual antag.
+		if(!core.simple_operation && !GLOB.technomancers.is_technomancer(owner.mind)) //Now make sure the person using this is the actual antag.
 			to_chat(owner, SPAN_DANGER("You can't seem to figure out how to make the machine work properly."))
 			return FALSE
 	else

@@ -10,8 +10,9 @@ BREATH ANALYZER
 /obj/item/device/healthanalyzer
 	name = "health analyzer"
 	desc = "A hand-held body scanner able to distinguish vital signs of the subject."
+	icon = 'icons/obj/item/device/healthanalyzer.dmi'
 	icon_state = "health"
-	item_state = "healthanalyzer"
+	item_state = "analyzer"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	throwforce = 3
@@ -30,7 +31,6 @@ BREATH ANALYZER
 		last_scan = world.time
 		sound_scan = TRUE
 	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
-	user.do_attack_animation(src)
 	flick("[icon_state]-scan", src)	//makes it so that it plays the scan animation on a successful scan
 	health_scan_mob(target_mob, user, mode, sound_scan = sound_scan)
 	add_fingerprint(user)
@@ -41,7 +41,6 @@ BREATH ANALYZER
 		last_scan = world.time
 		sound_scan = TRUE
 	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
-	user.do_attack_animation(src)
 	flick("[icon_state]-scan", src)	//makes it so that it plays the scan animation on a successful scan
 	health_scan_mob(user, user, mode, sound_scan = sound_scan)
 	add_fingerprint(user)
@@ -360,7 +359,7 @@ BREATH ANALYZER
 
 /obj/item/device/healthanalyzer/verb/toggle_mode()
 	set name = "Switch Verbosity"
-	set category = "Object"
+	set category = "Object.Held"
 	set src in usr
 
 	mode = !mode
@@ -373,10 +372,9 @@ BREATH ANALYZER
 /obj/item/device/analyzer
 	name = "analyzer"
 	desc = "A hand-held environmental scanner which reports current gas levels."
-	icon = 'icons/obj/item/tools/air_analyzer.dmi'
+	icon = 'icons/obj/item/device/air_analyzer.dmi'
 	icon_state = "analyzer"
 	item_state = "analyzer"
-	contained_sprite = TRUE
 	w_class = WEIGHT_CLASS_SMALL
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
@@ -409,8 +407,9 @@ BREATH ANALYZER
 /obj/item/device/mass_spectrometer
 	name = "mass spectrometer"
 	desc = "A hand-held mass spectrometer which identifies trace chemicals in a blood sample."
+	icon = 'icons/obj/item/device/mass_spectrometer.dmi'
 	icon_state = "spectrometer"
-	item_state = "analyzer"
+	item_state = "spectrometer"
 	w_class = WEIGHT_CLASS_SMALL
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	obj_flags = OBJ_FLAG_CONDUCTABLE
@@ -471,6 +470,7 @@ BREATH ANALYZER
 /obj/item/device/mass_spectrometer/adv
 	name = "advanced mass spectrometer"
 	icon_state = "adv_spectrometer"
+	item_state = "adv_spectrometer"
 	details = TRUE
 	origin_tech = list(TECH_MAGNET = 4, TECH_BIO = 2)
 
@@ -483,6 +483,7 @@ BREATH ANALYZER
 /obj/item/device/reagent_scanner
 	name = "reagent scanner"
 	desc = "A hand-held reagent scanner which identifies chemical agents."
+	icon = 'icons/obj/item/device/reagent_scanner.dmi'
 	icon_state = "reagent_scanner"
 	item_state = "analyzer"
 	w_class = WEIGHT_CLASS_SMALL
@@ -518,12 +519,14 @@ BREATH ANALYZER
 /obj/item/device/reagent_scanner/adv
 	name = "advanced reagent scanner"
 	icon_state = "adv_reagent_scanner"
+	item_state = "analyzer"
 	details = 1
 	origin_tech = list(TECH_MAGNET = 4, TECH_BIO = 2)
 
 /obj/item/device/slime_scanner
 	name = "slime scanner"
-	icon_state = "adv_spectrometer"
+	icon = 'icons/obj/item/device/slime_scanner.dmi'
+	icon_state = "slime_scanner"
 	item_state = "analyzer"
 	origin_tech = list(TECH_BIO = 1)
 	w_class = WEIGHT_CLASS_SMALL
@@ -568,8 +571,8 @@ BREATH ANALYZER
 /obj/item/device/price_scanner
 	name = "price scanner"
 	desc = "Using an up-to-date database of various costs and prices, this device estimates the market price of an item up to 0.001% accuracy."
+	icon = 'icons/obj/item/device/price_scanner.dmi'
 	icon_state = "price_scanner"
-	item_state = "price_scanner"
 	item_flags = ITEM_FLAG_NO_BLUDGEON
 	slot_flags = SLOT_BELT
 	w_class = WEIGHT_CLASS_SMALL
@@ -583,12 +586,13 @@ BREATH ANALYZER
 		return
 
 	var/value = get_value(target)
-	user.visible_message("\The [user] scans \the [target] with \the [src]")
-	user.show_message("Price estimation of \the [target]: [value ? value : "N/A"] Credits")
+	user.visible_message(SPAN_NOTICE("\The [user] scans \the [target] with \the [src]."))
+	to_chat(user, SPAN_NOTICE("\The [src] estimates the price of \the [target] at <b>[value ? value : "N/A"]</b>."))
 
 /obj/item/device/breath_analyzer
 	name = "breath analyzer"
 	desc = "A hand-held breath analyzer that provides a robust amount of information about the subject's respiratory system."
+	icon = 'icons/obj/item/device/breath_analyzer.dmi'
 	icon_state = "breath_analyzer"
 	item_state = "analyzer"
 	w_class = WEIGHT_CLASS_SMALL
@@ -625,7 +629,6 @@ BREATH ANALYZER
 		return
 
 	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
-	user.do_attack_animation(H)
 
 	user.visible_message(SPAN_NOTICE("[user] is trying to take a breath sample from [H]."),
 							SPAN_NOTICE("You gently insert \the [src] into [H]'s mouth."))
@@ -698,9 +701,10 @@ BREATH ANALYZER
 
 /obj/item/device/advanced_healthanalyzer
 	name = "advanced health analyzer"
-	desc = "An expensive and varied-use health analyzer of Zeng-Hu design that prints full-body scans after a short scanning delay."
-	icon_state = "adv-analyzer"
-	item_state = "adv-analyzer"
+	desc = "An expensive and varied-use health analyzer that prints full-body scans after a short scanning delay."
+	icon = 'icons/obj/item/device/advanced_healthanalyzer.dmi'
+	icon_state = "health_adv"
+	item_state = "analyzer"
 	slot_flags = SLOT_BELT
 	w_class = WEIGHT_CLASS_NORMAL
 	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 3)
@@ -723,8 +727,8 @@ BREATH ANALYZER
 	if(!connected)
 		return
 	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
-	user.do_attack_animation(src)
 	user.visible_message("<b>[user]</b> starts scanning \the [target_mob] with \the [src].", SPAN_NOTICE("You start scanning \the [target_mob] with \the [src]."))
+	flick("[icon_state]-scan", src)
 	if(do_after(user, 7 SECONDS, target_mob, DO_UNIQUE))
 		print_scan(target_mob, user)
 		add_fingerprint(user)
@@ -732,6 +736,13 @@ BREATH ANALYZER
 /obj/item/device/advanced_healthanalyzer/proc/print_scan(var/mob/M, var/mob/living/user)
 	var/obj/item/paper/medscan/R = new /obj/item/paper/medscan(src, connected.format_occupant_data(get_occupant_data(M)), "Scan ([M.name]) ([worldtime2text()])", M)
 	connected.print(R, message = "\The [src] beeps, printing \the [R] after a moment.", user = user)
+
+/// Variant of print_scan(), main difference is different method to print the paper
+/obj/item/device/advanced_healthanalyzer/cyborg/print_scan(var/mob/M, var/mob/living/user)
+	var/obj/item/paper/medscan/R = new /obj/item/paper/medscan(src, connected.format_occupant_data(get_occupant_data(M)), "Scan ([M.name]) ([worldtime2text()])", M)
+	user.visible_message(SPAN_NOTICE("\The [src] beeps, printing \the [R] after a moment."))
+	playsound(user.loc, /singleton/sound_category/print_sound, 50, 1)
+	R.forceMove(user.loc)
 
 /obj/item/device/advanced_healthanalyzer/proc/get_occupant_data(var/mob/living/carbon/human/H)
 	if (!ishuman(H))

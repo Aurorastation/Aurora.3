@@ -43,8 +43,6 @@
 /obj/item/gun
 	name = "gun"
 	desc = "It's a gun. It's pretty terrible, though."
-	desc_info = "This is a gun.  To fire the weapon, ensure your intent is *not* set to 'help', have your gun mode set to 'fire', \
-	then click where you want to fire."
 	icon = 'icons/obj/guns/pistol.dmi'
 	var/gun_gui_icons = 'icons/obj/guns/gun_gui.dmi'
 	icon_state = "pistol"
@@ -61,6 +59,7 @@
 	origin_tech = list(TECH_COMBAT = 1)
 	attack_verb = list("struck", "hit", "bashed")
 	zoomdevicename = "scope"
+	light_system = DIRECTIONAL_LIGHT
 
 /*
  * Suppression vars
@@ -157,6 +156,31 @@
 	var/image/safety_overlay
 
 	var/iff_capable = FALSE // if true, applies the user's ID iff_faction to the projectile
+
+/obj/item/gun/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(has_safety)
+		. += "To fire, toggle the safety with CTRL-click (or enable HARM intent), then click where you want to shoot."
+	else
+		. += "To fire, because this weapon has no safety, just click where you want to shoot."
+
+/obj/item/gun/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(distance > 1)
+		return
+	if(markings)
+		. += SPAN_NOTICE("It has [markings] [markings == 1 ? "notch" : "notches"] carved into the stock.")
+	if(needspin)
+		if(pin)
+			. += "\The [pin] is installed in the trigger mechanism."
+			pin.examine_info(user) // Allows people to check the current firemode of their wireless-control firing pin. Returns nothing if there's no wireless-control firing pin.
+		else
+			. += "It doesn't have a firing pin installed, and won't fire."
+	if(firemodes.len > 1)
+		var/datum/firemode/current_mode = firemodes[sel_mode]
+		. += "The fire selector is set to [current_mode.name]."
+	if(has_safety)
+		. += "The safety is [safety() ? "on" : "off"]."
 
 /obj/item/gun/Initialize(mapload)
 	. = ..()
@@ -285,7 +309,7 @@
 	else
 		if(needspin)
 			to_chat(user, SPAN_WARNING("\The [src]'s trigger is locked. This weapon doesn't have a firing pin installed!"))
-			balloon_alert(user, "Trigger locked, firing pin needed!")
+			balloon_alert(user, "trigger locked, firing pin needed!")
 			return FALSE
 		else
 			return TRUE
@@ -438,9 +462,11 @@
 
 			handle_post_fire() // should be safe to not include arguments here, as there are failsafes in effect (?)
 
+			var/prev_light = light_range
 			if (muzzle_flash)
-				set_light(muzzle_flash)
-				addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, set_light), 0), 2, TIMER_UNIQUE | TIMER_OVERRIDE)
+				set_light_range(muzzle_flash)
+				set_light_on(TRUE)
+				addtimer(CALLBACK(src, PROC_REF(reset_light_range), prev_light), 0.5 SECONDS)
 			update_icon()
 
 		if(i < burst)
@@ -453,6 +479,12 @@
 	next_fire_time = world.time + shoot_time
 
 	accuracy = initial(accuracy)	//Reset the gun's accuracy
+
+/// called by a timer to remove the light range from muzzle flash
+/obj/item/gun/proc/reset_light_range(lightrange)
+	set_light_range(lightrange)
+	if(lightrange <= 0)
+		set_light_on(FALSE)
 
 //obtains the next projectile to fire
 /obj/item/gun/proc/consume_next_projectile()
@@ -490,8 +522,11 @@
 				)
 
 		if(muzzle_flash)
-			set_light(muzzle_flash)
-			addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, set_light), 0), 2)
+			var/prev_light = light_range
+			if (muzzle_flash)
+				set_light_range(muzzle_flash)
+				set_light_on(TRUE)
+				addtimer(CALLBACK(src, PROC_REF(reset_light_range), prev_light), 0.5 SECONDS)
 
 	if(recoil)
 		shake_camera(user, recoil + 1, recoil)
@@ -659,24 +694,6 @@
 	suppressor = null
 	update_icon()
 
-/obj/item/gun/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(distance > 1)
-		return
-	if(markings)
-		. += SPAN_NOTICE("It has [markings] [markings == 1 ? "notch" : "notches"] carved into the stock.")
-	if(needspin)
-		if(pin)
-			. += "\The [pin] is installed in the trigger mechanism."
-			pin.examine_info(user) // Allows people to check the current firemode of their wireless-control firing pin. Returns nothing if there's no wireless-control firing pin.
-		else
-			. += "It doesn't have a firing pin installed, and won't fire."
-	if(firemodes.len > 1)
-		var/datum/firemode/current_mode = firemodes[sel_mode]
-		. += "The fire selector is set to [current_mode.name]."
-	if(has_safety)
-		. += "The safety is [safety() ? "on" : "off"]."
-
 /obj/item/gun/proc/switch_firemodes()
 	if(!firemodes.len)
 		return null
@@ -705,7 +722,7 @@
 	safety_state = !safety_state
 	update_icon()
 	if(user)
-		balloon_alert(user, "Safety [safety_state ? "on" : "off"].")
+		balloon_alert(user, "safety [safety_state ? "on" : "off"].")
 		if(!safety_state)
 			playsound(src, safetyon_sound, 30, 1)
 		else
@@ -713,7 +730,8 @@
 
 /obj/item/gun/verb/toggle_safety_verb()
 	set src in usr
-	set category = "Object"
+	set category = "Object.Held"
+	set desc = "Shortcut is Ctrl-click."
 	set name = "Toggle Gun Safety"
 	if(has_safety && usr == loc)
 		toggle_safety(usr)
@@ -933,15 +951,15 @@
 /obj/item/gun/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/material/knife/bayonet))
 		if(!can_bayonet)
-			balloon_alert(user, "\the [attacking_item.name] doesn't fit")
+			balloon_alert(user, "doesn't fit!")
 			return ..()
 
 		if(bayonet)
-			balloon_alert(user, "\the [src] already has a bayonet")
+			balloon_alert(user, "already has a bayonet!")
 			return TRUE
 
 		if(user.l_hand != attacking_item && user.r_hand != attacking_item)
-			balloon_alert(user, "not in hand")
+			balloon_alert(user, "not in hand!")
 			return
 
 		user.drop_from_inventory(attacking_item,src)
@@ -956,19 +974,19 @@
 
 	if(istype(attacking_item, /obj/item/ammo_display))
 		if(!can_ammo_display)
-			balloon_alert(user, "\the [attacking_item.name] doesn't fit")
+			balloon_alert(user, "doesn't fit!")
 			return TRUE
 
 		if(ammo_display)
-			balloon_alert(user, "\the [src] already has an ammo display")
+			balloon_alert(user, "already has an ammo display!")
 			return TRUE
 
 		if(user.l_hand != attacking_item && user.r_hand != attacking_item)
-			balloon_alert(user, "not in hand")
+			balloon_alert(user, "not in hand!")
 			return
 
 		if(displays_maptext)
-			balloon_alert(user, "\the [src] is already displaying its ammo count")
+			balloon_alert(user, "already displaying its ammo count!")
 			return TRUE
 
 		user.drop_from_inventory(attacking_item, src)

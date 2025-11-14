@@ -1,17 +1,7 @@
 /obj/machinery/sleeper
 	name = "sleeper"
 	desc = "A fancy bed with built-in injectors, a dialysis machine, and a limited health scanner."
-	desc_info = "The sleeper allows you to clean the blood by means of dialysis, and to administer medication in a controlled environment.<br>\
-	<br>\
-	Click your target with Grab intent, then click on the sleeper to place them in it. Click the green console, with an empty hand, to open the menu. \
-	Click 'Start Dialysis' to begin filtering unwanted chemicals from the occupant's blood. The beaker contained will begin to fill with their \
-	contaminated blood, and will need to be emptied when full.<br>\
-	<br>\
-	You can also inject common medicines directly into their bloodstream.\
-	<br>\
-	Right-click the cell and click 'Eject Occupant' to remove them.  You can enter the cell yourself by right clicking and selecting 'Enter Sleeper'. \
-	Note that you cannot control the sleeper while inside of it."
-	icon = 'icons/obj/sleeper.dmi'
+	icon = 'icons/obj/machinery/sleeper.dmi'
 	icon_state = "sleeper"
 	density = TRUE
 	anchored = TRUE
@@ -36,9 +26,11 @@
 	var/disallow_occupant_types = list()
 	var/display_loading_message = TRUE
 
+	/// rate at which alcohol is removed per tick (see process())
+	var/intoxication_removal_rate = 1
+
 	idle_power_usage = 15
 	active_power_usage = 250 //builtin health analyzer, dialysis machine, injectors.
-	var/parts_power_usage
 	var/stasis_power = 500
 
 	component_types = list(
@@ -49,12 +41,29 @@
 			/obj/item/reagent_containers/glass/beaker/large
 		)
 
+	parts_power_mgmt = FALSE
+
+/obj/machinery/sleeper/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "The sleeper allows you to clean the blood by means of dialysis, and to administer medication in a controlled environment."
+	. += "Click your target with Grab intent, then click on the sleeper to place them in it. Then click the green console with an empty hand to open the menu."
+	. += "Click 'Start Dialysis' to begin filtering unwanted chemicals from the occupant's blood. The beaker contained will begin to fill with their \
+	contaminated blood, and will need to be emptied when full."
+	. += "You can also inject common medicines directly into their bloodstream."
+	. += "Right-click the cell and click 'Eject Occupant' to remove them.  You can enter the cell yourself by right clicking and selecting 'Enter Sleeper'. \
+	Note that you cannot control the sleeper while inside of it."
+
+/obj/machinery/sleeper/upgrade_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Upgraded <b>capacitors</b> will reduce power usage."
+	. += "Upgraded <b>scanning modules</b> will reduce power usage."
+
 /obj/machinery/sleeper/Initialize()
 	. = ..()
 	update_icon()
 	parts_power_usage = active_power_usage
 
-/obj/machinery/sleeper/process()
+/obj/machinery/sleeper/process(seconds_per_tick)
 	if(stat & (NOPOWER|BROKEN))
 		return
 
@@ -67,6 +76,9 @@
 					pumped++
 				if(ishuman(occupant))
 					occupant.vessel.trans_to_obj(beaker, pumped + 1)
+					if(occupant.intoxication)
+						//Removes alcohol in the bloodstream if present
+						occupant.intoxication -= min(occupant.intoxication, (seconds_per_tick * intoxication_removal_rate))
 		else
 			toggle_filter()
 	if(pump)
@@ -85,7 +97,10 @@
 /obj/machinery/sleeper/update_icon()
 	flick("[initial(icon_state)]-anim", src)
 	if(occupant)
-		icon_state = "[initial(icon_state)]-closed"
+		if(stat & NOPOWER || stat & BROKEN)
+			icon_state = "[initial(icon_state)]-closed"
+		else
+			icon_state = "[initial(icon_state)]-working"
 		return
 	else
 		icon_state = initial(icon_state)
@@ -130,6 +145,7 @@
 		data["brain_activity"] = occupant.get_brain_result()
 		data["blood_pressure"] = occupant.get_blood_pressure()
 		data["blood_pressure_level"] = occupant.get_blood_pressure_alert()
+		data["bac"] = occupant.get_blood_alcohol()
 		data["blood_o2"] = occupant.get_blood_oxygenation()
 		data["bloodreagents"] = list()
 		var/list/blood_reagents = list()
@@ -272,13 +288,13 @@
 		to_chat(user, "You [src.panel_open ? "open" : "close"] the maintenance panel.")
 		ClearOverlays()
 		if(src.panel_open)
-			AddOverlays("[initial(icon_state)]-o")
+			AddOverlays("[initial(icon_state)]-panel")
 		return TRUE
 	else if(default_part_replacement(user, attacking_item))
 		return TRUE
 
-/obj/machinery/sleeper/MouseDrop_T(atom/dropping, mob/user)
-	var/mob/target = dropping
+/obj/machinery/sleeper/mouse_drop_receive(atom/dropped, mob/user, params)
+	var/mob/target = dropped
 	if(!istype(target))
 		return
 

@@ -57,7 +57,7 @@
 	return
 
 /datum/event/radiation_storm/proc/lights(var/turnOn = FALSE)
-	for(var/area/A in GLOB.all_areas)
+	for(var/area/A in get_sorted_areas())
 		if(A.area_flags & AREA_FLAG_RAD_SHIELDED)
 			continue
 		if(turnOn)

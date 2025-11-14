@@ -1,6 +1,7 @@
 /obj/machinery/telecomms
 	var/temp = "" // output message
 	var/construct_op = 0
+	icon = 'icons/obj/machinery/telecomms.dmi'
 
 
 /obj/machinery/telecomms/attackby(obj/item/attacking_item, mob/user)
@@ -11,17 +12,28 @@
 		interact(user, attacking_item)
 		return TRUE
 
-	// REPAIRING: Use Nanopaste to repair half of the system's integrity. At 24 machines, it will take 48 uses of nanopaste to repair the entire array.
+	// REPAIRING: Use Nanopaste to repair 25pts of system integrity.
+	// This used to be half integrity, but changed by Bat to be simpler after comms blackouts started causing emp damage.
 	if(istype(attacking_item, /obj/item/stack/nanopaste))
 		var/obj/item/stack/nanopaste/T = attacking_item
-		if (integrity < 100)               								//Damaged, let's repair!
-			if (T.use(1))
-				integrity = between(0, initial(integrity) / 2, initial(integrity))
+		// Damaged, let's repair!
+		if(integrity < 100)
+			if(T.use(1))
+				integrity = between(0, integrity + 25, initial(integrity))
 				to_chat(user, "You apply the Nanopaste to [src], repairing some of the damage.")
 		else
 			to_chat(user, "This machine is already in perfect condition.")
 		return TRUE
 
+	// Beat it with a stick!
+	if(!istype(user, /mob/living/silicon))
+		if(user.a_intent == I_HURT)
+			user.visible_message(SPAN_DANGER("\The [user] strikes [src]!"))
+			user.do_attack_animation(user, attacking_item)
+			playsound(loc, hitsound, 60, TRUE)
+			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+			integrity = between(0, integrity - round(attacking_item.force / 3), initial(integrity))
+			return TRUE
 
 	switch(construct_op)
 		if(0)
@@ -109,13 +121,13 @@
 		M = user.get_multitool()
 	var/dat
 	dat += "<br>[temp]<br><br>"
-	dat += "Power Status: <a href='?src=[REF(src)];input=toggle'>[src.use_power ? "On" : "Off"]</a>"
+	dat += "Power Status: <a href='byond://?src=[REF(src)];input=toggle'>[src.use_power ? "On" : "Off"]</a>"
 	if(operable() && use_power)
 		if(id != "" && id)
-			dat += "<br>Identification String: <a href='?src=[REF(src)];input=id'>[id]</a>"
+			dat += "<br>Identification String: <a href='byond://?src=[REF(src)];input=id'>[id]</a>"
 		else
-			dat += "<br>Identification String: <a href='?src=[REF(src)];input=id'>NULL</a>"
-		dat += "<br>Network: <a href='?src=[REF(src)];input=network'>[network]</a>"
+			dat += "<br>Identification String: <a href='byond://?src=[REF(src)];input=id'>NULL</a>"
+		dat += "<br>Network: <a href='byond://?src=[REF(src)];input=network'>[network]</a>"
 		dat += "<br>Prefabrication: [autolinkers.len ? "TRUE" : "FALSE"]"
 		if(hide) dat += "<br>Shadow Link: ACTIVE</a>"
 
@@ -129,7 +141,7 @@
 			i++
 			if(T.hide && !src.hide)
 				continue
-			dat += "<li>[REF(T)] [T.name] ([T.id])  <a href='?src=[REF(src)];unlink=[i]'>\[X\]</a></li>"
+			dat += "<li>[REF(T)] [T.name] ([T.id])  <a href='byond://?src=[REF(src)];unlink=[i]'>\[X\]</a></li>"
 		dat += "</ol>"
 
 		dat += "Filtering Frequencies: "
@@ -139,21 +151,21 @@
 			for(var/x in freq_listening)
 				i++
 				if(i < length(freq_listening))
-					dat += "[format_frequency(x)] GHz<a href='?src=[REF(src)];delete=[x]'>\[X\]</a>; "
+					dat += "[format_frequency(x)] GHz<a href='byond://?src=[REF(src)];delete=[x]'>\[X\]</a>; "
 				else
-					dat += "[format_frequency(x)] GHz<a href='?src=[REF(src)];delete=[x]'>\[X\]</a>"
+					dat += "[format_frequency(x)] GHz<a href='byond://?src=[REF(src)];delete=[x]'>\[X\]</a>"
 		else
 			dat += "NONE"
 
-		dat += "<br>  <a href='?src=[REF(src)];input=freq'>\[Add Filter\]</a>"
+		dat += "<br>  <a href='byond://?src=[REF(src)];input=freq'>\[Add Filter\]</a>"
 		dat += "<hr>"
 
 		if(M)
 			var/obj/machinery/telecomms/device = M.get_buffer()
 			if(istype(device))
-				dat += "<br>MULTITOOL BUFFER: [device] ([device.id]) <a href='?src=[REF(src)];link=1'>\[Link\]</a> <a href='?src=[REF(src)];flush=1'>\[Flush\]</a>"
+				dat += "<br>MULTITOOL BUFFER: [device] ([device.id]) <a href='byond://?src=[REF(src)];link=1'>\[Link\]</a> <a href='byond://?src=[REF(src)];flush=1'>\[Flush\]</a>"
 			else
-				dat += "<br>MULTITOOL BUFFER: <a href='?src=[REF(src)];buffer=1'>\[Add Machine\]</a>"
+				dat += "<br>MULTITOOL BUFFER: <a href='byond://?src=[REF(src)];buffer=1'>\[Add Machine\]</a>"
 
 	temp = ""
 
@@ -171,7 +183,7 @@
 /*
 // Add an option to the processor to switch processing mode. (COMPRESS -> UNCOMPRESS or UNCOMPRESS -> COMPRESS)
 /obj/machinery/telecomms/processor/Options_Menu()
-	var/dat = "<br>Processing Mode: <A href='?src=[REF(src)];process=1'>[process_mode ? "UNCOMPRESS" : "COMPRESS"]</a>"
+	var/dat = "<br>Processing Mode: <A href='byond://?src=[REF(src)];process=1'>[process_mode ? "UNCOMPRESS" : "COMPRESS"]</a>"
 	return dat
 */
 // The topic for Additional Options. Use this for checking href links for your specific option.
@@ -189,7 +201,7 @@
 // BUS
 
 /obj/machinery/telecomms/bus/Options_Menu()
-	var/dat = "<br>Change Signal Frequency: <A href='?src=[REF(src)];change_freq=1'>[change_frequency ? "YES ([change_frequency])" : "NO"]</a>"
+	var/dat = "<br>Change Signal Frequency: <A href='byond://?src=[REF(src)];change_freq=1'>[change_frequency ? "YES ([change_frequency])" : "NO"]</a>"
 	return dat
 
 /obj/machinery/telecomms/bus/Options_Topic(href, href_list)

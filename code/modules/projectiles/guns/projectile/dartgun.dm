@@ -97,8 +97,8 @@
 	if(istype(dart))
 		fill_dart(dart)
 
-/obj/item/gun/projectile/dartgun/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/gun/projectile/dartgun/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if (beakers.len)
 		. += SPAN_NOTICE("[src] contains:")
 		for(var/obj/item/reagent_containers/glass/beaker/B in beakers)
@@ -142,12 +142,12 @@
 					var/singleton/reagent/R = GET_SINGLETON(_R)
 					dat += "<br>    [B.reagents.reagent_volumes[_R]] units of [R.name], "
 				if (check_beaker_mixing(B))
-					dat += "<A href='?src=[REF(src)];stop_mix=[i]'><font color='green'>Mixing</font></A> "
+					dat += "<A href='byond://?src=[REF(src)];stop_mix=[i]'><font color='green'>Mixing</font></A> "
 				else
-					dat += "<A href='?src=[REF(src)];mix=[i]'><span class='warning'>Not mixing</span></A> "
+					dat += "<A href='byond://?src=[REF(src)];mix=[i]'><span class='warning'>Not mixing</span></A> "
 			else
 				dat += "nothing."
-			dat += " \[<A href='?src=[REF(src)];eject=[i]'>Eject</A>\]<br>"
+			dat += " \[<A href='byond://?src=[REF(src)];eject=[i]'>Eject</A>\]<br>"
 			i++
 	else
 		dat += "There are no beakers inserted!<br><br>"
@@ -157,9 +157,9 @@
 			dat += "The dart cartridge has [ammo_magazine.stored_ammo.len] shots remaining."
 		else
 			dat += SPAN_WARNING("The dart cartridge is empty!")
-		dat += " \[<A href='?src=[REF(src)];eject_cart=1'>Eject</A>\]"
+		dat += " \[<A href='byond://?src=[REF(src)];eject_cart=1'>Eject</A>\]"
 
-	user << browse(dat, "window=dartgun")
+	user << browse(HTML_SKELETON(dat), "window=dartgun")
 	onclose(user, "dartgun", src)
 
 /obj/item/gun/projectile/dartgun/proc/check_beaker_mixing(var/obj/item/B)

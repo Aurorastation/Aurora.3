@@ -6,6 +6,7 @@
 	apocalyptic world war that nearly plunged the species into ruin, the Izweski Hegemony has rebounded and is currently working on making the Hegemony a galactic power."
 	consular_outfit = /obj/outfit/job/representative/consular/izweski
 	assistant_outfit = /obj/outfit/job/diplomatic_aide/izweski
+	bodyguard_outfit = /obj/outfit/job/diplomatic_bodyguard/izweski
 
 	job_species_blacklist = list(
 		"Consular Officer" = list(
@@ -19,8 +20,6 @@
 			SPECIES_IPC_UNBRANDED,
 			SPECIES_IPC_XION,
 			SPECIES_IPC_ZENGHU,
-			SPECIES_DIONA,
-			SPECIES_DIONA_COEUS,
 			SPECIES_SKRELL,
 			SPECIES_SKRELL_AXIORI,
 			SPECIES_TAJARA,
@@ -42,14 +41,31 @@
 			SPECIES_IPC_UNBRANDED,
 			SPECIES_IPC_XION,
 			SPECIES_IPC_ZENGHU,
-			SPECIES_DIONA,
-			SPECIES_DIONA_COEUS,
 			SPECIES_SKRELL,
 			SPECIES_SKRELL_AXIORI,
 			SPECIES_TAJARA,
 			SPECIES_TAJARA_MSAI,
 			SPECIES_TAJARA_ZHAN,
 			SPECIES_VAURCA_BREEDER
+		),
+		"Diplomatic Bodyguard" = list(
+			SPECIES_HUMAN,
+			SPECIES_HUMAN_OFFWORLD,
+			SPECIES_IPC,
+			SPECIES_IPC_BISHOP,
+			SPECIES_IPC_G1,
+			SPECIES_IPC_G2,
+			SPECIES_IPC_SHELL,
+			SPECIES_IPC_UNBRANDED,
+			SPECIES_IPC_XION,
+			SPECIES_IPC_ZENGHU,
+			SPECIES_SKRELL,
+			SPECIES_SKRELL_AXIORI,
+			SPECIES_TAJARA,
+			SPECIES_TAJARA_MSAI,
+			SPECIES_TAJARA_ZHAN,
+			SPECIES_VAURCA_BREEDER,
+			SPECIES_VAURCA_WORKER
 		)
 	)
 
@@ -91,7 +107,6 @@
 
 	uniform = /obj/item/clothing/under/unathi
 	backpack_contents = list(/obj/item/device/camera = 1)
-	belt = /obj/item/gun/energy/pistol/hegemony
 
 /obj/outfit/job/representative/consular/izweski/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H)
@@ -102,6 +117,8 @@
 			H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/vaurca/filter(H), slot_wear_mask)
 			H.equip_to_slot_or_del(new /obj/item/clothing/suit/vaurca/breeder/klax(H), slot_wear_suit)
 			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec/klax(H), slot_back)
+		else if(H.is_diona())
+			H.equip_or_collect(new /obj/item/device/uv_light(src), slot_in_backpack)
 		else
 			H.equip_to_slot_or_del(new /obj/item/clothing/accessory/poncho/unathimantle(H), slot_wear_suit)
 		if(!visualsOnly)
@@ -109,5 +126,13 @@
 	return TRUE
 
 /obj/outfit/job/diplomatic_aide/izweski
+	name = "Izweski Hegemony Diplomatic Aide"
 	uniform = /obj/item/clothing/under/unathi
 	suit = /obj/item/clothing/accessory/poncho/unathimantle
+
+/obj/outfit/job/diplomatic_bodyguard/izweski
+	name = "Izweski Hegemony Diplomatic Bodyguard"
+	uniform = /obj/item/clothing/under/unathi
+	backpack_contents = list(
+		/obj/item/gun/energy/pistol/hegemony = 1
+	)

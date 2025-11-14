@@ -18,6 +18,7 @@ SUBSYSTEM_DEF(atlas)
 
 	var/datum/space_sector/current_sector
 	var/list/possible_sectors = list()
+
 	//Note that the dirs here are REVERSE because they're used for entry points, so it'd be the dir facing starboard for example.
 	//These are strings because otherwise the list indexes would be out of bounds. Thanks BYOND.
 	var/list/naval_to_dir = list(
@@ -266,7 +267,7 @@ SUBSYSTEM_DEF(atlas)
 	SHOULD_NOT_SLEEP(TRUE)
 	// This needs to be done after current_map is set, but before mapload.
 
-	admin_departments = list(
+	GLOB.admin_departments = list(
 		"[current_map.boss_name]",
 		"External Routing",
 		"Supply"
@@ -325,9 +326,13 @@ SUBSYSTEM_DEF(atlas)
 	sleep(1 MINUTE)
 	world.Reboot()
 
-/proc/station_name()
+/// Called to retrieve the name of the station. When short is TRUE, the short name of the station will be provided instead.
+/proc/station_name(var/short = FALSE)
 	ASSERT(SSatlas.current_map)
-	. = SSatlas.current_map.station_name
+	if(short)
+		. = SSatlas.current_map.station_short
+	else
+		. = SSatlas.current_map.station_name
 
 	var/sname
 	if (GLOB.config && GLOB.config.server_name)

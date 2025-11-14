@@ -49,6 +49,9 @@
 		"Atmospherics Apprentice" = /obj/outfit/job/intern_atmos/hephaestus,
 		"Corporate Reporter" = /obj/outfit/job/journalist/hephaestus,
 		"Corporate Liaison" = /obj/outfit/job/representative/hephaestus,
+		"Corporate Aide" = /obj/outfit/job/corporate_aide/hephaestus,
+		"Assistant" = /obj/outfit/job/assistant/hephaestus,
+		"Technical Assistant" = /obj/outfit/job/assistant/tech_assistant/hephaestus,
 		"Off-Duty Crew Member" = /obj/outfit/job/visitor/hephaestus,
 		"Engineering Personnel" = /obj/outfit/job/engineer/event/hephaestus,
 		"Operations Personnel" = /obj/outfit/job/hangar_tech/event/hephaestus
@@ -156,10 +159,42 @@
 		/obj/item/stamp/hephaestus = 1
 	)
 
+/obj/outfit/job/corporate_aide/hephaestus
+	name = "Hephaestus Corporate Aide"
+	id = /obj/item/card/id/hephaestus
+
+	head = /obj/item/clothing/head/beret/corporate/heph
+	suit = /obj/item/clothing/suit/storage/toggle/corp/heph
+
+	backpack_faction = /obj/item/storage/backpack/heph
+	satchel_faction = /obj/item/storage/backpack/satchel/heph
+	dufflebag_faction = /obj/item/storage/backpack/duffel/heph
+	messengerbag_faction = /obj/item/storage/backpack/messenger/heph
+
 /obj/outfit/job/journalist/hephaestus
 	name = "Corporate Reporter - Hephaestus"
 
 	uniform = /obj/item/clothing/under/librarian/heph
+	id = /obj/item/card/id/hephaestus
+
+	backpack_faction = /obj/item/storage/backpack/heph
+	satchel_faction = /obj/item/storage/backpack/satchel/heph
+	dufflebag_faction = /obj/item/storage/backpack/duffel/heph
+	messengerbag_faction = /obj/item/storage/backpack/messenger/heph
+
+/obj/outfit/job/assistant/hephaestus
+	name = "Assistant - Hephaestus"
+
+	id = /obj/item/card/id/hephaestus
+
+	backpack_faction = /obj/item/storage/backpack/heph
+	satchel_faction = /obj/item/storage/backpack/satchel/heph
+	dufflebag_faction = /obj/item/storage/backpack/duffel/heph
+	messengerbag_faction = /obj/item/storage/backpack/messenger/heph
+
+/obj/outfit/job/assistant/tech_assistant/hephaestus
+	name = "Technical Assistant - Hephaestus"
+
 	id = /obj/item/card/id/hephaestus
 
 	backpack_faction = /obj/item/storage/backpack/heph

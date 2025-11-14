@@ -15,7 +15,7 @@
 		SPECIES_SKRELL_AXIORI = 50
 	)
 
-	access = list(ACCESS_HYDROPONICS, ACCESS_BAR, ACCESS_KITCHEN)
+	access = list(ACCESS_HYDROPONICS, ACCESS_BAR, ACCESS_GALLEY)
 	minimal_access = list(ACCESS_BAR)
 	alt_titles = list("Barista")
 	outfit = /obj/outfit/job/bartender
@@ -62,8 +62,8 @@
 		SPECIES_SKRELL_AXIORI = 50
 	)
 
-	access = list(ACCESS_HYDROPONICS, ACCESS_BAR, ACCESS_KITCHEN)
-	minimal_access = list(ACCESS_KITCHEN)
+	access = list(ACCESS_HYDROPONICS, ACCESS_BAR, ACCESS_GALLEY)
+	minimal_access = list(ACCESS_GALLEY)
 	alt_titles = list("Cook")
 	outfit = /obj/outfit/job/chef
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
@@ -93,7 +93,7 @@
 	messengerbag_faction = /obj/item/storage/backpack/messenger/nt
 
 	backpack_contents = list(
-		/obj/item/storage/box/produce = 1
+		/obj/item/storage/box/large/produce = 1
 	)
 
 /datum/job/hydro
@@ -113,7 +113,7 @@
 		SPECIES_SKRELL_AXIORI = 50
 	)
 
-	access = list(ACCESS_HYDROPONICS, ACCESS_BAR, ACCESS_KITCHEN)
+	access = list(ACCESS_HYDROPONICS, ACCESS_BAR, ACCESS_GALLEY)
 	minimal_access = list(ACCESS_HYDROPONICS)
 	outfit = /obj/outfit/job/hydro
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
@@ -126,7 +126,7 @@
 	uniform = /obj/item/clothing/under/rank/hydroponics
 	head = /obj/item/clothing/head/bandana/hydro/nt
 	shoes = /obj/item/clothing/shoes/sneakers/black
-	suit_store = /obj/item/device/analyzer/plant_analyzer
+	belt = /obj/item/storage/belt/hydro/full
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian
@@ -369,7 +369,6 @@
 	uniform = /obj/item/clothing/under/rank/operations_manager
 	shoes = /obj/item/clothing/shoes/sneakers/brown
 	id = /obj/item/card/id/scc/silver
-	l_hand = /obj/item/clipboard
 	glasses = /obj/item/clothing/glasses/sunglasses
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/supply/om
@@ -394,8 +393,8 @@
 	departments = SIMPLEDEPT(DEPARTMENT_CARGO)
 	department_flag = SERVICE
 	faction = "Station"
-	total_positions = 3
-	spawn_positions = 3
+	total_positions = 4
+	spawn_positions = 4
 	supervisors = "the operations manager"
 	selection_color = "#7B431C"
 
@@ -405,8 +404,12 @@
 		SPECIES_SKRELL_AXIORI = 50
 	)
 
-	access = list(ACCESS_MAINT_TUNNELS, ACCESS_MAILSORTING, ACCESS_CARGO, ACCESS_SHIP_WEAPONS, ACCESS_CARGO_BOT, ACCESS_MINING, ACCESS_MINING_STATION)
-	minimal_access = list(ACCESS_CARGO, ACCESS_CARGO_BOT, ACCESS_SHIP_WEAPONS, ACCESS_MAILSORTING)
+	access = list(
+		ACCESS_MAINT_TUNNELS, ACCESS_MAILSORTING, ACCESS_CARGO, ACCESS_SHIP_WEAPONS, ACCESS_CARGO_BOT, ACCESS_MINING, ACCESS_MINING_STATION
+	)
+	minimal_access = list(
+		ACCESS_CARGO, ACCESS_CARGO_BOT, ACCESS_SHIP_WEAPONS, ACCESS_MAILSORTING
+	)
 	outfit = /obj/outfit/job/hangar_tech
 
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
@@ -447,8 +450,12 @@
 		SPECIES_SKRELL_AXIORI = 50
 	)
 
-	access = list(ACCESS_MAINT_TUNNELS, ACCESS_MAILSORTING, ACCESS_CARGO, ACCESS_CARGO_BOT, ACCESS_MINING, ACCESS_MINING_STATION)
-	minimal_access = list(ACCESS_MINING, ACCESS_MINING_STATION, ACCESS_MAILSORTING)
+	access = list(
+		ACCESS_MAINT_TUNNELS, ACCESS_MAILSORTING, ACCESS_CARGO, ACCESS_CARGO_BOT, ACCESS_MINING, ACCESS_MINING_STATION, ACCESS_SPARK
+	)
+	minimal_access = list(
+		ACCESS_MINING, ACCESS_MINING_STATION, ACCESS_MAILSORTING, ACCESS_SPARK
+	)
 	outfit = /obj/outfit/job/mining
 
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
@@ -500,8 +507,12 @@
 		SPECIES_SKRELL_AXIORI = 55
 	)
 
-	access = list(ACCESS_ROBOTICS, ACCESS_TECH_STORAGE, ACCESS_MAILSORTING)
-	minimal_access = list(ACCESS_ROBOTICS, ACCESS_TECH_STORAGE, ACCESS_MAILSORTING)
+	access = list(
+		ACCESS_ROBOTICS, ACCESS_TECH_STORAGE, ACCESS_MAILSORTING
+	)
+	minimal_access = list(
+		ACCESS_ROBOTICS, ACCESS_TECH_STORAGE, ACCESS_MAILSORTING
+	)
 
 	minimal_player_age = 7
 
@@ -535,6 +546,5 @@
 		/obj/item/weldingtool = 1,
 		/obj/item/crowbar = 1,
 		/obj/item/wirecutters = 1,
-		/obj/item/stack/cable_coil/random = 1,
-		/obj/item/powerdrill = 1
+		/obj/item/stack/cable_coil/random = 1
 	)

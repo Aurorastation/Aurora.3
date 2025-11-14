@@ -32,10 +32,6 @@
 	if(!..())
 		return FALSE
 	var/obj/machinery/door/airlock/A = holder
-	if(!istype(user, /mob/living/silicon))
-		if(A.isElectrified())
-			if(A.shock(user, 100))
-				return FALSE
 	if(!A.p_open)
 		return FALSE
 	return TRUE
@@ -137,7 +133,7 @@
 			A.update_icon()
 
 
-/datum/wires/airlock/on_pulse(wire)
+/datum/wires/airlock/on_pulse(wire, user)
 
 	var/obj/machinery/door/airlock/A = holder
 	switch(wire)
@@ -170,6 +166,8 @@
 
 		if(WIRE_SHOCK)
 			//one wire for electrifying the door. Sending a pulse through this electrifies the door for 30 seconds.
+			if(ismob(user))
+				A.shock(user, 100)
 			A.electrify(30)
 
 		if(WIRE_OPEN)

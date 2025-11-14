@@ -1,11 +1,11 @@
 /* Glass stack types
  * Contains:
- *		Glass sheets
- *		Reinforced glass sheets
- *		Wired glass sheets
- *		Phoron Glass Sheets
- *		Reinforced Phoron Glass Sheets (AKA Holy fuck strong windows)
- *		Glass shards - TODO: Move this into code/game/object/item/weapons
+ * * Glass sheets
+ * * Reinforced glass sheets
+ * * Wired glass sheets
+ * * Phoron Glass Sheets
+ * * Reinforced Phoron Glass Sheets (AKA Holy fuck strong windows)
+ * * Glass shards - TODO: Move this into code/game/object/item/weapons
  */
 
 /*
@@ -14,7 +14,6 @@
 /obj/item/stack/material/glass
 	name = "glass"
 	singular_name = "glass sheet"
-	desc_info = "Use in your hand to build a window.  Can be upgraded to reinforced glass by adding metal rods, which are made from metal sheets."
 	icon_state = "sheet-glass"
 	var/created_window = /obj/structure/window/basic
 	var/is_reinforced = 0
@@ -23,6 +22,14 @@
 	icon_has_variants = TRUE
 	drop_sound = 'sound/items/drop/glass.ogg'
 	pickup_sound = 'sound/items/pickup/glass.ogg'
+
+/obj/item/stack/material/glass/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Left-click this item in-hand to view its crafting menu."
+
+/obj/item/stack/material/glass/assembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Combining this item with metal rods will create reinforced glass."
 
 /obj/item/stack/material/glass/attack_self(mob/user as mob)
 	construct_window(user)
@@ -103,7 +110,6 @@
  */
 /obj/item/stack/material/glass/reinforced
 	name = "reinforced glass"
-	desc_info = "Use in your hand to build a window.  Reinforced glass is much stronger against damage."
 	singular_name = "reinforced glass sheet"
 	icon_state = "sheet-rglass"
 	default_type = "reinforced glass"
@@ -123,6 +129,7 @@
 	created_window = null
 	default_type = "wired glass"
 	construction_options = list()
+	icon_has_variants = FALSE
 
 /obj/item/stack/material/glass/wired/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/stack/material/steel))

@@ -28,7 +28,7 @@
 		"physical_status" = list("Active", "*Deceased*", "*SSD*", "*Missing*", "Physically Unfit", "Disabled"),
 		"criminal_status" = list("None", "*Arrest*", "Search", "Incarcerated", "Parolled", "Released"),
 		"mental_status" = list("Stable", "*Insane*", "*Unstable*", "*Watch*"),
-		"medical" = list("A-", "B-", "AB-", "O-", "A+", "B+", "AB+", "O+", "SBS")
+		"blood_type" = list("A-", "B-", "AB-", "O-", "A+", "B+", "AB+", "O+", "SBS")
 	)
 
 /datum/computer_file/program/records/New()
@@ -92,10 +92,6 @@
 	program_key_icon_state = "lightblue_key"
 	color = LIGHT_COLOR_BLUE
 
-/datum/computer_file/program/records/employment/Destroy()
-	. = ..()
-
-
 /datum/computer_file/program/records/pai
 	available_on_ntnet = 1
 	extended_desc = "This program is used to view crew records."
@@ -122,6 +118,7 @@
 	data["physical_status_options"] = typechoices["physical_status"]
 	data["criminal_status_options"] = typechoices["criminal_status"]
 	data["mental_status_options"] = typechoices["mental_status"]
+	data["blood_type_options"] = typechoices["blood_type"]
 	data["medical_options"] = typechoices["medical"]
 	data["allrecords"] = list()
 	data["allrecords_locked"] = list()
@@ -145,7 +142,7 @@
 				"religion" = R.religion,
 				"employer" = R.employer,
 				"notes" = html_decode(R.notes),
-				"blood" = R.medical ? R.medical.blood_type : null,
+				"blood_type" = R.medical ? R.medical.blood_type : null,
 				"dna" = R.medical ? R.medical.blood_dna : null,
 				"ccia_notes" = R.ccia_record,
 				"ccia_actions" = R.ccia_actions,
@@ -275,6 +272,9 @@
 				return FALSE
 		if("allergies")
 			if(!(edit_type & RECORD_MEDICAL))
+				return FALSE
+		if("blood_type")
+			if(!(edit_type & RECORD_MEDICAL) || (edit_type & RECORD_SECURITY))
 				return FALSE
 		if("blood_dna")
 			if(!(edit_type & RECORD_MEDICAL) || (edit_type & RECORD_SECURITY))

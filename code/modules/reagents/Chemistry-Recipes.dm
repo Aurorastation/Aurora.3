@@ -1270,6 +1270,7 @@
 		/mob/living/simple_animal/hostile/gift,
 		/mob/living/simple_animal/hostile/hivebotbeacon,
 		/mob/living/simple_animal/hostile/hivebotbeacon/incendiary,
+		/mob/living/simple_animal/hostile/hivebotbeacon/weakened,
 		/mob/living/simple_animal/hostile/republicon,
 		/mob/living/simple_animal/hostile/republicon/ranged,
 		/mob/living/simple_animal/hostile/giant_spider/nurse/spider_queen,
@@ -1851,6 +1852,13 @@
 	required_reagents = list(/singleton/reagent/drink/garlicjuice = 1, /singleton/reagent/nutriment/triglyceride/oil/corn = 1)
 	result_amount = 2
 
+/datum/chemical_reaction/sweet_chili
+	name = "Sweet Chili Sauce"
+	id = "sweet_chili"
+	result = /singleton/reagent/nutriment/sweet_chili
+	required_reagents = list(/singleton/reagent/sugar = 1, /singleton/reagent/capsaicin = 1)
+	result_amount = 2
+
 /datum/chemical_reaction/peanutbutter // Yes, this doesn't make sense. No, I don't know how to do this better
 	name = "Peanut Butter"
 	id = "peanutbutter"
@@ -1987,6 +1995,14 @@
 	for(var/i = 1, i <= created_volume, i++)
 		new /obj/item/reagent_containers/food/snacks/spreads/butter(location)
 	return
+
+/datum/chemical_reaction/cream_cheese
+	name = "Cream Cheese"
+	id = "creamcheese"
+	result = /singleton/reagent/nutriment/protein/cream_cheese
+	required_reagents = list(/singleton/reagent/drink/milk = 5, /singleton/reagent/drink/milk/cream = 5)
+	catalysts = list(/singleton/reagent/enzyme = 5)
+	result_amount = 10
 
 /*
 	Todo in future:
@@ -2167,6 +2183,21 @@
 	required_reagents = list(/singleton/reagent/toxin/poisonberryjuice = 10)
 	catalysts = list(/singleton/reagent/enzyme = 5)
 	result_amount = 10
+
+/datum/chemical_reaction/limoncello
+	name = "Limoncello"
+	id = "limoncello"
+	result = /singleton/reagent/alcohol/limoncello
+	required_reagents = list(/singleton/reagent/drink/lemonjuice = 1, /singleton/reagent/condiment/syrup_simple = 1)
+	catalysts = list(/singleton/reagent/enzyme = 5)
+	result_amount = 2
+
+/datum/chemical_reaction/bon_bon
+	name = "Bon Bon"
+	id = "bonbon"
+	result = /singleton/reagent/alcohol/bon_bon
+	required_reagents = list(/singleton/reagent/alcohol/limoncello = 1, /singleton/reagent/drink/lemonjuice = 1, /singleton/reagent/condiment/syrup_vanilla = 1, /singleton/reagent/alcohol/vodka = 3)
+	result_amount = 6
 
 /datum/chemical_reaction/melonliquor
 	name = "Melon Liquor"
@@ -2800,7 +2831,6 @@
 	required_reagents = list(/singleton/reagent/drink/lemonade = 8, /singleton/reagent/drink/grenadine = 2)
 	result_amount = 10
 
-
 /datum/chemical_reaction/drink/kiraspecial
 	name = "Kira Special"
 	id = "kiraspecial"
@@ -3175,13 +3205,6 @@
 	required_reagents = list(/singleton/reagent/drink/milk = 1, /singleton/reagent/nutriment/choconutspread = 1, /singleton/reagent/drink/milk/cream = 1)
 	result_amount = 3
 
-/datum/chemical_reaction/drink/drink/mimosa
-	name = "Mimosa"
-	id = "mimosa"
-	result = /singleton/reagent/alcohol/mimosa
-	required_reagents = list(/singleton/reagent/alcohol/champagne = 1, /singleton/reagent/drink/orangejuice = 1)
-	result_amount = 2
-
 /datum/chemical_reaction/drink/lights_edge
 	name = "Light's Edge"
 	id = "lights_edge"
@@ -3411,10 +3434,10 @@
 	required_reagents = list(/singleton/reagent/drink/milk/cream = 1, /singleton/reagent/nutriment/protein = 1,/singleton/reagent/water = 1)
 	result_amount = 3
 
-/datum/chemical_reaction/drink/crocodile_booze
-	name = "Crocodile Guwan"
-	id = "crocodile_booze"
-	result = /singleton/reagent/alcohol/butanol/crocodile_booze
+/datum/chemical_reaction/drink/eszkazalsbite
+	name = "Eszkazal's Bite"
+	id = "eszkazalsbite"
+	result = /singleton/reagent/alcohol/butanol/eszkazalsbite
 	required_reagents = list(/singleton/reagent/alcohol/butanol/sarezhiwine = 5, /singleton/reagent/toxin = 1)
 	result_amount = 6
 
@@ -3446,62 +3469,62 @@
 	required_reagents = list(/singleton/reagent/drink/milk/adhomai/fermented = 1, /singleton/reagent/alcohol/victorygin = 1)
 	result_amount = 2
 
-//Kaed's Unathi cocktails
+//Unathi cocktails
 //========
 
-/datum/chemical_reaction/drink/moghesmargarita
-	name = "Moghes Margarita"
-	id = "moghesmargarita"
-	result = /singleton/reagent/alcohol/butanol/moghesmargarita
+/datum/chemical_reaction/drink/healerspride
+	name = "Healer's Pride"
+	id = "healerspride"
+	result = /singleton/reagent/alcohol/butanol/healerspride
 	required_reagents = list(/singleton/reagent/alcohol/butanol/xuizijuice = 2, /singleton/reagent/drink/limejuice = 3)
 	result_amount = 5
 
-/datum/chemical_reaction/drink/bahamalizard
-	name = "Bahama Lizard"
-	id = "bahamalizard"
-	result = /singleton/reagent/alcohol/butanol/bahamalizard
+/datum/chemical_reaction/drink/forestsbounty
+	name = "Forest's Bounty"
+	id = "forestsbounty"
+	result = /singleton/reagent/alcohol/butanol/forestsbounty
 	required_reagents = list(/singleton/reagent/alcohol/butanol/xuizijuice = 2, /singleton/reagent/drink/lemonjuice = 2, /singleton/reagent/drink/milk/cream = 1, /singleton/reagent/drink/ice = 1)
 	result_amount = 6
 
-/datum/chemical_reaction/drink/cactuscreme
-	name = "Cactus Creme"
-	id = "cactuscreme"
-	result = /singleton/reagent/alcohol/butanol/cactuscreme
+/datum/chemical_reaction/drink/palacedelight
+	name = "Palace Delight"
+	id = "palacedelight"
+	result = /singleton/reagent/alcohol/butanol/palacedelight
 	required_reagents = list(/singleton/reagent/drink/berryjuice = 2, /singleton/reagent/drink/milk/cream = 1, /singleton/reagent/alcohol/butanol/xuizijuice = 2)
 	result_amount = 5
 
-/datum/chemical_reaction/drink/lizardplegm
-	name = "Lizard Phlegm"
-	id = "lizardphlegm"
-	result = /singleton/reagent/alcohol/butanol/lizardphlegm
+/datum/chemical_reaction/drink/senssecret
+	name = "Sens Secret"
+	id = "senssecret"
+	result = /singleton/reagent/alcohol/butanol/senssecret
 	required_reagents = list(/singleton/reagent/drink/milk/cream = 2, /singleton/reagent/drink/banana = 1, /singleton/reagent/alcohol/butanol/xuizijuice = 1, /singleton/reagent/drink/watermelonjuice = 1)
 	result_amount = 5
 
-/datum/chemical_reaction/drink/cactustea
-	name = "Cactus Tea"
-	id = "cactustea"
-	result = /singleton/reagent/alcohol/butanol/cactustea
+/datum/chemical_reaction/drink/fishersreward
+	name = "Fisher's Reward"
+	id = "fishersreward"
+	result = /singleton/reagent/alcohol/butanol/fishersreward
 	required_reagents = list(/singleton/reagent/drink/icetea = 1, /singleton/reagent/alcohol/butanol/xuizijuice = 1)
 	result_amount = 2
 
-/datum/chemical_reaction/drink/moghespolitan
-	name = "Moghespolitan"
-	id = "moghespolitan"
-	result = /singleton/reagent/alcohol/butanol/moghespolitan
+/datum/chemical_reaction/drink/queensgift
+	name = "Queen's Gift"
+	id = "queensgift"
+	result = /singleton/reagent/alcohol/butanol/queensgift
 	required_reagents = list(/singleton/reagent/alcohol/butanol/sarezhiwine = 2, /singleton/reagent/alcohol/butanol/xuizijuice = 1, /singleton/reagent/drink/grenadine = 5)
 	result_amount = 5
 
-/datum/chemical_reaction/drink/wastelandheat
-	name = "Wasteland Heat"
-	id = "wastelandheat"
-	result = /singleton/reagent/alcohol/butanol/wastelandheat
+/datum/chemical_reaction/drink/janviriheat
+	name = "Janviri Heat"
+	id = "janviriheat"
+	result = /singleton/reagent/alcohol/butanol/janviriheat
 	required_reagents = list(/singleton/reagent/alcohol/butanol/xuizijuice = 10, /singleton/reagent/capsaicin = 3)
 	result_amount = 10
 
-/datum/chemical_reaction/drink/sandgria
-	name = "Sandgria"
-	id = "sandgria"
-	result = /singleton/reagent/alcohol/butanol/sandgria
+/datum/chemical_reaction/drink/tasteofvictory
+	name = "tasteofvictory"
+	id = "tasteofvictory"
+	result = /singleton/reagent/alcohol/butanol/tasteofvictory
 	required_reagents = list(/singleton/reagent/alcohol/butanol/sarezhiwine = 3, /singleton/reagent/drink/orangejuice = 1, /singleton/reagent/drink/lemonjuice = 1, /singleton/reagent/alcohol/butanol/xuizijuice = 1)
 	result_amount = 6
 
@@ -3512,17 +3535,17 @@
 	required_reagents = list(/singleton/reagent/alcohol/butanol/xuizijuice = 5, /singleton/reagent/radium = 1, /singleton/reagent/alcohol/butanol/sarezhiwine = 5)
 	result_amount = 10
 
-/datum/chemical_reaction/drink/hereticblood
-	name = "Heretics' Blood"
-	id = "hereticblood"
-	result = /singleton/reagent/alcohol/butanol/hereticblood
+/datum/chemical_reaction/drink/smokescalesblood
+	name = "Smokescale's Blood"
+	id = "smokescalesblood"
+	result = /singleton/reagent/alcohol/butanol/smokescalesblood
 	required_reagents = list(/singleton/reagent/alcohol/butanol/xuizijuice = 3, /singleton/reagent/drink/spacemountainwind = 1, /singleton/reagent/blood = 1, /singleton/reagent/drink/dr_gibb = 1)
 	result_amount = 6
 
-/datum/chemical_reaction/drink/sandpit
-	name = "Sandpit"
-	id = "sandpit"
-	result = /singleton/reagent/alcohol/butanol/sandpit
+/datum/chemical_reaction/drink/templetreasure
+	name = "Temple Treasure"
+	id = "templetreasure"
+	result = /singleton/reagent/alcohol/butanol/templetreasure
 	required_reagents = list(/singleton/reagent/alcohol/butanol/xuizijuice = 2, /singleton/reagent/drink/orangejuice = 2)
 	result_amount = 4
 
@@ -3540,6 +3563,26 @@
 	required_reagents = list(/singleton/reagent/blood = 2, /singleton/reagent/alcohol/butanol/sarezhiwine = 3)
 	result_amount = 5
 
+/datum/chemical_reaction/drink/balefire
+	name = "Balefire"
+	id = "balefire"
+	result = /singleton/reagent/alcohol/butanol/balefire
+	required_reagents = list(/singleton/reagent/alcohol/butanol/redstaff = 1, /singleton/reagent/drink/mintsyrup = 4, /singleton/reagent/drink/ice = 1)
+	result_amount = 5
+
+/datum/chemical_reaction/drink/liarshandshake
+	name = "Liar's Handshake"
+	id = "liarshandshake"
+	result = /singleton/reagent/alcohol/butanol/liarshandshake
+	required_reagents = list(/singleton/reagent/alcohol/butanol/redstaff = 5, /singleton/reagent/gunpowder = 1)
+	result_amount = 5
+
+/datum/chemical_reaction/drink/sarikshand
+	name = "Sarik's Hand"
+	id = "sarikshand"
+	result = /singleton/reagent/alcohol/butanol/sarikshand
+	required_reagents = list(/singleton/reagent/alcohol/butanol/sarezhiwine = 1, /singleton/reagent/drink/cranberryjuice = 1, /singleton/reagent/alcohol/butanol/redstaff = 1)
+	result_amount = 3
 //Skrell drinks. Bring forth the culture.
 //===========================================
 
@@ -4478,6 +4521,13 @@
 	required_reagents = list(/singleton/reagent/alcohol/threefold = 1, /singleton/reagent/alcohol/godhead = 1, /singleton/reagent/water/holywater = 1)
 	result_amount = 3
 
+/datum/chemical_reaction/drink/witchspirit
+	name = "witch-spirit"
+	id = "witchspirit"
+	result = /singleton/reagent/alcohol/witchspirit
+	required_reagents = list(/singleton/reagent/alcohol/wine/algae = 1, /singleton/reagent/alcohol/gin = 1, /singleton/reagent/alcohol/limoncello = 1, /singleton/reagent/alcohol/melonliquor = 1)
+	result_amount = 4
+
 //boba drinks
 
 /datum/chemical_reaction/drink/boba_tea
@@ -4528,3 +4578,25 @@
 	result = /singleton/reagent/drink/lovebug_boba
 	required_reagents = list(/singleton/reagent/drink/icetea = 3, /singleton/reagent/nutriment/cherryjelly = 1, /singleton/reagent/drink/strawberryjuice = 1, /singleton/reagent/drink/boba = 1)
 	result_amount = 6
+
+/datum/chemical_reaction/drink/dyn_boba
+	name = "dyn boba"
+	id = "boba_dyn"
+	result = /singleton/reagent/drink/dyn_boba
+	required_reagents = list(/singleton/reagent/drink/dynjuice/cold = 5, /singleton/reagent/drink/boba = 1)
+	result_amount = 6
+
+// Other
+/datum/chemical_reaction/gravy
+	name = "gravy"
+	id = "gravy"
+	result = /singleton/reagent/condiment/gravy
+	required_reagents = list(/singleton/reagent/nutriment/triglyceride = 2, /singleton/reagent/water = 5, /singleton/reagent/sodiumchloride = 1, /singleton/reagent/blackpepper = 1, /singleton/reagent/nutriment/flour = 5)
+	result_amount = 10
+
+/datum/chemical_reaction/drink/chocolate_soda
+	name = "Chocolate Soda"
+	id = "chocolate_soda"
+	result = /singleton/reagent/drink/chocolate_soda
+	required_reagents = list(/singleton/reagent/nutriment/coco = 1, /singleton/reagent/drink/space_cola = 1, /singleton/reagent/drink/sodawater = 3)
+	result_amount = 5

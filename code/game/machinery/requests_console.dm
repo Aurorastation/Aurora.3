@@ -46,10 +46,10 @@ pixel_x = 12;
 ///Forms database
 #define RCS_FORMS	 9
 
-var/req_console_assistance = list()
-var/req_console_supplies = list()
-var/req_console_information = list()
-var/list/obj/machinery/requests_console/allConsoles = list()
+GLOBAL_LIST_INIT(req_console_assistance, list())
+GLOBAL_LIST_INIT(req_console_supplies, list())
+GLOBAL_LIST_INIT(req_console_information, list())
+GLOBAL_LIST_INIT_TYPED(allConsoles, /obj/machinery/requests_console, list())
 
 /obj/machinery/requests_console
 	name = "requests console"
@@ -63,7 +63,6 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 		)
 	anchored = TRUE
 	appearance_flags = TILE_BOUND // prevents people from viewing the overlay through a wall
-	z_flags = ZMM_MANGLE_PLANES
 
 	///The list of all departments on the station (Determined from this variable on each unit) Set this to the same thing if you want several consoles in one department
 	var/department = "Unknown"
@@ -162,16 +161,16 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 		switch(newmessagepriority)
 			if(0)
 				screen = overlay_image(icon, "req_comp-idle")
-				set_light(1.4, 1.3, COLOR_CYAN)
+				set_light(L_WALLMOUNT_RANGE, L_WALLMOUNT_POWER, COLOR_CYAN)
 			if(1)
 				screen = overlay_image(icon, "req_comp-alert")
-				set_light(1.4, 1.3, COLOR_CYAN)
+				set_light(L_WALLMOUNT_RANGE, L_WALLMOUNT_POWER, COLOR_CYAN)
 			if(2)
 				screen = overlay_image(icon, "req_comp-redalert")
-				set_light(1.4, 1.3, COLOR_ORANGE)
+				set_light(L_WALLMOUNT_RANGE,L_WALLMOUNT_POWER, COLOR_ORANGE)
 			if(3)
 				screen = overlay_image(icon, "req_comp-yellowalert")
-				set_light(1.4, 1.3, COLOR_ORANGE)
+				set_light(L_WALLMOUNT_RANGE, L_WALLMOUNT_POWER, COLOR_ORANGE)
 		AddOverlays(screen_hologram)
 		AddOverlays(screen)
 		AddOverlays(screen_emis)
@@ -180,6 +179,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 /obj/machinery/requests_console/Initialize(mapload, var/dir, var/building = 0)
 	. = ..()
 
+	desc = "A console intended to send requests to different departments on the [station_name(TRUE)]."
 	if(building)
 		if(dir)
 			src.set_dir(dir)
@@ -199,13 +199,13 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	announcement.newscast = 1
 
 	name = "[department] requests console"
-	allConsoles += src
+	GLOB.allConsoles += src
 	if (departmentType & RC_ASSIST)
-		req_console_assistance |= department
+		GLOB.req_console_assistance |= department
 	if (departmentType & RC_SUPPLY)
-		req_console_supplies |= department
+		GLOB.req_console_supplies |= department
 	if (departmentType & RC_INFO)
-		req_console_information |= department
+		GLOB.req_console_information |= department
 	update_icon()
 
 	if(!mapload)
@@ -216,19 +216,19 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	pixel_y = DIR2PIXEL_Y(dir)
 
 /obj/machinery/requests_console/Destroy()
-	allConsoles -= src
+	GLOB.allConsoles -= src
 	var/lastDeptRC = 1
-	for (var/obj/machinery/requests_console/Console in allConsoles)
+	for (var/obj/machinery/requests_console/Console in GLOB.allConsoles)
 		if (Console.department == department)
 			lastDeptRC = 0
 			break
 	if(lastDeptRC)
 		if (departmentType & RC_ASSIST)
-			req_console_assistance -= department
+			GLOB.req_console_assistance -= department
 		if (departmentType & RC_SUPPLY)
-			req_console_supplies -= department
+			GLOB.req_console_supplies -= department
 		if (departmentType & RC_INFO)
-			req_console_information -= department
+			GLOB.req_console_information -= department
 
 		alert_pdas.Cut()
 	return ..()
@@ -248,9 +248,9 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	data["silent"] = silent
 	data["announcementConsole"] = announcementConsole
 
-	data["assist_dept"] = req_console_assistance
-	data["supply_dept"] = req_console_supplies
-	data["info_dept"]   = req_console_information
+	data["assist_dept"] = GLOB.req_console_assistance
+	data["supply_dept"] = GLOB.req_console_supplies
+	data["info_dept"]   = GLOB.req_console_information
 
 	data["message"] = message
 	data["recipient"] = recipient
@@ -346,7 +346,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 		if(tempScreen == RCS_ANNOUNCE && !announcementConsole)
 			return
 		if(tempScreen == RCS_VIEWMSGS)
-			for (var/obj/machinery/requests_console/Console in allConsoles)
+			for (var/obj/machinery/requests_console/Console in GLOB.allConsoles)
 				if (Console.department == department)
 					Console.newmessagepriority = 0
 					Console.icon_state = "req_comp0"
@@ -437,7 +437,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			dat += "<b>[department] Department</b><hr>"
 			dat += "[info]"
 		dat += "</center>"
-		usr << browse(dat, "window=Information;size=560x240")
+		usr << browse(HTML_SKELETON(dat), "window=Information;size=560x240")
 
 	// Toggle the paper bin lid.
 	if(href_list["setLid"])
@@ -507,7 +507,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	return FALSE
 
 /obj/machinery/requests_console/proc/fax_send(var/obj/item/O, var/mob/user)
-	var/sendto = tgui_input_list(user, "Select department.", "Send Fax", allConsoles)
+	var/sendto = tgui_input_list(user, "Select department.", "Send Fax", GLOB.allConsoles)
 	if(!sendto)
 		return
 	if(use_check_and_message(user))
@@ -516,7 +516,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 		var/msg = "NOTICE: No server detected!"
 		audible_message("<b>The Requests Console</b> beeps, [SPAN_WARNING(msg)]")
 		return
-	for(var/cc in allConsoles)
+	for(var/cc in GLOB.allConsoles)
 		var/obj/machinery/requests_console/Console = cc
 		if(Console == sendto)
 			var/paperstock_usage = 1

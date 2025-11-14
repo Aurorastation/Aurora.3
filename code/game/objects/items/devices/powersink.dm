@@ -3,6 +3,7 @@
 /obj/item/device/powersink
 	name = "power sink"
 	desc = "A nulling power sink which drains energy from electrical systems."
+	icon = 'icons/obj/item/device/powersink.dmi'
 	icon_state = "powersink0"
 	item_state = "powersink0"
 	w_class = WEIGHT_CLASS_BULKY
@@ -35,6 +36,10 @@
 
 	var/datum/powernet/PN			// Our powernet
 	var/obj/structure/cable/attached		// the attached cable
+
+/obj/item/device/powersink/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Dead APCs means their emergency shutters won't automatically close pressure loss. You could rapidly vent an entire department this way."
 
 /obj/item/device/powersink/Destroy()
 	PN = null
@@ -75,17 +80,28 @@
 	return
 
 /obj/item/device/powersink/attack_hand(var/mob/user)
+	if(!mode)
+		..()
+	else
+		toggle_mode(user)
+
+/// Used to be handled in attack_hand(), but moved to its own proc to handle future signaler usage.
+/obj/item/device/powersink/proc/toggle_mode(var/mob/user)
 	switch(mode)
-		if(0)
-			..()
 		if(1)
-			visible_message(SPAN_NOTICE("\The [user] activates \the [src]!"))
+			if(user)
+				visible_message(SPAN_NOTICE("\The [user] activates \the [src]!"))
+			else
+				visible_message(SPAN_NOTICE("\The [src] suddenly starts to hum!"))
 			mode = 2
 			icon_state = "powersink1"
 			item_state = "powersink1"
 			START_PROCESSING(SSprocessing, src)
-		if(2)  //This switch option wasn't originally included. It exists now. --NeoFite
-			visible_message(SPAN_NOTICE("\The [user] deactivates \the [src]!"))
+		if(2)
+			if(user)
+				visible_message(SPAN_NOTICE("\The [user] deactivates \the [src]!"))
+			else
+				visible_message(SPAN_NOTICE("\The [src] suddenly goes quiet!"))
 			mode = 1
 			set_light(0)
 			icon_state = "powersink0"
@@ -105,7 +121,6 @@
 	if(!PN)
 		return 1
 
-	set_light(12)
 	PN.trigger_warning()
 	// found a powernet, so drain up to max power from it
 	drained = PN.draw_power(drain_rate * seconds_per_tick)
@@ -125,7 +140,6 @@
 					drained += drain_val
 	power_drained += drained
 	return 1
-
 
 /obj/item/device/powersink/process(seconds_per_tick)
 	drained_this_tick = 0
@@ -179,7 +193,7 @@
 				if (dist > 1)
 					AP.overload_lighting(100, TRUE)
 				else
-					AP.flicker_all()
+					AP.flicker_lights()
 			else if (T.master)
 				T.master.emp_act(EMP_LIGHT)
 

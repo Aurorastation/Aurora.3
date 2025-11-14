@@ -1,11 +1,11 @@
 /*
  * Holds procs designed to change one type of value, into another.
  * Contains:
- *			text2list & list2text
- *			file2list
- *			angle2dir
- *			angle2text
- *			worldtime2text
+ * * text2list & list2text
+ * * file2list
+ * * angle2dir
+ * * angle2text
+ * * worldtime2text
  */
 
 // Splits the text of a file at seperator and returns them in a list.
@@ -135,22 +135,22 @@
 
 // Converts a rights bitfield into a string
 /proc/rights2text(rights,seperator="")
-	if (rights & R_BUILDMODE)   . += "[seperator]+BUILDMODE"
-	if (rights & R_ADMIN)       . += "[seperator]+ADMIN"
-	if (rights & R_BAN)         . += "[seperator]+BAN"
-	if (rights & R_FUN)         . += "[seperator]+FUN"
-	if (rights & R_SERVER)      . += "[seperator]+SERVER"
-	if (rights & R_DEBUG)       . += "[seperator]+DEBUG"
-	if (rights & R_POSSESS)     . += "[seperator]+POSSESS"
-	if (rights & R_PERMISSIONS) . += "[seperator]+PERMISSIONS"
-	if (rights & R_STEALTH)     . += "[seperator]+STEALTH"
-	if (rights & R_REJUVINATE)  . += "[seperator]+REJUVINATE"
-	if (rights & R_VAREDIT)     . += "[seperator]+VAREDIT"
-	if (rights & R_SOUNDS)      . += "[seperator]+SOUND"
-	if (rights & R_SPAWN)       . += "[seperator]+SPAWN"
-	if (rights & R_MOD)         . += "[seperator]+MODERATOR"
-	if (rights & R_DEV)			. += "[seperator]+DEVELOPER"
-	if (rights & R_CCIAA)		. += "[seperator]+CCIAA"
+	if (rights & R_BUILDMODE)       . += "[seperator]+BUILDMODE"
+	if (rights & R_ADMIN)           . += "[seperator]+ADMIN"
+	if (rights & R_BAN)             . += "[seperator]+BAN"
+	if (rights & R_FUN)             . += "[seperator]+FUN"
+	if (rights & R_SERVER)          . += "[seperator]+SERVER"
+	if (rights & R_DEBUG)           . += "[seperator]+DEBUG"
+	if (rights & R_POSSESS)         . += "[seperator]+POSSESS"
+	if (rights & R_PERMISSIONS)     . += "[seperator]+PERMISSIONS"
+	if (rights & R_STEALTH)         . += "[seperator]+STEALTH"
+	if (rights & R_REJUVENATE)      . += "[seperator]+REJUVENATE"
+	if (rights & R_VAREDIT)         . += "[seperator]+VAREDIT"
+	if (rights & R_SOUNDS)		    . += "[seperator]+SOUND"
+	if (rights & R_SPAWN)           . += "[seperator]+SPAWN"
+	if (rights & R_MOD)             . += "[seperator]+MODERATOR"
+	if (rights & R_DEV)		    	. += "[seperator]+DEVELOPER"
+	if (rights & R_CCIAA)	    	. += "[seperator]+CCIAA"
 	return .
 
 // heat2color functions. Adapted from: http://www.tannerhelland.com/4435/convert-temperature-rgb-algorithm-code/

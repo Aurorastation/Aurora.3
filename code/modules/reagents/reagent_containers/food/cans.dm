@@ -19,10 +19,13 @@
 	icon = 'icons/obj/item/reagent_containers/food/drinks/soda.dmi'
 	drop_sound = 'sound/items/drop/soda.ogg'
 	pickup_sound = 'sound/items/pickup/soda.ogg'
-	desc_info = "Click it in your hand to open it.\
-					If it's carbonated and closed, you can shake it by clicking on it with harm intent. \
-					If it's empty, you can crush it on your forehead by selecting your head and clicking on yourself with harm intent. \
-					You can also crush cans on other people's foreheads as well."
+
+/obj/item/reagent_containers/food/drinks/cans/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Click it in your hand to open it."
+	. += "If it's carbonated and closed, you can shake it by clicking on it with harm intent."
+	. += "If it's empty, you can crush it on your forehead by selecting your head and clicking on yourself with harm intent."
+	. += "You can also crush cans on other people's foreheads as well."
 
 /obj/item/reagent_containers/food/drinks/cans/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if(iscarbon(target_mob) && !reagents.total_volume && user.a_intent == I_HURT && target_zone == BP_HEAD)
@@ -149,7 +152,7 @@
 		update_icon()
 		set_light(2, 2, LIGHT_COLOR_LAVA)
 		if(REAGENT_VOLUME(reagents, /singleton/reagent/fuel) >= LETHAL_FUEL_CAPACITY && user)
-			msg_admin_attack("[user] ([user.ckey]) lit the fuse on an improvised [name] grenade. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user))
+			msg_admin_attack("[user] ([user.ckey]) lit the fuse on an improvised [name] grenade. (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user))
 			if(fuselength >= FUSELENGTH_MIN && fuselength <= FUSELENGTH_SHORT)
 				user.visible_message(SPAN_DANGER("<b>[user]</b> accidentally takes \the [W] too close to \the [name]'s opening!"))
 				detonate(TRUE) // it'd be a bit dull if the toy-levels of fuel had a chance to insta-pop, it's mostly just a way to keep the grenade balance in check

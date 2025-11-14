@@ -1,13 +1,7 @@
 /obj/machinery/bodyscanner
 	name = "body scanner"
 	desc = "A state-of-the-art medical diagnostics machine. Guaranteed detection of all your bodily ailments or your money back!"
-	desc_info = "The advanced scanner detects and reports internal injuries such as bone fractures, internal bleeding, and organ damage. \
-	This is useful if you are about to perform surgery.<br>\
-	<br>\
-	Click your target with Grab intent, then click on the scanner to place them in it. Click the connected terminal to operate. \
-	Right-click the scanner and click 'Eject Occupant' to remove them.  You can enter the scanner yourself in a similar way, using the 'Enter Body Scanner' \
-	verb."
-	icon = 'icons/obj/sleeper.dmi'
+	icon = 'icons/obj/machinery/bodyscanner.dmi'
 	icon_state = "body_scanner"
 	density = TRUE
 	anchored = TRUE
@@ -44,6 +38,14 @@
 		SPECIES_MONKEY
 	)
 
+/obj/machinery/bodyscanner/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if (anchored)
+		. += "The advanced scanner detects and reports internal injuries such as bone fractures, internal bleeding, and organ damage. This is useful if you are about to perform surgery."
+		. += "Click your target with Grab intent, then click on the scanner to place them in it. Click the connected terminal to operate."
+		. += "Right-click the scanner and click 'Eject Occupant' to remove them."
+		. += "You can enter the scanner yourself in a similar way using the 'Enter Body Scanner' verb, or by clicking and dragging yourself onto the scanner with any intent."
+
 /obj/machinery/bodyscanner/Initialize()
 	. = ..()
 	for(var/obj/machinery/body_scanconsole/C in orange(1,src))
@@ -56,12 +58,15 @@
 /obj/machinery/bodyscanner/Destroy()
 	// So the GC can qdel this.
 	if (connected)
-		connected.connected = null
+		connected.unlink_scanner()
 		connected = null
 	occupant = null
 	return ..()
 
 /obj/machinery/bodyscanner/update_icon()
+	ClearOverlays()
+	if(panel_open)
+		AddOverlays("[icon_state]-panel")
 	flick("[initial(icon_state)]-anim", src)
 	if(occupant)
 		name = "[name] ([occupant])"
@@ -168,18 +173,18 @@
 	qdel(G)
 	return TRUE
 
-/obj/machinery/bodyscanner/MouseDrop_T(atom/dropping, mob/user)
+/obj/machinery/bodyscanner/mouse_drop_receive(atom/dropped, mob/user, params)
 	if(!istype(user))
 		return
 
-	if(!ismob(dropping))
+	if(!ismob(dropped))
 		return
 
 	if (occupant)
 		to_chat(user, SPAN_NOTICE("<B>The scanner is already occupied!</B>"))
 		return
 
-	var/mob/living/L = dropping
+	var/mob/living/L = dropped
 	var/bucklestatus = L.bucklecheck(user)
 	if (!bucklestatus)
 		return
@@ -247,8 +252,8 @@
 	name = "body scanner console"
 	var/tgui_name = "Zeng-Hu Pharmaceuticals Body Scanner"
 	desc = "An advanced control panel that can be used to interface with a connected body scanner."
-	icon = 'icons/obj/sleeper.dmi'
-	icon_state = "body_scannerconsole"
+	icon = 'icons/obj/machinery/bodyscanner.dmi'
+	icon_state = "body_scanner_console"
 	var/obj/machinery/bodyscanner/connected
 	var/collapse_desc = ""
 	var/broken_desc = ""
@@ -256,13 +261,11 @@
 	var/has_external_injuries = FALSE
 	density = FALSE
 	anchored = TRUE
-	z_flags = ZMM_MANGLE_PLANES
 	component_types = list(
 			/obj/item/circuitboard/bodyscannerconsole,
 			/obj/item/stock_parts/scanning_module = 2,
 			/obj/item/stock_parts/console_screen
 		)
-	var/global/image/console_overlay
 	var/list/connected_displays = list()
 	var/list/data = list()
 	var/scan_data
@@ -285,23 +288,36 @@
 
 /obj/machinery/body_scanconsole/update_icon()
 	ClearOverlays()
+	if(panel_open)
+		AddOverlays("[icon_state]_panel")
 	if((stat & BROKEN) || (stat & NOPOWER))
 		return
-	else
-		if(!console_overlay)
-			console_overlay = image(icon, "body_scannerconsole-screen")
-		var/emissive_overlay = emissive_appearance(icon, "body_scannerconsole-screen")
-		AddOverlays(console_overlay)
-		AddOverlays(emissive_overlay)
-		set_light(1.4, 1, COLOR_PURPLE)
+	if(connected)
+		if(connected.stat & BROKEN || connected.stat & NOPOWER)
+			return
+		AddOverlays(emissive_appearance(icon, "[icon_state]_lights"))
+		AddOverlays("[icon_state]_lights")
 
 /obj/machinery/body_scanconsole/Initialize()
 	. = ..()
+	FindScanner()
+	update_icon()
+
+/obj/machinery/body_scanconsole/proc/FindScanner()
 	for(var/obj/machinery/bodyscanner/C in orange(1,src))
 		connected = C
+		RegisterSignal(connected, COMSIG_QDELETING, PROC_REF(on_linked_scanner_deletion))
 		break
 	if(connected)
 		connected.connected = src
+
+/obj/machinery/body_scanconsole/proc/on_linked_scanner_deletion()
+	SIGNAL_HANDLER
+	unlink_scanner()
+
+/obj/machinery/body_scanconsole/proc/unlink_scanner()
+	connected = null
+	UnregisterSignal(connected, COMSIG_QDELETING)
 	update_icon()
 
 /obj/machinery/body_scanconsole/attack_ai(var/mob/user)

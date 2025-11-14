@@ -436,7 +436,7 @@ This function restores all organs.
 	if(zone_to_get in organs_by_name)
 		return organs_by_name[zone_to_get]
 
-/mob/living/carbon/human/apply_damage(damage = 0, damagetype = DAMAGE_BRUTE, def_zone, blocked, used_weapon, damage_flags = 0, armor_pen, silent = FALSE)
+/mob/living/carbon/human/apply_damage(damage = 0, damagetype = DAMAGE_BRUTE, def_zone, used_weapon, damage_flags = 0, armor_pen, silent = FALSE)
 	if (invisibility == INVISIBILITY_LEVEL_TWO && back && (istype(back, /obj/item/rig)))
 		if(damage > 0)
 			to_chat(src, SPAN_DANGER("You are now visible."))
@@ -449,10 +449,10 @@ This function restores all organs.
 				var/old_damage = damage
 				var/tally
 				silent = TRUE // Will damage a lot of organs, probably, so avoid spam.
-				for(var/zone in organ_rel_size)
-					tally += organ_rel_size[zone]
-				for(var/zone in organ_rel_size)
-					damage = old_damage * organ_rel_size[zone]/tally
+				for(var/zone in GLOB.organ_rel_size)
+					tally += GLOB.organ_rel_size[zone]
+				for(var/zone in GLOB.organ_rel_size)
+					damage = old_damage * GLOB.organ_rel_size[zone]/tally
 					def_zone = zone
 					. = .() || .
 				return

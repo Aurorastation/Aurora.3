@@ -1,8 +1,6 @@
 /obj/vehicle/animal
 	name = "animal"
 	desc = "Base type of rideable animals - you shouldn't be seeing this!"
-	desc_info = "Click-drag yourself onto the animal to climb onto it.<br>\
-		- Click-drag it onto yourself to access its mounted storage.<br>"
 	load_item_visible = 1
 	mob_offset_y = 5
 	health = 100
@@ -32,10 +30,19 @@
 	organic = TRUE
 	on = TRUE
 	var/list/armor_values = list( //some default values that seem about right for an average animal
-		melee = ARMOR_MELEE_MEDIUM,
-		bullet = ARMOR_BALLISTIC_MINOR,
-		bomb = ARMOR_BOMB_MINOR
+		MELEE = ARMOR_MELEE_MEDIUM,
+		BULLET = ARMOR_BALLISTIC_MINOR,
+		BOMB = ARMOR_BOMB_MINOR
 	)
+
+/obj/vehicle/animal/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Click-drag yourself onto the animal to climb onto it."
+	. += "Click-drag it onto yourself to access its mounted storage."
+
+/obj/vehicle/animal/Destroy()
+	QDEL_NULL(storage_compartment)
+	return ..()
 
 /obj/vehicle/animal/setup_vehicle()
 	..()
@@ -54,20 +61,20 @@
 		return FALSE
 	return ..(M)
 
-/obj/vehicle/animal/MouseDrop(atom/over)
-	if(use_check_and_message(usr))
-		return
-
-	if(usr == over && ishuman(over))
-		var/mob/living/carbon/human/H = over
-		storage_compartment.open(H)
-
-/obj/vehicle/animal/MouseDrop_T(atom/dropping, mob/user)
+/obj/vehicle/animal/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	if(use_check_and_message(user))
 		return
 
-	if(!load(dropping))
-		to_chat(user, SPAN_WARNING("You were unable to load \the [dropping] onto \the [src]."))
+	if(user == over && ishuman(over))
+		var/mob/living/carbon/human/H = over
+		storage_compartment.open(H)
+
+/obj/vehicle/animal/mouse_drop_receive(atom/dropped, mob/user, params)
+	if(use_check_and_message(user))
+		return
+
+	if(!load(dropped))
+		to_chat(user, SPAN_WARNING("You were unable to load \the [dropped] onto \the [src]."))
 		return
 
 /obj/vehicle/animal/attack_hand(var/mob/user as mob)
@@ -157,7 +164,7 @@
 				var/mob/living/carbon/human/H = AM
 				M.attack_log += "\[[time_stamp()]\]<font color='orange'> Was rammed by [src]</font>"
 				M.attack_log += "\[[time_stamp()]\] <span class='warning'>rammed[M.name] ([M.ckey]) rammed [H.name] ([H.ckey]) with the [src].</span>"
-				msg_admin_attack("[src] crashed into [key_name(H)] at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)" )
+				msg_admin_attack("[src] crashed into [key_name(H)] at (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)" )
 				src.visible_message(SPAN_DANGER("\The [src] smashes into \the [H]!"))
 				playsound(src, /singleton/sound_category/swing_hit_sound, 50, 1)
 				H.apply_damage(20, DAMAGE_BRUTE)
@@ -180,8 +187,6 @@
 	desc = "A rideable beast of burden, large enough for one adult rider only but perfectly adapted for the rough terrain on Adhomai. This one has a saddle mounted on it."
 	icon = 'icons/mob/npc/adhomai_48.dmi'
 	icon_state = "climber_s"
-	desc_info = "Click-drag yourself onto the animal to climb onto it.<br>\
-		- Click-drag it onto yourself to access its mounted storage.<br>"
 	pixel_x = -8
 	mob_offset_y = 8
 	land_speed = 2
@@ -208,8 +213,6 @@
 	desc = "Large herbivorous reptiles native to Moghes, the azkrazal or 'threshbeast' is commonly used as a mount, beast of burden, or convenient food source by Unathi. They are highly valued for their speed and strength, capable of running at 30-42 miles per hour at top speed. This one has been fitted with a saddle."
 	icon = 'icons/mob/npc/moghes_64.dmi'
 	icon_state = "threshbeast_s"
-	desc_info = "Click-drag yourself onto the animal to climb onto it.<br>\
-		- Click-drag it onto yourself to access its mounted storage.<br>"
 	pixel_x = -15
 	mob_offset_y = 10
 	land_speed = 2
@@ -227,8 +230,6 @@
 	desc = "A large species of herbivorous horned reptiles native to Moghes, the hegeranzi or 'warmount' is commonly used as  mount or beast of war by the Unathi. They are highly valued for their speed, aggression, and fearsome horns. This one seems to have been fitted with a saddle."
 	icon = 'icons/mob/npc/moghes_64.dmi'
 	icon_state = "warmount_s"
-	desc_info = "Click-drag yourself onto the animal to climb onto it.<br>\
-		- Click-drag it onto yourself to access its mounted storage.<br>"
 	pixel_x = -14
 	mob_offset_y = 12
 
@@ -243,10 +244,10 @@
 	storage_type = /obj/item/storage/toolbox/bike_storage/saddle
 	corpse = /mob/living/simple_animal/hostile/retaliate/hegeranzi/saddle
 	armor_values = list( //big tough war beast, has some more armor particularly against bullets and melee
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_MINOR,
-		bomb = ARMOR_BOMB_MINOR
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
+		LASER = ARMOR_LASER_MINOR,
+		BOMB = ARMOR_BOMB_MINOR
 	)
 
 /obj/vehicle/animal/warmount/RunOver(mob/living/carbon/human/H)
@@ -258,7 +259,7 @@
 	if(M.m_intent == M_RUN)
 		M.attack_log += "\[[time_stamp()]\]<font color='orange'> Was rammed by [src]</font>"
 		M.attack_log += "\[[time_stamp()]\] <span class='warning'>rammed[M.name] ([M.ckey]) rammed [H.name] ([H.ckey]) with the [src].</span>"
-		msg_admin_attack("[src] crashed into [key_name(H)] at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)" )
+		msg_admin_attack("[src] crashed into [key_name(H)] at (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)" )
 		src.visible_message(SPAN_DANGER("\The [src] charges into \the [H]!"))
 		playsound(src, 'sound/weapons/pierce.ogg', 50, 1)
 		H.apply_damage(40, DAMAGE_BRUTE)
@@ -299,7 +300,7 @@
 				var/mob/living/carbon/human/H = AM
 				M.attack_log += "\[[time_stamp()]\]<font color='orange'> Was rammed by [src]</font>"
 				M.attack_log += "\[[time_stamp()]\] <span class='warning'>rammed[M.name] ([M.ckey]) rammed [H.name] ([H.ckey]) with the [src].</span>"
-				msg_admin_attack("[src] crashed into [key_name(H)] at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)" )
+				msg_admin_attack("[src] crashed into [key_name(H)] at (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)" )
 				src.visible_message(SPAN_DANGER("\The [src] charges into \the [H]!"))
 				playsound(src, 'sound/weapons/pierce.ogg', 50, 1)
 				H.apply_damage(40, DAMAGE_BRUTE)

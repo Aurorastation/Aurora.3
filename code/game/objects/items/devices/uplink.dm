@@ -74,14 +74,19 @@ Then check if it's true, if true return. This will stop the normal menu appearin
 	var/pda_code = ""
 
 
-// The hidden uplink MUST be inside an obj/item's contents.
 /obj/item/device/uplink/hidden/New()
-	spawn(2)
-		if(!istype(loc, /obj/item))
-			qdel(src)
 	..()
 	tgui_data = list()
 	update_tgui_data()
+
+/obj/item/device/uplink/hidden/Initialize(mapload, datum/mind/owner, new_telecrystals, new_bluecrystals)
+	. = ..()
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/item/device/uplink/hidden/LateInitialize()
+	// The hidden uplink MUST be inside an obj/item's contents.
+	if(!istype(loc, /obj/item))
+		qdel(src)
 
 // Toggles the uplink on and off. Normally this will bypass the item's normal functions and go to the uplink menu, if activated.
 /obj/item/device/uplink/hidden/proc/toggle()
@@ -130,7 +135,7 @@ Then check if it's true, if true return. This will stop the normal menu appearin
 		return 1
 
 	if(action == "buy_item")
-		var/datum/uplink_item/UI = (locate(params["buy_item"]) in uplink.items)
+		var/datum/uplink_item/UI = (locate(params["buy_item"]) in GLOB.uplink.items)
 		UI.buy(src, usr)
 	else if(action == "lock")
 		toggle()
@@ -142,7 +147,7 @@ Then check if it's true, if true return. This will stop the normal menu appearin
 		if(params["id"])
 			exploit_id = params["id"]
 		if(params["category"])
-			category = locate(params["category"]) in uplink.categories
+			category = locate(params["category"]) in GLOB.uplink.categories
 	if(action == "contract_interact")
 		var/list/params_webint = list("location" = "contract_details", "contract" = params["contract_interact"])
 		usr.client.process_webint_link("interface/login/sso_server", list2params(params_webint))
@@ -173,7 +178,7 @@ Then check if it's true, if true return. This will stop the normal menu appearin
 	if(tgui_menu == 0)
 		var/list/categories = list()
 		var/list/items = list()
-		for(var/datum/uplink_category/category in uplink.categories)
+		for(var/datum/uplink_category/category in GLOB.uplink.categories)
 			if(category.can_view(src))
 				categories[++categories.len] = list("name" = category.name, "ref" = "[REF(category)]")
 				for(var/datum/uplink_item/item in category.items)
@@ -201,8 +206,7 @@ Then check if it's true, if true return. This will stop the normal menu appearin
 				tgui_data["exploit"] = list()  // Setting this to equal L.fields passes it's variables that are lists as reference instead of value.
 												// We trade off being able to automatically add shit for more control over what gets passed to json
 												// and if it's sanitized for html.
-				tgui_data["exploit"]["tgui_exploit_record"] = html_encode(L.exploit_record) // Change stuff into html
-				tgui_data["exploit"]["tgui_exploit_record"] = replacetext(tgui_data["exploit"]["tgui_exploit_record"], "\n", "<br>") // change line breaks into <br>
+				tgui_data["exploit"]["tgui_exploit_record"] = html_decode(L.exploit_record) // this user input is already sanitized and encoded when saved to the DB, we can just decode it and slap it into a span
 				tgui_data["exploit"]["name"] = html_encode(L.name)
 				tgui_data["exploit"]["sex"] = html_encode(L.sex)
 				tgui_data["exploit"]["age"] = html_encode(L.age)
@@ -391,10 +395,14 @@ Then check if it's true, if true return. This will stop the normal menu appearin
 //for revs to create their own central command reports
 /obj/item/device/announcer
 	name = "relay positioning device"
-	icon = 'icons/obj/device.dmi'
-	icon_state = "locator"
-	desc_antag = "This device allows you to create a single central command report. It has only one use."
+	icon = 'icons/obj/item/device/gps.dmi'
+	icon_state = "gps"
+	item_state = "radio"
 	w_class = WEIGHT_CLASS_SMALL
+
+/obj/item/device/announcer/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This device allows you to create a single Central Command report. It has only one use."
 
 /obj/item/device/announcer/attack_self(mob/user as mob)
 	if(!player_is_antag(user.mind))
@@ -415,7 +423,6 @@ Then check if it's true, if true return. This will stop the normal menu appearin
 /obj/item/device/special_uplink
 	name = "special uplink"
 	desc = "A small device with knobs and switches."
-	desc_antag = "This is hidden uplink! Use it in-hand to access the uplink interface and spend telecrystals to beam in items. Make sure to do it in private, it could look suspicious!"
 	icon = 'icons/obj/radio.dmi'
 	icon_state = "radio"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
@@ -426,6 +433,11 @@ Then check if it's true, if true return. This will stop the normal menu appearin
 
 	///Amount of starting bluecrystals, used to buy support/medical/gimmick items. Defaults to default amount if not set.
 	var/starting_bluecrystals
+
+/obj/item/device/special_uplink/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This is hidden uplink! Use it in-hand to access the uplink interface and spend telecrystals to beam in items."
+	. += "Take care to only use it in private; it could look suspicious."
 
 /obj/item/device/special_uplink/New(var/loc, var/mind)
 	..()

@@ -152,6 +152,87 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("waffle" = 8))
 	bitesize = 2
 
+///makes waffles change their look based on which syrup they have applied to them
+/obj/item/reagent_containers/food/snacks/waffles/on_reagent_change()
+	if(reagents.has_any_reagent(list(/singleton/reagent/nutriment/flour, /singleton/reagent/spacecleaner, /singleton/reagent/antidexafen, /singleton/reagent/carbon))) //For when the scrubbers inevitably attack the kitchen.
+		name = "ruined waffles"
+		desc = "Oh boy! Look at all that powdered suga- wait, wait, no, that's... no, that's not sugar. Oh, these poor waffles."
+		icon_state = "waffles_ruined"
+
+	else if(reagents.has_reagent(/singleton/reagent/nutriment/ketchup))
+		name = "waffles with ketchup"
+		desc = "Why? Just why?"
+		icon_state = "waffles_redsauce"
+
+	else if(reagents.has_reagent(/singleton/reagent/nutriment/mayonnaise))
+		name = "waffles with mayonnaise"
+		desc = "All of the cholesterol with none of the joy."
+		icon_state = "waffles_vanilla"
+
+	else if(reagents.has_reagent(/singleton/reagent/condiment/syrup_chocolate))
+		name = "waffles with chocolate sauce"
+		desc = "Mmm, waffles with chocolate sauce."
+		icon_state = "waffles_chocolate"
+
+		if(reagents.has_reagent(/singleton/reagent/condiment/syrup_vanilla))
+			name = "checkerboard waffles"
+			desc = "Waffles with chocolate and vanilla sauces carefully applied in a checkerboard pattern. Extremely fancy, in a 12 year old birthday party kind of way."
+			icon_state = "waffles_checkers"
+
+	else if(reagents.has_reagent(/singleton/reagent/condiment/syrup_vanilla))
+		name = "Mmm, waffles with vanilla sauce."
+		icon_state = "waffles_vanilla"
+
+		if(reagents.has_reagent(/singleton/reagent/condiment/syrup_chocolate))
+			name = "checkerboard waffles"
+			desc = "Waffles with chocolate and vanilla sauces carefully applied in a checkerboard pattern. Extremely fancy, in a 12 year old birthday party kind of way."
+			icon_state = "waffles_checkers"
+
+	else if(reagents.has_reagent(/singleton/reagent/condiment/syrup_strawberry))
+		name = "waffles with strawberry sauce"
+		desc = "Don't worry! They're so neon red, there's no CHANCE anything nutritious got through to them!"
+		icon_state = "waffles_redsauce"
+
+	else if(reagents.has_reagent(/singleton/reagent/condiment/syrup_berry))
+		name = "waffles with berry sauce"
+		desc = "Waffles with neon red berry sauce. Stretching the term 'berries' to the absolute furthest limits allowed by food health and safety regulations."
+		icon_state = "waffles_redsauce"
+
+	else if(reagents.has_reagent(/singleton/reagent/condiment/syrup_caramel))
+		name = "waffles with caramel sauce"
+		desc = "Because some people just want to chug a whole keg of sugar and get away with calling it breakfast."
+		icon_state = "waffles_lightbrownsauce"
+
+	else if(reagents.has_reagent(/singleton/reagent/condiment/syrup_pumpkin))
+		name = "waffles with pumpkin spice sauce"
+		desc = "For that perfect social media breakfast photo on an autumn morning."
+		icon_state = "waffles_lightbrownsauce"
+
+	else if(reagents.has_reagent(/singleton/reagent/condiment/syrup_dirtberry))
+		name = "waffles with dirtberry sauce"
+		desc = "Parrrt of this complete brrreakfast!"
+		icon_state = "waffles_lightbrownsauce"
+
+	else if(reagents.has_reagent(/singleton/reagent/condiment/syrup_blueberry))
+		name = "waffles with blueberry sauce"
+		desc = "You could have had waffles with actual blueberries to maybe get just a little bit of nutrition in there along with the flavor, but no. You chose this."
+		icon_state = "waffles_bluesauce"
+
+	else if(reagents.has_reagent(/singleton/reagent/condiment/syrup_blueraspberry))
+		name = "waffles with blue raspberry sauce"
+		desc = "Introducing breakfast to colors it was never meant to be! Wow!"
+		icon_state = "waffles_bluesauce"
+
+	else if(reagents.has_reagent(/singleton/reagent/condiment/syrup_raspberry))
+		name = "waffles with raspberry sauce"
+		desc = "Glamour waffles."
+		icon_state = "waffles_pinksauce"
+
+	else if(reagents.has_reagent(/singleton/reagent/condiment/syrup_ylphaberry))
+		name = "waffles with ylpha sauce"
+		desc = "How delicious is this? Ylpha-nd out soon enough!" //Hurr hurr
+		icon_state = "waffles_pinksauce"
+
 /obj/item/reagent_containers/food/snacks/soywafers
 	name = "Soy Wafers"
 	desc = "Simple pressed soy wafers."
@@ -258,6 +339,38 @@
 /obj/item/reagent_containers/food/snacks/cosmicbrowniesslice/filled
 	reagents_to_add = list(/singleton/reagent/nutriment = 1, /singleton/reagent/browniemix = 1, /singleton/reagent/drugs/ambrosia_extract = 1, /singleton/reagent/bicaridine = 1, /singleton/reagent/kelotane = 1, /singleton/reagent/toxin = 1)
 	reagent_data = list(/singleton/reagent/nutriment = list("brownies" = 2))
+
+/obj/item/reagent_containers/food/snacks/sliceable/cranberry_orange_rolls
+	name = "cranberry orange rolls"
+	desc = "A tray full of one big, gooey pastry, ready to become a bunch of lovely individual sweet rolls once you slice them apart."
+	icon = 'icons/obj/item/reagent_containers/food/pastries.dmi'
+	icon_state = "cranberryrolls"
+	slice_path = /obj/item/reagent_containers/food/snacks/cranberry_orange_roll
+	slices_num = 5
+	trash = /obj/item/trash/brownies
+	filling_color = "#c43934"
+	center_of_mass = list("x"=15, "y"=9)
+	reagents_to_add = list(/singleton/reagent/nutriment = 15)
+	reagent_data = list(/singleton/reagent/nutriment = list("cranberry" = 5, "orange" = 5, "sweet dough" = 5))
+	bitesize = 3
+
+/obj/item/reagent_containers/food/snacks/cranberry_orange_roll
+	name = "cranberry orange roll"
+	desc = "A lovely glazed sweet roll full of cranberry-orange flavor. A delicious treat whether for a thanksgiving meal in Sol, or a nice walk through Xanu Prime's many pastry shops."
+	icon = 'icons/obj/item/reagent_containers/food/pastries.dmi'
+	icon_state = "cranberryroll"
+	filling_color = "#c43934"
+	bitesize = 1
+
+/obj/item/reagent_containers/food/snacks/cranberry_orange_roll/update_icon()
+	if(bitecount>=1)
+		icon_state = "cranberryroll_half"
+	else
+		icon_state = "cranberryroll"
+
+/obj/item/reagent_containers/food/snacks/cranberry_orange_roll/filled
+	reagents_to_add = list(/singleton/reagent/nutriment = 3)
+	reagent_data = list(/singleton/reagent/nutriment = list("cranberry" = 5, "orange" = 5, "sweet dough" = 5))
 
 // Cakes.
 //============
@@ -646,6 +759,30 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("sweetness" = 2, "cherry" = 2, "pie" = 2))
 	bitesize = 3
 
+/obj/item/reagent_containers/food/snacks/sliceable/cranberry_pie
+	name = "cranberry pie"
+	desc = "A perfectly delicious pie to be divided and shared among friends and family... Or secretly scarfed down all by yourself! Don't worry, I won't tell, I'm just a food description!"
+	icon = 'icons/obj/item/reagent_containers/food/pastries.dmi'
+	icon_state = "cranberry_pie"
+	item_state = "pie"
+	filling_color = "#9e0057"
+	slice_path = /obj/item/reagent_containers/food/snacks/cranberry_pie_slice
+	slices_num = 3
+	trash = /obj/item/trash/plate
+	center_of_mass = list("x"=16, "y"=11)
+	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/drink/cranberryjuice = 3, /singleton/reagent/nutriment/glucose = 2)
+	reagent_data = list(/singleton/reagent/nutriment = list("cranberry" = 4, "crumbly pie dough" = 4))
+	bitesize = 3
+
+/obj/item/reagent_containers/food/snacks/cranberry_pie_slice
+	name = "slice of cranberry pie"
+	desc = "A delightful sweet and tangy slice of cranberry pie in a crumbly crust."
+	icon = 'icons/obj/item/reagent_containers/food/pastries.dmi'
+	icon_state = "cranberry_pie_slice"
+	trash = /obj/item/trash/plate
+	filling_color = "#9e0057"
+	bitesize = 1
+	center_of_mass = list("x"=16, "y"=12)
 
 /obj/item/reagent_containers/food/snacks/amanita_pie
 	name = "amanita pie"

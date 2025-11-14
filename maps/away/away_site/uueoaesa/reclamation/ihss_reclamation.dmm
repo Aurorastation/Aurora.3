@@ -1753,7 +1753,9 @@
 	dir = 4;
 	color = "#941307"
 	},
-/obj/machinery/computer/shuttle_control/explore/ihss_reclamation,
+/obj/machinery/computer/shuttle_control/explore/ihss_reclamation{
+	req_one_access = list(113)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/ihss_reclamation)
 "iW" = (
@@ -3763,7 +3765,7 @@
 /obj/effect/floor_decal/corner/lime{
 	dir = 5
 	},
-/obj/machinery/seed_storage/xenobotany,
+/obj/machinery/seed_storage/garden/hydroponics,
 /turf/simulated/floor/tiled/white{
 	temperature = 303.15
 	},
@@ -4632,7 +4634,9 @@
 /turf/simulated/floor/plating,
 /area/ihss_reclamation/dock)
 "wx" = (
-/obj/machinery/computer/ship/helm,
+/obj/machinery/computer/ship/helm{
+	req_one_access = list(113)
+	},
 /obj/effect/floor_decal/corner/red/diagonal{
 	dir = 4;
 	color = "#941307"
@@ -5501,7 +5505,6 @@
 /area/shuttle/ihss_reclamation)
 "Au" = (
 /obj/machinery/hologram/holopad/long_range,
-/obj/effect/overmap/visitable/sector/ihss_reclamation,
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/bridge)
 "Ay" = (
@@ -8460,8 +8463,8 @@
 	dir = 5
 	},
 /obj/structure/table/standard,
-/obj/item/storage/box/monkeycubes/stokcubes,
-/obj/item/storage/box/monkeycubes/stokcubes,
+/obj/item/storage/box/unique/monkeycubes/stokcubes,
+/obj/item/storage/box/unique/monkeycubes/stokcubes,
 /obj/item/paper/fluff/ihss_reclamation_cell{
 	pixel_x = 6;
 	pixel_y = 4
@@ -8750,7 +8753,8 @@
 	color = "#941307"
 	},
 /obj/machinery/computer/ship/targeting{
-	dir = 4
+	dir = 4;
+	req_one_access = list(113)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/ihss_reclamation)
@@ -10106,7 +10110,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/northhall)
 "WM" = (
-/obj/structure/janitorialcart/full/water{
+/obj/structure/cart/storage/janitorialcart/full/water{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -10168,6 +10172,10 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ihss_reclamation/hangar1)
+"Xg" = (
+/obj/effect/overmap/visitable/ship/stationary/ihss_reclamation,
+/turf/simulated/floor/tiled/dark,
+/area/ihss_reclamation/bridge)
 "Xk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
@@ -43778,7 +43786,7 @@ IX
 ME
 wJ
 wJ
-wJ
+Xg
 Au
 wJ
 wJ

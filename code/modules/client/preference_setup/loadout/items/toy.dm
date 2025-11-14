@@ -11,6 +11,10 @@
 	display_name = "deck of cards"
 	path = /obj/item/deck/cards
 
+/datum/gear/toy/kotahi
+	display_name = "KOTAHI cards"
+	path = /obj/item/deck/kotahi
+
 /datum/gear/toy/tarot
 	display_name = "deck of tarot cards"
 	path = /obj/item/deck/tarot
@@ -131,6 +135,7 @@
 	..()
 	var/list/stickersheet = list()
 	stickersheet["Generic sticker sheet"] = /obj/item/storage/stickersheet/generic
+	stickersheet["Heart sticker sheet"] = /obj/item/storage/stickersheet/hearts
 	stickersheet["Religious sticker sheet"] = /obj/item/storage/stickersheet/religion
 	stickersheet["Domadice sticker sheet"] = /obj/item/storage/stickersheet/domadice
 	stickersheet["Republic of Biesel sticker sheet"] = /obj/item/storage/stickersheet/biesel
@@ -177,3 +182,10 @@
 		if(path) // repeat 3 times for each item
 			for(i = 0, i < 3, ++i)
 				new path(sheet)
+
+/datum/gear/toy/football
+	display_name = "football"
+	description = "A classic, black and white football for kicking. Also known as a soccerball on Biesel and some parts of Earth for some reason."
+	cost = 1
+	allowed_roles = list("Off-Duty Crew Member", "Passenger")
+	path = /obj/item/toy/football

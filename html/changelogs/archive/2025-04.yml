@@ -1,0 +1,112 @@
+2025-04-05:
+  Greenjoe12345:
+  - rscadd: Makes it so the Enviromental testing facility Odyssey map can roll canon
+      scenarios.
+2025-04-07:
+  ASmallCuteCat:
+  - qol: Reduced the damage done by the 'creature' mob that sometimes spawns from
+      certain Xenoarchaology finds.
+  Comet Blaze, hazelmouse:
+  - rscadd: Added a teal dress for Idris Incorporated to the loadout, accessible to
+      characters of the appropriate corporation, intended primarily for use by Idris
+      service staff.
+  - rscadd: Added the new Idris Incorporated dress to the Idris Cruiser ghostrole.
+  ElorgRHG:
+  - imageadd: Resprited the corporate and department jackets.
+  - bugfix: The large Visegrad flags in the loadout are now actually large.
+  - balance: Zeng-Hu vinyl gloves are now on par with nitrile gloves.
+  Evandorf:
+  - bugfix: Makes the open sides of the chainlink fence passable.
+  hazelmouse:
+  - bugfix: Ghosts can no longer drag items onto operating tables.
+2025-04-08:
+  ASmallCuteCat:
+  - qol: Slightly reduced the volume of Crusher's meows.
+  CourierBravo:
+  - balance: Increases ammo count for most commonly seen energy weapons. Laser pistols
+      see increases of 2-3 shots, averaging between 10-12 shots, carbines and rifles
+      gain 3-5 more rounds, with some skipped due to high ammo counts or powerful
+      projectiles. And blasters have had increases of 2-6, depending on the model.
+      Anything scoped, recharging, a disruptor, or otherwise unique/odd is kept the
+      same for balance.
+2025-04-14:
+  ASmallCuteCat:
+  - qol: The windows on the Captain's Office are shuttered at game start, protecting
+      Chauncey from getting spawnkilled by carp.
+  - qol: The Executive Officer's window shutters are now on their own switch. They
+      are closed at round start, protecting Ian from getting spawnkilled by carp.
+  - qol: Separated the fire alarm from the disposal unit in the bottom-left corner
+      of the central ring. Removed the guest pass terminal and newscaster from that
+      corner, as there's already a newscaster and a guest pass terminal not too far
+      from where they used to be.
+  Batrachophreno:
+  - qol: Allow for Insulated Gloves to be stored in Tool Belts.
+  CourierBravo:
+  - refactor: Refactored the Chemistry-Reagents-Food-Drinks mega-file into 14 new
+      files for easier maintenance and readability. Food/drinks are divided into either
+      general food and drinks or cultural food and drinks. From there, they're divided
+      by human groups, then nonhuman species. Also marks several for review or removal
+      at a later date for being blatant references or not real drinks.
+  - rscdel: Removed Chemistry-Reagents-Food-Drinks.dm
+  FlamingLily:
+  - rscadd: Added stateless citizenship options to Underhive Diona, Voidtamers, and
+      deep space wildborns.
+  Wowzewow (Wezzy):
+  - rscadd: Streamlines card mechanics. Click on others to deal to them, yourself
+      to draw. Ctrl-click to draw, Alt-click to shuffle.
+  - rscadd: Adds KOTAHI, the shedding type card game fun for the whole family.
+  - rscadd: Tweaks throw sound volume.
+  - bugfix: Fixes some runtimes with cards.
+  - imageadd: New sprites for playing cards.
+  hazelmouse:
+  - rscadd: Substantially expanded the messages the player receives after using an
+      overloader.
+  - balance: Overloaders now last less time than before.
+  - bugfix: Resolved icon states that were missing in map editing software for several
+      random objects and traps.
+  - imagedel: Deleted superfluous icons for punji traps.
+  - qol: Debuggers no longer produce the sound of someone being punched in the face
+      when used.
+  - balance: Nanopaste now takes around twice as long to apply to other mobs as before,
+      and five times as long as that to apply to yourself. If you want to be repaired
+      quickly, find a buddy to apply it for you!
+  - balance: Nanopaste can no longer be applied multiple times simultaneously.
+  - code_imp: Expanded documentation to nanopaste code.
+  - rscadd: Implements a remap of the spawning area for Actors, as part of the Odyssey
+      gamemode, to hopefully be more enjoyable and intuitive. Now featuring a big
+      table for everyone to get around on to disagree on the gimmick until the Storyteller
+      tells you off.
+  - rscadd: Adds a generic clothing vendor to CC, available to every off-ship antagonist.
+      This permits players to choose from a variety of generic clothing items, in
+      addition to allowing them to recolour all recolourable items to their preference.
+  - refactor: Shifts many of the unsimulated floors on the CC z-level, but not all
+      of them, to dedicated subtypes instead of a single varedited type.
+  kermit:
+  - rscadd: The Civilian Yacht has been reflavoured to include affluent individuals
+      from places besides the Sol Alliance.
+  - rscadd: The Civilian Yacht Crew ghostrole allows you to select Skrell and Synthetics,
+      in addition to Human.
+2025-04-19:
+  ChangeMe:
+  - bugfix: Fixed hijab and colorable hijab not equipping upon spawning in.
+  FlamingLily:
+  - spellcheck: Fixed a typo in the no-tag IPC warning.
+  - balance: Reduced the cooling effects of frost oil and snowflake. Frost oil, a
+      condiment, no longer damages the consumer (now about -5 celsius). Snowflake
+      no longer reduces the user's temperature to NEGATIVE 200 CELSIUS. It still gets
+      you cold enough to burn a little though (about -40 celsius).
+  Kano:
+  - rscadd: Added a Freebooter Ship variation.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes and updates putting people into dna scanners.
+  - bugfix: Fixes being unable to order proto-humans from cargo.
+  hazelmouse:
+  - bugfix: Telecommunications servers no longer continue to appear active while unpowered.
+2025-04-26:
+  FlamingLily:
+  - rscadd: Added a low chance of the random crate spawn to spawn full of contraband.
+  notagonk:
+  - qol: Updates the Sol Recon Corvette with minor remapping and a new ghostrole.
+2025-04-27:
+  kermit:
+  - rscdel: Unmaps the Hivebot Transmitter from Xenoarchaeology.

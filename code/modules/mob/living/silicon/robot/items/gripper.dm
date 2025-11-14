@@ -3,7 +3,7 @@
 /obj/item/gripper
 	name = "magnetic gripper"
 	desc = "A simple grasping tool specialized in construction and engineering work."
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/obj/item/gripper.dmi'
 	icon_state = "gripper"
 
 	item_flags = ITEM_FLAG_NO_BLUDGEON
@@ -26,7 +26,8 @@
 		/obj/item/computer_hardware,
 		/obj/item/pipe,
 		/obj/item/smallDelivery,
-		/obj/item/gift
+		/obj/item/gift,
+		/obj/item/fuel_assembly
 		)
 
 	var/list/cant_hold
@@ -286,6 +287,7 @@
 		/obj/item/stack/cable_coil, // again, for borg building,
 		/obj/item/circuitboard,
 		/obj/item/slime_extract,
+		/obj/item/device/slime_scanner,
 		/obj/item/reagent_containers/glass,
 		/obj/item/reagent_containers/food/snacks/monkeycube,
 		/obj/item/seeds, // To be able to plant things for Xenobotany

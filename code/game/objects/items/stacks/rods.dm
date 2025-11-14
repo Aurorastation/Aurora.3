@@ -1,9 +1,10 @@
-var/global/list/datum/stack_recipe/rod_recipes = list(
+GLOBAL_LIST_INIT_TYPED(rod_recipes, /datum/stack_recipe, list(
 	new /datum/stack_recipe("grille", /obj/structure/grille, 2, time = 10, one_per_turf = TRUE, on_floor = TRUE),
 	new /datum/stack_recipe("floor-mounted catwalk", /obj/structure/lattice/catwalk/indoor, 4, time = 10, one_per_turf = TRUE, on_floor = TRUE),
 	new /datum/stack_recipe("grate, dark", /obj/structure/lattice/catwalk/indoor/grate, 1, time = 10, one_per_turf = TRUE, on_floor = TRUE),
 	new /datum/stack_recipe("grate, light", /obj/structure/lattice/catwalk/indoor/grate/light, 1, time = 10, one_per_turf = TRUE, on_floor = TRUE),
-	new /datum/stack_recipe("table frame", /obj/structure/table, 2, time = 10, one_per_turf = 1, on_floor = 1),
+	new /datum/stack_recipe("table frame", /obj/structure/table, 2, time = 10, one_per_turf = TRUE, on_floor = TRUE),
+	new /datum/stack_recipe("crate shelf", /obj/structure/crate_shelf, req_amount = 10, time = 10, one_per_turf = TRUE, on_floor = TRUE),
 	new /datum/stack_recipe("mine track", /obj/structure/track, 3, time = 10, one_per_turf = TRUE, on_floor = TRUE),
 	new /datum/stack_recipe("cane", /obj/item/cane, 1, time = 6),
 	new /datum/stack_recipe("crowbar", /obj/item/crowbar, 1, time = 6),
@@ -13,13 +14,11 @@ var/global/list/datum/stack_recipe/rod_recipes = list(
 	new /datum/stack_recipe("bolt", /obj/item/arrow, 1, time = 6),
 	new /datum/stack_recipe("small animal trap", /obj/item/trap/animal, 6, time = 10),
 	new /datum/stack_recipe("medium animal trap", /obj/item/trap/animal/medium, 12, time = 20)
-)
+))
 
 /obj/item/stack/rods
 	name = "metal rod"
 	desc = "Some rods. Can be used for building, or something."
-	desc_info = "Made from metal sheets.  You can build a grille by using it in your hand. \
-	Clicking on a floor without any tiles will reinforce the floor.  You can make reinforced glass by combining rods and normal glass sheets."
 	singular_name = "metal rod"
 	icon_state = "rods"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
@@ -37,6 +36,17 @@ var/global/list/datum/stack_recipe/rod_recipes = list(
 	lock_picking_level = 3
 	stacktype = /obj/item/stack/rods
 	icon_has_variants = TRUE
+
+/obj/item/stack/rods/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Left-click this item in-hand to view its crafting menu."
+	. += "Left-clicking with this item on a floor without any tiles will reinforce the floor."
+	. += "Combining this item with glass sheets will create reinforced glass."
+
+/obj/item/stack/rods/assembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Combining this item with glass sheets will create reinforced glass."
+	. += "Using a welder on two metal rods will recombine them back into a steel sheet."
 
 /obj/item/stack/rods/Destroy()
 	. = ..()
@@ -58,7 +68,7 @@ var/global/list/datum/stack_recipe/rod_recipes = list(
 
 /obj/item/stack/rods/New(var/loc, var/amount=null)
 	..()
-	recipes = rod_recipes
+	recipes = GLOB.rod_recipes
 
 /obj/item/stack/rods/attackby(obj/item/attacking_item, mob/user)
 	..()
@@ -105,6 +115,10 @@ var/global/list/datum/stack_recipe/rod_recipes = list(
 	w_class = WEIGHT_CLASS_SMALL
 	matter = list(DEFAULT_WALL_MATERIAL = 937.5)
 	attack_verb = list("hit", "whacked", "sliced")
+
+/obj/item/stack/barbed_wire/assembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Left-click with this on a barricade to apply barbed wire to it."
 
 /obj/item/stack/barbed_wire/half_full
 	amount = 25

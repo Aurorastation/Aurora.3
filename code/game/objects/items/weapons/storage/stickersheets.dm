@@ -11,7 +11,7 @@
 	throw_range = 2
 	w_class = WEIGHT_CLASS_SMALL
 	max_w_class = WEIGHT_CLASS_TINY
-	max_storage_space = 12
+	max_storage_space = DEFAULT_BOX_STORAGE
 	can_hold = list(
 		/obj/item/sticker
 	)
@@ -43,6 +43,17 @@
 		/obj/item/sticker/generic/schlorgo = 2,
 		/obj/item/sticker/generic/peace = 2,
 		/obj/item/sticker/generic/smile = 2
+	)
+
+/obj/item/storage/stickersheet/hearts
+	name = "heart sticker sheet"
+	starts_with = list(
+		/obj/item/sticker/generic/redheart = 2,
+		/obj/item/sticker/generic/smallredheart = 2,
+		/obj/item/sticker/generic/pinkheart = 2,
+		/obj/item/sticker/generic/smallpinkheart = 2,
+		/obj/item/sticker/generic/blackheart = 2,
+		/obj/item/sticker/generic/smallblackheart = 2
 	)
 
 /obj/item/storage/stickersheet/religion

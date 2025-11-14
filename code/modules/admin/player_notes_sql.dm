@@ -117,7 +117,7 @@
 	if (player_ckey)
 		var/list/query_details = list("player_ckey" = player_ckey)
 
-		dat += "<tr><td align='center' colspan='4' bgcolor='white'><b><a href='?src=[REF(src)];add_player_info=[player_ckey]'>Add Note</a></b></td></tr>"
+		dat += "<tr><td align='center' colspan='4' bgcolor='white'><b><a href='byond://?src=[REF(src)];add_player_info=[player_ckey]'>Add Note</a></b></td></tr>"
 
 		var/DBQuery/init_query = GLOB.dbcon.NewQuery("SELECT ip, computerid FROM ss13_player WHERE ckey = :player_ckey:")
 		init_query.Execute(query_details)
@@ -176,7 +176,7 @@
 			dat += "<tr><td colspan='4' bgcolor='white'>&nbsp</td></tr>"
 
 	dat += "</table>"
-	show_browser(usr, dat, "window=lookupnotes;size=900x500")
+	show_browser(usr, HTML_SKELETON(dat), "window=lookupnotes;size=900x500")
 
 /proc/show_player_info_discord(var/ckey)
 	if (!ckey)

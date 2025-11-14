@@ -35,25 +35,25 @@
 	var/list/exempt_from_apc = typecacheof(SSatlas.current_map.ut_apc_exempt_areas)
 	var/list/exempt_from_fire = typecacheof(SSatlas.current_map.ut_fire_exempt_areas)
 
-	for(var/area/A in typecache_filter_list_reverse(GLOB.all_areas, exempt_areas))
+	for(var/area/A in typecache_filter_list_reverse(get_sorted_areas(), exempt_areas))
 		if(is_station_level(A.z))
 			area_test_count++
-			var/bad_msg = "[ascii_red]--------------- [A.name] ([A.type])"
+			var/bad_msg = TEST_OUTPUT_RED("--------------- [A.name] ([A.type])")
 
 			if(!A.apc && !is_type_in_typecache(A, exempt_from_apc))
-				TEST_FAIL("[bad_msg] lacks an APC.[ascii_reset]")
+				TEST_FAIL(TEST_OUTPUT_RED("[bad_msg] lacks an APC."))
 				bad_apc++
 
 			if(!A.air_scrub_info.len && !is_type_in_typecache(A, exempt_from_atmos))
-				TEST_FAIL("[bad_msg] lacks an air scrubber.[ascii_reset]")
+				TEST_FAIL(TEST_OUTPUT_RED("[bad_msg] lacks an air scrubber."))
 				bad_airs++
 
 			if(!A.air_vent_info.len && !is_type_in_typecache(A, exempt_from_atmos))
-				TEST_FAIL("[bad_msg] lacks an air vent.[ascii_reset]")
+				TEST_FAIL(TEST_OUTPUT_RED("[bad_msg] lacks an air vent."))
 				bad_airv++
 
 			if(!(locate(/obj/machinery/firealarm) in A) && !is_type_in_typecache(A, exempt_from_fire))
-				TEST_FAIL("[bad_msg] lacks a fire alarm.[ascii_reset]")
+				TEST_FAIL(TEST_OUTPUT_RED("[bad_msg] lacks a fire alarm."))
 				bad_fire++
 
 	if(bad_apc)
@@ -91,7 +91,7 @@
 			cable_turfs |= get_turf(C)
 
 	for(T in cable_turfs)
-		var/bad_msg = "[ascii_red]--------------- [T.name] \[[T.x] / [T.y] / [T.z]\]"
+		var/bad_msg = TEST_OUTPUT_RED("--------------- [T.name] \[[T.x] / [T.y] / [T.z]\]")
 		dirs_checked.Cut()
 		for(C in T)
 			wire_test_count++
@@ -363,6 +363,124 @@
 
 #endif
 
+
+	return test_status
+
+/datum/unit_test/map_test/areas_in_station_zlevels_must_be_marked_as_station_areas
+	name = "MAP: Areas in station z-levels must be marked as station areas"
+
+	/**
+	 * A list of types of areas that we do not want to check
+	 */
+	var/list/do_not_check_areas_types = list(
+		/area/space,
+		/area/shuttle,
+		/area/template_noop,
+	)
+
+/datum/unit_test/map_test/areas_in_station_zlevels_must_be_marked_as_station_areas/start_test()
+	var/test_status = UNIT_TEST_PASSED
+
+	for(var/area/possible_station_area in GLOB.areas)
+
+		if(is_type_in_list(possible_station_area, do_not_check_areas_types))
+			TEST_DEBUG("Skipping area [possible_station_area] ([possible_station_area.type]) as it is in the do not check list.")
+			continue
+
+		//We get a turf from the area, to see if we are in the "station"
+		var/list/turf/area_turfs = get_area_turfs(possible_station_area)
+		if(!length(area_turfs))
+			TEST_NOTICE("Skipping area [possible_station_area] ([possible_station_area.type]) as it has no turfs.")
+			continue
+
+		var/turf/turf_to_get_z = pick(area_turfs)
+
+		//See if the turf is in a station z-level, if not abort
+		if(!is_station_turf(turf_to_get_z))
+			TEST_DEBUG("Skipping area [possible_station_area] ([possible_station_area.type]) as it is not in a station z-level (picked check turf: [turf_to_get_z] on Z [turf_to_get_z.z]).")
+			continue
+
+		/* At this point, we know the area must be checked and is present in the station z-level */
+
+		if(!possible_station_area.station_area)
+			test_status = TEST_FAIL("Area [possible_station_area] ([possible_station_area.type]) is not marked as a station area, despite being in a station z-level.")
+		else
+			TEST_DEBUG("Area [possible_station_area] ([possible_station_area.type]) is marked as a station area.")
+
+
+	if(test_status == UNIT_TEST_PASSED)
+		TEST_PASS("All areas in station z-levels are marked as station areas.")
+	else
+		TEST_FAIL("Some areas in station z-levels are not marked as station areas.")
+
+	return test_status
+
+/datum/unit_test/map_test/no_map_spawn_guaranteed_flag
+	name = "MAP: Check for Spawn Guaranteed flag"
+	/// Away sites that are allowed to always populate. Usually sector-specific locations only.
+	var/list/do_not_check_site_types = list(
+		/datum/map_template/ruin/away_site/hegemony_waypoint
+	)
+
+/datum/unit_test/map_test/no_map_spawn_guaranteed_flag/start_test()
+	var/test_status = UNIT_TEST_PASSED
+
+	for (var/site_id in SSmapping.away_sites_templates)
+		var/datum/map_template/ruin/away_site/site = SSmapping.away_sites_templates[site_id]
+
+		if(is_type_in_list(site, do_not_check_site_types))
+			TEST_DEBUG("Skipping away site [site.name] as it is in the do not check list.")
+			continue
+
+		if (site.template_flags & TEMPLATE_FLAG_SPAWN_GUARANTEED)
+			test_status = TEST_FAIL("Away site [site.name] has the debug flag TEMPLATE_FLAG_SPAWN_GUARANTEED set.")
+		else
+			TEST_DEBUG("Away site [site.name] does not have the flag set.")
+
+	if(test_status == UNIT_TEST_PASSED)
+		TEST_PASS("All away sites are free of offending debug flags.")
+	else
+		TEST_FAIL("Some away sites have the offending debug flag TEMPLATE_FLAG_SPAWN_GUARANTEED set.")
+
+	return test_status
+
+// At present, only fire alarms have NSEW as immediate children, whereas APCs and Air Alarms also have them as sub-children.
+// In the future, areas should have additional vars to populate APC data automatically, allowing them to have directional
+// immediate children too for mapping testing.
+/datum/unit_test/map_test/no_panel_dir_var_edits
+	name = "MAP: Check for Fire Alarm dir var edits"
+
+/datum/unit_test/map_test/no_panel_dir_var_edits/start_test()
+	var/test_status = UNIT_TEST_PASSED
+	var/checks = 0
+	var/failed_checks = 0
+	var/firealarm_increment
+	var/turf/T
+
+	for(var/obj/machinery/firealarm/F in world)
+		T = get_turf(F)
+		firealarm_increment = 0
+		if(istype(F, /obj/machinery/firealarm/north))
+			if(F.dir != NORTH)
+				firealarm_increment++
+		if(istype(F, /obj/machinery/firealarm/south))
+			if(F.dir != SOUTH)
+				firealarm_increment++
+		if(istype(F, /obj/machinery/firealarm/east))
+			if(F.dir != EAST)
+				firealarm_increment++
+		if(istype(F, /obj/machinery/firealarm/west))
+			if(F.dir != WEST)
+				firealarm_increment++
+		checks++
+		if(firealarm_increment > 1)
+			failed_checks++
+			TEST_FAIL("Manually var edited [F] at ([F.x],[F.y],[F.z]) in [T.loc].")
+
+	if(failed_checks)
+		TEST_FAIL("\[[failed_checks] / [checks]\] Some fire alarms had their dir var manually edited instead of using a preset variant. Please also check new APCs and air alarms in the area.")
+	else
+		TEST_PASS("All \[[checks]\] fire alarms mapped properly.")
 
 	return test_status
 

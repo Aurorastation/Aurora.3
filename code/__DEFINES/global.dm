@@ -68,6 +68,7 @@ GLOBAL_LIST_EMPTY(latejoin)
 GLOBAL_LIST_EMPTY(latejoin_cryo)
 GLOBAL_LIST_EMPTY(latejoin_cyborg)
 GLOBAL_LIST_EMPTY(latejoin_living_quarters_lift)
+GLOBAL_LIST_EMPTY(latejoin_medbay_recovery)
 GLOBAL_LIST_EMPTY(kickoffsloc)
 GLOBAL_LIST_EMPTY(virtual_reality_spawn)
 
@@ -109,6 +110,10 @@ GLOBAL_VAR(custom_event_msg)
 // Ideally, the connection dies when the server restarts (After feedback logging.).
 GLOBAL_DATUM(dbcon, /DBConnection)
 GLOBAL_PROTECT(dbcon)
+
+// Persistence subsystem track register - List of all persistent data tracks managed by the subsystem.
+GLOBAL_LIST_EMPTY(persistence_register)
+GLOBAL_PROTECT(persistence_register)
 
 // Added for Xenoarchaeology, might be useful for other stuff.
 GLOBAL_LIST_INIT(alphabet_uppercase, list("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"))
@@ -154,15 +159,17 @@ GLOBAL_DATUM_INIT(global_announcer, /obj/item/device/radio/all_channels, new)
 
 // the number next to it denotes how much money the department receives when its account is generated
 GLOBAL_LIST_INIT(department_funds, list(
-	"Command" = 10000,
-	"Medical" = 10000,
-	"Engineering" = 10000,
-	"Science" = 10000,
-	"Security" = 10000,
-	"Operations" = 5000,
-	"Service" = 10000,
+	"Command" = 15000,
+	"Medical" = 15000,
+	"Engineering" = 15000,
+	"Science" = 15000,
+	"Security" = 15000,
+	"Operations" = 10000,
+	"Service" = 15000,
 	"Vendor" = 0
 ))
 
 //List of exosuit tracking beacons, to save performance
 GLOBAL_LIST_EMPTY(exo_beacons)
+
+GLOBAL_VAR_INIT(minimum_exterior_lighting_alpha, 255)

@@ -1,4 +1,4 @@
-var/global/list/all_portal_masters
+GLOBAL_LIST_INIT_TYPED(all_portal_masters, /obj/effect/map_effect/portal/master, null)
 
 /*
 Portal map effects allow a mapper to join two distant places together, while looking somewhat seamlessly connected.
@@ -146,7 +146,7 @@ when portals are shortly lived, or when portals are made to be obvious with spec
 	var/list/portal_lines = list()
 
 /obj/effect/map_effect/portal/master/Initialize()
-	LAZYADD(all_portal_masters, src)
+	LAZYADD(GLOB.all_portal_masters, src)
 	become_hearing_sensitive()
 	find_lines()
 	..()
@@ -158,7 +158,7 @@ when portals are shortly lived, or when portals are made to be obvious with spec
 	apply_offset()
 
 /obj/effect/map_effect/portal/master/Destroy()
-	LAZYREMOVE(all_portal_masters, src)
+	LAZYREMOVE(GLOB.all_portal_masters, src)
 	for(var/thing in portal_lines)
 		qdel(thing)
 	return ..()
@@ -179,7 +179,7 @@ when portals are shortly lived, or when portals are made to be obvious with spec
 
 // Connects both sides of a portal together.
 /obj/effect/map_effect/portal/master/proc/find_counterparts()
-	for(var/thing in all_portal_masters)
+	for(var/thing in GLOB.all_portal_masters)
 		var/obj/effect/map_effect/portal/master/M = thing
 		if(M == src)
 			continue

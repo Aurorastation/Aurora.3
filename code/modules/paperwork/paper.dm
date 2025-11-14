@@ -62,6 +62,18 @@
 	var/can_change_icon_state = TRUE
 	var/set_unsafe_on_init = FALSE
 
+/obj/item/paper/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if (old_name && (icon_state == "paper_plane" || icon_state == "paper_swan"))
+		. += SPAN_NOTICE("You're going to have to unfold it before you can read it.")
+		return
+	if(name != initial(name))
+		. += "It's titled '[name]'."
+	if(distance <= 1 || in_slide_projector(user))
+		show_content(user)
+	else
+		. += SPAN_NOTICE("You have to go closer if you want to read it.")
+
 /obj/item/paper/Initialize(mapload, text, title)
 	. = ..()
 	base_state = initial(icon_state)
@@ -119,18 +131,6 @@
 	if(new_text)
 		free_space -= length(strip_html_properly(new_text))
 
-/obj/item/paper/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if (old_name && (icon_state == "paper_plane" || icon_state == "paper_swan"))
-		. += SPAN_NOTICE("You're going to have to unfold it before you can read it.")
-		return
-	if(name != initial(name))
-		. += "It's titled '[name]'."
-	if(distance <= 1)
-		show_content(user)
-	else
-		. += SPAN_NOTICE("You have to go closer if you want to read it.")
-
 /obj/item/paper/proc/show_content(mob/user, forceshow)
 	simple_asset_ensure_is_sent(user, /datum/asset/simple/paper)
 	var/datum/browser/paper_win = new(user, name, null, 450, 500, null, TRUE)
@@ -139,7 +139,7 @@
 	paper_win.open()
 
 /obj/item/paper/proc/can_read(var/mob/user, var/forceshow = FALSE)
-	var/can_read = (istype(user, /mob/living/carbon/human) || isobserver(user) || istype(user, /mob/living/silicon)) || forceshow
+	var/can_read = (istype(user, /mob/living/carbon/human) || isghost(user) || istype(user, /mob/living/silicon)) || forceshow
 	if(!forceshow && istype(user,/mob/living/silicon/ai))
 		var/mob/living/silicon/ai/AI = user
 		can_read = get_dist(src, AI.camera) < 2
@@ -299,8 +299,8 @@
 /obj/item/paper/proc/updateinfolinks()
 	info_links = info
 	for (var/i = 1, i <= min(fields, 35), i++)
-		addtofield(i, "<font face=\"[deffont]\"><A href='?src=[REF(src)];write=[i]'>write</A></font>", 1)
-	info_links = info_links + "<font face=\"[deffont]\"><A href='?src=[REF(src)];write=end'>write</A></font>"
+		addtofield(i, "<font face=\"[deffont]\"><A href='byond://?src=[REF(src)];write=[i]'>write</A></font>", 1)
+	info_links = info_links + "<font face=\"[deffont]\"><A href='byond://?src=[REF(src)];write=end'>write</A></font>"
 
 
 /obj/item/paper/proc/clearpaper()
@@ -779,6 +779,25 @@
 	. = ..()
 	scan_target = WEAKREF(set_scan_target)
 
+/*#############################################
+				PERSISTENT
+#############################################*/
+
+/obj/item/paper/persistence_get_content()
+	var/list/content = list()
+	content["title"] = name
+	content["text"] = info
+	return content
+
+/obj/item/paper/persistence_apply_content(content, x, y, z)
+	set_content(content["title"], content["text"])
+	src.x = x
+	src.y = y
+	src.z = z
+	for(var/obj/object in loc) // Pin to noticeboard
+		if(istype(object, /obj/structure/noticeboard))
+			var/obj/structure/noticeboard/notice_board = object
+			notice_board.add_papers_from_turf()
 
 
 /*#############################################
@@ -815,16 +834,6 @@ ABSTRACT_TYPE(/obj/item/paper/fluff)
 			update_icon()
 
 	update_space(src.info)
-
-// Used in the deck 3 cafe on the SCCV Horizon.
-/obj/item/paper/fluff/microwave
-	name = "\improper RE: Where are our microwaves?"
-	desc = "A paper."
-	info = "<font face=\"Verdana\"><font size=\"1\"><i>2464-04-30 04:50 GST</i></font><BR><font size=\"1\"><i>E-Mail Title: RE: Where are our microwaves?</i></font>\
-		<BR>We are sorry for the lack of a microwave, but the transport got misdirected on the way.<BR>-<font face=\"Courier New\"><i>Orion Express Customer \
-		Service</i></font><BR><BR><font size=\"1\"><i>2464-04-30 07:50 GST</i></font><BR><font size=\"1\"><i>E-Mail Title: RE: Where are our microwaves?</i></font>\
-		<BR>We apologize for the lack of a microwave. As compensation, employees are given a donut box. Please enjoy.<BR>-<font face=\"Courier New\"><i>SCC Internal \
-		Affairs</i></font></font>"
 
 /// Used in the bunker on the SCCV Horizon.
 /obj/item/paper/fluff/bunker

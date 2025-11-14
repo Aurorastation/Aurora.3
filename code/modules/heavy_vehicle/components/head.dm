@@ -6,6 +6,7 @@
 	gender = NEUTER
 
 	var/vision_flags = 0
+	var/lighting_alpha = LIGHTING_PLANE_ALPHA_VISIBLE
 	var/see_invisible = 0
 	var/obj/item/robot_parts/robot_component/radio/radio
 	var/obj/item/robot_parts/robot_component/camera/camera
@@ -24,11 +25,11 @@
 	. = ..()
 
 	if(!radio)
-		. += SPAN_WARNING("It is missing a <a href='?src=[REF(src)];info=radio'>radio</a>.")
+		. += SPAN_WARNING("It is missing a <a href='byond://?src=[REF(src)];info=radio'>radio</a>.")
 	if(!camera)
-		. += SPAN_WARNING("It is missing a <a href='?src=[REF(src)];info=camera'>camera</a>.")
+		. += SPAN_WARNING("It is missing a <a href='byond://?src=[REF(src)];info=camera'>camera</a>.")
 	if(!software)
-		. += SPAN_WARNING("It is missing an <a href='?src=[REF(src)];info=module'>exosuit control module</a>.")
+		. += SPAN_WARNING("It is missing an <a href='byond://?src=[REF(src)];info=module'>exosuit control module</a>.")
 
 /obj/item/mech_component/sensors/Topic(href, href_list)
 	. = ..()
@@ -79,6 +80,12 @@
 		invisible = see_invisible
 	return invisible
 
+/obj/item/mech_component/sensors/proc/get_lighting_alpha(powered)
+	var/l_alpha = 0
+	if((total_damage <= 0.8 * max_damage) && active_sensors && powered)
+		l_alpha = lighting_alpha
+	return l_alpha
+
 /obj/item/mech_component/sensors/ready_to_install()
 	return (radio && camera)
 
@@ -112,7 +119,7 @@
 
 /obj/item/mech_component/control_module/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	. += SPAN_NOTICE("<a href='?src=[REF(src)];info=software'>It has [max_installed_software - LAZYLEN(installed_software)] empty slot\s remaining out of [max_installed_software].</a>")
+	. += SPAN_NOTICE("<a href='byond://?src=[REF(src)];info=software'>It has [max_installed_software - LAZYLEN(installed_software)] empty slot\s remaining out of [max_installed_software].</a>")
 
 /obj/item/mech_component/control_module/Topic(href, href_list)
 	. = ..()

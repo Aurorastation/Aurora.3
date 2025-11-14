@@ -49,6 +49,14 @@
 	var/buckle_lying = -1 //bed-like behavior, forces mob.lying = buckle_lying if != -1
 	var/buckle_require_restraints = 0 //require people to be handcuffed before being able to buckle. eg: pipes
 	var/atom/movable/buckled = null
+	/**
+	* Stores the original layer of a buckled atom.
+	*
+	* Set in `/obj/proc/buckle` when the atom's layer is adjusted.
+	*
+	* Used in `/unbuckle()` to restore the original layer.
+	*/
+	var/buckled_original_layer = null
 	var/buckle_delay = 0 //How much extra time to buckle someone to this object.
 	/* END BUCKLING VARS */
 
@@ -57,7 +65,23 @@
 	var/list/req_one_access
 	/* END ACCESS VARS */
 
+	/* START PERSISTENCE VARS */
+	// State check if the subsystem is tracking the object, used for easy state checking without iterating the register
+	var/persistence_track_active = FALSE
+	// Tracking ID of the object used by the persistence subsystem
+	var/persistence_track_id = 0
+	// Author ckey of the object used in persistence subsystem
+	// Note: Not every type can have an author, like generated dirt for example
+	// Additionally, the ckey is only an indicator, for example: A player could pin a paper without having written it
+	// This should be considered for any moderation purpose
+	var/persistence_author_ckey = null
+	// Expiration time used when saving/updating a persistent type, this can be changed depending on the use case by assigning a new value
+	var/persistance_expiration_time_days = PERSISTENT_DEFAULT_EXPIRATION_DAYS
+	/* END PERSISTENCE VARS */
+
 /obj/Destroy()
+	if(persistence_track_active) // Prevent hard deletion of references in the persistence register by removing it preemptively
+		SSpersistence.deregister_track(src)
 	STOP_PROCESSING(SSprocessing, src)
 	unbuckle()
 	QDEL_NULL(talking_atom)
@@ -79,7 +103,7 @@
 /obj/CanUseTopic(var/mob/user, var/datum/ui_state/state)
 	if(user.CanUseObjTopic(src))
 		return ..()
-	to_chat(user, SPAN_DANGER("[icon2html(src, user)]Access Denied!"))
+	to_chat(user, SPAN_DANGER("[icon2html(src, user)]Access denied!"))
 	return STATUS_CLOSE
 
 /mob/living/silicon/CanUseObjTopic(var/obj/O)
@@ -301,3 +325,40 @@
 /obj/proc/clean()
 	clean_blood()
 	color = initial(color)
+
+/obj/proc/output_spoken_message(var/message, var/message_verb = "transmits", var/display_overhead = TRUE, var/overhead_time = 2 SECONDS)
+	audible_message("\The <b>[src.name]</b> [message_verb], \"[message]\"")
+	if(display_overhead)
+		var/list/hearers = get_hearers_in_view(7, src)
+		var/list/clients_in_hearers = list()
+		for(var/mob/mob in hearers)
+			if(mob.client)
+				clients_in_hearers += mob.client
+		if(length(clients_in_hearers))
+			langchat_speech(message, hearers, GLOB.all_languages, skip_language_check = TRUE)
+
+/// Override this to customize the effects an activated signaler has.
+/obj/proc/do_signaler()
+	return
+
+/*#############################################
+				PERSISTENT
+#############################################*/
+
+/**
+ * Called by the persistence subsystem to retrieve relevant persistent information to be stored in the database.
+ * Expected to be overriden by derived objects.
+ * RETURN: Associated list with custom information (e.g.: ["test" = "abc", "counter" = 123])
+ */
+/obj/proc/persistence_get_content()
+	return
+
+/**
+ * Called by the persistence subsystem to apply persistent data on the created object.
+ * Expected to be overriden by derived objects.
+ * PARAMS:
+ * 	content = Associated list with custom information (e.g.: ["test" = "abc", "counter" = 123]).
+ *	x,y,z = x-y-z coordinates of object, can be null.
+ */
+/obj/proc/persistence_apply_content(content, x, y, z)
+	return

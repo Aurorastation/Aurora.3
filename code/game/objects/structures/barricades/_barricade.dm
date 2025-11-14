@@ -3,21 +3,26 @@
 	climbable = TRUE
 	anchored = TRUE
 	density = TRUE
-	throwpass = TRUE //You can throw objects over this, despite its density.
 	atom_flags = ATOM_FLAG_CHECKS_BORDER
+	/// The type of stack the barricade dropped when disassembled if any.
+	var/stack_type
+	/// The amount of stack dropped when disassembled at full health
+	var/stack_amount = 5
+	/// to specify a non-zero amount of stack to drop when destroyed
+	var/destroyed_stack_amount
+	/// Pretty tough. Changes sprites at 300 and 150
+	var/health = 100
+	/// Basic code functions
+	var/maxhealth = 100
 
-	var/stack_type //The type of stack the barricade dropped when disassembled if any.
-	var/stack_amount = 5 //The amount of stack dropped when disassembled at full health
-	var/destroyed_stack_amount //to specify a non-zero amount of stack to drop when destroyed
-	var/health = 100 //Pretty tough. Changes sprites at 300 and 150
-	var/maxhealth = 100 //Basic code functions
-
-	///Used for calculating some stuff related to maxhealth as it constantly changes due to e.g. barbed wire. set to 100 to avoid possible divisions by zero
+	/// Used for calculating some stuff related to maxhealth as it constantly changes due to e.g. barbed wire. set to 100 to avoid possible divisions by zero
 	var/starting_maxhealth = 100
 
-	var/force_level_absorption = 5 //How much force an item needs to even damage it at all.
+	/// How much force an item needs to even damage it at all.
+	var/force_level_absorption = 5
 	var/barricade_hitsound
-	var/barricade_type = "barricade" //"metal", "plasteel", etc.
+	/// "metal", "plasteel", etc.
+	var/barricade_type = "barricade"
 	var/can_change_dmg_state = TRUE
 	var/damage_state = BARRICADE_DMG_NONE
 	var/closed = FALSE
@@ -30,11 +35,8 @@
 	update_icon()
 	starting_maxhealth = maxhealth
 
-/obj/structure/barricade/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += SPAN_INFO("It is recommended to stand flush to a barricade or one tile away for maximum efficiency.")
-	if(is_wired)
-		. += SPAN_INFO("There is a length of wire strewn across the top of this barricade.")
+/obj/structure/barricade/condition_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	switch(damage_state)
 		if(BARRICADE_DMG_NONE)
 			. += SPAN_INFO("It appears to be in good shape.")
@@ -44,6 +46,20 @@
 			. += SPAN_WARNING("It's quite beat up, but it's holding together.")
 		if(BARRICADE_DMG_HEAVY)
 			. += SPAN_WARNING("It's crumbling apart, just a few more blows will tear it apart!")
+
+/obj/structure/barricade/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "RIGHT-click on this to rotate it (if not anchored to the floor)."
+	if(!is_wired)
+		. += "Use a length of barbed wire on this barricade to prevent enemies from climbing it and damage them on attacking it at close range."
+	else
+		. += "Wirecutters could remove the barbed wire on this, but it will take several moments."
+
+/obj/structure/barricade/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += SPAN_INFO("It is recommended to stand flush to a barricade or one tile away for maximum effectiveness.")
+	if(is_wired)
+		. += SPAN_INFO("There is a length of barbed wire strewn across the top of this barricade, preventing it from being climbed and making it hazardous to attack at close range.")
 
 /obj/structure/barricade/update_icon()
 	CutOverlays()
@@ -134,7 +150,7 @@
 				var/attack_verb = pick("mangles", "slices", "slashes", "shreds")
 				attack_generic(user, UA.damage, attack_verb)
 
-/obj/structure/barricade/attack_generic(mob/user, damage, attack_verb, wallbreaker)
+/obj/structure/barricade/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	if(!damage)
 		return FALSE
 	if(!isliving(user))
@@ -146,7 +162,7 @@
 		playsound(src, barricade_hitsound, 50, 1)
 	if(is_wired)
 		visible_message(SPAN_DANGER("\The [src]'s barbed wire slices into [L]!"))
-		L.apply_damage(rand(5, 10), DAMAGE_BRUTE, pick(BP_R_HAND, BP_L_HAND), "barbed wire", DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE, 25)
+		L.apply_damage((5), DAMAGE_BRUTE, pick(BP_R_HAND, BP_L_HAND), "barbed wire", DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE, 25)
 	L.do_attack_animation(src)
 	take_damage(damage)
 

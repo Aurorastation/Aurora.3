@@ -107,7 +107,7 @@
 	var/cant_see = cant_see(user)
 	if(cant_see) //If we cant see it, we cant spawn it
 		return cant_see
-	if(!(istype(user, /mob/abstract/observer) || isnewplayer(user)))
+	if(!(istype(user, /mob/abstract/ghost/observer) || isnewplayer(user)))
 		return "You are not a ghost."
 	if(!enabled) //If the spawner id disabled, we cant spawn in
 		return "This spawner is not enabled."
@@ -116,7 +116,7 @@
 	if(!GLOB.config.enter_allowed)
 		return "There is an administrative lock on entering the game."
 	if(SSticker.mode?.explosion_in_progress)
-		return "The station is currently exploding."
+		return "The [station_name(TRUE)] is currently exploding."
 	if(max_count && (count >= max_count))
 		return "No more slots are available."
 	//Check if a spawnpoint is available
@@ -224,6 +224,7 @@
 			sector.y = sector.start_y
 			sector.z = SSatlas.current_map.overmap_z
 			sector.invisible_until_ghostrole_spawn = FALSE
+			SEND_SIGNAL(sector, COMSIG_GHOSTROLE_TAKEN)
 	return TRUE
 
 //Proc to check if a specific user can edit this spawner (open/close/...)
@@ -252,7 +253,7 @@
 		log_and_message_admins("has enabled the ghostspawner [src.name]")
 	enabled = TRUE
 	if(enable_dmessage)
-		for(var/mob/abstract/observer/O in GLOB.player_list)
+		for(var/mob/abstract/ghost/observer/O in GLOB.player_list)
 			if(O.client && !cant_see(O))
 				if(enable_dmessage == TRUE)
 					to_chat(O, "<span class='deadsay'><b>A ghostspawner for a \"[src.name]\" has been enabled.</b></span>")

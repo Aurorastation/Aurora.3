@@ -51,6 +51,32 @@
 	name = "anti-materiel weapons platform cabinet"
 
 /obj/structure/closet/secure_closet/guncabinet/peac/fill()
-	new /obj/item/gun/projectile/peac(src)
-	for(var/i = 1 to 3)
+	new /obj/item/gun/projectile/peac/unloaded(src)
+	for(var/i = 1 to 4)
 		new /obj/item/ammo_casing/peac(src)
+
+/obj/structure/closet/secure_closet/guncabinet/station/lessthanlethals
+	name = "Less than Lethal Ammunitions"
+
+/obj/structure/closet/secure_closet/guncabinet/station/lessthanlethals/fill()
+	for(var/i = 1 to 15)
+		new /obj/item/ammo_magazine/c45m/rubber(src)
+	for(var/i = 1 to 8)
+		new /obj/item/ammo_magazine/mc9mmt/rubber(src)
+	for(var/i = 1 to 4)
+		new /obj/item/storage/box/shells/beanbags(src)
+	new /obj/item/storage/box/shells/flashshells(src)
+	new /obj/item/storage/box/shells/stunshells(src)
+	new /obj/item/storage/box/shells/trackingslugs(src)
+
+/obj/structure/closet/secure_closet/guncabinet/station/lethals
+	name = "Lethal Ammunitions"
+
+/obj/structure/closet/secure_closet/guncabinet/station/lethals/fill()
+	for(var/i = 1 to 8)
+		new /obj/item/ammo_magazine/c45m(src)
+	for(var/i = 1 to 6)
+		new /obj/item/ammo_magazine/mc9mmt(src)
+		new /obj/item/ammo_magazine/a556/carbine/polymer(src)
+	for(var/i = 1 to 2)
+		new /obj/item/storage/box/shells/buckshot(src)

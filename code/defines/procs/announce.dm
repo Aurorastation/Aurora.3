@@ -4,35 +4,35 @@
 /datum/announcement
 	var/title = "Attention"
 	var/announcer = ""
-	var/log = 0
+	var/log = FALSE
 	var/sound
-	var/newscast = 0
-	var/print = 0
-	var/channel_name = "Station Announcements"
+	var/newscast = FALSE
+	var/print = FALSE
+	var/channel_name = "Announcements"
 	var/announcement_type = "Announcement"
 
-/datum/announcement/New(var/do_log = 1, var/new_sound = null, var/do_newscast = 0, var/do_print = 0)
+/datum/announcement/New(var/do_log = TRUE, var/new_sound = null, var/do_newscast = FALSE, var/do_print = FALSE)
 	sound = new_sound
 	log = do_log
 	newscast = do_newscast
 	print = do_print
 
-/datum/announcement/priority/New(var/do_log = 1, var/new_sound = 'sound/misc/announcements/notice.ogg', var/do_newscast = 0, var/do_print = 0)
+/datum/announcement/priority/New(var/do_log = TRUE, var/new_sound = 'sound/misc/announcements/notice.ogg', var/do_newscast = TRUE, var/do_print = FALSE)
 	..(do_log, new_sound, do_newscast, do_print)
 	title = "Priority Announcement"
 	announcement_type = "Priority Announcement"
 
-/datum/announcement/priority/command/New(var/do_log = 1, var/new_sound = 'sound/misc/announcements/notice.ogg', var/do_newscast = 0, var/do_print = 0)
+/datum/announcement/priority/command/New(var/do_log = TRUE, var/new_sound = 'sound/misc/announcements/notice.ogg', var/do_newscast = FALSE, var/do_print = FALSE)
 	..(do_log, new_sound, do_newscast, do_print)
 	title = "[SSatlas.current_map.boss_name] Update"
 	announcement_type = "[SSatlas.current_map.boss_name] Update"
 
-/datum/announcement/priority/security/New(var/do_log = 1, var/new_sound = 'sound/misc/announcements/notice.ogg', var/do_newscast = 0, var/do_print = 0)
+/datum/announcement/priority/security/New(var/do_log = TRUE, var/new_sound = 'sound/misc/announcements/notice.ogg', var/do_newscast = TRUE, var/do_print = FALSE)
 	..(do_log, new_sound, do_newscast, do_print)
 	title = "Security Announcement"
 	announcement_type = "Security Announcement"
 
-/datum/announcement/proc/Announce(var/message, var/new_title = "", var/new_sound = null, var/do_newscast = newscast, var/msg_sanitized = 0, var/do_print = 0, var/zlevels = SSatlas.current_map.contact_levels)
+/datum/announcement/proc/Announce(var/message, var/new_title = "", var/new_sound = null, var/do_newscast = newscast, var/msg_sanitized = 0, var/do_print = FALSE, var/zlevels = SSatlas.current_map.contact_levels)
 	if(!message)
 		return
 	var/message_title = length(new_title) ? new_title : title
@@ -44,15 +44,20 @@
 
 	var/msg = FormMessage(message, message_title)
 	for(var/mob/M in GLOB.player_list)
-		if(!istype(M, /mob/abstract/new_player) && !isdeaf(M) && (GET_Z(M) in (zlevels | SSatlas.current_map.admin_levels)))
+		if(isnewplayer(M))
+			continue
+
+		// Due to spam, only print announcements if the ghost is in the matching z-level, OR if it's a Horizon message.
+		if((isghost(M) && ((zlevels == SSatlas.current_map.contact_levels) || (GET_Z(M) in zlevels))) || (!isdeaf(M) && (GET_Z(M) in zlevels)))
 			var/turf/T = get_turf(M)
 			if(T)
 				to_chat(M, msg)
 				if(message_sound && !isdeaf(M) && (M.client?.prefs.sfx_toggles & ASFX_VOX))
 					sound_to(M, message_sound)
-	if(do_newscast)
+
+	if(do_newscast && zlevels == SSatlas.current_map.contact_levels)
 		NewsCast(message, message_title)
-	if(do_print)
+	if(do_print && zlevels == SSatlas.current_map.contact_levels)
 		post_comm_message(message_title, message)
 	Log(message, message_title)
 

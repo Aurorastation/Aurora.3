@@ -172,11 +172,11 @@
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|BLOCKHAIR
 	species_restricted = list(BODYTYPE_TAJARA)
 	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_PISTOL,
-		laser = ARMOR_LASER_SMALL,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_MINOR
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_PISTOL,
+		LASER = ARMOR_LASER_SMALL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_MINOR
 	)
 	allow_hair_covering = FALSE
 	desc_extended = "The Feudal Era of Amohda is famous for the steel swords which became common. Many renowned swordsmen and famous warriors would travel the land fighting duels of \
@@ -195,11 +195,11 @@
 	item_state = "kettle"
 	contained_sprite = TRUE
 	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_PISTOL,
-		laser = ARMOR_LASER_SMALL,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_MINOR
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_PISTOL,
+		LASER = ARMOR_LASER_SMALL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_MINOR
 	)
 	has_storage = FALSE
 

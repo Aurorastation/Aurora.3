@@ -1,5 +1,8 @@
 // fun if you want to typecast humans/monkeys/etc without writing long path-filled lines.
 
+/**
+ * Returns mob_size <= MOB_SMALL if used on a /mob/living.
+ */
 /proc/issmall(A)
 	if(A && istype(A, /mob/living))
 		var/mob/living/L = A
@@ -39,11 +42,12 @@
 /mob/living/carbon/human/isMonkey()
 	return istype(species, /datum/species/monkey)
 
-
 /proc/ishuman_species(A)
-	if(istype(A, /mob/living/carbon/human) && (A:get_species() == SPECIES_HUMAN))
-		return 1
-	return 0
+	if(istype(A, /mob/living/carbon/human))
+		var/mob/living/carbon/human/H = A
+		if(H.get_species() == SPECIES_HUMAN)
+			return TRUE
+	return FALSE
 
 /proc/isoffworlder(A)
 	if(ishuman(A))
@@ -71,7 +75,8 @@
 
 /proc/istajara(A)
 	if(istype(A, /mob/living/carbon/human))
-		switch(A:get_species())
+		var/mob/living/carbon/human/H = A
+		switch(H.get_species())
 			if (SPECIES_TAJARA)
 				return 1
 			if(SPECIES_TAJARA_ZHAN)
@@ -86,7 +91,8 @@
 
 /proc/isskrell(A)
 	if(istype(A, /mob/living/carbon/human))
-		switch(A:get_species())
+		var/mob/living/carbon/human/H = A
+		switch(H.get_species())
 			if (SPECIES_SKRELL)
 				return 1
 			if (SPECIES_SKRELL_AXIORI)
@@ -97,7 +103,8 @@
 
 /proc/isvaurca(A, var/isbreeder = FALSE)
 	if(istype(A, /mob/living/carbon/human))
-		switch(A:get_species())
+		var/mob/living/carbon/human/H = A
+		switch(H.get_species())
 			if(SPECIES_VAURCA_WORKER)
 				if(isbreeder)
 					return FALSE
@@ -143,7 +150,10 @@
 /mob/living/carbon/alien/diona/is_diona()
 	return DIONA_NYMPH
 
-/proc/is_mob_special(A) // determines special mobs. has restrictions on certain things, like welderbombing
+/**
+ * Determines special mobs; places restrictions on certain things, like welderbombing.
+ */
+/proc/is_mob_special(A)
 	if(isrevenant(A))
 		return TRUE
 	if(iszombie(A))
@@ -151,9 +161,11 @@
 	return FALSE
 
 /proc/isskeleton(A)
-	if(istype(A, /mob/living/carbon/human) && (A:get_species() == SPECIES_SKELETON))
-		return 1
-	return 0
+	if(istype(A, /mob/living/carbon/human))
+		var/mob/living/carbon/human/H = A
+		if(H.get_species() == SPECIES_SKELETON)
+			return TRUE
+	return FALSE
 
 /proc/iszombie(A)
 	if(ishuman(A))
@@ -188,7 +200,8 @@
 
 /proc/islesserform(A)
 	if(istype(A, /mob/living/carbon/human))
-		switch(A:get_species())
+		var/mob/living/carbon/human/H = A
+		switch(H.get_species())
 			if (SPECIES_MONKEY)
 				return 1
 			if (SPECIES_MONKEY_TAJARA)
@@ -249,8 +262,8 @@
 
 //TODO: Integrate defence zones and targeting body parts with the actual organ system, move these into organ definitions.
 
-//The base miss chance for the different defence zones
-var/list/global/base_miss_chance = list(
+///The base miss chance for the different defence zones
+GLOBAL_LIST_INIT(base_miss_chance, list(
 	BP_HEAD = 70,
 	BP_CHEST = 10,
 	BP_GROIN = 20,
@@ -262,11 +275,11 @@ var/list/global/base_miss_chance = list(
 	BP_R_HAND = 60,
 	BP_L_FOOT = 60,
 	BP_R_FOOT = 60
-)
+))
 
-//Used to weight organs when an organ is hit randomly (i.e. not a directed, aimed attack).
-//Also used to weight the protection value that armor provides for covering that body part when calculating protection from full-body effects.
-var/list/global/organ_rel_size = list(
+///Used to weight organs when an organ is hit randomly (i.e. not a directed, aimed attack).
+///Also used to weight the protection value that armor provides for covering that body part when calculating protection from full-body effects.
+GLOBAL_LIST_INIT(organ_rel_size, list(
 	BP_HEAD = 25,
 	BP_CHEST = 70,
 	BP_GROIN = 30,
@@ -278,9 +291,11 @@ var/list/global/organ_rel_size = list(
 	BP_R_HAND = 10,
 	BP_L_FOOT = 10,
 	BP_R_FOOT = 10
-)
+))
 
-///Find the mob at the bottom of a buckle chain
+/**
+ * Find the mob at the bottom of a buckle chain.
+ */
 /mob/proc/lowest_buckled_mob()
 	. = src
 	//buckled -> buckled_to from TG
@@ -310,12 +325,14 @@ var/list/global/organ_rel_size = list(
 	if(prob(probability))
 		zone = check_zone(zone)
 	else
-		zone = pick_weight(weighted_list ? weighted_list : organ_rel_size) //Slightly different from TG, we have a list with organ sizes
+		zone = pick_weight(weighted_list ? weighted_list : GLOB.organ_rel_size) //Slightly different from TG, we have a list with organ sizes
 	return zone
 
-/// Emulates targetting a specific body part, and miss chances
-/// May return null if missed
-/// miss_chance_mod may be negative.
+/**
+ * Emulates targetting a specific body part, and miss chances.
+ * May return null if missed.
+ * miss_chance_mod can be negative.
+ */
 /proc/get_zone_with_miss_chance(zone, var/mob/target, var/miss_chance_mod = 0, var/ranged_attack=0, var/point_blank = FALSE)
 	zone = check_zone(zone)
 
@@ -334,23 +351,25 @@ var/list/global/organ_rel_size = list(
 
 /mob/proc/calculate_zone_with_miss_chance(var/zone, var/miss_chance_mod)
 	var/miss_chance = 10
-	if (zone in base_miss_chance)
-		miss_chance = base_miss_chance[zone]
+	if (zone in GLOB.base_miss_chance)
+		miss_chance = GLOB.base_miss_chance[zone]
 	miss_chance = max(miss_chance + miss_chance_mod, 0)
 	if(prob(miss_chance))
 		if(prob(70))
 			return null
-		return pick(base_miss_chance)
+		return pick(GLOB.base_miss_chance)
 	return zone
 
-// never a chance to miss, but you might not hit what you want to hit
+/**
+ * No a chance to miss, but you might not hit what you want to hit.
+ */
 /mob/living/heavy_vehicle/calculate_zone_with_miss_chance(zone, miss_chance_mod)
 	var/miss_chance = 10
-	if(zone in base_miss_chance)
-		miss_chance = base_miss_chance[zone]
+	if(zone in GLOB.base_miss_chance)
+		miss_chance = GLOB.base_miss_chance[zone]
 	miss_chance = max(miss_chance + miss_chance_mod, 0)
 	if(prob(miss_chance))
-		return pick(base_miss_chance)
+		return pick(GLOB.base_miss_chance)
 	return zone
 
 /**
@@ -372,6 +391,9 @@ var/list/global/organ_rel_size = list(
 		chars[i] = "*"
 	return sanitize(jointext(chars, ""))
 
+/**
+ * The speech impediment, not the other thing.
+ */
 /proc/slur(phrase, strength = 100)
 	phrase = html_decode(phrase)
 	var/leng = length_char(phrase)
@@ -400,13 +422,18 @@ var/list/global/organ_rel_size = list(
 				if (7)
 					newletter += "'"
 				else
-					. = null // For dreamchecker, does nothing
+					. = null // For dreamchecker, does nothing.
 		newphrase += "[newletter]"
 		counter -= 1
 	return newphrase
 
-/proc/Gibberish(t, p)//t is the inputted message, and any value higher than 70 for p will cause letters to be replaced instead of added
-	/* Turn text into complete gibberish! */
+/**
+ * Turns text into complete gibberish.
+ *
+ * * t - inputted message
+ * * p - higher than 70 cause letters to be replaced instead of added
+ */
+/proc/Gibberish(t, p)
 	var/returntext = ""
 	for(var/i = 1, i <= length(t), i++)
 
@@ -422,13 +449,14 @@ var/list/global/organ_rel_size = list(
 
 	return returntext
 
-
+/**
+ * Stuttering. Is this even used anywhere???
+ *
+ * The difference with stutter is that this proc can stutter more than 1 letter
+ * The issue here is that anything that does not have a space is treated as one word (in many instances). For instance, "LOOKING," is a word, including the comma.
+ * It's fairly easy to fix if dealing with single letters but not so much with compounds of letters.
+ */
 /proc/ninjaspeak(n)
-/*
-The difference with stutter is that this proc can stutter more than 1 letter
-The issue here is that anything that does not have a space is treated as one word (in many instances). For instance, "LOOKING," is a word, including the comma.
-It's fairly easy to fix if dealing with single letters but not so much with compounds of letters./N
-*/
 	var/te = html_decode(n)
 	var/t = ""
 	n = length(n)
@@ -450,7 +478,6 @@ It's fairly easy to fix if dealing with single letters but not so much with comp
 		t = "[t][n_letter]"
 		p=p+n_mod
 	return sanitize(t)
-
 
 #define TICKS_PER_RECOIL_ANIM 2
 #define PIXELS_PER_STRENGTH_VAL 16
@@ -486,8 +513,7 @@ It's fairly easy to fix if dealing with single letters but not so much with comp
 
 	return 0
 
-//converts intent-strings into numbers and back
-var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
+///converts intent-strings into numbers and back
 /proc/intent_numeric(argument)
 	if(istext(argument))
 		switch(argument)
@@ -582,8 +608,8 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 					follow = "[ghost_follow_link(subject, M)] "
 				if(M.stat != DEAD && M.client.holder)
 					follow = "([admin_jump_link(subject, M.client.holder)]) "
-				var/mob/abstract/observer/DM
-				if(istype(subject, /mob/abstract/observer))
+				var/mob/abstract/ghost/observer/DM
+				if(istype(subject, /mob/abstract/ghost/observer))
 					DM = subject
 				if(M.client.holder) 							// What admins see
 					lname = "[keyname][(DM && DM.anonsay) ? "*" : (DM ? "" : "^")] ([name])"
@@ -802,6 +828,8 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 		return slot_shoes
 	else if (H.wrists == src)
 		return slot_wrists
+	else if (H.pants == src)
+		return slot_pants
 	else
 		return null//We failed to find the slot
 
@@ -990,9 +1018,9 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 	else if (ckey)
 		// To avoid runtimes during adminghost.
 		if (copytext(ckey, 1, 2) == "@")
-			P = preferences_datums[copytext(ckey, 2)]
+			P = GLOB.preferences_datums[copytext(ckey, 2)]
 		else
-			P = preferences_datums[ckey]
+			P = GLOB.preferences_datums[ckey]
 	else
 		return null
 
@@ -1008,9 +1036,9 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 	else if (ckey)
 		// To avoid runtimes during adminghost.
 		if (copytext(ckey, 1, 2) == "@")
-			P = preferences_datums[copytext(ckey, 2)]
+			P = GLOB.preferences_datums[copytext(ckey, 2)]
 		else
-			P = preferences_datums[ckey]
+			P = GLOB.preferences_datums[ckey]
 	else
 		return 0
 
@@ -1030,9 +1058,9 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 	else if (ckey)
 		// To avoid runtimes during adminghost.
 		if (copytext(ckey, 1, 2) == "@")
-			P = preferences_datums[copytext(ckey, 2)]
+			P = GLOB.preferences_datums[copytext(ckey, 2)]
 		else
-			P = preferences_datums[ckey]
+			P = GLOB.preferences_datums[ckey]
 	else
 		return
 
@@ -1092,7 +1120,7 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 	if(P?.ismultitool())
 		return P
 
-/mob/abstract/observer/get_multitool()
+/mob/abstract/ghost/observer/get_multitool()
 	return can_admin_interact() && ..(ghost_multitool)
 
 /mob/living/carbon/human/get_multitool()
@@ -1291,9 +1319,6 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 	//We also need to update name of internal camera.
 	if(camera)
 		camera.c_tag = real_name
-
-/mob/proc/get_talk_bubble()
-	return 'icons/mob/talk.dmi'
 
 /mob/proc/adjust_typing_indicator_offsets(var/atom/movable/typing_indicator/indicator)
 	return

@@ -122,7 +122,7 @@
 		if(strength > strength_upper_limit)
 			strength = strength_upper_limit
 		else
-			message_admins("PA Control Computer increased to [strength] by [key_name(usr, usr.client)](<A HREF='?_src_=holder;adminmoreinfo=[REF(usr)]'>?</A>) in ([x],[y],[z] - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)",0,1)
+			message_admins("PA Control Computer increased to [strength] by [key_name(usr, usr.client)](<A href='byond://?_src_=holder;adminmoreinfo=[REF(usr)]'>?</A>) in ([x],[y],[z] - <A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)",0,1)
 			log_game("PA Control Computer increased to [strength] by [usr.ckey]([usr]) in ([x],[y],[z])")
 			investigate_log("increased to <span class='warning'>[strength]</span> by [usr.key]","singulo")
 		strength_change()
@@ -133,7 +133,7 @@
 		if(strength < 0)
 			strength = 0
 		else
-			message_admins("PA Control Computer decreased to [strength] by [key_name(usr, usr.client)](<A HREF='?_src_=holder;adminmoreinfo=[REF(usr)]'>?</A>) in ([x],[y],[z] - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)",0,1)
+			message_admins("PA Control Computer decreased to [strength] by [key_name(usr, usr.client)](<A href='byond://?_src_=holder;adminmoreinfo=[REF(usr)]'>?</A>) in ([x],[y],[z] - <A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)",0,1)
 			log_game("PA Control Computer decreased to [strength] by [usr.ckey]([usr]) in ([x],[y],[z])")
 			investigate_log("decreased to <font color='green'>[strength]</font> by [usr.key]","singulo")
 		strength_change()
@@ -214,7 +214,7 @@
 /obj/machinery/particle_accelerator/control_box/toggle_power(mob/user)
 	src.active = !src.active
 	investigate_log("turned [active?SPAN_WARNING("ON"):"<font color='green'>OFF</font>"] by [user ? user.key : "outside forces"]","singulo")
-	message_admins("PA Control Computer turned [active ?"ON":"OFF"] by [key_name(user, TRUE, highlight_special = TRUE)] in ([x],[y],[z] - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)",0,1)
+	message_admins("PA Control Computer turned [active ?"ON":"OFF"] by [key_name(user, TRUE, highlight_special = TRUE)] in ([x],[y],[z] - <A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)",0,1)
 	log_game("PA Control Computer turned [active ?"ON":"OFF"] by [key_name(user)] in ([x],[y],[z])")
 	if(src.active)
 		update_use_power(POWER_USE_ACTIVE)
@@ -241,11 +241,11 @@
 
 	var/dat = ""
 	dat += "Particle Accelerator Control Panel<BR>"
-	dat += "<A href='?src=[REF(src)];close=1'>Close</A><BR><BR>"
+	dat += "<A href='byond://?src=[REF(src)];close=1'>Close</A><BR><BR>"
 	dat += "Status:<BR>"
 	if(!assembled)
 		dat += "Unable to detect all parts!<BR>"
-		dat += "<A href='?src=[REF(src)];scan=1'>Run Scan</A><BR><BR>"
+		dat += "<A href='byond://?src=[REF(src)];scan=1'>Run Scan</A><BR><BR>"
 	else
 		dat += "All parts in place.<BR><BR>"
 		dat += "Power:"
@@ -253,9 +253,9 @@
 			dat += "On<BR>"
 		else
 			dat += "Off <BR>"
-		dat += "<A href='?src=[REF(src)];togglep=1'>Toggle Power</A><BR><BR>"
+		dat += "<A href='byond://?src=[REF(src)];togglep=1'>Toggle Power</A><BR><BR>"
 		dat += "Particle Strength: [src.strength] "
-		dat += "<A href='?src=[REF(src)];strengthdown=1'>--</A>|<A href='?src=[REF(src)];strengthup=1'>++</A><BR><BR>"
+		dat += "<A href='byond://?src=[REF(src)];strengthdown=1'>--</A>|<A href='byond://?src=[REF(src)];strengthup=1'>++</A><BR><BR>"
 
 	var/datum/browser/pa_win = new(user, "pacontrol", capitalize_first_letters(name), 420, 500)
 	pa_win.set_content(dat)

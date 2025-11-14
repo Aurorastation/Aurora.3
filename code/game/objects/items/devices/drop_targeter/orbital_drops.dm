@@ -56,9 +56,12 @@
 	map = new /datum/map_template/armory
 
 /obj/item/device/orbital_dropper/armory/syndicate
-	desc_antag = "This is a stealthy variant of the standard armory orbital drop. It will not report itself dropping on common, unless emagged."
 	announcer_name = "Tactical Autodrone"
 	announcer_frequency = SYND_FREQ
+
+/obj/item/device/orbital_dropper/armory/syndicate/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This is a stealthy variant of the standard armory orbital drop. It will not report itself dropping on Common, unless emagged."
 
 /obj/item/device/orbital_dropper/icarus_drones
 	name = "icarus painter"
@@ -76,6 +79,6 @@
 	map = null
 
 /obj/item/device/orbital_dropper/icarus_drones/orbital_drop(var/turf/target, var/user)
-	log_and_message_admins("[key_name_admin(user)] has used a [src] at <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[target.x];Y=[target.y];Z=[target.z]'>JMP</a>.")
+	log_and_message_admins("[key_name_admin(user)] has used a [src] at <A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[target.x];Y=[target.y];Z=[target.z]'>JMP</a>.")
 	for(var/i = 1, i <= num_of_drones, i++)
 		new /mob/living/simple_animal/hostile/icarus_drone(get_random_turf_in_range(target, 4, 2, TRUE))

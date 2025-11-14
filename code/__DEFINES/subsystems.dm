@@ -138,16 +138,18 @@
 
 
 // - SSrecords --
-#define RECORD_GENERAL 1
-#define RECORD_MEDICAL 2
-#define RECORD_SECURITY 4
-#define RECORD_LOCKED 8
-#define RECORD_WARRANT 16
-#define RECORD_VIRUS 32
+#define RECORD_GENERAL BITFLAG(0)
+#define RECORD_MEDICAL BITFLAG(1)
+#define RECORD_SECURITY BITFLAG(2)
+#define RECORD_LOCKED BITFLAG(3)
+#define RECORD_WARRANT BITFLAG(4)
+#define RECORD_VIRUS BITFLAG(5)
+#define RECORD_SHUTTLE_MANIFEST BITFLAG(6)
 
 
 // - SSjobs --
 // departments
+// If we rename any of these, also change them in ship_locations.dm define.
 #define DEPARTMENT_COMMAND "Command"
 #define DEPARTMENT_COMMAND_SUPPORT "Command Support"
 #define DEPARTMENT_SECURITY "Security"
@@ -209,9 +211,10 @@
 // Subsystems shutdown in the reverse of the order they initialize in
 // The numbers just define the ordering, they are meaningless otherwise.
 
-#define INIT_ORDER_PERSISTENT_CONFIGURATION 101 //Aurora snowflake conflg handling
+#define INIT_ORDER_PERSISTENT_CONFIGURATION 101 //Aurora snowflake config handling
 #define INIT_ORDER_PROFILER 101
 #define INIT_ORDER_GARBAGE 99
+#define INIT_ORDER_DBCORE 95
 #define INIT_ORDER_SOUNDS 83
 #define INIT_ORDER_DISCORD 78
 #define INIT_ORDER_JOBS 65 // Must init before atoms, to set up properly the dynamic job lists.
@@ -224,7 +227,8 @@
 #define INIT_ORDER_EARLY_ASSETS 48
 #define INIT_ORDER_SPATIAL_GRID 43
 #define INIT_ORDER_ECONOMY 40
-#define INIT_ORDER_MAPFINALIZE 31 //Asteroid generation, another aurora snowflake, must run before the atoms init
+#define INIT_ORDER_MAPFINALIZE 32 // Asteroid generation, another aurora snowflake, must run before the atoms init
+#define INIT_ORDER_PERSISTENCE 31 // Persistence subsystem, requires map load
 #define INIT_ORDER_ATOMS 30
 #define INIT_ORDER_MACHINES 20
 #define INIT_ORDER_DEFAULT 0
@@ -241,6 +245,7 @@
 #define INIT_ORDER_ICON_SMOOTHING -6
 #define INIT_ORDER_OVERLAY -7
 #define INIT_ORDER_WEATHER    -9
+#define INIT_ORDER_ODYSSEY	-15
 #define INIT_ORDER_LIGHTING -20
 #define INIT_ORDER_ZCOPY -21 //Aurora snowflake, Z-mimic flush. Should run after SSoverlay & SSicon_smooth so it copies the smoothed sprites.
 #define INIT_ORDER_PATH -50
@@ -252,6 +257,7 @@
 
 #define FIRE_PRIORITY_PING 10
 #define FIRE_PRIORITY_GARBAGE 15
+#define FIRE_PRIORITY_DATABASE 16
 #define FIRE_PRIORITY_ASSETS 20
 #define FIRE_PRIORITY_NPC_MOVEMENT 21
 #define FIRE_PRIORITY_NPC_ACTIONS 22
@@ -266,6 +272,8 @@
 #define FIRE_PRIORITY_RUNECHAT 410
 #define FIRE_PRIORITY_TIMER 700
 #define FIRE_PRIORITY_SOUND_LOOPS 800
+#define FIRE_PRIORITY_SPEECH_CONTROLLER 900
+#define FIRE_PRIORITY_DELAYED_VERBS 950
 
 /**
 	Create a new timer and add it to the queue.

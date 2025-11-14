@@ -46,13 +46,13 @@
 /datum/gear/utility/journal
 	display_name = "journal"
 	description = "A journal, kind of like a folder, but bigger! And personal."
-	path = /obj/item/journal
+	path = /obj/item/journal/filled
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/utility/notepad
 	display_name = "notepad"
 	description = "A notepad for jotting down notes in meetings or interrogations."
-	path = /obj/item/journal/notepad
+	path = /obj/item/journal/notepad/filled
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/utility/fountainpen
@@ -110,10 +110,18 @@
 	allowed_roles = list("Shaft Miner", "Operations Manager", "Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice", "Engineering Personnel", "Operations Personnel")
 	origin_restriction = list(/singleton/origin_item/origin/himeo, /singleton/origin_item/origin/ipc_himeo, /singleton/origin_item/origin/free_council)
 
-/datum/gear/utility/wheelchair/color
+// See the IPC-exclusive tab for the human variant.
+/datum/gear/utility/assunzione_kit
+	display_name = "assunzionii voidsuit kit"
+	path = /obj/item/voidsuit_modkit/assunzione
+	allowed_roles = list("Research Director", "Scientist", "Xenoarchaeologist", "Xenobiologist", "Xenobotanist", "Research Intern", "Science Personnel")
+	origin_restriction = list(/singleton/origin_item/origin/assunzione, /singleton/origin_item/origin/ipc_assunzione)
+
+/datum/gear/utility/wheelchair
 	display_name = "wheelchair"
 	path = /obj/item/material/stool/chair/wheelchair
-	cost = 4
+	cost = 2
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/utility/business_card_holder
 	display_name = "business card holder"
@@ -150,21 +158,14 @@
 	gear_tweaks += new /datum/gear_tweak/path(cards)
 	gear_tweaks += new /datum/gear_tweak/paper_data()
 
-/datum/gear/utility/pills
-	display_name = "pill bottle selection"
-	description = "A selection of prescription pills. NOTICE: most of these are considered contraband if possessed without the relevant prescription noted in the medical records."
-	path = /obj/item/reagent_containers/pill
+/datum/gear/utility/paper
+	display_name = "colorable paper"
+	path = /obj/item/paper
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
-/datum/gear/utility/pills/New()
+/datum/gear/utility/paper/New()
 	..()
-	var/list/pills = list()
-	pills["Emoxanyl"] = /obj/item/storage/pill_bottle/emoxanyl
-	pills["Minaphobin"] = /obj/item/storage/pill_bottle/minaphobin/small
-	pills["Neurostabin "] = /obj/item/storage/pill_bottle/neurostabin
-	pills["Orastabin"] = /obj/item/storage/pill_bottle/orastabin
-	pills["Parvosil"] = /obj/item/storage/pill_bottle/parvosil
-	pills["Corophenidate"] = /obj/item/storage/pill_bottle/corophenidate
-	gear_tweaks += new /datum/gear_tweak/path(pills)
+	gear_tweaks += new /datum/gear_tweak/paper_data()
 
 /datum/gear/utility/buddy_tag
 	display_name = "buddy tag"
@@ -178,3 +179,35 @@
 /datum/gear/utility/buddy_tag/New()
 	..()
 	gear_tweaks += new /datum/gear_tweak/buddy_tag_config()
+
+/datum/gear/utility/earphones
+	display_name = "earphones selection"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+	path = /obj/item/clothing/ears/earphones
+	cost = 1
+
+/datum/gear/utility/earphones/New()
+	..()
+	var/list/earphones = list()
+	earphones["headphones"] = /obj/item/clothing/ears/earphones/headphones
+	earphones["earphones"] = /obj/item/clothing/ears/earphones
+	earphones["earbuds"] = /obj/item/clothing/ears/earphones/earbuds
+	gear_tweaks += new /datum/gear_tweak/path(earphones)
+
+/datum/gear/utility/earphones_music_cartridge
+	display_name = "earphones music cartridge selection"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+	path = /obj/item/music_cartridge/audioconsole
+	cost = 1
+
+/datum/gear/utility/earphones_music_cartridge/New()
+	..()
+	var/list/music_cartridges = list()
+	music_cartridges["Konyang Vibes 2463"] = /obj/item/music_cartridge/konyang_retrowave
+	music_cartridges["Top of the Charts 66 (Venusian Hits)"] = /obj/item/music_cartridge/venus_funkydisco
+	music_cartridges["SCC Welcome Package"] = /obj/item/music_cartridge/audioconsole
+	music_cartridges["Spacer Classics Vol. 1"] = /obj/item/music_cartridge/ss13
+	music_cartridges["Indulgence EP (X-Rock)"] = /obj/item/music_cartridge/xanu_rock
+	music_cartridges["Electro-Swing of Adhomai"] = /obj/item/music_cartridge/adhomai_swing
+	music_cartridges["Europa: Best of the 50s"] = /obj/item/music_cartridge/europa_various
+	gear_tweaks += new /datum/gear_tweak/path(music_cartridges)

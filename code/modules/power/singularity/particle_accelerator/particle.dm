@@ -46,19 +46,20 @@
 	if (A)
 		if(ismob(A))
 			toxmob(A)
-		if((istype(A,/obj/machinery/the_singularitygen))||(istype(A,/obj/singularity/)))
-			A:energy += energy
+		if((istype(A,/obj/machinery/the_singularitygen))||(istype(A,/obj/singularity)))
+			var/obj/singularity/singulo = A
+			singulo.energy += energy
 		else if(istype(A, /obj/machinery/power/fusion_core))
 			var/obj/machinery/power/fusion_core/collided_core = A
 			if(particle_type && particle_type != "neutron")
-				if(collided_core.AddParticles(particle_type, 1 + additional_particles))
+				if(collided_core.AddParticles(particle_type, 12 + additional_particles))
 					collided_core.owned_field.plasma_temperature += mega_energy
 					collided_core.owned_field.energy += energy
 					qdel(src)
 		else if(istype(A, /obj/effect/fusion_particle_catcher))
 			var/obj/effect/fusion_particle_catcher/PC = A
 			if(particle_type && particle_type != "neutron")
-				if(PC.parent.owned_core.AddParticles(particle_type, 1 + additional_particles))
+				if(PC.parent.owned_core.AddParticles(particle_type, 12 + additional_particles))
 					PC.parent.plasma_temperature += mega_energy
 					PC.parent.energy += energy
 					qdel(src)

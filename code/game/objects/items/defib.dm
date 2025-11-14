@@ -19,6 +19,13 @@
 	var/obj/item/shockpaddles/linked/paddles
 	var/obj/item/cell/bcell
 
+/obj/item/defibrillator/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(bcell)
+		. += "The charge meter is showing <b>[bcell.percent()]%</b> charge left."
+	else
+		. += "There is no cell inside."
+
 /obj/item/defibrillator/Initialize() //starts without a cell for rnd
 	. = ..()
 	if(ispath(paddles))
@@ -62,13 +69,6 @@
 
 	overlays = new_overlays
 
-/obj/item/defibrillator/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(bcell)
-		. += "The charge meter is showing [bcell.percent()]% charge left."
-	else
-		. += "There is no cell inside."
-
 /obj/item/defibrillator/ui_action_click()
 	toggle_paddles()
 
@@ -98,7 +98,7 @@
 			to_chat(user, SPAN_WARNING("You need a free hand to hold the paddles!"))
 		update_icon() //success
 
-/obj/item/defibrillator/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)
+/obj/item/defibrillator/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	. = ..()
 	if(ismob(loc) && slot_flags)
 		var/mob/M = src.loc
@@ -106,11 +106,11 @@
 			return
 		if(!M.unEquip(src))
 			return
-		add_fingerprint(usr)
+		add_fingerprint(user)
 		M.put_in_active_hand(src)
 	else
-		if(ishuman(usr))
-			var/mob/living/carbon/human/H = usr
+		if(ishuman(user))
+			var/mob/living/carbon/human/H = user
 			if(Adjacent(H))
 				if(!H.put_in_active_hand(paddles))
 					to_chat(H, SPAN_WARNING("You need a free hand to take out the paddles!"))

@@ -1,5 +1,5 @@
 /proc/examinate(mob/user, atom/target, show_extended)
-	if(user.is_blind() || (user.stat && !isobserver(user)))
+	if(user.is_blind() || (user.stat && !isghost(user)))
 		to_chat(user, SPAN_NOTICE("Something is there, but you cannot see it."))
 		return
 

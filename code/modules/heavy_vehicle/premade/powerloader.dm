@@ -107,18 +107,6 @@
 	)
 	. = ..()
 
-/mob/living/heavy_vehicle/premade/ripley/flames_red
-	name = "APLU \"Firestarter\""
-	desc = "An ancient but well-liked cargo handling exosuit. This one has cool red flames."
-	icon_state = "ripley_flames_red"
-	decal = "flames_red"
-
-/mob/living/heavy_vehicle/premade/ripley/flames_blue
-	name = "APLU \"Burning Chrome\""
-	desc = "An ancient but well-liked cargo handling exosuit. This one has cool blue flames."
-	icon_state = "ripley_flames_blue"
-	decal = "flames_blue"
-
 /mob/living/heavy_vehicle/premade/firefighter
 	name = "firefighting exosuit"
 	desc = "A mix and match of industrial parts designed to withstand fires."
@@ -172,7 +160,7 @@
 	gender = PLURAL
 	power_use = 50000
 	vision_flags = SEE_MOBS
-	see_invisible = SEE_INVISIBLE_NOLIGHTING
+	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
 
 /obj/item/mech_component/sensors/combatripley/prebuild()
 	..()

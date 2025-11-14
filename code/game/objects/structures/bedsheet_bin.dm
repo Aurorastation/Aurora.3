@@ -7,7 +7,6 @@ LINEN BINS
 /obj/item/bedsheet
 	name = "bedsheet"
 	desc = "A surprisingly soft linen bedsheet."
-	desc_info = "Click to roll and unroll. Alt-click to fold and unfold. Drag and drop to pick up. You can equip it in your backpack slot."
 	icon = 'icons/obj/bedsheets.dmi'
 	icon_state = "sheetwhite"
 	item_state = "sheetwhite"
@@ -29,6 +28,15 @@ LINEN BINS
 	var/fold = FALSE
 	var/inuse = FALSE
 	var/inside_storage_item = FALSE
+
+/obj/item/bedsheet/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Click to roll and unroll."
+	. += "Alt-click to fold and unfold."
+	. += "Drag and drop to pick up."
+	. += "You can equip it in your backpack slot."
+	. += "It could be cut up into sheets of cloth."
+	. += "Holes could be poked in it to make a ghost costume... if you really wanted to."
 
 /obj/item/bedsheet/Initialize()
 	. = ..()
@@ -73,20 +81,21 @@ LINEN BINS
 		..()
 	add_fingerprint(user)
 
-/obj/item/bedsheet/MouseDrop(mob/user)
-	if((user && (!use_check(user))) && (user.contents.Find(src) || in_range(src, user)))
-		if(!istype(user, /mob/living/carbon/slime) && !istype(user, /mob/living/simple_animal))
-			if( !user.get_active_hand() )		//if active hand is empty
+/obj/item/bedsheet/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	if((over && (!use_check(over))) && (over.contents.Find(src) || in_range(src, over)))
+		if(!istype(over, /mob/living/carbon/slime) && !istype(over, /mob/living/simple_animal))
+			var/mob/mouse_dropped_over = over
+			if( !mouse_dropped_over.get_active_hand() )		//if active hand is empty
 				var/mob/living/carbon/human/H = user
 				var/obj/item/organ/external/temp = H.organs_by_name["r_hand"]
 				if (H.hand)
 					temp = H.organs_by_name["l_hand"]
 				if(temp && !temp.is_usable())
-					to_chat(user, SPAN_NOTICE("You try to move your [temp.name], but cannot!"))
+					to_chat(H, SPAN_NOTICE("You try to move your [temp.name], but cannot!"))
 					return
 
-				to_chat(user, SPAN_NOTICE("You pick up \the [src]."))
-				user.put_in_hands(src)
+				to_chat(H, SPAN_NOTICE("You pick up \the [src]."))
+				H.put_in_hands(src)
 	return
 
 /obj/item/bedsheet/update_icon()
@@ -387,9 +396,12 @@ LINEN BINS
 	var/list/sheets = list()
 	var/obj/item/hidden = null
 
+/obj/structure/bedsheetbin/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "You could hide things in here, so long as there are also some sheets to conceal it."
 
-/obj/structure/bedsheetbin/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/structure/bedsheetbin/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(amount < 1)
 		. += "There are no bed sheets in the bin."
 		return

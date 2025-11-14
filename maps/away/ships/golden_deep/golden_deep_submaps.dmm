@@ -156,10 +156,10 @@
 /area/template_noop)
 "ji" = (
 /obj/structure/closet/cabinet,
-/obj/item/clothing/accessory/tshirt/skrell/nebula/black,
-/obj/item/clothing/accessory/tshirt/skrell/nebula/nralakk,
-/obj/item/clothing/accessory/tshirt/skrell/nebula/teal,
-/obj/item/clothing/accessory/tshirt/skrell/reef,
+/obj/item/clothing/under/dressshirt/tshirt/skrell/nebula/black,
+/obj/item/clothing/under/dressshirt/tshirt/skrell/nebula/nralakk,
+/obj/item/clothing/under/dressshirt/tshirt/skrell/nebula/teal,
+/obj/item/clothing/under/dressshirt/tshirt/skrell/reef,
 /obj/item/clothing/ears/skrell/band,
 /obj/item/clothing/ears/skrell/chain/black,
 /obj/item/clothing/ears/skrell/chain/ebony,
@@ -315,7 +315,7 @@
 /obj/item/device/measuring_tape,
 /obj/item/device/core_sampler,
 /obj/item/device/depth_scanner,
-/obj/item/storage/box/excavation,
+/obj/item/storage/box/unique/excavation,
 /obj/item/book/manual/excavation,
 /obj/item/pickaxe/hand,
 /obj/random/dirt_75,
@@ -792,10 +792,10 @@
 /obj/item/gun/energy/net{
 	pixel_y = -4
 	},
-/obj/item/storage/box/tranquilizer{
+/obj/item/storage/box/shells/tranquilizer{
 	pixel_y = 14
 	},
-/obj/item/storage/box/tranquilizer{
+/obj/item/storage/box/shells/tranquilizer{
 	pixel_y = 14
 	},
 /obj/item/gun/projectile/heavysniper/tranq{

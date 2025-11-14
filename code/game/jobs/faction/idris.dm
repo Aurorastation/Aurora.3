@@ -62,6 +62,9 @@
 		"Corporate Reporter" = /obj/outfit/job/journalist/idris,
 		"Chaplain" = /obj/outfit/job/chaplain/idris,
 		"Corporate Liaison" = /obj/outfit/job/representative/idris,
+		"Corporate Aide" = /obj/outfit/job/corporate_aide/idris,
+		"Assistant" = /obj/outfit/job/assistant/idris,
+		"Wait Staff" = /obj/outfit/job/assistant/waiter/idris,
 		"Off-Duty Crew Member" = /obj/outfit/job/visitor/idris,
 		"Security Personnel" = /obj/outfit/job/officer/event/idris,
 		"Service Personnel" = /obj/outfit/job/bartender/idris
@@ -245,6 +248,39 @@
 		/obj/item/gun/energy/pistol = 1,
 		/obj/item/stamp/idris = 1
 	)
+
+/obj/outfit/job/corporate_aide/idris
+	name = "Idris Corporate Aide"
+
+	id = /obj/item/card/id/idris
+
+	head = /obj/item/clothing/head/beret/corporate/idris
+	suit = /obj/item/clothing/suit/storage/toggle/corp/idris
+
+	backpack_faction = /obj/item/storage/backpack/idris
+	satchel_faction = /obj/item/storage/backpack/satchel/idris
+	dufflebag_faction = /obj/item/storage/backpack/duffel/idris
+	messengerbag_faction = /obj/item/storage/backpack/messenger/idris
+
+/obj/outfit/job/assistant/idris
+	name = "Assistant - Idris"
+
+	id = /obj/item/card/id/idris
+
+	backpack_faction = /obj/item/storage/backpack/idris
+	satchel_faction = /obj/item/storage/backpack/satchel/idris
+	dufflebag_faction = /obj/item/storage/backpack/duffel/idris
+	messengerbag_faction = /obj/item/storage/backpack/messenger/idris
+
+/obj/outfit/job/assistant/waiter/idris
+	name = "Wait Staff - Idris"
+
+	id = /obj/item/card/id/idris
+
+	backpack_faction = /obj/item/storage/backpack/idris
+	satchel_faction = /obj/item/storage/backpack/satchel/idris
+	dufflebag_faction = /obj/item/storage/backpack/duffel/idris
+	messengerbag_faction = /obj/item/storage/backpack/messenger/idris
 
 /obj/outfit/job/visitor/idris
 	name = "Off-Duty Crew Member - Idris"

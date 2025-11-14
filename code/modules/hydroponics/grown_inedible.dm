@@ -9,6 +9,7 @@
 		slot_l_hand_str = 'icons/mob/items/lefthand_grown.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_grown.dmi',
 		)
+	storage_slot_sort_by_name = TRUE
 	var/plantname
 	var/potency = 1
 
@@ -26,7 +27,7 @@
 		if(!S || !S.chems)
 			return
 
-		potency = S.get_trait(TRAIT_POTENCY)
+		potency = GET_SEED_TRAIT(S, TRAIT_POTENCY)
 
 		for(var/rid in S.chems)
 			var/list/chem_data = S.chems[rid]

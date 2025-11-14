@@ -219,12 +219,12 @@
 			if(vampire)
 				if(vampire.status & VAMP_ISTHRALL)
 					if(prob(10))
-						thralls.remove_antagonist(M.mind)
+						GLOB.thralls.remove_antagonist(M.mind)
 				else
 					vampire.frenzy += removed * 5
 					M.take_organ_damage(0, removed * 6)
-			if(cult.is_antagonist(M.mind) && prob(10))
-				cult.remove_antagonist(M.mind)
+			if(GLOB.cult.is_antagonist(M.mind) && prob(10))
+				GLOB.cult.remove_antagonist(M.mind)
 	if(alien && alien == IS_UNDEAD)
 		M.adjust_fire_stacks(10)
 		M.IgniteMob()

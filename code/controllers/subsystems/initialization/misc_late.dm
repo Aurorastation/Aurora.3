@@ -17,8 +17,8 @@ SUBSYSTEM_DEF(misc_late)
 		if (area_turfs.len) // Check the area is mapped
 			GLOB.ghostteleportlocs += AR.name
 			GLOB.ghostteleportlocs[AR.name] = AR
-	if(SSatlas.current_map.use_overmap && map_overmap)
-		GLOB.ghostteleportlocs[map_overmap.name] = map_overmap
+	if(SSatlas.current_map.use_overmap && GLOB.map_overmap)
+		GLOB.ghostteleportlocs[GLOB.map_overmap.name] = GLOB.map_overmap
 
 	sortTim(GLOB.ghostteleportlocs, GLOBAL_PROC_REF(cmp_text_asc))
 
@@ -37,9 +37,14 @@ SUBSYSTEM_DEF(misc_late)
 	if (GLOB.config.use_forumuser_api)
 		update_admins_from_api(TRUE)
 
+	// Load outfits here so that the verb isn't laggy as balls.
+	for(var/outfit_type in subtypesof(/obj/outfit))
+		var/obj/outfit/new_outfit = new outfit_type()
+		GLOB.outfit_cache[new_outfit.name] = new_outfit
+
+	// Load AI Icons here
+	for(var/ai_icon in subtypesof(/datum/ai_icon))
+		var/datum/ai_icon/new_icon = new ai_icon()
+		GLOB.ai_icons[new_icon.name] = ai_icon
+
 	return SS_INIT_SUCCESS
-
-/proc/sorted_add_area(area/A)
-	GLOB.all_areas += A
-
-	sortTim(GLOB.all_areas, GLOBAL_PROC_REF(cmp_name_asc))

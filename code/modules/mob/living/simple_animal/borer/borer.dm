@@ -46,7 +46,7 @@
 /mob/living/simple_animal/borer/LateLogin()
 	..()
 	if(mind)
-		borers.add_antagonist_mind(mind, 1, borers.role_text, borers.welcome_text)
+		GLOB.borers.add_antagonist_mind(mind, 1, GLOB.borers.role_text, GLOB.borers.welcome_text)
 	if(client)
 		client.init_verbs()
 		if(host)
@@ -167,8 +167,8 @@
 		return
 
 	if(host.mind)
-		borers.clear_indicators(host.mind)
-		borers.remove_antagonist(host.mind)
+		GLOB.borers.clear_indicators(host.mind)
+		GLOB.borers.remove_antagonist(host.mind)
 
 	forceMove(get_turf(host))
 	var/obj/item/organ/external/head = host.get_organ(BP_HEAD)

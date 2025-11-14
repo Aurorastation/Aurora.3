@@ -38,7 +38,7 @@
 	gas_transfer_coefficient = 0.90
 	permeability_coefficient = 0.01
 	armor = list(
-		bio = ARMOR_BIO_RESISTANT
+		BIO = ARMOR_BIO_RESISTANT
 	)
 	down_gas_transfer_coefficient = 1
 	down_body_parts_covered = null
@@ -60,7 +60,7 @@
 	gas_transfer_coefficient = 0.90
 	permeability_coefficient = 0.01
 	armor = list(
-		bio = ARMOR_BIO_MINOR
+		BIO = ARMOR_BIO_MINOR
 	)
 	down_gas_transfer_coefficient = 1
 	down_body_parts_covered = null
@@ -77,7 +77,7 @@
 	gas_transfer_coefficient = 0.90
 	permeability_coefficient = 0.01
 	armor = list(
-		bio = ARMOR_BIO_MINOR
+		BIO = ARMOR_BIO_MINOR
 	)
 	down_gas_transfer_coefficient = 1
 	down_body_parts_covered = null
@@ -147,7 +147,7 @@
 
 /obj/item/clothing/mask/ai/Initialize()
 	. = ..()
-	AddComponent(/datum/component/eye/cameranet)
+	AddComponent(/datum/component/eye/freelook)
 
 /obj/item/clothing/mask/ai/attack_self(mob/user)
 	if(user.incapacitated())
@@ -155,7 +155,7 @@
 	if(user.get_equipped_item(slot_wear_mask) != src)
 		to_chat(user, SPAN_WARNING("You must be wearing \the [src] to activate it!"))
 		return
-	var/datum/component/eye/cameranet/CN = GetComponent(/datum/component/eye)
+	var/datum/component/eye/freelook/CN = GetComponent(/datum/component/eye/freelook)
 	if(!CN)
 		to_chat(user, SPAN_WARNING("\The [src] doesn't respond!"))
 		return
@@ -194,12 +194,13 @@
 	item_state = "snood"
 	contained_sprite = TRUE
 	w_class = WEIGHT_CLASS_SMALL
+	flags_inv = HIDEFACE
 	body_parts_covered = FACE
 	item_flags = ITEM_FLAG_FLEXIBLE_MATERIAL
 	gas_transfer_coefficient = 0.90
 	permeability_coefficient = 0.5
 	armor = list(
-		bio = ARMOR_BIO_MINOR
+		BIO = ARMOR_BIO_MINOR
 	)
 	down_gas_transfer_coefficient = 1
 	down_body_parts_covered = null
@@ -211,3 +212,12 @@
 	. = ..()
 	if(icon_auto_adapt)
 		build_and_apply_species_adaption()
+
+/obj/item/clothing/mask/snood/adjust_mask(mob/user, self)
+	. = ..()
+	if(hanging)
+		body_parts_covered &= ~FACE
+		flags_inv &= ~HIDEFACE
+	else
+		body_parts_covered |= FACE
+		flags_inv |= HIDEFACE

@@ -10,7 +10,7 @@
 	icon_state = "flag_boxed"
 	var/flag_path
 
-	///Boolean, set to `TRUE` if a flag is large (2x1)
+	/// Boolean, set to `TRUE` if a flag is large (2x1)
 	var/flag_size = FALSE
 
 	var/obj/structure/sign/flag/flag_structure
@@ -23,14 +23,18 @@
 	icon = 'icons/obj/structure/flags.dmi'
 	icon_state = "flag"
 
-	///If a big flag, the other half of the flag is referenced here
+	/// If a big flag, the other half of the flag is referenced here
 	var/obj/structure/sign/flag/linked_flag
+	/// For returning your flag
+	var/obj/item/flag/flag_item
 
-	var/obj/item/flag/flag_item //For returning your flag
-
-	///Boolean, if we've been torn down
+	/// Boolean, if we've been torn down
 	var/ripped = FALSE
 
+	/// Default offset value. Used in accurately locating the turf we're standing on.
+	var/offset_constant = 32
+	/// Boolean, set to TRUE if someone is folding the banner.
+	var/currently_folding = FALSE
 	var/ripped_outline_state = "flag_ripped"
 	var/flag_path
 	var/flag_size
@@ -40,6 +44,13 @@
 	var/icon/rolled_outline
 	var/unmovable = FALSE
 	var/stand_icon = "banner_stand"
+
+/obj/structure/sign/flag/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "With the HELP intent, use an empty hand on this to examine it."
+	. += "With the DISARM intent, use an empty hand on this to fold it back up."
+	. += "With the GRAB intent, use an empty hand on this to salute it. How patriotic!"
+	. += "With the HURT intent, use an empty hand on this rip it down. You will receive a prompt to confirm the action."
 
 /obj/structure/sign/flag/Initialize(mapload, var/newdir, var/linked_flag_path, var/deploy, var/icon_file, var/item_flag_path)
 	. = ..()
@@ -79,12 +90,12 @@
 		flag_icon = new(icon, icon_state)
 		shading_icon = new('icons/obj/structure/flags.dmi', "flag")
 		flag_icon.Blend(shading_icon, ICON_MULTIPLY)
-		var/turf/T = get_step(loc, dir)
+		var/turf/T = locate(x + src.pixel_x / offset_constant, y + src.pixel_y / offset_constant, z)
 		if(iswall(T))
 			icon = flag_icon
 			return
 		for(var/obj/A in T)
-			if(istype(A, /obj/structure/window))
+			if(istype(A, /obj/structure/window) || istype(A, /obj/effect/map_effect/window_spawner))
 				icon = flag_icon
 				return
 		banner_icon = new('icons/obj/structure/flags.dmi', stand_icon)
@@ -133,7 +144,6 @@
 	F2.linked_flag = src
 	F2.name = name
 	F2.desc = desc
-	F2.desc_info = desc_info
 	F2.desc_extended = desc_extended
 	F2.flag_item = flag_item
 
@@ -151,14 +161,12 @@
 	if(use_check_and_message(user))
 		return
 
-
-	for(var/obj/A in get_turf(user.loc))
-		if(istype(A, /obj/structure/bed))
-			to_chat(user, SPAN_DANGER("There is already a [A.name] here."))
-			return
-		if(A.density)
-			to_chat(user, SPAN_DANGER("There is already something here."))
-			return
+	for(var/obj/A in get_step(get_turf(user), user.dir))
+		if(!iswall(A) && !istype(A, /obj/structure/table) && !istype(A, /obj/structure/window_frame) && !istype(A, /obj/structure/window))
+			if(A.density || istype(A, /obj/structure/bed))
+				to_chat(user, SPAN_WARNING("You can't place this here, [A.name] is blocking the way!"))
+				return
+		continue
 
 	if(isfloor(user.loc))
 		user.visible_message(SPAN_NOTICE("\The [user] deploys \the [src] on \the [get_turf(loc)]."), SPAN_NOTICE("You deploy \the [src] on \the [get_turf(loc)]."))
@@ -226,9 +234,15 @@
 		if(I_HELP)
 			examinate(user, src)
 		if(I_DISARM)
+			if(currently_folding)
+				to_chat(user, SPAN_WARNING("You are already folding up \the [src]."))
+				return
+			currently_folding = TRUE
 			user.visible_message(SPAN_NOTICE("\The [user] begins to carefully fold up \the [src]."), SPAN_NOTICE("You begin to carefully fold up \the [src]."))
 			if(do_after(user, 50))
 				unfasten(user)
+			else
+				currently_folding = FALSE
 		if(I_GRAB)
 			user.visible_message(SPAN_NOTICE("\The [user] salutes \the [src]."), SPAN_NOTICE("You salute \the [src]."))
 		if(I_HURT)
@@ -1373,14 +1387,14 @@
 // Dominian Standards
 
 /obj/item/flag/diona
-	name = "\improper Imperial Diona standard"
-	desc = "A green Dominian standard which represents the Dionae within the Empire."
+	name = "\improper Strange Imperial standard"
+	desc = "A strange green flag in Imperial style. What House could it represent?"
 	flag_path = "diona"
 	flag_structure = /obj/structure/sign/flag/diona
 
 /obj/structure/sign/flag/diona
-	name = "\improper Imperial Diona standard"
-	desc = "A green Dominian standard which represents the Dionae within the Empire."
+	name = "\improper Strange Imperial standard"
+	desc = "A strange green flag in Imperial style. What House could it represent?"
 	flag_path = "diona"
 	icon_state = "diona"
 	flag_item = /obj/item/flag/diona
@@ -1417,14 +1431,14 @@
 
 /obj/item/flag/kazhkz
 	name = "\improper House Kazhkz standard"
-	desc = "A red-and-orange standard with a circular chevron which represents House Kazhkz-Han'san, one of the great houses of the \
+	desc = "A red-and-orange standard with a circular chevron which represents House Kazhkz-Han'san, one of the unathi houses of the \
 	Empire of Dominia. They are known for their more modernist nature and aversion to augmentation."
 	flag_path = "kazhkz"
 	flag_structure = /obj/structure/sign/flag/kazhkz
 
 /obj/structure/sign/flag/kazhkz
 	name = "\improper House Kazhkz standard"
-	desc = "A red-and-orange standard with a circular chevron which represents House Kazhkz-Han'san, one of the great houses of the \
+	desc = "A red-and-orange standard with a circular chevron which represents House Kazhkz-Han'san, one of the unathi houses of the \
 	Empire of Dominia. They are known for their more modernist nature and aversion to augmentation."
 	flag_path = "kazhkz"
 	icon_state = "kazhkz"
@@ -1433,14 +1447,14 @@
 /obj/item/flag/hansan
 	name = "\improper House Han'san standard"
 	desc = "A green standard with a circular chevron which represents the Clan Han'san, currently sidelined in the \
-	great House Kazhkz-Han'san. They are known for their conservative and militant nature."
+	unathi House Kazhkz-Han'san. They are known for their conservative and militant nature."
 	flag_path = "hansan"
 	flag_structure = /obj/structure/sign/flag/hansan
 
 /obj/structure/sign/flag/hansan
 	name = "\improper House Han'san standard"
 	desc = "A green standard with a circular chevron which represents the Clan Han'san, currently sidelined in the \
-	great House Kazhkz-Han'san. They are known for their conservative and militant nature."
+	unathi House Kazhkz-Han'san. They are known for their conservative and militant nature."
 	flag_path = "hansan"
 	icon_state = "hansan"
 	flag_item = /obj/item/flag/hansan
@@ -3382,22 +3396,45 @@
 /obj/structure/sign/flag/glaorr/large/west/Initialize(mapload)
 	. = ..(mapload, WEST)
 
-//Burzsia (banner only)
+//Burzsia
 /obj/item/flag/burzsia
 	name = "\improper Burzsia flag"
-	desc = "The sigil of Burzsia."
+	desc = "The sigil of Burzsia, placed on a background of Hephaestus green."
 	flag_path = "burzsia"
 	flag_structure = /obj/structure/sign/flag/burzsia
 
 /obj/structure/sign/flag/burzsia
 	name = "\improper Burzsia flag"
-	desc = "The sigil of Burzsia."
+	desc = "The sigil of Burzsia, placed on a background of Hephaestus green."
 	flag_path = "burzsia"
 	icon_state = "burzsia"
 	flag_item = /obj/item/flag/burzsia
 
 /obj/structure/sign/flag/burzsia/unmovable
 	unmovable = TRUE
+
+/obj/item/flag/burzsia/l
+	name = "\improper large Burzsia Flag"
+	flag_path = "burzsia"
+	flag_structure = /obj/structure/sign/flag/burzsia/large
+
+/obj/structure/sign/flag/burzsia/large
+	icon_state = "burzsia_l"
+	flag_path = "burzsia"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/burzsia/l
+
+/obj/structure/sign/flag/burzsia/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flagburzsia/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/burzsia/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/burzsia/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
 
 //Unathi Ruin Flags/Tapestries
 /obj/item/flag/unathi_tapestry
@@ -3951,4 +3988,83 @@
 	. = ..(mapload, EAST)
 
 /obj/structure/sign/flag/old_xanu/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
+// HPS Narrows
+/obj/item/flag/narrows
+	name = "\improper HPS Narrows flag"
+	desc = "The flag of the HPS Narrows, representing Captain Helmsman of the United Drill on the top, the Council of Overseers on the bottom, and the Iron Eternal in between."
+	flag_path = "narrows"
+	flag_structure = /obj/structure/sign/flag/narrows
+
+/obj/structure/sign/flag/narrows
+	name = "\improper HPS Narrows flag"
+	desc = "The flag of the HPS Narrows, representing Captain Helmsman of the United Drill on the top, the Council of Overseers on the bottom, and the Iron Eternal in between."
+	icon_state = "narrows"
+	flag_item = /obj/item/flag/narrows
+
+/obj/item/flag/narrows/l
+	name = "\improper large HPS Narrows flag"
+	flag_path = "narrows"
+	flag_structure = /obj/structure/sign/flag/narrows/large
+
+/obj/structure/sign/flag/narrows/large
+	icon_state = "narrows_l"
+	flag_path = "narrows"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/narrows/l
+
+/obj/structure/sign/flag/narrows/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/narrows/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/narrows/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/narrows/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
+// Zhurong
+
+/obj/item/flag/zhurong
+	name = "\improper Zhurong flag"
+	desc = "The white-and-gray flag of Zhurong. Long live the Empire, the Fleet, and House Zhao!"
+	desc_extended = "Commonly seen across Zhurong and in Zhao buildings, this flag is often regarded as the unofficial symbol of the Imperial Fleet. Zhurong shipbuilders have a tradition of carving this flag into supporting beams in ships, signifying their belief Zhurong’s steel will endure whatever is thrown at it."
+	flag_path = "zhurong"
+	flag_structure = /obj/structure/sign/flag/zhurong
+
+/obj/structure/sign/flag/zhurong
+	name = "\improper Zhurong flag"
+	desc = "The white-and-gray flag of Zhurong. Long live the Empire, the Fleet, and House Zhao!"
+	desc_extended = "Commonly seen across Zhurong and in Zhao buildings, this flag is often regarded as the unofficial symbol of the Imperial Fleet. Zhurong shipbuilders have a tradition of carving this flag into supporting beams in ships, signifying their belief Zhurong’s steel will endure whatever is thrown at it."
+	flag_path = "zhurong"
+	icon_state = "zhurong"
+	flag_item = /obj/item/flag/zhurong
+
+/obj/structure/sign/flag/zhurong/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/zhurong/l
+	name = "large Zhurong flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/zhurong/large
+
+/obj/structure/sign/flag/zhurong/large
+	icon_state = "zhurong_l"
+	flag_path = "zhurong"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/zhurong/l
+
+/obj/structure/sign/flag/zhurong/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/zhurong/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/zhurong/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/zhurong/large/west/Initialize(mapload)
 	. = ..(mapload, WEST)

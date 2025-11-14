@@ -67,7 +67,7 @@
 /mob/living/simple_animal/construct/LateLogin()
 	. = ..()
 	if(!iscultist(src))
-		cult.add_antagonist_mind(mind)
+		GLOB.cult.add_antagonist_mind(mind)
 
 /mob/living/simple_animal/construct/death()
 	new /obj/item/ectoplasm(get_turf(src))
@@ -88,7 +88,7 @@
 /mob/living/simple_animal/construct/get_bullet_impact_effect_type(var/def_zone)
 	return BULLET_IMPACT_METAL
 
-/mob/living/simple_animal/construct/attack_generic(var/mob/user)
+/mob/living/simple_animal/construct/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if(istype(user, /mob/living/simple_animal/construct))
 		var/mob/living/simple_animal/construct/C = user
@@ -123,7 +123,7 @@
 
 /mob/living/simple_animal/construct/proc/add_glow()
 	ClearOverlays()
-	var/overlay_plane = EFFECTS_ABOVE_LIGHTING_PLANE
+	var/overlay_plane = ABOVE_LIGHTING_PLANE
 
 	var/image/glow = image(icon, "glow-[icon_state]")
 	glow.plane = overlay_plane

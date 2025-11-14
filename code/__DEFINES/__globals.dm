@@ -1,4 +1,5 @@
 // See also controllers/globals.dm
+// See initialization order in /code/game/world.dm
 
 /// Creates a global initializer with a given InitValue expression, do not use
 #define GLOBAL_MANAGED(X, InitValue)\

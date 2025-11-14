@@ -56,7 +56,6 @@
 /obj/item/clothing/gloves/latex
 	name = "latex gloves"
 	desc = "Sterile latex gloves."
-	desc_info = "You can make balloons with these using some cable coil."
 	icon_state = "latex"
 	item_state = "latex"
 	siemens_coefficient = 1.0 //thin latex gloves, much more conductive than fabric gloves (basically a capacitor for AC)
@@ -66,6 +65,10 @@
 	drop_sound = 'sound/items/drop/rubber.ogg'
 	pickup_sound = 'sound/items/pickup/rubber.ogg'
 	var/balloon = /obj/item/toy/balloon/latex
+
+/obj/item/clothing/gloves/latex/assembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "You can make balloons with these using some cable coil."
 
 /obj/item/clothing/gloves/latex/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/stack/cable_coil))
@@ -86,6 +89,13 @@
 	item_state = "nitrile"
 	balloon = /obj/item/toy/balloon/latex/nitrile
 	anomaly_protection = 0.1
+
+/obj/item/clothing/gloves/latex/nitrile/zeng
+	name = "zeng-hu vinyl gloves"
+	desc = "A key design element in the labwear was utility and compatibility with the Zeng-Hu positronic chassis workers that are ubiquitous throughout the corporation. \
+	As a result they are breathable yet non-porous, allowing for ample airflow while retaining the cleanroom standards expected of a medical and scientific uniform."
+	icon_state = "zeng_gloves"
+	item_state = "zeng_gloves"
 
 /obj/item/clothing/gloves/latex/nitrile/unathi
 	name = "unathi nitrile gloves"
@@ -260,11 +270,11 @@
 	item_state = "warping_claws"
 	attack_verb = list("ripped", "torn", "cut")
 	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_MINOR,
-		laser = ARMOR_LASER_MINOR,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_MINOR
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_MINOR,
+		LASER = ARMOR_LASER_MINOR,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_MINOR
 	)
 	siemens_coefficient = 1
 	force = 11
@@ -435,7 +445,7 @@
 /obj/item/clothing/gloves/single
 	name = "single glove"
 	desc = "A single glove. This one is for the right hand."
-	icon = 'icons/clothing/gloves/single.dmi'
+	icon = 'icons/obj/item/clothing/gloves/single.dmi'
 	contained_sprite = TRUE
 	icon_state = "single"
 	item_state = "single"
@@ -448,7 +458,7 @@
 /obj/item/clothing/gloves/multi_color
 	name = "multi-color gloves"
 	desc = "A pair of gloves, each is a different color."
-	icon = 'icons/clothing/gloves/multi_color.dmi'
+	icon = 'icons/obj/item/clothing/gloves/multi_color.dmi'
 	contained_sprite = TRUE
 	icon_state = "multi_color"
 	item_state = "multi_color"

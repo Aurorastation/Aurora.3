@@ -125,7 +125,7 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile/commanded)
 	stop_automated_movement = 1
 	var/mob/mob_to_follow = following_mob_ref?.resolve()
 	if(mob_to_follow && get_dist(src, mob_to_follow) <= 10)
-		walk_to(src,mob_to_follow,1,move_to_delay)
+		walk_to(src, mob_to_follow, 1, speed)
 
 /mob/living/simple_animal/hostile/commanded/proc/commanded_stop() //basically a proc that runs whenever we are asked to stay put. Probably going to remain unused.
 	return
@@ -299,7 +299,7 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile/commanded)
 		if(M in friends)
 			friends -= M
 
-/mob/living/simple_animal/hostile/commanded/attack_generic(var/mob/user, var/damage, var/attack_message)
+/mob/living/simple_animal/hostile/commanded/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	..()
 
 	// We forgive our master

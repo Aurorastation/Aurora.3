@@ -1,4 +1,4 @@
-var/atom/movable/screen/robot_inventory
+GLOBAL_DATUM(robot_inventory, /atom/movable/screen)
 
 /mob/living/silicon/robot/instantiate_hud(datum/hud/HUD)
 	HUD.robot_hud()
@@ -102,11 +102,11 @@ var/atom/movable/screen/robot_inventory
 	mymob.throw_icon.screen_loc = ui_borg_store
 
 //Inventory
-	robot_inventory = new /atom/movable/screen()
-	robot_inventory.name = "inventory"
-	robot_inventory.icon = 'icons/mob/screen/robot.dmi'
-	robot_inventory.icon_state = "inventory"
-	robot_inventory.screen_loc = ui_borg_inventory
+	GLOB.robot_inventory = new /atom/movable/screen()
+	GLOB.robot_inventory.name = "inventory"
+	GLOB.robot_inventory.icon = 'icons/mob/screen/robot.dmi'
+	GLOB.robot_inventory.icon_state = "inventory"
+	GLOB.robot_inventory.screen_loc = ui_borg_inventory
 
 //Temp
 
@@ -144,7 +144,7 @@ var/atom/movable/screen/robot_inventory
 		r.cells,
 		mymob.up_hint,
 		mymob.pullin,
-		robot_inventory,
+		GLOB.robot_inventory,
 		mymob.gun_setting_icon,
 		mymob.toggle_firing_mode,
 		mymob.unique_action_icon,

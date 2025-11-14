@@ -203,7 +203,7 @@
 	desc = "A stop sign to direct traffic. Sometimes a demand."
 	icon = 'icons/obj/structure/urban/road_signs.dmi'
 	icon_state = "stop"
-	layer = 9
+	layer = STRUCTURE_LAYER
 	anchored = TRUE
 
 /obj/structure/road_sign/yield
@@ -241,7 +241,7 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban)
 	icon = 'icons/obj/structure/urban/ledges.dmi'
 	icon_state = "stairs-single"
 	layer = 2.01
-	opacity = 1
+	opacity = TRUE
 
 /obj/structure/stairs/urban/right
 	dir = EAST
@@ -381,12 +381,23 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 	icon_state = "television"
 	anchored = TRUE
 
+/obj/structure/television/adhomai
+	name = "adhomaian television"
+	desc = "A classic box television, manufactured on Adhomai."
+	icon = 'icons/obj/computer.dmi'
+
 /obj/structure/dressing_divider
 	name = "wardrobe dressing divider"
 	desc = "A divider for an environment where you're probably swapping clothes, made with your privacy in mind."
 	icon = 'icons/obj/structure/urban/tailoring.dmi'
 	icon_state = "divider1"
 	anchored = TRUE
+
+/obj/structure/dressing_divider/hospital
+	name = "hospital curtain"
+	desc = "Usually comes with hospital beds."
+	icon_state = "hospitalcurtain"
+	layer = ABOVE_HUMAN_LAYER
 
 /obj/structure/neon_sign
 	name = "large neon sign"
@@ -396,18 +407,22 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 	anchored = TRUE
 	layer = ABOVE_HUMAN_LAYER
 
-/obj/structure/shipping_container
+/obj/structure/shipping_container_old
 	name = "freight container"
 	desc = "A hulking industrial shipping container, bound for who knows where."
-	icon = 'icons/obj/structure/industrial/shipping_containers.dmi'
+	icon = 'icons/obj/structure/industrial/shipping_containers_old.dmi'
 	icon_state = "blue1"
 	anchored = TRUE
 	density = TRUE
 	layer = ABOVE_HUMAN_LAYER
 
+/obj/structure/shipping_container_old/Initialize()
+	. = ..()
+	AddComponent(/datum/component/large_transparency)
+
 /obj/effect/overlay/container_logo
 	name = "Hephaestus Industries emblem"
-	icon = 'icons/obj/structure/industrial/shipping_containers.dmi'
+	icon = 'icons/obj/structure/industrial/shipping_containers_old.dmi'
 	icon_state = "heph1"
 	layer = ABOVE_HUMAN_LAYER + 0.01
 
@@ -426,9 +441,9 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 	icon = 'icons/obj/structure/urban/blockers.dmi'
 	icon_state = "rod_railing"
 	density = TRUE
-	throwpass = TRUE
-	climbable = TRUE
 	anchored = TRUE
+	pass_flags_self = PASSSTRUCTURE | LETPASSTHROW
+	climbable = TRUE
 
 /obj/structure/rod_railing/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(mover?.movement_type & PHASING)
@@ -452,14 +467,18 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 		return FALSE
 	return TRUE
 
+/obj/structure/rod_railing/bar
+	layer = ABOVE_ABOVE_HUMAN_LAYER
+
+
 /obj/structure/dam
 	name = "concrete dam"
 	desc = "A hulking mass of concrete meant to hold in a large reservoir of water from passing downwards."
 	icon = 'icons/obj/structure/urban/blockers.dmi'
 	icon_state = "dam1"
 	density = TRUE
-	throwpass = TRUE
 	anchored = TRUE
+	pass_flags_self = PASSSTRUCTURE | LETPASSTHROW
 
 /obj/structure/road_barrier
 	name = "roadway barrier"
@@ -467,7 +486,7 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 	icon = 'icons/obj/structure/urban/road_edges.dmi'
 	icon_state = "guard"
 	density = TRUE
-	throwpass = TRUE
+	pass_flags_self = PASSSTRUCTURE | LETPASSTHROW
 	climbable = TRUE
 	anchored = TRUE
 
@@ -506,6 +525,26 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 		return FALSE
 	return TRUE
 
+/obj/structure/bunk_bed
+	name = "bunk bed"
+	desc = "A space-saving solution for living space problems. A symbol of roommate concept."
+	icon = 'icons/obj/structure/urban/bunk_beds.dmi'
+	icon_state = "zbunkbed"
+	density = TRUE
+	anchored = TRUE
+
+/obj/structure/bunk_bed/blue
+	icon_state = "zbunkbed2"
+
+/obj/structure/bunk_bed/green
+	icon_state = "zbunkbed3"
+
+/obj/structure/bunk_bed/black
+	icon_state = "zbunkbed4"
+
+/obj/structure/bunk_bed/prison
+	icon_state = "prisonbed"
+
 /obj/structure/chainlink_fence
 	name = "chainlink industrial fencing"
 	desc = "A tall, imposing metal fence. Not to be confused with the slightly more popular Chainlink of recent years."
@@ -515,24 +554,21 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 	color = null
 	anchored = TRUE
 	can_be_unanchored = FALSE
+	atom_flags = ATOM_FLAG_CHECKS_BORDER
+	layer = ABOVE_HUMAN_LAYER //The sprite will be in front of players when positioned correctly.
 
 /obj/structure/chainlink_fence/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)//So bullets will fly over and stuff.
 	if(mover?.movement_type & PHASING)
 		return TRUE
-	if(air_group || (height==0))
-		return TRUE
 	if(istype(mover, /obj/projectile))
-		var/obj/projectile/P = mover
-		if(P.original == src)
+		if(isliving(mover))
 			return FALSE
-		if(P.firer && Adjacent(P.firer))
-			return TRUE
 		return prob(35)
-	if(isliving(mover))
-		return FALSE
-	if(istype(mover) && mover.pass_flags & PASSTABLE)
+	if(!istype(mover) || mover.pass_flags & PASSGRILLE)
 		return TRUE
-	return FALSE
+	if(get_dir(loc, target) == dir)
+		return !density
+	return TRUE
 
 /obj/structure/chainlink_fence/CheckExit(var/atom/movable/O, var/turf/target)
 	if(istype(O) && CanPass(O, target))
@@ -768,7 +804,6 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 /obj/structure/cash_register
 	name = "cash register machine"
 	desc = "A retail nightmare object."
-	desc_info = "Drag this onto yourself to open the cash compartment."
 	icon = 'icons/obj/structure/urban/infrastructure.dmi'
 	icon_state = "cashier"
 	layer = 2.99
@@ -777,16 +812,24 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 	var/storage_type = /obj/item/storage/toolbox/cash_register_storage
 	var/obj/item/storage/storage_compartment
 
+/obj/structure/cash_register/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Drag this onto yourself to open the cash compartment."
+
 /obj/structure/cash_register/Initialize(mapload)
 	. = ..()
 	if(storage_type)
 		storage_compartment = new storage_type(src)
 
+/obj/structure/cash_register/Destroy()
+	QDEL_NULL(storage_compartment)
+	return ..()
+
 /obj/item/storage/toolbox/cash_register_storage
 	name = "cash compartment"
 
-/obj/structure/cash_register/MouseDrop(atom/over)
-	if(usr == over && ishuman(over))
+/obj/structure/cash_register/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	if(user == over && ishuman(over) && storage_compartment)
 		var/mob/living/carbon/human/H = over
 		storage_compartment.open(H)
 
@@ -921,7 +964,7 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 	autoclose = TRUE
 	support_ids = TRUE
 	glass = TRUE
-	opacity = 0 //otherwise it is opaque until opened/closed for the first time.
+	opacity = FALSE //otherwise it is opaque until opened/closed for the first time.
 
 /obj/machinery/door/urban/glass_sliding/double //use north state for left side and south state for right side
 	icon_state = "double_glass_sliding_closed"

@@ -79,3 +79,57 @@
 	name = "Major Hemophilia"
 	desc = "Your blood lacks ALL clotting factors, causing wounds to never stop bleeding."
 	trait_type = TRAIT_DISABILITY_HEMOPHILIA_MAJOR
+
+
+ABSTRACT_TYPE(/datum/character_disabilities/organ_scarring)
+	name = "Organ Scarring"
+	var/affected_organ
+
+/datum/character_disabilities/organ_scarring/apply_self(var/mob/living/carbon/human/target)
+	var/obj/item/organ/internal/affecting = target.internal_organs_by_name[affected_organ]
+	if(affecting)
+		affecting.set_max_damage(initial(affecting.max_damage) * 0.5)
+
+#define ORGAN_DISABILITY(ORGAN_PATH, ORGAN_NAME, ORGAN_TAG) \
+/datum/character_disabilities/organ_scarring/##ORGAN_PATH { \
+	name = "Scarred Organ: " + ##ORGAN_NAME; \
+	affected_organ = ##ORGAN_TAG; \
+}
+
+ORGAN_DISABILITY(brain, "Brain", BP_BRAIN)
+ORGAN_DISABILITY(eyes, "Eyes", BP_EYES)
+ORGAN_DISABILITY(lungs, "Lungs", BP_LUNGS)
+ORGAN_DISABILITY(liver, "Liver", BP_LIVER)
+ORGAN_DISABILITY(kidneys, "Kidneys", BP_KIDNEYS)
+ORGAN_DISABILITY(stomach, "Stomach", BP_STOMACH)
+ORGAN_DISABILITY(appendix, "Appendix", BP_APPENDIX)
+
+#undef ORGAN_DISABILITY
+
+
+ABSTRACT_TYPE(/datum/character_disabilities/broken)
+	name = "Bruised Limb"
+	var/affected_limb
+
+/datum/character_disabilities/broken/apply_self(var/mob/living/carbon/human/target)
+	var/obj/item/organ/external/affecting = target.get_organ(affected_limb)
+	if(affecting)
+		affecting.fracture(silent = TRUE)
+		affecting.status |= ORGAN_SPLINTED
+
+#define BROKEN_DISABILITY(LIMB_PATH, LIMB_NAME, LIMB_TAG) \
+/datum/character_disabilities/broken/##LIMB_PATH { \
+	name = "Broken Limb: " + ##LIMB_NAME; \
+	affected_limb = ##LIMB_TAG; \
+}
+
+BROKEN_DISABILITY(left_arm, "Left Arm", BP_L_ARM)
+BROKEN_DISABILITY(right_arm, "Right Arm", BP_R_ARM)
+BROKEN_DISABILITY(left_hand, "Left Hand", BP_L_HAND)
+BROKEN_DISABILITY(right_hand, "Right Hand", BP_R_HAND)
+BROKEN_DISABILITY(left_leg, "Left Leg", BP_L_LEG)
+BROKEN_DISABILITY(right_leg, "Right Leg", BP_R_LEG)
+BROKEN_DISABILITY(left_foot, "Left Foot", BP_L_FOOT)
+BROKEN_DISABILITY(right_foot, "Right Foot", BP_R_FOOT)
+
+#undef BROKEN_DISABILITY

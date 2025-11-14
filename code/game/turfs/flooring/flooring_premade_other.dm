@@ -3,6 +3,63 @@
 	name = "lava"
 	icon = 'icons/turf/flooring/lava.dmi'
 	icon_state = "lava"
+	desc = "Liquid rock; it can melt flesh from bone in seconds."
+
+/turf/simulated/floor/airless/lava/Entered(atom/movable/AM, atom/oldloc)
+	if(istype(AM, /mob/living))
+		var/mob/living/L = AM
+		if(locate(/obj/structure/lattice/catwalk, src))	//should be safe to walk upon
+			return TRUE
+		if(!istype(oldloc,/turf/simulated/floor/airless/lava))
+			to_chat(L, SPAN_WARNING("You are covered by fire and heat from entering \the [src]!"))
+		if(isanimal(L))
+			var/mob/living/simple_animal/H = L
+			if(H.flying) //flying mobs will ignore the lava
+				return TRUE
+			else
+				L.bodytemperature = min(L.bodytemperature + 150, 1000)
+		else
+			var/target_zone
+			if(L.lying)
+				target_zone = pick(BP_ALL_LIMBS)
+			else
+				target_zone = pick(BP_L_FOOT, BP_R_FOOT, BP_L_LEG, BP_R_LEG)
+
+	//Try to apply the damage
+			var/success = L.apply_damage(50, DAMAGE_BURN, target_zone, used_weapon = src, armor_pen = 50)
+	//Apply weakness, so the victim doesn't walk into more lava
+			L.Weaken(10)
+			L.IgniteMob(3)
+
+	//If successfully applied, give the message
+			if(success)
+				if(!ishuman(L))
+					L.visible_message(SPAN_DANGER("[L] falls into \the [src]!"))
+					return
+
+				var/mob/living/carbon/human/human = L
+				var/obj/item/organ/organ = human.get_organ(target_zone)
+
+				if(isipc(L) || isrobot(L))
+					playsound(src, 'sound/weapons/smash.ogg', 100, TRUE)
+				else
+					playsound(src, 'sound/effects/meatsizzle.ogg', 100, TRUE)
+
+				human.visible_message(SPAN_DANGER("\The [human] slams into \the [src]!"),
+										SPAN_WARNING(FONT_LARGE(SPAN_DANGER("You step on \the [src], feel instant pain, and the skin on your [organ.name] begins to burn away!"))),
+										SPAN_WARNING("<b>You instant pain, and the skin on your [organ.name] begins to burn away!</b>"))
+		return TRUE
+	..()
+
+/turf/simulated/floor/airless/lava/Exited(atom/movable/AM, atom/newloc)
+	if(locate(/obj/structure/lattice/catwalk, src))	//should prevent people in lava from seeing messages about exiting lava
+		return TRUE
+
+	if(istype(AM, /mob/living))
+		var/mob/living/L = AM
+		if(!istype(newloc, /turf/simulated/floor/airless/lava))
+			to_chat(L, SPAN_WARNING("You climb out of \the [src]."))
+	..()
 
 /turf/simulated/floor/ice
 	name = "ice"
@@ -49,6 +106,9 @@
 	icon_state = "grass0"
 	initial_flooring = /singleton/flooring/grass
 	footstep_sound = /singleton/sound_category/grass_footstep
+
+/turf/simulated/floor/grass/no_edge
+	has_edge_icon = FALSE
 
 /turf/simulated/floor/diona
 	name = "biomass flooring"

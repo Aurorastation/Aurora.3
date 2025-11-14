@@ -1,7 +1,6 @@
 /obj/machinery/slime_extractor
 	name = "slime core extractor"
 	desc = "A bulky machine that, when fed a slime corpse, rapidly extracts the held cores."
-	desc_info = "This machine can be upgraded with a micro laser to increase its extraction speed, or a matter bin to increase its slime capacity. It will place slime extracts into a slime extract bag if it's adjacent to the machine."
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "slime_extractor"
 	density = TRUE
@@ -19,11 +18,20 @@
 		/obj/item/stack/cable_coil{amount = 5}
 	)
 
-/obj/machinery/slime_extractor/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += FONT_SMALL(SPAN_NOTICE("It can hold <b>[slime_limit] slime\s</b> at a time."))
+/obj/machinery/slime_extractor/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "It will place slime extracts into a slime extract bag automatically if it's adjacent to the machine."
+
+/obj/machinery/slime_extractor/upgrade_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Upgraded <b>matter bins</b> will increase slime capacity."
+	. += "Upgraded <b>micro-lasers</b> will increase extraction speed."
+
+/obj/machinery/slime_extractor/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "It can hold <b>[slime_limit] slime\s</b> at a time."
 	if(length(extract_slimes))
-		. += FONT_SMALL(SPAN_WARNING("It is currently processing <b>[length(extract_slimes)] slime\s</b>."))
+		. += "It is currently processing <b>[length(extract_slimes)] slime\s</b>."
 
 /obj/machinery/slime_extractor/update_icon()
 	ClearOverlays()
@@ -31,9 +39,9 @@
 		var/mutable_appearance/panel_overlay = mutable_appearance(icon, "[icon_state]-panel")
 		AddOverlays(panel_overlay)
 	if(length(extract_slimes))
-		var/mutable_appearance/interior_overlay = mutable_appearance(icon, "[icon_state]-interior", plane = EFFECTS_ABOVE_LIGHTING_PLANE)
+		var/mutable_appearance/interior_overlay = mutable_appearance(icon, "[icon_state]-interior", plane = ABOVE_LIGHTING_PLANE)
 		AddOverlays(interior_overlay)
-		var/mutable_appearance/spinning_overlay = mutable_appearance(icon, "[icon_state]-running", plane = EFFECTS_ABOVE_LIGHTING_PLANE)
+		var/mutable_appearance/spinning_overlay = mutable_appearance(icon, "[icon_state]-running", plane = ABOVE_LIGHTING_PLANE)
 		AddOverlays(spinning_overlay)
 		set_light(2.5, 1, COLOR_VIOLET)
 	else
@@ -62,12 +70,12 @@
 	if(default_part_replacement(user, attacking_item))
 		return
 
-/obj/machinery/slime_extractor/MouseDrop_T(atom/dropping, mob/user)
+/obj/machinery/slime_extractor/mouse_drop_receive(atom/dropped, mob/user, params)
 	if(!Adjacent(user))
 		to_chat(user, SPAN_WARNING("You can't reach \the [src]!"))
 		return
-	if(isslime(dropping))
-		var/mob/living/carbon/slime/slimey = dropping
+	if(isslime(dropped))
+		var/mob/living/carbon/slime/slimey = dropped
 		if(length(extract_slimes) >= slime_limit)
 			to_chat(user, SPAN_WARNING("\The [src] is fully loaded!"))
 			return
@@ -97,11 +105,6 @@
 	extract_slimes -= extracted_slime
 	qdel(extracted_slime)
 	update_icon()
-
-
-#ifndef T_BOARD
-#error T_BOARD macro is not defined but we need it!
-#endif
 
 /obj/item/circuitboard/slime_extractor
 	name = T_BOARD("slime extractor")

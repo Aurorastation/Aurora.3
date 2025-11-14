@@ -4,16 +4,20 @@
 	icon = 'icons/obj/machinery/cell_charger.dmi'
 	icon_state = "cell"
 	item_state = "cell"
+	contained_sprite = TRUE
 	origin_tech = list(TECH_POWER = 1)
 	force = 11
 	throwforce = 5.0
 	throw_speed = 3
 	throw_range = 5
 	w_class = WEIGHT_CLASS_NORMAL
-	var/charge = 0	// note %age conveted to actual charge in New
-	var/maxcharge = 1000
-	var/rigged = 0		// true if rigged to explode
-	var/minor_fault = 0 //If not 100% reliable, it will build up faults.
+	/// Note %age converted to actual charge in New()
+	var/charge = 0
+	var/maxcharge = 2500
+	/// True if rigged to explode
+	var/rigged = FALSE
+	/// If not 100% reliable, it will build up faults.
+	var/minor_fault = 0
 	matter = list(DEFAULT_WALL_MATERIAL = 700, MATERIAL_GLASS = 50)
 	recyclable = TRUE
 
@@ -29,14 +33,14 @@
 	force = 0
 	throw_speed = 5
 	throw_range = 7
-	maxcharge = 100
+	maxcharge = 250
 	matter = list(MATERIAL_STEEL = 70, MATERIAL_GLASS = 5)
 
 /obj/item/cell/device/high
 	name = "advanced power cell"
 	desc = "A small, advanced power cell designed to power more energy demanding handheld devices."
 	icon_state = "hdevice"
-	maxcharge = 250
+	maxcharge = 500
 	matter = list(MATERIAL_STEEL = 150, MATERIAL_GLASS = 10)
 
 /obj/item/cell/device/variable/New(newloc, charge_amount)
@@ -48,7 +52,7 @@
 	name = "old power cell"
 	desc = "A cheap, old power cell. It's probably been in use for quite some time now."
 	origin_tech = list(TECH_POWER = 0)
-	maxcharge = 500
+	maxcharge = 1500
 	matter = list(DEFAULT_WALL_MATERIAL = 700, MATERIAL_GLASS = 40)
 
 /obj/item/cell/crap/empty/Initialize()
@@ -75,14 +79,14 @@
 /obj/item/cell/apc
 	name = "heavy-duty power cell"
 	origin_tech = list(TECH_POWER = 1)
-	maxcharge = 5000
+	maxcharge = 15000
 	matter = list(DEFAULT_WALL_MATERIAL = 700, MATERIAL_GLASS = 50)
 
 /obj/item/cell/high
 	name = "high-capacity power cell"
 	origin_tech = list(TECH_POWER = 2)
 	icon_state = "hcell"
-	maxcharge = 10000
+	maxcharge = 30000
 	matter = list(DEFAULT_WALL_MATERIAL = 700, MATERIAL_GLASS = 60)
 
 /obj/item/cell/high/empty/Initialize()
@@ -94,7 +98,7 @@
 	name = "super-capacity power cell"
 	origin_tech = list(TECH_POWER = 5)
 	icon_state = "scell"
-	maxcharge = 20000
+	maxcharge = 60000
 	matter = list(DEFAULT_WALL_MATERIAL = 700, MATERIAL_GLASS = 70)
 
 /obj/item/cell/super/empty/Initialize()
@@ -106,7 +110,7 @@
 	name = "hyper-capacity power cell"
 	origin_tech = list(TECH_POWER = 6)
 	icon_state = "hpcell"
-	maxcharge = 30000
+	maxcharge = 90000
 	matter = list(DEFAULT_WALL_MATERIAL = 200, MATERIAL_GOLD = 50, MATERIAL_SILVER = 50, MATERIAL_GLASS = 40)
 
 /obj/item/cell/hyper/empty/Initialize()
@@ -118,7 +122,7 @@
 	name = "infinite-capacity power cell!"
 	icon_state = "icell"
 	origin_tech =  null
-	maxcharge = 30000 //determines how badly mobs get shocked
+	maxcharge = 180000 //determines how badly mobs get shocked
 	matter = list(DEFAULT_WALL_MATERIAL = 700, MATERIAL_GLASS = 80)
 
 /obj/item/cell/infinite/check_charge()
@@ -141,15 +145,22 @@
 /obj/item/cell/slime
 	name = "charged slime core"
 	desc = "A yellow slime core infused with phoron, it crackles with power."
-	desc_info = "This slime core is energized with powerful bluespace energies, allowing it to regenerate ten percent of its charge every minute."
 	origin_tech = list(TECH_POWER = 2, TECH_BIO = 4)
 	icon = 'icons/mob/npc/slimes.dmi'
 	icon_state = "yellow slime extract"
-	maxcharge = 15000
+	maxcharge = 45000
 	matter = null
 
-	// slime cores recharges 10% every one minute
+	/// Slime cores recharges 10% every one minute.
 	self_charge_percentage = 10
+
+/obj/item/cell/slime/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This slime core is energized with powerful bluespace energies, allowing it to regenerate ten percent of its charge every minute."
+
+/obj/item/cell/slime/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Auto-charges, so maybe be fucking careful if you try rigging this one."
 
 /obj/item/cell/nuclear
 	name = "miniaturized nuclear power cell"
@@ -159,13 +170,14 @@
 	maxcharge = 50000
 	matter = null
 
-	// nuclear cores recharges 20% every one minute
+	/// Nuclear cells recharge 20% every one minute.
 	self_charge_percentage = 10
 
 /obj/item/cell/device/emergency_light
 	name = "miniature power cell"
 	desc = "A small power cell intended for use with emergency lighting."
-	maxcharge = 120	//Emergency lights use 0.2 W per tick, meaning ~10 minutes of emergency power from a cell
+	/// Emergency lights use 0.2 W per tick, meaning ~10 minutes of emergency power from a cell
+	maxcharge = 500
 	w_class = WEIGHT_CLASS_TINY
 	matter = list(MATERIAL_GLASS = 20)
 
@@ -190,7 +202,8 @@
 	name = "hydrogen blaster canister"
 	desc = "An industrial-grade hydrogen power cell, used in various blaster weapons- or blaster-adjacent power tools- in place of expensive phoron."
 	icon_state = "hycell"
-	maxcharge = 10000 // hydrogen is actually used today in electric cars
+	/// Hydrogen is actually used today in electric cars
+	maxcharge = 10000
 	matter = list(DEFAULT_WALL_MATERIAL = 700, MATERIAL_GLASS = 70)
 	w_class = WEIGHT_CLASS_SMALL
 	drop_sound = 'sound/items/drop/gascan.ogg'
@@ -212,7 +225,7 @@
 	maxcharge = 30000
 	matter = list(DEFAULT_WALL_MATERIAL = 20000, MATERIAL_GLASS = 10000, MATERIAL_URANIUM = 10000)
 
-	// nuclear mecha cores recharges 5% every one minute
+	/// Nuclear mecha cores recharges 5% every one minute
 	self_charge_percentage = 5
 
 /obj/item/cell/mecha/phoron
@@ -222,5 +235,16 @@
 	maxcharge = 50000
 	matter = list(DEFAULT_WALL_MATERIAL = 20000, MATERIAL_GLASS = 10000, MATERIAL_PHORON = 5000)
 
-	// nuclear mecha cores recharges 10% every one minute
+	/// Phoron mecha cores recharges 10% every one minute
 	self_charge_percentage = 10
+
+/obj/item/cell/mecha/phoron/alien
+	name = "anomalous power core"
+	origin_tech = list(TECH_POWER = 9, TECH_MATERIAL = 9)
+	icon_state = "alien_power_cell"
+	desc = "A mercurial gem gleaming with anomalous white light. Pale, cold flames dance along its surface, which crackle with static charge upon touching any object."
+
+/obj/item/cell/mecha/phoron/alien/Initialize()
+	. = ..()
+	maxcharge *= rand(0.75, 1.25)
+	self_charge_percentage *= rand(0.75, 1.25)

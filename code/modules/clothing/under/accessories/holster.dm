@@ -122,7 +122,7 @@
 
 /obj/item/clothing/accessory/holster/verb/holster_verb() //For the holster hotkey.
 	set name = "Holster"
-	set category = "Object"
+	set category = "Object.Held"
 	set src in usr
 
 	if(!istype(usr, /mob/living))
@@ -171,6 +171,7 @@
 	icon_state = "holster_hip"
 	item_state = "holster_hip"
 
+
 /obj/item/clothing/accessory/holster/thigh
 	name = "black thigh holster"
 	desc = "A drop leg holster made of a durable synthetic fiber."
@@ -202,7 +203,7 @@
 /obj/item/clothing/accessory/holster/modular
 	name = "plate carrier holster"
 	desc = "A special holster with rigging able to attach to modern modular plate carriers."
-	icon = 'icons/clothing/kit/modular_armor.dmi'
+	icon = 'icons/obj/item/clothing/suit/armor/modular_armor/modular_armor_attachments.dmi'
 	icon_state = "modular_holster"
 	item_state = "modular_holster"
 	contained_sprite = TRUE

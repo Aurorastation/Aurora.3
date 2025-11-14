@@ -147,22 +147,22 @@
 	build_path = /obj/item/circuitboard/candymachine
 
 /datum/design/circuit/machine/portgen
-	name = "portable generator"
+	name = "Portable Generator"
 	req_tech = list(TECH_DATA = 3, TECH_PHORON = 3, TECH_POWER = 3, TECH_ENGINEERING = 3)
 	build_path = /obj/item/circuitboard/portgen
 
 /datum/design/circuit/machine/advancedportgen
-	name = "advanced portable generator"
+	name = "Advanced Portable Generator"
 	req_tech = list(TECH_DATA = 3, TECH_POWER = 4, TECH_ENGINEERING = 4)
 	build_path = /obj/item/circuitboard/portgen/advanced
 
 /datum/design/circuit/machine/superportgen
-	name = "super portable generator"
+	name = "Super Portable Generator"
 	req_tech = list(TECH_DATA = 3, TECH_POWER = 5, TECH_ENGINEERING = 5)
 	build_path = /obj/item/circuitboard/portgen/super
 
 /datum/design/circuit/machine/fusionportgen
-	name = "miniature fusion reactor"
+	name = "Miniature Fusion Reactor"
 	req_tech = list(TECH_DATA = 3, TECH_POWER = 6, TECH_ENGINEERING = 6)
 	build_path = /obj/item/circuitboard/portgen/fusion
 
@@ -238,12 +238,12 @@
 	build_path = /obj/item/circuitboard/slime_extractor
 
 /datum/design/circuit/machine/iv_drip
-	name = "IV drip"
+	name = "IV Drip"
 	req_tech = list(TECH_DATA = 1, TECH_BIO = 2)
 	build_path = /obj/item/circuitboard/iv_drip
 
 /datum/design/circuit/oxyregenerator
-	name = "oxygen regenerator"
+	name = "Oxygen Regenerator"
 	req_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
 	build_path = /obj/item/circuitboard/oxyregenerator
 

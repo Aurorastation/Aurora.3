@@ -79,7 +79,7 @@
 	vessel_size = SHIP_SIZE_SMALL
 	scanimage = "intrepid.png"
 	designer = "Hephaestus Industries"
-	volume = "21 meters length, 16 meters beam/width, 6 meters vertical height"
+	volume = "26 meters length, 15 meters beam/width, 6 meters vertical height"
 	sizeclass = "Pathfinder Exploration Shuttle"
 	shiptype = "Field expeditions and private research uses"
 
@@ -89,14 +89,12 @@
 	skybox_image.pixel_y = rand(128,256)
 	return skybox_image
 
-/obj/machinery/computer/shuttle_control/explore/intrepid
+/obj/machinery/computer/shuttle_control/explore/terminal/intrepid
 	name = "\improper Intrepid control console"
 	shuttle_tag = "Intrepid"
 	req_access = list(ACCESS_INTREPID)
-	density = 0
-	icon = 'icons/obj/cockpit_console.dmi'
-	icon_state = "right"
-	icon_screen = "blue"
+	icon_state = "computer"
+	icon_screen = "helm"
 	icon_keyboard = null
 	circuit = null
 

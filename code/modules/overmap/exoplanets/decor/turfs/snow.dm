@@ -1,5 +1,7 @@
 /turf/simulated/floor/exoplanet/snow
 	name = "snow"
+	gender = PLURAL
+	desc = "It crunches as you pass over it."
 	icon = 'icons/turf/smooth/snow40.dmi'
 	icon_state = "snow"
 	dirt_color = "#e3e7e8"
@@ -32,6 +34,8 @@
 
 /turf/simulated/floor/exoplanet/permafrost
 	name = "permafrost"
+	gender = PLURAL
+	desc = "Icy, frozen ground."
 	icon = 'icons/turf/flooring/snow.dmi'
 	icon_state = "permafrost"
 	footstep_sound = /singleton/sound_category/asteroid_footstep

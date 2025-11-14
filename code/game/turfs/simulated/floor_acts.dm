@@ -53,3 +53,7 @@
 	for(var/obj/structure/window/W in src)
 		if(W.dir == dir_to || W.is_fulltile()) //Same direction or diagonal (full tile)
 			W.fire_act(adj_temp, adj_volume)
+
+/turf/simulated/floor/ChangeTurf(path, tell_universe, force_lighting_update, ignore_override, mapload)
+	SEND_SIGNAL(src, COMSIG_ATOM_DECONSTRUCTED)
+	return ..()

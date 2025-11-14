@@ -6,7 +6,9 @@
 /obj/item/device/modkit
 	name = "voidsuit modification kit"
 	desc = "A kit containing all the needed tools and parts to modify a voidsuit for another user."
+	icon = 'icons/obj/item/device/modkit.dmi'
 	icon_state = "modkit"
+	item_state = "restock_unit"
 	var/parts = MODKIT_FULL
 	var/target_species = BODYTYPE_HUMAN
 	var/is_multi_species = FALSE //can this modkit change things for multiple species?
@@ -16,6 +18,10 @@
 		/obj/item/clothing/suit/space/void,
 		/obj/item/rig_assembly
 		)
+
+/obj/item/device/modkit/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "It looks as though it modifies voidsuits to fit [is_multi_species ? "users of multiple species" : "[target_species] users"]."
 
 /obj/item/device/modkit/afterattack(obj/O, mob/user as mob, proximity)
 	if(!proximity)
@@ -77,10 +83,6 @@
 		user.drop_from_inventory(src,O)
 		qdel(src)
 
-/obj/item/device/modkit/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += "It looks as though it modifies voidsuits to fit [is_multi_species ? "users of multiple species" : "[target_species] users"]."
-
 /obj/item/device/modkit/tajaran
 	name = "tajaran voidsuit modification kit"
 	desc = "A kit containing all the needed tools and parts to modify a voidsuit for another user. This one looks like it's meant for tajara."
@@ -105,12 +107,12 @@
 
 /obj/item/voidsuit_modkit
 	name = "voidsuit kit"
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/obj/item/device/modkit.dmi'
 	icon_state = "modkit"
+	item_state = "restock_unit"
+	contained_sprite = TRUE
 	desc = "A simple cardboard box containing the requisition forms, permits, and decal kits for a Himean voidsuit."
-	desc_info = "In order to convert a voidsuit simply click on voidsuit or helmet with this item\
-	The same process can be used to convert the voidsuit back into a regular voidsuit. Make sure not to have a helmet or tank in the suit\
-	or else it will be deleted."
+
 	w_class = WEIGHT_CLASS_SMALL
 	var/list/suit_options = list(
 		/obj/item/clothing/suit/space/void/mining = /obj/item/clothing/suit/space/void/mining/himeo,
@@ -122,10 +124,17 @@
 		/obj/item/clothing/suit/space/void/atmos = /obj/item/clothing/suit/space/void/atmos/himeo,
 		/obj/item/clothing/head/helmet/space/void/atmos = /obj/item/clothing/head/helmet/space/void/atmos/himeo,
 
-		/obj/item/rig_assembly/industrial = /obj/item/rig_assembly/industrial/himeo
+		/obj/item/rig_assembly/industrial = /obj/item/rig_assembly/industrial/himeo,
+		/obj/item/rig/industrial = /obj/item/rig/industrial/himeo/dequipped
 
 	)
 	var/parts = MODKIT_FULL
+
+/obj/item/voidsuit_modkit/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Click on a voidsuit or helmet with this item to convert it."
+	. += "Clicked on a converted voidsuit or helmet to convert it back into its regular form."
+	. += "Make sure not to have any items attached to the suit, or else they will be deleted."
 
 /obj/item/voidsuit_modkit/afterattack(obj/item/W as obj, mob/user as mob, proximity)
 	if(!proximity)
@@ -149,44 +158,75 @@
 		if(istype(W, /obj/item/clothing/suit/space/void) && W.contents.len)
 			to_chat(user, SPAN_NOTICE("Remove any accessories, helmets, magboots, or oxygen tanks before attempting to convert this voidsuit."))
 			return
+		else if(istype(W, /obj/item/rig)) // hardsuit kitting
+			//reconverting = FALSE
+			var/obj/item/rig/rigVar = W
+			if(!isturf(W.loc))
+				to_chat(user, SPAN_NOTICE("You'll need to set this down to work on it."))
+				return
+			else if (rigVar.cell)
+				to_chat(user, SPAN_NOTICE("You'll need to remove the cell before you convert this hardsuit."))
+				return
+			else if (rigVar.air_supply)
+				to_chat(user, SPAN_NOTICE("You'll need to remove the air tank before you convert this hardsuit."))
+				return
+			else if (rigVar.open)
+				to_chat(user, SPAN_NOTICE("You'll need to close up the hardsuit to work properly."))
+				return
+			else
+				var/list/possible_removals = list()
+				for(var/obj/item/rig_module/module in rigVar.installed_modules)
+					if(module.permanent)
+						continue
+					possible_removals[module.name] = module
+
+					if(possible_removals.len)
+						to_chat(user, SPAN_NOTICE("You'll need to remove any modules before you convert this hardsuit."))
+						return
 
 		playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
 		var/obj/item/P = new voidsuit_product(get_turf(W))
 
 		if(!reconverting)
 			to_chat(user, SPAN_NOTICE("Your permit for [P] has been processed. Enjoy!"))
+		else if(reconverting && istype(P, /obj/item/rig))
+			var/obj/item/rig/rigVarBack = P
+			rigVarBack.cell = null
+			rigVarBack.air_supply = null
 		else
-			to_chat(user, SPAN_NOTICE("Your voidsuit part has been reconverted into [P]."))
+			to_chat(user, SPAN_NOTICE("Your part has been reconverted into [P]."))
+
+		qdel(W)
 
 		if (istype(W, /obj/item/clothing/head/helmet))
 			parts &= ~MODKIT_HELMET
 		if (istype(W, /obj/item/clothing/suit))
 			parts &= ~MODKIT_SUIT
-		if (istype(W, /obj/item/rig_assembly/industrial/himeo))
+		if (istype(W, /obj/item/rig))
 			parts &= ~MODKIT_RIG
 
-		qdel(W)
 
-		if(!parts)
+		/*if(!parts)
 			user.drop_from_inventory(src)
-			qdel(src)
+			qdel(src)*/
 
 /obj/item/voidsuit_modkit/himeo
-	name = "himeo voidsuit kit"
+	name = "himean EVA suit modkit"
 	contained_sprite = TRUE
 	icon = 'icons/obj/mining_contained.dmi'
 	icon_state = "himeo_kit"
 	item_state = "himeo_kit"
-	desc = "A simple cardboard box containing the requisition forms, permits, and decal kits for a Himean voidsuit."
+	desc = "A simple cardboard box containing the requisition forms, permits, and decal kits for Himean EVA equipment."
 	desc_extended = "Despite the vast amounts of supplementary paperwork involved, the Stellar Corporate Conglomerate continues to import specialty industrialwear through an Orion Express subsidiary to \
 	boost morale among Himean staff. With success in the previous Type-76 'Fish Fur' program, the Chainlink has also authorized a number of Type-86 'Cicada' industrial hardsuits for use \
 	on a number of installations, such as the Horizon."
-	desc_info = "In order to convert a voidsuit, simply click on voidsuit or helmet with this item. The same process can be used to convert the voidsuit back into a regular voidsuit, or \
-	to turn an industrial hardsuit assembly into a Himeo variant. Make sure not to have a helmet or tank in the suit, or else it will be deleted."
 
+/obj/item/voidsuit_modkit/himeo/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This modkit can be used to convert an industrial hardsuit, or hardsuit assembly, into a Himean variant."
 
 /obj/item/voidsuit_modkit/himeo/tajara
-	name = "tajaran himeo voidsuit kit"
+	name = "tajaran himean EVA suit modkit"
 	desc = "A simple cardboard box containing the requisition forms, permits, and decal kits for a Himean voidsuit fitted for Tajara."
 	suit_options = list(
 		/obj/item/clothing/suit/space/void/mining = /obj/item/clothing/suit/space/void/mining/himeo/tajara,
@@ -201,17 +241,27 @@
 		/obj/item/rig_assembly/industrial = /obj/item/rig_assembly/industrial/himeo
 	)
 
+/obj/item/voidsuit_modkit/ceres_lance_unathi
+	name = "\improper Ceres' Lance voidsuit kit"
+	desc = "A highly complicated device that allows you to convert a Ceres' Lancer suit into its Unathi-fitted counterpart and vice versa. Practical!"
+	suit_options = list(
+		/obj/item/clothing/head/helmet/space/void/lancer = /obj/item/clothing/head/helmet/space/void/lancer/unathi,
+		/obj/item/clothing/suit/space/void/lancer = /obj/item/clothing/suit/space/void/lancer/unathi,
+		/obj/item/clothing/head/helmet/space/void/lancer/unathi = /obj/item/clothing/head/helmet/space/void/lancer,
+		/obj/item/clothing/suit/space/void/lancer/unathi = /obj/item/clothing/suit/space/void/lancer
+	)
+
 /obj/item/voidsuit_modkit/dominianvoid
 	name = "dominian voidsman's voidsuit kit"
 	desc = "A highly complicated device that allows you to convert a Dominian prejoroub combat suit into its voidsman counterpart. Practical!"
-	desc_info = "This is an OOC item, don't let anyone see it! In order to convert a voidsuit simply click on voidsuit or helmet with this item \
-	The same process can be used to convert the voidsuit back into a regular voidsuit. Make sure not to have a helmet or tank in the suit \
-	or else it will be deleted."
 	w_class = WEIGHT_CLASS_SMALL
 	suit_options = list(
 		/obj/item/clothing/head/helmet/space/void/dominia = /obj/item/clothing/head/helmet/space/void/dominia/voidsman,
 		/obj/item/clothing/suit/space/void/dominia = /obj/item/clothing/suit/space/void/dominia/voidsman
 	)
+/obj/item/voidsuit_modkit/dominianvoid/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += SPAN_DANGER("This is an OOC item, don't let anyone see it!")
 
 /obj/item/storage/box/dominianvoid
 	name = "dominian voidsman's modkit box"
@@ -235,17 +285,22 @@
 
 /obj/item/voidsuit_modkit_multi //for converting between a large range of options instead of having 5000 subtypes
 	name = "voidsuit kit"
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/obj/item/device/modkit.dmi'
 	icon_state = "modkit"
+	item_state = "restock_unit"
+	contained_sprite = TRUE
 	desc = "A simple cardboard box designed to modify a voidsuit to a selection of alternate options."
-	desc_info = "In order to convert a voidsuit simply click on voidsuit or helmet with this item\
-	The same process can be used to convert the voidsuit back into a regular voidsuit. Make sure not to have a helmet or tank in the suit\
-	or else it will be deleted."
 	w_class = WEIGHT_CLASS_SMALL
 	var/list/suit_options = list()
 	var/list/helmet_options = list()
 	var/list/rig_options = list()
 	var/parts = MODKIT_FULL
+
+/obj/item/voidsuit_modkit_multi/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Click on a voidsuit or helmet with this item to convert it."
+	. += "Clicked on a converted voidsuit or helmet to convert it back into its regular form."
+	. += "Make sure not to have any items attached to the suit, or else they will be deleted."
 
 /obj/item/voidsuit_modkit_multi/afterattack(obj/item/W as obj, mob/user as mob, proximity)
 	if(!proximity)
@@ -294,9 +349,6 @@
 /obj/item/voidsuit_modkit_multi/sol_warlord
 	name = "solarian warlord modkit"
 	desc = "A highly complicated device that allows you to convert a Solarian voidsuit into a warlord variant. Wow!"
-	desc_info = "This is an OOC item, don't let anyone see it! In order to convert a voidsuit simply click on voidsuit or helmet with this item \
-	The same process can be used to convert the voidsuit back into a regular voidsuit. Make sure not to have a helmet or tank in the suit \
-	or else it will be deleted."
 	suit_options = list(
 		"Solarian Armed Forces" = /obj/item/clothing/suit/space/void/sol,
 		"Free Solarian Fleets" = /obj/item/clothing/suit/space/void/sol/fsf,
@@ -305,7 +357,8 @@
 		"Southern Fleet Administration" = /obj/item/clothing/suit/space/void/sol/sfa,
 		"Solarian Provisional Government" = /obj/item/clothing/suit/space/void/sol/spg,
 		"Solarian Restoration Front" = /obj/item/clothing/suit/space/void/sol/srf,
-		"Southern Solarian Military District" = /obj/item/clothing/suit/space/void/sol/ssmd
+		"Southern Solarian Military District" = /obj/item/clothing/suit/space/void/sol/ssmd,
+		"Solarian People's Liberation Fleet" = /obj/item/clothing/suit/space/void/sol/splf
 	)
 	helmet_options = list(
 		"Solarian Armed Forces" = /obj/item/clothing/head/helmet/space/void/sol,
@@ -315,15 +368,17 @@
 		"Southern Fleet Administration" = /obj/item/clothing/head/helmet/space/void/sol/sfa,
 		"Solarian Provisional Government" = /obj/item/clothing/head/helmet/space/void/sol/spg,
 		"Solarian Restoration Front" = /obj/item/clothing/head/helmet/space/void/sol/srf,
-		"Southern Solarian Military District" = /obj/item/clothing/head/helmet/space/void/sol/ssmd
+		"Southern Solarian Military District" = /obj/item/clothing/head/helmet/space/void/sol/ssmd,
+		"Solarian People's Liberation Fleet" = /obj/item/clothing/head/helmet/space/void/sol/splf
 	)
+
+/obj/item/voidsuit_modkit_multi/sol_warlord/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += SPAN_DANGER("This is an OOC item, don't let anyone see it!")
 
 /obj/item/voidsuit_modkit_multi/unathi_pirate
 	name = "unathi pirate modkit"
 	desc = "A highly complicated device that allows you to convert an Unathi pirate suit into another fleet's counterpart. Practical!"
-	desc_info = "This is an OOC item, don't let anyone see it! In order to convert a voidsuit simply click on voidsuit or helmet with this item \
-	The same process can be used to convert the voidsuit back into a regular voidsuit. Make sure not to have a helmet or tank in the suit \
-	or else it will be deleted."
 	w_class = WEIGHT_CLASS_SMALL
 	suit_options = list(
 		"Izharshan's Raiders" = /obj/item/clothing/suit/space/void/unathi_pirate,
@@ -337,6 +392,10 @@
 		"Kazu's Techraiders" = /obj/item/clothing/head/helmet/space/void/unathi_pirate/kazu,
 		"Tarwa Conglomerate" = /obj/item/clothing/head/helmet/space/void/unathi_pirate/tarwa
 	)
+
+/obj/item/voidsuit_modkit_multi/unathi_pirate/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += SPAN_DANGER("This is an OOC item, don't let anyone see it!")
 
 /obj/item/voidsuit_modkit_multi/unathi_pirate/captain
 	name = "unathi pirate captain modkit"
@@ -356,15 +415,16 @@
 /obj/item/voidsuit_modkit_multi/nanotrasen
 	name = "\improper NanoTrasen hardsuit modkit"
 	desc = "A highly complicated device that allows you to convert a NanoTrasen hardsuit into its corporate auxiliary or Nexus Security variant. Wow!"
-	desc_info = "This is an OOC item, don't let anyone see it! In order to convert a voidsuit simply click on a hardsuit with this item \
-	The same process can be used to convert the hardsuit back into a regular hardsuit. Make sure not to have any modules in the suit \
-	or else it will be deleted."
 	w_class = WEIGHT_CLASS_SMALL
 	rig_options = list(
 		"NanoTrasen Hardsuit" = /obj/item/rig/nanotrasen,
 		"Corporate Auxiliary Hardsuit" = /obj/item/rig/nanotrasen/corporate_auxiliary,
 		"Nexus Security Hardsuit" = /obj/item/rig/nanotrasen/nexus
 	)
+
+/obj/item/voidsuit_modkit_multi/nanotrasen/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += SPAN_DANGER("This is an OOC item, don't let anyone see it!")
 
 /obj/item/voidsuit_modkit_multi/coalition
 	name = "coalition of colonies voidsuit modkit"
@@ -374,7 +434,7 @@
 		"Gadpathurian Vulture-GP" = /obj/item/clothing/suit/space/void/coalition/gadpathur,
 		"Himean Buzzard" = /obj/item/clothing/suit/space/void/coalition/himeo,
 		"Galatean Jackdaw" = /obj/item/clothing/suit/space/void/coalition/galatea,
-		"Assunzionii Rook" = /obj/item/clothing/suit/space/void/coalition/assunzione
+		"Assunzionii Rook" = /obj/item/clothing/suit/space/void/sci/assunzione
 	)
 	helmet_options = list(
 		"Coalition Vulture" = /obj/item/clothing/head/helmet/space/void/coalition,
@@ -382,7 +442,7 @@
 		"Gadpathurian Vulture-GP" = /obj/item/clothing/head/helmet/space/void/coalition/gadpathur,
 		"Himean Buzzard" = /obj/item/clothing/head/helmet/space/void/coalition/himeo,
 		"Galatean Jackdaw" = /obj/item/clothing/head/helmet/space/void/coalition/galatea,
-		"Assunzionii Rook" = /obj/item/clothing/head/helmet/space/void/coalition/assunzione
+		"Assunzionii Rook" = /obj/item/clothing/head/helmet/space/void/sci/assunzione
 	)
 
 /obj/item/storage/box/unathi_pirate
@@ -404,6 +464,22 @@
 	name = "coalition of colonies modkit box"
 	desc = "Contains modkits to convert Coalition voidsuits into member-state variants."
 	starts_with = list(/obj/item/voidsuit_modkit_multi/coalition = 4)
+
+/obj/item/voidsuit_modkit/assunzione
+	name = "assunzionii voidsuit kit"
+	desc = "A simple cardboard box containing the requisition forms, permits, and decal kits for an Assunzionii research voidsuit."
+	suit_options = list(
+		/obj/item/clothing/suit/space/void/sci = /obj/item/clothing/suit/space/void/sci/assunzione,
+		/obj/item/clothing/head/helmet/space/void/sci = /obj/item/clothing/head/helmet/space/void/sci/assunzione,
+	)
+
+/obj/item/voidsuit_modkit/assunzione/ipc
+	name = "synthetic assunzionii voidsuit kit"
+	desc = "A simple cardboard box containing the requisition forms, permits, and decal kits for an Assunzionii research voidsuit fitted for an IPC."
+	suit_options = list(
+		/obj/item/clothing/suit/space/void/sci = /obj/item/clothing/suit/space/void/sci/assunzione/ipc,
+		/obj/item/clothing/head/helmet/space/void/sci = /obj/item/clothing/head/helmet/space/void/sci/assunzione/ipc,
+	)
 
 #undef MODKIT_HELMET
 #undef MODKIT_SUIT

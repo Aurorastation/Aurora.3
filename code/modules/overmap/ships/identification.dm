@@ -23,6 +23,7 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/iff_beacon/LateInitialize()
+	. = ..()
 	if(SSatlas.current_map.use_overmap && !linked)
 		var/my_sector = GLOB.map_sectors["[z]"]
 		if (istype(my_sector, /obj/effect/overmap/visitable))
@@ -35,14 +36,9 @@
 		return TRUE
 	if(default_part_replacement(user, attacking_item))
 		return TRUE
-
 	if(panel_open)
-		if(attacking_item.ismultitool() || attacking_item.iswirecutter())
-			if(panel_open)
-				wires.interact(user)
-			else
-				to_chat(user, SPAN_WARNING("\The [src]'s wires aren't exposed."))
-			return TRUE
+		wires.interact(user)
+		return TRUE
 	..()
 
 /obj/machinery/iff_beacon/proc/toggle()

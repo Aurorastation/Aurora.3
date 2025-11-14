@@ -205,10 +205,6 @@
 		/obj/item/clothing/under/lance,
 		/obj/item/clothing/under/legion/pilot,
 		/obj/item/clothing/under/offworlder,
-		/obj/item/clothing/under/pants/jeans,
-		/obj/item/clothing/under/pants/camo,
-		/obj/item/clothing/under/pants/khaki,
-		/obj/item/clothing/under/pants/mustang,
 		/obj/item/clothing/under/rank/bartender,
 		/obj/item/clothing/under/rank/hangar_technician/heph,
 		/obj/item/clothing/under/rank/chef,
@@ -216,7 +212,7 @@
 		/obj/item/clothing/under/rank/engineer,
 		/obj/item/clothing/under/rank/sol,
 		/obj/item/clothing/under/rank/miner,
-		/obj/item/clothing/under/skirt/offworlder,
+		/obj/item/clothing/under/dress/offworlder/skirt,
 		/obj/item/clothing/under/suit_jacket/tan,
 		/obj/item/clothing/under/tactical,
 		/obj/item/clothing/under/tajaran,
@@ -687,7 +683,7 @@
 
 	var/obj/item/technomancer_core/TC = H.back
 	if(TC)
-		technomancer_belongings.Add(TC)
+		GLOB.technomancer_belongings.Add(TC)
 
 	var/obj/item/technomancer_catalog/catalog = H.l_store
 	if(catalog)
@@ -732,7 +728,7 @@
 
 	var/obj/item/technomancer_core/TC = H.back
 	if(TC)
-		technomancer_belongings.Add(TC)
+		GLOB.technomancer_belongings.Add(TC)
 
 	var/obj/item/technomancer_catalog/catalog = H.l_store
 	if(catalog)

@@ -65,11 +65,11 @@
 
 	update_icon()
 
-/obj/item/battle_monsters/deck/MouseDrop_T(atom/dropping, mob/user) //Dropping C onto the card
+/obj/item/battle_monsters/deck/mouse_drop_receive(atom/dropped, mob/user, params) //Dropping C onto the card
 
-	if(istype(dropping, /obj/item/battle_monsters/deck/))
+	if(istype(dropped, /obj/item/battle_monsters/deck/))
 
-		var/obj/item/battle_monsters/deck/added_deck = dropping
+		var/obj/item/battle_monsters/deck/added_deck = dropped
 		stored_card_names += added_deck.stored_card_names
 
 		user.visible_message(\
@@ -77,7 +77,7 @@
 			SPAN_NOTICE("You combine two decks together.")\
 		)
 
-		qdel(dropping)
+		qdel(dropped)
 		return
 
 	. = ..()
@@ -126,7 +126,7 @@
 		SPAN_NOTICE("You shuffle \the [src].")\
 	)
 
-	playsound(src.loc, 'sound/items/cardshuffle.ogg', 100, 1, -4)
+	playsound(src.loc, 'sound/items/cards/cardshuffle.ogg', 100, 1, -4)
 
 	stored_card_names = shuffle(stored_card_names)
 
@@ -176,9 +176,9 @@
 			var/datum/battle_monsters/title/suffix_datum = SSbattle_monsters.FindMatchingSuffix(splitstring[3])
 			formatted_data = SSbattle_monsters.FormatMonsterText(SSbattle_monsters.GetMonsterFormatting(),prefix_datum,root_datum,suffix_datum)
 
-		browse_data = "[formatted_data]<br><a href='?src=[REF(src)];selection=[cardname]'>Draw Card</a><br><hr>[browse_data]"
+		browse_data = "[formatted_data]<br><a href='byond://?src=[REF(src)];selection=[cardname]'>Draw Card</a><br><hr>[browse_data]"
 
-	user << browse(browse_data, "window=battlemonsters_hand")
+	user << browse(HTML_SKELETON(browse_data), "window=battlemonsters_hand")
 
 /obj/item/battle_monsters/deck/Topic(href,href_list)
 	if(..())

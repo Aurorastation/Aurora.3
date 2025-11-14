@@ -34,7 +34,6 @@
 	var/speed = 0
 
 	// Lighting and sight
-	light_wedge = LIGHT_WIDE
 	var/lights_on = FALSE // Is our integrated light on?
 	var/intense_light = FALSE	// Whether cyborg's integrated light was upgraded
 	var/sight_mode = NO_HUD
@@ -100,7 +99,7 @@
 
 	// Laws
 	var/mob/living/silicon/ai/connected_ai
-	var/law_preset = /datum/ai_laws/nanotrasen
+	var/law_preset = /datum/ai_laws/conglomerate
 	var/law_update = TRUE // Whether they sync with their AI or not.
 
 	// Access
@@ -346,11 +345,11 @@
 	if(module)
 		selecting_module = FALSE
 		return
-	if(!(mod_type in robot_modules))
+	if(!(mod_type in GLOB.robot_modules))
 		selecting_module = FALSE
 		return
 
-	var/module_type = robot_modules[mod_type]
+	var/module_type = GLOB.robot_modules[mod_type]
 	playsound(get_turf(src), 'sound/effects/pop.ogg', 100, TRUE)
 	spark(get_turf(src), 5, GLOB.alldirs)
 
@@ -369,9 +368,7 @@
 	if(prefix)
 		mod_type = prefix
 
-	if(istype(mmi, /obj/item/device/mmi/digital/posibrain))
-		braintype = "Android"
-	else if(istype(mmi, /obj/item/device/mmi/digital/robot))
+	if(istype(mmi, /obj/item/device/mmi/digital/robot))
 		braintype = "Robot"
 	else
 		braintype = "Cyborg"
@@ -487,7 +484,7 @@
 		to_chat(src, SPAN_WARNING("WARNING: Power too low for self-diagnostic functions."))
 		return
 	var/dat = self_diagnosis()
-	src << browse(dat, "window=robotdiagnosis")
+	src << browse(HTML_SKELETON(dat), "window=robotdiagnosis")
 
 /mob/living/silicon/robot/verb/toggle_component()
 	set category = "Robot Commands"
@@ -624,6 +621,8 @@
 						cell_component.installed = 0
 						to_chat(user, SPAN_NOTICE("You remove \the [cell_component.wrapped]."))
 	if(user.a_intent == I_HELP)
+		if(wires_exposed)
+			wires.interact(user)
 		if(attacking_item.iswelder())
 			if(src == user)
 				to_chat(user, SPAN_WARNING("You lack the reach to be able to repair yourself."))
@@ -745,12 +744,6 @@
 				C.brute_damage = 0
 				C.electronics_damage = 0
 				handle_panel_overlay()
-		else if(attacking_item.iswirecutter() || attacking_item.ismultitool())
-			if(wires_exposed)
-				wires.interact(user)
-			else
-				to_chat(user, SPAN_WARNING("\The [src]'s wires aren't exposed."))
-				return
 		else if(attacking_item.isscrewdriver() && opened && !cell)	// haxing
 			wires_exposed = !wires_exposed
 			user.visible_message(SPAN_NOTICE("\The [user] [wires_exposed ? "exposes" : "covers"] \the [src]'s wires."), SPAN_NOTICE("You [wires_exposed ? "expose" : "cover"] \the [src]'s wires."))
@@ -829,7 +822,7 @@
 			user.put_in_active_hand(broken_device)
 
 //Robots take half damage from basic attacks.
-/mob/living/silicon/robot/attack_generic(var/mob/user, var/damage, var/attack_message)
+/mob/living/silicon/robot/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	return ..(user,FLOOR(damage/2, 1),attack_message)
 
 /mob/living/silicon/robot/proc/allowed(mob/M)
@@ -874,9 +867,9 @@
 	dat += {"
 	<B>Activated Modules</B>
 	<BR>
-	Module 1: [module_state_1 ? "<A HREF=?src=[REF(src)];mod=[REF(module_state_1)]>[module_state_1]<A>" : "No Module"]<BR>
-	Module 2: [module_state_2 ? "<A HREF=?src=[REF(src)];mod=[REF(module_state_2)]>[module_state_2]<A>" : "No Module"]<BR>
-	Module 3: [module_state_3 ? "<A HREF=?src=[REF(src)];mod=[REF(module_state_3)]>[module_state_3]<A>" : "No Module"]<BR>
+	Module 1: [module_state_1 ? "<A href='byond://?src=[REF(src)];mod=[REF(module_state_1)]'>[module_state_1]<A>" : "No Module"]<BR>
+	Module 2: [module_state_2 ? "<A href='byond://?src=[REF(src)];mod=[REF(module_state_2)]'>[module_state_2]<A>" : "No Module"]<BR>
+	Module 3: [module_state_3 ? "<A href='byond://?src=[REF(src)];mod=[REF(module_state_3)]'>[module_state_3]<A>" : "No Module"]<BR>
 	<BR>
 	<B>Installed Modules</B><BR><BR>"}
 
@@ -887,18 +880,18 @@
 		else if(activated(obj))
 			dat += "[obj]: <B>Activated</B><BR>"
 		else
-			dat += "[obj]: <A HREF=?src=[REF(src)];act=[REF(obj)]>Activate</A><BR>"
+			dat += "[obj]: <A href='byond://?src=[REF(src)];act=[REF(obj)]'>Activate</A><BR>"
 	if(emagged)
 		if(activated(module.emag))
 			dat += "[module.emag]: <B>Activated</B><BR>"
 		else
-			dat += "[module.emag]: <A HREF=?src=[REF(src)];act=[REF(module.emag)]>Activate</A><BR>"
+			dat += "[module.emag]: <A href='byond://?src=[REF(src)];act=[REF(module.emag)]'>Activate</A><BR>"
 	if(malf_AI_module)
 		if(activated(module.malf_AI_module))
 			dat += "[module.malf_AI_module]: <B>Activated</B><BR>"
 		else
-			dat += "[module.malf_AI_module]: <A HREF=?src=[REF(src)];act=[REF(module.malf_AI_module)]>Activate</A><BR>"
-	src << browse(dat, "window=robotmod")
+			dat += "[module.malf_AI_module]: <A href='byond://?src=[REF(src)];act=[REF(module.malf_AI_module)]'>Activate</A><BR>"
+	src << browse(HTML_SKELETON(dat), "window=robotmod")
 
 
 /mob/living/silicon/robot/Topic(href, href_list)
@@ -929,19 +922,22 @@
 			O.hud_layerise()
 			contents += O
 			if(istype(module_state_1,/obj/item/borg/sight))
-				sight_mode |= module_state_1:sight_mode
+				var/obj/item/borg/sight/sight_module = module_state_3
+				sight_mode |= sight_module.sight_mode
 		else if(!module_state_2)
 			module_state_2 = O
 			O.hud_layerise()
 			contents += O
 			if(istype(module_state_2,/obj/item/borg/sight))
-				sight_mode |= module_state_2:sight_mode
+				var/obj/item/borg/sight/sight_module = module_state_3
+				sight_mode |= sight_module.sight_mode
 		else if(!module_state_3)
 			module_state_3 = O
 			O.hud_layerise()
 			contents += O
 			if(istype(module_state_3,/obj/item/borg/sight))
-				sight_mode |= module_state_3:sight_mode
+				var/obj/item/borg/sight/sight_module = module_state_3
+				sight_mode |= sight_module.sight_mode
 		else
 			to_chat(src, SPAN_WARNING("You need to disable a module first!"))
 		installed_modules()
@@ -1034,7 +1030,7 @@
 
 /mob/living/silicon/robot/mode()
 	set name = "Activate Held Object"
-	set category = "IC"
+	set category = "Object.Held"
 	set src = usr
 
 	var/obj/item/W = get_active_hand()

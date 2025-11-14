@@ -1,7 +1,3 @@
-#ifndef T_BOARD
-#error T_BOARD macro is not defined but we need it!
-#endif
-
 /obj/item/circuitboard/unary_atmos
 	board_type = BOARD_MACHINE
 	var/machine_dir = SOUTH

@@ -1,7 +1,7 @@
 /obj/item/device/encryptionkey
 	name = "standard encryption key"
 	desc = "An encryption key for a radio headset. Contains cypherkeys."
-	icon = 'icons/obj/radio.dmi'
+	icon = 'icons/obj/item/device/encryptionkey.dmi'
 	icon_state = "cypherkey"
 	item_state = ""
 	w_class = WEIGHT_CLASS_TINY
@@ -10,7 +10,7 @@
 	var/translate_hivenet = FALSE
 	var/syndie = FALSE // Signifies that it de-crypts Syndicate transmissions
 	var/independent = FALSE // Signifies that it lets you talk on the spicy channel
-	var/list/channels = list(CHANNEL_COMMON = TRUE, CHANNEL_ENTERTAINMENT = TRUE)
+	var/list/channels = list(CHANNEL_COMMON = TRUE, CHANNEL_ENTERTAINMENT = TRUE, CHANNEL_EXPED = TRUE)
 	var/list/additional_channels = list()
 
 /obj/item/device/encryptionkey/attackby(obj/item/attacking_item, mob/user)
@@ -28,8 +28,8 @@
 		stack_trace("Warning: [src]([type]) initialized multiple times!")
 	flags_1 |= INITIALIZED_1
 
-	var/turf/T = get_turf(src)
-	var/obj/effect/overmap/visitable/V = GLOB.map_sectors["[T.z]"]
+	var/sector_z = get_sector_z()
+	var/obj/effect/overmap/visitable/V = GLOB.map_sectors["[sector_z]"]
 	if(istype(V) && V.comms_support)
 		var/freq_name = V.name
 		if(V.freq_name)
@@ -48,8 +48,17 @@
 
 	return INITIALIZE_HINT_NORMAL
 
+/obj/item/device/encryptionkey/ship/proc/get_sector_z()
+	. = GET_Z(get_turf(src))
+
 /obj/item/device/encryptionkey/ship/common
 	use_common = TRUE
+
+/obj/item/device/encryptionkey/ship/odyssey/get_sector_z()
+	if(SSodyssey.scenario_zlevels && SSodyssey.scenario_zlevels.len)
+		. = SSodyssey.scenario_zlevels[1]
+	else // safe fallback
+		. = GET_Z(get_turf(src))
 
 /obj/item/device/encryptionkey/ship/coal_navy
 	additional_channels = list(CHANNEL_COALITION_NAVY = TRUE)
@@ -58,8 +67,11 @@
 	icon_state = "cypherkey"
 	additional_channels = list(CHANNEL_MERCENARY = TRUE, CHANNEL_HAILING = TRUE)
 	origin_tech = list(TECH_ILLEGAL = 3)
-	desc_antag = "An encryption key that allows you to intercept comms and speak on private non-station channels. Use :t to access the private channel."
 	syndie = TRUE
+
+/obj/item/device/encryptionkey/syndicate/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "An encryption key that allows you to intercept comms and speak on private non-standard channels. Use :t to access the private channel."
 
 /obj/item/device/encryptionkey/raider
 	icon_state = "cypherkey"
@@ -88,7 +100,7 @@
 /obj/item/device/encryptionkey/bluespace
 	name = "bluespace encryption key"
 	desc = "A nonsensical mimicry of a standard encryption key, in the form of an elongated bluespace crystal. It seems to function."
-	icon_state = "bs_cyperkey"
+	icon_state = "bs_cypherkey"
 	additional_channels = list(CHANNEL_BLUESPACE = TRUE)
 	origin_tech = list(TECH_BLUESPACE = 3)
 	syndie = TRUE
@@ -140,8 +152,8 @@
 	icon_state = "sci_cypherkey"
 	channels = list(CHANNEL_SCIENCE = TRUE)
 
-/obj/item/device/encryptionkey/headset_xenoarch
-	name = "xenoarchaeology radio encryption key"
+/obj/item/device/encryptionkey/headset_xenology
+	name = "xenology radio encryption key"
 	icon_state = "sci_cypherkey"
 	channels = list(CHANNEL_SCIENCE = TRUE, CHANNEL_HAILING = TRUE)
 
@@ -219,7 +231,10 @@
 	desc = "An encryption key for a radio headset. Contains cypherkeys."
 	additional_channels = list(CHANNEL_RAIDER = TRUE)
 	origin_tech = list(TECH_ILLEGAL = 2)
-	desc_antag = "An encryption key that allows you to speak on private non-station channels. Use :x to access the private channel."
+
+/obj/item/device/encryptionkey/rev/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "An encryption key that allows you to intercept private comms speak on private non-ship channels. Use :x to access the private channel."
 
 /obj/item/device/encryptionkey/eng_spare
 	name = "spare engineering radio encryption key"
@@ -249,7 +264,7 @@
 /obj/item/storage/box/fancy/keypouch
 	name = "encryption key pouch"
 	desc = "A pouch designed to store three encryption keys."
-	icon = 'icons/obj/radio.dmi'
+	icon = 'icons/obj/item/device/encryptionkey.dmi'
 	icon_state = "keypouch0"
 	icon_type = "key"
 	storage_type = "pouch"

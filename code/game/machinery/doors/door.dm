@@ -6,9 +6,9 @@
 	desc = "It opens and closes."
 	icon = 'icons/obj/doors/doorint.dmi'
 	icon_state = "door_closed"
-	anchored = 1
-	opacity = 1
-	density = 1
+	anchored = TRUE
+	opacity = TRUE
+	density = TRUE
 	layer = CLOSED_DOOR_LAYER
 	dir = SOUTH
 	var/open_layer = OPEN_DOOR_LAYER
@@ -61,7 +61,20 @@
 
 	can_astar_pass = CANASTARPASS_ALWAYS_PROC
 
-/obj/machinery/door/attack_generic(var/mob/user, var/damage)
+/obj/machinery/door/condition_hints(mob/user, distance, is_adjacent)
+	. = ..()
+	if(src.health < src.maxhealth / 4)
+		. += SPAN_WARNING("\The [src] looks like it's about to break!")
+	else if(src.health < src.maxhealth / 2)
+		. += SPAN_WARNING("\The [src] looks seriously damaged!")
+	else if(src.health < src.maxhealth * 3/4)
+		. += SPAN_WARNING("\The [src] shows signs of damage!")
+
+/obj/machinery/door/mouse_drop_receive(atom/dropping, mob/user, params)
+	//Adds the component only once. We do it here & not in Initialize() because there are tons of walls & we don't want to add to their init times
+	LoadComponent(/datum/component/leanable, dropping)
+
+/obj/machinery/door/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	if(damage >= 10)
 		visible_message(SPAN_DANGER("\The [user] smashes into the [src]!"))
 		playsound(src.loc, hitsound, 60, 1)
@@ -123,7 +136,7 @@
 	playsound(src.loc, hatch_close_sound, 30, TRUE, extrarange = SILENCED_SOUND_EXTRARANGE)
 
 /obj/machinery/door/Destroy()
-	density = 0
+	set_density(FALSE)
 	update_nearby_tiles()
 
 	return ..()
@@ -185,8 +198,8 @@
 			else
 				do_animate("deny")
 		return
-	if(istype(bumped_atom, /obj/structure/janitorialcart))
-		var/obj/structure/janitorialcart/cart = bumped_atom
+	if(istype(bumped_atom, /obj/structure/cart))
+		var/obj/structure/cart/cart = bumped_atom
 		if(density)
 			if(cart.pulling && (src.allowed(cart.pulling)))
 				open()
@@ -231,7 +244,7 @@
 
 /obj/machinery/door/proc/bumpopen(mob/user as mob)
 	if(operating)	return
-	if(user.last_airflow > world.time - vsc.airflow_delay) //Fakkit
+	if(user.last_airflow > world.time - GLOB.vsc.airflow_delay) //Fakkit
 		return
 	src.add_fingerprint(user)
 	if(density)
@@ -415,15 +428,6 @@
 	update_icon()
 	return
 
-/obj/machinery/door/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(src.health < src.maxhealth / 4)
-		. += SPAN_WARNING("\The [src] looks like it's about to break!")
-	else if(src.health < src.maxhealth / 2)
-		. += SPAN_WARNING("\The [src] looks seriously damaged!")
-	else if(src.health < src.maxhealth * 3/4)
-		. += SPAN_WARNING("\The [src] shows signs of damage!")
-
 /obj/machinery/door/proc/set_broken()
 	stat |= BROKEN
 	visible_message(SPAN_WARNING("[src] breaks!"))
@@ -513,7 +517,7 @@
 	icon_state = "door_open"
 	set_opacity(0)
 	sleep(3)
-	src.density = 0
+	set_density(FALSE)
 	update_nearby_tiles()
 	sleep(2)
 	src.layer = open_layer
@@ -549,7 +553,7 @@
 
 	do_animate("closing")
 	sleep(3)
-	src.density = 1
+	set_density(TRUE)
 	explosion_resistance = initial(explosion_resistance)
 	src.layer = closed_layer
 	update_nearby_tiles()

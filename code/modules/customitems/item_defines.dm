@@ -425,21 +425,21 @@ All custom items with worn sprites must follow the contained sprite system: http
 	else
 		..()
 
-/obj/item/fluff/tokash_spear/MouseDrop(mob/user)
-	if((user == usr && (!(usr.restrained()) && (!(usr.stat) && (usr.contents.Find(src) || in_range(src, usr))))))
-		if(!istype(usr, /mob/living/carbon/slime) && !istype(usr, /mob/living/simple_animal))
-			if(!usr.get_active_hand()) // If active hand is empty.
-				var/mob/living/carbon/human/H = user
+/obj/item/fluff/tokash_spear/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	if((over == user && (!(user.restrained()) && (!(user.stat) && (user.contents.Find(src) || in_range(src, user))))))
+		if(!istype(user, /mob/living/carbon/slime) && !istype(user, /mob/living/simple_animal))
+			if(!user.get_active_hand()) // If active hand is empty.
+				var/mob/living/carbon/human/H = over
 				var/obj/item/organ/external/temp = H.organs_by_name[BP_R_HAND]
 
 				if(H.hand)
 					temp = H.organs_by_name[BP_L_HAND]
 				if(temp && !temp.is_usable())
-					to_chat(user, SPAN_NOTICE("You try to move your [temp.name], but cannot!"))
+					to_chat(H, SPAN_NOTICE("You try to move your [temp.name], but cannot!"))
 					return
 
-				to_chat(user, SPAN_NOTICE("You pick up \the [src]."))
-				user.put_in_hands(src)
+				to_chat(H, SPAN_NOTICE("You pick up \the [src]."))
+				H.put_in_hands(src)
 	return
 
 /obj/item/fluff/tokash_spearhead
@@ -533,12 +533,12 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "thea_teabox"
 	foldable = null
 	can_hold = list(/obj/item/reagent_containers/glass/beaker/teapot/fluff/thea_teapot, /obj/item/reagent_containers/food/drinks/fluff/thea_teacup)
+	make_exact_fit = TRUE
 
 /obj/item/storage/box/fluff/thea_teabox/fill()
 	new /obj/item/reagent_containers/glass/beaker/teapot/fluff/thea_teapot(src)
 	for(var/i in 1 to 4)
 		new /obj/item/reagent_containers/food/drinks/fluff/thea_teacup(src)
-	make_exact_fit()
 
 /obj/item/fluff/fraseq_journal //Fraseq's Journal of Mysteries - Quorrdash Fraseq - kingoftheping
 	name = "leather journal"
@@ -830,11 +830,12 @@ All custom items with worn sprites must follow the contained sprite system: http
 			to_chat(user, SPAN_NOTICE("You place \the [attacking_item] on \the [src]."))
 			update_icon()
 
-/obj/item/fluff/akinyi_stand/MouseDrop(mob/user as mob)
-	if((user == usr && (!use_check(user))) && (user.contents.Find(src) || in_range(src, user)))
-		if(ishuman(user))
-			forceMove(get_turf(user))
-			user.put_in_hands(src)
+/obj/item/fluff/akinyi_stand/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	if((over == user && (!use_check(over))) && (over.contents.Find(src) || in_range(src, over)))
+		if(ishuman(over))
+			var/mob/living/carbon/human/H = over
+			forceMove(get_turf(H))
+			H.put_in_hands(src)
 			update_icon()
 
 /obj/item/fluff/akinyi_stand/attack_hand(mob/user)
@@ -1300,15 +1301,15 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "sezcoat"
 	contained_sprite = TRUE
 
-/obj/item/clothing/accessory/poncho/fluff/sezrak_cape //Red Han'san Cape - Sezrak Han'san - captaingecko
-	name = "red Han'san cape"
-	desc = "This is a cape loosely based on the style of Dominian nobility, the latest fashion across Dominian space, although it doesn't feature any of the colors belonging to the Great Houses, \
-	and doesn't bear the symbolism of the ones worn by Tribunalist priests. The left shoulder-side bears the standards of the Han'san clan-house with a small, discreet symbol of gilded colors, \
-	instead of the usual Green used for this house."
-	icon = 'icons/obj/custom_items/sezrak_coat.dmi'
-	icon_override = 'icons/obj/custom_items/sezrak_coat.dmi'
-	icon_state = "sez_cape"
-	item_state = "sez_cape"
+/obj/item/clothing/accessory/poncho/fluff/sezrak_scaleshield //Red Han'san Scaleshield - Sezrak Han'san - captaingecko
+	name = "red Han'san scaleshield"
+	desc = "A thick, warm piece of reinforced canvas and fabric made by Dominian Unathi to keep themselves warm in Moroz's frigid climate. This one bears a pattern commonly \
+	seen in Hunter’s District, also known as Widowtown, although not with the typical colors. It bears pieces reinforced canvas here and there, more to protect against the elements than actual bumps, \
+	and embroided on a white stripe is the standard of the Han'san clan."
+	icon = 'icons/obj/custom_items/sezrak_scaleshield.dmi'
+	icon_override = 'icons/obj/custom_items/sezrak_scaleshield.dmi'
+	icon_state = "sez_scaleshield"
+	item_state = "sez_scaleshield"
 	contained_sprite = TRUE
 
 /obj/item/journal/fluff/mrakiizar_book //Worn Journal - Azradov Mrakiizar - kingoftheping
@@ -1490,7 +1491,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/clothing/accessory/poncho/tajarancloak/fluff/dekel_smock/verb/change_hood()
 	set name = "Toggle Hood"
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in usr
 
 	if(use_check_and_message(usr))
@@ -2011,3 +2012,169 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "kira_carrier"
 	item_state = "kira_carrier"
 	contained_sprite = TRUE
+
+/obj/item/organ/external/leg/right/fluff/nines_autakh // Prosthetic Aut'akh Left Leg - Hazel #S-H9.09 - hazelmouse
+	robotize_type = PROSTHETIC_AUTAKH
+	skin_color = FALSE
+	override_robotize_force_icon = 'icons/mob/human_races/fluff/nines_leg.dmi'
+	override_robotize_painted = FALSE
+	robotize_children = FALSE
+
+/obj/item/organ/external/leg/right/fluff/nines_autakh/Initialize(mapload)
+	. = ..()
+	LAZYADD(children, new /obj/item/organ/external/foot/right/fluff/nines_autakh(src))
+
+/obj/item/organ/external/foot/right/fluff/nines_autakh // Prosthetic Aut'akh Left Foot - Hazel #S-H9.09 - hazelmouse
+	robotize_type = PROSTHETIC_AUTAKH
+	skin_color = FALSE
+	override_robotize_force_icon = 'icons/mob/human_races/fluff/nines_leg.dmi'
+	override_robotize_painted = FALSE
+	robotize_children = FALSE
+
+/obj/item/clothing/suit/storage/toggle/leather_jacket/fluff/darvan_jacket //Painted Leather Jacket - Darvan Omega - JoeTheBro
+	name = "painted leather jacket"
+	desc = "This leather jacket has been roughly painted cyan on the left arm and purple on the right arm. There appears to be an uppercase omega symbol on the \
+	back, drawn in the same paint from the respective halves of the jacket.  You can see a faint NT logo beneath the omega symbol if you look hard enough."
+	icon = 'icons/obj/custom_items/omega_jacket.dmi'
+	icon_override = 'icons/obj/custom_items/omega_jacket.dmi'
+	icon_state = "omega_jacket"
+	item_state = "omega_jacket"
+	contained_sprite = TRUE
+
+/obj/item/journal/fluff/kathira // Blue Leather-Bound Journal - Kathira El-Hashem - TheGreyWolf
+	name = "blue leather-bound journal"
+	desc = "A blue journal emblazoned with the New Kingdom of Adhomai's flag across the cover."
+	closed_desc = " The pages within are a mix of clearly indexed case files, and study notes alongside less clearly indexed pages that appears to be fragmented thoughts, not unlike a diary. The very first page of the journal reads 'dedicated to Qirandri Mrorirhaldarr' and is signed 'Mrradar Sanufar' underneath."
+	icon = 'icons/obj/custom_items/kathira_journal.dmi'
+	icon_override = 'icons/obj/custom_items/kathira_journal.dmi'
+	icon_state = "kath_journal"
+	item_state = "kath_journal"
+	color = null
+
+/obj/item/journal/fluff/kathira/Initialize()
+	. = ..()
+	var/obj/item/folder/embedded/E = generate_index("Journal")
+	for(var/i = 1 to 5)
+		new /obj/item/paper(E)
+	update_icon()
+
+/obj/item/organ/internal/augment/fluff/kath_legbrace // Leg Support Augment - Kathira El-Hashem - thegreywolf
+	name = "leg support augment"
+	desc = "A leg augment to aid in the mobility of an otherwise disabled leg."
+	icon = 'icons/obj/custom_items/kathira_legbrace.dmi'
+	icon_override = 'icons/obj/custom_items/kathira_legbrace.dmi'
+	on_mob_icon = 'icons/obj/custom_items/kathira_legbrace.dmi'
+	icon_state = "kathira_legbrace"
+	item_state = "kathira_legbrace_onmob"
+	parent_organ = BP_R_LEG
+	supports_limb = TRUE
+	min_broken_damage = 15
+	min_bruised_damage = 5
+	var/last_drop = 0
+
+/obj/item/organ/internal/augment/fluff/kath_legbrace/process()
+	if(QDELETED(src) || !owner)
+		return
+	if(last_drop + 6 SECONDS > world.time)
+		return
+	if(owner.lying || owner.buckled_to || length(owner.grabbed_by))
+		return
+
+	if(is_bruised())
+		if(is_broken())
+			collapse(40, 3, 110)
+		else
+			collapse()
+
+/obj/item/organ/internal/augment/fluff/kath_legbrace/proc/collapse(var/prob_chance = 20, var/weaken_strength = 2, var/pain_strength = 40)
+	if(prob(prob_chance))
+		var/obj/item/organ/external/E = owner.organs_by_name[parent_organ]
+		owner.Weaken(weaken_strength)
+		last_drop = world.time
+		owner.custom_pain("Something inside your [E.name] hurts too much to stand!", pain_strength, TRUE, E, TRUE)
+		owner.visible_message("<b>[owner]</b> collapses!")
+
+/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak // Handsewn Idris Cloak - Kathira El-Hashem - TheGreyWolf
+	name = "handsewn Idris cloak"
+	desc = "A carefully handsewn cloak proudly emblazoned with the symbol of Idris Banking in silver treading and the words ‘Astronomical Figures. Unlimited Power.’ Embroidered beneath it.\nOn close examination, the inside of the cloak appears to be colored differently."
+	icon = 'icons/obj/custom_items/kathira_cloak.dmi'
+	icon_override = 'icons/obj/custom_items/kathira_cloak.dmi'
+	icon_state = "idris_cloak"
+	item_state = "idris_cloak"
+	var/style = "nka_cloak"
+	var/name2 = "handmade royalist cloak"
+	var/desc2 = "A blue cloak with the symbol of the New Kingdom of Adhomai proudly displayed on the back.\nUpon closer examination it appears to be a patchwork of older textile and newer fabrics, with the inside of the cloak appearing to be colored differently."
+	var/changed = FALSE
+
+	var/hoodtype = /obj/item/clothing/head/winterhood/fluff/kathira_hood
+
+/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/Initialize()
+	. = ..()
+	new hoodtype(src)
+
+/obj/item/clothing/head/winterhood/fluff/kathira_hood
+	name = "handsewn hood"
+	desc = "A hood attached to a cloak."
+	icon = 'icons/obj/custom_items/kathira_cloak.dmi'
+	icon_override = 'icons/obj/custom_items/kathira_cloak.dmi'
+	icon_state = "idris_cloak_hood"
+	contained_sprite = TRUE
+	flags_inv = HIDEEARS | BLOCKHAIR | HIDEEARS
+
+/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/update_icon(var/hooded = FALSE)
+	var/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/K = get_accessory(/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak)
+	K.icon_state = "[K.changed ? K.style : initial(K.icon_state)]"
+	SEND_SIGNAL(K, COMSIG_ITEM_STATE_CHECK, args)
+	K.item_state = "[K.icon_state][hooded ? "_up" : ""]"
+	K.name = "[K.changed ? K.name2 : initial(K.name)]"
+	K.desc = "[K.changed ? K.desc2 : initial(K.desc)]"
+	K.accessory_mob_overlay = null
+	. = ..()
+	SEND_SIGNAL(K, COMSIG_ITEM_ICON_UPDATE)
+	if(usr)
+		usr.update_inv_w_uniform()
+		usr.update_inv_wear_suit()
+
+/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/verb/change_cloak()
+	set name = "Change Cloak"
+	set category = "Object"
+	set src in usr
+
+	if(use_check_and_message(usr))
+		return
+
+	var/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/K = get_accessory(/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak)
+	if(!K)
+		return
+
+	usr.visible_message(SPAN_NOTICE("[usr] swiftly pulls \the [K] inside out, changing its appearance."))
+	K.changed = !K.changed
+	K.update_icon()
+	SEND_SIGNAL(K, COMSIG_ITEM_REMOVE, K)
+
+/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/on_attached(obj/item/clothing/S, mob/user as mob)
+	..()
+	has_suit.verbs += /obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/verb/change_cloak
+	has_suit.verbs += /obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/verb/change_hood
+
+/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/on_removed(mob/user as mob)
+	if(has_suit)
+		has_suit.verbs -= /obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/verb/change_cloak
+		has_suit.verbs -= /obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/verb/change_hood
+	..()
+
+/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/verb/change_hood()
+	set name = "Toggle Hood"
+	set category = "Object"
+	set src in usr
+
+	if(use_check_and_message(usr))
+		return
+
+	var/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak/K = get_accessory(/obj/item/clothing/accessory/poncho/tajarancloak/fluff/kathira_cloak)
+	if(!K)
+		return
+
+	SEND_SIGNAL(K, COMSIG_ITEM_UPDATE_STATE, K)
+	K.update_icon()
+

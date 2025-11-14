@@ -90,7 +90,7 @@
 	if(new_item_type)
 		find_type = new_item_type
 	else
-		find_type = rand(1,36)	//update this when you add new find types
+		find_type = rand(1,40)	//update this when you add new find types
 
 	var/item_type = "object"
 	icon_state = "unknown[rand(1,4)]"
@@ -251,8 +251,9 @@
 			possible_spawns += /obj/item/stack/material/silver
 
 			var/new_type = pick(possible_spawns)
-			new_item = new new_type(src.loc)
-			new_item:amount = rand(5,45)
+			var/obj/item/stack/material/new_mat_stack = new new_type(src.loc)
+			new_mat_stack.amount = rand(5,45)
+			new_item = new_mat_stack
 		if(15)
 			if(prob(75))
 				new_item = new /obj/item/pen(src.loc)
@@ -494,6 +495,14 @@
 				new_item = new /obj/item/clothing/mask/gas(src.loc)
 		if(36)
 			new_item = new /obj/item/sarcophagus_key(src.loc)
+		if(37)
+			new_item = new /obj/item/cell/mecha/phoron/alien
+		if(38)
+			new_item = new /obj/item/mecha_equipment/crisis_drone/alien
+		if(39)
+			new_item = new /obj/item/organ/internal/heart/alien_heart
+		if(40)
+			new_item = new /obj/item/organ/internal/liver/alien_liver
 
 	var/decorations = ""
 	if(apply_material_decorations)

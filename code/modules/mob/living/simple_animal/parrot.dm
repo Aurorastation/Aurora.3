@@ -1,11 +1,11 @@
 /* Parrots!
  * Contains
- * 		Defines
- *		Inventory (headset stuff)
- *		Attack responces
- *		AI
- *		Procs / Verbs (usable by players)
- *		Sub-types
+ * * Defines
+ * * Inventory (headset stuff)
+ * * Attack responces
+ * * AI
+ * * Procs / Verbs (usable by players)
+ * * Sub-types
  */
 
 /*
@@ -132,11 +132,11 @@
 
 	var/dat = 	"<div align='center'><b>Inventory of [name]</b></div><p>"
 	if(ears)
-		dat +=	"<br><b>Headset:</b> [ears] (<a href='?src=[REF(src)];remove_inv=ears'>Remove</a>)"
+		dat +=	"<br><b>Headset:</b> [ears] (<a href='byond://?src=[REF(src)];remove_inv=ears'>Remove</a>)"
 	else
-		dat +=	"<br><b>Headset:</b> <a href='?src=[REF(src)];add_inv=ears'>Nothing</a>"
+		dat +=	"<br><b>Headset:</b> <a href='byond://?src=[REF(src)];add_inv=ears'>Nothing</a>"
 
-	user << browse(dat, "window=mob[name];size=325x500")
+	user << browse(HTML_SKELETON(dat), "window=mob[name];size=325x500")
 	onclose(user, "mob[real_name]")
 	return
 
@@ -732,8 +732,7 @@
 		return
 	speech_buffer.Add(message)
 
-/mob/living/simple_animal/parrot/attack_generic(var/mob/user, var/damage, var/attack_message)
-
+/mob/living/simple_animal/parrot/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	var/success = ..()
 
 	if(client)

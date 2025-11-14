@@ -28,13 +28,14 @@
 	if(icon_state == initial(icon_state))
 		icon_state = pick(icon_states(icon) - icon_state)
 
-/obj/structure/trash_pile/MouseDrop_T(atom/dropping, mob/user)
+/obj/structure/trash_pile/mouse_drop_receive(atom/dropped, mob/user, params)
 	if(!Adjacent(user) || use_check_and_message(user))
 		return
 	user.visible_message("<b>[user]</b> starts climbing into \the [src]...", SPAN_NOTICE("You start climbing into \the [src]..."))
 	if(do_after(user, 3 SECONDS, src, DO_UNIQUE))
 		user.visible_message("<b>[user]</b> climbs into \the [src], disappearing from sight.", SPAN_NOTICE("You climb into \the [src], finally finding a good spot to hide."))
 		user.forceMove(src)
+		user.set_fullscreen(TRUE, "closet_impaired", /atom/movable/screen/fullscreen/closet_impaired)
 		hider = user
 		if(ishuman(user) && prob(5))
 			var/mob/living/carbon/human/H = user
@@ -47,6 +48,7 @@
 	if(user.stat || user.resting) // don't care too much about use_check here, checking these will suffice
 		return
 	user.forceMove(get_turf(src))
+	user.set_fullscreen(FALSE, "closet_impaired", /atom/movable/screen/fullscreen/closet_impaired)
 	if(user == hider)
 		hider = null
 
@@ -93,6 +95,7 @@
 	if(hider && prob(chance))
 		to_chat(hider, SPAN_DANGER("You've been discovered!"))
 		hider.forceMove(get_turf(src))
+		hider.set_fullscreen(FALSE, "closet_impaired", /atom/movable/screen/fullscreen/closet_impaired)
 		to_chat(user, SPAN_DANGER("You discover that \the [hider] was hiding inside \the [src]!"))
 		hider = null
 		return TRUE
@@ -150,7 +153,7 @@
 		/obj/item/spacecash/c10 = 3,
 		/obj/item/spacecash/c20 = 3,
 		/obj/item/storage/backpack/duffel = 3,
-		/obj/item/storage/box/donkpockets = 3,
+		/obj/item/storage/box/unique/donkpockets = 3,
 		/obj/item/storage/box/mousetraps = 3,
 		/obj/item/storage/wallet = 3,
 		/obj/item/clothing/gloves/yellow/budget = 2,
@@ -159,7 +162,7 @@
 		/obj/item/clothing/mask/gas/alt = 2,
 		/obj/item/clothing/mask/gas/half = 2,
 		/obj/item/clothing/shoes/galoshes = 2,
-		/obj/item/clothing/under/pants/camo = 2,
+		/obj/item/clothing/pants/camo = 2,
 		/obj/item/clothing/under/syndicate/tacticool = 2,
 		/obj/item/device/camera = 2,
 		/obj/item/device/flashlight/flare = 2,
@@ -167,7 +170,7 @@
 		/obj/item/cell/super = 2,
 		/obj/item/contraband/poster = 2,
 		/obj/item/reagent_containers/glass/rag = 2,
-		/obj/item/storage/box/sinpockets = 2,
+		/obj/item/storage/box/unique/donkpockets/sinpockets = 2,
 		/obj/item/storage/secure/briefcase = 2,
 		/obj/item/clothing/glasses/sunglasses = 1,
 		/obj/item/clothing/glasses/welding = 1,

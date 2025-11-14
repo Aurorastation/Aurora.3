@@ -59,8 +59,8 @@
 		return
 	var/area/A = get_area(src)
 	if(A)
-		if(A.powered(EQUIP) && assembly.give_power(power_amount))
-			A.use_power_oneoff(power_amount, EQUIP)
+		if(A.powered(AREA_USAGE_EQUIP) && assembly.give_power(power_amount))
+			A.use_power_oneoff(power_amount, AREA_USAGE_EQUIP)
 			// give_power() handles CELLRATE on its own.
 
 // For implants.

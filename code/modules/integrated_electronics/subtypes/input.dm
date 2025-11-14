@@ -406,7 +406,10 @@
 	name = "global positioning system"
 	desc = "This allows you to easily know the position of a machine containing this device."
 	extended_desc = "The GPS's coordinates it gives is absolute, not relative."
+	icon = 'icons/obj/item/device/gps.dmi'
 	icon_state = "gps"
+	item_state = "radio"
+	contained_sprite = TRUE
 	complexity = 4
 	inputs = list()
 	outputs = list(
@@ -518,23 +521,23 @@
 	complexity = 9
 	inputs = list()
 	outputs = list(
-		"pressure"       = IC_PINTYPE_NUMBER,
-		"temperature"    = IC_PINTYPE_NUMBER,
-		GAS_OXYGEN         = IC_PINTYPE_NUMBER,
-		GAS_NITROGEN       = IC_PINTYPE_NUMBER,
-		GAS_CO2 		   = IC_PINTYPE_NUMBER,
-		GAS_PHORON         = IC_PINTYPE_NUMBER,
-		GAS_N2O   		   = IC_PINTYPE_NUMBER,
-		GAS_HYDROGEN       = IC_PINTYPE_NUMBER,
-		GAS_DEUTERIUM      = IC_PINTYPE_NUMBER,
-		GAS_TRITIUM        = IC_PINTYPE_NUMBER,
-		GAS_HELIUM 	       = IC_PINTYPE_NUMBER,
-		GAS_BORON          = IC_PINTYPE_NUMBER,
-		GAS_SULFUR         = IC_PINTYPE_NUMBER,
-		GAS_NO2 	       = IC_PINTYPE_NUMBER,
-		GAS_CHLORINE       = IC_PINTYPE_NUMBER,
-		GAS_STEAM          = IC_PINTYPE_NUMBER,
-		"other"          = IC_PINTYPE_NUMBER
+		"pressure"			= IC_PINTYPE_NUMBER,
+		"temperature"		= IC_PINTYPE_NUMBER,
+		GAS_OXYGEN			= IC_PINTYPE_NUMBER,
+		GAS_NITROGEN		= IC_PINTYPE_NUMBER,
+		GAS_CO2				= IC_PINTYPE_NUMBER,
+		GAS_PHORON			= IC_PINTYPE_NUMBER,
+		GAS_N2O				= IC_PINTYPE_NUMBER,
+		GAS_HYDROGEN		= IC_PINTYPE_NUMBER,
+		GAS_DEUTERIUM		= IC_PINTYPE_NUMBER,
+		GAS_TRITIUM			= IC_PINTYPE_NUMBER,
+		GAS_HELIUM			= IC_PINTYPE_NUMBER,
+		GAS_HELIUMFUE		= IC_PINTYPE_NUMBER,
+		GAS_SULFUR			= IC_PINTYPE_NUMBER,
+		GAS_NO2				= IC_PINTYPE_NUMBER,
+		GAS_CHLORINE		= IC_PINTYPE_NUMBER,
+		GAS_WATERVAPOR		= IC_PINTYPE_NUMBER,
+		"other"				= IC_PINTYPE_NUMBER
 	)
 	activators = list("scan" = IC_PINTYPE_PULSE_IN, "on scanned" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_RESEARCH
@@ -639,11 +642,11 @@
 		var/deuterium_level = environment.gas[GAS_DEUTERIUM]/total_moles
 		var/tritium_level = environment.gas[GAS_TRITIUM]/total_moles
 		var/helium_level = environment.gas[GAS_HELIUM]/total_moles
-		var/boron_level = environment.gas[GAS_BORON]/total_moles
+		var/helium3_level = environment.gas[GAS_HELIUMFUEL]/total_moles
 		var/sulfurdioxide_level = environment.gas[GAS_SULFUR]/total_moles
 		var/nitrogendioxide_level = environment.gas[GAS_NO2]/total_moles
 		var/chlorine_level = environment.gas[GAS_CHLORINE]/total_moles
-		var/steam_level = environment.gas[GAS_STEAM]/total_moles
+		var/watervapor_level = environment.gas[GAS_WATERVAPOR]/total_moles
 		var/unknown_level =  1-(o2_level+n2_level+co2_level+phoron_level)
 		set_pin_data(IC_OUTPUT, 1, pressure)
 		set_pin_data(IC_OUTPUT, 2, round(environment.temperature-T0C,0.1))
@@ -656,11 +659,11 @@
 		set_pin_data(IC_OUTPUT, 8, round(deuterium_level*100,0.01))
 		set_pin_data(IC_OUTPUT, 9, round(tritium_level*100,0.01))
 		set_pin_data(IC_OUTPUT, 10, round(helium_level*100,0.01))
-		set_pin_data(IC_OUTPUT, 11, round(boron_level*100,0.01))
+		set_pin_data(IC_OUTPUT, 11, round(helium3_level*100,0.01))
 		set_pin_data(IC_OUTPUT, 12, round(sulfurdioxide_level*100,0.01))
 		set_pin_data(IC_OUTPUT, 13, round(nitrogendioxide_level*100,0.01))
 		set_pin_data(IC_OUTPUT, 14, round(chlorine_level*100,0.01))
-		set_pin_data(IC_OUTPUT, 15, round(steam_level*100,0.01))
+		set_pin_data(IC_OUTPUT, 15, round(watervapor_level*100,0.01))
 		set_pin_data(IC_OUTPUT, 16, round(unknown_level, 0.01))
 		set_pin_data(IC_OUTPUT, 17, round(unknown_level, 0.01))
 	else
@@ -809,9 +812,9 @@
 	gas_name = GAS_HELIUM
 	gas_display_name = GAS_HELIUM
 
-/obj/item/integrated_circuit/input/gas_sensor/boron_level
-	gas_name = GAS_BORON
-	gas_display_name = GAS_BORON
+/obj/item/integrated_circuit/input/gas_sensor/helium3_level
+	gas_name = GAS_HELIUMFUEL
+	gas_display_name = GAS_HELIUMFUEL
 
 /obj/item/integrated_circuit/input/gas_sensor/sulfurdioxide_level
 	gas_name = GAS_SULFUR
@@ -825,9 +828,9 @@
 	gas_name = GAS_CHLORINE
 	gas_display_name = GAS_CHLORINE
 
-/obj/item/integrated_circuit/input/gas_sensor/steam_level
-	gas_name = GAS_STEAM
-	gas_display_name = GAS_STEAM
+/obj/item/integrated_circuit/input/gas_sensor/watervapor_level
+	gas_name = GAS_WATERVAPOR
+	gas_display_name = GAS_WATERVAPOR
 
 /obj/item/integrated_circuit/input/turfpoint
 	name = "tile pointer"

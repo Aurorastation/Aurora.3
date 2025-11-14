@@ -4,7 +4,6 @@
 /turf/simulated/wall/shuttle
 	icon = 'icons/turf/smooth/shuttle_wall_dark.dmi'
 	icon_state = "map-shuttle"
-	permit_ao = 0
 	smoothing_flags = SMOOTH_MORE
 	canSmoothWith = list(
 		/turf/unsimulated/wall/steel, // Centcomm wall.
@@ -23,6 +22,14 @@
 
 /turf/simulated/wall/shuttle/Initialize(mapload)
 	. = ..(mapload, MATERIAL_SHUTTLE, MATERIAL_SHUTTLE)
+
+/turf/simulated/wall/shuttle/disassembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "You can deconstruct this by with the following steps:<br>\
+	Cut the outer grill with wirecutters, then unscrew them.<br>\
+	Slice the cover with a welder, then pry it off with a crowbar.<br>\
+	Use a wrench to loosen the anchor bolts, then cut the supports with a welder.<br>\
+	Pry off the sheath with a crowbar to expose the girder."
 
 /turf/simulated/wall/shuttle/cardinal
 	smoothing_flags = SMOOTH_TRUE
@@ -121,7 +128,7 @@
 	outside_part = FALSE
 
 /turf/simulated/wall/shuttle/raider
-	color = "#6C7364"
+	color = COLOR_RAIDER
 
 /turf/simulated/wall/shuttle/hapt
 	color = "#2E2B2B"
@@ -189,6 +196,12 @@
 	atmos_canpass = CANPASS_DENSITY
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED|OBJ_FLAG_NOFALL
 
+/obj/structure/shuttle_part/afterShuttleMove(obj/effect/shuttle_landmark/destination)
+	. = ..()
+	if(outside_part)
+		var/turf/target_turf = get_turf(src)
+		target_turf.ChangeTurf(destination.base_turf)
+
 /obj/structure/window/shuttle/unique
 	name = "shuttle window"
 	desc = "It looks extremely strong. Might take many good hits to crack it."
@@ -201,6 +214,12 @@
 	canSmoothWith = null
 	can_be_unanchored = FALSE
 	var/outside_window = FALSE
+
+/obj/structure/window/shuttle/unique/afterShuttleMove(obj/effect/shuttle_landmark/destination)
+	. = ..()
+	if(outside_window)
+		var/turf/target_turf = get_turf(src)
+		target_turf.ChangeTurf(destination.base_turf)
 
 //merchant shuttle
 
@@ -508,7 +527,6 @@
 	name = "shuttle floor"
 	icon = 'icons/turf/shuttle.dmi'
 	icon_state = "floor"
-	permit_ao = 0
 	initial_flooring = /singleton/flooring/shuttle
 	footstep_sound = /singleton/sound_category/plating_footstep
 
@@ -585,7 +603,6 @@
 	smooth_underlays = TRUE
 	initial_gas = null
 	roof_type = null
-	permit_ao = 0
 	canSmoothWith = list(
 			/turf/simulated/shuttle_roof
 	)

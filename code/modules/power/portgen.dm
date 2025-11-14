@@ -7,6 +7,7 @@
 	var/base_icon = "portgen0"
 	density = TRUE
 	anchored = FALSE
+	atom_flags = CRITICAL_ATOM
 
 	var/active = FALSE
 	var/power_gen = 5000
@@ -14,6 +15,17 @@
 	var/power_output = 1
 	var/portgen_lightcolour = "#000000"
 	var/datum/looping_sound/generator/soundloop
+
+/obj/machinery/power/portgen/upgrade_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Upgraded <b>capacitors</b> will increase maximum power output."
+
+/obj/machinery/power/portgen/feedback_hints(mob/user, distance, is_adjacent)
+	. = ..()
+	if(active)
+		. += "The generator is on."
+	else
+		. += "The generator is off."
 
 /obj/machinery/power/portgen/Initialize()
 	. = ..()
@@ -66,14 +78,6 @@
 	icon_state = "[base_icon]_[active]"
 	return ..()
 
-/obj/machinery/power/portgen/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(is_adjacent)
-		if(active)
-			. += SPAN_NOTICE("The generator is on.")
-		else
-			. += SPAN_NOTICE("The generator is off.")
-
 /obj/machinery/power/portgen/emp_act(severity)
 	. = ..()
 
@@ -117,7 +121,7 @@
 		temperature_gain and max_temperature are set so that the max safe power level is 4.
 		Setting to 5 or higher can only be done temporarily before the generator overheats.
 	*/
-	power_gen = 25000				//Watts output per power_output level
+	power_gen = 50000				//Watts output per power_output level
 	var/max_power_output = 5		//The maximum power setting without emagging.
 	var/max_safe_output = 4			// For UI use, maximal output that won't cause overheat.
 	var/time_per_sheet = 576		//fuel efficiency - how long 1 sheet lasts at power level 1
@@ -137,6 +141,17 @@
 		/obj/item/stock_parts/capacitor
 	)
 
+	parts_power_mgmt = FALSE
+
+/obj/machinery/power/portgen/basic/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "\The [src] appears to be producing <b>[power_gen*power_output] W</b>."
+	. += "There [sheets == 1 ? "is" : "are"] [sheets] sheet\s left in the hopper."
+	if(IsBroken())
+		. += SPAN_WARNING("\The [src] seems to have broken down.")
+	if(overheating)
+		. += SPAN_DANGER("\The [src] is overheating!")
+
 /obj/machinery/power/portgen/basic/Initialize()
 	component_types += board_path
 	. = ..()
@@ -149,6 +164,7 @@
 	return ..()
 
 /obj/machinery/power/portgen/basic/RefreshParts()
+	..()
 	var/temp_rating = 0
 
 	for(var/obj/item/stock_parts/SP in component_parts)
@@ -158,15 +174,6 @@
 			temp_rating += SP.rating
 
 	power_gen = round(initial(power_gen) * (max(2, temp_rating) / 2))
-
-/obj/machinery/power/portgen/basic/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += "\The [src] appears to be producing [power_gen*power_output] W."
-	. += "There [sheets == 1 ? "is" : "are"] [sheets] sheet\s left in the hopper."
-	if(IsBroken())
-		. += SPAN_WARNING("\The [src] seems to have broken down.")
-	if(overheating)
-		. += SPAN_DANGER("\The [src] is overheating!")
 
 /obj/machinery/power/portgen/basic/HasFuel()
 	var/needed_sheets = power_output / time_per_sheet
@@ -410,7 +417,7 @@
 	sheet_path = /obj/item/stack/material/uranium
 	board_path = "/obj/item/circuitboard/portgen/advanced"
 
-	power_gen = 50000 // 200 kW = safe max, 250 kW = unsafe max.
+	power_gen = 100000 // 400 kW = safe max, 500 kW = unsafe max.
 	max_temperature = 340
 	temperature_gain = 60
 
@@ -442,7 +449,7 @@
 	sheet_path = /obj/item/stack/material/tritium
 	board_path = "/obj/item/circuitboard/portgen/super"
 
-	power_gen = 80000 // 400 kW = safe max, 640 kW = unsafe max
+	power_gen = 160000 // 800 kW = safe max, 960 kW = unsafe max
 	max_power_output = 8
 	max_safe_output = 5
 	time_per_sheet = 576
@@ -456,7 +463,7 @@
 /obj/machinery/power/portgen/basic/fusion
 	name = "minature fusion reactor"
 	desc = "The RT7-0, an industrial all-in-one nuclear fusion power plant created by Hephaestus. It uses tritium as a fuel source and relies on coolant to keep the reactor cool. Rated for 500 kW max safe output."
-	power_gen =  100000
+	power_gen =  200000
 	icon_state = "reactor"
 	base_icon = "reactor"
 	portgen_lightcolour = "#458943"
@@ -492,9 +499,9 @@
 	create_reagents(coolant_volume)
 	..()
 
-/obj/machinery/power/portgen/basic/fusion/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += "The auxilary tank shows [reagents.total_volume]u of liquid in it."
+/obj/machinery/power/portgen/basic/fusion/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "The auxiliary tank shows [reagents.total_volume]u of liquid in it."
 
 /obj/machinery/power/portgen/basic/fusion/UseFuel()
 	if(reagents.has_reagent(coolant_reagent))

@@ -146,15 +146,15 @@
 		else
 			data["status"] = "OK"
 		var/list/distress_beacons = list()
-		for(var/caller in SSdistress.active_distress_beacons)
-			var/datum/distress_beacon/beacon = SSdistress.active_distress_beacons[caller]
-			var/obj/effect/overmap/vessel = beacon.caller
+		for(var/requester in SSdistress.active_distress_beacons)
+			var/datum/distress_beacon/beacon = SSdistress.active_distress_beacons[requester]
+			var/obj/effect/overmap/vessel = beacon.requester
 			var/mob/living/carbon/human/H = beacon.user
 			var/job_string = H.job ? "[H.job] " : ""
 			var/bearing = round(90 - Atan2(vessel.x - linked.x, vessel.y - linked.y),5)
 			if(bearing < 0)
 				bearing += 360
-			distress_beacons.Add(list(list("caller" = vessel.name, "sender" = "[job_string][H.name]", "bearing" = bearing)))
+			distress_beacons.Add(list(list("requester" = vessel.name, "sender" = "[job_string][H.name]", "bearing" = bearing)))
 		if(length(distress_beacons))
 			data["distress_beacons"] = distress_beacons
 		data["desired_range"] = sensors.desired_range
@@ -377,8 +377,8 @@
 			return TRUE
 
 	if (action == "play_message")
-		var/caller = params["play_message"]
-		var/datum/distress_beacon/beacon = SSdistress.active_distress_beacons[caller]
+		var/requester = params["play_message"]
+		var/datum/distress_beacon/beacon = SSdistress.active_distress_beacons[requester]
 		var/mob/living/carbon/human/sender = beacon.user
 		var/user_name = beacon.user_name
 		var/accent_icon = sender.get_accent_icon()
@@ -496,14 +496,14 @@
 	if(heat_percentage > 85)
 		AddOverlays("sensors-effect-hot")
 
-/obj/machinery/shipsensors/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/machinery/shipsensors/condition_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(health <= 0)
 		. += "\The [src] is wrecked."
 	else if(health < max_health * 0.25)
 		. += SPAN_DANGER("\The [src] looks like it's about to break!")
 	else if(health < max_health * 0.5)
-		. += SPAN_DANGER("\The [src] looks seriously damaged!")
+		. += SPAN_ALERT("\The [src] looks seriously damaged!")
 	else if(health < max_health * 0.75)
 		. += "\The [src] shows signs of damage!"
 
@@ -583,7 +583,7 @@
 /obj/machinery/shipsensors/weak
 	heat_reduction = 1.7 // Can sustain range 4
 	max_range = 7
-	desc = "Miniturized gravity scanner with various other sensors, used to detect irregularities in surrounding space. Can only run in vacuum to protect delicate quantum BS elements."
+	desc = "Miniaturized gravity scanner with various other sensors, used to detect irregularities in surrounding space. Can only run in vacuum to protect delicate quantum BS elements."
 	deep_scan_range = 0
 	component_types = list(
 		/obj/item/circuitboard/shipsensors/weak,

@@ -1,12 +1,9 @@
-
 /obj/item/device/memorywiper
 	name = "portable memory wiper"
 	desc = "Inset into a sturdy pelican case, this computer holds the software and wiring necessary to wipe and factory reset any IPC."
-	desc_info = "You can alt-click the laptop while it's set down on surface to open it up and work with it. Left clicking while it is open will allow you to operate it."
 	icon = 'icons/obj/memorywiper.dmi'
 	icon_state = "portable_memorywiper"
 	item_state = "portable_memorywiper"
-	contained_sprite = TRUE
 	anchored = FALSE
 	drop_sound = 'sound/items/drop/backpack.ogg'
 	pickup_sound = 'sound/items/pickup/backpack.ogg'
@@ -15,12 +12,16 @@
 	var/datum/progressbar/wipe_bar
 	var/wipe_start_time = 0
 
+/obj/item/device/memorywiper/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "ALT-click the device while it's set down on a surface to open or close it."
+	. += "Left-click on it while it is open to operate it."
+
 /obj/item/device/memorywiper/Destroy()
 	if(attached)
 		attached = null
 	wiping = FALSE
 	return ..()
-
 
 /obj/item/device/memorywiper/AltClick()
 	if(use_check(usr))
@@ -45,11 +46,11 @@
 	else
 		icon_state = initial(icon_state)
 
-/obj/item/device/memorywiper/MouseDrop(over_object, src_location, over_location)
+/obj/item/device/memorywiper/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	..()
 	if(use_check_and_message(usr))
 		return
-	if(in_range(src, usr) && isipc(over_object) && in_range(over_object, src))
+	if(in_range(src, usr) && isipc(over) && in_range(over, src))
 		if(attached)
 			if(attached == usr)
 				to_chat(usr, "You unplug \the [src] from your maintenace port.")
@@ -58,13 +59,13 @@
 			unplug()
 			return
 		else
-			if(over_object == usr)
-				plug(over_object)
+			if(over == usr)
+				plug(over)
 				to_chat(usr, "You plug \the [src] into your maintenace port.")
 			else
-				visible_message("<b>[usr]</b> begins hunting for the maintenance port on \the [over_object]'s chassis.") // The age old question of "where do I put it in!?"
+				visible_message("<b>[usr]</b> begins hunting for the maintenance port on \the [over]'s chassis.") // The age old question of "where do I put it in!?"
 				if(do_after(usr, 5 SECONDS))
-					plug(over_object)
+					plug(over)
 					visible_message("[usr] plugs \the [src] into \the [attached]'s maintenance port.")
 
 /obj/item/device/memorywiper/attack_hand(user as mob)

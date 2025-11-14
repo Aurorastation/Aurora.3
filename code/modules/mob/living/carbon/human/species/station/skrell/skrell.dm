@@ -10,7 +10,6 @@
 	age_min = 50
 	age_max = 500
 	default_genders = list(PLURAL)
-	selectable_pronouns = null
 	economic_modifier = 12
 	icobase = 'icons/mob/human_races/skrell/r_skrell.dmi'
 	deform = 'icons/mob/human_races/skrell/r_def_skrell.dmi'
@@ -140,7 +139,7 @@
 				return
 
 /datum/species/skrell/get_strip_info(var/reference)
-	return "<BR><A href='?src=[reference];species=headtail'>Empty Headtail Storage</A>"
+	return "<BR><A href='byond://?src=[reference];species=headtail'>Empty Headtail Storage</A>"
 
 /datum/species/skrell/can_breathe_water()
 	return TRUE

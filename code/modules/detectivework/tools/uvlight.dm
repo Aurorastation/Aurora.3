@@ -1,16 +1,16 @@
 /obj/item/device/uv_light
 	name = "\improper UV light"
 	desc = "A small handheld black light."
+	icon = 'icons/obj/item/device/uv_light.dmi'
 	icon_state = "uv_off"
+	item_state = "electronic"
 	slot_flags = SLOT_BELT
 	w_class = WEIGHT_CLASS_SMALL
-	item_state = "electronic"
 	matter = list(DEFAULT_WALL_MATERIAL = 150)
 	origin_tech = list(TECH_MAGNET = 1, TECH_ENGINEERING = 1)
 	var/list/scanned = list()
 	var/list/stored_alpha = list()
 	var/list/reset_objects = list()
-	uv_intensity = 255
 	var/range = 3
 	var/on = 0
 	var/step_alpha = 50

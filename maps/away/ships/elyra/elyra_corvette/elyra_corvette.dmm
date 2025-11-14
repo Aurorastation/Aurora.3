@@ -1199,7 +1199,8 @@
 /area/ship/elyran_corvette/prayerhall)
 "fX" = (
 /obj/machinery/computer/ship/helm/terminal{
-	dir = 1
+	dir = 1;
+	req_access = list(207)
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/elyran_shuttle)
@@ -2097,7 +2098,7 @@
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
-/obj/item/storage/box/produce,
+/obj/item/storage/box/large/produce,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/reagent_containers/food/drinks/carton/milk,
@@ -3003,7 +3004,8 @@
 	dir = 1
 	},
 /obj/machinery/computer/ship/targeting/terminal{
-	dir = 1
+	dir = 1;
+	req_access = list(207)
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/elyran_corvette/starboardwep)
@@ -3595,7 +3597,6 @@
 /obj/item/book{
 	name = "Quran";
 	icon_state = "holybook";
-	desc_antag = null;
 	desc = "This is the Quran. This is the holy text of Islam, believed by Muslims to be a revelation from God.";
 	pixel_y = 3
 	},
@@ -4583,7 +4584,8 @@
 	dir = 10
 	},
 /obj/machinery/computer/ship/helm/terminal{
-	dir = 1
+	dir = 1;
+	req_access = list(207)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/elyran_corvette/cic)
@@ -5029,7 +5031,9 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},
-/obj/machinery/computer/ship/targeting/terminal,
+/obj/machinery/computer/ship/targeting/terminal{
+	req_access = list(207)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/elyran_corvette/cic)
 "Cm" = (
@@ -8973,7 +8977,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/obj/item/storage/box/sharps{
+/obj/item/storage/box/unique/sharps{
 	pixel_x = 8
 	},
 /obj/item/reagent_containers/spray/cleaner{
@@ -9247,7 +9251,8 @@
 	dir = 1
 	},
 /obj/machinery/computer/ship/targeting/terminal{
-	dir = 1
+	dir = 1;
+	req_access = list(207)
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/elyran_corvette/portwep)

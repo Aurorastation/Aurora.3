@@ -1,12 +1,11 @@
 /obj/machinery/meter
 	name = "meter"
-	desc = "It measures something."
-	desc_info = "Measures the volume and temperature of the pipe under the meter."
+	desc = "Measures the volume and temperature of the pipe under the meter."
 	icon = 'icons/obj/meter.dmi'
 	icon_state = "meter_base"
 	var/obj/machinery/atmospherics/pipe/target = null
 	anchored = 1.0
-	power_channel = ENVIRON
+	power_channel = AREA_USAGE_ENVIRON
 	var/frequency = 0
 	var/id
 	idle_power_usage = 15
@@ -17,28 +16,42 @@
 	var/mutable_appearance/button_emissive
 	var/mutable_appearance/atmos_emissive
 
+/obj/machinery/meter/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(distance > 3 && !isAI(user))
+		. += SPAN_WARNING("You are too far away to read it.")
+
+	else if(stat & (NOPOWER|BROKEN))
+		. += SPAN_WARNING("The display is off.")
+
+	else if(src.target)
+		var/datum/gas_mixture/environment = target.return_air()
+		if(environment)
+			. += "The pressure gauge reads [round(environment.return_pressure(), 0.01)] kPa; [round(environment.temperature,0.01)]K ([round(environment.temperature-T0C,0.01)]&deg;C)"
+		else
+			. += SPAN_WARNING("The sensor error light is blinking.")
+	else
+		. += SPAN_WARNING("The connect error light is blinking.")
 
 /obj/machinery/meter/Initialize()
 	. = ..()
 	if (!target)
 		src.target = locate(/obj/machinery/atmospherics/pipe) in loc
 
-/obj/machinery/meter/process()
-	ClearOverlays()
-	if(!target)
-		AddOverlays("pressure_off")
-		AddOverlays("buttons-x")
-		return FALSE
+/obj/machinery/meter/update_icon()
+	var/list/new_overlays = get_rebuild_overlays()
+	if(LAZYLEN(new_overlays))
+		ClearOverlays()
+		AddOverlays(new_overlays)
 
-	if(stat & (BROKEN|NOPOWER))
-		AddOverlays("pressure_off")
-		return FALSE
-
+/obj/machinery/meter/proc/get_rebuild_overlays()
+	if (!target)
+		return list("pressure_off", "buttons_x")
+	if (stat & (BROKEN|NOPOWER))
+		return list("pressure_off")
 	var/datum/gas_mixture/environment = target.return_air()
 	if(!environment)
-		AddOverlays("buttons_x")
-		AddOverlays("pressure0")
-		return FALSE
+		return list("pressure0", "buttons_x")
 
 	var/button_overlay_name
 	var/atmos_overlay_name
@@ -61,19 +74,16 @@
 	else
 		atmos_overlay_name = "pressure4"
 
-	button_overlay = overlay_image(icon, button_overlay_name)
-	atmos_overlay = overlay_image(icon, atmos_overlay_name)
-	button_emissive = emissive_appearance(icon, button_overlay_name)
-	atmos_emissive = emissive_appearance(icon, atmos_overlay_name)
+	if (!button_overlay || button_overlay.icon_state != button_overlay_name)
+		button_overlay = overlay_image(icon, button_overlay_name)
+		button_emissive = emissive_appearance(icon, button_overlay_name)
+		. = TRUE
 
 	var/env_temperature = environment.temperature
 
-	var/temp_color
+	var/temp_color = COLOR_GRAY
 
-	if(env_pressure == 0 || env_temperature == 0)
-		temp_color = COLOR_GRAY
-
-	else
+	if(env_pressure != 0 && env_temperature != 0)
 		switch(env_temperature)
 			if((BODYTEMP_HEAT_DAMAGE_LIMIT + 360) to INFINITY)
 				temp_color = COLOR_RED
@@ -90,13 +100,23 @@
 			else
 				temp_color = COLOR_VIOLET
 
-	if(atmos_overlay.color != temp_color)
+	if (!atmos_overlay || atmos_overlay.icon_state != atmos_overlay_name || atmos_overlay.color != temp_color)
+		atmos_overlay = overlay_image(icon, atmos_overlay_name)
+		atmos_emissive = emissive_appearance(icon, atmos_overlay_name)
 		atmos_overlay.color = temp_color
+		. = TRUE
 
-	AddOverlays(button_overlay)
-	AddOverlays(atmos_overlay)
-	AddOverlays(button_emissive)
-	AddOverlays(atmos_emissive)
+	if (.)
+		return list(button_overlay, button_emissive, atmos_overlay, atmos_emissive)
+
+/obj/machinery/meter/process()
+	update_icon()
+	if (!target || (stat & (BROKEN|NOPOWER)))
+		return FALSE
+	var/datum/gas_mixture/environment = target.return_air()
+	if(!environment)
+		return FALSE
+	var/env_pressure = environment.return_pressure()
 
 	if(frequency)
 		var/datum/radio_frequency/radio_connection = SSradio.return_frequency(frequency)
@@ -114,30 +134,7 @@
 		)
 		radio_connection.post_signal(src, signal)
 
-/obj/machinery/meter/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-
-	var/t = "A gas flow meter. "
-
-	if(distance > 3 && !isAI(user))
-		t += SPAN_WARNING("You are too far away to read it.")
-
-	else if(stat & (NOPOWER|BROKEN))
-		t += SPAN_WARNING("The display is off.")
-
-	else if(src.target)
-		var/datum/gas_mixture/environment = target.return_air()
-		if(environment)
-			t += "The pressure gauge reads [round(environment.return_pressure(), 0.01)] kPa; [round(environment.temperature,0.01)]K ([round(environment.temperature-T0C,0.01)]&deg;C)"
-		else
-			t += SPAN_WARNING("The sensor error light is blinking.")
-	else
-		t += SPAN_WARNING("The connect error light is blinking.")
-
-	. += t
-
 /obj/machinery/meter/Click()
-
 	if(istype(usr, /mob/living/silicon/ai)) // ghosts can call ..() for examine
 		examinate(usr, src)
 		return 1

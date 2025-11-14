@@ -2,7 +2,6 @@
 	name = "journal"
 	desc = "A journal, kind of like a folder, but bigger! And personal."
 	var/closed_desc
-	desc_info = "Alt-click this while it's on your person or next to you to open this journal.\nWhile the journal is open, use it in hand or use a pen on it to access the contents."
 	icon = 'icons/obj/library.dmi'
 	icon_state = "journal"
 	item_state = "journal"
@@ -20,9 +19,16 @@
 	var/open = FALSE
 	var/list/indices
 
+/obj/item/journal/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "ALT-click this while it's on your person or next to you to open this journal."
+	. += "While the journal is open, use it in hand or use a pen on it to access the contents."
+
 /obj/item/journal/Destroy()
-	for(var/obj/item/folder/embedded/E as anything in indices)
-		qdel(E)
+	if (indices)
+		for(var/E in indices)
+			qdel(indices[E])
+	LAZYCLEARLIST(indices)
 	return ..()
 
 /obj/item/journal/update_icon()
@@ -66,20 +72,7 @@
 		if(!open)
 			to_chat(user, SPAN_WARNING("You can't put anything into \the [src] while it's closed."))
 			return
-		var/obj/item/folder/embedded/E
-		var/list/options = LAZYLEN(indices) ? indices + "New Index" : list("New Index")
-		var/selected_folder = tgui_input_list(user, "Select an index to insert this into.", "Index Selection", options)
-		if(isnull(selected_folder))
-			return
-		if(selected_folder == "New Index")
-			E = generate_index(user)
-		else
-			E = indices[selected_folder]
-		if(!E)
-			return
-		user.drop_from_inventory(attacking_item, E)
-		to_chat(user, SPAN_NOTICE("You put \the [attacking_item] into \the [E] index in \the [src]."))
-		update_icon()
+		insert_item(attacking_item, user)
 		return
 	if(attacking_item.ispen())
 		if(!open)
@@ -89,9 +82,27 @@
 			return
 		attack_self(user)
 
-/obj/item/journal/proc/generate_index(var/mob/user)
+/obj/item/journal/proc/insert_item(obj/item/attacking_item, mob/user, var/selected_folder)
+	var/obj/item/folder/embedded/E
+	if(isnull(selected_folder))
+		var/list/options = LAZYLEN(indices) ? indices + "New Index" : list("New Index")
+		selected_folder = tgui_input_list(user, "Select an index to insert this into.", "Index Selection", options)
+	if(isnull(selected_folder))
+		return
+	if(selected_folder == "New Index")
+		var/index_name = sanitize(input(user, "Enter the index' name.", "Index Name") as text|null)
+		E = generate_index(index_name)
+	else
+		E = indices[selected_folder]
+	if(!E)
+		return
+
+	user.drop_from_inventory(attacking_item, E)
+	to_chat(user, SPAN_NOTICE("You put \the [attacking_item] into \the [E] index in \the [src]."))
+	update_icon()
+
+/obj/item/journal/proc/generate_index(var/index_name)
 	var/obj/item/folder/embedded/E = new /obj/item/folder/embedded(src)
-	var/index_name = sanitize(input(user, "Enter the index' name.", "Index Name") as text|null)
 	if(!index_name)
 		qdel(E)
 		return null
@@ -106,10 +117,19 @@
 	LAZYREMOVE(indices, E.name)
 	update_icon()
 
+/obj/item/journal/filled
+
+/obj/item/journal/filled/Initialize()
+	. = ..()
+	var/obj/item/folder/embedded/E = generate_index("Journal")
+	for(var/i = 1 to 5)
+		new /obj/item/paper(E)
+	update_icon()
+
 /obj/item/journal/notepad
 	name = "notepad"
 	desc = "A notepad for jotting down notes in meetings or interrogations."
-	desc_info = "Alt-click this while it's on your person or next to you to open this notepad.\nWhile the notepad is open, use it in hand or use a pen on it to access the contents."
+
 	icon = 'icons/obj/library.dmi'
 	icon_state = "notepad"
 	item_state = "notepad"
@@ -137,10 +157,27 @@
 	if(closed_desc)
 		desc = open ? initial(desc) + closed_desc : initial(desc)
 
+/obj/item/journal/notepad/filled
+
+/obj/item/journal/notepad/filled/Initialize()
+	. = ..()
+	var/obj/item/folder/embedded/E = generate_index("Notepad")
+	for(var/i = 1 to 5)
+		new /obj/item/paper(E)
+	update_icon()
+
 /obj/item/journal/notepad/scc
 	name = "scc notepad"
 	desc = "A notepad for jotting down notes in corporate meetings. This one is navy blue with a gold SCC logo on the front."
-	desc_info = "Alt-click this while it's on your person or next to you to open this notepad.\nWhile the notepad is open, use it in hand or use a pen on it to access the contents."
 	icon_state = "notepad_scc"
 	item_state = "notepad_scc"
 	color = COLOR_WHITE
+
+/obj/item/journal/notepad/scc/filled
+
+/obj/item/journal/notepad/scc/filled/Initialize()
+	. = ..()
+	var/obj/item/folder/embedded/E = generate_index("Notepad")
+	for(var/i = 1 to 5)
+		new /obj/item/paper(E)
+	update_icon()
