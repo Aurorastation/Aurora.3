@@ -10,7 +10,7 @@
 	spawn_weight = 0.75
 	ship_cost = 1
 	id = "Sol_frigate"
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/Solfrig_shuttle)
+	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/solfrig_shuttle)
 
 	unit_test_groups = list(3)
 
