@@ -72,10 +72,10 @@
  * * item_to_equip - An `/obj/item` to try to equip
  * * slot - The slot to equip it to, one of the `slot_*` defines in `code\__DEFINES\items_clothing.dm`
  */
-/mob/proc/equip_to_slot_or_del(obj/item/item_to_equip, slot)
+/mob/proc/equip_to_slot_or_del(obj/item/item_to_equip, slot, initial = TRUE)
 	SHOULD_NOT_SLEEP(TRUE)
 
-	. = equip_to_slot_if_possible(item_to_equip, slot, TRUE, TRUE, FALSE, TRUE)
+	. = equip_to_slot_if_possible(item_to_equip, slot, TRUE, TRUE, FALSE, TRUE, initial)
 
 // Convinience proc.  Collects crap that fails to equip either onto the mob's back, or drops it.
 // Used in job equipping so shit doesn't pile up at the start loc.
