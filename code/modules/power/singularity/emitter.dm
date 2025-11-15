@@ -98,9 +98,12 @@
 
 /obj/machinery/power/emitter/attack_hand(mob/user)
 	add_fingerprint(user)
-	if(user.get_skill_level(/singleton/skill/reactor_systems) <= SKILL_LEVEL_FAMILIAR)
-		to_chat(user, SPAN_WARNING("You have no idea where the switch even is on this thing..."))
-		return
+	var/max_engineering_skill = max(user.get_skill_level(/singleton/skill/reactor_systems), user.get_skill_level(/singleton/skill/electrical_engineering))
+	if(max_engineering_skill <= SKILL_LEVEL_TRAINED)
+		to_chat(user, SPAN_WARNING("You try to find the switch on \the [src]... How do you even turn this thing on?"))
+		if(!user.do_after_skill(3 SECONDS, src, list(/singleton/skill/reactor_systems, /singleton/skill/electrical_engineering)))
+			return
+		to_chat(user, SPAN_NOTICE("You finally find the switch!"))
 	activate(user)
 
 /obj/machinery/power/emitter/proc/activate(mob/user)

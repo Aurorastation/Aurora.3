@@ -56,8 +56,37 @@
 /mob/proc/get_skill_multiplier(skill_type, skill_floor = SKILL_LEVEL_TRAINED, bonus = 0.2, malus = 0.2)
 	var/modifier = 1
 	var/skill_level = get_skill_level(skill_type)
-	if(skill_level >= SKILL_LEVEL_TRAINED)
-		modifier -= bonus * max(1, skill_level - skill_floor)
+	if(skill_level > skill_floor)
+		modifier -= bonus * max(0, skill_level - skill_floor)
 	else
 		modifier += malus * max(1, skill_floor - skill_level)
 	return modifier
+
+/**
+ * A do_after modified by skill proficiency.
+ *
+ * delay = The base delay in seconds the do_after should take if skill level is equal to `skill_floor`.
+ * target = The do_after target.
+ * skill_type = The skill used for this do_after. Can be a list or a path.
+ * skill_floor = The base skill level at which the delay is unaffected.
+ * bonus/malus = The bonus added or removed for each step of skill difference, see get_skill_multiplier.
+ * do_flags = The do_flags fed to the do_after.
+ */
+/mob/proc/do_after_skill(base_delay, atom/target, skill_type, skill_floor = SKILL_LEVEL_TRAINED, bonus = 0.2, malus = 0.2, do_flags)
+	var/skill_mult
+	if(islist(skill_type))
+		for(var/skill in skill_type)
+			skill_mult = min(skill_mult, get_skill_multiplier(skill, skill_floor, bonus, malus))
+	else
+		skill_mult = get_skill_multiplier(skill_type, skill_floor, bonus, malus)
+	return do_after(src, base_delay * skill_mult, target, do_flags)
+
+/**
+ * Throws a DC challenge against the difficulty class. For explanation on how criticals work, see code\__DEFINES\skills.dm.
+ * Remember that you should not check `if(!result)` for a failure. You should do `if(result >= FAILURE)` instead, so as to also check for a crit fail.
+ *
+ * difficulty_class = The DC to beat.
+ * skill_type = The skill used for this check. Can be a list or a path.
+ */
+/mob/proc/skill_challenge(difficulty_class, skill_type)
+	var/roll = rand(1, 20)
