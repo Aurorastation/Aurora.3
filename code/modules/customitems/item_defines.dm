@@ -2108,11 +2108,11 @@ All custom items with worn sprites must follow the contained sprite system: http
 		return
 	UnregisterSignal(owner, COMSIG_BONE_FIX)
 
-/obj/item/organ/internal/augment/fluff/kath_legbrace/proc/negate_healing(var/owner, var/canceled, var/obj/item/organ/external/affected, var/mob/living/fixer)
+/obj/item/organ/internal/augment/fluff/kath_legbrace/proc/negate_healing(var/owner, var/canceled, var/obj/item/organ/external/affected, var/mob/living/user)
 	SIGNAL_HANDLER
-	if(affected.limb_name == BP_R_LEG)
+	if(affected.limb_name == parent_organ)
 		*canceled = TRUE
-		fixer.visible_message(SPAN_WARNING("[fixer] seems to be unable to set the bone in [owner]'s [affected.name]."), \
+		user.visible_message(SPAN_WARNING("[user] seems to be unable to set the bone in [owner]'s [affected.name]."), \
 			SPAN_WARNING("The bone in [owner]'s [affected.name] appears to be impossible to set correctly!"))
 
 /obj/item/organ/internal/augment/fluff/kath_legbrace/proc/collapse(var/prob_chance = 20, var/weaken_strength = 2, var/pain_strength = 40)
