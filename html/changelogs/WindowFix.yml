@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - bugfix: "Glass panes and windoors once again are solid and stop interacting with the other side."
