@@ -1,0 +1,8 @@
+
+author: Kano
+
+delete-after: True
+
+changes:
+  - code_imp: "Replaced defunct type space turfs in Horizon with the regular ones."
+  - bugfix: "Included some parts from exterior areas to render lights."

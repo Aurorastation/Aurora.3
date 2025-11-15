@@ -216,3 +216,9 @@
 
 /turf/space/is_open()
 	return TRUE
+
+/turf/space/srom_space
+	name = "srom space"
+	blocks_air = TRUE
+	density = TRUE
+	use_starlight = FALSE
