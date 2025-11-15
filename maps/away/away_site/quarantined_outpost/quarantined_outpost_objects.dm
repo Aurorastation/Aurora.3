@@ -171,6 +171,8 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 	var/language = LANGUAGE_TCB
 	/// Used for disabling some abilities for horde and a few other subtypes.
 	var/disguise_disabled = FALSE
+	/// If true, the mob will start with disguise.
+	var/starts_disguised = FALSE
 	bypass_blood_overlay = TRUE
 
 /mob/living/simple_animal/hostile/revivable/abomination/Initialize()
@@ -181,7 +183,7 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 		return
 	if(prob(40))
 		trap_split = TRUE
-	if(prob(20))
+	if(prob(20) || starts_disguised)
 		mob_in_disguise = TRUE
 		maxHealth = 400 // the mob in disguise makes it easy target for a few bullets. This should even the odds.
 		health = 400
@@ -272,6 +274,9 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 	src.visible_message((SPAN_DANGER("Suddenly, [src] twists and reveals a monstrosity...")))
 	playsound(loc, 'sound/effects/splat.ogg', 50, 1)
 	playsound(loc, 'sound/effects/creatures/siro_shriek.ogg', 60, 1)
+
+/mob/living/simple_animal/hostile/revivable/abomination/disguised
+	starts_disguised = TRUE
 
 // Lesser Abomination
 /mob/living/simple_animal/hostile/giant_spider/lesser_abomination
@@ -392,7 +397,7 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 		if(istype(target_turf, /turf/simulated/wall) && !QDELETED(src) && stat != DEAD && get_dist(src, target_turf) == 1) // we check again
 			visible_message(SPAN_DANGER("With a loud thud, \the [src] breaks down the [target_turf]!"))
 			playsound(target_turf, 'sound/effects/meteorimpact.ogg', 50, 1)
-			target_turf.ChangeTurf(/turf/simulated/floor/exoplanet/asteroid/ash/rocky)
+			target_turf.ex_act(2)
 			new /obj/effect/decal/cleanable/floor_damage/broken6(target_turf)
 		breaking_wall = FALSE
 		return
@@ -450,7 +455,7 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 		if(istype(target_turf, /turf/simulated/wall) && !QDELETED(src) && stat != DEAD && get_dist(src, target_turf) == 1) // we check again
 			visible_message(SPAN_DANGER("With a loud thud, \the [src] breaks down the [target_turf]!"))
 			playsound(target_turf, 'sound/effects/meteorimpact.ogg', 50, 1)
-			target_turf.ChangeTurf(/turf/simulated/floor/exoplanet/asteroid/ash/rocky)
+			target_turf.ex_act(2)
 			new /obj/effect/decal/cleanable/floor_damage/broken6(target_turf)
 		breaking_wall = FALSE
 		return
