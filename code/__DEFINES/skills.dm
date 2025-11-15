@@ -32,10 +32,10 @@
 #define SKILL_DIFFICULTY_MODIFIER_HARD				4
 
 /// Critical success on a difficulty class. Obtained by rolling a nat 20 or +10 over the DC. Used for skills at the moment, will be used for more later.
-#define CRITICAL_SUCCESS 2
+#define ROLL_RESULT_CRITICAL_SUCCESS 2
 /// Normal success on a difficulty class. Obtained by rolling equal or higher than the DC. Used for skills at the moment, will be used for more later.
-#define SUCCESS 1
+#define ROLL_RESULT_SUCCESS 1
 /// Normal failure on a difficulty class. Obtained by rolling less than the DC. Used for skills at the moment, will be used for more later.
-#define FAILURE 0
+#define ROLL_RESULT_FAILURE 0
 /// Critical failure on a difficulty class. Obtained by rolling a nat 1 or -10 under the DC. Used for skills at the moment, will be used for more later.
-#define CRITICAL_FAILURE -1
+#define ROLL_RESULT_CRITICAL_FAILURE -1

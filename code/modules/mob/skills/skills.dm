@@ -83,7 +83,7 @@
 
 /**
  * Throws a DC challenge against the difficulty class. For explanation on how criticals work, see code\__DEFINES\skills.dm.
- * Remember that you should not check `if(!result)` for a failure. You should do `if(result >= FAILURE)` instead, so as to also check for a crit fail.
+ * Remember that you should not check `if(!result)` for a failure. You should do `if(result <= ROLL_RESULT_FAILURE)` instead, so as to also check for a crit fail.
  *
  * difficulty_class = The DC to beat.
  * skill_type = The skill used for this check. Can be a list or a path.
