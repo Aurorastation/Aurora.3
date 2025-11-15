@@ -747,7 +747,7 @@
 	if(!istype(endoskeleton))
 		return FALSE
 
-	return affected && affected.open == ORGAN_ENCASED_RETRACTED && target_zone != BP_MOUTH && endoskeleton.damage > 0
+	return affected && affected.open == ORGAN_ENCASED_RETRACTED && affected.organ_tag == BP_CHEST && target_zone != BP_MOUTH && endoskeleton.damage > 0
 
 /singleton/surgery_step/robotics/repair_endoskeleton/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("<b>[user]</b> begins to repair the support structures of [target]'s endoskeleton with \the [tool]." , \
@@ -757,12 +757,12 @@
 /singleton/surgery_step/robotics/repair_endoskeleton/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(tool.iswelder())
 		var/obj/item/weldingtool/welder = tool
-		if(!welder.isOn() && !welder.use(2, user))
+		if(!welder.isOn() && !welder.use(5, user))
 			user.visible_message(SPAN_WARNING("[user]'s [tool] shut off before the procedure was finished."), \
 			SPAN_WARNING("Your [tool] is shut off!"))
 			return
-	user.visible_message("<b>[user]</b> finishes repairing damage to [target]'s endoskeleton with \the [tool].", \
-		SPAN_NOTICE("You finish repairing damage to [target]'s endoskeleton with \the [tool]."))
+	user.visible_message("<b>[user]</b> finishes repairing some damage to [target]'s endoskeleton with \the [tool].", \
+		SPAN_NOTICE("You finish repairing some damage to [target]'s endoskeleton with \the [tool]."))
 	SEND_SIGNAL(target, COMSIG_SYNTH_ENDOSKELETON_REPAIR, rand(30, 50))
 
 /singleton/surgery_step/robotics/repair_endoskeleton/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
