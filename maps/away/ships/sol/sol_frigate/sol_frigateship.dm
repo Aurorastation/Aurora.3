@@ -3,8 +3,8 @@
 	description = "A long-range frigate currently seeing extensive service in the Solarian Navy, the Curiassier-Class Frigate was a inexpensive pre-civil war design that was only intended to perform common anti-piracy tasks and to provide escort for ships of minor importance to the Navy. The stressors of the Solarian Civil War, however, had forced many shipyards still loyal to the Alliance to perform emergency refits to loyalist Frigates that simpily weren't fit for peer-on-peer conflicts with mixed results, and Cuirassiers were no exception. \
 	After facing high losses in the Civil War, most surviving Cuirassier hulls post-unification are that of a 'revised' version of the design that was produced mid-war, featuring modest improvements to it's survivability and sensors at the cost of crew comfort. But despite there being a grimly high number of Cuirassier wrecks still floating in the void; there are just as many operational ships of this class still serving in almost every fleet in Solarian Navy today, with even more being built."
 
-	prefix = "ships/sol/Sol_Frigate/"
-	suffix = "Sol_Frigate.dmm"
+	prefix = "ships/sol/sol_frigate/"
+	suffix = "sol_frigate.dmm"
 
 	sectors = list(SECTOR_BADLANDS, SECTOR_CRESCENT_EXPANSE_WEST, SECTOR_VALLEY_HALE)
 	spawn_weight = 0.75
@@ -14,7 +14,7 @@
 
 	unit_test_groups = list(3)
 
-/singleton/submap_archetype/Sol_Frigate
+/singleton/submap_archetype/sol_frigate
 	map = "Solarian Navy Frigate"
 	descriptor = "A long-range frigate currently seeing extensive service in the Solarian Navy, the Curiassier-Class Frigate was a inexpensive pre-civil war design that was only intended to perform common anti-piracy tasks and to provide escort for ships of minor importance to the Navy. The stressors of the Solarian Civil War, however, had forced many shipyards still loyal to the Alliance to perform emergency refits to loyalist Frigates that simpily weren't fit for peer-on-peer conflicts with mixed results, and Cuirassiers were no exception. \
 	After facing high losses in the Civil War, most surviving Cuirassier hulls post-unification are that of a 'revised' version of the design that was produced mid-war, featuring modest improvements to it's survivability and sensors at the cost of crew comfort. But despite there being a grimly high number of Cuirassier wrecks still floating in the void; there are just as many operational ships of this class still serving in almost every fleet in Solarian Navy today, with even more being built."
@@ -49,7 +49,7 @@
 	"Sol_Frigate_starboard_dock")
 	invisible_until_ghostrole_spawn = TRUE
 
-/obj/effect/overmap/visitable/ship/Sol_Frigate/New()
+/obj/effect/overmap/visitable/ship/sol_frigate/New()
 	designation = "[pick("Defender", "Gladiator", "Greyhound", "Vanguard", "Undaunted", "Unchallenged", "Triumphant", "Indefatigable", "Excellent", "Unrelenting", "Furious", "Senate", "Constitution", "Pride and Glory", "Unity", "Superior", "Hunter", "Repulse", "Warspite", "Valiant", "Turner", "Nimitz", "Halsey", "Spruance", "Ingram", "Persistance", "Endurance", "Sprinter")]"
 	..()
 
