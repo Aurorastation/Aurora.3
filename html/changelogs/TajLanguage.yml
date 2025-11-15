@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "Tajara now all start with siik'maas enforced on the char. They still get 2 additional languages as before, resulting in an extra language of their choice."
