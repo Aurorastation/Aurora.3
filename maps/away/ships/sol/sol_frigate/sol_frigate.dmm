@@ -669,9 +669,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/cic)
 "di" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/turf/simulated/floor/tiled/dark,
-/area/ship/sol_frigate/starboard_thrusters)
+/obj/structure/ship_weapon_dummy{
+	opacity = 1
+	},
+/turf/simulated/floor/reinforced,
+/area/space)
 "dj" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -1365,9 +1367,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/starboard_battery)
 "fN" = (
-/obj/structure/ship_weapon_dummy/barrel,
-/turf/simulated/floor/reinforced,
-/area/space)
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/sol_frigate/starboard_thrusters)
 "fO" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
@@ -3761,12 +3766,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/hangar)
-"qM" = (
-/obj/machinery/ship_weapon/coilgun{
-	weapon_id = "SF_COIL"
-	},
-/turf/template_noop,
-/area/space)
 "qP" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
@@ -5226,13 +5225,6 @@
 "yt" = (
 /turf/simulated/wall/shuttle/raider,
 /area/ship/sol_frigate/cic)
-"yu" = (
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/sol_frigate/starboard_thrusters)
 "yx" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille,
 /obj/machinery/door/firedoor/noid{
@@ -7777,6 +7769,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/bunks)
+"JQ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/sol_frigate/starboard_thrusters)
 "JY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow,
 /turf/simulated/wall/shuttle/raider,
@@ -8367,7 +8365,7 @@
 	dir = 9
 	},
 /obj/machinery/ammunition_loader/sol{
-	weapon_id = "SF_COIL"
+	weapon_id = "Port_Coilgun"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/port_battery)
@@ -9275,9 +9273,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/port_battery)
 "QP" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 10
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/starboard_thrusters)
 "QQ" = (
@@ -9739,11 +9735,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/bunks)
 "TF" = (
-/obj/structure/ship_weapon_dummy{
-	opacity = 1
+/obj/machinery/ship_weapon/coilgun{
+	pixel_y = -319;
+	weapon_id = "Port_Coilgun"
 	},
-/turf/simulated/floor/reinforced,
-/area/space)
+/turf/simulated/wall/shuttle/raider,
+/area/ship/sol_frigate/port_battery)
 "TJ" = (
 /obj/machinery/door/airlock/external,
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -42505,7 +42502,7 @@ YM
 ZR
 ZR
 UW
-yu
+fN
 bI
 bI
 Vt
@@ -42758,10 +42755,10 @@ MO
 DD
 vR
 zA
+JQ
 QP
-di
-di
-di
+QP
+QP
 Bs
 GA
 bI
@@ -47196,8 +47193,8 @@ lt
 Gt
 lt
 et
+TF
 Xf
-Xf
 wd
 wd
 wd
@@ -47206,7 +47203,7 @@ wd
 wd
 wd
 wd
-qM
+MO
 MO
 MO
 MO
@@ -47714,12 +47711,12 @@ Ho
 rJ
 rJ
 rJ
-TF
-TF
-TF
-TF
-TF
-fN
+di
+di
+di
+di
+di
+di
 MO
 MO
 MO
