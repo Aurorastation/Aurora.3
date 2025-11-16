@@ -6,6 +6,13 @@
 	area_flags = AREA_FLAG_RAD_SHIELDED
 	ambience = AMBIENCE_ENGINEERING
 
+/area/ship/sol_frigate/exterior
+	name = "Solarian Frigate - Exterior"
+	icon_state = "exterior"
+	always_unpowered = TRUE
+	needs_starlight = TRUE
+	has_gravity = FALSE
+
 /area/ship/sol_frigate/hallway_fore
 	name = "Solarian Frigate - Fore Hallway"
 

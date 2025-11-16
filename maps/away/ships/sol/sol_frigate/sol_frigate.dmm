@@ -1128,8 +1128,7 @@
 /area/ship/sol_frigate/hallway_fore)
 "eT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5;
-	icon_state = "intact"
+	dir = 5
 	},
 /turf/simulated/wall/shuttle/raider,
 /area/ship/sol_frigate/starboard_thrusters)
@@ -1252,10 +1251,6 @@
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
-/obj/item/storage/box/produce{
-	pixel_x = 3;
-	pixel_y = -11
-	},
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/reagent_containers/food/drinks/carton/milk,
@@ -1707,8 +1702,7 @@
 /area/ship/sol_frigate/hallway_mid)
 "hB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5;
-	icon_state = "intact"
+	dir = 5
 	},
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
@@ -1729,8 +1723,7 @@
 /area/ship/sol_frigate/cic)
 "hG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9;
-	icon_state = "intact"
+	dir = 9
 	},
 /turf/simulated/wall/shuttle/raider,
 /area/ship/sol_frigate/port_thrusters)
@@ -1914,7 +1907,7 @@
 "ix" = (
 /obj/effect/floor_decal/sol,
 /turf/simulated/floor/airless,
-/area/space)
+/area/ship/sol_frigate/exterior)
 "iA" = (
 /obj/structure/table/reinforced,
 /obj/item/device/binoculars,
@@ -2571,7 +2564,6 @@
 /obj/item/ammo_magazine/a10mm,
 /obj/effect/floor_decal/industrial/outline/firefighting_closet,
 /obj/item/gun/projectile/shotgun/pump/combat/sol,
-/obj/item/storage/box/shotgunshells,
 /obj/machinery/light{
 	dir = 1
 	},
@@ -3382,8 +3374,7 @@
 /area/ship/sol_frigate/starboard_gunnery)
 "oY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5;
-	icon_state = "intact"
+	dir = 5
 	},
 /turf/simulated/wall/shuttle/raider,
 /area/ship/sol_frigate/port_thrusters)
@@ -3423,7 +3414,7 @@
 /obj/structure/ship_weapon_dummy{
 	opacity = 1
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/ship/sol_frigate/port_battery)
 "ph" = (
 /obj/machinery/light{
@@ -3841,12 +3832,11 @@
 /area/ship/sol_frigate/head)
 "rl" = (
 /obj/structure/lattice/catwalk,
-/turf/space/dynamic,
-/area/space)
+/turf/space,
+/area/ship/sol_frigate/exterior)
 "rn" = (
-/obj/structure/lattice/catwalk,
-/turf/space/dynamic,
-/area/ship/sol_frigate/hangar)
+/turf/template_noop,
+/area/ship/sol_frigate/exterior)
 "ro" = (
 /obj/machinery/atmospherics/pipe/tank/carbon_dioxide,
 /obj/effect/floor_decal/corner/orange{
@@ -3931,7 +3921,7 @@
 /area/ship/sol_frigate/bunks)
 "rJ" = (
 /obj/structure/ship_weapon_dummy,
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/ship/sol_frigate/port_battery)
 "rM" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
@@ -4361,8 +4351,8 @@
 "tS" = (
 /obj/item/hullbeacon/red,
 /obj/structure/lattice,
-/turf/template_noop,
-/area/space)
+/turf/space,
+/area/ship/sol_frigate/exterior)
 "tT" = (
 /obj/machinery/door/airlock/external{
 	dir = 4
@@ -4572,10 +4562,6 @@
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
-/obj/item/storage/box/produce{
-	pixel_x = 3;
-	pixel_y = -11
-	},
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/reagent_containers/food/drinks/carton/milk,
@@ -4644,7 +4630,7 @@
 "uG" = (
 /obj/effect/floor_decal/big/sol_full,
 /turf/simulated/floor/airless,
-/area/space)
+/area/ship/sol_frigate/exterior)
 "uH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
@@ -4916,7 +4902,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/canteen)
 "wd" = (
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/ship/sol_frigate/port_battery)
 "we" = (
 /turf/simulated/wall/shuttle/raider,
@@ -5028,9 +5014,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/hallway_mid)
 "wM" = (
-/obj/effect/map_effect/perma_light/brighter,
 /turf/simulated/floor/airless,
-/area/space)
+/area/ship/sol_frigate/exterior)
 "wO" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/machinery/power/apc/south,
@@ -5118,8 +5103,9 @@
 /turf/simulated/wall/shuttle/raider,
 /area/ship/sol_frigate/port_battery)
 "xs" = (
+/obj/effect/map_effect/perma_light/brighter,
 /turf/simulated/floor/airless,
-/area/space)
+/area/ship/sol_frigate/exterior)
 "xy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
@@ -5661,8 +5647,8 @@
 "At" = (
 /obj/structure/lattice/catwalk,
 /obj/item/hullbeacon/green,
-/turf/space/dynamic,
-/area/ship/sol_frigate/hangar)
+/turf/space,
+/area/ship/sol_frigate/exterior)
 "Az" = (
 /obj/machinery/airlock_sensor{
 	pixel_y = -25;
@@ -6709,8 +6695,7 @@
 	pixel_y = -32
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9;
-	icon_state = "intact"
+	dir = 9
 	},
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
@@ -7355,8 +7340,8 @@
 "Ii" = (
 /obj/structure/lattice,
 /obj/item/hullbeacon/red,
-/turf/template_noop,
-/area/space)
+/turf/space,
+/area/ship/sol_frigate/exterior)
 "Ij" = (
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, mess hall"
@@ -7378,8 +7363,7 @@
 /area/ship/sol_frigate/bunks)
 "Io" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5;
-	icon_state = "intact"
+	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -7927,10 +7911,6 @@
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
-/obj/item/storage/box/produce{
-	pixel_x = 3;
-	pixel_y = -11
-	},
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/reagent_containers/food/drinks/carton/milk,
@@ -8164,10 +8144,6 @@
 /obj/item/storage/firstaid/combat{
 	pixel_x = 5;
 	pixel_y = -4
-	},
-/obj/item/storage/box/sharps{
-	pixel_y = -14;
-	pixel_x = 5
 	},
 /obj/item/reagent_containers/spray/cleaner{
 	pixel_x = -9;
@@ -9139,8 +9115,8 @@
 /area/ship/sol_frigate/head)
 "Qd" = (
 /obj/structure/lattice,
-/turf/template_noop,
-/area/space)
+/turf/space,
+/area/ship/sol_frigate/exterior)
 "Qg" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
@@ -9216,8 +9192,7 @@
 	id = "solfrigate_aft_shutters"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5;
-	icon_state = "intact"
+	dir = 5
 	},
 /obj/machinery/door/airlock/external,
 /obj/machinery/door/blast/shutters/open{
@@ -9395,8 +9370,8 @@
 "Rn" = (
 /obj/structure/lattice,
 /obj/item/hullbeacon/green,
-/turf/template_noop,
-/area/space)
+/turf/space,
+/area/ship/sol_frigate/exterior)
 "Rp" = (
 /obj/machinery/alarm/tcom,
 /obj/effect/floor_decal/corner/yellow{
@@ -9900,8 +9875,8 @@
 "UI" = (
 /obj/item/hullbeacon/green,
 /obj/structure/lattice,
-/turf/template_noop,
-/area/space)
+/turf/space,
+/area/ship/sol_frigate/exterior)
 "UJ" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	dir = 8;
@@ -10542,7 +10517,7 @@
 /area/ship/sol_frigate/sickbay)
 "XK" = (
 /obj/structure/ship_weapon_dummy/barrel,
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/ship/sol_frigate/port_battery)
 "XN" = (
 /obj/machinery/door/airlock/external{
@@ -10640,8 +10615,7 @@
 /area/ship/sol_frigate/starboard_gunnery)
 "Yi" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9;
-	icon_state = "intact"
+	dir = 9
 	},
 /turf/simulated/wall/shuttle/raider,
 /area/ship/sol_frigate/starboard_thrusters)
@@ -10768,8 +10742,7 @@
 /area/ship/sol_frigate/hangar)
 "YM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9;
-	icon_state = "intact"
+	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/starboard_thrusters)
@@ -43092,15 +43065,15 @@ Iq
 Sa
 rl
 rl
-MO
-MO
-MO
-MO
-MO
-MO
-MO
-MO
-MO
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
 rl
 rl
 MO
@@ -43347,17 +43320,17 @@ pK
 pK
 pK
 pK
-MO
-MO
-MO
+rn
+rn
+rn
 Le
 px
 JF
-MO
-MO
-MO
-MO
-MO
+rn
+rn
+rn
+rn
+rn
 rl
 rl
 MO
@@ -43604,17 +43577,17 @@ pK
 At
 JF
 JF
-MO
-MO
+rn
+rn
 JF
 JF
 dS
 SI
-MO
-MO
-MO
-MO
-MO
+rn
+rn
+rn
+rn
+rn
 rl
 rl
 MO
@@ -43858,7 +43831,7 @@ yB
 Hw
 VK
 pK
-rn
+rl
 Yc
 ho
 SI
@@ -43868,10 +43841,10 @@ JF
 jZ
 JF
 in
-MO
-MO
-MO
-MO
+rn
+rn
+rn
+rn
 rl
 rl
 MO
@@ -44128,10 +44101,10 @@ JF
 SI
 UU
 UU
-MO
+rn
 rl
 wM
-xs
+wM
 wM
 uG
 MO
@@ -44387,10 +44360,10 @@ qg
 aI
 aI
 ix
-xs
-xs
-xs
-xs
+wM
+wM
+wM
+wM
 MO
 MO
 MO
@@ -44643,11 +44616,11 @@ pT
 cw
 ha
 Cc
-xs
-xs
+wM
 wM
 xs
-xs
+wM
+wM
 MO
 MO
 MO
@@ -44900,11 +44873,11 @@ cm
 Wq
 aI
 aI
-xs
-xs
-xs
-xs
-xs
+wM
+wM
+wM
+wM
+wM
 MO
 MO
 MO
@@ -45156,12 +45129,12 @@ JF
 SI
 UU
 UU
-MO
+rn
 rl
 wM
-xs
 wM
-xs
+wM
+wM
 MO
 MO
 MO
@@ -45400,7 +45373,7 @@ fq
 Hw
 gJ
 pK
-rn
+rl
 Yc
 SK
 SI
@@ -45410,10 +45383,10 @@ JF
 SI
 dS
 QQ
-MO
-MO
-MO
-MO
+rn
+rn
+rn
+rn
 rl
 rl
 MO
@@ -45657,20 +45630,20 @@ uk
 Hw
 hm
 pK
+rl
+JF
+JF
 rn
-JF
-JF
-MO
-MO
+rn
 JF
 JF
 JF
 jZ
-MO
-MO
-MO
-MO
-MO
+rn
+rn
+rn
+rn
+rn
 rl
 rl
 MO
@@ -45917,17 +45890,17 @@ pK
 pK
 pK
 pK
-MO
-MO
-MO
+rn
+rn
+rn
 gD
 bT
 EG
-MO
-MO
-MO
-MO
-MO
+rn
+rn
+rn
+rn
+rn
 rl
 rl
 MO
@@ -46175,16 +46148,16 @@ Lw
 hk
 ht
 rl
-MO
-MO
-MO
-MO
-MO
-MO
-MO
-MO
-MO
-MO
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
+rn
 rl
 rl
 MO
