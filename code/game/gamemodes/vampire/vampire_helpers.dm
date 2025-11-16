@@ -298,3 +298,29 @@
 	if (vamp_flags && !(vampire.status & vamp_flags))
 		return FALSE
 	return TRUE
+
+/obj/item/vampiric_jumpstarter
+	name = "vampiric jumpstarter"
+	desc = "Use this to morph into a vampire. This won't work on synthetics! This item is definitely not canon."
+	icon = 'icons/obj/clothing/hats.dmi'
+	icon_state = "amp"
+	contained_sprite = FALSE
+
+/obj/item/vampiric_jumpstarter/attack_self(mob/user)
+	. = ..()
+	if(!ishuman(user))
+		return
+	var/mob/living/carbon/human/H = user
+	if(isipc(H)) //should this check for diona?
+		to_chat(H, SPAN_WARNING("You don't have any vampiric potential."))
+		return
+
+	var/datum/vampire/vampire = H.mind.antag_datums[MODE_VAMPIRE]
+	if(vampire)
+		to_chat(H, SPAN_WARNING("You've already awakened your vampiric potential!"))
+		return
+
+	//H.make_vampire()
+	GLOB.vamp.add_antagonist(H.mind)
+	to_chat(H, SPAN_NOTICE("You've awakened your vampiric potential!"))
+	qdel(src)
