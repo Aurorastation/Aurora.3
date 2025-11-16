@@ -19,7 +19,7 @@
 	icon_state = "trodpack-2"
 	caliber = SHIP_CALIBER_COILGUN
 	overmap_icon_state = "cannon"
-	impact_type = SHIP_AMMO_IMPACT_AP
+	impact_type = SHIP_AMMO_IMPACT_BUNKERBUSTER
 
 /obj/projectile/ship_ammo/coilgun
 	name = "high-power tungsten rod"
@@ -34,7 +34,7 @@
 		var/mob/M = target
 		M.visible_message(SPAN_DANGER("<font size=5>\The [src] blows [M]'s chest apart and punches straight through!</font>"))
 	if(isturf(target) || isobj(target))
-		explosion(target, 2, 4, 4)
+		explosion(target, 1, 3, 3)
 
 /obj/machinery/ammunition_loader/sol
 	icon_state = "ammo_loader_sol"
