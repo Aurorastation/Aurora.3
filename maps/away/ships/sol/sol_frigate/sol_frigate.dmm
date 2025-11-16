@@ -1365,11 +1365,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/starboard_battery)
 "fN" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 10
+/obj/machinery/ship_weapon/coilgun{
+	weapon_id = "PRT_COIL"
 	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/sol_frigate/starboard_thrusters)
+/turf/template_noop,
+/area/space)
 "fO" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
@@ -4031,6 +4031,13 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/sol_frigate/Port_docking_port)
+"sp" = (
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/sol_frigate/starboard_thrusters)
 "sq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -4951,12 +4958,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/sol_frigate/port_battery)
-"wr" = (
-/obj/machinery/ship_weapon/coilgun{
-	weapon_id = "Port_Coilgun"
-	},
-/turf/template_noop,
-/area/space)
 "wt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 8
@@ -8362,7 +8363,7 @@
 	dir = 9
 	},
 /obj/machinery/ammunition_loader/sol{
-	weapon_id = "Port_Coilgun"
+	weapon_id = "PRT_COIL"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/port_battery)
@@ -9270,9 +9271,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/port_battery)
 "QP" = (
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
+	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/starboard_thrusters)
@@ -42501,7 +42501,7 @@ YM
 ZR
 ZR
 UW
-QP
+sp
 bI
 bI
 Vt
@@ -42754,7 +42754,7 @@ MO
 DD
 vR
 zA
-fN
+QP
 di
 di
 di
@@ -47202,7 +47202,7 @@ wd
 wd
 wd
 wd
-wr
+fN
 MO
 MO
 MO
