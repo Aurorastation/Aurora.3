@@ -413,13 +413,13 @@
 	)
 
 /obj/item/voidsuit_modkit_multi/nanotrasen
-	name = "\improper NanoTrasen hardsuit modkit"
-	desc = "A highly complicated device that allows you to convert a NanoTrasen hardsuit into its corporate auxiliary or Nexus Security variant. Wow!"
+	name = "\improper NanoTrasen/Nexus hardsuit modkit"
+	desc = "A highly complicated device that allows you to convert a NanoTrasen/Nexus hardsuit into its corporate auxiliary or Rapid Trauma Response Team variant. Wow!"
 	w_class = WEIGHT_CLASS_SMALL
 	rig_options = list(
-		"NanoTrasen Hardsuit" = /obj/item/rig/nanotrasen,
-		"Corporate Auxiliary Hardsuit" = /obj/item/rig/nanotrasen/corporate_auxiliary,
-		"Nexus Security Hardsuit" = /obj/item/rig/nanotrasen/nexus
+		"Nexus Hardsuit" = /obj/item/rig/nexus,
+		"Corporate Auxiliary Hardsuit" = /obj/item/rig/nexus/corporate_auxiliary,
+		"Rapid Trauma Response Team Hardsuit" = /obj/item/rig/nexus/rtrt
 	)
 
 /obj/item/voidsuit_modkit_multi/nanotrasen/feedback_hints(mob/user, distance, is_adjacent)
