@@ -354,3 +354,29 @@
 
 /obj/item/reagent_containers/proc/on_pour()
 	playsound(src, /singleton/sound_category/generic_pour_sound, 25, 1)
+
+/*#############################################
+				PERSISTENT
+#############################################*/
+
+/obj/item/reagent_containers/persistence_get_content()
+	var/list/content = ..()
+	SAVE_IF_DIFFERENT(content, reagents.primary_reagent)
+	SAVE_IF_DIFFERENT(content, reagents.reagent_volumes)
+	SAVE_IF_DIFFERENT(content, reagents.reagent_data)
+	SAVE_IF_DIFFERENT(content, reagents.total_volume)
+	SAVE_IF_DIFFERENT(content, reagents.maximum_volume)
+	SAVE_IF_DIFFERENT(content, reagents.thermal_energy)
+	return content
+
+// This will only apply to reagent containers that have persistence_supported set to TRUE. It is defaulted to false.
+// We have thousands of items that would want to use this logic and I'm not putting it on all of them by hand.
+// Override it if you want to use persistence with something else.
+/obj/item/reagent_containers/persistence_apply_content(content, x, y, z)
+	..()
+	SET_IF_EXISTS(content, reagents.primary_reagent)
+	SET_IF_EXISTS(content, reagents.reagent_volumes)
+	SET_IF_EXISTS(content, reagents.reagent_data)
+	SET_IF_EXISTS(content, reagents.total_volume)
+	SET_IF_EXISTS(content, reagents.maximum_volume)
+	SET_IF_EXISTS(content, reagents.thermal_energy)

@@ -214,7 +214,7 @@ SUBSYSTEM_DEF(persistence)
 			list(
 				"author_ckey" = track.persistence_author_ckey,
 				"type" = "[track.type]",
-				"expire_in_days" = track.persistance_expiration_time_days,
+				"expire_in_days" = track.persistence_expiration_time_days,
 				"content" = track_get_content(track),
 				"x" = T.x,
 				"y" = T.y,
@@ -242,7 +242,7 @@ SUBSYSTEM_DEF(persistence)
 			"UPDATE ss13_persistent_data SET author_ckey=:author_ckey, expires_at=DATE_ADD(NOW(), INTERVAL :expire_in_days DAY), content=:content, x=:x, y=:y, z=:z WHERE id = :id",
 			list(
 				"author_ckey" = track.persistence_author_ckey,
-				"expire_in_days" = track.persistance_expiration_time_days,
+				"expire_in_days" = track.persistence_expiration_time_days,
 				"content" = track_get_content(track),
 				"x" = T.x,
 				"y" = T.y,
@@ -302,3 +302,22 @@ SUBSYSTEM_DEF(persistence)
 
 	old_track.persistence_track_active = FALSE
 	GLOB.persistence_register -= old_track
+
+/*#############################################
+			Persistence Helper-Macros
+#############################################*/
+
+/**
+ * Saves a given variable to the persistence content of an item if and only if that variable is different from its initial value.
+ * Input 1 must be a var/list/content, see any example of persistence_get_content()
+ * Input 2 can be any variable that is not a datum or reference.
+ */
+#define SAVE_IF_DIFFERENT(content, var_to_save) if(var_to_save != initial(var_to_save)) {content["[nameof(var_to_save)]"] = var_to_save}
+
+/**
+ * Checks if a given variable was saved to persistence, and then sets it if found.
+ * Exclusively used for persistence_apply_content(content, x, y, z)
+ * Input 1 must be the content variable passed into the proc.
+ * Input 2 can be any variable that is not a datum or reference.
+ */
+#define SET_IF_EXISTS(content, var_to_set) if(content[nameof(var_to_set)]) {var_to_set = content["[nameof(var_to_set)]"]}
