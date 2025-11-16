@@ -1,0 +1,9 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "Watches now have an icon top left to check time, similarly to an integrated time piece."
+  - rscadd: "The tajaran wrist watches now shows the time on adhomai, similar to the tajaran pocketwatch."
+  - rscadd: "There are three new papercode commands: tajtime, tajdate and cr. The last of which creates the credit symbol."
+  - code_imp: "The tajaran time and date calculations have been moved to procs in _HELPERS/time.dm to be used more universally."
