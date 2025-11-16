@@ -6,6 +6,7 @@
 	horizon_deck = 3
 	area_blurb = "One of the SCCV Horizon's very expensive holodecks."
 	department = LOC_CREW
+	lightswitch = FALSE
 
 /area/horizon/holodeck_control/beta
 	name = "Holodeck Beta"

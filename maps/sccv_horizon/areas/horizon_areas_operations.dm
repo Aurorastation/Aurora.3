@@ -55,6 +55,7 @@
 	name = "Commissary"
 	horizon_deck = 2
 	area_blurb = "Even here, all the way out into the depths of space, retail work is found. The commissary room is eerily bare when not run— with empty shelves being such a rarity in the 25th century for most worlds, seeing them here is almost unnatural. Where are your treats?"
+	lightswitch = FALSE
 
 /area/horizon/operations/secure_ammunition_storage
 	name = "Secure Ammunitions Storage"
@@ -147,6 +148,7 @@
 	horizon_deck = 3
 	area_blurb = "One of the SCCV Horizon's daunting weapons bays."
 	department = LOC_COMMAND
+	lightswitch = FALSE
 
 /area/horizon/weapons/grauwolf
 	name = "Grauwolf Weapon System"
@@ -157,11 +159,13 @@
 	horizon_deck = 2
 	area_blurb = "One of the SCCV Horizon's daunting weapons bays."
 	department = LOC_COMMAND
+	lightswitch = FALSE
 
 /// STORAGE_AREAS
 /area/horizon/storage
 	name = "Storage (PARENT AREA - DON'T USE)"
 	department = LOC_CREW
+	lightswitch = FALSE
 
 /area/horizon/storage/primary
 	name = "Primary Tool Storage"

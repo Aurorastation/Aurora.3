@@ -12,12 +12,12 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 /area
 	var/global/global_uid = 0
 	var/uid
-	///Bitflag (Any of `AREA_FLAG_*`). See `code\__DEFINES\misc.dm`.
+	/// Bitflag (Any of `AREA_FLAG_*`). See "code\__DEFINES\misc.dm".
 	var/area_flags
 	/// Color of this area on the holomap. Must be a hex color (as string) or null.
 	var/holomap_color
 
-	///Do we have an active fire alarm?
+	/// Do we have an active fire alarm?
 	var/fire = FALSE
 
 	var/atmosalm = 0
@@ -38,7 +38,7 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 	var/turf/base_turf
 
 	/// If this area has a light switch (or multiple), do the lights start on or off? FALSE = off, TRUE = on.
-	var/lightswitch = FALSE
+	var/lightswitch = TRUE
 
 	var/eject = null
 
@@ -59,23 +59,24 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 	var/oneoff_light 	= 0
 	var/oneoff_environ 	= 0
 
-	///Boolean, if this area has gravity
+	/// Boolean, if this area has gravity
 	var/has_gravity = TRUE
 
-	///Boolean, if this area always has gravity
+	/// Boolean, if this area always has gravity
 	var/alwaysgravity = FALSE
 
-	///Boolean, if this area never has gravity
+	/// Boolean, if this area never has gravity
 	var/nevergravity = FALSE
 
-	var/list/all_doors = list() //Added by Strumpetplaya - Alarm Change - Contains a list of doors adjacent to this area
+	/// Contains a list of doors adjacent to this area.
+	var/list/all_doors = list()
 	var/air_doors_activated = FALSE
 
 	var/list/ambience = list()
 	var/list/forced_ambience = null
 	var/list/music = list()
 
-	///Used to decide what kind of reverb the area makes sound have
+	/// Used to decide what kind of reverb the area makes sound have
 	var/sound_environment = SOUND_AREA_STANDARD_STATION
 
 	/// If TRUE, lights in area cannot be toggled with light controller.

@@ -78,6 +78,7 @@
 /area/horizon/rnd/xenoarch/storage
 	name = "General Storage"
 	icon_state = "purple"
+	lightswitch = FALSE
 
 /area/horizon/rnd/xenoarch/presentation
 	name = "Xenoarchaeology Presentation"
@@ -90,6 +91,7 @@
 
 /area/horizon/rnd/xenoarch/anomaly_storage
 	name = "Artifact Storage"
+	lightswitch = FALSE
 
 /area/horizon/rnd/xenoarch/spectrometry
 	name = "Spectrometry"
