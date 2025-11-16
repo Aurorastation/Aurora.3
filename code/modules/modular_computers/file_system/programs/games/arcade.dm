@@ -38,7 +38,7 @@
 	return G
 
 /datum/computer_file/program/game/arcade/ui_data(mob/user)
-	var/list/data = initial_data()
+	var/list/data = list()
 
 	data["player_health"] = player_health
 	data["player_mana"] = player_mana

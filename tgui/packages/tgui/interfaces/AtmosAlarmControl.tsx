@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import { Button, Input, NoticeBox, Section, Table } from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend, useLocalState } from '../backend';
-import { Button, Input, NoticeBox, Section, Table } from '../components';
 import { NtosWindow } from '../layouts';
 
 export type AlarmData = {
@@ -16,16 +16,12 @@ type Alarm = {
   danger: BooleanLike;
 };
 
-export const AtmosAlarmControl = (props, context) => {
-  const { act, data } = useBackend<AlarmData>(context);
-  const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
-    `searchTerm`,
-    ``
-  );
+export const AtmosAlarmControl = (props) => {
+  const { act, data } = useBackend<AlarmData>();
+  const [searchTerm, setSearchTerm] = useLocalState<string>(`searchTerm`, ``);
 
   return (
-    <NtosWindow resizable>
+    <NtosWindow>
       <NtosWindow.Content scrollable>
         <Section
           title="Alarms"
@@ -38,27 +34,28 @@ export const AtmosAlarmControl = (props, context) => {
                 placeholder="Search by name"
                 width="40vw"
                 maxLength={512}
-                onInput={(e, value) => {
+                onChange={(value) => {
                   setSearchTerm(value);
                 }}
                 value={searchTerm}
               />
             </>
-          }>
+          }
+        >
           <Table>
             <Table.Row header>
               <Table.Cell>Deck</Table.Cell>
               <Table.Cell>Department</Table.Cell>
               <Table.Cell>Area</Table.Cell>
             </Table.Row>
-            {data.alarms && data.alarms.length ? (
+            {data.alarms?.length ? (
               data.alarms
                 // Search still doesn't work properly. While it correctly handles name searches now, it still won't search by dept or deck.
                 .filter(
                   (alarm) =>
                     alarm.searchname
                       ?.toLowerCase()
-                      .indexOf(searchTerm.toLowerCase()) > -1
+                      .indexOf(searchTerm.toLowerCase()) > -1,
                 )
                 .sort((a, b) => a.dept?.localeCompare(b?.dept))
                 .map((alarm) => (

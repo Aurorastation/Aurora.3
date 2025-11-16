@@ -39,9 +39,9 @@ GLOBAL_LIST_EMPTY(minor_air_alarms)
 	data["priority_alarms"] = major_alarms
 	data["minor_alarms"] = minor_alarms
 
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SStgui.try_update_ui(user, src, ui) // NANO NANOUI REPLACEME
 	if(!ui)
-		ui = new(user, src, ui_key, "atmos_alert.tmpl", src.name, 500, 500)
+		ui = new(user, src, "UI_NAME", "UI_WINDOW_NAME") // NANO NANOUI REPLACEMEatmos_alert.tmpl", src.name, 500, 500)
 		ui.set_initial_data(data)
 		ui.open()
 		ui.set_auto_update(1)

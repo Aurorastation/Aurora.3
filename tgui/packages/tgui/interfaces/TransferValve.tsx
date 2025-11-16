@@ -1,20 +1,20 @@
+import { Button, Flex, LabeledList, Section } from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Button, Section, LabeledList, Flex } from '../components';
 import { Window } from '../layouts';
-import { BooleanLike } from '../../common/react';
 
 export type TransferValveData = {
-  tankOne: String[];
-  tankTwo: String[];
-  valveAttachment: String[];
+  tankOne: string[];
+  tankTwo: string[];
+  valveAttachment: string[];
   valveOpen: BooleanLike;
 };
 
-export const TransferValve = (props, context) => {
-  const { act, data } = useBackend<TransferValveData>(context);
+export const TransferValve = (props) => {
+  const { act, data } = useBackend<TransferValveData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content>
         <Flex direction="row" align="stretch">
           <Flex.Item grow={1}>

@@ -1,7 +1,7 @@
+import { Box, Button, LabeledList, Section } from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Button, Section, LabeledList, Box } from '../components';
 import { Window } from '../layouts';
-import { BooleanLike } from '../../common/react';
 
 export type NTNetData = {
   enabled: BooleanLike;
@@ -10,11 +10,11 @@ export type NTNetData = {
   dos_crashed: BooleanLike;
 };
 
-export const NTNetRelay = (props, context) => {
-  const { act, data } = useBackend<NTNetData>(context);
+export const NTNetRelay = (props) => {
+  const { act, data } = useBackend<NTNetData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         {data.dos_crashed ? (
           <Section title="NETWORK ERROR">

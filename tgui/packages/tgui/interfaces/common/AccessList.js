@@ -1,8 +1,8 @@
-import { sortBy } from 'common/collections';
+import { sortBy } from 'es-toolkit';
+import { Button, Flex, Section, Tabs } from 'tgui-core/components';
 import { useSharedState } from '../../backend';
-import { Button, Flex, Section, Tabs } from '../../components';
 
-export const AccessList = (props, context) => {
+export const AccessList = (props) => {
   const {
     accesses = [],
     wildcardSlots = {},
@@ -17,9 +17,8 @@ export const AccessList = (props, context) => {
   } = props;
 
   const [wildcardTab, setWildcardTab] = useSharedState(
-    context,
     'wildcardSelected',
-    showBasic ? 'None' : Object.keys(wildcardSlots)[0]
+    showBasic ? 'None' : Object.keys(wildcardSlots)[0],
   );
 
   let selectedWildcard;
@@ -130,13 +129,12 @@ export const AccessList = (props, context) => {
   );
 };
 
-export const FormatWildcards = (props, context) => {
+export const FormatWildcards = (props) => {
   const { wildcardSlots = {}, showBasic, basicUsed = 0, basicMax = 0 } = props;
 
   const [wildcardTab, setWildcardTab] = useSharedState(
-    context,
     'wildcardSelected',
-    showBasic ? 'None' : Object.keys(wildcardSlots)[0]
+    showBasic ? 'None' : Object.keys(wildcardSlots)[0],
   );
 
   let selectedWildcard;
@@ -153,10 +151,11 @@ export const FormatWildcards = (props, context) => {
       {showBasic && (
         <Tabs.Tab
           selected={selectedWildcard === 'None'}
-          onClick={() => setWildcardTab('None')}>
+          onClick={() => setWildcardTab('None')}
+        >
           Trim:
           <br />
-          {basicUsed + '/' + basicMax}
+          {`${basicUsed}/${basicMax}`}
         </Tabs.Tab>
       )}
 
@@ -173,8 +172,9 @@ export const FormatWildcards = (props, context) => {
           <Tabs.Tab
             key={wildcard}
             selected={selectedWildcard === wildcard}
-            onClick={() => setWildcardTab(wildcard)}>
-            {wildcard + ':'}
+            onClick={() => setWildcardTab(wildcard)}
+          >
+            {`${wildcard}:`}
             <br />
             {wcLeftStr}
           </Tabs.Tab>
@@ -184,13 +184,12 @@ export const FormatWildcards = (props, context) => {
   );
 };
 
-const RegionTabList = (props, context) => {
+const RegionTabList = (props) => {
   const { accesses = [] } = props;
 
   const [selectedAccessName, setSelectedAccessName] = useSharedState(
-    context,
     'accessName',
-    accesses[0]?.name
+    accesses[0]?.name,
   );
 
   return (
@@ -207,7 +206,8 @@ const RegionTabList = (props, context) => {
             minWidth={'100%'}
             altSelection
             selected={access.name === selectedAccessName}
-            onClick={() => setSelectedAccessName(access.name)}>
+            onClick={() => setSelectedAccessName(access.name)}
+          >
             {access.name}
           </Tabs.Tab>
         );
@@ -216,7 +216,7 @@ const RegionTabList = (props, context) => {
   );
 };
 
-const RegionAccessList = (props, context) => {
+const RegionAccessList = (props) => {
   const {
     accesses = [],
     selectedList = [],
@@ -229,9 +229,8 @@ const RegionAccessList = (props, context) => {
   } = props;
 
   const [wildcardTab, setWildcardTab] = useSharedState(
-    context,
     'wildcardSelected',
-    showBasic ? 'None' : Object.keys(wildcardSlots)[0]
+    showBasic ? 'None' : Object.keys(wildcardSlots)[0],
   );
 
   let selWildcard;
@@ -243,21 +242,17 @@ const RegionAccessList = (props, context) => {
     selWildcard = wildcardTab;
   }
 
-  const [selectedAccessName] = useSharedState(
-    context,
-    'accessName',
-    accesses[0]?.name
-  );
+  const [selectedAccessName] = useSharedState('accessName', accesses[0]?.name);
 
   const selectedAccess = accesses.find(
-    (access) => access.name === selectedAccessName
+    (access) => access.name === selectedAccessName,
   );
   const selectedAccessEntries = sortBy((entry) => entry.desc)(
-    selectedAccess?.accesses || []
+    selectedAccess?.accesses || [],
   );
 
   const allWildcards = Object.keys(wildcardSlots);
-  let wcAccess = {};
+  const wcAccess = {};
   allWildcards.forEach((wildcard) => {
     wildcardSlots[wildcard].usage.forEach((access) => {
       wcAccess[access] = wildcard;
@@ -278,7 +273,7 @@ const RegionAccessList = (props, context) => {
     const entryName =
       !wcAccess[id] && trimAccess.includes(id)
         ? entry.desc
-        : entry.desc + ' (' + accessFlagNames[accessFlags[id]] + ')';
+        : `${entry.desc}·(${accessFlagNames[accessFlags[id]]})`;
 
     return (
       <Button.Checkbox

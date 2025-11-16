@@ -1,8 +1,13 @@
-import { useBackend } from '../backend';
-import { useLocalState } from '../backend';
-import { Button, Section, LabeledList, ProgressBar, Slider } from '../components';
+import {
+  Button,
+  LabeledList,
+  ProgressBar,
+  Section,
+  Slider,
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { useBackend, useLocalState } from '../backend';
 import { Window } from '../layouts';
-import { BooleanLike } from '../../common/react';
 
 export type TankData = {
   tankPressure: number;
@@ -13,32 +18,33 @@ export type TankData = {
   maskConnected: BooleanLike;
 };
 
-export const Tank = (props, context) => {
-  const { act, data } = useBackend<TankData>(context);
+export const Tank = (props) => {
+  const { act, data } = useBackend<TankData>();
 
-  const [tank_color, setColor] = useLocalState(context, 'color', '');
+  const [tank_color] = useLocalState('color', '');
 
-  const tank_presure_color = tank_color
+  const tank_pressure_color = tank_color.toString()
     ? { color: tank_color }
     : {
-      ranges: {
-        good: [200, Infinity],
-        bad: [-Infinity, 100],
-        average: [100, 200],
-      },
-    };
+        ranges: {
+          good: [200, Infinity],
+          bad: [-Infinity, 100],
+          average: [100, 200],
+        },
+      };
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section title="Gas Tank">
           <LabeledList>
             <LabeledList.Item label="Tank Pressure">
               <ProgressBar
-                {...tank_presure_color}
+                color={tank_pressure_color.toString()}
                 minValue={0}
                 maxValue={1024}
-                value={data.tankPressure}>
+                value={data.tankPressure}
+              >
                 {data.tankPressure} kPa
               </ProgressBar>
             </LabeledList.Item>
@@ -53,7 +59,8 @@ export const Tank = (props, context) => {
                   disabled={!data.maskConnected}
                   onClick={() => act('toggleReleaseValve')}
                 />
-              }>
+              }
+            >
               {data.valveOpen ? 'OPEN' : 'CLOSED'}
             </LabeledList.Item>
 
@@ -65,9 +72,10 @@ export const Tank = (props, context) => {
                 value={data.releasePressure}
                 minValue={0}
                 maxValue={data.maxReleasePressure}
-                onChange={(e, value) =>
+                onChange={(value) =>
                   act('setReleasePressure', { release_pressure: value })
-                }>
+                }
+              >
                 {data.releasePressure} kPa
               </Slider>
             </LabeledList.Item>

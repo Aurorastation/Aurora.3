@@ -1,8 +1,15 @@
-import { BooleanLike } from 'common/react';
+import {
+  Box,
+  Button,
+  LabeledList,
+  NoticeBox,
+  Section,
+  Stack,
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { capitalize } from 'tgui-core/string';
 import { useBackend } from '../backend';
-import { Box, Button, LabeledList, NoticeBox, Section, Stack } from '../components';
 import { Window } from '../layouts';
-import { capitalize } from '../../common/string';
 
 type Data = {
   manufacturer: string;
@@ -19,8 +26,8 @@ type Wire = {
   wire: string;
 };
 
-export const Wires = (props, context) => {
-  const { data } = useBackend<Data>(context);
+export const Wires = (props) => {
+  const { data } = useBackend<Data>();
   const { proper_name, status = [], wires = [] } = data;
   const dynamicHeight = 150 + wires.length * 30 + (proper_name ? 30 : 0);
 
@@ -56,8 +63,8 @@ export const Wires = (props, context) => {
 };
 
 /** Returns a labeled list of wires */
-const WireMap = (props, context) => {
-  const { act, data } = useBackend<Data>(context);
+const WireMap = (props) => {
+  const { act, data } = useBackend<Data>();
   const { wires } = data;
 
   return (
@@ -100,7 +107,8 @@ const WireMap = (props, context) => {
                   }
                 />
               </>
-            }>
+            }
+          >
             {!!wire.wire && <i>({wire.wire})</i>}
           </LabeledList.Item>
         ))}

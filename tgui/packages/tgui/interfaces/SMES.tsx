@@ -1,6 +1,14 @@
-import { BooleanLike } from '../../common/react';
+import {
+  BlockQuote,
+  Box,
+  Button,
+  LabeledList,
+  NumberInput,
+  ProgressBar,
+  Section,
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Box, BlockQuote, Button, LabeledList, Section, ProgressBar, NumberInput } from '../components';
 import { Window } from '../layouts';
 
 export type SMESData = {
@@ -22,11 +30,11 @@ export type SMESData = {
   fail_time: number;
 };
 
-export const SMES = (props, context) => {
-  const { act, data } = useBackend<SMESData>(context);
+export const SMES = (props) => {
+  const { act, data } = useBackend<SMESData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         {data.fail_time ? <FailWindow /> : <SMESWindow />}
       </Window.Content>
@@ -34,8 +42,8 @@ export const SMES = (props, context) => {
   );
 };
 
-export const FailWindow = (props, context) => {
-  const { act, data } = useBackend<SMESData>(context);
+export const FailWindow = (props) => {
+  const { act, data } = useBackend<SMESData>();
 
   return (
     <Section
@@ -47,15 +55,16 @@ export const FailWindow = (props, context) => {
           color="bad"
           onClick={() => act('reboot')}
         />
-      }>
+      }
+    >
       <Box>I/O regulator malfuction detected! Waiting for system reboot...</Box>
       <BlockQuote>Automatic reboot in {data.fail_time} seconds...</BlockQuote>
     </Section>
   );
 };
 
-export const SMESWindow = (props, context) => {
-  const { act, data } = useBackend<SMESData>(context);
+export const SMESWindow = (props) => {
+  const { act, data } = useBackend<SMESData>();
 
   return (
     <Section title="Supermagnetic Storage">
@@ -71,15 +80,15 @@ export const SMESWindow = (props, context) => {
         <LabeledList.Item label="Charge Status">
           {data.charge_mode === 1
             ? `Charge will complete in ${time_remaining(
-              data.time,
-              data.wtime
-            )}.`
+                data.time,
+                data.wtime,
+              )}.`
             : data.charge_mode === 2
               ? 'Output and input balanced.'
               : `Charge will run out in ${time_remaining(
-                data.time,
-                data.wtime
-              )}.`}
+                  data.time,
+                  data.wtime,
+                )}.`}
         </LabeledList.Item>
       </LabeledList>
       <Section title="Input Management">
@@ -107,7 +116,7 @@ export const SMESWindow = (props, context) => {
               maxValue={data.charge_max}
               unit="W"
               step={5000}
-              onDrag={(e, value) => act('input', { input: value })}
+              onDrag={(value) => act('input', { input: value })}
             />
           </LabeledList.Item>
           <LabeledList.Item label="Input Load">
@@ -115,7 +124,8 @@ export const SMESWindow = (props, context) => {
               color={data.charge_taken < data.charge_level ? 'average' : 'good'}
               value={data.charge_taken}
               minValue={0}
-              maxValue={data.charge_max}>
+              maxValue={data.charge_max}
+            >
               {data.charge_taken} W
             </ProgressBar>
           </LabeledList.Item>
@@ -146,7 +156,7 @@ export const SMESWindow = (props, context) => {
               maxValue={data.output_max}
               unit="W"
               step={5000}
-              onDrag={(e, value) => act('output', { output: value })}
+              onDrag={(value) => act('output', { output: value })}
             />
           </LabeledList.Item>
           <LabeledList.Item label="Output Load">
@@ -154,7 +164,8 @@ export const SMESWindow = (props, context) => {
               color={data.output_load < data.output_level ? 'average' : 'good'}
               value={data.output_load}
               minValue={0}
-              maxValue={data.output_max}>
+              maxValue={data.output_max}
+            >
               {data.output_load} W
             </ProgressBar>
           </LabeledList.Item>
@@ -165,10 +176,10 @@ export const SMESWindow = (props, context) => {
 };
 
 const time_remaining = (time, wtime) => {
-  let timeleft = (time - wtime) / 10; // deciseconds
-  let hours = Math.round(timeleft / 3600);
-  let minutes = Math.round((timeleft % 3600) / 60);
-  let seconds = Math.round(timeleft % 60);
+  const timeleft = (time - wtime) / 10; // deciseconds
+  const hours = Math.round(timeleft / 3600);
+  const minutes = Math.round((timeleft % 3600) / 60);
+  const seconds = Math.round(timeleft % 60);
   return [
     hours >= 1 && `${hours} hours`,
     minutes >= 1 && `${minutes} minutes`,
