@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "Papers printed from consoles now try to put it in the hand before putting it on the floor."
