@@ -266,9 +266,6 @@
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/black{
-	dir = 8
-	},
 /obj/machinery/access_button{
 	pixel_x = 27;
 	pixel_y = 25
@@ -1463,7 +1460,7 @@
 /obj/structure/rod_railing{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/shuttle/solfrig_shuttle)
 "gE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1867,7 +1864,7 @@
 /obj/effect/floor_decal/spline/plain/yellow{
 	dir = 10
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/shuttle/solfrig_shuttle)
 "io" = (
 /turf/simulated/floor/wood,
@@ -2318,7 +2315,6 @@
 /area/ship/sol_frigate/Starboard_docking_port)
 "kj" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/atmospherics/pipe/manifold/hidden/black,
 /obj/effect/floor_decal/industrial/outline/service,
 /obj/machinery/light/small,
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
@@ -6283,9 +6279,6 @@
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/black{
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
 	},
@@ -8048,7 +8041,7 @@
 /obj/structure/rod_railing{
 	dir = 8
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/shuttle/solfrig_shuttle)
 "Lf" = (
 /obj/effect/landmark/entry_point/aft,
@@ -8276,10 +8269,7 @@
 /area/ship/sol_frigate/brig)
 "LJ" = (
 /obj/effect/floor_decal/industrial/hatch/operations,
-/obj/machinery/atmospherics/pipe/simple/hidden/black{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark/full/airless,
 /area/ship/sol_frigate/Port_docking_port)
 "LK" = (
 /obj/machinery/light,
@@ -9267,7 +9257,7 @@
 	dir = 6
 	},
 /obj/machinery/shipsensors/weak,
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/shuttle/solfrig_shuttle)
 "QT" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -10595,7 +10585,7 @@
 /area/ship/sol_frigate/hangar)
 "Yc" = (
 /obj/machinery/atmospherics/unary/engine,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/shuttle/solfrig_shuttle)
 "Yd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
