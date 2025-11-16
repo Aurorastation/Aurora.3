@@ -133,7 +133,7 @@
 	description = "A box containing 7 tear gas grenades. A gas mask is printed on the label. WARNING: Exposure carries risk of serious injuries."
 	price = 450
 	items = list(
-		/obj/item/storage/box/teargas
+		/obj/item/storage/box/tactical/teargas
 	)
 	access = ACCESS_SECURITY
 	container_type = "crate"
@@ -147,7 +147,7 @@
 	description = "A box containing 7 antipersonnel flashbang grenades. WARNING: Can cause permanent vision or hearing loss. Use with caution."
 	price = 520
 	items = list(
-		/obj/item/storage/box/flashbangs
+		/obj/item/storage/box/tactical/flashbangs
 	)
 	access = ACCESS_SECURITY
 	container_type = "crate"
@@ -161,7 +161,7 @@
 	description = "A box containing 5 military grade EMP grenades. WARNING: Do not use near unshielded electronics or biomechanical augmentations."
 	price = 1450
 	items = list(
-		/obj/item/storage/box/emps
+		/obj/item/storage/box/tactical/emps
 	)
 	access = ACCESS_SECURITY
 	container_type = "crate"
@@ -217,7 +217,7 @@
 	name = "standard plate carrier"
 	supplier = "zavodskoi"
 	description = "A plate carrier with basic accessories and an armor plate."
-	price = 800
+	price = 600
 	items = list(
 		/obj/item/clothing/suit/armor/carrier/officer
 	)
@@ -557,6 +557,20 @@
 	price = 25
 	items = list(
 		/obj/item/storage/box/swabs
+	)
+	access = ACCESS_FORENSICS_LOCKERS
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/autopsy_scanner
+	category = "security"
+	name = "autopsy scanner"
+	supplier = "nanotrasen"
+	description = "A handheld autopsy scanner that extracts information on wounds."
+	price = 250
+	items = list(
+		/obj/item/autopsy_scanner
 	)
 	access = ACCESS_FORENSICS_LOCKERS
 	container_type = "crate"

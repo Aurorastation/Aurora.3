@@ -16,9 +16,12 @@
 	throw_range = 4
 	throwforce = 10
 	w_class = WEIGHT_CLASS_SMALL
-	var/can_change_form = TRUE // For holodeck check.
-	var/cooldown = 0 // Floor tap cooldown.
-	var/list/null_choices = list( //Generic nullrods only here, religion-specific ones should be on the religion datum
+	/// For holodeck check.
+	var/can_change_form = TRUE
+	/// Floor tap cooldown.
+	var/cooldown = 0
+	/// Generic nullrods only here, religion-specific ones should be on the religion datum
+	var/list/null_choices = list(
 		"Null Rod" = /obj/item/nullrod,
 		"Null Staff" = /obj/item/nullrod/staff,
 		"Null Orb" = /obj/item/nullrod/orb,
@@ -41,7 +44,7 @@
 	icon_state = "tribunalrod"
 	item_state = "tribunalrod"
 
-// Unreassembleable Variant for the Holodeck
+/// Unreassembleable Variant for the Holodeck
 /obj/item/nullrod/dominia/holodeck
 	can_change_form = FALSE
 
@@ -217,6 +220,17 @@
 	light_range = 4
 	light_power = 2
 	light_color = LIGHT_COLOR_BLUE
+
+/obj/item/nullrod/clockworkstave
+	name = "\improper clockwork stave"
+	desc = "A long, wooden stave with a gear and triangle at the top, utilized by the clergy of the Trinary Perfection. The ornate pieces atop the stave are often delicately \
+	hand-crafted by synthetics from the monastic Society of Pitters and exported off the planet of Orepit."
+	icon = 'icons/obj/trinary_stave.dmi'
+	icon_state = "trinary_stave"
+	item_state = "trinary_stave"
+	contained_sprite = TRUE
+
+	w_class = WEIGHT_CLASS_BULKY
 
 /obj/item/nullrod/verb/change(mob/living/user)
 	set name = "Reassemble Null Item"

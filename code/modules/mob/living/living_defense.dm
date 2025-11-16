@@ -349,7 +349,7 @@
 
 // End BS12 momentum-transfer code.
 
-/mob/living/attack_generic(var/mob/user, var/damage, var/attack_message, var/armor_penetration, var/attack_flags, var/damage_type = DAMAGE_BRUTE)
+/mob/living/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	if(!damage)
 		return
 
@@ -364,12 +364,17 @@
 
 	return TRUE
 
+/**
+ * Adds fire_stacks to a mob. See handle_fire() for details about how fire works.
+ */
 /mob/living/proc/IgniteMob(var/fire_stacks_to_add = 0)
 
 	if(fire_stacks_to_add)
 		adjust_fire_stacks(fire_stacks_to_add)
 
 	if(fire_stacks > 0 && !on_fire)
+		// Sanity check
+		fire_stacks_temperature = 0
 		set_on_fire()
 		update_fire()
 		return TRUE
@@ -378,6 +383,7 @@
 
 /mob/living/proc/set_on_fire()
 	on_fire = TRUE
+	fire_stacks++
 	to_chat(src, SPAN_DANGER(FONT_LARGE("You are set on fire!")))
 	set_light(3, 2, LIGHT_COLOR_FIRE)
 
@@ -391,6 +397,8 @@
 		adjust_fire_stacks(-fire_stacks_to_remove)
 
 	if(fire_stacks <= 0 && on_fire)
+		// Cleanup
+		fire_stacks_temperature = 0
 		extinguish_fire()
 		update_fire()
 		return TRUE
@@ -408,7 +416,24 @@
 
 	return fire_stacks
 
-/mob/living/proc/handle_fire()
+/**
+ * Handles whether or not a fire is currently active or is extinguished this tick.
+ * If there's no location, fire stacks are exhausted, !on_fire, or we run out of oxygen in our tile, fire goes out.
+ *
+ * Being 'on fire' means this:
+ * * You ignite things nearby, at the temperature on which you're on fire.
+ * * Your body temperature increases if you're not fully thermally protected.
+ *
+ * Normally, being exposed to high-temperature air means that body temperature increases, as moderated by the level
+ * and coverage of the mob's thermal protection. Being on fire adds an additional tick check- it takes the temperature
+ * of the air (the highest you're exposed to at any point) and uses fire_stacks as a loose multiplier to effective temp.
+ * Your max thermal protection temp and coverage level is compared against this modified (higher) value.
+ *
+ * This means that even if the air temp is below your protection level, being on fire and STAYING on fire can still raise your body temp.
+ *
+ * Returns boolean TRUE if fire is extinguished for any reason.
+ */
+/mob/living/proc/handle_fire(var/seconds_per_tick, var/datum/gas_mixture/environment)
 	if(!loc)
 		ExtinguishMobCompletely()
 		return TRUE
@@ -422,13 +447,12 @@
 		ExtinguishMobCompletely() //Fire's been put out.
 		return 1
 
-	var/datum/gas_mixture/G = loc.return_air() // Check if we're standing in an oxygenless environment
-	if(G.gas[GAS_OXYGEN] < 1)
+	if(environment.gas[GAS_OXYGEN] < 1)
 		ExtinguishMobCompletely() //If there's no oxygen in the tile we're on, put out the fire
 		return 1
 
 	var/turf/location = get_turf(src)
-	location.hotspot_expose(fire_burn_temperature(), 50, 1)
+	location.hotspot_expose(fire_burn_temperature(environment), 50, 1)
 
 /mob/living/fire_act(exposed_temperature, exposed_volume)
 	. = ..()
@@ -441,14 +465,28 @@
 /mob/living/proc/get_heat_protection()
 	return 0
 
-//Finds the effective temperature that the mob is burning at.
-/mob/living/proc/fire_burn_temperature()
+/**
+ * Finds the effective temperature that the mob is burning at.
+ *
+ * The temperature of the environment in which the fire is currently located should moderate the temperature of the fire_stacks. Our
+ * lower limit is ~700 K (roughly your average cool match flame).
+ *
+ * Parameters:
+ * * environment - mob's loc's gas_mixture, inherited from /mob/living/proc/handle_fire(), which is inherited from /mob/living/life()
+ *
+ * Fun bonus fact: The original baystation code used the below formula:
+ * * max(2.25*round(FIRESUIT_MAX_HEAT_PROTECTION_TEMPERATURE*(fire_stacks/FIRE_MAX_FIRESUIT_STACKS)**2), 700)
+ * Which resulted in crazy things like fires burning at 100000+ Kelvin, if the user just stood around long enough.
+ */
+/mob/living/proc/fire_burn_temperature(var/datum/gas_mixture/environment)
 	if (fire_stacks <= 0)
 		return 0
-
-	//Scale quadratically so that single digit numbers of fire stacks don't burn ridiculously hot.
-	//lower limit of 700 K, same as matches and roughly the temperature of a cool flame.
-	return max(2.25*round(FIRESUIT_MAX_HEAT_PROTECTION_TEMPERATURE*(fire_stacks/FIRE_MAX_FIRESUIT_STACKS)**2), 700)
+	var/temperature = T0C + 20
+	// Sanity checking...
+	if(environment)
+		temperature = environment.temperature
+	// Air temp raised to a exponent between 1.002 and 1.05, or 700 + (75 * fire_stacks), whichever is higher.
+	return max(temperature ** (1 * (1 + (fire_stacks / 500))), 700 + (75 * fire_stacks))
 
 /mob/living/proc/reagent_permeability()
 	return 1

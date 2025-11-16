@@ -86,8 +86,9 @@
 	var/allowed_spawns = list("Arrivals Shuttle","Gateway", "Cryogenic Storage", "Cyborg Storage")
 	var/default_spawn = "Arrivals Shuttle"
 
-	/// A list of paths to rotate for the lobby image, png/bmp/jpg/gif only
-	var/list/lobby_icon_image_paths = list()
+	var/list/lobby_icons = list() // The icons which contains the lobby images. A dmi is picked at random.
+	var/lobby_icon // This is what the game uses to store the chosen dmi.
+	var/list/lobby_screens = list() // The list of lobby screen to pick() from. Leave this unset to fill from the lobby icon DMI.
 
 	var/lobby_transitions = FALSE          // If a number, transition between the lobby screens with this delay instead of picking just one.
 
@@ -131,6 +132,7 @@
 
 	var/allow_borgs_to_leave = FALSE //this controls if borgs can leave the station or ship without exploding
 	var/area/warehouse_basearea //this controls where the cargospawner tries to populate warehouse items
+	var/area/warehouse_packagearea // used to handle spawnpoints for the packages that spawned after Initialize. See: `receptacle.dm`.
 
 	/**
 	 * A list of the shuttles on this map, used by the Shuttle Manifest program to populate itself.

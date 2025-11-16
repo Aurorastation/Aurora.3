@@ -33,7 +33,7 @@
 /obj/effect/map_effect/window_spawner/attack_ghost()
 	attack_generic()
 
-/obj/effect/map_effect/window_spawner/attack_generic()
+/obj/effect/map_effect/window_spawner/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	activate()
 
 /obj/effect/map_effect/window_spawner/Initialize(mapload)

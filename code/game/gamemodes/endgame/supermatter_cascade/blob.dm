@@ -6,7 +6,7 @@
 	icon = 'icons/turf/space.dmi'
 	icon_state = "bluespace-n"
 
-	plane = EFFECTS_ABOVE_LIGHTING_PLANE
+	plane = ABOVE_LIGHTING_PLANE
 	layer = SUPERMATTER_WALL_LAYER
 	light_color = COLOR_CYAN_BLUE
 	light_power = 6
@@ -62,7 +62,7 @@
 		CHECK_TICK
 	T.ChangeTurf(type)
 
-/turf/unsimulated/wall/supermatter/attack_generic(mob/user as mob)
+/turf/unsimulated/wall/supermatter/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	return attack_hand(user)
 
 /turf/unsimulated/wall/supermatter/attack_robot(mob/user as mob)

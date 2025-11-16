@@ -63,6 +63,10 @@
 	name = "cat carrier"
 	held_type = /mob/living/simple_animal/cat
 
+/obj/structure/largecrate/animal/snake
+	name = "snake crate"
+	held_type = /mob/living/simple_animal/snake
+
 /obj/structure/largecrate/animal/cat/bones
 	held_type = /mob/living/simple_animal/cat/fluff/bones
 

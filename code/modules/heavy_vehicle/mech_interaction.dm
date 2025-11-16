@@ -509,7 +509,7 @@
 	update_icon()
 	return
 
-/mob/living/heavy_vehicle/attack_generic(var/mob/user, var/damage, var/attack_message, var/armor_penetration, var/attack_flags, var/damage_type = DAMAGE_BRUTE)
+/mob/living/heavy_vehicle/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	if(!(user in pilots))
 		. = ..()
 
@@ -555,6 +555,8 @@ GLOBAL_DATUM_INIT(mech_state, /datum/ui_state/default, new())
 	if(!LAZYLEN(pilots))
 		return
 	if(!isliving(H))
+		return
+	if(src == H)
 		return
 
 	if(legs?.trample_damage)

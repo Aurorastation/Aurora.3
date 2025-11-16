@@ -452,6 +452,53 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 	gear_tweaks += new /datum/gear_tweak/path(pmcg_sec_uniforms)
 	gear_tweaks += list(GLOB.gear_tweak_uniform_rolled_state)
 
+/datum/gear/faction/kog_sec_uniform
+	display_name = "Kazarrhaldiye Operations Group security uniform"
+	path = /obj/item/clothing/under/rank/security/pmc/kog/uniform
+	slot = slot_w_uniform
+	faction = "Private Military Contracting Group"
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	allowed_roles = list("Security Officer", "Warden", "Head of Security", "Security Personnel")
+
+/datum/gear/faction/kog_jacket_officer
+	display_name = "Kazarrhaldiye Operations Group officer jacket"
+	path = /obj/item/clothing/suit/storage/toggle/armor/kog/officer
+	slot = slot_wear_suit
+	faction = "Private Military Contracting Group"
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	allowed_roles = list("Security Officer", "Security Personnel")
+
+/datum/gear/faction/kog_jacket_warden
+	display_name = "Kazarrhaldiye Operations Group warden jacket"
+	path = /obj/item/clothing/suit/storage/toggle/armor/kog/warden
+	slot = slot_wear_suit
+	faction = "Private Military Contracting Group"
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	allowed_roles = list("Warden", "Security Personnel")
+
+/datum/gear/faction/kog_jacket_commander
+	display_name = "Kazarrhaldiye Operations Group head of security jacket"
+	path = /obj/item/clothing/suit/storage/toggle/armor/kog/commander
+	slot = slot_wear_suit
+	faction = "Private Military Contracting Group"
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_MSAI)
+	allowed_roles = list("Head of Security", "Security Personnel")
+
+/datum/gear/faction/kog_tabs
+	display_name = "KOG Shoulder Tabs"
+	path = /obj/item/clothing/accessory/sleevepatch/kog
+	slot = slot_tie
+	faction = "Private Military Contracting Group"
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+
+/datum/gear/faction/kog_tabs/New()
+	..()
+	var/list/kog_tabs = list()
+	kog_tabs["Motorheads, PRA"] = /obj/item/clothing/accessory/sleevepatch/kog/pra
+	kog_tabs["Last Chancers, DPRA/ALA"] = /obj/item/clothing/accessory/sleevepatch/kog/ala
+	kog_tabs["Starry Knights, NKA"] = /obj/item/clothing/accessory/sleevepatch/kog/nka
+	gear_tweaks += new /datum/gear_tweak/path(kog_tabs)
+
 /datum/gear/faction/erisec_patch
 	display_name = "EPMC sleeve patch"
 	path = /obj/item/clothing/accessory/sleevepatch/erisec
@@ -483,6 +530,7 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 	var/list/epmc_uniform_phys_med = list()
 	epmc_uniform_phys_med["PMCG physician uniform"] = /obj/item/clothing/under/rank/medical/pmc/alt
 	epmc_uniform_phys_med["Nexus Corporate Security medic uniform"] = /obj/item/clothing/under/rank/medical/pmc/nexus
+	epmc_uniform_phys_med["Ve'katak Phalanx medical uniform"] = /obj/item/clothing/under/rank/medical/paramedic/pmc/vekatak_phalanx
 	gear_tweaks += new /datum/gear_tweak/path(epmc_uniform_phys_med)
 
 /datum/gear/faction/epmc_uniform_pharm_med
@@ -520,6 +568,22 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 	faction = "Private Military Contracting Group"
 	allowed_roles = list("Medical Intern", "Medical Personnel")
 
+/datum/gear/faction/kog_uniform_med
+	display_name = "Kazarrhaldiye Operations Group medical uniform"
+	path = /obj/item/clothing/under/rank/medical/pmc/kog/medical
+	slot = slot_w_uniform
+	faction = "Private Military Contracting Group"
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	allowed_roles = list("Medical Intern", "Paramedic","Physician","Surgeon", "Psychiatrist", "Medical Personnel")
+
+/datum/gear/faction/kog_jacket_med
+	display_name = "Kazarrhaldiye Operations Group medical jacket"
+	path = /obj/item/clothing/suit/storage/toggle/labcoat/kog
+	slot = slot_wear_suit
+	faction = "Private Military Contracting Group"
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	allowed_roles = list("Medical Intern", "Paramedic","Physician","Surgeon", "Psychiatrist", "Medical Personnel")
+
 /datum/gear/faction/epmc_uniform_para_med
 	display_name = "PMCG/EPMC paramedic uniform"
 	path = /obj/item/clothing/under/rank/medical/paramedic/pmc/epmc
@@ -533,7 +597,7 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 	epmc_uniform_para_med["EPMC paramedic uniform"] = /obj/item/clothing/under/rank/medical/paramedic/pmc/epmc
 	epmc_uniform_para_med["PMCG paramedic uniform, alt"] = /obj/item/clothing/under/rank/medical/paramedic/pmc/alt
 	epmc_uniform_para_med["Sekhmet Intergalactic paramedic uniform"] = /obj/item/clothing/under/rank/medical/paramedic/pmc/sekh
-	epmc_uniform_para_med["Ve'katak Phalanx paramedic uniform"] = /obj/item/clothing/under/rank/medical/paramedic/pmc/vekatak_phalanx
+	epmc_uniform_para_med["Ve'katak Phalanx medical uniform"] = /obj/item/clothing/under/rank/medical/paramedic/pmc/vekatak_phalanx
 	epmc_uniform_para_med["Nexus Corporate Security paramedic uniform"] = /obj/item/clothing/under/rank/medical/paramedic/pmc/nexus
 	gear_tweaks += new /datum/gear_tweak/path(epmc_uniform_para_med)
 
@@ -856,7 +920,7 @@ GLOBAL_DATUM_INIT(gear_tweak_modsuit_configuration, /datum/gear_tweak/modsuit_co
 /datum/gear/faction/scc_notepad
 	display_name = "SCC notepad"
 	description = "A notepad for jotting down notes in corporate meetings. This one is navy blue with a gold SCC logo on the front."
-	path = /obj/item/journal/notepad/scc
+	path = /obj/item/journal/notepad/scc/filled
 	sort_category = "Factions"
 	cost = 1
 	faction = null

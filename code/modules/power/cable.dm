@@ -107,7 +107,7 @@ By design, d1 is the smallest direction and d2 is the highest
 
 	if(mapload)
 		var/image/I = image(icon, T, icon_state, dir, pixel_x, pixel_y)
-		I.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+		I.plane = ABOVE_LIGHTING_PLANE
 		I.alpha = 125
 		I.color = color
 		LAZYADD(T.blueprints, I)
@@ -221,7 +221,7 @@ By design, d1 is the smallest direction and d2 is the highest
 			return TRUE
 	return FALSE
 
-/obj/structure/cable/attack_generic(var/mob/user)
+/obj/structure/cable/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	//Let those rats (and other small things) nibble the cables
 	if (issmall(user) && !isDrone(user))
 		to_chat(user, SPAN_DANGER("You bite into \the [src]."))
@@ -503,7 +503,7 @@ By design, d1 is the smallest direction and d2 is the highest
 	w_class = WEIGHT_CLASS_SMALL
 	throw_speed = 2
 	throw_range = 5
-	matter = list(DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 20)
+	matter = list(DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 20, MATERIAL_PHORON = 3)
 	recyclable = TRUE
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	item_flags = ITEM_FLAG_HELD_MAP_TEXT
@@ -513,6 +513,7 @@ By design, d1 is the smallest direction and d2 is the highest
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
 	surgerysound = 'sound/items/surgery/fixovein.ogg'
+	contained_sprite = TRUE
 	build_from_parts = TRUE
 	worn_overlay = "end"
 

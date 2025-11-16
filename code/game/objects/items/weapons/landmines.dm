@@ -5,7 +5,8 @@
 	icon_state = "landmine"
 	throwforce = 0
 	var/deployed = FALSE
-	var/deactivated = FALSE // add wire to re-activate
+	/// Add wire to re-activate
+	var/deactivated = FALSE
 
 /obj/item/landmine/Initialize()
 	. = ..()
@@ -206,6 +207,9 @@
 	var/explosion_size = 3
 	var/spread_range = 7
 
+/obj/item/landmine/frag/deployed
+	deployed = TRUE
+
 /obj/item/landmine/frag/trigger(mob/living/triggerer)
 	spark(src, 3, GLOB.alldirs)
 	fragem(src,num_fragments,num_fragments,explosion_size,explosion_size+1,fragment_damage,damage_step,TRUE)
@@ -218,7 +222,7 @@
  */
 /obj/item/landmine/frag/door_rigging
 	name = "door rigging landmine"
-	fragment_damage = 20
+	fragment_damage = 10
 
 	///The airlock that we are observing for when it opens, to explode
 	var/obj/machinery/door/airlock/door_rigged
@@ -303,6 +307,9 @@
 /obj/item/landmine/phoron
 	icon_state = "phoronlandmine"
 
+/obj/item/landmine/phoron/deployed
+	deployed = TRUE
+
 /obj/item/landmine/phoron/trigger(mob/living/triggerer)
 	spark(src, 3, GLOB.alldirs)
 	for (var/turf/simulated/floor/target in range(1,src))
@@ -321,6 +328,9 @@
 /obj/item/landmine/n2o
 	icon_state = "phoronlandmine"
 
+/obj/item/landmine/n2o/deployed
+	deployed = TRUE
+
 /obj/item/landmine/n2o/trigger(mob/living/L)
 	spark(src, 3, GLOB.alldirs)
 	for (var/turf/simulated/floor/target in range(1,src))
@@ -336,6 +346,9 @@
  */
 /obj/item/landmine/emp
 	icon_state = "emplandmine"
+
+/obj/item/landmine/emp/deployed
+	deployed = TRUE
 
 /obj/item/landmine/emp/trigger(mob/living/triggerer)
 	spark(src, 3, GLOB.alldirs)

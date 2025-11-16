@@ -49,7 +49,7 @@
 /obj/item/storage/backpack/proc/adjust_backpack_straps()
 	set name = "Adjust Bag Straps"
 	set desc = "Adjust your bag straps."
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in usr
 	if(use_check_and_message(usr))
 		return 0
@@ -907,6 +907,20 @@
 	icon_state = "rucksack_tan"
 	item_state = "rucksack_tan"
 
+/*
+ * Chest pouch
+ */
+
+/obj/item/storage/backpack/chestpouch
+	name = "chest pouch"
+	desc = "A small pouch that straps across your chest."
+	icon = 'icons/obj/storage/chestpouch.dmi'
+	icon_state = "chestpouch"
+	item_state = "chestpouch"
+	w_class = WEIGHT_CLASS_HUGE // to avoid recursive backpacks
+	max_w_class = WEIGHT_CLASS_NORMAL
+	max_storage_space = DEFAULT_LARGEBOX_STORAGE
+
 // Vaurca stuff.
 
 /obj/item/storage/backpack/typec
@@ -974,7 +988,7 @@
 /obj/item/storage/backpack/cloak/verb/toggle_cloak_hood()
 	set name = "Toggle Cloak Hood"
 	set desc = "Toggle your cloak hood."
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in usr
 	if(use_check_and_message(usr))
 		return 0

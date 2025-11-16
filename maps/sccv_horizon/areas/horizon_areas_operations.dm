@@ -5,7 +5,7 @@
 	ambience = AMBIENCE_ENGINEERING
 	holomap_color = HOLOMAP_AREACOLOR_OPERATIONS
 	department = LOC_OPERATIONS
-	area_blurb = "While mighty 'Cargonia' may never reign like in the feverish dreams of so many hangar techs, the halls of Operations today continue to resound with the clamor of pallets and materiel and rustling paper."
+	area_blurb = "The halls of Operations ever resound with the clamor of pallets and materiel and rustling paper."
 
 /area/horizon/operations/warehouse
 	name = "Warehouse"
@@ -13,6 +13,11 @@
 	sound_environment = SOUND_AREA_LARGE_ENCLOSED
 	area_blurb = "Scuff marks scar the floor from the movement of many crates and stored goods."
 	area_blurb_category = "ops_warehouse"
+	horizon_deck = 1
+
+/area/horizon/operations/package_conveyors
+	name = "Package Conveyors"
+	icon_state = "dark128"
 	horizon_deck = 1
 
 /area/horizon/operations/lobby
@@ -49,6 +54,7 @@
 /area/horizon/operations/commissary
 	name = "Commissary"
 	horizon_deck = 2
+	area_blurb = "Even here, all the way out into the depths of space, retail work is found. The commissary room is eerily bare when not run— with empty shelves being such a rarity in the 25th century for most worlds, seeing them here is almost unnatural. Where are your treats?"
 
 /area/horizon/operations/secure_ammunition_storage
 	name = "Secure Ammunitions Storage"
@@ -56,6 +62,7 @@
 	ambience = AMBIENCE_FOREBODING
 	holomap_color = HOLOMAP_AREACOLOR_OPERATIONS
 	horizon_deck = 2
+	area_blurb = "Armor-piercing, bunker-busting, high-explosive... Don't sneeze!"
 
 /// OPERATIONS_AREAS - HANGAR_AREAS
 /area/horizon/hangar
@@ -65,7 +72,14 @@
 	sound_environment = SOUND_ENVIRONMENT_HANGAR
 	holomap_color = HOLOMAP_AREACOLOR_HANGAR
 	horizon_deck = 1
-	subdepartment = SUBLOC_HANGAR
+	department = LOC_HANGAR
+
+/area/horizon/hangar/airstation
+	name = "Hangar Air Station"
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+	ambience = list(AMBIENCE_ENGINEERING, AMBIENCE_ATMOS)
+	area_blurb = "A small area of the hangar serving the shuttles with fresh air and \
+	giving the access to dispose of any bad air the shuttles brought back during their expeditions."
 
 /area/horizon/hangar/control
 	name = "Hangar Control Room"
@@ -81,12 +95,12 @@
 
 /area/horizon/hangar/operations
 	name = "Starboard Auxiliary Hangar"
-	area_blurb = "A big, open room, home to two of the SCCV Horizon's shuttles, the Quark and the Canary."
+	area_blurb = "A big, open room, home to the SCCV Horizon's mining shuttle, the Spark."
 	area_blurb_category = "hanger"
 
 /area/horizon/hangar/auxiliary
 	name = "Port Auxiliary Hangar"
-	area_blurb = "A big, open room, home to the SCCV Horizon's mining shuttle, the Spark."
+	area_blurb = "A big, open room, home to two of the SCCV Horizon's shuttles, the Quark and the Canary."
 	area_blurb_category = "hanger"
 
 /// OPERATIONS_AREAS - MACHINIST_AREAS
@@ -101,7 +115,7 @@
 /area/horizon/operations/machinist/surgicalbay
 	name = "Machinist Surgical Bay"
 	icon_state = "machinist_workshop"
-	area_blurb = "The scent of sterilized equipment fill the air in this surgical bay."
+	area_blurb = "Back in the workshop's surgical bay, the sharp-edged odor of sterilized equipment predominates."
 	area_blurb_category = "robotics"
 	horizon_deck = 2
 
@@ -111,7 +125,7 @@
 	icon_state = "outpost_mine_main"
 	ambience = AMBIENCE_EXPOUTPOST
 	subdepartment = SUBLOC_MINING
-	area_blurb = "Even louder and noisier and rowdier than the rest of Operations, which is saying something."
+	area_blurb = "Even louder and noisier and rowdier than the rest of Operations, which is really saying something."
 
 /area/horizon/operations/mining_main/eva
 	name = "Mining EVA Storage"
@@ -130,6 +144,7 @@
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 	horizon_deck = 3
 	area_blurb = "One of the SCCV Horizon's daunting weapons bays."
+	department = LOC_COMMAND
 
 /area/horizon/weapons/grauwolf
 	name = "Grauwolf Weapon System"
@@ -139,6 +154,7 @@
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 	horizon_deck = 2
 	area_blurb = "One of the SCCV Horizon's daunting weapons bays."
+	department = LOC_COMMAND
 
 /// STORAGE_AREAS
 /area/horizon/storage
@@ -170,6 +186,6 @@
 	name = "Secure Storage"
 	icon_state = "storage"
 	horizon_deck = 2
-	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
+	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 	department = LOC_COMMAND
 	area_blurb = "A place not to be visited unless things are going either horribly wrong or horribly right."

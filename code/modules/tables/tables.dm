@@ -26,6 +26,7 @@
 
 	var/manipulating = 0
 	var/material/reinforced = null
+	var/obj/item/stack/dismantle_mat = /obj/item/stack/rods
 
 	// Gambling tables. I'd prefer reinforced with carpet/felt/cloth/whatever, but AFAIK it's either harder or impossible to get /obj/item/stack/material of those.
 	// Convert if/when you can easily get stacks of these.
@@ -115,8 +116,8 @@
 			visible_message(SPAN_WARNING("\The [src] breaks down!"), intent_message = THUNK_SOUND)
 		return break_to_parts() // if we break and form shards, return them to the caller to do !FUN! things with
 
-/obj/structure/table/attack_generic(var/mob/user, var/damage, var/attack_message = "attacks", var/wallbreaker)
-	if(!damage || !wallbreaker)
+/obj/structure/table/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
+	if(!damage || !environment_smash)
 		return
 	user.do_attack_animation(src)
 	visible_message(SPAN_DANGER("[user] [attack_message] \the [src]!"))
@@ -269,7 +270,7 @@
 		return
 	user.visible_message("\The [user] dismantles \the [src].",
 						SPAN_NOTICE("You dismantle \the [src]."))
-	new /obj/item/stack/rods(src.loc, 2)
+	new dismantle_mat(src.loc)
 	qdel(src)
 
 // Returns a list of /obj/item/material/shard objects that were created as a result of this table's breakage.
@@ -298,9 +299,7 @@
 	if(carpeted && (full_return || prob(50))) // Higher chance to get the carpet back intact, since there's no non-intact option
 		new /obj/item/stack/tile/carpet(src.loc)
 	if(full_return || prob(20))
-		new /obj/item/stack/rods(src.loc, 2)
-	else
-		new /obj/item/stack/rods(src.loc)
+		new dismantle_mat(src.loc)
 	qdel(src)
 	return shards
 

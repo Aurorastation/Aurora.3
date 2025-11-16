@@ -41,6 +41,7 @@
 	name = "Gravity Generator"
 	icon_state = "engine"
 	horizon_deck = 1
+	area_flags = AREA_FLAG_RAD_SHIELDED
 	area_blurb = "The air in here tastes like copper, sour sugar, and smoke; none of the angles seem right. That probably means everything is working."
 	area_blurb_category = "engi_breakroom"
 
@@ -58,7 +59,7 @@
 	horizon_deck = 1
 
 /area/horizon/engineering/aft_airlock
-	name = "Aft Service Airlock"
+	name = "Aft Stowage Airlock"
 	horizon_deck = 2
 
 /area/horizon/engineering/bluespace_drive
@@ -68,6 +69,7 @@
 
 /area/horizon/engineering/bluespace_drive/monitoring
 	name = "Bluespace Drive Monitoring"
+	area_flags = AREA_FLAG_RAD_SHIELDED
 	icon_state = "engineering"
 	horizon_deck = 1
 
@@ -160,7 +162,7 @@
 	name = "Supermatter Reactor Chamber"
 	area_blurb = "The air throbs with subdued lethality. Phoronic science breaks the laws of thermodynamics in this chamber, and the laws of thermodynamics seem angry."
 
-/area/horizon/engineering/smes
+/area/horizon/engineering/reactor/supermatter/smes
 	name = "Supermatter Reactor SMES"
 	icon_state = "engine_smes"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
@@ -169,6 +171,7 @@
 /area/horizon/engineering/reactor/supermatter/monitoring
 	name = "Supermatter Reactor Monitoring"
 	icon_state = "engine_monitoring"
+	area_flags = AREA_FLAG_RAD_SHIELDED
 	area_blurb = "This compartment provides a fairly convincing illusion of safety and control."
 
 /area/horizon/engineering/reactor/supermatter/waste
@@ -184,21 +187,22 @@
 /area/horizon/engineering/reactor/indra/mainchamber
 	name = "INDRA Reactor Chamber"
 	ambience = AMBIENCE_SINGULARITY
-	area_blurb = "The product of over four-hundred years' iteration and refinement: the INDRA Mk.II Tokamak Fusion bottle and its vast supporting machineries dominate the entire compartment"
+	area_blurb = "The product of over four-hundred years' iteration and refinement: the INDRA Mk.II Tokamak fusion bottle and its vast supporting machineries dominate the entire compartment"
 
 /area/horizon/engineering/reactor/indra/smes
 	name = "INDRA Reactor SMES"
 	icon_state = "engine_smes"
-	area_blurb = "A quiet hum suffuses this compartment from grid balancing hardware and power banks fitted beneath the floor."
+	area_blurb = "A quiet hum suffuses this compartment from grid-balancing hardware and power banks fitted beneath the floor."
 
 /area/horizon/engineering/reactor/indra/monitoring
 	name = "INDRA Reactor Monitoring"
 	icon_state = "engine_monitoring"
+	area_flags = AREA_FLAG_RAD_SHIELDED
 	area_blurb = "Where atoms are consigned to be smashed and the pretty lights beheld."
 
 /area/horizon/engineering/reactor/indra/office
 	name = "INDRA Reactor Office"
-	area_blurb = "A dingy, forgotten compartment a year or three away from looking about as well-kept as the Maints'."
+	area_blurb = "A dingy, forgotten compartment a year or three away from looking about as well-kept as the maints."
 
 // The engineering stairwell /area/horizon/stairwell/engineering/* are defined in './horizon_areas_crew.dm'. Bat put them there originally because they felt that made sense. If you don't, migrate them here I guess, everything's cool.
 

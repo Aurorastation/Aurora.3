@@ -15,6 +15,11 @@
 	name = "Hydroponics"
 	horizon_deck = 1
 
+/area/horizon/service/hydroponics/hazard
+	name = "Hydroponics - Hazardous Specimens Unit"
+	horizon_deck = 1
+	area_blurb = "Harsh, discordant lighting bears down upon you in the cramped confines of your surroundings. The air is stale and musty."
+
 /area/horizon/service/hydroponics/garden
 	name = "Public Garden"
 	icon_state = "garden"
@@ -47,12 +52,11 @@
 	name = "Bar"
 	icon_state = "bar"
 	horizon_deck = 2
-	area_blurb = "A place whose atmosphere morphs with every shift to the tastes of the presiding bartenders. If bulkhead walls could talk."
+	area_blurb = "The Horizon's signature watering hole. The ever-rotating roster of bartenders and mixers enforces no certainties here. If bulkhead walls could talk."
 
 /area/horizon/service/bar/backroom
 	name = "Bar - Backroom"
 	area_flags = AREA_FLAG_RAD_SHIELDED
-	area_blurb = "A place whose atmosphere morphs with every shift to the tastes of the presiding bartenders. If bulkhead walls could talk, times three back here."
 
 // Dining Hall
 /area/horizon/service/dining_hall
@@ -80,6 +84,7 @@
 	area_blurb = "A strong, concentrated smell of many cleaning supplies linger within this room."
 	area_blurb_category = "janitor"
 	horizon_deck = 1
+	area_flags = AREA_FLAG_PREVENT_PERSISTENT_TRASH
 
 /area/horizon/service/custodial/disposals
 	name = "Disposals and Recycling (PARENT AREA - DON'T USE)"

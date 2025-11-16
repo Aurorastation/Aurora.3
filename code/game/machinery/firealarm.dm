@@ -14,11 +14,11 @@
 	active_power_usage = 6
 	power_channel = AREA_USAGE_ENVIRON
 	var/last_process = 0
-	var/wiresexposed = 0
 	var/buildstage = 2 // 2 = complete, 1 = no wires,  0 = circuit gone
 	var/seclevel
 	///looping sound datum for our fire alarm siren.
 	var/datum/looping_sound/firealarm/soundloop
+	always_area_sensitive = TRUE
 
 /obj/machinery/firealarm/Initialize(mapload, var/dir, var/building = 0)
 	. = ..(mapload)
@@ -27,7 +27,7 @@
 		if(dir)
 			src.set_dir(dir)
 		buildstage = 0
-		wiresexposed = 1
+		panel_open = 1
 
 		update_icon()
 		set_pixel_offsets()
@@ -59,7 +59,7 @@
 /obj/machinery/firealarm/update_icon()
 	ClearOverlays()
 
-	if(wiresexposed)
+	if(panel_open)
 		switch(buildstage)
 			if(2)
 				AddOverlays("fire_b2")
@@ -111,13 +111,13 @@
 		return TRUE
 
 	if (attacking_item.isscrewdriver() && buildstage == 2)
-		if(!wiresexposed)
+		if(!panel_open)
 			set_light(0)
-		wiresexposed = !wiresexposed
+		panel_open = !panel_open
 		update_icon()
 		return TRUE
 
-	if(wiresexposed)
+	if(panel_open)
 		set_light(0)
 		switch(buildstage)
 			if(2)
@@ -276,7 +276,7 @@
 /obj/machinery/firealarm/set_pixel_offsets()
 	// Overwrite the mapped in values.
 	pixel_x = ((dir & (NORTH|SOUTH)) ? 0 : (dir == EAST ? 22 : -22))
-	pixel_y = ((dir & (NORTH|SOUTH)) ? (dir == NORTH ? 32 : -17) : 0)
+	pixel_y = ((dir & (NORTH|SOUTH)) ? (dir == NORTH ? 32 : -19) : 0)
 
 // Convenience subtypes for mappers.
 /obj/machinery/firealarm/north
@@ -293,7 +293,7 @@
 
 /obj/machinery/firealarm/south
 	dir = SOUTH
-	pixel_y = -17
+	pixel_y = -19
 
 /*
 FIRE ALARM CIRCUIT

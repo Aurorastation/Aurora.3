@@ -227,7 +227,8 @@
 #define INIT_ORDER_EARLY_ASSETS 48
 #define INIT_ORDER_SPATIAL_GRID 43
 #define INIT_ORDER_ECONOMY 40
-#define INIT_ORDER_MAPFINALIZE 31 //Asteroid generation, another aurora snowflake, must run before the atoms init
+#define INIT_ORDER_MAPFINALIZE 32 // Asteroid generation, another aurora snowflake, must run before the atoms init
+#define INIT_ORDER_PERSISTENCE 31 // Persistence subsystem, requires map load
 #define INIT_ORDER_ATOMS 30
 #define INIT_ORDER_MACHINES 20
 #define INIT_ORDER_DEFAULT 0

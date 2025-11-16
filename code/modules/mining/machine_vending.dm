@@ -1,7 +1,7 @@
 //PROGRESSION SYSTEM: Miners start with a basic ass manual pickaxe. They can shortly buy an autodrill, or save up for a /TG/ Kinetic Accelerator.
 //HARDSUITS: Miners all start with an *empty* industrial hardsuit. Many of the items they can buy here (auto-drill, kinetic accelerator) can be converted into modules
 //			with a special machine.
-//VENDOR: Obj/item's are immediately dispensed by the vendor. Machines, structures, vehicles, and etc get spawned on the cargo shuttle.
+//VENDOR: Obj/item's are immediately dispensed by the vendor. Machines, structures, vehicles, and etc get spawned on the cargo elevator.
 //Think up of lots of items. Not everything needs to be unique or even mining-special, but it should be neat. Convert most of /tg/'s items. 25% of this at least
 //	should be bling. Things that shorten the distance between base and mining. Instant-teleporters should be one use.
 GLOBAL_LIST_INIT(minevendor_list, list(
@@ -17,7 +17,7 @@ GLOBAL_LIST_INIT(minevendor_list, list(
 	new /datum/data/mining_equipment(/obj/item/stack/flag/yellow,								10,					50),
 	new /datum/data/mining_equipment(/obj/item/stack/flag/purple,								10,					50),
 	new /datum/data/mining_equipment(/obj/item/storage/bag/ore,									25,					50),
-	new /datum/data/mining_equipment(pick(subtypesof(/obj/item/pizzabox)), 									25,					50),
+	new /datum/data/mining_equipment(pick(subtypesof(/obj/item/pizzabox)), 						2, 					50),
 	new /datum/data/mining_equipment(/obj/item/device/flashlight/lantern,						10,					75),
 	new /datum/data/mining_equipment(/obj/item/shovel,											15,					100),
 	new /datum/data/mining_equipment(/obj/item/pickaxe,											10,					100),

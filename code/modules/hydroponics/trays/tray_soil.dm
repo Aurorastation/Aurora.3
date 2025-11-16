@@ -2,9 +2,9 @@
 	name = "soil"
 	desc = "A mound of earth. You could plant some seeds here."
 	icon_state = "soil"
-	density = 0
+	density = FALSE
 	use_power = POWER_USE_OFF
-	mechanical = 0
+	mechanical = FALSE
 	tray_light = 0
 	/// Water level begins at zero.
 	waterlevel = 0
@@ -54,8 +54,8 @@ Hence using a blank icon. */
 	. = ..()
 	seed = newseed
 	dead = 0
-	age = start_mature ? seed.get_trait(TRAIT_MATURATION) : 1
-	health = seed.get_trait(TRAIT_ENDURANCE)
+	age = start_mature ? GET_SEED_TRAIT(seed, TRAIT_MATURATION) : 1
+	health = GET_SEED_TRAIT(seed, TRAIT_ENDURANCE)
 	lastcycle = world.time
 	pixel_y = rand(-5,5)
 	waterlevel = 100

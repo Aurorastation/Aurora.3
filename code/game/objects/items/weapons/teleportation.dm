@@ -1,9 +1,9 @@
 /* Teleportation devices.
  * Contains:
- *		Locator
- *		Hand-tele
- *		Closet Teleporter
- *		Inhibitor handling proc for above
+ * * Locator
+ * * Hand-tele
+ * * Closet Teleporter
+ * * Inhibitor handling proc for above
  */
 
 /*
@@ -167,7 +167,8 @@ Frequency:
 	. += ..()
 	if(linked_pad)
 		var/area/A = get_area(linked_pad)
-		. += SPAN_NOTICE("\The [src] is linked to a teleportation pad in [A.name]")
+		var/display_name = get_area_display_name(A)
+		. += SPAN_NOTICE("\The [src] is linked to a teleportation pad in [display_name]")
 	else
 		. += SPAN_WARNING("\The [src] isn't linked to any teleportation pads!")
 
@@ -239,10 +240,11 @@ Frequency:
 		for(var/obj/machinery/teleport/pad/P in SSmachinery.machinery)
 			if(AreConnectedZLevels(current_location.z, P.z))
 				var/area/A = get_area(P)
+				var/display_name = get_area_display_name(A)
 				if(P.engaged)
-					teleport_options["[A.name] (Active)"] = P
+					teleport_options["[display_name] (Active)"] = P
 				else
-					teleport_options["[A.name] (Inactive)"] = P
+					teleport_options["[display_name] (Inactive)"] = P
 		teleport_options["None (Dangerous)"] = null
 		var/teleport_choice = tgui_input_list(user, "Please select a teleporter to lock in on.", "Hand Teleporter", teleport_options)
 		if(!teleport_choice)
@@ -306,8 +308,14 @@ Frequency:
 	var/obj/structure/closet/target_closet = linked_teleporter.attached_closet
 	user.forceMove(target_closet.opened ? get_turf(target_closet) : target_closet)
 	if(target_closet.opened)
+		if(user.client)
+			user.client.eye = user.client.mob
+			user.client.perspective = MOB_PERSPECTIVE
 		user.visible_message(SPAN_NOTICE("\The [user] steps out of the back of \the [target_closet]."), SPAN_NOTICE("You teleport into the linked closet, stepping out of it."))
+		user.set_fullscreen(FALSE, "closet_impaired", /atom/movable/screen/fullscreen/closet_impaired)
 	else
+		if(user.client)
+			user.client.eye = target_closet
 		target_closet.visible_message(SPAN_WARNING("\The [target_closet] rattles."))
 		to_chat(user, SPAN_NOTICE("You teleport into the target closet, bumping into the closed door."))
 		target_closet.shake_animation()

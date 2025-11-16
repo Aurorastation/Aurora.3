@@ -480,3 +480,14 @@
   TheGreyWolf:
   - bugfix: Fixed the south-facing variant of the closed labcoat.
   - bugfix: Vending machines no longer have a light overlay when losing power.
+2025-07-31:
+  AlaunusLux:
+  - bugfix: Mechs will no longer trample themselves when using a Phazon Bluespace
+      Transmission System.
+  Batrachophrenoboocosmomachia:
+  - bugfix: Fixed inconsistent behavior with gravity generator turning on/shutting
+      off, as well as associated inertial behaviors (throwing objects in zero g, etc.)
+  MattAtlas:
+  - qol: Tradeband and Encoded Audio Language are now more readable in dark mode (bright
+      purple and bright green).
+  - qol: Adjusted the dark mode colour for devsay and incoming admin messages.

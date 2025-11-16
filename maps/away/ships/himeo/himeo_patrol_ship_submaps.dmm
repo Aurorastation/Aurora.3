@@ -5,7 +5,10 @@
 "am" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
-/obj/machinery/alarm/south,
+/obj/machinery/alarm/south{
+	req_access = list(253);
+	req_one_access = null
+	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
 	level = 2
@@ -16,7 +19,24 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/trash_pile,
 /obj/random/dirt_75,
-/obj/machinery/alarm/south,
+/obj/machinery/alarm/south{
+	req_access = list(253);
+	req_one_access = null
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1;
+	level = 2
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"az" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate/loot,
+/obj/random/dirt_75,
+/obj/machinery/alarm/south{
+	req_one_access = null;
+	req_access = list(253)
+	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
 	level = 2
@@ -36,7 +56,9 @@
 /turf/simulated/floor/carpet/rubber,
 /area/template_noop)
 "aH" = (
-/obj/machinery/power/apc/north,
+/obj/machinery/power/apc/north{
+	req_access = list(253)
+	},
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
@@ -165,7 +187,10 @@
 /area/template_noop)
 "iO" = (
 /obj/random/dirt_75,
-/obj/machinery/alarm/east,
+/obj/machinery/alarm/east{
+	req_one_access = null;
+	req_access = list(253)
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/template_noop)
 "jn" = (
@@ -215,7 +240,10 @@
 "la" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/machinery/alarm/east,
+/obj/machinery/alarm/east{
+	req_one_access = null;
+	req_access = list(253)
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/template_noop)
 "lJ" = (
@@ -232,7 +260,10 @@
 "mx" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/table/rack/no_cargo,
-/obj/machinery/alarm/south,
+/obj/machinery/alarm/south{
+	req_one_access = null;
+	req_access = list(253)
+	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
 	level = 2
@@ -260,7 +291,9 @@
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/north,
+/obj/machinery/power/apc/north{
+	req_access = list(253)
+	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/table/rack/no_cargo,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
@@ -301,7 +334,10 @@
 "qm" = (
 /obj/structure/closet/crate/loot,
 /obj/random/dirt_75,
-/obj/machinery/alarm/south,
+/obj/machinery/alarm/south{
+	req_access = list(253);
+	req_one_access = null
+	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
 	level = 2
@@ -362,7 +398,10 @@
 /obj/effect/floor_decal/spline/plain/red{
 	dir = 6
 	},
-/obj/machinery/alarm/east,
+/obj/machinery/alarm/east{
+	req_one_access = null;
+	req_access = list(253)
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/template_noop)
 "vm" = (
@@ -484,7 +523,9 @@
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/north,
+/obj/machinery/power/apc/north{
+	req_access = list(253)
+	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
@@ -772,7 +813,9 @@
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/north,
+/obj/machinery/power/apc/north{
+	req_access = list(253)
+	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate/loot,
 /obj/random/dirt_75,
@@ -812,7 +855,10 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate/loot,
 /obj/random/dirt_75,
-/obj/machinery/alarm/south,
+/obj/machinery/alarm/south{
+	req_access = list(253);
+	req_one_access = null
+	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
 	level = 2
@@ -857,7 +903,9 @@
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/north,
+/obj/machinery/power/apc/north{
+	req_access = list(253)
+	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate/trashcart,
 /obj/random/junk,
@@ -886,7 +934,10 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
 "Ya" = (
-/obj/machinery/alarm/east,
+/obj/machinery/alarm/east{
+	req_one_access = null;
+	req_access = list(253)
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/template_noop)
 "Yf" = (
@@ -1269,7 +1320,7 @@ am
 mg
 zU
 gR
-Tc
+az
 mg
 PI
 gR

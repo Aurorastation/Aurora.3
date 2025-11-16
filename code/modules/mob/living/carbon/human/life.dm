@@ -43,6 +43,8 @@
 	if(wearing_rig && wearing_rig.offline)
 		wearing_rig = null
 
+	var/shock_value = get_shock()
+
 	..()
 
 	if(life_tick%30==5)//Makes huds update every 10 seconds instead of every 30 seconds
@@ -56,20 +58,20 @@
 		handle_changeling()
 
 		//Organs
-		handle_organs()
+		handle_organs(seconds_per_tick)
 		stabilize_body_temperature() //Body temperature adjusts itself (self-regulation)
 
 		//Random events (vomiting etc)
 		handle_random_events()
 
-		handle_shock()
+		handle_shock(shock_value)
 
 		handle_pain()
 
 		handle_fever()
 
 		//Handles regenerating stamina if we have sufficient air and no oxyloss
-		handle_stamina()
+		handle_stamina(shock_value)
 
 		if (is_diona())
 			diona_handle_light(DS)
@@ -464,7 +466,13 @@
 		var/recovery_amt = min((body_temperature_difference / BODYTEMP_AUTORECOVERY_DIVISOR), -BODYTEMP_AUTORECOVERY_MINIMUM)	//We're dealing with negative numbers
 		bodytemperature += recovery_amt
 
-	//This proc returns a number made up of the flags for body parts which you are protected on. (such as HEAD, UPPER_TORSO, LOWER_TORSO, etc. See setup.dm for the full list)
+/**
+ * Returns a bitflag for the body parts currently heat-protected. Called and used by get_heat_protection()
+ * If the passed temperature is less than the item's max_heat_protection_temperature, then the flag is added to the associated body part(s).
+ * Refer to 'code/__DEFINES/item_clothing.dm' for details.
+ *
+ * * temperature - the temperature the living/carbon/human is being exposed to.
+ */
 /mob/living/carbon/human/proc/get_heat_protection_flags(temperature) //Temperature is the temperature you're being exposed to.
 	var/thermal_protection_flags = 0
 	//Handle normal clothing
@@ -489,7 +497,14 @@
 
 	return thermal_protection_flags
 
-/mob/living/carbon/human/get_heat_protection(temperature) //Temperature is the temperature you're being exposed to.
+/**
+ * Returns a bitflag for the body parts currently heat-protected. Called by get_heat_protection()
+ * If the passed temperature is less than the item's max_heat_protection_temperature, then the flag is added to the associated body part(s).
+ * Refer to 'code/__DEFINES/item_clothing.dm' for details.
+ *
+ * * temperature - the temperature the living/carbon/human is being exposed to.
+ */
+/mob/living/carbon/human/get_heat_protection(temperature)
 	var/thermal_protection_flags = get_heat_protection_flags(temperature)
 
 	var/thermal_protection = 0.0
@@ -743,8 +758,9 @@
 			silent = 0
 			return 1
 
-		if(hallucination && (HAS_TRAIT(src, TRAIT_BYPASS_HALLUCINATION_RESTRICTION) || !(species.flags & NO_POISON|IS_PLANT)))
-			handle_hallucinations()
+		if(hallucination)
+			if(HAS_TRAIT(src, TRAIT_BYPASS_HALLUCINATION_RESTRICTION) || !((species.flags & NO_POISON) && (species.flags & IS_PLANT)))
+				handle_hallucinations()
 
 		if(get_shock() >= species.total_health)
 			if(!stat && !paralysis)
@@ -780,7 +796,7 @@
 					else
 						AdjustSleeping(-1)
 			if(prob(2) && health && !failed_last_breath && !InStasis())
-				if(!paralysis)
+				if(!paralysis && species.snores)
 					emote(species.snore_key)
 
 		//CONSCIOUS
@@ -960,7 +976,6 @@
 					var/image/burning_image = image('icons/mob/screen1_health.dmi', "burning", pixel_x = species.healths_overlay_x)
 					var/midway_point = FIRE_MAX_STACKS / 2
 					burning_image.color = color_rotation((midway_point - fire_stacks) * 3)
-					health_images += burning_image
 
 				// Show a general pain/crit indicator if needed.
 				if(is_asystole())
@@ -1210,7 +1225,11 @@
 		if(changeling)
 			changeling.regenerate()
 
-/mob/living/carbon/human/proc/handle_shock()
+/**
+ * This proc assumes that if traumatic_shock = null, then a shock value was NOT passed in, and thus it calculates it itself.
+ * If you for some reason need to call this alongside a lot of other shit that needs shock, make sure you cache that value, because calculating it is expensive.
+ */
+/mob/living/carbon/human/proc/handle_shock(traumatic_shock = null)
 	if(status_flags & GODMODE)
 		return 0
 	var/is_asystole = is_asystole()
@@ -1227,7 +1246,9 @@
 	if(is_asystole)
 		shock_stage = max(shock_stage + 1, 61)
 
-	var/traumatic_shock = get_shock()
+	if(isnull(traumatic_shock))
+		traumatic_shock = get_shock()
+
 	if(traumatic_shock >= max(30, 0.8*shock_stage))
 		shock_stage += 1
 	else if (!is_asystole)
@@ -1402,15 +1423,23 @@
 			hud_list[SPECIALROLE_HUD] = holder
 	hud_updateflag = 0
 
-/mob/living/carbon/human/handle_fire()
+/**
+ * If parent proc returns TRUE, this entity is no longer on fire (nothing to see here, in that case).
+ * Otherwise, we first get burn temperature, calculated from the entity's current fire stacks.
+ * This has a minimum of 700 K (approx. temp of a cool flame). The maximum temperature of the air
+ * to which a burning creature is exposed, at any point during its fiery adventure, is the base
+ * temperature of the fire, scaling upwards with fire_stacks.
+ */
+/mob/living/carbon/human/handle_fire(var/seconds_per_tick, var/datum/gas_mixture/environment)
 	if(..())
 		return
 
 	var/burn_temperature = fire_burn_temperature()
 	var/thermal_protection = get_heat_protection(burn_temperature)
 
+	// Increment bodytemp up by up to BODYTEMP_HEATING_MAX C / sec, as modified by thermal protection.
 	if (thermal_protection < 1 && bodytemperature < burn_temperature)
-		bodytemperature += round(BODYTEMP_HEATING_MAX*(1-thermal_protection), 1)
+		bodytemperature += round(BODYTEMP_HEATING_MAX * (1-thermal_protection) * 20 * seconds_per_tick, 1)
 
 /mob/living/carbon/human/rejuvenate()
 	restore_blood()
@@ -1462,15 +1491,20 @@
 	if((mutations & XRAY))
 		set_sight(sight|SEE_TURFS|SEE_MOBS|SEE_OBJS)
 
-/mob/living/carbon/human/proc/handle_stamina()
+/**
+ * This proc assumes that if shock_value = null, then a shock value was NOT passed in, and thus it calculates it itself.
+ * If you for some reason need to call this alongside a lot of other shit that needs shock, make sure you cache that value, because calculating it is expensive.
+ */
+/mob/living/carbon/human/proc/handle_stamina(traumatic_shock = null)
 	if (species.stamina == -1) //If species stamina is -1, it has special mechanics which will be handled elsewhere
 		return //so quit this function
 
 	if (!exhaust_threshold) // Also quit if there's no exhaust threshold specified, because division by 0 is amazing.
 		return
 
-	var/shock = get_shock() // used again later for stamina regeneration
-	if (failed_last_breath || (getOxyLoss() + shock) > exhaust_threshold)//Can't catch our breath if we're suffocating
+	if(isnull(traumatic_shock))
+		traumatic_shock = get_shock() // used again later for stamina regeneration
+	if (failed_last_breath || (getOxyLoss() + traumatic_shock) > exhaust_threshold)//Can't catch our breath if we're suffocating
 		flash_pain(getOxyLoss()/2)
 		return
 
@@ -1487,7 +1521,7 @@
 	if (stamina != max_stamina)
 		//Any suffocation damage slows stamina regen.
 		//This includes oxyloss from low blood levels
-		var/regen = stamina_recovery * (1 - min(((getOxyLoss()) / exhaust_threshold) + (shock / exhaust_threshold), 1))
+		var/regen = stamina_recovery * (1 - min(((getOxyLoss()) / exhaust_threshold) + (traumatic_shock / exhaust_threshold), 1))
 		if(is_drowsy())
 			regen *= 0.85
 		if (regen > 0)

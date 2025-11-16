@@ -6,7 +6,6 @@
 	status_flags = GODMODE
 	invisibility = INVISIBILITY_OBSERVER
 	see_invisible = SEE_INVISIBLE_OBSERVER
-	layer = OBSERVER_LAYER
 	incorporeal_move = INCORPOREAL_GHOST
 	simulated = FALSE
 
@@ -39,6 +38,7 @@
 		name = "Storyteller ([client.ckey])"
 		SSodyssey.add_storyteller(src)
 		GLOB.storytellers.add_antagonist(mind)
+		C.add_storyteller_verbs()
 
 /mob/abstract/ghost/storyteller/ghostize(can_reenter_corpse, should_set_timer)
 	. = ..()

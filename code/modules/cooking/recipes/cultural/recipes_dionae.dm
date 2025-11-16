@@ -1,5 +1,5 @@
 /singleton/recipe/dionae_soup
-	appliance = SAUCEPAN | POT
+	appliance = SAUCEPAN | POT | MICROWAVE
 	reagents = list(/singleton/reagent/water = 10)
 	fruit = list("cabbage" = 1)
 	items = list(

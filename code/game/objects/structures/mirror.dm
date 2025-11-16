@@ -80,7 +80,7 @@
 		visible_message(SPAN_WARNING("[user] hits [src] with [attacking_item]!"))
 		playsound(src.loc, 'sound/effects/glass_hit.ogg', 70, 1)
 
-/obj/structure/mirror/attack_generic(var/mob/user, var/damage)
+/obj/structure/mirror/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 
 	user.do_attack_animation(src)
 	if(shattered)

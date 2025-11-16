@@ -10,17 +10,18 @@
 
 /datum/seed/citrus/setup_traits()
 	..()
-	set_trait(TRAIT_HARVEST_REPEAT,1)
-	set_trait(TRAIT_JUICY,1)
-	set_trait(TRAIT_MATURATION,6)
-	set_trait(TRAIT_PRODUCTION,6)
-	set_trait(TRAIT_YIELD,4)
-	set_trait(TRAIT_POTENCY,15)
-	set_trait(TRAIT_PRODUCT_ICON,"treefruit")
-	set_trait(TRAIT_PRODUCT_COLOUR,"#3AF026")
-	set_trait(TRAIT_PLANT_ICON,"tree")
-	set_trait(TRAIT_FLESH_COLOUR,"#3AF026")
-	set_trait(TRAIT_IDEAL_HEAT, 304)
+	SET_SEED_TRAIT(src, TRAIT_HARVEST_REPEAT, 1)
+	SET_SEED_TRAIT(src, TRAIT_JUICY, 1)
+	SET_SEED_TRAIT(src, TRAIT_MATURATION, 6)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCTION, 6)
+	SET_SEED_TRAIT(src, TRAIT_YIELD, 4)
+	SET_SEED_TRAIT(src, TRAIT_POTENCY, 15)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_ICON, "treefruit")
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#3AF026")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_ICON, "tree")
+	SET_SEED_TRAIT(src, TRAIT_FLESH_COLOUR, "#3AF026")
+	SET_SEED_TRAIT(src, TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_HIGH)
+	SET_SEED_TRAIT(src, TRAIT_IDEAL_HEAT, IDEAL_HEAT_TROPICAL)
 
 /obj/item/seeds/limeseed
 	seed_type = "lime"
@@ -34,10 +35,9 @@
 
 /datum/seed/citrus/lemon/setup_traits()
 	..()
-	set_trait(TRAIT_PRODUCES_POWER,1)
-	set_trait(TRAIT_PRODUCT_COLOUR,"#F0E226")
-	set_trait(TRAIT_FLESH_COLOUR,"#F0E226")
-	set_trait(TRAIT_IDEAL_LIGHT, 6)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCES_POWER, 1)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#F0E226")
+	SET_SEED_TRAIT(src, TRAIT_FLESH_COLOUR, "#F0E226")
 
 /obj/item/seeds/lemonseed
 	seed_type = "lemon"
@@ -51,8 +51,8 @@
 
 /datum/seed/citrus/orange/setup_traits()
 	..()
-	set_trait(TRAIT_PRODUCT_COLOUR,"#FFC20A")
-	set_trait(TRAIT_FLESH_COLOUR,"#FFC20A")
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#FFC20A")
+	SET_SEED_TRAIT(src, TRAIT_FLESH_COLOUR, "#FFC20A")
 
 /obj/item/seeds/orangeseed
 	seed_type = "orange"
@@ -69,17 +69,18 @@
 
 /datum/seed/grapes/setup_traits()
 	..()
-	set_trait(TRAIT_HARVEST_REPEAT,1)
-	set_trait(TRAIT_MATURATION,3)
-	set_trait(TRAIT_PRODUCTION,5)
-	set_trait(TRAIT_YIELD,4)
-	set_trait(TRAIT_POTENCY,10)
-	set_trait(TRAIT_PRODUCT_ICON,"grapes")
-	set_trait(TRAIT_PRODUCT_COLOUR,"#BB6AC4")
-	set_trait(TRAIT_PLANT_COLOUR,"#378F2E")
-	set_trait(TRAIT_PLANT_ICON,"vine")
-	set_trait(TRAIT_IDEAL_LIGHT, 6)
-	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.15)
+	SET_SEED_TRAIT(src, TRAIT_HARVEST_REPEAT, 1)
+	SET_SEED_TRAIT(src, TRAIT_MATURATION, 3)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCTION, 5)
+	SET_SEED_TRAIT(src, TRAIT_YIELD, 4)
+	SET_SEED_TRAIT(src, TRAIT_POTENCY, 10)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_ICON, "grapes")
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#BB6AC4")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_COLOUR, "#378F2E")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_ICON, "vine")
+	SET_SEED_TRAIT(src, TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_HIGH)
+	SET_SEED_TRAIT(src, TRAIT_IDEAL_HEAT, IDEAL_HEAT_TROPICAL)
+	SET_SEED_TRAIT(src, TRAIT_NUTRIENT_CONSUMPTION, 0.15)
 
 /obj/item/seeds/grapeseed
 	seed_type = "grapes"
@@ -93,7 +94,7 @@
 
 /datum/seed/grapes/green/setup_traits()
 	..()
-	set_trait(TRAIT_PRODUCT_COLOUR,"#42ED2F")
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#42ED2F")
 
 /obj/item/seeds/greengrapeseed
 	seed_type = "greengrapes"
@@ -111,17 +112,17 @@
 
 /datum/seed/berry/setup_traits()
 	..()
-	set_trait(TRAIT_HARVEST_REPEAT,1)
-	set_trait(TRAIT_JUICY,1)
-	set_trait(TRAIT_MATURATION,5)
-	set_trait(TRAIT_PRODUCTION,5)
-	set_trait(TRAIT_YIELD,2)
-	set_trait(TRAIT_POTENCY,10)
-	set_trait(TRAIT_PRODUCT_ICON,"berry")
-	set_trait(TRAIT_PRODUCT_COLOUR,"#FA1616")
-	set_trait(TRAIT_PLANT_ICON,"bush")
-	set_trait(TRAIT_WATER_CONSUMPTION, 6)
-	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.15)
+	SET_SEED_TRAIT(src, TRAIT_HARVEST_REPEAT, 1)
+	SET_SEED_TRAIT(src, TRAIT_JUICY, 1)
+	SET_SEED_TRAIT(src, TRAIT_MATURATION, 5)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCTION, 5)
+	SET_SEED_TRAIT(src, TRAIT_YIELD, 2)
+	SET_SEED_TRAIT(src, TRAIT_POTENCY, 10)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_ICON, "berry")
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#FA1616")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_ICON, "bush")
+	SET_SEED_TRAIT(src, TRAIT_WATER_CONSUMPTION, 6)
+	SET_SEED_TRAIT(src, TRAIT_NUTRIENT_CONSUMPTION, 0.15)
 
 /obj/item/seeds/berryseed
 	seed_type = "berries"
@@ -136,9 +137,9 @@
 
 /datum/seed/berry/blue/setup_traits()
 	..()
-	set_trait(TRAIT_PRODUCT_COLOUR,"#1C225C")
-	set_trait(TRAIT_WATER_CONSUMPTION, 5)
-	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.2)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#1C225C")
+	SET_SEED_TRAIT(src, TRAIT_WATER_CONSUMPTION, 5)
+	SET_SEED_TRAIT(src, TRAIT_NUTRIENT_CONSUMPTION, 0.2)
 
 /obj/item/seeds/blueberryseed
 	seed_type = "blueberries"
@@ -152,16 +153,16 @@
 
 /datum/seed/berry/glow/setup_traits()
 	..()
-	set_trait(TRAIT_SPREAD,1)
-	set_trait(TRAIT_BIOLUM,1)
-	set_trait(TRAIT_BIOLUM_COLOUR,"#006622")
-	set_trait(TRAIT_MATURATION,5)
-	set_trait(TRAIT_PRODUCTION,5)
-	set_trait(TRAIT_YIELD,2)
-	set_trait(TRAIT_POTENCY,10)
-	set_trait(TRAIT_PRODUCT_COLOUR,"#c9fa16")
-	set_trait(TRAIT_WATER_CONSUMPTION, 3)
-	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.25)
+	SET_SEED_TRAIT(src, TRAIT_SPREAD, 1)
+	SET_SEED_TRAIT(src, TRAIT_BIOLUM, 1)
+	SET_SEED_TRAIT(src, TRAIT_BIOLUM_COLOUR, "#006622")
+	SET_SEED_TRAIT(src, TRAIT_MATURATION, 5)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCTION, 5)
+	SET_SEED_TRAIT(src, TRAIT_YIELD, 2)
+	SET_SEED_TRAIT(src, TRAIT_POTENCY, 10)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#c9fa16")
+	SET_SEED_TRAIT(src, TRAIT_WATER_CONSUMPTION, 3)
+	SET_SEED_TRAIT(src, TRAIT_NUTRIENT_CONSUMPTION, 0.25)
 
 /obj/item/seeds/glowberryseed
 	seed_type = "glowberries"
@@ -175,9 +176,9 @@
 
 /datum/seed/berry/poison/setup_traits()
 	..()
-	set_trait(TRAIT_PRODUCT_COLOUR,"#6DC961")
-	set_trait(TRAIT_WATER_CONSUMPTION, 3)
-	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.25)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#6DC961")
+	SET_SEED_TRAIT(src, TRAIT_WATER_CONSUMPTION, 3)
+	SET_SEED_TRAIT(src, TRAIT_NUTRIENT_CONSUMPTION, 0.25)
 
 /obj/item/seeds/poisonberryseed
 	seed_type = "poisonberries"
@@ -191,10 +192,10 @@
 
 /datum/seed/berry/poison/death/setup_traits()
 	..()
-	set_trait(TRAIT_YIELD,3)
-	set_trait(TRAIT_POTENCY,50)
-	set_trait(TRAIT_PRODUCT_COLOUR,"#7A5454")
-	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.35)
+	SET_SEED_TRAIT(src, TRAIT_YIELD, 3)
+	SET_SEED_TRAIT(src, TRAIT_POTENCY, 50)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#7A5454")
+	SET_SEED_TRAIT(src, TRAIT_NUTRIENT_CONSUMPTION, 0.35)
 
 /obj/item/seeds/deathberryseed
 	seed_type = "deathberries"
@@ -208,7 +209,7 @@
 
 /datum/seed/berry/raspberry/setup_traits()
 	..()
-	set_trait(TRAIT_PRODUCT_COLOUR,"#ff0000")
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#ff0000")
 
 /obj/item/seeds/raspberryseed
 	seed_type = "raspberries"
@@ -223,7 +224,7 @@
 
 /datum/seed/berry/raspberry/blue/setup_traits()
 	..()
-	set_trait(TRAIT_PRODUCT_COLOUR,"#030145")
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#030145")
 
 /obj/item/seeds/blueraspberryseed
 	seed_type = "blue raspberries"
@@ -237,7 +238,7 @@
 
 /datum/seed/berry/raspberry/black/setup_traits()
 	..()
-	set_trait(TRAIT_PRODUCT_COLOUR,"#1a063f")
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#1a063f")
 
 /obj/item/seeds/blackraspberryseed
 	seed_type = "blackberries"
@@ -252,7 +253,7 @@
 
 /datum/seed/berry/strawberry/setup_traits()
 	..()
-	set_trait(TRAIT_PRODUCT_COLOUR,"#bb0202")
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#bb0202")
 
 /obj/item/seeds/strawberryseed
 	seed_type = "strawberries"
@@ -267,7 +268,7 @@
 
 /datum/seed/berry/cranberry/setup_traits()
 	..()
-	set_trait(TRAIT_PRODUCT_COLOUR,"#bb0202")
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#bb0202")
 
 /obj/item/seeds/cranberryseed
 	seed_type = "cranberries"
@@ -285,16 +286,15 @@
 
 /datum/seed/apple/setup_traits()
 	..()
-	set_trait(TRAIT_HARVEST_REPEAT,1)
-	set_trait(TRAIT_MATURATION,6)
-	set_trait(TRAIT_PRODUCTION,6)
-	set_trait(TRAIT_YIELD,5)
-	set_trait(TRAIT_POTENCY,10)
-	set_trait(TRAIT_PRODUCT_ICON,"apple")
-	set_trait(TRAIT_PRODUCT_COLOUR,"#FF540A")
-	set_trait(TRAIT_PLANT_ICON,"tree2")
-	set_trait(TRAIT_FLESH_COLOUR,"#E8E39B")
-	set_trait(TRAIT_IDEAL_LIGHT, 4)
+	SET_SEED_TRAIT(src, TRAIT_HARVEST_REPEAT, 1)
+	SET_SEED_TRAIT(src, TRAIT_MATURATION, 6)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCTION, 6)
+	SET_SEED_TRAIT(src, TRAIT_YIELD, 5)
+	SET_SEED_TRAIT(src, TRAIT_POTENCY, 10)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_ICON, "apple")
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#FF540A")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_ICON, "tree2")
+	SET_SEED_TRAIT(src, TRAIT_FLESH_COLOUR, "#E8E39B")
 
 /obj/item/seeds/appleseed
 	seed_type = "apple"
@@ -317,11 +317,11 @@
 
 /datum/seed/apple/gold/setup_traits()
 	..()
-	set_trait(TRAIT_MATURATION,10)
-	set_trait(TRAIT_PRODUCTION,10)
-	set_trait(TRAIT_YIELD,3)
-	set_trait(TRAIT_PRODUCT_COLOUR,"#FFDD00")
-	set_trait(TRAIT_PLANT_COLOUR,"#D6B44D")
+	SET_SEED_TRAIT(src, TRAIT_MATURATION, 10)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCTION, 10)
+	SET_SEED_TRAIT(src, TRAIT_YIELD, 3)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#FFDD00")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_COLOUR, "#D6B44D")
 
 /obj/item/seeds/goldappleseed
 	seed_type = "goldapple"
@@ -340,16 +340,17 @@
 
 /datum/seed/cocoa/setup_traits()
 	..()
-	set_trait(TRAIT_HARVEST_REPEAT,1)
-	set_trait(TRAIT_MATURATION,5)
-	set_trait(TRAIT_PRODUCTION,5)
-	set_trait(TRAIT_YIELD,2)
-	set_trait(TRAIT_POTENCY,10)
-	set_trait(TRAIT_PRODUCT_ICON,"treefruit")
-	set_trait(TRAIT_PRODUCT_COLOUR,"#CCA935")
-	set_trait(TRAIT_PLANT_ICON,"tree2")
-	set_trait(TRAIT_IDEAL_HEAT, 304)
-	set_trait(TRAIT_WATER_CONSUMPTION, 6)
+	SET_SEED_TRAIT(src, TRAIT_HARVEST_REPEAT, 1)
+	SET_SEED_TRAIT(src, TRAIT_MATURATION, 5)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCTION, 5)
+	SET_SEED_TRAIT(src, TRAIT_YIELD, 2)
+	SET_SEED_TRAIT(src, TRAIT_POTENCY, 10)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_ICON, "treefruit")
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#CCA935")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_ICON, "tree2")
+	SET_SEED_TRAIT(src, TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_HIGH)
+	SET_SEED_TRAIT(src, TRAIT_IDEAL_HEAT, IDEAL_HEAT_TROPICAL)
+	SET_SEED_TRAIT(src, TRAIT_WATER_CONSUMPTION, 6)
 
 /datum/seed/banana
 	name = "banana"
@@ -361,17 +362,17 @@
 
 /datum/seed/banana/setup_traits()
 	..()
-	set_trait(TRAIT_HARVEST_REPEAT,1)
-	set_trait(TRAIT_MATURATION,6)
-	set_trait(TRAIT_PRODUCTION,6)
-	set_trait(TRAIT_YIELD,3)
-	set_trait(TRAIT_PRODUCT_ICON,"bananas")
-	set_trait(TRAIT_PRODUCT_COLOUR,"#FFEC1F")
-	set_trait(TRAIT_PLANT_COLOUR,"#69AD50")
-	set_trait(TRAIT_PLANT_ICON,"tree4")
-	set_trait(TRAIT_IDEAL_HEAT, 304)
-	set_trait(TRAIT_IDEAL_LIGHT, 7)
-	set_trait(TRAIT_WATER_CONSUMPTION, 6)
+	SET_SEED_TRAIT(src, TRAIT_HARVEST_REPEAT, 1)
+	SET_SEED_TRAIT(src, TRAIT_MATURATION, 6)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCTION, 6)
+	SET_SEED_TRAIT(src, TRAIT_YIELD, 3)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_ICON, "bananas")
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#FFEC1F")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_COLOUR, "#69AD50")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_ICON, "tree4")
+	SET_SEED_TRAIT(src, TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_HIGH)
+	SET_SEED_TRAIT(src, TRAIT_IDEAL_HEAT, IDEAL_HEAT_TROPICAL)
+	SET_SEED_TRAIT(src, TRAIT_WATER_CONSUMPTION, 6)
 
 /obj/item/seeds/bananaseed
 	seed_type = "banana"
@@ -386,16 +387,16 @@
 
 /datum/seed/cherries/setup_traits()
 	..()
-	set_trait(TRAIT_HARVEST_REPEAT,1)
-	set_trait(TRAIT_JUICY,1)
-	set_trait(TRAIT_MATURATION,5)
-	set_trait(TRAIT_PRODUCTION,5)
-	set_trait(TRAIT_YIELD,3)
-	set_trait(TRAIT_POTENCY,10)
-	set_trait(TRAIT_PRODUCT_ICON,"cherry")
-	set_trait(TRAIT_PRODUCT_COLOUR,"#A80000")
-	set_trait(TRAIT_PLANT_ICON,"tree2")
-	set_trait(TRAIT_PLANT_COLOUR,"#2F7D2D")
+	SET_SEED_TRAIT(src, TRAIT_HARVEST_REPEAT, 1)
+	SET_SEED_TRAIT(src, TRAIT_JUICY, 1)
+	SET_SEED_TRAIT(src, TRAIT_MATURATION, 5)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCTION, 5)
+	SET_SEED_TRAIT(src, TRAIT_YIELD, 3)
+	SET_SEED_TRAIT(src, TRAIT_POTENCY, 10)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_ICON, "cherry")
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#A80000")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_ICON, "tree2")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_COLOUR, "#2F7D2D")
 
 /obj/item/seeds/cherryseed
 	seed_type = "cherry"
@@ -409,20 +410,20 @@
 
 /datum/seed/watermelon/setup_traits()
 	..()
-	set_trait(TRAIT_HARVEST_REPEAT,1)
-	set_trait(TRAIT_JUICY,1)
-	set_trait(TRAIT_MATURATION,6)
-	set_trait(TRAIT_PRODUCTION,6)
-	set_trait(TRAIT_YIELD,3)
-	set_trait(TRAIT_POTENCY,1)
-	set_trait(TRAIT_PRODUCT_ICON,"vine")
-	set_trait(TRAIT_PRODUCT_COLOUR,"#5eca5a")
-	set_trait(TRAIT_PLANT_COLOUR,"#49be45")
-	set_trait(TRAIT_PLANT_ICON,"vine2")
-	set_trait(TRAIT_FLESH_COLOUR,"#ff5858")
-	set_trait(TRAIT_IDEAL_HEAT, 304)
-	set_trait(TRAIT_IDEAL_LIGHT, 6)
-	set_trait(TRAIT_WATER_CONSUMPTION, 6)
+	SET_SEED_TRAIT(src, TRAIT_HARVEST_REPEAT, 1)
+	SET_SEED_TRAIT(src, TRAIT_JUICY, 1)
+	SET_SEED_TRAIT(src, TRAIT_MATURATION, 6)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCTION, 6)
+	SET_SEED_TRAIT(src, TRAIT_YIELD, 3)
+	SET_SEED_TRAIT(src, TRAIT_POTENCY, 1)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_ICON, "vine")
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#5eca5a")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_COLOUR, "#49be45")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_ICON, "vine2")
+	SET_SEED_TRAIT(src, TRAIT_FLESH_COLOUR, "#ff5858")
+	SET_SEED_TRAIT(src, TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_HIGH)
+	SET_SEED_TRAIT(src, TRAIT_IDEAL_HEAT, IDEAL_HEAT_TROPICAL)
+	SET_SEED_TRAIT(src, TRAIT_WATER_CONSUMPTION, 6)
 
 /obj/item/seeds/watermelonseed
 	seed_type = "watermelon"
@@ -436,16 +437,16 @@
 
 /datum/seed/pumpkin/setup_traits()
 	..()
-	set_trait(TRAIT_HARVEST_REPEAT,1)
-	set_trait(TRAIT_MATURATION,6)
-	set_trait(TRAIT_PRODUCTION,6)
-	set_trait(TRAIT_YIELD,3)
-	set_trait(TRAIT_POTENCY,10)
-	set_trait(TRAIT_PRODUCT_ICON,"vine2")
-	set_trait(TRAIT_PRODUCT_COLOUR,"#F9AB28")
-	set_trait(TRAIT_PLANT_COLOUR,"#BAE8C1")
-	set_trait(TRAIT_PLANT_ICON,"vine2")
-	set_trait(TRAIT_WATER_CONSUMPTION, 6)
+	SET_SEED_TRAIT(src, TRAIT_HARVEST_REPEAT, 1)
+	SET_SEED_TRAIT(src, TRAIT_MATURATION, 6)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCTION, 6)
+	SET_SEED_TRAIT(src, TRAIT_YIELD, 3)
+	SET_SEED_TRAIT(src, TRAIT_POTENCY, 10)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_ICON, "vine2")
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#F9AB28")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_COLOUR, "#BAE8C1")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_ICON, "vine2")
+	SET_SEED_TRAIT(src, TRAIT_WATER_CONSUMPTION, 6)
 
 /obj/item/seeds/pumpkinseed
 	seed_type = "pumpkin"
@@ -461,15 +462,16 @@
 
 /datum/seed/coffee/setup_traits()
 	..()
-	set_trait(TRAIT_HARVEST_REPEAT,1)
-	set_trait(TRAIT_MATURATION,3)
-	set_trait(TRAIT_PRODUCTION,3)
-	set_trait(TRAIT_YIELD,4)
-	set_trait(TRAIT_POTENCY,2)
-	set_trait(TRAIT_PRODUCT_ICON,"bean2")
-	set_trait(TRAIT_PRODUCT_COLOUR,"#be9109")
-	set_trait(TRAIT_PLANT_ICON,"bush2")
-	set_trait(TRAIT_IDEAL_LIGHT, 6)
+	SET_SEED_TRAIT(src, TRAIT_HARVEST_REPEAT, 1)
+	SET_SEED_TRAIT(src, TRAIT_MATURATION, 3)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCTION, 3)
+	SET_SEED_TRAIT(src, TRAIT_YIELD, 4)
+	SET_SEED_TRAIT(src, TRAIT_POTENCY, 2)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_ICON, "bean2")
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#be9109")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_ICON, "bush2")
+	SET_SEED_TRAIT(src, TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_HIGH)
+	SET_SEED_TRAIT(src, TRAIT_IDEAL_HEAT, IDEAL_HEAT_TROPICAL)
 
 /obj/item/seeds/coffeeseed
 	seed_type = "coffee"
@@ -483,15 +485,16 @@
 
 /datum/seed/richcoffee/setup_traits()
 	..()
-	set_trait(TRAIT_HARVEST_REPEAT,1)
-	set_trait(TRAIT_MATURATION,3)
-	set_trait(TRAIT_PRODUCTION,3)
-	set_trait(TRAIT_YIELD,4)
-	set_trait(TRAIT_POTENCY,2)
-	set_trait(TRAIT_PRODUCT_ICON,"bean2")
-	set_trait(TRAIT_PRODUCT_COLOUR,"#be9109")
-	set_trait(TRAIT_PLANT_ICON,"bush2")
-	set_trait(TRAIT_IDEAL_LIGHT, 6)
+	SET_SEED_TRAIT(src, TRAIT_HARVEST_REPEAT, 1)
+	SET_SEED_TRAIT(src, TRAIT_MATURATION, 3)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCTION, 3)
+	SET_SEED_TRAIT(src, TRAIT_YIELD, 4)
+	SET_SEED_TRAIT(src, TRAIT_POTENCY, 2)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_ICON, "bean2")
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#be9109")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_ICON, "bush2")
+	SET_SEED_TRAIT(src, TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_HIGH)
+	SET_SEED_TRAIT(src, TRAIT_IDEAL_HEAT, IDEAL_HEAT_TROPICAL)
 
 /obj/item/seeds/richcoffeeseed
 	seed_type = "richcoffee"

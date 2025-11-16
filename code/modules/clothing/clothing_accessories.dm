@@ -137,22 +137,19 @@
 	update_accessory_slowdown()
 	recalculate_body_temperature_change()
 
-/obj/item/clothing/proc/remove_accessory(mob/user, obj/item/clothing/accessory/A)
+/obj/item/clothing/proc/remove_accessory(mob/wearer, obj/item/clothing/accessory/A)
 	if(!(A in accessories))
 		return
 
-	if(use_check_and_message(user))
-		return
-
-	A.on_removed(user)
+	A.on_removed(wearer)
 	LAZYREMOVE(accessories, A)
 	update_clothing_icon()
-	update_accessory_slowdown(user)
+	update_accessory_slowdown(wearer)
 	recalculate_body_temperature_change()
 
 /obj/item/clothing/proc/remove_accessory_verb()
 	set name = "Remove Accessory"
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in usr
 
 	remove_accessory_handler(usr, FALSE)
@@ -186,6 +183,9 @@
 		try_reopen_radial_after_removal = TRUE
 	else
 		A = accessories[1]
+
+	if(use_check_and_message(user))
+		return
 
 	remove_accessory(usr, A)
 

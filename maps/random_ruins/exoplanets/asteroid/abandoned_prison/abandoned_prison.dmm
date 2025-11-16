@@ -2011,7 +2011,7 @@
 /area/abandoned_prison/hydroponics)
 "zp" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/dynamite,
+/obj/item/storage/box/unique/dynamite,
 /obj/effect/landmark/clear,
 /turf/template_noop,
 /area/space)

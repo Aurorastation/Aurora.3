@@ -94,6 +94,7 @@
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/industrial
 	chest_type = /obj/item/clothing/suit/space/rig/industrial
+	boot_type =  /obj/item/clothing/shoes/magboots/rig/medium
 
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/storage/bag/ore,/obj/item/pickaxe, /obj/item/gun/custom_ka,/obj/item/material/twohanded/fireaxe,/obj/item/gun/energy/vaurca/thermaldrill,/obj/item/storage/backpack/cell,/obj/item/rfd/mining)
 
@@ -114,6 +115,10 @@
 		/obj/item/rig_module/device/rfd_c,
 		/obj/item/rig_module/actuators
 		)
+
+/obj/item/rig/industrial/dequipped
+	cell_type = null
+	air_type = null
 
 /obj/item/rig/industrial/syndicate
 
@@ -142,6 +147,11 @@
 		/obj/item/rig_module/actuators,
 		/obj/item/rig_module/maneuvering_jets
 	)
+
+/obj/item/rig/industrial/himeo/dequipped
+	cell_type = null
+	air_type = null
+
 /obj/item/rig/eva
 	name = "EVA suit control module"
 	suit_type = "EVA hardsuit"
@@ -208,6 +218,7 @@
 		BIO = ARMOR_BIO_SHIELDED,
 		RAD = ARMOR_RAD_SHIELDED
 	)
+	boot_type =  /obj/item/clothing/shoes/magboots/rig/medium // Its almost on par with typical combat hardsuits for armor.
 
 /obj/item/rig/eva/pilot/equipped
 
@@ -290,7 +301,7 @@
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/hazmat
 
-	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/stack/flag,/obj/item/storage/box/excavation,/obj/item/pickaxe,/obj/item/device/healthanalyzer,/obj/item/device/measuring_tape,/obj/item/device/ano_scanner,/obj/item/device/depth_scanner,/obj/item/device/core_sampler,/obj/item/device/gps,/obj/item/device/beacon_locator,/obj/item/device/radio/beacon,/obj/item/pickaxe/hand,/obj/item/storage/bag/fossils,/obj/item/material/twohanded/fireaxe,/obj/item/device/breath_analyzer)
+	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/stack/flag,/obj/item/storage/box/unique/excavation,/obj/item/pickaxe,/obj/item/device/healthanalyzer,/obj/item/device/measuring_tape,/obj/item/device/ano_scanner,/obj/item/device/depth_scanner,/obj/item/device/core_sampler,/obj/item/device/gps,/obj/item/device/beacon_locator,/obj/item/device/radio/beacon,/obj/item/pickaxe/hand,/obj/item/storage/bag/fossils,/obj/item/material/twohanded/fireaxe,/obj/item/device/breath_analyzer)
 
 	req_access = list()
 	req_one_access = list()
@@ -360,7 +371,7 @@
 	icon_supported_species_tags = list("ipc", "skr", "taj", "una")
 	armor = list(
 		MELEE = ARMOR_MELEE_MAJOR,
-		BULLET = ARMOR_BALLISTIC_PISTOL,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
 		LASER = ARMOR_LASER_MEDIUM,
 		ENERGY = ARMOR_ENERGY_RESISTANT,
 		BOMB = ARMOR_BOMB_PADDED,
@@ -371,6 +382,7 @@
 	offline_vision_restriction = TINT_HEAVY
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/hazard
+	boot_type =  /obj/item/clothing/shoes/magboots/rig/heavy
 
 	allowed = list(/obj/item/gun,/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/melee/baton)
 
@@ -415,6 +427,7 @@
 	slowdown = 3
 	offline_slowdown = 4
 	offline_vision_restriction = TINT_HEAVY
+	boot_type =  /obj/item/clothing/shoes/magboots/rig/chonk
 
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/storage/bag/inflatable,/obj/item/device/t_scanner,/obj/item/rfd/construction)
 

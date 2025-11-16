@@ -4,6 +4,10 @@
 	icon = 'icons/obj/beekeeping.dmi'
 	icon_state = "beehive_assembly"
 
+/obj/item/beehive_assembly/assembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Use this on any unoccupied turf to place a beehive where you are standing."
+
 /obj/item/beehive_assembly/attack_self(var/mob/user)
 	to_chat(user, SPAN_NOTICE("You start assembling \the [src]..."))
 	if(do_after(user, 30))
@@ -14,6 +18,7 @@
 
 /obj/machinery/beehive
 	name = "beehive"
+	desc = "They make honey in these, allegedly."
 	icon = 'icons/obj/beekeeping.dmi'
 	icon_state = "beehive"
 	density = TRUE
@@ -27,6 +32,17 @@
 	var/maxFrames = 5
 
 	var/list/owned_bee_swarms = list()
+
+/obj/machinery/beehive/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Use a <b>crowbar</b> to open a beehive, and then retrieve the frames from inside with an open hand."
+	. += "You can populate a beehive using a <b>bee pack</b>, and review the status of the hive inside with a <b>plant analyzer</b>."
+	. += "While occupied by bees and within several turfs of a growing plant, bees will increase the health of the adjacent plant. This can be particularly \
+	useful if you're low on fertiliser and need to keep your crops alive!"
+
+/obj/machinery/beehive/disassembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This can be dismantled with a <b>screwdriver</b>."
 
 /obj/machinery/beehive/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()

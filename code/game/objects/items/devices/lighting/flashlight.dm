@@ -293,7 +293,7 @@
 
 /obj/item/device/flashlight/verb/toggle_brightness()
 	set name = "Toggle Flashlight Brightness"
-	set category = "Object"
+	set category = "Object.Held"
 	set src in usr
 	set_brightness(usr)
 

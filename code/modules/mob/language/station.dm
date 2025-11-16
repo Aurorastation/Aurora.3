@@ -175,7 +175,10 @@
 	written_style = "nralmalic"
 	key = "k"
 	flags = WHITELISTED|TCOMSSIM
-	syllables = list("qr","qrr","xuq","qil","quum","xuqm","vol","xrim","zaoo","qu-uu","qix","qoo","zix","*","!")
+	syllables = list("*","!","'","-","qr","qrr","xuq","qil","quum","xuqm","vol","xrim","zaoo","qu-uu","qix","qoo","zix",
+	"xix", "zil", "rix", "qu", "xum", "xuuq", "qurm", "zazo", "qiu", "xiq", "qrrr", "vou", "vox", "quv", "vun", "v'qr",
+	"qrv", "su", "xu", "xi", "qi", "si", "ei", "qou", "qui", "kiu", "uiu", "eis", "seq", "eqa", "uiq", "kui", "muu", "muq",
+	"kuo", "omq", "xoi", "liq", "zuk", "iie", "squ", "ixu")
 	allow_accents = TRUE
 
 /datum/language/skrell/check_speech_restrict(mob/speaker)
