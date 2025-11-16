@@ -424,10 +424,6 @@
 	throwforce = 2
 	slot_flags = SLOT_EARS
 
-	sprite_sheets = list(
-		BODYTYPE_TAJARA = 'icons/mob/species/tajaran/l_ear.dmi',
-		)
-
 /obj/item/clothing/ears/attack_hand(mob/user as mob)
 	if (!user) return
 

@@ -6,6 +6,10 @@
 	item_state = "stud"
 	contained_sprite = TRUE
 
+	sprite_sheets = list(
+		BODYTYPE_TAJARA = 'icons/mob/species/tajaran/l_ear.dmi'
+		)
+
 /obj/item/clothing/ears/earring/dangle
 	name = "dangle earrings"
 	desc = "A pair of small dangle earrings."
@@ -18,14 +22,20 @@
 	icon_state = "bangle"
 	item_state = "bangle"
 
+	sprite_sheets = null
+
 /obj/item/clothing/ears/earring/crescent
 	name = "crescent earrings"
 	desc = "A pair of hefty crescent earrings."
 	icon_state = "crescent"
 	item_state = "crescent"
 
+	sprite_sheets = null
+
 /obj/item/clothing/ears/earring/heavy
 	name = "overweight earrings"
 	desc = "A pair of dazzling, painfully large earrings."
 	icon_state = "heavy"
 	item_state = "heavy"
+
+	sprite_sheets = null
