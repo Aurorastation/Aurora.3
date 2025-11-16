@@ -1,5 +1,4 @@
 /datum/map_template/ruin/away_site/xanu_frigate
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 	name = "Xanu Spacefleet Frigate"
 	description = "The Rapier-class Frigate is a formidable warship in widespread use by the All-Xanu Spacefleet throughout its expeditionary fleets. \
 	Originating as a robust upgrade package to the venerable Estoc class, the Rapier upgrade program has spared no expense, with thick hull plating, redundant power, life support, and engines, making the Rapier class notoriously survivable. \
@@ -10,8 +9,8 @@
 
 	sectors = list(ALL_POSSIBLE_SECTORS)
 	spawn_weight_sector_dependent = list(SECTOR_LIBERTYS_CRADLE = 3, SECTOR_XANU = 3, SECTOR_BURZSIA = 0.5)
-	spawn_weight = 10
-	ship_cost = 0.5
+	spawn_weight = 1
+	ship_cost = 1
 	id = "xanu_frigate"
 
 	unit_test_groups = list(3)
