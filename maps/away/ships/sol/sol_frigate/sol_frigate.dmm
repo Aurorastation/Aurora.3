@@ -1367,8 +1367,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/starboard_battery)
 "fN" = (
-/obj/structure/ship_weapon_dummy/barrel,
-/turf/simulated/floor/reinforced,
+/obj/machinery/ship_weapon/coilgun{
+	weapon_id = "SF_COIL"
+	},
+/turf/template_noop,
 /area/space)
 "fO" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -8356,7 +8358,7 @@
 	dir = 9
 	},
 /obj/machinery/ammunition_loader/sol{
-	weapon_id = "Sol Frigate Coil"
+	weapon_id = "SF_COIL"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/port_battery)
@@ -9265,10 +9267,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/port_battery)
 "QP" = (
-/obj/machinery/ship_weapon/coilgun{
-	weapon_id = "Sol Frigate Coil"
-	},
-/turf/template_noop,
+/obj/structure/ship_weapon_dummy/barrel,
+/turf/simulated/floor/reinforced,
 /area/space)
 "QQ" = (
 /obj/effect/floor_decal/spline/plain/yellow{
@@ -47196,7 +47196,7 @@ wd
 wd
 wd
 wd
-QP
+fN
 MO
 MO
 MO
@@ -47709,7 +47709,7 @@ di
 di
 di
 di
-fN
+QP
 MO
 MO
 MO
@@ -47964,8 +47964,8 @@ wd
 MO
 MO
 MO
-Xc
-Xc
+MO
+MO
 MO
 MO
 MO
