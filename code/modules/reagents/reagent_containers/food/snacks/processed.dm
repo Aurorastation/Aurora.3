@@ -828,6 +828,18 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("light cocoa" = 2))
 	bitesize = 1
 
+//Dominia Snacks?!
+//By the Goddess, pass the Algae chips I'm on a killstreak in Reign of Steel
+
+/obj/item/reagent_containers/food/snacks/algaechips
+	name = "\improper Soostatom Bites Algae Chips"
+	desc = "Cripsy batter fried algae chips from Sun Reach. Soostatom Bites, snapping good snacks!"
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "algaechips"
+	trash = /obj/item/trash/algaechips
+	reagents_to_add = list(/singleton/reagent/nutriment = 3)
+	reagent_data = list(/singleton/reagent/nutriment = list("salty algae" = 3))
+
 //Microwave food packages
 
 /obj/item/storage/box/fancy/quick_microwave_pizza

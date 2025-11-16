@@ -171,3 +171,5 @@ GLOBAL_LIST_INIT(department_funds, list(
 
 //List of exosuit tracking beacons, to save performance
 GLOBAL_LIST_EMPTY(exo_beacons)
+
+GLOBAL_VAR_INIT(minimum_exterior_lighting_alpha, 255)

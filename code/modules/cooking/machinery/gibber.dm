@@ -1,26 +1,39 @@
 
 /obj/machinery/gibber
-	name = "gibber"
-	desc = "The name isn't descriptive enough?"
-	desc_extended = "WARNING : Insurance no longer covers entertaining intrusive thoughts. Keep your limbs to yourself."
+	name = "autobutcher"
+	desc = "Also known as the gibber, affectionately."
+	desc_extended = "WARNING: Insurance no longer covers entertaining intrusive thoughts. Keep your limbs to yourself."
 	icon = 'icons/obj/machinery/cooking_machines.dmi'
 	icon_state = "grinder"
-	density = 1
+	density = TRUE
 	anchored = TRUE
-	req_access = list(ACCESS_KITCHEN,ACCESS_MORGUE)
+	req_access = list(ACCESS_GALLEY,ACCESS_MORGUE)
 
-	var/operating = 0 //Is it on?
-	var/dirty = 0 // Does it need cleaning?
-	var/mob/living/occupant // Mob who has been put inside
-	var/gib_time = 40        // Time from starting until meat appears
-	var/gib_throw_dir = WEST // Direction to spit meat and gibs in.
+	/// Is it on?
+	var/operating = FALSE
+	/// Does it need cleaning?
+	var/dirty = FALSE
+	/// Mob who has been put inside
+	var/mob/living/occupant
+	/// Time from starting until meat appears
+	var/gib_time = 4 SECONDS
+	/// Direction to spit meat and gibs in.
+	var/gib_throw_dir = WEST
 
 	idle_power_usage = 2
 	active_power_usage = 500
 
-//auto-gibs anything that bumps into it
+/// Auto-gibs anything that moves onto its input plate. This is a fun variant, someone map it in somewhere!
 /obj/machinery/gibber/autogibber
 	var/turf/input_plate
+
+/obj/machinery/gibber/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "The safety guard is [emagged ? SPAN_DANGER("disabled") : "enabled"]."
+
+/obj/machinery/gibber/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "This can be emagged to let you feed people into it; it also removes the ID access requirements."
 
 /obj/machinery/gibber/autogibber/Initialize()
 	. = ..()
@@ -39,16 +52,44 @@
 
 /obj/machinery/gibber/autogibber/CollidedWith(atom/bumped_atom)
 	. = ..()
-
+	if(stat & (NOPOWER|BROKEN))
+		return FALSE
 	if(!input_plate)
-		return
+		return FALSE
 	if(!ismob(bumped_atom))
-		return
-	var/mob/M = bumped_atom
-	if(M.loc == input_plate)
-		M.forceMove(src)
-		M.gib()
+		return FALSE
+	var/mob/victim_mob = bumped_atom
+	var/mob/living/carbon/human/victim_human
+	// A lot of reused code here but it's needed to prevent CollidedWith from running DoMob, which makes SpaceDMM sad because of SHOULD_NOT_SLEEP and etc etc etc.
+	if(ishuman(victim_mob))
+		victim_human = victim_mob
 
+	if(occupant)
+		if(victim_human.client)
+			to_chat(victim_human, SPAN_DANGER("[src] is full, you can't fit!"))
+		return FALSE
+
+	if(operating)
+		if(victim_human.client)
+			to_chat(victim_human, SPAN_DANGER("[src] is locked and running, it won't let you in!"))
+		return FALSE
+
+	if(ishuman(victim_human) && !emagged)
+		if(victim_human.client)
+			to_chat(victim_human, SPAN_DANGER("\The [src]'s safety guard is engaged!"))
+		return FALSE
+
+	if(istype(victim_mob, /mob) && victim_mob.loc == input_plate)
+		visible_message(SPAN_DANGER("[victim_mob] gets automatically fed into \the [src]!"))
+	else
+		return FALSE
+	if(victim_human.client)
+		victim_human.client.perspective = EYE_PERSPECTIVE
+		victim_human.client.eye = src
+	victim_mob.forceMove(src)
+	occupant = victim_mob
+	startgibbing(victim_mob)
+	update_icon()
 
 /obj/machinery/gibber/Initialize()
 	. = ..()
@@ -56,11 +97,11 @@
 
 /obj/machinery/gibber/update_icon()
 	ClearOverlays()
-	if (dirty)
+	if(dirty)
 		AddOverlays("grbloody")
 	if(stat & (NOPOWER|BROKEN))
 		return
-	if (!occupant)
+	if(!occupant)
 		AddOverlays("grjam")
 	else if (operating)
 		AddOverlays("gruse")
@@ -80,10 +121,6 @@
 		to_chat(user, SPAN_DANGER("[src] is locked and running, wait for it to finish."))
 		return
 	startgibbing(user)
-
-/obj/machinery/gibber/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += "The safety guard is [emagged ? SPAN_DANGER("disabled") : "enabled"]."
 
 /obj/machinery/gibber/emag_act(var/remaining_charges, var/mob/user)
 	emagged = !emagged
@@ -112,34 +149,39 @@
 		return
 	move_into_gibber(user, dropped)
 
-/obj/machinery/gibber/proc/move_into_gibber(var/mob/user,var/mob/living/victim)
-
+/**
+ * Moves the victim into the gibber. This can be triggered by a user trying to place the victim inside, or by
+ * being sucked in via the input plate.
+ */
+/obj/machinery/gibber/proc/move_into_gibber(var/mob/user, var/mob/victim, var/automatic = FALSE)
+	// All of these check for a user because if the machine is working autonomously, there's no one to send messages to in most cases we'd want to.
 	if(occupant)
 		to_chat(user, SPAN_DANGER("[src] is full, empty it first!"))
-		return
+		return FALSE
 
 	if(operating)
 		to_chat(user, SPAN_DANGER("[src] is locked and running, wait for it to finish."))
-		return
+		return FALSE
 
 	if(!(iscarbon(victim) || isanimal(victim)))
 		to_chat(user, SPAN_DANGER("This is not suitable for [src]!"))
-		return
+		return FALSE
 
 	if(ishuman(victim) && !emagged && !victim.isMonkey())
 		to_chat(user, SPAN_DANGER("[src]'s safety guard is engaged!"))
-		return
-
+		return FALSE
 
 	if(victim.abiotic(1))
 		to_chat(user, SPAN_DANGER("[victim] may not have abiotic items on."))
-		return
+		return FALSE
 
 	user.visible_message(SPAN_DANGER("[user] starts to put [victim] into [src]!"))
 	add_fingerprint(user)
 	if(!do_mob(user, victim, 30 SECONDS) || occupant || !victim.Adjacent(src) || !user.Adjacent(src) || !victim.Adjacent(user))
 		return
+
 	user.visible_message(SPAN_DANGER("[user] stuffs [victim] into [src]!"))
+
 	if(victim.client)
 		victim.client.perspective = EYE_PERSPECTIVE
 		victim.client.eye = src
@@ -170,7 +212,6 @@
 	occupant = null
 	update_icon()
 	return
-
 
 /obj/machinery/gibber/proc/startgibbing(mob/user as mob)
 	if(operating)
@@ -219,12 +260,11 @@
 
 	spawn(gib_time)
 
-		operating = 0
+		operating = FALSE
 		occupant.gib()
 		occupant = null
 
 		playsound(loc, 'sound/effects/splat.ogg', 50, 1)
-		operating = 0
 		for (var/obj/thing in contents)
 			// Todo: unify limbs and internal organs
 			// There's a chance that the gibber will fail to destroy some evidence.

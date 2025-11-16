@@ -80,6 +80,9 @@
 /obj/item/device/augment_implanter/auxiliary_heart
 	new_augment =	/obj/item/organ/internal/augment/bioaug/auxiliary_heart
 
+/obj/item/device/augment_implanter/gravity_adaptations
+	new_augment =	/obj/item/organ/internal/augment/bioaug/gravity_adaptations
+
 /obj/item/device/augment_implanter/mind_blanker
 	new_augment =	/obj/item/organ/internal/augment/bioaug/mind_blanker
 

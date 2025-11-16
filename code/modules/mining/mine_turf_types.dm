@@ -98,12 +98,16 @@
 
 	footstep_sound = /singleton/sound_category/asteroid_footstep
 
+/turf/simulated/floor/exoplanet/basalt/airless
+	initial_gas = null
+	temperature = TCMB
+
 /turf/simulated/floor/exoplanet/basalt/cave
 	name = "dense basalt"
 
 /turf/simulated/floor/exoplanet/basalt/cave/Initialize() // to make these tiles dark even on daytime exoplanets
 	. = ..()
-	set_light(0, 1, null)
+	set_light(0)
 	footprint_color = null
 	update_icon(1)
 

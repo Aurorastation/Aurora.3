@@ -27,7 +27,7 @@
 	horizon_deck = 2
 
 /area/horizon/security/washroom
-	name = "Washroom"
+	name = "Head"
 	icon_state = "security"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 	area_flags = AREA_FLAG_RAD_SHIELDED
@@ -118,6 +118,13 @@
 	icon_state = "evidence"
 	ambience = AMBIENCE_FOREBODING
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+	horizon_deck = 3
+
+/area/horizon/security/custodial
+	name = "Security Custodial Closet"
+	icon_state = "security"
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+	area_blurb = "A strong, concentrated smell of many cleaning supplies linger within this room."
 	horizon_deck = 3
 
 /area/horizon/security/checkpoint

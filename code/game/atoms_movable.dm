@@ -76,24 +76,33 @@
 	///Internal holder for emissive blocker object, DO NOT USE DIRECTLY. Use blocks_emissive
 	var/mutable_appearance/em_block
 
+	///Lazylist to keep track on the sources of illumination.
+	var/list/affected_movable_lights
+	///Highest-intensity light affecting us, which determines our visibility.
+	var/affecting_dynamic_lumi = 0
+
+	/// Holds a reference to the emissive blocker overlay
+	var/emissive_overlay
+
 	/// Whether this atom should have its dir automatically changed when it moves. Setting this to FALSE allows for things such as directional windows to retain dir on moving without snowflake code all of the place.
 	var/set_dir_on_move = TRUE
 
 /atom/movable/Initialize(mapload, ...)
 	. = ..()
 	update_emissive_blocker()
-	if (em_block)
-		AddOverlays(em_block)
+
+	if(opacity)
+		AddElement(/datum/element/light_blocking)
+	if(light_system == MOVABLE_LIGHT)
+		AddComponent(/datum/component/overlay_lighting)
+	if(light_system == DIRECTIONAL_LIGHT)
+		AddComponent(/datum/component/overlay_lighting, is_directional = TRUE)
 
 /atom/movable/Destroy(force)
 	if(orbiting)
 		stop_orbit()
 
-	//Recalculate opacity
-	var/turf/T = loc
-	if(opacity && istype(T))
-		T.recalc_atom_opacity()
-		T.reconsider_lights()
+	QDEL_NULL(emissive_overlay)
 
 	if(move_packet)
 		if(!QDELETED(move_packet))
@@ -138,6 +147,9 @@
 
 	if(em_block)
 		QDEL_NULL(em_block)
+
+	QDEL_NULL(light)
+	QDEL_NULL(static_light)
 
 /atom/movable/proc/moveToNullspace()
 	. = TRUE
@@ -370,19 +382,23 @@
 	src.throw_at(pick(turfs), maxrange, speed)
 
 /atom/movable/proc/update_emissive_blocker()
-	switch (blocks_emissive)
-		if (EMISSIVE_BLOCK_GENERIC)
+	if(emissive_overlay)
+		CutOverlays(emissive_overlay)
+
+	switch(blocks_emissive)
+		if(EMISSIVE_BLOCK_GENERIC)
 			var/mutable_appearance/gen_emissive_blocker = mutable_appearance(icon, icon_state, plane = EMISSIVE_PLANE, alpha = src.alpha)
 			gen_emissive_blocker.color = GLOB.em_block_color
 			gen_emissive_blocker.dir = dir
 			gen_emissive_blocker.appearance_flags |= appearance_flags
-			em_block = gen_emissive_blocker
+			emissive_overlay = gen_emissive_blocker
+			AddOverlays(emissive_overlay)
 
-		if (EMISSIVE_BLOCK_UNIQUE)
+		if(EMISSIVE_BLOCK_UNIQUE)
 			render_target = REF(src)
 			em_block = new(src, render_target)
-
-	return em_block
+			emissive_overlay = em_block
+			AddOverlays(emissive_overlay)
 
 /atom/movable/update_icon()
 	..()
@@ -522,13 +538,6 @@
 	if(opacity)
 		updateVisibility(src)
 
-	//Lighting recalculation
-	var/datum/light_source/L
-	var/thing
-	for (thing in light_sources)
-		L = thing
-		L.source_atom.update_light()
-
 	RESOLVE_ACTIVE_MOVEMENT
 
 	return TRUE
@@ -566,6 +575,13 @@
 	else if(new_turf && !old_turf)
 		SSspatial_grid.enter_cell(src, new_turf)
 	/* END Spatial grid stuffs */
+
+	for(var/datum/dynamic_light_source/light as anything in hybrid_light_sources)
+		light.source_atom.update_light()
+		if(!isturf(loc))
+			light.find_containing_atom()
+	for(var/datum/static_light_source/L as anything in static_light_sources) // Cycle through the light sources on this atom and tell them to update.
+		L.source_atom.static_update_light()
 
 /atom/movable/Exited(atom/movable/gone, direction)
 	. = ..()
@@ -926,14 +942,6 @@
 	if(oldarea != newarea)
 		newarea.Entered(src, oldarea)
 
-	// Lighting.
-	if(light_sources)
-		var/datum/light_source/L
-		var/thing
-		for(thing in light_sources)
-			L = thing
-			L.source_atom.update_light()
-
 	// Openturf.
 	if(bound_overlay)
 		// The overlay will handle cleaning itself up on non-openspace turfs.
@@ -1035,3 +1043,30 @@
 /atom/movable/proc/add_point_filter()
 	add_filter("pointglow", 1, list(type = "drop_shadow", x = 0, y = -1, offset = 1, size = 1, color = "#F00"))
 	addtimer(CALLBACK(src, PROC_REF(remove_filter), "pointglow"), 2 SECONDS)
+
+///Keeps track of the sources of dynamic luminosity and updates our visibility with the highest.
+/atom/movable/proc/update_dynamic_luminosity()
+	var/highest = 0
+	for(var/i in affected_movable_lights)
+		if(affected_movable_lights[i] <= highest)
+			continue
+		highest = affected_movable_lights[i]
+	if(highest == affecting_dynamic_lumi)
+		return
+	luminosity -= affecting_dynamic_lumi
+	affecting_dynamic_lumi = highest
+	luminosity += affecting_dynamic_lumi
+
+
+///Helper to change several lighting overlay settings.
+/atom/movable/proc/set_light_range_power_color(range, power, color)
+	set_light_range(range)
+	set_light_power(power)
+	set_light_color(color)
+
+/**
+ * Called when a movable is moved by a shuttle. Eventually, God willing, replace this with the TG shuttle version.
+ */
+/atom/movable/proc/afterShuttleMove(obj/effect/shuttle_landmark/destination)
+	if(light)
+		update_light()

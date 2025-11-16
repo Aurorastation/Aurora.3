@@ -38,13 +38,11 @@
 #define OPEN_SPACE_PLANE_END -70
 #define OPENTURF_MAX_DEPTH 10		// The maxiumum number of planes deep we'll go before we just dump everything on the same plane.
 
-#define HEAT_EFFECT_PLANE -4
-#define WARP_EFFECT_PLANE -3
-
-#define BLACKNESS_PLANE 0 //Blackness plane as per DM documentation.
+#define HEAT_EFFECT_PLANE -8
+#define WARP_EFFECT_PLANE -7
 
 /// Game Plane, where most of the game objects reside
-#define GAME_PLANE 1
+#define GAME_PLANE -6
 	#define PLATING_LAYER 1
 	//ABOVE PLATING
 	#define HOLOMAP_LAYER 1.01
@@ -145,19 +143,33 @@
 	#define AREA_LAYER 999
 
 /// Above Game Plane. For things which are above game objects, but below screen effects.
-#define ABOVE_GAME_PLANE 2
+#define ABOVE_GAME_PLANE -5
 
-#define ROOF_PLANE 3
+#define ROOF_PLANE -4
 
-#define DISPLACEMENT_PLATE_RENDER_LAYER 4
+#define BLACKNESS_PLANE 0 //Blackness plane as per DM documentation.
+
+#define DISPLACEMENT_PLATE_RENDER_LAYER 1
 #define DISPLACEMENT_PLATE_RENDER_TARGET "*DISPLACEMENT_PLATE_RENDER_TARGET"
 
 #define GHOST_PLANE 80
 
 #define LIGHTING_PLANE 100
 	#define LIGHTING_LAYER 1
+#define EXTERIOR_LIGHTING_PLANE 101
+#define NVG_PLANE 110
 
 #define BALLOON_CHAT_PLANE 110
+
+#define O_LIGHTING_VISUAL_PLANE 120
+#define O_LIGHTING_VISUAL_LAYER 16
+#define O_LIGHTING_VISUAL_RENDER_TARGET "O_LIGHT_VISUAL_PLANE"
+
+#define LIGHTING_PRIMARY_LAYER 15	//The layer for the main lights of the station
+#define LIGHTING_PRIMARY_DIMMER_LAYER 15.1	//The layer that dims the main lights of the station
+#define LIGHTING_SECONDARY_LAYER 16	//The colourful, usually small lights that go on top
+
+#define LIGHTING_SHADOW_LAYER 17	//Where the shadows happen
 
 #define ABOVE_LIGHTING_PLANE 150
 	#define EYE_GLOW_LAYER 1
@@ -167,7 +179,7 @@
 
 #define RUNECHAT_PLANE 501
 
-#define FULLSCREEN_PLANE 9
+#define FULLSCREEN_PLANE 900
 	#define FULLSCREEN_LAYER 1
 	#define DAMAGE_LAYER 2
 	#define IMPAIRED_LAYER 3
@@ -208,11 +220,16 @@
 /// This plane masks out lighting, to create an "emissive" effect for e.g glowing screens in otherwise dark areas.
 #define EMISSIVE_PLANE 90
 #define EMISSIVE_TARGET "*emissive"
-	/// The layer you should use when you -really- don't want an emissive overlay to be blocked.
-	#define EMISSIVE_LAYER_UNBLOCKABLE 9999
-
 /// The render target used by the emissive layer.
 #define EMISSIVE_RENDER_TARGET "*EMISSIVE_PLANE"
+/// The layer you should use when you -really- don't want an emissive overlay to be blocked.
+#define EMISSIVE_LAYER_UNBLOCKABLE 9999
+
+#define LIGHTING_BACKPLANE_LAYER 14.5
+
+#define LIGHTING_RENDER_TARGET "LIGHT_PLANE"
+
+#define SHADOW_RENDER_TARGET "SHADOW_RENDER_TARGET"
 
 #define DEFAULT_APPEARANCE_FLAGS (PIXEL_SCALE)
 

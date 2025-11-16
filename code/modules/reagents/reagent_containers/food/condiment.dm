@@ -297,6 +297,12 @@
 	name = "synthetic blood"
 	reagents_to_add = list(/singleton/reagent/blood = 50)
 
+/obj/item/reagent_containers/food/condiment/cream_cheese
+	icon_state = "cream_cheese"
+	fixed_state = TRUE
+	name = "cream cheese"
+	reagents_to_add = list(/singleton/reagent/nutriment/protein/cream_cheese = 50)
+
 //MRE condiments and drinks.
 
 /obj/item/reagent_containers/food/condiment/small/packet
