@@ -1367,12 +1367,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/starboard_battery)
 "fN" = (
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
+/obj/machinery/ship_weapon/coilgun{
+	weapon_id = "Starboard_Coilgun"
 	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/sol_frigate/starboard_thrusters)
+/turf/template_noop,
+/area/space)
 "fO" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
@@ -6780,6 +6779,13 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/sol_frigate/canteen)
+"FP" = (
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/sol_frigate/starboard_thrusters)
 "FS" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	dir = 1;
@@ -8359,7 +8365,7 @@
 	dir = 9
 	},
 /obj/machinery/ammunition_loader/sol{
-	weapon_id = "Port_Coilgun"
+	weapon_id = "Starboard_Coilgun"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/port_battery)
@@ -9729,11 +9735,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/bunks)
 "TF" = (
-/obj/machinery/ship_weapon/coilgun{
-	weapon_id = "Port_Coilgun"
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
 	},
-/turf/template_noop,
-/area/space)
+/turf/simulated/floor/tiled/dark,
+/area/ship/sol_frigate/starboard_thrusters)
 "TJ" = (
 /obj/machinery/door/airlock/external,
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -10300,12 +10306,6 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/sol_frigate/hallway_fore)
-"WD" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 10
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/sol_frigate/starboard_thrusters)
 "WF" = (
 /obj/structure/closet/crate/freezer/rations,
 /obj/effect/floor_decal/corner/orange{
@@ -42501,7 +42501,7 @@ YM
 ZR
 ZR
 UW
-fN
+FP
 bI
 bI
 Vt
@@ -42754,7 +42754,7 @@ MO
 DD
 vR
 zA
-WD
+TF
 QP
 QP
 QP
@@ -47202,7 +47202,7 @@ wd
 wd
 wd
 wd
-TF
+fN
 MO
 MO
 MO
