@@ -5,8 +5,8 @@
 //Checks if all high bits in req_mask are set in bitfield
 #define BIT_TEST_ALL(bitfield, req_mask) ((~(bitfield) & (req_mask)) == 0)
 
-//Inverts the colour of an HTML string
-/proc/invertHTML(HTMLstring)
+/// Inverts the colour of an HTML string
+/proc/htmlInvertColor(HTMLstring)
 
 	if (!( istext(HTMLstring) ))
 		CRASH("Given non-text argument!")
@@ -30,7 +30,7 @@
 		textr = "0[textb]"
 	return "#[textr][textg][textb]"
 
-//Returns the middle-most value
+/// Returns the middle-most value
 /proc/dd_range(var/low, var/high, var/num)
 	return max(low,min(high,num))
 
@@ -95,7 +95,7 @@
 		ty += AM.step_y
 	return SIMPLIFY_DEGREES(arctan(ty - sy, tx - sx))
 
-//Returns location. Returns null if no location was found.
+/// Returns location. Returns null if no location was found.
 /proc/get_teleport_loc(turf/location,mob/target,distance = 1, density = 0, errorx = 0, errory = 0, eoffsetx = 0, eoffsety = 0)
 /*
 Location where the teleport begins, target that will teleport, distance to go, density checking 0/1(yes/no).
@@ -227,19 +227,27 @@ Turf and target are seperate in case you want to teleport some distance from a t
 			return 1
 	return 0
 
-/proc/getline(atom/M,atom/N)//Ultra-Fast Bresenham Line-Drawing Algorithm
-	var/px=M.x		//starting x
+/// Ultra-Fast Bresenham Line-Drawing Algorithm
+/proc/getline(atom/M,atom/N)
+	/// starting x
+	var/px=M.x
 	var/py=M.y
 	var/line[] = list(locate(px,py,M.z))
-	var/dx=N.x-px	//x distance
+	/// x distance
+	var/dx=N.x-px
 	var/dy=N.y-py
-	var/dxabs=abs(dx)//Absolute value of x distance
+	/// Absolute value of x distance
+	var/dxabs=abs(dx)
 	var/dyabs=abs(dy)
-	var/sdx=SIGN(dx)	//Sign of x distance (+ or -)
+	/// Sign of x distance (+ or -)
+	var/sdx=SIGN(dx)
 	var/sdy=SIGN(dy)
-	var/x=dxabs>>1	//Counters for steps taken, setting to distance/2
-	var/y=dyabs>>1	//Bit-shifting makes me l33t.  It also makes getline() unnessecarrily fast.
-	var/j			//Generic integer for counting
+	/// Counters for steps taken, setting to distance/2
+	var/x=dxabs>>1
+	var/y=dyabs>>1
+	/// Generic integer for counting
+	var/j
+
 	if(dxabs>=dyabs)	//x distance is greater than y
 		for(j=0;j<dxabs;j++)//It'll take dxabs steps to get there
 			y+=dyabs
@@ -259,7 +267,9 @@ Turf and target are seperate in case you want to teleport some distance from a t
 	return line
 
 #define LOCATE_COORDS(X, Y, Z) locate(between(1, X, world.maxx), between(1, Y, world.maxy), Z)
-/proc/getcircle(turf/center, var/radius) //Uses a fast Bresenham rasterization algorithm to return the turfs in a thin circle.
+
+/// Uses a fast Bresenham rasterization algorithm to return the turfs in a thin circle.
+/proc/getcircle(turf/center, var/radius)
 	if(!radius) return list(center)
 
 	var/x = 0
@@ -285,7 +295,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 
 #undef LOCATE_COORDS
 
-///Returns whether or not a player is a guest using their ckey as an input
+/// Returns whether or not a player is a guest using their ckey as an input
 /proc/IsGuestKey(key)
 	if (findtext(key, "Guest-", 1, 7) != 1) //was findtextEx
 		return 0
@@ -301,7 +311,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 			return 0
 	return 1
 
-///Ensure the frequency is within bounds of what it should be sending/recieving at
+/// Ensure the frequency is within bounds of what it should be sending/recieving at
 /proc/sanitize_frequency(var/f, var/low = PUBLIC_LOW_FREQ, var/high = PUBLIC_HIGH_FREQ)
 	f = round(f)
 	f = max(low, f)
@@ -310,15 +320,15 @@ Turf and target are seperate in case you want to teleport some distance from a t
 		f += 1
 	return f
 
-///Turns 1479 into 147.9
+/// Turns 1479 into 147.9
 /proc/format_frequency(var/f)
 	return "[round(f / 10)].[f % 10]"
 
-///Picks a string of symbols to display as the law number for hacked or ion laws
+/// Picks a string of symbols to display as the law number for hacked or ion laws
 /proc/ionnum()
 	return "[pick("1","2","3","4","5","6","7","8","9","0")][pick("!","@","#","$","%","^","&","*")][pick("!","@","#","$","%","^","&","*")][pick("!","@","#","$","%","^","&","*")]"
 
-///When an AI is activated, it can choose from a list of non-slaved borgs to have as a slave.
+/// When an AI is activated, it can choose from a list of non-slaved borgs to have as a slave.
 /proc/freeborg()
 	var/select = null
 	var/list/borgs = list()
@@ -332,7 +342,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 		select = input("Unshackled borg signals detected:", "Borg selection", null, null) as null|anything in borgs
 		return borgs[select]
 
-///When a borg is activated, it can choose which AI it wants to be slaved to
+/// When a borg is activated, it can choose which AI it wants to be slaved to
 /proc/active_ais()
 	. = list()
 	for(var/mob/living/silicon/ai/A in GLOB.living_mob_list)
@@ -343,7 +353,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 		. += A
 	return .
 
-///Find an active ai with the least borgs. VERBOSE PROCNAME HUH!
+/// Find an active ai with the least borgs. VERBOSE PROCNAME HUH!
 /proc/select_active_ai_with_fewest_borgs()
 	var/mob/living/silicon/ai/selected
 	var/list/active = active_ais()
@@ -388,7 +398,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 	new_list += Dead_list
 	return new_list
 
-///Returns a list of all mobs with their name
+/// Returns a list of all mobs with their name
 /proc/getmobs()
 
 	var/list/mobs = sortmobs()
@@ -414,7 +424,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 
 	return creatures
 
-///Orders mobs by type then by name
+/// Orders mobs by type then by name
 /proc/sortmobs()
 	var/list/moblist = list()
 	var/list/sortmob = sortAtom(GLOB.mob_list)
@@ -494,18 +504,17 @@ Turf and target are seperate in case you want to teleport some distance from a t
 	return locate(x,y,A.z)
 
 
-// returns turf relative to A offset in dx and dy tiles
-// bound to map limits
+/// Returns turf relative to A offset in dx and dy tiles. Bound to map limits.
 /proc/get_offset_target_turf(var/atom/A, var/dx, var/dy)
 	var/x = min(world.maxx, max(1, A.x + dx))
 	var/y = min(world.maxy, max(1, A.y + dy))
 	return locate(x,y,A.z)
 
-///Makes sure MIDDLE is between LOW and HIGH. If not, it adjusts it. Returns the adjusted value.
+/// Makes sure MIDDLE is between LOW and HIGH. If not, it adjusts it. Returns the adjusted value.
 /proc/between(var/low, var/middle, var/high)
 	return max(min(middle, high), low)
 
-///Returns random gauss number
+/// Returns random gauss number
 /proc/GaussRand(var/sigma)
 	var/x,y,rsq
 	do
@@ -515,7 +524,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 	while(rsq>1 || !rsq)
 	return sigma*y*sqrt(-2*log(rsq)/rsq)
 
-///Step-towards method of determining whether one atom can see another. Similar to viewers()
+/// Step-towards method of determining whether one atom can see another. Similar to viewers()
 /proc/can_see(var/atom/source, var/atom/target, var/length=5) // I couldn't be arsed to do actual raycasting :I This is horribly inaccurate.
 	var/turf/current = get_turf(source)
 	var/turf/target_turf = get_turf(target)
@@ -769,8 +778,10 @@ Turf and target are seperate in case you want to teleport some distance from a t
 		return FALSE
 	return TRUE
 
-//Takes: Anything that could possibly have variables and a varname to check.
-//Returns: 1 if found, 0 if not.
+/**
+ * Takes: Anything that could possibly have variables and a varname to check.
+ * Returns: 1 if found, 0 if not.
+ */
 /proc/hasvar(var/datum/A, var/varname)
 	if(A.vars.Find(lowertext(varname))) return 1
 	else return 0
@@ -798,7 +809,8 @@ Turf and target are seperate in case you want to teleport some distance from a t
 	var/dy = abs(B.y - A.y)
 	return get_dir(A, B) & (rand() * (dx+dy) < dy ? 3 : 12)
 
-/proc/get_compass_dir(atom/start, atom/end) //get_dir() only considers an object to be north/south/east/west if there is zero deviation. This uses rounding instead. // Ported from CM-SS13
+/// get_dir() only considers an object to be north/south/east/west if there is zero deviation. This uses rounding instead.
+/proc/get_compass_dir(atom/start, atom/end)
 	if(!start || !end)
 		return 0
 	if(!start.z || !end.z)
@@ -892,7 +904,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 	return get_turf(location)
 
 
-//Quick type checks for some tools ~ BRAH wtf is this shit that's not how one should do this
+/// Quick type checks for some tools ~ BRAH wtf is this shit that's not how one should do this
 GLOBAL_LIST_INIT(common_tools, list(
 	/obj/item/stack/cable_coil,
 	/obj/item/wrench,
@@ -942,7 +954,7 @@ GLOBAL_LIST_INIT(common_tools, list(
 	if(istype(W, /obj/item/melee/energy))
 		return 3500
 
-//Whether or not the given item counts as sharp in terms of dealing damage
+/// Whether or not the given item counts as sharp in terms of dealing damage
 /proc/is_sharp(obj/O)
 	if (!O)
 		return 0
@@ -952,7 +964,7 @@ GLOBAL_LIST_INIT(common_tools, list(
 		return 1
 	return 0
 
-//Whether or not the given item counts as cutting with an edge in terms of removing limbs
+/// Whether or not the given item counts as cutting with an edge in terms of removing limbs
 /proc/has_edge(obj/O)
 	if (!O)
 		return 0
@@ -966,7 +978,7 @@ GLOBAL_LIST_INIT(common_tools, list(
 /proc/is_borg_item(obj/item/W)
 	return W && W.loc && isrobot(W.loc)
 
-//check if mob is lying down on something we can operate him on.
+/// Check if mob is lying down on something we can operate him on.
 /proc/can_operate(mob/living/carbon/M) //If it's 2, commence surgery, if it's 1, fail surgery, if it's 0, attack
 	var/surgery_attempt = SURGERY_IGNORE
 	var/located = FALSE
@@ -989,9 +1001,7 @@ GLOBAL_LIST_INIT(common_tools, list(
 		surgery_attempt = SURGERY_IGNORE //hit yourself if you're not lying
 	return surgery_attempt
 
-/*
-Checks if that loc and dir has a item on the wall
-*/
+/// Checks if that loc and dir has a item on the wall
 GLOBAL_LIST_INIT(wall_items, typecacheof(list(
 	/obj/machinery/power/apc,
 	/obj/machinery/alarm,
@@ -1044,9 +1054,11 @@ GLOBAL_LIST_INIT(wall_items, typecacheof(list(
 			return 1
 	return 0
 
-// Returns a variable type as string, optionally with some details:
-// Objects (datums) get their type, paths get the type name, scalars show length (text) and value (numbers), lists show length.
-// Also attempts some detection of otherwise undetectable types using ref IDs
+/**
+ * Returns a variable type as string, optionally with some details:
+ * Objects (datums) get their type, paths get the type name, scalars show length (text) and value (numbers), lists show length.
+ * Also attempts some detection of otherwise undetectable types using ref IDs
+ */
 /proc/get_debug_type(var/V, var/details = TRUE, var/print_numbers = TRUE, var/path_names = TRUE, var/text_lengths = TRUE, var/list_lengths = TRUE, var/show_useless_subtypes = TRUE)
 	// scalars / basic types
 	if(isnull(V))
@@ -1150,11 +1162,11 @@ GLOBAL_LIST_INIT(wall_items, typecacheof(list(
 			colour += temp_col
 	return "#[colour]"
 
-// call to generate a stack trace and print to runtime logs
+/// Call to generate a stack trace and print to runtime logs
 /proc/crash_with(msg)
 	CRASH(msg)
 
-//similar function to RANGE_TURFS(), but will search spiralling outwards from the center (like the above, but only turfs)
+/// Similar function to RANGE_TURFS(), but will search spiraling outwards from the center (like the above, but only turfs)
 /proc/spiral_range_turfs(dist=0, center=usr, orange=0)
 	if(!dist)
 		if(!orange)

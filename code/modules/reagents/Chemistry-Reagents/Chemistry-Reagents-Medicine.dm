@@ -2015,13 +2015,12 @@
 		M.add_chemical_effect(CE_EMETIC, M.chem_doses[type]/2)
 
 /singleton/reagent/antiparasitic/overdose(mob/living/carbon/M, alien, removed, scale, datum/reagents/holder)
-	if(istype(M,/mob/living/carbon/human))
-		var/mob/living/carbon/human/H = M
-
-		for(var/obj/item/organ/internal/parasite/P in H.internal_organs)
-			if(P)
-				if(P.drug_resistance == 0)
-					P.drug_resistance = 1
+	M.dizziness = max(50, M.dizziness)
+	M.make_dizzy(5)
+	M.adjustHydrationLoss(2*removed)
+	M.adjustNutritionLoss(8*removed)
+	M.adjustHalLoss(5)
+	to_chat(M, SPAN_WARNING(pick("You feel flushed and woozy.", "Your guts feel like they're crawling.")))
 
 /singleton/reagent/antibodies
 	name = "Hylemnomil-Zeta Antibodies"
