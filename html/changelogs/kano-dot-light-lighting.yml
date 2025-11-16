@@ -1,8 +1,0 @@
-
-author: Kano
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed hull beacons and radial lights not emitting light. Also fixed thunderdome being dark."
-  - bugfix: "Fixed radial lights not drawing power from powernet."
