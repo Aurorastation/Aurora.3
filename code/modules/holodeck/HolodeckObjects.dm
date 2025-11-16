@@ -587,3 +587,11 @@
 /mob/living/simple_animal/cat/kitten/holodeck/death()
 	..()
 	derez()
+
+//Holo xenofauna gun
+
+/obj/item/gun/energy/mousegun/xenofauna/holo
+	max_shots = 100
+	recharge_time = 1
+	self_recharge = TRUE
+	recharge_multiplier = 5
