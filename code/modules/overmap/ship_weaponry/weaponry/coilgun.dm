@@ -26,7 +26,7 @@
 	icon_state = "heavy"
 	damage = 10000
 	armor_penetration = 1000
-	penetrating = 5
+	penetrating = 8
 
 /obj/projectile/ship_ammo/coilgun/on_hit(atom/target, blocked, def_zone, is_landmark_hit)
 	. = ..()
@@ -34,7 +34,7 @@
 		var/mob/M = target
 		M.visible_message(SPAN_DANGER("<font size=5>\The [src] blows [M]'s chest apart and punches straight through!</font>"))
 	if(isturf(target) || isobj(target))
-		explosion(target, 1, 2, 4)
+		explosion(target, 2, 4, 4)
 
 /obj/machinery/ammunition_loader/sol
 	icon_state = "ammo_loader_sol"
