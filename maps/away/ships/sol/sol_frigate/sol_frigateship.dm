@@ -7,9 +7,9 @@
 	suffix = "sol_frigate.dmm"
 
 	sectors = list(ALL_POSSIBLE_SECTORS)
-	spawn_weight = 9.75
+	spawn_weight = 19.75
 	ship_cost = 1
-	id = "Sol_frigate"
+	id = "sol_frigate"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/solfrig_shuttle)
 
 	unit_test_groups = list(3)
@@ -41,9 +41,9 @@
 	vessel_size = SHIP_SIZE_LARGE
 	initial_restricted_waypoints = list("Solarian Frigate Shuttle" = list("nav_hangar_solfrig") )
 	initial_generic_waypoints = list(
-	"Sol_Frigate_nav1",
+	"sol_Frigate_nav1",
 	"Sol_Frigate_nav2",
-	"Sol_Frigate_nav3",
+	"sol_frigate_nav3",
 	"Sol_Frigate_nav4",
 	"Sol_Frigate_port_dock",
 	"Sol_Frigate_starboard_dock")
