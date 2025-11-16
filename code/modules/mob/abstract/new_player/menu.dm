@@ -405,15 +405,17 @@ ABSTRACT_TYPE(/atom/movable/screen/new_player/selection)
 
 /atom/movable/screen/new_player/selection/polls/Initialize()
 	. = ..()
-	if(establish_db_connection(GLOB.dbcon))
+	if(SSdbcore.Connect())
 		var/mob/M = hud.mymob
 		var/isadmin = M && M.client && M.client.holder
-		var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT id FROM ss13_poll_question WHERE [(isadmin ? "" : "adminonly = false AND")] Now() BETWEEN starttime AND endtime AND id NOT IN (SELECT pollid FROM ss13_poll_vote WHERE ckey = \"[M.ckey]\") AND id NOT IN (SELECT pollid FROM ss13_poll_textreply WHERE ckey = \"[M.ckey]\")")
+		var/datum/db_query/query = SSdbcore.NewQuery("SELECT id FROM ss13_poll_question WHERE [(isadmin ? "" : "adminonly = false AND")] Now() BETWEEN starttime AND endtime AND id NOT IN (SELECT pollid FROM ss13_poll_vote WHERE ckey = :ckey) AND id NOT IN (SELECT pollid FROM ss13_poll_textreply WHERE ckey = :ckey)",list("ckey"=M.ckey))
 		query.Execute()
 		var/newpoll = query.NextRow()
 
 		if(newpoll)
 			new_polls = TRUE
+
+		qdel(query)
 
 /atom/movable/screen/new_player/selection/polls/Click()
 	var/mob/abstract/new_player/player = usr
