@@ -114,9 +114,9 @@ var/global/enabled_spooking = 0
 			if(psi_rank == owner_rank)
 				psi_title = "<b>[psi_title]</b>"
 			if(psi_rank != PSI_RANK_LIMITLESS)
-				body += "<tr><a href='byond://?src=[REF(psyker.mind)];set_psi_rank=[psi_rank]'>[psi_title]</a></tr>"
+				body += "<tr><a href='byond://?src=[REF(psyker.mind)];set_psi_rank=[psi_rank]'>[psi_title]</a></br>"
 			else
-				body += "<tr><a href='byond://?src=[REF(psyker.mind)];set_psi_rank_limitless=1'><font color='red'>[psi_title]</font></a></tr>"
+				body += "<tr><a href='byond://?src=[REF(psyker.mind)];set_psi_rank_limitless=1'><font color='red'>[psi_title]</font></a></br>"
 		body += "</table>"
 
 	if (M.client)

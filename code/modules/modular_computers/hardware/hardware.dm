@@ -1,4 +1,4 @@
-/obj/item/computer_hardware/
+/obj/item/computer_hardware
 	name = "Hardware"
 	desc = "Unknown Hardware."
 	icon = 'icons/obj/modular_components.dmi'
