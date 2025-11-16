@@ -368,13 +368,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/sol_frigate/sickbay)
-"bK" = (
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/sol_frigate/starboard_thrusters)
 "bL" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -676,11 +669,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/cic)
 "di" = (
-/obj/machinery/ship_weapon/coilgun{
-	weapon_id = "PRT_COIL"
-	},
-/turf/template_noop,
-/area/space)
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/simulated/floor/tiled/dark,
+/area/ship/sol_frigate/starboard_thrusters)
 "dj" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -1374,11 +1365,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/starboard_battery)
 "fN" = (
-/obj/structure/ship_weapon_dummy{
-	opacity = 1
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
 	},
-/turf/simulated/floor/reinforced,
-/area/space)
+/turf/simulated/floor/tiled/dark,
+/area/ship/sol_frigate/starboard_thrusters)
 "fO" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
@@ -4960,6 +4951,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/sol_frigate/port_battery)
+"wr" = (
+/obj/machinery/ship_weapon/coilgun{
+	weapon_id = "Port_Coilgun"
+	},
+/turf/template_noop,
+/area/space)
 "wt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 8
@@ -8365,7 +8362,7 @@
 	dir = 9
 	},
 /obj/machinery/ammunition_loader/sol{
-	weapon_id = "PRT_COIL"
+	weapon_id = "Port_Coilgun"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/port_battery)
@@ -9273,8 +9270,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/port_battery)
 "QP" = (
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 10
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/starboard_thrusters)
@@ -9737,9 +9735,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/bunks)
 "TF" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/turf/simulated/floor/tiled/dark,
-/area/ship/sol_frigate/starboard_thrusters)
+/obj/structure/ship_weapon_dummy{
+	opacity = 1
+	},
+/turf/simulated/floor/reinforced,
+/area/space)
 "TJ" = (
 /obj/machinery/door/airlock/external,
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -42501,7 +42501,7 @@ YM
 ZR
 ZR
 UW
-bK
+QP
 bI
 bI
 Vt
@@ -42754,10 +42754,10 @@ MO
 DD
 vR
 zA
-QP
-TF
-TF
-TF
+fN
+di
+di
+di
 Bs
 GA
 bI
@@ -47202,7 +47202,7 @@ wd
 wd
 wd
 wd
-di
+wr
 MO
 MO
 MO
@@ -47710,12 +47710,12 @@ Ho
 rJ
 rJ
 rJ
-fN
-fN
-fN
-fN
-fN
-fN
+TF
+TF
+TF
+TF
+TF
+TF
 MO
 MO
 MO
