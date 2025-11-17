@@ -9284,12 +9284,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/port_battery)
-"QP" = (
-/obj/structure/ship_weapon_dummy{
-	opacity = 1
-	},
-/turf/simulated/floor/reinforced,
-/area/space)
 "QQ" = (
 /obj/effect/floor_decal/spline/plain/yellow{
 	dir = 6
@@ -47223,14 +47217,14 @@ lt
 et
 Xf
 Xf
-wd
-wd
-wd
-wd
-wd
-wd
-wd
-wd
+Xf
+Xf
+Xf
+Xf
+Xf
+Xf
+MO
+MO
 MO
 MO
 MO
@@ -47739,12 +47733,12 @@ Ho
 rJ
 rJ
 rJ
-QP
-QP
-QP
-QP
-QP
-QP
+pg
+pg
+pg
+pg
+pg
+pg
 MO
 MO
 MO
