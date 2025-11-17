@@ -237,3 +237,36 @@
   TheGreyWolf:
   - bugfix: Fixed the interrogation intercom and readded the missing sharps box to
       the forensic lab.
+2025-11-15:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Removes duplicate Engineering Hard Storage shutters button.
+  - bugfix: Removes duplicate Warehouse shutters button.
+  - bugfix: Fixes location and pixel shift of D3 elevator hazard sign.
+  - bugfix: Shifts several overlapping wall objects.
+  - bugfix: Shifts several vent/scrubber objects.
+  - bugfix: Slight EVA compartment adjustments.
+  - bugfix: Slight Xenoarchaeology Storage compartment adjustments.
+  - bugfix: Improves lighting in Shield Generator compartment.
+  - bugfix: Fixes Spark cargo bay doors being atmos-impermeable (thus screwing with
+      the airlock sensor).
+  - bugfix: Lights in rooms with light switches now correctly toggle on automatically
+      at round start if a character joins the round in one.
+  - rscadd: Adds light switches to many rooms that were missing them.
+  - code_imp: Adds directional variants for light switches for easier mapping.
+2025-11-16:
+  Ambrose:
+  - rscadd: Made it possible to play as vaurca in the tirakqi smuggler ghostroles.
+  Hellfirejag:
+  - bugfix: Fixed loadouts spamming on_equip sounds during roundstart.
+  Kano:
+  - code_imp: Replaced defunct type space turfs in Horizon with the regular ones.
+  - bugfix: Included some parts from exterior areas to render lights.
+  - bugfix: Fixed hull beacons and radial lights not emitting light. Also fixed thunderdome
+      being dark.
+  - bugfix: Fixed radial lights not drawing power from powernet.
+  - rscadd: Tweaked and fixed a few things in the Quarantined Outpost map.
+  - bugfix: Fixed asteroid expolanet turfs pixel-shifting its own lighting along with
+      itself.
+  TheGreyWolf:
+  - bugfix: Glass panes and windoors once again are solid and stop interacting with
+      the other side.
