@@ -1,6 +1,13 @@
-import { BooleanLike } from '../../common/react';
+import {
+  Box,
+  Button,
+  Divider,
+  LabeledList,
+  ProgressBar,
+  Section,
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Box, Button, Divider, LabeledList, ProgressBar, Section } from '../components';
 import { NtosWindow } from '../layouts';
 import { sanitizeText } from '../sanitize';
 
@@ -26,11 +33,11 @@ type Article = {
   archived: BooleanLike;
 };
 
-export const NTOSNewsBrowser = (props, context) => {
-  const { act, data } = useBackend<NewsData>(context);
+export const NTOSNewsBrowser = (props) => {
+  const { act, data } = useBackend<NewsData>();
 
   return (
-    <NtosWindow resizable>
+    <NtosWindow>
       <NtosWindow.Content scrollable>
         {data.message ? (
           <ErrorMessage />
@@ -44,20 +51,21 @@ export const NTOSNewsBrowser = (props, context) => {
   );
 };
 
-export const ErrorMessage = (props, context) => {
-  const { act, data } = useBackend<NewsData>(context);
+export const ErrorMessage = (props) => {
+  const { act, data } = useBackend<NewsData>();
 
   return (
     <Section
       title="Error"
-      buttons={<Button content="Reset" onClick={() => act('PRG_reset')} />}>
+      buttons={<Button content="Reset" onClick={() => act('PRG_reset')} />}
+    >
       {data.message}
     </Section>
   );
 };
 
-export const ShowArticle = (props, context) => {
-  const { act, data } = useBackend<NewsData>(context);
+export const ShowArticle = (props) => {
+  const { act, data } = useBackend<NewsData>();
   const contentHtml = { __html: sanitizeText(data.article) };
 
   return (
@@ -68,26 +76,27 @@ export const ShowArticle = (props, context) => {
           <Button content="Save" onClick={() => act('PRG_savearticle')} />
           <Button content="Close" onClick={() => act('PRG_reset')} />
         </>
-      }>
-      <Box dangerouslySetInnerHtml={contentHtml} />
+      }
+    >
+      {/** biome-ignore lint/security/noDangerouslySetInnerHtml: Is sanitized by DOMPurify. */}
+      <Box dangerouslySetInnerHTML={contentHtml} />
     </Section>
   );
 };
 
-export const ShowArticleList = (props, context) => {
-  const { act, data } = useBackend<NewsData>(context);
+export const ShowArticleList = (props) => {
+  const { act, data } = useBackend<NewsData>();
 
   return (
     <Section
       title="Available Articles"
       buttons={
         <Button
-          content={
-            (data.showing_archived ? 'Hide' : 'Show') + ' Archived Files'
-          }
+          content={`${data.showing_archived ? 'Hide' : 'Show'} Archived Files`}
           onClick={() => act('PRG_toggle_archived')}
         />
-      }>
+      }
+    >
       {data.download_running && (
         <Section title="Download">
           <LabeledList>
@@ -95,7 +104,8 @@ export const ShowArticleList = (props, context) => {
               <ProgressBar
                 value={data.download_progress}
                 minValue={0}
-                maxValue={data.download_maxprogress}>
+                maxValue={data.download_maxprogress}
+              >
                 {data.download_progress} / {data.download_maxprogress} GQ
               </ProgressBar>
             </LabeledList.Item>

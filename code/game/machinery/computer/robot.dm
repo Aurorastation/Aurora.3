@@ -30,9 +30,9 @@
 	data["is_ai"] = issilicon(user)
 
 
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SStgui.try_update_ui(user, src, ui) // NANO NANOUI REPLACEME
 	if(!ui)
-		ui = new(user, src, ui_key, "robot_control.tmpl", "Robotic Control Console", 400, 500)
+		ui = new(user, src, "UI_NAME", "UI_WINDOW_NAME") // NANO NANOUI REPLACEMErobot_control.tmpl", "Robotic Control Console", 400, 500)
 		ui.set_initial_data(data)
 		ui.open()
 		ui.set_auto_update(1)

@@ -1,6 +1,15 @@
-import { BooleanLike } from '../../common/react';
+import {
+  Box,
+  Button,
+  Input,
+  LabeledList,
+  NumberInput,
+  Section,
+  Table,
+  Tabs,
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend, useLocalState } from '../backend';
-import { Box, Button, Input, LabeledList, NumberInput, Section, Table, Tabs } from '../components';
 import { NtosWindow } from '../layouts';
 
 export type DatabaseData = {
@@ -31,12 +40,12 @@ type Transaction = {
   source_terminal: string;
 };
 
-export const AccountDatabase = (props, context) => {
-  const { act, data } = useBackend<DatabaseData>(context);
-  const [active, setActive] = useLocalState(context, 'active', '');
+export const AccountDatabase = (props) => {
+  const { act, data } = useBackend<DatabaseData>();
+  const [active, setActive] = useLocalState('active', '');
 
   return (
-    <NtosWindow resizable width={900}>
+    <NtosWindow width={900}>
       <NtosWindow.Content scrollable>
         <Section title="Information">
           <LabeledList>
@@ -61,17 +70,13 @@ export const AccountDatabase = (props, context) => {
   );
 };
 
-export const AccountWindow = (props, context) => {
-  const { act, data } = useBackend<DatabaseData>(context);
-  const [active, setActive] = useLocalState(context, 'active', 'none');
-  const [tab, setTab] = useLocalState(context, 'tab', 'All Accounts');
-  const [make_new_acc, setMakeNewAcc] = useLocalState(
-    context,
-    'make_new_acc',
-    0
-  );
-  const [new_name, setNewName] = useLocalState(context, 'new_name', '');
-  const [new_funds, setNewFunds] = useLocalState(context, 'new_funds', 0);
+export const AccountWindow = (props) => {
+  const { act, data } = useBackend<DatabaseData>();
+  const [active, setActive] = useLocalState('active', 'none');
+  const [tab, setTab] = useLocalState('tab', 'All Accounts');
+  const [make_new_acc, setMakeNewAcc] = useLocalState('make_new_acc', 0);
+  const [new_name, setNewName] = useLocalState('new_name', '');
+  const [new_funds, setNewFunds] = useLocalState('new_funds', 0);
 
   return (
     <Section
@@ -82,7 +87,8 @@ export const AccountWindow = (props, context) => {
           icon="print"
           onClick={() => act('print')}
         />
-      }>
+      }
+    >
       {active ? (
         <Tabs>
           <Tabs.Tab onClick={() => setTab('All Accounts')}>
@@ -108,7 +114,7 @@ export const AccountWindow = (props, context) => {
               <Table.Row key={account.account_number}>
                 <Table.Cell>
                   <Button
-                    content={'#' + account.account_number}
+                    content={`#${account.account_number}`}
                     onClick={() => setActive(account.account_number)}
                   />
                 </Table.Cell>
@@ -120,13 +126,14 @@ export const AccountWindow = (props, context) => {
             title="New Account Creation"
             buttons={
               <Button content="Begin" onClick={() => setMakeNewAcc(1)} />
-            }>
+            }
+          >
             {make_new_acc ? (
               <>
                 <Input
                   placeholder="Insert name"
                   value={new_name}
-                  onInput={(e, value) => setNewName(value)}
+                  onBlur={(value) => setNewName(value)}
                 />
                 <NumberInput
                   value={new_funds}
@@ -135,7 +142,7 @@ export const AccountWindow = (props, context) => {
                   maxValue={data.station_account_money}
                   step={50}
                   stepPixelSize={10}
-                  onDrag={(e, value) => setNewFunds(value)}
+                  onChange={(value) => setNewFunds(value)}
                 />
                 <Button
                   content="Create"
@@ -158,31 +165,23 @@ export const AccountWindow = (props, context) => {
   );
 };
 
-export const SpecificAccountData = (props, context) => {
-  const { act, data } = useBackend<DatabaseData>(context);
-  const [active, setActive] = useLocalState(context, 'active', 'none');
-  const [tab, setTab] = useLocalState(context, 'tab', 'All Accounts');
-  const [adding_funds, setAdding] = useLocalState(context, 'adding_funds', 0);
-  const [removing_funds, setRemoving] = useLocalState(
-    context,
-    'removing_funds',
-    0
-  );
-  const [funds_to_add, setFundsToAdd] = useLocalState(
-    context,
-    'funds_to_add',
-    0
-  );
+export const SpecificAccountData = (props) => {
+  const { act, data } = useBackend<DatabaseData>();
+  const [active, setActive] = useLocalState('active', 'none');
+  const [tab, setTab] = useLocalState('tab', 'All Accounts');
+  const [adding_funds, setAdding] = useLocalState('adding_funds', 0);
+  const [removing_funds, setRemoving] = useLocalState('removing_funds', 0);
+  const [funds_to_add, setFundsToAdd] = useLocalState('funds_to_add', 0);
   const [funds_to_remove, setFundsToRemove] = useLocalState(
-    context,
     'funds_to_remove',
-    0
+    0,
   );
 
   return (
     <Section>
       {data.accounts.map((account) =>
         account.account_number === active ? (
+          // biome-ignore lint/correctness/useJsxKeyInIterable: False positive
           <Section
             title="Account Details"
             buttons={
@@ -214,7 +213,8 @@ export const SpecificAccountData = (props, context) => {
                   }
                 />
               </>
-            }>
+            }
+          >
             <LabeledList>
               <LabeledList.Item label="Number">
                 {account.account_number}
@@ -244,9 +244,10 @@ export const SpecificAccountData = (props, context) => {
                       <NumberInput
                         value={funds_to_add}
                         unit="电"
+                        step={1}
                         minValue={0}
                         maxValue={10000}
-                        onDrag={(e, value) => setFundsToAdd(value)}
+                        onChange={(value) => setFundsToAdd(value)}
                       />
                       <Button
                         content="Add"
@@ -273,10 +274,11 @@ export const SpecificAccountData = (props, context) => {
                     <>
                       <NumberInput
                         value={funds_to_remove}
+                        step={1}
                         unit="电"
                         minValue={0}
                         maxValue={10000}
-                        onDrag={(e, value) => setFundsToRemove(value)}
+                        onChange={(value) => setFundsToRemove(value)}
                       />
                       <Button
                         content="Remove"
@@ -308,7 +310,7 @@ export const SpecificAccountData = (props, context) => {
                 {account.transactions.map((transaction) => (
                   <Table.Row key={transaction.ref}>
                     <Table.Cell>
-                      {transaction.date + ', ' + transaction.time}
+                      {`${transaction.date}, ${transaction.time}`}
                     </Table.Cell>
                     <Table.Cell>{transaction.target_name}</Table.Cell>
                     <Table.Cell>{transaction.purpose}</Table.Cell>
@@ -321,7 +323,7 @@ export const SpecificAccountData = (props, context) => {
           </Section>
         ) : (
           ''
-        )
+        ),
       )}
     </Section>
   );

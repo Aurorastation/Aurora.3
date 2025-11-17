@@ -1,7 +1,14 @@
-import { BooleanLike } from '../../common/react';
+import {
+  Box,
+  Button,
+  Knob,
+  LabeledList,
+  ProgressBar,
+  Section,
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { capitalizeAll } from 'tgui-core/string';
 import { useBackend } from '../backend';
-import { Button, Box, LabeledList, Section, ProgressBar, Knob } from '../components';
-import { capitalizeAll } from '../../common/string';
 import { Window } from '../layouts';
 
 export type GeneratorData = {
@@ -30,11 +37,11 @@ type Fuel = {
   fuel_type: string;
 };
 
-export const PortableGenerator = (props, context) => {
-  const { act, data } = useBackend<GeneratorData>(context);
+export const PortableGenerator = (props) => {
+  const { act, data } = useBackend<GeneratorData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section
           title="Generator Status"
@@ -46,7 +53,8 @@ export const PortableGenerator = (props, context) => {
               onClick={() => act(data.active ? 'disable' : 'enable')}
               disabled={data.is_broken}
             />
-          }>
+          }
+        >
           <LabeledList>
             <LabeledList.Item label="Status">
               <Box color={data.active ? 'good' : 'bad'}>
@@ -75,7 +83,8 @@ export const PortableGenerator = (props, context) => {
                 }}
                 value={data.fuel.fuel_stored}
                 maxValue={data.fuel.fuel_capacity}
-                minValue={0}>
+                minValue={0}
+              >
                 {data.fuel.fuel_stored} cm³ / {data.fuel.fuel_capacity} cm³
               </ProgressBar>
             </LabeledList.Item>
@@ -109,7 +118,8 @@ export const PortableGenerator = (props, context) => {
                     : data.output_set <= data.output_safe
                       ? 'good'
                       : ''
-                }>
+                }
+              >
                 {data.output_set} / {data.output_max} ({data.output_watts} W)
               </Box>
             </LabeledList.Item>
@@ -142,7 +152,8 @@ export const PortableGenerator = (props, context) => {
                 }}
                 value={data.temperature_current}
                 minValue={data.temperature_min}
-                maxValue={data.temperature_max * 1.5}>
+                maxValue={data.temperature_max * 1.5}
+              >
                 {Math.max(data.temperature_min, data.temperature_current)}C
               </ProgressBar>
             </LabeledList.Item>

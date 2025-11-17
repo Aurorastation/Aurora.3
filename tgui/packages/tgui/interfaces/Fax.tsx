@@ -1,8 +1,15 @@
+import {
+  BlockQuote,
+  Box,
+  Button,
+  Dropdown,
+  LabeledList,
+  Section,
+} from 'tgui-core/components';
+import { round } from 'tgui-core/math';
+import type { BooleanLike } from 'tgui-core/react';
+import { capitalizeAll } from 'tgui-core/string';
 import { useBackend } from '../backend';
-import { BooleanLike } from '../../common/react';
-import { round } from '../../common/math';
-import { capitalizeAll } from '../../common/string';
-import { Section, Box, Button, BlockQuote, Dropdown, LabeledList } from '../components';
 import { Window } from '../layouts';
 
 type PDA = {
@@ -19,15 +26,15 @@ type FaxData = {
   paper: string;
   world_time: number;
   alertpdas: PDA[];
-  department: String;
-  departments: String[];
+  department: string;
+  departments: string[];
 };
 
-export const Fax = (props, context) => {
-  const { act, data } = useBackend<FaxData>(context);
+export const Fax = (props) => {
+  const { act, data } = useBackend<FaxData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section title="Confirm Identity">
           <Button
@@ -65,8 +72,8 @@ export const Fax = (props, context) => {
   );
 };
 
-const FaxWindow = (props, context) => {
-  const { act, data } = useBackend<FaxData>(context);
+const FaxWindow = (props) => {
+  const { act, data } = useBackend<FaxData>();
   const remaining_cooldown = data.cooldown_end - data.world_time;
 
   return (
@@ -90,8 +97,8 @@ const FaxWindow = (props, context) => {
   );
 };
 
-const SendWindow = (props, context) => {
-  const { act, data } = useBackend<FaxData>(context);
+const SendWindow = (props) => {
+  const { act, data } = useBackend<FaxData>();
 
   return (
     <Section>
@@ -99,6 +106,7 @@ const SendWindow = (props, context) => {
         <LabeledList.Item label="Sending To">
           <Dropdown
             options={data.departments}
+            selected={data.destination}
             onSelected={(value) =>
               act('select_destination', { select_destination: value })
             }
@@ -111,8 +119,8 @@ const SendWindow = (props, context) => {
   );
 };
 
-const PaperWindow = (props, context) => {
-  const { act, data } = useBackend<FaxData>(context);
+const PaperWindow = (props) => {
+  const { act, data } = useBackend<FaxData>();
 
   return (
     <Section>
@@ -131,8 +139,8 @@ const PaperWindow = (props, context) => {
   );
 };
 
-const PDANotifyWindow = (props, context) => {
-  const { act, data } = useBackend<FaxData>(context);
+const PDANotifyWindow = (props) => {
+  const { act, data } = useBackend<FaxData>();
 
   return (
     <Section>

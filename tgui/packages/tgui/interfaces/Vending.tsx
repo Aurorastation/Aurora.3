@@ -1,7 +1,15 @@
-import { BooleanLike } from '../../common/react';
-import { capitalizeAll } from '../../common/string';
+import {
+  Box,
+  Button,
+  Flex,
+  Input,
+  LabeledList,
+  NoticeBox,
+  Section,
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { capitalizeAll } from 'tgui-core/string';
 import { useBackend, useLocalState } from '../backend';
-import { Box, Button, Flex, Input, LabeledList, NoticeBox, Section } from '../components';
 import { Window } from '../layouts';
 
 export type VendingData = {
@@ -33,11 +41,11 @@ type Product = {
   icon_tag: string;
 };
 
-export const Vending = (props, context) => {
-  const { act, data } = useBackend<VendingData>(context);
+export const Vending = (props) => {
+  const { act, data } = useBackend<VendingData>();
 
   return (
-    <Window resizable width={425} height={500} theme={data.manufacturer}>
+    <Window width={425} height={500} theme={data.manufacturer}>
       <Window.Content scrollable>
         <Box textAlign="center">{data.display_ad}</Box>
         <Section>
@@ -52,13 +60,9 @@ export const Vending = (props, context) => {
   );
 };
 
-export const ShowAllItems = (props, context) => {
-  const { act, data } = useBackend<VendingData>(context);
-  const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
-    `searchTerm`,
-    ``
-  );
+export const ShowAllItems = (props) => {
+  const { act, data } = useBackend<VendingData>();
+  const [searchTerm, setSearchTerm] = useLocalState<string>(`searchTerm`, ``);
 
   return (
     <>
@@ -72,7 +76,7 @@ export const ShowAllItems = (props, context) => {
               placeholder="Search by name"
               width="40vw"
               maxLength={512}
-              onInput={(e, value) => {
+              onChange={(value) => {
                 setSearchTerm(value);
               }}
               value={searchTerm}
@@ -93,7 +97,7 @@ export const ShowAllItems = (props, context) => {
         {data.products
           .filter(
             (product) =>
-              product.name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1
+              product.name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1,
           )
           ?.map((product) => (
             <Button
@@ -104,12 +108,12 @@ export const ShowAllItems = (props, context) => {
               style={{
                 height: '70px',
                 width: '70px',
-              }}>
+              }}
+            >
               <Box
                 as="img"
                 className={product.icon_tag}
                 style={{
-                  '-ms-interpolation-mode': 'nearest-neighbor',
                   transform: 'scale(1.5) translate(30%, 30%)',
                 }}
               />
@@ -136,8 +140,8 @@ export const ShowAllItems = (props, context) => {
   );
 };
 
-export const ShowVendingItem = (props, context) => {
-  const { act, data } = useBackend<VendingData>(context);
+export const ShowVendingItem = (props) => {
+  const { act, data } = useBackend<VendingData>();
 
   return (
     <Section
@@ -149,7 +153,8 @@ export const ShowVendingItem = (props, context) => {
           color="bad"
           onClick={() => act('cancelpurchase')}
         />
-      }>
+      }
+    >
       <LabeledList>
         <LabeledList.Item label="Selected Item">
           {capitalizeAll(data.sel_name)}

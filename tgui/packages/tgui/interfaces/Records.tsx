@@ -1,9 +1,21 @@
-import { capitalize } from '../../common/string';
-import { BooleanLike } from '../../common/react';
+import {
+  Box,
+  Button,
+  Collapsible,
+  Dropdown,
+  Image,
+  Input,
+  LabeledList,
+  NoticeBox,
+  Section,
+  Stack,
+  Tabs,
+  Tooltip,
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { capitalize } from 'tgui-core/string';
 import { useBackend, useLocalState } from '../backend';
-import { Box, Button, Collapsible, Input, LabeledList, NoticeBox, Section, Stack, Tabs, Tooltip } from '../components';
 import { NtosWindow } from '../layouts';
-import { Dropdown } from '../components/Dropdown';
 
 export type RecordsData = {
   activeview: string;
@@ -80,16 +92,12 @@ type RecordLocked = {
   rank: string;
 };
 
-export const Records = (props, context) => {
-  const { act, data } = useBackend<RecordsData>(context);
-  const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
-    `searchTerm`,
-    ``
-  );
+export const Records = (props) => {
+  const { act, data } = useBackend<RecordsData>();
+  const [searchTerm, setSearchTerm] = useLocalState<string>(`searchTerm`, ``);
 
   return (
-    <NtosWindow resizable width={900} height={900}>
+    <NtosWindow width={900} height={900}>
       <NtosWindow.Content scrollable>
         {!data.authenticated ? (
           <NoticeBox color="white">
@@ -108,9 +116,9 @@ export const Records = (props, context) => {
   );
 };
 
-export const RecordsView = (props, context) => {
-  const { act, data } = useBackend<RecordsData>(context);
-  const [recordTab, setRecordTab] = useLocalState(context, 'recordTab', 'All');
+export const RecordsView = (props) => {
+  const { act, data } = useBackend<RecordsData>();
+  const [recordTab, setRecordTab] = useLocalState('recordTab', 'All');
 
   return (
     <Stack>
@@ -122,14 +130,10 @@ export const RecordsView = (props, context) => {
   );
 };
 
-export const ListAllRecords = (props, context) => {
-  const { act, data } = useBackend<RecordsData>(context);
-  const [recordTab, setRecordTab] = useLocalState(context, 'recordTab', 'All');
-  const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
-    `searchTerm`,
-    ``
-  );
+export const ListAllRecords = (props) => {
+  const { act, data } = useBackend<RecordsData>();
+  const [recordTab, setRecordTab] = useLocalState('recordTab', 'All');
+  const [searchTerm, setSearchTerm] = useLocalState<string>(`searchTerm`, ``);
 
   return (
     <Section
@@ -141,7 +145,7 @@ export const ListAllRecords = (props, context) => {
             autoFocus
             autoSelect
             maxLength={512}
-            onInput={(e, value) => {
+            onChange={(value) => {
               setSearchTerm(value);
             }}
             value={searchTerm}
@@ -153,14 +157,15 @@ export const ListAllRecords = (props, context) => {
             onClick={() => act(data.authenticated ? 'logout' : 'login')}
           />
         </Tooltip>
-      }>
+      }
+    >
       <Tabs vertical>
         {data.allrecords
           .filter(
             (record) =>
               record.name.toLowerCase().indexOf(searchTerm) > -1 ||
               record.fingerprint.toLowerCase().indexOf(searchTerm) > -1 ||
-              record.dna.toLowerCase().indexOf(searchTerm) > -1
+              record.dna.toLowerCase().indexOf(searchTerm) > -1,
           )
           .map((record) => (
             <Tabs.Tab
@@ -170,8 +175,9 @@ export const ListAllRecords = (props, context) => {
                   ? 'align-justify'
                   : 'strikethrough'
               }
-              onClick={() => act('setactive', { setactive: record.id })}>
-              {record.id + ': ' + record.name + ' (' + record.rank + ')'}
+              onClick={() => act('setactive', { setactive: record.id })}
+            >
+              {`${record.id}: ${record.name} (${record.rank})`}
             </Tabs.Tab>
           ))}
       </Tabs>
@@ -180,71 +186,59 @@ export const ListAllRecords = (props, context) => {
 };
 
 // Omega shitcode ahead but this is my like 56th UI and I don't give a fuck anymore.
-export const ListActive = (props, context) => {
-  const { act, data } = useBackend<RecordsData>(context);
-  const [recordTab, setRecordTab] = useLocalState(context, 'recordTab', 'All');
+export const ListActive = (props) => {
+  const { act, data } = useBackend<RecordsData>();
+  const [recordTab, setRecordTab] = useLocalState('recordTab', 'All');
   const [editingPhysStatus, setEditingPhysStatus] = useLocalState<boolean>(
-    context,
     'editingPhysStatus',
-    false
+    false,
   );
   const [editingMentalStatus, setEditingMentalStatus] = useLocalState<boolean>(
-    context,
     'editingMentalStatus',
-    false
+    false,
   );
   const [editingBloodType, setEditingBloodType] = useLocalState<boolean>(
-    context,
     'editingBloodType',
-    false
+    false,
   );
   const [editingFingerprint, setEditingFingerprint] = useLocalState<boolean>(
-    context,
     'editingFingerprint',
-    false
+    false,
   );
   const [editingCriminalStatus, setEditingCriminalStatus] =
-    useLocalState<boolean>(context, 'editingCriminalStatus', false);
+    useLocalState<boolean>('editingCriminalStatus', false);
   const [editingSpecies, setEditingSpecies] = useLocalState<boolean>(
-    context,
     'editingSpecies',
-    false
+    false,
   );
   const [editingCitizenship, setEditingCitizenship] = useLocalState<boolean>(
-    context,
     'editingCitizenship',
-    false
+    false,
   );
   const [editingReligion, setEditingReligion] = useLocalState<boolean>(
-    context,
     'editingReligion',
-    false
+    false,
   );
   const [editingEmployer, setEditingEmployer] = useLocalState<boolean>(
-    context,
     'editingEmployer',
-    false
+    false,
   );
   const [editingDNA, setEditingDNA] = useLocalState<boolean>(
-    context,
     'editingDNA',
-    false
+    false,
   );
 
   const [editingDisabilities, setEditingDisabilities] = useLocalState<boolean>(
-    context,
     'editingDisabilities',
-    false
+    false,
   );
   const [editingAllergies, setEditingAllergies] = useLocalState<boolean>(
-    context,
     'editingAllergies',
-    false
+    false,
   );
   const [editingDisease, setEditingDisease] = useLocalState<boolean>(
-    context,
     'editingDisease',
-    false
+    false,
   );
 
   return (
@@ -253,12 +247,14 @@ export const ListActive = (props, context) => {
       title={data.active.name}
       buttons={
         <Button content="Print" icon="print" onClick={() => act('print')} />
-      }>
+      }
+    >
       <Tabs>
         {data.available_types & 8 ? (
           <Tabs.Tab
             selected={recordTab === 'All (Locked)'}
-            onClick={() => setRecordTab('All (Locked)')}>
+            onClick={() => setRecordTab('All (Locked)')}
+          >
             All (Locked)
           </Tabs.Tab>
         ) : (
@@ -269,7 +265,8 @@ export const ListActive = (props, context) => {
             {data.available_types & 1 ? (
               <Tabs.Tab
                 selected={recordTab === 'General'}
-                onClick={() => setRecordTab('General')}>
+                onClick={() => setRecordTab('General')}
+              >
                 General - #{data.active.id}
               </Tabs.Tab>
             ) : (
@@ -278,7 +275,8 @@ export const ListActive = (props, context) => {
             {data.available_types & 4 ? (
               <Tabs.Tab
                 selected={recordTab === 'Security'}
-                onClick={() => setRecordTab('Security')}>
+                onClick={() => setRecordTab('Security')}
+              >
                 Security - #{data.active.id}
               </Tabs.Tab>
             ) : (
@@ -287,7 +285,8 @@ export const ListActive = (props, context) => {
             {data.available_types & 2 ? (
               <Tabs.Tab
                 selected={recordTab === 'Medical'}
-                onClick={() => setRecordTab('Medical')}>
+                onClick={() => setRecordTab('Medical')}
+              >
                 Medical - #{data.active.id}
               </Tabs.Tab>
             ) : (
@@ -298,31 +297,15 @@ export const ListActive = (props, context) => {
           ''
         )}
       </Tabs>
-      <Box
-        as="img"
-        m={0}
+      <Image
+        width="${64}px"
+        height="${64}px"
         src={`data:image/jpeg;base64,${data.front}`}
-        width="30%"
-        height="30%"
-        style={{
-          '-ms-interpolation-mode': 'nearest-neighbor',
-          'pointer-events': 'none',
-          'width': `${64}px`,
-          'height': `${64}px`,
-        }}
       />
-      <Box
-        as="img"
-        m={0}
+      <Image
+        width="${64}px"
+        height="${64}px"
         src={`data:image/jpeg;base64,${data.side}`}
-        width="30%"
-        height="30%"
-        style={{
-          '-ms-interpolation-mode': 'nearest-neighbor',
-          'pointer-events': 'none',
-          'width': `${64}px`,
-          'height': `${64}px`,
-        }}
       />
       <LabeledList>
         <LabeledList.Item label="ID">#{data.active.id}</LabeledList.Item>
@@ -338,7 +321,7 @@ export const ListActive = (props, context) => {
                 <Input
                   placeholder={data.active.species}
                   width="100%"
-                  onInput={(e, v) =>
+                  onChange={(v) =>
                     act('editrecord', {
                       key: 'species',
                       value: v,
@@ -459,7 +442,7 @@ export const ListActive = (props, context) => {
                 <Input
                   placeholder={data.active.fingerprint}
                   width="100%"
-                  onInput={(e, v) =>
+                  onChange={(v) =>
                     act('editrecord', {
                       key: 'fingerprint',
                       value: v,
@@ -519,7 +502,7 @@ export const ListActive = (props, context) => {
                     <Input
                       placeholder={data.active.medical.blood_dna}
                       width="100%"
-                      onInput={(e, v) =>
+                      onChange={(v) =>
                         act('editrecord', {
                           record_type: 'medical',
                           key: 'blood_dna',
@@ -548,7 +531,7 @@ export const ListActive = (props, context) => {
                     <Input
                       placeholder={data.active.medical.disabilities}
                       width="100%"
-                      onInput={(e, v) =>
+                      onChange={(v) =>
                         act('editrecord', {
                           record_type: 'medical',
                           key: 'fingerprint',
@@ -577,7 +560,7 @@ export const ListActive = (props, context) => {
                     <Input
                       placeholder={data.active.medical.allergies}
                       width="100%"
-                      onInput={(e, v) =>
+                      onChange={(v) =>
                         act('editrecord', {
                           record_type: 'medical',
                           key: 'allergies',
@@ -606,7 +589,7 @@ export const ListActive = (props, context) => {
                     <Input
                       placeholder={data.active.medical.diseases}
                       width="100%"
-                      onInput={(e, v) =>
+                      onChange={(v) =>
                         act('editrecord', {
                           record_type: 'medical',
                           key: 'diseases',
@@ -641,7 +624,7 @@ export const ListActive = (props, context) => {
                     <Input
                       placeholder={data.active.citizenship}
                       width="100%"
-                      onInput={(e, v) =>
+                      onChange={(v) =>
                         act('editrecord', {
                           key: 'citizenship',
                           value: v,
@@ -669,7 +652,7 @@ export const ListActive = (props, context) => {
                     <Input
                       placeholder={data.active.religion}
                       width="100%"
-                      onInput={(e, v) =>
+                      onChange={(v) =>
                         act('editrecord', {
                           key: 'religion',
                           value: v,
@@ -697,7 +680,7 @@ export const ListActive = (props, context) => {
                     <Input
                       placeholder={data.active.employer}
                       width="100%"
-                      onInput={(e, v) =>
+                      onChange={(v) =>
                         act('editrecord', {
                           key: 'employer',
                           value: v,
@@ -748,27 +731,26 @@ export const ListActive = (props, context) => {
       {recordTab === 'Security' ? (
         <>
           <Section title="Incidents">
-            {data.active.security.incidents &&
-            data.active.security.incidents.length
+            {data.active.security.incidents?.length
               ? data.active.security.incidents.map((incident) => (
-                <Box backgroundColor="#223449" key={incident.id}>
-                  <Collapsible title={incident.datetime}>
-                    <Box fontSize={1.3} bold color="red">
-                      {incident.charges.toLocaleString()}
-                    </Box>
-                    <Box color="red">
-                      {incident.fine
-                        ? 'Fined ' + incident.fine.toFixed(2) + '电.'
-                        : 'Sentenced to ' +
-                        incident.brig_sentence +
-                        ' minutes of brig time.'}
-                    </Box>
-                    <br />
-                    <br />
-                    {incident.notes}
-                  </Collapsible>
-                </Box>
-              ))
+                  <Box backgroundColor="#223449" key={incident.id}>
+                    <Collapsible title={incident.datetime}>
+                      <Box fontSize={1.3} bold color="red">
+                        {incident.charges.toLocaleString()}
+                      </Box>
+                      <Box color="red">
+                        {incident.fine
+                          ? `Fined ${incident.fine.toFixed(2)}电.`
+                          : 'Sentenced to ' +
+                            incident.brig_sentence +
+                            ' minutes of brig time.'}
+                      </Box>
+                      <br />
+                      <br />
+                      {incident.notes}
+                    </Collapsible>
+                  </Box>
+                ))
               : 'No incidents on record.'}
           </Section>
           <Section title="Crimes">{data.active.security.crimes}</Section>
@@ -790,8 +772,8 @@ export const ListActive = (props, context) => {
         <Section title="CCIA Actions">
           {data.active.ccia_actions.length
             ? data.active.ccia_actions.map((line) => (
-              <Box key={line}>{line}</Box>
-            ))
+                <Box key={line}>{line}</Box>
+              ))
             : 'No CCIA actions on record.'}
         </Section>
       ) : (
