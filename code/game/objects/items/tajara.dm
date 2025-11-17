@@ -150,7 +150,7 @@
 	if(closed)
 		to_chat(usr, SPAN_WARNING("You check your watch, realising it's closed."))
 	else
-		to_chat(usr, "You check your [name], glancing over at the watch face, reading the time to be '[tajaran_time()]'. Today's date is the '[tajaran_date()]th day of [tajaran_month()], [tajaran_year()]'.")
+		to_chat(usr, SPAN_NOTICE("You check your [name], glancing over at the watch face, reading the time to be '[tajaran_time()]'. Today's date is the '[tajaran_date()]th day of [tajaran_month()], [tajaran_year()]'."))
 
 /obj/item/flame/lighter/adhomai
 	name = "adhomian lighter"

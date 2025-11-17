@@ -40,7 +40,7 @@
 	item_state = "watch_silver"
 
 /obj/item/clothing/wrists/watch/spy/checktime()
-	to_chat(usr, "You check your watch. Unfortunately for you, it's not a real watch, dork.")
+	to_chat(usr, SPAN_NOTICE("You check your watch. Unfortunately for you, it's not a real watch, dork."))
 
 /obj/item/clothing/wrists/watch/pocketwatch
 	name = "pocketwatch"
@@ -79,9 +79,9 @@
 
 /obj/item/clothing/wrists/watch/pocketwatch/checktime(mob/user)
 	if(closed)
-		to_chat(usr, "You check your watch, realising it's closed.")
+		to_chat(usr, SPAN_NOTICE("You check your watch, realising it's closed."))
 	else
-		to_chat(usr, "You check your watch, glancing over at the watch face, reading the time to be '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [GLOB.game_year]'.")
+		to_chat(usr, SPAN_NOTICE("You check your watch, glancing over at the watch face, reading the time to be '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [GLOB.game_year]'."))
 
 /obj/item/clothing/wrists/watch/pocketwatch/pointatwatch()
 	if(closed)
@@ -95,13 +95,13 @@
 	set src in usr
 
 	if(wired && screwed)
-		to_chat(usr, "You check your watch, spotting a digital collection of numbers reading '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [GLOB.game_year]'.")
+		to_chat(usr, SPAN_NOTICE("You check your watch, spotting a digital collection of numbers reading '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [GLOB.game_year]'."))
 		if (GLOB.evacuation_controller.get_status_panel_eta())
 			to_chat(usr, SPAN_WARNING("Time until Bluespace Jump: [GLOB.evacuation_controller.get_status_panel_eta()]."))
 	else if(wired && !screwed)
-		to_chat(usr, "You check your watch, realising it's still open.")
+		to_chat(usr, SPAN_NOTICE("You check your watch, realising it's still open."))
 	else
-		to_chat(usr, "You check your watch as it dawns on you that it's broken.")
+		to_chat(usr, SPAN_NOTICE("You check your watch as it dawns on you that it's broken."))
 
 /obj/item/clothing/wrists/watch/verb/pointatwatch()
 	set category = "Object.Equipped"

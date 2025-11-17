@@ -136,7 +136,7 @@ var/real_round_start_time
 	var/adhomian_time = worldtime2hours()
 	var/adhomian_minute = worldtime2minutes()
 	var/adhomian_day = tajaran_date()
-	if(ISODD(adhomian_day))
+	if(ISEVEN(adhomian_day))
 		adhomian_time += 24
 	if(adhomian_minute < 10) // make it display 5:08 instead of 5:8 when the time is in single digits
 		adhomian_minute = "0[adhomian_minute]"
