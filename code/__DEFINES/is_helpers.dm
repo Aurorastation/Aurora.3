@@ -37,6 +37,8 @@
 
 #define isspaceturf(A) istype(A, /turf/space)
 
+#define ischasm(A) (istype(A, /turf/simulated/floor/exoplanet/abyss) || istype(A, /turf/simulated/abyss))
+
 #define isghost(A) istype(A, /mob/abstract/ghost)
 
 #define isobserver(A) istype(A, /mob/abstract/ghost/observer)
@@ -76,3 +78,5 @@
 #define isprojectile(A) istype(A, /obj/projectile)
 #define isbeam(A) istype(A, /obj/projectile/beam)
 #define isenergy(A) istype(A, /obj/projectile/energy)
+
+#define istransparentturf(A) (HAS_TRAIT(A, TURF_Z_TRANSPARENT_TRAIT))

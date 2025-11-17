@@ -14,7 +14,7 @@
 	req_access = list(ACCESS_ENGINE_EQUIP)
 	obj_flags = OBJ_FLAG_ROTATABLE | OBJ_FLAG_SIGNALER
 	var/id
-	/// uses powernet power, not APC power
+	/// Uses powernet power, not APC power.
 	use_power = POWER_USE_OFF
 	/// 30 kW laser. I guess that means 30 kJ per shot.
 	active_power_usage = 30000
@@ -30,7 +30,7 @@
 	var/shot_counter = 0
 	var/state = EMITTER_LOOSE
 	var/locked = FALSE
-	/// special emitters notify admins if something happens to them, to prevent grief
+	/// Special emitters notify admins if something happens to them, to prevent grief.
 	var/special_emitter = FALSE
 
 	var/_wifi_id
@@ -41,7 +41,7 @@
 /obj/machinery/power/emitter/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Standing next to \the [src] and examining it will let you see how many shots it has fired since last being turned on."
-	. += "ALT-click the [src] to lock or unlock it (if you have the appropriate ID access)."
+	. += "Using an Engineering ID on \the [src] will toggle its control locks."
 	. += "You can attach a signaler to \the [src] to remotely toggle it on and off (so long as its controls are not locked)."
 
 /obj/machinery/power/emitter/assembly_hints(mob/user, distance, is_adjacent)
@@ -216,10 +216,11 @@
 		var/obj/item/weldingtool/WT = attacking_item
 		if(active)
 			to_chat(user, SPAN_NOTICE("You cannot unweld \the [src] while it's active."))
-			return
+			return FALSE
 		switch(state)
 			if(EMITTER_LOOSE)
 				to_chat(user, SPAN_WARNING("\The [src] needs to be wrenched to the floor."))
+				return FALSE
 			if(EMITTER_BOLTED)
 				if(WT.use(0, user))
 					playsound(get_turf(src), 'sound/items/welder_pry.ogg', 50, TRUE)
@@ -228,12 +229,14 @@
 						SPAN_WARNING("You hear the sound of metal being welded."))
 					if(attacking_item.use_tool(src, user, 20, volume = 50))
 						if(!src || !WT.isOn())
-							return
+							return FALSE
 						state = EMITTER_WELDED
 						to_chat(user, SPAN_NOTICE("You weld \the [src] to the floor."))
 						connect_to_network()
+						return TRUE
 				else
 					to_chat(user, SPAN_WARNING("You need more welding fuel to complete this task."))
+				return FALSE
 			if(EMITTER_WELDED)
 				if(WT.use(0, user))
 					playsound(get_turf(src), 'sound/items/welder_pry.ogg', 50, TRUE)
@@ -242,38 +245,37 @@
 						SPAN_WARNING("You hear the sound of metal being welded."))
 					if(attacking_item.use_tool(src, user, 20, volume = 50))
 						if(!src || !WT.isOn())
-							return
+							return FALSE
 						state = EMITTER_BOLTED
 						to_chat(user, SPAN_NOTICE("You cut \the [src] free from the floor."))
 						disconnect_from_network()
+						return TRUE
 				else
 					to_chat(user, SPAN_WARNING("You need more welding fuel to complete this task."))
-		return
-	..()
-	return
+					return FALSE
 
-/obj/machinery/power/emitter/AltClick(mob/user)
-	if(Adjacent(user))
-		add_fingerprint(user)
+	if(attacking_item.GetID())
 		if(emagged)
 			to_chat(user, SPAN_WARNING("The lock seems to be broken."))
-			return
+			return FALSE
 		if(allowed(user))
 			if(active)
 				locked = !locked
-				if(locked)
-					playsound(src, 'sound/machines/terminal/terminal_button03.ogg', 35, FALSE)
-				else
-					playsound(src, 'sound/machines/terminal/terminal_button01.ogg', 35, FALSE)
+				playsound(src, 'sound/machines/terminal/terminal_button01.ogg', 35, FALSE)
 				balloon_alert(user, locked ? "locked" : "unlocked")
+				to_chat(user, SPAN_NOTICE("The controls are now [locked ? "locked." : "unlocked."]"))
+				return TRUE
 			else
 				locked = FALSE //just in case it somehow gets locked
 				to_chat(user, SPAN_WARNING("The controls can only be locked when \the [src] is online."))
+				return FALSE
 		else
-			to_chat(user, SPAN_WARNING("Access denied."))
 			playsound(src, 'sound/machines/terminal/terminal_error.ogg', 25, FALSE)
 			balloon_alert(user, "access denied!")
-		return
+			to_chat(user, SPAN_WARNING("Access denied."))
+			return FALSE
+	..()
+	return
 
 /obj/machinery/power/emitter/emag_act(remaining_charges, mob/user)
 	if(!emagged)

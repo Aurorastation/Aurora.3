@@ -340,9 +340,9 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 		var/choice = tgui_input_list(user, "Which detail do you want to edit?", "Detail Editor", list("Customer", "Order"))
 		switch(choice)
 			if("Customer")
-				details["Customer"] = sanitize(tgui_input_text(user, "What is the customer's name?", "Enter Customer Name"))
+				details["Customer"] = tgui_input_text(user, "What is the customer's name?", "Enter Customer Name")
 			if("Order")
-				details["Order"] = sanitize(tgui_input_text(user, "What is the ordered drink?", "Enter Ordered Drink"))
+				details["Order"] = tgui_input_text(user, "What is the ordered drink?", "Enter Ordered Drink")
 		return
 	return ..()
 

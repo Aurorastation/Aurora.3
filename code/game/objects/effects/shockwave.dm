@@ -4,7 +4,7 @@
 
 
 /obj/effect/shockwave
-	icon = 'icons/effects/shockwave.dmi'
+	icon = 'icons/effects/light_overlays/shockwave.dmi'
 	icon_state = "shockwave"
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	plane = DISPLACEMENT_PLATE_RENDER_LAYER

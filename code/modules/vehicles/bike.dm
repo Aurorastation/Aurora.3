@@ -71,6 +71,7 @@
 /obj/vehicle/bike/Destroy()
 	QDEL_NULL(key)
 	QDEL_NULL(ion)
+	QDEL_NULL(storage_compartment)
 	return ..()
 
 /obj/vehicle/bike/setup_vehicle()

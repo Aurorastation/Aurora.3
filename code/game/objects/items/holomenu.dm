@@ -9,7 +9,7 @@
 	light_color = LIGHT_COLOR_CYAN
 	light_range = 1.4
 
-	req_one_access = list(ACCESS_BAR, ACCESS_KITCHEN, ACCESS_HYDROPONICS)
+	req_one_access = list(ACCESS_BAR, ACCESS_GALLEY, ACCESS_HYDROPONICS)
 
 	var/rave_mode = FALSE
 	var/menu_text = ""
@@ -21,7 +21,7 @@
 
 /obj/item/holomenu/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	. += "If you have Bar, Kitchen, or Hydroponics access, you can swipe your ID on this to anchor it in place."
+	. += "If you have Bar, Galley, or Hydroponics access, you can swipe your ID on this to anchor it in place."
 	. += "You can enter text manually by clicking it with an empty hand, or you can use a paper on the [src] to transfer its written contents."
 	. += "ALT-click the [src] to toggle its border."
 	. += "CTRL-click the [src] to toggle RAVE MODE."

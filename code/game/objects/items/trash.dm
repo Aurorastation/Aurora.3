@@ -450,3 +450,8 @@
 /obj/item/trash/mac_fiery
 	name = "empty fiery hot mac and cheeze container"
 	icon_state = "mac_trash_fiery"
+
+/obj/item/trash/algaechips
+	name = "empty algae chips bag"
+	desc = "It looks like someone left some strands of algae in it."
+	icon_state = "algaechips"

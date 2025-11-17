@@ -1,4 +1,5 @@
 /mob/living/carbon/human
+	light_system = MOVABLE_LIGHT
 
 	blocks_emissive = EMISSIVE_BLOCK_NONE
 
@@ -38,6 +39,8 @@
 	var/size_multiplier = 1 //multiplier for the mob's icon size
 	var/damage_multiplier = 1 //multiplies melee combat damage
 	var/icon_update = 1 //whether icon updating shall take place
+
+	var/default_lighting_alpha = LIGHTING_PLANE_ALPHA_VISIBLE
 
 	var/lipstick_color = null	//no lipstick by default
 

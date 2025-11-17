@@ -139,7 +139,6 @@
 	desc = "Government didn't want you to see this!"
 	density = TRUE
 	blocks_air = TRUE
-	dynamic_lighting = FALSE
 	icon = null
 	icon_state = null
 

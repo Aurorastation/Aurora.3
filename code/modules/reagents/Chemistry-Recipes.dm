@@ -1996,6 +1996,14 @@
 		new /obj/item/reagent_containers/food/snacks/spreads/butter(location)
 	return
 
+/datum/chemical_reaction/cream_cheese
+	name = "Cream Cheese"
+	id = "creamcheese"
+	result = /singleton/reagent/nutriment/protein/cream_cheese
+	required_reagents = list(/singleton/reagent/drink/milk = 5, /singleton/reagent/drink/milk/cream = 5)
+	catalysts = list(/singleton/reagent/enzyme = 5)
+	result_amount = 10
+
 /*
 	Todo in future:
 		Cornmeal batter for corndogs
@@ -2822,7 +2830,6 @@
 	result = /singleton/reagent/drink/lemonade/pink
 	required_reagents = list(/singleton/reagent/drink/lemonade = 8, /singleton/reagent/drink/grenadine = 2)
 	result_amount = 10
-
 
 /datum/chemical_reaction/drink/kiraspecial
 	name = "Kira Special"
@@ -4513,6 +4520,13 @@
 	result = /singleton/reagent/alcohol/tribunal
 	required_reagents = list(/singleton/reagent/alcohol/threefold = 1, /singleton/reagent/alcohol/godhead = 1, /singleton/reagent/water/holywater = 1)
 	result_amount = 3
+
+/datum/chemical_reaction/drink/witchspirit
+	name = "witch-spirit"
+	id = "witchspirit"
+	result = /singleton/reagent/alcohol/witchspirit
+	required_reagents = list(/singleton/reagent/alcohol/wine/algae = 1, /singleton/reagent/alcohol/gin = 1, /singleton/reagent/alcohol/limoncello = 1, /singleton/reagent/alcohol/melonliquor = 1)
+	result_amount = 4
 
 //boba drinks
 

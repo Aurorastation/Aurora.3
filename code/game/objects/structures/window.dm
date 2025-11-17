@@ -13,7 +13,7 @@
 	density = TRUE
 	pass_flags_self = PASSWINDOW
 	w_class = WEIGHT_CLASS_NORMAL
-	layer = SIDE_WINDOW_LAYER
+	layer = OBJ_LAYER
 	anchored = TRUE
 	atom_flags = ATOM_FLAG_CHECKS_BORDER
 	obj_flags = OBJ_FLAG_ROTATABLE|OBJ_FLAG_MOVES_UNSUPPORTED
@@ -63,8 +63,6 @@
 	if(!full)
 		if(dir == SOUTH)
 			layer = ABOVE_HUMAN_LAYER
-		else
-			layer = SIDE_WINDOW_LAYER
 	QUEUE_SMOOTH(src)
 
 /obj/structure/window/proc/take_damage(var/damage = 0,  var/sound_effect = 1, message = TRUE)
@@ -607,12 +605,14 @@
 	smoothing_flags = SMOOTH_MORE
 	canSmoothWith = list(
 		/obj/structure/window/shuttle/scc_space_ship,
-		/turf/simulated/wall/shuttle/scc_space_ship
+		/turf/simulated/wall/shuttle/scc_space_ship,
+		/turf/unsimulated/wall/shuttle/scc_space_ship
 	)
 	blend_overlay = "-wall"
 	attach_overlay = "attach"
 	can_blend_with = list(
 		/turf/simulated/wall/shuttle/scc_space_ship,
+		/turf/unsimulated/wall/shuttle/scc_space_ship,
 		/obj/structure/window/shuttle/scc_space_ship
 	)
 

@@ -29,14 +29,15 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 	icon = 'icons/turf/areas.dmi'
 	icon_state = "unknown"
 	layer = AREA_LAYER
-	luminosity = 0
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	invisibility = INVISIBILITY_LIGHTING
+	plane = BLACKNESS_PLANE
 
 	var/obj/machinery/power/apc/apc = null
 	/// The base turf type of the area, which can be used to override the z-level's base turf.
 	var/turf/base_turf
 
+	/// If this area has a light switch (or multiple), do the lights start on or off? FALSE = off, TRUE = on.
 	var/lightswitch = FALSE
 
 	var/eject = null
@@ -111,6 +112,9 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 	/// You probably shouldn't be setting this to true on any planet-based maps, or on any indoors areas.
 	var/needs_starlight = FALSE
 
+	/// defaults to TRUE, false disables hostile events (like drone uprising).
+	var/hostile_events = TRUE
+
 /**
  * Don't move this to Initialize(). Things in here need to run before SSatoms does.
  */
@@ -136,11 +140,6 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 		power_equip = 0
 		power_environ = 0
 
-	if(dynamic_lighting)
-		luminosity = 0
-	else
-		luminosity = 1
-
 	if(centcomm_area)
 		GLOB.centcom_areas[src] = TRUE
 		alwaysgravity = 1
@@ -158,8 +157,7 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 
 	. = ..()
 
-	if(dynamic_lighting)
-		luminosity = FALSE
+	update_base_lighting()
 
 	if (mapload && turf_initializer)
 		for(var/turf/T in src)
@@ -542,6 +540,9 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 		//Although hostile mobs instadying to turrets is fun
 		//If there's no AI they'll just be hit with stunbeams all day and spam the attack logs.
 		if (istype(A, /area/turret_protected) || LAZYLEN(A.turret_controls))
+			continue
+
+		if(!A.hostile_events)
 			continue
 
 		if(filter_players)

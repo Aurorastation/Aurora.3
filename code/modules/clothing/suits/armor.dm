@@ -217,6 +217,10 @@
 	QDEL_NULL(pockets)	//Tactical armor has internal holster instead of pockets, so we null this out
 	ClearOverlays()	// Remove the holster's overlay.
 
+/obj/item/clothing/suit/armor/tactical/Destroy()
+	QDEL_NULL(holster)
+	return ..()
+
 /obj/item/clothing/suit/armor/tactical/attackby(obj/item/attacking_item, mob/user)
 	..()
 	holster.attackby(attacking_item, user)

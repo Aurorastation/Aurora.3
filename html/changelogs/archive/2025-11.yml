@@ -1,0 +1,255 @@
+2025-11-03:
+  Batrachophrenoboocosmomachia:
+  - balance: Budget insulated gloves no longer able to be manually restocked in YouTool
+      (random insulation coefficient reroll exploit).
+  - bugfix: Replaces missing req_access values from D3 Medical Equipment Storage.
+  - bugfix: Emitters can be rotated again (alt-click lock toggling disabled).
+  - bugfix: Lights no longer explode when toggled off and on.
+  - bugfix: Langchat images now pop up for untranslated speech.
+  - bugfix: Cyborgs can no longer flip Plasteel Barricades remotely.
+  - bugfix: Fixes ghost vision inconsistently toggling when Following mobs.
+  - bugfix: Removes deprecated 'Gender and Pronouns' section from Appearance Changer
+      (has been replaced by 'Pronouns' section).
+  - bugfix: Offship locations will not print Mining Yield Declarations saying they're
+      from SCCV Horizon.
+  - bugfix: Simple mobs which target their surroundings (destroying tables windows
+      etc) will not do so if inside a container.
+  - bugfix: Newscaster Announcements channel now logs announcements made by heads
+      of staff.
+  - bugfix: Held phoron- or chlorine-contaminated items will respect if you're wearing
+      a sealed suit or thick gloves (that is to say, if the gloves provide fire protection).
+  - bugfix: Fixes runtime in Electrical Storm event.
+  - bugfix: Fixes some bounties returning 0 credit reward due to rounding issues.
+  - bugfix: Removes old fusion debug vars, fixed outdated maths.
+  - bugfix: Fixes Horizon kitchen alt fridge being swapped w/ empty freezer.
+  - bugfix: Fixes chameleon projector sometimes turning user invisible.
+  - bugfix: You are again able to push an object currently being pulled.
+  - bugfix: Command Support roles which start with flash-protective sunglasses can
+      now also choose them in their loadout.
+  - code_imp: Updates more code comments to DMDocs.
+  - code_imp: Corrects poison/venom for greimorian variable naming.
+  - rscadd: Adds missing fire alarm to Paramedic Quarters.
+  - rscadd: Holomap now respects and displays outer hull structure.
+  - balance: INDRA rebalance based on initial feedback- easier temperature increases
+      and power formula adjustments.
+  ElorgRHG:
+  - imageadd: Standardised the sprite of most if not all standard/corporate labcoats.
+  - imageadd: Colorable labcoats now use the new, standard colorable palette.
+  - imageadd: Uplifted the sprite of long labcoats.
+  - rscdel: Removed all letterman labcoats and the science labcoat.
+  - imageadd: Resprited woolen hats.
+  - imageadd: The colorable woolen hat now has an accent color.
+  - rscadd: An uncolorable, generic woolen hat has been added to the loadout.
+  Fyni:
+  - rscadd: Adds voidsman stew and carian stroganoff to make-able recipes
+  - rscadd: Adds algae crisps to the Getmore vendor.
+  - rscadd: Adds the witchspirit cocktail to the makeable list
+  Greenjoe:
+  - rscadd: Adds MREs to the general loadout, and Tajaran field ration boxes to the
+      Tajaran loadout.
+  HanSolo1519:
+  - bugfix: Fixed solarian passcard offset, courtesy of the_ill_fated
+  - rscadd: Re-added silversun commemorative passcard, found in the factions loadout
+      list for Idris employees.
+  - rscdel: Removed outdated/redundant Jintarian, Cytherian and Jovian passcards.
+  Hellfirejag:
+  - balance: Tweaked the costs of Advanced EVA, Medical, and Science hardsuits to
+      reflect that the manufactured ones don't actually come with the fancy modules.
+  - rscadd: Tweaked the mechanics hints of the biogenerator for better readability.
+  - rscadd: Organ passive healing and passive damage are both reduced by medical stasis.
+  - rscadd: Appendicitis now progresses slower while in stasis, and is also now tick-invariant.
+  - rscadd: Hearts now take less damage from tachycardia while in stasis.
+  - rscadd: Bruised/Broken kidneys now have reduced effects while in stasis.
+  - rscadd: Livers now filter toxins and booze slower while in stasis.
+  - rscadd: Molluscs grown in hydroponics can now be harvested by plant bags, as well
+      as be stored in the smartfridge.
+  - balance: Repeat-harvestable plants now only gain the bonus yield from fertilizer
+      once. To get bonus yield again, re-apply new fertilizer.
+  Kano:
+  - bugfix: Fixed some layering issues pertaining to consoles.
+  - qol: Ported large object transparency from TGMC, allowing to see some things hiding
+      behind large icons.
+  TheGreyWolf:
+  - bugfix: Rags can now clean bowls properly.
+  - rscadd: The medical records can now see and edit blood types.
+  - rscadd: Medhuds now show blood types of people that are examined, based on their
+      medical record.
+  - rscadd: Added crate shelves.
+  - rscadd: Remapped the warehouse to fit the crate shelves.
+  - rscadd: Corporate liaisons can now force holocalls.
+  TheGreyWolf, Tomixcomics:
+  - rscadd: The commissary now has specific storage shelves for smokes, clothes, toys
+      and food and drinks.
+  - rscadd: The commissary has acquired a cash register to handle transactions with.
+  - rscadd: The quik-pay can now add items by clicking on them while unlocked.
+  - bugfix: The quik-pay can now remove items that has been input on it.
+  hazelmouse:
+  - bugfix: Added missing firedoors to bar maintenance.
+  - bugfix: Removed a stacked flag on the bar wall.
+  - rscadd: Slightly reorganised the contents of the bar and bar maintenance.
+  - rscadd: Added mouthwash and toothpaste to the exotic drinks crate.
+  nauticall:
+  - bugfix: Fixed some small graphical bugs relating to boxes.
+  - imageadd: Colorized some boxes to take advantage of the box colorization update.
+2025-11-05:
+  Batrachophrenoboocosmomachia, SleepyGemmy:
+  - qol: Hugely expands the Horizon's maints and adjusts/expands much of the aft of
+      the ship.
+  - rscadd: Adds a new Vault to Horizon (Deck 3 aft, behind the Gym).
+  - rscdel: Removes Xenobiology Hazardous Specimens compartment.
+  - rscdel: Removes Medical Emergency Storage compartment.
+  - spellcheck: Replaces a few mentions of 'room' with 'compartment.'
+  - spellcheck: Renames the Bridge Break Room to Bridge Wardroom.
+  - spellcheck: Renames the Kitchen to the Galley.
+  - spellcheck: Renames the Dining Hall to the Mess Hall.
+  - spellcheck: Renames each Washroom to the Head.
+  - bugfix: Fixes custodians not having access to the engineering meeting room maintenance
+      doors.
+  - bugfix: Fixes custodians not having access to the library maintenance door.
+  - bugfix: Fixes the main maintenance door behind the commissary not having the regular
+      maintenance access along its other access requirements.
+  - bugfix: Adds a light to the hallway outside the commissary.
+  - bugfix: Fixes telecomms requiring both engineering and atmospherics access instead
+      of either.
+  MattAtlas (porting), CM and /tg/ coders (original code):
+  - experiment: Replaced our renderer system with TG and CM's planemasters.
+  - rscadd: Open space now has a gaussian blur filter.
+  - bugfix: Fixed esoteric smoothing behaviour that was a bug for a long time; lattices
+      should no longer smooth with nothing.
+  MattAtlas (porting), TiviPlus, A-lexa, Synclt21, Azarak, harryob, MorrowWolf, Zonespace (code):
+  - experiment: Replaced our lighting engine with CM's. There may be bugs!
+2025-11-06:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Updates lights in several areas to look better with the new lighting system
+      (based on test merge).
+  - bugfix: Replaces flooring with plating beneath a grate in D1 maints.
+  - bugfix: Updates area assignment in D3 maints.
+  - bugfix: Moves gas canisters out of the way of the door in D1 combustion turbine
+      maints (whoops!)
+  - bugfix: More tightly restricted access on server hall maints door (also names
+      it correctly.)
+  - bugfix: Gives machine shop a bit better window coverage.
+  - bugfix: Changes location of a door in D3 Civilian Substation.
+  - bugfix: Replaces missing recharger in Sec.
+  - bugfix: Untangled a few crossed air vents/pumps.
+  - bugfix: Fixed a disposals link when routing parcels from certain locations to
+      others.
+  - bugfix: Fixed dirty wiring vars.
+  FlamingLily:
+  - rscadd: Added one (1) light to the Hydroponics bay. (Also switches the fuel tank
+      and the biogenerator to make the light a little less out of place).
+2025-11-07:
+  Hellfirejag:
+  - rscadd: Added a 'Gravity Adaptations' bioaug as a new loadout item available to
+      Galatean Off-Worlders. These work similarly to hardsuits and legbraces by protecting
+      the character from gravity sickness.
+  - rscadd: Gravity Adaptations can also be bought in antag uplinks.
+  - refactor: Refactored Off-worlder gravity weakness to use the new COMSIG_GRAVITY_WEAKNESS_EVENT
+      signal, so that more things can interact with it without needing to be hardcoded.
+2025-11-11:
+  FlamingLily:
+  - rscadd: Adds beer, soda, and zo'ra yoke cans to the maints spawn pool (which includes
+      cargo spawns)
+  Hellfirejag:
+  - bugfix: Fixed sanitization for writing names on takeaway cups.
+  Merlin1230:
+  - spellcheck: Changes some mentions of Jargon into Nralakk or some abbreviation.
+  TheGreyWolf:
+  - bugfix: Fixed the quikpay and cash register's ability to remove items from the
+      buying list.
+  - rscadd: The investigation office had a second desk added and a couple of items
+      in the forensic lab were moved around.
+  - rscadd: The weapon crate in evidence storage now has a lock.
+  - qol: The interrogation room is now next to the investigation office.
+  arrow768:
+  - server: Changed the PRISM Subsystem to use the new DBCore
+  - server: Changed the Cargo Subsystem to use the new DBCore
+  hazelmouse:
+  - rscadd: Several offships now render starlight more properly in their exterior
+      areas.
+  nauticall:
+  - rscadd: The sleeper can now dialyze alcohol from an intoxicated patient, albeit
+      slowly. Decreases BAC by about 0.05 per minute (~0.1 per 2 minutes).
+  - balance: Ethylredoxrazine has been buffed to now decrease BAC by about 0.07-0.08
+      every minute (0.1 every ~1.2 minutes).
+2025-11-12:
+  Batrachophrenoboocosmomachia:
+  - spellcheck: Renames 'gibber' to 'autobutcher'.
+  - code_imp: Cleans up a lot of old autobutcher code.
+  - code_imp: Simplifies and unifies a lot of circuit board naming code.
+  - code_imp: Updates various code comments to DMDocs format.
+  - balance: Slightly increased damage of beating someone with a ladder.
+  - bugfix: Fixes foreign speech displaying the translated versions in langchat for
+      non-fluent listeners.
+  - bugfix: Fixes whispered speech langchat; whispers are now correctly italicized.
+  - bugfix: Fixes shouted speech langchat; shouts are now correctly biggified.
+  - bugfix: Adds missing Omni Gas Mixer, Gas Meter options from RFD-P.
+  - bugfix: Adds missing circuit boards for bioballistic delivery system, lysis-isolation
+      centrifuge, and autobutcher to allow for construction and deconstruction.
+  - bugfix: Fixes empty algae chips bag having description set for its name.
+  - bugfix: Adds fallback_specific_heat values to several reagents that were missing
+      them.
+  - bugfix: Fixes antimateriel projectiles being erroneously damage-capped when hitting
+      walls.
+  - bugfix: Fixes laser beam effects not using the base colors of their beam VFX.
+  - qol: Added helpful feedback hint to move closer when someone speaks aloud within
+      4 tiles while you're in vacuum (as features go, this one felt more like a bug
+      to experience).
+  - qol: Updated various examine hints.
+  FabianK3:
+  - rscadd: Added a storage maintenance room behind the atmos locker room.
+  - qol: Refactoring of multiple places after aft remap changes.
+  TheGreyWolf:
+  - bugfix: Papers no longer show their message twice when examined.
+  - bugfix: The slide projector projections can now be examined again.
+  Tomixcomics:
+  - rscadd: Added cream cheese to the game.
+  - rscadd: Added multiple new recipes to the game.
+  - rscadd: Added 2 new beer types to the game.
+  - rscadd: Added a selection of beer bottles to the Booze-o-mat.
+  - qol: Changed some recipes around to include cream cheese instead of cheese blocks.
+  arrow768:
+  - server: Changed the Statistics Subsystem to use the new DBCore
+  nauticall:
+  - rscadd: Added the Orion Miner, a mining mega-shuttle for use by crew who want
+      to just mine.
+  - refactor: Ore processing machine code has been slightly streamlined to remove
+      redundancy and retain functionality even when moved (i.e. with shuttles).
+  - imageadd: Resprited the slimline stabilization kit to be more compact.
+  - experiment: Increases shuttle max size standards to 44 x 20. Reflected in guidelines_shuttles.dmm.
+  - rscadd: Increases landing zone sizes for Odyssey away sites to 44 x 20.
+2025-11-14:
+  Batrachophrenoboocosmomachia:
+  - balance: Reduces the total quantity of hazards spawned on the overmap to reduce
+      general transit time (fewer dead ends, etc.)
+  - balance: Reduces the advanced warning time of Comet Expulsion event from 60s ->
+      20s.
+  - balance: Modifies the likelihood of certain hazards being movable as well as their
+      relative speeds.
+  - bugfix: Removes duplicated 'meteor wave' announcement procing when ship encounters/exits
+      dust belts.
+  - qol: Updates meteor impact warning text to be more impactful now that primary
+      cause of false positives is removed.
+  - qol: Lowers volume of Comet Expulsion Event announcement sound to reduce incidents
+      of ears bleeding.
+  ElorgRHG:
+  - bugfix: Fixes some Zo'ra soda cans not having a crushed can sprite.
+  TheGreyWolf:
+  - bugfix: Fixed the interrogation intercom and readded the missing sharps box to
+      the forensic lab.
+2025-11-15:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Removes duplicate Engineering Hard Storage shutters button.
+  - bugfix: Removes duplicate Warehouse shutters button.
+  - bugfix: Fixes location and pixel shift of D3 elevator hazard sign.
+  - bugfix: Shifts several overlapping wall objects.
+  - bugfix: Shifts several vent/scrubber objects.
+  - bugfix: Slight EVA compartment adjustments.
+  - bugfix: Slight Xenoarchaeology Storage compartment adjustments.
+  - bugfix: Improves lighting in Shield Generator compartment.
+  - bugfix: Fixes Spark cargo bay doors being atmos-impermeable (thus screwing with
+      the airlock sensor).
+  - bugfix: Lights in rooms with light switches now correctly toggle on automatically
+      at round start if a character joins the round in one.
+  - rscadd: Adds light switches to many rooms that were missing them.
+  - code_imp: Adds directional variants for light switches for easier mapping.

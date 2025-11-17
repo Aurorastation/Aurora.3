@@ -815,7 +815,7 @@
 	description = "Ethylredoxrazine is a powerful medication which oxidises ethanol in the bloodstream, reducing the burden on the liver to complete this task. Ethylredoxrazine also blocks the reuptake of neurotransmitters responsible for symptoms of alcohol intoxication."
 	reagent_state = SOLID
 	color = "#605048"
-	metabolism = REM * 0.3
+	metabolism = REM
 	overdose = REAGENTS_OVERDOSE
 	scannable = TRUE
 	taste_description = "bitterness"
@@ -1641,7 +1641,7 @@
 /singleton/reagent/rezadone/affect_chem_effect(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	. = ..()
 	if(.)
-		M.add_chemical_effect(CE_ORGANREPAIR, 1)
+		M.add_chemical_effect(CE_ORGANREPAIR, 2)
 		M.add_chemical_effect(CE_BLOODRESTORE, 15)
 
 /singleton/reagent/rezadone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
@@ -1674,7 +1674,7 @@
 /singleton/reagent/sanasomnum/affect_chem_effect(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	. = ..()
 	if(.)
-		M.add_chemical_effect(CE_ORGANREPAIR, 20)
+		M.add_chemical_effect(CE_ORGANREPAIR, 40)
 		M.add_chemical_effect(CE_BLOODRESTORE, 15)
 		M.add_chemical_effect(CE_BLOODCLOT, 15)
 		M.add_chemical_effect(CE_BRAIN_REGEN, 20)
@@ -2031,6 +2031,7 @@
 	metabolism = REM*0.0001
 	scannable = TRUE
 	taste_description = "pure death"
+	fallback_specific_heat = 1
 
 /singleton/reagent/antibodies/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
 	. = ..()
@@ -2042,7 +2043,8 @@
 			Z.curing = TRUE
 			to_chat(M, SPAN_WARNING("Your [E.name] tightens, pulses, and squirms as \the [Z] fights back against the antibodies!"))
 
-/singleton/reagent/caffeine // Copied from Hyperzine
+/// Copied from Hyperzine
+/singleton/reagent/caffeine
 	name = "Caffeine"
 	description = "Caffeine is a central nervous system stimulant found naturally in many plants. It's used as a mild cognitive enhancer to increase alertness, attentional performance, and improve cardiovascular health."
 	reagent_state = SOLID
@@ -2053,6 +2055,7 @@
 	taste_description = "bitter"
 	metabolism_min = REM * 0.025
 	breathe_met = REM * 0.15 * 0.5
+	fallback_specific_heat = 1
 
 /singleton/reagent/caffeine/initial_effect(mob/living/carbon/M, alien, datum/reagents/holder)
 	. = ..()
