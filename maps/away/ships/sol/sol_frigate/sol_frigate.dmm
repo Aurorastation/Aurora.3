@@ -1144,8 +1144,7 @@
 /area/ship/sol_frigate/hallway_fore)
 "eT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5;
-	icon_state = "intact"
+	dir = 5
 	},
 /turf/simulated/wall/shuttle/raider,
 /area/ship/sol_frigate/starboard_thrusters)
@@ -1713,8 +1712,7 @@
 /area/ship/sol_frigate/hallway_mid)
 "hB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5;
-	icon_state = "intact"
+	dir = 5
 	},
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
@@ -1735,8 +1733,7 @@
 /area/ship/sol_frigate/cic)
 "hG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9;
-	icon_state = "intact"
+	dir = 9
 	},
 /turf/simulated/wall/shuttle/raider,
 /area/ship/sol_frigate/port_thrusters)
@@ -3393,8 +3390,7 @@
 /area/ship/sol_frigate/starboard_gunnery)
 "oY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5;
-	icon_state = "intact"
+	dir = 5
 	},
 /turf/simulated/wall/shuttle/raider,
 /area/ship/sol_frigate/port_thrusters)
@@ -6730,8 +6726,7 @@
 	pixel_y = -32
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9;
-	icon_state = "intact"
+	dir = 9
 	},
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
@@ -7399,8 +7394,7 @@
 /area/ship/sol_frigate/bunks)
 "Io" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5;
-	icon_state = "intact"
+	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -9233,8 +9227,7 @@
 	id = "solfrigate_aft_shutters"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5;
-	icon_state = "intact"
+	dir = 5
 	},
 /obj/machinery/door/airlock/external,
 /obj/machinery/door/blast/shutters/open{
@@ -10667,8 +10660,7 @@
 /area/ship/sol_frigate/starboard_gunnery)
 "Yi" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9;
-	icon_state = "intact"
+	dir = 9
 	},
 /turf/simulated/wall/shuttle/raider,
 /area/ship/sol_frigate/starboard_thrusters)
