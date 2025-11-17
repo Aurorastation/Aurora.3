@@ -103,10 +103,12 @@ ABSTRACT_TYPE(/datum/computer_file/program)
 		crash_with("Comp was not sent for [src.filename]")
 
 /datum/computer_file/program/Destroy()
-	if(!QDELETED(computer))
+	if(computer)
 		computer.idle_threads -= src
 		computer.enabled_services -= src
-		set_computer(null)
+		UnregisterSignal(computer, COMSIG_QDELETING)
+	computer = null
+
 	. = ..()
 	GC_TEMPORARY_HARDDEL
 
