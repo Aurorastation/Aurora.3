@@ -873,16 +873,18 @@
 		'sound/machines/steam_pipe4.ogg'
 	)
 
-/singleton/sound_category/bear_loud
-	sounds = list(
+/datum/sound_effect/bear_loud
+	key = SFX_ANIMAL_BEAR
+	file_paths = list(
 		'sound/effects/creatures/bear_loud_1.ogg',
 		'sound/effects/creatures/bear_loud_2.ogg',
 		'sound/effects/creatures/bear_loud_3.ogg',
 		'sound/effects/creatures/bear_loud_4.ogg'
 	)
 
-/singleton/sound_category/robot_talk
-	sounds = list(
+/datum/sound_effect/robot_talk
+	key = SFX_ROBOT_TALK
+	file_paths = list(
 		'sound/effects/creatures/robot_talk_1.ogg',
 		'sound/effects/creatures/robot_talk_2.ogg'
 	)

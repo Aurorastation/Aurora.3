@@ -17,17 +17,17 @@
 	newscast = do_newscast
 	print = do_print
 
-/datum/announcement/priority/New(var/do_log = TRUE, var/new_sound = 'sound/misc/announcements/notice.ogg', var/do_newscast = TRUE, var/do_print = FALSE)
+/datum/announcement/priority/New(var/do_log = TRUE, var/new_sound = 'sound/ai/announcements/notice.ogg', var/do_newscast = TRUE, var/do_print = FALSE)
 	..(do_log, new_sound, do_newscast, do_print)
 	title = "Priority Announcement"
 	announcement_type = "Priority Announcement"
 
-/datum/announcement/priority/command/New(var/do_log = TRUE, var/new_sound = 'sound/misc/announcements/notice.ogg', var/do_newscast = FALSE, var/do_print = FALSE)
+/datum/announcement/priority/command/New(var/do_log = TRUE, var/new_sound = 'sound/ai/announcements/notice.ogg', var/do_newscast = FALSE, var/do_print = FALSE)
 	..(do_log, new_sound, do_newscast, do_print)
 	title = "[SSatlas.current_map.boss_name] Update"
 	announcement_type = "[SSatlas.current_map.boss_name] Update"
 
-/datum/announcement/priority/security/New(var/do_log = TRUE, var/new_sound = 'sound/misc/announcements/notice.ogg', var/do_newscast = TRUE, var/do_print = FALSE)
+/datum/announcement/priority/security/New(var/do_log = TRUE, var/new_sound = 'sound/ai/announcements/notice.ogg', var/do_newscast = TRUE, var/do_print = FALSE)
 	..(do_log, new_sound, do_newscast, do_print)
 	title = "Security Announcement"
 	announcement_type = "Security Announcement"

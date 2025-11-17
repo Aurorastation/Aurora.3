@@ -93,6 +93,7 @@
  * Used with /datum/sound_effect as the key.
  * See also 'code\game\sound\sound_keys\sound_keys.dm'
  */
+#define SFX_ANIMAL_BEAR "animal_bear"
 #define SFX_ARCADE "arcade"
 #define SFX_BODYFALL "bodyfall"
 #define SFX_BODYFALL_MACHINE "bodyfall_machine"
@@ -165,6 +166,7 @@
 #define SFX_RELOAD_RIFLE_SLIDE "reload_rifle_slide"
 #define SFX_RELOAD_SHOTGUN "reload_shotgun"
 #define SFX_RIP "rip"
+#define SFX_ROBOT_TALK "robot_talk"
 #define SFX_RUSTLE "rustle"
 #define SFX_SCREWDRIVER "screwdriver"
 #define SFX_SHAKER_LID_OFF "shaker_lid_off"
