@@ -63,6 +63,11 @@
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		H.apply_radiation(5)
+	STOP_PROCESSING(SSprocessing, src)
+
+/obj/effect/decal/cleanable/greenglow/radioactive/Initialize()
+	. = ..()
+	START_PROCESSING(SSprocessing, src)
 
 /obj/effect/decal/cleanable/greenglow/radioactive/process()
 	SSradiation.radiate(src, 25)

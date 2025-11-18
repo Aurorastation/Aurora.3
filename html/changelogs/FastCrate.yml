@@ -1,7 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - rscadd: "Crates now takes half as long to hoist up on tables."
-  - rscadd: "Crates now have a message when put on a table."
