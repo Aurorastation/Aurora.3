@@ -1,7 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - rscadd: "The price scanner is now gold colored."
-  - rscadd: "The destination tagger now fits in the toolbelt."

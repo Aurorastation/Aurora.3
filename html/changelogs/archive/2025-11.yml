@@ -274,3 +274,35 @@
   Mynameasjeff:
   - rscadd: Adds the Solarian Frigate. That's it, really. Thank you to Kato-dot, Hazelrat,
       and all the other lovely people who made this project possible!
+2025-11-18:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Fixes variable typing oversight that caused events to fire in the absence
+      of any players.
+  - qol: Modifies light switch behavior to be default on, with some area types (private
+      offices, washrooms, etc.) manually set off.
+  - rscadd: Adds lights switches to a few areas missing them.
+  - rscdel: Removes light switches from a few hallways.
+  Greenjoe:
+  - rscadd: Adds the medical patient gown to the loadout, locked to offduty and passengers
+      only.
+  - imageadd: Replaces the sprite of the medical gown with one from Bay. Two new colors
+      are also added.
+  Hellfirejag:
+  - bugfix: Removed a hard delete from modular computers.
+  Kano:
+  - bugfix: Fixed lesser abominations turning invisible upon getting hit by melee
+      weapons.
+  Nalarac:
+  - bugfix: Fixed access requirement to science server room.
+  TheGreyWolf:
+  - rscadd: The price scanner is now gold colored.
+  - rscadd: The destination tagger now fits in the toolbelt.
+  - rscadd: The commissary now has a crate shelf and a labeler, and the crate with
+      bags was moved into the commissary itself.
+  - bugfix: Several types of earwear, such as headphones, are no longer invisible
+      on the taj mob sprite.
+  - rscadd: Papers printed from consoles now try to put it in the hand before putting
+      it on the floor.
+  - bugfix: Crate scanners no longer work on crates on crate shelves.
+  WickedCybs:
+  - rscadd: Added Sheperd's custom item.
