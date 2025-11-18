@@ -5497,7 +5497,7 @@
 /obj/random/suit,
 /obj/item/clothing/under/suit_jacket/tan,
 /obj/item/clothing/suit/storage/toggle/labcoat,
-/obj/item/clothing/suit/storage/toggle/labcoat/science,
+/obj/item/clothing/suit/storage/toggle/labcoat,
 /obj/machinery/power/apc/north{
 	req_access = null
 	},

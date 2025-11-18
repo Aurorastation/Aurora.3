@@ -300,6 +300,26 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("toasty dough" = 2))
 	bitesize = 1
 
+/obj/item/reagent_containers/food/snacks/bagel/cream_cheese
+	name = "cream cheese bagel"
+	desc = "Oy Gevalt, you put a little bit of shmear and call this a bagel? Where's the smoked salmon? No, it's fine, it's fine, I'll eat it like this..."
+	icon = 'icons/obj/item/reagent_containers/food/bread.dmi'
+	icon_state = "creamcheese_bagel"
+	filling_color = "#e9e8e6"
+	reagents_to_add = list(/singleton/reagent/nutriment = 2)
+	reagent_data = list(/singleton/reagent/nutriment = list("toasty dough" = 2))
+	bitesize = 1
+
+/obj/item/reagent_containers/food/snacks/bagel/smoked_salmon
+	name = "smoked salmon bagel"
+	desc = "What, you call this fakakta thing a smoked salmon bagel? What, is there a shortage? Be a mensch and put some more on there, will ya?"
+	icon = 'icons/obj/item/reagent_containers/food/bread.dmi'
+	icon_state = "salmon_bagel"
+	filling_color = "#d16246"
+	reagents_to_add = list(/singleton/reagent/nutriment = 2)
+	reagent_data = list(/singleton/reagent/nutriment = list("toasty dough" = 2))
+	bitesize = 1
+
 /obj/item/reagent_containers/food/snacks/cracker
 	name = "cracker"
 	desc = "It's a salted cracker."
@@ -389,6 +409,21 @@
 	contained_sprite = TRUE
 	trash = /obj/item/trash/plate
 	filling_color = "#B572AB"
+	center_of_mass = list("x"=16, "y"=8)
+	reagents_to_add = list(/singleton/reagent/nutriment = 1)
+	reagent_data = list(/singleton/reagent/nutriment = list("toasted bread" = 2))
+	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/cream_cheese_toast
+	name = "cream cheese toast"
+	desc = "Part of this complete breakfast."
+	icon = 'icons/obj/item/reagent_containers/food/bread.dmi'
+	icon_state = "creamcheesetoast"
+	item_state = "toast"
+	slot_flags = SLOT_MASK
+	contained_sprite = TRUE
+	trash = /obj/item/trash/plate
+	filling_color = "#ffffff"
 	center_of_mass = list("x"=16, "y"=8)
 	reagents_to_add = list(/singleton/reagent/nutriment = 1)
 	reagent_data = list(/singleton/reagent/nutriment = list("toasted bread" = 2))

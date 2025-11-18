@@ -430,6 +430,7 @@
 /obj/machinery/light/skrell{
 	dir = 1
 	},
+/obj/structure/closet/secure_closet/freezer/kois/spores,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/tirakqi_smuggler/cargo)
 "ds" = (

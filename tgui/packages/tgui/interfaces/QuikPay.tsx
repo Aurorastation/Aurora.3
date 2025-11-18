@@ -32,12 +32,22 @@ export const QuikPay = (props, context) => {
         <Section
           title="Ordering"
           buttons={
-            <Button
-              content={data.editmode ? 'Unlocked' : 'Locked'}
-              color={data.editmode ? 'bad' : ''}
-              icon={data.editmode ? 'lock-open' : 'lock'}
-              onClick={() => act('locking')}
-            />
+            <>
+              <Button
+                content={data.editmode ? 'Unlocked' : 'Locked'}
+                color={data.editmode ? 'bad' : ''}
+                icon={data.editmode ? 'lock-open' : 'lock'}
+                onClick={() => act('locking')}
+              />
+              {data.editmode ? (
+                <Button
+                  content="Select Account"
+                  icon="check"
+                  color={data.sum ? 'good' : ''}
+                  onClick={() => act('accountselect')}
+                />
+              ) : null}
+            </>
           }>
           {data.editmode ? <AddItems /> : ''}
           {data.items.length < 1 ? 'No items available.' : <ItemWindow />}
@@ -59,10 +69,19 @@ export const ItemWindow = (props, context) => {
             <Button
               content="Buy"
               icon="calendar"
-              onClick={(e, value) =>
-                act('buy', { buying: item.name, amount: 1 })
-              }
+              onClick={() => act('buy', { buying: item.name, amount: 1 })}
             />
+            {data.editmode ? (
+              <>
+                &nbsp;
+                <Button
+                  content="Delete"
+                  icon="trash"
+                  color="bad"
+                  onClick={() => act('remove', { removing: item.name })}
+                />
+              </>
+            ) : null}
           </LabeledList.Item>
         ))}
       </LabeledList>
