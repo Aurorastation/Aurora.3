@@ -6,4 +6,4 @@ changes:
   - rscadd: "Added a newscaster to the engineering hallway."
   - rscadd: "Added a power outlet to the table in the brig."
   - bugfix: "Fixed science notice board being visible in the maint behind it."
-  - rscdel: "Generic minor map cleanup."
+  - rscadd: "Generic minor map cleanup."
