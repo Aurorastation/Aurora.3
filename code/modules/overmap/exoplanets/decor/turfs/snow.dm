@@ -16,8 +16,9 @@
 
 /turf/simulated/floor/exoplanet/snow/Initialize()
 	. = ..()
-	pixel_x = -4
-	pixel_y = -4
+	var/matrix/M = new
+	M.Translate(-4, -4)
+	transform = M
 	icon_state = pick("snow[rand(1,2)]","snow0","snow0")
 	QUEUE_SMOOTH_NEIGHBORS(src)
 	QUEUE_SMOOTH(src)

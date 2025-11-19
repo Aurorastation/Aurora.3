@@ -55,6 +55,7 @@
 	name = "Commissary"
 	horizon_deck = 2
 	area_blurb = "Even here, all the way out into the depths of space, retail work is found. The commissary room is eerily bare when not run— with empty shelves being such a rarity in the 25th century for most worlds, seeing them here is almost unnatural. Where are your treats?"
+	lightswitch = FALSE
 
 /area/horizon/operations/secure_ammunition_storage
 	name = "Secure Ammunitions Storage"
@@ -83,6 +84,7 @@
 
 /area/horizon/hangar/control
 	name = "Hangar Control Room"
+	holomap_color = HOLOMAP_AREACOLOR_COMMAND
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/horizon/hangar/intrepid
@@ -95,6 +97,7 @@
 
 /area/horizon/hangar/operations
 	name = "Starboard Auxiliary Hangar"
+	holomap_color = HOLOMAP_AREACOLOR_OPERATIONS
 	area_blurb = "A big, open room, home to the SCCV Horizon's mining shuttle, the Spark."
 	area_blurb_category = "hanger"
 
@@ -145,6 +148,7 @@
 	horizon_deck = 3
 	area_blurb = "One of the SCCV Horizon's daunting weapons bays."
 	department = LOC_COMMAND
+	lightswitch = FALSE
 
 /area/horizon/weapons/grauwolf
 	name = "Grauwolf Weapon System"
@@ -155,11 +159,13 @@
 	horizon_deck = 2
 	area_blurb = "One of the SCCV Horizon's daunting weapons bays."
 	department = LOC_COMMAND
+	lightswitch = FALSE
 
 /// STORAGE_AREAS
 /area/horizon/storage
 	name = "Storage (PARENT AREA - DON'T USE)"
 	department = LOC_CREW
+	lightswitch = FALSE
 
 /area/horizon/storage/primary
 	name = "Primary Tool Storage"
@@ -182,10 +188,19 @@
 	department = LOC_SCIENCE
 
 /// THE VAAAAAAUULLT
-/area/horizon/storage/secure
-	name = "Secure Storage"
+/area/horizon/storage/secure/ops_vault
+	name = "Secure Operational Storage"
 	icon_state = "storage"
 	horizon_deck = 2
+	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
+	department = LOC_COMMAND
+	area_blurb = "A place not to be visited unless things are going either horribly wrong or horribly right."
+
+/// THE VAAAAAAUULLT
+/area/horizon/storage/secure/tech_vault
+	name = "Secure Technical Storage"
+	icon_state = "storage"
+	horizon_deck = 3
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 	department = LOC_COMMAND
 	area_blurb = "A place not to be visited unless things are going either horribly wrong or horribly right."

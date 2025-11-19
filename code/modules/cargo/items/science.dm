@@ -5,7 +5,7 @@
 	description = "Drymate brand stok cubes, shipped from Moghes. Just add water!"
 	price = 250
 	items = list(
-		/obj/item/storage/box/monkeycubes/stokcubes
+		/obj/item/storage/box/unique/monkeycubes/stokcubes
 	)
 	access = 0
 	container_type = "crate"
@@ -19,7 +19,7 @@
 	description = "Drymate brand vkrexi cubes. Just add water!"
 	price = 250
 	items = list(
-		/obj/item/storage/box/monkeycubes/vkrexicubes
+		/obj/item/storage/box/unique/monkeycubes/vkrexicubes
 	)
 	access = 0
 	container_type = "crate"
@@ -33,7 +33,7 @@
 	description = "Drymate brand farwa cubes, shipped from Adhomai. Just add water!"
 	price = 250
 	items = list(
-		/obj/item/storage/box/monkeycubes/farwacubes
+		/obj/item/storage/box/unique/monkeycubes/farwacubes
 	)
 	access = 0
 	container_type = "crate"
@@ -47,7 +47,7 @@
 	description = "Drymate brand monkey cubes. Just add water!"
 	price = 250
 	items = list(
-		/obj/item/storage/box/monkeycubes
+		/obj/item/storage/box/unique/monkeycubes
 	)
 	access = 0
 	container_type = "crate"
@@ -58,10 +58,10 @@
 	category = "science"
 	name = "neaera cube box"
 	supplier = "nanotrasen"
-	description = "Drymate brand neaera cubes, shipped from Jargon 4. Just add water!"
+	description = "Drymate brand neaera cubes, shipped from Nralakk IV. Just add water!"
 	price = 250
 	items = list(
-		/obj/item/storage/box/monkeycubes/neaeracubes
+		/obj/item/storage/box/unique/monkeycubes/neaeracubes
 	)
 	access = 0
 	container_type = "crate"

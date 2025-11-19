@@ -15,6 +15,9 @@
 	var/active_emissive = FALSE
 	var/list/possible_modifications = list("Normal","Assisted","Mechanical") //this is used in the character setup
 
+	/// The amount all organs heal themselves by per second when not being affected by chems.
+	var/organ_self_heal_per_second = 0.2
+
 	min_broken_damage = 10 //Internal organs are frail, man.
 
 /obj/item/organ/internal/Destroy()
@@ -145,8 +148,17 @@
 
 /obj/item/organ/internal/process(seconds_per_tick)
 	..()
-	if(istype(owner) && (toxin_type in owner.chem_effects))
+	if(!owner)
+		return
+
+	if(owner.stasis_value > 0)
+		// Putting a body in stasis will simultaneously slow down the rate at which organs die
+		// while also slowing down the rate at which they are healed.
+		seconds_per_tick /= owner.stasis_value
+
+	if(toxin_type in owner.chem_effects)
 		take_damage(owner.chem_effects[toxin_type] * seconds_per_tick)
+
 	handle_regeneration(seconds_per_tick)
 	tick_surge_damage() //Yes, this is intentional.
 
@@ -155,7 +167,7 @@
 	if(!damage || BP_IS_ROBOTIC(src) || !istype(owner) || owner.is_asystole() || (owner.chem_effects[CE_TOXIN] || (toxin_type in owner.chem_effects)))
 		return FALSE
 
-	var/repair_modifier = owner.chem_effects[CE_ORGANREPAIR] || 0.1
+	var/repair_modifier = owner.chem_effects[CE_ORGANREPAIR] || organ_self_heal_per_second
 	if(damage < repair_modifier*max_damage)
-		heal_damage(repair_modifier)
+		heal_damage(repair_modifier * seconds_per_tick)
 	return TRUE // regeneration is allowed

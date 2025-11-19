@@ -6,6 +6,7 @@
 	horizon_deck = 3
 	area_blurb = "One of the SCCV Horizon's very expensive holodecks."
 	department = LOC_CREW
+	lightswitch = FALSE
 
 /area/horizon/holodeck_control/beta
 	name = "Holodeck Beta"
@@ -15,7 +16,7 @@
 	icon_state = "Holodeck"
 	sound_environment = SOUND_AREA_LARGE_ENCLOSED
 	no_light_control = TRUE
-	dynamic_lighting = FALSE
+	base_lighting_alpha = 255
 	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_NO_GHOST_TELEPORT_ACCESS
 	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
 	horizon_deck = 3
@@ -24,11 +25,11 @@
 
 /area/horizon/holodeck/alphadeck
 	name = "Holodeck Alpha"
-	dynamic_lighting = TRUE
+	base_lighting_alpha = 0
 
 /area/horizon/holodeck/betadeck
 	name = "Holodeck Beta"
-	dynamic_lighting = TRUE
+	base_lighting_alpha = 0
 
 /area/horizon/holodeck/source_plating
 	name = "Holodeck - Off"

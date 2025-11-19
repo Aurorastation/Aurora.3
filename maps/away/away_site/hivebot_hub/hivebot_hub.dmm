@@ -834,7 +834,7 @@
 	dir = 9
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/cart/storage/janitorialcart{
+/obj/structure/cart/storage/janitorialcart/full{
 	dir = 4
 	},
 /turf/simulated/floor/airless,
@@ -3294,7 +3294,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/crate,
-/obj/item/storage/box/shotgunammo,
+/obj/item/storage/box/shells/slugs,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/portdocks)
 "vW" = (
@@ -4256,8 +4256,8 @@
 	opened = 1
 	},
 /obj/item/gun/energy/disruptorpistol,
-/obj/item/storage/box/beanbags,
-/obj/item/storage/box/beanbags,
+/obj/item/storage/box/shells/beanbags,
+/obj/item/storage/box/shells/beanbags,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/bridge)
 "Co" = (

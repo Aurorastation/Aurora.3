@@ -15,7 +15,7 @@
 		SPECIES_SKRELL_AXIORI = 50
 	)
 
-	access = list(ACCESS_HYDROPONICS, ACCESS_BAR, ACCESS_KITCHEN)
+	access = list(ACCESS_HYDROPONICS, ACCESS_BAR, ACCESS_GALLEY)
 	minimal_access = list(ACCESS_BAR)
 	alt_titles = list("Barista")
 	outfit = /obj/outfit/job/bartender
@@ -62,8 +62,8 @@
 		SPECIES_SKRELL_AXIORI = 50
 	)
 
-	access = list(ACCESS_HYDROPONICS, ACCESS_BAR, ACCESS_KITCHEN)
-	minimal_access = list(ACCESS_KITCHEN)
+	access = list(ACCESS_HYDROPONICS, ACCESS_BAR, ACCESS_GALLEY)
+	minimal_access = list(ACCESS_GALLEY)
 	alt_titles = list("Cook")
 	outfit = /obj/outfit/job/chef
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
@@ -93,7 +93,7 @@
 	messengerbag_faction = /obj/item/storage/backpack/messenger/nt
 
 	backpack_contents = list(
-		/obj/item/storage/box/produce = 1
+		/obj/item/storage/box/large/produce = 1
 	)
 
 /datum/job/hydro
@@ -113,7 +113,7 @@
 		SPECIES_SKRELL_AXIORI = 50
 	)
 
-	access = list(ACCESS_HYDROPONICS, ACCESS_BAR, ACCESS_KITCHEN)
+	access = list(ACCESS_HYDROPONICS, ACCESS_BAR, ACCESS_GALLEY)
 	minimal_access = list(ACCESS_HYDROPONICS)
 	outfit = /obj/outfit/job/hydro
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)

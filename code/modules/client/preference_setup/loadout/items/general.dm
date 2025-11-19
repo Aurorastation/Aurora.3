@@ -172,14 +172,14 @@
 	display_name = "konyang-cha tins"
 	description = "Tins of tea leaves made by Konyang-cha."
 	cost = 1
-	path = /obj/item/storage/box/tea
+	path = /obj/item/storage/box/unique/tea
 
 /datum/gear/chatins/New()
 	..()
 	var/list/chatins = list()
-	chatins["sencha cha-tin"] = /obj/item/storage/box/tea
-	chatins["tieguanyin cha-tin"] = /obj/item/storage/box/tea/tieguanyin
-	chatins["jaekseol cha-tin"] = /obj/item/storage/box/tea/jaekseol
+	chatins["sencha cha-tin"] = /obj/item/storage/box/unique/tea
+	chatins["tieguanyin cha-tin"] = /obj/item/storage/box/unique/tea/tieguanyin
+	chatins["jaekseol cha-tin"] = /obj/item/storage/box/unique/tea/jaekseol
 	gear_tweaks += new /datum/gear_tweak/path(chatins)
 
 /datum/gear/teapots
@@ -497,3 +497,24 @@
 	description = "A pack of red candles."
 	cost = 1
 	path = /obj/item/storage/box/fancy/candle_box
+
+/datum/gear/mre
+	display_name = "mre selection"
+	description = "A selection of different MREs."
+	cost = 2
+	path = /obj/item/storage/box/fancy/mre
+
+/datum/gear/mre/New()
+	..()
+	var/list/mres = list()
+	mres["meat pizza"] = /obj/item/storage/box/fancy/mre
+	mres["margherita pizza"] = /obj/item/storage/box/fancy/mre/menu2
+	mres["vegetable pizza"] = /obj/item/storage/box/fancy/mre/menu3
+	mres["hamburger"] = /obj/item/storage/box/fancy/mre/menu4
+	mres["taco"] = /obj/item/storage/box/fancy/mre/menu5
+	mres["meatbread"] = /obj/item/storage/box/fancy/mre/menu6
+	mres["salad"] = /obj/item/storage/box/fancy/mre/menu7
+	mres["hot chili"] = /obj/item/storage/box/fancy/mre/menu8
+	mres["boiled rice"] = /obj/item/storage/box/fancy/mre/menu9
+	mres["protein"] = /obj/item/storage/box/fancy/mre/menu10
+	gear_tweaks += new /datum/gear_tweak/path(mres)

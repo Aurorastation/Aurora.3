@@ -3661,7 +3661,7 @@
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = -11
 	},
@@ -5382,9 +5382,9 @@
 /obj/item/ammo_magazine/c762,
 /obj/item/ammo_magazine/c762,
 /obj/item/gun/projectile/shotgun/pump,
-/obj/item/storage/box/shotgunshells,
-/obj/item/storage/box/flashshells,
-/obj/item/storage/box/beanbags,
+/obj/item/storage/box/shells/buckshot,
+/obj/item/storage/box/shells/flashshells,
+/obj/item/storage/box/shells/beanbags,
 /obj/item/gun/projectile/automatic/tommygun,
 /obj/item/ammo_magazine/submachinemag,
 /obj/item/ammo_magazine/submachinemag,

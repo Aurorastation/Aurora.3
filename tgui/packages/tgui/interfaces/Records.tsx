@@ -11,6 +11,7 @@ export type RecordsData = {
   physical_status_options: string[];
   criminal_status_options: string[];
   mental_status_options: string[];
+  blood_type_options: string[];
   medical_options: string[];
 
   authenticated: BooleanLike;
@@ -33,7 +34,7 @@ type Record = {
   age: string;
   fingerprint: string;
   has_notes: string;
-  blood: string;
+  blood_dna: string;
   dna: string;
   physical_status: string;
   mental_status: string;
@@ -190,6 +191,11 @@ export const ListActive = (props, context) => {
   const [editingMentalStatus, setEditingMentalStatus] = useLocalState<boolean>(
     context,
     'editingMentalStatus',
+    false
+  );
+  const [editingBloodType, setEditingBloodType] = useLocalState<boolean>(
+    context,
+    'editingBloodType',
     false
   );
   const [editingFingerprint, setEditingFingerprint] = useLocalState<boolean>(
@@ -476,6 +482,36 @@ export const ListActive = (props, context) => {
         </LabeledList.Item>
         {data.active.medical && recordTab === 'Medical' ? (
           <>
+            <LabeledList.Item label="Blood Type">
+              {data.editable & 1 || data.editable & 2 ? (
+                <Box>
+                  {editingBloodType ? (
+                    <Dropdown
+                      options={data.blood_type_options}
+                      displayText={data.active.medical.blood_type}
+                      selected={data.active.medical.blood_type}
+                      onSelected={(v) =>
+                        act('editrecord', {
+                          record_type: 'medical',
+                          key: 'blood_type',
+                          value: v,
+                        })
+                      }
+                    />
+                  ) : (
+                    <Box>
+                      {data.active.medical.blood_type}&nbsp;
+                      <Button
+                        icon="pencil-ruler"
+                        onClick={() => setEditingBloodType(true)}
+                      />
+                    </Box>
+                  )}
+                </Box>
+              ) : (
+                data.active.medical.blood_type
+              )}
+            </LabeledList.Item>
             <LabeledList.Item label="DNA">
               {data.editable & 2 ? (
                 <Box>

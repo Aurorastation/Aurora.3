@@ -1,3 +1,45 @@
+/singleton/cargo_item/cleanbot
+	category = "robotics"
+	name = "Cleanbot"
+	supplier = "hephaestus"
+	description = "A little cleaning robot, consisting of a bucket, a proximity sensor, and a prosthetic arm. It looks excited to clean!"
+	price = 175
+	items = list(
+		/mob/living/bot/cleanbot
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/farmbot
+	category = "robotics"
+	name = "Farmbot"
+	supplier = "hephaestus"
+	description = "The botanist's best friend. Various farming equipment seems haphazardly attached to it."
+	price = 220
+	items = list(
+		/mob/living/bot/farmbot
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/medibot
+	category = "robotics"
+	name = "Medibot"
+	supplier = "nanotrasen"
+	description = "A little medical robot. He looks somewhat underwhelmed."
+	price = 400
+	items = list(
+		/mob/living/bot/medbot
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
 /singleton/cargo_item/positronicbrain
 	category = "robotics"
 	name = "positronic brain"
@@ -121,6 +163,20 @@
 		/obj/item/robot_parts/chest/zenghu
 	)
 	access = ACCESS_ROBOTICS
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/nanopaste
+	category = "robotics"
+	name = "nanopaste"
+	supplier = "zeng_hu"
+	description = "A tube of paste containing swarms of repair nanites. Very effective in repairing robotic machinery."
+	price = 750
+	items = list(
+		/obj/item/stack/nanopaste
+	)
+	access = 0
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1

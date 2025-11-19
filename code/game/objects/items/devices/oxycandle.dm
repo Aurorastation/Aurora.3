@@ -11,15 +11,14 @@
 	var/on = FALSE
 	var/activation_sound = 'sound/items/flare.ogg'
 	light_color = LIGHT_COLOR_FLARE
-	uv_intensity = 50
-	var/brightness_on = 2 // Moderate bright.
+	light_range = 2 // Moderate bright.
 	light_power = 2
 	action_button_name = null
 
 /obj/item/device/oxycandle/attack_self(mob/user)
 	if(!on)
 		to_chat(user, SPAN_NOTICE("You pull the cord and [src] ignites."))
-		light_range = brightness_on
+		light_range = light_range
 		on = TRUE
 		update_icon()
 		playsound(src.loc, activation_sound, 75, 1)
@@ -65,7 +64,7 @@
 	if(on)
 		icon_state = "oxycandle_on"
 		item_state = icon_state
-		set_light(brightness_on)
+		set_light(light_range)
 	else
 		icon_state = "oxycandle"
 		item_state = icon_state

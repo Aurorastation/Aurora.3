@@ -34,6 +34,11 @@
 		/obj/item/reagent_containers/food/drinks/bottle/vermouth = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/chartreusegreen = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/guinness = 4,
+		/obj/item/reagent_containers/food/drinks/bottle/small/beer = 5,
+		/obj/item/reagent_containers/food/drinks/bottle/small/beer/light = 3,
+		/obj/item/reagent_containers/food/drinks/bottle/small/marienthal = 5,
+		/obj/item/reagent_containers/food/drinks/bottle/small/prince_pallav = 5,
+		/obj/item/reagent_containers/food/drinks/bottle/small/skrellbeerdyn = 3,
 		/obj/item/reagent_containers/food/drinks/bottle/absinthe = 2,
 		/obj/item/reagent_containers/food/drinks/bottle/bluecuracao = 2,
 		/obj/item/reagent_containers/food/drinks/bottle/kahlua = 5,
@@ -190,3 +195,6 @@
 		/obj/item/reagent_containers/food/drinks/carton/cranberryjuice = 1,
 		/obj/item/reagent_containers/food/drinks/ice = 9
 	)
+
+/obj/machinery/vending/boozeomat/bar
+	layer = BELOW_TABLE_LAYER

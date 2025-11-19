@@ -221,13 +221,14 @@
 	mech_layer = MECH_GEAR_LAYER
 
 	var/on = 0
-	var/brightness_on = 12		//can't remember what the maxed out value is
+	light_range = 8
 	light_color = LIGHT_COLOR_TUNGSTEN
-	light_wedge = LIGHT_WIDE
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
 	module_hints = list(
 		"<b>Alt Click(Icon):</b> Light up a large area in front of the mech.",
 	)
+
+	light_system = MOVABLE_LIGHT
 
 /obj/item/mecha_equipment/light/attack_self(var/mob/user)
 	. = ..()
@@ -250,10 +251,10 @@
 /obj/item/mecha_equipment/light/update_icon()
 	if(on)
 		icon_state = "[initial(icon_state)]-on"
-		set_light(brightness_on, 1)
 	else
 		icon_state = "[initial(icon_state)]"
-		set_light(0)
+	set_light_on(on)
+
 
 /obj/item/mecha_equipment/light/uninstalled()
 	on = FALSE

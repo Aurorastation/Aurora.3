@@ -168,28 +168,31 @@
 	var/list/events
 	var/list/event_icon_states = list("event")
 	var/difficulty = EVENT_LEVEL_MODERATE
-	var/list/victims //basically cached events on which Z level
-	var/can_be_destroyed = TRUE //Can this event be destroyed by ship guns?
+	/// Basically cached events on which Z level
+	var/list/victims
+	/// Can this event be destroyed by ship guns?
+	var/can_be_destroyed = TRUE
 
-	// Events must be detected by sensors, but are otherwise instantly visible.
+	/// Events must be detected by sensors, but are otherwise instantly visible.
 	requires_contact = TRUE
 	instant_contact = TRUE
 
-	// Vars that determine movability, current moving direction, and moving speed //
+	// Vars that determine movability, current moving direction, and moving speed
 	/// Whether this event can move or not
 	var/movable_event = FALSE
 	/// The percentage chance that this event will turn itself into a mobile version
-	var/movable_event_chance = 0
+	var/movable_event_chance
 	/// In which direction this event is currently planning on moving, will select a random dir if null
 	var/moving_dir = null
-	/// How many times the event has to process before moving (2 seconds per)
-	var/movable_speed = 60
+	/// How many times the event has to process before moving (2 seconds per).
+	/// This is automatically randomized to be 1/3 higher or lower on init, so not all events fire simultaneously.
+	var/movable_speed = 75
 	/// Ticks up each process until move speed is matched, at which point the event will move
 	var/move_counter = 0
 	/// Percentage chance that the event changes direction
-	var/dir_change_chance = 25
+	var/dir_change_chance = 33
 	/// How long to delay the next move counter if there's a ship in our loc, this gives bad events some time to happen
-	var/ship_delay_time = 2
+	var/ship_delay_time = 10
 	/// Ticks up each process until move speed is matched, at which point the event will move
 	var/ship_delay_counter = 0
 
@@ -203,7 +206,12 @@
 		make_movable()
 
 /obj/effect/overmap/event/proc/make_movable()
-	movable_event = TRUE
+	// For a default movable_speed of 60, this could result in a movable speed of anywhere between 40 and 80 (ie. moves every ~1.5-2.5 minutes).
+	var/speed_randomness = movable_speed / 3
+	movable_speed = movable_speed + rand((0 - speed_randomness), (speed_randomness))
+	// Hee hee
+	if(prob(1))
+		movable_speed = initial(movable_speed) / 4
 	start_moving()
 
 /obj/effect/overmap/event/proc/start_moving()
@@ -285,12 +293,13 @@
 	events = list(/datum/event/carp_migration/overmap)
 	difficulty = EVENT_LEVEL_MODERATE
 	event_icon_states = list("carp")
-	movable_event_chance = 5
+	movable_event_chance = 30
 
 /obj/effect/overmap/event/carp/major
 	name = "carp school"
 	opacity = 1
 	difficulty = EVENT_LEVEL_MAJOR
+	movable_event_chance = 15
 
 // see comment at code/modules/events/gravity.dm
 // tl;dr gravity is handled globally, meaning if the horizon loses gravity, everyone does
@@ -299,14 +308,15 @@
 // 	events = list(/datum/event/gravity)
 // 	can_be_destroyed = FALSE
 
-//These now are basically only used to spawn hazards. Will be useful when we need to spawn group of moving hazards
+///These now are basically only used to spawn hazards. Will be useful when we need to spawn group of moving hazards
 /datum/overmap_event
 	var/name = "map event"
 	var/radius = 2
 	var/count = 6
 	var/hazards
 	var/opacity = 0
-	var/continuous = TRUE //if it should form continous blob, or can have gaps
+	/// If it should form continous blobs, or can have gaps
+	var/continuous = TRUE
 
 /datum/overmap_event/meteor
 	name = "asteroid field"
@@ -318,34 +328,34 @@
 
 /datum/overmap_event/electric
 	name = "electrical storm"
-	count = 11
-	radius = 3
+	count = 6
+	radius = 2
 	hazards = /obj/effect/overmap/event/electric
 
 /datum/overmap_event/dust
 	name = "dust cloud"
-	count = 16
-	radius = 4
+	count = 13
+	radius = 3
 	opacity = 1
 	hazards = /obj/effect/overmap/event/dust
 
 /datum/overmap_event/ion
 	name = "ion cloud"
-	count = 8
-	radius = 3
+	count = 5
+	radius = 2
 	hazards = /obj/effect/overmap/event/ion
 
 /datum/overmap_event/carp
 	name = "carp shoal"
 	count = 8
-	radius = 3
+	radius = 2
 	continuous = FALSE
 	hazards = /obj/effect/overmap/event/carp
 
 /datum/overmap_event/carp/major
 	name = "carp school"
 	count = 5
-	radius = 4
+	radius = 3
 	opacity = 1
 	hazards = /obj/effect/overmap/event/carp/major
 

@@ -1186,11 +1186,11 @@
 /area/casino/casino_security)
 "dB" = (
 /obj/structure/table/rack,
-/obj/item/storage/box/beanbags{
+/obj/item/storage/box/shells/beanbags{
 	pixel_x = -4;
 	pixel_y = 4
 	},
-/obj/item/storage/box/beanbags{
+/obj/item/storage/box/shells/beanbags{
 	pixel_x = 5;
 	pixel_y = -6
 	},

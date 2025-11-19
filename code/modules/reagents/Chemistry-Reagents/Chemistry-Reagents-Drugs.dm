@@ -467,14 +467,19 @@
 /singleton/reagent/wulumunusha/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
 	M.druggy = max(M.druggy, 100)
 	M.silent = max(M.silent, 5)
-	if(prob(3) && !isskrell(M))
-		to_chat(M, SPAN_GOOD(pick("You can almost see the currents of air as they dance around you.", "You see the colours around you beginning to bleed together.", "You feel safe and comfortable.")))
-	if(prob(3) && isskrell(M))
+	if(!prob(3))
+		return
+
+	if(M.psi && M.psi.get_rank() >= PSI_RANK_SENSITIVE)
 		to_chat(M, SPAN_ALIEN(pick("You can see the thoughts of those around you dancing in the air.", "You feel as if your mind has opened even further, your thought-field expanding.", "It's difficult to contain your thoughts - but why hide them anyway?", "You feel safe and comfortable.")))
+	else
+		to_chat(M, SPAN_GOOD(pick("You can almost see the currents of air as they dance around you.", "You see the colours around you beginning to bleed together.", "You feel safe and comfortable.")))
 
 /singleton/reagent/wulumunusha/overdose(mob/living/carbon/M, alien, removed = 0, scale = 1, datum/reagents/holder)
-	if(isskrell(M))
-		M.hallucination = max(M.hallucination, 10 * scale)	//light hallucinations that afflict skrell
+	if(!M.psi || M.psi.get_rank() < PSI_RANK_SENSITIVE)
+		return
+
+	M.hallucination = max(M.hallucination, 10 * scale)	//light hallucinations that afflict the psionically sensitive.
 
 /singleton/reagent/drugs/ambrosia_extract
 	name = "Ambrosia Extract"
@@ -569,7 +574,7 @@
 	M.add_chemical_effect(CE_PULSE, -1)
 	var/message_list = list("You feel soothed and at ease.", "You feel like sharing the wonderful memories and feelings you're experiencing.", "You feel like you're floating off the ground.", "You don't want this feeling to end.", "You wish to please all those around you.", "You feel particularly susceptible to persuasion.", "Everyone is so trustworthy nowadays.")
 	var/message_type = "good"
-	if(isskrell(M))
+	if(M.psi && M.psi.get_rank() >= PSI_RANK_SENSITIVE)
 		message_list += list("You can see the thoughts of those around you dancing in the air.", "You feel as if your mind has opened even further, your thought-field expanding.", "It's difficult to contain your thoughts - but why hide them anyway?")
 		message_type = "alium"
 	else
@@ -778,6 +783,7 @@
 /singleton/reagent/drugs/dionae_stimulant/diet
 	name = "diet Diesel"
 	description = "Diesel produced straight from the Narrows that has been made \"diet\" or decontaminated of radiation, making it safe for distribution around the Orion Spur."
+	fallback_specific_heat = 1
 
 /singleton/reagent/drugs/dionae_stimulant/diet/initial_effect(mob/living/carbon/M, alien, datum/reagents/holder)
 	return
