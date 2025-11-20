@@ -1,3 +1,4 @@
+#define PSI_RANK_NONE			0   /// No psi-sensitivity.
 #define PSI_RANK_SENSITIVE      1	/// Psionically sensitive. Skrell.
 #define PSI_RANK_HARMONIOUS     2	/// Psionically harmonious. Event Skrell, antagonists.
 #define PSI_RANK_APEX   		3	/// Psionic apex. Event people.
