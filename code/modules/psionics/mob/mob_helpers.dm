@@ -26,7 +26,15 @@
  * Check the "effective psi-sensitivity" of a mob. AKA: The target's RECEIVING statistic.
  * This can be influenced by anything wishing to reply to the signal, such as implants, drugs, other psi-powers, etc.
  * It also includes the actual psi-sensitivity of real psionics such as Skrell.
- * This can technically return negative numbers or floats, so you'll need to check > 0 or <= 0 if you need it as a boolean.
+ * This returns a float that is any real number (including negatives).
+ *
+ * A typical human will (assuming they have no positive temporary modifiers) will return anywhere from -2 and 0,
+ * so for a "not-psi sensitive" check, you'll want to do check_psi_sensitivity() <= 0.
+ *
+ * A typical "real psionic" will return between 1 and 2. Possibly more.
+ * So to check for "Yes they're psychic", look for check_psi_sensitivity >= 1
+ *
+ * And for "Any positive mods allowed", use check_psi_sensitivity > 0
  */
 /mob/proc/check_psi_sensitivity()
 	var/effective_sensitivity = 0

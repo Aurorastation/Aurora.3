@@ -62,7 +62,7 @@
 			to_chat(M, "<span class='notice'>[user] psionically says to [target]:</span> [text]")
 
 	var/mob/living/carbon/human/H = target
-	if(H.check_psi_sensitivity() > PSI_RANK_NONE)
+	if(H.check_psi_sensitivity() >= 1)
 		to_chat(H, SPAN_CULT("<b>You instinctively sense [user] passing a thought into your mind:</b> [text]"))
 	else
 		to_chat(H, SPAN_ALIEN("<b>A thought from outside your consciousness slips into your mind:</b> [text]"))
