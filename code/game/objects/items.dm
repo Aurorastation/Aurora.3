@@ -1403,11 +1403,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 /obj/item/persistence_get_content()
 	var/list/content = ..()
-	// These are all the most commonly "potentially different" things that any item in the game might have.
-	// I'm doing this here at the parent of all items ostensibly because hand labelers can put a pricetag on literally any item.
-	// And I'm not here to judge if the commissary crew are going to put pricetag labels or googly eyes on literal trash.
-
-	// Make sure any children of this type always use SAVE_IF_DIFFERENT(),
+	// Any children of this type are highly recommended to use SAVE_IF_DIFFERENT(),
 	// so that way we can logically assert that if a variable cannot ever be changed for a specific snowflake case, then it will never be saved to the database anyways.
 	SAVE_IF_DIFFERENT(content, name)
 	SAVE_IF_DIFFERENT(content, desc)
