@@ -79,7 +79,7 @@
 	UnregisterSignal(owner, COMSIG_PSI_MIND_POWER)
 	UnregisterSignal(owner, COMSIG_PSI_CHECK_SENSITIVITY)
 
-/obj/item/organ/internal/augment/bioaug/mind_blanker_lethal/proc/cancel_power_lethal(var/implantee, var/caster, var/cancelled)
+/obj/item/organ/internal/augment/bioaug/mind_blanker_lethal/proc/cancel_power_lethal(var/mob/living/carbon/human/implantee, var/caster, var/cancelled)
 	SIGNAL_HANDLER
 	if(is_broken())
 		return
@@ -90,7 +90,7 @@
 		var/mob/living/victim = caster
 		victim.adjustBrainLoss(20)
 		victim.confused += 20
-		to_chat(victim, SPAN_DANGER("Agony lances through my mind as [implantee]'s mind clamps down upon me!"))
+		to_chat(victim, SPAN_DANGER("Agony lances through my mind as [implantee.name]'s mind clamps down upon me!"))
 
 /obj/item/organ/internal/augment/bioaug/mind_blanker_lethal/proc/modify_sensitivity(var/implantee, var/effective_sensitivity)
 	SIGNAL_HANDLER
