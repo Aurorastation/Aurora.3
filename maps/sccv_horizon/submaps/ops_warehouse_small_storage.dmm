@@ -716,7 +716,7 @@
 /area/template_noop)
 "qT" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
-/obj/effect/decal/cleanable/greenglow,
+/obj/structure/reagent_dispensers/radioactive_waste,
 /turf/template_noop,
 /area/template_noop)
 "rx" = (
@@ -954,10 +954,6 @@
 /obj/random/coin,
 /turf/template_noop,
 /area/template_noop)
-"vG" = (
-/obj/structure/cart/storage/janitorialcart/full,
-/turf/template_noop,
-/area/template_noop)
 "wa" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
 /obj/structure/closet/emcloset,
@@ -1089,10 +1085,9 @@
 /obj/item/clothing/gloves/janitor/vaurca,
 /turf/template_noop,
 /area/template_noop)
-"zO" = (
-/obj/structure/table/rack/no_cargo,
-/obj/item/device/radio/headset/wrist/xenoarch,
-/obj/item/device/radio/headset/wrist/xenoarch,
+"zH" = (
+/obj/structure/reagent_dispensers/radioactive_waste/hazardous/low,
+/obj/effect/decal/cleanable/greenglow/radioactive/low,
 /turf/template_noop,
 /area/template_noop)
 "zP" = (
@@ -1482,8 +1477,8 @@
 /turf/template_noop,
 /area/template_noop)
 "Mh" = (
+/obj/effect/decal/cleanable/greenglow/radioactive/low,
 /obj/structure/reagent_dispensers/radioactive_waste,
-/obj/effect/decal/cleanable/greenglow,
 /turf/template_noop,
 /area/template_noop)
 "Ms" = (
@@ -1501,7 +1496,9 @@
 /turf/template_noop,
 /area/template_noop)
 "MR" = (
-/obj/structure/warp_drive,
+/obj/structure/warp_drive{
+	anchored = 0
+	},
 /turf/template_noop,
 /area/template_noop)
 "MW" = (
@@ -1619,6 +1616,11 @@
 /obj/random/action_figure,
 /turf/template_noop,
 /area/template_noop)
+"Pz" = (
+/obj/effect/decal/cleanable/greenglow/radioactive/low,
+/obj/structure/reagent_dispensers/radioactive_waste/hazardous/low,
+/turf/template_noop,
+/area/template_noop)
 "PD" = (
 /obj/machinery/food_cart,
 /turf/template_noop,
@@ -1696,6 +1698,10 @@
 /area/template_noop)
 "Rn" = (
 /obj/effect/decal/cleanable/liquid_fuel,
+/turf/template_noop,
+/area/template_noop)
+"Rs" = (
+/obj/effect/decal/cleanable/greenglow/radioactive/low,
 /turf/template_noop,
 /area/template_noop)
 "Rz" = (
@@ -2686,10 +2692,10 @@ Gz
 Gz
 Gz
 sW
-Mh
+zH
 xM
 NI
-xM
+Pz
 qT
 Gz
 Gz
@@ -2734,7 +2740,7 @@ Gz
 Gz
 hL
 Gz
-Al
+Rs
 Gz
 Mh
 Gz
@@ -2778,7 +2784,7 @@ Gz
 Gz
 Gz
 sW
-xM
+Sl
 Gz
 Gz
 Al
@@ -3643,7 +3649,7 @@ zw
 Gz
 Gz
 Gz
-vG
+bv
 nn
 Gz
 Gz
@@ -4710,7 +4716,7 @@ Gz
 Gz
 Gz
 sW
-zO
+iM
 Gz
 Gz
 ot
