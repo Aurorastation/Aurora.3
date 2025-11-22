@@ -15,7 +15,7 @@
 	//make sure the air can transmit speech - hearer's side
 	var/turf/T = get_turf(src)
 	var/vacuum_proof = ((language && (language.flags & PRESSUREPROOF)) || isghost(src))
-	var/speaker_name
+	var/speaker_name = speaker.name
 
 	if(ishuman(speaker))
 		var/mob/living/carbon/human/H = speaker
