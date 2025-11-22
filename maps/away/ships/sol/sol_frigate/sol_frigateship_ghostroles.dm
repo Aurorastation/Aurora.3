@@ -8,7 +8,7 @@
 	"
 	mob_name_prefix = "PO3. "
 
-	spawnpoints = list("Solfrig_navy_crewman")
+	spawnpoints = list("solfrig_navy_crewman")
 	max_count = 3
 
 	outfit = /obj/outfit/admin/ssrm_navy_crewman
@@ -27,7 +27,7 @@
 	"
 	mob_name_prefix = "CDR. "
 
-	spawnpoints = list("Solfrig_commander")
+	spawnpoints = list("solfrig_commander")
 	max_count = 1
 
 	outfit = /obj/outfit/admin/ssrm_navy_officer
@@ -45,7 +45,7 @@
 	accents for the North.) "
 	mob_name_prefix = "LT. "
 
-	spawnpoints = list("Solfrig_XO")
+	spawnpoints = list("solfrig_XO")
 	max_count = 1
 
 	outfit = /obj/outfit/admin/ssrm_navy_chief_petty_officer/solfrig_xo
@@ -74,7 +74,7 @@
 	programmed to rigidly serve the interests of the Solarian government above all else. \
 	"
 
-	spawnpoints = list("Solfrig_ipc")
+	spawnpoints = list("solfrig_ipc")
 	max_count = 1
 
 	outfit = /obj/outfit/admin/ssrm_ipc
