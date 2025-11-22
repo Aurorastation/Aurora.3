@@ -62,7 +62,13 @@
 	/obj/item/melee/dinograbber,
 	/obj/item/device/laser_pointer,
 	/obj/item/deck,
-	/obj/item/storage/pill_bottle/dice
+	/obj/item/storage/pill_bottle/dice,
+	/obj/item/pen,
+	/obj/item/storage/stickersheet,
+	/obj/item/gun/projectile/revolver/capgun,
+	/obj/item/gun/bang,
+	/obj/item/eightball,
+	/obj/item/bikehorn
 	)
 	display_tiers = 4
 	display_tier_amt = 5
