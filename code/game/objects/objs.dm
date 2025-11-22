@@ -353,7 +353,7 @@
  * Called by the persistence subsystem to retrieve relevant persistent information to be stored in the database.
  * This operates on a parent-child hierarchy, where the objects are expected to call their parent. Use var/list/content = ..() as your first line to make this work.
  * Each parent is responsible for handling the variables it particularly cares about.
- * Make sure to use SAVE_IF_DIFFERENT() for saving your variables if you're adding a new one.
+ * It's strongly recommended to use SAVE_IF_DIFFERENT() for saving your variables if you're adding a new one.
  *
  * If you need to override the entire parent hierarchy for snowflake cases, make sure you put SHOULD_CALL_PARENT(FALSE) as your first line.
  *
@@ -368,7 +368,7 @@
  * Called by the persistence subsystem to apply persistent data on the created object.
  * This operates on a parent-child hierarchy, where the objects are expected to call their parent. Use ..() as your first line to make this work.
  * Each parent is responsible for handling the variables it particularly cares about.
- * Make sure to use SET_IF_EXISTS() for setting your variables if you're adding a new one.
+ * It's strongly recommended to use SET_IF_EXISTS() for setting your variables if you're adding a new one.
  *
  * If you need to override the entire parent hierarchy for snowflake cases, make sure you replace ..() with SHOULD_CALL_PARENT(FALSE)
  *

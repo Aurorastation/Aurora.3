@@ -523,11 +523,11 @@
 		break
 	if(!throw_item)
 		return FALSE
-	throw_item.throw_at(target,16,3,src)
 
 	// Machine threw the item, but let's remove it from persistence tracking anyways so as to encourage people to pick up the fruits and either eat or put them back.
 	SSpersistence.deregister_track(throw_item)
 
+	throw_item.throw_at(target,16,3,src)
 	visible_message(SPAN_DANGER("[src] launches [throw_item.name] at [target.name]!"))
 	return TRUE
 

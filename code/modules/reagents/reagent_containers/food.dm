@@ -63,16 +63,12 @@
 
 /obj/item/reagent_containers/food/persistence_get_content()
 	var/list/content = ..()
-	SAVE_IF_DIFFERENT(content, bitesize)
-	SAVE_IF_DIFFERENT(content, bitecount)
 	SAVE_IF_DIFFERENT(content, filling_color)
 	SAVE_IF_DIFFERENT(content, ingredient_name)
 	return content
 
 /obj/item/reagent_containers/food/persistence_apply_content(content, x, y, z)
 	..()
-	SET_IF_EXISTS(content, bitesize)
-	SET_IF_EXISTS(content, bitecount)
 	SET_IF_EXISTS(content, filling_color)
 	SET_IF_EXISTS(content, ingredient_name)
 	for(var/obj/object in loc)
