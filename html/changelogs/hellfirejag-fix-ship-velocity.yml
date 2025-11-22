@@ -2,4 +2,5 @@ author: Hellfirejag
 delete-after: True
 changes:
   - bugfix: "Fixed math errors in overmap ship math that caused severe precision errors when accelerating diagonally."
-  - rscadd: "updated SpacemanDMM to version 1.11 (I needed vector support to fix ship math)"
+  - rscadd: "Updated SpacemanDMM to version 1.11."
+  - rscadd: "Updated Byond to 516. (I needed vector support to fix ship math)"
