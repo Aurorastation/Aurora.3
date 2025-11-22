@@ -40,6 +40,9 @@
 		return EyeMove(n, direct)
 	return 0
 
+/mob/abstract/eye/can_ztravel(var/direction)
+	return TRUE
+
 /mob/abstract/eye/airflow_hit(atom/A)
 	airflow_speed = 0
 	airflow_dest = null
