@@ -199,25 +199,31 @@
 	return round(num_burns/burns_per_grid)
 
 /obj/effect/overmap/visitable/ship/proc/decelerate()
-	if(((speed[1]) || (speed[2])) && can_burn())
-		if (speed[1])
-			adjust_speed(-SIGN(speed[1]) * min(get_burn_acceleration(),abs(speed[1])), 0)
-		if (speed[2])
-			adjust_speed(0, -SIGN(speed[2]) * min(get_burn_acceleration(),abs(speed[2])))
+	if(can_burn())
+		// Get our current velocity as a Vector2.
+		// TODO: TCJ Speed really should just have been a vector in the first place.
+		var/vector/velocity = vector(speed[1], speed[2])
+
+		// Get the magnitude of our desired change in velocity.
+		var/alpha = min(get_burn_acceleration(), velocity.size)
+
+		// Our change in velocity is exactly the negative of our current Direction times our desired change in velocity.
+		var/vector/delta_velocity = -velocity.Normalize() * alpha
+
+		// And finally componentwise edit our velocity.
+		adjust_speed(delta_velocity.x, delta_velocity.y)
 		last_burn = world.time
 
 /obj/effect/overmap/visitable/ship/proc/accelerate(direction, accel_limit)
 	if(can_burn())
 		last_burn = world.time
+		// Get our "Alpha" value as the ship's desired acceleration (change in Velocity)
 		var/acceleration = min(get_burn_acceleration(), accel_limit)
-		if(direction & EAST)
-			adjust_speed(acceleration, 0)
-		if(direction & WEST)
-			adjust_speed(-acceleration, 0)
-		if(direction & NORTH)
-			adjust_speed(0, acceleration)
-		if(direction & SOUTH)
-			adjust_speed(0, -acceleration)
+		var/theta = dir2degree(D)
+
+		// This comes from the actual definition of a Vector2d, <Acos(theta), Asin(theta)>, where theta is an Angle, and A is a constant multiplier that traditionally represents distance.
+		// In this case A is our DeltaVelocity, or Acceleration.
+		adjust_speed(acceleration * cos(theta), acceleration * sin(theta))
 
 /obj/effect/overmap/visitable/ship/process()
 	..()
