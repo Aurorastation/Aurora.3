@@ -50,9 +50,7 @@ export const RoboticsComputer = (props, context) => {
 
   return (
     <NtosWindow resizable>
-      <NtosWindow.Content
-        scrollable
-        theme={data.machine_ui_theme}>
+      <NtosWindow.Content scrollable theme={data.machine_ui_theme}>
         {!data.patient_name ? (
           <NoticeBox>You must run a diagnostic first.</NoticeBox>
         ) : (
