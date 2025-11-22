@@ -459,6 +459,7 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 	owner.update_action_buttons()
 	owner = null
 
+/// Sets the organ's owner to the proc's target, and ensures its forceMoved into that target.
 /obj/item/organ/proc/replaced(var/mob/living/carbon/human/target, var/obj/item/organ/external/affected)
 	owner = target
 	action_button_name = initial(action_button_name)

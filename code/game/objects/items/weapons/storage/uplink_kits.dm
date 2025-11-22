@@ -220,6 +220,11 @@
 	desc = "Contains the eggs of a Heart Fluke (lethal)."
 	starts_with = list(/obj/item/reagent_containers/glass/beaker/vial/heartworm_eggs = 1, /obj/item/reagent_containers/syringe = 1, /obj/item/reagent_containers/pill/antiparasitic = 1, /obj/item/reagent_containers/pill/asinodryl = 1)
 
+/obj/item/storage/box/syndie_kit/greimorians
+	name = "greimorian clade kit"
+	desc = "Contains the eggs of greimorian clade (semi-lethal, incapacitating)."
+	starts_with = list(/obj/item/reagent_containers/glass/beaker/vial/greimorian_eggs = 1, /obj/item/reagent_containers/syringe = 1, /obj/item/reagent_containers/pill/antiparasitic = 1, /obj/item/reagent_containers/pill/asinodryl = 1)
+
 /obj/item/storage/box/syndie_kit/radsuit
 	name = "radiation suit kit"
 	desc = "Contains a radiation suit and geiger counter to protect you from radiation."

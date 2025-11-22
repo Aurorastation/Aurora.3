@@ -148,6 +148,7 @@
 #define BP_WORM_NERVE "nerve fluke"
 #define BP_TUMOUR_NONSPREADING "benign tumour"
 #define BP_TUMOUR_SPREADING "malignant tumour"
+#define BP_GREIMORIAN_EGGCLUSTER "greimorian egg cluster"
 
 //Augment organs
 #define BP_AUG_ACC_CORDS          "modified synthetic vocal cords"
