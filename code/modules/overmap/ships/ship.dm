@@ -202,13 +202,13 @@
 	if(can_burn())
 		// Get our current velocity as a Vector2.
 		// TODO: TCJ Speed really should just have been a vector in the first place.
-		var/velocity = vector(speed[1], speed[2])
+		var/vector/velocity = vector(speed[1], speed[2])
 
 		// Get the magnitude of our desired change in velocity.
 		var/alpha = min(get_burn_acceleration(), velocity.size)
 
 		// Our change in velocity is exactly the negative of our current Direction times our desired change in velocity.
-		var/delta_velocity = -velocity.Normalize() * alpha
+		var/vector/delta_velocity = -velocity.Normalize() * alpha
 
 		// And finally componentwise edit our velocity.
 		adjust_speed(delta_velocity.x, delta_velocity.y)
