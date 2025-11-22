@@ -1,0 +1,8 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "PRA police uniforms have been added. Currently they are only available through the chameleon kit."
+  - rscadd: "PRA police jackets are now available in the taj loadout, alongside the woolen PRA police hat."
+  - rscdel: "The Raakti Shariim uniform has been removed from the loadout. The coat and beret remains."
