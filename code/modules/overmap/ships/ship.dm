@@ -219,7 +219,7 @@
 		last_burn = world.time
 		// Get our "Alpha" value as the ship's desired acceleration (change in Velocity)
 		var/acceleration = min(get_burn_acceleration(), accel_limit)
-		var/theta = dir2degree(D)
+		var/theta = dir2degree(direction)
 
 		// This comes from the actual definition of a Vector2d, <Acos(theta), Asin(theta)>, where theta is an Angle, and A is a constant multiplier that traditionally represents distance.
 		// In this case A is our DeltaVelocity, or Acceleration.
