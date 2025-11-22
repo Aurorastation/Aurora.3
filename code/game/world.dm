@@ -69,7 +69,7 @@ GLOBAL_PROTECT(config)
 		GLOB.round_id = "[c[(t % l) + 1]][GLOB.round_id]"
 		t = round(t / l)
 
-#define RECOMMENDED_VERSION 515
+#define RECOMMENDED_VERSION 516
 /world/New()
 	//logs
 	GLOB.diary_date_string = time2text(world.realtime, "YYYY/MM/DD")
