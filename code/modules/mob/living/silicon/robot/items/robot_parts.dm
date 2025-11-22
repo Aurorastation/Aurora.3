@@ -8,7 +8,7 @@
 	var/list/part = null // Order of args is important for installing robolimbs.
 	var/sabotaged = 0 //Emagging limbs can have repercussions when installed as prosthetics.
 	var/model_info
-	var/linked_frame = SPECIES_IPC_UNBRANDED
+	var/linked_frame = SPECIES_IPC
 	dir = SOUTH
 
 /obj/item/robot_parts/set_dir()
