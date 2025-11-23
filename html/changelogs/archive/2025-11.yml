@@ -319,3 +319,16 @@
   - rscadd: Reworked the warehouse to have more space for crates on the floor.
   - rscadd: The floor above the warehouse has been changed and a mini locker room
       for hangar techs was made beside the break room.
+2025-11-23:
+  Fyni:
+  - rscadd: Changes the Comet Expulsion sound effect to something which hopefully
+      will not kill ears. I may come back and voice this later.
+  TheGreyWolf:
+  - rscadd: Tajara now all start with siik'maas enforced on the char. They still get
+      2 additional languages as before, resulting in an extra language of their choice.
+  - rscadd: PRA police uniforms have been added. Currently they are only available
+      through the chameleon kit.
+  - rscadd: PRA police jackets are now available in the taj loadout, alongside the
+      woolen PRA police hat.
+  - rscdel: The Raakti Shariim uniform has been removed from the loadout. The coat
+      and beret remains.
