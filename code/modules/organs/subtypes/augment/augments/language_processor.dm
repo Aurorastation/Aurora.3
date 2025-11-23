@@ -37,6 +37,7 @@
 
 /obj/item/organ/internal/augment/language/klax
 	name = "K'laxan language processor"
+	organ_tag = "integrated language processor (K'laxan)"
 	augment_languages = list(LANGUAGE_UNATHI)
 	species_restricted = list(
 		SPECIES_VAURCA_BREEDER,
@@ -49,6 +50,7 @@
 
 /obj/item/organ/internal/augment/language/cthur
 	name = "C'thur language processor"
+	organ_tag = "integrated language processor (C'thur)"
 	augment_languages = list(LANGUAGE_SKRELLIAN)
 	species_restricted = list(
 		SPECIES_VAURCA_BREEDER,
@@ -62,6 +64,7 @@
 
 /obj/item/organ/internal/augment/language/mikuetz
 	name = "Mi'kuetz language processor"
+	organ_tag = "integrated language processor (Mi'kuetz)"
 	augment_languages = list(LANGUAGE_AZAZIBA)
 	species_restricted = list(
 		SPECIES_VAURCA_BREEDER,
@@ -75,6 +78,7 @@
 
 /obj/item/organ/internal/augment/language/zino
 	name = "Zino language processor"
+	organ_tag = "integrated language processor (Zino)"
 	augment_languages = list(LANGUAGE_GUTTER)
 	species_restricted = list(
 		SPECIES_VAURCA_BREEDER,
@@ -88,6 +92,7 @@
 
 /obj/item/organ/internal/augment/language/tradeband
 	name = "Tradeband language processor"
+	organ_tag = "integrated language processor (Tradeband)"
 	augment_languages = list(LANGUAGE_TRADEBAND)
 	species_restricted = list(
 		SPECIES_VAURCA_BREEDER,
@@ -100,6 +105,7 @@
 
 /obj/item/organ/internal/augment/language/zeng
 	name = "Zeng-Hu Nral'malic language processor"
+	organ_tag = "integrated language processor (Zeng-Hu Nral'malic)"
 	augment_languages = list(LANGUAGE_SKRELLIAN)
 	species_restricted = list(
 		SPECIES_VAURCA_BREEDER,
@@ -112,6 +118,7 @@
 
 /obj/item/organ/internal/augment/language/vekatak
 	name = "Ve'katak Phalanx Hivenet receiver"
+	organ_tag = "integrated language processor (Hivenet)"
 	icon_state = "phalanx_hivenet"
 	dead_icon = "phalanx_hivenet_broken"
 	on_mob_icon = 'icons/mob/human_races/augments_external.dmi'
