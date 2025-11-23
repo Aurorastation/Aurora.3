@@ -6,7 +6,7 @@
 	suffix = "dominian_unathi_privateer.dmm"
 
 	sectors = list(SECTOR_BADLANDS, SECTOR_WEEPING_STARS)
-	spawn_weight = 1
+	spawn_weight = 0 // Disabled for debloating. Feel free to enable again if reworked or relevant.
 	ship_cost = 1
 	id = "dominian_unathi"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/dominian_unathi_shuttle)
