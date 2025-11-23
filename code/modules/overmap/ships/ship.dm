@@ -199,25 +199,37 @@
 	return round(num_burns/burns_per_grid)
 
 /obj/effect/overmap/visitable/ship/proc/decelerate()
-	if(((speed[1]) || (speed[2])) && can_burn())
-		if (speed[1])
-			adjust_speed(-SIGN(speed[1]) * min(get_burn_acceleration(),abs(speed[1])), 0)
-		if (speed[2])
-			adjust_speed(0, -SIGN(speed[2]) * min(get_burn_acceleration(),abs(speed[2])))
+	if(can_burn())
+		// Pythagorean theorem gives us the magnitude of the ship's velocity, which is always an absolute value.
+		// This is also the mathematical definition for Vector.size
+		var/magnitude_velocity = ((speed[1] ** 2) + (speed[2] **2)) ** (1/2)
+
+		// Get the magnitude of our desired change in velocity
+		var/alpha = min(get_burn_acceleration(), magnitude_velocity)
+
+		// First we "Normalize" the current velocity to get the direction without a distance
+		// Then we take the exact negative of this direction to get its true opposite
+		// And finally multiply by the magnitude of our desired delta_v to get the true delta_v
+		var/delta_x = -(speed[1] / magnitude_velocity) * alpha
+		var/delta_y = -(speed[2] / magnitude_velocity) * alpha
+
+		adjust_speed(delta_x, delta_y)
 		last_burn = world.time
 
 /obj/effect/overmap/visitable/ship/proc/accelerate(direction, accel_limit)
 	if(can_burn())
 		last_burn = world.time
+
+		// Get our "Alpha" value as the ship's desired acceleration (change in Velocity)
 		var/acceleration = min(get_burn_acceleration(), accel_limit)
-		if(direction & EAST)
-			adjust_speed(acceleration, 0)
-		if(direction & WEST)
-			adjust_speed(-acceleration, 0)
-		if(direction & NORTH)
-			adjust_speed(0, acceleration)
-		if(direction & SOUTH)
-			adjust_speed(0, -acceleration)
+
+		// Convert from cardinal directions to an angle (in degrees)
+		// !TCJ: I hate this, swap this to Radians later. Degrees are stupid and cardinal directions are even dumber.
+		var/theta = dir2degree(direction)
+
+		// This comes from the actual definition of a Vector2d, <Acos(theta), Asin(theta)>, where theta is an Angle, and A is a constant multiplier that traditionally represents distance.
+		// In this case A is our DeltaVelocity, or Acceleration.
+		adjust_speed(acceleration * cos(theta), acceleration * sin(theta))
 
 /obj/effect/overmap/visitable/ship/process()
 	..()
