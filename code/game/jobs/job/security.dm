@@ -99,7 +99,7 @@
 	minimal_player_age = 7
 	outfit = /obj/outfit/job/warden
 
-	blacklisted_species = list(SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_XION_REMOTE, SPECIES_VAURCA_BULWARK, SPECIES_DIONA_COEUS, SPECIES_VAURCA_BREEDER)
+	blacklisted_species = list(SPECIES_IPC_XION_REMOTE, SPECIES_VAURCA_BULWARK, SPECIES_DIONA_COEUS, SPECIES_VAURCA_BREEDER)
 
 /obj/outfit/job/warden
 	name = "Warden"
@@ -163,7 +163,7 @@
 	)
 	minimal_player_age = 3
 	outfit = /obj/outfit/job/forensics
-	blacklisted_species = list(SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_XION_REMOTE, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
+	blacklisted_species = list(SPECIES_IPC_XION_REMOTE, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
 /obj/outfit/job/forensics
 	name = "Investigator"
@@ -222,7 +222,7 @@
 	minimal_player_age = 7
 	outfit = /obj/outfit/job/officer
 
-	blacklisted_species = list(SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_XION_REMOTE, SPECIES_VAURCA_BULWARK, SPECIES_DIONA_COEUS, SPECIES_VAURCA_BREEDER)
+	blacklisted_species = list(SPECIES_IPC_XION_REMOTE, SPECIES_VAURCA_BULWARK, SPECIES_DIONA_COEUS, SPECIES_VAURCA_BREEDER)
 
 /obj/outfit/job/officer
 	name = "Security Officer"
@@ -289,7 +289,7 @@
 		SPECIES_SKRELL_AXIORI = 50
 	)
 
-	blacklisted_species = list(SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_XION_REMOTE, SPECIES_VAURCA_BULWARK, SPECIES_DIONA_COEUS, SPECIES_VAURCA_BREEDER)
+	blacklisted_species = list(SPECIES_IPC_XION_REMOTE, SPECIES_VAURCA_BULWARK, SPECIES_DIONA_COEUS, SPECIES_VAURCA_BREEDER)
 
 /obj/outfit/job/intern_sec
 	name = "Security Cadet"

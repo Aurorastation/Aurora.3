@@ -462,6 +462,8 @@
 
 	add_pain(0.6 * burn + 0.4 * brute)
 
+	SEND_SIGNAL(owner, COMSIG_EXTERNAL_ORGAN_DAMAGE, burn + brute)
+
 	//If there are still hurties to dispense
 	if (spillover)
 		owner.shock_stage += spillover * GLOB.config.organ_damage_spillover_multiplier
@@ -511,8 +513,11 @@
 
 	organ_hit_chance += 5 * damage_amt / organ_damage_threshold
 
-	if(encased && !(status & ORGAN_BROKEN)) //ribs protect
-		organ_hit_chance *= 0.2
+	if(!BP_IS_ROBOTIC(src))
+		if(encased && !(status & ORGAN_BROKEN)) //ribs protect
+			organ_hit_chance *= 0.2
+	else
+		organ_hit_chance *= 0.8 // robots should not have the same advantage
 
 	organ_hit_chance = min(organ_hit_chance, 100)
 	if(prob(organ_hit_chance))
