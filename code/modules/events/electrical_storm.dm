@@ -60,7 +60,6 @@
 
 	var/list/picked_apcs = list()
 	// Up to 2/4/6 APCs per tick depending on severity
-	for(var/i = 0, i < ((severity + 1)), i++)
 	for(var/i = 0, i < (severity * 2), i++)
 		picked_apcs |= pick(valid_apcs)
 

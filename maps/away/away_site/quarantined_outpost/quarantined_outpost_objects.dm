@@ -284,6 +284,7 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 	desc = "An agile, chitinous creature."
 	icon = 'icons/mob/npc/animal.dmi'
 	icon_state = "lesser_ling"
+	icon_living = "lesser_ling"
 	tameable = FALSE
 	faction = "abominations"
 
