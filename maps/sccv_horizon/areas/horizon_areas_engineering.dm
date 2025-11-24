@@ -17,11 +17,13 @@
 	name = "Hard Storage"
 	icon_state = "engineering_storage"
 	horizon_deck = 2
+	lightswitch = FALSE
 
 /area/horizon/engineering/storage_hard/lower
 	name = "Hard Storage"
 	icon_state = "engineering_storage"
 	horizon_deck = 1
+	lightswitch = FALSE
 
 /area/horizon/engineering/storage_eva
 	name = "EVA Storage"
@@ -57,10 +59,12 @@
 	name = "Technical Storage"
 	icon_state = "auxstorage"
 	horizon_deck = 1
+	lightswitch = FALSE
 
 /area/horizon/engineering/storage/lower
 	name = "Lower Deck Storage"
 	horizon_deck = 1
+	lightswitch = FALSE
 
 /area/horizon/engineering/aft_airlock
 	name = "Aft Stowage Airlock"

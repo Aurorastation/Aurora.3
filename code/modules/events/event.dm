@@ -60,7 +60,7 @@
 		return 0
 
 	var/n = 0
-	for (var/mob/living in GLOB.player_list)
+	for(var/mob/living/living in GLOB.player_list)
 		n++
 	if(n <= pop_requirement)
 		return 0
