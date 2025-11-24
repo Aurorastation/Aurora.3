@@ -104,7 +104,7 @@
 	to_chat(owner, SPAN_NOTICE("\The [found_object] has been copied."))
 
 /mob/abstract/eye/base_planner/proc/place_template()
-	var/datum/room_template/example_room/ER = new()
+	var/datum/room_template/base_planner_template/ER = new()
 	ER.template_selection(get_turf(src))
 
 /mob/abstract/eye/base_planner/proc/erase_all()
@@ -153,6 +153,12 @@ ABSTRACT_TYPE(/obj/structure/blueprint)
 	/// Required amount of required material.
 	var/required_amount
 
+	/// Required time to complete this blueprint.
+	var/build_time = 3 SECONDS
+
+	/// Whether someone is currently building blueprint this or not.
+	var/currently_being_built = FALSE
+
 	/// A list of type paths that this object will ignore when it's looking to delete incompatible blueprint objects in its turf.
 	var/list/whitelisted_types = list()
 
@@ -180,23 +186,28 @@ ABSTRACT_TYPE(/obj/structure/blueprint)
 		qdel(colliding_atom)
 
 /obj/structure/blueprint/attackby(obj/item/attacking_item, mob/user)
-	if(istype(attacking_item, required_material))
+	if(istype(attacking_item, required_material) && !currently_being_built)
 		var/obj/item/stack/material/mat_stack = attacking_item
 		var/current_amount = mat_stack.get_amount()
 		if(current_amount < required_amount)
 			to_chat(user, SPAN_WARNING("You need [required_amount - current_amount] more \the [mat_stack] to complete this!"))
 			return ..()
 
-		if(!do_after(user, 3 SECONDS) || !mat_stack.use(required_amount))
+		currently_being_built = TRUE
+		if(!do_after(user, build_time) || !mat_stack.use(required_amount))
+			currently_being_built = FALSE
 			return ..()
 
+		var/turf/T = get_turf(src)
 		if(target_object_path)
 			var/obj/solid_object = new target_object_path(get_turf(src))
 			solid_object.dir = src.dir
 		else
-			var/turf/T = get_turf(src)
 			T.ChangeTurf(target_turf_path)
 			playsound(src, 'sound/items/Deconstruct.ogg', 80, 1)
+
+		for(var/obj/structure/flora/F in T)
+			qdel(F)
 
 		qdel(src) // blueprint served its purpose, now it can embrace the oblivion
 
@@ -235,6 +246,7 @@ ABSTRACT_TYPE(/obj/structure/blueprint)
 	target_atom_name = "plating"
 	required_material = /obj/item/stack/tile/floor
 	required_amount = 1
+	build_time = 0.1 SECONDS
 	whitelisted_types = list(
 		/obj/structure/blueprint/airlock_frame
 	)

@@ -118,9 +118,10 @@
 // ---- Subtypes
 
 // Base Planner Templates
-/datum/room_template/example_room
+/datum/room_template/base_planner_template
+	name = "Base Planner Template"
 
-/datum/room_template/example_room/New()
+/datum/room_template/base_planner_template/New()
 	var/G = /obj/structure/blueprint/girder
 	var/W = /obj/structure/blueprint/window_frame
 	var/A = /obj/structure/blueprint/airlock_frame
