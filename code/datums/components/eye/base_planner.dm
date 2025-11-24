@@ -11,6 +11,18 @@
 	button_icon_state = "pencil"
 	target_type = EYE_TARGET
 
+/datum/action/eye/base_planner/place_template
+	name = "Place Template Schematic"
+	procname = "place_template"
+	button_icon_state = "pencil"
+	target_type = EYE_TARGET
+
+/datum/action/eye/base_planner/erase_all
+	name = "Erase All Schematics"
+	procname = "erase_all"
+	button_icon_state = "eraser"
+	target_type = EYE_TARGET
+
 /datum/action/eye/base_planner/help
 	name = "Help"
 	procname = "help"
@@ -20,7 +32,8 @@
 /datum/component/eye/base_planner/proc/help()
 	if(!current_looker)
 		return
-	to_chat(current_looker, SPAN_NOTICE("***********************************************************"))
-	to_chat(current_looker, SPAN_NOTICE("Left Click		= Place selected object blueprint."))
-	to_chat(current_looker, SPAN_NOTICE("Control Click	= Clear blueprint objects in selected turf."))
-	to_chat(current_looker, SPAN_NOTICE("***********************************************************"))
+	to_chat(current_looker, SPAN_NOTICE("-***********************************************************-"))
+	to_chat(current_looker, SPAN_NOTICE("Left Click			= Place selected object blueprint."))
+	to_chat(current_looker, SPAN_NOTICE("Control Click		= Clear blueprint objects in selected turf."))
+	to_chat(current_looker, SPAN_NOTICE("Middle Mouse Click	= Copy the selected blueprint object as ."))
+	to_chat(current_looker, SPAN_NOTICE("*-*********************************************************-*"))
