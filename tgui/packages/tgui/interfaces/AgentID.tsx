@@ -51,7 +51,7 @@ export const AgentID = (props, context) => {
                 maxValue={1000}
                 minValue={1}
                 color="white"
-                unit="year"
+                unit="years"
                 onChange={(e, value) => act('setAge', { age: value })}
               />
             </LabeledList.Item>
