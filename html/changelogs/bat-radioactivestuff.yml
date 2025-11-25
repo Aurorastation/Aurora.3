@@ -16,6 +16,7 @@ changes:
   - balance: "Both uranium and radioactive waste reagents will create radioactive pools on the floor if spilled (uranium weak, radioactive waste medium/strong)."
   - balance: "Bombs are now allowed to be planted on any mob type except for carbons."
   - balance: "Increases the numbers of assemblies (signalers, igniters, etc.) stocked in vending machines."
+  - balance: "Increased radiation protection values of both Engineering and Atmos voidsuits."
   - rscadd: "Adds a radioactive waste chemical canister to the Uplink (5 tc)."
   - code_imp: "Adds additional variants of greenglow/radioactive decal and radioactive_waste/hazardous obj that are more or less radioactive for mapping and ST use."
   - code_imp: "Cleans up bomb timer setting code and admin logging."
