@@ -65,7 +65,7 @@
 		message = "Please set the timer (in seconds).",
 		title = "Timer",
 		default = 30, // 30 second default
-		max_value = 1200, // 20 minute maximum
+		max_value = 300, // 5 minute maximum
 		min_value = 10, // 10 second minimum
 		timeout = 30 SECONDS
 	)
@@ -78,7 +78,7 @@
 /obj/item/plastique/afterattack(atom/movable/target, mob/user, flag)
 	if (!flag)
 		return FALSE
-	if(istype(target, /mob/living/carbon) || istype(target, /turf/unsimulated) || isopenturf(target) || istype(target, /obj/item/storage/) || istype(target, /obj/item/clothing/accessory/storage/) || istype(target, /obj/item/clothing/under))
+	if(iscarbon(target) || istype(target, /turf/unsimulated) || isopenturf(target) || istype(target, /obj/item/storage/) || istype(target, /obj/item/clothing/accessory/storage/) || istype(target, /obj/item/clothing/under))
 		return FALSE
 	if(!deploy_check(user))
 		return FALSE
@@ -101,7 +101,7 @@
 	log_and_message_admins("planted [src.name] on [target.name] with [timetext] fuse", user, get_turf(target))
 
 	new /obj/effect/plastic_explosive(get_turf(user), target, src)
-	to_chat(user, "Bomb has been planted. Timer counting down from [timetext].")
+	to_chat(user, SPAN_WARNING("Bomb has been planted. Timer counting down from [timetext]."))
 
 	detonate_time = world.time + (timer)
 	addtimer(CALLBACK(src, PROC_REF(explode), get_turf(target)), timer)
