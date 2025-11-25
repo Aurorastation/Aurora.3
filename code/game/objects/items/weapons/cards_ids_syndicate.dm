@@ -140,7 +140,7 @@
 /obj/item/card/id/syndicate/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "AgentID", "AgentID", 500, 600)
+		ui = new(user, src, "AgentID", src, 500, 600)
 		ui.open()
 
 /obj/item/card/id/syndicate/ui_data(var/mob/user)
