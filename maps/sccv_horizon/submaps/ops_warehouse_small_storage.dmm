@@ -310,7 +310,7 @@
 /area/template_noop)
 "hL" = (
 /obj/machinery/power/portgen/basic/fusion,
-/obj/effect/decal/cleanable/greenglow/radioactive,
+/obj/effect/decal/cleanable/greenglow/radioactive/medium,
 /turf/template_noop,
 /area/template_noop)
 "hY" = (
