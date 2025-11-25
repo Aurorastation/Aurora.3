@@ -14,7 +14,7 @@
 /datum/action/eye/base_planner/place_template
 	name = "Place Template Schematic"
 	procname = "place_template"
-	button_icon_state = "pencil"
+	button_icon_state = "template_insert"
 	target_type = EYE_TARGET
 
 /datum/action/eye/base_planner/erase_all

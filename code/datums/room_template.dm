@@ -126,7 +126,7 @@
 	var/W = /obj/structure/blueprint/window_frame
 	var/A = /obj/structure/blueprint/airlock_frame
 	var/F = /obj/structure/blueprint/turf_plating
-	var/list/AF = list(A, F)
+	var/list/X = list(A, F)
 	var/N
 
 	layouts = list(
@@ -149,7 +149,7 @@
 		) = "7x7 Room",
 
 		list(
-			list(N, G, G, AF, W, AF, G, G, N),
+			list(N, G, G, X, W, X, G, G, N),
 			list(G, G, F, F, F, F, F, G, G),
 			list(G, F, F, F, F, F, F, F, G),
 			list(W, F, F, F, F, F, F, F, W),
@@ -157,20 +157,62 @@
 			list(W, F, F, F, F, F, F, F, W),
 			list(G, F, F, F, F, F, F, F, G),
 			list(G, G, F, F, F, F, F, G, G),
-			list(N, G, G, AF, W, AF, G, G, N)
+			list(N, G, G, X, W, X, G, G, N)
 		) = "9x9 Room with Windows and Airlocks",
+
+		list(
+			list(N, G ,G, G, X, W, X, G, G, G, N),
+			list(G, G ,F, F, F, F, F, F, F, G, G),
+			list(G, F ,F, F, F, F, F, F, F, F, G),
+			list(W, F ,F, F, F, F, F, F, F, F, W),
+			list(W, F ,F, F, F, F, F, F, F, F, W),
+			list(X, F ,F, F, F, F, F, F, F, F, X),
+			list(W, F ,F, F, F, F, F, F, F, F, W),
+			list(W, F ,F, F, F, F, F, F, F, F, W),
+			list(G, F ,F, F, F, F, F, F, F, F, G),
+			list(G, G ,F, F, F, F, F, F, F, G, G),
+			list(N, G ,G, G, X, W, X, G, G, G, N),
+		) = "11x11 Room with Windows and Airlocks",
 
 		list(
 			list(N, G ,W, A, A, G, G, G, G, G, N),
 			list(G, G ,F, F, F, G, F, F, F, G, G),
 			list(G, F ,F, F, F, G, F, F, F, F, W),
-			list(G, F ,F, F, F, AF, F, F, F, F, AF),
+			list(G, F ,F, F, F, X, F, F, F, F, X),
 			list(W, F ,F, F, F, W, F, F, F, F, G),
 			list(W, F ,F, F, F, G, G, F, F, F, G),
 			list(W, F ,F, F, F, F, G, G, W, G, G),
 			list(G, F ,F, F, F, F, W, F, F, F, G),
-			list(G, F ,F, F, F, F, AF, F, F, F, G),
+			list(G, F ,F, F, F, F, X, F, F, F, G),
 			list(G, G ,F, F, F, F, G, F, F, G, G),
-			list(N, G ,W, AF, AF, G, G, G, G, G, N),
-		) = "11x11 Base Template"
+			list(N, G ,W, X, X, G, G, G, G, G, N),
+		) = "11x11 Base Template - A",
+
+		list(
+			list(N, G ,G, G, X, W, X, G, G, G, N),
+			list(G, G ,F, G, F, F, F, G, F, G, G),
+			list(W, F ,F, W, F, F, F, W, F, F, W),
+			list(G, F ,F, X, F, F, F, X, F, F, G),
+			list(G, F ,F, G, F, F, F, G, F, F, G),
+			list(G, G ,G, G, F, F, F, G, G, G, G),
+			list(G, F ,F, G, F, F, F, G, F, F, G),
+			list(G, F ,F, X, F, F, F, X, F, F, G),
+			list(W, F ,F, W, F, F, F, W, F, F, W),
+			list(G, G ,F, G, F, F, F, G, F, G, G),
+			list(N, G ,G, G, X, W, X, G, G, G, N),
+		) = "11x11 Base Template - B",
+
+		list(
+			list(N, G ,X, X, W, G, G, W, W, G, N),
+			list(G, G ,F, F, F, F, F, F, F, G, G),
+			list(G, F ,F, F, F, F, F, F, F, F, G),
+			list(W, F ,F, F, F, F, F, F, F, F, G),
+			list(G, F ,F, F, F, F, G, W, X, G, G),
+			list(G, G ,X, X, G, G, G, F, F, F, G),
+			list(G, F ,F, F, F, G, F, F, F, F, G),
+			list(W, F ,F, F, F, X, F, F, F, F, X),
+			list(G, F ,F, F, F, X, F, F, F, F, X),
+			list(G, G ,F, F, F, G, F, F, F, G, G),
+			list(N, G ,G, G, G, G, G, X, X, G, N),
+		) = "11x11 Base Template - C"
 	)
