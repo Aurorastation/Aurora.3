@@ -224,7 +224,8 @@
 		var/acceleration = min(get_burn_acceleration(), accel_limit)
 
 		// Convert from cardinal directions to an angle (in degrees)
-		// !TCJ: I hate this, swap this to Radians later. Degrees are stupid and cardinal directions are even dumber.
+		// !This is absolutely terrible and should at some point be swapped to Radians
+		// !But for now it's "Okay" until overmap ships are updated to work on time differentials properly.
 		var/theta = dir2degree(direction)
 
 		// This comes from the actual definition of a Vector2d, <Acos(theta), Asin(theta)>, where theta is an Angle, and A is a constant multiplier that traditionally represents distance.
