@@ -79,7 +79,7 @@ export const Jukebox = (props, context) => {
                     selected={song === song_selected}
                     icon="play"
                     onClick={(track: Song) =>
-                      act('change_track', { track: song.name })
+                      act('changeTrack', { track: song.name })
                     }
                   />
                 </Table.Cell>

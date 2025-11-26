@@ -19,7 +19,6 @@
 /obj/item/clothing/ears/earphones
 	name = "earphones"
 	desc = "A pair of wireless earphones. Includes a little slot for a music cartridge."
-	desc_mechanics = "Shift+Click to Start/Stop a playlist. Alt+Click to Pause/Resume the current track. Click character to eject cartridge. Alternatively, use verbs."
 	icon = 'icons/obj/clothing/ears/earmuffs.dmi'
 	icon_state = "earphones"
 	item_state = "earphones"
@@ -53,6 +52,13 @@
 
 	/// How much time is left on the autoplay timer, for handling pausing/unpausing.
 	var/autoplay_timeleft
+
+/obj/item/clothing/ears/earphones/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Full controls can be found in the Verbs list, under <b>Object</b> tab -> <b>Earphones</b>."
+	. += "ALT-click \the [src] to quickly Pause/Resume the current track."
+	. += "SHIFT-click \the [src] to quickly Play/Stop the current playlist (this will reset the current track to the start.)"
+	. += "Use \the [src] while in-hand to eject the cartridge."
 
 /obj/item/clothing/ears/earphones/Destroy()
 	StopPlaying()

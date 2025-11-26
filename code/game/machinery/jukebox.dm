@@ -76,7 +76,7 @@
 			StopPlaying()
 			return TRUE
 
-		if("change_track")
+		if("changeTrack")
 			selection = music_player.playlist[params["track"]]
 			if(QDELETED(src))
 				return TRUE
