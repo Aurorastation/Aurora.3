@@ -264,7 +264,7 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	description = "A rugged uniform used by Adhomian archeologists."
 	path = /obj/item/clothing/under/tajaran/archeologist
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
-	allowed_roles = list("Scientist", "Research Director", "Librarian", "Shaft Miner", "Off-Duty Crew Member", "Passenger")
+	allowed_roles = list("Scientist", "Xenoarchaeologist", "Research Director", "Librarian", "Shaft Miner", "Off-Duty Crew Member", "Passenger")
 	sort_category = "Xenowear - Tajara"
 
 /datum/gear/suit/archaeologist_jacket
@@ -272,7 +272,7 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	description = "A leather jacket used by Adhomian archeologists."
 	path = /obj/item/clothing/suit/storage/tajaran/archeologist
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
-	allowed_roles = list("Scientist", "Research Director", "Librarian", "Shaft Miner", "Off-Duty Crew Member", "Passenger")
+	allowed_roles = list("Scientist", "Xenoarchaeologist", "Research Director", "Librarian", "Shaft Miner", "Off-Duty Crew Member", "Passenger")
 	sort_category = "Xenowear - Tajara"
 
 /datum/gear/suit/archaeologist_hat
@@ -280,7 +280,7 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	description = "A well-worn fedora favored by Adhomian explorers and archeologists."
 	path = /obj/item/clothing/head/tajaran/archeologist
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
-	allowed_roles = list("Scientist", "Research Director", "Librarian", "Shaft Miner", "Off-Duty Crew Member", "Passenger")
+	allowed_roles = list("Scientist", "Xenoarchaeologist", "Research Director", "Librarian", "Shaft Miner", "Off-Duty Crew Member", "Passenger")
 	sort_category = "Xenowear - Tajara"
 
 // Religion
