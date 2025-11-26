@@ -134,6 +134,9 @@
 	if(!opened && tablestatus == UNDER_TABLE)
 		to_chat(user, SPAN_WARNING("You can't open \the [src] while the lid is obstructed!"))
 		return FALSE
+	if(istype(loc, /obj/structure/crate_shelf))
+		to_chat(user, SPAN_WARNING("You can't open \the [src] while it is on a shelf!"))
+		return FALSE
 	else
 		return ..()
 
@@ -155,11 +158,29 @@
 
 //For putting on tables
 /obj/structure/closet/crate/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
-	if (istype(over, /obj/structure/table))
+	if (istype(over, /obj/structure/table) && !istype(loc, /obj/structure/crate_shelf))
 		put_on_table(over, user)
+		return TRUE
+	else if(istype(over, /obj/structure/crate_shelf) && !istype(loc, /obj/structure/crate_shelf))
+		put_on_shelf(over, user)
+		return TRUE
+	if(istype(loc, /obj/structure/crate_shelf) && isturf(over) && !is_blocked_turf(over))
+		take_off_shelf(loc, user, over)
 		return TRUE
 	else
 		return ..()
+
+/obj/structure/closet/crate/proc/put_on_shelf(var/obj/structure/crate_shelf/shelf, var/mob/user)
+	shelf.load(src, user)
+
+/obj/structure/closet/crate/proc/take_off_shelf(var/obj/structure/crate_shelf/shelf, var/mob/user, turf/unload_turf)
+	shelf.unload(src, user, unload_turf)
+
+/obj/structure/closet/crate/Adjacent(atom/neighbor, atom/target, atom/movable/mover)
+	. = ..()
+	if(istype(loc, /obj/structure/crate_shelf))
+		var/obj/structure/crate_shelf/S = loc
+		return S.Adjacent(neighbor, target, mover)
 
 /obj/structure/closet/crate/proc/put_on_table(var/obj/structure/table/table, var/mob/user)
 	if (!table || !user || (tablestatus == UNDER_TABLE))
@@ -766,3 +787,5 @@
 	new /obj/item/storage/box/midynhr_water(src)
 	new /obj/item/storage/box/fancy/yoke/grape_juice(src)
 	new /obj/item/storage/box/fancy/yoke/beetle_milk(src)
+	new /obj/item/reagent_containers/toothpaste(src)
+	new /obj/item/reagent_containers/food/drinks/flask/vacuumflask/mouthwash(src)

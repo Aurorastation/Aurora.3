@@ -60,7 +60,6 @@
 
 	var/list/picked_apcs = list()
 	// Up to 2/4/6 APCs per tick depending on severity
-	for(var/i = 0, i < ((severity + 1)), i++)
 	for(var/i = 0, i < (severity * 2), i++)
 		picked_apcs |= pick(valid_apcs)
 
@@ -74,7 +73,7 @@
 
 		// We don't want to obliterate small offships (lucky 7 APCs or fewer).
 		if(LAZYLEN(valid_apcs) < 8)
-			LAZYREMOVE(victim_apc, valid_apcs)
+			LAZYREMOVE(valid_apcs, victim_apc)
 
 		// Main breaker is turned off, or we rolled lucky. Consider this APC protected.
 		if(!victim_apc.operating || storm_damage <= (80 - (severity * 25)))

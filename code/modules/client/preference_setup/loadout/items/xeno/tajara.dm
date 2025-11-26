@@ -79,6 +79,8 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	coat["tajaran naval coat"] = /obj/item/clothing/suit/storage/toggle/tajaran
 	coat["adhomian wool coat"] = /obj/item/clothing/suit/storage/toggle/tajaran/wool
 	coat["raakti shariim coat"] = /obj/item/clothing/suit/storage/toggle/tajaran/raakti_shariim
+	coat["PRA urban police jacket"] = /obj/item/clothing/suit/storage/tajaran/pra_cop
+	coat["PRA rural police jacket"] = /obj/item/clothing/suit/storage/tajaran/pra_cop/rural
 	coat["hadiist surplus jacket"] = /obj/item/clothing/suit/storage/tajaran/pra_jacket
 	coat["al'mariist jacket"] = /obj/item/clothing/suit/storage/tajaran/dpra_jacket
 	coat["fancy black ladies coat"] = /obj/item/clothing/suit/storage/tajaran/fancycoat
@@ -165,7 +167,6 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	uniform["adhomian summerwear"] = /obj/item/clothing/under/tajaran/summer
 	uniform["adhomian summer pants"] = /obj/item/clothing/pants/tajaran
 	uniform["machinist uniform"] = /obj/item/clothing/under/tajaran/mechanic
-	uniform["raakti shariim uniform"] = /obj/item/clothing/under/tajaran/raakti_shariim
 	uniform["a'lmariist laborer clothes"] = /obj/item/clothing/under/tajaran/dpra
 	uniform["a'lmariist laborer clothes, alternate"] = /obj/item/clothing/under/tajaran/dpra/alt
 	uniform["adhomian evening suit"] = /obj/item/clothing/under/tajaran/fancy/evening_suit
@@ -291,6 +292,7 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	circlet["golden dress circlet"] = /obj/item/clothing/head/tajaran/circlet
 	circlet["silver dress circlet"] = /obj/item/clothing/head/tajaran/circlet/silver
 	circlet["fur hat"] = /obj/item/clothing/head/tajaran/fur
+	circlet["PRA urban police winter hat"] = /obj/item/clothing/head/tajaran/pra_cop/winter
 	circlet["matake priest hat"] = /obj/item/clothing/head/tajaran/matake
 	circlet["raakti shariim beret"] = /obj/item/clothing/head/beret/tajaran/raakti_shariim
 	circlet["hadiist army beret"] = /obj/item/clothing/head/beret/tajaran/pra
@@ -791,3 +793,22 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	colorable_cloaks["royal cloak (hooded)"] = /obj/item/clothing/suit/storage/hooded/tajaran/colorable/royal
 	colorable_cloaks["amohda cloak"] = /obj/item/clothing/suit/storage/hooded/tajaran/colorable/amohda
 	gear_tweaks += new /datum/gear_tweak/path(colorable_cloaks)
+
+/datum/gear/taj_rations
+	display_name = "tajaran field ration selection"
+	description = "A selection of tajaran field ration boxes."
+	cost = 2
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	sort_category = "Xenowear - Tajara"
+	path = /obj/item/storage/field_ration
+
+/datum/gear/taj_rations/New()
+	..()
+	var/list/tajrations = list()
+	tajrations["pra worker's meal"] = /obj/item/storage/field_ration/army
+	tajrations["pra nt sponsored"] = /obj/item/storage/field_ration/nanotrasen
+	tajrations["nka imperial army"] = /obj/item/storage/field_ration/nka/army
+	tajrations["nka royal navy"] = /obj/item/storage/field_ration/nka/navy
+	tajrations["dpra"] = /obj/item/storage/field_ration/dpra
+	gear_tweaks += new /datum/gear_tweak/path(tajrations)

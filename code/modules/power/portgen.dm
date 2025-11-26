@@ -7,6 +7,7 @@
 	var/base_icon = "portgen0"
 	density = TRUE
 	anchored = FALSE
+	atom_flags = CRITICAL_ATOM
 
 	var/active = FALSE
 	var/power_gen = 5000

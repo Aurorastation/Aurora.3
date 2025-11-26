@@ -50,7 +50,6 @@
 	light_range = 2
 	light_power = 0.5
 	light_color = LIGHT_COLOR_GREEN
-	uv_intensity = 0
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "greenglow"
 

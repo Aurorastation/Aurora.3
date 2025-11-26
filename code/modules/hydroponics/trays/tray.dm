@@ -387,8 +387,10 @@
 	stunted = FALSE
 	lastproduce = age
 
+	// Defeat the supremacy of repeat-harvestable plants by making it so that bonus yield only applies for one harvest.
+	yield_mod = 0
+
 	if(!GET_SEED_TRAIT(seed, TRAIT_HARVEST_REPEAT))
-		yield_mod = 0
 		seed = null
 		dead = 0
 		age = 0
@@ -756,10 +758,7 @@
 	if(closed_system && mechanical)
 		light_available = tray_light
 	else
-		if(TURF_IS_DYNAMICALLY_LIT(T))
-			light_available = T.get_lumcount(0, 3) * 10
-		else
-			light_available = 5
+		light_available = T.get_lumcount(0, 3) * 5
 
 	// If it's a mechanical tray, provide precise information to the user about the plant's conditions.
 	if(mechanical)

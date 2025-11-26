@@ -19,14 +19,13 @@
 	always_area_sensitive = TRUE
 	gfi_layer_rotation = GFI_ROTATION_DEFDIR
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
-	var/brightness_range = 8	// luminosity when on, also used in power calculation
-	var/brightness_power = 0.45
-	var/night_brightness_range = 6
+	var/brightness_range = 7	// luminosity when on, also used in power calculation
+	var/brightness_power = 1
+	var/night_brightness_range = 5
 	var/night_brightness_power = 0.4
 	var/supports_nightmode = TRUE
 	var/nightmode = FALSE
 	var/brightness_color = LIGHT_COLOR_HALOGEN
-	uv_intensity = 255
 	var/status = LIGHT_OK		// LIGHT_OK, _EMPTY, _BURNED or _BROKEN
 	var/flickering = 0
 	var/light_type = /obj/item/light/tube		// the type of light item
@@ -275,7 +274,7 @@
 /obj/machinery/light/proc/use_emergency_power(pwr = 0.2)
 	if (!has_emergency_power(pwr))
 		return FALSE
-	if (cell.charge > 300)	//it's meant to handle 120 W, ya doofus
+	if (cell.charge > 600) // Default mini-cell max is 500.
 		visible_message(SPAN_WARNING("\The [src] short-circuits!"), SPAN_WARNING("You hear glass breaking."))
 		broken()
 		return FALSE

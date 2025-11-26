@@ -241,7 +241,7 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban)
 	icon = 'icons/obj/structure/urban/ledges.dmi'
 	icon_state = "stairs-single"
 	layer = 2.01
-	opacity = 1
+	opacity = TRUE
 
 /obj/structure/stairs/urban/right
 	dir = EAST
@@ -415,6 +415,10 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 	anchored = TRUE
 	density = TRUE
 	layer = ABOVE_HUMAN_LAYER
+
+/obj/structure/shipping_container_old/Initialize()
+	. = ..()
+	AddComponent(/datum/component/large_transparency)
 
 /obj/effect/overlay/container_logo
 	name = "Hephaestus Industries emblem"
@@ -817,11 +821,15 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 	if(storage_type)
 		storage_compartment = new storage_type(src)
 
+/obj/structure/cash_register/Destroy()
+	QDEL_NULL(storage_compartment)
+	return ..()
+
 /obj/item/storage/toolbox/cash_register_storage
 	name = "cash compartment"
 
 /obj/structure/cash_register/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
-	if(user == over && ishuman(over))
+	if(user == over && ishuman(over) && storage_compartment)
 		var/mob/living/carbon/human/H = over
 		storage_compartment.open(H)
 
@@ -956,7 +964,7 @@ ABSTRACT_TYPE(/obj/structure/stairs/urban/road_ramp)
 	autoclose = TRUE
 	support_ids = TRUE
 	glass = TRUE
-	opacity = 0 //otherwise it is opaque until opened/closed for the first time.
+	opacity = FALSE //otherwise it is opaque until opened/closed for the first time.
 
 /obj/machinery/door/urban/glass_sliding/double //use north state for left side and south state for right side
 	icon_state = "double_glass_sliding_closed"

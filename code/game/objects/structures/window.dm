@@ -13,7 +13,7 @@
 	density = TRUE
 	pass_flags_self = PASSWINDOW
 	w_class = WEIGHT_CLASS_NORMAL
-	layer = SIDE_WINDOW_LAYER
+	layer = OBJ_LAYER
 	anchored = TRUE
 	atom_flags = ATOM_FLAG_CHECKS_BORDER
 	obj_flags = OBJ_FLAG_ROTATABLE|OBJ_FLAG_MOVES_UNSUPPORTED
@@ -63,8 +63,6 @@
 	if(!full)
 		if(dir == SOUTH)
 			layer = ABOVE_HUMAN_LAYER
-		else
-			layer = SIDE_WINDOW_LAYER
 	QUEUE_SMOOTH(src)
 
 /obj/structure/window/proc/take_damage(var/damage = 0,  var/sound_effect = 1, message = TRUE)
@@ -173,13 +171,16 @@
 	if(mover?.movement_type & PHASING)
 		return TRUE
 	if(istype(mover) && mover.pass_flags & PASSGLASS)
-		return 1
+		return TRUE
 	if(is_full_window())
 		return !density	//full tile window, you can't move into it if it's solid!
-	if(get_dir(loc, target) & dir)
+	var/movingdir = get_dir(loc,target)
+	if(movingdir == 0)
+		movingdir = get_dir(loc,mover)
+	if(movingdir & dir)
 		return !density
 	else
-		return 1
+		return TRUE
 
 /obj/structure/window/CheckExit(atom/movable/O, turf/target)
 	if(istype(O) && O.pass_flags & PASSGLASS)

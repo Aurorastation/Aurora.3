@@ -2,15 +2,15 @@
 	name = "computer"
 	icon = 'icons/obj/machinery/modular_console.dmi'
 	icon_state = "computer"
-	layer = ABOVE_HUMAN_LAYER
+	layer = ABOVE_STRUCTURE_LAYER
 	density = 1
 	anchored = 1.0
 	idle_power_usage = 300
 	active_power_usage = 300
 	clicksound = /singleton/sound_category/keyboard_sound
-	z_flags = ZMM_MANGLE_PLANES
 
-	var/circuit = null //The path to the circuit board type. If circuit==null, the computer can't be disassembled.
+	/// The path to the circuit board type. If circuit==null, the computer can't be disassembled.
+	var/circuit = null
 	var/processing = 0
 
 	var/icon_screen = "computer_generic"
@@ -26,7 +26,7 @@
 	var/has_off_keyboards = FALSE
 	var/can_pass_under = TRUE
 
-	// The zlevel that this computer is spawned on.
+	/// The zlevel that this computer is spawned on.
 	var/starting_z_level = null
 
 /obj/machinery/computer/Initialize()
@@ -78,8 +78,8 @@
 
 /obj/machinery/computer/update_icon()
 
-	if(dir != SOUTH)
-		layer = BELOW_WINDOW_LAYER
+	if(dir == SOUTH)
+		layer = ABOVE_HUMAN_LAYER
 	ClearOverlays()
 	if(stat & NOPOWER)
 		set_light(0)

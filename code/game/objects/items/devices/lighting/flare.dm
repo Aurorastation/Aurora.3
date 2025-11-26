@@ -2,17 +2,15 @@
 	name = "flare"
 	desc = "A red standard-issue flare. There are instructions on the side reading 'twist cap off, make light'."
 	w_class = WEIGHT_CLASS_TINY
-	brightness_on = 5 // Pretty bright.
+	light_range = 5 // Pretty bright.
 	light_power = 6
 	light_color = LIGHT_COLOR_FLARE //"#E58775"
 	icon_state = "flare"
 	item_state = "flare"
 	action_button_name = null //just pull it manually, neckbeard.
 	var/fuel = 0
-	uv_intensity = 100
 	var/on_damage = 7
 	var/produce_heat = 1500
-	light_wedge = LIGHT_OMNI
 	power_use = FALSE
 	activation_sound = 'sound/items/flare.ogg'
 	toggle_sound = null
@@ -77,6 +75,7 @@
 		SPAN_NOTICE("\The [src] sputters out.")
 	)
 	update_icon()
+	set_light_on(on)
 
 /obj/item/device/flashlight/flare/proc/update_damage()
 	if(on)
@@ -90,12 +89,11 @@
 	name = "torch"
 	desc = "A rustic source of light."
 	w_class = WEIGHT_CLASS_BULKY
-	brightness_on = 2
+	light_range = 2
 	light_power = 3
 	light_color = LIGHT_COLOR_FIRE
 	icon_state = "torch"
 	item_state = "torch"
-	uv_intensity = 40
 	produce_heat = 1000
 	on_damage = 10
 
@@ -121,12 +119,12 @@
 		H.update_inv_l_hand()
 		H.update_inv_r_hand()
 
-
 /obj/item/device/flashlight/flare/torch/proc/light(mob/user)
 	user.visible_message(SPAN_NOTICE("\The [user] lights \the [src]."),	SPAN_NOTICE("You light \the [src]."))
 	force = on_damage
 	damtype = "fire"
 	on = TRUE
+	set_light_on(on)
 	START_PROCESSING(SSprocessing, src)
 	update_icon()
 
@@ -177,7 +175,7 @@
 /obj/item/device/flashlight/flare/torch/stick
 	name = "flaming stick"
 	desc = "How exciting!"
-	brightness_on = 1.5
+	light_range = 1.5
 	light_power = 1
 	produce_heat = 400
 
