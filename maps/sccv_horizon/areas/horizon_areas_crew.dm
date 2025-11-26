@@ -206,6 +206,7 @@
 	horizon_deck = 3
 	department = LOC_COMMAND
 	area_blurb = "An office well-suited to the powerful: a useful lair for the consular or representative to withdraw with victims found after prowling the ship for themselves."
+	lightswitch = FALSE
 
 /area/horizon/repoffice/consular_one
 	name = "Consular Office A"
@@ -228,6 +229,7 @@
 	name = "Journalist's Office"
 	sound_environment = SOUND_AREA_SMALL_SOFTFLOOR
 	horizon_deck = 3
+	lightswitch = FALSE
 
 /area/horizon/crew/lounge
 	name = "Crew Lounge"
@@ -246,6 +248,7 @@
 	icon_state = "washroom"
 	area_flags = AREA_FLAG_RAD_SHIELDED
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+	lightswitch = FALSE
 
 /area/horizon/crew/washroom/deck_2
 	name = "Head"
@@ -263,3 +266,4 @@
 	name = "Vacant Office"
 	no_light_control = 0
 	horizon_deck = 3
+	lightswitch = FALSE

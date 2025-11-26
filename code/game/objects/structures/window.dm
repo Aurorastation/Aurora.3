@@ -171,13 +171,16 @@
 	if(mover?.movement_type & PHASING)
 		return TRUE
 	if(istype(mover) && mover.pass_flags & PASSGLASS)
-		return 1
+		return TRUE
 	if(is_full_window())
 		return !density	//full tile window, you can't move into it if it's solid!
-	if(get_dir(loc, target) & dir)
+	var/movingdir = get_dir(loc,target)
+	if(movingdir == 0)
+		movingdir = get_dir(loc,mover)
+	if(movingdir & dir)
 		return !density
 	else
-		return 1
+		return TRUE
 
 /obj/structure/window/CheckExit(atom/movable/O, turf/target)
 	if(istype(O) && O.pass_flags & PASSGLASS)

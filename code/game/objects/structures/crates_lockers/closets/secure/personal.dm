@@ -16,12 +16,8 @@
 	name = "patient's closet"
 
 /obj/structure/closet/secure_closet/personal/patient/fill()
-	if(prob(50))
-		new /obj/item/clothing/under/medical_gown(src)
-		new /obj/item/clothing/under/medical_gown(src)
-	else
-		new /obj/item/clothing/under/medical_gown/white(src)
-		new /obj/item/clothing/under/medical_gown/white(src)
+	new /obj/random/medical_gown(src)
+	new /obj/random/medical_gown(src)
 	new /obj/item/clothing/shoes/sneakers( src )
 	new /obj/item/clothing/shoes/sneakers( src )
 

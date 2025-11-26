@@ -763,8 +763,9 @@ GLOBAL_LIST_INIT(asteroid_floor_smooth, list(
 
 	if(smoothing_flags)
 		canSmoothWith = GLOB.asteroid_floor_smooth
-		pixel_x = -4
-		pixel_y = -4
+		var/matrix/M = new
+		M.Translate(-4, -4)
+		transform = M
 
 	if(light_range && light_power)
 		update_light()

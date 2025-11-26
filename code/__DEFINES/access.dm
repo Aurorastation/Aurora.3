@@ -888,5 +888,6 @@
 	desc = "Himean Military Patrol Vessel"
 
 #define ACCESS_QUARANTINED_OUTPOST_ENGINEER 254
+/datum/access/quarantined_outpost_engineer
 	id = ACCESS_QUARANTINED_OUTPOST_ENGINEER
 	desc = "Outpost Nemora, Engineering Clearance"

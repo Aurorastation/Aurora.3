@@ -25,6 +25,7 @@
 	name = "Equipment Room"
 	icon_state = "security"
 	horizon_deck = 2
+	lightswitch = FALSE
 
 /area/horizon/security/washroom
 	name = "Head"
@@ -32,6 +33,7 @@
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 	area_flags = AREA_FLAG_RAD_SHIELDED
 	horizon_deck = 2
+	lightswitch = FALSE
 
 /area/horizon/security/brig
 	name = "Brig"
@@ -57,6 +59,7 @@
 	ambience = AMBIENCE_HIGHSEC
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 	horizon_deck = 2
+	lightswitch = FALSE
 
 /area/horizon/security/armoury
 	name = "Armoury"
@@ -88,6 +91,7 @@
 	icon_state = "investigations_office"
 	sound_environment = SOUND_AREA_MEDIUM_SOFTFLOOR
 	horizon_deck = 3
+	lightswitch = FALSE
 
 /area/horizon/security/interrogation
 	name = "Interrogation"
@@ -95,6 +99,7 @@
 	ambience = list(AMBIENCE_HIGHSEC, AMBIENCE_FOREBODING)
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 	horizon_deck = 3
+	lightswitch = FALSE
 
 /area/horizon/security/interrogation/monitoring
 	name = "Interrogation Monitoring"
@@ -119,6 +124,7 @@
 	ambience = AMBIENCE_FOREBODING
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 	horizon_deck = 3
+	lightswitch = FALSE
 
 /area/horizon/security/custodial
 	name = "Security Custodial Closet"
@@ -126,6 +132,7 @@
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 	area_blurb = "A strong, concentrated smell of many cleaning supplies linger within this room."
 	horizon_deck = 3
+	lightswitch = FALSE
 
 /area/horizon/security/checkpoint
 	name = "Hangar Checkpoint"

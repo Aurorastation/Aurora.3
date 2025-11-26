@@ -417,10 +417,13 @@
 	else if(istype(attacking_item, /obj/item/device/cratescanner))
 		var/obj/item/device/cratescanner/Cscanner = attacking_item
 		if(locked)
-			to_chat(user, SPAN_WARNING("[attacking_item] refuses to scan [src]. Unlock it first!"))
+			to_chat(user, SPAN_WARNING("[attacking_item] refuses to scan \the [src]. Unlock it first!"))
 			return
 		if(welded)
-			to_chat(user, SPAN_WARNING("[attacking_item] detects that [src] is welded shut, and refuses to scan."))
+			to_chat(user, SPAN_WARNING("[attacking_item] detects that \the [src] is welded shut, and refuses to scan."))
+			return
+		if(istype(loc, /obj/structure/crate_shelf))
+			to_chat(user, SPAN_WARNING("[attacking_item] can't scan \the [src] while it is on \the [loc]."))
 			return
 		Cscanner.print_contents(name, contents, src.loc)
 	else if(istype(attacking_item, /obj/item/stack/packageWrap))
