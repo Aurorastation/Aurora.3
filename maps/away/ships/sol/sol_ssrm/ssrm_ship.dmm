@@ -7184,7 +7184,7 @@
 /area/ship/ssrm_corvette/safe_room)
 "pUt" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/machinery/media/jukebox/classic{
+/obj/machinery/media/jukebox{
 	anchored = 1
 	},
 /turf/simulated/floor/tiled/white,

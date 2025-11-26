@@ -346,7 +346,7 @@
 	},
 /area/moghes_bar)
 "jM" = (
-/obj/machinery/media/jukebox/classic,
+/obj/machinery/media/jukebox,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
 	},

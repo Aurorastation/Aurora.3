@@ -1,24 +1,54 @@
 /obj/machinery/media/jukebox
-	name = "jukebox (PARENT OBJECT)"
-	desc = "If you see this object, please report the location on the GitHub issues tracker."
+	name = "jukebox"
+	desc = "A classic music player."
 	icon = 'icons/obj/jukebox.dmi'
 	icon_state = "jukebox-nopower"
 	var/state_base = "jukebox"
 	anchored = FALSE
 	density = TRUE
 	power_channel = AREA_USAGE_EQUIP
-	idle_power_usage = 100
-	active_power_usage = 2000
+	idle_power_usage = 1000
+	active_power_usage = 20000
 	clicksound = 'sound/machines/buttonbeep.ogg'
 	/// The actual music player datum that handles the music
 	var/datum/jukebox/music_player
 	/// The songs this jukebox starts with.
 	var/list/datum/track/tracks = list(
-		new/datum/track("Uplift", 'sound/music/ingame/ss13/title3.ogg', 3 MINUTES + 52 SECONDS)
+		new/datum/track("Scratch", 'sound/music/ingame/ss13/title1.ogg', 2 MINUTES + 30 SECONDS),
+		new/datum/track("D`Bert", 'sound/music/ingame/ss13/title2.ogg', 1 MINUTES + 58 SECONDS),
+		new/datum/track("Uplift", 'sound/music/ingame/ss13/title3.ogg', 3 MINUTES + 52 SECONDS),
+		new/datum/track("Uplift II", 'sound/music/ingame/ss13/title3mk2.ogg', 3 MINUTES + 59 SECONDS),
+		new/datum/track("Suspenseful", 'sound/music/ingame/ss13/traitor.ogg', 5 MINUTES + 30 SECONDS),
+		new/datum/track("Beyond", 'sound/music/ingame/ss13/ambispace.ogg', 3 MINUTES + 15 SECONDS),
+		new/datum/track("D`Fort", 'sound/music/ingame/ss13/song_game.ogg', 3 MINUTES + 50 SECONDS),
+		new/datum/track("Endless Space", 'sound/music/ingame/ss13/space.ogg', 3 MINUTES + 33 SECONDS),
+		new/datum/track("Thunderdome", 'sound/music/ingame/ss13/THUNDERDOME.ogg', 3 MINUTES + 22 SECONDS),
+		new/datum/track("Rise", 'sound/music/ingame/xanu/xanu_rock_1.ogg', 3 MINUTES + 3 SECONDS),
+		new/datum/track("Indulgence", 'sound/music/ingame/xanu/xanu_rock_2.ogg', 3 MINUTES + 7 SECONDS),
+		new/datum/track("Shimmer", 'sound/music/ingame/xanu/xanu_rock_3.ogg', 4 MINUTES + 30 SECONDS)
 	)
 	var/datum/track/selection
 
 // GENERAL PROCS
+/obj/machinery/media/jukebox/Initialize(mapload)
+	..(mapload)
+	music_player = new(src, tracks, 7, 28)
+
+/obj/machinery/media/jukebox/update_icon()
+	ClearOverlays()
+	if(stat & (NOPOWER|BROKEN) || !anchored)
+		if(stat & BROKEN)
+			icon_state = "[state_base]-broken"
+		else
+			icon_state = "[state_base]-nopower"
+		return
+	icon_state = state_base
+	if(music_player.playing)
+		if(emagged)
+			AddOverlays("[state_base]-emagged")
+		else
+			AddOverlays("[state_base]-running")
+
 /obj/machinery/media/jukebox/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if(music_player.playing)
@@ -136,47 +166,6 @@
 	qdel(src)
 
 // DEFINITIONS
-
-// Your classic 50s diner-style jukebox.
-/obj/machinery/media/jukebox/classic
-	name = "jukebox"
-	desc = "A classic music player."
-	idle_power_usage = 1000
-	active_power_usage = 20000
-	tracks = list(
-		new/datum/track("Scratch", 'sound/music/ingame/ss13/title1.ogg', 2 MINUTES + 30 SECONDS),
-		new/datum/track("D`Bert", 'sound/music/ingame/ss13/title2.ogg', 1 MINUTES + 58 SECONDS),
-		new/datum/track("Uplift", 'sound/music/ingame/ss13/title3.ogg', 3 MINUTES + 52 SECONDS),
-		new/datum/track("Uplift II", 'sound/music/ingame/ss13/title3mk2.ogg', 3 MINUTES + 59 SECONDS),
-		new/datum/track("Suspenseful", 'sound/music/ingame/ss13/traitor.ogg', 5 MINUTES + 30 SECONDS),
-		new/datum/track("Beyond", 'sound/music/ingame/ss13/ambispace.ogg', 3 MINUTES + 15 SECONDS),
-		new/datum/track("D`Fort", 'sound/music/ingame/ss13/song_game.ogg', 3 MINUTES + 50 SECONDS),
-		new/datum/track("Endless Space", 'sound/music/ingame/ss13/space.ogg', 3 MINUTES + 33 SECONDS),
-		new/datum/track("Thunderdome", 'sound/music/ingame/ss13/THUNDERDOME.ogg', 3 MINUTES + 22 SECONDS),
-		new/datum/track("Rise", 'sound/music/ingame/xanu/xanu_rock_1.ogg', 3 MINUTES + 3 SECONDS),
-		new/datum/track("Indulgence", 'sound/music/ingame/xanu/xanu_rock_2.ogg', 3 MINUTES + 7 SECONDS),
-		new/datum/track("Shimmer", 'sound/music/ingame/xanu/xanu_rock_3.ogg', 4 MINUTES + 30 SECONDS)
-	)
-
-/obj/machinery/media/jukebox/classic/Initialize()
-	..()
-	music_player = new(src, tracks, 7, 28)
-
-/obj/machinery/media/jukebox/classic/update_icon()
-	ClearOverlays()
-	if(stat & (NOPOWER|BROKEN) || !anchored)
-		if(stat & BROKEN)
-			icon_state = "[state_base]-broken"
-		else
-			icon_state = "[state_base]-nopower"
-		return
-	icon_state = state_base
-	if(music_player.playing)
-		if(emagged)
-			AddOverlays("[state_base]-emagged")
-		else
-			AddOverlays("[state_base]-running")
-
 /obj/machinery/media/jukebox/audioconsole
 	name = "audioconsole"
 	desc = "An Idris-designed jukebox for the 25th century. Unfortunately, someone made a mistake setting this one up. It isn't connected to the extranet and only plays the demo music it was pre-programmed with."
@@ -201,10 +190,6 @@
 		new/datum/track("Konyang Vibes #3", 'sound/music/ingame/konyang/konyang-3.ogg', 2 MINUTES + 43 SECONDS),
 		new/datum/track("Konyang Vibes #4", 'sound/music/ingame/konyang/konyang-4.ogg', 3 MINUTES + 8 SECONDS)
 	)
-
-/obj/machinery/media/jukebox/audioconsole/Initialize()
-	..()
-	music_player = new(src, tracks, 7, 28)
 
 /obj/machinery/media/jukebox/audioconsole/update_icon()
 	ClearOverlays()
@@ -237,10 +222,6 @@
 		new/datum/track("Posin", 'sound/music/ingame/adhomai/posin.ogg', 2 MINUTES + 50 SECONDS, /obj/item/music_cartridge/adhomai_swing)
 	)
 
-/obj/machinery/media/jukebox/phonograph/Initialize()
-	..()
-	music_player = new(src, tracks, 7, 28)
-
 /obj/machinery/media/jukebox/phonograph/update_icon()
 	ClearOverlays()
 	icon_state = state_base
@@ -260,10 +241,6 @@
 		new/datum/track("Posin", 'sound/music/ingame/adhomai/posin.ogg', 2 MINUTES + 50 SECONDS, /obj/item/music_cartridge/adhomai_swing)
 	)
 
-/obj/machinery/media/jukebox/grampohone/Initialize()
-	..()
-	music_player = new(src, tracks, 7, 28)
-
 /obj/machinery/media/jukebox/gramophone/update_icon()
 	ClearOverlays()
 	icon_state = state_base
@@ -282,10 +259,6 @@
 		new/datum/track("Le Swing", 'sound/music/ingame/adhomai/le_swing.ogg', 2 MINUTES + 11 SECONDS, /obj/item/music_cartridge/adhomai_swing),
 		new/datum/track("Posin", 'sound/music/ingame/adhomai/posin.ogg', 2 MINUTES + 50 SECONDS, /obj/item/music_cartridge/adhomai_swing)
 	)
-
-/obj/machinery/media/jukebox/calliope/Initialize()
-	..()
-	music_player = new(src, tracks, 7, 28)
 
 /obj/machinery/media/jukebox/calliope/update_icon()
 	return

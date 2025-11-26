@@ -19141,7 +19141,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/machinery/media/jukebox/classic,
+/obj/machinery/media/jukebox,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/tailor)
 "kQQ" = (
@@ -22201,7 +22201,7 @@
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/restaurant)
 "mBn" = (
-/obj/machinery/media/jukebox/classic,
+/obj/machinery/media/jukebox,
 /turf/simulated/floor/tiled/full,
 /area/point_verdant/interior/bar)
 "mBt" = (

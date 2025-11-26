@@ -213,7 +213,7 @@
 /obj/random/automobile{
 	dir = 4
 	},
-/obj/machinery/media/jukebox/classic{
+/obj/machinery/media/jukebox{
 	anchored = 1;
 	pixel_x = -11;
 	density = 0;

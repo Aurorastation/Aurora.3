@@ -3945,7 +3945,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/obj/machinery/media/jukebox/classic{
+/obj/machinery/media/jukebox{
 	anchored = 1
 	},
 /obj/structure/cable/green{

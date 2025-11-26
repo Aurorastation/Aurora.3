@@ -9089,7 +9089,7 @@
 /obj/effect/floor_decal/corner/dark_green/full{
 	dir = 8
 	},
-/obj/machinery/media/jukebox/classic{
+/obj/machinery/media/jukebox{
 	anchored = 1
 	},
 /obj/machinery/light{

@@ -5725,7 +5725,7 @@
 /area/ship/ipc_refugee/cargopod_b)
 "SZ" = (
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
-/obj/machinery/media/jukebox/classic{
+/obj/machinery/media/jukebox{
 	anchored = 1
 	},
 /turf/simulated/floor/tiled/airless,

@@ -4485,7 +4485,7 @@
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 6
 	},
-/obj/machinery/media/jukebox/classic{
+/obj/machinery/media/jukebox{
 	anchored = 1;
 	density = 0
 	},

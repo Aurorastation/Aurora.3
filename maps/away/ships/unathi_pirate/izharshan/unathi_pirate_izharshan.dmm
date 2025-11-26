@@ -775,7 +775,7 @@
 /turf/simulated/floor,
 /area/shuttle/unathi_pirate_izharshan/operations)
 "tR" = (
-/obj/machinery/media/jukebox/classic{
+/obj/machinery/media/jukebox{
 	anchored = 1
 	},
 /obj/effect/floor_decal/corner_wide/dark_green{

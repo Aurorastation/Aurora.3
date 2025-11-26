@@ -404,7 +404,7 @@
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/konyang_swamp_4)
 "Gs" = (
-/obj/machinery/media/jukebox/classic{
+/obj/machinery/media/jukebox{
 	anchored = 1;
 	pixel_x = 20;
 	density = 0;

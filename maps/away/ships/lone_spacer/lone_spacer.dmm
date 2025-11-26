@@ -394,7 +394,7 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/lone_spacer/starboard_nacelle)
 "dF" = (
-/obj/machinery/media/jukebox/classic{
+/obj/machinery/media/jukebox{
 	anchored = 1
 	},
 /obj/effect/decal/cleanable/dirt,

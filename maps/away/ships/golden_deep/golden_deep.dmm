@@ -4973,7 +4973,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
-/obj/machinery/media/jukebox/classic{
+/obj/machinery/media/jukebox{
 	anchored = 1
 	},
 /turf/simulated/floor/wood,
@@ -12268,7 +12268,7 @@
 /turf/simulated/floor/marble/dark,
 /area/golden_deep/hoplan)
 "Ym" = (
-/obj/machinery/media/jukebox/classic{
+/obj/machinery/media/jukebox{
 	anchored = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
