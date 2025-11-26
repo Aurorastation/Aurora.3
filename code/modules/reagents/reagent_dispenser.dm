@@ -518,7 +518,7 @@
 	/// This is as high as radsuits can absorb! Use with caution.
 	radioactivity = 100
 
-/obj/structure/reagent_dispensers/radioactive_waste/hazardous/medium/antagonist_hints(mob/user, distance, is_adjacent)
+/obj/structure/reagent_dispensers/radioactive_waste/hazardous/high/antagonist_hints(mob/user, distance, is_adjacent)
 	. += "Geiger counters will start clicking at ~11 tiles away from this object."
 	. += "A radsuit is necessary to move safely adjacent to it."
 
@@ -526,7 +526,7 @@
 	/// This is higher than radsuits can absorb! Use with caution.
 	radioactivity = 150
 
-/obj/structure/reagent_dispensers/radioactive_waste/hazardous/medium/antagonist_hints(mob/user, distance, is_adjacent)
+/obj/structure/reagent_dispensers/radioactive_waste/hazardous/extreme/antagonist_hints(mob/user, distance, is_adjacent)
 	. += "Geiger counters will start clicking at ~13 tiles away from this object."
 	. += "No living thing can safely stand next to this object! Borgs or IPCs only!"
 
