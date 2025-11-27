@@ -30,10 +30,6 @@
 	var/datum/track/selection
 
 // GENERAL PROCS
-/obj/machinery/media/jukebox/Initialize(mapload)
-	..(mapload)
-	music_player = new(src, tracks, 7, 28)
-
 /obj/machinery/media/jukebox/update_icon()
 	ClearOverlays()
 	if(stat & (NOPOWER|BROKEN) || !anchored)
@@ -61,10 +57,13 @@
 
 	if(stat & (NOPOWER|BROKEN) && music_player.playing)
 		StopPlaying()
+
 	update_icon()
 
 /obj/machinery/media/jukebox/Destroy()
 	StopPlaying()
+	if(music_player)
+		qdel(music_player)
 	return ..()
 
 /obj/machinery/media/jukebox/attack_hand(mob/user as mob)
@@ -75,6 +74,9 @@
 	if(stat & (NOPOWER|BROKEN))
 		to_chat(usr, "\The [src] doesn't appear to function.")
 		return
+
+	if(!music_player)
+		music_player = new(src, tracks, 7, 28)
 
 	ui_interact(user)
 
@@ -109,7 +111,10 @@
 		if("changeTrack")
 			selection = music_player.playlist[params["track"]]
 			if(QDELETED(src))
-				return TRUE
+				return FALSE
+			if(!music_player)
+				to_chat(usr, "This object is somehow missing a music_player datum. Please report this message on the Github Issues tracker.")
+				return FALSE
 			music_player.selection = selection
 			StartPlaying()
 			return TRUE
