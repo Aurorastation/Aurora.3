@@ -484,9 +484,13 @@
 	persistence_expiration_time_days = 60
 
 /obj/item/reagent_containers/food/snacks/liquidfood/Initialize()
+	. = ..()
+	// Check if something else set the flavor first
+	// IE: Persistence
+	if(flavor != null)
+		return
 	set_flavor()
 	reagent_data[/singleton/reagent/nutriment][flavor] = 9
-	return ..()
 
 /obj/item/reagent_containers/food/snacks/liquidfood/set_flavor()
 	flavor = pick("chocolate", "peanut butter cookie", "scrambled eggs", "beef taco", "tofu", "pizza", "spaghetti", "cheesy potatoes", "hamburger", "baked beans", "maple sausage", "chili macaroni", "veggie burger")

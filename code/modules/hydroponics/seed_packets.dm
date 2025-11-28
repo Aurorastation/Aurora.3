@@ -105,8 +105,24 @@ GLOBAL_LIST_EMPTY(plant_seed_sprites)
 				PERSISTENT
 #############################################*/
 
+/obj/item/seeds/persistence_get_content()
+	var/list/content = ..()
+	SAVE_IF_DIFFERENT(content, seed_type)
+
+	// Seed tracking requires a snowflake case
+	if(seed)
+		content["seed_datum"] = seed.name
+
+	return content
+
 /obj/item/seeds/persistence_apply_content(content, x, y, z)
 	..()
+	SET_IF_EXISTS(content, seed_type)
+
+	// Seed tracking requires a snowflake case
+	if(content["seed_datum"] != null)
+		seed = SSplants.seeds[content["seed_datum"]]
+
 	for(var/obj/object in loc)
 		if(istype(object, /obj/machinery/smartfridge))
 			var/obj/machinery/smartfridge/O = object

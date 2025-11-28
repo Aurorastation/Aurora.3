@@ -14,6 +14,9 @@
 	var/datum/seed/seed
 	var/potency = -1
 
+	// Only player-grown fruits should be persistable.
+	persistence_supported = FALSE
+
 /obj/item/reagent_containers/food/snacks/grown/Initialize(loca, planttype)
 	. = ..()
 	if(!dried_type)
@@ -359,13 +362,20 @@
 /obj/item/reagent_containers/food/snacks/grown/persistence_get_content()
 	var/list/content = ..()
 	SAVE_IF_DIFFERENT(content, plantname)
-	SAVE_IF_DIFFERENT(content, seed)
+
+	// Produce seed tracking requires a snowflake case
+	if(seed)
+		content["produce_seed"] = seed.name
+
 	return content
 
 /obj/item/reagent_containers/food/snacks/grown/persistence_apply_content(content, x, y, z)
 	..()
 	SET_IF_EXISTS(content, plantname)
-	SET_IF_EXISTS(content, seed)
+
+	// Produce seed tracking requires a snowflake case
+	if(content["produce_seed"] != null)
+		seed = SSplants.seeds[content["produce_seed"]]
 
 /obj/item/reagent_containers/food/snacks/fruit_slice
 	name = "fruit slice"
