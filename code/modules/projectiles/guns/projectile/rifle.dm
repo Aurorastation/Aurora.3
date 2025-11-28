@@ -370,8 +370,8 @@
 	max_shots = 3
 	charge_cost = 500
 	projectile_type = /obj/projectile/bullet/gauss/highex
-	self_recharge = 1
-	use_external_power = 1
+	self_recharge = TRUE
+	use_external_power = TRUE
 	recharge_time = 12
 	needspin = FALSE
 

@@ -1,10 +1,10 @@
-/*
-	Defines a firing mode for a gun.
-
-	A firemode is created from a list of fire mode settings. Each setting modifies the value of the gun var with the same name.
-	If the fire mode value for a setting is null, it will be replaced with the initial value of that gun's variable when the firemode is created.
-	Obviously not compatible with variables that take a null value. If a setting is not present, then the corresponding var will not be modified.
-*/
+/**
+ * Defines a firing mode for a gun.
+ *
+ * A firemode is created from a list of fire mode settings. Each setting modifies the value of the gun var with the same name.
+ * If the fire mode value for a setting is null, it will be replaced with the initial value of that gun's variable when the firemode is created.
+ * Obviously not compatible with variables that take a null value. If a setting is not present, then the corresponding var will not be modified.
+ */
 /datum/firemode
 	var/name = "default"
 	var/list/settings = list()
@@ -39,7 +39,7 @@
 		LAZYCLEARLIST(original_settings)
 		original_settings = null
 
-//Parent gun type. Guns are weapons that can be aimed at mobs and act over a distance
+/// Parent gun type. Guns are weapons that can be aimed at mobs and act over a distance.
 /obj/item/gun
 	name = "gun"
 	desc = "It's a gun. It's pretty terrible, though."
@@ -65,94 +65,116 @@
  * Suppression vars
  */
 
-	///Does the gun have a suppressor attached, or should it be suppressed? This will modify firing messages to obscure their source, and change the firing sound to use suppressed_sound
+	/// Does the gun have a suppressor attached, or should it be suppressed? This will modify firing messages to obscure their source, and change the firing sound to use suppressed_sound
 	var/suppressed = FALSE
-	///The suppressor item currently attached to the gun
+	/// The suppressor item currently attached to the gun
 	var/obj/item/suppressor/suppressor
-	///Whether the weapon can have a suppressor attached
+	/// Whether the weapon can have a suppressor attached
 	var/can_suppress = FALSE
-	///Whether the weapon can have a suppressor unattached
+	/// Whether the weapon can have a suppressor unattached
 	var/can_unsuppress = TRUE
 
 /*
  * Sound vars
  */
 
-	///Sound of the gun firing
+	/// Sound of the gun firing.
 	var/fire_sound = 'sound/weapons/gunshot/gunshot1.ogg'
-	///Whether to vary the frequency of the firing sound
+	/// Whether to vary the frequency of the firing sound.
 	var/vary_fire_sound = TRUE
-	///The volume of the firing sound
+	/// The volume of the firing sound.
 	var/fire_sound_volume = 50
-	///Sound of the gun firing when empty (dryfiring)
+	/// Sound of the gun firing when empty (dryfiring).
 	var/empty_sound = /singleton/sound_category/out_of_ammo
-	///Determines what a player should hear in audible_message when the gun is fired. e.g gunshot, blast
+	/// Determines what a player should hear in audible_message when the gun is fired. e.g gunshot, blast.
 	var/fire_sound_text = "gunshot"
-	///The firing sound to play when suppressed = TRUE
+	/// The firing sound to play when suppressed = TRUE.
 	var/suppressed_sound = 'sound/weapons/gunshot/gunshot_suppressed.ogg'
-	///The volume of the suppressed sound
+	/// The volume of the suppressed sound.
 	var/suppressed_volume = 60
-	///The sound of the safety being turned on
+	/// The sound of the safety being turned on.
 	var/safetyon_sound = 'sound/weapons/blade_open.ogg'
-	///The sound of the safety being turned off
+	/// The sound of the safety being turned off.
 	var/safetyoff_sound = 'sound/weapons/blade_close.ogg'
 	drop_sound = 'sound/items/drop/gun.ogg'
 	pickup_sound = 'sound/items/pickup/gun.ogg'
 
 	var/burst = 1
 	var/can_autofire = FALSE
-	var/fire_delay = 6 	//delay after shooting before the gun can be used again
-	var/burst_delay = 1	//delay between shots, if firing in bursts
+	/// Delay after shooting before the gun can be used again
+	var/fire_delay = 6
+	/// Delay between shots, if firing in bursts
+	var/burst_delay = 1
 	var/move_delay = 0
 
-	var/recoil = 0		//screen shake
+	/// Screen shake.
+	var/recoil = 0
 	var/muzzle_flash = 3
-	var/accuracy = 0   //accuracy is measured in tiles. +1 accuracy means that everything is effectively one tile closer for the purpose of miss chance, -1 means the opposite. launchers are not supported, at the moment.
-	var/offhand_accuracy = 0 // the higher this number, the more accurate this weapon is when fired from the off-hand
+	/// Accuracy is measured in tiles. +1 accuracy means that everything is effectively one tile closer for the purpose of miss chance, -1 means the opposite. launchers are not supported, at the moment.
+	var/accuracy = 0
+	/// The higher this number, the more accurate this weapon is when fired from the off-hand.
+	var/offhand_accuracy = 0
 	var/scoped_accuracy = null
-	var/list/burst_accuracy = list(0) //allows for different accuracies for each shot in a burst. Applied on top of accuracy
+	/// Allows for different accuracies for each shot in a burst. Applied on top of accuracy.
+	var/list/burst_accuracy = list(0)
 	var/list/dispersion = list(0)
+	/// The weapon's reliability; impacts probability rolls for misfires/failures of different sorts. As of 2025/11, only implemented for science modular weapons.
 	var/reliability = 100
+
+	/// Standard firing pin for most guns.
+	var/obj/item/device/firing_pin/pin = /obj/item/device/firing_pin
 
 	var/cyborg_maptext_override
 	var/displays_maptext = FALSE
+	/// If this weapon can have an ammo display attached.
 	var/can_ammo_display = TRUE
+	/// The ammo display attached to this weapon.
 	var/obj/item/ammo_display
 	maptext_x = 22
 	maptext_y = 2
 
-	var/obj/item/device/firing_pin/pin = /obj/item/device/firing_pin //standard firing pin for most guns.
-
+	/// If this weapon can have a bayonet attached.
 	var/can_bayonet = FALSE
+	/// The bayonet attached to this weapon.
 	var/obj/item/material/knife/bayonet/bayonet
 	var/knife_x_offset = 0
 	var/knife_y_offset = 0
 
 	var/next_fire_time = 0
 
-	var/sel_mode = 1 //index of the currently selected mode
+	/// Index of the currently selected mode.
+	var/sel_mode = 1
 	var/list/firemodes = list()
 
-	var/markings = 0 // for marking kills with a knife
+	/// For marking kills with a knife.
+	var/markings = 0
 
-	//wielding information
+	// Wielding information
 	var/fire_delay_wielded
 	var/recoil_wielded
 	var/accuracy_wielded
 	var/wielded = 0
 	var/needspin = TRUE
+	/// Can this weapon be dual-wielded?
 	var/is_wieldable = FALSE
 	var/wield_sound = /singleton/sound_category/generic_wield_sound
 	var/unwield_sound = null
-	var/one_hand_fa_penalty = 0 // Additional accuracy/dispersion penalty for using full auto one-handed
+	/// Additional accuracy/dispersion penalty for using full auto one-handed
+	var/one_hand_fa_penalty = 0
 
-	//aiming system stuff
-	var/multi_aim = 0 //Used to determine if you can target multiple people.
-	var/tmp/list/mob/living/aim_targets //List of who yer targeting.
-	var/tmp/mob/living/last_moved_mob //Used to fire faster at more than one person.
+	// Aiming system stuff
+	/// Can this gun target multiple people?
+	var/multi_aim = 0
+	/// List of who is being targeted.
+	var/tmp/list/mob/living/aim_targets
+	/// Used to fire faster at more than one person.
+	var/tmp/mob/living/last_moved_mob
 	var/tmp/lock_time = -100
-	var/safety_state = TRUE
+
+	/// Whether or not the gun has a safety.
 	var/has_safety = TRUE
+	/// Whether the gun's safety is currently engaged.
+	var/safety_state = TRUE
 	var/image/safety_overlay
 
 	var/iff_capable = FALSE // if true, applies the user's ID iff_faction to the projectile
@@ -163,6 +185,25 @@
 		. += "To fire, toggle the safety with CTRL-click (or enable HARM intent), then click where you want to shoot."
 	else
 		. += "To fire, because this weapon has no safety, just click where you want to shoot."
+	if(is_wieldable)
+		. += "This weapon can be wielded with two hands to improve firing stability; use it on yourself while your inactive hand is empty to wield it."
+	. += "Use an object with a sharp edge, like a knife, to carve a notch into this."
+
+/obj/item/gun/assembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(can_bayonet && !bayonet)
+		. += "This weapon can support the attachment of a bayonet."
+	if(can_ammo_display && !ammo_display)
+		. += "This weapon can support the attachment of an ammo display."
+
+/obj/item/gun/disassembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(bayonet)
+		. += "The bayonet can be removed from this weapon with a crowbar."
+	if(ammo_display)
+		. += "The ammo display can be removed from this weapon with a wrench."
+	if(pin)
+		. += "The firing pin can be removed from this weapon with a screwdriver. Most firing pins are rather fragile, and this has a chance of breaking it!"
 
 /obj/item/gun/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -347,6 +388,14 @@
 	var/shoot_time = max(fire_time, appropriate_delay)
 	return shoot_time
 
+/**
+ * Attempts to fire the weapon. This does several things, namely:
+ * * Adds fingerprints to the weapon.
+ * * Checks for the safety's engagement.
+ * * Runs reliability checks, and executes any custom-coded failure events.
+ * * Fire time checks to avoid spam, as well as handling shoot delay.
+ * * Makes the user face their target (duh).
+ */
 /obj/item/gun/proc/fire_checks(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0)
 	if(!user || !target)
 		return FALSE
@@ -427,7 +476,7 @@
 	var/shoot_time = burst > 1 ? burst_delay + 1 : fire_delay
 	user.setClickCooldown(shoot_time)
 
-// Similar to the above proc, but does not require a user, which is ideal for things like turrets.
+/// Similar to the Fire() proc, but does not require a user, which is ideal for things like turrets.
 /obj/item/gun/proc/Fire_userless(atom/target)
 	if(!target)
 		return FALSE
@@ -924,7 +973,13 @@
 		QDEL_NULL(suppressor)
 	return ..()
 
-
+/**
+ * This proc is only called when a weapon has already hit a failure chance, based on prob(100-reliability) during the fire_checks proc.
+ * Based on the weapon's relability value, this proc checks if the severity of the failure exceeds the default (1). It then executes
+ * either small_*, medium_*, or critical_fail procs. These are empty returns by default, and must be coded for each weapon/component.
+ *
+ * As of 2025/11, reliability failures are only implemented for Science's modular weaponry system.
+ */
 /obj/item/gun/proc/handle_reliability_fail(var/mob/user)
 	var/severity = 1
 	if(prob(100-reliability))
