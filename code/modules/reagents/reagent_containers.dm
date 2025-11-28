@@ -374,6 +374,11 @@
 // Override it if you want to use persistence with something else.
 /obj/item/reagent_containers/persistence_apply_content(content, x, y, z)
 	..()
+	// Reagents might be null for reagent containers prior to init.
+	// But if we're doing persistent reagent containers we'll have to make it ourselves.
+	// This is just a copy of the create_reagents logic that will happen during reagent container initialization anyways.
+	if(!reagents)
+		reagents = new/datum/reagents(volume, src)
 	SET_IF_EXISTS(content, reagents.primary_reagent)
 	SET_IF_EXISTS(content, reagents.reagent_volumes)
 	SET_IF_EXISTS(content, reagents.reagent_data)
