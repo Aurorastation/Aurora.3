@@ -14,7 +14,6 @@ GLOBAL_LIST_EMPTY(plant_seed_sprites)
 
 	// Extremely short expiration time, largely just for xenobotanists to 'save' their progress between rounds.
 	persistence_expiration_time_days = 1
-	persistence_supported = TRUE
 
 /obj/item/seeds/Initialize()
 	update_seed()

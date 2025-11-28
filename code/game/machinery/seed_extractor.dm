@@ -26,6 +26,7 @@
 			var/produce = rand(1,4)
 			for(var/i = 0;i<=produce;i++)
 				var/obj/item/seeds/seeds = new(get_turf(src))
+				seeds.persistence_supported = TRUE
 				seeds.seed_type = new_seed_type.name
 				seeds.update_seed()
 		else
