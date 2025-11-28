@@ -358,12 +358,12 @@
 
 /obj/item/reagent_containers/food/snacks/grown/persistence_get_content()
 	var/list/content = ..()
-	SAVE_IF_DIFFERENT(content, seed.traits)
+	SAVE_IF_DIFFERENT(content, seed)
 	return content
 
 /obj/item/reagent_containers/food/snacks/grown/persistence_apply_content(content, x, y, z)
 	..()
-	SET_IF_EXISTS(content, seed.traits)
+	SET_IF_EXISTS(content, seed)
 
 /obj/item/reagent_containers/food/snacks/fruit_slice
 	name = "fruit slice"
