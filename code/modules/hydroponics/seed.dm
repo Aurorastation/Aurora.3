@@ -816,6 +816,7 @@
 
 /datum/seed/proc/spawn_seed(var/turf/spawning_loc)
 	var/obj/item/product = new product_type(spawning_loc, name)
+	product.persistence_supported = TRUE
 	// Set descriptions
 	if(product_desc)
 		product.desc = product_desc
