@@ -369,7 +369,6 @@
 	SAVE_IF_DIFFERENT(content, reagents.thermal_energy)
 
 	// Because apparently flavor is saved here instead
-	SAVE_IF_DIFFERENT(content, reagents_to_add)
 	SAVE_IF_DIFFERENT(content, reagent_data)
 	return content
 
@@ -388,5 +387,4 @@
 	SET_IF_EXISTS(content, reagents.total_volume)
 	SET_IF_EXISTS(content, reagents.maximum_volume)
 	SET_IF_EXISTS(content, reagents.thermal_energy)
-	SET_IF_EXISTS(content, reagents_to_add)
 	SET_IF_EXISTS(content, reagent_data)
