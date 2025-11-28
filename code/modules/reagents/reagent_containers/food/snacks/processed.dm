@@ -483,6 +483,9 @@
 	// Have fun yelling at your local botanist when the commissary inevitably has too many of these.
 	persistence_expiration_time_days = 60
 
+	// Only liquid rations created by the biogenerator will be persisteable.
+	persistence_supported = FALSE
+
 /obj/item/reagent_containers/food/snacks/liquidfood/Initialize()
 	. = ..()
 	// Check if something else set the flavor first
