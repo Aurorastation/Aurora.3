@@ -29,7 +29,8 @@
 		P.color = paper_color
 
 	stored_paper--
-	usr.put_in_hands(P, TRUE)
+	if(usr)
+		usr.put_in_hands(P, TRUE)
 	return P
 
 /obj/item/computer_hardware/nano_printer/attackby(obj/item/attacking_item, mob/user)

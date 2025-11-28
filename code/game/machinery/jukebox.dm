@@ -39,7 +39,7 @@
 			icon_state = "[state_base]-nopower"
 		return
 	icon_state = state_base
-	if(music_player.playing)
+	if(music_player?.playing)
 		if(emagged)
 			AddOverlays("[state_base]-emagged")
 		else
@@ -47,15 +47,15 @@
 
 /obj/machinery/media/jukebox/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	if(music_player.playing)
-		. += "Now playing: [music_player.selection.song_name]"
+	if(music_player?.playing)
+		. += "Now playing: [music_player.selection?.song_name]"
 
 /obj/machinery/media/jukebox/power_change()
 	..()
 	if(!anchored)
 		stat &= ~NOPOWER
 
-	if(stat & (NOPOWER|BROKEN) && music_player.playing)
+	if(stat & (NOPOWER|BROKEN) && music_player?.playing)
 		StopPlaying()
 
 	update_icon()
@@ -109,12 +109,12 @@
 			return TRUE
 
 		if("changeTrack")
-			selection = music_player.playlist[params["track"]]
-			if(QDELETED(src))
-				return FALSE
 			if(!music_player)
 				to_chat(usr, "This object is somehow missing a music_player datum. Please report this message on the Github Issues tracker.")
 				return FALSE
+			if(QDELETED(src))
+				return FALSE
+			selection = music_player.playlist[params["track"]]
 			music_player.selection = selection
 			StartPlaying()
 			return TRUE
@@ -124,7 +124,7 @@
 		src.add_fingerprint(user)
 
 	if(attacking_item.iswrench())
-		if(music_player && music_player.playing)
+		if(music_player?.playing)
 			StopPlaying()
 		user.visible_message(SPAN_WARNING("[user] has [anchored ? "un" : ""]secured \the [src]."), "<span class='notice'>You [anchored ? "un" : ""]secure \the [src].")
 		anchored = !anchored
@@ -138,9 +138,9 @@
 
 /obj/machinery/media/jukebox/proc/StartPlaying()
 	StopPlaying()
-	if(music_player && !music_player.selection)
-		return
 	if(music_player)
+		if(!music_player.selection)
+			return
 		music_player.StartPlaying()
 	update_use_power(POWER_USE_ACTIVE)
 	update_icon()
@@ -205,7 +205,7 @@
 			icon_state = "[state_base]-nopower"
 		return
 	icon_state = state_base
-	if(music_player.playing)
+	if(music_player?.playing)
 		AddOverlays("[state_base]-running")
 
 /obj/machinery/media/jukebox/audioconsole/wall
@@ -230,7 +230,7 @@
 /obj/machinery/media/jukebox/phonograph/update_icon()
 	ClearOverlays()
 	icon_state = state_base
-	if(music_player && music_player.playing)
+	if(music_player?.playing)
 		AddOverlays("[state_base]-running")
 
 /obj/machinery/media/jukebox/gramophone
@@ -249,7 +249,7 @@
 /obj/machinery/media/jukebox/gramophone/update_icon()
 	ClearOverlays()
 	icon_state = state_base
-	if(music_player && music_player.playing)
+	if(music_player?.playing)
 		AddOverlays("[state_base]-running")
 
 /obj/machinery/media/jukebox/calliope
