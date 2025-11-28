@@ -489,6 +489,7 @@
 	// IE: Persistence
 	if(flavor != null)
 		return
+
 	set_flavor()
 	reagent_data[/singleton/reagent/nutriment][flavor] = 9
 
