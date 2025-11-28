@@ -304,6 +304,8 @@
 
 /obj/get_examine_text(mob/user, distance, is_adjacent, infix, suffix, get_extended = FALSE)
 	. = ..()
+	if(persistence_supported)
+		. += SPAN_GOOD("\The [src] can persist between rounds.")
 	if((obj_flags & OBJ_FLAG_ROTATABLE) || (obj_flags & OBJ_FLAG_ROTATABLE_ANCHORED))
 		. += SPAN_SUBTLE("Can be rotated with alt-click.")
 	if(contaminated)
