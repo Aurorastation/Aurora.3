@@ -49,7 +49,6 @@
 	footprint_color = dirt_color
 	update_icon(1)
 
-	// try to get the the atmos and area of the planet
 	if(SSatlas.current_map.use_overmap)
 		// if exoplanet
 		var/datum/site = GLOB.map_sectors["[z]"]
@@ -66,6 +65,7 @@
 			set_light(MINIMUM_USEFUL_LIGHT_RANGE, exoplanet.lightlevel, exoplanet.lightcolor)
 			if(exoplanet.planetary_area && istype(loc, world.area))
 				change_area(loc, exoplanet.planetary_area)
+
 		// if away site
 		else if(istype(template, /datum/map_template/ruin/away_site))
 			var/datum/map_template/ruin/away_site/away_site = template
