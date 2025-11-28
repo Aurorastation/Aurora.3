@@ -367,6 +367,10 @@
 	SAVE_IF_DIFFERENT(content, reagents.total_volume)
 	SAVE_IF_DIFFERENT(content, reagents.maximum_volume)
 	SAVE_IF_DIFFERENT(content, reagents.thermal_energy)
+
+	// Because apparently flavor is saved here instead
+	SAVE_IF_DIFFERENT(content, reagents_to_add)
+	SAVE_IF_DIFFERENT(content, reagent_data)
 	return content
 
 // This will only apply to reagent containers that have persistence_supported set to TRUE. It is defaulted to false.
