@@ -389,3 +389,5 @@
 	SET_IF_EXISTS(content, reagents.total_volume)
 	SET_IF_EXISTS(content, reagents.maximum_volume)
 	SET_IF_EXISTS(content, reagents.thermal_energy)
+	SET_IF_EXISTS(content, reagents_to_add)
+	SET_IF_EXISTS(content, reagent_data)
