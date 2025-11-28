@@ -409,6 +409,16 @@
 	update_icon()
 	return
 
+/obj/item/reagent_containers/food/snacks/persistence_get_content()
+	var/list/content = ..()
+	SAVE_IF_DIFFERENT(content, flavor)
+	return content
+
+/obj/item/reagent_containers/food/snacks/persistence_apply_content(content, x, y, z)
+	..()
+	SET_IF_EXISTS(content, flavor)
+
+
 //////////////////////////////////////////////////
 ////////////////////////////////////////////Snacks
 //////////////////////////////////////////////////

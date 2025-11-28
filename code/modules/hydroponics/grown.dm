@@ -356,6 +356,15 @@
 		seed.do_thorns(H,src)
 		seed.do_sting(H,src,pick(BP_R_HAND,BP_L_HAND))
 
+/obj/item/reagent_containers/food/snacks/grown/persistence_get_content()
+	var/list/content = ..()
+	SAVE_IF_DIFFERENT(content, seed.traits)
+	return content
+
+/obj/item/reagent_containers/food/snacks/grown/persistence_apply_content(content, x, y, z)
+	..()
+	SET_IF_EXISTS(content, seed.traits)
+
 /obj/item/reagent_containers/food/snacks/fruit_slice
 	name = "fruit slice"
 	desc = "A slice of some tasty fruit."
