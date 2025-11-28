@@ -4025,7 +4025,7 @@
 #include "maps\away\scenarios\enviro_testing_facility\enviro_testing_facility_landmarks.dm"
 #include "maps\away\scenarios\enviro_testing_facility\enviro_testing_facility_markers.dm"
 #include "maps\away\scenarios\enviro_testing_facility\enviro_testing_facility_scenario.dm"
-#include "maps\away\scenarios\nuclear_silo\missile_silo.dm"
+/*#include "maps\away\scenarios\nuclear_silo\missile_silo.dm"
 #include "maps\away\scenarios\nuclear_silo\nuclear_silo_.dm"
 #include "maps\away\scenarios\nuclear_silo\nuclear_silo_areas.dm"
 #include "maps\away\scenarios\nuclear_silo\nuclear_silo_landmarks.dm"
@@ -4035,7 +4035,7 @@
 #include "maps\away\scenarios\ruined_propellant_depot\ruined_propellant_depot_.dm"
 #include "maps\away\scenarios\ruined_propellant_depot\ruined_propellant_depot_areas.dm"
 #include "maps\away\scenarios\ruined_propellant_depot\ruined_propellant_depot_landmarks.dm"
-#include "maps\away\scenarios\ruined_propellant_depot\ruined_propellant_depot_scenario.dm"
+#include "maps\away\scenarios\ruined_propellant_depot\ruined_propellant_depot_scenario.dm"*/
 #include "maps\away\ships\biesel\tcaf_corvette\tcaf_corvette.dm"
 #include "maps\away\ships\biesel\tcaf_corvette\tcaf_corvette_areas.dm"
 #include "maps\away\ships\biesel\tcaf_corvette\tcaf_corvette_ghostroles.dm"
