@@ -15,4 +15,4 @@
  * Input 1 must be the content variable passed into the proc.
  * Input 2 can be any variable that is not a datum or reference.
  */
-#define SET_IF_EXISTS(content, var_to_set) if(content[nameof(var_to_set)]) {var_to_set = content["[nameof(var_to_set)]"]}
+#define SET_IF_EXISTS(content, var_to_set) if(content[nameof(var_to_set)] != null) {var_to_set = content["[nameof(var_to_set)]"]}
