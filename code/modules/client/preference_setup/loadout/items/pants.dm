@@ -21,10 +21,6 @@ ABSTRACT_TYPE(/datum/gear/pants)
 	pants["red pants"] = /obj/item/clothing/pants/red
 	pants["tan pants"] = /obj/item/clothing/pants/tan
 	pants["khaki pants"] = /obj/item/clothing/pants/khaki
-	pants["high visibility pants"] = /obj/item/clothing/pants/highvis
-	pants["high visibility pants, alt"] = /obj/item/clothing/pants/highvis_alt
-	pants["high visibility pants, red"] = /obj/item/clothing/pants/highvis_red
-	pants["high visibility pants, orange"] = /obj/item/clothing/pants/highvis_orange
 	pants["track pants"] = /obj/item/clothing/pants/track
 	pants["blue track pants"] = /obj/item/clothing/pants/track/blue
 	pants["green track pants"] = /obj/item/clothing/pants/track/green
@@ -111,3 +107,17 @@ ABSTRACT_TYPE(/datum/gear/pants)
 	skirts["jumper dress"] = /obj/item/clothing/pants/skirt/jumper_highcut
 	skirts["long straight skirt"] = /obj/item/clothing/pants/skirt/straightlong
 	gear_tweaks += new /datum/gear_tweak/path(skirts)
+
+/datum/gear/pants/highvis
+	display_name = "high visibility pants selection"
+	description = "A selection of high visibility pants."
+	path = /obj/item/clothing/pants/highvis
+
+/datum/gear/pants/highvis/New()
+	..()
+	var/list/highvis = list()
+	highvis["high visibility pants"] = /obj/item/clothing/pants/highvis
+	highvis["high visibility pants, alt"] = /obj/item/clothing/pants/highvis_alt
+	highvis["high visibility pants, red"] = /obj/item/clothing/pants/highvis_red
+	highvis["high visibility pants, orange"] = /obj/item/clothing/pants/highvis_orange
+	gear_tweaks += new /datum/gear_tweak/path(highvis)
