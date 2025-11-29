@@ -90,9 +90,9 @@
 	..()
 	var/list/highvis = list()	
 	highvis["high visibility jacket"] = /obj/item/clothing/suit/storage/toggle/highvis
-	highvis["high visibility jacket, alt"] = /obj/item/clothing/suit/storage/toggle/highvis_alt
-	highvis["high visibility jacket, red"] = /obj/item/clothing/suit/storage/toggle/highvis_red
-	highvis["high visibility jacket, orange"] = /obj/item/clothing/suit/storage/toggle/highvis_orange
+	highvis["high visibility jacket, alt"] = /obj/item/clothing/suit/storage/toggle/highvis/alt
+	highvis["high visibility jacket, red"] = /obj/item/clothing/suit/storage/toggle/highvis/red
+	highvis["high visibility jacket, orange"] = /obj/item/clothing/suit/storage/toggle/highvis/orange
 	gear_tweaks += new /datum/gear_tweak/path(highvis)
 
 /datum/gear/suit/hoodie

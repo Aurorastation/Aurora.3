@@ -117,7 +117,7 @@ ABSTRACT_TYPE(/datum/gear/pants)
 	..()
 	var/list/highvis = list()
 	highvis["high visibility pants"] = /obj/item/clothing/pants/highvis
-	highvis["high visibility pants, alt"] = /obj/item/clothing/pants/highvis_alt
-	highvis["high visibility pants, red"] = /obj/item/clothing/pants/highvis_red
-	highvis["high visibility pants, orange"] = /obj/item/clothing/pants/highvis_orange
+	highvis["high visibility pants, alt"] = /obj/item/clothing/pants/highvis/alt
+	highvis["high visibility pants, red"] = /obj/item/clothing/pants/highvis/red
+	highvis["high visibility pants, orange"] = /obj/item/clothing/pants/highvis/orange
 	gear_tweaks += new /datum/gear_tweak/path(highvis)
