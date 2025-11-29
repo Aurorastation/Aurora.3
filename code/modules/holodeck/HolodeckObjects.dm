@@ -488,6 +488,7 @@
 /mob/living/simple_animal/hostile/carp/holodeck/Initialize()
 	. = ..()
 	atom_flags |= ATOM_FLAG_NO_BLOOD
+
 /mob/living/simple_animal/hostile/carp/holodeck/handle_bleeding_timer(var/damage_inflicted)
 	return
 /mob/living/simple_animal/hostile/carp/holodeck/handle_blood(var/force_reset = FALSE)
