@@ -44,8 +44,7 @@
 			if(prob(40))
 				ChangeTurf(get_base_turf_by_area(src))
 
-/turf/simulated/floor/exoplanet/Initialize()
-	. = ..()
+/turf/simulated/floor/exoplanet/New()
 	footprint_color = dirt_color
 	update_icon(1)
 
@@ -61,8 +60,7 @@
 			else
 				initial_gas = list()
 				temperature = T0C
-			// Must be done here, as light data is not fully carried over by ChangeTurf (but overlays are).
-			set_light(MINIMUM_USEFUL_LIGHT_RANGE, exoplanet.lightlevel, exoplanet.lightcolor)
+
 			if(exoplanet.planetary_area && istype(loc, world.area))
 				change_area(loc, exoplanet.planetary_area)
 
@@ -72,6 +70,23 @@
 			if(away_site.exoplanet_atmosphere)
 				initial_gas = away_site.exoplanet_atmosphere.gas.Copy()
 				temperature = away_site.exoplanet_atmosphere.temperature
+
+	..()
+
+/turf/simulated/floor/exoplanet/Initialize()
+	. = ..()
+	if(SSatlas.current_map.use_overmap)
+		// if exoplanet
+		var/datum/site = GLOB.map_sectors["[z]"]
+		var/datum/template = GLOB.map_templates["[z]"]
+		if(istype(site, /obj/effect/overmap/visitable/sector/exoplanet))
+			var/obj/effect/overmap/visitable/sector/exoplanet/exoplanet = site
+			// Must be done here, as light data is not fully carried over by ChangeTurf (but overlays are).
+			set_light(MINIMUM_USEFUL_LIGHT_RANGE, exoplanet.lightlevel, exoplanet.lightcolor)
+
+		// if away site
+		else if(istype(template, /datum/map_template/ruin/away_site))
+			var/datum/map_template/ruin/away_site/away_site = template
 			if(away_site.exoplanet_lightlevel && is_outside())
 				set_light(MINIMUM_USEFUL_LIGHT_RANGE, away_site.exoplanet_lightlevel, away_site.exoplanet_lightcolor)
 
