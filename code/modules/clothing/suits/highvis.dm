@@ -6,6 +6,13 @@
 	item_state = "jacket_highvis"
 	body_parts_covered = UPPER_TORSO|ARMS
 	contained_sprite = TRUE
+	siemens_coefficient = 0.8
+	armor = list(
+		MELEE = ARMOR_MELEE_MINOR,
+		BIO = ARMOR_BIO_MINOR
+	)
+	protects_against_weather = TRUE
+	fire_resist = T0C+200
 
 /obj/item/clothing/suit/storage/toggle/highvis/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
 	var/image/I = ..()
@@ -20,8 +27,6 @@
 	icon = 'icons/obj/item/clothing/suit/storage/toggle/highvis.dmi'
 	icon_state = "jacket_highvis_colorable"
 	item_state = "jacket_highvis_colorable"
-	body_parts_covered = UPPER_TORSO|ARMS
-	contained_sprite = TRUE
 	build_from_parts = TRUE
 	worn_overlay = "lining"
 	has_accents = TRUE
@@ -39,8 +44,6 @@
 	icon = 'icons/obj/item/clothing/suit/storage/toggle/highvis.dmi'
 	icon_state = "jacket_highvis_alt"
 	item_state = "jacket_highvis_alt"
-	body_parts_covered = UPPER_TORSO|ARMS
-	contained_sprite = TRUE
 
 /obj/item/clothing/suit/storage/toggle/highvis/alt/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
 	var/image/I = ..()
@@ -55,8 +58,6 @@
 	icon = 'icons/obj/item/clothing/suit/storage/toggle/highvis.dmi'
 	icon_state = "jacket_highvis_red"
 	item_state = "jacket_highvis_red"
-	body_parts_covered = UPPER_TORSO|ARMS
-	contained_sprite = TRUE
 
 /obj/item/clothing/suit/storage/toggle/highvis/red/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
 	var/image/I = ..()
@@ -71,8 +72,6 @@
 	icon = 'icons/obj/item/clothing/suit/storage/toggle/highvis.dmi'
 	icon_state = "jacket_highvis_orange"
 	item_state = "jacket_highvis_orange"
-	body_parts_covered = UPPER_TORSO|ARMS
-	contained_sprite = TRUE
 
 /obj/item/clothing/suit/storage/toggle/highvis/orange/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
 	var/image/I = ..()

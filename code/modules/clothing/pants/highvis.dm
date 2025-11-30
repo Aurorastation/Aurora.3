@@ -4,6 +4,12 @@
 	icon = 'icons/obj/item/clothing/pants/highvis.dmi'
 	icon_state = "pants_highvis"
 	item_state = "pants_highvis"
+	body_parts_covered = LOWER_TORSO|LEGS
+	siemens_coefficient = 0.8
+	armor = list(
+		MELEE = ARMOR_MELEE_MINOR,
+		BIO = ARMOR_BIO_MINOR
+	)
 
 /obj/item/clothing/pants/highvis/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
 	var/image/I = ..()
