@@ -128,26 +128,42 @@
  * Use the [SEND_SIGNAL] define instead
  */
 /datum/proc/_SendSignal(sigtype, list/arguments)
-	var/target = _listen_lookup[sigtype]
+	var/target = _listen_lookup?[sigtype]
 
 	// No listeners at all for this signal
 	if(!target)
 		return NONE
 
+	. = NONE
+
+	// SINGLE LISTENER
 	if(!islist(target))
 		var/datum/listening_datum = target
+		if(!listening_datum)
+			return NONE
+
 		var/list/proc_map = listening_datum?._signal_procs?[src]
 
-		if(!proc_map || !proc_map[sigtype])
-			stack_trace("Signal mismatch (single): [src] has [sigtype] for [listening_datum], but listener has no matching _signal_procs entry")
-			// Clear the entry so we don't hit this again
+		if(!proc_map)
+			// Listener has completely forgotten this source;
+			// clean the emitter side and log.
+			stack_trace("Signal mismatch (single): [src] has [sigtype] for [listening_datum], but listener has no _signal_procs entry")
 			if(_listen_lookup[sigtype] == listening_datum)
 				_listen_lookup -= sigtype
 			return NONE
 
 		var/proc_name = proc_map[sigtype]
+		if(!proc_name)
+			// Listener still has a table for this source, but not this signal.
+			stack_trace("Signal mismatch (single): [src] has [sigtype] for [listening_datum], but listener has no matching proc entry")
+			if(_listen_lookup[sigtype] == listening_datum)
+				_listen_lookup -= sigtype
+			return NONE
+
+		// Happy path
 		return NONE | call(listening_datum, proc_name)(arglist(arguments))
 
+	// MULTIPLE LISTENERS
 	var/list/listeners = target
 	var/list/queued_calls = list()
 
@@ -156,20 +172,18 @@
 		if(!listening_datum)
 			continue
 
-		var/list/proc_map = listening_datum._signal_procs?[src]
+		var/list/proc_map = listening_datum?._signal_procs?[src]
 		if(!proc_map)
-			// Listener forgot this source, but source still remembers listener.
+			// Listener forgot this source, but the source still remembers the listener.
 			stack_trace("Signal mismatch: [src] has [sigtype] in _listen_lookup but [listening_datum] has no _signal_procs entry for it")
-
 			// Self-heal: remove stale listener from src's listener list.
-			// _listen_lookup[sigtype] may be a single datum or list; here we know it's a list.
 			listeners.Cut(i, i + 1)
-			i-- // adjust index after removal
+			i--
 			continue
 
 		var/proc_name = proc_map[sigtype]
 		if(!proc_name)
-			// proc_map exists but doesn’t know this signal; also stale.
+			// Listener still has a table for this source, but not this signal.
 			stack_trace("Signal mismatch: [src] has [sigtype] in _listen_lookup but [listening_datum] has no proc entry for it")
 			listeners.Cut(i, i + 1)
 			i--
