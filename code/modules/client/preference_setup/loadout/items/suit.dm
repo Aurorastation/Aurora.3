@@ -88,7 +88,7 @@
 
 /datum/gear/suit/highvis/New()
 	..()
-	var/list/highvis = list()	
+	var/list/highvis = list()
 	highvis["high visibility jacket"] = /obj/item/clothing/suit/storage/toggle/highvis
 	highvis["high visibility jacket, alt"] = /obj/item/clothing/suit/storage/toggle/highvis/alt
 	highvis["high visibility jacket, red"] = /obj/item/clothing/suit/storage/toggle/highvis/red

@@ -31,42 +31,14 @@
 	worn_overlay = "lining"
 	has_accents = TRUE
 
-/obj/item/clothing/suit/storage/toggle/highvis/colorable/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
-	var/image/I = ..()
-	if(slot == slot_wear_suit_str)
-		var/image/emissive_overlay = emissive_appearance(mob_icon, "[opened ? "jacket_highvis_colorable_open_su-emis" : "jacket_highvis_colorable_su-emis"]", alpha = src.alpha)
-		I.AddOverlays(emissive_overlay)
-	return I
-
 /obj/item/clothing/suit/storage/toggle/highvis/alt
 	icon_state = "jacket_highvis_alt"
 	item_state = "jacket_highvis_alt"
-
-/obj/item/clothing/suit/storage/toggle/highvis/alt/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
-	var/image/I = ..()
-	if(slot == slot_wear_suit_str)
-		var/image/emissive_overlay = emissive_appearance(mob_icon, "[opened ? "jacket_highvis_alt_open_su-emis" : "jacket_highvis_alt_su-emis"]", alpha = src.alpha)
-		I.AddOverlays(emissive_overlay)
-	return I
 
 /obj/item/clothing/suit/storage/toggle/highvis/red
 	icon_state = "jacket_highvis_red"
 	item_state = "jacket_highvis_red"
 
-/obj/item/clothing/suit/storage/toggle/highvis/red/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
-	var/image/I = ..()
-	if(slot == slot_wear_suit_str)
-		var/image/emissive_overlay = emissive_appearance(mob_icon, "[opened ? "jacket_highvis_red_open_su-emis" : "jacket_highvis_red_su-emis"]", alpha = src.alpha)
-		I.AddOverlays(emissive_overlay)
-	return I
-
 /obj/item/clothing/suit/storage/toggle/highvis/orange
 	icon_state = "jacket_highvis_orange"
 	item_state = "jacket_highvis_orange"
-
-/obj/item/clothing/suit/storage/toggle/highvis/orange/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
-	var/image/I = ..()
-	if(slot == slot_wear_suit_str)
-		var/image/emissive_overlay = emissive_appearance(mob_icon, "[opened ? "jacket_highvis_orange_open_su-emis" : "jacket_highvis_orange_su-emis"]", alpha = src.alpha)
-		I.AddOverlays(emissive_overlay)
-	return I
