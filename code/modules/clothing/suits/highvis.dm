@@ -4,8 +4,8 @@
 	icon = 'icons/obj/item/clothing/suit/storage/toggle/highvis.dmi'
 	icon_state = "jacket_highvis"
 	item_state = "jacket_highvis"
-	body_parts_covered = UPPER_TORSO|ARMS
 	contained_sprite = TRUE
+	body_parts_covered = UPPER_TORSO|ARMS
 	siemens_coefficient = 0.8
 	armor = list(
 		MELEE = ARMOR_MELEE_MINOR,
@@ -39,9 +39,6 @@
 	return I
 
 /obj/item/clothing/suit/storage/toggle/highvis/alt
-	name = "high visibility jacket"
-	desc = "A bright yellow jacket with reflective stripes. For use in operations, engineering, and sometimes even law enforcement, in cold and poor weather or when visibility is low."
-	icon = 'icons/obj/item/clothing/suit/storage/toggle/highvis.dmi'
 	icon_state = "jacket_highvis_alt"
 	item_state = "jacket_highvis_alt"
 
@@ -53,9 +50,6 @@
 	return I
 
 /obj/item/clothing/suit/storage/toggle/highvis/red
-	name = "high visibility jacket"
-	desc = "A red jacket with reflective stripes. For use in different departments, commonly found in civilian emergency services, in cold and poor weather or when visibility is low."
-	icon = 'icons/obj/item/clothing/suit/storage/toggle/highvis.dmi'
 	icon_state = "jacket_highvis_red"
 	item_state = "jacket_highvis_red"
 
@@ -67,9 +61,6 @@
 	return I
 
 /obj/item/clothing/suit/storage/toggle/highvis/orange
-	name = "high visibility jacket"
-	desc = "An orange jacket with reflective stripes. For use in different departments, commonly found in civilian industrial services, in dark or secluded areas where visibility is critical for safety."
-	icon = 'icons/obj/item/clothing/suit/storage/toggle/highvis.dmi'
 	icon_state = "jacket_highvis_orange"
 	item_state = "jacket_highvis_orange"
 
