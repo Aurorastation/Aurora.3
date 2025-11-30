@@ -45,43 +45,46 @@ BREATH ANALYZER
 	health_scan_mob(user, user, mode, sound_scan = sound_scan)
 	add_fingerprint(user)
 
-/proc/get_wound_severity(var/damage_ratio, var/uppercase = FALSE) //Used for ratios.
+/// Calculates severity based on the ratios defined external limbs.
+/proc/get_wound_severity(damage_ratio, uppercase = FALSE)
 	var/degree = "none"
 
 	switch(damage_ratio)
-		if(0 to 5)
+		if (0 to 10)
 			degree = "minor"
-		if(5 to 20)
+		if (11 to 25)
 			degree = "moderate"
-		if(20 to 40)
+		if (26 to 50)
 			degree = "significant"
-		if(40 to 60)
+		if (51 to 75)
 			degree = "severe"
-		if(60 to 80)
-			degree = "critical"
-		else
-			degree = "fatal"
+		if (76 to 99)
+			degree = "extreme"
+		if (99 to INFINITY)
+			degree = "irreparable"
 
 	if(uppercase)
 		degree = capitalize(degree)
 	return degree
 
-/proc/get_severity(amount, var/uppercase = FALSE)
+/proc/get_severity(amount, uppercase = FALSE)
 	var/output = "none"
-	if(!amount)
-		output = "none"
-	else if(amount > 100)
-		output = "fatal"
-	else if(amount > 75)
-		output = "critical"
-	else if(amount > 50)
-		output = "severe"
-	else if(amount > 25)
-		output = "significant"
-	else if(amount > 10)
-		output = "moderate"
-	else
-		output = "minor"
+
+	switch(amount)
+		if (0)
+			output = "none"
+		if (1 to 10)
+			output = "minor"
+		if (11 to 25)
+			output = "moderate"
+		if (26 to 50)
+			output = "significant"
+		if (51 to 75)
+			output = "severe"
+		if (76 to 99)
+			output = "extreme"
+		if (100 to INFINITY)
+			output = "irreparable"
 
 	if(uppercase)
 		output = capitalize(output)
