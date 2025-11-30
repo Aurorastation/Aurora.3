@@ -76,20 +76,20 @@
 	if(!lookup && (!procs || !procs[target]))
 		return
 
-    if(!islist(sig_type_or_types))
-    	sig_type_or_types = list(sig_type_or_types)
+	if(!islist(sig_type_or_types))
+		sig_type_or_types = list(sig_type_or_types)
 
-    var/list/target_procs = procs ? procs[target] : null
+	var/list/target_procs = procs ? procs[target] : null
 
 	for(var/sig in sig_type_or_types)
-    	var/has_proc = target_procs && target_procs[sig]
+		var/has_proc = target_procs && target_procs[sig]
 
 		// Always try to clean the emitter side if lookup exists
 		if(lookup && (sig in lookup))
 			var/current = lookup[sig]
 
 			switch(length(current))
-            	if(2)
+				if(2)
 					// 2-element list: remove src, collapse to single datum
 					var/list/new_list = current - src
 					if(new_list.len)
@@ -118,7 +118,7 @@
 
 	// Final tidy: if target_procs is empty, remove that target from _signal_procs
 	if(target_procs && !target_procs.len)
-    	procs -= target
+		procs -= target
 
 /**
  * Internal proc to handle most all of the signaling procedure
