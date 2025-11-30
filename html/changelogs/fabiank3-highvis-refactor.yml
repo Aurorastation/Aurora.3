@@ -4,6 +4,7 @@ delete-after: True
 
 changes:
   - imageadd: "Added colorable high visibility jackets and pants. They can be found in the loadout as a dedicated piece to select. Existing presets of high visibility clothing still exists and can still be selected in the loadout or in vendors."
+  - rscadd: "Added some very minor brute, bio and electrical protection to high visibility clothing."
   - qol: "Added a dedicated category in the loadout selection for existing high visibility jackets and pants respectively. This change will break current loadouts using either jacket or pants, they need to be re-added manually."
   - bugfix: "Fixed pants slot items not getting the correct overlays due to a missing formatting. This PR probably encountered on it for the first time."
   - code_imp: "High visibility jackets and plants now have their own dedicated code file and their code has been refactored."
