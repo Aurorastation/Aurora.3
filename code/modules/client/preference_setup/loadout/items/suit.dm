@@ -95,6 +95,11 @@
 	highvis["high visibility jacket, orange"] = /obj/item/clothing/suit/storage/toggle/highvis/orange
 	gear_tweaks += new /datum/gear_tweak/path(highvis)
 
+/datum/gear/suit/highvis_colorable
+	display_name = "colorable high visibility jacket"
+	path = /obj/item/clothing/suit/storage/toggle/highvis/colorable
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
+
 /datum/gear/suit/hoodie
 	display_name = "hoodie selection"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie
