@@ -69,56 +69,56 @@
  * * sig_typeor_types Signal string key or list of signal keys to stop listening to specifically
  */
 /datum/proc/UnregisterSignal(datum/target, sig_type_or_types)
-    var/list/lookup = target._listen_lookup
-    var/list/procs = _signal_procs
+	var/list/lookup = target._listen_lookup
+	var/list/procs = _signal_procs
 
-    // If neither side has anything, bail.
-    if(!lookup && (!procs || !procs[target]))
-        return
+	// If neither side has anything, bail.
+	if(!lookup && (!procs || !procs[target]))
+		return
 
     if(!islist(sig_type_or_types))
-        sig_type_or_types = list(sig_type_or_types)
+    	sig_type_or_types = list(sig_type_or_types)
 
     var/list/target_procs = procs ? procs[target] : null
 
-    for(var/sig in sig_type_or_types)
-        var/has_proc = target_procs && target_procs[sig]
+	for(var/sig in sig_type_or_types)
+    	var/has_proc = target_procs && target_procs[sig]
 
-        // Always try to clean the emitter side if lookup exists
-        if(lookup && (sig in lookup))
-            var/current = lookup[sig]
+		// Always try to clean the emitter side if lookup exists
+		if(lookup && (sig in lookup))
+			var/current = lookup[sig]
 
-            switch(length(current))
-                if(2)
-                    // 2-element list: remove src, collapse to single datum
-                    var/list/new_list = current - src
-                    if(new_list.len)
-                        lookup[sig] = new_list.len == 1 ? new_list[1] : new_list
-                    else
-                        // if somehow both gone, just drop the key
-                        lookup -= sig
-                if(1)
-                    // Single-length list (weird state, but handle it)
-                    if(islist(current) && (src in current))
-                        lookup -= sig
-                if(0)
-                    // Non-list: either src or somebody else
-                    if(current == src)
-                        lookup -= sig
-                else
-                    // >2 listeners
-                    current -= src
+			switch(length(current))
+            	if(2)
+					// 2-element list: remove src, collapse to single datum
+					var/list/new_list = current - src
+					if(new_list.len)
+						lookup[sig] = new_list.len == 1 ? new_list[1] : new_list
+					else
+						// if somehow both gone, just drop the key
+						lookup -= sig
+				if(1)
+					// Single-length list (weird state, but handle it)
+					if(islist(current) && (src in current))
+						lookup -= sig
+				if(0)
+					// Non-list: either src or somebody else
+					if(current == src)
+						lookup -= sig
+				else
+					// >2 listeners
+					current -= src
 
-            if(lookup && !lookup.len)
-                target._listen_lookup = null
+			if(lookup && !lookup.len)
+				target._listen_lookup = null
 
-        // Listener side cleanup, only if we actually had a proc
-        if(has_proc)
-            target_procs -= sig
+		// Listener side cleanup, only if we actually had a proc
+		if(has_proc)
+			target_procs -= sig
 
-    // Final tidy: if target_procs is empty, remove that target from _signal_procs
-    if(target_procs && !target_procs.len)
-        procs -= target
+	// Final tidy: if target_procs is empty, remove that target from _signal_procs
+	if(target_procs && !target_procs.len)
+    	procs -= target
 
 /**
  * Internal proc to handle most all of the signaling procedure
