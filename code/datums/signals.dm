@@ -124,7 +124,7 @@
 		// Be defensive: make sure the proc map exists and has this sig
 		var/list/proc_map = listening_datum._signal_procs[src]
 		if(!proc_map)
-			return NONE
+			CRASH("Signal mismatch: [src] has [sigtype] in _listen_lookup but [listening_datum] has no _signal_procs entry for it")
 
 		var/proc_name = proc_map[sigtype]
 		if(!proc_name)
