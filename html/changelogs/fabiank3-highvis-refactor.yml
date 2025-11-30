@@ -7,4 +7,5 @@ changes:
   - balance: "Added some very minor brute, bio and electrical protection to high visibility clothing."
   - qol: "Added a dedicated category in the loadout selection for existing high visibility jackets and pants respectively. This change will break current loadouts using either jacket or pants, they need to be re-added manually."
   - bugfix: "Fixed pants slot items not getting the correct overlays due to a missing formatting. This PR probably encountered on it for the first time."
-  - code_imp: "High visibility jackets and plants now have their own dedicated code file and their code has been refactored."
+  - bugfix: "Fixed some high visibility jackets having the incorrect emissive sprite."
+  - code_imp: "High visibility jackets and plants now have their own dedicated code file and their code has been refactored. Duplicate emissive patterns for the jackets have been removed."
