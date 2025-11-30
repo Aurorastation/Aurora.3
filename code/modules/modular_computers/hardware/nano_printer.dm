@@ -31,7 +31,7 @@
 	stored_paper--
 	if(ismob(usr))
 		var/mob/M = usr
-		M.put_in_hands(P, M.Adjacent(src))
+		M.put_in_hands(P, TRUE)
 	return P
 
 /obj/item/computer_hardware/nano_printer/attackby(obj/item/attacking_item, mob/user)
