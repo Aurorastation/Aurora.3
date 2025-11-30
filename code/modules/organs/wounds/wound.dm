@@ -135,7 +135,7 @@
 	src.amount += other.amount
 	src.bleed_timer += other.bleed_timer
 	src.bleed_timer_increment += other.bleed_timer_increment
-	src.germ_level = (src.germ_level + other.germ_level)/2
+	src.germ_level = max(src.germ_level, other.germ_level)
 	src.created = max(src.created, other.created)	//take the newer created time
 	qdel(other)
 
@@ -173,8 +173,7 @@
 /datum/wound/proc/disinfect()
 	disinfected = TRUE
 
-// heal the given amount of damage, and if the given amount of damage was more
-// than what needed to be healed, return how much heal was left
+/// Heal the given amount of damage, and if the given amount of damage was more than what esd needed to be healed, return how much heal was left
 /datum/wound/proc/heal_damage(amount)
 	if(LAZYLEN(embedded_objects))
 		return amount // heal nothing
@@ -196,7 +195,7 @@
 	// return amount of healing still leftover, can be used for other wounds
 	return amount
 
-///Opens the wound again
+/// Opens the wound again
 /datum/wound/proc/open_wound(damage)
 	src.damage += damage
 	bleed_timer += damage
@@ -231,16 +230,11 @@
 	for(var/obj/item/thing in embedded_objects)
 		if(thing.w_class > WEIGHT_CLASS_SMALL)
 			return FALSE
-	if (current_stage > max_bleeding_stage)
-		return FALSE
 
 	if (bandaged||clamped)
 		return FALSE
 
-	if (bleed_timer <= 0 && wound_damage() <= bleed_threshold)
-		return FALSE //Bleed timer has run out. Once a wound is big enough though, you'll need a bandage to stop it
-
-	return 1
+	return ((bleed_timer > 0 || wound_damage() > bleed_threshold) && current_stage <= max_bleeding_stage)
 
 /// Called in organ_external.dm update_damages, this will update the limb's status to bleeding, and lowers the bleed_timer if applicable
 /datum/wound/proc/handle_bleeding(var/mob/victim, var/obj/item/organ/external/limb)
