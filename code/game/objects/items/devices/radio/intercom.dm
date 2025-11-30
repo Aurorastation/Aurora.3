@@ -29,7 +29,6 @@ pixel_x = 8;
 	canhear_range = 2
 	atom_flags = ATOM_FLAG_NO_BLOOD
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED | OBJ_FLAG_CONDUCTABLE
-	z_flags = ZMM_MANGLE_PLANES
 	var/number = 0
 	var/obj/machinery/abstract/intercom_listener/power_interface
 	var/radio_sound = null
@@ -415,9 +414,9 @@ pixel_x = 8;
 	set_on(has_power) // has_power is given by our listener machinery
 	update_icon()
 
-/obj/item/device/radio/intercom/forceMove(atom/dest)
-	power_interface.forceMove(dest)
-	..(dest)
+/obj/item/device/radio/intercom/forceMove(atom/destination)
+	power_interface.forceMove(destination)
+	. = ..()
 
 /obj/item/device/radio/intercom/update_icon()
 	ClearOverlays()

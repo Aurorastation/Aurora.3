@@ -131,7 +131,7 @@
 	. = ..()
 
 /mob/living/heavy_vehicle/IsAdvancedToolUser()
-	return 1
+	return TRUE
 
 /mob/living/heavy_vehicle/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	SHOULD_CALL_PARENT(FALSE) //Special snowflake case
@@ -149,14 +149,14 @@
 			for(var/pilot in pilots)
 				if(ismob(pilot))
 					var/mob/M = pilot
-					. += "It is being <b>piloted</b> by <a href=?src=[REF(src)];examine=[REF(M)]>[M.name]</a>."
+					. += "It is being <b>piloted</b> by <a href='byond://?src=[REF(src)];examine=[REF(M)]'>[M.name]</a>."
 				else
 					. += "It is being <b>piloted</b> by <b>[pilot]</b>."
 	if(hardpoints.len)
 		. += SPAN_NOTICE("It has the following hardpoints:")
 		for(var/hardpoint in hardpoints)
 			var/obj/item/I = hardpoints[hardpoint]
-			. += "- <b>[hardpoint]</b>: [istype(I) ? SPAN_NOTICE("<i>[I]</i>") : "nothing"]."
+			. += "- <b>[hardpoint]</b>: [istype(I) ? "<a href='byond://?src=[REF(src)];examine=[REF(I)]'>[I.name]</a>" : "nothing"]."
 	else
 		. += "It has <b>no visible hardpoints</b>."
 
@@ -250,9 +250,16 @@
 /mob/living/heavy_vehicle/GetIdCard()
 	return access_card
 
-/mob/living/heavy_vehicle/proc/toggle_power(var/mob/user)
+/// Checks if mech can be powered on/off, sends message to pilot if failed
+/// `var/remote` can be set to TRUE to have proc adjust where messages and hud elements are presented
+/// If `remote` is TRUE, messages and other hud elements are called on the exosuit itself to prevent wierdness, and errors are handled in `handle_hear_say()`
+/mob/living/heavy_vehicle/proc/toggle_power(var/mob/user, var/remote = FALSE)
+	// if remotely called, send these messages to the exosuit, not the person calling this proc
+	var/reciever = user
+	if(remote)
+		reciever = src
 	if(power == MECH_POWER_TRANSITION)
-		to_chat(user, SPAN_NOTICE("Power transition in progress. Please wait."))
+		to_chat(reciever, SPAN_NOTICE("Power transition in progress. Please wait."))
 	else if(power == MECH_POWER_ON) //Turning it off is instant
 		playsound(src, 'sound/mecha/mech-shutdown.ogg', 100, 0)
 		power = MECH_POWER_OFF
@@ -260,15 +267,15 @@
 		//Start power up sequence
 		power = MECH_POWER_TRANSITION
 		playsound(src, 'sound/mecha/powerup.ogg', 50, 0)
-		if(do_after(user, 1.5 SECONDS) && power == MECH_POWER_TRANSITION)
+		if(do_after(reciever, 1.5 SECONDS) && power == MECH_POWER_TRANSITION)
 			playsound(src, 'sound/mecha/nominal.ogg', 50, 0)
 			power = MECH_POWER_ON
 		else
-			to_chat(user, SPAN_WARNING("You abort the powerup sequence."))
+			to_chat(reciever, SPAN_WARNING("You abort the powerup sequence."))
 			power = MECH_POWER_OFF
 		hud_power_control?.queue_icon_update()
 	else
-		to_chat(user, SPAN_WARNING("Error: No power cell was detected."))
+		to_chat(reciever, SPAN_WARNING("Error: No power cell was detected."))
 
 /obj/item/device/radio/exosuit
 	name = "exosuit radio"
@@ -302,7 +309,7 @@
 		if(istype(exosuit) && exosuit.head && exosuit.head.radio && exosuit.head.radio.is_functional())
 			return ..()
 
-/obj/item/device/radio/exosuit/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/ui_state/state = mech_state)
+/obj/item/device/radio/exosuit/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/ui_state/state = GLOB.mech_state)
 	. = ..()
 
 /mob/living/heavy_vehicle/proc/become_remote()
@@ -321,6 +328,9 @@
 	dummy = new dummy_type(get_turf(src))
 	dummy.real_name = "Remote-Bot"
 	dummy.name = dummy.real_name
+	// Give dummy a blank encryption key for later editing if spiderbot
+	if(istype(dummy, /mob/living/simple_animal/spiderbot) && !istype(dummy, /mob/living/simple_animal/spiderbot/ai))
+		dummy.radio.keyslot = new /obj/item/device/encryptionkey
 	remove_verb(dummy, /mob/living/proc/ventcrawl)
 	remove_verb(dummy, /mob/living/proc/hide)
 	if(dummy_colour)

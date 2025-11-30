@@ -72,7 +72,7 @@
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, thruster"
 	},
-/turf/template_noop,
+/turf/space/dynamic,
 /area/ship/scc_scout_ship/exterior)
 "aC" = (
 /obj/machinery/computer/ship/engines/terminal{
@@ -216,7 +216,7 @@
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, flak battery"
 	},
-/turf/template_noop,
+/turf/space/dynamic,
 /area/ship/scc_scout_ship/exterior)
 "bi" = (
 /obj/structure/closet/cabinet,
@@ -330,7 +330,7 @@
 "bB" = (
 /obj/structure/lattice,
 /obj/structure/ship_weapon_dummy,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/ship/scc_scout_ship/exterior)
 "bC" = (
 /obj/effect/floor_decal/industrial/outline/firefighting_closet,
@@ -943,7 +943,6 @@
 	},
 /obj/item/clothing/head/beret/corporate/zavod,
 /obj/item/clothing/head/softcap/zavod/alt,
-/obj/item/clothing/suit/storage/toggle/labcoat/zavodskoi/alt,
 /obj/item/clothing/under/rank/engineer/zavod,
 /obj/item/clothing/under/rank/medical/surgeon/zavod,
 /obj/random/gloves,
@@ -953,7 +952,7 @@
 	dir = 10
 	},
 /obj/item/clothing/suit/storage/toggle/corp/zavod,
-/obj/item/clothing/suit/storage/toggle/labcoat/zavodskoi/letterman/alt,
+/obj/item/clothing/suit/storage/toggle/labcoat/zavodskoi/alt,
 /obj/item/clothing/head/sidecap/zavod,
 /obj/structure/closet,
 /obj/item/storage/backpack/messenger/zavod,
@@ -1200,8 +1199,8 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 6
 	},
-/obj/item/clothing/accessory/dressshirt/alt,
-/obj/item/clothing/accessory/silversun/random,
+/obj/item/clothing/under/dressshirt/alt,
+/obj/item/clothing/under/dressshirt/silversun/random,
 /obj/item/clothing/accessory/kneepads,
 /obj/item/clothing/accessory/storage/overalls,
 /obj/item/clothing/accessory/tie/black,
@@ -1321,7 +1320,7 @@
 "gM" = (
 /obj/structure/lattice,
 /obj/structure/ship_weapon_dummy,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/ship/scc_scout_ship/maint_atmos)
 "gN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -1813,7 +1812,7 @@
 /obj/item/toy/comic/witchfinder,
 /obj/item/mirror,
 /obj/item/flame/lighter/zippo/europa,
-/obj/item/clothing/ears/earmuffs/earphones/headphones,
+/obj/item/clothing/ears/earphones/headphones,
 /obj/item/gamehelm/pink{
 	icon_state = "closed_pink"
 	},
@@ -2603,12 +2602,12 @@
 /area/ship/scc_scout_ship/maint_power)
 "oG" = (
 /obj/structure/closet/crate/freezer,
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = -5
 	},
 /obj/random/mre,
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = -5
 	},
@@ -2616,7 +2615,7 @@
 /obj/random/mre,
 /obj/item/reagent_containers/food/condiment/flour,
 /obj/item/reagent_containers/food/condiment/flour,
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = -5
 	},
@@ -2624,12 +2623,12 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/item/reagent_containers/food/condiment/flour,
 /obj/item/reagent_containers/food/condiment/flour,
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = -5
 	},
 /obj/item/reagent_containers/food/condiment/flour,
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = -5
 	},
@@ -2954,7 +2953,7 @@
 /area/shuttle/scc_scout_ship_shuttle/cargo)
 "qC" = (
 /obj/structure/lattice,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/ship/scc_scout_ship/exterior)
 "qH" = (
 /obj/machinery/light/small{
@@ -3101,7 +3100,7 @@
 	pixel_x = 32
 	},
 /obj/item/clothing/suit/storage/toggle/corp/orion,
-/obj/item/clothing/suit/storage/toggle/labcoat/orion/letterman,
+/obj/item/clothing/suit/storage/toggle/labcoat/orion,
 /obj/item/clothing/under/librarian/orion,
 /obj/item/clothing/under/rank/chef/orion,
 /obj/random/gloves,
@@ -3429,7 +3428,7 @@
 	pixel_y = -192;
 	weapon_id = "SCC Scout Ship Flak Cannon"
 	},
-/turf/template_noop,
+/turf/space/dynamic,
 /area/ship/scc_scout_ship/maint_atmos)
 "tM" = (
 /obj/effect/map_effect/marker/airlock{
@@ -3585,7 +3584,7 @@
 "uw" = (
 /obj/structure/lattice,
 /obj/structure/ship_weapon_dummy/barrel,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/ship/scc_scout_ship/exterior)
 "uz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -3910,7 +3909,7 @@
 /obj/structure/sign/flag/zenghu{
 	pixel_x = 32
 	},
-/obj/item/clothing/gloves/zeng,
+/obj/item/clothing/gloves/latex/nitrile/zeng,
 /obj/item/clothing/head/beret/corporate/zeng,
 /obj/item/clothing/suit/storage/toggle/para_jacket/zeng,
 /obj/item/clothing/suit/storage/toggle/labcoat/zeng,
@@ -4078,7 +4077,7 @@
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, flak battery"
 	},
-/turf/template_noop,
+/turf/space/dynamic,
 /area/ship/scc_scout_ship/exterior)
 "xQ" = (
 /obj/structure/table/stone/marble,
@@ -4710,7 +4709,7 @@
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = -5
 	},
@@ -4932,7 +4931,7 @@
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, starboard airlock"
 	},
-/turf/template_noop,
+/turf/space/dynamic,
 /area/ship/scc_scout_ship/exterior)
 "Eh" = (
 /obj/random/dirt_75,
@@ -5499,7 +5498,7 @@
 	},
 /obj/effect/floor_decal/corner/dark_blue,
 /obj/structure/table/stone/marble,
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 2;
 	pixel_y = 9
 	},
@@ -5877,7 +5876,7 @@
 /obj/effect/landmark/entry_point/port{
 	name = "port, hydroponics"
 	},
-/turf/template_noop,
+/turf/space/dynamic,
 /area/ship/scc_scout_ship/exterior)
 "KD" = (
 /obj/machinery/atmospherics/binary/pump/high_power/on{
@@ -6309,7 +6308,7 @@
 /area/ship/scc_scout_ship/maint_propulsion_port)
 "NZ" = (
 /obj/structure/ship_weapon_dummy,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/ship/scc_scout_ship/exterior)
 "Oc" = (
 /obj/effect/shuttle_landmark/scc_scout_ship/shuttle_hangar{
@@ -6515,7 +6514,7 @@
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, cockpit"
 	},
-/turf/template_noop,
+/turf/space/dynamic,
 /area/ship/scc_scout_ship/exterior)
 "Pj" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -6873,7 +6872,7 @@
 "Sl" = (
 /obj/structure/grille,
 /obj/structure/lattice,
-/turf/template_noop,
+/turf/space/dynamic,
 /area/ship/scc_scout_ship/exterior)
 "Sq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -6948,7 +6947,7 @@
 	pixel_y = 11;
 	pixel_x = 2
 	},
-/obj/item/storage/box/flares{
+/obj/item/storage/box/large/flares{
 	pixel_x = -7;
 	pixel_y = 2
 	},
@@ -7186,7 +7185,7 @@
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, center"
 	},
-/turf/template_noop,
+/turf/space/dynamic,
 /area/ship/scc_scout_ship/exterior)
 "Uo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -7546,13 +7545,13 @@
 /obj/structure/closet,
 /obj/item/clothing/suit/storage/toggle/brown_jacket/scc,
 /obj/item/clothing/under/color/grey,
-/obj/item/clothing/under/shorts/black,
-/obj/item/clothing/under/pants/tan,
-/obj/item/clothing/under/pants/track,
+/obj/item/clothing/pants/shorts/black,
+/obj/item/clothing/pants/tan,
+/obj/item/clothing/pants/track,
 /obj/item/clothing/under/color/lightred,
-/obj/item/clothing/under/pants/camo,
+/obj/item/clothing/pants/camo,
 /obj/item/clothing/accessory/poncho,
-/obj/item/clothing/under/pants/classic,
+/obj/item/clothing/pants/classic,
 /obj/item/clothing/under/sundress,
 /obj/machinery/alarm/north{
 	req_one_access = null
@@ -7779,7 +7778,7 @@
 /area/ship/scc_scout_ship/quarters)
 "Xa" = (
 /obj/item/storage/belt/archaeology,
-/obj/item/storage/box/excavation,
+/obj/item/storage/box/unique/excavation,
 /obj/item/device/flashlight/lantern,
 /obj/item/device/ano_scanner,
 /obj/item/device/depth_scanner,
@@ -7907,7 +7906,7 @@
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, crew quarters"
 	},
-/turf/template_noop,
+/turf/space/dynamic,
 /area/ship/scc_scout_ship/exterior)
 "XA" = (
 /obj/item/ship_ammunition/grauwolf_bundle,
@@ -8264,7 +8263,7 @@
 /obj/effect/map_effect/map_helper/ruler_tiles_3{
 	dir = 4
 	},
-/turf/template_noop,
+/turf/space/dynamic,
 /area/ship/scc_scout_ship/exterior)
 "ZP" = (
 /obj/structure/bed/stool/chair/shuttle{

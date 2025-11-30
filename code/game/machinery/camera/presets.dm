@@ -1,12 +1,12 @@
 // PRESETS
-var/global/list/engineering_networks = list(
+GLOBAL_LIST_INIT(engineering_networks, list(
 	NETWORK_REACTOR,
 	NETWORK_ENGINEERING,
 	NETWORK_ENGINEERING_OUTPOST,
 	"Atmosphere Alarms",
 	"Fire Alarms",
 	"Power Alarms"
-)
+))
 
 /obj/machinery/camera/network/crescent
 	network = list(NETWORK_CRESCENT)

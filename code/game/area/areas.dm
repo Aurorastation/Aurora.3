@@ -7,15 +7,19 @@
 #define VOLUME_MUSIC 30
 
 /// This list of names is here to make sure we don't state the area blurb to a mob more than once.
-var/global/list/area_blurb_stated_to = list()
+GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 
 /area
 	var/global/global_uid = 0
 	var/uid
-	///Bitflag (Any of `AREA_FLAG_*`). See `code\__DEFINES\misc.dm`.
+	/// Bitflag (Any of `AREA_FLAG_*`). See "code\__DEFINES\misc.dm".
 	var/area_flags
-	var/holomap_color // Color of this area on the holomap. Must be a hex color (as string) or null.
-	var/fire = null
+	/// Color of this area on the holomap. Must be a hex color (as string) or null.
+	var/holomap_color
+
+	/// Do we have an active fire alarm?
+	var/fire = FALSE
+
 	var/atmosalm = 0
 	var/poweralm = 1
 	var/party = null
@@ -25,50 +29,60 @@ var/global/list/area_blurb_stated_to = list()
 	icon = 'icons/turf/areas.dmi'
 	icon_state = "unknown"
 	layer = AREA_LAYER
-	luminosity = 0
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	invisibility = INVISIBILITY_LIGHTING
+	plane = BLACKNESS_PLANE
 
 	var/obj/machinery/power/apc/apc = null
-	var/turf/base_turf // The base turf type of the area, which can be used to override the z-level's base turf.
+	/// The base turf type of the area, which can be used to override the z-level's base turf.
+	var/turf/base_turf
 
-	var/lightswitch = FALSE
+	/// If this area has a light switch (or multiple), do the lights start on or off? FALSE = off, TRUE = on.
+	var/lightswitch = TRUE
 
 	var/eject = null
 
 	var/requires_power = 1
-	var/always_unpowered = 0	//this gets overridden to 1 for space in area/New()
+	/// This gets overridden to 1 for space in area/New()
+	var/always_unpowered = 0
 
-	var/power_equip = 1 // Status vars
+	// Status vars
+	var/power_equip = 1
 	var/power_light = 1
 	var/power_environ = 1
-	var/used_equip = 0 // Continuous drain; don't touch these directly.
+	// Continuous drain; don't touch these directly.
+	var/used_equip = 0
 	var/used_light = 0
 	var/used_environ = 0
-	var/oneoff_equip 	= 0 // Used once and cleared each tick.
+	// Used once and cleared each tick.
+	var/oneoff_equip 	= 0
 	var/oneoff_light 	= 0
 	var/oneoff_environ 	= 0
 
-	///Boolean, if this area has gravity
+	/// Boolean, if this area has gravity
 	var/has_gravity = TRUE
 
-	///Boolean, if this area always has gravity
+	/// Boolean, if this area always has gravity
 	var/alwaysgravity = FALSE
 
-	///Boolean, if this area never has gravity
+	/// Boolean, if this area never has gravity
 	var/nevergravity = FALSE
 
-	var/list/all_doors = list() //Added by Strumpetplaya - Alarm Change - Contains a list of doors adjacent to this area
+	/// Contains a list of doors adjacent to this area.
+	var/list/all_doors = list()
 	var/air_doors_activated = FALSE
 
 	var/list/ambience = list()
 	var/list/forced_ambience = null
 	var/list/music = list()
 
-	///Used to decide what kind of reverb the area makes sound have
+	/// Used to decide what kind of reverb the area makes sound have
 	var/sound_environment = SOUND_AREA_STANDARD_STATION
 
-	var/no_light_control = FALSE // If TRUE, lights in area cannot be toggled with light controller.
-	var/allow_nightmode = FALSE // If TRUE, lights in area will be darkened by the night mode controller.
+	/// If TRUE, lights in area cannot be toggled with light controller.
+	var/no_light_control = FALSE
+	/// If TRUE, lights in area will be darkened by the night mode controller.
+	var/allow_nightmode = FALSE
 	var/emergency_lights = FALSE
 
 	/**
@@ -77,6 +91,13 @@ var/global/list/area_blurb_stated_to = list()
 	 * This includes any non-space area, including maintenance; it doesn't include space or shuttles (as they could be outside the station)
 	 */
 	var/station_area = FALSE
+	/// Only used for the Horizon, and mostly for mapping checks/naming. All except horizon_deck (integer) use '_DEFINES\ship_locations.dm' constants
+	var/horizon_deck = null
+	var/department = null
+	var/subdepartment = null
+	// 'amidships' belongs to location_ew
+	var/location_ew = null
+	var/location_ns = null
 
 	var/centcomm_area = FALSE
 
@@ -87,7 +108,17 @@ var/global/list/area_blurb_stated_to = list()
 
 	var/tmp/is_outside = OUTSIDE_NO
 
-// Don't move this to Initialize(). Things in here need to run before SSatoms does.
+	/// Should the turfs in this area render starlight accurate to the starlight of the local sector?
+	/// This is intended for use with EVA areas of ships - such as the wings of the Horizon, for instance.
+	/// You probably shouldn't be setting this to true on any planet-based maps, or on any indoors areas.
+	var/needs_starlight = FALSE
+
+	/// defaults to TRUE, false disables hostile events (like drone uprising).
+	var/hostile_events = TRUE
+
+/**
+ * Don't move this to Initialize(). Things in here need to run before SSatoms does.
+ */
 /area/New()
 	// DMMS hook - Required for areas to work properly.
 	if (!GLOB.areas_by_type[type])
@@ -101,6 +132,7 @@ var/global/list/area_blurb_stated_to = list()
 
 /area/Initialize(mapload)
 	icon_state = "white"
+	color = null
 
 	blend_mode = BLEND_MULTIPLY
 
@@ -108,11 +140,6 @@ var/global/list/area_blurb_stated_to = list()
 		power_light = 0
 		power_equip = 0
 		power_environ = 0
-
-	if(dynamic_lighting)
-		luminosity = 0
-	else
-		luminosity = 1
 
 	if(centcomm_area)
 		GLOB.centcom_areas[src] = TRUE
@@ -131,8 +158,7 @@ var/global/list/area_blurb_stated_to = list()
 
 	. = ..()
 
-	if(dynamic_lighting)
-		luminosity = FALSE
+	update_base_lighting()
 
 	if (mapload && turf_initializer)
 		for(var/turf/T in src)
@@ -160,7 +186,14 @@ var/global/list/area_blurb_stated_to = list()
 /area/proc/is_no_crew_expected()
 	return area_flags & AREA_FLAG_NO_CREW_EXPECTED
 
-/area/proc/set_lightswitch(var/state) // Set lights in area. TRUE for on, FALSE for off, NULL for initial state.
+/**
+ * Set lights in area.
+ *
+ * * state - TRUE for on, FALSE for off, NULL for initial state
+ *
+ * Returns `TRUE`
+ */
+/area/proc/set_lightswitch(var/state)
 	if(isnull(state))
 		state = initial(lightswitch)
 
@@ -182,9 +215,9 @@ var/global/list/area_blurb_stated_to = list()
 
 /area/proc/atmosalert(danger_level, var/alarm_source)
 	if (danger_level == 0)
-		atmosphere_alarm.clearAlarm(src, alarm_source)
+		GLOB.atmosphere_alarm.clearAlarm(src, alarm_source)
 	else
-		atmosphere_alarm.triggerAlarm(src, alarm_source, severity = danger_level)
+		GLOB.atmosphere_alarm.triggerAlarm(src, alarm_source, severity = danger_level)
 
 	//Check all the alarms before lowering atmosalm. Raising is perfectly fine.
 	for (var/obj/machinery/alarm/AA in src)
@@ -280,7 +313,8 @@ var/global/list/area_blurb_stated_to = list()
 #define DO_PARTY(COLOR) animate(color = COLOR, time = 0.5 SECONDS, easing = QUAD_EASING)
 
 /area/update_icon()
-	if ((fire || eject || party || radiation_active) && (!requires_power||power_environ) && !istype(src, /area/space)) //If it doesn't require power, can still activate this proc.
+	// If it doesn't require power, can still activate this proc.
+	if ((fire || eject || party || radiation_active) && (!requires_power||power_environ) && !istype(src, /area/space))
 		if(radiation_active)
 			color = "#30e63f"
 			animate(src)	// stop any current animations.
@@ -317,11 +351,26 @@ var/global/list/area_blurb_stated_to = list()
 
 #undef DO_PARTY
 
-var/list/mob/living/forced_ambiance_list = new
+/**
+ * Call back when an atom enters an area
+ *
+ * Sends signals COMSIG_AREA_ENTERED and COMSIG_ENTER_AREA (to a list of atoms)
+ *
+ * If the area has ambience, then it plays some ambience music to the ambience channel
+ */
+/area/Entered(atom/movable/arrived, area/old_area)
+	SEND_SIGNAL(src, COMSIG_AREA_ENTERED, arrived, old_area)
 
-/area/Entered(mob/living/L)
-	if(!istype(L, /mob/living) || !ROUND_IS_STARTED)
+	if(!arrived.important_recursive_contents?[RECURSIVE_CONTENTS_AREA_SENSITIVE])
 		return
+	for(var/atom/movable/recipient as anything in arrived.important_recursive_contents[RECURSIVE_CONTENTS_AREA_SENSITIVE])
+		SEND_SIGNAL(recipient, COMSIG_ENTER_AREA, src)
+
+	/* START aurora snowflake code */
+	if(!istype(arrived, /mob/living) || !ROUND_IS_STARTED)
+		return
+
+	var/mob/living/L = arrived
 
 	if(!L.ckey)	return
 
@@ -362,24 +411,55 @@ var/list/mob/living/forced_ambiance_list = new
 		stop_music(L)
 	do_area_blurb(L)
 
-// Play Ambience
+	/* END aurora snowflake code */
+
+/**
+ * Called when an atom exits an area
+ *
+ * Sends signals COMSIG_AREA_EXITED and COMSIG_EXIT_AREA (to a list of atoms)
+ */
+/area/Exited(atom/movable/gone, direction)
+	SEND_SIGNAL(src, COMSIG_AREA_EXITED, gone, direction)
+	SEND_SIGNAL(gone, COMSIG_MOVABLE_EXITED_AREA, src, direction)
+	if(!gone.important_recursive_contents?[RECURSIVE_CONTENTS_AREA_SENSITIVE])
+		return
+	for(var/atom/movable/recipient as anything in gone.important_recursive_contents[RECURSIVE_CONTENTS_AREA_SENSITIVE])
+		SEND_SIGNAL(recipient, COMSIG_EXIT_AREA, src)
+
+/**
+ * Plays ambiance for the provided mob.
+ *
+ * * mob/living/L - Affected mob.
+ */
 /area/proc/play_ambience(var/mob/living/L)
 	if((world.time >= L.client.ambience_last_played_time + 5 MINUTES) && prob(20))
 		var/picked_ambience = pick(ambience)
 		L << sound(picked_ambience, volume = VOLUME_AMBIENCE, channel = CHANNEL_AMBIENCE)
 		L.client.ambience_last_played_time = world.time
 
-// Stop Ambience
+/**
+ * Stops ambiance for the provided mob.
+ *
+ * * mob/living/L - Affected mob.
+ */
 /area/proc/stop_ambience(var/mob/living/L)
 	L << sound(null, channel = 2)
 
-// Play Music
+/**
+ * Plays music for the provided mob.
+ *
+ * * mob/living/L - Affected mob.
+ */
 /area/proc/play_music(var/mob/living/L)
 	if(src.music.len)
 		var/picked_music = pick(music)
 		L << sound(picked_music, volume = VOLUME_MUSIC, channel = 4)
 
-// Stop Music
+/**
+ * Stops music for the provided mob.
+ *
+ * * mob/living/L - Affected mob.
+ */
 /area/proc/stop_music(var/mob/living/L)
 	L << sound(null, channel = 4)
 
@@ -425,8 +505,14 @@ var/list/mob/living/forced_ambiance_list = new
 		return FALSE
 	return has_gravity
 
-//A useful proc for events.
-//This returns a random area of the station which is meaningful. Ie, a room somewhere
+/**
+ * Useful proc for events.
+ * This returns a random area of the station which is meaningful. Ie, a room somewhere
+ *
+ * * filter_players - Default FALSE. If TRUE, skips areas without any players in them.
+ *
+ * Returns /area/
+ */
 /proc/random_station_area(var/filter_players = FALSE)
 	var/list/possible = list()
 	for(var/Y in GLOB.the_station_areas)
@@ -439,15 +525,13 @@ var/list/mob/living/forced_ambiance_list = new
 			continue
 		if (istype(A, /area/solar) || findtext(A.name, "solar"))
 			continue
-		if (istype(A, /area/constructionsite) || istype(A, /area/maintenance/interstitial_construction_site))
+		if (istype(A, /area/constructionsite))
 			continue
-		if (istype(A, /area/rnd/xenobiology))
+		if (istype(A, /area/horizon/rnd/xenobiology))
 			continue
-		if (istype(A, /area/maintenance/substation))
+		if (istype(A, /area/horizon/maintenance/substation))
 			continue
 		if (istype(A, /area/turbolift))
-			continue
-		if (istype(A, /area/security/penal_colony))
 			continue
 		if (istype(A, /area/mine))
 			continue
@@ -457,6 +541,9 @@ var/list/mob/living/forced_ambiance_list = new
 		//Although hostile mobs instadying to turrets is fun
 		//If there's no AI they'll just be hit with stunbeams all day and spam the attack logs.
 		if (istype(A, /area/turret_protected) || LAZYLEN(A.turret_controls))
+			continue
+
+		if(!A.hostile_events)
 			continue
 
 		if(filter_players)
@@ -484,32 +571,6 @@ var/list/mob/living/forced_ambiance_list = new
 		return pick(turfs)
 	else return null
 
-// Changes the area of T to A. Do not do this manually.
-// Area is expected to be a non-null instance.
-/proc/ChangeArea(var/turf/T, var/area/A)
-	if(!istype(A))
-		CRASH("Area change attempt failed: invalid area supplied.")
-	var/old_outside = T.is_outside()
-	var/area/old_area = get_area(T)
-	if(old_area == A)
-		return
-	A.contents.Add(T)
-	if(old_area)
-		old_area.Exited(T, A)
-		for(var/atom/movable/AM in T)
-			old_area.Exited(AM, A)
-	A.Entered(T, old_area)
-	for(var/atom/movable/AM in T)
-		A.Entered(AM, old_area)
-
-	for(var/obj/machinery/M in T)
-		M.shuttle_move(T)
-
-	T.last_outside_check = OUTSIDE_UNCERTAIN
-	var/outside_changed = T.is_outside() != old_outside
-	if(T.is_outside == OUTSIDE_AREA && outside_changed)
-		T.update_weather()
-
 /**
 * Displays an area blurb on a mob's screen.
 *
@@ -524,8 +585,8 @@ var/list/mob/living/forced_ambiance_list = new
 			to_chat(target_mob, EXAMINE_BLOCK_GREY("There's nothing particularly noteworthy about this area."))
 		return
 
-	if(!(target_mob.ckey in global.area_blurb_stated_to[area_blurb_category]) || override)
-		LAZYADD(global.area_blurb_stated_to[area_blurb_category], target_mob.ckey)
+	if(!(target_mob.ckey in GLOB.area_blurb_stated_to[area_blurb_category]) || override)
+		LAZYADD(GLOB.area_blurb_stated_to[area_blurb_category], target_mob.ckey)
 		to_chat(target_mob, EXAMINE_BLOCK_GREY(area_blurb))
 
 /// A verb to view an area's blurb on demand. Overrides the check for if you have seen the blurb before so you can always see it when used.

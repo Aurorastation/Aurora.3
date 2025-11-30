@@ -53,9 +53,16 @@
 	var/emagged = 0
 	var/failmsg = ""
 	var/charge = 0
-	var/load_interval = 60
+	var/load_interval = 20
 	var/store_broken = 0//If set, this lightreplacer will suck up and store broken bulbs
 	var/max_stored = 10
+
+/obj/item/device/lightreplacer/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(distance <= 2)
+		. += "It has <b>[uses] lights</b> remaining."
+		if (store_broken)
+			. += "It is storing <b>[stored()]/[max_stored]</b> broken lights."
 
 /obj/item/device/lightreplacer/advanced
 	name = "advanced light replacer"
@@ -71,13 +78,6 @@
 /obj/item/device/lightreplacer/New()
 	failmsg = "The [name]'s refill light blinks red."
 	..()
-
-/obj/item/device/lightreplacer/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(distance <= 2)
-		. += "It has [uses] lights remaining."
-		if (store_broken)
-			. += "It is storing [stored()]/[max_stored] broken lights."
 
 /obj/item/device/lightreplacer/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/stack/material) && attacking_item.get_material_name() == "glass")
@@ -95,7 +95,7 @@
 
 	if(istype(attacking_item, /obj/item/light))
 		var/obj/item/light/L = attacking_item
-		if(L.status == 0) // LIGHT OKAY
+		if(L.status == 0) // AREA_USAGE_LIGHT OKAY
 			if(uses < max_uses)
 				AddUses(1)
 				to_chat(user, SPAN_NOTICE("You insert \the [L] into \the [src]. You have [uses] light\s remaining."))
@@ -116,7 +116,6 @@
 		to_chat(user, SPAN_NOTICE("You transfer the lights from \the [src] to \the [LR]."))
 		return TRUE
 
-
 /obj/item/device/lightreplacer/afterattack(var/atom/target, var/mob/living/user, proximity, params)
 	if (istype(target, /obj/item/storage/box))
 		if (box_contains_lights(target))
@@ -124,13 +123,11 @@
 		else
 			to_chat(user, "This box has no bulbs in it!")
 
-
 /obj/item/device/lightreplacer/proc/box_contains_lights(var/obj/item/storage/box/box)
 	for (var/obj/item/light/L in box.contents)
 		if (L.status == 0)
 			return 1
 	return 0
-
 
 /obj/item/device/lightreplacer/proc/load_lights_from_box(var/obj/item/storage/box/box, var/mob/user)
 	var/boxstartloc = box.loc

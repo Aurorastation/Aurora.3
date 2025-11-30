@@ -17,7 +17,6 @@
 	name = "Adhomian Village"
 	icon_state = "bluenew"
 	requires_power = FALSE
-	dynamic_lighting = TRUE
 	no_light_control = FALSE
 	base_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
 	area_flags = AREA_FLAG_RAD_SHIELDED
@@ -50,8 +49,7 @@
 
 	uniform = list(
 				/obj/item/clothing/under/tajaran,
-				/obj/item/clothing/under/tajaran/summer,
-				/obj/item/clothing/under/pants/tajaran
+				/obj/item/clothing/under/tajaran/summer
 	)
 
 	shoes = list(

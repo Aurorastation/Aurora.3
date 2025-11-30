@@ -23,28 +23,51 @@
  */
 
 /obj/abstract/weather_system
-	plane             = DEFAULT_PLANE
+	plane             = GAME_PLANE
 	layer             = ABOVE_PROJECTILE_LAYER
 	icon              = 'icons/effects/weather.dmi'
 	icon_state        = "blank"
 	invisibility      = 0
 	appearance_flags  = (RESET_COLOR | RESET_ALPHA | RESET_TRANSFORM)
 
-	var/water_material = null     // Material to use for the properties of rain.
-	var/ice_material =  null        // Material to use for the properties of snow and hail.
 
-	var/list/affecting_zs                                // What z-levels are we affecting?
-	var/datum/state_machine/weather/weather_system       // What is our internal state and how do we decide what state to use?
-	var/next_weather_transition = 0                      // What world.time will we next evaluate our state?
+	// Temporarily removing these, we do not have the same material system as Nebula
 
-	var/obj/abstract/lightning_overlay/lightning_overlay // A visible atom used for animated lighting effects.
-	var/tmp/list/vis_contents_additions                  // Holder for a list used to add required atoms to turf vis_contents.
+	// /// Material to use for the properties of rain.
+	// var/water_material = null
+
+	// /// Material to use for the properties of snow and hail.
+	// var/ice_material = null
+
+	/// Whether this weather system supports having watery weather
+	var/has_water_weather = FALSE
+
+	/// Whether this weather system supports having icy weather
+	var/has_icy_weather = FALSE
+
+	/// What z-levels are we affecting?
+	var/list/affecting_zs
+
+	/// What is our internal state and how do we decide what state to use?
+	var/datum/state_machine/weather/weather_system
+
+	/// What world.time will we next evaluate our state?
+	var/next_weather_transition = 0
+
+	/// We've evaluated a new weather pattern and we're in the process of transitioning to it
+	var/transitioning_weather = FALSE
+
+	/// A visible atom used for animated lighting effects.
+	var/obj/abstract/lightning_overlay/lightning_overlay
+
+	/// Holder for a list used to add required atoms to turf vis_contents.
+	var/tmp/list/vis_contents_additions
 
 // Main heartbeat proc, called by SSweather.
 /obj/abstract/weather_system/proc/tick()
 
 	// Check if we should move to a new state.
-	if(world.time >= next_weather_transition)
+	if(world.time >= next_weather_transition && !transitioning_weather)
 		weather_system.evaluate()
 
 	// Change wind direction and speed.
@@ -82,16 +105,21 @@
 	// - TODO: track and check exoplanet temperature.
 	// - TODO: compare to a list of 'acceptable' states
 	if(istype(next_state))
+		// Temporarily removing these, we do not have the same material system as Nebula
+		// if(next_state.is_liquid)
+		// 	return !!water_material
+		// if(next_state.is_ice)
+		// 	return !!ice_material
 		if(next_state.is_liquid)
-			return !!water_material
+			return has_water_weather
 		if(next_state.is_ice)
-			return !!ice_material
+			return has_icy_weather
 		return TRUE
 	return FALSE
 
 // Dummy object for lightning flash animation.
 /obj/abstract/lightning_overlay
-	plane             = EFFECTS_ABOVE_LIGHTING_PLANE //Future EMISSIVE_PLANE
+	plane             = ABOVE_LIGHTING_PLANE //Future EMISSIVE_PLANE
 	layer             = LIGHTNING_LAYER
 	icon              = 'icons/effects/weather.dmi'
 	icon_state        = "full"

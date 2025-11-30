@@ -81,6 +81,11 @@ ABSTRACT_TYPE(/singleton/autolathe_recipe/ammunition)
 	path = /obj/item/ammo_magazine/c45m/stendo
 	security_level = SEC_LEVEL_RED
 
+/singleton/autolathe_recipe/ammunition/magazine_fourty_five/extended/rubber
+	name = "magazine (.45, extended rubber, pistol)"
+	path = /obj/item/ammo_magazine/c45m/stendo/rubber
+	security_level = SEC_LEVEL_GREEN
+
 /singleton/autolathe_recipe/ammunition/submachine_mag
 	name = "magazine (.45, submachine gun)"
 	path = /obj/item/ammo_magazine/submachinemag
@@ -89,6 +94,16 @@ ABSTRACT_TYPE(/singleton/autolathe_recipe/ammunition)
 /singleton/autolathe_recipe/ammunition/uzi_mag
 	name = "magazine (.45, machine pistol)"
 	path = /obj/item/ammo_magazine/c45uzi
+	security_level = SEC_LEVEL_RED
+
+/singleton/autolathe_recipe/ammunition/magazine_xanu_pistol
+	name = "magazine (4.6mm)"
+	path = /obj/item/ammo_magazine/c46m
+	security_level = SEC_LEVEL_RED
+
+/singleton/autolathe_recipe/ammunition/magazine_xanu_smg
+	name = "magazine (4.6mm, extended)"
+	path = /obj/item/ammo_magazine/c46m/extended
 	security_level = SEC_LEVEL_RED
 
 /singleton/autolathe_recipe/ammunition/magazine_stetchkin
@@ -132,6 +147,11 @@ ABSTRACT_TYPE(/singleton/autolathe_recipe/ammunition)
 /singleton/autolathe_recipe/ammunition/magazine_smallcarbinepolymer
 	name = "magazine (5.56mm polymer, carbine)"
 	path = /obj/item/ammo_magazine/a556/carbine/polymer
+	security_level = SEC_LEVEL_RED
+
+/singleton/autolathe_recipe/ammunition/magazine_xanu_rifle
+	name = "magazine (6.5mm, rifle)"
+	path = /obj/item/ammo_magazine/a65
 	security_level = SEC_LEVEL_RED
 
 /singleton/autolathe_recipe/ammunition/magazine_arifle

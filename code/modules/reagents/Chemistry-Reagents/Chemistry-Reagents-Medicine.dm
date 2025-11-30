@@ -384,6 +384,9 @@
 	taste_description = "euphoric acid"
 
 /singleton/reagent/mortaphenyl/aphrodite/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	var/list/joy_messages = list("You feel soothed and at ease.", "You feel content and at peace.", "You feel a pleasant emptiness.", "You feel like sharing the wonderful memories and feelings you're experiencing.", "All your anxieties fade away.", "You feel like you're floating off the ground.", "You don't want this feeling to end.")
+	M.notify_message(SPAN_GOOD(pick(joy_messages)), rand(20 SECONDS, 40 SECONDS), key = "aphrodite_affect_blood")
+
 	M.add_chemical_effect(CE_PAINKILLER, 40)
 	if(!M.chem_effects[CE_CLEARSIGHT])
 		M.eye_blurry = max(M.eye_blurry, 3)
@@ -812,7 +815,7 @@
 	description = "Ethylredoxrazine is a powerful medication which oxidises ethanol in the bloodstream, reducing the burden on the liver to complete this task. Ethylredoxrazine also blocks the reuptake of neurotransmitters responsible for symptoms of alcohol intoxication."
 	reagent_state = SOLID
 	color = "#605048"
-	metabolism = REM * 0.3
+	metabolism = REM
 	overdose = REAGENTS_OVERDOSE
 	scannable = TRUE
 	taste_description = "bitterness"
@@ -1188,9 +1191,30 @@
 	od_minimum_dose = 0.02
 	taste_description = "bugs"
 	ingest_mul = 1
-	var/alchohol_affected = 1
+	/// Imparts hallucination effects scaling with bac.
+	var/alchohol_affected = TRUE
 	var/messagedelay = MEDICATION_MESSAGE_DELAY
-	var/list/goodmessage = list() //Fluff messages
+
+	/// Generic fluff messages for anyone who takes it.
+	var/list/goodmessage = list()
+	/// Species-specific fluff messages- will override the generic version for the given species. See following comment/example for implementation details.
+	var/list/goodmessage_species
+
+	/**
+	 * We leave goodmessage_species null so no unnecessary checks are performed for most reagents. However, if we want a given reagent to have unique
+	 * messages for consumers of a given species, its value can be set as below within the singleton/reagent/mental:
+	 *
+	 * goodmessage_species = list(
+	 * 	SPECIES_HUMAN = list("Damn you're high.","You're totally zooted!"),
+	 * 	SPECIES_HUMAN_OFFWORLD = list("Damn you're WAY higher than normal humans. Like, you might even say outside the gravity well high.", "Zooted bo booted boyyy."),
+	 * 	SPECIES_UNATHI = list("You feel like shit and want to die.","Why the fuck did you smoke that shitty human stuff."),
+	 * 	SPECIES_SKRELL = list("Aaaaaaaaaaaa!","Aaaauuuuaaaa!","Waaaoouuuuaaaaahhh!"),
+	 * 	SPECIES_SKRELL_AXIORI = list("If you weren't axiori you'd probably be having a bad time but you're pretty zooted.")
+	 * 	)
+	 *
+	 * No, there's not support right now for things like ALL_DIONA_SPECIES. Once somebody wants to make Vaurca-only drugs, they will probably
+	 * implement support for it out of sheer annoyance though.
+	 */
 
 	fallback_specific_heat = 1.5
 
@@ -1203,14 +1227,35 @@
 	if(!istype(H) || world.time < holder.reagent_data[type]["last_tick_time"] || messagedelay == -1)
 		return
 
+	var/message
 	var/bac = H.get_blood_alcohol()
 	if(alchohol_affected && bac > 0.03)
 		H.hallucination = max(H.hallucination, bac * 400)
 
 	if(H.chem_doses[type] < overdose && H.shock_stage < 5) //Don't want feel-good messages when we're suffering an OD or particularly hurt/injured
-		to_chat(H, SPAN_GOOD("[pick(goodmessage)]"))
+		message = feedback_message(H)
+		to_chat(H, SPAN_GOOD("[message]"))
 
 	LAZYSET(holder.reagent_data[type], "last_tick_time", world.time + (messagedelay))
+
+/**
+ * 	Holds logic for returning feedback message strings based on race.
+ * 'goodmessage' is your generic catch-all list of message strings.
+ * 'goodmessage_species', if set, will override the 'goodmessage' list only for that species.
+ */
+/singleton/reagent/mental/proc/feedback_message(var/mob/living/carbon/human/mob)
+	var/mob_species = mob.get_species()
+	var/message
+
+	if(length(goodmessage))
+		message = pick(goodmessage)
+
+	if(length(goodmessage_species))
+		for(var/species in goodmessage_species)
+			if(mob_species == species)
+				message = pick(goodmessage_species[species])
+
+	return message
 
 /singleton/reagent/mental/overdose(var/mob/living/carbon/M, var/alien, var/datum/reagents/holder)
 	M.add_chemical_effect(CE_EMETIC, M.chem_doses[type] / 6)
@@ -1397,7 +1442,9 @@
 	overdose = 5
 	od_minimum_dose = 3
 	taste_description = "sugar"
-	goodmessage = list("You feel pleasantly warm.","You feel like you've been basking in the sun.","You feel focused and warm...")
+	goodmessage_species = list(
+		SPECIES_UNATHI = list("You feel pleasantly warm.","You feel like you've been basking in the sun.","You feel focused and warm...")
+		)
 
 /singleton/reagent/mental/kokoreed/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	. = ..()
@@ -1594,7 +1641,7 @@
 /singleton/reagent/rezadone/affect_chem_effect(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	. = ..()
 	if(.)
-		M.add_chemical_effect(CE_ORGANREPAIR, 1)
+		M.add_chemical_effect(CE_ORGANREPAIR, 2)
 		M.add_chemical_effect(CE_BLOODRESTORE, 15)
 
 /singleton/reagent/rezadone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
@@ -1627,7 +1674,7 @@
 /singleton/reagent/sanasomnum/affect_chem_effect(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	. = ..()
 	if(.)
-		M.add_chemical_effect(CE_ORGANREPAIR, 20)
+		M.add_chemical_effect(CE_ORGANREPAIR, 40)
 		M.add_chemical_effect(CE_BLOODRESTORE, 15)
 		M.add_chemical_effect(CE_BLOODCLOT, 15)
 		M.add_chemical_effect(CE_BRAIN_REGEN, 20)
@@ -1984,6 +2031,7 @@
 	metabolism = REM*0.0001
 	scannable = TRUE
 	taste_description = "pure death"
+	fallback_specific_heat = 1
 
 /singleton/reagent/antibodies/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
 	. = ..()
@@ -1995,7 +2043,8 @@
 			Z.curing = TRUE
 			to_chat(M, SPAN_WARNING("Your [E.name] tightens, pulses, and squirms as \the [Z] fights back against the antibodies!"))
 
-/singleton/reagent/caffeine // Copied from Hyperzine
+/// Copied from Hyperzine
+/singleton/reagent/caffeine
 	name = "Caffeine"
 	description = "Caffeine is a central nervous system stimulant found naturally in many plants. It's used as a mild cognitive enhancer to increase alertness, attentional performance, and improve cardiovascular health."
 	reagent_state = SOLID
@@ -2006,6 +2055,7 @@
 	taste_description = "bitter"
 	metabolism_min = REM * 0.025
 	breathe_met = REM * 0.15 * 0.5
+	fallback_specific_heat = 1
 
 /singleton/reagent/caffeine/initial_effect(mob/living/carbon/M, alien, datum/reagents/holder)
 	. = ..()

@@ -19,6 +19,16 @@
 	var/fake = FALSE
 	var/activation_sound = 'sound/weapons/armbomb.ogg'
 
+/obj/item/grenade/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(distance <= 0)
+		if(det_time > 1)
+			. += "The timer is set to <b>[det_time/10]</b> seconds."
+			return
+		if(det_time == null)
+			return
+		. += SPAN_ALERT("\The [src] is set for instant detonation.")
+
 /obj/item/grenade/proc/clown_check(var/mob/living/user)
 	if((user.is_clumsy()) && prob(50))
 		to_chat(user, SPAN_WARNING("Huh? How does this thing work?"))
@@ -29,16 +39,6 @@
 			prime()
 		return 0
 	return 1
-
-/obj/item/grenade/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(distance <= 0)
-		if(det_time > 1)
-			. += SPAN_NOTICE("The timer is set to [det_time/10] seconds.")
-			return
-		if(det_time == null)
-			return
-		. += SPAN_NOTICE("\The [src] is set for instant detonation.")
 
 /obj/item/grenade/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/gun/launcher/grenade))
@@ -69,7 +69,7 @@
 			var/mob/M = user
 			admin_attack_log(M, attacker_message = "primed \a [fake ? (" fake") : ("")][src]!", admin_message = "primed \a [fake ? ("fake ") : ("")][src]!")
 		else
-			message_admins("[user.name] primed \a [fake ? ("fake ") : ("")][src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)")
+			message_admins("[user.name] primed \a [fake ? ("fake ") : ("")][src] (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)")
 
 	icon_state = initial(icon_state) + "_active"
 	active = TRUE

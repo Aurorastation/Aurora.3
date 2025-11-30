@@ -170,7 +170,7 @@
 /turf/unsimulated/mineral/asteroid,
 /area/template_noop)
 "rK" = (
-/obj/item/pocketwatch,
+/obj/item/clothing/wrists/watch/pocketwatch,
 /turf/template_noop,
 /area/template_noop)
 "rY" = (

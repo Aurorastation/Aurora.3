@@ -25,8 +25,8 @@ SUBSYSTEM_DEF(statpanels)
 		var/current_month = text2num(time2text(world.realtime, "MM"))
 		var/current_day = text2num(time2text(world.realtime, "DD"))
 		var/eta_status = "No ETA"
-		if(evacuation_controller)
-			eta_status = evacuation_controller.get_status_panel_eta()
+		if(GLOB.evacuation_controller)
+			eta_status = GLOB.evacuation_controller.get_status_panel_eta()
 		global_data = list(
 			"Map: [SSatlas.current_map.name]",
 			"Round ID: [GLOB.round_id ? GLOB.round_id : "NULL"]",

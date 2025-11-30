@@ -4,6 +4,8 @@
 	icon_state = "object"
 	color = "#fffffe"
 	mouse_opacity = MOUSE_OPACITY_ICON
+	layer = OVERMAP_SECTOR_LAYER
+	set_dir_on_move = FALSE
 
 //RP fluff details to appear on scan readouts for any object we want to include these details with
 	var/scanimage = "no_data.png"
@@ -19,7 +21,6 @@
 	var/static_vessel = FALSE //Used to expand scan details for visible space stations
 	var/landing_site = FALSE //Used for unique landing sites that occupy the same overmap tile as another - for example, the implementation of Point Verdant and Konyang
 
-	layer = OVERMAP_SECTOR_LAYER
 
 	var/list/map_z = list()
 
@@ -41,6 +42,8 @@
 
 /obj/effect/overmap/proc/get_scan_data(mob/user)
 	if(static_vessel == TRUE)
+		if(instant_contact)
+			. += "<br>It is broadcasting a distress signal."
 		. += "<hr>"
 		. += "<br><center><large><b>Scan Details</b></large>"
 		. += "<br><large><b>[name]</b></large></center>"
@@ -55,7 +58,8 @@
 		. += "<hr>"
 		. += "<br><center><b>Native Database Notes</b></center>"
 		. += "<br><small>[desc]</small>"
-	if(landing_site == TRUE)
+		return
+	else if(landing_site == TRUE)
 		. += "<hr>"
 		. += "<br><center><large><b>Designated Landing Zone Details</b></large>"
 		. += "<br><large><b>[name]</b></large></center>"
@@ -102,7 +106,7 @@
 		return INITIALIZE_HINT_QDEL
 
 	if(known)
-		plane = EFFECTS_ABOVE_LIGHTING_PLANE
+		plane = ABOVE_LIGHTING_PLANE
 		for(var/obj/machinery/computer/ship/helm/H in SSmachinery.machinery)
 			H.get_known_sectors()
 	update_icon()

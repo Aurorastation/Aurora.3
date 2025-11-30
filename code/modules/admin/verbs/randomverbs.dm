@@ -70,7 +70,7 @@
 		to_chat(src, "Some accounts did not have proper ages set in their clients.  This function requires database to be present")
 
 	if(msg != "")
-		src << browse(msg, "window=Player_age_check")
+		src << browse(HTML_SKELETON(msg), "window=Player_age_check")
 	else
 		to_chat(src, "No matches for that age range found.")
 
@@ -118,6 +118,65 @@
 	log_admin("LocalNarrate: [key_name(usr)] : [msg]")
 	message_admins(SPAN_NOTICE("\bold LocalNarrate: [key_name_admin(usr)] : [msg]<BR>"), 1)
 	feedback_add_details("admin_verb", "LCLN") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+
+
+/client/proc/cmd_admin_local_screen_text()
+	set category = "Special Verbs"
+	set name = "Local Screen Text"
+
+	if(!check_rights(R_ADMIN, TRUE))
+		return
+
+	var/list/mob/message_mobs = list()
+	var/choice = tgui_alert(usr, "Local Screen Text will send a screen text message to mobs. Do you want the mobs messaged to be only ones that you can see, or ignore blocked vision and message everyone within seven tiles of you?", "Narrate Selection", list("View", "Range", "Cancel"))
+	if(choice != "Cancel")
+		if(choice == "View")
+			message_mobs = mobs_in_view(view, src.mob)
+		else
+			for(var/mob/M in range(view, src.mob))
+				message_mobs += M
+	else
+		return
+
+	var/msg = tgui_input_text(usr, "Insert the screen message you want to send.", "Local Screen Text")
+	if(!msg)
+		return
+
+	var/big_text = tgui_alert(src, "Do you want big or normal text?", "Local Screen Text", list("Big", "Normal"))
+	var/text_type = /atom/movable/screen/text/screen_text
+	if(big_text == "Big")
+		text_type = /atom/movable/screen/text/screen_text/command_order
+
+	for(var/mob/M in message_mobs)
+		if(M.client)
+			M.play_screen_text(msg,text_type, COLOR_RED)
+	log_admin("LocalScreenText: [key_name(usr)] : [msg]")
+	message_admins(SPAN_NOTICE("Local Screen Text: [key_name_admin(usr)] : [msg]"), 1)
+	feedback_add_details("admin_verb", "LSTX") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+
+/client/proc/cmd_admin_global_screen_text()
+	set category = "Special Verbs"
+	set name = "Global Screen Text"
+
+	if(!check_rights(R_ADMIN, TRUE))
+		return
+
+	var/msg = tgui_input_text(usr, "Insert the screen message you want to send.", "Global Screen Text")
+	if(!msg)
+		return
+
+	var/big_text = tgui_alert(src, "Do you want big or normal text?", "Global Screen Text", list("Big", "Normal"))
+	var/text_type = /atom/movable/screen/text/screen_text
+	if(big_text == "Big")
+		text_type = /atom/movable/screen/text/screen_text/command_order
+
+	for(var/mob/M in GLOB.mob_list)
+		if(M.client)
+			M.play_screen_text(msg, text_type, COLOR_RED)
+
+	log_admin("GlobalScreenText: [key_name(usr)] : [msg]")
+	message_admins(SPAN_NOTICE("Global Screen Text: [key_name_admin(usr)] : [msg]"), 1)
+	feedback_add_details("admin_verb", "GSTX") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/cmd_admin_direct_narrate(var/mob/M)	// Targetted narrate -- TLE
 	set category = "Special Verbs"
@@ -282,7 +341,7 @@ Ccomp's first proc.
 	if (G.client)
 		P = G.client.prefs
 	else if (G.ckey)
-		P = preferences_datums[G.ckey]
+		P = GLOB.preferences_datums[G.ckey]
 	else
 		to_chat(src, "Something went wrong, couldn't find the target's preferences datum")
 		return 0
@@ -293,7 +352,7 @@ Ccomp's first proc.
 	G.has_enabled_antagHUD = 2
 	G.can_reenter_corpse = 1
 
-	G:show_message(SPAN_NOTICE("<B>You may now respawn. You should roleplay as if you learned nothing about the round during your time with the dead.</B>"), 1)
+	G.show_message(SPAN_NOTICE("<B>You may now respawn. You should roleplay as if you learned nothing about the round during your time with the dead.</B>"), 1)
 	log_admin("[key_name(usr)] allowed [key_name(G)] to bypass the [GLOB.config.respawn_delay] minute respawn limit")
 	message_admins("Admin [key_name_admin(usr)] allowed [key_name_admin(G)] to bypass the [GLOB.config.respawn_delay] minute respawn limit", 1)
 
@@ -433,9 +492,9 @@ Traitors and the like can also be revived with the previous role mostly intact.
 
 	if(!new_character.real_name)
 		if(new_character.gender == MALE)
-			new_character.real_name = capitalize(pick(first_names_male)) + " " + capitalize(pick(last_names))
+			new_character.real_name = capitalize(pick(GLOB.first_names_male)) + " " + capitalize(pick(GLOB.last_names))
 		else
-			new_character.real_name = capitalize(pick(first_names_female)) + " " + capitalize(pick(last_names))
+			new_character.real_name = capitalize(pick(GLOB.first_names_female)) + " " + capitalize(pick(GLOB.last_names))
 	new_character.name = new_character.real_name
 
 	if(G_found.mind && !G_found.mind.active)
@@ -882,7 +941,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	set category = "Admin"
 	set name = "Call Evacuation"
 
-	if ((!( ROUND_IS_STARTED ) || !evacuation_controller))
+	if ((!( ROUND_IS_STARTED ) || !GLOB.evacuation_controller))
 		return
 
 	if(!check_rights(R_ADMIN))
@@ -907,7 +966,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 			return
 
 	var/choice = input("Is this an emergency evacuation, bluespace jump, or a crew transfer?") in list(TRANSFER_EMERGENCY, TRANSFER_CREW, TRANSFER_JUMP)
-	evacuation_controller.call_evacuation(usr, choice)
+	GLOB.evacuation_controller.call_evacuation(usr, choice)
 
 
 	feedback_add_details("admin_verb","CSHUT") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
@@ -923,7 +982,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 
 	if(alert(src, "You sure?", "Confirm", "Yes", "No") != "Yes") return
 
-	if(!ROUND_IS_STARTED || !evacuation_controller)
+	if(!ROUND_IS_STARTED || !GLOB.evacuation_controller)
 		return
 
 	if(SSatlas.current_map.shuttle_call_restarts)
@@ -939,7 +998,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		return
 
 
-	evacuation_controller.cancel_evacuation()
+	GLOB.evacuation_controller.cancel_evacuation()
 	feedback_add_details("admin_verb","CCSHUT") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	log_admin("[key_name(usr)] admin-cancelled the evacuation.")
 	message_admins(SPAN_NOTICE("[key_name_admin(usr)] admin-cancelled the evacuation."), 1)
@@ -956,10 +1015,10 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	if(!check_rights(R_ADMIN))
 		return
 
-	evacuation_controller.deny = !evacuation_controller.deny
+	GLOB.evacuation_controller.deny = !GLOB.evacuation_controller.deny
 
-	log_admin("[key_name(src)] has [evacuation_controller.deny ? "denied" : "allowed"] the evacuation to be called.")
-	message_admins("[key_name_admin(usr)] has [evacuation_controller.deny ? "denied" : "allowed"] the evacuation to be called.")
+	log_admin("[key_name(src)] has [GLOB.evacuation_controller.deny ? "denied" : "allowed"] the evacuation to be called.")
+	message_admins("[key_name_admin(usr)] has [GLOB.evacuation_controller.deny ? "denied" : "allowed"] the evacuation to be called.")
 
 /client/proc/cmd_admin_attack_log(mob/M as mob in GLOB.mob_list)
 	set category = "Special Verbs"
@@ -1010,17 +1069,16 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	set name = "Toggle random events on/off"
 
 	set desc = "Toggles random events such as meteors, black holes, blob (but not space dust) on/off"
-	if(!check_rights(R_SERVER))	return
-
-	if(!GLOB.config.allow_random_events)
-		GLOB.config.allow_random_events = 1
-		to_chat(usr, "Random events enabled")
-		message_admins("Admin [key_name_admin(usr)] has enabled random events.", 1)
-	else
-		GLOB.config.allow_random_events = 0
-		to_chat(usr, "Random events disabled")
-		message_admins("Admin [key_name_admin(usr)] has disabled random events.", 1)
-	feedback_add_details("admin_verb","TRE") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+	if(check_rights(R_SERVER) || isstoryteller(usr))
+		if(!GLOB.config.allow_random_events)
+			GLOB.config.allow_random_events = 1
+			to_chat(usr, "Random events enabled")
+			message_admins("Admin [key_name_admin(usr)] has enabled random events.", 1)
+		else
+			GLOB.config.allow_random_events = 0
+			to_chat(usr, "Random events disabled")
+			message_admins("Admin [key_name_admin(usr)] has disabled random events.", 1)
+		feedback_add_details("admin_verb","TRE") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/fab_tip()
 	set category = "Admin"

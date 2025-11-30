@@ -1,5 +1,5 @@
 /obj/item/device/assembly_holder
-	name = "Assembly"
+	name = "assembly"
 	icon = 'icons/obj/assemblies/new_assemblies.dmi'
 	icon_state = "holder"
 	item_state = "assembly"
@@ -14,6 +14,14 @@
 	var/obj/item/device/assembly/a_left = null
 	var/obj/item/device/assembly/a_right = null
 	var/obj/special_assembly = null
+
+/obj/item/device/assembly_holder/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(distance <= 1 || src.loc == user)
+		if (src.secured)
+			. += SPAN_NOTICE("\The [src] is ready!")
+		else
+			. += SPAN_NOTICE("\The [src] can be attached!")
 
 /obj/item/device/assembly_holder/Initialize(mapload, ...)
 	. = ..()
@@ -81,14 +89,6 @@
 			AddOverlays("[O]_r")
 	if(master)
 		master.update_icon()
-
-/obj/item/device/assembly_holder/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(distance <= 1 || src.loc == user)
-		if (src.secured)
-			. += SPAN_NOTICE("\The [src] is ready!")
-		else
-			. += SPAN_NOTICE("\The [src] can be attached!")
 
 /obj/item/device/assembly_holder/HasProximity(atom/movable/AM as mob|obj)
 	if(a_left)
@@ -232,7 +232,7 @@
 
 /obj/item/device/assembly_holder/timer_igniter/verb/configure()
 	set name = "Set Timer"
-	set category = "Object"
+	set category = "Object.Held"
 	set src in usr
 
 	if(!(usr.stat || usr.restrained()))

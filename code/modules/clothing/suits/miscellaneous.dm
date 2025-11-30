@@ -1,7 +1,7 @@
 /*
  * Contains:
- *		Costume
- *		Misc
+ * * Costume
+ * * Misc
  */
 
 /*
@@ -153,7 +153,7 @@
 /obj/item/clothing/suit/golden_tailcoat
 	name = "golden tailcoat"
 	desc = "A brilliant looking golden tailcoat of sorts."
-	icon = 'icons/clothing/suits/goldendeep_tailcoat.dmi'
+	icon = 'icons/obj/item/clothing/suit/goldendeep_tailcoat.dmi'
 	icon_state = "tailcoat"
 	item_state = "tailcoat"
 	body_parts_covered = UPPER_TORSO|ARMS
@@ -194,7 +194,7 @@
 
 /obj/item/clothing/suit/storage/toggle/leather_jacket/midriff
 	name = "cropped leather jacket"
-	icon = 'icons/clothing/suits/coats/cropped_leather_jacket.dmi'
+	icon = 'icons/obj/item/clothing/suit/storage/toggle/cropped_leather_jacket.dmi'
 	desc = "A thick leather jacket that doesn't actually cover the waist. Rebel against what's expected of your jacket!"
 	icon_state = "mid"
 	item_state = "mid"
@@ -234,7 +234,7 @@
 	icon_state = "lflight"
 	item_state = "lflight"
 	armor = list(
-		bio = ARMOR_BIO_MINOR
+		BIO = ARMOR_BIO_MINOR
 	)
 	siemens_coefficient = 0.75
 
@@ -245,11 +245,11 @@
 /obj/item/clothing/suit/storage/toggle/leather_jacket/flight/legion/alt
 	desc = "A Tau Ceti Foreign Legion pilot's jacket made from a silky, shiny nanonylon material and lined with tough, protective synthfabrics."
 	armor = list(
-		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_MINOR,
-		laser = ARMOR_LASER_SMALL,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_PADDED
+		MELEE = ARMOR_MELEE_RESISTANT,
+		BULLET = ARMOR_BALLISTIC_MINOR,
+		LASER = ARMOR_LASER_SMALL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_PADDED
 	)
 	siemens_coefficient = 0.35
 
@@ -303,7 +303,7 @@
 	name = "Stellar Corporate Conglomerate jacket"
 	desc = "A comfortable blue jacket. Tailored upon its back is a large Stellar Corporate Conglomerate logo."
 	desc_extended = "The Stellar Corporate Conglomerate, also known as Chainlink, is a joint alliance between the NanoTrasen Corporation, Hephaestus Industries, Idris Incorporated, Zeng-Hu Pharmaceuticals and Zavodskoi Interstellar to exercise an undisputed economic dominance over the Orion Spur."
-	icon = 'icons/clothing/suits/scc_jacket.dmi'
+	icon = 'icons/obj/item/clothing/suit/storage/toggle/corp_dep_jackets.dmi'
 	icon_state = "scc_jacket"
 	item_state = "scc_jacket"
 	contained_sprite = TRUE
@@ -313,7 +313,7 @@
 	desc = "A more formal jacket for bridge staff. Designed in a typical Colettish style."
 	desc_extended= "While not a true Colettish uniform the aiguillette and cuff tabs of this one are obviously based on the real thing. \
 	An actual Civil Guard uniform, commonly known as a rayadillo, is generally of a darker blue and features the wearer’s ranks on the collar."
-	icon = 'icons/obj/item/clothing/suit/storage/toggle/bridge_crew_jacket_sancol.dmi'
+	icon = 'icons/obj/item/clothing/suit/storage/toggle/corp_dep_jackets.dmi'
 	icon_state = "bridge_crew_jacket_sancol"
 	item_state = "bridge_crew_jacket_sancol"
 
@@ -402,7 +402,7 @@
 /obj/item/clothing/suit/storage/toggle/highvis
 	name = "high visibility jacket"
 	desc = "A loose-fitting, high visibility jacket to help the wearer be recognizable in high traffic areas with large industrial equipment."
-	icon = 'icons/clothing/kit/highvis.dmi'
+	icon = 'icons/obj/item/clothing/suit/storage/toggle/highvis.dmi'
 	icon_state = "jacket_highvis"
 	item_state = "jacket_highvis"
 	body_parts_covered = UPPER_TORSO|ARMS
@@ -411,14 +411,14 @@
 /obj/item/clothing/suit/storage/toggle/highvis/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
 	var/image/I = ..()
 	if(slot == slot_wear_suit_str)
-		var/image/emissive_overlay = emissive_appearance(mob_icon, "[opened ? "jacket_highvis_open_su_emis" : "jacket_highvis_su_emis"]", alpha = src.alpha)
+		var/image/emissive_overlay = emissive_appearance(mob_icon, "[opened ? "jacket_highvis_open_su-emis" : "jacket_highvis_su-emis"]", alpha = src.alpha)
 		I.AddOverlays(emissive_overlay)
 	return I
 
 /obj/item/clothing/suit/storage/toggle/highvis_alt
 	name = "high visibility jacket"
 	desc = "A bright yellow jacket with reflective stripes. For use in operations, engineering, and sometimes even law enforcement, in cold and poor weather or when visibility is low."
-	icon = 'icons/clothing/kit/highvis.dmi'
+	icon = 'icons/obj/item/clothing/suit/storage/toggle/highvis.dmi'
 	icon_state = "jacket_highvis_alt"
 	item_state = "jacket_highvis_alt"
 	body_parts_covered = UPPER_TORSO|ARMS
@@ -430,6 +430,39 @@
 		var/image/emissive_overlay = emissive_appearance(mob_icon, "[opened ? "jacket_highvis_alt_open_su-emis" : "jacket_highvis_alt_su-emis"]", alpha = src.alpha)
 		I.AddOverlays(emissive_overlay)
 	return I
+
+/obj/item/clothing/suit/storage/toggle/highvis_red
+	name = "high visibility jacket"
+	desc = "A red jacket with reflective stripes. For use in different departments, commonly found in civilian emergency services, in cold and poor weather or when visibility is low."
+	icon = 'icons/obj/item/clothing/suit/storage/toggle/highvis.dmi'
+	icon_state = "jacket_highvis_red"
+	item_state = "jacket_highvis_red"
+	body_parts_covered = UPPER_TORSO|ARMS
+	contained_sprite = TRUE
+
+/obj/item/clothing/suit/storage/toggle/highvis_red/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
+	var/image/I = ..()
+	if(slot == slot_wear_suit_str)
+		var/image/emissive_overlay = emissive_appearance(mob_icon, "[opened ? "jacket_highvis_red_open_su-emis" : "jacket_highvis_red_su-emis"]", alpha = src.alpha)
+		I.AddOverlays(emissive_overlay)
+	return I
+
+/obj/item/clothing/suit/storage/toggle/highvis_orange
+	name = "high visibility jacket"
+	desc = "An orange jacket with reflective stripes. For use in different departments, commonly found in civilian industrial services, in dark or secluded areas where visibility is critical for safety."
+	icon = 'icons/obj/item/clothing/suit/storage/toggle/highvis.dmi'
+	icon_state = "jacket_highvis_orange"
+	item_state = "jacket_highvis_orange"
+	body_parts_covered = UPPER_TORSO|ARMS
+	contained_sprite = TRUE
+
+/obj/item/clothing/suit/storage/toggle/highvis_orange/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
+	var/image/I = ..()
+	if(slot == slot_wear_suit_str)
+		var/image/emissive_overlay = emissive_appearance(mob_icon, "[opened ? "jacket_highvis_orange_open_su-emis" : "jacket_highvis_orange_su-emis"]", alpha = src.alpha)
+		I.AddOverlays(emissive_overlay)
+	return I
+
 
 /obj/item/clothing/suit/storage/toggle/track
 	name = "track jacket"
@@ -536,7 +569,7 @@
 /obj/item/clothing/suit/storage/toggle/highloft
 	name = "high loft jacket"
 	desc = "A high loft insulated jacket intended for long hours in cold station conditions."
-	icon = 'icons/clothing/suits/highloft.dmi'
+	icon = 'icons/obj/item/clothing/suit/storage/toggle/highloft.dmi'
 	icon_state = "highloft"
 	item_state = "highloft"
 	worn_overlay = "over"
@@ -603,7 +636,7 @@
 	desc = "A jacket used by Biesel Security Services Bureau agents while on the field."
 	icon_state = "bssb_jacket"
 	item_state = "bssb_jacket"
-	icon = 'icons/clothing/suits/coats/bssb_jacket.dmi'
+	icon = 'icons/obj/item/clothing/suit/storage/toggle/bssb_jacket.dmi'
 	contained_sprite = TRUE
 
 /obj/item/clothing/suit/storage/toggle/bssb/armor
@@ -612,11 +645,11 @@
 	icon_state = "bssb_jacket_armored"
 	item_state = "bssb_jacket_armored"
 	armor = list(
-		melee = ARMOR_MELEE_KNIVES,
-		bullet = ARMOR_BALLISTIC_SMALL,
-		laser = ARMOR_LASER_SMALL,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_PADDED
+		MELEE = ARMOR_MELEE_KNIVES,
+		BULLET = ARMOR_BALLISTIC_SMALL,
+		LASER = ARMOR_LASER_SMALL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_PADDED
 	)
 
 // Cardigans.
@@ -654,7 +687,6 @@
 	name = "wet floor sign"
 	desc = "Caution! Wet Floor!"
 	desc_extended = "Used by the janitor to passive-aggressively point at when you eventually slip on one of their mopped floors."
-	desc_info = "Alt-click, or click in-hand to toggle the caution lights. It looks like you can wear it in your suit slot."
 	icon = 'icons/obj/janitor.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/lefthand_janitor.dmi',
@@ -671,6 +703,11 @@
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 	attack_verb = list("warned", "cautioned", "smashed")
 	armor = list(melee = 5, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
+
+/obj/item/clothing/suit/caution/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "ALT-click, or click in-hand to toggle the caution lights."
+	. += "It looks like you could wear it in your suit slot if you really wanted to."
 
 /obj/item/clothing/suit/caution/attack_self()
 	toggle()
@@ -690,3 +727,12 @@
 		src.item_state = "caution"
 		usr.show_message("You turn the wet floor sign off.")
 	update_clothing_icon()
+
+/obj/item/clothing/suit/caution/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/wetfloor_holder))
+		var/obj/item/wetfloor_holder/WFH = attacking_item
+		if(!WFH.held)
+			to_chat(user, SPAN_NOTICE("You collect \the [src]."))
+			forceMove(WFH)
+			WFH.held = src
+		return TRUE

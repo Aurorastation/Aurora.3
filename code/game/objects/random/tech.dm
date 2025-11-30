@@ -15,8 +15,8 @@
 /obj/random/technology_scanner
 	name = "random scanner"
 	desc = "This is a random technology scanner."
-	icon = 'icons/obj/device.dmi'
-	icon_state = "atmos"
+	icon = 'icons/obj/item/device/air_analyzer.dmi'
+	icon_state = "analyzer"
 	problist = list(
 		/obj/item/device/t_scanner = 5,
 		/obj/item/device/radio = 2,
@@ -78,16 +78,20 @@
 		/obj/item/tape_roll = 2
 	)
 
+/// Spawns a random AI lawboard with 'evil' law sets
 /obj/random/bad_ai
 	name = "random evil AI module"
 	desc = "Contains a random evil AI module."
 	icon = 'icons/obj/module.dmi'
 	icon_state = "std_mod"
 	spawnlist = list(
-		/obj/item/aiModule/antimov = 1,
+		/obj/item/aiModule/antimov = 0.5,
 		/obj/item/aiModule/asimov = 1,
 		/obj/item/aiModule/purge = 1,
-		/obj/item/aiModule/quarantine = 1,
+		/obj/item/aiModule/robocop = 0.5,
+		/obj/item/aiModule/tyrant = 0.5,
+		/obj/item/aiModule/paladin = 0.5,
+		/obj/item/aiModule/hadiist = 0.2,
 		/obj/item/aiModule/freeform = 1,
 		/obj/item/aiModule/oneHuman = 0.5,
 		/obj/item/aiModule/oxygen = 1
@@ -251,4 +255,58 @@
 		/obj/item/rig/retro/equipped = 0.8,
 		/obj/item/rig/ert/security = 0.3,
 		/obj/item/rig/unathi = 0.4
+	)
+
+/obj/random/canister
+	name = "random canister"
+	icon_state = "canister"
+	spawn_nothing_percentage = 20
+	problist = list(
+		/obj/random/canister/empty = 0.6,
+		/obj/random/canister/filled = 0.4,
+	)
+
+/obj/random/canister/empty
+	name = "random empty canister"
+	problist = list(
+		// common:
+		/obj/machinery/portable_atmospherics/canister/empty = 1,
+		/obj/machinery/portable_atmospherics/canister/empty/air = 1,
+		/obj/machinery/portable_atmospherics/canister/empty/air = 1,
+		/obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide = 1,
+		/obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide = 1,
+		/obj/machinery/portable_atmospherics/canister/empty/hydrogen = 1,
+		/obj/machinery/portable_atmospherics/canister/empty/nitrogen = 1,
+		/obj/machinery/portable_atmospherics/canister/empty/oxygen = 1,
+		/obj/machinery/portable_atmospherics/canister/empty/oxygen = 1,
+		/obj/machinery/portable_atmospherics/canister/empty/sleeping_agent = 1,
+		// rare:
+		/obj/machinery/portable_atmospherics/canister/empty/heliumfuel = 0.1,
+		/obj/machinery/portable_atmospherics/canister/empty/chlorine = 0.1,
+		/obj/machinery/portable_atmospherics/canister/empty/helium = 0.1,
+		/obj/machinery/portable_atmospherics/canister/empty/nitrogen_dioxide = 0.1,
+		/obj/machinery/portable_atmospherics/canister/empty/phoron = 0.1,
+	)
+
+/obj/random/canister/filled
+	name = "random filled canister"
+	problist = list(
+		// common:
+		/obj/machinery/portable_atmospherics/canister/air = 1,
+		/obj/machinery/portable_atmospherics/canister/air = 1,
+		/obj/machinery/portable_atmospherics/canister/carbon_dioxide = 1,
+		/obj/machinery/portable_atmospherics/canister/carbon_dioxide = 1,
+		/obj/machinery/portable_atmospherics/canister/hydrogen = 1,
+		/obj/machinery/portable_atmospherics/canister/nitrogen = 1,
+		/obj/machinery/portable_atmospherics/canister/oxygen = 1,
+		/obj/machinery/portable_atmospherics/canister/oxygen = 1,
+		/obj/machinery/portable_atmospherics/canister/sleeping_agent = 1,
+		// rare:
+		/obj/machinery/portable_atmospherics/canister/heliumfuel = 0.1,
+		/obj/machinery/portable_atmospherics/canister/chlorine = 0.1,
+		/obj/machinery/portable_atmospherics/canister/helium = 0.1,
+		/obj/machinery/portable_atmospherics/canister/nitrogen_dioxide = 0.1,
+		/obj/machinery/portable_atmospherics/canister/phoron_scarce = 0.1,
+		// extra rare:
+		/obj/machinery/portable_atmospherics/canister/phoron = 0.01,
 	)

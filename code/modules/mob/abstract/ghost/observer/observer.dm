@@ -3,20 +3,22 @@
 	desc = "It's a g-g-g-g-ghooooost!" //jinkies!
 	icon = 'icons/mob/mob.dmi'
 	icon_state = "ghost"
-	density = 0
-	canmove = 0
-	blinded = 0
-	anchored = 1	//  don't get pushed around
+	density = FALSE
+	canmove = FALSE
+	blinded = FALSE
+	anchored = TRUE	//  don't get pushed around
 	invisibility = INVISIBILITY_OBSERVER
+	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
 	simulated = FALSE
-	universal_speak = 1
+	universal_speak = TRUE
 	incorporeal_move = INCORPOREAL_GHOST
 	mob_thinks = FALSE
+	interaction_flags_atom = INTERACT_ATOM_MOUSEDROP_IGNORE_CHECKS
 
 	/// If the ghost can re-enter their corpse.
 	var/can_reenter_corpse
 	/// The ghost's HUD datum.
-	var/datum/hud/hud = null
+	var/datum/hud/hud
 	/// This variable is set to 1 when you enter the game as an observer. Remains null if you died in the game and are a ghost. Not reliable for admins; they change mobs a lot.
 	var/started_as_observer
 	/// If the ghost has enabled antagHUD.
@@ -27,8 +29,6 @@
 	var/admin_ghosted = 0
 	/// If this ghost has enabled chat anonymization.
 	var/anonsay = 0
-	/// This mob's ghost image, for deleting and stuff.
-	var/image/ghostimage
 	/// If the ghost can be seen through cult shenanigans.
 	var/is_manifest = 0
 	/// Cooldown for ghost abilities, such as move_item().
@@ -41,10 +41,6 @@
 
 	set_stat(DEAD)
 
-	ghostimage = image(src.icon,src,src.icon_state)
-	SSmobs.ghost_darkness_images |= ghostimage
-	updateallghostimages()
-
 	var/turf/T
 	if (ismob(body))
 		T = get_turf(body)				//Where is the body located?
@@ -52,7 +48,8 @@
 
 		var/originaldesc = desc
 		var/o_transform = transform
-		appearance = body
+		set_appearance(body)
+		underlays.Cut()
 		appearance_flags = KEEP_TOGETHER
 		desc = originaldesc
 		transform = o_transform
@@ -68,9 +65,9 @@
 				name = body.real_name
 			else
 				if(gender == MALE)
-					name = capitalize(pick(first_names_male)) + " " + capitalize(pick(last_names))
+					name = capitalize(pick(GLOB.first_names_male)) + " " + capitalize(pick(GLOB.last_names))
 				else
-					name = capitalize(pick(first_names_female)) + " " + capitalize(pick(last_names))
+					name = capitalize(pick(GLOB.first_names_female)) + " " + capitalize(pick(GLOB.last_names))
 
 		mind = body.mind	//we don't transfer the mind but we keep a reference to it.
 
@@ -84,17 +81,8 @@
 	forceMove(T)
 
 	if(!name)							//To prevent nameless ghosts
-		name = capitalize(pick(first_names_male)) + " " + capitalize(pick(last_names))
+		name = capitalize(pick(GLOB.first_names_male)) + " " + capitalize(pick(GLOB.last_names))
 	real_name = name
-
-/mob/abstract/ghost/observer/Destroy()
-	if (ghostimage)
-		SSmobs.ghost_darkness_images -= ghostimage
-		qdel(ghostimage)
-		ghostimage = null
-		updateallghostimages()
-
-	return ..()
 
 /mob/abstract/ghost/observer/proc/initialise_postkey(set_timers = TRUE)
 	//This function should be run after a ghost has been created and had a ckey assigned
@@ -202,7 +190,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 			return
 		resting = 1
 		var/turf/location = get_turf(src)
-		message_admins("[key_name_admin(usr)] has ghosted. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[location.x];Y=[location.y];Z=[location.z]'>JMP</a>)")
+		message_admins("[key_name_admin(usr)] has ghosted. (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[location.x];Y=[location.y];Z=[location.z]'>JMP</a>)")
 		log_game("[key_name_admin(usr)] has ghosted.")
 		var/mob/abstract/ghost/observer/ghost = ghostize(0)	//0 parameter is so we can never re-enter our body, "Charlie, you can never come baaaack~" :3
 		ghost.timeofdeath = world.time // Because the living mob won't have a time of death and we want the respawn timer to work properly.
@@ -309,7 +297,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	if(check_rights(R_ADMIN|R_FUN, 0, src))
 		return 0
 
-	return (T && T.holy) && (invisibility <= SEE_INVISIBLE_LIVING || (mind in cult.current_antagonists))
+	return (T && T.holy) && (invisibility <= SEE_INVISIBLE_LIVING || (mind in GLOB.cult.current_antagonists))
 
 /mob/abstract/ghost/observer/verb/jumptomob(input in getmobs()) //Moves the ghost instead of just changing the ghosts's eye -Nodrak
 	set category = "Ghost"
@@ -335,15 +323,16 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	to_chat(src, SPAN_WARNING("You are dead! You have no mind to store memory!"))
 
 //This is called when a ghost is drag clicked to something.
-/mob/abstract/ghost/observer/MouseDrop(atom/over)
-	if(!usr || !over) return
-	if(isobserver(usr) && usr.client && isliving(over))
+/mob/abstract/ghost/observer/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	if(!user || !over)
+		return
+	if(isobserver(user) && user.client && isliving(over))
 		var/mob/living/M = over
 		// If they an admin, see if control can be resolved.
-		if(usr.client.holder && usr.client.holder.cmd_ghost_drag(src,M))
+		if(user.client.holder && user.client.holder.cmd_ghost_drag(src, M))
 			return
 		// Otherwise, see if we can possess the target.
-		if(usr == src && try_possession(M))
+		if(user == src && try_possession(M))
 			return
 	if(istype(over, /obj/machinery/drone_fabricator))
 		var/obj/machinery/drone_fabricator/fab = over
@@ -429,11 +418,12 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		W.add_hiddenprint(src)
 		W.visible_message(SPAN_WARNING("Invisible fingers crudely paint something in blood on [T]..."))
 
-/mob/abstract/ghost/observer/pointed(atom/A as mob|obj|turf in view())
-	if(!..())
-		return 0
-	src.visible_message("<span class='deadsay'><b>[src]</b> points to [A]</span>")
-	return 1
+/mob/abstract/ghost/observer/pointed(atom/pointing_at)
+	. = ..()
+	if(!.)
+		return
+
+	src.visible_message("<span class='deadsay'><b>[src]</b> points to [pointing_at]</span>")
 
 /mob/abstract/ghost/observer/proc/manifest(mob/user)
 	is_manifest = 0
@@ -571,40 +561,13 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 /mob/abstract/ghost/observer/can_admin_interact()
 	return check_rights(R_ADMIN, 0, src)
 
-/mob/abstract/ghost/observer/update_sight()
-	//if they are on a restricted level, then set the ghost vision for them.
-	if(on_restricted_level())
-		//On the restricted level they have the same sight as the mob
-		set_sight(sight&(~SEE_TURFS)&(~SEE_MOBS)&(~SEE_OBJS))
-		set_see_invisible(SEE_INVISIBLE_OBSERVER)
-	else
-		//Outside of the restrcited level, they have enhanced vision
-		set_sight(sight|SEE_TURFS|SEE_MOBS|SEE_OBJS)
-		set_see_invisible(SEE_INVISIBLE_LEVEL_TWO)
-
-		if (!see_darkness)
-			set_see_invisible(SEE_INVISIBLE_NOLIGHTING)
-		else
-			set_see_invisible(ghostvision ? SEE_INVISIBLE_OBSERVER : SEE_INVISIBLE_LIVING)
-
-	updateghostimages()
-
-/proc/updateallghostimages()
-	for (var/mob/abstract/ghost/observer/O in GLOB.player_list)
-		O.updateghostimages()
-
-/mob/abstract/ghost/observer/proc/updateghostimages()
-	if (!client)
-		return
-	if (see_darkness || !ghostvision)
-		client.images -= SSmobs.ghost_darkness_images
-		client.images |= SSmobs.ghost_sightless_images
-	else
-		//add images for the 60inv things ghosts can normally see when darkness is enabled so they can see them now
-		client.images -= SSmobs.ghost_sightless_images
-		client.images |= SSmobs.ghost_darkness_images
-		if (ghostimage)
-			client.images -= ghostimage //remove ourself
+/**
+ * We use this proc to set appearance because doing so resets the plane.
+ * We want the plane to stay at GHOST_PLANE to avoid weird overlaying stuff.
+ */
+/mob/abstract/ghost/observer/proc/set_appearance(mob/body)
+	appearance = body.appearance
+	plane = GHOST_PLANE
 
 /mob/abstract/ghost/observer/MayRespawn(var/feedback = 0, var/respawn_type = null)
 	if(!client)

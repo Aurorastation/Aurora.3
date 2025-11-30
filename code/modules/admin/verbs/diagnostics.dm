@@ -39,7 +39,7 @@
 	Tile Update: [SSair.tiles_to_update.len]<BR>
 "}
 
-	usr << browse(output,"window=airreport")
+	usr << browse(HTML_SKELETON(output), "window=airreport")
 
 /client/proc/fix_next_move()
 	set category = "Debug"
@@ -89,13 +89,13 @@
 				output += "&nbsp;&nbsp;[filter]: ERROR<br>"
 				continue
 			output += "&nbsp;&nbsp;[filter]: [f.len]<br>"
-			for (var/device in f)
+			for (var/obj/device as anything in f)
 				if (isobj(device))
-					output += "&nbsp;&nbsp;&nbsp;&nbsp;[device] ([device:x],[device:y],[device:z] in area [get_area(device:loc)])<br>"
+					output += "&nbsp;&nbsp;&nbsp;&nbsp;[device] ([device.x],[device.y],[device.z] in area [get_area(device.loc)])<br>"
 				else
 					output += "&nbsp;&nbsp;&nbsp;&nbsp;[device]<br>"
 
-	usr << browse(output,"window=radioreport")
+	usr << browse(HTML_SKELETON(output), "window=radioreport")
 	feedback_add_details("admin_verb","RR") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/reload_admins()
@@ -163,7 +163,7 @@
 	set category = "Debug"
 
 	to_chat(usr, "<b>Jobbans active in this round.</b>")
-	for(var/t in jobban_keylist)
+	for(var/t in GLOB.jobban_keylist)
 		to_chat(usr, "[t]")
 
 /client/proc/print_jobban_old_filter()
@@ -176,6 +176,6 @@
 		return
 
 	to_chat(usr, "<b>Jobbans active in this round.</b>")
-	for(var/t in jobban_keylist)
+	for(var/t in GLOB.jobban_keylist)
 		if(findtext(t, filter))
 			to_chat(usr, "[t]")

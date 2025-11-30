@@ -12,7 +12,8 @@
 
 	default_choices = list()
 
-	//Put secret as the first option
+	//Put Odyssey and Secret as the first options
+	default_choices.Add("Odyssey")
 	default_choices.Add("Secret")
 
 	//Sort the gamemodes

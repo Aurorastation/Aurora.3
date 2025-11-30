@@ -1,5 +1,5 @@
-var/list/vampirepower_types = typesof(/datum/power/vampire) - /datum/power/vampire
-var/list/datum/power/vampire/vampirepowers = list()
+GLOBAL_LIST_INIT(vampirepower_types, (typesof(/datum/power/vampire) - /datum/power/vampire))
+GLOBAL_LIST_INIT_TYPED(vampirepowers, /list/datum/power/vampire, list())
 
 /datum/power/vampire
 	var/blood_cost = 0

@@ -790,11 +790,11 @@
 /obj/item/reagent_containers/food/drinks/cans/beetle_milk,
 /obj/item/reagent_containers/food/drinks/cans/beetle_milk,
 /obj/item/reagent_containers/food/drinks/cans/beetle_milk,
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = 4
 	},
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = -5
 	},
@@ -5636,7 +5636,7 @@
 /obj/item/clothing/under/offworlder{
 	color = "#333a59"
 	},
-/obj/item/clothing/under/skirt/offworlder{
+/obj/item/clothing/under/dress/offworlder/skirt{
 	color = "#333a59"
 	},
 /obj/item/clothing/gloves/offworlder{
@@ -5663,13 +5663,13 @@
 /obj/item/clothing/accessory/offworlder{
 	color = "#333a59"
 	},
-/obj/item/clothing/under/skirt/offworlder{
+/obj/item/clothing/under/dress/offworlder/skirt{
 	color = "#554444"
 	},
-/obj/item/clothing/under/skirt/offworlder{
+/obj/item/clothing/under/dress/offworlder/skirt{
 	color = "#554444"
 	},
-/obj/item/clothing/under/skirt/offworlder{
+/obj/item/clothing/under/dress/offworlder/skirt{
 	color = "#c9ced4"
 	},
 /obj/item/clothing/under/offworlder,
@@ -6894,18 +6894,6 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/coc_scarab/starboardhallway)
-"Bj" = (
-/obj/machinery/power/solar{
-	id = "starboardsadarsolar";
-	name = "Starboard Solar Array"
-	},
-/obj/structure/cable/yellow{
-	icon_state = "0-2"
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/map_effect/perma_light/starlight/wide,
-/turf/simulated/floor/airless,
-/area/ship/coc_scarab/exterior)
 "Bk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -8154,9 +8142,9 @@
 	must_start_working = 1
 	},
 /obj/item/gun/projectile/shotgun/pump,
-/obj/item/storage/box/shotgunshells,
-/obj/item/storage/box/shotgunshells,
-/obj/item/storage/box/stunshells,
+/obj/item/storage/box/shells/buckshot,
+/obj/item/storage/box/shells/buckshot,
+/obj/item/storage/box/shells/stunshells,
 /obj/item/gun/projectile/gauss,
 /obj/item/ammo_magazine/gauss,
 /obj/item/ammo_magazine/gauss,
@@ -9493,18 +9481,6 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/airless,
-/area/ship/coc_scarab/exterior)
-"LH" = (
-/obj/machinery/power/solar{
-	id = "portsadarsolar";
-	name = "Port Solar Array"
-	},
-/obj/structure/cable/yellow{
-	icon_state = "0-2"
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/map_effect/perma_light/starlight/wide,
 /turf/simulated/floor/airless,
 /area/ship/coc_scarab/exterior)
 "LP" = (
@@ -104236,7 +104212,7 @@ qe
 rZ
 zo
 vx
-Bj
+qe
 zo
 am
 vx
@@ -104750,7 +104726,7 @@ qe
 rZ
 zo
 vx
-Bj
+qe
 zo
 am
 vx
@@ -105264,7 +105240,7 @@ qe
 rZ
 zo
 vx
-Bj
+qe
 zo
 am
 vx
@@ -105778,7 +105754,7 @@ qe
 rZ
 zo
 vx
-Bj
+qe
 zo
 am
 vx
@@ -106292,7 +106268,7 @@ tf
 rZ
 zo
 vx
-Bj
+qe
 zo
 am
 xY
@@ -116315,7 +116291,7 @@ GI
 DR
 KH
 Yv
-LH
+eQ
 KH
 cc
 Az
@@ -116829,7 +116805,7 @@ eQ
 DR
 KH
 Yv
-LH
+eQ
 KH
 cc
 Yv
@@ -117343,7 +117319,7 @@ eQ
 DR
 KH
 Yv
-LH
+eQ
 KH
 cc
 Yv
@@ -117857,7 +117833,7 @@ eQ
 DR
 KH
 Yv
-LH
+eQ
 KH
 cc
 Yv
@@ -118371,7 +118347,7 @@ eQ
 DR
 KH
 Yv
-LH
+eQ
 KH
 cc
 Yv

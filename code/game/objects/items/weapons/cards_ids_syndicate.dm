@@ -5,10 +5,38 @@
 	iff_faction = IFF_SYNDICATE
 	can_copy_access = TRUE
 	access_copy_msg = "The microscanner activates as you pass it over the ID, copying its access."
-	var/charge = 10000
+
+	/// Used by Agent ID cards to prevent them from being tracked over the camera network while active.
 	var/electronic_warfare = FALSE
-	var/image/obfuscation_image
+	/// Internal energy required by Agent ID cards to run Electronic Warfare mode (or any other special behaviors that might be added.)
+	var/charge = 10000
+	/// Base charge used per tick while electronic_warfare = TRUE.
+	var/electronic_warfare_discharge_rate = 50
+	/// Charge regained per tick while electronic warfare = FALSE (and if not fully charged).
+	var/card_recharge_rate = 100
+	/// Whether or not the card has given the user a low-charge (<20%) warning to avoid spam. Gets reset back to FALSE when EW mode is disabled.
+	var/low_charge_warning_given = FALSE
+	/// Used by Agent ID cards (which have mutable apparent identities) to register who the Real registered user actually is, no matter what the card might be displaying.
 	var/mob/registered_user = null
+	var/image/obfuscation_image
+
+/obj/item/card/id/syndicate/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(registered_user == user)
+		. += "Use this card on yourself to either show it to those nearby (the standard behavior) or to open its secret UI."
+
+	. += "This card has an 'Electronic Warfare' mode, which prevents the registered user from being automatically tracked by cameras while they are wearing it."
+	. += "	- Electronic Warfare mode can be toggled on or off through its main UI, accessed by using the card on yourself."
+	. += "	- Electronic Warfare mode costs energy while active (<b>[electronic_warfare_discharge_rate]/tick</b>); the amount of charge left is visible (only to the registered user) on examination."
+	. += "	- Electronic Warfare mode will be automatically toggled off if the card is dropped or thrown."
+	. += "	- A warning message (visible only to the wearer of the card) will be displayed when the card is down to 20% of its initial charge."
+	. += "	- While Electronic Warfare mode is disabled, if not fully charged, the card will <b>automatically recharge itself</b> at a rate of <b>[card_recharge_rate]/tick</b>."
+
+/obj/item/card/id/syndicate/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(is_adjacent)
+		if(user == registered_user)
+			. += SPAN_NOTICE("It is at <b>[charge]/[initial(charge)]</b> charge.")
 
 /obj/item/card/id/syndicate/New(mob/user as mob)
 	..()
@@ -20,22 +48,24 @@
 	unset_registered_user(registered_user)
 	return ..()
 
-/obj/item/card/id/syndicate/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(is_adjacent)
-		if(user == registered_user)
-			. += FONT_SMALL(SPAN_NOTICE("It is at [charge]/[initial(charge)] charge."))
-
 /obj/item/card/id/syndicate/process()
 	if(electronic_warfare)
-		charge = max(0, charge - 50)
+		charge = max(0, charge - electronic_warfare_discharge_rate)
+		// If we haven't already alerted, and charge is low...
+		if(!low_charge_warning_given && charge <= (initial(charge) / 5))
+			// And if the registered user is currently holding/wearing the card and not doing silly nonsense...
+			var/mob/living/carbon/human/registered_human_user = registered_user
+			if(istype(registered_human_user) && src == registered_human_user.GetIdCard())
+				// Display the message.
+				to_chat(registered_human_user, SPAN_WARNING("\The [src] issues a subtle warning pulse that its internal charge is running low."))
+				low_charge_warning_given = TRUE
 		if(charge <= 0)
 			if(ismob(loc))
 				to_chat(loc, SPAN_WARNING("\The [src] runs out of power and deactivates."))
 				electronic_warfare = FALSE
 				check_obfuscation()
 	else if(charge != initial(charge))
-		charge = min(initial(charge), charge + 100)
+		charge = min(initial(charge), charge + card_recharge_rate)
 
 /obj/item/card/id/syndicate/prevent_tracking()
 	return electronic_warfare
@@ -52,30 +82,6 @@
 				..()
 	else
 		..()
-
-/obj/item/card/id/syndicate/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
-	var/data[0]
-	var/entries[0]
-	entries[++entries.len] = list("name" = "Age", 				"value" = age)
-	entries[++entries.len] = list("name" = "Appearance",		"value" = "Set")
-	entries[++entries.len] = list("name" = "Assignment",		"value" = assignment)
-	entries[++entries.len] = list("name" = "Blood Type",		"value" = blood_type)
-	entries[++entries.len] = list("name" = "DNA Hash", 			"value" = dna_hash)
-	entries[++entries.len] = list("name" = "Fingerprint Hash",	"value" = fingerprint_hash)
-	entries[++entries.len] = list("name" = "Name", 				"value" = registered_name)
-	entries[++entries.len] = list("name" = "Photo", 			"value" = "Update")
-	entries[++entries.len] = list("name" = "Sex", 				"value" = sex)
-	entries[++entries.len] = list("name" = "Citizenship",		"value" = citizenship)
-	entries[++entries.len] = list("name" = "Faction",			"value" = employer_faction)
-	entries[++entries.len] = list("name" = "Factory Reset",		"value" = "Use With Care")
-	data["electronic_warfare"] = electronic_warfare
-	data["entries"] = entries
-
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		ui = new(user, src, ui_key, "agent_id_card.tmpl", "Agent id", 600, 400)
-		ui.set_initial_data(data)
-		ui.open()
 
 /obj/item/card/id/syndicate/proc/register_user(var/mob/user)
 	if(!istype(user) || user == registered_user)
@@ -95,12 +101,6 @@
 		return
 	UnregisterSignal(registered_user, COMSIG_QDELETING)
 	registered_user = null
-
-/obj/item/card/id/syndicate/CanUseTopic(mob/user)
-	if(user != registered_user)
-		return STATUS_CLOSE
-	return ..()
-
 
 /obj/item/card/id/syndicate/throw_at()
 	..()
@@ -137,138 +137,167 @@
 		QDEL_NULL(obfuscation_image)
 	update_icon()
 
-/obj/item/card/id/syndicate/Topic(href, href_list, var/datum/ui_state/state)
-	if(..())
-		return 1
+/obj/item/card/id/syndicate/ui_interact(mob/user, var/datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "AgentID", src, 500, 600)
+		ui.open()
 
-	var/user = usr
-	if(href_list["electronic_warfare"])
-		electronic_warfare = text2num(href_list["electronic_warfare"])
-		to_chat(user, SPAN_NOTICE("Electronic warfare [electronic_warfare ? "enabled" : "disabled"]."))
-		check_obfuscation()
-	else if(href_list["set"])
-		switch(href_list["set"])
-			if("Age")
-				var/new_age = tgui_input_number(user, "What age would you like to put on this card?", "Agent Card Age", age, 1000, 0)
-				if(!isnull(new_age) && CanUseTopic(user, state))
-					if(new_age < 0)
-						age = initial(age)
-					else
-						age = new_age
-					to_chat(user, SPAN_NOTICE("Age has been set to '[age]'."))
-					. = 1
-			if("Appearance")
-				var/datum/card_state/choice = tgui_input_list(user, "Select the appearance for this card.", "Agent Card Appearance", id_card_states(), icon_state)
-				if(choice && CanUseTopic(user, state))
-					src.icon_state = choice.icon_state
-					src.item_state = choice.item_state
-					to_chat(usr, SPAN_NOTICE("Appearance changed to [choice]."))
-					. = 1
-			if("Assignment")
-				var/new_job = tgui_input_text(user, "What assignment would you like to put on this card? Changing assignment will not grant or remove any access levels.", "Agent Card Assignment", assignment)
-				if(!isnull(new_job) && CanUseTopic(user, state))
-					src.assignment = new_job
-					to_chat(user, SPAN_NOTICE("Occupation changed to '[new_job]'."))
-					update_name()
-					. = 1
-			if("Blood Type")
-				var/default = blood_type
-				if(default == initial(blood_type) && ishuman(user))
-					var/mob/living/carbon/human/H = user
-					if(H.dna)
-						default = H.dna.b_type
-				var/new_blood_type = sanitize(input(user,"What blood type would you like to be written on this card?","Agent Card Blood Type",default) as null|text)
-				if(!isnull(new_blood_type) && CanUseTopic(user, state))
-					src.blood_type = new_blood_type
-					to_chat(user, SPAN_NOTICE("Blood type changed to '[new_blood_type]'."))
-					. = 1
-			if("DNA Hash")
-				var/default = dna_hash
-				if(default == initial(dna_hash) && ishuman(user))
-					var/mob/living/carbon/human/H = user
-					if(H.dna)
-						default = H.dna.unique_enzymes
-				var/new_dna_hash = sanitize(input(user,"What DNA hash would you like to be written on this card?","Agent Card DNA Hash",default) as null|text)
-				if(!isnull(new_dna_hash) && CanUseTopic(user, state))
-					src.dna_hash = new_dna_hash
-					to_chat(user, SPAN_NOTICE("DNA hash changed to '[new_dna_hash]'."))
-					. = 1
-			if("Fingerprint Hash")
-				var/default = fingerprint_hash
-				if(default == initial(fingerprint_hash) && ishuman(user))
-					var/mob/living/carbon/human/H = user
-					if(H.dna)
-						default = md5(H.dna.uni_identity)
-				var/new_fingerprint_hash = sanitize(input(user,"What fingerprint hash would you like to be written on this card?","Agent Card Fingerprint Hash",default) as null|text)
-				if(!isnull(new_fingerprint_hash) && CanUseTopic(user, state))
-					src.fingerprint_hash = new_fingerprint_hash
-					to_chat(user, SPAN_NOTICE("Fingerprint hash changed to '[new_fingerprint_hash]'."))
-					. = 1
-			if("Name")
-				var/new_name = sanitizeName(input(user,"What name would you like to put on this card?","Agent Card Name", registered_name) as null|text)
-				if(!isnull(new_name) && CanUseTopic(user, state))
-					src.registered_name = new_name
-					update_name()
-					to_chat(user, SPAN_NOTICE("Name changed to '[new_name]'."))
-					. = 1
-			if("Photo")
-				set_id_photo(user)
-				to_chat(user, SPAN_NOTICE("Photo changed."))
-				. = 1
-			if("Sex")
-				var/new_sex = sanitize(input(user,"What sex would you like to put on this card?","Agent Card Sex", sex) as null|text)
-				if(!isnull(new_sex) && CanUseTopic(user, state))
-					src.sex = new_sex
-					to_chat(user, SPAN_NOTICE("Sex changed to '[new_sex]'."))
-					. = 1
-			if("Citizenship")
-				var/new_citizenship = sanitize(input(user,"Which citizenship would you like to put on this card?","Agent Card Citizenship", citizenship) as null|text)
-				if(!isnull(new_citizenship) && CanUseTopic(user,state))
-					src.citizenship = new_citizenship
-					to_chat(user, SPAN_NOTICE("Citizenship changed to '[new_citizenship]'."))
-					. = 1
-			if("Faction")
-				var/new_faction = sanitize(input(user,"Which faction would you like to put on this card?","Agent Card Faction", employer_faction) as null|text)
-				if(!isnull(new_faction) && CanUseTopic(user,state))
-					src.employer_faction = new_faction
-					to_chat(user, SPAN_NOTICE("Faction changed to '[new_faction]'."))
-					. = 1
-			if("Factory Reset")
-				if(alert("This will factory reset the card, including access and owner. Continue?", "Factory Reset", "No", "Yes") == "Yes" && CanUseTopic(user, state))
+/obj/item/card/id/syndicate/ui_data(var/mob/user)
+	var/list/data = list()
+
+	data["name"] = name
+	data["age"] = age
+	data["sex"] = sex
+	data["blood_type"] = blood_type
+	data["dna_hash"] = dna_hash
+	data["fingerprint_hash"] = fingerprint_hash
+	data["employer_faction"] = employer_faction
+	data["assignment"] = assignment
+	data["citizenship"] = citizenship
+	data["electronic_warfare"] = electronic_warfare
+
+	return data
+
+/obj/item/card/id/syndicate/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return
+
+	var/mob/living/carbon/human/user = usr
+
+	if(!ishuman(user))
+		to_chat(usr, "Something has gone wrong; usr is not human. Please report this message and the details of how you received it on the GitHub issues tracker.")
+		return
+
+	switch(action)
+		// USER INFORMATION ACTIONS
+		if("setName")
+			var/newName = sanitize(params["name"])
+			if(!isnull(newName))
+				if(newName == "")
+					newName = initial(name)
+				else
+					name = newName
+				to_chat(user, SPAN_NOTICE("Name has been set to '[name]'."))
+		if("setAge")
+			var/newAge = params["age"]
+			if(!isnull(newAge))
+				if(newAge < 0)
 					age = initial(age)
-					access = GLOB.syndicate_access.Copy()
-					assignment = initial(assignment)
-					blood_type = initial(blood_type)
-					citizenship = initial(citizenship)
-					dna_hash = initial(dna_hash)
-					electronic_warfare = initial(electronic_warfare)
-					fingerprint_hash = initial(fingerprint_hash)
-					icon_state = initial(icon_state)
-					name = initial(name)
-					registered_name = initial(registered_name)
-					unset_registered_user()
-					sex = initial(sex)
-					employer_faction = initial(employer_faction)
-					to_chat(user, SPAN_NOTICE("All information has been deleted from \the [src]."))
-					. = 1
+				else
+					age = newAge
+				to_chat(user, SPAN_NOTICE("Age has been set to '[age]'."))
+		if("setSex")
+			var/newSex = sanitize(params["sex"])
+			if(!isnull(newSex))
+				if(newSex == "")
+					newSex = initial(sex)
+				else
+					sex = newSex
+				to_chat(user, SPAN_NOTICE("Sex has been set to '[sex]'."))
+		if("updatePhoto")
+			set_id_photo(user)
+			to_chat(user, SPAN_NOTICE("Photo changed."))
 
-	// Always update the UI, or buttons will spin indefinitely
-	SSnanoui.update_uis(src)
+		// BIOMETRIC DATA ACTIONS
+		if("setBloodType")
+			var/default = blood_type
+			if(default == initial(blood_type) && ishuman(user))
+				var/mob/living/carbon/human/H = user
+				if(H.dna)
+					default = H.dna.b_type
+			var/newBloodType = sanitize(params["bloodtype"])
+			if(!isnull(newBloodType))
+				src.blood_type = newBloodType
+				to_chat(user, SPAN_NOTICE("Blood type changed to '[newBloodType]'."))
+		if("setDNAHash")
+			var/default = dna_hash
+			if(default == initial(dna_hash) && ishuman(user))
+				var/mob/living/carbon/human/H = user
+				if(H.dna)
+					default = H.dna.unique_enzymes
+			var/newDNAHash = sanitize(params["dnahash"])
+			if(!isnull(newDNAHash))
+				src.dna_hash = newDNAHash
+				to_chat(user, SPAN_NOTICE("DNA hash changed to '[newDNAHash]'."))
+		if("setFingerprintHash")
+			var/default = fingerprint_hash
+			if(default == initial(fingerprint_hash) && ishuman(user))
+				var/mob/living/carbon/human/H = user
+				if(H.dna)
+					default = md5(H.dna.uni_identity)
+			var/newFingerprintHash = sanitize(params["fingerprinthash"])
+			if(!isnull(newFingerprintHash))
+				src.fingerprint_hash = newFingerprintHash
+				to_chat(user, SPAN_NOTICE("Fingerprint hash changed to '[newFingerprintHash]'."))
 
-/var/global/list/id_card_states
+		// AFFILIATION DETAIL ACTIONS
+		if("setEmployer")
+			var/newEmployer = sanitize(params["employer"])
+			if(!isnull(newEmployer))
+				src.employer_faction = newEmployer
+				to_chat(user, SPAN_NOTICE("Faction changed to '[newEmployer]'."))
+		if("setAssignment")
+			var/newAssignment = sanitize(params["assignment"])
+			if(!isnull(newAssignment))
+				src.assignment = newAssignment
+				to_chat(user, SPAN_NOTICE("Occupation changed to '[newAssignment]'."))
+				update_name()
+		if("setCitizenship")
+			var/newCitizenship = sanitize(params["citizenship"])
+			if(!isnull(newCitizenship))
+				src.citizenship = newCitizenship
+				to_chat(user, SPAN_NOTICE("Citizenship changed to '[newCitizenship]'."))
+
+		// CARD MANAGEMENT ACTIONS
+		if("setCardAppearance")
+			var/datum/card_state/choice = tgui_input_list(user, "Select the appearance for this card.", "Agent Card Appearance", id_card_states(), icon_state)
+			if(choice)
+				src.icon_state = choice.icon_state
+				src.item_state = choice.item_state
+				to_chat(usr, SPAN_NOTICE("Appearance changed to [choice]."))
+		if("enableElectronicWarfare")
+			to_chat(user, SPAN_NOTICE("Electronic warfare enabled."))
+			electronic_warfare = TRUE
+			low_charge_warning_given = FALSE
+			check_obfuscation()
+		if("disableElectronicWarfare")
+			to_chat(user, SPAN_NOTICE("Electronic warfare disabled."))
+			electronic_warfare = FALSE
+			low_charge_warning_given = FALSE
+			check_obfuscation()
+		if("factoryReset")
+			age = initial(age)
+			access = GLOB.syndicate_access.Copy()
+			assignment = initial(assignment)
+			blood_type = initial(blood_type)
+			citizenship = initial(citizenship)
+			dna_hash = initial(dna_hash)
+			electronic_warfare = initial(electronic_warfare)
+			fingerprint_hash = initial(fingerprint_hash)
+			icon_state = initial(icon_state)
+			name = initial(name)
+			registered_name = initial(registered_name)
+			unset_registered_user()
+			sex = initial(sex)
+			employer_faction = initial(employer_faction)
+			to_chat(user, SPAN_NOTICE("All information has been deleted from \the [src]."))
+
+GLOBAL_LIST_INIT_TYPED(id_card_states, /datum/card_state, null)
 /proc/id_card_states()
-	if(!id_card_states)
-		id_card_states = list()
+	if(!GLOB.id_card_states)
+		GLOB.id_card_states = list()
 		for(var/path in typesof(/obj/item/card/id))
 			var/obj/item/card/id/ID = path
 			var/datum/card_state/CS = new()
 			CS.icon_state = initial(ID.icon_state)
 			CS.item_state = initial(ID.item_state)
 			CS.name = initial(ID.name) + " - " + initial(ID.icon_state)
-			id_card_states += CS
-		sortTim(id_card_states, GLOBAL_PROC_REF(cmp_cardstate), FALSE)
+			GLOB.id_card_states += CS
+		sortTim(GLOB.id_card_states, GLOBAL_PROC_REF(cmp_cardstate), FALSE)
 
-	return id_card_states
+	return GLOB.id_card_states
 
 /datum/card_state
 	var/name

@@ -1,4 +1,4 @@
-var/datum/antagonist/jockey/jockeys
+GLOBAL_DATUM(jockeys, /datum/antagonist/jockey)
 
 /datum/antagonist/jockey
 	id = MODE_JOCKEY
@@ -25,7 +25,7 @@ var/datum/antagonist/jockey/jockeys
 
 /datum/antagonist/jockey/New()
 	..()
-	jockeys = src
+	GLOB.jockeys = src
 
 /datum/antagonist/jockey/update_access(var/mob/living/player)
 	for(var/obj/item/storage/wallet/W in player.contents)

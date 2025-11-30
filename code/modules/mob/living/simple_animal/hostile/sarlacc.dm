@@ -316,7 +316,7 @@
 	desc = "This pulsating brain seems somehow connected to all the other orifices in this room..."
 	icon = 'icons/mob/npc/cavern.dmi'
 	icon_state = "sarlaccbrain"
-	see_invisible = SEE_INVISIBLE_NOLIGHTING
+	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
 
 	universal_speak = 1
 	universal_understand = 1
@@ -365,7 +365,7 @@
 	icon_state = "ion"
 	damage = 0
 	agony = 20
-	check_armor = "energy"
+	check_armor = ENERGY
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
 	var/list/thoughts = list(
 		"You hear a cacophany of alien sounds.",

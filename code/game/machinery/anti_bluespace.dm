@@ -1,4 +1,4 @@
-var/global/list/bluespace_inhibitors
+GLOBAL_LIST_INIT_TYPED(bluespace_inhibitors, /obj/machinery/anti_bluespace, null)
 
 /obj/machinery/anti_bluespace
 	name = "bluespace inhibitor"
@@ -12,10 +12,10 @@ var/global/list/bluespace_inhibitors
 
 /obj/machinery/anti_bluespace/Initialize()
 	. = ..()
-	LAZYADD(bluespace_inhibitors, src)
+	LAZYADD(GLOB.bluespace_inhibitors, src)
 
 /obj/machinery/anti_bluespace/Destroy()
-	LAZYREMOVE(bluespace_inhibitors, src)
+	LAZYREMOVE(GLOB.bluespace_inhibitors, src)
 	return ..()
 
 /obj/machinery/anti_bluespace/update_icon()
@@ -113,7 +113,7 @@ var/global/list/bluespace_inhibitors
 	if(temp_area)
 		var/obj/machinery/power/apc/temp_apc = temp_area.get_apc()
 		if(temp_apc)
-			temp_apc.flicker_all()
+			temp_apc.flicker_lights()
 
 	playsound(src.loc, 'sound/magic/lightning_chargeup.ogg', 100, 1, extrarange = 20)
 	visible_message(SPAN_DANGER("\The [src] goes haywire!"))

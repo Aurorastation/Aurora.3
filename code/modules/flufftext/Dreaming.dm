@@ -1,5 +1,5 @@
 
-var/list/dreams = list(
+GLOBAL_LIST_INIT(dreams, list(
 	"an ID card","a bottle","a familiar face","a crewmember","a toolbox","a security officer","the captain",
 	"voices from all around","deep space","a doctor","the engine","a traitor","an ally","darkness",
 	"light","a scientist","a monkey","a catastrophe","a loved one","a gun","warmth","freezing","the sun",
@@ -12,14 +12,14 @@ var/list/dreams = list(
 	"the chemist","the Machinist","the chef","the bartender","the chaplain","the librarian","a mouse","an ert member",
 	"a beach","the holodeck","a smokey room","a voice","the cold","a mouse","an operating table","the bar","the rain","a skrell",
 	"a unathi","a tajaran","the ai core","the mining station","the research station","a beaker of strange liquid"
-	)
+	))
 
 /mob/living/carbon/proc/dream()
 	dreaming = 1
 
 	spawn(0)
 		for(var/i = rand(1,4),i > 0, i--)
-			to_chat(src, SPAN_NOTICE("<i>... [pick(dreams)] ...</i>"))
+			to_chat(src, SPAN_NOTICE("<i>... [pick(GLOB.dreams)] ...</i>"))
 			sleep(rand(40,70))
 			if(paralysis <= 0)
 				break

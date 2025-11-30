@@ -1,4 +1,5 @@
 /mob/living/carbon/human
+	light_system = MOVABLE_LIGHT
 
 	blocks_emissive = EMISSIVE_BLOCK_NONE
 
@@ -39,6 +40,8 @@
 	var/damage_multiplier = 1 //multiplies melee combat damage
 	var/icon_update = 1 //whether icon updating shall take place
 
+	var/default_lighting_alpha = LIGHTING_PLANE_ALPHA_VISIBLE
+
 	var/lipstick_color = null	//no lipstick by default
 
 	var/age = 30		//Player's age (pure fluff)
@@ -76,6 +79,7 @@
 	var/obj/item/l_store = null
 	var/obj/item/s_store = null
 	var/obj/item/wrists = null
+	var/obj/item/pants = null
 
 	var/icon/stand_icon = null
 	var/icon/lying_icon = null

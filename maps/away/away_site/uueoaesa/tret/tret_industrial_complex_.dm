@@ -6,15 +6,19 @@
 	description = "An industrial complex on Tret."
 	prefix = "away_site/uueoaesa/tret/"
 	suffix = "tret_industrial_complex.dmm"
+	id = "tret_industrial_complex"
+	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/tret_industrial)
+
 	sectors = list(SECTOR_UUEOAESA)
 	spawn_weight = 1
 	spawn_cost = 1
-	id = "tret_industrial_complex"
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/tret_industrial)
+
+	exoplanet_theme_base = /datum/exoplanet_theme/volcanic/tret
 	exoplanet_themes = list(
 		/turf/unsimulated/marker/blue = /datum/exoplanet_theme/volcanic/tret,
 		/turf/unsimulated/marker/red  = /datum/exoplanet_theme/volcanic/tret/mountain
 	)
+
 	unit_test_groups = list(3)
 
 /singleton/submap_archetype/tret_industrial_complex

@@ -7,18 +7,29 @@
 	icon_state = null
 	name = "navigation beacon"
 	desc = "A radio beacon used for bot navigation."
-	level = 1		// underfloor
+	// underfloor
+	level = 1
 	layer = ABOVE_WIRE_LAYER
 	anchored = 1
 
-	var/open = 0		// true if cover is open
-	var/locked = 1		// true if controls are locked
-	var/freq = BEACONS_FREQ		// radio frequency
-	var/location = ""	// location response text
-	var/list/codes		// assoc. list of transponder codes
-	var/codes_txt = ""	// codes as set on map: "tag1;tag2" or "tag1=value;tag2=value"
+	/// true if cover is open
+	var/open = FALSE
+	/// true if controls are locked
+	var/locked = TRUE
+	/// radio frequency
+	var/freq = BEACONS_FREQ
+	/// location response text
+	var/location = ""
+	/// assoc. list of transponder codes
+	var/list/codes
+	/// codes as set on map: "tag1;tag2" or "tag1=value;tag2=value"
+	var/codes_txt = ""
 
 	req_one_access = list(ACCESS_ENGINE, ACCESS_ROBOTICS)
+
+/obj/machinery/navbeacon/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "ALT-click the [src] to lock or unlock it (if you have the appropriate ID access)."
 
 /obj/machinery/navbeacon/Initialize(mapload)
 	. = ..()
@@ -149,17 +160,24 @@
 
 				hide(!T.is_plating())
 
-	else if (attacking_item.GetID())
+/obj/machinery/navbeacon/AltClick(mob/user)
+	if(Adjacent(user))
 		if(open)
-			if (src.allowed(user))
-				src.locked = !src.locked
-				to_chat(user, "Controls are now [src.locked ? "locked." : "unlocked."]")
+			add_fingerprint(user)
+			if(allowed(user))
+				locked = !locked
+				if(locked)
+					playsound(src, 'sound/machines/terminal/terminal_button03.ogg', 35, FALSE)
+				else
+					playsound(src, 'sound/machines/terminal/terminal_button01.ogg', 35, FALSE)
+				balloon_alert(user, locked ? "locked" : "unlocked")
 			else
 				to_chat(user, SPAN_WARNING("Access denied."))
-			updateDialog()
+				playsound(src, 'sound/machines/terminal/terminal_error.ogg', 25, FALSE)
+				balloon_alert(user, "access denied!")
 		else
 			to_chat(user, "You must open the cover first!")
-		return TRUE
+	return
 
 /obj/machinery/navbeacon/attack_ai(var/mob/user)
 	if(!ai_can_interact(user))
@@ -216,7 +234,7 @@
 		t += "<small><A href='byond://?src=[REF(src)];add=1;'>(add new)</A></small><BR>"
 		t+= "<UL></TT>"
 
-	user << browse(t, "window=navbeacon")
+	user << browse(HTML_SKELETON(t), "window=navbeacon")
 	onclose(user, "navbeacon")
 	return
 

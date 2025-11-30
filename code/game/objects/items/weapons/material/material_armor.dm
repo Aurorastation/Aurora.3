@@ -32,7 +32,7 @@ Protectiveness | Armor %
 	item_state = "material_armor"
 	contained_sprite = 1
 	armor = list(
-		melee = ARMOR_MELEE_MINOR
+		MELEE = ARMOR_MELEE_MINOR
 	)
 	pocket_slots = 1
 
@@ -98,7 +98,7 @@ Protectiveness | Armor %
 	icon_state = "bucket"
 	item_state = "bucket"
 	armor = list(
-		melee = ARMOR_MELEE_MINOR
+		MELEE = ARMOR_MELEE_MINOR
 	)
 	contained_sprite = 1
 

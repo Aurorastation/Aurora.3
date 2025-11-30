@@ -29,7 +29,7 @@
 
 /datum/category_item/player_setup_item/player_global/language/content(var/mob/user)
 	. += "<b>Language Keys</b><br>"
-	. += " [jointext(pref.language_prefixes, " ")] <a href='?src=[REF(src)];change_prefix=1'>Change</a> <a href='?src=[REF(src)];reset_prefix=1'>Reset</a><br>"
+	. += " [jointext(pref.language_prefixes, " ")] <a href='byond://?src=[REF(src)];change_prefix=1'>Change</a> <a href='byond://?src=[REF(src)];reset_prefix=1'>Reset</a><br>"
 
 /datum/category_item/player_setup_item/player_global/language/OnTopic(var/href, var/list/href_list, var/mob/user)
 	if(href_list["change_prefix"])

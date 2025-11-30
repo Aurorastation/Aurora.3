@@ -35,21 +35,22 @@ SUBSYSTEM_DEF(falling)
 		// The call_fall checks that are executed for every atom forever. These
 		// should not be overwritten/there shouldn't be a need to overwrite them.
 		// For specialty conditions, edit CanZPass and can_fall procs.
-		if (!isturf(victim.loc))
+		var/turf/mob_loc = victim.loc
+		if (!isturf(mob_loc))
 			REMOVE_AND_CONTINUE
 
 		// Get the below turf.
-		var/turf/T = get_turf(victim)
-		var/turf/below = GET_TURF_BELOW(T)
+		var/turf/below = GET_TURF_BELOW(mob_loc)
 		if (!below)
 			REMOVE_AND_CONTINUE
 
 		// Check if we can fall through the current tile and onto the next one.
-		if (!victim.loc:CanZPass(victim, DOWN) || !below.CanZPass(victim, DOWN))
+		if (!mob_loc.CanZPass(victim, DOWN) || !below.CanZPass(victim, DOWN))
 			REMOVE_AND_CONTINUE
 
 		// Check if the victim's current position is affected by gravity.
-		if (!victim.loc.loc:has_gravity())
+		var/area/mob_area = get_area(mob_loc)
+		if (!mob_area.has_gravity())
 			REMOVE_AND_CONTINUE
 
 		// Thrown objects don't fall, generally speaking.
@@ -75,40 +76,43 @@ SUBSYSTEM_DEF(falling)
 		// Invokes fall_through() after the atom is moved to
 		// its new destination this cycle. Immediately invokes fall_impact and
 		// fall_collateral if the next turf is not open space.
-		if (isopenturf(victim.loc) && victim.loc:is_hole)
-			victim.begin_falling(victim.loc, below)
-			victim.forceMove(below)
-			if(victim.pulledby && victim.pulledby.z != victim.z)
-				var/mob/M = victim.pulledby
-				M.stop_pulling()
+		if (isopenturf(victim.loc))
+			var/turf/simulated/open/mob_openturf = victim.loc
 
-			if (locate(/obj/structure/stairs) in victim.loc)	// If there's stairs, we're probably going down them.
-				if (falling[victim] <= 1)	// Just moving down a flight, skip damage.
-					victim.multiz_falling = 0
-					falling -= victim
-					for(var/obj/item/grab/grab in victim)
-						if(grab.affecting)
-							grab.affecting.forceMove(victim.loc)
+			if(mob_openturf.is_hole)
+				victim.begin_falling(victim.loc, below)
+				victim.forceMove(below)
+				if(victim.pulledby && victim.pulledby.z != victim.z)
+					var/mob/M = victim.pulledby
+					M.stop_pulling()
+
+				if (locate(/obj/structure/stairs) in victim.loc)	// If there's stairs, we're probably going down them.
+					if (falling[victim] <= 1)	// Just moving down a flight, skip damage.
+						victim.multiz_falling = 0
+						falling -= victim
+						for(var/obj/item/grab/grab in victim)
+							if(grab.affecting)
+								grab.affecting.forceMove(victim.loc)
+					else
+						// Falling more than a level, fuck 'em up.
+						victim.fall_impact(falling[victim], FALSE)
+						victim.fall_collateral(falling[victim], FALSE)
+						victim.multiz_falling = 0
+						falling -= victim
+
+				else if (isopenturf(victim.loc))
+					victim.fall_through()
 				else
-					// Falling more than a level, fuck 'em up.
+					// This is a lookahead. It removes any lag from being moved onto
+					// the destination turf, and calling fall_impact.
 					victim.fall_impact(falling[victim], FALSE)
 					victim.fall_collateral(falling[victim], FALSE)
 					victim.multiz_falling = 0
 					falling -= victim
 
-			else if (isopenturf(victim.loc))
-				victim.fall_through()
-			else
-				// This is a lookahead. It removes any lag from being moved onto
-				// the destination turf, and calling fall_impact.
-				victim.fall_impact(falling[victim], FALSE)
-				victim.fall_collateral(falling[victim], FALSE)
-				victim.multiz_falling = 0
-				falling -= victim
-
-			if (MC_TICK_CHECK)
-				return
-			continue
+				if (MC_TICK_CHECK)
+					return
+				continue
 
 		// This shouldn't actually happen. But for safety, here it is.
 		victim.fall_impact(falling[victim], FALSE)

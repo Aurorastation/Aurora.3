@@ -2,6 +2,7 @@ SUBSYSTEM_DEF(odyssey)
 	name = "Odyssey"
 	init_order = INIT_ORDER_ODYSSEY
 	runlevels = RUNLEVELS_PLAYING
+	can_fire = FALSE //We process only if we are running an odyssey scenario, this is set to TRUE by `pick_odyssey()`
 
 	/// The selected scenario singleton.
 	var/singleton/scenario/scenario
@@ -74,9 +75,12 @@ SUBSYSTEM_DEF(odyssey)
 
 	scenario = pickweight(possible_scenarios)
 	setup_scenario_variables()
-	// Now that we actually have an odyssey, the subsystem can fire!
 	var/list/possible_station_levels = SSmapping.levels_by_all_traits(list(ZTRAIT_STATION))
 	main_map = GLOB.map_sectors["[pick(possible_station_levels)]"]
+
+	// Now that we actually have an odyssey, the subsystem can fire!
+	can_fire = TRUE
+
 	return TRUE
 
 /**
@@ -88,6 +92,15 @@ SUBSYSTEM_DEF(odyssey)
 	if(scenario)
 		ody_gamemode.required_players = scenario.min_player_amount
 		ody_gamemode.required_enemies = scenario.min_actor_amount
+
+		//Setting the scenario_type variable for use here in UI info and chat notices.
+		if(!length(scenario.possible_scenario_types))
+			scenario.scenario_type = SCENARIO_TYPE_NONCANON
+		else if(SSatlas.current_sector in ALL_EVENT_ONLY_SECTORS) // If we are in an exclusive event area for an arc (EG. The Horizon finds itself isolated and alone), we may not want canon odysseys spawning.
+			scenario.scenario_type = SCENARIO_TYPE_NONCANON // Noncanon odysseys are fine though!
+		else
+			scenario.scenario_type = pick(scenario.possible_scenario_types)
+
 	site_landing_restricted = scenario.site_landing_restricted
 
 /**

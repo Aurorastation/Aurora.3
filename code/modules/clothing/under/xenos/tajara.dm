@@ -57,8 +57,8 @@
 	starting_accessories = (/obj/item/clothing/accessory/storage/bayonet)
 	siemens_coefficient = 0.5 // Every Kosmostrelki is expected to assist in repairs when push comes to shove, so their uniform is slightly better at absorbing shocks compared to other combat uniforms
 	armor = list(
-		melee = ARMOR_MELEE_SMALL,
-		bullet = ARMOR_BALLISTIC_MINOR)
+		MELEE = ARMOR_MELEE_SMALL,
+		BULLET = ARMOR_BALLISTIC_MINOR)
 
 /obj/item/clothing/under/tajaran/cosmonaut/commissar
 	name = "kosmostrelki commissar uniform"
@@ -201,7 +201,7 @@
 	body_parts_covered = LOWER_TORSO
 	starting_accessories = list(/obj/item/clothing/accessory/tajaran/summershirt)
 
-/obj/item/clothing/under/pants/tajaran
+/obj/item/clothing/pants/tajaran
 	name = "adhomian summer pants"
 	desc = "A pair of adhomian pants usually worn during the summer."
 	icon = 'icons/obj/tajara_items.dmi'
@@ -221,8 +221,8 @@
 	starting_accessories = list(/obj/item/clothing/accessory/storage/bayonet)
 	siemens_coefficient = 0.7
 	armor = list(
-		melee = ARMOR_MELEE_SMALL,
-		bullet = ARMOR_BALLISTIC_MINOR)
+		MELEE = ARMOR_MELEE_SMALL,
+		BULLET = ARMOR_BALLISTIC_MINOR)
 
 /obj/item/clothing/under/tajaran/nka_uniform
 	name = "imperial adhomian army uniform"
@@ -230,7 +230,7 @@
 	icon_state = "nka_uniform"
 	item_state = "nka_uniform"
 	starting_accessories = list(/obj/item/clothing/accessory/storage/bayonet)
-	armor = list(melee = ARMOR_MELEE_SMALL)
+	armor = list(MELEE = ARMOR_MELEE_SMALL)
 
 /obj/item/clothing/under/tajaran/nka_uniform/commander
 	name = "imperial adhomian army officer uniform"
@@ -328,8 +328,8 @@
 	starting_accessories = (/obj/item/clothing/accessory/storage/bayonet)
 	siemens_coefficient = 0.5
 	armor = list(
-		melee = ARMOR_MELEE_SMALL,
-		bullet = ARMOR_BALLISTIC_MINOR)
+		MELEE = ARMOR_MELEE_SMALL,
+		BULLET = ARMOR_BALLISTIC_MINOR)
 
 /obj/item/clothing/under/tajaran/pvsm/captain
 	name = "people's volunteer spacer militia captain uniform"
@@ -345,8 +345,8 @@
 	starting_accessories = list(/obj/item/clothing/accessory/storage/bayonet)
 	siemens_coefficient = 0.7
 	armor = list(
-		melee = ARMOR_MELEE_SMALL,
-		bullet = ARMOR_BALLISTIC_MINOR)
+		MELEE = ARMOR_MELEE_SMALL,
+		BULLET = ARMOR_BALLISTIC_MINOR)
 
 /obj/item/clothing/under/tajaran/ala/wraps
 	icon_state = "ala-grunt-wraps"
@@ -402,6 +402,22 @@
 	icon_state = "psis"
 	item_state = "psis"
 	starting_accessories = (/obj/item/clothing/accessory/holster/hip)
+
+/obj/item/clothing/under/tajaran/pra_cop
+	name = "PRA NPD uniform"
+	desc = "A dark uniform bearing the markings of the PRA national police department. It is most commonly found within the cities of the PRA."
+	desc_extended = "The National Police Department is the largest and best equipped police force on Adhomai. \
+	Responsible for law enforcement in the People's Republic, the olive drab uniforms and polished badges have maintained peace and order, \
+	or inspired fear, within the population since the nation's founding."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "taj_cop_uniform"
+	item_state = "taj_cop_uniform"
+
+/obj/item/clothing/under/tajaran/pra_cop/rural
+	name = "rural PRA NPD uniform"
+	desc = "A light uniform bearing the markings of the PRA national police department. It is most commonly found in the rural parts of the PRA."
+	icon_state = "taj_cop_uniform_rural"
+	item_state = "taj_cop_uniform_rural"
 
 // Red Polka Dot Dress
 /obj/item/clothing/under/dress/tajaran/polka_dot

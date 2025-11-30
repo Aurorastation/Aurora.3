@@ -300,6 +300,26 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("toasty dough" = 2))
 	bitesize = 1
 
+/obj/item/reagent_containers/food/snacks/bagel/cream_cheese
+	name = "cream cheese bagel"
+	desc = "Oy Gevalt, you put a little bit of shmear and call this a bagel? Where's the smoked salmon? No, it's fine, it's fine, I'll eat it like this..."
+	icon = 'icons/obj/item/reagent_containers/food/bread.dmi'
+	icon_state = "creamcheese_bagel"
+	filling_color = "#e9e8e6"
+	reagents_to_add = list(/singleton/reagent/nutriment = 2)
+	reagent_data = list(/singleton/reagent/nutriment = list("toasty dough" = 2))
+	bitesize = 1
+
+/obj/item/reagent_containers/food/snacks/bagel/smoked_salmon
+	name = "smoked salmon bagel"
+	desc = "What, you call this fakakta thing a smoked salmon bagel? What, is there a shortage? Be a mensch and put some more on there, will ya?"
+	icon = 'icons/obj/item/reagent_containers/food/bread.dmi'
+	icon_state = "salmon_bagel"
+	filling_color = "#d16246"
+	reagents_to_add = list(/singleton/reagent/nutriment = 2)
+	reagent_data = list(/singleton/reagent/nutriment = list("toasty dough" = 2))
+	bitesize = 1
+
 /obj/item/reagent_containers/food/snacks/cracker
 	name = "cracker"
 	desc = "It's a salted cracker."
@@ -389,6 +409,21 @@
 	contained_sprite = TRUE
 	trash = /obj/item/trash/plate
 	filling_color = "#B572AB"
+	center_of_mass = list("x"=16, "y"=8)
+	reagents_to_add = list(/singleton/reagent/nutriment = 1)
+	reagent_data = list(/singleton/reagent/nutriment = list("toasted bread" = 2))
+	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/cream_cheese_toast
+	name = "cream cheese toast"
+	desc = "Part of this complete breakfast."
+	icon = 'icons/obj/item/reagent_containers/food/bread.dmi'
+	icon_state = "creamcheesetoast"
+	item_state = "toast"
+	slot_flags = SLOT_MASK
+	contained_sprite = TRUE
+	trash = /obj/item/trash/plate
+	filling_color = "#ffffff"
 	center_of_mass = list("x"=16, "y"=8)
 	reagents_to_add = list(/singleton/reagent/nutriment = 1)
 	reagent_data = list(/singleton/reagent/nutriment = list("toasted bread" = 2))
@@ -508,6 +543,39 @@
 	filling_color = "#D9BE29"
 	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/nutriment/protein = 4)
 	reagent_data = list(/singleton/reagent/nutriment = list("toasted bread" = 3, "cheese" = 3))
+	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/grilled_mac_and_cheese
+	name = "grilled mac and cheese sandwich"
+	desc = "You know what would make these carbs better? MORE CARBS! Gooey macaroni and cheese between two careful slices of crunchy, toasted bread. This was either invented by a hipster, a broke college student, or both."
+	icon = 'icons/obj/item/reagent_containers/food/bread.dmi'
+	icon_state = "maccheesesandwich"
+	trash = /obj/item/trash/plate
+	filling_color = "#D9BE29"
+	reagents_to_add = list(/singleton/reagent/nutriment/protein = 1)
+	reagent_data = list(/singleton/reagent/nutriment/protein = list("cheese" = 5))
+	bitesize = 3
+
+/obj/item/reagent_containers/food/snacks/grilled_triple_cheese_crunch_sandwich
+	name = "grilled triple cheese crunch sandwich"
+	desc = "Who needs a four cheese medley when you have the classy and playful variety of cheddar, nakarka, and uh... whatever that glowy orange crud they put in cheesie honkers is, all in one sandwich?"
+	icon = 'icons/obj/item/reagent_containers/food/bread.dmi'
+	icon_state = "triplecheesecrunch"
+	trash = /obj/item/trash/plate
+	filling_color = "#b9d929"
+	reagents_to_add = list(/singleton/reagent/nutriment = 5, /singleton/reagent/nutriment/protein = 5)
+	reagent_data = list(/singleton/reagent/nutriment = list("toasted bread" = 2, "tangy cheese" = 3), /singleton/reagent/nutriment/protein = list("sharp cheese" = 3, "crunchy cheese" = 3))
+	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/crab_leg_grilled_cheese_sandwich
+	name = "crab leg grilled cheese sandwich"
+	desc = "The fancier cousin of your boring, run-of-the-mill grilled cheese sandwich, adding a buttery crab leg to the mix for a unique upgrade."
+	icon = 'icons/obj/item/reagent_containers/food/bread.dmi'
+	icon_state = "crableggrilledcheese"
+	trash = /obj/item/trash/plate
+	filling_color = "#d99b29"
+	reagents_to_add = list(/singleton/reagent/nutriment/protein = 2)
+	reagent_data = list(/singleton/reagent/nutriment/protein = list("crab meat" = 5, "cheese" = 5))
 	bitesize = 2
 
 /obj/item/reagent_containers/food/snacks/reubensandwich

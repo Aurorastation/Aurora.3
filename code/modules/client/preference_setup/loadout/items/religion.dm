@@ -136,15 +136,15 @@ ABSTRACT_TYPE(/datum/gear/religion/dominia)
 /datum/gear/religion/dominia/cape
 	display_name = "dominian outerwear selection"
 	description = "A selection of capes and outerwear worn by the Moroz Holy Tribunal."
-	path = /obj/item/clothing/under/dominia/priest
-	slot = slot_wear_suit
+	path = /obj/item/clothing/accessory/poncho/dominia_cape/tribunalist
+	slot = slot_in_backpack
 
 /datum/gear/religion/dominia/cape/New()
 	..()
 	var/list/cape = list()
-	cape["tribunalist red cape"] = /obj/item/clothing/accessory/poncho/dominia/red
-	cape["tribunalist full cape"] = /obj/item/clothing/accessory/poncho/dominia/red/double
-	cape["tribunalist surcoat"] = /obj/item/clothing/accessory/poncho/dominia/red/surcoat
+	cape["tribunalist red cape"] = /obj/item/clothing/accessory/poncho/dominia_cape/tribunalist
+	cape["tribunalist full cape"] = /obj/item/clothing/accessory/poncho/dominia_cape/tribunalist/double
+	cape["tribunalist surcoat"] = /obj/item/clothing/accessory/poncho/dominia_cape/tribunalist/surcoat
 	gear_tweaks += new /datum/gear_tweak/path(cape)
 
 /datum/gear/religion/dominia/accessory
@@ -192,7 +192,7 @@ ABSTRACT_TYPE(/datum/gear/religion/dominia)
 /datum/gear/religion/dominia/cape_consular
 	display_name = "tribunalist cousular cape"
 	description = "A truly majestic gold and red cape worn by members of the clergy affiliated with His Majesty's Diplomatic Service."
-	path = /obj/item/clothing/accessory/poncho/dominia/consular
+	path = /obj/item/clothing/accessory/poncho/dominia_cape/tribunalist/consular
 	slot = slot_wear_suit
 	allowed_roles = list("Consular Officer")
 
@@ -215,6 +215,12 @@ ABSTRACT_TYPE(/datum/gear/religion/dominia)
 	dominiaicon["icon of the martyr, matteo"] = /obj/item/sign/painting_frame/martyr/matteo
 	dominiaicon["icon of the martyr, valeria"] = /obj/item/sign/painting_frame/martyr/valeria
 	gear_tweaks += new /datum/gear_tweak/path(dominiaicon)
+
+/datum/gear/religion/dominia/lyodii_deck
+	display_name = "lyodii fatesayer cards"
+	description = "A leather box holding a complete deck of Fatesayer cards, used by the people of the Lyod to tell one's fate."
+	path = /obj/item/storage/box/lyodii
+	culture_restriction = list(/singleton/origin_item/culture/dominia)
 
 ABSTRACT_TYPE(/datum/gear/religion/assunzione)
 	religion = RELIGION_LUCEISM

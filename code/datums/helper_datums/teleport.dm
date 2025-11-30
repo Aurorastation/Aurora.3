@@ -48,7 +48,7 @@
 		var/list/turf/good_turfs = list()
 		var/list/turf/bad_turfs = list()
 		var/turf/T = get_turf(adestination)
-		for(var/found_inhibitor in bluespace_inhibitors)
+		for(var/found_inhibitor in GLOB.bluespace_inhibitors)
 			var/obj/machinery/anti_bluespace/AB = found_inhibitor
 			if(T.z != AB.z || get_dist(adestination, AB) > 8 || (AB.stat & (NOPOWER | BROKEN)))
 				continue
@@ -145,6 +145,14 @@
 		return FALSE
 
 	playSpecials(curturf,effectin,soundin)
+
+	// we don't want a teleportation loop, if we teleport to a destination that already has a portal
+	// disable it for just a moment until we get there
+	var/has_active_destination_portal = FALSE
+	var/obj/effect/portal/destination_portal = locate() in destturf
+	if(destination_portal?.does_teleport)
+		has_active_destination_portal = TRUE
+		destination_portal.does_teleport = FALSE
 
 	var/obj/structure/bed/stool/chair/C = null
 	if(isliving(teleatom))
@@ -269,6 +277,9 @@
 		C.forceMove(destturf)
 
 	destarea.Entered(teleatom)
+
+	if(has_active_destination_portal)
+		destination_portal.does_teleport = TRUE
 
 	return TRUE
 

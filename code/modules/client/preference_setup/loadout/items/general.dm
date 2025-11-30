@@ -1,5 +1,6 @@
 /datum/gear/cane
-	display_name = "cane"
+	display_name = "cane and crutch selection"
+	description = "A selection of canes and crutches."
 	path = /obj/item/cane
 
 /datum/gear/cane/New()
@@ -8,7 +9,10 @@
 	cane["cane"] = /obj/item/cane
 	cane["telescopic cane"] = /obj/item/cane/telecane
 	cane["crutch"] = /obj/item/cane/crutch
-	cane["white cane"] = /obj/item/cane/white
+	cane["forearm crutch"] = /obj/item/cane/crutch/forearm
+	cane["white cane"] = /obj/item/cane/telecane/white
+	cane["pair of crutches"] = /obj/item/storage/box/crutch_pair
+	cane["pair of forearm crutches"] = /obj/item/storage/box/forearm_crutch_pair
 	gear_tweaks += new /datum/gear_tweak/path(cane)
 
 /datum/gear/flask
@@ -168,14 +172,14 @@
 	display_name = "konyang-cha tins"
 	description = "Tins of tea leaves made by Konyang-cha."
 	cost = 1
-	path = /obj/item/storage/box/tea
+	path = /obj/item/storage/box/unique/tea
 
 /datum/gear/chatins/New()
 	..()
 	var/list/chatins = list()
-	chatins["sencha cha-tin"] = /obj/item/storage/box/tea
-	chatins["tieguanyin cha-tin"] = /obj/item/storage/box/tea/tieguanyin
-	chatins["jaekseol cha-tin"] = /obj/item/storage/box/tea/jaekseol
+	chatins["sencha cha-tin"] = /obj/item/storage/box/unique/tea
+	chatins["tieguanyin cha-tin"] = /obj/item/storage/box/unique/tea/tieguanyin
+	chatins["jaekseol cha-tin"] = /obj/item/storage/box/unique/tea/jaekseol
 	gear_tweaks += new /datum/gear_tweak/path(chatins)
 
 /datum/gear/teapots
@@ -273,6 +277,8 @@
 	banners["banner, Antique Visegrad"] = /obj/item/flag/old_visegrad
 	banners["banner, Visegrad"] = /obj/item/flag/visegrad
 	banners["banner, Burzsia"] = /obj/item/flag/burzsia
+	banners["banner, HPS Narrows"] = /obj/item/flag/narrows
+	banners["banner, Zhurong"] = /obj/item/flag/zhurong
 	gear_tweaks += new /datum/gear_tweak/path(banners)
 
 /datum/gear/standard
@@ -285,15 +291,13 @@
 	var/list/standards = list()
 	standards["standard, Strelitz"] = /obj/item/flag/strelitz
 	standards["standard, Volvalaad"] = /obj/item/flag/volvalaad
-	standards["standard, Kazhkz"] = /obj/item/flag/kazhkz
-	standards["standard, Han'san"] = /obj/item/flag/hansan
 	standards["standard, Caladius"] = /obj/item/flag/caladius
 	standards["standard, Zhao"] = /obj/item/flag/zhao
 	gear_tweaks += new /datum/gear_tweak/path(standards)
 
 /datum/gear/flag
 	display_name = "flag selection"
-	cost = 2
+	cost = 1
 	path = /obj/item/flag
 	flags = GEAR_HAS_DESC_SELECTION
 
@@ -370,8 +374,11 @@
 	flags["flag, Northern Solarian Reconstruction Mandate"] = /obj/item/flag/nsrm/l
 	flags["flag, Provisional Government of Mars"] = /obj/item/flag/mars/l
 	flags["flag, Pluto"] = /obj/item/flag/pluto/l
-	flags["flag, Antique Visegrad"] = /obj/item/flag/old_visegrad
-	flags["flag, Visegrad"] = /obj/item/flag/visegrad
+	flags["flag, Antique Visegrad"] = /obj/item/flag/old_visegrad/l
+	flags["flag, Visegrad"] = /obj/item/flag/visegrad/l
+	flags["flag, Burzsia"] = /obj/item/flag/burzsia/l
+	flags["flag, HPS Narrows"] = /obj/item/flag/narrows/l
+	flags["flag, Zhurong"] = /obj/item/flag/zhurong/l
 	gear_tweaks += new /datum/gear_tweak/path(flags)
 
 /datum/gear/towel
@@ -408,15 +415,15 @@
 	gear_tweaks += new /datum/gear_tweak/path(comics)
 
 /datum/gear/toothpaste
-	display_name = "toothpaste and toothbrush"
+	display_name = "dental hygiene kit"
 	path = /obj/item/storage/box/toothpaste
 
 /datum/gear/toothpaste/New()
 	..()
 	var/list/toothpaste = list()
-	toothpaste["toothpaste and blue toothbrush"] = /obj/item/storage/box/toothpaste
-	toothpaste["toothpaste and green toothbrush"] = /obj/item/storage/box/toothpaste/green
-	toothpaste["toothpaste and red toothbrush"] = /obj/item/storage/box/toothpaste/red
+	toothpaste["dental hygiene kit, blue toothbrush"] = /obj/item/storage/box/toothpaste
+	toothpaste["dental hygiene kit, green toothbrush"] = /obj/item/storage/box/toothpaste/green
+	toothpaste["dental hygiene kit, red toothbrush"] = /obj/item/storage/box/toothpaste/red
 	gear_tweaks += new /datum/gear_tweak/path(toothpaste)
 
 /datum/gear/photo
@@ -484,3 +491,30 @@
 		plants[initial(plant.name)] = plant_type
 	sortTim(plants, GLOBAL_PROC_REF(cmp_text_asc))
 	gear_tweaks += new /datum/gear_tweak/path(plants)
+
+/datum/gear/candles
+	display_name = "candle pack"
+	description = "A pack of red candles."
+	cost = 1
+	path = /obj/item/storage/box/fancy/candle_box
+
+/datum/gear/mre
+	display_name = "mre selection"
+	description = "A selection of different MREs."
+	cost = 2
+	path = /obj/item/storage/box/fancy/mre
+
+/datum/gear/mre/New()
+	..()
+	var/list/mres = list()
+	mres["meat pizza"] = /obj/item/storage/box/fancy/mre
+	mres["margherita pizza"] = /obj/item/storage/box/fancy/mre/menu2
+	mres["vegetable pizza"] = /obj/item/storage/box/fancy/mre/menu3
+	mres["hamburger"] = /obj/item/storage/box/fancy/mre/menu4
+	mres["taco"] = /obj/item/storage/box/fancy/mre/menu5
+	mres["meatbread"] = /obj/item/storage/box/fancy/mre/menu6
+	mres["salad"] = /obj/item/storage/box/fancy/mre/menu7
+	mres["hot chili"] = /obj/item/storage/box/fancy/mre/menu8
+	mres["boiled rice"] = /obj/item/storage/box/fancy/mre/menu9
+	mres["protein"] = /obj/item/storage/box/fancy/mre/menu10
+	gear_tweaks += new /datum/gear_tweak/path(mres)

@@ -3,8 +3,9 @@ GLOBAL_LIST_EMPTY(gps_list)
 /obj/item/device/gps
 	name = "global positioning system"
 	desc = "Helping lost spacemen find their way through the planets since 2016."
-	icon = 'icons/obj/telescience.dmi'
+	icon = 'icons/obj/item/device/gps.dmi'
 	icon_state = "gps-com"
+	item_state = "radio"
 	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = SLOT_BELT
 	origin_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
@@ -71,6 +72,13 @@ GLOBAL_LIST_EMPTY(gps_list)
 		implanted_into = null
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
+
+/obj/item/device/gps/attack_self(mob/user, modifiers)
+	if(!emped)
+		ui_interact(user)
+
+	var/turf/T = get_turf(src)
+	to_chat(user, SPAN_NOTICE("[icon2html(src, user)] [src] flashes <i>[T.x].[rand(0,9)]:[T.y].[rand(0,9)]:[T.z].[rand(0,9)]</i>."))
 
 /obj/item/device/gps/update_icon()
 	ClearOverlays()
@@ -153,7 +161,7 @@ GLOBAL_LIST_EMPTY(gps_list)
 /obj/item/device/gps/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "GPS", capitalize_first_letters(name), 460, 600)
+		ui = new(user, src, "GPS", capitalize_first_letters(name), 550, 650)
 		ui.open()
 
 /obj/item/device/gps/process()
@@ -239,7 +247,8 @@ GLOBAL_LIST_EMPTY(gps_list)
 		update_icon()
 		return
 	var/area/gpsarea = get_area(src)
-	GLOB.gps_list[gpstag] = list("tag" = gpstag, "pos_x" = T.x, "pos_y" = T.y, "pos_z" = T.z, "area" = "[gpsarea.name]", "emped" = emped, "compass_color" = compass_color)
+	var/gps_areaname = get_area_display_name(gpsarea, TRUE, FALSE, FALSE, TRUE)
+	GLOB.gps_list[gpstag] = list("tag" = gpstag, "pos_x" = T.x, "pos_y" = T.y, "pos_z" = T.z, "area" = "[gps_areaname]", "emped" = emped, "compass_color" = compass_color)
 	if(check_held_by && held_by && (held_by.get_active_hand() == src || held_by.get_inactive_hand() == src))
 		update_compass(TRUE)
 

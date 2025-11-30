@@ -175,7 +175,10 @@
 	written_style = "nralmalic"
 	key = "k"
 	flags = WHITELISTED|TCOMSSIM
-	syllables = list("qr","qrr","xuq","qil","quum","xuqm","vol","xrim","zaoo","qu-uu","qix","qoo","zix","*","!")
+	syllables = list("*","!","'","-","qr","qrr","xuq","qil","quum","xuqm","vol","xrim","zaoo","qu-uu","qix","qoo","zix",
+	"xix", "zil", "rix", "qu", "xum", "xuuq", "qurm", "zazo", "qiu", "xiq", "qrrr", "vou", "vox", "quv", "vun", "v'qr",
+	"qrv", "su", "xu", "xi", "qi", "si", "ei", "qou", "qui", "kiu", "uiu", "eis", "seq", "eqa", "uiq", "kui", "muu", "muq",
+	"kuo", "omq", "xoi", "liq", "zuk", "iie", "squ", "ixu")
 	allow_accents = TRUE
 
 /datum/language/skrell/check_speech_restrict(mob/speaker)
@@ -370,9 +373,9 @@
 /datum/language/human/get_random_name(var/gender)
 	if (prob(80))
 		if(gender==FEMALE)
-			return capitalize(pick(first_names_female)) + " " + capitalize(pick(last_names))
+			return capitalize(pick(GLOB.first_names_female)) + " " + capitalize(pick(GLOB.last_names))
 		else
-			return capitalize(pick(first_names_male)) + " " + capitalize(pick(last_names))
+			return capitalize(pick(GLOB.first_names_male)) + " " + capitalize(pick(GLOB.last_names))
 	else
 		return ..()
 
@@ -409,7 +412,7 @@
 /datum/language/machine/get_random_name()
 	if(prob(70))
 		return "[pick(list("PBU","HIU","SINA","ARMA","OSI"))]-[rand(100, 999)]"
-	return pick(ai_names)
+	return pick(GLOB.ai_names)
 
 // we're trimming out the punctuation and not readding it, so we need to readd it at the very end
 /datum/language/machine/scramble(var/input, var/list/known_languages)

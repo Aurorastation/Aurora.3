@@ -12,10 +12,11 @@
 	)
 
 	ship_cost = 1
+	spawn_weight_sector_dependent = list(ALL_CRESCENT_EXPANSE_SECTORS = 0.3)
 	spawn_weight = 1
 
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/golden_deep, /datum/shuttle/autodock/multi/lift/gd)
-	sectors = list(ALL_TAU_CETI_SECTORS, ALL_COALITION_SECTORS, SECTOR_VALLEY_HALE)
+	sectors = list(ALL_TAU_CETI_SECTORS, ALL_COALITION_SECTORS, SECTOR_VALLEY_HALE, ALL_CRESCENT_EXPANSE_SECTORS)
 
 	unit_test_groups = list(1)
 
@@ -80,7 +81,7 @@
 /obj/machinery/computer/shuttle_control/explore/terminal/golden_deep
 	name = "shuttle control console"
 	shuttle_tag = "Golden Deep Shuttle"
-	req_access = list(ACCESS_GOLDEN_DEEP, ACCESS_GOLDEN_DEEP_OWNED)
+	req_one_access = list(ACCESS_GOLDEN_DEEP, ACCESS_GOLDEN_DEEP_OWNED)
 
 /datum/shuttle/autodock/overmap/golden_deep
 	name = "Golden Deep Shuttle"

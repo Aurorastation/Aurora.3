@@ -78,14 +78,22 @@
 /obj/item/reagent_containers/glass/fertilizer/ez
 	name = "jug of E-Z-Nutrient"
 	icon_state = "plastic_jug_ez"
+	desc = "Utterly middling in every way, E-Z-Nutrient is a brand of fertiliser without any remarkably defining traits. At least it's cheap."
 	reagents_to_add = list(/singleton/reagent/toxin/fertilizer/eznutrient = 80)
 
 /obj/item/reagent_containers/glass/fertilizer/l4z
 	name = "jug of Left-4-Zed"
 	icon_state = "plastic_jug_l4z"
+	desc = "A brand with a mixed reputation, Left-4-Zed trades nutritional value for a chance to mutate plants it is fed to. Use with caution!"
 	reagents_to_add = list(/singleton/reagent/toxin/fertilizer/left4zed = 80)
 
 /obj/item/reagent_containers/glass/fertilizer/rh
 	name = "jug of Robust Harvest"
 	icon_state = "plastic_jug_rh"
+	desc = "This is a jug of Robust Harvest, among the more reputable - and expensive - brands of fertiliser on the market. Increases yield of crops."
 	reagents_to_add = list(/singleton/reagent/toxin/fertilizer/robustharvest = 80)
+
+/obj/item/reagent_containers/glass/fertilizer/rh/mechanics_hints(mob/user, distance, is_adjacent)
+	. = ..()
+	. += "Every 10u of Robust Harvest added to a plant increases its maximum yield by up to 2 extra produce."
+	. += "Bonus yield only applies on the next harvest for plants that can be harvested more than once, such as fruit trees."

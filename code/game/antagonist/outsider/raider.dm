@@ -1,4 +1,4 @@
-var/datum/antagonist/raider/raiders
+GLOBAL_DATUM(raiders, /datum/antagonist/raider)
 
 /datum/antagonist/raider
 	id = MODE_RAIDER
@@ -25,7 +25,7 @@ var/datum/antagonist/raider/raiders
 
 /datum/antagonist/raider/New()
 	..()
-	raiders = src
+	GLOB.raiders = src
 
 /datum/antagonist/raider/update_access(var/mob/living/player)
 	for(var/obj/item/storage/wallet/W in player.contents)
@@ -100,7 +100,7 @@ var/datum/antagonist/raider/raiders
 		if(win_group == "Raider")
 			if(win_type == "Minor")
 				win_type = "Major"
-			win_msg += "<B>The Raiders escaped the station!</B>"
+			win_msg += "<B>The Raiders escaped the [station_name(TRUE)]!</B>"
 		else
 			win_msg += "<B>The Raiders were repelled!</B>"
 

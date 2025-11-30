@@ -1,4 +1,4 @@
-var/datum/antagonist/burglar/burglars
+GLOBAL_DATUM(burglars, /datum/antagonist/burglar)
 
 /datum/antagonist/burglar
 	id = MODE_BURGLAR
@@ -7,10 +7,6 @@ var/datum/antagonist/burglar/burglars
 	bantype = "burglar"
 	antag_indicator = "burglar"
 	landmark_id = "burglarspawn"
-	welcome_text = "You are a Burglar, someone underequipped to deal with the station. You will probably not survive for the whole round, so don't sweat it if you die!<br>\
-	Your (syndicate) sponsored uplink will grant you access to various tools you may need to attempt to accomplish your goal.<br>\
-	You can use :H or :B to talk on your encrypted channel, which only you and your partner can read.<br>\
-	<b>You have been outfitted with a special teleportation device, make sure to use it!</b>"
 	flags = ANTAG_OVERRIDE_JOB | ANTAG_CLEAR_EQUIPMENT | ANTAG_CHOOSE_NAME | ANTAG_VOTABLE | ANTAG_SET_APPEARANCE | ANTAG_HAS_LEADER
 	antaghud_indicator = "hudburglar"
 	required_age = 7
@@ -26,7 +22,11 @@ var/datum/antagonist/burglar/burglars
 
 /datum/antagonist/burglar/New()
 	..()
-	burglars = src
+	GLOB.burglars = src
+	welcome_text = "You are a Burglar, someone underequipped to deal with the [station_name()]. You will probably not survive for the whole round, so don't sweat it if you die!<br>\
+	Your (syndicate) sponsored uplink will grant you access to various tools you may need to attempt to accomplish your goal.<br>\
+	You can use :H or :B to talk on your encrypted channel, which only you and your partner can read.<br>\
+	<b>You have been outfitted with a special teleportation device, make sure to use it!</b>"
 
 /datum/antagonist/burglar/update_access(var/mob/living/player)
 	for(var/obj/item/storage/wallet/W in player.contents)

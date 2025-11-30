@@ -1,5 +1,4 @@
-var/global/repository/singletons/Singletons = new
-
+GLOBAL_DATUM_INIT(Singletons, /repository/singletons, new())
 
 /repository/singletons
 	/// A cache of individual singletons as (/singleton/path = Instance, ...)

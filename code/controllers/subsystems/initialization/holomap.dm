@@ -43,7 +43,10 @@ SUBSYSTEM_DEF(holomap)
 		/turf/unsimulated/wall,
 		/turf/unsimulated/floor,
 	))
-
+	var/static/list/outer_hull_tcache = typecacheof(list(
+		/turf/simulated/wall/shuttle/scc_space_ship,
+		/turf/unsimulated/wall/shuttle/scc_space_ship
+	))
 	var/static/list/rock_tcache = typecacheof(list(
 		/turf/simulated/mineral,
 		/turf/simulated/floor/exoplanet/asteroid,
@@ -89,11 +92,21 @@ SUBSYSTEM_DEF(holomap)
 		var/area/A = T.loc
 		var/Ttype = T.type
 
-		if (A.area_flags & AREA_FLAG_HIDE_FROM_HOLOMAP)
+		if(A.area_flags & AREA_FLAG_HIDE_FROM_HOLOMAP)
+			if(outer_hull_tcache[Ttype] || (length(T.contents) && (locate(/obj/structure/shuttle_part/scc_space_ship, T) || locate(/obj/structure/window/shuttle/scc_space_ship, T))))
+				canvas.DrawBox(HOLOMAP_OBSTACLE + "DD", T.x, T.y)
+
+			if(length(T.contents) && locate(/obj/machinery/door/airlock/external, T))
+				canvas.DrawBox(HOLOMAP_PATH + "DD", T.x, T.y)
+
+			if(!istype(A, /area/horizon/maintenance) && !istype(A, /area/horizon/weapons) && !istype(A, /area/horizon/ai) && !istype(A, /area/horizon/command/bridge/aibunker) && !istype(A, /area/horizon/command/bridge/selfdestruct))
+				if(path_tcache[Ttype] || (length(T.contents) && locate(/obj/structure/grille, T)))
+					canvas.DrawBox(HOLOMAP_PATH + "DD", T.x, T.y)
+			else
+				continue
+		if(rock_tcache[Ttype])
 			continue
-		if (rock_tcache[Ttype])
-			continue
-		if (obstacle_tcache[Ttype] || (length(T.contents) && locate(/obj/structure/grille, T)))
+		if(obstacle_tcache[Ttype] || (length(T.contents) && locate(/obj/structure/grille, T)))
 			canvas.DrawBox(HOLOMAP_OBSTACLE + "DD", T.x, T.y)
 		else if(path_tcache[Ttype] || (length(T.contents) && locate(/obj/structure/lattice/catwalk, T)))
 			canvas.DrawBox(HOLOMAP_PATH + "DD", T.x, T.y)
@@ -118,7 +131,6 @@ SUBSYSTEM_DEF(holomap)
 			canvas.DrawBox(A.holomap_color + "99", T.x, T.y)
 
 	var/icon/map_base = icon(minimaps[zlevel])
-	map_base.Blend(HOLOMAP_HOLOFIER, ICON_MULTIPLY)
 
 	// Generate the full sized map by blending the base and areas onto the backdrop
 	var/icon/big_map = icon('icons/255x255.dmi', "blank")

@@ -38,13 +38,13 @@
 	damage_mask = 'icons/mob/human_races/masks/dam_mask_tajara.dmi'
 	blood_mask = 'icons/mob/human_races/masks/blood_tajara.dmi'
 
+	language = LANGUAGE_SIIK_MAAS
 	num_alternate_languages = 2
-	secondary_langs = list(LANGUAGE_SIIK_MAAS, LANGUAGE_SIIK_TAJR, LANGUAGE_YA_SSA)
+	secondary_langs = list(LANGUAGE_SIIK_TAJR, LANGUAGE_YA_SSA)
 	name_language = LANGUAGE_SIIK_MAAS
 	ethanol_resistance = 0.9//Gets drunk a little faster
 	rarity_value = 2
-	economic_modifier = 7
-	selectable_pronouns = list(MALE, FEMALE)
+	economic_modifier = 9
 
 	stamina = 90	// Tajara evolved to maintain a steady pace in the snow, sprinting wastes energy
 	stamina_recovery = 4

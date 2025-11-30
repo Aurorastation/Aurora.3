@@ -13,7 +13,15 @@
 	icon_state = "tesla_armor_1"
 	blood_overlay_type = "armor"
 	slowdown = 1
-	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
+	armor = list(
+		MELEE = 0,
+		BULLET = 0,
+		LASER = 0,
+		ENERGY = 0,
+		BOMB = 0,
+		BIO = 0,
+		RAD = 0
+	)
 	action_button_name = "Toggle Tesla Armor"
 	var/active = 1	//Determines if the armor will zap or block
 	var/ready = 1 //Determines if the next attack will be blocked, as well if a strong lightning bolt is sent out at the attacker.
@@ -65,11 +73,12 @@
 	if(active && ready)
 		icon_state = ready_icon_state
 		item_state = ready_icon_state
-		set_light(2, 1, l_color = "#006AFF")
+		set_light_range_power_color(2, 1, "#006AFF")
+		set_light_on(TRUE)
 	else
 		icon_state = normal_icon_state
 		item_state = normal_icon_state
-		set_light(0, 0, l_color = "#000000")
+		set_light_on(FALSE)
 
 	if(ishuman(loc))
 		var/mob/living/carbon/human/H = loc

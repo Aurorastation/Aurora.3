@@ -11,18 +11,17 @@
 
 /datum/seed/tomato/setup_traits()
 	..()
-	set_trait(TRAIT_HARVEST_REPEAT,1)
-	set_trait(TRAIT_JUICY,1)
-	set_trait(TRAIT_MATURATION,8)
-	set_trait(TRAIT_PRODUCTION,6)
-	set_trait(TRAIT_YIELD,2)
-	set_trait(TRAIT_POTENCY,10)
-	set_trait(TRAIT_PRODUCT_ICON,"tomato")
-	set_trait(TRAIT_PRODUCT_COLOUR,"#D10000")
-	set_trait(TRAIT_PLANT_ICON,"bush3")
-	set_trait(TRAIT_IDEAL_LIGHT, 6)
-	set_trait(TRAIT_WATER_CONSUMPTION, 6)
-	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.25)
+	SET_SEED_TRAIT(src, TRAIT_HARVEST_REPEAT, 1)
+	SET_SEED_TRAIT(src, TRAIT_JUICY, 1)
+	SET_SEED_TRAIT(src, TRAIT_MATURATION, 8)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCTION, 6)
+	SET_SEED_TRAIT(src, TRAIT_YIELD, 2)
+	SET_SEED_TRAIT(src, TRAIT_POTENCY, 10)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_ICON, "tomato")
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#D10000")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_ICON, "bush3")
+	SET_SEED_TRAIT(src, TRAIT_WATER_CONSUMPTION, 6)
+	SET_SEED_TRAIT(src, TRAIT_NUTRIENT_CONSUMPTION, 0.25)
 
 /obj/item/seeds/tomatoseed
 	seed_type = "tomato"
@@ -37,8 +36,8 @@
 
 /datum/seed/tomato/blood/setup_traits()
 	..()
-	set_trait(TRAIT_YIELD,3)
-	set_trait(TRAIT_PRODUCT_COLOUR,"#FF0000")
+	SET_SEED_TRAIT(src, TRAIT_YIELD, 3)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#FF0000")
 
 /obj/item/seeds/bloodtomatoseed
 	seed_type = "bloodtomato"
@@ -53,8 +52,8 @@
 
 /datum/seed/tomato/killer/setup_traits()
 	..()
-	set_trait(TRAIT_YIELD,2)
-	set_trait(TRAIT_PRODUCT_COLOUR,"#A86747")
+	SET_SEED_TRAIT(src, TRAIT_YIELD, 2)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#A86747")
 
 /obj/item/seeds/killertomatoseed
 	seed_type = "killertomato"
@@ -69,8 +68,8 @@
 
 /datum/seed/tomato/blue/setup_traits()
 	..()
-	set_trait(TRAIT_PRODUCT_COLOUR,"#4D86E8")
-	set_trait(TRAIT_PLANT_COLOUR,"#070AAD")
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#4D86E8")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_COLOUR, "#070AAD")
 
 /obj/item/seeds/bluetomatoseed
 	seed_type = "bluetomato"
@@ -84,10 +83,10 @@
 
 /datum/seed/tomato/blue/teleport/setup_traits()
 	..()
-	set_trait(TRAIT_TELEPORTING,1)
-	set_trait(TRAIT_PRODUCT_COLOUR,"#00E5FF")
-	set_trait(TRAIT_BIOLUM,1)
-	set_trait(TRAIT_BIOLUM_COLOUR,"#4DA4A8")
+	SET_SEED_TRAIT(src, TRAIT_TELEPORTING, 1)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#00E5FF")
+	SET_SEED_TRAIT(src, TRAIT_BIOLUM, 1)
+	SET_SEED_TRAIT(src, TRAIT_BIOLUM_COLOUR, "#4DA4A8")
 
 /obj/item/seeds/bluespacetomatoseed
 	seed_type = "bluespacetomato"

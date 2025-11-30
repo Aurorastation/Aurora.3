@@ -15,7 +15,7 @@
 	hat_x_offset = 1
 	hat_y_offset = -12
 	standard_drone = FALSE
-	var/list/allowed_areas = list(/area/exoplanet, /area/shuttle/mining, /area/shuttle/intrepid) //Needed for the bot to go mining
+	var/list/allowed_areas = list(/area/exoplanet, /area/horizon/shuttle/mining, /area/horizon/shuttle/intrepid) //Needed for the bot to go mining
 	var/seeking_player = FALSE
 	var/health_upgrade
 	var/ranged_upgrade
@@ -132,7 +132,7 @@
 
 /mob/living/silicon/robot/drone/mining/update_robot_light()
 	if(lights_on)
-		set_light(5, 1, LIGHT_COLOR_FIRE, angle = LIGHT_OMNI)
+		set_light(5, 1, LIGHT_COLOR_FIRE)
 	else
 		set_light(0)
 

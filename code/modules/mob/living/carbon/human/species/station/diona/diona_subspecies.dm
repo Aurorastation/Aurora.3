@@ -1,3 +1,7 @@
+/*
+These are Coeus Dionae! They are younger than the standard variant of the species, and are substantially quicker.
+In return, they are generally substantially more fragile, being especially susceptible to pain.
+*/
 /datum/species/diona/coeu
 	name = SPECIES_DIONA_COEUS
 	name_plural = "Coeus Dionaea"
@@ -12,6 +16,9 @@
 	their older counterparts, Coeus are faster but less resistant to damage. Due to their younger age, Coeus are also generally less experienced than older gestalts, as such they tend to look up \
 	towards more experienced gestalts as a hand to help guide them. As a result of being more formative and idealistic, Coeus tend to be more pacifistic and less prone towards any kind of \
 	violence, including against more simple-minded creatures such as monkeys."
+
+	// An empty list, so they do not inherit the melee armour of their parent.
+	natural_armor = list()
 
 	slowdown = 0
 	siemens_coefficient = 0.7

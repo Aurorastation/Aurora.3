@@ -11,6 +11,7 @@
 	possible_transfer_amounts = list(5,10,15,25,30,60)
 	atom_flags = 0
 	volume = 60
+	storage_slot_sort_by_name = TRUE
 
 /obj/item/reagent_containers/glass/bottle/on_reagent_change()
 	update_icon()
@@ -196,6 +197,12 @@
 	desc = "A small bottle. Contains butazoline - treats damaged tissues."
 	icon_state = "bottle-1"
 	reagents_to_add = list(/singleton/reagent/butazoline = 60)
+
+/obj/item/reagent_containers/glass/bottle/kelotane
+	name = "kelotane bottle"
+	desc = "A small bottle. Contains kelotane - treats burnt tissues."
+	icon_state = "bottle-2"
+	reagents_to_add = list(/singleton/reagent/kelotane = 60)
 
 /obj/item/reagent_containers/glass/bottle/dermaline
 	name = "dermaline bottle"

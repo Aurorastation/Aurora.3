@@ -2455,12 +2455,12 @@
 /obj/item/gun/projectile/shotgun/pump/combat/sol,
 /obj/item/gun/projectile/shotgun/pump/combat/sol,
 /obj/item/gun/projectile/shotgun/pump/combat/sol,
-/obj/item/storage/box/incendiaryshells,
-/obj/item/storage/box/shotgunshells,
-/obj/item/storage/box/shotgunshells,
-/obj/item/storage/box/shotgunshells,
-/obj/item/storage/box/shotgunshells,
-/obj/item/storage/box/shotgunshells,
+/obj/item/storage/box/shells/incendiaryshells,
+/obj/item/storage/box/shells/buckshot,
+/obj/item/storage/box/shells/buckshot,
+/obj/item/storage/box/shells/buckshot,
+/obj/item/storage/box/shells/buckshot,
+/obj/item/storage/box/shells/buckshot,
 /turf/simulated/floor/reinforced,
 /area/city/mendell)
 "nY" = (
@@ -4052,10 +4052,8 @@
 	},
 /area/city/mendell)
 "xL" = (
-/obj/structure/sign/poster{
-	icon_state = "tcflposter2";
-	pixel_x = 29;
-	poster_type = "/datum/poster/bay_68"
+/obj/structure/sign/poster/lore/tcaf2{
+	pixel_x = 29
 	},
 /turf/simulated/floor/lino,
 /area/city/mendell/interior)
@@ -4168,10 +4166,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell/interior)
 "xZ" = (
-/obj/item/storage/box/frags,
-/obj/item/storage/box/frags,
-/obj/item/storage/box/frags,
-/obj/item/storage/box/frags,
+/obj/item/storage/box/tactical/frags,
+/obj/item/storage/box/tactical/frags,
+/obj/item/storage/box/tactical/frags,
+/obj/item/storage/box/tactical/frags,
 /turf/simulated/floor/reinforced,
 /area/city/mendell)
 "ya" = (
@@ -4752,7 +4750,7 @@
 	},
 /area/city/mendell)
 "BK" = (
-/obj/structure/janitorialcart/full{
+/obj/structure/cart/storage/janitorialcart/full{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -5676,11 +5674,9 @@
 /area/city/mendell/interior)
 "HE" = (
 /obj/structure/bed/stool/chair/wood,
-/obj/structure/sign/poster{
-	icon_state = "tcflposter";
+/obj/structure/sign/poster/lore/tcaf{
 	pixel_x = -6;
-	pixel_y = 31;
-	poster_type = "/datum/poster/bay_67"
+	pixel_y = 31
 	},
 /turf/simulated/floor/lino,
 /area/city/mendell/interior)

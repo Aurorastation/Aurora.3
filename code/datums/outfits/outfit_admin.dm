@@ -81,7 +81,7 @@
 			H.equip_or_collect(new path(), slot_wear_mask)
 
 		if(prob(20)) //Equip some headgear
-			var/datum/gear/G = gear_datums[pick(list("cap selection","beret, red","hat selection","hijab selection","turban selection"))]
+			var/datum/gear/G = GLOB.gear_datums[pick(list("cap selection","beret, red","hat selection","hijab selection","turban selection"))]
 			H.equip_or_collect(G.spawn_random(), slot_head)
 
 		if(prob(20)) //Equip some sunglasses
@@ -96,7 +96,7 @@
 			H.equip_or_collect(new path(), slot_glasses)
 
 		if(prob(20)) //Equip some gloves
-			var/datum/gear/G = gear_datums["gloves selection"]
+			var/datum/gear/G = GLOB.gear_datums["gloves selection"]
 			H.equip_or_collect(G.spawn_random(), slot_gloves)
 
 /obj/outfit/admin/random/visitor

@@ -10,17 +10,17 @@
 
 /datum/seed/tobacco/setup_traits()
 	..()
-	set_trait(TRAIT_MATURATION,6)
-	set_trait(TRAIT_PRODUCTION,6)
-	set_trait(TRAIT_YIELD,5)
-	set_trait(TRAIT_PRODUCT_ICON,"tobacco")
-	set_trait(TRAIT_PRODUCT_COLOUR,"#749733")
-	set_trait(TRAIT_PLANT_COLOUR,"#749733")
-	set_trait(TRAIT_PLANT_ICON,"vine2")
-	set_trait(TRAIT_IDEAL_HEAT, 299)
-	set_trait(TRAIT_IDEAL_LIGHT, 7)
-	set_trait(TRAIT_WATER_CONSUMPTION, 6)
-	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.15)
+	SET_SEED_TRAIT(src, TRAIT_MATURATION, 6)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCTION, 6)
+	SET_SEED_TRAIT(src, TRAIT_YIELD, 5)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_ICON, "tobacco")
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#749733")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_COLOUR, "#749733")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_ICON, "vine2")
+	SET_SEED_TRAIT(src, TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_HIGH)
+	SET_SEED_TRAIT(src, TRAIT_IDEAL_HEAT, IDEAL_HEAT_TROPICAL)
+	SET_SEED_TRAIT(src, TRAIT_WATER_CONSUMPTION, 6)
+	SET_SEED_TRAIT(src, TRAIT_NUTRIENT_CONSUMPTION, 0.15)
 
 /obj/item/seeds/tobaccoseed
 	seed_type = "tobacco"
@@ -33,10 +33,10 @@
 
 /datum/seed/tobacco/finetobacco/setup_traits()
 	..()
-	set_trait(TRAIT_YIELD,4)
-	set_trait(TRAIT_PRODUCT_COLOUR,"#33571b")
-	set_trait(TRAIT_PLANT_COLOUR,"#33571b")
-	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.20)
+	SET_SEED_TRAIT(src, TRAIT_YIELD, 4)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#33571b")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_COLOUR, "#33571b")
+	SET_SEED_TRAIT(src, TRAIT_NUTRIENT_CONSUMPTION, 0.20)
 
 /obj/item/seeds/finetobacco
 	seed_type = "finetobacco"
@@ -49,11 +49,11 @@
 
 /datum/seed/tobacco/puretobacco/setup_traits()
 	..()
-	set_trait(TRAIT_YIELD,3)
-	set_trait(TRAIT_JUICY,1)
-	set_trait(TRAIT_PRODUCT_COLOUR,"#b7c61a")
-	set_trait(TRAIT_PLANT_COLOUR,"#b7c61a")
-	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.30)
+	SET_SEED_TRAIT(src, TRAIT_YIELD, 3)
+	SET_SEED_TRAIT(src, TRAIT_JUICY, 1)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#b7c61a")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_COLOUR, "#b7c61a")
+	SET_SEED_TRAIT(src, TRAIT_NUTRIENT_CONSUMPTION, 0.30)
 
 /datum/seed/tobacco/bad
 	name = "badtobacco"
@@ -75,15 +75,16 @@
 
 /datum/seed/ambrosia/setup_traits()
 	..()
-	set_trait(TRAIT_HARVEST_REPEAT,1)
-	set_trait(TRAIT_MATURATION,6)
-	set_trait(TRAIT_PRODUCTION,6)
-	set_trait(TRAIT_YIELD,6)
-	set_trait(TRAIT_POTENCY,5)
-	set_trait(TRAIT_PRODUCT_ICON,"ambrosia")
-	set_trait(TRAIT_PRODUCT_COLOUR,"#9FAD55")
-	set_trait(TRAIT_PLANT_ICON,"ambrosia")
-	set_trait(TRAIT_IDEAL_LIGHT, 6)
+	SET_SEED_TRAIT(src, TRAIT_HARVEST_REPEAT, 1)
+	SET_SEED_TRAIT(src, TRAIT_MATURATION, 6)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCTION, 6)
+	SET_SEED_TRAIT(src, TRAIT_YIELD, 6)
+	SET_SEED_TRAIT(src, TRAIT_POTENCY, 5)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_ICON, "ambrosia")
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#9FAD55")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_ICON, "ambrosia")
+	SET_SEED_TRAIT(src, TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_HIGH)
+	SET_SEED_TRAIT(src, TRAIT_IDEAL_HEAT, IDEAL_HEAT_TROPICAL)
 
 /obj/item/seeds/ambrosiavulgarisseed
 	seed_type = "ambrosia"
@@ -98,8 +99,8 @@
 
 /datum/seed/ambrosia/deus/setup_traits()
 	..()
-	set_trait(TRAIT_PRODUCT_COLOUR,"#A3F0AD")
-	set_trait(TRAIT_PLANT_COLOUR,"#2A9C61")
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#A3F0AD")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_COLOUR, "#2A9C61")
 
 /obj/item/seeds/ambrosiadeusseed
 	seed_type = "ambrosiadeus"
@@ -116,16 +117,17 @@
 
 /datum/seed/oracle/setup_traits()
 	..()
-	set_trait(TRAIT_HARVEST_REPEAT, 1)
-	set_trait(TRAIT_MATURATION, 6)
-	set_trait(TRAIT_PRODUCTION, 6)
-	set_trait(TRAIT_YIELD, 6)
-	set_trait(TRAIT_POTENCY, 5)
-	set_trait(TRAIT_PRODUCT_ICON, "tobacco")
-	set_trait(TRAIT_PRODUCT_COLOUR, "#ad5555")
-	set_trait(TRAIT_PLANT_COLOUR, "#ffa2a2")
-	set_trait(TRAIT_PLANT_ICON, "flower")
-	set_trait(TRAIT_IDEAL_LIGHT, 6)
+	SET_SEED_TRAIT(src, TRAIT_HARVEST_REPEAT, 1)
+	SET_SEED_TRAIT(src, TRAIT_MATURATION, 6)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCTION, 6)
+	SET_SEED_TRAIT(src, TRAIT_YIELD, 6)
+	SET_SEED_TRAIT(src, TRAIT_POTENCY, 5)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_ICON, "tobacco")
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#ad5555")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_COLOUR, "#ffa2a2")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_ICON, "flower")
+	SET_SEED_TRAIT(src, TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_HIGH)
+	SET_SEED_TRAIT(src, TRAIT_IDEAL_HEAT, IDEAL_HEAT_TROPICAL)
 
 /obj/item/seeds/oracleseed
 	seed_type = "oracle"
@@ -139,8 +141,8 @@
 
 /datum/seed/oracle/vedamor/setup_traits()
 	..()
-	set_trait(TRAIT_PRODUCT_COLOUR,"#ed1c1c")
-	set_trait(TRAIT_PLANT_COLOUR,"#ad5555")
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#ed1c1c")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_COLOUR, "#ad5555")
 
 /obj/item/seeds/vedamororacleseed
 	seed_type = "vedamororacle"

@@ -56,11 +56,11 @@
 		dat += SPAN_DANGER("You are banned from using character records.<br>")
 	else
 		dat += "Medical Records:<br>"
-		dat += "<a href='?src=[REF(src)];set_medical_records=1'>[TextPreview(pref.med_record,40)]</a><a href='?src=[REF(src)];clear=medical'>Clear</a><br><br>"
+		dat += "<a href='byond://?src=[REF(src)];set_medical_records=1'>[TextPreview(pref.med_record,40)]</a><a href='byond://?src=[REF(src)];clear=medical'>Clear</a><br><br>"
 		dat += "Employment Records:<br>"
-		dat += "<a href='?src=[REF(src)];set_general_records=1'>[TextPreview(pref.gen_record,40)]</a><a href='?src=[REF(src)];clear=general'>Clear</a><br><br>"
+		dat += "<a href='byond://?src=[REF(src)];set_general_records=1'>[TextPreview(pref.gen_record,40)]</a><a href='byond://?src=[REF(src)];clear=general'>Clear</a><br><br>"
 		dat += "Security Records:<br>"
-		dat += "<a href='?src=[REF(src)];set_security_records=1'>[TextPreview(pref.sec_record,40)]</a><a href='?src=[REF(src)];clear=security'>Clear</a><br>"
+		dat += "<a href='byond://?src=[REF(src)];set_security_records=1'>[TextPreview(pref.sec_record,40)]</a><a href='byond://?src=[REF(src)];clear=security'>Clear</a><br>"
 
 	. = dat.Join()
 

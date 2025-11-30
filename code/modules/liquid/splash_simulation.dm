@@ -1,8 +1,6 @@
 #define LIQUID_TRANSFER_THRESHOLD 0.05
 
-var/liquid_delay = 4
-
-var/list/datum/puddle/puddles = list()
+GLOBAL_LIST_INIT_TYPED(puddles, /datum/puddle, list())
 
 /datum/puddle
 	var/list/obj/effect/liquid/liquid_objects = list()
@@ -19,10 +17,10 @@ var/list/datum/puddle/puddles = list()
 
 /datum/puddle/New()
 	..()
-	puddles += src
+	GLOB.puddles += src
 
 /datum/puddle/Destroy()
-	puddles -= src
+	GLOB.puddles -= src
 	for(var/obj/O in liquid_objects)
 		qdel(O)
 	return ..()

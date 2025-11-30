@@ -26,6 +26,11 @@
 		/obj/item/stock_parts/manipulator
 	)
 
+/obj/machinery/chem_heater/upgrade_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "- Upgraded <b>manipulators</b> increase the speed at which vessel contents are heated."
+	. += SPAN_NOTICE("	- The current heating power produced by this machine is <b>[machine_strength]kW</b>")
+
 /obj/machinery/chem_heater/attack_hand(mob/user)
 	user.set_machine(src)
 	interact(user)
@@ -59,24 +64,24 @@
 	user.set_machine(src)
 	var/dat = "<html>"
 
-	dat += "Power: <a href='?src=[REF(src)];action=togglepower'>[use_power ? "On" : "Off"]</a>"
-	dat += "<p>Slow Heating Mode: <a href='?src=[REF(src)];action=slowmode'>[slow_mode ? "On" : "Off"]</a>"
+	dat += "Power: <a href='byond://?src=[REF(src)];action=togglepower'>[use_power ? "On" : "Off"]</a>"
+	dat += "<p>Slow Heating Mode: <a href='byond://?src=[REF(src)];action=slowmode'>[slow_mode ? "On" : "Off"]</a>"
 
 	dat += "<p>Target Temp: [round(target_temperature)]K / [round(target_temperature - T0C,0.1)]C<br>"
 
 	dat += "| "
-	dat += "<a href='?src=[REF(src)];action=adjusttemp;power=-100'>----</a>"
-	dat += "<a href='?src=[REF(src)];action=adjusttemp;power=-25'>---</a>"
-	dat += "<a href='?src=[REF(src)];action=adjusttemp;power=-5'>--</a>"
-	dat += "<a href='?src=[REF(src)];action=adjusttemp;power=-1'>-</a>"
-	dat += "<a href='?src=[REF(src)];action=adjusttemp;power=1'>+</a>"
-	dat += "<a href='?src=[REF(src)];action=adjusttemp;power=5'>++</a>"
-	dat += "<a href='?src=[REF(src)];action=adjusttemp;power=25'>+++</a>"
-	dat += "<a href='?src=[REF(src)];action=adjusttemp;power=100'>++++</a>"
+	dat += "<a href='byond://?src=[REF(src)];action=adjusttemp;power=-100'>----</a>"
+	dat += "<a href='byond://?src=[REF(src)];action=adjusttemp;power=-25'>---</a>"
+	dat += "<a href='byond://?src=[REF(src)];action=adjusttemp;power=-5'>--</a>"
+	dat += "<a href='byond://?src=[REF(src)];action=adjusttemp;power=-1'>-</a>"
+	dat += "<a href='byond://?src=[REF(src)];action=adjusttemp;power=1'>+</a>"
+	dat += "<a href='byond://?src=[REF(src)];action=adjusttemp;power=5'>++</a>"
+	dat += "<a href='byond://?src=[REF(src)];action=adjusttemp;power=25'>+++</a>"
+	dat += "<a href='byond://?src=[REF(src)];action=adjusttemp;power=100'>++++</a>"
 	dat += "| </p>"
 
 	if(container)
-		dat += "<p>Beaker Temp: [round(container.get_temperature(),0.01)]K / [round(container.get_temperature() - T0C,0.1)]C <a href='?src=[REF(src)];action=removebeaker'>Remove</a></p>"
+		dat += "<p>Beaker Temp: [round(container.get_temperature(),0.01)]K / [round(container.get_temperature() - T0C,0.1)]C <a href='byond://?src=[REF(src)];action=removebeaker'>Remove</a></p>"
 	else
 		dat += "<p>No container loaded!</p>"
 
@@ -87,6 +92,7 @@
 	chem_win.open()
 
 /obj/machinery/chem_heater/Topic(href, href_list)
+	..()
 	if(stat & BROKEN) return
 	if(usr.stat || usr.restrained()) return
 	if(!in_range(src, usr)) return

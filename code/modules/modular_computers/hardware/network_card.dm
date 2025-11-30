@@ -1,4 +1,4 @@
-var/global/ntnet_card_uid = 1
+GLOBAL_VAR_INIT(ntnet_card_uid, 1)
 
 /obj/item/computer_hardware/network_card
 	name = "basic NTNet network card"
@@ -30,8 +30,8 @@ var/global/ntnet_card_uid = 1
 
 /obj/item/computer_hardware/network_card/Initialize()
 	. = ..()
-	identification_id = ntnet_card_uid
-	ntnet_card_uid++
+	identification_id = GLOB.ntnet_card_uid
+	GLOB.ntnet_card_uid++
 
 /obj/item/computer_hardware/network_card/signaler
 	name = "NTNet signaler network card"

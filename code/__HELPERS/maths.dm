@@ -2,8 +2,8 @@
 /proc/get_angle(atom/movable/start, atom/movable/end)//For beams.
 	if(!start || !end)
 		return 0
-	var/dy =(32 * end.y + end.pixel_y) - (32 * start.y + start.pixel_y)
-	var/dx =(32 * end.x + end.pixel_x) - (32 * start.x + start.pixel_x)
+	var/dy =(ICON_SIZE_Y * end.y + end.pixel_y) - (ICON_SIZE_Y * start.y + start.pixel_y)
+	var/dx =(ICON_SIZE_X * end.x + end.pixel_x) - (ICON_SIZE_X * start.x + start.pixel_x)
 	return delta_to_angle(dx, dy)
 
 /// Calculate the angle produced by a pair of x and y deltas
@@ -18,8 +18,8 @@
 
 /// Angle between two arbitrary points and horizontal line same as [/proc/get_angle]
 /proc/get_angle_raw(start_x, start_y, start_pixel_x, start_pixel_y, end_x, end_y, end_pixel_x, end_pixel_y)
-	var/dy = (32 * end_y + end_pixel_y) - (32 * start_y + start_pixel_y)
-	var/dx = (32 * end_x + end_pixel_x) - (32 * start_x + start_pixel_x)
+	var/dy = (ICON_SIZE_Y * end_y + end_pixel_y) - (ICON_SIZE_Y * start_y + start_pixel_y)
+	var/dx = (ICON_SIZE_X * end_x + end_pixel_x) - (ICON_SIZE_X * start_x + start_pixel_x)
 	if(!dy)
 		return (dx >= 0) ? 90 : 270
 	. = arctan(dx/dy)
@@ -38,9 +38,56 @@
 	else if(x < 0)
 		. += 360
 
+
+/**
+ * Get a list of turfs in a line from `starting_atom` to `ending_atom`.
+ *
+ * Uses the ultra-fast [Bresenham Line-Drawing Algorithm](https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm).
+ */
+/proc/get_line(atom/starting_atom, atom/ending_atom)
+	var/current_x_step = starting_atom.x//start at x and y, then add 1 or -1 to these to get every turf from starting_atom to ending_atom
+	var/current_y_step = starting_atom.y
+	var/starting_z = starting_atom.z
+
+	var/list/line = list(get_turf(starting_atom))//get_turf(atom) is faster than locate(x, y, z)
+
+	var/x_distance = ending_atom.x - current_x_step //x distance
+	var/y_distance = ending_atom.y - current_y_step
+
+	var/abs_x_distance = abs(x_distance)//Absolute value of x distance
+	var/abs_y_distance = abs(y_distance)
+
+	var/x_distance_sign = SIGN(x_distance) //Sign of x distance (+ or -)
+	var/y_distance_sign = SIGN(y_distance)
+
+	var/x = abs_x_distance >> 1 //Counters for steps taken, setting to distance/2
+	var/y = abs_y_distance >> 1 //Bit-shifting makes me l33t.  It also makes get_line() unnecessarily fast.
+
+	if(abs_x_distance >= abs_y_distance) //x distance is greater than y
+		for(var/distance_counter in 0 to (abs_x_distance - 1))//It'll take abs_x_distance steps to get there
+			y += abs_y_distance
+
+			if(y >= abs_x_distance) //Every abs_y_distance steps, step once in y direction
+				y -= abs_x_distance
+				current_y_step += y_distance_sign
+
+			current_x_step += x_distance_sign //Step on in x direction
+			line += locate(current_x_step, current_y_step, starting_z)//Add the turf to the list
+	else
+		for(var/distance_counter in 0 to (abs_y_distance - 1))
+			x += abs_x_distance
+
+			if(x >= abs_y_distance)
+				x -= abs_y_distance
+				current_x_step += x_distance_sign
+
+			current_y_step += y_distance_sign
+			line += locate(current_x_step, current_y_step, starting_z)
+	return line
+
 /**
  * Get a list of turfs in a perimeter given the `center_atom` and `radius`.
- * Automatically rounds down decimals and does not accept values less than positive 1 as they dont play well with it.
+ * Automatically rounds down decimals and does not accept values less than positive 1 as they don't play well with it.
  * Is efficient on large circles but ugly on small ones
  * Uses [Jesko`s method to the midpoint circle Algorithm](https://en.wikipedia.org/wiki/Midpoint_circle_algorithm).
  */
@@ -72,52 +119,6 @@
 			t1 = t2
 			dx -= 1
 	return perimeter
-
-/**
- * Get a list of turfs in a line from `starting_atom` to `ending_atom`.
- *
- * Uses the ultra-fast [Bresenham Line-Drawing Algorithm](https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm).
- */
-/proc/get_line(atom/starting_atom, atom/ending_atom)
-	var/current_x_step = starting_atom.x//start at x and y, then add 1 or -1 to these to get every turf from starting_atom to ending_atom
-	var/current_y_step = starting_atom.y
-	var/starting_z = starting_atom.z
-
-	var/list/line = list(get_turf(starting_atom))//get_turf(atom) is faster than locate(x, y, z)
-
-	var/x_distance = ending_atom.x - current_x_step //x distance
-	var/y_distance = ending_atom.y - current_y_step
-
-	var/abs_x_distance = abs(x_distance)//Absolute value of x distance
-	var/abs_y_distance = abs(y_distance)
-
-	var/x_distance_sign = SIGN(x_distance) //Sign of x distance (+ or -)
-	var/y_distance_sign = SIGN(y_distance)
-
-	var/x = abs_x_distance >> 1 //Counters for steps taken, setting to distance/2
-	var/y = abs_y_distance >> 1 //Bit-shifting makes me l33t.  It also makes get_line() unnessecarrily fast.
-
-	if(abs_x_distance >= abs_y_distance) //x distance is greater than y
-		for(var/distance_counter in 0 to (abs_x_distance - 1))//It'll take abs_x_distance steps to get there
-			y += abs_y_distance
-
-			if(y >= abs_x_distance) //Every abs_y_distance steps, step once in y direction
-				y -= abs_x_distance
-				current_y_step += y_distance_sign
-
-			current_x_step += x_distance_sign //Step on in x direction
-			line += locate(current_x_step, current_y_step, starting_z)//Add the turf to the list
-	else
-		for(var/distance_counter in 0 to (abs_y_distance - 1))
-			x += abs_x_distance
-
-			if(x >= abs_y_distance)
-				x -= abs_y_distance
-				current_x_step += x_distance_sign
-
-			current_y_step += y_distance_sign
-			line += locate(current_x_step, current_y_step, starting_z)
-	return line
 
 /*#####################
 	AURORA SNOWFLAKE

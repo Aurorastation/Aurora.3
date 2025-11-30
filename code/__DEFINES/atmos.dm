@@ -49,6 +49,9 @@
 #define CARBON_LIFEFORM_FIRE_RESISTANCE (T0C + 200)
 #define CARBON_LIFEFORM_FIRE_DAMAGE     4
 
+#define FOGGING_TEMPERATURE (T0C + 5)
+#define MAX_FOG_TEMPERATURE (T0C - 50)
+
 // Phoron fire properties.
 #define PHORON_MINIMUM_BURN_TEMPERATURE    (T0C +  126) //400 K - autoignite temperature in tanks and canisters - enclosed environments I guess
 #define PHORON_FLASHPOINT                  (T0C +  246) //519 K - autoignite temperature in air if that ever gets implemented.
@@ -74,9 +77,13 @@
 #define LIQUIDFUEL_AMOUNT_TO_MOL		0.45  //mol/volume unit
 
 // XGM gas flags.
+/// Used by combustion reactions.
 #define XGM_GAS_FUEL        1
+/// Used by combustion reactions.
 #define XGM_GAS_OXIDIZER    2
+/// Attaches itself to certain objects/atoms.
 #define XGM_GAS_CONTAMINANT 4
+/// Used by nuclear fusion reactions.
 #define XGM_GAS_FUSION_FUEL 8
 
 #define TANK_LEAK_PRESSURE     (30.*ONE_ATMOSPHERE) // Tank starts leaking.
@@ -86,7 +93,7 @@
 
 #define NORMPIPERATE             30   // Pipe-insulation rate divisor.
 #define HEATPIPERATE             8    // Heat-exchange pipe insulation.
-#define FLOWFRAC                 0.99 // Fraction of gas transfered per process.
+#define FLOWFRAC                 0.99 // Fraction of gas transferred per process.
 
 //Flags for zone sleeping
 #define ZONE_ACTIVE   1
@@ -115,13 +122,15 @@
 #define GAS_PHORON				"phoron"
 #define GAS_HYDROGEN            "hydrogen"
 #define GAS_ALIEN				"aliether"
-#define GAS_STEAM				"water"
+#define GAS_WATERVAPOR			"water_vapor"
 #define GAS_SULFUR				"sulfur_dioxide"
 #define GAS_CHLORINE			"chlorine"
 #define GAS_HELIUM				"helium"
+#define GAS_HELIUMFUEL			"helium-3"
 #define GAS_DEUTERIUM			"deuterium"
 #define GAS_TRITIUM				"tritium"
-#define GAS_BORON				"boron"
+#define GAS_HEAT                "heat" //Not a real gas, used for visual effects
+#define GAS_COLD                "cold" //Not a real gas, used for visual effects
 
 #define	PIPE_COLOR_GREY		"#ffffff"	//yes white is grey
 #define	PIPE_COLOR_RED		"#ff0000"

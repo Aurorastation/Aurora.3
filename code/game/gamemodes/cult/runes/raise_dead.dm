@@ -10,7 +10,7 @@
 	var/is_sacrifice_target
 	for(var/mob/living/carbon/human/M in get_turf(A))
 		if(M.stat == DEAD)
-			if(M.mind == cult?.sacrifice_target)
+			if(M.mind == GLOB.cult?.sacrifice_target)
 				is_sacrifice_target = TRUE
 			else
 				corpse_to_raise = M
@@ -26,7 +26,7 @@
 	for(var/datum/rune/R in SScult.rune_list)
 		var/found_sacrifice = FALSE
 		for(var/mob/living/carbon/human/N in get_turf(R.parent))
-			if(N?.mind == cult?.sacrifice_target)
+			if(N?.mind == GLOB.cult?.sacrifice_target)
 				is_sacrifice_target = TRUE
 			else
 				if(N.stat != DEAD)

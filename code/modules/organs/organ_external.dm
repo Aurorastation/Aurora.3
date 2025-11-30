@@ -25,23 +25,22 @@
 
 	var/damage_state = "00"
 
-	//Damage variables.
-	var/brute_mod = 1
+	//Damage variables. Do not modify brute_dam or burn_dam directly. Use take_damage.
 
 	///Actual current brute damage
 	var/brute_dam = 0
-
-	///Ratio of current brute damage to max damage
-	var/brute_ratio = 0
-
-
-	var/burn_mod = 1
-
 	///Actual current burn damage
 	var/burn_dam = 0
 
+	///Ratio of current brute damage to max damage
+	var/brute_ratio = 0
 	///Ratio of current burn damage to max damage
 	var/burn_ratio = 0
+
+	/// Brute damage modifier.
+	var/brute_mod = 1
+	/// Burn damage modifier.
+	var/burn_mod = 1
 
 	var/last_dam = -1
 
@@ -49,7 +48,7 @@
 	var/genetic_degradation = 0
 
 	///How much the limb hurts
-	var/pain = 0
+	VAR_PRIVATE/pain = 0
 
 	///The amount of `pain` at which a limb becomes unusable
 	var/pain_disability_threshold
@@ -84,39 +83,39 @@
 	var/skin_color
 	var/hair_color
 
-	///A `/list` of wounds
+	/// A `/list` of wounds
 	var/list/datum/wound/wounds = list()
 
-	///A list of implants present in this organ
+	/// A list of implants present in this organ
 	var/list/implants = list()
 
-	///Cache the number of wounds, which is NOT wounds.len!
+	/// Cache the number of wounds, which is NOT wounds.len!
 	var/number_wounds = 0
 
 	var/perma_injury = 0
 
-	///The parent organ
+	/// The parent organ
 	var/obj/item/organ/external/parent
 
-	///A `/list` of organs that have this organ as a parent
+	/// A `/list` of organs that have this organ as a parent
 	var/list/obj/item/organ/external/children
 
-	///Boolean, if this organ supports childrens, which will be added in `children`
+	/// Boolean, if this organ supports childrens, which will be added in `children`
 	var/supports_children = TRUE
 
-	///Internal organs of this body part
+	/// Internal organs of this body part
 	var/list/obj/item/organ/internal/internal_organs = list()
 
-	///The tendon
+	/// The tendon
 	var/datum/tendon/tendon
 
-	///A path of the type of tendon to create when this organ is created
+	/// A path of the type of tendon to create when this organ is created
 	var/tendon_path = /datum/tendon
 
-	///Name of the limb's tendon. Achilles heel, etc.
+	/// Name of the limb's tendon. Achilles heel, etc.
 	var/tendon_name = "tendon"
 
-	///HP value of the limb's tendon
+	/// HP value of the limb's tendon
 	var/tendon_health = 30
 
 	var/list/tendon_msgs = list("tore apart", "ripped away")
@@ -127,64 +126,101 @@
 	var/stage = 0
 	var/cavity = 0
 
-	///Boolean, if it was sabotaged (emagged), make it detonate when it fails
+	/// Boolean, if it was sabotaged (emagged), make it detonate when it fails
 	var/sabotaged = FALSE
 
-	///Needs to be opened with a saw to access the organs
+	/// Needs to be opened with a saw to access the organs
 	var/encased
 
-	///Descriptive string used in dislocation
+	/// Descriptive string used in dislocation
 	var/joint = "joint"
 
-	///Name of the artery. Cartoid, etc.
+	/// Name of the artery. Cartoid, etc.
 	var/artery_name = "artery"
 
-	///Multiplier for bleeding in a limb
-	var/arterial_bleed_severity = 1
+	/// Multiplier for bleeding in a limb
+	var/arterial_bleed_severity = 0.75
 
-	///Descriptive string used in amputation
+	/// Descriptive string used in amputation
 	var/amputation_point
 
-	///If the joint is dislocated
+	/// If the joint is dislocated
 	var/dislocated = FALSE
 
-	///How often wounds should be updated, a higher number means less often
+	/// How often wounds should be updated, a higher number means less often
 	var/wound_update_accuracy = 1
 	var/body_hair
 	var/painted = 0
 
-	///For special projectile gibbing calculation, dubbed "maiming"
+	/// The amount of bandages on our sprite
+	var/bandage_level = BANDAGE_LEVEL_NONE
+
+	/// For special projectile gibbing calculation, dubbed "maiming"
 	var/maim_bonus = 0
 
-	///Markings (body_markings) to apply to the icon
+	/// Markings (body_markings) to apply to the icon
 	var/list/genetic_markings
 
-	///Same as `genetic_markings`, but not preserved when cloning
+	/// Same as `genetic_markings`, but not preserved when cloning
 	var/list/temporary_markings
 
-	///The `genetic_markings` and `temporary_markings` cached for perf. reasons
+	/// The `genetic_markings` and `temporary_markings` cached for perf. reasons
 	var/list/cached_markings
 
 	var/list/image/additional_images
 
-	///Pressure applied to wounds. It'll make them bleed less, generally.
+	/// Pressure applied to wounds. It'll make them bleed less, generally.
 	var/atom/movable/applied_pressure
 
 	var/image/hud_damage_image
 
-	///How many augments you can fit inside this limb
+	/// How many augments you can fit inside this limb
 	var/augment_limit
 
 	var/obj/item/organ/internal/infect_target_internal //make internal organs become infected one at a time instead of all at once
 	var/obj/item/organ/external/infect_target_external //make child and parent organs become infected one at a time instead of all at once
 
-	///Dionae limb
+	/// Dionae limb
 	var/mob/living/carbon/alien/diona/nymph
 
 	var/nymph_child
 
-/obj/item/organ/external/proc/invalidate_marking_cache()
-	cached_markings = null
+	/// Whether the limb has an emissive icon state associated with it
+	var/is_emissive = FALSE
+	/// Whether the limb has an active overlay icon state associated with it
+	var/is_overlay = FALSE
+	/// Whether the limb is a tesla limb (required for special handling)
+	var/is_tesla = FALSE
+
+/obj/item/organ/external/Initialize(mapload)
+	if(robotize_type)
+		robotize(robotize_type)
+		drop_sound = 'sound/items/drop/prosthetic.ogg'
+		pickup_sound = 'sound/items/pickup/prosthetic.ogg'
+	else
+		//HACK: Make sure non-emissive organs, if swapped to, are not treated as emissive. Robotized organs have their own handling, but we still need to cover the case where it is somehow swapped to an organic limb
+		is_emissive = initial(is_emissive)
+
+	. = ..(mapload, FALSE)
+	if(isnull(pain_disability_threshold))
+		pain_disability_threshold = (max_damage * 0.75)
+	if(owner)
+		replaced(owner)
+		sync_colour_to_human(owner)
+
+	if ((status & ORGAN_PLANT))
+		limb_flags &= ~ORGAN_CAN_BREAK
+
+	get_icon()
+
+	RegisterSignal(src, COMSIG_UPDATE_LIMB_IMAGE, PROC_REF(modify_damage_hud_image_color))
+
+	get_damage_hud_image(TRUE)
+
+	if((limb_flags & ORGAN_HAS_TENDON) && !BP_IS_ROBOTIC(src) && tendon_path)
+		tendon = new tendon_path(src, tendon_name, tendon_health, tendon_msgs)
+	else if(limb_flags & ORGAN_HAS_TENDON)
+		limb_flags &= ~ORGAN_HAS_TENDON
 
 /obj/item/organ/external/Destroy()
 	if(parent?.children)
@@ -225,6 +261,8 @@
 
 	. = ..()
 
+/obj/item/organ/external/proc/invalidate_marking_cache()
+	cached_markings = null
 
 /obj/item/organ/external/attack_self(var/mob/user)
 	if(!contents.len)
@@ -312,29 +350,6 @@
 	damage = min(max_damage, (brute_dam + burn_dam))
 	return
 
-/obj/item/organ/external/Initialize(mapload)
-	if(robotize_type)
-		robotize(robotize_type)
-		drop_sound = 'sound/items/drop/prosthetic.ogg'
-		pickup_sound = 'sound/items/pickup/prosthetic.ogg'
-
-	. = ..(mapload, FALSE)
-	if(isnull(pain_disability_threshold))
-		pain_disability_threshold = (max_damage * 0.75)
-	if(owner)
-		replaced(owner)
-		sync_colour_to_human(owner)
-
-	if ((status & ORGAN_PLANT))
-		limb_flags &= ~ORGAN_CAN_BREAK
-
-	get_icon()
-
-	if((limb_flags & ORGAN_HAS_TENDON) && !BP_IS_ROBOTIC(src) && tendon_path)
-		tendon = new tendon_path(src, tendon_name, tendon_health, tendon_msgs)
-	else if(limb_flags & ORGAN_HAS_TENDON)
-		limb_flags &= ~ORGAN_HAS_TENDON
-
 /obj/item/organ/external/replaced(var/mob/living/carbon/human/target)
 	..()
 
@@ -417,7 +432,7 @@
 			if(spillover > 0)
 				burn = max(burn - spillover, 0)
 
-	handle_limb_gibbing(used_weapon, brute_dam, burn_dam)
+	handle_limb_gibbing(used_weapon, brute, burn)
 
 	if(brute_dam + brute > min_broken_damage && prob(brute_dam + brute * (1 + blunt)))
 		if(blunt || brute > FRACTURE_AND_TENDON_DAM_THRESHOLD)
@@ -455,8 +470,6 @@
 	update_damages()
 	if(owner)
 		owner.updatehealth() //droplimb will call updatehealth() again if it does end up being called
-	if(status & ORGAN_BLEEDING)
-		owner.update_bandages()
 
 	return update_icon()
 
@@ -512,7 +525,6 @@
 	//If limb took enough damage, try to cut or tear it off
 	if(owner && loc == owner && !is_stump())
 		if((limb_flags & ORGAN_CAN_AMPUTATE))
-
 			if((brute_dam + burn_dam) >= (max_damage * GLOB.config.organ_health_multiplier))
 
 				var/edge_eligible = FALSE
@@ -562,6 +574,9 @@
 
 	//Sync the organ's damage with its wounds
 	update_damages()
+
+	SEND_SIGNAL(src, COMSIG_UPDATE_LIMB_IMAGE)
+
 	owner.updatehealth()
 
 	return update_icon()
@@ -603,8 +618,10 @@ This function completely restores a damaged organ to perfect condition.
 	//Possibly trigger an internal wound, too.
 	var/local_damage = brute_dam + burn_dam + damage
 
+	var/is_burn_type_damage = (type in list(DAMAGE_BURN, LASER))
+
 	if(damage > (min_broken_damage / 2) && local_damage > min_broken_damage && !(status & ORGAN_ROBOT))
-		if(!(type in list(DAMAGE_BURN, LASER)))
+		if(!is_burn_type_damage)
 			if(prob(damage) && sever_artery())
 				owner.custom_pain("You feel something rip in your [name]!", 25)
 
@@ -616,7 +633,7 @@ This function completely restores a damaged organ to perfect condition.
 			tendon.damage(new_brute)
 
 	//Burn damage can cause fluid loss due to blistering and cook-off
-	if((type in list(DAMAGE_BURN, LASER)) && (damage > 5 || damage + burn_dam >= 15) && !BP_IS_ROBOTIC(src))
+	if(is_burn_type_damage && (damage > 5 || damage + burn_dam >= 15) && !BP_IS_ROBOTIC(src))
 		var/fluid_loss_severity
 		switch(type)
 			if(DAMAGE_BURN)
@@ -638,6 +655,12 @@ This function completely restores a damaged organ to perfect condition.
 			if(compatible_wounds.len)
 				var/datum/wound/W = pick(compatible_wounds)
 				W.open_wound(damage)
+
+				if(bandage_level)
+					owner.visible_message(SPAN_WARNING("The bandages on [owner.name]'s [name] gets [is_burn_type_damage ? "burnt" : "ripped"] off!"), SPAN_WARNING("The bandages on your [name] gets [is_burn_type_damage ? "burnt" : "ripped"] off!"))
+					bandage_level = BANDAGE_LEVEL_NONE
+					owner.update_bandages()
+
 				if(prob(25))
 					if(status & ORGAN_ROBOT)
 						owner.visible_message(SPAN_WARNING("The damage to [owner.name]'s [name] worsens."),\
@@ -647,6 +670,7 @@ This function completely restores a damaged organ to perfect condition.
 						owner.visible_message(SPAN_WARNING("The wound on [owner.name]'s [name] widens with a nasty ripping noise."),\
 						SPAN_WARNING("The wound on your [name] widens with a nasty ripping noise."),\
 						"You hear a nasty ripping noise, as if flesh is being torn apart.")
+
 				return
 
 	//Creating wound
@@ -663,6 +687,11 @@ This function completely restores a damaged organ to perfect condition.
 				break
 		if(W)
 			wounds += W
+
+		if(bandage_level)
+			owner.visible_message(SPAN_WARNING("The bandages on [owner.name]'s [name] gets [is_burn_type_damage ? "burnt" : "ripped"] off!"), SPAN_WARNING("The bandages on your [name] gets [is_burn_type_damage ? "burnt" : "ripped"] off!"))
+			bandage_level = BANDAGE_LEVEL_NONE
+			owner.update_bandages()
 
 /****************************************************
 				PROCESSING & UPDATING
@@ -686,7 +715,9 @@ This function completely restores a damaged organ to perfect condition.
 
 //Determines if we even need to process this organ.
 /obj/item/organ/external/proc/need_process()
-	if((status & ORGAN_ASSISTED) && surge_damage)
+	if(BP_IS_ROBOTIC(src) && surge_damage)
+		return TRUE
+	if(is_tesla && owner)
 		return TRUE
 	if(BP_IS_ROBOTIC(src))
 		return FALSE
@@ -707,6 +738,17 @@ This function completely restores a damaged organ to perfect condition.
 
 /obj/item/organ/external/process()
 	if(owner)
+		//Specialized handling for tesla limbs. Checks if the limb currently has an associated tesla spine. Else, will disable the emissive and active overlays
+		if(is_tesla)
+			var/obj/item/organ/internal/augment/tesla/T = owner.internal_organs_by_name[BP_AUG_TESLA]
+			if(T && !T.is_broken())
+				is_emissive = initial(is_emissive)
+				is_overlay = initial(is_overlay)
+			else
+				is_emissive = FALSE
+				is_overlay = FALSE
+			return
+
 		// Process wounds, doing healing etc. Only do this every few ticks to save processing power
 		if(owner.life_tick % wound_update_accuracy == 0)
 			update_wounds()
@@ -900,7 +942,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 			// let the GC handle the deletion of the wound
 
 		if (W.damage > 0)
-			updatehud = 1//If there are any wounds with damage to heal, then we'll update health huds
+			updatehud = TRUE //If there are any wounds with damage to heal, then we'll update health huds
 
 		// slow healing
 		var/heal_amt = 0
@@ -926,10 +968,12 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 	// sync the organ's damage with its wounds
 	src.update_damages()
+
 	if (updatehud)
 		owner.hud_updateflag = 1022
 
 	if(update_icon())
+		SEND_SIGNAL(src, COMSIG_UPDATE_LIMB_IMAGE)
 		owner.UpdateDamageIcon(1)
 
 //Updates brute_damn and burn_damn from wound damages. Updates BLEEDING status.
@@ -1064,6 +1108,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 			stump.update_damages()
 
 	post_droplimb(victim)
+	SEND_SIGNAL(victim, COMSIG_LIMB_LOSS)
 
 	switch(disintegrate)
 		if(DROPLIMB_EDGE)
@@ -1182,7 +1227,8 @@ Note that amputating the affected organ does in fact remove the infection from t
 		W.clamped = 1
 	return rval
 
-/obj/item/organ/external/proc/fracture()
+/// Fractures the bone, so long as it isn't robotic or already broken. When the silent flag is set, no message or sound will be played, and there will be no pain effects
+/obj/item/organ/external/proc/fracture(var/silent = FALSE)
 	if(status & ORGAN_ROBOT)
 		return	//ORGAN_BROKEN doesn't have the same meaning for robot limbs
 	if((status & ORGAN_BROKEN) || !(limb_flags & ORGAN_CAN_BREAK))
@@ -1190,16 +1236,17 @@ Note that amputating the affected organ does in fact remove the infection from t
 	if(QDELETED(owner))
 		return
 
-	var/message = pick("broke in half", "shattered")
-	owner.visible_message(\
-		SPAN_WARNING("<font size=2>You hear a loud cracking sound coming from \the [owner]!</font>"),\
-		SPAN_DANGER("<font size=3>Something feels like it [message] in your [name]!</font>"),\
-		"You hear a sickening crack!")
-	if(owner.species && owner.can_feel_pain())
-		owner.emote("scream")
-		owner.flash_strong_pain()
+	if(!silent)
+		var/message = pick("broke in half", "shattered")
+		owner.visible_message(\
+			SPAN_WARNING("<font size=2>You hear a loud cracking sound coming from \the [owner]!</font>"),\
+			SPAN_DANGER("<font size=3>Something feels like it [message] in your [name]!</font>"),\
+			"You hear a sickening crack!")
+		if(owner.species && owner.can_feel_pain())
+			owner.emote("scream")
+			owner.flash_strong_pain()
+		playsound(src.loc, /singleton/sound_category/fracture_sound, 100, 1, -2)
 
-	playsound(src.loc, /singleton/sound_category/fracture_sound, 100, 1, -2)
 	status |= ORGAN_BROKEN
 	broken_description = pick("broken", "fracture", "hairline fracture")
 	perma_injury = brute_dam
@@ -1245,6 +1292,18 @@ Note that amputating the affected organ does in fact remove the infection from t
 				desc = "[R.desc]"
 			if(R.paintable || !isnull(override_robotize_painted))
 				painted = !isnull(override_robotize_painted) ? override_robotize_painted : TRUE
+			if(R.emissive)
+				is_emissive = TRUE
+			else
+				is_emissive = FALSE
+			if(R.overlay)
+				is_overlay = TRUE
+			else
+				is_overlay = FALSE
+			if(R.is_tesla)
+				is_tesla = TRUE
+			else
+				is_tesla = FALSE
 			brute_mod = R.brute_mod
 			burn_mod = R.burn_mod
 			robotize_type = company
@@ -1588,6 +1647,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 		owner.emote("scream")
 	if(amount > 5 && owner)
 		owner.undo_srom_pull()
+	SEND_SIGNAL(src, COMSIG_UPDATE_LIMB_IMAGE)
 	return pain-last_pain
 
 /mob/living/carbon/human/proc/undo_srom_pull()

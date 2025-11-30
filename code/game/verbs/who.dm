@@ -77,7 +77,7 @@
 				msg += "<td></td>"
 
 			// more info button
-			msg += "<td><A HREF='?_src_=holder;adminmoreinfo=[REF(client.mob)]'>?</A></td>"
+			msg += "<td><A href='byond://?_src_=holder;adminmoreinfo=[REF(client.mob)]'>?</A></td>"
 
 			total_num++
 			msg += "</tr>"

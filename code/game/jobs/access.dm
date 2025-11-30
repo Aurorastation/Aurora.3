@@ -82,33 +82,33 @@
 /proc/get_distress_access_lesser()
 	return list(ACCESS_DISTRESS, ACCESS_EXTERNAL_AIRLOCKS)
 
-/var/list/datum/access/priv_all_access_datums
+GLOBAL_LIST_INIT_TYPED(priv_all_access_datums, /datum/access, null)
 /proc/get_all_access_datums()
-	if(!priv_all_access_datums)
-		priv_all_access_datums = init_subtypes(/datum/access)
-		sortTim(priv_all_access_datums, GLOBAL_PROC_REF(cmp_access), FALSE)
+	if(!GLOB.priv_all_access_datums)
+		GLOB.priv_all_access_datums = init_subtypes(/datum/access)
+		sortTim(GLOB.priv_all_access_datums, GLOBAL_PROC_REF(cmp_access), FALSE)
 
-	return priv_all_access_datums
+	return GLOB.priv_all_access_datums
 
-/var/list/datum/access/priv_all_access_datums_id
+GLOBAL_LIST_INIT_TYPED(priv_all_access_datums_id, /datum/access, null)
 /proc/get_all_access_datums_by_id()
-	if(!priv_all_access_datums_id)
-		priv_all_access_datums_id = list()
+	if(!GLOB.priv_all_access_datums_id)
+		GLOB.priv_all_access_datums_id = list()
 		for(var/datum/access/A in get_all_access_datums())
-			priv_all_access_datums_id["[A.id]"] = A
+			GLOB.priv_all_access_datums_id["[A.id]"] = A
 
-	return priv_all_access_datums_id
+	return GLOB.priv_all_access_datums_id
 
-/var/list/datum/access/priv_all_access_datums_region
+GLOBAL_LIST_INIT_TYPED(priv_all_access_datums_region, /datum/access, null)
 /proc/get_all_access_datums_by_region()
-	if(!priv_all_access_datums_region)
-		priv_all_access_datums_region = list()
+	if(!GLOB.priv_all_access_datums_region)
+		GLOB.priv_all_access_datums_region = list()
 		for(var/datum/access/A in get_all_access_datums())
-			if(!priv_all_access_datums_region[A.region])
-				priv_all_access_datums_region[A.region] = list()
-			priv_all_access_datums_region[A.region] += A
+			if(!GLOB.priv_all_access_datums_region[A.region])
+				GLOB.priv_all_access_datums_region[A.region] = list()
+			GLOB.priv_all_access_datums_region[A.region] += A
 
-	return priv_all_access_datums_region
+	return GLOB.priv_all_access_datums_region
 
 /proc/get_access_ids(var/access_types = ACCESS_TYPE_ALL)
 	var/list/L = new()
@@ -117,47 +117,47 @@
 			L += A.id
 	return L
 
-/var/list/priv_all_access
+GLOBAL_LIST(priv_all_access)
 /proc/get_all_accesses()
-	if(!priv_all_access)
-		priv_all_access = get_access_ids()
+	if(!GLOB.priv_all_access)
+		GLOB.priv_all_access = get_access_ids()
 
-	return priv_all_access.Copy()
+	return GLOB.priv_all_access.Copy()
 
-/var/list/priv_station_access
+GLOBAL_LIST(priv_station_access)
 /proc/get_all_station_access()
-	if(!priv_station_access)
-		priv_station_access = get_access_ids(ACCESS_TYPE_STATION)
+	if(!GLOB.priv_station_access)
+		GLOB.priv_station_access = get_access_ids(ACCESS_TYPE_STATION)
 
-	return priv_station_access.Copy()
+	return GLOB.priv_station_access.Copy()
 
-/var/list/priv_centcom_access
+GLOBAL_LIST(priv_centcom_access)
 /proc/get_all_centcom_access()
-	if(!priv_centcom_access)
-		priv_centcom_access = get_access_ids(ACCESS_TYPE_CENTCOM)
+	if(!GLOB.priv_centcom_access)
+		GLOB.priv_centcom_access = get_access_ids(ACCESS_TYPE_CENTCOM)
 
-	return priv_centcom_access.Copy()
+	return GLOB.priv_centcom_access.Copy()
 
-/var/list/priv_syndicate_access
+GLOBAL_LIST(priv_syndicate_access)
 /proc/get_all_syndicate_access()
-	if(!priv_syndicate_access)
-		priv_syndicate_access = get_access_ids(ACCESS_TYPE_SYNDICATE)
+	if(!GLOB.priv_syndicate_access)
+		GLOB.priv_syndicate_access = get_access_ids(ACCESS_TYPE_SYNDICATE)
 
-	return priv_syndicate_access.Copy()
+	return GLOB.priv_syndicate_access.Copy()
 
-/var/list/priv_region_access
+GLOBAL_LIST(priv_region_access)
 /proc/get_region_accesses(var/code)
 	if(code == ACCESS_REGION_ALL)
 		return get_all_station_access()
 
-	if(!priv_region_access)
-		priv_region_access = list()
+	if(!GLOB.priv_region_access)
+		GLOB.priv_region_access = list()
 		for(var/datum/access/A in get_all_access_datums())
-			if(!priv_region_access["[A.region]"])
-				priv_region_access["[A.region]"] = list()
-			priv_region_access["[A.region]"] += A.id
+			if(!GLOB.priv_region_access["[A.region]"])
+				GLOB.priv_region_access["[A.region]"] = list()
+			GLOB.priv_region_access["[A.region]"] += A.id
 
-	return priv_region_access["[code]"]
+	return GLOB.priv_region_access["[code]"]
 
 /proc/get_region_accesses_name(var/code)
 	switch(code)
@@ -222,14 +222,14 @@
 /mob/proc/GetIdCard()
 	return null
 
-var/obj/item/card/id/all_access/ghost_all_access
+GLOBAL_LIST_INIT_TYPED(ghost_all_access, /obj/item/card/id/all_access, list())
 /mob/abstract/ghost/observer/GetIdCard()
 	if(!is_admin(src))
 		return
 
-	if(!ghost_all_access)
-		ghost_all_access = new()
-	return ghost_all_access
+	if(!GLOB.ghost_all_access)
+		GLOB.ghost_all_access = new()
+	return GLOB.ghost_all_access
 
 /mob/living/bot/GetIdCard()
 	return botcard

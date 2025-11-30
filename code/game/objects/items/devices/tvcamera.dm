@@ -1,6 +1,7 @@
 /obj/item/device/tvcamera
 	name = "press camera drone"
 	desc = "An Ingi Usang Entertainment Co. livestreaming press camera drone. Weapon of choice for war correspondents and reality show cameramen. It does not appear to have any internal memory storage."
+	icon = 'icons/obj/item/device/tvcamera.dmi'
 	icon_state = "camcorder"
 	item_state = "camcorder"
 	w_class = WEIGHT_CLASS_BULKY
@@ -8,6 +9,11 @@
 	var/channel = "General News Feed"
 	var/obj/machinery/camera/network/news/camera
 	var/obj/item/device/radio/radio
+
+/obj/item/device/tvcamera/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Video feed is currently: [camera.status ? "<span style='color: rgb(51, 204, 51);font-weight: bold;'>Online</span>" : "<span style='color: rgb(204, 0, 0); font-weight: bold;'>Offline</span>"]"
+	. += "Audio feed is currently: [radio.get_broadcasting() ? "<span style='color: rgb(51, 204, 51); font-weight: bold;'>Online</span>" : "<span style='color: rgb(204, 0, 0); font-weight: bold;'>Offline</span>"]"
 
 /obj/item/device/tvcamera/Destroy()
 	GLOB.listening_objects -= src
@@ -25,18 +31,13 @@
 	GLOB.listening_objects += src
 	. = ..()
 
-/obj/item/device/tvcamera/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += "Video feed is currently: [camera.status ? "<span style='color: rgb(51, 204, 51);font-weight: bold;'>Online</span>" : "<span style='color: rgb(204, 0, 0); font-weight: bold;'>Offline</span>"]"
-	. += "Audio feed is currently: [radio.get_broadcasting() ? "<span style='color: rgb(51, 204, 51); font-weight: bold;'>Online</span>" : "<span style='color: rgb(204, 0, 0); font-weight: bold;'>Offline</span>"]"
-
 /obj/item/device/tvcamera/attack_self(mob/user)
 	add_fingerprint(user)
 	user.set_machine(src)
 	var/dat = list()
-	dat += "Channel name is: <a href='?src=[REF(src)];channel=1'>[channel ? channel : "unidentified broadcast"]</a><br>"
-	dat += "Video streaming is: <a href='?src=[REF(src)];video=1'>[camera.status ? "Online" : "Offline"]</a><br>"
-	dat += "Microphone is: <a href='?src=[REF(src)];sound=1'>[radio.get_broadcasting() ? "Online" : "Offline"]</a><br>"
+	dat += "Channel name is: <a href='byond://?src=[REF(src)];channel=1'>[channel ? channel : "unidentified broadcast"]</a><br>"
+	dat += "Video streaming is: <a href='byond://?src=[REF(src)];video=1'>[camera.status ? "Online" : "Offline"]</a><br>"
+	dat += "Microphone is: <a href='byond://?src=[REF(src)];sound=1'>[radio.get_broadcasting() ? "Online" : "Offline"]</a><br>"
 	dat += "Sound is being broadcasted on frequency: [format_frequency(radio.get_frequency())] ([get_frequency_name(radio.get_frequency())])<br>"
 	var/datum/browser/popup = new(user, "Press Camera Drone", "EyeBuddy", 300, 390, src)
 	popup.set_content(jointext(dat,null))
@@ -54,19 +55,23 @@
 	if(href_list["video"])
 		camera.set_status(!camera.status)
 		if(camera.status)
-			balloon_alert(usr, SPAN_NOTICE("Video streaming: Activated. Broadcasting on channel: [channel]"))
+			balloon_alert(usr, "streaming video")
+			to_chat(usr, SPAN_NOTICE("Video streaming: Activated. Broadcasting on channel: [channel]"))
 			playsound(src.loc, 'sound/machines/ping.ogg', 50, 1)
 		else
-			balloon_alert(usr, SPAN_NOTICE("Video streaming: Deactivated."))
+			balloon_alert(usr, "stopped streaming video")
+			to_chat(usr, SPAN_NOTICE("Video streaming: Deactivated."))
 			playsound(src.loc, 'sound/machines/buzz-sigh.ogg', 50, 1)
 		update_icon()
 	if(href_list["sound"])
 		radio.set_broadcasting(!radio.get_broadcasting())
 		if(radio.get_broadcasting())
-			balloon_alert(usr, SPAN_NOTICE("Audio streaming: Activated. Broadcasting on frequency: [format_frequency(radio.get_frequency())]."))
+			balloon_alert(usr, "streaming audio")
+			to_chat(usr, SPAN_NOTICE("Audio streaming: Activated. Broadcasting on frequency: [format_frequency(radio.get_frequency())]."))
 			playsound(src.loc, 'sound/machines/ping.ogg', 50, 1)
 		else
-			balloon_alert(usr, SPAN_NOTICE("Audio streaming: Deactivated."))
+			balloon_alert(usr, "stopped streaming audio")
+			to_chat(usr, SPAN_NOTICE("Audio streaming: Deactivated."))
 			playsound(src.loc, 'sound/machines/buzz-sigh.ogg', 50, 1)
 	if(!href_list["close"])
 		attack_self(usr)

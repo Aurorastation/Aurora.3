@@ -277,7 +277,8 @@
 	},
 /obj/structure/railing/mapped,
 /obj/machinery/computer/ship/helm{
-	dir = 1
+	dir = 1;
+	req_one_access = list(221,222)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/bridge)
@@ -2815,7 +2816,9 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/bridge)
 "lvN" = (
-/obj/machinery/computer/shuttle_control/explore/ranger_shuttle,
+/obj/machinery/computer/shuttle_control/explore/ranger_shuttle{
+	req_one_access = list(221,222)
+	},
 /turf/simulated/floor/tiled/full,
 /area/shuttle/ranger_shuttle)
 "lxT" = (
@@ -2923,7 +2926,8 @@
 	dir = 4
 	},
 /obj/machinery/computer/ship/helm{
-	dir = 4
+	dir = 4;
+	req_access = list(221,222)
 	},
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
 /turf/simulated/floor/tiled/dark,
@@ -3657,7 +3661,7 @@
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = -11
 	},
@@ -4064,7 +4068,8 @@
 /area/ship/ranger_corvette/bridge)
 "qhi" = (
 /obj/machinery/computer/ship/targeting{
-	dir = 8
+	dir = 8;
+	req_access = list(221,222)
 	},
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
 /turf/simulated/floor/tiled/dark,
@@ -4490,7 +4495,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/obj/structure/janitorialcart/full,
+/obj/structure/cart/storage/janitorialcart/full,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/janitor)
 "rzM" = (
@@ -5053,10 +5058,10 @@
 /obj/item/clothing/accessory/storage/black_vest,
 /obj/item/clothing/accessory/storage/pouches/brown,
 /obj/item/clothing/accessory/storage/pouches/colour,
-/obj/item/clothing/under/pants/camo,
-/obj/item/clothing/under/pants/camo,
-/obj/item/clothing/under/pants/camo,
-/obj/item/clothing/under/pants/camo,
+/obj/item/clothing/pants/camo,
+/obj/item/clothing/pants/camo,
+/obj/item/clothing/pants/camo,
+/obj/item/clothing/pants/camo,
 /obj/item/clothing/under/syndicate/tracksuit,
 /obj/item/clothing/under/syndicate/tracksuit,
 /obj/item/clothing/gloves/black_leather/unathi,
@@ -5151,7 +5156,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/crew)
 "twl" = (
-/obj/machinery/computer/ship/helm,
+/obj/machinery/computer/ship/helm{
+	req_one_access = list(221,222)
+	},
 /turf/simulated/floor/tiled/full,
 /area/shuttle/ranger_shuttle)
 "tAd" = (
@@ -5375,9 +5382,9 @@
 /obj/item/ammo_magazine/c762,
 /obj/item/ammo_magazine/c762,
 /obj/item/gun/projectile/shotgun/pump,
-/obj/item/storage/box/shotgunshells,
-/obj/item/storage/box/flashshells,
-/obj/item/storage/box/beanbags,
+/obj/item/storage/box/shells/buckshot,
+/obj/item/storage/box/shells/flashshells,
+/obj/item/storage/box/shells/beanbags,
 /obj/item/gun/projectile/automatic/tommygun,
 /obj/item/ammo_magazine/submachinemag,
 /obj/item/ammo_magazine/submachinemag,
@@ -6058,7 +6065,8 @@
 "wmN" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/computer/ship/targeting{
-	dir = 1
+	dir = 1;
+	req_one_access = list(221,222)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/bridge)

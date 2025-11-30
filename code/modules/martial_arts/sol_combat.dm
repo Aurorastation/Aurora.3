@@ -90,7 +90,7 @@
 	A.visible_message(SPAN_DANGER("[A] [picked_hit_type] [D]!"))
 	A.attack_log += "\[[time_stamp()]\] <span class='warning'>["[picked_hit_type]"] [D.name] ([D.ckey])</span>"
 	D.attack_log += "\[[time_stamp()]\] <font color='orange'>["Has Been [picked_hit_type]"] by [A.name] ([A.ckey])</font>"
-	msg_admin_attack("[key_name(A)] ["has [picked_hit_type]"] [key_name(D)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[A.x];Y=[A.y];Z=[A.z]'>JMP</a>)",ckey=key_name(A),ckey_target=key_name(D))
+	msg_admin_attack("[key_name(A)] ["has [picked_hit_type]"] [key_name(D)] (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[A.x];Y=[A.y];Z=[A.z]'>JMP</a>)",ckey=key_name(A),ckey_target=key_name(D))
 
 	return 1
 
@@ -102,7 +102,7 @@
 
 	A.attack_log += "\[[time_stamp()]\] <span class='warning'>Disarmed [D.name] ([D.ckey])</span>"
 	D.attack_log += "\[[time_stamp()]\] <font color='orange'>Has been disarmed by [A.name] ([A.ckey])</font>"
-	msg_admin_attack("[key_name(A)] disarmed [D.name] ([D.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[D.x];Y=[D.y];Z=[D.z]'>JMP</a>)",ckey=key_name(D),ckey_target=key_name(A))
+	msg_admin_attack("[key_name(A)] disarmed [D.name] ([D.ckey]) (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[D.x];Y=[D.y];Z=[D.z]'>JMP</a>)",ckey=key_name(D),ckey_target=key_name(A))
 
 	if(prob(60))
 		var/obj/item/I = D.get_active_hand()

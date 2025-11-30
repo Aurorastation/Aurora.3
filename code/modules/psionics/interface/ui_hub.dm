@@ -52,7 +52,7 @@
 	var/list/data = list()
 	var/owner_rank = owner.psi.get_rank()
 	data["available_psionics"] = list()
-	data["psi_rank"] = psychic_ranks_to_strings[owner_rank]
+	data["psi_rank"] = GLOB.psychic_ranks_to_strings[owner_rank]
 	data["psi_points"] = owner.psi.psi_points
 	data["bought_powers"] = owner.psi.psionic_powers
 	for(var/singleton/psionic_power/P in GET_SINGLETON_SUBTYPE_LIST(/singleton/psionic_power))
@@ -70,7 +70,7 @@
 				continue
 		if(owner_rank < PSI_RANK_HARMONIOUS && (P.ability_flags & PSI_FLAG_ANTAG))
 			continue
-		if(!(owner.mind in loners.current_antagonists) && (P.ability_flags & PSI_FLAG_LONER))
+		if(!(owner.mind in GLOB.loners.current_antagonists) && (P.ability_flags & PSI_FLAG_LONER))
 			continue
 		data["available_psionics"] += list(
 			list(

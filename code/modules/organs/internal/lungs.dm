@@ -2,6 +2,7 @@
 
 /obj/item/organ/internal/lungs
 	name = "lungs"
+	desc = "Think of them as a portable air alarm! If something's wrong with the atmosphere, they'll let you know right away."
 	icon_state = "lungs"
 	gender = PLURAL
 	organ_tag = BP_LUNGS

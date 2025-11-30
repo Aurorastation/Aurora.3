@@ -1,6 +1,7 @@
 /obj/item/device/hailer
 	name = "hailer"
 	desc = "Used by obese officers to save their breath for running."
+	icon = 'icons/obj/item/device/hailer.dmi'
 	icon_state = "voice0"
 	item_state = "flashbang"	//looks exactly like a flash (and nothing like a flashbang)
 	w_class = WEIGHT_CLASS_TINY
@@ -12,7 +13,7 @@
 
 /obj/item/device/hailer/verb/set_message()
 	set name = "Set Hailer Message"
-	set category = "Object"
+	set category = "Object.Held"
 	set desc = "Alter the message shouted by your hailer."
 	set src in usr
 

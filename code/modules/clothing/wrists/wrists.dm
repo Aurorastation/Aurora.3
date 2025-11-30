@@ -3,6 +3,7 @@
 	name = "wrists"
 	w_class = WEIGHT_CLASS_TINY
 	icon = 'icons/obj/item/clothing/wrists/wrist.dmi'
+	gender = NEUTER
 	sprite_sheets = list(
 		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/wrist.dmi'
 	)
@@ -11,7 +12,7 @@
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
 	siemens_coefficient = 1.0
 	var/flipped = 0
-	var/mob_wear_layer = WRISTS_LAYER_OVER
+	var/mob_wear_layer = ABOVE_SUIT_LAYER_WR
 	contained_sprite = TRUE
 
 /obj/item/clothing/wrists/update_clothing_icon()
@@ -28,11 +29,11 @@
 		verbs += /obj/item/clothing/wrists/watch/proc/swapwrists
 
 /obj/item/clothing/wrists/verb/change_layer()
-	set category = "Object"
+	set category = "Object.Equipped"
 	set name = "Change Wristwear Layer"
 	set src in usr
 
-	var/list/options = list("Under Uniform" = WRISTS_LAYER_UNDER, "Over Uniform" = WRISTS_LAYER_UNIFORM, "Over Suit" = WRISTS_LAYER_OVER)
+	var/list/options = list("Under Uniform" = UNDER_UNIFORM_LAYER_WR, "Over Uniform" = ABOVE_UNIFORM_LAYER_WR, "Over Suit" = ABOVE_SUIT_LAYER_WR)
 	var/new_layer = tgui_input_list(usr, "Position Wristwear", "Wristwear Style", options)
 	if(new_layer)
 		mob_wear_layer = options[new_layer]
@@ -40,7 +41,7 @@
 		update_clothing_icon()
 
 /obj/item/clothing/wrists/watch/proc/swapwrists()
-	set category = "Object"
+	set category = "Object.Equipped"
 	set name = "Flip Wristwear"
 	set src in usr
 

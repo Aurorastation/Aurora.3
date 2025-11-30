@@ -3,8 +3,9 @@
 	desc = "Completely impassable - or are they?"
 	icon = 'icons/obj/structure/plasticflaps.dmi'
 	icon_state = "plasticflaps_preview"
-	density = 0
-	anchored = 1
+	density = FALSE
+	anchored = TRUE
+	pass_flags_self = PASSSTRUCTURE | PASSFLAPS
 	layer = UNDERDOOR
 	explosion_resistance = 5
 	build_amt = 4

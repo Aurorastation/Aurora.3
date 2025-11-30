@@ -36,6 +36,17 @@ GLOBAL_DATUM_INIT(sound_player, /singleton/sound_player, new)
 
 	return PlaySoundDatum(source, sound_id, S, range, prefer_mute, sound_type)
 
+/singleton/sound_player/proc/PlayNonloopingSound(atom/source, sound_id, sound, volume, range, falloff = 1, echo, frequency, prefer_mute, sound_type = ASFX_AMBIENCE)
+	var/sound/S = istype(sound, /sound) ? sound : new(sound)
+	S.environment = 0 // Ensures a 3D effect even if x/y offset happens to be 0 the first time it's played
+	S.volume  = volume
+	S.falloff = falloff
+	S.echo = echo
+	S.frequency = frequency
+	S.repeat = FALSE
+
+	return PlaySoundDatum(source, sound_id, S, range, prefer_mute, sound_type)
+
 /singleton/sound_player/proc/PrivStopSound(datum/sound_token/sound_token)
 	var/channel = sound_token.sound.channel
 	var/sound_id = sound_token.sound_id
@@ -47,7 +58,7 @@ GLOBAL_DATUM_INIT(sound_player, /singleton/sound_player, new)
 	if(length(sound_tokens))
 		return
 
-	sound_channels.ReleaseChannel(channel)
+	GLOB.sound_channels.ReleaseChannel(channel)
 	taken_channels -= sound_id
 	sound_tokens_by_sound_id -= sound_id
 
@@ -56,7 +67,7 @@ GLOBAL_DATUM_INIT(sound_player, /singleton/sound_player, new)
 
 	. = taken_channels[sound_id] // Does this sound_id already have an assigned channel?
 	if(!.) // If not, request a new one.
-		. = sound_channels.RequestChannel(sound_id)
+		. = GLOB.sound_channels.RequestChannel(sound_id)
 		if(!.) // Oh no, still no channel. Abort
 			return
 		taken_channels[sound_id] = .

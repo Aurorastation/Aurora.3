@@ -221,3 +221,10 @@
   - server: Added test to verify shuttle areas are not marked as station areas.
   - refactor: Refactored how the area sorting var is made and used.
   - refactor: Added a global list of all areas.
+2024-11-29:
+  DreamySkrell:
+  - bugfix: Ruined Propellant Depot Scenario - away site fix.
+2024-11-30:
+  FluffyGhost:
+  - bugfix: Fixed Odyssey subsystem processing even when there's no Odyssey scenario
+      running.

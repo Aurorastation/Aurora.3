@@ -178,7 +178,7 @@
 /turf/simulated/floor/asphalt,
 /area/exoplanet/grass/konyang)
 "hD" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "grey3"
 	},
 /turf/simulated/floor/asphalt,
@@ -414,7 +414,7 @@
 /turf/simulated/floor/sidewalk/dark/detail,
 /area/konyang/arms_factory)
 "pj" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "grey1"
 	},
 /obj/effect/overlay/container_logo/zenghu{
@@ -629,7 +629,7 @@
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/exoplanet/grass/konyang)
 "xw" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "grey2"
 	},
 /turf/simulated/floor/asphalt,
@@ -964,7 +964,7 @@
 /turf/simulated/floor/exoplanet/konyang,
 /area/konyang/arms_factory)
 "Ob" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "grey2"
 	},
 /obj/effect/overlay/container_logo/einstein{
@@ -1267,7 +1267,7 @@
 /obj/effect/overlay/container_logo/einstein{
 	icon_state = "ee3"
 	},
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "grey2"
 	},
 /obj/random/dirt_75,

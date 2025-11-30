@@ -1,4 +1,4 @@
-var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
+#define OVERMAP_SPEED_CONSTANT (1 SECOND)
 #define SHIP_MOVE_RESOLUTION 0.00001
 #define MOVING(speed) abs(speed) >= min_speed
 #define SANITIZE_SPEED(speed) SIGN(speed) * clamp(abs(speed), 0, max_speed)
@@ -74,6 +74,16 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 	if(LAZYLEN(colors))
 		color = pick(colors)
 
+/// Parent object for stationary objects that still need to access ship systems (such as the Sensor Relays)
+/obj/effect/overmap/visitable/ship/stationary
+	name = "generic station"
+	desc = "A generic space station, see if you can find the other twelve."
+	obfuscated_name = "unidentified stationary object"
+	unknown_id = "Unknown artificial structure"
+	static_vessel = TRUE
+	propulsion = "None equipped, flight incapable"
+	halted = TRUE // Cannot fly under any circumstances
+
 /obj/effect/overmap/visitable/ship/find_z_levels(var/fore_direction)
 	. = ..(fore_dir)
 
@@ -98,6 +108,8 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 
 /obj/effect/overmap/visitable/ship/get_scan_data(mob/user)
 	. = ..()
+	if (static_vessel) // full data already acquired from parent proc
+		return
 	if(!is_still())
 		. += "<br>Heading: [dir2angle(get_heading())], speed [get_speed() * 1000]"
 	if(instant_contact)
@@ -187,25 +199,38 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 	return round(num_burns/burns_per_grid)
 
 /obj/effect/overmap/visitable/ship/proc/decelerate()
-	if(((speed[1]) || (speed[2])) && can_burn())
-		if (speed[1])
-			adjust_speed(-SIGN(speed[1]) * min(get_burn_acceleration(),abs(speed[1])), 0)
-		if (speed[2])
-			adjust_speed(0, -SIGN(speed[2]) * min(get_burn_acceleration(),abs(speed[2])))
+	if(can_burn())
+		// Pythagorean theorem gives us the magnitude of the ship's velocity, which is always an absolute value.
+		// This is also the mathematical definition for Vector.size
+		var/magnitude_velocity = ((speed[1] ** 2) + (speed[2] **2)) ** (1/2)
+
+		// Get the magnitude of our desired change in velocity
+		var/alpha = min(get_burn_acceleration(), magnitude_velocity)
+
+		// First we "Normalize" the current velocity to get the direction without a distance
+		// Then we take the exact negative of this direction to get its true opposite
+		// And finally multiply by the magnitude of our desired delta_v to get the true delta_v
+		var/delta_x = -(speed[1] / magnitude_velocity) * alpha
+		var/delta_y = -(speed[2] / magnitude_velocity) * alpha
+
+		adjust_speed(delta_x, delta_y)
 		last_burn = world.time
 
 /obj/effect/overmap/visitable/ship/proc/accelerate(direction, accel_limit)
 	if(can_burn())
 		last_burn = world.time
+
+		// Get our "Alpha" value as the ship's desired acceleration (change in Velocity)
 		var/acceleration = min(get_burn_acceleration(), accel_limit)
-		if(direction & EAST)
-			adjust_speed(acceleration, 0)
-		if(direction & WEST)
-			adjust_speed(-acceleration, 0)
-		if(direction & NORTH)
-			adjust_speed(0, acceleration)
-		if(direction & SOUTH)
-			adjust_speed(0, -acceleration)
+
+		// Convert from cardinal directions to an angle (in degrees)
+		// !This is absolutely terrible and should at some point be swapped to Radians
+		// !But for now it's "Okay" until overmap ships are updated to work on time differentials properly.
+		var/theta = dir2degree(direction)
+
+		// This comes from the actual definition of a Vector2d, <Acos(theta), Asin(theta)>, where theta is an Angle, and A is a constant multiplier that traditionally represents distance.
+		// In this case A is our DeltaVelocity, or Acceleration.
+		adjust_speed(acceleration * cos(theta), acceleration * sin(theta))
 
 /obj/effect/overmap/visitable/ship/process()
 	..()
@@ -290,7 +315,7 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 		S.attempt_hook_up(src)
 	for(var/obj/machinery/computer/shuttle_control/explore/C in SSmachinery.machinery)
 		C.attempt_hook_up(src)
-	for(var/datum/ship_engine/E in ship_engines)
+	for(var/datum/ship_engine/E in GLOB.ship_engines)
 		if(check_ownership(E.holder))
 			engines |= E
 
@@ -387,6 +412,7 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 /obj/effect/overmap/visitable/ship/proc/get_speed_sensor_increase()
 	return min(get_speed() * 1000, 50) //Engines should never increase sensor visibility by more than 50.
 
+#undef OVERMAP_SPEED_CONSTANT
 #undef MOVING
 #undef SANITIZE_SPEED
 #undef CHANGE_SPEED_BY

@@ -570,8 +570,8 @@
 /obj/item/device/kinetic_analyzer
 	name = "kinetic analyzer"
 	desc = "Analyzes the kinetic accelerator and prints useful information on it's statistics."
-	icon = 'icons/obj/device.dmi'
-	icon_state = "kinetic_anal"
+	icon = 'icons/obj/item/device/kinetic_analyzer.dmi'
+	icon_state = "kinetic_analyzer"
 
 
 /obj/item/device/kinetic_analyzer/afterattack(var/atom/target, var/mob/living/user, proximity, params)
@@ -580,6 +580,7 @@
 		SPAN_WARNING("\The [user] scans \the [target] with \the [src]."),
 		SPAN_ALERT("You scan \the [target] with \the [src]."))
 
+	flick("kinetic_analyzer_scan", src)
 	if(istype(target,/obj/item/gun/custom_ka))
 		playsound(src, 'sound/machines/ping.ogg', 10, 1)
 

@@ -9,6 +9,7 @@
 	drop_sound = 'sound/items/drop/herb.ogg'
 	pickup_sound = 'sound/items/pickup/herb.ogg'
 
+	storage_slot_sort_by_name = TRUE
 	var/plantname
 	var/datum/seed/seed
 	var/potency = -1
@@ -38,14 +39,14 @@
 		return
 
 	name = "[seed.seed_name]"
-	trash = seed.get_trash_type()
+	trash = seed.trash_type
 
 	update_icon()
 
 	if(!seed.chems)
 		return
 
-	potency = seed.get_trait(TRAIT_POTENCY)
+	potency = GET_SEED_TRAIT(seed, TRAIT_POTENCY)
 
 	for(var/rid in seed.chems)
 		var/list/reagent_data = seed.chems[rid]
@@ -108,13 +109,13 @@
 			descriptors |= "slippery"
 		if(reagents.has_reagent(/singleton/reagent/acid/polyacid) || reagents.has_reagent(/singleton/reagent/acid) || reagents.has_reagent(/singleton/reagent/acid/hydrochloric))
 			descriptors |= "acidic"
-		if(seed.get_trait(TRAIT_JUICY))
+		if(GET_SEED_TRAIT(seed, TRAIT_JUICY))
 			descriptors |= "juicy"
-		if(seed.get_trait(TRAIT_STINGS))
+		if(GET_SEED_TRAIT(seed, TRAIT_STINGS))
 			descriptors |= "stinging"
-		if(seed.get_trait(TRAIT_TELEPORTING))
+		if(GET_SEED_TRAIT(seed, TRAIT_TELEPORTING))
 			descriptors |= "glowing"
-		if(seed.get_trait(TRAIT_EXPLOSIVE))
+		if(GET_SEED_TRAIT(seed, TRAIT_EXPLOSIVE))
 			descriptors |= "bulbous"
 
 		var/descriptor_num = rand(2,4)
@@ -137,17 +138,17 @@
 		return
 	ClearOverlays()
 	var/image/plant_icon
-	var/icon_key = "fruit-[seed.get_trait(TRAIT_PRODUCT_ICON)]-[seed.get_trait(TRAIT_PRODUCT_COLOUR)]-[seed.get_trait(TRAIT_PLANT_COLOUR)]"
+	var/icon_key = "fruit-[GET_SEED_TRAIT(seed, TRAIT_PRODUCT_ICON)]-[GET_SEED_TRAIT(seed, TRAIT_PRODUCT_COLOUR)]-[GET_SEED_TRAIT(seed, TRAIT_PLANT_COLOUR)]"
 	if(SSplants.plant_icon_cache[icon_key])
 		plant_icon = SSplants.plant_icon_cache[icon_key]
 	else
 		plant_icon = image('icons/obj/hydroponics_products.dmi',"blank")
-		var/image/fruit_base = image('icons/obj/hydroponics_products.dmi',"[seed.get_trait(TRAIT_PRODUCT_ICON)]-product")
-		fruit_base.color = "[seed.get_trait(TRAIT_PRODUCT_COLOUR)]"
+		var/image/fruit_base = image('icons/obj/hydroponics_products.dmi',"[GET_SEED_TRAIT(seed, TRAIT_PRODUCT_ICON)]-product")
+		fruit_base.color = "[GET_SEED_TRAIT(seed, TRAIT_PRODUCT_COLOUR)]"
 		plant_icon.overlays |= fruit_base
-		if("[seed.get_trait(TRAIT_PRODUCT_ICON)]-leaf" in icon_states('icons/obj/hydroponics_products.dmi'))
-			var/image/fruit_leaves = image('icons/obj/hydroponics_products.dmi',"[seed.get_trait(TRAIT_PRODUCT_ICON)]-leaf")
-			fruit_leaves.color = "[seed.get_trait(TRAIT_PLANT_COLOUR)]"
+		if("[GET_SEED_TRAIT(seed, TRAIT_PRODUCT_ICON)]-leaf" in icon_states('icons/obj/hydroponics_products.dmi'))
+			var/image/fruit_leaves = image('icons/obj/hydroponics_products.dmi',"[GET_SEED_TRAIT(seed, TRAIT_PRODUCT_ICON)]-leaf")
+			fruit_leaves.color = "[GET_SEED_TRAIT(seed, TRAIT_PLANT_COLOUR)]"
 			plant_icon.overlays |= fruit_leaves
 		SSplants.plant_icon_cache[icon_key] = plant_icon
 	AddOverlays(plant_icon)
@@ -155,7 +156,7 @@
 /obj/item/reagent_containers/food/snacks/grown/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	SIGNAL_HANDLER
 
-	if(seed && seed.get_trait(TRAIT_JUICY) == 2)
+	if(seed && GET_SEED_TRAIT(seed, TRAIT_JUICY) == 2)
 		if(isliving(arrived))
 			var/mob/living/M = arrived
 
@@ -199,7 +200,7 @@
 			return
 
 	if(seed)
-		if(seed.get_trait(TRAIT_PRODUCES_POWER) && attacking_item.iscoil())
+		if(GET_SEED_TRAIT(seed, TRAIT_PRODUCES_POWER) && attacking_item.iscoil())
 			var/obj/item/stack/cable_coil/C = attacking_item
 			if(C.use(5))
 				//TODO: generalize this.
@@ -221,8 +222,8 @@
 				if(istype(attacking_item,/obj/item/material/hatchet) && !isnull(seed.chems[/singleton/reagent/woodpulp]))
 					user.show_message(SPAN_NOTICE("You make planks out of \the [src]!"), 1)
 					playsound(loc, 'sound/effects/woodcutting.ogg', 50, 1)
-					var/flesh_colour = seed.get_trait(TRAIT_FLESH_COLOUR)
-					if(!flesh_colour) flesh_colour = seed.get_trait(TRAIT_PRODUCT_COLOUR)
+					var/flesh_colour = GET_SEED_TRAIT(seed, TRAIT_FLESH_COLOUR)
+					if(!flesh_colour) flesh_colour = GET_SEED_TRAIT(seed, TRAIT_PRODUCT_COLOUR)
 					for(var/i=0,i<2,i++)
 						var/obj/item/stack/material/wood/NG = new (user.loc)
 						if(flesh_colour) NG.color = flesh_colour
@@ -255,7 +256,7 @@
 					new /obj/item/reagent_containers/food/snacks/soydope(get_turf(src))
 					qdel(src)
 					return
-				else if(seed.get_trait(TRAIT_FLESH_COLOUR))
+				else if(GET_SEED_TRAIT(seed, TRAIT_FLESH_COLOUR))
 					if (reagents.total_volume)
 						to_chat(user, "You slice up \the [src].")
 						var/slices = rand(3,5)
@@ -272,7 +273,7 @@
 /obj/item/reagent_containers/food/snacks/grown/apply_hit_effect(mob/living/target, mob/living/user, var/hit_zone)
 	. = ..()
 
-	if(seed && seed.get_trait(TRAIT_STINGS))
+	if(seed && GET_SEED_TRAIT(seed, TRAIT_STINGS))
 		if(!reagents || reagents.total_volume <= 0)
 			return
 		reagents.remove_any(rand(1,3))
@@ -302,8 +303,8 @@
 
 	if(seed.kitchen_tag == "grass")
 		user.show_message(SPAN_NOTICE("You make a grass tile out of \the [src]!"), 1)
-		var/flesh_colour = seed.get_trait(TRAIT_FLESH_COLOUR)
-		if(!flesh_colour) flesh_colour = seed.get_trait(TRAIT_PRODUCT_COLOUR)
+		var/flesh_colour = GET_SEED_TRAIT(seed, TRAIT_FLESH_COLOUR)
+		if(!flesh_colour) flesh_colour = GET_SEED_TRAIT(seed, TRAIT_PRODUCT_COLOUR)
 		for(var/i=0,i<2,i++)
 			var/obj/item/stack/tile/grass/G = new (user.loc)
 			if(flesh_colour) G.color = flesh_colour
@@ -318,7 +319,7 @@
 		qdel(src)
 		return
 
-	if(seed.get_trait(TRAIT_SPREAD) > 0)
+	if(GET_SEED_TRAIT(seed, TRAIT_SPREAD) > 0)
 		to_chat(user, SPAN_NOTICE("You plant the [src.name]."))
 		new /obj/machinery/portable_atmospherics/hydroponics/soil/invisible(get_turf(user),src.seed)
 		qdel(src)
@@ -345,7 +346,7 @@
 	..()
 	if(!seed)
 		return
-	if(seed.get_trait(TRAIT_STINGS))
+	if(GET_SEED_TRAIT(seed, TRAIT_STINGS))
 		var/mob/living/carbon/human/H = user
 		if(istype(H) && H.gloves)
 			return
@@ -365,7 +366,7 @@
 	dried_type = /obj/item/reagent_containers/food/snacks/fruit_slice
 	var/datum/seed/seed
 
-var/list/fruit_icon_cache = list()
+GLOBAL_LIST_EMPTY(fruit_icon_cache)
 
 /obj/item/reagent_containers/food/snacks/fruit_slice/Initialize(mapload, datum/seed/S)
 	. = ..()
@@ -378,19 +379,19 @@ var/list/fruit_icon_cache = list()
 	desc = "A slice of \a [S.seed_name]. Tasty, probably."
 	seed = S
 
-	var/rind_colour = seed.get_trait(TRAIT_PRODUCT_COLOUR)
-	var/flesh_colour = seed.get_trait(TRAIT_FLESH_COLOUR)
+	var/rind_colour = GET_SEED_TRAIT(seed, TRAIT_PRODUCT_COLOUR)
+	var/flesh_colour = GET_SEED_TRAIT(seed, TRAIT_FLESH_COLOUR)
 	if(!flesh_colour) flesh_colour = rind_colour
-	if(!fruit_icon_cache["rind-[rind_colour]"])
+	if(!GLOB.fruit_icon_cache["rind-[rind_colour]"])
 		var/image/I = image(icon,"fruit_rind")
 		I.color = rind_colour
-		fruit_icon_cache["rind-[rind_colour]"] = I
-	AddOverlays(fruit_icon_cache["rind-[rind_colour]"])
-	if(!fruit_icon_cache["slice-[rind_colour]"])
+		GLOB.fruit_icon_cache["rind-[rind_colour]"] = I
+	AddOverlays(GLOB.fruit_icon_cache["rind-[rind_colour]"])
+	if(!GLOB.fruit_icon_cache["slice-[rind_colour]"])
 		var/image/I = image(icon,"fruit_slice")
 		I.color = flesh_colour
-		fruit_icon_cache["slice-[rind_colour]"] = I
-	AddOverlays(fruit_icon_cache["slice-[rind_colour]"])
+		GLOB.fruit_icon_cache["slice-[rind_colour]"] = I
+	AddOverlays(GLOB.fruit_icon_cache["slice-[rind_colour]"])
 
 /obj/item/reagent_containers/food/snacks/grown/konyang_tea
 	name = "sencha leaves"

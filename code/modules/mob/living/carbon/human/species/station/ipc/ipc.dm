@@ -9,7 +9,7 @@
 	height_max = 250
 	age_min = 1
 	age_max = 60
-	economic_modifier = 3
+	economic_modifier = 6
 	default_genders = list(NEUTER)
 	selectable_pronouns = list(NEUTER, PLURAL)
 
@@ -32,9 +32,10 @@
 	inherent_eye_protection = FLASH_PROTECTION_MAJOR
 	eyes_are_impermeable = TRUE
 
-	name_language = "Encoded Audio Language"
+	language = LANGUAGE_EAL
+	name_language = LANGUAGE_EAL
 	num_alternate_languages = 2
-	secondary_langs = list("Encoded Audio Language", "Sol Common", "Elyran Standard")
+	secondary_langs = list(LANGUAGE_SOL_COMMON, LANGUAGE_ELYRAN_STANDARD)
 	ethanol_resistance = -1//Can't get drunk
 	radiation_mod = 0	// not affected by radiation
 	remains_type = /obj/effect/decal/remains/robot
@@ -145,7 +146,7 @@
 	psi_deaf = TRUE
 
 	sleeps_upright = TRUE
-	snore_key = "beep"
+	snores = FALSE
 	indefinite_sleep = TRUE
 
 /datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
@@ -163,22 +164,22 @@
 		C.use(cost * sprint_cost_factor)
 	return TRUE
 
-/datum/species/machine/handle_emp_act(mob/living/carbon/human/H, var/severity)
-	var/obj/item/organ/internal/surge/S = H.internal_organs_by_name["surge"]
+/datum/species/machine/handle_emp_act(mob/living/carbon/human/hit_mob, severity)
+	var/obj/item/organ/internal/surge/S = hit_mob.internal_organs_by_name["surge"]
 	if(!isnull(S))
 		if(S.surge_left >= 1)
-			playsound(H.loc, 'sound/magic/LightningShock.ogg', 25, 1)
+			playsound(hit_mob.loc, 'sound/magic/LightningShock.ogg', 25, 1)
 			S.surge_left -= 1
 			if(S.surge_left)
-				to_chat(H, SPAN_WARNING("Warning: EMP detected, integrated surge prevention module activated. There are [S.surge_left] preventions left."))
+				to_chat(hit_mob, SPAN_WARNING("Warning: EMP detected, integrated surge prevention module activated. There are [S.surge_left] preventions left."))
 			else
 				S.broken = TRUE
 				S.icon_state = "surge_ipc_broken"
-				to_chat(H, SPAN_DANGER("Warning: EMP detected, integrated surge prevention module activated. The surge prevention module is fried, replacement recommended."))
-			return TRUE
+				to_chat(hit_mob, SPAN_DANGER("Warning: EMP detected, integrated surge prevention module activated. The surge prevention module is fried, replacement recommended."))
+			return EMP_PROTECT_ALL
 		else
 			to_chat(src, SPAN_DANGER("Warning: EMP detected, integrated surge prevention module is fried and unable to protect from EMP. Replacement recommended."))
-	return FALSE
+	return NONE
 
 /datum/species/machine/handle_death(var/mob/living/carbon/human/H)
 	..()

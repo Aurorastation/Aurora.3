@@ -16,9 +16,12 @@
 	throw_range = 4
 	throwforce = 10
 	w_class = WEIGHT_CLASS_SMALL
-	var/can_change_form = TRUE // For holodeck check.
-	var/cooldown = 0 // Floor tap cooldown.
-	var/list/null_choices = list( //Generic nullrods only here, religion-specific ones should be on the religion datum
+	/// For holodeck check.
+	var/can_change_form = TRUE
+	/// Floor tap cooldown.
+	var/cooldown = 0
+	/// Generic nullrods only here, religion-specific ones should be on the religion datum
+	var/list/null_choices = list(
 		"Null Rod" = /obj/item/nullrod,
 		"Null Staff" = /obj/item/nullrod/staff,
 		"Null Orb" = /obj/item/nullrod/orb,
@@ -41,7 +44,7 @@
 	icon_state = "tribunalrod"
 	item_state = "tribunalrod"
 
-// Unreassembleable Variant for the Holodeck
+/// Unreassembleable Variant for the Holodeck
 /obj/item/nullrod/dominia/holodeck
 	can_change_form = FALSE
 
@@ -123,6 +126,9 @@
 	icon_state = "azubarre_torch"
 	item_state = "azubarre_torch"
 	contained_sprite = TRUE
+	light_range = 3
+	light_power = 1
+	light_color = LIGHT_COLOR_FIRE
 	var/lit = FALSE
 
 /obj/item/nullrod/azubarre/attack_self(mob/user)
@@ -139,12 +145,11 @@
 /obj/item/nullrod/azubarre/update_icon()
 	if(lit)
 		icon_state = "azubarre_torch-on"
-		item_state = "azubarre_torch-on"
-		set_light(3, 1, LIGHT_COLOR_FIRE)
+		set_light_on(TRUE)
 	else
 		icon_state = "azubarre_torch-empty"
-		icon_state = "azubarre_torch-empty"
-		set_light(0)
+		set_light_on(FALSE)
+	item_state = icon_state
 
 /obj/item/nullrod/azubarre/isFlameSource()
 	return lit
@@ -219,6 +224,17 @@
 	light_power = 2
 	light_color = LIGHT_COLOR_BLUE
 
+/obj/item/nullrod/clockworkstave
+	name = "\improper clockwork stave"
+	desc = "A long, wooden stave with a gear and triangle at the top, utilized by the clergy of the Trinary Perfection. The ornate pieces atop the stave are often delicately \
+	hand-crafted by synthetics from the monastic Society of Pitters and exported off the planet of Orepit."
+	icon = 'icons/obj/trinary_stave.dmi'
+	icon_state = "trinary_stave"
+	item_state = "trinary_stave"
+	contained_sprite = TRUE
+
+	w_class = WEIGHT_CLASS_BULKY
+
 /obj/item/nullrod/verb/change(mob/living/user)
 	set name = "Reassemble Null Item"
 	set category = "Object"
@@ -292,13 +308,13 @@
 					if("Give in")
 						K.visible_message(SPAN_NOTICE("[K]'s eyes become clearer, the evil gone, but not without leaving scars."))
 						K.take_overall_damage(10, 20)
-						thralls.remove_antagonist(K.mind)
+						GLOB.thralls.remove_antagonist(K.mind)
 						admin_attack_log(user, target_mob, "successfully deconverted", "was successfully deconverted by", "successfully deconverted")
 			else if (vampire.status & VAMP_FRENZIED)
 				K.visible_message(SPAN_DANGER("[user] thrusts \the [src] towards [K], who recoils in horror as they erupt into flames!"), SPAN_DANGER("[user] thrusts \the [src] towards you, its holy light scorching your corrupted flesh!"))
 				K.adjust_fire_stacks(10)
 				K.IgniteMob()
-		else if(cult && (K.mind in cult.current_antagonists) && prob(75))
+		else if(GLOB.cult && (K.mind in GLOB.cult.current_antagonists) && prob(75))
 			if(do_after(user, 1.5 SECONDS))
 				K.visible_message(SPAN_DANGER("[user] waves \the [src] over \the [K]'s head, [K] looks captivated by it."), SPAN_WARNING("[user] waves the [src] over your head. <b>You see a foreign light, asking you to follow it. Its presence burns and blinds.</b>"))
 				var/choice = alert(K,"Do you want to give up your goal?","Become cleansed","Resist","Give in")
@@ -311,7 +327,7 @@
 					if("Give in")
 						K.visible_message(SPAN_NOTICE("[K]'s eyes become clearer, the evil gone, but not without leaving scars."))
 						K.take_overall_damage(10, 20)
-						cult.remove_antagonist(K.mind)
+						GLOB.cult.remove_antagonist(K.mind)
 						admin_attack_log(user, target_mob, "successfully deconverted", "was successfully deconverted by", "successfully deconverted")
 			else
 				user.visible_message(SPAN_WARNING("[user]'s concentration is broken!"), SPAN_WARNING("Your concentration is broken! You and your target need to stay uninterrupted for longer!"))
@@ -477,12 +493,12 @@
 	else
 		open(user)
 
-/obj/item/storage/altar/MouseDrop(mob/user as mob)
-	if(use_check_and_message(user))
+/obj/item/storage/altar/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	if(use_check_and_message(over))
 		return
-	if(ishuman(user))
-		forceMove(get_turf(usr))
-		usr.put_in_hands(src)
+	if(ishuman(over))
+		forceMove(get_turf(user))
+		user.put_in_hands(src)
 
 /obj/item/storage/altar/kraszar
 	name = "\improper Kraszar altar"

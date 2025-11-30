@@ -2297,8 +2297,8 @@
 /obj/item/reagent_containers/food/drinks/bottle/treebark_firewater,
 /obj/item/reagent_containers/food/drinks/bottle/veterans_choice,
 /obj/item/reagent_containers/food/drinks/bottle/veterans_choice,
-/obj/item/reagent_containers/food/drinks/bottle/nmshaan_liquor,
-/obj/item/reagent_containers/food/drinks/bottle/nmshaan_liquor,
+/obj/item/reagent_containers/food/drinks/bottle/sugartree_liquor,
+/obj/item/reagent_containers/food/drinks/bottle/sugartree_liquor,
 /obj/item/reagent_containers/food/drinks/bottle/shyyrkirrtyr_wine,
 /obj/item/reagent_containers/food/drinks/bottle/shyyrkirrtyr_wine,
 /obj/item/reagent_containers/food/drinks/bottle/small/khlibnyz,
@@ -3709,7 +3709,7 @@
 /area/tajaran_smuggler/power)
 "ttw" = (
 /obj/structure/closet/secure_closet/kitchen_cabinet/standard,
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = -11
 	},
@@ -4202,8 +4202,8 @@
 /obj/structure/closet/crate,
 /obj/item/deck/tarot/adhomai,
 /obj/item/deck/tarot/adhomai,
-/obj/item/pocketwatch/adhomai,
-/obj/item/pocketwatch/adhomai,
+/obj/item/clothing/wrists/watch/pocketwatch/adhomai,
+/obj/item/clothing/wrists/watch/pocketwatch/adhomai,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor{
 	temperature = 278.15

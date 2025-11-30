@@ -19,6 +19,15 @@ ABSTRACT_TYPE(/datum/gear/suit/diona)
 	sort_category = "Xenowear - Diona"
 	flags = GEAR_NO_SELECTION
 
+/datum/gear/suit/diona/eternal/refined
+	display_name = "eternal ceremonial robes"
+	description = "A set of ceremonial robes used by various branches of the eternal faith."
+	path = /obj/item/clothing/suit/diona/eternal/refined
+	cost = 1
+	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	sort_category = "Xenowear - Diona"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
+
 /datum/gear/suit/diona/eternal/iron
 	display_name = "grey mesh weave robes"
 	description = "A set of mesh weave robes worn almost exclusively by priests of the Iron Eternal faith."
@@ -46,6 +55,26 @@ ABSTRACT_TYPE(/datum/gear/suit/diona)
 	sort_category = "Xenowear - Diona"
 	culture_restriction = list(/singleton/origin_item/culture/narrows)
 
+/datum/gear/suit/narrows
+	display_name = "antiquated hephaestus prison suit"
+	description = "An old prison uniform decorated with colorful cloth dictating one's position within the narrows."
+	path = /obj/item/clothing/suit/diona/narrows
+	cost = 1
+	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	sort_category = "Xenowear - Diona"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
+	culture_restriction = list(/singleton/origin_item/culture/narrows)
+
+/datum/gear/head/narrows
+	display_name = "narrows hardhat"
+	description = "An old hard hat painted in Hephaestus colors, fabric hanging off the sides to protect the wearer's ears."
+	path = /obj/item/clothing/head/hardhat/narrows
+	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	sort_category = "Xenowear - Diona"
+	cost = 1
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+	culture_restriction = list(/singleton/origin_item/culture/narrows)
+
 /datum/gear/uniform/diona/hieroaetherian_tunic
 	display_name = "traditional hieroaetherian tunic"
 	description = "A traditional tunic worn on Hieroaetheria, made up of several colorful fabrics and adorned with a seemingly still-living, bioluminescent Starvine."
@@ -53,6 +82,56 @@ ABSTRACT_TYPE(/datum/gear/suit/diona)
 	cost = 1
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
+	culture_restriction = list(/singleton/origin_item/culture/hieroaetheria)
+
+/datum/gear/uniform/diona/ekane
+	display_name = "woven ekane dress"
+	description = "A blue, seemingly high-quality dress with a colorful strap of fabric running along it, typically seen by Dionae hailing from the Hieroaetherian Ekane."
+	path = /obj/item/clothing/under/diona/ekane
+	cost = 1
+	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	sort_category = "Xenowear - Diona"
+	culture_restriction = list(/singleton/origin_item/culture/hieroaetheria)
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
+
+/datum/gear/head/ekane
+	display_name = "feather cap"
+	description = "A simple hat adorned with colorful feathers across its surface. Despite the design, wearers will feel the heat of the sun greater than without."
+	path = /obj/item/clothing/head/diona/ekane
+	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	sort_category = "Xenowear - Diona"
+	cost = 1
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+	culture_restriction = list(/singleton/origin_item/culture/hieroaetheria)
+
+/datum/gear/head/ekane/decorated
+	display_name = "decorated feather cap"
+	description = "A decorated hat adorned with colorful feathers across its surface. Despite the design, wearers will feel the heat of the sun greater than without."
+	path = /obj/item/clothing/head/diona/ekane/decorated
+	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	sort_category = "Xenowear - Diona"
+	cost = 1
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
+	culture_restriction = list(/singleton/origin_item/culture/hieroaetheria)
+
+/datum/gear/suit/ekane
+	display_name = "ekane feathered jacket"
+	description = "A blue set of clothing mimicking a jacket, adorned with feathers along the jacket's collar, sleeves, and chest. While not exclusive, the jacket is typically worn by Ekane Dionae in more laborious positions."
+	path = /obj/item/clothing/suit/diona/ekane
+	cost = 1
+	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	sort_category = "Xenowear - Diona"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+	culture_restriction = list(/singleton/origin_item/culture/hieroaetheria)
+
+/datum/gear/suit/ekane_cloak
+	display_name = "ekane feathered cloak"
+	description = "A colorful cloak featuring a myriad of feathers adorned across its surface. While not exclusive, the cloak is typically worn by Ekane Dionae in more higher-end & skilled positions."
+	path = /obj/item/clothing/accessory/poncho/ekane_cloak
+	cost = 1
+	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	sort_category = "Xenowear - Diona"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
 	culture_restriction = list(/singleton/origin_item/culture/hieroaetheria)
 
 /datum/gear/suit/hieroaetherian_poncho
@@ -72,6 +151,56 @@ ABSTRACT_TYPE(/datum/gear/suit/diona)
 	cost = 1
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
+
+/datum/gear/head/diona/voidtamer
+	display_name = "closed voidtamer hood"
+	description = "A hood made of aged and tanned carp hide and gold, worn by various Voidtamer factions."
+	path = /obj/item/clothing/head/diona/voidtamer
+	cost = 1
+	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	sort_category = "Xenowear - Diona"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+	culture_restriction = list(/singleton/origin_item/culture/diona_voidtamer)
+
+/datum/gear/head/diona/voidtamer/open
+	display_name = "open voidtamer hood"
+	description = "A hood made of aged and tanned carp hide and gold, worn by various Voidtamer factions. This one is open, exposing the face."
+	path = /obj/item/clothing/head/diona/voidtamer/open
+	cost = 1
+	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	sort_category = "Xenowear - Diona"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+	culture_restriction = list(/singleton/origin_item/culture/diona_voidtamer)
+
+/datum/gear/suit/voidtamer
+	display_name = "voidtamer jacket"
+	description = "A jacket made of woven carp hide and adorned with gold, typically worn by various voidtamer-aligned factions."
+	path = /obj/item/clothing/accessory/poncho/voidtamer
+	cost = 1
+	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	sort_category = "Xenowear - Diona"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+	culture_restriction = list(/singleton/origin_item/culture/diona_voidtamer)
+
+/datum/gear/suit/voidtamer/apron
+	display_name = "voidtamer apron"
+	description = "A apron made of woven carp hide and adorned with gold, typically worn by various voidtamer-aligned factions."
+	path = /obj/item/clothing/accessory/poncho/voidtamer/apron
+	cost = 1
+	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	sort_category = "Xenowear - Diona"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+	culture_restriction = list(/singleton/origin_item/culture/diona_voidtamer)
+
+/datum/gear/suit/voidtamer/vest
+	display_name = "voidtamer vest"
+	description = "A vest made of woven carp hide and adorned with gold, typically worn by various voidtamer-aligned factions."
+	path = /obj/item/clothing/accessory/poncho/voidtamer/vest
+	cost = 1
+	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	sort_category = "Xenowear - Diona"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+	culture_restriction = list(/singleton/origin_item/culture/diona_voidtamer)
 
 //skrell shared things
 
@@ -140,7 +269,7 @@ ABSTRACT_TYPE(/datum/gear/accessory/diona)
 
 /datum/gear/accessory/diona/skrell_passport/New()
 	. = ..()
-	gear_tweaks += list(social_credit_tweak)
+	gear_tweaks += list(GLOB.compat_index_tweak)
 
 /datum/gear/accessory/diona/skrell_passport/check_species_whitelist(mob/living/carbon/human/H)
 	var/static/list/species_list = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
@@ -310,14 +439,6 @@ ABSTRACT_TYPE(/datum/gear/accessory/diona)
 	sort_category = "Xenowear - Diona"
 	origin_restriction = list(/singleton/origin_item/origin/dionae_wasteland, /singleton/origin_item/origin/rokz, /singleton/origin_item/origin/serz)
 
-/datum/gear/uniform/unathi/diona
-	display_name = "dionae sinta tunic"
-	path = /obj/item/clothing/under/unathi
-	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
-	sort_category = "Xenowear - Diona"
-	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
-	culture_restriction = list(/singleton/origin_item/culture/dionae_moghes, /singleton/origin_item/culture/diona_voidtamer)
-
 /datum/gear/head/sinta_ronin/diona
 	display_name = "dionae straw hat"
 	path = /obj/item/clothing/head/unathi
@@ -347,3 +468,108 @@ ABSTRACT_TYPE(/datum/gear/accessory/diona)
 	sort_category = "Xenowear - Diona"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 	culture_restriction = list(/singleton/origin_item/culture/dionae_moghes, /singleton/origin_item/culture/diona_voidtamer)
+
+/datum/gear/uniform/diona/rockstone
+	display_name = "dionae rockstone cape"
+	path = /obj/item/clothing/accessory/poncho/rockstone
+	cost = 1
+	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	origin_restriction = list(/singleton/origin_item/origin/viridis_noble)
+	sort_category = "Xenowear - Diona"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
+
+/datum/gear/suit/diona/noble_vest
+	display_name = "dionae jokfar vest"
+	path = /obj/item/clothing/suit/unathi/jokfar
+	cost = 1
+	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	origin_restriction = list(/singleton/origin_item/origin/viridis_noble)
+	sort_category = "Xenowear - Diona"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/head/diona/maxtlatl
+	display_name = "diona Thakhist headgear"
+	path = /obj/item/clothing/head/unathi/maxtlatl
+	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	allowed_roles = list("Chaplain")
+	sort_category = "Xenowear - Diona"
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/uniform/diona/mogazali
+	display_name = "diona mogazali attire"
+	path = /obj/item/clothing/under/unathi/mogazali
+	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	origin_restriction = list(/singleton/origin_item/origin/viridis_noble)
+	sort_category = "Xenowear - Diona"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/uniform/diona/mogazali/New()
+	..()
+	var/list/mogazali = list()
+	mogazali["mogazali attire, red"] = /obj/item/clothing/under/unathi/mogazali
+	mogazali["mogazali attire, blue"] = /obj/item/clothing/under/unathi/mogazali/blue
+	mogazali["mogazali attire, green"] = /obj/item/clothing/under/unathi/mogazali/green
+	mogazali["mogazali attire, orange"] = /obj/item/clothing/under/unathi/mogazali/orange
+	gear_tweaks += new /datum/gear_tweak/path(mogazali)
+
+/datum/gear/uniform/diona/jizixi
+	display_name = "dionae jizixi dress"
+	path = /obj/item/clothing/under/unathi/jizixi
+	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	origin_restriction = list(/singleton/origin_item/origin/viridis_noble)
+	sort_category = "Xenowear - Diona"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/uniform/diona/jizixi/New()
+	..()
+	var/list/jizixi = list()
+	jizixi["jizixi dress, red"] = /obj/item/clothing/under/unathi/jizixi
+	jizixi["jizixi dress, green"] = /obj/item/clothing/under/unathi/jizixi/green
+	jizixi["jizixi dress, blue"] = /obj/item/clothing/under/unathi/jizixi/blue
+	jizixi["jizixi dress, white"] = /obj/item/clothing/under/unathi/jizixi/white
+	jizixi["jizixi dress, orange"] = /obj/item/clothing/under/unathi/jizixi/orange
+	jizixi["jizixi dress, black"] = /obj/item/clothing/under/unathi/jizixi/black
+	gear_tweaks += new /datum/gear_tweak/path(jizixi)
+
+/datum/gear/uniform/diona/jizixi_colorable
+	display_name = "jizixi dress (colorable)"
+	path = /obj/item/clothing/under/unathi/jizixi/colorable
+	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	sort_category = "Xenowear - Diona"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
+
+/datum/gear/uniform/diona/jizixi_colorable/New()
+	..()
+	var/list/jizixi_colorable = list()
+	jizixi_colorable["jizixi dress, colorable"] = /obj/item/clothing/under/unathi/jizixi/colorable
+	jizixi_colorable["jizixi dress, pattern 1"] = /obj/item/clothing/under/unathi/jizixi/colorable/accent1
+	jizixi_colorable["jizixi dress, pattern 2"] = /obj/item/clothing/under/unathi/jizixi/colorable/accent2
+	jizixi_colorable["jizixi dress, pattern 3"] = /obj/item/clothing/under/unathi/jizixi/colorable/accent3
+	jizixi_colorable["jizixi dress, pattern 4"] = /obj/item/clothing/under/unathi/jizixi/colorable/accent4
+	jizixi_colorable["jizixi dress, pattern 5"] = /obj/item/clothing/under/unathi/jizixi/colorable/accent5
+	gear_tweaks += new /datum/gear_tweak/path(jizixi_colorable)
+
+/datum/gear/accessory/consortium_passport
+	display_name = "consortium of hieroaetheria passport"
+	path = /obj/item/clothing/accessory/badge/passport/consortium
+	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
+	sort_category = "Xenowear - Diona"
+
+/datum/gear/accessory/alt_consortium_passport
+	display_name = "non-consortium hieroaetherian passport selection"
+	path = /obj/item/clothing/accessory/badge/passport/dionaunion
+	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	sort_category = "Xenowear - Diona"
+
+/datum/gear/accessory/alt_consortium_passport/New()
+	..()
+	var/list/diona_passport = list()
+	diona_passport["union of gla'orr passport"] = /obj/item/clothing/accessory/badge/passport/dionaunion
+	diona_passport["eternal republic of the ekane passport"] = /obj/item/clothing/accessory/badge/passport/eternalrepublic
+	gear_tweaks += new /datum/gear_tweak/path(diona_passport)
+
+/datum/gear/diet_diesel
+	display_name = "diet diesel jar"
+	path = /obj/item/reagent_containers/food/condiment/diet_diesel
+	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
+	sort_category = "Xenowear - Diona"

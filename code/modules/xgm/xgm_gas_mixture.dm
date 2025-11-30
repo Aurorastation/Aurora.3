@@ -13,7 +13,9 @@
 	var/group_multiplier = 1
 
 	///List of active tile overlays for this gas_mixture.  Updated by check_tile_graphic()
-	var/list/graphic
+	var/list/graphic = list()
+	//Cache of gas overlay objects
+	var/list/tile_overlay_cache
 
 /datum/gas_mixture/New(_volume = CELL_VOLUME, _temperature = 0, _group_multiplier = 1)
 	volume = _volume
@@ -353,32 +355,73 @@
 	zburn(null, force_burn=0, no_check=0) //could probably just call zburn() here with no args but I like being explicit.
 
 
-///Rechecks the gas_mixture and adjusts the graphic list if needed.
-///Two lists can be passed by reference if you need know specifically which graphics were added and removed.
+//Rechecks the gas_mixture and adjusts the graphic list if needed.
+//Two lists can be passed by reference if you need know specifically which graphics were added and removed.
 /datum/gas_mixture/proc/check_tile_graphic(list/graphic_add = null, list/graphic_remove = null)
+	for(var/obj/gas_overlay/O in graphic)
+		if(istype(O, /obj/gas_overlay/heat))
+			continue
+		if(istype(O, /obj/gas_overlay/cold))
+			continue
+		if(gas[O.gas_id] <= gas_data.overlay_limit[O.gas_id])
+			LAZYADD(graphic_remove, O)
 	for(var/g in gas_data.overlay_limit)
-		if (graphic && graphic[gas_data.tile_overlay[g]])
-			//Overlay is already applied for this gas, check if it's still valid.
-			if(gas[g] <= gas_data.overlay_limit[g])
-				LAZYADD(graphic_remove, gas_data.tile_overlay[g])
-		else
-			//Overlay isn't applied for this gas, check if it's valid and needs to be added.
-			if(gas[g] > gas_data.overlay_limit[g])
-				if(!(gas_data.tile_overlay[g] in graphic))
-					LAZYADD(graphic_add, gas_data.tile_overlay[g])
-
+		//Overlay isn't applied for this gas, check if it's valid and needs to be added.
+		if(gas[g] > gas_data.overlay_limit[g])
+			var/tile_overlay = get_tile_overlay(g)
+			if(!(tile_overlay in graphic))
+				LAZYADD(graphic_add, tile_overlay)
 	. = 0
+
+	var/heat_overlay = get_tile_overlay(GAS_HEAT)
+	//If it's hot add something
+	if(temperature >= CARBON_LIFEFORM_FIRE_RESISTANCE)
+		if(!(heat_overlay in graphic))
+			LAZYADD(graphic_add, heat_overlay)
+	else if (heat_overlay in graphic)
+		LAZYADD(graphic_remove, heat_overlay)
+
+	var/cold_overlay = get_tile_overlay(GAS_COLD)
+	if(temperature <= FOGGING_TEMPERATURE && (return_pressure() >= (ONE_ATMOSPHERE / 4)))
+		if(!(cold_overlay in graphic))
+			LAZYADD(graphic_add, cold_overlay)
+	else if (cold_overlay in graphic)
+		LAZYADD(graphic_remove, cold_overlay)
+
 	//Apply changes
-	if(graphic_add && LAZYLEN(graphic_add))
-		LAZYINITLIST(graphic)
-		for (var/entry in graphic_add)
-			graphic[entry] = TRUE	// This is an assoc list to make checking it a bit faster.
+	if(graphic_add && length(graphic_add))
+		graphic |= graphic_add
 		. = 1
-	if(graphic_add && LAZYLEN(graphic_remove))
+	if(graphic_remove && length(graphic_remove))
 		graphic -= graphic_remove
 		. = 1
+	if(length(graphic))
+		var/pressure_mod = clamp(return_pressure() / ONE_ATMOSPHERE, 0, 2)
+		for(var/obj/gas_overlay/O in graphic)
+			if(istype(O, /obj/gas_overlay/heat)) //Heat based
+				var/new_alpha = clamp(max(125, 255 * ((temperature - CARBON_LIFEFORM_FIRE_RESISTANCE) / CARBON_LIFEFORM_FIRE_RESISTANCE * 4)), 125, 255)
+				if(new_alpha != O.alpha)
+					O.update_alpha_animation(new_alpha)
+				continue
+			if(istype(O, /obj/gas_overlay/cold))
+				var/new_alpha = clamp(max(125, 200 * (1 - ((temperature - MAX_FOG_TEMPERATURE) / (FOGGING_TEMPERATURE - MAX_FOG_TEMPERATURE)))), 125, 200)
+				if(new_alpha != O.alpha)
+					O.update_alpha_animation(new_alpha)
+				continue
+			var/concentration_mod = clamp(gas[O.gas_id] / total_moles, 0.1, 1)
+			var/new_alpha = min(230, round(pressure_mod * concentration_mod * 180, 5))
+			if(new_alpha != O.alpha)
+				O.update_alpha_animation(new_alpha)
 
-	UNSETEMPTY(graphic)
+/datum/gas_mixture/proc/get_tile_overlay(gas_id)
+	if(!LAZYACCESS(tile_overlay_cache, gas_id))
+		if(gas_id == GAS_HEAT) //Not a real gas but functionally same thing
+			LAZYSET(tile_overlay_cache, gas_id, new/obj/gas_overlay/heat(null, GAS_HEAT))
+		else if(gas_id == GAS_COLD) //Not a real gas but functionally same thing
+			LAZYSET(tile_overlay_cache, gas_id, new/obj/gas_overlay/cold(null, GAS_COLD))
+		else
+			LAZYSET(tile_overlay_cache, gas_id, new/obj/gas_overlay(null, gas_id))
+	return tile_overlay_cache[gas_id]
 
 ///Simpler version of merge(), adjusts gas amounts directly and doesn't account for temperature or group_multiplier.
 /datum/gas_mixture/proc/add(datum/gas_mixture/right_side)

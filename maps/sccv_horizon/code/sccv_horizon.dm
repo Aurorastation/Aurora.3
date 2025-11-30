@@ -15,6 +15,7 @@
 	)
 
 	lobby_icons = list('icons/misc/titlescreens/sccv_horizon/sccv_horizon.dmi', 'icons/misc/titlescreens/aurora/synthetics.dmi', 'icons/misc/titlescreens/aurora/tajara.dmi', 'icons/misc/titlescreens/aurora/vaurca.dmi')
+
 	lobby_transitions = 10 SECONDS
 
 	admin_levels = list(4)
@@ -108,6 +109,8 @@
 	rogue_drone_end_message = "The hostile drone swarm has left the ship's proximity."
 	rogue_drone_destroyed_message = "Sensors indicate the unidentified drone swarm has left the immediate proximity of the ship."
 
+	overmap_visitable_type = /obj/effect/overmap/visitable/ship/sccv_horizon
+
 	ports_of_call = TRUE
 
 	map_shuttles = list(
@@ -144,13 +147,14 @@
 
 	evac_controller_type = /datum/evacuation_controller/starship
 
-	allowed_spawns = list("Living Quarters Lift", "Cryogenic Storage")
-	spawn_types = list(/datum/spawnpoint/living_quarters_lift, /datum/spawnpoint/cryo)
+	allowed_spawns = list("Living Quarters Lift", "Cryogenic Storage", "Medbay Recovery Ward")
+	spawn_types = list(/datum/spawnpoint/living_quarters_lift, /datum/spawnpoint/cryo, /datum/spawnpoint/medbay_recovery)
 	default_spawn = "Living Quarters Lift"
 
 	allow_borgs_to_leave = TRUE
 
-	warehouse_basearea = /area/operations/storage
+	warehouse_basearea = /area/horizon/operations/warehouse
+	warehouse_packagearea = /area/horizon/operations/package_conveyors
 
 	shuttle_manifests = list(
 		"SCCV Canary" = list("color" = "blue", "icon" = "binoculars"),
@@ -158,10 +162,10 @@
 		"SCCV Spark" = list("color" = "brown", "icon" = "gem"),
 		"SCCV Quark" = list("color" = "purple", "icon" = "microscope"),
 	)
-	shuttle_missions = list("Exploration", "Research", "Prospecting", "Transport", "Combat", "Rescue", "Training")
+	shuttle_missions = list("Exploration", "Research", "Prospecting", "Salvaging", "Transport", "Combat", "Rescue", "Training", "Humanitarian", "Expedition", "Recreation", "Other")
 
 /datum/map/sccv_horizon/send_welcome()
-	var/obj/effect/overmap/visitable/ship/horizon = SSshuttle.ship_by_type(/obj/effect/overmap/visitable/ship/sccv_horizon)
+	var/obj/effect/overmap/visitable/ship/horizon = SSshuttle.ship_by_type(overmap_visitable_type)
 
 	var/welcome_text = "<center><img src = scclogo.png><br />[FONT_LARGE("<b>SCCV Horizon</b> Ultra-Range Sensor Readings:")]<br>"
 	welcome_text += "Report generated on [worlddate2text()] at [worldtime2text()]</center><br /><br />"

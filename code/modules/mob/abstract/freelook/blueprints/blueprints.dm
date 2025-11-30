@@ -67,7 +67,7 @@
 
 	var/area/A = finalize_area(area_name)
 	for(var/turf/T in selected_turfs)
-		ChangeArea(T, A)
+		T.change_area(T.loc, A)
 	remove_selection() // Reset the selection for clarity.
 
 /mob/abstract/eye/blueprints/proc/finalize_area(var/area_name)
@@ -99,7 +99,7 @@
 	if(SSodyssey.scenario && (GET_Z(owner) in SSodyssey.scenario_zlevels))
 		background_area = SSodyssey.scenario.base_area
 	for(var/turf/T in A.contents)
-		ChangeArea(T, background_area)
+		T.change_area(T.loc, background_area)
 	if(!locate(/turf) in A)
 		qdel(A)
 
@@ -319,7 +319,7 @@
 	if(SSodyssey.scenario && (GET_Z(owner) in SSodyssey.scenario_zlevels))
 		background_area = SSodyssey.scenario.base_area
 	for(var/turf/T in A.contents)
-		ChangeArea(T, background_area)
+		T.change_area(T.loc, background_area)
 	if(!(locate(/turf) in A))
 		qdel(A) // uh oh, is this safe?
 

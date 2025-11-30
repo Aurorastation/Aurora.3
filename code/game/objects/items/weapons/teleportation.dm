@@ -1,16 +1,16 @@
 /* Teleportation devices.
  * Contains:
- *		Locator
- *		Hand-tele
- *		Closet Teleporter
- *		Inhibitor handling proc for above
+ * * Locator
+ * * Hand-tele
+ * * Closet Teleporter
+ * * Inhibitor handling proc for above
  */
 
 /*
  * Special inhibitor handling. Different from the one used by teleport datums.
  */
 /proc/check_inhibitors(var/turf/T)
-	for(var/found_inhibitor in bluespace_inhibitors)
+	for(var/found_inhibitor in GLOB.bluespace_inhibitors)
 		var/obj/machinery/anti_bluespace/AB = found_inhibitor
 		if(T.z != AB.z || get_dist(T, AB) > 8 || (AB.stat & (NOPOWER | BROKEN)))
 			continue
@@ -26,8 +26,8 @@
 /obj/item/locator
 	name = "locator"
 	desc = "A device that can be used to track those with locator implants."
-	icon = 'icons/obj/device.dmi'
-	icon_state = "locator"
+	icon = 'icons/obj/item/pinpointer.dmi'
+	icon_state = "pinoff"
 	var/temp = null
 	var/frequency = 1451
 	var/broadcasting = null
@@ -54,8 +54,8 @@ Frequency:
 <A href='byond://?src=[REF(src)];freq=2'>+</A>
 <A href='byond://?src=[REF(src)];freq=10'>+</A><BR>
 
-<A href='?src=[REF(src)];refresh=1'>Refresh</A>"}
-	user << browse(dat, "window=radio")
+<A href='byond://?src=[REF(src)];refresh=1'>Refresh</A>"}
+	user << browse(HTML_SKELETON(dat), "window=radio")
 	onclose(user, "radio")
 	return
 
@@ -141,8 +141,7 @@ Frequency:
 /obj/item/hand_tele
 	name = "hand tele"
 	desc = "A hand-held bluespace teleporter that can rip open portals to a random nearby location, or lock onto a teleporter with a selected teleportation beacon."
-	desc_info = "Ctrl-click to choose which teleportation pad to link to. Use in-hand or alt-click to deploy a portal. When not linked to a pad, or the pad isn't pointing at a beacon, it will choose a completely random teleportation destination."
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/obj/item/hand_tele.dmi'
 	icon_state = "hand_tele"
 	item_state = "electronic"
 	throwforce = 5
@@ -158,11 +157,18 @@ Frequency:
 
 	var/max_portals = 2
 
-/obj/item/hand_tele/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/hand_tele/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Ctrl-click to choose which teleportation pad to link to."
+	. += "Use in-hand or alt-click to deploy a portal. "
+	. += "When not linked to a pad, or the pad isn't pointing at a beacon, it will choose a completely random teleportation destination."
+
+/obj/item/hand_tele/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(linked_pad)
 		var/area/A = get_area(linked_pad)
-		. += SPAN_NOTICE("\The [src] is linked to a teleportation pad in [A.name]")
+		var/display_name = get_area_display_name(A)
+		. += SPAN_NOTICE("\The [src] is linked to a teleportation pad in [display_name]")
 	else
 		. += SPAN_WARNING("\The [src] isn't linked to any teleportation pads!")
 
@@ -234,10 +240,11 @@ Frequency:
 		for(var/obj/machinery/teleport/pad/P in SSmachinery.machinery)
 			if(AreConnectedZLevels(current_location.z, P.z))
 				var/area/A = get_area(P)
+				var/display_name = get_area_display_name(A)
 				if(P.engaged)
-					teleport_options["[A.name] (Active)"] = P
+					teleport_options["[display_name] (Active)"] = P
 				else
-					teleport_options["[A.name] (Inactive)"] = P
+					teleport_options["[display_name] (Inactive)"] = P
 		teleport_options["None (Dangerous)"] = null
 		var/teleport_choice = tgui_input_list(user, "Please select a teleporter to lock in on.", "Hand Teleporter", teleport_options)
 		if(!teleport_choice)
@@ -259,11 +266,13 @@ Frequency:
 	LAZYREMOVE(active_teleporters, P)
 	if(LAZYLEN(active_teleporters) < max_portals)
 		check_maptext(SMALL_FONTS(7, "Ready"))
+		icon_state = "hand_tele"
+	else
+		icon_state = "hand_tele_recharging"
 
 /obj/item/closet_teleporter
 	name = "closet teleporter"
 	desc = "A device that allows a user to connect two closets into a bluespace network."
-	desc_antag = "Click a closet with this to install. Step into the closet and close the door to teleport to the linked closet. It has a one minute cooldown after a batch teleport."
 	icon = 'icons/obj/modular_components.dmi'
 	icon_state = "cpu_normal_photonic"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
@@ -273,6 +282,12 @@ Frequency:
 	var/obj/structure/closet/attached_closet
 	var/obj/item/closet_teleporter/linked_teleporter
 	var/last_use = 0
+
+/obj/item/closet_teleporter/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Left-click a closet with this to install."
+	. += "Once two closets have been 'upgraded', step into one closet and close the door to teleport to the linked closet."
+	. += "It has a one minute cooldown after a batch teleport."
 
 /obj/item/closet_teleporter/proc/do_teleport(var/mob/user)
 	if(!attached_closet)
@@ -293,8 +308,14 @@ Frequency:
 	var/obj/structure/closet/target_closet = linked_teleporter.attached_closet
 	user.forceMove(target_closet.opened ? get_turf(target_closet) : target_closet)
 	if(target_closet.opened)
+		if(user.client)
+			user.client.eye = user.client.mob
+			user.client.perspective = MOB_PERSPECTIVE
 		user.visible_message(SPAN_NOTICE("\The [user] steps out of the back of \the [target_closet]."), SPAN_NOTICE("You teleport into the linked closet, stepping out of it."))
+		user.set_fullscreen(FALSE, "closet_impaired", /atom/movable/screen/fullscreen/closet_impaired)
 	else
+		if(user.client)
+			user.client.eye = target_closet
 		target_closet.visible_message(SPAN_WARNING("\The [target_closet] rattles."))
 		to_chat(user, SPAN_NOTICE("You teleport into the target closet, bumping into the closed door."))
 		target_closet.shake_animation()

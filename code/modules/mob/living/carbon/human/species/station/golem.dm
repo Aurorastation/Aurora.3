@@ -1,22 +1,22 @@
-var/global/list/golem_types = list(
-									SPECIES_GOLEM_COAL,
-									SPECIES_GOLEM_IRON,
-									SPECIES_GOLEM_BRONZE,
-									SPECIES_GOLEM_STEEL,
-									SPECIES_GOLEM_PLASTEEL,
-									SPECIES_GOLEM_TITANIUM,
-									SPECIES_GOLEM_CLOTH,
-									SPECIES_GOLEM_CARDBOARD,
-									SPECIES_GOLEM_GLASS,
-									SPECIES_GOLEM_PHORON,
-									SPECIES_GOLEM_HYDROGEN,
-									SPECIES_GOLEM_WOOD,
-									SPECIES_GOLEM_DIAMOND,
-									SPECIES_GOLEM_SAND,
-									SPECIES_GOLEM_URANIUM,
-									SPECIES_GOLEM_MEAT,
-									SPECIES_GOLEM_ADAMANTINE
-								)
+GLOBAL_LIST_INIT(golem_types, list(
+	SPECIES_GOLEM_COAL,
+	SPECIES_GOLEM_IRON,
+	SPECIES_GOLEM_BRONZE,
+	SPECIES_GOLEM_STEEL,
+	SPECIES_GOLEM_PLASTEEL,
+	SPECIES_GOLEM_TITANIUM,
+	SPECIES_GOLEM_CLOTH,
+	SPECIES_GOLEM_CARDBOARD,
+	SPECIES_GOLEM_GLASS,
+	SPECIES_GOLEM_PHORON,
+	SPECIES_GOLEM_HYDROGEN,
+	SPECIES_GOLEM_WOOD,
+	SPECIES_GOLEM_DIAMOND,
+	SPECIES_GOLEM_SAND,
+	SPECIES_GOLEM_URANIUM,
+	SPECIES_GOLEM_MEAT,
+	SPECIES_GOLEM_ADAMANTINE
+))
 
 /datum/species/golem
 	name = SPECIES_GOLEM_COAL
@@ -931,6 +931,6 @@ var/global/list/golem_types = list(
 		stance_damage += 3
 	return stance_damage
 
-/datum/species/golem/technomancer/handle_emp_act(mob/living/carbon/human/H, var/severity)
-	H.apply_damage(75 * (4 - severity)) // their brute_mod means damage needs to be high
-	return TRUE
+/datum/species/golem/technomancer/handle_emp_act(mob/living/carbon/human/hit_mob, severity)
+	hit_mob.apply_damage(75 * (4 - severity)) // their brute_mod means damage needs to be high
+	return EMP_PROTECT_ALL

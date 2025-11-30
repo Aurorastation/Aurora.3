@@ -422,7 +422,7 @@
 /obj/item/storage/box/dpra_manifesto,
 /obj/item/storage/field_ration/dpra,
 /obj/item/flame/lighter/adhomai,
-/obj/item/pocketwatch/adhomai,
+/obj/item/clothing/wrists/watch/pocketwatch/adhomai,
 /obj/item/clothing/under/tajaran/ala/black/officer,
 /obj/item/clothing/head/tajaran/ala_officer,
 /turf/simulated/floor/exoplanet/wood,

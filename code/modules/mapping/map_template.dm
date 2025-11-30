@@ -54,7 +54,6 @@
 /datum/map_template/proc/load_new_z(var/no_changeturf = TRUE)
 	var/x = round((world.maxx - width)/2)
 	var/y = round((world.maxy - height)/2)
-	var/initial_z = world.maxz + 1
 
 	if (x < 1) x = 1
 	if (y < 1) y = 1
@@ -68,11 +67,13 @@
 
 	var/datum/space_level/base_level = null
 	for(var/traits_for_level in traits)
-		var/level = SSmapping.add_new_zlevel(name, traits_for_level, contain_turfs = FALSE)
+		var/datum/space_level/level = SSmapping.add_new_zlevel(name, traits_for_level, contain_turfs = FALSE)
 		if(!base_level)
 			base_level = level
+		GLOB.map_templates["[level.z_value]"] = src
 
 	var/datum/map_load_metadata/M = maploader.load_map(file(mappath), x, y, base_level.z_value, no_changeturf = no_changeturf)
+
 	if(M)
 		bounds = extend_bounds_if_needed(bounds, M.bounds)
 		atoms_to_initialise += M.atoms_to_initialise
@@ -86,7 +87,6 @@
 		if (base_turf_for_zs)
 			SSatlas.current_map.base_turf_by_z[num2text(z_index)] = base_turf_for_zs
 		SSatlas.current_map.player_levels |= z_index
-		GLOB.map_templates["[z_index]"] = src
 
 	smooth_zlevel(world.maxz)
 	require_area_resort()
@@ -96,8 +96,6 @@
 	//initialize things that are normally initialized after map load
 	init_atoms(atoms_to_initialise)
 	init_shuttles(shuttle_state)
-	for(var/light_z = initial_z to world.maxz)
-		create_lighting_overlays_zlevel(light_z)
 	log_game("Z-level [name] loaded at [x], [y], [world.maxz]")
 	message_admins("Z-level [name] loaded at [x], [y], [world.maxz]")
 	SSicon_smooth.can_fire = TRUE
@@ -163,9 +161,16 @@
 		T.post_change(FALSE)
 		if(template_flags & TEMPLATE_FLAG_NO_RUINS)
 			T.turf_flags |= TURF_NORUINS
+
 		if(istype(T,/turf/simulated))
 			var/turf/simulated/sim = T
 			sim.update_air_properties()
+
+		if(SSlighting.initialized) //don't generate lighting overlays before SSlighting in case these templates are loaded before
+			var/area/A = T.loc
+			if(A?.area_has_base_lighting)
+				continue
+			T.static_lighting_build_overlay()
 
 /datum/map_template/proc/load(turf/T, centered = FALSE)
 	if(centered)

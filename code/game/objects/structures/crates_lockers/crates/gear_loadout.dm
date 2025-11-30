@@ -178,7 +178,7 @@
 	new /obj/item/clothing/under/rank/sol/marine(src)
 	new /obj/item/clothing/under/rank/sol/marine(src)
 	new /obj/item/clothing/under/rank/sol/marine(src)
-	new /obj/item/rig/military(src)
+	new /obj/item/rig/military/equipped(src)
 	new /obj/item/clothing/head/helmet/space/void/sol(src)
 	new /obj/item/clothing/head/helmet/space/void/sol(src)
 	new /obj/item/clothing/head/helmet/space/void/sol(src)
@@ -233,17 +233,16 @@
 
 /obj/structure/closet/crate/secure/gear_loadout/frontier_cowboys/fill()
 	for(var/i in 1 to 6)
-		var/obj/item/clothing/under/shorts/khaki/pants = new(src)
-		var/obj/item/clothing/accessory/dressshirt/rolled/shirt = new(src)
+		var/obj/item/clothing/pants/shorts/khaki/pants = new(src)
+		var/obj/item/clothing/under/dressshirt/rolled/shirt = new(src)
 		var/obj/item/clothing/accessory/chaps/chaps = new(src)
 		var/obj/item/clothing/accessory/suspenders/suspenders = new(src)
 		var/obj/item/clothing/accessory/wcoat_rec/waistcoat = new(src)
 		var/obj/item/clothing/head/cowboy/hat = new(src)
 
-		pants.attach_accessory(null, shirt)
 		pants.attach_accessory(null, chaps)
 		waistcoat.color = COLOR_BEASTY_BROWN
-		pants.attach_accessory(null, waistcoat)
+		shirt.attach_accessory(null, waistcoat)
 		suspenders.color = COLOR_MAROON
 		pants.attach_accessory(null, suspenders)
 		hat.color = COLOR_BEASTY_BROWN
@@ -256,17 +255,16 @@
 		new /obj/item/gun/projectile/shotgun/pump/lever_action(src)
 
 /obj/structure/closet/crate/secure/gear_loadout/frontier_cowboys/single/fill()
-	var/obj/item/clothing/under/shorts/khaki/pants = new(src)
-	var/obj/item/clothing/accessory/dressshirt/rolled/shirt = new(src)
+	var/obj/item/clothing/pants/shorts/khaki/pants = new(src)
+	var/obj/item/clothing/under/dressshirt/rolled/shirt = new(src)
 	var/obj/item/clothing/accessory/chaps/chaps = new(src)
 	var/obj/item/clothing/accessory/suspenders/suspenders = new(src)
 	var/obj/item/clothing/accessory/wcoat_rec/waistcoat = new(src)
 	var/obj/item/clothing/head/cowboy/hat = new(src)
 
-	pants.attach_accessory(null, shirt)
 	pants.attach_accessory(null, chaps)
 	waistcoat.color = "#78280b"
-	pants.attach_accessory(null, waistcoat)
+	shirt.attach_accessory(null, waistcoat)
 	suspenders.color = "#521600"
 	pants.attach_accessory(null, suspenders)
 	hat.color = "#521600"
@@ -576,12 +574,61 @@
 	new /obj/item/ammo_magazine/mc9mm(src)
 	new /obj/item/device/modkit/multi_species(src)
 
+/obj/structure/closet/crate/gear_loadout/ceres/fill()
+	new /obj/item/rig/bunker/nerfed/equipped(src)
+	new /obj/item/clothing/head/helmet/space/void/lancer(src)
+	new /obj/item/clothing/head/helmet/space/void/lancer(src)
+	new /obj/item/clothing/head/helmet/space/void/lancer(src)
+	new /obj/item/clothing/head/helmet/space/void/lancer(src)
+	new /obj/item/clothing/suit/space/void/lancer(src)
+	new /obj/item/clothing/suit/space/void/lancer(src)
+	new /obj/item/clothing/suit/space/void/lancer(src)
+	new /obj/item/clothing/suit/space/void/lancer(src)
+	new /obj/item/clothing/under/lance(src)
+	new /obj/item/clothing/under/lance(src)
+	new /obj/item/clothing/under/lance(src)
+	new /obj/item/clothing/under/lance(src)
+	new /obj/item/clothing/accessory/holster/hip(src)
+	new /obj/item/clothing/accessory/holster/hip(src)
+	new /obj/item/clothing/accessory/holster/hip(src)
+	new /obj/item/clothing/accessory/holster/hip(src)
+	new /obj/item/gun/energy/rifle/laser(src)
+	new /obj/item/gun/energy/rifle/laser(src)
+	new /obj/item/gun/energy/rifle/laser(src)
+	new /obj/item/gun/energy/rifle/laser(src)
+	new /obj/item/gun/energy/repeater/pistol(src)
+	new /obj/item/gun/energy/repeater/pistol(src)
+	new /obj/item/gun/energy/repeater/pistol(src)
+	new /obj/item/gun/energy/repeater/pistol(src)
+	new /obj/item/gun/energy/rifle/ionrifle(src)
+	new /obj/item/gun/projectile/peac(src)
+	new /obj/item/ammo_casing/peac(src)
+	new /obj/item/ammo_casing/peac(src)
+	new /obj/item/ammo_casing/peac/he(src)
+	new /obj/item/ammo_casing/peac/he(src)
+	new /obj/item/recharger_backpack/high(src)
+	new /obj/item/recharger_backpack/high(src)
+	new /obj/item/recharger_backpack/high(src)
+	new /obj/item/recharger_backpack/high(src)
+	new /obj/item/voidsuit_modkit/ceres_lance_unathi(src)
+
+/obj/structure/closet/crate/gear_loadout/ceres/single/fill()
+	new /obj/item/clothing/head/helmet/space/void/lancer(src)
+	new /obj/item/clothing/suit/space/void/lancer(src)
+	new /obj/item/clothing/under/lance(src)
+	new /obj/item/clothing/accessory/holster/hip(src)
+	new /obj/item/gun/energy/rifle/laser(src)
+	new /obj/item/gun/energy/repeater/pistol(src)
+	new /obj/item/recharger_backpack/high(src)
+	new /obj/item/voidsuit_modkit/ceres_lance_unathi(src)
+
 /obj/structure/closet/crate/secure/gear_loadout/hegemony/fill()
 	new/obj/item/clothing/under/unathi/izweski(src)
 	new/obj/item/clothing/under/unathi/izweski(src)
 	new/obj/item/clothing/under/unathi/izweski(src)
 	new/obj/item/clothing/under/unathi/izweski(src)
 	new/obj/item/clothing/under/unathi/izweski/officer(src)
+	new /obj/item/rig/unathi/fancy/equipped(src) // Knights get this so why not they?
 	new /obj/item/clothing/head/helmet/space/void/hegemony(src)
 	new /obj/item/clothing/head/helmet/space/void/hegemony(src)
 	new /obj/item/clothing/head/helmet/space/void/hegemony(src)
@@ -695,6 +742,7 @@
 	new /obj/item/clothing/under/unathi(src)
 	new /obj/item/clothing/under/unathi(src)
 	new /obj/item/clothing/under/unathi(src)
+	new /obj/item/rig/merc(src) // Courtesy of Hammertail
 	new /obj/item/clothing/head/helmet/space/void/unathi_pirate(src)
 	new /obj/item/clothing/suit/space/void/unathi_pirate(src)
 	new /obj/item/clothing/head/helmet/space/void/unathi_pirate(src)
@@ -847,6 +895,7 @@
 		new /obj/item/gun/projectile/automatic/rifle/sts35(src)
 		new /obj/item/ammo_magazine/c762(src)
 	new /obj/item/storage/box/species_modkit(src) //species modkits for switching on the fly
+	new /obj/item/rig/merc(src) // Im pretty sure they invented this thing.
 
 /obj/structure/closet/crate/secure/gear_loadout/hammertail/single/fill()
 	new /obj/item/clothing/under/syndicate/hammertail(src) //1 outfit
@@ -911,7 +960,7 @@
 	new /obj/item/clothing/head/helmet/space/void/kala(src)
 	new /obj/item/clothing/shoes/jackboots/kala(src)
 
-/obj/structure/closet/crate/secure/gear_loadout/imperial_army/fill()
+/obj/structure/closet/crate/secure/gear_loadout/imperial_army/fill() // Was told the Jinxiang is only for the marines, so no rig
 	new /obj/item/gun/projectile/automatic/rifle/dominia(src)
 	new /obj/item/ammo_magazine/a556(src)
 	new /obj/item/ammo_magazine/a556(src)
@@ -979,6 +1028,7 @@
 	new /obj/item/clothing/shoes/jackboots/toeless(src)
 	new /obj/item/clothing/shoes/jackboots/toeless(src)
 	new /obj/item/clothing/shoes/jackboots/toeless(src)
+	new /obj/item/rig/combat/legionnaire/equipped(src)
 	new /obj/item/clothing/gloves/tcaf(src)
 	new /obj/item/clothing/gloves/tcaf(src)
 	new /obj/item/clothing/gloves/tcaf(src)
@@ -1336,6 +1386,18 @@
 	new /obj/item/suppressor(src)
 	new /obj/item/ammo_magazine/mc9mm(src)
 	new /obj/item/ammo_magazine/mc9mm(src)
+
+/obj/structure/closet/crate/secure/gear_loadout/ninja/bunker
+	associated_hardsuit = /obj/item/rig/bunker/ninja
+
+/obj/structure/closet/crate/secure/gear_loadout/ninja/bunker/fill()
+	..()
+	new /obj/item/clothing/under/lance(src)
+	new /obj/item/clothing/accessory/holster/hip(src)
+	new /obj/item/gun/energy/rifle/laser(src)
+	new /obj/item/gun/projectile/pistol/super_heavy(src)
+	new /obj/item/ammo_magazine/super_heavy(src)
+	new /obj/item/ammo_magazine/super_heavy(src)
 
 /obj/structure/closet/crate/secure/gear_loadout/ninja/vaurca
 	associated_hardsuit = /obj/item/rig/vaurca

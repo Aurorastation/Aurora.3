@@ -18,22 +18,10 @@
 	origin_tech = list(TECH_BIO = 2, TECH_MATERIAL = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 250)
 	center_of_mass = null
+	storage_slot_sort_by_name = TRUE
 
-/obj/item/reagent_containers/personal_inhaler_cartridge/on_reagent_change()
-	update_icon()
-	return
-
-/obj/item/reagent_containers/personal_inhaler_cartridge/update_icon()
-	ClearOverlays()
-	var/rounded_vol = round(reagents.total_volume, round(reagents.maximum_volume / (volume / 5)))
-
-	if(reagents.total_volume)
-		var/mutable_appearance/filling = mutable_appearance(icon, "[initial(icon_state)][rounded_vol]")
-		filling.color = reagents.get_color()
-		AddOverlays(filling)
-
-/obj/item/reagent_containers/personal_inhaler_cartridge/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/reagent_containers/personal_inhaler_cartridge/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 
 	if (distance > 2)
 		return
@@ -48,6 +36,19 @@
 			. += SPAN_NOTICE("The reagents are secured in the aerosol mix.")
 		else
 			. += SPAN_NOTICE("The cartridge seems spent.")
+
+/obj/item/reagent_containers/personal_inhaler_cartridge/on_reagent_change()
+	update_icon()
+	return
+
+/obj/item/reagent_containers/personal_inhaler_cartridge/update_icon()
+	ClearOverlays()
+	var/rounded_vol = round(reagents.total_volume, round(reagents.maximum_volume / (volume / 5)))
+
+	if(reagents.total_volume)
+		var/mutable_appearance/filling = mutable_appearance(icon, "[initial(icon_state)][rounded_vol]")
+		filling.color = reagents.get_color()
+		AddOverlays(filling)
 
 /obj/item/reagent_containers/personal_inhaler_cartridge/attack_self(mob/user as mob)
 	if(is_open_container())
@@ -101,8 +102,8 @@
 	origin_tech = list(TECH_BIO = 2, TECH_MATERIAL = 2)
 	var/eject_when_empty = FALSE
 
-/obj/item/personal_inhaler/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/personal_inhaler/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(distance > 2)
 		return
 	if(stored_cartridge)
@@ -237,6 +238,17 @@
 /obj/item/reagent_containers/personal_inhaler_cartridge/large/inaprovaline/Initialize()
 	. = ..()
 	reagents.add_reagent(/singleton/reagent/inaprovaline, 30)
+	atom_flags ^= ATOM_FLAG_OPEN_CONTAINER
+	update_icon()
+	return
+
+/obj/item/reagent_containers/personal_inhaler_cartridge/mms
+	name = "inhaler cartridge (Mercury Monolithium Sucrose)"
+	desc = "An inhaler cartridge containing 15 units of MMS."
+
+/obj/item/reagent_containers/personal_inhaler_cartridge/mms/Initialize()
+	. = ..()
+	reagents.add_reagent(/singleton/reagent/drugs/mms, volume)
 	atom_flags ^= ATOM_FLAG_OPEN_CONTAINER
 	update_icon()
 	return

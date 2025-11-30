@@ -24,6 +24,21 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	var/drink_flags
 	possible_transfer_amounts = list(1, 2, 3, 4, 5, 10, 15, 25, 30)
 
+/obj/item/reagent_containers/food/drinks/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if (distance > 1)
+		return
+	if(!reagents || reagents.total_volume == 0)
+		. += SPAN_NOTICE("\The [src] is empty!")
+	else if (reagents.total_volume <= volume * 0.25)
+		. += SPAN_NOTICE("\The [src] is almost empty!")
+	else if (reagents.total_volume <= volume * 0.66)
+		. += SPAN_NOTICE("\The [src] is half full!")
+	else if (reagents.total_volume <= volume * 0.90)
+		. += SPAN_NOTICE("\The [src] is almost full!")
+	else
+		. += SPAN_NOTICE("\The [src] is full!")
+
 /obj/item/reagent_containers/food/drinks/Initialize()
 	. = ..()
 	if(drink_flags & IS_GLASS)
@@ -98,21 +113,6 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 		to_chat(user, SPAN_NOTICE("You need to open \the [src]!"))
 		return 1
 	return ..()
-
-/obj/item/reagent_containers/food/drinks/get_examine_text(mob/user, distance, is_adjacent, infix, suffix, get_extended = FALSE)
-	. = ..()
-	if (distance > 1)
-		return
-	if(!reagents || reagents.total_volume == 0)
-		. += SPAN_NOTICE("\The [src] is empty!")
-	else if (reagents.total_volume <= volume * 0.25)
-		. += SPAN_NOTICE("\The [src] is almost empty!")
-	else if (reagents.total_volume <= volume * 0.66)
-		. += SPAN_NOTICE("\The [src] is half full!")
-	else if (reagents.total_volume <= volume * 0.90)
-		. += SPAN_NOTICE("\The [src] is almost full!")
-	else
-		. += SPAN_NOTICE("\The [src] is full!")
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -263,11 +263,21 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 		AddOverlays(filling)
 
 //heehoo bottle flipping
-/obj/item/reagent_containers/food/drinks/waterbottle/throw_impact()
+/obj/item/reagent_containers/food/drinks/waterbottle/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	. = ..()
+
+	// this next part is the bottle flipping code
+	// when a bottle impacts something, it'll determine whether it lands on its side, upright, or on its cap, just like bottle flipping irl
+	// people with apex psionics have a better chance of hitting the flip, because it's funny.
 	if(!QDELETED(src))
-		if(prob(10)) // landed upright in some way
-			if(prob(10)) // landed upright on ITS CAP (1% chance)
+		var/is_psi_apex_or_higher = FALSE
+		var/mob/living/thrower = throwingdatum.thrower?.resolve()
+		if(istype(thrower))
+			is_psi_apex_or_higher = thrower.psi && thrower.psi.get_rank() >= PSI_RANK_APEX
+		var/upright_chance = is_psi_apex_or_higher ? 100 : 10
+		var/cap_chance = is_psi_apex_or_higher ? 50 : 10
+		if(prob(upright_chance)) // landed upright in some way
+			if(prob(cap_chance)) // landed upright on ITS CAP (1% chance)
 				src.visible_message(SPAN_NOTICE("\The [src] lands upright on its cap!"))
 				animate(src, transform = matrix(prob(50)? 180 : -180, MATRIX_ROTATE), time = 3, loop = 0)
 			else
@@ -320,21 +330,21 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	 */
 	var/list/details = list("Customer" = null, "Order" = null)
 
+/obj/item/reagent_containers/food/drinks/takeaway_cup_idris/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Order: [details["Order"]]"
+	. += "For: [details["Customer"]]"
+
 /obj/item/reagent_containers/food/drinks/takeaway_cup_idris/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.ispen() && !use_check_and_message(user))
 		var/choice = tgui_input_list(user, "Which detail do you want to edit?", "Detail Editor", list("Customer", "Order"))
 		switch(choice)
 			if("Customer")
-				details["Customer"] = sanitize(tgui_input_text(user, "What is the customer's name?", "Enter Customer Name"))
+				details["Customer"] = tgui_input_text(user, "What is the customer's name?", "Enter Customer Name")
 			if("Order")
-				details["Order"] = sanitize(tgui_input_text(user, "What is the ordered drink?", "Enter Ordered Drink"))
+				details["Order"] = tgui_input_text(user, "What is the ordered drink?", "Enter Ordered Drink")
 		return
 	return ..()
-
-/obj/item/reagent_containers/food/drinks/takeaway_cup_idris/get_examine_text(mob/user, distance, is_adjacent, infix, suffix, get_extended)
-	. = ..()
-	. += "Order: [details["Order"]]"
-	. += "For: [details["Customer"]]"
 
 //////////////////////////drinkingglass and shaker//
 //Note by Darem: This code handles the mixing of drinks. New drinks go in three places: In Chemistry-Reagents.dm (for the drink
@@ -344,8 +354,6 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 /obj/item/reagent_containers/food/drinks/shaker
 	name = "shaker"
 	desc = "A metal shaker to mix drinks in."
-	desc_info = "Alt Click the shaker to twist the cap closed/loose. If the cap is loose, use the shaker to remove it. Without a cap, use the shaker again to remove the top. \
-	If the shaker has a top fitted, you can Alt Click the shaker to change the transfer amount. Without a top, the transfer amount changes to max automatically."
 	icon = 'icons/obj/shaker.dmi'
 	icon_state = "shaker"
 	item_state = "shaker"
@@ -360,6 +368,13 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	var/twisted = FALSE
 	var/obj/item/shaker_top/top
 	var/obj/item/reagent_containers/food/drinks/shaker_cup/cap
+
+/obj/item/reagent_containers/food/drinks/shaker/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "ALT-Click the shaker to twist the cap closed/loose. If the cap is loose, use the shaker to remove it."
+	. += "Without a cap, use the shaker again to remove the top."
+	. += "If the shaker has a top fitted, you can ALT-Click the shaker to change the transfer amount."
+	. += "Without a top, the transfer amount changes to max automatically."
 
 /obj/item/reagent_containers/food/drinks/shaker/Initialize()
 	. = ..()
@@ -456,7 +471,7 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	return ..()
 
 /obj/item/reagent_containers/food/drinks/shaker/verb/toggle_twist()
-	set category = "Object"
+	set category = "Object.Held"
 	set name = "Twist Cap"
 	set src in usr
 
@@ -468,7 +483,7 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	update_icon()
 
 /obj/item/reagent_containers/food/drinks/shaker/verb/toggle_top()
-	set category = "Object"
+	set category = "Object.Held"
 	set name = "Remove Top"
 	set src in usr
 
@@ -488,7 +503,6 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 /obj/item/shaker_top
 	name = "shaker top"
 	desc = "A metal shaker top with an in-built filter on the bottom."
-	desc_info = "When fitted on a shaker, you can Alt Click the shaker to change transfer amount of the shaker."
 	icon = 'icons/obj/shaker.dmi'
 	icon_state = "shaker_top"
 	item_state = "shaker_top"
@@ -497,10 +511,13 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	pickup_sound = null
 	center_of_mass = list("x" = 16, "y" = 16)
 
+/obj/item/shaker_top/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "When fitted on a shaker, you can ALT-Click the shaker to change its transfer amount."
+
 /obj/item/reagent_containers/food/drinks/shaker_cup
 	name = "shaker cap"
 	desc = "A metal shaker cap that also doubles as a metal cup to measure liquids, or to drink from."
-	desc_info = "Alt Click the cap to change the transfer amount."
 	icon = 'icons/obj/shaker.dmi'
 	icon_state = "shaker_cup"
 	item_state = "shaker_cup"
@@ -510,6 +527,10 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	volume = 10
 	possible_transfer_amounts = list(1,2,3,4,5,10)
 	center_of_mass = list("x" = 16, "y" = 16)
+
+/obj/item/reagent_containers/food/drinks/shaker_cup/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "ALT-Click the cap to change the transfer amount."
 
 /obj/item/reagent_containers/food/drinks/shaker_cup/update_icon()
 	ClearOverlays()

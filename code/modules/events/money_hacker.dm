@@ -1,5 +1,3 @@
-/var/global/account_hack_attempted = 0
-
 /datum/event/money_hacker
 	var/datum/money_account/affected_account
 	endWhen = 100
@@ -9,8 +7,6 @@
 	end_time = world.time + 6000
 	if(SSeconomy.all_money_accounts.len)
 		affected_account = SSeconomy.get_account(pick(SSeconomy.all_money_accounts))
-
-		account_hack_attempted = 1
 	else
 		kill(TRUE)
 

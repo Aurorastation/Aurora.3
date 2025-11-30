@@ -30,7 +30,6 @@ Generally you don't want to put your areas in here; if the area is only used in 
 	icon_state = "space"
 	requires_power = 1
 	always_unpowered = 1
-	dynamic_lighting = 1
 	power_light = 0
 	power_equip = 0
 	power_environ = 0

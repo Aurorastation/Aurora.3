@@ -8,7 +8,7 @@
 	},
 /area/ouerea_bar)
 "ah" = (
-/obj/structure/janitorialcart/full,
+/obj/structure/cart/storage/janitorialcart/full,
 /obj/item/clothing/gloves/janitor/unathi,
 /turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
@@ -465,7 +465,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/ouerea_bar)
 "wR" = (
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = -5
 	},
@@ -1055,7 +1055,7 @@
 "Yd" = (
 /obj/structure/closet/cabinet,
 /obj/item/clothing/accessory/storage/bandolier,
-/obj/item/storage/box/shotgunshells,
+/obj/item/storage/box/shells/buckshot,
 /obj/item/storage/box/fancy/candle_box,
 /obj/item/flame/lighter/zippo,
 /turf/simulated/floor/exoplanet/wood{

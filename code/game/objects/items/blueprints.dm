@@ -1,7 +1,7 @@
 /obj/item/blueprints
 	name = "blueprints"
 	desc = "Blueprints of the station. There is a \"Classified\" stamp and several coffee stains on it."
-	icon = 'icons/obj/item/tools/blueprints.dmi'
+	icon = 'icons/obj/item/blueprints.dmi'
 	icon_state = "blueprints"
 	attack_verb = list("attacked", "bapped", "hit")
 	w_class = WEIGHT_CLASS_SMALL
@@ -98,7 +98,7 @@
 		desc = "Some dusty old blueprints. The markings are old, and seem entirely irrelevant for your wherabouts."
 		return FALSE
 	desc = "Blueprints for the daring souls wanting to establish a planetary outpost. Has some sketchy looking stains and what appears to be bite holes."
-	var/area/overmap/map = global.map_overmap
+	var/area/overmap/map = GLOB.map_overmap
 	for(var/obj/effect/overmap/visitable/sector/exoplanet/E in map)
 		valid_z_levels += E.map_z
 	if(length(SSodyssey.scenario_zlevels))
@@ -106,11 +106,15 @@
 	return TRUE
 
 /obj/item/blueprints/shuttle
-	desc_info = "These blueprints can be used to modify a shuttle. In order to be used, the shuttle must be located on its \"Open Space\" z-level. Newly-created areas will be automatically added to the shuttle. If all shuttle areas are removed, the shuttle will be destroyed!"
 	///Name of the blueprints' linked shuttle. Mapped-in versions should have this preset, or be mapped into the shuttle area itself.
 	var/shuttle_name
 	///The actual overmap shuttle type, for setting on preset blueprints.
 	var/obj/effect/overmap/visitable/ship/landable/shuttle_type
+
+/obj/item/blueprints/shuttle/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "These blueprints can be used to modify a shuttle. In order to be used, the shuttle must be located on its \"Open Space\" z-level."
+	. += "Newly-created areas will be automatically added to the shuttle. If all shuttle areas are removed, the shuttle will be destroyed!"
 
 /obj/item/blueprints/shuttle/set_valid_z_levels()
 	if(SSatlas.current_map.use_overmap)

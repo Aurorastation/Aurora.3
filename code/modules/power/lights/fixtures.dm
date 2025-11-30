@@ -10,29 +10,30 @@
 	var/base_state = "tube"		// base description and icon_state
 	icon_state = "tube_preview"
 	desc = "A lighting fixture."
-	desc_info = "Use grab intent when interacting with a working light to take it out of its fixture."
 	anchored = TRUE
 	layer = ABOVE_HUMAN_LAYER
 	use_power = POWER_USE_ACTIVE
 	idle_power_usage = 2
 	active_power_usage = 20
-	power_channel = LIGHT //Lights are calc'd via area so they dont need to be in the machine list
+	power_channel = AREA_USAGE_LIGHT //Lights are calc'd via area so they dont need to be in the machine list
+	always_area_sensitive = TRUE
 	gfi_layer_rotation = GFI_ROTATION_DEFDIR
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
-	var/brightness_range = 8	// luminosity when on, also used in power calculation
-	var/brightness_power = 0.45
-	var/night_brightness_range = 6
+	var/brightness_range = 7	// luminosity when on, also used in power calculation
+	var/brightness_power = 1
+	var/night_brightness_range = 5
 	var/night_brightness_power = 0.4
 	var/supports_nightmode = TRUE
 	var/nightmode = FALSE
 	var/brightness_color = LIGHT_COLOR_HALOGEN
-	uv_intensity = 255
 	var/status = LIGHT_OK		// LIGHT_OK, _EMPTY, _BURNED or _BROKEN
 	var/flickering = 0
 	var/light_type = /obj/item/light/tube		// the type of light item
 	var/obj/item/light/inserted_light = /obj/item/light/tube
 	var/fitting = "tube"
 	var/must_start_working = FALSE // Whether the bulb can break during Initialize or not
+	/// If true, light sources have 50% chance to be broken instead after Initialize.
+	var/maybe_broken = FALSE
 	var/switchcount = 0			// count of number of times switched on/off
 								// this is used to calc the probability the light burns out
 
@@ -60,102 +61,23 @@
 	)
 	init_flags = 0
 
-/obj/machinery/light/skrell
-	base_state = "skrell"
-	icon_state = "skrell_empty"
-	supports_nightmode = FALSE
-	fitting = "skrell"
-	bulb_is_noisy = FALSE
-	light_type = /obj/item/light/tube
-	inserted_light = /obj/item/light/tube
-	brightness_power = 0.45
-	brightness_color = LIGHT_COLOR_PURPLE
+/obj/machinery/light/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Use Grab intent on a working light to remove it from its fixture."
 
-/obj/machinery/light/floor
-	name = "floor lighting fixture"
-	icon_state = "floortube_example"
-	base_state = "floortube"
-	desc = "A lighting fixture. This one is set into the floor."
-	layer = ABOVE_TILE_LAYER
-	fitting_has_empty_icon = TRUE
-	fitting_is_on_floor = TRUE
-
-// the smaller bulb light fixture
-
-/obj/machinery/light/small
-	icon_state = "bulb_preview"
-	base_state = "bulb"
-	fitting = "bulb"
-	brightness_range = 5
-	brightness_power = 0.45
-	brightness_color = LIGHT_COLOR_TUNGSTEN
-	desc = "A small lighting fixture."
-	light_type = /obj/item/light/bulb
-	inserted_light = /obj/item/light/bulb
-	supports_nightmode = FALSE
-	bulb_is_noisy = FALSE
-
-/obj/machinery/light/small/floor
-	name = "small floor lighting fixture"
-	icon_state = "floor_example"
-	base_state = "floor"
-	desc = "A small lighting fixture. This one is set into the floor."
-	fitting_is_on_floor = TRUE
-	layer = ABOVE_TILE_LAYER
-
-/obj/machinery/light/small/emergency
-	icon_state = "bulb_emergency_preview"
-	brightness_range = 6
-	brightness_power = 0.45
-	brightness_color = LIGHT_COLOR_EMERGENCY_SOFT
-	randomize_color = FALSE
-
-/obj/machinery/light/small/broken
-	status = LIGHT_BROKEN
-	icon_state = "bulb_broken_preview"
-
-/obj/machinery/light/small/red
-	brightness_range = 2.5
-	brightness_power = 0.45
-	brightness_color = LIGHT_COLOR_RED
-	randomize_color = FALSE
-
-/obj/machinery/light/colored/blue
-	brightness_color = LIGHT_COLOR_BLUE
-	randomize_color = FALSE
-
-/obj/machinery/light/colored/red
-	brightness_color = LIGHT_COLOR_RED
-	randomize_color = FALSE
-	icon_state = "tube_red_preview"
-
-/obj/machinery/light/colored/decayed
-	brightness_color = LIGHT_COLOR_DECAYED
-	randomize_color = FALSE
-	icon_state = "tube_decayed_preview"
-
-/obj/machinery/light/colored/dying
-	brightness_color = LIGHT_COLOR_DYING
-	randomize_color = FALSE
-	icon_state = "tube_decayed_preview"
-
-/obj/machinery/light/broken
-	status = LIGHT_BROKEN
-	icon_state = "tube_broken_preview"
-
-/obj/machinery/light/spot
-	name = "spotlight fixture"
-	icon_state = "tube_empty"
-	desc = "An extremely powerful lighting fixture."
-	fitting = "large tube"
-	light_type = /obj/item/light/tube/large
-	inserted_light = /obj/item/light/tube/large
-	brightness_range = 12
-	brightness_power = 3.5
-	supports_nightmode = FALSE
-
-/obj/machinery/light/built
-	start_with_cell = FALSE
+/obj/machinery/light/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	switch(status)
+		if(LIGHT_OK)
+			. += "It is turned [!(stat & POWEROFF) ? "on" : "off"]."
+		if(LIGHT_EMPTY)
+			. += "\The [fitting] has been removed."
+		if(LIGHT_BURNED)
+			. += "\The [fitting] is burnt out."
+		if(LIGHT_BROKEN)
+			. += "\The [fitting] has been smashed."
+	if(cell)
+		. += "The charge meter reads [round((cell.charge / cell.maxcharge) * 100, 0.1)]%."
 
 /obj/machinery/light/built/Initialize()
 	status = LIGHT_EMPTY
@@ -194,13 +116,13 @@
 	if (!must_start_working && mapload && loc && isNotAdminLevel(z))
 		switch(fitting)
 			if("tube")
-				if(prob(2))
+				if(prob(2) || (maybe_broken && prob(50)))
 					broken(1)
 			if("bulb")
-				if(prob(5))
+				if(prob(5) || (maybe_broken && prob(50)))
 					broken(1)
 			if("large tube")
-				if(prob(1))
+				if(prob(1) || (maybe_broken && prob(50)))
 					broken(1)
 
 	if(randomize_color)
@@ -352,7 +274,7 @@
 /obj/machinery/light/proc/use_emergency_power(pwr = 0.2)
 	if (!has_emergency_power(pwr))
 		return FALSE
-	if (cell.charge > 300)	//it's meant to handle 120 W, ya doofus
+	if (cell.charge > 600) // Default mini-cell max is 500.
 		visible_message(SPAN_WARNING("\The [src] short-circuits!"), SPAN_WARNING("You hear glass breaking."))
 		broken()
 		return FALSE
@@ -371,7 +293,7 @@
 	else
 		return light_range != brightness_range || light_power != brightness_power || light_color != brightness_color
 
-/obj/machinery/light/attack_generic(var/mob/user, var/damage)
+/obj/machinery/light/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	if(!damage)
 		return
 	if(status == LIGHT_EMPTY)
@@ -387,21 +309,6 @@
 		broken()
 	user.do_attack_animation(src)
 	return TRUE
-
-// examine verb
-/obj/machinery/light/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	switch(status)
-		if(LIGHT_OK)
-			. += "It is turned [!(stat & POWEROFF) ? "on" : "off"]."
-		if(LIGHT_EMPTY)
-			. += "\The [fitting] has been removed."
-		if(LIGHT_BURNED)
-			. += "\The [fitting] is burnt out."
-		if(LIGHT_BROKEN)
-			. += "\The [fitting] has been smashed."
-	if(cell)
-		. += "The charge meter reads [round((cell.charge / cell.maxcharge) * 100, 0.1)]%."
 
 // attack with item - insert light (if right type), otherwise try to break the light
 
@@ -731,3 +638,175 @@
 	. = ..()
 	brightness_color = initial(brightness_color)
 	update()
+
+/*
+##############################
+		LIGHT SUBTYPES
+##############################
+*/
+
+//---- Tube lights
+
+/obj/machinery/light/built
+	start_with_cell = FALSE
+
+/obj/machinery/light/broken
+	status = LIGHT_BROKEN
+	icon_state = "tube_broken_preview"
+
+/obj/machinery/light/maybe_broken
+	maybe_broken = TRUE
+	icon_state = "tube_maybe_broken_preview"
+
+/obj/machinery/light/maybe_broken/decayed
+	brightness_color = LIGHT_COLOR_DECAYED
+	randomize_color = FALSE
+
+/obj/machinery/light/skrell
+	base_state = "skrell"
+	icon_state = "skrell_empty"
+	supports_nightmode = FALSE
+	fitting = "skrell"
+	bulb_is_noisy = FALSE
+	light_type = /obj/item/light/tube
+	inserted_light = /obj/item/light/tube
+	brightness_power = 0.45
+	brightness_color = LIGHT_COLOR_PURPLE
+
+/obj/machinery/light/spot
+	name = "spotlight fixture"
+	icon_state = "tube_empty"
+	desc = "An extremely powerful lighting fixture."
+	fitting = "large tube"
+	light_type = /obj/item/light/tube/large
+	inserted_light = /obj/item/light/tube/large
+	brightness_range = 12
+	brightness_power = 3.5
+	supports_nightmode = FALSE
+
+/obj/machinery/light/colored/blue
+	brightness_color = LIGHT_COLOR_BLUE
+	randomize_color = FALSE
+
+/obj/machinery/light/colored/red
+	brightness_color = LIGHT_COLOR_RED
+	randomize_color = FALSE
+	icon_state = "tube_red_preview"
+
+/obj/machinery/light/colored/violet
+	brightness_color = LIGHT_COLOR_VIOLET
+	randomize_color = FALSE
+	icon_state = "tube_violet_preview"
+
+/obj/machinery/light/colored/decayed
+	brightness_color = LIGHT_COLOR_DECAYED
+	randomize_color = FALSE
+	icon_state = "tube_decayed_preview"
+
+/obj/machinery/light/colored/dying
+	brightness_color = LIGHT_COLOR_DYING
+	randomize_color = FALSE
+	icon_state = "tube_decayed_preview"
+
+/obj/machinery/light/colored/decayed/dimmed
+	brightness_power = 0.2
+
+//---- Floor lights
+
+/obj/machinery/light/floor
+	name = "floor lighting fixture"
+	icon_state = "floortube_example"
+	base_state = "floortube"
+	desc = "A lighting fixture. This one is set into the floor."
+	layer = ABOVE_TILE_LAYER
+	fitting_has_empty_icon = TRUE
+	fitting_is_on_floor = TRUE
+
+/obj/machinery/light/floor/broken
+	status = LIGHT_BROKEN
+	icon_state = "floortube"
+
+/obj/machinery/light/floor/maybe_broken
+	maybe_broken = TRUE
+	icon_state = "floortube_maybe_broken_preview"
+
+/obj/machinery/light/floor/maybe_broken/decayed
+	brightness_color = LIGHT_COLOR_DECAYED
+	randomize_color = FALSE
+
+/obj/machinery/light/floor/maybe_broken
+	maybe_broken = TRUE
+	icon_state = "floortube_maybe_broken"
+
+/obj/machinery/light/floor/decayed
+	brightness_color = "#fabd6d"
+	randomize_color = FALSE
+	brightness_power = 0.3
+
+/obj/machinery/light/floor/decayed/brighter
+	brightness_power = 0.45
+
+/obj/machinery/light/floor/decayed/brighter/broken
+	status = LIGHT_BROKEN
+	icon_state = "floortube"
+
+//---- Small bulb lights
+
+/obj/machinery/light/small
+	icon_state = "bulb_preview"
+	base_state = "bulb"
+	fitting = "bulb"
+	brightness_range = 5
+	brightness_power = 0.45
+	brightness_color = LIGHT_COLOR_TUNGSTEN
+	desc = "A small lighting fixture."
+	light_type = /obj/item/light/bulb
+	inserted_light = /obj/item/light/bulb
+	supports_nightmode = FALSE
+	bulb_is_noisy = FALSE
+
+/obj/machinery/light/small/broken
+	status = LIGHT_BROKEN
+	icon_state = "bulb_broken_preview"
+
+/obj/machinery/light/small/maybe_broken
+	maybe_broken = TRUE
+	icon_state = "bulb_maybe_broken_preview"
+
+/obj/machinery/light/small/maybe_broken/decayed
+	brightness_color = LIGHT_COLOR_DECAYED
+	randomize_color = FALSE
+
+/obj/machinery/light/small/floor
+	name = "small floor lighting fixture"
+	icon_state = "floor_example"
+	base_state = "floor"
+	desc = "A small lighting fixture. This one is set into the floor."
+	fitting_is_on_floor = TRUE
+	layer = ABOVE_TILE_LAYER
+
+/obj/machinery/light/small/floor/emergency
+	icon_state = "floor_emergency"
+	brightness_range = 6
+	brightness_power = 0.45
+	brightness_color = LIGHT_COLOR_EMERGENCY_SOFT
+	randomize_color = FALSE
+
+/obj/machinery/light/small/emergency
+	icon_state = "bulb_emergency_preview"
+	brightness_range = 6
+	brightness_power = 0.45
+	brightness_color = LIGHT_COLOR_EMERGENCY_SOFT
+	randomize_color = FALSE
+
+/obj/machinery/light/small/red
+	brightness_range = 2.5
+	brightness_power = 0.45
+	brightness_color = LIGHT_COLOR_RED
+	randomize_color = FALSE
+
+/obj/machinery/light/small/decayed
+	brightness_range = 6
+	brightness_power = 0.45
+	brightness_color = LIGHT_COLOR_DECAYED
+	randomize_color = FALSE

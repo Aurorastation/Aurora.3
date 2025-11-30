@@ -1,5 +1,7 @@
 /turf/simulated/floor/exoplanet/snow
 	name = "snow"
+	gender = PLURAL
+	desc = "It crunches as you pass over it."
 	icon = 'icons/turf/smooth/snow40.dmi'
 	icon_state = "snow"
 	dirt_color = "#e3e7e8"
@@ -14,8 +16,9 @@
 
 /turf/simulated/floor/exoplanet/snow/Initialize()
 	. = ..()
-	pixel_x = -4
-	pixel_y = -4
+	var/matrix/M = new
+	M.Translate(-4, -4)
+	transform = M
 	icon_state = pick("snow[rand(1,2)]","snow0","snow0")
 	QUEUE_SMOOTH_NEIGHBORS(src)
 	QUEUE_SMOOTH(src)
@@ -32,6 +35,8 @@
 
 /turf/simulated/floor/exoplanet/permafrost
 	name = "permafrost"
+	gender = PLURAL
+	desc = "Icy, frozen ground."
 	icon = 'icons/turf/flooring/snow.dmi'
 	icon_state = "permafrost"
 	footstep_sound = /singleton/sound_category/asteroid_footstep

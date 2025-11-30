@@ -5,10 +5,6 @@
 	name = "pill"
 	desc = "a pill."
 	icon = 'icons/obj/chemical.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/stacks/lefthand_medical.dmi',
-		slot_r_hand_str = 'icons/mob/items/stacks/righthand_medical.dmi',
-		)
 	icon_state = null
 	item_state = "pill"
 	possible_transfer_amounts = null
@@ -17,6 +13,8 @@
 	volume = 60
 	drop_sound = 'sound/items/drop/food.ogg'
 	pickup_sound = 'sound/items/pickup/food.ogg'
+	storage_slot_sort_by_name = TRUE
+	contained_sprite = TRUE
 
 /obj/item/reagent_containers/pill/New()
 	..()
@@ -51,7 +49,7 @@
 		var/contained = reagentlist()
 		target_mob.attack_log +="\[[time_stamp()]\] <font color='orange'>Has been fed [name] by [key_name(user)] Reagents: [contained]</font>"
 		user.attack_log += "\[[time_stamp()]\] <span class='warning'>Fed [name] to [key_name(target_mob)] Reagents: [contained]</span>"
-		msg_admin_attack("[key_name_admin(user)] fed [key_name_admin(target_mob)] with [name] Reagents: [contained] (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target_mob))
+		msg_admin_attack("[key_name_admin(user)] fed [key_name_admin(target_mob)] with [name] Reagents: [contained] (INTENT: [uppertext(user.a_intent)]) (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target_mob))
 
 		if(reagents.total_volume)
 			reagents.trans_to_mob(target_mob, reagents.total_volume, CHEM_INGEST)
@@ -69,7 +67,7 @@
 		to_chat(user, SPAN_NOTICE("You dissolve \the [src] in [target]."))
 
 		user.attack_log += "\[[time_stamp()]\] <span class='warning'>Spiked \a [target] with a pill. Reagents: [reagentlist()]</span>"
-		msg_admin_attack("[user.name] ([user.ckey]) spiked \a [target] with a pill. Reagents: [reagentlist()] (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target))
+		msg_admin_attack("[user.name] ([user.ckey]) spiked \a [target] with a pill. Reagents: [reagentlist()] (INTENT: [uppertext(user.a_intent)]) (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target))
 
 		reagents.trans_to(target, reagents.total_volume)
 		for(var/mob/O in viewers(2, user))
@@ -117,7 +115,10 @@
 /obj/item/reagent_containers/pill/cyanide
 	icon_state = "pill5"
 	reagents_to_add = list(/singleton/reagent/toxin/cyanide = 50)
-	desc_antag = "A cyanide pill. Deadly if swallowed."
+
+/obj/item/reagent_containers/pill/cyanide/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "A cyanide pill. Deadly if swallowed."
 
 /obj/item/reagent_containers/pill/adminordrazine
 	name = "Adminordrazine Pill"
@@ -392,3 +393,21 @@
 	desc = "A pill used to treat nicotine addiction."
 	icon_state = "pill18"
 	reagents_to_add = list(/singleton/reagent/mental/nicotine = 5)
+
+/obj/item/reagent_containers/pill/colorspace
+	name = "5u Colorspace Pill"
+	desc = "A recreational drug, legal in Biesel."
+	icon_state = "pill8"
+	reagents_to_add = list(/singleton/reagent/drugs/colorspace = 5)
+
+/obj/item/reagent_containers/pill/snowflake
+	name = "5u Snowflake Pill"
+	desc = "A recreational drug, legal in Biesel, despite the dangers of overdoses."
+	icon_state = "pill18"
+	reagents_to_add = list(/singleton/reagent/drugs/snowflake = 5)
+
+/obj/item/reagent_containers/pill/psilocybin
+	name = "5u Psilocybin Pill"
+	desc = "A strong psychotropic derived from certain species of mushroom."
+	icon_state = "pill10"
+	reagents_to_add = list(/singleton/reagent/drugs/psilocybin = 5)

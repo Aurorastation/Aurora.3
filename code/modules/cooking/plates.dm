@@ -8,9 +8,6 @@ Plates that can hold your cooking stuff
 /obj/item/reagent_containers/bowl
 	name = "bowl"
 	desc = "A small bowl for serving liquid meals in."
-	desc_info = "Click with food to put food on.<br>\
-	- Click with cutlery to eat some.<br>\
-	- Click it with the active hand to remove food."
 	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "bowl"
 	fragile = 3
@@ -19,8 +16,14 @@ Plates that can hold your cooking stuff
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	var/grease = FALSE
 
-/obj/item/reagent_containers/bowl/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/reagent_containers/bowl/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Click with food to put food into it."
+	. += "If it has food on it, click with cutlery to scoop some food up."
+	. += "If it has food on it, click it with the active hand to remove the food."
+
+/obj/item/reagent_containers/bowl/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(grease)
 		. += SPAN_WARNING("\The [name] looks a little unclean.")
 
@@ -81,7 +84,7 @@ Plates that can hold your cooking stuff
 	return
 
 /obj/item/reagent_containers/bowl/on_rag_wipe(obj/item/reagent_containers/glass/rag/R)
-	. = ..()
+	clean_blood()
 	if(grease)
 		grease = FALSE
 		update_icon()
@@ -108,17 +111,17 @@ Plates that can hold your cooking stuff
 	icon_state = "plate"
 	var/obj/item/holding
 
+/obj/item/reagent_containers/bowl/plate/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(holding)
+		. += "It looks like there is \a [SPAN_INFO(holding.name)] on \the [src]."
+		. += SPAN_INFO(" - [holding.desc]")
+
 /obj/item/reagent_containers/bowl/plate/Destroy()
 	if(holding)
 		holding = null
 		qdel(holding)
 	return ..()
-
-/obj/item/reagent_containers/bowl/plate/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(holding)
-		. += "It looks like there is \a [SPAN_INFO(holding.name)] on \the [src]."
-		. += SPAN_INFO(" - [holding.desc]")
 
 /obj/item/reagent_containers/bowl/plate/attackby(obj/item/attacking_item, mob/user)
 	if((istype(attacking_item, /obj/item/reagent_containers/food/snacks) || istype(attacking_item, /obj/item/trash)) && !holding)
@@ -186,3 +189,42 @@ Plates that can hold your cooking stuff
 	desc = "A small ornamental cauldron used as an altar by the worshippers of Zhukamir, the Ma'ta'ke deity of agriculture and cooking."
 	icon = 'icons/obj/tajara_items.dmi'
 	icon_state = "zhukamir"
+
+/obj/item/reagent_containers/bowl/gravy_boat
+	name = "gravy boat"
+	desc = "Let's sail the seas of deliciousness!"
+	icon_state = "gravy"
+	amount_per_transfer_from_this = 5
+	possible_transfer_amounts = list(5, 10, 30)
+	w_class = WEIGHT_CLASS_SMALL
+	volume = 40
+	force = 14
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
+	drop_sound = 'sound/items/drop/glass.ogg'
+	pickup_sound = 'sound/items/pickup/glass.ogg'
+
+/obj/item/reagent_containers/bowl/gravy_boat/afterattack(var/obj/target, var/mob/user, var/flag)
+	if(!target.is_open_container() || !flag)
+		return ..(target, user, flag)
+	if(reagents.total_volume)
+		if(!target.reagents || !REAGENTS_FREE_SPACE(target.reagents))
+			to_chat(user, SPAN_NOTICE("\The [target] is full."))
+			return TRUE
+		var/trans = reagents.trans_to(target, amount_per_transfer_from_this) //sprinkling reagents on generic non-mobs
+		user.visible_message(
+			"[SPAN_BOLD("[user]")] pours onto \the [target] from \the [src].",
+			SPAN_NOTICE("You transfer [trans] units of the solution.")
+		)
+		playsound(get_turf(user), /singleton/sound_category/generic_pour_sound, 10, TRUE)
+	return TRUE
+
+/obj/item/reagent_containers/bowl/gravy_boat/on_reagent_change()
+	update_icon()
+
+/obj/item/reagent_containers/bowl/gravy_boat/update_icon()
+	ClearOverlays()
+	if(!reagents.total_volume)
+		return
+	var/image/over = image(icon, "gravy_over")
+	over.color = reagents.get_color()
+	AddOverlays(over)

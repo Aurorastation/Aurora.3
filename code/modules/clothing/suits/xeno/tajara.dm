@@ -198,6 +198,43 @@
 	item_state = "hb_cloak"
 	flags_inv = 0
 
+/obj/item/clothing/suit/storage/hooded/tajaran/colorable
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "taj_cloak_colorable"
+	item_state = "taj_cloak_colorable"
+	icon_override = null
+	contained_sprite = TRUE
+	build_from_parts = TRUE
+	has_accents = TRUE
+
+/obj/item/clothing/suit/storage/hooded/tajaran/colorable/fancy
+	name = "fancy adhomian cloak"
+	desc = "A fancy Adhomian cloak."
+	icon_state = "hb_cloak_colorable"
+	item_state = "hb_cloak_colorable"
+	worn_overlay =  "adornment"
+	flags_inv = 0
+
+/obj/item/clothing/suit/storage/hooded/tajaran/colorable/royal
+	name = "adhomian royal cloak"
+	desc = "An Adhomian cloak with an asymmetric design."
+	icon_state = "royal_cloak_colorable"
+	item_state = "royal_cloak_colorable"
+	worn_overlay =  "adornment"
+	flags_inv = 0
+
+/obj/item/clothing/suit/storage/hooded/tajaran/colorable/amohda
+	name = "amohdan cloak"
+	desc = "Originally used by the Amohdan swordsmen before the First Revolution, this cloak is now commonly worn by the island population."
+	icon_state = "amohda_cloak_colorable"
+	item_state = "amohda_cloak_colorable"
+	desc_extended = "The Feudal Era of Amohda is famous for the steel swords which became common. Many renowned swordsmen and famous warriors would travel the land fighting duels of \
+	single combat in their quests to become the greatest swordsman. Modern Amohda is under the control of the DPRA's Adhomai Liberation Army, further solidified after the defeat \
+	of a Nationalist revolt vying for a truly independent Amohda. The region is still beset by trouble within and without as a deeply divided Amohdan people continue to struggle in the \
+	bloody conflict to stamp out Nationalistic and to a lesser extent, divided Monarchistic sentiments while their rivals from the New Kingdom of Adhomai watch from the seas they rule \
+	and the People's Republic of Adhomai looms over the southern end of the island..."
+	flags_inv = 0
+
 /obj/item/clothing/suit/armor/amohda
 	name = "amohdan swordsman armor"
 	desc = "A suit of armor used by the traditional warriors of Amohda."
@@ -210,11 +247,11 @@
 	flags_inv = HIDEJUMPSUIT|HIDETAIL
 	species_restricted = list(BODYTYPE_TAJARA)
 	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_PISTOL,
-		laser = ARMOR_LASER_SMALL,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_MINOR
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_PISTOL,
+		LASER = ARMOR_LASER_SMALL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_MINOR
 	)
 	siemens_coefficient = 0.35
 	desc_extended = "The Feudal Era of Amohda is famous for the steel swords which became common. Many renowned swordsmen and famous warriors would travel the land fighting duels of \
@@ -231,11 +268,11 @@
 	item_state = "cuirass"
 	contained_sprite = TRUE
 	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_PISTOL,
-		laser = ARMOR_LASER_SMALL,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_MINOR
+		MELEE = ARMOR_MELEE_MAJOR,
+		BULLET = ARMOR_BALLISTIC_PISTOL,
+		LASER = ARMOR_LASER_SMALL,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_MINOR
 	)
 
 /obj/item/clothing/suit/storage/tajaran/pra_jacket
@@ -251,11 +288,11 @@
 	name = "hadiist service jacket"
 	desc = "An olive military jacket worn by the forces of the Grand People's Army."
 	armor = list(
-		melee = ARMOR_MELEE_KNIVES,
-		bullet = ARMOR_BALLISTIC_MINOR,
-		laser = ARMOR_LASER_MINOR,
-		energy = ARMOR_ENERGY_MINOR,
-		bomb = ARMOR_BOMB_MINOR
+		MELEE = ARMOR_MELEE_KNIVES,
+		BULLET = ARMOR_BALLISTIC_MINOR,
+		LASER = ARMOR_LASER_MINOR,
+		ENERGY = ARMOR_ENERGY_MINOR,
+		BOMB = ARMOR_BOMB_MINOR
 	)
 	siemens_coefficient = 0.50
 	allowed = list(/obj/item/gun/projectile/shotgun/pump/rifle, /obj/item/ammo_magazine/boltaction, /obj/item/gun/projectile/automatic/rifle/adhomian, /obj/item/device/flashlight)
@@ -332,3 +369,20 @@
 	item_state = "explorer_jacket"
 	contained_sprite = TRUE
 	allowed = list(/obj/item/grenade/dynamite, /obj/item/melee/whip, /obj/item/gun/projectile/revolver, /obj/item/pickaxe)
+
+/obj/item/clothing/suit/storage/tajaran/pra_cop
+	name = "PRA NPD jacket"
+	desc = "A warm and thick jacket with the markings of the PRA national police department."
+	desc_extended = "The National Police Department is the largest and best equipped police force on Adhomai. \
+	Responsible for law enforcement in the People's Republic, the olive drab uniforms and polished badges have maintained peace and order, \
+	or inspired fear, within the population since the nation's founding."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "taj_cop_suit"
+	item_state = "taj_cop_suit"
+	contained_sprite = TRUE
+
+/obj/item/clothing/suit/storage/tajaran/pra_cop/rural
+	name = "rural PRA NPD jacket"
+	desc = "A jacket with the markings of the PRA national police department that can commonly be found in the rural parts of the PRA."
+	icon_state = "taj_cop_suit_rural"
+	item_state = "taj_cop_suit_rural"

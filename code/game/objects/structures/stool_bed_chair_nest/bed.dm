@@ -1,7 +1,7 @@
 /* Beds... get your mind out of the gutter, they're for sleeping!
  * Contains:
- * 		Beds
- *		Roller beds
+ * * Beds
+ * * Roller beds
  */
 
 /*
@@ -18,9 +18,6 @@
 /obj/structure/bed
 	name = "bed"
 	desc = "This is used to lie in, sleep in or strap on."
-	desc_info = "Click and drag yourself (or anyone) to this to buckle in. Click on this with an empty hand to undo the buckles.<br>\
-	Anyone with restraints, such as handcuffs, will not be able to unbuckle themselves. They must use the Resist button, or verb, to break free of \
-	the buckles, instead. \ To unbuckle people as a stationbound, click the bed with an empty gripper."
 	icon = 'icons/obj/structure/beds.dmi'
 	icon_state = "bed"
 	anchored = TRUE
@@ -47,18 +44,36 @@
 	var/mob/living/pulling = null
 	var/propelled = 0 // Check for fire-extinguisher-driven chairs
 
+/obj/structure/bed/mechanics_hints()
+	. = list()
+	. += ..()
+	. += "Click and drag yourself (or anyone) to this to buckle in."
+	. += "Click on this with an empty hand to undo the buckles."
+	. += "Anyone with restraints, such as handcuffs, will not be able to unbuckle themselves. They must use the Resist button, or verb, to break free of \
+	the buckles instead."
+	. += "To unbuckle people as a stationbound, click the bed with an empty gripper."
+	if(held_item)
+		. += "Click and drag this onto yourself to pick it up."
+
+/obj/structure/bed/assembly_hints()
+	. = list()
+	. += ..()
+	if(!padding_material)
+		. += "It could be padded with <b>cloth or leather</b>."
+
+/obj/structure/bed/disassembly_hints()
+	. = list()
+	. += ..()
+	if(padding_material)
+		. += "Its padding has visible seams that could be <b>cut</b>."
+	. += "It is held together by a couple of <b>bolts</b>."
+
 /obj/structure/bed/Initialize()
 	. = ..()
 	LAZYADD(can_buckle, /mob/living)
 
 /obj/structure/bed/New(newloc, new_material = MATERIAL_STEEL, new_padding_material, new_painted_colour)
 	..(newloc)
-	if(can_buckle)
-		desc_info = "Click and drag yourself (or anyone) to this to buckle in. Click on this with an empty hand to undo the buckles.<br>\
-	Anyone with restraints, such as handcuffs, will not be able to unbuckle themselves. They must use the Resist button, or verb, to break free of \
-	the buckles instead. "
-	if(held_item)
-		desc_info += "Click and drag this onto yourself to pick it up. "
 	material = SSmaterials.get_material_by_name(new_material)
 	if(!istype(material))
 		qdel(src)
@@ -122,10 +137,10 @@
 		painted_colour = new_colour
 		return painted_colour != last_colour
 
-/obj/structure/bed/forceMove(atom/dest)
+/obj/structure/bed/forceMove(atom/destination)
 	. = ..()
 	if(buckled)
-		buckled.forceMove(dest)
+		buckled.forceMove(destination)
 
 /obj/structure/bed/ex_act(severity)
 	switch(severity)
@@ -299,7 +314,7 @@
 			occupant.visible_message(SPAN_DANGER("[pulling] has thrusted \the [name] into \the [A], throwing \the [occupant] out of it!"))
 			pulling.attack_log += "\[[time_stamp()]\]<span class='warning'> Crashed [occupant.name]'s ([occupant.ckey]) [name] into \a [A]</span>"
 			occupant.attack_log += "\[[time_stamp()]\]<font color='orange'> Thrusted into \a [A] by [pulling.name] ([pulling.ckey]) with \the [name]</font>"
-			msg_admin_attack("[pulling.name] ([pulling.ckey]) has thrusted [occupant.name]'s ([occupant.ckey]) [name] into \a [A] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[pulling.x];Y=[pulling.y];Z=[pulling.z]'>JMP</a>)",ckey=key_name(pulling),ckey_target=key_name(occupant))
+			msg_admin_attack("[pulling.name] ([pulling.ckey]) has thrusted [occupant.name]'s ([occupant.ckey]) [name] into \a [A] (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[pulling.x];Y=[pulling.y];Z=[pulling.z]'>JMP</a>)",ckey=key_name(pulling),ckey_target=key_name(occupant))
 		else
 			occupant.visible_message(SPAN_DANGER("[occupant] crashed into \the [A]!"))
 
@@ -447,6 +462,9 @@
 		update_icon()
 
 /obj/structure/bed/roller/proc/collapse()
+	if(buckled)
+		to_chat(usr, SPAN_WARNING("\The [buckled] is on \the [src]. Remove them first."))
+		return
 	usr.visible_message(SPAN_NOTICE("<b>[usr]</b> collapses \the [src]."), SPAN_NOTICE("You collapse \the [src]"))
 	new held_item(get_turf(src))
 	qdel(src)
@@ -492,34 +510,35 @@
 	update_icon()
 	STOP_PROCESSING(SSprocessing, src)
 
-/obj/structure/bed/roller/MouseDrop(over_object, src_location, over_location)
+/obj/structure/bed/roller/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
 	..()
-	if(use_check(usr) || !Adjacent(usr))
+	if(use_check(user) || !Adjacent(user))
 		return
-	if(!ishuman(usr) && (!isrobot(usr) || isDrone(usr))) //Humans and borgs can collapse, but not drones
+	if(!ishuman(user) && (!isrobot(user) || isDrone(user))) //Humans and borgs can collapse, but not drones
 		return
-	if(over_object == buckled && beaker)
+	if(over == buckled && beaker)
 		if(iv_attached)
-			detach_iv(buckled, usr)
+			detach_iv(buckled, user)
 		else
-			attach_iv(buckled, usr)
+			attach_iv(buckled, user)
 		return
-	if(usr != over_object && ishuman(over_object))
-		if(user_buckle(over_object, usr))
-			attach_iv(buckled, usr)
+	if(user != over && ishuman(over))
+		if(user_buckle(over, user))
+			attach_iv(buckled, user)
 			return
 	if(beaker)
-		remove_beaker(usr)
+		remove_beaker(user)
 		return
 	if(vitals)
-		remove_vitals(usr)
+		remove_vitals(user)
 		return
 	if(buckled)
+		to_chat(user, SPAN_WARNING("\The [buckled] is on \the [src]. Remove them first."))
 		return
 	collapse()
 
 /obj/structure/bed/roller/Move()
-	..()
+	. = ..()
 	if(buckled)
 		if(buckled.buckled_to == src)
 			buckled.forceMove(src.loc)
@@ -653,6 +672,14 @@
 	 */
 	var/initial_beds = 4
 
+/obj/structure/roller_rack/feedback_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += "[initial(desc)] \nIt is holding [LAZYLEN(held)] beds."
+
+/obj/structure/roller_rack/assembly_hints(mob/user, distance, is_adjacent)
+	. = list()
+	. += "It [anchored ? "is" : "could be"] anchored to the floor with a couple of <b>screws</b>."
+
 /obj/structure/roller_rack/Initialize()
 	. = ..()
 	for(var/_ in 1 to initial_beds)
@@ -673,10 +700,6 @@
 		I.pixel_x = (5 * beds)
 		beds++
 		AddOverlays(I)
-
-/obj/structure/roller_rack/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
-	desc = "[initial(desc)] \nIt is holding [LAZYLEN(held)] beds."
-	. = ..()
 
 /obj/structure/roller_rack/attack_hand(mob/user)
 	if(!LAZYLEN(held))

@@ -37,7 +37,7 @@
 /obj/item/tajcard
 	name = "collectable tajaran card"
 	desc = "A collectable card with an illustration of a famous Tajaran figure, usually found inside cigarette packets."
-	icon = 'icons/obj/playing_cards.dmi'
+	icon = 'icons/obj/item/playing_cards.dmi'
 	icon_state = "tajcig"
 	drop_sound = 'sound/items/drop/paper.ogg'
 	pickup_sound = 'sound/items/pickup/paper.ogg'
@@ -127,7 +127,7 @@
 			carrying primarily the essentials for survival and only a token amount of ammunition. Many detachments also make use of snow skiis in order to travel quickly in mountainous regions. \
 			They are well-known for their iconic thick light-colored cloaks which they wear while traversing the vast countrysides for warmth, as well as camouflage."
 
-/obj/item/pocketwatch/adhomai
+/obj/item/clothing/wrists/watch/pocketwatch/adhomai
 	name = "adhomian watch"
 	desc = "A watch made in the traditional adhomian style. It can be stored in a pocket or worn around the neck."
 	desc_extended = "Baltoris a fortress founded during the Gunpowder Age; it was the landing site of the royal armies during the Suns'wars. Baltor plays a strategic role in controlling the \
@@ -137,40 +137,20 @@
 	icon_state = "adhomai_clock"
 	item_state = "adhomai_clock"
 	contained_sprite = TRUE
-	slot_flags = SLOT_MASK
-	var/static/months = list("Menshe-aysaif", "Sil'nryy-aysaif", "Menshe-rhazzimy", "Sil'nryy-rhazzimy")
+	slot_flags = SLOT_MASK | SLOT_WRISTS | SLOT_BELT | SLOT_S_STORE
 
-/obj/item/pocketwatch/adhomai/get_mask_examine_text(mob/user)
+/obj/item/clothing/wrists/watch/pocketwatch/adhomai/get_mask_examine_text(mob/user)
 	return "around [user.get_pronoun("his")] neck"
 
-/obj/item/pocketwatch/adhomai/checktime(mob/user)
-	set category = "Object"
+/obj/item/clothing/wrists/watch/pocketwatch/adhomai/checktime(mob/user)
+	set category = "Object.Equipped"
 	set name = "Check Time"
 	set src in usr
 
 	if(closed)
 		to_chat(usr, SPAN_WARNING("You check your watch, realising it's closed."))
 	else
-
-		var/adhomian_year = GLOB.game_year + 1158
-		var/current_month = text2num(time2text(world.realtime, "MM"))
-		var/current_day = text2num(time2text(world.realtime, "DD"))
-		var/adhomian_day
-		var/adhomian_month = src.months[Ceiling(current_month/3)]
-		switch(current_month)
-			if(2, 5, 8, 11)
-				current_day += 31
-			if(6, 9, 12)
-				current_day += 61
-			if(3)
-				current_day += 59 + isLeap(text2num(time2text(world.realtime, "YYYY"))) // we can conveniently use the result of `isLeap` to add 1 when we are in a leap year
-		var/real_time = text2num(time2text(world.time + (REALTIMEOFDAY - (TIME_OFFSET HOURS)), "hh"))
-		var/adhomian_time = real_time
-		if(ISEVEN(current_day))
-			adhomian_time = real_time + 24
-		adhomian_day = FLOOR(current_day / 2, 1)
-		to_chat(usr, "You check your [src.name], glancing over at the watch face, reading the time to be '[adhomian_time]'. Today's date is the '[adhomian_day]th day of [adhomian_month], [adhomian_year]'.")
-
+		to_chat(usr, SPAN_NOTICE("You check your [name], glancing over at the watch face, reading the time to be '[tajaran_time()]'. Today's date is the '[tajaran_date()]th day of [tajaran_month()], [tajaran_year()]'."))
 
 /obj/item/flame/lighter/adhomai
 	name = "adhomian lighter"

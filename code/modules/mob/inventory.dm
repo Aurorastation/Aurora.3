@@ -72,10 +72,10 @@
  * * item_to_equip - An `/obj/item` to try to equip
  * * slot - The slot to equip it to, one of the `slot_*` defines in `code\__DEFINES\items_clothing.dm`
  */
-/mob/proc/equip_to_slot_or_del(obj/item/item_to_equip, slot)
+/mob/proc/equip_to_slot_or_del(obj/item/item_to_equip, slot, initial = TRUE)
 	SHOULD_NOT_SLEEP(TRUE)
 
-	. = equip_to_slot_if_possible(item_to_equip, slot, TRUE, TRUE, FALSE, TRUE)
+	. = equip_to_slot_if_possible(item_to_equip, slot, TRUE, TRUE, FALSE, TRUE, initial)
 
 // Convinience proc.  Collects crap that fails to equip either onto the mob's back, or drops it.
 // Used in job equipping so shit doesn't pile up at the start loc.
@@ -99,26 +99,27 @@
 			W.forceMove(T)
 			return T
 
-//The list of slots by priority. equip_to_appropriate_slot() uses this list. Doesn't matter if a mob type doesn't have a slot.
-var/list/slot_equipment_priority = list( \
-		slot_back,\
-		slot_wear_id,\
-		slot_w_uniform,\
-		slot_wear_suit,\
-		slot_wear_mask,\
-		slot_head,\
-		slot_shoes,\
-		slot_gloves,\
-		slot_l_ear,\
-		slot_r_ear,\
-		slot_glasses,\
-		slot_belt,\
-		slot_s_store,\
-		slot_tie,\
-		slot_l_store,\
-		slot_r_store,\
-		slot_wrists\
-	)
+///The list of slots by priority. equip_to_appropriate_slot() uses this list. Doesn't matter if a mob type doesn't have a slot.
+GLOBAL_LIST_INIT(slot_equipment_priority, list(
+		slot_back,
+		slot_wear_id,
+		slot_w_uniform,
+		slot_wear_suit,
+		slot_wear_mask,
+		slot_head,
+		slot_shoes,
+		slot_gloves,
+		slot_l_ear,
+		slot_r_ear,
+		slot_glasses,
+		slot_belt,
+		slot_s_store,
+		slot_tie,
+		slot_l_store,
+		slot_r_store,
+		slot_wrists,
+		slot_pants
+	))
 
 //Checks if a given slot can be accessed at this time, either to equip or unequip I
 /mob/proc/slot_is_accessible(var/slot, var/obj/item/I, mob/user=null)
@@ -129,7 +130,7 @@ var/list/slot_equipment_priority = list( \
 /mob/proc/equip_to_appropriate_slot(obj/item/W)
 	if(!istype(W)) return 0
 
-	for(var/slot in slot_equipment_priority)
+	for(var/slot in GLOB.slot_equipment_priority)
 		if(equip_to_slot_if_possible(W, slot, delete_on_fail = FALSE, disable_warning = TRUE, redraw_mob = TRUE))
 			return 1
 
@@ -435,7 +436,7 @@ var/list/slot_equipment_priority = list( \
 
 				M.attack_log += "\[[time_stamp()]\] <font color='orange'>Has been thrown by [usr.name] ([usr.ckey]) from [start_T_descriptor] with the target [end_T_descriptor]</font>"
 				usr.attack_log += "\[[time_stamp()]\] <span class='warning'>Has thrown [M.name] ([M.ckey]) from [start_T_descriptor] with the target [end_T_descriptor]</span>"
-				msg_admin_attack("[usr.name] ([usr.ckey]) has thrown [M.name] ([M.ckey]) from [start_T_descriptor] with the target [end_T_descriptor] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[usr.x];Y=[usr.y];Z=[usr.z]'>JMP</a>)",ckey=key_name(usr),ckey_target=key_name(M))
+				msg_admin_attack("[usr.name] ([usr.ckey]) has thrown [M.name] ([M.ckey]) from [start_T_descriptor] with the target [end_T_descriptor] (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[usr.x];Y=[usr.y];Z=[usr.z]'>JMP</a>)",ckey=key_name(usr),ckey_target=key_name(M))
 
 			qdel(G)
 		else
@@ -448,7 +449,7 @@ var/list/slot_equipment_priority = list( \
 	if(!item)
 		return FALSE //Grab processing has a chance of returning null
 
-	if(item.too_heavy_to_throw())
+	if(item.too_heavy_to_throw() && !(a_intent == I_HELP && Adjacent(target)))
 		to_chat(src, SPAN_DANGER("You try to throw \the [item] with a lot of difficulty..."))
 		if(do_after(src, 2 SECONDS))
 			to_chat(src, SPAN_DANGER("<font size=4>Your grip slips and \the [item] falls onto your foot!</font>"))

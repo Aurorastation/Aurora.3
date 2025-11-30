@@ -14,17 +14,17 @@
 	max_w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/storage/firstaid/empty
-	name = "empty first-aid kit"
 	desc = "It's a first-aid kit. Comes with nothing, so feel free to put your own stuff in it."
+	max_storage_space = DEFAULT_BOX_STORAGE // So empty first-aid kits don't start with less space than filled ones.
 
 /obj/item/storage/firstaid/regular
 	starts_with = list(
 		/obj/item/stack/medical/bruise_pack = 2,
 		/obj/item/stack/medical/ointment = 2,
-		/obj/item/storage/pill_bottle/antidexafen = 1,
-		/obj/item/storage/pill_bottle/perconol = 1,
 		/obj/item/stack/medical/splint = 1,
-		/obj/item/device/healthanalyzer = 1
+		/obj/item/storage/pill_bottle/inaprovaline = 1,
+		/obj/item/storage/pill_bottle/perconol = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/emergency = 1
 	)
 
 /obj/item/storage/firstaid/large
@@ -188,10 +188,7 @@
 		/obj/item/stack/medical/advanced/bruise_pack = 1,
 		/obj/item/reagent_containers/inhaler/soporific = 2
 	)
-
-/obj/item/storage/firstaid/surgery/fill()
-	. = ..()
-	make_exact_fit()
+	make_exact_fit = TRUE
 
 /obj/item/storage/firstaid/trauma
 	name = "trauma first-aid kit"
@@ -266,8 +263,8 @@
 /obj/item/storage/firstaid/sleekstab
 	name = "slimline stabilization kit"
 	desc = "A sleek and expensive looking medical kit containing a plethora of colorful autoinjectors. Read the labels!"
-	icon_state = "firstaid_multi"
-	item_state = "firstaid_multi"
+	icon_state = "sleekstab"
+	item_state = "sleekstab"
 	w_class = WEIGHT_CLASS_SMALL
 	storage_slots = 7
 	starts_with = list(

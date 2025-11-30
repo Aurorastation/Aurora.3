@@ -12,7 +12,6 @@
 /obj/machinery/appliance
 	name = "cooker"
 	desc = DESC_PARENT
-	desc_info = "Control-click this to change its temperature."
 	icon = 'icons/obj/machinery/cooking_machines.dmi'
 	var/appliancetype = 0
 	density = 1
@@ -26,6 +25,8 @@
 							/obj/item/stock_parts/capacitor = 3,
 							/obj/item/stock_parts/scanning_module = 1,
 							/obj/item/stock_parts/matter_bin = 2)
+
+	parts_power_mgmt = FALSE
 
 	var/cooking_power = 0			// Effectiveness/speed at cooking
 	var/cooking_coeff = 0			// Part-based cooking power multiplier
@@ -53,6 +54,20 @@
 	var/place_verb = "into"
 	var/combine_first = FALSE//If 1, this appliance will do combination cooking before checking recipes
 
+/obj/machinery/appliance/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Control-click this to change its temperature."
+
+/obj/machinery/appliance/upgrade_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Upgraded <b>capacitors</b> will increase heating power."
+	. += "Upgraded <b>scanning modules</b> will increase heating power and improve power efficiency."
+
+/obj/machinery/appliance/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(is_adjacent)
+		. += list_contents(user)
+
 /obj/machinery/appliance/Initialize()
 	. = ..()
 	if(length(output_options))
@@ -71,11 +86,6 @@
 		qdel(CI)
 	return ..()
 
-/obj/machinery/appliance/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(is_adjacent)
-		. += list_contents(user)
-
 /obj/machinery/appliance/proc/list_contents(var/mob/user)
 	. = list()
 	if (isemptylist(cooking_objs))
@@ -91,21 +101,21 @@
 		return null
 
 	if (!CI.cookwork)
-		return "It is cold."
+		return "it is cold."
 	var/progress = CI.cookwork / CI.max_cookwork
 	var/half_overcook = (CI.overcook_mult - 1)*0.5
 	switch(progress)
 		if (0 to 0.25)
-			return "It's barely started cooking."
+			return "it's barely started cooking."
 		if (0.25 to 0.75)
-			return SPAN_NOTICE("It's cooking away nicely.")
+			return SPAN_NOTICE("it's cooking away nicely.")
 		if (0.75 to 1)
-			return SPAN_NOTICE("<b>It's almost ready!</b>")
+			return SPAN_NOTICE("<b>it's almost ready!</b>")
 	if (progress < 1+half_overcook)
-		return SPAN_SOGHUN("<b>It is done!</b>")
+		return SPAN_SOGHUN("<b>it is done!</b>")
 	if (progress < CI.overcook_mult)
-		return SPAN_WARNING("It looks overcooked, get it out!")
-	return SPAN_DANGER("It is burning!")
+		return SPAN_WARNING("it looks overcooked, get it out!")
+	return SPAN_DANGER("it is burning!")
 
 /obj/machinery/appliance/proc/get_cooking_item_from_container(var/obj/item/reagent_containers/cooking_container/CC)
 	for(var/C in cooking_objs)
@@ -359,7 +369,8 @@
 		adjust_smoke()
 
 /obj/machinery/appliance/proc/finish_cooking(var/datum/cooking_item/CI)
-	audible_message("<b>[src]</b> [finish_verb]", intent_message = PING_SOUND)
+	if(finish_verb)
+		audible_message(SPAN_NOTICE("<b>[src]</b> [finish_verb]"), intent_message = PING_SOUND)
 	if(cooked_sound)
 		playsound(get_turf(src), cooked_sound, 50, 1)
 	//Check recipes first, a valid recipe overrides other options
@@ -465,7 +476,7 @@
 	//Filling overlay
 	var/image/I = image(result.icon, "[result.icon_state]_filling")
 	I.color = totalcolour
-	result.overlays += I
+	result.AddOverlays(I)
 	result.filling_color = totalcolour
 
 	//Set the name.

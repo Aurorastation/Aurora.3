@@ -199,6 +199,9 @@
 /obj/item/grab/proc/adjust_position()
 	if(!affecting)
 		return
+	var/buckled_to_bed = affecting.buckled_to ? istype(affecting.buckled_to, /obj/structure/bed/roller) : FALSE
+	if(buckled_to_bed)
+		return
 	if(affecting.buckled_to && affecting.buckled_to != assailant)
 		animate(affecting, pixel_x = affecting.get_standard_pixel_x(), pixel_y = affecting.get_standard_pixel_y(), 4, 1, LINEAR_EASING)
 		return
@@ -415,9 +418,10 @@
 			affecting.update_canmove()
 			affecting.anchored = FALSE
 		UnregisterSignal(assailant, COMSIG_MOVABLE_MOVED)
-
-	animate(affecting, pixel_x = affecting.get_standard_pixel_x(), pixel_y = affecting.get_standard_pixel_y(), 4, 1, LINEAR_EASING)
-	affecting.layer = initial(affecting.layer)
+	var/buckled_to_bed = affecting.buckled_to ? istype(affecting.buckled_to, /obj/structure/bed/roller) : FALSE
+	if(!buckled_to_bed)
+		animate(affecting, pixel_x = affecting.get_standard_pixel_x(), pixel_y = affecting.get_standard_pixel_y(), 4, 1, LINEAR_EASING)
+		affecting.layer = initial(affecting.layer)
 	if(affecting)
 		ADD_FALLING_ATOM(affecting) // Makes the grabbee check if they can fall.
 		affecting.grabbed_by -= src
@@ -431,7 +435,8 @@
 	destroying = 1 // stops us calling qdel(src) on dropped()
 	return ..()
 
-/obj/item/grab/MouseDrop(mob/living/carbon/human/H)
+/obj/item/grab/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	var/mob/living/carbon/human/H = over
 	if(wielded || affecting.buckled_to || !istype(H) || assailant != H || H.get_active_hand() != src)
 		return
 	if(!ishuman(affecting))

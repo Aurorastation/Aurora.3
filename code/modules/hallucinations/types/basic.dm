@@ -12,22 +12,22 @@
 		if(1)
 			sound_to(holder, 'sound/AI/radiation_detected_message.ogg')
 			to_chat(holder, "<h2 class='alert'>Anomaly Break</h2>")
-			to_chat(holder, SPAN_ALERT("Comfortable levels of radiation detected near the station. [pick(SShallucinations.hallucinated_phrases)] Please cower among the shielded maintenance burrows."))	//hallucinated phrases contains the punctuation
+			to_chat(holder, SPAN_ALERT("Comfortable levels of radiation detected near the [station_name(TRUE)]. [pick(SShallucinations.hallucinated_phrases)] Please cower among the shielded maintenance burrows."))	//hallucinated phrases contains the punctuation
 
 		if(2)
 			sound_to(holder, 'sound/AI/strangeobject.ogg')
 			to_chat(holder, "<h2 class='alert'>Welcome Object</h2>")
-			to_chat(holder, SPAN_ALERT("Transport signature of [pick(adjectives)] origin detected in your path, an object appears to have been nesting aboard the Intrepid. [pick(SShallucinations.hallucinated_phrases)]"))
+			to_chat(holder, SPAN_ALERT("Transport signature of [pick(GLOB.adjectives)] origin detected in your path, an object appears to have been nesting aboard the Intrepid. [pick(SShallucinations.hallucinated_phrases)]"))
 
 		if(3)
 			sound_to(holder, 'sound/AI/scrubbers.ogg')
 			to_chat(holder, "<h2 class='alert'>Reminder: Backpressure Warning</h2>")
-			to_chat(holder, SPAN_ALERT("The scrubbers network is expecting \an [pick(adjectives)] surge. Some ejection of [pick(adjectives)] contents will occur."))
+			to_chat(holder, SPAN_ALERT("The scrubbers network is expecting \an [pick(GLOB.adjectives)] surge. Some ejection of [pick(GLOB.adjectives)] contents will occur."))
 
 		if(4)
 			sound_to(holder, 'sound/AI/emergency_shuttle_leaving_dock.ogg')
 			to_chat(holder, "<h2 class='alert'>Emergency Departure</h2>")
-			to_chat(holder, SPAN_ALERT("An emergency evacuation shuttle has arrived in the hangar to extract the crew of [SSatlas.current_map.station_name]. It will depart in approximately two minutes. Please do not allow [holder] to board."))
+			to_chat(holder, SPAN_ALERT("An emergency evacuation shuttle has arrived in the hangar to extract the crew of the [station_name(TRUE)]. It will depart in approximately two minutes. Please do not allow [holder] to board."))
 
 		if(5)
 			sound_to(holder, 'sound/AI/vermin.ogg')
@@ -42,12 +42,12 @@
 		if(7)
 			sound_to(holder, 'sound/AI/meteors_detected_message.ogg')
 			to_chat(holder, "<h2 class='alert'>Meteor Alarm</h2>")
-			to_chat(holder, SPAN_ALERT("A [pick(adjectives)] meteor storm has been authorized for a destruction course with your station. Less than three minutes until impact, shields cannot help you; seek shelter in the central ring."))
+			to_chat(holder, SPAN_ALERT("A [pick(GLOB.adjectives)] meteor storm has been authorized for a destruction course with the [station_name(TRUE)]. Less than three minutes until impact, shields cannot help you; seek shelter in the central ring."))
 
 		if(8)
 			sound_to(holder,'sound/AI/fungi.ogg')
 			to_chat(holder, "<h2 class='alert'>Biohealth Notice</h2>")
-			to_chat(holder, SPAN_ALERT("Healthy fungi detected on station. Your bodies may be contaminated. This is mandatory, [holder]."))
+			to_chat(holder, SPAN_ALERT("Healthy fungi detected on the [station_name(TRUE)]. Your bodies may be contaminated. This is mandatory, [holder]."))
 
 		if(9)
 			sound_to(holder, 'sound/effects/nuclearsiren.ogg')
@@ -81,9 +81,9 @@
 	if(!length(people))
 		return
 	var/radio_exclaim = pick("Oh SHIT!", "Oh fuck.", "Uhhh!", "That's not good!", "FUCK.", "Engineering?", "It's under control!", "We're fucked!", "Ohhhh boy.", "What?!", "Um, <b>what?!</b>")
-	var/mob/living/carbon/human/caller = pick(people)
+	var/mob/living/carbon/human/requester = pick(people)
 
-	to_chat(holder, "[caller.get_accent_icon(null, holder)] <span class='radio'><b>[caller]</b> says, \"[radio_exclaim]\"</span>")
+	to_chat(holder, "[requester.get_accent_icon(null, holder)] <span class='radio'><b>[requester]</b> says, \"[radio_exclaim]\"</span>")
 
 
 /datum/hallucination/pda	//fake PDA messages. this only plays the beep and sends something to chat; it won't show up in the PDA.

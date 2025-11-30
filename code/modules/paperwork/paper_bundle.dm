@@ -23,6 +23,17 @@
 	drop_sound = 'sound/items/drop/paper.ogg'
 	pickup_sound = 'sound/items/pickup/paper.ogg'
 
+/obj/item/paper_bundle/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Both papers and photos can be added to a paper bundle."
+
+/obj/item/paper_bundle/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(is_adjacent)
+		src.show_content(user)
+	else
+		. += SPAN_NOTICE("It is too far away to read.")
+
 /obj/item/paper_bundle/attackby(obj/item/attacking_item, mob/user)
 	..()
 
@@ -98,13 +109,6 @@
 			else
 				to_chat(user, SPAN_WARNING("You must hold \the [P] steady to burn \the [src]."))
 
-/obj/item/paper_bundle/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(is_adjacent)
-		src.show_content(user)
-	else
-		. += SPAN_NOTICE("It is too far away.")
-
 /obj/item/paper_bundle/proc/show_content(mob/user as mob)
 	var/dat
 	var/obj/item/W = pages[page]
@@ -112,18 +116,18 @@
 	// first
 	if(page == 1)
 		dat+= "<DIV STYLE='float:left; text-align:left; width:33.33333%'>Front</DIV>"
-		dat+= "<DIV STYLE='float:left; text-align:center; width:33.33333%'><A href='?src=[REF(src)];remove=1'>Remove [(istype(W, /obj/item/paper)) ? "paper" : "photo"]</A></DIV>"
-		dat+= "<DIV STYLE='float:left; text-align:right; width:33.33333%'><A href='?src=[REF(src)];next_page=1'>Next Page</A></DIV><BR><HR>"
+		dat+= "<DIV STYLE='float:left; text-align:center; width:33.33333%'><A href='byond://?src=[REF(src)];remove=1'>Remove [(istype(W, /obj/item/paper)) ? "paper" : "photo"]</A></DIV>"
+		dat+= "<DIV STYLE='float:left; text-align:right; width:33.33333%'><A href='byond://?src=[REF(src)];next_page=1'>Next Page</A></DIV><BR><HR>"
 	// last
 	else if(page == pages.len)
-		dat+= "<DIV STYLE='float:left; text-align:left; width:33.33333%'><A href='?src=[REF(src)];prev_page=1'>Previous Page</A></DIV>"
-		dat+= "<DIV STYLE='float:left; text-align:center; width:33.33333%'><A href='?src=[REF(src)];remove=1'>Remove [(istype(W, /obj/item/paper)) ? "paper" : "photo"]</A></DIV>"
+		dat+= "<DIV STYLE='float:left; text-align:left; width:33.33333%'><A href='byond://?src=[REF(src)];prev_page=1'>Previous Page</A></DIV>"
+		dat+= "<DIV STYLE='float:left; text-align:center; width:33.33333%'><A href='byond://?src=[REF(src)];remove=1'>Remove [(istype(W, /obj/item/paper)) ? "paper" : "photo"]</A></DIV>"
 		dat+= "<DIV STYLE='float:left; text-align:right; width:33.33333%'>Back</DIV><BR><HR>"
 	// middle pages
 	else
-		dat+= "<DIV STYLE='float:left; text-align:left; width:33.33333%'><A href='?src=[REF(src)];prev_page=1'>Previous Page</A></DIV>"
-		dat+= "<DIV STYLE='float:left; text-align:center; width:33.33333%'><A href='?src=[REF(src)];remove=1'>Remove [(istype(W, /obj/item/paper)) ? "paper" : "photo"]</A></DIV>"
-		dat+= "<DIV STYLE='float:left; text-align:right; width:33.33333%'><A href='?src=[REF(src)];next_page=1'>Next Page</A></DIV><BR><HR>"
+		dat+= "<DIV STYLE='float:left; text-align:left; width:33.33333%'><A href='byond://?src=[REF(src)];prev_page=1'>Previous Page</A></DIV>"
+		dat+= "<DIV STYLE='float:left; text-align:center; width:33.33333%'><A href='byond://?src=[REF(src)];remove=1'>Remove [(istype(W, /obj/item/paper)) ? "paper" : "photo"]</A></DIV>"
+		dat+= "<DIV STYLE='float:left; text-align:right; width:33.33333%'><A href='byond://?src=[REF(src)];next_page=1'>Next Page</A></DIV><BR><HR>"
 
 	if(istype(pages[page], /obj/item/paper))
 		var/obj/item/paper/P = W
@@ -148,7 +152,7 @@
 		+ "[P.scribble ? "<div> Written on the back:<br><i>[P.scribble]</i>" : null]" \
 		+ "</body></html>"
 
-		show_browser(user, dat, "window=[name]")
+		show_browser(user, HTML_SKELETON(dat), "window=[name]")
 
 /obj/item/paper_bundle/attack_self(mob/user as mob)
 	src.show_content(user)

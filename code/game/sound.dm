@@ -233,12 +233,14 @@
 	S.status = SOUND_UPDATE
 	SEND_SOUND(src, S)
 
-/client/proc/playtitlemusic(vol = 85)
+/client/proc/playtitlemusic()
 	set waitfor = FALSE
 	UNTIL(SSticker.login_music) //wait for SSticker init to set the login music
+	SEND_SOUND(src, sound(null, repeat = 0, wait = 0, volume = prefs.lobby_music_vol, channel = CHANNEL_LOBBYMUSIC))
 
-	if(prefs.toggles & SOUND_LOBBY)
-		SEND_SOUND(src, sound(SSticker.login_music, repeat = 0, wait = 0, volume = vol, channel = CHANNEL_LOBBYMUSIC)) // MAD JAMS
+	if(prefs.lobby_music_vol)
+		for(var/lobby_music in SSticker.login_music)
+			SEND_SOUND(src, sound(lobby_music, repeat = 0, wait = TRUE, volume = prefs.lobby_music_vol, channel = CHANNEL_LOBBYMUSIC)) // MAD JAMS
 
 /proc/get_rand_frequency()
 	return rand(32000, 55000) //Frequency stuff only works with 45kbps oggs.
@@ -614,14 +616,21 @@
 		'sound/weapons/reloads/pistol_metal_slide3.ogg',
 		'sound/weapons/reloads/pistol_metal_slide4.ogg',
 		'sound/weapons/reloads/pistol_metal_slide5.ogg',
-		'sound/weapons/reloads/pistol_metal_slide6.ogg'
+		'sound/weapons/reloads/pistol_metal_slide6.ogg',
+		'sound/weapons/reloads/pistol_metal_slide7.ogg',
+		'sound/weapons/reloads/pistol_metal_slide8.ogg',
+		'sound/weapons/reloads/pistol_metal_slide9.ogg',
+		'sound/weapons/reloads/pistol_metal_slide10.ogg',
+		'sound/weapons/reloads/pistol_metal_slide11.ogg'
 	)
 
 /singleton/sound_category/polymer_slide_reload
 	sounds = list(
 		'sound/weapons/reloads/pistol_polymer_slide1.ogg',
 		'sound/weapons/reloads/pistol_polymer_slide2.ogg',
-		'sound/weapons/reloads/pistol_polymer_slide3.ogg'
+		'sound/weapons/reloads/pistol_polymer_slide3.ogg',
+		'sound/weapons/reloads/pistol_polymer_slide4.ogg',
+		'sound/weapons/reloads/pistol_polymer_slide5.ogg'
 	)
 
 /singleton/sound_category/rifle_slide_reload
@@ -634,7 +643,10 @@
 		'sound/weapons/reloads/rifle_slide6.ogg',
 		'sound/weapons/reloads/rifle_slide7.ogg',
 		'sound/weapons/reloads/rifle_slide8.ogg',
-		'sound/weapons/reloads/rifle_slide9.ogg'
+		'sound/weapons/reloads/rifle_slide9.ogg',
+		'sound/weapons/reloads/rifle_slide10.ogg',
+		'sound/weapons/reloads/rifle_slide11.ogg',
+		'sound/weapons/reloads/rifle_slide12.ogg'
 	)
 
 /singleton/sound_category/revolver_reload
@@ -647,7 +659,9 @@
 		'sound/weapons/reloads/shotgun_pump3.ogg',
 		'sound/weapons/reloads/shotgun_pump4.ogg',
 		'sound/weapons/reloads/shotgun_pump5.ogg',
-		'sound/weapons/reloads/shotgun_pump6.ogg'
+		'sound/weapons/reloads/shotgun_pump6.ogg',
+		'sound/weapons/reloads/shotgun_pump7.ogg',
+		'sound/weapons/reloads/shotgun_pump8.ogg'
 	)
 
 /singleton/sound_category/shotgun_reload
@@ -992,4 +1006,51 @@
 	sounds = list(
 		'sound/items/polaroid1.ogg',
 		'sound/items/polaroid2.ogg'
+	)
+
+/singleton/sound_category/hatch_open
+	sounds = list(
+		'sound/machines/hatch_open1.ogg',
+		'sound/machines/hatch_open2.ogg',
+		'sound/machines/hatch_open3.ogg',
+		'sound/machines/hatch_open4.ogg'
+	)
+
+/singleton/sound_category/hatch_close
+	sounds = list(
+		'sound/machines/hatch_close1.ogg',
+		'sound/machines/hatch_close2.ogg'
+	)
+
+/singleton/sound_category/electrical_hum
+	sounds = list(
+		'sound/machines/electrical_hum1.ogg',
+		'sound/machines/electrical_hum2.ogg'
+	)
+
+/singleton/sound_category/electrical_spark
+	sounds = list(
+		'sound/machines/electrical_spark1.ogg'
+	)
+
+/singleton/sound_category/steam_pipe
+	sounds = list(
+		'sound/machines/steam_pipe1.ogg',
+		'sound/machines/steam_pipe2.ogg',
+		'sound/machines/steam_pipe3.ogg',
+		'sound/machines/steam_pipe4.ogg'
+	)
+
+/singleton/sound_category/bear_loud
+	sounds = list(
+		'sound/effects/creatures/bear_loud_1.ogg',
+		'sound/effects/creatures/bear_loud_2.ogg',
+		'sound/effects/creatures/bear_loud_3.ogg',
+		'sound/effects/creatures/bear_loud_4.ogg'
+	)
+
+/singleton/sound_category/robot_talk
+	sounds = list(
+		'sound/effects/creatures/robot_talk_1.ogg',
+		'sound/effects/creatures/robot_talk_2.ogg'
 	)

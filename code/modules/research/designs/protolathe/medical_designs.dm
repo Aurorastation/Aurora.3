@@ -110,3 +110,9 @@
 	req_tech = list(TECH_BLUESPACE = 2, TECH_MATERIAL = 6)
 	materials = list(DEFAULT_WALL_MATERIAL = 3000, MATERIAL_PHORON = 3000, MATERIAL_DIAMOND = 500)
 	build_path = /obj/item/reagent_containers/glass/beaker/bluespace
+
+/datum/design/item/medical/autopsy_scanner
+	name = "Autopsy Scanner"
+	req_tech = list(TECH_BIO = 3)
+	materials = list(DEFAULT_WALL_MATERIAL = 30, MATERIAL_GLASS = 20)
+	build_path = /obj/item/autopsy_scanner

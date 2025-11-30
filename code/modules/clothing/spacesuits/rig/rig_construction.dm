@@ -5,13 +5,13 @@
 	var/icon_base = null
 	w_class = WEIGHT_CLASS_BULKY
 
-	///The type of board, a path of `/obj/item/circuitboard`
+	/// The type of board, a path of `/obj/item/circuitboard`
 	var/board_type = null
 
-	///The type of target board, a path of `/obj/item/circuitboard`
+	/// The type of target board, a path of `/obj/item/circuitboard`
 	var/target_board_type = null
 
-	///The type of rig, a path of `/obj/item/rig`
+	/// The type of rig, a path of `/obj/item/rig`
 	var/rig_type = /obj/item/rig
 
 	obj_flags = OBJ_FLAG_CONDUCTABLE
@@ -156,6 +156,16 @@
 	board_type = /obj/item/circuitboard/rig_assembly/combat/combat
 	target_board_type = /obj/item/circuitboard/rig_assembly/combat/targeting/combat
 	origin_tech = list(TECH_MATERIAL = 6, TECH_ENGINEERING = 5, TECH_MAGNET = 4, TECH_POWER = 4, TECH_COMBAT = 6)
+
+/obj/item/rig_assembly/combat/falcata
+	name = "falcata exoskeleton control module"
+	desc = "The assembly frame for a security exoskeleton."
+	icon = 'icons/obj/item/clothing/rig/falcata.dmi'
+	icon_base = "falcata"
+	icon_state = "falcata1"
+	rig_type = /obj/item/rig/light/falcata
+	board_type = /obj/item/circuitboard/rig_assembly/combat/falcata
+	target_board_type = /obj/item/circuitboard/rig_assembly/combat/targeting/falcata
 
 ////////////////////////
 ////ILLEGAL ASSEMBLY////

@@ -23,8 +23,11 @@
 	heat_capacity = 10000
 	var/lava = 0
 
-/turf/simulated/floor/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+	/// If the turf should generate details. Default: TRUE
+	var/has_edge_icon = TRUE
+
+/turf/simulated/floor/disassembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(flooring)
 		var/list/can_remove_with = list()
 		if(flooring.flags & TURF_REMOVE_CROWBAR)
@@ -39,8 +42,11 @@
 			can_remove_with += "wrenches"
 		if(flooring.flags & TURF_REMOVE_WELDER)
 			can_remove_with += "welding tools"
-		if(length(can_remove_with))
-			. += SPAN_NOTICE("\The [src] can be removed with: [english_list(can_remove_with)].")
+
+		if(!length(can_remove_with))
+			can_remove_with = "nothing!"
+
+		. += SPAN_NOTICE("\The [src] can be removed with: [english_list(can_remove_with)].")
 
 /turf/simulated/floor/is_plating()
 	return !flooring
@@ -84,11 +90,15 @@
 			new flooring.build_type(src)
 		flooring = null
 
-	set_light(0)
 	broken = null
 	burnt = null
 	flooring_override = null
 	levelupdate()
+
+	// Set light to zero, so glowing turfs cease to glow if turned into plating.
+	set_light(0)
+	// Check if this still needs to have starlight - if it does, it'll be given back its starlight.
+	update_starlight()
 
 	if(!defer_icon_update)
 		update_icon(1)

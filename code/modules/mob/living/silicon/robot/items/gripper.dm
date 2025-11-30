@@ -3,7 +3,7 @@
 /obj/item/gripper
 	name = "magnetic gripper"
 	desc = "A simple grasping tool specialized in construction and engineering work."
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/obj/item/gripper.dmi'
 	icon_state = "gripper"
 
 	item_flags = ITEM_FLAG_NO_BLUDGEON
@@ -26,7 +26,8 @@
 		/obj/item/computer_hardware,
 		/obj/item/pipe,
 		/obj/item/smallDelivery,
-		/obj/item/gift
+		/obj/item/gift,
+		/obj/item/fuel_assembly
 		)
 
 	var/list/cant_hold

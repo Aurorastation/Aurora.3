@@ -1,6 +1,7 @@
 /mob/proc/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE)
 	return
 
+///what clients use to speak. when you type a message into the chat bar in say mode, this is the first thing that goes off serverside.
 /mob/verb/say_verb(message as text)
 	set name = "Say"
 	set category = "IC"
@@ -14,7 +15,10 @@
 	if (src.client.handle_spam_prevention(message, MUTE_IC))
 		return
 
-	usr.say(message)
+	//queue this message because verbs are scheduled to process after SendMaps in the tick and speech is pretty expensive when it happens.
+	//by queuing this for next tick the mc can compensate for its cost instead of having speech delay the start of the next tick
+	if(message)
+		QUEUE_OR_CALL_VERB_FOR(VERB_CALLBACK(src, PROC_REF(say), message), SSspeech_controller)
 
 /mob/verb/me_verb(message as text)
 	set name = "Me"
@@ -30,9 +34,9 @@
 		return
 
 	if(use_me)
-		usr.client_emote("me",usr.emote_type,message)
+		QUEUE_OR_CALL_VERB_FOR(VERB_CALLBACK(src, PROC_REF(client_emote), "me", usr.emote_type, message), SSspeech_controller)
 	else
-		usr.emote(message)
+		QUEUE_OR_CALL_VERB_FOR(VERB_CALLBACK(src, PROC_REF(emote), message), SSspeech_controller)
 
 /mob/proc/say_dead(var/message)
 	if(say_disabled)	//This is here to try to identify lag problems
@@ -129,9 +133,15 @@
 		return "2"
 	return "0"
 
-//parses the message mode code (e.g. :h, :w) from text, such as that supplied to say.
-//returns the message mode string or null for no message mode.
-//standard mode is the mode returned for the special ';' radio code.
+/**
+ * Parses the message mode code (e.g. :h, :w) from text, such as that supplied to Say.
+ * Standard mode is the mode returned for the special ';' radio code.
+ *
+ * * message - the original string being passed
+ * * standard_mode - the message mode itself
+ *
+ * Returns the message mode string.
+ */
 /mob/proc/parse_message_mode(var/message, var/standard_mode="headset")
 	if(length(message) >= 1 && copytext(message,1,2) == ";")
 		return standard_mode

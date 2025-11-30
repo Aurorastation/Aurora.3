@@ -64,7 +64,7 @@
 
 /singleton/origin_item/origin/wastelander/on_apply(var/mob/living/carbon/human/H)
 	. = ..()
-	H.AddComponent(/datum/component/armor, list(rad = ARMOR_RAD_MINOR))
+	H.AddComponent(/datum/component/armor, list(RAD = ARMOR_RAD_MINOR))
 
 /singleton/origin_item/origin/wastelander/on_remove(mob/living/carbon/human/H)
 	. = ..()

@@ -1,4 +1,4 @@
-var/datum/antagonist/raider_techno/raider_techno
+GLOBAL_DATUM(raider_techno, /datum/antagonist/raider_techno)
 
 /datum/antagonist/raider_techno
 	id = MODE_RAIDER_TECHNO
@@ -25,7 +25,7 @@ var/datum/antagonist/raider_techno/raider_techno
 
 /datum/antagonist/raider_techno/New()
 	..()
-	raider_techno = src
+	GLOB.raider_techno = src
 
 /datum/antagonist/raider_techno/update_access(var/mob/living/player)
 	for(var/obj/item/storage/wallet/W in player.contents)

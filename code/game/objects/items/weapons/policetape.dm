@@ -1,4 +1,4 @@
-var/list/tape_roll_applications = list()
+GLOBAL_LIST_INIT(tape_roll_applications, list())
 
 //Define all tape types in policetape.dm
 /obj/item/taperoll
@@ -12,6 +12,12 @@ var/list/tape_roll_applications = list()
 	var/turf/end
 	var/tape_type = /obj/item/tape
 	var/icon_base
+
+/obj/item/taperoll/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Apply a length of tape by left-clicking \the [src] in-hand to define the start point, moving in a cardinal direction to the desired stop point, and left-clicking it again."
+	. += "Apply a short length of tape directly to a closed airlock by left-clicking it with \the [src] in-hand."
+	. += "Apply a hazard tape marking to a turf by left-clicking on it with \the [src] in-hand; it will match your facing direction. Remove the marking by clicking it again."
 
 /obj/item/taperoll/Initialize()
 	. = ..()
@@ -32,8 +38,8 @@ var/list/tape_roll_applications = list()
 	var/crumpled = 0
 	var/icon_base
 
-/obj/item/tape/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/tape/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(LAZYLEN(crumplers) && is_adjacent)
 		. += SPAN_WARNING("\The [initial(name)] has been crumpled by [english_list(crumplers)].")
 
@@ -47,7 +53,7 @@ var/list/tape_roll_applications = list()
 /obj/item/tape/police
 	name = "police tape"
 	desc = "A length of police tape.  Do not cross."
-	req_access = list(ACCESS_SECURITY)
+	req_one_access = list(ACCESS_SECURITY, ACCESS_KONYANG_POLICE) // Any role that is considered 'police' and gets this item should also have it's access added to this variable. If this list gets too long we may need to make subtypes.
 	icon_base = "police"
 
 /obj/item/taperoll/medical
@@ -86,15 +92,18 @@ var/list/tape_roll_applications = list()
 /obj/item/tape/engineering
 	name = "engineering tape"
 	desc = "A length of engineering tape. Better not cross it."
-	desc_info = "You can use a multitool on this tape to allow emergency shield generators to deploy shields on this tile."
 	req_one_access = list(ACCESS_ENGINE, ACCESS_ATMOSPHERICS)
 	icon_base = "engineering"
 	var/shield_marker = FALSE
 
-/obj/item/tape/engineering/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/tape/engineering/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "You can use a multitool on this tape to allow emergency shield generators to deploy shields on this tile."
+
+/obj/item/tape/engineering/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(shield_marker)
-		. += SPAN_NOTICE("This strip of tape has been modified to serve as a marker for emergency shield generators to lock onto.")
+		. += "This strip of tape has been modified to serve as a marker for emergency shield generators to lock onto."
 
 /obj/item/tape/engineering/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.ismultitool())
@@ -189,17 +198,17 @@ var/list/tape_roll_applications = list()
 		var/turf/F = A
 		var/direction = user.loc == F ? user.dir : turn(user.dir, 180)
 		var/icon/hazard_overlay = hazard_overlays["[direction]"]
-		if(tape_roll_applications[F] == null)
-			tape_roll_applications[F] = 0
+		if(GLOB.tape_roll_applications[F] == null)
+			GLOB.tape_roll_applications[F] = 0
 
-		if(tape_roll_applications[F] & direction) // hazard_overlay in F.overlays wouldn't work.
+		if(GLOB.tape_roll_applications[F] & direction) // hazard_overlay in F.overlays wouldn't work.
 			user.visible_message("[user] uses the adhesive of \the [src] to remove area markings from \the [F].", "You use the adhesive of \the [src] to remove area markings from \the [F].")
 			F.CutOverlays(hazard_overlay, ATOM_ICON_CACHE_PROTECTED)
-			tape_roll_applications[F] &= ~direction
+			GLOB.tape_roll_applications[F] &= ~direction
 		else
 			user.visible_message("[user] applied \the [src] on \the [F] to create area markings.", "You apply \the [src] on \the [F] to create area markings.")
 			F.AddOverlays(hazard_overlay, ATOM_ICON_CACHE_PROTECTED)
-			tape_roll_applications[F] |= direction
+			GLOB.tape_roll_applications[F] |= direction
 		return
 
 /obj/item/tape/proc/crumple(var/mob/user)

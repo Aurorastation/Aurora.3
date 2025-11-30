@@ -357,21 +357,21 @@
 	t += "<B><span class='highlight'>Tracking:</span></B><div class='statusDisplay'>"
 	switch(track)
 		if(0)
-			t += "<span class='linkOn'>Off</span> <A href='?src=[REF(src)];track=1'>Timed</A> <A href='?src=[REF(src)];track=2'>Auto</A><BR>"
+			t += "<span class='linkOn'>Off</span> <A href='byond://?src=[REF(src)];track=1'>Timed</A> <A href='byond://?src=[REF(src)];track=2'>Auto</A><BR>"
 		if(1)
-			t += "<A href='?src=[REF(src)];track=0'>Off</A> <span class='linkOn'>Timed</span> <A href='?src=[REF(src)];track=2'>Auto</A><BR>"
+			t += "<A href='byond://?src=[REF(src)];track=0'>Off</A> <span class='linkOn'>Timed</span> <A href='byond://?src=[REF(src)];track=2'>Auto</A><BR>"
 		if(2)
-			t += "<A href='?src=[REF(src)];track=0'>Off</A> <A href='?src=[REF(src)];track=1'>Timed</A> <span class='linkOn'>Auto</span><BR>"
+			t += "<A href='byond://?src=[REF(src)];track=0'>Off</A> <A href='byond://?src=[REF(src)];track=1'>Timed</A> <span class='linkOn'>Auto</span><BR>"
 
 	t += "Tracking Rate: [rate_control(src,"tdir","[trackrate] deg/h ([trackrate<0 ? "CCW" : "CW"])",1,30,180)]</div><BR>"
 
 	t += "<B><span class='highlight'>Connected devices:</span></B><div class='statusDisplay'>"
 
-	t += "<A href='?src=[REF(src)];search_connected=1'>Search for devices</A><BR>"
+	t += "<A href='byond://?src=[REF(src)];search_connected=1'>Search for devices</A><BR>"
 	t += "Solar panels : [connected_panels.len] connected<BR>"
 	t += "Solar tracker : [connected_tracker ? SPAN_GOOD("Found") : SPAN_BAD("Not found")]</div><BR>"
 
-	t += "<A href='?src=[REF(src)];close=1'>Close</A>"
+	t += "<A href='byond://?src=[REF(src)];close=1'>Close</A>"
 
 	var/datum/browser/popup = new(user, "solar", name)
 	popup.set_content(t)
@@ -550,11 +550,11 @@
 //
 
 /obj/item/paper/solar
-	name = "paper- 'Going green! Setup your own solar array instructions.'"
-	info = "<h1>Welcome</h1><p>At greencorps we love the environment, and space. With this package you are able to help mother nature and produce energy without any usage of fossil fuel or phoron! Singularity energy is dangerous while solar energy is safe, which is why it's better. Now here is how you setup your own solar array.</p><p>You can make a solar panel by wrenching the solar assembly onto a cable node. Adding a glass panel, reinforced or regular glass will do, will finish the construction of your solar panel. It is that easy!</p><p>Now after setting up 19 more of these solar panels you will want to create a solar tracker to keep track of our mother nature's gift, the sun. These are the same steps as before except you insert the tracker equipment circuit into the assembly before performing the final step of adding the glass. You now have a tracker! Now the last step is to add a computer to calculate the sun's movements and to send commands to the solar panels to change direction with the sun. Setting up the solar computer is the same as setting up any computer, so you should have no trouble in doing that. You do need to put a wire node under the computer, and the wire needs to be connected to the tracker.</p><p>Congratulations, you should have a working solar array. If you are having trouble, here are some tips. Make sure all solar equipment are on a cable node, even the computer. You can always deconstruct your creations if you make a mistake.</p><p>That's all to it, be safe, be green!</p>"
+	name = "solar panel instructions"
+	info = "<h1>Welcome!</h1><p>By following these instructions, you will have all the knowledge necessary to construct a beautiful and low-maintenance array of solar (also known as <i>photovaltaic</i>) panels for your installation, colony, or interstellar vessel.</p><p>First, secure a solar assembly to a cable node with a wrench. Next, add a panel of either standard or reinforced glass.</p><p>Repeat this process as many times as needed; the package contains twenty assemblies in total.</p><p>Next, you'll want to create a solar tracker. This device will track the nearest star. To build the solar tracker, take one of the assemblies and follow the same steps as before, this time being mindful to add the tracker equipment circuit before installing the glass panel. The last step is to build a computer to calculate the nearest star's movements and to send commands to the solar panels to change their angle. Setting up the solar computer is the same as setting up any computer, so you should have no trouble in doing that. However, you do need to place a wire node under the computer, and the wire needs to be connected to the tracker.</p><p>After following these instructions, you should have a fully functional solar panel array. If you are having trouble, here are some tips. Make sure all solar equipment are on a cable node, even the computer. You can always disassemble the solar panels or tracker if you make a mistake.</p><p>You've come to the end of this instructional pamphlet; by now, your solar panel array should be doing all the work for you.</p><p>This package was brought to you by ConTec, a subsidiary company of Zavodskoi Interstellar. 'Have confidence in Confiance.'</p>"
 
 /proc/rate_control(var/S, var/V, var/C, var/Min=1, var/Max=5, var/Limit=null) //How not to name vars
-	var/href = "<A href='?src=[REF(S)];rate control=1;[V]"
+	var/href = "<A href='byond://?src=[REF(S)];rate control=1;[V]"
 	var/rate = "[href]=-[Max]'>-</A>[href]=-[Min]'>-</A> [(C?C : 0)] [href]=[Min]'>+</A>[href]=[Max]'>+</A>"
 	if(Limit) return "[href]=-[Limit]'>-</A>"+rate+"[href]=[Limit]'>+</A>"
 	return rate

@@ -413,7 +413,7 @@
 /turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center_abandoned/living)
 "fQ" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "red1"
 	},
 /obj/effect/overlay/container_logo{
@@ -1787,7 +1787,7 @@
 /turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/konyang_landing_zone)
 "xd" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "red3"
 	},
 /obj/effect/overlay/container_logo{
@@ -1802,7 +1802,7 @@
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "xo" = (
-/obj/structure/shipping_container{
+/obj/structure/shipping_container_old{
 	icon_state = "red2"
 	},
 /obj/effect/overlay/container_logo,
@@ -3291,10 +3291,10 @@
 "Ob" = (
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner/pink/diagonal,
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_y = -10
 	},
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_y = -18
 	},
 /turf/simulated/floor/tiled/white,
@@ -4159,8 +4159,8 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced,
-/obj/item/clothing/accessory/silversun/random,
-/obj/item/clothing/accessory/silversun/random,
+/obj/item/clothing/under/dressshirt/silversun/random,
+/obj/item/clothing/under/dressshirt/silversun/random,
 /obj/item/clothing/accessory/armband/scc,
 /obj/item/clothing/accessory/armband/scc,
 /obj/item/flag/scc,

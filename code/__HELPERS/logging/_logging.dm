@@ -142,7 +142,7 @@ GLOBAL_LIST_INIT(testing_global_profiler, list("_PROFILE_NAME" = "Global"))
 
 	if(key)
 		if(include_link && C)
-			. += "<a href='?priv_msg=[REF(C)];ticket=[REF(ticket)]'>"
+			. += "<a href='byond://?priv_msg=[REF(C)];ticket=[REF(ticket)]'>"
 
 		if(C && C.holder && C.holder.fakekey && !include_name)
 			. += "Administrator"

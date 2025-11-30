@@ -1,7 +1,7 @@
 /mob/living/simple_animal/cosmozoan
 	name = "cosmozoan"
 	desc = "These jellyfish-like entities drift through asteroid fields, emitting a soft glow."
-	desc_info = "Schools of Cosmozoans often congregate in asteroid fields, though they have rarely been witnessed in greater number and size in the Frontier. Their origin remains a mystery but it is believed they predate early man. This belief landed them the name Cosmozoa."
+	desc_extended = "Schools of Cosmozoans often congregate in asteroid fields, though they have rarely been witnessed in greater number and size in the Frontier. Their origin remains a mystery but it is believed they predate early man. This belief landed them the name Cosmozoa."
 	icon_state = "cosmozoan"
 	icon_living = "cosmozoan"
 	icon_dead = "cosmozoan_dead"
@@ -31,7 +31,7 @@
 	minbodytemp = 0
 
 	flying = TRUE
-	see_invisible = SEE_INVISIBLE_NOLIGHTING
+	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
 	sample_data = list("Cellular biochemistry include bioluminescent reactions", "Tissue sample contains micro-gas release structures")
 
 /mob/living/simple_animal/cosmozoan/Initialize()

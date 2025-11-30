@@ -116,7 +116,7 @@
 	if(!GLOB.config.enter_allowed)
 		return "There is an administrative lock on entering the game."
 	if(SSticker.mode?.explosion_in_progress)
-		return "The station is currently exploding."
+		return "The [station_name(TRUE)] is currently exploding."
 	if(max_count && (count >= max_count))
 		return "No more slots are available."
 	//Check if a spawnpoint is available
@@ -224,6 +224,7 @@
 			sector.y = sector.start_y
 			sector.z = SSatlas.current_map.overmap_z
 			sector.invisible_until_ghostrole_spawn = FALSE
+			SEND_SIGNAL(sector, COMSIG_GHOSTROLE_TAKEN)
 	return TRUE
 
 //Proc to check if a specific user can edit this spawner (open/close/...)

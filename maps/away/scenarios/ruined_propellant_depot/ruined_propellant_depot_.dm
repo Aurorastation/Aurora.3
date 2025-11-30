@@ -6,9 +6,10 @@
 	prefix = "scenarios/ruined_propellant_depot/"
 	suffix = "ruined_propellant_depot.dmm"
 
-	spawn_cost = 0 // so it does not spawn as ordinary away site
-	spawn_weight = 1
+	spawn_cost = 1
+	spawn_weight = 0 // so it does not spawn as ordinary away site
 	sectors = list(ALL_POSSIBLE_SECTORS)
+	template_flags = TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	unit_test_groups = list(1)
 
 /singleton/submap_archetype/ruined_propellant_depot

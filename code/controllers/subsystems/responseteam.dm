@@ -77,25 +77,25 @@ SUBSYSTEM_DEF(distress)
 
 	send_emergency_team = FALSE //We completed the ERT handling, so let's allow admins to call another.
 
-/datum/controller/subsystem/distress/proc/trigger_overmap_distress_beacon(var/obj/effect/overmap/visitable/caller, var/distress_message, var/mob/user)
-	if(caller.has_called_distress_beacon)
+/datum/controller/subsystem/distress/proc/trigger_overmap_distress_beacon(var/obj/effect/overmap/visitable/requester, var/distress_message, var/mob/user)
+	if(requester.has_called_distress_beacon)
 		return
 
 	ert_count++
 	feedback_inc("responseteam_count")
 
-	command_announcement.Announce("A distress beacon has been broadcasted to nearby vessels in the sector. Please remain calm and make preparations for the arrival of third parties.", "[SSatlas.current_map.station_name] Distress Suite", 'sound/misc/announcements/security_level_old.ogg', zlevels = caller.map_z)
+	command_announcement.Announce("A distress beacon has been broadcasted to nearby vessels in the sector. Please remain calm and make preparations for the arrival of third parties.", "[SSatlas.current_map.station_name] Distress Suite", 'sound/misc/announcements/security_level_old.ogg', zlevels = requester.map_z)
 
-	log_and_message_admins("has launched a distress beacon from the [caller.name] with message: [distress_message].", user)
+	log_and_message_admins("has launched a distress beacon from the [requester.name] with message: [distress_message].", user)
 	var/datum/distress_beacon/beacon = new()
-	beacon.caller = caller
+	beacon.requester = requester
 	beacon.distress_message = distress_message
 	beacon.user = user
 	beacon.user_name = user.name //It is possible that the mob's name may change after the distress beacon is launched, so we keep this var to avoid stuff like that.
 
-	active_distress_beacons[caller.name] = beacon
+	active_distress_beacons[requester.name] = beacon
 
-	caller.toggle_distress_status()
+	requester.toggle_distress_status()
 
 /datum/controller/subsystem/distress/proc/handle_spawner()
 	for(var/N in typesof(picked_team.spawner)) //Find all spawners that are subtypes of the team we want.
@@ -172,11 +172,11 @@ SUBSYSTEM_DEF(distress)
 
 /datum/distress_beacon
 	var/distress_message
-	var/obj/effect/overmap/visitable/caller
+	var/obj/effect/overmap/visitable/requester
 	var/mob/living/carbon/human/user
 	var/user_name
 
 /datum/distress_beacon/Destroy()
-	caller = null
+	requester = null
 	user = null
 	return ..()

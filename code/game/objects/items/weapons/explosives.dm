@@ -5,6 +5,7 @@
 	icon = 'icons/obj/assemblies.dmi'
 	icon_state = "plastic-explosive0"
 	item_state = "plasticx"
+	contained_sprite = TRUE
 	item_flags = ITEM_FLAG_NO_BLUDGEON
 	w_class = WEIGHT_CLASS_SMALL
 	origin_tech = list(TECH_ILLEGAL = 2)
@@ -29,7 +30,7 @@
 		open_panel = !open_panel
 		to_chat(user, SPAN_NOTICE("You [open_panel ? "open" : "close"] the wire panel."))
 		return TRUE
-	else if(attacking_item.iswirecutter() || attacking_item.ismultitool() || istype(attacking_item, /obj/item/device/assembly/signaler ))
+	else if(open_panel)
 		wires.interact(user)
 		return TRUE
 	else
@@ -96,11 +97,14 @@
 /obj/item/plastique/cyborg
 	name = "plastic explosives dispenser"
 	desc = "A stationbound-mounted C4 dispenser, how thrilling!"
-	desc_antag = "When used, this dispenser will deploy C4 on a target, upon which it will enter a charging state. After two minutes, it will restock a new C4 bundle."
 	var/can_deploy = TRUE
 	var/recharge_time = 5 MINUTES
 	maptext_x = 3
 	maptext_y = 2
+
+/obj/item/plastique/cyborg/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "When used, this dispenser will deploy C4 on a target, upon which it will enter a charging state. After two minutes, it will restock a new C4 bundle."
 
 /obj/item/plastique/cyborg/Initialize()
 	. = ..()

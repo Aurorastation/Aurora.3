@@ -9,8 +9,7 @@
 	body_parts_covered = HEAD|FACE|EYES
 	heat_protection =    HEAD|FACE|EYES
 	cold_protection =    HEAD|FACE|EYES
-	brightness_on = 4
-	light_wedge = LIGHT_WIDE
+	light_range = 4
 	icon = 'icons/obj/clothing/hats.dmi'
 	contained_sprite = FALSE
 
@@ -33,6 +32,18 @@
 	gender = PLURAL
 	icon_base = null
 	footstep_sound_override = 'sound/machines/rig/rigstep.ogg'
+
+/obj/item/clothing/shoes/magboots/rig/advanced
+	slowdown_active = 0
+
+/obj/item/clothing/shoes/magboots/rig/medium
+	footstep_sound_override = 'sound/machines/rig/rigstep_medium.ogg'
+
+/obj/item/clothing/shoes/magboots/rig/heavy
+	footstep_sound_override = 'sound/machines/rig/rigstep_heavy.ogg'
+
+/obj/item/clothing/shoes/magboots/rig/chonk
+	footstep_sound_override = 'sound/machines/rig/rigstep_chonk.ogg'
 
 /obj/item/clothing/suit/space/rig
 	name = "chestpiece"

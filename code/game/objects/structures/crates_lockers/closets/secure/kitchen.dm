@@ -13,38 +13,61 @@
 // Standard Refrigerator
 /obj/structure/closet/secure_closet/refrigerator/standard/fill()
 	// 5 Cartons of Milk
-	for(var/i = 0, i < 5, i++)
+	for(var/i = 0 to 5)
 		new /obj/item/reagent_containers/food/drinks/carton/milk(src)
 	// 2 Cartons of Soy Milk
-	for(var/i = 0, i < 2, i++)
+	for(var/i = 0 to 2)
 		new /obj/item/reagent_containers/food/drinks/carton/soymilk(src)
 	// 1 Egg Box
-	for(var/i = 0, i < 2, i++)
+	for(var/i = 0 to 1)
 		new /obj/item/storage/box/fancy/egg_box(src)
 	// 1 Stick of Butter
-	for(var/i = 0, i < 1, i++)
+	for(var/i = 0 to 1)
 		new /obj/item/reagent_containers/food/snacks/spreads/butter(src)
 	// 4 Random Condiments
-	for(var/i = 0, i < 4, i++)
+	for(var/i = 0 to 4)
 		new /obj/random/condiment(src)
 	// 2 Random Kitchen Staples
-	for(var/i = 0, i < 2, i++)
+	for(var/i = 0 to 2)
 		new /obj/random/kitchen_staples(src)
 
 // Cafe Refrigerator
 /obj/structure/closet/secure_closet/refrigerator/cafe/fill()
 	// 6 Cartons of Milk
-	for(var/i = 0, i < 6, i++)
+	for(var/i = 0 to 6)
 		new /obj/item/reagent_containers/food/drinks/carton/milk(src)
 	// 3 Egg Boxes
 	// 3 Bags of Flour
-	for(var/i = 0, i < 3, i++)
+	for(var/i = 0 to 3)
 		new /obj/item/storage/box/fancy/egg_box(src)
 		new /obj/item/reagent_containers/food/condiment/flour(src)
 	// 2 Cartons of Soymilk and 2 Bags of Sugar
-	for(var/i = 0, i < 2, i++)
+	for(var/i = 0 to 2)
 		new /obj/item/reagent_containers/food/drinks/carton/soymilk(src)
 		new /obj/item/reagent_containers/food/condiment/sugar(src)
+
+// Horizon Kitchen fridge variants
+/obj/structure/closet/secure_closet/refrigerator/station/main
+	name = "refrigerator"
+
+/obj/structure/closet/secure_closet/refrigerator/station/main/fill()
+	for(var/i = 0 to 2)
+		new /obj/item/storage/box/fancy/egg_box(src)
+		new /obj/item/reagent_containers/food/drinks/carton/milk(src)
+		new /obj/item/reagent_containers/food/drinks/carton/soymilk(src)
+		new /obj/item/reagent_containers/food/drinks/carton/cream(src)
+		new /obj/item/reagent_containers/food/condiment/soysauce(src)
+
+/obj/structure/closet/secure_closet/refrigerator/station/alt
+	name = "refrigerator"
+
+/obj/structure/closet/secure_closet/refrigerator/station/alt/fill()
+	for(var/i = 0 to 2)
+		new /obj/item/reagent_containers/food/condiment/flour(src)
+		new /obj/item/reagent_containers/food/condiment/rice(src)
+	new /obj/item/storage/box/large/produce/adhomai(src)
+	new /obj/item/storage/box/large/produce/moghes(src)
+	new /obj/item/storage/box/large/produce/nralakk(src)
 
 //
 // Freezers
@@ -65,6 +88,10 @@
 
 /obj/structure/closet/secure_closet/freezer/meat/fill()
 	for(var/i = 0, i < 8, i++)
+		new /obj/item/reagent_containers/food/snacks/meat(src)
+
+/obj/structure/closet/secure_closet/freezer/meat/low_supply/fill()
+	for(var/i = 0, i < 4, i++)
 		new /obj/item/reagent_containers/food/snacks/meat(src)
 
 // Grilling Meat Freezer
@@ -92,11 +119,14 @@
 	desc = "A white freezer labelled \"Chicken and Fish\"."
 
 /obj/structure/closet/secure_closet/freezer/chicken_and_fish/fill()
-	// 6 Chicken Fillets
+	// 6 Chicken and Fish Fillets
 	for(var/i = 0, i < 6, i++)
 		new /obj/item/reagent_containers/food/snacks/meat/chicken(src)
-	// 6 Fish Fillets
-	for(var/i = 0, i < 6, i++)
+		new /obj/item/reagent_containers/food/snacks/fish/fishfillet(src)
+
+/obj/structure/closet/secure_closet/freezer/chicken_and_fish/low_supply/fill()
+	for(var/i = 0, i < 3, i++)
+		new /obj/item/reagent_containers/food/snacks/meat/chicken(src)
 		new /obj/item/reagent_containers/food/snacks/fish/fishfillet(src)
 
 // Empty Biohazard Freezer
@@ -126,10 +156,8 @@
 
 // Standard Kitchen Cabinet
 /obj/structure/closet/secure_closet/kitchen_cabinet/standard/fill()
-	for(var/i = 0, i < 2, i++)
+	for(var/i = 0 to 2)
 		new /obj/item/reagent_containers/food/condiment/flour(src)
-	new /obj/item/reagent_containers/food/condiment/sugar(src)
-	new /obj/item/reagent_containers/food/condiment/shaker/spacespice(src)
 
 //
 // Miscellaneous

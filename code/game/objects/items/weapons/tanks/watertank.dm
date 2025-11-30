@@ -25,7 +25,7 @@
 
 /obj/item/watertank/verb/toggle_mister()
 	set name = "Toggle Mister"
-	set category = "Object"
+	set category = "Object.Equipped"
 	set src in usr
 
 	var/mob/living/carbon/human/user
@@ -114,7 +114,7 @@
 	return
 
 /obj/item/reagent_containers/spray/chemsprayer/mister/Move()
-	..()
+	. = ..()
 	if(loc != tank.loc)
 		forceMove(tank.loc)
 

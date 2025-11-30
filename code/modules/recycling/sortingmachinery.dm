@@ -13,6 +13,14 @@
 	var/label_x
 	var/tag_x
 
+/obj/structure/bigDelivery/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(distance <= 4)
+		if(sortTag)
+			. += SPAN_NOTICE("It is labeled \"[sortTag]\".")
+		if(examtext)
+			. += SPAN_NOTICE("It has a note attached which reads, \"[examtext]\".")
+
 /obj/structure/bigDelivery/attack_hand(mob/user as mob)
 	unwrap()
 
@@ -108,14 +116,6 @@
 			I.pixel_y = -3
 		AddOverlays(I)
 
-/obj/structure/bigDelivery/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(distance <= 4)
-		if(sortTag)
-			. += SPAN_NOTICE("It is labeled \"[sortTag]\".")
-		if(examtext)
-			. += SPAN_NOTICE("It has a note attached which reads, \"[examtext]\".")
-
 /obj/item/smallDelivery
 	desc = "A small wrapped package."
 	name = "small parcel"
@@ -203,6 +203,14 @@
 				playsound(src, pick('sound/bureaucracy/pen1.ogg','sound/bureaucracy/pen2.ogg'), 20)
 	return
 
+/obj/item/smallDelivery/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(distance <= 4)
+		if(sortTag)
+			. += SPAN_NOTICE("It is labeled \"[sortTag]\".")
+		if(examtext)
+			. += SPAN_NOTICE("It has a note attached which reads, \"[examtext]\".")
+
 /obj/item/smallDelivery/update_icon()
 	ClearOverlays()
 	if((nameset || examtext) && icon_state != "deliverycrate1")
@@ -228,14 +236,6 @@
 				I.pixel_y = -3
 		AddOverlays(I)
 
-/obj/item/smallDelivery/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(distance <= 4)
-		if(sortTag)
-			. += SPAN_NOTICE("It is labeled \"[sortTag]\".")
-		if(examtext)
-			. += SPAN_NOTICE("It has a note attached which reads, \"[examtext]\".")
-
 /obj/structure/bigDelivery/Destroy()
 	if(wrapped) //sometimes items can disappear. For example, bombs. --rastaf0
 		wrapped.forceMove((get_turf(loc)))
@@ -250,8 +250,8 @@
 /obj/item/device/destTagger
 	name = "destination tagger"
 	desc = "Used to set the destination of properly wrapped packages."
+	icon = 'icons/obj/item/device/dest_tagger.dmi'
 	icon_state = "dest_tagger"
-	item_state = "dest_tagger"
 	var/currTag = 0
 	matter = list(DEFAULT_WALL_MATERIAL = 250, MATERIAL_GLASS = 140)
 	w_class = WEIGHT_CLASS_SMALL
@@ -260,17 +260,18 @@
 
 /obj/item/device/destTagger/proc/openwindow(mob/user)
 	var/dat = "<tt><center><h1><b>TagMaster 2.3</b></h1></center>"
+	var/ui_ref = REF(src)
 
 	dat += "<table style='width:100%; padding:4px;'><tr>"
 	for(var/i = 1, i <= SSdisposals.tagger_locations.len, i++)
-		dat += "<td><a href='?src=[REF(src)];nextTag=[html_encode(SSdisposals.tagger_locations[i])]'>[SSdisposals.tagger_locations[i]]</a></td>"
+		dat += "<td><a href='byond://?src=[ui_ref];nextTag=[html_encode(SSdisposals.tagger_locations[i])]'>[SSdisposals.tagger_locations[i]]</a></td>"
 
 		if (i % 4==0)
 			dat += "</tr><tr>"
 
 	dat += "</tr></table><br>Current Selection: [currTag ? currTag : "None"]</tt>"
-	dat += "<br><a href='?src=[REF(src)];nextTag=CUSTOM'>Enter custom location.</a>"
-	user << browse(dat, "window=destTagScreen;size=450x375")
+	dat += "<br><a href='byond://?src=[ui_ref];nextTag=CUSTOM'>Enter custom location.</a>"
+	user << browse(HTML_SKELETON(dat), "window=destTagScreen;size=450x375")
 	onclose(user, "destTagScreen")
 
 /obj/item/device/destTagger/attack_self(mob/user)
@@ -337,7 +338,7 @@
 	INVOKE_ASYNC(src, PROC_REF(flush))
 
 /obj/machinery/disposal/deliveryChute/flush()
-	flushing = 1
+	flushing = TRUE
 	flick("intake-closing", src)
 	var/obj/disposalholder/H = new()	// virtual holder object which actually
 												// travels through the pipes.
@@ -350,11 +351,11 @@
 	H.init(src)	// copy the contents of disposer to holder
 
 	H.start(src) // start the holder processing movement
-	flushing = 0
+	flushing = FALSE
 	// now reset disposal state
 	flush = 0
-	if(mode == 2)	// if was ready,
-		mode = 1	// switch to charging
+	if(mode == MODE_READY)	// if was ready,
+		mode = MODE_PRESSURIZING	// switch to charging
 	update()
 	return
 
@@ -399,3 +400,8 @@
 	if(trunk)
 		trunk.linked = null
 	return ..()
+
+#undef MODE_OFF
+#undef MODE_PRESSURIZING
+#undef MODE_READY
+#undef MODE_FLUSHING

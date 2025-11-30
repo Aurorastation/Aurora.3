@@ -1,0 +1,32 @@
+[
+	{
+		"type": "SubmapExtractInsert",
+		"submap_size_x": 3,
+		"submap_size_y": 4,
+		"submap_size_z": 1,
+		"submaps_dmm": "nuclear_silo_submaps.dmm",
+		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/nuclear_silo/crew_quarters_room",
+		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/nuclear_silo/crew_quarters_room",
+		"submaps_can_repeat": false
+	},
+	{
+		"type": "SubmapExtractInsert",
+		"submap_size_x": 4,
+		"submap_size_y": 6,
+		"submap_size_z": 1,
+		"submaps_dmm": "nuclear_silo_submaps.dmm",
+		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/nuclear_silo/armoury",
+		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/nuclear_silo/armoury",
+		"submaps_can_repeat": false
+	},
+	{
+		"type": "SubmapExtractInsert",
+		"submap_size_x": 3,
+		"submap_size_y": 4,
+		"submap_size_z": 1,
+		"submaps_dmm": "nuclear_silo_submaps.dmm",
+		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/nuclear_silo/crew_quarters_room_north",
+		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/nuclear_silo/crew_quarters_room_north",
+		"submaps_can_repeat": false
+	}
+]

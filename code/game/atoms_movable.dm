@@ -5,7 +5,9 @@
 	appearance_flags = DEFAULT_APPEARANCE_FLAGS | TILE_BOUND
 
 	var/last_move = null
-	var/anchored = 0
+	/// A list containing arguments for Moved().
+	VAR_PRIVATE/tmp/list/active_movement
+	var/anchored = FALSE
 	var/movable_flags
 
 	///Used to scale icons up or down horizonally in update_transform().
@@ -42,6 +44,9 @@
 	///Delay in deciseconds between inertia based movement
 	var/inertia_move_delay = 5
 
+	///0: not doing a diagonal move. 1 and 2: doing the first/second step of the diagonal move
+	var/moving_diagonally = 0
+
 	///Holds information about any movement loops currently running/waiting to run on the movable. Lazy, will be null if nothing's going on
 	var/datum/movement_packet/move_packet
 
@@ -71,21 +76,33 @@
 	///Internal holder for emissive blocker object, DO NOT USE DIRECTLY. Use blocks_emissive
 	var/mutable_appearance/em_block
 
+	///Lazylist to keep track on the sources of illumination.
+	var/list/affected_movable_lights
+	///Highest-intensity light affecting us, which determines our visibility.
+	var/affecting_dynamic_lumi = 0
+
+	/// Holds a reference to the emissive blocker overlay
+	var/emissive_overlay
+
+	/// Whether this atom should have its dir automatically changed when it moves. Setting this to FALSE allows for things such as directional windows to retain dir on moving without snowflake code all of the place.
+	var/set_dir_on_move = TRUE
+
 /atom/movable/Initialize(mapload, ...)
 	. = ..()
 	update_emissive_blocker()
-	if (em_block)
-		AddOverlays(em_block)
+
+	if(opacity)
+		AddElement(/datum/element/light_blocking)
+	if(light_system == MOVABLE_LIGHT)
+		AddComponent(/datum/component/overlay_lighting)
+	if(light_system == DIRECTIONAL_LIGHT)
+		AddComponent(/datum/component/overlay_lighting, is_directional = TRUE)
 
 /atom/movable/Destroy(force)
 	if(orbiting)
 		stop_orbit()
 
-	//Recalculate opacity
-	var/turf/T = loc
-	if(opacity && istype(T))
-		T.recalc_atom_opacity()
-		T.reconsider_lights()
+	QDEL_NULL(emissive_overlay)
 
 	if(move_packet)
 		if(!QDELETED(move_packet))
@@ -131,6 +148,9 @@
 	if(em_block)
 		QDEL_NULL(em_block)
 
+	QDEL_NULL(light)
+	QDEL_NULL(static_light)
+
 /atom/movable/proc/moveToNullspace()
 	. = TRUE
 
@@ -148,7 +168,7 @@
 		if(old_area)
 			old_area.Exited(src, NONE)
 
-	Moved(oldloc, NONE, TRUE, null)
+	RESOLVE_ACTIVE_MOVEMENT
 
 // Make sure you know what you're doing if you call this
 // You probably want CanPass()
@@ -162,7 +182,7 @@
 ///default byond proc that is deprecated for us in lieu of signals. do not call
 /atom/movable/Crossed(atom/movable/crossed_atom, oldloc)
 	SHOULD_NOT_OVERRIDE(TRUE)
-	// CRASH("atom/movable/Crossed() was called!") //pending rework of /atom/movable/Move() this is suppressed
+	CRASH("atom/movable/Crossed() was called!")
 
 /**
  * `Uncross()` is a default BYOND proc that is called when something is *going*
@@ -185,9 +205,10 @@
  * [`COMSIG_ATOM_EXIT`].
  */
 /atom/movable/Uncross()
-	. = TRUE
 	SHOULD_NOT_OVERRIDE(TRUE)
-	// CRASH("Uncross() should not be being called, please read the doc-comment for it for why.") //pending rework of /atom/movable/Move() this is suppressed
+
+	. = TRUE
+	CRASH("Uncross() should not be being called, please read the doc-comment for it for why.")
 
 /**
  * default byond proc that is normally called on everything inside the previous turf
@@ -197,7 +218,7 @@
  */
 /atom/movable/Uncrossed(atom/movable/uncrossed_atom)
 	SHOULD_NOT_OVERRIDE(TRUE)
-	// CRASH("/atom/movable/Uncrossed() was called") //pending rework of /atom/movable/Move() this is suppressed
+	CRASH("/atom/movable/Uncrossed() was called")
 
 /**
  * Pretend this is `Bump()`
@@ -249,7 +270,7 @@
 					continue
 				throw_impact(A, speed)
 			if(isobj(A))
-				if(A.density && !A.throwpass && !A.CanPass(src, target))
+				if(A.density && !A.CanPass(src, target))
 					src.throw_impact(A,speed)
 
 // Prevents robots dropping their modules
@@ -361,20 +382,23 @@
 	src.throw_at(pick(turfs), maxrange, speed)
 
 /atom/movable/proc/update_emissive_blocker()
-	switch (blocks_emissive)
-		if (EMISSIVE_BLOCK_GENERIC)
-			em_block = fast_emissive_blocker(src)
-		if (EMISSIVE_BLOCK_UNIQUE)
-			if (!em_block && !QDELING(src))
-				appearance_flags |= KEEP_TOGETHER
-				render_target = REF(src)
-				em_block = emissive_blocker(
-					icon = icon,
-					icon_state = icon_state,
-					appearance_flags = appearance_flags,
-					source = render_target
-				)
-	return em_block
+	if(emissive_overlay)
+		CutOverlays(emissive_overlay)
+
+	switch(blocks_emissive)
+		if(EMISSIVE_BLOCK_GENERIC)
+			var/mutable_appearance/gen_emissive_blocker = mutable_appearance(icon, icon_state, plane = EMISSIVE_PLANE, alpha = src.alpha)
+			gen_emissive_blocker.color = GLOB.em_block_color
+			gen_emissive_blocker.dir = dir
+			gen_emissive_blocker.appearance_flags |= appearance_flags
+			emissive_overlay = gen_emissive_blocker
+			AddOverlays(emissive_overlay)
+
+		if(EMISSIVE_BLOCK_UNIQUE)
+			render_target = REF(src)
+			em_block = new(src, render_target)
+			emissive_overlay = em_block
+			AddOverlays(emissive_overlay)
 
 /atom/movable/update_icon()
 	..()
@@ -486,14 +510,20 @@
 
 // Core movement hooks & procs.
 /atom/movable/proc/forceMove(atom/destination)
+	. = FALSE
+	RESOLVE_ACTIVE_MOVEMENT
+
 	if(!destination)
 		return FALSE
 	if(loc)
 		loc.Exited(src, destination)
-	var/old_loc = loc
+	var/oldloc = loc
+
+	SET_ACTIVE_MOVEMENT(oldloc, NONE, TRUE, null)
+
 	loc = destination
-	loc.Entered(src, old_loc)
-	Moved(old_loc, get_dir(old_loc, destination), TRUE)
+	loc.Entered(src, oldloc)
+	Moved(oldloc, get_dir(oldloc, destination), TRUE)
 
 	//Zmimic
 	if(bound_overlay)
@@ -508,12 +538,7 @@
 	if(opacity)
 		updateVisibility(src)
 
-	//Lighting recalculation
-	var/datum/light_source/L
-	var/thing
-	for (thing in light_sources)
-		L = thing
-		L.source_atom.update_light()
+	RESOLVE_ACTIVE_MOVEMENT
 
 	return TRUE
 
@@ -551,6 +576,13 @@
 		SSspatial_grid.enter_cell(src, new_turf)
 	/* END Spatial grid stuffs */
 
+	for(var/datum/dynamic_light_source/light as anything in hybrid_light_sources)
+		light.source_atom.update_light()
+		if(!isturf(loc))
+			light.find_containing_atom()
+	for(var/datum/static_light_source/L as anything in static_light_sources) // Cycle through the light sources on this atom and tell them to update.
+		L.source_atom.static_update_light()
+
 /atom/movable/Exited(atom/movable/gone, direction)
 	. = ..()
 
@@ -563,16 +595,13 @@
 				LAZYINITLIST(recursive_contents[channel])
 				recursive_contents[channel] -= gone.important_recursive_contents[channel]
 				switch(channel)
-					if(RECURSIVE_CONTENTS_CLIENT_MOBS, RECURSIVE_CONTENTS_HEARING_SENSITIVE)
+					if(RECURSIVE_CONTENTS_CLIENT_MOBS, RECURSIVE_CONTENTS_HEARING_SENSITIVE,RECURSIVE_CONTENTS_AI_TARGETS)
 						if(!length(recursive_contents[channel]))
 							// This relies on a nice property of the linked recursive and gridmap types
 							// They're defined in relation to each other, so they have the same value
 							SSspatial_grid.remove_grid_awareness(location, channel)
 				ASSOC_UNSETEMPTY(recursive_contents, channel)
 				UNSETEMPTY(location.important_recursive_contents)
-
-	if(LAZYLEN(gone.stored_chat_text))
-		return_floating_text(gone)
 
 	GLOB.dir_set_event.unregister(src, gone, TYPE_PROC_REF(/atom, recursive_dir_set))
 
@@ -587,13 +616,10 @@
 				var/list/recursive_contents = location.important_recursive_contents // blue hedgehog velocity
 				LAZYINITLIST(recursive_contents[channel])
 				switch(channel)
-					if(RECURSIVE_CONTENTS_CLIENT_MOBS, RECURSIVE_CONTENTS_HEARING_SENSITIVE)
+					if(RECURSIVE_CONTENTS_CLIENT_MOBS, RECURSIVE_CONTENTS_HEARING_SENSITIVE,RECURSIVE_CONTENTS_AI_TARGETS)
 						if(!length(recursive_contents[channel]))
 							SSspatial_grid.add_grid_awareness(location, channel)
 				recursive_contents[channel] |= arrived.important_recursive_contents[channel]
-
-	if (LAZYLEN(arrived.stored_chat_text))
-		give_floating_text(arrived)
 
 	if(GLOB.dir_set_event.has_listeners(arrived))
 		GLOB.dir_set_event.register(src, arrived, TYPE_PROC_REF(/atom, recursive_dir_set))
@@ -690,25 +716,29 @@
 // This proc adds atom/movables to the AI targetable list, i.e. things that the AI (turrets, hostile animals) will attempt to target
 /atom/movable/proc/add_to_target_grid()
 	for (var/atom/movable/location as anything in get_nested_locs(src) + src)
-		LAZYADDASSOCLIST(location.important_recursive_contents, RECURSIVE_CONTENTS_AI_TARGETS, src)
+		LAZYINITLIST(location.important_recursive_contents)
+		var/list/recursive_contents = location.important_recursive_contents
+		if(!length(recursive_contents[RECURSIVE_CONTENTS_AI_TARGETS]))
+			SSspatial_grid.add_grid_awareness(location, SPATIAL_GRID_CONTENTS_TYPE_TARGETS)
+		LAZYINITLIST(recursive_contents[RECURSIVE_CONTENTS_AI_TARGETS])
+		recursive_contents[RECURSIVE_CONTENTS_AI_TARGETS] |= src
 
 	var/turf/our_turf = get_turf(src)
-	if(our_turf && SSspatial_grid.initialized)
-		SSspatial_grid.add_grid_awareness(src, RECURSIVE_CONTENTS_AI_TARGETS)
-		SSspatial_grid.add_grid_membership(src, our_turf, RECURSIVE_CONTENTS_AI_TARGETS)
-
-	else if(our_turf && !SSspatial_grid.initialized)//SSspatial_grid isnt init'd yet, add ourselves to the queue
-		SSspatial_grid.enter_pre_init_queue(src, RECURSIVE_CONTENTS_AI_TARGETS)
+	SSspatial_grid.add_grid_membership(src, our_turf, SPATIAL_GRID_CONTENTS_TYPE_TARGETS)
 
 /atom/movable/proc/clear_from_target_grid()
 	var/turf/our_turf = get_turf(src)
-	if(our_turf && SSspatial_grid.initialized)
-		SSspatial_grid.exit_cell(src, our_turf, RECURSIVE_CONTENTS_AI_TARGETS)
-	else if(our_turf && !SSspatial_grid.initialized)
-		SSspatial_grid.remove_from_pre_init_queue(src, RECURSIVE_CONTENTS_AI_TARGETS)
+	SSspatial_grid.remove_grid_membership(src, our_turf, SPATIAL_GRID_CONTENTS_TYPE_TARGETS)
 
-	for(var/atom/movable/location as anything in get_nested_locs(src) + src)
-		LAZYREMOVEASSOC(location.important_recursive_contents, RECURSIVE_CONTENTS_AI_TARGETS, src)
+	for(var/atom/movable/movable_loc as anything in get_nested_locs(src) + src)
+		LAZYINITLIST(movable_loc.important_recursive_contents)
+		var/list/recursive_contents = movable_loc.important_recursive_contents // blue hedgehog velocity
+		LAZYINITLIST(recursive_contents[RECURSIVE_CONTENTS_AI_TARGETS])
+		recursive_contents[RECURSIVE_CONTENTS_AI_TARGETS] -= src
+		if(!length(recursive_contents[RECURSIVE_CONTENTS_AI_TARGETS]))
+			SSspatial_grid.remove_grid_awareness(movable_loc, SPATIAL_GRID_CONTENTS_TYPE_TARGETS)
+		ASSOC_UNSETEMPTY(recursive_contents, RECURSIVE_CONTENTS_AI_TARGETS)
+		UNSETEMPTY(movable_loc.important_recursive_contents)
 
 /atom/movable/proc/do_simple_ranged_interaction(var/mob/user)
 	return FALSE
@@ -857,10 +887,186 @@
  * most of the time you want forceMove()
  */
 /atom/movable/proc/abstract_move(atom/new_loc)
-	// RESOLVE_ACTIVE_MOVEMENT // This should NEVER happen, but, just in case...
+	RESOLVE_ACTIVE_MOVEMENT // This should NEVER happen, but, just in case...
 	var/atom/old_loc = loc
 	var/direction = get_dir(old_loc, new_loc)
 	loc = new_loc
 
 	//is Moved(old_loc, direction, TRUE, momentum_change = FALSE) in tg
 	Moved(old_loc, direction, TRUE)
+
+////////////////////////////////////////
+// Here's where we rewrite how byond handles movement except slightly different
+// To be removed on step_ conversion
+// All this work to prevent a second bump
+/atom/movable/Move(atom/newloc, direction, glide_size_override = 0, update_dir = TRUE) //Last 2 parameters are not used but they're caught
+	CAN_BE_REDEFINED(TRUE)
+	. = FALSE
+	if(!newloc || newloc == loc)
+		return
+
+	// A mid-movement... movement... occurred, resolve that first.
+	RESOLVE_ACTIVE_MOVEMENT
+
+	if(!direction)
+		direction = get_dir(src, newloc)
+
+	// TEMPORARY OFF because i remember this giving some issues on something i don't quite remember
+	if(set_dir_on_move && dir != direction && update_dir)
+		set_dir(direction)
+
+	//There should be some multitile code above, it was cut as we don't do multitile movement (yet)
+	if(!loc.Exit(src, direction))
+		return
+
+	//There should be some multitile code above, it was cut as we don't do multitile movement (yet)
+	if(!newloc.Enter(src))
+		return
+	if(SEND_SIGNAL(src, COMSIG_MOVABLE_PRE_MOVE, newloc) & COMPONENT_MOVABLE_BLOCK_PRE_MOVE)
+		return
+
+	var/atom/oldloc = loc
+	var/area/oldarea = get_area(oldloc)
+	var/area/newarea = get_area(newloc)
+
+	SET_ACTIVE_MOVEMENT(oldloc, direction, FALSE, list()) //This is different from TG because we don't have multitile movement (yet)
+	loc = newloc
+
+	. = TRUE
+
+	oldloc.Exited(src, direction)
+	if(oldarea != newarea)
+		oldarea.Exited(src, direction)
+
+	newloc.Entered(src, oldloc) //This is different from TG because we don't have multitile movement (yet)
+	if(oldarea != newarea)
+		newarea.Entered(src, oldarea)
+
+	// Openturf.
+	if(bound_overlay)
+		// The overlay will handle cleaning itself up on non-openspace turfs.
+		bound_overlay.forceMove(get_step(src, UP))
+		if(bound_overlay.dir != dir)
+			bound_overlay.set_dir(dir)
+
+	if(opacity)
+		updateVisibility(src)
+
+	//Mimics
+	if(bound_overlay)
+		bound_overlay.forceMove(get_step(src, UP))
+		if(bound_overlay.dir != dir)
+			bound_overlay.set_dir(dir)
+
+	src.move_speed = world.time - src.l_move_time
+	src.l_move_time = world.time
+	if ((oldloc != src.loc && oldloc && oldloc.z == src.z))
+		src.last_move = get_dir(oldloc, src.loc)
+
+	RESOLVE_ACTIVE_MOVEMENT
+
+////////////////////////////////////////
+
+/atom/movable/Move(atom/newloc, direct, glide_size_override = 0, update_dir = TRUE)
+	CAN_BE_REDEFINED(TRUE)
+	// var/atom/movable/pullee = pulling
+	// var/turf/current_turf = loc
+
+	if(!loc || !newloc)
+		return FALSE
+
+	if(loc != newloc)
+		if (!(direct & (direct - 1))) //Cardinal move
+			. = ..()
+		else //Diagonal move, split it into cardinal moves
+			moving_diagonally = FIRST_DIAG_STEP
+			var/first_step_dir
+			// The `&& moving_diagonally` checks are so that a forceMove taking
+			// place due to a Crossed, Bumped, etc. call will interrupt
+			// the second half of the diagonal movement, or the second attempt
+			// at a first half if step() fails because we hit something.
+			if (direct & NORTH)
+				if (direct & EAST)
+					if (step(src, NORTH) && moving_diagonally)
+						first_step_dir = NORTH
+						moving_diagonally = SECOND_DIAG_STEP
+						. = step(src, EAST)
+					else if (moving_diagonally && step(src, EAST))
+						first_step_dir = EAST
+						moving_diagonally = SECOND_DIAG_STEP
+						. = step(src, NORTH)
+				else if (direct & WEST)
+					if (step(src, NORTH) && moving_diagonally)
+						first_step_dir = NORTH
+						moving_diagonally = SECOND_DIAG_STEP
+						. = step(src, WEST)
+					else if (moving_diagonally && step(src, WEST))
+						first_step_dir = WEST
+						moving_diagonally = SECOND_DIAG_STEP
+						. = step(src, NORTH)
+			else if (direct & SOUTH)
+				if (direct & EAST)
+					if (step(src, SOUTH) && moving_diagonally)
+						first_step_dir = SOUTH
+						moving_diagonally = SECOND_DIAG_STEP
+						. = step(src, EAST)
+					else if (moving_diagonally && step(src, EAST))
+						first_step_dir = EAST
+						moving_diagonally = SECOND_DIAG_STEP
+						. = step(src, SOUTH)
+				else if (direct & WEST)
+					if (step(src, SOUTH) && moving_diagonally)
+						first_step_dir = SOUTH
+						moving_diagonally = SECOND_DIAG_STEP
+						. = step(src, WEST)
+					else if (moving_diagonally && step(src, WEST))
+						first_step_dir = WEST
+						moving_diagonally = SECOND_DIAG_STEP
+						. = step(src, SOUTH)
+			if(moving_diagonally == SECOND_DIAG_STEP)
+				if(!. && set_dir_on_move && update_dir)
+					set_dir(first_step_dir)
+				else if(!inertia_moving)
+					newtonian_move(dir2angle(direct))
+
+			moving_diagonally = 0
+			return
+
+	last_move = direct
+	if(set_dir_on_move && dir != direct && update_dir)
+		set_dir(direct)
+
+/**
+ * Adds the red drop-shadow filter when pointed to by a mob.
+ * Override if the atom doesn't play nice with filters.
+ */
+/atom/movable/proc/add_point_filter()
+	add_filter("pointglow", 1, list(type = "drop_shadow", x = 0, y = -1, offset = 1, size = 1, color = "#F00"))
+	addtimer(CALLBACK(src, PROC_REF(remove_filter), "pointglow"), 2 SECONDS)
+
+///Keeps track of the sources of dynamic luminosity and updates our visibility with the highest.
+/atom/movable/proc/update_dynamic_luminosity()
+	var/highest = 0
+	for(var/i in affected_movable_lights)
+		if(affected_movable_lights[i] <= highest)
+			continue
+		highest = affected_movable_lights[i]
+	if(highest == affecting_dynamic_lumi)
+		return
+	luminosity -= affecting_dynamic_lumi
+	affecting_dynamic_lumi = highest
+	luminosity += affecting_dynamic_lumi
+
+
+///Helper to change several lighting overlay settings.
+/atom/movable/proc/set_light_range_power_color(range, power, color)
+	set_light_range(range)
+	set_light_power(power)
+	set_light_color(color)
+
+/**
+ * Called when a movable is moved by a shuttle. Eventually, God willing, replace this with the TG shuttle version.
+ */
+/atom/movable/proc/afterShuttleMove(obj/effect/shuttle_landmark/destination)
+	if(light)
+		update_light()

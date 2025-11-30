@@ -85,14 +85,14 @@
 /obj/machinery/door/window/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(mover?.movement_type & PHASING)
 		return TRUE
-	if(get_dir(loc, target) == dir) //Make sure looking at appropriate border
+	var/movingdir = get_dir(loc,target)
+	if(movingdir == 0)
+		movingdir = get_dir(loc,mover)
+	if(movingdir & dir)
 		if(air_group)
 			return FALSE
-
 		return !density
-
 	else
-
 		return TRUE
 
 /obj/machinery/door/window/CheckExit(atom/movable/mover as mob|obj, turf/target as turf)
@@ -220,6 +220,9 @@
 
 	if(allowed(user))
 		if(!operable())
+			if (!user.Adjacent(src))
+				to_chat(user, SPAN_WARNING("\The [src] is unpowered."))
+				return TRUE
 			if(!do_after(user, 1 SECOND, src))
 				return TRUE
 			visible_message("\The [user] [density ? "pushes" : "pulls"] \the [src] [density ? "open" : "closed"].")

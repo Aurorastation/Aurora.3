@@ -1,6 +1,6 @@
 /obj/structure/barricade/metal
 	name = "metal barricade"
-	desc = "A sturdy and easily assembled barricade made of metal plates, often used for quick fortifications. Use a blowtorch to repair."
+	desc = "A sturdy and easily assembled barricade made of metal plates, often used for quick fortifications."
 	icon_state = "metal_0"
 	build_amt = 4
 	health = 450
@@ -12,17 +12,29 @@
 	barricade_hitsound = 'sound/effects/metalhit.ogg'
 	barricade_type = "metal"
 	can_wire = TRUE
-	var/build_state = BARRICADE_BSTATE_SECURED //Look at __game.dm for barricade defines
+	/// Look at __game.dm for barricade defines
+	var/build_state = BARRICADE_BSTATE_SECURED
 
-/obj/structure/barricade/metal/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+// Duplicated in /obj/structure/barricade/plasteel. If you change one, also change the other.
+/obj/structure/barricade/metal/assembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Damage (up to a point) can be repaired with a welding torch."
+	switch(build_state)
+		if(BARRICADE_BSTATE_MOVABLE)
+			. += "The barricade is ready to have its <b>anchor bolts</b> tightened."
+		if(BARRICADE_BSTATE_UNSECURED)
+			. += "The protection panel is ready to be <b>screwed</b> into place."
+
+// Duplicated in /obj/structure/barricade/plasteel. If you change one, also change the other.
+/obj/structure/barricade/metal/disassembly_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	switch(build_state)
 		if(BARRICADE_BSTATE_SECURED)
-			. += SPAN_INFO("The protection panel is still tighly screwed in place.")
+			. += "The protection panel is still tighly <b>screwed</b> in place."
 		if(BARRICADE_BSTATE_UNSECURED)
-			. += SPAN_INFO("The protection panel has been removed, you can see the anchor bolts.")
+			. += "The protection panel has been removed, you can see the <b>anchor bolts</b>."
 		if(BARRICADE_BSTATE_MOVABLE)
-			. += SPAN_INFO("The protection panel has been removed and the anchor bolts loosened. It's ready to be taken apart.")
+			. += "The protection panel has been removed and the anchor bolts loosened. It's ready to be <b>pried</b> apart."
 
 /obj/structure/barricade/metal/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.iswelder())

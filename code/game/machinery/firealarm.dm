@@ -12,18 +12,25 @@
 	anchored = 1
 	idle_power_usage = 2
 	active_power_usage = 6
-	power_channel = ENVIRON
+	power_channel = AREA_USAGE_ENVIRON
 	var/last_process = 0
-	var/wiresexposed = 0
 	var/buildstage = 2 // 2 = complete, 1 = no wires,  0 = circuit gone
 	var/seclevel
 	///looping sound datum for our fire alarm siren.
 	var/datum/looping_sound/firealarm/soundloop
+	always_area_sensitive = TRUE
 
-/obj/machinery/firealarm/Initialize(mapload, ndir = 0, building)
-	. = ..(mapload, ndir)
+/obj/machinery/firealarm/Initialize(mapload, var/dir, var/building = 0)
+	. = ..(mapload)
 
-	update_icon()
+	if(building)
+		if(dir)
+			src.set_dir(dir)
+		buildstage = 0
+		panel_open = 1
+
+		update_icon()
+		set_pixel_offsets()
 
 	if(isContactLevel(z))
 		INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(set_security_level), (GLOB.security_level ? get_security_level() : "green"))
@@ -35,6 +42,8 @@
 
 	if(!mapload)
 		set_pixel_offsets()
+
+	update_icon()
 
 /obj/machinery/firealarm/Destroy()
 	QDEL_NULL(soundloop)
@@ -50,7 +59,7 @@
 /obj/machinery/firealarm/update_icon()
 	ClearOverlays()
 
-	if(wiresexposed)
+	if(panel_open)
 		switch(buildstage)
 			if(2)
 				AddOverlays("fire_b2")
@@ -70,7 +79,7 @@
 		var/area/A = get_area(src)
 		if(A.fire)
 			AddOverlays("fire1")
-			set_light(l_range = L_WALLMOUNT_HI_RANGE, l_power = L_WALLMOUNT_HI_POWER, l_color = COLOR_RED)
+			set_light(L_WALLMOUNT_HI_RANGE, L_WALLMOUNT_HI_POWER, COLOR_RED)
 		else
 			AddOverlays("fire0")
 			set_light(0)
@@ -102,13 +111,13 @@
 		return TRUE
 
 	if (attacking_item.isscrewdriver() && buildstage == 2)
-		if(!wiresexposed)
+		if(!panel_open)
 			set_light(0)
-		wiresexposed = !wiresexposed
+		panel_open = !panel_open
 		update_icon()
 		return TRUE
 
-	if(wiresexposed)
+	if(panel_open)
 		set_light(0)
 		switch(buildstage)
 			if(2)
@@ -197,10 +206,10 @@
 	if (buildstage != 2 || stat & (NOPOWER|BROKEN))
 		return
 
-	if(user.a_intent == I_HURT)
-		alarm()
-	else
+	if(user.a_intent != I_HURT)
 		ui_interact(user)
+	else
+		alarm()
 
 /obj/machinery/firealarm/ui_data(mob/user)
 	var/list/data = list()
@@ -245,7 +254,7 @@
 		return
 	var/area/area = get_area(src)
 	for(var/obj/machinery/firealarm/FA in area)
-		fire_alarm.clearAlarm(loc, FA)
+		GLOB.fire_alarm.clearAlarm(loc, FA)
 		FA.soundloop.stop(FA)
 	update_icon()
 	return
@@ -255,7 +264,7 @@
 		return
 	var/area/area = get_area(src)
 	for(var/obj/machinery/firealarm/FA in area)
-		fire_alarm.triggerAlarm(loc, FA, duration)
+		GLOB.fire_alarm.triggerAlarm(loc, FA, duration)
 		FA.soundloop.start(FA)
 	update_icon()
 	return
@@ -267,7 +276,7 @@
 /obj/machinery/firealarm/set_pixel_offsets()
 	// Overwrite the mapped in values.
 	pixel_x = ((dir & (NORTH|SOUTH)) ? 0 : (dir == EAST ? 22 : -22))
-	pixel_y = ((dir & (NORTH|SOUTH)) ? (dir == NORTH ? 32 : -17) : 0)
+	pixel_y = ((dir & (NORTH|SOUTH)) ? (dir == NORTH ? 32 : -19) : 0)
 
 // Convenience subtypes for mappers.
 /obj/machinery/firealarm/north
@@ -284,7 +293,7 @@
 
 /obj/machinery/firealarm/south
 	dir = SOUTH
-	pixel_y = -17
+	pixel_y = -19
 
 /*
 FIRE ALARM CIRCUIT
@@ -292,7 +301,7 @@ Just a object used in constructing fire alarms
 */
 /obj/item/firealarm_electronics
 	name = "fire alarm electronics"
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/obj/module.dmi'
 	icon_state = "door_electronics"
 	desc = "A circuit. It has a label on it, it says \"Can handle heat levels up to 40 degrees celsius!\""
 	w_class = WEIGHT_CLASS_SMALL

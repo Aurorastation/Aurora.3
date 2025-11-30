@@ -21,7 +21,7 @@
 	var/is_secure = 0
 	var/machineselect = 0
 
-	var/list/accepted_items = list(/obj/item/reagent_containers/food/snacks/grown, /obj/item/seeds)
+	var/list/accepted_items = list(/obj/item/reagent_containers/food/snacks/grown, /obj/item/seeds, /obj/item/mollusc)
 
 	var/cooling = 0 //Whether or not to vend products at the cooling temperature
 	var/heating = 0 //Whether or not to vend products at the heating temperature
@@ -30,6 +30,8 @@
 
 	// what icon overlay to use to show its contents - set to NULL if no contents.
 	var/contents_path = "-plant"
+	var/display_tiers = 3
+	var/display_tier_amt = 25
 
 	component_types = list(
 		/obj/item/circuitboard/smartfridge,
@@ -118,10 +120,19 @@
 	contents_path = "-food"
 	accepted_items = list(/obj/item/reagent_containers/food/snacks)
 
+/obj/machinery/smartfridge/foodheater/stand
+	desc = "A more commercialized version of your traditional SmartHeater. Nothing like stale, heat-lamp warmed food."
+	use_power = POWER_USE_OFF
+	idle_power_usage = 0
+	active_power_usage = 0
+
+/obj/machinery/smartfridge/foodheater/stand/powered()
+	return TRUE
+
 /obj/machinery/smartfridge/foodheater/abandoned
 	// badly stocked, with trash, junk, etc
 	desc = "Used to keep food nice and warm in the past, now it is all dirty, and doesn't look like it'll ever run again."
-	use_power = 0
+	use_power = POWER_USE_OFF
 
 /obj/machinery/smartfridge/seeds
 	name = "\improper MegaSeed Storage"
@@ -189,11 +200,14 @@
 						/obj/item/reagent_containers/food/drinks,
 						/obj/item/reagent_containers/food/condiment)
 
+/obj/machinery/smartfridge/drinks/bar
+	density = FALSE
+	layer = BELOW_TABLE_LAYER
+
 /obj/machinery/smartfridge/drying_rack
 	name = "\improper Drying Rack"
 	desc = "A machine for drying plants."
 	icon_state = "drying_rack"
-	opacity = TRUE
 	accepted_items = list(/obj/item/reagent_containers/food/snacks)
 	contents_path = null
 
@@ -272,16 +286,13 @@
 		AddOverlays("[initial(icon_state)]-panel")
 	var/list/shown_contents = contents - component_parts
 	if(contents_path && shown_contents.len > 0)
-		var/contents_icon_state
-		switch(shown_contents.len)
-			if(1 to 25)
-				contents_icon_state = "-1"
-			if(26 to 50)
-				contents_icon_state = "-2"
-			if(50 to INFINITY)
-				contents_icon_state = "-3"
+		var/contents_icon_state = change_display(shown_contents.len - 1)
 		AddOverlays("[initial(icon_state)][contents_path][contents_icon_state]")
 	AddOverlays("[initial(icon_state)]-glass[(stat & BROKEN) ? "-broken" : ""]")
+
+/obj/machinery/smartfridge/proc/change_display(var/length)
+	var/tier = clamp((floor(length / display_tier_amt) + 1), 1, display_tiers)
+	return "-[num2text(tier)]"
 
 /*******************
 *   Item Adding
@@ -388,7 +399,8 @@
 /obj/machinery/smartfridge/attack_hand(mob/user)
 	if(stat & (NOPOWER|BROKEN))
 		return
-	wires.interact(user)
+	if(panel_open)
+		wires.interact(user)
 	ui_interact(user)
 
 /*******************
@@ -427,7 +439,16 @@
 	if(.)
 		return
 
-	add_fingerprint(usr)
+	var/mob/user = ui.user
+
+	add_fingerprint(user)
+
+	if(stat & (NOPOWER|BROKEN) || !anchored)
+		return
+
+	if(!allowed(user) && !emagged && locked != -1 && is_secure)
+		to_chat(usr, SPAN_WARNING("Access denied."))
+		return
 
 	switch(action)
 		if("vendItem")
@@ -443,8 +464,8 @@
 				var/i = amount
 				for(var/obj/O in contents)
 					if(O.name == K)
-						if(Adjacent(usr))
-							usr.put_in_hands(O)
+						if(Adjacent(user))
+							user.put_in_hands(O)
 						else
 							O.forceMove(loc)
 						i--

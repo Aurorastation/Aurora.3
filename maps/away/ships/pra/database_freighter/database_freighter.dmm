@@ -387,7 +387,8 @@
 /area/database_freighter/captain_quarters)
 "bE" = (
 /obj/machinery/computer/ship/helm{
-	dir = 1
+	dir = 1;
+	req_access = list(209)
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 10
@@ -1037,7 +1038,8 @@
 	pixel_y = -32
 	},
 /obj/machinery/computer/shuttle_control/explore/terminal/database_freighter_shuttle{
-	dir = 4
+	dir = 4;
+	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/database_freighter_shuttle)
@@ -1494,13 +1496,13 @@
 /area/database_freighter)
 "gm" = (
 /obj/structure/table/rack,
-/obj/item/storage/box/monkeycubes/farwacubes{
+/obj/item/storage/box/unique/monkeycubes/farwacubes{
 	pixel_x = -5
 	},
-/obj/item/storage/box/monkeycubes/farwacubes{
+/obj/item/storage/box/unique/monkeycubes/farwacubes{
 	pixel_x = 5
 	},
-/obj/item/storage/box/monkeycubes/farwacubes,
+/obj/item/storage/box/unique/monkeycubes/farwacubes,
 /obj/item/reagent_containers/spray/cleaner{
 	pixel_x = -4;
 	pixel_y = -3
@@ -2453,7 +2455,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/database_freighter_shuttle)
 "lt" = (
-/obj/effect/floor_decal/plaque,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
@@ -2461,6 +2462,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/structure/sign/floor_plaque,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -2743,7 +2745,8 @@
 /area/database_freighter)
 "mF" = (
 /obj/machinery/computer/ship/helm/terminal{
-	dir = 1
+	dir = 1;
+	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/database_freighter_shuttle)

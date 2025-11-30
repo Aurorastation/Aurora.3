@@ -10,17 +10,15 @@
 	footstep_sound = /singleton/sound_category/asteroid_footstep
 	turf_flags = TURF_FLAG_BACKGROUND
 
-	does_footprint = TRUE
-
 	var/diggable = 1
 	var/dirt_color = "#7c5e42"
-	var/has_edge_icon = TRUE
 
 /turf/simulated/floor/exoplanet/New()
 	// try to get the the atmos and area of the planet
 	if(SSatlas.current_map.use_overmap)
 		// if exoplanet
 		var/datum/site = GLOB.map_sectors["[z]"]
+		var/datum/template = GLOB.map_templates["[z]"]
 		if(istype(site, /obj/effect/overmap/visitable/sector/exoplanet))
 			var/obj/effect/overmap/visitable/sector/exoplanet/exoplanet = site
 			if(exoplanet.atmosphere)
@@ -32,17 +30,15 @@
 			//Must be done here, as light data is not fully carried over by ChangeTurf (but overlays are).
 			set_light(MINIMUM_USEFUL_LIGHT_RANGE, exoplanet.lightlevel, exoplanet.lightcolor)
 			if(exoplanet.planetary_area && istype(loc, world.area))
-				ChangeArea(src, exoplanet.planetary_area)
+				change_area(loc, exoplanet.planetary_area)
 		// if away site
-		else if(istype(site, /datum/map_template/ruin/away_site))
-			var/datum/map_template/ruin/away_site/away_site = site
+		else if(istype(template, /datum/map_template/ruin/away_site))
+			var/datum/map_template/ruin/away_site/away_site = template
 			if(away_site.exoplanet_atmosphere)
 				initial_gas = away_site.exoplanet_atmosphere.gas.Copy()
 				temperature = away_site.exoplanet_atmosphere.temperature
-			else
-				initial_gas = list()
-				temperature = T0C
-			set_light(MINIMUM_USEFUL_LIGHT_RANGE, away_site.lightlevel, away_site.lightcolor)
+			if(away_site.exoplanet_lightlevel && is_outside())
+				set_light(MINIMUM_USEFUL_LIGHT_RANGE, away_site.exoplanet_lightlevel, away_site.exoplanet_lightcolor)
 
 	// if not on an exoplanet, instead just keep the default or mapped in atmos
 	..()
@@ -112,12 +108,14 @@
 
 /turf/simulated/floor/exoplanet/water/shallow
 	name = "shallow water"
+	desc = "Some water shallow enough to wade through."
 	icon = 'icons/misc/beach.dmi'
 	icon_state = "seashallow"
 	footstep_sound = /singleton/sound_category/water_footstep
 
 /turf/simulated/floor/exoplanet/permafrost
 	name = "permafrost"
+	desc = "The ground here is frozen solid by the cold."
 	icon = 'icons/turf/flooring/snow.dmi'
 	icon_state = "permafrost"
 	footstep_sound = /singleton/sound_category/asteroid_footstep
@@ -141,7 +139,6 @@
 	desc = "Government didn't want you to see this!"
 	density = TRUE
 	blocks_air = TRUE
-	dynamic_lighting = FALSE
 	icon = null
 	icon_state = null
 
@@ -178,7 +175,7 @@
 	if(!istype(E))
 		return
 	if(E.planetary_area && istype(loc, world.area))
-		ChangeArea(src, E.planetary_area)
+		change_area(loc, E.planetary_area)
 	var/new_x = bumped_atom.x
 	var/new_y = bumped_atom.y
 	if(x <= TRANSITIONEDGE)

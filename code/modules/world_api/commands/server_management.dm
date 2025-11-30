@@ -8,14 +8,15 @@
 
 /datum/topic_command/cargo_reload/run_command(queryparams)
 	var/force = text2num(queryparams["force"])
-	if(!SScargo.get_order_count())
-		SScargo.load_from_sql()
+	if(!SScargo.load_cargo_files())
+		SScargo.load_cargo_files()
 		message_admins("Cargo has been reloaded via the API.")
 		statuscode = 200
 		response = "Cargo Reloaded from SQL."
+
 	else
 		if(force)
-			SScargo.load_from_sql()
+			SScargo.load_cargo_files()
 			message_admins("Cargo has been force-reloaded via the API. All current orders have been purged.")
 			statuscode = 200
 			response = "Cargo Force-Reloaded from SQL."

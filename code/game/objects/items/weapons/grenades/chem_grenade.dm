@@ -11,15 +11,27 @@
 	var/state = 0
 	var/path = 0
 	var/obj/item/device/assembly_holder/detonator = null
-	var/list/beakers = new/list()
+	var/list/beakers = list()
 	var/list/allowed_containers = list(/obj/item/reagent_containers/glass/beaker, /obj/item/reagent_containers/glass/bottle)
 	var/affected_area = 3
 
 	matter = list(DEFAULT_WALL_MATERIAL = 700, MATERIAL_GLASS = 300)
 
+/obj/item/grenade/chem_grenade/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(detonator)
+		. += "With attached [detonator.name]"
+
 /obj/item/grenade/chem_grenade/Initialize()
 	. = ..()
 	create_reagents(1000)
+
+/obj/item/grenade/chem_grenade/Destroy()
+	for(var/obj/item/beaker in beakers)
+		qdel(beaker)
+	beakers.Cut()
+	QDEL_NULL(detonator)
+	return ..()
 
 /obj/item/grenade/chem_grenade/attack_self(mob/user as mob)
 	if(!stage || stage==1)
@@ -39,7 +51,7 @@
 	if(stage > 1 && !active && clown_check(user))
 		to_chat(user, SPAN_WARNING("You prime \the [name]!"))
 
-		msg_admin_attack("[user.name] ([user.ckey]) primed \a [src]. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user))
+		msg_admin_attack("[user.name] ([user.ckey]) primed \a [src]. (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user))
 
 		activate()
 		add_fingerprint(user)
@@ -111,11 +123,6 @@
 			else
 				to_chat(user, SPAN_WARNING("\The [attacking_item] is empty."))
 
-/obj/item/grenade/chem_grenade/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(detonator)
-		. += "With attached [detonator.name]"
-
 /obj/item/grenade/chem_grenade/activate(mob/user as mob)
 	if(active) return
 
@@ -130,7 +137,7 @@
 		icon_state = initial(icon_state) + "_active"
 
 		if(user)
-			msg_admin_attack("[user.name] ([user.ckey]) primed \a [src] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user))
+			msg_admin_attack("[user.name] ([user.ckey]) primed \a [src] (<A href='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user))
 
 	return
 

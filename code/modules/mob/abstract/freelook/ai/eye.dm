@@ -1,23 +1,33 @@
-// AI EYE
-//
-// A mob that the AI controls to look around the station with.
-// It streams chunks as it moves around, which will show it what the AI can and cannot see.
 
+/// Generic version of the AI eye without the AI-specific handling, for things like the Camera MIU mask.
 /mob/abstract/eye/freelook
-	// Generic version of the AI eye without the AI-specific handling, for things like the Camera MIU mask.
 	name = "Inactive Camera Eye"
 	name_suffix = "Camera Eye"
 	living_eye = FALSE
+	click_handler_type = /datum/click_handler/eye/freelook
 
 /mob/abstract/eye/freelook/Initialize()
 	. = ..()
 	visualnet = GLOB.cameranet
 
+/datum/click_handler/eye/freelook/OnDblClick(atom/A, params)
+	var/mob/abstract/eye = user.eyeobj
+	if(!eye) //Something has broken, ensure the click handler doesn't stick around
+		user.RemoveClickHandler(src)
+		return
+	eye.DblClickOn(A, params)
+
+
+/// AI EYE
+///
+/// A mob that the AI controls to look around the station with.
+/// It streams chunks as it moves around, which will show it what the AI can and cannot see.
 /mob/abstract/eye/freelook/aiEye
 	name = "Inactive AI Eye"
 	name_suffix = "AI Eye"
 	icon_state = "AI-eye"
 	living_eye = FALSE
+	click_handler_type = /datum/click_handler/eye/freelook/aiEye
 
 /mob/abstract/eye/freelook/aiEye/Initialize()
 	. = ..()
@@ -34,6 +44,9 @@
 		if(ai.holo && ai.hologram_follow)
 			ai.holo.move_hologram(ai)
 		return 1
+
+/datum/click_handler/eye/freelook/aiEye/OnDblClick(atom/A, params)
+	user.DblClickOn(A, params)
 
 // AI MOVEMENT
 

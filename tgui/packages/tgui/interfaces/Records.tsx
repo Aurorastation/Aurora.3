@@ -11,6 +11,7 @@ export type RecordsData = {
   physical_status_options: string[];
   criminal_status_options: string[];
   mental_status_options: string[];
+  blood_type_options: string[];
   medical_options: string[];
 
   authenticated: BooleanLike;
@@ -33,7 +34,7 @@ type Record = {
   age: string;
   fingerprint: string;
   has_notes: string;
-  blood: string;
+  blood_dna: string;
   dna: string;
   physical_status: string;
   mental_status: string;
@@ -192,6 +193,11 @@ export const ListActive = (props, context) => {
     'editingMentalStatus',
     false
   );
+  const [editingBloodType, setEditingBloodType] = useLocalState<boolean>(
+    context,
+    'editingBloodType',
+    false
+  );
   const [editingFingerprint, setEditingFingerprint] = useLocalState<boolean>(
     context,
     'editingFingerprint',
@@ -325,6 +331,34 @@ export const ListActive = (props, context) => {
         <LabeledList.Item label="Sex">
           {capitalize(data.active.sex)}
         </LabeledList.Item>
+        <LabeledList.Item label="Species">
+          {data.editable & 1 ? (
+            <Box>
+              {editingSpecies ? (
+                <Input
+                  placeholder={data.active.species}
+                  width="100%"
+                  onInput={(e, v) =>
+                    act('editrecord', {
+                      key: 'species',
+                      value: v,
+                    })
+                  }
+                />
+              ) : (
+                <Box>
+                  {data.active.species}&nbsp;
+                  <Button
+                    icon="pencil-ruler"
+                    onClick={() => setEditingSpecies(true)}
+                  />
+                </Box>
+              )}
+            </Box>
+          ) : (
+            data.active.species
+          )}
+        </LabeledList.Item>
         <LabeledList.Item label="Rank">{data.active.rank}</LabeledList.Item>
         <LabeledList.Item label="Physical Status">
           {data.editable & 1 || data.editable & 2 ? (
@@ -448,6 +482,36 @@ export const ListActive = (props, context) => {
         </LabeledList.Item>
         {data.active.medical && recordTab === 'Medical' ? (
           <>
+            <LabeledList.Item label="Blood Type">
+              {data.editable & 1 || data.editable & 2 ? (
+                <Box>
+                  {editingBloodType ? (
+                    <Dropdown
+                      options={data.blood_type_options}
+                      displayText={data.active.medical.blood_type}
+                      selected={data.active.medical.blood_type}
+                      onSelected={(v) =>
+                        act('editrecord', {
+                          record_type: 'medical',
+                          key: 'blood_type',
+                          value: v,
+                        })
+                      }
+                    />
+                  ) : (
+                    <Box>
+                      {data.active.medical.blood_type}&nbsp;
+                      <Button
+                        icon="pencil-ruler"
+                        onClick={() => setEditingBloodType(true)}
+                      />
+                    </Box>
+                  )}
+                </Box>
+              ) : (
+                data.active.medical.blood_type
+              )}
+            </LabeledList.Item>
             <LabeledList.Item label="DNA">
               {data.editable & 2 ? (
                 <Box>
@@ -570,34 +634,6 @@ export const ListActive = (props, context) => {
         )}
         {data.available_types & 1 && recordTab === 'General' ? (
           <>
-            <LabeledList.Item label="Species">
-              {data.editable & 1 ? (
-                <Box>
-                  {editingSpecies ? (
-                    <Input
-                      placeholder={data.active.species}
-                      width="100%"
-                      onInput={(e, v) =>
-                        act('editrecord', {
-                          key: 'species',
-                          value: v,
-                        })
-                      }
-                    />
-                  ) : (
-                    <Box>
-                      {data.active.species}&nbsp;
-                      <Button
-                        icon="pencil-ruler"
-                        onClick={() => setEditingSpecies(true)}
-                      />
-                    </Box>
-                  )}
-                </Box>
-              ) : (
-                data.active.species
-              )}
-            </LabeledList.Item>
             <LabeledList.Item label="Citizenship">
               {data.editable & 1 ? (
                 <Box>
@@ -722,7 +758,7 @@ export const ListActive = (props, context) => {
                     </Box>
                     <Box color="red">
                       {incident.fine
-                        ? 'Fined ' + incident.fine + '电.'
+                        ? 'Fined ' + incident.fine.toFixed(2) + '电.'
                         : 'Sentenced to ' +
                         incident.brig_sentence +
                         ' minutes of brig time.'}

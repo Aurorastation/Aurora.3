@@ -13,24 +13,57 @@
 /obj/item/clothing/under/unathi/jizixi
 	name = "jizixi dress"
 	desc = "A striking, modern dress typically worn by Moghean women of high birth."
-	icon_state = "jizixi"
-	item_state = "jizixi"
+	icon_state = "jizixi_red"
+	item_state = "jizixi_red"
+	build_from_parts = FALSE
+	has_accents = FALSE
 
 /obj/item/clothing/under/unathi/jizixi/green
-	icon_state = "jizixi2"
-	item_state = "jizixi2"
+	icon_state = "jizixi_green"
+	item_state = "jizixi_green"
 
 /obj/item/clothing/under/unathi/jizixi/blue
-	icon_state = "jizixi3"
-	item_state = "jizixi3"
+	icon_state = "jizixi_blue"
+	item_state = "jizixi_blue"
 
 /obj/item/clothing/under/unathi/jizixi/white
-	icon_state = "jizixi4"
-	item_state = "jizixi4"
+	icon_state = "jizixi_white"
+	item_state = "jizixi_white"
 
 /obj/item/clothing/under/unathi/jizixi/orange
-	icon_state = "jizixi5"
-	item_state = "jizixi5"
+	icon_state = "jizixi_orange"
+	item_state = "jizixi_orange"
+
+/obj/item/clothing/under/unathi/jizixi/black
+	icon_state = "jizixi_black"
+	item_state = "jizixi_black"
+
+/obj/item/clothing/under/unathi/jizixi/colorable
+	icon_state = "jizixi_colorable"
+	item_state = "jizixi_colorable"
+	contained_sprite = TRUE
+	build_from_parts = TRUE
+	has_accents = TRUE
+
+/obj/item/clothing/under/unathi/jizixi/colorable/accent1
+	icon_state = "jizixi_colorable_accent1"
+	item_state = "jizixi_colorable_accent1"
+
+/obj/item/clothing/under/unathi/jizixi/colorable/accent2
+	icon_state = "jizixi_colorable_accent2"
+	item_state = "jizixi_colorable_accent2"
+
+/obj/item/clothing/under/unathi/jizixi/colorable/accent3
+	icon_state = "jizixi_colorable_accent3"
+	item_state = "jizixi_colorable_accent3"
+
+/obj/item/clothing/under/unathi/jizixi/colorable/accent4
+	icon_state = "jizixi_colorable_accent4"
+	item_state = "jizixi_colorable_accent4"
+
+/obj/item/clothing/under/unathi/jizixi/colorable/accent5
+	icon_state = "jizixi_colorable_accent5"
+	item_state = "jizixi_colorable_accent5"
 
 /obj/item/clothing/under/unathi/sashes
 	name = "gy'zao sashes"
@@ -39,6 +72,8 @@
 	to wear outside of that."
 	icon_state = "gyzao"
 	item_state = "gyzao"
+	build_from_parts = FALSE
+	has_accents = FALSE
 
 /obj/item/clothing/under/unathi/mogazali
 	name = "mogazali attire"
@@ -70,9 +105,11 @@
 
 /obj/item/clothing/under/unathi/huytai
 	name = "huytai outfit"
-	desc = "Typically worn by Unathi women who engage in a trade. Popular with fisherwomen especially!"
+	desc = "Typically worn by Unathi who engage in a trade. Popular with fishers especially!"
 	icon_state = "huytai"
 	item_state = "huytai"
+	build_from_parts = TRUE
+	has_accents = TRUE
 
 /obj/item/clothing/under/unathi/zozo
 	name = "zo'zo top"
@@ -99,13 +136,13 @@
 /obj/item/clothing/under/unathi/izweski
 	name = "izweski navy uniform"
 	desc = "A lightweight red jumpsuit with a brown-orange vest, this uniform is an odd fusion of modern design and traditional Unathi aesthetics. Its insignia indicates it as belonging to a soldier of the Izweski Hegemony's Navy."
-	icon = 'icons/clothing/under/uniforms/izweski.dmi'
+	icon = 'icons/obj/item/clothing/under/unathi/izweski.dmi'
 	icon_state = "izweski"
 	item_state = "izweski"
 	armor = list(
-		melee = ARMOR_MELEE_SMALL,
-		bullet = ARMOR_BALLISTIC_MINOR,
-		laser = ARMOR_LASER_MINOR
+		MELEE = ARMOR_MELEE_SMALL,
+		BULLET = ARMOR_BALLISTIC_MINOR,
+		LASER = ARMOR_LASER_MINOR
 		)
 
 /obj/item/clothing/under/unathi/izweski/officer

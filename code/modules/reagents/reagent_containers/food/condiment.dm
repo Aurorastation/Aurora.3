@@ -47,6 +47,7 @@
 	var/singleton/reagent/master = reagents.get_primary_reagent_decl()
 	name = master.condiment_name || (reagents.reagent_volumes.len == 1 ? "[lowertext(master.name)] bottle" : "condiment bottle")
 	desc = master.condiment_desc || (reagents.reagent_volumes.len == 1 ? master.description : "A mixture of various condiments. [master.name] is one of them.")
+	icon = master.condiment_icon || 'icons/obj/item/reagent_containers/food/condiment.dmi'
 	icon_state = master.condiment_icon_state || "mixedcondiments"
 	center_of_mass = master.condiment_center_of_mass || list("x"=16, "y"=6)
 
@@ -276,11 +277,14 @@
 	name = "vanilla extract"
 	reagents_to_add = list(/singleton/reagent/nutriment/vanilla = 50)
 
-/obj/item/reagent_containers/food/condiment/rice //everyone's favorite condiment, rice. (there wasn't really a better place for this, code-wise)
+/obj/item/reagent_containers/food/condiment/rice
+	name = "rice sack"
+	desc = "A big bag of rice. Good for cooking!"
 	icon_state = "rice"
+	center_of_mass = list("x"=16, "y"=8)
+	volume = 220
 	fixed_state = TRUE
-	name = "rice"
-	reagents_to_add = list(/singleton/reagent/nutriment/rice = 50)
+	reagents_to_add = list(/singleton/reagent/nutriment/rice = 200)
 
 /obj/item/reagent_containers/food/condiment/cocoa //not exactly a condiment, but not exactly NOT a condiment, right?
 	icon_state = "cocoapowder"
@@ -292,6 +296,12 @@
 	fixed_state = TRUE
 	name = "synthetic blood"
 	reagents_to_add = list(/singleton/reagent/blood = 50)
+
+/obj/item/reagent_containers/food/condiment/cream_cheese
+	icon_state = "cream_cheese"
+	fixed_state = TRUE
+	name = "cream cheese"
+	reagents_to_add = list(/singleton/reagent/nutriment/protein/cream_cheese = 50)
 
 //MRE condiments and drinks.
 
@@ -441,3 +451,31 @@
 	desc = "Contains 5u of phoron."
 	icon_state = "packet_small_yellow"
 	reagents_to_add = list(/singleton/reagent/toxin/phoron = 5)
+
+/obj/item/reagent_containers/food/condiment/sweet_chili
+	icon_state = "sweet_chili"
+	name = "sweet chili"
+	empty_icon_state = "sweet_chili_empty"
+	reagents_to_add = list(/singleton/reagent/nutriment/sweet_chili = 50)
+	amount_per_transfer_from_this = 1
+
+/obj/item/reagent_containers/food/condiment/wulumunusha
+	name = "wulumunusha extract bottle"
+	desc = "A small dropper bottle full of a stoner's paradise. A warning label warns of muteness as a side effect."
+	icon_state = "wuluextract"
+	fixed_state = TRUE
+	reagents_to_add = list(/singleton/reagent/wulumunusha = 30)
+
+/obj/item/reagent_containers/food/condiment/ambrosia
+	name = "ambrosia extract bottle"
+	desc = "A small dropper bottle full of a stoner's paradise. The label warns of lethargy and confusion as a side effect, and cautions against operating heavy machinery while under the influence."
+	icon_state = "ambrosiaextract"
+	fixed_state = TRUE
+	reagents_to_add = list(/singleton/reagent/drugs/ambrosia_extract = 30)
+
+/obj/item/reagent_containers/food/condiment/diet_diesel
+	name = "diet diesel bottle"
+	desc = "A Hephaestus-trademarked jar, containing some kind of unpleasant-smelling gray sludge. The label says it's for Diona-based consumption only."
+	icon_state = "dietdiesel"
+	fixed_state = TRUE
+	reagents_to_add = list(/singleton/reagent/drugs/dionae_stimulant/diet = 30)

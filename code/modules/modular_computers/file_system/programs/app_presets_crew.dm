@@ -111,7 +111,7 @@
 	. = ..()
 	program_list += COMPUTER_APP_PRESET_SYSTEM + COMPUTER_APP_PRESET_HORIZON_CIVILIAN
 	program_list += list(/datum/computer_file/program/card_mod,
-						/datum/computer_file/program/comm,
+						/datum/computer_file/program/comm/intercept,
 						/datum/computer_file/program/docks,
 						/datum/computer_file/program/away_manifest,
 						/datum/computer_file/program/records/employment,

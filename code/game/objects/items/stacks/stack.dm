@@ -27,10 +27,16 @@
 	var/list/datum/matter_synth/synths = null
 	var/icon_has_variants = FALSE
 	icon = 'icons/obj/item/stacks/materials.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/stacks/lefthand_materials.dmi',
-		slot_r_hand_str = 'icons/mob/items/stacks/righthand_materials.dmi',
-		)
+	contained_sprite = TRUE
+
+/obj/item/stack/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(is_adjacent)
+		if(!iscoil())
+			if(!uses_charge)
+				. += "There [src.amount == 1 ? "is" : "are"] <b>[src.amount]</b> [src.singular_name]\s in the stack."
+			else
+				. += "You have enough charge to produce <b>[get_amount()]</b>."
 
 /obj/item/stack/Initialize(mapload, amount)
 	. = ..()
@@ -71,15 +77,6 @@
 	else
 		icon_state = "[initial(icon_state)]_3"
 
-/obj/item/stack/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(is_adjacent)
-		if(!iscoil())
-			if(!uses_charge)
-				. += "There [src.amount == 1 ? "is" : "are"] <b>[src.amount]</b> [src.singular_name]\s in the stack."
-			else
-				. += "You have enough charge to produce <b>[get_amount()]</b>."
-
 /obj/item/stack/attack_self(mob/user)
 	list_recipes(user, recipes)
 
@@ -93,11 +90,11 @@
 	var/t1 = "<html><head><title>Constructions from [capitalize_first_letters(src.name)]</title></head><body><tt>Amount Left: [src.get_amount()]<br>"
 
 	if(sublist)
-		t1 += "<a href='?src=[REF(src)];go_back=1'>Back</a><br>"
+		t1 += "<a href='byond://?src=[REF(src)];go_back=1'>Back</a><br>"
 	if(locate(/datum/stack_recipe_list) in recipes_sublist)
 		t1 += "<h2>Recipe Categories</h2>"
 	for(var/datum/stack_recipe_list/srl in recipes_sublist)
-		t1 += "<a href='?src=[REF(src)];sublist=[REF(srl)]'>[capitalize_first_letters(srl.title)]</a><br>"
+		t1 += "<a href='byond://?src=[REF(src)];sublist=[REF(srl)]'>[capitalize_first_letters(srl.title)]</a><br>"
 
 	if(locate(/datum/stack_recipe) in recipes_sublist)
 		var/sublist_title = sublist ? " ([capitalize_first_letters(sublist.title)])" : ""
@@ -117,7 +114,7 @@
 
 		if(can_build)
 			var/sublist_var = sublist ? "[REF(sublist)]" : ""
-			t1 += "<a href='?src=[REF(src)];make=[REF(R)];sublist=[sublist_var];multiplier=1'>[title]</a>"
+			t1 += "<a href='byond://?src=[REF(src)];make=[REF(R)];sublist=[sublist_var];multiplier=1'>[title]</a>"
 		else
 			t1 += "<div class='no-build inline'>[title]</div><br>"
 			continue
@@ -129,10 +126,10 @@
 			for(var/n in multipliers)
 				if(max_multiplier >= n)
 					var/sublist_var = sublist ? "[REF(sublist)]" : ""
-					t1 += " <a href='?src=[REF(src)];make=[REF(R)];sublist=[sublist_var];multiplier=[n]'>[n * R.res_amount]x</a>"
+					t1 += " <a href='byond://?src=[REF(src)];make=[REF(R)];sublist=[sublist_var];multiplier=[n]'>[n * R.res_amount]x</a>"
 			if(!(max_multiplier in multipliers))
 				var/sublist_var = sublist ? "[REF(sublist)]" : ""
-				t1 += " <a href='?src=[REF(src)];make=[REF(R)];sublist=[sublist_var];multiplier=[max_multiplier]'>[max_multiplier * R.res_amount]x</a>"
+				t1 += " <a href='byond://?src=[REF(src)];make=[REF(R)];sublist=[sublist_var];multiplier=[max_multiplier]'>[max_multiplier * R.res_amount]x</a>"
 		t1 += "<br>"
 
 	t1 += "</tt></body></html>"

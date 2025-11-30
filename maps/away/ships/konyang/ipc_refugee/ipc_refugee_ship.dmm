@@ -1837,7 +1837,7 @@
 	},
 /obj/effect/decal/fake_object{
 	name = "Impact Wrench";
-	icon = 'icons/obj/item/tools/impact_wrench.dmi';
+	icon = 'icons/obj/item/impact_wrench.dmi';
 	icon_state = "impact_wrench_lh";
 	dir = 8;
 	pixel_y = 20;
@@ -2620,7 +2620,7 @@
 /area/ship/ipc_refugee/forehall)
 "ud" = (
 /obj/structure/lattice,
-/obj/item/storage/box/sharps{
+/obj/item/storage/box/unique/sharps{
 	pixel_x = -5;
 	pixel_y = -5
 	},
@@ -2809,7 +2809,7 @@
 	icon_state = "0-2"
 	},
 /obj/structure/closet,
-/obj/item/clothing/head/padded{
+/obj/item/clothing/head/tanker{
 	color = "#BCA77E"
 	},
 /obj/item/clothing/head/beanie{
@@ -2830,10 +2830,10 @@
 /obj/item/clothing/suit/storage/toggle/leather_jacket/military/old/alt,
 /obj/item/clothing/suit/storage/toggle/bomber,
 /obj/item/clothing/suit/storage/toggle/highvis,
-/obj/item/clothing/under/pants/track,
-/obj/item/clothing/under/pants/tacticool,
-/obj/item/clothing/under/pants/jeansblack,
-/obj/item/clothing/under/pants/classic,
+/obj/item/clothing/pants/track,
+/obj/item/clothing/pants/tacticool,
+/obj/item/clothing/pants/jeansblack,
+/obj/item/clothing/pants/classic,
 /obj/item/clothing/accessory/silversun,
 /obj/item/clothing/under/syndicate/tracksuit,
 /obj/item/clothing/under/syndicate,
@@ -2933,7 +2933,7 @@
 	req_one_access = null
 	},
 /obj/structure/closet,
-/obj/item/clothing/head/padded{
+/obj/item/clothing/head/tanker{
 	color = "#BCA77E"
 	},
 /obj/item/clothing/head/beanie{
@@ -2954,10 +2954,10 @@
 /obj/item/clothing/suit/storage/toggle/leather_jacket/military/old/alt,
 /obj/item/clothing/suit/storage/toggle/bomber,
 /obj/item/clothing/suit/storage/toggle/highvis,
-/obj/item/clothing/under/pants/track,
-/obj/item/clothing/under/pants/tacticool,
-/obj/item/clothing/under/pants/jeansblack,
-/obj/item/clothing/under/pants/classic,
+/obj/item/clothing/pants/track,
+/obj/item/clothing/pants/tacticool,
+/obj/item/clothing/pants/jeansblack,
+/obj/item/clothing/pants/classic,
 /obj/item/clothing/accessory/silversun,
 /obj/item/clothing/under/syndicate/tracksuit,
 /obj/item/clothing/under/syndicate,
@@ -3133,7 +3133,7 @@
 	},
 /obj/structure/closet/cabinet,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/clothing/head/padded{
+/obj/item/clothing/head/tanker{
 	color = "#BCA77E"
 	},
 /obj/item/clothing/head/beanie{
@@ -3152,10 +3152,10 @@
 /obj/item/clothing/suit/storage/toggle/leather_jacket/military/tan,
 /obj/item/clothing/suit/storage/toggle/trench,
 /obj/item/clothing/suit/storage/toggle/flannel,
-/obj/item/clothing/under/pants/classic,
-/obj/item/clothing/under/pants/jeansblack,
-/obj/item/clothing/under/pants/tacticool,
-/obj/item/clothing/under/pants/track,
+/obj/item/clothing/pants/classic,
+/obj/item/clothing/pants/jeansblack,
+/obj/item/clothing/pants/tacticool,
+/obj/item/clothing/pants/track,
 /obj/item/clothing/under/syndicate/tracksuit,
 /obj/item/clothing/under/syndicate/tracksuit,
 /obj/item/clothing/under/syndicate,

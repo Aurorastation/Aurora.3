@@ -13,12 +13,12 @@
 /turf/unsimulated/mineral/konyang
 	color = "#514e5c"
 
-// This is a global list so we can share the same list with all mineral turfs; it's the same for all of them anyways.
-var/list/mineral_can_smooth_with = list(
+/// This is a global list so we can share the same list with all mineral turfs; it's the same for all of them anyways.
+GLOBAL_LIST_INIT(mineral_can_smooth_with, list(
 	/turf/simulated/mineral,
 	/turf/simulated/wall,
 	/turf/unsimulated/wall
-)
+))
 
 /turf/simulated/mineral
 	name = "rock"
@@ -76,23 +76,29 @@ var/list/mineral_can_smooth_with = list(
 	if(is_station_level(z))
 		GLOB.station_turfs += src
 
-	if(dynamic_lighting)
-		luminosity = 0
-	else
-		luminosity = 1
+	if (light_range && light_power)
+		update_light()
 
-	has_opaque_atom = TRUE
+	//Get area light
+	var/area/current_area = loc
+	if(current_area?.lighting_effect)
+		overlays += current_area.lighting_effect
+
+	if(opacity)
+		directional_opacity = ALL_CARDINALS
 
 	if(smoothing_flags)
-		canSmoothWith = mineral_can_smooth_with
+		canSmoothWith = GLOB.mineral_can_smooth_with
 
 	rock_health = rand(10,20)
 
 	var/area/A = loc
 
-	if(!baseturf)
+	if(A.base_turf)
+		baseturf = A.base_turf
+	else if(!baseturf)
 		// Hard-coding this for performance reasons.
-		baseturf = A.base_turf || SSatlas.current_map.base_turf_by_z["[z]"] || /turf/space
+		baseturf = SSatlas.current_map.base_turf_by_z["[z]"] || /turf/space
 
 	return INITIALIZE_HINT_NORMAL
 
@@ -208,12 +214,16 @@ var/list/mineral_can_smooth_with = list(
 	if(is_station_level(z))
 		GLOB.station_turfs += src
 
-	if(dynamic_lighting)
-		luminosity = 0
-	else
-		luminosity = 1
+	if (light_range && light_power)
+		update_light()
 
-	has_opaque_atom = TRUE
+	//Get area light
+	var/area/current_area = loc
+	if(current_area?.lighting_effect)
+		overlays += current_area.lighting_effect
+
+	if(opacity)
+		directional_opacity = ALL_CARDINALS
 
 	if(smoothing_flags)
 		canSmoothWith = asteroid_can_smooth_with
@@ -693,7 +703,7 @@ var/list/mineral_can_smooth_with = list(
 
 /turf/simulated/mineral/crystal
 	color = "#6fb1b5"
-	mined_turf = /turf/simulated/floor/exoplanet/basalt
+	mined_turf = /turf/simulated/floor/exoplanet/basalt/crystal
 
 /turf/simulated/mineral/lava
 	color = "#444444"
@@ -723,17 +733,18 @@ var/list/mineral_can_smooth_with = list(
 	var/digging
 	has_resources = 1
 	footstep_sound = /singleton/sound_category/asteroid_footstep
+	does_footprint = TRUE
 
 	roof_type = null
 	turf_flags = TURF_FLAG_BACKGROUND
 
-// Same as the other, this is a global so we don't have a lot of pointless lists floating around.
-// Basalt is explicitly omitted so ash will spill onto basalt turfs.
-var/list/asteroid_floor_smooth = list(
+/// Same as the other, this is a global so we don't have a lot of pointless lists floating around.
+/// Basalt is explicitly omitted so ash will spill onto basalt turfs.
+GLOBAL_LIST_INIT(asteroid_floor_smooth, list(
 	/turf/simulated/floor/exoplanet/asteroid/ash,
 	/turf/simulated/mineral,
 	/turf/simulated/wall
-)
+))
 
 // Copypaste parent for performance.
 /turf/simulated/floor/exoplanet/asteroid/Initialize(mapload)
@@ -750,21 +761,19 @@ var/list/asteroid_floor_smooth = list(
 	if(is_station_level(z))
 		GLOB.station_turfs += src
 
-	if(dynamic_lighting)
-		luminosity = 0
-	else
-		luminosity = 1
-
-	if(mapload && permit_ao)
-		queue_ao()
-
 	if(smoothing_flags)
-		canSmoothWith = asteroid_floor_smooth
-		pixel_x = -4
-		pixel_y = -4
+		canSmoothWith = GLOB.asteroid_floor_smooth
+		var/matrix/M = new
+		M.Translate(-4, -4)
+		transform = M
 
 	if(light_range && light_power)
 		update_light()
+
+	//Get area light
+	var/area/current_area = loc
+	if(current_area?.lighting_effect)
+		overlays += current_area.lighting_effect
 
 	return INITIALIZE_HINT_NORMAL
 
@@ -923,7 +932,7 @@ var/list/asteroid_floor_smooth = list(
 	return
 
 /turf/simulated/floor/exoplanet/asteroid/proc/gets_dug(mob/user)
-	AddOverlays("asteroid_dug", TRUE)
+	AddOverlays("asteroid_dug")
 
 	if(prob(75))
 		new /obj/item/ore/glass(src)
@@ -977,7 +986,7 @@ var/list/asteroid_floor_smooth = list(
 
 	if(dug <= 10)
 		dug += 1
-		AddOverlays("asteroid_dug", TRUE)
+		AddOverlays("asteroid_dug")
 	else
 		var/turf/below = GET_TURF_BELOW(src)
 		if(below)

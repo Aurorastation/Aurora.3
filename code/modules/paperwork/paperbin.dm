@@ -13,23 +13,29 @@
 	var/amount = 30					//How much paper is in the bin.
 	var/list/papers = new/list()	//List of papers put in the bin for reference.
 
+/obj/item/paper_bin/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(is_adjacent)
+		if(amount)
+			. += SPAN_NOTICE("There " + (amount > 1 ? "are [amount] papers" : "is one paper") + " in the bin.")
+		else
+			. += SPAN_NOTICE("There are no papers in the bin.")
 
-/obj/item/paper_bin/MouseDrop(mob/user as mob)
-	if((user == usr && (!( usr.restrained() ) && (!( usr.stat ) && (usr.contents.Find(src) || in_range(src, usr))))))
-		if(!istype(usr, /mob/living/carbon/slime) && !istype(usr, /mob/living/simple_animal))
-			if( !usr.get_active_hand() )		//if active hand is empty
-				var/mob/living/carbon/human/H = user
+/obj/item/paper_bin/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	if((over == user && (!( user.restrained() ) && (!( user.stat ) && (user.contents.Find(src) || in_range(src, user))))))
+		if(!istype(user, /mob/living/carbon/slime) && !istype(user, /mob/living/simple_animal))
+			if( !user.get_active_hand() )		//if active hand is empty
+				var/mob/living/carbon/human/H = over
 				var/obj/item/organ/external/temp = H.organs_by_name[BP_R_HAND]
 
 				if (H.hand)
 					temp = H.organs_by_name[BP_L_HAND]
 				if(temp && !temp.is_usable())
-					to_chat(user, SPAN_NOTICE("You try to move your [temp.name], but cannot!"))
+					to_chat(H, SPAN_NOTICE("You try to move your [temp.name], but cannot!"))
 					return
 
-				to_chat(user, SPAN_NOTICE("You pick up the [src]."))
-				user.put_in_hands(src)
-
+				to_chat(H, SPAN_NOTICE("You pick up the [src]."))
+				H.put_in_hands(src)
 	return
 
 /obj/item/paper_bin/attack_hand(mob/user as mob)
@@ -76,7 +82,6 @@
 	add_fingerprint(user)
 	return
 
-
 /obj/item/paper_bin/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/paper))
 		var/obj/item/paper/i = attacking_item
@@ -84,15 +89,6 @@
 		to_chat(user, SPAN_NOTICE("You put [i] in [src]."))
 		papers.Add(i)
 		amount++
-
-/obj/item/paper_bin/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(is_adjacent)
-		if(amount)
-			. += SPAN_NOTICE("There " + (amount > 1 ? "are [amount] papers" : "is one paper") + " in the bin.")
-		else
-			. += SPAN_NOTICE("There are no papers in the bin.")
-
 
 /obj/item/paper_bin/update_icon()
 	if(amount < 1)
