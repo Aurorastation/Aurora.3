@@ -121,3 +121,8 @@ ABSTRACT_TYPE(/datum/gear/pants)
 	highvis["high visibility pants, red"] = /obj/item/clothing/pants/highvis/red
 	highvis["high visibility pants, orange"] = /obj/item/clothing/pants/highvis/orange
 	gear_tweaks += new /datum/gear_tweak/path(highvis)
+
+/datum/gear/pants/highvis_colorable
+	display_name = "colorable high visibility pants"
+	path = /obj/item/clothing/pants/highvis/colorable
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
