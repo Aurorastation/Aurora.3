@@ -17,6 +17,9 @@
 	/// Pref holder for the speech bubble style.
 	var/speech_bubble_type
 
+	/// If this human is controlled by the NPC crew system, this holds their datum
+	var/datum/npc_crew_member/npc_crew_datum
+
 /mob/living/carbon/human/Initialize(mapload, var/new_species = null)
 	if(!dna)
 		dna = new /datum/dna(null)
@@ -334,6 +337,10 @@
 				if(L in O.implants)
 					return 1
 	return 0
+
+/// Returns TRUE if this human is an NPC crew member
+/mob/living/carbon/human/proc/is_npc_crew()
+	return !isnull(npc_crew_datum)
 
 /mob/living/carbon/human/restrained()
 	if (handcuffed)
