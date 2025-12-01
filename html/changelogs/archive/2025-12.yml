@@ -1,0 +1,34 @@
+2025-12-01:
+  Batrachophrenoboocosmomachia:
+  - qol: Adds extended examine information, mechanics hints, etc. to both standard
+      and agent ID cards.
+  - refactor: Ports agent ID card UI from Nano to TGUI.
+  - code_imp: Miscellaneous behind-the-scenes code improvements and dmdocumentation.
+  FabianK3:
+  - bugfix: Fixed misconfigured safety shutters in the bridge conference room. All
+      shutters around the bridge now listen to the same command.
+  - qol: Added a bridge safety shutters button to bridge break room.
+  - bugfix: Removed duplicate lightswitch in security interrogations.
+  - bugfix: Fixed runtime error when paper is handed out by printers without a mob
+      nearby.
+  Fyni:
+  - rscadd: Adds Sleepwalker alt title to priests.
+  Hellfirejag:
+  - bugfix: Fixed math errors in overmap ship math that caused severe precision errors
+      when accelerating diagonally.
+  - rscadd: Creating a new IPC will now default to a baseline frame instead of the
+      deprecated 'unbranded' frame.
+  TheGreyWolf:
+  - rscadd: Watches now have an icon top left to check time, similarly to an integrated
+      time piece.
+  - rscadd: The tajaran wrist watches now shows the time on adhomai, similar to the
+      tajaran pocketwatch.
+  - rscadd: 'There are three new papercode commands: tajtime, tajdate and cr. The
+      last of which creates the credit symbol.'
+  - rscadd: The time and date on adhomai is now visible on the stat panel for tajara
+      originating from Adhomai.
+  - code_imp: The tajaran time and date calculations have been moved to procs in _HELPERS/time.dm
+      to be used more universally.
+  hazelmouse:
+  - rscadd: All IPCs now speak Encoded Audio Language by standard in addition to their
+      usual language slots.

@@ -1,4 +1,0 @@
-author: Hellfirejag
-delete-after: True
-changes:
-  - bugfix: "Fixed math errors in overmap ship math that caused severe precision errors when accelerating diagonally."
