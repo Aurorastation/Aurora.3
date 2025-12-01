@@ -19,8 +19,9 @@
 	owner = null
 	. = ..()
 
-/// Called each processing tick
-/datum/npc_job_module/proc/process()
+/// Called each processing tick - overrides /datum/proc/process()
+/datum/npc_job_module/process(delta_time)
+	// Don't call parent - it returns PROCESS_KILL
 	return
 
 /// Get a list of tasks this module can perform

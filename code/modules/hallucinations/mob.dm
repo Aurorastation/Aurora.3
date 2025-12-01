@@ -11,9 +11,10 @@
 	. = ..()
 
 	// Hook NPC speech processing
-	if(ishuman(src) && npc_crew_datum && speaker != src)
+	if(ishuman(src) && speaker != src)
 		var/mob/living/carbon/human/H = src
-		H.npc_crew_datum.handle_heard_speech(speaker, message)
+		if(H.npc_crew_datum)
+			H.npc_crew_datum.handle_heard_speech(speaker, message)
 
 /mob/living/carbon/hear_radio(var/message, var/verb="says", var/datum/language/language, var/part_a, var/part_b, var/part_c, var/mob/speaker, var/hard_to_hear = 0, var/vname ="")
 	if(hallucination >= 60 && prob(1))
