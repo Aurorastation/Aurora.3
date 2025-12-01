@@ -40,10 +40,9 @@ GLOBAL_LIST_INIT(npc_personality_traits, list(
 	initialize_ai()
 
 /datum/npc_crew_member/Destroy()
-	// Unregister from subsystem if we have a reference to it later
+	// Unregister from subsystem
 	if(initialized)
-		// This will be implemented when we create the subsystem
-		// SSnpc_crew.unregister_npc(src)
+		SSnpc_crew.unregister_npc(src)
 
 	// Clean up references
 	body = null
@@ -71,8 +70,8 @@ GLOBAL_LIST_INIT(npc_personality_traits, list(
 	if(!body || !assigned_job)
 		return FALSE
 
-	// Register with subsystem (will be implemented later)
-	// SSnpc_crew.register_npc(src)
+	// Register with subsystem
+	SSnpc_crew.register_npc(src)
 
 	initialized = TRUE
 	return TRUE
