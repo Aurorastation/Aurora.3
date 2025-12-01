@@ -5,3 +5,4 @@
 
 #include "llm_controller.dm"
 #include "npc_datum.dm"
+#include "npc_speech.dm"
