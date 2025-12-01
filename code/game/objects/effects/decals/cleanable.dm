@@ -29,7 +29,7 @@
 
 	var/turf/T = get_turf(src)
 	if(T)
-		if(T.above.is_open())	
+		if(T.above?.is_open())	
 			T.above.update_mimic()
 		if(T.is_space() || T.is_open())
 			animate(src, alpha = 0, time = 5 SECONDS)
