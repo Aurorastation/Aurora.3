@@ -546,6 +546,9 @@ SUBSYSTEM_DEF(ticker)
 	src.mode.pre_setup()
 	SSjobs.DivideOccupations() // Apparently important for new antagonist system to register specific job antags properly.
 
+	// Spawn NPCs for unfilled job slots after player job assignment
+	SSnpc_crew.spawn_npcs_for_unfilled_slots()
+
 	var/fail_reasons = list()
 
 	var/can_start = src.mode.can_start()
