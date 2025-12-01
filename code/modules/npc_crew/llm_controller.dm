@@ -34,14 +34,11 @@ GLOBAL_DATUM(llm_controller, /datum/llm_controller)
 /// Makes a request to the Ollama API
 /// Arguments:
 /// * prompt - The prompt to send to the LLM
+/// * system_prompt - Optional system prompt to set context
 /// Returns the LLM's response text, or null on error
-/datum/llm_controller/proc/request(prompt)
-	if(!prompt || !length(prompt))
-		return null
-
-	// Check if we should even try (if we've already determined it's unavailable)
+/datum/llm_controller/proc/request(prompt, system_prompt = "")
 	if(available == FALSE && fallback_enabled)
-		return get_fallback_response()
+		return null
 
 	// Build request body
 	var/list/request_body = list(
@@ -49,60 +46,45 @@ GLOBAL_DATUM(llm_controller, /datum/llm_controller)
 		"prompt" = prompt,
 		"stream" = FALSE
 	)
+	if(system_prompt)
+		request_body["system"] = system_prompt
 
 	var/body_json = json_encode(request_body)
+	var/list/headers = list("Content-Type" = "application/json")
 
-	// Build headers
-	var/list/headers = list(
-		"Content-Type" = "application/json"
-	)
-
-	// Create HTTP request using the codebase's HTTP system
+	// Create async request
 	var/datum/http_request/req = new()
 	req.prepare(RUSTG_HTTP_METHOD_POST, endpoint, body_json, headers)
+	req.begin_async()
 
-	// Execute as blocking request (we need the response immediately for dialogue)
-	// Note: This is generally not recommended but necessary for synchronous dialogue
-	try
-		var/raw_response = rustg_http_request_blocking(RUSTG_HTTP_METHOD_POST, endpoint, body_json, json_encode(headers), null)
-
-		// Parse response
-		var/list/response_data = json_decode(raw_response)
-
-		if(!response_data)
-			log_debug("LLM request failed: unable to parse response")
-			available = FALSE
-			if(fallback_enabled)
-				return get_fallback_response()
+	// Wait for response with timeout
+	var/start_time = world.time
+	while(!req.is_complete())
+		if(world.time - start_time > timeout)
+			log_debug("LLM request timed out after [timeout] ds")
+			if(isnull(available))
+				available = FALSE
 			return null
+		sleep(1)
 
-		// Check for errors
-		if(response_data["error"])
-			log_debug("LLM request failed: [response_data["error"]]")
+	// Parse response
+	var/datum/http_response/res = req.into_response()
+	if(res.errored || res.status_code != 200)
+		log_debug("LLM request failed: status [res.status_code], error: [res.error]")
+		if(isnull(available))
 			available = FALSE
-			if(fallback_enabled)
-				return get_fallback_response()
-			return null
-
-		// Extract response text
-		var/response_text = response_data["response"]
-		if(!response_text || !length(response_text))
-			log_debug("LLM request failed: empty response")
-			available = FALSE
-			if(fallback_enabled)
-				return get_fallback_response()
-			return null
-
-		// Success - mark as available
-		available = TRUE
-		return response_text
-
-	catch(var/exception)
-		log_debug("LLM request exception: [exception]")
-		available = FALSE
-		if(fallback_enabled)
-			return get_fallback_response()
 		return null
+
+	if(isnull(available))
+		available = TRUE
+
+	// Parse JSON response
+	var/list/response_data = json_decode(res.body)
+	if(!response_data || !response_data["response"])
+		log_debug("LLM response missing 'response' field")
+		return null
+
+	return response_data["response"]
 
 /// Returns a generic fallback response when LLM is unavailable
 /datum/llm_controller/proc/get_fallback_response()
