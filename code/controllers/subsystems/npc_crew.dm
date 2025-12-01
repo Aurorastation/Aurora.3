@@ -91,6 +91,15 @@ SUBSYSTEM_DEF(npc_crew)
 
 	return (job_title in blocked_jobs)
 
+/// Clean up all NPCs - used when round setup fails
+/datum/controller/subsystem/npc_crew/proc/cleanup_all_npcs()
+	for(var/datum/npc_crew_member/npc in npcs)
+		if(npc.body)
+			qdel(npc.body)
+		qdel(npc)
+	npcs.Cut()
+	log_game("SSnpc_crew: Cleaned up all NPCs")
+
 /// Spawns NPCs for unfilled job slots
 /// Returns the number of NPCs spawned
 /datum/controller/subsystem/npc_crew/proc/spawn_npcs_for_unfilled_slots()

@@ -547,7 +547,9 @@ SUBSYSTEM_DEF(ticker)
 	SSjobs.DivideOccupations() // Apparently important for new antagonist system to register specific job antags properly.
 
 	// Spawn NPCs for unfilled job slots after player job assignment
-	SSnpc_crew.spawn_npcs_for_unfilled_slots()
+	var/spawned_count = SSnpc_crew.spawn_npcs_for_unfilled_slots()
+	if(spawned_count > 0)
+		log_game("SSticker: Spawned [spawned_count] NPC crew members for unfilled slots")
 
 	var/fail_reasons = list()
 
@@ -567,6 +569,7 @@ SUBSYSTEM_DEF(ticker)
 		current_state = GAME_STATE_PREGAME
 		mode.fail_setup()
 		mode = null
+		SSnpc_crew.cleanup_all_npcs()
 		SSjobs.ResetOccupations()
 		if(GLOB.master_mode in list(ROUNDTYPE_STR_RANDOM, ROUNDTYPE_STR_SECRET, ROUNDTYPE_STR_MIXED_SECRET))
 			to_world("<B>Reselecting gamemode...</B>")
