@@ -7,6 +7,8 @@
 	if(!check_rights(R_ADMIN))
 		return
 
+	feedback_add_details("admin_verb", "CNCS")
+
 	if(!SSnpc_crew || !SSnpc_crew.enabled)
 		to_chat(src, SPAN_WARNING("NPC Crew system is not enabled."))
 		return
@@ -16,7 +18,7 @@
 
 	for(var/datum/npc_crew_member/npc in SSnpc_crew.npcs)
 		var/job_title = npc.assigned_job ? npc.assigned_job.title : "Unknown"
-		var/status = npc.body ? (npc.body.stat == CONSCIOUS ? "Alive" : "Incapacitated") : "No body"
+		var/status = npc.body ? (npc.body.stat != DEAD ? "Alive" : "Dead") : "No body"
 		var/loc = npc.body ? "[get_area(npc.body)]" : "N/A"
 		var/npc_name = npc.body ? npc.body.real_name : "Unknown"
 		msg += "<b>[npc_name]</b> - [job_title]<br>"
@@ -31,6 +33,8 @@
 
 	if(!check_rights(R_ADMIN))
 		return
+
+	feedback_add_details("admin_verb", "FSNPC")
 
 	if(!SSnpc_crew)
 		to_chat(src, SPAN_WARNING("NPC Crew subsystem not initialized."))
@@ -47,5 +51,7 @@
 	var/datum/job/selected_job = job_choices[choice]
 	if(SSnpc_crew.spawn_npc_for_job(selected_job))
 		to_chat(src, SPAN_NOTICE("Spawned NPC [choice]."))
+		log_admin("[key_name(usr)] force-spawned NPC for job [choice]")
+		message_admins("[key_name_admin(usr)] force-spawned NPC for job [choice]")
 	else
 		to_chat(src, SPAN_WARNING("Failed to spawn NPC."))
