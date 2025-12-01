@@ -44,7 +44,6 @@ GLOBAL_LIST_INIT(npc_personality_traits, list(
 	if(initialized)
 		// This will be implemented when we create the subsystem
 		// SSnpc_crew.unregister_npc(src)
-		pass()
 
 	// Clean up references
 	body = null
@@ -82,14 +81,16 @@ GLOBAL_LIST_INIT(npc_personality_traits, list(
 /datum/npc_crew_member/proc/process_ai()
 	// Check if body is valid
 	if(!body)
-		return
+		return FALSE
 
 	// Check if body is dead
 	if(body.stat == DEAD)
-		return
+		return FALSE
 
 	// AI behavior will be implemented in later tasks
 	// For now, just verify the NPC is alive and valid
+
+	return TRUE
 
 /// Returns a human-readable description of the NPC's personality
 /datum/npc_crew_member/proc/get_personality_description()
