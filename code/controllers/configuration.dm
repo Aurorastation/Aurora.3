@@ -484,6 +484,18 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 
 	var/storage_cdn_iframe = "https://aurorastation.github.io/Aurora.3/iframe.html"
 
+	// NPC Crew configuration
+	var/npc_crew_enabled = FALSE
+	var/npc_crew_max_count = 15
+	var/list/npc_crew_blocked_jobs = list()
+	var/npc_crew_antag_enabled = FALSE
+
+	// LLM configuration
+	var/llm_endpoint = "http://127.0.0.1:11434/api/generate"
+	var/llm_model = "llama3"
+	var/llm_timeout = 100
+	var/llm_fallback_enabled = FALSE
+
 GENERAL_PROTECT_DATUM(/datum/configuration)
 
 /datum/configuration/New()
@@ -1098,6 +1110,40 @@ GENERAL_PROTECT_DATUM(/datum/configuration)
 
 				if("storage_cdn_iframe")
 					storage_cdn_iframe = value
+
+				// NPC Crew settings
+				if("npc_crew_enabled")
+					GLOB.config.npc_crew_enabled = TRUE
+
+				if("npc_crew_max_count")
+					GLOB.config.npc_crew_max_count = text2num(value)
+					if(GLOB.config.npc_crew_max_count < 0)
+						GLOB.config.npc_crew_max_count = 0
+					if(GLOB.config.npc_crew_max_count > 50)
+						GLOB.config.npc_crew_max_count = 50
+
+				if("npc_crew_blocked_jobs")
+					GLOB.config.npc_crew_blocked_jobs = text2list(value, " ")
+
+				if("npc_crew_antag_enabled")
+					GLOB.config.npc_crew_antag_enabled = TRUE
+
+				// LLM settings
+				if("llm_endpoint")
+					GLOB.config.llm_endpoint = value
+
+				if("llm_model")
+					GLOB.config.llm_model = value
+
+				if("llm_timeout")
+					GLOB.config.llm_timeout = text2num(value)
+					if(GLOB.config.llm_timeout < 10)
+						GLOB.config.llm_timeout = 10
+					if(GLOB.config.llm_timeout > 600)
+						GLOB.config.llm_timeout = 600
+
+				if("llm_fallback_enabled")
+					GLOB.config.llm_fallback_enabled = TRUE
 
 				else
 					log_config("Unknown setting in configuration: '[name]'")

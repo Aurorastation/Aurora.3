@@ -263,6 +263,12 @@ GLOBAL_LIST_INIT(world_api_rate_limit, list())
 	if (GLOB.config.age_restrictions_from_file)
 		GLOB.config.load("config/age_restrictions.txt", "age_restrictions")
 
+	// Load NPC crew and LLM configuration files
+	if (fexists("config/npc_crew.txt"))
+		GLOB.config.load("config/npc_crew.txt")
+	if (fexists("config/llm.txt"))
+		GLOB.config.load("config/llm.txt")
+
 /world/proc/update_status()
 	SHOULD_NOT_SLEEP(TRUE)
 
