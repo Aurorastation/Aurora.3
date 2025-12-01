@@ -20,6 +20,8 @@ GLOBAL_LIST_INIT(npc_personality_traits, list(
 	var/mob/living/carbon/human/body
 	/// The job datum assigned to this NPC
 	var/datum/job/assigned_job
+	/// The job behavior module for this NPC
+	var/datum/npc_job_module/job_module
 	/// Current state (idle, working, etc)
 	var/state = "idle"
 	/// List of personality trait strings
@@ -44,6 +46,11 @@ GLOBAL_LIST_INIT(npc_personality_traits, list(
 	if(initialized)
 		SSnpc_crew.unregister_npc(src)
 
+	// Clean up job module
+	if(job_module)
+		qdel(job_module)
+		job_module = null
+
 	// Clean up references
 	body = null
 	assigned_job = null
@@ -67,27 +74,38 @@ GLOBAL_LIST_INIT(npc_personality_traits, list(
 
 /// Initializes the AI and registers with the NPC crew subsystem
 /datum/npc_crew_member/proc/initialize_ai()
-	if(!body || !assigned_job)
+	if(initialized)
 		return FALSE
-
-	// Register with subsystem
-	SSnpc_crew.register_npc(src)
-
 	initialized = TRUE
+
+	// Create job module based on assigned job
+	if(assigned_job)
+		job_module = create_job_module(assigned_job)
+
+	// Register with the NPC subsystem for processing
+	if(SSnpc_crew)
+		SSnpc_crew.register_npc(src)
+
 	return TRUE
+
+/// Create the appropriate job module for a given job
+/datum/npc_crew_member/proc/create_job_module(datum/job/J)
+	// For Phase 1, all jobs use assistant module
+	// This will be expanded in later phases
+	var/datum/npc_job_module/module = new /datum/npc_job_module/assistant(src)
+	return module
 
 /// Called by the subsystem to process AI behavior
 /datum/npc_crew_member/proc/process_ai()
-	// Check if body is valid
 	if(!body || QDELETED(body))
 		return FALSE
 
-	// Check if body is dead
 	if(body.stat == DEAD)
 		return FALSE
 
-	// AI behavior will be implemented in later tasks
-	// For now, just verify the NPC is alive and valid
+	// Process job module
+	if(job_module)
+		job_module.process()
 
 	return TRUE
 
