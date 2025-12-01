@@ -187,6 +187,9 @@ SUBSYSTEM_DEF(npc_crew)
 		qdel(H)
 		return FALSE
 
+	// Link the NPC datum to the mob for tracking
+	H.npc_crew_datum = npc_datum
+
 	// Increment job positions after successful spawn
 	job.current_positions++
 
