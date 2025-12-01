@@ -79,7 +79,7 @@ GLOBAL_LIST_INIT(npc_personality_traits, list(
 /// Called by the subsystem to process AI behavior
 /datum/npc_crew_member/proc/process_ai()
 	// Check if body is valid
-	if(!body)
+	if(!body || QDELETED(body))
 		return FALSE
 
 	// Check if body is dead

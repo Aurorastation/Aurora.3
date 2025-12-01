@@ -49,7 +49,10 @@ SUBSYSTEM_DEF(npc_crew)
 			continue
 
 		// Process the NPC's AI
-		npc.process_ai()
+		if(!npc.process_ai())
+			// NPC is dead or invalid, clean it up
+			unregister_npc(npc)
+			qdel(npc)
 
 		if(MC_TICK_CHECK)
 			return
@@ -124,7 +127,6 @@ SUBSYSTEM_DEF(npc_crew)
 		// Try to spawn an NPC for this job
 		if(spawn_npc_for_job(job))
 			spawned++
-			job.current_positions++
 
 	return spawned
 
@@ -170,6 +172,8 @@ SUBSYSTEM_DEF(npc_crew)
 
 	// Assign the job
 	H.mind.assigned_role = job.title
+	H.mind.assigned_job = job
+	H.mind.original = H
 	H.job = job.title
 
 	// Equip the NPC with their job's gear
@@ -182,6 +186,9 @@ SUBSYSTEM_DEF(npc_crew)
 		log_debug("SSnpc_crew: Failed to create NPC datum for [job.title]")
 		qdel(H)
 		return FALSE
+
+	// Increment job positions after successful spawn
+	job.current_positions++
 
 	log_debug("SSnpc_crew: Successfully spawned NPC [H.real_name] as [job.title]")
 	return TRUE
