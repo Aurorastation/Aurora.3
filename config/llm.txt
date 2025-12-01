@@ -1,0 +1,13 @@
+## Local LLM Configuration for NPC Crew
+
+## Ollama API endpoint
+## LLM_ENDPOINT http://127.0.0.1:11434/api/generate
+
+## Model name to use
+## LLM_MODEL llama3
+
+## Request timeout in deciseconds (100 = 10 seconds)
+## LLM_TIMEOUT 100
+
+## Enable fallback to scripted dialogue if LLM unavailable
+## LLM_FALLBACK_ENABLED

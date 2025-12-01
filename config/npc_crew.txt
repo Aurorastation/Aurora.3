@@ -1,0 +1,13 @@
+## NPC Crew Configuration
+
+## Enable/disable the AI crew system
+## NPC_CREW_ENABLED
+
+## Maximum NPCs to spawn (0 = fill all empty slots)
+## NPC_CREW_MAX_COUNT 15
+
+## Jobs NPCs cannot fill (space-separated)
+## NPC_CREW_BLOCKED_JOBS captain head_of_personnel
+
+## Allow NPCs as antagonists
+## NPC_CREW_ANTAG_ENABLED
