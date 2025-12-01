@@ -6,5 +6,6 @@
 #include "llm_controller.dm"
 #include "npc_datum.dm"
 #include "npc_speech.dm"
+#include "admin_verbs.dm"
 #include "job_modules/_job_module.dm"
 #include "job_modules/assistant.dm"
