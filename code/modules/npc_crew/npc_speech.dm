@@ -30,11 +30,11 @@
 		var/response
 
 		if(llm)
-			response = llm.get_response(system_prompt, context)
+			response = llm.request(context, system_prompt)
 
 		// Use fallback if LLM unavailable or returned nothing
 		if(!response || response == "")
-			response = get_fallback_response()
+			response = llm.get_fallback_response()
 
 		// Make NPC say the response
 		if(response && body)
@@ -63,15 +63,3 @@
 	prompt += "Stay in character and respond naturally as this crew member would."
 
 	return prompt
-
-/// Returns a simple fallback response when LLM is unavailable
-/datum/npc_crew_member/proc/get_fallback_response()
-	var/list/fallback_responses = list(
-		"I understand.",
-		"Noted.",
-		"Alright.",
-		"Got it.",
-		"Okay."
-	)
-
-	return pick(fallback_responses)
