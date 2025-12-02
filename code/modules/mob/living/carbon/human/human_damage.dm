@@ -284,6 +284,15 @@
 			amount -= E.add_pain(amount)
 	BITSET(hud_updateflag, HEALTH_HUD)
 
+/mob/living/carbon/human/proc/can_autoheal(dam_type)
+	if(!species || !dam_type) return FALSE
+
+	if (dam_type == DAMAGE_BRUTE)
+		return(getBruteLoss() < species.total_health * species.autoheal_brute_ratio)
+	else if (dam_type == DAMAGE_BURN)
+		return(getFireLoss() < species.total_health * species.autoheal_burn_ratio)
+	return FALSE
+
 ////////////////////////////////////////////
 
 //Returns a list of damaged organs
@@ -362,14 +371,14 @@ In most cases it makes more sense to use apply_damage() instead! And make sure t
 	if(status_flags & GODMODE)
 		return	//godmode
 	var/list/obj/item/organ/external/parts = get_damageable_organs()
-	var/update = 0
+	var/update
 	while(parts.len && (brute>0 || burn>0) )
 		var/obj/item/organ/external/picked = pick(parts)
 
 		var/brute_was = picked.brute_dam
 		var/burn_was = picked.burn_dam
 
-		update |= picked.take_damage(brute, burn, damage_flags, used_weapon)
+		update = picked.take_damage(brute, burn, damage_flags, used_weapon) ? TRUE : FALSE
 		brute	-= (picked.brute_dam - brute_was)
 		burn	-= (picked.burn_dam - burn_was)
 
@@ -486,18 +495,19 @@ This function restores all organs.
 			if(REAGENT_VOLUME(reagents, /singleton/reagent/adrenaline) < 15)
 				make_adrenaline(round(damage/10))
 
+	var/datum/wound/created_wound
 	switch(damagetype)
 		if(DAMAGE_BRUTE)
 			damageoverlaytemp = 20
 			if(damage > 0)
 				damage *= species.brute_mod
-			organ.take_damage(damage, 0, damage_flags, used_weapon)
+			created_wound = organ.take_damage(damage, 0, damage_flags, used_weapon)
 			UpdateDamageIcon()
 		if(DAMAGE_BURN)
 			damageoverlaytemp = 20
 			if(damage > 0)
 				damage *= species.burn_mod
-			organ.take_damage(0, damage, damage_flags, used_weapon)
+			created_wound = organ.take_damage(0, damage, damage_flags, used_weapon)
 			UpdateDamageIcon()
 		if(DAMAGE_PAIN)
 			organ.add_pain(damage)
@@ -507,7 +517,7 @@ This function restores all organs.
 	// Will set our damageoverlay icon to the next level, which will then be set back to the normal level the next mob.Life().
 	updatehealth()
 	BITSET(hud_updateflag, HEALTH_HUD)
-	return TRUE
+	return created_wound ? created_wound : TRUE
 
 /mob/living/carbon/human/apply_radiation(var/rads)
 	if(species && rads > 0)
