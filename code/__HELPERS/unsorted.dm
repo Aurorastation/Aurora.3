@@ -1238,3 +1238,18 @@ GLOBAL_LIST_INIT(wall_items, typecacheof(list(
 
 	if(final_x || final_y)
 		return locate(final_x, final_y, T.z)
+
+/**
+ * Basically just transforms the ROLL_RESULT defines into text.
+ */
+/proc/roll_result_text(roll)
+	switch(roll)
+		if(ROLL_RESULT_CRITICAL_SUCCESS)
+			return "critical success"
+		if(ROLL_RESULT_SUCCESS)
+			return "success"
+		if(ROLL_RESULT_FAILURE)
+			return "failure"
+		if(ROLL_RESULT_CRITICAL_FAILURE)
+			return "critical failure"
+	crash_with("Roll result given invalid roll: [roll]")

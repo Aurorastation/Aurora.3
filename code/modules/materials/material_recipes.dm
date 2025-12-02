@@ -9,37 +9,37 @@
 	// If is_brittle() returns true, these are only good for a single strike.
 	recipes += new /datum/stack_recipe_list("generic crafts",
 		list(
-			new /datum/stack_recipe("[display_name] baseball bat", /obj/item/material/twohanded/baseballbat, 10, time = 20, one_per_turf = 0, on_floor = 1, supplied_material = "[name]"),
-			new /datum/stack_recipe("[display_name] sword hilt", /obj/item/material/sword_hilt, 10, time = 100, one_per_turf = 0, on_floor = 1, supplied_material = "[name]"),
-			new /datum/stack_recipe("[display_name] sword blade", /obj/item/material/sword_blade, 15, time = 100, one_per_turf = 0, on_floor = 1, supplied_material = "[name]"),
-			new /datum/stack_recipe("[display_name] ring", /obj/item/clothing/ring/material, 1, on_floor = 1, supplied_material = "[name]"),
-			new /datum/stack_recipe("[display_name] armor plating", /obj/item/material/armor_plating, 3, time = 20, on_floor = 1, supplied_material = "[name]")
+			new /datum/stack_recipe("[display_name] baseball bat", /obj/item/material/twohanded/baseballbat, 10, time = 20, one_per_turf = 0, on_floor = 1, supplied_material = "[name]", required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED)),
+			new /datum/stack_recipe("[display_name] sword hilt", /obj/item/material/sword_hilt, 10, time = 100, one_per_turf = 0, on_floor = 1, supplied_material = "[name]", required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED)),
+			new /datum/stack_recipe("[display_name] sword blade", /obj/item/material/sword_blade, 15, time = 100, one_per_turf = 0, on_floor = 1, supplied_material = "[name]", required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED)),
+			new /datum/stack_recipe("[display_name] ring", /obj/item/clothing/ring/material, 1, on_floor = 1, supplied_material = "[name]", required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED)),
+			new /datum/stack_recipe("[display_name] armor plating", /obj/item/material/armor_plating, 3, time = 20, on_floor = 1, supplied_material = "[name]", required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED))
 		))
 
 	if(integrity >= 50)
 		recipes += new /datum/stack_recipe_list("generic construction",
 		list(
-			new /datum/stack_recipe("[display_name] door", /obj/structure/simple_door, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1, supplied_material = "[name]"),
-			new /datum/stack_recipe("[display_name] blocker", /obj/structure/blocker, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1, supplied_material = "[name]"),
-			new /datum/stack_recipe("[display_name] railing", /obj/structure/railing, BUILD_AMT, time = 25, one_per_turf = FALSE, on_floor = TRUE, supplied_material = "[name]"),
-			new /datum/stack_recipe("[display_name] stool", /obj/structure/bed/stool, BUILD_AMT, one_per_turf = 1, on_floor = 1, supplied_material = "[name]"),
-			new /datum/stack_recipe("[display_name] chair", /obj/structure/bed/stool/chair, BUILD_AMT, one_per_turf = 1, on_floor = 1, supplied_material = "[name]"),
-			new /datum/stack_recipe("[display_name] bed", /obj/structure/bed, BUILD_AMT, one_per_turf = 1, on_floor = 1, supplied_material = "[name]"),
-			new /datum/stack_recipe("[display_name] lock", /obj/item/material/lock_construct, 1, time = 20, one_per_turf = 0, on_floor = 1, supplied_material = "[name]"),
-			new /datum/stack_recipe("[display_name] urn", /obj/item/material/urn, 10, time = 30, one_per_turf = FALSE, on_floor = 1, supplied_material = "[name]")
+			new /datum/stack_recipe("[display_name] door", /obj/structure/simple_door, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1, supplied_material = "[name]", required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED)),
+			new /datum/stack_recipe("[display_name] blocker", /obj/structure/blocker, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1, supplied_material = "[name]", required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED)),
+			new /datum/stack_recipe("[display_name] railing", /obj/structure/railing, BUILD_AMT, time = 25, one_per_turf = FALSE, on_floor = TRUE, supplied_material = "[name]", required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED)),
+			new /datum/stack_recipe("[display_name] stool", /obj/structure/bed/stool, BUILD_AMT, one_per_turf = 1, on_floor = 1, supplied_material = "[name]", required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED)),
+			new /datum/stack_recipe("[display_name] chair", /obj/structure/bed/stool/chair, BUILD_AMT, one_per_turf = 1, on_floor = 1, supplied_material = "[name]", required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED)),
+			new /datum/stack_recipe("[display_name] bed", /obj/structure/bed, BUILD_AMT, one_per_turf = 1, on_floor = 1, supplied_material = "[name]", required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED)),
+			new /datum/stack_recipe("[display_name] lock", /obj/item/material/lock_construct, 1, time = 20, one_per_turf = 0, on_floor = 1, supplied_material = "[name]", required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED)),
+			new /datum/stack_recipe("[display_name] urn", /obj/item/material/urn, 10, time = 30, one_per_turf = FALSE, on_floor = 1, supplied_material = "[name]", required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED))
 		))
 
 	var/list/hardness_craftables = list()
 	if(hardness >= 10)
-		hardness_craftables += new /datum/stack_recipe("[display_name] ashtray", /obj/item/material/ashtray, 2, one_per_turf = 1, on_floor = 1, supplied_material = "[name]")
+		hardness_craftables += new /datum/stack_recipe("[display_name] ashtray", /obj/item/material/ashtray, 2, one_per_turf = 1, on_floor = 1, supplied_material = "[name]", required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED))
 
 	if(hardness > 50)
-		hardness_craftables += new /datum/stack_recipe("[display_name] fork", /obj/item/material/kitchen/utensil/fork/plastic, 1, on_floor = 1, supplied_material = "[name]")
-		hardness_craftables += new /datum/stack_recipe("[display_name] spoon", /obj/item/material/kitchen/utensil/spoon/plastic, 1, on_floor = 1, supplied_material = "[name]")
-		hardness_craftables += new /datum/stack_recipe("[display_name] knife", /obj/item/material/kitchen/utensil/knife/plastic, 1, on_floor = 1, supplied_material = "[name]")
-		hardness_craftables += new /datum/stack_recipe("[display_name] blade", /obj/item/material/butterflyblade, 6, time = 20, one_per_turf = 0, on_floor = 1, supplied_material = "[name]")
-		hardness_craftables += new /datum/stack_recipe("[display_name] spearhead", /obj/item/material/spearhead, 6, time = 20, one_per_turf = 0, on_floor = 1, supplied_material = "[name]")
-		hardness_craftables += new /datum/stack_recipe("[display_name] drill head", /obj/item/material/drill_head, 6, time = 20, one_per_turf = 0, on_floor = 1, supplied_material = "[name]")
+		hardness_craftables += new /datum/stack_recipe("[display_name] fork", /obj/item/material/kitchen/utensil/fork/plastic, 1, on_floor = 1, supplied_material = "[name]", required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_FAMILIAR))
+		hardness_craftables += new /datum/stack_recipe("[display_name] spoon", /obj/item/material/kitchen/utensil/spoon/plastic, 1, on_floor = 1, supplied_material = "[name]", required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_FAMILIAR))
+		hardness_craftables += new /datum/stack_recipe("[display_name] knife", /obj/item/material/kitchen/utensil/knife/plastic, 1, on_floor = 1, supplied_material = "[name]", required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_FAMILIAR))
+		hardness_craftables += new /datum/stack_recipe("[display_name] blade", /obj/item/material/butterflyblade, 6, time = 20, one_per_turf = 0, on_floor = 1, supplied_material = "[name]", required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED))
+		hardness_craftables += new /datum/stack_recipe("[display_name] spearhead", /obj/item/material/spearhead, 6, time = 20, one_per_turf = 0, on_floor = 1, supplied_material = "[name]", required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED))
+		hardness_craftables += new /datum/stack_recipe("[display_name] drill head", /obj/item/material/drill_head, 6, time = 20, one_per_turf = 0, on_floor = 1, supplied_material = "[name]", required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED))
 
 	if(length(hardness_craftables))
 		recipes += new /datum/stack_recipe_list("generic miscellaneous", hardness_craftables)
@@ -48,91 +48,91 @@
 	..()
 	recipes += new /datum/stack_recipe_list("construction recipes",
 		list(
-			new /datum/stack_recipe("regular floor tile", /obj/item/stack/tile/floor, 1, 4, 20),
-			new /datum/stack_recipe("full regular floor tile", /obj/item/stack/tile/mono, 1, 4, 20),
-			new /datum/stack_recipe("metal rod", /obj/item/stack/rods, 1, 2, 60),
-			new /datum/stack_recipe("steel barricade", /obj/structure/barricade/metal, BUILD_AMT, time = 10 SECONDS, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("barbed wire", /obj/item/stack/barbed_wire, 1, 2, 20),
-			new /datum/stack_recipe("wall girders", /obj/structure/girder, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("steel window frame", /obj/structure/window_frame/unanchored, BUILD_AMT, time = 25, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("computer frame", /obj/structure/computerframe, BUILD_AMT, time = 25, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("machine blueprint", /obj/machinery/constructable_frame/machine_frame, 2, time = 25, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("light fixture frame", /obj/item/frame/light, 2),
-			new /datum/stack_recipe("floor light fixture frame", /obj/item/floor_frame/light, 2),
-			new /datum/stack_recipe("small light fixture frame", /obj/item/frame/light/small, 1),
-			new /datum/stack_recipe("small floor light fixture frame", /obj/item/floor_frame/light/small, 1),
-			new /datum/stack_recipe("spotlight fixture frame", /obj/item/frame/light/spot, 3),
-			new /datum/stack_recipe("apc frame", /obj/item/frame/apc, 2),
-			new /datum/stack_recipe("air alarm frame", /obj/item/frame/air_alarm, 2),
-			new /datum/stack_recipe("fire alarm frame", /obj/item/frame/fire_alarm, 2),
-			new /datum/stack_recipe("fuel port", /obj/item/fuel_port, 2, time = 2 SECONDS)
+			new /datum/stack_recipe("regular floor tile", /obj/item/stack/tile/floor, 1, 4, 20, required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED)),
+			new /datum/stack_recipe("full regular floor tile", /obj/item/stack/tile/mono, 1, 4, 20, required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED)),
+			new /datum/stack_recipe("metal rod", /obj/item/stack/rods, 1, 2, 60, required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_FAMILIAR)),
+			new /datum/stack_recipe("steel barricade", /obj/structure/barricade/metal, BUILD_AMT, time = 10 SECONDS, one_per_turf = 1, on_floor = 1, required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED)),
+			new /datum/stack_recipe("barbed wire", /obj/item/stack/barbed_wire, 1, 2, 20, required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED)),
+			new /datum/stack_recipe("wall girders", /obj/structure/girder, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1, required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED)),
+			new /datum/stack_recipe("steel window frame", /obj/structure/window_frame/unanchored, BUILD_AMT, time = 25, one_per_turf = 1, on_floor = 1, required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED)),
+			new /datum/stack_recipe("computer frame", /obj/structure/computerframe, BUILD_AMT, time = 25, one_per_turf = 1, on_floor = 1, required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED)),
+			new /datum/stack_recipe("machine blueprint", /obj/machinery/constructable_frame/machine_frame, 2, time = 25, one_per_turf = 1, on_floor = 1, required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_FAMILIAR)),
+			new /datum/stack_recipe("light fixture frame", /obj/item/frame/light, 2, required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_FAMILIAR)),
+			new /datum/stack_recipe("floor light fixture frame", /obj/item/floor_frame/light, 2, required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_FAMILIAR)),
+			new /datum/stack_recipe("small light fixture frame", /obj/item/frame/light/small, 1, required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_FAMILIAR)),
+			new /datum/stack_recipe("small floor light fixture frame", /obj/item/floor_frame/light/small, 1, required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_FAMILIAR)),
+			new /datum/stack_recipe("spotlight fixture frame", /obj/item/frame/light/spot, 3, required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED)),
+			new /datum/stack_recipe("apc frame", /obj/item/frame/apc, 2, required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED)),
+			new /datum/stack_recipe("air alarm frame", /obj/item/frame/air_alarm, 2, required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED)),
+			new /datum/stack_recipe("fire alarm frame", /obj/item/frame/fire_alarm, 2, required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED)),
+			new /datum/stack_recipe("fuel port", /obj/item/fuel_port, 2, time = 2 SECONDS, required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED))
 		))
 
 	recipes += new /datum/stack_recipe_list("miscellaneous construction",
 		list(
-			new /datum/stack_recipe("key", /obj/item/key, 1, time = 10, one_per_turf = 0, on_floor = 1),
-			new /datum/stack_recipe("custodial cart", /obj/structure/cart/storage/janitorialcart, BUILD_AMT, time = 120, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("engineering cart", /obj/structure/cart/storage/engineeringcart, BUILD_AMT, time = 120, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("parcel cart", /obj/structure/cart/storage/parcelcart, BUILD_AMT, time = 120, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("steel closet", /obj/structure/closet, BUILD_AMT, time = 15, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("canister", /obj/machinery/portable_atmospherics/canister, 10, time = 15, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("target stake", /obj/structure/target_stake, BUILD_AMT, time = 15, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("shooting target", /obj/item/target, 5, time = 10, one_per_turf = 0, on_floor = 1),
-			new /datum/stack_recipe("dark office chair", /obj/structure/bed/stool/chair/office/dark, BUILD_AMT, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("light office chair", /obj/structure/bed/stool/chair/office/light, BUILD_AMT, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("steel chair (fancy)", /obj/structure/bed/stool/chair/fancy, BUILD_AMT, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("sofa (middle)", /obj/structure/bed/stool/chair/sofa, BUILD_AMT, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("sofa (left)", /obj/structure/bed/stool/chair/sofa/left, BUILD_AMT, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("sofa (right)", /obj/structure/bed/stool/chair/sofa/right, BUILD_AMT, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("sofa (corner, concave)", /obj/structure/bed/stool/chair/sofa/corner/concave, BUILD_AMT, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("sofa (corner, convex)", /obj/structure/bed/stool/chair/sofa/corner/convex, BUILD_AMT, one_per_turf = 1, on_floor = 1),
+			new /datum/stack_recipe("key", /obj/item/key, 1, time = 10, one_per_turf = 0, on_floor = 1, required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_FAMILIAR)),
+			new /datum/stack_recipe("custodial cart", /obj/structure/cart/storage/janitorialcart, BUILD_AMT, time = 120, one_per_turf = 1, on_floor = 1, required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED)),
+			new /datum/stack_recipe("engineering cart", /obj/structure/cart/storage/engineeringcart, BUILD_AMT, time = 120, one_per_turf = 1, on_floor = 1, required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED)),
+			new /datum/stack_recipe("parcel cart", /obj/structure/cart/storage/parcelcart, BUILD_AMT, time = 120, one_per_turf = 1, on_floor = 1, required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED)),
+			new /datum/stack_recipe("steel closet", /obj/structure/closet, BUILD_AMT, time = 15, one_per_turf = 1, on_floor = 1, required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_FAMILIAR)),
+			new /datum/stack_recipe("canister", /obj/machinery/portable_atmospherics/canister, 10, time = 15, one_per_turf = 1, on_floor = 1, required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED)),
+			new /datum/stack_recipe("target stake", /obj/structure/target_stake, BUILD_AMT, time = 15, one_per_turf = 1, on_floor = 1, required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED)),
+			new /datum/stack_recipe("shooting target", /obj/item/target, 5, time = 10, one_per_turf = 0, on_floor = 1, required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED)),
+			new /datum/stack_recipe("dark office chair", /obj/structure/bed/stool/chair/office/dark, BUILD_AMT, one_per_turf = 1, on_floor = 1, required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED)),
+			new /datum/stack_recipe("light office chair", /obj/structure/bed/stool/chair/office/light, BUILD_AMT, one_per_turf = 1, on_floor = 1, required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED)),
+			new /datum/stack_recipe("steel chair (fancy)", /obj/structure/bed/stool/chair/fancy, BUILD_AMT, one_per_turf = 1, on_floor = 1, required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED)),
+			new /datum/stack_recipe("sofa (middle)", /obj/structure/bed/stool/chair/sofa, BUILD_AMT, one_per_turf = 1, on_floor = 1, required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED)),
+			new /datum/stack_recipe("sofa (left)", /obj/structure/bed/stool/chair/sofa/left, BUILD_AMT, one_per_turf = 1, on_floor = 1, required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED)),
+			new /datum/stack_recipe("sofa (right)", /obj/structure/bed/stool/chair/sofa/right, BUILD_AMT, one_per_turf = 1, on_floor = 1, required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED)),
+			new /datum/stack_recipe("sofa (corner, concave)", /obj/structure/bed/stool/chair/sofa/corner/concave, BUILD_AMT, one_per_turf = 1, on_floor = 1, required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED)),
+			new /datum/stack_recipe("sofa (corner, convex)", /obj/structure/bed/stool/chair/sofa/corner/convex, BUILD_AMT, one_per_turf = 1, on_floor = 1, required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED)),
 			new /datum/stack_recipe("steel crate", /obj/structure/closet/crate, BUILD_AMT, time = 50, one_per_turf = 1)
 		))
 
 	recipes += new /datum/stack_recipe_list("airlock assemblies",
 		list(
-			new /datum/stack_recipe("generic airlock assembly", /obj/structure/door_assembly/door_assembly_generic, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("maintenance airlock assembly", /obj/structure/door_assembly/door_assembly_mai, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("external airlock assembly", /obj/structure/door_assembly/door_assembly_ext, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("airtight hatch assembly", /obj/structure/door_assembly/door_assembly_hatch, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("maintenance hatch assembly", /obj/structure/door_assembly/door_assembly_mhatch, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("high security airlock assembly", /obj/structure/door_assembly/door_assembly_highsecurity, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("emergency shutter", /obj/structure/firedoor_assembly, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("multi-tile airlock assembly", /obj/structure/door_assembly/multi_tile, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1)
+			new /datum/stack_recipe("generic airlock assembly", /obj/structure/door_assembly/door_assembly_generic, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1, required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED)),
+			new /datum/stack_recipe("maintenance airlock assembly", /obj/structure/door_assembly/door_assembly_mai, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1, required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED)),
+			new /datum/stack_recipe("external airlock assembly", /obj/structure/door_assembly/door_assembly_ext, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1, required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED)),
+			new /datum/stack_recipe("airtight hatch assembly", /obj/structure/door_assembly/door_assembly_hatch, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1, required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED)),
+			new /datum/stack_recipe("maintenance hatch assembly", /obj/structure/door_assembly/door_assembly_mhatch, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1, required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED)),
+			new /datum/stack_recipe("high security airlock assembly", /obj/structure/door_assembly/door_assembly_highsecurity, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1), required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED),
+			new /datum/stack_recipe("emergency shutter", /obj/structure/firedoor_assembly, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1, required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED)),
+			new /datum/stack_recipe("multi-tile airlock assembly", /obj/structure/door_assembly/multi_tile, BUILD_AMT, time = 50, one_per_turf = 1, on_floor = 1, required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED))
 		))
 
 	recipes += new /datum/stack_recipe_list("turret frames",
 		list(
-			new /datum/stack_recipe("light turret frame", /obj/machinery/porta_turret_construct, 5, time = 25, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("dark turret frame", /obj/machinery/porta_turret_construct/dark, 5, time = 25, one_per_turf = 1, on_floor = 1)
+			new /datum/stack_recipe("light turret frame", /obj/machinery/porta_turret_construct, 5, time = 25, one_per_turf = 1, on_floor = 1, required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED)),
+			new /datum/stack_recipe("dark turret frame", /obj/machinery/porta_turret_construct/dark, 5, time = 25, one_per_turf = 1, on_floor = 1, required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED))
 		))
 
 	recipes += new /datum/stack_recipe_list("modular computers",
 		list(
-			new /datum/stack_recipe("modular console frame", /obj/item/modular_computer/console, 20, time = 25, one_per_turf = TRUE),
-			new /datum/stack_recipe("modular laptop frame", /obj/item/modular_computer/laptop, 10, time = 25),
-			new /datum/stack_recipe("modular tablet frame", /obj/item/modular_computer/handheld, 5, time = 25)
+			new /datum/stack_recipe("modular console frame", /obj/item/modular_computer/console, 20, time = 25, one_per_turf = TRUE, required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED)),
+			new /datum/stack_recipe("modular laptop frame", /obj/item/modular_computer/laptop, 10, time = 25, required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED)),
+			new /datum/stack_recipe("modular tablet frame", /obj/item/modular_computer/handheld, 5, time = 25, required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED))
 		))
 
 	recipes += new /datum/stack_recipe_list("[display_name] weaponry",
 		list(
-			new /datum/stack_recipe("makeshift magazine (5.56mm)", /obj/item/ammo_magazine/a556/makeshift/empty, 5, time = 20),
-			new /datum/stack_recipe("grenade casing", /obj/item/grenade/chem_grenade),
-			new /datum/stack_recipe("firearm receiver", /obj/item/receivergun, 15, time = 25, one_per_turf = 0, on_floor = 0),
-			new /datum/stack_recipe("shield fittings", /obj/item/material/shieldbits, 10, time = 25),
-			new /datum/stack_recipe("cannon frame", /obj/item/cannonframe, 10, time = 15, one_per_turf = 0, on_floor = 0),
-			new /datum/stack_recipe("large trap foundation", /obj/item/large_trap_foundation, 4, time = 40)
+			new /datum/stack_recipe("makeshift magazine (5.56mm)", /obj/item/ammo_magazine/a556/makeshift/empty, 5, time = 20, required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED)),
+			new /datum/stack_recipe("grenade casing", /obj/item/grenade/chem_grenade, required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED)),
+			new /datum/stack_recipe("firearm receiver", /obj/item/receivergun, 15, time = 25, one_per_turf = 0, on_floor = 0, required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED)),
+			new /datum/stack_recipe("shield fittings", /obj/item/material/shieldbits, 10, time = 25, required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_UNFAMILIAR)),
+			new /datum/stack_recipe("cannon frame", /obj/item/cannonframe, 10, time = 15, one_per_turf = 0, on_floor = 0, required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_FAMILIAR)),
+			new /datum/stack_recipe("large trap foundation", /obj/item/large_trap_foundation, 4, time = 40, required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_FAMILIAR))
 		))
 
 /material/plasteel/generate_recipes()
 	..()
 	recipes += new /datum/stack_recipe_list("[display_name] recipes",
 		list(
-			new /datum/stack_recipe("AI core", /obj/structure/AIcore, BUILD_AMT, time = 50, one_per_turf = 1),
-			new /datum/stack_recipe("plateel barricade", /obj/structure/barricade/plasteel, BUILD_AMT, time = 12 SECONDS, one_per_turf = 1),
-			new /datum/stack_recipe("knife grip", /obj/item/material/butterflyhandle, 4, time = 20, one_per_turf = 0, on_floor = 1, supplied_material = "[name]"),
-			new /datum/stack_recipe("dark floor tile", /obj/item/stack/tile/floor_dark, 1, 4, 20),
-			new /datum/stack_recipe("full dark floor tile", /obj/item/stack/tile/floor_dark/full, 1, 4, 20)
+			new /datum/stack_recipe("AI core", /obj/structure/AIcore, BUILD_AMT, time = 50, one_per_turf = 1, required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED)),
+			new /datum/stack_recipe("plateel barricade", /obj/structure/barricade/plasteel, BUILD_AMT, time = 12 SECONDS, one_per_turf = 1, required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_TRAINED)),
+			new /datum/stack_recipe("knife grip", /obj/item/material/butterflyhandle, 4, time = 20, one_per_turf = 0, on_floor = 1, supplied_material = "[name]", required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_FAMILIAR)),
+			new /datum/stack_recipe("dark floor tile", /obj/item/stack/tile/floor_dark, 1, 4, 20, required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_FAMILIAR)),
+			new /datum/stack_recipe("full dark floor tile", /obj/item/stack/tile/floor_dark/full, 1, 4, 20, required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_FAMILIAR))
 		))
 
 /material/plastic/generate_recipes()
@@ -163,9 +163,9 @@
 			new /datum/stack_recipe("wood circlet", /obj/item/woodcirclet, 1),
 			new /datum/stack_recipe("wood floor tile", /obj/item/stack/tile/wood, 1, 4, 20),
 			new /datum/stack_recipe("wooden chair", /obj/structure/bed/stool/chair/wood, BUILD_AMT, time = 10, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("crossbow frame", /obj/item/crossbowframe, 5, time = 25, one_per_turf = 0, on_floor = 0),
+			new /datum/stack_recipe("crossbow frame", /obj/item/crossbowframe, 5, time = 25, one_per_turf = 0, on_floor = 0, required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_FAMILIAR)),
 			new /datum/stack_recipe("coffin", /obj/structure/closet/crate/coffin, BUILD_AMT, time = 15, one_per_turf = 1, on_floor = 1),
-			new /datum/stack_recipe("rifle stock", /obj/item/stock, 10, time = 25, one_per_turf = 0, on_floor = 0),
+			new /datum/stack_recipe("rifle stock", /obj/item/stock, 10, time = 25, one_per_turf = 0, on_floor = 0, required_skills = list(/singleton/skill/mechanical_engineering = SKILL_LEVEL_FAMILIAR)),
 			new /datum/stack_recipe("beehive assembly", /obj/item/beehive_assembly, 4),
 			new /datum/stack_recipe("beehive frame", /obj/item/honey_frame, 1),
 			new /datum/stack_recipe("book shelf", /obj/structure/bookcase, BUILD_AMT, time = 15, one_per_turf = 1, on_floor = 1),

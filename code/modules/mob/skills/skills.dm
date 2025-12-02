@@ -63,6 +63,21 @@
 	return modifier
 
 /**
+ * Returns the highest skill that a mob has in a list.
+ */
+/mob/proc/get_highest_skill_from_list(list/skills)
+	if(!length(skills))
+		crash_with("Invalid list fed to get_highest_skill_from_list.")
+
+	var/highest_skill
+	var/highest_skill_level = SKILL_LEVEL_UNFAMILIAR
+	for(var/skill in skills)
+		var/skill_level = get_skill_level(skill)
+		if(skill_level > highest_skill_level)
+			highest_skill = skill
+	return highest_skill
+
+/**
  * A do_after modified by skill proficiency.
  *
  * delay = The base delay in seconds the do_after should take if skill level is equal to `skill_floor`.
@@ -83,10 +98,32 @@
 
 /**
  * Throws a DC challenge against the difficulty class. For explanation on how criticals work, see code\__DEFINES\skills.dm.
+ * A roll is a success if it matches or beats the DC.
+ * A natural 1 lowers the result by 1. Example: if you would roll a success with a natural 1, then that is downgraded to a normal failure.
+ * A natural 20 works the same way, it raises the result by 1.
  * Remember that you should not check `if(!result)` for a failure. You should do `if(result <= ROLL_RESULT_FAILURE)` instead, so as to also check for a crit fail.
  *
  * difficulty_class = The DC to beat.
- * skill_type = The skill used for this check. Can be a list or a path.
+ * skill_type = The skill used for this check.
  */
 /mob/proc/skill_challenge(difficulty_class, skill_type)
 	var/roll = rand(1, 20)
+	var/skill_check = roll + get_skill_level(skill_type)
+	var/outcome = 0
+	if(skill_check >= difficulty_class + 10)
+		outcome = ROLL_RESULT_CRITICAL_SUCCESS
+	else if(skill_check >= difficulty_class)
+		outcome = ROLL_RESULT_SUCCESS
+	else if(skill_check <= difficulty_class - 10)
+		outcome = ROLL_RESULT_CRITICAL_FAILURE
+	else
+		outcome = ROLL_RESULT_FAILURE
+
+	if(roll == 1)
+		outcome--
+	else if(roll == 20)
+		outcome++
+
+	outcome = clamp(outcome, ROLL_RESULT_CRITICAL_FAILURE, ROLL_RESULT_CRITICAL_SUCCESS)
+	balloon_alert(src, "[roll_result_text(outcome)]")
+	return outcome
