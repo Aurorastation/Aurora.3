@@ -1,0 +1,10 @@
+author: FabianK3
+
+delete-after: True
+
+changes:
+  - rscadd: "Added a newscaster to the engineering hallway."
+  - rscadd: "Added a power outlet to the table in the brig."
+  - rscadd: "Added missing ventilation to fore engineering hallway."
+  - bugfix: "Fixed science notice board being visible in the maint behind it."
+  - rscadd: "Generic minor map cleanup."

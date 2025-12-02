@@ -32,6 +32,9 @@
 		\[field\] : Inserts an invisible field which lets you start type from there. Useful for forms.
 		\[date\] : Inserts today's date.
 		\[time\] : Inserts the current station time.
+		\[cr\] : Inserts the credit symbol.
+		\[tajdate\] : Inserts the current date on Adhomai.
+		\[tajtime\] : Inserts the current time on Adhomai.
 		<br>
 		Pen Exclusive Commands
 		\[small\] - \[/small\] : Decreases the size of the text.

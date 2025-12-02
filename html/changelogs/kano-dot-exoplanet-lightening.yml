@@ -1,0 +1,7 @@
+
+author: Kano
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed exoplanet turfs not properly initializing their own light."

@@ -10,6 +10,7 @@
 	name = "Paramedic Equipment Storage"
 	icon_state = "medbay"
 	horizon_deck = 3
+	lightswitch = FALSE
 
 /area/horizon/medical/reception
 	name = "Reception"
@@ -25,6 +26,7 @@
 	area_blurb = "Featuring wood floors and soft carpets, this room has a warmer feeling compared to the sterility of the rest of the medical department."
 	area_blurb_category = "psych"
 	horizon_deck = 2
+	lightswitch = FALSE
 
 /area/horizon/medical/pharmacy
 	name = "Pharmacy"
@@ -51,6 +53,7 @@
 	name = "Main Storage"
 	icon_state = "exam_room"
 	horizon_deck = 2
+	lightswitch = FALSE
 
 /area/horizon/medical/surgery
 	name = "Operating Theatre"
@@ -62,11 +65,13 @@
 	icon_state = "surgery"
 	no_light_control = 1
 	horizon_deck = 2
+	lightswitch = FALSE
 
 /area/horizon/medical/exam
 	name = "Examination Room"
 	icon_state = "exam_room"
 	horizon_deck = 2
+	lightswitch = FALSE
 
 // Contains a player spawn area = rad-shielded
 /area/horizon/medical/ward
@@ -92,6 +97,7 @@
 /area/horizon/medical/equipment
 	name = "Equipment Room"
 	horizon_deck = 3
+	lightswitch = FALSE
 
 /area/horizon/medical/smoking
 	name = "Smoking Lounge"
@@ -103,6 +109,7 @@
 	name = "Head"
 	horizon_deck = 3
 	area_flags = AREA_FLAG_RAD_SHIELDED
+	lightswitch = FALSE
 
 /area/horizon/medical/hallway
 	name = "Atrium"

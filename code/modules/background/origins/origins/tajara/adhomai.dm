@@ -48,6 +48,9 @@
 		/singleton/origin_item/origin/crevus
 	)
 
+/singleton/origin_item/culture/adhomian/get_custom_time()
+	return "Adhomian Time: [tajaran_time()], [tajaran_full_date()]"
+
 /singleton/origin_item/origin/hadiist_heartlands
 	name = "Hadiist Heartlands"
 	desc = "The Hadiist Heartlands include Nraz'i Basin, Ras'nrr Heartlands, East Ras'nrr, and Rhazar Mountains. In this region, the People's Republic's culture project was most successful. Its inhabitants are known for their political loyalty and adherence to the Party's teachings. In typical Republican fashion, the local culture places a large emphasis on the importance of the collective over the individual interest, with each Tajara being considered as a piece in the machinery of society."

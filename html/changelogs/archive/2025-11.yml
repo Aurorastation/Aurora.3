@@ -237,3 +237,104 @@
   TheGreyWolf:
   - bugfix: Fixed the interrogation intercom and readded the missing sharps box to
       the forensic lab.
+2025-11-15:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Removes duplicate Engineering Hard Storage shutters button.
+  - bugfix: Removes duplicate Warehouse shutters button.
+  - bugfix: Fixes location and pixel shift of D3 elevator hazard sign.
+  - bugfix: Shifts several overlapping wall objects.
+  - bugfix: Shifts several vent/scrubber objects.
+  - bugfix: Slight EVA compartment adjustments.
+  - bugfix: Slight Xenoarchaeology Storage compartment adjustments.
+  - bugfix: Improves lighting in Shield Generator compartment.
+  - bugfix: Fixes Spark cargo bay doors being atmos-impermeable (thus screwing with
+      the airlock sensor).
+  - bugfix: Lights in rooms with light switches now correctly toggle on automatically
+      at round start if a character joins the round in one.
+  - rscadd: Adds light switches to many rooms that were missing them.
+  - code_imp: Adds directional variants for light switches for easier mapping.
+2025-11-16:
+  Ambrose:
+  - rscadd: Made it possible to play as vaurca in the tirakqi smuggler ghostroles.
+  Hellfirejag:
+  - bugfix: Fixed loadouts spamming on_equip sounds during roundstart.
+  Kano:
+  - code_imp: Replaced defunct type space turfs in Horizon with the regular ones.
+  - bugfix: Included some parts from exterior areas to render lights.
+  - bugfix: Fixed hull beacons and radial lights not emitting light. Also fixed thunderdome
+      being dark.
+  - bugfix: Fixed radial lights not drawing power from powernet.
+  - rscadd: Tweaked and fixed a few things in the Quarantined Outpost map.
+  - bugfix: Fixed asteroid expolanet turfs pixel-shifting its own lighting along with
+      itself.
+  TheGreyWolf:
+  - bugfix: Glass panes and windoors once again are solid and stop interacting with
+      the other side.
+2025-11-17:
+  Mynameasjeff:
+  - rscadd: Adds the Solarian Frigate. That's it, really. Thank you to Kato-dot, Hazelrat,
+      and all the other lovely people who made this project possible!
+2025-11-18:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Fixes variable typing oversight that caused events to fire in the absence
+      of any players.
+  - qol: Modifies light switch behavior to be default on, with some area types (private
+      offices, washrooms, etc.) manually set off.
+  - rscadd: Adds lights switches to a few areas missing them.
+  - rscdel: Removes light switches from a few hallways.
+  Greenjoe:
+  - rscadd: Adds the medical patient gown to the loadout, locked to offduty and passengers
+      only.
+  - imageadd: Replaces the sprite of the medical gown with one from Bay. Two new colors
+      are also added.
+  Hellfirejag:
+  - bugfix: Removed a hard delete from modular computers.
+  Kano:
+  - bugfix: Fixed lesser abominations turning invisible upon getting hit by melee
+      weapons.
+  Nalarac:
+  - bugfix: Fixed access requirement to science server room.
+  TheGreyWolf:
+  - rscadd: The price scanner is now gold colored.
+  - rscadd: The destination tagger now fits in the toolbelt.
+  - rscadd: The commissary now has a crate shelf and a labeler, and the crate with
+      bags was moved into the commissary itself.
+  - bugfix: Several types of earwear, such as headphones, are no longer invisible
+      on the taj mob sprite.
+  - rscadd: Papers printed from consoles now try to put it in the hand before putting
+      it on the floor.
+  - bugfix: Crate scanners no longer work on crates on crate shelves.
+  WickedCybs:
+  - rscadd: Added Sheperd's custom item.
+2025-11-19:
+  Batrachophrenoboocosmomachia:
+  - rscdel: Reverts overmap hazard movement chance for Dust Clouds, Asteroid Fields,
+      and Ion Clouds, pending improvement to balance mechanics for these.
+  FlamingLily:
+  - balance: Suplexes now deal half as much damage, and stun the aggressor for the
+      same amount of time as the victim. No more suplex spam. It's now a tool for
+      putting a hard pause on the combat and allowing both sides to take some advantage.
+      Sort of like a guaranteed disarm, too.
+  TheGreyWolf:
+  - rscadd: Reworked the warehouse to have more space for crates on the floor.
+  - rscadd: The floor above the warehouse has been changed and a mini locker room
+      for hangar techs was made beside the break room.
+2025-11-23:
+  Fyni:
+  - rscadd: Changes the Comet Expulsion sound effect to something which hopefully
+      will not kill ears. I may come back and voice this later.
+  TheGreyWolf:
+  - rscadd: Tajara now all start with siik'maas enforced on the char. They still get
+      2 additional languages as before, resulting in an extra language of their choice.
+  - rscadd: PRA police uniforms have been added. Currently they are only available
+      through the chameleon kit.
+  - rscadd: PRA police jackets are now available in the taj loadout, alongside the
+      woolen PRA police hat.
+  - rscdel: The Raakti Shariim uniform has been removed from the loadout. The coat
+      and beret remains.
+2025-11-25:
+  Hellfirejag:
+  - bugfix: Fixed a lag inducing hard delete caused by Effects.
+  TheGreyWolf:
+  - rscadd: The commissary toy shelf can now also hold pens, sticker sheets, cap guns,
+      flag guns, eight balls and bike horns.
