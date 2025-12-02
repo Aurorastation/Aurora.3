@@ -138,10 +138,6 @@
 	update(0)
 	set_pixel_offsets()
 
-	var/area = get_area(src)
-	if(area && istype(area, /area/turbolift))
-		disable_switchcount = TRUE // Lights in elevators regularly burn out due to being switched on and off per elevator movement, this prevents this behavior.
-
 /obj/machinery/light/Destroy()
 	QDEL_NULL(cell)
 	return ..()
