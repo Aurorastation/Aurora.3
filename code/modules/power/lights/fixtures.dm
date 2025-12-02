@@ -1,13 +1,14 @@
-// The lighting system
-//
-// consists of light fixtures (/obj/machinery/light) and light tube/bulb items (/obj/item/light)
+/// The lighting system.
+/// Consists of light fixtures (/obj/machinery/light) and light tube/bulb items (/obj/item/light).
 
-#define LIGHTING_POWER_FACTOR 40		//20W per unit luminosity
-// the standard tube light fixture
+/// 20W per unit luminosity
+#define LIGHTING_POWER_FACTOR 40
+/// Standard tube light fixture
 /obj/machinery/light
 	name = "light fixture"
 	icon = 'icons/obj/machinery/light.dmi'
-	var/base_state = "tube"		// base description and icon_state
+	/// Base description and icon_state
+	var/base_state = "tube"
 	icon_state = "tube_preview"
 	desc = "A lighting fixture."
 	anchored = TRUE
@@ -15,34 +16,43 @@
 	use_power = POWER_USE_ACTIVE
 	idle_power_usage = 2
 	active_power_usage = 20
-	power_channel = AREA_USAGE_LIGHT //Lights are calc'd via area so they dont need to be in the machine list
+	/// Lights are calculated via area so they don't need to be in the machine list.
+	power_channel = AREA_USAGE_LIGHT
 	always_area_sensitive = TRUE
 	gfi_layer_rotation = GFI_ROTATION_DEFDIR
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
-	var/brightness_range = 7	// luminosity when on, also used in power calculation
+	/// Luminosity when on, also used in power calculation.
+	var/brightness_range = 7
 	var/brightness_power = 1
 	var/night_brightness_range = 5
 	var/night_brightness_power = 0.4
 	var/supports_nightmode = TRUE
 	var/nightmode = FALSE
 	var/brightness_color = LIGHT_COLOR_HALOGEN
-	var/status = LIGHT_OK		// LIGHT_OK, _EMPTY, _BURNED or _BROKEN
+	/// Expected types defined in lightning.dm
+	var/status = LIGHT_OK
 	var/flickering = 0
-	var/light_type = /obj/item/light/tube		// the type of light item
+	/// Type of light item.
+	var/light_type = /obj/item/light/tube
 	var/obj/item/light/inserted_light = /obj/item/light/tube
 	var/fitting = "tube"
-	var/must_start_working = FALSE // Whether the bulb can break during Initialize or not
-	/// If true, light sources have 50% chance to be broken instead after Initialize.
+	/// Whether the bulb can break during its init or not.
+	var/must_start_working = FALSE
+	/// If TRUE light sources have a 50% chance to be broken instead after Initialize.
 	var/maybe_broken = FALSE
-	var/switchcount = 0			// count of number of times switched on/off
-								// this is used to calc the probability the light burns out
-
-	var/rigged = 0				// true if rigged to explode
-
+	/// Count of number of times the light was switched on/off. This is used to calculate the probability of the light burning out.
+	var/switchcount = 0
+	/// If set to TRUE switchcount won't be raised. Useful for areas that are expected to have the equivalent of longlife lights or elevators that switch lights constantly.
+	var/disable_switchcount = FALSE
+	/// TRUE if rigged to explode.
+	var/rigged = 0
 	var/obj/item/cell/cell
-	var/start_with_cell = TRUE	// if true, this fixture generates a very weak cell at roundstart
-	var/emergency_mode = FALSE	// if true, the light is in emergency mode.
-	var/no_emergency = FALSE	// if true, this light cannot enter emergency mode.
+	/// If TRUE this fixture generates a very weak cell at roundstart.
+	var/start_with_cell = TRUE
+	/// If TRUE the light is in emergency mode.
+	var/emergency_mode = FALSE
+	/// If TRUE this light cannot enter emergency mode.
+	var/no_emergency = FALSE
 
 	var/next_spark = 0
 
@@ -104,7 +114,6 @@
 	stat |= MAINT
 	. = ..()
 
-// create a new lighting fixture
 /obj/machinery/light/Initialize(mapload)
 	. = ..()
 
@@ -130,6 +139,10 @@
 	default_color = brightness_color // We need a different var so the new color doesn't get wiped away. Initial() wouldn't work since brightness_color is overridden.
 	update(0)
 	set_pixel_offsets()
+
+	var/area = get_area(src)
+	if(area && istype(area, /area/turbolift))
+		disable_switchcount = TRUE // Lights in elevators regularly burn out due to being switched on and off per elevator movement, this prevents this behavior.
 
 /obj/machinery/light/Destroy()
 	QDEL_NULL(cell)
@@ -211,7 +224,8 @@
 
 	previous_stat = stat
 	if(!stat)
-		switchcount++
+		if(!disable_switchcount)
+			switchcount++
 		if(rigged)
 			if(status == LIGHT_OK && trigger)
 				log_admin("LOG: Rigged light explosion, last touched by [fingerprintslast]")
