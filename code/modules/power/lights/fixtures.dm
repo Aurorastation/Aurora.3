@@ -224,6 +224,7 @@
 	if(!stat)
 		var/area/localArea = get_area(src)
 		if(localArea && istype(localArea, /area/turbolift))
+			// Elevators raise the switchcount constantly by moving, resulting in constantly broken lights, this prevents this behavior.
 			switchcount = 0
 		else
 			switchcount++
