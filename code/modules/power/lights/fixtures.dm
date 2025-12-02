@@ -42,8 +42,6 @@
 	var/maybe_broken = FALSE
 	/// Count of number of times the light was switched on/off. This is used to calculate the probability of the light burning out.
 	var/switchcount = 0
-	/// If set to TRUE switchcount won't be raised. Useful for areas that are expected to have the equivalent of longlife lights or elevators that switch lights constantly.
-	var/disable_switchcount = FALSE
 	/// TRUE if rigged to explode.
 	var/rigged = 0
 	var/obj/item/cell/cell
@@ -224,7 +222,10 @@
 
 	previous_stat = stat
 	if(!stat)
-		if(!disable_switchcount)
+		var/area/localArea = get_area(src)
+		if(localArea && istype(localArea, /area/turbolift))
+			switchcount = 0
+		else
 			switchcount++
 		if(rigged)
 			if(status == LIGHT_OK && trigger)
