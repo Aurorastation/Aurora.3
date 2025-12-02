@@ -421,6 +421,10 @@ GLOBAL_LIST_INIT(slot_equipment_priority, list(
 		item = G.throw_held() //throw the person instead of the grab
 		if(ismob(item) && G.state >= GRAB_NECK)
 			var/mob/M = item
+			if(M.mob_weight > get_mob_strength())
+				to_chat(src, SPAN_WARNING("[M] is far too heavy for you to throw around!"))
+				return
+
 			throw_range = round(throw_range * (src.mob_size/M.mob_size))
 			itemsize = round(M.mob_size/4)
 			var/turf/start_T = get_turf(loc) //Get the start and target tile for the descriptors

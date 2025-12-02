@@ -83,6 +83,25 @@
 		var/obj/item/organ/external/S = H.get_organ(target_zone)
 
 		if (S && (S.status & ORGAN_ASSISTED))
+			var/datum/component/synthetic_endoskeleton/endoskeleton = H.GetComponent(/datum/component/synthetic_endoskeleton)
+			if(istype(endoskeleton) && endoskeleton.damage)
+				if(target_mob == user)
+					if(endoskeleton.damage >= endoskeleton.max_damage * 0.5)
+						to_chat(user, SPAN_WARNING("Your control over your limbs is too damaged to apply the nanopaste precisely!"))
+						return
+					application_time *= application_multiplier // It takes longer to apply nanopaste to yourself than to someone else.
+
+				if (application_in_progress == FALSE)
+					application_in_progress = TRUE
+					user.visible_message(SPAN_NOTICE("\The [user] begins to apply nanite past to the broken support systems of [user != target_mob ? " \the [target_mob]'s" : "\the [user]'s"] endoskeleton..."), \
+						SPAN_NOTICE("You begin to apply nanite paste to the broken support systems of [user != target_mob ? " \the [target_mob]'s" : "your"] [endoskeleton]..."))
+					if(do_mob(user, target_mob, application_time))
+						SEND_SIGNAL(target_mob, COMSIG_SYNTH_ENDOSKELETON_REPAIR, rand(15, 30))
+						user.visible_message(SPAN_NOTICE("\The [user] mends the broken links in [user != target_mob ? " \the [target_mob]'s" : "\the [user]'s"] endoskeleton with \the [src]."),\
+												SPAN_NOTICE("You successfully mend the broken links in[user == target_mob ? "your" : "[target_mob]'s"] endoskeleton with \the [src]."))
+						use(1)
+					application_in_progress = FALSE
+
 			if(S.get_damage())
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 
@@ -144,7 +163,7 @@
 		return FALSE
 
 	if (isipc(M))
-		var/obj/item/organ/internal/surge/s = M.internal_organs_by_name["surge"]
+		var/obj/item/organ/internal/machine/surge/s = M.internal_organs_by_name[BP_SURGE_PROTECTOR]
 		if(isnull(s))
 			user.visible_message(
 			SPAN_NOTICE("[user] is trying to apply [src] to [(M == user) ? ("itself") : (M)]!"),
@@ -154,9 +173,9 @@
 			if (!do_mob(user, M, 2))
 				return FALSE
 
-			s = new /obj/item/organ/internal/surge()
+			s = new /obj/item/organ/internal/machine/surge()
 			M.internal_organs += s
-			M.internal_organs_by_name["surge"] = s
+			M.internal_organs_by_name[BP_SURGE_PROTECTOR] = s
 			user.visible_message(
 			SPAN_NOTICE("[user] applies some nanite paste to [(M == user) ? ("itself") : (M)]!"),
 			SPAN_NOTICE("You apply [src] to [(M == user) ? ("youself") : (M)].")

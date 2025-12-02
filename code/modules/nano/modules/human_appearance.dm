@@ -220,6 +220,18 @@
 				var/modification = tgui_input_list(owner, "Select a Modification", "Organ Modification", O.possible_modifications)
 				owner.change_organ(organ, modification)
 
+		if("organ_preset")
+			if(can_change(APPEARANCE_PROSTHETICS))
+				var/organ = tgui_input_list(owner, "Select an Organ", "Organ Presets", valid_organs)
+				var/obj/item/organ/internal/machine/O = owner.internal_organs_by_name[organ]
+				var/list/possible_presets = list()
+				for(var/P in O.organ_presets)
+					var/singleton/synthetic_organ_preset/preset = GET_SINGLETON(P)
+					possible_presets[preset.name] = preset
+				var/singleton/synthetic_organ_preset/chosen_preset = tgui_input_list(owner, "Select a Preset", "Organ Presets", possible_presets)
+				if(chosen_preset)
+					O.apply_preset_data(chosen_preset)
+
 /datum/tgui_module/appearance_changer/ui_interact(var/mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)

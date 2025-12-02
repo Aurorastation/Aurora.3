@@ -23,6 +23,8 @@ export const NtosWindow = (props, context) => {
     PC_stationtime,
     PC_programheaders = [],
     PC_showexitprogram,
+    PC_hascable,
+    PC_cableout,
     PC_haslight,
     PC_lighton,
   } = data;
@@ -88,6 +90,19 @@ export const NtosWindow = (props, context) => {
                   src={resolveAsset(PC_apclinkicon)}
                 />
               </Box>
+            )}
+            {!!PC_hascable && (
+              <Button
+                width="26px"
+                lineHeight="22px"
+                textAlign="center"
+                color="transparent"
+                icon="network-wired"
+                selected={PC_cableout}
+                tooltip="Take cable"
+                tooltipPosition="bottom"
+                onClick={() => act('PC_takecable')}
+              />
             )}
             {!!PC_haslight && (
               <Button

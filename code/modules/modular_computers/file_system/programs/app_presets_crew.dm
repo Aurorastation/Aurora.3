@@ -83,7 +83,6 @@
 	. = ..()
 	program_list += list(/datum/computer_file/program/comm,	/datum/computer_file/program/records/employment)
 
-
 /*##########################
 	BRIDGE CREW PRESETS
 ##########################*/
@@ -273,7 +272,7 @@
 
 /datum/modular_computer_app_presets/supply/machinist/New()
 	. = ..()
-	program_list += list(/datum/computer_file/program/records/medical, /datum/computer_file/program/scanner/science)
+	program_list += list(/datum/computer_file/program/records/medical, /datum/computer_file/program/scanner/science, /datum/computer_file/program/robotics)
 	//Machinist is the bastard child of supply/operation, it doesn't have access to shit essentially
 	program_list -= list(/datum/computer_file/program/civilian/cargocontrol, /datum/computer_file/program/civilian/cargodelivery, /datum/computer_file/program/away_manifest)
 
