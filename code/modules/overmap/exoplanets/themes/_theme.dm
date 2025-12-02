@@ -335,12 +335,23 @@
 
 		CHECK_TICK
 
-/datum/exoplanet_theme/proc/on_turf_generation(turf/T, area/use_area)
+/datum/exoplanet_theme/proc/on_turf_generation(turf/T, area/use_area, property_owner)
 	if(use_area && istype(T.loc, world.area))
 		T.change_area(T.loc, use_area) // Switch our generated turfs from world.area (space) to our chosen exoplanet area
 
 	if(surface_color && is_type_in_list(T, surface_turfs))
 		T.color = surface_color
+
+	// we re-add lights here because somehow ChangeTurf() messes with lighting
+	// exoplanet
+	if(istype(property_owner, /obj/effect/overmap/visitable/sector/exoplanet))
+		var/obj/effect/overmap/visitable/sector/exoplanet/exoplanet = property_owner
+		T.set_light(MINIMUM_USEFUL_LIGHT_RANGE, exoplanet.lightlevel, exoplanet.lightcolor)
+	// away_site
+	else if(istype(property_owner, /datum/map_template/ruin/away_site))
+		var/datum/map_template/ruin/away_site/away_site = property_owner
+		if(away_site.exoplanet_lightlevel && T.is_outside())
+			T.set_light(MINIMUM_USEFUL_LIGHT_RANGE, away_site.exoplanet_lightlevel, away_site.exoplanet_lightcolor)
 
 	var/turf/simulated/mineral/M = T
 	if(use_area && istype(M))
