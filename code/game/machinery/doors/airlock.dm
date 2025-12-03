@@ -178,6 +178,9 @@
 	. += "Airlocks use access control; you must be wearing your ID (or an object containing your ID) in your ID slot, wrist slot, or active in-hand, for it to be read."
 	. += "Airlocks require power to function. When power is lost, an airlock might fail closed or open, depending on how secure it is."
 	. += "An unpowered airlock can be opened or closed with a crowbar, but a powered airlock cannot."
+	if(features_powerloss_manual_override)
+		. += "This door specifically features a manual override when it's unpowered. Tap the door with an empty hand to attempt to override it when it is unpowered."
+		. += "Note that the door needs to be otherwise functional and unbolted. Not every airlock has this override."
 
 /obj/machinery/door/airlock/antagonist_hints(mob/user, distance, is_adjacent)
 	. += ..()
