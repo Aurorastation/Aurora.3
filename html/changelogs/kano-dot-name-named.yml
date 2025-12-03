@@ -1,7 +1,0 @@
-
-author: Kano
-
-delete-after: True
-
-changes:
-  - rscadd: "Fixed non-human types not displaying their name in chat."

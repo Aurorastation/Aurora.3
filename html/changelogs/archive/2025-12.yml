@@ -32,3 +32,33 @@
   hazelmouse:
   - rscadd: All IPCs now speak Encoded Audio Language by standard in addition to their
       usual language slots.
+2025-12-03:
+  Batrachophrenoboocosmomachia:
+  - refactor: Refactors the egg injection of Greimorian Workers to use parasite code;
+      it can now be treated with anti-parasitic medicines in addition to amputation
+      of the affected limb. Works on all playable species, and monkeys.
+  - rscadd: New reagent 'Greimorian Eggs' creates an egg cluster parasite in a random
+      organ when metabolized in the bloodstream. It also has very mild soporific effects.
+  - balance: Greimorian Workers and playable Greimorian Servants/Queen now inject
+      Greimorian Eggs instead of Soporific.
+  - rscadd: Greimorian Clade Kit now available in Uplink under Bioweapons section
+      (Greimorians now able to be introduced to ship by egg cluster or injectable
+      reagent).
+  - balance: All parasite kit bioweapons have had their vial reagent count increased
+      from 2 -> 5.
+  - balance: Helmizole no longer treats K'ois Mycosis, Black K'ois Mycosis, Zombification,
+      or Tumors (Benign or Malignant).
+  - code_imp: Updates a lot of code documentation to dmdocs.
+  FabianK3:
+  - rscadd: Added a newscaster to the engineering hallway.
+  - rscadd: Added a power outlet to the table in the brig.
+  - rscadd: Added missing ventilation to fore engineering hallway.
+  - bugfix: Fixed science notice board being visible in the maint behind it.
+  - rscadd: Generic minor map cleanup.
+  - bugfix: Fixed lights in elevator(s) breaking constantly.
+  Fyni:
+  - rscadd: Changes the Comet Explusion sound effect AGAIN to a voiced line fitting
+      all the other events.
+  Kano:
+  - rscadd: Fixed non-human types not displaying their name in chat.
+  - bugfix: Fixed exoplanet turfs not properly initializing their own light.
