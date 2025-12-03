@@ -1439,7 +1439,7 @@ About the new airlock wires panel:
 				take_damage(H.default_attack.attack_door)
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 				return
-	
+
 	if(src.p_open)
 		user.set_machine(src)
 		wires.interact(user)
