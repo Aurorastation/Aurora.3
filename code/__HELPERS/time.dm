@@ -5,19 +5,26 @@ var/round_start_time
 
 //Returns the world time in english
 /proc/worldtime2text(time = world.time, timeshift = 1)
-	if(!roundstart_hour) roundstart_hour = REALTIMEOFDAY - (TIME_OFFSET HOURS)
+	if(!roundstart_hour)
+		roundstart_hour = REALTIMEOFDAY - (TIME_OFFSET HOURS)
 	return timeshift ? time2text(time+roundstart_hour, "hh:mm") : time2text(time, "hh:mm")
 
 /proc/worldtime2hours()
 	if (!roundstart_hour)
 		worldtime2text()
-	. = text2num(time2text(world.time + (roundstart_hour HOURS), "hh"))
+	. = text2num(time2text(world.time+roundstart_hour, "hh"))
+
+/proc/worldtime2minutes()
+	if (!roundstart_hour)
+		worldtime2text()
+	. = text2num(time2text(world.time+roundstart_hour, "mm"))
 
 /proc/worlddate2text()
 	return num2text(GLOB.game_year) + "-" + time2text(world.timeofday, "MM-DD")
 
 /proc/time_stamp()
 	return time2text(world.timeofday, "hh:mm:ss")
+
 
 /**
  * Check if specific day of the year
@@ -160,3 +167,60 @@ var/real_round_start_time
 		return "[hour]:[minuteT]:[secondT]"
 	else
 		return "0[hour]:[minuteT]:[secondT]"
+
+/**
+ * The current time on Adhomai
+ */
+/proc/tajaran_time()
+	var/adhomian_time = worldtime2hours()
+	var/adhomian_minute = worldtime2minutes()
+	var/adhomian_day = tajaran_date()
+	if(ISEVEN(adhomian_day))
+		adhomian_time += 24
+	if(adhomian_minute < 10) // make it display 5:08 instead of 5:8 when the time is in single digits
+		adhomian_minute = "0[adhomian_minute]"
+	return "[adhomian_time]:[adhomian_minute]"
+
+/**
+ * The current month/season on Adhomai
+ */
+/proc/tajaran_month()
+	var/static/months = list("Menshe-aysaif", "Sil'nryy-aysaif", "Menshe-rhazzimy", "Sil'nryy-rhazzimy")
+
+	var/adhomian_month = text2num(time2text(world.time, "MM"))
+
+	adhomian_month = months[Ceiling(adhomian_month/3)]
+
+	return adhomian_month
+
+/**
+ * The current date on Adhomai
+ */
+/proc/tajaran_date()
+	var/adhomian_day = text2num(time2text(world.time, "DD"))
+	var/current_month = text2num(time2text(world.time, "MM"))
+	switch(current_month)
+		if(2, 5, 8, 11)
+			adhomian_day += 31
+		if(6, 9, 12)
+			adhomian_day += 61
+		if(3)
+			adhomian_day += 59 + isLeap(text2num(time2text(world.realtime, "YYYY"))) // we can conveniently use the result of `isLeap` to add 1 when we are in a leap year
+
+	adhomian_day = FLOOR(adhomian_day / 2, 1)
+
+	return adhomian_day
+
+/**
+ * The current year on Adhomai
+ */
+/proc/tajaran_year()
+	return GLOB.game_year + 1158
+
+/**
+ * The full year, month and date on Adhomai
+ */
+/proc/tajaran_full_date()
+	var/adhomian_month = text2num(time2text(world.time, "MM"))
+	adhomian_month = Ceiling(adhomian_month/3)
+	return "[tajaran_year()]-[adhomian_month]-[tajaran_date()]"

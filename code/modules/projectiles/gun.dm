@@ -155,7 +155,8 @@
 	var/has_safety = TRUE
 	var/image/safety_overlay
 
-	var/iff_capable = FALSE // if true, applies the user's ID iff_faction to the projectile
+	/// If TRUE, applies the user's ID iff_faction to the projectile. As of 2025/11, code making use of this is not currently implemented.
+	var/iff_capable = FALSE
 
 /obj/item/gun/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()

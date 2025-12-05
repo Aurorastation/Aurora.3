@@ -294,6 +294,15 @@
 	to_chat(usr, SPAN_NOTICE("You press the button on the exterior of \the [target_clothing]."))
 	target_clothing.action_circuit.activate_pin(1)
 
+/datum/action/item_action/watch
+	check_flags = AB_CHECK_RESTRAINED|AB_CHECK_STUNNED|AB_CHECK_ALIVE|AB_CHECK_INSIDE
+
+/datum/action/item_action/watch/Trigger()
+	if(!Checks())
+		return
+	var/obj/item/clothing/wrists/watch/target_clothing = target
+	target_clothing.checktime(usr)
+
 /datum/action/eye
 	action_type = AB_GENERIC
 	check_flags = AB_CHECK_LYING|AB_CHECK_STUNNED

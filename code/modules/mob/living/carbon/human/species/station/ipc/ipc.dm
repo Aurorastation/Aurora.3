@@ -32,9 +32,10 @@
 	inherent_eye_protection = FLASH_PROTECTION_MAJOR
 	eyes_are_impermeable = TRUE
 
-	name_language = "Encoded Audio Language"
+	language = LANGUAGE_EAL
+	name_language = LANGUAGE_EAL
 	num_alternate_languages = 2
-	secondary_langs = list("Encoded Audio Language", "Sol Common", "Elyran Standard")
+	secondary_langs = list(LANGUAGE_SOL_COMMON, LANGUAGE_ELYRAN_STANDARD)
 	ethanol_resistance = -1//Can't get drunk
 	radiation_mod = 0	// not affected by radiation
 	remains_type = /obj/effect/decal/remains/robot
