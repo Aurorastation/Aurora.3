@@ -25,7 +25,6 @@
 
 /obj/machinery/door/airlock/hatch/broken
 	name = "Broken Hatch"
-	features_powerloss_manual_override = FALSE
 
 /obj/machinery/door/airlock/hatch/broken/Initialize() // to make door start already broken and open
 	. = ..()
