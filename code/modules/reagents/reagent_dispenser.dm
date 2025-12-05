@@ -533,10 +533,6 @@ ABSTRACT_TYPE(/obj/structure/reagent_dispensers/radioactive_waste/hazardous)
 /obj/structure/reagent_dispensers/radioactive_waste/hazardous/Initialize()
 	. = ..()
 	if(radioactivity)
-		start_process()
-
-/obj/structure/reagent_dispensers/radioactive_waste/hazardous/proc/start_process()
-	if(radioactivity)
 		START_PROCESSING(SSprocessing, src)
 
 /obj/structure/reagent_dispensers/radioactive_waste/hazardous/process()

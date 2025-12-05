@@ -2346,7 +2346,7 @@
 /area/trove/tunnels)
 "LA" = (
 /obj/random/dirt_75,
-/obj/structure/reagent_dispensers/radioactive_waste/hazardous,
+/obj/structure/reagent_dispensers/radioactive_waste/hazardous/medium,
 /obj/effect/decal/cleanable/greenglow/radioactive/medium,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
