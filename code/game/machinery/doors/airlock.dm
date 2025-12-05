@@ -2154,8 +2154,9 @@ About the new airlock wires panel:
 		INVOKE_ASYNC(src, TYPE_PROC_REF(/obj/machinery/door, close), 1)
 	else if(revert_powerloss_manual_override)
 		// The door regained power and the powerless override was used - Close the door again.
-		INVOKE_ASYNC(src, TYPE_PROC_REF(/obj/machinery/door, close), 1)
 		revert_powerloss_manual_override = FALSE
+		if(operable(src))
+			INVOKE_ASYNC(src, TYPE_PROC_REF(/obj/machinery/door, close), 1)
 	update_icon()
 
 /obj/machinery/door/airlock/proc/prison_open()
