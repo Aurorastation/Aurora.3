@@ -486,7 +486,7 @@
 		. += "This hint is being repeated for emphasis. MAKING THIS LEAK WILL CAUSE EVERYONE NEARBY TO HAVE A BAD TIME."
 
 /// Only use this if you want active radiation.
-/obj/structure/reagent_dispensers/radioactive_waste/hazardous
+ABSTRACT_TYPE(/obj/structure/reagent_dispensers/radioactive_waste/hazardous)
 	name = "leaking radioactive waste barrel"
 	desc = "A metal barrel containing radioactive waste; the seals on this one seem to have failed and noxious fumes are escaping!"
 	light_range = 2
