@@ -231,3 +231,20 @@
 	starts_with = list(/obj/item/reagent_containers/food/snacks/grown/dried_oracle/fine = 8)
 	icon_state = "roll_vedamor"
 	item_state = "Epacket"
+
+/obj/item/storage/chewables/solar_salve
+	name = "adhomian tin"
+	desc = "A tin labeled in Siik'maas. It has a picture of an icy harbour on it."
+	icon_state = "solar_salve"
+	drop_sound = 'sound/items/drop/shovel.ogg'
+	pickup_sound = 'sound/items/pickup/shovel.ogg'
+	use_sound = 'sound/items/storage/pillbottle.ogg'
+	w_class = WEIGHT_CLASS_SMALL
+	throwforce = 2
+	starts_with = list(/obj/item/clothing/mask/chewable/solar_salve = 6)
+	make_exact_fit = TRUE
+
+/obj/item/storage/chewables/solar_salve/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(GLOB.all_languages[LANGUAGE_SIIK_MAAS] in user.languages)
+		. += SPAN_WARNING("The label says: \"Solar Salve\" and then goes on to describe how it helps against the tiredness of long shifts and cold nights.")

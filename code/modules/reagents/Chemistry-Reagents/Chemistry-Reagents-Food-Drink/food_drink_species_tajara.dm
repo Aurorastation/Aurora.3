@@ -265,3 +265,55 @@
 	glass_icon_state = "veteranschoice_glass"
 	glass_name = "glass of veteran's choice"
 	glass_desc = "A cocktail consisting of Messa's Mead and gunpowder."
+//
+//Tea
+//
+/singleton/reagent/nutriment/teagrounds/messa
+	name = "Messa's Tear Tea Leaves"
+	description = "awaiting info from tajlore"
+	reagent_state = SOLID
+	nutriment_factor = 1
+	color = "#4fd24d"
+	taste_description = "awaiting info from tajlore"
+	taste_mult = 0.4
+	condiment_name = "messa's tear tea leaves"
+	condiment_icon_state = "tea"
+	condiment_center_of_mass = list("x"=16, "y"=8)
+
+/singleton/reagent/nutriment/teagrounds/rasnif
+	name = "Ras'nif Tea Leaves"
+	description = "awaiting info from tajlore"
+	reagent_state = SOLID
+	nutriment_factor = 1
+	color = "#4fd24d"
+	taste_description = "awaiting info from tajlore"
+	taste_mult = 0.4
+	condiment_name = "ras'nif tea leaves"
+	condiment_icon_state = "tea"
+	condiment_center_of_mass = list("x"=16, "y"=8)
+
+/singleton/reagent/drink/tea/messa
+	name = "Messa's Tear Tea"
+	description = "awaiting info from tajlore"
+	color = "#101000"
+	adj_dizzy = -2
+	adj_drowsy = -1
+	adj_sleepy = -3
+	taste_description = "awaiting info from tajlore"
+
+	glass_icon_state = "bigteacup"
+	glass_name = "cup of messa's tear tea"
+	glass_desc = "awaiting info from tajlore"
+
+/singleton/reagent/drink/tea/rasnif
+	name = "Ras'nif Tea"
+	description = "awaiting info from tajlore"
+	color = "#101000"
+	adj_dizzy = -2
+	adj_drowsy = -1
+	adj_sleepy = -3
+	taste_description = "awaiting info from tajlore"
+
+	glass_icon_state = "bigteacup"
+	glass_name = "cup of ras'nif tea"
+	glass_desc = "awaiting info from tajlore"

@@ -798,5 +798,25 @@
 /singleton/reagent/drugs/dionae_stimulant/diet/final_effect(mob/living/carbon/M, alien, removed, datum/reagents/holder)
 	return
 
-#undef DRUG_MESSAGE_DELAY
+/singleton/reagent/drugs/solar_salve
+	name = "solar salve"
+	description = "A herbal mixture originating from Southern Harr'masir, Solar Salve is used to ward off the feelings of hunger, thirst and cold. Now it commonly sees use on the docks of the city of Crevus."
+	color = "#5f8c37"
+	reagent_state = SOLID
+	taste_description = "honyed herbal paste"
+	ingest_met = REM * 0.1
+	sober_message_list = list("Your hunger returns to you...", "You start to feel thirsty again...", "You start to feel the cold again...")
+	initial_effect_message_list = list("Your hunger and thirst start to fade away...", "It feels like the cold no longer bothers you...")
 
+/singleton/reagent/drugs/solar_salve/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+	..()
+	if(prob(7))
+		to_chat(M, SPAN_GOOD(pick("You feel sated.", "You feel warmth throughout your body.")))
+
+
+/singleton/reagent/drugs/bistry
+	name = "bistry"
+	description = "A substance made from modern medicine and traditional Adhomian herbs that induces a feeling of euphoria and provides a boost of energy for up to two days."
+	taste_description = "bitterness and herbs"
+
+#undef DRUG_MESSAGE_DELAY
