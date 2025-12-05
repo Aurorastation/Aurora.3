@@ -202,6 +202,7 @@
 #include "code\__HELPERS\files.dm"
 #include "code\__HELPERS\functional.dm"
 #include "code\__HELPERS\game.dm"
+#include "code\__HELPERS\gamemode.dm"
 #include "code\__HELPERS\global_lists.dm"
 #include "code\__HELPERS\heap.dm"
 #include "code\__HELPERS\icon_smoothing.dm"

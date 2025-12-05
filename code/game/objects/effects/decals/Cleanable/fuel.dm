@@ -7,13 +7,17 @@
 	layer = BLOOD_LAYER
 	anchored = 1
 	var/amount = 1
+	persistence_type_requires_canon_round = TRUE
 
 /obj/effect/decal/cleanable/liquid_fuel/Initialize(mapload, amt = 1, nologs = 0)
-	. = ..()
+	..()
 	if(!nologs && !mapload)
 		log_and_message_admins("spilled liquid fuel", user = usr, location = get_turf(src))
 	src.amount = amt
+	return INITIALIZE_HINT_LATELOAD
 
+/obj/effect/decal/cleanable/liquid_fuel/LateInitialize()
+	. = ..()
 	var/has_spread = 0
 	//Be absorbed by any other liquid fuel in the tile.
 	for(var/obj/effect/decal/cleanable/liquid_fuel/other in loc)
@@ -25,8 +29,18 @@
 
 	if(!has_spread)
 		Spread()
+		try_make_persistent_dirt()
 	else
 		qdel(src)
+
+/obj/effect/decal/cleanable/liquid_fuel/persistence_get_content()
+	var/list/content = ..()
+	content["amount"] = amount
+	return content
+
+/obj/effect/decal/cleanable/liquid_fuel/persistence_apply_content(content, x, y, z)
+	..()
+	src.amount = content["amount"]
 
 /obj/effect/decal/cleanable/liquid_fuel/proc/Spread(exclude=list())
 	//Allows liquid fuels to sometimes flow into other tiles.

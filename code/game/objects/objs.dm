@@ -362,3 +362,12 @@
  */
 /obj/proc/persistence_apply_content(content, x, y, z)
 	return
+
+/**
+ * Called by the persistence subsystem when saving persistent data. Only used for the very first save in the database, once the type is set, it won't be updated.
+ * Expected to be overriden by derived objects when there is the need to change the type of the object before saving allowing transformation of the object for upcoming rounds.
+ * When a different type then the original type is returned, the original type still is responsible to return the appropiate values for the new type during persistence_get_content().
+ * RETURN: Type of object requested to be saved on round end by the subsystem, defaults to the objects type unless overriden.
+ */
+/obj/proc/persistence_get_type()
+	return src.type
