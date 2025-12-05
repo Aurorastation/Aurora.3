@@ -29,11 +29,8 @@
 		P.color = paper_color
 
 	stored_paper--
-<<<<<<< HEAD
-	if(usr)
-=======
+
 	if(ismob(usr))
->>>>>>> master
 		usr.put_in_hands(P, TRUE)
 	return P
 
