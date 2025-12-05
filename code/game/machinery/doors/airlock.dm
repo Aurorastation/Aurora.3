@@ -1445,14 +1445,18 @@ About the new airlock wires panel:
 		wires.interact(user)
 		return
 
-	if((ishuman(user) || istype(usr, /mob/living/silicon)) && src.density && (stat & NOPOWER) && features_powerloss_manual_override && user.Adjacent(src))
+	if((ishuman(user) || istype(usr, /mob/living/silicon)) && src.density && (stat & NOPOWER) && user.Adjacent(src))
 		user.visible_message(
 			SPAN_NOTICE("<b>[user]</b> attempts to open \the [src]."),
 			SPAN_ITALIC("It seems like the door isn't opening. You try to locate and unlock the manual override...")
 		)
-		if (do_after(user, 5 SECONDS, src, DO_UNIQUE))
+
+		if(do_after(user, 5 SECONDS, src, DO_UNIQUE))
+			if(!features_powerloss_manual_override)
+				to_chat(user, SPAN_WARNING("This door doesn't seem to have a manual override..."))
+				return
 			if(locked || (stat & BROKEN))
-				to_chat(user, SPAN_WARNING("The override handle doesn't move a signle inch..."))
+				to_chat(user, SPAN_WARNING("The override handle doesn't move an inch..."))
 				return
 			user.visible_message(
 				SPAN_WARNING("<b>[user]</b> begins to crank the manual override handle of \the [src]!"),
@@ -1467,7 +1471,7 @@ About the new airlock wires panel:
 
 /obj/machinery/door/airlock/proc/powerless_manual_override_procedure(var/mob/user, var/iteration = 0)
 	iteration++
-	if(operable() || !src.density)
+	if(operable() || !src.density || locked)
 		to_chat(user, SPAN_WARNING("You suddenly hear something moving in \the [src]! You stop cranking the handle..."))
 		return
 	else if(iteration < 10) // It takes a couple of steps to finish the procedure: 20%-40%-60%-80%-100%
