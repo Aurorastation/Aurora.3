@@ -245,7 +245,7 @@
  * This proc is to be DEPRECATED, nothing new should check it.
  * Use check_psi_sensitivity() instead for all your psionic interactions.
  */
-/mob/proc/has_psionics()
+/atom/movable/proc/has_psionics()
 	return FALSE
 
 /mob/living/carbon/human/has_psionics()
