@@ -1877,7 +1877,7 @@
 /obj/effect/floor_decal/spline/plain/yellow{
 	dir = 10
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/shuttle/solfrig_shuttle)
 "io" = (
 /turf/simulated/floor/wood,
@@ -9280,7 +9280,7 @@
 	dir = 6
 	},
 /obj/machinery/shipsensors/weak,
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/shuttle/solfrig_shuttle)
 "QT" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
