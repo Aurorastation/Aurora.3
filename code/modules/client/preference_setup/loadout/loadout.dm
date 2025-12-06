@@ -49,11 +49,11 @@ GLOBAL_LIST_INIT(gear_datums, list())
 /datum/category_item/player_setup_item/loadout/load_character_special(var/savefile/S)
 	pref.gear_modified = FALSE
 	//Query the ss13_characters_gear table
-	if(GLOB.config.sql_saves && establish_db_connection(GLOB.dbcon))
+	if(GLOB.config.sql_saves && SSdbcore.Connect())
 		var/fetched_gear = list()
 
-		var/DBQuery/character_gear_query = GLOB.dbcon.NewQuery("SELECT slot, name, tweaks FROM ss13_characters_gear WHERE char_id = :char_id:")
-		character_gear_query.Execute(list("char_id"=pref.current_character))
+		var/datum/db_query/character_gear_query = SSdbcore.NewQuery("SELECT slot, name, tweaks FROM ss13_characters_gear WHERE char_id = :char_id", list("char_id"=pref.current_character))
+		character_gear_query.Execute()
 		while(character_gear_query.NextRow())
 			CHECK_TICK
 			var/slot = character_gear_query.item[1]
@@ -67,16 +67,18 @@ GLOBAL_LIST_INIT(gear_datums, list())
 				tweaks = json_decode(character_gear_query.item[3])
 
 			fetched_gear[slot][name]=tweaks
+		qdel(character_gear_query)
 
 		pref.gear_list = fetched_gear
 	return
 
 /datum/category_item/player_setup_item/loadout/save_character_special(var/savefile/S)
 	//Persist the loadout to the database
-	if(GLOB.config.sql_saves && establish_db_connection(GLOB.dbcon) && pref.gear_modified)
+	if(GLOB.config.sql_saves && SSdbcore.Connect() && pref.gear_modified)
 		var/gear_string = json_encode(pref.gear_list["[pref.gear_slot]"])
-		var/DBQuery/character_gear_save_query = GLOB.dbcon.NewQuery("CALL `update_character_gear`(:char_id:, :slot_id:, :gear_data:)")
-		character_gear_save_query.Execute(list("char_id"=pref.current_character,"slot_id"=pref.gear_slot,"gear_data"=gear_string))
+		var/datum/db_query/character_gear_save_query = SSdbcore.NewQuery("CALL `update_character_gear`(:char_id, :slot_id, :gear_data)",list("char_id"=pref.current_character,"slot_id"=pref.gear_slot,"gear_data"=gear_string))
+		character_gear_save_query.Execute()
+		qdel(character_gear_save_query)
 		pref.gear_modified = FALSE
 	return
 
@@ -131,7 +133,7 @@ GLOBAL_LIST_INIT(gear_datums, list())
 			try
 				pref.gear_list = json_decode(pref.gear_list)
 			catch
-				LOG_DEBUG("SQL CHARACTER LOAD: Unable to load custom loadout for client [pref.client ? pref.client.ckey : "UNKNOWN"].")
+				log_module_preferences("SQL CHARACTER LOAD: Unable to load custom loadout for client [pref.client ? pref.client.ckey : "UNKNOWN"].")
 				gear_reset = TRUE
 
 	var/mob/preference_mob = preference_mob()
