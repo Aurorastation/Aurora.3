@@ -13,7 +13,7 @@
 	attack_flags = DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE
 	break_stuff_probability = 25
 	attacktext = "slashed"
-	attack_sound = /singleton/sound_category/hivebot_melee
+	attack_sound = SFX_HIVEBOT_MELEE
 	projectilesound = 'sound/weapons/gunshot/gunshot_suppressed.ogg'
 	projectiletype = /obj/projectile/bullet/pistol/hivebotspike
 	organ_names = list("head", "core", "side thruster", "bottom thruster")

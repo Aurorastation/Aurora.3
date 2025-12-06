@@ -19,7 +19,6 @@
 /obj/item/clothing/ears/earphones
 	name = "earphones"
 	desc = "A pair of wireless earphones. Includes a little slot for a music cartridge."
-	desc_mechanics = "Shift+Click to Start/Stop a playlist. Alt+Click to Pause/Resume the current track. Click character to eject cartridge. Alternatively, use verbs."
 	icon = 'icons/obj/clothing/ears/earmuffs.dmi'
 	icon_state = "earphones"
 	item_state = "earphones"
@@ -47,6 +46,19 @@
 
 	/// Is a track playing? For icon updates.
 	var/playing = FALSE
+
+	/// The current song's timer to play the next song.
+	var/autoplay_timer
+
+	/// How much time is left on the autoplay timer, for handling pausing/unpausing.
+	var/autoplay_timeleft
+
+/obj/item/clothing/ears/earphones/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Full controls can be found in the Verbs list, under <b>Object</b> tab -> <b>Earphones</b>."
+	. += "ALT-click \the [src] to quickly Pause/Resume the current track."
+	. += "SHIFT-click \the [src] to quickly Play/Stop the current playlist (this will reset the current track to the start.)"
+	. += "Use \the [src] while in-hand to eject the cartridge."
 
 /obj/item/clothing/ears/earphones/Destroy()
 	StopPlaying()
@@ -107,6 +119,9 @@
 	soundplayer_token.Stop()
 	QDEL_NULL(soundplayer_token) // A sound token is created per-song, so we'll be liberal with cleaning up old tokens.
 
+	reset_autoplay_timer()
+
+
 	// Icon/Overlay stuff for the music notes
 	ClearOverlays()
 	worn_overlay = null
@@ -121,16 +136,18 @@
 	// Make sure we aren't doubling up on soundtokens
 	if(!soundplayer_token)
 		if(current_playlist && (current_playlist.len > 0))
-			var/sound/sound_to_play = current_playlist[playlist_index].sound
-			soundplayer_token = GLOB.sound_player.PlayLoopingSound(src, src, sound_to_play, volume, range, 20, prefer_mute = FALSE, sound_type = ASFX_MUSIC)
+			var/sound/sound_to_play = current_playlist[playlist_index].song_path
+			soundplayer_token = GLOB.sound_player.PlayNonloopingSound(src, src, sound_to_play, volume, range, 20, prefer_mute = FALSE, sound_type = ASFX_MUSIC)
 
-			//addtimer(CALLBACK(src, PROC_REF(next_song), user), (sound_to_play.len SECOND)) // Queue the next_song() proc when the current song ends. Clean up handled under next_song() which also calls stopplaying() to end this token
-			// If someone gets ^this^ to work, you can switch out PlayLoopingSound for PlayNonloopingSound
-			// the sound's len variable doesn't seem to actually store a length :/
+			// Queue the next_song() proc when the current song ends. Clean up handled under next_song() which also calls stopplaying() to end this token
+			autoplay_timeleft = current_playlist[playlist_index].song_length
+			autoplay_timer = addtimer(CALLBACK(src, PROC_REF(next_song), user), autoplay_timeleft, TIMER_UNIQUE|TIMER_STOPPABLE)
 
 			// Chat Display
-			var/current_track_name = current_playlist[playlist_index].title
-			to_chat(user,SPAN_NOTICE("Now Playing: Track [playlist_index] — '[current_track_name]'."))
+			var/current_track_name = current_playlist[playlist_index].song_name
+			var/current_track_length = current_playlist[playlist_index].song_length
+			var/current_track_length_text = DisplayTimeText(current_track_length)
+			to_chat(user,SPAN_NOTICE("Now Playing: Track [playlist_index] — '[current_track_name]' ([current_track_length_text])."))
 
 			// Icon/Overlay stuff for the music notes
 			worn_overlay = "music" // this is rather annoying but prevents the music notes on getting colored
@@ -145,14 +162,15 @@
 	if(use_check_and_message(user))
 		return
 
-	if(!music_cartridge || (current_playlist.len == 0))
+	var/playlist_length = current_playlist.len
+	if(!music_cartridge || !playlist_length)
 		to_chat(user, SPAN_WARNING("No playlist loaded."))
 		return
 
 	StopPlaying() // Stop & Cleanup previous sound token
 
 	// Sound iteration
-	if(playlist_index + 1 <= current_playlist.len)
+	if(playlist_index + 1 <= playlist_length)
 		playlist_index++
 	else
 		playlist_index = 1
@@ -162,19 +180,32 @@
 /obj/item/clothing/ears/earphones/proc/previous_song(mob/user)
 	if(use_check_and_message(usr))
 		return
-	if(!music_cartridge || (current_playlist.len == 0))
+
+	var/playlist_length = current_playlist.len
+	if(!music_cartridge || !playlist_length)
 		to_chat(user, SPAN_WARNING("No playlist loaded."))
 		return
 
 	StopPlaying() // Stop & Cleanup previous sound token
 
 	// Sound iteration
-	if(playlist_index - 1 < 1)
-		playlist_index = 1
+	if(playlist_index == 1)
+		playlist_index = playlist_length
 	else
 		playlist_index--
 
 	StartPlaying(user) // New sound token created here
+
+/**
+ * Saves the current timer's timeleft as autoplay_timeleft before deleting and nulling the timer.
+ */
+/obj/item/clothing/ears/earphones/proc/reset_autoplay_timer()
+	if(autoplay_timer)
+		autoplay_timeleft = timeleft(autoplay_timer)
+		deltimer(autoplay_timer)
+		autoplay_timer = null
+		return TRUE
+	return FALSE
 
 /*
 	Verbs:
@@ -197,7 +228,7 @@
 
 	if(ismob(src.loc))
 		usr.visible_message(SPAN_NOTICE("[usr] clicks a button on [usr.get_pronoun("his")] [src]."))
-		playsound(usr, /singleton/sound_category/button_sound, 10)
+		playsound(usr, SFX_BUTTON, 10)
 
 		if(soundplayer_token)
 			StopPlaying()
@@ -243,12 +274,13 @@
 
 	if(ismob(src.loc))
 		usr.visible_message(SPAN_NOTICE("[usr] clicks a button on [usr.get_pronoun("his")] [src]."))
-		playsound(usr, /singleton/sound_category/button_sound, 10)
+		playsound(usr, SFX_BUTTON, 10)
 		if(soundplayer_token)
 			if(soundplayer_token.status != SOUND_PAUSED)
 				soundplayer_token.Pause()
 				to_chat(usr, SPAN_NOTICE("Music paused."))
-
+				// Save the time remaining on the song and delete the current autoplay timer.
+				reset_autoplay_timer()
 				// Icon/Overlay stuff for the music notes
 				ClearOverlays()
 				worn_overlay = null
@@ -258,6 +290,9 @@
 			else if (soundplayer_token.status == SOUND_PAUSED)
 				soundplayer_token.Unpause()
 				to_chat(usr, SPAN_NOTICE("Music unpaused."))
+
+				// Re-create the autoplay timer with autoplay_timeleft length.
+				autoplay_timer = addtimer(CALLBACK(src, PROC_REF(next_song), usr), autoplay_timeleft, TIMER_UNIQUE|TIMER_STOPPABLE)
 
 				// Icon/Overlay stuff for the music notes
 				worn_overlay = "music" // this is rather annoying but prevents the music notes on getting colored
@@ -272,7 +307,7 @@
 	set src in usr
 
 	usr.visible_message(SPAN_NOTICE("[usr] clicks a button on [usr.get_pronoun("his")] [src]."))
-	playsound(usr, /singleton/sound_category/button_sound, 10)
+	playsound(usr, SFX_BUTTON, 10)
 	next_song(usr)
 
 /obj/item/clothing/ears/earphones/verb/previous_song_verb()
@@ -281,7 +316,7 @@
 	set src in usr
 
 	usr.visible_message(SPAN_NOTICE("[usr] clicks a button on [usr.get_pronoun("his")] [src]."))
-	playsound(usr, /singleton/sound_category/button_sound, 10)
+	playsound(usr, SFX_BUTTON, 10)
 	previous_song(usr)
 
 /obj/item/clothing/ears/earphones/verb/eject_music_cartridge_verb()
@@ -338,9 +373,30 @@ Earphone Variants
 	icon_state = "earbuds"
 	item_state = "earbuds"
 
-/*
-	Music Cartridges
-*/
+/// Track datums, used in jukeboxes
+/datum/track
+	/// Readable name, used in the jukebox menu
+	var/song_name = "Generic"
+	/// Filepath of the song
+	var/song_path
+	/// How long is the song in deciseconds. Default is an arbitrary low value, should be overwritten.
+	var/song_length = 10 SECONDS
+	/// What cartridge (if any) this song came from.
+	var/source
+
+/// Track datums, used in jukeboxes
+/datum/track/New(var/new_song_name, var/new_song_path, var/new_song_length, var/new_source)
+	. = ..()
+	song_name = new_song_name
+	song_path = new_song_path
+	song_length = new_song_length
+	source = new_source
+
+// Default track supplied for testing and also because it's a banger
+/datum/track/default
+	song_name = "Tintin on the Moon"
+	song_path = 'sound/music/ingame/ss13/title3.ogg'
+	song_length = 3 MINUTES + 52 SECONDS
 
 /obj/item/music_cartridge
 	name = "music cartridge"
@@ -348,105 +404,108 @@ Earphone Variants
 	icon = 'icons/obj/item/music_cartridges.dmi'
 	icon_state = "generic"
 	w_class = WEIGHT_CLASS_SMALL
-
-	var/list/datum/track/tracks = list()
+	var/list/datum/track/tracks
+	/// Whether or not this cartridge can be removed from the datum/jukebox it belongs to.
+	var/hardcoded = FALSE
 
 /obj/item/music_cartridge/ss13
 	name = "Spacer Classics Vol. 1"
 	desc = "An old music cartridge with a cheap-looking label."
-
 	tracks = list(
-		new/datum/track("Title 1", 'sound/music/title1.ogg'),
-		new/datum/track("Title 2", 'sound/music/title2.ogg'),
-		new/datum/track("Title 3", 'sound/music/title3.ogg'),
-		new/datum/track("Traitor", 'sound/music/traitor.ogg'),
-		new/datum/track("Space", 'sound/music/space.ogg'),
-		new/datum/track("Title 3 Mk2", 'sound/music/title3mk2.ogg')
+		new/datum/track("Scratch", 'sound/music/ingame/ss13/title1.ogg', 2 MINUTES + 30 SECONDS),
+		new/datum/track("D`Bert", 'sound/music/ingame/ss13/title2.ogg', 1 MINUTES + 58 SECONDS),
+		new/datum/track("Uplift", 'sound/music/ingame/ss13/title3.ogg', 3 MINUTES + 52 SECONDS),
+		new/datum/track("Uplift II", 'sound/music/ingame/ss13/title3mk2.ogg', 3 MINUTES + 59 SECONDS),
+		new/datum/track("Suspenseful", 'sound/music/ingame/ss13/traitor.ogg', 5 MINUTES + 30 SECONDS),
+		new/datum/track("Beyond", 'sound/music/ingame/ss13/ambispace.ogg', 3 MINUTES + 15 SECONDS),
+		new/datum/track("D`Fort", 'sound/music/ingame/ss13/song_game.ogg', 3 MINUTES + 50 SECONDS),
+		new/datum/track("Endless Space", 'sound/music/ingame/ss13/space.ogg', 3 MINUTES + 33 SECONDS),
+		new/datum/track("Thunderdome", 'sound/music/ingame/ss13/THUNDERDOME.ogg', 3 MINUTES + 22 SECONDS)
 	)
+// Hardcoded variant
+/obj/item/music_cartridge/ss13/demo
+	hardcoded = TRUE
 
 /obj/item/music_cartridge/audioconsole
 	name = "SCC Welcome Package"
 	desc = "A music cartridge with some company-selected songs. Nothing special, everyone got one of these in their welcome boxes..."
-
 	tracks = list(
-		new/datum/track("Amsterdam", 'sound/music/audioconsole/Amsterdam.ogg'),
-		new/datum/track("Butterflies", 'sound/music/audioconsole/Butterflies.ogg'),
-		new/datum/track("Childhood", 'sound/music/audioconsole/Childhood.ogg'),
-		new/datum/track("Don't Rush", 'sound/music/audioconsole/DontRush.ogg'),
-		new/datum/track("Lips", 'sound/music/audioconsole/Lips.ogg'),
-		new/datum/track("Number 0", 'sound/music/audioconsole/Number0.ogg'),
-		new/datum/track("Phoron Will Make Us Rich", 'sound/music/audioconsole/PhoronWillMakeUsRich.ogg'),
-		new/datum/track("That Ain't Chopin", 'sound/music/audioconsole/ThatAintChopin.ogg'),
-		new/datum/track("The Pianist", 'sound/music/audioconsole/ThePianist.ogg'),
-		new/datum/track("When", 'sound/music/audioconsole/When.ogg')
+		new/datum/track("Butterflies", 'sound/music/ingame/scc/Butterflies.ogg', 3 MINUTES + 37 SECONDS),
+		new/datum/track("That Ain't Chopin", 'sound/music/ingame/scc/ThatAintChopin.ogg', 3 MINUTES + 29 SECONDS),
+		new/datum/track("Don't Rush", 'sound/music/ingame/scc/DontRush.ogg', 3 MINUTES + 56 SECONDS),
+		new/datum/track("Phoron Will Make Us Rich", 'sound/music/ingame/scc/PhoronWillMakeUsRich.ogg', 2 MINUTES + 14 SECONDS),
+		new/datum/track("Amsterdam", 'sound/music/ingame/scc/Amsterdam.ogg', 3 MINUTES + 42 SECONDS),
+		new/datum/track("When", 'sound/music/ingame/scc/When.ogg', 2 MINUTES + 41 SECONDS),
+		new/datum/track("Number 0", 'sound/music/ingame/scc/Number0.ogg', 2 MINUTES + 37 SECONDS),
+		new/datum/track("The Pianist", 'sound/music/ingame/scc/ThePianist.ogg', 4 MINUTES + 25 SECONDS),
+		new/datum/track("Lips", 'sound/music/ingame/scc/Lips.ogg', 3 MINUTES + 20 SECONDS),
+		new/datum/track("Childhood", 'sound/music/ingame/scc/Childhood.ogg', 2 MINUTES + 13 SECONDS)
 	)
-
-/*
-	Regional Music Cartridges
-*/
+// Hardcoded variant
+/obj/item/music_cartridge/audioconsole/demo
+	hardcoded = TRUE
 
 /obj/item/music_cartridge/konyang_retrowave
 	name = "Konyang Vibes 2463"
 	desc = "A music cartridge with a Konyang flag on the hololabel."
 	icon_state = "konyang"
-
 	tracks = list(
-		new/datum/track("Konyang Vibes #1", 'sound/music/lobby/konyang/konyang-1.ogg'),
-		new/datum/track("Konyang Vibes #2", 'sound/music/lobby/konyang/konyang-2.ogg'),
-		new/datum/track("Konyang Vibes #3", 'sound/music/lobby/konyang/konyang-3.ogg')
+		new/datum/track("Konyang Vibes #1", 'sound/music/ingame/konyang/konyang-1.ogg', 2 MINUTES + 59 SECONDS, /obj/item/music_cartridge/konyang_retrowave),
+		new/datum/track("Konyang Vibes #2", 'sound/music/ingame/konyang/konyang-2.ogg', 2 MINUTES + 58 SECONDS, /obj/item/music_cartridge/konyang_retrowave),
+		new/datum/track("Konyang Vibes #3", 'sound/music/ingame/konyang/konyang-3.ogg', 2 MINUTES + 43 SECONDS, /obj/item/music_cartridge/konyang_retrowave),
+		new/datum/track("Konyang Vibes #4", 'sound/music/ingame/konyang/konyang-4.ogg', 3 MINUTES + 8 SECONDS, /obj/item/music_cartridge/konyang_retrowave)
 	)
+// Hardcoded variant
+/obj/item/music_cartridge/konyang_retrowave/demo
+	hardcoded = TRUE
 
 /obj/item/music_cartridge/venus_funkydisco
 	name = "Top of the Charts 66 (Venusian Hits)"
 	desc = "A glitzy, pink music cartridge with more Venusian hits."
 	icon_state = "venus"
-
 	tracks = list(
-		new/datum/track("dance させる", 'sound/music/regional/venus/dance.ogg'),
-		new/datum/track("love sensation", 'sound/music/regional/venus/love_sensation.ogg'),
-		new/datum/track("All Night", 'sound/music/regional/venus/all_night.ogg'),
-		new/datum/track("#billyocean", 'sound/music/regional/venus/billy_ocean.ogg'),
-		new/datum/track("Artificially Sweetened", 'sound/music/regional/venus/artificially_sweetened.ogg'),
-		new/datum/track("Real Love", 'sound/music/regional/venus/real_love.ogg'),
-		new/datum/track("F U N K Y G I R L <3", 'sound/music/regional/venus/funky_girl.ogg'),
-		new/datum/track("Break The System", 'sound/music/regional/venus/break_the_system.ogg')
+		new/datum/track("dance させる", 'sound/music/ingame/venus/dance.ogg', 3 MINUTES + 19 SECONDS, /obj/item/music_cartridge/venus_funkydisco),
+		new/datum/track("love sensation", 'sound/music/ingame/venus/love_sensation.ogg', 3 MINUTES + 31 SECONDS, /obj/item/music_cartridge/venus_funkydisco),
+		new/datum/track("All Night", 'sound/music/ingame/venus/all_night.ogg', 3 MINUTES + 11 SECONDS, /obj/item/music_cartridge/venus_funkydisco),
+		new/datum/track("#billyocean", 'sound/music/ingame/venus/billy_ocean.ogg', 4 MINUTES + 19 SECONDS, /obj/item/music_cartridge/venus_funkydisco),
+		new/datum/track("Artificially Sweetened", 'sound/music/ingame/venus/artificially_sweetened.ogg', 4 MINUTES + 18 SECONDS, /obj/item/music_cartridge/venus_funkydisco),
+		new/datum/track("Real Love", 'sound/music/ingame/venus/real_love.ogg', 3 MINUTES + 52 SECONDS, /obj/item/music_cartridge/venus_funkydisco),
+		new/datum/track("F U N K Y G I R L <3", 'sound/music/ingame/venus/funky_girl.ogg', 2 MINUTES + 2 SECONDS, /obj/item/music_cartridge/venus_funkydisco),
+		new/datum/track("Break The System", 'sound/music/ingame/venus/break_the_system.ogg', 1 MINUTES + 23 SECONDS, /obj/item/music_cartridge/venus_funkydisco)
 	)
-
 
 /obj/item/music_cartridge/xanu_rock
 	name = "Indulgence EP (X-Rock)" //feel free to reflavour as a more varied x-rock mixtape, instead of a single EP, if other x-rock tracks are added
 	desc = "A music cartridge with a Xanan flag on the hololabel. Some fancy, rainbow text over it reads, 'INDULGENCE'."
 	icon_state = "xanu"
-
 	tracks = list(
-		new/datum/track("Shimmer", 'sound/music/regional/xanu/xanu_rock_3.ogg'),
-		new/datum/track("Rise", 'sound/music/regional/xanu/xanu_rock_1.ogg'),
-		new/datum/track("Indulgence", 'sound/music/regional/xanu/xanu_rock_2.ogg')
+		new/datum/track("Rise", 'sound/music/ingame/xanu/xanu_rock_1.ogg', 3 MINUTES + 3 SECONDS, /obj/item/music_cartridge/xanu_rock),
+		new/datum/track("Indulgence", 'sound/music/ingame/xanu/xanu_rock_2.ogg', 3 MINUTES + 7 SECONDS, /obj/item/music_cartridge/xanu_rock),
+		new/datum/track("Shimmer", 'sound/music/ingame/xanu/xanu_rock_3.ogg', 4 MINUTES + 30 SECONDS, /obj/item/music_cartridge/xanu_rock)
 	)
 
 /obj/item/music_cartridge/adhomai_swing
 	name = "Electro-Swing of Adhomai"
 	desc = "A red music cartridge holding the most widely-known Adhomian electro-swing songs."
 	icon_state = "adhomai"
-
 	tracks = list(
-		new/datum/track("Boolean Sisters", 'sound/music/phonograph/boolean_sisters.ogg'),
-		new/datum/track("Electro Swing", 'sound/music/phonograph/electro_swing.ogg'),
-		new/datum/track("Le Swing", 'sound/music/phonograph/le_swing.ogg'),
-		new/datum/track("Posin", 'sound/music/phonograph/posin.ogg')
+		new/datum/track("Boolean Sisters", 'sound/music/ingame/adhomai/boolean_sisters.ogg', 3 MINUTES + 17 SECONDS, /obj/item/music_cartridge/adhomai_swing),
+		new/datum/track("Electro Swing", 'sound/music/ingame/adhomai/electro_swing.ogg', 3 MINUTES + 18 SECONDS, /obj/item/music_cartridge/adhomai_swing),
+		new/datum/track("Le Swing", 'sound/music/ingame/adhomai/le_swing.ogg', 2 MINUTES + 11 SECONDS, /obj/item/music_cartridge/adhomai_swing),
+		new/datum/track("Posin", 'sound/music/ingame/adhomai/posin.ogg', 2 MINUTES + 50 SECONDS, /obj/item/music_cartridge/adhomai_swing)
 	)
+// Hardcoded variant
+/obj/item/music_cartridge/adhomai_swing/demo
+	hardcoded = TRUE
 
 /obj/item/music_cartridge/europa_various
 	name = "Europa: Best of the 50s"
 	desc = "A music cartridge storing the best tracks to listen to on a submarine dive."
-	icon_state = "generic"
-
 	tracks = list(
-		new/datum/track("Where The Rays Leap", 'sound/music/regional/europa/where_the_dusks_rays_leap.ogg'),
-		new/datum/track("Casting Faint Shadows", 'sound/music/regional/europa/casting_faint_shadows.ogg'),
-		new/datum/track("Weedance", 'sound/music/regional/europa/weedance.ogg'),
-		new/datum/track("Instrumental Park", 'sound/music/regional/europa/instrumental_park.ogg'),
-		new/datum/track("Way Between The Shadows", 'sound/music/regional/europa/way_between_the_shadows.ogg'),
-		new/datum/track("Deep Beneath the Solemn Waves a Vast Underwater Landscape, Brimming With Bizarre, Eerily Gleaming Cyclopean Structures of, What Must Surely Be, Non-Human Origin, Stretched Out Across the Ocean Floor", 'sound/music/regional/europa/deep_beneath-.ogg'),
+		new/datum/track("Where The Rays Leap", 'sound/music/ingame/europa/where_the_dusks_rays_leap.ogg', 3 MINUTES + 41 SECONDS, /obj/item/music_cartridge/europa_various),
+		new/datum/track("Casting Faint Shadows", 'sound/music/ingame/europa/casting_faint_shadows.ogg', 8 MINUTES + 56 SECONDS, /obj/item/music_cartridge/europa_various),
+		new/datum/track("Weedance", 'sound/music/ingame/europa/weedance.ogg', 7 MINUTES + 35 SECONDS, /obj/item/music_cartridge/europa_various),
+		new/datum/track("Instrumental Park", 'sound/music/ingame/europa/instrumental_park.ogg', 5 MINUTES + 39 SECONDS, /obj/item/music_cartridge/europa_various),
+		new/datum/track("Way Between The Shadows", 'sound/music/ingame/europa/way_between_the_shadows.ogg', 8 MINUTES + 21 SECONDS, /obj/item/music_cartridge/europa_various),
+		new/datum/track("Deep Beneath the Solemn Waves a Vast Underwater Landscape, Brimming With Bizarre, Eerily Gleaming Cyclopean Structures of, What Must Surely Be, Non-Human Origin, Stretched Out Across the Ocean Floor", 'sound/music/ingame/europa/deep_beneath-.ogg', 7 MINUTES + 18 SECONDS, /obj/item/music_cartridge/europa_various)
 	)
-

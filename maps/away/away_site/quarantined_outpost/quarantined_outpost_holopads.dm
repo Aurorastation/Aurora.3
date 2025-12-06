@@ -160,7 +160,7 @@
 	holo_accent_tag = ACCENT_SOL
 	holo_color = COLOR_PURPLE_GRAY
 	loop_sleep_time = 12 SECONDS
-	soundblock = "/singleton/sound_category/robot_talk"
+	soundblock = SFX_ROBOT_TALK
 	things_to_say = list()
 
 /obj/structure/environmental_storytelling_holopad/quarantined_outpost/greet

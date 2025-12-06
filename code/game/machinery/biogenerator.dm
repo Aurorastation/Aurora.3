@@ -791,7 +791,7 @@ EMAG/ILLEGAL
 		else
 			points -= totake
 			use_power_oneoff(totake * 0.25)
-			playsound(src.loc, /singleton/sound_category/switch_sound, 50, 1)
+			playsound(src.loc, SFX_SWITCH, 50, 1)
 			intent_message(PING_SOUND)
 			if(ispath(recipe.object, /obj/item/reagent_containers/pill))
 				if(!made_container)

@@ -111,9 +111,9 @@
 	//for use in material weapons. because tiles and stacks sound different. since cardboard baseball bats sound different from wooden ones and et cetera.
 	var/weapon_drop_sound = 'sound/items/drop/metalweapon.ogg'
 	var/weapon_pickup_sound = 'sound/items/pickup/metalweapon.ogg'
-	var/weapon_hitsound = /singleton/sound_category/swing_hit_sound
+	var/weapon_hitsound = SFX_SWING_HIT
 
-	var/shatter_sound = /singleton/sound_category/glass_break_sound //sound it makes when it breaks.
+	var/shatter_sound = SFX_BREAK_GLASS //sound it makes when it breaks.
 
 	/// Whether this material is fusion fuel or not.
 	var/is_fusion_fuel
@@ -792,7 +792,7 @@
 	dooropen_noise = 'sound/effects/doorcreaky.ogg'
 	door_icon_base = "wood"
 	destruction_desc = "splinters"
-	shatter_sound = /singleton/sound_category/wood_break_sound
+	shatter_sound = SFX_BREAK_WOOD
 	sheet_singular_name = "plank"
 	sheet_plural_name = "planks"
 	golem = SPECIES_GOLEM_WOOD
@@ -901,7 +901,7 @@
 	stack_origin_tech = list(TECH_MATERIAL = 1)
 	door_icon_base = "wood"
 	destruction_desc = "crumples"
-	shatter_sound = /singleton/sound_category/cardboard_break_sound
+	shatter_sound = SFX_BREAK_CARDBOARD
 	golem = SPECIES_GOLEM_CARDBOARD
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
 	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'

@@ -64,7 +64,7 @@
 				user.visible_message("\The [user] titles \the [src] with \a [attacking_item], marking down: \"[str]\"",\
 				SPAN_NOTICE("You title \the [src]: \"[str]\""),\
 				"You hear someone scribbling a note.")
-				playsound(src, pick('sound/bureaucracy/pen1.ogg','sound/bureaucracy/pen2.ogg'), 20)
+				playsound(src, pick('sound/items/bureaucracy/pen1.ogg','sound/items/bureaucracy/pen2.ogg'), 20)
 				name = "[name] ([str])"
 				if(!examtext && !nameset)
 					nameset = 1
@@ -84,7 +84,7 @@
 				user.visible_message("\The [user] labels \the [src] with \a [attacking_item], scribbling down: \"[examtext]\"",\
 				SPAN_NOTICE("You label \the [src]: \"[examtext]\""),\
 				"You hear someone scribbling a note.")
-				playsound(src, pick('sound/bureaucracy/pen1.ogg','sound/bureaucracy/pen2.ogg'), 20)
+				playsound(src, pick('sound/items/bureaucracy/pen1.ogg','sound/items/bureaucracy/pen2.ogg'), 20)
 	return
 
 /obj/structure/bigDelivery/update_icon()
@@ -179,7 +179,7 @@
 				user.visible_message("\The [user] titles \the [src] with \a [attacking_item], marking down: \"[str]\"",\
 				SPAN_NOTICE("You title \the [src]: \"[str]\""),\
 				"You hear someone scribbling a note.")
-				playsound(src, pick('sound/bureaucracy/pen1.ogg','sound/bureaucracy/pen2.ogg'), 20)
+				playsound(src, pick('sound/items/bureaucracy/pen1.ogg','sound/items/bureaucracy/pen2.ogg'), 20)
 				name = "[name] ([str])"
 				if(!examtext && !nameset)
 					nameset = 1
@@ -200,7 +200,7 @@
 				user.visible_message("\The [user] labels \the [src] with \a [attacking_item], scribbling down: \"[examtext]\"",\
 				SPAN_NOTICE("You label \the [src]: \"[examtext]\""),\
 				"You hear someone scribbling a note.")
-				playsound(src, pick('sound/bureaucracy/pen1.ogg','sound/bureaucracy/pen2.ogg'), 20)
+				playsound(src, pick('sound/items/bureaucracy/pen1.ogg','sound/items/bureaucracy/pen2.ogg'), 20)
 	return
 
 /obj/item/smallDelivery/feedback_hints(mob/user, distance, is_adjacent)

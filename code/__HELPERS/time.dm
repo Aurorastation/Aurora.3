@@ -130,6 +130,45 @@ var/real_round_start_time
 	return "[day] day[(day != 1)? "s":""][hourT][minuteT][secondT]"
 
 /**
+ * Returns a text value of a given # of deciseconds in hours, minutes, or seconds.
+ * Returns time in style of 00, 00:00, OR 00:00:00.
+ */
+/proc/DisplayTimeTextDense(time_value, round_seconds_to = 0.1)
+	var/second = FLOOR_FLOAT(time_value * 0.1, round_seconds_to)
+	if(second < 60 && second > 9)
+		return "[second]"
+	else if (second < 10)
+		return "0[second]"
+	var/minute = FLOOR_FLOAT(second / 60, 1)
+	second = FLOOR_FLOAT(MODULUS(second, 60), round_seconds_to)
+	var/secondT
+	if(second)
+		if(second > 9)
+			secondT = "[second]"
+		else if(second)
+			secondT = "0[second]"
+		else
+			secondT = "00"
+	if(minute < 60 && minute > 9)
+		return "[minute]:[secondT]"
+	else if (minute < 10)
+		return "0[minute]:[secondT]"
+	var/hour = FLOOR_FLOAT(minute / 60, 1)
+	minute = MODULUS(minute, 60)
+	var/minuteT
+	if(minute)
+		if(minute > 9)
+			minuteT = "[minute]"
+		else if(minute)
+			minuteT = "0[minute]"
+		else
+			minuteT = "00"
+	if(hour > 9)
+		return "[hour]:[minuteT]:[secondT]"
+	else
+		return "0[hour]:[minuteT]:[secondT]"
+
+/**
  * The current time on Adhomai
  */
 /proc/tajaran_time()

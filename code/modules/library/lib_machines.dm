@@ -448,7 +448,7 @@
 
 	if(href_list["scan"])
 		flick(insert_anim, src)
-		playsound(loc, 'sound/bureaucracy/scan.ogg', 75, 1)
+		playsound(loc, 'sound/items/bureaucracy/scan.ogg', 75, 1)
 		for(var/obj/item/book/B in contents)
 			cache = B
 			break
@@ -486,7 +486,7 @@
 		user.drop_from_inventory(paper,src)
 		user.visible_message(SPAN_NOTICE("\The [user] loads some paper into \the [src]."), SPAN_NOTICE("You load some paper into \the [src]."))
 		visible_message(SPAN_NOTICE("\The [src] begins to hum as it warms up its printing drums."))
-		playsound(T, 'sound/bureaucracy/binder.ogg', 75, 1)
+		playsound(T, 'sound/items/bureaucracy/binder.ogg', 75, 1)
 		binding = TRUE
 		sleep(rand(200,400))
 		binding = FALSE
@@ -495,7 +495,7 @@
 			paper.forceMove(T)
 			return
 		visible_message(SPAN_NOTICE("\The [src] whirs as it prints and binds a new book."))
-		playsound(T, 'sound/bureaucracy/print.ogg', 75, 1)
+		playsound(T, 'sound/items/bureaucracy/print.ogg', 75, 1)
 		var/obj/item/book/b = new(T)
 		b.dat = paper.info
 		b.name = "blank book"

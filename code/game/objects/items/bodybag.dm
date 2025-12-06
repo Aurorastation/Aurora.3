@@ -87,7 +87,7 @@
 		if (t)
 			src.name = "body bag - "
 			src.name += t
-			playsound(src, pick('sound/bureaucracy/pen1.ogg','sound/bureaucracy/pen2.ogg'), 20)
+			playsound(src, pick('sound/items/bureaucracy/pen1.ogg','sound/items/bureaucracy/pen2.ogg'), 20)
 			LAZYADD(overlays, image(icon, "bodybag_label"))
 		else
 			src.name = "body bag"

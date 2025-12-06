@@ -29,6 +29,7 @@
 		P.color = paper_color
 
 	stored_paper--
+
 	if(ismob(usr))
 		usr.put_in_hands(P, TRUE)
 	return P

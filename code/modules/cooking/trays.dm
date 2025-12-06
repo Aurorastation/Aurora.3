@@ -18,8 +18,8 @@
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	matter = list(DEFAULT_WALL_MATERIAL = 3000)
 	recyclable = TRUE
-	hitsound = /singleton/sound_category/bottle_hit_broken
-	drop_sound = /singleton/sound_category/bottle_hit_broken
+	hitsound = SFX_BOTTLE_HIT_BROKEN
+	drop_sound = SFX_BOTTLE_HIT_BROKEN
 	var/max_carry = 20
 	var/current_weight = 0
 	var/cooldown = 0	//shield bash cooldown. based on world.time
@@ -183,7 +183,7 @@
 		user.visible_message("<b>[user]</b> spills their tray all over the floor.", SPAN_WARNING("You spill the tray!"))
 	else
 		visible_message(SPAN_NOTICE("The tray scatters its contents all over the area."))
-	playsound(dropspot, /singleton/sound_category/tray_hit_sound, 50, 1)
+	playsound(dropspot, SFX_TRAY_HIT, 50, 1)
 
 /obj/item/tray/throw_impact(atom/hit_atom)
 	spill(null, loc)

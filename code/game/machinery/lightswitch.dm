@@ -46,7 +46,7 @@
 		set_light(FALSE)
 
 /obj/machinery/light_switch/attack_hand(mob/user)
-	playsound(src, /singleton/sound_category/switch_sound, 30)
+	playsound(src, SFX_SWITCH, 30)
 	on = !on
 	sync_lights()
 	intent_message(BUTTON_FLICK, 5)
@@ -169,7 +169,7 @@
 	handle_preset_color(choice)
 
 /obj/machinery/light_switch/idris/proc/handle_power_toggle()
-	playsound(src, /singleton/sound_category/switch_sound, 30)
+	playsound(src, SFX_SWITCH, 30)
 	on = !on
 	sync_lights()
 	intent_message(BUTTON_FLICK, 5)

@@ -18,7 +18,7 @@
 	use_power = POWER_USE_IDLE
 	idle_power_usage = 20
 	layer = BELOW_OBJ_LAYER
-	clicksound = /singleton/sound_category/button_sound
+	clicksound = SFX_BUTTON
 
 	var/obj/item/reagent_containers/glass/beaker = null
 	var/obj/item/storage/pill_bottle/loaded_pill_bottle = null

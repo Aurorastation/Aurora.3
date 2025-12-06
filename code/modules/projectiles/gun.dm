@@ -85,7 +85,7 @@
 	///The volume of the firing sound
 	var/fire_sound_volume = 50
 	///Sound of the gun firing when empty (dryfiring)
-	var/empty_sound = /singleton/sound_category/out_of_ammo
+	var/empty_sound = SFX_OUT_OF_AMMO
 	///Determines what a player should hear in audible_message when the gun is fired. e.g gunshot, blast
 	var/fire_sound_text = "gunshot"
 	///The firing sound to play when suppressed = TRUE
@@ -142,7 +142,7 @@
 	var/wielded = 0
 	var/needspin = TRUE
 	var/is_wieldable = FALSE
-	var/wield_sound = /singleton/sound_category/generic_wield_sound
+	var/wield_sound = SFX_WIELD
 	var/unwield_sound = null
 	var/one_hand_fa_penalty = 0 // Additional accuracy/dispersion penalty for using full auto one-handed
 

@@ -12,7 +12,7 @@
 	volume = 100
 	item_state = "broken_beer" //Generic held-item sprite until unique ones are made.
 	force = 11
-	hitsound = /singleton/sound_category/bottle_hit_intact_sound
+	hitsound = SFX_BOTTLE_HIT_INTACT
 	var/smash_duration = 5 //Directly relates to the 'weaken' duration. Lowered by armor (i.e. helmets)
 	matter = list(MATERIAL_GLASS = 800)
 
@@ -80,7 +80,7 @@
 		var/mob/living/L = against
 		L.IgniteMob()
 
-	playsound(src, /singleton/sound_category/glass_break_sound, 70, 1)
+	playsound(src, SFX_BREAK_GLASS, 70, 1)
 	src.transfer_fingerprints_to(B)
 
 	qdel(src)
@@ -241,7 +241,7 @@
 	attack_verb = list("stabbed", "slashed", "attacked")
 	sharp = TRUE
 	edge = FALSE
-	hitsound = /singleton/sound_category/bottle_hit_broken
+	hitsound = SFX_BOTTLE_HIT_BROKEN
 	///The mask image for mimicking a broken-off bottom of the bottle
 	var/static/icon/broken_outline = icon('icons/obj/item/reagent_containers/food/drinks/drink_effects.dmi', "broken")
 	///The mask image for mimicking a broken-off neck of the bottle

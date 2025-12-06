@@ -69,7 +69,7 @@
 			H.confused += 10
 			H.stuttering += 5
 			to_chat(H, SPAN_DANGER("You suddenly feel as if your head was hit by something!"))
-			playsound(get_turf(H), /singleton/sound_category/punch_sound, 50, 1, -1)
+			playsound(get_turf(H), SFX_PUNCH, 50, 1, -1)
 
 		cooldown = world.time + cooldown_time
 
