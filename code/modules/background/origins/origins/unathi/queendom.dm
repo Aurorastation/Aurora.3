@@ -15,10 +15,16 @@
 
 /singleton/origin_item/origin/queendom/on_apply(var/mob/living/carbon/human/H)
 	. = ..()
+	if (!H)
+		return
+
 	EnsureComponent(H, /datum/component/armor, armor_component)
 	armor_component.armor_values[RAD] += ARMOR_RAD_MINOR
 
 /singleton/origin_item/origin/queendom/on_remove(mob/living/carbon/human/H)
 	. = ..()
+	if (!H)
+		return
+
 	TryComponentOrReturn(H, /datum/component/armor, armor_component, ..())
 	armor_component.armor_values[RAD] -= ARMOR_RAD_MINOR
