@@ -1,0 +1,3886 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ad" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/turf/simulated/floor/wood/walnut,
+/area/shuttle/decrepit_shipyard_shuttle)
+"aq" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/machinery/computer/ship/engines/terminal{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"ax" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/airlock_sensor/airlock_exterior{
+	pixel_x = 22;
+	dir = 8;
+	pixel_y = 6
+	},
+/obj/effect/map_effect/marker/airlock/shuttle/decrepit_shipyard_shuttle,
+/turf/simulated/floor/reinforced/airless,
+/area/shuttle/decrepit_shipyard_shuttle)
+"ay" = (
+/obj/effect/shuttle_landmark/decrepit_shipyard/drydock{
+	dir = 1
+	},
+/turf/template_noop,
+/area/space)
+"aN" = (
+/obj/effect/floor_decal/corner/brown,
+/obj/effect/floor_decal/corner/black{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_door/yellow{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_segment/yellow{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
+	},
+/obj/structure/bed/handrail{
+	dir = 1;
+	pixel_y = -3
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/shuttle/decrepit_shipyard_shuttle)
+"aT" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
+/turf/simulated/wall/shuttle/space_ship/industrial,
+/area/shuttle/decrepit_shipyard_shuttle)
+"ba" = (
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow,
+/obj/machinery/atmospherics/binary/passive_gate/supply{
+	dir = 8;
+	name = "Air to Distro"
+	},
+/obj/machinery/light/small/decayed{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/shuttle/decrepit_shipyard_shuttle)
+"bd" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/random/pottedplant{
+	pixel_x = 6
+	},
+/turf/simulated/floor/wood/walnut,
+/area/shuttle/decrepit_shipyard_shuttle)
+"bl" = (
+/obj/structure/railing/mapped,
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/reinforced/airless,
+/area/shuttle/decrepit_shipyard_shuttle)
+"bD" = (
+/obj/structure/table/reinforced/steel,
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	density = 0;
+	icon_state = "railing0-0";
+	dir = 8
+	},
+/turf/simulated/floor/marble/dark,
+/area/shuttle/decrepit_shipyard_shuttle)
+"cu" = (
+/obj/structure/bed/handrail{
+	dir = 8
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
+/obj/machinery/airlock_sensor{
+	dir = 8;
+	pixel_x = 24;
+	pixel_y = 8
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/map_effect/marker/airlock/shuttle/decrepit_shipyard_shuttle,
+/obj/machinery/light/small/decayed,
+/turf/simulated/floor,
+/area/shuttle/decrepit_shipyard_shuttle)
+"cw" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/obj/machinery/alarm/east,
+/turf/simulated/floor/wood/walnut,
+/area/shuttle/decrepit_shipyard_shuttle)
+"cE" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/item/hullbeacon/red,
+/turf/simulated/floor/reinforced/airless,
+/area/shuttle/decrepit_shipyard_shuttle)
+"cF" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+	dir = 5
+	},
+/obj/structure/lattice/catwalk/indoor,
+/turf/simulated/floor,
+/area/shuttle/decrepit_shipyard_shuttle)
+"cH" = (
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/shuttle/decrepit_shipyard_shuttle)
+"cU" = (
+/obj/structure/railing/mapped{
+	density = 0;
+	icon_state = "railing0-0";
+	dir = 4
+	},
+/obj/structure/bed/stool/chair/shuttle/double{
+	pixel_x = 8;
+	dir = 1
+	},
+/obj/structure/bed/stool/chair/shuttle/double{
+	pixel_x = -8;
+	dir = 1
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/shuttle/decrepit_shipyard_shuttle)
+"cW" = (
+/obj/effect/floor_decal/corner/brown,
+/obj/effect/floor_decal/corner/black{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	density = 0;
+	icon_state = "railing0-0";
+	dir = 1;
+	pixel_y = 10
+	},
+/obj/effect/floor_decal/industrial/outline_straight/operations{
+	dir = 8
+	},
+/obj/machinery/power/smes/buildable/third_party_shuttle,
+/obj/structure/cable/yellow{
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/shuttle/decrepit_shipyard_shuttle)
+"cX" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/machinery/iff_beacon/name_change{
+	pixel_x = 2
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/shuttle/decrepit_shipyard_shuttle)
+"cY" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
+	},
+/obj/structure/bed/stool/chair/padded/beige,
+/turf/simulated/floor/wood/walnut,
+/area/shuttle/decrepit_shipyard_shuttle)
+"ds" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/black,
+/obj/machinery/computer/ship/engines/terminal{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/blue{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/decrepit_shipyard_shuttle)
+"dt" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 9
+	},
+/turf/simulated/wall/shuttle/space_ship/industrial,
+/area/shuttle/decrepit_shipyard_shuttle)
+"dv" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
+/obj/effect/landmark/entry_point/fore,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"dy" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/blue{
+	dir = 6
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/shuttle/decrepit_shipyard_shuttle)
+"dP" = (
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/airlock_sensor/airlock_interior{
+	pixel_x = -24;
+	dir = 4
+	},
+/obj/machinery/access_button{
+	pixel_x = -32;
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/shuttle/decrepit_shipyard_shuttle,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"dY" = (
+/obj/machinery/power/smes/buildable/third_party_shuttle,
+/obj/structure/lattice/catwalk/indoor/urban,
+/obj/structure/cable/yellow,
+/turf/simulated/floor,
+/area/shuttle/decrepit_shipyard_shuttle)
+"dZ" = (
+/obj/effect/map_effect/marker_helper/mapmanip/submap/edge,
+/turf/template_noop,
+/area/space)
+"eL" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/map_effect/marker/airlock/shuttle/decrepit_shipyard_shuttle,
+/turf/simulated/floor,
+/area/shuttle/decrepit_shipyard_shuttle)
+"eM" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch_small/yellow,
+/obj/machinery/atmospherics/portables_connector/aux{
+	dir = 1
+	},
+/obj/machinery/portable_atmospherics/canister/air,
+/turf/simulated/floor,
+/area/shuttle/decrepit_shipyard_shuttle)
+"eQ" = (
+/obj/structure/casino/roulette_chart,
+/obj/item/storage/box/fancy/cigarettes/cigar{
+	pixel_x = 14;
+	pixel_y = -3
+	},
+/turf/simulated/floor/carpet/darkblue,
+/area/shuttle/decrepit_shipyard_shuttle)
+"eV" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/shuttle/decrepit_shipyard_shuttle)
+"fc" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/machinery/computer/shuttle_control/explore/terminal/decrepit_shipyard_shuttle{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"fj" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+	dir = 9
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/shuttle/decrepit_shipyard_shuttle)
+"fp" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black{
+	dir = 8
+	},
+/obj/machinery/power/terminal{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow,
+/obj/machinery/atmospherics/binary/pump/high_power{
+	dir = 1;
+	name = "Auxiliary Air to Airlock"
+	},
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/decrepit_shipyard_shuttle)
+"fq" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/obj/structure/bed/stool/chair/padded/beige,
+/turf/simulated/floor/wood/walnut,
+/area/shuttle/decrepit_shipyard_shuttle)
+"fN" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/obj/structure/bed/stool/chair/padded/beige{
+	dir = 1
+	},
+/turf/simulated/floor/wood/walnut,
+/area/shuttle/decrepit_shipyard_shuttle)
+"gh" = (
+/obj/structure/railing/mapped{
+	density = 0;
+	icon_state = "railing0-0";
+	dir = 4
+	},
+/obj/structure/table/reinforced/steel,
+/obj/item/material/ashtray{
+	pixel_x = -8;
+	pixel_y = -1
+	},
+/obj/item/material/ashtray{
+	pixel_x = -8;
+	pixel_y = -4
+	},
+/obj/item/reagent_containers/glass/rag/handkerchief{
+	pixel_x = -6;
+	pixel_y = 9
+	},
+/obj/item/reagent_containers/glass/beaker/pitcher{
+	pixel_x = 6;
+	pixel_y = 3
+	},
+/obj/machinery/light,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"gr" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 8
+	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/airlock_sensor{
+	pixel_x = -7;
+	pixel_y = 28
+	},
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	pixel_y = 28;
+	pixel_x = 7
+	},
+/obj/effect/map_effect/marker/airlock/decrepit_shipyard_shuttle/port,
+/turf/simulated/floor,
+/area/shuttle/decrepit_shipyard_shuttle)
+"gt" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
+	},
+/obj/structure/bed/stool/chair/padded/beige,
+/turf/simulated/floor/carpet/darkblue,
+/area/shuttle/decrepit_shipyard_shuttle)
+"gE" = (
+/obj/structure/bed/stool/bar/padded/brown{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/structure/bed/handrail{
+	dir = 8;
+	pixel_y = -3
+	},
+/turf/simulated/floor/wood/walnut,
+/area/shuttle/decrepit_shipyard_shuttle)
+"gF" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	pixel_y = -28;
+	pixel_x = 7;
+	dir = 1
+	},
+/obj/machinery/airlock_sensor{
+	pixel_x = -7;
+	pixel_y = -28;
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/decrepit_shipyard_shuttle/starboard,
+/turf/simulated/floor,
+/area/shuttle/decrepit_shipyard_shuttle)
+"hd" = (
+/obj/effect/floor_decal/corner_wide/dark_blue/diagonal,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/decrepit_shipyard_shuttle)
+"hq" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/yellow,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/shuttle/decrepit_shipyard_shuttle)
+"hr" = (
+/obj/structure/bed/handrail{
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/map_effect/marker_helper/airlock/out,
+/obj/effect/map_effect/marker/airlock/shuttle/decrepit_shipyard_shuttle,
+/turf/simulated/floor,
+/area/shuttle/decrepit_shipyard_shuttle)
+"hL" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"hV" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 4
+	},
+/obj/structure/bed/stool/chair/shuttle/double{
+	pixel_x = 8
+	},
+/obj/structure/bed/stool/chair/shuttle/double{
+	pixel_x = -8
+	},
+/obj/effect/floor_decal/corner/black,
+/turf/simulated/floor/tiled,
+/area/shuttle/decrepit_shipyard_shuttle)
+"ih" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/obj/structure/sink{
+	dir = 4;
+	pixel_x = 12
+	},
+/turf/simulated/floor/wood/walnut,
+/area/shuttle/decrepit_shipyard_shuttle)
+"in" = (
+/turf/template_noop,
+/area/space)
+"iU" = (
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch_door/yellow{
+	dir = 4
+	},
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 8
+	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"iV" = (
+/obj/machinery/food_cart,
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/marble/dark,
+/area/shuttle/decrepit_shipyard_shuttle)
+"ju" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 1
+	},
+/turf/simulated/wall/shuttle/space_ship/industrial,
+/area/shuttle/decrepit_shipyard_shuttle)
+"jB" = (
+/obj/machinery/door/firedoor/noid,
+/obj/effect/floor_decal/industrial/hatch_door/yellow{
+	dir = 1
+	},
+/obj/machinery/door/airlock/maintenance_hatch,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"jU" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/shuttle/decrepit_shipyard_shuttle)
+"kc" = (
+/obj/machinery/computer/ship/helm/terminal{
+	dir = 1;
+	req_access = list(204)
+	},
+/obj/effect/floor_decal/industrial/outline/security,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"ko" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/map_effect/marker/airlock/shuttle/decrepit_shipyard_shuttle,
+/turf/simulated/floor,
+/area/shuttle/decrepit_shipyard_shuttle)
+"kx" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_straight/operations{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/shuttle/decrepit_shipyard_shuttle)
+"kH" = (
+/obj/effect/floor_decal/industrial/hatch_door/yellow{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 4
+	},
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/access_button{
+	pixel_x = 29;
+	pixel_y = 10;
+	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/map_effect/marker/airlock/shuttle/decrepit_shipyard_shuttle,
+/obj/effect/landmark/entry_point/aft,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"kM" = (
+/obj/effect/landmark/entry_point/port,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/shuttle/decrepit_shipyard_shuttle)
+"la" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 1
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"lc" = (
+/obj/machinery/computer/ship/sensors/terminal{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/security,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"lp" = (
+/obj/effect/floor_decal/industrial/hatch_door/yellow,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 10
+	},
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/machinery/access_button{
+	pixel_x = 8;
+	pixel_y = 30;
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/decrepit_shipyard_shuttle/starboard,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"lC" = (
+/obj/structure/bed/handrail{
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/map_effect/marker/airlock/shuttle/decrepit_shipyard_shuttle,
+/obj/machinery/light/small/decayed,
+/turf/simulated/floor,
+/area/shuttle/decrepit_shipyard_shuttle)
+"lE" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/blue,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/map_effect/marker/airlock/shuttle/decrepit_shipyard_shuttle,
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor,
+/area/shuttle/decrepit_shipyard_shuttle)
+"lI" = (
+/obj/effect/floor_decal/industrial/hatch_door/yellow{
+	dir = 1
+	},
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 1
+	},
+/obj/machinery/access_button{
+	pixel_x = 29;
+	pixel_y = 10;
+	dir = 1
+	},
+/obj/effect/landmark/entry_point/aft,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/map_effect/marker/airlock/shuttle/decrepit_shipyard_shuttle,
+/turf/simulated/floor/tiled/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"mC" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 6
+	},
+/turf/simulated/wall/shuttle/space_ship/industrial,
+/area/shuttle/decrepit_shipyard_shuttle)
+"mV" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/yellow{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/fuel_port/hydrogen{
+	pixel_x = 32
+	},
+/turf/simulated/floor,
+/area/shuttle/decrepit_shipyard_shuttle)
+"mX" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 1
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/effect/map_effect/marker_helper/airlock/out,
+/obj/effect/map_effect/marker/airlock/shuttle/decrepit_shipyard_shuttle,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"nk" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/shuttle/decrepit_shipyard_shuttle)
+"nn" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 1
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/shuttle/decrepit_shipyard_shuttle)
+"ny" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
+/obj/structure/extinguisher_cabinet/east,
+/obj/machinery/media/jukebox/audioconsole/wall{
+	pixel_y = -32
+	},
+/turf/simulated/floor/wood/walnut,
+/area/shuttle/decrepit_shipyard_shuttle)
+"nA" = (
+/obj/effect/floor_decal/industrial/hatch_door/yellow,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/access_button{
+	pixel_x = 8;
+	pixel_y = -30;
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/decrepit_shipyard_shuttle/port,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"nS" = (
+/obj/structure/table/reinforced/steel,
+/obj/machinery/alarm/north,
+/obj/item/paper_bin{
+	pixel_x = 7;
+	pixel_y = 8
+	},
+/obj/item/pen/black{
+	pixel_x = 4;
+	pixel_y = 3
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"oc" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/bed/handrail{
+	dir = 1
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/airlock_sensor/airlock_exterior{
+	pixel_x = 22;
+	dir = 8;
+	pixel_y = 6
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/obj/effect/map_effect/marker/airlock/shuttle/decrepit_shipyard_shuttle,
+/turf/simulated/floor/reinforced/airless,
+/area/shuttle/decrepit_shipyard_shuttle)
+"op" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux,
+/obj/structure/railing/mapped{
+	density = 0;
+	icon_state = "railing0-0";
+	dir = 1;
+	pixel_y = 10
+	},
+/obj/effect/map_effect/randomized_destruction/mild/high_range,
+/turf/simulated/floor/tiled/gridded,
+/area/shuttle/decrepit_shipyard_shuttle)
+"oq" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 6
+	},
+/turf/simulated/wall/shuttle/space_ship/industrial,
+/area/shuttle/decrepit_shipyard_shuttle)
+"or" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"oD" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 4
+	},
+/turf/simulated/floor/marble/dark,
+/area/shuttle/decrepit_shipyard_shuttle)
+"oK" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 6
+	},
+/turf/simulated/floor/marble/dark,
+/area/shuttle/decrepit_shipyard_shuttle)
+"oR" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/machinery/computer/ship/sensors/terminal{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"oZ" = (
+/obj/effect/floor_decal/industrial/hatch_door/yellow,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/decrepit_shipyard_shuttle/port,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"pt" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 1
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"pM" = (
+/obj/structure/table/fancy/red,
+/obj/item/material/ashtray{
+	pixel_x = -7;
+	pixel_y = 11
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/darkblue,
+/area/shuttle/decrepit_shipyard_shuttle)
+"pW" = (
+/obj/effect/floor_decal/industrial/hatch_door/yellow{
+	dir = 1
+	},
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/shuttle/decrepit_shipyard_shuttle,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"qt" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black{
+	dir = 8
+	},
+/obj/structure/table/reinforced/steel,
+/turf/simulated/floor/tiled/gridded,
+/area/shuttle/decrepit_shipyard_shuttle)
+"qu" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/device/binoculars{
+	pixel_x = 5;
+	pixel_y = 5
+	},
+/obj/item/device/flashlight/lamp{
+	pixel_y = 1;
+	pixel_x = -7
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"qD" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/yellow{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/obj/structure/fuel_port/hydrogen{
+	pixel_x = 32
+	},
+/turf/simulated/floor,
+/area/shuttle/decrepit_shipyard_shuttle)
+"rc" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
+/obj/machinery/airlock_sensor{
+	dir = 8;
+	pixel_x = 24;
+	pixel_y = 8
+	},
+/obj/effect/map_effect/marker/airlock/shuttle/decrepit_shipyard_shuttle,
+/turf/simulated/floor,
+/area/shuttle/decrepit_shipyard_shuttle)
+"rz" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 5
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/shuttle/decrepit_shipyard_shuttle)
+"rI" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/map_effect/marker/airlock/shuttle/decrepit_shipyard_shuttle,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"rP" = (
+/obj/structure/bed/handrail{
+	dir = 8
+	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/out,
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 8;
+	pixel_x = 24;
+	pixel_y = -8
+	},
+/obj/effect/map_effect/marker/airlock/shuttle/decrepit_shipyard_shuttle,
+/turf/simulated/floor,
+/area/shuttle/decrepit_shipyard_shuttle)
+"rX" = (
+/obj/effect/floor_decal/industrial/hatch_door/yellow,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/decrepit_shipyard_shuttle/starboard,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"sc" = (
+/obj/effect/floor_decal/corner_wide/dark_blue/diagonal,
+/obj/machinery/light/floor{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/decrepit_shipyard_shuttle)
+"sd" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/shuttle/decrepit_shipyard_shuttle,
+/turf/simulated/floor/reinforced/airless,
+/area/shuttle/decrepit_shipyard_shuttle)
+"sf" = (
+/obj/machinery/alarm/east,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 10
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor,
+/area/shuttle/decrepit_shipyard_shuttle)
+"sy" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/black,
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/effect/map_effect/randomized_destruction/mild/high_range,
+/turf/simulated/floor/tiled,
+/area/shuttle/decrepit_shipyard_shuttle)
+"sL" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 4
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/airlock_sensor/airlock_exterior{
+	pixel_x = 22;
+	dir = 8;
+	pixel_y = 6
+	},
+/obj/effect/map_effect/marker/airlock/shuttle/decrepit_shipyard_shuttle,
+/turf/simulated/floor/reinforced/airless,
+/area/shuttle/decrepit_shipyard_shuttle)
+"sO" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 10
+	},
+/turf/simulated/wall/shuttle/space_ship/industrial,
+/area/shuttle/decrepit_shipyard_shuttle)
+"sT" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/map_effect/marker/airlock/shuttle/decrepit_shipyard_shuttle,
+/obj/effect/floor_decal/industrial/outline_door/yellow{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/yellow{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/outline_segment/yellow{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"sX" = (
+/obj/effect/floor_decal/industrial/hatch_door/yellow{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/access_button{
+	pixel_y = 3;
+	pixel_x = 27
+	},
+/obj/machinery/airlock_sensor/airlock_interior{
+	pixel_y = -6;
+	pixel_x = 27
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/map_effect/marker/airlock/shuttle/decrepit_shipyard_shuttle,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"tj" = (
+/obj/effect/floor_decal/corner_wide/dark_blue/diagonal,
+/obj/structure/bed/stool/chair/office/bridge/generic,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/decrepit_shipyard_shuttle)
+"tq" = (
+/obj/structure/bed/stool/chair/office/bridge/generic,
+/obj/effect/floor_decal/industrial/outline_corner/operations,
+/turf/simulated/floor/tiled/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"tB" = (
+/obj/structure/table/stone/marble,
+/obj/random/pottedplant_small{
+	pixel_x = 10;
+	pixel_y = -1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"tH" = (
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow,
+/obj/machinery/atmospherics/binary/passive_gate/supply{
+	dir = 4;
+	name = "Air to Distro"
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/shuttle/decrepit_shipyard_shuttle)
+"tM" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/industrial,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"ug" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch_small/yellow,
+/obj/machinery/portable_atmospherics/canister/air,
+/obj/structure/cable/yellow{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor,
+/area/shuttle/decrepit_shipyard_shuttle)
+"uq" = (
+/obj/effect/landmark/entry_point/starboard,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/shuttle/decrepit_shipyard_shuttle)
+"uw" = (
+/obj/structure/railing/mapped{
+	density = 0;
+	icon_state = "railing0-0";
+	dir = 8
+	},
+/obj/structure/table/reinforced/steel,
+/obj/effect/floor_decal/corner/brown,
+/obj/effect/floor_decal/corner/black{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/shuttle/decrepit_shipyard_shuttle)
+"ux" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/machinery/computer/ship/sensors/terminal{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"vz" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 5
+	},
+/turf/simulated/wall/shuttle/space_ship/industrial,
+/area/shuttle/decrepit_shipyard_shuttle)
+"vR" = (
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch_door/yellow{
+	dir = 4
+	},
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"vU" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 5
+	},
+/turf/simulated/floor/marble/dark,
+/area/shuttle/decrepit_shipyard_shuttle)
+"wb" = (
+/obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
+	dir = 1
+	},
+/turf/template_noop,
+/area/space)
+"wy" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+	dir = 6
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/shuttle/decrepit_shipyard_shuttle)
+"wG" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/operations,
+/turf/simulated/floor/tiled/gridded,
+/area/shuttle/decrepit_shipyard_shuttle)
+"wP" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
+/obj/structure/curtain/open/bar,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"wR" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	density = 0;
+	icon_state = "railing0-0"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/shuttle/decrepit_shipyard_shuttle)
+"wT" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
+	},
+/obj/structure/bed/stool/chair/padded/beige,
+/turf/simulated/floor/wood/walnut,
+/area/shuttle/decrepit_shipyard_shuttle)
+"xi" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_door/yellow{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/yellow{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/outline_segment/yellow{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/light/floor/decayed,
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/shuttle/decrepit_shipyard_shuttle)
+"xn" = (
+/obj/structure/bed/stool/chair/shuttle/double{
+	pixel_x = -8;
+	dir = 1
+	},
+/obj/structure/bed/stool/chair/shuttle/double{
+	pixel_x = 8;
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 4
+	},
+/turf/simulated/floor/marble/dark,
+/area/shuttle/decrepit_shipyard_shuttle)
+"xA" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 1
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/effect/map_effect/randomized_destruction/mild/high_range,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"xG" = (
+/obj/structure/platform_stairs/south_north_solo{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"yg" = (
+/obj/machinery/atmospherics/pipe/tank/air{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/small/decayed{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/shuttle/decrepit_shipyard_shuttle)
+"yr" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+	dir = 1
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/shuttle/decrepit_shipyard_shuttle)
+"yw" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/blue{
+	dir = 4
+	},
+/obj/effect/map_effect/randomized_destruction/mild/high_range,
+/turf/simulated/floor/tiled,
+/area/shuttle/decrepit_shipyard_shuttle)
+"yV" = (
+/obj/effect/floor_decal/industrial/hatch_door/yellow,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/decrepit_shipyard_shuttle/starboard,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"zl" = (
+/obj/machinery/atmospherics/unary/engine,
+/turf/simulated/floor/airless,
+/area/shuttle/decrepit_shipyard_shuttle)
+"zo" = (
+/obj/effect/floor_decal/industrial/hatch_door/yellow{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/blue{
+	dir = 9
+	},
+/obj/machinery/door/airlock/external,
+/obj/machinery/access_button{
+	pixel_y = 3;
+	pixel_x = 27
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/airlock_sensor/airlock_interior{
+	pixel_y = -6;
+	pixel_x = 27
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/map_effect/marker/airlock/shuttle/decrepit_shipyard_shuttle,
+/turf/simulated/floor/tiled/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"zq" = (
+/obj/structure/table/stone/marble,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"zw" = (
+/obj/machinery/door/airlock/external,
+/obj/effect/floor_decal/industrial/hatch_door/yellow{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+	dir = 4
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/shuttle/decrepit_shipyard_shuttle,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"zO" = (
+/obj/effect/floor_decal/corner_wide/dark_blue/diagonal,
+/obj/machinery/light/floor{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
+/obj/structure/extinguisher_cabinet/north,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/decrepit_shipyard_shuttle)
+"zY" = (
+/obj/machinery/atmospherics/portables_connector,
+/obj/effect/floor_decal/industrial/hatch_small/yellow,
+/obj/machinery/light/small/decayed{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/shuttle/decrepit_shipyard_shuttle)
+"Ab" = (
+/obj/structure/railing/mapped{
+	density = 0;
+	icon_state = "railing0-0";
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch_small/yellow,
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 4
+	},
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/shuttle/decrepit_shipyard_shuttle)
+"Ah" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 1
+	},
+/turf/simulated/wall/shuttle/space_ship/industrial,
+/area/shuttle/decrepit_shipyard_shuttle)
+"Ap" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+	dir = 5
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/shuttle/decrepit_shipyard_shuttle)
+"AE" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"AG" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 8
+	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/effect/map_effect/marker/airlock/decrepit_shipyard_shuttle/port,
+/turf/simulated/floor,
+/area/shuttle/decrepit_shipyard_shuttle)
+"AL" = (
+/obj/structure/table/reinforced/steel,
+/obj/structure/lattice/catwalk/indoor/urban,
+/obj/machinery/atmospherics/pipe/simple/hidden/blue{
+	dir = 9
+	},
+/obj/item/device/binoculars{
+	pixel_x = 6;
+	pixel_y = -2
+	},
+/obj/structure/railing/mapped{
+	density = 0;
+	icon_state = "railing0-0"
+	},
+/turf/simulated/floor,
+/area/shuttle/decrepit_shipyard_shuttle)
+"AX" = (
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/wood/walnut,
+/area/shuttle/decrepit_shipyard_shuttle)
+"AY" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/machinery/computer/ship/helm/terminal{
+	dir = 1;
+	req_access = list(204)
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"AZ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/obj/structure/lattice/catwalk/indoor,
+/turf/simulated/floor,
+/area/shuttle/decrepit_shipyard_shuttle)
+"Bg" = (
+/obj/effect/floor_decal/industrial/warning/corner,
+/obj/item/hullbeacon/red,
+/turf/simulated/floor/reinforced/airless,
+/area/shuttle/decrepit_shipyard_shuttle)
+"Bk" = (
+/obj/effect/floor_decal/corner/brown,
+/obj/effect/floor_decal/corner/black{
+	dir = 4
+	},
+/obj/machinery/power/apc/north,
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 1
+	},
+/obj/structure/cable/yellow{
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/shuttle/decrepit_shipyard_shuttle)
+"Bn" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_door/yellow{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_segment/yellow,
+/obj/structure/bed/handrail{
+	dir = 1;
+	pixel_y = -3
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/shuttle/decrepit_shipyard_shuttle)
+"Bp" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 5
+	},
+/turf/simulated/floor/marble/dark,
+/area/shuttle/decrepit_shipyard_shuttle)
+"Bq" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/industrial,
+/obj/effect/landmark/entry_point/fore,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"Bs" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow,
+/obj/machinery/atmospherics/binary/pump/aux{
+	name = "Auxiliary Air to Airlock"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/shuttle/decrepit_shipyard_shuttle)
+"Bx" = (
+/obj/structure/platform_stairs/south_north_solo{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/blue{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor,
+/area/shuttle/decrepit_shipyard_shuttle)
+"BO" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/turf/simulated/wall/shuttle/space_ship/industrial,
+/area/shuttle/decrepit_shipyard_shuttle)
+"BU" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/shuttle/decrepit_shipyard_shuttle)
+"CD" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/clothing/head/helmet/pilot{
+	pixel_x = -6;
+	pixel_y = -6
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"CJ" = (
+/turf/simulated/wall/shuttle/space_ship/industrial,
+/area/shuttle/decrepit_shipyard_shuttle)
+"CN" = (
+/obj/structure/railing/mapped,
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/machinery/iff_beacon/name_change{
+	pixel_y = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/shuttle/decrepit_shipyard_shuttle)
+"CX" = (
+/obj/effect/floor_decal/industrial/hatch_door/yellow,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 6
+	},
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/machinery/access_button{
+	pixel_x = -8;
+	pixel_y = 30;
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/decrepit_shipyard_shuttle/port,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"CZ" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/red,
+/obj/effect/floor_decal/industrial/outline_straight/operations{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/shuttle/decrepit_shipyard_shuttle)
+"Dj" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 8
+	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"Du" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/shuttle/decrepit_shipyard_shuttle)
+"DD" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
+/obj/structure/bed/stool/chair/padded/beige{
+	dir = 1
+	},
+/turf/simulated/floor/wood/walnut,
+/area/shuttle/decrepit_shipyard_shuttle)
+"DJ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+	dir = 9
+	},
+/obj/structure/table/reinforced/steel,
+/obj/item/pipewrench{
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/obj/item/device/analyzer{
+	pixel_x = -4
+	},
+/obj/machinery/light/small/decayed{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/shuttle/decrepit_shipyard_shuttle)
+"DK" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	density = 0;
+	icon_state = "railing0-0";
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/hatch_small/yellow,
+/obj/machinery/light/colored/decayed{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/shuttle/decrepit_shipyard_shuttle)
+"DV" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/shuttle/decrepit_shipyard_shuttle)
+"Ef" = (
+/obj/structure/table/reinforced/steel,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"Ej" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/machinery/shipsensors/weak{
+	pixel_x = -2
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/shuttle/decrepit_shipyard_shuttle)
+"Ep" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 6
+	},
+/turf/simulated/floor/marble/dark,
+/area/shuttle/decrepit_shipyard_shuttle)
+"Eu" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/machinery/computer/shuttle_control/explore/terminal/decrepit_shipyard_shuttle{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"ED" = (
+/obj/machinery/computer/shuttle_control/explore/terminal/decrepit_shipyard_shuttle{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/security,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"Fj" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/yellow{
+	dir = 4
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/shuttle/decrepit_shipyard_shuttle)
+"Fk" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/shuttle/decrepit_shipyard_shuttle)
+"FH" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/red{
+	dir = 1
+	},
+/turf/simulated/wall/shuttle/space_ship/industrial,
+/area/shuttle/decrepit_shipyard_shuttle)
+"Gd" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/obj/structure/cable/yellow{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"Gr" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/machinery/hologram/holopad/long_range,
+/obj/effect/overmap/visitable/ship/landable/decrepit_shipyard_shuttle,
+/turf/simulated/floor/tiled,
+/area/shuttle/decrepit_shipyard_shuttle)
+"GD" = (
+/obj/machinery/power/apc/west,
+/obj/structure/cable/yellow{
+	icon_state = "0-4"
+	},
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	density = 0;
+	icon_state = "railing0-0";
+	dir = 1;
+	pixel_y = 10
+	},
+/turf/simulated/floor/marble/dark,
+/area/shuttle/decrepit_shipyard_shuttle)
+"GH" = (
+/obj/structure/bed/handrail{
+	dir = 8
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/map_effect/marker_helper/airlock/out,
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 8;
+	pixel_x = 24;
+	pixel_y = -8
+	},
+/obj/effect/map_effect/marker/airlock/shuttle/decrepit_shipyard_shuttle,
+/turf/simulated/floor,
+/area/shuttle/decrepit_shipyard_shuttle)
+"GV" = (
+/obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
+	dir = 4
+	},
+/turf/template_noop,
+/area/space)
+"GY" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/obj/structure/bed/stool/chair/padded/beige,
+/turf/simulated/floor/wood/walnut,
+/area/shuttle/decrepit_shipyard_shuttle)
+"Hh" = (
+/obj/effect/landmark/entry_point/starboard,
+/turf/simulated/wall/shuttle/space_ship/industrial,
+/area/shuttle/decrepit_shipyard_shuttle)
+"Hp" = (
+/obj/structure/bed/stool/chair/shuttle/double{
+	pixel_x = -8;
+	dir = 1
+	},
+/obj/structure/bed/stool/chair/shuttle/double{
+	pixel_x = 8;
+	dir = 1
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/shuttle/decrepit_shipyard_shuttle)
+"HO" = (
+/obj/machinery/door/airlock/external,
+/obj/effect/floor_decal/industrial/hatch_door/yellow{
+	dir = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/access_button{
+	pixel_x = 29;
+	pixel_y = 10;
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/shuttle/decrepit_shipyard_shuttle,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"HP" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/machinery/computer/ship/helm/terminal{
+	dir = 1;
+	req_access = list(204)
+	},
+/turf/simulated/floor/tiled/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"HU" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 1
+	},
+/turf/simulated/wall/shuttle/space_ship/industrial,
+/area/shuttle/decrepit_shipyard_shuttle)
+"HY" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/shuttle/decrepit_shipyard_shuttle,
+/obj/machinery/light/small/decayed{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/shuttle/decrepit_shipyard_shuttle)
+"If" = (
+/obj/machinery/atmospherics/pipe/tank/carbon_dioxide{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor,
+/area/shuttle/decrepit_shipyard_shuttle)
+"IU" = (
+/obj/effect/map_effect/marker/mapmanip/submap/extract/decrepit_shipyard/functional_shuttle,
+/turf/template_noop,
+/area/space)
+"Jk" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/universal,
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 4
+	},
+/turf/simulated/floor/marble/dark,
+/area/shuttle/decrepit_shipyard_shuttle)
+"Jn" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/shuttle/decrepit_shipyard_shuttle)
+"Jt" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/item/hullbeacon/red,
+/turf/simulated/floor/reinforced/airless,
+/area/shuttle/decrepit_shipyard_shuttle)
+"KA" = (
+/obj/effect/floor_decal/industrial/hatch_door/yellow{
+	dir = 1
+	},
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/shuttle/decrepit_shipyard_shuttle,
+/obj/effect/landmark/entry_point/aft,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"KN" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"Lj" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 4
+	},
+/turf/simulated/wall/shuttle/space_ship/industrial,
+/area/shuttle/decrepit_shipyard_shuttle)
+"Lt" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/universal,
+/obj/structure/extinguisher_cabinet/north,
+/obj/structure/railing/mapped{
+	density = 0;
+	icon_state = "railing0-0"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/shuttle/decrepit_shipyard_shuttle)
+"LM" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/shuttle/decrepit_shipyard_shuttle,
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"LU" = (
+/obj/structure/bed/stool/bar/padded/brown{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/obj/structure/bed/handrail{
+	dir = 8;
+	pixel_y = -3
+	},
+/turf/simulated/floor/wood/walnut,
+/area/shuttle/decrepit_shipyard_shuttle)
+"LV" = (
+/obj/structure/table/reinforced/steel,
+/obj/structure/railing/mapped{
+	density = 0;
+	icon_state = "railing0-0"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/blue{
+	dir = 5
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/obj/structure/extinguisher_cabinet/west,
+/turf/simulated/floor,
+/area/shuttle/decrepit_shipyard_shuttle)
+"Ma" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor,
+/area/shuttle/decrepit_shipyard_shuttle)
+"Mk" = (
+/obj/structure/bed/handrail{
+	dir = 8
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 8
+	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/airlock_sensor{
+	dir = 8;
+	pixel_x = 24;
+	pixel_y = 8
+	},
+/obj/effect/map_effect/marker/airlock/shuttle/decrepit_shipyard_shuttle,
+/obj/machinery/light/small/decayed,
+/turf/simulated/floor,
+/area/shuttle/decrepit_shipyard_shuttle)
+"Mt" = (
+/obj/effect/floor_decal/corner/brown,
+/obj/effect/floor_decal/corner/black{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_door/yellow{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_segment/yellow{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_straight/operations{
+	dir = 8
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/shuttle/decrepit_shipyard_shuttle)
+"Mx" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black{
+	dir = 8
+	},
+/obj/structure/bed/stool/chair/shuttle/double{
+	pixel_x = -8
+	},
+/obj/structure/bed/stool/chair/shuttle/double{
+	pixel_x = 8
+	},
+/obj/machinery/power/apc/north,
+/obj/machinery/atmospherics/pipe/manifold/hidden/blue{
+	dir = 4
+	},
+/obj/structure/cable/yellow{
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/decrepit_shipyard_shuttle)
+"Nc" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+	dir = 10
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/shuttle/decrepit_shipyard_shuttle)
+"Nf" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 8;
+	pixel_x = 24;
+	pixel_y = -8
+	},
+/obj/effect/map_effect/marker/airlock/shuttle/decrepit_shipyard_shuttle,
+/turf/simulated/floor,
+/area/shuttle/decrepit_shipyard_shuttle)
+"Nx" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 4
+	},
+/turf/simulated/floor/marble/dark,
+/area/shuttle/decrepit_shipyard_shuttle)
+"NJ" = (
+/obj/effect/floor_decal/industrial/hatch_door/yellow,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/access_button{
+	pixel_x = -8;
+	pixel_y = 30;
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/decrepit_shipyard_shuttle/starboard,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"NP" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 5
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/marble/dark,
+/area/shuttle/decrepit_shipyard_shuttle)
+"NS" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
+/obj/effect/landmark/entry_point/port,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"Oo" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/universal,
+/obj/effect/floor_decal/industrial/outline_door/yellow{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/yellow{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/outline_segment/yellow{
+	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/decrepit_shipyard_shuttle)
+"Oy" = (
+/obj/machinery/computer/ship/engines/terminal{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/security,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"OB" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 1
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/effect/map_effect/randomized_destruction/severe/low_range,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"Pm" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/shuttle/decrepit_shipyard_shuttle)
+"PF" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/shuttle/decrepit_shipyard_shuttle)
+"PI" = (
+/obj/structure/bed/handrail{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/out,
+/obj/effect/map_effect/marker/airlock/shuttle/decrepit_shipyard_shuttle,
+/turf/simulated/floor,
+/area/shuttle/decrepit_shipyard_shuttle)
+"PX" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/effect/map_effect/marker/airlock/decrepit_shipyard_shuttle/starboard,
+/turf/simulated/floor,
+/area/shuttle/decrepit_shipyard_shuttle)
+"PZ" = (
+/obj/structure/bed/handrail{
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/effect/map_effect/marker/airlock/shuttle/decrepit_shipyard_shuttle,
+/obj/machinery/light/small/decayed,
+/turf/simulated/floor,
+/area/shuttle/decrepit_shipyard_shuttle)
+"Qn" = (
+/obj/effect/floor_decal/industrial/hatch_door/yellow{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker/airlock/shuttle/decrepit_shipyard_shuttle,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"Qy" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/obj/structure/lattice/catwalk/indoor,
+/turf/simulated/floor,
+/area/shuttle/decrepit_shipyard_shuttle)
+"QA" = (
+/obj/structure/table/stone/marble,
+/obj/machinery/vending/boozeomat/bar{
+	pixel_y = 28;
+	req_access = null
+	},
+/obj/item/reagent_containers/food/drinks/shaker{
+	pixel_x = 9;
+	pixel_y = 15
+	},
+/obj/item/reagent_containers/food/drinks/shaker{
+	pixel_y = 15
+	},
+/obj/item/reagent_containers/glass/rag{
+	pixel_x = 9;
+	pixel_y = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"QJ" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor,
+/area/shuttle/decrepit_shipyard_shuttle)
+"QO" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/bed/handrail{
+	dir = 1
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/obj/effect/map_effect/marker/airlock/shuttle/decrepit_shipyard_shuttle,
+/turf/simulated/floor/reinforced/airless,
+/area/shuttle/decrepit_shipyard_shuttle)
+"QX" = (
+/obj/item/material/ashtray{
+	pixel_x = -6;
+	pixel_y = -3
+	},
+/obj/structure/table/fancy/red,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/darkblue,
+/area/shuttle/decrepit_shipyard_shuttle)
+"Ra" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 1
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"Rb" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
+/obj/effect/landmark/entry_point/starboard,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"Rp" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/turf/simulated/wall/shuttle/space_ship/industrial,
+/area/shuttle/decrepit_shipyard_shuttle)
+"Rt" = (
+/obj/structure/casino/roulette,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/darkblue,
+/area/shuttle/decrepit_shipyard_shuttle)
+"RE" = (
+/obj/structure/platform_stairs/south_north_solo{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/shuttle/decrepit_shipyard_shuttle)
+"RH" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"RJ" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/pipe/tank/air{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/shuttle/decrepit_shipyard_shuttle)
+"RN" = (
+/obj/random/pottedplant,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 9
+	},
+/turf/simulated/floor/marble/dark,
+/area/shuttle/decrepit_shipyard_shuttle)
+"RO" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"RP" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"RR" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/shuttle/decrepit_shipyard_shuttle)
+"RT" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/device/binoculars{
+	pixel_x = 6;
+	pixel_y = -2
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"Sb" = (
+/obj/effect/floor_decal/industrial/hatch_door/yellow,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/decrepit_shipyard_shuttle/port,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"Sj" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 9
+	},
+/obj/random/pottedplant,
+/obj/structure/railing/mapped{
+	density = 0;
+	icon_state = "railing0-0"
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/marble/dark,
+/area/shuttle/decrepit_shipyard_shuttle)
+"Sm" = (
+/obj/effect/floor_decal/corner_wide/dark_blue/diagonal,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/decrepit_shipyard_shuttle)
+"Ss" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/cable/yellow{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/shuttle/decrepit_shipyard_shuttle)
+"St" = (
+/obj/machinery/power/terminal,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch_small/yellow,
+/obj/machinery/portable_atmospherics/canister/air,
+/turf/simulated/floor/tiled/gridded,
+/area/shuttle/decrepit_shipyard_shuttle)
+"Sw" = (
+/obj/structure/table/fancy/red,
+/obj/random/pottedplant_small{
+	pixel_x = 8
+	},
+/turf/simulated/floor/carpet/darkblue,
+/area/shuttle/decrepit_shipyard_shuttle)
+"SV" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/railing/mapped,
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/machinery/shipsensors/weak{
+	pixel_x = -2
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/shuttle/decrepit_shipyard_shuttle)
+"SW" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"Tb" = (
+/obj/effect/landmark/entry_point/port,
+/turf/simulated/wall/shuttle/space_ship/industrial,
+/area/shuttle/decrepit_shipyard_shuttle)
+"Tn" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped,
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/machinery/iff_beacon/name_change{
+	pixel_x = 2
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/shuttle/decrepit_shipyard_shuttle)
+"Ts" = (
+/obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
+	dir = 8
+	},
+/turf/template_noop,
+/area/space)
+"TN" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/yellow{
+	dir = 8
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor,
+/area/shuttle/decrepit_shipyard_shuttle)
+"TO" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/obj/item/hullbeacon/red,
+/turf/simulated/floor/reinforced/airless,
+/area/shuttle/decrepit_shipyard_shuttle)
+"Uh" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow,
+/obj/machinery/atmospherics/binary/passive_gate/on{
+	name = "Air to Distro"
+	},
+/obj/machinery/alarm/west,
+/obj/structure/bed/handrail{
+	dir = 1;
+	pixel_y = -3
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/decrepit_shipyard_shuttle)
+"Un" = (
+/obj/effect/floor_decal/corner_wide/dark_blue/diagonal,
+/obj/structure/extinguisher_cabinet/north,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/decrepit_shipyard_shuttle)
+"Up" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/red{
+	dir = 1
+	},
+/obj/structure/lattice/catwalk/indoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor,
+/area/shuttle/decrepit_shipyard_shuttle)
+"UG" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux,
+/obj/machinery/light/floor/decayed{
+	dir = 1
+	},
+/obj/effect/map_effect/randomized_destruction/severe/low_range,
+/turf/simulated/floor/tiled/gridded,
+/area/shuttle/decrepit_shipyard_shuttle)
+"UJ" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_door/yellow{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_segment/yellow{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/outline_straight/operations{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/shuttle/decrepit_shipyard_shuttle)
+"UO" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow,
+/obj/machinery/atmospherics/binary/pump/high_power{
+	dir = 4;
+	name = "Propellant to Thrusters"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 1
+	},
+/obj/structure/bed/handrail,
+/obj/structure/fuel_port/hydrogen{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/shuttle/decrepit_shipyard_shuttle)
+"UV" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/shuttle/decrepit_shipyard_shuttle)
+"Vl" = (
+/obj/machinery/power/smes/buildable/third_party_shuttle,
+/obj/structure/cable/yellow{
+	icon_state = "0-4"
+	},
+/obj/machinery/light/small/decayed{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/shuttle/decrepit_shipyard_shuttle)
+"Vs" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/obj/machinery/light/colored/violet{
+	dir = 4
+	},
+/turf/simulated/floor/wood/walnut,
+/area/shuttle/decrepit_shipyard_shuttle)
+"Vu" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 9
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/shuttle/decrepit_shipyard_shuttle)
+"VW" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	density = 0;
+	icon_state = "railing0-0";
+	dir = 1;
+	pixel_y = 10
+	},
+/obj/effect/map_effect/randomized_destruction/mild/high_range,
+/turf/simulated/floor/tiled/gridded,
+/area/shuttle/decrepit_shipyard_shuttle)
+"Wo" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/shuttle/decrepit_shipyard_shuttle)
+"Wz" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 1
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/structure/curtain/open/bed{
+	name = "curtain"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"WD" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 8
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/shuttle/decrepit_shipyard_shuttle,
+/turf/simulated/floor/reinforced/airless,
+/area/shuttle/decrepit_shipyard_shuttle)
+"WP" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+	dir = 10
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/obj/machinery/light/small/decayed{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/shuttle/decrepit_shipyard_shuttle)
+"WU" = (
+/obj/machinery/atmospherics/pipe/tank/carbon_dioxide,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor,
+/area/shuttle/decrepit_shipyard_shuttle)
+"WY" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+	dir = 5
+	},
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor,
+/area/shuttle/decrepit_shipyard_shuttle)
+"Xo" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/turf/simulated/wall/shuttle/space_ship/industrial,
+/area/shuttle/decrepit_shipyard_shuttle)
+"Xp" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/railing/mapped,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/shuttle/decrepit_shipyard_shuttle)
+"Xu" = (
+/obj/random/pottedplant_small{
+	pixel_x = 8;
+	pixel_y = 10
+	},
+/obj/structure/table/fancy/red,
+/turf/simulated/floor/carpet/darkblue,
+/area/shuttle/decrepit_shipyard_shuttle)
+"XA" = (
+/obj/effect/floor_decal/corner_wide/dark_blue/diagonal,
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/machinery/hologram/holopad/long_range,
+/obj/effect/overmap/visitable/ship/landable/decrepit_shipyard_shuttle,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/decrepit_shipyard_shuttle)
+"XT" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/black,
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow,
+/obj/machinery/atmospherics/binary/pump/high_power{
+	dir = 8;
+	name = "Propellant to Thrusters"
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/decrepit_shipyard_shuttle)
+"XZ" = (
+/obj/structure/bed/stool/chair/padded/beige{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/darkblue,
+/area/shuttle/decrepit_shipyard_shuttle)
+"Yd" = (
+/obj/random/pottedplant,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+"YB" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/pipe/tank/air{
+	dir = 4
+	},
+/obj/machinery/light/colored/decayed{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/shuttle/decrepit_shipyard_shuttle)
+"YJ" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/red,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor,
+/area/shuttle/decrepit_shipyard_shuttle)
+"YQ" = (
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow,
+/obj/machinery/atmospherics/binary/pump/high_power{
+	dir = 8;
+	name = "Propellant to Thrusters"
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/shuttle/decrepit_shipyard_shuttle)
+"YX" = (
+/obj/structure/railing/mapped,
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/machinery/shipsensors/weak{
+	pixel_y = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/shuttle/decrepit_shipyard_shuttle)
+"Zp" = (
+/obj/machinery/atmospherics/pipe/tank/carbon_dioxide,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/gridded,
+/area/shuttle/decrepit_shipyard_shuttle)
+"ZE" = (
+/obj/effect/floor_decal/industrial/outline/operations,
+/obj/machinery/power/terminal{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/shuttle/decrepit_shipyard_shuttle)
+"ZL" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
+	},
+/turf/simulated/floor/wood/walnut,
+/area/shuttle/decrepit_shipyard_shuttle)
+"ZY" = (
+/obj/machinery/door/airlock/external,
+/obj/effect/floor_decal/industrial/hatch_door/yellow{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+	dir = 4
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/shuttle/decrepit_shipyard_shuttle,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/decrepit_shipyard_shuttle)
+
+(1,1,1) = {"
+in
+GV
+GV
+GV
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+"}
+(2,1,1) = {"
+dZ
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+IU
+in
+"}
+(3,1,1) = {"
+dZ
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+cH
+cH
+Fk
+Fk
+cH
+in
+in
+cH
+in
+in
+in
+in
+in
+"}
+(4,1,1) = {"
+dZ
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+zl
+nn
+nn
+rz
+cH
+cH
+uq
+cH
+cX
+BU
+in
+in
+in
+"}
+(5,1,1) = {"
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+oc
+cH
+cH
+cH
+PF
+ug
+dY
+YB
+cH
+cH
+RH
+cH
+in
+in
+"}
+(6,1,1) = {"
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+Jn
+eV
+hr
+lC
+dy
+Mx
+fp
+yw
+Uh
+LV
+fc
+RH
+RH
+in
+"}
+(7,1,1) = {"
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+ay
+lI
+sT
+ko
+lE
+zo
+Oo
+WY
+QJ
+Gr
+Bx
+tq
+HP
+dv
+in
+"}
+(8,1,1) = {"
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+Jn
+nk
+GH
+cu
+PF
+hV
+XT
+sy
+ds
+AL
+ux
+RH
+RH
+in
+"}
+(9,1,1) = {"
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+QO
+cH
+cH
+cH
+PF
+WU
+qD
+DK
+cH
+cH
+RH
+cH
+in
+in
+"}
+(10,1,1) = {"
+dZ
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+zl
+nn
+nn
+Vu
+cH
+cH
+kM
+cH
+Ej
+Xp
+in
+in
+wb
+"}
+(11,1,1) = {"
+dZ
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+cH
+cH
+UV
+UV
+cH
+in
+in
+cH
+in
+in
+in
+in
+wb
+"}
+(12,1,1) = {"
+dZ
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+wb
+"}
+(13,1,1) = {"
+in
+Ts
+Ts
+Ts
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+Ts
+Ts
+Ts
+in
+"}
+(14,1,1) = {"
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+"}
+(15,1,1) = {"
+in
+GV
+GV
+GV
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+"}
+(16,1,1) = {"
+dZ
+in
+in
+in
+in
+in
+in
+in
+in
+in
+CJ
+CJ
+CJ
+ax
+Hh
+NJ
+rX
+CJ
+in
+in
+in
+in
+in
+IU
+in
+"}
+(17,1,1) = {"
+dZ
+in
+in
+in
+in
+in
+in
+in
+in
+zl
+vz
+If
+CJ
+Lj
+CJ
+PX
+gF
+CJ
+CJ
+Jt
+Wo
+CJ
+in
+in
+in
+"}
+(18,1,1) = {"
+dZ
+in
+in
+in
+in
+in
+in
+in
+in
+zl
+aT
+WP
+TN
+Ab
+CJ
+lp
+yV
+CJ
+CJ
+CJ
+CJ
+CJ
+CJ
+CJ
+in
+"}
+(19,1,1) = {"
+in
+in
+in
+in
+in
+in
+in
+in
+oq
+HU
+Ah
+ju
+UO
+CZ
+kx
+UJ
+Bn
+qt
+CJ
+Ef
+aq
+tM
+tM
+CN
+in
+"}
+(20,1,1) = {"
+in
+in
+in
+in
+in
+in
+in
+in
+FH
+PI
+PZ
+Rp
+Lt
+jU
+Bs
+Ss
+op
+Hp
+tM
+XA
+tj
+oR
+tM
+bl
+in
+"}
+(21,1,1) = {"
+in
+in
+in
+in
+in
+in
+in
+ay
+kH
+eL
+rI
+sX
+xi
+Up
+YJ
+Ma
+UG
+cU
+CJ
+zO
+tj
+AY
+Bq
+bl
+in
+"}
+(22,1,1) = {"
+in
+in
+in
+in
+in
+in
+in
+in
+sO
+rP
+Mk
+BO
+wR
+wG
+ZE
+DV
+VW
+RE
+jB
+Sm
+hd
+Eu
+tM
+bl
+in
+"}
+(23,1,1) = {"
+in
+in
+in
+in
+in
+in
+in
+in
+CJ
+CJ
+mC
+Xo
+Bk
+eM
+cW
+Mt
+aN
+uw
+CJ
+nS
+RT
+tM
+tM
+YX
+in
+"}
+(24,1,1) = {"
+dZ
+in
+in
+in
+in
+in
+in
+in
+in
+zl
+aT
+ba
+sf
+eM
+CJ
+CX
+Sb
+CJ
+CJ
+CJ
+CJ
+CJ
+CJ
+CJ
+wb
+"}
+(25,1,1) = {"
+dZ
+in
+in
+in
+in
+in
+in
+in
+in
+zl
+dt
+RJ
+CJ
+Lj
+CJ
+gr
+AG
+CJ
+CJ
+cE
+Du
+CJ
+in
+in
+wb
+"}
+(26,1,1) = {"
+dZ
+in
+in
+in
+in
+in
+in
+in
+in
+in
+CJ
+CJ
+CJ
+sd
+Tb
+oZ
+nA
+CJ
+in
+in
+in
+in
+in
+in
+wb
+"}
+(27,1,1) = {"
+in
+Ts
+Ts
+Ts
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+Ts
+Ts
+Ts
+in
+"}
+(28,1,1) = {"
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+"}
+(29,1,1) = {"
+in
+GV
+GV
+GV
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+"}
+(30,1,1) = {"
+dZ
+in
+in
+in
+cH
+cH
+cH
+cH
+cH
+sL
+Jt
+Wo
+cH
+Wo
+Jt
+Wo
+cH
+Wo
+BU
+cH
+cH
+in
+in
+IU
+in
+"}
+(31,1,1) = {"
+dZ
+in
+in
+zl
+Ap
+yg
+St
+Vl
+cH
+RR
+RH
+cH
+cH
+cH
+Rb
+cH
+cH
+cH
+TO
+BU
+in
+in
+in
+in
+in
+"}
+(32,1,1) = {"
+dZ
+in
+in
+zl
+hq
+tH
+AZ
+Qy
+cH
+wT
+QX
+fN
+cH
+fq
+pM
+fN
+Yd
+cH
+RH
+cH
+cH
+cH
+cH
+Tn
+in
+"}
+(33,1,1) = {"
+in
+in
+cH
+cH
+Nc
+Pm
+cH
+iU
+cH
+cY
+Xu
+DD
+cH
+GY
+Sw
+DD
+hL
+GD
+iV
+cH
+qu
+Oy
+RH
+RH
+in
+"}
+(34,1,1) = {"
+in
+in
+pW
+HY
+HY
+zw
+dP
+Dj
+NP
+Nx
+Jk
+oK
+wP
+Bp
+oD
+Ep
+hL
+vU
+xn
+cH
+Un
+tj
+lc
+RH
+in
+"}
+(35,1,1) = {"
+in
+ay
+KA
+mX
+LM
+Qn
+RP
+Gd
+SW
+la
+Ra
+or
+Wz
+xA
+OB
+xA
+pt
+KN
+gh
+cH
+sc
+tj
+kc
+dv
+in
+"}
+(36,1,1) = {"
+in
+in
+HO
+Nf
+rc
+ZY
+RO
+hL
+Sj
+ZL
+bd
+ad
+wP
+LU
+gE
+gE
+ad
+AE
+xG
+jB
+Sm
+XA
+ED
+RH
+in
+"}
+(37,1,1) = {"
+in
+in
+cH
+cH
+wy
+Fj
+yr
+vR
+cH
+gt
+eQ
+XZ
+cH
+QA
+zq
+tB
+AX
+RN
+bD
+cH
+nS
+CD
+RH
+RH
+in
+"}
+(38,1,1) = {"
+dZ
+in
+in
+zl
+hq
+Zp
+cF
+YQ
+cH
+gt
+Rt
+XZ
+cH
+ih
+Vs
+cw
+ny
+cH
+RH
+cH
+cH
+cH
+cH
+SV
+wb
+"}
+(39,1,1) = {"
+dZ
+in
+in
+zl
+fj
+zY
+mV
+DJ
+cH
+RR
+RH
+cH
+cH
+cH
+NS
+cH
+cH
+cH
+Bg
+Xp
+in
+in
+in
+in
+wb
+"}
+(40,1,1) = {"
+dZ
+in
+in
+in
+cH
+cH
+cH
+cH
+cH
+WD
+cE
+Du
+cH
+Du
+cE
+Du
+cH
+Du
+Xp
+cH
+cH
+in
+in
+in
+wb
+"}
+(41,1,1) = {"
+in
+Ts
+Ts
+Ts
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+in
+Ts
+Ts
+Ts
+in
+"}
