@@ -81,6 +81,7 @@
 	chews["Weibi's Breeze chewing tobacco"] = /obj/item/storage/chewables/tobacco/dyn
 	chews["box of Nico-Tine gum"] = /obj/item/storage/box/fancy/chewables/tobacco/nico
 	chews["Ha'zana chewing koko"] = /obj/item/storage/chewables/tobacco/koko
+	chews["solar salve"] = /obj/item/storage/chewables/solar_salve
 	gear_tweaks += new /datum/gear_tweak/path(chews)
 
 /datum/gear/drugs_meds/leaves
