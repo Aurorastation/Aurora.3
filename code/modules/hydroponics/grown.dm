@@ -25,7 +25,7 @@
 	src.pixel_y = rand(-5.0, 5)
 
 	// Fill the object up with the appropriate reagents.
-	if(planttype)
+	if(planttype && !seed)
 		plantname = planttype
 
 	if(!plantname)

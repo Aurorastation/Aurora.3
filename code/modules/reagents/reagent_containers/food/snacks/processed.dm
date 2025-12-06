@@ -490,10 +490,9 @@
 	. = ..()
 	// Check if something else set the flavor first
 	// IE: Persistence
-	if(flavor != null)
-		return
+	if(!flavor)
+		set_flavor()
 
-	set_flavor()
 	reagent_data[/singleton/reagent/nutriment][flavor] = 9
 
 /obj/item/reagent_containers/food/snacks/liquidfood/set_flavor()
