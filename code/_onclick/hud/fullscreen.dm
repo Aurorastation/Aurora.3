@@ -159,6 +159,9 @@
 	screen_loc = ui_entire_screen
 	alpha = 100
 
+/atom/movable/screen/fullscreen/blueprints/less_alpha
+	alpha = 35
+
 /atom/movable/screen/fullscreen/lighting_backdrop
 	icon = 'icons/mob/screen/white.dmi'
 	icon_state = "flash"
