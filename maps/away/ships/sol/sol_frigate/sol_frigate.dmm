@@ -8301,7 +8301,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/reinforced/airless,
 /area/ship/sol_frigate/Port_docking_port)
 "LK" = (
 /obj/machinery/light,
