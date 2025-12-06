@@ -13,12 +13,12 @@
 	fire_delay = 6
 	burst_delay = 3
 	accuracy = -1
-	can_turret = 1
+	can_turret = TRUE
 	secondary_projectile_type = /obj/projectile/beam
 	secondary_fire_sound = 'sound/weapons/laser1.ogg'
-	can_switch_modes = 1
+	can_switch_modes = TRUE
 	turret_sprite_set = "carbine"
-	turret_is_lethal = 0
+	turret_is_lethal = FALSE
 	has_item_ratio = FALSE
 
 	fire_delay_wielded = 5
@@ -52,9 +52,9 @@
 	projectile_type = /obj/projectile/beam/midlaser
 	secondary_projectile_type = null
 	secondary_fire_sound = null
-	can_switch_modes = 0
+	can_switch_modes = FALSE
 	turret_sprite_set = "laser"
-	turret_is_lethal = 1
+	turret_is_lethal = TRUE
 
 	firemodes = list()
 	modifystate = null
@@ -106,9 +106,9 @@
 	accuracy = -2
 	secondary_projectile_type = null
 	secondary_fire_sound = null
-	can_switch_modes = 0
+	can_switch_modes = FALSE
 	turret_sprite_set = "cannon"
-	turret_is_lethal = 1
+	turret_is_lethal = TRUE
 
 	modifystate = "lasercannon"
 
@@ -130,9 +130,9 @@
 	burst_delay = 6
 	secondary_projectile_type = null
 	secondary_fire_sound = null
-	can_switch_modes = 0
+	can_switch_modes = FALSE
 	turret_sprite_set = "xray"
-	turret_is_lethal = 1
+	turret_is_lethal = TRUE
 
 /obj/item/gun/energy/rifle/pulse
 	name = "pulse rifle"
@@ -146,9 +146,9 @@
 	origin_tech = list(TECH_COMBAT = 7, TECH_MATERIAL = 6, TECH_MAGNET = 4)
 	secondary_projectile_type = /obj/projectile/beam/pulse
 	secondary_fire_sound = 'sound/weapons/pulse.ogg'
-	can_switch_modes = 0
+	can_switch_modes = FALSE
 	turret_sprite_set = "pulse"
-	turret_is_lethal = 1
+	turret_is_lethal = TRUE
 
 	modifystate = null
 
@@ -184,8 +184,8 @@
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 3, TECH_MAGNET = 2, TECH_ILLEGAL = 2)
 	secondary_projectile_type = null
 	secondary_fire_sound = null
-	can_switch_modes = 0
-	can_turret = 0
+	can_switch_modes = FALSE
+	can_turret = FALSE
 	zoomdevicename = "rifle scope"
 	var/atom/movable/screen/overlay = null
 
@@ -217,7 +217,7 @@
 	slot_flags = SLOT_BACK
 	charge_cost = 300
 	max_shots = 4
-	can_turret = 1
+	can_turret = TRUE
 	turret_sprite_set = "ion"
 	firemodes = list()
 
@@ -226,10 +226,10 @@
 
 /obj/item/gun/energy/rifle/ionrifle/mounted
 	name = "mounted ion rifle"
-	self_recharge = 1
-	use_external_power = 1
+	self_recharge = TRUE
+	use_external_power = TRUE
 	recharge_time = 10
-	can_turret = 0
+	can_turret = FALSE
 
 /obj/item/gun/energy/rifle/laser/qukala
 	name = "geop cannon"

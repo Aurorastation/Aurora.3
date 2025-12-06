@@ -13,8 +13,8 @@
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 	projectile_type = /obj/projectile/beam/midlaser
-	can_turret = 1
-	turret_is_lethal = 1
+	can_turret = TRUE
+	turret_is_lethal = TRUE
 	turret_sprite_set = "laser"
 
 	modifystate = "laserrifle"
@@ -50,8 +50,8 @@
 	offhand_accuracy = 1
 	projectile_type = /obj/projectile/beam
 	fire_delay = 5
-	can_turret = 1
-	turret_is_lethal = 1
+	can_turret = TRUE
+	turret_is_lethal = TRUE
 	turret_sprite_set = "retro"
 
 	modifystate = "retro"
@@ -71,9 +71,9 @@
 	projectile_type = /obj/projectile/beam
 	origin_tech = null
 	max_shots = 5 //to compensate a bit for self-recharging
-	self_recharge = 1
-	can_turret = 1
-	turret_is_lethal = 1
+	self_recharge = TRUE
+	can_turret = TRUE
+	turret_is_lethal = TRUE
 	turret_sprite_set = "captain"
 
 /obj/item/gun/energy/captain/mechanics_hints(mob/user, distance, is_adjacent)
@@ -94,18 +94,18 @@
 	charge_cost = 400
 	max_shots = 5
 	fire_delay = 20
-	can_turret = 1
-	turret_is_lethal = 1
+	can_turret = TRUE
+	turret_is_lethal = TRUE
 	turret_sprite_set = "cannon"
 
 	modifystate = "lasercannon"
 
 /obj/item/gun/energy/lasercannon/mounted
 	name = "mounted laser cannon"
-	self_recharge = 1
-	use_external_power = 1
+	self_recharge = TRUE
+	use_external_power = TRUE
 	recharge_time = 10
-	can_turret = 0
+	can_turret = FALSE
 
 /obj/item/gun/energy/lasercannon/mounted/cyborg/overclocked
 	recharge_time = 1
@@ -126,17 +126,17 @@
 	max_shots = 20
 	fire_delay = 4
 	burst_delay = 4
-	can_turret = 1
-	turret_is_lethal = 1
+	can_turret = TRUE
+	turret_is_lethal = TRUE
 	turret_sprite_set = "xray"
 
 /obj/item/gun/energy/xray/mounted
 	name = "mounted xray laser gun"
 	charge_cost = 200
-	self_recharge = 1
-	use_external_power = 1
+	self_recharge = TRUE
+	use_external_power = TRUE
 	recharge_time = 5
-	can_turret = 0
+	can_turret = FALSE
 
 /obj/item/gun/energy/sniperrifle
 	name = "marksman energy rifle"
@@ -156,9 +156,9 @@
 	w_class = WEIGHT_CLASS_BULKY
 	accuracy = -3 //shooting at the hip
 	scoped_accuracy = 4
-	can_turret = 1
+	can_turret = TRUE
 	turret_sprite_set = "sniper"
-	turret_is_lethal = 1
+	turret_is_lethal = TRUE
 
 	is_wieldable = TRUE
 
