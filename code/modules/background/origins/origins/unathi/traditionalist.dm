@@ -65,9 +65,9 @@
 /singleton/origin_item/origin/wastelander/on_apply(var/mob/living/carbon/human/H)
 	. = ..()
 	EnsureComponent(H, /datum/component/armor, armor_component)
-	armor_component[RAD] += ARMOR_RAD_MINOR
+	armor_component.armor_values[RAD] += ARMOR_RAD_MINOR
 
 /singleton/origin_item/origin/wastelander/on_remove(mob/living/carbon/human/H)
 	. = ..()
 	TryComponentOrReturn(H, /datum/component/armor, armor_component, ..())
-	armor_component[RAD] -= ARMOR_RAD_MINOR
+	armor_component.armor_values[RAD] -= ARMOR_RAD_MINOR
