@@ -400,20 +400,10 @@
 
 	/// Psionics and psionically deaf species take varying amounts of damage from psionic abilities.
 	if(psionic)
-		if(!owner.has_psionics())
-			brute *= 0.9
-			burn *= 0.9
-		else if(owner.psi)
-			var/psi_rank = owner.psi.get_rank()
-			if(psi_rank == PSI_RANK_SENSITIVE)
-				brute *= 1.05
-				burn *= 1.05
-			else if(psi_rank == PSI_RANK_HARMONIOUS)
-				brute *= 1.1
-				burn *= 1.1
-			else if(psi_rank == PSI_RANK_APEX)
-				brute *= 1.2
-				burn *= 1.2
+		// Damage modifier is 0.9 for no psionics at all, 1 for baseline psychic, and an extra 0.1 per equivalent rank above baseline.
+		var/psi_damage_modifier = 1 + (0.1 * (owner.check_psi_sensitivity() - 1))
+		brute *= psi_damage_modifier
+		burn *= psi_damage_modifier
 
 	if(status & ORGAN_BROKEN && prob(40) && brute)
 		if(owner && (owner.can_feel_pain()) && owner.stat == CONSCIOUS)
