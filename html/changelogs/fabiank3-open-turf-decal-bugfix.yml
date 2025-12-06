@@ -1,0 +1,8 @@
+author: FabianK3
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed white coloring after cleaning open turfs."
+  - bugfix: "Fixed cleanable decals not getting auto deleted on open turfs."
+  - code_imp: "Refactored cleanable decals to update above turfs mimic if it's an open turf."
