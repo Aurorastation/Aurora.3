@@ -133,6 +133,7 @@
 #define ACCENT_TITANIA "Titanii"
 #define ACCENT_MERCURY "Mercurian"
 #define ACCENT_ERIS "Erisian"
+#define ACCENT_SANKT_FREDERICK "Sankt Frederick"
 
 #define ACCENT_REPUBICLANSIIK "Republican Siik'maas"
 #define ACCENT_NAZIRASIIK "Nazira Siik'maas"
