@@ -18,6 +18,8 @@
 
 	var/sealed = FALSE // Used with ARMOR_TYPE_RIG.
 
+	dupe_mode = COMPONENT_DUPE_UNIQUE
+
 /datum/component/armor/Initialize(list/armor, armor_type)
 	..()
 	if(armor)
