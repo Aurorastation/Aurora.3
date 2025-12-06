@@ -1,130 +1,85 @@
-GLOBAL_DATUM_INIT(revdata, /datum/getrev, new())
-
-/hook/startup/proc/initialize_test_merges()
-	if (!GLOB.revdata)
-		LOG_DEBUG("GETREV: No rev found.")
-		return TRUE
-
-	GLOB.revdata.testmerge_initialize()
-
-	return TRUE
+GLOBAL_DATUM_INIT(revdata, /datum/getrev, new)
 
 /datum/getrev
-	var/branch
-	var/revision
+	var/commit
 	var/date
-	var/showinfo
-	var/list/datum/tgs_revision_information/test_merge/test_merges
-	var/greeting_info
+	var/originmastercommit
+	var/list/testmerge = list()
 
 /datum/getrev/New()
-	var/list/head_branch = file2list(".git/HEAD", "\n")
-	if(head_branch.len)
-		branch = copytext(head_branch[1], 17)
+	commit = rustg_git_revparse("HEAD")
+	if (commit)
+		date = rustg_git_commit_date(commit)
+	originmastercommit = rustg_git_revparse("origin/master")
 
-	var/list/head_log = file2list(".git/logs/HEAD", "\n")
-	for(var/line=head_log.len, line>=1, line--)
-		if(head_log[line])
-			var/list/last_entry = text2list(head_log[line], " ")
-			if(last_entry.len < 2)	continue
-			revision = last_entry[2]
-			// Get date/time
-			if(last_entry.len >= 5)
-				var/unix_time = text2num(last_entry[5])
-				if(unix_time)
-					date = unix2date(unix_time)
-			break
+/datum/getrev/proc/load_tgs_info()
+	testmerge = world.TgsTestMerges()
+	var/datum/tgs_revision_information/revinfo = world.TgsRevision()
+	if (revinfo)
+		commit = revinfo.commit
+		date = revinfo.timestamp || rustg_git_commit_date(commit)
+		originmastercommit = revinfo.origin_commit
 
-	world.log << "Running revision:"
-	world.log << branch
-	world.log << date
-	world.log << revision
+	// Goes to DD log and config_error.txt
+	log_world(get_log_message())
+
+/datum/getrev/proc/get_log_message()
+	var/list/msg = list()
+	msg += "Server Revision Information: [date]"
+	if (originmastercommit)
+		msg += " (origin/master: [originmastercommit])"
+
+	for(var/line in testmerge)
+		var/datum/tgs_revision_information/test_merge/tm = line
+		msg += "Test merge active of PR #[tm.number] commit [tm.head_commit]"
+
+	if (commit && commit != originmastercommit)
+		msg += "HEAD: [commit]"
+	else if (!originmastercommit)
+		msg += "No commit information available."
+
+	return msg.Join("\n")
+
+/datum/getrev/proc/GetTestMergeInfo(header = TRUE)
+	if (!length(testmerge))
+		return ""
+	. = header ? "The following PRs are currently test-merged on the server:<br>" : ""
+	for (var/line in testmerge)
+		var/datum/tgs_revision_information/test_merge/tm = line
+		var/cm = tm.head_commit
+		var/details = ": '" + html_encode(tm.title) + "' by " + html_encode(tm.author) + " at commit " + html_encode(copytext_char(cm, 1, 11))
+		. += "<a href=\"[GLOB.config.githuburl]/pull/[tm.number]\">#[tm.number][details]</a><br>"
 
 /client/verb/showrevinfo()
 	set category = "OOC"
 	set name = "Show Server Revision"
 	set desc = "Check the current server code revision"
 
-	if(GLOB.revdata.revision)
-		to_chat(src, "<b>Server revision:</b> [GLOB.revdata.branch] - [GLOB.revdata.date]")
-		if(GLOB.config.githuburl)
-			to_chat(src, "<a href='[GLOB.config.githuburl]/commit/[GLOB.revdata.revision]'>[GLOB.revdata.revision]</a>")
-		else
-			to_chat(src, GLOB.revdata.revision)
+	var/list/msg = list()
+	// BYOND info
+	msg += "<b>BYOND Version:</b> [world.byond_version].[world.byond_build]"
+	if(DM_VERSION != world.byond_version || DM_BUILD != world.byond_build)
+		msg += "<i>Compiled with BYOND Version:</i> [DM_VERSION].[DM_BUILD]"
+
+	// Rev info
+	var/datum/getrev/revdata = GLOB.revdata
+	msg += "<br><b>Server Revision Info:</b>"
+	msg += "Server revision compiled on: [revdata.date]"
+	var/pc = revdata.originmastercommit
+	if(pc)
+		msg += "Master commit: <a href=\"[GLOB.config.githuburl]/commit/[pc]\">[pc]</a>"
+	if(length(revdata.testmerge))
+		msg += revdata.GetTestMergeInfo()
+	if(revdata.commit && revdata.commit != revdata.originmastercommit)
+		msg += "Local commit: [revdata.commit]"
+	else if(!pc)
+		msg += SPAN_ALERT("No commit information available!")
+	if(world.TgsAvailable())
+		var/datum/tgs_version/version = world.TgsVersion()
+		msg += "TGS version: [version.raw_parameter]"
+		var/datum/tgs_version/api_version = world.TgsApiVersion()
+		msg += "DMAPI version: [api_version.raw_parameter]"
 	else
-		to_chat(src, "Revision unknown")
+		msg += SPAN_ALERT("TGS API not available!")
 
-	to_chat(src, "<b>Current Map:</b> [SSatlas.current_map.full_name]")
-
-/datum/getrev/proc/testmerge_overview()
-	if (!test_merges.len)
-		return
-
-	var/list/out = list("<br><center><font color='purple'><b>PRs test-merged for this round:</b><br>")
-
-	for (var/TM in test_merges)
-		out += testmerge_short_overview(TM)
-
-	out += "</font></center><br>"
-
-	return out.Join()
-
-/datum/getrev/proc/generate_greeting_info()
-	if (!test_merges.len)
-		greeting_info = {"<div class="alert alert-info">
-						There are currently no test merges loaded onto the server.
-						</div>"}
-		return
-
-	var/list/out = list("<p>There are currently [test_merges.len] PRs being tested live.</p>",
-		{"<table class="table table-hover">"}
-	)
-
-	for (var/TM in test_merges)
-		out += testmerge_long_oveview(TM)
-
-	out += "</table>"
-
-	greeting_info = out.Join()
-
-/datum/getrev/proc/testmerge_initialize()
-	var/datum/tgs_api/api = TGS_READ_GLOBAL(tgs)
-
-	if (api)
-		LOG_DEBUG("GETREV: TGS API found.")
-		test_merges = api.TestMerges()
-		LOG_DEBUG("GETREV: [test_merges.len] test merges found.")
-	else
-		LOG_DEBUG("GETREV: No TGS API found.")
-		test_merges = list()
-
-	generate_greeting_info()
-
-/datum/getrev/proc/testmerge_short_overview(datum/tgs_revision_information/test_merge/tm)
-	. = list()
-
-	. += "<hr><p>PR #[tm.number]: \"[html_encode(tm.title)]\""
-	. += "<br>\tAuthor: [html_encode(tm.author)]"
-
-	if (GLOB.config.githuburl)
-		. += "<br>\t<a href='[GLOB.config.githuburl]pull/[tm.number]'>\[Details...\]</a>"
-
-	. += "</p>"
-
-/datum/getrev/proc/testmerge_long_oveview(datum/tgs_revision_information/test_merge/tm)
-	var/divid = "pr[tm.number]"
-
-	. = list()
-	. += {"<tr data-toggle="collapse" data-target="#[divid]" class="clickable">"}
-	. += {"<th>PR #[tm.number] - [html_encode(tm.title)]</th>"}
-	. += {"</tr><tr><td class="hiddenRow"><div id="[divid]" class="collapse">"}
-	. += {"<table class="table">"}
-	. += {"<tr><th>Author:</th><td>[html_encode(tm.author)]</td></tr>"}
-
-	if (GLOB.config.githuburl)
-		. += {"<tr><td colspan="2"><a href="byond://?JSlink=github;pr=[tm.number]">Link to GitHub</a></td></tr>"}
-
-	. += {"<tr><th>Description:</th><td>[html_encode(tm.body)]</td></tr>"}
-	if(tm.comment)
-		. += {"<tr><th>Comment:</th><td>[html_encode(tm.comment)]</td></tr>"}
-	. += {"</table></div></td></tr>"}
+	to_chat(src, SPAN_INFO(msg.Join("<br>")))
