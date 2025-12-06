@@ -318,7 +318,7 @@
 	else if(component_type == /datum/component)
 		CRASH("[component_type] attempted instantiation!")
 
-	var/dupe_mode = initial(component_type.dupe_mode)
+	var/dupe_mode = component_type.dupe_mode
 	var/uses_sources = (dupe_mode == COMPONENT_DUPE_SOURCES)
 	if(uses_sources && !source)
 		CRASH("Attempted to add a sourced component of type '[component_type]' to '[type]' without a source!")

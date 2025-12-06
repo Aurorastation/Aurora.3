@@ -66,12 +66,19 @@
 
 /singleton/origin_item/origin/gadpathur/on_apply(var/mob/living/carbon/human/H)
 	. = ..()
-	H.AddComponent(/datum/component/armor, list(RAD = ARMOR_RAD_MINOR))
+	if (!H)
+		return
+
+	EnsureComponent(H, /datum/component/armor, armor_component)
+	armor_component.armor_values[RAD] += ARMOR_RAD_MINOR
 
 /singleton/origin_item/origin/gadpathur/on_remove(mob/living/carbon/human/H)
 	. = ..()
-	var/datum/component/armor/armor_component = H.GetComponent(/datum/component/armor)
-	qdel(armor_component)
+	if (!H)
+		return
+
+	TryComponentOrReturn(H, /datum/component/armor, armor_component, ..())
+	armor_component.armor_values[RAD] -= ARMOR_RAD_MINOR
 
 /singleton/origin_item/origin/gadpathur_exile
 	name = "Gadpathurian Exile"
@@ -84,12 +91,19 @@
 
 /singleton/origin_item/origin/gadpathur_exile/on_apply(var/mob/living/carbon/human/H)
 	. = ..()
-	H.AddComponent(/datum/component/armor, list(RAD = ARMOR_RAD_MINOR))
+	if (!H)
+		return
+
+	EnsureComponent(H, /datum/component/armor, armor_component)
+	armor_component.armor_values[RAD] += ARMOR_RAD_MINOR
 
 /singleton/origin_item/origin/gadpathur_exile/on_remove(mob/living/carbon/human/H)
 	. = ..()
-	var/datum/component/armor/armor_component = H.GetComponent(/datum/component/armor)
-	qdel(armor_component)
+	if (!H)
+		return
+
+	TryComponentOrReturn(H, /datum/component/armor, armor_component, ..())
+	armor_component.armor_values[RAD] -= ARMOR_RAD_MINOR
 
 /singleton/origin_item/origin/assunzione
 	name = "Republic of Assunzione"

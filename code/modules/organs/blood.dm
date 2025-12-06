@@ -92,7 +92,7 @@
 	var/min_efficiency = recent_pump ? 0.5 : 0.3
 
 	// Check if any components on the user wish to mess with the pump rate.
-	SEND_SIGNAL(src, COMSIG_HEART_PUMP_EVENT, heart, &blood_volume, &recent_pump, &pulse_mod, &min_efficiency)
+	SEND_SIGNAL_BY_REF(src, COMSIG_HEART_PUMP_EVENT, heart, blood_volume, recent_pump, pulse_mod, min_efficiency)
 
 	if((status_flags & FAKEDEATH) || BP_IS_ROBOTIC(heart))
 		pulse_mod = heart.norm_pump_modifier

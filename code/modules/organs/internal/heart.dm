@@ -142,12 +142,9 @@
 	var/is_stable = owner.chem_effects[CE_STABLE]
 	var/oxy = owner.get_blood_oxygenation()
 	var/circulation = owner.get_blood_circulation()
-	var/canceled = FALSE
 
 	// Check if any components on the user wish to mess with the pulse calculations.
-	SEND_SIGNAL(owner, COMSIG_HEART_PULSE_EVENT, &pulse_mod, &is_stable, &oxy, &circulation, &canceled)
-	if(canceled)
-		return // Oh hey someone stopped my heart from beating via a SIGNAL response!
+	CANCELABLE_SEND_SIGNAL_BY_REF(owner, COMSIG_HEART_PULSE_EVENT, canceled, FALSE, pulse_mod, is_stable, oxy, circulation)
 
 	// If you have enough heart chemicals to be over 2, take extra damage per tick.
 	if(pulse_mod > 2 && !is_stable)
@@ -231,7 +228,7 @@
 		var/cut_bloodloss_modifier = base_cut_bloodloss_modifier
 		var/arterial_bloodloss_modifier = base_arterial_bloodloss_modifier
 
-		SEND_SIGNAL(owner, COMSIG_HEART_BLEED_EVENT, &blood_volume, &cut_bloodloss_modifier, &arterial_bloodloss_modifier)
+		SEND_SIGNAL_BY_REF(owner, COMSIG_HEART_BLEED_EVENT, blood_volume, cut_bloodloss_modifier, arterial_bloodloss_modifier)
 
 		//Blood regeneration if there is some space
 		if(blood_volume < species.blood_volume && blood_volume)

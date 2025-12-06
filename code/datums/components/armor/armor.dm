@@ -1,5 +1,5 @@
 /datum/component/armor
-	var/list/armor_values
+	var/list/armor_values = list()
 	var/full_block_message = "Your armor absorbs the blow!"
 	var/partial_block_message = "Your armor softens the blow!"
 
@@ -17,6 +17,8 @@
 	var/over_armor_mult = 1
 
 	var/sealed = FALSE // Used with ARMOR_TYPE_RIG.
+
+	dupe_mode = COMPONENT_DUPE_UNIQUE
 
 /datum/component/armor/Initialize(list/armor, armor_type)
 	..()
