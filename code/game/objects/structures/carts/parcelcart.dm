@@ -16,7 +16,7 @@
 /obj/structure/cart/storage/parcelcart/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "You can use hand held parcels on the cart to store them."
-	. += "It slows down at 5 packages, and becomes even slower when there is 11 packages or more loaded."
+	. += "It slows down at 5 packages, and slows down more when 11+ packages are loaded."
 
 /obj/structure/cart/storage/parcelcart/get_storage_contents_list()
 	storage_contents.Cut()
@@ -29,9 +29,11 @@
 
 	var/list/non_sheet_objects = list(my_parcels)
 
-	for(var/obj/O in non_sheet_objects)
-		if(O)
-			storage_contents += O
+	for(var/obj/non_sheet_object in non_sheet_objects)
+		if(non_sheet_object)
+			storage_contents += non_sheet_object
+
+	update_icon()
 
 /obj/structure/cart/storage/parcelcart/Destroy()
 	QDEL_NULL(my_parcels)
@@ -50,7 +52,7 @@
 		handle_storing(attacking_item, user, should_store, storage_is_full)
 		return TRUE
 
-	else if (!has_items && (attacking_item.iswrench() || attacking_item.iswelder() || istype(attacking_item, /obj/item/gun/energy/plasmacutter)))
+	else if(!has_items && (attacking_item.iswrench() || attacking_item.iswelder() || istype(attacking_item, /obj/item/gun/energy/plasmacutter)))
 		take_apart(user, attacking_item)
 		return
 	..()
@@ -59,12 +61,12 @@
 	var/turf/dropspot = get_turf(src)
 
 	if(LAZYLEN(my_parcels) && prob(chance))
-		var/obj/item/smallDelivery/M
+		var/obj/item/smallDelivery/smallDelivery
 		for(var/I in my_parcels)
-			M = I
-			M.forceMove(dropspot)
-			M.tumble(1)
-			my_parcels -= M
+			smallDelivery = I
+			smallDelivery.forceMove(dropspot)
+			smallDelivery.tumble(1)
+			my_parcels -= smallDelivery
 		my_parcels.Cut()
 	update_icon()
 
@@ -73,7 +75,6 @@
 		user.drop_from_inventory(attacking_item, src)
 		get_storage_contents_list()
 		update_slowdown()
-		update_icon()
 		to_chat(user, SPAN_NOTICE("You put [attacking_item] into [src]."))
 	else if(storage_is_full)
 		to_chat(user, SPAN_WARNING("There isn't any space to store [attacking_item] in [src]!"))
@@ -93,8 +94,8 @@
 		return
 
 	if(LAZYLEN(storage_contents))
-		for(var/obj/O in storage_contents)
-			storage_contents[O] = image(O.icon, O.icon_state)
+		for(var/obj/object in storage_contents)
+			storage_contents[object] = image(object.icon, object.icon_state)
 
 		var/obj/item/chosen_item = show_radial_menu(user, src, storage_contents, require_near = TRUE, tooltips = TRUE)
 
@@ -105,12 +106,11 @@
 				if(/obj/item/smallDelivery)
 					if(my_parcels.len)
 						user.put_in_hands(chosen_item)
-						to_chat(user, SPAN_NOTICE("You take [my_parcels[chosen_item]] from [src]."))
+						to_chat(user, SPAN_NOTICE("You take \the [my_parcels[chosen_item]] from [src]."))
 						my_parcels -= chosen_item
 
 			get_storage_contents_list()
 			update_slowdown()
-			update_icon()
 		else
 			to_chat(user, SPAN_WARNING("\The [chosen_item] is not in the cart anymore!"))
 
