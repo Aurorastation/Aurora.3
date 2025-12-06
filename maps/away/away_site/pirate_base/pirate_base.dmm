@@ -294,7 +294,7 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/effect/decal/cleanable/greenglow/radioactive{
+/obj/effect/decal/cleanable/greenglow/radioactive/medium{
 	pixel_x = 8;
 	pixel_y = -6
 	},

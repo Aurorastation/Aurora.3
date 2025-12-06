@@ -18,7 +18,7 @@
 		LASER = ARMOR_LASER_MINOR,
 		BOMB = ARMOR_BOMB_PADDED,
 		BIO = ARMOR_BIO_SHIELDED,
-		RAD = ARMOR_RAD_RESISTANT
+		RAD = ARMOR_RAD_STRONG
 	)
 	// Protects from up to 7500 degrees Kelvin.
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE + 2500
@@ -45,7 +45,7 @@
 		LASER = ARMOR_LASER_MINOR,
 		BOMB = ARMOR_BOMB_PADDED,
 		BIO = ARMOR_BIO_SHIELDED,
-		RAD = ARMOR_RAD_RESISTANT
+		RAD = ARMOR_RAD_STRONG
 	)
 	// Protects from up to 7500 degrees kelvin.
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE + 2500
@@ -212,7 +212,7 @@
 		LASER = ARMOR_LASER_MINOR,
 		BOMB = ARMOR_BOMB_PADDED,
 		BIO = ARMOR_BIO_SHIELDED,
-		RAD = ARMOR_RAD_SMALL
+		RAD = ARMOR_RAD_RESISTANT
 	)
 	max_heat_protection_temperature = FIRE_HELMET_MAX_HEAT_PROTECTION_TEMPERATURE + 10000 // It is a suit designed for fire, enclosed
 	max_pressure_protection = FIRESUIT_MAX_PRESSURE
@@ -238,7 +238,7 @@
 		LASER = ARMOR_LASER_MINOR,
 		BOMB = ARMOR_BOMB_PADDED,
 		BIO = ARMOR_BIO_SHIELDED,
-		RAD = ARMOR_RAD_SMALL
+		RAD = ARMOR_RAD_RESISTANT
 	)
 	max_pressure_protection = FIRESUIT_MAX_PRESSURE
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/storage/bag/ore,/obj/item/device/t_scanner,/obj/item/pickaxe,/obj/item/material/twohanded/fireaxe,/obj/item/rfd/construction,/obj/item/storage/bag/inflatable)
