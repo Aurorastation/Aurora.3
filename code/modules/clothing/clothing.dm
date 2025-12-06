@@ -375,17 +375,14 @@
 		for(var/number in list(melee_armor, bullet_armor, laser_armor, energy_armor, bomb_armor))
 			number = between(0, number, 100)
 
-		var/datum/component/armor/armor_component = GetComponent(/datum/component/armor)
-		if(istype(armor_component))
-			qdel(armor_component)
-		var/list/armor_list = list(
+		EnsureComponent(src, /datum/component/armor, armor_component)
+		armor_component.armor_values = list(
 			melee = melee_armor,
 			bullet = bullet_armor,
 			laser = laser_armor,
 			energy = energy_armor,
 			bomb = bomb_armor
 		)
-		AddComponent(/datum/component/armor, armor_list)
 
 		if(!isnull(material.conductivity))
 			siemens_coefficient = between(0, material.conductivity / 10, 10)

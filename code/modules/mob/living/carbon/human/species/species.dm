@@ -541,9 +541,7 @@
 	if(H.bad_external_organs)     H.bad_external_organs.Cut()
 	if(H.bad_internal_organs)     H.bad_internal_organs.Cut()
 
-	var/datum/component/armor/armor_component = H.GetComponent(/datum/component/armor)
-	if(armor_component)
-		qdel(armor_component)
+	RemoveComponent(H, /datum/component/armor)
 
 	H.organs = list()
 	H.internal_organs = list()
