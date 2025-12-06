@@ -57,6 +57,8 @@
  * Creates a new variable that will ALWAYS be equal to the given component attached to a target datum.
  * If such a component does not exist, one will be created.
  * It is thus impossible for the resulting variable to ever be null.
+ *
+ * The variable declaration is guaranteed to never be null, but the target isn't. You still have to check if your target exists.
  */
 #define EnsureComponent(target, component_type, component_var, arguments...) var component_type/component_var = target._LoadComponent(list(component_type, ##arguments))
 
@@ -67,6 +69,8 @@
  * A variant of GetComponent() which includes its own inline early return if the component doesn't exist.
  * It creates a variable equal to the specified value in component_var.
  * This can be especially useful if you're writing a proc which needs to check multiple components in a row.
+ *
+ * The variable declaration is guaranteed to never be null, but the target isn't. You still have to check if your target exists.
  */
 #define TryComponentOrReturn(target, component_type, component_var, return_value) \
 	var component_type/component_var = target.GetComponent(component_type); \
@@ -77,6 +81,8 @@
  * A variant of GetComponent() which includes its own inline loop continue if the component doesn't exist.
  * It creates a variable equal to the specified value in component_var.
  * This can be especially useful if you're writing a loop which needs to check multiple components in a row.
+ *
+ * The variable declaration is guaranteed to never be null, but the target isn't. You still have to check if your target exists.
  */
 #define TryComponentOrContinue(target, component_type, component_var) \
 	var component_type/component_var = target.GetComponent(component_type); \
@@ -87,6 +93,8 @@
  * A variant of GetComponent() which includes its own inline loop break if the component doesn't exist.
  * It creates a variable equal to the specified value in component_var.
  * This can be especially useful if you're writing a loop which needs to check multiple components in a row.
+ *
+ * The variable declaration is guaranteed to never be null, but the target isn't. You still have to check if your target exists.
  */
 #define TryComponentOrBreak(target, component_type, component_var) \
 	var component_type/component_var = target.GetComponent(component_type); \
