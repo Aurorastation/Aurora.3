@@ -1,5 +1,5 @@
 /// !DEPRECATED: GO USE check_psi_sensitivity() INSTEAD
-/mob/proc/has_psi_aug()
+/atom/movable/proc/has_psi_aug()
 	return FALSE
 
 /mob/living/carbon/has_psi_aug()
@@ -11,15 +11,12 @@
  * Traditionally, most organic life can in some way RECEIVE psionic messages via a Zona Bovinae, though some lack it.
  * Implants, drugs, and some psi powers may temporarily block RECEIVING.
  *
- * TODO: TCJ Because there are some cases of mechanical objects being capable of RECEIVING, they may by necessity also involve this check.
- * TODO: TCJ For example, Nlom-interface light switches, but a psi-caster put a mental blocker on them to prevent other people from using their lightswitch.
- *
  * This is NOT a check for "Can Receive?", if you need that go use check_psi_sensitivity().
  */
-/mob/proc/is_psi_blocked(mob/user)
+/atom/movable/proc/is_psi_blocked(mob/user)
 	var/cancelled = FALSE
 	SEND_SIGNAL(src, COMSIG_PSI_MIND_POWER, user, &cancelled)
-	if(cancelled || (!has_zona_bovinae() && !has_psi_aug())) // TODO: TCJ go make the Zona Bovinae a real organ with a psi_check_sensitivity registration so you can remove it from this.
+	if(cancelled || (!has_zona_bovinae() && !has_psi_aug()))
 		return SPAN_WARNING("[src]'s mind is inaccessible, like hitting a brick wall.")
 
 /**
@@ -36,7 +33,7 @@
  *
  * And for "Any positive mods allowed", use check_psi_sensitivity > 0
  */
-/mob/proc/check_psi_sensitivity()
+/atom/movable/proc/check_psi_sensitivity()
 	var/effective_sensitivity = 0
 	SEND_SIGNAL(src, COMSIG_PSI_CHECK_SENSITIVITY, &effective_sensitivity)
 	return effective_sensitivity
@@ -47,7 +44,7 @@
 		effective_sensitivity += psi.get_rank()
 	return effective_sensitivity
 
-/mob/proc/has_zona_bovinae()
+/atom/movable/proc/has_zona_bovinae()
 	return FALSE
 
 /mob/living/has_zona_bovinae()
@@ -58,7 +55,7 @@
 		return FALSE
 	return TRUE
 
-/mob/living/proc/is_psi_pingable()
+/atom/movable/proc/is_psi_pingable()
 	return !is_psi_blocked()
 
 /mob/living/simple_animal/is_psi_pingable()

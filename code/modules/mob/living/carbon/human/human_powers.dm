@@ -244,7 +244,7 @@
  * A binary yes or no check as to whether or not a target has a Psi Complexus.
  * This proc is to be DEPRECATED, nothing new should check it.
  * Use check_psi_sensitivity() instead for all your psionic interactions.
- */ //TODO: TCJ eventually make this check for a PsionicComponent rather than a Psi Complexus
+ */
 /mob/proc/has_psionics()
 	return FALSE
 
