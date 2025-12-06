@@ -1,0 +1,10 @@
+author: Kano
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed combat hardsuits not using unathi specie specific worn sprites."
+  - bugfix: "Fixed some mapping issues in nka_merchant ship."
+  - bugfix: "Fixed silicon robots being unable to use ctrl and shift click functions with paint guns."
+  - bugfix: "Fixed being able to interact with weapon safeties in situations where it shouldn't occur."
+  - code_imp: "Converted some comments into dmdocs, and documented some parts where it was missing."

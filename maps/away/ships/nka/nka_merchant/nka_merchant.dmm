@@ -315,9 +315,6 @@
 	},
 /area/nka_merchant/engineering)
 "aQ" = (
-/obj/machinery/power/apc/east{
-	req_access = list(213)
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
@@ -330,6 +327,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
+/obj/machinery/power/apc/north,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -5079,12 +5077,6 @@
 	temperature = 278.15
 	},
 /area/nka_merchant/warehouse)
-"He" = (
-/obj/effect/floor_decal/corner/dark_blue{
-	dir = 10
-	},
-/turf/simulated/wall/shuttle/space_ship,
-/area/nka_merchant/mess)
 "Hg" = (
 /obj/machinery/hologram/holopad/long_range,
 /obj/effect/overmap/visitable/ship/landable/nka_merchant_shuttle,
@@ -6223,12 +6215,6 @@
 	temperature = 278.15
 	},
 /area/nka_merchant/bridge)
-"WO" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
-/turf/template_noop,
-/area/space)
 "WS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/structure/extinguisher_cabinet/east{
@@ -18477,7 +18463,7 @@ iB
 iB
 AT
 aI
-ga
+Py
 OG
 AT
 xX
@@ -19319,7 +19305,7 @@ nE
 Vj
 Vj
 Vj
-He
+Vj
 Vj
 Vj
 Vj
@@ -21269,7 +21255,7 @@ gB
 iB
 iB
 iB
-WO
+iB
 iB
 iB
 iB

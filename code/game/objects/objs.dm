@@ -2,28 +2,42 @@
 	layer = OBJ_LAYER
 	animate_movement = 2
 
-	var/list/matter //Used to store information about the contents of the object.
-	var/recyclable = FALSE //Whether the object can be recycled (eaten) by something like the Autolathe
-	var/w_class // Size of the object.
-	var/list/origin_tech = null	//Used by R&D to determine what research bonuses it grants.
-	var/unacidable = 0 //universal "unacidabliness" var, here so you can use it in any obj.
+	/// Used to store information about the contents of the object.
+	var/list/matter
+	/// Whether the object can be recycled (eaten) by something like the Autolathe
+	var/recyclable = FALSE
+	/// Size of the object.
+	var/w_class
+	/// Used by R&D to determine what research bonuses it grants.
+	var/list/origin_tech = null
+	/// Universal "unacidabliness" var, here so you can use it in any obj.
+	var/unacidable = FALSE
 
-	var/obj_flags //Special flags such as whether or not this object can be rotated.
+	/// Special flags such as whether or not this object can be rotated.
+	var/obj_flags
+	/// Integer. Used for varied damage and item volume calculations.
 	var/throwforce = 1
-	var/list/attack_verb //Used in attackby() to say how something was attacked "[x] has been [z.attack_verb] by [y] with [z]"
-	var/sharp = 0		// whether this object cuts
-	var/edge = FALSE	// whether this object is more likely to dismember
-	var/in_use = 0 // If we have a user using us, this will be set on. We will check if the user has stopped using us, and thus stop updating and LAGGING EVERYTHING!
+	/// Used in attackby() to say how something was attacked "[x] has been [z.attack_verb] by [y] with [z]"
+	var/list/attack_verb
+	/// Whether this object cuts.
+	var/sharp = FALSE
+	/// Whether this object is more likely to dismember its poor foes.
+	var/edge = FALSE
+	/// If we have a user using us, this will be set on. We will check if the user has stopped using us, and thus stop updating and LAGGING EVERYTHING!
+	var/in_use = FALSE
+	/// Type of damage this object deals.
 	var/damtype = DAMAGE_BRUTE
 	var/force = 0
 	var/armor_penetration = 0
-	var/noslice = 0 // To make it not able to slice things.
+	/// Makes an object not able to slice things.
+	var/noslice = FALSE
 
 	var/being_shocked = 0
 
-	var/icon_species_tag = ""//If set, this holds the 3-letter shortname of a species, used for species-specific worn icons
-	var/icon_auto_adapt = 0//If 1, this item will automatically change its species tag to match the wearer's species.
-	//requires that the wearer's species is listed in icon_supported_species_tags
+	/// If set, this holds the 3-letter shortname of a species, used for species-specific worn icons.
+	var/icon_species_tag = ""
+	/// If TRUE, this item will automatically change its species tag to match the wearer's species, given the wearer's species is listed in icon_supported_species_tags.
+	var/icon_auto_adapt = FALSE
 
 	/**
 	 * A list of strings used with icon_auto_adapt, a list of species which have differing appearances for this item,
@@ -31,11 +45,11 @@
 	 */
 	var/list/icon_supported_species_tags
 
-	///If `TRUE`, will use the `icon_species_tag` var for rendering this item in the left/right hand
+	/// If `TRUE`, will use the `icon_species_tag` var for rendering this item in the left/right hand.
 	var/icon_species_in_hand = FALSE
 
 	var/equip_slot = 0
-	///Played when the item is used, for example tools
+	/// Played when the item is used, for example tools.
 	var/usesound
 
 	var/toolspeed = 1
