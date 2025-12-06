@@ -299,9 +299,6 @@
  * If this tries to add a component to an incompatible type, the component will be deleted and the result will be `null`. This is very unperformant, try not to do it
  *
  * Properly handles duplicate situations based on the `dupe_mode` var
- * Arg 1: The type of component
- * Arg 2: Initialization arguments to pass into the component
- * Arg 3: Optional override for component dupe mode.
  */
 /datum/proc/_AddComponent(list/raw_args, source)
 	var/original_type = raw_args[1]
@@ -321,7 +318,7 @@
 	else if(component_type == /datum/component)
 		CRASH("[component_type] attempted instantiation!")
 
-	var/dupe_mode = raw_args[3] ? raw_args[3] : initial(component_type.dupe_mode)
+	var/dupe_mode = initial(component_type.dupe_mode)
 	var/uses_sources = (dupe_mode == COMPONENT_DUPE_SOURCES)
 	if(uses_sources && !source)
 		CRASH("Attempted to add a sourced component of type '[component_type]' to '[type]' without a source!")

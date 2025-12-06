@@ -60,7 +60,7 @@
  *
  * The variable declaration is guaranteed to never be null, but the target isn't. You still have to check if your target exists.
  */
-#define EnsureComponent(target, component_type, component_var) var component_type/component_var = target._LoadComponent(list(component_type, null, COMPONENT_DUPE_UNIQUE))
+#define EnsureComponent(target, component_type, component_var, arguments...) var component_type/component_var = target._LoadComponent(list(component_type, ##arguments))
 
 /// Removes a specified component from a target if it exists on that target.
 #define RemoveComponent(target, component_type) qdel(target.GetComponent(component_type))
