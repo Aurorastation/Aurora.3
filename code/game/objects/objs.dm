@@ -66,17 +66,21 @@
 	/* END ACCESS VARS */
 
 	/* START PERSISTENCE VARS */
-	// State check if the subsystem is tracking the object, used for easy state checking without iterating the register
+	/// State check if the subsystem is tracking the object, used for easy state checking without iterating the register
 	var/persistence_track_active = FALSE
-	// Tracking ID of the object used by the persistence subsystem
+	/// Tracking ID of the object used by the persistence subsystem
 	var/persistence_track_id = 0
-	// Author ckey of the object used in persistence subsystem
-	// Note: Not every type can have an author, like generated dirt for example
-	// Additionally, the ckey is only an indicator, for example: A player could pin a paper without having written it
-	// This should be considered for any moderation purpose
+	/**
+	 * Author ckey of the object used in persistence subsystem
+	 * Note: Not every type can have an author, like generated dirt for example
+	 * Additionally, the ckey is only an indicator, for example: A player could pin a paper without having written it
+	 * This should be considered for any moderation purpose
+	 */
 	var/persistence_author_ckey = null
-	// Expiration time used when saving/updating a persistent type, this can be changed depending on the use case by assigning a new value
-	var/persistance_expiration_time_days = PERSISTENT_DEFAULT_EXPIRATION_DAYS
+	/// Expiration time used when saving/updating a persistent type, this can be changed depending on the use case by assigning a new value
+	var/persistence_expiration_time_days = PERSISTENT_DEFAULT_EXPIRATION_DAYS
+	/// Objects that wish to check "only persistable" items can check this variable.
+	var/persistence_supported = FALSE
 	/* END PERSISTENCE VARS */
 
 /obj/Destroy()
@@ -300,6 +304,8 @@
 
 /obj/get_examine_text(mob/user, distance, is_adjacent, infix, suffix, get_extended = FALSE)
 	. = ..()
+	if(persistence_supported)
+		. += SPAN_GOOD("\The [src] can persist between rounds.")
 	if((obj_flags & OBJ_FLAG_ROTATABLE) || (obj_flags & OBJ_FLAG_ROTATABLE_ANCHORED))
 		. += SPAN_SUBTLE("Can be rotated with alt-click.")
 	if(contaminated)
@@ -347,18 +353,34 @@
 
 /**
  * Called by the persistence subsystem to retrieve relevant persistent information to be stored in the database.
- * Expected to be overriden by derived objects.
+ * This operates on a parent-child hierarchy, where the objects are expected to call their parent. Use var/list/content = ..() as your first line to make this work.
+ * Each parent is responsible for handling the variables it particularly cares about.
+ * It's strongly recommended to use SAVE_IF_DIFFERENT() for saving your variables if you're adding a new one.
+ *
+ * If you need to override the entire parent hierarchy for snowflake cases, make sure you put SHOULD_CALL_PARENT(FALSE) as your first line.
+ *
  * RETURN: Associated list with custom information (e.g.: ["test" = "abc", "counter" = 123])
  */
 /obj/proc/persistence_get_content()
-	return
+	SHOULD_CALL_PARENT(TRUE)
+	var/list/content = list()
+	return content
 
 /**
  * Called by the persistence subsystem to apply persistent data on the created object.
- * Expected to be overriden by derived objects.
+ * This operates on a parent-child hierarchy, where the objects are expected to call their parent. Use ..() as your first line to make this work.
+ * Each parent is responsible for handling the variables it particularly cares about.
+ * It's strongly recommended to use SET_IF_EXISTS() for setting your variables if you're adding a new one.
+ *
+ * If you need to override the entire parent hierarchy for snowflake cases, make sure you replace ..() with SHOULD_CALL_PARENT(FALSE)
+ *
  * PARAMS:
  * 	content = Associated list with custom information (e.g.: ["test" = "abc", "counter" = 123]).
  *	x,y,z = x-y-z coordinates of object, can be null.
  */
 /obj/proc/persistence_apply_content(content, x, y, z)
-	return
+	SHOULD_CALL_PARENT(TRUE)
+	// We handle the positional placement here since these are completely universal to all objects.
+	src.x = x
+	src.y = y
+	src.z = z

@@ -138,7 +138,13 @@ SUBSYSTEM_DEF(persistence)
  */
 /datum/controller/subsystem/persistence/proc/track_apply_content(var/obj/track, var/json, var/x, var/y, var/z)
 	try
+		// Fetch the list of all changes in the database for a given item.
 		track.persistence_apply_content(json_decode(json), x, y, z)
+
+		// And finally call for an icon update on it.
+		// A surprisingly large number of objects aren't going to be expecting us to change anything prior to or during init.
+		// So this lets us catch every odd case.
+		track.update_icon()
 	catch(var/exception/e)
 		log_subsystem_persistence("Track: Failed to apply/decode track content: [e]")
 
@@ -214,7 +220,7 @@ SUBSYSTEM_DEF(persistence)
 			list(
 				"author_ckey" = track.persistence_author_ckey,
 				"type" = "[track.type]",
-				"expire_in_days" = track.persistance_expiration_time_days,
+				"expire_in_days" = track.persistence_expiration_time_days,
 				"content" = track_get_content(track),
 				"x" = T.x,
 				"y" = T.y,
@@ -242,7 +248,7 @@ SUBSYSTEM_DEF(persistence)
 			"UPDATE ss13_persistent_data SET author_ckey=:author_ckey, expires_at=DATE_ADD(NOW(), INTERVAL :expire_in_days DAY), content=:content, x=:x, y=:y, z=:z WHERE id = :id",
 			list(
 				"author_ckey" = track.persistence_author_ckey,
-				"expire_in_days" = track.persistance_expiration_time_days,
+				"expire_in_days" = track.persistence_expiration_time_days,
 				"content" = track_get_content(track),
 				"x" = T.x,
 				"y" = T.y,

@@ -216,6 +216,7 @@
 #include "code\__HELPERS\nameof.dm"
 #include "code\__HELPERS\names.dm"
 #include "code\__HELPERS\overmap.dm"
+#include "code\__HELPERS\persistence.dm"
 #include "code\__HELPERS\qdel.dm"
 #include "code\__HELPERS\ref.dm"
 #include "code\__HELPERS\sanitize_values.dm"

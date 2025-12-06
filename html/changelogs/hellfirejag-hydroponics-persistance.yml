@@ -1,0 +1,5 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - rscadd: "PERSISTENCE: Hydroponics and Xenobotany smartfridges now have short-duration persistent contents. Grown foods added to a smartfridge will persist between rounds for up to 1 day."
+  - refactor: "Refactored persistent data saving to follow a parent-child hierarchy. Items will only save and set data that is different from the default values for that item, and will only set what was saved: EG, we only save/set the 'name' of an item if a hangar tech used a hand labeler to change its name. This also makes adding new persistence logic to different item types trivial."
