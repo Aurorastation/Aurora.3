@@ -6,7 +6,7 @@
 	suffix = "casino.dmm"
 
 	sectors = list(ALL_TAU_CETI_SECTORS, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_TABITI, SECTOR_AEMAQ, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, SECTOR_GAKAL, SECTOR_UUEOAESA, ALL_COALITION_SECTORS)
-	spawn_weight = 1
+	spawn_weight = 0 // Disabled for debloating. Feel free to enable again if reworked or relevant.
 	spawn_cost = 1
 	id = "awaysite_casino"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/casino_cutter)
