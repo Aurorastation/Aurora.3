@@ -53,7 +53,9 @@
 	the buckles instead."
 	. += "To unbuckle people as a stationbound, click the bed with an empty gripper."
 	if(held_item)
-		. += "Click and drag this onto yourself to pick it up."
+		. += "Click and drag this onto yourself to pick it up, remove an attached item, or to change the IV flow rate."
+		. += "Vitals monitors, blood bags, beakers, bottles, and medical scans can be attached by clicking this with the object in your active hand."
+		. += "Alt+click this to lock or unlock it in place."
 
 /obj/structure/bed/assembly_hints()
 	. = list()
@@ -434,7 +436,7 @@
 			scan.pixel_y = -7
 		AddOverlays(scan)
 
-/obj/structure/bed/roller/examine(mob/user, distance, show_extended)
+/obj/structure/bed/roller/feedback_hints(mob/user, distance, show_extended)
 	if(medscan && distance<=2)
 		var/obj/item/paper/H = medscan
 		H.show_content(usr)
