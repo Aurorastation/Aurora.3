@@ -385,7 +385,7 @@
 		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right)
 		)
 
-	var/list/natural_armor
+	var/list/natural_armor = list()
 
 	// Bump vars
 	/// What are we considered to be when bumped?
@@ -530,6 +530,9 @@
 	return
 
 /datum/species/proc/create_organs(var/mob/living/carbon/human/H) //Handles creation of mob organs.
+	if(!H)
+		return
+
 	for(var/obj/item/organ/organ in H.contents)
 		if((organ in H.organs) || (organ in H.internal_organs))
 			qdel(organ)
@@ -541,7 +544,11 @@
 	if(H.bad_external_organs)     H.bad_external_organs.Cut()
 	if(H.bad_internal_organs)     H.bad_internal_organs.Cut()
 
-	RemoveComponent(H, /datum/component/armor)
+	// All player characters are guaranteed an armor component, which doesn't necessarily have to contain any armor.
+	// This is "Ensured" because a variety of systems intend to write to this, and Ensuring allows us to not worry about competing with those other systems.
+	EnsureComponent(H, /datum/component/armor, armor_component)
+	for(var/armor_type,armor_value in natural_armor)
+		armor_component[armor_type] += armor_value
 
 	H.organs = list()
 	H.internal_organs = list()
@@ -576,9 +583,6 @@
 			E.status |= ORGAN_ADV_ROBOT
 		for(var/obj/item/organ/I in H.internal_organs)
 			I.status |= ORGAN_ADV_ROBOT
-
-	if(natural_armor)
-		H.AddComponent(/datum/component/armor, natural_armor)
 
 /datum/species/proc/tap(var/mob/living/carbon/human/H,var/mob/living/target)
 	if(H.on_fire)

@@ -92,7 +92,7 @@
 	var/toxin_healing_rate = base_toxin_healing_rate
 
 	// Optionally allow signal repliers to cancel liver filtration. Antifreeze could be a fun one.
-	CANCELABLE_SEND_SIGNAL_BY_REF(owner, COMSIG_LIVER_FILTER_EVENT, canceled, FALSE, filter_effect, filter_strength, toxin_healing_rate)
+	CANCELABLE_SEND_SIGNAL(owner, COMSIG_LIVER_FILTER_EVENT, canceled, FALSE, &filter_effect, &filter_strength, &toxin_healing_rate)
 
 	//Detox can heal small amounts of damage
 	if(damage < max_damage && !owner.chem_effects[CE_TOXIN])

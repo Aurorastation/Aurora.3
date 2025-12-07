@@ -1,5 +1,5 @@
 author: Hellfirejag
 delete-after: True
 changes:
-  - rscadd: "Added a large number of new helper macros related to Components and Signals, such as By-Reference or Cancelable signals, EnsureComponent, RemoveComponent, and TryComponent."
+  - rscadd: "Added a large number of new helper macros related to Components and Signals, such as Cancelable signals, EnsureComponent, RemoveComponent, and TryComponent."
   - bugfix: "Subdermal Carapace no longer obliterates your origin-specific damage resistances (if any)."

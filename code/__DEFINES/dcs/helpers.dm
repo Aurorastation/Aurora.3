@@ -4,14 +4,6 @@
 /// Arguments given here are packaged in a list and given to _SendSignal
 #define SEND_SIGNAL(target, sigtype, arguments...) ( !target._listen_lookup?[sigtype] ? NONE : target._SendSignal(sigtype, list(target, ##arguments)) )
 
-/**
- * A variant on SEND_SIGNAL() which sends pointers to the original variables used for its arguments. AKA "By Reference" in other languages.
- * This means that rather than Registrars receiving a copy of a variable, they receive the actual original variable, which is open for modification.
- * Think of it like letting you bypass the "You can only return one thing" limit.
- * A By-Ref signal doesn't care about its own return, since any arbitrary amount of variables can be sent and retrieved through it.
- */
-#define SEND_SIGNAL_BY_REF(target, sigtype, arguments...) ( !target._listen_lookup?[sigtype] ? NONE : target._SendSignal(sigtype, list(target, &##arguments)) )
-
 #define SEND_GLOBAL_SIGNAL(sigtype, arguments...) ( SEND_SIGNAL(SSdcs, sigtype, ##arguments) )
 
 /**
@@ -24,13 +16,6 @@
 #define CANCELABLE_SEND_SIGNAL(target, sigtype, cancel_var, return_value, arguments...) \
 	var/cancel_var = FALSE; \
 	SEND_SIGNAL(target, sigtype, &cancel_var, ##arguments); \
-	if(cancel_var) \
-		return return_value
-
-/// As per CANCELABLE_SEND_SIGNAL(), but the arguments are sent "By Reference" like in SEND_SIGNAL_BY_REF
-#define CANCELABLE_SEND_SIGNAL_BY_REF(target, sigtype, cancel_var, return_value, arguments...) \
-	var/cancel_var = FALSE; \
-	SEND_SIGNAL_BY_REF(target, sigtype, cancel_var, ##arguments); \
 	if(cancel_var) \
 		return return_value
 
