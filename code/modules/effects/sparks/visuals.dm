@@ -4,6 +4,7 @@
 	icon_state = "sparks"
 	anchored = 1
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+
 	/// Holds a reference to the timer for `do_step`, used in stopping the timer incase of deletion.
 	var/step_timer_id
 
@@ -14,6 +15,7 @@
 /obj/effect/visual/sparks/Destroy()
 	deltimer(step_timer_id)
 	animate(src, flags = ANIMATION_END_NOW) // if we're being deleted end the animation early
+	//find_references()
 	return ..()
 
 /obj/effect/visual/sparks/tick()

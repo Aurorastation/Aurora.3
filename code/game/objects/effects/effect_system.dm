@@ -102,6 +102,7 @@ would spawn and follow the beaker, even if it is carried or thrown.
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	var/amount = 6.0
 	var/time_to_live = 100
+
 	/// Holds a reference to the timer for `QDEL_IN_STOPPABLE`, used in stopping the timer incase of deletion.
 	var/qdel_timer_id
 	/// Holds a reference to the timer for `kill()`, used in stopping the function incase of deletion.
@@ -125,11 +126,14 @@ would spawn and follow the beaker, even if it is carried or thrown.
 	AddElement(/datum/element/connect_loc, loc_connections)
 
 /obj/effect/smoke/Destroy()
+	RemoveElement(/datum/element/connect_loc)
 	deltimer(kill_timer_id)
 	deltimer(qdel_timer_id)
+	animate(src, flags = ANIMATION_END_NOW) // if we're being deleted end the animation early
+
 	if(opacity)
 		set_opacity(FALSE)
-	animate(src, flags = ANIMATION_END_NOW) // if we're being deleted end the animation early
+	//find_references()
 	return ..()
 
 /obj/effect/smoke/proc/kill()
