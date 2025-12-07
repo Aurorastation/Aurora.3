@@ -22,8 +22,6 @@
 	variety of organic parts, but contemporary models have been restricted to a single species for the sake of prosthetic integrity. The additional weight of \
 	the synthskin on the original Hephaestus frame reduces the efficacy of the unit's already strained coolant systems, and increases charge consumption."
 
-	num_alternate_languages = 3
-
 	icobase = 'icons/mob/human_races/human/r_human.dmi'
 	deform = 'icons/mob/human_races/ipc/robotic.dmi'
 	preview_icon = 'icons/mob/human_races/ipc/shell_preview.dmi'

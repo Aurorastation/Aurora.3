@@ -403,6 +403,22 @@
 	item_state = "psis"
 	starting_accessories = (/obj/item/clothing/accessory/holster/hip)
 
+/obj/item/clothing/under/tajaran/pra_cop
+	name = "PRA NPD uniform"
+	desc = "A dark uniform bearing the markings of the PRA national police department. It is most commonly found within the cities of the PRA."
+	desc_extended = "The National Police Department is the largest and best equipped police force on Adhomai. \
+	Responsible for law enforcement in the People's Republic, the olive drab uniforms and polished badges have maintained peace and order, \
+	or inspired fear, within the population since the nation's founding."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "taj_cop_uniform"
+	item_state = "taj_cop_uniform"
+
+/obj/item/clothing/under/tajaran/pra_cop/rural
+	name = "rural PRA NPD uniform"
+	desc = "A light uniform bearing the markings of the PRA national police department. It is most commonly found in the rural parts of the PRA."
+	icon_state = "taj_cop_uniform_rural"
+	item_state = "taj_cop_uniform_rural"
+
 // Red Polka Dot Dress
 /obj/item/clothing/under/dress/tajaran/polka_dot
 	name = "red polka dot dress"

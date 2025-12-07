@@ -233,6 +233,9 @@
 		. += "Energy: [round(DS.stored_energy)] / [round(DS.max_energy)]"
 		if(DS.regen_limb)
 			. += "Regeneration Progress: [round(DS.regen_limb_progress)] / [LIMB_REGROW_REQUIREMENT]"
+	var/custom_time = culture.get_custom_time()
+	if(custom_time)
+		. += custom_time
 	if(internal)
 		if(!internal.air_contents)
 			qdel(internal)

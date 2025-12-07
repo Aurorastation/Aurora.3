@@ -3978,7 +3978,7 @@
 /obj/random/gloves,
 /obj/random/loot,
 /obj/item/clothing/suit/storage/toggle/leather_jacket/flight/green,
-/obj/item/clothing/suit/storage/toggle/highvis_alt,
+/obj/item/clothing/suit/storage/toggle/highvis/alt,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/crew_quarters)
@@ -5712,7 +5712,7 @@
 "aDH" = (
 /obj/structure/closet,
 /obj/item/clothing/shoes/winter/tajara,
-/obj/item/clothing/suit/storage/toggle/highvis_alt,
+/obj/item/clothing/suit/storage/toggle/highvis/alt,
 /obj/random/spacecash,
 /obj/random/loot,
 /obj/random/colored_jumpsuit,

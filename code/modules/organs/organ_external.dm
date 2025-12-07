@@ -1140,10 +1140,15 @@ Note that amputating the affected organ does in fact remove the infection from t
 			if(victim.get_blood_color())
 				gore.basecolor = victim.get_blood_color()
 			gore.update_icon()
+			// Tiny amount of blood and not impacted by anything like coagulants, etc- we just want it for effect.
+			victim.blood_squirt(2, loc, rand(2,5))
+			add_blood(victim)
+
 			INVOKE_ASYNC(gore, TYPE_PROC_REF(/atom/movable, throw_at), get_edge_target_turf(src, pick(GLOB.alldirs)), rand(1,3), 4)
 
 			for(var/obj/item/organ/I in internal_organs)
 				I.removed()
+				victim.blood_squirt(2, loc, rand(2,5))
 				if(istype(loc,/turf))
 					INVOKE_ASYNC(I, TYPE_PROC_REF(/atom/movable, throw_at), get_edge_target_turf(src, pick(GLOB.alldirs)), rand(1,3), 4)
 

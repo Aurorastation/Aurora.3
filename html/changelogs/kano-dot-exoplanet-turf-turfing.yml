@@ -1,7 +1,0 @@
-
-author: Kano
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed asteroid expolanet turfs pixel-shifting its own lighting along with itself."

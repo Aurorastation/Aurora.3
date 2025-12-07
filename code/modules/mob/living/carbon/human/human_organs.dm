@@ -175,7 +175,7 @@
 
 			spark(src, 5)
 
-//Handles chem traces
+/// Handles chem traces
 /mob/living/carbon/human/proc/handle_trace_chems()
 	//New are added for reagents to random organs.
 	for(var/_A in reagents.reagent_volumes)
