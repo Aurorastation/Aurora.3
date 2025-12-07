@@ -548,7 +548,7 @@
 	// This is "Ensured" because a variety of systems intend to write to this, and Ensuring allows us to not worry about competing with those other systems.
 	EnsureComponent(H, /datum/component/armor, armor_component)
 	for(var/armor_type,armor_value in natural_armor)
-		armor_component[armor_type] += armor_value
+		armor_component.armor_values[armor_type] += armor_value
 
 	H.organs = list()
 	H.internal_organs = list()
