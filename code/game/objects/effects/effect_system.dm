@@ -102,6 +102,8 @@ would spawn and follow the beaker, even if it is carried or thrown.
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	var/amount = 6.0
 	var/time_to_live = 100
+	/// A reference to QDEL_IN_STOPPABLE timer, used for stopping timer if the effect was already deleted somehow
+	var/qdel_timer_id
 
 	//Remove this bit to use the old smoke
 	icon = 'icons/effects/96x96.dmi'
@@ -122,15 +124,17 @@ would spawn and follow the beaker, even if it is carried or thrown.
 	AddElement(/datum/element/connect_loc, loc_connections)
 
 /obj/effect/smoke/Destroy()
+	deltimer(qdel_timer_id)
 	if(opacity)
 		set_opacity(FALSE)
+	animate(src, flags = ANIMATION_END_NOW) // if we're being deleted end the animation early
 	return ..()
 
 /obj/effect/smoke/proc/kill()
 	animate(src, alpha = 0, time = 2 SECONDS, easing = QUAD_EASING)
 	set_opacity(FALSE)
 
-	QDEL_IN(src, 2.5 SECONDS)
+	qdel_timer_id = QDEL_IN_STOPPABLE(src, 2.5 SECONDS)
 
 /obj/effect/smoke/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	SIGNAL_HANDLER

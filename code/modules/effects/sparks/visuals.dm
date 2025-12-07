@@ -9,6 +9,10 @@
 	. = ..(mapload)
 	life_ticks = rand(5,10)
 
+/obj/effect/visual/sparks/Destroy()
+	animate(src, flags = ANIMATION_END_NOW) // if we're being deleted end the animation early
+	return ..()
+
 /obj/effect/visual/sparks/tick()
 	. = ..()
 
