@@ -1,0 +1,6 @@
+author: Kano
+
+delete-after: True
+
+changes:
+  - bugfix: "Removed the haunted schlorrgo from away_sites_testing map."

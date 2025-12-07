@@ -8,10 +8,6 @@
 "c" = (
 /turf/simulated/floor/tiled,
 /area/space)
-"d" = (
-/mob/living/simple_animal/schlorrgo,
-/turf/simulated/floor/tiled,
-/area/space)
 "e" = (
 /obj/effect/landmark/latejoin,
 /turf/simulated/floor/tiled,
@@ -108,7 +104,7 @@ a
 (8,1,1) = {"
 b
 V
-d
+c
 c
 c
 b
