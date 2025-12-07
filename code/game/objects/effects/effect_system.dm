@@ -126,14 +126,15 @@ would spawn and follow the beaker, even if it is carried or thrown.
 	AddElement(/datum/element/connect_loc, loc_connections)
 
 /obj/effect/smoke/Destroy()
-	RemoveElement(/datum/element/connect_loc)
 	deltimer(kill_timer_id)
 	deltimer(qdel_timer_id)
 	animate(src, flags = ANIMATION_END_NOW) // if we're being deleted end the animation early
 
 	if(opacity)
 		set_opacity(FALSE)
-	//find_references()
+
+	UnregisterSignal(loc, COMSIG_ATOM_ENTERED)
+	RemoveElement(/datum/element/connect_loc)
 	return ..()
 
 /obj/effect/smoke/proc/kill()
