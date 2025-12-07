@@ -78,3 +78,16 @@
   - code_imp: High visibility jackets and plants now have their own dedicated code
       file and their code has been refactored. Duplicate emissive patterns for the
       jackets have been removed.
+2025-12-07:
+  FabianK3:
+  - bugfix: Fixed white coloring after cleaning open turfs.
+  - bugfix: Fixed cleanable decals not getting auto deleted on open turfs.
+  - code_imp: Refactored cleanable decals to update above turfs mimic if it's an open
+      turf.
+  GeneralCamo:
+  - rscadd: The Laptop Vendor can now vend tablets and PDAs.
+  - rscadd: The Laptop Vendor now has upgraded batteries, upgraded hard drives, upgraded
+      networking cards, nanoprinters, AI card slots, and tesla relays for sale as
+      upgrade options.
+  - qol: The laptop vendor can now accept PDAs with IDs in them.
+  - qol: The laptop vendor will now give you your new item in your hands, if possible.
