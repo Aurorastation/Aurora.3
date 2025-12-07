@@ -547,9 +547,8 @@
 	// All player characters are guaranteed an armor component, which doesn't necessarily have to contain any armor.
 	// This is "Ensured" because a variety of systems intend to write to this, and Ensuring allows us to not worry about competing with those other systems.
 	EnsureComponent(H, /datum/component/armor, armor_component)
-	if(natural_armor.len)
-		for(var/armor_type,armor_value in natural_armor)
-			armor_component.armor_values[armor_type] += armor_value
+	for(var/armor_type,armor_value in natural_armor)
+		armor_component.armor_values[armor_type] += armor_value
 
 	H.organs = list()
 	H.internal_organs = list()

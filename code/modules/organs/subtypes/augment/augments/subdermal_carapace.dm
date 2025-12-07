@@ -6,8 +6,10 @@
 	icon_state = "subdermal_carapace"
 	organ_tag = BP_AUG_SUBDERMAL_CARAPACE
 	parent_organ = BP_CHEST
-	var/melee_modifier = ARMOR_MELEE_SMALL
-	var/ballistic_modifier = ARMOR_BALLISTIC_SMALL
+	var/armor_modifiers = list(
+		MELEE = ARMOR_MELEE_SMALL,
+		BULLET = ARMOR_BALLISTIC_SMALL
+	)
 
 /obj/item/organ/internal/augment/bioaug/subdermal_carapace/Initialize()
 	. = ..()
@@ -15,8 +17,8 @@
 		return
 
 	EnsureComponent(owner, /datum/component/armor, armor_component)
-	armor_component.armor_values[MELEE] += melee_modifier
-	armor_component.armor_values[BULLET] += ballistic_modifier
+	for(var/armor_type,armor_value in armor_modifiers)
+		armor_component.armor_values[armor_type] += armor_value
 
 /obj/item/organ/internal/augment/bioaug/subdermal_carapace/replaced()
 	. = ..()
@@ -24,8 +26,8 @@
 		return
 
 	EnsureComponent(owner, /datum/component/armor, armor_component)
-	armor_component.armor_values[MELEE] += melee_modifier
-	armor_component.armor_values[BULLET] += ballistic_modifier
+	for(var/armor_type,armor_value in armor_modifiers)
+		armor_component.armor_values[armor_type] += armor_value
 
 /obj/item/organ/internal/augment/bioaug/subdermal_carapace/removed()
 	. = ..()
@@ -33,5 +35,5 @@
 		return
 
 	TryComponentOrReturn(owner, /datum/component/armor, armor_component, ..())
-	armor_component.armor_values[MELEE] -= melee_modifier
-	armor_component.armor_values[BULLET] -= ballistic_modifier
+	for(var/armor_type,armor_value in armor_modifiers)
+		armor_component.armor_values[armor_type] -= armor_value
