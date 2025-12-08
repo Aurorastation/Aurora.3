@@ -6,24 +6,36 @@
 	icon_state = "subdermal_carapace"
 	organ_tag = BP_AUG_SUBDERMAL_CARAPACE
 	parent_organ = BP_CHEST
+
+	/// The set of armor component modifiers that this implant will provide to its implantee.
 	var/armor_modifiers = list(
 		MELEE = ARMOR_MELEE_SMALL,
 		BULLET = ARMOR_BALLISTIC_SMALL
 	)
 
+	/// Whether this implant is currently providing its modifiers to an implantee. This exists to catch edge cases.
+	var/applied = FALSE
+
 /obj/item/organ/internal/augment/bioaug/subdermal_carapace/Initialize()
 	. = ..()
-	if(!owner)
+	if(!owner || applied)
 		return
 
+	applied = TRUE
+
+	// Player characters (the intended recipient) are intended to always have an ArmorComponent.
+	// The implant technically doesn't require or care if its in a human, so we can make the crazy assertion that
+	// if you can put this implant in someone/something, then it should be able to have the armor component.
 	EnsureComponent(owner, /datum/component/armor, armor_component)
 	for(var/armor_type,armor_value in armor_modifiers)
 		armor_component.armor_values[armor_type] += armor_value
 
 /obj/item/organ/internal/augment/bioaug/subdermal_carapace/replaced()
 	. = ..()
-	if(!owner)
+	if(!owner || applied)
 		return
+
+	applied = TRUE
 
 	EnsureComponent(owner, /datum/component/armor, armor_component)
 	for(var/armor_type,armor_value in armor_modifiers)
@@ -31,9 +43,12 @@
 
 /obj/item/organ/internal/augment/bioaug/subdermal_carapace/removed()
 	. = ..()
+	applied = FALSE
 	if(!owner)
 		return
 
+	// If we're removing the implant from someone who for whatever strange reason doesn't have an ArmorComponent,
+	// then we exit immediately since there's nothing to reset.
 	TryComponentOrReturn(owner, /datum/component/armor, armor_component, ..())
 	for(var/armor_type,armor_value in armor_modifiers)
 		armor_component.armor_values[armor_type] -= armor_value
