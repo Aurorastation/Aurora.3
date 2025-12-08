@@ -168,6 +168,12 @@
 /mob/living/simple_animal/hostile/plasmageist/ex_act(severity)
 	return
 
+/mob/living/simple_animal/hostile/plasmageise/IgniteMob(fire_stacks_to_add)
+	return // Plasmageists can't catch fire
+
+/mob/living/simple_animal/hostile/plasmageist/ExtinguishMob(fire_stacks_to_remove)
+	return // Plasmageists can't catch fire
+
 /obj/projectile/beam/tesla/plasmageist/on_hit(atom/target, blocked, def_zone)
 	. = ..()
 	if(isliving(target))
