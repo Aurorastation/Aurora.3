@@ -161,7 +161,7 @@
 
 /obj/item/journal/notepad/filled/Initialize()
 	. = ..()
-	var/obj/item/folder/embedded/E = generate_index("Notepad")
+	var/obj/item/folder/embedded/E = generate_index("Notes")
 	for(var/i = 1 to 5)
 		new /obj/item/paper(E)
 	update_icon()
@@ -177,19 +177,10 @@
 
 /obj/item/journal/notepad/scc/filled/Initialize()
 	. = ..()
-	var/obj/item/folder/embedded/E = generate_index("Notepad")
-	for(var/i = 1 to 5)
-		new /obj/item/paper(E)
-	update_icon()
-
-/obj/item/journal/notepad/security
-	color = COLOR_DARK_BLUE_GRAY
-
-/obj/item/journal/notepad/security/filled
-
-/obj/item/journal/notepad/securityfilled/Initialize()
-	. = ..()
 	var/obj/item/folder/embedded/E = generate_index("Notes")
 	for(var/i = 1 to 5)
 		new /obj/item/paper(E)
 	update_icon()
+
+/obj/item/journal/notepad/filled/security
+	color = COLOR_DARK_BLUE_GRAY

@@ -306,7 +306,7 @@
 	new /obj/item/stamp/investigations(src)
 	new /obj/item/clothing/glasses/sunglasses/sechud/aviator(src)
 	new /obj/item/clothing/glasses/sunglasses/sechud(src)
-	new /obj/item/journal/notepad/security/filled(src)
+	new /obj/item/journal/notepad/filled/security(src)
 	//Belts
 	new /obj/item/clothing/accessory/storage/black_vest(src)
 	new /obj/item/clothing/accessory/storage/pouches/black(src)
