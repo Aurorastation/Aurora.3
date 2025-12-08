@@ -214,8 +214,7 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 		//There's a lot of stuff that either spawns stuff in on create, or removes stuff on destroy. Let's cut it all out so things are easier to deal with
 		var/list/to_del = spawn_at.contents - cached_contents
 		if(length(to_del))
-			for(var/atom/to_kill in to_del)
-				qdel(to_kill)
+			QDEL_LAZYLIST(to_del) // Making sure we hold no reference in the local list at all, incase somehow the "creation" above was caught here before its deletion
 
 	GLOB.running_create_and_destroy = FALSE
 

@@ -15,7 +15,7 @@
 /obj/effect/visual/sparks/Destroy()
 	deltimer(step_timer_id)
 	animate(src, flags = ANIMATION_END_NOW) // if we're being deleted end the animation early
-	//find_references()
+
 	return ..()
 
 /obj/effect/visual/sparks/tick()
