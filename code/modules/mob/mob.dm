@@ -53,6 +53,8 @@
 	if(click_handlers)
 		QDEL_LIST(click_handlers)
 
+	QDEL_NULL(skills)
+
 	return ..()
 
 /mob/New()
@@ -102,6 +104,8 @@
 	update_emotes()
 
 	become_hearing_sensitive()
+
+	skills = new skills(src)
 
 /**
  * Generate the tag for this mob
