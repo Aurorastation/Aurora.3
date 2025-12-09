@@ -23,7 +23,7 @@
 
 	if (location.zone)
 		for (var/turf/T in location.zone.contents)
-			for (var/obj/fire/F in T.contents)
+			for (var/obj/hotspot/F in T.contents)
 				qdel(F)
 
 		log_and_message_admins("cleared air and fire in area [get_area(usr)].")
