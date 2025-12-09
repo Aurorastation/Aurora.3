@@ -409,7 +409,7 @@
 	if(!istype(T))
 		return
 
-	var/hotspot = (locate(/obj/fire) in T)
+	var/hotspot = (locate(/obj/hotspot) in T)
 	if(hotspot && !istype(T, /turf/space))
 		var/datum/gas_mixture/lowertemp = T.return_air()
 		lowertemp.temperature = max(lowertemp.temperature-2000, lowertemp.temperature / 2, T0C)

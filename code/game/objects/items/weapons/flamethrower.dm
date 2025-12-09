@@ -96,11 +96,10 @@
 		to_chat(user, SPAN_WARNING("\The [src] doesn't have enough fuel left to throw!"))
 		return
 	// Make sure our user is still holding us
-	if(user && user.get_active_hand() == src)
-		var/turf/target_turf = get_turf(target)
-		if(target_turf)
-			var/turflist = get_turfs_in_cone(user, get_angle(user, target_turf), get_dist(user, target_turf), 30)
-			flame_turf(turflist)
+	var/turf/target_turf = get_turf(target)
+	if(target_turf)
+		var/turflist = get_line(user, target_turf)
+		flame_turf(turflist)
 
 /obj/item/flamethrower/attackby(obj/item/attacking_item, mob/user)
 	if(use_check_and_message(user))
@@ -233,6 +232,8 @@
 	if(!lit || operating)
 		return
 
+	playsound(src, pick('sound/weapons/flamethrower/flamethrower1.ogg','sound/weapons/flamethrower/flamethrower2.ogg','sound/weapons/flamethrower/flamethrower3.ogg' ), 50, TRUE, -3)
+
 	operating = TRUE
 
 	var/turf/operator_turf = get_turf(src)
@@ -245,22 +246,10 @@
 		if(LinkBlocked(operator_turf, T))
 			continue
 
-		ignite_turf(T)
+		T.IgniteTurf((throw_amount / 50) / length(turflist))
 		sleep(1)
 
 	operating = FALSE
-
-
-/obj/item/flamethrower/proc/ignite_turf(turf/target)
-	var/datum/gas_mixture/air_transfer = gas_tank.air_contents.remove_ratio(0.02 * (throw_amount / 100))
-	new /obj/effect/decal/cleanable/liquid_fuel/flamethrower_fuel(target, air_transfer.get_by_flag(XGM_GAS_FUEL) * 15, get_dir(loc, target))
-	for(var/g in air_transfer.gas)
-		if(gas_data.flags[g] & XGM_GAS_FUEL)
-			air_transfer.gas[g] = 0
-	target.assume_air(air_transfer)
-	target.hotspot_expose((gas_tank.air_contents.temperature*2) + 400, 500)
-	for(var/mob/living/M in target)
-		M.IgniteMob(1)
 
 /obj/item/flamethrower/full/Initialize() // slightly weird looking initialize cuz it has to do some stuff first
 	welding_tool = new /obj/item/weldingtool(src)
