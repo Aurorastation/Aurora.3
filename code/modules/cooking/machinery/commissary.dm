@@ -312,6 +312,8 @@
 				receipt += "<b>[item_name]</b>: x[item_amount] at [item_price]cr each<br>"
 				sum += item_price * item_amount
 			receipt += "<b>Total:</b> [sum]cr<br>"
+			playsound(src, 'sound/machines/ping.ogg', 25, 1)
+			visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] \The [src] pings."))
 			. = TRUE
 
 		if("locking")
