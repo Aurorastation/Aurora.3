@@ -47,29 +47,6 @@
 				new/obj/effect/decal/cleanable/liquid_fuel(target, amount*0.25,1)
 			amount *= 0.75
 
-/obj/effect/decal/cleanable/liquid_fuel/flamethrower_fuel
-	anchored = 0
-
-/obj/effect/decal/cleanable/liquid_fuel/flamethrower_fuel/Initialize(mapload, amt = 1, d = 0)
-	set_dir(d) //Setting this direction means you won't get torched by your own flamethrower.
-	. = ..()
-
-/obj/effect/decal/cleanable/liquid_fuel/flamethrower_fuel/Spread()
-	//The spread for flamethrower fuel is much more precise, to create a wide fire pattern.
-	if(amount < 1) return
-	var/turf/simulated/S = loc
-	if(!istype(S)) return
-
-	for(var/d in list(turn(dir, 45), turn(dir, -45), dir))
-		var/turf/simulated/O = get_step(S,d)
-		if(locate(/obj/effect/decal/cleanable/liquid_fuel/flamethrower_fuel) in O)
-			continue
-		if(O.CanPass(null, S, 0, 0) && S.CanPass(null, O, 0, 0))
-			new/obj/effect/decal/cleanable/liquid_fuel/flamethrower_fuel(O,amount * 0.25,d)
-			O.hotspot_expose((T20C*2) + 400, 500) //Light flamethrower fuel on fire immediately.
-
-	amount *= 0.25
-
 
 /obj/effect/decal/cleanable/liquid_fuel/napalm
 	name = "napalm gel"
