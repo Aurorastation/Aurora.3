@@ -24,19 +24,30 @@
 	var/operating = FALSE //cooldown
 	var/obj/item/weldingtool/welding_tool = null
 	var/obj/item/device/assembly/igniter/igniter = null
-	var/obj/item/tank/gas_tank = null
+	var/obj/item/reagent_containers/fuel_container = null
+	/// How much range the flamethrower has. Upgraded welding tools increase this.
+	var/range = 4
+	var/max_container = WEIGHT_CLASS_SMALL
 
 /obj/item/flamethrower/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	if(is_adjacent)
-		if(gas_tank)
-			. += SPAN_NOTICE("Release pressure is set to <b>[throw_amount] kPa</b>. The tank has about <b>[round(gas_tank.air_contents.return_pressure(), 10)]</b> kPa left in it.")
-		else
-			. += SPAN_WARNING("It has no gas tank installed.")
+		if(fuel_container)
+			if(fuel_container.reagents)
+				. += SPAN_NOTICE("The loaded [fuel_container.name] has about [fuel_container.reagents.total_volume]\s left.")
+			else
+				. += SPAN_NOTICE("The loaded [fuel_container.name] is empty.")
 		if(igniter)
 			. += SPAN_NOTICE("It has \an [igniter] installed.")
 		else
 			. += SPAN_WARNING("It has no igniter installed.")
+
+	if(lit)
+		. += SPAN_WARNING("\The [src] is currently lit!")
+
+/obj/item/flamethrower/upgrade_hints(mob/user, distance, is_adjacent)
+	. = ..()
+	. += SPAN_INFO("Upgrading the welding tool increases the flamethrower's range.")
 
 /obj/item/flamethrower/Initialize(mapload, var/welder)
 	. = ..()
@@ -44,17 +55,19 @@
 	if(welder)
 		welding_tool = welder
 		welding_tool.forceMove(src)
+		processUpgrade()
 	update_icon()
 
 /obj/item/flamethrower/Destroy()
 	QDEL_NULL(welding_tool)
 	QDEL_NULL(igniter)
-	QDEL_NULL(gas_tank)
+	QDEL_NULL(fuel_container)
 	return ..()
 
 /obj/item/flamethrower/process()
 	if(!lit)
 		STOP_PROCESSING(SSprocessing, src)
+		update_icon()
 		return null
 	var/turf/location = loc
 	if(istype(location, /mob/))
@@ -71,10 +84,8 @@
 	if(igniter)
 		AddOverlays("+igniter[secured]")
 
-	if(istype(gas_tank, /obj/item/tank/phoron))
+	if(fuel_container)
 		AddOverlays("+phoron_tank")
-	else if(istype(gas_tank, /obj/item/tank/hydrogen))
-		AddOverlays("+hydro_tank")
 
 	if(lit)
 		AddOverlays("+lit")
@@ -87,15 +98,19 @@
 /obj/item/flamethrower/isFlameSource()
 	return lit
 
+/obj/item/flamethrower/proc/processUpgrade()
+	if(!welding_tool)
+		return
+	if(istype(welding_tool, /obj/item/weldingtool/emergency))
+		range = 3
+	else if(istype(welding_tool, /obj/item/weldingtool/largetank) || istype(welding_tool, /obj/item/weldingtool/experimental))
+		range = 5
+	else if(istype(welding_tool, /obj/item/weldingtool/hugetank))
+		range = 6
+	else
+		range = 4
+
 /obj/item/flamethrower/afterattack(atom/target, mob/user, proximity)
-	if(proximity)
-		return
-	if(!gas_tank)
-		return
-	if(gas_tank.air_contents.get_by_flag(XGM_GAS_FUEL) < 1)
-		to_chat(user, SPAN_WARNING("\The [src] doesn't have enough fuel left to throw!"))
-		return
-	// Make sure our user is still holding us
 	var/turf/target_turf = get_turf(target)
 	if(target_turf)
 		var/turflist = get_line(user, target_turf)
@@ -113,9 +128,9 @@
 		if(igniter)
 			igniter.forceMove(T)
 			igniter = null
-		if(gas_tank)
-			gas_tank.forceMove(T)
-			gas_tank = null
+		if(fuel_container)
+			fuel_container.forceMove(T)
+			fuel_container = null
 		new /obj/item/stack/rods(T)
 		qdel(src)
 		return TRUE
@@ -139,19 +154,16 @@
 		update_icon()
 		return TRUE
 
-	else if(istype(attacking_item, /obj/item/tank/phoron) || istype(attacking_item, /obj/item/tank/hydrogen))
-		if(gas_tank)
-			to_chat(user, SPAN_WARNING("There appears to already be a tank loaded in \the [src]!"))
-			return
-		user.drop_from_inventory(attacking_item, src)
-		gas_tank = attacking_item
-		update_icon()
-		return TRUE
-
-	else if(istype(attacking_item, /obj/item/device/analyzer))
-		var/obj/item/device/analyzer/A = attacking_item
-		A.analyze_gases(src, user)
-		return TRUE
+	else if(istype(attacking_item, /obj/item/reagent_containers) && attacking_item.is_open_container() && (attacking_item.w_class <= max_container))
+		if(user.unEquip(attacking_item, target = src))
+			if(fuel_container)
+				user.put_in_hands(fuel_container)
+				to_chat(user, SPAN_NOTICE("You swap out the [fuel_container] from \the [src]!"))
+			else
+				to_chat(user, SPAN_NOTICE("You load the [attacking_item] into \the [src]!"))
+			fuel_container = attacking_item
+			update_icon()
+			return TRUE
 
 	else if(attacking_item.isFlameSource()) // you can light it with external input, even without an igniter
 		attempt_lighting(user, TRUE)
@@ -163,31 +175,22 @@
 /obj/item/flamethrower/attack_self(mob/user)
 	if(use_check_and_message(user))
 		return
-	if(!gas_tank)
-		to_chat(user, SPAN_WARNING("Attach a phoron tank first!"))
-		return
 	var/list/options = list(
 		"Eject Tank" = image('icons/obj/tank.dmi', "phoron"),
-		"Light" = image('icons/effects/effects.dmi', "exhaust"),
-		"Lower Pressure" = image('icons/mob/screen/radial.dmi', "radial_sub"),
-		"Raise Pressure" = image('icons/mob/screen/radial.dmi', "radial_add")
+		"Light" = image('icons/effects/effects.dmi', "exhaust")
 	)
 	var/handle = show_radial_menu(user, user, options, radius = 42, tooltips=TRUE)
 	if(!handle)
 		return
 	switch(handle)
 		if("Eject Tank")
-			if(!gas_tank)
+			if(!fuel_container)
 				return
-			user.put_in_hands(gas_tank)
-			gas_tank = null
+			user.put_in_hands(fuel_container)
+			fuel_container = null
 			lit = FALSE
 		if("Light")
 			attempt_lighting(user)
-		if("Lower Pressure")
-			change_pressure(-50, user)
-		if("Raise Pressure")
-			change_pressure(50, user)
 		else
 			return
 
@@ -197,7 +200,11 @@
 	if(!external) // if it's external input, we can't unlight it, but we don't need to check for an igniter either
 		if(lit) // you can extinguish the flamethrower without an igniter
 			lit = FALSE
-			to_chat(user, SPAN_NOTICE("You extinguish \the [src]."))
+			balloon_alert_to_viewers("*fffft*")
+			STOP_PROCESSING(SSprocessing, src)
+			if(!external)
+				playsound(loc, 'sound/items/welder_deactivate.ogg', 50, TRUE)
+			update_icon()
 			return
 		if(!secured) // can't light via the flamethrower unless we have an igniter secured
 			if(igniter)
@@ -206,50 +213,92 @@
 				to_chat(user, SPAN_WARNING("\The [src] doesn't have a secured igniter installed."))
 			return
 	if(lit)
-		to_chat(user, SPAN_WARNING("\The [src] is already lit."))
+		balloon_alert(user, "already lit!")
 		return
-	if(!gas_tank)
-		to_chat(user, SPAN_WARNING("\The [src] doesn't have a tank installed."))
+	if(!fuel_container)
+		balloon_alert(user, "no fuel container loaded!")
 		return
-	if(gas_tank.air_contents.get_by_flag(XGM_GAS_FUEL) < 1)
-		to_chat(user, SPAN_WARNING("\The [src] doesn't have any flammable fuel to light!"))
+	if(!fuel_container.reagents || fuel_container.reagents.total_volume <= 0)
+		balloon_alert(user, "fuel container is empty!")
 		return
 	lit = TRUE
-	to_chat(user, SPAN_NOTICE("You light \the [src]."))
-	if(lit)
-		START_PROCESSING(SSprocessing, src)
+	balloon_alert_to_viewers("*whoosh*")
+	update_icon()
+	START_PROCESSING(SSprocessing, src)
+	if(!external)
+		playsound(loc, 'sound/items/welder_activate.ogg', 50, TRUE)
 
-/obj/item/flamethrower/proc/change_pressure(var/pressure, var/mob/user)
-	if(!pressure)
-		return
-	throw_amount += pressure
-	throw_amount = clamp(50, throw_amount, 5000)
-	if(ismob(user))
-		to_chat(user, SPAN_NOTICE("Pressure has been adjusted to [throw_amount] kPa."))
+#define REQUIRED_POWER_TO_FIRE_FLAMETHROWER 10
+#define FLAMETHROWER_POWER_MULTIPLIER 1.5
+#define FLAMETHROWER_RELEASE_AMOUNT 5
 
 //Called from turf.dm turf/dblclick
-/obj/item/flamethrower/proc/flame_turf(turflist)
+/obj/item/flamethrower/proc/flame_turf(list/turflist)
+	if(!fuel_container)
+		return
 	if(!lit || operating)
+		return
+
+	var/turf/operator_turf = get_turf(src)
+
+	turflist -= operator_turf //Don't flame the turf you're standing on
+
+	var/size = length(turflist)
+	if(!size)
+		return
+	LIST_RESIZE(turflist, min(size, range))
+
+	var/power = 0
+	var/datum/reagents/fuel_reagents = fuel_container.reagents
+	var/datum/reagents/my_fraction = new(fuel_reagents.maximum_volume, src)
+	fuel_reagents.trans_to_holder(my_fraction, FLAMETHROWER_RELEASE_AMOUNT * length(turflist))
+	var/fire_color = null
+	var/highest_amount = 0
+	for(var/reagent in fuel_reagents.reagent_volumes)
+		var/singleton/reagent/fuel = GET_SINGLETON(reagent)
+		power += fuel.accelerant_quality * FLAMETHROWER_POWER_MULTIPLIER * fuel_reagents.reagent_volumes[reagent] //Flamethrowers inflate flammability compared to a pool of fuel
+		if(fuel_reagents.reagent_volumes[reagent] > highest_amount && fuel.accelerant_quality > 0)
+			highest_amount = fuel_reagents.reagent_volumes[reagent]
+			fire_color = fuel.fire_color
+
+	if(power < REQUIRED_POWER_TO_FIRE_FLAMETHROWER)
+		audible_message(SPAN_DANGER("\The [src] sputters."))
+		balloon_alert_to_viewers("*pshhhh*")
+		playsound(src, 'sound/weapons/flamethrower/flamethrower_empty.ogg', 50, TRUE, -3)
+		my_fraction.remove_any(FLAMETHROWER_RELEASE_AMOUNT) //Wastes some fuel
+		return_fuel(fuel_reagents, my_fraction)
 		return
 
 	playsound(src, pick('sound/weapons/flamethrower/flamethrower1.ogg','sound/weapons/flamethrower/flamethrower2.ogg','sound/weapons/flamethrower/flamethrower3.ogg' ), 50, TRUE, -3)
 
 	operating = TRUE
 
-	var/turf/operator_turf = get_turf(src)
-
-	for(var/turf/T in (turflist - operator_turf))
-
+	for(var/turf/T in (turflist))
 		if(T.density || istype(T, /turf/space))
 			continue
 
 		if(LinkBlocked(operator_turf, T))
 			continue
 
-		T.IgniteTurf((throw_amount / 50) / length(turflist))
-		sleep(1)
+		//Consume part of our fuel to create a fire spot
+		T.IgniteTurf(power / length(turflist), fire_color)
+		T.hotspot_expose(power * 3 + 380)
+		my_fraction.remove_any(FLAMETHROWER_RELEASE_AMOUNT)
+		sleep(0.1 SECONDS)
+
+	return_fuel(fuel_reagents, my_fraction)
 
 	operating = FALSE
+
+#undef REQUIRED_POWER_TO_FIRE_FLAMETHROWER
+#undef FLAMETHROWER_POWER_MULTIPLIER
+#undef FLAMETHROWER_RELEASE_AMOUNT
+
+/obj/item/flamethrower/proc/return_fuel(datum/reagents/_return, datum/reagents/_fraction)
+	if(fuel_container) //In the event we earlied out that means some fuel goes back into tank
+		if(_fraction.total_volume > 0)
+			_fraction.trans_to_holder(_return, _fraction.total_volume)
+	QDEL_NULL(_fraction)
 
 /obj/item/flamethrower/full/Initialize() // slightly weird looking initialize cuz it has to do some stuff first
 	welding_tool = new /obj/item/weldingtool(src)
@@ -257,5 +306,7 @@
 	igniter = new /obj/item/device/assembly/igniter(src)
 	igniter.secured = FALSE
 	secured = TRUE
-	gas_tank = new /obj/item/tank/phoron(src)
+	fuel_container = new /obj/item/reagent_containers/glass/beaker/large(src)
+	fuel_container.reagents.add_reagent(/singleton/reagent/fuel, 120)
+	processUpgrade()
 	return ..()
