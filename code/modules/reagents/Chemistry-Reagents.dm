@@ -57,6 +57,11 @@
 	/// Adds to the value of whatever container's holding it, value * units of reagents
 	var/value = 1
 
+	///How effective this chemical is in a flamethrower.
+	var/accelerant_quality = 0
+	///Should this reagent burn a different color?
+	var/fire_color = null
+
 /// Called when the reagent is created.
 /singleton/reagent/proc/initialize_data(var/newdata, var/datum/reagents/holder)
 	if(!isnull(newdata))

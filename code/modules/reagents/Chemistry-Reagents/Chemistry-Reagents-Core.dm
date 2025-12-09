@@ -164,6 +164,11 @@
 	if(istype(O, /obj/structure/bonfire))
 		var/obj/structure/bonfire/B = O
 		B.fuel = max(0, B.fuel - (5 * amount))
+	if(istype(O, /obj/turf_fire))
+		var/obj/turf_fire/F = O
+		F.AddPower(-amount)
+		if(F.fire_power <= 0)
+			qdel(F)
 
 /singleton/reagent/water/touch_mob(var/mob/M, var/amount, var/datum/reagents/holder)
 	. = ..()
@@ -211,6 +216,8 @@
 	fallback_specific_heat = 0.605
 
 	value = 6.8
+
+	accelerant_quality = 10
 
 /singleton/reagent/fuel/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
 	new /obj/effect/decal/cleanable/liquid_fuel(T, amount)
