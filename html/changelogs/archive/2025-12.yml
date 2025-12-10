@@ -91,3 +91,13 @@
       upgrade options.
   - qol: The laptop vendor can now accept PDAs with IDs in them.
   - qol: The laptop vendor will now give you your new item in your hands, if possible.
+2025-12-08:
+  GeneralCamo:
+  - bugfix: Ported server revision verb from CM to fix numerous issues breaking it.
+  Hellfirejag:
+  - bugfix: Fixed an issue where vaurca language processors would delete their starting
+      language processor.
+  Mynameasjeff:
+  - refactor: Reworks the Solarian Coilgun into a event-only weapon no longer
+  - bugfix: Fixes several issues found on the Solarian Frigate during playtesting
+  - balance: Replaces the Solarian Frigate's longbow with the new coilgun. Hoorah!
