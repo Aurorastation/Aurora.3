@@ -1,7 +1,0 @@
-author: FabianK3
-
-delete-after: True
-
-changes:
-  - code_imp: "Removed build artifacts from TGUI build stage that were git-ignored but already checked in."
-  - code_imp: "Removed no longer needed repo workflow to update TGUI auto generated files."
