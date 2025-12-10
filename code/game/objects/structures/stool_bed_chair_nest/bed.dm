@@ -47,15 +47,15 @@
 /obj/structure/bed/mechanics_hints()
 	. = list()
 	. += ..()
-	. += "Click and drag yourself (or anyone) to this to buckle in."
+	. += "Click-drag yourself (or anyone) to this to buckle in."
 	. += "Click on this with an empty hand to undo the buckles."
 	. += "Anyone with restraints, such as handcuffs, will not be able to unbuckle themselves. They must use the Resist button, or verb, to break free of \
 	the buckles instead."
 	. += "To unbuckle people as a stationbound, click the bed with an empty gripper."
 	if(held_item)
-		. += "Click and drag this onto yourself to pick it up, remove an attached item, or to change the IV flow rate."
+		. += "Click-drag this onto yourself to pick it up, remove an attached item, or to change the IV flow rate."
 		. += "Vitals monitors, blood bags, beakers, bottles, and medical scans can be attached by clicking this with the object in your active hand."
-		. += "Alt+click this to lock or unlock it in place."
+		. += "ALT+click this to lock or unlock it in place."
 
 /obj/structure/bed/assembly_hints()
 	. = list()
