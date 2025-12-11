@@ -437,7 +437,7 @@
 	eyes = "zenghu_eyes"
 	brute_mod = 1.5
 
-	slowdown = -0.8
+	slowdown = -0.6
 	sprint_speed_factor = 0.6
 	sprint_cost_factor = 2
 	move_charge_factor = 2

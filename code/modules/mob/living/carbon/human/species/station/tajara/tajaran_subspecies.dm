@@ -12,7 +12,7 @@
 
 	secondary_langs = list(LANGUAGE_SIIK_TAJR, LANGUAGE_DELVAHII)
 
-	slowdown = -0.4
+	slowdown = -0.2
 	sprint_speed_factor = 0.55
 	standing_jump_range = 2
 	stamina = 100 // As opposed to 90
@@ -57,8 +57,8 @@
 	worked as hunters, later becoming warriors and soldiers as civilization developed."
 	species_height = HEIGHT_CLASS_AVERAGE
 
-	slowdown = -0.7 //As opposed to -1 for Base tajara
-	sprint_speed_factor = 0.75 // As opposed to 0.65
+	slowdown = -0.6
+	sprint_speed_factor = 0.75
 	standing_jump_range = 3
 	stamina = 80 // As opposed to 90
 	brute_mod = 1.3 // More Brute Damage

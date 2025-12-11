@@ -25,7 +25,7 @@
 		/singleton/maneuver/leap/tajara
 	)
 	darksight = 8
-	slowdown = -0.6
+	slowdown = -0.4
 
 	brute_mod = 1.2
 	fall_mod = 0.5
