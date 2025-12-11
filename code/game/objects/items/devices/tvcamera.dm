@@ -116,7 +116,7 @@ Using robohead because of restricting to roboticist */
 				desc = "This TV camera assembly has a camera and audio module."
 				return
 		if(2)
-			if(attacking_item.iscoil())
+			if(attacking_item.tool_behaviour == TOOL_CABLECOIL)
 				var/obj/item/stack/cable_coil/C = attacking_item
 				if(!C.use(3))
 					to_chat(user, SPAN_NOTICE("You need three cable coils to wire the devices."))

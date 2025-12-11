@@ -586,7 +586,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 			update_icon()
 
 	// CABLE COIL: Install the power terminal (wire stuff on the floor in front of the APC).
-	else if (attacking_item.iscoil() && !terminal && opened != COVER_CLOSED && has_electronics != HAS_ELECTRONICS_SECURED)
+	else if (attacking_item.tool_behaviour == TOOL_CABLECOIL && !terminal && opened != COVER_CLOSED && has_electronics != HAS_ELECTRONICS_SECURED)
 		var/turf/T = loc
 		if(istype(T) && !T.is_plating())
 			to_chat(user, SPAN_WARNING("You must remove the floor plating in front of the APC first."))

@@ -398,7 +398,7 @@
 		to_chat(user, SPAN_WARNING("You need to open access hatch on [src] first!"))
 		return 0
 
-	if(attacking_item.iscoil() && !terminal && !building_terminal)
+	if(attacking_item.tool_behaviour == TOOL_CABLECOIL && !terminal && !building_terminal)
 		building_terminal = 1
 		var/obj/item/stack/cable_coil/CC = attacking_item
 		if (CC.get_amount() <= 10)

@@ -343,7 +343,7 @@
 			cell = attacking_item
 			to_chat(user, SPAN_NOTICE("You insert \the [src]."))
 		return
-	if(attacking_item.iscoil())
+	if(attacking_item.tool_behaviour == TOOL_CABLECOIL)
 		if(wires)
 			to_chat(user, SPAN_WARNING("\The [src] is already wired up correctly."))
 			return

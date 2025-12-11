@@ -219,7 +219,7 @@
 	else if(I.iswirecutter())
 		I.play_tool_sound(get_turf(I), 50)
 
-	else if(I.iscoil())
+	else if(I.tool_behaviour == TOOL_CABLECOIL)
 		var/obj/item/stack/cable_coil/C = used_atom
 		if(C.use(4))
 			playsound(holder, 'sound/items/Deconstruct.ogg', 50, 1)

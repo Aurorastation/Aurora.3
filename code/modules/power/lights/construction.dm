@@ -91,7 +91,7 @@
 		playsound(get_turf(src), 'sound/items/Wirecutter.ogg', 100, TRUE)
 		return
 
-	if(attacking_item.iscoil())
+	if(attacking_item.tool_behaviour == TOOL_CABLECOIL)
 		if(stage != 1)
 			return
 		var/obj/item/stack/cable_coil/coil = attacking_item

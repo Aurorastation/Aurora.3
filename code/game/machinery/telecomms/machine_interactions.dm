@@ -68,7 +68,7 @@
 				stat |= BROKEN // the machine's been borked!
 				. = TRUE
 		if(3)
-			if(attacking_item.iscoil())
+			if(attacking_item.tool_behaviour == TOOL_CABLECOIL)
 				var/obj/item/stack/cable_coil/A = attacking_item
 				if (A.use(5))
 					to_chat(user, SPAN_NOTICE("You insert the cables."))
@@ -97,7 +97,7 @@
 								newpath = text2path(component)
 								var/obj/item/s = new newpath
 								s.forceMove(user.loc)
-								if(s.iscoil())
+								if(s.tool_behaviour == TOOL_CABLECOIL)
 									var/obj/item/stack/cable_coil/A = s
 									A.amount = 1
 

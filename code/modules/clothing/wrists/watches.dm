@@ -124,7 +124,7 @@
 		return
 	if(wired)
 		return
-	if(attacking_item.iscoil())
+	if(attacking_item.tool_behaviour == TOOL_CABLECOIL)
 		var/obj/item/stack/cable_coil/C = attacking_item
 		if(screwed)
 			to_chat(user, SPAN_NOTICE("The [src] is not open."))

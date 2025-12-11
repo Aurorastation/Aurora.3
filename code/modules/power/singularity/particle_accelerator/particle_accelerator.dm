@@ -187,7 +187,7 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 				user.visible_message(SPAN_NOTICE("\The [user] detaches \the [src] from the floor."), \
 					SPAN_NOTICE("You remove the external bolts."))
 				temp_state--
-			else if(O.iscoil())
+			else if(O.tool_behaviour == TOOL_CABLECOIL)
 				var/obj/item/stack/cable_coil/C = O
 				if(C.use(1))
 					user.visible_message(SPAN_NOTICE("\The [user] adds wires to \the [src]."), \
@@ -293,7 +293,7 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 				user.visible_message(SPAN_NOTICE("\The [user] detaches \the [src] from the floor."), \
 					SPAN_NOTICE("You remove the external bolts."))
 				temp_state--
-			else if(O.iscoil())
+			else if(O.tool_behaviour == TOOL_CABLECOIL)
 				var/obj/item/stack/cable_coil/C = O
 				if(C.use(1))
 					user.visible_message(SPAN_NOTICE("\The [user] removes some wires from \the [src]."), \

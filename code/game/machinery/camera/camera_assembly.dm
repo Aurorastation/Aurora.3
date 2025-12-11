@@ -57,7 +57,7 @@
 
 		if(2)
 			// State 2
-			if(attacking_item.iscoil())
+			if(attacking_item.tool_behaviour == TOOL_CABLECOIL)
 				var/obj/item/stack/cable_coil/C = attacking_item
 				if(C.use(2))
 					to_chat(user, SPAN_NOTICE("You add wires to the assembly."))

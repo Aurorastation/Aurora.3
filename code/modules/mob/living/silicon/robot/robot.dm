@@ -641,7 +641,7 @@
 				add_fingerprint(user)
 				visible_message(SPAN_WARNING("\The [user] has fixed some of the dents on \the [src]!"))
 				return
-		else if(attacking_item.iscoil() && (wires_exposed || istype(src,/mob/living/silicon/robot/drone)))
+		else if(attacking_item.tool_behaviour == TOOL_CABLECOIL && (wires_exposed || istype(src,/mob/living/silicon/robot/drone)))
 			if(!getFireLoss())
 				to_chat(user, SPAN_WARNING("There is nothing to fix here!"))
 				return

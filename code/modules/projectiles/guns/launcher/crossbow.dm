@@ -254,7 +254,7 @@
 			buildstate++
 			update_icon()
 		return
-	else if(attacking_item.iscoil())
+	else if(attacking_item.tool_behaviour == TOOL_CABLECOIL)
 		var/obj/item/stack/cable_coil/C = attacking_item
 		if(buildstate == 2)
 			if(C.use(5))

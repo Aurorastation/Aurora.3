@@ -74,7 +74,7 @@
 	cmineral = "mining"
 
 /obj/item/coin/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iscoil())
+	if(attacking_item.tool_behaviour == TOOL_CABLECOIL)
 		var/obj/item/stack/cable_coil/CC = attacking_item
 		if(string_attached)
 			to_chat(user, SPAN_NOTICE("There already is a string attached to this coin."))

@@ -52,7 +52,7 @@
 			PH.set_console(src)
 			PH.set_hud_maptext("Shuttle Status: [get_shuttle_status(SSshuttle.shuttles[shuttle_tag])]")
 		return
-	if(attacking_item.iscoil()) // Repair from hotwire
+	if(attacking_item.tool_behaviour == TOOL_CABLECOIL) // Repair from hotwire
 		var/obj/item/stack/cable_coil/C = attacking_item
 		if(hotwire_progress >= initial(hotwire_progress))
 			to_chat(usr, SPAN_BOLD("\The [src] does not require repairs."))

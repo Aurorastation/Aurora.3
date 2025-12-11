@@ -33,7 +33,7 @@
 		return
 
 	//add wires
-	if(attacking_item.iscoil())
+	if(attacking_item.tool_behaviour == TOOL_CABLECOIL)
 		var/obj/item/stack/cable_coil/C = attacking_item
 		if (clipped)
 			to_chat(user, SPAN_NOTICE("The [src] are too badly mangled for wiring."))

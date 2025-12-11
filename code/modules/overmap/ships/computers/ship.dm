@@ -28,7 +28,7 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 	popup.open()
 
 /obj/machinery/computer/ship/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iscoil()) // Repair from hotwire
+	if(attacking_item.tool_behaviour == TOOL_CABLECOIL) // Repair from hotwire
 		var/obj/item/stack/cable_coil/C = attacking_item
 		if(hotwire_progress >= initial(hotwire_progress))
 			to_chat(usr, SPAN_BOLD("\The [src] does not require repairs."))

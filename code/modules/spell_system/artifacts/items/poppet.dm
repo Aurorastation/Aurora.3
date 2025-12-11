@@ -94,7 +94,7 @@
 			H.flash_act()
 			return TRUE
 
-		if(attacking_item.iscoil())
+		if(attacking_item.tool_behaviour == TOOL_CABLECOIL)
 			to_chat(H, SPAN_WARNING("You strangle \the [src] with \the [attacking_item]!"))
 			H.silent += 10
 			playsound(get_turf(H), 'sound/effects/noosed.ogg', 50, 1, -1)

@@ -122,7 +122,7 @@
 	if(attacking_item.iswelder())
 		repair_brute_generic(attacking_item, user)
 		return
-	if(attacking_item.iscoil())
+	if(attacking_item.tool_behaviour == TOOL_CABLECOIL)
 		repair_burn_generic(attacking_item, user)
 		return
 	return ..()

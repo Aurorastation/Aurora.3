@@ -133,7 +133,7 @@
 							src.name = "Secure Windoor Assembly"
 
 			//Adding cable to the assembly. Step 5 complete.
-			else if(attacking_item.iscoil() && anchored)
+			else if(attacking_item.tool_behaviour == TOOL_CABLECOIL && anchored)
 				user.visible_message("[user] wires the windoor assembly.", "You start to wire the windoor assembly.")
 
 				var/obj/item/stack/cable_coil/CC = attacking_item

@@ -1,6 +1,3 @@
-/obj/item/crowbar/robotic
-	icon = 'icons/obj/robot_items.dmi'
-
 /obj/item/wrench/robotic
 	icon = 'icons/obj/robot_items.dmi'
 

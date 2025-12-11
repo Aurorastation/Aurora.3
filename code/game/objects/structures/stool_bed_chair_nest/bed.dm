@@ -428,7 +428,7 @@
 		add_vis_contents(vitals)
 
 /obj/structure/bed/roller/attackby(obj/item/attacking_item, mob/user)
-	if(iswrench(attacking_item) || istype(attacking_item, /obj/item/stack) || iswirecutter(attacking_item))
+	if(attacking_item.tool_behaviour == TOOL_WRENCH || istype(attacking_item, /obj/item/stack) || attacking_item.tool_behaviour == TOOL_WIRECUTTER)
 		return 1
 	if(istype(attacking_item, /obj/item/vitals_monitor))
 		if(vitals)

@@ -69,7 +69,7 @@
 				src.state = 1
 				src.icon_state = "1"
 				return TRUE
-			if(attacking_item.iscoil())
+			if(attacking_item.tool_behaviour == TOOL_CABLECOIL)
 				var/obj/item/stack/cable_coil/C = attacking_item
 				if (C.get_amount() < 5)
 					to_chat(user, SPAN_WARNING("You need five coils of wire to add them to the frame."))

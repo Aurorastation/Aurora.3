@@ -60,7 +60,7 @@
 			damage = 0
 		return TRUE
 	/// Cable coil. Works as repair method, but will probably require multiple applications and more cable.
-	if(S.iscoil())
+	if(S.tool_behaviour == TOOL_CABLECOIL)
 		if(!damage)
 			to_chat(user, SPAN_WARNING("\The [src] doesn't seem to require repairs."))
 			return TRUE

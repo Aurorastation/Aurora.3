@@ -423,7 +423,7 @@
 				if(CanInteract(user, GLOB.physical_state) && !QDELETED(to_fix) && (to_fix in src) && to_fix.brute_damage)
 					to_fix.repair_brute_generic(attacking_item, user)
 				return
-			else if(attacking_item.iscoil())
+			else if(attacking_item.tool_behaviour == TOOL_CABLECOIL)
 				if(!getFireLoss())
 					return
 				var/list/damaged_parts = list()

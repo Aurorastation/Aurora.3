@@ -45,12 +45,12 @@
 				make_plating(1)
 				attacking_item.play_tool_sound(get_turf(src), 80)
 				return
-		else if(attacking_item.iscoil())
+		else if(attacking_item.tool_behaviour == TOOL_CABLECOIL)
 			to_chat(user, SPAN_WARNING("You must remove the [flooring.descriptor] first."))
 			return
 	else
 
-		if(attacking_item.iscoil())
+		if(attacking_item.tool_behaviour == TOOL_CABLECOIL)
 			if(broken || burnt)
 				to_chat(user, SPAN_WARNING("This section is too damaged to support anything. Use a welder to fix the damage."))
 				return

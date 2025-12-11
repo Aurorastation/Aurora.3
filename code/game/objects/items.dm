@@ -235,10 +235,13 @@
 	/// Holder var for the item outline filter, null when no outline filter on the item.
 	var/outline_filter
 
-	// Persistency
-	// Set this to true if you want the item to become persistent trash
-	// Requires the usual implementation requirements for new persistent types but provides a single implementation for trash logic
+	/// Persistency
+	/// Set this to true if you want the item to become persistent trash
+	/// Requires the usual implementation requirements for new persistent types but provides a single implementation for trash logic
 	var/persistency_considered_trash = FALSE
+
+	/// How a tool acts when you use it on something, such as wirecutters cutting wires while multitools measure power
+	var/tool_behaviour = null
 
 /obj/item/Initialize(mapload, ...)
 	. = ..()

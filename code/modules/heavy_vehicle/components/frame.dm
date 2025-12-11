@@ -180,7 +180,7 @@
 		return
 
 	// Installing wiring.
-	else if(attacking_item.iscoil())
+	else if(attacking_item.tool_behaviour == TOOL_CABLECOIL)
 
 		if(is_wired)
 			to_chat(user, SPAN_WARNING("\The [src] has already been wired."))

@@ -170,7 +170,7 @@
 			to_chat(user, SPAN_NOTICE("You [anchored? "un" : ""]secure \the [src]."))
 			anchored = !anchored
 
-	else if(attacking_item.iscoil())
+	else if(attacking_item.tool_behaviour == TOOL_CABLECOIL)
 		if(state > STATE_UNWIRED)
 			to_chat(user, SPAN_WARNING("\The [src] has already been wired."))
 			return

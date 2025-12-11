@@ -16,7 +16,7 @@
 		icon_state = "door_construction"
 
 /obj/structure/firedoor_assembly/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iscoil() && !wired && anchored)
+	if(attacking_item.tool_behaviour == TOOL_CABLECOIL && !wired && anchored)
 		var/obj/item/stack/cable_coil/cable = attacking_item
 		if (cable.get_amount() < 1)
 			to_chat(user, SPAN_WARNING("You need one length of coil to wire \the [src]."))

@@ -31,7 +31,7 @@
 	return
 
 /obj/machinery/cablelayer/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iscoil())
+	if(attacking_item.tool_behaviour == TOOL_CABLECOIL)
 		var/result = load_cable(attacking_item)
 		if(!result)
 			to_chat(user, SPAN_WARNING("\The [src]'s cable reel is full."))
