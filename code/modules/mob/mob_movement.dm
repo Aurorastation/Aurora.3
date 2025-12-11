@@ -186,8 +186,6 @@
 	if(mob.transforming)
 		return	//This is sota the goto stop mobs from moving var
 
-	var/add_delay = mob.cached_multiplicative_slowdown
-
 	if(isliving(mob))
 		if(SEND_SIGNAL(mob, COMSIG_MOB_CLIENT_PRE_LIVING_MOVE, new_loc, direct) & COMSIG_MOB_CLIENT_BLOCK_PRE_LIVING_MOVE)
 			return FALSE
@@ -244,7 +242,6 @@
 			else
 				mob.inertia_dir = 0 //If not then we can reset inertia and move
 
-
 		if(mob.restrained())		//Why being pulled while cuffed prevents you from moving
 			var/mob/puller = mob.pulledby
 			if(puller)
@@ -258,15 +255,6 @@
 			to_chat(src, SPAN_WARNING("You're pinned to a wall by [mob.pinned[1]]!"))
 			move_delay = world.time + 1 SECOND // prevent spam
 			return FALSE
-
-		//If the move was recent, count using old_move_delay
-		//We want fractional behavior and all
-		if(old_move_delay + world.tick_lag > world.time)
-			//Yes this makes smooth movement stutter if add_delay is too fractional
-			//Yes this is better then the alternative
-			move_delay = old_move_delay
-		else
-			move_delay = world.time
 
 		if(mob.buckled_to)
 			if(istype(mob.buckled_to, /obj/vehicle))
@@ -314,7 +302,6 @@
 			tally *= GLOB.config.walk_delay_multiplier
 
 		move_delay += tally
-		move_delay += add_delay
 
 		if(mob_is_human && mob.lying)
 			var/mob/living/carbon/human/H = mob
@@ -346,6 +333,23 @@
 						move_delay = max(move_delay, world.time + 7)
 						step(G.affecting, get_dir(G.affecting.loc, mob.loc))
 
+		var/add_delay = mob.cached_multiplicative_slowdown
+		var/glide_delay = add_delay
+		if(NSCOMPONENT(direct) && EWCOMPONENT(direct))
+			glide_delay = FLOOR(glide_delay * sqrt(2), world.tick_lag)
+		mob.set_glide_size(DELAY_TO_GLIDE_SIZE(glide_delay)) // set it now in case of pulled objects
+		//If the move was recent, count using old_move_delay
+		//We want fractional behavior and all
+		if(old_move_delay + world.tick_lag > world.time)
+			//Yes this makes smooth movement stutter if add_delay is too fractional
+			//Yes this is better then the alternative
+			move_delay = old_move_delay
+		else
+			move_delay = world.time
+
+		var/after_glide = DELAY_TO_GLIDE_SIZE(add_delay)
+		mob.set_glide_size(after_glide)
+
 		if(mob.confused && prob(25) && mob.m_intent == M_RUN)
 			step(mob, pick(GLOB.cardinals))
 		else
@@ -354,9 +358,11 @@
 		for (var/obj/item/grab/G in list(mob.l_hand, mob.r_hand))
 			if (G.state == GRAB_NECK)
 				mob.set_dir(REVERSE_DIR(direct))
+			G.set_glide_size(DELAY_TO_GLIDE_SIZE(glide_delay))
 			G.adjust_position()
 
 		for (var/obj/item/grab/G in mob.grabbed_by)
+			G.set_glide_size(DELAY_TO_GLIDE_SIZE(glide_delay))
 			G.adjust_position()
 
 		moving = 0

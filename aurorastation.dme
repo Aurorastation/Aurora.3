@@ -392,6 +392,7 @@
 #include "code\controllers\subsystems\sunlight.dm"
 #include "code\controllers\subsystems\throwing.dm"
 #include "code\controllers\subsystems\ticker.dm"
+#include "code\controllers\subsystems\time_track.dm"
 #include "code\controllers\subsystems\timer.dm"
 #include "code\controllers\subsystems\trade.dm"
 #include "code\controllers\subsystems\verb_manager.dm"
