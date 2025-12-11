@@ -238,31 +238,31 @@
 /datum/construction/reversible/rig_assembly/civilian
 	steps = list(
 				//1
-				list("key"=/obj/item/weldingtool,
-					"backkey"=WRENCH,
+				list("key"=TOOL_WELDER,
+					"backkey"=TOOL_WRENCH,
 					"desc"="The external armor has been wrenched down, use a welding tool to finish it off, or use a wrench to unsecure the external armor."),
 				//2
-				list("key"=WRENCH,
-						"backkey"=/obj/item/crowbar,
+				list("key"=TOOL_WRENCH,
+						"backkey"=TOOL_CROWBAR,
 						"desc"="The external armor has been installed, use a wrench to secure it, or use a crowbar to pry it out of place."),
 				//3
 				list("key"=/obj/item/stack/material/steel,
-						"backkey"=/obj/item/screwdriver,
+						"backkey"=TOOL_SCREWDRIVER,
 						"desc"="The central control module has been secured, add some steel to install external armor, or use a screwdriver to unsecure the control module."),
 				//4
-				list("key"=SCREWDRIVER,
-						"backkey"=/obj/item/crowbar,
+				list("key"=TOOL_SCREWDRIVER,
+						"backkey"=TOOL_CROWBAR,
 						"desc"="The central control module has been installed, use a screwdriver to secure it, or use a crowbar to pry it out."),
 				//5
 				list("key"=null,
-						"backkey"=/obj/item/wirecutters,
+						"backkey"=TOOL_WIRECUTTER,
 						"desc"="The wiring has been adjusted, install the central control module to continue, or use a wirecutter to unset the wires."),
 				//6
-				list("key"=WIRECUTTER,
-						"backkey"=/obj/item/screwdriver,
+				list("key"=TOOL_WIRECUTTER,
+						"backkey"=TOOL_SCREWDRIVER,
 						"desc"="The wiring has been added, use a wirecutter to properly adjust them, or use a screwdriver to remove them."),
 				//7
-				list("key"=/obj/item/stack/cable_coil,
+				list("key"=TOOL_CABLECOIL,
 						"desc"="The assembly lacks wiring, add some to begin."),
 				)
 
@@ -331,59 +331,59 @@
 /datum/construction/reversible/rig_assembly/combat
 	steps = list(
 				//1
-				list("key"=/obj/item/weldingtool,
-						"backkey"=WRENCH,
+				list("key"=TOOL_WELDER,
+						"backkey"=TOOL_WRENCH,
 						"desc"="The external armor has been wrenched down, use a welding tool to finish it off, or use a wrench to unsecure the external armor."),
 				//2
-				list("key"=WRENCH,
-						"backkey"=CROWBAR,
+				list("key"=TOOL_WRENCH,
+						"backkey"=TOOL_CROWBAR,
 						"desc"="The external armor has been installed, use a wrench to secure it, or use a crowbar to pry it out of place."),
 				//3
 				list("key"=/obj/item/stack/material/plasteel,
-						"backkey"=/obj/item/weldingtool,
+						"backkey"=TOOL_WELDER,
 						"desc"="The internal armor has been welded into place, add some plasteel to install external armor, or use a welding tool to unweld the internal armor.."),
 				//4
-				list("key"=/obj/item/weldingtool,
-						"backkey"=WRENCH,
+				list("key"=TOOL_WELDER,
+						"backkey"=TOOL_WRENCH,
 						"desc"="The internal armor has been wrenched down, use a welding tool to weld it into place, or use a wrench to unsecure the internal armor."),
 				//5
-				list("key"=WRENCH,
-						"backkey"=CROWBAR,
+				list("key"=TOOL_WRENCH,
+						"backkey"=TOOL_CROWBAR,
 						"desc"="The internal armor has been installed, use a wrench to secure it, or use a crowbar to pry it out of place."),
 				//6
 				list("key"=/obj/item/stack/material/steel,
-						"backkey"=SCREWDRIVER,
+						"backkey"=TOOL_SCREWDRIVER,
 						"desc"="The advanced scanner module has been secured, add some steel to install internal armor, or use a screwdriver to unsecure it."),
 				//7
-				list("key"=SCREWDRIVER,
-						"backkey"=CROWBAR,
+				list("key"=TOOL_SCREWDRIVER,
+						"backkey"=TOOL_CROWBAR,
 						"desc"="The advanced scanner module has been installed, use a screwdriver to secure it, or use a crowbar to pry it out."),
 				//8
 				list("key"=/obj/item/stock_parts/scanning_module/adv,
-						"backkey"=SCREWDRIVER,
+						"backkey"=TOOL_SCREWDRIVER,
 						"desc"="The targeting module has been secured, add an advanced scanning module to continue, or use a screwdriver to unsecure it."),
 				//9
-				list("key"=SCREWDRIVER,
-						"backkey"=CROWBAR,
+				list("key"=TOOL_SCREWDRIVER,
+						"backkey"=TOOL_CROWBAR,
 						"desc"="The targeting module has been installed, use a screwdriver to secure it, or use a crowbar to pry it out."),
 				//10
 				list("key"=null,
-						"backkey"=SCREWDRIVER,
+						"backkey"=TOOL_SCREWDRIVER,
 						"desc"="The central control module has been secured, add a targeting module to continue, or use a screwdriver to unsecure it."),
 				//11
-				list("key"=SCREWDRIVER,
-						"backkey"=CROWBAR,
+				list("key"=TOOL_SCREWDRIVER,
+						"backkey"=TOOL_CROWBAR,
 						"desc"="The central control module has been installed, use a screwdriver to secure it, or use a crowbar to pry it out."),
 				//12
 				list("key"=null,
-						"backkey"=WIRECUTTER,
+						"backkey"=TOOL_WIRECUTTER,
 						"desc"="The wiring has been adjusted, install the central control module to continue, or use a wirecutter to unset the wires."),
 				//13
-				list("key"=WIRECUTTER,
-						"backkey"=SCREWDRIVER,
+				list("key"=TOOL_WIRECUTTER,
+						"backkey"=TOOL_SCREWDRIVER,
 						"desc"="The wiring has been added, use a wirecutter to properly adjust them, or use a screwdriver to remove them."),
 				//14
-				list("key"=/obj/item/stack/cable_coil,
+				list("key"=TOOL_CABLECOIL,
 						"desc"="The assembly lacks wiring, add some to begin."),
 				)
 

@@ -50,6 +50,7 @@
 
 	// We have to manually handle storage in item_interaction because storage is blocking in 99% of interactions, which stifles a lot
 	// Yeah it sucks not being able to signalize this, but the other option is to have a second signal here just for storage which is also not great
+	/*
 	if(atom_storage)
 		if(is_left_clicking)
 			if(atom_storage.insert_on_attack)
@@ -57,7 +58,7 @@
 		else
 			if(atom_storage.open_storage(user) && atom_storage.display_contents)
 				return ITEM_INTERACT_SUCCESS
-
+	*/
 	return NONE
 
 /**
@@ -94,9 +95,11 @@
 		: SEND_SIGNAL(src, COMSIG_ATOM_ALT_TOOL_ACT(tool_type), user, tool)
 	if(signal_result)
 		return signal_result
+	/*
 	if(length(processing_recipes))
 		process_recipes(user, tool, processing_recipes)
 		return ITEM_INTERACT_SUCCESS
+	*/
 	if(QDELETED(tool))
 		return ITEM_INTERACT_SUCCESS // Safe-ish to assume that if we deleted our item something succeeded
 

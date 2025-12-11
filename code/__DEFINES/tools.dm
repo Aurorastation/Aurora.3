@@ -5,7 +5,7 @@
 #define TOOL_SCREWDRIVER "screwdriver"
 #define TOOL_WIRECUTTER "cutters"
 #define TOOL_WRENCH "wrench"
-#define TOOL_PIPEWRENCH "pipewrench"
+#define TOOL_PIPEWRENCH "pipe wrench"
 #define TOOL_WELDER "welder"
 #define TOOL_ANALYZER "analyzer"
 #define TOOL_MINING "mining"
@@ -20,7 +20,7 @@
 #define TOOL_KNIFE "knife"
 #define TOOL_BLOODFILTER "bloodfilter"
 #define TOOL_ROLLINGPIN "rolling pin"
-#define TOOL_CABLECOIL "cablecoil"
+#define TOOL_CABLECOIL "cable coil"
 #define TOOL_HAMMER "hammer"
 #define TOOL_PEN "pen"
 
