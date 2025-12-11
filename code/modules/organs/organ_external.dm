@@ -603,7 +603,7 @@
 			break
 
 		// heal brute damage
-		if(W.damage_type == DAMAGE_BURN)
+		if(W.damage_type == INJURY_TYPE_BURN)
 			burn = W.heal_damage(burn)
 		else
 			brute = W.heal_damage(brute)
@@ -1243,21 +1243,21 @@ Note that amputating the affected organ does in fact remove the infection from t
 	status &= ~ORGAN_BLEEDING
 	for(var/datum/wound/W in wounds)
 		rval |= !W.bandaged
-		W.bandaged = 1
+		W.bandage()
 	return rval
 
 /obj/item/organ/external/proc/salve()
 	var/rval = 0
 	for(var/datum/wound/W in wounds)
 		rval |= !W.salved
-		W.salved = 1
+		W.salve()
 	return rval
 
 /obj/item/organ/external/proc/disinfect()
 	var/rval = 0
 	for(var/datum/wound/W in wounds)
 		rval |= !W.disinfected
-		W.disinfected = 1
+		W.disinfect()
 		W.germ_level = 0
 	return rval
 
