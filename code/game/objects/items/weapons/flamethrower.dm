@@ -34,7 +34,7 @@
 	if(is_adjacent)
 		if(fuel_container)
 			if(fuel_container.reagents)
-				. += SPAN_NOTICE("The loaded [fuel_container.name] has about [fuel_container.reagents.total_volume]\s left.")
+				. += SPAN_NOTICE("The loaded [fuel_container.name] has about [fuel_container.reagents.total_volume] unit\s left.")
 			else
 				. += SPAN_NOTICE("The loaded [fuel_container.name] is empty.")
 		if(igniter)
@@ -69,8 +69,15 @@
 		STOP_PROCESSING(SSprocessing, src)
 		update_icon()
 		return null
+	else if (!fuel_container || !fuel_container.reagents || fuel_container.reagents.total_volume <= 0)
+		lit = FALSE
+		balloon_alert_to_viewers("*fffft*")
+		playsound(loc, 'sound/items/welder_deactivate.ogg', 50, TRUE)
+		update_icon()
+		STOP_PROCESSING(SSprocessing, src)
+		return null
 	var/turf/location = loc
-	if(istype(location, /mob/))
+	if(ismob(location))
 		var/mob/M = location
 		if(M.l_hand == src || M.r_hand == src)
 			location = M.loc
@@ -176,7 +183,7 @@
 	if(use_check_and_message(user))
 		return
 	var/list/options = list(
-		"Eject Tank" = image('icons/obj/tank.dmi', "phoron"),
+		"Eject Tank" = image('icons/obj/item/reagent_containers/glass.dmi', "beaker"),
 		"Light" = image('icons/effects/effects.dmi', "exhaust")
 	)
 	var/handle = show_radial_menu(user, user, options, radius = 42, tooltips=TRUE)
@@ -254,11 +261,11 @@
 	fuel_reagents.trans_to_holder(my_fraction, FLAMETHROWER_RELEASE_AMOUNT * length(turflist))
 	var/fire_color = null
 	var/highest_amount = 0
-	for(var/reagent in fuel_reagents.reagent_volumes)
+	for(var/reagent in my_fraction.reagent_volumes)
 		var/singleton/reagent/fuel = GET_SINGLETON(reagent)
-		power += fuel.accelerant_quality * FLAMETHROWER_POWER_MULTIPLIER * fuel_reagents.reagent_volumes[reagent] //Flamethrowers inflate flammability compared to a pool of fuel
-		if(fuel_reagents.reagent_volumes[reagent] > highest_amount && fuel.accelerant_quality > 0)
-			highest_amount = fuel_reagents.reagent_volumes[reagent]
+		power += fuel.accelerant_quality * FLAMETHROWER_POWER_MULTIPLIER * (my_fraction.reagent_volumes[reagent] / length(turflist)) //Flamethrowers inflate flammability compared to a pool of fuel
+		if(my_fraction.reagent_volumes[reagent] > highest_amount && fuel.accelerant_quality > 0)
+			highest_amount = my_fraction.reagent_volumes[reagent]
 			fire_color = fuel.fire_color
 
 	if(power < REQUIRED_POWER_TO_FIRE_FLAMETHROWER)
@@ -281,7 +288,7 @@
 			continue
 
 		//Consume part of our fuel to create a fire spot
-		T.IgniteTurf(power / length(turflist), fire_color)
+		T.IgniteTurf(power, fire_color)
 		T.hotspot_expose(power * 3 + 380)
 		my_fraction.remove_any(FLAMETHROWER_RELEASE_AMOUNT)
 		sleep(0.1 SECONDS)
