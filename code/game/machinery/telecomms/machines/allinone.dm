@@ -21,11 +21,13 @@
 		freq_listening = ANTAG_FREQS
 	LAZYINITLIST(recent_broadcasts)
 	SSmachinery.all_receivers += src
+	soundloop = new(src, TRUE)
 
 	desc += " It has an effective reception range of [overmap_range] grids on the overmap."
 
 /obj/machinery/telecomms/allinone/Destroy()
 	SSmachinery.all_receivers -= src
+	QDEL_NULL(soundloop)
 	return ..()
 
 /obj/machinery/telecomms/allinone/receive_signal(datum/signal/subspace/signal)
@@ -47,6 +49,13 @@
 		signal.broadcast()
 
 	addtimer(CALLBACK(src, PROC_REF(remove_signal_message_from_recent_broadcasts), signal_message), 1 SECONDS)
+
+/obj/machinery/telecomms/allinone/toggle_power(power_set, additional_flags = 0)
+	. = ..()
+	if(use_power)
+		soundloop.start()
+	else
+		soundloop.stop()
 
 /obj/machinery/telecomms/allinone/proc/remove_signal_message_from_recent_broadcasts(signal_message)
 	recent_broadcasts -= signal_message

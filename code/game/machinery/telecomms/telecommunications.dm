@@ -65,7 +65,7 @@
 	var/ion_storm = FALSE
 
 	///Looping sounds for any servers
-//	var/datum/looping_sound/server/soundloop
+	var/datum/looping_sound/server/soundloop
 
 /obj/machinery/telecomms/condition_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -89,7 +89,6 @@
 
 /obj/machinery/telecomms/Initialize(mapload)
 	. = ..()
-//	soundloop = new(list(src), on)
 	SSmachinery.all_telecomms += src
 
 	if(mapload)
@@ -110,7 +109,6 @@
 	update_icon()
 
 /obj/machinery/telecomms/Destroy()
-//	QDEL_NULL(soundloop)
 	SSmachinery.all_telecomms -= src
 	for(var/obj/machinery/telecomms/comm in SSmachinery.all_telecomms)
 		remove_link(comm)

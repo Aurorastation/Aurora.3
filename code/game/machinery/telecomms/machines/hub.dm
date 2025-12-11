@@ -29,3 +29,18 @@
 		relay_information(signal, /obj/machinery/telecomms/bus) // ideally relay the copied information to bus units
 	else
 		relay_information(signal, /obj/machinery/telecomms/broadcaster) // Broadcast the current signal to our z-levels
+
+/obj/machinery/telecomms/hub/toggle_power(power_set, additional_flags = 0)
+	. = ..()
+	if(use_power)
+		soundloop.start()
+	else
+		soundloop.stop()
+
+/obj/machinery/telecomms/hub/Initialize(mapload)
+	. = ..()
+	soundloop = new(src, TRUE)
+
+/obj/machinery/telecomms/hub/Destroy()
+	QDEL_NULL(soundloop)
+	return ..()
