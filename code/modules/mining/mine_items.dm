@@ -365,9 +365,7 @@
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1, TECH_COMBAT = 2)
 	attack_verb = list("bashed", "bludgeoned", "thrashed", "whacked", "slashed", "cut")
 	sharp = TRUE
-
-/obj/item/shovel/gadpathur/iscrowbar()
-	return TRUE
+	tool_behaviour == TOOL_CROWBAR
 
 // Flags.
 
@@ -513,7 +511,7 @@
 		var/turf/T = get_turf(src)
 		T.attackby(attacking_item, user)
 		return
-	if(attacking_item.iswelder())
+	if(attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/WT = attacking_item
 		if(WT.use(0, user))
 			to_chat(user, SPAN_NOTICE("You slice apart the track."))
@@ -1189,7 +1187,7 @@ GLOBAL_LIST_INIT_TYPED(total_extraction_beacons, /obj/structure/extraction_point
 	var/busy_sculpting = FALSE
 
 /obj/structure/sculpting_block/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		visible_message("<b>[user]</b> starts to [anchored ? "un" : ""]anchor \the [src].", SPAN_NOTICE("You start to [anchored ? "un" : ""]anchor \the [src]."))
 		if(attacking_item.use_tool(src, user, 50, volume = 50))
 			anchored = !anchored

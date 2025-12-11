@@ -108,7 +108,7 @@
 	..()
 
 /obj/item/device/radio/headset/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(keyslot1 || keyslot2)
 			for(var/ch_name in channels)
 				SSradio.remove_object(src, radiochannels[ch_name])

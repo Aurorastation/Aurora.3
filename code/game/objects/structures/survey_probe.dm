@@ -48,7 +48,7 @@
 		deploy()
 
 /obj/structure/survey_probe/attackby(obj/item/attacking_item, mob/user, params)
-	if(!timer_id && attacking_item.iswrench())
+	if(!timer_id && attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(!anchored)
 			user.visible_message(
 				SPAN_NOTICE("\The [user] unfastens the locking bolts on \the [src], deploying it."),

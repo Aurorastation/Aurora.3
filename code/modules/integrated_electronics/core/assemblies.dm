@@ -249,7 +249,7 @@
 			interact(user)
 			return TRUE
 
-	else if(attacking_item.iswrench() && can_anchor)
+	else if(attacking_item.tool_behaviour == TOOL_WRENCH && can_anchor)
 		attacking_item.play_tool_sound(get_turf(src), 50)
 		anchored = !anchored
 		if(anchored)
@@ -259,14 +259,14 @@
 		user.visible_message("[user] has wrenched [src]'s anchoring bolts [anchored ? "into" : "out of"] place.", "You wrench [src]'s anchoring bolts [anchored ? "into" : "out of"] place.", "You hear the sound of a ratcheting wrench turning.")
 		return TRUE
 
-	else if(attacking_item.iscrowbar())
+	else if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 		attacking_item.play_tool_sound(get_turf(src), 50)
 		opened = !opened
 		to_chat(user, SPAN_NOTICE("You [opened ? "open" : "close"] \the [src]."))
 		update_icon()
 		return TRUE
 
-	else if(istype(attacking_item, /obj/item/device/integrated_electronics/wirer) || istype(attacking_item, /obj/item/device/integrated_electronics/debugger) || attacking_item.ismultitool() || attacking_item.isscrewdriver())
+	else if(istype(attacking_item, /obj/item/device/integrated_electronics/wirer) || istype(attacking_item, /obj/item/device/integrated_electronics/debugger) || attacking_item.tool_behaviour == TOOL_MULTITOOL || attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(opened)
 			interact(user)
 		else

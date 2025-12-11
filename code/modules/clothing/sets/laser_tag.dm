@@ -49,7 +49,7 @@
 	return ..()
 
 /obj/item/clothing/suit/armor/riot/laser_tag/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.ismultitool())
+	if(attacking_item.tool_behaviour == TOOL_MULTITOOL)
 		var/chosen_color = tgui_input_list(user, "Which color do you wish your vest to be?", "Color Selection", list("blue", "red"))
 		if(!chosen_color)
 			return
@@ -89,7 +89,7 @@
 	get_tag_color(laser_tag_color)
 
 /obj/item/clothing/head/helmet/riot/laser_tag/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.ismultitool())
+	if(attacking_item.tool_behaviour == TOOL_MULTITOOL)
 		var/chosen_color = tgui_input_list(user, "Which color do you wish your helmet to be?", "Color Selection", list("blue", "red"))
 		if(!chosen_color)
 			return

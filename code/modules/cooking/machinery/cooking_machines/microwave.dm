@@ -66,7 +66,7 @@
 /obj/machinery/appliance/cooker/microwave/attackby(obj/item/O, mob/living/user, list/click_params)
 	if (broken)
 		// Start repairs by using a screwdriver
-		if(broken == SCREWDRIVER_BROKEN && O.isscrewdriver())
+		if(broken == SCREWDRIVER_BROKEN && O.tool_behaviour == TOOL_SCREWDRIVER)
 			user.visible_message( \
 				SPAN_NOTICE("\The [user] starts to fix part of \the [src]."), \
 				SPAN_NOTICE("You start to fix part of \the [src].") \
@@ -80,7 +80,7 @@
 			return TRUE
 
 		// Finish repairs using a wrench
-		if (broken == WRENCH_BROKEN && O.iswrench())
+		if (broken == WRENCH_BROKEN && O.tool_behaviour == TOOL_WRENCH)
 			user.visible_message( \
 				SPAN_NOTICE("\The [user] starts to fix part of \the [src]."), \
 				SPAN_NOTICE("You start to fix part of \the [src].") \

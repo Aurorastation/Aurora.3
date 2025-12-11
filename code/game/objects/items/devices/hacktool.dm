@@ -30,7 +30,7 @@
 	return ..()
 
 /obj/item/device/multitool/hacktool/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		in_hack_mode = !in_hack_mode
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, TRUE)
 		return TRUE

@@ -369,7 +369,7 @@
 					become_remote()
 					qdel(attacking_item)
 				return
-			else if(attacking_item.ismultitool())
+			else if(attacking_item.tool_behaviour == TOOL_MULTITOOL)
 				if(hardpoints_locked)
 					to_chat(user, SPAN_WARNING("Hardpoint system access is disabled."))
 					return
@@ -386,7 +386,7 @@
 				to_chat(user, SPAN_WARNING("\The [src] has no hardpoint systems to remove."))
 				return
 
-			else if(attacking_item.iswrench())
+			else if(attacking_item.tool_behaviour == TOOL_WRENCH)
 				if(!remote && length(pilots))
 					to_chat(user, SPAN_WARNING("You can't disassemble \the [src] while it has a pilot!"))
 					return
@@ -412,7 +412,7 @@
 							new remote_type(get_turf(src))
 					dismantle()
 				return
-			else if(attacking_item.iswelder())
+			else if(attacking_item.tool_behaviour == TOOL_WELDER)
 				if(!getBruteLoss())
 					return
 				var/list/damaged_parts = list()
@@ -434,7 +434,7 @@
 				if(CanInteract(user, GLOB.physical_state) && !QDELETED(to_fix) && (to_fix in src) && to_fix.burn_damage)
 					to_fix.repair_burn_generic(attacking_item, user)
 				return
-			else if(attacking_item.iscrowbar())
+			else if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 				if(!maintenance_protocols)
 					to_chat(user, SPAN_WARNING("The cell compartment remains locked while maintenance protocols are disabled."))
 					return

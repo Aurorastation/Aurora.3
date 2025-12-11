@@ -127,7 +127,7 @@ Using robohead because of restricting to roboticist */
 				desc = "This TV camera assembly has wires sticking out."
 				return
 		if(3)
-			if(attacking_item.iswirecutter())
+			if(attacking_item.tool_behaviour == TOOL_WIRECUTTER)
 				to_chat(user, SPAN_NOTICE("You trim the wires."))
 				buildstep++
 				desc = "This TV camera assembly needs casing."

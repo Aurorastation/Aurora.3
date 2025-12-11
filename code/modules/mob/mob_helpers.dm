@@ -1117,7 +1117,7 @@ GLOBAL_LIST_INIT(organ_rel_size, list(
 #undef SAFE_PERP
 
 /mob/proc/get_multitool(var/obj/P)
-	if(P?.ismultitool())
+	if(P?.tool_behaviour == TOOL_MULTITOOL)
 		return P
 
 /mob/abstract/ghost/observer/get_multitool()

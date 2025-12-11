@@ -44,7 +44,7 @@
 		user.drop_from_inventory(attacking_item, src)
 		to_chat(user, SPAN_NOTICE("You put the [attacking_item] into \the [src]."))
 		update_icon()
-	else if(attacking_item.ispen())
+	else if(attacking_item.tool_behaviour == TOOL_PEN)
 		var/n_name = sanitizeSafe( tgui_input_text(user, "What would you like to label the folder?", "Folder Labelling", max_length = MAX_NAME_LEN), MAX_NAME_LEN )
 		if(Adjacent(user) && user.stat == 0)
 			name = "folder[(n_name ? "- '[n_name]'" : null)]"
@@ -84,9 +84,9 @@
 			if(!istype(paper) || paper.loc != src)
 				return
 			var/obj/item/pen = usr.get_inactive_hand()
-			if(!pen || !pen.ispen())
+			if(!pen || !pen.tool_behaviour == TOOL_PEN)
 				pen = usr.get_active_hand()
-			if(pen?.ispen())
+			if(pen?.tool_behaviour == TOOL_PEN)
 				paper.attackby(pen, usr)
 		else if(href_list["read"])
 			var/obj/item/paper/P = locate(href_list["read"])

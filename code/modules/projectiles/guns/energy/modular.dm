@@ -45,7 +45,7 @@
 		. += "You can see \a [modulator] attached."
 
 /obj/item/gun/energy/laser/prototype/attackby(obj/item/attacking_item, mob/user)
-	if(!attacking_item.isscrewdriver())
+	if(!attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		return ..()
 	to_chat(user, "You disassemble \the [src].")
 	disassemble(user)

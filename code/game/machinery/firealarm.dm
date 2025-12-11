@@ -110,7 +110,7 @@
 	else
 		return TRUE
 
-	if (attacking_item.isscrewdriver() && buildstage == 2)
+	if (attacking_item.tool_behaviour == TOOL_SCREWDRIVER && buildstage == 2)
 		if(!panel_open)
 			set_light(0)
 		panel_open = !panel_open
@@ -121,7 +121,7 @@
 		set_light(0)
 		switch(buildstage)
 			if(2)
-				if (attacking_item.ismultitool())
+				if (attacking_item.tool_behaviour == TOOL_MULTITOOL)
 					src.detecting = !( src.detecting )
 					if (src.detecting)
 						user.visible_message(SPAN_NOTICE("\The [user] has reconnected [src]'s detecting unit!"),
@@ -132,7 +132,7 @@
 												SPAN_NOTICE("You have disconnected [src]'s detecting unit."))
 
 					return TRUE
-				else if (attacking_item.iswirecutter())
+				else if (attacking_item.tool_behaviour == TOOL_WIRECUTTER)
 					user.visible_message(SPAN_NOTICE("\The [user] has cut the wires inside \the [src]!"),
 											SPAN_NOTICE("You have cut the wires inside \the [src]."))
 
@@ -150,7 +150,7 @@
 					else
 						to_chat(user, SPAN_WARNING("You need 5 pieces of cable to wire \the [src]."))
 					return TRUE
-				else if(attacking_item.iscrowbar())
+				else if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 					to_chat(user, "You pry out the circuit!")
 					attacking_item.play_tool_sound(get_turf(src), 50)
 					var/obj/item/firealarm_electronics/circuit = new /obj/item/firealarm_electronics()
@@ -165,7 +165,7 @@
 					buildstage = 1
 					update_icon()
 					return TRUE
-				else if(attacking_item.iswrench())
+				else if(attacking_item.tool_behaviour == TOOL_WRENCH)
 					to_chat(user, "You remove the fire alarm assembly from the wall!")
 					new /obj/item/frame/fire_alarm(get_turf(user))
 					attacking_item.play_tool_sound(get_turf(src), 50)

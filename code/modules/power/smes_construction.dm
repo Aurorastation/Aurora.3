@@ -417,7 +417,7 @@
 	// - Hatch is open, so we can modify the SMES
 	// - No action was taken in parent function (terminal de/construction atm).
 	if (..())
-		if(attacking_item.iswelder())
+		if(attacking_item.tool_behaviour == TOOL_WELDER)
 			if(health == initial(health))
 				to_chat(user, SPAN_WARNING("\The [src] is already repaired."))
 				return
@@ -435,7 +435,7 @@
 					busted = FALSE
 				return
 		// Multitool - change RCON tag
-		if(attacking_item.ismultitool())
+		if(attacking_item.tool_behaviour == TOOL_MULTITOOL)
 			var/newtag = input(user, "Enter new RCON tag. Use \"NO_TAG\" to disable RCON or leave empty to cancel.", "SMES RCON system") as text
 			if(newtag)
 				RCon_tag = newtag
@@ -460,7 +460,7 @@
 			failure_probability = 0
 
 		// Crowbar - Disassemble the SMES.
-		if(attacking_item.iscrowbar())
+		if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 			if (terminal)
 				to_chat(user, SPAN_WARNING("You have to disassemble the terminal first!"))
 				return

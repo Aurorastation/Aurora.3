@@ -27,7 +27,7 @@
 				wired = 1
 				to_chat(user, SPAN_NOTICE("You wire \the [src]."))
 		return TRUE
-	else if(attacking_item.iswirecutter() && wired )
+	else if(attacking_item.tool_behaviour == TOOL_WIRECUTTER && wired )
 		user.visible_message("[user] cuts the wires from \the [src].", "You start to cut the wires from \the [src].")
 
 		if(attacking_item.use_tool(src, user, 40, volume = 50))
@@ -47,14 +47,14 @@
 		else
 			to_chat(user, SPAN_WARNING("You must secure \the [src] first!"))
 		return TRUE
-	else if(attacking_item.iswrench())
+	else if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		anchored = !anchored
 		attacking_item.play_tool_sound(get_turf(src), 50)
 		user.visible_message(SPAN_WARNING("[user] has [anchored ? "" : "un" ]secured \the [src]!"),
 								"You have [anchored ? "" : "un" ]secured \the [src]!")
 		update_icon()
 		return TRUE
-	else if(!anchored && attacking_item.iswelder())
+	else if(!anchored && attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/WT = attacking_item
 		if(WT.use(0, user))
 			user.visible_message(SPAN_WARNING("[user] dissassembles \the [src]."),

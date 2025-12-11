@@ -64,7 +64,7 @@
 	var/joules = 0
 	if(istype(W, /obj/item/flame))
 		joules = 1000 // 1 kJ per match, and we're assuming lighters give as much per use
-	else if(W.iswelder())
+	else if(W.tool_behaviour == TOOL_WELDER)
 		joules = 10000 // we'll just have it be ten times stronger
 	else if(istype(W, /obj/item/device/assembly/igniter))
 		joules = 5000 // half as strong as a welder; this thing has to set off bombs and such
@@ -131,7 +131,7 @@
 	qdel(src)
 
 /obj/structure/chemkit/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iscrowbar())
+	if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 		dismantle()
 		return
 	if(!istype(attacking_item, /obj/item/reagent_containers/food/snacks) && attacking_item.is_open_container())
@@ -229,7 +229,7 @@
 	icon_state = "distillery-off"
 
 /obj/structure/distillery/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iscrowbar())
+	if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 		dismantle()
 		return
 	if(!welder && istype(attacking_item, /obj/item/weldingtool))
@@ -241,7 +241,7 @@
 	if(!istype(attacking_item, /obj/item/reagent_containers/food/snacks) && attacking_item.is_open_container())
 		trans_item(attacking_item, user)
 		return
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		transfer_out = !transfer_out
 		to_chat(user, SPAN_NOTICE("You [transfer_out ? "open" : "close"] the spigot on the keg, ready to [transfer_out ? "remove" : "add"] reagents."))
 		return

@@ -37,9 +37,7 @@
 	surgerysound = 'sound/items/surgery/bonesetter.ogg'
 	drop_sound = 'sound/items/drop/wrench.ogg'
 	pickup_sound = 'sound/items/pickup/wrench.ogg'
-
-/obj/item/wrench/iswrench()
-	return TRUE
+	tool_behaviour = TOOL_WRENCH
 
 /*
  * Screwdriver
@@ -70,6 +68,7 @@
 	lock_picking_level = 5
 	build_from_parts = TRUE
 	worn_overlay = "head"
+	tool_behaviour = TOOL_SCREWDRIVER
 
 /obj/item/screwdriver/Initialize()
 	. = ..()
@@ -152,6 +151,8 @@
 	worn_overlay = "head"
 
 	var/list/color_options = list(COLOR_BLUE, COLOR_RED, COLOR_PURPLE, COLOR_BROWN, COLOR_GREEN, COLOR_CYAN, COLOR_YELLOW)
+
+	tool_behaviour = TOOL_WIRECUTTER
 
 /obj/item/wirecutters/Initialize()
 	. = ..()
@@ -248,18 +249,23 @@
 	throw_range = 5
 	w_class = WEIGHT_CLASS_SMALL
 
-	//Cost to make in the autolathe
+	/// Cost to make in the autolathe
 	matter = list(DEFAULT_WALL_MATERIAL = 70, MATERIAL_GLASS = 30)
 
-	//R&D tech level
+	/// R&D tech level
 	origin_tech = list(TECH_ENGINEERING = 1)
 
 	//Welding tool specific stuff
-	var/welding = 0 	//Whether or not the welding tool is off(0), on(1) or currently welding(2)
-	var/status = TRUE		//Whether the welder is secured or unsecured (able to attach rods to it to make a flamethrower)
-	var/max_fuel = 20 	//The max amount of fuel the welder can hold
+	/// Whether or not the welding tool is off(0), on(1) or currently welding(2)
+	var/welding = 0
+	/// Whether the welder is secured or unsecured (able to attach rods to it to make a flamethrower)
+	var/status = TRUE
+	/// The max amount of fuel the welder can hold
+	var/max_fuel = 20
 	var/change_icons = TRUE
 	var/produces_flash = TRUE
+
+	tool_behaviour = TOOL_WELDER
 
 /obj/item/weldingtool/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -364,7 +370,7 @@
 	return ..()
 
 /obj/item/weldingtool/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(isrobot(loc))
 			to_chat(user, SPAN_ALERT("You cannot modify your own welder!"))
 			return TRUE
@@ -612,7 +618,7 @@
 		AddOverlays("overcap_attached", ATOM_ICON_CACHE_PROTECTED)
 		toolspeed *= 2
 		return TRUE
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(!eyeshield && !overcap)
 			to_chat(user, SPAN_WARNING("\The [src] doesn't have any accessories to remove!"))
 			return TRUE
@@ -713,6 +719,7 @@
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 150)
 	attack_verb = list("bashed", "battered", "bludgeoned", "whacked")
+	tool_behaviour = TOOL_PIPEWRENCH
 
 /obj/item/pipewrench/Initialize()
 	. = ..()
@@ -754,21 +761,6 @@
 		tools[tool] = image('icons/obj/tools.dmi', icon_state = "[icon_state]-[tool]")
 	. = ..()
 
-/obj/item/combitool/iswrench()
-	return current_tool == "wrench"
-
-/obj/item/combitool/isscrewdriver()
-	return current_tool == "screwdriver"
-
-/obj/item/combitool/iswirecutter()
-	return current_tool == "wirecutters"
-
-/obj/item/combitool/iscrowbar()
-	return current_tool == "crowbar"
-
-/obj/item/combitool/ismultitool()
-	return current_tool == "multitool"
-
 /obj/item/combitool/proc/update_tool()
 	icon_state = "[initial(icon_state)]-[current_tool]"
 
@@ -783,18 +775,23 @@
 			if("wrench")
 				usesound = 'sound/items/wrench.ogg'
 				surgerysound = 'sound/items/surgery/bonesetter.ogg'
+				tool_behaviour = TOOL_WRENCH
 			if("screwdriver")
 				usesound = 'sound/items/screwdriver.ogg'
 				surgerysound = 'sound/items/screwdriver.ogg'
+				tool_behaviour = TOOL_SCREWDRIVER
 			if("wirecutters")
 				usesound = 'sound/items/wirecutter.ogg'
 				surgerysound = 'sound/items/surgery/hemostat.ogg'
+				tool_behaviour = TOOL_WIRECUTTER
 			if("crowbar")
 				usesound = /singleton/sound_category/crowbar_sound
 				surgerysound = 'sound/items/surgery/retractor.ogg'
+				tool_behaviour = TOOL_CROWBAR
 			if("multitool")
 				usesound = null
 				surgerysound = null
+				tool_behaviour = TOOL_MULTITOOL
 		update_tool()
 	return 1
 
@@ -839,21 +836,17 @@
 	. = ..()
 	closeToolTip(usr)
 
-/obj/item/powerdrill/iswrench()
-	return tools[current_tool] == "wrench bit"
-
-/obj/item/powerdrill/isscrewdriver()
-	return tools[current_tool] == "screwdriver bit"
-
 /obj/item/powerdrill/proc/update_tool()
 	if(isscrewdriver())
 		usesound = 'sound/items/drill_use.ogg'
 		icon_state = "impact_wrench-screw"
 		check_maptext(SMALL_FONTS(7, "S"))
+		tool_behaviour = TOOL_SCREWDRIVER
 	else if(iswrench())
 		usesound = 'sound/items/air_wrench.ogg'
 		icon_state = "impact_wrench-wrench"
 		check_maptext(SMALL_FONTS(7, "W"))
+		tool_behaviour = TOOL_WRENCH
 
 /obj/item/powerdrill/attack_self(var/mob/user)
 	if(++current_tool > tools.len)
@@ -953,6 +946,7 @@
 	drop_sound = 'sound/items/drop/crowbar.ogg'
 	pickup_sound = 'sound/items/pickup/crowbar.ogg'
 	usesound = /singleton/sound_category/hammer_sound
+	tool_behaviour = HAMMER
 
 /obj/item/hammer/Initialize()
 	. = ..()
@@ -960,5 +954,3 @@
 	handle.color = pick(COLOR_BLUE, COLOR_RED, COLOR_PURPLE, COLOR_BROWN, COLOR_GREEN, COLOR_CYAN, COLOR_YELLOW)
 	AddOverlays(handle)
 
-/obj/item/hammer/ishammer()
-	return TRUE

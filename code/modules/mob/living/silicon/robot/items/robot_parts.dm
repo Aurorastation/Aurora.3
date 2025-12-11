@@ -315,7 +315,7 @@
 			to_chat(user, SPAN_WARNING("\The [attacking_item] can only be inserted after everything else is installed."))
 		return
 
-	if(attacking_item.ispen())
+	if(attacking_item.tool_behaviour == TOOL_PEN)
 		var/t = sanitizeSafe( tgui_input_text(user, "Enter new robot name", name, created_name, MAX_NAME_LEN), MAX_NAME_LEN )
 		if(!t)
 			return
@@ -375,7 +375,7 @@
 		to_chat(user, SPAN_NOTICE("You add the infrared sensor to the robot head."))
 		qdel(src)
 
-	else if(attacking_item.ismultitool())
+	else if(attacking_item.tool_behaviour == TOOL_MULTITOOL)
 		if(law_manager)
 			to_chat(user, SPAN_NOTICE("You disable the lawing circuits on \the [src]."))
 			law_manager = FALSE

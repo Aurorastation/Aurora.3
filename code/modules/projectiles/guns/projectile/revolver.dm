@@ -157,7 +157,7 @@
 	needspin = FALSE
 
 /obj/item/gun/projectile/revolver/capgun/attackby(obj/item/attacking_item, mob/user)
-	if(!attacking_item.iswirecutter() || icon_state == "revolver")
+	if(!attacking_item.tool_behaviour == TOOL_WIRECUTTER || icon_state == "revolver")
 		return ..()
 	to_chat(user, SPAN_NOTICE("You snip off the toy markings off the [src]."))
 	icon = 'icons/obj/guns/revolver.dmi'

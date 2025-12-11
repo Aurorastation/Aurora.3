@@ -1017,13 +1017,13 @@ pixel_x = 10;
 
 	switch(buildstage)
 		if(2)
-			if(attacking_item.isscrewdriver())  // Opening that Air Alarm up.
+			if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)  // Opening that Air Alarm up.
 				panel_open = !panel_open
 				to_chat(user, SPAN_NOTICE("You [panel_open ? "open" : "close"] the maintenance panel."))
 				update_icon()
 				return TRUE
 
-			if (panel_open && attacking_item.iswirecutter())
+			if (panel_open && attacking_item.tool_behaviour == TOOL_WIRECUTTER)
 				user.visible_message(SPAN_WARNING("[user] has cut the wires inside \the [src]!"), "You cut the wires inside \the [src].")
 				playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
 				new/obj/item/stack/cable_coil(get_turf(src), 5)
@@ -1044,7 +1044,7 @@ pixel_x = 10;
 					to_chat(user, SPAN_WARNING("You need 5 pieces of cable to do wire \the [src]."))
 				return TRUE
 
-			else if(attacking_item.iscrowbar())
+			else if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 				to_chat(user, "You start prying out the circuit.")
 				if(attacking_item.use_tool(src, user, 20, volume = 50))
 					to_chat(user, "You pry out the circuit!")
@@ -1062,7 +1062,7 @@ pixel_x = 10;
 				update_icon()
 				return TRUE
 
-			else if(attacking_item.iswrench())
+			else if(attacking_item.tool_behaviour == TOOL_WRENCH)
 				to_chat(user, "You remove the air alarm assembly from the wall!")
 				new /obj/item/frame/air_alarm(get_turf(user))
 				attacking_item.play_tool_sound(src.loc, 50)

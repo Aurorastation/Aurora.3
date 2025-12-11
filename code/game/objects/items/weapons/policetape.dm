@@ -106,7 +106,7 @@ GLOBAL_LIST_INIT(tape_roll_applications, list())
 		. += "This strip of tape has been modified to serve as a marker for emergency shield generators to lock onto."
 
 /obj/item/tape/engineering/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.ismultitool())
+	if(attacking_item.tool_behaviour == TOOL_MULTITOOL)
 		shield_marker = !shield_marker
 		to_chat(user, SPAN_NOTICE("You [shield_marker ? "" : "un"]designate \the [src] as a target for an emergency shield generator."))
 		if(shield_marker)

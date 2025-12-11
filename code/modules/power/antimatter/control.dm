@@ -143,7 +143,7 @@
 		icon_state = "control"
 
 /obj/machinery/power/am_control_unit/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(!anchored)
 			attacking_item.play_tool_sound(get_turf(src), 75)
 			user.visible_message("<b>[user.name]</b> secures \the [src] to the floor.", \

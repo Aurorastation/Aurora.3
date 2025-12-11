@@ -16,13 +16,13 @@
 
 	switch(state)
 		if(0)
-			if(attacking_item.iswrench())
+			if(attacking_item.tool_behaviour == TOOL_WRENCH)
 				if(attacking_item.use_tool(src, user, 20, volume = 50))
 					to_chat(user, SPAN_NOTICE("You wrench the frame into place."))
 					anchored = 1
 					state = 1
 				return TRUE
-			if(attacking_item.iswelder())
+			if(attacking_item.tool_behaviour == TOOL_WELDER)
 				var/obj/item/weldingtool/WT = attacking_item
 				if(!WT.isOn())
 					to_chat(user, "The welder must be on for this task.")
@@ -34,7 +34,7 @@
 					qdel(src)
 				return TRUE
 		if(1)
-			if(attacking_item.iswrench())
+			if(attacking_item.tool_behaviour == TOOL_WRENCH)
 				if(attacking_item.use_tool(src, user, 20, volume = 50))
 					to_chat(user, SPAN_NOTICE("You unfasten the frame."))
 					anchored = 0
@@ -47,13 +47,13 @@
 				circuit = attacking_item
 				user.drop_from_inventory(attacking_item,src)
 				return TRUE
-			if(attacking_item.isscrewdriver() && circuit)
+			if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER && circuit)
 				attacking_item.play_tool_sound(get_turf(src), 50)
 				to_chat(user, SPAN_NOTICE("You screw the circuit board into place."))
 				state = 2
 				icon_state = "2"
 				return TRUE
-			if(attacking_item.iscrowbar() && circuit)
+			if(attacking_item.tool_behaviour == TOOL_CROWBAR && circuit)
 				attacking_item.play_tool_sound(get_turf(src), 50)
 				to_chat(user, SPAN_NOTICE("You remove the circuit board."))
 				state = 1
@@ -62,7 +62,7 @@
 				circuit = null
 				return TRUE
 		if(2)
-			if(attacking_item.isscrewdriver() && circuit)
+			if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER && circuit)
 				attacking_item.play_tool_sound(get_turf(src), 50)
 				to_chat(user, SPAN_NOTICE("You unfasten the circuit board."))
 				state = 1
@@ -82,7 +82,7 @@
 						to_chat(user, SPAN_NOTICE("You add cables to the frame."))
 				return TRUE
 		if(3)
-			if(attacking_item.iswirecutter())
+			if(attacking_item.tool_behaviour == TOOL_WIRECUTTER)
 				if (brain)
 					to_chat(user, "Get that brain out of there first")
 				else
@@ -151,7 +151,7 @@
 				icon_state = "3b"
 				return TRUE
 
-			if(attacking_item.iscrowbar() && brain)
+			if(attacking_item.tool_behaviour == TOOL_CROWBAR && brain)
 				attacking_item.play_tool_sound(get_turf(src), 50)
 				to_chat(user, SPAN_NOTICE("You remove the brain."))
 				brain.forceMove(loc)
@@ -160,7 +160,7 @@
 				return TRUE
 
 		if(4)
-			if(attacking_item.iscrowbar())
+			if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 				attacking_item.play_tool_sound(get_turf(src), 50)
 				to_chat(user, SPAN_NOTICE("You remove the glass panel."))
 				state = 3
@@ -171,7 +171,7 @@
 				new /obj/item/stack/material/glass/reinforced( loc, 2 )
 				return TRUE
 
-			if(attacking_item.isscrewdriver())
+			if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 				attacking_item.play_tool_sound(get_turf(src), 50)
 				to_chat(user, SPAN_NOTICE("You connect the monitor."))
 				if(!brain)
@@ -235,7 +235,7 @@
 		else
 			to_chat(user, "<span class='danger'>ERROR:</span> Unable to locate artificial intelligence.")
 		return TRUE
-	else if(attacking_item.iswrench())
+	else if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(anchored)
 			user.visible_message(SPAN_NOTICE("\The [user] starts to unbolt \the [src] from the plating..."))
 			if(!attacking_item.use_tool(src, user, 40, volume = 50))

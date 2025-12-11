@@ -91,17 +91,17 @@
 /obj/vehicle/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/device/hand_labeler))
 		return
-	if(attacking_item.isscrewdriver() && !organic)
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER && !organic)
 		if(!locked)
 			open = !open
 			update_icon()
 			to_chat(user, SPAN_NOTICE("Maintenance panel is now [open ? "opened" : "closed"]."))
-	else if(attacking_item.iscrowbar() && cell && open && !organic)
+	else if(attacking_item.tool_behaviour == TOOL_CROWBAR && cell && open && !organic)
 		remove_cell(user)
 
 	else if(istype(attacking_item, /obj/item/cell) && !cell && open && !organic)
 		insert_cell(attacking_item, user)
-	else if(attacking_item.iswelder() && !organic)
+	else if(attacking_item.tool_behaviour == TOOL_WELDER && !organic)
 		var/obj/item/weldingtool/T = attacking_item
 		if(T.welding)
 			if(health < maxhealth)

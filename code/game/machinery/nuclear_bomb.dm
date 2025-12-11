@@ -46,7 +46,7 @@ GLOBAL_VAR(bomb_set)
 	return
 
 /obj/machinery/nuclearbomb/attackby(obj/item/attacking_item, mob/user, params)
-	if (attacking_item.isscrewdriver())
+	if (attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		src.add_fingerprint(user)
 		if (src.auth)
 			if (panel_open == 0)
@@ -70,7 +70,7 @@ GLOBAL_VAR(bomb_set)
 			flick("lock", src)
 		return TRUE
 
-	if (panel_open && (attacking_item.ismultitool() || attacking_item.iswirecutter()))
+	if (panel_open && (attacking_item.tool_behaviour == TOOL_MULTITOOL || attacking_item.tool_behaviour == TOOL_WIRECUTTER))
 		return attack_hand(user)
 
 	if (src.extended)
@@ -83,7 +83,7 @@ GLOBAL_VAR(bomb_set)
 	if (src.anchored)
 		switch(removal_stage)
 			if(0)
-				if(attacking_item.iswelder())
+				if(attacking_item.tool_behaviour == TOOL_WELDER)
 					var/obj/item/weldingtool/WT = attacking_item
 					if(!WT.isOn()) return TRUE
 					if (WT.get_fuel() < 5) // uses up 5 fuel.
@@ -99,7 +99,7 @@ GLOBAL_VAR(bomb_set)
 					return TRUE
 
 			if(1)
-				if(attacking_item.iscrowbar())
+				if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 					user.visible_message("[user] starts forcing open the bolt covers on [src].", "You start forcing open the anchoring bolt covers with [attacking_item]...")
 
 					if(attacking_item.use_tool(src, user, 15, volume = 50))
@@ -109,7 +109,7 @@ GLOBAL_VAR(bomb_set)
 					return TRUE
 
 			if(2)
-				if(attacking_item.iswelder())
+				if(attacking_item.tool_behaviour == TOOL_WELDER)
 					var/obj/item/weldingtool/WT = attacking_item
 					if(!WT.isOn()) return TRUE
 					if (WT.get_fuel() < 5) // uses up 5 fuel.
@@ -124,7 +124,7 @@ GLOBAL_VAR(bomb_set)
 					return TRUE
 
 			if(3)
-				if(attacking_item.iswrench())
+				if(attacking_item.tool_behaviour == TOOL_WRENCH)
 					user.visible_message("[user] begins unwrenching the anchoring bolts on [src].", "You begin unwrenching the anchoring bolts...")
 
 					if(attacking_item.use_tool(src, user, 50, volume = 50))
@@ -134,7 +134,7 @@ GLOBAL_VAR(bomb_set)
 					return TRUE
 
 			if(4)
-				if(attacking_item.iscrowbar())
+				if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 					user.visible_message("[user] begins lifting [src] off of the anchors.", "You begin lifting the device off the anchors...")
 
 					if(attacking_item.use_tool(src, user, 80, volume = 50))

@@ -26,7 +26,7 @@ ABSTRACT_TYPE(/obj/structure/cart)
 
 /obj/structure/cart/proc/take_apart(var/mob/user = null, var/obj/I)
 	if(user)
-		if(iswelder(I))
+		if(I.tool_behaviour == TOOL_WELDER)
 			var/obj/item/welder = I
 			welder.play_tool_sound(get_turf(src), 50)
 

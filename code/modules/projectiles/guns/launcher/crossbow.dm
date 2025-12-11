@@ -169,7 +169,7 @@
 		else
 			to_chat(user, SPAN_NOTICE("\The [src] already has a cell installed."))
 
-	else if(attacking_item.isscrewdriver())
+	else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(cell)
 			var/obj/item/C = cell
 			C.forceMove(get_turf(user))
@@ -244,7 +244,7 @@
 			else
 				to_chat(user, SPAN_NOTICE("You need at least three rods to complete this task."))
 			return
-	else if(attacking_item.iswelder())
+	else if(attacking_item.tool_behaviour == TOOL_WELDER)
 		if(buildstate == 1)
 			var/obj/item/weldingtool/T = attacking_item
 			if(T.use(0,user))
@@ -282,7 +282,7 @@
 			else
 				to_chat(user, SPAN_NOTICE("You need at least three plastic sheets to complete this task."))
 			return
-	else if(attacking_item.isscrewdriver())
+	else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(buildstate == 5)
 			to_chat(user, SPAN_NOTICE("You secure the crossbow's various parts."))
 			new /obj/item/gun/launcher/crossbow(get_turf(src))

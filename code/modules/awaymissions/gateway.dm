@@ -140,7 +140,7 @@
 
 
 /obj/machinery/gateway/centerstation/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.ismultitool())
+	if(attacking_item.tool_behaviour == TOOL_MULTITOOL)
 		to_chat(user, "\black The gate is already calibrated, there is no work for you to do here.")
 		return
 
@@ -243,7 +243,7 @@
 
 
 /obj/machinery/gateway/centeraway/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.ismultitool())
+	if(attacking_item.tool_behaviour == TOOL_MULTITOOL)
 		if(calibrated)
 			to_chat(user, "\black The gate is already calibrated, there is no work for you to do here.")
 			return

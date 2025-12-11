@@ -118,7 +118,7 @@
 			bound_height = width * world.icon_size
 
 /obj/structure/door_assembly/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.ispen())
+	if(attacking_item.tool_behaviour == TOOL_PEN)
 		var/door_name = sanitizeSafe(input(user, "Enter the name for the door.", src.name, src.created_name), MAX_NAME_LEN)
 		if(!door_name)
 			return
@@ -126,7 +126,7 @@
 			return
 		created_name = door_name
 
-	else if(attacking_item.iswelder())
+	else if(attacking_item.tool_behaviour == TOOL_WELDER)
 		if(!glass && anchored)
 			to_chat(user, SPAN_WARNING("\The [src] isn't ready to be welded yet. It doesn't have any installed glass to remove, and it has to be unsecured to deconstruct it."))
 			return
@@ -152,7 +152,7 @@
 			to_chat(user, SPAN_WARNING("You need more welding fuel."))
 			return
 
-	else if(attacking_item.iswrench())
+	else if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(state != STATE_UNWIRED)
 			to_chat(user, SPAN_WARNING("You have to remove the wiring before you can use the wrench on \the [src]."))
 			return
@@ -187,7 +187,7 @@
 				state = STATE_WIRED
 				to_chat(user, SPAN_NOTICE("You wire the airlock."))
 
-	else if(attacking_item.iswirecutter())
+	else if(attacking_item.tool_behaviour == TOOL_WIRECUTTER)
 		if(state == STATE_UNWIRED)
 			to_chat(user, SPAN_WARNING("\The [src] doesn't have any wires to remove."))
 			return
@@ -228,7 +228,7 @@
 			else
 				EL.is_installed = FALSE
 
-	else if(attacking_item.iscrowbar())
+	else if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 		if(state != STATE_ELECTRONICS_INSTALLED)
 			to_chat(user, SPAN_WARNING("\The [src] has no electronics to remove."))
 			return
@@ -267,7 +267,7 @@
 						to_chat(user, SPAN_NOTICE("You install reinforced glass windows into the airlock assembly."))
 						glass = TRUE
 
-	else if(attacking_item.isscrewdriver())
+	else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(state != STATE_ELECTRONICS_INSTALLED)
 			to_chat(user, SPAN_WARNING("\The [src] doesn't have any electronics installed."))
 			return

@@ -319,7 +319,7 @@
 				open()
 
 /obj/machinery/atmospherics/valve/attackby(obj/item/attacking_item, mob/user)
-	if (!attacking_item.iswrench())
+	if (!attacking_item.tool_behaviour == TOOL_WRENCH)
 		return ..()
 	if (istype(src, /obj/machinery/atmospherics/valve/digital))
 		to_chat(user, SPAN_WARNING("You cannot unwrench \the [src], it's too complicated."))

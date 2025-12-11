@@ -52,7 +52,7 @@
 		return
 
 /obj/machinery/power/tesla_beacon/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(active)
 			to_chat(user, SPAN_WARNING("You need to deactivate \the [src] first!"))
 			return TRUE

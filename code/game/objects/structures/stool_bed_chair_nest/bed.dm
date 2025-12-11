@@ -157,7 +157,7 @@
 				return
 
 /obj/structure/bed/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(can_dismantle)
 			dismantle(attacking_item, user)
 	else if(istype(attacking_item,/obj/item/stack))
@@ -189,7 +189,7 @@
 		add_padding(padding_type)
 		return
 
-	else if (attacking_item.iswirecutter())
+	else if (attacking_item.tool_behaviour == TOOL_WIRECUTTER)
 		if(!can_pad)
 			return
 		if(!padding_material)
@@ -200,7 +200,7 @@
 		painted_colour = null
 		remove_padding()
 
-	else if (attacking_item.isscrewdriver())
+	else if (attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(anchored)
 			anchored = FALSE
 			to_chat(user, "You unfasten \the [src] from floor.")

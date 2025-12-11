@@ -216,7 +216,7 @@
 			buildstate++
 			update_icon()
 			return
-	else if(attacking_item.iswelder())
+	else if(attacking_item.tool_behaviour == TOOL_WELDER)
 		if(buildstate == 3)
 			var/obj/item/weldingtool/T = attacking_item
 			if(T.use(0,user))

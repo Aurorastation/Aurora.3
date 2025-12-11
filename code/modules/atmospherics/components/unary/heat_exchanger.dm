@@ -64,7 +64,7 @@
 	return TRUE
 
 /obj/machinery/atmospherics/unary/heat_exchanger/attackby(obj/item/attacking_item, mob/user)
-	if(!attacking_item.iswrench())
+	if(!attacking_item.tool_behaviour == TOOL_WRENCH)
 		return ..()
 	var/turf/T = src.loc
 	if(level == 1 && isturf(T) && !T.is_plating())

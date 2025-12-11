@@ -44,7 +44,7 @@
 
 /obj/item/computer_hardware/attackby(obj/item/attacking_item, mob/user)
 	/// Multitool. Runs diagnostics
-	if(attacking_item.ismultitool())
+	if(attacking_item.tool_behaviour == TOOL_MULTITOOL)
 		to_chat(user, SPAN_NOTICE("***** DIAGNOSTICS REPORT *****"))
 		diagnostics(user)
 		to_chat(user, SPAN_NOTICE("******************************"))

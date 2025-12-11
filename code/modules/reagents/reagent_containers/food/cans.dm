@@ -72,7 +72,7 @@
 			qdel(grenade_casing)
 			update_icon()
 
-	if(attacking_item.isscrewdriver() && bombcasing > BOMBCASING_EMPTY)
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER && bombcasing > BOMBCASING_EMPTY)
 		if(bombcasing == BOMBCASING_LOOSE)
 			bombcasing = BOMBCASING_SECURE
 			shrapnelcount = 14
@@ -107,7 +107,7 @@
 		else
 			to_chat(user, SPAN_WARNING("There is no opening on \the [name] for the steel wool!"))
 
-	else if(attacking_item.iswirecutter() && fuselength)
+	else if(attacking_item.tool_behaviour == TOOL_WIRECUTTER && fuselength)
 		switch(fuselength)
 			if(1 to FUSELENGTH_MIN) // you can't increase the fuse with wirecutters and you can't trim it down below 3, so just remove it outright.
 				user.visible_message("<b>[user]</b> removes the steel wool from \the [name].",

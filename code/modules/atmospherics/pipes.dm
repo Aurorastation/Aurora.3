@@ -103,7 +103,7 @@
 		A.analyze_gases(src, user)
 		return FALSE
 
-	if (!attacking_item.iswrench() && !istype(attacking_item, /obj/item/pipewrench))
+	if (!attacking_item.tool_behaviour == TOOL_WRENCH && !istype(attacking_item, /obj/item/pipewrench))
 		return ..()
 	var/turf/T = src.loc
 	if (level==1 && isturf(T) && !T.is_plating())

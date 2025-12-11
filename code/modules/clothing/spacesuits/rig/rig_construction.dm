@@ -204,19 +204,19 @@
 
 /datum/construction/reversible/rig_assembly/custom_action(index as num, diff as num, atom/used_atom, mob/user as mob)
 	var/obj/item/I = used_atom
-	if(I.iswelder())
+	if(I.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/W = I
 		if (W.use(0, user))
 			playsound(holder, 'sound/items/welder_pry.ogg', 50, 1)
 		else
 			return 0
-	else if(I.iswrench())
+	else if(I.tool_behaviour == TOOL_WRENCH)
 		I.play_tool_sound(get_turf(I), 50)
 
-	else if(I.isscrewdriver())
+	else if(I.tool_behaviour == TOOL_SCREWDRIVER)
 		I.play_tool_sound(get_turf(I), 50)
 
-	else if(I.iswirecutter())
+	else if(I.tool_behaviour == TOOL_WIRECUTTER)
 		I.play_tool_sound(get_turf(I), 50)
 
 	else if(I.tool_behaviour == TOOL_CABLECOIL)

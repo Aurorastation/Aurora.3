@@ -39,7 +39,7 @@
 			to_chat(user, SPAN_NOTICE("You load [result] lengths of cable into \the [src]."))
 		return TRUE
 
-	if(attacking_item.iswirecutter())
+	if(attacking_item.tool_behaviour == TOOL_WIRECUTTER)
 		if(cable && cable.amount)
 			var/m = round(input(usr,"Please specify the length of cable to cut.", "Cut Cable",min(cable.amount,30)) as num, 1)
 			m = min(m, cable.amount)
@@ -53,7 +53,7 @@
 			to_chat(user, SPAN_WARNING("There's no more cable on the reel."))
 		return TRUE
 
-	if(attacking_item.ismultitool())
+	if(attacking_item.tool_behaviour == TOOL_MULTITOOL)
 		if(!cable)
 			to_chat(user, SPAN_WARNING("\The [src] doesn't have any cable loaded!"))
 			return TRUE

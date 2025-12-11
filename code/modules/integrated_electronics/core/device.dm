@@ -18,7 +18,7 @@
 	. = ..()
 
 /obj/item/device/assembly/electronic_assembly/attackby(obj/item/attacking_item, mob/user)
-	if (attacking_item.iscrowbar())
+	if (attacking_item.tool_behaviour == TOOL_CROWBAR)
 		toggle_open(user)
 	else if (opened)
 		EA.attackby(attacking_item, user)

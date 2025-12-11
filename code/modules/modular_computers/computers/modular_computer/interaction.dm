@@ -275,7 +275,7 @@
 	if(istype(attacking_item, /obj/item/device/paicard))
 		try_install_component(user, attacking_item)
 		return TRUE
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		var/list/components = get_all_components()
 		if(components.len)
 			to_chat(user, SPAN_WARNING("You have to remove all the components from \the [src] before disassembling it."))
@@ -286,7 +286,7 @@
 			user.visible_message(SPAN_NOTICE("\The [user] disassembles \the [src]."), SPAN_NOTICE("You disassemble \the [src]."), SPAN_NOTICE("You hear a ratcheting noise."))
 			qdel(src)
 		return TRUE
-	if(attacking_item.iswelder())
+	if(attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/WT = attacking_item
 		if(!WT.isOn())
 			to_chat(user, SPAN_WARNING("\The [attacking_item] is off."))
@@ -304,7 +304,7 @@
 		update_icon()
 		return TRUE
 
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		var/list/all_components = get_all_components()
 		if(!all_components.len)
 			to_chat(user, SPAN_WARNING("This device doesn't have any components installed."))

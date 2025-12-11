@@ -13,13 +13,13 @@
 /obj/structure/computerframe/attackby(obj/item/attacking_item, mob/user)
 	switch(state)
 		if(0)
-			if(attacking_item.iswrench())
+			if(attacking_item.tool_behaviour == TOOL_WRENCH)
 				if(attacking_item.use_tool(src, user, 20, volume = 50))
 					to_chat(user, SPAN_NOTICE("You wrench the frame into place."))
 					src.anchored = 1
 					src.state = 1
 				return TRUE
-			if(attacking_item.iswelder())
+			if(attacking_item.tool_behaviour == TOOL_WELDER)
 				var/obj/item/weldingtool/WT = attacking_item
 				if(!WT.use(0, user))
 					to_chat(user, "The welding tool must be on to complete this task.")
@@ -31,7 +31,7 @@
 					qdel(src)
 				return TRUE
 		if(1)
-			if(attacking_item.iswrench())
+			if(attacking_item.tool_behaviour == TOOL_WRENCH)
 				if(attacking_item.use_tool(src, user, 20, volume = 50))
 					to_chat(user, SPAN_NOTICE("You unfasten the frame."))
 					src.anchored = 0
@@ -48,13 +48,13 @@
 				else
 					to_chat(user, SPAN_WARNING("This frame does not accept circuit boards of this type!"))
 				return TRUE
-			if(attacking_item.isscrewdriver() && circuit)
+			if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER && circuit)
 				attacking_item.play_tool_sound(get_turf(src), 50)
 				to_chat(user, SPAN_NOTICE("You screw the circuit board into place and screw the drawer shut."))
 				src.state = 2
 				src.icon_state = "2"
 				return TRUE
-			if(attacking_item.iscrowbar() && circuit)
+			if(attacking_item.tool_behaviour == TOOL_CROWBAR && circuit)
 				attacking_item.play_tool_sound(get_turf(src), 50)
 				to_chat(user, SPAN_NOTICE("You remove the circuit board."))
 				src.state = 1
@@ -63,7 +63,7 @@
 				src.circuit = null
 				return TRUE
 		if(2)
-			if(attacking_item.isscrewdriver() && circuit)
+			if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER && circuit)
 				attacking_item.play_tool_sound(get_turf(src), 50)
 				to_chat(user, SPAN_NOTICE("You unfasten the circuit board."))
 				src.state = 1
@@ -83,7 +83,7 @@
 						icon_state = "3"
 				return TRUE
 		if(3)
-			if(attacking_item.iswirecutter())
+			if(attacking_item.tool_behaviour == TOOL_WIRECUTTER)
 				playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
 				to_chat(user, SPAN_NOTICE("You remove the cables."))
 				src.state = 2
@@ -106,14 +106,14 @@
 						src.icon_state = "4"
 				return TRUE
 		if(4)
-			if(attacking_item.iscrowbar())
+			if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 				attacking_item.play_tool_sound(get_turf(src), 50)
 				to_chat(user, SPAN_NOTICE("You remove the glass keyboard."))
 				src.state = 3
 				src.icon_state = "3"
 				new /obj/item/stack/material/glass( src.loc, 2 )
 				return TRUE
-			if(attacking_item.isscrewdriver())
+			if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 				attacking_item.play_tool_sound(get_turf(src), 50)
 				to_chat(user, SPAN_NOTICE("You connect the glass keyboard."))
 				var/B = new src.circuit.build_path ( src.loc )

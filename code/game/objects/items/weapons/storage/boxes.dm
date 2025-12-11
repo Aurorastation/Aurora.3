@@ -1426,7 +1426,7 @@
 		icon_state = "paperbag_[choice]-food"
 
 /obj/item/storage/box/unique/papersack/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.ispen())
+	if(attacking_item.tool_behaviour == TOOL_PEN)
 		if(!papersack_designs)
 			papersack_designs = sortList(list(
 			"None" = image(icon = src.icon, icon_state = "paperbag_None"),
@@ -1457,7 +1457,7 @@
 		update_icon()
 		return
 
-	else if(attacking_item.isscrewdriver())
+	else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(length(contents) == 0)
 			to_chat(user, SPAN_NOTICE("You begin poking holes in \the [src]."))
 			if(attacking_item.use_tool(src, user, 30))

@@ -4,7 +4,7 @@
 		return 0
 
 	if(flooring && (!ismob(user) || user.a_intent != I_HURT))
-		if(attacking_item.iscrowbar())
+		if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 			if(broken || burnt)
 				to_chat(user, SPAN_NOTICE("You remove the broken [flooring.descriptor]."))
 				make_plating()
@@ -18,14 +18,14 @@
 				return
 			playsound(src, 'sound/items/crowbar_tile.ogg', 80, 1)
 			return
-		else if(attacking_item.isscrewdriver() && (flooring.flags & TURF_REMOVE_SCREWDRIVER))
+		else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER && (flooring.flags & TURF_REMOVE_SCREWDRIVER))
 			if(broken || burnt)
 				return
 			to_chat(user, SPAN_NOTICE("You unscrew and remove the [flooring.descriptor]."))
 			make_plating(1)
 			attacking_item.play_tool_sound(get_turf(src), 80)
 			return
-		else if(attacking_item.iswrench() && (flooring.flags & TURF_REMOVE_WRENCH))
+		else if(attacking_item.tool_behaviour == TOOL_WRENCH && (flooring.flags & TURF_REMOVE_WRENCH))
 			to_chat(user, SPAN_NOTICE("You unwrench and remove the [flooring.descriptor]."))
 			make_plating(1)
 			attacking_item.play_tool_sound(get_turf(src), 80)
@@ -35,7 +35,7 @@
 			make_plating(1)
 			attacking_item.play_tool_sound(get_turf(src), 80)
 			return
-		else if(attacking_item.iswelder() && (flooring.flags & TURF_REMOVE_WELDER))
+		else if(attacking_item.tool_behaviour == TOOL_WELDER && (flooring.flags & TURF_REMOVE_WELDER))
 			var/obj/item/weldingtool/WT = attacking_item
 			if(!WT.isOn())
 				to_chat(user, SPAN_WARNING("\The [WT] isn't turned on."))
@@ -88,7 +88,7 @@
 				playsound(src, 'sound/items/Deconstruct.ogg', 80, 1)
 				return
 		// Repairs and deconstruction
-		else if(attacking_item.iscrowbar())
+		else if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 			var/area/A = get_area(src)
 			if(A && (A.area_flags & AREA_FLAG_INDESTRUCTIBLE_TURFS))
 				return
@@ -111,7 +111,7 @@
 						T.visible_message(SPAN_DANGER("The ceiling above has been pried off!"))
 				return
 			return
-		else if(attacking_item.iswelder())
+		else if(attacking_item.tool_behaviour == TOOL_WELDER)
 			var/obj/item/weldingtool/welder = attacking_item
 			if(welder.isOn() && (is_plating()))
 				if(broken || burnt)

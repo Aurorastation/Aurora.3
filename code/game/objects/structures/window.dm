@@ -267,7 +267,7 @@
 	if(attacking_item.item_flags & ITEM_FLAG_NO_BLUDGEON)
 		return
 
-	if(attacking_item.isscrewdriver() && user.a_intent != I_HURT)
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER && user.a_intent != I_HURT)
 		if(reinf && state >= 1)
 			state = 3 - state
 			update_nearby_icons()
@@ -286,11 +286,11 @@
 			to_chat(user, (anchored ? SPAN_NOTICE("You have fastened the window to the floor.") : SPAN_NOTICE("You have unfastened the window.")))
 			update_icon()
 			update_nearby_icons()
-	else if(attacking_item.iscrowbar() && reinf && state <= 1 && user.a_intent != I_HURT)
+	else if(attacking_item.tool_behaviour == TOOL_CROWBAR && reinf && state <= 1 && user.a_intent != I_HURT)
 		state = 1 - state
 		attacking_item.play_tool_sound(get_turf(src), 75)
 		to_chat(user, (state ? SPAN_NOTICE("You have pried the window into the frame.") : SPAN_NOTICE("You have pried the window out of the frame.")))
-	else if(attacking_item.iswrench() && !anchored && (!state || !reinf) && user.a_intent != I_HURT)
+	else if(attacking_item.tool_behaviour == TOOL_WRENCH && !anchored && (!state || !reinf) && user.a_intent != I_HURT)
 		if(!glasstype)
 			to_chat(user, SPAN_NOTICE("You're not sure how to dismantle \the [src] properly."))
 		else
@@ -698,7 +698,7 @@
 	if(attacking_item.item_flags & ITEM_FLAG_NO_BLUDGEON)
 		return
 
-	if(attacking_item.isscrewdriver() && user.a_intent != I_HURT)
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER && user.a_intent != I_HURT)
 		if(state == 2)
 			if(attacking_item.use_tool(src, user, 2 SECONDS, volume = 50))
 				to_chat(user, SPAN_NOTICE("You have unfastened the glass from the window frame."))
@@ -709,7 +709,7 @@
 				to_chat(user, SPAN_NOTICE("You have fastened the glass to the window frame."))
 				state++
 				update_nearby_icons()
-	else if(attacking_item.iscrowbar() && user.a_intent != I_HURT)
+	else if(attacking_item.tool_behaviour == TOOL_CROWBAR && user.a_intent != I_HURT)
 		if(state == 1)
 			if(attacking_item.use_tool(src, user, 2 SECONDS, volume = 50))
 				to_chat(user, SPAN_NOTICE("You pry the glass out of the window frame."))
@@ -720,7 +720,7 @@
 				to_chat(user, SPAN_NOTICE("You pry the glass into the window frame."))
 				state++
 				update_nearby_icons()
-	else if(attacking_item.iswrench() && user.a_intent != I_HURT)
+	else if(attacking_item.tool_behaviour == TOOL_WRENCH && user.a_intent != I_HURT)
 		if(state == 0)
 			user.visible_message(SPAN_DANGER("\The [user] is dismantling \the [src]!"))
 			if(attacking_item.use_tool(src, user, 2 SECONDS, volume = 50))

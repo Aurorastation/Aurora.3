@@ -119,7 +119,7 @@
 		src.update_icon()
 		return 1
 
-	if (attacking_item.iswelder())
+	if (attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/WT = attacking_item
 		if (WT.use(0))
 			if(health < maxHealth)

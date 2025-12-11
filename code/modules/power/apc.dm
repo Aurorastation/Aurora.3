@@ -491,7 +491,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 			return
 
 	// CROWBAR: Try to remove circuit board OR open unlocked cover.
-	if (attacking_item.iscrowbar() && opened)
+	if (attacking_item.tool_behaviour == TOOL_CROWBAR && opened)
 		if (has_electronics == HAS_ELECTRONICS_CONNECT)
 			if (terminal)
 				to_chat(user, SPAN_WARNING("Disconnect wires first."))
@@ -515,7 +515,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 			panel_open = FALSE
 			opened = COVER_CLOSED
 			update_icon()
-	else if (attacking_item.iscrowbar() && !((stat & BROKEN) || hacker) )
+	else if (attacking_item.tool_behaviour == TOOL_CROWBAR && !((stat & BROKEN) || hacker) )
 		if(coverlocked && !(stat & MAINT))
 			to_chat(user, SPAN_WARNING("The cover is locked and cannot be opened."))
 			return
@@ -560,7 +560,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 		update_icon()
 
 	// SCREWDRIVER: Expose wiring panel.
-	else if	(attacking_item.isscrewdriver())
+	else if	(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(opened != COVER_CLOSED)
 			if (cell)
 				to_chat(user, SPAN_WARNING("Close the APC first.")) //Less hints more mystery!
@@ -612,7 +612,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 				terminal.connect_to_network()
 
 	// WIRECUTTER: Dismantle the power terminal (wire stuff on the floor in front of APC).
-	else if (attacking_item.iswirecutter() && terminal && opened != COVER_CLOSED && has_electronics != HAS_ELECTRONICS_SECURED)
+	else if (attacking_item.tool_behaviour == TOOL_WIRECUTTER && terminal && opened != COVER_CLOSED && has_electronics != HAS_ELECTRONICS_SECURED)
 		var/turf/T = loc
 		if(istype(T) && !T.is_plating())
 			to_chat(user, SPAN_WARNING("You must remove the floor plating in front of the APC first."))
@@ -647,7 +647,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 
 	// WELDER: If the APC is broken, remove the cover.
 	//         If the cover is open and APC has been stripped down, dismantle it back into steel.
-	else if (attacking_item.iswelder())
+	else if (attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/WT = attacking_item
 		if (opened != COVER_REMOVED && (stat & BROKEN))
 			if (!WT.isOn()) return
@@ -771,8 +771,8 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 			if (issilicon(user))
 				return attack_hand(user)
 			if (opened == COVER_CLOSED && panel_open && \
-				attacking_item.ismultitool() || \
-				attacking_item.iswirecutter() || istype(attacking_item, /obj/item/device/assembly/signaler))
+				attacking_item.tool_behaviour == TOOL_MULTITOOL || \
+				attacking_item.tool_behaviour == TOOL_WIRECUTTER || istype(attacking_item, /obj/item/device/assembly/signaler))
 				return attack_hand(user)
 			user.visible_message(SPAN_DANGER("The [name] has been hit with the [attacking_item.name] by [user.name]!"), \
 				SPAN_DANGER("You hit the [name] with your [attacking_item.name]!"), \

@@ -44,7 +44,7 @@
 /obj/machinery/power/smes/batteryrack/attackby(obj/item/attacking_item, mob/user) //these can only be moved by being reconstructed, solves having to remake the powernet.
 	..() //SMES attackby for now handles screwdriver, cable coils and wirecutters, no need to repeat that here
 	if(open_hatch)
-		if(attacking_item.iscrowbar())
+		if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 			if (charge < (capacity / 100))
 				if (!output_attempt && !input_attempt)
 					attacking_item.play_tool_sound(get_turf(src), 50)

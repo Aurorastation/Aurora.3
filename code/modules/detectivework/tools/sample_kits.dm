@@ -51,7 +51,7 @@
 		if(merge_evidence(attacking_item, user))
 			qdel(attacking_item)
 		return TRUE
-	else if (attacking_item.ispen())
+	else if (attacking_item.tool_behaviour == TOOL_PEN)
 		var/tmp_label = sanitizeSafe( tgui_input_text(user, "Enter a label for [name]", "Label", label_text, MAX_NAME_LEN), MAX_NAME_LEN )
 		if(length(tmp_label) > MAX_NAME_LEN)
 			to_chat(user, SPAN_WARNING("The label can be at most [MAX_NAME_LEN] characters long."))

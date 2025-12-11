@@ -49,7 +49,7 @@
 
 /obj/machinery/light_construct/attackby(obj/item/attacking_item, mob/user)
 	add_fingerprint(user)
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		switch(stage)
 			if(1)
 				to_chat(user, SPAN_NOTICE("You begin taking \the [src] apart..."))
@@ -69,7 +69,7 @@
 				to_chat(user, SPAN_WARNING("You have to unscrew the case first."))
 				return
 
-	if(attacking_item.iswirecutter())
+	if(attacking_item.tool_behaviour == TOOL_WIRECUTTER)
 		if(stage != 2)
 			return
 		stage = 1
@@ -112,7 +112,7 @@
 									SPAN_NOTICE("You add wires to \the [src]."))
 		return
 
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(stage == 2)
 			switch(fixture_type)
 				if("tube")
@@ -173,7 +173,7 @@
 		playsound(get_turf(src), 'sound/machines/click.ogg', 50, TRUE)
 		return
 
-	if(attacking_item.iscrowbar())
+	if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 		if(!cell_connectors)
 			to_chat(user, SPAN_WARNING("\The [src] does not have a power cell connector."))
 			return

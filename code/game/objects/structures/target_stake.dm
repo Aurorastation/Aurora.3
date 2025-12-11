@@ -22,7 +22,7 @@
 			to_chat(user, SPAN_NOTICE("You slide \the [attacking_item] into the stake."))
 			set_target(attacking_item)
 		return
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(pinned_target)
 			to_chat(user, SPAN_WARNING("You cannot dismantle \the [src] while it has a target attached."))
 			return

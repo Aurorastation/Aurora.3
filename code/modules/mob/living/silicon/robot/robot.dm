@@ -623,7 +623,7 @@
 	if(user.a_intent == I_HELP)
 		if(wires_exposed)
 			wires.interact(user)
-		if(attacking_item.iswelder())
+		if(attacking_item.tool_behaviour == TOOL_WELDER)
 			if(src == user)
 				to_chat(user, SPAN_WARNING("You lack the reach to be able to repair yourself."))
 				return
@@ -652,7 +652,7 @@
 				updatehealth()
 				visible_message(SPAN_WARNING("\The [user] has fixed some of the burnt wires on \the [src]!"))
 				return
-		else if(attacking_item.iscrowbar())	// crowbar means open or close the cover
+		else if(attacking_item.tool_behaviour == TOOL_CROWBAR)	// crowbar means open or close the cover
 			if(opened)
 				if(cell)
 					user.visible_message(SPAN_NOTICE("\The [user] begins clasping shut \the [src]'s maintenance hatch."), SPAN_NOTICE("You begin closing up \the [src]'s maintenance hatch."))
@@ -744,11 +744,11 @@
 				C.brute_damage = 0
 				C.electronics_damage = 0
 				handle_panel_overlay()
-		else if(attacking_item.isscrewdriver() && opened && !cell)	// haxing
+		else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER && opened && !cell)	// haxing
 			wires_exposed = !wires_exposed
 			user.visible_message(SPAN_NOTICE("\The [user] [wires_exposed ? "exposes" : "covers"] \the [src]'s wires."), SPAN_NOTICE("You [wires_exposed ? "expose" : "cover"] \the [src]'s wires."))
 			handle_panel_overlay()
-		else if(attacking_item.isscrewdriver() && opened && cell)	// radio
+		else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER && opened && cell)	// radio
 			if(radio)
 				radio.attackby(attacking_item, user) //Push it to the radio to let it handle everything
 			else

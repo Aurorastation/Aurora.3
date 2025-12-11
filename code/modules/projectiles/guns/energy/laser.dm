@@ -232,7 +232,7 @@
 	turret_sprite_set = "red"
 
 /obj/item/gun/energy/lasertag/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.ismultitool())
+	if(attacking_item.tool_behaviour == TOOL_MULTITOOL)
 		var/chosen_color = tgui_input_list(user, "Which color do you wish your gun to be?", "Color Selection", list("blue", "red"))
 		if(!chosen_color)
 			return

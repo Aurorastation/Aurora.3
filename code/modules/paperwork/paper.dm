@@ -313,7 +313,7 @@
 	update_icon()
 
 /obj/item/paper/proc/get_signature(var/obj/item/pen/P, mob/user as mob)
-	if(P && P.ispen())
+	if(P && P.tool_behaviour == TOOL_PEN)
 		return P.get_signature(user)
 
 	if (user)
@@ -514,13 +514,13 @@
 			if(T.pen)
 				i = T.pen
 
-		if(!i || !i.ispen())
+		if(!i || !i.tool_behaviour == TOOL_PEN)
 			i = usr.get_inactive_hand()
 		var/obj/item/clipboard/c
 		var/iscrayon = FALSE
 		var/isfountain = FALSE
 		var/istypewriter = FALSE
-		if(!i.ispen())
+		if(!i.tool_behaviour == TOOL_PEN)
 			if(usr.back && istype(usr.back,/obj/item/rig))
 				var/obj/item/rig/r = usr.back
 				var/obj/item/rig_module/device/pen/m = locate(/obj/item/rig_module/device/pen) in r.installed_modules
@@ -657,7 +657,7 @@
 		B.amount = 2
 		B.update_icon()
 
-	else if(attacking_item.ispen())
+	else if(attacking_item.tool_behaviour == TOOL_PEN)
 		if(icon_state == "scrap")
 			to_chat(user, SPAN_WARNING("The [src] is too crumpled to write on."))
 			return

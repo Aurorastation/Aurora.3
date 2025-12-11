@@ -63,7 +63,7 @@
 			else
 				to_chat(user,SPAN_NOTICE("The inlet cap on \the [src] is wrenched on tight!"))
 
-	if (attacking_item.iswrench())
+	if (attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(use_check(user, USE_DISALLOW_SPECIALS))
 			to_chat(user, SPAN_WARNING("A strange force prevents you from doing this.")) //there is no way to justify this icly
 			return
@@ -321,7 +321,7 @@
 	return "[src]'s cup dispenser is empty."
 
 /obj/structure/reagent_dispensers/water_cooler/attackby(obj/item/attacking_item, mob/user)
-	if (attacking_item.isscrewdriver())
+	if (attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		src.add_fingerprint(user)
 		attacking_item.play_tool_sound(get_turf(src), 100)
 		if(do_after(user, 20))

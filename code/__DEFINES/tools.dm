@@ -5,6 +5,7 @@
 #define TOOL_SCREWDRIVER "screwdriver"
 #define TOOL_WIRECUTTER "cutters"
 #define TOOL_WRENCH "wrench"
+#define TOOL_WRENCH "pipewrench"
 #define TOOL_WELDER "welder"
 #define TOOL_ANALYZER "analyzer"
 #define TOOL_MINING "mining"
@@ -71,15 +72,15 @@
 	var/tool_behavior = tool.tool_behavior
 	switch(tool_behavior)
 		if(TOOL_SCREWDRIVER)
-			if(tool.isscrewdriver() && (!requires_surgery_compatibility || tool.issurgerycompatible()))
+			if(tool.tool_behaviour == TOOL_SCREWDRIVER && (!requires_surgery_compatibility || tool.issurgerycompatible()))
 				return return_value
 		if(TOOL_WRENCH)
-			if(tool.iswrench() && (!requires_surgery_compatibility || tool.issurgerycompatible()))
+			if(tool.tool_behaviour == TOOL_WRENCH && (!requires_surgery_compatibility || tool.issurgerycompatible()))
 				return return_value
 		if(TOOL_CROWBAR)
-			if(tool.iscrowbar() && (!requires_surgery_compatibility || tool.issurgerycompatible()))
+			if(tool.tool_behaviour == TOOL_CROWBAR && (!requires_surgery_compatibility || tool.issurgerycompatible()))
 				return return_value
 		if(TOOL_WIRECUTTER)
-			if(tool.iswirecutter() && (!requires_surgery_compatibility || tool.issurgerycompatible()))
+			if(tool.tool_behaviour == TOOL_WIRECUTTER && (!requires_surgery_compatibility || tool.issurgerycompatible()))
 				return return_value
 	return null

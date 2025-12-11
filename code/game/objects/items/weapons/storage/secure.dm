@@ -42,12 +42,12 @@ ABSTRACT_TYPE(/obj/item/storage/secure)
 			playsound(src.loc, /singleton/sound_category/spark_sound, 50, 1)
 			return
 
-		if (attacking_item.isscrewdriver())
+		if (attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 			if(attacking_item.use_tool(src, user, 20, volume = 50))
 				src.open =! src.open
 				to_chat(user, SPAN_NOTICE("You [src.open ? "open" : "close"] the service panel."))
 			return
-		if ((attacking_item.ismultitool()) && (src.open == 1)&& (!src.l_hacking))
+		if ((attacking_item.tool_behaviour == TOOL_MULTITOOL) && (src.open == 1)&& (!src.l_hacking))
 			to_chat(user, SPAN_NOTICE("Now attempting to reset internal memory, please hold."))
 			src.l_hacking = 1
 			if (do_after(usr, 100))

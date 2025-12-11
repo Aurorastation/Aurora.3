@@ -27,7 +27,7 @@
 	return TRUE
 
 /obj/machinery/kinetic_harvester/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.ismultitool())
+	if(attacking_item.tool_behaviour == TOOL_MULTITOOL)
 		var/datum/component/local_network_member/lanm = GetComponent(/datum/component/local_network_member)
 		if(lanm.get_new_tag(user))
 			find_core()

@@ -166,7 +166,7 @@
 	return text
 
 /obj/machinery/computer/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(circuit)
 			if(attacking_item.use_tool(src, user, 20, volume = 50))
 				var/obj/structure/computerframe/A = new /obj/structure/computerframe( src.loc )

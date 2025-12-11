@@ -49,7 +49,7 @@
 		var/obj/item/device/spy_monitor/SM = attacking_item
 		SM.pair(src, user)
 		return TRUE
-	if(attacking_item.ispen())
+	if(attacking_item.tool_behaviour == TOOL_PEN)
 		var/n_tag = sanitizeSafe( tgui_input_text(user, "What would you like to label the camera?", "Bug Labelling", default = camera.c_tag, max_length = MAX_NAME_LEN), MAX_NAME_LEN )
 		if(Adjacent(user) && user.stat == CONSCIOUS && n_tag)
 			camera.c_tag = n_tag

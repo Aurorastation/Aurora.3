@@ -70,7 +70,7 @@
 						playsound(src.loc, 'sound/items/Deconstruct.ogg', 30, TRUE)
 			return
 
-	if(attacking_item.iswirecutter()) // Hotwiring
+	if(attacking_item.tool_behaviour == TOOL_WIRECUTTER) // Hotwiring
 		if(!req_access && !req_one_access && !emagged) // Already hacked/no need to hack
 			to_chat(user, SPAN_BOLD("[src] is not access-locked."))
 			return

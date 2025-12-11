@@ -74,7 +74,7 @@
 			return
 		insert_item(attacking_item, user)
 		return
-	if(attacking_item.ispen())
+	if(attacking_item.tool_behaviour == TOOL_PEN)
 		if(!open)
 			to_chat(user, SPAN_NOTICE("You open \the [src] with \the [attacking_item]."))
 			open = !open

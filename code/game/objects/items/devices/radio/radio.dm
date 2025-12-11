@@ -547,7 +547,7 @@ var/global/list/default_interrogation_channels = list(
 /obj/item/device/radio/attackby(obj/item/attacking_item, mob/user)
 	..()
 	user.set_machine(src)
-	if (!( attacking_item.isscrewdriver() ))
+	if (!( attacking_item.tool_behaviour == TOOL_SCREWDRIVER ))
 		return
 	b_stat = !( b_stat )
 	if(!istype(src, /obj/item/device/radio/beacon))
@@ -602,10 +602,10 @@ var/global/list/default_interrogation_channels = list(
 /obj/item/device/radio/borg/attackby(obj/item/attacking_item, mob/user)
 //	..()
 	user.set_machine(src)
-	if (!( attacking_item.isscrewdriver() || (istype(attacking_item, /obj/item/device/encryptionkey/ ))))
+	if (!( attacking_item.tool_behaviour == TOOL_SCREWDRIVER || (istype(attacking_item, /obj/item/device/encryptionkey/ ))))
 		return
 
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(keyslot)
 
 

@@ -139,7 +139,7 @@
 
 		return TRUE
 
-	if(attacking_item.ishammer() || istype(attacking_item, /obj/item/crowbar/hydraulic_rescue_tool))
+	if(attacking_item.tool_behaviour == TOOL_HAMMER || istype(attacking_item, /obj/item/crowbar/hydraulic_rescue_tool))
 		if(((stat & NOPOWER) || (stat & BROKEN)) && !src.operating)
 			force_toggle()
 		else

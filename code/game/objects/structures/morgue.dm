@@ -93,7 +93,7 @@
 	else return ..()
 
 /obj/structure/morgue/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.ispen())
+	if(attacking_item.tool_behaviour == TOOL_PEN)
 		var/t = tgui_input_text(user, "What would you like the label to be?", "Morgue", "", MAX_NAME_LEN)
 		if(user.get_active_hand() != attacking_item)
 			return

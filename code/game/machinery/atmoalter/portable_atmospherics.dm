@@ -116,7 +116,7 @@
 		SStgui.update_uis(src)
 		return TRUE
 
-	else if (attacking_item.iswrench())
+	else if (attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(connected_port)
 			disconnect()
 			to_chat(user, SPAN_NOTICE("You disconnect \the [src] from the port."))
@@ -179,7 +179,7 @@
 		SStgui.update_uis(src)
 		return TRUE
 
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(!cell)
 			to_chat(user, SPAN_WARNING("There is no power cell installed."))
 			return TRUE

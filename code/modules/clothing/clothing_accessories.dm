@@ -9,9 +9,9 @@
 				return 0
 
 /obj/item/clothing/attackby(obj/item/attacking_item, mob/user)
-	if(IC && (istype(attacking_item, /obj/item/integrated_circuit) || attacking_item.iswrench() || attacking_item.iscrowbar() || \
+	if(IC && (istype(attacking_item, /obj/item/integrated_circuit) || attacking_item.tool_behaviour == TOOL_WRENCH || attacking_item.tool_behaviour == TOOL_CROWBAR || \
 				istype(attacking_item, /obj/item/device/integrated_electronics/wirer) || istype(attacking_item, /obj/item/device/integrated_electronics/debugger) || \
-				attacking_item.ismultitool() || attacking_item.isscrewdriver() || istype(attacking_item, /obj/item/cell/device)))
+				attacking_item.tool_behaviour == TOOL_MULTITOOL || attacking_item.tool_behaviour == TOOL_SCREWDRIVER || istype(attacking_item, /obj/item/cell/device)))
 
 		IC.attackby(attacking_item, user)
 

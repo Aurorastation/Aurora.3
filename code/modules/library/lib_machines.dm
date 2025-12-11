@@ -413,7 +413,7 @@
 			to_chat(user, SPAN_WARNING("\The [src] must be secured to the floor first!"))
 			return
 		user.drop_from_inventory(attacking_item,src)
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		attacking_item.play_tool_sound(get_turf(src), 75)
 		if(anchored)
 			user.visible_message(SPAN_NOTICE("\The [user] unsecures \the [src] from the floor."),
@@ -503,7 +503,7 @@
 		qdel(paper)
 		return
 
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		attacking_item.play_tool_sound(get_turf(src), 75)
 		if(anchored)
 			user.visible_message(SPAN_NOTICE("\The [user] unsecures \the [src] from the floor."), \

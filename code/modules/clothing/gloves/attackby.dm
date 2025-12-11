@@ -1,5 +1,5 @@
 /obj/item/clothing/gloves/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.ismultitool())
+	if(attacking_item.tool_behaviour == TOOL_MULTITOOL)
 		var/siemens_percentage = 100 * siemens_coefficient
 		to_chat(user, SPAN_NOTICE("You probe \the [src] with \the [attacking_item]. The gloves will let [siemens_percentage]% of an electric shock through."))
 		return
@@ -66,7 +66,7 @@
 		update_icon()
 		return
 
-	else if((cell || wired) && (attacking_item.iswirecutter() || istype(attacking_item, /obj/item/surgery/scalpel)))
+	else if((cell || wired) && (attacking_item.tool_behaviour == TOOL_WIRECUTTER || istype(attacking_item, /obj/item/surgery/scalpel)))
 
 		//stunglove stuff
 		if(cell)

@@ -174,7 +174,7 @@
 			to_chat(user, SPAN_NOTICE("You replace \the [src]'s reagent reservoir."))
 			return
 
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(!open)
 			to_chat(user, SPAN_WARNING("\The [src]'s maintenance panel isn't open."))
 			return
@@ -187,7 +187,7 @@
 			to_chat(user, SPAN_WARNING("\The [src] doesn't have a reagent reservoir installed."))
 			return
 
-	if(attacking_item.iscrowbar())
+	if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 		if(!open)
 			to_chat(user, SPAN_WARNING("\The [src]'s panel isn't open."))
 			return

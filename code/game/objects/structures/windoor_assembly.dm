@@ -72,7 +72,7 @@
 	//I really should have spread this out across more states but thin little windoors are hard to sprite.
 	switch(state)
 		if("01")
-			if(attacking_item.iswelder() && !anchored)
+			if(attacking_item.tool_behaviour == TOOL_WELDER && !anchored)
 				var/obj/item/weldingtool/WT = attacking_item
 				if (WT.use(0,user))
 					user.visible_message("[user] dissassembles the windoor assembly.", "You start to dissassemble the windoor assembly.")
@@ -90,7 +90,7 @@
 					return
 
 			//Wrenching an unsecure assembly anchors it in place. Step 4 complete
-			if(attacking_item.iswrench() && !anchored)
+			if(attacking_item.tool_behaviour == TOOL_WRENCH && !anchored)
 				user.visible_message("[user] secures the windoor assembly to the floor.", "You start to secure the windoor assembly to the floor.")
 
 				if(attacking_item.use_tool(src, user, 40, volume = 50))
@@ -103,7 +103,7 @@
 						src.name = "Anchored Windoor Assembly"
 
 			//Unwrenching an unsecure assembly un-anchors it. Step 4 undone
-			else if(attacking_item.iswrench() && anchored)
+			else if(attacking_item.tool_behaviour == TOOL_WRENCH && anchored)
 				user.visible_message("[user] unsecures the windoor assembly to the floor.", "You start to unsecure the windoor assembly to the floor.")
 
 				if(attacking_item.use_tool(src, user, 40, volume = 50))
@@ -151,7 +151,7 @@
 		if("02")
 
 			//Removing wire from the assembly. Step 5 undone.
-			if(attacking_item.iswirecutter() && !src.electronics)
+			if(attacking_item.tool_behaviour == TOOL_WIRECUTTER && !src.electronics)
 				playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
 				user.visible_message("[user] cuts the wires from the airlock assembly.", "You start to cut the wires from airlock assembly.")
 
@@ -184,7 +184,7 @@
 						EL.is_installed = 0
 
 			//Screwdriver to remove airlock electronics. Step 6 undone.
-			else if(attacking_item.isscrewdriver() && src.electronics)
+			else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER && src.electronics)
 				user.visible_message("[user] removes the electronics from the airlock assembly.", "You start to uninstall electronics from the airlock assembly.")
 
 				if(attacking_item.use_tool(src, user, 40, volume = 50))
@@ -199,7 +199,7 @@
 					ae.forceMove(src.loc)
 
 			//Crowbar to complete the assembly, Step 7 complete.
-			else if(attacking_item.iscrowbar())
+			else if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 				if(!src.electronics)
 					to_chat(usr, SPAN_WARNING("The assembly is missing electronics."))
 					return
