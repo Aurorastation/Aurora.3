@@ -1,6 +1,0 @@
-author: FabianK3
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed kneepads not being able to be atteched to pants."

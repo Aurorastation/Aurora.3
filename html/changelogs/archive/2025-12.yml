@@ -118,3 +118,6 @@
       it shouldn't occur.
   - code_imp: Converted some comments into dmdocs, and documented some parts where
       it was missing.
+2025-12-11:
+  FabianK3:
+  - bugfix: Fixed kneepads not being able to be atteched to pants.
