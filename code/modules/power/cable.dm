@@ -516,9 +516,7 @@ By design, d1 is the smallest direction and d2 is the highest
 	contained_sprite = TRUE
 	build_from_parts = TRUE
 	worn_overlay = "end"
-
-/obj/item/stack/cable_coil/iscoil()
-	return TRUE
+	tool_behaviour = TOOL_CABLECOIL
 
 /obj/item/stack/cable_coil/Initialize(mapload, amt, param_color = null)
 	. = ..(mapload, amt)

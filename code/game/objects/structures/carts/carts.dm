@@ -24,7 +24,7 @@ ABSTRACT_TYPE(/obj/structure/cart)
 	. += ..()
 	. += "An empty cart can be taken apart with a <b>wrench</b> or a <b>welder</b>. Or a <b>plasma cutter</b>, if you're that hardcore."
 
-/obj/structure/cart/proc/take_apart(var/mob/user = null, var/obj/I)
+/obj/structure/cart/proc/take_apart(var/mob/user = null, var/obj/item/I)
 	if(user)
 		if(I.tool_behaviour == TOOL_WELDER)
 			var/obj/item/welder = I

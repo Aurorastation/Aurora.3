@@ -114,9 +114,6 @@
 		M = user
 	return eyestab(M,user)
 
-/obj/item/screwdriver/isscrewdriver()
-	return TRUE
-
 /*
  * Wirecutters
  */
@@ -205,9 +202,6 @@
 	else
 		..()
 
-/obj/item/wirecutters/iswirecutter()
-	return TRUE
-
 /obj/item/wirecutters/toolbelt
 	color_options = list(COLOR_TOOLS)
 
@@ -271,9 +265,6 @@
 	. += ..()
 	if(distance <= 0)
 		. += "It contains [get_fuel()]/[max_fuel] units of fuel."
-
-/obj/item/weldingtool/iswelder()
-	return TRUE
 
 /obj/item/weldingtool/largetank
 	name = "industrial welding tool"
@@ -810,8 +801,8 @@
 	usesound = 'sound/items/drill_use.ogg'
 	var/current_tool = 1
 	var/list/tools = list(
-		"screwdriver bit",
-		"wrench bit"
+		"screwdriver",
+		"wrench"
 		)
 
 /obj/item/powerdrill/mechanics_hints(mob/user, distance, is_adjacent)
@@ -836,13 +827,13 @@
 	. = ..()
 	closeToolTip(usr)
 
-/obj/item/powerdrill/proc/update_tool()
-	if(isscrewdriver())
+/obj/item/powerdrill/proc/update_tool(var/tool)
+	if(tool == TOOL_SCREWDRIVER)
 		usesound = 'sound/items/drill_use.ogg'
 		icon_state = "impact_wrench-screw"
 		check_maptext(SMALL_FONTS(7, "S"))
 		tool_behaviour = TOOL_SCREWDRIVER
-	else if(iswrench())
+	else if(tool == TOOL_WRENCH)
 		usesound = 'sound/items/air_wrench.ogg'
 		icon_state = "impact_wrench-wrench"
 		check_maptext(SMALL_FONTS(7, "W"))
@@ -857,7 +848,7 @@
 	else
 		to_chat(user, "You switch \the [src] to the [tool] fitting.")
 		playsound(loc, 'sound/items/change_drill.ogg', 50, 1)
-	update_tool()
+	update_tool(tool)
 	return TRUE
 
 /obj/item/powerdrill/issurgerycompatible()
@@ -946,7 +937,7 @@
 	drop_sound = 'sound/items/drop/crowbar.ogg'
 	pickup_sound = 'sound/items/pickup/crowbar.ogg'
 	usesound = /singleton/sound_category/hammer_sound
-	tool_behaviour = HAMMER
+	tool_behaviour = TOOL_HAMMER
 
 /obj/item/hammer/Initialize()
 	. = ..()

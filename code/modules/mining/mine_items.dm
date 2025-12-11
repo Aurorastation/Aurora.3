@@ -365,7 +365,7 @@
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1, TECH_COMBAT = 2)
 	attack_verb = list("bashed", "bludgeoned", "thrashed", "whacked", "slashed", "cut")
 	sharp = TRUE
-	tool_behaviour == TOOL_CROWBAR
+	tool_behaviour = TOOL_CROWBAR
 
 // Flags.
 

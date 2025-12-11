@@ -9,7 +9,7 @@
 	SHOULD_CALL_PARENT(TRUE)
 	PROTECTED_PROC(TRUE)
 
-	if(!user.combat_mode)
+	if(!user.a_intent == I_HURT)
 		var/tool_return = tool_act(user, tool, modifiers)
 		if(tool_return)
 			return tool_return

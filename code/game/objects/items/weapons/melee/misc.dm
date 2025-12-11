@@ -79,7 +79,7 @@
 	attack_verb = list("smashed", "beaten", "slammed", "smacked", "struck", "battered", "bonked")
 	w_class = WEIGHT_CLASS_NORMAL
 	origin_tech = list(TECH_MATERIAL = 3, TECH_ILLEGAL = 2)
-	tool_behaviour = HAMMER
+	tool_behaviour = TOOL_HAMMER
 
 /obj/item/melee/hammer/powered
 	name = "powered hammer"

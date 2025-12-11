@@ -77,7 +77,7 @@
 
 /obj/machinery/dna_scannernew/proc/eject_occupant()
 	src.go_out()
-	for(var/obj/O in src)
+	for(var/obj/item/O in src)
 		if((!istype(O,/obj/item/reagent_containers)) && (!istype(O,/obj/item/circuitboard/clonescanner)) && (!istype(O,/obj/item/stock_parts)) && (!O.tool_behaviour == TOOL_CABLECOIL))
 			O.forceMove(get_turf(src))//Ejects items that manage to get in there (exluding the components)
 	if(!occupant)

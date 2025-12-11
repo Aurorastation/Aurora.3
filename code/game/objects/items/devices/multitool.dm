@@ -34,6 +34,8 @@
 	var/datum/integrated_io/selected_io = null
 	var/mode = 0
 
+	tool_behaviour = TOOL_MULTITOOL
+
 /obj/item/device/multitool/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "You can use this on a variety of objects (including APCs, airlocks and more) to try to hack them without cutting wires."
@@ -46,9 +48,6 @@
 	unregister_buffer(buffer_object)
 	QDEL_NULL(apc_indicator)
 	return ..()
-
-/obj/item/device/multitool/ismultitool()
-	return TRUE
 
 /obj/item/device/multitool/proc/get_buffer(var/typepath)
 	// Only allow clearing the buffer name when someone fetches the buffer.

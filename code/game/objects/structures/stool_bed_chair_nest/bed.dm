@@ -713,7 +713,7 @@
 	update_icon()
 
 /obj/structure/roller_rack/attackby(obj/item/attacking_item, mob/user)
-	if(iswrench(attacking_item))
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		anchored = !anchored
 		to_chat(user, SPAN_NOTICE("You [anchored ? "bolt" : "unbolt"] \the [src] [anchored ? "to" : "from"] the ground."))
 

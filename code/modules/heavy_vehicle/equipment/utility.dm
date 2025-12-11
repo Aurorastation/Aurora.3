@@ -736,6 +736,7 @@
 			if(!selected_tool)
 				return
 			mounted_tool.current_tool = 1
+			tool_behaviour = mounted_tool.current_tool
 			for(var/tool in mounted_tool.tools)
 				if(mounted_tool.tools[mounted_tool.current_tool] == selected_tool)
 					break
@@ -752,21 +753,12 @@
 		var/tool_name = capitalize(replacetext(mounted_tool.tools[mounted_tool.current_tool], "bit", ""))
 		return "Tool: [tool_name]"
 
-/obj/item/mecha_equipment/toolset/isscrewdriver()
-	return mounted_tool.tools[mounted_tool.current_tool] == "screwdriverbit"
-
-/obj/item/mecha_equipment/toolset/iswrench()
-	return mounted_tool.tools[mounted_tool.current_tool] == "wrenchbit"
-
-/obj/item/mecha_equipment/toolset/iscrowbar()
-	return mounted_tool.tools[mounted_tool.current_tool] == "crowbarbit"
-
 /obj/item/powerdrill/mech
 	name = "mounted toolset"
 	tools = list(
-		"screwdriverbit",
-		"wrenchbit",
-		"crowbarbit"
+		"screwdriver",
+		"wrench",
+		"crowbar"
 		)
 
 /obj/item/mecha_equipment/quick_enter

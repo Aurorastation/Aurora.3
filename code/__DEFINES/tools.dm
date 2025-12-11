@@ -5,7 +5,7 @@
 #define TOOL_SCREWDRIVER "screwdriver"
 #define TOOL_WIRECUTTER "cutters"
 #define TOOL_WRENCH "wrench"
-#define TOOL_WRENCH "pipewrench"
+#define TOOL_PIPEWRENCH "pipewrench"
 #define TOOL_WELDER "welder"
 #define TOOL_ANALYZER "analyzer"
 #define TOOL_MINING "mining"
@@ -69,8 +69,8 @@
 	return TRUE
 
 /proc/check_tool_quality(var/obj/item/tool, var/return_value, var/requires_surgery_compatibility = FALSE)
-	var/tool_behavior = tool.tool_behavior
-	switch(tool_behavior)
+	var/tool_behaviour = tool.tool_behaviour
+	switch(tool_behaviour)
 		if(TOOL_SCREWDRIVER)
 			if(tool.tool_behaviour == TOOL_SCREWDRIVER && (!requires_surgery_compatibility || tool.issurgerycompatible()))
 				return return_value
