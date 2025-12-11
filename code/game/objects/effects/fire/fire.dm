@@ -8,7 +8,6 @@
 #define TURF_FIRE_ENERGY_PER_BURNED_OXY_MOL 12000
 #define TURF_FIRE_BURN_RATE_BASE 0.12
 #define TURF_FIRE_BURN_RATE_PER_POWER 0.02
-#define TURF_FIRE_BURN_CARBON_DIOXIDE_MULTIPLIER 0.75
 #define TURF_FIRE_BURN_MINIMUM_OXYGEN_REQUIRED 0.5
 #define TURF_FIRE_BURN_PLAY_SOUND_EFFECT_CHANCE 6
 
@@ -103,18 +102,21 @@
 	color = null //The actual colour should remain white so transform makes sense
 
 /obj/turf_fire/proc/process_waste()
+	var/total_oxidizer = 0
 	var/turf/T = loc
 	var/datum/gas_mixture/env = T.return_air()
-	var/oxy = env.get_gas(GAS_OXYGEN) //Todo, make this play with any oxidizer
-	if (oxy < TURF_FIRE_BURN_MINIMUM_OXYGEN_REQUIRED)
+	for (var/g in env.gas)
+		if(gas_data.flags[g] & XGM_GAS_OXIDIZER)
+			total_oxidizer += env.gas[g]
+	if (total_oxidizer < TURF_FIRE_BURN_MINIMUM_OXYGEN_REQUIRED)
 		return FALSE
 	var/burn_rate = TURF_FIRE_BURN_RATE_BASE + fire_power * TURF_FIRE_BURN_RATE_PER_POWER
-	if(burn_rate > oxy)
-		burn_rate = oxy
+	if(burn_rate > total_oxidizer)
+		burn_rate = total_oxidizer
 
-	env.adjust_gas(GAS_OXYGEN, -burn_rate)
+	env.remove_by_flag(XGM_GAS_OXIDIZER, burn_rate)
 
-	env.adjust_gas(GAS_CO2, burn_rate * TURF_FIRE_BURN_CARBON_DIOXIDE_MULTIPLIER)
+	env.adjust_gas(GAS_CO2, burn_rate)
 
 	var/energy_released = burn_rate * TURF_FIRE_ENERGY_PER_BURNED_OXY_MOL
 	env.add_thermal_energy(energy_released)
@@ -215,7 +217,6 @@
 #undef TURF_FIRE_ENERGY_PER_BURNED_OXY_MOL
 #undef TURF_FIRE_BURN_RATE_BASE
 #undef TURF_FIRE_BURN_RATE_PER_POWER
-#undef TURF_FIRE_BURN_CARBON_DIOXIDE_MULTIPLIER
 #undef TURF_FIRE_BURN_MINIMUM_OXYGEN_REQUIRED
 #undef TURF_FIRE_BURN_PLAY_SOUND_EFFECT_CHANCE
 
