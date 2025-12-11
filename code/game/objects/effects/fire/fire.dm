@@ -95,10 +95,10 @@
 
 	var/angle = (targetAngle - baseAngle)
 	filters = filter(type = "color", color = list(1,0,0,0,
-													  0,1,0,0,
-													  0,0,1,0,
-													  0,0,0,1,
-													  angle/360,0,0,0), space = FILTER_COLOR_HSV)
+													0,1,0,0,
+													0,0,1,0,
+													0,0,0,1,
+													angle/360,0,0,0), space = FILTER_COLOR_HSV)
 	color = null //The actual colour should remain white so transform makes sense
 
 /obj/turf_fire/proc/process_waste()
