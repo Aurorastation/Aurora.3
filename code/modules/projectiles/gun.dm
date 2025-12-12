@@ -740,9 +740,10 @@
 		toggle_safety(usr)
 
 /obj/item/gun/CtrlClick(var/mob/user)
-	if(has_safety && user == loc)
+	if(has_safety && !use_check(user, USE_FORCE_SRC_IN_USER))
 		toggle_safety(user)
 		return TRUE
+
 	. = ..()
 
 /obj/item/gun/proc/safety()

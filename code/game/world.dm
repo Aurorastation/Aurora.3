@@ -89,6 +89,7 @@ GLOBAL_PROTECT(config)
 		log_world("ERROR: Your server's byond version does not meet the recommended requirements for this server. Please update BYOND to [RECOMMENDED_VERSION].")
 
 	TgsNew(new /datum/tgs_event_handler/impl, TGS_SECURITY_TRUSTED)
+	GLOB.revdata.load_tgs_info()
 
 	GLOB.config.post_load()
 

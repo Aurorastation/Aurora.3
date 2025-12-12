@@ -91,3 +91,33 @@
       upgrade options.
   - qol: The laptop vendor can now accept PDAs with IDs in them.
   - qol: The laptop vendor will now give you your new item in your hands, if possible.
+2025-12-08:
+  GeneralCamo:
+  - bugfix: Ported server revision verb from CM to fix numerous issues breaking it.
+  Hellfirejag:
+  - bugfix: Fixed an issue where vaurca language processors would delete their starting
+      language processor.
+  Mynameasjeff:
+  - refactor: Reworks the Solarian Coilgun into a event-only weapon no longer
+  - bugfix: Fixes several issues found on the Solarian Frigate during playtesting
+  - balance: Replaces the Solarian Frigate's longbow with the new coilgun. Hoorah!
+2025-12-10:
+  ChangeMe:
+  - bugfix: Stops the Xanu Frigate from being omnipresent.
+  FabianK3:
+  - code_imp: Removed build artifacts from TGUI build stage that were git-ignored
+      but already checked in.
+  - code_imp: Removed no longer needed repo workflow to update TGUI auto generated
+      files.
+  Kano:
+  - bugfix: Fixed combat hardsuits not using unathi specie specific worn sprites.
+  - bugfix: Fixed some mapping issues in nka_merchant ship.
+  - bugfix: Fixed silicon robots being unable to use ctrl and shift click functions
+      with paint guns.
+  - bugfix: Fixed being able to interact with weapon safeties in situations where
+      it shouldn't occur.
+  - code_imp: Converted some comments into dmdocs, and documented some parts where
+      it was missing.
+2025-12-11:
+  FabianK3:
+  - bugfix: Fixed kneepads not being able to be atteched to pants.
