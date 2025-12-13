@@ -421,7 +421,7 @@ SUBSYSTEM_DEF(ticker)
 		to_world(SPAN_VOTE(SPAN_BOLD("Tip of the round:") + " [html_encode(message)]"))
 
 /datum/controller/subsystem/ticker/proc/print_testmerges()
-	var/data = GLOB.revdata.GetTestMergeInfo()
+	var/data = GLOB.revdata.testmerge_overview()
 
 	if (data)
 		to_world(data)
