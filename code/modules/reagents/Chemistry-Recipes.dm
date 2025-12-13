@@ -3897,6 +3897,20 @@
 	required_reagents = list(/singleton/reagent/drink/icetea = 3, /singleton/reagent/drink/limejuice = 1, /singleton/reagent/drink/orangejuice = 1, /singleton/reagent/drink/watermelonjuice = 1)
 	result_amount = 6
 
+/datum/chemical_reaction/drink/messas_tear_tea
+	name = "Messa's Tear Tea"
+	id = "messas_tear_tea"
+	result = /singleton/reagent/drink/tea/messa
+	required_reagents = list(/singleton/reagent/nutriment/honey = 1, /singleton/reagent/kelotane = 2, /singleton/reagent/water = 7) //a mess, but trying to figure out how to add the tea leaf reagent to the plant is too.
+	result_amount = 10 //made with leaves, so based off of the other teas made with leaves
+
+/datum/chemical_reaction/drink/rasnif
+	name = "Ras'nif Tea"
+	id = "rasnif_tea"
+	result = /singleton/reagent/drink/tea/rasnif
+	required_reagents = list(/singleton/reagent/nutriment/teagrounds/rasnif = 1, /singleton/reagent/water = 5)
+	result_amount = 5 //made with powder, based on tea made from tea grounds
+
 //transmutation
 
 /datum/chemical_reaction/transmutation_silver

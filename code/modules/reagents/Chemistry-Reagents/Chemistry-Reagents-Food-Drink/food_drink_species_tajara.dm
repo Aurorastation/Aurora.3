@@ -270,50 +270,44 @@
 //
 /singleton/reagent/nutriment/teagrounds/messa
 	name = "Messa's Tear Tea Leaves"
-	description = "awaiting info from tajlore"
+	description = "Dried leaves from the Messa's Tear plant, ready to be brewed into tea."
 	reagent_state = SOLID
-	nutriment_factor = 1
-	color = "#4fd24d"
-	taste_description = "awaiting info from tajlore"
-	taste_mult = 0.4
+	color = "#efab34"
+	taste_description = "bitter honeyed leaves"
 	condiment_name = "messa's tear tea leaves"
 	condiment_icon_state = "tea"
 	condiment_center_of_mass = list("x"=16, "y"=8)
 
 /singleton/reagent/nutriment/teagrounds/rasnif
-	name = "Ras'nif Tea Leaves"
-	description = "awaiting info from tajlore"
+	name = "Ras'nif Tea Grounds"
+	description = "Made from ground ras'nif seeds, harvested from the planet of Hro'zamal."
 	reagent_state = SOLID
-	nutriment_factor = 1
 	color = "#4fd24d"
-	taste_description = "awaiting info from tajlore"
-	taste_mult = 0.4
+	taste_description = "tangy sweet ground seeds"
 	condiment_name = "ras'nif tea leaves"
 	condiment_icon_state = "tea"
 	condiment_center_of_mass = list("x"=16, "y"=8)
 
 /singleton/reagent/drink/tea/messa
 	name = "Messa's Tear Tea"
-	description = "awaiting info from tajlore"
-	color = "#101000"
-	adj_dizzy = -2
-	adj_drowsy = -1
-	adj_sleepy = -3
-	taste_description = "awaiting info from tajlore"
+	description = "Messa's tears are a medicinal herb found across Adhomai and its many Twin Suns churches. \
+					It's leaves, while traditionally used for treating burns, are a common choice for making traditional teas."
+	color = "#70a4a5"
+	taste_description = "bitter herbal honey tea"
 
 	glass_icon_state = "bigteacup"
 	glass_name = "cup of messa's tear tea"
-	glass_desc = "awaiting info from tajlore"
+	glass_desc = "Messa's tears are a medicinal herb found across Adhomai and its many Twin Suns churches. \
+					It's leaves, while traditionally used for treating burns, are a common choice for making traditional teas."
 
 /singleton/reagent/drink/tea/rasnif
 	name = "Ras'nif Tea"
-	description = "awaiting info from tajlore"
-	color = "#101000"
-	adj_dizzy = -2
-	adj_drowsy = -1
-	adj_sleepy = -3
-	taste_description = "awaiting info from tajlore"
+	description = "A herbal tea made with Hro'zamal Ras'nifs powder. \
+					Despite the popularity of its carbonated counterpart, Ras'nif tea remains a popular drink among Hro'zamal settlers."
+	color = "#bf9c5f"
+	taste_description = "tangy fruity sweet tea"
 
 	glass_icon_state = "bigteacup"
 	glass_name = "cup of ras'nif tea"
-	glass_desc = "awaiting info from tajlore"
+	glass_desc = "A herbal tea made with Hro'zamal Ras'nifs powder. \
+					Despite the popularity of its carbonated counterpart, Ras'nif tea remains a popular drink among Hro'zamal settlers."

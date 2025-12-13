@@ -374,6 +374,12 @@
 	desc = "Contains 5u of instant black tea powder. Mix with 25u of water."
 	reagents_to_add = list(/singleton/reagent/nutriment/teagrounds = 5)
 
+/obj/item/reagent_containers/food/condiment/small/packet/tea/rasnif
+	name = "ras'nif tea powder packet"
+	desc = "A small sachet with the People's Republic of Adhomai's flag on it. Contains 5u of Ras'nif tea powder. Mix with 25u of water."
+	icon_state = "packet_small_red"
+	reagents_to_add = list(/singleton/reagent/nutriment/teagrounds/rasnif = 5)
+
 /obj/item/reagent_containers/food/condiment/small/packet/cocoa
 	name = "cocoa powder packet"
 	desc = "Contains 5u of cocoa powder. Mix with 25u of water and heat."

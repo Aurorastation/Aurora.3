@@ -232,6 +232,7 @@
 	icon_state = "roll_vedamor"
 	item_state = "Epacket"
 
+//solar salve
 /obj/item/storage/chewables/solar_salve
 	name = "adhomian tin"
 	desc = "A tin labeled in Siik'maas. It has a picture of an icy harbour on it."
@@ -247,4 +248,4 @@
 /obj/item/storage/chewables/solar_salve/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(GLOB.all_languages[LANGUAGE_SIIK_MAAS] in user.languages)
-		. += SPAN_WARNING("The label says: \"Solar Salve\" and then goes on to describe how it helps against the tiredness of long shifts and cold nights.")
+		. += SPAN_NOTICE("The label says: \"Solar Salve\" and then goes on to describe how it helps against the tiredness of long shifts and cold nights.")
