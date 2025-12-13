@@ -12,16 +12,13 @@
 	ambience = AMBIENCE_JUNGLE
 	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
 
-	area_has_base_lighting = TRUE
-	static_lighting = FALSE
-	base_lighting_alpha = 5
-	base_lighting_color = LIGHT_COLOUR_WARM
-
 	var/special_lighting = TRUE
 	var/special_light_color = LIGHT_COLOUR_WARM
-	var/special_light_brightness = 0.5
-	var/special_light_power = 0.5
+	var/special_light_brightness = 5
+	var/special_light_power = 5
 	var/special_light_range = MINIMUM_USEFUL_LIGHT_RANGE
+
+	needs_starlight = TRUE
 
 /*
 /area/botanical_garden/Initialize(mapload)
@@ -29,7 +26,7 @@
 	update_base_lighting()
 
 	if(special_lighting)
-		for(var/turf/T in src.loc)
+		for(var/turf/T in src)
 			T.set_light(special_light_range, special_light_power, special_light_color)
 			T.set_light_on(TRUE)
 			T.update_light()
@@ -42,12 +39,14 @@
 	static_lighting = TRUE
 	holomap_color = HOLOMAP_AREACOLOR_COMMAND
 	ambience = AMBIENCE_GENERIC
+	needs_starlight = FALSE
 
 /area/botanical_garden/building/ice_rink
 	name = "Botanical Garden - Ice Rink"
 	icon_state = "dk_yellow"
 	music = list('sound/music/lobby/konyang/konyang-2.ogg', 'sound/music/regional/venus/artificially_sweetened.ogg', 'sound/music/regional/venus/billy_ocean.ogg', 'sound/music/audioconsole/Amsterdam.ogg', 'sound/music/title3mk2.ogg', )
 	static_lighting = TRUE
+	needs_starlight = FALSE
 
 /area/botanical_garden/building/basement
 	name = "Botanical Garden - Basement"
@@ -68,3 +67,4 @@
 	base_lighting_color = COLOR_BLUE_GRAY
 	holomap_color = HOLOMAP_AREACOLOR_HANGAR
 	ambience = list(AMBIENCE_KONYANG_TRAFFIC, AMBIENCE_WINDY)
+	needs_starlight = FALSE

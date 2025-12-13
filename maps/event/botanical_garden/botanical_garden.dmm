@@ -234,6 +234,17 @@
 "bd" = (
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/botanical_garden)
+"be" = (
+/obj/effect/landmark/minimap_poi{
+	name = "Waterfall Bridge"
+	},
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/botanical_garden)
+"bg" = (
+/obj/structure/disposalpipe/trunk,
+/obj/effect/floor_decal/industrial/warning/full,
+/turf/simulated/floor/plating,
+/area/botanical_garden/building/basement)
 "bj" = (
 /obj/structure/disposalpipe/junction/yjunction{
 	dir = 1
@@ -265,17 +276,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/botanical_garden/building/ice_rink)
-"bn" = (
-/obj/structure/platform/ledge{
-	dir = 4
-	},
-/obj/structure/flora/log_bench{
-	dir = 8
-	},
-/turf/simulated/floor/exoplanet/grass{
-	color = "#566e37"
-	},
-/area/botanical_garden)
 "bq" = (
 /obj/structure/bed/stool/chair/sofa/left/brown{
 	dir = 8
@@ -376,6 +376,15 @@
 	},
 /turf/simulated/floor/sidewalk,
 /area/botanical_garden)
+"bG" = (
+/obj/structure/closet,
+/obj/item/beach_ball/holoball,
+/obj/item/beach_ball/holoball,
+/obj/item/beach_ball/holoball,
+/obj/item/beach_ball/holoball,
+/obj/item/beach_ball/holoball,
+/turf/simulated/floor/sidewalk/flat,
+/area/botanical_garden)
 "bH" = (
 /obj/structure/sign/flag/zavodskoi,
 /turf/simulated/floor/exoplanet/grass,
@@ -459,6 +468,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/botanical_garden)
+"bW" = (
+/obj/machinery/disposal/deliveryChute{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/structure/disposalpipe/trunk{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/botanical_garden/building/basement)
 "bX" = (
 /obj/structure/disposalpipe/junction{
 	dir = 8
@@ -468,6 +487,20 @@
 	},
 /turf/simulated/floor/wood,
 /area/botanical_garden/building/ice_rink)
+"ca" = (
+/obj/structure/platform_stairs/full/east_west_cap/half{
+	dir = 8
+	},
+/obj/structure/platform/ledge{
+	dir = 4
+	},
+/obj/structure/flora/log_bench{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/grass{
+	color = "#566e37"
+	},
+/area/botanical_garden)
 "cb" = (
 /obj/structure/closet/crate/bin/urban,
 /turf/simulated/floor/sidewalk/blocks,
@@ -639,6 +672,18 @@
 	temperature = 250
 	},
 /area/botanical_garden/city)
+"cH" = (
+/obj/structure/platform/ledge,
+/obj/structure/platform/ledge{
+	dir = 8
+	},
+/obj/structure/platform_deco{
+	dir = 9
+	},
+/turf/simulated/floor/exoplanet/grass{
+	color = "#65823e"
+	},
+/area/botanical_garden)
 "cI" = (
 /obj/machinery/door/airlock/glass{
 	name = "Cold Room Entrance";
@@ -754,11 +799,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/botanical_garden/building)
-"db" = (
-/obj/structure/closet/secure_closet/medical3,
-/obj/machinery/light,
-/turf/simulated/floor/tiled/dark/full,
-/area/botanical_garden/building)
 "dg" = (
 /obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/structure/disposalpipe/segment{
@@ -811,9 +851,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/structure/toilet{
-	dir = 8
-	},
+/obj/machinery/recharge_station,
 /turf/simulated/floor/lino,
 /area/botanical_garden/building)
 "dq" = (
@@ -854,6 +892,17 @@
 	temperature = 253.15
 	},
 /area/botanical_garden/building/basement)
+"dw" = (
+/obj/structure/flora/log_bench{
+	dir = 8
+	},
+/obj/structure/platform/ledge{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/grass{
+	color = "#65823e"
+	},
+/area/botanical_garden)
 "dx" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
@@ -1073,6 +1122,11 @@
 	},
 /turf/simulated/floor/sidewalk,
 /area/botanical_garden)
+"et" = (
+/obj/structure/lattice/catwalk/indoor/urban,
+/obj/machinery/light,
+/turf/simulated/open,
+/area/botanical_garden/building)
 "ev" = (
 /obj/effect/konyang_waterfall/mist{
 	pixel_y = -16;
@@ -1308,6 +1362,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/botanical_garden/building/basement)
+"fu" = (
+/obj/structure/closet/secure_closet/medical3,
+/turf/simulated/floor/tiled/dark/full,
+/area/botanical_garden/building)
 "fv" = (
 /obj/machinery/telecomms/server/presets/unused,
 /obj/machinery/light{
@@ -1431,20 +1489,6 @@
 	temperature = 193.15
 	},
 /area/botanical_garden/city)
-"gb" = (
-/obj/structure/platform_stairs/full/east_west_cap/half{
-	dir = 1
-	},
-/obj/structure/platform/ledge{
-	dir = 8
-	},
-/obj/structure/flora/log_bench{
-	dir = 4
-	},
-/turf/simulated/floor/exoplanet/grass{
-	color = "#566e37"
-	},
-/area/botanical_garden)
 "gd" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -1503,16 +1547,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/botanical_garden/building/basement)
-"go" = (
-/obj/structure/disposalpipe/segment{
-	icon_state = "pipe-c"
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light/small{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/botanical_garden/building/basement)
 "gp" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/recharge_station,
@@ -1538,6 +1572,20 @@
 	},
 /turf/simulated/floor/exoplanet/carpet/red,
 /area/botanical_garden/building)
+"gv" = (
+/obj/structure/platform/ledge{
+	dir = 1
+	},
+/obj/structure/platform/ledge{
+	dir = 8
+	},
+/obj/structure/platform_deco{
+	dir = 6
+	},
+/turf/simulated/floor/exoplanet/grass{
+	color = "#566e37"
+	},
+/area/botanical_garden)
 "gw" = (
 /obj/structure/table/reinforced/wood,
 /obj/machinery/chemical_dispenser/coffeemaster/full{
@@ -1652,10 +1700,6 @@
 	},
 /turf/simulated/floor/sidewalk/flat,
 /area/botanical_garden)
-"gW" = (
-/obj/structure/table/reinforced/steel,
-/turf/simulated/floor/tiled/white,
-/area/botanical_garden/building)
 "gX" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/exoplanet/grass,
@@ -1772,22 +1816,14 @@
 /turf/simulated/floor/roofing_tiles,
 /area/botanical_garden/building/ice_rink)
 "hz" = (
-/turf/simulated/floor/exoplanet/grass{
-	color = "#566e37"
-	},
-/area/botanical_garden)
-"hA" = (
-/obj/structure/platform/ledge{
-	dir = 1
-	},
-/obj/structure/platform/ledge{
+/obj/structure/flora/log_bench{
 	dir = 4
 	},
-/obj/structure/platform_deco{
-	dir = 10
+/obj/structure/platform/ledge{
+	dir = 8
 	},
 /turf/simulated/floor/exoplanet/grass{
-	color = "#566e37"
+	color = "#65823e"
 	},
 /area/botanical_garden)
 "hB" = (
@@ -1859,15 +1895,6 @@
 	temperature = 250
 	},
 /area/botanical_garden/city)
-"hM" = (
-/obj/structure/platform_stairs/full/east_west_cap,
-/obj/structure/platform/cutout{
-	dir = 8
-	},
-/turf/simulated/floor/exoplanet/grass{
-	color = "#566e37"
-	},
-/area/botanical_garden)
 "hP" = (
 /obj/structure/platform/ledge{
 	dir = 1
@@ -1901,6 +1928,12 @@
 /obj/random/med_stack,
 /turf/simulated/floor/tiled,
 /area/botanical_garden/building/basement)
+"id" = (
+/obj/effect/landmark/minimap_poi{
+	name = "Ampitheater"
+	},
+/turf/simulated/floor/sidewalk/flat,
+/area/botanical_garden)
 "ie" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -1945,9 +1978,16 @@
 /turf/simulated/floor/exoplanet/grass,
 /area/botanical_garden)
 "il" = (
-/obj/effect/floor_decal/snowrocks,
-/turf/simulated/floor/snow/extreme_cold,
-/area/botanical_garden/city)
+/obj/structure/platform/ledge{
+	dir = 4
+	},
+/obj/structure/flora/log_bench{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/grass{
+	color = "#566e37"
+	},
+/area/botanical_garden)
 "im" = (
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
 /obj/structure/disposalpipe/junction/yjunction,
@@ -1961,12 +2001,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/botanical_garden)
 "io" = (
-/obj/structure/flora/log_bench,
-/obj/structure/platform/ledge{
-	dir = 1
+/obj/structure/platform_deco{
+	dir = 8
 	},
 /turf/simulated/floor/exoplanet/grass{
-	color = "#65823e"
+	color = "#566e37"
 	},
 /area/botanical_garden)
 "ip" = (
@@ -2043,6 +2082,21 @@
 "iH" = (
 /obj/machinery/vending/cigarette,
 /turf/simulated/floor/sidewalk/flat,
+/area/botanical_garden)
+"iI" = (
+/obj/structure/flora/log_bench,
+/obj/structure/platform/ledge{
+	dir = 8
+	},
+/obj/structure/platform/ledge{
+	dir = 1
+	},
+/obj/structure/platform_deco{
+	dir = 6
+	},
+/turf/simulated/floor/exoplanet/grass{
+	color = "#65823e"
+	},
 /area/botanical_garden)
 "iJ" = (
 /obj/structure/bed/stool/chair,
@@ -2137,7 +2191,7 @@
 	name = "Restroom"
 	},
 /turf/simulated/floor/exoplanet/marble,
-/area/botanical_garden/building)
+/area/botanical_garden)
 "je" = (
 /obj/structure/sign/christmas/lights,
 /obj/structure/flora/bush,
@@ -2150,6 +2204,16 @@
 /mob/living/simple_animal/penguin,
 /turf/simulated/floor/snow/extreme_cold,
 /area/botanical_garden)
+"jl" = (
+/obj/structure/sign/christmas/lights{
+	dir = 1;
+	pixel_y = 20
+	},
+/obj/effect/landmark/minimap_poi{
+	name = "Changing Room"
+	},
+/turf/simulated/floor/carpet/red,
+/area/botanical_garden/building)
 "jp" = (
 /obj/structure/stairs/north,
 /turf/simulated/floor/tiled,
@@ -2185,6 +2249,14 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/botanical_garden/building)
+"jz" = (
+/obj/structure/sign/kiddieplaque{
+	pixel_y = 28;
+	name = "\improper DO NOT PET ANIMALS";
+	desc = "A sign in incredible detail asking you to, despite perhaps-uncontrollable instincts, not pet the very cute animals in this enclosure."
+	},
+/turf/simulated/floor/sidewalk,
+/area/botanical_garden)
 "jB" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -2467,20 +2539,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/botanical_garden/building/basement)
-"kG" = (
-/obj/structure/platform/ledge{
-	dir = 1
-	},
-/obj/structure/platform/ledge{
-	dir = 4
-	},
-/obj/structure/platform_deco{
-	dir = 10
-	},
-/turf/simulated/floor/exoplanet/grass{
-	color = "#65823e"
-	},
-/area/botanical_garden)
 "kH" = (
 /obj/random/pottedplant,
 /obj/structure/sign/christmas/lights{
@@ -2555,11 +2613,10 @@
 /turf/simulated/floor/tiled,
 /area/botanical_garden/building)
 "li" = (
-/obj/effect/landmark/minimap_poi{
-	name = "Changing Room"
+/turf/simulated/floor/exoplanet/grass{
+	color = "#65823e"
 	},
-/turf/simulated/floor/carpet/darkblue,
-/area/botanical_garden/building)
+/area/botanical_garden)
 "lk" = (
 /obj/structure/lattice/catwalk/indoor/planks/deep,
 /obj/structure/railing/fence{
@@ -2686,8 +2743,10 @@
 /turf/simulated/floor/sidewalk,
 /area/botanical_garden)
 "md" = (
-/obj/structure/closet/crate/bin/urban/dumpster{
-	density = 0
+/obj/machinery/conveyor{
+	id = "garden_disposals";
+	reversed = 1;
+	dir = 6
 	},
 /turf/simulated/floor/plating,
 /area/botanical_garden/building/basement)
@@ -2893,21 +2952,6 @@
 /obj/item/deck/cards,
 /turf/simulated/floor/tiled/dark,
 /area/botanical_garden/building/basement)
-"mN" = (
-/obj/structure/platform,
-/obj/structure/platform/ledge{
-	dir = 8
-	},
-/obj/structure/platform_deco{
-	dir = 9
-	},
-/obj/structure/flora/log_bench{
-	dir = 4
-	},
-/turf/simulated/floor/exoplanet/grass{
-	color = "#566e37"
-	},
-/area/botanical_garden)
 "mR" = (
 /obj/structure/sink/kitchen{
 	pixel_y = 20
@@ -3215,12 +3259,6 @@
 /obj/item/reagent_containers/food/snacks/meat,
 /turf/simulated/floor/tiled,
 /area/botanical_garden/building)
-"oj" = (
-/obj/structure/konyang_cliff{
-	icon_state = "innercorner6"
-	},
-/turf/unsimulated/mineral/konyang,
-/area/botanical_garden)
 "ok" = (
 /obj/machinery/light,
 /obj/structure/sign/christmas/lights{
@@ -3252,6 +3290,13 @@
 	temperature = 250
 	},
 /area/botanical_garden/city)
+"oo" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/light/colored/red{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/botanical_garden/building/basement)
 "op" = (
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/lino,
@@ -3261,6 +3306,14 @@
 	name = "Nursery"
 	},
 /turf/simulated/floor/tiled,
+/area/botanical_garden)
+"os" = (
+/obj/structure/platform_stairs/full/east_west_cap{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/grass{
+	color = "#566e37"
+	},
 /area/botanical_garden)
 "ot" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
@@ -3306,6 +3359,12 @@
 /obj/item/device/megaphone/stagemicrophone,
 /turf/simulated/floor/wood,
 /area/botanical_garden)
+"oE" = (
+/obj/structure/platform_stairs/full/east_west_cap,
+/turf/simulated/floor/exoplanet/grass{
+	color = "#566e37"
+	},
+/area/botanical_garden)
 "oF" = (
 /obj/structure/table/reinforced/steel,
 /obj/machinery/light,
@@ -3319,18 +3378,6 @@
 /obj/structure/window/reinforced,
 /turf/simulated/open,
 /area/botanical_garden/building)
-"oN" = (
-/obj/structure/platform/ledge,
-/obj/structure/platform/ledge{
-	dir = 8
-	},
-/obj/structure/platform_deco{
-	dir = 9
-	},
-/turf/simulated/floor/exoplanet/grass{
-	color = "#65823e"
-	},
-/area/botanical_garden)
 "oP" = (
 /obj/machinery/disposal/small/south,
 /obj/structure/disposalpipe/trunk{
@@ -3509,18 +3556,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/botanical_garden/building/basement)
-"pA" = (
-/obj/structure/platform/ledge,
-/obj/structure/platform/ledge{
-	dir = 4
-	},
-/obj/structure/platform_deco{
-	dir = 5
-	},
-/turf/simulated/floor/exoplanet/grass{
-	color = "#65823e"
-	},
-/area/botanical_garden)
 "pC" = (
 /obj/structure/railing/mapped,
 /turf/simulated/open,
@@ -3838,12 +3873,36 @@
 "rd" = (
 /turf/simulated/floor/sidewalk/blocks,
 /area/botanical_garden/city)
+"rh" = (
+/obj/machinery/door/airlock/glass{
+	name = "Cold Room Entrance";
+	dir = 4
+	},
+/obj/structure/plasticflaps/airtight/air_curtain{
+	dir = 4
+	},
+/turf/simulated/floor/sidewalk,
+/area/botanical_garden)
 "rj" = (
 /obj/effect/decal/road_marking/turn_right,
 /turf/simulated/floor/asphalt{
 	temperature = 250
 	},
 /area/botanical_garden/city)
+"rk" = (
+/obj/structure/platform/ledge{
+	dir = 1
+	},
+/obj/structure/platform/ledge{
+	dir = 4
+	},
+/obj/structure/platform_deco{
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/grass{
+	color = "#65823e"
+	},
+/area/botanical_garden)
 "rl" = (
 /obj/structure/platform/ledge,
 /obj/structure/platform/ledge{
@@ -3867,6 +3926,14 @@
 /obj/structure/flora/tree/dead,
 /turf/simulated/floor/snow/extreme_cold,
 /area/botanical_garden/building/ice_rink)
+"rr" = (
+/obj/structure/platform/ledge{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/grass{
+	color = "#566e37"
+	},
+/area/botanical_garden)
 "ru" = (
 /obj/structure/sign/christmas/wreath{
 	pixel_y = 24
@@ -4465,7 +4532,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/wood,
-/area/botanical_garden/building)
+/area/botanical_garden)
 "ul" = (
 /turf/simulated/floor/sidewalk/detail,
 /area/botanical_garden)
@@ -4591,6 +4658,12 @@
 	},
 /turf/simulated/floor/sidewalk,
 /area/botanical_garden/city)
+"uU" = (
+/obj/structure/platform/ledge,
+/turf/simulated/floor/exoplanet/grass{
+	color = "#65823e"
+	},
+/area/botanical_garden)
 "uV" = (
 /obj/machinery/door/airlock/glass_medical{
 	dir = 4;
@@ -4828,6 +4901,15 @@
 	},
 /turf/simulated/floor/lino/diamond,
 /area/botanical_garden/building)
+"wf" = (
+/obj/structure/railing/mapped,
+/obj/structure/sign/kiddieplaque{
+	pixel_y = 28;
+	name = "\improper DO NOT PET ANIMALS";
+	desc = "A sign in incredible detail asking you to, despite perhaps-uncontrollable instincts, not pet the very cute animals in this enclosure."
+	},
+/turf/simulated/floor/sidewalk,
+/area/botanical_garden)
 "wg" = (
 /obj/structure/bed/stool/chair/sofa/right/red{
 	dir = 1
@@ -4932,15 +5014,6 @@
 	temperature = 250
 	},
 /area/botanical_garden/city)
-"wG" = (
-/obj/structure/closet,
-/obj/item/beach_ball/holoball,
-/obj/item/beach_ball/holoball,
-/obj/item/beach_ball/holoball,
-/obj/item/beach_ball/holoball,
-/obj/item/beach_ball/holoball,
-/turf/simulated/floor/sidewalk/flat,
-/area/botanical_garden)
 "wM" = (
 /obj/structure/sign/christmas/lights{
 	dir = 8;
@@ -5222,6 +5295,14 @@
 	},
 /turf/simulated/floor/exoplanet/grass,
 /area/botanical_garden)
+"ya" = (
+/obj/structure/closet/secure_closet/personal,
+/obj/effect/floor_decal/spline/fancy,
+/obj/effect/landmark/minimap_poi{
+	name = "Lower Changing Room"
+	},
+/turf/simulated/floor/lino/diamond,
+/area/botanical_garden/building/basement)
 "yb" = (
 /obj/structure/bed/stool/chair/wood{
 	dir = 4
@@ -5266,12 +5347,6 @@
 /obj/structure/flora/ausbushes/pointybush,
 /turf/simulated/floor/snow/extreme_cold,
 /area/botanical_garden/building/ice_rink)
-"yj" = (
-/obj/effect/landmark/minimap_poi{
-	name = "Ampitheater"
-	},
-/turf/simulated/floor/sidewalk/flat,
-/area/botanical_garden)
 "yl" = (
 /obj/machinery/light{
 	dir = 8
@@ -5348,16 +5423,9 @@
 /turf/simulated/floor/tiled,
 /area/botanical_garden/building/basement)
 "yC" = (
-/obj/structure/platform_stairs/full/east_west_cap/half{
-	dir = 1
-	},
-/obj/structure/platform/ledge{
-	dir = 8
-	},
-/turf/simulated/floor/exoplanet/grass{
-	color = "#566e37"
-	},
-/area/botanical_garden)
+/obj/structure/table/reinforced/steel,
+/turf/simulated/floor/tiled/white,
+/area/botanical_garden/building)
 "yD" = (
 /obj/structure/flora/ausbushes/ywflowers,
 /obj/structure/flora/ausbushes/brflowers,
@@ -5524,14 +5592,14 @@
 /turf/simulated/wall/wood,
 /area/botanical_garden/building)
 "zw" = (
-/obj/structure/flora/log_bench{
+/obj/structure/platform/ledge{
 	dir = 8
 	},
-/obj/structure/platform/ledge{
+/obj/structure/flora/log_bench{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/grass{
-	color = "#65823e"
+	color = "#566e37"
 	},
 /area/botanical_garden)
 "zx" = (
@@ -5541,6 +5609,18 @@
 	},
 /turf/simulated/floor/snow/cold,
 /area/botanical_garden/building/ice_rink)
+"zz" = (
+/obj/structure/platform/ledge,
+/obj/structure/platform/ledge{
+	dir = 4
+	},
+/obj/structure/platform_deco{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/grass{
+	color = "#65823e"
+	},
+/area/botanical_garden)
 "zA" = (
 /obj/effect/decal/road_marking/crosswalk{
 	dir = 4
@@ -5589,13 +5669,14 @@
 /turf/simulated/floor/sidewalk,
 /area/botanical_garden/city)
 "zO" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/railing/mapped{
-	dir = 1
+/obj/structure/window/reinforced{
+	dir = 8
 	},
-/obj/machinery/light/small,
-/turf/simulated/floor/plating,
-/area/botanical_garden)
+/obj/machinery/light/floor{
+	dir = 4
+	},
+/turf/simulated/floor/roofing_tiles,
+/area/botanical_garden/building)
 "zP" = (
 /obj/structure/closet/secure_closet/custodial,
 /obj/effect/floor_decal/industrial/outline/custodial,
@@ -5688,6 +5769,16 @@
 	temperature = 250
 	},
 /area/botanical_garden/city)
+"Ai" = (
+/obj/structure/disposalpipe/segment{
+	icon_state = "pipe-c"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/botanical_garden/building/basement)
 "Ak" = (
 /obj/structure/lattice/catwalk/indoor/urban,
 /obj/structure/window/reinforced,
@@ -5696,14 +5787,6 @@
 "Al" = (
 /obj/structure/urban_grate,
 /turf/simulated/floor/tiled,
-/area/botanical_garden)
-"Am" = (
-/obj/structure/platform_stairs/full/east_west_cap{
-	dir = 8
-	},
-/turf/simulated/floor/exoplanet/grass{
-	color = "#65823e"
-	},
 /area/botanical_garden)
 "Ao" = (
 /obj/item/towel_flat,
@@ -5826,6 +5909,17 @@
 	temperature = 193.15
 	},
 /area/botanical_garden/city)
+"AO" = (
+/obj/structure/platform_stairs/full/east_west_cap/half{
+	dir = 1
+	},
+/obj/structure/platform/ledge{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/grass{
+	color = "#566e37"
+	},
+/area/botanical_garden)
 "AQ" = (
 /obj/structure/table/steel,
 /obj/item/modular_computer/handheld/preset/civilian/janitor,
@@ -5979,17 +6073,6 @@
 /obj/random/pottedplant,
 /turf/simulated/floor/roofing_tiles,
 /area/botanical_garden)
-"Bv" = (
-/obj/structure/flora/log_bench{
-	dir = 4
-	},
-/obj/structure/platform/ledge{
-	dir = 8
-	},
-/turf/simulated/floor/exoplanet/grass{
-	color = "#65823e"
-	},
-/area/botanical_garden)
 "Bx" = (
 /obj/effect/decal/road_marking,
 /obj/effect/decal/road_marking/thin{
@@ -6072,6 +6155,18 @@
 	},
 /turf/simulated/floor/snow/extreme_cold,
 /area/botanical_garden/building/ice_rink)
+"BN" = (
+/obj/effect/landmark/minimap_poi{
+	name = "[Staff Only]"
+	},
+/turf/simulated/floor/tiled,
+/area/botanical_garden/building/basement)
+"BP" = (
+/obj/structure/platform_stairs/full/east_west_cap,
+/turf/simulated/floor/exoplanet/grass{
+	color = "#65823e"
+	},
+/area/botanical_garden)
 "BT" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -6125,6 +6220,15 @@
 /obj/effect/floor_decal/spline/fancy/wood/corner,
 /turf/simulated/floor/wood,
 /area/botanical_garden/building)
+"Cf" = (
+/obj/structure/platform_stairs/full/east_west_cap{
+	dir = 8
+	},
+/obj/structure/platform/cutout,
+/turf/simulated/floor/exoplanet/grass{
+	color = "#566e37"
+	},
+/area/botanical_garden)
 "Cg" = (
 /obj/structure/flora/bush/jungle/random,
 /obj/structure/flora/bush/jungle/random,
@@ -6165,6 +6269,13 @@
 /obj/structure/flora/ausbushes/sunnybush,
 /turf/simulated/floor/exoplanet/grass,
 /area/botanical_garden)
+"Cr" = (
+/obj/machinery/door/airlock/glass{
+	name = "Cold Room Entrance"
+	},
+/obj/structure/plasticflaps/airtight/air_curtain,
+/turf/simulated/floor/sidewalk,
+/area/botanical_garden)
 "Ct" = (
 /obj/structure/bed/stool/chair/sofa/pew/right{
 	name = "bench"
@@ -6196,28 +6307,27 @@
 /turf/simulated/floor/snow/cold,
 /area/botanical_garden/building/ice_rink)
 "CH" = (
-/obj/machinery/recharge_station,
-/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/sign/christmas/lights,
-/turf/simulated/floor/tiled/dark/full,
+/obj/structure/sink{
+	dir = 8;
+	pixel_x = -12
+	},
+/obj/structure/mirror{
+	pixel_x = -28
+	},
+/turf/simulated/floor/exoplanet/marble,
 /area/botanical_garden/building)
-"CJ" = (
-/obj/structure/platform_stairs/full/east_west_cap/half{
-	dir = 8
-	},
-/obj/structure/platform/ledge{
-	dir = 4
-	},
-/turf/simulated/floor/exoplanet/grass{
-	color = "#566e37"
-	},
-/area/botanical_garden)
 "CK" = (
 /obj/machinery/light/floor{
 	dir = 8
 	},
 /turf/simulated/floor/sidewalk,
 /area/botanical_garden/building)
+"CL" = (
+/obj/structure/flora/ausbushes/ppflowers,
+/mob/living/simple_animal/capybara,
+/turf/simulated/floor/exoplanet/grass,
+/area/botanical_garden)
 "CM" = (
 /turf/simulated/floor/exoplanet/carpet/darkblue,
 /area/botanical_garden/building)
@@ -6351,6 +6461,20 @@
 	},
 /turf/simulated/floor/tiled,
 /area/botanical_garden/building/basement)
+"Dn" = (
+/obj/structure/platform/ledge{
+	dir = 1
+	},
+/obj/structure/platform/ledge{
+	dir = 4
+	},
+/obj/structure/platform_deco{
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/grass{
+	color = "#566e37"
+	},
+/area/botanical_garden)
 "Do" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/sidewalk,
@@ -6661,6 +6785,14 @@
 /obj/item/device/healthanalyzer,
 /turf/simulated/floor/tiled/white,
 /area/botanical_garden/building/basement)
+"Ey" = (
+/obj/structure/platform_deco{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/grass{
+	color = "#566e37"
+	},
+/area/botanical_garden)
 "Ez" = (
 /obj/structure/utility_pole/street/on{
 	dir = 8;
@@ -6751,17 +6883,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/botanical_garden/building)
-"EU" = (
-/obj/structure/platform_stairs/full/east_west_cap/half{
-	dir = 1
-	},
-/obj/structure/platform/ledge{
-	dir = 8
-	},
-/turf/simulated/floor/exoplanet/grass{
-	color = "#65823e"
-	},
-/area/botanical_garden)
 "EV" = (
 /obj/machinery/cryopod/living_quarters{
 	pixel_y = 8;
@@ -6785,6 +6906,13 @@
 /area/botanical_garden/building/ice_rink)
 "EZ" = (
 /obj/structure/table/reinforced/steel,
+/obj/item/storage/box/large/produce{
+	pixel_y = 8
+	},
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce{
+	pixel_y = -8
+	},
 /turf/simulated/floor/tiled/gridded,
 /area/botanical_garden/building/basement)
 "Fa" = (
@@ -7232,6 +7360,11 @@
 	},
 /turf/simulated/floor/wood,
 /area/botanical_garden/building)
+"GX" = (
+/obj/structure/flora/ausbushes/ywflowers,
+/mob/living/simple_animal/capybara,
+/turf/simulated/floor/exoplanet/grass,
+/area/botanical_garden)
 "GZ" = (
 /obj/machinery/door/airlock/glass{
 	name = "Side Exit";
@@ -7275,6 +7408,15 @@
 	},
 /turf/simulated/open,
 /area/botanical_garden)
+"Hf" = (
+/obj/machinery/conveyor{
+	id = "garden_disposals";
+	reversed = 1;
+	dir = 4
+	},
+/obj/structure/plasticflaps,
+/turf/simulated/floor/tiled,
+/area/botanical_garden/building/basement)
 "Hh" = (
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/sidewalk,
@@ -7315,6 +7457,15 @@
 	temperature = 250
 	},
 /area/botanical_garden/city)
+"Hu" = (
+/obj/structure/platform_stairs/full/east_west_cap/half{
+	dir = 8
+	},
+/obj/structure/platform/ledge{
+	dir = 4
+	},
+/turf/simulated/floor/sidewalk,
+/area/botanical_garden)
 "Hv" = (
 /obj/machinery/chemical_dispenser/full,
 /obj/effect/floor_decal/industrial/outline/medical,
@@ -7503,7 +7654,9 @@
 /turf/simulated/floor/sidewalk/detail,
 /area/botanical_garden)
 "HY" = (
-/obj/structure/platform_stairs/full/east_west_cap,
+/obj/structure/platform_stairs/south_north_solo{
+	dir = 1
+	},
 /turf/simulated/floor/exoplanet/grass{
 	color = "#566e37"
 	},
@@ -7657,20 +7810,6 @@
 /obj/effect/decal/road_marking/thin,
 /turf/simulated/floor/asphalt,
 /area/botanical_garden)
-"IH" = (
-/obj/structure/platform/ledge{
-	dir = 1
-	},
-/obj/structure/platform/ledge{
-	dir = 8
-	},
-/obj/structure/platform_deco{
-	dir = 6
-	},
-/turf/simulated/floor/exoplanet/grass{
-	color = "#566e37"
-	},
-/area/botanical_garden)
 "IJ" = (
 /obj/effect/decal/road_marking/crosswalk{
 	dir = 1
@@ -7709,6 +7848,10 @@
 /obj/random/loot,
 /turf/simulated/floor/tiled,
 /area/botanical_garden/building/basement)
+"IR" = (
+/obj/machinery/media/jukebox,
+/turf/simulated/floor/sidewalk,
+/area/botanical_garden/building/ice_rink)
 "IT" = (
 /obj/machinery/vending/vendors,
 /turf/simulated/floor/tiled/dark,
@@ -8009,7 +8152,7 @@
 	},
 /obj/structure/plasticflaps/airtight/air_curtain,
 /turf/simulated/floor/sidewalk,
-/area/botanical_garden/building)
+/area/botanical_garden)
 "Kn" = (
 /obj/structure/konyang_cliff,
 /turf/simulated/floor/exoplanet/grass,
@@ -8032,6 +8175,21 @@
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/tiled,
 /area/botanical_garden/building/basement)
+"Kr" = (
+/obj/structure/platform,
+/obj/structure/platform/ledge{
+	dir = 4
+	},
+/obj/structure/platform_deco{
+	dir = 5
+	},
+/obj/structure/flora/log_bench{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/grass{
+	color = "#566e37"
+	},
+/area/botanical_garden)
 "Kt" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -8046,10 +8204,8 @@
 /turf/simulated/floor/snow/extreme_cold,
 /area/botanical_garden/building/ice_rink)
 "Kv" = (
-/obj/effect/landmark/minimap_poi{
-	name = "Flower Garden"
-	},
-/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/obj/structure/lattice/catwalk/indoor/planks/deep,
+/turf/simulated/floor/wood,
 /area/botanical_garden)
 "KC" = (
 /obj/structure/disposalpipe/segment{
@@ -8061,6 +8217,14 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/botanical_garden/building/basement)
+"KF" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/machinery/light/small,
+/turf/simulated/floor/plating,
+/area/botanical_garden)
 "KH" = (
 /obj/structure/sign/christmas/tinsel/red{
 	pixel_y = 20
@@ -8147,6 +8311,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/botanical_garden/building/basement)
+"KT" = (
+/obj/structure/flora/ausbushes/brflowers,
+/mob/living/simple_animal/capybara,
+/turf/simulated/floor/exoplanet/grass,
+/area/botanical_garden)
 "KU" = (
 /obj/effect/decal/curb{
 	dir = 9
@@ -8155,15 +8324,6 @@
 	temperature = 250
 	},
 /area/botanical_garden/city)
-"KX" = (
-/obj/structure/platform_stairs/full/east_west_cap{
-	dir = 8
-	},
-/obj/structure/platform/cutout,
-/turf/simulated/floor/exoplanet/grass{
-	color = "#566e37"
-	},
-/area/botanical_garden)
 "Ld" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/reagent_containers/glass/bottle/syrup/chocolate{
@@ -8251,14 +8411,6 @@
 	},
 /turf/simulated/floor/exoplanet/marble,
 /area/botanical_garden/building)
-"Lq" = (
-/obj/structure/platform_deco{
-	dir = 4
-	},
-/turf/simulated/floor/exoplanet/grass{
-	color = "#566e37"
-	},
-/area/botanical_garden)
 "Lu" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 1
@@ -8275,21 +8427,6 @@
 /obj/effect/floor_decal/industrial/outline/custodial,
 /turf/simulated/floor/tiled/dark,
 /area/botanical_garden/building/basement)
-"Lz" = (
-/obj/structure/flora/log_bench,
-/obj/structure/platform/ledge{
-	dir = 8
-	},
-/obj/structure/platform/ledge{
-	dir = 1
-	},
-/obj/structure/platform_deco{
-	dir = 6
-	},
-/turf/simulated/floor/exoplanet/grass{
-	color = "#65823e"
-	},
-/area/botanical_garden)
 "LB" = (
 /obj/effect/decal/road_marking,
 /obj/effect/decal/curb,
@@ -8489,11 +8626,14 @@
 /turf/simulated/floor/tiled,
 /area/botanical_garden/building)
 "Ms" = (
-/obj/structure/platform_stairs/south_north_solo{
-	dir = 1
+/obj/structure/platform_stairs/full/east_west_cap/half{
+	dir = 8
+	},
+/obj/structure/platform/ledge{
+	dir = 4
 	},
 /turf/simulated/floor/exoplanet/grass{
-	color = "#65823e"
+	color = "#566e37"
 	},
 /area/botanical_garden)
 "Mw" = (
@@ -8517,14 +8657,6 @@
 "MA" = (
 /turf/simulated/floor/sidewalk/paved,
 /area/centcom/start)
-"ME" = (
-/obj/structure/platform_stairs/full/east_west_cap{
-	dir = 8
-	},
-/turf/simulated/floor/exoplanet/grass{
-	color = "#566e37"
-	},
-/area/botanical_garden)
 "MF" = (
 /turf/simulated/floor/tiled/dark/full,
 /area/botanical_garden/building)
@@ -8741,8 +8873,18 @@
 /turf/simulated/floor/lino/diamond,
 /area/botanical_garden/building/ice_rink)
 "NM" = (
-/obj/structure/lattice/catwalk/indoor/planks/deep,
-/turf/simulated/floor/wood,
+/obj/structure/platform_stairs/full/east_west_cap/half{
+	dir = 1
+	},
+/obj/structure/platform/ledge{
+	dir = 8
+	},
+/obj/structure/flora/log_bench{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/grass{
+	color = "#566e37"
+	},
 /area/botanical_garden)
 "NN" = (
 /obj/effect/decal/road_marking{
@@ -8787,12 +8929,22 @@
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/tiled,
 /area/botanical_garden/building/ice_rink)
+"NZ" = (
+/obj/structure/flora/log_bench,
+/obj/structure/platform/ledge{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/grass{
+	color = "#566e37"
+	},
+/area/botanical_garden)
 "Ob" = (
 /obj/machinery/door/airlock/glass{
-	name = "Desert Area"
+	name = "Penguin Enclosure"
 	},
+/obj/structure/plasticflaps/airtight/air_curtain,
 /turf/simulated/floor/tiled,
-/area/botanical_garden/building)
+/area/botanical_garden)
 "Oc" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -8855,7 +9007,7 @@
 	name = "Metro Station"
 	},
 /turf/simulated/floor/sidewalk,
-/area/botanical_garden/building)
+/area/botanical_garden)
 "Oq" = (
 /obj/effect/decal/road_marking{
 	dir = 1
@@ -8902,16 +9054,6 @@
 /area/botanical_garden/building/basement)
 "Oy" = (
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
-/area/botanical_garden)
-"Oz" = (
-/obj/structure/konyang_cliff,
-/turf/space,
-/area/botanical_garden)
-"OA" = (
-/obj/structure/platform_stairs/full/east_west_cap,
-/turf/simulated/floor/exoplanet/grass{
-	color = "#65823e"
-	},
 /area/botanical_garden)
 "OE" = (
 /obj/effect/decal/road_marking{
@@ -9027,14 +9169,6 @@
 	},
 /turf/simulated/floor/exoplanet/marble,
 /area/botanical_garden/building/basement)
-"Pe" = (
-/obj/structure/platform/ledge{
-	dir = 4
-	},
-/turf/simulated/floor/exoplanet/grass{
-	color = "#566e37"
-	},
-/area/botanical_garden)
 "Pg" = (
 /obj/structure/bed/stool/padded/red{
 	dir = 8
@@ -9230,9 +9364,9 @@
 /turf/simulated/floor/sidewalk,
 /area/botanical_garden/building/ice_rink)
 "PT" = (
-/turf/simulated/floor/exoplanet/grass{
-	color = "#65823e"
-	},
+/obj/structure/flora/ausbushes/palebush,
+/mob/living/simple_animal/capybara,
+/turf/simulated/floor/exoplanet/grass,
 /area/botanical_garden)
 "PU" = (
 /obj/effect/decal/road_marking,
@@ -9496,15 +9630,28 @@
 /obj/structure/bed/stool/chair/sofa/pew/right,
 /turf/simulated/floor/sidewalk,
 /area/botanical_garden)
-"QT" = (
-/obj/structure/platform_stairs/full/east_west_cap/half{
+"QS" = (
+/obj/structure/platform,
+/obj/structure/platform/ledge{
 	dir = 8
 	},
-/obj/structure/platform/ledge{
+/obj/structure/platform_deco{
+	dir = 9
+	},
+/obj/structure/flora/log_bench{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/grass{
-	color = "#65823e"
+	color = "#566e37"
+	},
+/area/botanical_garden)
+"QT" = (
+/obj/structure/platform_stairs/full/east_west_cap,
+/obj/structure/platform/cutout{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/grass{
+	color = "#566e37"
 	},
 /area/botanical_garden)
 "QV" = (
@@ -9536,7 +9683,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/botanical_garden/building)
+/area/botanical_garden)
 "Rb" = (
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 4
@@ -9909,6 +10056,12 @@
 	},
 /turf/simulated/floor/exoplanet/grass,
 /area/botanical_garden)
+"SJ" = (
+/obj/structure/platform_stairs/south_north_solo{
+	dir = 1
+	},
+/turf/simulated/floor/sidewalk,
+/area/botanical_garden)
 "SK" = (
 /obj/machinery/light/floor{
 	dir = 1
@@ -9928,7 +10081,10 @@
 /turf/simulated/floor/wood,
 /area/botanical_garden)
 "SN" = (
-/obj/structure/platform/ledge,
+/obj/structure/flora/log_bench,
+/obj/structure/platform/ledge{
+	dir = 1
+	},
 /turf/simulated/floor/exoplanet/grass{
 	color = "#65823e"
 	},
@@ -10361,6 +10517,14 @@
 	},
 /turf/simulated/open,
 /area/botanical_garden)
+"UN" = (
+/obj/structure/platform/ledge{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/grass{
+	color = "#566e37"
+	},
+/area/botanical_garden)
 "UO" = (
 /obj/structure/flora/ausbushes/brflowers,
 /obj/effect/floor_decal/konyang_flowers,
@@ -10471,6 +10635,7 @@
 /area/botanical_garden/city)
 "Vo" = (
 /obj/structure/closet/secure_closet/medical3,
+/obj/machinery/light,
 /turf/simulated/floor/tiled/dark/full,
 /area/botanical_garden/building)
 "Vq" = (
@@ -10482,10 +10647,13 @@
 /turf/simulated/floor/sidewalk,
 /area/botanical_garden)
 "Vu" = (
-/obj/effect/landmark/minimap_poi{
-	name = "Flower Garden"
+/obj/structure/platform_stairs/full/east_west_cap/half{
+	dir = 1
 	},
-/turf/simulated/open,
+/obj/structure/platform/ledge{
+	dir = 8
+	},
+/turf/simulated/floor/sidewalk,
 /area/botanical_garden)
 "Vv" = (
 /obj/structure/table/reinforced/steel,
@@ -10505,10 +10673,18 @@
 /area/botanical_garden/building/basement)
 "Vx" = (
 /obj/machinery/door/airlock/glass{
-	name = "Desert Area"
+	name = "Penguin Enclosure"
 	},
 /obj/structure/plasticflaps/airtight/air_curtain,
 /turf/simulated/floor/sidewalk,
+/area/botanical_garden)
+"Vz" = (
+/obj/structure/platform_stairs/full/east_west_cap{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/grass{
+	color = "#65823e"
+	},
 /area/botanical_garden)
 "VA" = (
 /obj/machinery/alarm/north,
@@ -10581,6 +10757,13 @@
 /obj/machinery/door/airlock/glass,
 /obj/structure/plasticflaps/airtight/air_curtain,
 /turf/simulated/floor/sidewalk,
+/area/botanical_garden)
+"VQ" = (
+/obj/structure/flora/bush/jungle/random,
+/obj/effect/landmark/minimap_poi{
+	name = "Flower Garden"
+	},
+/turf/simulated/floor/exoplanet/grass,
 /area/botanical_garden)
 "VU" = (
 /obj/machinery/disposal/small/south,
@@ -10707,14 +10890,6 @@
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/botanical_garden)
-"Wy" = (
-/obj/structure/platform_stairs/south_north_solo{
-	dir = 1
-	},
-/turf/simulated/floor/exoplanet/grass{
-	color = "#566e37"
-	},
-/area/botanical_garden)
 "WC" = (
 /turf/simulated/floor/tiled,
 /area/botanical_garden)
@@ -10753,21 +10928,6 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/botanical_garden)
-"WN" = (
-/obj/structure/platform,
-/obj/structure/platform/ledge{
-	dir = 4
-	},
-/obj/structure/platform_deco{
-	dir = 5
-	},
-/obj/structure/flora/log_bench{
-	dir = 8
-	},
-/turf/simulated/floor/exoplanet/grass{
-	color = "#566e37"
-	},
 /area/botanical_garden)
 "WO" = (
 /obj/machinery/light/small,
@@ -10880,6 +11040,16 @@
 /obj/structure/sign/christmas/lights,
 /turf/simulated/floor/snow/cold,
 /area/botanical_garden/building/ice_rink)
+"Xr" = (
+/obj/machinery/door/airlock{
+	dir = 4;
+	name = "Restroom"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/marble,
+/area/botanical_garden)
 "Xs" = (
 /obj/structure/disposalpipe/segment{
 	icon_state = "pipe-c"
@@ -11096,12 +11266,6 @@
 /turf/simulated/floor/sidewalk/flat,
 /area/botanical_garden)
 "Yw" = (
-/obj/structure/platform/ledge{
-	dir = 8
-	},
-/obj/structure/flora/log_bench{
-	dir = 4
-	},
 /turf/simulated/floor/exoplanet/grass{
 	color = "#566e37"
 	},
@@ -11112,14 +11276,6 @@
 /obj/item/reagent_containers/hypospray,
 /turf/simulated/floor/tiled/white,
 /area/botanical_garden/building/basement)
-"Yy" = (
-/obj/structure/platform/ledge{
-	dir = 8
-	},
-/turf/simulated/floor/exoplanet/grass{
-	color = "#566e37"
-	},
-/area/botanical_garden)
 "Yz" = (
 /obj/effect/landmark/minimap_poi{
 	name = "Restaurant Rooftop"
@@ -11144,20 +11300,6 @@
 	},
 /turf/simulated/floor/exoplanet/carpet/red,
 /area/botanical_garden/building)
-"YD" = (
-/obj/structure/platform_stairs/full/east_west_cap/half{
-	dir = 8
-	},
-/obj/structure/platform/ledge{
-	dir = 4
-	},
-/obj/structure/flora/log_bench{
-	dir = 8
-	},
-/turf/simulated/floor/exoplanet/grass{
-	color = "#566e37"
-	},
-/area/botanical_garden)
 "YF" = (
 /obj/effect/decal/curb/corner{
 	dir = 4
@@ -11181,6 +11323,12 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/botanical_garden/building/basement)
+"YL" = (
+/obj/structure/konyang_cliff{
+	icon_state = "innercorner6"
+	},
+/turf/unsimulated/mineral/konyang,
+/area/botanical_garden)
 "YM" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -11225,6 +11373,11 @@
 /obj/effect/floor_decal/corner/dark_green/diagonal,
 /turf/simulated/floor/tiled,
 /area/botanical_garden/building/basement)
+"YW" = (
+/obj/structure/flora/bush/jungle/random,
+/mob/living/simple_animal/capybara,
+/turf/simulated/floor/exoplanet/grass,
+/area/botanical_garden)
 "YX" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/exoplanet/konyang/pink,
@@ -11358,14 +11511,13 @@
 /turf/simulated/open,
 /area/botanical_garden)
 "Zx" = (
-/obj/structure/flora/log_bench,
-/obj/structure/platform/ledge{
+/obj/structure/lattice/catwalk/indoor/urban,
+/obj/structure/window/reinforced,
+/obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/grass{
-	color = "#566e37"
-	},
-/area/botanical_garden)
+/turf/simulated/open,
+/area/botanical_garden/building)
 "Zz" = (
 /obj/structure/closet/secure_closet/personal,
 /obj/effect/floor_decal/spline/fancy,
@@ -11378,14 +11530,6 @@
 /obj/structure/sign/christmas/lights,
 /turf/simulated/floor/tiled/dark,
 /area/botanical_garden/building/basement)
-"ZD" = (
-/obj/structure/platform_deco{
-	dir = 8
-	},
-/turf/simulated/floor/exoplanet/grass{
-	color = "#566e37"
-	},
-/area/botanical_garden)
 "ZE" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -17302,7 +17446,7 @@ Fq
 Fq
 Fq
 Rw
-go
+Ai
 ph
 ph
 kB
@@ -19147,7 +19291,7 @@ Oy
 Oy
 Oy
 Wv
-oj
+YL
 Fq
 Fq
 Fq
@@ -20731,7 +20875,7 @@ Oy
 Oy
 Oy
 Oy
-Kv
+Oy
 Wv
 wo
 Ss
@@ -20978,7 +21122,7 @@ Oy
 Oy
 Oy
 Vj
-zO
+KF
 AC
 Fq
 Fq
@@ -22190,7 +22334,7 @@ Rw
 rX
 Rw
 Fq
-Oz
+Kn
 Hp
 Oy
 Oy
@@ -22198,7 +22342,7 @@ Oy
 Oy
 Oy
 Vj
-zO
+KF
 Rw
 gG
 Rw
@@ -22312,7 +22456,7 @@ Rw
 rX
 Rw
 Fq
-Oz
+Kn
 Hp
 Oy
 Oy
@@ -25132,7 +25276,7 @@ Rw
 Rw
 Rw
 Rw
-Rw
+Hf
 Rw
 km
 rI
@@ -25250,11 +25394,11 @@ Fq
 Fq
 Fq
 Fq
-Lh
-Ne
-Ne
-Ne
-Lh
+Rw
+Rw
+bg
+oo
+bW
 Rw
 Ml
 rI
@@ -25372,11 +25516,11 @@ Fq
 Fq
 Fq
 Fq
-Lh
-Ne
-Ne
-Ne
-Lh
+Rw
+Rw
+Rw
+Rw
+Rw
 Rw
 mK
 rI
@@ -25752,7 +25896,7 @@ im
 Mc
 Qo
 Sy
-te
+BN
 Rw
 pY
 UG
@@ -28432,7 +28576,7 @@ iX
 aS
 aS
 eG
-hC
+ya
 aS
 eG
 hC
@@ -47940,7 +48084,7 @@ cD
 cD
 Zn
 rM
-NM
+Kv
 rm
 rm
 rm
@@ -48062,7 +48206,7 @@ cD
 cD
 Zn
 rM
-NM
+Kv
 rm
 Rj
 Wt
@@ -48184,7 +48328,7 @@ cD
 cD
 Zn
 rM
-NM
+Kv
 rm
 ja
 ja
@@ -48306,7 +48450,7 @@ cD
 cD
 Zn
 rM
-NM
+Kv
 qu
 rm
 rm
@@ -48428,7 +48572,7 @@ cD
 cD
 Zn
 rM
-NM
+Kv
 qu
 rm
 xX
@@ -48550,7 +48694,7 @@ cD
 cD
 Zn
 rM
-NM
+Kv
 qu
 rm
 rm
@@ -48672,7 +48816,7 @@ cD
 cD
 Zn
 rM
-NM
+Kv
 rm
 lt
 lt
@@ -48794,7 +48938,7 @@ cD
 cD
 Zn
 rM
-NM
+Kv
 rm
 rm
 fT
@@ -48916,7 +49060,7 @@ cD
 cD
 Zn
 rM
-NM
+Kv
 rm
 ba
 rm
@@ -49038,7 +49182,7 @@ cD
 cD
 Zn
 rM
-NM
+Kv
 rm
 rm
 CB
@@ -49778,7 +49922,7 @@ Zl
 Zl
 Zl
 Zl
-Zl
+aA
 aA
 Zl
 Zl
@@ -49900,8 +50044,8 @@ CB
 CB
 CB
 CB
-tU
-oV
+kn
+wf
 CB
 CB
 iA
@@ -50748,7 +50892,7 @@ cD
 cD
 GT
 rE
-CB
+YW
 Cp
 hK
 za
@@ -50873,14 +51017,14 @@ rE
 CB
 CQ
 zS
-gs
-aA
+kn
+jz
 lK
 CB
 hK
 CQ
 UO
-za
+GX
 vj
 kn
 az
@@ -51221,7 +51365,7 @@ mm
 Oy
 Oy
 Oy
-Oy
+be
 XG
 Fd
 bA
@@ -51232,7 +51376,7 @@ cD
 cD
 cD
 cD
-Vu
+cD
 cD
 cD
 uQ
@@ -51240,7 +51384,7 @@ CB
 qO
 tU
 oV
-CB
+VQ
 IZ
 qO
 vw
@@ -51481,7 +51625,7 @@ cD
 cD
 uQ
 CB
-hK
+CL
 tU
 oV
 CB
@@ -51609,7 +51753,7 @@ aA
 Nj
 CB
 za
-CY
+PT
 vj
 hK
 vj
@@ -51977,7 +52121,7 @@ um
 Ir
 CB
 rm
-hK
+CL
 zS
 CB
 ot
@@ -52339,7 +52483,7 @@ za
 Mp
 SP
 zS
-zS
+KT
 tU
 Ir
 CB
@@ -52948,9 +53092,9 @@ RH
 RH
 RH
 RH
-gs
-mp
-aA
+RH
+kn
+jz
 bS
 PY
 dE
@@ -53895,12 +54039,12 @@ LN
 az
 Az
 Az
-Cz
-Cz
-Cz
+ot
+ot
+ot
 Ra
-zD
-zD
+kn
+kn
 Dh
 CB
 aA
@@ -54017,12 +54161,12 @@ LN
 az
 Az
 Az
-Cz
+ot
 yn
 Fa
 Fa
 yn
-Cz
+ot
 rm
 CB
 aA
@@ -54139,12 +54283,12 @@ LN
 az
 Az
 Az
-Cz
+ot
 jb
 Fa
 Fa
 ey
-Cz
+ot
 rm
 xZ
 aA
@@ -54261,12 +54405,12 @@ LN
 az
 Az
 Az
-zD
+kn
 tv
 Fa
 Fa
 yn
-Cz
+ot
 rm
 WE
 aA
@@ -54383,7 +54527,7 @@ pk
 az
 Az
 Az
-zD
+kn
 tv
 Fa
 Fa
@@ -54505,12 +54649,12 @@ LN
 az
 Az
 Az
-zD
+kn
 tv
 Fa
 Fa
 yn
-Cz
+ot
 CB
 CB
 sX
@@ -54627,12 +54771,12 @@ LN
 az
 Az
 Az
-Cz
+ot
 jb
 Fa
 Fa
 ey
-Cz
+ot
 kI
 CB
 sX
@@ -54749,12 +54893,12 @@ LN
 az
 Az
 Az
-zD
+kn
 tv
 Fa
 Fa
 yn
-Cz
+ot
 CB
 CB
 sX
@@ -54764,8 +54908,8 @@ NY
 zx
 FZ
 uC
-Xu
-dh
+uC
+Ga
 Ga
 Ga
 LZ
@@ -54871,7 +55015,7 @@ LN
 az
 Az
 Az
-zD
+kn
 iy
 Fa
 Fa
@@ -54886,8 +55030,8 @@ xe
 uC
 uC
 uC
-uC
-Ga
+Xu
+IR
 gm
 Ga
 Ga
@@ -54993,12 +55137,12 @@ LN
 az
 Az
 Az
-zD
+kn
 tv
 Fa
 Fa
 yn
-Cz
+ot
 CB
 CB
 sX
@@ -55008,8 +55152,8 @@ NY
 zx
 vz
 uC
-Xu
-dh
+uC
+Ga
 LZ
 Ga
 Ga
@@ -55115,12 +55259,12 @@ LN
 az
 Az
 Az
-Cz
+ot
 jb
 Fa
 Fa
 ey
-Cz
+ot
 kI
 CB
 sX
@@ -55237,12 +55381,12 @@ LN
 az
 Az
 Az
-zD
+kn
 tv
 Fa
 Fa
 yn
-Cz
+ot
 CB
 CB
 sX
@@ -55359,7 +55503,7 @@ LN
 az
 Az
 Az
-zD
+kn
 tv
 Fa
 Fa
@@ -55481,12 +55625,12 @@ LN
 az
 Az
 Az
-zD
+kn
 tv
 Fa
 Fa
 yn
-Cz
+ot
 CB
 xZ
 sX
@@ -55603,12 +55747,12 @@ pk
 az
 Az
 Az
-Cz
+ot
 jb
 Fa
 Fa
 ey
-Cz
+ot
 CB
 WE
 sX
@@ -55725,12 +55869,12 @@ LN
 az
 Az
 Az
-Cz
+ot
 yn
 Fa
 Fa
 yn
-Cz
+ot
 Cg
 CB
 sX
@@ -55847,12 +55991,12 @@ LN
 az
 Az
 Az
-Cz
-Cz
-Cz
+ot
+ot
+ot
 Ra
-zD
-zD
+kn
+kn
 rm
 CB
 sX
@@ -56734,10 +56878,10 @@ Hh
 Hh
 MI
 zq
-zD
-zD
-zD
-zD
+kn
+kn
+kn
+kn
 kn
 az
 az
@@ -56974,11 +57118,11 @@ ng
 ng
 Ct
 sX
-zD
-zD
-mX
-zD
-zD
+kn
+kn
+Xr
+kn
+kn
 zD
 zD
 zD
@@ -57096,7 +57240,7 @@ ng
 ng
 sa
 Pq
-zD
+kn
 By
 mj
 ZK
@@ -57340,7 +57484,7 @@ pD
 ng
 ng
 sX
-zD
+kn
 Bk
 aU
 pu
@@ -57462,7 +57606,7 @@ ng
 vu
 ng
 sX
-zD
+kn
 VB
 zD
 MT
@@ -57483,7 +57627,7 @@ DE
 DE
 DE
 DE
-il
+DE
 DE
 Az
 az
@@ -57584,7 +57728,7 @@ ng
 ng
 ng
 sX
-zD
+kn
 ok
 zD
 Pp
@@ -57706,7 +57850,7 @@ ng
 ng
 ng
 sX
-zD
+kn
 mX
 zD
 zD
@@ -57828,7 +57972,7 @@ Wh
 ng
 ng
 sX
-zD
+kn
 JS
 zD
 gg
@@ -57957,7 +58101,7 @@ hi
 zD
 QG
 zD
-QG
+jl
 kn
 az
 Az
@@ -58072,7 +58216,7 @@ ng
 ng
 ng
 sX
-zD
+kn
 JS
 zD
 cP
@@ -58090,7 +58234,7 @@ DE
 DE
 DE
 DE
-il
+DE
 DE
 DE
 DE
@@ -58194,7 +58338,7 @@ ng
 ng
 ng
 sX
-zD
+kn
 vi
 yJ
 yJ
@@ -58316,7 +58460,7 @@ ng
 ng
 pD
 sX
-zD
+kn
 wR
 Sa
 Sa
@@ -58438,11 +58582,11 @@ ng
 ym
 ng
 sX
-zD
+kn
 RM
 eE
 we
-li
+yJ
 eE
 we
 QV
@@ -58451,7 +58595,7 @@ az
 Az
 DE
 DE
-il
+DE
 DE
 DE
 DE
@@ -58682,7 +58826,7 @@ ng
 ng
 ng
 sX
-zD
+kn
 jV
 ZY
 Jf
@@ -58804,7 +58948,7 @@ ng
 ng
 ng
 sX
-zD
+kn
 HL
 lP
 lP
@@ -58926,14 +59070,14 @@ VX
 ng
 ng
 sX
-zD
-zD
-zD
-zD
-zD
-zD
-zD
-zD
+kn
+kn
+kn
+kn
+kn
+kn
+kn
+kn
 kn
 az
 Az
@@ -59055,7 +59199,7 @@ rm
 Hk
 rm
 rm
-wG
+bG
 ot
 az
 Az
@@ -59186,7 +59330,7 @@ DE
 DE
 DE
 DE
-il
+DE
 DE
 DE
 DE
@@ -59792,7 +59936,7 @@ ot
 az
 Az
 DE
-il
+DE
 DE
 DE
 DE
@@ -60526,7 +60670,7 @@ Az
 DE
 DE
 DE
-il
+DE
 DE
 LQ
 DE
@@ -61703,13 +61847,13 @@ LN
 Az
 ot
 rm
-rm
-rm
-rm
-rm
-rm
-rm
-rm
+aA
+aA
+aA
+aA
+aA
+aA
+aA
 ne
 zq
 kn
@@ -61824,8 +61968,8 @@ LN
 LN
 Az
 ot
-ja
 rm
+aA
 ja
 ja
 ja
@@ -61947,7 +62091,7 @@ pk
 Az
 ot
 rm
-rm
+aA
 rm
 rm
 rm
@@ -62068,13 +62212,13 @@ LN
 LN
 Az
 ot
-pA
-Am
-QT
-zw
-zw
-zw
-kG
+zz
+Vz
+Hu
+dw
+dw
+dw
+rk
 rm
 QY
 aA
@@ -62190,13 +62334,13 @@ LN
 LN
 Az
 ot
+uU
+li
+aA
+li
+li
+li
 SN
-PT
-PT
-PT
-PT
-PT
-io
 rm
 QY
 aA
@@ -62312,13 +62456,13 @@ LN
 LN
 Az
 kn
-WN
-bn
-ME
-YD
-hA
-PT
-io
+Kr
+il
+os
+ca
+Dn
+li
+SN
 rm
 QY
 aA
@@ -62435,12 +62579,12 @@ LN
 Az
 kn
 ZZ
-hz
-hz
-hz
-Zx
-PT
-io
+Yw
+Yw
+Yw
+NZ
+li
+SN
 rm
 kn
 aA
@@ -62556,14 +62700,14 @@ LN
 LN
 Az
 kn
-hM
-yC
-Yy
-ZD
-Wy
-PT
-Ms
-rm
+QT
+AO
+UN
+io
+HY
+aA
+SJ
+aA
 QY
 aA
 rm
@@ -62682,9 +62826,9 @@ QY
 QY
 QY
 ZZ
-Zx
-PT
-io
+NZ
+li
+SN
 rm
 QY
 aA
@@ -62804,9 +62948,9 @@ QY
 QY
 QY
 ZZ
-Zx
-PT
-io
+NZ
+li
+SN
 rm
 QY
 aA
@@ -62923,12 +63067,12 @@ LN
 Az
 ot
 QY
-yj
+id
 QY
 ZZ
-Zx
-PT
-io
+NZ
+li
+SN
 rm
 QY
 aA
@@ -63048,9 +63192,9 @@ QY
 QY
 QY
 ZZ
-Zx
-PT
-io
+NZ
+li
+SN
 rm
 QY
 aA
@@ -63170,9 +63314,9 @@ QY
 QY
 QY
 ZZ
-Zx
-PT
-io
+NZ
+li
+SN
 rm
 QY
 aA
@@ -63288,14 +63432,14 @@ LN
 LN
 Az
 kn
-KX
-CJ
-Pe
-Lq
-Wy
-PT
+Cf
 Ms
-rm
+rr
+Ey
+HY
+aA
+SJ
+aA
 QY
 aA
 rm
@@ -63411,12 +63555,12 @@ LN
 Az
 kn
 ZZ
-hz
-hz
-hz
-Zx
-PT
-io
+Yw
+Yw
+Yw
+NZ
+li
+SN
 rm
 kn
 aA
@@ -63532,13 +63676,13 @@ LN
 LN
 Az
 kn
-mN
-Yw
-HY
-gb
-IH
-PT
-io
+QS
+zw
+oE
+NM
+gv
+li
+SN
 rm
 QY
 aA
@@ -63654,13 +63798,13 @@ LN
 LN
 Az
 ot
+uU
+li
+aA
+li
+li
+li
 SN
-PT
-PT
-PT
-PT
-PT
-io
 rm
 QY
 aA
@@ -63776,13 +63920,13 @@ LN
 LN
 Az
 ot
-oN
-OA
-EU
-Bv
-Bv
-Bv
-Lz
+cH
+BP
+Vu
+hz
+hz
+hz
+iI
 rm
 QY
 aA
@@ -63899,7 +64043,7 @@ LN
 Az
 ot
 rm
-rm
+aA
 rm
 rm
 rm
@@ -64021,11 +64165,11 @@ LN
 Az
 ot
 rm
-rm
-rm
-rm
-rm
-rm
+aA
+lt
+lt
+lt
+lt
 rm
 rm
 QY
@@ -64143,13 +64287,13 @@ LN
 Az
 ot
 rm
-rm
-rm
-rm
-rm
-rm
-rm
-rm
+aA
+aA
+aA
+aA
+aA
+aA
+aA
 QY
 aA
 aA
@@ -66394,8 +66538,8 @@ zD
 Qb
 Va
 ea
+fu
 Vo
-db
 zD
 DE
 rd
@@ -67370,7 +67514,7 @@ Fq
 zD
 tP
 Pi
-gW
+yC
 zD
 zD
 DE
@@ -83796,26 +83940,26 @@ cD
 pg
 to
 aA
-ak
-NY
-NY
-NY
-NY
-Di
-NY
-ak
+kn
+ot
+ot
+ot
+ot
+rh
+ot
+kn
 QY
 cD
 cD
 PA
-ak
-NY
-Di
-NY
-NY
-NY
-NY
-ak
+kn
+ot
+rh
+ot
+ot
+ot
+ot
+kn
 aA
 fF
 eO
@@ -83918,26 +84062,26 @@ cD
 pg
 to
 CC
-NY
+ot
 hD
 Co
 Co
 NA
 JY
 qh
-ak
-ak
-NY
-NY
-ak
-ak
+kn
+kn
+ot
+ot
+kn
+kn
 iM
 EA
 wa
 Co
 Co
 Ii
-NY
+ot
 yv
 fF
 Wl
@@ -84040,7 +84184,7 @@ cD
 pg
 to
 CC
-NY
+ot
 Zp
 Lf
 Lf
@@ -84059,7 +84203,7 @@ UV
 Lf
 Lf
 iF
-NY
+ot
 yv
 lX
 Mb
@@ -84162,7 +84306,7 @@ cD
 pg
 to
 CC
-NY
+ot
 mY
 Lf
 Lf
@@ -84181,7 +84325,7 @@ UV
 Lf
 Lf
 iF
-NY
+ot
 yv
 lX
 aB
@@ -84284,7 +84428,7 @@ cD
 pg
 to
 CC
-NY
+ot
 Zp
 Lf
 ak
@@ -84303,7 +84447,7 @@ UV
 Lf
 Lf
 iF
-NY
+ot
 yv
 fF
 Zv
@@ -84406,7 +84550,7 @@ cD
 pg
 to
 CC
-NY
+ot
 Zp
 Lf
 ak
@@ -84425,7 +84569,7 @@ UV
 Lf
 Lf
 iF
-NY
+ot
 yv
 fF
 eO
@@ -84528,7 +84672,7 @@ cD
 pg
 to
 CC
-NY
+ot
 Nr
 eb
 ak
@@ -84547,7 +84691,7 @@ YP
 eb
 eb
 Bn
-NY
+ot
 yv
 fF
 eO
@@ -84650,7 +84794,7 @@ cD
 pg
 to
 aA
-xe
+Cr
 JY
 JY
 JY
@@ -84669,7 +84813,7 @@ JY
 JY
 JY
 JY
-xe
+Cr
 aA
 fF
 eO
@@ -84772,7 +84916,7 @@ cD
 pg
 to
 CC
-NY
+ot
 rc
 cS
 cS
@@ -84791,7 +84935,7 @@ fE
 cS
 cS
 ms
-NY
+ot
 yv
 fF
 eO
@@ -84894,8 +85038,8 @@ cD
 pg
 to
 aA
-ak
-ak
+kn
+kn
 Xx
 Lf
 Wi
@@ -84912,8 +85056,8 @@ EA
 UV
 Lf
 xS
-ak
-ak
+kn
+kn
 aA
 fF
 eO
@@ -85017,7 +85161,7 @@ pg
 to
 aA
 CC
-NY
+ot
 Zp
 Lf
 Wi
@@ -85034,7 +85178,7 @@ EA
 UV
 Lf
 iF
-NY
+ot
 YA
 aA
 fF
@@ -85139,7 +85283,7 @@ pg
 to
 aA
 CC
-NY
+ot
 Zp
 Lf
 Wi
@@ -85156,7 +85300,7 @@ EA
 UV
 Lf
 iF
-NY
+ot
 fl
 aA
 fF
@@ -85261,7 +85405,7 @@ pg
 to
 aA
 CC
-NY
+ot
 Nr
 eb
 HK
@@ -85278,7 +85422,7 @@ EA
 YP
 eb
 Bn
-NY
+ot
 QR
 aA
 fF
@@ -85383,7 +85527,7 @@ pg
 to
 aA
 aA
-xe
+Cr
 JY
 JY
 JY
@@ -85400,7 +85544,7 @@ JY
 JY
 JY
 JY
-xe
+Cr
 aA
 aA
 lX
@@ -85505,7 +85649,7 @@ pg
 to
 aA
 CC
-NY
+ot
 rc
 cS
 fw
@@ -85522,7 +85666,7 @@ EA
 fE
 cS
 ms
-NY
+ot
 wy
 aA
 fF
@@ -85627,7 +85771,7 @@ pg
 to
 aA
 CC
-NY
+ot
 Zp
 Lf
 Wi
@@ -85644,7 +85788,7 @@ EA
 UV
 Lf
 iF
-NY
+ot
 aR
 aA
 fF
@@ -85749,7 +85893,7 @@ pg
 to
 aA
 CC
-NY
+ot
 Zp
 Lf
 Wi
@@ -85766,7 +85910,7 @@ EA
 UV
 Lf
 iF
-NY
+ot
 MS
 aA
 fF
@@ -85870,8 +86014,8 @@ cD
 pg
 to
 aA
-ak
-ak
+kn
+kn
 Xx
 Lf
 Wi
@@ -85888,8 +86032,8 @@ EA
 UV
 Lf
 xS
-ak
-ak
+kn
+kn
 aA
 fF
 eO
@@ -85992,7 +86136,7 @@ cD
 pg
 to
 CC
-NY
+ot
 Nr
 eb
 eb
@@ -86011,7 +86155,7 @@ YP
 eb
 eb
 Bn
-NY
+ot
 yv
 fF
 eO
@@ -86114,7 +86258,7 @@ cD
 pg
 to
 aA
-xe
+Cr
 JY
 JY
 JY
@@ -86133,7 +86277,7 @@ JY
 JY
 JY
 JY
-xe
+Cr
 aA
 fF
 eO
@@ -86236,7 +86380,7 @@ cD
 pg
 to
 CC
-NY
+ot
 rc
 cS
 ak
@@ -86255,7 +86399,7 @@ fE
 cS
 cS
 ms
-NY
+ot
 yv
 fF
 eO
@@ -86358,7 +86502,7 @@ cD
 pg
 to
 CC
-NY
+ot
 Zp
 Lf
 ak
@@ -86377,7 +86521,7 @@ UV
 Lf
 Lf
 iF
-NY
+ot
 yv
 fF
 eO
@@ -86480,7 +86624,7 @@ cD
 pg
 to
 CC
-NY
+ot
 Zp
 Lf
 ak
@@ -86499,7 +86643,7 @@ UV
 Lf
 Lf
 iF
-NY
+ot
 yv
 fF
 Wl
@@ -86602,7 +86746,7 @@ cD
 pg
 to
 CC
-NY
+ot
 mY
 Lf
 Lf
@@ -86621,7 +86765,7 @@ UV
 Lf
 Lf
 iF
-NY
+ot
 yv
 lX
 Mb
@@ -86724,7 +86868,7 @@ cD
 pg
 to
 CC
-NY
+ot
 Zp
 Lf
 Lf
@@ -86743,7 +86887,7 @@ UV
 Lf
 Lf
 iF
-NY
+ot
 yv
 lX
 aB
@@ -86846,26 +86990,26 @@ cD
 pg
 to
 CC
-NY
+ot
 Rn
 cW
 cW
 VD
 EA
 zh
-ak
-NY
-NY
-NY
-NY
-ak
+kn
+ot
+ot
+ot
+ot
+kn
 VD
 EA
 zh
 cW
 cW
 Lk
-NY
+ot
 yv
 fF
 Zv
@@ -86968,26 +87112,26 @@ cD
 pg
 to
 aA
-ak
-NY
-NY
-NY
-NY
-Di
-NY
-ak
+kn
+ot
+ot
+ot
+ot
+rh
+ot
+kn
 LO
 RT
 RT
 Kt
-ak
+kn
 NY
-Di
-NY
-NY
-NY
-NY
-ak
+rh
+ot
+ot
+ot
+ot
+kn
 aA
 fF
 eO
@@ -87234,12 +87378,12 @@ lX
 lX
 lX
 lX
-zD
-zD
-Cz
-Cz
-zD
-zD
+kn
+kn
+ot
+ot
+kn
+kn
 tV
 tV
 tV
@@ -87356,12 +87500,12 @@ lX
 AW
 fg
 cr
-zD
+kn
 FM
 Ay
 Ay
 Ar
-Cz
+ot
 tV
 tV
 tV
@@ -87475,15 +87619,15 @@ cD
 TP
 lX
 Bs
-zD
-Cz
+kn
+ot
 uk
-zD
+kn
 fB
 Gt
 fo
 kb
-Cz
+ot
 tV
 tV
 tV
@@ -87597,7 +87741,7 @@ cD
 TP
 lX
 Bs
-zD
+kn
 Ad
 BT
 LM
@@ -87605,7 +87749,7 @@ Mz
 CM
 CM
 wg
-Cz
+ot
 tV
 tV
 tV
@@ -87719,7 +87863,7 @@ cD
 TP
 lX
 Bs
-Cz
+ot
 dR
 BT
 da
@@ -87727,7 +87871,7 @@ Oj
 CM
 CM
 ye
-Cz
+ot
 tV
 tV
 tV
@@ -87841,7 +87985,7 @@ cD
 TP
 lX
 Bs
-Cz
+ot
 GV
 zZ
 Jl
@@ -87849,7 +87993,7 @@ FS
 Bb
 Bb
 Xt
-Cz
+ot
 tV
 tV
 tV
@@ -87963,7 +88107,7 @@ cD
 TP
 lX
 Bs
-Cz
+ot
 ZN
 zW
 ar
@@ -87971,7 +88115,7 @@ bT
 Cz
 Cz
 Cz
-zD
+kn
 tV
 tV
 tV
@@ -88085,7 +88229,7 @@ cD
 TP
 lX
 Bs
-Cz
+ot
 KH
 lE
 ar
@@ -88093,7 +88237,7 @@ Tf
 IE
 fe
 nW
-zD
+kn
 tV
 tV
 tV
@@ -88207,7 +88351,7 @@ cD
 TP
 lX
 Bs
-zD
+kn
 Wa
 lE
 ar
@@ -88215,7 +88359,7 @@ Tf
 tf
 JW
 lB
-Cz
+ot
 tV
 tV
 tV
@@ -88329,7 +88473,7 @@ cD
 TP
 lX
 Bs
-zD
+kn
 jJ
 lE
 ar
@@ -88337,7 +88481,7 @@ Ub
 yw
 yw
 dS
-Cz
+ot
 tV
 tV
 tV
@@ -88451,7 +88595,7 @@ cD
 TP
 lX
 Bs
-Cz
+ot
 Ya
 lE
 ar
@@ -88459,7 +88603,7 @@ eQ
 Hi
 Hi
 TD
-Cz
+ot
 tV
 tV
 tV
@@ -88573,7 +88717,7 @@ cD
 TP
 lX
 Bs
-Cz
+ot
 Sz
 lE
 ar
@@ -88581,7 +88725,7 @@ eg
 aX
 cn
 fj
-Cz
+ot
 tV
 tV
 tV
@@ -88695,7 +88839,7 @@ cD
 TP
 lX
 Bs
-Cz
+ot
 MW
 Xs
 TF
@@ -88703,7 +88847,7 @@ TR
 ar
 gu
 QM
-zD
+kn
 tV
 tV
 tV
@@ -88817,7 +88961,7 @@ cD
 TP
 lX
 Bs
-Cz
+ot
 IW
 Md
 Nh
@@ -88825,7 +88969,7 @@ lE
 ar
 YB
 FA
-Cz
+ot
 tV
 tV
 tV
@@ -88939,7 +89083,7 @@ cD
 TP
 lX
 Bs
-zD
+kn
 SH
 yP
 mJ
@@ -88947,7 +89091,7 @@ lE
 fi
 QJ
 cg
-Cz
+ot
 tV
 tV
 tV
@@ -89061,15 +89205,15 @@ cD
 TP
 lX
 Bs
-zD
-Cz
-Cz
-Cz
+kn
+ot
+ot
+ot
 uk
-Cz
-zD
-zD
-Cz
+ot
+kn
+kn
+ot
 tV
 tV
 tV
@@ -91745,17 +91889,17 @@ cD
 TP
 lX
 lX
-Cz
-Cz
-Cz
-Cz
-Cz
-Cz
-Cz
-Cz
-zD
-zD
-zD
+ot
+ot
+ot
+ot
+ot
+ot
+ot
+ot
+kn
+kn
+kn
 tV
 tV
 tV
@@ -91867,7 +92011,7 @@ cD
 TP
 lX
 lX
-Cz
+ot
 Sm
 OR
 Do
@@ -91877,7 +92021,7 @@ We
 Do
 nm
 Sm
-zD
+kn
 tV
 tV
 tV
@@ -91999,10 +92143,10 @@ Sm
 Sm
 Sm
 Sm
-zD
-zD
-zD
-zD
+kn
+kn
+kn
+kn
 tV
 tV
 tV
@@ -92111,7 +92255,7 @@ cD
 TP
 lX
 lX
-Cz
+ot
 oB
 aQ
 aQ
@@ -92123,8 +92267,8 @@ aQ
 aQ
 aQ
 aQ
-oB
-zD
+et
+kn
 tV
 tV
 tV
@@ -92233,7 +92377,7 @@ cD
 TP
 lX
 lX
-Cz
+ot
 Ak
 lP
 lP
@@ -92246,7 +92390,7 @@ lP
 lP
 oK
 oB
-Cz
+ot
 tV
 tV
 tV
@@ -92355,8 +92499,8 @@ cD
 TP
 lX
 lX
-zD
-Ak
+kn
+Zx
 lP
 lP
 lP
@@ -92368,7 +92512,7 @@ lP
 lP
 oK
 oB
-Cz
+ot
 tV
 tV
 tV
@@ -92477,7 +92621,7 @@ cD
 TP
 lX
 lX
-Cz
+ot
 Ak
 lP
 lP
@@ -92490,7 +92634,7 @@ lP
 lP
 oK
 oB
-Cz
+ot
 tV
 tV
 tV
@@ -92599,7 +92743,7 @@ cD
 TP
 lX
 lX
-Cz
+ot
 Ak
 lP
 lP
@@ -92612,7 +92756,7 @@ lP
 lP
 oK
 oB
-Cz
+ot
 tV
 tV
 tV
@@ -92721,7 +92865,7 @@ NB
 bc
 lX
 lX
-Cz
+ot
 Ak
 lP
 lP
@@ -92734,7 +92878,7 @@ lP
 lP
 oK
 oB
-Cz
+ot
 tV
 tV
 tV
@@ -92843,7 +92987,7 @@ Mb
 Mb
 lX
 lX
-zD
+kn
 Ak
 lP
 lP
@@ -92856,7 +93000,7 @@ lP
 lP
 oK
 oB
-zD
+kn
 tV
 tV
 tV
@@ -92965,7 +93109,7 @@ aB
 aB
 lX
 lX
-Cz
+ot
 Ak
 lP
 lP
@@ -92977,8 +93121,8 @@ lP
 lP
 lP
 oK
-oB
-zD
+et
+kn
 tV
 tV
 tV
@@ -93087,7 +93231,7 @@ gH
 SU
 lX
 lX
-Cz
+ot
 Ak
 lP
 lP
@@ -93100,7 +93244,7 @@ lP
 lP
 oK
 oB
-zD
+kn
 tV
 tV
 tV
@@ -93209,7 +93353,7 @@ cD
 TP
 lX
 lX
-Cz
+ot
 Ak
 lP
 lP
@@ -93222,7 +93366,7 @@ lP
 lP
 oK
 oB
-Cz
+ot
 tV
 tV
 tV
@@ -93331,8 +93475,8 @@ cD
 TP
 lX
 lX
-zD
-Ak
+kn
+Zx
 lP
 lP
 lP
@@ -93344,7 +93488,7 @@ lP
 lP
 oK
 oB
-Cz
+ot
 tV
 tV
 tV
@@ -93453,7 +93597,7 @@ cD
 TP
 lX
 lX
-Cz
+ot
 Ak
 lP
 lP
@@ -93466,7 +93610,7 @@ lP
 lP
 oK
 oB
-Cz
+ot
 tV
 tV
 tV
@@ -93575,7 +93719,7 @@ cD
 TP
 lX
 lX
-Cz
+ot
 Ak
 lP
 lP
@@ -93588,7 +93732,7 @@ lP
 lP
 oK
 oB
-Cz
+ot
 tV
 tV
 tV
@@ -93697,7 +93841,7 @@ cD
 TP
 lX
 lX
-Cz
+ot
 Ak
 lP
 lP
@@ -93710,7 +93854,7 @@ lP
 lP
 oK
 oB
-Cz
+ot
 tV
 tV
 tV
@@ -93819,7 +93963,7 @@ cD
 TP
 lX
 lX
-zD
+kn
 Ak
 lP
 lP
@@ -93832,7 +93976,7 @@ lP
 lP
 oK
 oB
-zD
+kn
 tV
 tV
 tV
@@ -93941,7 +94085,7 @@ cD
 TP
 lX
 lX
-Cz
+ot
 Ak
 lP
 lP
@@ -93953,8 +94097,8 @@ lP
 lP
 lP
 oK
-oB
-zD
+et
+kn
 tV
 tV
 tV
@@ -94063,7 +94207,7 @@ cD
 TP
 lX
 lX
-Cz
+ot
 Ak
 lP
 lP
@@ -94076,7 +94220,7 @@ lP
 lP
 oK
 oB
-zD
+kn
 tV
 tV
 tV
@@ -94185,7 +94329,7 @@ cD
 TP
 lX
 lX
-Cz
+ot
 Ak
 lP
 lP
@@ -94198,7 +94342,7 @@ lP
 lP
 oK
 oB
-Cz
+ot
 tV
 tV
 tV
@@ -94307,8 +94451,8 @@ cD
 TP
 lX
 lX
-zD
-Ak
+kn
+Zx
 lP
 lP
 lP
@@ -94320,7 +94464,7 @@ lP
 lP
 oK
 oB
-Cz
+ot
 tV
 tV
 tV
@@ -94429,7 +94573,7 @@ cD
 TP
 lX
 lX
-Cz
+ot
 Ak
 lP
 lP
@@ -94442,7 +94586,7 @@ lP
 lP
 oK
 oB
-Cz
+ot
 tV
 tV
 tV
@@ -94551,7 +94695,7 @@ NB
 bc
 lX
 lX
-Cz
+ot
 Ak
 lP
 lP
@@ -94564,7 +94708,7 @@ lP
 lP
 oK
 oB
-Cz
+ot
 tV
 tV
 tV
@@ -94673,7 +94817,7 @@ Mb
 Mb
 lX
 lX
-Cz
+ot
 Ak
 lP
 lP
@@ -94686,7 +94830,7 @@ lP
 lP
 oK
 oB
-Cz
+ot
 tV
 tV
 tV
@@ -94795,20 +94939,20 @@ lX
 lX
 lX
 lX
-Cz
+ot
 oB
 xf
+zO
 xf
 xf
 xf
 xf
 xf
+zO
 xf
 xf
-xf
-xf
-oB
-zD
+et
+kn
 tV
 tV
 tV
@@ -94917,20 +95061,20 @@ ot
 ot
 ot
 ot
-zD
-Cz
-Cz
-Cz
-Cz
-Cz
-zD
-Cz
-Cz
-Cz
-Cz
-Cz
-zD
-zD
+kn
+ot
+ot
+ot
+ot
+ot
+kn
+ot
+ot
+ot
+ot
+ot
+kn
+kn
 tV
 tV
 tV

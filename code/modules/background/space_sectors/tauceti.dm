@@ -16,7 +16,7 @@
 							/obj/effect/overmap/visitable/sector/exoplanet/snow/new_gibson, /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/ice/chandras, /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/dumas)
 	ports_of_call = list("the city of Mendell, Republic's Landing")
 	scheduled_port_visits = list("Saturday", "Sunday")
-	starlight_color = "#9cd0fd"
+	starlight_color = LIGHT_COLOUR_WARM
 	starlight_power = 5
 	starlight_range = 2
 

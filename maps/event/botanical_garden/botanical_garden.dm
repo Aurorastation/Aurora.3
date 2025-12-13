@@ -21,6 +21,8 @@
 	company_name = "Nanotrasen Incorporated"
 	company_short = "Nanotrasen"
 
+	shuttle_call_restarts = FALSE
+
 	use_overmap = FALSE
 
 	allowed_spawns = list("Living Quarters Lift")
