@@ -1,4 +1,0 @@
-author: Hellfirejag
-delete-after: True
-changes:
-  - rscadd: "Comprehensively reworked interactions between Psionics, Psi-Receivers, Mind Blankers, and Mindshields, such that they now all operate on a unified 'psi-sensitivity' and psi-blocking check. Being psionic makes you more psi-sensitive, but so does having a psi-receiver. Having a mindshield or mind blanker makes you less psi-sensitive. A variety of mechanics now operate on psi-sensitivity or relative sensitivity."
