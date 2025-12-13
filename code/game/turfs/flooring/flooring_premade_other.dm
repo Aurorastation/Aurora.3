@@ -75,9 +75,8 @@
 	name = "snow"
 	icon = 'icons/turf/flooring/snow.dmi'
 	icon_state = "snow0"
-	does_footprint = TRUE
+	does_footprint = FALSE
 	footprint_color = COLOR_SNOW
-	track_distance = 4
 	footstep_sound = /singleton/sound_category/snow_footstep
 
 /turf/simulated/floor/snow/Initialize()

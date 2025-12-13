@@ -1,4 +1,4 @@
-/datum/map/evnt/botanical_garden
+/datum/map/event/botanical_garden
 	name = "Botanical Garden"
 	full_name = "Phoenix Park Botanical Garden, Mendell City"
 	path = "event/botanical_garden"
