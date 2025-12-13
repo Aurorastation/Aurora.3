@@ -47,6 +47,11 @@
 	area_has_base_lighting = FALSE
 
 /area/proc/add_base_lighting()
+	for(var/turf/T in src)
+		T.set_light(5, base_lighting_alpha, base_lighting_color)
+	area_has_base_lighting = TRUE
+
+/*
 	lighting_effect = mutable_appearance('icons/effects/alphacolors.dmi', "white")
 	lighting_effect.plane = LIGHTING_PLANE
 	lighting_effect.layer = LIGHTING_PRIMARY_LAYER
@@ -57,3 +62,4 @@
 		T.overlays += lighting_effect
 		T.luminosity = 1
 	area_has_base_lighting = TRUE
+*/

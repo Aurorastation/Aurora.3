@@ -22,6 +22,8 @@
 
 	lore_radio_stations = list(
 		"87.5 Mendell City Bugle Radio" = 'texts/lore_radio/tauceti/87.5_Mendell_City_Bugle.txt',
+		"93.1 Phoenix FM" = 'texts/lore_radio/tauceti/93.1_PhoenixFM.txt',
+		"90.7 Hi-Fi Sports" = 'texts/lore_radio/tauceti/90.7_Hi_Fi_Sports.txt',
 	)
 
 	lobby_tracks = list(

@@ -112,9 +112,10 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 	/// This is intended for use with EVA areas of ships - such as the wings of the Horizon, for instance.
 	/// You probably shouldn't be setting this to true on any planet-based maps, or on any indoors areas.
 	var/needs_starlight = FALSE
+	var/city_lights = FALSE
 
 	/// defaults to TRUE, false disables hostile events (like drone uprising).
-	var/hostile_events = TRUE
+	var/hostile_events = FALSE
 
 /**
  * Don't move this to Initialize(). Things in here need to run before SSatoms does.

@@ -211,6 +211,8 @@
 	if(A.needs_starlight)
 		set_light(SSatlas.current_sector.starlight_range, SSatlas.current_sector.starlight_power, SSskybox.background_color)
 		return TRUE
+	else if(A.city_lights)
+		set_light(SSatlas.current_sector.starlight_range, SSatlas.current_sector.starlight_power, COLOR_DARK_BLUE_GRAY)
 	else // If we aren't assigning starlight lighting, set the lighting to default so it's possible to undo starlight lighting if an area changes.
 		set_default_lighting()
 		return FALSE
