@@ -21,7 +21,7 @@
 	company_name = "Nanotrasen Incorporated"
 	company_short = "Nanotrasen"
 
-	shuttle_call_restarts = FALSE
+	shuttle_call_restarts = TRUE
 
 	use_overmap = FALSE
 
