@@ -1,8 +1,0 @@
-author: FabianK3
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed misconfigured safety shutters in the bridge conference room. All shutters around the bridge now listen to the same command."
-  - qol: "Added a bridge safety shutters button to bridge break room."
-  - bugfix: "Removed duplicate lightswitch in security interrogations."

@@ -1,4 +1,0 @@
-author: Hellfirejag
-delete-after: True
-changes:
-  - rscadd: "Creating a new IPC will now default to a baseline frame instead of the deprecated 'unbranded' frame."

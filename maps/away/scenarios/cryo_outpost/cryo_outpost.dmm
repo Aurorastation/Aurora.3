@@ -4104,7 +4104,7 @@
 /area/cryo_outpost/inside/labs_rnd)
 "exS" = (
 /obj/structure/closet,
-/obj/item/clothing/suit/storage/toggle/highvis_alt,
+/obj/item/clothing/suit/storage/toggle/highvis/alt,
 /obj/item/reagent_containers/spray/pepper,
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/item/melee/telebaton,
@@ -13273,7 +13273,7 @@
 	pixel_x = -3;
 	pixel_y = 4
 	},
-/obj/item/clothing/suit/storage/toggle/highvis_alt{
+/obj/item/clothing/suit/storage/toggle/highvis/alt{
 	pixel_x = 3;
 	pixel_y = -2
 	},
