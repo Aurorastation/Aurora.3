@@ -1469,18 +1469,17 @@ About the new airlock wires panel:
 	..(user)
 	return
 
-/obj/machinery/door/airlock/proc/powerless_manual_override_procedure(var/mob/user, var/iteration = 0)
-	iteration++
+/obj/machinery/door/airlock/proc/powerless_manual_override_procedure(var/mob/user, var/current_iteration = 0)
+	current_iteration++
 	if(operable() || !src.density || locked)
 		to_chat(user, SPAN_WARNING("You suddenly hear something moving in \the [src]! You stop cranking the handle..."))
 		return
-	else if(iteration < 10) // It takes a couple of steps to finish the procedure: 20%-40%-60%-80%-100%
+	else if(current_iteration <= 5) // It takes a couple of steps to finish the procedure: 20%-40%-60%-80%-100%
 		playsound(loc, powerless_manual_override_sound, 20, FALSE)
 		if (do_after(user, 3 SECONDS, src, DO_UNIQUE))
-			if(iteration % 2 == 0) // Show every 20%.
-				to_chat(user, SPAN_NOTICE("The small oil gauge next to the handle raises to the [10 * iteration]% mark."))
-			powerless_manual_override_procedure(user, iteration)
-	else if(iteration == 10)
+			to_chat(user, SPAN_NOTICE("The small oil gauge next to the handle raises to the [20 * current_iteration]% mark."))
+			powerless_manual_override_procedure(user, current_iteration)
+	else if(current_iteration > 5)
 		to_chat(user, SPAN_NOTICE("The small oil gauge next to the handle raises to the 100% mark."))
 		to_chat(user, SPAN_WARNING("The oil gauge suddenly drops to zero and the door opens!"))
 		playsound(src.loc, open_sound_unpowered, 70, FALSE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
