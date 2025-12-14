@@ -177,7 +177,7 @@
 	new /obj/item/clothing/suit/storage/hazardvest/red(src)
 	new /obj/item/clothing/suit/storage/hazardvest/blue/atmos(src)
 	new /obj/item/clothing/suit/storage/toggle/highvis(src)
-	new /obj/item/clothing/suit/storage/toggle/highvis_alt(src)
+	new /obj/item/clothing/suit/storage/toggle/highvis/alt(src)
 	return
 
 
@@ -205,7 +205,7 @@
 	new /obj/item/clothing/head/bandana/engineering(src)
 	new /obj/item/clothing/head/bandana/engineering(src)
 	new /obj/item/clothing/suit/storage/toggle/highvis(src)
-	new /obj/item/clothing/suit/storage/toggle/highvis_alt(src)
+	new /obj/item/clothing/suit/storage/toggle/highvis/alt(src)
 	new /obj/item/clothing/suit/storage/hazardvest/green(src)
 	new /obj/item/clothing/suit/storage/hazardvest/red(src)
 
