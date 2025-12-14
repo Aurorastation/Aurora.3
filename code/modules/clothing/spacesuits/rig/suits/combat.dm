@@ -3,7 +3,7 @@
 	desc = "A sleek and dangerous hardsuit for active combat. This one is a Stellar Corporate Conglomerate design in color scheme and make."
 	icon = 'icons/obj/item/clothing/rig/combat.dmi'
 	icon_state = "combat_rig"
-	icon_supported_species_tags = list("skr", "taj", "unat", "ipc")
+	icon_supported_species_tags = list("skr", "taj", "una", "ipc")
 	suit_type = "combat hardsuit"
 	armor = list(
 		MELEE = ARMOR_MELEE_MAJOR,
