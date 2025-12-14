@@ -56,6 +56,9 @@
 /obj/item/implant/mindshield/proc/cancel_power(var/implantee, var/caster, var/cancelled)
 	SIGNAL_HANDLER
 	*cancelled = TRUE
+	if(implantee == caster)
+		return
+
 	to_chat(implantee, SPAN_DANGER("Your [name] buzzes angrily."))
 
 /obj/item/implant/mindshield/emp_act(severity)
