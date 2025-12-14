@@ -297,9 +297,9 @@ GLOBAL_LIST_INIT(valid_bloodtypes, list(
 	out += "<br><a href='byond://?src=[REF(src)];set_preview_scale=1'>Set Preview Scale - [pref.scale_x] - [pref.scale_y]</a>"
 	out += "<br><a href='byond://?src=[REF(src)];toggle_preview_value=[EQUIP_PREVIEW_LOADOUT]'>[pref.equip_preview_mob & EQUIP_PREVIEW_LOADOUT ? "Hide loadout" : "Show loadout"]</a>"
 	out += "<br><a href='byond://?src=[REF(src)];toggle_preview_value=[EQUIP_PREVIEW_JOB]'>[pref.equip_preview_mob & EQUIP_PREVIEW_JOB ? "Hide job gear" : "Show job gear"]</a>"
-	out += "<br><a href='byond://?src=[REF(src)];toggle_preview_value=[EQUIP_PREVIEW_JOB_HAT]'>[pref.equip_preview_mob & EQUIP_PREVIEW_JOB_HAT ? "Hide job hat" : "Show job hat"]</a>"
-	out += "<br><a href='byond://?src=[REF(src)];toggle_preview_value=[EQUIP_PREVIEW_JOB_UNIFORM]'>[pref.equip_preview_mob & EQUIP_PREVIEW_JOB_UNIFORM ? "Hide job uniform" : "Show job uniform"]</a>"
-	out += "<br><a href='byond://?src=[REF(src)];toggle_preview_value=[EQUIP_PREVIEW_JOB_SUIT]'>[pref.equip_preview_mob & EQUIP_PREVIEW_JOB_SUIT ? "Hide job suit" : "Show job suit"]</a>"
+	out += "<br><a href='byond://?src=[REF(src)];toggle_preview_value=[EQUIP_PREVIEW_JOB_HAT]'>[pref.equip_preview_mob & EQUIP_PREVIEW_JOB_HAT ? "Hide hat" : "Show hat"]</a>"
+	out += "<br><a href='byond://?src=[REF(src)];toggle_preview_value=[EQUIP_PREVIEW_JOB_UNIFORM]'>[pref.equip_preview_mob & EQUIP_PREVIEW_JOB_UNIFORM ? "Hide uniform" : "Show uniform"]</a>"
+	out += "<br><a href='byond://?src=[REF(src)];toggle_preview_value=[EQUIP_PREVIEW_JOB_SUIT]'>[pref.equip_preview_mob & EQUIP_PREVIEW_JOB_SUIT ? "Hide suit" : "Show suit"]</a>"
 	out += "<br><a href='byond://?src=[REF(src)];toggle_preview_value=[EQUIP_PREVIEW_CUSTOM_ITEMS]'>[pref.equip_preview_mob & EQUIP_PREVIEW_CUSTOM_ITEMS ? "Hide custom items" : "Show custom items"]</a>"
 	out += "</td></tr></table>"
 
