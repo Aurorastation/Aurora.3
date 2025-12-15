@@ -35,6 +35,9 @@ env:
   #The maximum number of retries the unit tests (excluding linters) can make, if appropriate for them to
   CI_MAX_RETRIES: 3
 
+  # Get pull auth from github secrets
+  AURORA_BUILDASSETS_AUTH: ${{ secrets.AURORA_BUILDASSETS_AUTH }}
+
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
