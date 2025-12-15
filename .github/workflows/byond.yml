@@ -401,6 +401,8 @@ jobs:
           bash tools/ci/install_byond.sh
           source $HOME/BYOND/byond/bin/byondsetup
           bash tools/ci/install_rust_g.sh
+        env:
+          AURORA_BUILDASSETS_AUTH: ${{ secrets.AURORA_BUILDASSETS_AUTH }} # Get pull auth from github secrets
 
       - name: Configure pod, build and run
         env:
@@ -524,6 +526,8 @@ jobs:
           bash tools/ci/install_byond.sh
           source $HOME/BYOND/byond/bin/byondsetup
           bash tools/ci/install_rust_g.sh
+        env:
+          AURORA_BUILDASSETS_AUTH: ${{ secrets.AURORA_BUILDASSETS_AUTH }} # Get pull auth from github secrets
 
       - name: Configure pod, build and run
         env:
@@ -649,6 +653,8 @@ jobs:
           bash tools/ci/install_byond.sh
           source $HOME/BYOND/byond/bin/byondsetup
           bash tools/ci/install_rust_g.sh
+        env:
+          AURORA_BUILDASSETS_AUTH: ${{ secrets.AURORA_BUILDASSETS_AUTH }} # Get pull auth from github secrets
 
       - name: Configure pod, build and run
         env:
@@ -774,6 +780,8 @@ jobs:
           bash tools/ci/install_byond.sh
           source $HOME/BYOND/byond/bin/byondsetup
           bash tools/ci/install_rust_g.sh
+        env:
+          AURORA_BUILDASSETS_AUTH: ${{ secrets.AURORA_BUILDASSETS_AUTH }} # Get pull auth from github secrets
 
       - name: Configure pod, build and run
         env:
@@ -898,6 +906,8 @@ jobs:
           bash tools/ci/install_byond.sh
           source $HOME/BYOND/byond/bin/byondsetup
           bash tools/ci/install_rust_g.sh
+        env:
+          AURORA_BUILDASSETS_AUTH: ${{ secrets.AURORA_BUILDASSETS_AUTH }} # Get pull auth from github secrets
 
       - name: Configure pod, build and run
         env:
@@ -1021,6 +1031,8 @@ jobs:
           bash tools/ci/install_byond.sh
           source $HOME/BYOND/byond/bin/byondsetup
           bash tools/ci/install_rust_g.sh
+        env:
+          AURORA_BUILDASSETS_AUTH: ${{ secrets.AURORA_BUILDASSETS_AUTH }} # Get pull auth from github secrets
 
       - name: Configure pod, build and run
         env:
