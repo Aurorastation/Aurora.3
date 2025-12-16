@@ -10,7 +10,7 @@
 	..()
 
 	// This stores the list of the possible number of blobs, weighted towards 2. Adjust if a different weighting if desired.
-	var/alist/numberOfBlobs = alist(1 = 1, 2 = 2, 3 = 1)
+	var/list/numberOfBlobs = list(1 = 1, 2 = 2, 3 = 1)
 
 	// We pick randomly from the list to determine how many we spawn.
 	for(var/i = 1 to pickweight(numberOfBlobs))
