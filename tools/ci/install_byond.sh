@@ -14,7 +14,7 @@ else
   rm -rf "$HOME/BYOND"
   mkdir -p "$HOME/BYOND"
   cd "$HOME/BYOND"
-  curl "https://buildassets.aurorastation.org/${BYOND_MAJOR}.${BYOND_MINOR}_byond_linux.zip" -o byond.zip -H "Authorization: Basic $AURORA_BUILDASSETS_AUTH"
+  curl "http://www.byond.com/download/build/${BYOND_MAJOR}/${BYOND_MAJOR}.${BYOND_MINOR}_byond_linux.zip" -o byond.zip -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36 Edg/143.0.0.0"
   unzip byond.zip
   rm byond.zip
   cd byond
