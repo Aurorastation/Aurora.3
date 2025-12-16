@@ -8944,7 +8944,7 @@
 	},
 /area/headmaster_ship/dock/starboard)
 "KP" = (
-/obj/machinery/autolathe{
+/obj/machinery/fabricator/autolathe{
 	desc = "Your typical Autolathe. It appears to have much more options than your regular one, however...";
 	hacked = 1;
 	name = "Modified Autolathe";

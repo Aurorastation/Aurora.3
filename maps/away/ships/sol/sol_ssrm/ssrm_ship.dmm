@@ -8449,7 +8449,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/operations,
-/obj/machinery/autolathe{
+/obj/machinery/fabricator/autolathe{
 	hacked = 1
 	},
 /turf/simulated/floor/tiled/dark,
