@@ -375,7 +375,7 @@ jobs:
       - name: Install OS Packages
         uses: awalsh128/cache-apt-pkgs-action@latest
         with:
-          packages: gcc-multilib zlib1g-dev:i386 libssl-dev:i386 libgcc-s1:i386 libc6:i386 libcurl4-openssl-dev:i386 libcurl4t64:i386 libcurl4
+          packages: gcc-multilib zlib1g-dev:i386 libssl-dev:i386 libgcc-s1:i386 libc6:i386
           version: 1.1
 
       #And natively, the packages that break from a cache
@@ -401,8 +401,6 @@ jobs:
           bash tools/ci/install_byond.sh
           source $HOME/BYOND/byond/bin/byondsetup
           bash tools/ci/install_rust_g.sh
-        env:
-          AURORA_BUILDASSETS_AUTH: ${{ secrets.AURORA_BUILDASSETS_AUTH }} # Get pull auth from github secrets
 
       - name: Configure pod, build and run
         env:
@@ -500,7 +498,7 @@ jobs:
       - name: Install OS Packages
         uses: awalsh128/cache-apt-pkgs-action@latest
         with:
-          packages: gcc-multilib zlib1g-dev:i386 libssl-dev:i386 libgcc-s1:i386 libc6:i386 libcurl4-openssl-dev:i386 libcurl4t64:i386 libcurl4
+          packages: gcc-multilib zlib1g-dev:i386 libssl-dev:i386 libgcc-s1:i386 libc6:i386
           version: 1.1
 
       #And natively, the packages that break from a cache
@@ -526,8 +524,6 @@ jobs:
           bash tools/ci/install_byond.sh
           source $HOME/BYOND/byond/bin/byondsetup
           bash tools/ci/install_rust_g.sh
-        env:
-          AURORA_BUILDASSETS_AUTH: ${{ secrets.AURORA_BUILDASSETS_AUTH }} # Get pull auth from github secrets
 
       - name: Configure pod, build and run
         env:
@@ -627,7 +623,7 @@ jobs:
       - name: Install OS Packages
         uses: awalsh128/cache-apt-pkgs-action@latest
         with:
-          packages: gcc-multilib zlib1g-dev:i386 libssl-dev:i386 libgcc-s1:i386 libc6:i386 libcurl4-openssl-dev:i386 libcurl4t64:i386 libcurl4
+          packages: gcc-multilib zlib1g-dev:i386 libssl-dev:i386 libgcc-s1:i386 libc6:i386
           version: 1.1
 
       #And natively, the packages that break from a cache
@@ -653,8 +649,6 @@ jobs:
           bash tools/ci/install_byond.sh
           source $HOME/BYOND/byond/bin/byondsetup
           bash tools/ci/install_rust_g.sh
-        env:
-          AURORA_BUILDASSETS_AUTH: ${{ secrets.AURORA_BUILDASSETS_AUTH }} # Get pull auth from github secrets
 
       - name: Configure pod, build and run
         env:
@@ -754,7 +748,7 @@ jobs:
       - name: Install OS Packages
         uses: awalsh128/cache-apt-pkgs-action@latest
         with:
-          packages: gcc-multilib zlib1g-dev:i386 libssl-dev:i386 libgcc-s1:i386 libc6:i386 libcurl4-openssl-dev:i386 libcurl4t64:i386 libcurl4
+          packages: gcc-multilib zlib1g-dev:i386 libssl-dev:i386 libgcc-s1:i386 libc6:i386
           version: 1.1
 
       #And natively, the packages that break from a cache
@@ -780,8 +774,6 @@ jobs:
           bash tools/ci/install_byond.sh
           source $HOME/BYOND/byond/bin/byondsetup
           bash tools/ci/install_rust_g.sh
-        env:
-          AURORA_BUILDASSETS_AUTH: ${{ secrets.AURORA_BUILDASSETS_AUTH }} # Get pull auth from github secrets
 
       - name: Configure pod, build and run
         env:
@@ -880,7 +872,7 @@ jobs:
       - name: Install OS Packages
         uses: awalsh128/cache-apt-pkgs-action@latest
         with:
-          packages: gcc-multilib zlib1g-dev:i386 libssl-dev:i386 libgcc-s1:i386 libc6:i386 libcurl4-openssl-dev:i386 libcurl4t64:i386 libcurl4
+          packages: gcc-multilib zlib1g-dev:i386 libssl-dev:i386 libgcc-s1:i386 libc6:i386
           version: 1.1
 
       #And natively, the packages that break from a cache
@@ -906,8 +898,6 @@ jobs:
           bash tools/ci/install_byond.sh
           source $HOME/BYOND/byond/bin/byondsetup
           bash tools/ci/install_rust_g.sh
-        env:
-          AURORA_BUILDASSETS_AUTH: ${{ secrets.AURORA_BUILDASSETS_AUTH }} # Get pull auth from github secrets
 
       - name: Configure pod, build and run
         env:
@@ -1005,7 +995,7 @@ jobs:
       - name: Install OS Packages
         uses: awalsh128/cache-apt-pkgs-action@latest
         with:
-          packages: gcc-multilib zlib1g-dev:i386 libssl-dev:i386 libgcc-s1:i386 libc6:i386 libcurl4-openssl-dev:i386 libcurl4t64:i386 libcurl4
+          packages: gcc-multilib zlib1g-dev:i386 libssl-dev:i386 libgcc-s1:i386 libc6:i386
           version: 1.1
 
       #And natively, the packages that break from a cache
@@ -1031,8 +1021,6 @@ jobs:
           bash tools/ci/install_byond.sh
           source $HOME/BYOND/byond/bin/byondsetup
           bash tools/ci/install_rust_g.sh
-        env:
-          AURORA_BUILDASSETS_AUTH: ${{ secrets.AURORA_BUILDASSETS_AUTH }} # Get pull auth from github secrets
 
       - name: Configure pod, build and run
         env:
