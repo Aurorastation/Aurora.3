@@ -22,7 +22,8 @@ ABSTRACT_TYPE(/obj/machinery/fabricator)
 		DEFAULT_WALL_MATERIAL = 25000,
 		MATERIAL_ALUMINIUM = 25000,
 		MATERIAL_GLASS = 12500,
-		MATERIAL_PLASTIC = 12500
+		MATERIAL_PLASTIC = 12500,
+		MATERIAL_PHORON = 12500
 	)
 	/// Current category to show for this fabricator
 	var/show_category = "All"
