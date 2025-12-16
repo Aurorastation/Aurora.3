@@ -375,13 +375,13 @@ jobs:
       - name: Install OS Packages
         uses: awalsh128/cache-apt-pkgs-action@latest
         with:
-          packages: gcc-multilib zlib1g-dev:i386 libssl-dev:i386 libgcc-s1:i386 libc6:i386 libcurl4t64 libcurl4t64:i386
-          version: 1.2
+          packages: gcc-multilib zlib1g-dev:i386 libssl-dev:i386 libgcc-s1:i386 libc6:i386
+          version: 1.1
 
       #And natively, the packages that break from a cache
       - name: Install OS Packages (Native)
         run: |
-          sudo apt-get install libgcc-s1:i386 libssl-dev:i386
+          sudo apt-get install libgcc-s1:i386 libssl-dev:i386 libcurl4t64 libcurl4t64:i386
 
       #Install flyway
       - name: Install Flyway
@@ -498,13 +498,13 @@ jobs:
       - name: Install OS Packages
         uses: awalsh128/cache-apt-pkgs-action@latest
         with:
-          packages: gcc-multilib zlib1g-dev:i386 libssl-dev:i386 libgcc-s1:i386 libc6:i386 libcurl4t64 libcurl4t64:i386
-          version: 1.2
+          packages: gcc-multilib zlib1g-dev:i386 libssl-dev:i386 libgcc-s1:i386 libc6:i386
+          version: 1.1
 
       #And natively, the packages that break from a cache
       - name: Install OS Packages (Native)
         run: |
-          sudo apt-get install libgcc-s1:i386 libssl-dev:i386
+          sudo apt-get install libgcc-s1:i386 libssl-dev:i386 libcurl4t64 libcurl4t64:i386
 
       #Install flyway
       - name: Install Flyway
@@ -623,13 +623,13 @@ jobs:
       - name: Install OS Packages
         uses: awalsh128/cache-apt-pkgs-action@latest
         with:
-          packages: gcc-multilib zlib1g-dev:i386 libssl-dev:i386 libgcc-s1:i386 libc6:i386 libcurl4t64 libcurl4t64:i386
-          version: 1.2
+          packages: gcc-multilib zlib1g-dev:i386 libssl-dev:i386 libgcc-s1:i386 libc6:i386
+          version: 1.1
 
       #And natively, the packages that break from a cache
       - name: Install OS Packages (Native)
         run: |
-          sudo apt-get install libgcc-s1:i386 libssl-dev:i386
+          sudo apt-get install libgcc-s1:i386 libssl-dev:i386 libcurl4t64 libcurl4t64:i386
 
       #Install flyway
       - name: Install Flyway
@@ -748,13 +748,13 @@ jobs:
       - name: Install OS Packages
         uses: awalsh128/cache-apt-pkgs-action@latest
         with:
-          packages: gcc-multilib zlib1g-dev:i386 libssl-dev:i386 libgcc-s1:i386 libc6:i386 libcurl4t64 libcurl4t64:i386
-          version: 1.2
+          packages: gcc-multilib zlib1g-dev:i386 libssl-dev:i386 libgcc-s1:i386 libc6:i386
+          version: 1.1
 
       #And natively, the packages that break from a cache
       - name: Install OS Packages (Native)
         run: |
-          sudo apt-get install libgcc-s1:i386 libssl-dev:i386
+          sudo apt-get install libgcc-s1:i386 libssl-dev:i386 libcurl4t64 libcurl4t64:i386
 
       #Install flyway
       - name: Install Flyway
@@ -872,13 +872,13 @@ jobs:
       - name: Install OS Packages
         uses: awalsh128/cache-apt-pkgs-action@latest
         with:
-          packages: gcc-multilib zlib1g-dev:i386 libssl-dev:i386 libgcc-s1:i386 libc6:i386 libcurl4t64 libcurl4t64:i386
-          version: 1.2
+          packages: gcc-multilib zlib1g-dev:i386 libssl-dev:i386 libgcc-s1:i386 libc6:i386
+          version: 1.1
 
       #And natively, the packages that break from a cache
       - name: Install OS Packages (Native)
         run: |
-          sudo apt-get install libgcc-s1:i386 libssl-dev:i386
+          sudo apt-get install libgcc-s1:i386 libssl-dev:i386 libcurl4t64 libcurl4t64:i386
 
       #Install flyway
       - name: Install Flyway
@@ -995,13 +995,13 @@ jobs:
       - name: Install OS Packages
         uses: awalsh128/cache-apt-pkgs-action@latest
         with:
-          packages: gcc-multilib zlib1g-dev:i386 libssl-dev:i386 libgcc-s1:i386 libc6:i386 libcurl4t64 libcurl4t64:i386
-          version: 1.2
+          packages: gcc-multilib zlib1g-dev:i386 libssl-dev:i386 libgcc-s1:i386 libc6:i386
+          version: 1.1
 
       #And natively, the packages that break from a cache
       - name: Install OS Packages (Native)
         run: |
-          sudo apt-get install libgcc-s1:i386 libssl-dev:i386
+          sudo apt-get install libgcc-s1:i386 libssl-dev:i386 libcurl4t64 libcurl4t64:i386
 
       #Install flyway
       - name: Install Flyway
