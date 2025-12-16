@@ -1102,9 +1102,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/himeo_patrol_ship/deck_2_interstitial)
 "ew" = (
-/obj/machinery/fabricator/autolathe{
-	hacked = 1
-	},
+/obj/machinery/fabricator/autolathe/hacked,
 /obj/effect/floor_decal/corner/orange/full,
 /turf/simulated/floor/tiled/gunmetal,
 /area/himeo_patrol_ship/engineering)
