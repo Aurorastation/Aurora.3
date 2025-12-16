@@ -375,7 +375,7 @@ jobs:
       - name: Install OS Packages
         uses: awalsh128/cache-apt-pkgs-action@latest
         with:
-          packages: gcc-multilib zlib1g-dev:i386 libssl-dev:i386 libgcc-s1:i386 libc6:i386 libcurl4t64:amd64
+          packages: gcc-multilib zlib1g-dev:i386 libssl-dev:i386 libgcc-s1:i386 libc6:i386 libcurl4t64
           version: 1.1
 
       #And natively, the packages that break from a cache
@@ -500,7 +500,7 @@ jobs:
       - name: Install OS Packages
         uses: awalsh128/cache-apt-pkgs-action@latest
         with:
-          packages: gcc-multilib zlib1g-dev:i386 libssl-dev:i386 libgcc-s1:i386 libc6:i386 libcurl4t64:amd64
+          packages: gcc-multilib zlib1g-dev:i386 libssl-dev:i386 libgcc-s1:i386 libc6:i386 libcurl4t64
           version: 1.1
 
       #And natively, the packages that break from a cache
@@ -627,7 +627,7 @@ jobs:
       - name: Install OS Packages
         uses: awalsh128/cache-apt-pkgs-action@latest
         with:
-          packages: gcc-multilib zlib1g-dev:i386 libssl-dev:i386 libgcc-s1:i386 libc6:i386 libcurl4t64:amd64
+          packages: gcc-multilib zlib1g-dev:i386 libssl-dev:i386 libgcc-s1:i386 libc6:i386 libcurl4t64
           version: 1.1
 
       #And natively, the packages that break from a cache
@@ -754,7 +754,7 @@ jobs:
       - name: Install OS Packages
         uses: awalsh128/cache-apt-pkgs-action@latest
         with:
-          packages: gcc-multilib zlib1g-dev:i386 libssl-dev:i386 libgcc-s1:i386 libc6:i386 libcurl4t64:amd64
+          packages: gcc-multilib zlib1g-dev:i386 libssl-dev:i386 libgcc-s1:i386 libc6:i386 libcurl4t64
           version: 1.1
 
       #And natively, the packages that break from a cache
@@ -880,7 +880,7 @@ jobs:
       - name: Install OS Packages
         uses: awalsh128/cache-apt-pkgs-action@latest
         with:
-          packages: gcc-multilib zlib1g-dev:i386 libssl-dev:i386 libgcc-s1:i386 libc6:i386 libcurl4t64:amd64
+          packages: gcc-multilib zlib1g-dev:i386 libssl-dev:i386 libgcc-s1:i386 libc6:i386 libcurl4t64
           version: 1.1
 
       #And natively, the packages that break from a cache
@@ -1005,7 +1005,7 @@ jobs:
       - name: Install OS Packages
         uses: awalsh128/cache-apt-pkgs-action@latest
         with:
-          packages: gcc-multilib zlib1g-dev:i386 libssl-dev:i386 libgcc-s1:i386 libc6:i386 libcurl4t64:amd64
+          packages: gcc-multilib zlib1g-dev:i386 libssl-dev:i386 libgcc-s1:i386 libc6:i386 libcurl4t64
           version: 1.1
 
       #And natively, the packages that break from a cache
