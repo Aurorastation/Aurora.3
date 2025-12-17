@@ -132,3 +132,6 @@
 2025-12-15:
   GeneralCamo:
   - bugfix: Fix stealth removal of Santa's bag.
+2025-12-17:
+  Hellfirejag:
+  - bugfix: Fixed mindshields and mind blankers spamming the chat.
