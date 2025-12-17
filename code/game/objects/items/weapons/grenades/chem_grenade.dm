@@ -84,7 +84,7 @@
 		icon_state = initial(icon_state) +"_ass"
 		name = "unsecured grenade with [beakers.len] containers[detonator?" and detonator":""]"
 		stage = 1
-	else if(attacking_item.isscrewdriver() && path != 2)
+	else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER && path != 2)
 		if(stage == 1)
 			path = 1
 			if(beakers.len)

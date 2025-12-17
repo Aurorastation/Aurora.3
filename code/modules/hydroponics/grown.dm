@@ -200,7 +200,7 @@
 			return
 
 	if(seed)
-		if(GET_SEED_TRAIT(seed, TRAIT_PRODUCES_POWER) && attacking_item.iscoil())
+		if(GET_SEED_TRAIT(seed, TRAIT_PRODUCES_POWER) && attacking_item.tool_behaviour == TOOL_CABLECOIL)
 			var/obj/item/stack/cable_coil/C = attacking_item
 			if(C.use(5))
 				//TODO: generalize this.

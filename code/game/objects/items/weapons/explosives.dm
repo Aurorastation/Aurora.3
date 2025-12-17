@@ -26,7 +26,7 @@
 	return ..()
 
 /obj/item/plastique/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		open_panel = !open_panel
 		to_chat(user, SPAN_NOTICE("You [open_panel ? "open" : "close"] the wire panel."))
 		return TRUE

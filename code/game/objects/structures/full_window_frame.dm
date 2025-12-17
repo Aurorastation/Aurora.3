@@ -59,7 +59,7 @@
 	return FALSE
 
 /obj/structure/window_frame/attackby(obj/item/attacking_item, mob/user)
-	if((attacking_item.isscrewdriver()) && (istype(loc, /turf/simulated) || anchored))
+	if((attacking_item.tool_behaviour == TOOL_SCREWDRIVER) && (istype(loc, /turf/simulated) || anchored))
 		if(has_glass_installed)
 			to_chat(user, SPAN_NOTICE("You can't unfasten \the [src] if it has glass installed."))
 			return
@@ -79,7 +79,7 @@
 				update_nearby_icons()
 				return
 
-	else if(attacking_item.iswelder())
+	else if(attacking_item.tool_behaviour == TOOL_WELDER)
 		if(has_glass_installed)
 			to_chat(user, SPAN_NOTICE("You can't disassemble \the [src] if it has glass installed."))
 			return

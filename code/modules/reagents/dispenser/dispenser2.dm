@@ -94,7 +94,7 @@
 		eject()
 
 /obj/machinery/chemical_dispenser/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		to_chat(user, SPAN_NOTICE("You begin to [anchored ? "un" : ""]fasten [src]."))
 		if(attacking_item.use_tool(src, user, 20, volume = 50))
 			user.visible_message(
@@ -108,7 +108,7 @@
 	else if(istype(attacking_item, /obj/item/reagent_containers/chem_disp_cartridge))
 		add_cartridge(attacking_item, user)
 
-	else if(attacking_item.isscrewdriver())
+	else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		var/label = tgui_input_list(user, "Which cartridge would you like to remove?", "Chemical Dispenser", cartridges)
 		if(!label)
 			return

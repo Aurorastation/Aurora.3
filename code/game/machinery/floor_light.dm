@@ -23,12 +23,12 @@
 	anchored = 1
 
 /obj/machinery/floor_light/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		anchored = !anchored
 		visible_message(SPAN_NOTICE("\The [user] has [anchored ? "attached" : "detached"] \the [src]."))
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
 		return TRUE
-	else if(attacking_item.iswelder() && (damaged || (stat & BROKEN)))
+	else if(attacking_item.tool_behaviour == TOOL_WELDER && (damaged || (stat & BROKEN)))
 		var/obj/item/weldingtool/WT = attacking_item
 		if(!WT.use(0, user))
 			to_chat(user, SPAN_WARNING("\The [src] must be on to complete this task."))
@@ -45,7 +45,7 @@
 		return TRUE
 	else if(attacking_item.force && user.a_intent == "hurt")
 		return attack_hand(user)
-	else if(attacking_item.iscrowbar())
+	else if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 		if(anchored)
 			to_chat(user, SPAN_WARNING("\The [src] must be unfastened from the [loc] first!"))
 			return TRUE

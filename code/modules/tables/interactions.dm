@@ -239,7 +239,7 @@
 				to_chat(user, SPAN_WARNING("You need a better grip to do that!"))
 				return
 
-	if(reinforced && attacking_item.isscrewdriver())
+	if(reinforced && attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		remove_reinforced(attacking_item, user)
 		if(!reinforced)
 			update_desc()
@@ -247,7 +247,7 @@
 			update_material()
 		return 1
 
-	if(carpeted && attacking_item.iscrowbar())
+	if(carpeted && attacking_item.tool_behaviour == TOOL_CROWBAR)
 		user.visible_message(SPAN_NOTICE("\The [user] removes the carpet from \the [src]."),
 								SPAN_NOTICE("You remove the carpet from \the [src]."))
 		new /obj/item/stack/tile/carpet(loc)
@@ -266,7 +266,7 @@
 		else
 			to_chat(user, SPAN_WARNING("You don't have enough carpet!"))
 
-	if(!reinforced && !carpeted && material && (attacking_item.iswrench() || istype(attacking_item, /obj/item/gun/energy/plasmacutter)))
+	if(!reinforced && !carpeted && material && (attacking_item.tool_behaviour == TOOL_WRENCH || istype(attacking_item, /obj/item/gun/energy/plasmacutter)))
 		remove_material(attacking_item, user)
 		if(!material)
 			update_connections(1)
@@ -277,11 +277,11 @@
 			update_material()
 		return 1
 
-	if(!carpeted && !reinforced && !material && (attacking_item.iswrench() || istype(attacking_item, /obj/item/gun/energy/plasmacutter)))
+	if(!carpeted && !reinforced && !material && (attacking_item.tool_behaviour == TOOL_WRENCH || istype(attacking_item, /obj/item/gun/energy/plasmacutter)))
 		dismantle(attacking_item, user)
 		return 1
 
-	if(health < maxhealth && attacking_item.iswelder())
+	if(health < maxhealth && attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/F = attacking_item
 		if(F.welding)
 			to_chat(user, SPAN_NOTICE("You begin reparing damage to \the [src]."))
@@ -321,7 +321,7 @@
 		return
 
 
-	if(attacking_item.ishammer() && user.a_intent != I_HURT)
+	if(attacking_item.tool_behaviour == TOOL_HAMMER && user.a_intent != I_HURT)
 		var/obj/item/I = usr.get_inactive_hand()
 		if(I && istype(I, /obj/item/stack))
 			var/obj/item/stack/D = I

@@ -52,7 +52,7 @@
 
 //Don't want to render prison breaks impossible
 /obj/machinery/flasher/attackby(obj/item/attacking_item, mob/user)
-	if (attacking_item.iswirecutter())
+	if (attacking_item.tool_behaviour == TOOL_WIRECUTTER)
 		add_fingerprint(user)
 		src.disable = !src.disable
 		if (src.disable)
@@ -110,7 +110,7 @@
 		src.flash()
 
 /obj/machinery/flasher/portable/attackby(obj/item/attacking_item, mob/user)
-	if (attacking_item.iswrench())
+	if (attacking_item.tool_behaviour == TOOL_WRENCH)
 		add_fingerprint(user)
 		src.anchored = !src.anchored
 

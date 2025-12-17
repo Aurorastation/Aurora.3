@@ -140,7 +140,7 @@ GLOBAL_LIST_INIT_TYPED(active_radio_jammers, /obj/item/device/radiojammer, list(
 
 
 /obj/item/device/radiojammer/improvised/attackby(obj/item/attacking_item, mob/user)
-	if (attacking_item.isscrewdriver())
+	if (attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		to_chat(user, SPAN_NOTICE("You disassemble the improvised signal jammer."))
 		user.put_in_hands(assembly_holder)
 		assembly_holder.detached()

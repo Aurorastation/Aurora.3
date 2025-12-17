@@ -122,7 +122,7 @@
 			burn(is_hot(attacking_item))
 
 	if(locate(/obj/effect/overlay/wallrot) in src)
-		if(attacking_item.iswelder())
+		if(attacking_item.tool_behaviour == TOOL_WELDER)
 			var/obj/item/weldingtool/WT = attacking_item
 			if(WT.use(0,user))
 				to_chat(user, SPAN_NOTICE("You burn away the fungi with \the [WT]."))
@@ -167,7 +167,7 @@
 
 	var/turf/T = user.loc	//get user's location for delay checks
 
-	if(damage && attacking_item.iswelder())
+	if(damage && attacking_item.tool_behaviour == TOOL_WELDER)
 
 		var/obj/item/weldingtool/WT = attacking_item
 
@@ -193,7 +193,7 @@
 		var/dismantle_verb
 		var/dismantle_sound
 
-		if(attacking_item.iswelder())
+		if(attacking_item.tool_behaviour == TOOL_WELDER)
 			var/obj/item/weldingtool/WT = attacking_item
 			if(!WT.isOn())
 				return
@@ -266,14 +266,14 @@
 	else
 		switch(construction_stage)
 			if(6)
-				if (attacking_item.iswirecutter())
+				if (attacking_item.tool_behaviour == TOOL_WIRECUTTER)
 					playsound(src, 'sound/items/Wirecutter.ogg', 100, 1)
 					construction_stage = 5
 					to_chat(user, SPAN_NOTICE("You cut the outer grille."))
 					update_icon()
 					return
 			if(5)
-				if (attacking_item.isscrewdriver())
+				if (attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 					to_chat(user, SPAN_NOTICE("You begin removing the support lines."))
 					attacking_item.play_tool_sound(get_turf(src), 100)
 					if(!attacking_item.use_tool(src, user, 60, volume = 50) || !istype(src, /turf/simulated/wall) || construction_stage != 5)
@@ -292,7 +292,7 @@
 						return
 			if(4)
 				var/cut_cover
-				if(attacking_item.iswelder())
+				if(attacking_item.tool_behaviour == TOOL_WELDER)
 					var/obj/item/weldingtool/WT = attacking_item
 					if(!WT.isOn())
 						return
@@ -312,7 +312,7 @@
 					to_chat(user, SPAN_NOTICE("You press firmly on the cover, dislodging it."))
 					return
 			if(3)
-				if (attacking_item.iscrowbar())
+				if (attacking_item.tool_behaviour == TOOL_CROWBAR)
 					to_chat(user, SPAN_NOTICE("You struggle to pry off the cover."))
 					if(!attacking_item.use_tool(src, user , 100, volume = 50) || !istype(src, /turf/simulated/wall) || construction_stage != 3)
 						return
@@ -321,7 +321,7 @@
 					to_chat(user, SPAN_NOTICE("You pry off the cover."))
 					return
 			if(2)
-				if (attacking_item.iswrench())
+				if (attacking_item.tool_behaviour == TOOL_WRENCH)
 					to_chat(user, SPAN_NOTICE("You start loosening the anchoring bolts which secure the support rods to their frame."))
 					if(!attacking_item.use_tool(src, user , 40, volume = 50) || !istype(src, /turf/simulated/wall) || construction_stage != 2)
 						return
@@ -331,7 +331,7 @@
 					return
 			if(1)
 				var/cut_cover
-				if(attacking_item.iswelder())
+				if(attacking_item.tool_behaviour == TOOL_WELDER)
 					var/obj/item/weldingtool/WT = attacking_item
 					if( WT.use(0,user) )
 						cut_cover=1
@@ -350,7 +350,7 @@
 					to_chat(user, SPAN_NOTICE("The support rods drop out as you cut them loose from the frame."))
 					return
 			if(0)
-				if(attacking_item.iscrowbar())
+				if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 					to_chat(user, SPAN_NOTICE("You struggle to pry off the outer sheath."))
 					if(!attacking_item.use_tool(src, user , 100, volume = 50)) return
 					if(!istype(src, /turf/simulated/wall) || !user || !attacking_item || !T )	return

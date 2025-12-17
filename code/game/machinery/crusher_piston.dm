@@ -104,7 +104,7 @@
 
 	//Stuff you can do if the maint hatch is open
 	if(panel_open)
-		if(attacking_item.iswrench())
+		if(attacking_item.tool_behaviour == TOOL_WRENCH)
 			to_chat(user, SPAN_NOTICE("You start [valve_open ? "closing" : "opening"] the pressure relief valve of [src]."))
 			if(attacking_item.use_tool(src, user, 50, volume = 50))
 				valve_open = !valve_open

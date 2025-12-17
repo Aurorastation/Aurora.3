@@ -24,7 +24,7 @@
 /obj/effect/spider/attackby(obj/item/attacking_item, mob/user)
 	visible_message(SPAN_WARNING("\The [src] has been [LAZYPICK(attacking_item.attack_verb, "attacked")] with [attacking_item][(user ? " by [user]." : ".")]"))
 	var/damage = attacking_item.force / 4.0
-	if(attacking_item.iswelder())
+	if(attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/WT = attacking_item
 		if(WT.use(0, user))
 			damage = 15

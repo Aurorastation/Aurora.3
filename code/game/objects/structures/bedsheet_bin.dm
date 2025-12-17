@@ -196,7 +196,7 @@ LINEN BINS
 	return FALSE
 
 /obj/item/bedsheet/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		user.visible_message(SPAN_NOTICE("\The [user] begins poking eyeholes in \the [src] with \the [attacking_item]."),
 							SPAN_NOTICE("You begin poking eyeholes in \the [src] with \the [attacking_item]."))
 		if(attacking_item.use_tool(src, user, 50, volume = 50))

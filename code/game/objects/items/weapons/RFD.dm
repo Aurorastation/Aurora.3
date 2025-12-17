@@ -105,7 +105,7 @@ ABSTRACT_TYPE(/obj/item/rfd)
 		return TRUE
 
 	// Turning it into a crossbow, as you do.
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		crafting = !crafting
 		if(!crafting)
 			to_chat(user, SPAN_NOTICE("You reassemble the RFD."))

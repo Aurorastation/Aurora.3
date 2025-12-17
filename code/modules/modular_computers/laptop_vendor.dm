@@ -335,7 +335,7 @@
 		ui.set_auto_update(1)
 
 /obj/machinery/lapvend/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		if(anchored)
 			user.visible_message("<b>[user]</b> begins unsecuring \the [src] from the floor.", \

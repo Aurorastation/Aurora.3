@@ -542,7 +542,7 @@
 	if (attacking_item.is_open_container())
 		return FALSE
 
-	if((attacking_item.iswirecutter() || istype(attacking_item, /obj/item/surgery/scalpel)) && !closed_system)
+	if((attacking_item.tool_behaviour == TOOL_WIRECUTTER || istype(attacking_item, /obj/item/surgery/scalpel)) && !closed_system)
 		if(!seed)
 			to_chat(user, "There is nothing to take a sample from in \the [src].")
 			return
@@ -668,7 +668,7 @@
 		qdel(attacking_item)
 		check_health()
 
-	else if(mechanical && attacking_item.iswrench())
+	else if(mechanical && attacking_item.tool_behaviour == TOOL_WRENCH)
 		//If there's a connector here, the portable_atmospherics setup can handle it.
 		if(locate(/obj/machinery/atmospherics/portables_connector/) in loc)
 			return ..()

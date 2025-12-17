@@ -174,7 +174,7 @@
 					update_icon()
 				return TRUE
 
-			if (attacking_item.iswelder())
+			if (attacking_item.tool_behaviour == TOOL_WELDER)
 				var/obj/item/weldingtool/WT = attacking_item
 				if (WT.use(2, user))
 					user.visible_message(SPAN_NOTICE("[user] starts welding the metal shell of [src]."), SPAN_NOTICE("You start [hacked ? "repairing" : "welding open"] the metal covering of [src]."))
@@ -191,7 +191,7 @@
 					update_icon()
 				return TRUE
 
-			if (attacking_item.iscrowbar())
+			if (attacking_item.tool_behaviour == TOOL_CROWBAR)
 				if (!locked)
 					to_chat(user, SPAN_NOTICE("You pry the cover off [src]."))
 					setconstructionstate(1)
@@ -205,19 +205,19 @@
 					to_chat(user, SPAN_NOTICE("There's already a powercell in \the [src]."))
 				return TRUE
 
-			if (attacking_item.iscrowbar())
+			if (attacking_item.tool_behaviour == TOOL_CROWBAR)
 				to_chat(user, SPAN_NOTICE("You wedge the cover back in place."))
 				setconstructionstate(0)
 				return TRUE
 
 		if (2)
-			if (attacking_item.isscrewdriver())
+			if (attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 				to_chat(user, SPAN_NOTICE("You unscrew and remove the wiring cover from \the [src]."))
 				attacking_item.play_tool_sound(get_turf(src), 50)
 				setconstructionstate(3)
 				return TRUE
 
-			if (attacking_item.iscrowbar())
+			if (attacking_item.tool_behaviour == TOOL_CROWBAR)
 				to_chat(user, SPAN_NOTICE("You wedge the cover back in place."))
 				setconstructionstate(0)
 				return TRUE
@@ -231,20 +231,20 @@
 				return TRUE
 
 		if (3)
-			if (attacking_item.iswirecutter())
+			if (attacking_item.tool_behaviour == TOOL_WIRECUTTER)
 				to_chat(user, SPAN_NOTICE("You cut the wires connecting the [src]'s magnets to their internal powersupply, [target ? "making the device fall off [target] and rendering it unusable." : "rendering the device unusable."]"))
 				playsound(loc, 'sound/items/Wirecutter.ogg', 50, 1)
 				setconstructionstate(4)
 				return TRUE
 
-			if (attacking_item.isscrewdriver())
+			if (attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 				to_chat(user, SPAN_NOTICE("You replace and screw tight the wiring cover from \the [src]."))
 				attacking_item.play_tool_sound(get_turf(src), 50)
 				setconstructionstate(2)
 				return TRUE
 
 		if (4)
-			if (attacking_item.iswirecutter())
+			if (attacking_item.tool_behaviour == TOOL_WIRECUTTER)
 				to_chat(user, SPAN_NOTICE("You repair the wires connecting the [src]'s magnets to their internal powersupply"))
 				setconstructionstate(3)
 				return TRUE

@@ -111,7 +111,7 @@
 	update_icon()
 
 /obj/item/implanter/ipc_tag/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(!ipc_tag)
 			to_chat(user, SPAN_WARNING("\The [src] doesn't have an IPC tag loaded."))
 			return

@@ -287,7 +287,7 @@
 	// Already doing something.
 	if(operating)
 		return TRUE
-	if(attacking_item.iswelder() && !repairing)
+	if(attacking_item.tool_behaviour == TOOL_WELDER && !repairing)
 		var/obj/item/weldingtool/WT = attacking_item
 		if(WT.isOn())
 			user.visible_message(
@@ -305,14 +305,14 @@
 			blocked = !blocked
 			update_icon()
 		return TRUE
-	if(density && attacking_item.isscrewdriver())
+	if(density && attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		hatch_open = !hatch_open
 		user.visible_message(SPAN_DANGER("[user] has [hatch_open ? "opened" : "closed"] \the [src] maintenance panel."),
 									"You have [hatch_open ? "opened" : "closed"] the [src] maintenance panel.")
 		update_icon()
 		return TRUE
 
-	if(blocked && attacking_item.iscrowbar() && !repairing)
+	if(blocked && attacking_item.tool_behaviour == TOOL_CROWBAR && !repairing)
 		if(!hatch_open)
 			to_chat(user, SPAN_DANGER("You must open the maintenance panel first!"))
 		else
@@ -340,11 +340,11 @@
 		to_chat(user, SPAN_DANGER("\The [src] is welded shut!"))
 		return TRUE
 
-	if(attacking_item.iscrowbar() || istype(attacking_item, /obj/item/material/twohanded/fireaxe) || attacking_item.ishammer())
+	if(attacking_item.tool_behaviour == TOOL_CROWBAR || istype(attacking_item, /obj/item/material/twohanded/fireaxe) || attacking_item.tool_behaviour == TOOL_HAMMER)
 		if(operating)
 			return TRUE
 
-		if(blocked && attacking_item.iscrowbar())
+		if(blocked && attacking_item.tool_behaviour == TOOL_CROWBAR)
 			user.visible_message(SPAN_DANGER("\The [user] pries at \the [src] with \a [attacking_item], but \the [src] is welded in place!"),\
 			"You try to pry \the [src] [density ? "open" : "closed"], but it is welded in place!",\
 			"You hear someone struggle and metal straining.")
@@ -359,7 +359,7 @@
 				"You start forcing \the [src] [density ? "open" : "closed"] with \the [attacking_item]!",\
 				"You hear metal strain.")
 		if(attacking_item.use_tool(src, user, 30, volume = 50))
-			if(attacking_item.iscrowbar() || attacking_item.ishammer())
+			if(attacking_item.tool_behaviour == TOOL_CROWBAR || attacking_item.tool_behaviour == TOOL_HAMMER)
 				if(stat & (BROKEN|NOPOWER) || !density)
 					user.visible_message(SPAN_DANGER("\The [user] forces \the [src] [density ? "open" : "closed"] with \a [attacking_item]!"),\
 					"You force \the [src] [density ? "open" : "closed"] with \the [attacking_item]!",\

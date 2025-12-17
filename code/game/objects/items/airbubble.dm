@@ -446,7 +446,7 @@
 		qdel(attacking_item)
 		update_icon()
 		return TRUE
-	else if(attacking_item.iswirecutter())
+	else if(attacking_item.tool_behaviour == TOOL_WIRECUTTER)
 		if(!zipped)
 			to_chat(user, SPAN_WARNING("[src] has no cables to cut."))
 			attack_hand(user)

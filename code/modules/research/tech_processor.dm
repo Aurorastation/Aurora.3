@@ -43,7 +43,7 @@
 		heat_delay = initial(heat_delay)
 
 /obj/machinery/r_n_d/tech_processor/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.ismultitool())
+	if(attacking_item.tool_behaviour == TOOL_MULTITOOL)
 		var/obj/item/device/multitool/MT = attacking_item
 		MT.set_buffer(src)
 		to_chat(user, SPAN_NOTICE("You attach \the [src]'s linking node to \the [MT]'s machinery buffer."))

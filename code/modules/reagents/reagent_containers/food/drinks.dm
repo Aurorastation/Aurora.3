@@ -336,7 +336,7 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	. += "For: [details["Customer"]]"
 
 /obj/item/reagent_containers/food/drinks/takeaway_cup_idris/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.ispen() && !use_check_and_message(user))
+	if(attacking_item.tool_behaviour == TOOL_PEN && !use_check_and_message(user))
 		var/choice = tgui_input_list(user, "Which detail do you want to edit?", "Detail Editor", list("Customer", "Order"))
 		switch(choice)
 			if("Customer")

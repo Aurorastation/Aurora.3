@@ -320,7 +320,7 @@
 		return 1
 
 /obj/machinery/shieldgen/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		attacking_item.play_tool_sound(get_turf(src), 50)
 		if(panel_open)
 			to_chat(user, SPAN_NOTICE("You close the panel."))
@@ -329,7 +329,7 @@
 			to_chat(user, SPAN_NOTICE("You open the panel and expose the wiring."))
 			panel_open = TRUE
 
-	else if(attacking_item.iscoil() && malfunction && panel_open)
+	else if(attacking_item.tool_behaviour == TOOL_CABLECOIL && malfunction && panel_open)
 		var/obj/item/stack/cable_coil/coil = attacking_item
 		to_chat(user, SPAN_NOTICE("You begin to replace the wires."))
 		//if(do_after(user, min(60, round( ((maxhealth/health)*10)+(malfunction*10) ))) //Take longer to repair heavier damage
@@ -340,7 +340,7 @@
 				to_chat(user, SPAN_NOTICE("You repair the [src]!"))
 				update_icon()
 
-	else if(attacking_item.iswrench())
+	else if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(locked)
 			to_chat(user, "The bolts are covered, unlocking this would retract the covers.")
 			return

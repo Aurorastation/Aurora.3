@@ -1093,7 +1093,7 @@ GLOBAL_LIST_INIT_TYPED(allCasters, /obj/machinery/newscaster, list())
 
 
 /obj/item/newspaper/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.ispen())
+	if(attacking_item.tool_behaviour == TOOL_PEN)
 		if(rolled)
 			user.visible_message(SPAN_NOTICE("\The [user] unrolls \the [src] to write on it."),\
 									SPAN_NOTICE("You unroll \the [src] to write on it."))

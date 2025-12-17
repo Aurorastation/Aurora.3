@@ -47,7 +47,7 @@
 	update_icon()
 
 /obj/item/ammo_casing/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(!BB)
 			to_chat(user, SPAN_NOTICE("There is no bullet in the casing to inscribe anything into."))
 			return

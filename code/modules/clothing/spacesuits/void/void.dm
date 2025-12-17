@@ -268,7 +268,7 @@
 		to_chat(user, SPAN_WARNING("You cannot modify \the [src] while it is being worn."))
 		return
 
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(helmet || boots || tank || cooler)
 			var/choice = tgui_input_list(usr, "What component would you like to remove?", "Component Removal", list(helmet,boots,tank,cooler))
 			if(!choice) return

@@ -220,7 +220,7 @@
 
 	var/obj/structure/disposalpipe/CP = locate() in T
 
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(anchored)
 			anchored = 0
 			if(ispipe)
@@ -258,7 +258,7 @@
 		attacking_item.play_tool_sound(get_turf(src), 100)
 		update()
 
-	else if(attacking_item.iswelder())
+	else if(attacking_item.tool_behaviour == TOOL_WELDER)
 		if(anchored)
 			var/obj/item/weldingtool/W = attacking_item
 			if(W.use(0,user))

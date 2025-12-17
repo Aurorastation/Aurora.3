@@ -314,7 +314,7 @@
 			attached_satchel.insert_into_storage(ore)
 		return
 
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(!attached_satchel)
 			to_chat(user, SPAN_WARNING("\The [src] doesn't have a satchel attached to it!"))
 			return
@@ -328,7 +328,7 @@
 			attached_satchel = null
 		return
 
-	if(attacking_item.iscrowbar())
+	if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 		if(panel_open)
 			if(cell)
 				to_chat(user, SPAN_NOTICE("You shimmy out \the [cell]."))
@@ -572,7 +572,7 @@
 	if(default_deconstruction_crowbar(user, attacking_item))
 		return
 
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(istype(get_turf(src), /turf/space))
 			to_chat(user, SPAN_NOTICE("You send \the [src] careening into space. Idiot."))
 			var/inertia = rand(10, 30)

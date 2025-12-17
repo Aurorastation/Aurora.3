@@ -107,7 +107,7 @@
 		else
 			to_chat(user, SPAN_WARNING("This machine is only accepting coins!"))
 		return TRUE
-	else if(attacking_item.ismultitool())
+	else if(attacking_item.tool_behaviour == TOOL_MULTITOOL)
 		if(balance > 0)
 			visible_message("<b>[src]</b> says, 'ERROR! Please empty the machine balance before altering paymode'") //Prevents converting coins into credits and vice versa
 		else

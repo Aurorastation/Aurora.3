@@ -170,7 +170,7 @@
 			user.visible_message("[user] inserts [attacking_item] into \the [src]'s GPS device slot.",
 									SPAN_NOTICE("You insert [attacking_item] into \the [src]'s GPS device slot."))
 
-	else if(attacking_item.ismultitool())
+	else if(attacking_item.tool_behaviour == TOOL_MULTITOOL)
 
 		var/obj/item/device/multitool/M = attacking_item
 		if(M.buffer && istype(M.buffer, /obj/machinery/telepad))

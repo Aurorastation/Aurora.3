@@ -144,7 +144,7 @@
 		else
 			to_chat(user, SPAN_NOTICE("[src] already has a cell."))
 
-	else if(attacking_item.isscrewdriver())
+	else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(cell)
 			cell.update_icon()
 			cell.forceMove(get_turf(src.loc))

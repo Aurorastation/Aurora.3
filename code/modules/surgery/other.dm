@@ -244,7 +244,7 @@
 
 	if(!istype(target))
 		return FALSE
-	if(tool.iswelder())
+	if(tool.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/welder = tool
 		if(!welder.isOn() || !welder.use(1,user))
 			return FALSE

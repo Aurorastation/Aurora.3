@@ -102,7 +102,7 @@
 	update_icon()
 
 /obj/machinery/sparker/attackby(obj/item/attacking_item, mob/user)
-	if (attacking_item.isscrewdriver())
+	if (attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		add_fingerprint(user)
 		disable = !disable
 		if(disable)

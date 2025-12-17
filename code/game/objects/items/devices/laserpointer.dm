@@ -50,7 +50,7 @@
 			to_chat(user, SPAN_NOTICE("[src] already has a laser diode."))
 		return TRUE
 
-	else if(attacking_item.isscrewdriver())
+	else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(diode)
 			to_chat(user, SPAN_NOTICE("You remove the [diode.name] from the [src]."))
 			diode.forceMove(get_turf(user))

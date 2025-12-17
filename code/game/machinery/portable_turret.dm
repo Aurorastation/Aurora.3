@@ -358,7 +358,7 @@
 
 /obj/machinery/porta_turret/attackby(obj/item/attacking_item, mob/user)
 	if(stat & BROKEN)
-		if(attacking_item.iscrowbar())
+		if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 			//If the turret is destroyed, you can remove it with a crowbar to
 			//try and salvage its components
 			to_chat(user, SPAN_NOTICE("You begin prying the metal coverings off."))
@@ -377,7 +377,7 @@
 				qdel(src) // qdel
 			return TRUE
 
-	else if((attacking_item.iswrench()))
+	else if((attacking_item.tool_behaviour == TOOL_WRENCH))
 		if (immobile)
 			to_chat(user, SPAN_NOTICE("[src] is firmly attached to the ground with some form of epoxy."))
 			return TRUE
@@ -413,7 +413,7 @@
 		wrenching = 0
 		return TRUE
 
-	else if(attacking_item.iswelder())
+	else if(attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/WT = attacking_item
 		if (!WT.welding)
 			to_chat(user, SPAN_DANGER("\The [WT] must be turned on!"))
@@ -891,7 +891,7 @@
 	//this is a bit unwieldy but self-explanatory
 	switch(build_step)
 		if(0)	//first step
-			if(attacking_item.iswrench() && !anchored)
+			if(attacking_item.tool_behaviour == TOOL_WRENCH && !anchored)
 				attacking_item.play_tool_sound(get_turf(src), 100)
 				to_chat(user, SPAN_NOTICE("You secure the external bolts."))
 				anchored = 1
@@ -899,7 +899,7 @@
 				icon_state = "turret_frame_1_[case_sprite_set]"
 				return TRUE
 
-			else if(attacking_item.iscrowbar() && !anchored)
+			else if(attacking_item.tool_behaviour == TOOL_CROWBAR && !anchored)
 				attacking_item.play_tool_sound(get_turf(src), 75)
 				to_chat(user, SPAN_NOTICE("You dismantle the turret construction."))
 				new /obj/item/stack/material/steel( loc, 5)
@@ -917,7 +917,7 @@
 					to_chat(user, SPAN_WARNING("You need two sheets of metal to continue construction."))
 				return TRUE
 
-			else if(attacking_item.iswrench())
+			else if(attacking_item.tool_behaviour == TOOL_WRENCH)
 				attacking_item.play_tool_sound(get_turf(src), 75)
 				to_chat(user, SPAN_NOTICE("You unfasten the external bolts."))
 				anchored = 0
@@ -927,14 +927,14 @@
 
 
 		if(2)
-			if(attacking_item.iswrench())
+			if(attacking_item.tool_behaviour == TOOL_WRENCH)
 				attacking_item.play_tool_sound(get_turf(src), 100)
 				to_chat(user, SPAN_NOTICE("You bolt the metal armor into place."))
 				build_step = 3
 				icon_state = "turret_frame_3_[case_sprite_set]"
 				return TRUE
 
-			else if(attacking_item.iswelder())
+			else if(attacking_item.tool_behaviour == TOOL_WELDER)
 				var/obj/item/weldingtool/WT = attacking_item
 				if(!WT.isOn())
 					return TRUE
@@ -970,7 +970,7 @@
 					AddOverlays("turret_[E.turret_sprite_set]_off")
 				return TRUE
 
-			else if(attacking_item.iswrench())
+			else if(attacking_item.tool_behaviour == TOOL_WRENCH)
 				attacking_item.play_tool_sound(get_turf(src), 100)
 				to_chat(user, SPAN_NOTICE("You remove the turret's metal armor bolts."))
 				build_step = 2
@@ -990,7 +990,7 @@
 			//attack_hand() removes the gun
 
 		if(5)
-			if(attacking_item.isscrewdriver())
+			if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 				attacking_item.play_tool_sound(get_turf(src), 100)
 				build_step = 6
 				to_chat(user, SPAN_NOTICE("You close the access hatch."))
@@ -1015,7 +1015,7 @@
 					to_chat(user, SPAN_WARNING("You need two sheets of metal to continue construction."))
 				return TRUE
 
-			else if(attacking_item.isscrewdriver())
+			else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 				attacking_item.play_tool_sound(get_turf(src), 100)
 				build_step = 5
 				to_chat(user, SPAN_NOTICE("You open the access hatch."))
@@ -1025,7 +1025,7 @@
 				return TRUE
 
 		if(7)
-			if(attacking_item.iswelder())
+			if(attacking_item.tool_behaviour == TOOL_WELDER)
 				var/obj/item/weldingtool/WT = attacking_item
 				if(!WT.isOn()) return
 				if(WT.get_fuel() < 5)
@@ -1071,7 +1071,7 @@
 					qdel(src) // qdel
 				return TRUE
 
-			else if(attacking_item.iscrowbar())
+			else if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 				attacking_item.play_tool_sound(get_turf(src), 75)
 				to_chat(user, SPAN_NOTICE("You pry off the turret's exterior armor."))
 				new /obj/item/stack/material/steel(loc, 2)
@@ -1082,7 +1082,7 @@
 				AddOverlays("turret_frame_5c_[case_sprite_set]")
 				return TRUE
 
-	if(attacking_item.ispen())	//you can rename turrets like bots!
+	if(attacking_item.tool_behaviour == TOOL_PEN)	//you can rename turrets like bots!
 		var/t = sanitizeSafe(input(user, "Enter new turret name", name, finish_name) as text, MAX_NAME_LEN)
 		if(t && in_range(src, usr) && loc != usr)
 			finish_name = t

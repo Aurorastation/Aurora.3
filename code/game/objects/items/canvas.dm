@@ -50,7 +50,7 @@
  * One pixel increments.
  */
 /obj/item/canvas/attackby(obj/item/attacking_item, mob/user, params)
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		to_chat(user, SPAN_NOTICE("You begin to [anchored ? "loosen" : "tighten"] \the [src]..."))
 		if(attacking_item.use_tool(src, user, 40, volume = 50))
 			user.visible_message("<b>[user]</b> [anchored ? "loosens" : "tightens"] \the [src].", SPAN_NOTICE("You [anchored ? "loosen" : "tighten"] \the [src]."), SPAN_NOTICE("You hear a ratchet."))

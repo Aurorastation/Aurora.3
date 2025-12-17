@@ -37,7 +37,7 @@
 			. += SPAN_NOTICE("The cartridge seems spent.")
 
 /obj/item/reagent_containers/extinguisher_refill/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(is_open_container())
 			atom_flags &= ~ATOM_FLAG_OPEN_CONTAINER
 		else

@@ -83,14 +83,14 @@
 /obj/machinery/constructable_frame/machine_frame/attackby(obj/item/attacking_item, mob/user)
 	switch(state)
 		if(BLUEPRINT_STATE)
-			if(attacking_item.iswirecutter() || istype(attacking_item, /obj/item/gun/energy/plasmacutter))
+			if(attacking_item.tool_behaviour == TOOL_WIRECUTTER || istype(attacking_item, /obj/item/gun/energy/plasmacutter))
 				playsound(get_turf(src), 'sound/items/poster_ripped.ogg', 75, TRUE)
 				to_chat(user, SPAN_NOTICE("You decide to scrap the blueprint."))
 				new /obj/item/stack/material/steel(get_turf(src), 2)
 				qdel(src)
 				return TRUE
 		if(WIRING_STATE)
-			if(attacking_item.iscoil())
+			if(attacking_item.tool_behaviour == TOOL_CABLECOIL)
 				var/obj/item/stack/cable_coil/C = attacking_item
 				if(C.get_amount() < 5)
 					to_chat(user, SPAN_WARNING("You need five lengths of cable to add them to the blueprint."))
@@ -104,7 +104,7 @@
 						icon_state = "blueprint_1"
 				return TRUE
 			else
-				if(attacking_item.iswrench())
+				if(attacking_item.tool_behaviour == TOOL_WRENCH)
 					attacking_item.play_tool_sound(get_turf(src), 75)
 					to_chat(user, SPAN_NOTICE("You dismantle the blueprint."))
 					new /obj/item/stack/material/steel(get_turf(src), 2)
@@ -150,7 +150,7 @@
 					to_chat(user, SPAN_WARNING("This blueprint does not accept circuit boards of this type!"))
 				return TRUE
 			else
-				if(attacking_item.iswirecutter())
+				if(attacking_item.tool_behaviour == TOOL_WIRECUTTER)
 					playsound(get_turf(src), attacking_item.usesound, 50, TRUE, pitch_toggle)
 					to_chat(user, SPAN_NOTICE("You remove the cables."))
 					state = WIRING_STATE
@@ -161,7 +161,7 @@
 					return TRUE
 
 		if(COMPONENT_STATE)
-			if(attacking_item.iscrowbar())
+			if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 				attacking_item.play_tool_sound(get_turf(src), 50)
 				state = CIRCUITBOARD_STATE
 				circuit.forceMove(get_turf(src))
@@ -180,7 +180,7 @@
 				icon_state = "blueprint_2"
 				return TRUE
 			else
-				if(attacking_item.isscrewdriver())
+				if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 					var/component_check = TRUE
 					for(var/R in req_components)
 						if(req_components[R] > 0)
@@ -266,7 +266,7 @@
 	density = TRUE
 
 /obj/machinery/constructable_frame/temp_deco/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		attacking_item.play_tool_sound(get_turf(src), 75)
 		to_chat(user, SPAN_NOTICE("You dismantle \the [src]."))
 		new /obj/item/stack/material/steel(get_turf(src), 5)

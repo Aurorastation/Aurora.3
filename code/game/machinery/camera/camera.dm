@@ -184,7 +184,7 @@
 /obj/machinery/camera/attackby(obj/item/attacking_item, mob/user)
 	update_coverage()
 	// DECONSTRUCTION
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		//to_chat(user, SPAN_NOTICE("You start to [panel_open ? "close" : "open"] the camera's panel."))
 		//if(toggle_panel(user)) // No delay because no one likes screwdrivers trying to be hip and have a duration cooldown
 		panel_open = !panel_open
@@ -193,11 +193,11 @@
 		attacking_item.play_tool_sound(get_turf(src), 50)
 		return TRUE
 
-	else if((attacking_item.iswirecutter() || attacking_item.ismultitool()) && panel_open)
+	else if((attacking_item.tool_behaviour == TOOL_WIRECUTTER || attacking_item.tool_behaviour == TOOL_MULTITOOL) && panel_open)
 		interact(user)
 		return TRUE
 
-	else if(attacking_item.iswelder() && (wires.CanDeconstruct() || (stat & BROKEN)))
+	else if(attacking_item.tool_behaviour == TOOL_WELDER && (wires.CanDeconstruct() || (stat & BROKEN)))
 		if(weld(attacking_item, user))
 			if(assembly)
 				assembly.forceMove(src.loc)

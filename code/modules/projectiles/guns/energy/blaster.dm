@@ -178,7 +178,7 @@
 			. += FONT_SMALL(SPAN_WARNING("It has no cell installed."))
 
 /obj/item/gun/energy/blaster/himeo/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(power_supply)
 			playsound(user, 'sound/machines/compbeep1.ogg', 40, FALSE)
 			to_chat(user, SPAN_NOTICE("You uninstall \the [power_supply]."))

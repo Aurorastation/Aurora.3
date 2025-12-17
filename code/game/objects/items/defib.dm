@@ -129,7 +129,7 @@
 			to_chat(user, SPAN_NOTICE("You install a cell in \the [src]."))
 			update_icon()
 
-	else if(attacking_item.isscrewdriver())
+	else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(bcell)
 			bcell.update_icon()
 			bcell.dropInto(loc)

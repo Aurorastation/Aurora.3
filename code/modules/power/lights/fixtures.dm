@@ -379,7 +379,7 @@
 
 	// attempt to stick weapon into light socket
 	else if(status == LIGHT_EMPTY)
-		if(attacking_item.isscrewdriver()) //If it's a screwdriver open it.
+		if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER) //If it's a screwdriver open it.
 			attacking_item.play_tool_sound(get_turf(src), 75)
 			user.visible_message(SPAN_NOTICE("\The [user] opens \the [src]'s casing."), SPAN_NOTICE("You open \the [src]'s casing."), SPAN_NOTICE("You hear a noise."))
 			var/obj/machinery/light_construct/newlight = null

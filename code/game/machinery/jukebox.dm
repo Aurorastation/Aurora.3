@@ -165,7 +165,7 @@
 	if(!istype(attacking_item, /obj/item/forensics))
 		src.add_fingerprint(user)
 
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(playing)
 			StopPlaying()
 		user.visible_message(SPAN_WARNING("[user] has [anchored ? "un" : ""]secured \the [src]."), "<span class='notice'>You [anchored ? "un" : ""]secure \the [src].")

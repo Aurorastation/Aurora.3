@@ -19,7 +19,7 @@
 	is_holographic = TRUE
 
 /obj/item/modular_computer/telescreen/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iscrowbar())
+	if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 		if(anchored)
 			shutdown_computer()
 			anchored = FALSE

@@ -78,9 +78,9 @@
 		if((P && P.loc == src)) //ifthe paper's on the board
 			var/obj/item/R = usr.r_hand
 			var/obj/item/L = usr.l_hand
-			if(R.ispen())
+			if(R.tool_behaviour == TOOL_PEN)
 				P.attackby(R, usr)
-			else if(L.ispen())
+			else if(L.tool_behaviour == TOOL_PEN)
 				P.attackby(L, usr)
 			else
 				to_chat(usr, SPAN_NOTICE("You'll need something to write with!"))

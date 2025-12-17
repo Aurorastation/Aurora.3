@@ -115,7 +115,7 @@
 	return ..()
 
 /obj/structure/fireaxecabinet/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.ismultitool())
+	if(attacking_item.tool_behaviour == TOOL_MULTITOOL)
 		toggle_lock(user)
 		return
 

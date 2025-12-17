@@ -96,7 +96,7 @@
 			balloon_alert(user, "it won't budge!")
 			to_chat(user, SPAN_WARNING("You lack the required access to operate this rack's lock, or the lock mechanism is broken."))
 
-	else if(locked && attacking_item.iswelder())
+	else if(locked && attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/WT = attacking_item
 
 		balloon_alert_to_viewers("cutting through the lock...")

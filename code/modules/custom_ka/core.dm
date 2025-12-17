@@ -408,7 +408,7 @@
 		to_chat(user,"You label \the [name] as \"[custom_name]\"")
 		update_icon()
 		return TRUE
-	else if(attacking_item.iswrench())
+	else if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(installed_upgrade_chip)
 			attacking_item.play_tool_sound(get_turf(src), 50)
 			to_chat(user,"You remove \the [installed_upgrade_chip].")

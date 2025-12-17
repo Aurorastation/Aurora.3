@@ -109,14 +109,14 @@
 			else
 				to_chat(user, SPAN_WARNING("As you swipe your ID, it reads: \"Access denied.\""))
 		return
-	else if(attacking_item.isscrewdriver())
+	else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(!locked)
 			open = !open
 			to_chat(user, SPAN_NOTICE("You [open ? "open" : "close"] the maintenance panel."))
 		else
 			to_chat(user, SPAN_WARNING("You need to unlock the controls first."))
 		return
-	else if(attacking_item.iswelder())
+	else if(attacking_item.tool_behaviour == TOOL_WELDER)
 		if(health < maxHealth)
 			if(open)
 				health = min(maxHealth, health + 10)
@@ -126,7 +126,7 @@
 		else
 			to_chat(user, SPAN_WARNING("[src] does not need a repair."))
 		return
-	else if(attacking_item.iscrowbar())
+	else if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 		if(!pAI)
 			to_chat(user, SPAN_WARNING("\The [src] does not have a pAI installed!"))
 			return

@@ -1447,7 +1447,7 @@ About the new airlock wires panel:
 	var/cut_sound
 	var/cutting = FALSE
 
-	if(tool.iswelder())
+	if(tool.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/WT = tool
 		if(!WT.isOn())
 			return
@@ -1714,7 +1714,7 @@ About the new airlock wires panel:
 		var/obj/item/device/magnetic_lock/newbracer = attacking_item
 		newbracer.attachto(src, user)
 		return TRUE
-	if(!repairing && (attacking_item.iswelder() && !( src.operating > 0 ) && src.density))
+	if(!repairing && (attacking_item.tool_behaviour == TOOL_WELDER && !( src.operating > 0 ) && src.density))
 		var/obj/item/weldingtool/WT = attacking_item
 		if(WT.isOn())
 			user.visible_message(
@@ -1732,7 +1732,7 @@ About the new airlock wires panel:
 			welded = !welded
 			update_icon()
 		return TRUE
-	else if(attacking_item.isscrewdriver())
+	else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if (src.p_open)
 			if (stat & BROKEN)
 				to_chat(user, SPAN_WARNING("The panel is broken and cannot be closed."))
@@ -1744,9 +1744,9 @@ About the new airlock wires panel:
 			to_chat(user, SPAN_NOTICE("You carefully unscrew the panel on \the [src]"))
 		src.update_icon()
 		return TRUE
-	else if(attacking_item.iswirecutter())
+	else if(attacking_item.tool_behaviour == TOOL_WIRECUTTER)
 		return src.attack_hand(user)
-	else if(attacking_item.ismultitool())
+	else if(attacking_item.tool_behaviour == TOOL_MULTITOOL)
 		return src.attack_hand(user)
 	else if(istype(attacking_item, /obj/item/device/assembly/signaler))
 		return src.attack_hand(user)
@@ -1756,7 +1756,7 @@ About the new airlock wires panel:
 		var/obj/item/pai_cable/cable = attacking_item
 		cable.plugin(src, user)
 		return TRUE
-	else if(!repairing && attacking_item.iscrowbar())
+	else if(!repairing && attacking_item.tool_behaviour == TOOL_CROWBAR)
 		if(istype(attacking_item, /obj/item/melee/arm_blade))
 			if(arePowerSystemsOn() &&!(stat & BROKEN))
 				..()
@@ -1814,7 +1814,7 @@ About the new airlock wires panel:
 				else
 					to_chat(user, SPAN_WARNING("You need to be wielding \the [attacking_item] to do that."))
 		return TRUE
-	else if(attacking_item.ishammer() && !arePowerSystemsOn())
+	else if(attacking_item.tool_behaviour == TOOL_HAMMER && !arePowerSystemsOn())
 		if(locked && user.a_intent != I_HURT)
 			to_chat(user, SPAN_NOTICE("The airlock's bolts prevent it from being forced."))
 		else if(locked && user.a_intent == I_HURT)

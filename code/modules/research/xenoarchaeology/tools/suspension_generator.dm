@@ -51,7 +51,7 @@
 	return TRUE
 
 /obj/machinery/suspension_gen/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(!open)
 			screwed = !screwed
 			to_chat(user, SPAN_NOTICE("You [screwed ? "screw" : "unscrew"] the battery panel."))
@@ -59,7 +59,7 @@
 		else
 			to_chat(user, SPAN_WARNING("\The [src]'s battery panel is open!"))
 		return
-	else if (attacking_item.iscrowbar())
+	else if (attacking_item.tool_behaviour == TOOL_CROWBAR)
 		if(!screwed)
 			if(!suspension_field)
 				open = !open
@@ -69,7 +69,7 @@
 				to_chat(user, SPAN_WARNING("[src]'s safety locks are engaged, shut it down first."))
 		else
 			to_chat(user, SPAN_WARNING("Unscrew [src]'s battery panel first."))
-	else if (attacking_item.iswrench())
+	else if (attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(!suspension_field)
 			anchored = !anchored
 			to_chat(user, SPAN_NOTICE("You wrench the stabilising bolts [anchored ? "into place" : "loose"]."))

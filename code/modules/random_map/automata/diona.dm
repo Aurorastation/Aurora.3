@@ -23,7 +23,7 @@
 
 /obj/structure/diona/attackby(obj/item/attacking_item, mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	if(attacking_item.iswelder())
+	if(attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/WT = attacking_item
 		if (!WT.welding)
 			to_chat(user, SPAN_WARNING("\The [WT] must be turned on!"))

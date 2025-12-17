@@ -71,7 +71,7 @@
 		else
 			to_chat(user, SPAN_WARNING("\The [src] would not gain any new channels from \the [EK]."))
 		return TRUE
-	else if(attacking_item.isscrewdriver())
+	else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(!length(installed_encryptionkeys))
 			to_chat(user, SPAN_WARNING("There are no installed encryption keys to remove!"))
 			return

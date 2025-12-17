@@ -235,10 +235,13 @@
 	/// Holder var for the item outline filter, null when no outline filter on the item.
 	var/outline_filter
 
-	// Persistency
-	// Set this to true if you want the item to become persistent trash
-	// Requires the usual implementation requirements for new persistent types but provides a single implementation for trash logic
+	/// Persistency
+	/// Set this to true if you want the item to become persistent trash
+	/// Requires the usual implementation requirements for new persistent types but provides a single implementation for trash logic
 	var/persistency_considered_trash = FALSE
+
+	/// How a tool acts when you use it on something, such as wirecutters cutting wires while multitools measure power
+	var/tool_behaviour = null
 
 /obj/item/Initialize(mapload, ...)
 	. = ..()
@@ -732,7 +735,7 @@ GLOBAL_LIST_INIT(slot_flags_enumeration, list(
 				if(!disable_warning)
 					to_chat(usr, SPAN_WARNING("You somehow have a suit with no defined allowed items for suit storage, stop that."))
 				return 0
-			if(!istype(src, /obj/item/modular_computer) && !ispen() && !is_type_in_list(src, H.wear_suit.allowed))
+			if(!istype(src, /obj/item/modular_computer) && tool_behaviour == TOOL_PEN && !is_type_in_list(src, H.wear_suit.allowed))
 				return 0
 		if(slot_handcuffed)
 			if(!istype(src, /obj/item/handcuffs))

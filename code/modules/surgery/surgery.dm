@@ -4,24 +4,24 @@
 	var/name
 	var/priority = 0	//steps with higher priority would be attempted first
 
-	// type path referencing tools that can be used for this step, and how well are they suited for it
+	/// type path referencing tools that can be used for this step, and how well are they suited for it
 	var/list/allowed_tools = null
-	// type paths referencing races that this step applies to.
+	/// type paths referencing races that this step applies to.
 	var/list/allowed_species = null
 	var/list/disallowed_species = list("Nymph")
 
-	// duration of the step
+	/// duration of the step
 	var/min_duration = 0
 	var/max_duration = 0
 
-	// evil infection stuff that will make everyone hate me
+	/// evil infection stuff that will make everyone hate me
 	var/can_infect = FALSE
-	//How much blood this step can get on surgeon. 1 - hands, 2 - full body.
+	/// How much blood this step can get on surgeon. 1 - hands, 2 - full body.
 	var/blood_level = 0
 
 	var/requires_surgery_compatibility = TRUE
 
-	//returns how well tool is suited for this step
+/// Returns how well tool is suited for this step.
 /singleton/surgery_step/proc/tool_quality(obj/item/tool)
 	for(var/T in allowed_tools)
 		var/return_value = check_tool_quality(tool, T, allowed_tools[T], requires_surgery_compatibility)
@@ -31,7 +31,7 @@
 			return allowed_tools[T]
 	return FALSE
 
-	// Checks if this step applies to the user mob at all
+/// Checks if this step applies to the user mob at all
 /singleton/surgery_step/proc/is_valid_target(mob/living/carbon/human/target)
 	if(!ishuman(target))
 		return FALSE
@@ -49,13 +49,13 @@
 	return TRUE
 
 
-// checks whether this step can be applied with the given user and target
+/// Checks whether this step can be applied with the given user and target
 /singleton/surgery_step/proc/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!ishuman(target))
 		return FALSE
 	return TRUE
 
-// does stuff to begin the step, usually just printing messages. Moved germs transfering and bloodying here too
+/// Does stuff to begin the step, usually just printing messages. Moved germs transfering and bloodying here too
 /singleton/surgery_step/proc/begin_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	if(can_infect && affected)
@@ -69,11 +69,11 @@
 	playsound(target.loc, tool.surgerysound, 50, TRUE)
 	return TRUE
 
-// does stuff to end the step, which is normally print a message + do whatever this step changes
+/// Does stuff to end the step, which is normally print a message + do whatever this step changes
 /singleton/surgery_step/proc/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	return FALSE
 
-// stuff that happens when the step fails
+/// Stuff that happens when the step fails
 /singleton/surgery_step/proc/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	return null
 

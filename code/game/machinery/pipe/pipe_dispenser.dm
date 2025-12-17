@@ -127,7 +127,7 @@
 		user.remove_from_mob(attacking_item) //Catches robot gripper duplication
 		qdel(attacking_item)
 		return TRUE
-	else if(attacking_item.iswrench())
+	else if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(anchored)
 			to_chat(user, SPAN_NOTICE("You begin to unfasten \the [src] from the floor..."))
 			if(attacking_item.use_tool(src, user, 40, volume = 50))

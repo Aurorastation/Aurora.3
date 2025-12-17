@@ -111,17 +111,17 @@
 				set_cradle_state(STATE_BRAIN)
 				update_name()
 		if(STATE_NODIODES)
-			if(attacking_item.isscrewdriver())
+			if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 				user.visible_message("<b>[user]</b> tightens the screws on \the [src] with \the [attacking_item], [brainobj.prepared ? "the diodes silently sinking into the pre-made holes" : "the diodes plunging into the brain with a wet squelch"].",
 									SPAN_NOTICE("You tighten the screws on \the [src] with \the [attacking_item], [brainobj.prepared ? "the diodes silently sinking into the pre-made holes" : "the diodes plunging into the brain with a wet squelch"]."))
 				brainobj.prepared = TRUE
 				set_cradle_state(STATE_DIODES)
 		if(STATE_DIODES)
-			if(attacking_item.isscrewdriver())
+			if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 				user.visible_message("<b>[user]</b> undoes the screws on \the [src] with \the [attacking_item], the diodes silently rising out of the brain within.",
 									SPAN_NOTICE("You undo the screws on \the [src] with \the [attacking_item], the diodes silently rising out of the brain within."))
 				set_cradle_state(STATE_NODIODES)
-			else if(attacking_item.iswelder())
+			else if(attacking_item.tool_behaviour == TOOL_WELDER)
 				var/obj/item/weldingtool/WT = attacking_item
 				if(WT.use(0, user))
 					user.visible_message("<b>[user]</b> welds the two parts of the braincase together, permanently sealing \the [brainobj] inside.",
@@ -130,7 +130,7 @@
 					set_cradle_state(STATE_SEALED)
 					feedback_inc("cyborg_mmis_filled", 1)
 		if(STATE_SEALED)
-			if(attacking_item.iswelder())
+			if(attacking_item.tool_behaviour == TOOL_WELDER)
 				to_chat(user, SPAN_WARNING("\The [src] is sealed tight, no welding will be able to undo it."))
 				return
 			else if(istype(attacking_item, /obj/item/surgery/circular_saw))

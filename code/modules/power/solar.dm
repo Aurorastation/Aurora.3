@@ -58,7 +58,7 @@
 
 /obj/machinery/power/solar/attackby(obj/item/attacking_item, mob/user)
 
-	if(attacking_item.iscrowbar())
+	if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 		playsound(src.loc, 'sound/machines/click.ogg', 50, 1)
 		user.visible_message(SPAN_NOTICE("[user] begins to take the glass off the solar panel."))
 		if(attacking_item.use_tool(src, user, 50, volume = 50))
@@ -220,13 +220,13 @@
 /obj/item/solar_assembly/attackby(obj/item/attacking_item, mob/user)
 
 	if(!anchored && isturf(loc))
-		if(attacking_item.iswrench())
+		if(attacking_item.tool_behaviour == TOOL_WRENCH)
 			anchored = 1
 			user.visible_message(SPAN_NOTICE("[user] wrenches the solar assembly into place."))
 			attacking_item.play_tool_sound(get_turf(src), 75)
 			return 1
 	else
-		if(attacking_item.iswrench())
+		if(attacking_item.tool_behaviour == TOOL_WRENCH)
 			anchored = 0
 			user.visible_message(SPAN_NOTICE("[user] unwrenches the solar assembly from it's place."))
 			attacking_item.play_tool_sound(get_turf(src), 75)
@@ -255,7 +255,7 @@
 			user.visible_message(SPAN_NOTICE("[user] inserts the electronics into the solar assembly."))
 			return 1
 	else
-		if(attacking_item.iscrowbar())
+		if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 			new /obj/item/tracker_electronics(src.loc)
 			tracker = 0
 			user.visible_message(SPAN_NOTICE("[user] takes out the electronics from the solar assembly."))
@@ -380,7 +380,7 @@
 	return
 
 /obj/machinery/power/solar_control/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 		if(do_after(user, 2 SECONDS, src, DO_REPAIR_CONSTRUCT))
 			if (src.stat & BROKEN)

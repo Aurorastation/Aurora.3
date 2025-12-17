@@ -182,7 +182,7 @@
 		return TRUE
 
 	//If it's emagged, crowbar can pry electronics out.
-	if (emagged == 1 && attacking_item.iscrowbar())
+	if (emagged == 1 && attacking_item.tool_behaviour == TOOL_CROWBAR)
 		user.visible_message("[user] dismantles the windoor.", "You start to dismantle the windoor.")
 		if(attacking_item.use_tool(src, user, 60, volume = 50))
 			to_chat(user, SPAN_NOTICE("You dismantled the windoor!"))
@@ -194,7 +194,7 @@
 			qdel(src)
 		return TRUE
 
-	if(isobj(attacking_item) && attacking_item.iscrowbar() && user.a_intent == I_HELP)
+	if(isobj(attacking_item) && attacking_item.tool_behaviour == TOOL_CROWBAR && user.a_intent == I_HELP)
 		if(!operable())
 			visible_message("\The [user] forces \the [src] [density ? "open" : "closed"].")
 			if(density)

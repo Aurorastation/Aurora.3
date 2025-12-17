@@ -52,7 +52,7 @@
 			to_chat(user, SPAN_NOTICE("You [locked ? "" : "un"]lock the circuit controls."))
 		else
 			to_chat(user, SPAN_WARNING("Access denied."))
-	else if(attacking_item.ismultitool())
+	else if(attacking_item.tool_behaviour == TOOL_MULTITOOL)
 		if(locked)
 			to_chat(user, SPAN_WARNING("Circuit controls are locked."))
 			return

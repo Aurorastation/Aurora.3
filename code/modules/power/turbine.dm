@@ -145,7 +145,7 @@
 	efficiency = E / 6
 
 /obj/machinery/power/compressor/attackby(obj/item/attacking_item, mob/user, params)
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		turbine = null
 		inturf = get_step(src, dir)
 		locate_machinery()
@@ -296,7 +296,7 @@
 	if(default_deconstruction_screwdriver(user, attacking_item))
 		return
 
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		compressor = null
 		outturf = get_step(src, dir)
 		locate_machinery()

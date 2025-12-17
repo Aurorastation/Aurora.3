@@ -157,7 +157,7 @@
 		CF.set_dir(field_dir)
 
 /obj/machinery/shieldwallgen/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(power_state)
 			to_chat(user, SPAN_WARNING("You cannot unsecure \the [src] while it's active."))
 			return

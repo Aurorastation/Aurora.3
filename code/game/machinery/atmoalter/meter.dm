@@ -142,7 +142,7 @@
 	return ..()
 
 /obj/machinery/meter/attackby(obj/item/attacking_item, mob/user)
-	if (!attacking_item.iswrench())
+	if (!attacking_item.tool_behaviour == TOOL_WRENCH)
 		return ..()
 	to_chat(user, SPAN_NOTICE("You begin to unfasten \the [src]..."))
 	if(attacking_item.use_tool(src, user, 40, volume = 50))

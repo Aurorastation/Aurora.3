@@ -199,7 +199,7 @@
 		return ..()
 
 /obj/item/auto_cpr/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(ishuman(loc))
 			var/mob/living/carbon/human/H = loc
 			if(H.get_inventory_slot(src) == slot_wear_suit)
@@ -211,7 +211,7 @@
 		return TRUE
 
 	if(panel_open)
-		if(attacking_item.iswrench())
+		if(attacking_item.tool_behaviour == TOOL_WRENCH)
 			if(!tank)
 				to_chat(user, "There isn't a tank to remove!")
 				return TRUE
@@ -221,7 +221,7 @@
 			tank = null
 			update_icon()
 			return TRUE
-		if(attacking_item.iscrowbar())
+		if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 			if(!battery)
 				to_chat(user, "There isn't a battery to remove!")
 				return TRUE

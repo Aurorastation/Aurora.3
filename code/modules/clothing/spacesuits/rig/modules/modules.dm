@@ -87,7 +87,7 @@
 		paste.use(1)
 		return
 
-	else if(attacking_item.iscoil())
+	else if(attacking_item.tool_behaviour == TOOL_CABLECOIL)
 		switch(damage)
 			if(0)
 				to_chat(user, SPAN_WARNING("There is no damage to mend."))

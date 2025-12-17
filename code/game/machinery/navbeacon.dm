@@ -134,7 +134,7 @@
 	if(!T.is_plating())
 		return		// prevent intraction when T-scanner revealed
 
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		open = !open
 
 		user.visible_message("[user] [open ? "opens" : "closes"] the beacon's cover.", "You [open ? "open" : "close"] the beacon's cover.")
@@ -142,7 +142,7 @@
 		update_icon()
 		return TRUE
 
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(!open || locked)
 			to_chat(user, SPAN_NOTICE("You need to have the maintenance panel open and the controls unlocked to remove the bolts."))
 			return

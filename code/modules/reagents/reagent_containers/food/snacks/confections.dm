@@ -216,7 +216,7 @@
 //Custard + blowtorch = creme brulee
 /obj/item/reagent_containers/food/snacks/custard/attackby(obj/item/attacking_item, mob/user, params)
 	. = ..()
-	if(attacking_item.iswelder())
+	if(attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/welder = attacking_item
 		if(welder.isOn())
 			new /obj/item/reagent_containers/food/snacks/creme_brulee(src)

@@ -11,7 +11,7 @@
 	var/obj/item/scanned = null
 
 /obj/item/implant/compressed/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(!scanned)
 			to_chat(user, SPAN_NOTICE("There is nothing to remove from the implant."))
 		else
