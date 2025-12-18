@@ -70,7 +70,7 @@
 
 /mob/living/carbon/human/getHalLoss()
 	TryComponentOrReturn(src, /datum/component/pain_container, pain_comp, 0)
-	return pain_comp.pain_total
+	return -pain_comp.pain_total
 
 //These procs fetch a cumulative total damage from all organs
 /mob/living/carbon/human/getBruteLoss()
