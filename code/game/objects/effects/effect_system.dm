@@ -15,8 +15,7 @@ would spawn and follow the beaker, even if it is carried or thrown.
 	blocks_emissive = EMISSIVE_BLOCK_GENERIC
 
 /obj/effect/Destroy()
-	if(reagents)
-		reagents.delete()
+	QDEL_NULL(reagents)
 	return ..()
 
 /datum/effect/effect/system

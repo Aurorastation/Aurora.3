@@ -84,13 +84,13 @@
 		return prob(30)
 	return TRUE
 
+/// The effect/spider/eggcluster is only for egg clusters spawned in-world, not implanted by a worker.
 /obj/effect/spider/eggcluster
 	name = "egg cluster"
 	desc = "They seem to pulse slightly with an inner life."
 	icon_state = "eggs"
 	health = 10
 	var/amount_grown = 0
-	var/last_itch = 0
 
 /obj/effect/spider/eggcluster/Initialize(var/mapload, var/atom/parent)
 	. = ..(mapload)
@@ -112,29 +112,16 @@
 /obj/effect/spider/eggcluster/process()
 	amount_grown += rand(0, 2)
 
-	var/obj/item/organ/external/O = null
-	if(isorgan(loc))
-		O = loc
-
 	if(amount_grown >= 100)
 		var/num = rand(6,24)
 
 		for(var/i = 0, i < num, i++)
-			var/spiderling = new /obj/effect/spider/spiderling(src.loc, src, 0.75)
-			if(O)
-				O.implants += spiderling
+			new /obj/effect/spider/spiderling(src.loc, src, 0.75)
 		qdel(src)
-	else if (O && O.owner && prob(1))
-		if(world.time > last_itch + 30 SECONDS)
-			last_itch = world.time
-			to_chat(O.owner, SPAN_NOTICE("Your [O.name] itches."))
 
 /obj/effect/spider/eggcluster/proc/take_damage(var/damage)
 	health -= damage
 	if(health <= 0)
-		var/obj/item/organ/external/O = loc
-		if(istype(O) && O.owner)
-			to_chat(O.owner, SPAN_WARNING("You feel something dissolve in your [O.name]..."))
 		qdel(src)
 
 /obj/effect/spider/spiderling
@@ -144,29 +131,41 @@
 	They originate from the Badlands planet Greima, once covered in crystalized phoron. A decaying orbit led to its combustion from proximity to its sun, and its dominant inhabitants \
 	managed to survive in orbit. Countless years later, they prove to be a menace across the galaxy, having carried themselves within the hulls of Human vessels to spread wildly."
 	icon_state = "spiderling"
-	anchored = 0
-	layer = 2.7
+	anchored = FALSE
+	layer = OPEN_DOOR_LAYER // 2.7
 	health = 3
 	var/last_itch = 0
-	var/amount_grown = -1
+	/// % chance that the spiderling will eventually turn into a fully-grown greimorian.
+	var/can_mature_chance = 50
+	var/can_mature = FALSE
+	/// Multiplier to growth gained per tick.
 	var/growth_rate = 1
+	/// Their current growth, from 0-100.
+	var/growth_level = 0
 	var/obj/machinery/atmospherics/unary/vent_pump/entry_vent
 	var/travelling_in_vent = 0
-	var/list/possible_offspring
+	/// Possible creatures the larva can mature into.
+	var/list/possible_offspring = list(
+		/mob/living/simple_animal/hostile/giant_spider,
+		/mob/living/simple_animal/hostile/giant_spider/nurse,
+		/mob/living/simple_animal/hostile/giant_spider/emp,
+		/mob/living/simple_animal/hostile/giant_spider/hunter,
+		/mob/living/simple_animal/hostile/giant_spider/bombardier
+		)
 
-/obj/effect/spider/spiderling/Initialize(var/mapload, var/atom/parent, var/new_rate = 1, var/list/spawns = list(/mob/living/simple_animal/hostile/giant_spider, /mob/living/simple_animal/hostile/giant_spider/nurse, /mob/living/simple_animal/hostile/giant_spider/emp, /mob/living/simple_animal/hostile/giant_spider/hunter, /mob/living/simple_animal/hostile/giant_spider/bombardier))
+/obj/effect/spider/spiderling/Initialize(var/mapload, var/atom/parent, var/new_growth_rate = 1, var/list/new_possible_offspring = possible_offspring)
 	. = ..(mapload)
 
 	pixel_x = rand(6,-6)
 	pixel_y = rand(6,-6)
 	START_PROCESSING(SSprocessing, src)
 	//50% chance to grow up
-	if(prob(50))
-		amount_grown = 1
+	if(prob(can_mature_chance))
+		can_mature = TRUE
 
-	growth_rate = new_rate
+	growth_rate = new_growth_rate
 
-	possible_offspring = spawns
+	possible_offspring = new_possible_offspring
 
 	get_light_and_color(parent)
 
@@ -247,32 +246,16 @@
 				GLOB.move_manager.move_to(src, entry_vent, 0, 5)
 				break
 
-	if(isturf(loc) && amount_grown >= 100)
+	if(isturf(loc) && growth_level >= 100)
 		var/spawn_type = pick(possible_offspring)
 		new spawn_type(src.loc, src)
 		qdel(src)
-	else if(isorgan(loc))
-		var/obj/item/organ/external/O = loc
-		if(amount_grown > 70)
-			burst_out(O)
-		if (O.owner)
-			if(amount_grown > 40 && prob(1))
-				O.owner.apply_damage(1, DAMAGE_TOXIN, O.limb_name)
-				if(world.time > last_itch + 30 SECONDS)
-					last_itch = world.time
-					O.owner.visible_message(
-						SPAN_WARNING("You think you see something moving around in \the [O.owner]'s [O.name]."),
-						SPAN_WARNING("You [prob(25) ? "see" : "feel"] something large move around in your [O.name]!"))
-			else if (prob(1))
-				if(world.time > last_itch + 30 SECONDS)
-					last_itch = world.time
-					to_chat(O.owner, SPAN_WARNING("You feel something large move around in your [O.name]!"))
 
 	else if(prob(1))
 		src.visible_message(SPAN_NOTICE("\The [src] skitters."))
 
-	if (amount_grown > -1)
-		amount_grown += (rand(0, 1) * growth_rate)
+	if(can_mature)
+		growth_level += (rand(0, 1) * growth_rate)
 
 /obj/effect/spider/spiderling/attack_hand(mob/living/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
@@ -293,43 +276,6 @@
 		if(N.rolled)
 			die()
 			return TRUE
-
-/**
- * Makes the organ spew out all of the spiderlings it has. It's triggered at the point
- * of the first spiderling reaching 80% of more amount grown. This stops them from growing
- * to full size inside a human.
- *
- * The proc also drops the limb if it's on a human, or gibs it if it's on the floor. For
- * maximum drama, of course!
- *
- * @param	O The organ/external limb the src is located inside of.
- */
-/obj/effect/spider/spiderling/proc/burst_out(obj/item/organ/external/O = src.loc)
-	if (!istype(O))
-		return
-
-	if (O.owner)
-		O.owner.visible_message(
-			SPAN_DANGER("A group of [src] burst out of [O.owner]'s [O]!"),
-			SPAN_DANGER("A group of [src] burst out of your [O]!"))
-		O.owner.emote("scream")
-	else
-		O.visible_message(SPAN_DANGER("A group of [src] burst out of \the [O]!"))
-
-	var/target_loc = O.owner ? O.owner.loc : O.loc
-
-	// Swarm all of the spiders out so we can gib the limb.
-	for (var/obj/effect/spider/spiderling/S in O.implants)
-		O.implants -= S
-		S.forceMove(target_loc)
-
-	// if owner, dismember the shit out of it.
-	if (O.owner)
-		O.droplimb(0, DROPLIMB_BLUNT)
-	else
-		O.visible_message(SPAN_DANGER("\The [O] explodes into a pile of gore!"))
-		gibs(target_loc)
-		qdel(O)
 
 /obj/effect/decal/cleanable/spiderling_remains
 	name = "greimorian larva remains"

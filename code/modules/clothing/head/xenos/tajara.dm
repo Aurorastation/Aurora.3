@@ -249,3 +249,24 @@
 	known to deploy their agents against off-world targets. Republican spies, enforces and collaborators are present in Mendell City's district six, carrying out orders or watching their fellow Tajara."
 	icon_state = "psis_hat"
 	item_state = "psis_hat"
+
+/obj/item/clothing/head/tajaran/pra_cop
+	name = "PRA NPD pilotka"
+	desc = "A hat issued to the PRA national police department, to be worn during the summer months."
+	desc_extended = "The National Police Department is the largest and best equipped police force on Adhomai. \
+	Responsible for law enforcement in the People's Republic, the olive drab uniforms and polished badges have maintained peace and order, \
+	or inspired fear, within the population since the nation's founding."
+	icon_state = "taj_cop_pilotka"
+	item_state = "taj_cop_pilotka"
+
+/obj/item/clothing/head/tajaran/pra_cop/winter
+	name = "PRA NPD woolen hat"
+	desc = "A warm hat issued to the PRA national police department, to be worn during the colder seasons."
+	icon_state = "taj_cop_hat"
+	item_state = "taj_cop_hat"
+
+/obj/item/clothing/head/tajaran/pra_cop/rural
+	name = "PRA NPD hat"
+	desc = "A hat issued to the PRA national police department, to be worn by cops working in the rural parts of the country."
+	icon_state = "taj_cop_hat_rural"
+	item_state = "taj_cop_hat_rural"

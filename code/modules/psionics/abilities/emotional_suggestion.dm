@@ -62,9 +62,7 @@
 			to_chat(M, "<span class='notice'>[user] psionically suggests an emotion to [target]:</span> [text]")
 
 	var/mob/living/carbon/human/H = target
-	if(H.has_psionics())
-		to_chat(H, SPAN_NOTICE("You feel an emotion of <b>[text]</b> washing through your mind."))
-	else if(target.has_psi_aug())
-		to_chat(H, SPAN_NOTICE("You sense [user]'s psyche link with your psi-receiver, and an emotion envelops your mind: <b>[text]</b>."))
+	if(H.check_psi_sensitivity() > 0)
+		to_chat(H, SPAN_NOTICE("You sense [user]'s psyche link with your own, and an emotion of <b>[text]</b> washes through your mind."))
 	else
 		to_chat(H, SPAN_NOTICE("An emotion from outside your consciousness slips into your mind: <b>[text]</b>."))

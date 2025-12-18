@@ -1206,7 +1206,7 @@
 /obj/item/clothing/accessory/tie/black,
 /obj/random/hoodie,
 /obj/item/clothing/under/konyangdresstraditional,
-/obj/item/clothing/suit/storage/toggle/highvis_alt,
+/obj/item/clothing/suit/storage/toggle/highvis/alt,
 /obj/item/clothing/suit/ianshirt,
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship/quarters)
