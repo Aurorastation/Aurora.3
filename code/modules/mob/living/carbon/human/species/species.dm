@@ -547,7 +547,7 @@
 	if(H.bad_internal_organs)     H.bad_internal_organs.Cut()
 
 	for(var/comp,arguments in components_to_ensure)
-		H._AddComponent(arguments)
+		H.AddComponent(comp, arguments)
 
 	H.organs = list()
 	H.internal_organs = list()
