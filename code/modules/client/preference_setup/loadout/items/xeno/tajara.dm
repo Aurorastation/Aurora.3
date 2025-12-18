@@ -664,6 +664,7 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	display_name = "adhomian watch selection"
 	description = "A selection of Adhomian watches."
 	path = /obj/item/clothing/wrists/watch/pocketwatch/adhomai
+	slot = slot_wrists
 	sort_category = "Xenowear - Tajara"
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	flags = GEAR_HAS_DESC_SELECTION
