@@ -37,8 +37,8 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 	h_style = "Unathi Horns"
 	. = ..(mapload, SPECIES_UNATHI)
 
-/mob/living/carbon/human/diona/Initialize(mapload, new_species = null)
-	. = ..(mapload, new_species || SPECIES_DIONA)
+/mob/living/carbon/human/diona/Initialize(mapload)
+	. = ..(mapload, SPECIES_DIONA)
 	src.gender = NEUTER
 
 /mob/living/carbon/human/diona/coeus/Initialize(mapload)
