@@ -1655,7 +1655,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 // Pain/halloss
 /obj/item/organ/external/proc/get_pain()
 	TryComponentOrReturn(src, /datum/component/pain_container, pain_comp, 0)
-	return pain_comp.pain_total
+	return pain_comp.pain_total + (pain_comp.pain_per_brute * brute_dam) + (pain_comp.pain_per_burn) + (pain_comp.pain_per_genetic * get_genetic_damage)
 
 /obj/item/organ/external/proc/remove_pain(var/amount)
 	TryComponentOrReturn(src, /datum/component/pain_container, pain_comp, 0)
