@@ -69,8 +69,12 @@ They are very slow, reasonably strong, and quite durable. They also require ligh
 	pain_messages = list("We're in pain", "We hurt so much", "We can't stand the pain")
 	pain_item_drop_cry = list("creaks loudly and ", "rustles erratically and ", "twitches for a moment and ")
 
-	natural_armor = list(
-		MELEE = ARMOR_MELEE_MEDIUM
+	components_to_ensure = alist(
+		/datum/component/armor = list(
+			"armor_values" = list(
+				MELEE = ARMOR_MELEE_MEDIUM
+		)),
+		/datum/component/pain_container = list()
 	)
 
 	pain_mod = 0.5

@@ -347,11 +347,13 @@
 	bump_flag = HEAVY
 	species_height = HEIGHT_CLASS_TALL
 
-	natural_armor = list(
-		ballistic = ARMOR_BALLISTIC_MEDIUM,
-		MELEE = ARMOR_MELEE_MAJOR,
-		bomb = null,
-		ENERGY = ARMOR_ENERGY_RESISTANT
+	components_to_ensure = alist(
+		/datum/component/armor = list(
+			"armor_values" = list(
+				BULLET = ARMOR_BALLISTIC_MEDIUM,
+				MELEE = ARMOR_MELEE_MAJOR,
+				ENERGY = ARMOR_ENERGY_RESISTANT
+		)) // Skipping pain component, zombies don't feel pain
 	)
 
 	mob_size = 20
@@ -427,12 +429,15 @@
 	mob_size = MOB_LARGE
 	grab_mod = 5
 
-	natural_armor = list(
-		ballistic = ARMOR_BALLISTIC_MINOR,
-		LASER = ARMOR_LASER_MINOR,
-		MELEE = ARMOR_MELEE_SMALL,
-		BOMB = ARMOR_BOMB_PADDED,
-		ENERGY = ARMOR_ENERGY_SMALL
+	components_to_ensure = alist(
+		/datum/component/armor = list(
+			"armor_values" = list(
+				BULLET = ARMOR_BALLISTIC_MINOR,
+				LASER = ARMOR_LASER_MINOR,
+				MELEE = ARMOR_MELEE_SMALL,
+				BOMB = ARMOR_BOMB_PADDED,
+				ENERGY = ARMOR_ENERGY_SMALL
+		)) // Skipping pain component, zombies don't feel pain
 	)
 
 	inherent_verbs = list(

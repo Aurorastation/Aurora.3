@@ -263,6 +263,8 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 
 /obj/item/organ/proc/rejuvenate()
 	damage = 0
+	TryComponentOrReturn(src, /datum/component/pain_container, pain_comp, 0)
+	pain_comp.set_pain(0)
 
 /obj/item/organ/proc/heal_damage(amount)
 	if(can_recover())

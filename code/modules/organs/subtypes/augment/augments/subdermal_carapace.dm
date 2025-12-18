@@ -8,7 +8,7 @@
 	parent_organ = BP_CHEST
 
 	/// The set of armor component modifiers that this implant will provide to its implantee.
-	var/armor_modifiers = list(
+	var/armor_modifiers = alist(
 		MELEE = ARMOR_MELEE_SMALL,
 		BULLET = ARMOR_BALLISTIC_SMALL
 	)

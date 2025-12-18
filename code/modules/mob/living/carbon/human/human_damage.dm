@@ -69,10 +69,8 @@
 	return 0
 
 /mob/living/carbon/human/getHalLoss()
-	var/amount = 0
-	for(var/obj/item/organ/external/E in organs)
-		amount += E.get_pain()
-	return amount
+	TryComponentOrReturn(src, /datum/component/pain_container, pain_comp, 0)
+	return pain_comp.pain_total
 
 //These procs fetch a cumulative total damage from all organs
 /mob/living/carbon/human/getBruteLoss()
@@ -204,6 +202,8 @@
 	if(species.flags & NO_POISON)
 		return 0
 
+	var/datum/component/pain_container/pain_comp = GetComponent(/datum/component/pain_container)
+
 	var/heal = amount < 0
 	amount = abs(amount)
 
@@ -212,6 +212,10 @@
 			amount *= species.toxins_mod
 		if (CE_ANTITOXIN in chem_effects)
 			amount *= 1 - (chem_effects[CE_ANTITOXIN] * 0.25)
+		if(pain_comp)
+			pain_comp.add_pain(amount * pain_comp.pain_per_toxin)
+	else
+		pain_comp.remove_pain(amount * pain_comp.pain_per_toxin)
 
 	var/list/pick_organs = shuffle(internal_organs.Copy())
 
@@ -265,8 +269,8 @@
 /mob/living/carbon/human/setToxLoss(var/amount)
 	if(species.flags & NO_POISON)
 		return
-	else
-		adjustToxLoss(getToxLoss()-amount)
+
+	adjustToxLoss(getToxLoss()-amount)
 
 /mob/living/carbon/human/adjustHalLoss(var/amount)
 	var/heal = (amount < 0)

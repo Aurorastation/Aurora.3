@@ -385,7 +385,9 @@
 		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right)
 		)
 
-	var/list/natural_armor = list()
+	var/components_to_ensure = alist(
+		/datum/component/armor = list(),
+		/datum/component/pain_container = list())
 
 	// Bump vars
 	/// What are we considered to be when bumped?
@@ -544,11 +546,8 @@
 	if(H.bad_external_organs)     H.bad_external_organs.Cut()
 	if(H.bad_internal_organs)     H.bad_internal_organs.Cut()
 
-	// All player characters are guaranteed an armor component, which doesn't necessarily have to contain any armor.
-	// This is "Ensured" because a variety of systems intend to write to this, and Ensuring allows us to not worry about competing with those other systems.
-	EnsureComponent(H, /datum/component/armor, armor_component)
-	for(var/armor_type,armor_value in natural_armor)
-		armor_component.armor_values[armor_type] += armor_value
+	for(var/comp,arguments in components_to_ensure)
+		H._AddComponent(arguments)
 
 	H.organs = list()
 	H.internal_organs = list()

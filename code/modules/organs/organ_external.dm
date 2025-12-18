@@ -200,6 +200,7 @@
 	else
 		//HACK: Make sure non-emissive organs, if swapped to, are not treated as emissive. Robotized organs have their own handling, but we still need to cover the case where it is somehow swapped to an organic limb
 		is_emissive = initial(is_emissive)
+		AddComponent(/datum/component/pain_container)
 
 	. = ..(mapload, FALSE)
 	if(isnull(pain_disability_threshold))
@@ -329,6 +330,8 @@
 	if(children && children.len)
 		for(var/obj/item/organ/external/child in children)
 			child.dislocate()
+	TryComponentOrReturn(src, /datum/component/pain_container, pain_comp, 0)
+	pain_comp.add_pain(pain_comp.pain_if_dislocated)
 
 /obj/item/organ/external/proc/undislocate()
 	if(dislocated == -1)
@@ -346,6 +349,9 @@
 				return
 		remove_verb(owner, /mob/living/carbon/human/proc/undislocate)
 
+	TryComponentOrReturn(src, /datum/component/pain_container, pain_comp, 0)
+	pain_comp.remove_pain(pain_comp.pain_if_dislocated)
+
 /obj/item/organ/external/update_health()
 	damage = min(max_damage, (brute_dam + burn_dam))
 	return
@@ -360,6 +366,10 @@
 			species = owner.species
 		for(var/obj/item/organ/organ in src)
 			organ.replaced(owner,src)
+		var/datum/component/pain_container/limb_pain_comp = GetComponent(/datum/component/pain_container)
+		var/datum/component/pain_container/owner_pain_comp = target.GetComponent(/datum/component/pain_container)
+		if(limb_pain_comp && owner_pain_comp)
+			limb_pain_comp.upstream = owner_pain_comp
 
 	if(!parent && parent_organ)
 		parent = owner.organs_by_name[src.parent_organ]
@@ -450,8 +460,6 @@
 		else
 			createwound(DAMAGE_BURN, burn)
 
-	add_pain(0.6 * burn + 0.4 * brute)
-
 	//If there are still hurties to dispense
 	if (spillover)
 		owner.shock_stage += spillover * GLOB.config.organ_damage_spillover_multiplier
@@ -461,7 +469,9 @@
 	if(owner)
 		owner.updatehealth() //droplimb will call updatehealth() again if it does end up being called
 
-	return update_icon()
+	. = update_icon()
+	TryComponentOrReturn(src, /datum/component/pain_container, pain_comp, .)
+	add_pain(pain_comp.pain_per_brute * brute, pain_comp.pain_per_burn * burn)
 
 /obj/item/organ/external/proc/damage_internal_organs(brute, burn, damage_flags)
 	if(!length(internal_organs))
@@ -547,6 +557,7 @@
 	if(status & ORGAN_ROBOT && !robo_repair)
 		return
 
+	var/datum/component/pain_container/pain_comp = GetComponent(/datum/component/pain_container)
 	//Heal damage on the individual wounds
 	for(var/datum/wound/W in wounds)
 		if(brute == 0 && burn == 0)
@@ -555,10 +566,19 @@
 		// heal brute damage
 		if(W.damage_type == DAMAGE_BURN)
 			burn = W.heal_damage(burn)
+			if(pain_comp)
+				pain_comp.remove_pain(burn * pain_comp.pain_per_burn)
 		else
 			brute = W.heal_damage(brute)
+			if(pain_comp)
+				pain_comp.remove_pain(brute * pain_comp.pain_per_brute)
 
 	if(internal)
+		if(status & ORGAN_BROKEN)
+			status &= ~ORGAN_BROKEN
+			if(pain_comp)
+				pain_comp.remove_pain(pain_comp.pain_if_broken)
+
 		status &= ~ORGAN_BROKEN
 		perma_injury = 0
 
@@ -598,7 +618,8 @@ This function completely restores a damaged organ to perfect condition.
 		tendon.rejuvenate()
 
 	owner.updatehealth()
-
+	TryComponentOrReturn(src, /datum/component/pain_container, pain_comp, 0)
+	pain_comp.set_pain(0)
 
 /obj/item/organ/external/proc/createwound(var/type = CUT, var/damage)
 	if(damage <= 0 || !owner)
@@ -1242,7 +1263,12 @@ Note that amputating the affected organ does in fact remove the infection from t
 			owner.flash_strong_pain()
 		playsound(src.loc, /singleton/sound_category/fracture_sound, 100, 1, -2)
 
-	status |= ORGAN_BROKEN
+	if(status & ~ORGAN_BROKEN)
+		status |= ORGAN_BROKEN
+		var/datum/component/pain_container/pain_comp = GetComponent(/datum/component/pain_container)
+		if(pain_comp)
+			pain_comp.add_pain(pain_comp.pain_if_broken)
+
 	broken_description = pick("broken", "fracture", "hairline fracture")
 	perma_injury = brute_dam
 
@@ -1259,7 +1285,11 @@ Note that amputating the affected organ does in fact remove the infection from t
 	if(brute_dam > min_broken_damage * GLOB.config.organ_health_multiplier)
 		return 0	//will just immediately fracture again
 
-	status &= ~ORGAN_BROKEN
+	if(status & ORGAN_BROKEN)
+		status &= ~ORGAN_BROKEN
+		var/datum/component/pain_container/pain_comp = GetComponent(/datum/component/pain_container)
+		if(pain_comp)
+			pain_comp.remove_pain(pain_comp.pain_if_broken)
 
 	return 1
 
@@ -1308,6 +1338,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	limb_flags &= ~ORGAN_CAN_BREAK
 	get_icon()
 	unmutate()
+	RemoveComponent(src, /datum/component/pain_container)
 	if(robotize_children)
 		for (var/obj/item/organ/external/T in children)
 			T.robotize(company)
@@ -1394,6 +1425,11 @@ Note that amputating the affected organ does in fact remove the infection from t
 		W.forceMove(owner)
 
 /obj/item/organ/external/removed(var/mob/living/user, var/ignore_children = 0)
+	var/datum/component/pain_container/pain_comp = GetComponent(/datum/component/pain_container)
+	if(pain_comp.upstream)
+		pain_comp.set_pain(0)
+		pain_comp.upstream.sources.Remove(pain_comp)
+		pain_comp.upstream = null
 
 	if(!owner)
 		return
@@ -1588,6 +1624,10 @@ Note that amputating the affected organ does in fact remove the infection from t
 		if(status & ORGAN_MUTATED)
 			unmutate()
 			to_chat(src, SPAN_NOTICE("Your [name] is shaped normally again."))
+
+	var/datum/component/pain_container/pain_comp = GetComponent(/datum/component/pain_container)
+	if(pain_comp)
+		pain_comp.remove_pain((genetic_degradation - last_gene_dam) * pain_comp.pain_per_genetic)
 	return -(genetic_degradation - last_gene_dam)
 
 /obj/item/organ/external/proc/add_genetic_damage(var/amount)
@@ -1595,6 +1635,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 		genetic_degradation = 0
 		status &= ~ORGAN_MUTATED
 		return
+
 	var/last_gene_dam = genetic_degradation
 	genetic_degradation = min(100,max(0,genetic_degradation + amount))
 	if(genetic_degradation > 10)
@@ -1603,33 +1644,29 @@ Note that amputating the affected organ does in fact remove the infection from t
 		if(!(status & ORGAN_MUTATED) && prob(genetic_degradation))
 			mutate()
 			to_chat(owner, SPAN_NOTICE("Something is not right with your [name]..."))
+
+	var/datum/component/pain_container/pain_comp = GetComponent(/datum/component/pain_container)
+	if(pain_comp)
+		pain_comp.add_pain((genetic_degradation - last_gene_dam) * pain_comp.pain_per_genetic)
+
 	return (genetic_degradation - last_gene_dam)
 
 // Pain/halloss
 /obj/item/organ/external/proc/get_pain()
-	if(!ORGAN_CAN_FEEL_PAIN(src) || BP_IS_ROBOTIC(src))
-		return 0
-	. = pain + 0.7 * brute_dam + 0.8 * burn_dam + 0.5 * get_genetic_damage()
-	if(is_broken())
-		. += 10
-	else if(ORGAN_IS_DISLOCATED(src))
-		. += 5
-	for(var/obj/item/organ/internal/I as anything in internal_organs)
-		. += 0.3 * I.getToxLoss()
+	TryComponentOrReturn(src, /datum/component/pain_container, pain_comp, 0)
+	return pain_comp.pain_total
 
 /obj/item/organ/external/proc/remove_pain(var/amount)
-	if(!ORGAN_CAN_FEEL_PAIN(src))
-		pain = 0
-		return
-	var/last_pain = pain
-	pain = max(0, min(species.total_health * 2, pain - amount))
-	return -(pain-last_pain)
+	TryComponentOrReturn(src, /datum/component/pain_container, pain_comp, 0)
+
+	var/last_pain = pain_comp.pain_total
+	pain_comp.set_pain(max(0, min(species.total_health * 2, pain_comp.pain_base - amount)))
+	return -(pain_comp.pain_total-last_pain)
 
 /obj/item/organ/external/proc/add_pain(var/amount)
-	if(!ORGAN_CAN_FEEL_PAIN(src))
-		pain = 0
-		return
-	var/last_pain = pain
+	TryComponentOrReturn(src, /datum/component/pain_container, pain_comp, 0)
+
+	var/last_pain = pain_comp.pain_total
 	if(owner)
 		amount *= owner.species.pain_mod
 		if(HAS_TRAIT(owner, TRAIT_ORIGIN_PAIN_RESISTANCE))
@@ -1637,13 +1674,13 @@ Note that amputating the affected organ does in fact remove the infection from t
 		amount -= (owner.chem_effects[CE_PAINKILLER]/3)
 		if(amount <= 0)
 			return
-	pain = max(0, min(pain + amount, species.total_health * 2))
+	pain_comp.set_pain(max(0, min(pain_comp.pain_base + amount, species.total_health * 2)))
 	if(owner && ((amount > 15 && prob(20)) || (amount > 30 && prob(60))))
 		owner.emote("scream")
 	if(amount > 5 && owner)
 		owner.undo_srom_pull()
 	SEND_SIGNAL(src, COMSIG_UPDATE_LIMB_IMAGE)
-	return pain-last_pain
+	return pain_comp.pain_total-last_pain
 
 /mob/living/carbon/human/proc/undo_srom_pull()
 	if(srom_pulled_by)

@@ -41,7 +41,13 @@
  * * datum/P the parent datum this component reacts to signals from
  */
 /datum/component/New(list/raw_args)
-	parent = raw_args[1]
+	for(var/key,value in raw_args)
+		if(!vars[key])
+			stack_trace("var/[key] = value was passed as argument into [src], all component args must correspond with a var that exists on that component.")
+			continue
+
+		vars[key] = value
+
 	var/list/arguments = raw_args.Copy(2)
 	if(Initialize(arglist(arguments)) == COMPONENT_INCOMPATIBLE)
 		stack_trace("Incompatible [type] assigned to a [parent.type]! args: [json_encode(arguments)]")
