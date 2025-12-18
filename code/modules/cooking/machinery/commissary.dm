@@ -210,12 +210,12 @@
 	var/transaction_terminal = machine_id
 
 	if(transaction_amount <= E.worth)
-		playsound(src, 'sound/machines/chime.ogg', 50, 1)
-		src.visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] \The [src] chimes."))
-
 		SSeconomy.charge_to_account(SSeconomy.get_department_account(destinationact)?.account_number, E.owner_name, transaction_purpose, transaction_terminal, transaction_amount)
 		E.worth -= transaction_amount
+
 		visible_message("\The [user] swipes a card on \the [src]." )
+		playsound(src, 'sound/machines/chime.ogg', 50, 1)
+		src.visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] \The [src] chimes."))
 		print_receipt()
 		sum = 0
 		receipt = ""
