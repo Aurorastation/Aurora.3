@@ -359,7 +359,7 @@
 
 	components_to_ensure = alist(
 		/datum/component/armor = list(
-			"armor_values" = list(
+			list(
 				MELEE = ARMOR_MELEE_MEDIUM
 		)),
 		/datum/component/pain_container = list()

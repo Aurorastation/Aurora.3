@@ -349,7 +349,7 @@
 
 	components_to_ensure = alist(
 		/datum/component/armor = list(
-			"armor_values" = list(
+			list(
 				BULLET = ARMOR_BALLISTIC_MEDIUM,
 				MELEE = ARMOR_MELEE_MAJOR,
 				ENERGY = ARMOR_ENERGY_RESISTANT
