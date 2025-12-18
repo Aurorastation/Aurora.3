@@ -129,3 +129,9 @@
       but so does having a psi-receiver. Having a mindshield or mind blanker makes
       you less psi-sensitive. A variety of mechanics now operate on psi-sensitivity
       or relative sensitivity.
+2025-12-15:
+  GeneralCamo:
+  - bugfix: Fix stealth removal of Santa's bag.
+2025-12-17:
+  Hellfirejag:
+  - bugfix: Fixed mindshields and mind blankers spamming the chat.

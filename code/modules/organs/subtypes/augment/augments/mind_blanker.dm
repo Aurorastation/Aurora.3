@@ -37,6 +37,9 @@
 		return
 
 	*cancelled = TRUE
+	if(implantee == caster)
+		return
+
 	to_chat(implantee, SPAN_DANGER("Your mind wriggles as it repulses an outside thought."))
 
 /obj/item/organ/internal/augment/bioaug/mind_blanker/proc/modify_sensitivity(var/implantee, var/effective_sensitivity)
@@ -85,6 +88,9 @@
 		return
 
 	*cancelled = TRUE
+	if(implantee == caster)
+		return
+
 	to_chat(implantee, SPAN_DANGER("Your mind wriggles as it repulses an outside thought."))
 	if(isliving(caster))
 		var/mob/living/victim = caster
