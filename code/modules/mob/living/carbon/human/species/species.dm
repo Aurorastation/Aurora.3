@@ -7,13 +7,13 @@
 	// Descriptors and strings.
 	/// Species name.
 	var/name
-	/// Pluralized name (since "[name]s" is not always valid)
+	/// Pluralized name (since "[name]s" is not always valid).
 	var/name_plural
 	/// If TRUE, the species' name won't be visible on examine.
 	var/hide_name = FALSE
-	/// Shortened form of the name, for code use. Must be exactly 3 letter long, and all lowercase
+	/// Shortened form of the name, for code use. Must be exactly 3 letter long, and all lowercase.
 	var/short_name
-	/// A name for this overarching species, ie 'Human', 'Skrell', 'IPC'. only used in character creation
+	/// A name for this overarching species, ie 'Human', 'Skrell', 'IPC'. only used in character creation.
 	var/category_name
 	/// A brief lore summary for use in the chargen screen.
 	var/blurb = "A completely nondescript species."

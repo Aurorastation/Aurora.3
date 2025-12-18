@@ -1,0 +1,137 @@
+2025-12-01:
+  Batrachophrenoboocosmomachia:
+  - qol: Adds extended examine information, mechanics hints, etc. to both standard
+      and agent ID cards.
+  - refactor: Ports agent ID card UI from Nano to TGUI.
+  - code_imp: Miscellaneous behind-the-scenes code improvements and dmdocumentation.
+  FabianK3:
+  - bugfix: Fixed misconfigured safety shutters in the bridge conference room. All
+      shutters around the bridge now listen to the same command.
+  - qol: Added a bridge safety shutters button to bridge break room.
+  - bugfix: Removed duplicate lightswitch in security interrogations.
+  - bugfix: Fixed runtime error when paper is handed out by printers without a mob
+      nearby.
+  Fyni:
+  - rscadd: Adds Sleepwalker alt title to priests.
+  Hellfirejag:
+  - bugfix: Fixed math errors in overmap ship math that caused severe precision errors
+      when accelerating diagonally.
+  - rscadd: Creating a new IPC will now default to a baseline frame instead of the
+      deprecated 'unbranded' frame.
+  TheGreyWolf:
+  - rscadd: Watches now have an icon top left to check time, similarly to an integrated
+      time piece.
+  - rscadd: The tajaran wrist watches now shows the time on adhomai, similar to the
+      tajaran pocketwatch.
+  - rscadd: 'There are three new papercode commands: tajtime, tajdate and cr. The
+      last of which creates the credit symbol.'
+  - rscadd: The time and date on adhomai is now visible on the stat panel for tajara
+      originating from Adhomai.
+  - code_imp: The tajaran time and date calculations have been moved to procs in _HELPERS/time.dm
+      to be used more universally.
+  hazelmouse:
+  - rscadd: All IPCs now speak Encoded Audio Language by standard in addition to their
+      usual language slots.
+2025-12-03:
+  Batrachophrenoboocosmomachia:
+  - refactor: Refactors the egg injection of Greimorian Workers to use parasite code;
+      it can now be treated with anti-parasitic medicines in addition to amputation
+      of the affected limb. Works on all playable species, and monkeys.
+  - rscadd: New reagent 'Greimorian Eggs' creates an egg cluster parasite in a random
+      organ when metabolized in the bloodstream. It also has very mild soporific effects.
+  - balance: Greimorian Workers and playable Greimorian Servants/Queen now inject
+      Greimorian Eggs instead of Soporific.
+  - rscadd: Greimorian Clade Kit now available in Uplink under Bioweapons section
+      (Greimorians now able to be introduced to ship by egg cluster or injectable
+      reagent).
+  - balance: All parasite kit bioweapons have had their vial reagent count increased
+      from 2 -> 5.
+  - balance: Helmizole no longer treats K'ois Mycosis, Black K'ois Mycosis, Zombification,
+      or Tumors (Benign or Malignant).
+  - code_imp: Updates a lot of code documentation to dmdocs.
+  FabianK3:
+  - rscadd: Added a newscaster to the engineering hallway.
+  - rscadd: Added a power outlet to the table in the brig.
+  - rscadd: Added missing ventilation to fore engineering hallway.
+  - bugfix: Fixed science notice board being visible in the maint behind it.
+  - rscadd: Generic minor map cleanup.
+  - bugfix: Fixed lights in elevator(s) breaking constantly.
+  Fyni:
+  - rscadd: Changes the Comet Explusion sound effect AGAIN to a voiced line fitting
+      all the other events.
+  Kano:
+  - rscadd: Fixed non-human types not displaying their name in chat.
+  - bugfix: Fixed exoplanet turfs not properly initializing their own light.
+2025-12-05:
+  FabianK3:
+  - imageadd: Added colorable high visibility jackets and pants. They can be found
+      in the loadout as a dedicated piece to select. Existing presets of high visibility
+      clothing still exists and can still be selected in the loadout or in vendors.
+  - balance: Added some very minor brute, bio and electrical protection to high visibility
+      clothing.
+  - qol: Added a dedicated category in the loadout selection for existing high visibility
+      jackets and pants respectively. This change will break current loadouts using
+      either jacket or pants, they need to be re-added manually.
+  - bugfix: Fixed pants slot items not getting the correct overlays due to a missing
+      formatting. This PR probably encountered on it for the first time.
+  - bugfix: Fixed some high visibility jackets having the incorrect emissive sprite.
+  - code_imp: High visibility jackets and plants now have their own dedicated code
+      file and their code has been refactored. Duplicate emissive patterns for the
+      jackets have been removed.
+2025-12-07:
+  FabianK3:
+  - bugfix: Fixed white coloring after cleaning open turfs.
+  - bugfix: Fixed cleanable decals not getting auto deleted on open turfs.
+  - code_imp: Refactored cleanable decals to update above turfs mimic if it's an open
+      turf.
+  GeneralCamo:
+  - rscadd: The Laptop Vendor can now vend tablets and PDAs.
+  - rscadd: The Laptop Vendor now has upgraded batteries, upgraded hard drives, upgraded
+      networking cards, nanoprinters, AI card slots, and tesla relays for sale as
+      upgrade options.
+  - qol: The laptop vendor can now accept PDAs with IDs in them.
+  - qol: The laptop vendor will now give you your new item in your hands, if possible.
+2025-12-08:
+  GeneralCamo:
+  - bugfix: Ported server revision verb from CM to fix numerous issues breaking it.
+  Hellfirejag:
+  - bugfix: Fixed an issue where vaurca language processors would delete their starting
+      language processor.
+  Mynameasjeff:
+  - refactor: Reworks the Solarian Coilgun into a event-only weapon no longer
+  - bugfix: Fixes several issues found on the Solarian Frigate during playtesting
+  - balance: Replaces the Solarian Frigate's longbow with the new coilgun. Hoorah!
+2025-12-10:
+  ChangeMe:
+  - bugfix: Stops the Xanu Frigate from being omnipresent.
+  FabianK3:
+  - code_imp: Removed build artifacts from TGUI build stage that were git-ignored
+      but already checked in.
+  - code_imp: Removed no longer needed repo workflow to update TGUI auto generated
+      files.
+  Kano:
+  - bugfix: Fixed combat hardsuits not using unathi specie specific worn sprites.
+  - bugfix: Fixed some mapping issues in nka_merchant ship.
+  - bugfix: Fixed silicon robots being unable to use ctrl and shift click functions
+      with paint guns.
+  - bugfix: Fixed being able to interact with weapon safeties in situations where
+      it shouldn't occur.
+  - code_imp: Converted some comments into dmdocs, and documented some parts where
+      it was missing.
+2025-12-11:
+  FabianK3:
+  - bugfix: Fixed kneepads not being able to be atteched to pants.
+2025-12-13:
+  Hellfirejag:
+  - rscadd: Comprehensively reworked interactions between Psionics, Psi-Receivers,
+      Mind Blankers, and Mindshields, such that they now all operate on a unified
+      'psi-sensitivity' and psi-blocking check. Being psionic makes you more psi-sensitive,
+      but so does having a psi-receiver. Having a mindshield or mind blanker makes
+      you less psi-sensitive. A variety of mechanics now operate on psi-sensitivity
+      or relative sensitivity.
+2025-12-15:
+  GeneralCamo:
+  - bugfix: Fix stealth removal of Santa's bag.
+2025-12-17:
+  Hellfirejag:
+  - bugfix: Fixed mindshields and mind blankers spamming the chat.

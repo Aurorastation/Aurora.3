@@ -148,6 +148,7 @@
 #define BP_WORM_NERVE "nerve fluke"
 #define BP_TUMOUR_NONSPREADING "benign tumour"
 #define BP_TUMOUR_SPREADING "malignant tumour"
+#define BP_GREIMORIAN_EGGCLUSTER "greimorian egg cluster"
 
 //Augment organs
 #define BP_AUG_ACC_CORDS          "modified synthetic vocal cords"
@@ -179,6 +180,13 @@
 #define BP_AUG_HAIR               "synthetic hair extensions"
 #define BP_AUG_HEALTHSCAN         "integrated health scanner"
 #define BP_AUG_LANGUAGE           "integrated language processor"
+#define BP_AUG_LANGUAGE_CTHUR     "cthur language processor"
+#define BP_AUG_LANGUAGE_KLAX      "klaxan language processor"
+#define BP_AUG_LANGUAGE_MIKUETZ   "mikuetz language processor"
+#define BP_AUG_LANGUAGE_TRADEBAND "tradeband language processor"
+#define BP_AUG_LANGUAGE_VEKATAK   "vekatak language processor"
+#define BP_AUG_LANGUAGE_ZENG      "zeng language processor"
+#define BP_AUG_LANGUAGE_ZINO      "zino language processor"
 #define BP_AUG_LIGHTER            "retractable lighter"
 #define BP_AUG_MAGBOOT            "integrated mag-claws"
 #define BP_AUG_MEMORY             "memory inhibitor"

@@ -155,7 +155,8 @@
 	var/has_safety = TRUE
 	var/image/safety_overlay
 
-	var/iff_capable = FALSE // if true, applies the user's ID iff_faction to the projectile
+	/// If TRUE, applies the user's ID iff_faction to the projectile. As of 2025/11, code making use of this is not currently implemented.
+	var/iff_capable = FALSE
 
 /obj/item/gun/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -737,9 +738,10 @@
 		toggle_safety(usr)
 
 /obj/item/gun/CtrlClick(var/mob/user)
-	if(has_safety && user == loc)
+	if(has_safety && !use_check(user, USE_FORCE_SRC_IN_USER))
 		toggle_safety(user)
 		return TRUE
+
 	. = ..()
 
 /obj/item/gun/proc/safety()
