@@ -1,0 +1,7 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "Investigators now get a notepad in their locker."
+  - rscdel: "The labcoat was removed from the investigator locker."
