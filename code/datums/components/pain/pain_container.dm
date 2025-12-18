@@ -15,7 +15,7 @@
 	var/datum/component/pain_container/upstream
 
 	/// Associated List of all source pain components and the amount of pain they are currently providing.
-	var/list/datum/component/pain_container/pain_sources = alist()
+	var/list/datum/component/pain_container/pain_sources = list()
 
 	/// The amount of pain generated per point of brute damage.
 	var/pain_per_brute = 0.7
@@ -48,7 +48,7 @@
 	pain_total += amount
 	pain_base += amount
 	if(upstream)
-		upstream.add_pain(upstream.sources[src] - pain_total)
+		upstream.add_pain(upstream.pain_sources[src] - pain_total)
 		upstream.pain_sources[src] = pain_total
 
 /datum/component/pain_container/proc/remove_pain(var/amount)
@@ -63,6 +63,9 @@
 	pain_base = amount
 	for(var/datum/component/pain_container/source_comp,value in pain_sources)
 		pain_total += value
+	if(upstream)
+		upstream.add_pain(upstream.pain_sources[src] - pain_total)
+		upstream.pain_sources[src] = pain_total
 
 /datum/component/pain_container/Destroy(force)
 	. = ..()

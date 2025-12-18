@@ -370,6 +370,7 @@
 		var/datum/component/pain_container/owner_pain_comp = target.GetComponent(/datum/component/pain_container)
 		if(limb_pain_comp && owner_pain_comp)
 			limb_pain_comp.upstream = owner_pain_comp
+			owner_pain_comp.pain_sources[limb_pain_comp] = limb_pain_comp.pain_total
 
 	if(!parent && parent_organ)
 		parent = owner.organs_by_name[src.parent_organ]
