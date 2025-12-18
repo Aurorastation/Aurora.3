@@ -3,3 +3,4 @@ delete-after: True
 changes:
   - rscadd: "Added a large number of new helper macros related to Components and Signals, such as Cancelable signals, EnsureComponent, RemoveComponent, and TryComponent."
   - bugfix: "Subdermal Carapace no longer obliterates your origin-specific damage resistances (if any)."
+  - rscadd: "Completely overhauled pain code for massive performance improvements."
