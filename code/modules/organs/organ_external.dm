@@ -1427,7 +1427,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 /obj/item/organ/external/removed(var/mob/living/user, var/ignore_children = 0)
 	var/datum/component/pain_container/pain_comp = GetComponent(/datum/component/pain_container)
-	if(pain_comp.upstream)
+	if(pain_comp && pain_comp.upstream)
 		pain_comp.set_pain(0)
 		pain_comp.upstream.sources.Remove(pain_comp)
 		pain_comp.upstream = null
