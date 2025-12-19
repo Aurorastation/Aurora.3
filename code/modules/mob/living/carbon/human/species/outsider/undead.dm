@@ -348,9 +348,9 @@
 	species_height = HEIGHT_CLASS_TALL
 
 	natural_armor = list(
-		ballistic = ARMOR_BALLISTIC_MEDIUM,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
 		MELEE = ARMOR_MELEE_MAJOR,
-		bomb = null,
+		BOMB = null,
 		ENERGY = ARMOR_ENERGY_RESISTANT
 	)
 	has_pain = FALSE
