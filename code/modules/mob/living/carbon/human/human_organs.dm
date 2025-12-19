@@ -63,10 +63,9 @@
 					I.take_damage(rand(3,5))
 
 				//Moving makes open wounds get infected much faster
-				if (E.wounds.len)
-					for(var/datum/wound/W in E.wounds)
-						if (W.infection_check())
-							W.germ_level += 1
+				for(var/datum/wound/W in E.wounds)
+					if (W.infection_check())
+						W.germ_level += 1
 
 /mob/living/carbon/human
 	var/next_stance_collapse = 0
