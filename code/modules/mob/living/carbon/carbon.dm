@@ -516,6 +516,9 @@
 
 /mob/living/carbon/proc/can_feel_pain()
 	TryComponentOrReturn(src, /datum/component/pain_container, pain_comp, FALSE)
+	if(analgesic > 100)
+		return FALSE
+
 	return TRUE
 
 /mob/living/carbon/get_shock()
