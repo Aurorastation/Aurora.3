@@ -236,7 +236,7 @@
 	next_turf:
 		for(var/turf/T in world)
 			for(var/dir in GLOB.cardinals)
-				var/list/connect_types = list(1 = 0, 2 = 0, 3 = 0)
+				var/alist/connect_types = alist(1 = 0, 2 = 0, 3 = 0)
 				for(var/obj/machinery/atmospherics/pipe in T)
 					checks++
 					if(dir & pipe.initialize_directions)

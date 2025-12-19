@@ -91,9 +91,7 @@
 		return ..(A, user, click_parameters)
 
 	var/obj/O = A
-	var/datum/component/multitool/MT = O.GetComponent(/datum/component/multitool)
-	if(!MT)
-		return ..(A, user, click_parameters)
+	TryComponentOrReturn(O, /datum/component/multitool, MT, ..(A, user, click_parameters))
 
 	user.AddTopicPrint(src)
 	MT.interact(src, user)

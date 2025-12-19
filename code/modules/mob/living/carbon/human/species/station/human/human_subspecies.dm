@@ -33,10 +33,7 @@
 
 /datum/species/human/offworlder/get_species_tally(var/mob/living/carbon/human/H)
 	// Check via cancelable reference signal if arbitrarily anything on the character wants to negate the offworlder weakness.
-	var/canceled = FALSE
-	SEND_SIGNAL(H, COMSIG_GRAVITY_WEAKNESS_EVENT, &canceled)
-	if(canceled)
-		return 0
+	CANCELABLE_SEND_SIGNAL(H, COMSIG_GRAVITY_WEAKNESS_EVENT, canceled, FALSE)
 
 	if(istype(H.back, /obj/item/rig/light/offworlder))
 		var/obj/item/rig/light/offworlder/rig = H.back
@@ -70,10 +67,7 @@
 			return
 
 		// Check via cancelable reference signal if arbitrarily anything on the character wants to negate the offworlder weakness.
-		var/canceled = FALSE
-		SEND_SIGNAL(H, COMSIG_GRAVITY_WEAKNESS_EVENT, &canceled)
-		if(canceled)
-			return
+		CANCELABLE_SEND_SIGNAL(H, COMSIG_GRAVITY_WEAKNESS_EVENT, canceled, FALSE)
 
 		var/obj/item/organ/external/l_leg = H.get_organ(BP_L_LEG)
 		var/obj/item/organ/external/r_leg = H.get_organ(BP_R_LEG)

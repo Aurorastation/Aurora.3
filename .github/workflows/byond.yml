@@ -381,7 +381,7 @@ jobs:
       #And natively, the packages that break from a cache
       - name: Install OS Packages (Native)
         run: |
-          sudo apt-get install libgcc-s1:i386 libssl-dev:i386
+          sudo apt-get install libgcc-s1:i386 libssl-dev:i386 libcurl4t64 libcurl4t64:i386
 
       #Install flyway
       - name: Install Flyway
@@ -504,7 +504,7 @@ jobs:
       #And natively, the packages that break from a cache
       - name: Install OS Packages (Native)
         run: |
-          sudo apt-get install libgcc-s1:i386 libssl-dev:i386
+          sudo apt-get install libgcc-s1:i386 libssl-dev:i386 libcurl4t64 libcurl4t64:i386
 
       #Install flyway
       - name: Install Flyway
@@ -629,7 +629,7 @@ jobs:
       #And natively, the packages that break from a cache
       - name: Install OS Packages (Native)
         run: |
-          sudo apt-get install libgcc-s1:i386 libssl-dev:i386
+          sudo apt-get install libgcc-s1:i386 libssl-dev:i386 libcurl4t64 libcurl4t64:i386
 
       #Install flyway
       - name: Install Flyway
@@ -754,7 +754,7 @@ jobs:
       #And natively, the packages that break from a cache
       - name: Install OS Packages (Native)
         run: |
-          sudo apt-get install libgcc-s1:i386 libssl-dev:i386
+          sudo apt-get install libgcc-s1:i386 libssl-dev:i386 libcurl4t64 libcurl4t64:i386
 
       #Install flyway
       - name: Install Flyway
@@ -878,7 +878,7 @@ jobs:
       #And natively, the packages that break from a cache
       - name: Install OS Packages (Native)
         run: |
-          sudo apt-get install libgcc-s1:i386 libssl-dev:i386
+          sudo apt-get install libgcc-s1:i386 libssl-dev:i386 libcurl4t64 libcurl4t64:i386
 
       #Install flyway
       - name: Install Flyway
@@ -1001,7 +1001,7 @@ jobs:
       #And natively, the packages that break from a cache
       - name: Install OS Packages (Native)
         run: |
-          sudo apt-get install libgcc-s1:i386 libssl-dev:i386
+          sudo apt-get install libgcc-s1:i386 libssl-dev:i386 libcurl4t64 libcurl4t64:i386
 
       #Install flyway
       - name: Install Flyway

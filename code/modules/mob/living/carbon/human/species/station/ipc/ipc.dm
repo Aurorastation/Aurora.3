@@ -148,6 +148,7 @@
 	sleeps_upright = TRUE
 	snores = FALSE
 	indefinite_sleep = TRUE
+	has_pain = FALSE
 
 /datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	. = ..()

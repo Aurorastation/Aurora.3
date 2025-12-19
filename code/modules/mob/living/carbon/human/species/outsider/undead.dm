@@ -348,11 +348,12 @@
 	species_height = HEIGHT_CLASS_TALL
 
 	natural_armor = list(
-		ballistic = ARMOR_BALLISTIC_MEDIUM,
+		BULLET = ARMOR_BALLISTIC_MEDIUM,
 		MELEE = ARMOR_MELEE_MAJOR,
-		bomb = null,
+		BOMB = null,
 		ENERGY = ARMOR_ENERGY_RESISTANT
 	)
+	has_pain = FALSE
 
 	mob_size = 20
 
@@ -428,12 +429,13 @@
 	grab_mod = 5
 
 	natural_armor = list(
-		ballistic = ARMOR_BALLISTIC_MINOR,
+		BULLET = ARMOR_BALLISTIC_MINOR,
 		LASER = ARMOR_LASER_MINOR,
 		MELEE = ARMOR_MELEE_SMALL,
 		BOMB = ARMOR_BOMB_PADDED,
 		ENERGY = ARMOR_ENERGY_SMALL
 	)
+	has_pain = FALSE
 
 	inherent_verbs = list(
 						/mob/living/carbon/human/proc/trample,

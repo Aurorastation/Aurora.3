@@ -122,8 +122,7 @@
 			to_chat(owner, SPAN_GOOD("You are dying. But it does not matter. You will serve Our will, until you can serve no more."))
 			to_chat(owner, SPAN_NOTICE("You are in the final stage of black k'ois mycosis. It cannot be removed, and you can no longer handle guns or other complex devices, as \
 			your fine motor skills erode. However, you are stronger, and no longer affected by pain."))
-			if(owner.can_feel_pain())
-				owner.pain_immune = TRUE
+			RemoveComponent(owner, /datum/component/pain_container)
 			if(!owner.lobotomized)
 				owner.lobotomized = TRUE //no guns for you, beat people to death as high queen lii'dra intended
 			owner.max_stamina = 500 //you are a discount zombie, you run good

@@ -515,13 +515,8 @@
 	return metabolism
 
 /mob/living/carbon/proc/can_feel_pain()
-	if (species && (species.flags & NO_PAIN))
-		return FALSE
-	if ((mutations & HULK))
-		return FALSE
-	if (analgesic > 100)
-		return FALSE
-	if(pain_immune)
+	TryComponentOrReturn(src, /datum/component/pain_container, pain_comp, FALSE)
+	if(analgesic > 100)
 		return FALSE
 
 	return TRUE
