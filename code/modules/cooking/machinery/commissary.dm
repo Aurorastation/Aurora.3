@@ -215,7 +215,7 @@
 
 		visible_message("\The [user] swipes a card on \the [src]." )
 		playsound(src, 'sound/machines/chime.ogg', 50, 1)
-		src.visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] \The [src] chimes."))
+		src.audible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] \The [src] chimes."))
 		print_receipt()
 		sum = 0
 		receipt = ""
@@ -313,7 +313,7 @@
 				sum += item_price * item_amount
 			receipt += "<b>Total:</b> [sum]cr<br>"
 			playsound(src, 'sound/machines/ping.ogg', 25, 1)
-			visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] \The [src] pings."))
+			audible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] \The [src] pings."))
 			. = TRUE
 
 		if("locking")
