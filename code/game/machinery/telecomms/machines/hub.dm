@@ -19,6 +19,7 @@
 	active_power_usage = 5 KILO WATTS
 	circuitboard = "/obj/item/circuitboard/telecomms/hub"
 	netspeed = 40
+	produces_sound = TRUE
 
 /obj/machinery/telecomms/hub/receive_information(datum/signal/signal, obj/machinery/telecomms/machine_from)
 	if(!is_freq_listening(signal))
@@ -29,18 +30,3 @@
 		relay_information(signal, /obj/machinery/telecomms/bus) // ideally relay the copied information to bus units
 	else
 		relay_information(signal, /obj/machinery/telecomms/broadcaster) // Broadcast the current signal to our z-levels
-
-/obj/machinery/telecomms/hub/toggle_power(power_set, additional_flags = 0)
-	. = ..()
-	if(use_power)
-		soundloop.start()
-	else
-		soundloop.stop()
-
-/obj/machinery/telecomms/hub/Initialize(mapload)
-	. = ..()
-	soundloop = new(src, TRUE)
-
-/obj/machinery/telecomms/hub/Destroy()
-	QDEL_NULL(soundloop)
-	return ..()

@@ -64,8 +64,12 @@
 	/// Is this device currently scrambling all comms? Used for random events.
 	var/ion_storm = FALSE
 
-	///Looping sounds for any servers
-	var/datum/looping_sound/server/soundloop
+	///Does this device produce sound?
+	var/produces_sound = FALSE
+	///Looping sound to use for this telecomm machine.
+	var/soundloop = /datum/looping_sound/server
+	///Private variable to store the looping sound's ID
+	VAR_PRIVATE/datum/looping_sound/telecomms_looping_sound
 
 /obj/machinery/telecomms/condition_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -113,6 +117,7 @@
 	for(var/obj/machinery/telecomms/comm in SSmachinery.all_telecomms)
 		remove_link(comm)
 	links = list()
+	QDEL_NULL(telecomms_looping_sound)
 	return ..()
 
 /// This proc returns distance, so -1 is our error value
@@ -170,8 +175,13 @@
 	. = ..()
 	if(use_power)
 		START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
+		if (produces_sound && telecomms_looping_sound == null)
+			telecomms_looping_sound = new soundloop(src, TRUE)
 	else
 		STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
+		if (telecomms_looping_sound)
+			telecomms_looping_sound.stop()
+			QDEL_NULL(telecomms_looping_sound)
 
 /**
  * Previous implementation was to run EMP proc then restore, but was very buggy. This is a rudimentary alternate implementation, just flags processors to crap out.
