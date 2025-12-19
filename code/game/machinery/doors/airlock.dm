@@ -158,9 +158,12 @@
 	var/datum/wifi/receiver/button/door/wifi_receiver
 	var/has_set_boltlight = FALSE
 
-	/// Boolean. If TRUE, the door will open when power runs out.
-	var/insecure = TRUE
-	var/securitylock = FALSE
+	/// Boolean. If true the door features an override handle allowing to open the door when the power is out.
+	var/features_powerloss_manual_override = TRUE
+	/// Boolean. Internal state set after the no power manual override has been used. If true (set after usage) the door will close on receiving power again.
+	var/revert_powerloss_manual_override = FALSE
+	/// Soundfile. The sound played when the no power manual override is used.
+	var/powerless_manual_override_sound = 'sound/items/Ratchet.ogg'
 
 	/// Override access by code level. This is an associative list that should only be set through /obj/effect/map_effect/door_helper/level_access.
 	/// Structure example: "red" -> list(1, 2)
@@ -175,6 +178,9 @@
 	. += "Airlocks use access control; you must be wearing your ID (or an object containing your ID) in your ID slot, wrist slot, or active in-hand, for it to be read."
 	. += "Airlocks require power to function. When power is lost, an airlock might fail closed or open, depending on how secure it is."
 	. += "An unpowered airlock can be opened or closed with a crowbar, but a powered airlock cannot."
+	if(features_powerloss_manual_override)
+		. += "This door specifically features a manual override when it's unpowered. Tap the door with an empty hand to attempt to override it when it is unpowered."
+		. += "Note that the door needs to be otherwise functional and unbolted. Not every airlock has this override."
 
 /obj/machinery/door/airlock/antagonist_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -314,7 +320,7 @@
 	door_frame_color = "#81838b"//Meant to connect to external scc spaceship walls like the horizon hull
 	door_color = "#813c3c"
 	hashatch = FALSE
-	insecure = 0
+	features_powerloss_manual_override = FALSE
 	fill_file = 'icons/obj/doors/basic/single/external/fill_steel.dmi'
 	color_file = 'icons/obj/doors/basic/single/external/color.dmi'
 	color_fill_file = 'icons/obj/doors/basic/single/external/fill_color.dmi'
@@ -407,7 +413,7 @@
 	icon = 'icons/obj/doors/basic/single/external/door.dmi'
 	assembly_type = /obj/structure/door_assembly/door_assembly_ext
 	hashatch = FALSE
-	insecure = 0
+	features_powerloss_manual_override = FALSE
 	ai_control_disabled = 1
 	hack_proof = TRUE
 	open_sound_powered = 'sound/machines/airlock/space1o.ogg'
@@ -527,7 +533,7 @@
 	explosion_resistance = 20
 	secured_wires = TRUE
 	maxhealth = 600
-	insecure = 0
+	features_powerloss_manual_override = FALSE
 	ai_bolting_delay = 10
 	ai_unbolt_delay = 5
 	open_sound_powered = 'sound/machines/airlock/secure1o.ogg'
@@ -560,7 +566,7 @@
 	door_color = "#4e5170"
 	stripe_color = "#ffc443"
 	assembly_type = /obj/structure/door_assembly/door_assembly_hatch
-	insecure = 0
+	features_powerloss_manual_override = FALSE
 	open_sound_powered = 'sound/machines/airlock/hatchopen.ogg'
 	close_sound_powered = 'sound/machines/airlock/hatchclose.ogg'
 	open_sound_unpowered = 'sound/machines/airlock/hatchforced.ogg'
@@ -754,7 +760,7 @@
 	secured_wires = TRUE
 	assembly_type = /obj/structure/door_assembly/door_assembly_highsecurity
 	maxhealth = 600
-	insecure = 0
+	features_powerloss_manual_override = FALSE
 	ai_bolting_delay = 10
 	ai_unbolt_delay = 5
 	open_sound_powered = 'sound/machines/airlock/secure1o.ogg'
@@ -766,7 +772,7 @@
 	explosion_resistance = 20
 	secured_wires = TRUE
 	maxhealth = 600
-	insecure = 0
+	features_powerloss_manual_override = FALSE
 	hashatch = FALSE
 
 /obj/machinery/door/airlock/diona
@@ -776,7 +782,7 @@
 	explosion_resistance = 20
 	secured_wires = TRUE
 	maxhealth = 600
-	insecure = FALSE
+	features_powerloss_manual_override = FALSE
 	hashatch = FALSE
 
 /// Placeholder object until it gets new sprites.
@@ -1433,12 +1439,52 @@ About the new airlock wires panel:
 				take_damage(H.default_attack.attack_door)
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 				return
+
 	if(src.p_open)
 		user.set_machine(src)
 		wires.interact(user)
-	else
-		..(user)
+		return
+
+	if((ishuman(user) || istype(usr, /mob/living/silicon)) && src.density && (stat & NOPOWER) && user.Adjacent(src))
+		user.visible_message(
+			SPAN_NOTICE("<b>[user]</b> attempts to open \the [src]."),
+			SPAN_ITALIC("It seems like the door isn't opening. You try to locate and unlock the manual override...")
+		)
+
+		if(do_after(user, 5 SECONDS, src, DO_UNIQUE))
+			if(!features_powerloss_manual_override)
+				to_chat(user, SPAN_WARNING("This door doesn't seem to have a manual override..."))
+				return
+			if(locked || (stat & BROKEN))
+				to_chat(user, SPAN_WARNING("The override handle doesn't move an inch..."))
+				return
+			user.visible_message(
+				SPAN_WARNING("<b>[user]</b> begins to crank the manual override handle of \the [src]!"),
+				SPAN_NOTICE("You start to crank the manual override lever of \the [src]! This might take a moment..."),
+				SPAN_WARNING("You hear the sound of a ratchet being used!")
+			)
+			powerless_manual_override_procedure(user)
+			return
+
+	..(user)
 	return
+
+/obj/machinery/door/airlock/proc/powerless_manual_override_procedure(var/mob/user, var/current_iteration = 0)
+	current_iteration++
+	if(operable() || !src.density || locked)
+		to_chat(user, SPAN_WARNING("You suddenly hear something moving in \the [src]! You stop cranking the handle..."))
+		return
+	else if(current_iteration <= 5) // It takes a couple of steps to finish the procedure: 20%-40%-60%-80%-100%
+		playsound(loc, powerless_manual_override_sound, 20, FALSE)
+		if (do_after(user, 3 SECONDS, src, DO_UNIQUE))
+			to_chat(user, SPAN_NOTICE("The small oil gauge next to the handle raises to the [20 * current_iteration]% mark."))
+			powerless_manual_override_procedure(user, current_iteration)
+	else if(current_iteration > 5)
+		to_chat(user, SPAN_NOTICE("The small oil gauge next to the handle raises to the 100% mark."))
+		to_chat(user, SPAN_WARNING("The oil gauge suddenly drops to zero and the door opens!"))
+		playsound(src.loc, open_sound_unpowered, 70, FALSE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
+		src.open(1)
+		revert_powerloss_manual_override = TRUE
 
 //returns 1 on success, 0 on failure
 /obj/machinery/door/airlock/proc/cut_bolts(var/obj/item/tool, var/mob/user)
@@ -2106,16 +2152,13 @@ About the new airlock wires panel:
 /obj/machinery/door/airlock/power_change() //putting this is obj/machinery/door itself makes non-airlock doors turn invisible for some reason
 	..()
 	if(stat & NOPOWER)
-		// If we lost power, disable electrification
-		// Keeping door lights on, runs on internal battery or something.
+		// The door lost power - Disable electrification and close it.
 		electrified_until = 0
-		//if we lost power open 'er up
-		if(insecure)
-			INVOKE_ASYNC(src, TYPE_PROC_REF(/obj/machinery/door, open), 1)
-			securitylock = TRUE
-	else if(securitylock)
 		INVOKE_ASYNC(src, TYPE_PROC_REF(/obj/machinery/door, close), 1)
-		securitylock = FALSE
+	else if(revert_powerloss_manual_override)
+		// The door regained power and the powerless override was used - Close the door again.
+		revert_powerloss_manual_override = FALSE
+		INVOKE_ASYNC(src, TYPE_PROC_REF(/obj/machinery/door, close), 1)
 	update_icon()
 
 /obj/machinery/door/airlock/proc/prison_open()
