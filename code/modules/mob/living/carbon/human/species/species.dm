@@ -385,9 +385,11 @@
 		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right)
 		)
 
-	var/components_to_ensure = alist(
-		/datum/component/armor = list(),
-		/datum/component/pain_container = list())
+	/// The set of all innate damage resistances this species has.
+	var/natural_armor = list()
+
+	/// Whether or not this species should have a pain_container (AKA do they feel pain?)
+	var/has_pain = TRUE
 
 	// Bump vars
 	/// What are we considered to be when bumped?
@@ -546,8 +548,11 @@
 	if(H.bad_external_organs)     H.bad_external_organs.Cut()
 	if(H.bad_internal_organs)     H.bad_internal_organs.Cut()
 
-	for(var/comp,arguments in components_to_ensure)
-		H.AddComponent(comp, arguments)
+	EnsureComponent(H, /datum/component/armor, armor_comp)
+	for(var/key,value in natural_armor)
+		armor_comp.armor_values[key] += value
+	if(has_pain)
+		H.AddComponent(/datum/component/pain_container)
 
 	H.organs = list()
 	H.internal_organs = list()

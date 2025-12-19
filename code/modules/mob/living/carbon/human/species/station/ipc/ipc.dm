@@ -32,11 +32,6 @@
 	inherent_eye_protection = FLASH_PROTECTION_MAJOR
 	eyes_are_impermeable = TRUE
 
-	components_to_ensure = alist(
-		/datum/component/armor = list(),
-		// Skipping pain components, IPCs dont feel pain.
-	)
-
 	language = LANGUAGE_EAL
 	name_language = LANGUAGE_EAL
 	num_alternate_languages = 2
@@ -153,6 +148,7 @@
 	sleeps_upright = TRUE
 	snores = FALSE
 	indefinite_sleep = TRUE
+	has_pain = FALSE
 
 /datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	. = ..()

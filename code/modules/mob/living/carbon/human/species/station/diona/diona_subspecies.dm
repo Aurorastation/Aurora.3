@@ -18,9 +18,7 @@ In return, they are generally substantially more fragile, being especially susce
 	violence, including against more simple-minded creatures such as monkeys."
 
 	// An empty list, so they do not inherit the melee armour of their parent.
-	components_to_ensure = alist(
-		/datum/component/armor = list(),
-		/datum/component/pain_container = list())
+	natural_armor = list()
 
 	slowdown = 0
 	siemens_coefficient = 0.7

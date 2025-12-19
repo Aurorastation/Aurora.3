@@ -357,12 +357,8 @@
 		/singleton/maneuver/leap/bulwark
 	)
 
-	components_to_ensure = alist(
-		/datum/component/armor = list(
-			list(
-				MELEE = ARMOR_MELEE_MEDIUM
-		)),
-		/datum/component/pain_container = list()
+	natural_armor = list(
+		MELEE = ARMOR_MELEE_MEDIUM
 	)
 
 	brute_mod = 0.4
