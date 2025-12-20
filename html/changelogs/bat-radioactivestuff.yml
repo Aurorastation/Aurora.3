@@ -1,0 +1,24 @@
+# Your name.
+author: Batrachophrenoboocosmomachia
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+# Any changes you've made.  See valid prefix list above.
+# INDENT WITH TWO SPACES.  NOT TABS.  SPACES.
+# SCREW THIS UP AND IT WON'T WORK.
+# Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
+# Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
+changes:
+  - balance: "Dirty bomb cleanable 'greenglow' decal left behind is now actually radioactive to make it more persistently hazardous."
+  - balance: "'Radioactive waste' rare Warehouse spawn submap now uses low-radioactivity variants for some of its contents and also been given a radioactive gear crate."
+  - balance: "Adds increased taste_mult values to radioactive waste, napalm, and nitroglycerin; it should be noticeable if your drink is spiked with any of them."
+  - balance: "Both uranium and radioactive waste reagents will create radioactive pools on the floor if spilled (uranium weak, radioactive waste medium/strong)."
+  - balance: "Bombs are now allowed to be planted on any mob type except for carbons."
+  - balance: "Increases the numbers of assemblies (signalers, igniters, etc.) stocked in vending machines."
+  - balance: "Increases radiation protection values of both Engineering and Atmos voidsuits."
+  - rscadd: "Adds a radioactive waste chemical canister to the Uplink (5 tc)."
+  - code_imp: "Adds additional variants of greenglow/radioactive decal and radioactive_waste/hazardous obj that are more or less radioactive for mapping and ST use."
+  - code_imp: "Cleans up bomb timer setting code and admin logging."
+  - qol: "Adds more examine hints to reagent dispensers."
+  - qol: "Adds more examine hints to bombs."

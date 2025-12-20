@@ -31,6 +31,7 @@
 	new /obj/item/grenade/chem_grenade/antifuel(src)
 	new /obj/item/storage/lockbox/shuttle_blueprints(src)
 	new /obj/item/blueprints/outpost(src)
+	new /obj/item/base_planning_blueprints(src)
 
 // Chief Engineer - Clothing Satchel
 // This satchel is used nowhere except in conjunction with the locker above,

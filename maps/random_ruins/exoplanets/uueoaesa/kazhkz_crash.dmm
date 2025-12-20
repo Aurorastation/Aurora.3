@@ -111,7 +111,7 @@
 	},
 /obj/machinery/door/airlock/multi_tile{
 	name = "Cockpit";
-	insecure = 0
+	features_powerloss_manual_override = 0
 	},
 /turf/simulated/floor/tiled/slate,
 /area/shuttle/kazhkz_crash)

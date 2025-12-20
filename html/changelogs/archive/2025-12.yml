@@ -78,3 +78,60 @@
   - code_imp: High visibility jackets and plants now have their own dedicated code
       file and their code has been refactored. Duplicate emissive patterns for the
       jackets have been removed.
+2025-12-07:
+  FabianK3:
+  - bugfix: Fixed white coloring after cleaning open turfs.
+  - bugfix: Fixed cleanable decals not getting auto deleted on open turfs.
+  - code_imp: Refactored cleanable decals to update above turfs mimic if it's an open
+      turf.
+  GeneralCamo:
+  - rscadd: The Laptop Vendor can now vend tablets and PDAs.
+  - rscadd: The Laptop Vendor now has upgraded batteries, upgraded hard drives, upgraded
+      networking cards, nanoprinters, AI card slots, and tesla relays for sale as
+      upgrade options.
+  - qol: The laptop vendor can now accept PDAs with IDs in them.
+  - qol: The laptop vendor will now give you your new item in your hands, if possible.
+2025-12-08:
+  GeneralCamo:
+  - bugfix: Ported server revision verb from CM to fix numerous issues breaking it.
+  Hellfirejag:
+  - bugfix: Fixed an issue where vaurca language processors would delete their starting
+      language processor.
+  Mynameasjeff:
+  - refactor: Reworks the Solarian Coilgun into a event-only weapon no longer
+  - bugfix: Fixes several issues found on the Solarian Frigate during playtesting
+  - balance: Replaces the Solarian Frigate's longbow with the new coilgun. Hoorah!
+2025-12-10:
+  ChangeMe:
+  - bugfix: Stops the Xanu Frigate from being omnipresent.
+  FabianK3:
+  - code_imp: Removed build artifacts from TGUI build stage that were git-ignored
+      but already checked in.
+  - code_imp: Removed no longer needed repo workflow to update TGUI auto generated
+      files.
+  Kano:
+  - bugfix: Fixed combat hardsuits not using unathi specie specific worn sprites.
+  - bugfix: Fixed some mapping issues in nka_merchant ship.
+  - bugfix: Fixed silicon robots being unable to use ctrl and shift click functions
+      with paint guns.
+  - bugfix: Fixed being able to interact with weapon safeties in situations where
+      it shouldn't occur.
+  - code_imp: Converted some comments into dmdocs, and documented some parts where
+      it was missing.
+2025-12-11:
+  FabianK3:
+  - bugfix: Fixed kneepads not being able to be atteched to pants.
+2025-12-13:
+  Hellfirejag:
+  - rscadd: Comprehensively reworked interactions between Psionics, Psi-Receivers,
+      Mind Blankers, and Mindshields, such that they now all operate on a unified
+      'psi-sensitivity' and psi-blocking check. Being psionic makes you more psi-sensitive,
+      but so does having a psi-receiver. Having a mindshield or mind blanker makes
+      you less psi-sensitive. A variety of mechanics now operate on psi-sensitivity
+      or relative sensitivity.
+2025-12-15:
+  GeneralCamo:
+  - bugfix: Fix stealth removal of Santa's bag.
+2025-12-17:
+  Hellfirejag:
+  - bugfix: Fixed mindshields and mind blankers spamming the chat.

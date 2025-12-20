@@ -1,0 +1,6 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - bugfix: "The close button on text files in the file management program now works again, so does the restart button within the same program."

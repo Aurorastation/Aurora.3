@@ -7,13 +7,13 @@
 	// Descriptors and strings.
 	/// Species name.
 	var/name
-	/// Pluralized name (since "[name]s" is not always valid)
+	/// Pluralized name (since "[name]s" is not always valid).
 	var/name_plural
 	/// If TRUE, the species' name won't be visible on examine.
 	var/hide_name = FALSE
-	/// Shortened form of the name, for code use. Must be exactly 3 letter long, and all lowercase
+	/// Shortened form of the name, for code use. Must be exactly 3 letter long, and all lowercase.
 	var/short_name
-	/// A name for this overarching species, ie 'Human', 'Skrell', 'IPC'. only used in character creation
+	/// A name for this overarching species, ie 'Human', 'Skrell', 'IPC'. only used in character creation.
 	var/category_name
 	/// A brief lore summary for use in the chargen screen.
 	var/blurb = "A completely nondescript species."
@@ -122,6 +122,10 @@
 	// Combat vars.
 	/// Point at which the mob will enter crit.
 	var/total_health = 200
+	/// Ratio at which the mob will stop autohealing a wound. For brute damage.
+	var/autoheal_brute_ratio = 0.5
+	/// Ratio at which the mob will stop autohealing a wound. For burn damage.
+	var/autoheal_burn_ratio = 0.5
 	/// Possible unarmed attacks that the mob will use in combat,
 	var/list/unarmed_types = list(
 		/datum/unarmed_attack,
