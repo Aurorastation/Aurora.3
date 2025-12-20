@@ -126,6 +126,10 @@
 	// Combat vars.
 	/// Point at which the mob will enter crit.
 	var/total_health = 200
+	/// Ratio at which the mob will stop autohealing a wound. For brute damage.
+	var/autoheal_brute_ratio = 0.5
+	/// Ratio at which the mob will stop autohealing a wound. For burn damage.
+	var/autoheal_burn_ratio = 0.5
 	/// Possible unarmed attacks that the mob will use in combat,
 	var/list/unarmed_types = list(
 		/datum/unarmed_attack,

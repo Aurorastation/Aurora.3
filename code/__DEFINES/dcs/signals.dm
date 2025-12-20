@@ -76,4 +76,7 @@
 /// Raised on the target of a "mind-affecting" psionic power.
 #define COMSIG_PSI_MIND_POWER "psi_block_check"
 
+/// Raised on a mob to check it's psi-sensitivity rating. This is not the same thing as checking if someone is psionic, but psionic people have an innate bonus to the check.
+#define COMSIG_PSI_CHECK_SENSITIVITY "psi_check_sensitivity"
+
 /*******Component Specific Signals*******/
