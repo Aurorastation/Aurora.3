@@ -191,7 +191,11 @@
 
 	if(should_have_organ(BP_REACTOR))
 		var/obj/item/organ/internal/machine/reactor/reactor = internal_organs_by_name[BP_REACTOR]
-		if(reactor && (reactor.power_supply_type & POWER_SUPPLY_BIOLOGICAL))
+		if(!reactor)
+			return
+		if(reactor.is_broken())
+			return FALSE
+		if(reactor.power_supply_type & POWER_SUPPLY_BIOLOGICAL)
 			return reactor.bio_reagents
 	return touching
 

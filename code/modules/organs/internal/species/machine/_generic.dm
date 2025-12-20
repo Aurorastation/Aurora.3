@@ -114,7 +114,6 @@
 /**
  * Called when prefs are synced to the organ to set the proper synthetic organ preset. Turns the pref into a preset singleton.
  * Remember that the base type is the default, AKA when no prefs are set that organ will spawn.
- * TODOMATT: make this work with acting/changer.
  */
 /obj/item/organ/internal/machine/proc/get_preset_from_pref(organ_pref)
 	var/singleton/synthetic_organ_preset/new_preset

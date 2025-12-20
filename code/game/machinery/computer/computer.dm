@@ -245,6 +245,7 @@
 	attack_hand(user)
 
 /obj/machinery/computer/remove_cable(obj/item/access_cable/cable)
+	..()
 	inserted_cable = null
 
 /obj/machinery/computer/terminal

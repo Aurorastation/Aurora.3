@@ -369,14 +369,15 @@
  * Override as needed to clear variables up.
  */
 /obj/proc/remove_cable(obj/item/access_cable/cable)
-	return
+	SHOULD_CALL_PARENT(TRUE)
+	cable.target = null
 
 /**
  * Called when an access cable - from an IPC or from a roboticist tool - is used on an object to interact with it.
  * For example, brings up diagnostics for an access port if it's hooked into one.
  */
 /obj/proc/cable_interact(obj/item/access_cable/cable, mob/user)
-	cable.target = src
+	return
 
 /*#############################################
 				PERSISTENT

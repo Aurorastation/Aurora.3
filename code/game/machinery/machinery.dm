@@ -343,7 +343,7 @@ Class Procs:
 
 /obj/machinery/attack_ranged(mob/user, params)
 	. = ..()
-	if(ishuman(user) && isipc(user))
+	if(isipc(user))
 		var/mob/living/carbon/human/robot = user
 		var/obj/item/organ/internal/machine/wireless_access/wireless_access_point = robot.internal_organs_by_name[BP_WIRELESS_ACCESS]
 		if(wireless_access_point?.access_terminal(src))

@@ -66,4 +66,5 @@
  * Needs to be overridden on every subtype.
  */
 /datum/synthetic_internal/proc/replace_health(new_max_health)
-	return
+	SHOULD_CALL_PARENT(FALSE)
+	CRASH("Not implemented!")

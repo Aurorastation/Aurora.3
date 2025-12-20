@@ -124,7 +124,10 @@
 
 	heat_discomfort_level = 500 //This will be 100 below the first heat level
 	heat_discomfort_strings = list(
-		"Your positronic's temperature probes warn you that you are approaching critical heat levels!"
+		"Your positronic's temperature probes warn you that you are approaching critical heat levels!",
+		"Your cooling systems are struggling to keep your positronic's temperature down!",
+		"Your positronic is approaching dangerous temperature levels! Immediate cooling required!",
+		"Critical temperature levels approaching!"
 		)
 	stamina = -1	// Machines use power and generate heat, stamina is not a thing
 	sprint_speed_factor = 1  // About as capable of speed as a human

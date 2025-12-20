@@ -13,7 +13,7 @@
 	return (integrity / max_integrity) * 100
 
 /datum/synthetic_internal/electronics/take_damage(amount)
-	integrity = max(integrity, 0)
+	integrity = max(integrity - amount, 0)
 
 /datum/synthetic_internal/electronics/heal_damage(amount)
 	integrity = min(integrity + amount, max_integrity)

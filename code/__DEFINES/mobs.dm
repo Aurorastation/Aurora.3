@@ -146,7 +146,7 @@
 #define BP_DIAGNOSTICS_SUITE "internal diagnostics suite"
 #define BP_HYDRAULICS		 "hydraulics system"
 #define BP_COOLING_UNIT		"cooling unit"
-#define BP_ACCESS_PORT "universal access portt"
+#define BP_ACCESS_PORT "universal access port"
 #define BP_ACTUATORS_LEFT	"left arm actuators"
 #define BP_ACTUATORS_RIGHT	"right arm actuators"
 #define BP_SURGE_PROTECTOR "surge"

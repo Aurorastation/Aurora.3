@@ -15,6 +15,7 @@
 	return ..()
 
 /obj/item/computer_hardware/universal_port/remove_cable(obj/item/access_cable/cable)
+	..()
 	access_cable = null
 
 /obj/item/computer_hardware/universal_port/insert_cable(obj/item/access_cable/cable, mob/user)
