@@ -135,3 +135,65 @@
 2025-12-17:
   Hellfirejag:
   - bugfix: Fixed mindshields and mind blankers spamming the chat.
+2025-12-20:
+  Batrachophrenoboocosmomachia:
+  - balance: Dirty bomb cleanable 'greenglow' decal left behind is now actually radioactive
+      to make it more persistently hazardous.
+  - balance: '''Radioactive waste'' rare Warehouse spawn submap now uses low-radioactivity
+      variants for some of its contents and also been given a radioactive gear crate.'
+  - balance: Adds increased taste_mult values to radioactive waste, napalm, and nitroglycerin;
+      it should be noticeable if your drink is spiked with any of them.
+  - balance: Both uranium and radioactive waste reagents will create radioactive pools
+      on the floor if spilled (uranium weak, radioactive waste medium/strong).
+  - balance: Bombs are now allowed to be planted on any mob type except for carbons.
+  - balance: Increases the numbers of assemblies (signalers, igniters, etc.) stocked
+      in vending machines.
+  - balance: Increases radiation protection values of both Engineering and Atmos voidsuits.
+  - rscadd: Adds a radioactive waste chemical canister to the Uplink (5 tc).
+  - code_imp: Adds additional variants of greenglow/radioactive decal and radioactive_waste/hazardous
+      obj that are more or less radioactive for mapping and ST use.
+  - code_imp: Cleans up bomb timer setting code and admin logging.
+  - qol: Adds more examine hints to reagent dispensers.
+  - qol: Adds more examine hints to bombs.
+  - refactor: Replaces Janitorial Cart NanoUI interface with radial menu like the
+      other storage carts use.
+  - qol: Updates examine hints for several storage carts.
+  - code_imp: Updates variable naming.
+  - bugfix: Fixes spray bottles interacting inconsistently with Janitorial Carts in
+      some cases.
+  - bugfix: Fixes advanced light replacer icon not displaying when stored in Janitorial
+      Cart.
+  - bugfix: Fixes engineering cart not spilling steel or plasteel when calling spill().
+  ElorgRHG:
+  - imageadd: Made sandal sprites use a standardised colorable palette.
+  - rscdel: Removed flip flops due to the sprite being identical to geta sandals.
+  - bugfix: Fixes caligae (sock) sprite for Unathi.
+  FabianK3:
+  - qol: Updated airlock behavior on power loss. Airlocks will no longer open when
+      they lose power but instead will stay closed or will close if already open.
+  - rscadd: Added airlock manual override mechanic. When an airlock is functional
+      and unbolted but simply has no power, a manual override can be used to open
+      it. Click the unpowered airlock with an empty hand to start the override procedure.
+      This process takes around fifteen seconds and will force open the airlock without
+      requiring any tool. It's designed for emergency cases when power failed. The
+      door will close again after regaining power after the emergency override has
+      been used. Secure airlocks do not feature the manual override.
+  GeneralCamo:
+  - code_imp: Damage ratios now use integers instead of decimals, reducing the impact
+      of floating point rounding errors.
+  - bugfix: Implants now remain in amputated limbs.
+  - rscadd: Amputated external organs now retain their implants and internal organs.
+  - code_imp: Embedded objects are now stored in wounds, not in limbs (at least, not
+      directly).
+  - balance: Larger embedded objects now halt bleeding in wounds.
+  - balance: Embedded objects now halt healing in wounds.
+  - code_imp: Untangled damage flags and injury type flags.
+  - balance: Pinning no longer blocks yanking out items.
+  - balance: Generalise the autoheal threshold so wounds don't autoheal when a limb
+      has taken either too much overall damage or the mob has taken significant damage.
+  Kano:
+  - rscadd: Added base planning blueprints.
+  TheGreyWolf:
+  - bugfix: The close button on text files in the file management program now works
+      again, so does the restart button within the same program.
+  - bugfix: The buttons to hide hats, uniforms and suits in character setup work again.
