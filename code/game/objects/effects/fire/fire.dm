@@ -2,6 +2,7 @@
 #define TURF_FIRE_TEMP_BASE (T0C+100)
 #define TURF_FIRE_POWER_LOSS_ON_LOW_TEMP 7
 #define TURF_FIRE_TEMP_INCREMENT_PER_POWER 3
+#define TURF_FIRE_POWER_LOSS_BASE 0.5
 #define TURF_FIRE_VOLUME 150
 #define TURF_FIRE_MAX_POWER 50
 
@@ -67,6 +68,8 @@
 	if(color != null)
 		set_color(color)
 
+	particles = new /particles/smoke/turf_fire
+
 	var/static/list/loc_connections = list(
 		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
 	)
@@ -101,7 +104,7 @@
 													angle/360,0,0,0), space = FILTER_COLOR_HSV)
 	color = null //The actual colour should remain white so transform makes sense
 
-/obj/turf_fire/proc/process_waste()
+/obj/turf_fire/proc/process_waste(seconds_per_tick)
 	var/total_oxidizer = 0
 	var/turf/T = loc
 	var/datum/gas_mixture/env = T.return_air()
@@ -110,7 +113,7 @@
 			total_oxidizer += env.gas[g]
 	if (total_oxidizer < TURF_FIRE_BURN_MINIMUM_OXYGEN_REQUIRED)
 		return FALSE
-	var/burn_rate = TURF_FIRE_BURN_RATE_BASE + fire_power * TURF_FIRE_BURN_RATE_PER_POWER
+	var/burn_rate = (TURF_FIRE_BURN_RATE_BASE * seconds_per_tick) + fire_power * TURF_FIRE_BURN_RATE_PER_POWER
 	if(burn_rate > total_oxidizer)
 		burn_rate = total_oxidizer
 
@@ -128,49 +131,56 @@
 	if(!T || T.density)
 		qdel(src)
 		return
+	if(prob(TURF_FIRE_BURN_PLAY_SOUND_EFFECT_CHANCE))
+		playsound(T, SFX_FIRE, 40, TRUE)
 	if(T.hotspot) //If we have an active hotspot, let it do the damage instead and lets not loose power
 		return
-	if(interact_with_atmos)
-		if(!process_waste())
-			qdel(src)
-			return
+	if(interact_with_atmos && !process_waste(seconds_per_tick))
+		qdel(src)
+		return
 	if(passive_loss)
 		if(T.air?.temperature < TURF_FIRE_REQUIRED_TEMP)
-			fire_power -= TURF_FIRE_POWER_LOSS_ON_LOW_TEMP
-		fire_power--
+			fire_power -= TURF_FIRE_POWER_LOSS_ON_LOW_TEMP * seconds_per_tick
+		fire_power -= TURF_FIRE_POWER_LOSS_BASE * seconds_per_tick
 		if(fire_power <= 0)
 			qdel(src)
 			return
-	var/effective_temperature = TURF_FIRE_TEMP_BASE + (TURF_FIRE_TEMP_INCREMENT_PER_POWER*fire_power)
-	T.hotspot_expose( effective_temperature)
+	var/effective_temperature = TURF_FIRE_TEMP_BASE + (TURF_FIRE_TEMP_INCREMENT_PER_POWER * fire_power)
+	T.hotspot_expose(effective_temperature)
 	//Nearby turfs may also trigger a fire (will only start fires if there's fuel, currently)
 	//Guaranteed fire spread in the last tick
 	if(prob(50 + fire_power) || fire_power == 1)
 		for(var/direction in GLOB.cardinals)
 			var/turf/simulated/other_tile = get_step(T, direction)
 
-			if(istype(other_tile))
-				if(T.open_directions & direction) //Grab all valid bordering tiles
-					if(other_tile.hotspot || other_tile.turf_fire)
-						continue
-					other_tile.hotspot_expose( effective_temperature)
+			// Exit the loop early if the checked tile is not a valid direction for the fire to spread.
+			if(!istype(other_tile) || (T.open_directions & direction) || other_tile.hotspot || other_tile.turf_fire) //Grab all valid bordering tiles
+				continue
+
+			other_tile.hotspot_expose(effective_temperature)
 
 	for(var/atom/movable/burning_atom as anything in T)
 		burning_atom.fire_act(exposed_temperature = effective_temperature, exposed_volume = TURF_FIRE_VOLUME)
-	if(interact_with_atmos)
-		if(prob(fire_power) && istype(T, /turf/simulated/floor))
-			var/turf/simulated/floor/F = T
-			F.burn_tile(effective_temperature)
-		UpdateFireState()
+
+	UpdateFireState()
+	if(!interact_with_atmos || prob(fire_power) || !istype(T, /turf/simulated/floor))
+		return
+
+	var/turf/simulated/floor/F = T
+	F.burn_tile(effective_temperature)
 
 /obj/turf_fire/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	SIGNAL_HANDLER
 
+	if(!istype(arrived))
+		return
+
 	var/turf/T = loc
 	if(T.hotspot) //If we have an active hotspot, let it do the damage instead
 		return
-	if(istype(arrived))
-		arrived.fire_act(exposed_temperature = TURF_FIRE_TEMP_BASE + (TURF_FIRE_TEMP_INCREMENT_PER_POWER*fire_power), exposed_volume = TURF_FIRE_VOLUME)
+
+	arrived.fire_act(exposed_temperature = TURF_FIRE_TEMP_BASE + (TURF_FIRE_TEMP_INCREMENT_PER_POWER*fire_power), exposed_volume = TURF_FIRE_VOLUME)
+
 	return
 
 /obj/turf_fire/proc/AddPower(power)
