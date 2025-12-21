@@ -431,6 +431,13 @@
 		'sound/weapons/genhit3.ogg'
 	)
 
+/singleton/sound_category/fire_ambience
+	sounds = list(
+		'sound/ambience/fire/Fire_Ambient_01.ogg',
+		'sound/ambience/fire/Fire_Ambient_02.ogg',
+		'sound/ambience/fire/Fire_Ambient_03.ogg'
+	)
+
 /singleton/sound_category/hiss_sound
 	sounds = list(
 		'sound/voice/hiss1.ogg',
