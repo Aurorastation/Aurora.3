@@ -527,7 +527,7 @@
 		return
 	..()
 
-/obj/item/gun/projectile/automatic/rifle/l6_saw/unload_ammo(mob/user, var/allow_dump=1)
+/obj/item/gun/projectile/automatic/rifle/l6_saw/unload_ammo(mob/user, allow_dump = TRUE, drop_mag = FALSE)
 	if(!cover_open)
 		to_chat(user, SPAN_WARNING("You need to open the cover to unload [src]."))
 		return

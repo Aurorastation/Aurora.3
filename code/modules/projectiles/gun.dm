@@ -500,9 +500,11 @@
 	return (target in check_trajectory(target, user))
 
 //called if there was no projectile to shoot
-/obj/item/gun/proc/handle_click_empty()
+/obj/item/gun/proc/handle_click_empty(mob/user)
 	balloon_alert_to_viewers("*click*")
 	playsound(loc, empty_sound, 30, TRUE)
+	if(user)
+		SEND_SIGNAL(user, COMSIG_EMPTIED_MAGAZINE, src)
 
 //called after successfully firing
 /obj/item/gun/proc/handle_post_fire(mob/user, atom/target, var/pointblank = FALSE, var/reflex = FALSE, var/playemote = TRUE)

@@ -404,7 +404,7 @@ This function restores the subjects blood to max.
 This function restores all organs.
 */
 /mob/living/carbon/human/restore_all_organs()
-	for(var/obj/item/organ/external/current_organ in organs)
+	for(var/obj/item/organ/current_organ in organs)
 		current_organ.rejuvenate()
 
 /mob/living/carbon/human/proc/HealDamage(zone, brute, burn)

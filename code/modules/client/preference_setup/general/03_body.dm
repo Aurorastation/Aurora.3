@@ -243,6 +243,11 @@ GLOBAL_LIST_INIT(valid_bloodtypes, list(
 	out += "Limbs: <a href='byond://?src=[REF(src)];limbs=1'>Adjust</a><br>"
 	if(length(mob_species.alterable_internal_organs))
 		out += "Internal Organs: <a href='byond://?src=[REF(src)];organs=1'>Adjust</a><br>"
+		for(var/organ in pref.organ_data)
+			var/output_pref = pref.organ_data[organ]
+			if(!pref.organ_data[organ])
+				output_pref = "Default"
+			out += "- <b>[capitalize_first_letters(organ)]</b>: [capitalize(output_pref)] <br>"
 	out += "Prosthesis/Amputations: <a href='byond://?src=[REF(src)];reset_organs=1'>Reset</a><br>"
 
 	//display limbs below
@@ -889,6 +894,22 @@ GLOBAL_LIST_INIT(valid_bloodtypes, list(
 
 			if("Removed")
 				pref.organ_data[organ_name] = ORGAN_PREF_REMOVED
+
+			// IPC cooling unit options.
+			if("Air Cooling")
+				pref.organ_data[organ_name] = null
+			if("Liquid Cooling")
+				pref.organ_data[organ_name] = ORGAN_PREF_LIQUIDCOOLED
+			if("Passive Cooling")
+				pref.organ_data[organ_name] = ORGAN_PREF_PASSIVECOOLED
+
+			// IPC reactor options.
+			if("Electric")
+				pref.organ_data[organ_name] = null
+			if("Biological")
+				pref.organ_data[organ_name] = ORGAN_PREF_BIOPOWER
+			if("Solar")
+				pref.organ_data[organ_name] = ORGAN_PREF_SOLARPOWER
 
 		return TOPIC_REFRESH_UPDATE_PREVIEW
 

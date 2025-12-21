@@ -1066,9 +1066,6 @@
 
 		drop_from_inventory(O)
 		O.replaced(src)
-		update_body()
-		updatehealth()
-		UpdateDamageIcon()
 
 		update_body()
 		updatehealth()
@@ -1076,45 +1073,6 @@
 
 		visible_message(SPAN_NOTICE("\The [src] attaches \the [O] to [get_pronoun("his")] body!"),
 				SPAN_NOTICE("You attach \the [O] to your body!"))
-
-/mob/living/carbon/human/proc/self_diagnostics()
-	set name = "Self-Diagnostics"
-	set desc = "Run an internal self-diagnostic to check for damage."
-	set category = "Abilities"
-
-	if(stat == DEAD) return
-
-	to_chat(src, SPAN_NOTICE("Performing self-diagnostic, please wait..."))
-	if (do_after(src, 10))
-		var/output = SPAN_NOTICE("Self-Diagnostic Results:\n")
-
-		output += "Internal Temperature: [convert_k2c(bodytemperature)] Degrees Celsius\n"
-
-		var/obj/item/organ/internal/cell/C = internal_organs_by_name[BP_CELL]
-		if(!C || !C.cell)
-			output += SPAN_DANGER("ERROR: NO BATTERY DETECTED")
-		else
-			output += "Current Charge Level: [C.percent()]\n"
-
-		var/toxDam = getToxLoss()
-		if(toxDam)
-			output += "Blood Toxicity: <span class='warning'>[toxDam > 25 ? "Severe" : "Moderate"]</span>. Seek medical facilities for cleanup.\n"
-		else
-			output += "Blood Toxicity: <span style='color:green;'>OK</span>\n"
-
-		for(var/obj/item/organ/external/EO in organs)
-			if(EO.brute_dam || EO.burn_dam)
-				output += "[EO.name] - <span class='warning'>[EO.burn_dam + EO.brute_dam > ROBOLIMB_SELF_REPAIR_CAP ? "Heavy Damage" : "Light Damage"]</span>\n"
-			else
-				output += "[EO.name] - <span style='color:green;'>OK</span>\n"
-
-		for(var/obj/item/organ/IO in internal_organs)
-			if(IO.damage)
-				output += "[IO.name] - <span class='warning'>[IO.damage > 10 ? "Heavy Damage" : "Light Damage"]</span>\n"
-			else
-				output += "[IO.name] - <span style='color:green;'>OK</span>\n"
-
-		to_chat(src, output)
 
 /mob/living/carbon/human/proc/check_tag()
 	set name = "Check Tag"
@@ -1124,7 +1082,7 @@
 	if(use_check_and_message(usr))
 		return
 
-	var/obj/item/organ/internal/ipc_tag/tag = internal_organs_by_name[BP_IPCTAG]
+	var/obj/item/organ/internal/machine/ipc_tag/tag = internal_organs_by_name[BP_IPCTAG]
 	if(isnull(tag) || !tag)
 		to_chat(src, SPAN_WARNING("Error: No Tag Found."))
 		return
