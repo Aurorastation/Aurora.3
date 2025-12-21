@@ -64,6 +64,8 @@
 
 /obj/item/organ/internal/machine/process(seconds_per_tick)
 	..()
+	if(!owner)
+		return
 
 	var/integrity = get_integrity()
 	if(integrity < IPC_INTEGRITY_THRESHOLD_LOW)
@@ -169,8 +171,8 @@
 		return
 
 	var/obj/item/organ/internal/machine/posibrain/brain = owner.internal_organs_by_name[BP_BRAIN]
-	if(!istype(brain)) //???
-		crash_with("[src]: [owner] somehow didn't have a posibrain.")
+	if(!istype(brain)) //??? should be dead anyway so who cares
+		return
 
 	// The cooldowns are handled in the other procs because feasibly we might want to add different cooldowns for different organs and different thresholds.
 	if(can_do_integrity_damage())
