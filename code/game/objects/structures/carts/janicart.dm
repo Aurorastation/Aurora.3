@@ -111,9 +111,7 @@
 		if(object)
 			storage_contents += object
 
-	to_chat(world, "checking for signs")
 	for(var/obj/item/clothing/suit/caution/wetfloorsign in src)
-		to_chat(world, "found a sign")
 		if(wetfloorsign)
 			storage_contents += wetfloorsign
 
