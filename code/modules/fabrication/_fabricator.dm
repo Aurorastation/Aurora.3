@@ -39,7 +39,7 @@ ABSTRACT_TYPE(/obj/machinery/fabricator)
 	/// Global list of the substances currently stored in the fabricator
 	var/static/list/stored_substances_to_names = list()
 
-	/// How efficient this fabricator uses materials. Modified by default by the amount and tier of manipulators
+	/// How efficiently this fabricator uses materials. Modified by default by the amount and tier of micro lasers
 	var/mat_efficiency = 1
 	/// What to multiply build times by. Modified by default by the amount and tier of manipulators
 	var/build_time_multiplier = 1
@@ -53,6 +53,7 @@ ABSTRACT_TYPE(/obj/machinery/fabricator)
 	component_types = list(
 		/obj/item/circuitboard/autolathe,
 		/obj/item/stock_parts/matter_bin = 3,
+		/obj/item/stock_parts/micro_laser,
 		/obj/item/stock_parts/manipulator,
 		/obj/item/stock_parts/console_screen
 	)
@@ -62,6 +63,15 @@ ABSTRACT_TYPE(/obj/machinery/fabricator)
 
 	///The looping sound used while the fabricator is running
 	VAR_PRIVATE/datum/looping_sound/fabricator_looping_sound
+
+/obj/machinery/fabricator/upgrade_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "- Upgraded <b>matter bins</b> will increase material storage capacity."
+	. += SPAN_NOTICE("	- The current storage limit per material type is <b>[storage_capacity[DEFAULT_WALL_MATERIAL] / 2000]</b> sheets")
+	. += "- Upgraded <b>micro lasers</b> will improve material use efficiency."
+	. += SPAN_NOTICE("	- The current material cost reduction is <b>[round((1 - mat_efficiency) * 100)]%</b>")
+	. += "- Upgraded <b>manipulators</b> will increase the fabrication speed."
+	. += SPAN_NOTICE("	- The current build speed increase is <b>[round(build_time_multiplier * 100)]%</b>")
 
 /obj/machinery/fabricator/Initialize(mapload)
 	wires = new(src)
@@ -251,13 +261,16 @@ ABSTRACT_TYPE(/obj/machinery/fabricator)
 	..()
 	var/mb_rating = 0
 	var/man_rating = 0
+	var/las_rating = 0
 	for(var/obj/item/stock_parts/matter_bin/MB in component_parts)
 		mb_rating += MB.rating
 	for(var/obj/item/stock_parts/manipulator/M in component_parts)
 		man_rating += M.rating
+	for(var/obj/item/stock_parts/micro_laser/L in component_parts)
+		las_rating += L.rating
 	for(var/mat in base_storage_capacity)
 		storage_capacity[mat] = mb_rating * base_storage_capacity[mat]
-	mat_efficiency = 1.1 - man_rating * 0.1 // Normally, price is 1.25 the amount of material, so this shouldn't go higher than 0.8. Maximum rating of parts is 3
+	mat_efficiency = 1.1 - (las_rating * 0.1) // Normally, price is 1.25 the amount of material, so this shouldn't go higher than 0.8. Maximum rating of parts is 3
 	build_time_multiplier = initial(build_time_multiplier) * man_rating
 
 /obj/machinery/fabricator/dismantle()
