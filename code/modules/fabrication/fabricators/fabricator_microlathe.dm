@@ -14,6 +14,14 @@
 	)
 	manufacturer = "idris"
 
+	component_types = list(
+		/obj/item/circuitboard/microlathe,
+		/obj/item/stock_parts/matter_bin = 3,
+		/obj/item/stock_parts/micro_laser,
+		/obj/item/stock_parts/manipulator,
+		/obj/item/stock_parts/console_screen
+	)
+
 	fabricating_sound_loop = /datum/looping_sound/fabricator/minilathe
 
 //Subtype for mapping, starts preloaded and set to print glasses
