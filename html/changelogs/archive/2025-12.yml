@@ -197,3 +197,24 @@
   - bugfix: The close button on text files in the file management program now works
       again, so does the restart button within the same program.
   - bugfix: The buttons to hide hats, uniforms and suits in character setup work again.
+2025-12-22:
+  MattAtlas (Code), Geeves (Code), Noble Row (Sprites):
+  - rscadd: IPCs have been given unique, brainmed-compliant mechanics from the ground
+      up!
+  - rscadd: IPCs have been given many new organs, all with their unique purpose, and
+      functioning.
+  - rscadd: Each IPC organ now has its own damage subsystem. IPCs are now vulnerable
+      to long damage as well.
+  - rscadd: IPCs now have a unique vulnerability to burst damage.
+  - rscadd: Industrial IPCs can now be Security again.
+  - rscadd: Added weight and strength mechanics for mobs.
+  - rscadd: You can now force eject mobs out of a synthetic recharging station by
+      clicking it.
+  - balance: IPC subspecies have been rebalanced as a whole. Sheer brute modifiers
+      have generally been nerfed to be from 1x to 0.8x (1x for baselines, 0.9x for
+      industrial G2s, 0.8x for industrial G1s). The burn modifier for shells has been
+      raised to 1.3x. Slowdown has generally been massively decreased across most
+      heavy frames.
+  TheGreyWolf:
+  - bugfix: Fixes the gardening plots and open hydroponics trays being unable to grow
+      plants.

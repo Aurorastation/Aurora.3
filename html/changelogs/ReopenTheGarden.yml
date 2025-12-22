@@ -1,6 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixes the gardening plots and open hydroponics trays being unable to grow plants."
