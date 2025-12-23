@@ -475,7 +475,7 @@
 		tray_light = new_light
 		user.visible_message(SPAN_NOTICE("\The [user] sets \the [src] to a light level of [tray_light] lumens."),
 		SPAN_NOTICE("You set the \the [src] to a light level of [tray_light] lumens."))
-		playsound(src, /singleton/sound_category/button_sound, 50, TRUE)
+		playsound(src, SFX_BUTTON, 50, TRUE)
 
 /obj/machinery/portable_atmospherics/hydroponics/CtrlClick(var/mob/user)
 	if(usr.incapacitated())
@@ -534,7 +534,7 @@
 					RC.reagents.remove_reagent(/singleton/reagent/water, amountToRemove, 1)
 					waterlevel += amountToRemove
 					user.visible_message("<b>[user]</b> transfers some water to the tray.", "You transfer about [amountToRemove] units of water to the tray.")
-					playsound(src, /singleton/sound_category/generic_pour_sound, 25, 1)
+					playsound(src, SFX_POUR, 25, 1)
 				else
 					to_chat(user, SPAN_WARNING("This tray is full of water already."))
 				return TRUE
@@ -626,7 +626,7 @@
 									SPAN_DANGER("You begin to remove the weeds from \the [src]."))
 
 			if(do_after(user, 1 SECOND))
-				playsound(src, /singleton/sound_category/shovel_sound, 25, 1)
+				playsound(src, SFX_SHOVEL, 25, 1)
 				user.visible_message(SPAN_DANGER("[user] uproots the weeds from \the [src]."),
 					SPAN_DANGER("You successfully remove the weeds from \the [src]."))
 				weedlevel = 0
@@ -641,7 +641,7 @@
 				SPAN_DANGER("You begin to uproot the contents of \the [src]."))
 
 			if(do_after(user, 2 SECOND))
-				playsound(src, /singleton/sound_category/shovel_sound, 25, 1)
+				playsound(src, SFX_SHOVEL, 25, 1)
 				user.visible_message(SPAN_DANGER("[user] uproots the contents of \the [src]!"),
 					SPAN_DANGER("You successfully uproot the contents of \the [src]."))
 				health = 0
@@ -680,7 +680,7 @@
 	else if(attacking_item.force && seed && !closed_system)
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		user.do_attack_animation(src)
-		playsound(loc, /singleton/sound_category/swing_hit_sound, 25, TRUE)
+		playsound(loc, SFX_SWING_HIT, 25, TRUE)
 		user.visible_message(SPAN_DANGER("\The [seed.display_name] has been attacked by [user] with \the [attacking_item]!"))
 		if(!dead)
 			var/total_damage = attacking_item.force
@@ -714,7 +714,7 @@
 			update_use_power(POWER_USE_ACTIVE)
 			stasis = TRUE
 
-		playsound(src, /singleton/sound_category/button_sound, 50, TRUE)
+		playsound(src, SFX_BUTTON, 50, TRUE)
 		update_icon()
 		return
 

@@ -2054,6 +2054,12 @@
 	temperature = 278
 	},
 /area/turret_protected/ai)
+"nQ" = (
+/obj/effect/landmark/minimap_poi{
+	desc = "Minimap description ayup"
+	},
+/turf/simulated/floor/plating,
+/area/construction)
 "ob" = (
 /obj/machinery/light{
 	brightness_range = 16;
@@ -2948,12 +2954,6 @@
 /obj/machinery/shipsensors,
 /turf/template_noop,
 /area/engineering)
-"EY" = (
-/obj/effect/landmark/minimap_poi{
-	desc = "Minimap description ayup"
-	},
-/turf/simulated/floor/plating,
-/area/construction)
 "Fn" = (
 /obj/machinery/light{
 	brightness_range = 16;
@@ -9337,7 +9337,7 @@ de
 yk
 dq
 dq
-EY
+nQ
 de
 rE
 WV

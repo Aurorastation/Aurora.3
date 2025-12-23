@@ -418,7 +418,7 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 			user.put_in_hands(cap)
 			atom_flags |= ATOM_FLAG_OPEN_CONTAINER
 			cap = null
-			playsound(src.loc, /singleton/sound_category/shaker_lid_off, 50, 1)
+			playsound(src.loc, SFX_SHAKER_LID_OFF, 50, 1)
 			update_icon()
 			return
 		if(top)
@@ -428,7 +428,7 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 		return
 	if(last_shake <= world.time - 10) //Spam limiter.
 		last_shake = world.time
-		playsound(src.loc, /singleton/sound_category/shaker_shaking, 50, 1)
+		playsound(src.loc, SFX_SHAKER_SHAKING, 50, 1)
 	src.add_fingerprint(user)
 	return
 
@@ -448,7 +448,7 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 		user.drop_from_inventory(attacking_item, src)
 		atom_flags ^= ATOM_FLAG_OPEN_CONTAINER
 		cap = attacking_item
-		playsound(src.loc, /singleton/sound_category/shaker_lid_off, 50, 1)
+		playsound(src.loc, SFX_SHAKER_LID_OFF, 50, 1)
 		update_icon()
 		return TRUE
 	if(istype(attacking_item, /obj/item/shaker_top))
@@ -459,7 +459,7 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 		amount_per_transfer_from_this = 10
 		user.drop_from_inventory(attacking_item, src)
 		top = attacking_item
-		playsound(src.loc, /singleton/sound_category/shaker_lid_off, 50, 1)
+		playsound(src.loc, SFX_SHAKER_LID_OFF, 50, 1)
 		update_icon()
 		return TRUE
 	return ..()
@@ -497,7 +497,7 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	amount_per_transfer_from_this = 120
 	usr.put_in_hands(top)
 	top = null
-	playsound(src.loc, /singleton/sound_category/shaker_lid_off, 50, 1)
+	playsound(src.loc, SFX_SHAKER_LID_OFF, 50, 1)
 	update_icon()
 
 /obj/item/shaker_top

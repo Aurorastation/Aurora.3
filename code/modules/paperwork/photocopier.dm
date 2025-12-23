@@ -110,7 +110,7 @@
 			copy_item = attacking_item
 			to_chat(user, SPAN_NOTICE("You insert \the [attacking_item] into \the [src]."))
 			flick(insert_anim, src)
-			playsound(loc, 'sound/bureaucracy/scan.ogg', 75, 1)
+			playsound(loc, 'sound/items/bureaucracy/scan.ogg', 75, 1)
 			SStgui.update_uis(src)
 		else
 			to_chat(user, SPAN_NOTICE("There is already something in \the [src]."))
@@ -118,7 +118,7 @@
 		if(toner <= 10) //allow replacing when low toner is affecting the print darkness
 			to_chat(user, SPAN_NOTICE("You insert \the [attacking_item] into \the [src]."))
 			flick("photocopier_toner", src)
-			playsound(loc, /singleton/sound_category/switch_sound, 50, 1)
+			playsound(loc, SFX_SWITCH, 50, 1)
 			var/obj/item/device/toner/T = attacking_item
 			toner = min(toner + T.toner_amount, max_toner)
 			user.drop_from_inventory(attacking_item, get_turf(src))
@@ -220,7 +220,7 @@
 			var/obj/machinery/photocopier/T = target
 			flick(T.print_animation, target)
 			--T.toner
-		target.print(c, use_sound, 'sound/bureaucracy/print.ogg', delay, user = user)
+		target.print(c, use_sound, 'sound/items/bureaucracy/print.ogg', delay, user = user)
 	return c
 
 /proc/photocopy(var/obj/machinery/target, var/obj/item/photo/photocopy, var/toner)
@@ -248,7 +248,7 @@
 		var/obj/machinery/photocopier/T = target
 		T.toner -= 5
 		flick("photocopier_print", target)
-		playsound(target.loc, 'sound/bureaucracy/print.ogg', 75, 1)
+		playsound(target.loc, 'sound/items/bureaucracy/print.ogg', 75, 1)
 	return p
 
 //If need_toner is 0, the copies will still be lightened when low on toner, however it will not be prevented from printing. TODO: Implement print queues for fax machines and get rid of need_toner

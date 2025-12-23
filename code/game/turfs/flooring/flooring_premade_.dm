@@ -1,5 +1,5 @@
 /turf/simulated/floor/plating
-	footstep_sound = /singleton/sound_category/plating_footstep
+	footstep_sound = SFX_FOOTSTEP_PLATING
 
 // ------------------------------- grids
 
@@ -181,7 +181,7 @@
 	name = "airless plating"
 	initial_gas = null
 	temperature = TCMB
-	footstep_sound = /singleton/sound_category/plating_footstep
+	footstep_sound = SFX_FOOTSTEP_PLATING
 	roof_type = null
 
 /turf/simulated/floor/tiled/airless

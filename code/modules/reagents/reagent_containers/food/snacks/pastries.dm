@@ -145,7 +145,7 @@
 	icon = 'icons/obj/item/reagent_containers/food/pastries.dmi'
 	icon_state = "waffles"
 	trash = /obj/item/trash/waffles
-	drop_sound = /singleton/sound_category/tray_hit_sound
+	drop_sound = SFX_TRAY_HIT
 	filling_color = "#E6DEB5"
 	center_of_mass = list("x"=15, "y"=11)
 	reagents_to_add = list(/singleton/reagent/nutriment = 8)
@@ -239,7 +239,7 @@
 	icon = 'icons/obj/item/reagent_containers/food/pastries.dmi'
 	icon_state = "soylent_yellow"
 	trash = /obj/item/trash/waffles
-	drop_sound = /singleton/sound_category/tray_hit_sound
+	drop_sound = SFX_TRAY_HIT
 	filling_color = "#E6FA61"
 	center_of_mass = list("x"=15, "y"=11)
 	reagents_to_add = list(/singleton/reagent/nutriment = 10)
@@ -252,7 +252,7 @@
 	icon = 'icons/obj/item/reagent_containers/food/pastries.dmi'
 	icon_state = "rofflewaffles"
 	trash = /obj/item/trash/waffles
-	drop_sound = /singleton/sound_category/tray_hit_sound
+	drop_sound = SFX_TRAY_HIT
 	filling_color = "#FF00F7"
 	center_of_mass = list("x"=15, "y"=11)
 	reagents_to_add = list(/singleton/reagent/nutriment = 8, /singleton/reagent/drugs/psilocybin = 8)

@@ -1,16 +1,16 @@
 /datum/map/sccv_horizon
 	holodeck_programs = list(
 		"emptycourt" = new /datum/holodeck_program(/area/horizon/holodeck/source_emptycourt,
-			list('sound/music/THUNDERDOME.ogg')
+			list('sound/music/ingame/ss13/THUNDERDOME.ogg')
 		),
 		"boxingcourt" = new /datum/holodeck_program(/area/horizon/holodeck/source_boxingcourt,
-			list('sound/music/THUNDERDOME.ogg')
+			list('sound/music/ingame/ss13/THUNDERDOME.ogg')
 		),
 		"basketball" = new /datum/holodeck_program(/area/horizon/holodeck/source_basketball,
-			list('sound/music/THUNDERDOME.ogg')
+			list('sound/music/ingame/ss13/THUNDERDOME.ogg')
 		),
 		"thunderdomecourt" = new /datum/holodeck_program(/area/horizon/holodeck/source_thunderdomecourt,
-			list('sound/music/THUNDERDOME.ogg')
+			list('sound/music/ingame/ss13/THUNDERDOME.ogg')
 		),
 		"beach" = new /datum/holodeck_program(/area/horizon/holodeck/source_beach),
 		"desert" = new /datum/holodeck_program(/area/horizon/holodeck/source_desert,
@@ -35,22 +35,22 @@
 		),
 		"space" = new /datum/holodeck_program(/area/horizon/holodeck/source_space,
 			list(
-				'sound/music/ambispace.ogg',
+				'sound/music/ingame/ss13/ambispace.ogg',
 				'sound/music/main.ogg',
-				'sound/music/space.ogg',
-				'sound/music/traitor.ogg'
+				'sound/music/ingame/ss13/space.ogg',
+				'sound/music/ingame/ss13/traitor.ogg'
 			)
 		),
 		"picnicarea" = new /datum/holodeck_program(/area/horizon/holodeck/source_picnicarea,
-			list('sound/music/title2.ogg')
+			list('sound/music/ingame/ss13/title2.ogg')
 		),
 		"dininghall" = new /datum/holodeck_program(/area/horizon/holodeck/source_dininghall,
-			list('sound/music/title2.ogg')
+			list('sound/music/ingame/ss13/title2.ogg')
 		),
 		"theatre" = new /datum/holodeck_program(/area/horizon/holodeck/source_theatre),
 		"meetinghall" = new /datum/holodeck_program(/area/horizon/holodeck/source_meetinghall),
 		"courtroom" = new /datum/holodeck_program(/area/horizon/holodeck/source_courtroom,
-			list('sound/music/traitor.ogg')
+			list('sound/music/ingame/ss13/traitor.ogg')
 		),
 		"burntest" = new /datum/holodeck_program(/area/horizon/holodeck/source_burntest, list()),
 		"wildlifecarp" = new /datum/holodeck_program(/area/horizon/holodeck/source_wildlife, list()),
@@ -83,10 +83,10 @@
 			)
 		),
 		"lasertag" = new /datum/holodeck_program(/area/horizon/holodeck/source_lasertag,
-			list('sound/music/THUNDERDOME.ogg')
+			list('sound/music/ingame/ss13/THUNDERDOME.ogg')
 		),
 		"combat_training" = new /datum/holodeck_program(/area/horizon/holodeck/source_combat_training,
-			list('sound/music/THUNDERDOME.ogg')
+			list('sound/music/ingame/ss13/THUNDERDOME.ogg')
 		),
 		"chapel_tribunal" = new /datum/holodeck_program(/area/horizon/holodeck/source_tribunal),
 		"chapel_trinary" = new /datum/holodeck_program(/area/horizon/holodeck/source_trinary),

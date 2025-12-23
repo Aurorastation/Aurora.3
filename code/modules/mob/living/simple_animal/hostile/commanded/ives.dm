@@ -76,7 +76,7 @@
 		if(istype(H))
 			master = usr
 			audible_emote("bwuups happily!")
-			playsound(src, /singleton/sound_category/hivebot_wail, 100, FALSE, 4)
+			playsound(src, SFX_HIVEBOT_WAIL, 100, FALSE, 4)
 			return TRUE
 	else if(usr == master)
 		return TRUE

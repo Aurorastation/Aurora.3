@@ -4,7 +4,7 @@
 	icon = 'icons/misc/beach.dmi'
 	icon_state = "seadeep"
 	desc = "It is wet."
-	footstep_sound = /singleton/sound_category/water_footstep
+	footstep_sound = SFX_FOOTSTEP_WATER
 	movement_cost = 4
 	has_resources = FALSE
 	///How many objects are currently on this turf? Used to stop empty water turfs from processing.
@@ -117,7 +117,7 @@
 	desc = "Some water shallow enough to wade through."
 	icon = 'icons/misc/beach.dmi'
 	icon_state = "seashallow"
-	footstep_sound = /singleton/sound_category/water_footstep
+	footstep_sound = SFX_FOOTSTEP_WATER
 	deep = FALSE
 	var/reagent_type = /singleton/reagent/water
 

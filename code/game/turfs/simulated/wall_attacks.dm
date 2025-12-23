@@ -159,7 +159,7 @@
 
 			spark(EB, 5)
 			to_chat(user, SPAN_NOTICE("You slash \the [src] with \the [EB], igniting the thermite!"))
-			playsound(src, /singleton/sound_category/spark_sound, 50, 1)
+			playsound(src, SFX_SPARKS, 50, 1)
 			playsound(src, 'sound/weapons/blade.ogg', 50, 1)
 
 			thermitemelt(user)
@@ -213,14 +213,14 @@
 		else if(istype(attacking_item, /obj/item/melee/energy))
 			var/obj/item/melee/energy/WT = attacking_item
 			if(WT.active)
-				dismantle_sound = /singleton/sound_category/spark_sound
+				dismantle_sound = SFX_SPARKS
 				dismantle_verb = "slicing"
 				cut_delay *= 0.5
 			else
 				to_chat(user, SPAN_NOTICE("You need to activate the weapon to do that!"))
 				return
 		else if(istype(attacking_item, /obj/item/melee/energy/blade))
-			dismantle_sound = /singleton/sound_category/spark_sound
+			dismantle_sound = SFX_SPARKS
 			dismantle_verb = "slicing"
 			cut_delay *= 0.5
 		else if(istype(attacking_item, /obj/item/melee/chainsword))
@@ -238,7 +238,7 @@
 			dismantle_sound = P.drill_sound
 			cut_delay -= P.digspeed
 		else if(istype(attacking_item,/obj/item/melee/arm_blade/))
-			dismantle_sound = /singleton/sound_category/pickaxe_sound
+			dismantle_sound = SFX_PICKAXE
 			dismantle_verb = "slicing and stabbing"
 			cut_delay *= 1.5
 

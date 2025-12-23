@@ -6,7 +6,7 @@
 	anchored = FALSE
 	density = TRUE
 	use_power = POWER_USE_OFF
-	clicksound = /singleton/sound_category/switch_sound
+	clicksound = SFX_SWITCH
 	var/on = FALSE
 	/// Currently heating or cooling the environment, if on.
 	var/active = 0
