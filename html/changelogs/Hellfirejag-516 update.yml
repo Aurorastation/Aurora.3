@@ -1,5 +1,5 @@
 author: Hellfirejag
 delete-after: True
 changes:
-  - rscadd: "Fully updated Aurorastation to 516.1673. The codebase now runs in 64bit."
+  - rscadd: "Updated byond to 5161673."
   - bugfix: "Fixed the Effects hard delete."
