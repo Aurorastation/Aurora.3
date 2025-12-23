@@ -244,7 +244,7 @@
 	if(istype(spawned,/obj/item/gun/energy/))
 		var/obj/item/gun/energy/E = spawned
 		E.charge_cost *= 2
-		E.self_recharge = 0
+		E.self_recharge = FALSE
 		E.reliability = 90
 
 /obj/random/mine
