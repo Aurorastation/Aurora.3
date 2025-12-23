@@ -1,0 +1,5 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - rscadd: "Updated byond to 516.1673."
+  - bugfix: "Fixed the Effects hard delete."
