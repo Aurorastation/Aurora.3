@@ -1,5 +1,10 @@
-/// The minimum for glide_size to be clamped to.
-#define MIN_GLIDE_SIZE 1
+/** 
+ * The minimum for glide_size to be clamped to.
+ * This is set to 1/32 to allow for up to 32 subdivisions of a single pixel move. 
+ * Or 1024 subdivisions of a single tile movement.
+ * If you want it to look any better than this, beg Lummox for 64bit support.
+ */
+#define MIN_GLIDE_SIZE 0.03125
 /// The maximum for glide_size to be clamped to.
 /// This shouldn't be higher than the icon size, and generally you shouldn't be changing this, but it's here just in case.
 #define MAX_GLIDE_SIZE ICON_SIZE_ALL
