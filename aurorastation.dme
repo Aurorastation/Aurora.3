@@ -1093,6 +1093,7 @@
 #include "code\game\machinery\vending\clothing.dm"
 #include "code\game\machinery\vending\engitech.dm"
 #include "code\game\machinery\vending\food.dm"
+#include "code\game\machinery\vending\games.dm"
 #include "code\game\machinery\vending\hotdrinks.dm"
 #include "code\game\machinery\vending\hydro.dm"
 #include "code\game\machinery\vending\medical.dm"
