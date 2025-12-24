@@ -168,7 +168,7 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 
 	// SPAAAACE
 	var/toggles_secondary = SEE_ITEM_OUTLINES | PROGRESS_BARS | FLOATING_MESSAGES | HOTKEY_DEFAULT
-	var/clientfps = 20
+	var/clientfps = 100
 	var/floating_chat_color
 	var/speech_bubble_type = "default"
 
