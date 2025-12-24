@@ -71,16 +71,11 @@
 		'sound/machines/tcomms/tcomms_mid7.ogg' = 1
 	)
 	mid_length = 1.8 SECONDS
-	extra_range = SHORT_RANGE_SOUND_EXTRARANGE
+	extra_range = MEDIUM_RANGE_SOUND_EXTRARANGE
 	ignore_walls = FALSE
-	volume = 10
-
-//	mid_length = 1.8 SECONDS
-//	extra_range = -11
-//	falloff_distance = 1
-//	falloff_exponent = 5 (falloff system from /tg/)(not smart enough to port it)
-//	volume = 50
-//	ignore_walls = FALSE
+	volume = 35
+	falloff_exponent = 5
+	falloff_distance = 3
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /datum/looping_sound/computer
