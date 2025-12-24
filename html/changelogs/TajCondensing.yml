@@ -1,0 +1,7 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - qol: "Several similar options in the tajaran loadout have been condensed into similar selections and the golden sun pin was made more clear."
+  - rscadd: "The tajaran archaeologist clothing is now job restricted."
