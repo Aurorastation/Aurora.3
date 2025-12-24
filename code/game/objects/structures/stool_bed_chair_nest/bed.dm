@@ -384,7 +384,14 @@
 	var/iv_attached = 0
 	var/iv_stand = TRUE
 	var/iv_transfer_rate = 4 //Same as max for regular IV drips
+	var/iv_transfer_rate_lowerlimit = 0.001
+	var/iv_transfer_rate_upperlimit = 4
 	var/has_iv_light = TRUE
+	var/medscan_view_distance = 2
+	var/scan_pixel_offset_y = -7
+	var/scan_pixel_offset_x = 0
+	var/iv_pixel_offset_y = 7
+	var/iv_pixel_offset_x = 0
 	//Items that can be attached to an IV
 	var/list/accepted_containers = list(
 		/obj/item/reagent_containers/blood,
@@ -422,7 +429,7 @@
 		if(percentage < 25)
 			iv.AddOverlays(image(icon, "light_low"))
 		if(density)
-			iv.pixel_y = 7
+			iv.pixel_y = iv_pixel_offset_y
 		AddOverlays(iv)
 		if(has_iv_light)
 			var/image/light = image(icon, "iv[iv_attached]_l")
@@ -433,11 +440,11 @@
 	if(medscan)
 		var/image/scan = image(icon, "holder_medscan")
 		if(!density)
-			scan.pixel_y = -7
+			scan.pixel_y = scan_pixel_offset_y
 		AddOverlays(scan)
 
 /obj/structure/bed/roller/feedback_hints(mob/user, distance, show_extended)
-	if(medscan && distance<=2)
+	if(medscan && distance<=medscan_view_distance)
 		var/obj/item/paper/H = medscan
 		H.show_content(usr)
 	.=..()
@@ -603,7 +610,7 @@
 	if(use_check_and_message(usr))
 		return
 	set_rate:
-		var/amount = tgui_input_number(usr, "Set the IV drip's transfer rate.", "IV Drip", iv_transfer_rate, 4, 0.001, round_value = FALSE)
+		var/amount = tgui_input_number(usr, "Set the IV drip's transfer rate.", "IV Drip", iv_transfer_rate, iv_transfer_rate_upperlimit, iv_transfer_rate_lowerlimit, round_value = FALSE)
 		if(!amount)
 			return
 		if ((0.001 > amount || amount > 4) && amount != 0)
