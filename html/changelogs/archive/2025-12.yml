@@ -218,3 +218,18 @@
   TheGreyWolf:
   - bugfix: Fixes the gardening plots and open hydroponics trays being unable to grow
       plants.
+2025-12-24:
+  Batrachophrenoboocosmomachia:
+  - qol: Updates various extended information hints for some gun types.
+  - code_imp: Updates boolean formatting, dmdocs, miscellaneous cleanup, no mechanics
+      changes.
+  Hellfirejag:
+  - rscadd: Updated byond to 516.1673.
+  - bugfix: Fixed the Effects hard delete.
+  - bugfix: Removed debug to world messages that were left in the new janicart.
+  TheGreyWolf:
+  - rscadd: The metal briefcase now sounds more metalic when moving it, dropping it
+      and picking it up.
+  - rscadd: Investigators now get a notepad in their locker.
+  - rscdel: The labcoat was removed from the investigator locker.
+  - rscadd: The cash register now pings when it is ready for payment.
