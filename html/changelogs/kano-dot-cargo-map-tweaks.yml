@@ -1,8 +1,0 @@
-
-author: Kano
-
-delete-after: True
-
-changes:
-  - rscadd: "Slightly tweaks whereabout of cargo elevator bay map."
-  - rscadd: "Adds original hatch sprite made by KingOfThePing."

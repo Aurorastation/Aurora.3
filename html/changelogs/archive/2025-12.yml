@@ -233,3 +233,20 @@
   - rscadd: Investigators now get a notepad in their locker.
   - rscdel: The labcoat was removed from the investigator locker.
   - rscadd: The cash register now pings when it is ready for payment.
+2025-12-25:
+  ElorgRHG:
+  - bugfix: Fixes the colorable palette used on colorable dresses.
+  GeneralCamo:
+  - soundadd: Implemented sounds for telecommunications hubs and all-in-ones.
+  - rscadd: Added a Games and Toys vending machine, that vends a variety of games
+      and toys.
+  Kano:
+  - rscadd: Added a new Odyssey map, decrepit shipyard.
+  - rscadd: Added a map marker that randomly breaks stuff in a room. Adminbuse compatible!
+  - bugfix: Recolored the hydrogen tank sprite and fixed its wrong icon path.
+  - rscadd: Slightly tweaks whereabout of cargo elevator bay map.
+  - rscadd: Adds original hatch sprite made by KingOfThePing.
+  TheGreyWolf:
+  - qol: Several similar options in the tajaran loadout have been condensed into similar
+      selections and the golden sun pin was made more clear.
+  - rscadd: The tajaran archaeologist clothing is now job restricted.
