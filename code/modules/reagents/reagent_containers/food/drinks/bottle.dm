@@ -249,11 +249,6 @@
 	w_class = WEIGHT_CLASS_SMALL
 	persistency_considered_trash = TRUE
 
-/obj/item/broken_bottle/persistence_apply_content(content, x, y, z)
-	src.x = x
-	src.y = y
-	src.z = z
-
 #define DRINK_FLUFF_GETMORE  "This drink is made by Getmore Corporation, a subsidiary of NanoTrasen. It mostly specializes in fast food and consumer food products, \
 								but also makes average quality alcohol. Many can find Getmore products in grocery stores, vending machines, \
 								and fast food restaurants all under the Getmore brand."

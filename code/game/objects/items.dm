@@ -515,7 +515,7 @@
 	if(T)
 		var/area/A = get_area(T)
 		if(A && !(A.area_flags & AREA_FLAG_PREVENT_PERSISTENT_TRASH))
-			persistance_expiration_time_days = 3 // Ensure expiration date is set to prevent long term trash
+			persistence_expiration_time_days = 3 // Ensure expiration date is set to prevent long term trash
 			SSpersistence.register_track(src, usr == null ? null : ckey(usr.key))
 			return
 
@@ -1400,3 +1400,22 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 /obj/item/proc/gives_weather_protection()
 	return FALSE
+
+/obj/item/persistence_get_content()
+	var/list/content = ..()
+	// Any children of this type are highly recommended to use SAVE_IF_DIFFERENT(),
+	// so that way we can logically assert that if a variable cannot ever be changed for a specific snowflake case, then it will never be saved to the database anyways.
+	SAVE_IF_DIFFERENT(content, name)
+	SAVE_IF_DIFFERENT(content, desc)
+	SAVE_IF_DIFFERENT(content, icon)
+	SAVE_IF_DIFFERENT(content, icon_state)
+	SAVE_IF_DIFFERENT(content, item_state)
+	return content
+
+/obj/item/persistence_apply_content(content, x, y, z)
+	..()
+	SET_IF_EXISTS(content, name)
+	SET_IF_EXISTS(content, desc)
+	SET_IF_EXISTS(content, icon)
+	SET_IF_EXISTS(content, icon_state)
+	SET_IF_EXISTS(content, item_state)
