@@ -224,3 +224,6 @@
 
 /// traits transparent turf
 #define TURF_Z_TRANSPARENT_TRAIT "turf_z_transparent"
+
+/// Unlinks gliding from movement speed, meaning that there will be a delay between movements rather than a single move movement between tiles
+#define TRAIT_NO_GLIDE "no_glide"
