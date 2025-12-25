@@ -1833,7 +1833,7 @@
 	dir = 4;
 	status = 2
 	},
-/obj/machinery/autolathe,
+/obj/machinery/fabricator/autolathe,
 /turf/simulated/floor{
 	temperature = 303.15
 	},

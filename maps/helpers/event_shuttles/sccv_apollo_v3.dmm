@@ -2618,7 +2618,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/scc_event_shuttle)
 "TR" = (
-/obj/machinery/autolathe,
+/obj/machinery/fabricator/autolathe,
 /turf/simulated/floor/tiled,
 /area/scc_event_shuttle)
 "TZ" = (
@@ -2768,7 +2768,7 @@
 /turf/simulated/floor,
 /area/scc_event_shuttle)
 "VP" = (
-/obj/machinery/autolathe,
+/obj/machinery/fabricator/autolathe,
 /obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled,
 /area/scc_event_shuttle)

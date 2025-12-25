@@ -935,11 +935,7 @@
 /area/konyang_pirate_outpost)
 "WP" = (
 /obj/random/dirt_75,
-/obj/machinery/autolathe{
-	desc = "Your typical Autolathe. It appears to have much more options than your regular one, however...";
-	hacked = 1;
-	name = "Modified Autolathe"
-	},
+/obj/machinery/fabricator/autolathe/hacked,
 /turf/simulated/floor/wood,
 /area/konyang_pirate_outpost)
 "WV" = (
