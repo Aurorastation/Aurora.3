@@ -1,0 +1,4 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - rscadd: "Added aluminium and lead to the materials that can be ordered via Operations."
