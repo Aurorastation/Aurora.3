@@ -164,3 +164,25 @@
 
 /obj/item/seeds/sugartree
 	seed_type = "sugar tree"
+
+/obj/item/reagent_containers/food/snacks/grown/messas_tear_tea
+	name = "messa's tear leaves"
+	desc = "Messa's tears are a medicinal herb found across Adhomai and its many Twin Suns churches. \
+			It's leaves, while traditionally used for treating burns, is a common choice for making traditional teas."
+	plantname = "mtear"
+	icon = 'icons/obj/item/reagent_containers/teaware.dmi'
+	icon_state = "messas_tear"
+	color = "#4CC5C7"
+
+/obj/item/reagent_containers/food/snacks/grown/messas_tear_tea/update_desc()
+	return
+
+/obj/item/reagent_containers/food/snacks/grown/messas_tear_tea/afterattack(atom/target, mob/user, proximity, params)
+	if(proximity && target.is_open_container() && target.reagents)
+		if(!target.reagents.total_volume)
+			to_chat(user, SPAN_WARNING("You can't steep tea inside of an empty pot!"))
+			return
+		to_chat(user, SPAN_NOTICE("You steep \the [src] inside \the [target]."))
+
+		reagents.trans_to(target, reagents.total_volume)
+		qdel(src)

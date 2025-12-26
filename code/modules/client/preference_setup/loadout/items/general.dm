@@ -168,19 +168,22 @@
 	if(istype(spawned_cup) && spawned_cup.reagents)
 		spawned_cup.reagents.set_temperature(T0C + 45)
 
-/datum/gear/chatins
-	display_name = "konyang-cha tins"
-	description = "Tins of tea leaves made by Konyang-cha."
+/datum/gear/teatins
+	display_name = "tea tin selection"
+	description = "A selction of various tins of tea."
 	cost = 1
 	path = /obj/item/storage/box/unique/tea
 
-/datum/gear/chatins/New()
+/datum/gear/teatins/New()
 	..()
-	var/list/chatins = list()
-	chatins["sencha cha-tin"] = /obj/item/storage/box/unique/tea
-	chatins["tieguanyin cha-tin"] = /obj/item/storage/box/unique/tea/tieguanyin
-	chatins["jaekseol cha-tin"] = /obj/item/storage/box/unique/tea/jaekseol
-	gear_tweaks += new /datum/gear_tweak/path(chatins)
+	var/list/teatins = list()
+	teatins["sencha cha-tin"] = /obj/item/storage/box/unique/tea
+	teatins["tieguanyin cha-tin"] = /obj/item/storage/box/unique/tea/tieguanyin
+	teatins["jaekseol cha-tin"] = /obj/item/storage/box/unique/tea/jaekseol
+	teatins["messa's tear tea"] = /obj/item/storage/box/unique/tea/messa
+	teatins["ras'nif tea"] = /obj/item/storage/box/unique/tea/rasnif
+
+	gear_tweaks += new /datum/gear_tweak/path(teatins)
 
 /datum/gear/teapots
 	display_name = "teapots"
