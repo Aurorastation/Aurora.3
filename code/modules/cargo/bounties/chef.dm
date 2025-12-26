@@ -10,7 +10,7 @@
 
 /datum/bounty/item/chef/birthday_cake
 	name = "Birthday Cake"
-	description = "A birthday party for %PERSONNAME is coming up! Ship a complete birthday cake to celebrate!"
+	description = "An order for a birthday cake has come from residential! Send one down via the cargo elevator!"
 	reward_low = 75
 	reward_high = 100
 	wanted_types = list(
@@ -19,7 +19,7 @@
 
 /datum/bounty/item/chef/soup
 	name = "Soup"
-	description = "%COMPNAME will be serving soup to the homeless for a PR initiative. Ship any type of soup. And make sure it's soup- not just hot water."
+	description = "Some orders for soup have come from the residential decks, send some via the cargo elevator."
 	reward_low = 55
 	reward_high = 125
 	required_count = 3
@@ -29,7 +29,7 @@
 
 /datum/bounty/item/chef/popcorn
 	name = "Popcorn Bags"
-	description = "%PERSONNAME wants to host a movie night. Ship bags of popcorn for the occasion."
+	description = "Someone on the residential decks wants to host a movie night. Deliver some bags of popcorn for the occasion."
 	reward_low = 45
 	reward_high = 90
 	required_count = 4
@@ -38,7 +38,7 @@
 
 /datum/bounty/item/chef/icecream
 	name = "Ice Cream"
-	description = "The air conditioning system of some offices on %DOCKSHORT has failed. Ship some ice cream before we melt."
+	description = "Somebody in residential has ordered some ice cream, deliver it down via the cargo elevator."
 	reward_low = 40
 	reward_high = 60
 	required_count = 4
@@ -61,7 +61,7 @@
 
 /datum/bounty/item/chef/pie
 	name = "Pie"
-	description = "%BOSSSHORT management wants a pie! Ship one pie."
+	description = "Someone in residential wants a pie! Deliver one pie."
 	reward = 75
 	wanted_types = list(/obj/item/reagent_containers/food/snacks/pie,
 			/obj/item/reagent_containers/food/snacks/meatpie,
@@ -80,7 +80,7 @@
 
 /datum/bounty/item/chef/salad
 	name = "Salad"
-	description = "%BOSSSHORT management is going on a health binge. Ship some tasty salads to help keep them on track."
+	description = "Some orders for salad have come from the residential decks. Deliver them via the cargo elevator."
 	reward_low = 45
 	reward_high = 55
 	required_count = 3
@@ -89,7 +89,7 @@
 
 /datum/bounty/item/chef/fries
 	name = "Fries"
-	description = "Sometimes the whole office just gets a craving for a certain food. Today, it's fries. Ship some!"
+	description = "Some orders for fries have come from the residential decks. Deliver them via the cargo elevator."
 	reward_low = 35
 	reward_high = 45
 	required_count = 3
@@ -101,7 +101,7 @@
 
 /datum/bounty/item/chef/superbite
 	name = "Super Bite Burger"
-	description = "%PERSONNAME thinks they can set a competitive eating world record. All they need is a super bite burger shipped to them."
+	description = "Someone in residential must be really hungry, they've ordered a super bite burger!"
 	reward_low = 90
 	reward_high = 120
 	wanted_types = list(/obj/item/reagent_containers/food/snacks/burger/superbite)
@@ -113,7 +113,7 @@
 
 /datum/bounty/item/chef/poppypretzel
 	name = "Poppy Pretzel"
-	description = "%BOSSNAME needs a few poppy pretzels for the drug-training of their security department."
+	description = "An order for some poppy pretzels has come from the residential decks, deliver them via the cargo elevator."
 	reward_low = 45
 	reward_high = 65
 	required_count = 3
@@ -122,21 +122,21 @@
 
 /datum/bounty/item/chef/cubancarp
 	name = "Cuban Carp"
-	description = "A diplomat is visiting %BOSSSHORT. Ship one cuban carp for the business luncheon."
+	description = "Someone in residential has ordered some cuban carp, deliver it to them via the cargo elevator."
 	reward_low = 100
 	reward_high = 150
 	wanted_types = list(/obj/item/reagent_containers/food/snacks/cubancarp)
 
 /datum/bounty/item/chef/hotdog
 	name = "Hot Dog"
-	description = "%COMPNAME is conducting taste tests to determine the best hot dog recipe. Ship your station's version to participate."
+	description = "Someone on the residential decks has ordered a hot dog, deliver it via the cargo lift."
 	reward_low = 40
 	reward_high = 60
 	wanted_types = list(/obj/item/reagent_containers/food/snacks/hotdog)
 
 /datum/bounty/item/chef/eggplantparm
 	name = "Eggplant Parmigianas"
-	description = "A famous singer will be arriving at %BOSSSHORT, and their contract demands that they only be served Eggplant Parmigiana. Ship some, please!"
+	description = "Some orders for eggplant parmigiana have come from residential. Deliver some, please!"
 	reward_low = 40
 	reward_high = 60
 	required_count = 3
@@ -144,7 +144,7 @@
 
 /datum/bounty/item/chef/muffin
 	name = "Muffins"
-	description = "%BOSSSHORT needs muffins for a morning meeting! Your station will get a bonus if you ship some."
+	description = "Some crew on the residential decks want muffins, delivery some down on the cargo lift."
 	reward_low = 35
 	reward_high = 42
 	required_count = 8
@@ -155,7 +155,7 @@
 
 /datum/bounty/item/chef/chawanmush
 	name = "Chawanmushi"
-	description = "Someone from middle-management mentioned Chawanmushi. We never tried them so we need you to ship some immediately."
+	description = "Some crew on the residential decks have ordered some chawanmushi. Send some down on the cargo elevator."
 	reward_low = 65
 	reward_high = 75
 	required_count = 2
@@ -163,7 +163,7 @@
 
 /datum/bounty/item/chef/kebab
 	name = "Kebabs"
-	description = "%BOSSNAME is requesting a special order; please ship some kebabs."
+	description = "Some orders for kebabs have come from residential, send some down on the lift."
 	reward_low = 40
 	reward_high = 60
 	required_count = 3
@@ -179,7 +179,7 @@
 
 /datum/bounty/item/chef/poppers
 	name = "Jalapeno Poppers"
-	description = "%PERSONNAME is trying to set a system record for most jalapeno poppers held in their mouth at once. Don't ask questions, just send them."
+	description = "Orders for jalapeno poppers have come from the residential decks. Send some down, please."
 	reward_low = 45
 	reward_high = 52
 	required_count = 8
@@ -188,7 +188,7 @@
 
 /datum/bounty/item/chef/burger
 	name = "Burger"
-	description = "%PERSONNAME is this month's food critic for a local newsletter and they're on a deadline. Give them some burgers to review."
+	description = "Some crew on the residential decks have ordered burgers. Send some down on the cargo elevator."
 	reward_low = 52
 	reward_high = 70
 	required_count = 2
@@ -202,7 +202,7 @@
 
 /datum/bounty/item/chef/fortune
 	name = "Fortune Cookies"
-	description = "%PERSONNAME claims they can do divination based on fortune cookies. Send a batch so we can find out if it's true."
+	description = "Somebody on the residential decks wants some fortune cookies, send some down on the cargo elevator."
 	reward_low = 20
 	reward_high = 30
 	required_count = 7
@@ -211,7 +211,7 @@
 
 /datum/bounty/item/chef/spaghetti
 	name = "Spaghetti"
-	description = "We're hosting a luncheon for some %COMPSHORT Academy computer programming students. We heard that they really enjoy spaghetti, so ship some!"
+	description = "Some crew on the residential decks have ordered spaghetti. Send some down on the cargo elevator."
 	reward_low = 55
 	reward_high = 80
 	required_count = 3
@@ -223,7 +223,7 @@
 
 /datum/bounty/item/chef/dumplings
 	name = "Meat Buns or Momo"
-	description = "We're sick of eating vendor food; send us some meat buns or momo."
+	description = "Some orders for meat buns and momo have come from the residential decks. Deliver them via the cargo elevator. Either meat buns or momo will be fine."
 	reward_low = 40
 	reward_high = 60
 	required_count = 4
@@ -234,7 +234,7 @@
 
 /datum/bounty/item/chef/unathi
 	name = "Unathi Delicacies"
-	description = "We're holding a luncheon with some Hegemony representatives; send some traditional Unathi dishes!"
+	description = "Some orders for unathi cuisine have come from residential, they did not specify anything in particualr, so deliver what you can via the cargo elevator."
 	reward_low = 150
 	reward_high = 250
 	required_count = 3
@@ -263,7 +263,7 @@
 
 /datum/bounty/item/chef/tajara
 	name = "Adhomai Delicacies"
-	description = "We're holding a luncheon with some representatives from Adhomai; send some traditional Tajaran dishes!"
+	description = "Some orders for tajaran cuisine have come from residential, they did not specify anything in particualr, so deliver what you can via the cargo elevator"
 	reward_low = 150
 	reward_high = 250
 	required_count = 3
@@ -313,7 +313,7 @@
 
 /datum/bounty/item/chef/skrell
 	name = "Federation Delicacies"
-	description = "We're holding a luncheon with some Nralakk Federation representatives; send some Skrellian dishes!"
+	description = "Some orders for skrellian cuisine have come from residential, they did not specify anything in particualr, so deliver what you can via the cargo elevator"
 	reward_low = 150
 	reward_high = 250
 	required_count = 3
@@ -334,7 +334,7 @@
 
 /datum/bounty/item/chef/curry
 	name = "Curry"
-	description = "I forgot that I was supposed to host lunch for an upcoming meeting. Ship me some curry and I'll make sure your station gets a bonus. - %PERSONNAME"
+	description = "Some crew on the residential decks have ordered curry, send some down on the cargo elevator."
 	reward_low = 40
 	reward_high = 60
 	required_count = 4
@@ -346,7 +346,7 @@
 
 /datum/bounty/item/chef/dip
 	name = "Dip"
-	description = "It's time for an office party, but %PERSONNAME forgot the dip! Send us some and we'll transfer part of their upcoming bonus to your station's account."
+	description = "Orders for dip have come from residential, send them on the cargo elevator."
 	reward_low = 50
 	reward_high = 80
 	required_count = 3
@@ -355,14 +355,14 @@
 
 /datum/bounty/item/chef/reuben
 	name = "Reuben Sandwich"
-	description = "%PERSONNAME had their lunch stolen from the company fridge. Send us a replacement reuben!"
+	description = "An order for a reuben sandwich has come from someone on the residential deck, send it to them via the cargo elevator."
 	reward_low = 45
 	reward_high = 60
 	wanted_types = list(/obj/item/reagent_containers/food/snacks/reubensandwich)
 
 /datum/bounty/item/chef/ravioli
 	name = "Ravioli"
-	description = "Somehow, %PERSONNAME has never had Ravioli before, so we've decided to do a themed office lunch. Send us some, please."
+	description = "Some orders of ravioli have come from residential, send them on the cargo elevator."
 	reward_low = 80
 	reward_high = 120
 	required_count = 4
@@ -373,7 +373,7 @@
 
 /datum/bounty/item/chef/ramen
 	name = "Ramen Bowl"
-	description = "%PERSONNAME thinks that Ramen is the instant, pre-packaged kind you get from machines and has never had the 'real' kind. We've allocated some morale funds to educate them, please send some good examples."
+	description = "Some orders of ramen have come from residential, send them on the cargo elevator."
 	reward_low = 80
 	reward_high = 120
 	required_count = 3
@@ -382,7 +382,7 @@
 
 /datum/bounty/item/chef/matsuul
 	name = "Matsuul"
-	description = "After some incidents, we're running a workshop on collaborating in a multi-species workplace. We need a meal that represents collaboration between different species and cultures."
+	description = "Some crew on the residential decks have ordered matsuul, send some down on the cargo elevator."
 	reward_low = 80
 	reward_high = 120
 	required_count = 3
@@ -392,7 +392,7 @@
 	)
 /datum/bounty/item/chef/roulades
 	name = "Roulades"
-	description = "%PERSONNAME is retiring after many beloved years in the company and we need some tasty treats for the retirement party we're throwing them."
+	description = "Some crew on the residential decks have ordered roulades, send some down on the cargo elevator. Any kind is fine!."
 	reward_low = 90
 	reward_high = 150
 	required_count = 2
