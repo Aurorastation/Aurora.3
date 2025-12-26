@@ -1,6 +1,14 @@
-import { BooleanLike } from '../../common/react';
+import {
+  Box,
+  Button,
+  LabeledList,
+  NoticeBox,
+  NumberInput,
+  ProgressBar,
+  Section,
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Box, Button, LabeledList, NoticeBox, NumberInput, ProgressBar, Section } from '../components';
 import { Window } from '../layouts';
 
 export type CapacitorData = {
@@ -14,11 +22,11 @@ export type CapacitorData = {
   max_charge_rate: number;
 };
 
-export const ShieldCapacitor = (props, context) => {
-  const { act, data } = useBackend<CapacitorData>(context);
+export const ShieldCapacitor = (props) => {
+  const { act, data } = useBackend<CapacitorData>();
 
   return (
-    <Window resizable theme="hephaestus">
+    <Window theme="hephaestus">
       <Window.Content scrollable>
         <Section>
           {data.locked ? (
@@ -32,8 +40,8 @@ export const ShieldCapacitor = (props, context) => {
   );
 };
 
-export const CapacitorWindow = (props, context) => {
-  const { act, data } = useBackend<CapacitorData>(context);
+export const CapacitorWindow = (props) => {
+  const { act, data } = useBackend<CapacitorData>();
 
   return (
     <Section
@@ -46,7 +54,8 @@ export const CapacitorWindow = (props, context) => {
           disabled={!data.anchored && !data.active}
           onClick={() => act('toggle')}
         />
-      }>
+      }
+    >
       <Box fontSize={1.5}>
         Capacitor status:{' '}
         <Box as="span" bold color={data.time_since_fail > 2 ? 'good' : 'bad'}>
@@ -63,7 +72,8 @@ export const CapacitorWindow = (props, context) => {
             }}
             value={data.stored_charge}
             minValue={0}
-            maxValue={data.max_charge}>
+            maxValue={data.max_charge}
+          >
             {data.stored_charge} / {data.max_charge} W
           </ProgressBar>
         </LabeledList.Item>
@@ -74,7 +84,7 @@ export const CapacitorWindow = (props, context) => {
             maxValue={data.max_charge_rate}
             step={10000}
             stepPixelSize={3}
-            onDrag={(e, v) => act('charge_rate', { charge_rate: v })}
+            onDrag={(v) => act('charge_rate', { charge_rate: v })}
             unit="W"
           />
         </LabeledList.Item>

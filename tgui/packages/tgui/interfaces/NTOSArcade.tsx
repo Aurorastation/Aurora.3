@@ -1,6 +1,13 @@
-import { BooleanLike } from '../../common/react';
+import {
+  Box,
+  Button,
+  LabeledControls,
+  LabeledList,
+  ProgressBar,
+  Section,
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Box, Button, LabeledControls, LabeledList, ProgressBar, Section } from '../components';
 import { NtosWindow } from '../layouts';
 
 export type ArcadeData = {
@@ -15,11 +22,11 @@ export type ArcadeData = {
   information: string;
 };
 
-export const NTOSArcade = (props, context) => {
-  const { act, data } = useBackend<ArcadeData>(context);
+export const NTOSArcade = (props) => {
+  const { act, data } = useBackend<ArcadeData>();
 
   return (
-    <NtosWindow resizable>
+    <NtosWindow>
       <NtosWindow.Content scrollable>
         {data.gameover ? <GameOverWindow /> : <GameWindow />}
       </NtosWindow.Content>
@@ -27,8 +34,8 @@ export const NTOSArcade = (props, context) => {
   );
 };
 
-export const GameOverWindow = (props, context) => {
-  const { act, data } = useBackend<ArcadeData>(context);
+export const GameOverWindow = (props) => {
+  const { act, data } = useBackend<ArcadeData>();
 
   return (
     <Section>
@@ -45,8 +52,8 @@ export const GameOverWindow = (props, context) => {
   );
 };
 
-export const GameWindow = (props, context) => {
-  const { act, data } = useBackend<ArcadeData>(context);
+export const GameWindow = (props) => {
+  const { act, data } = useBackend<ArcadeData>();
 
   return (
     <Section>
@@ -61,7 +68,8 @@ export const GameWindow = (props, context) => {
                 bad: [0, 15],
               }}
               width={3}
-              value={data.player_health}>
+              value={data.player_health}
+            >
               <Box textAlign="left">{data.player_health}</Box>
             </ProgressBar>
           </LabeledList.Item>
@@ -73,7 +81,8 @@ export const GameWindow = (props, context) => {
                 bad: [0, 8],
               }}
               width={3}
-              value={data.player_mana}>
+              value={data.player_mana}
+            >
               <Box textAlign="left">{data.player_mana}</Box>
             </ProgressBar>
           </LabeledList.Item>
@@ -89,7 +98,8 @@ export const GameWindow = (props, context) => {
                 bad: [0, 15],
               }}
               width={3}
-              value={data.enemy_health}>
+              value={data.enemy_health}
+            >
               <Box textAlign="left">{data.enemy_health}</Box>
             </ProgressBar>
           </LabeledList.Item>
@@ -102,7 +112,8 @@ export const GameWindow = (props, context) => {
                 bad: [0, 8],
               }}
               width={3}
-              value={data.enemy_mana}>
+              value={data.enemy_mana}
+            >
               <Box textAlign="left">{data.enemy_mana}</Box>
             </ProgressBar>
           </LabeledList.Item>

@@ -8,12 +8,12 @@
       "github.vscode-github-actions",
       "github.vscode-pull-request-github",
       "stylemistake.auto-comment-blocks",
-      "dbaeumer.vscode-eslint",
       "vscode.typescript-language-features",
       "redhat.vscode-yaml",
       "visualstudioexptteam.vscodeintellicode",
-      "esbenp.prettier-vscode",
       "rome.rome",
-      "editorconfig.editorconfig"
+      "editorconfig.editorconfig",
+			"esbenp.prettier-vscode",
+			"biomejs.biome"
     ]
 }

@@ -1,5 +1,5 @@
+import { Box, Flex, Input, LabeledList, Section } from 'tgui-core/components';
 import { useBackend, useLocalState } from '../backend';
-import { Box, Flex, Input, LabeledList, Section } from '../components';
 import { NtosWindow } from '../layouts';
 
 export type CodexData = {
@@ -27,13 +27,9 @@ type Product = {
   amount: number;
 };
 
-export const FusionCodex = (props, context) => {
-  const { act, data } = useBackend<CodexData>(context);
-  const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
-    `searchTerm`,
-    ``
-  );
+export const FusionCodex = (props) => {
+  const { act, data } = useBackend<CodexData>();
+  const [searchTerm, setSearchTerm] = useLocalState<string>(`searchTerm`, ``);
 
   return (
     <NtosWindow resizable>
@@ -48,12 +44,13 @@ export const FusionCodex = (props, context) => {
               placeholder="Search by name"
               width="40vw"
               maxLength={512}
-              onInput={(e, value) => {
+              onChange={(value) => {
                 setSearchTerm(value);
               }}
               value={searchTerm}
             />
-          }>
+          }
+        >
           <Box m={2}>
             <Section>
               {data.reactions
@@ -61,7 +58,7 @@ export const FusionCodex = (props, context) => {
                   (reaction) =>
                     reaction.name
                       .toLowerCase()
-                      .indexOf(searchTerm.toLowerCase()) > -1
+                      .indexOf(searchTerm.toLowerCase()) > -1,
                 )
                 .map((reaction) => (
                   <Section title={reaction.name} key={reaction.name}>
@@ -73,7 +70,8 @@ export const FusionCodex = (props, context) => {
                               {reaction.reactants.map((Reactant) => (
                                 <LabeledList.Item
                                   label={Reactant.name}
-                                  key={Reactant.name}>
+                                  key={Reactant.name}
+                                >
                                   {Reactant.amount ? Reactant.amount : 'None'}
                                 </LabeledList.Item>
                               ))}
@@ -86,7 +84,8 @@ export const FusionCodex = (props, context) => {
                               {reaction.products.map((Product) => (
                                 <LabeledList.Item
                                   label={Product.name}
-                                  key={Product.name}>
+                                  key={Product.name}
+                                >
                                   {Product.amount}
                                 </LabeledList.Item>
                               ))}
@@ -98,26 +97,30 @@ export const FusionCodex = (props, context) => {
                         <LabeledList>
                           <LabeledList.Item
                             label="Minimum Temperature"
-                            color="orange">
+                            color="orange"
+                          >
                             {reaction.minimum_temp} K
                           </LabeledList.Item>
                           <LabeledList.Divider size={1} />
                           <LabeledList.Item
                             label="Relative Energy Production/Consumption"
-                            color="yellow">
+                            color="yellow"
+                          >
                             {reaction.energy_production} {' / '}
                             {reaction.energy_consumption}
                           </LabeledList.Item>
                           <LabeledList.Divider size={1} />
                           <LabeledList.Item
                             label="Radiation Coefficient"
-                            color="green">
+                            color="green"
+                          >
                             {reaction.radiation ? reaction.radiation : 'None'}
                           </LabeledList.Item>
                           <LabeledList.Divider size={1} />
                           <LabeledList.Item
                             label="Instability Coefficient"
-                            color="red">
+                            color="red"
+                          >
                             {reaction.instability
                               ? reaction.instability
                               : 'None'}

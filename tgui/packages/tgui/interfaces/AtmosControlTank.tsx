@@ -1,6 +1,11 @@
-import { BooleanLike } from '../../common/react';
+import {
+  Button,
+  LabeledList,
+  NumberInput,
+  Section,
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Section, LabeledList, Button, NumberInput } from '../components';
 import { Window } from '../layouts';
 import { AtmosControl } from './AtmosControl';
 
@@ -23,10 +28,10 @@ type Output = {
   setpressure: number;
 };
 
-export const AtmosControlTank = (props, context) => {
-  const { act, data } = useBackend<TankData>(context);
+export const AtmosControlTank = (props) => {
+  const { act, data } = useBackend<TankData>();
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section>
           <AtmosControl />
@@ -54,8 +59,8 @@ export const AtmosControlTank = (props, context) => {
   );
 };
 
-export const InputWindow = (props, context) => {
-  const { act, data } = useBackend<TankData>(context);
+export const InputWindow = (props) => {
+  const { act, data } = useBackend<TankData>();
   return (
     <LabeledList>
       <LabeledList.Item label="Input">
@@ -73,7 +78,7 @@ export const InputWindow = (props, context) => {
           maxValue={data.maxrate}
           unit="L/s"
           step={10}
-          onDrag={(e, value) =>
+          onChange={(value) =>
             act('in_set_flowrate', { in_set_flowrate: value })
           }
         />
@@ -82,8 +87,8 @@ export const InputWindow = (props, context) => {
   );
 };
 
-export const OutputWindow = (props, context) => {
-  const { act, data } = useBackend<TankData>(context);
+export const OutputWindow = (props) => {
+  const { act, data } = useBackend<TankData>();
   return (
     <Section>
       <LabeledList>
@@ -102,7 +107,7 @@ export const OutputWindow = (props, context) => {
             maxValue={data.maxpressure}
             unit="kPa"
             step={100}
-            onDrag={(e, value) =>
+            onChange={(value) =>
               act('out_set_pressure', { out_set_pressure: value })
             }
           />

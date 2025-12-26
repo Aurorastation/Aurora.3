@@ -15,8 +15,10 @@
 	var/datum/ntnet_conversation/focused_conv
 	var/datum/ntnet_conversation/active
 
-	var/netadmin_mode = FALSE		// Administrator mode (invisible to other users + bypasses passwords)
-	var/set_offline = FALSE			// appear "invisible"
+	/// Administrator mode (invisible to other users + bypasses passwords)
+	var/netadmin_mode = FALSE
+	/// appear "invisible"
+	var/set_offline = FALSE
 	var/ringtone = "beep"
 	var/message_mute = FALSE
 	var/syndi_auth = FALSE

@@ -1,5 +1,5 @@
 import { useBackend } from '../backend';
-import { NoticeBox } from '../components';
+import { NoticeBox } from 'tgui-core/components';
 import { NtosWindow } from '../layouts';
 import { IPCDiagnostics } from './IPCDiagnostics';
 
@@ -46,7 +46,7 @@ type Limb = {
 };
 
 export const RoboticsComputer = (props, context) => {
-  const { act, data } = useBackend<DiagnosticsData>(context);
+  const { act, data } = useBackend<DiagnosticsData>();
 
   return (
     <NtosWindow resizable>

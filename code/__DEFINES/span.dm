@@ -24,6 +24,7 @@
 #define SPAN_COLOR(color, str) SPAN_STYLE("color: [color]", "[str]")
 #define SPAN_CAUTION(str) ("<span class='caution'>" + str + "</span>")
 #define SPAN_STORYTELLER(str) ("<span class='storyteller'>" + str + "</span>")
+#define SPAN_BOLDANNOUNCE(str) ("<span class='boldannounce'>" + str + "</span>")
 
 #define SPAN_MACHINE_WARNING(str) ("<span class='machine-warning'>" + str + "</span>")
 #define SPAN_MACHINE_DANGER(str) ("<span class='machine-danger'>" + str + "</span>")
