@@ -1,7 +1,7 @@
-import { round } from 'common/math';
-import { BooleanLike } from 'common/react';
+import { round } from 'tgui-core/math';
+import { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { AnimatedNumber, Box, Button, Knob, LabeledList, Section } from '../components';
+import { AnimatedNumber, Box, Button, Knob, LabeledList, Section } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type ThermostatData = {
@@ -16,12 +16,11 @@ export type ThermostatData = {
   safety_burnt: BooleanLike;
 };
 
-export const CoolingUnitThermostat = (props, context) => {
-  const { act, data } = useBackend<ThermostatData>(context);
+export const CoolingUnitThermostat = (props) => {
+  const { act, data } = useBackend<ThermostatData>();
 
   return (
     <Window
-      resizable
       theme={data.broken ? 'spookyconsole' : 'hephaestus'}
       width={400}
       height={300}>
@@ -32,8 +31,8 @@ export const CoolingUnitThermostat = (props, context) => {
   );
 };
 
-export const ThermostatWindow = (props, context) => {
-  const { act, data } = useBackend<ThermostatData>(context);
+export const ThermostatWindow = (props) => {
+  const { act, data } = useBackend<ThermostatData>();
 
   // K = C + 273.15 | C = K – 273.15
   return (
@@ -87,8 +86,8 @@ export const ThermostatWindow = (props, context) => {
   );
 };
 
-export const Broken = (props, context) => {
-  const { act, data } = useBackend<ThermostatData>(context);
+export const Broken = (props) => {
+  const { act, data } = useBackend<ThermostatData>();
 
   return (
     <Section title="CRITICAL ERROR 0x0127F29">

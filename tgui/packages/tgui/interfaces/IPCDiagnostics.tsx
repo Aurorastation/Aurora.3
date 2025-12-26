@@ -1,7 +1,7 @@
-import { BooleanLike } from 'common/react';
-import { capitalize } from 'common/string';
+import { BooleanLike } from 'tgui-core/react';
+import { capitalize } from 'tgui-core/string';
 import { useBackend } from '../backend';
-import { AnimatedNumber, Box, Collapsible, Divider, LabeledList, Section } from '../components';
+import { AnimatedNumber, Box, Collapsible, Divider, LabeledList, Section } from 'tgui-core/components';
 
 export type DiagnosticsData = {
   broken: BooleanLike;
@@ -46,8 +46,8 @@ type Limb = {
   max_damage: number;
 };
 
-export const IPCDiagnostics = (props, context) => {
-  const { act, data } = useBackend<DiagnosticsData>(context);
+export const IPCDiagnostics = (props) => {
+  const { act, data } = useBackend<DiagnosticsData>();
 
   return (
     <>
@@ -118,13 +118,13 @@ export const IPCDiagnostics = (props, context) => {
   );
 };
 
-export const OrganDisplay = (props, context) => {
-  const { act, data } = useBackend<DiagnosticsData>(context);
+export const OrganDisplay = (props) => {
+  const { act, data } = useBackend<DiagnosticsData>();
 
   return (
     <Section title={data.patient_name + ': Internal Components'}>
       {data.organs.map((organ) => (
-        <Collapsible content={organ.name} key={organ.name}>
+        <Collapsible title={organ.name} key={organ.name}>
           <Box italic>{organ.desc}</Box>
           <Divider />
           <Box>

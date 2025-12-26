@@ -1,6 +1,6 @@
-import { BooleanLike } from '../../common/react';
+import { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Button, LabeledList, NumberInput, Input, Section } from '../components';
+import { Button, LabeledList, NumberInput, Input, Section } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type CardData = {
@@ -16,8 +16,8 @@ export type CardData = {
   electronic_warfare: BooleanLike;
 };
 
-export const AgentID = (props, context) => {
-  const { act, data } = useBackend<CardData>(context);
+export const AgentID = (props) => {
+  const { act, data } = useBackend<CardData>();
   const {
     name,
     age,
@@ -41,8 +41,7 @@ export const AgentID = (props, context) => {
                 value={data.name}
                 placeholder="Input the desired value, then press enter."
                 width="100%"
-                strict
-                onChange={(e, value) => act('setName', { name: value })}
+                onChange={(value) => act('setName', { name: value })}
               />
             </LabeledList.Item>
             <LabeledList.Item label="Age">
@@ -50,9 +49,10 @@ export const AgentID = (props, context) => {
                 value={data.age}
                 maxValue={1000}
                 minValue={1}
+                step={1}
                 color="white"
                 unit="years"
-                onChange={(e, value) => act('setAge', { age: value })}
+                onChange={(value) => act('setAge', { age: value })}
               />
             </LabeledList.Item>
             <LabeledList.Item label="Sex">
@@ -60,8 +60,7 @@ export const AgentID = (props, context) => {
                 value={data.sex}
                 placeholder="Input the desired value, then press enter."
                 width="100%"
-                strict
-                onChange={(e, value) => act('setSex', { sex: value })}
+                onChange={(value) => act('setSex', { sex: value })}
               />
             </LabeledList.Item>
             <LabeledList.Item label="Photo">
@@ -79,8 +78,7 @@ export const AgentID = (props, context) => {
                 value={data.blood_type}
                 placeholder="Input the desired value, then press enter."
                 width="20%"
-                strict
-                onChange={(e, value) =>
+                onChange={(value) =>
                   act('setBloodType', { bloodtype: value })
                 }
               />
@@ -90,8 +88,7 @@ export const AgentID = (props, context) => {
                 value={data.dna_hash}
                 placeholder="Input the desired value, then press enter."
                 width="100%"
-                strict
-                onChange={(e, value) => act('setDNAHash', { dnahash: value })}
+                onChange={(value) => act('setDNAHash', { dnahash: value })}
               />
             </LabeledList.Item>
             <LabeledList.Item label="Fingerprint Hash">
@@ -99,8 +96,7 @@ export const AgentID = (props, context) => {
                 value={data.fingerprint_hash}
                 placeholder="Input the desired value, then press enter."
                 width="100%"
-                strict
-                onChange={(e, value) =>
+                onChange={(value) =>
                   act('setFingerprintHash', { fingerprinthash: value })
                 }
               />
@@ -114,8 +110,7 @@ export const AgentID = (props, context) => {
                 value={data.employer_faction}
                 placeholder="Input the desired value, then press enter."
                 width="100%"
-                strict
-                onChange={(e, value) => act('setEmployer', { employer: value })}
+                onChange={(value) => act('setEmployer', { employer: value })}
               />
             </LabeledList.Item>
             <LabeledList.Item label="Assignment">
@@ -123,8 +118,7 @@ export const AgentID = (props, context) => {
                 value={data.assignment}
                 placeholder="Input the desired value, then press enter."
                 width="100%"
-                strict
-                onChange={(e, value) =>
+                onChange={(value) =>
                   act('setAssignment', { assignment: value })
                 }
               />
@@ -134,8 +128,7 @@ export const AgentID = (props, context) => {
                 value={data.citizenship}
                 placeholder="Input the desired value, then press enter."
                 width="100%"
-                strict
-                onChange={(e, value) =>
+                onChange={(value) =>
                   act('setCitizenship', { citizenship: value })
                 }
               />

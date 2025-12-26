@@ -77,7 +77,7 @@ export const NtosWindow = (props) => {
     PC_cableout,
     PC_haslight,
     PC_lighton,
-    PC_apclinkicon,
+    PC_apclinkicon
   } = data;
 
   return (

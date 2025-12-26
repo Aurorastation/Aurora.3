@@ -1,6 +1,6 @@
-import { BooleanLike } from 'common/react';
+import { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Box, Button, LabeledControls, Section, Tooltip } from '../components';
+import { Box, Button, LabeledControls, Section, Tooltip } from 'tgui-core/components';
 import { Window } from '../layouts';
 
 export type NeuralData = {
@@ -15,12 +15,11 @@ export type NeuralData = {
   port_can_communicate: BooleanLike;
 };
 
-export const NeuralConfiguration = (props, context) => {
-  const { act, data } = useBackend<NeuralData>(context);
+export const NeuralConfiguration = (props) => {
+  const { act, data } = useBackend<NeuralData>();
 
   return (
     <Window
-      resizable
       theme={
         data.neural_coherence > data.max_neural_coherence * 0.75
           ? 'spookyconsole'
