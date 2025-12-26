@@ -243,8 +243,8 @@ Then check if it's true, if true return. This will stop the normal menu appearin
 					tgui_data["contracts_view"] = 1
 					query_details["status"] = "open"
 
-			var/DBQuery/index_query = GLOB.dbcon.NewQuery("SELECT count(*) as Total_Contracts FROM ss13_syndie_contracts WHERE deleted_at IS NULL AND status = :status:")
-			index_query.Execute(query_details)
+			var/datum/db_query/index_query = SSdbcore.NewQuery("SELECT count(*) as Total_Contracts FROM ss13_syndie_contracts WHERE deleted_at IS NULL AND status = :status", query_details)
+			index_query.Execute()
 
 			var/pages = 0
 
@@ -270,8 +270,8 @@ Then check if it's true, if true return. This will stop the normal menu appearin
 
 				query_details["offset"] = (tgui_data["contracts_current_page"] - 1) * 10
 
-				var/DBQuery/list_query = GLOB.dbcon.NewQuery("SELECT contract_id, contractee_name, title FROM ss13_syndie_contracts WHERE deleted_at IS NULL AND status = :status: LIMIT 10 OFFSET :offset:")
-				list_query.Execute(query_details)
+				var/datum/db_query/list_query =  SSdbcore.NewQuery("SELECT contract_id, contractee_name, title FROM ss13_syndie_contracts WHERE deleted_at IS NULL AND status = :status LIMIT 10 OFFSET :offset",query_details)
+				list_query.Execute()
 
 				var/list/contracts = list()
 				while (list_query.NextRow())
@@ -282,6 +282,8 @@ Then check if it's true, if true return. This will stop the normal menu appearin
 				tgui_data["contracts"] = contracts
 
 				tgui_data["contracts_found"] = 1
+				qdel(list_query)
+			qdel(index_query)
 
 	if(tgui_menu == 31)
 		tgui_data["contracts_found"] = 0
@@ -298,8 +300,8 @@ Then check if it's true, if true return. This will stop the normal menu appearin
 			var/query_details[0]
 			query_details["contract_id"] = exploit_id
 
-			var/DBQuery/select_query = GLOB.dbcon.NewQuery("SELECT contract_id, contractee_name, status, title, description, reward_other FROM ss13_syndie_contracts WHERE contract_id = :contract_id:")
-			select_query.Execute(query_details)
+			var/datum/db_query/select_query = SSdbcore.NewQuery("SELECT contract_id, contractee_name, status, title, description, reward_other FROM ss13_syndie_contracts WHERE contract_id = :contract_id",query_details)
+			select_query.Execute()
 
 			if (select_query.NextRow())
 				tgui_data["contracts_found"] = 1
@@ -323,6 +325,7 @@ Then check if it's true, if true return. This will stop the normal menu appearin
 				contract["reward_other"] = select_query.item[6]
 
 				tgui_data["contract"] = contract
+			qdel(select_query)
 
 // I placed this here because of how relevant it is.
 // You place this in your uplinkable item to check if an uplink is active or not.
