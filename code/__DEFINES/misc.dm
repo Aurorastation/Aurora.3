@@ -289,15 +289,24 @@
 #define MAP_MAXY 5
 #define MAP_MAXZ 6
 
-// /atom/proc/use_check flags.
+// `/atom/proc/use_check()` flags, used for customizing guard clauses.
+
+/// Allows ghosts to interact with the action.
 #define USE_ALLOW_NONLIVING 1
+/// If set, check result will be dictated by whatever value `IsAdvancedToolUser()` has returned from mob users.
 #define USE_ALLOW_NON_ADV_TOOL_USR 2
+/// Allows deads to interact with the action.
 #define USE_ALLOW_DEAD 4
+/// Allows users to interact with the action even if they are incapacitated.
 #define USE_ALLOW_INCAPACITATED 8
+/// Allows users to interact with the action regardless of their distance to the object.
 #define USE_ALLOW_NON_ADJACENT 16
+/// Checks if the item is in possession of a user.
 #define USE_FORCE_SRC_IN_USER 32
+/// Disallows interaction from silicon users.
 #define USE_DISALLOW_SILICONS 64
-#define USE_DISALLOW_SPECIALS 128 // revenants, zombies, etc
+/// Disallows interaction from the mobs specified at `is_mob_special()`, such as zombies and revenants.
+#define USE_DISALLOW_SPECIALS 128
 
 #define USE_SUCCESS 0
 #define USE_FAIL_NON_ADJACENT 1
@@ -452,7 +461,7 @@ example:
 
 //Ruin map template flags
 /// Ruin is not available during spawning unless another ruin permits it, whitelisted by the exoplanet or tied to an external subsystem like Odyssey gamemode.
-/// This should also be added to Odssey maps.
+/// This should also be added to Odyssey maps.
 #define TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED BITFLAG(6)
 
 #define LANDING_ZONE_RADIUS 15 // Used for autoplacing landmarks on exoplanets

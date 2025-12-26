@@ -78,7 +78,7 @@
 		return
 	..()
 
-/obj/item/gun/projectile/heavysniper/unload_ammo(mob/user, var/allow_dump=1)
+/obj/item/gun/projectile/heavysniper/unload_ammo(mob/user, allow_dump = TRUE, drop_mag = FALSE)
 	if(!bolt_open)
 		return
 	..()

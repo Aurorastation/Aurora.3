@@ -18,7 +18,6 @@ export type NTOSData = {
   has_id: BooleanLike;
   has_light: BooleanLike;
   id_name: string;
-  light_on: BooleanLike;
   login: Login;
   pai: string | null;
   alert_style: number;
@@ -30,10 +29,15 @@ export type NTOSData = {
   PC_device_theme: string;
   PC_lowpower_mode: BooleanLike;
   PC_ntneticon: string;
+  PC_apclinkicon: string;
   PC_programheaders: Program[];
   PC_showexitprogram: BooleanLike;
   PC_stationdate: string;
   PC_stationtime: string;
+  PC_hascable: BooleanLike;
+  PC_cableout: BooleanLike;
+  PC_haslight: BooleanLike;
+  PC_lighton: BooleanLike;
   programs: Program[];
   proposed_login: Login;
   removable_media: string[];
@@ -69,6 +73,11 @@ export const NtosWindow = (props) => {
     PC_programheaders = [],
     PC_showexitprogram,
     PC_lowpower_mode,
+    PC_hascable,
+    PC_cableout,
+    PC_haslight,
+    PC_lighton,
+    PC_apclinkicon,
   } = data;
 
   return (
@@ -120,6 +129,40 @@ export const NtosWindow = (props) => {
               </Box>
             ) : (
               <Box>''</Box>
+            )}
+            {!!PC_apclinkicon && (
+              <Box inline>
+                <img
+                  className="NtosHeader__icon"
+                  src={resolveAsset(PC_apclinkicon)}
+                />
+              </Box>
+            )}
+            {!!PC_hascable && (
+              <Button
+                width="26px"
+                lineHeight="22px"
+                textAlign="center"
+                color="transparent"
+                icon="network-wired"
+                selected={PC_cableout}
+                tooltip="Take cable"
+                tooltipPosition="bottom"
+                onClick={() => act('PC_takecable')}
+              />
+            )}
+            {!!PC_haslight && (
+              <Button
+                width="26px"
+                lineHeight="22px"
+                textAlign="center"
+                color="transparent"
+                icon="lightbulb"
+                selected={PC_lighton}
+                tooltip="Toggle Flashlight"
+                tooltipPosition="bottom"
+                onClick={() => act('PC_togglelight')}
+              />
             )}
             {!!PC_showexitprogram && (
               <Button

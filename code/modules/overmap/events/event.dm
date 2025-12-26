@@ -266,10 +266,6 @@
 	opacity = 1
 	event_icon_states = list("meteor1", "meteor2", "meteor3", "meteor4")
 	difficulty = EVENT_LEVEL_MAJOR
-	// Faster than carp, but only ever move in a single direction.
-	movable_event_chance = 20
-	movable_speed = 50
-	dir_change_chance = 0
 
 /obj/effect/overmap/event/electric
 	name = "electrical storm"
@@ -284,10 +280,6 @@
 	opacity = 1
 	event_icon_states = list("dust1", "dust2", "dust3", "dust4")
 	can_be_destroyed = FALSE
-	// Faster than carp, but only ever move in a single direction.
-	movable_event_chance = 20
-	movable_speed = 40
-	dir_change_chance = 0
 
 /obj/effect/overmap/event/ion
 	name = "ion cloud"
@@ -295,10 +287,6 @@
 	event_icon_states = list("ion1", "ion2", "ion3", "ion4")
 	difficulty = EVENT_LEVEL_MAJOR
 	can_be_destroyed = FALSE
-	// Very rare to move, very slow to move when it does, but hilarious.
-	movable_event_chance = 5
-	movable_speed = 240
-	dir_change_chance = 0
 
 /obj/effect/overmap/event/carp
 	name = "carp shoal"

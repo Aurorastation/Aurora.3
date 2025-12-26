@@ -217,7 +217,7 @@
 		return
 	..()
 
-/obj/item/gun/projectile/contender/unload_ammo(mob/user, var/allow_dump=1)
+/obj/item/gun/projectile/contender/unload_ammo(mob/user, allow_dump = TRUE, drop_mag = FALSE)
 	if(!retracted_bolt)
 		to_chat(user, SPAN_NOTICE("You can't unload \the [src] without cycling the bolt."))
 		return
@@ -370,8 +370,8 @@
 	max_shots = 3
 	charge_cost = 500
 	projectile_type = /obj/projectile/bullet/gauss/highex
-	self_recharge = 1
-	use_external_power = 1
+	self_recharge = TRUE
+	use_external_power = TRUE
 	recharge_time = 12
 	needspin = FALSE
 

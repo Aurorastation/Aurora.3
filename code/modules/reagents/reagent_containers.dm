@@ -37,7 +37,8 @@
 		/obj/machinery/biogenerator,
 		/obj/machinery/constructable_frame,
 		/obj/machinery/radiocarbon_spectrometer,
-		/obj/item/storage/part_replacer
+		/obj/item/storage/part_replacer,
+		/obj/structure/cart/storage/janitorialcart
 	)
 	//The above list a misnomer. This basically means that anything in this list has their own way of handling reagent transfers and should be ignored in afterattack.
 

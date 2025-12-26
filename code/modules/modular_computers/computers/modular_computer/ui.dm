@@ -50,6 +50,8 @@
 	data["PC_stationdate"] = "[time2text(world.realtime, "DDD, Month DD")], [GLOB.game_year]"
 	data["PC_showexitprogram"] = !!active_program
 	data["PC_haslight"] = !!flashlight
+	data["PC_hascable"] = !!access_cable_dongle
+	data["PC_cableout"] = access_cable_dongle?.access_cable?.loc == access_cable_dongle ? FALSE : TRUE
 	data["PC_lighton"] = flashlight?.enabled ? TRUE : FALSE
 	data["PC_programheaders"] = list()
 	if(idle_threads.len)
@@ -149,6 +151,13 @@
 		if(flashlight)
 			flashlight.toggle()
 		. = TRUE
+	if(action == "PC_takecable")
+		if(access_cable_dongle && access_cable_dongle.access_cable)
+			if(access_cable_dongle.access_cable.loc == access_cable_dongle)
+				access_cable_dongle.take_cable(usr)
+			else
+				access_cable_dongle.access_cable.retract()
+		. = TRUE
 	if(action == "PC_shutdown")
 		shutdown_computer()
 		return TRUE
@@ -193,6 +202,11 @@
 	update_icon()
 
 /obj/item/modular_computer/ui_status(mob/user, datum/ui_state/state)
+	if(universal_port?.access_cable)
+		if(istype(universal_port.access_cable.source, /obj/item/organ/internal/machine/access_port))
+			var/obj/item/organ/internal/machine/access_port/port = universal_port.access_cable.source
+			if(user == port.owner)
+				return UI_INTERACTIVE
 	. = ..()
 	if(. < UI_INTERACTIVE)
 		if(user && user.machine)
