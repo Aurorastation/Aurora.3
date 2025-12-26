@@ -1,5 +1,5 @@
 import { round } from 'tgui-core/math';
-import { BooleanLike } from 'tgui-core/react';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
 import { AnimatedNumber, Box, Button, Knob, LabeledList, Section } from 'tgui-core/components';
 import { Window } from '../layouts';

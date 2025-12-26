@@ -1,7 +1,7 @@
 import { Button, Flex, LabeledList, Section } from 'tgui-core/components';
 import { useBackend } from '../backend';
 import { Window } from '../layouts';
-import { BooleanLike } from 'tgui-core/react';
+import type { BooleanLike } from 'tgui-core/react';
 
 export type GeoScannerData = {
   scanned_item: string;
@@ -22,6 +22,8 @@ export type GeoScannerData = {
   radiation: number;
   t_left_radspike: number;
   rad_shield_on: BooleanLike;
+  tanks_oxygen: number;
+  tanks_phoron: number;
 };
 
 export const RadiometricScanner = (props) => {

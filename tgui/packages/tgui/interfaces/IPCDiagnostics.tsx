@@ -1,4 +1,4 @@
-import { BooleanLike } from 'tgui-core/react';
+import type { BooleanLike } from 'tgui-core/react';
 import { capitalize } from 'tgui-core/string';
 import { useBackend } from '../backend';
 import { AnimatedNumber, Box, Collapsible, Divider, LabeledList, Section } from 'tgui-core/components';
@@ -51,7 +51,7 @@ export const IPCDiagnostics = (props) => {
 
   return (
     <>
-      <Section title={data.patient_name + ': Main Information'}>
+      <Section title={`${data.patient_name}: Main Information`}>
         <Box>
           Diagnostics unit integrity{' '}
           <Box as="span" bold textColor={damageLabel(data.integrity)}>
@@ -122,7 +122,7 @@ export const OrganDisplay = (props) => {
   const { act, data } = useBackend<DiagnosticsData>();
 
   return (
-    <Section title={data.patient_name + ': Internal Components'}>
+    <Section title={`${data.patient_name}: Internal Components`}>
       {data.organs.map((organ) => (
         <Collapsible title={organ.name} key={organ.name}>
           <Box italic>{organ.desc}</Box>
@@ -167,16 +167,14 @@ export const OrganDisplay = (props) => {
           ) : (
             ''
           )}
-          <>
-            <Divider />
-            {organ.diagnostics_info ? (
-              <Box fontSize={0.8} italic>
-                {organ.diagnostics_info}
-              </Box>
-            ) : (
-              ''
-            )}
-          </>
+          <Divider />
+          {organ.diagnostics_info ? (
+            <Box fontSize={0.8} italic>
+              {organ.diagnostics_info}
+            </Box>
+          ) : (
+            ''
+          )}
         </Collapsible>
       ))}
     </Section>
