@@ -129,31 +129,32 @@
 	item_state = "nka_sailor_hat"
 
 /obj/item/clothing/head/tajaran/consular
-	name = "consular service cap"
-	desc = "A service cap worn by the diplomatic service of the People's Republic of Adhomai."
+	name = "democratic people's republic consular peaked cap"
+	desc = "A peaked cap worn by the diplomatic service of the People's Republic of Adhomai."
 	icon_state = "pra_consularhat"
 	item_state = "pra_consularhat"
-
-/obj/item/clothing/head/tajaran/consular/side_cap
-	name = "consular service side cap"
-	icon_state = "pra_pilotka"
-	item_state = "pra_pilotka"
+	desc_extended = "The People's Republic of Adhomai has enjoyed recognition across the Spur for longer than any other nation on Adhomai. \
+	Given the ambitions of the Republic, its Diplomatic Service remains an important part of Hadiist foreign affairs, being seen everywhere \
+	from Tau Ceti to the Coalition. The Service's mission is twofold. While ensuring cooperation and cordial affairs with potential trade \
+	partners, Consulars are typically expected to assist in intelligence gathering."
 
 /obj/item/clothing/head/tajaran/consular/dpra
-	desc = "A service cap worn by the diplomatic service of the Democratic People's Republic of Adhomai."
+	name = "democratic people's republic consular beret"
+	desc = "A beret worn by the diplomatic service of the Democratic People's Republic of Adhomai."
 	icon_state = "dpra_consularhat"
 	item_state = "dpra_consularhat"
-
-/obj/item/clothing/head/tajaran/consular/dpra/side_cap
-	name = "consular service side cap"
-	icon_state = "dpra_pilotka"
-	item_state = "dpra_pilotka"
+	desc_extended = "The Democratic People's Republic of Adhomai continues a stance of restrained diplomatic relations. Few nations enjoy a communicative \
+	let alone cordial relationship with the rebel nation. However, to achieve its mission in freeing the Tajaran people, off-world or otherwise, the Democratic \
+	Republic maintains a small diplomatic service focused entirely on Tajaran communities and little else."
 
 /obj/item/clothing/head/tajaran/consular/nka
-	name = "royal consular hat"
-	desc = "A fancy hat worn by the diplomatic service of the New Kingdom of Adhomai."
+	name = "new kingdom consular consular peaked cap"
+	desc = "A peaked cap worn by the diplomatic service of the New Kingdom of Adhomai."
 	icon_state = "nka_consularhat"
 	item_state = "nka_consularhat"
+	desc_extended = "The New Kingdom of Adhomai has seen a rise in its international relations since it revolted in 2450. Having few working relationships, \
+	such as the Empire of Dominia, the New Kingdom's approach remains tied to its continued efforts to bring in Megacorporations. While the focus is improving \
+	relations for economic benefit, the Diplomatic Service does have an additional duty of aiding the Royalist communities across the Spur."
 
 /obj/item/clothing/head/tajaran/archeologist
 	name = "archeologist hat"
