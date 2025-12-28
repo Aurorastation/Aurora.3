@@ -42,7 +42,7 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 	var/igniting = FALSE
 	var/obj/effect/decal/cleanable/liquid_fuel/liquid = locate() in src
 	if(liquid && air_contents.check_combustibility(liquid))
-		IgniteTurf(liquid)
+		IgniteTurf(liquid.amount * 10)
 		QDEL_NULL(liquid)
 
 	if(air_contents.check_combustibility())

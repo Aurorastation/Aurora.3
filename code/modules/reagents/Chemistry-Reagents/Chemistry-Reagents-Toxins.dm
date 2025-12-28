@@ -443,6 +443,11 @@
 	if(istype(O, /obj/structure/bonfire))
 		var/obj/structure/bonfire/B = O
 		B.fuel = max(0, B.fuel - (150 * amount))
+	if(istype(O, /obj/turf_fire))
+		var/obj/turf_fire/F = O
+		F.AddPower(-30 * amount) //Thirty times as effective as water
+		if (F.fire_power <= 0)
+			qdel(F)
 
 /singleton/reagent/toxin/plantbgone
 	name = "Plant-B-Gone"
