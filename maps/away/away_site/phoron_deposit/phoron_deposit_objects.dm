@@ -6,7 +6,7 @@
 /mob/living/simple_animal/hostile/carp/shark/reaver/phoron_deposit
 	maxHealth = 60
 	health = 60
-	speed = 6
+	speed = 3
 
 /mob/living/simple_animal/hostile/gnat/phoron_deposit
 	maxHealth = 15

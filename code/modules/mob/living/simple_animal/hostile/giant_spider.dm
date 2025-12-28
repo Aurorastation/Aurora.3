@@ -41,7 +41,7 @@
 	faction = "spiders"
 	var/busy = 0
 	pass_flags = PASSTABLE
-	speed = 6
+	speed = 3
 	mob_size = 6
 	smart_melee = FALSE
 

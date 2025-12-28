@@ -10,7 +10,7 @@
 	desc = "The latest in sure footing technology."
 	item_flags = ITEM_FLAG_NO_SLIP
 	siemens_coefficient = 0.6
-	slowdown = -1
+	slowdown = -0.3
 	armor = null
 
 	cold_protection = FEET

@@ -177,7 +177,7 @@
 	maxHealth = 150
 	health = 150
 
-	speed = 6
+	speed = 3
 
 	melee_damage_lower = 20
 	melee_damage_upper = 20

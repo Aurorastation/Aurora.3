@@ -15,7 +15,7 @@
 		BOMB = ARMOR_BOMB_PADDED
 	)
 	emp_protection = 100
-	slowdown = -1
+	slowdown = -0.3
 	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_UNATHI, BODYTYPE_SKRELL, BODYTYPE_VAURCA)
 	item_flags = ITEM_FLAG_THICK_MATERIAL
 	offline_slowdown = 0
@@ -260,7 +260,7 @@
 		BIO = ARMOR_BIO_SHIELDED,
 		RAD = ARMOR_RAD_SHIELDED
 	)
-	slowdown = -1
+	slowdown = -0.3
 	offline_slowdown = 0
 	airtight = 1
 	offline_vision_restriction = TINT_HEAVY
