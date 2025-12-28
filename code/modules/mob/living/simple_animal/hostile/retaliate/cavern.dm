@@ -25,7 +25,7 @@
 	melee_damage_upper = 10
 	attacktext = "chomped"
 	attack_sound = 'sound/weapons/bite.ogg'
-	speed = 4
+	speed = 1
 	projectiletype = /obj/projectile/beam/cavern
 	projectilesound = 'sound/magic/lightningbolt.ogg'
 	break_stuff_probability = 2
@@ -82,7 +82,7 @@
 	icon_state = "sadrone"
 	icon_living = "sadrone"
 	icon_dead = "sadrone_dead"
-	speed = 5
+	speed = 1.5
 	health = 60
 	maxHealth = 60
 	harm_intent_damage = 5

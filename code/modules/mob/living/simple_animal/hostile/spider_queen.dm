@@ -40,7 +40,7 @@
 	attack_sound = 'sound/weapons/bite.ogg'
 
 	pass_flags = PASSTABLE|PASSRAILING
-	speed = 3
+	speed = 1.5
 	mob_size = 15
 	environment_smash = 2
 

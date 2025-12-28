@@ -12,7 +12,7 @@
 	item_state = "brainslug"
 	icon_living = "brainslug"
 	icon_dead = "brainslug_dead"
-	speed = 3
+	speed = 1.5
 	a_intent = I_HURT
 	stop_automated_movement = 1
 	status_flags = CANPUSH

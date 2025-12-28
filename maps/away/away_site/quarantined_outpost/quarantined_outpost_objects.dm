@@ -50,7 +50,7 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 
 	maxHealth = 300
 	health = 300
-	speed = 3
+	speed = 1.5
 
 	melee_damage_lower = 30
 	melee_damage_upper = 30
@@ -137,7 +137,7 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 	faction = "abominations"
 	maxHealth = 250
 	health = 250
-	speed = 3
+	speed = 1.5
 
 /mob/living/simple_animal/hostile/revivable/husked_creature/Initialize()
 	. = ..()
@@ -291,7 +291,7 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 	maxHealth = 50
 	health = 50
 
-	speed = 2
+	speed = 1
 
 	melee_damage_lower = 5
 	melee_damage_upper = 10

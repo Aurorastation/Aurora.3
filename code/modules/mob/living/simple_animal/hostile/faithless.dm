@@ -11,7 +11,7 @@
 	response_help = "passes through"
 	response_disarm = "shoves"
 	response_harm = "hits"
-	speed = 4
+	speed = 1
 	maxHealth = 80
 	health = 80
 	environment_smash = 2

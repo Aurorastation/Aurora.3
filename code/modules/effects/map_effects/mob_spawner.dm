@@ -101,11 +101,11 @@
 /obj/effect/fauna_spawner/phoron_deposit
 	name = "Phoron Deposit Spawner"
 	mob_choices = list(
-		list(type = /mob/living/simple_animal/hostile/carp/shark/reaver/eel/phoron_deposit, speed = 5), //Speed refers only to the speed that the mobs will move to the waypoint at. Lower values = faster
-		list(type = /mob/living/simple_animal/hostile/carp/shark/phoron_deposit, speed = 4),
-		list(type = /mob/living/simple_animal/hostile/carp/shark/reaver/phoron_deposit, speed = 5),
+		list(type = /mob/living/simple_animal/hostile/carp/shark/reaver/eel/phoron_deposit, speed = 1.5), //Speed refers only to the speed that the mobs will move to the waypoint at. Lower values = faster
+		list(type = /mob/living/simple_animal/hostile/carp/shark/phoron_deposit, speed = 1),
+		list(type = /mob/living/simple_animal/hostile/carp/shark/reaver/phoron_deposit, speed = 1.5),
 		list(type = /mob/living/simple_animal/hostile/gnat/phoron_deposit, speed = 1),
-		list(type = /mob/living/simple_animal/hostile/carp, speed = 2)
+		list(type = /mob/living/simple_animal/hostile/carp, speed = 1)
 	)
 
 /**
@@ -186,8 +186,8 @@
 /obj/effect/fauna_spawner/organized/quarantined_outpost
 	name = "Quarantined Outpost Spawner"
 	mob_choices = list(
-		list(type = /mob/living/simple_animal/hostile/revivable/husked_creature/quarantined_outpost/horde, speed = 5),
-		list(type = /mob/living/simple_animal/hostile/revivable/abomination/quarantined_outpost/horde, speed = 5)
+		list(type = /mob/living/simple_animal/hostile/revivable/husked_creature/quarantined_outpost/horde, speed = 1.5),
+		list(type = /mob/living/simple_animal/hostile/revivable/abomination/quarantined_outpost/horde, speed = 1.5)
 	)
 	one_spawn_per_point = TRUE
 

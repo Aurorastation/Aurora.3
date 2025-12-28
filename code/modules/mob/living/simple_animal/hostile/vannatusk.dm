@@ -37,7 +37,7 @@
 
 	blood_type = "#001126"
 
-	speed = 3
+	speed = 1.5
 
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/vannatusk
 
