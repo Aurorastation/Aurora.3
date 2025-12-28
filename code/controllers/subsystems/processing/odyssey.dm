@@ -74,7 +74,7 @@ SUBSYSTEM_DEF(odyssey)
 			log_and_message_admins(SPAN_DANGER(FONT_HUGE("CRITICAL ERROR: NO SITUATIONS ARE AVAILABLE FOR THIS SECTOR!")))
 			return FALSE
 
-			scenario = pickweight(possible_scenarios)
+		scenario = pickweight(possible_scenarios)
 
 	setup_scenario_variables()
 	var/list/possible_station_levels = SSmapping.levels_by_all_traits(list(ZTRAIT_STATION))
