@@ -21,10 +21,10 @@
 	icon_state = "object"
 	in_space = FALSE
 	initial_generic_waypoints = list(
-		"landing_point_a",
-		"landing_point_b",
-		"landing_point_c",
-		"landing_point_d",
+		"nav_phoron_deposit_a",
+		"nav_phoron_deposit_b",
+		"nav_phoron_deposit_c",
+		"nav_phoron_deposit_d",
 	)
 
 /area/phoron_deposit_shuttle
@@ -39,16 +39,16 @@
 
 /obj/effect/shuttle_landmark/phoron_deposit/alpha
 	name = "Landing Point Alpha"
-	landmark_tag = "landing_point_a"
+	landmark_tag = "nav_phoron_deposit_a"
 
 /obj/effect/shuttle_landmark/phoron_deposit/bravo
 	name = "Landing Point Bravo"
-	landmark_tag = "landing_point_b"
+	landmark_tag = "nav_phoron_deposit_b"
 
 /obj/effect/shuttle_landmark/phoron_deposit/charlie
 	name = "Landing Point Charlie"
-	landmark_tag = "landing_point_c"
+	landmark_tag = "nav_phoron_deposit_c"
 
 /obj/effect/shuttle_landmark/phoron_deposit/delta
 	name = "Landing Point Delta"
-	landmark_tag = "landing_point_d"
+	landmark_tag = "nav_phoron_deposit_d"
