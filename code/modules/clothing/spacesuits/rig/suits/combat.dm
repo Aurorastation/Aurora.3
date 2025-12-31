@@ -518,10 +518,10 @@
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_MEDICAL | MODULE_UTILITY
 
-/obj/item/rig/nanotrasen
-	name = "\improper NanoTrasen military-grade hardsuit control module"
-	desc = "A sleek and dangerous hardsuit, used by NanoTrasen's navy and emergency response teams."
-	suit_type = "\improper NanoTrasen military-grade hardsuit"
+/obj/item/rig/nexus
+	name = "\improper Nexus Corporate Security military-grade hardsuit control module"
+	desc = "A sleek and dangerous combat hardsuit, used by Nexus' navy, asset protection and emergency response teams."
+	suit_type = "\improper Nexus Corporate Security military-grade hardsuit"
 	icon = 'icons/obj/item/clothing/rig/nt_ert/commander.dmi'
 	icon_state = "ert_commander_rig"
 	icon_supported_species_tags = list("skr")
@@ -537,41 +537,78 @@
 	)
 	siemens_coefficient = 0.1
 
-	helm_type = /obj/item/clothing/head/helmet/space/rig/nanotrasen
+	helm_type = /obj/item/clothing/head/helmet/space/rig/nexus
 	boot_type =  /obj/item/clothing/shoes/magboots/rig/heavy
 
 	slowdown = 1
 	offline_slowdown = 2
 	offline_vision_restriction = TINT_HEAVY
 
+	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY | MODULE_VAURCA
 
-/obj/item/clothing/head/helmet/space/rig/nanotrasen
+/obj/item/clothing/head/helmet/space/rig/nexus
 	light_overlay = "helmet_light_dual"
 
-/obj/item/rig/nanotrasen/nexus
+/obj/item/rig/nexus/equipped
+
+	initial_modules = list(
+		/obj/item/rig_module/mounted/egun,
+		/obj/item/rig_module/vision/thermal,
+		/obj/item/rig_module/grenade_launcher,
+		/obj/item/rig_module/ai_container,
+		/obj/item/rig_module/electrowarfare_suite,
+		/obj/item/rig_module/chem_dispenser/combat,
+		/obj/item/rig_module/recharger
+		)
+
+/obj/item/rig/nexus/rtrt
 	name = "\improper Nexus RTRT hardsuit control module"
-	desc = "A variant of NanoTrasen's military-grade hardsuit, designed for usage by Nexus Corporate Security's rapid trauma response teams."
+	desc = "A variant of Nexus' military-grade hardsuit, designed for usage by the contractor's rapid trauma response teams."
 	suit_type = "\improper Nexus RTRT hardsuit"
 	icon = 'icons/obj/item/clothing/rig/nt_ert/medical.dmi'
 	icon_state = "ert_medical_rig"
 
-	helm_type = /obj/item/clothing/head/helmet/space/rig/nanotrasen/nexus
+	helm_type = /obj/item/clothing/head/helmet/space/rig/nexus/rtrt
 
-/obj/item/clothing/head/helmet/space/rig/nanotrasen/nexus
+/obj/item/clothing/head/helmet/space/rig/nexus/rtrt
 	light_overlay = "helmet_light_dual"
 
-/obj/item/rig/nanotrasen/corporate_auxiliary
+/obj/item/rig/nexus/rtrt/equipped
+
+	initial_modules = list(
+		/obj/item/rig_module/chem_dispenser/injector,
+		/obj/item/rig_module/maneuvering_jets,
+		/obj/item/rig_module/device/healthscanner,
+		/obj/item/rig_module/vision/medhud,
+		/obj/item/rig_module/actuators/combat
+		)
+
+/obj/item/rig/nexus/corporate_auxiliary
 	name = "\improper NanoTrasen corporate auxiliary hardsuit control module"
 	desc = "A variant of NanoTrasen's military-grade hardsuit, designed for usage by NanoTrasen's contributions to the Republic of Biesel's corporate auxiliary forces."
 	suit_type = "\improper NanoTrasen corporate auxiliary hardsuit"
 	icon = 'icons/obj/item/clothing/rig/nt_ert/corporate_auxiliary.dmi'
 	icon_state = "corporate_auxiliary_rig"
 
-	helm_type = /obj/item/clothing/head/helmet/space/rig/nanotrasen/corporate_auxiliary
+	helm_type = /obj/item/clothing/head/helmet/space/rig/nexus/corporate_auxiliary
 
-/obj/item/clothing/head/helmet/space/rig/nanotrasen/corporate_auxiliary
+/obj/item/clothing/head/helmet/space/rig/nexus/corporate_auxiliary
 	light_overlay = "helmet_light_dual"
+
+/obj/item/rig/nexus/corporate_auxiliary/equipped
+
+	initial_modules = list(
+		/obj/item/rig_module/mounted/egun,
+		/obj/item/rig_module/vision/thermal,
+		/obj/item/rig_module/grenade_launcher,
+		/obj/item/rig_module/ai_container,
+		/obj/item/rig_module/electrowarfare_suite,
+		/obj/item/rig_module/chem_dispenser/combat,
+		/obj/item/rig_module/recharger
+		)
+
 
 /obj/item/rig/combat/legionnaire
 	name = "\improper Legionnaire Hardsuit"
