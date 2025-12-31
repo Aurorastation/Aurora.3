@@ -1620,6 +1620,35 @@
 		/obj/item/reagent_containers/food/snacks/grown/konyang_tea/jaekseol = 7
 	)
 
+
+/obj/item/storage/box/unique/tea/messa
+	name = "adhomian tin"
+	desc = "A tin labeled in Siik'maas. A blue sun, the symbol of the goddess Messa adorns it."
+	icon_state = "can_messa"
+	starts_with = list(
+		/obj/item/reagent_containers/food/snacks/grown/messas_tear_tea = 7
+	)
+	desc_extended = "Messa's tears are a medicinal herb found across Adhomai and its many Twin Suns churches. \
+					It's leaves, while traditionally used for treating burns, are a common choice for making traditional teas."
+
+/obj/item/storage/box/unique/tea/messa/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(GLOB.all_languages[LANGUAGE_SIIK_MAAS] in user.languages)
+		. += SPAN_NOTICE("The label says: \"Messa's Tear leaves\" and then provides instructions on how to brew them into a hot herbal drink.")
+
+/obj/item/storage/box/unique/tea/rasnif
+	name = "ras'nif tea tin"
+	desc = "A tin with the flag of the People's Republic of Adhomai printed on it, labeled in both Siik'maas and Ceti Basic. It instructs to mix one packet with 25 units of water."
+	icon_state = "can_pra"
+	can_hold = list(
+		/obj/item/reagent_containers/food/condiment/small/packet
+	)
+	starts_with = list(
+		/obj/item/reagent_containers/food/condiment/small/packet/tea = 7
+	)
+	desc_extended = "A herbal tea made with Hro'zamal Ras'nifs powder. \
+					Despite the popularity of its carbonated counterpart, Ras'nif tea remains a popular drink among Hro'zamal settlers."
+
 /obj/item/storage/box/telefreedom_kit
 	name = "telefreedom kit"
 	desc = "A box containing a telefreedom full kit."
