@@ -46,7 +46,8 @@
 	if(ispath(path, /turf/space) && GET_TURF_BELOW(src) && !ignore_override)
 		path = openspace_override_type || /turf/simulated/open/airless
 
-	var/obj/fire/old_fire = fire
+	var/old_hotspot = hotspot
+	var/old_turf_fire = turf_fire
 	var/old_baseturf = baseturf
 	var/old_above = above
 	var/list/old_blueprints = blueprints
@@ -69,6 +70,11 @@
 
 	changing_turf = TRUE
 
+	if(isspaceturf(path) || isopenspace(path))
+		QDEL_NULL(turf_fire)
+	else
+		old_turf_fire = turf_fire
+
 	if(connections)
 		connections.erase_all()
 
@@ -80,6 +86,11 @@
 	var/list/old_signal_procs = _signal_procs?.Copy()
 
 	var/turf/new_turf = new path(src)
+
+	if(!density)
+		turf_fire = old_turf_fire
+	else if (old_turf_fire)
+		QDEL_NULL(old_turf_fire)
 
 	// If the area requires starlight, we need to fill it back in with starlight after the change.
 	// Particularly necessary so shuttles don't leave dark patches after undocking with starlit turfs.
@@ -129,12 +140,12 @@
 	new_turf.above = old_above
 
 	if(ispath(path, /turf/simulated))
-		if(old_fire)
-			fire = old_fire
+		if(old_hotspot)
+			hotspot = old_hotspot
 		if (istype(new_turf, /turf/simulated/floor))
 			new_turf.RemoveLattice()
-	else if(old_fire)
-		old_fire.RemoveFire()
+	else if(hotspot)
+		qdel(hotspot)
 
 	if(tell_universe)
 		GLOB.universe.OnTurfChange(new_turf)
