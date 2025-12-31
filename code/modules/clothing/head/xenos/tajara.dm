@@ -129,7 +129,7 @@
 	item_state = "nka_sailor_hat"
 
 /obj/item/clothing/head/tajaran/consular
-	name = "democratic people's republic consular peaked cap"
+	name = "people's republic consular peaked cap"
 	desc = "A peaked cap worn by the diplomatic service of the People's Republic of Adhomai."
 	icon_state = "pra_consularhat"
 	item_state = "pra_consularhat"
