@@ -5,7 +5,7 @@
 	prefix = "ships/hegemony/miners_guild/"
 	suffix = "miners_guild_station.dmm"
 
-	spawn_weight = 1
+	spawn_weight = 0 // Disabled for debloating. Feel free to enable again if reworked or relevant.
 	ship_cost = 1
 	sectors = list(SECTOR_BADLANDS, SECTOR_UUEOAESA)
 	spawn_weight_sector_dependent = list(SECTOR_UUEOAESA = 1.5)
