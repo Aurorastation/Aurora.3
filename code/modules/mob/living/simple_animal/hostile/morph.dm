@@ -8,7 +8,7 @@
 	icon_living = "morph"
 	icon_rest = "morph_rest"
 	icon_dead = "morph_dead"
-	speed = 2.5
+	speed = 1.5
 	stop_automated_movement = TRUE
 	organ_names = list("bulbous node", "meaty core")
 	response_help  = "pets"
@@ -111,7 +111,7 @@
 		if(M_RUN)
 			speed = 1.5
 		if(M_WALK)
-			speed = 2.5
+			speed = 1.5
 
 /mob/living/simple_animal/hostile/morph/proc/allowed(atom/movable/A)
 	return !is_type_in_typecache(A, blacklist_typecache) && (isobj(A) || ismob(A))
@@ -175,7 +175,7 @@
 	//Baseline stats
 	melee_damage_lower = initial(melee_damage_lower)
 	melee_damage_upper = initial(melee_damage_upper)
-	speed = 2.5
+	speed = 1.5
 	mob_size = 15
 
 /mob/living/simple_animal/hostile/morph/death(gibbed)

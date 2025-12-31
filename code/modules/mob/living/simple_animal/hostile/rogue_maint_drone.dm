@@ -18,7 +18,7 @@
 	faction = "silicon"
 	min_oxy = 0
 	minbodytemp = 0
-	speed = 4
+	speed = 1
 	mob_size = MOB_TINY
 	var/image/eye_overlay
 

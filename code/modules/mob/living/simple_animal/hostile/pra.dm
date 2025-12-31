@@ -38,7 +38,7 @@
 	attacktext = "slashed"
 	attack_sound = 'sound/weapons/bladeslice.ogg'
 
-	speed = 2
+	speed = 1
 
 	min_oxy = 0
 	max_oxy = 0
@@ -113,7 +113,7 @@
 	icon_state = "republicon-armed"
 	icon_living = "republicon-armed"
 	icon_dead = "republicon-armed_dead"
-	speed = 3
+	speed = 1.5
 
 	health = 200
 	maxHealth = 200

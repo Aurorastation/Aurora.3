@@ -14,7 +14,7 @@
 	response_help = "touches"
 	response_disarm = "pushes"
 	response_harm = "hits"
-	speed = 4
+	speed = 1
 	maxHealth = 250
 	health = 250
 
@@ -163,7 +163,7 @@ GLOBAL_LIST_INIT(protected_objects, list(/obj/structure/table, /obj/structure/ca
 			health = 15 * I.w_class
 			melee_damage_lower = 2 + I.force
 			melee_damage_upper = 2 + I.force
-			speed = 2 * I.w_class
+			speed = 1 * I.w_class
 
 		maxHealth = health
 		if(creator)

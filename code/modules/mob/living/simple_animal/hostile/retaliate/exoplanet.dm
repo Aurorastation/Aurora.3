@@ -19,7 +19,7 @@
 	icon_dead = "royalcrab_dead"
 	maxHealth = 150
 	health = 150
-	speed = 3
+	speed = 1.5
 	melee_damage_lower = 10
 	melee_damage_upper = 15
 	natural_armor = list(
@@ -37,7 +37,7 @@
 	mob_size = MOB_LARGE
 	health = 45
 	maxHealth = 45
-	speed = 2
+	speed = 1
 	response_help = "pats briefly"
 	response_disarm = "gently pushes"
 	response_harm = "strikes"
