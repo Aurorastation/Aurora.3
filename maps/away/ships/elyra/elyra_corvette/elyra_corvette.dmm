@@ -8792,7 +8792,7 @@
 /obj/structure/sign/poster{
 	pixel_y = 32
 	},
-/obj/machinery/autolathe,
+/obj/machinery/fabricator/autolathe,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},

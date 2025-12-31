@@ -5923,7 +5923,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/orion_miner/mess_hall)
 "Zz" = (
-/obj/machinery/autolathe,
+/obj/machinery/fabricator/autolathe,
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/structure/cable/green{
 	icon_state = "0-2"

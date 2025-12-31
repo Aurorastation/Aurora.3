@@ -9446,7 +9446,7 @@
 	dir = 4;
 	status = 2
 	},
-/obj/machinery/autolathe,
+/obj/machinery/fabricator/autolathe,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/engineering)
 "RU" = (

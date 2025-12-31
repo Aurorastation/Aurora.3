@@ -8449,9 +8449,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/operations,
-/obj/machinery/autolathe{
-	hacked = 1
-	},
+/obj/machinery/fabricator/autolathe/hacked,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssrm_corvette/garage)
 "tzX" = (

@@ -4670,7 +4670,7 @@
 /turf/simulated/floor/wood,
 /area/ship/idris_cruiser/corridor/civ_aft)
 "qY" = (
-/obj/machinery/autolathe,
+/obj/machinery/fabricator/autolathe,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/sign/nosmoking_1{
 	pixel_x = -26

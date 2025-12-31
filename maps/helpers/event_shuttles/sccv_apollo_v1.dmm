@@ -95,7 +95,7 @@
 /turf/simulated/floor/tiled,
 /area/scc_event_shuttle)
 "bC" = (
-/obj/machinery/autolathe,
+/obj/machinery/fabricator/autolathe,
 /turf/simulated/floor/tiled,
 /area/scc_event_shuttle)
 "bH" = (
@@ -2201,7 +2201,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/scc_event_shuttle)
 "Gf" = (
-/obj/machinery/autolathe,
+/obj/machinery/fabricator/autolathe,
 /obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/dark,
 /area/scc_event_shuttle)

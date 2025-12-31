@@ -5017,7 +5017,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/pod1)
 "Ry" = (
-/obj/machinery/autolathe,
+/obj/machinery/fabricator/autolathe,
 /obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/light{
 	dir = 8;
