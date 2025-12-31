@@ -519,6 +519,7 @@
 #include "code\datums\components\_hivenetechoes.dm"
 #include "code\datums\components\commissaryShop.dm"
 #include "code\datums\components\connect_mob_behalf.dm"
+#include "code\datums\components\deployable_item.dm"
 #include "code\datums\components\drift.dm"
 #include "code\datums\components\jukebox.dm"
 #include "code\datums\components\large_object_transparency.dm"
