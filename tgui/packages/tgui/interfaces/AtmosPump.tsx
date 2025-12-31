@@ -1,6 +1,13 @@
-import { BooleanLike } from 'common/react';
+import {
+  AnimatedNumber,
+  Button,
+  LabeledList,
+  NumberInput,
+  ProgressBar,
+  Section,
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Button, LabeledList, ProgressBar, NumberInput, Section } from '../components';
 import { Window } from '../layouts';
 
 type Data = {
@@ -14,8 +21,8 @@ type Data = {
   flow_rate: number;
 };
 
-export const AtmosPump = (props, context) => {
-  const { act, data } = useBackend<Data>(context);
+export const AtmosPump = () => {
+  const { act, data } = useBackend<Data>();
   const {
     on,
     max_rate,
@@ -46,10 +53,11 @@ export const AtmosPump = (props, context) => {
                   animated
                   value={rate}
                   width="63px"
+                  step={1}
                   unit="L/s"
                   minValue={0}
                   maxValue={max_rate}
-                  onChange={(_, value) =>
+                  onChange={(value) =>
                     act('rate', {
                       rate: value,
                     })
@@ -77,7 +85,7 @@ export const AtmosPump = (props, context) => {
                   minValue={0}
                   maxValue={max_pressure}
                   step={10}
-                  onChange={(_, value) =>
+                  onChange={(value) =>
                     act('pressure', {
                       pressure: value,
                     })
@@ -99,7 +107,6 @@ export const AtmosPump = (props, context) => {
             {max_power_draw ? (
               <LabeledList.Item label="Load">
                 <ProgressBar
-                  animated
                   color={(() => {
                     if (power_draw > (max_power_draw / 3) * 2) {
                       return 'red';
@@ -111,8 +118,10 @@ export const AtmosPump = (props, context) => {
                   })()}
                   minValue={0}
                   maxValue={max_power_draw}
-                  value={power_draw}>
+                  value={power_draw}
+                >
                   {power_draw} W
+                  <AnimatedNumber value={power_draw} />
                 </ProgressBar>
               </LabeledList.Item>
             ) : (

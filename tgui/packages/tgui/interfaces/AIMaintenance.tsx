@@ -1,6 +1,13 @@
-import { BooleanLike } from '../../common/react';
+import {
+  Button,
+  LabeledList,
+  NoticeBox,
+  ProgressBar,
+  Section,
+  Table,
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Button, LabeledList, NoticeBox, ProgressBar, Section, Table } from '../components';
 import { NtosWindow } from '../layouts';
 
 export type AIData = {
@@ -18,11 +25,11 @@ type Law = {
   text: string;
 };
 
-export const AIMaintenance = (props, context) => {
-  const { act, data } = useBackend<AIData>(context);
+export const AIMaintenance = (props) => {
+  const { act, data } = useBackend<AIData>();
 
   return (
-    <NtosWindow resizable>
+    <NtosWindow>
       <NtosWindow.Content scrollable>
         {data.error ? (
           <NoticeBox>No AI card inserted.</NoticeBox>
@@ -34,8 +41,8 @@ export const AIMaintenance = (props, context) => {
   );
 };
 
-export const MaintenanceWindow = (props, context) => {
-  const { act, data } = useBackend<AIData>(context);
+export const MaintenanceWindow = (props) => {
+  const { act, data } = useBackend<AIData>();
 
   return (
     <>
@@ -100,8 +107,9 @@ export const MaintenanceWindow = (props, context) => {
               onClick={() => act('PRG_uploadNTDefault')}
             />
           </>
-        }>
-        {data.ai_laws && data.ai_laws.length ? (
+        }
+      >
+        {data.ai_laws?.length ? (
           <Table>
             <Table.Row header>
               <Table.Cell>Index</Table.Cell>

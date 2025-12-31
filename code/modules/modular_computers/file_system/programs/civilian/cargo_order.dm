@@ -24,7 +24,7 @@
 		var/datum/cargo_order/crord = new
 		co = crord
 
-	var/list/data = initial_data()
+	var/list/data = list()
 
 	//Pass the ID Data
 	data["username"] = GetNameAndAssignmentFromId(user.GetIdCard())

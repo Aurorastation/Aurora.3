@@ -1,5 +1,13 @@
+import {
+  Button,
+  Collapsible,
+  Flex,
+  LabeledList,
+  NoticeBox,
+  Section,
+  Table,
+} from 'tgui-core/components';
 import { useBackend } from '../backend';
-import { Button, LabeledList, NoticeBox, Section, Flex, Table, Collapsible } from '../components';
 import { NtosWindow } from '../layouts';
 
 export type AwayShuttleData = {
@@ -17,8 +25,8 @@ type Shuttle = {
 type ShuttleCrew = {
   name: string;
   shuttle: string;
-  pilot: Boolean;
-  lead: Boolean;
+  pilot: boolean;
+  lead: boolean;
   id: number;
 };
 
@@ -31,19 +39,19 @@ type ShuttleAssignment = {
   return_time: string;
 };
 
-const num2bearing = function (num) {
+const num2bearing = (num) => {
   let bearing = '000';
-  if (num < 10) bearing = '00' + num;
-  else if (num < 100) bearing = '0' + num;
+  if (num < 10) bearing = `00${num}`;
+  else if (num < 100) bearing = `0${num}`;
   else bearing = num;
   return bearing;
 };
 
-export const AwayShuttleManifest = (props, context) => {
-  const { act, data } = useBackend<AwayShuttleData>(context);
+export const AwayShuttleManifest = (props) => {
+  const { act, data } = useBackend<AwayShuttleData>();
 
   return (
-    <NtosWindow resizable width={900} height={600}>
+    <NtosWindow width={900} height={600}>
       <NtosWindow.Content scrollable>
         {' '}
         {data.active_record ? <ManifestEntryEdit /> : <AllShuttles />}
@@ -52,8 +60,8 @@ export const AwayShuttleManifest = (props, context) => {
   );
 };
 
-export const ManifestEntryEdit = (props, context) => {
-  const { act, data } = useBackend<AwayShuttleData>(context);
+export const ManifestEntryEdit = (props) => {
+  const { act, data } = useBackend<AwayShuttleData>();
 
   return (
     <Section
@@ -72,7 +80,8 @@ export const ManifestEntryEdit = (props, context) => {
             onClick={() => act('deleteentry')}
           />
         </>
-      }>
+      }
+    >
       <LabeledList>
         <LabeledList.Item label="Name">
           {data.active_record.name}&nbsp;
@@ -100,8 +109,8 @@ export const ManifestEntryEdit = (props, context) => {
   );
 };
 
-export const AllShuttles = (props, context) => {
-  const { act, data } = useBackend<AwayShuttleData>(context);
+export const AllShuttles = (props) => {
+  const { act, data } = useBackend<AwayShuttleData>();
 
   return (
     <>
@@ -112,7 +121,8 @@ export const AllShuttles = (props, context) => {
             title={name}
             color={Shuttle.color}
             icon={Shuttle.icon}
-            key={name}>
+            key={name}
+          >
             <Section title={name}>
               <Flex>
                 <Table>
@@ -201,8 +211,9 @@ export const AllShuttles = (props, context) => {
                   color="green"
                   onClick={() => act('addentry')}
                 />
-              }>
-              {data.shuttle_manifest && data.shuttle_manifest.length ? (
+              }
+            >
+              {data.shuttle_manifest?.length ? (
                 <Flex>
                   <Table>
                     <Table.Row header>

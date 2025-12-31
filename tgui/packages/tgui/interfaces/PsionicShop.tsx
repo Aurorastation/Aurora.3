@@ -1,5 +1,12 @@
+import {
+  BlockQuote,
+  Box,
+  Button,
+  Input,
+  NoticeBox,
+  Section,
+} from 'tgui-core/components';
 import { useBackend, useLocalState } from '../backend';
-import { BlockQuote, Box, Button, Input, NoticeBox, Section } from '../components';
 import { Window } from '../layouts';
 
 export type PsiData = {
@@ -17,17 +24,13 @@ type Psionic = {
   path: string;
 };
 
-export const PsionicShop = (props, context) => {
-  const { act, data } = useBackend<PsiData>(context);
+export const PsionicShop = (props) => {
+  const { act, data } = useBackend<PsiData>();
 
-  const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
-    `searchTerm`,
-    ``
-  );
+  const [searchTerm, setSearchTerm] = useLocalState<string>(`searchTerm`, ``);
 
   return (
-    <Window resizable theme="wizard">
+    <Window theme="wizard">
       <Window.Content scrollable>
         <Section
           title="Psionic Point Shop"
@@ -38,12 +41,13 @@ export const PsionicShop = (props, context) => {
               placeholder="Search by name"
               width="40vw"
               maxLength={512}
-              onInput={(e, value) => {
+              onChange={(value) => {
                 setSearchTerm(value);
               }}
               value={searchTerm}
             />
-          }>
+          }
+        >
           <Box fontSize={1.4}>
             You are{' '}
             <Box as="span" bold>
@@ -63,7 +67,7 @@ export const PsionicShop = (props, context) => {
             ''
           )}
 
-          {data.available_psionics && data.available_psionics.length ? (
+          {data.available_psionics?.length ? (
             <PsionicsList />
           ) : (
             <NoticeBox>There are no psionics available.</NoticeBox>
@@ -74,25 +78,22 @@ export const PsionicShop = (props, context) => {
   );
 };
 
-export const PsionicsList = (props, context) => {
-  const { act, data } = useBackend<PsiData>(context);
+export const PsionicsList = (props) => {
+  const { act, data } = useBackend<PsiData>();
 
-  const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
-    `searchTerm`,
-    ``
-  );
+  const [searchTerm, setSearchTerm] = useLocalState<string>(`searchTerm`, ``);
 
   return (
     <Section>
       {data.available_psionics
         .filter(
-          (psi) => psi.name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1
+          (psi) =>
+            psi.name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1,
         )
         .map((psi) => (
           <Section
             key={psi.name}
-            title={psi.name + ' (' + psi.point_cost + ')'}
+            title={`${psi.name} (${psi.point_cost})`}
             buttons={
               <Button
                 content="Buy"
@@ -104,7 +105,8 @@ export const PsionicsList = (props, context) => {
                 }
                 onClick={() => act('buy', { buy: psi.path })}
               />
-            }>
+            }
+          >
             <BlockQuote>{psi.desc}</BlockQuote>
           </Section>
         ))}

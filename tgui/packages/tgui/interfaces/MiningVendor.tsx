@@ -1,5 +1,5 @@
+import { Box, Button, Section, Table } from 'tgui-core/components';
 import { useBackend } from '../backend';
-import { Button, Section, Box, Table } from '../components';
 import { Window } from '../layouts';
 
 export type PrizeListData = {
@@ -16,11 +16,11 @@ export type MiningVendorData = {
   prizeList: PrizeListData[];
 };
 
-export const MiningVendor = (props, context) => {
-  const { act, data } = useBackend<MiningVendorData>(context);
+export const MiningVendor = (props) => {
+  const { act, data } = useBackend<MiningVendorData>();
 
   return (
-    <Window resizable theme="hephaestus">
+    <Window theme="hephaestus">
       <Window.Content scrollable>
         <Section title="Mining Points">
           {data.hasId ? (
