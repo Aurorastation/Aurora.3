@@ -62,12 +62,13 @@
 		if(GLOB.config.sql_ccia_logs)
 			//Get the active cases from the database and display them
 			var/list/reports = list()
-			var/DBQuery/report_query = GLOB.dbcon.NewQuery("SELECT id, report_date, title, public_topic, internal_topic, game_id, status FROM ss13_ccia_reports WHERE status IN ('in progress', 'approved') AND deleted_at IS NULL")
+			var/datum/db_query/report_query = SSdbcore.NewQuery("SELECT id, report_date, title, public_topic, internal_topic, game_id, status FROM ss13_ccia_reports WHERE status IN ('in progress', 'approved') AND deleted_at IS NULL")
 			report_query.Execute()
 			while(report_query.NextRow())
 				CHECK_TICK
 				var/datum/ccia_report/R = new(report_query.item[1], report_query.item[2], report_query.item[3], report_query.item[4], report_query.item[5], report_query.item[6], report_query.item[7])
 				reports["[report_query.item[1]] - [report_query.item[2]] - [report_query.item[3]]"] = R
+			qdel(report_query)
 
 			var/selection = input(usr, "Select Report","Report Name") as null|anything in reports
 			if(!selection)
@@ -152,32 +153,33 @@
 	P.forceMove(get_turf(src.loc))
 
 	//If we have sql ccia logs enabled, then persist it here
-	if(GLOB.config.sql_ccia_logs && establish_db_connection(GLOB.dbcon))
+	if(GLOB.config.sql_ccia_logs && SSdbcore.Connect())
 		//This query is split up into multiple parts due to the length limitations of byond.
 		//To avoid this the text and the antag_involvement_text are saved separately
-		var/DBQuery/save_log = GLOB.dbcon.NewQuery("INSERT INTO ss13_ccia_reports_transcripts (id, report_id, character_id, interviewer, antag_involvement, text) VALUES (NULL, :report_id:, :character_id:, :interviewer:, :antag_involvement:, :text:)")
-		save_log.Execute(list("report_id" = selected_report.id, "character_id" = interviewee_id, "interviewer" = usr.name, "antag_involvement" = antag_involvement, "text" = P.info))
+		var/datum/db_query/save_log = SSdbcore.NewQuery("INSERT INTO ss13_ccia_reports_transcripts (id, report_id, character_id, interviewer, antag_involvement, text) VALUES (NULL, :report_id, :character_id, :interviewer, :antag_involvement, :text)",list("report_id" = selected_report.id, "character_id" = interviewee_id, "interviewer" = usr.name, "antag_involvement" = antag_involvement, "text" = P.info),TRUE)
+		save_log.warn_execute()
 
 		//Run the query to get the inserted id
-		var/transcript_id = null
-		var/DBQuery/tid = GLOB.dbcon.NewQuery("SELECT LAST_INSERT_ID() AS log_id")
-		tid.Execute()
-		if (tid.NextRow())
-			transcript_id = text2num(tid.item[1])
+		var/transcript_id = save_log.last_insert_id
 
-		if(tid)
-			var/DBQuery/add_text = GLOB.dbcon.NewQuery("UPDATE ss13_ccia_reports_transcripts SET text = :text: WHERE id = :id:")
-			add_text.Execute(list("id" = transcript_id, "text" = P.info))
-			var/DBQuery/add_antag_involvement_text = GLOB.dbcon.NewQuery("UPDATE ss13_ccia_reports_transcripts SET antag_involvement_text = :antag_involvement_text: WHERE id = :id:")
-			add_antag_involvement_text.Execute(list("id" = transcript_id, "antag_involvement_text" = antag_involvement_text))
+		if(transcript_id)
+			var/datum/db_query/add_text = SSdbcore.NewQuery("UPDATE ss13_ccia_reports_transcripts SET text = :text WHERE id = :id",list("id" = transcript_id, "text" = P.info),TRUE)
+			add_text.warn_execute()
+			qdel(add_text)
+			var/datum/db_query/add_antag_involvement_text = SSdbcore.NewQuery("UPDATE ss13_ccia_reports_transcripts SET antag_involvement_text = :antag_involvement_text WHERE id = :id",list("id" = transcript_id, "antag_involvement_text" = antag_involvement_text),TRUE)
+			add_antag_involvement_text.warn_execute()
+			qdel(add_antag_involvement_text)
 		else
 			message_cciaa("Transcript could not be saved correctly. TiD Missing")
 
 		//Check if we need to update the status to review required
 		if(antag_involvement && selected_report.status == "in progress")
 			to_chat(usr, SPAN_NOTICE("The device beeps and flashes \"Liaison Review Required. Interviewee claimed antag involvement.\"."))
-			var/DBQuery/update_db = GLOB.dbcon.NewQuery("UPDATE ss13_ccia_reports SET status = 'review required' WHERE id = :id:")
-			update_db.Execute(list("id" = selected_report.id))
+			var/datum/db_query/update_db = SSdbcore.NewQuery("UPDATE ss13_ccia_reports SET status = 'review required' WHERE id = :id",list("id" = selected_report.id),TRUE)
+			update_db.warn_execute()
+			qdel(update_db)
+
+		qdel(save_log)
 
 	sLogFile = null
 	selected_report = null
