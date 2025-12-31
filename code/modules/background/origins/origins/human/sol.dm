@@ -209,3 +209,12 @@
 	origin_traits = list(TRAIT_ORIGIN_HOT_RESISTANCE)
 	origin_traits_descriptions = list("are more acclimatised to the heat")
 
+/singleton/origin_item/origin/sankt_frederick
+	name = "Sankt Frederick"
+	desc = "Sankt Frederick is the agricultural heart of the Southern Reaches, known for its sprawling farmlands, river valleys, and vast orbital hydroponic networks. \
+	Once the capital of the Solarian Provisional Government of the Southern Reaches, it endured the Collapse with uncommon stability. \
+	Today, its society is divided between the long-settled Fredericker farmers and the millions of refugees who arrived in the aftermath. \
+	Frederickers are often stereotyped as stoic, hardworking, and proud people who see themselves as feeding a galaxy that too often forgets them."
+	possible_citizenships = CITIZENSHIPS_SOLARIAN
+	possible_accents = list(ACCENT_SANKT_FREDERICK)
+	possible_religions = RELIGIONS_SOLARIAN
