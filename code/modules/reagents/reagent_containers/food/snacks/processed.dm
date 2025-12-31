@@ -479,10 +479,21 @@
 	reagents_to_add = list(/singleton/reagent/nutriment = 10, /singleton/reagent/iron = 3)
 	reagent_data = list(/singleton/reagent/nutriment = list("chalk" = 1))
 
+	// For the hilarious interaction of hydroponics stocking the commissary with disgusting slop nobody wants.
+	// Have fun yelling at your local botanist when the commissary inevitably has too many of these.
+	persistence_expiration_time_days = 60
+
+	// Only liquid rations created by the biogenerator will be persisteable.
+	persistence_supported = FALSE
+
 /obj/item/reagent_containers/food/snacks/liquidfood/Initialize()
-	set_flavor()
+	. = ..()
+	// Check if something else set the flavor first
+	// IE: Persistence
+	if(!flavor)
+		set_flavor()
+
 	reagent_data[/singleton/reagent/nutriment][flavor] = 9
-	return ..()
 
 /obj/item/reagent_containers/food/snacks/liquidfood/set_flavor()
 	flavor = pick("chocolate", "peanut butter cookie", "scrambled eggs", "beef taco", "tofu", "pizza", "spaghetti", "cheesy potatoes", "hamburger", "baked beans", "maple sausage", "chili macaroni", "veggie burger")

@@ -15,29 +15,6 @@
 /obj/item/trash/attack(mob/living/target_mob, mob/living/user, target_zone)
 	return
 
-/obj/item/trash/persistence_get_content()
-	var/list/content = list()
-	content["name"] = name
-	content["desc"] = desc
-	content["icon"] = icon
-	content["icon_state"] = icon_state
-	content["item_state"] = item_state
-	content["drop_sound"] = drop_sound
-	content["pickup_sound"] = pickup_sound
-	return content
-
-/obj/item/trash/persistence_apply_content(content, x, y, z)
-	name = content["name"]
-	desc = content["desc"]
-	icon = file(content["icon"])
-	icon_state = content["icon_state"]
-	item_state = content["item_state"]
-	drop_sound = file(content["drop_sound"])
-	pickup_sound = file(content["pickup_sound"])
-	src.x = x
-	src.y = y
-	src.z = z
-
 /obj/item/trash/koisbar
 	name = "\improper k'ois bar wrapper"
 	icon_state = "koisbar"

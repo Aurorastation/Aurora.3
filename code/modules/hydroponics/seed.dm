@@ -789,6 +789,8 @@
 
 		if(harvest_sample)
 			var/obj/item/seeds/seeds = new(get_turf(user))
+			// We only permit seeds that were harvested or created by players to be persistable.
+			seeds.persistence_supported = TRUE
 			seeds.seed_type = name
 			seeds.update_seed()
 			return
@@ -814,6 +816,7 @@
 
 /datum/seed/proc/spawn_seed(var/turf/spawning_loc)
 	var/obj/item/product = new product_type(spawning_loc, name)
+	product.persistence_supported = TRUE
 	// Set descriptions
 	if(product_desc)
 		product.desc = product_desc
