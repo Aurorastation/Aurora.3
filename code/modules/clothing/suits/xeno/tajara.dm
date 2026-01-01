@@ -64,24 +64,26 @@
 
 /obj/item/clothing/suit/storage/toggle/tajaran/consular/dpra
 	name = "democratic people's republic consular coat"
-	desc = "A black and white canvas coat used by the Diplomatic Service of the Democratic People's Republic of Adhomai. These coats are commonly \
-	repurposed Hadiist coats left over by the Second Revolution. Due to the DPRA's stance on foreign affairs, little thought is placed into producing domestic models."
+	desc = "A black and white canvas coat used by the Diplomatic Service of the Democratic People's Republic of Adhomai. These coats are \
+	commonly repurposed Hadiist coats left over by the Second Revolution. Due to the DPRA's stance on foreign affairs, little thought is \
+	placed into producing domestic models."
 	icon_state = "dpra_consularcoat"
 	item_state = "dpra_consularcoat"
-	desc_extended = "The Democratic People's Republic of Adhomai continues a stance of restrained diplomatic relations. Few nations enjoy a communicative \
-	let alone cordial relationship with the rebel nation. However, to achieve its mission in freeing the Tajaran people, off-world or otherwise, the Democratic \
-	Republic maintains a small diplomatic service focused entirely on Tajaran communities and little else."
+	desc_extended = "The Democratic People's Republic of Adhomai continues a stance of restrained diplomatic relations. Few nations enjoy a \
+	communicative let alone cordial relationship with the rebel nation. However, to achieve its mission in freeing the Tajaran people, off-world \
+	or otherwise, the Democratic Republic maintains a small diplomatic service focused entirely on Tajaran communities and little else."
 
 /obj/item/clothing/suit/storage/toggle/tajaran/consular/nka
 	name = "new kingdom consular coat"
-	desc = "A blue and gold coat used by the Diplomatic Service of the New Kingdom of Adhomai. These coats have only been issued in the past decade as the \
-	New Kingdom's economy begins to recover. With the focus on the image of the Kingdom's diplomatic staff, commoners and nobles alike share the same coat \
-	when representing the Kingdom abroad."
+	desc = "A blue and gold coat used by the Diplomatic Service of the New Kingdom of Adhomai. These coats have only been issued in the \
+	past decade as the New Kingdom's economy begins to recover. With the focus on the image of the Kingdom's diplomatic staff, commoners \
+	and nobles alike share the same coat when representing the Kingdom abroad."
 	icon_state = "nka_consularcoat"
 	item_state = "nka_consularcoat"
-	desc_extended = "The New Kingdom of Adhomai has seen a rise in its international relations since it revolted in 2450. Having few working relationships, \
-	such as the Empire of Dominia, the New Kingdom's approach remains tied to its continued efforts to bring in Megacorporations. While the focus is improving \
-	relations for economic benefit, the Diplomatic Service does have an additional duty of aiding the Royalist communities across the Spur."
+	desc_extended = "The New Kingdom of Adhomai has seen a rise in its international relations since it revolted in 2450. Having few working \
+	relationships, such as the Empire of Dominia, the New Kingdom's approach remains tied to its continued efforts to bring in Megacorporations. \
+	While the focus is improving relations for economic benefit, the Diplomatic Service does have an additional duty of aiding the Royalist \
+	communities across the Spur."
 
 /obj/item/clothing/suit/storage/tajaran/messa
 	name = "sun sister robe"
