@@ -92,6 +92,7 @@
 
 	glasses = null
 	uniform = /obj/item/clothing/under/tajaran/consular
+	suit = /obj/item/clothing/suit/storage/toggle/tajaran/consular
 	head = /obj/item/clothing/head/tajaran/consular
 	backpack_contents = list(
 		/obj/item/storage/box/hadii_card = 1,
@@ -217,6 +218,7 @@
 
 	glasses = null
 	uniform = /obj/item/clothing/under/tajaran/consular/dpra
+	suit = /obj/item/clothing/suit/storage/toggle/tajaran/consular/dpra
 	head = /obj/item/clothing/head/tajaran/consular/dpra
 	backpack_contents = list(
 		/obj/item/gun/projectile/silenced = 1,
@@ -340,6 +342,7 @@
 
 	glasses = null
 	uniform = /obj/item/clothing/under/tajaran/consular/nka
+	suit = /obj/item/clothing/suit/storage/toggle/tajaran/consular/nka
 	head = /obj/item/clothing/head/tajaran/consular/nka
 	backpack_contents = list(
 		/obj/item/folder/blue/nka = 1,
