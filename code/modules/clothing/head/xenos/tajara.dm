@@ -148,7 +148,7 @@
 	Republic maintains a small diplomatic service focused entirely on Tajaran communities and little else."
 
 /obj/item/clothing/head/tajaran/consular/nka
-	name = "new kingdom consular consular peaked cap"
+	name = "new kingdom consular peaked cap"
 	desc = "A peaked cap worn by the diplomatic service of the New Kingdom of Adhomai."
 	icon_state = "nka_consularhat"
 	item_state = "nka_consularhat"
