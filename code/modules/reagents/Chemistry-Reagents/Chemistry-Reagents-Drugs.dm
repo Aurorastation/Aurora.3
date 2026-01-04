@@ -492,12 +492,14 @@
 	taste_mult = 0.4
 	fallback_specific_heat = 1.6
 	value = 2.8
-	effect_messages = FALSE
+	effect_messages = TRUE
 	condiment_name = "Ambrosia Extract Bottle"
 	condiment_desc = "A small dropper bottle full of a stoner's paradise."
 	condiment_icon_state = "ambrosiaextract"
 	condiment_center_of_mass = list("x"=16, "y"=8)
 
+/singleton/reagent/drugs/ambrosia_extract/initial_effect
+	return
 
 /singleton/reagent/drugs/ambrosia_extract/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
 	..()
