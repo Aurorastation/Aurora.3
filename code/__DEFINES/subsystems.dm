@@ -113,8 +113,8 @@
 // Effect helpers.
 #define QUEUE_EFFECT(effect) if (!(effect.datum_flags & DF_ISPROCESSING)) {effect.datum_flags |= DF_ISPROCESSING; SSeffects.effect_systems += effect;}
 #define QUEUE_VISUAL(visual) if (!(visual.datum_flags & DF_ISPROCESSING)) {visual.datum_flags |= DF_ISPROCESSING; SSeffects.visuals += visual;}
-#define STOP_EFFECT(effect) effect.datum_flags &= ~DF_ISPROCESSING; SSeffects.effect_systems -= effect;
-#define STOP_VISUAL(visual)	visual.datum_flags &= ~DF_ISPROCESSING; SSeffects.visuals -= visual;
+#define STOP_EFFECT(effect) SSeffects.effect_systems -= effect;
+#define STOP_VISUAL(visual)	SSeffects.visuals -= visual;
 
 // -- SSfalling --
 #define ADD_FALLING_ATOM(atom) if (!atom.multiz_falling) { atom.multiz_falling = 1; SSfalling.falling[atom] = 0; }
@@ -227,7 +227,8 @@
 #define INIT_ORDER_EARLY_ASSETS 48
 #define INIT_ORDER_SPATIAL_GRID 43
 #define INIT_ORDER_ECONOMY 40
-#define INIT_ORDER_MAPFINALIZE 31 //Asteroid generation, another aurora snowflake, must run before the atoms init
+#define INIT_ORDER_MAPFINALIZE 32 // Asteroid generation, another aurora snowflake, must run before the atoms init
+#define INIT_ORDER_PERSISTENCE 31 // Persistence subsystem, requires map load
 #define INIT_ORDER_ATOMS 30
 #define INIT_ORDER_MACHINES 20
 #define INIT_ORDER_DEFAULT 0

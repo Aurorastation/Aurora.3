@@ -141,6 +141,23 @@
 #define BP_CELL     "cell"
 #define BP_OPTICS   "optics"
 #define BP_IPCTAG   "ipc tag"
+#define BP_REACTOR "reactor"
+#define BP_VOICE_SYNTHESIZER "voice synthesizer"
+#define BP_DIAGNOSTICS_SUITE "internal diagnostics suite"
+#define BP_HYDRAULICS		 "hydraulics system"
+#define BP_COOLING_UNIT		"cooling unit"
+#define BP_ACCESS_PORT "universal access port"
+#define BP_ACTUATORS_LEFT	"left arm actuators"
+#define BP_ACTUATORS_RIGHT	"right arm actuators"
+#define BP_SURGE_PROTECTOR "surge"
+#define BP_DATACORE "data core"
+#define BP_TARGETING_CORE "targeting core"
+
+// Bishop frame only.
+#define BP_WIRELESS_ACCESS "wireless access point"
+
+// G2 frame only.
+#define BP_INTERNAL_STORAGE "internal storage system"
 
 // Parasite organs
 #define BP_ZOMBIE_PARASITE "black tumour"
@@ -148,6 +165,7 @@
 #define BP_WORM_NERVE "nerve fluke"
 #define BP_TUMOUR_NONSPREADING "benign tumour"
 #define BP_TUMOUR_SPREADING "malignant tumour"
+#define BP_GREIMORIAN_EGGCLUSTER "greimorian egg cluster"
 
 //Augment organs
 #define BP_AUG_ACC_CORDS          "modified synthetic vocal cords"
@@ -165,11 +183,27 @@
 #define BP_AUG_ETHANOL_BURNER     "integrated ethanol burner"
 #define BP_AUG_EYE_SENSORS        "integrated eyes sensors"
 #define BP_AUG_FUEL_CELL          "integrated fuel cell"
+#define BP_AUG_FLUFF_HEAD		  "head augmentation"
+#define BP_AUG_FLUFF_HEAD_BIO	  "head bioaug"
+#define BP_AUG_FLUFF_CHEST		  "chest augmentation"
+#define BP_AUG_FLUFF_CHEST_BIO	  "chest bioaug"
+#define BP_AUG_FLUFF_R_HAND		  "right hand augmentation"
+#define BP_AUG_FLUFF_R_HAND_BIO	  "right hand bioaug"
+#define BP_AUG_FLUFF_L_HAND		  "left hand augmentation"
+#define BP_AUG_FLUFF_L_HAND_BIO	  "left hand bioaug"
 #define BP_AUG_GLARE_DAMPENER     "glare dampeners"
 #define BP_AUG_GUSTATORIAL        "integrated gustatorial centre"
+#define BP_AUG_GRAV_ADAPTATION	  "gravity adaptations"
 #define BP_AUG_HAIR               "synthetic hair extensions"
 #define BP_AUG_HEALTHSCAN         "integrated health scanner"
 #define BP_AUG_LANGUAGE           "integrated language processor"
+#define BP_AUG_LANGUAGE_CTHUR     "cthur language processor"
+#define BP_AUG_LANGUAGE_KLAX      "klaxan language processor"
+#define BP_AUG_LANGUAGE_MIKUETZ   "mikuetz language processor"
+#define BP_AUG_LANGUAGE_TRADEBAND "tradeband language processor"
+#define BP_AUG_LANGUAGE_VEKATAK   "vekatak language processor"
+#define BP_AUG_LANGUAGE_ZENG      "zeng language processor"
+#define BP_AUG_LANGUAGE_ZINO      "zino language processor"
 #define BP_AUG_LIGHTER            "retractable lighter"
 #define BP_AUG_MAGBOOT            "integrated mag-claws"
 #define BP_AUG_MEMORY             "memory inhibitor"
@@ -285,6 +319,24 @@
 #define MOB_SMALL 		6
 #define MOB_TINY 		4
 #define MOB_MINISCULE	1
+
+// Mob weight, separate from mob size. Affects how easy a mob is to lift.
+/// Light mobs, can be lifted by anyone.
+#define MOB_WEIGHT_LIGHT 1
+/// Medium weight mobs, the default for humanoids. Can be lifted by medium+.
+#define MOB_WEIGHT_MEDIUM 2
+/// Heavy mobs. They need speecial equipment or a heavy+ mob to lift.
+#define MOB_WEIGHT_HEAVY 3
+/// Superheavy mobs. Gonna need a lot of help with those.
+#define MOB_WEIGHT_SUPERHEAVY 4
+
+// Mob strength. This allows us to represent stronger mobs with a bit more granularity. Robots should be stronger than normal people. A bonus to the checks on lifting/throwing mobs, essentially.
+/// A normal mob, basically. Does not get us any buffs.
+#define MOB_STRENGTH_NORMAL 0
+/// A strong mob. Small bonus.
+#define MOB_STRENGTH_STRONG 1
+/// A very strong mob. Big bonus.
+#define MOB_STRENGTH_VERY_STRONG 2
 
 #define BASE_MAX_NUTRITION	600
 #define HUNGER_FACTOR		0.04 // Factor of how fast mob nutrition decreases over time.
@@ -439,6 +491,7 @@
 #define PROSTHETIC_SELEN "Selen Head"
 #define PROSTHETIC_SIENNA "Sienna Head"
 #define PROSTHETIC_SISEYO "Siseyo Head"
+#define PROSTHETIC_CHEAP "Cheap Prosthetic"
 
 //Prosthetics that aren't restricted by species
 #define PROSTHETICS_UNRESTRICTED list(PROSTHETIC_BC, PROSTHETIC_HI, PROSTHETIC_XMG, PROSTHETIC_UNBRANDED, PROSTHETIC_ZH)
@@ -555,3 +608,25 @@
 #define DO_MISSING_TARGET (-2)
 #define DO_INCAPACITATED (-3)
 #define DO_EXTRA_CHECKS (-4)
+
+// Threshold defines for integrity damage. Used for when you want to check for a specific threshold to do damage effects.
+
+#define IPC_INTEGRITY_THRESHOLD_LOW 75
+#define IPC_INTEGRITY_THRESHOLD_MEDIUM 50
+#define IPC_INTEGRITY_THRESHOLD_HIGH 25
+#define IPC_INTEGRITY_THRESHOLD_VERY_HIGH 10
+
+// These are the power supply organ defines.
+// They are bitflags because it should be technically possible to have a power supply do multiple things at once if you wish.
+// Just be wary of balancing issues.
+
+/// The default functioning of a power reactor. Externally powered only. Allows recharging from APCs. Has a multiplier for faster recharging from power stations.
+#define POWER_SUPPLY_ELECTRIC 1
+/// Recharges by walking/running. Far slower at charging from external sources.
+#define POWER_SUPPLY_KINETIC 2
+/// Recharges through consuming nutrients/food. Slower at recharging from external sources.
+#define POWER_SUPPLY_BIOLOGICAL 4
+/// Recharges from external lighting. Slower at recharging from external sources.
+#define POWER_SUPPLY_SOLAR 8
+
+

@@ -22,25 +22,17 @@
 
 	return INITIALIZE_HINT_QDEL
 
-// this function should return a specific item to spawn
-/obj/random/proc/item_to_spawn()
-	return 0
-
 /obj/random/proc/post_spawn(obj/thing)
 	LOG_DEBUG("random_obj: [DEBUG_REF(src)] registered itself as having post_spawn, but did not override post_spawn()!")
 
 // creates the random item
 /obj/random/proc/spawn_item()
-	if (spawnlist)
+	if(spawnlist)
 		var/itemtype = pick(spawnlist)
 		. = new itemtype(loc)
 
-	else if (problist)
+	if(problist)
 		var/itemtype = pickweight(problist)
-		. = new itemtype(loc)
-
-	else
-		var/itemtype = item_to_spawn()
 		. = new itemtype(loc)
 
 	if (!.)
@@ -51,6 +43,3 @@
 	desc = "This item type is used to randomly spawn a given object at round-start"
 	icon_state = "x3"
 	var/spawn_object = null
-
-/obj/random/single/item_to_spawn()
-	return ispath(spawn_object) ? spawn_object : text2path(spawn_object)

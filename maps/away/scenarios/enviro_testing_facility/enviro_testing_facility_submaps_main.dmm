@@ -939,7 +939,7 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
 	},
-/obj/item/storage/box/monkeycubes,
+/obj/item/storage/box/unique/monkeycubes,
 /obj/structure/table/steel,
 /obj/machinery/light{
 	dir = 8
@@ -3081,11 +3081,11 @@
 	req_access = null;
 	name = "ammunition cabinet"
 	},
-/obj/item/storage/box/haywireshells,
-/obj/item/storage/box/haywireshells,
-/obj/item/storage/box/flashshells,
-/obj/item/storage/box/shotgunshells,
-/obj/item/storage/box/stunshells,
+/obj/item/storage/box/shells/haywireshells,
+/obj/item/storage/box/shells/haywireshells,
+/obj/item/storage/box/shells/flashshells,
+/obj/item/storage/box/shells/buckshot,
+/obj/item/storage/box/shells/stunshells,
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/security/storage)
@@ -3540,7 +3540,7 @@
 	},
 /area/template_noop)
 "dvB" = (
-/obj/item/storage/box/freezer/organcooler{
+/obj/item/storage/box/unique/freezer/organcooler{
 	pixel_x = 5;
 	pixel_y = -4
 	},
@@ -5288,10 +5288,10 @@
 "fqV" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/security,
-/obj/item/storage/box/smokebombs{
+/obj/item/storage/box/tactical/smokebombs{
 	pixel_y = 5
 	},
-/obj/item/storage/box/teargas,
+/obj/item/storage/box/tactical/teargas,
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/security/equipment)
 "frP" = (
@@ -5772,7 +5772,7 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 10
 	},
-/obj/item/storage/box/sharps{
+/obj/item/storage/box/unique/sharps{
 	pixel_x = -3;
 	pixel_y = 9
 	},
@@ -6514,11 +6514,11 @@
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/map_effect/marker/mapmanip/submap/extract/enviro_testing_facility/misc/armory,
-/obj/item/storage/box/emps{
+/obj/item/storage/box/tactical/emps{
 	pixel_x = -3;
 	pixel_y = 6
 	},
-/obj/item/storage/box/smokebombs,
+/obj/item/storage/box/tactical/smokebombs,
 /turf/template_noop,
 /area/template_noop)
 "gwR" = (
@@ -7309,10 +7309,10 @@
 /obj/structure/table/rack,
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/effect/floor_decal/industrial/outline/security,
-/obj/item/storage/box/smokebombs{
+/obj/item/storage/box/tactical/smokebombs{
 	pixel_y = 5
 	},
-/obj/item/storage/box/flashbangs,
+/obj/item/storage/box/tactical/flashbangs,
 /turf/simulated/floor/tiled,
 /area/enviro_testing_facility/inside/security/equipment)
 "hnr" = (
@@ -9240,11 +9240,11 @@
 "jga" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/storage/box/emps{
+/obj/item/storage/box/tactical/emps{
 	pixel_x = -3;
 	pixel_y = 6
 	},
-/obj/item/storage/box/smokebombs,
+/obj/item/storage/box/tactical/smokebombs,
 /turf/template_noop,
 /area/template_noop)
 "jge" = (
@@ -10038,7 +10038,7 @@
 "kay" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
-/obj/item/storage/box/sharps{
+/obj/item/storage/box/unique/sharps{
 	pixel_x = 4;
 	pixel_y = -1
 	},
@@ -10317,7 +10317,7 @@
 /area/enviro_testing_facility/inside/crew/quarters)
 "kqo" = (
 /obj/structure/table/rack,
-/obj/item/storage/box/smokebombs,
+/obj/item/storage/box/tactical/smokebombs,
 /turf/template_noop,
 /area/template_noop)
 "kqT" = (
@@ -10453,7 +10453,7 @@
 /area/enviro_testing_facility/inside/security/hallway)
 "kuh" = (
 /obj/structure/table/stone/marble,
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 6;
 	pixel_y = 6
 	},
@@ -11563,7 +11563,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/item/storage/box/sharps{
+/obj/item/storage/box/unique/sharps{
 	pixel_x = -4;
 	pixel_y = 4
 	},
@@ -12911,14 +12911,14 @@
 /area/enviro_testing_facility/inside/engineering/reactors)
 "nbn" = (
 /obj/structure/closet/secure_closet/freezer,
-/obj/item/storage/box/produce,
-/obj/item/storage/box/produce,
-/obj/item/storage/box/produce,
-/obj/item/storage/box/produce,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
 /obj/effect/floor_decal/corner/lime/diagonal,
-/obj/item/storage/box/produce,
-/obj/item/storage/box/produce,
-/obj/item/storage/box/produce,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
 /turf/simulated/floor/tiled/freezer,
 /area/enviro_testing_facility/inside/crew/canteen)
 "nbt" = (
@@ -13138,11 +13138,11 @@
 "nnS" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/storage/box/frags{
+/obj/item/storage/box/tactical/frags{
 	pixel_x = -3;
 	pixel_y = 6
 	},
-/obj/item/storage/box/smokebombs,
+/obj/item/storage/box/tactical/smokebombs,
 /turf/template_noop,
 /area/template_noop)
 "nol" = (
@@ -13979,8 +13979,8 @@
 /area/enviro_testing_facility/inside/engineering/storage_1)
 "nZi" = (
 /obj/structure/closet,
-/obj/item/clothing/pants/highvis_alt,
-/obj/item/clothing/suit/storage/toggle/highvis_alt,
+/obj/item/clothing/pants/highvis/alt,
+/obj/item/clothing/suit/storage/toggle/highvis/alt,
 /obj/item/clothing/head/softcap/engineering,
 /obj/item/clothing/suit/storage/hazardvest,
 /obj/outfit/admin/generic/engineer,
@@ -18236,7 +18236,7 @@
 /turf/unsimulated/marker/blue,
 /area/enviro_testing_facility/inside/crew/quarters)
 "syU" = (
-/obj/structure/janitorialcart/full/water{
+/obj/structure/cart/storage/janitorialcart/full/water{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/mauve{
@@ -20936,15 +20936,15 @@
 /area/enviro_testing_facility/inside/security/lobby)
 "vhv" = (
 /obj/structure/closet/secure_closet/freezer,
-/obj/item/storage/box/produce,
-/obj/item/storage/box/produce,
-/obj/item/storage/box/produce,
-/obj/item/storage/box/produce,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/item/storage/box/produce,
+/obj/item/storage/box/large/produce,
 /turf/simulated/floor/tiled/white,
 /area/enviro_testing_facility/inside/crew/canteen)
 "vhB" = (
@@ -23355,8 +23355,8 @@
 "xQT" = (
 /obj/structure/closet,
 /obj/effect/floor_decal/industrial/outline/engineering,
-/obj/item/clothing/pants/highvis_alt,
-/obj/item/clothing/suit/storage/toggle/highvis_alt,
+/obj/item/clothing/pants/highvis/alt,
+/obj/item/clothing/suit/storage/toggle/highvis/alt,
 /obj/item/clothing/head/softcap/engineering,
 /obj/item/clothing/suit/storage/hazardvest,
 /obj/outfit/admin/generic/engineer,

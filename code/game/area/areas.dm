@@ -12,11 +12,12 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 /area
 	var/global/global_uid = 0
 	var/uid
-	///Bitflag (Any of `AREA_FLAG_*`). See `code\__DEFINES\misc.dm`.
+	/// Bitflag (Any of `AREA_FLAG_*`). See "code\__DEFINES\misc.dm".
 	var/area_flags
-	var/holomap_color // Color of this area on the holomap. Must be a hex color (as string) or null.
+	/// Color of this area on the holomap. Must be a hex color (as string) or null.
+	var/holomap_color
 
-	///Do we have an active fire alarm?
+	/// Do we have an active fire alarm?
 	var/fire = FALSE
 
 	var/atmosalm = 0
@@ -28,51 +29,60 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 	icon = 'icons/turf/areas.dmi'
 	icon_state = "unknown"
 	layer = AREA_LAYER
-	luminosity = 0
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	invisibility = INVISIBILITY_LIGHTING
+	plane = BLACKNESS_PLANE
 
 	var/obj/machinery/power/apc/apc = null
-	var/turf/base_turf // The base turf type of the area, which can be used to override the z-level's base turf.
+	/// The base turf type of the area, which can be used to override the z-level's base turf.
+	var/turf/base_turf
 
-	var/lightswitch = FALSE
+	/// If this area has a light switch (or multiple), do the lights start on or off? FALSE = off, TRUE = on.
+	var/lightswitch = TRUE
 
 	var/eject = null
 
 	var/requires_power = 1
-	var/always_unpowered = 0	//this gets overridden to 1 for space in area/New()
+	/// This gets overridden to 1 for space in area/New()
+	var/always_unpowered = 0
 
-	var/power_equip = 1 // Status vars
+	// Status vars
+	var/power_equip = 1
 	var/power_light = 1
 	var/power_environ = 1
-	var/used_equip = 0 // Continuous drain; don't touch these directly.
+	// Continuous drain; don't touch these directly.
+	var/used_equip = 0
 	var/used_light = 0
 	var/used_environ = 0
-	var/oneoff_equip 	= 0 // Used once and cleared each tick.
+	// Used once and cleared each tick.
+	var/oneoff_equip 	= 0
 	var/oneoff_light 	= 0
 	var/oneoff_environ 	= 0
 
-	///Boolean, if this area has gravity
+	/// Boolean, if this area has gravity
 	var/has_gravity = TRUE
 
-	///Boolean, if this area always has gravity
+	/// Boolean, if this area always has gravity
 	var/alwaysgravity = FALSE
 
-	///Boolean, if this area never has gravity
+	/// Boolean, if this area never has gravity
 	var/nevergravity = FALSE
 
-	var/list/all_doors = list() //Added by Strumpetplaya - Alarm Change - Contains a list of doors adjacent to this area
+	/// Contains a list of doors adjacent to this area.
+	var/list/all_doors = list()
 	var/air_doors_activated = FALSE
 
 	var/list/ambience = list()
 	var/list/forced_ambience = null
 	var/list/music = list()
 
-	///Used to decide what kind of reverb the area makes sound have
+	/// Used to decide what kind of reverb the area makes sound have
 	var/sound_environment = SOUND_AREA_STANDARD_STATION
 
-	var/no_light_control = FALSE // If TRUE, lights in area cannot be toggled with light controller.
-	var/allow_nightmode = FALSE // If TRUE, lights in area will be darkened by the night mode controller.
+	/// If TRUE, lights in area cannot be toggled with light controller.
+	var/no_light_control = FALSE
+	/// If TRUE, lights in area will be darkened by the night mode controller.
+	var/allow_nightmode = FALSE
 	var/emergency_lights = FALSE
 
 	/**
@@ -97,6 +107,14 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 	var/area_blurb_category
 
 	var/tmp/is_outside = OUTSIDE_NO
+
+	/// Should the turfs in this area render starlight accurate to the starlight of the local sector?
+	/// This is intended for use with EVA areas of ships - such as the wings of the Horizon, for instance.
+	/// You probably shouldn't be setting this to true on any planet-based maps, or on any indoors areas.
+	var/needs_starlight = FALSE
+
+	/// defaults to TRUE, false disables hostile events (like drone uprising).
+	var/hostile_events = TRUE
 
 /**
  * Don't move this to Initialize(). Things in here need to run before SSatoms does.
@@ -123,11 +141,6 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 		power_equip = 0
 		power_environ = 0
 
-	if(dynamic_lighting)
-		luminosity = 0
-	else
-		luminosity = 1
-
 	if(centcomm_area)
 		GLOB.centcom_areas[src] = TRUE
 		alwaysgravity = 1
@@ -145,8 +158,7 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 
 	. = ..()
 
-	if(dynamic_lighting)
-		luminosity = FALSE
+	update_base_lighting()
 
 	if (mapload && turf_initializer)
 		for(var/turf/T in src)
@@ -529,6 +541,9 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 		//Although hostile mobs instadying to turrets is fun
 		//If there's no AI they'll just be hit with stunbeams all day and spam the attack logs.
 		if (istype(A, /area/turret_protected) || LAZYLEN(A.turret_controls))
+			continue
+
+		if(!A.hostile_events)
 			continue
 
 		if(filter_players)

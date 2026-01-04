@@ -69,7 +69,7 @@
 		return
 	if(name != initial(name))
 		. += "It's titled '[name]'."
-	if(distance <= 1)
+	if(distance <= 1 || in_slide_projector(user))
 		show_content(user)
 	else
 		. += SPAN_NOTICE("You have to go closer if you want to read it.")
@@ -130,18 +130,6 @@
 /obj/item/paper/proc/update_space(new_text)
 	if(new_text)
 		free_space -= length(strip_html_properly(new_text))
-
-/obj/item/paper/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if (old_name && (icon_state == "paper_plane" || icon_state == "paper_swan"))
-		. += SPAN_NOTICE("You're going to have to unfold it before you can read it.")
-		return
-	if(name != initial(name))
-		. += "It's titled '[name]'."
-	if(distance <= 1)
-		show_content(user)
-	else
-		. += SPAN_NOTICE("You have to go closer if you want to read it.")
 
 /obj/item/paper/proc/show_content(mob/user, forceshow)
 	simple_asset_ensure_is_sent(user, /datum/asset/simple/paper)
@@ -791,6 +779,25 @@
 	. = ..()
 	scan_target = WEAKREF(set_scan_target)
 
+/*#############################################
+				PERSISTENT
+#############################################*/
+
+/obj/item/paper/persistence_get_content()
+	var/list/content = list()
+	content["title"] = name
+	content["text"] = info
+	return content
+
+/obj/item/paper/persistence_apply_content(content, x, y, z)
+	set_content(content["title"], content["text"])
+	src.x = x
+	src.y = y
+	src.z = z
+	for(var/obj/object in loc) // Pin to noticeboard
+		if(istype(object, /obj/structure/noticeboard))
+			var/obj/structure/noticeboard/notice_board = object
+			notice_board.add_papers_from_turf()
 
 
 /*#############################################

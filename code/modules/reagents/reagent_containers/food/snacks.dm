@@ -110,7 +110,7 @@
 
 		if(ishuman(user))
 			var/mob/living/carbon/human/H = user
-			if (H.species && H.species.bypass_food_fullness())
+			if (H.species && H.species.bypass_food_fullness(H))
 				is_full = FALSE
 
 		if(user == target)
@@ -380,7 +380,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 /// FOOD END
 ////////////////////////////////////////////////////////////////////////////////
-/obj/item/reagent_containers/food/snacks/attack_generic(var/mob/living/user)
+/obj/item/reagent_containers/food/snacks/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	if(!isanimal(user) && !isalien(user))
 		return
 

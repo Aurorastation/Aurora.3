@@ -21,7 +21,6 @@ pixel_x = 8;
 	icon_state = "bell"
 	anchored = TRUE
 	appearance_flags = TILE_BOUND // prevents people from viewing the overlay through a wall
-	z_flags = ZMM_MANGLE_PLANES
 
 	req_access = list() //what access it needs to link your pda
 
@@ -100,15 +99,15 @@ pixel_x = 8;
 		return
 	if(rings_pdas || rings_pdas.len)
 		screen = overlay_image(icon, "bell-active")
-		set_light(1.4, 1, COLOR_CYAN)
+		set_light(L_WALLMOUNT_POWER, L_WALLMOUNT_RANGE, COLOR_CYAN)
 	if(pinged)
 		screen = overlay_image(icon, "bell-alert")
-		set_light(1.4, 1, COLOR_CYAN)
+		set_light(L_WALLMOUNT_POWER, L_WALLMOUNT_RANGE, COLOR_CYAN)
 	if(on)
 		AddOverlays("bell-scanline")
 	else
 		screen = overlay_image(icon, "bell-standby")
-		set_light(1.4, 1, COLOR_CYAN)
+		set_light(L_WALLMOUNT_POWER, L_WALLMOUNT_RANGE, COLOR_CYAN)
 	AddOverlays(screen_hologram)
 	AddOverlays(screen)
 	AddOverlays(screen_emis)
@@ -119,7 +118,7 @@ pixel_x = 8;
 
 	if (istype(attacking_item, /obj/item/modular_computer))
 		if(!check_access(attacking_item))
-			to_chat(user, SPAN_WARNING("Access Denied."))
+			to_chat(user, SPAN_WARNING("Access denied."))
 			return TRUE
 		else if (attacking_item in rings_pdas)
 			to_chat(user, SPAN_NOTICE("You unlink \the [attacking_item] from \the [src]."))

@@ -6,9 +6,11 @@
 	name = "pylon"
 	desc = "A floating crystal that hums with an unearthly energy."
 	icon_state = "pylonbase"
-	var/isbroken = FALSE
+	light_system = MOVABLE_LIGHT
 	light_range = 5
 	light_color = "#3e0000"
+	anchored = FALSE
+	var/isbroken = FALSE
 	var/pylonmode = PYLON_IDLE
 
 	var/damagetaken = 0
@@ -42,7 +44,6 @@
 
 	var/process_interval = 1
 	var/ticks
-	anchored = FALSE
 
 /obj/structure/cult/pylon/condition_hints(mob/user, distance, is_adjacent)
 	. = list()
@@ -367,7 +368,7 @@
 	else
 		attackpylon(user, 4, user)
 
-/obj/structure/cult/pylon/attack_generic(mob/user, damage)
+/obj/structure/cult/pylon/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 
 	//Artificiers maintain pylons
@@ -512,12 +513,14 @@
 		anchored = TRUE
 		if(empowered)
 			AddOverlays("crystal_overcharge")
-			set_light(7, 3, l_color = "#a160bf")
+			set_light_range_power_color(4, 1.5, "#a160bf")
 		else
-			set_light(6, 3, l_color = "#3e0000")
+			set_light_range_power_color(3, 1.5, "#3e0000")
 			AddOverlays("crystal_turret")
+		set_light_on(TRUE)
 	else if(!isbroken)
-		set_light(5, 2, l_color = "#3e0000")
+		set_light_range_power_color(2, 1, "#3e0000")
+		set_light_on(TRUE)
 		AddOverlays("crystal_idle")
 		if(pylonmode == PYLON_AWAITING_SACRIFICE)
 			anchored = TRUE
@@ -525,7 +528,7 @@
 			anchored = FALSE
 	else
 		anchored = FALSE
-		set_light(0)
+		set_light_on(FALSE)
 
 #undef PYLON_IDLE
 #undef PYLON_AWAITING_SACRIFICE

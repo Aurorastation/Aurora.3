@@ -21,7 +21,7 @@
 	last_dam = damage_this_tick
 
 // Takes care of organ related updates, such as broken and missing limbs
-/mob/living/carbon/human/proc/handle_organs()
+/mob/living/carbon/human/proc/handle_organs(seconds_per_tick)
 	number_wounds = 0
 	var/force_process = recheck_bad_external_organs()
 
@@ -37,7 +37,10 @@
 			internal_organs -= I
 			continue
 
-		I.process()
+		if(I.status & ORGAN_DEAD)
+			continue
+
+		I.process(seconds_per_tick)
 
 	handle_stance()
 	handle_grasp()
@@ -63,10 +66,9 @@
 					I.take_damage(rand(3,5))
 
 				//Moving makes open wounds get infected much faster
-				if (E.wounds.len)
-					for(var/datum/wound/W in E.wounds)
-						if (W.infection_check())
-							W.germ_level += 1
+				for(var/datum/wound/W in E.wounds)
+					if (W.infection_check())
+						W.germ_level += 1
 
 /mob/living/carbon/human
 	var/next_stance_collapse = 0
@@ -172,7 +174,7 @@
 
 			spark(src, 5)
 
-//Handles chem traces
+/// Handles chem traces
 /mob/living/carbon/human/proc/handle_trace_chems()
 	//New are added for reagents to random organs.
 	for(var/_A in reagents.reagent_volumes)
@@ -193,10 +195,13 @@
 
 /mob/living/carbon/human/is_asystole()
 	if(isSynthetic())
-		var/obj/item/organ/internal/cell/C = internal_organs_by_name[BP_CELL]
+		var/obj/item/organ/internal/machine/power_core/C = internal_organs_by_name[BP_CELL]
 		if(istype(C) && C.is_usable() && C.percent())
-			return FALSE
+			var/obj/item/organ/internal/machine/posibrain/posi = internal_organs_by_name[BP_BRAIN]
+			if(istype(posi) && !posi.self_preservation_activated)
+				return FALSE
 		return TRUE
+
 	else if(should_have_organ(BP_HEART))
 		var/obj/item/organ/internal/heart/heart = internal_organs_by_name[BP_HEART]
 		if(!istype(heart) || !heart.is_working())

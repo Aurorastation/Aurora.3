@@ -3,6 +3,7 @@
 	level = 1
 
 	layer = TURF_LAYER
+	vis_flags = VIS_INHERIT_PLANE
 
 	var/holy = 0
 
@@ -19,27 +20,36 @@
 
 	// General properties.
 	var/icon_old = null
-	var/pathweight = 1          // How much does it cost to pathfind over this turf?
-	var/blessed = 0             // Has the turf been blessed?
+	/// How much does it cost to pathfind over this turf?
+	var/pathweight = 1
+	/// Has the turf been blessed?
+	var/blessed = 0
 
 	var/footstep_sound = /singleton/sound_category/tiles_footstep
 
 	var/list/decals
 	var/list/blueprints
 
-	var/is_hole		// If true, turf will be treated as space or a hole
+	/// If true, turf will be treated as space or a hole
+	var/is_hole
 	var/tmp/turf/baseturf
 
-	var/roof_type = null // The turf type we spawn as a roof.
+	/// The turf type we spawn as a roof.
+	var/roof_type = null
 	var/tmp/roof_flags = 0
 
-	var/movement_cost = 0 // How much the turf slows down movement, if any.
+	/// How much the turf slows down movement, if any.
+	var/movement_cost = 0
 
 	// Footprint info
-	var/tracks_footprint = TRUE // Whether footprints will appear on this turf
-	var/does_footprint = FALSE // Whether stepping on this turf will dirty your shoes or feet with the below
-	var/footprint_color // The hex color produced by the turf
-	var/track_distance = 12 // How far the tracks last
+	/// Whether footprints will appear on this turf
+	var/tracks_footprint = TRUE
+	/// Whether stepping on this turf will dirty your shoes or feet with the below
+	var/does_footprint = FALSE
+	/// The hex color produced by the turf
+	var/footprint_color
+	/// How far the tracks last
+	var/track_distance = 12
 
 	//Mining resources (for the large drills).
 	var/has_resources
@@ -53,7 +63,24 @@
 	var/base_icon_state = "plating"
 	var/base_color = null
 
-	var/last_clean //for clean log spam.
+	///Lumcount added by sources other than lighting datum objects, such as the overlay lighting component.
+	var/dynamic_lumcount = 0
+
+	///List of light sources affecting this turf.
+	///Which directions does this turf block the vision of, taking into account both the turf's opacity and the movable opacity_sources.
+	var/directional_opacity = NONE
+	///Lazylist of movable atoms providing opacity sources.
+	var/list/atom/movable/opacity_sources
+
+	///hybrid lights affecting this turf
+	var/tmp/list/atom/movable/lighting_mask/hybrid_lights_affecting
+
+	///for clean log spam.
+	var/last_clean
+
+	/// Should this turf ever possibly have starlight rendered on it? If it definitely never ever should, set to false.
+	/// Check update_starlight for possible situations wherein starlight may be rendered on a turf in the first place.
+	var/use_starlight = TRUE
 
 	///what /mob/oranges_ear instance is already assigned to us as there should only ever be one.
 	///used for guaranteeing there is only one oranges_ear per turf when assigned, speeds up view() iteration
@@ -98,27 +125,27 @@
 	if (is_station_level(z))
 		GLOB.station_turfs += src
 
-	if(dynamic_lighting)
-		luminosity = 0
-	else
-		luminosity = 1
-
 	if (smoothing_flags)
 		QUEUE_SMOOTH(src)
-
-	if (light_range && light_power)
-		update_light()
-
-	if (opacity)
-		has_opaque_atom = TRUE
-
-	if (mapload && permit_ao)
-		queue_ao()
 
 	var/area/A = loc
 
 	if(A.base_turf)
 		baseturf = A.base_turf
+
+	update_starlight()
+
+	if (light_range && light_power)
+		update_light()
+
+	//Get area light
+	var/area/current_area = loc
+	if(current_area?.lighting_effect)
+		overlays += current_area.lighting_effect
+
+	if(opacity)
+		directional_opacity = ALL_CARDINALS
+
 	else if(!baseturf)
 		// Hard-coding this for performance reasons.
 		baseturf = SSatlas.current_map.base_turf_by_z["[z]"] || /turf/space
@@ -132,6 +159,11 @@
 	return INITIALIZE_HINT_NORMAL
 
 /turf/Destroy()
+	if(hybrid_lights_affecting)
+		for(var/atom/movable/lighting_mask/mask as anything in hybrid_lights_affecting)
+			LAZYREMOVE(mask.affecting_turfs, src)
+		hybrid_lights_affecting.Cut()
+
 	if (!changing_turf)
 		crash_with("Improper turf qdeletion.")
 
@@ -142,10 +174,6 @@
 
 	remove_cleanables()
 	cleanup_roof()
-
-	if (ao_queued)
-		SSao.queue -= src
-		ao_queued = 0
 
 	if (z_flags & ZM_MIMIC_BELOW)
 		cleanup_zmimic()
@@ -162,6 +190,34 @@
 	underlay_appearance.appearance = src
 	underlay_appearance.dir = adjacency_dir
 	return TRUE
+
+/// Handles starlight for turfs for whose area's needs_starlight var is set to true.
+/// Logic unique to space turfs is set within a child proc of this!
+/// If this proc handles starlight, its child doesn't have to - therefore, we return TRUE.
+/// If it has failed to handle starlight, we return FALSE so the subsequent logic for space turfs can run.
+/turf/proc/update_starlight()
+	// We don't render starlight if config says we shouldn't.
+	if(!GLOB.config.starlight)
+		return TRUE
+
+	// If this turf specifically shouldn't be receiving starlight, we cut it here.
+	if(!use_starlight)
+		return TRUE
+
+	// All area turfs are covered here - they should be starlit if their area's needs_starlight var is true, otherwise they
+	// are set to their default lighting. Areas can change in-game, so this needs to support removing starlight from a turf too.
+	// We do this prior to the unique space logic so this also covers space turfs within a needs_starlight area.
+	var/area/A = get_area(src)
+	if(A.needs_starlight)
+		set_light(SSatlas.current_sector.starlight_range, SSatlas.current_sector.starlight_power, SSskybox.background_color)
+		return TRUE
+	else // If we aren't assigning starlight lighting, set the lighting to default so it's possible to undo starlight lighting if an area changes.
+		set_default_lighting()
+		return FALSE
+
+/// Restores the default lighting of a turf.
+/turf/proc/set_default_lighting()
+	set_light(initial(light_range), initial(light_power), initial(light_color))
 
 /turf/ex_act(severity)
 	return 0
@@ -418,15 +474,6 @@
 			if (oAM.simulated && (oAM.movable_flags & MOVABLE_FLAG_PROXMOVE))
 				arrived.proximity_callback(oAM)
 
-	if (arrived && arrived.opacity && !has_opaque_atom)
-		has_opaque_atom = TRUE // Make sure to do this before reconsider_lights(), incase we're on instant updates. Guaranteed to be on in this case.
-		reconsider_lights()
-
-#ifdef AO_USE_LIGHTING_OPACITY
-		// Hook for AO.
-		regenerate_ao()
-#endif
-
 	if(!(arrived.bound_overlay || (arrived.z_flags & ZMM_IGNORE) || !TURF_IS_MIMICING(above)))
 		above.update_mimic()
 
@@ -569,6 +616,8 @@
 				// Only show message for visible runes
 				if(!R.invisibility)
 					to_chat(user, SPAN_WARNING("No matter how well you wash, the bloody symbols remain!"))
+		if(src.is_open())
+			update_mimic();
 	else
 		if(!(last_clean && world.time < last_clean + 100))
 			to_chat(user, SPAN_WARNING("\The [source] is too dry to wash that."))

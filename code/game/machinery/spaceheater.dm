@@ -1,6 +1,6 @@
 /obj/machinery/space_heater
 	name = "portable temperature control unit"
-	desc = "A portable temperature control unit. It can heat or cool a room to your liking."
+	desc = "A portable temperature control unit. It can heat or cool a compartment to your liking."
 	icon = 'icons/obj/atmos.dmi'
 	icon_state = "sheater-off"
 	anchored = FALSE
@@ -8,7 +8,9 @@
 	use_power = POWER_USE_OFF
 	clicksound = /singleton/sound_category/switch_sound
 	var/on = FALSE
+	/// Currently heating or cooling the environment, if on.
 	var/active = 0
+	/// Force it to at least somewhat obey thermodynamics.
 	var/heating_power = 40 KILO WATTS
 	var/current_temperature
 	var/set_temperature = T0C + 20
@@ -28,6 +30,8 @@
 /obj/machinery/space_heater/Initialize()
 	. = ..()
 	cell = new(src)
+	/// Ensure env exists so TGUI doesn't attempt to round null for display.
+	env = loc.return_air()
 	update_icon()
 
 /obj/machinery/space_heater/update_icon()
@@ -112,13 +116,15 @@
 /obj/machinery/space_heater/ui_data(mob/user)
 	var/list/data = list()
 
+	current_temperature = round(env.temperature - T0C, 0.1)
+
 	data["power_cell_inserted"] = cell
 	data["power_cell_charge"] = cell?.percent()
 	data["is_on"] = on
 	data["is_active"] = active
 	data["panel_open"] = panel_open
 	data["heating_power"] = heating_power
-	data["current_temperature"] = round(env.temperature - T0C, 0.1)
+	data["current_temperature"] = current_temperature
 	data["set_temperature"] = set_temperature - T0C
 	data["set_temperature_max"] = set_temperature_max - T0C
 	data["set_temperature_min"] = set_temperature_min - T0C
@@ -184,7 +190,7 @@
 //For mounting on walls in planetary buildings and stuff.
 /obj/machinery/space_heater/stationary
 	name = "stationary temperature control unit"
-	desc = "A stationary temperature control unit. It can heat or cool a room to your liking."
+	desc = "A stationary temperature control unit. It can heat or cool a compartment to your liking."
 	anchored = TRUE
 	can_be_unanchored = FALSE
 	density = FALSE

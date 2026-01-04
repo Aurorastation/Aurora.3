@@ -92,7 +92,7 @@ GLOBAL_LIST_EMPTY(chargen_disabilities_list)
 GLOBAL_LIST_INIT(valid_player_genders, list(MALE, FEMALE, NEUTER, PLURAL))
 
 /// List of possible backpack shapes for the loadout.
-GLOBAL_LIST_INIT(backbaglist, list("Nothing", "Backpack", "Satchel", "Leather Satchel", "Duffel Bag", "Messenger Bag", "Rucksack", "Pocketbook"))
+GLOBAL_LIST_INIT(backbaglist, list("Nothing", "Backpack", "Satchel", "Leather Satchel", "Duffel Bag", "Messenger Bag", "Rucksack", "Pocketbook", "Chest Pouch"))
 /// List of possible backpack styles for the loadout.
 GLOBAL_LIST_INIT(backbagstyles, list("Job-specific", "Generic", "Faction-specific"))
 /// List of possible backpack colors for the loadout.
@@ -113,6 +113,9 @@ GLOBAL_LIST_INIT(primary_radio_slot_choice, list("Left Ear", "Right Ear", "Wrist
 
 // Used to track fauna spawners on the phoron deposit away site.
 GLOBAL_LIST_INIT(fauna_spawners, list())
+
+/// List of spawn points associated with '/obj/effect/organized_fauna_spawner'. It will automatically assign the spawn points in the same Z level as spawner.
+GLOBAL_LIST_EMPTY(organized_spawn_points)
 
 /// Visual nets.
 GLOBAL_LIST_EMPTY_TYPED(visual_nets, /datum/visualnet)

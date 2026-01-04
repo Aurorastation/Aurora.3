@@ -29,10 +29,16 @@
 		/obj/item/reagent_containers/food/drinks/bottle/skrellwineylpha = 2,
 		/obj/item/reagent_containers/food/drinks/bottle/drambuie = 4,
 		/obj/item/reagent_containers/food/drinks/bottle/melonliquor = 2,
+		/obj/item/reagent_containers/food/drinks/bottle/limoncello = 2,
 		/obj/item/reagent_containers/food/drinks/bottle/gin = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/vermouth = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/chartreusegreen = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/guinness = 4,
+		/obj/item/reagent_containers/food/drinks/bottle/small/beer = 5,
+		/obj/item/reagent_containers/food/drinks/bottle/small/beer/light = 3,
+		/obj/item/reagent_containers/food/drinks/bottle/small/marienthal = 5,
+		/obj/item/reagent_containers/food/drinks/bottle/small/prince_pallav = 5,
+		/obj/item/reagent_containers/food/drinks/bottle/small/skrellbeerdyn = 3,
 		/obj/item/reagent_containers/food/drinks/bottle/absinthe = 2,
 		/obj/item/reagent_containers/food/drinks/bottle/bluecuracao = 2,
 		/obj/item/reagent_containers/food/drinks/bottle/kahlua = 5,
@@ -78,7 +84,8 @@
 		/obj/item/reagent_containers/food/drinks/carton/mutthir = 1,
 		/obj/item/reagent_containers/food/drinks/boba = 2,
 		/obj/item/reagent_containers/food/drinks/ice = 9,
-		/obj/item/storage/box/fancy/vkrexi_swollen_organ = 1
+		/obj/item/storage/box/fancy/vkrexi_swollen_organ = 1,
+		/obj/item/reagent_containers/food/drinks/bottle/redstaff = 2
 	)
 	contraband = list(
 		/obj/item/reagent_containers/food/drinks/tea = 10
@@ -165,6 +172,7 @@
 		/obj/item/reagent_containers/food/drinks/bottle/fernet = 1,
 		/obj/item/reagent_containers/food/drinks/bottle/drambuie = 2,
 		/obj/item/reagent_containers/food/drinks/bottle/melonliquor = 1,
+		/obj/item/reagent_containers/food/drinks/bottle/limoncello = 1,
 		/obj/item/reagent_containers/food/drinks/bottle/chartreusegreen = 2,
 		/obj/item/reagent_containers/food/drinks/bottle/absinthe = 1,
 		/obj/item/reagent_containers/food/drinks/bottle/kahlua = 1,
@@ -187,3 +195,6 @@
 		/obj/item/reagent_containers/food/drinks/carton/cranberryjuice = 1,
 		/obj/item/reagent_containers/food/drinks/ice = 9
 	)
+
+/obj/machinery/vending/boozeomat/bar
+	layer = BELOW_TABLE_LAYER

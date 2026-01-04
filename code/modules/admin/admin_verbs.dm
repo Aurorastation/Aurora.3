@@ -105,7 +105,8 @@ GLOBAL_LIST_INIT(admin_verbs_admin, list(
 	/client/proc/reset_openturf,
 	/client/proc/toggle_aooc,
 	/client/proc/force_away_mission,
-	/client/proc/alooc
+	/client/proc/alooc,
+	/client/proc/create_portal
 ))
 
 GLOBAL_LIST_INIT(admin_verbs_ban, list(
@@ -223,7 +224,6 @@ GLOBAL_LIST_INIT(admin_verbs_debug, list(
 	/client/proc/toggle_recursive_explosions,
 	/client/proc/restart_sql,
 	/client/proc/fix_player_list,
-	/client/proc/lighting_show_verbs,
 	/client/proc/restart_controller,
 	/client/proc/cmd_display_del_log,
 	/client/proc/cmd_display_harddel_log,
@@ -235,7 +235,6 @@ GLOBAL_LIST_INIT(admin_verbs_debug, list(
 	/datum/admins/proc/map_template_load,
 	/datum/admins/proc/map_template_load_new_z,
 	/datum/admins/proc/map_template_upload,
-	/client/proc/global_ao_regenerate,
 	/client/proc/add_client_color,
 	/client/proc/connect_ntsl,
 	/client/proc/disconnect_ntsl,
@@ -341,7 +340,6 @@ GLOBAL_LIST_INIT(admin_verbs_hideable, list(
 	/client/proc/end_round,
 	/datum/admins/proc/immreboot,
 	/client/proc/cmd_dev_bst,
-	/client/proc/global_ao_regenerate,
 	/client/proc/everyone_random,
 	/datum/admins/proc/toggleAI,
 	/client/proc/cmd_admin_delete,
@@ -419,7 +417,6 @@ GLOBAL_LIST_INIT(admin_verbs_hideable, list(
 	/datum/admins/proc/capture_map,
 	/turf/proc/view_chunk,
 	/turf/proc/update_chunk,
-	/client/proc/lighting_show_verbs,
 	/client/proc/callproc,
 	/client/proc/callproc_target,
 	/client/proc/debug_controller,
@@ -429,6 +426,7 @@ GLOBAL_LIST_INIT(admin_verbs_hideable, list(
 	/proc/release,
 	/client/proc/force_away_mission,
 	/client/proc/profiler_start,
+	/client/proc/create_portal,
 	))
 
 GLOBAL_LIST_INIT(admin_verbs_mod, list(
@@ -496,7 +494,6 @@ GLOBAL_LIST_INIT(admin_verbs_dev, list( //will need to be altered - Ryan784
 	/client/proc/toggledebuglogs,
 	/client/proc/ZASSettings,
 	/client/proc/cmd_dev_bst,
-	/client/proc/lighting_show_verbs,
 	/client/proc/cmd_display_del_log,
 	/client/proc/cmd_display_harddel_log,
 	/client/proc/cmd_display_init_log,
@@ -1406,3 +1403,52 @@ GLOBAL_LIST_INIT(admin_verbs_storyteller, list(
 			prefix = ""
 		if((target.mob in messagemobs) || display_remote)
 			to_chat(target, "<span class='ooc'><span class='adminlooc'>" + create_text_tag("ALOOC", target) + " <span class='prefix'>[prefix]</span><EM>[display_name][admin_stuff]:</EM> <span class='message linkify'>[msg]</span></span></span>")
+
+/// Allows the admin to set up portals to and from a destination, can be used for event bugs and such
+/client/proc/create_portal()
+	set name = "Create Portal"
+	set category = "Admin"
+
+	if(!check_rights(R_ADMIN))
+		return
+
+	var/turf/creation_turf
+	if(tgui_alert(usr, "Please select where you would like to place the portal. When you're in position, press 'Place'.", "Place Portal", list("Place", "Cancel")) != "Place")
+		return
+	creation_turf = get_turf(src.mob)
+
+	var/turf/destination_turf
+	if(tgui_alert(usr, "Please select where you would like to place the portal destination. When you're in position, press 'Place'.", "Place Destination", list("Place", "Cancel")) != "Place")
+		return
+	destination_turf = get_turf(src.mob)
+
+	var/custom_color
+	var/custom_color_choice = tgui_alert(usr, "Would you like the portal to be a specific color? If not, it'll default to the normal blue color.", "Custom Color", list("Yes", "No", "Cancel"))
+	if(custom_color_choice in list(null, "Cancel"))
+		return
+	if(custom_color_choice == "Yes")
+		// purposefully doesn't return on null here, it'll just default to blue
+		custom_color = input(usr, "Choose the color you want your portal to be.", "Color Selection") as null|color
+
+	var/two_way_portals
+	var/two_way_portals_choice = tgui_alert(usr, "Would you like this portal to be standalone, or a two-way portal? If it's a two-way, a portal will also be at the destination turf, allowing anyone to come back.", "Two Way", list("Standalone", "Two-Way", "Cancel"))
+	if(two_way_portals_choice in list(null, "Cancel"))
+		return
+	two_way_portals = two_way_portals_choice == "Two-Way"
+
+	feedback_add_details("admin_verb","CrP") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+
+	var/obj/effect/portal/permanent/main_portal = new /obj/effect/portal/permanent(creation_turf, destination_turf)
+	main_portal.precision = 0
+	main_portal.failchance = 0
+	if(custom_color)
+		main_portal.icon_state = "portal_g"
+		main_portal.color = custom_color
+
+	if(two_way_portals)
+		var/obj/effect/portal/permanent/destination_portal = new /obj/effect/portal/permanent(destination_turf, creation_turf)
+		destination_portal.precision = 0
+		destination_portal.failchance = 0
+		if(custom_color)
+			destination_portal.icon_state = "portal_g"
+			destination_portal.color = custom_color

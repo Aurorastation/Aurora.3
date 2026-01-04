@@ -121,7 +121,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/silver{
-	insecure = 0;
+	features_powerloss_manual_override = 0;
 	dir = 1
 	},
 /turf/simulated/floor/wood/walnut,
@@ -220,7 +220,7 @@
 /area/shuttle/yacht/living)
 "aP" = (
 /obj/machinery/door/airlock/silver{
-	insecure = 0;
+	features_powerloss_manual_override = 0;
 	dir = 1
 	},
 /turf/simulated/floor/wood/walnut,
@@ -274,7 +274,7 @@
 /obj/structure/closet/walllocker/emerglocker/north,
 /obj/effect/decal/cleanable/blood/drip,
 /obj/machinery/door/airlock/silver{
-	insecure = 0;
+	features_powerloss_manual_override = 0;
 	dir = 4
 	},
 /turf/simulated/floor/wood/walnut,
@@ -381,7 +381,7 @@
 /area/shuttle/yacht/living)
 "bo" = (
 /obj/machinery/door/airlock/silver{
-	insecure = 0;
+	features_powerloss_manual_override = 0;
 	dir = 4
 	},
 /turf/simulated/floor/tiled/freezer,
@@ -463,7 +463,7 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/silver{
-	insecure = 0;
+	features_powerloss_manual_override = 0;
 	dir = 4
 	},
 /turf/simulated/floor/carpet/purple,
@@ -546,7 +546,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/decal/cleanable/blood/gibs/robot/down,
 /obj/machinery/door/airlock/silver{
-	insecure = 0;
+	features_powerloss_manual_override = 0;
 	dir = 1
 	},
 /turf/simulated/floor/wood/yew,
@@ -728,7 +728,7 @@
 /turf/simulated/floor/wood/yew,
 /area/shuttle/yacht/living)
 "cl" = (
-/obj/structure/janitorialcart,
+/obj/structure/cart/storage/janitorialcart/full,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood/yew,
 /area/shuttle/yacht/living)

@@ -41,20 +41,14 @@
 
 /datum/martial_art/karak_virul/proc/dislocating_strike(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	A.do_attack_animation(D)
-	if(prob(30))
-		var/obj/item/organ/external/organ = D.get_organ(A.zone_sel.selecting)
-		if(!organ || ORGAN_IS_DISLOCATED(organ) || organ.dislocated == -1)
-			return 0
-		organ.dislocate(1)
-		A.visible_message(SPAN_WARNING("[A] strikes [D]'s [organ.name] with their closed fist!"))
-		D.visible_message(SPAN_DANGER("[D]'s [organ.joint] [pick("gives way","caves in","crumbles","collapses")]!"))
-		admin_attack_log(A, D, "dislocated [organ.joint].", "had his [organ.joint] dislocated.", "dislocated [organ.joint] of")
-		playsound(get_turf(A), /singleton/sound_category/punch_sound, 50, 1, -1)
-		return 1
-	else
-		playsound(get_turf(A), /singleton/sound_category/punch_sound, 50, 1, -1)
-		D.apply_damage(5, DAMAGE_BRUTE)
-		A.visible_message(SPAN_WARNING("[A] strikes [D] with their closed fist!"))
+	var/obj/item/organ/external/organ = D.get_organ(A.zone_sel.selecting)
+	if(!organ || ORGAN_IS_DISLOCATED(organ) || organ.dislocated == -1)
+		return 0
+	organ.dislocate(1)
+	A.visible_message(SPAN_WARNING("[A] strikes [D]'s [organ.name] with their closed fist!"))
+	D.visible_message(SPAN_DANGER("[D]'s [organ.joint] [pick("gives way","caves in","crumbles","collapses")]!"))
+	admin_attack_log(A, D, "dislocated [organ.joint].", "had his [organ.joint] dislocated.", "dislocated [organ.joint] of")
+	playsound(get_turf(A), /singleton/sound_category/punch_sound, 50, 1, -1)
 	return 1
 
 /datum/martial_art/karak_virul/grab_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)

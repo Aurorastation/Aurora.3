@@ -2358,7 +2358,7 @@
 /turf/simulated/wall,
 /area/enviro_testing_facility/inside/hallway/central)
 "hX" = (
-/obj/structure/janitorialcart/full/water{
+/obj/structure/cart/storage/janitorialcart/full/water{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/mauve{
@@ -5370,10 +5370,10 @@
 /area/enviro_testing_facility/inside/maintenance/control)
 "rX" = (
 /obj/structure/closet/crate/freezer,
-/obj/item/storage/box/produce,
-/obj/item/storage/box/produce,
-/obj/item/storage/box/produce,
-/obj/item/storage/box/produce,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
 /obj/effect/floor_decal/industrial/outline/service,
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/maintenance/center_east)
@@ -10636,7 +10636,7 @@
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/operations/storage_long_term)
 "Jy" = (
-/obj/structure/janitorialcart/full/water{
+/obj/structure/cart/storage/janitorialcart/full/water{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/mauve{
@@ -13505,7 +13505,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/enviro_testing_facility/inside/hallway/east)
 "Tv" = (
-/obj/structure/janitorialcart/full/water{
+/obj/structure/cart/storage/janitorialcart/full/water{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/mauve{

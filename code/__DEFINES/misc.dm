@@ -17,7 +17,6 @@
 #define INVISIBILITY_SYSTEM			99
 
 #define SEE_INVISIBLE_LIVING		25
-#define SEE_INVISIBLE_NOLIGHTING	15
 #define SEE_INVISIBLE_LEVEL_ONE		35
 #define SEE_INVISIBLE_LEVEL_TWO		45
 #define SEE_INVISIBLE_CULT			60
@@ -128,15 +127,16 @@
 #define DEFAULT_JOB_TYPE /datum/job/assistant
 
 //Area flags, possibly more to come
-#define AREA_FLAG_RAD_SHIELDED        	 BITFLAG(1) //shielded from radiation, clearly
-#define AREA_FLAG_SPAWN_ROOF          	 BITFLAG(2) // if we should attempt to spawn a roof above us.
-#define AREA_FLAG_HIDE_FROM_HOLOMAP   	 BITFLAG(3) // if we shouldn't be drawn on station holomaps
-#define AREA_FLAG_FIRING_RANGE        	 BITFLAG(4)
-#define AREA_FLAG_NO_CREW_EXPECTED    	 BITFLAG(5) // Areas where crew is not expected to ever be. Used to tell antag bases and such from crew-accessible areas on centcom level.
-#define AREA_FLAG_PRISON              	 BITFLAG(6) // Marks prison area for purposes of checking if brigged/imprisoned
-#define AREA_FLAG_NO_GHOST_TELEPORT_ACCESS BITFLAG(7) // Marks whether ghosts should not have teleport access to this area
-#define AREA_FLAG_INDESTRUCTIBLE_TURFS			 BITFLAG(8) //Marks whether or not turfs in this area can be destroyed by explosions
-#define AREA_FLAG_IS_BACKGROUND 		 BITFLAG(9) //Marks whether or not blueprints can create areas on top of this area
+#define AREA_FLAG_RAD_SHIELDED				BITFLAG(1)	// shielded from radiation, clearly
+#define AREA_FLAG_SPAWN_ROOF				BITFLAG(2)	// if we should attempt to spawn a roof above us.
+#define AREA_FLAG_HIDE_FROM_HOLOMAP			BITFLAG(3)	// if we shouldn't be drawn on station holomaps
+#define AREA_FLAG_FIRING_RANGE				BITFLAG(4)	// Area dedicated for firing pin logic
+#define AREA_FLAG_NO_CREW_EXPECTED			BITFLAG(5)	// Areas where crew is not expected to ever be. Used to tell antag bases and such from crew-accessible areas on centcom level.
+#define AREA_FLAG_PRISON					BITFLAG(6)	// Marks prison area for purposes of checking if brigged/imprisoned
+#define AREA_FLAG_NO_GHOST_TELEPORT_ACCESS	BITFLAG(7)	// Marks whether ghosts should not have teleport access to this area
+#define AREA_FLAG_INDESTRUCTIBLE_TURFS		BITFLAG(8)	// Marks whether or not turfs in this area can be destroyed by explosions
+#define AREA_FLAG_IS_BACKGROUND				BITFLAG(9)	// Marks whether or not blueprints can create areas on top of this area
+#define AREA_FLAG_PREVENT_PERSISTENT_TRASH	BITFLAG(10)	// Marks whether or not the area allows trash to become persistent in it
 
 // Convoluted setup so defines can be supplied by Bay12 main server compile script.
 // Should still work fine for people jamming the icons into their repo.
@@ -289,15 +289,24 @@
 #define MAP_MAXY 5
 #define MAP_MAXZ 6
 
-// /atom/proc/use_check flags.
+// `/atom/proc/use_check()` flags, used for customizing guard clauses.
+
+/// Allows ghosts to interact with the action.
 #define USE_ALLOW_NONLIVING 1
+/// If set, check result will be dictated by whatever value `IsAdvancedToolUser()` has returned from mob users.
 #define USE_ALLOW_NON_ADV_TOOL_USR 2
+/// Allows deads to interact with the action.
 #define USE_ALLOW_DEAD 4
+/// Allows users to interact with the action even if they are incapacitated.
 #define USE_ALLOW_INCAPACITATED 8
+/// Allows users to interact with the action regardless of their distance to the object.
 #define USE_ALLOW_NON_ADJACENT 16
+/// Checks if the item is in possession of a user.
 #define USE_FORCE_SRC_IN_USER 32
+/// Disallows interaction from silicon users.
 #define USE_DISALLOW_SILICONS 64
-#define USE_DISALLOW_SPECIALS 128 // revenants, zombies, etc
+/// Disallows interaction from the mobs specified at `is_mob_special()`, such as zombies and revenants.
+#define USE_DISALLOW_SPECIALS 128
 
 #define USE_SUCCESS 0
 #define USE_FAIL_NON_ADJACENT 1
@@ -451,7 +460,8 @@ example:
 #define TEMPLATE_FLAG_PORT_SPAWN       BITFLAG(5)
 
 //Ruin map template flags
-/// Ruin is not available during spawning unless another ruin permits it, or whitelisted by the exoplanet
+/// Ruin is not available during spawning unless another ruin permits it, whitelisted by the exoplanet or tied to an external subsystem like Odyssey gamemode.
+/// This should also be added to Odyssey maps.
 #define TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED BITFLAG(6)
 
 #define LANDING_ZONE_RADIUS 15 // Used for autoplacing landmarks on exoplanets

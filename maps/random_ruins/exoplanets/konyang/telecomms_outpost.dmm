@@ -454,11 +454,11 @@
 /area/konyang_telecomms_outpost)
 "xB" = (
 /obj/structure/table/stone/marble,
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = -5
 	},
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = 4
 	},
@@ -570,8 +570,8 @@
 	icon_state = "tube_empty";
 	dir = 4
 	},
-/obj/item/storage/box/flares,
-/obj/item/storage/box/flares,
+/obj/item/storage/box/large/flares,
+/obj/item/storage/box/large/flares,
 /obj/item/device/gps,
 /obj/item/device/gps,
 /obj/item/device/flashlight/maglight,

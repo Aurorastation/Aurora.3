@@ -306,7 +306,7 @@
 				return FALSE
 
 			var/disarm_cost
-			var/obj/item/organ/internal/cell/cell = M.internal_organs_by_name[BP_CELL]
+			var/obj/item/organ/internal/machine/power_core/cell = M.internal_organs_by_name[BP_CELL]
 			var/obj/item/cell/potato
 			if(cell)
 				potato = cell.cell
@@ -542,7 +542,7 @@
 /mob/living/carbon/human/proc/afterattack(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, inrange, params)
 	return
 
-/mob/living/carbon/human/attack_generic(var/mob/user, var/damage, var/attack_message, var/armor_penetration, var/attack_flags, var/damage_type)
+/mob/living/carbon/human/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	if(!damage)
 		return
 

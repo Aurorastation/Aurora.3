@@ -172,14 +172,14 @@
 	display_name = "konyang-cha tins"
 	description = "Tins of tea leaves made by Konyang-cha."
 	cost = 1
-	path = /obj/item/storage/box/tea
+	path = /obj/item/storage/box/unique/tea
 
 /datum/gear/chatins/New()
 	..()
 	var/list/chatins = list()
-	chatins["sencha cha-tin"] = /obj/item/storage/box/tea
-	chatins["tieguanyin cha-tin"] = /obj/item/storage/box/tea/tieguanyin
-	chatins["jaekseol cha-tin"] = /obj/item/storage/box/tea/jaekseol
+	chatins["sencha cha-tin"] = /obj/item/storage/box/unique/tea
+	chatins["tieguanyin cha-tin"] = /obj/item/storage/box/unique/tea/tieguanyin
+	chatins["jaekseol cha-tin"] = /obj/item/storage/box/unique/tea/jaekseol
 	gear_tweaks += new /datum/gear_tweak/path(chatins)
 
 /datum/gear/teapots
@@ -278,6 +278,7 @@
 	banners["banner, Visegrad"] = /obj/item/flag/visegrad
 	banners["banner, Burzsia"] = /obj/item/flag/burzsia
 	banners["banner, HPS Narrows"] = /obj/item/flag/narrows
+	banners["banner, Zhurong"] = /obj/item/flag/zhurong
 	gear_tweaks += new /datum/gear_tweak/path(banners)
 
 /datum/gear/standard
@@ -290,8 +291,6 @@
 	var/list/standards = list()
 	standards["standard, Strelitz"] = /obj/item/flag/strelitz
 	standards["standard, Volvalaad"] = /obj/item/flag/volvalaad
-	standards["standard, Kazhkz"] = /obj/item/flag/kazhkz
-	standards["standard, Han'san"] = /obj/item/flag/hansan
 	standards["standard, Caladius"] = /obj/item/flag/caladius
 	standards["standard, Zhao"] = /obj/item/flag/zhao
 	gear_tweaks += new /datum/gear_tweak/path(standards)
@@ -379,6 +378,7 @@
 	flags["flag, Visegrad"] = /obj/item/flag/visegrad/l
 	flags["flag, Burzsia"] = /obj/item/flag/burzsia/l
 	flags["flag, HPS Narrows"] = /obj/item/flag/narrows/l
+	flags["flag, Zhurong"] = /obj/item/flag/zhurong/l
 	gear_tweaks += new /datum/gear_tweak/path(flags)
 
 /datum/gear/towel
@@ -491,3 +491,30 @@
 		plants[initial(plant.name)] = plant_type
 	sortTim(plants, GLOBAL_PROC_REF(cmp_text_asc))
 	gear_tweaks += new /datum/gear_tweak/path(plants)
+
+/datum/gear/candles
+	display_name = "candle pack"
+	description = "A pack of red candles."
+	cost = 1
+	path = /obj/item/storage/box/fancy/candle_box
+
+/datum/gear/mre
+	display_name = "mre selection"
+	description = "A selection of different MREs."
+	cost = 2
+	path = /obj/item/storage/box/fancy/mre
+
+/datum/gear/mre/New()
+	..()
+	var/list/mres = list()
+	mres["meat pizza"] = /obj/item/storage/box/fancy/mre
+	mres["margherita pizza"] = /obj/item/storage/box/fancy/mre/menu2
+	mres["vegetable pizza"] = /obj/item/storage/box/fancy/mre/menu3
+	mres["hamburger"] = /obj/item/storage/box/fancy/mre/menu4
+	mres["taco"] = /obj/item/storage/box/fancy/mre/menu5
+	mres["meatbread"] = /obj/item/storage/box/fancy/mre/menu6
+	mres["salad"] = /obj/item/storage/box/fancy/mre/menu7
+	mres["hot chili"] = /obj/item/storage/box/fancy/mre/menu8
+	mres["boiled rice"] = /obj/item/storage/box/fancy/mre/menu9
+	mres["protein"] = /obj/item/storage/box/fancy/mre/menu10
+	gear_tweaks += new /datum/gear_tweak/path(mres)

@@ -121,6 +121,7 @@
 #define GENERIC_ITEM_TRAIT "generic_item"
 #define DISABILITY_TRAIT "disability"
 
+#define TRAIT_SOURCE_INHERENT "t_s_inherent"
 /// cannot be removed without admin intervention
 #define ROUNDSTART_TRAIT "roundstart"
 #define CULTURE_TRAIT "culture"
@@ -202,6 +203,7 @@
 
 /// This trait is used for double shuttle seats in a single tile, used in handling occupant density.
 #define TRAIT_DOUBLE_SEATS "double_seats"
+
 /// Apply this to make a mob passable by other mobs.
 #define TRAIT_UNDENSE "undense"
 
@@ -216,3 +218,9 @@
 
 /// Trait given when the mob lies down.
 #define TRAIT_SOURCE_LYING_DOWN "lying_down"
+
+/// A trait gained by leaning against something
+#define TRAIT_LEANING "leaning"
+
+/// traits transparent turf
+#define TURF_Z_TRANSPARENT_TRAIT "turf_z_transparent"

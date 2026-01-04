@@ -1012,9 +1012,9 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/obj/item/storage/box/candy,
-/obj/item/storage/box/candy,
-/obj/item/storage/box/candy,
+/obj/item/storage/box/large/candy,
+/obj/item/storage/box/large/candy,
+/obj/item/storage/box/large/candy,
 /turf/simulated/floor/wood,
 /area/city/hallway)
 "cU" = (
@@ -3505,11 +3505,7 @@
 /turf/simulated/wall,
 /area/city/nouvelle)
 "oN" = (
-/obj/effect/floor_decal/plaque{
-	name = "Fancy Plaque";
-	desc = "Infinity Bridge";
-	desc_extended = "You're currently standing on the Infinity Bridge. This bridge is over 150 floors high!"
-	},
+/obj/structure/sign/floor_plaque/halloween_event/bridge,
 /turf/simulated/floor/tiled,
 /area/city/outside)
 "oP" = (
@@ -6262,11 +6258,11 @@
 /turf/simulated/floor/cult,
 /area/city/horrorhouse)
 "Ac" = (
-/obj/item/storage/box/candy,
+/obj/item/storage/box/large/candy,
 /obj/structure/table/wood,
-/obj/item/storage/box/candy,
-/obj/item/storage/box/candy,
-/obj/item/storage/box/candy,
+/obj/item/storage/box/large/candy,
+/obj/item/storage/box/large/candy,
+/obj/item/storage/box/large/candy,
 /turf/simulated/floor/wood,
 /area/city/hallway)
 "Ae" = (
@@ -6706,9 +6702,9 @@
 /area/city/medical)
 "BX" = (
 /obj/structure/table/wood,
-/obj/item/storage/box/candy,
-/obj/item/storage/box/candy,
-/obj/item/storage/box/candy,
+/obj/item/storage/box/large/candy,
+/obj/item/storage/box/large/candy,
+/obj/item/storage/box/large/candy,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 7
 	},
@@ -8258,11 +8254,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/city/dining)
 "GV" = (
-/obj/effect/floor_decal/plaque{
-	name = "Fancy Plaque";
-	desc = "Welcome to the  Infinity Reach Towers ";
-	desc_extended = "Welcome to the Infinity Reach Towers, a jewel of Nouvelle-Rochelle. We have several attractions here setup just for you! A haunted house, the renowned Ethereal Nexus Lounge, and so much more! Have a wonderful stay, and remember.. Happy Halloween!"
-	},
+/obj/structure/sign/floor_plaque/halloween_event/entrance,
 /turf/simulated/floor/tiled/dark/full,
 /area/city/port)
 "GX" = (
@@ -9821,9 +9813,9 @@
 /area/city/bar)
 "NT" = (
 /obj/structure/table/wood,
-/obj/item/storage/box/candy,
-/obj/item/storage/box/candy,
-/obj/item/storage/box/candy,
+/obj/item/storage/box/large/candy,
+/obj/item/storage/box/large/candy,
+/obj/item/storage/box/large/candy,
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -10219,8 +10211,8 @@
 /area/city/hallway)
 "Pv" = (
 /obj/structure/table/wood,
-/obj/item/storage/box/candy,
-/obj/item/storage/box/candy,
+/obj/item/storage/box/large/candy,
+/obj/item/storage/box/large/candy,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 7
 	},
@@ -11930,7 +11922,7 @@
 /obj/item/material/knife{
 	pixel_x = -9
 	},
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = -5
 	},
@@ -11948,11 +11940,11 @@
 	pixel_x = 6;
 	pixel_y = 10
 	},
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = -5
 	},
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = -5
 	},
@@ -12063,8 +12055,8 @@
 /turf/simulated/floor/tiled/full,
 /area/city/security)
 "UW" = (
-/obj/item/storage/box/candy,
-/obj/item/storage/box/candy,
+/obj/item/storage/box/large/candy,
+/obj/item/storage/box/large/candy,
 /turf/simulated/floor/grass,
 /area/city/hallway)
 "UY" = (
@@ -13600,15 +13592,15 @@
 /area/city/bar)
 "ZR" = (
 /obj/structure/table/stone/marble,
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = -5
 	},
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = -5
 	},
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = -5
 	},

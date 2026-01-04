@@ -22,7 +22,6 @@
 	var/mob/owner = null
 	var/list/visibleChunks = list()
 
-	var/ghostimage = null
 	var/datum/visualnet/visualnet
 	///Set if the eye uses special click handling. Distinct from parent mob click handling for AI eye.
 	var/click_handler_type = /datum/click_handler/eye
@@ -30,21 +29,7 @@
 	///Whether or not our eye uses normal living vision handling
 	var/living_eye = TRUE
 
-/mob/abstract/eye/New()
-	ghostimage = image(src.icon,src,src.icon_state)
-	SSmobs.ghost_darkness_images |= ghostimage //so ghosts can see the eye when they disable darkness
-	SSmobs.ghost_sightless_images |= ghostimage //so ghosts can see the eye when they disable ghost sight
-	updateallghostimages()
-	..()
-
 /mob/abstract/eye/Destroy()
-	if (ghostimage)
-		SSmobs.ghost_darkness_images -= ghostimage
-		SSmobs.ghost_sightless_images -= ghostimage
-		qdel(ghostimage)
-		ghostimage = null
-		updateallghostimages()
-
 	release(owner)
 	owner = null
 	visualnet = null
@@ -54,6 +39,9 @@
 	if(owner == src)
 		return EyeMove(n, direct)
 	return 0
+
+/mob/abstract/eye/can_ztravel(var/direction)
+	return TRUE
 
 /mob/abstract/eye/airflow_hit(atom/A)
 	airflow_speed = 0
@@ -152,7 +140,7 @@
 
 	for(var/i = 0; i < max(sprint, initial); i += 20)
 		var/turf/step = get_turf(get_step(src, direct))
-		if(step)
+		if(step && check_allowed_movement(step))
 			setLoc(step)
 
 	cooldown = world.timeofday + 5
@@ -161,6 +149,10 @@
 	else
 		sprint = initial
 	return 1
+
+// If the eye movement needs to be restricted by any means, override this
+/mob/abstract/eye/proc/check_allowed_movement(turf/step)
+	return TRUE
 
 /mob/abstract/eye/ClickOn(atom/A, params)
 	if(owner)

@@ -40,6 +40,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	attack_verb = list("burnt", "singed")
 	drop_sound = 'sound/items/drop/food.ogg'
 	pickup_sound = 'sound/items/pickup/food.ogg'
+	light_system = MOVABLE_LIGHT
 
 /obj/item/trash/match
 	name = "burnt match"
@@ -113,7 +114,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		M.update_inv_wear_mask(0)
 		M.update_inv_l_hand(0)
 		M.update_inv_r_hand(1)
-	set_light(2, 0.25, "#E38F46")
+	set_light_range_power_color(2, 0.25, "#E38F46")
+	set_light_on(TRUE)
 	START_PROCESSING(SSprocessing, src)
 
 /obj/item/flame/match/proc/die(var/nomessage = FALSE)
@@ -135,7 +137,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 				M.update_inv_l_hand(0)
 				M.update_inv_r_hand(1)
 				M.put_in_hands(burnt)
-		set_light(0)
+		set_light_on(FALSE)
 		STOP_PROCESSING(SSprocessing, src)
 		qdel(src)
 
@@ -227,12 +229,13 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 			M.update_inv_r_hand(1)
 		var/turf/T = get_turf(src)
 		T.visible_message(flavor_text)
-		set_light(2, 0.25, "#E38F46")
+		set_light_range_power_color(2, 0.25, "#E38F46")
+		set_light_on(TRUE)
 		START_PROCESSING(SSprocessing, src)
 
 /obj/item/clothing/mask/smokable/proc/die(var/no_message = FALSE, var/intentionally = FALSE)
 	var/turf/T = get_turf(src)
-	set_light(0)
+	set_light_on(FALSE)
 	playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
 	if(type_butt)
 		var/obj/item/butt = new type_butt(src.loc)
@@ -452,6 +455,11 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 		/singleton/reagent/toxin/oracle = 10,
 		/singleton/reagent/mental/caromeg = 5
 	)
+
+/obj/item/clothing/mask/smokable/cigarette/koko
+	name = "unathi cigarette"
+	desc = "An Unathi cigarette made with koko reed."
+	reagents_to_add = list(/singleton/reagent/mental/kokoreed = 15)
 
 ////////////
 // CIGARS //
@@ -960,7 +968,7 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 				else
 					user.visible_message(SPAN_NOTICE("<b>[user]</b> quietly shuts off \the [src]."), range = 3)
 
-			set_light(0)
+			set_light_on(FALSE)
 			STOP_PROCESSING(SSprocessing, src)
 	else
 		return ..()
@@ -970,7 +978,8 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 	lit = TRUE
 	update_icon()
 	playsound(src.loc, pick(activation_sound), 75, 1)
-	set_light(flame_light_power, flame_light_range, l_color = flame_light_color)
+	set_light_range_power_color(flame_light_range, flame_light_power, flame_light_color)
+	set_light_on(TRUE)
 	START_PROCESSING(SSprocessing, src)
 
 /obj/item/flame/lighter/vendor_action(var/obj/machinery/vending/V)
@@ -1027,7 +1036,7 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 		lit = 0
 		icon_state = "[base_state]"
 		item_state = "[base_state]"
-		set_light(0)
+		set_light_on(FALSE)
 		STOP_PROCESSING(SSprocessing, src)
 	return
 

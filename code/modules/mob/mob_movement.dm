@@ -157,10 +157,11 @@
  * This is called when a client tries to move, usually it dispatches the moving request to the mob it's controlling
  */
 /client/Move(new_loc, direct)
-	if(world.time < move_delay) //do not move anything ahead of this check please
+	if(moving || world.time < move_delay) //do not move anything ahead of this check please
 		return FALSE
 
 	var/old_move_delay = move_delay
+	move_delay = world.time + world.tick_lag
 
 	if(!direct || !new_loc)
 		return FALSE
@@ -173,9 +174,6 @@
 	if(mob.incorporeal_move && isabstractmob(mob))
 		Process_Incorpmove(direct, mob)
 		return
-
-	if(moving || world.time < move_delay)
-		return 0
 
 	if(mob.stat == DEAD && isliving(mob))
 		mob.ghostize()
@@ -233,6 +231,7 @@
 
 	if(isobj(mob.loc) || ismob(mob.loc))	//Inside an object, tell it we are moving out
 		var/atom/O = mob.loc
+		move_delay += (mob.movement_delay() + GLOB.config.walk_speed) * GLOB.config.walk_delay_multiplier
 		return O.relaymove(mob, direct)
 
 	if(isturf(mob.loc))
@@ -329,7 +328,7 @@
 
 		//Wheelchair pushing goes here for now.
 		//TODO: Fuck wheelchairs.
-		if(istype(mob.pulledby, /obj/structure/bed/stool/chair/office/wheelchair) || istype(mob.pulledby, /obj/structure/janitorialcart) || istype(mob.pulledby, /obj/structure/engineeringcart))
+		if(istype(mob.pulledby, /obj/structure/bed/stool/chair/office/wheelchair) || istype(mob.pulledby, /obj/structure/cart))
 			var/obj/structure/S = mob.pulledby
 			move_delay += S.slowdown
 			return mob.pulledby.relaymove(mob, direct)
@@ -452,11 +451,6 @@
 
 			use_mob.forceMove(get_step(use_mob, direct))
 			use_mob.dir = direct
-
-	// Crossed is always a bit iffy
-	for(var/obj/S in use_mob.loc)
-		if(istype(S,/obj/effect/step_trigger) || istype(S,/obj/effect/beam))
-			S.Crossed(use_mob)
 
 	var/area/A = get_area_master(use_mob)
 	if(A)

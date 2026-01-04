@@ -1,6 +1,6 @@
 //#define TESTING
-#if DM_VERSION < 515 && !defined(OPENDREAM)
-#error Your version of BYOND is too old to compile the code. At least BYOND 515 is required.
+#if DM_VERSION < 516 && !defined(OPENDREAM)
+#error Your version of BYOND is too old to compile the code. At least BYOND 516 is required.
 #endif
 
 
@@ -111,6 +111,10 @@ GLOBAL_VAR(custom_event_msg)
 GLOBAL_DATUM(dbcon, /DBConnection)
 GLOBAL_PROTECT(dbcon)
 
+// Persistence subsystem track register - List of all persistent data tracks managed by the subsystem.
+GLOBAL_LIST_EMPTY(persistence_register)
+GLOBAL_PROTECT(persistence_register)
+
 // Added for Xenoarchaeology, might be useful for other stuff.
 GLOBAL_LIST_INIT(alphabet_uppercase, list("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"))
 
@@ -167,3 +171,5 @@ GLOBAL_LIST_INIT(department_funds, list(
 
 //List of exosuit tracking beacons, to save performance
 GLOBAL_LIST_EMPTY(exo_beacons)
+
+GLOBAL_VAR_INIT(minimum_exterior_lighting_alpha, 255)

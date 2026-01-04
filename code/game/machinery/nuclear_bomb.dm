@@ -6,6 +6,8 @@ GLOBAL_VAR(bomb_set)
 	icon = 'icons/obj/nuke.dmi'
 	icon_state = "idle"
 	density = 1
+	atom_flags = CRITICAL_ATOM
+
 	var/deployable = 0
 	var/extended = 0
 	var/lighthack = 0
@@ -430,6 +432,7 @@ GLOBAL_VAR(bomb_set)
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/nuclearbomb/station/LateInitialize()
+	. = ..()
 	for(var/turf/simulated/floor/T in RANGE_TURFS(1, src))
 		T.set_flooring(GET_SINGLETON(/singleton/flooring/reinforced/circuit/red))
 		flash_tiles += T

@@ -63,7 +63,6 @@
 	density = 1
 	clicksound = /singleton/sound_category/button_sound
 	manufacturer = "idris"
-	z_flags = ZMM_MANGLE_PLANES
 
 	// Every vending machine has one of these.
 	/// `icon_state` when off. Defined on init.
@@ -278,7 +277,12 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/vending/LateInitialize()
+	. = ..()
 	v_asset = get_asset_datum(/datum/asset/spritesheet/vending)
+
+/obj/machinery/vending/mouse_drop_receive(atom/dropping, mob/user, params)
+	//Adds the component only once. We do it here & not in Initialize() because there are tons of walls & we don't want to add to their init times
+	LoadComponent(/datum/component/leanable, dropping)
 
 /obj/machinery/vending/proc/reset_light()
 	set_light(initial(light_range), initial(light_power), initial(light_color))
@@ -993,8 +997,8 @@
 	var/vend_id = "generic"
 	var/charges = 0
 
-/obj/item/device/vending_refill/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/device/vending_refill/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(charges > 0)
 		. +=  "It can restock [charges] item(s)."
 	else

@@ -10,12 +10,12 @@
 	build_path = /obj/item/circuitboard/rig_assembly/civilian/industrial
 
 /datum/design/circuit/hardsuit/eva
-	name = "EVA suit central circuit Board"
+	name = "EVA Suit Central Circuit Board"
 	req_tech = list(TECH_DATA = 3)
 	build_path = /obj/item/circuitboard/rig_assembly/civilian/eva
 
 /datum/design/circuit/hardsuit/eva/pilot
-	name = "pilot suit central circuit Board"
+	name = "Pilot Suit Central Circuit Board"
 	req_tech = list(TECH_DATA = 3)
 	build_path = /obj/item/circuitboard/rig_assembly/civilian/eva/pilot
 
@@ -36,12 +36,12 @@
 
 /datum/design/circuit/hardsuit/hazard
 	name = "Hazard Hardsuit Central Circuit Board"
-	req_tech = list(TECH_DATA = 4)
+	req_tech = list(TECH_DATA = 3)
 	build_path = /obj/item/circuitboard/rig_assembly/combat/hazard
 
 /datum/design/circuit/hardsuit/hazard_target
 	name = "Hazard Hardsuit Control And Targeting Board"
-	req_tech = list(TECH_DATA = 4, TECH_COMBAT = 3)
+	req_tech = list(TECH_DATA = 3, TECH_COMBAT = 3)
 	build_path = /obj/item/circuitboard/rig_assembly/combat/targeting/hazard
 
 /datum/design/circuit/hardsuit/combat

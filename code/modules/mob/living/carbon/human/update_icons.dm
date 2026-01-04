@@ -312,6 +312,8 @@ There are several things that need to be remembered:
 			return WORN_BELT
 		if(slot_wear_suit_str)
 			return WORN_SUIT
+		if(slot_pants_str)
+			return WORN_PANTS
 		if(slot_l_ear_str)
 			return WORN_LEAR
 		if(slot_r_ear_str)
@@ -516,7 +518,7 @@ There are several things that need to be remembered:
 			var/datum/sprite_accessory/hair_style = GLOB.hair_styles_list[h_style]
 			if (hair_style)
 				var/col = species.get_light_color(src) || "#FFFFFF"
-				set_light(species.light_range, species.light_power, col, uv = 0, angle = LIGHT_WIDE)
+				set_light(species.light_range, species.light_power, col)
 		else
 			set_light(0)
 
@@ -1508,6 +1510,11 @@ There are several things that need to be remembered:
 /mob/living/carbon/human/update_fire(var/update_icons = TRUE)
 	if(QDELETED(src))
 		return
+
+	if(!on_fire)
+		set_light_on(FALSE)
+	else
+		set_light_on(TRUE)
 
 	var/image/fire_image_lower = on_fire ? image(species.onfire_overlay, "lower", layer = FIRE_LAYER_LOWER) : null
 	var/image/fire_image_upper = on_fire ? image(species.onfire_overlay, "upper", layer = FIRE_LAYER_UPPER) : null

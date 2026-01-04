@@ -68,7 +68,7 @@ GLOBAL_VAR_INIT(byond_tracy_path, FALSE)
 			if(world.system_type == MS_WINDOWS)
 				lib = "tracy-disk.dll"
 			else if(world.system_type == UNIX)
-				lib = "libprof-disk.so" //this doesn't currently exist btw
+				lib = "libprof-disk.so"
 			else
 				CRASH("unsupported platform")
 		else
@@ -101,7 +101,7 @@ GLOBAL_VAR_INIT(byond_tracy_path, FALSE)
 			if(world.system_type == MS_WINDOWS)
 				lib = "tracy-disk.dll"
 			else if(world.system_type == UNIX)
-				lib = "libprof-disk.so" //this doesn't currently exist btw
+				lib = "libprof-disk.so"
 			else
 				CRASH("unsupported platform")
 

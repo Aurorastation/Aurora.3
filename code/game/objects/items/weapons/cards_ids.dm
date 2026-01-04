@@ -24,6 +24,7 @@
 	var/list/files = list(  )
 	/// Spam limiter.
 	var/last_flash = 0
+	var/vertical_card = FALSE
 	drop_sound = 'sound/items/drop/card.ogg'
 	pickup_sound = 'sound/items/pickup/card.ogg'
 
@@ -44,12 +45,13 @@
 	update_icon()
 
 /obj/item/card/update_icon()
-	var/matrix/tf = matrix()
-	var/obj/item/storage/S = loc
-	if(istype(S, /obj/item/storage) && !S.storage_slots)
-		tf.Turn(-90) //Vertical for storing compactly
-		tf.Translate(-1, 0) //Could do this with pixel_x but let's just update the appearance once.
-	transform = tf
+	if(!vertical_card)
+		var/matrix/tf = matrix()
+		var/obj/item/storage/S = loc
+		if(istype(S, /obj/item/storage) && !S.storage_slots)
+			tf.Turn(-90) //Vertical for storing compactly
+			tf.Translate(-1, 0) //Could do this with pixel_x but let's just update the appearance once.
+		transform = tf
 
 /obj/item/card/data
 	name = "data disk"
@@ -83,6 +85,10 @@
 	item_state = "card-id"
 	origin_tech = list(TECH_MAGNET = 2, TECH_ILLEGAL = 2)
 	var/uses = 10
+
+/obj/item/card/emag/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += SPAN_NOTICE("\The [src] has [uses] use\s left.")
 
 /obj/item/card/emag_broken
 	desc = "It's a card with a magnetic strip attached to some circuitry. It looks too busted to be used for anything but salvage."
@@ -136,6 +142,7 @@
 	/// Miners gotta eat.
 	var/mining_points
 
+	/// Only used by Agent ID cards.
 	var/can_copy_access = FALSE
 	var/access_copy_msg
 
@@ -152,10 +159,30 @@
 	var/employer_faction = null
 	var/datum/ntnet_user/chat_user
 
+	/// This contains IFF the associated faction's IFF data, as they appear to have once (?) pertained to projectile code (search 'var/iff_capable'). As of 2025/11, this code is not implemented.
 	var/iff_faction = IFF_DEFAULT
+
+/obj/item/card/id/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(dna_hash == ID_CARD_UNSET && is_adjacent)
+		. += "Use this card on yourself to imprint your own biometric data on the card (you will receive a confirmation prompt)."
+		. += "To imprint another person's biometric data, use the card on them while targeting the left or right hand."
+		. += "The target person must remain still and on the Help intent to successfully take their prints."
+
+/obj/item/card/id/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(dna_hash == ID_CARD_UNSET && is_adjacent)
+		. += "This card has no registered biometric data, and must be used on a person to imprint that data."
+
+/obj/item/card/id/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(can_copy_access)
+		. += "This card can copy access rights; use it on another ID card to steal the the access rights of that card."
+		. += "All copied access rights are additive; you can never lose existing access rights by copying another card."
 
 /obj/item/card/id/Destroy()
 	QDEL_NULL(chat_user)
+	mob_id = null
 	. = ..()
 	GC_TEMPORARY_HARDDEL
 
@@ -271,44 +298,51 @@
 		if(!ishuman(target_mob))
 			return ..()
 
-		if (dna_hash == ID_CARD_UNSET && ishuman(user))
-			var/response = alert(user, "This ID card has not been imprinted with biometric data. Would you like to imprint [target_mob]'s now?", "Biometric Imprinting", "Yes", "No")
+		var/mob/living/carbon/human/target_human = target_mob
+
+		if(dna_hash == ID_CARD_UNSET && ishuman(user))
+			var/response = alert(user, "This ID card has not been imprinted with biometric data. Would you like to imprint [target_human]'s now?", "Biometric Imprinting", "Yes", "No")
 			if (response == "Yes")
-				if (!user.Adjacent(target_mob) || user.restrained() || user.lying || user.stat)
-					to_chat(user, SPAN_WARNING("You must remain adjacent to [target_mob] to scan their biometric data."))
-					return
+				if(!user.Adjacent(target_human) || user.restrained() || user.lying || user.stat)
+					to_chat(user, SPAN_WARNING("You must remain adjacent to [target_human] to scan their biometric data."))
+					return FALSE
 
-				var/mob/living/carbon/human/H = target_mob
+				if(target_human.gloves)
+					to_chat(user, SPAN_WARNING("\The [target_human] is wearing gloves."))
+					return FALSE
 
-				if(H.gloves)
-					to_chat(user, SPAN_WARNING("\The [H] is wearing gloves."))
-					return 1
+				user.visible_message("[user] tries to take \the [target_human]'s prints to scan their biometric data to the card.")
 
-				if(user != H && H.a_intent != "help" && !H.lying)
-					user.visible_message(SPAN_DANGER("\The [user] tries to take prints from \the [H], but they move away."))
-					return 1
+				if(user != target_human && do_after(user, 5 SECOND) && !target_human.lying)
+					if(target_human.a_intent != "help" || target_human.restrained())
+						user.visible_message(SPAN_DANGER("\The [user] tries to take prints from \the [target_human], but they move away."))
+						return FALSE
 
 				var/has_hand
-				var/obj/item/organ/external/O = H.organs_by_name[BP_R_HAND]
-				if(istype(O) && !O.is_stump())
-					has_hand = 1
+				var/obj/item/organ/external/target_human_hand = target_human.organs_by_name[BP_R_HAND]
+				if(istype(target_human_hand) && !target_human_hand.is_stump())
+					has_hand = TRUE
 				else
-					O = H.organs_by_name[BP_L_HAND]
-					if(istype(O) && !O.is_stump())
-						has_hand = 1
+					target_human_hand = target_human.organs_by_name[BP_L_HAND]
+					if(istype(target_human_hand) && !target_human_hand.is_stump())
+						has_hand = TRUE
 				if(!has_hand)
 					to_chat(user, SPAN_WARNING("They don't have any hands."))
-					return 1
-				user.visible_message("[user] imprints [src] with \the [H]'s biometrics.")
-				mob_id = WEAKREF(H)
-				blood_type = H.dna.b_type
-				dna_hash = H.dna.unique_enzymes
-				fingerprint_hash = md5(H.dna.uni_identity)
-				citizenship = H.citizenship
-				age = H.age
-				src.add_fingerprint(H)
+					return TRUE
+
+				user.visible_message("[user] imprints [src] with \the [target_human]'s biometrics.")
+
+				mob_id = WEAKREF(target_human)
+				blood_type = target_human.dna.b_type
+				dna_hash = target_human.dna.unique_enzymes
+				fingerprint_hash = md5(target_human.dna.uni_identity)
+				citizenship = target_human.citizenship
+				age = target_human.age
+				src.add_fingerprint(target_human)
+
 				to_chat(user, SPAN_NOTICE("Biometric Imprinting Successful!"))
-				return 1
+				return TRUE
+
 	return ..()
 
 /obj/item/card/id/attackby(obj/item/attacking_item, mob/user)
@@ -421,12 +455,33 @@
 	access = get_all_station_access() | get_all_centcom_access()
 	..()
 
+// SCC ID cards
+
+/obj/item/card/id/scc
+	desc = "A high-tech holocard displaying the credentials of a SCC employee."
+	icon_state = "bridge_card"
+	vertical_card = TRUE
+
+/obj/item/card/id/scc/bridge
+	desc = "A high-tech holocard displaying the lowly credentials of a SCC bridge crewman."
+	icon_state = "bridge_card"
+
+/obj/item/card/id/scc/silver
+	desc = "A high-tech holocard displaying the credentials of a SCC command member."
+	icon_state = "command_card"
+
+/obj/item/card/id/scc/gold
+	desc = "A high-tech holocard displaying the intimidating credentials of a SCC employee."
+	icon_state = "captain_card"
+
+/obj/item/card/id/scc/gold/captain
+	desc = "A high-tech holocard displaying the commanding credentials of a SCC captain."
+	icon_state = "captain_card"
+
 /obj/item/card/id/captains_spare
 	name = "captain's spare identification card"
 	desc = "A captain's spare identification card."
-	icon_state = "gold"
-	item_state = "gold_id"
-	overlay_state = "gold"
+	icon_state = "captain_card"
 	registered_name = "Captain"
 	assignment = "Captain"
 
@@ -440,6 +495,7 @@
 	icon_state = "centcom"
 	overlay_state = "centcom"
 	access = list(ACCESS_MERCHANT)
+	vertical_card = TRUE
 
 /obj/item/card/id/synthetic
 	name = "\improper SCC equipment identification card"
@@ -481,6 +537,7 @@
 	overlay_state = "centcom"
 	registered_name = "Central Command"
 	assignment = "General"
+	vertical_card = TRUE
 
 /obj/item/card/id/centcom/New()
 	access = get_all_centcom_access()
@@ -488,11 +545,12 @@
 
 /obj/item/card/id/ccia
 	name = "\improper CentCom. Internal Affairs identification card"
-	desc = "A synthleather ID displaying the blood-chilling credentials of an Internal Affairs agent."
+	desc = "A high-tech holocard displaying the blood-chilling credentials of an Internal Affairs agent."
 	icon_state = "ccia"
 	overlay_state = "ccia"
 	drop_sound = /singleton/sound_category/generic_drop_sound
 	pickup_sound = /singleton/sound_category/generic_pickup_sound
+	vertical_card = TRUE
 
 /obj/item/card/id/ccia/update_icon()
 	return
@@ -506,12 +564,14 @@
 	name = "\improper Biesel Security Services Bureau identification card"
 	desc = "A synthleather ID straight from the Biesel Security Services Bureau."
 	icon_state = "bssb"
+	vertical_card = FALSE
 
 /obj/item/card/id/ert
 	name = "\improper NanoTrasen Emergency Response Team identification card"
 	icon_state = "centcom"
 	overlay_state = "centcom"
 	assignment = "Emergency Response Team"
+	vertical_card = TRUE
 
 /obj/item/card/id/ert/New()
 	access = get_all_station_access() + get_centcom_access("Emergency Response Team")
@@ -525,6 +585,7 @@
 	icon_state = "centcom"
 	overlay_state = "centcom"
 	assignment = "Asset Protection"
+	vertical_card = TRUE
 
 /obj/item/card/id/asset_protection/New()
 	access = get_all_accesses()
@@ -554,6 +615,7 @@
 	desc = "An old-fashioned, practical plastic card. Cheaply produced for Tau Ceti's finest."
 	assignment = "Tau Ceti Foreign Legion Volunteer"
 	icon_state = "legion"
+	vertical_card = TRUE
 
 /obj/item/card/id/distress/legion/New()
 	access = list(ACCESS_LEGION, ACCESS_MAINT_TUNNELS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_SECURITY, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_MEDICAL, ACCESS_RESEARCH, ACCESS_ATMOSPHERICS, ACCESS_MEDICAL_EQUIP)
@@ -569,6 +631,7 @@
 	assignment = "EPMC Asset Protection"
 	icon_state = "pmc_card"
 	overlay_state = "pmc_card"
+	vertical_card = TRUE
 
 /obj/item/card/distress/ap_eridani/update_icon()
 	return
@@ -581,6 +644,7 @@
 	name = "\improper Interstellar Aid Corps identification card"
 	assignment = "Interstellar Aid Corps Responder"
 	icon_state = "centcom"
+	vertical_card = TRUE
 
 /obj/item/card/id/distress/iac/New()
 	access = get_distress_access()
@@ -594,6 +658,7 @@
 	overlay_state = "data"
 	registered_name = "Administrator"
 	assignment = "Administrator"
+	vertical_card = TRUE
 
 /obj/item/card/id/all_access/New()
 	access = get_access_ids()
@@ -605,6 +670,7 @@
 	desc = "A high-tech holocard, designed to project information about a sub-contractor from Idris Incorporated."
 	icon_state = "idris_card"
 	overlay_state = "idris_card"
+	vertical_card = TRUE
 
 /obj/item/card/id/idris/update_icon()
 	return
@@ -627,6 +693,7 @@
 	desc = "A high-tech holobadge, identifying the owner as a contractor from one of the many PMCs from the Private Military Contracting Group."
 	icon_state = "pmc_card"
 	overlay_state = "pmc_card"
+	vertical_card = TRUE
 
 /obj/item/card/id/pmc/update_icon()
 	return
@@ -636,6 +703,7 @@
 	desc = "A synthleather card, belonging to one of the highly skilled members of Zeng-Hu."
 	icon_state = "zhu_card"
 	overlay_state = "zhu_card"
+	vertical_card = TRUE
 
 /obj/item/card/zeng_hu/update_icon()
 	return
@@ -669,6 +737,7 @@
 	desc = "A well-worn identification pass, retrofitted with wireless transmission technology."
 	icon_state = "orion_card"
 	overlay_state = "orion_card"
+	vertical_card = TRUE
 
 /obj/item/card/id/coalition
 	name = "\improper coalition identification card"
@@ -687,12 +756,14 @@
 	desc = "An old-fashioned, practical plastic card. Cheaply produced for Tau Ceti's finest."
 	icon_state = "legion"
 	overlay_state = "nothing"
+	vertical_card = TRUE
 
 /obj/item/card/id/bluespace
 	name = "bluespace identification card"
 	desc = "A bizarre imitation of an ID card; shifting and moving."
 	icon_state = "crystalid"
 	iff_faction = IFF_BLUESPACE
+	vertical_card = TRUE
 
 /obj/item/card/id/bluespace/antagonist_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -726,7 +797,8 @@
 	var/list/pilot_access = list()
 	for(var/mob/pilot as anything in exosuit.pilots)
 		var/obj/item/ID = pilot.GetIdCard()
-		pilot_access |= ID.GetAccess()
+		if(ID)
+			pilot_access |= ID.GetAccess()
 	return pilot_access
 
 #undef ID_CARD_UNSET

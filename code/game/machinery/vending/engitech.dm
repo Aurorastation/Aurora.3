@@ -21,8 +21,8 @@
 		/obj/item/stack/cable_coil = 4,
 		/obj/item/device/flash/synthetic = 4,
 		/obj/item/cell/high = 12,
-		/obj/item/device/assembly/prox_sensor = 3,
-		/obj/item/device/assembly/signaler = 3,
+		/obj/item/device/assembly/prox_sensor = 8,
+		/obj/item/device/assembly/signaler = 8,
 		/obj/item/device/healthanalyzer = 3,
 		/obj/item/surgery/scalpel = 2,
 		/obj/item/surgery/circular_saw = 2,
@@ -123,6 +123,7 @@
 	)
 	restock_blocked_items = list(
 		/obj/item/stack/cable_coil,
+		/obj/item/clothing/gloves/yellow/budget,
 		/obj/item/weldingtool,
 		/obj/item/weldingtool/hugetank
 	)
@@ -219,7 +220,7 @@
 		/obj/item/device/encryptionkey/headset_sec = 5,
 		/obj/item/device/encryptionkey/headset_service = 5,
 		/obj/item/device/encryptionkey/headset_warden = 5,
-		/obj/item/device/encryptionkey/headset_xenoarch = 5,
+		/obj/item/device/encryptionkey/headset_xenology = 5,
 	)
 
 /obj/item/device/vending_refill/encryption
@@ -234,16 +235,16 @@
 	icon_vend = "generic-vend"
 	light_mask = "generic-lightmask"
 	products = list(
-		/obj/item/device/assembly/prox_sensor = 5,
-		/obj/item/device/assembly/igniter = 3,
-		/obj/item/device/assembly/signaler = 4,
-		/obj/item/wirecutters = 1
+		/obj/item/device/assembly/prox_sensor = 15,
+		/obj/item/device/assembly/igniter = 15,
+		/obj/item/device/assembly/signaler = 15,
+		/obj/item/device/assembly/timer = 15,
+		/obj/item/wirecutters = 5
 	)
 	contraband = list(
 		/obj/item/device/flashlight = 5,
-		/obj/item/device/assembly/timer = 2,
-		/obj/item/device/assembly/infra = 2,
-		/obj/item/device/assembly/voice = 2
+		/obj/item/device/assembly/infra = 6,
+		/obj/item/device/assembly/voice = 6
 	)
 	premium = list(
 		/obj/item/device/multitool/ = 2
@@ -261,10 +262,10 @@
 	contraband = null
 	random_itemcount = 0
 	products = list(
-		/obj/item/device/assembly/prox_sensor = 5,
-		/obj/item/device/assembly/signaler = 4,
-		/obj/item/device/assembly/infra = 4,
-		/obj/item/device/assembly/prox_sensor = 4,
+		/obj/item/device/assembly/prox_sensor = 25,
+		/obj/item/device/assembly/signaler = 25,
+		/obj/item/device/assembly/infra = 25,
+		/obj/item/device/assembly/prox_sensor = 25,
 		/obj/item/handcuffs = 8,
 		/obj/item/device/flash = 4,
 		/obj/item/clothing/glasses/sunglasses = 4

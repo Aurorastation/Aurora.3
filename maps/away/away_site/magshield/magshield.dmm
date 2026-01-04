@@ -396,7 +396,7 @@
 /area/magshield/smes_storage)
 "bg" = (
 /obj/machinery/door/airlock{
-	insecure = 0;
+	features_powerloss_manual_override = 0;
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
@@ -1036,7 +1036,7 @@
 "cS" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
-	insecure = 0;
+	features_powerloss_manual_override = 0;
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1064,7 +1064,7 @@
 "cU" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
-	insecure = 0;
+	features_powerloss_manual_override = 0;
 	dir = 1
 	},
 /obj/structure/cable{
@@ -1266,7 +1266,7 @@
 /area/magshield/north)
 "dB" = (
 /obj/machinery/door/airlock{
-	insecure = 0;
+	features_powerloss_manual_override = 0;
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1388,7 +1388,7 @@
 /area/magshield/north)
 "ee" = (
 /obj/machinery/door/airlock{
-	insecure = 0;
+	features_powerloss_manual_override = 0;
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -1862,7 +1862,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock{
-	insecure = 0;
+	features_powerloss_manual_override = 0;
 	dir = 1
 	},
 /turf/simulated/floor/airless,
@@ -2298,7 +2298,7 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock{
-	insecure = 0;
+	features_powerloss_manual_override = 0;
 	dir = 4
 	},
 /obj/structure/cable{
@@ -2589,7 +2589,7 @@
 "hH" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
-	insecure = 0;
+	features_powerloss_manual_override = 0;
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2758,7 +2758,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock{
-	insecure = 0;
+	features_powerloss_manual_override = 0;
 	dir = 1
 	},
 /obj/structure/cable{
@@ -3088,7 +3088,7 @@
 /turf/template_noop,
 /area/magshield/east)
 "ji" = (
-/obj/structure/janitorialcart{
+/obj/structure/cart/storage/janitorialcart/full{
 	dir = 4
 	},
 /turf/simulated/floor/airless,
@@ -3766,7 +3766,7 @@
 "os" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
-	insecure = 0;
+	features_powerloss_manual_override = 0;
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3852,7 +3852,7 @@
 /area/magshield/south)
 "yw" = (
 /obj/machinery/door/airlock{
-	insecure = 0;
+	features_powerloss_manual_override = 0;
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -3888,7 +3888,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock{
-	insecure = 0;
+	features_powerloss_manual_override = 0;
 	dir = 1
 	},
 /obj/structure/cable{
@@ -3901,7 +3901,7 @@
 "Ch" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
-	insecure = 0;
+	features_powerloss_manual_override = 0;
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -3991,7 +3991,7 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock{
-	insecure = 0;
+	features_powerloss_manual_override = 0;
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -4110,7 +4110,7 @@
 /area/magshield/north)
 "VU" = (
 /obj/machinery/door/airlock{
-	insecure = 0;
+	features_powerloss_manual_override = 0;
 	dir = 4
 	},
 /obj/structure/cable{

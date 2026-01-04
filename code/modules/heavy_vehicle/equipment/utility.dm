@@ -64,6 +64,7 @@
 				return
 			var/obj/machinery/door/airlock/AD = target
 			if(!AD.operating)
+				playsound(src.loc, 'sound/machines/hydraulic_long.ogg', 100, 1, ignore_walls = TRUE)
 				if(AD.welded || AD.locked)
 					AD.visible_message(SPAN_WARNING("\The [owner] begins prying on \the [AD]!"))
 					var/time_to_open = 15 SECONDS
@@ -73,21 +74,23 @@
 						AD.welded = FALSE
 						AD.locked = FALSE
 						AD.update_icon()
-						playsound(AD, 'sound/effects/meteorimpact.ogg', 100, 1)
 						playsound(AD, 'sound/machines/airlock_open_force.ogg', 100, 1)
 						AD.visible_message(SPAN_WARNING("\The [owner] tears \the [AD] open!"))
-						INVOKE_ASYNC(AD, TYPE_PROC_REF(/obj/machinery/door/airlock, open))
+						INVOKE_ASYNC(AD, TYPE_PROC_REF(/obj/machinery/door/airlock, open), TRUE)
+						break_door(AD)
 				else
 					AD.visible_message(SPAN_WARNING("\The [owner] begins forcing \the [AD]!"))
 					if(do_after(user, 5 SECONDS, owner, (DO_DEFAULT & ~DO_USER_CAN_TURN) | DO_USER_UNIQUE_ACT, extra_checks = CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(atom_maintain_position), AD, AD.loc)) && !(AD.operating || AD.welded || AD.locked))
 						if(AD.density)
-							INVOKE_ASYNC(AD, TYPE_PROC_REF(/obj/machinery/door/airlock, open))
+							INVOKE_ASYNC(AD, TYPE_PROC_REF(/obj/machinery/door/airlock, open), TRUE)
 							playsound(AD, 'sound/machines/airlock_open_force.ogg', 100, 1)
 							AD.visible_message(SPAN_DANGER("\The [owner] forces \the [AD] open!"))
+							break_door(AD)
 						else
-							INVOKE_ASYNC(AD, TYPE_PROC_REF(/obj/machinery/door/airlock, close))
+							INVOKE_ASYNC(AD, TYPE_PROC_REF(/obj/machinery/door/airlock, close), TRUE)
 							playsound(AD, 'sound/machines/airlock_close_force.ogg', 100, 1)
 							AD.visible_message(SPAN_DANGER("\The [owner] forces \the [AD] closed!"))
+							break_door(AD)
 			return
 
 		if(length(carrying) >= carrying_capacity)
@@ -129,6 +132,15 @@
 				step_away(M, owner)
 				to_chat(user, SPAN_NOTICE("You push [target] out of the way."))
 				owner.visible_message(SPAN_NOTICE("[owner] pushes [target] out of the way."))
+
+/obj/item/mecha_equipment/clamp/proc/break_door(var/obj/machinery/door/airlock/Airlock)
+	if(Airlock.bolt_cut_state == 2)
+		return
+
+	playsound(Airlock, 'sound/effects/meteorimpact.ogg', 100, 1, ignore_walls = TRUE)
+	Airlock.visible_message(SPAN_DANGER("\The [Airlock]'s bolts give off a deafening mechanical screech as they are torn apart."))
+	Airlock.bolt_cut_state = 2
+	Airlock.set_broken()
 
 /obj/item/mecha_equipment/clamp/attack_self(var/mob/user)
 	. = ..()
@@ -209,13 +221,14 @@
 	mech_layer = MECH_GEAR_LAYER
 
 	var/on = 0
-	var/brightness_on = 12		//can't remember what the maxed out value is
+	light_range = 8
 	light_color = LIGHT_COLOR_TUNGSTEN
-	light_wedge = LIGHT_WIDE
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
 	module_hints = list(
 		"<b>Alt Click(Icon):</b> Light up a large area in front of the mech.",
 	)
+
+	light_system = MOVABLE_LIGHT
 
 /obj/item/mecha_equipment/light/attack_self(var/mob/user)
 	. = ..()
@@ -238,10 +251,10 @@
 /obj/item/mecha_equipment/light/update_icon()
 	if(on)
 		icon_state = "[initial(icon_state)]-on"
-		set_light(brightness_on, 1)
 	else
 		icon_state = "[initial(icon_state)]"
-		set_light(0)
+	set_light_on(on)
+
 
 /obj/item/mecha_equipment/light/uninstalled()
 	on = FALSE
@@ -388,6 +401,7 @@
 	name = "drill head"
 	desc = "A replaceable drill head usually used in exosuit drills."
 	icon_state = "drill_head"
+	var/obj/item/mecha_equipment/drill/mounted_drill
 
 /obj/item/material/drill_head/condition_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -407,6 +421,12 @@
 /obj/item/material/drill_head/Initialize(newloc, material_key)
 	. = ..()
 	durability = 2 * material.integrity
+	if(istype(newloc, /obj/item/mecha_equipment/drill))
+		mounted_drill = newloc
+
+/obj/item/material/drill_head/Destroy()
+	mounted_drill = null
+	. = ..()
 
 /obj/item/material/drill_head/proc/get_durability_percentage()
 	return (durability * 100) / (2 * material.integrity)
@@ -433,6 +453,10 @@
 	. = ..()
 	drill_head = new /obj/item/material/drill_head(src, DEFAULT_WALL_MATERIAL)//You start with a basic steel head
 
+/obj/item/mecha_equipment/drill/Destroy()
+	QDEL_NULL(drill_head)
+	. = ..()
+
 /obj/item/mecha_equipment/drill/attack_self(var/mob/user)
 	. = ..()
 	if(.)
@@ -457,8 +481,10 @@
 			if(drill_head)
 				owner.visible_message(SPAN_NOTICE("\The [owner] detaches the [drill_head] mounted on the [src]."))
 				drill_head.forceMove(owner.loc)
+				drill_head.mounted_drill = null
 			DH.forceMove(src)
 			drill_head = DH
+			drill_head.mounted_drill = src
 			owner.visible_message(SPAN_NOTICE("\The [owner] mounts the [drill_head] on the [src]."))
 			return
 

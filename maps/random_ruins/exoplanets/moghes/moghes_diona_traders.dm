@@ -16,7 +16,6 @@
 	name = "Diona Trader Office"
 	icon_state = "bluenew"
 	requires_power = FALSE
-	dynamic_lighting = TRUE
 	no_light_control = FALSE
 	base_turf = /turf/simulated/floor/exoplanet/grass/moghes/dirt
 	area_flags = AREA_FLAG_RAD_SHIELDED|AREA_FLAG_INDESTRUCTIBLE_TURFS
@@ -49,7 +48,7 @@
 	back = /obj/item/storage/backpack/satchel/leather
 	r_pocket = /obj/item/storage/wallet/random
 	backpack_contents = list(
-		/obj/item/storage/box/donkpockets = 1
+		/obj/item/storage/box/unique/donkpockets = 1
 	)
 	l_ear = null
 

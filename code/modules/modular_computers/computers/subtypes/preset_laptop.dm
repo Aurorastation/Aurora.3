@@ -18,6 +18,7 @@
 	nano_printer.max_paper = 10
 	nano_printer.stored_paper = 5
 	tesla_link = new /obj/item/computer_hardware/tesla_link/charging_cable(src)
+	universal_port = new /obj/item/computer_hardware/universal_port(src)
 
 // the laptop in the modular computer loadout
 /obj/item/modular_computer/laptop/preset/loadout/install_default_hardware()
@@ -121,6 +122,15 @@
 	name = "operations manager's laptop"
 	desc = "A portable computer belonging to the operation's manager."
 	_app_preset_type = /datum/modular_computer_app_presets/supply/om
+
+/obj/item/modular_computer/laptop/preset/supply/robotics
+	name = "robotics laptop"
+	desc = "A portable computer with support for specialized robotics software."
+	_app_preset_type = /datum/modular_computer_app_presets/supply/machinist
+
+/obj/item/modular_computer/laptop/preset/supply/robotics/install_default_hardware()
+	..()
+	access_cable_dongle = new /obj/item/computer_hardware/access_cable_dongle(src)
 
 // Representative
 /obj/item/modular_computer/laptop/preset/representative

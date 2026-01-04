@@ -168,8 +168,10 @@
 
 /obj/structure/closet/proc/can_open()
 	if(welded || locked)
-		return 0
-	return 1
+		return FALSE
+	if(istype(loc, /obj/structure/crate_shelf))
+		return FALSE
+	return TRUE
 
 /obj/structure/closet/proc/can_close()
 	for(var/obj/structure/closet/closet in get_turf(src))
@@ -190,6 +192,7 @@
 		if(M.client)
 			M.client.eye = M.client.mob
 			M.client.perspective = MOB_PERSPECTIVE
+			M.set_fullscreen(FALSE, "closet_impaired", /atom/movable/screen/fullscreen/closet_impaired)
 
 /obj/structure/closet/proc/open()
 	if(opened)
@@ -232,9 +235,7 @@
 		animate_door_alt(TRUE)
 	update_icon()
 
-	if(linked_teleporter)
-		if(linked_teleporter.last_use + 600 > world.time)
-			return
+	if(linked_teleporter && linked_teleporter.last_use + 600 < world.time)
 		var/did_teleport = FALSE
 		for(var/mob/M in contents)
 			if(linked_teleporter.do_teleport(M))
@@ -279,6 +280,7 @@
 		if(M.client)
 			M.client.perspective = EYE_PERSPECTIVE
 			M.client.eye = src
+			M.set_fullscreen(TRUE, "closet_impaired", /atom/movable/screen/fullscreen/closet_impaired)
 		M.forceMove(src)
 		added_units += M.mob_size
 		if(mob_limit) //We only want to store one valid mob
@@ -415,10 +417,13 @@
 	else if(istype(attacking_item, /obj/item/device/cratescanner))
 		var/obj/item/device/cratescanner/Cscanner = attacking_item
 		if(locked)
-			to_chat(user, SPAN_WARNING("[attacking_item] refuses to scan [src]. Unlock it first!"))
+			to_chat(user, SPAN_WARNING("[attacking_item] refuses to scan \the [src]. Unlock it first!"))
 			return
 		if(welded)
-			to_chat(user, SPAN_WARNING("[attacking_item] detects that [src] is welded shut, and refuses to scan."))
+			to_chat(user, SPAN_WARNING("[attacking_item] detects that \the [src] is welded shut, and refuses to scan."))
+			return
+		if(istype(loc, /obj/structure/crate_shelf))
+			to_chat(user, SPAN_WARNING("[attacking_item] can't scan \the [src] while it is on \the [loc]."))
 			return
 		Cscanner.print_contents(name, contents, src.loc)
 	else if(istype(attacking_item, /obj/item/stack/packageWrap))
@@ -722,8 +727,8 @@
 			var/obj/O = A
 			O.hear_talk(M, text, verb, speaking)
 
-/obj/structure/closet/attack_generic(var/mob/user, var/damage, var/attack_message = "attacks", var/wallbreaker)
-	if(!damage || !wallbreaker)
+/obj/structure/closet/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
+	if(!damage || !environment_smash)
 		return
 	user.do_attack_animation(src)
 	visible_message(SPAN_DANGER("[user] [attack_message] \the [src]!"))
@@ -743,6 +748,10 @@
 		return 0
 
 /obj/structure/closet/proc/mob_breakout(var/mob/living/escapee)
+	if(istype(loc, /obj/structure/crate_shelf))
+		var/obj/structure/crate_shelf/shelf = loc
+		shelf.relay_container_resist_act(escapee, src)
+		return
 
 	//Improved by nanako
 	//Now it actually works, also locker breakout time stacks with locking and welding

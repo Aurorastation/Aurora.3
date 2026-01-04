@@ -5,13 +5,20 @@
 /datum/species
 
 	// Descriptors and strings.
-	var/name                                             // Species name.
-	var/name_plural                                      // Pluralized name (since "[name]s" is not always valid)
-	var/hide_name = FALSE                                // If TRUE, the species' name won't be visible on examine.
-	var/short_name                                       // Shortened form of the name, for code use. Must be exactly 3 letter long, and all lowercase
-	var/category_name                                    // a name for this overarching species, ie 'Human', 'Skrell', 'IPC'. only used in character creation
-	var/blurb = "A completely nondescript species."      // A brief lore summary for use in the chargen screen.
-	var/species_height = HEIGHT_NOT_USED				 // Average Height of the species
+	/// Species name.
+	var/name
+	/// Pluralized name (since "[name]s" is not always valid).
+	var/name_plural
+	/// If TRUE, the species' name won't be visible on examine.
+	var/hide_name = FALSE
+	/// Shortened form of the name, for code use. Must be exactly 3 letter long, and all lowercase.
+	var/short_name
+	/// A name for this overarching species, ie 'Human', 'Skrell', 'IPC'. only used in character creation.
+	var/category_name
+	/// A brief lore summary for use in the chargen screen.
+	var/blurb = "A completely nondescript species."
+	/// Average height of the species
+	var/species_height = HEIGHT_NOT_USED
 	var/height_min = 120
 	var/height_max = 350
 	var/bodytype
@@ -22,9 +29,12 @@
 	var/list/selectable_pronouns = list(MALE, FEMALE, PLURAL)
 
 	// Icon/appearance vars.
-	var/canvas_icon = 'icons/mob/base_32.dmi'                  // Used to blend parts and icons onto this, to avoid clipping issues.
-	var/icobase = 'icons/mob/human_races/human/r_human.dmi'    // Normal icon set.
-	var/deform = 'icons/mob/human_races/human/r_def_human.dmi' // Mutated icon set.
+	/// Used to blend parts and icons onto this, to avoid clipping issues.
+	var/canvas_icon = 'icons/mob/base_32.dmi'
+	/// Normal icon set.
+	var/icobase = 'icons/mob/human_races/human/r_human.dmi'
+	/// Mutated icon set.
+	var/deform = 'icons/mob/human_races/human/r_def_human.dmi'
 	var/skeleton_icon = 'icons/mob/human_races/r_skeleton.dmi'
 	var/preview_icon = 'icons/mob/human_races/human/human_preview.dmi'
 	var/bandages_icon
@@ -35,42 +45,59 @@
 	var/blood_mask = 'icons/mob/human_races/masks/blood_human.dmi'
 	var/onfire_overlay = 'icons/mob/burning/burning_generic.dmi'
 
-	var/prone_icon                                       // If set, draws this from icobase when mob is prone.
+	/// If set, draws this from icobase when mob is prone.
+	var/prone_icon
 	var/icon_x_offset = 0
 	var/icon_y_offset = 0
 	var/typing_indicator_x_offset = 0
 	var/typing_indicator_y_offset = 0
 
-	///Horizontal offset in pixel used as a baseline for the runechat images (chat text above the mob when it talks)
+	/// Horizontal offset in pixel used as a baseline for the runechat images (chat text above the mob when it talks)
 	var/floating_chat_x_offset = null
 
-	///Vertical offset in pixel used as a baseline for the runechat images (chat text above the mob when it talks)
+	/// Vertical offset in pixel used as a baseline for the runechat images (chat text above the mob when it talks)
 	var/floating_chat_y_offset = 8
 
-	// special consideration should be made when adding new emote types to different species, as they'll be able to initiate it, but their target might not be able to
-	// reciprocate the emote in any way
+	// Special consideration should be made when adding new emote types to different species, as they'll be able to initiate it, but
+	// their target might not be able to reciprocate the emote in any way
 	/// An associated list of list, where a list of body parts are the key for a specific emote (ex: list(BP_L_ARM, BP_R_ARM) = /singleton/overhead_emote/highfive)
 	var/list/overhead_emote_types = list(
 		list(BP_L_ARM, BP_R_ARM) = /singleton/overhead_emote/highfive,
 		list(BP_L_HAND, BP_R_HAND) = /singleton/overhead_emote/fistbump
 	)
 
-	var/eyes = "eyes_s"                                  // Icon for eyes.
-	var/eyes_icons = 'icons/mob/human_face/eyes.dmi'     // DMI file for eyes, mostly for none 32x32 species.
-	var/has_floating_eyes                                // Eyes will overlay over darkness (glow)
-	var/eyes_icon_blend = ICON_ADD                       // The icon blending mode to use for eyes.
+	/// Icon for eyes.
+	var/eyes = "eyes_s"
+	/// DMI file for eyes, mostly for none 32x32 species.
+	var/eyes_icons = 'icons/mob/human_face/eyes.dmi'
+	/// Eyes will overlay over darkness (glow)
+	var/has_floating_eyes
+	/// The icon blending mode to use for eyes.
+	var/eyes_icon_blend = ICON_ADD
 	var/blood_type = "blood"
-	var/blood_color = COLOR_HUMAN_BLOOD                          // Red.
-	var/flesh_color = "#FFC896"                          // Pink.
-	var/examine_color                                    // The color of the species' name in the examine text. Defaults to flesh_color if unset.
-	var/base_color                                       // Used by changelings. Should also be used for icon previes..
-	var/tail                                             // Name of tail state in species effects icon file.
-	var/tail_animation                                   // If set, the icon to obtain tail animation states from.
+	/// Red.
+	var/blood_color = COLOR_HUMAN_BLOOD
+	/// Pink.
+	var/flesh_color = "#FFC896"
+	/// The color of the species' name in the examine text. Defaults to flesh_color if unset.
+	var/examine_color
+	/// Used by changelings. Should also be used for icon previes..
+	var/base_color
+	/// Name of tail state in species effects icon file.
+	var/tail
+	/// If set, the icon to obtain tail animation states from.
+	var/tail_animation
 	var/tail_hair
 	var/list/selectable_tails
-	var/race_key = 0       	                             // Used for mob icon cache string.
-	var/icon/icon_template                               // Used for mob icon generation for non-32x32 species.
+	/// Used for mob icon cache string.
+	var/race_key = 0
+	/// Used for mob icon generation for non-32x32 species.
+	var/icon/icon_template
 	var/mob_size	= MOB_MEDIUM
+	/// The weight of the mob. Affects if the mob can be easily lifted or not. Separate from size, as some mobs may be big but not particularly heavy.
+	var/mob_weight = MOB_WEIGHT_MEDIUM
+	/// The strength of the mob. A bonus to the checks on lifting/throwing other mobs.
+	var/mob_strength = MOB_STRENGTH_NORMAL
 	var/show_ssd = "in a deep slumber"
 	var/short_sighted
 	var/bald = 0
@@ -81,45 +108,79 @@
 	var/light_color = null
 
 	// Language/culture vars.
-	var/default_language = "Ceti Basic"		 // Default language is used when 'say' is used without modifiers.
-	var/language = "Ceti Basic"        		 // Default racial language, if any.
-	var/list/secondary_langs = list()        // The names of secondary languages that are available to this species.
-	var/list/speech_sounds                   // A list of sounds to potentially play when speaking.
-	var/list/speech_chance                   // The likelihood of a speech sound playing.
-	var/num_alternate_languages = 0          // How many secondary languages are available to select at character creation
-	var/name_language = "Ceti Basic"	    // The language to use when determining names for this species, or null to use the first name/last name generator
+	/// Default language is used when 'say' is used without modifiers.
+	var/default_language = "Ceti Basic"
+	/// Default racial language, if any.
+	var/language = "Ceti Basic"
+	/// The names of secondary languages that are available to this species.
+	var/list/secondary_langs = list()
+	/// A list of sounds to potentially play when speaking.
+	var/list/speech_sounds
+	/// The likelihood of a speech sound playing.
+	var/list/speech_chance
+	/// How many secondary languages are available to select at character creation
+	var/num_alternate_languages = 0
+	/// The language to use when determining names for this species, or null to use the first name/last name generator
+	var/name_language = "Ceti Basic"
 
 	// Combat vars.
-	var/total_health = 200                   // Point at which the mob will enter crit.
-	var/list/unarmed_types = list(           // Possible unarmed attacks that the mob will use in combat,
+	/// Point at which the mob will enter crit.
+	var/total_health = 200
+	/// Ratio at which the mob will stop autohealing a wound. For brute damage.
+	var/autoheal_brute_ratio = 0.5
+	/// Ratio at which the mob will stop autohealing a wound. For burn damage.
+	var/autoheal_burn_ratio = 0.5
+	/// Possible unarmed attacks that the mob will use in combat,
+	var/list/unarmed_types = list(
 		/datum/unarmed_attack,
 		/datum/unarmed_attack/bite
 	)
-	var/list/unarmed_attacks = null          // For empty hand harm-intent attack
+	/// For empty hand harm-intent attack
+	var/list/unarmed_attacks = null
 	var/standing_jump_range = 2
 	var/list/maneuvers = list(/singleton/maneuver/leap)
 
-	var/pain_mod =      1                    // Pain multiplier
-	var/brute_mod =     1                    // Physical damage multiplier.
-	var/burn_mod =      1                    // Burn damage multiplier.
-	var/oxy_mod =       1                    // Oxyloss modifier
-	var/toxins_mod =    1                    // Toxloss modifier
-	var/radiation_mod = 1                    // Radiation modifier
-	var/flash_mod =     1                    // Stun from blindness modifier.
-	var/fall_mod =      1                    // Fall damage modifier, further modified by brute damage modifier
-	var/grab_mod =      1                    // How easy it is to grab the species. Higher is harder to grab.
-	var/resist_mod =    1                    // How easy it is for the species to resist out of a grab.
-	var/metabolism_mod = 1					 // Reagent metabolism modifier
-	var/bleed_mod = 1						 // How fast this species bleeds.
-	var/blood_volume = DEFAULT_BLOOD_AMOUNT // Blood volume.
-	var/injection_mod = 1                    // Multiplicative time modifier on syringe injections
+	/// Pain multiplier
+	var/pain_mod =      1
+	/// Physical damage multiplier.
+	var/brute_mod =     1
+	/// Burn damage multiplier.
+	var/burn_mod =      1
+	/// Oxyloss modifier
+	var/oxy_mod =       1
+	/// Toxloss modifier
+	var/toxins_mod =    1
+	/// Radiation modifier
+	var/radiation_mod = 1
+	/// Stun from blindness modifier.
+	var/flash_mod =     1
+	/// Fall damage modifier, further modified by brute damage modifier
+	var/fall_mod =      1
+	/// How easy it is to grab the species. Higher is harder to grab.
+	var/grab_mod =      1
+	/// How easy it is for the species to resist out of a grab.
+	var/resist_mod =    1
+	/// Reagent metabolism modifier
+	var/metabolism_mod = 1
+	/// How fast this species bleeds.
+	var/bleed_mod = 1
+	/// Blood volume.
+	var/blood_volume = DEFAULT_BLOOD_AMOUNT
+	/// Multiplicative time modifier on syringe injections
+	var/injection_mod = 1
 
-	var/vision_flags = DEFAULT_SIGHT         // Same flags as glasses.
-	var/inherent_eye_protection              // If set, this species has this level of inherent eye protection.
-	var/eyes_are_impermeable = FALSE         // If TRUE, this species' eyes are not damaged by phoron.
-	var/break_cuffs = FALSE                   //used in resist.dm to check if they can break hand/leg cuffs
-	var/natural_climbing = FALSE             //If true, the species always succeeds at climbing.
-	var/climb_coeff = 1.25                   //The coefficient to the climbing speed of the individual = 60 SECONDS * climb_coeff
+	/// Same flags as glasses.
+	var/vision_flags = DEFAULT_SIGHT
+	/// If set, this species has this level of inherent eye protection.
+	var/inherent_eye_protection
+	/// If TRUE, this species' eyes are not damaged by phoron.
+	var/eyes_are_impermeable = FALSE
+	/// Used in resist.dm to check if they can break hand/leg cuffs
+	var/break_cuffs = FALSE
+	/// If true, the species always succeeds at climbing.
+	var/natural_climbing = FALSE
+	/// The coefficient to the climbing speed of the individual = 60 SECONDS * climb_coeff
+	var/climb_coeff = 1.25
 
 	// Death vars.
 	var/respawn_type = CREW
@@ -135,7 +196,8 @@
 	var/knockout_message = "has been knocked unconscious!"
 	var/halloss_message = "slumps to the ground, too weak to continue fighting."
 	var/halloss_message_self = "You're in too much pain to keep going..."
-	var/list/pain_messages = list("It hurts so much", "You really need some painkillers", "Dear god, the pain") // passive message displayed to user when injured
+	/// Passive message displayed to user when injured
+	var/list/pain_messages = list("It hurts so much", "You really need some painkillers", "Dear god, the pain")
 	var/list/pain_item_drop_cry = list("screams in pain and ", "lets out a sharp cry and ", "cries out and ")
 
 	// External Organ Pain Damage
@@ -230,27 +292,46 @@
 	var/list/equip_adjust
 
 	// Body/form vars.
-	var/list/inherent_verbs 	  // Species-specific verbs.
-	var/list/inherent_spells 	  // Species-specific spells.
-	var/has_fine_manipulation = 1 // Can use small items.
-	var/siemens_coefficient = 1   // The lower, the thicker the skin and better the insulation.
-	var/darksight = 2             // Native darksight distance.
-	var/flags = 0                 // Various specific features.
-	var/appearance_flags = 0      // Appearance/display related features.
-	var/spawn_flags = 0           // Flags that specify who can spawn as this species
-	var/slowdown = 0              // Passive movement speed malus (or boost, if negative)
-	var/primitive_form            // Lesser form, if any (ie. monkey for humans)
-	var/greater_form              // Greater form, if any, ie. human for monkeys.
+	/// Species-specific verbs.
+	var/list/inherent_verbs
+	/// Species-specific spells.
+	var/list/inherent_spells
+	/// Can use small items.
+	var/has_fine_manipulation = 1
+	/// The lower, the thicker the skin and better the insulation.
+	var/siemens_coefficient = 1
+	/// Native darksight distance.
+	var/darksight = 2
+	/// Various specific features.
+	var/flags = 0
+	/// Appearance/display related features.
+	var/appearance_flags = 0
+	/// Flags that specify who can spawn as this species
+	var/spawn_flags = 0
+	/// Passive movement speed malus (or boost, if negative)
+	var/slowdown = 0
+	/// Lesser form, if any (ie. monkey for humans)
+	var/primitive_form
+	/// Greater form, if any, ie. human for monkeys.
+	var/greater_form
 	var/holder_type
-	var/rarity_value = 1          // Relative rarity/collector value for this species.
-	var/ethanol_resistance = 1	  // How well the mob resists alcohol, lower values get drunk faster, higher values need to drink more
-	var/taste_sensitivity = TASTE_NORMAL // How sensitive the species is to minute tastes. Higher values means less sensitive. Lower values means more sensitive.
+	/// Relative rarity/collector value for this species.
+	var/rarity_value = 1
+	/// How well the mob resists alcohol, lower values get drunk faster, higher values need to drink more
+	var/ethanol_resistance = 1
+	/// How sensitive the species is to minute tastes. Higher values means less sensitive. Lower values means more sensitive.
+	var/taste_sensitivity = TASTE_NORMAL
 
-	var/stamina	=	100			  	// The maximum stamina this species has. Determines how long it can sprint
-	var/stamina_recovery = 3	  	// Flat amount of stamina species recovers per proc
-	var/sprint_speed_factor = 0.7	// The percentage of bonus speed you get when sprinting. 0.4 = 40%
-	var/sprint_cost_factor = 0.9  	// Multiplier on stamina cost for sprinting
-	var/exhaust_threshold = 50	  	// When stamina runs out, the mob takes oxyloss up til this value. Then collapses and drops to walk
+	/// The maximum stamina this species has. Determines how long it can sprint
+	var/stamina	=	100
+	/// Flat amount of stamina species recovers per proc
+	var/stamina_recovery = 3
+	/// The percentage of bonus speed you get when sprinting. 0.4 = 40%
+	var/sprint_speed_factor = 0.7
+	/// Multiplier on stamina cost for sprinting
+	var/sprint_cost_factor = 0.9
+	/// When stamina runs out, the mob takes oxyloss up til this value. Then collapses and drops to walk
+	var/exhaust_threshold = 50
 
 	// Pulse modifiers
 	var/low_pulse = 40
@@ -267,17 +348,23 @@
 	var/hearing_sensitivity = HEARING_NORMAL
 
 	// Eating & nutrition related stuff
-	var/gluttonous = 0            // Can eat some mobs. Values can be GLUT_TINY, GLUT_SMALLER, GLUT_ANYTHING, GLUT_ITEM_TINY, GLUT_ITEM_NORMAL, GLUT_ITEM_ANYTHING, GLUT_PROJECTILE_VOMIT
-	var/stomach_capacity = 5      // How much stuff they can stick in their stomach
+	/// Can eat some mobs. Values can be GLUT_TINY, GLUT_SMALLER, GLUT_ANYTHING, GLUT_ITEM_TINY, GLUT_ITEM_NORMAL, GLUT_ITEM_ANYTHING, GLUT_PROJECTILE_VOMIT
+	var/gluttonous = 0
+	/// How much stuff they can stick in their stomach
+	var/stomach_capacity = 5
 	var/allowed_eat_types = TYPE_ORGANIC
-	var/max_nutrition_factor = 1	//Multiplier on maximum nutrition
-	var/nutrition_loss_factor = 1	//Multiplier on passive nutrition losses
+	/// Multiplier on maximum nutrition
+	var/max_nutrition_factor = 1
+	/// Multiplier on passive nutrition losses
+	var/nutrition_loss_factor = 1
 
-	var/max_hydration_factor = 1	//Multiplier on maximum thirst
-	var/hydration_loss_factor = 1	//Multiplier on passive thirst losses
+	/// Multiplier on maximum thirst
+	var/max_hydration_factor = 1
+	/// Multiplier on passive thirst losses
+	var/hydration_loss_factor = 1
 
-	///Determines the organs that the species spawns with and
-	var/list/has_organ = list(    // which required-organ checks are conducted.
+	/// Determines the organs that the species spawns with and which required-organ checks are conducted.
+	var/list/has_organ = list(
 		BP_BRAIN =    /obj/item/organ/internal/brain,
 		BP_EYES =     /obj/item/organ/internal/eyes,
 		BP_HEART =    /obj/item/organ/internal/heart,
@@ -287,8 +374,10 @@
 		BP_STOMACH =  /obj/item/organ/internal/stomach,
 		BP_APPENDIX = /obj/item/organ/internal/appendix
 		)
-	var/vision_organ              // If set, this organ is required for vision. Defaults to BP_EYES if the species has them.
-	var/breathing_organ           // If set, this organ is required to breathe. Defaults to BP_LUNGS if the species has them.
+	/// If set, this organ is required for vision. Defaults to BP_EYES if the species has them.
+	var/vision_organ
+	/// If set, this organ is required to breathe. Defaults to BP_LUNGS if the species has them.
+	var/breathing_organ
 
 	var/list/has_limbs = list(
 		BP_CHEST =  list("path" = /obj/item/organ/external/chest),
@@ -304,16 +393,21 @@
 		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right)
 		)
 
+	var/natural_armor_type = /datum/component/armor/natural
 	var/list/natural_armor
 
 	// Bump vars
-	var/bump_flag = HUMAN	// What are we considered to be when bumped?
-	var/push_flags = ~HEAVY	// What can we push?
-	var/swap_flags = ~HEAVY	// What can we swap place with?
+	/// What are we considered to be when bumped?
+	var/bump_flag = HUMAN
+	/// What can we push?
+	var/push_flags = ~HEAVY
+	/// What can we swap place with?
+	var/swap_flags = ~HEAVY
 
 	var/pass_flags = 0
 
-	var/obj/effect/decal/cleanable/blood/tracks/move_trail = /obj/effect/decal/cleanable/blood/tracks/footprints/barefoot // What marks are left when walking
+	/// What marks are left when walking
+	var/obj/effect/decal/cleanable/blood/tracks/move_trail = /obj/effect/decal/cleanable/blood/tracks/footprints/barefoot
 
 	var/default_h_style = "Bald"
 	var/default_f_style = "Shaved"
@@ -323,9 +417,12 @@
 		/singleton/origin_item/culture/unknown
 	)
 
-	var/zombie_type	//What zombie species they become
-	var/bodyfall_sound = /singleton/sound_category/bodyfall_sound //default, can be used for species specific falling sounds
-	var/footsound = /singleton/sound_category/blank_footsteps //same as above but for footsteps without shoes
+	/// What zombie species they become
+	var/zombie_type
+	/// Default, can be used for species specific falling sounds
+	var/bodyfall_sound = /singleton/sound_category/bodyfall_sound
+	/// Same as above but for footsteps without shoes
+	var/footsound = /singleton/sound_category/blank_footsteps
 
 	/// Sets the base "tint" of the species' sprite, which is then adjusted by the skin tone
 	var/list/character_color_presets
@@ -336,7 +433,8 @@
 	/// The upper bound for the skin tone value, the higher, the "darker" they'll appear
 	var/upper_skin_tone_bound = 220
 
-	var/list/alterable_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_LIVER, BP_BRAIN, BP_KIDNEYS, BP_STOMACH, BP_APPENDIX) //what internal organs can be changed in character setup
+	/// What internal organs can be changed in character setup
+	var/list/alterable_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_LIVER, BP_BRAIN, BP_KIDNEYS, BP_STOMACH, BP_APPENDIX)
 	var/list/possible_external_organs_modifications = list("Normal","Amputated","Prosthesis")
 	/// These are the prefixes of the icon states in talk.dmi.
 	var/list/possible_speech_bubble_types = list("default")
@@ -349,22 +447,20 @@
 	var/character_creation_psi_points = 0
 	/// Is this species psionically deaf?
 	var/psi_deaf = FALSE
-	///Which species-unique robolimb types can this species take?
+	/// Which species-unique robolimb types can this species take?
 	var/list/valid_prosthetics
 
 	//Sleeping stuff
-	/**
-	 * Does this species sleep standing up?
-	 */
+	/// Does this species sleep standing up?
 	var/sleeps_upright = FALSE
-	/**
-	 * The key of the emote to play when this species is sleeping
-	 */
+	/// Whether this species snores or not.
+	var/snores = TRUE
+	/// The key of the emote to play when this species is sleeping, if it snores.
 	var/snore_key = "snore"
-	/**
-	 * Whether this species can choose to sleep indefinitely
-	 */
+	/// Whether this species can choose to sleep indefinitely
 	var/indefinite_sleep = FALSE
+	/// The default lighting alpha of this species. Override to set innate NVGs.
+	var/default_lighting_alpha = LIGHTING_PLANE_ALPHA_VISIBLE
 
 /datum/species/proc/get_eyes(var/mob/living/carbon/human/H)
 	return
@@ -454,7 +550,7 @@
 	if(H.bad_external_organs)     H.bad_external_organs.Cut()
 	if(H.bad_internal_organs)     H.bad_internal_organs.Cut()
 
-	var/datum/component/armor/armor_component = H.GetComponent(/datum/component/armor)
+	var/datum/component/armor/armor_component = H.GetComponent(natural_armor_type)
 	if(armor_component)
 		qdel(armor_component)
 
@@ -493,7 +589,7 @@
 			I.status |= ORGAN_ADV_ROBOT
 
 	if(natural_armor)
-		H.AddComponent(/datum/component/armor, natural_armor)
+		H.AddComponent(natural_armor_type, natural_armor)
 
 /datum/species/proc/tap(var/mob/living/carbon/human/H,var/mob/living/target)
 	if(H.on_fire)
@@ -529,13 +625,16 @@
 
 	return
 
-/datum/species/proc/handle_post_spawn(var/mob/living/carbon/human/H,var/kpg = 0) //Handles anything not already covered by basic species assignment. Keepgene value should only be used by genetics.
+/// Handles anything not already covered by basic species assignment. Keepgene (kpg) value should only be used by genetics.
+/datum/species/proc/handle_post_spawn(mob/living/carbon/human/H, kpg = 0)
 	add_inherent_verbs(H)
 	H.mob_bump_flag = bump_flag
 	H.mob_swap_flags = swap_flags
 	H.mob_push_flags = push_flags
 	H.pass_flags = pass_flags
 	H.mob_size = mob_size
+	H.mob_weight = mob_weight
+	H.mob_strength = mob_strength
 	H.eat_types = allowed_eat_types
 	if(!kpg)
 		if(islesserform(H))
@@ -651,7 +750,8 @@
 
 	var/obj/item/organ/internal/eyes/night/NE = H.get_eyes()
 	if(istype(NE) && NE.night_vision && NE.can_change_invisible())
-		H.set_see_invisible(SEE_INVISIBLE_NOLIGHTING)
+		H.lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
+		H.update_sight()
 
 	return 1
 
@@ -678,7 +778,7 @@
 		return 0
 
 	var/obj/item/organ/internal/augment/calf_override/C = H.internal_organs_by_name[BP_AUG_CALF_OVERRIDE]
-	if(C && !C.is_broken())
+	if(C && !C.is_broken() && C.online)
 		cost = 0
 		if(!pre_move)
 			C.do_run_act()
@@ -965,3 +1065,18 @@
  */
 /datum/species/proc/sleep_examine_msg(var/mob/M)
 	return SPAN_NOTICE("[M.get_pronoun("He")] appears to be fast asleep.\n")
+
+/**
+ * This proc is used to override speech checks for human mobs.
+ * If it returns FALSE, the mob will not be able to speak.
+ * Make sure to give the user the relevant error message in the override.
+ */
+/datum/species/proc/can_speak(mob/living/carbon/human/speaker, datum/language/speaking, message)
+	return TRUE
+
+/**
+ * This proc handles the species temperature regulation. By default, it just adds `passive_temp_gain` to the human's bodytemperature.
+ * Can be overridden for more complex calculations.
+ */
+/datum/species/proc/handle_temperature_regulation(mob/living/carbon/human/human)
+	human.bodytemperature += passive_temp_gain

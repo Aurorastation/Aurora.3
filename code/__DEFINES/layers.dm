@@ -16,36 +16,33 @@
 	FLOAT_PLANE = -32767
 */
 
-#define LOWEST_PLANE -200
+/// NEVER HAVE ANYTHING BELOW THIS PLANE ADJUST IF YOU NEED MORE SPACE
+#define LOWEST_EVER_PLANE -200
 
-#define CLICKCATCHER_PLANE -100
+#define CLICKCATCHER_PLANE -92
 
-#define SPACE_PLANE -99
+#define SPACE_PLANE -91
 	#define SPACE_LAYER 1
 
-#define SKYBOX_PLANE -98
+#define SKYBOX_PLANE -90
 	#define SKYBOX_LAYER 1
 
-#define DUST_PLANE -97
+#define DUST_PLANE -82
 	#define DEBRIS_LAYER 1
 	#define DUST_LAYER 2
 
+#define OPENSPACE_BACKDROP_PLANE -81
+#define OPEN_SPACE_PLANE_START -80
 // Openspace uses planes -80 through -70.
-#define OPENTURF_MAX_PLANE -70
+// Do no put anything between these two, adjust more z level support as needed
+#define OPEN_SPACE_PLANE_END -70
 #define OPENTURF_MAX_DEPTH 10		// The maxiumum number of planes deep we'll go before we just dump everything on the same plane.
 
-#define OVER_OPENSPACE_PLANE -4
+#define HEAT_EFFECT_PLANE -8
+#define WARP_EFFECT_PLANE -7
 
-#define HEAT_EFFECT_PLANE -4
-#define HEAT_EFFECT_TARGET    "*heat"
-#define COLD_EFFECT_TARGET    "*cold"
-#define COLD_EFFECT_BACK_TARGET "*coldb"
-#define HEAT_COMPOSITE_TARGET "*heatc"
-#define WARP_EFFECT_PLANE -3
-
-#define BLACKNESS_PLANE 0 //Blackness plane as per DM documentation.
-
-#define DEFAULT_PLANE 1
+/// Game Plane, where most of the game objects reside
+#define GAME_PLANE -6
 	#define PLATING_LAYER 1
 	//ABOVE PLATING
 	#define HOLOMAP_LAYER 1.01
@@ -135,10 +132,8 @@
 	#define POINTER_LAYER 4.27
 	#define MIMICED_LIGHTING_LAYER 4.28 // Z-Mimic-managed lighting
 
-	//FLY_LAYER 5
-	//OBSERVER
-	#define OBSERVER_LAYER 5.1
 	#define OBFUSCATION_LAYER 5.2
+	//FLY_LAYER 5
 
 	#define OVERMAP_SECTOR_LAYER 60
 	#define OVERMAP_IMPORTANT_SECTOR_LAYER 61
@@ -147,27 +142,51 @@
 
 	#define AREA_LAYER 999
 
-#define OBSERVER_PLANE 3
+/// Above Game Plane. For things which are above game objects, but below screen effects.
+#define ABOVE_GAME_PLANE -5
 
-#define ROOF_PLANE 4
+#define ROOF_PLANE -4
 
-#define LIGHTING_PLANE 5
+#define BLACKNESS_PLANE 0 //Blackness plane as per DM documentation.
+
+#define DISPLACEMENT_PLATE_RENDER_LAYER 1
+#define DISPLACEMENT_PLATE_RENDER_TARGET "*DISPLACEMENT_PLATE_RENDER_TARGET"
+
+#define GHOST_PLANE 80
+
+#define LIGHTING_PLANE 100
 	#define LIGHTING_LAYER 1
+#define EXTERIOR_LIGHTING_PLANE 101
+#define NVG_PLANE 110
 
-#define EFFECTS_ABOVE_LIGHTING_PLANE 6
+#define BALLOON_CHAT_PLANE 110
+
+#define O_LIGHTING_VISUAL_PLANE 120
+#define O_LIGHTING_VISUAL_LAYER 16
+#define O_LIGHTING_VISUAL_RENDER_TARGET "O_LIGHT_VISUAL_PLANE"
+
+#define LIGHTING_PRIMARY_LAYER 15	//The layer for the main lights of the station
+#define LIGHTING_PRIMARY_DIMMER_LAYER 15.1	//The layer that dims the main lights of the station
+#define LIGHTING_SECONDARY_LAYER 16	//The colourful, usually small lights that go on top
+
+#define LIGHTING_SHADOW_LAYER 17	//Where the shadows happen
+
+#define ABOVE_LIGHTING_PLANE 150
 	#define EYE_GLOW_LAYER 1
 	#define BEAM_PROJECTILE_LAYER 2
 	#define SUPERMATTER_WALL_LAYER 3
 	#define LIGHTNING_LAYER 4
 
-#define FULLSCREEN_PLANE 7
+#define RUNECHAT_PLANE 501
+
+#define FULLSCREEN_PLANE 900
 	#define FULLSCREEN_LAYER 1
 	#define DAMAGE_LAYER 2
 	#define IMPAIRED_LAYER 3
 	#define BLIND_LAYER 4
 	#define CRIT_LAYER 5
 
-#define HUD_PLANE 8
+#define HUD_PLANE 1000
 	#define UNDER_HUD_LAYER 1
 	#define HUD_BASE_LAYER 2
 	#define HUD_BELOW_ITEM_LAYER 2.9
@@ -177,32 +196,40 @@
 	#define RADIAL_BASE_LAYER 6
 	#define RADIAL_CONTENT_LAYER 7
 
-#define BALLOON_CHAT_PLANE 9
+#define CINEMATIC_PLANE 1200
+
+/*=============================*\
+| |
+|   PLANE DEFINES |
+| |
+\*=============================*/
+
+#define RENDER_PLANE_GAME 990
+#define RENDER_PLANE_NON_GAME 995
+
+#define RENDER_PLANE_MASTER 999
+
+/// Plane master controller keys
+#define PLANE_MASTERS_GAME "plane_masters_game"
+#define PLANE_MASTERS_NON_MASTER "plane_masters_non_master"
+
+//---------- EMISSIVES -------------
+//Layering order of these is not particularly meaningful.
+//Important part is the seperation of the planes for control via plane_master
 
 /// This plane masks out lighting, to create an "emissive" effect for e.g glowing screens in otherwise dark areas.
-#define EMISSIVE_PLANE 10
+#define EMISSIVE_PLANE 90
 #define EMISSIVE_TARGET "*emissive"
-	/// The layer you should use when you -really- don't want an emissive overlay to be blocked.
-	#define EMISSIVE_LAYER_UNBLOCKABLE 9999
+/// The render target used by the emissive layer.
+#define EMISSIVE_RENDER_TARGET "*EMISSIVE_PLANE"
+/// The layer you should use when you -really- don't want an emissive overlay to be blocked.
+#define EMISSIVE_LAYER_UNBLOCKABLE 9999
 
-#define RUNECHAT_PLANE 500
+#define LIGHTING_BACKPLANE_LAYER 14.5
 
-//-------------------- Rendering ---------------------
+#define LIGHTING_RENDER_TARGET "LIGHT_PLANE"
 
-/// Semantics - The final compositor or a filter effect renderer
-#define RENDER_GROUP_NONE null
-
-/// Things to be drawn within the game context
-#define RENDER_GROUP_SCENE 990
-
-/// Things to be drawn within the screen context
-#define RENDER_GROUP_SCREEN 995
-
-/// The final render group, for compositing
-#define RENDER_GROUP_FINAL 999
-
-/// Integer (One of `*_PLANE`). The atom's rendering plane. See `code\__defines\__renderer.dm` for a list of valid planes. Also see the DM Reference for `plane var (atom)`.
-/atom/plane = DEFAULT_PLANE
+#define SHADOW_RENDER_TARGET "SHADOW_RENDER_TARGET"
 
 #define DEFAULT_APPEARANCE_FLAGS (PIXEL_SCALE)
 
@@ -215,11 +242,11 @@
 	layer = HUD_ITEM_LAYER
 
 /image/proc/turf_decal_layerise()
-	plane = DEFAULT_PLANE
+	plane = GAME_PLANE
 	layer = DECAL_LAYER
 
 /image/proc/plating_decal_layerise()
-	plane = DEFAULT_PLANE
+	plane = GAME_PLANE
 	layer = DECAL_PLATING_LAYER
 
 /atom/proc/reset_plane_and_layer()

@@ -143,7 +143,7 @@
 		dat = reeltext
 
 	else
-		dat = {"Five credits to play!<BR>
+		dat = {"One credit to play!<BR>
 		<B>Prize Money Available:</B> [money] (jackpot payout is ALWAYS 100%!)<BR>
 		<B>Credit Remaining:</B> [balance]<BR>
 		[plays] players have tried their luck today, and [jackpots] have won a jackpot!<BR>
@@ -282,17 +282,17 @@
 				C.forceMove(get_turf(src))
 
 	else if(linelength == 5)
-		visible_message("<b>[src]</b> says, 'Big Winner! You win a thousand credits!'")
+		visible_message("<b>[src]</b> says, 'Big Winner! You win one hundred credits!'")
 		playsound(loc, 'sound/arcade/sloto_jackpot.ogg', 10, 1, required_asfx_toggles = ASFX_ARCADE)
 		give_money(BIG_PRIZE)
 
 	else if(linelength == 4)
-		visible_message("<b>[src]</b> says, 'Winner! You win four hundred credits!'")
+		visible_message("<b>[src]</b> says, 'Winner! You win fourty credits!'")
 		playsound(loc, 'sound/arcade/sloto_jackpot.ogg', 10, 1, required_asfx_toggles = ASFX_ARCADE)
 		give_money(SMALL_PRIZE)
 
 	else if(linelength == 3)
-		to_chat(user, SPAN_NOTICE("You win three free games!"))
+		to_chat(user, SPAN_NOTICE("You win four free games!"))
 		playsound(loc, 'sound/arcade/sloto_token.ogg', 10, 1, required_asfx_toggles = ASFX_ARCADE)
 		balance += SPIN_PRICE * 4
 		money = max(money - SPIN_PRICE * 4, money)

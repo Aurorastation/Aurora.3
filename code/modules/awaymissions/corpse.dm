@@ -107,12 +107,13 @@
 				if(jobdatum)
 					W.access = jobdatum.get_access()
 				else
-					W.access = list()
+					W.access = corpseidaccess
 			if(corpseidjob)
 				W.assignment = corpseidjob
 			M.set_id_info(W)
 			M.equip_to_slot_or_del(W, slot_wear_id)
 
+	M.update_icon()
 	do_extra_customization(M)
 	qdel(src)
 

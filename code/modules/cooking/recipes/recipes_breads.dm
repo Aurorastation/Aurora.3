@@ -43,14 +43,12 @@
 
 /singleton/recipe/creamcheesebread
 	appliance = OVEN
+	reagents = list(/singleton/reagent/nutriment/protein/cream_cheese = 15)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/dough,
-		/obj/item/reagent_containers/food/snacks/dough,
-		/obj/item/reagent_containers/food/snacks/cheesewedge,
-		/obj/item/reagent_containers/food/snacks/cheesewedge
+		/obj/item/reagent_containers/food/snacks/dough
 	)
 	result = /obj/item/reagent_containers/food/snacks/sliceable/creamcheesebread
-
 
 /singleton/recipe/meatbread
 	appliance = OVEN
@@ -172,6 +170,22 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/stuffing
 
+/singleton/recipe/stuffing_alt
+	appliance = OVEN | MICROWAVE
+	reagents = list(/singleton/reagent/water = 5, /singleton/reagent/sodiumchloride = 1, /singleton/reagent/blackpepper = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/breadslice,
+		/obj/item/reagent_containers/food/snacks/breadslice,
+		/obj/item/reagent_containers/food/snacks/breadslice,
+		/obj/item/reagent_containers/food/snacks/breadslice,
+		/obj/item/reagent_containers/food/snacks/breadslice,
+		/obj/item/reagent_containers/food/snacks/breadslice,
+		/obj/item/reagent_containers/food/snacks/breadslice,
+		/obj/item/reagent_containers/food/snacks/breadslice
+	)
+	result = /obj/item/reagent_containers/food/snacks/stuffing
+
+
 /singleton/recipe/angry_bread
 	appliance = OVEN
 	fruit = list("carrot" = 1)
@@ -234,6 +248,40 @@
 		/obj/item/reagent_containers/food/snacks/toast
 	)
 	result = /obj/item/reagent_containers/food/snacks/pbtoast
+
+/singleton/recipe/cream_cheese_toast
+	appliance = MIX
+	reagents = list(/singleton/reagent/nutriment/protein/cream_cheese = 5)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/toast
+	)
+	result = /obj/item/reagent_containers/food/snacks/cream_cheese_toast
+
+/singleton/recipe/cream_cheese_bagel
+	appliance = MIX
+	reagents = list(/singleton/reagent/nutriment/protein/cream_cheese = 5)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/bagel
+	)
+	result = /obj/item/reagent_containers/food/snacks/bagel/cream_cheese
+
+/singleton/recipe/smoked_salmon_bagel
+	appliance = MIX
+	reagents = list(/singleton/reagent/nutriment/protein/cream_cheese = 5)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/bagel,
+		/obj/item/reagent_containers/food/snacks/fish/fishfillet
+	)
+	result = /obj/item/reagent_containers/food/snacks/bagel/smoked_salmon
+
+/singleton/recipe/salmon_bagel_alt
+	appliance = MIX
+	items = list(
+		/obj/item/reagent_containers/food/snacks/bagel/cream_cheese,
+		/obj/item/reagent_containers/food/snacks/fish/fishfillet
+	)
+	result = /obj/item/reagent_containers/food/snacks/bagel/smoked_salmon
+
 
 /singleton/recipe/ntella_bread
 	appliance = MIX
@@ -359,7 +407,7 @@
 	result = /obj/item/reagent_containers/food/snacks/grilled_triple_cheese_crunch_sandwich
 
 /singleton/recipe/crab_leg_grilled_cheese_sandwich
-	appliance = SKILLET | MICROWAVE
+	appliance = SKILLET
 	items = list(
 		/obj/item/reagent_containers/food/snacks/breadslice,
 		/obj/item/reagent_containers/food/snacks/breadslice,

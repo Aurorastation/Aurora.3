@@ -88,8 +88,20 @@ Class Procs:
 	init_flags = INIT_MACHINERY_PROCESS_SELF
 	pass_flags_self = PASSMACHINE | LETPASSCLICKS
 
-	/// Controlled by a bitflag, differentiates between a few different possible states including the machine being broken or unpowered.
-	/// See code/__defines/machinery.dm for the possible states.
+	/**
+	 * 'stat' = 'state'. Controlled by a bitflag, differentiates between a few different possible states including the machine being broken or unpowered.
+	 * These definitions are copypasted from 'code/__DEFINES/machinery.dm' so they can be easily referenced in code.
+	 * SO THAT MEANS IF THEY'VE BEEN UPDATED THERE, MAKE SURE THEY'RE UPDATED HERE!
+	 *
+	 * #define BROKEN   0x1
+	 * #define NOPOWER  0x2
+	 * #define POWEROFF 0x4  // TBD.
+	 * #define MAINT    0x8  // Under maintenance.
+	 * #define EMPED    0x10 // Temporary broken by EMP pulse.
+	 *
+	 * #define INOPERABLE(machine)  (machine.stat & (BROKEN|NOPOWER|MAINT|EMPED))
+	 * #define OPERABLE(machine)    !INOPERABLE(machine)
+	 */
 	var/stat = 0
 	/// Is this machine emagged?
 	var/emagged = 0
@@ -149,6 +161,10 @@ Class Procs:
 	 */
 	var/manufacturer = null
 
+	///Do we want to hook into on_enter_area and on_exit_area?
+	///Disables some optimizations
+	var/always_area_sensitive = FALSE
+
 /obj/machinery/feedback_hints(mob/user, distance, is_adjacent)
 	. = list()
 	if(signaler && is_adjacent)
@@ -189,6 +205,8 @@ Class Procs:
 
 		if(component_parts.len)
 			RefreshParts()
+
+	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/Destroy()
 	//Stupid macro used in power usage
@@ -279,7 +297,7 @@ Class Procs:
 
 	update_icon()
 
-/obj/machinery/CanUseTopic(var/mob/user)
+/obj/machinery/CanUseTopic(mob/user)
 	if(stat & BROKEN)
 		return STATUS_CLOSE
 
@@ -288,18 +306,18 @@ Class Procs:
 
 	return ..()
 
-/obj/machinery/CouldUseTopic(var/mob/user)
+/obj/machinery/CouldUseTopic(mob/user)
 	..()
 	if(clicksound && iscarbon(user))
 		playsound(src, clicksound, clickvol)
 	user.set_machine(src)
 
-/obj/machinery/CouldNotUseTopic(var/mob/user)
+/obj/machinery/CouldNotUseTopic(mob/user)
 	user.unset_machine()
 
 ////////////////////////////////////////////////////////////////////////////////////////////
 
-/obj/machinery/attack_ai(mob/user as mob)
+/obj/machinery/attack_ai(mob/user)
 	if(!ai_can_interact(user))
 		return
 	if(isrobot(user))
@@ -310,32 +328,26 @@ Class Procs:
 	else
 		return src.attack_hand(user)
 
-/obj/machinery/attack_hand(mob/user as mob)
+/obj/machinery/attack_hand(mob/user)
 	if(!operable(MAINT))
-		return 1
+		return TRUE
 	if(user.lying || user.stat)
-		return 1
-	if ( ! (istype(usr, /mob/living/carbon/human) || \
-			istype(usr, /mob/living/silicon)))
+		return TRUE
+	if (!istype(usr, /mob/living/carbon/human) && !istype(usr, /mob/living/silicon))
 		to_chat(usr, SPAN_WARNING("You don't have the dexterity to do this!"))
-		return 1
-/*
-	//distance checks are made by atom/proc/DblClick
-	if ((get_dist(src, user) > 1 || !istype(src.loc, /turf)) && !istype(user, /mob/living/silicon))
-		return 1
-*/
-	if (ishuman(user))
-		var/mob/living/carbon/human/H = user
-		if(H.getBrainLoss() >= 60)
-			visible_message(SPAN_WARNING("[H] stares cluelessly at [src] and drools."))
-			return 1
-		else if(prob(H.getBrainLoss()))
-			to_chat(user, SPAN_WARNING("You momentarily forget how to use [src]."))
-			return 1
+		return TRUE
 
 	src.add_fingerprint(user)
 
 	return ..()
+
+/obj/machinery/attack_ranged(mob/user, params)
+	. = ..()
+	if(isipc(user))
+		var/mob/living/carbon/human/robot = user
+		var/obj/item/organ/internal/machine/wireless_access/wireless_access_point = robot.internal_organs_by_name[BP_WIRELESS_ACCESS]
+		if(wireless_access_point?.access_terminal(src))
+			attack_hand(user)
 
 /obj/machinery/attackby(obj/item/attacking_item, mob/user)
 	if(obj_flags & OBJ_FLAG_SIGNALER)

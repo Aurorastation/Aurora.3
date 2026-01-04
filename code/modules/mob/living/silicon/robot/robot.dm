@@ -34,7 +34,6 @@
 	var/speed = 0
 
 	// Lighting and sight
-	light_wedge = LIGHT_WIDE
 	var/lights_on = FALSE // Is our integrated light on?
 	var/intense_light = FALSE	// Whether cyborg's integrated light was upgraded
 	var/sight_mode = NO_HUD
@@ -823,7 +822,7 @@
 			user.put_in_active_hand(broken_device)
 
 //Robots take half damage from basic attacks.
-/mob/living/silicon/robot/attack_generic(var/mob/user, var/damage, var/attack_message)
+/mob/living/silicon/robot/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	return ..(user,FLOOR(damage/2, 1),attack_message)
 
 /mob/living/silicon/robot/proc/allowed(mob/M)

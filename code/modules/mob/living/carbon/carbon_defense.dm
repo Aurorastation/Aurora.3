@@ -104,7 +104,7 @@
 
 	//Apply weapon damage
 	var/damage_flags = I.damage_flags()
-	apply_damage(effective_force, I.damtype, hit_zone, null, I, damage_flags, I.armor_penetration)
+	var/datum/wound/created_wound = apply_damage(effective_force, I.damtype, hit_zone, I, damage_flags, I.armor_penetration)
 
 	//Melee weapon embedded object code.
 	if (I && I.damtype == DAMAGE_BRUTE && !I.anchored && !is_robot_module(I) && I.canremove)
@@ -120,7 +120,7 @@
 
 			//Sharp objects will always embed if they do enough damage.
 			if((sharp && damage > (10*I.w_class)) || (damage > embed_threshold && prob(embed_chance)))
-				src.embed(I, hit_zone)
+				src.embed(I, hit_zone, supplied_wound = created_wound)
 
 	return 1
 

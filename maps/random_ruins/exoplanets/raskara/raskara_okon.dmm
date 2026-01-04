@@ -544,10 +544,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/obj/effect/floor_decal/plaque{
-	name = "Okon 001 Plaque";
-	desc = "Granted as a gift to honor the Hadiist-Skrell relationship. Okon 001 will be the Party's eyes upon Adhomai."
-	},
+/obj/structure/sign/floor_plaque/raskara_okon,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -1350,7 +1347,7 @@
 	pixel_y = -28
 	},
 /obj/structure/closet/crate/freezer,
-/obj/item/storage/box/freezer/organcooler,
+/obj/item/storage/box/unique/freezer/organcooler,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
@@ -2713,7 +2710,7 @@
 /area/exoplanet/barren/raskara)
 "Ic" = (
 /obj/structure/closet/secure_closet/kitchen_cabinet/standard,
-/obj/item/storage/box/produce{
+/obj/item/storage/box/large/produce{
 	pixel_x = 3;
 	pixel_y = -11
 	},
@@ -2868,13 +2865,13 @@
 /area/raskara_okon/mess_hall)
 "KV" = (
 /obj/structure/table/rack,
-/obj/item/storage/box/monkeycubes/farwacubes{
+/obj/item/storage/box/unique/monkeycubes/farwacubes{
 	pixel_x = -5
 	},
-/obj/item/storage/box/monkeycubes/farwacubes{
+/obj/item/storage/box/unique/monkeycubes/farwacubes{
 	pixel_x = 5
 	},
-/obj/item/storage/box/monkeycubes/farwacubes,
+/obj/item/storage/box/unique/monkeycubes/farwacubes,
 /obj/item/reagent_containers/spray/cleaner{
 	pixel_x = -4;
 	pixel_y = -3

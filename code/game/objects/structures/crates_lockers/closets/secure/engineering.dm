@@ -31,6 +31,7 @@
 	new /obj/item/grenade/chem_grenade/antifuel(src)
 	new /obj/item/storage/lockbox/shuttle_blueprints(src)
 	new /obj/item/blueprints/outpost(src)
+	new /obj/item/base_planning_blueprints(src)
 
 // Chief Engineer - Clothing Satchel
 // This satchel is used nowhere except in conjunction with the locker above,
@@ -62,22 +63,26 @@
 	icon_state = "eng_secure"
 
 /obj/structure/closet/secure_closet/engineering_personal/fill()
+	new /obj/item/storage/backpack/industrial(src)
 	new /obj/item/storage/backpack/duffel/eng(src)
 	new /obj/item/clothing/accessory/storage/brown_vest(src)
+	new /obj/item/clothing/accessory/storage/pouches/brown(src)
 	new /obj/item/storage/toolbox/mechanical(src)
 	new /obj/item/device/radio/headset/headset_eng(src)
 	new /obj/item/device/radio/headset/headset_eng/alt(src)
-	new /obj/item/clothing/suit/storage/hazardvest(src)
 	new /obj/item/clothing/mask/gas/alt(src)
 	new /obj/item/clothing/mask/gas/half(src)
 	new /obj/item/taperoll/engineering(src)
-	new /obj/item/clothing/accessory/storage/overalls/engineer(src)
 	new /obj/item/device/radio/eng/off(src)
 	new /obj/item/storage/belt/utility(src)
+	new /obj/item/storage/belt/utility/alt(src)
 	new /obj/item/device/gps/engineering(src)
 	new /obj/item/pipewrench(src)
 	new /obj/item/device/flashlight/heavy(src)
 	new /obj/item/grenade/chem_grenade/antifuel(src)
+	new /obj/item/clothing/gloves/yellow(src)
+	new /obj/item/clothing/gloves/yellow/specialu(src)
+	new /obj/item/clothing/gloves/yellow/specialt(src)
 
 	// Painters
 	new /obj/item/device/paint_sprayer(src)
@@ -90,22 +95,22 @@
 	icon_state = "atmos"
 
 /obj/structure/closet/secure_closet/atmos_personal/fill()
+	new /obj/item/storage/backpack/industrial(src)
 	new /obj/item/storage/backpack/duffel/eng(src)
 	new /obj/item/clothing/accessory/storage/brown_vest(src)
+	new /obj/item/clothing/accessory/storage/pouches/brown(src)
 	new /obj/item/clothing/suit/fire/atmos(src)
-	new /obj/item/clothing/head/hardhat/atmos(src)
 	new /obj/item/extinguisher(src)
 	new /obj/item/device/radio/headset/headset_eng(src)
 	new /obj/item/device/radio/headset/headset_eng/alt(src)
-	new /obj/item/clothing/suit/storage/hazardvest/blue/atmos(src)
 	new /obj/item/clothing/mask/gas/alt(src)
 	new /obj/item/clothing/mask/gas/half(src)
 	new /obj/item/taperoll/engineering(src)
-	new /obj/item/clothing/accessory/storage/overalls/engineer(src)
 	new /obj/item/reagent_containers/extinguisher_refill(src)
 	new /obj/item/rfd/piping(src)
 	new /obj/item/device/radio/eng/off(src)
 	new /obj/item/storage/belt/utility(src)
+	new /obj/item/storage/belt/utility/alt(src)
 	new /obj/item/device/gps/engineering(src)
 	new /obj/item/pipewrench(src)
 	new /obj/item/crowbar/rescue_axe(src)

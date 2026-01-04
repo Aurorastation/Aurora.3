@@ -125,7 +125,7 @@
 			if(can_access_network(usr, get_camera_access(params["switch_network"])))
 				current_network = params["switch_network"]
 			else
-				to_chat(usr, SPAN_WARNING("\The [ui_host()] shows an \"Network Access Denied\" error message."))
+				to_chat(usr, SPAN_WARNING("\The [ui_host()] shows an \"Network access denied\" error message."))
 			return TRUE
 
 		if("reset")

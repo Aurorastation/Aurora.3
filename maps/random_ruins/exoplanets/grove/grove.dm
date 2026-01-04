@@ -8,7 +8,7 @@
 
 	spawn_weight = 1
 	spawn_cost = 0.5
-	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, ALL_COALITION_SECTORS)
+	sectors = list(ALL_TAU_CETI_SECTORS, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, ALL_COALITION_SECTORS, ALL_CRESCENT_EXPANSE_SECTORS)
 
 	planet_types = PLANET_DESERT|PLANET_GRASS|PLANET_GROVE|PLANET_SNOW
 	ruin_tags = RUIN_LOWPOP|RUIN_SCIENCE
@@ -22,7 +22,7 @@
 
 	spawn_weight = 3
 	spawn_cost = 0.5
-	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, ALL_COALITION_SECTORS)
+	sectors = list(ALL_TAU_CETI_SECTORS, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, ALL_COALITION_SECTORS, ALL_CRESCENT_EXPANSE_SECTORS)
 
 	prefix = "grove/crashsurvivors/"
 	suffix = "crashsurvivors.dmm"
@@ -39,7 +39,7 @@
 
 	spawn_weight = 3
 	spawn_cost = 0.5
-	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, ALL_COALITION_SECTORS)
+	sectors = list(ALL_TAU_CETI_SECTORS, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, ALL_COALITION_SECTORS)
 
 	prefix = "grove/sdf_outpost/"
 	suffix = "sdf_outpost.dmm"
@@ -53,7 +53,6 @@
 	name = "System Defence Force Outpost"
 	icon_state = "bluenew"
 	requires_power = TRUE
-	dynamic_lighting = TRUE
 	no_light_control = FALSE
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP | AREA_FLAG_INDESTRUCTIBLE_TURFS
 
@@ -64,7 +63,7 @@
 
 	spawn_weight = 1
 	spawn_cost = 0.5
-	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, ALL_COALITION_SECTORS)
+	sectors = list(ALL_POSSIBLE_SECTORS)
 
 	prefix = "grove/batcave/"
 	suffix = "batcave.dmm"

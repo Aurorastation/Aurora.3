@@ -6,6 +6,9 @@
  */
 
 /atom
+	plane = GAME_PLANE
+	layer = TURF_LAYER
+	appearance_flags = DEFAULT_APPEARANCE_FLAGS
 
 	/// pass_flags that we are. If any of this matches a pass_flag on a moving thing, by default, we let them through.
 	var/pass_flags_self = NONE
@@ -24,9 +27,6 @@
 
 	var/update_icon_on_init	= FALSE // Default to 'no'.
 
-	layer = TURF_LAYER
-	appearance_flags = DEFAULT_APPEARANCE_FLAGS
-
 	var/level = 2
 	var/atom_flags = 0
 	var/init_flags = 0
@@ -40,9 +40,12 @@
 	var/blood_color
 	var/last_bumped = 0
 	var/pass_flags = 0
-	var/germ_level = GERM_LEVEL_AMBIENT // The higher the germ level, the more germ on the atom.
-	var/simulated = 1 // Filter for actions. Used by lighting overlays.
-	var/fluorescent // Shows up under a UV light.
+	/// The higher the germ level, the more germ on the atom.
+	var/germ_level = GERM_LEVEL_AMBIENT
+	/// Filter for actions. Used by lighting overlays.
+	var/simulated = 1
+	/// Shows up under a UV light.
+	var/fluorescent
 
 	var/explosion_resistance
 
@@ -52,6 +55,36 @@
 	var/list/reagent_data
 
 	var/gfi_layer_rotation = GFI_ROTATION_DEFAULT
+
+	//light stuff
+
+	///Light systems, only one of the three should be active at the same time.
+	var/light_system = STATIC_LIGHT
+	///Range of the light in tiles. Zero means no light.
+	var/light_range = 0
+	///Intensity of the light. The stronger, the less shadows you will see on the lit area.
+	var/light_power = 1
+	///Hexadecimal RGB string representing the colour of the light. White by default.
+	var/light_color = COLOR_WHITE
+	///Boolean variable for toggleable lights. Has no effect without the proper light_system, light_range and light_power values.
+	var/light_on = FALSE
+	///Bitflags to determine lighting-related atom properties.
+	var/light_flags = NONE
+	///Our light source. Don't fuck with this directly unless you have a good reason!
+	var/tmp/datum/dynamic_light_source/light
+	///Any light sources that are "inside" of us, for example, if src here was a mob that's carrying a flashlight, that flashlight's light source would be part of this list.
+	var/tmp/list/hybrid_light_sources
+
+	//Values should avoid being close to -16, 16, -48, 48 etc.
+	//Best keep them within 10 units of a multiple of 32, as when the light is closer to a wall, the probability
+	//that a shadow extends to opposite corners of the light mask square is increased, resulting in more shadow
+	//overlays.
+	///x offset for dynamic lights on this atom
+	var/light_pixel_x
+	///y offset for dynamic lights on this atom
+	var/light_pixel_y
+	///typepath for the lighting maskfor dynamic light sources
+	var/light_mask_type = null
 
 	/*
 	 * EXTRA DESCRIPTIONS
@@ -118,9 +151,6 @@
 
 	if(light)
 		QDEL_NULL(light)
-
-	if(length(light_sources))
-		light_sources.Cut()
 
 	if(smoothing_flags & SMOOTH_QUEUED)
 		SSicon_smooth.remove_from_queues(src)
@@ -285,3 +315,12 @@
 	if(pass_info.pass_flags & pass_flags_self)
 		return TRUE
 	. = !density
+
+///Setter for the `density` variable to append behavior related to its changing.
+/atom/proc/set_density(new_value)
+	SHOULD_CALL_PARENT(TRUE)
+	if(density == new_value)
+		return
+	. = density
+	density = new_value
+	SEND_SIGNAL(src, COMSIG_ATOM_DENSITY_CHANGED)

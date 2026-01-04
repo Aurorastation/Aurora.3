@@ -84,7 +84,7 @@ Plates that can hold your cooking stuff
 	return
 
 /obj/item/reagent_containers/bowl/on_rag_wipe(obj/item/reagent_containers/glass/rag/R)
-	. = ..()
+	clean_blood()
 	if(grease)
 		grease = FALSE
 		update_icon()

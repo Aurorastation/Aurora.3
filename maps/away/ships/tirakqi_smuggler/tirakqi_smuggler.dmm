@@ -357,10 +357,7 @@
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ship/tirakqi_smuggler/starboard_hall)
 "cr" = (
-/obj/machinery/power/smes/buildable/main_engine{
-	input_level = 1000000;
-	output_level = 1000000
-	},
+/obj/machinery/power/smes/buildable/main_engine,
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
@@ -433,6 +430,7 @@
 /obj/machinery/light/skrell{
 	dir = 1
 	},
+/obj/structure/closet/secure_closet/freezer/kois/spores,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/tirakqi_smuggler/cargo)
 "ds" = (
@@ -4502,8 +4500,8 @@
 /obj/item/reagent_containers/food/snacks/meat/neaera,
 /obj/item/reagent_containers/food/snacks/meat/neaera,
 /obj/item/reagent_containers/food/snacks/meat/neaera,
-/obj/item/storage/box/produce,
-/obj/item/storage/box/produce,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/reagent_containers/food/condiment/enzyme{
 	pixel_x = -9;
@@ -5770,7 +5768,7 @@
 /obj/structure/closet/crate/freezer{
 	name = "Fridge"
 	},
-/obj/item/storage/box/freezer/organcooler,
+/obj/item/storage/box/unique/freezer/organcooler,
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/tirakqi_smuggler/med)
@@ -6420,7 +6418,7 @@
 	dir = 8
 	},
 /obj/structure/table/skrell,
-/obj/item/storage/box/sharps{
+/obj/item/storage/box/unique/sharps{
 	pixel_x = 4;
 	pixel_y = 8
 	},
@@ -7063,7 +7061,7 @@
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ship/tirakqi_smuggler/hall)
 "QR" = (
-/obj/structure/janitorialcart/full{
+/obj/structure/cart/storage/janitorialcart/full{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/emergency_closet,

@@ -297,6 +297,12 @@
 	name = "synthetic blood"
 	reagents_to_add = list(/singleton/reagent/blood = 50)
 
+/obj/item/reagent_containers/food/condiment/cream_cheese
+	icon_state = "cream_cheese"
+	fixed_state = TRUE
+	name = "cream cheese"
+	reagents_to_add = list(/singleton/reagent/nutriment/protein/cream_cheese = 50)
+
 //MRE condiments and drinks.
 
 /obj/item/reagent_containers/food/condiment/small/packet
@@ -459,6 +465,13 @@
 	icon_state = "wuluextract"
 	fixed_state = TRUE
 	reagents_to_add = list(/singleton/reagent/wulumunusha = 30)
+
+/obj/item/reagent_containers/food/condiment/ambrosia
+	name = "ambrosia extract bottle"
+	desc = "A small dropper bottle full of a stoner's paradise. The label warns of lethargy and confusion as a side effect, and cautions against operating heavy machinery while under the influence."
+	icon_state = "ambrosiaextract"
+	fixed_state = TRUE
+	reagents_to_add = list(/singleton/reagent/drugs/ambrosia_extract = 30)
 
 /obj/item/reagent_containers/food/condiment/diet_diesel
 	name = "diet diesel bottle"

@@ -206,8 +206,7 @@ Then check if it's true, if true return. This will stop the normal menu appearin
 				tgui_data["exploit"] = list()  // Setting this to equal L.fields passes it's variables that are lists as reference instead of value.
 												// We trade off being able to automatically add shit for more control over what gets passed to json
 												// and if it's sanitized for html.
-				tgui_data["exploit"]["tgui_exploit_record"] = html_encode(L.exploit_record) // Change stuff into html
-				tgui_data["exploit"]["tgui_exploit_record"] = replacetext(tgui_data["exploit"]["tgui_exploit_record"], "\n", "<br>") // change line breaks into <br>
+				tgui_data["exploit"]["tgui_exploit_record"] = html_decode(L.exploit_record) // this user input is already sanitized and encoded when saved to the DB, we can just decode it and slap it into a span
 				tgui_data["exploit"]["name"] = html_encode(L.name)
 				tgui_data["exploit"]["sex"] = html_encode(L.sex)
 				tgui_data["exploit"]["age"] = html_encode(L.age)
@@ -263,8 +262,6 @@ Then check if it's true, if true return. This will stop the normal menu appearin
 
 				for (var/i = 1, i <= pages, i++)
 					contracts_pages.Add(i)
-
-				for (var/a in contracts_pages)
 
 				tgui_data["contracts_pages"] = contracts_pages
 

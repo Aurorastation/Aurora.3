@@ -9,7 +9,6 @@
 	anchored = TRUE
 	layer = ABOVE_HUMAN_LAYER
 	interact_offline = TRUE
-	z_flags = ZMM_MANGLE_PLANES
 
 	var/on = 0
 	idle_power_usage = 20

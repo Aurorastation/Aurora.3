@@ -239,14 +239,9 @@
 	var/old_dir = dir
 	dir = new_dir
 
-	// Lighting.
+	SEND_SIGNAL(src, COMSIG_ATOM_DIR_CHANGE, dir, new_dir)
 	if (.)
-		var/datum/light_source/L
-		for (var/thing in light_sources)
-			L = thing
-			if (L.light_angle)
-				L.source_atom.update_light()
-		GLOB.dir_set_event.raise_event(src, old_dir, dir)
+		GLOB.dir_set_event.raise_event(src, old_dir, dir) //todomat: probaly get ird of this shit
 
 /atom/proc/melt()
 	return
@@ -643,12 +638,3 @@
 /atom/proc/clear_bulletholes()
 	for(var/obj/effect/overlay/bmark/bullet_mark in src)
 		qdel(bullet_mark)
-
-// TODO make all atoms use set_density, do not rely on it at present
-///Setter for the `density` variable to append behavior related to its changing.
-/atom/proc/set_density(new_value)
-	SHOULD_CALL_PARENT(TRUE)
-	if(density == new_value)
-		return
-	. = density
-	density = new_value

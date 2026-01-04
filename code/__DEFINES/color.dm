@@ -104,6 +104,9 @@
 #define COLOR_LINOLEUM         "#4E4D41"
 #define COLOR_LEATHER          "#5C4831"
 #define COLOR_RAIDER           "#6C7364"
+#define COLOR_CARDBOARD        "#7A7F8B"
+#define COLOR_REDBOX           "#B62B2B"
+#define COLOR_SPRING_GREEN     "#00ff88"
 
 #define COLOR_TOOLS            "#eac041"
 

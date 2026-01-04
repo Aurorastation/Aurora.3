@@ -21,7 +21,7 @@
 	density = TRUE
 	anchored = TRUE
 	idle_power_usage = 600 // WATTS
-	active_power_usage = 2 KILO WATTS
+	active_power_usage = 15 KILO WATTS
 
 	/// List of machines this machine is linked to
 	var/list/links = list()
@@ -64,8 +64,12 @@
 	/// Is this device currently scrambling all comms? Used for random events.
 	var/ion_storm = FALSE
 
-	///Looping sounds for any servers
-//	var/datum/looping_sound/server/soundloop
+	///Does this device produce sound?
+	var/produces_sound = FALSE
+	///Looping sound to use for this telecomm machine.
+	var/soundloop = /datum/looping_sound/server
+	///Private variable to store the looping sound's ID
+	VAR_PRIVATE/datum/looping_sound/telecomms_looping_sound
 
 /obj/machinery/telecomms/condition_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -89,13 +93,13 @@
 
 /obj/machinery/telecomms/Initialize(mapload)
 	. = ..()
-//	soundloop = new(list(src), on)
 	SSmachinery.all_telecomms += src
 
 	if(mapload)
 		return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/telecomms/LateInitialize()
+	. = ..()
 	if(SSatlas.current_map.use_overmap && !linked)
 		var/my_sector = GLOB.map_sectors["[z]"]
 		if (istype(my_sector, /obj/effect/overmap/visitable))
@@ -109,11 +113,11 @@
 	update_icon()
 
 /obj/machinery/telecomms/Destroy()
-//	QDEL_NULL(soundloop)
 	SSmachinery.all_telecomms -= src
 	for(var/obj/machinery/telecomms/comm in SSmachinery.all_telecomms)
 		remove_link(comm)
 	links = list()
+	QDEL_NULL(telecomms_looping_sound)
 	return ..()
 
 /// This proc returns distance, so -1 is our error value
@@ -151,8 +155,9 @@
 		AddOverlays("[icon_state]_panel")
 
 /obj/machinery/telecomms/process()
-	update_icon()
-	if(!use_power) return PROCESS_KILL
+	if(!use_power)
+		update_icon()
+		return PROCESS_KILL
 	if(!operable(EMPED))
 		toggle_power(additional_flags = EMPED)
 		return PROCESS_KILL
@@ -170,8 +175,13 @@
 	. = ..()
 	if(use_power)
 		START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
+		if (produces_sound && telecomms_looping_sound == null)
+			telecomms_looping_sound = new soundloop(src, TRUE)
 	else
 		STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
+		if (telecomms_looping_sound)
+			telecomms_looping_sound.stop()
+			QDEL_NULL(telecomms_looping_sound)
 
 /**
  * Previous implementation was to run EMP proc then restore, but was very buggy. This is a rudimentary alternate implementation, just flags processors to crap out.

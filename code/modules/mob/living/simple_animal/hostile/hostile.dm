@@ -76,6 +76,10 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 	if(!faction) //No faction, no reason to attack anybody.
 		return null
 
+	// Reduce spam for when you put 20 rogue maint drones in a box.
+	if(!isturf(loc) && prob(33))
+		return null
+
 	var/atom/T = null
 	var/target_range = INFINITY
 	for (var/atom/A in targets)
@@ -152,7 +156,7 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 				set_last_found_target(tmp_target_mob)
 			change_stance(HOSTILE_STANCE_ATTACK)
 
-/mob/living/simple_animal/hostile/attack_generic(var/mob/user, var/damage, var/attack_message)
+/mob/living/simple_animal/hostile/attack_generic(mob/user, damage, attack_message, environment_smash, armor_penetration, attack_flags, damage_type)
 	..()
 	if(last_found_target != user)
 		set_last_found_target(user)
@@ -255,7 +259,7 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 		var/mob/living/L = last_found_target
 		if(L.paralysis)
 			return
-		on_attack_mob(L, L.attack_generic(src, rand(melee_damage_lower, melee_damage_upper), attacktext, armor_penetration, attack_flags, damage_type))
+		on_attack_mob(L, L.attack_generic(src, rand(melee_damage_lower, melee_damage_upper), attacktext, environment_smash, armor_penetration, attack_flags, damage_type))
 		target = L
 	else if(istype(last_found_target, /obj/machinery/bot))
 		var/obj/machinery/bot/B = last_found_target
@@ -431,6 +435,10 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 	if(ON_ATTACK_COOLDOWN(src))
 		return FALSE
 
+	// Can't break shit from inside crates and whatnot.
+	if(!isturf(loc))
+		return
+
 	if(prob(break_stuff_probability) || bypass_prob) //bypass_prob is used to make mob destroy things in the way to our target
 		for(var/card_dir in GLOB.cardinals) // North, South, East, West
 			var/turf/target_turf = get_step(src, card_dir)
@@ -439,7 +447,7 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 			found_obj = locate(/obj/effect/energy_field) in target_turf
 			if(found_obj && !found_obj.invisibility && found_obj.density)
 				var/obj/effect/energy_field/e = found_obj
-				e.Stress(rand(0.5, 1.5))
+				e.damage_field(rand(0.5, 1.5))
 				visible_message(SPAN_DANGER("[capitalize_first_letters(src.name)] [attacktext] \the [e]!"))
 				src.do_attack_animation(e)
 				set_last_found_target(e)
@@ -511,42 +519,6 @@ ABSTRACT_TYPE(/mob/living/simple_animal/hostile)
 			if(target && Adjacent(target))
 				return UnarmedAttack(target, TRUE)
 	return ..()
-
-/mob/living/simple_animal/hostile/proc/check_horde()
-	if(GLOB.evacuation_controller.is_prepared())
-		if(!enroute && !last_found_target)	//The shuttle docked, all monsters rush for the escape hallway
-			if(!shuttletarget && GLOB.escape_list.len) //Make sure we didn't already assign it a target, and that there are targets to pick
-				shuttletarget = pick(GLOB.escape_list) //Pick a shuttle target
-			enroute = 1
-			stop_automated_movement = 1
-			if(!src.stat)
-				horde()
-
-		if(get_dist(src, shuttletarget) <= 2)		//The monster reached the escape hallway
-			enroute = 0
-			stop_automated_movement = 0
-
-/mob/living/simple_animal/hostile/proc/horde()
-	var/turf/T = get_step_to(src, shuttletarget)
-	for(var/atom/A in T)
-		if(istype(A,/obj/machinery/door/airlock))
-			var/obj/machinery/door/airlock/D = A
-			D.open(1)
-		else if(istype(A,/obj/structure/simple_door))
-			var/obj/structure/simple_door/D = A
-			if(D.density)
-				D.Open()
-		else if(istype(A,/obj/structure/cult/pylon))
-			A.attack_generic(src, rand(melee_damage_lower, melee_damage_upper))
-		else if(istype(A, /obj/structure/window) || istype(A, /obj/structure/closet) || istype(A, /obj/structure/table) || istype(A, /obj/structure/grille))
-			A.attack_generic(src, rand(melee_damage_lower, melee_damage_upper))
-	Move(T)
-	var/atom/target = FindTarget()
-	if(istype(target) && !QDELETED(target))
-		set_last_found_target(target)
-	if(!last_found_target || enroute)
-		if(!src.stat)
-			horde()
 
 //////////////////////////////
 ///////VALIDATOR PROCS////////

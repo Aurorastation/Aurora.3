@@ -60,7 +60,7 @@
 
 /obj/machinery/vending/dinnerware/plastic
 	name = "\improper plastic utensil vendor"
-	desc = "A kitchen and restaurant utensil vendor."
+	desc = "A utensil vendor for the galley and the mess."
 	products = list(
 		/obj/item/material/kitchen/utensil/fork/plastic = 12,
 		/obj/item/material/kitchen/utensil/spoon/plastic = 12,
@@ -75,7 +75,7 @@
 
 /obj/machinery/vending/dinnerware/metal
 	name = "\improper metal utensil vendor"
-	desc = "An upscale kitchen and restaurant utensil vendor."
+	desc = "An upscale utensil vendor for the galley and the mess."
 	products = list(
 		/obj/item/material/kitchen/utensil/fork = 12,
 		/obj/item/material/kitchen/utensil/spoon = 12,
