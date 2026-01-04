@@ -1,0 +1,5 @@
+2026-01-04:
+  MattAtlas:
+  - bugfix: The Set Odyssey Type verb now properly works, and can be used as soon
+      as the lobby starts.
+  - rscadd: Administrators can now manually change Odyssey canonicity.
