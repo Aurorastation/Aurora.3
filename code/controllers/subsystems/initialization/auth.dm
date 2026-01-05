@@ -8,6 +8,16 @@ SUBSYSTEM_DEF(auth)
 
 	var/list/admin_ranks = list() //list of all ranks with associated rights
 
+/datum/controller/subsystem/auth/can_vv_get(var_name)
+	if(var_name == NAMEOF(src, admin_ranks))
+		return TRUE // we allow viewing the admin ranks
+	return ..()
+
+/datum/controller/subsystem/auth/vv_edit_var(var_name, var_value)
+	if(var_name == NAMEOF(src, admin_ranks))
+		return FALSE //but we dont allow editing them
+	return ..()
+
 /datum/controller/subsystem/auth/Initialize(timeofday)
 	load_admin_ranks()
 	load_admins()
@@ -16,6 +26,7 @@ SUBSYSTEM_DEF(auth)
 		update_admins_from_authentik(TRUE)
 
 	return SS_INIT_SUCCESS
+
 
 /datum/controller/subsystem/auth/proc/load_admin_ranks(rank_file="config/admin_ranks.json")
 	admin_ranks.Cut()
@@ -252,8 +263,7 @@ SUBSYSTEM_DEF(auth)
 	prep_query.Execute(FALSE) //Needs to be executed sync, as we need to wait for it to finish before we can update the admins
 	qdel(prep_query)
 
-
-	SSdbcore.MassInsert("ss13_admins", admins_to_push, duplicate_key=FALSE, ignore_errors=FALSE, warn=TRUE, async=FALSE)
+	SSdbcore.MassInsert("ss13_admins", admins_to_push, duplicate_key=TRUE, ignore_errors=FALSE, warn=TRUE, async=FALSE)
 
 	var/datum/db_query/del_query = SSdbcore.NewQuery("DELETE FROM ss13_admins WHERE status = 0")
 	del_query.Execute(FALSE)
@@ -265,3 +275,45 @@ SUBSYSTEM_DEF(auth)
 	LOG_DEBUG("AdminRanks: Updated Admins from Authentik API")
 
 	return TRUE
+
+/datum/controller/subsystem/auth/proc/auths_to_rights(list/auths)
+	. = 0
+
+	for (var/auth in auths)
+		switch (lowertext(auth))
+			if ("r_buildmode","r_build")
+				. |= R_BUILDMODE
+			if ("r_admin")
+				. |= R_ADMIN
+			if ("r_ban")
+				. |= R_BAN
+			if ("r_fun")
+				. |= R_FUN
+			if ("r_server")
+				. |= R_SERVER
+			if ("r_debug")
+				. |= R_DEBUG
+			if ("r_permissions","r_rights")
+				. |= R_PERMISSIONS
+			if ("r_possess")
+				. |= R_POSSESS
+			if ("r_stealth")
+				. |= R_STEALTH
+			if ("r_rejuv","r_rejuvenate")
+				. |= R_REJUVENATE
+			if ("r_varedit")
+				. |= R_VAREDIT
+			if ("r_sound","r_sounds")
+				. |= R_SOUNDS
+			if ("r_spawn","r_create")
+				. |= R_SPAWN
+			if ("r_moderator", "r_mod")
+				. |= R_MOD
+			if ("r_developer", "r_dev")
+				. |= R_DEV
+			if ("r_cciaa")
+				. |= R_CCIAA
+			if ("r_everything","r_host","r_all")
+				. |= (R_BUILDMODE | R_ADMIN | R_BAN | R_FUN | R_SERVER | R_DEBUG | R_PERMISSIONS | R_POSSESS | R_STEALTH | R_REJUVENATE | R_VAREDIT | R_SOUNDS | R_SPAWN | R_MOD | R_CCIAA | R_DEV)
+			else
+				crash_with("Unknown rank in file: [auth]")

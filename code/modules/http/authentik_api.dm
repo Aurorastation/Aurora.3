@@ -15,7 +15,6 @@
 	if (attributes)
 		parse_attributes(attributes)
 
-
 /datum/authentik_group/proc/parse_attributes(list/attributes)
 	// Extract gameserver settings
 	if (attributes["gameserver"])
@@ -36,11 +35,6 @@
 	else
 		priority = 0
 
-/datum/authentik_group/proc/get_rights()
-	// Convert flags array to rights bitmask
-	// Reuse existing auths_to_rights logic
-	var/datum/admin_rank/temp_rank = new()
-	return temp_rank.auths_to_rights(flags)
 
 /datum/authentik_user
 	var/user_id               // pk from API
@@ -95,7 +89,7 @@
 
 	for (var/datum/authentik_group/group in groups)
 		if (group.group_id in group_ids)
-			rights |= group.get_rights()
+			rights |= SSauth.auths_to_rights(group.flags)
 
 	return rights
 
