@@ -498,7 +498,7 @@
 	condiment_icon_state = "ambrosiaextract"
 	condiment_center_of_mass = list("x"=16, "y"=8)
 
-/singleton/reagent/drugs/ambrosia_extract/initial_effect
+/singleton/reagent/drugs/ambrosia_extract/initial_effect(mob/living/carbon/human/M, alien, datum/reagents/holder)
 	return
 
 /singleton/reagent/drugs/ambrosia_extract/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
