@@ -128,7 +128,7 @@ SUBSYSTEM_DEF(auth)
 
 
 /datum/controller/subsystem/auth/proc/update_admins_from_authentik(reload_once_done=FALSE)
-	if (!establish_db_connection(GLOB.dbcon))
+	if(!SSdbcore.Connect())
 		log_and_message_admins("AdminRanks: Failed to connect to database in update_admins_from_authentik(). Carrying on with old staff lists.")
 		return FALSE
 
@@ -203,7 +203,7 @@ SUBSYSTEM_DEF(auth)
 
 		if (users_resp.status_code != 200)
 			log_and_message_admins("AdminRanks: Loading users from Authentik API FAILED. Please alert web-service maintainers!")
-			crash_with("Users request failed with status code: [groups_resp.status_code] body: [json_encode(groups_resp.body)]")
+			crash_with("Users request failed with status code: [users_resp.status_code] body: [json_encode(users_resp.body)]")
 			return FALSE
 
 
@@ -235,14 +235,34 @@ SUBSYSTEM_DEF(auth)
 		admins_to_push += user
 
 	// Step 5: Update database
-	var/DBQuery/prep_query = GLOB.dbcon.NewQuery("UPDATE ss13_admins SET status = 0")
-	prep_query.Execute()
+	var/datum/db_query/prep_query = SSdbcore.NewQuery("UPDATE ss13_admins SET status = 0")
+	prep_query.Execute(FALSE) //Needs to be executed sync, as we need to wait for it to finish before we can update the admins
+	qdel(prep_query)
 
+	var/list/admins = list()
 	for (var/datum/authentik_user/user in admins_to_push)
-		insert_authentik_user_to_admins_table(user, sync_groups)
+		if (isnull(user.ckey))
+			LOG_DEBUG("AdminRanks: [user.username] does not have a ckey linked - Ignoring")
+			continue
+		var/list/admin = list()
+		admin["status"] = 1
+		admin["ckey"] = ckey(user.ckey)
 
-	var/DBQuery/del_query = GLOB.dbcon.NewQuery("DELETE FROM ss13_admins WHERE status = 0")
-	del_query.Execute()
+		// Aggregate rights from all groups
+		admin["flags"] = user.aggregate_rights(sync_groups)
+
+		// Get primary rank name
+		var/primary_rank = user.primary_group_name
+		if (!primary_rank)
+			primary_rank = "Staff Member"
+		admin["rank"] = primary_rank
+
+		admins[++admins.len] = admin
+	SSdbcore.MassInsert("ss13_admins", admins, duplicate_key=FALSE, ignore_errors=FALSE, warn=TRUE, async=FALSE)
+
+	var/datum/db_query/del_query = SSdbcore.NewQuery("DELETE FROM ss13_admins WHERE status = 0")
+	del_query.Execute(FALSE)
+	qdel(del_query)
 
 	if (reload_once_done)
 		load_admins()
@@ -250,20 +270,3 @@ SUBSYSTEM_DEF(auth)
 	LOG_DEBUG("AdminRanks: Updated Admins from Authentik API")
 
 	return TRUE
-
-/datum/controller/subsystem/auth/proc/insert_authentik_user_to_admins_table(datum/authentik_user/user, list/datum/authentik_group/groups)
-	if (isnull(user.ckey))
-		LOG_DEBUG("AdminRanks: [user.username] does not have a ckey linked - Ignoring")
-		return
-
-	// Aggregate rights from all groups
-	var/rights = user.aggregate_rights(groups)
-
-	// Get primary rank name
-	var/primary_rank = user.primary_group_name
-	if (!primary_rank)
-		primary_rank = "Staff Member"
-
-	// Insert or update in database
-	var/DBQuery/query = GLOB.dbcon.NewQuery("INSERT INTO ss13_admins VALUES (:ckey:, :rank:, :flags:, 1) ON DUPLICATE KEY UPDATE rank = :rank:, flags = :flags:, status = 1")
-	query.Execute(list("ckey" = ckey(user.ckey), "rank" = primary_rank, "flags" = rights))
