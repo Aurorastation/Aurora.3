@@ -4,7 +4,6 @@
 	var/sync_enabled      // attributes.gameserver.sync
 	var/flags        // attributes.gameserver.flags
 	var/priority          // attributes.priority (default 0)
-	var/list/user_ids     // users array from API
 
 /datum/authentik_group/New(data)
 	// Parse API response
@@ -16,9 +15,6 @@
 	if (attributes)
 		parse_attributes(attributes)
 
-	// Parse users
-	if (data["users"])
-		user_ids = data["users"]
 
 /datum/authentik_group/proc/parse_attributes(list/attributes)
 	// Extract gameserver settings
@@ -106,7 +102,7 @@
 /datum/http_request/authentik_api
 
 /datum/http_request/authentik_api/proc/prepare_groups_query(page = 1)
-	var/url = "[GLOB.config.authentik_api_url]/core/groups/?page=[page]"
+	var/url = "[GLOB.config.authentik_api_url]/core/groups/?page=[page]&include_users=false"
 	var/list/headers = list("Authorization" = "Bearer [GLOB.config.authentik_api_key]")
 	prepare(RUSTG_HTTP_METHOD_GET, url, headers=headers)
 

@@ -147,8 +147,13 @@ SUBSYSTEM_DEF(auth)
 		var/datum/http_response/groups_resp = groups_req.into_response()
 
 		if (groups_resp.errored)
-			crash_with("Groups request errored with: [groups_resp.error]")
 			log_and_message_admins("AdminRanks: Loading admins from Authentik API FAILED. Please alert web-service maintainers!")
+			crash_with("Groups request errored with: [groups_resp.error]")
+			return FALSE
+
+		if (groups_resp.status_code != 200)
+			log_and_message_admins("AdminRanks: Loading admins from Authentik API FAILED. Please alert web-service maintainers!")
+			crash_with("Groups request failed with status code: [groups_resp.status_code] body: [json_encode(groups_resp.body)]")
 			return FALSE
 
 		// Parse groups from this page
