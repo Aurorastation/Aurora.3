@@ -220,8 +220,8 @@ SUBSYSTEM_DEF(auth)
 		else
 			has_next = FALSE
 
-	// Step 4: Process users
-	var/list/datum/authentik_user/admins_to_push = list()
+	// Step 4: Process users and prepare them for the MassInsert Query
+	var/list/admins_to_push = list()
 
 	for (var/datum/authentik_user/user in all_users)
 		// Skip users without ckey
@@ -232,18 +232,6 @@ SUBSYSTEM_DEF(auth)
 		// Determine primary group
 		user.determine_primary_group(sync_groups)
 
-		admins_to_push += user
-
-	// Step 5: Update database
-	var/datum/db_query/prep_query = SSdbcore.NewQuery("UPDATE ss13_admins SET status = 0")
-	prep_query.Execute(FALSE) //Needs to be executed sync, as we need to wait for it to finish before we can update the admins
-	qdel(prep_query)
-
-	var/list/admins = list()
-	for (var/datum/authentik_user/user in admins_to_push)
-		if (isnull(user.ckey))
-			LOG_DEBUG("AdminRanks: [user.username] does not have a ckey linked - Ignoring")
-			continue
 		var/list/admin = list()
 		admin["status"] = 1
 		admin["ckey"] = ckey(user.ckey)
@@ -257,8 +245,15 @@ SUBSYSTEM_DEF(auth)
 			primary_rank = "Staff Member"
 		admin["rank"] = primary_rank
 
-		admins[++admins.len] = admin
-	SSdbcore.MassInsert("ss13_admins", admins, duplicate_key=FALSE, ignore_errors=FALSE, warn=TRUE, async=FALSE)
+		admins_to_push[++admins_to_push.len] = admin
+
+	// Step 5: Update database
+	var/datum/db_query/prep_query = SSdbcore.NewQuery("UPDATE ss13_admins SET status = 0")
+	prep_query.Execute(FALSE) //Needs to be executed sync, as we need to wait for it to finish before we can update the admins
+	qdel(prep_query)
+
+
+	SSdbcore.MassInsert("ss13_admins", admins_to_push, duplicate_key=FALSE, ignore_errors=FALSE, warn=TRUE, async=FALSE)
 
 	var/datum/db_query/del_query = SSdbcore.NewQuery("DELETE FROM ss13_admins WHERE status = 0")
 	del_query.Execute(FALSE)
