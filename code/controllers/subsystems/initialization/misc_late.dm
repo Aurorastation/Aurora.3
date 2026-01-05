@@ -34,7 +34,7 @@ SUBSYSTEM_DEF(misc_late)
 		thing.do_late_fire()
 		LAZYREMOVE(late_misc_firers, thing)
 
-	if (GLOB.config.use_forumuser_api)
+	if (GLOB.config.use_forumuser_api || GLOB.config.use_authentik_api)
 		update_admins_from_api(TRUE)
 
 	// Load outfits here so that the verb isn't laggy as balls.

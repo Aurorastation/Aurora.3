@@ -42,9 +42,9 @@ var/list/forum_groupids_to_ranks = list()
 				. |= R_SOUNDS
 			if ("r_spawn","r_create")
 				. |= R_SPAWN
-			if ("r_moderator")
+			if ("r_moderator", "r_mod")
 				. |= R_MOD
-			if ("r_developer")
+			if ("r_developer", "r_dev")
 				. |= R_DEV
 			if ("r_cciaa")
 				. |= R_CCIAA
@@ -168,6 +168,11 @@ var/list/forum_groupids_to_ranks = list()
 		world.SetConfig("APP/admin", A, null)
 
 /proc/update_admins_from_api(reload_once_done=FALSE)
+	// Check if we should use Authentik API
+	if (GLOB.config.use_authentik_api)
+		return update_admins_from_authentik(reload_once_done)
+
+	// Otherwise use the legacy ForumUser API
 	if (!establish_db_connection(GLOB.dbcon))
 		log_and_message_admins("AdminRanks: Failed to connect to database in update_admins_from_api(). Carrying on with old staff lists.")
 		return FALSE
@@ -209,6 +214,136 @@ var/list/forum_groupids_to_ranks = list()
 
 	return TRUE
 
+/proc/update_admins_from_authentik(reload_once_done=FALSE)
+	if (!establish_db_connection(GLOB.dbcon))
+		log_and_message_admins("AdminRanks: Failed to connect to database in update_admins_from_authentik(). Carrying on with old staff lists.")
+		return FALSE
+
+	// Step 1: Fetch all groups from Authentik with pagination
+	var/list/datum/authentik_group/all_groups = list()
+	var/current_page = 1
+	var/has_next = TRUE
+
+	while (has_next)
+		var/datum/http_request/authentik_api/groups_req = new()
+		groups_req.prepare_groups_query(current_page)
+		groups_req.begin_async()
+
+		UNTIL(groups_req.is_complete())
+
+		var/datum/http_response/groups_resp = groups_req.into_response()
+
+		if (groups_resp.errored)
+			crash_with("Groups request errored with: [groups_resp.error]")
+			log_and_message_admins("AdminRanks: Loading admins from Authentik API FAILED. Please alert web-service maintainers!")
+			return FALSE
+
+		// Parse groups from this page
+		var/list/results = groups_resp.body["results"]
+		for (var/group_data in results)
+			var/datum/authentik_group/group = new(group_data)
+			all_groups += group
+
+		// Check for next page
+		var/list/pagination = groups_resp.body["pagination"]
+		if (pagination && pagination["next"])
+			current_page = pagination["next"]
+		else
+			has_next = FALSE
+
+	// Step 2: Filter groups by gameserver.sync
+	var/list/datum/authentik_group/sync_groups = list()
+	var/list/group_ids = list()
+
+	for (var/datum/authentik_group/group in all_groups)
+		if (group.sync_enabled)
+			sync_groups += group
+			group_ids += group.group_id
+
+	if (!length(sync_groups))
+		log_and_message_admins("AdminRanks: No groups with gameserver.sync enabled found in Authentik.")
+		return FALSE
+
+	// Step 3: Fetch users for sync-enabled groups with pagination
+	var/list/datum/authentik_user/all_users = list()
+	current_page = 1
+	has_next = TRUE
+
+	while (has_next)
+		var/datum/http_request/authentik_api/users_req = new()
+		users_req.prepare_users_query(group_ids, current_page)
+		users_req.begin_async()
+
+		UNTIL(users_req.is_complete())
+
+		var/datum/http_response/users_resp = users_req.into_response()
+
+		if (users_resp.errored)
+			crash_with("Users request errored with: [users_resp.error]")
+			log_and_message_admins("AdminRanks: Loading users from Authentik API FAILED. Please alert web-service maintainers immediately!")
+			return FALSE
+
+		// Parse users from this page
+		var/list/user_results = users_resp.body["results"]
+		for (var/user_data in user_results)
+			var/datum/authentik_user/user = new(user_data)
+			all_users += user
+
+		// Check for next page
+		var/list/pagination = users_resp.body["pagination"]
+		if (pagination && pagination["next"])
+			current_page = pagination["next"]
+		else
+			has_next = FALSE
+
+	// Step 4: Process users
+	var/list/datum/authentik_user/admins_to_push = list()
+
+	for (var/datum/authentik_user/user in all_users)
+		// Skip users without ckey
+		if (isnull(user.ckey) || !length(user.ckey))
+			LOG_DEBUG("AdminRanks: [user.username] does not have a ckey linked - Ignoring")
+			continue
+
+		// Determine primary group
+		user.determine_primary_group(sync_groups)
+
+		admins_to_push += user
+
+	// Step 5: Update database
+	var/DBQuery/prep_query = GLOB.dbcon.NewQuery("UPDATE ss13_admins SET status = 0")
+	prep_query.Execute()
+
+	for (var/datum/authentik_user/user in admins_to_push)
+		insert_authentik_user_to_admins_table(user, sync_groups)
+
+	var/DBQuery/del_query = GLOB.dbcon.NewQuery("DELETE FROM ss13_admins WHERE status = 0")
+	del_query.Execute()
+
+	if (reload_once_done)
+		load_admins()
+
+	LOG_DEBUG("AdminRanks: Updated Admins from Authentik API")
+
+	return TRUE
+
+/proc/insert_authentik_user_to_admins_table(datum/authentik_user/user, list/datum/authentik_group/groups)
+	if (isnull(user.ckey))
+		LOG_DEBUG("AdminRanks: [user.username] does not have a ckey linked - Ignoring")
+		return
+
+	// Aggregate rights from all groups
+	var/rights = user.aggregate_rights(groups)
+
+	// Get primary rank name
+	var/primary_rank = user.primary_group_name
+	if (!primary_rank)
+		primary_rank = "Staff Member"
+
+	// Insert or update in database
+	var/DBQuery/query = GLOB.dbcon.NewQuery("INSERT INTO ss13_admins VALUES (:ckey:, :rank:, :flags:, 1) ON DUPLICATE KEY UPDATE rank = :rank:, flags = :flags:, status = 1")
+	query.Execute(list("ckey" = ckey(user.ckey), "rank" = primary_rank, "flags" = rights))
+
 /proc/insert_user_to_admins_table(datum/forum_user/user)
 	if(isnull(user.ckey))
 		LOG_DEBUG("AdminRanks: [user.forum_name] does not have a ckey linked - Ignoring")
@@ -223,7 +358,7 @@ var/list/forum_groupids_to_ranks = list()
 		if (r)
 			rights |= r.rights
 
-	var/primary_rank = "Administrator"
+	var/primary_rank = "Staff Member"
 
 	if (forum_groupids_to_ranks["[user.forum_primary_group]"])
 		var/datum/admin_rank/r = forum_groupids_to_ranks["[user.forum_primary_group]"]

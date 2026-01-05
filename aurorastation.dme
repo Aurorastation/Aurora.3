@@ -2421,6 +2421,7 @@
 #include "code\modules\holodeck\HolodeckPrograms.dm"
 #include "code\modules\holomap\poi.dm"
 #include "code\modules\holomap\portable_map_reader.dm"
+#include "code\modules\http\authentik_api.dm"
 #include "code\modules\http\forum_api.dm"
 #include "code\modules\http\forumuser_api.dm"
 #include "code\modules\http\http.dm"

@@ -464,6 +464,10 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	var/use_forumuser_api = FALSE
 	// global.forumuser_api_key - see modules/http/forumuser_api.dm
 
+	var/authentik_api_url
+	var/authentik_api_key
+	var/use_authentik_api = FALSE
+
 	var/profiler_is_enabled = FALSE
 	var/profiler_restart_period = 120 SECONDS
 	var/profiler_timeout_threshold = 5 SECONDS
@@ -1078,6 +1082,13 @@ GENERAL_PROTECT_DATUM(/datum/configuration)
 					use_forumuser_api = TRUE
 				if ("forumuser_api_key")
 					global.forumuser_api_key = value
+
+				if ("authentik_api_url")
+					GLOB.config.authentik_api_url = value
+				if ("use_authentik_api")
+					GLOB.config.use_authentik_api = TRUE
+				if ("authentik_api_key")
+					GLOB.config.authentik_api_key = value
 
 				if ("external_rsc_urls")
 					external_rsc_urls = splittext(value, ",")
