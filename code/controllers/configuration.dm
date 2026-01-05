@@ -460,10 +460,6 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	// global.forum_api_key - see modules/http/forum_api.dm
 	var/news_use_forum_api = FALSE
 
-	var/forumuser_api_url
-	var/use_forumuser_api = FALSE
-	// global.forumuser_api_key - see modules/http/forumuser_api.dm
-
 	var/authentik_api_url
 	var/authentik_api_key
 	var/use_authentik_api = FALSE
@@ -1075,13 +1071,6 @@ GENERAL_PROTECT_DATUM(/datum/configuration)
 					profiler_restart_period = text2num(value) SECONDS
 				if ("profiler_timeout_threshold")
 					profiler_timeout_threshold = text2num(value)
-
-				if ("forumuser_api_url")
-					forumuser_api_url = value
-				if ("use_forumuser_api")
-					use_forumuser_api = TRUE
-				if ("forumuser_api_key")
-					global.forumuser_api_key = value
 
 				if ("authentik_api_url")
 					GLOB.config.authentik_api_url = value
