@@ -46,8 +46,7 @@
 /area/ship/ssrm_corvette/canteen)
 "ajL" = (
 /obj/machinery/ammunition_loader/sol{
-	weapon_id = "SSRM_COIL";
-	dir = 4
+	weapon_id = "SSRM Light Coilgun"
 	},
 /turf/simulated/floor/reinforced,
 /area/ship/ssrm_corvette/starboard_battery)
@@ -1014,13 +1013,6 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/ship/ssrm_corvette/starboard_gunnery)
-"ceh" = (
-/obj/effect/ghostspawpoint{
-	identifier = "ssrm_navy_chief_petty_officer";
-	name = "igs - ssrm_navy_chief_petty_officer"
-	},
-/turf/simulated/floor/carpet/darkblue,
-/area/ship/ssrm_corvette/cpo_cabin)
 "cfJ" = (
 /obj/effect/floor_decal/corner_wide/green/full{
 	dir = 1
@@ -3124,11 +3116,14 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/ssrm_corvette/head)
 "gqH" = (
+/obj/structure/ship_weapon_dummy,
 /obj/machinery/ship_weapon/coilgun/light{
-	weapon_id = "SSRM_COIL"
+	pixel_x = -32;
+	pixel_y = -319;
+	weapon_id = "SSRM Light Coilgun"
 	},
-/turf/template_noop,
-/area/space)
+/turf/simulated/floor/reinforced,
+/area/ship/ssrm_corvette/starboard_battery)
 "gqK" = (
 /obj/machinery/power/apc/north{
 	req_access = list(203)
@@ -3785,6 +3780,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/ssrm_corvette/starboard_thrusters)
+"hRg" = (
+/obj/effect/ghostspawpoint{
+	identifier = "ssrm_navy_chief_petty_officer";
+	name = "igs - ssrm_navy_chief_petty_officer"
+	},
+/turf/simulated/floor/carpet/darkblue,
+/area/ship/ssrm_corvette/cpo_cabin)
 "hSW" = (
 /obj/structure/closet/crate/secure{
 	name = "damage control equipment";
@@ -6521,7 +6523,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/wall/shuttle/raider,
 /area/ship/ssrm_corvette/starboard_battery)
 "odO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -38025,7 +38027,7 @@ xRX
 xRX
 xRX
 xRX
-gqH
+xRX
 xRX
 xRX
 xRX
@@ -38272,7 +38274,7 @@ jAa
 pOd
 suy
 odL
-csf
+gqH
 csf
 hqY
 hqY
@@ -38528,7 +38530,7 @@ qvF
 sru
 qhH
 sDo
-sDo
+cvf
 csf
 cJU
 hqY
@@ -38785,7 +38787,7 @@ wTT
 ikt
 qhH
 sDo
-sDo
+cvf
 ajL
 cvf
 qYT
@@ -44156,7 +44158,7 @@ xRX
 xRX
 wUJ
 eiF
-ceh
+hRg
 eiF
 vYZ
 dKs
