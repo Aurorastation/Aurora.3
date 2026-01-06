@@ -103,7 +103,6 @@
  * @returns string The name of the primary group.
  */
 /datum/authentik_user/proc/determine_primary_group()
-	PRIVATE_PROC(FALSE)
 	// Find group with highest priority
 	var/highest_priority = -1
 	var/datum/authentik_group/primary = null
@@ -127,7 +126,6 @@
  * @returns int The aggregated rights of the user.
  */
 /datum/authentik_user/proc/aggregate_rights()
-	PRIVATE_PROC(FALSE)
 	// Aggregate rights from all groups user belongs to
 	var/rights = 0
 
