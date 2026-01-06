@@ -46,7 +46,7 @@
 /area/ship/ssrm_corvette/canteen)
 "ajL" = (
 /obj/machinery/ammunition_loader/sol{
-	weapon_id = SSRMCOIL;
+	weapon_id = "SSRM Grauwolf Flak Battery";
 	dir = 4
 	},
 /turf/simulated/floor/reinforced,
@@ -3115,7 +3115,7 @@
 /area/ship/ssrm_corvette/head)
 "gqH" = (
 /obj/machinery/ship_weapon/coilgun/light{
-	weapon_id = SSRMCOIL
+	weapon_id = "SSRM Grauwolf Flak Battery"
 	},
 /turf/template_noop,
 /area/space)
@@ -8812,6 +8812,13 @@
 "uuR" = (
 /turf/simulated/wall,
 /area/ship/ssrm_corvette/crew_lounge)
+"uvj" = (
+/obj/effect/ghostspawpoint{
+	identifier = "ssrm_navy_chief_petty_officer";
+	name = "igs - ssrm_navy_chief_petty_officer"
+	},
+/turf/simulated/floor/carpet/darkblue,
+/area/ship/ssrm_corvette/cpo_cabin)
 "uvT" = (
 /turf/template_noop{
 	req_access = list(203)
@@ -9900,13 +9907,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/ssrm_corvette/atmospherics)
-"wCB" = (
-/obj/effect/ghostspawpoint{
-	identifier = "ssrm_navy_chief_petty_officer";
-	name = "igs - ssrm_navy_chief_petty_officer"
-	},
-/turf/simulated/floor/carpet/darkblue,
-/area/ship/ssrm_corvette/cpo_cabin)
 "wCK" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -44150,7 +44150,7 @@ xRX
 xRX
 wUJ
 eiF
-wCB
+uvj
 eiF
 vYZ
 dKs
