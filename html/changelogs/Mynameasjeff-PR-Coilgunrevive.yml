@@ -55,7 +55,7 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Revives the long-lost Solarian Light Coilgun"
-  - rscadd: "Replaces the SSRM Recon Corvette's Grauwolf with said coilgun. "
+  - rscadd: "Revives the long-lost Solarian Light Coilgun (credit goes to @TheDanseMacabre for the assets and code)"
+  - rscadd: "Replaces the SSRM Recon Corvette's Grauwolf with said coilgun."
 
 
