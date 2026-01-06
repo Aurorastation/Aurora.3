@@ -45,8 +45,11 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/ssrm_corvette/canteen)
 "ajL" = (
-/obj/structure/lattice/catwalk,
-/turf/space,
+/obj/machinery/ammunition_loader/sol{
+	weapon_id = SSRM COIL;
+	dir = 4
+	},
+/turf/simulated/floor/reinforced,
 /area/ship/ssrm_corvette/starboard_battery)
 "ako" = (
 /obj/effect/landmark/entry_point/fore{
@@ -2900,9 +2903,6 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/loading/red{
-	dir = 8
-	},
 /turf/simulated/floor/reinforced,
 /area/ship/ssrm_corvette/starboard_battery)
 "fVv" = (
@@ -3111,12 +3111,11 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/ssrm_corvette/head)
 "gqH" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
+/obj/machinery/ship_weapon/coilgun/light{
+	weapon_id = SSRM COIL
 	},
-/obj/structure/ship_weapon_dummy,
-/turf/simulated/floor/reinforced,
-/area/ship/ssrm_corvette/starboard_battery)
+/turf/template_noop,
+/area/space)
 "gqK" = (
 /obj/machinery/power/apc/north{
 	req_access = list(203)
@@ -3745,12 +3744,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssrm_corvette/docking_port)
 "hNE" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 10
-	},
 /obj/structure/ship_weapon_dummy,
-/turf/simulated/floor/reinforced,
-/area/ship/ssrm_corvette/starboard_battery)
+/turf/template_noop,
+/area/space)
 "hOn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -3808,6 +3804,9 @@
 /area/ship/ssrm_corvette/docking_port)
 "hTa" = (
 /obj/effect/floor_decal/industrial/warning/corner,
+/obj/effect/floor_decal/industrial/loading/red{
+	dir = 8
+	},
 /turf/simulated/floor/reinforced,
 /area/ship/ssrm_corvette/starboard_battery)
 "hVy" = (
@@ -4637,15 +4636,6 @@
 /obj/machinery/light/small/emergency,
 /turf/simulated/floor/plating,
 /area/ship/ssrm_corvette/atmospherics)
-"jLw" = (
-/obj/machinery/ship_weapon/grauwolf{
-	pixel_x = -32;
-	pixel_y = -192;
-	weapon_id = "SSRM Grauwolf Flak Battery"
-	},
-/obj/structure/ship_weapon_dummy,
-/turf/simulated/floor/reinforced,
-/area/ship/ssrm_corvette/starboard_battery)
 "jMS" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -6445,14 +6435,11 @@
 /turf/simulated/floor/airless,
 /area/ship/ssrm_corvette/port_battery)
 "nWf" = (
-/obj/structure/viewport,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 6
-	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
 	id = "ssrm_windows_exterior"
 	},
+/obj/structure/viewport/sol,
 /turf/simulated/floor/reinforced,
 /area/ship/ssrm_corvette/starboard_battery)
 "nWO" = (
@@ -7422,11 +7409,9 @@
 /turf/simulated/wall/shuttle/raider,
 /area/ship/ssrm_corvette/eva_preperation)
 "qDa" = (
-/obj/machinery/ammunition_loader/grauwolf{
-	weapon_id = "SSRM Grauwolf Flak Battery"
-	},
-/turf/simulated/floor/reinforced,
-/area/ship/ssrm_corvette/starboard_battery)
+/obj/structure/ship_weapon_dummy/barrel,
+/turf/template_noop,
+/area/space)
 "qFW" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
@@ -7593,11 +7578,7 @@
 /turf/simulated/floor/plating,
 /area/ship/ssrm_corvette/atmospherics)
 "qYT" = (
-/obj/effect/floor_decal/industrial/warning/cee{
-	dir = 4
-	},
-/obj/item/hullbeacon/red,
-/turf/simulated/floor/airless,
+/turf/template_noop,
 /area/ship/ssrm_corvette/starboard_battery)
 "qZm" = (
 /obj/structure/cable{
@@ -7895,16 +7876,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssrm_corvette/port_battery)
 "rMT" = (
-/obj/item/hullbeacon/red,
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 8
 	},
+/obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/airless,
-/area/ship/ssrm_corvette/starboard_battery)
-"rNp" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/ship_weapon_dummy/barrel,
-/turf/space,
 /area/ship/ssrm_corvette/starboard_battery)
 "rOW" = (
 /obj/machinery/shower{
@@ -9401,6 +9377,13 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/airless,
 /area/ship/ssrm_corvette/starboard_battery)
 "vMq" = (
@@ -38019,7 +38002,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+gqH
 xRX
 xRX
 xRX
@@ -38266,14 +38249,14 @@ jAa
 pOd
 suy
 odL
-gqH
-hNE
+csf
+csf
 hqY
-rNp
+hqY
 rMT
-xRX
-xRX
-xRX
+hNE
+hNE
+qDa
 xRX
 xRX
 xRX
@@ -38522,15 +38505,15 @@ qvF
 sru
 qhH
 sDo
-jLw
+sDo
 csf
 cJU
 hqY
-rNp
+hqY
 vLo
-xRX
-xRX
-xRX
+hNE
+hNE
+qDa
 xRX
 xRX
 xRX
@@ -38779,11 +38762,11 @@ wTT
 ikt
 qhH
 sDo
-csf
-csf
-cJU
-hqY
-rNp
+sDo
+ajL
+cvf
+qYT
+qYT
 qYT
 xRX
 xRX
@@ -39036,11 +39019,11 @@ bKC
 sgw
 xni
 sDo
-qDa
+sDo
 hTa
 nWf
-ajL
-ajL
+qYT
+qYT
 xRX
 xRX
 xRX
