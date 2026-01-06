@@ -3754,7 +3754,7 @@
 "hNE" = (
 /obj/structure/ship_weapon_dummy,
 /turf/template_noop,
-/area/space)
+/area/ship/ssrm_corvette/starboard_battery)
 "hOn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -7440,7 +7440,7 @@
 "qDa" = (
 /obj/structure/ship_weapon_dummy/barrel,
 /turf/template_noop,
-/area/space)
+/area/ship/ssrm_corvette/starboard_battery)
 "qFW" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
@@ -7606,9 +7606,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/ssrm_corvette/atmospherics)
-"qYT" = (
-/turf/template_noop,
-/area/ship/ssrm_corvette/starboard_battery)
 "qZm" = (
 /obj/structure/cable{
 	icon_state = "1-4";
@@ -38790,9 +38787,9 @@ sDo
 cvf
 ajL
 cvf
-qYT
-qYT
-qYT
+xRX
+xRX
+xRX
 xRX
 xRX
 xRX
@@ -39047,8 +39044,8 @@ sDo
 sDo
 hTa
 nWf
-qYT
-qYT
+xRX
+xRX
 xRX
 xRX
 xRX
