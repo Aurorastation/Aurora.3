@@ -6,15 +6,20 @@ SUBSYSTEM_DEF(auth)
 	flags = SS_NO_FIRE
 
 
-	var/list/admin_ranks = list() //list of all ranks with associated rights
+	var/list/admin_ranks = list() /// list of all ranks with associated rights used by the legacy system
+	var/list/datum/authentik_group/authentik_groups = list() /// list of all groups with associated rights used by the new system
 
 /datum/controller/subsystem/auth/can_vv_get(var_name)
 	if(var_name == NAMEOF(src, admin_ranks))
 		return TRUE // we allow viewing the admin ranks
+	if(var_name == NAMEOF(src, authentik_groups))
+		return TRUE // we allow viewing the authentik groups
 	return ..()
 
 /datum/controller/subsystem/auth/vv_edit_var(var_name, var_value)
 	if(var_name == NAMEOF(src, admin_ranks))
+		return FALSE //but we dont allow editing them
+	if(var_name == NAMEOF(src, authentik_groups))
 		return FALSE //but we dont allow editing them
 	return ..()
 
@@ -27,7 +32,13 @@ SUBSYSTEM_DEF(auth)
 
 	return SS_INIT_SUCCESS
 
-
+/**
+ * Loads the admin ranks from the config file.
+ * In the legacy system this is used to determine what rights an admin has.
+ * In the new system authentik groups are used to determine what rights an admin has.
+ *
+ * @param rank_file The file to load the admin ranks from. Defaults to "config/admin_ranks.json"
+ */
 /datum/controller/subsystem/auth/proc/load_admin_ranks(rank_file="config/admin_ranks.json")
 	admin_ranks.Cut()
 
@@ -41,6 +52,12 @@ SUBSYSTEM_DEF(auth)
 		var/datum/admin_rank/rank = new(group)
 		admin_ranks[rank.rank_name] = rank
 
+/**
+ * Loads the admins.
+ * If the legacy system is enabled, it loads the admins from the admins.txt file
+ * If the legacy system is disabled, it loads the admins from the database, as they currently exist.load_admins()
+ * Does not automatically update the admins from the authentik API. This needs to be enabled separately using the `config.use_authentik_api` variable.
+ */
 /datum/controller/subsystem/auth/proc/load_admins()
 	clear_admins()
 
@@ -123,8 +140,11 @@ SUBSYSTEM_DEF(auth)
 	testing(msg)
 #endif
 
-
+/**
+ * Clears the admins from the game.
+ */
 /datum/controller/subsystem/auth/proc/clear_admins()
+	PRIVATE_PROC(TRUE)
 	//clear the datums references
 	admin_datums.Cut()
 	for(var/s in GLOB.staff)
@@ -137,7 +157,12 @@ SUBSYSTEM_DEF(auth)
 	for (var/A in world.GetConfig("admin"))
 		world.SetConfig("APP/admin", A, null)
 
-
+/**
+ * Updates the admins from the Authentik API.
+ *
+ * @param reload_once_done Whether to reload the admins once the update is done.
+ * @return Whether the update was successful.
+ */
 /datum/controller/subsystem/auth/proc/update_admins_from_authentik(reload_once_done=FALSE)
 	if(!SSdbcore.Connect())
 		log_and_message_admins("AdminRanks: Failed to connect to database in update_admins_from_authentik(). Carrying on with old staff lists.")
@@ -181,15 +206,15 @@ SUBSYSTEM_DEF(auth)
 			has_next = FALSE
 
 	// Step 2: Filter groups by gameserver.sync
-	var/list/datum/authentik_group/sync_groups = list()
+	authentik_groups = list()
 	var/list/group_ids = list()
 
 	for (var/datum/authentik_group/group in all_groups)
 		if (group.sync_enabled)
-			sync_groups += group
+			authentik_groups += group
 			group_ids += group.group_id
 
-	if (!length(sync_groups))
+	if (!length(authentik_groups))
 		log_and_message_admins("AdminRanks: No groups with gameserver.sync enabled found in Authentik.")
 		return FALSE
 
@@ -241,14 +266,14 @@ SUBSYSTEM_DEF(auth)
 			continue
 
 		// Determine primary group
-		user.determine_primary_group(sync_groups)
+		user.determine_primary_group()
 
 		var/list/admin = list()
 		admin["status"] = 1
 		admin["ckey"] = ckey(user.ckey)
 
 		// Aggregate rights from all groups
-		admin["flags"] = user.aggregate_rights(sync_groups)
+		admin["flags"] = user.aggregate_rights()
 
 		// Get primary rank name
 		var/primary_rank = user.primary_group_name
@@ -276,7 +301,14 @@ SUBSYSTEM_DEF(auth)
 
 	return TRUE
 
+/**
+ * Converts a list of auth strings into a bitmask of rights.
+ *
+ * @param auths The list of auth strings to convert.
+ * @return The bitmask of rights.
+ */
 /datum/controller/subsystem/auth/proc/auths_to_rights(list/auths)
+	SHOULD_BE_PURE(TRUE)
 	. = 0
 
 	for (var/auth in auths)
