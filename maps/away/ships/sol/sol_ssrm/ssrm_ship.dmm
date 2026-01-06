@@ -2969,6 +2969,9 @@
 /obj/structure/sign/flag/visegrad{
 	pixel_y = -32
 	},
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssrm_corvette/captain_cabin)
 "fZK" = (
@@ -3008,6 +3011,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssrm_corvette/eva_preperation)
+"gbP" = (
+/obj/effect/ghostspawpoint{
+	identifier = "ssrm_navy_chief_petty_officer";
+	name = "igs - ssrm_navy_chief_petty_officer"
+	},
+/turf/simulated/floor/carpet/darkblue,
+/area/ship/ssrm_corvette/cpo_cabin)
 "gcq" = (
 /obj/machinery/atmospherics/pipe/tank/carbon_dioxide{
 	dir = 1
@@ -3928,6 +3938,9 @@
 "ifi" = (
 /obj/structure/bed/stool/chair/sofa/right/black{
 	dir = 8
+	},
+/obj/machinery/light{
+	dir = 4
 	},
 /turf/simulated/floor/carpet/darkblue,
 /area/ship/ssrm_corvette/captain_office)
@@ -8812,13 +8825,6 @@
 "uuR" = (
 /turf/simulated/wall,
 /area/ship/ssrm_corvette/crew_lounge)
-"uvj" = (
-/obj/effect/ghostspawpoint{
-	identifier = "ssrm_navy_chief_petty_officer";
-	name = "igs - ssrm_navy_chief_petty_officer"
-	},
-/turf/simulated/floor/carpet/darkblue,
-/area/ship/ssrm_corvette/cpo_cabin)
 "uvT" = (
 /turf/template_noop{
 	req_access = list(203)
@@ -44150,7 +44156,7 @@ xRX
 xRX
 wUJ
 eiF
-uvj
+gbP
 eiF
 vYZ
 dKs
