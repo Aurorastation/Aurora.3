@@ -53,82 +53,19 @@ SUBSYSTEM_DEF(auth)
 		admin_ranks[rank.rank_name] = rank
 
 /**
- * Loads the admins.
+ * Clears and Loads the admins.
  * If the legacy system is enabled, it loads the admins from the admins.txt file
  * If the legacy system is disabled, it loads the admins from the database, as they currently exist.load_admins()
- * Does not automatically update the admins from the authentik API. This needs to be enabled separately using the `config.use_authentik_api` variable.
+ * Does not automatically update the admins from the authentik API. This needs to be enabled separately using the update_admins_from_authentik() proc
  */
 /datum/controller/subsystem/auth/proc/load_admins()
 	clear_admins()
 
 	if(GLOB.config.admin_legacy_system)
-		//load text from file
-		var/list/Lines = file2list("config/admins.txt")
-
-		//process each line seperately
-		for(var/line in Lines)
-			if(!length(line))
-				continue
-			if(copytext(line,1,2) == "#")
-				continue
-
-			//Split the line at every "-"
-			var/list/List = text2list(line, "-")
-			if(List.len != 2)
-				continue
-
-			//ckey is before the first "-"
-			var/ckey = ckey(List[1])
-			if(!ckey)
-				continue
-
-			//rank follows the first "-"
-			var/rank = trim(List[2])
-
-			//load permissions associated with this rank
-			var/datum/admin_rank/rank_object = admin_ranks[rank]
-
-			if (!rank_object)
-				log_world("ERROR: Unrecognized rank in admins.txt: \"[rank]\"")
-				continue
-
-			//create the admin datum and store it for later use
-			var/datum/admins/D = new /datum/admins(rank, rank_object?.rights || 0, ckey)
-
-			//find the client for a ckey if they are connected and associate them with the new admin datum
-			D.associate(GLOB.directory[ckey])
-
-			LOG_DEBUG("AdminRanks: Updated Admins from Legacy System")
+		load_admins_from_legacy_system()
 
 	else
-		//The current admin system uses SQL
-		if(!SSdbcore.Connect())
-			log_world("ERROR: AdminRanks: Failed to connect to database in load_admins(). Reverting to legacy system.")
-			log_misc("AdminRanks: Failed to connect to database in load_admins(). Reverting to legacy system.")
-			GLOB.config.admin_legacy_system = 1
-			load_admins()
-			return
-
-		var/datum/db_query/query = SSdbcore.NewQuery("SELECT ckey, `rank`, flags FROM ss13_admins")
-		query.Execute(FALSE)
-
-		while(query.NextRow())
-			var/ckey = query.item[1]
-			var/rank = query.item[2]
-			var/rights = query.item[3]
-			if(istext(rights))
-				rights = text2num(rights)
-
-			var/datum/admins/D = new /datum/admins(rank, rights, ckey)
-			//find the client for a ckey if they are connected and associate them with the new admin datum
-			D.associate(GLOB.directory[ckey])
-
-		if(!admin_datums)
-			log_world("ERROR: AdminRanks: The database query in load_admins() resulted in no admins being added to the list. Reverting to legacy system.")
-			log_misc("AdminRanks: The database query in load_admins() resulted in no admins being added to the list. Reverting to legacy system.")
-			GLOB.config.admin_legacy_system = 1
-			load_admins()
-			return
+		load_admins_from_database()
 
 #ifdef TESTING
 	var/msg = "Admins Built:\n"
@@ -140,6 +77,76 @@ SUBSYSTEM_DEF(auth)
 	testing(msg)
 #endif
 
+/datum/controller/subsystem/auth/proc/load_admins_from_legacy_system()
+	PRIVATE_PROC(TRUE)
+	//load text from file
+	var/list/Lines = file2list("config/admins.txt")
+
+	//process each line seperately
+	for(var/line in Lines)
+		if(!length(line))
+			continue
+		if(copytext(line,1,2) == "#")
+			continue
+
+		//Split the line at every "-"
+		var/list/List = text2list(line, "-")
+		if(List.len != 2)
+			continue
+
+		//ckey is before the first "-"
+		var/ckey = ckey(List[1])
+		if(!ckey)
+			continue
+
+		//rank follows the first "-"
+		var/rank = trim(List[2])
+
+		//load permissions associated with this rank
+		var/datum/admin_rank/rank_object = admin_ranks[rank]
+
+		if (!rank_object)
+			log_world("ERROR: Unrecognized rank in admins.txt: \"[rank]\"")
+			continue
+
+		//create the admin datum and store it for later use
+		var/datum/admins/D = new /datum/admins(rank, rank_object?.rights || 0, ckey)
+
+		//find the client for a ckey if they are connected and associate them with the new admin datum
+		D.associate(GLOB.directory[ckey])
+
+		LOG_DEBUG("AdminRanks: Updated Admins from Legacy System")
+
+/datum/controller/subsystem/auth/proc/load_admins_from_database()
+	PRIVATE_PROC(TRUE)
+	//The current admin system uses SQL
+	if(!SSdbcore.Connect())
+		log_world("ERROR: AdminRanks: Failed to connect to database in load_admins(). Reverting to legacy system.")
+		log_misc("AdminRanks: Failed to connect to database in load_admins(). Reverting to legacy system.")
+		GLOB.config.admin_legacy_system = 1
+		load_admins()
+		return
+
+	var/datum/db_query/query = SSdbcore.NewQuery("SELECT ckey, `rank`, flags FROM ss13_admins")
+	query.Execute(FALSE)
+
+	while(query.NextRow())
+		var/ckey = query.item[1]
+		var/rank = query.item[2]
+		var/rights = query.item[3]
+		if(istext(rights))
+			rights = text2num(rights)
+
+		var/datum/admins/D = new /datum/admins(rank, rights, ckey)
+		//find the client for a ckey if they are connected and associate them with the new admin datum
+		D.associate(GLOB.directory[ckey])
+
+	if(!admin_datums)
+		log_world("ERROR: AdminRanks: The database query in load_admins() resulted in no admins being added to the list. Reverting to legacy system.")
+		log_misc("AdminRanks: The database query in load_admins() resulted in no admins being added to the list. Reverting to legacy system.")
+		GLOB.config.admin_legacy_system = 1
+		load_admins_from_legacy_system()
+		return
 /**
  * Clears the admins from the game.
  */
@@ -295,7 +302,7 @@ SUBSYSTEM_DEF(auth)
 	qdel(del_query)
 
 	if (reload_once_done)
-		load_admins()
+		load_admins_from_database()
 
 	LOG_DEBUG("AdminRanks: Updated Admins from Authentik API")
 
