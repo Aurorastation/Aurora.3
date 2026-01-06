@@ -46,7 +46,7 @@
 /area/ship/ssrm_corvette/canteen)
 "ajL" = (
 /obj/machinery/ammunition_loader/sol{
-	weapon_id = "SSRM Grauwolf Flak Battery";
+	weapon_id = "SSRM_COIL";
 	dir = 4
 	},
 /turf/simulated/floor/reinforced,
@@ -2135,6 +2135,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssrm_corvette/synthroom)
+"epJ" = (
+/obj/effect/ghostspawpoint{
+	identifier = "ssrm_navy_chief_petty_officer";
+	name = "igs - ssrm_navy_chief_petty_officer"
+	},
+/turf/simulated/floor/carpet/darkblue,
+/area/ship/ssrm_corvette/cpo_cabin)
 "esV" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/table/wood,
@@ -3011,13 +3018,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssrm_corvette/eva_preperation)
-"gbP" = (
-/obj/effect/ghostspawpoint{
-	identifier = "ssrm_navy_chief_petty_officer";
-	name = "igs - ssrm_navy_chief_petty_officer"
-	},
-/turf/simulated/floor/carpet/darkblue,
-/area/ship/ssrm_corvette/cpo_cabin)
 "gcq" = (
 /obj/machinery/atmospherics/pipe/tank/carbon_dioxide{
 	dir = 1
@@ -3125,7 +3125,7 @@
 /area/ship/ssrm_corvette/head)
 "gqH" = (
 /obj/machinery/ship_weapon/coilgun/light{
-	weapon_id = "SSRM Grauwolf Flak Battery"
+	weapon_id = "SSRM_COIL"
 	},
 /turf/template_noop,
 /area/space)
@@ -5594,6 +5594,9 @@
 	dir = 8;
 	id = "ssrm_airlocks"
 	},
+/obj/machinery/ship_weapon/coilgun/light{
+	weapon_id = "SSRM_COIL"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ssrm_corvette)
 "mjR" = (
@@ -5844,6 +5847,9 @@
 	d2 = 2
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/ship_weapon/coilgun/light{
+	weapon_id = "SSRM_COIL"
+	},
 /turf/simulated/floor,
 /area/ship/ssrm_corvette/reactor)
 "mJE" = (
@@ -7142,6 +7148,13 @@
 	},
 /turf/template_noop,
 /area/space)
+"pRG" = (
+/obj/structure/lattice,
+/obj/machinery/ship_weapon/coilgun/light{
+	weapon_id = "SSRM_COIL"
+	},
+/turf/template_noop,
+/area/space)
 "pRO" = (
 /obj/structure/table/wood,
 /obj/machinery/button/remote/airlock{
@@ -8388,6 +8401,9 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/ship_weapon/coilgun/light{
+	weapon_id = "SSRM_COIL"
+	},
 /turf/simulated/floor/reinforced,
 /area/ship/ssrm_corvette/reactor)
 "tta" = (
@@ -42865,7 +42881,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+gqH
 xRX
 xRX
 xRX
@@ -43637,7 +43653,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+gqH
 xRX
 xRX
 wun
@@ -44156,7 +44172,7 @@ xRX
 xRX
 wUJ
 eiF
-gbP
+epJ
 eiF
 vYZ
 dKs
@@ -44410,7 +44426,7 @@ xRX
 xRX
 xRX
 xRX
-dhF
+pRG
 wUJ
 ipE
 vDB
@@ -45183,7 +45199,7 @@ diS
 diS
 diS
 dhF
-dhF
+pRG
 tWJ
 eRS
 tqc
