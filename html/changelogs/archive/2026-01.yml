@@ -3,3 +3,8 @@
   - bugfix: The Set Odyssey Type verb now properly works, and can be used as soon
       as the lobby starts.
   - rscadd: Administrators can now manually change Odyssey canonicity.
+2026-01-06:
+  steviii:
+  - bugfix: Fixed the Phoron Deposit site only having south-facing navpoints.
+  - rscadd: Added coded-in navpoints to the Phoron Deposit site, instead of using
+      automatic navpoints.
