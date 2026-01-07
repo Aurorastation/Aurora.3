@@ -210,12 +210,12 @@
 	var/transaction_terminal = machine_id
 
 	if(transaction_amount <= E.worth)
-		playsound(src, 'sound/machines/chime.ogg', 50, 1)
-		src.visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] \The [src] chimes."))
-
 		SSeconomy.charge_to_account(SSeconomy.get_department_account(destinationact)?.account_number, E.owner_name, transaction_purpose, transaction_terminal, transaction_amount)
 		E.worth -= transaction_amount
+
 		visible_message("\The [user] swipes a card on \the [src]." )
+		playsound(src, 'sound/machines/chime.ogg', 50, 1)
+		src.audible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] \The [src] chimes."))
 		print_receipt()
 		sum = 0
 		receipt = ""
@@ -312,6 +312,8 @@
 				receipt += "<b>[item_name]</b>: x[item_amount] at [item_price]cr each<br>"
 				sum += item_price * item_amount
 			receipt += "<b>Total:</b> [sum]cr<br>"
+			playsound(src, 'sound/machines/ping.ogg', 25, 1)
+			audible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] \The [src] pings."))
 			. = TRUE
 
 		if("locking")

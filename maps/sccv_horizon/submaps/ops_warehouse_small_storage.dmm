@@ -80,6 +80,10 @@
 /obj/item/stack/cable_coil,
 /turf/template_noop,
 /area/template_noop)
+"bv" = (
+/obj/structure/cart/storage/janitorialcart/full,
+/turf/template_noop,
+/area/template_noop)
 "bw" = (
 /obj/structure/table/rack/no_cargo,
 /obj/item/rfd/piping,
@@ -113,6 +117,11 @@
 /area/template_noop)
 "cn" = (
 /obj/structure/automobile_filler,
+/turf/template_noop,
+/area/template_noop)
+"cv" = (
+/obj/machinery/power/portgen/basic/fusion,
+/obj/effect/decal/cleanable/greenglow/radioactive/medium,
 /turf/template_noop,
 /area/template_noop)
 "cE" = (
@@ -302,11 +311,6 @@
 /area/template_noop)
 "hu" = (
 /obj/vehicle/bike/motor/brown,
-/turf/template_noop,
-/area/template_noop)
-"hL" = (
-/obj/machinery/power/portgen/basic/fusion,
-/obj/effect/decal/cleanable/greenglow/radioactive,
 /turf/template_noop,
 /area/template_noop)
 "hY" = (
@@ -600,15 +604,15 @@
 /obj/random/maintenance_junk_or_loot,
 /turf/template_noop,
 /area/template_noop)
+"nN" = (
+/obj/effect/decal/cleanable/greenglow/radioactive/low,
+/turf/template_noop,
+/area/template_noop)
 "nO" = (
 /obj/random/dirt_75,
 /obj/item/flag/unathi_tapestry/moon,
 /obj/item/flag/unathi_tapestry/moon,
 /obj/structure/table/rack/no_cargo,
-/turf/template_noop,
-/area/template_noop)
-"nS" = (
-/obj/machinery/media/jukebox,
 /turf/template_noop,
 /area/template_noop)
 "nW" = (
@@ -688,6 +692,10 @@
 /obj/structure/closet/crate/miningcart/ore,
 /turf/template_noop,
 /area/template_noop)
+"qI" = (
+/obj/machinery/media/jukebox,
+/turf/template_noop,
+/area/template_noop)
 "qM" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
 /obj/structure/bed/stool/chair/sofa/right/brown{
@@ -708,11 +716,6 @@
 /obj/item/bluespace_crystal/artificial,
 /obj/item/bluespace_crystal/artificial,
 /obj/item/bluespace_crystal/artificial,
-/turf/template_noop,
-/area/template_noop)
-"qT" = (
-/obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
-/obj/effect/decal/cleanable/greenglow,
 /turf/template_noop,
 /area/template_noop)
 "rx" = (
@@ -950,8 +953,9 @@
 /obj/random/coin,
 /turf/template_noop,
 /area/template_noop)
-"vG" = (
-/obj/structure/cart/storage/janitorialcart/full,
+"vX" = (
+/obj/effect/decal/cleanable/greenglow/radioactive/low,
+/obj/structure/reagent_dispensers/radioactive_waste,
 /turf/template_noop,
 /area/template_noop)
 "wa" = (
@@ -1085,12 +1089,6 @@
 /obj/item/clothing/gloves/janitor/vaurca,
 /turf/template_noop,
 /area/template_noop)
-"zO" = (
-/obj/structure/table/rack/no_cargo,
-/obj/item/device/radio/headset/wrist/xenoarch,
-/obj/item/device/radio/headset/wrist/xenoarch,
-/turf/template_noop,
-/area/template_noop)
 "zP" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
 /obj/random/pottedplant,
@@ -1210,6 +1208,11 @@
 /obj/item/circuitboard/shield_gen,
 /turf/template_noop,
 /area/template_noop)
+"DL" = (
+/obj/structure/reagent_dispensers/radioactive_waste/hazardous/low,
+/obj/effect/decal/cleanable/greenglow/radioactive/low,
+/turf/template_noop,
+/area/template_noop)
 "Ed" = (
 /obj/random/dirt_75,
 /obj/structure/table/rack/no_cargo,
@@ -1255,6 +1258,12 @@
 /obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
 /obj/machinery/ship_weapon/autocannon,
 /obj/random/dirt_75,
+/turf/template_noop,
+/area/template_noop)
+"Fn" = (
+/obj/structure/warp_drive{
+	anchored = 0
+	},
 /turf/template_noop,
 /area/template_noop)
 "FD" = (
@@ -1477,11 +1486,6 @@
 	},
 /turf/template_noop,
 /area/template_noop)
-"Mh" = (
-/obj/structure/reagent_dispensers/radioactive_waste,
-/obj/effect/decal/cleanable/greenglow,
-/turf/template_noop,
-/area/template_noop)
 "Ms" = (
 /obj/machinery/portable_atmospherics/canister/heliumfuel,
 /turf/template_noop,
@@ -1494,10 +1498,6 @@
 "MQ" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
 /obj/machinery/vending/hydronutrients,
-/turf/template_noop,
-/area/template_noop)
-"MR" = (
-/obj/structure/warp_drive,
 /turf/template_noop,
 /area/template_noop)
 "MW" = (
@@ -1690,6 +1690,11 @@
 /obj/effect/floor_decal/industrial/outline/engineering,
 /turf/template_noop,
 /area/template_noop)
+"QJ" = (
+/obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
+/obj/structure/reagent_dispensers/radioactive_waste,
+/turf/template_noop,
+/area/template_noop)
 "Rn" = (
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/template_noop,
@@ -1786,6 +1791,11 @@
 /area/template_noop)
 "TP" = (
 /obj/machinery/appliance/cooker/grill,
+/turf/template_noop,
+/area/template_noop)
+"TX" = (
+/obj/effect/decal/cleanable/greenglow/radioactive/low,
+/obj/structure/reagent_dispensers/radioactive_waste/hazardous/low,
 /turf/template_noop,
 /area/template_noop)
 "Ul" = (
@@ -2408,7 +2418,7 @@ Gz
 sW
 uO
 Gz
-MR
+Fn
 Gz
 tG
 Gz
@@ -2682,11 +2692,11 @@ Gz
 Gz
 Gz
 sW
-Mh
+DL
 xM
 NI
-xM
-qT
+TX
+QJ
 Gz
 Gz
 Gz
@@ -2728,11 +2738,11 @@ Gz
 Gz
 Gz
 Gz
-hL
+cv
 Gz
-Al
+nN
 Gz
-Mh
+vX
 Gz
 Gz
 Gz
@@ -2774,7 +2784,7 @@ Gz
 Gz
 Gz
 sW
-xM
+Sl
 Gz
 Gz
 Al
@@ -3593,7 +3603,7 @@ Gz
 Gz
 Gz
 Gz
-vG
+bv
 Gz
 Gz
 Gz
@@ -3639,7 +3649,7 @@ zw
 Gz
 Gz
 Gz
-vG
+bv
 nn
 Gz
 Gz
@@ -4706,7 +4716,7 @@ Gz
 Gz
 Gz
 sW
-zO
+iM
 Gz
 Gz
 ot
@@ -5012,7 +5022,7 @@ MW
 MW
 Gz
 Gz
-nS
+qI
 nn
 sW
 HU
@@ -5451,7 +5461,7 @@ Gz
 Gz
 Gz
 sW
-nS
+qI
 Gz
 Gz
 eB
@@ -5555,7 +5565,7 @@ Oz
 Gz
 Gz
 Gz
-nS
+qI
 nn
 Gz
 Gz
