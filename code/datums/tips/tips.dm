@@ -173,7 +173,7 @@ GLOBAL_LIST_EMPTY(tips_by_category)
 		"As a Paramedic, you can take special drop pouches. These let you have more room for medical equipment. You can find them in the accessories tab.",
 		"As a Paramedic, its a good idea to stop the bleeding before transportation.",
 		"As a Paramedic, you're naturally cool.",
-		"As the Psychiatrist, advertise yourself. Go talk to people. Otherwise, you'll be bored out of your mind."
+		"As the Psychiatrist, advertise yourself. Go talk to people. Otherwise, you'll be bored out of your mind.",
 		"Implanted Greimorian eggs can be removed by administering the anti-parasitic drug helmizole, or by performing surgery to remove the eggsac from the affected body part like any other organ or parasite."
 	)
 
