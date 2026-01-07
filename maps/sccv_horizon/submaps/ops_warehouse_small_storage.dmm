@@ -102,6 +102,11 @@
 /obj/item/clothing/mask/gas/alt,
 /turf/template_noop,
 /area/template_noop)
+"bA" = (
+/obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
+/obj/structure/reagent_dispensers/radioactive_waste,
+/turf/template_noop,
+/area/template_noop)
 "bU" = (
 /obj/vehicle/bike/motor/green,
 /turf/template_noop,
@@ -117,11 +122,6 @@
 /area/template_noop)
 "cn" = (
 /obj/structure/automobile_filler,
-/turf/template_noop,
-/area/template_noop)
-"cv" = (
-/obj/machinery/power/portgen/basic/fusion,
-/obj/effect/decal/cleanable/greenglow/radioactive/medium,
 /turf/template_noop,
 /area/template_noop)
 "cE" = (
@@ -285,6 +285,10 @@
 /area/template_noop)
 "gT" = (
 /obj/structure/closet/masks,
+/turf/template_noop,
+/area/template_noop)
+"gV" = (
+/obj/effect/decal/cleanable/greenglow/radioactive/low,
 /turf/template_noop,
 /area/template_noop)
 "ha" = (
@@ -602,10 +606,6 @@
 /obj/random/junk,
 /obj/random/maintenance_junk_or_loot,
 /obj/random/maintenance_junk_or_loot,
-/turf/template_noop,
-/area/template_noop)
-"nN" = (
-/obj/effect/decal/cleanable/greenglow/radioactive/low,
 /turf/template_noop,
 /area/template_noop)
 "nO" = (
@@ -953,11 +953,6 @@
 /obj/random/coin,
 /turf/template_noop,
 /area/template_noop)
-"vX" = (
-/obj/effect/decal/cleanable/greenglow/radioactive/low,
-/obj/structure/reagent_dispensers/radioactive_waste,
-/turf/template_noop,
-/area/template_noop)
 "wa" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
 /obj/structure/closet/emcloset,
@@ -1208,11 +1203,6 @@
 /obj/item/circuitboard/shield_gen,
 /turf/template_noop,
 /area/template_noop)
-"DL" = (
-/obj/structure/reagent_dispensers/radioactive_waste/hazardous/low,
-/obj/effect/decal/cleanable/greenglow/radioactive/low,
-/turf/template_noop,
-/area/template_noop)
 "Ed" = (
 /obj/random/dirt_75,
 /obj/structure/table/rack/no_cargo,
@@ -1258,12 +1248,6 @@
 /obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
 /obj/machinery/ship_weapon/autocannon,
 /obj/random/dirt_75,
-/turf/template_noop,
-/area/template_noop)
-"Fn" = (
-/obj/structure/warp_drive{
-	anchored = 0
-	},
 /turf/template_noop,
 /area/template_noop)
 "FD" = (
@@ -1486,6 +1470,11 @@
 	},
 /turf/template_noop,
 /area/template_noop)
+"Mk" = (
+/obj/effect/decal/cleanable/greenglow/radioactive/low,
+/obj/structure/reagent_dispensers/radioactive_waste/hazardous/low,
+/turf/template_noop,
+/area/template_noop)
 "Ms" = (
 /obj/machinery/portable_atmospherics/canister/heliumfuel,
 /turf/template_noop,
@@ -1493,6 +1482,11 @@
 "MH" = (
 /obj/random/junk,
 /obj/random/maintenance_junk_or_loot,
+/turf/template_noop,
+/area/template_noop)
+"MJ" = (
+/obj/machinery/power/portgen/basic/fusion,
+/obj/effect/decal/cleanable/greenglow/radioactive/medium,
 /turf/template_noop,
 /area/template_noop)
 "MQ" = (
@@ -1690,11 +1684,6 @@
 /obj/effect/floor_decal/industrial/outline/engineering,
 /turf/template_noop,
 /area/template_noop)
-"QJ" = (
-/obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
-/obj/structure/reagent_dispensers/radioactive_waste,
-/turf/template_noop,
-/area/template_noop)
 "Rn" = (
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/template_noop,
@@ -1711,6 +1700,11 @@
 /obj/item/rig/skrell,
 /obj/structure/table/rack/no_cargo,
 /obj/random/dirt_75,
+/turf/template_noop,
+/area/template_noop)
+"RD" = (
+/obj/structure/reagent_dispensers/radioactive_waste/hazardous/low,
+/obj/effect/decal/cleanable/greenglow/radioactive/low,
 /turf/template_noop,
 /area/template_noop)
 "RG" = (
@@ -1793,11 +1787,6 @@
 /obj/machinery/appliance/cooker/grill,
 /turf/template_noop,
 /area/template_noop)
-"TX" = (
-/obj/effect/decal/cleanable/greenglow/radioactive/low,
-/obj/structure/reagent_dispensers/radioactive_waste/hazardous/low,
-/turf/template_noop,
-/area/template_noop)
 "Ul" = (
 /obj/random/plushie,
 /turf/template_noop,
@@ -1876,6 +1865,11 @@
 /obj/random/pizzabox,
 /obj/random/pizzabox,
 /obj/random/pizzabox,
+/turf/template_noop,
+/area/template_noop)
+"Vz" = (
+/obj/effect/decal/cleanable/greenglow/radioactive/low,
+/obj/structure/reagent_dispensers/radioactive_waste,
 /turf/template_noop,
 /area/template_noop)
 "VO" = (
@@ -2013,6 +2007,12 @@
 /area/template_noop)
 "Zm" = (
 /obj/machinery/portable_atmospherics/canister/empty/oxygen,
+/turf/template_noop,
+/area/template_noop)
+"ZK" = (
+/obj/structure/warp_drive{
+	anchored = 0
+	},
 /turf/template_noop,
 /area/template_noop)
 "ZM" = (
@@ -2418,7 +2418,7 @@ Gz
 sW
 uO
 Gz
-Fn
+ZK
 Gz
 tG
 Gz
@@ -2692,11 +2692,11 @@ Gz
 Gz
 Gz
 sW
-DL
+RD
 xM
 NI
-TX
-QJ
+Mk
+bA
 Gz
 Gz
 Gz
@@ -2738,11 +2738,11 @@ Gz
 Gz
 Gz
 Gz
-cv
+MJ
 Gz
-nN
+gV
 Gz
-vX
+Vz
 Gz
 Gz
 Gz
