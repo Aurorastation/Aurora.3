@@ -46,7 +46,8 @@
 /area/ship/ssrm_corvette/canteen)
 "ajL" = (
 /obj/machinery/ammunition_loader/sol{
-	weapon_id = "SSRM Light Coilgun"
+	weapon_id = "SSRM Light Coilgun";
+	dir = 4
 	},
 /turf/simulated/floor/reinforced,
 /area/ship/ssrm_corvette/starboard_battery)
