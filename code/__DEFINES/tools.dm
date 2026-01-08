@@ -1,5 +1,7 @@
-// Tool types, if you add new ones please add them to /obj/item/debug/omnitool in code/game/objects/items/debug_items.dm
-// and to GLOB.all_tool_behaviours in code/_globalvars/lists/engineering.dm
+// Tool types, as used by the obj/item variable 'tool_behaviour'. These are strings and not bitfields, because even
+// though some objects logically could function as multiple tools simultaneously, the 'tool_behaviour' variable describes
+// current intention, not functionality. For an item that can function as multiple tools, it must have a mechanism to switch
+// between intended tool types.
 #define TOOL_CROWBAR "crowbar"
 #define TOOL_MULTITOOL "multitool"
 #define TOOL_SCREWDRIVER "screwdriver"

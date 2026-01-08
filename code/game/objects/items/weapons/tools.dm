@@ -811,6 +811,8 @@
 
 /obj/item/powerdrill/Initialize()
 	. = ..()
+	// When spawned, it has the screwdriver bit enabled. Reflect that.
+	tool_behaviour = TOOL_SCREWDRIVER
 	update_tool()
 
 /obj/item/powerdrill/set_initial_maptext()

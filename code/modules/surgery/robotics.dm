@@ -739,7 +739,7 @@
 		return FALSE
 
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	if(tool.iswelder())
+	if(tool.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/welder = tool
 		if(!welder.isOn() || welder.get_fuel() < 5)
 			return FALSE
@@ -755,7 +755,7 @@
 	..()
 
 /singleton/surgery_step/robotics/repair_endoskeleton/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(tool.iswelder())
+	if(tool.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/welder = tool
 		if(!welder.isOn() && !welder.use(5, user))
 			user.visible_message(SPAN_WARNING("[user]'s [tool] shut off before the procedure was finished."), \

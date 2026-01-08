@@ -21,7 +21,7 @@ ABSTRACT_TYPE(/obj/structure/cart)
 /obj/structure/cart/disassembly_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "An empty cart can be taken apart with a <b>wrench</b> or a <b>welder</b>. Or a <b>plasma cutter</b>, if you're that hardcore. If it contains anything when disassembled, these contents will spill onto the floor."
-/obj/structure/cart/proc/take_apart(var/mob/user = null, var/obj/object)
+/obj/structure/cart/proc/take_apart(var/mob/user = null, var/obj/item/object)
 	if(user)
 		if(object.tool_behaviour == TOOL_WELDER)
 			var/obj/item/welder = object
