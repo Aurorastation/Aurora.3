@@ -121,3 +121,136 @@
 2025-12-11:
   FabianK3:
   - bugfix: Fixed kneepads not being able to be atteched to pants.
+2025-12-13:
+  Hellfirejag:
+  - rscadd: Comprehensively reworked interactions between Psionics, Psi-Receivers,
+      Mind Blankers, and Mindshields, such that they now all operate on a unified
+      'psi-sensitivity' and psi-blocking check. Being psionic makes you more psi-sensitive,
+      but so does having a psi-receiver. Having a mindshield or mind blanker makes
+      you less psi-sensitive. A variety of mechanics now operate on psi-sensitivity
+      or relative sensitivity.
+2025-12-15:
+  GeneralCamo:
+  - bugfix: Fix stealth removal of Santa's bag.
+2025-12-17:
+  Hellfirejag:
+  - bugfix: Fixed mindshields and mind blankers spamming the chat.
+2025-12-20:
+  Batrachophrenoboocosmomachia:
+  - balance: Dirty bomb cleanable 'greenglow' decal left behind is now actually radioactive
+      to make it more persistently hazardous.
+  - balance: '''Radioactive waste'' rare Warehouse spawn submap now uses low-radioactivity
+      variants for some of its contents and also been given a radioactive gear crate.'
+  - balance: Adds increased taste_mult values to radioactive waste, napalm, and nitroglycerin;
+      it should be noticeable if your drink is spiked with any of them.
+  - balance: Both uranium and radioactive waste reagents will create radioactive pools
+      on the floor if spilled (uranium weak, radioactive waste medium/strong).
+  - balance: Bombs are now allowed to be planted on any mob type except for carbons.
+  - balance: Increases the numbers of assemblies (signalers, igniters, etc.) stocked
+      in vending machines.
+  - balance: Increases radiation protection values of both Engineering and Atmos voidsuits.
+  - rscadd: Adds a radioactive waste chemical canister to the Uplink (5 tc).
+  - code_imp: Adds additional variants of greenglow/radioactive decal and radioactive_waste/hazardous
+      obj that are more or less radioactive for mapping and ST use.
+  - code_imp: Cleans up bomb timer setting code and admin logging.
+  - qol: Adds more examine hints to reagent dispensers.
+  - qol: Adds more examine hints to bombs.
+  - refactor: Replaces Janitorial Cart NanoUI interface with radial menu like the
+      other storage carts use.
+  - qol: Updates examine hints for several storage carts.
+  - code_imp: Updates variable naming.
+  - bugfix: Fixes spray bottles interacting inconsistently with Janitorial Carts in
+      some cases.
+  - bugfix: Fixes advanced light replacer icon not displaying when stored in Janitorial
+      Cart.
+  - bugfix: Fixes engineering cart not spilling steel or plasteel when calling spill().
+  ElorgRHG:
+  - imageadd: Made sandal sprites use a standardised colorable palette.
+  - rscdel: Removed flip flops due to the sprite being identical to geta sandals.
+  - bugfix: Fixes caligae (sock) sprite for Unathi.
+  FabianK3:
+  - qol: Updated airlock behavior on power loss. Airlocks will no longer open when
+      they lose power but instead will stay closed or will close if already open.
+  - rscadd: Added airlock manual override mechanic. When an airlock is functional
+      and unbolted but simply has no power, a manual override can be used to open
+      it. Click the unpowered airlock with an empty hand to start the override procedure.
+      This process takes around fifteen seconds and will force open the airlock without
+      requiring any tool. It's designed for emergency cases when power failed. The
+      door will close again after regaining power after the emergency override has
+      been used. Secure airlocks do not feature the manual override.
+  GeneralCamo:
+  - code_imp: Damage ratios now use integers instead of decimals, reducing the impact
+      of floating point rounding errors.
+  - bugfix: Implants now remain in amputated limbs.
+  - rscadd: Amputated external organs now retain their implants and internal organs.
+  - code_imp: Embedded objects are now stored in wounds, not in limbs (at least, not
+      directly).
+  - balance: Larger embedded objects now halt bleeding in wounds.
+  - balance: Embedded objects now halt healing in wounds.
+  - code_imp: Untangled damage flags and injury type flags.
+  - balance: Pinning no longer blocks yanking out items.
+  - balance: Generalise the autoheal threshold so wounds don't autoheal when a limb
+      has taken either too much overall damage or the mob has taken significant damage.
+  Kano:
+  - rscadd: Added base planning blueprints.
+  TheGreyWolf:
+  - bugfix: The close button on text files in the file management program now works
+      again, so does the restart button within the same program.
+  - bugfix: The buttons to hide hats, uniforms and suits in character setup work again.
+2025-12-22:
+  MattAtlas (Code), Geeves (Code), Noble Row (Sprites):
+  - rscadd: IPCs have been given unique, brainmed-compliant mechanics from the ground
+      up!
+  - rscadd: IPCs have been given many new organs, all with their unique purpose, and
+      functioning.
+  - rscadd: Each IPC organ now has its own damage subsystem. IPCs are now vulnerable
+      to long damage as well.
+  - rscadd: IPCs now have a unique vulnerability to burst damage.
+  - rscadd: Industrial IPCs can now be Security again.
+  - rscadd: Added weight and strength mechanics for mobs.
+  - rscadd: You can now force eject mobs out of a synthetic recharging station by
+      clicking it.
+  - balance: IPC subspecies have been rebalanced as a whole. Sheer brute modifiers
+      have generally been nerfed to be from 1x to 0.8x (1x for baselines, 0.9x for
+      industrial G2s, 0.8x for industrial G1s). The burn modifier for shells has been
+      raised to 1.3x. Slowdown has generally been massively decreased across most
+      heavy frames.
+  TheGreyWolf:
+  - bugfix: Fixes the gardening plots and open hydroponics trays being unable to grow
+      plants.
+2025-12-24:
+  Batrachophrenoboocosmomachia:
+  - qol: Updates various extended information hints for some gun types.
+  - code_imp: Updates boolean formatting, dmdocs, miscellaneous cleanup, no mechanics
+      changes.
+  Hellfirejag:
+  - rscadd: Updated byond to 516.1673.
+  - bugfix: Fixed the Effects hard delete.
+  - bugfix: Removed debug to world messages that were left in the new janicart.
+  TheGreyWolf:
+  - rscadd: The metal briefcase now sounds more metalic when moving it, dropping it
+      and picking it up.
+  - rscadd: Investigators now get a notepad in their locker.
+  - rscdel: The labcoat was removed from the investigator locker.
+  - rscadd: The cash register now pings when it is ready for payment.
+2025-12-25:
+  ElorgRHG:
+  - bugfix: Fixes the colorable palette used on colorable dresses.
+  GeneralCamo:
+  - soundadd: Implemented sounds for telecommunications hubs and all-in-ones.
+  - rscadd: Added a Games and Toys vending machine, that vends a variety of games
+      and toys.
+  Kano:
+  - rscadd: Added a new Odyssey map, decrepit shipyard.
+  - rscadd: Added a map marker that randomly breaks stuff in a room. Adminbuse compatible!
+  - bugfix: Recolored the hydrogen tank sprite and fixed its wrong icon path.
+  - rscadd: Slightly tweaks whereabout of cargo elevator bay map.
+  - rscadd: Adds original hatch sprite made by KingOfThePing.
+  TheGreyWolf:
+  - qol: Several similar options in the tajaran loadout have been condensed into similar
+      selections and the golden sun pin was made more clear.
+  - rscadd: The tajaran archaeologist clothing is now job restricted.
+2025-12-31:
+  SimpleMaroon:
+  - qol: Moghesian Dionae from the Wasteland can now have no citizenship for their
+      origin, per Diona trading lore.

@@ -57,6 +57,7 @@
 	encased = "support frame"
 	robotize_type = PROSTHETIC_IPC
 
+<<<<<<< HEAD
 /obj/item/organ/internal/cell
 	name = "microbattery"
 	desc = "A small, powerful cell for use in fully prosthetic bodies."
@@ -383,40 +384,11 @@
 		stored_mmi.forceMove(get_turf(src))
 		qdel(src)
 
+=======
+>>>>>>> master
 //////////////
 //Terminator//
 //////////////
-
-/obj/item/organ/internal/mmi_holder/posibrain/terminator
-	name = BP_BRAIN
-	organ_tag = BP_BRAIN
-	parent_organ = BP_CHEST
-	vital = TRUE
-	emp_coeff = 0.1
-
-/obj/item/organ/internal/data
-	name = "data core"
-	organ_tag = "data core"
-	parent_organ = BP_GROIN
-	icon = 'icons/obj/cloning.dmi'
-	icon_state = "harddisk"
-	vital = FALSE
-	emp_coeff = 0.1
-	robotic_sprite = FALSE
-
-/obj/item/organ/internal/data/Initialize()
-	robotize()
-	. = ..()
-
-/obj/item/organ/internal/cell/terminator
-	name = "shielded microbattery"
-	desc = "A small, powerful cell for use in fully prosthetic bodies. Equipped with a Faraday shield."
-	icon = 'icons/obj/power.dmi'
-	icon_state = "scell"
-	organ_tag = "shielded cell"
-	parent_organ = BP_CHEST
-	vital = TRUE
-	emp_coeff = 0.1
 
 /obj/item/organ/external/head/terminator
 	dislocated = -1
@@ -424,9 +396,6 @@
 	encased = "reinforced support frame"
 	emp_coeff = 0.5
 	robotize_type = PROSTHETIC_HK
-
-/obj/item/organ/internal/eyes/optical_sensor/terminator
-	emp_coeff = 0.5
 
 /obj/item/organ/external/chest/terminator
 	dislocated = -1

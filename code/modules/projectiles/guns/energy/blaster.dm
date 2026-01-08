@@ -169,13 +169,17 @@
 		list(mode_name="full auto",	can_autofire=1, burst=1, fire_delay=5, fire_delay_wielded=2, one_hand_fa_penalty=12, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(5, 10, 15, 20, 25)) //same as the assault rifle
 		)
 
-/obj/item/gun/energy/blaster/himeo/get_examine_text(mob/user, distance, is_adjacent, infix, suffix) //stolen from the plasma cutter
-	. = ..()
+/obj/item/gun/energy/blaster/himeo/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "When fully drained, this weapon will automatically eject the empty energy cell, allowing for rapid reload."
+
+/obj/item/gun/energy/blaster/himeo/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(is_adjacent)
 		if(power_supply)
-			. += FONT_SMALL(SPAN_NOTICE("It has a <b>[capitalize_first_letters(power_supply.name)]</b> in the cell mount."))
+			. += SPAN_NOTICE("It has a <b>[capitalize_first_letters(power_supply.name)]</b> in the cell mount.")
 		else
-			. += FONT_SMALL(SPAN_WARNING("It has no cell installed."))
+			. += SPAN_WARNING("It has no cell installed.")
 
 /obj/item/gun/energy/blaster/himeo/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)

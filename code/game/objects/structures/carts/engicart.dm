@@ -11,7 +11,7 @@
 	var/obj/item/storage/toolbox/mechanical/my_blue_toolbox = null
 	var/obj/item/storage/toolbox/electrical/my_yellow_toolbox = null
 	var/obj/item/storage/toolbox/emergency/my_red_toolbox = null
-	/// Amount of stacks the cart is capable to store.
+	/// Amount of stacks the cart is capable of storing.
 	var/stack_capacity = 2
 
 	var/static/list/allowed_types = typecacheof(list(
@@ -27,6 +27,7 @@
 /obj/structure/cart/storage/engineeringcart/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "You can use steel, plasteel, glass sheets, toolboxes and light replacers on the cart to store them."
+	. += "The cart can contain up to [stack_capacity] stacks of each type of sheet."
 
 /obj/structure/cart/storage/engineeringcart/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -35,24 +36,24 @@
 			var/metal_amount
 			var/plasteel_amount
 			var/glass_amount
-			var/obj/item/stack/material/steel/S
-			var/obj/item/stack/material/plasteel/P
-			var/obj/item/stack/material/glass/G
+			var/obj/item/stack/material/steel/stored_steel
+			var/obj/item/stack/material/plasteel/stored_plasteel
+			var/obj/item/stack/material/glass/stored_glass
 			if(LAZYLEN(my_metal))
-				for(var/I in my_metal) // we already handle the type-check in `atttackby()` so it's safe to assume the lists contain what they're intended to
-					S = I
-					metal_amount += S.amount
-				. += "[icon2html(S, user)] This cart contains <b>[metal_amount] sheet\s</b> of steel!"
+				for(var/metal in my_metal) // we already handle the type-check in `atttackby()` so it's safe to assume the lists contain what they're intended to
+					stored_steel = metal
+					metal_amount += stored_steel.amount
+				. += "[icon2html(stored_steel, user)] This cart contains <b>[metal_amount] sheet\s</b> of steel!"
 			if(LAZYLEN(my_plasteel))
-				for(var/I in my_plasteel)
-					P = I
-					plasteel_amount += P.amount
-				. += "[icon2html(P, user)] This cart contains <b>[plasteel_amount] sheet\s</b> of plasteel!"
+				for(var/metal in my_plasteel)
+					stored_plasteel = metal
+					plasteel_amount += stored_plasteel.amount
+				. += "[icon2html(stored_plasteel, user)] This cart contains <b>[plasteel_amount] sheet\s</b> of plasteel!"
 			if(LAZYLEN(my_glass))
-				for(var/I in my_glass)
-					G = I
-					glass_amount += G.amount
-				. += "[icon2html(G, user)] This cart contains <b>[glass_amount] sheet\s</b> of glass!"
+				for(var/metal in my_glass)
+					stored_glass = metal
+					glass_amount += stored_glass.amount
+				. += "[icon2html(stored_glass, user)] This cart contains <b>[glass_amount] sheet\s</b> of glass!"
 		else
 			. += "[icon2html(src, user)] There is no material in this cart!"
 
@@ -67,9 +68,11 @@
 
 	var/list/non_sheet_objects = list(my_lightreplacer, my_blue_toolbox, my_yellow_toolbox, my_red_toolbox)
 
-	for(var/obj/O in non_sheet_objects)
-		if(O)
-			storage_contents += O
+	for(var/obj/non_sheet_object in non_sheet_objects)
+		if(non_sheet_object)
+			storage_contents += non_sheet_object
+
+	update_icon()
 
 /obj/structure/cart/storage/engineeringcart/Destroy()
 	QDEL_NULL(my_glass)
@@ -108,9 +111,6 @@
 					else
 						storage_is_full = TRUE
 
-			handle_storing(attacking_item, user, should_store, storage_is_full)
-			return TRUE
-
 		if(istype(attacking_item, /obj/item/storage/toolbox)) //---- toolboxes
 			switch(attacking_item.type)
 				if(/obj/item/storage/toolbox/mechanical)
@@ -134,9 +134,6 @@
 					else
 						storage_is_full = TRUE
 
-			handle_storing(attacking_item, user, should_store, storage_is_full)
-			return TRUE
-
 		if(istype(attacking_item, /obj/item/device/lightreplacer)) //---- light replacer
 			if(!my_lightreplacer)
 				my_lightreplacer = attacking_item
@@ -144,8 +141,8 @@
 			else
 				storage_is_full = TRUE
 
-			handle_storing(attacking_item, user, should_store, storage_is_full)
-			return TRUE
+		handle_storing(attacking_item, user, should_store, storage_is_full)
+		return TRUE
 
 	else if (!has_items && (attacking_item.tool_behaviour == TOOL_WRENCH || attacking_item.tool_behaviour == TOOL_WELDER || istype(attacking_item, /obj/item/gun/energy/plasmacutter)))
 		take_apart(user, attacking_item)
@@ -155,30 +152,30 @@
 /obj/structure/cart/storage/engineeringcart/spill(var/chance = 100)
 	var/turf/dropspot = get_turf(src)
 	if(LAZYLEN(my_glass) && prob(chance))
-		var/obj/item/stack/material/glass/G
+		var/obj/item/stack/material/glass/stored_glass
 		for(var/I in my_glass)
-			G = I
-			G.forceMove(dropspot)
-			G.tumble(1)
-			my_glass -= G
+			stored_glass = I
+			stored_glass.forceMove(dropspot)
+			stored_glass.tumble(1)
+			my_glass -= stored_glass
 		my_glass.Cut()
 
 	if(LAZYLEN(my_metal) && prob(chance))
-		var/obj/item/stack/material/glass/M
+		var/obj/item/stack/material/steel/stored_steel
 		for(var/I in my_metal)
-			M = I
-			M.forceMove(dropspot)
-			M.tumble(1)
-			my_metal -= M
+			stored_steel = I
+			stored_steel.forceMove(dropspot)
+			stored_steel.tumble(1)
+			my_metal -= stored_steel
 		my_metal.Cut()
 
 	if(LAZYLEN(my_plasteel) && prob(chance))
-		var/obj/item/stack/material/glass/P
+		var/obj/item/stack/material/plasteel/stored_plasteel
 		for(var/I in my_plasteel)
-			P = I
-			P.forceMove(dropspot)
-			P.tumble(1)
-			my_plasteel -= P
+			stored_plasteel = I
+			stored_plasteel.forceMove(dropspot)
+			stored_plasteel.tumble(1)
+			my_plasteel -= stored_plasteel
 		my_plasteel.Cut()
 
 	if(my_lightreplacer && prob(chance))
@@ -207,7 +204,6 @@
 	if(should_store)
 		user.drop_from_inventory(attacking_item, src)
 		get_storage_contents_list()
-		update_icon()
 		to_chat(user, SPAN_NOTICE("You put [attacking_item] into [src]."))
 	else if(storage_is_full)
 		to_chat(user, SPAN_WARNING("There isn't any space to store [attacking_item] in [src]!"))
@@ -219,8 +215,8 @@
 		return
 
 	if(LAZYLEN(storage_contents))
-		for(var/obj/O in storage_contents)
-			storage_contents[O] = image(O.icon, O.icon_state)
+		for(var/obj/object in storage_contents)
+			storage_contents[object] = image(object.icon, object.icon_state)
 
 		var/obj/item/chosen_item = show_radial_menu(user, src, storage_contents, require_near = TRUE, tooltips = TRUE)
 
@@ -265,7 +261,6 @@
 						my_red_toolbox = null
 
 			get_storage_contents_list()
-			update_icon()
 		else
 			to_chat(user, SPAN_WARNING("\The [chosen_item] is not in the cart anymore!"))
 
@@ -302,7 +297,6 @@
 	my_yellow_toolbox = new /obj/item/storage/toolbox/electrical(src)
 	my_red_toolbox = new /obj/item/storage/toolbox/emergency(src)
 	get_storage_contents_list()
-	update_icon()
 
 /obj/structure/cart/storage/engineeringcart/full
 
@@ -319,4 +313,3 @@
 	my_plasteel += new /obj/item/stack/material/plasteel/full(src)
 	my_plasteel += new /obj/item/stack/material/plasteel/full(src)
 	get_storage_contents_list()
-	update_icon()

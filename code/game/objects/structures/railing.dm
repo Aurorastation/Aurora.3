@@ -64,6 +64,9 @@
 	. = ..()
 	update_icon()
 
+/obj/structure/railing/mapped/no_density/low
+	icon_state = "railing0-0"
+
 /obj/structure/railing/New(var/newloc, var/material_key = DEFAULT_WALL_MATERIAL)
 	material = material_key // Converted to datum in initialize().
 	..(newloc)
@@ -136,31 +139,31 @@
 
 	for(var/obj/structure/railing/R in get_turf(src))
 		if((R.dir == Lturn) && R.anchored)
-			neighbor_status |= 32
+			neighbor_status |= 32 // neighbor is making a left turn on the same tile
 			if(UpdateNeighbors)
 				R.update_icon(0)
 		if((R.dir == Rturn) && R.anchored)
-			neighbor_status |= 2
+			neighbor_status |= 2 // neighbor is making a right turn on the same tile
 			if(UpdateNeighbors)
 				R.update_icon(0)
 	for(var/obj/structure/railing/R in get_step(src, Lturn))
 		if((R.dir == src.dir) && R.anchored)
-			neighbor_status |= 16
+			neighbor_status |= 16 // neighbor is in our left, in the same line
 			if(UpdateNeighbors)
 				R.update_icon(0)
 	for(var/obj/structure/railing/R in get_step(src, Rturn))
 		if((R.dir == src.dir) && R.anchored)
-			neighbor_status |= 1
+			neighbor_status |= 1 // neighbor is in our right, in the same line
 			if (UpdateNeighbors)
 				R.update_icon(0)
 	for(var/obj/structure/railing/R in get_step(src, (Lturn + src.dir)))
 		if((R.dir == Rturn) && R.anchored)
-			neighbor_status |= 64
+			neighbor_status |= 64 // neighbor is in our diagonal left, making a longer turn
 			if (UpdateNeighbors)
 				R.update_icon(0)
 	for(var/obj/structure/railing/R in get_step(src, (Rturn + src.dir)))
 		if((R.dir == Lturn) && R.anchored)
-			neighbor_status |= 4
+			neighbor_status |= 4 // neighbor is in our diagonal right, making a longer turn
 			if (UpdateNeighbors)
 				R.update_icon(0)
 
@@ -177,8 +180,10 @@
 		icon_state = "railing1-[density]"
 		if(neighbor_status & 32)
 			AddOverlays(image(icon, "corneroverlay[density]"))
+
 		if((neighbor_status & 16) || !(neighbor_status & 32) || (neighbor_status & 64))
 			AddOverlays(image(icon, "frontoverlay_l[density]"))
+
 		if(!(neighbor_status & 2) || (neighbor_status & 1) || (neighbor_status & 4))
 			AddOverlays(image(icon, "frontoverlay_r[density]"))
 			if(neighbor_status & 4)
@@ -194,6 +199,12 @@
 					if(WEST)
 						pix_offset_y = 32
 				AddOverlays(image(icon, "mcorneroverlay[density]", pixel_x = pix_offset_x, pixel_y = pix_offset_y))
+
+		if(!(neighbor_status & 16) && !(neighbor_status & 64) && !(neighbor_status & 32)) // Left endcap, we have no connections in left
+			AddOverlays(image(icon, "frontend_l[density]"))
+
+		if(!(neighbor_status & 1) && !(neighbor_status & 4) && !(neighbor_status & 2)) // Right endcap, we have no connections in right
+			AddOverlays(image(icon, "frontend_r[density]"))
 
 /obj/structure/railing/verb/flip() // This will help push railing to remote places, such as open space turfs
 	set name = "Flip Railing"

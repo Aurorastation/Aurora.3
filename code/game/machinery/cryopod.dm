@@ -554,7 +554,7 @@
 	var/choice = alert(M, "Would you like to save your tag data?", "Tag Persistence", "Yes", "No")
 	if(choice == "Yes")
 		var/mob/living/carbon/human/H = M
-		var/obj/item/organ/internal/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
+		var/obj/item/organ/internal/machine/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
 		if(tag)
 			M.client.prefs.machine_ownership_status = tag.ownership_info
 			M.client.prefs.machine_serial_number = tag.serial_number

@@ -1112,14 +1112,6 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 /obj/structure/filler/ex_act()
 	return
 
-/obj/structure/decor/fluff_ladder
-	name = "ladder"
-	icon = 'icons/obj/structures.dmi'
-	icon_state = "ladder01"
-
-/obj/structure/decor/fluff_ladder/up
-	icon_state = "ladder10"
-
 /*######################################
 				PAPERS
 ######################################*/

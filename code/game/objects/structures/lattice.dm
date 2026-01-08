@@ -35,9 +35,7 @@
 
 /obj/structure/lattice/Initialize()
 	. = ..()
-	for(var/obj/structure/lattice/LAT in loc)
-		if(LAT == src)
-			continue
+	if(check_for_duplicates())
 		stack_trace("multiple lattices found in ([loc.x], [loc.y], [loc.z])")
 		return INITIALIZE_HINT_QDEL
 
@@ -59,6 +57,13 @@
 			qdel(src)
 	return
 
+/obj/structure/lattice/proc/check_for_duplicates()
+	for(var/obj/structure/lattice/found_lattice in get_turf(src))
+		if(found_lattice == src || istype(found_lattice, /obj/structure/lattice/ceiling))
+			continue
+		return TRUE
+	return FALSE
+
 /obj/structure/lattice/attackby(obj/item/attacking_item, mob/user)
 	if (istype(attacking_item, /obj/item/stack/tile/floor))
 		var/turf/T = get_turf(src)
@@ -78,6 +83,28 @@
 			new /obj/structure/lattice/catwalk(src.loc)
 			qdel(src)
 		return
+
+/obj/structure/lattice/ceiling
+	layer = ABOVE_ABOVE_HUMAN_LAYER
+	canSmoothWith = list(
+		/obj/structure/lattice/ceiling,
+		/turf/simulated/wall,
+		/turf/simulated/mineral,
+		/turf/unsimulated/wall,
+		/obj/structure/grille,
+		/turf/unsimulated/mineral/asteroid
+	)
+
+/obj/structure/lattice/ceiling/Initialize()
+	. = ..()
+	AddComponent(/datum/component/large_transparency, 0, 0, 0, 0)
+
+/obj/structure/lattice/ceiling/check_for_duplicates()
+	for(var/obj/structure/lattice/ceiling/found_lattice in get_turf(src))
+		if(found_lattice == src)
+			continue
+		return TRUE
+	return FALSE
 
 /obj/structure/lattice/catwalk
 	name = "catwalk"
