@@ -49,7 +49,7 @@
 	M.fingerprints = src.fingerprints
 	M.fingerprintshidden = src.fingerprintshidden
 	M.fingerprintslast = src.fingerprintslast
-	user.remove_from_mob(src) //Prevents gripper duplication
+	user.temporarilyRemoveItemFromInventory(src) //Prevents gripper duplication
 	qdel(src)
 
 /obj/item/frame/fire_alarm

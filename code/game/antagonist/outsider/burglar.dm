@@ -42,7 +42,7 @@ GLOBAL_DATUM(burglars, /datum/antagonist/burglar)
 	for(var/obj/item/I in player)
 		if(istype(I, /obj/item/implant))
 			continue
-		player.drop_from_inventory(I)
+		player.dropItemToGround(I)
 		if(I.loc != player)
 			qdel(I)
 

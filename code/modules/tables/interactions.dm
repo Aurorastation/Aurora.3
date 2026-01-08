@@ -342,7 +342,7 @@
 
 	// Placing stuff on tables
 	if(user.unEquip(attacking_item, 0, loc)) //Loc is intentional here so we don't forceMove() items into oblivion
-		user.make_item_drop_sound(attacking_item)
+		attacking_item.play_drop_sound()
 		auto_align(attacking_item, params)
 		return
 

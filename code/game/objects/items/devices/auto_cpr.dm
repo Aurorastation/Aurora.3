@@ -449,17 +449,17 @@
 		var/loc_check = breath_mask.loc
 		if(ismob(loc_check))
 			var/mob/living/carbon/human/holder = loc_check
-			holder.remove_from_mob(breath_mask)
+			holder.transferItemToLoc(breath_mask, src)
 			holder.update_inv_wear_mask()
 			holder.update_inv_l_hand()
 			holder.update_inv_r_hand()
-		breath_mask.forceMove(src)
+		else
+			breath_mask.forceMove(src)
 		breather = null
 		mask_on = FALSE
 		return
-	breather.remove_from_mob(breath_mask)
+	breather.transferItemToLoc(breath_mask, src)
 	breather.update_inv_wear_mask()
-	breath_mask.forceMove(src)
 	breather = null
 	mask_on = FALSE
 

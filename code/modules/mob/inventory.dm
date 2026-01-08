@@ -232,8 +232,6 @@ GLOBAL_LIST_INIT(slot_equipment_priority, list(
 		item_to_equip.forceMove(get_turf(src))
 	else
 		item_to_equip.forceMove(get_turf(item_to_equip))
-	item_to_equip.reset_plane_and_layer()
-	item_to_equip.dropped(src)
 
 	return FALSE
 
@@ -271,16 +269,6 @@ GLOBAL_LIST_INIT(slot_equipment_priority, list(
 		item_dropped = r_hand
 		. = drop_r_hand(Target)
 
-	if (istype(item_dropped) && !QDELETED(item_dropped))
-		addtimer(CALLBACK(src, PROC_REF(make_item_drop_sound), item_dropped), 1)
-
-/mob/proc/make_item_drop_sound(obj/item/I)
-	if(QDELETED(I))
-		return
-
-	if(I.drop_sound)
-		playsound(I, I.drop_sound, DROP_SOUND_VOLUME, 0, required_asfx_toggles = ASFX_DROPSOUND)
-
 /*
 	Removes the object from any slots the mob might have, calling the appropriate icon update proc.
 	Does nothing else.
@@ -292,7 +280,7 @@ GLOBAL_LIST_INIT(slot_equipment_priority, list(
 	As far as I can tell the proc exists so that mobs with different inventory slots can override
 	the search through all the slots, without having to duplicate the rest of the item dropping.
 */
-/mob/proc/u_equip(obj/W as obj)
+/mob/proc/u_equip(obj/W)
 	if (W == r_hand)
 		r_hand = null
 		update_inv_r_hand(0)
@@ -370,6 +358,101 @@ GLOBAL_LIST_INIT(slot_equipment_priority, list(
 		I.dropped(src)
 	return 1
 
+/**
+ * Used to drop an item (if it exists) to the ground.
+ * * Will return null if the item wasn't dropped.
+ * * If it was, returns the item.
+ * If the item can be dropped, it will be forceMove()'d to the ground and the turf's Entered() will be called.
+*/
+/mob/proc/dropItemToGround(obj/item/to_drop, force = FALSE, silent = FALSE, invdrop = TRUE)
+	if(isnull(to_drop))
+		return
+
+	var/x_offset = 0
+	var/y_offset = 0
+	if(!transferItemToTurf(to_drop, drop_location(), x_offset, y_offset, force, silent, invdrop))
+		return
+
+	return to_drop
+
+/// Unequips and transfers an item to a given turf, if possible.
+/mob/proc/transferItemToTurf(obj/item/to_transfer, turf/new_loc, x_offset = 0, y_offset = 0, force = FALSE, silent = FALSE, drop_item_inventory = TRUE)
+	SEND_SIGNAL(src, COMSIG_MOB_DROPPING_ITEM)
+	if(!doUnEquip(to_transfer, force, new_loc, no_move = FALSE, invdrop = drop_item_inventory, silent = silent))
+		return FALSE
+	if(QDELETED(to_transfer)) // Some items may get deleted upon getting unequipped.
+		return FALSE
+	to_transfer.pixel_x = x_offset
+	to_transfer.pixel_y = y_offset
+	to_transfer.do_drop_animation(src)
+	return TRUE
+
+///Used when the item will be immediately placed in a loc other than the ground
+/mob/proc/transferItemToLoc(obj/item/I, newloc = null, force = FALSE, silent = TRUE, animated = null)
+	. = doUnEquip(I, force, newloc, FALSE, silent = silent)
+	if(!.)
+		return
+	// This proc wears a lot of hats for moving items around in different ways,
+	// so we assume unhandled cases for checking to animate can safely be handled
+	// with the same logic we handle animating putting items in container (container on your person isn't animated)
+	if(isnull(animated))
+		// If the item's ultimate location is us, we don't animate putting it wherever
+		animated = !(get(newloc, /mob) == src)
+	if(animated)
+		I.do_pickup_animation(newloc, src)
+
+///visibly unequips [item_dropping] but it is NOT MOVED AND REMAINS IN SRC, [newloc] is for signal handling checks only which hints where you want to move the object after removal. item MUST BE FORCEMOVE'D OR QDEL'D
+/mob/proc/temporarilyRemoveItemFromInventory(obj/item/item_dropping, force = FALSE, idrop = TRUE, atom/newloc = src)
+	return doUnEquip(item_dropping, force, newloc, TRUE, idrop, silent = TRUE)
+
+/**
+ * ## doUnEquip
+ * First and most importantly, DO NOT CALL THIS PROC
+ * Use one of the above 4 helper procs instead!!
+ * you may override it, but do not modify the args.
+ * Returns TRUE if it managed to unequip, FALSE if it can't.
+ * Args:
+ * item_dropping - The item that we're unequipping.
+ * force - overrides [var/canremove] for things like wizarditis and admin undress.
+ * newloc - The location we're dropping the item into, this could be a turf, storage, mob, etc.
+ * no_move - if the item is just gonna be immediately moved afterward
+ * invdrop - Arg passed to signals, prevents stuff in pockets dropping. Only set to false if it's going to immediately be replaced
+ * silent - Arg passed to dropped() and signals, muting things like drop sound.
+ */
+/mob/proc/doUnEquip(obj/item/item_dropping, force, atom/newloc, no_move, invdrop = TRUE, silent = FALSE)
+	PROTECTED_PROC(TRUE)
+
+	if(!item_dropping) //If there's nothing to drop, the drop is automatically successful.
+		return TRUE
+
+	if(!item_dropping.canremove && !force)
+		return FALSE
+
+	if((item_dropping.item_flags & ITEM_FLAG_NO_MOVE) && !force)
+		return FALSE
+
+	if((SEND_SIGNAL(item_dropping, COMSIG_ITEM_PRE_UNEQUIP, force, newloc, no_move, invdrop, silent) & COMPONENT_ITEM_BLOCK_UNEQUIP) && !force)
+		return FALSE
+
+	u_equip(item_dropping)
+
+	if(!item_dropping || QDELETED(item_dropping))
+		return FALSE
+
+	item_dropping.screen_loc = null
+
+	item_dropping.reset_plane_and_layer()
+	item_dropping.appearance_flags &= ~NO_CLIENT_COLOR
+	item_dropping.in_inventory = FALSE
+
+	item_dropping.forceMove(newloc)
+
+	has_unequipped(item_dropping, silent)
+	SEND_SIGNAL(item_dropping, COMSIG_ITEM_POST_UNEQUIP, force, newloc, no_move, invdrop, silent)
+	SEND_SIGNAL(src, COMSIG_MOB_UNEQUIPPED_ITEM, item_dropping, force, newloc, no_move, invdrop, silent)
+	return TRUE
+
+
 
 //Returns the item equipped to the specified slot, if any.
 /mob/proc/get_equipped_item(var/slot)
@@ -399,7 +482,12 @@ GLOBAL_LIST_INIT(slot_equipment_priority, list(
 		if(r_hand)
 			. += r_hand
 
-
+/// This proc is called after an item has been removed from a mob but before it has been officially deslotted.
+/mob/proc/has_unequipped(obj/item/item, silent = FALSE)
+	SHOULD_CALL_PARENT(TRUE)
+	item.dropped(src, silent)
+	update_equipment_speed_mods()
+	return TRUE
 
 //Throwing stuff
 /mob/proc/throw_item(atom/target)
@@ -490,7 +578,6 @@ GLOBAL_LIST_INIT(slot_equipment_priority, list(
 
 		if(unEquip(I))
 			if(!QDELETED(I))
-				make_item_drop_sound(I)
 				I.forceMove(T)
 			return TRUE
 

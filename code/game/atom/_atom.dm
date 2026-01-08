@@ -222,6 +222,17 @@
 		return
 	return
 
+///Where atoms should drop if taken from this atom
+/atom/proc/drop_location()
+	var/atom/location = loc
+	if(!location)
+		return null
+	return location.AllowDrop() ? location : location.drop_location()
+
+/// Are you allowed to drop stuff inside this atom
+/atom/proc/AllowDrop()
+	return FALSE
+
 
 /**
  * An atom has entered this atom's contents

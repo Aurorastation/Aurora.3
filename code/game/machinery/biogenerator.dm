@@ -620,8 +620,8 @@ EMAG/ILLEGAL
 		if(beaker)
 			to_chat(user, SPAN_NOTICE("\The [src] is already loaded."))
 		else
-			user.remove_from_mob(attacking_item)
-			attacking_item.forceMove(src)
+			if (!user.transferItemToLoc(attacking_item, src))
+				return FALSE
 			beaker = attacking_item
 			updateUsrDialog()
 		. = TRUE
@@ -658,8 +658,8 @@ EMAG/ILLEGAL
 		if(i >= capacity)
 			to_chat(user, SPAN_NOTICE("\The [src] is full! Activate it."))
 		else
-			user.remove_from_mob(attacking_item)
-			attacking_item.forceMove(src)
+			if (!user.transferItemToLoc(attacking_item, src))
+				return FALSE
 			to_chat(user, SPAN_NOTICE("You put \the [attacking_item] in \the [src]"))
 			. = TRUE
 	update_icon()

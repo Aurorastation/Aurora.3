@@ -94,7 +94,7 @@
 
 	playsound(src, 'sound/effects/supermatter.ogg', 50, 1)
 
-	user.drop_from_inventory(attacking_item,src)
+	user.transferItemToLoc(attacking_item,src)
 	Consume(attacking_item)
 	return TRUE
 

@@ -237,7 +237,7 @@
 		user.visible_message(SPAN_WARNING("[user] has unsheathed \a [concealed_blade] from [user.get_pronoun("his")] [src]!"), "You unsheathe \the [concealed_blade] from \the [src].")
 		// Calling drop/put in hands to properly call item drop/pickup procs
 		playsound(user.loc, 'sound/weapons/holster/sheathout.ogg', 50, 1)
-		user.drop_from_inventory(src)
+		user.temporarilyRemoveItemFromInventory(src)
 		user.put_in_hands(concealed_blade)
 		user.put_in_hands(src)
 		user.update_inv_l_hand(0)
@@ -252,7 +252,7 @@
 	if(!src.concealed_blade && istype(attacking_canesword))
 		user.visible_message(SPAN_WARNING("[user] has sheathed \a [attacking_canesword] into [user.get_pronoun("his")] [src]!"), "You sheathe \the [attacking_canesword] into \the [src].")
 		playsound(user.loc, 'sound/weapons/holster/sheathin.ogg', 50, 1)
-		user.drop_from_inventory(attacking_canesword)
+		user.temporarilyRemoveItemFromInventory(attacking_canesword)
 		attacking_canesword.forceMove(src)
 		src.concealed_blade = attacking_canesword
 		update_icon()

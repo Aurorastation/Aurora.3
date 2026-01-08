@@ -481,7 +481,7 @@
 		for(var/datum/data/vending_product/R in product_records)
 			if(attacking_item.type == R.product_path)
 				stock(R, user)
-				user.remove_from_mob(attacking_item) //Catches gripper duplication
+				user.transferItemToLoc(attacking_item, src) //Catches gripper duplication
 				qdel(attacking_item)
 				return TRUE
 	return ..()

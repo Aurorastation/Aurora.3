@@ -135,8 +135,7 @@
 				return
 		to_chat(user, "You attach \the [attacking_item] into the assembly inner circuits.")
 		upgrades += attacking_item
-		user.remove_from_mob(attacking_item)
-		attacking_item.forceMove(src)
+		user.transferItemToLoc(attacking_item, src)
 		return
 
 	// Taking out upgrades

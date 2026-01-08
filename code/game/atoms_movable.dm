@@ -753,6 +753,7 @@
 			return
 		source = loc
 	var/image/pickup_animation = image(icon = src)
+	pickup_animation.plane = GAME_PLANE
 	pickup_animation.transform.Scale(0.75)
 	pickup_animation.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA
 
@@ -783,6 +784,9 @@
 /atom/movable/proc/do_drop_animation(atom/moving_from)
 	if(!isturf(loc))
 		return
+	if(!istype(moving_from))
+		return
+
 	var/turf/current_turf = get_turf(src)
 	var/direction = get_dir(moving_from, current_turf)
 	var/from_x = 0

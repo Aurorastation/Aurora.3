@@ -36,18 +36,13 @@
 		return ..()
 
 	var/zone = (user.hand ? BP_L_ARM:BP_R_ARM)
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
-		var/obj/item/organ/external/affecting = H.get_organ(zone)
-		to_chat(user, SPAN_CULT("An inexplicable force rips through your [affecting.name], tearing the sword from your grasp!"))
-	else
-		to_chat(user, SPAN_CULT("An inexplicable force rips through you, tearing the sword from your grasp!"))
+	user.visible_message(SPAN_WARNING("A powerful force shoves [user] away from \the [target_mob]!"), FONT_LARGE(SPAN_CULT("\"You shouldn't play with sharp things. You'll poke someone's eye out.\"")))
 
 	//random amount of damage between half of the blade's force and the full force of the blade.
 	user.apply_damage(rand(force/2, force), DAMAGE_BRUTE, zone, 0, damage_flags = DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE)
 	user.Weaken(5)
 
-	user.drop_from_inventory(src)
+	user.dropItemToGround(src, TRUE)
 	throw_at(get_edge_target_turf(src, pick(GLOB.alldirs)), rand(1,3), throw_speed)
 
 	var/spooky = pick('sound/hallucinations/growl1.ogg', 'sound/hallucinations/growl2.ogg', 'sound/hallucinations/growl3.ogg', 'sound/hallucinations/wail.ogg')

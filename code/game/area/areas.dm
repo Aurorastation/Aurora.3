@@ -187,6 +187,18 @@ GLOBAL_LIST_INIT(area_blurb_stated_to, list())
 	return area_flags & AREA_FLAG_NO_CREW_EXPECTED
 
 /**
+ * Causes a runtime error
+ */
+/area/AllowDrop()
+	CRASH("Bad op: area/AllowDrop() called")
+
+/**
+ * Causes a runtime error
+ */
+/area/drop_location()
+	CRASH("Bad op: area/drop_location() called")
+
+/**
  * Set lights in area.
  *
  * * state - TRUE for on, FALSE for off, NULL for initial state

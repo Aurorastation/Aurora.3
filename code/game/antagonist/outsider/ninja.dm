@@ -108,7 +108,7 @@ GLOBAL_DATUM(ninjas, /datum/antagonist/ninja)
 	for (var/obj/item/I in player)
 		if (istype(I, /obj/item/implant))
 			continue
-		player.drop_from_inventory(I)
+		player.dropItemToGround(I)
 		if(I.loc != player)
 			qdel(I)
 	player.preEquipOutfit(/obj/outfit/admin/syndicate/ninja, FALSE)

@@ -29,16 +29,16 @@
 			cultist.buckled_to = null
 		if(cultist.handcuffed)
 			cultist_free = FALSE
-			cultist.drop_from_inventory(cultist.handcuffed)
+			cultist.dropItemToGround(cultist.handcuffed)
 		if(cultist.legcuffed)
 			cultist_free = FALSE
-			cultist.drop_from_inventory(cultist.legcuffed)
+			cultist.dropItemToGround(cultist.legcuffed)
 		if(istype(cultist.wear_mask, /obj/item/clothing/mask/muzzle))
 			cultist_free = FALSE
-			cultist.drop_from_inventory(cultist.wear_mask)
+			cultist.dropItemToGround(cultist.wear_mask)
 		if(istype(cultist.wear_suit, /obj/item/clothing/suit/straight_jacket))
 			cultist_free = FALSE
-			cultist.drop_from_inventory(cultist.wear_suit)
+			cultist.dropItemToGround(cultist.wear_suit)
 		if(istype(cultist.loc, /obj/structure/closet))
 			var/obj/structure/closet/C = cultist.loc
 			if(C.welded)

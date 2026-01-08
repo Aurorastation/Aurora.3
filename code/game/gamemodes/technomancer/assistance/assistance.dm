@@ -51,7 +51,7 @@
 		to_chat(user, SPAN_WARNING("You're already in the fold, you can't use this!"))
 		return
 	var/turf/user_turf = get_turf(user)
-	user.drop_from_inventory(src, user_turf)
+	user.transferItemToTurf(src, user_turf)
 	user.visible_message(SPAN_DANGER("<b>[user]</b> crushes \the [src] in their hand with a shower of sparks! A small bracelet appears on their wrist, and a catalog flies into their hand."), SPAN_DANGER("You crush \the [src] in your hand with a shower of sparks! A small bracelet appears on your wrist, and a catalog flies into your hand."))
 	spark(user_turf, 4, GLOB.alldirs)
 	var/initiate_welcome_text = "You will need to purchase <b>functions</b> and perhaps some <b>equipment</b> from your initiate's catalogue. \
@@ -59,7 +59,7 @@
 	powerless, and therefore you will be as well."
 	GLOB.technomancers.add_antagonist_mind(user.mind, 1, "Technomancer Initiate", initiate_welcome_text)
 	if(user.wrists)
-		user.drop_from_inventory(user.wrists, get_turf(user_turf))
+		user.transferItemToTurf(user.wrists, get_turf(user_turf))
 	var/obj/item/technomancer_core/bracelet/bracelet = new(user_turf)
 	user.equip_to_slot_if_possible(bracelet, slot_wrists, assisted_equip = TRUE)
 	var/obj/item/technomancer_catalog/initiate/catalog = new(user_turf)

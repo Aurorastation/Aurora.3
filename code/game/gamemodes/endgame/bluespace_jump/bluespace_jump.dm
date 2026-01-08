@@ -116,7 +116,7 @@
 		H.sync_organ_dna()
 		H.UpdateAppearance()
 		for(var/obj/item/entry in daddy.get_equipped_items(INCLUDE_POCKETS|INCLUDE_HELD))
-			daddy.remove_from_mob(entry) //steals instead of copies so we don't end up with duplicates
+			daddy.temporarilyRemoveItemFromInventory(entry) //steals instead of copies so we don't end up with duplicates
 			H.equip_to_appropriate_slot(entry)
 	else
 		H = new daddy.type(get_turf(src))

@@ -11,7 +11,7 @@
 	// Fruits and vegetables.
 	if(istype(attacking_item, /obj/item/reagent_containers/food/snacks/grown) || istype(attacking_item, /obj/item/grown))
 
-		user.remove_from_mob(attacking_item)
+		user.transferItemToLoc(attacking_item, src)
 
 		var/datum/seed/new_seed_type
 		if(istype(attacking_item, /obj/item/grown))

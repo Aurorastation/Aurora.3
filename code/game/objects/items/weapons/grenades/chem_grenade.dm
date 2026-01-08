@@ -72,7 +72,7 @@
 		path = 1
 		to_chat(user, SPAN_NOTICE("You add [attacking_item] to the metal casing."))
 		playsound(src.loc, attacking_item.usesound, 25, -3)
-		user.remove_from_mob(det)
+		user.temporarilyRemoveItemFromInventory(det, newloc = src)
 		det.forceMove(src)
 		detonator = det
 		if(istimer(detonator.a_left))

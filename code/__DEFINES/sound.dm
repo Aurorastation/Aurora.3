@@ -36,7 +36,9 @@
 #define EQUIP_SOUND_VOLUME 30
 #define PICKUP_SOUND_VOLUME 15
 #define DROP_SOUND_VOLUME 20
+#define HALFWAY_SOUND_VOLUME 50
 #define BLOCK_SOUND_VOLUME 70
+#define THROW_SOUND_VOLUME 90
 
 //default byond sound environments
 #define SOUND_ENVIRONMENT_OFF -2

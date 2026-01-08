@@ -115,7 +115,7 @@
 			to_chat(user, SPAN_WARNING("A beaker is already loaded into the machine."))
 			return TRUE
 		beaker = attacking_item
-		user.drop_from_inventory(attacking_item,src)
+		user.transferItemToLoc(attacking_item, src)
 		user.visible_message("\The [user] adds \a [attacking_item] to \the [src]!", "You add \a [attacking_item] to \the [src]!")
 		return TRUE
 
@@ -284,7 +284,7 @@
 /obj/machinery/computer/scan_consolenew/attackby(obj/item/attacking_item, mob/user)
 	if (istype(attacking_item, /obj/item/disk/data)) //INSERT SOME diskS
 		if (!src.disk)
-			user.drop_from_inventory(attacking_item, src)
+			user.transferItemToLoc(attacking_item, src)
 			src.disk = attacking_item
 			to_chat(user, "You insert [attacking_item].")
 			SSnanoui.update_uis(src) // update all UIs attached to src

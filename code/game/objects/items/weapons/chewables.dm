@@ -114,11 +114,8 @@
 			if(!no_message)
 				to_chat(M, SPAN_NOTICE("The [name] runs out of flavor."))
 			if(M.wear_mask)
-				M.remove_from_mob(src) //un-equip it so the overlays can update
-				M.update_inv_wear_mask(0)
+				M.temporarilyRemoveItemFromInventory(src) //un-equip it so the overlays can update
 				if(!M.equip_to_slot_if_possible(butt, slot_wear_mask))
-					M.update_inv_l_hand(0)
-					M.update_inv_r_hand(1)
 					M.put_in_hands(butt)
 	STOP_PROCESSING(SSprocessing, src)
 	qdel(src)

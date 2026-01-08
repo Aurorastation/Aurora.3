@@ -129,13 +129,10 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			if(!nomessage)
 				to_chat(M, span("notice", "Your [name] goes out."))
 			if(M.wear_mask)
-				M.remove_from_mob(src) //un-equip it so the overlays can update
-				M.update_inv_wear_mask(0)
+				M.temporarilyRemoveItemFromInventory(src) //un-equip it so the overlays can update
 				M.equip_to_slot_if_possible(burnt, slot_wear_mask)
 			else
-				M.remove_from_mob(src) // if it dies in your hand.
-				M.update_inv_l_hand(0)
-				M.update_inv_r_hand(1)
+				M.temporarilyRemoveItemFromInventory(src) // if it dies in your hand.
 				M.put_in_hands(burnt)
 		set_light_on(FALSE)
 		STOP_PROCESSING(SSprocessing, src)
@@ -247,14 +244,11 @@ ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 			if(intentionally)
 				butt.loc = T
 			else if(M.wear_mask == src)
-				M.remove_from_mob(src) //un-equip it so the overlays can update
-				M.update_inv_wear_mask(0)
+				M.temporarilyRemoveItemFromInventory(src) //un-equip it so the overlays can update
 				if(!(M.equip_to_slot_if_possible(butt, slot_wear_mask, bypass_blocked_check = TRUE)))
 					M.put_in_hands(butt) // In case the above somehow fails, ensure it is placed somewhere
 			else
-				M.remove_from_mob(src) // if it dies in your hand.
-				M.update_inv_l_hand(0)
-				M.update_inv_r_hand(1)
+				M.temporarilyRemoveItemFromInventory(src) // if it dies in your hand.
 				M.put_in_hands(butt)
 
 		STOP_PROCESSING(SSprocessing, src)

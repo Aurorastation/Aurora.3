@@ -488,6 +488,9 @@
 				I.contaminate()
 				break
 
+/turf/AllowDrop()
+	return TRUE
+
 /turf/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	. = ..()
 	if(src.density)
