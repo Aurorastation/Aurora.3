@@ -198,10 +198,6 @@
 				signs++
 			else
 				storage_is_full = TRUE
-
-<<<<<<< HEAD
-	else if (!has_items && (attacking_item.tool_behaviour == TOOL_WRENCH || attacking_item.tool_behaviour == TOOL_WELDER || istype(attacking_item, /obj/item/gun/energy/plasmacutter)))
-=======
 		handle_storing(attacking_item, user, should_store, storage_is_full)
 		return
 
@@ -210,8 +206,7 @@
 		// This prevents dumb stuff like splashing the cart with the contents of a container, after putting said container into trash.
 		return my_bag.attackby(attacking_item, user)
 
-	else if(!has_items && (attacking_item.iswrench() || attacking_item.iswelder() || istype(attacking_item, /obj/item/gun/energy/plasmacutter)))
->>>>>>> master
+	else if (!has_items && (attacking_item.tool_behaviour == TOOL_WRENCH || attacking_item.tool_behaviour == TOOL_WELDER || istype(attacking_item, /obj/item/gun/energy/plasmacutter)))
 		take_apart(user, attacking_item)
 		return
 
