@@ -6,8 +6,8 @@
 	prefix = "ships/sol/sol_ssrm/"
 	suffix = "ssrm_ship.dmm"
 
-	sectors = list(ALL_POSSIBLE_SECTORS)
-	spawn_weight = 999
+	sectors = list(SECTOR_BADLANDS, SECTOR_VALLEY_HALE)
+	spawn_weight = 1
 	ship_cost = 1
 	id = "ssrm_corvette"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/ssrm_shuttle)
