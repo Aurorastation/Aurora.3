@@ -395,8 +395,7 @@
 		if(get_fuel() < 1)
 			setWelding(0)
 
-	//I'm not sure what this does. I assume it has to do with starting fires...
-	//...but it doesnt check to see if the welder is on or not.
+	// If we're running process(), we're currently running. Hotspot on the current tile.
 	var/turf/location = src.loc
 	if(istype(location, /mob/))
 		var/mob/M = location
