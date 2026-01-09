@@ -86,11 +86,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/starboard_gunnery)
 "aw" = (
+/obj/structure/bed/stool/chair/sofa/corner/concave,
+/obj/item/clothing/ears/earphones/earbuds,
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/structure/bed/stool/chair/sofa/corner/concave,
-/obj/item/clothing/ears/earphones/earbuds,
 /turf/simulated/floor/holofloor/wood,
 /area/ship/sol_frigate/hallway_fore)
 "ay" = (
@@ -3273,6 +3273,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
+	},
+/obj/structure/cable/blue{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/hallway_fore)
@@ -8489,6 +8492,7 @@
 /obj/structure/cable/blue{
 	icon_state = "4-8"
 	},
+/obj/machinery/portable_atmospherics/canister/empty/oxygen,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/eva_storage)
 "MO" = (
@@ -10069,6 +10073,9 @@
 	dir = 9
 	},
 /obj/structure/cable/blue,
+/obj/structure/cable/blue{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/hallway_fore)
 "Vo" = (
@@ -10278,6 +10285,17 @@
 	},
 /turf/simulated/wall/shuttle/raider,
 /area/ship/sol_frigate/sickbay)
+"Ws" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/blue{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/blue{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/sol_frigate/hallway_fore)
 "Wu" = (
 /obj/effect/landmark/entry_point/port{
 	name = "port, aft docks"
@@ -45911,7 +45929,7 @@ yt
 yt
 we
 dg
-nr
+Ws
 xi
 dL
 Ta
@@ -46168,7 +46186,7 @@ Hy
 UJ
 Vn
 or
-hl
+Zz
 pK
 HF
 iJ
