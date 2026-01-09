@@ -210,3 +210,8 @@
 	name = "bottle of Psilocybin pills"
 	desc = "Contains psychotropic pills derived from certain species of mushroom."
 	starts_with = list(/obj/item/reagent_containers/pill/psilocybin = 4)
+
+/obj/item/storage/pill_bottle/bistry
+	name = "bottle of Bistry pills"
+	desc = "A bottle of pills with writing in Basic and Siik'Maas. There is a warning to avoid taking more  than 2 pills within 48 hours."
+	starts_with = list(/obj/item/reagent_containers/pill/bistry = 4)

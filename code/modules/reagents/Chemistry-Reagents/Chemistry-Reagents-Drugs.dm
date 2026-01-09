@@ -808,15 +808,51 @@
 	sober_message_list = list("Your hunger returns to you...", "You start to feel thirsty again...", "You start to feel the cold again...")
 	initial_effect_message_list = list("Your hunger and thirst start to fade away...", "It feels like the cold no longer bothers you...")
 
+/singleton/reagent/drugs/solar_salve/initial_effect(mob/living/carbon/human/M, alien, datum/reagents/holder)
+	if(alien == (IS_UNATHI || IS_SKRELL || IS_VAURCA)) //solar salve doesn't affect ectothermic species
+		return
+	. = ..()
+
 /singleton/reagent/drugs/solar_salve/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
 	..()
-	if(prob(7))
-		to_chat(M, SPAN_GOOD(pick("You feel sated.", "You feel warmth throughout your body.")))
+	if(alien == (IS_UNATHI || IS_SKRELL || IS_VAURCA))
+		return
+	else
+		if(prob(7))
+			to_chat(M, SPAN_GOOD(pick("You feel sated.", "You feel warmth throughout your body.")))
+
+/singleton/reagent/drugs/solar_salve/final_effect(mob/living/carbon/human/M, alien, datum/reagents/holder)
+	if(alien == (IS_UNATHI || IS_SKRELL || IS_VAURCA))
+		return
+	. = ..()
 
 
 /singleton/reagent/drugs/bistry
 	name = "bistry"
 	description = "A substance made from modern medicine and traditional Adhomian herbs that induces a feeling of euphoria and provides a boost of energy for up to two days."
 	taste_description = "bitterness and herbs"
+	metabolism = 0.0001 * REM
+//	ingest_met = 0.001 * REM
+	overdose = 20
+	sober_message_list = list("You feel lethargic...", "You feel like you need a nap...")
+	initial_effect_message_list = list("A wave of euphoria washes over you.", "You feel a boost of energy!")
+
+/singleton/reagent/drugs/bistry/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+	..()
+	if(prob(7))
+		to_chat(M, SPAN_GOOD(pick("You feel really happy!", "You feel great!", "You feel full of energy.")))
+
+/singleton/reagent/drugs/bistry/final_effect(mob/living/carbon/human/M, alien, datum/reagents/holder)
+	..()
+	M.drowsiness = max(M.drowsiness, 20)
+
+/singleton/reagent/drugs/bistry/overdose(mob/living/carbon/M, alien, removed, scale, datum/reagents/holder)
+	..()
+	M.add_chemical_effect(CE_PULSE, 2)
+	if(prob(M.chem_doses[type] / 3))
+		M.seizure(rand(2,3))
+	if(prob(7))
+		to_chat(M, SPAN_BAD(pick("Your heart is racing!", "You feel *too* energetic!")))
+
 
 #undef DRUG_MESSAGE_DELAY

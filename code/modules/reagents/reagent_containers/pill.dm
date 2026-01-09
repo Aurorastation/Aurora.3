@@ -411,3 +411,9 @@
 	desc = "A strong psychotropic derived from certain species of mushroom."
 	icon_state = "pill10"
 	reagents_to_add = list(/singleton/reagent/drugs/psilocybin = 5)
+
+/obj/item/reagent_containers/pill/bistry
+	name = "10u Bistry Pill"
+	desc = "An illegal mix of modern medicines and Adhomian herbs from District Six of Mendell City. Used to provide a long-lasting feeling of euphoria and boost of energy."
+	icon_state = "pill11"
+	reagents_to_add = list(/singleton/reagent/drugs/bistry = 10)

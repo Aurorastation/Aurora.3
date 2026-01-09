@@ -1634,7 +1634,7 @@
 /obj/item/storage/box/unique/tea/messa/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(GLOB.all_languages[LANGUAGE_SIIK_MAAS] in user.languages)
-		. += SPAN_NOTICE("The label says: \"Messa's Tear leaves\" and then provides instructions on how to brew them into a hot herbal drink.")
+		. += SPAN_NOTICE("The label says: \"Messa's Tear leaves\" and then provides instructions: Steep two leaves with 90 units of hot water in a teapot.")
 
 /obj/item/storage/box/unique/tea/rasnif
 	name = "ras'nif tea tin"

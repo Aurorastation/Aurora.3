@@ -174,6 +174,11 @@
 	icon_state = "messas_tear"
 	color = "#4CC5C7"
 
+/obj/item/reagent_containers/food/snacks/grown/messas_tear_tea/Initialize()
+	. = ..()
+	reagents.clear_reagents()
+	reagents.add_reagent(/singleton/reagent/nutriment/teagrounds/messa, 5)
+
 /obj/item/reagent_containers/food/snacks/grown/messas_tear_tea/update_desc()
 	return
 

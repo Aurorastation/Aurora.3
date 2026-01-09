@@ -3901,7 +3901,7 @@
 	name = "Messa's Tear Tea"
 	id = "messas_tear_tea"
 	result = /singleton/reagent/drink/tea/messa
-	required_reagents = list(/singleton/reagent/nutriment/honey = 1, /singleton/reagent/kelotane = 2, /singleton/reagent/water = 7) //a mess, but trying to figure out how to add the tea leaf reagent to the plant is too.
+	required_reagents = list(/singleton/reagent/nutriment/teagrounds/messa = 1, /singleton/reagent/water = 9) //made with leaves, based on other tea leaf recipes.
 	result_amount = 10 //made with leaves, so based off of the other teas made with leaves
 
 /datum/chemical_reaction/drink/rasnif
