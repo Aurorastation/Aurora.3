@@ -50,6 +50,6 @@
 	invisible_until_ghostrole_spawn = TRUE
 
 /obj/effect/overmap/visitable/ship/sol_frigate/New()
-	designation = "[pick("Defender", "Gladiator", "Greyhound", "Vanguard", "Undaunted", "Unchallenged", "Triumphant", "Indefatigable", "Excellent", "Unrelenting", "Furious", "Senate", "Constitution", "Pride and Glory", "Unity", "Superior", "Hunter", "Repulse", "Warspite", "Valiant", "Turner", "Nimitz", "Halsey", "Spruance", "Ingram", "Persistance", "Endurance", "Sprinter")]"
+	designation = "[pick("Defender", "Gladiator", "Greyhound", "Vanguard", "Undaunted", "Unchallenged", "Triumphant", "Indefatigable", "Excellent", "Unrelenting", "Furious", "Senate", "Constitution", "Pride and Glory", "Unity", "Superior", "Hunter", "Repulse", "Warspite", "Valiant", "Turner", "Nimitz", "Halsey", "Spruance", "Ingram", "Persistence", "Endurance", "Sprinter")]"
 	..()
 

@@ -2112,6 +2112,17 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/hallway_mid)
+"ji" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/blue{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/blue{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/sol_frigate/hallway_fore)
 "jl" = (
 /obj/structure/closet/walllocker/firecloset{
 	pixel_x = 32
@@ -4735,8 +4746,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/starboard_gunnery)
 "vn" = (
-/obj/structure/sign/flag/sol/large/south,
-/turf/simulated/wall/shuttle/raider,
+/obj/structure/bed/stool/chair,
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/structure/sign/flag/sol/large/south{
+	pixel_y = 31
+	},
+/turf/simulated/floor/tiled/white,
 /area/ship/sol_frigate/canteen)
 "vv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -8445,6 +8460,10 @@
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
+/obj/item/reagent_containers/food/condiment/shaker/salt,
+/obj/item/reagent_containers/food/condiment/shaker/peppermill{
+	pixel_x = 7
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/sol_frigate/canteen)
 "MC" = (
@@ -9184,9 +9203,6 @@
 /area/ship/sol_frigate/canteen)
 "Qm" = (
 /obj/structure/bed/stool/chair,
-/obj/structure/bed/stool/chair{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -10285,17 +10301,6 @@
 	},
 /turf/simulated/wall/shuttle/raider,
 /area/ship/sol_frigate/sickbay)
-"Ws" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable/blue{
-	icon_state = "1-2"
-	},
-/obj/structure/cable/blue{
-	icon_state = "2-4"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/sol_frigate/hallway_fore)
 "Wu" = (
 /obj/effect/landmark/entry_point/port{
 	name = "port, aft docks"
@@ -40767,8 +40772,8 @@ MO
 MO
 MO
 MO
+mn
 vn
-cu
 ck
 dG
 th
@@ -45929,7 +45934,7 @@ yt
 yt
 we
 dg
-Ws
+ji
 xi
 dL
 Ta
