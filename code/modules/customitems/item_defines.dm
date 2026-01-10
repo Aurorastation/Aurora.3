@@ -2194,7 +2194,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "amohdan ritual dagger"
 	desc = "An old amohdan hairloom dagger. The handle appears to have been repaired with parts from a mrrazhak pistol grip and the edge of the knife has been dulled to comply with regulations, though the broken tip remains sharp, if useless for fighting."
 	desc_extended = "As hunters, priests of Mata'ke often carry daggers with them to skin their kills. These daggers are typically made of silver to emulate Mata'ke's sword and his strength. Older and more valuable daggers have been known to be shipped off-planet during the wars by opportunistic smugglers, with Zephyr Shipping Company having been accused of selling them since its establishment, despite the company vehemently opposing such accusations."
-	icon = 'icons/obj/tajara_items.dmi'
+	icon = 'icons/obj/custom_items/tulkir_knife.dmi'
+	icon_override = 'icons/obj/custom_items/tulkir_knife.dmi'
 	icon_state = "amohdan_tulkir_knife"
 	item_state = "amohdan_tulkir_knife"
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
@@ -2303,10 +2304,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 		SPAN_CULT("You finish drawing the markings of the King of Maggots."))
 
 	R.blood_DNA = list()
-	// R.blood_DNA[user.dna.unique_enzymes] = user.dna.b_type
-	// R.color = user.get_blood_color()
-	// R.filters = filter(type="drop_shadow", x = 1, y = 1, size = 4, color = user.get_blood_color())
-
 	R.blood_DNA = src.blood_DNA
 	R.color = src.blood_color
 	R.filters = filter(type="drop_shadow", x = 1, y = 1, size = 4, color = src.blood_color)
@@ -2317,9 +2314,12 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "amohdan knife sheath"
 	desc = "A leather sheath for an amohdan knife."
 	desc_extended = "As hunters, priests of Mata'ke often carry daggers with them to skin their kills. These daggers are typically made of silver to emulate Mata'ke's sword and his strength. Older and more valuable daggers have been known to be shipped off-planet during the wars by opportunistic smugglers, with Zephyr Shipping Company having been accused of selling them since its establishment, despite the company vehemently opposing such accusations."
+	icon = 'icons/obj/custom_items/tulkir_sheath.dmi'
+	icon_override = 'icons/obj/custom_items/tulkir_sheath.dmi'
 	icon_state = "holster_raskariim"
 	item_state = "holster_raskariim"
-	icon = 'icons/obj/tajara_items.dmi'
+	draw_peace = "holding it low."
+	draw_hostile = "ready to draw blood!"
 	allowed_items = list(
 		/obj/item/material/knife/raskariim,
 		/obj/item/material/knife/raskariim/fluff/tulkir_knife

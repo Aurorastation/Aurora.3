@@ -15,6 +15,8 @@
 	var/sound_out = 'sound/weapons/holster/holsterout.ogg'
 	flippable = 1
 	w_class = WEIGHT_CLASS_NORMAL
+	var/draw_peace = "pointing it at the ground."
+	var/draw_hostile = "ready to shoot!"
 
 /obj/item/clothing/accessory/holster/Initialize()
 	. = ..()
@@ -66,13 +68,13 @@
 		if(user.a_intent == I_HURT)
 			sound_vol = 50
 			user.visible_message(
-				SPAN_DANGER("[user] draws \the [holstered], ready to shoot!"),
-				SPAN_WARNING("You draw \the [holstered], ready to shoot!")
+				SPAN_DANGER("[user] draws \the [holstered], [draw_hostile]"),
+				SPAN_WARNING("You draw \the [holstered], [draw_hostile]")
 			)
 		else
 			user.visible_message(
-				SPAN_NOTICE("[user] draws \the [holstered], pointing it at the ground."),
-				SPAN_NOTICE("You draw \the [holstered], pointing it at the ground.")
+				SPAN_NOTICE("[user] draws \the [holstered], [draw_peace]"),
+				SPAN_NOTICE("You draw \the [holstered], [draw_peace]")
 			)
 
 		if(sound_out)
@@ -260,6 +262,8 @@
 	icon_state = "holster_machete"
 	item_state = "holster_machete"
 	icon = 'icons/obj/item/clothing/accessory/holster.dmi'
+	draw_peace = "holding it low."
+	draw_hostile = "ready to fight!"
 	allowed_items = list(
 		/obj/item/material/hatchet/machete,
 		/obj/item/material/hatchet/machete/deluxe,
