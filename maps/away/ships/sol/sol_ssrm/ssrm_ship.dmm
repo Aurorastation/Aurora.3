@@ -1181,7 +1181,7 @@
 /obj/machinery/atmospherics/unary/outlet_injector{
 	dir = 8
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/carbon_dioxide,
 /area/ship/ssrm_corvette/atmospherics)
 "cIL" = (
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
@@ -2464,7 +2464,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/siphon/atmos{
 	dir = 8
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/carbon_dioxide,
 /area/ship/ssrm_corvette/atmospherics)
 "eWz" = (
 /obj/structure/railing/mapped,
@@ -2615,7 +2615,7 @@
 	name = "ssrm_co2_port";
 	master_tag = "ssrm_co2_port"
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/carbon_dioxide,
 /area/ship/ssrm_corvette/engineering)
 "fnM" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider,
@@ -7715,7 +7715,7 @@
 	name = "ssrm_co2_port";
 	master_tag = "ssrm_co2_port"
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/carbon_dioxide,
 /area/ship/ssrm_corvette/engineering)
 "roP" = (
 /obj/structure/cable{
