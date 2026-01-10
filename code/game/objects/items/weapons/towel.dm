@@ -48,6 +48,8 @@
 	to_chat(usr, SPAN_NOTICE("You lay out \the [src] flat on the ground."))
 	var/obj/item/towel_flat/T = new /obj/item/towel_flat(usr.loc)
 	T.color = src.color
+	T.name = src.name
+	T.desc = src.desc
 	qdel(src)
 
 /obj/item/towel_flat
@@ -60,5 +62,7 @@
 	to_chat(user, SPAN_NOTICE("You pick up and fold \the [src]."))
 	var/obj/item/towel/T = new /obj/item/towel(user)
 	T.color = src.color
+	T.name = src.name
+	T.desc = src.desc
 	user.put_in_hands(T)
 	qdel(src)
