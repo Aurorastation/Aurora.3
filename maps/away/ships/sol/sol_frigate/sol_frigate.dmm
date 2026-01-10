@@ -1297,6 +1297,10 @@
 /obj/item/reagent_containers/food/condiment/sugar,
 /obj/item/reagent_containers/food/condiment/flour,
 /obj/item/reagent_containers/food/condiment/flour,
+/obj/random_produce/box,
+/obj/random_produce/box,
+/obj/random_produce/box,
+/obj/random_produce/box,
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
 	temperature = 253.15
@@ -2112,17 +2116,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/hallway_mid)
-"ji" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable/blue{
-	icon_state = "1-2"
-	},
-/obj/structure/cable/blue{
-	icon_state = "2-4"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/sol_frigate/hallway_fore)
 "jl" = (
 /obj/structure/closet/walllocker/firecloset{
 	pixel_x = 32
@@ -4619,6 +4612,10 @@
 	pixel_y = 5
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/random_produce/box,
+/obj/random_produce/box,
+/obj/random_produce/box,
+/obj/random_produce/box,
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
 	temperature = 253.15
@@ -4934,8 +4931,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/canteen)
 "wd" = (
-/turf/template_noop,
-/area/ship/sol_frigate/port_battery)
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/blue{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/blue{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/sol_frigate/hallway_fore)
 "we" = (
 /turf/simulated/wall/shuttle/raider,
 /area/ship/sol_frigate/hallway_fore)
@@ -7983,6 +7988,10 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/random_produce/box,
+/obj/random_produce/box,
+/obj/random_produce/box,
+/obj/random_produce/box,
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
 	temperature = 253.15
@@ -41508,10 +41517,10 @@ MO
 MO
 MO
 MO
-MO
-MO
-MO
-MO
+bI
+bI
+bI
+bI
 MO
 MO
 MO
@@ -45934,7 +45943,7 @@ yt
 yt
 we
 dg
-ji
+wd
 xi
 dL
 Ta
@@ -46722,7 +46731,7 @@ Xf
 Xf
 Xf
 Xf
-Xf
+bI
 Xf
 Xf
 Qd
@@ -48002,8 +48011,8 @@ jC
 lt
 LZ
 Xf
+Xf
 qp
-wd
 MO
 MO
 MO
