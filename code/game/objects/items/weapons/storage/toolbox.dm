@@ -113,6 +113,8 @@
 	force = 16
 	starts_with = list(\
 		/obj/item/clothing/gloves/yellow = 1,\
+		/obj/item/clothing/gloves/yellow/specialt = 1,\
+		/obj/item/clothing/gloves/yellow/specialu = 1,\
 		/obj/item/screwdriver = 1,\
 		/obj/item/wrench = 1,\
 		/obj/item/weldingtool = 1,
