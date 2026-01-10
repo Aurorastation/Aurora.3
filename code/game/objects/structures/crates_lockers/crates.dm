@@ -767,3 +767,5 @@
 	new /obj/item/storage/box/midynhr_water(src)
 	new /obj/item/storage/box/fancy/yoke/grape_juice(src)
 	new /obj/item/storage/box/fancy/yoke/beetle_milk(src)
+	new /obj/item/storage/box/unique/tea/rasnif(src)
+	new /obj/item/storage/box/unique/tea/messa(src)

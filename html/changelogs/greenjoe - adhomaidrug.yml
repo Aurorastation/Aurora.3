@@ -55,5 +55,8 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Adds two types of tajaran tea - Messa's tear and ras'nif."
-  - rscadd: "Adds solar salve. Find it in the loadout under chewing tobacco."
+  - rscadd: "Adds two types of tajaran tea - Messa's tear and ras'nif. Tins are found in the loadout and bar."
+  - rscadd: "Adds solar salve. Find it in the loadout under chewing tobacco selection."
+  - rscadd: "Adds a bunch of smokeables/chewables to the loot pool for random smokeables."
+  - qol: "Adjusts the amount of reagents in the Konyang tea leaves to make brewing easier, as well as adding instructions to the tins."
+  - rscadd: "Increases the number of leaves in the Konyang tea tins from 7 to 12."

@@ -1,6 +1,6 @@
 /obj/random/smokable
-	name = "random smokable"
-	desc = "This is a random smoking item."
+	name = "random smokable/chewable"
+	desc = "This is a random smoking/chewing item."
 	icon_state = "cigarettes"
 	problist = list(
 		/obj/item/storage/box/fancy/cigarettes = 30,
@@ -14,7 +14,24 @@
 		/obj/item/storage/box/fancy/cigarettes/dpra = 2,
 		/obj/item/storage/box/fancy/cigarettes/nka = 2,
 		/obj/item/storage/box/fancy/cigarettes/federation = 2,
-		/obj/item/storage/box/fancy/cigarettes/dyn = 2
+		/obj/item/storage/box/fancy/cigarettes/dyn = 2,
+		/obj/item/storage/box/fancy/cigarettes/oracle = 3,
+		/obj/item/storage/box/fancy/cigarettes/koko = 1,
+		/obj/item/storage/chewables/rollable = 3,
+		/obj/item/storage/chewables/rollable/unathi = 1,
+		/obj/item/storage/chewables/rollable/fine = 1,
+		/obj/item/storage/chewables/rollable/nico = 1,
+		/obj/item/storage/chewables/rollable/oracle = 2,
+		/obj/item/storage/chewables/rollable/vedamor = 1,
+		/obj/item/storage/chewables/tobacco/bad = 4,
+		/obj/item/storage/chewables/tobacco = 3,
+		/obj/item/storage/chewables/tobacco/fine = 2,
+		/obj/item/storage/chewables/tobacco/federation = 1,
+		/obj/item/storage/chewables/tobacco/dyn = 1,
+		/obj/item/storage/chewables/tobacco/koko = 1,
+		/obj/item/storage/chewables/oracle = 3,
+		/obj/item/storage/box/fancy/chewables/tobacco/nico = 3,
+		/obj/item/storage/chewables/solar_salve = 1
 	)
 
 /obj/random/action_figure
