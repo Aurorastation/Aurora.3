@@ -88,7 +88,7 @@
 
 /datum/event/comet_expulsion
 	severity = EVENT_LEVEL_MAJOR
-	startWhen = 30
+	startWhen = 10
 	/// Number of meteors aimed directly at Horizon (few)
 	var/meteors_aimed = 0
 	/// Number of meteors traveling on random trajectories on the overmap (lots)
@@ -165,6 +165,6 @@
 	command_announcement.Announce("Warning, long range field scanners have detected an unforeseen comet expulsion in collision route with [location_name()].\n\
 									All hands, assume defense condition, perform evasive maneuvers to avoid collision with the debris cloud. Damage control teams prepare to respond to breaches of the \
 									vessel perimeter.",
-									"[location_name()] Long Range Field Objects Sensor Array", new_sound = 'sound/effects/Evacuation.ogg', zlevels = affecting_z)
+									"[location_name()] Long Range Field Objects Sensor Array", new_sound = sound('sound/AI/comet_expulsion.ogg', volume = 50), zlevels = affecting_z)
 
 #undef SHIELD_MINIMUM_STRENGTH_TO_REDUCE_EXPLOSION_POWER

@@ -149,7 +149,7 @@
 /obj/item/gun/projectile/automatic/rifle/minigun/load_ammo(var/obj/item/A, mob/user)
 	return
 
-/obj/item/gun/projectile/automatic/rifle/minigun/unload_ammo(mob/user, var/allow_dump=1)
+/obj/item/gun/projectile/automatic/rifle/minigun/unload_ammo(mob/user, allow_dump = TRUE, drop_mag = FALSE)
 	return
 
 /obj/item/gun/projectile/automatic/rifle/minigun/dropped(mob/user)

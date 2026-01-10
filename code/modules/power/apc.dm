@@ -80,7 +80,6 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 	gfi_layer_rotation = GFI_ROTATION_DEFDIR
 	clicksound = /singleton/sound_category/switch_sound
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
-	z_flags = ZMM_MANGLE_PLANES
 	var/area/area
 	var/areastring = null
 	var/obj/item/cell/cell
@@ -388,17 +387,17 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 
 	if(update & 3)
 		if(update_state & UPDATE_BLUESCREEN)
-			set_light(l_range = L_WALLMOUNT_RANGE, l_power = L_WALLMOUNT_POWER, l_color = COLOR_BLUE)
+			set_light_color(LIGHT_COLOR_BLUE)
+			set_light(L_WALLMOUNT_RANGE)
 		else if(!(stat & (BROKEN|MAINT)) && update_state & UPDATE_ALLGOOD)
-			var/color
 			switch(charging)
 				if(CHARGING_OFF)
-					color = "#F86060"
+					set_light_color("#F86060")
 				if(CHARGING_ON)
-					color = "#A8B0F8"
+					set_light_color("#A8B0F8")
 				if(CHARGING_FULL)
-					color = "#82FF4C"
-			set_light(l_range = L_WALLMOUNT_RANGE, l_power = L_WALLMOUNT_POWER, l_color = color)
+					set_light_color("#82FF4C")
+			set_light(L_WALLMOUNT_RANGE)
 		else
 			set_light(0)
 
@@ -842,7 +841,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 
-		if(isipc(H) && H.a_intent == I_GRAB)
+		if(isipc(H) && H.a_intent == I_GRAB && Adjacent(user))
 			if(emagged || stat & BROKEN)
 				spark(src, 5, GLOB.alldirs)
 				to_chat(H, SPAN_DANGER("The APC power currents surge eratically, damaging your chassis!"))
@@ -859,27 +858,10 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 				if(issilicon(hacker))
 					to_chat(hacker, SPAN_NOTICE("Corrupt files transferred to [H]. They are now under your control until they are repaired."))
 			else if(cell && cell.charge > 0)
-				var/obj/item/organ/internal/cell/C = H.internal_organs_by_name[BP_CELL]
-				var/obj/item/cell/HC
-				if(C)
-					HC = C.cell
-				if(HC && HC.percent() < 95)
-					var/used = cell.use(500)
-					HC.give(used)
-					to_chat(user, SPAN_NOTICE("You slot your fingers into the APC interface and siphon off some of the stored charge for your own use."))
-					if (cell.charge < 0)
-						cell.charge = 0
-					if (prob(0.5))
-						spark(src, 5, GLOB.alldirs)
-						to_chat(H, SPAN_DANGER("The APC power currents surge eratically, damaging your chassis!"))
-						H.adjustFireLoss(10, 0)
-
-					charging = CHARGING_ON
-				else
-					to_chat(user, SPAN_NOTICE("You are already fully charged."))
+				synthetic_siphon_power(H)
 			else
 				to_chat(user, SPAN_NOTICE("There is no charge to draw from that APC."))
-			return
+				return
 
 		else if(H.species.can_shred(H))
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
@@ -1019,6 +1001,37 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 			return FALSE
 
 	return TRUE
+
+/obj/machinery/power/apc/proc/synthetic_siphon_power(mob/living/carbon/human/synthetic)
+	var/obj/item/organ/internal/machine/power_core/C = synthetic.internal_organs_by_name[BP_CELL]
+	var/obj/item/cell/HC
+	if(C)
+		HC = C.cell
+	var/obj/item/organ/internal/machine/reactor/reactor = synthetic.internal_organs_by_name[BP_REACTOR]
+	if(!istype(reactor))
+		to_chat(synthetic, SPAN_WARNING("You are missing the electronic prongs to charge from the APC!"))
+		return
+	if(!(reactor.power_supply_type & POWER_SUPPLY_ELECTRIC))
+		to_chat(synthetic, SPAN_NOTICE("You start siphoning power from the APC..."))
+		if(!do_after(synthetic, 2 SECONDS, src))
+			return
+	if(HC && HC.percent() < 95)
+		var/used = cell.use(500)
+		HC.give(used)
+		to_chat(synthetic, SPAN_NOTICE("You slot your fingers into the APC interface and siphon off some of the stored charge for your own use."))
+		if (cell.charge < 0)
+			cell.charge = 0
+		if(!(reactor.power_supply_type & POWER_SUPPLY_ELECTRIC))
+			if(prob(0.5))
+				spark(src, 5, GLOB.alldirs)
+				to_chat(synthetic, SPAN_DANGER("The APC power currents surge eratically, damaging your chassis!"))
+				synthetic.adjustFireLoss(10, 0)
+			if(HC.percent() < 95)
+				synthetic_siphon_power(synthetic)
+
+		charging = CHARGING_ON
+	else
+		to_chat(synthetic, SPAN_NOTICE("You are already fully charged."))
 
 /obj/machinery/power/apc/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()

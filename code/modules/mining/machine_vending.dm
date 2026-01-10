@@ -89,7 +89,7 @@ GLOBAL_LIST_INIT(minevendor_list, list(
 	shuttle = set_shuttle
 
 /obj/item/circuitboard/machine/mining_equipment_vendor
-	name = "circuit board (Mining Equipment Vendor)"
+	name = T_BOARD("Mining Equipment Vendor")
 	build_path = /obj/machinery/mineral/equipment_vendor
 	origin_tech = list(TECH_DATA = 1, TECH_ENGINEERING = 1)
 	req_components = list(	/obj/item/stock_parts/console_screen = 1,

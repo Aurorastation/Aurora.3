@@ -1,1 +1,2 @@
 GLOBAL_LIST_EMPTY(mob_config_movespeed_type_lookup)
+GLOBAL_LIST_INIT(low_integrity_messages, world.file2list("config/synthetic_messages/low_integrity_messages.txt"))

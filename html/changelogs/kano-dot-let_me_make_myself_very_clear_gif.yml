@@ -1,7 +1,0 @@
-
-author: Kano
-
-delete-after: True
-
-changes:
-  - qol: "Ported large object transparency from TGMC, allowing to see some things hiding behind large icons."

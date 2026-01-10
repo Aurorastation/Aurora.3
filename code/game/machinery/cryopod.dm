@@ -1,3 +1,7 @@
+#ifndef T_BOARD
+#error T_BOARD macro is not defined but we need it!
+#endif
+
 /*
  * Cryogenic refrigeration unit. Basically a despawner.
  * Stealing a lot of concepts/code from sleepers due to massive laziness.
@@ -5,7 +9,6 @@
  * since time_entered, which is world.time when the occupant moves in.
  * ~ Zuhayr
  */
-
 
 //Main cryopod console.
 
@@ -148,17 +151,17 @@
 	return
 
 /obj/item/circuitboard/cryopodcontrol
-	name = "Circuit board (Cryogenic Oversight Console)"
+	name = T_BOARD("cryogenic oversight console")
 	build_path = /obj/machinery/computer/cryopod
 	origin_tech = list(TECH_DATA = 3)
 
 /obj/item/circuitboard/robotstoragecontrol
-	name = "Circuit board (Robotic Storage Console)"
+	name = T_BOARD("robotic storage console")
 	build_path = /obj/machinery/computer/cryopod/robot
 	origin_tech = list(TECH_DATA = 3)
 
 /obj/item/circuitboard/living_quarters_cryo
-	name = "Circuit board (Living Quarters Console)"
+	name = T_BOARD("living quarters oversight console")
 	build_path = /obj/machinery/computer/cryopod/living_quarters
 	origin_tech = list(TECH_DATA = 3)
 
@@ -551,7 +554,7 @@
 	var/choice = alert(M, "Would you like to save your tag data?", "Tag Persistence", "Yes", "No")
 	if(choice == "Yes")
 		var/mob/living/carbon/human/H = M
-		var/obj/item/organ/internal/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
+		var/obj/item/organ/internal/machine/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
 		if(tag)
 			M.client.prefs.machine_ownership_status = tag.ownership_info
 			M.client.prefs.machine_serial_number = tag.serial_number

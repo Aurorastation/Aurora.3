@@ -439,7 +439,8 @@
 
 /mob/living/carbon/human/proc/stabilize_body_temperature()
 	if (species.passive_temp_gain) // We produce heat naturally.
-		bodytemperature += species.passive_temp_gain
+		species.handle_temperature_regulation(src)
+
 	if (species.body_temperature == null)
 		return //this species doesn't have metabolic thermoregulation
 
@@ -1015,7 +1016,7 @@
 					nut_icon = 2
 				else if (nut_factor >= CREW_NUTRITION_HUNGRY)
 					nut_icon = 3
-				else if (nut_factor >= CREW_NUTRITION_VERYHUNGRY )
+				else if (nut_factor >= CREW_NUTRITION_VERYHUNGRY)
 					nut_icon = 4
 				var/new_val = "[isSynthetic() ? "charge" : "nutrition"][nut_icon]"
 				if (nutrition_icon.icon_state != new_val)
@@ -1039,7 +1040,7 @@
 					hydration_icon.icon_state = new_val
 
 			if(isSynthetic())
-				var/obj/item/organ/internal/cell/IC = internal_organs_by_name[BP_CELL]
+				var/obj/item/organ/internal/machine/power_core/IC = internal_organs_by_name[BP_CELL]
 				if(istype(IC) && IC.is_usable())
 					var/chargeNum = clamp(Ceiling(IC.percent()/25), 0, 4)	//0-100 maps to 0-4, but give it a paranoid clamp just in case.
 					cells.icon_state = "charge[chargeNum]"
@@ -1497,6 +1498,7 @@
 		return
 	if((mutations & XRAY))
 		set_sight(sight|SEE_TURFS|SEE_MOBS|SEE_OBJS)
+	lighting_alpha = default_lighting_alpha
 
 /**
  * This proc assumes that if shock_value = null, then a shock value was NOT passed in, and thus it calculates it itself.

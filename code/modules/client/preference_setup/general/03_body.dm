@@ -243,6 +243,11 @@ GLOBAL_LIST_INIT(valid_bloodtypes, list(
 	out += "Limbs: <a href='byond://?src=[REF(src)];limbs=1'>Adjust</a><br>"
 	if(length(mob_species.alterable_internal_organs))
 		out += "Internal Organs: <a href='byond://?src=[REF(src)];organs=1'>Adjust</a><br>"
+		for(var/organ in pref.organ_data)
+			var/output_pref = pref.organ_data[organ]
+			if(!pref.organ_data[organ])
+				output_pref = "Default"
+			out += "- <b>[capitalize_first_letters(organ)]</b>: [capitalize(output_pref)] <br>"
 	out += "Prosthesis/Amputations: <a href='byond://?src=[REF(src)];reset_organs=1'>Reset</a><br>"
 
 	//display limbs below
@@ -297,9 +302,9 @@ GLOBAL_LIST_INIT(valid_bloodtypes, list(
 	out += "<br><a href='byond://?src=[REF(src)];set_preview_scale=1'>Set Preview Scale - [pref.scale_x] - [pref.scale_y]</a>"
 	out += "<br><a href='byond://?src=[REF(src)];toggle_preview_value=[EQUIP_PREVIEW_LOADOUT]'>[pref.equip_preview_mob & EQUIP_PREVIEW_LOADOUT ? "Hide loadout" : "Show loadout"]</a>"
 	out += "<br><a href='byond://?src=[REF(src)];toggle_preview_value=[EQUIP_PREVIEW_JOB]'>[pref.equip_preview_mob & EQUIP_PREVIEW_JOB ? "Hide job gear" : "Show job gear"]</a>"
-	out += "<br><a href='byond://?src=[REF(src)];toggle_preview_value=[EQUIP_PREVIEW_JOB_HAT]'>[pref.equip_preview_mob & EQUIP_PREVIEW_JOB_HAT ? "Hide job hat" : "Show job hat"]</a>"
-	out += "<br><a href='byond://?src=[REF(src)];toggle_preview_value=[EQUIP_PREVIEW_JOB_UNIFORM]'>[pref.equip_preview_mob & EQUIP_PREVIEW_JOB_UNIFORM ? "Hide job uniform" : "Show job uniform"]</a>"
-	out += "<br><a href='byond://?src=[REF(src)];toggle_preview_value=[EQUIP_PREVIEW_JOB_SUIT]'>[pref.equip_preview_mob & EQUIP_PREVIEW_JOB_SUIT ? "Hide job suit" : "Show job suit"]</a>"
+	out += "<br><a href='byond://?src=[REF(src)];toggle_preview_value=[EQUIP_PREVIEW_JOB_HAT]'>[pref.equip_preview_mob & EQUIP_PREVIEW_JOB_HAT ? "Hide hat" : "Show hat"]</a>"
+	out += "<br><a href='byond://?src=[REF(src)];toggle_preview_value=[EQUIP_PREVIEW_JOB_UNIFORM]'>[pref.equip_preview_mob & EQUIP_PREVIEW_JOB_UNIFORM ? "Hide uniform" : "Show uniform"]</a>"
+	out += "<br><a href='byond://?src=[REF(src)];toggle_preview_value=[EQUIP_PREVIEW_JOB_SUIT]'>[pref.equip_preview_mob & EQUIP_PREVIEW_JOB_SUIT ? "Hide suit" : "Show suit"]</a>"
 	out += "<br><a href='byond://?src=[REF(src)];toggle_preview_value=[EQUIP_PREVIEW_CUSTOM_ITEMS]'>[pref.equip_preview_mob & EQUIP_PREVIEW_CUSTOM_ITEMS ? "Hide custom items" : "Show custom items"]</a>"
 	out += "</td></tr></table>"
 
@@ -889,6 +894,22 @@ GLOBAL_LIST_INIT(valid_bloodtypes, list(
 
 			if("Removed")
 				pref.organ_data[organ_name] = ORGAN_PREF_REMOVED
+
+			// IPC cooling unit options.
+			if("Air Cooling")
+				pref.organ_data[organ_name] = null
+			if("Liquid Cooling")
+				pref.organ_data[organ_name] = ORGAN_PREF_LIQUIDCOOLED
+			if("Passive Cooling")
+				pref.organ_data[organ_name] = ORGAN_PREF_PASSIVECOOLED
+
+			// IPC reactor options.
+			if("Electric")
+				pref.organ_data[organ_name] = null
+			if("Biological")
+				pref.organ_data[organ_name] = ORGAN_PREF_BIOPOWER
+			if("Solar")
+				pref.organ_data[organ_name] = ORGAN_PREF_SOLARPOWER
 
 		return TOPIC_REFRESH_UPDATE_PREVIEW
 

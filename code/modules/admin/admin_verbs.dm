@@ -145,7 +145,8 @@ GLOBAL_LIST_INIT(admin_verbs_fun, list(
 	/client/proc/fab_tip,
 	/client/proc/apply_sunstate,
 	/datum/admins/proc/ccannoucment,
-	/datum/admins/proc/set_odyssey
+	/datum/admins/proc/set_odyssey,
+	/datum/admins/proc/set_odyssey_canonicity
 	))
 
 GLOBAL_LIST_INIT(admin_verbs_spawn, list(
@@ -224,7 +225,6 @@ GLOBAL_LIST_INIT(admin_verbs_debug, list(
 	/client/proc/toggle_recursive_explosions,
 	/client/proc/restart_sql,
 	/client/proc/fix_player_list,
-	/client/proc/lighting_show_verbs,
 	/client/proc/restart_controller,
 	/client/proc/cmd_display_del_log,
 	/client/proc/cmd_display_harddel_log,
@@ -236,7 +236,6 @@ GLOBAL_LIST_INIT(admin_verbs_debug, list(
 	/datum/admins/proc/map_template_load,
 	/datum/admins/proc/map_template_load_new_z,
 	/datum/admins/proc/map_template_upload,
-	/client/proc/global_ao_regenerate,
 	/client/proc/add_client_color,
 	/client/proc/connect_ntsl,
 	/client/proc/disconnect_ntsl,
@@ -342,7 +341,6 @@ GLOBAL_LIST_INIT(admin_verbs_hideable, list(
 	/client/proc/end_round,
 	/datum/admins/proc/immreboot,
 	/client/proc/cmd_dev_bst,
-	/client/proc/global_ao_regenerate,
 	/client/proc/everyone_random,
 	/datum/admins/proc/toggleAI,
 	/client/proc/cmd_admin_delete,
@@ -411,6 +409,7 @@ GLOBAL_LIST_INIT(admin_verbs_hideable, list(
 	/client/proc/cmd_display_harddel_log,
 	/datum/admins/proc/ccannoucment,
 	/datum/admins/proc/set_odyssey,
+	/datum/admins/proc/set_odyssey_canonicity,
 	/client/proc/cmd_display_init_log,
 	/client/proc/cmd_generate_lag,
 	/client/proc/getruntimelog,
@@ -420,7 +419,6 @@ GLOBAL_LIST_INIT(admin_verbs_hideable, list(
 	/datum/admins/proc/capture_map,
 	/turf/proc/view_chunk,
 	/turf/proc/update_chunk,
-	/client/proc/lighting_show_verbs,
 	/client/proc/callproc,
 	/client/proc/callproc_target,
 	/client/proc/debug_controller,
@@ -498,7 +496,6 @@ GLOBAL_LIST_INIT(admin_verbs_dev, list( //will need to be altered - Ryan784
 	/client/proc/toggledebuglogs,
 	/client/proc/ZASSettings,
 	/client/proc/cmd_dev_bst,
-	/client/proc/lighting_show_verbs,
 	/client/proc/cmd_display_del_log,
 	/client/proc/cmd_display_harddel_log,
 	/client/proc/cmd_display_init_log,

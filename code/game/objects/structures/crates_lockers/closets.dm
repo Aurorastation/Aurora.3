@@ -168,8 +168,10 @@
 
 /obj/structure/closet/proc/can_open()
 	if(welded || locked)
-		return 0
-	return 1
+		return FALSE
+	if(istype(loc, /obj/structure/crate_shelf))
+		return FALSE
+	return TRUE
 
 /obj/structure/closet/proc/can_close()
 	for(var/obj/structure/closet/closet in get_turf(src))
@@ -415,10 +417,13 @@
 	else if(istype(attacking_item, /obj/item/device/cratescanner))
 		var/obj/item/device/cratescanner/Cscanner = attacking_item
 		if(locked)
-			to_chat(user, SPAN_WARNING("[attacking_item] refuses to scan [src]. Unlock it first!"))
+			to_chat(user, SPAN_WARNING("[attacking_item] refuses to scan \the [src]. Unlock it first!"))
 			return
 		if(welded)
-			to_chat(user, SPAN_WARNING("[attacking_item] detects that [src] is welded shut, and refuses to scan."))
+			to_chat(user, SPAN_WARNING("[attacking_item] detects that \the [src] is welded shut, and refuses to scan."))
+			return
+		if(istype(loc, /obj/structure/crate_shelf))
+			to_chat(user, SPAN_WARNING("[attacking_item] can't scan \the [src] while it is on \the [loc]."))
 			return
 		Cscanner.print_contents(name, contents, src.loc)
 	else if(istype(attacking_item, /obj/item/stack/packageWrap))
@@ -743,6 +748,10 @@
 		return 0
 
 /obj/structure/closet/proc/mob_breakout(var/mob/living/escapee)
+	if(istype(loc, /obj/structure/crate_shelf))
+		var/obj/structure/crate_shelf/shelf = loc
+		shelf.relay_container_resist_act(escapee, src)
+		return
 
 	//Improved by nanako
 	//Now it actually works, also locker breakout time stacks with locking and welding

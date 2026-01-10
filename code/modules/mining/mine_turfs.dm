@@ -76,12 +76,16 @@ GLOBAL_LIST_INIT(mineral_can_smooth_with, list(
 	if(is_station_level(z))
 		GLOB.station_turfs += src
 
-	if(dynamic_lighting)
-		luminosity = 0
-	else
-		luminosity = 1
+	if (light_range && light_power)
+		update_light()
 
-	has_opaque_atom = TRUE
+	//Get area light
+	var/area/current_area = loc
+	if(current_area?.lighting_effect)
+		overlays += current_area.lighting_effect
+
+	if(opacity)
+		directional_opacity = ALL_CARDINALS
 
 	if(smoothing_flags)
 		canSmoothWith = GLOB.mineral_can_smooth_with
@@ -210,12 +214,16 @@ GLOBAL_LIST_INIT(mineral_can_smooth_with, list(
 	if(is_station_level(z))
 		GLOB.station_turfs += src
 
-	if(dynamic_lighting)
-		luminosity = 0
-	else
-		luminosity = 1
+	if (light_range && light_power)
+		update_light()
 
-	has_opaque_atom = TRUE
+	//Get area light
+	var/area/current_area = loc
+	if(current_area?.lighting_effect)
+		overlays += current_area.lighting_effect
+
+	if(opacity)
+		directional_opacity = ALL_CARDINALS
 
 	if(smoothing_flags)
 		canSmoothWith = asteroid_can_smooth_with
@@ -753,21 +761,19 @@ GLOBAL_LIST_INIT(asteroid_floor_smooth, list(
 	if(is_station_level(z))
 		GLOB.station_turfs += src
 
-	if(dynamic_lighting)
-		luminosity = 0
-	else
-		luminosity = 1
-
-	if(mapload && permit_ao)
-		queue_ao()
-
 	if(smoothing_flags)
 		canSmoothWith = GLOB.asteroid_floor_smooth
-		pixel_x = -4
-		pixel_y = -4
+		var/matrix/M = new
+		M.Translate(-4, -4)
+		transform = M
 
 	if(light_range && light_power)
 		update_light()
+
+	//Get area light
+	var/area/current_area = loc
+	if(current_area?.lighting_effect)
+		overlays += current_area.lighting_effect
 
 	return INITIALIZE_HINT_NORMAL
 
@@ -926,7 +932,7 @@ GLOBAL_LIST_INIT(asteroid_floor_smooth, list(
 	return
 
 /turf/simulated/floor/exoplanet/asteroid/proc/gets_dug(mob/user)
-	AddOverlays("asteroid_dug", TRUE)
+	AddOverlays("asteroid_dug")
 
 	if(prob(75))
 		new /obj/item/ore/glass(src)
@@ -980,7 +986,7 @@ GLOBAL_LIST_INIT(asteroid_floor_smooth, list(
 
 	if(dug <= 10)
 		dug += 1
-		AddOverlays("asteroid_dug", TRUE)
+		AddOverlays("asteroid_dug")
 	else
 		var/turf/below = GET_TURF_BELOW(src)
 		if(below)

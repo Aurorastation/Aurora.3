@@ -1996,6 +1996,14 @@
 		new /obj/item/reagent_containers/food/snacks/spreads/butter(location)
 	return
 
+/datum/chemical_reaction/cream_cheese
+	name = "Cream Cheese"
+	id = "creamcheese"
+	result = /singleton/reagent/nutriment/protein/cream_cheese
+	required_reagents = list(/singleton/reagent/drink/milk = 5, /singleton/reagent/drink/milk/cream = 5)
+	catalysts = list(/singleton/reagent/enzyme = 5)
+	result_amount = 10
+
 /*
 	Todo in future:
 		Cornmeal batter for corndogs

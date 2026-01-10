@@ -18,6 +18,10 @@
 	var/obj/item/key/key
 	var/key_type = /obj/item/key/cargo_train
 
+/obj/vehicle/train/cargo/engine/Destroy()
+	QDEL_NULL(key)
+	return ..()
+
 /obj/vehicle/train/cargo/engine/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Click-drag yourself onto the truck to climb onto it."

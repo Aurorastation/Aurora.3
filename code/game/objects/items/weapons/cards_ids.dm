@@ -142,6 +142,7 @@
 	/// Miners gotta eat.
 	var/mining_points
 
+	/// Only used by Agent ID cards.
 	var/can_copy_access = FALSE
 	var/access_copy_msg
 
@@ -158,7 +159,26 @@
 	var/employer_faction = null
 	var/datum/ntnet_user/chat_user
 
+	/// This contains IFF the associated faction's IFF data, as they appear to have once (?) pertained to projectile code (search 'var/iff_capable'). As of 2025/11, this code is not implemented.
 	var/iff_faction = IFF_DEFAULT
+
+/obj/item/card/id/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(dna_hash == ID_CARD_UNSET && is_adjacent)
+		. += "Use this card on yourself to imprint your own biometric data on the card (you will receive a confirmation prompt)."
+		. += "To imprint another person's biometric data, use the card on them while targeting the left or right hand."
+		. += "The target person must remain still and on the Help intent to successfully take their prints."
+
+/obj/item/card/id/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(dna_hash == ID_CARD_UNSET && is_adjacent)
+		. += "This card has no registered biometric data, and must be used on a person to imprint that data."
+
+/obj/item/card/id/antagonist_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(can_copy_access)
+		. += "This card can copy access rights; use it on another ID card to steal the the access rights of that card."
+		. += "All copied access rights are additive; you can never lose existing access rights by copying another card."
 
 /obj/item/card/id/Destroy()
 	QDEL_NULL(chat_user)
@@ -278,44 +298,51 @@
 		if(!ishuman(target_mob))
 			return ..()
 
-		if (dna_hash == ID_CARD_UNSET && ishuman(user))
-			var/response = alert(user, "This ID card has not been imprinted with biometric data. Would you like to imprint [target_mob]'s now?", "Biometric Imprinting", "Yes", "No")
+		var/mob/living/carbon/human/target_human = target_mob
+
+		if(dna_hash == ID_CARD_UNSET && ishuman(user))
+			var/response = alert(user, "This ID card has not been imprinted with biometric data. Would you like to imprint [target_human]'s now?", "Biometric Imprinting", "Yes", "No")
 			if (response == "Yes")
-				if (!user.Adjacent(target_mob) || user.restrained() || user.lying || user.stat)
-					to_chat(user, SPAN_WARNING("You must remain adjacent to [target_mob] to scan their biometric data."))
-					return
+				if(!user.Adjacent(target_human) || user.restrained() || user.lying || user.stat)
+					to_chat(user, SPAN_WARNING("You must remain adjacent to [target_human] to scan their biometric data."))
+					return FALSE
 
-				var/mob/living/carbon/human/H = target_mob
+				if(target_human.gloves)
+					to_chat(user, SPAN_WARNING("\The [target_human] is wearing gloves."))
+					return FALSE
 
-				if(H.gloves)
-					to_chat(user, SPAN_WARNING("\The [H] is wearing gloves."))
-					return 1
+				user.visible_message("[user] tries to take \the [target_human]'s prints to scan their biometric data to the card.")
 
-				if(user != H && H.a_intent != "help" && !H.lying)
-					user.visible_message(SPAN_DANGER("\The [user] tries to take prints from \the [H], but they move away."))
-					return 1
+				if(user != target_human && do_after(user, 5 SECOND) && !target_human.lying)
+					if(target_human.a_intent != "help" || target_human.restrained())
+						user.visible_message(SPAN_DANGER("\The [user] tries to take prints from \the [target_human], but they move away."))
+						return FALSE
 
 				var/has_hand
-				var/obj/item/organ/external/O = H.organs_by_name[BP_R_HAND]
-				if(istype(O) && !O.is_stump())
-					has_hand = 1
+				var/obj/item/organ/external/target_human_hand = target_human.organs_by_name[BP_R_HAND]
+				if(istype(target_human_hand) && !target_human_hand.is_stump())
+					has_hand = TRUE
 				else
-					O = H.organs_by_name[BP_L_HAND]
-					if(istype(O) && !O.is_stump())
-						has_hand = 1
+					target_human_hand = target_human.organs_by_name[BP_L_HAND]
+					if(istype(target_human_hand) && !target_human_hand.is_stump())
+						has_hand = TRUE
 				if(!has_hand)
 					to_chat(user, SPAN_WARNING("They don't have any hands."))
-					return 1
-				user.visible_message("[user] imprints [src] with \the [H]'s biometrics.")
-				mob_id = WEAKREF(H)
-				blood_type = H.dna.b_type
-				dna_hash = H.dna.unique_enzymes
-				fingerprint_hash = md5(H.dna.uni_identity)
-				citizenship = H.citizenship
-				age = H.age
-				src.add_fingerprint(H)
+					return TRUE
+
+				user.visible_message("[user] imprints [src] with \the [target_human]'s biometrics.")
+
+				mob_id = WEAKREF(target_human)
+				blood_type = target_human.dna.b_type
+				dna_hash = target_human.dna.unique_enzymes
+				fingerprint_hash = md5(target_human.dna.uni_identity)
+				citizenship = target_human.citizenship
+				age = target_human.age
+				src.add_fingerprint(target_human)
+
 				to_chat(user, SPAN_NOTICE("Biometric Imprinting Successful!"))
-				return 1
+				return TRUE
+
 	return ..()
 
 /obj/item/card/id/attackby(obj/item/attacking_item, mob/user)
@@ -770,7 +797,8 @@
 	var/list/pilot_access = list()
 	for(var/mob/pilot as anything in exosuit.pilots)
 		var/obj/item/ID = pilot.GetIdCard()
-		pilot_access |= ID.GetAccess()
+		if(ID)
+			pilot_access |= ID.GetAccess()
 	return pilot_access
 
 #undef ID_CARD_UNSET

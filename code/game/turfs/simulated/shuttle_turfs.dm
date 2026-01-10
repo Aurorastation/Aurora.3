@@ -4,7 +4,6 @@
 /turf/simulated/wall/shuttle
 	icon = 'icons/turf/smooth/shuttle_wall_dark.dmi'
 	icon_state = "map-shuttle"
-	permit_ao = 0
 	smoothing_flags = SMOOTH_MORE
 	canSmoothWith = list(
 		/turf/unsimulated/wall/steel, // Centcomm wall.
@@ -177,6 +176,9 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary
 	color = "#5b5b5b"
 
+/turf/simulated/wall/shuttle/space_ship/industrial
+	color = "#6E5B4A"
+
 //--Unique Shuttles--//
 
 /turf/simulated/wall/shuttle/unique
@@ -197,6 +199,12 @@
 	atmos_canpass = CANPASS_DENSITY
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED|OBJ_FLAG_NOFALL
 
+/obj/structure/shuttle_part/afterShuttleMove(obj/effect/shuttle_landmark/destination)
+	. = ..()
+	if(outside_part)
+		var/turf/target_turf = get_turf(src)
+		target_turf.ChangeTurf(destination.base_turf)
+
 /obj/structure/window/shuttle/unique
 	name = "shuttle window"
 	desc = "It looks extremely strong. Might take many good hits to crack it."
@@ -209,6 +217,12 @@
 	canSmoothWith = null
 	can_be_unanchored = FALSE
 	var/outside_window = FALSE
+
+/obj/structure/window/shuttle/unique/afterShuttleMove(obj/effect/shuttle_landmark/destination)
+	. = ..()
+	if(outside_window)
+		var/turf/target_turf = get_turf(src)
+		target_turf.ChangeTurf(destination.base_turf)
 
 //merchant shuttle
 
@@ -516,7 +530,6 @@
 	name = "shuttle floor"
 	icon = 'icons/turf/shuttle.dmi'
 	icon_state = "floor"
-	permit_ao = 0
 	initial_flooring = /singleton/flooring/shuttle
 	footstep_sound = /singleton/sound_category/plating_footstep
 
@@ -593,7 +606,6 @@
 	smooth_underlays = TRUE
 	initial_gas = null
 	roof_type = null
-	permit_ao = 0
 	canSmoothWith = list(
 			/turf/simulated/shuttle_roof
 	)

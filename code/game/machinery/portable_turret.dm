@@ -201,6 +201,7 @@
 	spark_system = null
 	if(fast_processing)
 		STOP_PROCESSING(SSfast_process, src)
+	QDEL_NULL(installation)
 
 	clear_from_target_grid()
 
@@ -1057,7 +1058,8 @@
 						Turret.eshot_sound = E.fire_sound
 					Turret.egun = E.can_switch_modes
 					Turret.sprite_set = E.turret_sprite_set
-					Turret.lethal_icon = E.turret_is_lethal
+					if(E.turret_is_lethal)
+						Turret.lethal_icon = 1
 					// Check if gun has wielded delay, turret will have same fire rate as the gun.
 					if(E.fire_delay_wielded > 0)
 						Turret.shot_delay = max(E.fire_delay_wielded, 4)

@@ -17,6 +17,7 @@
 	name = "Head of Staff's Office (PARENT AREA - DON'T USE)"
 	area_flags = AREA_FLAG_RAD_SHIELDED
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+	lightswitch = FALSE
 
 /area/horizon/command/heads/captain
 	name = "Captain's Office"
@@ -85,7 +86,7 @@
 	icon_state = "bridge"
 
 /area/horizon/command/bridge/minibar
-	name = "Bridge Break Room"
+	name = "Bridge Wardoom"
 	icon_state = "bridge"
 
 /area/horizon/command/bridge/aibunker

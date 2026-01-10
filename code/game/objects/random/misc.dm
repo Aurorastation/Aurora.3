@@ -526,7 +526,7 @@
 
 /obj/random/condiment
 	name = "random condiments and sauces"
-	desc = "Contains random condiments for use in the kitchen."
+	desc = "Contains random condiments for use in the galley."
 	icon_state = "condiment"
 	spawn_nothing_percentage = 10
 	problist = list(
@@ -546,8 +546,8 @@
 	)
 
 /obj/random/kitchen_staples
-	name = "random kitchen staples"
-	desc = "Contains random ingredients that are handy in the kitchen"
+	name = "random galley staples"
+	desc = "Contains random ingredients that are handy in the galley"
 	icon_state = "ingredient_bag"
 	spawn_nothing_percentage = 20
 	problist = list(
@@ -557,7 +557,8 @@
 		/obj/item/reagent_containers/food/condiment/vanilla = 1,
 		/obj/item/reagent_containers/food/condiment/rice = 1,
 		/obj/item/storage/box/fancy/food/sliced_bread = 1,
-		/obj/item/reagent_containers/food/condiment/cocoa = 1
+		/obj/item/reagent_containers/food/condiment/cocoa = 1,
+		/obj/item/reagent_containers/food/condiment/cream_cheese = 1
 	)
 
 /obj/random/maintenance_junk_or_loot
