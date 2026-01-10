@@ -2318,6 +2318,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_override = 'icons/obj/custom_items/tulkir_sheath.dmi'
 	icon_state = "holster_raskariim"
 	item_state = "holster_raskariim"
+	holster_message = "sheath"
 	draw_peace = "holding it low."
 	draw_hostile = "ready to draw blood!"
 	allowed_items = list(

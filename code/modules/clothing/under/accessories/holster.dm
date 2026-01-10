@@ -15,6 +15,7 @@
 	var/sound_out = 'sound/weapons/holster/holsterout.ogg'
 	flippable = 1
 	w_class = WEIGHT_CLASS_NORMAL
+	var/holster_message = "holster"
 	var/draw_peace = "pointing it at the ground."
 	var/draw_hostile = "ready to shoot!"
 
@@ -47,8 +48,8 @@
 	user.drop_from_inventory(holstered, src)
 	holstered.add_fingerprint(user)
 	w_class = max(w_class, holstered.w_class)
-	user.visible_message(SPAN_NOTICE("[user] holsters \the [holstered]."),
-							SPAN_NOTICE("You holster \the [holstered]."))
+	user.visible_message(SPAN_NOTICE("[user] [holster_message] \the [holstered]."),
+							SPAN_NOTICE("You [holster_message] \the [holstered]."))
 	update_name()
 
 /obj/item/clothing/accessory/holster/proc/clear_holster()
@@ -262,6 +263,7 @@
 	icon_state = "holster_machete"
 	item_state = "holster_machete"
 	icon = 'icons/obj/item/clothing/accessory/holster.dmi'
+	holster_message = "sheath"
 	draw_peace = "holding it low."
 	draw_hostile = "ready to fight!"
 	allowed_items = list(
