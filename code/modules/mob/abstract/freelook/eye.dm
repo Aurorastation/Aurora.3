@@ -150,7 +150,7 @@
 		sprint = initial
 	return 1
 
-// If the eye movement needs to be restricted by any means, override this
+/// If the eye movement needs to be restricted by any additional means, override this.
 /mob/abstract/eye/proc/check_allowed_movement(turf/step)
 	return TRUE
 
