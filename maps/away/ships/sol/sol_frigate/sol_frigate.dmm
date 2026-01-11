@@ -2145,7 +2145,9 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
-/obj/machinery/power/apc/north,
+/obj/machinery/power/apc/north{
+	req_access = list(203)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/hangar)
 "jt" = (
@@ -3527,7 +3529,9 @@
 /area/ship/sol_frigate/bunks)
 "pF" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/power/apc/south,
+/obj/machinery/power/apc/south{
+	req_access = list(203)
+	},
 /obj/structure/cable/blue{
 	icon_state = "0-8"
 	},
@@ -4841,7 +4845,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/cic)
 "vJ" = (
-/obj/machinery/power/apc/south,
+/obj/machinery/power/apc/south{
+	req_access = list(203)
+	},
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
 	},
@@ -4894,7 +4900,9 @@
 /area/ship/sol_frigate/engineering)
 "vW" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/power/apc/east,
+/obj/machinery/power/apc/east{
+	req_access = list(203)
+	},
 /obj/structure/cable/blue{
 	icon_state = "0-2"
 	},
@@ -5051,7 +5059,9 @@
 /area/space)
 "wO" = (
 /obj/effect/floor_decal/corner/green/diagonal,
-/obj/machinery/power/apc/south,
+/obj/machinery/power/apc/south{
+	req_access = list(203)
+	},
 /obj/structure/cable/blue,
 /turf/simulated/floor/tiled/white,
 /area/ship/sol_frigate/crew_lounge)
@@ -6234,7 +6244,9 @@
 /turf/simulated/floor/wood,
 /area/ship/sol_frigate/captain_office)
 "CF" = (
-/obj/machinery/power/apc/east,
+/obj/machinery/power/apc/east{
+	req_access = list(203)
+	},
 /obj/structure/cable/blue{
 	icon_state = "0-8"
 	},
@@ -6811,7 +6823,9 @@
 /area/ship/sol_frigate/crew_lounge)
 "FJ" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/machinery/power/apc/east,
+/obj/machinery/power/apc/east{
+	req_access = list(203)
+	},
 /obj/structure/cable/blue{
 	icon_state = "0-2"
 	},
@@ -8715,7 +8729,9 @@
 /area/ship/sol_frigate/hangar)
 "NO" = (
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
-/obj/machinery/power/apc/east,
+/obj/machinery/power/apc/east{
+	req_access = list(203)
+	},
 /obj/structure/cable/blue{
 	icon_state = "0-2"
 	},
@@ -8811,7 +8827,9 @@
 /area/ship/sol_frigate/starboard_gunnery)
 "Oi" = (
 /obj/structure/bed/stool/chair,
-/obj/machinery/power/apc/east,
+/obj/machinery/power/apc/east{
+	req_access = list(203)
+	},
 /obj/structure/cable/blue{
 	icon_state = "0-8"
 	},
@@ -10058,7 +10076,9 @@
 /obj/structure/closet/walllocker/firecloset{
 	pixel_x = 32
 	},
-/obj/machinery/power/apc/north,
+/obj/machinery/power/apc/north{
+	req_access = list(203)
+	},
 /obj/machinery/light{
 	dir = 1
 	},
@@ -10093,7 +10113,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/port_battery)
 "Vn" = (
-/obj/machinery/power/apc/west,
+/obj/machinery/power/apc/west{
+	req_access = list(203)
+	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
 	},
