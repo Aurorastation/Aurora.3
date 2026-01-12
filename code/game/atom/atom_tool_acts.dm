@@ -66,7 +66,7 @@
  * ## Tool Act
  *
  * Handles using specific tools on this atom directly.
- * Only called when combat mode is off.
+ * Only called when in Help intent.
  *
  * Handles the tool_acts in particular, such as wrenches and screwdrivers.
  *
