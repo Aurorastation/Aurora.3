@@ -93,11 +93,11 @@ var/global/datum/xgm_gas_data/gas_data
 	name = "gas"
 	desc = "You shouldn't be clicking this."
 	gas_id = GAS_COLD
+	icon = 'icons/effects/tile_effects.dmi'
+	icon_state = "cold"
 	var/obj/effect/gas_cold_back/b = null
 
 /obj/gas_overlay/cold/Initialize(mapload, gas)
 	. = ..()
-	icon = null
-	icon_state = null
 	b = new()
 	vis_contents += b
