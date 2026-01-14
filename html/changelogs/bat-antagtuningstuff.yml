@@ -1,0 +1,17 @@
+# Your name.
+author: Batrachophrenoboocosmomachia
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+# Any changes you've made.  See valid prefix list above.
+# INDENT WITH TWO SPACES.  NOT TABS.  SPACES.
+# SCREW THIS UP AND IT WON'T WORK.
+# Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
+# Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
+changes:
+  - rscadd: "Spilled radium now generates (weakly) radioactive puddles of green goo, just like Uranium."
+  - balance: "Extends Greimorian eggsac incubation time by 50%, other minor adjustments."
+  - balance: "Consuming radioactive waste is now MUCH unhealthier. Don't eat radioactive waste."
+  - qol: "Updated some antagonist tips (removed old/deprecated ones, added new one.)"
+  - bugfix: "Removed greimorian eggsacs now dissolve into goo as intended."
