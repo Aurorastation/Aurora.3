@@ -380,6 +380,9 @@
 
 /obj/item/commissary_restrock
 	name = "commissary cigarette restock"
+	icon = 'icons/obj/storage/boxes.dmi'
+	icon_state = "commissary_restock"
+	item_state = "commissary_restock"
 	w_class = WEIGHT_CLASS_NORMAL
 	var/starts_with = list(
 		/obj/item/storage/box/fancy/cigarettes/pra = 3,
