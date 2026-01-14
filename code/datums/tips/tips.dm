@@ -319,6 +319,8 @@ GLOBAL_LIST_EMPTY(tips_by_category)
 		"As a Ninja, you have a pretty badass sword. Use it.",
 		"A Ninja's sword can cut through many objects. Experiment!",
 		"As a Cortical Borer, a limp feather can kill you if you're outside of a host.",
+		"As a Death Commando you have only one course of action: RIP AND TEAR.",
+		"As a Highlander, there can be only one.",
 		"As a Loyalist, remember that you are an antagonist too!",
 		"As a Vampire, you can create new vampires out of willing and less than willing crew. Mind that new vampires may decide to turn their powers against you.",
 		"As a Vampire, if you start going hungry for blood don't expect to stay hidden for long.",
