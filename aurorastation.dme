@@ -3274,6 +3274,7 @@
 #include "code\modules\overmap\ship_weaponry\weaponry\grauwolf_probe.dm"
 #include "code\modules\overmap\ship_weaponry\weaponry\lammergeier.dm"
 #include "code\modules\overmap\ship_weaponry\weaponry\leviathan.dm"
+#include "code\modules\overmap\ship_weaponry\weaponry\light_coilgun.dm"
 #include "code\modules\overmap\ship_weaponry\weaponry\longbow.dm"
 #include "code\modules\overmap\ship_weaponry\weaponry\longbow_ammo.dm"
 #include "code\modules\overmap\ship_weaponry\weaponry\nephilim.dm"

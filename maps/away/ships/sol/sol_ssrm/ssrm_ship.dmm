@@ -45,8 +45,11 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/ssrm_corvette/canteen)
 "ajL" = (
-/obj/structure/lattice/catwalk,
-/turf/space,
+/obj/machinery/ammunition_loader/sol{
+	weapon_id = "SSRM Light Coilgun";
+	dir = 4
+	},
+/turf/simulated/floor/reinforced,
 /area/ship/ssrm_corvette/starboard_battery)
 "ako" = (
 /obj/effect/landmark/entry_point/fore{
@@ -1178,7 +1181,7 @@
 /obj/machinery/atmospherics/unary/outlet_injector{
 	dir = 8
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/carbon_dioxide,
 /area/ship/ssrm_corvette/atmospherics)
 "cIL" = (
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
@@ -1851,6 +1854,9 @@
 	pixel_x = 4;
 	pixel_y = 6
 	},
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/carpet/darkblue,
 /area/ship/ssrm_corvette/captain_cabin)
 "dUR" = (
@@ -2458,7 +2464,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/siphon/atmos{
 	dir = 8
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/carbon_dioxide,
 /area/ship/ssrm_corvette/atmospherics)
 "eWz" = (
 /obj/structure/railing/mapped,
@@ -2609,7 +2615,7 @@
 	name = "ssrm_co2_port";
 	master_tag = "ssrm_co2_port"
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/carbon_dioxide,
 /area/ship/ssrm_corvette/engineering)
 "fnM" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider,
@@ -2900,9 +2906,6 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/loading/red{
-	dir = 8
-	},
 /turf/simulated/floor/reinforced,
 /area/ship/ssrm_corvette/starboard_battery)
 "fVv" = (
@@ -2965,6 +2968,9 @@
 	},
 /obj/structure/sign/flag/visegrad{
 	pixel_y = -32
+	},
+/obj/machinery/light{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssrm_corvette/captain_cabin)
@@ -3111,10 +3117,12 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/ssrm_corvette/head)
 "gqH" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
 /obj/structure/ship_weapon_dummy,
+/obj/machinery/ship_weapon/coilgun/light{
+	pixel_x = -32;
+	pixel_y = -319;
+	weapon_id = "SSRM Light Coilgun"
+	},
 /turf/simulated/floor/reinforced,
 /area/ship/ssrm_corvette/starboard_battery)
 "gqK" = (
@@ -3745,11 +3753,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssrm_corvette/docking_port)
 "hNE" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 10
-	},
 /obj/structure/ship_weapon_dummy,
-/turf/simulated/floor/reinforced,
+/turf/template_noop,
 /area/ship/ssrm_corvette/starboard_battery)
 "hOn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3776,6 +3781,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/ssrm_corvette/starboard_thrusters)
+"hRg" = (
+/obj/effect/ghostspawpoint{
+	identifier = "ssrm_navy_chief_petty_officer";
+	name = "igs - ssrm_navy_chief_petty_officer"
+	},
+/turf/simulated/floor/carpet/darkblue,
+/area/ship/ssrm_corvette/cpo_cabin)
 "hSW" = (
 /obj/structure/closet/crate/secure{
 	name = "damage control equipment";
@@ -3808,6 +3820,9 @@
 /area/ship/ssrm_corvette/docking_port)
 "hTa" = (
 /obj/effect/floor_decal/industrial/warning/corner,
+/obj/effect/floor_decal/industrial/loading/red{
+	dir = 8
+	},
 /turf/simulated/floor/reinforced,
 /area/ship/ssrm_corvette/starboard_battery)
 "hVy" = (
@@ -3926,6 +3941,9 @@
 "ifi" = (
 /obj/structure/bed/stool/chair/sofa/right/black{
 	dir = 8
+	},
+/obj/machinery/light{
+	dir = 4
 	},
 /turf/simulated/floor/carpet/darkblue,
 /area/ship/ssrm_corvette/captain_office)
@@ -4637,15 +4655,6 @@
 /obj/machinery/light/small/emergency,
 /turf/simulated/floor/plating,
 /area/ship/ssrm_corvette/atmospherics)
-"jLw" = (
-/obj/machinery/ship_weapon/grauwolf{
-	pixel_x = -32;
-	pixel_y = -192;
-	weapon_id = "SSRM Grauwolf Flak Battery"
-	},
-/obj/structure/ship_weapon_dummy,
-/turf/simulated/floor/reinforced,
-/area/ship/ssrm_corvette/starboard_battery)
 "jMS" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -5623,9 +5632,9 @@
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/machinery/light/colored/red,
-/obj/item/ship_ammunition/grauwolf_bundle/ap,
-/obj/item/ship_ammunition/grauwolf_bundle/ap,
-/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/coilgun/light,
+/obj/item/ship_ammunition/coilgun/light,
+/obj/item/ship_ammunition/coilgun/light,
 /turf/simulated/floor/reinforced,
 /area/ship/ssrm_corvette/starboard_gunnery)
 "mqW" = (
@@ -5935,6 +5944,9 @@
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 8
 	},
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssrm_corvette/safe_room)
 "mNu" = (
@@ -6028,6 +6040,11 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/structure/cable{
+	icon_state = "1-8";
+	d1 = 1;
+	d2 = 8
 	},
 /turf/simulated/floor,
 /area/ship/ssrm_corvette)
@@ -6147,6 +6164,9 @@
 	},
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/teacup{
 	pixel_y = 13
+	},
+/obj/machinery/light{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssrm_corvette/captain_cabin)
@@ -6445,14 +6465,11 @@
 /turf/simulated/floor/airless,
 /area/ship/ssrm_corvette/port_battery)
 "nWf" = (
-/obj/structure/viewport,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 6
-	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
 	id = "ssrm_windows_exterior"
 	},
+/obj/structure/viewport/sol,
 /turf/simulated/floor/reinforced,
 /area/ship/ssrm_corvette/starboard_battery)
 "nWO" = (
@@ -6507,7 +6524,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/wall/shuttle/raider,
 /area/ship/ssrm_corvette/starboard_battery)
 "odO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -6972,14 +6989,14 @@
 "prd" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/red,
-/obj/item/ship_ammunition/grauwolf_bundle,
-/obj/item/ship_ammunition/grauwolf_bundle,
-/obj/item/ship_ammunition/grauwolf_bundle,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/machinery/alarm/north{
 	req_one_access = null;
 	req_access = list(203)
 	},
+/obj/item/ship_ammunition/coilgun/light,
+/obj/item/ship_ammunition/coilgun/light,
+/obj/item/ship_ammunition/coilgun/light,
 /turf/simulated/floor/reinforced,
 /area/ship/ssrm_corvette/starboard_gunnery)
 "pxj" = (
@@ -7384,12 +7401,12 @@
 "qvC" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/red,
-/obj/item/ship_ammunition/grauwolf_bundle/ap,
-/obj/item/ship_ammunition/grauwolf_bundle/ap,
-/obj/item/ship_ammunition/grauwolf_bundle/ap,
 /obj/machinery/light/colored/red{
 	dir = 1
 	},
+/obj/item/ship_ammunition/coilgun/light,
+/obj/item/ship_ammunition/coilgun/light,
+/obj/item/ship_ammunition/coilgun/light,
 /turf/simulated/floor/reinforced,
 /area/ship/ssrm_corvette/starboard_gunnery)
 "qvF" = (
@@ -7422,10 +7439,8 @@
 /turf/simulated/wall/shuttle/raider,
 /area/ship/ssrm_corvette/eva_preperation)
 "qDa" = (
-/obj/machinery/ammunition_loader/grauwolf{
-	weapon_id = "SSRM Grauwolf Flak Battery"
-	},
-/turf/simulated/floor/reinforced,
+/obj/structure/ship_weapon_dummy/barrel,
+/turf/template_noop,
 /area/ship/ssrm_corvette/starboard_battery)
 "qFW" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -7592,13 +7607,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/ssrm_corvette/atmospherics)
-"qYT" = (
-/obj/effect/floor_decal/industrial/warning/cee{
-	dir = 4
-	},
-/obj/item/hullbeacon/red,
-/turf/simulated/floor/airless,
-/area/ship/ssrm_corvette/starboard_battery)
 "qZm" = (
 /obj/structure/cable{
 	icon_state = "1-4";
@@ -7707,7 +7715,7 @@
 	name = "ssrm_co2_port";
 	master_tag = "ssrm_co2_port"
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/carbon_dioxide,
 /area/ship/ssrm_corvette/engineering)
 "roP" = (
 /obj/structure/cable{
@@ -7895,16 +7903,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssrm_corvette/port_battery)
 "rMT" = (
-/obj/item/hullbeacon/red,
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 8
 	},
+/obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/airless,
-/area/ship/ssrm_corvette/starboard_battery)
-"rNp" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/ship_weapon_dummy/barrel,
-/turf/space,
 /area/ship/ssrm_corvette/starboard_battery)
 "rOW" = (
 /obj/machinery/shower{
@@ -8574,13 +8577,13 @@
 "ucw" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/red,
-/obj/item/ship_ammunition/grauwolf_bundle,
-/obj/item/ship_ammunition/grauwolf_bundle,
-/obj/item/ship_ammunition/grauwolf_bundle,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
 	level = 2
 	},
+/obj/item/ship_ammunition/coilgun/light,
+/obj/item/ship_ammunition/coilgun/light,
+/obj/item/ship_ammunition/coilgun/light,
 /turf/simulated/floor/reinforced,
 /area/ship/ssrm_corvette/starboard_gunnery)
 "udR" = (
@@ -9006,10 +9009,6 @@
 	},
 /obj/structure/bed/padded,
 /obj/item/bedsheet/black,
-/obj/effect/ghostspawpoint{
-	identifier = "ssrm_navy_chief_petty_officer";
-	name = "igs - ssrm_navy_chief_petty_officer"
-	},
 /obj/structure/sign/flag/sol{
 	pixel_x = -32
 	},
@@ -9399,6 +9398,13 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/airless,
 /area/ship/ssrm_corvette/starboard_battery)
 "vMq" = (
@@ -38265,13 +38271,13 @@ pOd
 suy
 odL
 gqH
-hNE
+csf
 hqY
-rNp
+hqY
 rMT
-xRX
-xRX
-xRX
+hNE
+hNE
+qDa
 xRX
 xRX
 xRX
@@ -38520,15 +38526,15 @@ qvF
 sru
 qhH
 sDo
-jLw
+cvf
 csf
 cJU
 hqY
-rNp
+hqY
 vLo
-xRX
-xRX
-xRX
+hNE
+hNE
+qDa
 xRX
 xRX
 xRX
@@ -38777,12 +38783,12 @@ wTT
 ikt
 qhH
 sDo
-csf
-csf
-cJU
-hqY
-rNp
-qYT
+cvf
+ajL
+cvf
+xRX
+xRX
+xRX
 xRX
 xRX
 xRX
@@ -39034,11 +39040,11 @@ bKC
 sgw
 xni
 sDo
-qDa
+sDo
 hTa
 nWf
-ajL
-ajL
+xRX
+xRX
 xRX
 xRX
 xRX
@@ -44148,7 +44154,7 @@ xRX
 xRX
 wUJ
 eiF
-eiF
+hRg
 eiF
 vYZ
 dKs
