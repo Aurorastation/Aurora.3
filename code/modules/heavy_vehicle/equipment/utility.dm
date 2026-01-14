@@ -279,14 +279,14 @@
 	///For when targetting a single object, will create a warp beam
 	var/datum/beam = null
 	var/max_dist = 6
-	var/obj/effect/effect/warp/small/warpeffect = null
+	var/obj/effect/warp/small/warpeffect = null
 
 /obj/effect/ebeam/warp
 	plane = WARP_EFFECT_PLANE
 	appearance_flags = DEFAULT_APPEARANCE_FLAGS | TILE_BOUND | NO_CLIENT_COLOR
 	z_flags = ZMM_IGNORE
 
-/obj/effect/effect/warp/small
+/obj/effect/warp/small
 	plane = WARP_EFFECT_PLANE
 	appearance_flags = PIXEL_SCALE | NO_CLIENT_COLOR
 	icon = 'icons/effects/96x96.dmi'
