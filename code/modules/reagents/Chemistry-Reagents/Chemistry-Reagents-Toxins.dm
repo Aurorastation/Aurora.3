@@ -1029,6 +1029,44 @@
 			var/obj/item/organ/internal/parasite/heartworm/infest = new()
 			infest.replaced(H, affected)
 
+/// Functions as a weaker version of soporific and also infests the victim with eggs.
+/singleton/reagent/toxin/greimorian_eggs
+	name = "Greimorian Eggs"
+	description = "The eggs of a greimorian clade. They are highly opportunistic, capable of infesting almost any organism, and are feared for the relatively swift speed with which they gestate. Immediate surgical removal or pharmaceutical intervention is a vital necessity."
+	reagent_state = SOLID
+	color = "#5f683f"
+	metabolism = REM*2
+	ingest_met = REM*2
+	touch_met = REM*5
+	taste_description = "something noxious"
+	taste_mult = 0.25
+	strength = 0
+
+/singleton/reagent/toxin/greimorian_eggs/affect_blood(mob/living/carbon/mob, alien, removed, datum/reagents/holder)
+	..()
+	if(istype(mob,/mob/living/carbon/human))
+		var/mob/living/carbon/human/victim = mob
+
+		victim.add_chemical_effect(CE_PULSE, -2)
+		var/dose = victim.chem_doses[type]
+		if(dose > 2)
+			if(ishuman(victim) && (dose == metabolism * 2 || prob(3)))
+				victim.emote("yawn")
+		if(dose > 20)
+			victim.eye_blurry = max(victim.eye_blurry, 10)
+		if(dose > 40)
+			victim.Weaken(1)
+			victim.drowsiness = max(victim.drowsiness, 20)
+
+		if(victim.chem_effects[CE_ANTIPARASITE])
+			return
+
+		if(!victim.internal_organs_by_name[BP_GREIMORIAN_EGGCLUSTER])
+			var/obj/item/organ/external/affected = pick(victim.organs)
+			var/obj/item/organ/internal/parasite/greimorian_eggcluster/infest = new()
+			infest.parent_organ = affected.limb_name
+			infest.replaced(victim, affected)
+
 /singleton/reagent/toxin/malignant_tumour_cells
 	name = "Malignant Tumour Cells"
 	description = "Cells of a malignant tumour which have broken off and entered the circulatory and/or lymphatic system to spread to other regions of the body."

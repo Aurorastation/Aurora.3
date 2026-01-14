@@ -20,8 +20,14 @@
 	telecrystal_cost = 5
 	path = /obj/item/storage/box/syndie_kit/heartworms
 
-/datum/uplink_item/item/bioweapons/greimorian_eggs
-	name = "Greimorian Eggs"
+/datum/uplink_item/item/bioweapons/greimorians_kit
+	name = "Parasitic Eggs Kit - Greimorian Clade"
+	desc = "Contains the eggs of a Greimorian clade. Semi-lethal and incapacitating. Compatible with most sapient bipedal species (including Earth monkeys)."
+	telecrystal_cost = 4
+	path = /obj/item/storage/box/syndie_kit/greimorians
+
+/datum/uplink_item/item/bioweapons/greimorian_eggcluster
+	name = "Greimorian Egg Cluster"
 	desc = "A cluster of greimorian eggs. (They will be planted at your feet on-purchase and CANNOT be moved, so make sure you're where you want them to be)"
 	telecrystal_cost = 4
 	path = /obj/effect/spider/eggcluster
@@ -35,9 +41,15 @@
 
 /datum/uplink_item/item/bioweapons/dirtybomb
 	name = "Dirty Bomb"
-	desc = "A small explosive laced with radium. The explosion is small, but the radioactive will affect a large area for a while (10 minutes approx)."
+	desc = "A small explosive laced with radium. The explosion is small, but the radioactivity will affect a large area for a while (10 minutes approx). After this initial pulse decays, the area will remain slightly radioactive until cleaned/remediated."
 	telecrystal_cost = 4
 	path = /obj/item/plastique/dirty
+
+/datum/uplink_item/item/bioweapons/radioactive_waste
+	name = "Radioactive Waste Canister"
+	desc = "A shielded chemical dispenser cartridge filled with radioactive waste. Splash a little (5-10 units) on a floor tile to leave a radioactive surprise. Inject a little (2-5 units) into someone's food or drink to rapidly debilitate them. Pairs delightfully with common spray bottle."
+	telecrystal_cost = 5
+	path = /obj/item/reagent_containers/chem_disp_cartridge/radioactive_waste
 
 /datum/uplink_item/item/bioweapons/syringe_gun
 	name = "Syringe Gun Kit"

@@ -65,8 +65,8 @@
 	max_shots = 20
 	charge_cost = 100
 	projectile_type = /obj/projectile/bullet/pistol/medium/ap
-	self_recharge = 1
-	use_external_power = 1
+	self_recharge = TRUE
+	use_external_power = TRUE
 	recharge_time = 5
 	sel_mode = 1
 	needspin = FALSE
@@ -82,7 +82,7 @@
 	desc = "A weapon favored by mercenary infiltration teams, this one is suited to be used by robots."
 	max_shots = 4
 	charge_cost = 200
-	use_external_power = 1
+	use_external_power = TRUE
 
 /obj/item/gun/launcher/grenade/cyborg
 	name = "mounted grenade launcher"

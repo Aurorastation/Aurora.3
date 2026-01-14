@@ -297,7 +297,7 @@ Class Procs:
 
 	update_icon()
 
-/obj/machinery/CanUseTopic(var/mob/user)
+/obj/machinery/CanUseTopic(mob/user)
 	if(stat & BROKEN)
 		return STATUS_CLOSE
 
@@ -306,18 +306,18 @@ Class Procs:
 
 	return ..()
 
-/obj/machinery/CouldUseTopic(var/mob/user)
+/obj/machinery/CouldUseTopic(mob/user)
 	..()
 	if(clicksound && iscarbon(user))
 		playsound(src, clicksound, clickvol)
 	user.set_machine(src)
 
-/obj/machinery/CouldNotUseTopic(var/mob/user)
+/obj/machinery/CouldNotUseTopic(mob/user)
 	user.unset_machine()
 
 ////////////////////////////////////////////////////////////////////////////////////////////
 
-/obj/machinery/attack_ai(mob/user as mob)
+/obj/machinery/attack_ai(mob/user)
 	if(!ai_can_interact(user))
 		return
 	if(isrobot(user))
@@ -328,32 +328,26 @@ Class Procs:
 	else
 		return src.attack_hand(user)
 
-/obj/machinery/attack_hand(mob/user as mob)
+/obj/machinery/attack_hand(mob/user)
 	if(!operable(MAINT))
-		return 1
+		return TRUE
 	if(user.lying || user.stat)
-		return 1
-	if ( ! (istype(usr, /mob/living/carbon/human) || \
-			istype(usr, /mob/living/silicon)))
+		return TRUE
+	if (!istype(usr, /mob/living/carbon/human) && !istype(usr, /mob/living/silicon))
 		to_chat(usr, SPAN_WARNING("You don't have the dexterity to do this!"))
-		return 1
-/*
-	//distance checks are made by atom/proc/DblClick
-	if ((get_dist(src, user) > 1 || !istype(src.loc, /turf)) && !istype(user, /mob/living/silicon))
-		return 1
-*/
-	if (ishuman(user))
-		var/mob/living/carbon/human/H = user
-		if(H.getBrainLoss() >= 60)
-			visible_message(SPAN_WARNING("[H] stares cluelessly at [src] and drools."))
-			return 1
-		else if(prob(H.getBrainLoss()))
-			to_chat(user, SPAN_WARNING("You momentarily forget how to use [src]."))
-			return 1
+		return TRUE
 
 	src.add_fingerprint(user)
 
 	return ..()
+
+/obj/machinery/attack_ranged(mob/user, params)
+	. = ..()
+	if(isipc(user))
+		var/mob/living/carbon/human/robot = user
+		var/obj/item/organ/internal/machine/wireless_access/wireless_access_point = robot.internal_organs_by_name[BP_WIRELESS_ACCESS]
+		if(wireless_access_point?.access_terminal(src))
+			attack_hand(user)
 
 /obj/machinery/attackby(obj/item/attacking_item, mob/user)
 	if(obj_flags & OBJ_FLAG_SIGNALER)

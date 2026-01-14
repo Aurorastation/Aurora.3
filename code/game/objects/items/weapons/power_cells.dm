@@ -11,16 +11,17 @@
 	throw_speed = 3
 	throw_range = 5
 	w_class = WEIGHT_CLASS_NORMAL
+	matter = list(DEFAULT_WALL_MATERIAL = 700, MATERIAL_GLASS = 50)
+	recyclable = TRUE
+
 	/// Note %age converted to actual charge in New()
 	var/charge = 0
-	var/maxcharge = 2500
+	/// Maximum cell charge.
+	var/maxcharge = 1000
 	/// True if rigged to explode
 	var/rigged = FALSE
 	/// If not 100% reliable, it will build up faults.
 	var/minor_fault = 0
-	matter = list(DEFAULT_WALL_MATERIAL = 700, MATERIAL_GLASS = 50)
-	recyclable = TRUE
-
 	/// Percentage of maxcharge to recharge per minute, though it will trickle charge every process tick (every ~2 seconds), leave null for no self-recharge
 	var/self_charge_percentage
 
@@ -126,10 +127,10 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 700, MATERIAL_GLASS = 80)
 
 /obj/item/cell/infinite/check_charge()
-		return 1
+	return 1
 
 /obj/item/cell/infinite/use()
-		return 1
+	return 1
 
 /obj/item/cell/potato
 	name = "potato battery"
@@ -139,8 +140,6 @@
 	icon_state = "potato_cell" //"potato_battery"
 	charge = 100
 	maxcharge = 300
-	minor_fault = 1
-
 
 /obj/item/cell/slime
 	name = "charged slime core"

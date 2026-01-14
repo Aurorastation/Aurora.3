@@ -192,6 +192,15 @@
 /obj/item/organ/external/hand/covered_bleed_report(var/blood_type)
 	return "[owner.get_pronoun("has")] [blood_type] running down [owner.get_pronoun("his")] sleeves!"
 
+/obj/item/organ/external/hand/is_malfunctioning()
+	. = ..()
+	if(!.)
+		if(owner.is_mechanical())
+			var/actuator_type = limb_name == BP_L_HAND ? BP_ACTUATORS_LEFT : BP_ACTUATORS_RIGHT
+			var/obj/item/organ/internal/machine/actuators/actuator = owner.internal_organs_by_name[actuator_type]
+			if(!actuator || (actuator.status & ORGAN_DEAD))
+				return TRUE
+
 /obj/item/organ/external/hand/take_damage(brute, burn, damage_flags, used_weapon, list/forbidden_limbs, silent)
 	. = ..()
 	if(owner)
