@@ -13,5 +13,5 @@ changes:
   - rscadd: "Spilled radium now generates (weakly) radioactive puddles of green goo, just like Uranium."
   - balance: "Extends Greimorian eggsac incubation time by 50%, other minor adjustments."
   - balance: "Consuming radioactive waste is now MUCH unhealthier. Don't eat radioactive waste."
-  - qol: "Updated some antagonist tips (removed old/deprecated ones, added new one.)"
-  - bugfix: "Removed greimorian eggsacs now dissolve into goo as intended."
+  - qol: "Updates some antagonist tips (removed old/deprecated ones, added new one.)"
+  - bugfix: "Removes greimorian eggsacs now dissolve into goo as intended."
