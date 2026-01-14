@@ -322,7 +322,7 @@ GLOBAL_LIST_INIT(wire_name_directory, list())
 				if(!istype(I))
 					to_chat(usr, SPAN_WARNING("You do not have a signaler to attach!"))
 					return
-				usr.drop_from_inventory(I)
+				usr.temporarilyRemoveItemFromInventory(I)
 				if(!attach_assembly(target_wire, I))
 					I.forceMove(get_turf(L))
 				. = TRUE

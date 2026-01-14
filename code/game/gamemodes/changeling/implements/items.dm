@@ -47,7 +47,7 @@
 							organ.implants -= src
 			host.pinned -= src
 			host.embedded -= src
-			host.drop_from_inventory(src)
+			host.temporarilyRemoveItemFromInventory(src)
 		QDEL_IN(src, 1)
 
 /obj/item/melee/arm_blade/iscrowbar()

@@ -15,8 +15,21 @@
 	var/burn_point
 	var/burning
 
+	/* Sound related vars */
 	/// Generic hit sound
 	var/hitsound = /singleton/sound_category/swing_hit_sound
+	/// Sound used when thrown into a mob
+	var/mob_throw_hit_sound
+	/// Sound used when equipping the item into a valid slot
+	var/equip_sound = null
+	/// Sound used when picking the item up (into your hands)
+	var/pickup_sound = /singleton/sound_category/generic_pickup_sound
+	/// Sound used when dropping the item, or when its thrown if [throw_drop_sound] isn't specified.
+	var/drop_sound = /singleton/sound_category/generic_drop_sound
+	///Sound used on impact when the item is thrown.
+	var/throw_drop_sound
+	///Do the drop and pickup sounds vary?
+	var/sound_vary = FALSE
 
 	var/storage_cost
 
@@ -141,15 +154,6 @@
 
 	/// Boolean, if item_state, lefthand, righthand, and worn sprite are all in one dmi
 	var/contained_sprite = FALSE
-
-	/// Used when thrown into a mob
-	var/mob_throw_hit_sound
-	/// Sound used when equipping the item into a valid slot
-	var/equip_sound = null
-	/// Sound uses when picking the item up (into your hands)
-	var/pickup_sound = /singleton/sound_category/generic_pickup_sound
-	/// Sound uses when dropping the item, or when its thrown.
-	var/drop_sound = /singleton/sound_category/generic_drop_sound
 
 	var/list/armor
 	/// How fast armor will degrade, multiplier to blocked damage to get armor damage value.
@@ -287,6 +291,73 @@
 
 /atom/proc/get_cell()
 	return DEVICE_NO_CELL
+
+/* sound procs, made so they can be overriden on subtypes */
+
+/// executed when this item is thrown and hits a mob
+/obj/item/proc/mob_throw_hit_sound_chain(target, volume)
+	if(play_mob_throw_hit_sound(target, volume))
+		return TRUE
+	if(play_hit_sound(target, volume))
+		return TRUE
+	playsound(target, 'sound/weapons/throwtap.ogg', volume, TRUE, -1)
+	return TRUE
+
+/// executed when this item is thrown and lands on a turf
+/obj/item/proc/throw_drop_sound_chain(volume)
+	if(play_throw_drop_sound(volume))
+		return TRUE
+	if(play_drop_sound(volume))
+		return TRUE
+	return FALSE
+
+/// If the sound_to_play is successfully played, returns TRUE. Otherwise, FALSE.
+/obj/item/proc/sound_chain(sound_to_play, volume = HALFWAY_SOUND_VOLUME, target = src)
+	if(sound_to_play)
+		playsound(target, sound_to_play, volume, sound_vary, ignore_walls = FALSE)
+		return TRUE
+	return FALSE
+
+/// Plays item's usesound, if any
+/obj/item/proc/play_tool_sound(atom/target, volume=null) // null, so default value of this proc won't override default value of the playsound.
+	if(target && volume)
+		var/played_sound
+		if(usesound)
+			played_sound = usesound
+			if(islist(usesound))
+				played_sound = pick(usesound)
+		else if(hitsound) // use hitsound if there isn't a use sound.
+			played_sound = hitsound
+			if(islist(usesound))
+				played_sound = pick(hitsound)
+
+		//playsound(target, played_sound, VOL_EFFECTS_MASTER, volume) implement sound channel system in future
+		playsound(target, played_sound, volume, TRUE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
+
+/// plays the pickup sound of this item.
+/obj/item/proc/play_pickup_sound(volume = PICKUP_SOUND_VOLUME)
+	return sound_chain(pickup_sound, volume)
+
+/// plays the drop sound
+/obj/item/proc/play_drop_sound(volume = DROP_SOUND_VOLUME)
+	return sound_chain(drop_sound, volume)
+
+/// plays the throw drop sound
+/obj/item/proc/play_throw_drop_sound(volume = THROW_SOUND_VOLUME)
+	return sound_chain(throw_drop_sound, volume)
+
+/// plays the mob throw hit sound
+/obj/item/proc/play_mob_throw_hit_sound(target, volume = DROP_SOUND_VOLUME)
+	return sound_chain(mob_throw_hit_sound, volume, target)
+
+/// plays when a mob is hit with this item
+/obj/item/proc/play_hit_sound(target, volume = HALFWAY_SOUND_VOLUME)
+	return sound_chain(hitsound, volume, target)
+
+/obj/item/proc/play_equip_sound(volume = EQUIP_SOUND_VOLUME)
+	return sound_chain(equip_sound, volume)
+
+/* sound procs over */
 
 //Checks if the item is being held by a mob, and if so, updates the held icons
 /obj/item/proc/update_held_icon()
@@ -450,17 +521,12 @@
 	if(isliving(hit_atom)) //Living mobs handle hit sounds differently.
 		var/mob/living/L = hit_atom
 		if(L.in_throw_mode)
-			playsound(hit_atom, pickup_sound, PICKUP_SOUND_VOLUME, TRUE)
+			play_pickup_sound(volume)
 		else
 			if(throwforce > 0)
-				if(mob_throw_hit_sound)
-					playsound(hit_atom, mob_throw_hit_sound, volume, TRUE, -1)
-				else if(hitsound)
-					playsound(hit_atom, hitsound, volume, TRUE, -1)
-				else
-					playsound(hit_atom, 'sound/weapons/Genhit.ogg', volume, TRUE, -1)
+				mob_throw_hit_sound_chain(hit_atom, volume)
 			else
-				playsound(hit_atom, 'sound/weapons/throwtap.ogg', 1, volume, -1)
+				playsound(hit_atom, 'sound/weapons/throwtap.ogg', volume, TRUE, -1)
 	else
 		playsound(src, drop_sound, volume)
 
@@ -479,7 +545,7 @@
  *
  * * user - The `/mob` that dropped the object (was removed from, not necessarily who clicked the button)
  */
-/obj/item/proc/dropped(mob/user)
+/obj/item/proc/dropped(mob/user, silent = FALSE)
 	SHOULD_CALL_PARENT(TRUE)
 
 	remove_item_verbs(user)
@@ -490,9 +556,10 @@
 		zoom(user) //binoculars, scope, etc
 
 	SEND_SIGNAL(src, COMSIG_ITEM_DROPPED, user)
-	in_inventory = FALSE
+	SEND_SIGNAL(user, COMSIG_MOB_DROPPED_ITEM, src)
 
-	user?.update_equipment_speed_mods()
+	if(!silent && drop_sound)
+		play_drop_sound(DROP_SOUND_VOLUME)
 	try_make_persistent_trash()
 
 /obj/item/pipe_eject(var/direction)
@@ -547,6 +614,7 @@
 
 ///Called just as an item is picked up (loc is not yet changed)
 /obj/item/proc/pickup(mob/user)
+	SHOULD_CALL_PARENT(TRUE)
 	pixel_x = 0
 	pixel_y = 0
 	SEND_SIGNAL(src, COMSIG_ITEM_PICKUP, user)
@@ -1203,22 +1271,6 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 // A check called by tool_start_check once, and by use_tool on every tick of delay.
 /obj/item/proc/tool_use_check(mob/living/user, amount)
 	return TRUE
-
-/// Plays item's usesound, if any
-/obj/item/proc/play_tool_sound(atom/target, volume=null) // null, so default value of this proc won't override default value of the playsound.
-	if(target && volume)
-		var/played_sound
-		if(usesound)
-			played_sound = usesound
-			if(islist(usesound))
-				played_sound = pick(usesound)
-		else if(hitsound) // use hitsound if there isn't a use sound.
-			played_sound = hitsound
-			if(islist(usesound))
-				played_sound = pick(hitsound)
-
-		//playsound(target, played_sound, VOL_EFFECTS_MASTER, volume) implement sound channel system in future
-		playsound(target, played_sound, volume, TRUE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 
 // Generic use proc. Depending on the item, it uses up fuel, charges, sheets, etc.
 // Returns TRUE on success, FALSE on failure.

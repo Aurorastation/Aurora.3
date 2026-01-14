@@ -50,7 +50,7 @@ GLOBAL_DATUM(raider_techno, /datum/antagonist/raider_techno)
 	for(var/obj/item/I in player)
 		if(istype(I, /obj/item/implant))
 			continue
-		player.drop_from_inventory(I)
+		player.dropItemToGround(I)
 		if(I.loc != player)
 			qdel(I)
 

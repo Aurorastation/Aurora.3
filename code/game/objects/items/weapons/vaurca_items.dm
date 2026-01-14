@@ -166,7 +166,7 @@
 	if(isvaurca(user))
 		to_chat(user, SPAN_NOTICE("You are familiar with the box's solution, and open it to reveal an ancient thing. How tedious."))
 		var/obj/item/archaeological_find/X = new /obj/item/archaeological_find
-		user.remove_from_mob(src)
+		user.temporarilyRemoveItemFromInventory(src)
 		user.put_in_hands(X)
 		qdel(src)
 
@@ -177,7 +177,7 @@
 			if(do_after(user, 600))
 				to_chat(user, SPAN_NOTICE("After a minute of brute-force puzzle solving, the box finally opens to reveal an ancient thing."))
 				var/obj/item/archaeological_find/X = new /obj/item/archaeological_find
-				user.remove_from_mob(src)
+				user.temporarilyRemoveItemFromInventory(src)
 				user.put_in_hands(X)
 				qdel(src)
 
@@ -502,7 +502,7 @@
 	if(belt.len >= belt_size)
 		to_chat(user, SPAN_WARNING("[src] is full."))
 		return
-	user.remove_from_mob(W)
+	user.temporarilyRemoveItemFromInventory(W)
 	W.forceMove(src)
 	belt.Insert(1, W) //add to the head of the list, so that it is loaded on the next pump
 	user.visible_message("[user] inserts \a [W] into [src].", SPAN_NOTICE("You insert \a [W] into [src]."))

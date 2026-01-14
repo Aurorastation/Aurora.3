@@ -85,7 +85,7 @@
 	if (!attacking_item) return
 
 	if(user.unEquip(attacking_item, 0, src.loc))
-		user.make_item_drop_sound(attacking_item)
+		attacking_item.play_drop_sound()
 		return 1
 
 /obj/item/coin/casino

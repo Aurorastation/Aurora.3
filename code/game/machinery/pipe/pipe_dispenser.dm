@@ -124,7 +124,7 @@
 		add_fingerprint(user)
 	if(istype(attacking_item, /obj/item/pipe) || istype(attacking_item, /obj/item/pipe_meter))
 		to_chat(usr, SPAN_NOTICE("You put \the [attacking_item] back into \the [src]."))
-		user.remove_from_mob(attacking_item) //Catches robot gripper duplication
+		user.transferItemToLoc(attacking_item, src) //Catches robot gripper duplication
 		qdel(attacking_item)
 		return TRUE
 	else if(attacking_item.iswrench())

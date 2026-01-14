@@ -43,9 +43,9 @@
 		if(attached_device)
 			to_chat(user, SPAN_WARNING("There is already an device attached to the valve, remove it first."))
 			return
-		user.remove_from_mob(attacking_item)
+		if(!user.transferItemToLoc(attacking_item, src))
+			return
 		attached_device = A
-		A.forceMove(src)
 		to_chat(user, SPAN_NOTICE("You attach the [attacking_item] to the valve controls and secure it."))
 		A.holder = src
 		A.toggle_secure()	//this calls update_icon(), which calls update_icon() on the holder (i.e. the bomb).
