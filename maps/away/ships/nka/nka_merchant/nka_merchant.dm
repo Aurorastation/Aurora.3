@@ -7,7 +7,7 @@
 	suffix = "nka_merchant.dmm"
 
 	ship_cost = 1
-	spawn_weight = 1
+	spawn_weight = 0 // Disabled for debloating. Feel free to enable again if reworked or relevant.
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/nka_merchant_shuttle)
 	spawn_weight_sector_dependent = list(SECTOR_SRANDMARR = 2, SECTOR_BADLANDS = 0.5)
 	sectors = list(SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_VALLEY_HALE, SECTOR_CORP_ZONE, SECTOR_TAU_CETI)

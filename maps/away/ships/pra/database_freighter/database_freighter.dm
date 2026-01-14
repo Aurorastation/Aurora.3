@@ -7,7 +7,7 @@
 	suffix = "database_freighter.dmm"
 
 	ship_cost = 1
-	spawn_weight = 1
+	spawn_weight = 0 // Disabled for debloating. Feel free to enable again if reworked or relevant.
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/database_freighter_shuttle)
 	sectors = list(SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL)
 	spawn_weight_sector_dependent = list(SECTOR_BADLANDS = 0.5)
