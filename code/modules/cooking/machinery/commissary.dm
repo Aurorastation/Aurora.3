@@ -41,7 +41,20 @@
 	active_power_usage = 100
 	cooling = TRUE
 	accepted_items = list(/obj/item/reagent_containers/food,
-	/obj/item/storage/box/fancy/cookiesnack
+	/obj/item/storage/box/fancy/cookiesnack,
+	/obj/item/storage/box/pineapple,
+	/obj/item/storage/box/fancy/gum,
+	/obj/item/storage/box/fancy/vkrexitaffy,
+	/obj/item/clothing/mask/chewable/candy/lolli,
+	/obj/item/storage/box/fancy/admints,
+	/obj/item/storage/box/fancy/quick_microwave_pizza,
+	/obj/item/reagent_containers/food/snacks/packaged_microwave_mac_and_cheeze,
+	/obj/item/reagent_containers/food/snacks/packaged_microwave_fiery_mac_and_cheeze,
+	/obj/item/storage/box/fancy/packaged_burger,
+	/obj/item/storage/box/fancy/toptarts_strawberry,
+	/obj/item/storage/box/fancy/toptarts_chocolate_peanutbutter,
+	/obj/item/storage/box/fancy/toptarts_blueberry,
+	/obj/item/storage/box/unique/donkpockets
 	)
 	display_tiers = 4
 	display_tier_amt = 5
@@ -72,6 +85,25 @@
 	)
 	display_tiers = 4
 	display_tier_amt = 5
+
+/obj/machinery/smartfridge/tradeshelf/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/commissary_restrock))
+		var/obj/item/commissary_restrock/P = attacking_item
+		var/item_loaded = 0
+		for(var/obj/G in P.contents)
+			if(accept_check(G))
+				if(length(contents) >= max_n_of_items)
+					break
+				P.remove_from_storage(G,src)
+				item_quants[G.name]++
+				item_loaded++
+		if(item_loaded)
+			user.visible_message("<b>[user]</b> loads [src] with [P].", SPAN_NOTICE("You load [src] with [P]."))
+			if(length(P.contents) > 0)
+				to_chat(user, SPAN_NOTICE("Some items are refused."))
+			update_overlays()
+		return TRUE
+	. = ..()
 
 // -------------------------------------------------
 /obj/structure/cash_register/commissary
@@ -345,3 +377,131 @@
 	buying.Cut()
 	sum = 0
 	receipt = ""
+
+/obj/item/commissary_restrock
+	name = "commissary cigarette restock"
+	w_class = WEIGHT_CLASS_NORMAL
+	var/starts_with = list(
+		/obj/item/storage/box/fancy/cigarettes/pra = 3,
+		/obj/item/storage/box/fancy/cigarettes/dpra = 3,
+		/obj/item/storage/box/fancy/cigarettes/nka = 3,
+		/obj/item/storage/box/fancy/cigarettes/federation = 3,
+		/obj/item/storage/box/fancy/cigarettes/dyn = 3,
+		/obj/item/storage/box/fancy/cigarettes/oracle = 3,
+		/obj/item/storage/box/fancy/cigarettes/koko = 3,
+		/obj/item/storage/chewables/rollable = 3,
+		/obj/item/storage/chewables/rollable/unathi = 3,
+		/obj/item/storage/chewables/rollable/fine = 3,
+		/obj/item/storage/chewables/rollable/nico = 3,
+		/obj/item/storage/chewables/rollable/oracle = 3,
+		/obj/item/storage/chewables/rollable/vedamor = 3,
+		/obj/item/storage/chewables/tobacco/bad = 3,
+		/obj/item/storage/chewables/tobacco/fine = 3,
+		/obj/item/storage/chewables/tobacco/federation = 3,
+		/obj/item/storage/chewables/tobacco/dyn = 3,
+		/obj/item/storage/chewables/tobacco/koko = 3,
+		/obj/item/storage/chewables/oracle = 3,
+		/obj/item/storage/box/fancy/cigpaper = 3,
+		/obj/item/storage/box/fancy/cigpaper/fine = 3,
+		/obj/item/storage/box/fancy/matches = 10,
+		/obj/item/flame/lighter/random = 4,
+		/obj/item/clothing/mask/smokable/ecig/util = 3,
+		/obj/item/reagent_containers/ecig_cartridge/med_nicotine = 2,
+		/obj/item/reagent_containers/ecig_cartridge/high_nicotine = 2,
+		/obj/item/reagent_containers/ecig_cartridge/orange = 2,
+		/obj/item/reagent_containers/ecig_cartridge/watermelon = 2,
+		/obj/item/reagent_containers/ecig_cartridge/grape = 2
+	)
+
+/obj/item/commissary_restrock/food
+	name = "commissary food restock"
+	starts_with = list(
+		/obj/item/reagent_containers/food/snacks/chips =6,
+		/obj/item/reagent_containers/food/snacks/no_raisin = 6,
+		/obj/item/storage/box/pineapple = 4,
+		/obj/item/reagent_containers/food/snacks/chocolatebar = 6,
+		/obj/item/reagent_containers/food/snacks/whitechocolate/wrapped = 6,
+		/obj/item/storage/box/fancy/cookiesnack = 6,
+		/obj/item/storage/box/fancy/gum = 4,
+		/obj/item/storage/box/fancy/vkrexitaffy = 5,
+		/obj/item/clothing/mask/chewable/candy/lolli = 8,
+		/obj/item/storage/box/fancy/admints = 4,
+		/obj/item/reagent_containers/food/snacks/adhomian_can = 2,
+		/obj/item/reagent_containers/food/snacks/ricetub = 2,
+		/obj/item/reagent_containers/food/snacks/riceball = 4,
+		/obj/item/reagent_containers/food/snacks/seaweed = 5,
+		/obj/item/reagent_containers/food/snacks/algaechips = 2,
+		/obj/item/storage/box/fancy/quick_microwave_pizza = 3,
+		/obj/item/storage/box/fancy/quick_microwave_pizza/olive = 3,
+		/obj/item/storage/box/fancy/quick_microwave_pizza/pepperoni = 3,
+		/obj/item/storage/box/fancy/quick_microwave_pizza/district6 = 3,
+		/obj/item/reagent_containers/food/snacks/packaged_microwave_mac_and_cheeze = 3,
+		/obj/item/reagent_containers/food/snacks/packaged_microwave_fiery_mac_and_cheeze = 3,
+		/obj/item/storage/box/fancy/packaged_burger = 3,
+		/obj/item/reagent_containers/food/snacks/quick_curry = 3,
+		/obj/item/reagent_containers/food/snacks/hv_dinner = 3,
+		/obj/item/storage/box/fancy/toptarts_strawberry = 3,
+		/obj/item/storage/box/fancy/toptarts_chocolate_peanutbutter = 3,
+		/obj/item/storage/box/fancy/toptarts_blueberry = 3,
+		/obj/item/storage/box/unique/donkpockets = 3
+	)
+
+/obj/item/commissary_restrock/drink
+	name = "commissary drink restock"
+	starts_with = list(
+		/obj/item/reagent_containers/food/drinks/cans/cola = 5,
+		/obj/item/reagent_containers/food/drinks/cans/diet_cola = 5,
+		/obj/item/reagent_containers/food/drinks/cans/space_mountain_wind = 5,
+		/obj/item/reagent_containers/food/drinks/cans/dr_gibb = 5,
+		/obj/item/reagent_containers/food/drinks/cans/root_beer = 5,
+		/obj/item/reagent_containers/food/drinks/cans/starkist = 5,
+		/obj/item/reagent_containers/food/drinks/waterbottle = 5,
+		/obj/item/reagent_containers/food/drinks/cans/dyn = 5,
+		/obj/item/reagent_containers/food/drinks/cans/space_up = 5,
+		/obj/item/reagent_containers/food/drinks/cans/iced_tea = 5,
+		/obj/item/reagent_containers/food/drinks/cans/grape_juice = 5,
+		/obj/item/reagent_containers/food/drinks/cans/peach_soda = 5,
+		/obj/item/reagent_containers/food/drinks/cans/beetle_milk = 5,
+		/obj/item/reagent_containers/food/drinks/cans/hrozamal_soda = 5,
+		/obj/item/reagent_containers/food/drinks/carton/small/milk = 5,
+		/obj/item/reagent_containers/food/drinks/carton/small/milk/choco = 5,
+		/obj/item/reagent_containers/food/drinks/carton/small/milk/strawberry = 5,
+		/obj/item/reagent_containers/food/drinks/cans/melon_soda = 5,
+		/obj/item/reagent_containers/food/drinks/zobo = 5
+	)
+
+/obj/item/commissary_restrock/Initialize(mapload, ...)
+	. = ..()
+	fill()
+
+/obj/item/commissary_restrock/proc/fill()
+	if(LAZYLEN(starts_with))
+		for(var/t in starts_with)
+			if(!ispath(t))
+				crash_with("[t] in [src]'s starts_with list is not a path!")
+				continue
+			for(var/i=0, i<starts_with[t], i++)
+				new t(src)
+	return
+
+/obj/item/commissary_restrock/proc/remove_from_storage(obj/item/W, atom/new_location)
+	if(!istype(W))
+		return FALSE
+
+	if(new_location)
+		W.forceMove(new_location)
+	else
+		W.forceMove(get_turf(src))
+
+	W.on_exit_storage(src)
+	update_icon()
+	return TRUE
+
+/obj/structure/closet/crate/commissary
+	name = "commissary crate"
+	desc = "A crate packed with boxes of various goods. Handle with care!"
+
+/obj/structure/closet/crate/commissary/fill()
+	new /obj/item/commissary_restrock(src)
+	new /obj/item/commissary_restrock/food(src)
+	new /obj/item/commissary_restrock/drink(src)
