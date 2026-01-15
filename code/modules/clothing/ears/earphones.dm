@@ -436,6 +436,18 @@ Earphone Variants
 		new/datum/track("Posin", 'sound/music/phonograph/posin.ogg')
 	)
 
+/obj/item/music_cartridge/adhomai_vibes
+	name = "Adhomai vibes"
+	desc = "A red music cartridge holding various music considered to fit the vibe of Adhomai."
+	icon_state = "adhomai"
+
+	tracks = list(
+		new/datum/track("Adhomai Vibes #1", 'sound/music/lobby/adhomai/adhomai-1.ogg'),
+		new/datum/track("Adhomai Vibes #2", 'sound/music/lobby/adhomai/adhomai-2.ogg'),
+		new/datum/track("Adhomai Vibes #3", 'sound/music/lobby/adhomai/adhomai-3.ogg'),
+		new/datum/track("Adhomai Vibes #4", 'sound/music/lobby/adhomai/adhomai-4.ogg')
+	)
+
 /obj/item/music_cartridge/europa_various
 	name = "Europa: Best of the 50s"
 	desc = "A music cartridge storing the best tracks to listen to on a submarine dive."
