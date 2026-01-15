@@ -182,7 +182,7 @@ ABSTRACT_TYPE(/obj/machinery/fabricator)
 
 	if(panel_open)
 		//Don't eat multitools or wirecutters used on an open lathe.
-		if(attacking_item.ismultitool() || attacking_item.iswirecutter())
+		if(attacking_item.tool_behaviour == TOOL_MULTITOOL || attacking_item.tool_behaviour == TOOL_WIRECUTTER )
 			if(panel_open)
 				wires.interact(user)
 			else
