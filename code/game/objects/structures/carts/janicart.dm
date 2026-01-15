@@ -223,11 +223,9 @@
 		var/obj/item/chosen_item = show_radial_menu(user, src, storage_contents, require_near = TRUE, tooltips = TRUE)
 
 		if(isnull(chosen_item))
-			to_chat(world, "is_null")
 			return
 
 		if(chosen_item in storage_contents)
-			to_chat(world, "chose item [chosen_item], is type [chosen_item.type]")
 			if(istype(chosen_item, /obj/item/storage/bag/trash) && my_bag)
 				user.put_in_hands(my_bag)
 				to_chat(user, SPAN_NOTICE("You take [my_bag] from [src]."))
@@ -237,8 +235,6 @@
 				to_chat(user, SPAN_NOTICE("You take [my_mop] from [src]."))
 				my_mop = null
 			if(istype(chosen_item, /obj/item/reagent_containers/spray) && my_spray)
-				to_chat(world, "/obj/item/reagent_containers/spray/cleaner")
-				to_chat(world, "my_spray")
 				user.put_in_hands(my_spray)
 				to_chat(user, SPAN_NOTICE("You take [my_spray] from [src]."))
 				my_spray = null

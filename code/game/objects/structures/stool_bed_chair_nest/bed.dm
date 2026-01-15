@@ -47,13 +47,15 @@
 /obj/structure/bed/mechanics_hints()
 	. = list()
 	. += ..()
-	. += "Click and drag yourself (or anyone) to this to buckle in."
+	. += "Click-drag yourself (or anyone) to this to buckle in."
 	. += "Click on this with an empty hand to undo the buckles."
 	. += "Anyone with restraints, such as handcuffs, will not be able to unbuckle themselves. They must use the Resist button, or verb, to break free of \
 	the buckles instead."
 	. += "To unbuckle people as a stationbound, click the bed with an empty gripper."
 	if(held_item)
-		. += "Click and drag this onto yourself to pick it up."
+		. += "Click-drag this onto yourself to pick it up, remove an attached item, or to change the IV flow rate."
+		. += "Vitals monitors, blood bags, beakers, bottles, and medical scans can be attached by clicking this with the object in your active hand."
+		. += "ALT+click this to lock or unlock it in place."
 
 /obj/structure/bed/assembly_hints()
 	. = list()
@@ -378,10 +380,18 @@
 	held_item = /obj/item/roller
 	var/obj/item/reagent_containers/beaker
 	var/obj/item/vitals_monitor/vitals
+	var/obj/item/paper/medscan
 	var/iv_attached = 0
 	var/iv_stand = TRUE
 	var/iv_transfer_rate = 4 //Same as max for regular IV drips
+	var/iv_transfer_rate_lowerlimit = 0.001
+	var/iv_transfer_rate_upperlimit = 4
 	var/has_iv_light = TRUE
+	var/medscan_view_distance = 2
+	var/scan_pixel_offset_y = -7
+	var/scan_pixel_offset_x = 0
+	var/iv_pixel_offset_y = 7
+	var/iv_pixel_offset_x = 0
 	//Items that can be attached to an IV
 	var/list/accepted_containers = list(
 		/obj/item/reagent_containers/blood,
@@ -397,6 +407,7 @@
 /obj/structure/bed/roller/Destroy()
 	QDEL_NULL(beaker)
 	QDEL_NULL(vitals)
+	QDEL_NULL(medscan)
 	return ..()
 
 /obj/structure/bed/roller/update_icon()
@@ -418,7 +429,7 @@
 		if(percentage < 25)
 			iv.AddOverlays(image(icon, "light_low"))
 		if(density)
-			iv.pixel_y = 7
+			iv.pixel_y = iv_pixel_offset_y
 		AddOverlays(iv)
 		if(has_iv_light)
 			var/image/light = image(icon, "iv[iv_attached]_l")
@@ -426,6 +437,17 @@
 	if(vitals)
 		vitals.update_monitor()
 		add_vis_contents(vitals)
+	if(medscan)
+		var/image/scan = image(icon, "holder_medscan")
+		if(!density)
+			scan.pixel_y = scan_pixel_offset_y
+		AddOverlays(scan)
+
+/obj/structure/bed/roller/feedback_hints(mob/user, distance, show_extended)
+	if(medscan && distance<=medscan_view_distance)
+		var/obj/item/paper/H = medscan
+		H.show_content(usr)
+	.=..()
 
 /obj/structure/bed/roller/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.tool_behaviour == TOOL_WRENCH || istype(attacking_item, /obj/item/stack) || attacking_item.tool_behaviour == TOOL_WIRECUTTER)
@@ -445,6 +467,15 @@
 			return
 		to_chat(user, SPAN_NOTICE("You attach \the [attacking_item] to \the [src]."))
 		beaker = attacking_item
+		update_icon()
+		return 1
+	if(istype(attacking_item, /obj/item/paper/medscan))
+		if(medscan)
+			to_chat(user, SPAN_WARNING("\The [src] already has a medical scan attached!"))
+			return
+		to_chat(user, SPAN_NOTICE("You attach \the [attacking_item] to \the [src]."))
+		user.drop_from_inventory(attacking_item, src)
+		medscan = attacking_item
 		update_icon()
 		return 1
 	..()
@@ -495,6 +526,12 @@
 	vitals = null
 	update_icon()
 
+/obj/structure/bed/roller/proc/remove_paper(mob/user)
+	to_chat(user, SPAN_NOTICE("You detach \the [medscan] from \the [src]."))
+	user.put_in_hands(medscan)
+	medscan = null
+	update_icon()
+
 /obj/structure/bed/roller/proc/attach_iv(mob/living/carbon/human/target, mob/user)
 	if(!beaker)
 		return
@@ -526,16 +563,64 @@
 		if(user_buckle(over, user))
 			attach_iv(buckled, user)
 			return
-	if(beaker)
-		remove_beaker(user)
-		return
-	if(vitals)
-		remove_vitals(user)
-		return
 	if(buckled)
-		to_chat(user, SPAN_WARNING("\The [buckled] is on \the [src]. Remove them first."))
+		var/list/options = list(
+			"Transfer Rate" = image('icons/mob/screen/radial.dmi', "radial_transrate"),
+			"Remove Container" = image('icons/mob/screen/radial.dmi', "iv_beaker"),
+			"Remove Vitals Monitor" = image('icons/mob/screen/radial.dmi', "vitals_monitor"),
+			"Remove Scan" = image('icons/mob/screen/radial.dmi', "med_scan"))
+		var/chosen_action = show_radial_menu(user, src, options, require_near = TRUE, radius = 42, tooltips = TRUE)
+		if(!chosen_action)
+			return
+		switch(chosen_action)
+			if("Transfer Rate")
+				transfer_rate()
+			if("Remove Container")
+				if(!beaker)
+					to_chat(user, SPAN_NOTICE("There is no reagent container to remove."))
+					return
+				remove_beaker(user)
+				return
+			if("Remove Vitals Monitor")
+				if(!vitals)
+					to_chat(user, SPAN_NOTICE("There is no vitals monitor to remove."))
+					return
+				remove_vitals(user)
+				return
+			if("Remove Scan")
+				if(!medscan)
+					to_chat(user, SPAN_NOTICE("There is no medical scan to remove."))
+					return
+				remove_paper(user)
+				return
+	if(!buckled)
+		if(medscan)
+			remove_paper(user)
+		if(vitals)
+			remove_vitals(user)
+		if(beaker)
+			remove_beaker(user)
+		collapse()
+
+/obj/structure/bed/roller/verb/transfer_rate()
+	set category = "Object.IV Drip"
+	set name = "Set Transfer Rate"
+	set src in view(1)
+
+	if(use_check_and_message(usr))
 		return
-	collapse()
+	set_rate:
+		var/amount = tgui_input_number(usr, "Set the IV drip's transfer rate.", "IV Drip", iv_transfer_rate, iv_transfer_rate_upperlimit, iv_transfer_rate_lowerlimit, round_value = FALSE)
+		if(!amount)
+			return
+		if ((0.001 > amount || amount > 4) && amount != 0)
+			to_chat(usr, SPAN_WARNING("Entered value must be between 0.001 and 4."))
+			goto set_rate
+		if (iv_transfer_rate == 0)
+			iv_transfer_rate = REM
+			return
+		iv_transfer_rate = amount
+		to_chat(usr, SPAN_NOTICE("Transfer rate set to [src.iv_transfer_rate] u/sec."))
 
 /obj/structure/bed/roller/Move()
 	. = ..()

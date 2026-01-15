@@ -1305,7 +1305,7 @@
 /turf/simulated/floor/tiled/steel,
 /area/scc_event_shuttle)
 "wt" = (
-/obj/machinery/autolathe,
+/obj/machinery/fabricator/autolathe,
 /turf/simulated/floor/tiled/steel,
 /area/scc_event_shuttle)
 "ww" = (
@@ -2257,7 +2257,7 @@
 /area/scc_event_shuttle)
 "IW" = (
 /obj/effect/floor_decal/industrial/outline/operations,
-/obj/machinery/autolathe,
+/obj/machinery/fabricator/autolathe,
 /turf/simulated/floor/tiled/steel,
 /area/scc_event_shuttle)
 "IZ" = (

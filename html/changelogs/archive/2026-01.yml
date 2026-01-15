@@ -8,3 +8,53 @@
   - bugfix: Fixed the Phoron Deposit site only having south-facing navpoints.
   - rscadd: Added coded-in navpoints to the Phoron Deposit site, instead of using
       automatic navpoints.
+2026-01-15:
+  Batrachophreno:
+  - code_imp: Updated crates and lockers to use standalone security panel sprite overlays.
+  - refactor: Moved several container spritesheets to a dedicated folder.
+  Batrachophrenoboocosmomachia:
+  - bugfix: Removes accidental leftover world debug lines from janicarts.
+  CatsinHD:
+  - rscadd: Medical scans can be attached to rollerbeds.
+  - qol: Rollerbeds now use a radial menu for detaching vitals monitors, IVs, medical
+      scans, and changing IV transfer rate.
+  ElorgRHG:
+  - imageadd: Resprited all Tajaran consular clothing.
+  - rscadd: Added a female version of the NKA consular uniform.
+  - rscadd: Added Tajaran consular coats.
+  - rscadd: Added extended descriptions to all Tajaran consular clothing items.
+  - rscdel: Removed Tajaran consular side caps.
+  GeneralCamo:
+  - rscadd: Ported the microlathe from Bay. This is a small autolathe that can make
+      cutlery and drinking glasses.
+  - rscadd: Autolathes now make a sound when producing something.
+  - refactor: Refactored the autolathe to have its recipes handled by a subsystem,
+      in preparation for further refactors.
+  - qol: Changed the autolathe interface to show time remaining to print an item,
+      in seconds.
+  - balance: Stacks of materials printed from an autolathe, now multiply the amount
+      of time required to print the item.
+  - balance: Autolathes now use microlasers to improve efficiency. Manipulators now
+      solely increase build time.
+  - bugfix: Repaired atmos heat effect.
+  - bugfix: Repaited atmos cold effect.
+  - bugfix: Repaired gravity catapult effect.
+  - rscadd: M'sai tajara can now spawn as bridge crew
+  - bugfix: Fixed unathi and tajara bridge crew receiving human lace-up shoes.
+  Hellfirejag:
+  - rscadd: Cortical Borers can now be Jar'd
+  Jasorn:
+  - bugfix: Fixed ambrosia messages not appearing while smoking.
+  Kano:
+  - bugfix: Fixed an issue preventing the AI eye from traversing Z-levels.
+  Mynameasjeff:
+  - rscadd: Revives the long-lost Solarian Light Coilgun (credit goes to @TheDanseMacabre
+      for the assets and code)
+  - rscadd: Replaces the SSRM Recon Corvette's Grauwolf with said coilgun.
+  - rscadd: Added Valley Hale spawns for the Imperial Fleet corvette, Dominian Science
+      Ship, and the House Kazhk Privateer
+  TheGreyWolf:
+  - bugfix: The Ve'katak Phalanx Hivenet receiver now works properly again and don't
+      permit speaking outside the preset messages on the hivenet.
+  - bugfix: The Zeng-Hu Nral'malic language processor now properly doesn't allow speaking
+      in nral'malic.
