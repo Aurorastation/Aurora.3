@@ -1040,7 +1040,7 @@
 	item_state = "kneepads"
 	contained_sprite = TRUE
 	gender = PLURAL
-	slot = ACCESSORY_SLOT_GENERIC
+	slot = ACCESSORY_SLOT_PANTS
 
 /obj/item/clothing/accessory/blood_patch
 	name = "O- blood patch"

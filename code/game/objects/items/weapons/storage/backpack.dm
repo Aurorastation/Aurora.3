@@ -160,6 +160,15 @@
 		return 1
 	return ..()
 
+/obj/item/storage/backpack/santabag
+	name = "\improper Santa's gift bag"
+	desc = "Space Santa uses this to deliver toys to all the nice children in space in Christmas! Wow, it's pretty big!"
+	icon_state = "giftbag0"
+	item_state = "giftbag"
+	w_class = WEIGHT_CLASS_BULKY
+	max_storage_space = 200 // can store a ton of shit!
+	empty_delay = 1 SECOND
+
 /obj/item/storage/backpack/cultpack
 	name = "trophy rack"
 	desc = "It's useful for both carrying extra gear and proudly declaring your insanity."

@@ -15,19 +15,17 @@ ABSTRACT_TYPE(/obj/structure/cart)
 
 /obj/structure/cart/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	. += "\
-		You can <b>CTRL-Click</b> to start dragging this cart. This object has a special dragging behaviour: when dragged, character's movement \
-		directs the cart and the character is subsequently pulled by it. \
-		"
+	. += "<b>CTRL-Click</b> to start dragging this cart. This object has a special dragging behaviour: when dragged, character's movement \
+		directs the cart and the character is subsequently pulled by it."
 
 /obj/structure/cart/disassembly_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	. += "An empty cart can be taken apart with a <b>wrench</b> or a <b>welder</b>. Or a <b>plasma cutter</b>, if you're that hardcore."
+	. += "An empty cart can be taken apart with a <b>wrench</b> or a <b>welder</b>. Or a <b>plasma cutter</b>, if you're that hardcore. If it contains anything when disassembled, these contents will spill onto the floor."
 
-/obj/structure/cart/proc/take_apart(var/mob/user = null, var/obj/I)
+/obj/structure/cart/proc/take_apart(var/mob/user = null, var/obj/object)
 	if(user)
-		if(iswelder(I))
-			var/obj/item/welder = I
+		if(iswelder(object))
+			var/obj/item/welder = object
 			welder.play_tool_sound(get_turf(src), 50)
 
 		user.visible_message("<b>[user]</b> starts taking apart the [src]...", SPAN_NOTICE("You start disassembling the [src]..."))
@@ -64,19 +62,19 @@ ABSTRACT_TYPE(/obj/structure/cart)
 			return
 	if(pulling && (get_dir(src.loc, pulling.loc) == direction))
 		to_chat(user, SPAN_WARNING("You cannot go there."))
-		return
+		// return
 
 	driving = 1
-	var/turf/T = null
+	var/turf/turf = null
 	if(pulling)
-		T = pulling.loc
+		turf = pulling.loc
 		if(get_dist(src, pulling) >= 1)
 			step(pulling, get_dir(pulling.loc, src.loc))
 	step(src, direction)
 	set_dir(direction)
 	if(pulling)
 		if(pulling.loc == src.loc)
-			pulling.forceMove(T)
+			pulling.forceMove(turf)
 		else
 			spawn(0)
 			if(get_dist(src, pulling) > 1)
@@ -84,7 +82,6 @@ ABSTRACT_TYPE(/obj/structure/cart)
 				user.pulledby = null
 			pulling.set_dir(get_dir(pulling, src))
 	driving = 0
-
 
 /obj/structure/cart/Move()
 	. = ..()
@@ -136,7 +133,7 @@ ABSTRACT_TYPE(/obj/structure/cart/storage)
 
 /obj/structure/cart/storage/proc/get_storage_contents_list()
 
-/obj/structure/cart/storage/take_apart(var/mob/user = null, var/obj/I)
+/obj/structure/cart/storage/take_apart(var/mob/user = null, var/obj/object)
 	if(has_items)
 		spill()
 	. = ..()

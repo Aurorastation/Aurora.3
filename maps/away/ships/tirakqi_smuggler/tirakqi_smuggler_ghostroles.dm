@@ -188,5 +188,5 @@
 	uniform = /obj/item/clothing/under/skrell/wetsuit/tirakqi/engineer
 
 	accessory = /obj/item/clothing/accessory/storage/pouches/brown
-	suit = /obj/item/clothing/suit/storage/toggle/highvis_alt
+	suit = /obj/item/clothing/suit/storage/toggle/highvis/alt
 	gloves = /obj/item/clothing/gloves/yellow

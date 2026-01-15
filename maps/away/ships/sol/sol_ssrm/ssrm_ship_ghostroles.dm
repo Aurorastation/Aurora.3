@@ -80,6 +80,10 @@
 	spawnpoints = list("ssrm_navy_chief_petty_officer")
 	max_count = 1
 
+	outfit = /obj/outfit/admin/ssrm_navy_chief_petty_officer
+	possible_species = list(SPECIES_HUMAN)
+	allow_appearance_change = APPEARANCE_PLASTICSURGERY
+
 	assigned_role = "Sol Navy Recon Chief Petty Officer"
 	special_role = "Sol Navy Recon Chief Petty Officer"
 
@@ -162,7 +166,7 @@
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife/sol = 1)
 
 /obj/outfit/admin/ssrm_ipc/post_equip(mob/living/carbon/human/H, visualsOnly)
-	var/obj/item/organ/internal/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
+	var/obj/item/organ/internal/machine/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
 	if(istype(tag))
 		tag.serial_number = uppertext(dd_limittext(md5(H.real_name), 12))
 		tag.ownership_info = IPC_OWNERSHIP_PRIVATE

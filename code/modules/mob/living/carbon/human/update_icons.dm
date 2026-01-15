@@ -312,6 +312,8 @@ There are several things that need to be remembered:
 			return WORN_BELT
 		if(slot_wear_suit_str)
 			return WORN_SUIT
+		if(slot_pants_str)
+			return WORN_PANTS
 		if(slot_l_ear_str)
 			return WORN_LEAR
 		if(slot_r_ear_str)

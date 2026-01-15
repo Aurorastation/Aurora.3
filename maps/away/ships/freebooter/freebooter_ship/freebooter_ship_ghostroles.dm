@@ -50,7 +50,7 @@
 	if(isoffworlder(H))
 		H.equip_or_collect(new /obj/item/storage/pill_bottle/rmt, slot_in_backpack)
 	if(isipc(H))
-		var/obj/item/organ/internal/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
+		var/obj/item/organ/internal/machine/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
 		if(istype(tag))
 			tag.modify_tag_data(TRUE) //Shady pirates might well have untagged IPCs aboard
 

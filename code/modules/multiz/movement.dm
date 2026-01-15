@@ -31,8 +31,9 @@
  *			FALSE otherwise.
  */
 /mob/proc/zMove(direction)
-	// In the case of an active eyeobj, move that instead.
-	if (eyeobj)
+	// If the calling mob has an active eyeobj reference, we move it instead.
+	// This is important because zMove is called from the actual mob and not the eyeobj they're controlling.
+	if(eyeobj)
 		return eyeobj.zMove(direction)
 
 	// Check if we can actually travel a Z-level.

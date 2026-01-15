@@ -332,3 +332,9 @@
       woolen PRA police hat.
   - rscdel: The Raakti Shariim uniform has been removed from the loadout. The coat
       and beret remains.
+2025-11-25:
+  Hellfirejag:
+  - bugfix: Fixed a lag inducing hard delete caused by Effects.
+  TheGreyWolf:
+  - rscadd: The commissary toy shelf can now also hold pens, sticker sheets, cap guns,
+      flag guns, eight balls and bike horns.

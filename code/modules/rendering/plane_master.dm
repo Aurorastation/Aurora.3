@@ -175,10 +175,46 @@
 
 /atom/movable/screen/plane_master/displacement
 	name = "displacement plane"
+	blend_mode = BLEND_ADD
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	plane = DISPLACEMENT_PLATE_RENDER_LAYER
 	render_target = DISPLACEMENT_PLATE_RENDER_TARGET
 	render_relay_plane = null
+
+/atom/movable/screen/plane_master/warp
+	name = "warp plane"
+	blend_mode = BLEND_ADD
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	plane = WARP_EFFECT_PLANE
+	render_target = WARP_EFFECT_PLATE_RENDER_TARGET
+	render_relay_plane = null
+
+/atom/movable/screen/plane_master/heat
+	name = "heat haze plane"
+	blend_mode = BLEND_ADD
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	plane = HEAT_EFFECT_PLANE
+	render_target = HEAT_EFFECT_COMPOSITE_RENDER_TARGET
+	render_relay_plane = null
+
+	var/gas_heat_object
+	//Not actually handled in this plane, we just use this to spawn the particle emitter so byond's rendering system will source it.
+	var/gas_cold_object
+
+/atom/movable/screen/plane_master/heat/Initialize()
+	. = ..()
+	setup()
+
+/atom/movable/screen/plane_master/heat/proc/setup()
+	//TODO: Add graphical options. If players don't like heat haze, replace particles with icons
+	if (gas_heat_object)
+		remove_vis_contents(gas_heat_object)
+	if (gas_cold_object)
+		remove_vis_contents(gas_cold_object)
+	gas_heat_object = new /obj/particle_emitter/heat/high
+	gas_cold_object = new /obj/particle_emitter/mist/gas
+	add_vis_contents(gas_heat_object)
+	add_vis_contents(gas_cold_object)
 
 /atom/movable/screen/plane_master/open_space
 	name = "open space plane"

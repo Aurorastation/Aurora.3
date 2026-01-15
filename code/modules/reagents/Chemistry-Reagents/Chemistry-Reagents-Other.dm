@@ -168,7 +168,7 @@
 		if(!istype(T, /turf/space))
 			var/obj/effect/decal/cleanable/greenglow/glow = locate(/obj/effect/decal/cleanable/greenglow, T)
 			if(!glow)
-				new /obj/effect/decal/cleanable/greenglow(T)
+				new /obj/effect/decal/cleanable/greenglow/radioactive/low(T)
 			return
 
 /singleton/reagent/radioactive_waste
@@ -177,6 +177,8 @@
 	reagent_state = SOLID
 	color = "#E0FF66"
 	taste_description = "warm, tingly imminent death"
+	/// It cannot be overstated how bad this tastes.
+	taste_mult = 20
 	fallback_specific_heat = 2.286
 
 /singleton/reagent/radioactive_waste/affect_touch(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
@@ -186,11 +188,14 @@
 	M.apply_effect(25 * removed, DAMAGE_RADIATION, blocked = 0)
 
 /singleton/reagent/radioactive_waste/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
-	if(amount >= 3)
+	if(amount >= 5)
 		if(!istype(T, /turf/space))
 			var/obj/effect/decal/cleanable/greenglow/glow = locate(/obj/effect/decal/cleanable/greenglow, T)
 			if(!glow)
-				new /obj/effect/decal/cleanable/greenglow/radioactive(T)
+				if(amount >= 10)
+					new /obj/effect/decal/cleanable/greenglow/radioactive/high(T)
+				else
+					new /obj/effect/decal/cleanable/greenglow/radioactive(T)
 			return
 
 /singleton/reagent/platinum
@@ -314,6 +319,7 @@
 	color = "#A5F0EE"
 	touch_met = REM * 10
 	taste_description = "sourness"
+	taste_mult = 1.5
 	germ_adjust = 10
 	value = 0.7
 
@@ -485,6 +491,7 @@
 	reagent_state = LIQUID
 	color = COLOR_GRAY
 	taste_description = "oil"
+	taste_mult = 1.3
 	value = 9
 
 /singleton/reagent/nitroglycerin/proc/explode(var/datum/reagents/holder)
@@ -649,6 +656,7 @@
 	color = "#D35908"
 	touch_met = 50
 	taste_description = "fiery death"
+	taste_mult = 20
 
 /singleton/reagent/fuel/napalm/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
 	new /obj/effect/decal/cleanable/liquid_fuel/napalm(T, amount/3)
