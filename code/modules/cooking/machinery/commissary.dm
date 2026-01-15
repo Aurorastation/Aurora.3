@@ -14,7 +14,8 @@
 	/obj/item/storage/box/fancy/matches,
 	/obj/item/flame/lighter,
 	/obj/item/clothing/mask/smokable/ecig,
-	/obj/item/reagent_containers/ecig_cartridge
+	/obj/item/reagent_containers/ecig_cartridge,
+	/obj/item/spacecash/ewallet/lotto
 	)
 	display_tiers = 5
 	display_tier_amt = 3
@@ -384,7 +385,9 @@
 	icon_state = "commissary_restock"
 	item_state = "commissary_restock"
 	w_class = WEIGHT_CLASS_NORMAL
+	var/illustration = "sparkler"
 	var/starts_with = list(
+		// Cigarettes
 		/obj/item/storage/box/fancy/cigarettes/pra = 3,
 		/obj/item/storage/box/fancy/cigarettes/dpra = 3,
 		/obj/item/storage/box/fancy/cigarettes/nka = 3,
@@ -392,22 +395,35 @@
 		/obj/item/storage/box/fancy/cigarettes/dyn = 3,
 		/obj/item/storage/box/fancy/cigarettes/oracle = 3,
 		/obj/item/storage/box/fancy/cigarettes/koko = 3,
+		/obj/item/storage/box/fancy/cigarettes/dromedaryco = 3,
+		/obj/item/storage/box/fancy/cigarettes/nicotine = 3,
+		/obj/item/storage/box/fancy/cigarettes/cigar = 3,
+		// Rollables
 		/obj/item/storage/chewables/rollable = 3,
 		/obj/item/storage/chewables/rollable/unathi = 3,
 		/obj/item/storage/chewables/rollable/fine = 3,
 		/obj/item/storage/chewables/rollable/nico = 3,
 		/obj/item/storage/chewables/rollable/oracle = 3,
 		/obj/item/storage/chewables/rollable/vedamor = 3,
+		// Chewing tobacco
+		/obj/item/storage/chewables/tobacco = 3,
 		/obj/item/storage/chewables/tobacco/bad = 3,
 		/obj/item/storage/chewables/tobacco/fine = 3,
 		/obj/item/storage/chewables/tobacco/federation = 3,
 		/obj/item/storage/chewables/tobacco/dyn = 3,
 		/obj/item/storage/chewables/tobacco/koko = 3,
+		/obj/item/storage/box/fancy/chewables/tobacco/nico = 3,
 		/obj/item/storage/chewables/oracle = 3,
+		// Misc smoking
+		/obj/item/storage/cigfilters = 6,
 		/obj/item/storage/box/fancy/cigpaper = 3,
 		/obj/item/storage/box/fancy/cigpaper/fine = 3,
+		// Lighters & stuff
 		/obj/item/storage/box/fancy/matches = 10,
 		/obj/item/flame/lighter/random = 4,
+		/obj/item/flame/lighter/zippo = 4,
+		/obj/item/spacecash/ewallet/lotto = 8, // A bit of a risk that hangar techs may just use them instead of selling, but that should be handled IC as theft
+		// Electronic
 		/obj/item/clothing/mask/smokable/ecig/util = 3,
 		/obj/item/reagent_containers/ecig_cartridge/med_nicotine = 2,
 		/obj/item/reagent_containers/ecig_cartridge/high_nicotine = 2,
@@ -418,22 +434,46 @@
 
 /obj/item/commissary_restrock/food
 	name = "commissary food restock"
+	illustration = "snack"
 	starts_with = list(
-		/obj/item/reagent_containers/food/snacks/chips =6,
-		/obj/item/reagent_containers/food/snacks/no_raisin = 6,
-		/obj/item/storage/box/pineapple = 4,
-		/obj/item/reagent_containers/food/snacks/chocolatebar = 6,
-		/obj/item/reagent_containers/food/snacks/whitechocolate/wrapped = 6,
-		/obj/item/storage/box/fancy/cookiesnack = 6,
-		/obj/item/storage/box/fancy/gum = 4,
-		/obj/item/storage/box/fancy/vkrexitaffy = 5,
-		/obj/item/clothing/mask/chewable/candy/lolli = 8,
-		/obj/item/storage/box/fancy/admints = 4,
+		// Snacks & food
+		/obj/item/reagent_containers/food/snacks/chips = 6,
+		/obj/item/reagent_containers/food/snacks/chips/chicken = 3,
+		/obj/item/reagent_containers/food/snacks/chips/cucumber = 3,
+		/obj/item/reagent_containers/food/snacks/chips/dirtberry = 3,
+		/obj/item/reagent_containers/food/snacks/chips/phoron = 3,
+		/obj/item/reagent_containers/food/snacks/no_raisin = 3,
+		/obj/item/storage/box/pineapple = 2,
 		/obj/item/reagent_containers/food/snacks/adhomian_can = 2,
-		/obj/item/reagent_containers/food/snacks/ricetub = 2,
+		/obj/item/reagent_containers/food/snacks/ricetub = 4,
 		/obj/item/reagent_containers/food/snacks/riceball = 4,
-		/obj/item/reagent_containers/food/snacks/seaweed = 5,
+		/obj/item/reagent_containers/food/snacks/seaweed = 4,
 		/obj/item/reagent_containers/food/snacks/algaechips = 2,
+		/obj/item/reagent_containers/food/snacks/skrellsnacks = 3,
+		/obj/item/reagent_containers/food/snacks/meatsnack = 2,
+		/obj/item/reagent_containers/food/snacks/nathisnack = 2,
+		/obj/item/reagent_containers/food/snacks/koisbar_clean = 6,
+		/obj/item/reagent_containers/food/snacks/candy/koko = 3,
+		/obj/item/reagent_containers/food/snacks/tuna = 2,
+		/obj/item/reagent_containers/food/drinks/jyalra = 2,
+		/obj/item/reagent_containers/food/drinks/jyalra/cheese = 2,
+		/obj/item/reagent_containers/food/drinks/jyalra/apple = 2,
+		/obj/item/reagent_containers/food/drinks/jyalra/cherry = 2,
+		/obj/item/reagent_containers/food/drinks/dry_ramen = 3,
+		/obj/item/reagent_containers/food/snacks/sosjerky = 3,
+		// Candy
+		/obj/item/reagent_containers/food/snacks/candy = 4,
+		/obj/item/reagent_containers/food/snacks/chocolatebar = 4,
+		/obj/item/reagent_containers/food/snacks/whitechocolate/wrapped = 4,
+		/obj/item/storage/box/fancy/cookiesnack = 3,
+		/obj/item/storage/box/fancy/gum = 4,
+		/obj/item/storage/box/fancy/vkrexitaffy = 3,
+		/obj/item/clothing/mask/chewable/candy/lolli = 5,
+		/obj/item/storage/box/fancy/admints = 3,
+		/obj/item/reagent_containers/food/drinks/bottle/bestblend,
+		/obj/item/storage/box/fancy/foysnack,
+		/obj/item/reagent_containers/food/snacks/choctruffles,
+		// Microwave meals
 		/obj/item/storage/box/fancy/quick_microwave_pizza = 3,
 		/obj/item/storage/box/fancy/quick_microwave_pizza/olive = 3,
 		/obj/item/storage/box/fancy/quick_microwave_pizza/pepperoni = 3,
@@ -451,6 +491,7 @@
 
 /obj/item/commissary_restrock/drink
 	name = "commissary drink restock"
+	illustration = "soda"
 	starts_with = list(
 		/obj/item/reagent_containers/food/drinks/cans/cola = 5,
 		/obj/item/reagent_containers/food/drinks/cans/diet_cola = 5,
@@ -475,6 +516,10 @@
 
 /obj/item/commissary_restrock/Initialize(mapload, ...)
 	. = ..()
+	if(illustration)
+		var/image/illustration_img = image(icon, illustration)
+		illustration_img.appearance_flags |= RESET_COLOR
+		AddOverlays(illustration_img)
 	fill()
 
 /obj/item/commissary_restrock/proc/fill()
@@ -499,6 +544,13 @@
 	W.on_exit_storage(src)
 	update_icon()
 	return TRUE
+
+/obj/item/commissary_restrock/update_icon()
+	. = ..()
+
+	if(length(contents) == 0)
+		icon_state = "[initial(icon_state)]_used"
+		item_state = "[initial(item_state)]_used"
 
 /obj/structure/closet/crate/commissary
 	name = "commissary crate"

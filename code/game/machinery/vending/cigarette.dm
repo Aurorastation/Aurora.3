@@ -149,14 +149,12 @@
 		/obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2
 	)
 
+// The Horizon gets a basic list of products. The rest should be put in commissary stocks.
 /obj/machinery/vending/cigarette/horizon
 	products = list(
 		/obj/item/storage/box/fancy/cigarettes/rugged = 6,
 		/obj/item/storage/box/fancy/cigarettes = 8,
-		/obj/item/storage/box/fancy/cigarettes/dromedaryco = 5,
-		/obj/item/storage/box/fancy/cigarettes/nicotine = 3,
 		/obj/item/storage/chewables/tobacco = 8,
-		/obj/item/storage/box/fancy/chewables/tobacco/nico = 3,
 		/obj/item/storage/cigfilters = 6,
 		/obj/item/storage/box/fancy/cigpaper = 6,
 		/obj/item/storage/box/fancy/matches = 10,

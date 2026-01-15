@@ -137,18 +137,13 @@
 
 /obj/machinery/vending/snack/horizon
 	products = list(
-		/obj/item/reagent_containers/food/snacks/candy = 6,
 		/obj/item/reagent_containers/food/drinks/dry_ramen = 6,
 		/obj/item/reagent_containers/food/snacks/sosjerky = 6,
 		/obj/item/reagent_containers/food/snacks/spacetwinkie = 6,
 		/obj/item/reagent_containers/food/snacks/cheesiehonkers = 6,
 		/obj/item/reagent_containers/food/snacks/tastybread = 6,
-		/obj/item/reagent_containers/food/snacks/skrellsnacks = 3,
-		/obj/item/reagent_containers/food/snacks/meatsnack = 2,
 		/obj/item/reagent_containers/food/snacks/maps = 2,
-		/obj/item/reagent_containers/food/snacks/nathisnack = 2,
 		/obj/item/reagent_containers/food/snacks/koisbar_clean = 4,
-		/obj/item/reagent_containers/food/snacks/candy/koko = 5,
 		/obj/item/reagent_containers/food/snacks/tuna = 2,
 		/obj/item/reagent_containers/food/drinks/jyalra = 5,
 		/obj/item/reagent_containers/food/drinks/jyalra/cheese = 5,
