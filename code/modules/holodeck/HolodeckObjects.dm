@@ -604,6 +604,9 @@
 //Holo xenofauna gun
 
 /obj/item/gun/energy/mousegun/xenofauna/holo
+	projectile_type = /obj/projectile/beam/mousegun/xenofauna_holo
+	name = "holo xenofauna gun"
+	desc = "The NT \"Arodentia\" Pesti-Shock is a highly sophisticated and probably safe beamgun designed for rapid pest-control. This one is holographic and harmless to actual lifeforms."
 	max_shots = 100
 	recharge_time = 1
 	self_recharge = TRUE
