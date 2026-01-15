@@ -104,7 +104,7 @@
 	// Handle light requirements for upcoming logic.
 	var/light_supplied
 	if(!closed_system)
-		light_supplied = T.get_lumcount(0, 3) * 10
+		light_supplied = T.get_lumcount(0, 3) * 5
 	else
 		light_supplied = tray_light
 

@@ -43,3 +43,5 @@
 		old_origin.on_remove(src)
 	OI.on_apply(src)
 
+/singleton/origin_item/culture/proc/get_custom_time()
+	return FALSE

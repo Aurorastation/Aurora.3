@@ -470,13 +470,13 @@
 	if(!prob(3))
 		return
 
-	if(M.psi && M.psi.get_rank() >= PSI_RANK_SENSITIVE)
+	if(M.check_psi_sensitivity() >= PSI_RANK_SENSITIVE)
 		to_chat(M, SPAN_ALIEN(pick("You can see the thoughts of those around you dancing in the air.", "You feel as if your mind has opened even further, your thought-field expanding.", "It's difficult to contain your thoughts - but why hide them anyway?", "You feel safe and comfortable.")))
 	else
 		to_chat(M, SPAN_GOOD(pick("You can almost see the currents of air as they dance around you.", "You see the colours around you beginning to bleed together.", "You feel safe and comfortable.")))
 
 /singleton/reagent/wulumunusha/overdose(mob/living/carbon/M, alien, removed = 0, scale = 1, datum/reagents/holder)
-	if(!M.psi || M.psi.get_rank() < PSI_RANK_SENSITIVE)
+	if(!M.psi || M.check_psi_sensitivity() < PSI_RANK_SENSITIVE)
 		return
 
 	M.hallucination = max(M.hallucination, 10 * scale)	//light hallucinations that afflict the psionically sensitive.
@@ -492,12 +492,14 @@
 	taste_mult = 0.4
 	fallback_specific_heat = 1.6
 	value = 2.8
-	effect_messages = FALSE
+	effect_messages = TRUE
 	condiment_name = "Ambrosia Extract Bottle"
 	condiment_desc = "A small dropper bottle full of a stoner's paradise."
 	condiment_icon_state = "ambrosiaextract"
 	condiment_center_of_mass = list("x"=16, "y"=8)
 
+/singleton/reagent/drugs/ambrosia_extract/initial_effect(mob/living/carbon/human/M, alien, datum/reagents/holder)
+	return
 
 /singleton/reagent/drugs/ambrosia_extract/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
 	..()
@@ -574,7 +576,7 @@
 	M.add_chemical_effect(CE_PULSE, -1)
 	var/message_list = list("You feel soothed and at ease.", "You feel like sharing the wonderful memories and feelings you're experiencing.", "You feel like you're floating off the ground.", "You don't want this feeling to end.", "You wish to please all those around you.", "You feel particularly susceptible to persuasion.", "Everyone is so trustworthy nowadays.")
 	var/message_type = "good"
-	if(M.psi && M.psi.get_rank() >= PSI_RANK_SENSITIVE)
+	if(M.check_psi_sensitivity() >= PSI_RANK_SENSITIVE)
 		message_list += list("You can see the thoughts of those around you dancing in the air.", "You feel as if your mind has opened even further, your thought-field expanding.", "It's difficult to contain your thoughts - but why hide them anyway?")
 		message_type = "alium"
 	else
