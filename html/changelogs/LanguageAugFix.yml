@@ -1,7 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - bugfix: "The Ve'katak Phalanx Hivenet receiver now works properly again and don't permit speaking outside the preset messages on the hivenet."
-  - bugfix: "The Zeng-Hu Nral'malic language processor now properly doesn't allow speaking in nral'malic."
