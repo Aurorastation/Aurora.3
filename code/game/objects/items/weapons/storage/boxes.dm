@@ -1586,7 +1586,7 @@
 
 /obj/item/storage/box/unique/tea
 	name = "sencha cha-tin"
-	desc = "A tin bearing the logo of the Konyang-cha tea company. This one contains a bag of sencha, a type of green tea. Instructions are printed on the back: Steep two leaves with 90 units of hot water in a teapot."
+	desc = "A tin bearing the logo of the Konyang-cha tea company. This one contains a bag of sencha, a type of green tea. Instructions are printed on the back: Steep one leaf with 25 units of hot water per cup in a teapot."
 	desc_extended = "A subsidiary of Gwok Group, the Konyang-cha tea company is the spur's foremost vendor of artisanal loose leaf tea, \
 				selling blends sourced from independent Konyanger farmers. Popular both on Konyang and off-world, it is considered a symbol of Konyang's culture."
 	icon = 'icons/obj/item/reagent_containers/teaware.dmi'
@@ -1606,7 +1606,7 @@
 
 /obj/item/storage/box/unique/tea/tieguanyin
 	name = "tieguanyin cha-tin"
-	desc = "A tin bearing the logo of the Konyang-cha tea company. This one contains a bag of tieguanyin, a type of oolong tea. Instructions are printed on the back: Steep two leaves with 90 units of hot water in a teapot."
+	desc = "A tin bearing the logo of the Konyang-cha tea company. This one contains a bag of tieguanyin, a type of oolong tea. Instructions are printed on the back: Steep one leaf with 25 units of hot water per cup in a teapot."
 	icon_state = "can_tie"
 	starts_with = list(
 		/obj/item/reagent_containers/food/snacks/grown/konyang_tea/tieguanyin = 12
@@ -1614,7 +1614,7 @@
 
 /obj/item/storage/box/unique/tea/jaekseol
 	name = "jaekseol cha-tin"
-	desc = "A tin bearing the logo of the Konyang-cha tea company. This one contains a bag of jaekseol, a type of black tea. Instructions are printed on the back: Steep two leaves with 90 units of hot water in a teapot."
+	desc = "A tin bearing the logo of the Konyang-cha tea company. This one contains a bag of jaekseol, a type of black tea. Instructions are printed on the back: Steep one leaf with 25 units of hot water per cup in a teapot."
 	icon_state = "can_jaek"
 	starts_with = list(
 		/obj/item/reagent_containers/food/snacks/grown/konyang_tea/jaekseol = 12
@@ -1634,7 +1634,7 @@
 /obj/item/storage/box/unique/tea/messa/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(GLOB.all_languages[LANGUAGE_SIIK_MAAS] in user.languages)
-		. += SPAN_NOTICE("The label says: \"Dried Messa's Tear leaves\" and then provides instructions: Steep two leaves with 90 units of hot water in a teapot.")
+		. += SPAN_NOTICE("The label says: \"Dried Messa's Tear leaves\" and then provides instructions: Steep one leaf with 25 units of hot water per cup in a teapot.")
 
 /obj/item/storage/box/unique/tea/rasnif
 	name = "ras'nif tea tin"

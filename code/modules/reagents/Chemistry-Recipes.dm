@@ -2057,28 +2057,28 @@
 	id = "tea"
 	result = /singleton/reagent/drink/tea
 	required_reagents = list(/singleton/reagent/nutriment/teagrounds = 1, /singleton/reagent/water = 5)
-	result_amount = 5
+	result_amount = 6
 
 /datum/chemical_reaction/drink/sencha
 	name = "Sencha"
 	id = "sencha"
 	result = /singleton/reagent/drink/tea/sencha
-	required_reagents = list(/singleton/reagent/nutriment/teagrounds/sencha = 1, /singleton/reagent/water = 9)
-	result_amount = 10
+	required_reagents = list(/singleton/reagent/nutriment/teagrounds/sencha = 1, /singleton/reagent/water = 5)
+	result_amount = 6
 
 /datum/chemical_reaction/drink/tieguanyin
 	name = "Tieguanyin"
 	id = "tieguanyin"
 	result = /singleton/reagent/drink/tea/tieguanyin
-	required_reagents = list(/singleton/reagent/nutriment/teagrounds/tieguanyin = 1, /singleton/reagent/water = 9)
-	result_amount = 10
+	required_reagents = list(/singleton/reagent/nutriment/teagrounds/tieguanyin = 1, /singleton/reagent/water = 5)
+	result_amount = 6
 
 /datum/chemical_reaction/drink/jaekseol
 	name = "jaekseol"
 	id = "jaekseol"
 	result = /singleton/reagent/drink/tea/jaekseol
-	required_reagents = list(/singleton/reagent/nutriment/teagrounds/jaekseol = 1, /singleton/reagent/water = 9)
-	result_amount = 10
+	required_reagents = list(/singleton/reagent/nutriment/teagrounds/jaekseol = 1, /singleton/reagent/water = 5)
+	result_amount = 6
 
 /datum/chemical_reaction/drink/cocatea
 	name = "Mate de Coca"
@@ -3909,15 +3909,15 @@
 	name = "Messa's Tear Tea"
 	id = "messas_tear_tea"
 	result = /singleton/reagent/drink/tea/messa
-	required_reagents = list(/singleton/reagent/nutriment/teagrounds/messa = 1, /singleton/reagent/water = 9) //made with leaves, based on other tea leaf recipes.
-	result_amount = 10 //made with leaves, so based off of the other teas made with leaves
+	required_reagents = list(/singleton/reagent/nutriment/teagrounds/messa = 1, /singleton/reagent/water = 5)
+	result_amount = 6
 
 /datum/chemical_reaction/drink/rasnif
 	name = "Ras'nif Tea"
 	id = "rasnif_tea"
 	result = /singleton/reagent/drink/tea/rasnif
 	required_reagents = list(/singleton/reagent/nutriment/teagrounds/rasnif = 1, /singleton/reagent/water = 5)
-	result_amount = 5 //made with powder, based on tea made from tea grounds
+	result_amount = 6
 
 //transmutation
 
