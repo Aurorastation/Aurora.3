@@ -2,6 +2,7 @@
  *	Idris Re-Fresh
  *		Low Supply
  *		Konyang
+ *		Horizon
  *	Zo'ra Soda
  *		Low Supply
  *	BODA (Soviet Soda)

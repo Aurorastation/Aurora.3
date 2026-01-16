@@ -2,6 +2,7 @@
  *	GetMore Chocolate Corp
  *		Low Supply
  *		Konyang
+ *		Horizon
  *	FrontierVend
  *		Low Supply
  *		Hacked
@@ -148,7 +149,54 @@
 		/obj/item/reagent_containers/food/drinks/jyalra = 5,
 		/obj/item/reagent_containers/food/drinks/jyalra/cheese = 5,
 		/obj/item/reagent_containers/food/drinks/jyalra/apple = 5,
-		/obj/item/reagent_containers/food/drinks/jyalra/cherry = 5
+		/obj/item/reagent_containers/food/drinks/jyalra/cherry = 5,
+		/obj/item/reagent_containers/food/drinks/cans/cola = 10,
+		/obj/item/reagent_containers/food/drinks/cans/diet_cola = 10,
+		/obj/item/reagent_containers/food/drinks/waterbottle = 10,
+		/obj/item/reagent_containers/food/drinks/carton/small/milk = 10,
+		/obj/item/reagent_containers/food/drinks/carton/small/milk/choco = 10,
+		/obj/item/reagent_containers/food/drinks/carton/small/milk/strawberry = 10,
+		/obj/item/reagent_containers/food/drinks/zobo = 10
+	)
+	contraband = list(
+		/obj/item/reagent_containers/food/snacks/syndicake = 6,
+		/obj/item/reagent_containers/food/snacks/koisbar = 4,
+		/obj/item/reagent_containers/food/drinks/cans/thirteenloko = 5,
+		/obj/item/reagent_containers/food/drinks/cans/koispunch = 3
+	)
+	premium = list(
+		/obj/item/reagent_containers/food/snacks/cookie = 6,
+		/obj/item/storage/box/fancy/food/pralinebox = 2,
+		/obj/item/reagent_containers/food/drinks/bottle/cola = 2,
+		/obj/item/reagent_containers/food/drinks/bottle/space_mountain_wind = 2,
+		/obj/item/reagent_containers/food/drinks/bottle/space_up = 2
+	)
+	prices = list(
+		/obj/item/reagent_containers/food/drinks/dry_ramen = 2.00,
+		/obj/item/reagent_containers/food/snacks/sosjerky = 3.50,
+		/obj/item/reagent_containers/food/snacks/spacetwinkie = 2.00,
+		/obj/item/reagent_containers/food/snacks/cheesiehonkers = 2.50,
+		/obj/item/reagent_containers/food/snacks/tastybread = 3.50,
+		/obj/item/reagent_containers/food/snacks/maps = 3.25,
+		/obj/item/reagent_containers/food/snacks/koisbar_clean = 4.25,
+		/obj/item/reagent_containers/food/snacks/tuna = 2.50,
+		/obj/item/reagent_containers/food/drinks/jyalra = 1.50,
+		/obj/item/reagent_containers/food/drinks/jyalra/cheese = 1.75,
+		/obj/item/reagent_containers/food/drinks/jyalra/apple = 1.75,
+		/obj/item/reagent_containers/food/drinks/jyalra/cherry = 1.75,
+		/obj/item/reagent_containers/food/snacks/syndicake = 3.50,
+		/obj/item/reagent_containers/food/snacks/koisbar = 12.00,
+
+		/obj/item/reagent_containers/food/drinks/cans/cola = 1.50,
+		/obj/item/reagent_containers/food/drinks/cans/diet_cola = 1.50,
+		/obj/item/reagent_containers/food/drinks/cans/space_mountain_wind = 1.50,
+		/obj/item/reagent_containers/food/drinks/waterbottle = 1.25,
+		/obj/item/reagent_containers/food/drinks/cans/space_up = 1.50,
+		/obj/item/reagent_containers/food/drinks/cans/koispunch = 5.00,
+		/obj/item/reagent_containers/food/drinks/carton/small/milk = 1.80,
+		/obj/item/reagent_containers/food/drinks/carton/small/milk/choco = 1.80,
+		/obj/item/reagent_containers/food/drinks/carton/small/milk/strawberry = 1.80,
+		/obj/item/reagent_containers/food/drinks/zobo = 1.75
 	)
 
 /obj/item/device/vending_refill/snack

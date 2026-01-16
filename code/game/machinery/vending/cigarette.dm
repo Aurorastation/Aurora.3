@@ -3,6 +3,7 @@
  *		Low Supply
  *		Merchant Station
  *		Hacked
+ *		Horizon
  */
 
 /obj/machinery/vending/cigarette
