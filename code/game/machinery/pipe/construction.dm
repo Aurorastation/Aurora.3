@@ -507,7 +507,7 @@
 /obj/item/pipe/attackby(obj/item/attacking_item, mob/user)
 	..()
 	//*
-	if (!attacking_item.tool_behaviour == TOOL_WRENCH && !istype(attacking_item, /obj/item/pipewrench))
+	if (attacking_item.tool_behaviour != TOOL_WRENCH && !istype(attacking_item, /obj/item/pipewrench))
 		return ..()
 	if(istype(attacking_item, /obj/item/pipewrench))
 		var/action = tgui_input_list(user, "Change pipe?", "Change pipe", list("Yes", "No"), "No")

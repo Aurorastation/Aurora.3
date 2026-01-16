@@ -456,7 +456,7 @@ update_flag
 /obj/machinery/portable_atmospherics/canister/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/mecha_equipment/clamp))
 		return
-	if(!attacking_item.tool_behaviour == TOOL_WRENCH && !is_type_in_list(attacking_item, list(/obj/item/tank, /obj/item/device/analyzer, /obj/item/modular_computer)) && !issignaler(attacking_item) && !(attacking_item.tool_behaviour == TOOL_WIRECUTTER && signaler))
+	if(attacking_item.tool_behaviour != TOOL_WRENCH && !is_type_in_list(attacking_item, list(/obj/item/tank, /obj/item/device/analyzer, /obj/item/modular_computer)) && !issignaler(attacking_item) && (attacking_item.tool_behaviour != TOOL_WIRECUTTER && signaler))
 		if(attacking_item.item_flags & ITEM_FLAG_NO_BLUDGEON)
 			return TRUE
 		visible_message(SPAN_WARNING("\The [user] hits \the [src] with \the [attacking_item]!"), SPAN_NOTICE("You hit \the [src] with \the [attacking_item]."))

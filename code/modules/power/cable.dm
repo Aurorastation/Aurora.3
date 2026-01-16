@@ -152,7 +152,7 @@ By design, d1 is the smallest direction and d2 is the highest
 
 	if(attacking_item.tool_behaviour == TOOL_WIRECUTTER || (attacking_item.sharp || attacking_item.edge))
 
-		if(!attacking_item.tool_behaviour == TOOL_WIRECUTTER)
+		if(attacking_item.tool_behaviour != TOOL_WIRECUTTER)
 			if(user.a_intent != I_HELP)
 				return
 

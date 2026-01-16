@@ -274,7 +274,7 @@ Thus, the two variables affect pump operation are set in New():
 		update_icon()
 
 /obj/machinery/atmospherics/binary/pump/attackby(obj/item/attacking_item, mob/user)
-	if (!attacking_item.tool_behaviour == TOOL_WRENCH && !istype(attacking_item, /obj/item/pipewrench))
+	if (attacking_item.tool_behaviour != TOOL_WRENCH && !istype(attacking_item, /obj/item/pipewrench))
 		return ..()
 	if (!(stat & NOPOWER) && use_power)
 		to_chat(user, SPAN_WARNING("You cannot unwrench this [src], turn it off first."))

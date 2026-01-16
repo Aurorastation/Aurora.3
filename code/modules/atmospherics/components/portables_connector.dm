@@ -154,7 +154,7 @@
 
 
 /obj/machinery/atmospherics/portables_connector/attackby(obj/item/attacking_item, mob/user)
-	if (!attacking_item.tool_behaviour == TOOL_WRENCH)
+	if (attacking_item.tool_behaviour != TOOL_WRENCH)
 		return ..()
 	if (connected_device)
 		to_chat(user, SPAN_WARNING("You cannot unwrench \the [src], dettach \the [connected_device] first."))

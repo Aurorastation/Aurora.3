@@ -86,7 +86,7 @@
 /obj/effect/spresent/attackby(obj/item/attacking_item, mob/user)
 	..()
 
-	if (!attacking_item.tool_behaviour == TOOL_WIRECUTTER)
+	if (attacking_item.tool_behaviour != TOOL_WIRECUTTER)
 		to_chat(user, SPAN_WARNING("I need wirecutters for that."))
 		return
 

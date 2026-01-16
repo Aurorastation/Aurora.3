@@ -8,7 +8,7 @@
 	initial_flooring = null
 
 /turf/simulated/floor/fixed/attackby(obj/item/attacking_item, mob/user)
-	if(istype(attacking_item, /obj/item/stack) && !attacking_item.tool_behaviour == TOOL_CABLECOIL)
+	if(istype(attacking_item, /obj/item/stack) && attacking_item.tool_behaviour != TOOL_CABLECOIL)
 		return
 	return ..()
 

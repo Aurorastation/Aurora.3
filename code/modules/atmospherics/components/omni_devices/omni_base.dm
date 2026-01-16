@@ -83,7 +83,7 @@
 		update_icon()
 
 /obj/machinery/atmospherics/omni/attackby(obj/item/attacking_item, mob/user)
-	if(!attacking_item.tool_behaviour == TOOL_WRENCH)
+	if(attacking_item.tool_behaviour != TOOL_WRENCH)
 		return ..()
 
 	var/int_pressure = 0

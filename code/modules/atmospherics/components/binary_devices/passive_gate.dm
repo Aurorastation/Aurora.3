@@ -327,7 +327,7 @@
 	return
 
 /obj/machinery/atmospherics/binary/passive_gate/attackby(obj/item/attacking_item, mob/user)
-	if (!attacking_item.tool_behaviour == TOOL_WRENCH)
+	if (attacking_item.tool_behaviour != TOOL_WRENCH)
 		return ..()
 	if (unlocked)
 		to_chat(user, SPAN_WARNING("You cannot unwrench \the [src], turn it off first."))

@@ -454,14 +454,14 @@ Class Procs:
 	return 0
 
 /obj/machinery/proc/default_deconstruction_crowbar(var/mob/user, var/obj/item/C)
-	if(!istype(C) || !C.tool_behaviour == TOOL_CROWBAR)
+	if(!istype(C) || C.tool_behaviour != TOOL_CROWBAR)
 		return 0
 	if(!panel_open)
 		return 0
 	. = dismantle()
 
 /obj/machinery/proc/default_deconstruction_screwdriver(var/mob/user, var/obj/item/S)
-	if(!istype(S) || !S.tool_behaviour == TOOL_SCREWDRIVER)
+	if(!istype(S) || S.tool_behaviour != TOOL_SCREWDRIVER)
 		return FALSE
 	S.play_tool_sound(get_turf(src), 50)
 	panel_open = !panel_open
