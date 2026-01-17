@@ -18,6 +18,7 @@
 	var/holster_message = "holster"
 	var/draw_peace = "pointing it at the ground."
 	var/draw_hostile = "ready to shoot!"
+	var/filled_sprite = FALSE
 
 /obj/item/clothing/accessory/holster/Initialize()
 	. = ..()
@@ -51,6 +52,7 @@
 	user.visible_message(SPAN_NOTICE("[user] [holster_message] \the [holstered]."),
 							SPAN_NOTICE("You [holster_message] \the [holstered]."))
 	update_name()
+	update_icon()
 
 /obj/item/clothing/accessory/holster/proc/clear_holster()
 	holstered = null
@@ -85,6 +87,16 @@
 		holstered.add_fingerprint(user)
 		w_class = initial(w_class)
 		clear_holster()
+		update_icon()
+
+/obj/item/clothing/accessory/holster/update_icon()
+	. = ..()
+	if(filled_sprite && holstered)
+		icon_state = "[initial(icon_state)]_filled"
+		item_state = "[initial(item_state)]_filled"
+	else
+		icon_state = "[initial(icon_state)]"
+		item_state = "[initial(item_state)]"
 
 /obj/item/clothing/accessory/holster/attack_hand(mob/user)
 	if (!ishuman(user))

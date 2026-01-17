@@ -2196,8 +2196,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 	desc_extended = "As hunters, priests of Mata'ke often carry daggers with them to skin their kills. These daggers are typically made of silver to emulate Mata'ke's sword and his strength. Older and more valuable daggers have been known to be shipped off-planet during the wars by opportunistic smugglers, with Zephyr Shipping Company having been accused of selling them since its establishment, despite the company vehemently opposing such accusations."
 	icon = 'icons/obj/custom_items/tulkir_knife.dmi'
 	icon_override = 'icons/obj/custom_items/tulkir_knife.dmi'
-	icon_state = "amohdan_tulkir_knife"
-	item_state = "amohdan_tulkir_knife"
+	icon_state = "tulkir_knife"
+	item_state = "tulkir_knife"
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	thrown_force_divisor = 0.02
 	force_divisor = 0.02 // 1.2 when wielded with hardness 60 (steel)
@@ -2316,11 +2316,12 @@ All custom items with worn sprites must follow the contained sprite system: http
 	desc_extended = "As hunters, priests of Mata'ke often carry daggers with them to skin their kills. These daggers are typically made of silver to emulate Mata'ke's sword and his strength. Older and more valuable daggers have been known to be shipped off-planet during the wars by opportunistic smugglers, with Zephyr Shipping Company having been accused of selling them since its establishment, despite the company vehemently opposing such accusations."
 	icon = 'icons/obj/custom_items/tulkir_sheath.dmi'
 	icon_override = 'icons/obj/custom_items/tulkir_sheath.dmi'
-	icon_state = "holster_raskariim"
-	item_state = "holster_raskariim"
+	icon_state = "tulkir_holster_alt"
+	item_state = "tulkir_holster_alt"
 	holster_message = "sheath"
 	draw_peace = "holding it low."
 	draw_hostile = "ready to draw blood!"
+	filled_sprite = TRUE
 	allowed_items = list(
 		/obj/item/material/knife/raskariim,
 		/obj/item/material/knife/raskariim/fluff/tulkir_knife
