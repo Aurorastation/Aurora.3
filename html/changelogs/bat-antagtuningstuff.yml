@@ -14,6 +14,7 @@ changes:
   - balance: "Extends Greimorian eggsac incubation time by 50%."
   - balance: "Introduces a probability element to greimorian egg toxin metabolism; after being injected with the reagent, each metabolism tick only has a % chance to create the eggsac 'organ', meaning quick helmizole injection (or dumb luck) can prevent incubation entirely."
   - balance: "Introduces clamp on spiderling generation counter to prevent RNG from causing outsized impact from single eggsac rupture."
+  - balance: "If the randomly chosen body part a Greimorian eggsac would infest is the head, the victim will get an extra reroll of target body part to avoid the associated instant death risk."
   - balance: "Consuming radioactive waste is now MUCH unhealthier. Don't eat radioactive waste."
   - qol: "Updates some antagonist tips (removed old/deprecated ones, added new one.)"
   - bugfix: "Removes greimorian eggsacs now dissolve into goo as intended."
