@@ -11,7 +11,9 @@ delete-after: True
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
   - rscadd: "Spilled radium now generates (weakly) radioactive puddles of green goo, just like Uranium."
-  - balance: "Extends Greimorian eggsac incubation time by 50%, other minor adjustments."
+  - balance: "Extends Greimorian eggsac incubation time by 50%."
+  - balance: "Introduces a probability element to greimorian egg toxin metabolism; after being injected with the reagent, each metabolism tick only has a % chance to create the eggsac 'organ', meaning quick helmizole injection (or dumb luck) can prevent incubation entirely."
+  - balance: "Introduces clamp on spiderling generation counter to prevent RNG from causing outsized impact from single eggsac rupture."
   - balance: "Consuming radioactive waste is now MUCH unhealthier. Don't eat radioactive waste."
   - qol: "Updates some antagonist tips (removed old/deprecated ones, added new one.)"
   - bugfix: "Removes greimorian eggsacs now dissolve into goo as intended."
