@@ -8,3 +8,4 @@ changes:
   - rscadd: "The commissary was expanded in size and the library reduced in size."
   - rscdel: "The cigarette, getmore and idris refresh machines had their stock severely reduced, with idris refresh and getmore being combined into a single vending machine on the Horizon."
   - bugfix: "Smartfridges sanitization was fixed."
+  - rscadd: "The specialized commissary shelves can now be leaned on."

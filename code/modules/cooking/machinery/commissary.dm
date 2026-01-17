@@ -110,6 +110,9 @@
 	display_tiers = 4
 	display_tier_amt = 5
 
+/obj/machinery/smartfridge/tradeshelf/mouse_drop_receive(atom/dropping, mob/user, params)
+	LoadComponent(/datum/component/leanable, dropping)
+
 /obj/machinery/smartfridge/tradeshelf/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/commissary_restrock))
 		var/obj/item/commissary_restrock/P = attacking_item
