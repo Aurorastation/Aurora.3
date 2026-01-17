@@ -1644,7 +1644,7 @@
 		/obj/item/reagent_containers/food/condiment/small/packet
 	)
 	starts_with = list(
-		/obj/item/reagent_containers/food/condiment/small/packet/tea = 12
+		/obj/item/reagent_containers/food/condiment/small/packet/tea/rasnif = 12
 	)
 	desc_extended = "A herbal tea made with Hro'zamal Ras'nifs powder. \
 					Despite the popularity of its carbonated counterpart, Ras'nif tea remains a popular drink among Hro'zamal settlers."
