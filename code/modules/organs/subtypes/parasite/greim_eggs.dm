@@ -124,8 +124,8 @@
 
 	var/target_loc = src.owner ? src.owner.loc : src.loc
 	// Average of 8 adult greimorians (larva 'can_mature_chance' is 50).
-	var/gestating_spiderlings = max(gestating_spiderlings, 16)
-	for(var/i = 0 to gestating_spiderlings)
+	var/clamped_spiderlings = max(gestating_spiderlings, 16)
+	for(var/i = 0 to clamped_spiderlings)
 		// For details on the spiderlings, check out 'code\game\objects\effects\spiders.dm'
 		new /obj/effect/spider/spiderling(target_loc, src, 3)
 
