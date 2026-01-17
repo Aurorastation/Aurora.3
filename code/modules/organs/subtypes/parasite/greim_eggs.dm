@@ -59,7 +59,7 @@
 
 	if(stage >= 3)
 		if(prob(6))
-			gestating_spiderlings += rand(1,2)
+			gestating_spiderlings += 1
 
 		if(prob(33))
 			owner.adjustNutritionLoss(5)
@@ -87,7 +87,7 @@
 
 	if(stage >= 5)
 		if(prob(6))
-			gestating_spiderlings += rand(1,3)
+			gestating_spiderlings += rand(1,2)
 
 		if(prob(10))
 			owner.seizure(0.6)
@@ -123,6 +123,8 @@
 		src.owner.emote("scream")
 
 	var/target_loc = src.owner ? src.owner.loc : src.loc
+	// Average of 8 adult greimorians (larva 'can_mature_chance' is 50).
+	var/gestating_spiderlings = max(gestating_spiderlings, 16)
 	for(var/i = 0 to gestating_spiderlings)
 		// For details on the spiderlings, check out 'code\game\objects\effects\spiders.dm'
 		new /obj/effect/spider/spiderling(target_loc, src, 3)
