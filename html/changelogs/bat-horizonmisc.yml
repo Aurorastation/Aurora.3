@@ -10,6 +10,8 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
+  - bugfix: "Fixes shield diffusers no longer diffusing targeted shield segments (used for mass driver ejection paths)."
+  - bugfix: "Moves air alarm hidden behind D3 starboard central hallway shutters to visible free spot on opposite wall."
   - rscadd: "Adds tintable window control to the Horizon's exam room."
   - rscadd: "Adds tintable window controls for both the interior and exterior windows of the Horizon's recovery room."
   - rscadd: "Adds an additional light to a particularly dark corner of the Horizon's d2 hard storage room."
