@@ -16,6 +16,7 @@
 	var/list/order_details = list() //Order Details for the order
 	var/datum/cargo_order/co
 	var/mod_mode = TRUE //If it can be used to pay for orders
+	var/destinationact = "Personal"
 
 /datum/computer_file/program/civilian/cargodelivery/ui_data(mob/user)
 	var/list/data = initial_data()
@@ -45,6 +46,8 @@
 
 	//Pass the status message along
 	data["status_message"] = status_message
+
+	data["paying_account"] = destinationact
 
 	return data
 
@@ -92,7 +95,12 @@
 				var/transaction_terminal = "Modular Computer #[computer.network_card.identification_id]"
 
 				if(using_id)
-					var/status = SSeconomy.transfer_money(id_card.associated_account_number, SScargo.supply_account.account_number,transaction_purpose,transaction_terminal,transaction_amount,null,usr)
+					var/status
+					if(destinationact == "Personal")
+						status = SSeconomy.transfer_money(id_card.associated_account_number, SScargo.supply_account.account_number,transaction_purpose,transaction_terminal,transaction_amount,null,usr)
+					else
+						transaction_purpose = "Cargo Order #[order_details["order_id"]] by [id_card.registered_name]"
+						status = SSeconomy.transfer_money(SSeconomy.get_department_account(destinationact)?.account_number, SScargo.supply_account.account_number,transaction_purpose,transaction_terminal,transaction_amount,null,usr)
 					if(status)
 						status_message = status
 						return TRUE
@@ -146,4 +154,12 @@
 				order_details = co.get_list()
 			else
 				page = "overview_main" //fall back to overview_main if a unknown page has been supplied
+		return TRUE
+	if(action == "accountselect")
+		var/list/choices = assoc_to_keys(SSeconomy.department_accounts)
+		choices += "Personal"
+		var/dest = tgui_input_list(usr, "What account would you like to select?", "Destination Account", choices)
+		if(!dest)
+			return FALSE
+		destinationact = dest
 		return TRUE
