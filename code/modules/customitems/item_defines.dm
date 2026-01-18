@@ -2326,3 +2326,12 @@ All custom items with worn sprites must follow the contained sprite system: http
 		/obj/item/material/knife/raskariim,
 		/obj/item/material/knife/raskariim/fluff/tulkir_knife
 	)
+
+/obj/item/clothing/accessory/holster/utility/fluff/tulkir_sheath/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(ishuman(user))
+		var/mob/living/carbon/human/U = user
+		if(U.religion == RELIGION_RASKARA || U.religion == RELIGION_RASKARA_ALT)
+			if(holstered)
+				var/raskara_text = SPAN_CULT("\The [src] holds a treasure from the depths of the Maggot's hoard.")
+				. += raskara_text
