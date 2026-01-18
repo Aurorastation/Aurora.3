@@ -38,7 +38,6 @@
 		user.audible_message(SPAN_WARNING("[user]'s [name] rasps, \"[use_message]\""), SPAN_WARNING("\The [user] holds up \the [name]."))
 	else
 		if(insults > 0)
-			playsound(get_turf(src), 'sound/voice/binsult.ogg', 100, 1, vary = 0)
 			// Yes, it used to show the transcription of the sound clip. That was a) inaccurate b) immature as shit.
 			user.audible_message(SPAN_WARNING("[user]'s [name] gurgles something indecipherable and deeply offensive."), SPAN_WARNING("\The [user] holds up \the [name]."))
 			insults--
