@@ -250,6 +250,7 @@
 	update_icon_on_init = TRUE
 	throw_speed = 1
 	throw_range = 5
+	has_closed_overlay = FALSE
 	color = null
 	w_class = WEIGHT_CLASS_NORMAL
 	attack_verb = list("bashed", "whacked", "educated")

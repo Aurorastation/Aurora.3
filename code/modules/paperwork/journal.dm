@@ -2,6 +2,7 @@
 	name = "journal"
 	desc = "A journal, kind of like a folder, but bigger! And personal."
 	var/closed_desc
+	var/has_closed_overlay = TRUE
 	icon = 'icons/obj/library.dmi'
 	icon_state = "journal"
 	item_state = "journal"
@@ -35,7 +36,7 @@
 	ClearOverlays()
 	if(!open)
 		icon_state = "[initial(icon_state)]_closed"
-		if(!istype(src, /obj/item/journal/winter_quest))
+		if(has_closed_overlay)
 			AddOverlays(overlay_image(icon, "closed", flags=RESET_COLOR))
 	else if(LAZYLEN(indices))
 		icon_state = initial(icon_state)
