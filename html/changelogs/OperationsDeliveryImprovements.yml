@@ -1,0 +1,11 @@
+author: TheGreyWolf
+
+delete-after: True
+
+changes:
+  - rscadd: "Added the ability to charge department accounts directly for operation orders through the operations delivery app, without command presence required."
+  - rscadd: "Separated the delivery and the pay buttons in the operations delivery app."
+  - bugfix: "Fixed the display of who accepted a delivery order when printing an invoice."
+  - bugfix: "Prices shown on the delivery app are now correct."
+  - bugfix: "The paper spawning in crates from the cargo elevator now properly show the supposed contents."
+
