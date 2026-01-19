@@ -80,3 +80,14 @@
       waste.
   - qol: Updates some antagonist tips (removed old/deprecated ones, added new one.)
   - bugfix: Removed greimorian eggsacs now dissolve into goo as intended.
+2026-01-19:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Fixes -vend animation icon_state name for ramen vending machine.
+  Mynameasjeff:
+  - bugfix: Fixes several errors on the Sol Frigate.
+  - spellcheck: Fixes several spelling errors on things related to the Sol Frigate
+  - balance: Changes the Sol Frigate's spawn weight in the Valley Hale and Badlands
+      to 1 instead of .75, on account of how many ships it has to compete with to
+      spawn.
+  TheGreyWolf:
+  - rscdel: Removed some LRP sound files.
