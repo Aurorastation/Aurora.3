@@ -167,9 +167,6 @@ export const Overview = (props, context) => {
         <LabeledList.Item label="Personal Expense">
           {data.order_details.price_customer.toFixed(2)} 电
         </LabeledList.Item>
-        <LabeledList.Item label="Personal Expense">
-          {data.order_details.price_customer.toFixed(2)} 电
-        </LabeledList.Item>
         <LabeledList.Item label="Ordered At">
           {data.order_details.time_submitted}
         </LabeledList.Item>
@@ -225,15 +222,14 @@ export const Payment = (props, context) => {
         <>
           <Button
             content="Account"
-            // icon="times"
             color='good'
             onClick={() => act('accountselect')}
           />
           <Button
             content={
-              data.order_details.status === 'shipped' // if(status == shipped)
+              data.order_details.status === 'shipped'
                 ? 'Confirm Delivery'
-                : data.order_details.status === 'delivered' // else if(status == delivered)
+                : data.order_details.status === 'delivered'
                   ? 'Delivered Already'
                   : 'Not Shipped'
             }
