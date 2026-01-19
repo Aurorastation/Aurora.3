@@ -55,7 +55,7 @@ export const NtosWindow = (props, context) => {
               {PC_stationtime}
             </Box>
             <Box inline italic mr={2} opacity={0.33}>
-              {(PC_device_theme === 'syndicate' && 'Syndix') || 'NtOS'}
+              {(PC_device_theme === 'syndicate' && 'Syndix') || 'NTOS'}
             </Box>
           </div>
           <div className="NtosHeader__right">
