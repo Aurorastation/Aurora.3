@@ -47,7 +47,8 @@ export const ActiveWarrantEdit = (props, context) => {
             onClick={() => act('deletewarrant')}
           />
         </>
-      }>
+      }
+    >
       <LabeledList>
         <LabeledList.Item label="Name">
           {data.active_warrant.name}&nbsp;
@@ -91,7 +92,8 @@ export const AllWarrants = (props, context) => {
         title="Arrest Warrants"
         buttons={
           <Button content="Add Warrant" onClick={() => act('addwarrant')} />
-        }>
+        }
+      >
         {data.allwarrants && data.allwarrants.length ? (
           <Table>
             <Table.Row header>

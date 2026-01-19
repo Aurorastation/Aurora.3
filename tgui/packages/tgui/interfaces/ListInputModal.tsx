@@ -2,7 +2,14 @@ import { Loader } from './common/Loader';
 import { InputButtons } from './common/InputButtons';
 import { Button, Input, Section, Stack } from '../components';
 import { useBackend, useLocalState } from '../backend';
-import { KEY_A, KEY_DOWN, KEY_ESCAPE, KEY_ENTER, KEY_UP, KEY_Z } from '../../common/keycodes';
+import {
+  KEY_A,
+  KEY_DOWN,
+  KEY_ESCAPE,
+  KEY_ENTER,
+  KEY_UP,
+  KEY_Z,
+} from '../../common/keycodes';
 import { Window } from '../layouts';
 
 type ListInputData = {
@@ -27,17 +34,17 @@ export const ListInputModal = (props, context) => {
   const [selected, setSelected] = useLocalState<number>(
     context,
     'selected',
-    items.indexOf(init_value)
+    items.indexOf(init_value),
   );
   const [searchBarVisible, setSearchBarVisible] = useLocalState<boolean>(
     context,
     'searchBarVisible',
-    items.length > 9
+    items.length > 9,
   );
   const [searchQuery, setSearchQuery] = useLocalState<string>(
     context,
     'searchQuery',
-    ''
+    '',
   );
   // User presses up or down on keyboard
   // Simulates clicking an item
@@ -100,7 +107,7 @@ export const ListInputModal = (props, context) => {
     setSearchQuery('');
   };
   const filteredItems = items.filter((item) =>
-    item?.toLowerCase().includes(searchQuery.toLowerCase())
+    item?.toLowerCase().includes(searchQuery.toLowerCase()),
   );
   // Dynamically changes the window height based on the message.
   const windowHeight =
@@ -132,7 +139,8 @@ export const ListInputModal = (props, context) => {
             event.preventDefault();
             act('cancel');
           }
-        }}>
+        }}
+      >
         <Section
           buttons={
             <Button
@@ -150,7 +158,8 @@ export const ListInputModal = (props, context) => {
           }
           className="ListInput__Section"
           fill
-          title={message}>
+          title={message}
+        >
           <Stack fill vertical>
             <Stack.Item grow>
               <ListDisplay
@@ -211,9 +220,10 @@ const ListDisplay = (props, context) => {
             }}
             selected={index === selected}
             style={{
-              'animation': 'none',
-              'transition': 'none',
-            }}>
+              animation: 'none',
+              transition: 'none',
+            }}
+          >
             {item.replace(/^\w/, (c) => c.toUpperCase())}
           </Button>
         );

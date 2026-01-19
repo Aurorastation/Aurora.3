@@ -37,7 +37,8 @@ export const NtosWindow = (props, context) => {
       title={title}
       width={width}
       height={height}
-      theme={theme ? theme : PC_device_theme}>
+      theme={theme ? theme : PC_device_theme}
+    >
       <div className="NtosWindow">
         <div className="NtosWindow__header NtosHeader">
           <div className="NtosHeader__left">
