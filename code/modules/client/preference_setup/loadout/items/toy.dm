@@ -189,3 +189,10 @@
 	cost = 1
 	allowed_roles = list("Off-Duty Crew Member", "Passenger")
 	path = /obj/item/toy/football
+
+/datum/gear/toy/winterquest
+	display_name = "winter quest rulebook"
+	description = "The core rulebook for Winter Quest, a tabletop roleplaying game from Little Adhomai."
+	cost = 1
+	path = /obj/item/journal/winter_quest
+	flags = GEAR_HAS_DESC_SELECTION

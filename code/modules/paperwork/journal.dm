@@ -35,7 +35,8 @@
 	ClearOverlays()
 	if(!open)
 		icon_state = "[initial(icon_state)]_closed"
-		AddOverlays(overlay_image(icon, "closed", flags=RESET_COLOR))
+		if(!istype(src, /obj/item/journal/winter_quest))
+			AddOverlays(overlay_image(icon, "closed", flags=RESET_COLOR))
 	else if(LAZYLEN(indices))
 		icon_state = initial(icon_state)
 		AddOverlays(overlay_image(icon, "writing", flags=RESET_COLOR))
