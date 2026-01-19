@@ -163,7 +163,7 @@
 	. = ..()
 	var/obj/item/folder/embedded/E = generate_index("Notes")
 	for(var/i = 1 to 5)
-		new /obj/item/paper(E)
+		new /obj/item/paper/notepad(E)
 	update_icon()
 
 /obj/item/journal/notepad/scc
@@ -179,7 +179,7 @@
 	. = ..()
 	var/obj/item/folder/embedded/E = generate_index("Notes")
 	for(var/i = 1 to 5)
-		new /obj/item/paper(E)
+		new /obj/item/paper/notepad(E)
 	update_icon()
 
 /obj/item/journal/notepad/filled/security

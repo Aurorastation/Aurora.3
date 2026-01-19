@@ -57,18 +57,19 @@
 		SStgui.update_uis(src)
 
 /obj/item/device/quikpay/proc/print_receipt()
-	var/obj/item/paper/R = new(usr.loc)
+	var/obj/item/paper/notepad/receipt/R = new(usr.loc)
 	var/receiptname = "Receipt: [machine_id]"
 	R.set_content_unsafe(receiptname, receipt, sum)
 
 	//stamp the paper
 	var/image/stampoverlay = image('icons/obj/bureaucracy.dmi')
-	stampoverlay.icon_state = "paper_stamp-cent"
+	stampoverlay.icon_state = "paper_stamp-hop"
 	if(!R.stamped)
 		R.stamped = new
 	R.stamped += /obj/item/stamp
 	R.AddOverlays(stampoverlay)
 	R.stamps += "<HR><i>This paper has been stamped by the Quik-Pay device.</i>"
+	R.ripped = TRUE
 
 /obj/item/device/quikpay/attackby(obj/item/attacking_item, mob/user)
 	if (istype(attacking_item, /obj/item/spacecash/ewallet))

@@ -63,12 +63,12 @@
 		ui.open()
 
 /obj/machinery/orderterminal/proc/print_receipt() // Print the receipt followed by the order ticket
-	var/obj/item/paper/R = new(usr.loc)
+	var/obj/item/paper/notepad/receipt/R = new(usr.loc)
 	var/receiptname = "Receipt: [machine_id]"
 	R.set_content_unsafe(receiptname, receipt, sum)
 	stamp_receipt(R)
 	// And now we do it but for the ticket.
-	var/obj/item/paper/T = new(usr.loc)
+	var/obj/item/paper/notepad/receipt/T = new(usr.loc)
 	var/tickettname = "Order ticket: [ticket_number]"
 	ticket_number++
 	T.set_content_unsafe(tickettname, ticket, sum)
@@ -76,12 +76,13 @@
 
 /obj/machinery/orderterminal/proc/stamp_receipt(obj/item/paper/R) // Stamps the papers, made into a proc to avoid copy pasting too much
 	var/image/stampoverlay = image('icons/obj/bureaucracy.dmi')
-	stampoverlay.icon_state = "paper_stamp-cent"
+	stampoverlay.icon_state = "paper_stamp-hop"
 	if(!R.stamped)
 		R.stamped = new
 	R.stamped += /obj/item/stamp
 	R.AddOverlays(stampoverlay)
 	R.stamps += "<HR><i>This paper has been stamped by the Idris Ordering Terminal.</i>"
+	R.ripped = TRUE
 
 /obj/machinery/orderterminal/attackby(obj/item/attacking_item, mob/user)
 	var/obj/item/card/id/I = attacking_item.GetID()

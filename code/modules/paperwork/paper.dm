@@ -42,6 +42,8 @@
 
 	var/rigged = 0
 	var/last_honk = 0
+	/// Is the paper ripped from a book?
+	var/ripped = FALSE
 
 	/// The name of the paper before it was folded into a plane.
 	var/old_name
@@ -121,6 +123,8 @@
 		icon_state = "[base_state]_words"
 	else
 		icon_state = "[base_state]"
+	if(ripped)
+		icon_state = "[icon_state]_r"
 
 /**
  * Updates the amount of free space in the paper
@@ -182,7 +186,10 @@
 		info = stars(info,85)
 		user.visible_message("\The [user] crumples \the [src] into a ball!", "You crumple \the [src] into a ball.")
 		playsound(src, 'sound/bureaucracy/papercrumple.ogg', 50, 1)
-		icon_state = "scrap"
+		if(istype(src, /obj/item/paper/stickynotes))
+			icon_state = "stickynote_scrap"
+		else
+			icon_state = "scrap"
 		throw_range = 4 //you can now make epic paper ball hoops into the disposals (kinda dumb that you could only throw crumpled paper 1 tile) -wezzy
 		return
 
@@ -415,6 +422,8 @@
 		playsound(src.loc, 'sound/bureaucracy/paperburn.ogg', 50, 1)
 		if(icon_state == "scrap")
 			flick("scrap_onfire", src)
+		else if(icon_state == "stickynote_scrap")
+			flick("stickynote_scrap_onfire", src)
 		else
 			flick("paper_onfire", src)
 
@@ -576,6 +585,8 @@
 		if(istype(i, /obj/item/pen/typewriter))
 			playsound(src, ('sound/machines/typewriter.ogg'), 40)
 		else
+			if(istype(src, /obj/item/paper/stickynotes))
+				usr.visible_message(SPAN_NOTICE("\The [usr] jots a note down on \the [src]."))
 			playsound(src, pick('sound/bureaucracy/pen1.ogg','sound/bureaucracy/pen2.ogg'), 20)
 
 		update_icon()
@@ -603,12 +614,12 @@
 /obj/item/paper/attackby(obj/item/attacking_item, mob/user)
 	..()
 
-	if(istype(attacking_item, /obj/item/tape_roll) && !istype(src, /obj/item/paper/business_card))
+	if(istype(attacking_item, /obj/item/tape_roll) && (!istype(src, /obj/item/paper/business_card) || !istype(src, /obj/item/paper/stickynotes)))
 		var/obj/item/tape_roll/tape = attacking_item
 		tape.stick(src, user)
 		return
 
-	if(istype(attacking_item, /obj/item/paper) || istype(attacking_item, /obj/item/photo))
+	if((istype(attacking_item, /obj/item/paper) &&  !istype(src, /obj/item/paper/stickynotes/pad)) || istype(attacking_item, /obj/item/photo))
 		if (istype(attacking_item, /obj/item/paper/carbon))
 			var/obj/item/paper/carbon/C = attacking_item
 			if (!C.iscopy && !C.copied)
@@ -649,7 +660,11 @@
 				src.forceMove(get_turf(h_user))
 				if(h_user.client)	h_user.client.screen -= src
 				h_user.put_in_hands(B)
-		to_chat(user, SPAN_NOTICE("You clip the [attacking_item.name] to [(src.name == "paper") ? "the paper" : src.name]."))
+		if(istype(attacking_item, /obj/item/paper/stickynotes))
+			to_chat(user, SPAN_NOTICE("You stick [attacking_item.name] to [(src.name == "paper") ? "the paper" : src.name]."))
+		else if(istype(attacking_item, /obj/item/paper))
+			to_chat(user, SPAN_NOTICE("You clip the [attacking_item.name] to [(src.name == "paper") ? "the paper" : src.name]."))
+
 		src.forceMove(B)
 
 		B.pages.Add(src)
@@ -779,6 +794,20 @@
 	. = ..()
 	scan_target = WEAKREF(set_scan_target)
 
+/obj/item/paper/notepad
+	name = "notepad paper"
+	desc = "A piece of paper from a notepad."
+	icon_state = "notepad"
+	slot_flags = NONE
+	color = "#DBDBAE"
+
+/obj/item/paper/notepad/receipt
+	name = "receipt paper"
+	desc = "A receipt."
+	icon_state = "notepad"
+	slot_flags = NONE
+	color = null
+
 /*#############################################
 				PERSISTENT
 #############################################*/
@@ -798,6 +827,115 @@
 		if(istype(object, /obj/structure/noticeboard))
 			var/obj/structure/noticeboard/notice_board = object
 			notice_board.add_papers_from_turf()
+
+/*
+* Sticky notes
+*
+* Small pieces of paper that can be applied to walls and objects like stickers, or like taped paper.
+*/
+
+/obj/item/paper/stickynotes
+	name = "sticky note"
+	desc = "A small paper with adhesive on the back. Useful to keep track of things, or annoy your coworkers."
+	icon = 'icons/obj/bureaucracy.dmi'
+	icon_state = "stickynote"
+	item_state = "stickynote"
+	w_class = WEIGHT_CLASS_TINY
+	color = COLOR_PALE_YELLOW
+	slot_flags = 0
+	var/obj/item/paper/stickynotes/stuck = null
+
+/obj/item/paper/stickynotes/Initialize()
+	. = ..()
+
+/obj/item/paper/stickynotes/Destroy()
+	. = ..()
+
+/obj/item/paper/stickynotes/update_icon()
+	if(icon_state != "stickynote_scrap")
+		icon_state = info ? "stickynote_words" : "stickynote"
+
+/obj/item/paper/stickynotes/attack_hand()
+	. = ..()
+
+/obj/item/paper/stickynotes/afterattack(var/A, mob/user, var/prox, var/params)
+	if(!in_range(user, A) || istype(A, /obj/machinery/door) || stuck || istype(A, /obj/item/paper/stickynotes/pad))
+		return
+
+	var/turf/target_turf = get_turf(A)
+	var/turf/source_turf = get_turf(user)
+
+	var/dir_offset = 0
+	if(target_turf != source_turf)
+		dir_offset = get_dir(source_turf, target_turf)
+
+	if(params && prox)
+		user.drop_from_inventory(src,source_turf)
+		var/list/mouse_control = mouse_safe_xy(params)
+		if(mouse_control["icon-x"])
+			pixel_x = mouse_control["icon-x"] - 16
+			if(dir_offset & EAST)
+				pixel_x += 32
+			else if(dir_offset & WEST)
+				pixel_x -= 32
+		if(mouse_control["icon-y"])
+			pixel_y = mouse_control["icon-y"] - 16
+			if(dir_offset & NORTH)
+				pixel_y += 32
+			else if(dir_offset & SOUTH)
+				pixel_y -= 32
+	else
+		return
+
+/obj/item/paper/stickynotes/pad
+	name = "sticky note pad"
+	desc = "A pad of densely packed sticky notes."
+	color = COLOR_YELLOW_GRAY //Yellow gray to save the eyes of everyone.
+	icon = 'icons/obj/bureaucracy.dmi'
+	icon_state = "stickypad_full"
+	item_state = "stickynote"
+	w_class = WEIGHT_CLASS_SMALL
+	free_space = MAX_MESSAGE_LEN //Smaller piece of paper means less space to write.
+	var/papers = 25
+	var/paper_type = /obj/item/paper/stickynotes
+
+/obj/item/paper/stickynotes/pad/update_icon()
+	if(papers <= 15)
+		icon_state = "stickypad_empty"
+	else if(papers <= 25)
+		icon_state = "stickypad_used"
+	else
+		icon_state = "stickypad_full"
+	if(info)
+		icon_state = "[icon_state]_words"
+
+/obj/item/paper/stickynotes/pad/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "It has [papers] sticky note\s left."
+
+/obj/item/paper/stickynotes/pad/mechanics_hints()
+	. += ..()
+	. += "You can click it on grab intent to pick it up."
+
+/obj/item/paper/stickynotes/pad/attack_hand(mob/user)
+	if(user.a_intent == I_GRAB)
+		..()
+	else
+		var/obj/item/paper/paper = new paper_type(get_turf(src))
+		paper.set_content("sticky note", info)
+		paper.color = color
+		info = null
+		user.put_in_hands(paper)
+		to_chat(user, SPAN_NOTICE("You pull \the [paper] off \the [src]."))
+		papers--
+		if(papers <= 0)
+			qdel(src)
+		else
+			update_icon()
+
+/obj/item/paper/stickynotes/pad/random/Initialize()
+	. = ..()
+	color = pick(COLOR_YELLOW_GRAY , COLOR_GREEN_GRAY, COLOR_BLUE_GRAY , COLOR_ORANGE, COLOR_PALE_PINK)
 
 
 /*#############################################

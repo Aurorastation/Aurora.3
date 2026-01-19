@@ -50,18 +50,18 @@
 
 	//stamp the paper
 	var/image/stampoverlay = image('icons/obj/bureaucracy.dmi')
-	stampoverlay.icon_state = "paper_stamp-cent"
+	stampoverlay.icon_state = "paper_stamp-hop"
 	if(!R.stamped)
 		R.stamped = new
 	R.offset_x += 0
 	R.offset_y += 0
-	R.ico += "paper_stamp-cent"
+	R.ico += "paper_stamp-hop"
 	R.stamped += /obj/item/stamp
 	R.AddOverlays(stampoverlay)
 	R.stamps += "<HR><i>This paper has been stamped by the EFTPOS device.</i>"
 
 /obj/item/device/eftpos/proc/print_reference()
-	var/obj/item/paper/R = new(src.loc)
+	var/obj/item/paper/notepad/receipt/R = new(src.loc)
 	var/pname = "Reference: [eftpos_name]"
 	var/info = "<b>[eftpos_name] reference</b><br><br>"
 	info += "Access code: [access_code]<br><br>"
@@ -70,7 +70,7 @@
 
 	//stamp the paper
 	var/image/stampoverlay = image('icons/obj/bureaucracy.dmi')
-	stampoverlay.icon_state = "paper_stamp-cent"
+	stampoverlay.icon_state = "paper_stamp-hop"
 	if(!R.stamped)
 		R.stamped = new
 	R.stamped += /obj/item/stamp

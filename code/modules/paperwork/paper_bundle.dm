@@ -81,6 +81,8 @@
 		to_chat(user, SPAN_NOTICE("You add [(sheet.name == "paper") ? "the paper" : sheet.name] to [(src.name == "paper bundle") ? "the paper bundle" : src.name]."))
 	else if(istype(sheet, /obj/item/photo))
 		to_chat(user, SPAN_NOTICE("You add [(sheet.name == "photo") ? "the photo" : sheet.name] to [(src.name == "paper bundle") ? "the paper bundle" : src.name]."))
+	else if(istype(sheet, /obj/item/paper/stickynotes))
+		to_chat(user, SPAN_NOTICE("You stick [(sheet.name == "stickynote") ? "the sticknote" : sheet.name] to [(src.name == "paper bundle") ? "the paper bundle" : src.name]."))
 
 	user.drop_from_inventory(sheet,src)
 

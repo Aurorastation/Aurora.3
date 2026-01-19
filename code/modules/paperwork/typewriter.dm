@@ -94,6 +94,9 @@
 			if(attacking_item.icon_state == "scrap")
 				to_chat(user, SPAN_ALERT("\The [attacking_item] is too crumpled to feed correctly!"))
 				return
+			if(istype(attacking_item, /obj/item/paper/stickynotes))
+				to_chat(user, SPAN_ALERT("\The [attacking_item] is too small to feed correctly!"))
+				return
 			else
 				user.drop_item(attacking_item)
 				user.unEquip(attacking_item)

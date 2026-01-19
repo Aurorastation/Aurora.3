@@ -306,7 +306,7 @@
 
 		if("balance_statement")
 			if(authenticated_account)
-				var/obj/item/paper/R = new()
+				var/obj/item/paper/notepad/receipt/R = new()
 				var/pname = "Account balance: [authenticated_account.owner_name]"
 				var/info = "<b>Idris Automated Teller Account Statement</b><br><br>"
 				info += "<i>Account holder:</i> [authenticated_account.owner_name]<br>"
@@ -318,12 +318,13 @@
 
 				//stamp the paper
 				var/image/stampoverlay = image('icons/obj/bureaucracy.dmi')
-				stampoverlay.icon_state = "paper_stamp-cent"
+				stampoverlay.icon_state = "paper_stamp-hop"
 				if(!R.stamped)
 					R.stamped = new
 				R.stamped += /obj/item/stamp
 				R.AddOverlays(stampoverlay)
 				R.stamps += "<HR><i>This paper has been stamped by the Automatic Teller Machine.</i>"
+				R.ripped = TRUE
 				print(R, user = usr)
 
 				release_held_id(usr) // printing ends the ATM session similar to real life + prevents spam
@@ -332,7 +333,7 @@
 			playsound(loc, /singleton/sound_category/print_sound, 50, 1)
 		if ("print_transaction")
 			if(authenticated_account)
-				var/obj/item/paper/R = new()
+				var/obj/item/paper/notepad/receipt/R = new()
 				var/pname = "Transaction logs: [authenticated_account.owner_name]"
 				var/info = "<b>Transaction logs</b><br>"
 				info += "<i>Account holder:</i> [authenticated_account.owner_name]<br>"
@@ -369,6 +370,7 @@
 				R.stamped += /obj/item/stamp
 				R.AddOverlays(stampoverlay)
 				R.stamps += "<HR><i>This paper has been stamped by the Automatic Teller Machine.</i>"
+				R.ripped = TRUE
 				print(R, user = usr)
 
 			playsound(loc, /singleton/sound_category/print_sound, 50, 1)
