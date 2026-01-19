@@ -252,7 +252,7 @@
 	if(time_shipped)
 		order_data += "<u>Shipped at:</u> [time_shipped]<br>"
 	if(received_by)
-		order_data += "<u>Received by:</u [received_by]><br>"
+		order_data += "<u>Received by:</u> [received_by]<br>"
 		order_data += "<u>Delivered at:</u> [time_delivered]<br>"
 	order_data += "<hr>"
 	order_data += "<u>Order ID:</u> [order_id]<br>"
@@ -337,7 +337,7 @@
 	time_shipped = worldtime2text()
 
 //Marks a order as delivered - Returns a status message
-/datum/cargo_order/proc/set_delivered(var/user_name, var/user_id, var/paid=0)
+/datum/cargo_order/proc/set_delivered(var/user_name, var/user_id)
 	if(user_id <= 0)
 		user_id = null
 	if(status == "shipped")
@@ -345,8 +345,6 @@
 		time_delivered = worldtime2text()
 		received_by = user_name
 		received_by_id = user_id
-		if(paid)
-			set_paid(user_name, user_id)
 		return "The order has been delivered"
 	else
 		return "The order could not be delivered - Invalid Status"

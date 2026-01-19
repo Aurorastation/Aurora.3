@@ -58,18 +58,35 @@
 
 	var/obj/item/card/id/I = usr.GetIdCard()
 
-	//Check if we want to deliver or pay
-	//If we are at the status shipped, then only the confirm delivery and pay button should be shown (deliver)
-	//If the status is not shipped, then only show the pay button as we can not confirm that it has been paid so far
-	//Everyone can pay / confirm delivery
 	if(action == "deliver")
-		order_details = co.get_list()
 
-		//Check if its already delivered
-		if(order_details["status"] == "delivered" && !order_details["needs_payment"])
-			status_message = "Unable to Deliver - Order has already been delivered and paid for."
+		if(computer && computer.card_slot && computer.network_card)
+			var/obj/item/card/id/id_card
+			if(computer.card_slot?.stored_card)
+				id_card = computer.card_slot.stored_card
+			if(!id_card?.registered_name)
+				status_message = "Card Error: Invalid ID Card in Card Reader"
+				return TRUE
+			order_details = co.get_list()
+
+			//Check if its already delivered
+			if(order_details["status"] == "delivered")
+				status_message = "Unable to Deliver - Order has already been delivered."
+				return TRUE
+
+			//If a payment is not needed and we are at the status shipped, then confirm the delivery
+			else if(order_details["status"] == "shipped")
+				playsound(computer, 'sound/machines/chime.ogg', 50, TRUE)
+				status_message = co.set_delivered(GetNameAndAssignmentFromId(id_card), usr.character_id)
+				order_details = co.get_list()
+			else
+				status_message = "The order is not yet shipped."
+				return TRUE
+		else
+			status_message = "Unable to process - Network Card or Cardreader Missing"
 			return TRUE
 
+	if(action == "pay")
 		if(computer && computer.card_slot && computer.network_card)
 			var/using_id = FALSE
 			var/obj/item/card/id/id_card
@@ -80,6 +97,13 @@
 				using_id = FALSE
 				status_message = "Card Error: Invalid ID Card in Card Reader"
 
+			order_details = co.get_list()
+
+			//Check if its already delivered
+			if(!order_details["needs_payment"])
+				status_message = "Unable to pay - Order has already been paid for."
+				return TRUE
+
 			var/obj/item/spacecash/ewallet/charge_card
 			if(!using_id)
 				if(isliving(usr))
@@ -88,7 +112,6 @@
 				if(!istype(charge_card))
 					return TRUE
 
-			//Check if a payment is required
 			if(order_details["needs_payment"])
 				var/transaction_amount = order_details["price_customer"]
 				var/transaction_purpose = "Cargo Order #[order_details["order_id"]]"
@@ -114,20 +137,8 @@
 					charge_card.worth -= transaction_amount
 
 				playsound(computer, 'sound/machines/chime.ogg', 50, TRUE)
-
-				//Check if we have delivered it aswell or only paid
-				if(order_details["status"] == "shipped")
-					status_message = co.set_delivered(GetNameAndAssignmentFromId(I), usr.character_id, 1)
-				else
-					status_message = co.set_paid(GetNameAndAssignmentFromId(I), usr.character_id)
+				status_message = co.set_paid(GetNameAndAssignmentFromId(id_card), usr.character_id)
 				order_details = co.get_list()
-
-			else
-				//If a payment is not needed and we are at the status shipped, then confirm the delivery
-				if(order_details["status"] == "shipped")
-					playsound(computer, 'sound/machines/chime.ogg', 50, TRUE)
-					status_message = co.set_delivered(GetNameAndAssignmentFromId(I), usr.character_id, 0)
-			order_details = co.get_list()
 		else
 			status_message = "Unable to process - Network Card or Cardreader Missing"
 			return TRUE

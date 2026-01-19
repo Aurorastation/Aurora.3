@@ -224,28 +224,34 @@ export const Payment = (props, context) => {
       buttons={
         <>
           <Button
+            content="Account"
+            // icon="times"
+            color='good'
+            onClick={() => act('accountselect')}
+          />
+          <Button
             content={
-              data.order_details.status === 'shipped'
-                ? 'Confirm Delivery and Pay'
-                : data.order_details.status === 'delivered'
+              data.order_details.status === 'shipped' // if(status == shipped)
+                ? 'Confirm Delivery'
+                : data.order_details.status === 'delivered' // else if(status == delivered)
                   ? 'Delivered Already'
-                  : data.order_details.needs_payment
-                    ? 'Pay'
-                    : 'Paid but not Shipped'
+                  : 'Not Shipped'
             }
             disabled={
-              !data.order_details.needs_payment ||
-              data.order_details.status === 'delivered'
+              data.order_details.status !== 'shipped'
             }
             icon="check"
             color="green"
             onClick={() => act('deliver', { deliver: 'true' })}
           />
           <Button
-            content="Account"
-            icon="check"
-            color='good'
-            onClick={() => act('accountselect')}
+            content="Pay"
+            disabled={
+              !data.order_details.needs_payment
+            }
+            icon="credit-card"
+            color="green"
+            onClick={() => act('pay', { deliver: 'true' })}
           />
         </>
       }>
