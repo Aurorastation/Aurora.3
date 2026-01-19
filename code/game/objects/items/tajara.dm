@@ -242,7 +242,7 @@
 	)
 
 /obj/item/journal/winter_quest
-	name = "winter quest rulebook"
+	name = "\improper Winter Quest rulebook"
 	desc = "A core rulebook for winter quest, a tabletop roleplaying game originating from Little Adhomai."
 	desc_extended = "The first pen-and-paper role-playing game created by a Tajara. Its rules are known to favor interpretation over dice rolls. Combat encounters are notoriously deadly and short. Since character death is common, the game has a fast character creation system. Winter Quest usually uses a fantasy world inspired by Adhomian mythology; however, other settings have been published using its rule set."
 	icon = 'icons/obj/library.dmi'

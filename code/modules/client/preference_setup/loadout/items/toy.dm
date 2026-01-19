@@ -191,7 +191,7 @@
 	path = /obj/item/toy/football
 
 /datum/gear/toy/winterquest
-	display_name = "winter quest rulebook"
+	display_name = "\improper Winter Quest rulebook"
 	description = "The core rulebook for Winter Quest, a tabletop roleplaying game from Little Adhomai."
 	cost = 1
 	path = /obj/item/journal/winter_quest
