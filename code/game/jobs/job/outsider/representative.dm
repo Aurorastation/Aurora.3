@@ -342,7 +342,7 @@
 	bowman = /obj/item/device/radio/headset/representative/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/command/representative
 	wrist_radio = /obj/item/device/radio/headset/wrist/command/representative
-	clipon_radio = /obj/item/device/radio/headset/wrist/command/representative
+	clipon_radio = /obj/item/device/radio/headset/wrist/clip/command/representative
 
 /datum/job/diplomatic_aide/after_spawn(mob/living/carbon/human/H)
 	LAZYDISTINCTADD(blacklisted_citizenship, H.citizenship)
@@ -389,7 +389,7 @@
 	bowman = /obj/item/device/radio/headset/representative/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/command/representative
 	wrist_radio = /obj/item/device/radio/headset/wrist/command/representative
-	clipon_radio = /obj/item/device/radio/headset/wrist/command/representative
+	clipon_radio = /obj/item/device/radio/headset/wrist/clip/command/representative
 
 /datum/job/diplomatic_bodyguard/after_spawn(mob/living/carbon/human/H)
 	LAZYDISTINCTADD(blacklisted_citizenship, H.citizenship)
@@ -433,4 +433,4 @@
 	bowman = /obj/item/device/radio/headset/representative/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/command/representative
 	wrist_radio = /obj/item/device/radio/headset/wrist/command/representative
-	clipon_radio = /obj/item/device/encryptionkey/wrist/clip/command/representative
+	clipon_radio = /obj/item/device/radio/headset/wrist/clip/command/representative
