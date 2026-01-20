@@ -358,6 +358,16 @@
 		SA.take_organ_damage(0, 20)
 	return TRUE
 
+/obj/projectile/beam/mousegun/xenofauna_holo
+	damage = 0
+
+/obj/projectile/beam/mousegun/xenofauna_holo/on_hit(atom/target, blocked, def_zone)
+	. = ..()
+	if(istype(target, /mob/living/simple_animal/hostile/carp/holodeck))
+		var/mob/living/simple_animal/hostile/carp/holodeck/C = target
+		C.take_organ_damage(15)
+	return TRUE
+
 /obj/projectile/beam/shotgun
 	name = "diffuse laser"
 	icon_state = "laser"

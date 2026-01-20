@@ -6857,7 +6857,7 @@
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/centralhallway)
 "pEN" = (
-/obj/machinery/autolathe,
+/obj/machinery/fabricator/autolathe,
 /obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/machinist)

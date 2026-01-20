@@ -3374,7 +3374,7 @@
 	dir = 10
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/autolathe,
+/obj/machinery/fabricator/autolathe,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)

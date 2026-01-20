@@ -482,6 +482,19 @@
 	meat_type = null
 	light_range = 2
 	smart_melee = TRUE
+	blood_overlay_icon = null
+	blood_type = null
+
+/mob/living/simple_animal/hostile/carp/holodeck/Initialize()
+	. = ..()
+	atom_flags |= ATOM_FLAG_NO_BLOOD
+
+/mob/living/simple_animal/hostile/carp/holodeck/handle_bleeding_timer(var/damage_inflicted)
+	return
+/mob/living/simple_animal/hostile/carp/holodeck/handle_blood(var/force_reset = FALSE)
+	return
+/mob/living/simple_animal/hostile/carp/holodeck/bullet_impact_visuals(obj/projectile/impacting_projectile, def_zone, damage, blocked)
+	return
 
 /mob/living/simple_animal/hostile/carp/holodeck/proc/set_safety(var/safe)
 	if (safe)
@@ -587,3 +600,14 @@
 /mob/living/simple_animal/cat/kitten/holodeck/death()
 	..()
 	derez()
+
+//Holo xenofauna gun
+
+/obj/item/gun/energy/mousegun/xenofauna/holo
+	projectile_type = /obj/projectile/beam/mousegun/xenofauna_holo
+	name = "holo xenofauna gun"
+	desc = "The NT \"Arodentia\" Pesti-Shock is a highly sophisticated and probably safe beamgun designed for rapid pest-control. This one is holographic and harmless to actual lifeforms."
+	max_shots = 100
+	recharge_time = 1
+	self_recharge = TRUE
+	recharge_multiplier = 5

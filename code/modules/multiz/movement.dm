@@ -31,6 +31,11 @@
  *			FALSE otherwise.
  */
 /mob/proc/zMove(direction)
+	// If the calling mob has an active eyeobj reference, we move it instead.
+	// This is important because zMove is called from the actual mob and not the eyeobj they're controlling.
+	if(eyeobj)
+		return eyeobj.zMove(direction)
+
 	// Check if we can actually travel a Z-level.
 	if (!can_ztravel(direction))
 		to_chat(src, SPAN_WARNING("You lack means of travel in that direction."))

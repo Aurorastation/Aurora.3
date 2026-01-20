@@ -19873,12 +19873,7 @@
 /turf/simulated/floor/beach/water/pool,
 /area/cruise/pool/sauna1)
 "qNh" = (
-/obj/machinery/autolathe{
-	desc = "Your typical Autolathe. It appears to have much more options than your regular one, however...";
-	hacked = 1;
-	name = "Modified Autolathe";
-	pixel_y = 2
-	},
+/obj/machinery/fabricator/autolathe/hacked,
 /obj/effect/floor_decal/corner/yellow/diagonal,
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{

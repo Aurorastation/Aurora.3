@@ -1,7 +1,7 @@
 /obj/structure/closet/secure_closet/guncabinet
 	name = "gun cabinet"
 	req_access = list(ACCESS_ARMORY)
-	icon = 'icons/obj/guncabinet.dmi'
+	icon = 'icons/obj/containers/guncabinet.dmi'
 	icon_state = "base"
 	anchored = TRUE
 	canbemoved = TRUE
