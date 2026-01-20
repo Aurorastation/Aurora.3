@@ -50,7 +50,7 @@
 #define CARBON_LIFEFORM_FIRE_DAMAGE     4
 
 #define FOGGING_TEMPERATURE (T0C + 5)
-#define MAX_FOG_TEMPERATURE (T0C - 50)
+#define MAX_FOG_TEMPERATURE (T0C - 70)
 
 // Phoron fire properties.
 #define PHORON_MINIMUM_BURN_TEMPERATURE    (T0C +  126) //400 K - autoignite temperature in tanks and canisters - enclosed environments I guess

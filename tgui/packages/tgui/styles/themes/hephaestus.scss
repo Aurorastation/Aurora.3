@@ -18,6 +18,16 @@
 
   // Components
   @include meta.load-css(
+    'tgui-core/components/Button.scss',
+    $with: (
+      'color-default': #db6700,
+      'color-disabled': #a54a00,
+      'color-selected': #ffffff,
+      'color-caution': #be6209,
+      'color-danger': #991100
+    )
+  );
+  @include meta.load-css(
     'tgui-core/components/Input.scss',
     $with: ('border-color': #db6700)
   );
