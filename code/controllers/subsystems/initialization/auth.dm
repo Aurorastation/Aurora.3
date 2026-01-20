@@ -354,5 +354,3 @@ SUBSYSTEM_DEF(auth)
 				. |= R_CCIAA
 			if ("r_everything","r_host","r_all")
 				. |= (R_BUILDMODE | R_ADMIN | R_BAN | R_FUN | R_SERVER | R_DEBUG | R_PERMISSIONS | R_POSSESS | R_STEALTH | R_REJUVENATE | R_VAREDIT | R_SOUNDS | R_SPAWN | R_MOD | R_CCIAA | R_DEV)
-			else
-				crash_with("Unknown rank in file: [auth]")
