@@ -389,7 +389,7 @@
 	bowman = /obj/item/device/radio/headset/representative/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/command/representative
 	wrist_radio = /obj/item/device/radio/headset/wrist/command/representative
-	clipon_radio = /obj/item/device/radio/headset/wrist//command/representative
+	clipon_radio = /obj/item/device/radio/headset/wrist/command/representative
 
 /datum/job/diplomatic_bodyguard/after_spawn(mob/living/carbon/human/H)
 	LAZYDISTINCTADD(blacklisted_citizenship, H.citizenship)
