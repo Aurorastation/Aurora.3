@@ -2192,8 +2192,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/material/knife/raskariim/fluff/tulkir_knife
 	name = "amohdan ritual dagger"
-	desc = "An old amohdan hairloom dagger. The handle appears to have been repaired with parts from a mrrazhak pistol grip and the edge of the knife has been dulled to comply with regulations, though the broken tip remains sharp, if useless for fighting."
-	desc_extended = "As hunters, priests of Mata'ke often carry daggers with them to skin their kills. These daggers are typically made of silver to emulate Mata'ke's sword and his strength. Older and more valuable daggers have been known to be shipped off-planet during the wars by opportunistic smugglers, with Zephyr Shipping Company having been accused of selling them since its establishment, despite the company vehemently opposing such accusations."
+	desc = "An old amohdan heirloom dagger. The handle appears to have been repaired with parts from a mrrazhak pistol grip and the edge of the dagger has been dulled to comply with regulations, though the broken tip remains sharp, if useless for fighting."
+	desc_extended = "As hunters, priests of Mata'ke often carry daggers with them to skin their kills. These daggers are typically made of silver to emulate Mata'ke's spear and his strength. Older and more valuable daggers have been known to be shipped off-planet during the wars by opportunistic smugglers, with Zephyr Shipping Company having been accused of selling them since its establishment, despite the company vehemently opposing such accusations."
 	icon = 'icons/obj/custom_items/tulkir_knife.dmi'
 	icon_override = 'icons/obj/custom_items/tulkir_knife.dmi'
 	icon_state = "tulkir_knife"
@@ -2311,9 +2311,9 @@ All custom items with worn sprites must follow the contained sprite system: http
 	R.icon_state = chosen_rune
 
 /obj/item/clothing/accessory/holster/utility/fluff/tulkir_sheath
-	name = "amohdan knife sheath"
-	desc = "A leather sheath for an amohdan knife."
-	desc_extended = "As hunters, priests of Mata'ke often carry daggers with them to skin their kills. These daggers are typically made of silver to emulate Mata'ke's sword and his strength. Older and more valuable daggers have been known to be shipped off-planet during the wars by opportunistic smugglers, with Zephyr Shipping Company having been accused of selling them since its establishment, despite the company vehemently opposing such accusations."
+	name = "amohdan dagger sheath"
+	desc = "A leather sheath for an amohdan dagger."
+	desc_extended = "As hunters, priests of Mata'ke often carry daggers with them to skin their kills. These daggers are typically made of silver to emulate Mata'ke's spear and his strength. Older and more valuable daggers have been known to be shipped off-planet during the wars by opportunistic smugglers, with Zephyr Shipping Company having been accused of selling them since its establishment, despite the company vehemently opposing such accusations."
 	icon = 'icons/obj/custom_items/tulkir_sheath.dmi'
 	icon_override = 'icons/obj/custom_items/tulkir_sheath.dmi'
 	icon_state = "tulkir_holster_alt"
