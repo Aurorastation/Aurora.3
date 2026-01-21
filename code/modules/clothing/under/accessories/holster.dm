@@ -89,14 +89,14 @@
 		clear_holster()
 		update_icon()
 
-/obj/item/clothing/accessory/holster/update_icon()
+/obj/item/clothing/accessory/holster/flip_sprite()
 	. = ..()
 	if(filled_sprite && holstered)
-		icon_state = "[initial(icon_state)]_filled"
-		item_state = "[initial(item_state)]_filled"
+		icon_state = "[icon_state]_filled"
+		item_state = "[item_state]_filled"
 	else
-		icon_state = "[initial(icon_state)]"
-		item_state = "[initial(item_state)]"
+		icon_state = "[icon_state]"
+		item_state = "[item_state]"
 
 /obj/item/clothing/accessory/holster/attack_hand(mob/user)
 	if (!ishuman(user))
