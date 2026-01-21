@@ -780,9 +780,13 @@
 		/obj/item/clothing/accessory/storage/overalls/mining = 4,
 		/obj/item/clothing/glasses/safety/goggles = 3,
 		/obj/item/clothing/gloves/black = 3,
+		/obj/item/clothing/gloves/black/tajara = 3,
+		/obj/item/clothing/gloves/black/unathi = 3,
 		/obj/item/clothing/shoes/sneakers/black = 8,
 		/obj/item/clothing/shoes/workboots = 4,
+		/obj/item/clothing/shoes/workboots/tajara = 4,
 		/obj/item/clothing/shoes/workboots/dark = 8,
+		/obj/item/clothing/shoes/workboots/tajara/dark = 4,
 		/obj/item/clothing/shoes/workboots/toeless = 4
 	)
 	premium = list(
@@ -831,6 +835,8 @@
 		/obj/item/clothing/accessory/poncho/roles/cargo = 4,
 		/obj/item/clothing/glasses/safety/goggles = 3,
 		/obj/item/clothing/gloves/black = 3,
+		/obj/item/clothing/gloves/black/tajara = 3,
+		/obj/item/clothing/gloves/black/unathi = 3,
 		/obj/item/clothing/shoes/sneakers/black = 3,
 		/obj/item/clothing/shoes/workboots = 4,
 		/obj/item/clothing/shoes/workboots/dark = 4,
