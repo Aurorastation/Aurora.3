@@ -293,7 +293,9 @@
 			return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["faction_preview"])
-		show_faction_menu(user, html_decode(href_list["faction_preview"]))
+		var/datum/tgui_module/faction_select/faction_ui = new(pref)
+		faction_ui.ui_interact(user)
+		//show_faction_menu(user, html_decode(href_list["faction_preview"]))
 		return TOPIC_NOACTION
 
 	else if(href_list["faction_select"])
