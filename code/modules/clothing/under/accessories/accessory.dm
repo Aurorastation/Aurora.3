@@ -149,7 +149,7 @@
 	flip_sprite()
 
 /obj/item/clothing/accessory/proc/flip_sprite()
-	if(!flipped)
+	if(flipped)
 		if(!overlay_state)
 			icon_state = "[initial(icon_state)]_flip"
 			item_state = "[initial(item_state)]_flip"
