@@ -1,6 +1,7 @@
 /datum/category_item/player_setup_item/occupation
 	name = "Occupation"
 	sort_order = 1
+	var/datum/tgui_module/faction_select/faction_ui
 
 /datum/category_item/player_setup_item/occupation/load_character(var/savefile/S)
 	S["alternate_option"]	>> pref.alternate_option
@@ -293,7 +294,8 @@
 			return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["faction_preview"])
-		var/datum/tgui_module/faction_select/faction_ui = new(pref)
+		if(!faction_ui)
+			faction_ui = new(src)
 		faction_ui.ui_interact(user)
 		//show_faction_menu(user, html_decode(href_list["faction_preview"]))
 		return TOPIC_NOACTION
@@ -499,17 +501,9 @@
 
 	user << browse(HTML_SKELETON(dat.Join()), "window=factionpreview;size=750x450")
 
-/datum/category_item/player_setup_item/occupation/proc/validate_and_set_faction(selected_faction)
-	var/datum/faction/faction = SSjobs.name_factions[selected_faction]
-
-	if (!faction)
-		to_client_chat(SPAN_DANGER("Invalid faction chosen. Resetting to default."))
-		selected_faction = SSjobs.default_faction.name
-
+/datum/category_item/player_setup_item/occupation/proc/validate_and_set_faction(datum/faction/faction)
 	ResetJobs() // How to be horribly lazy.
-
-	pref.faction = selected_faction
-
+	pref.faction = faction.name
 	to_client_chat(SPAN_NOTICE("New faction chosen. Job preferences reset."))
 
 /datum/preferences/proc/GetPlayerAltTitle(datum/job/job)
