@@ -8,8 +8,8 @@
 	parent_organ = BP_CHEST
 	subtle = 1
 
-	/// ~2 minutes/stage (at two seconds/tick)
-	stage_interval = 60
+	/// ~3 minutes/stage (at two seconds/tick)
+	stage_interval = 90
 
 	max_stage = 5
 
@@ -28,15 +28,16 @@
 /obj/item/organ/internal/parasite/greimorian_eggcluster/process()
 	..()
 
-	if(!owner && gestating_spiderlings)
-		return
+	// Make sure if its been removed from the host, it dissolves into goo.
+	if(!owner)
+		qdel()
 
 	if(ruptured)
 		return
 
 	var/obj/item/organ/external/affecting_organ = owner.organs_by_name[parent_organ]
 
-	if(prob(8))
+	if(prob(6))
 		gestating_spiderlings += 1
 
 	if(prob(5))
@@ -45,27 +46,27 @@
 	if(prob(33))
 		owner.adjustNutritionLoss(3)
 
-	if(stage >= 2) //after ~2.5 minutes
+	if(stage >= 2)
 		if(prob(8))
-			gestating_spiderlings += rand(1,2)
+			gestating_spiderlings += 1
 
 		if(prob(33))
 			owner.adjustNutritionLoss(4)
 		if(prob(5))
 			owner.emote("whimper")
-		if(prob(3))
+		if(prob(2))
 			to_chat(owner, SPAN_WARNING(pick("You feel nauseous and hungry at the same time.", "You feel a burning pain in your [parent_organ].", "Your sense of balance seems broken.")))
 
-	if(stage >= 3)  //after ~5 minutes
-		if(prob(8))
-			gestating_spiderlings += rand(1,3)
+	if(stage >= 3)
+		if(prob(6))
+			gestating_spiderlings += 1
 
 		if(prob(33))
 			owner.adjustNutritionLoss(5)
 		if(prob(10))
 			affecting_organ.take_damage(rand(1,3))
 			owner.adjustHalLoss(8)
-			if(world.time > last_crawling_msg + 15 SECONDS)
+			if(world.time > last_crawling_msg + 20 SECONDS)
 				last_crawling_msg = world.time
 				owner.visible_message(
 					SPAN_WARNING("You think you see something moving around in \the [owner.name]'s [affecting_organ.name]."),
@@ -73,9 +74,9 @@
 		if(prob(1))
 			owner.seizure(0.4)
 
-	if(stage >= 4)  //after ~7.5 minutes
-		if(prob(8))
-			gestating_spiderlings += rand(1,4)
+	if(stage >= 4)
+		if(prob(6))
+			gestating_spiderlings += rand(1,2)
 
 		if(prob(5))
 			owner.reagents.add_reagent(/singleton/reagent/toxin/greimorian_eggs, (gestating_spiderlings / 3))
@@ -84,9 +85,9 @@
 		if(prob(5))
 			owner.seizure(0.5)
 
-	if(stage >= 5)  //after ~9 minutes
-		if(prob(8))
-			gestating_spiderlings += rand(1,5)
+	if(stage >= 5)
+		if(prob(6))
+			gestating_spiderlings += rand(1,2)
 
 		if(prob(10))
 			owner.seizure(0.6)
@@ -98,11 +99,12 @@
 			owner.visible_message(
 				SPAN_DANGER("You can see the flesh of [owner.name]'s [affecting_organ.name] begin rippling violently!"),
 				SPAN_DANGER("An <b>extreme</b>, nauseating pain erupts from your [affecting_organ.name]; you feel something burst inside it. The flesh begins to ripple violently!"))
-			addtimer(CALLBACK(src, PROC_REF(rupture)), rand(30, 50))
+			addtimer(CALLBACK(src, PROC_REF(rupture)), rand(2 SECONDS, 4 SECONDS))
 
 /obj/item/organ/internal/parasite/greimorian_eggcluster/Destroy()
-	var/obj/item/organ/external/affecting_organ = owner.organs_by_name[parent_organ]
-	to_chat(src.owner, SPAN_WARNING("Mercifully, you feel something finally dissolve in your [affecting_organ.name]..."))
+	if(owner)
+		var/obj/item/organ/external/affecting_organ = owner.organs_by_name[parent_organ]
+		to_chat(src.owner, SPAN_WARNING("Mercifully, you feel something finally dissolve in your [affecting_organ.name]..."))
 	..()
 
 /**
@@ -121,7 +123,9 @@
 		src.owner.emote("scream")
 
 	var/target_loc = src.owner ? src.owner.loc : src.loc
-	for(var/i = 0 to gestating_spiderlings)
+	// Average of 8 adult greimorians (larva 'can_mature_chance' is 50).
+	var/clamped_spiderlings = max(gestating_spiderlings, 16)
+	for(var/i = 0 to clamped_spiderlings)
 		// For details on the spiderlings, check out 'code\game\objects\effects\spiders.dm'
 		new /obj/effect/spider/spiderling(target_loc, src, 3)
 

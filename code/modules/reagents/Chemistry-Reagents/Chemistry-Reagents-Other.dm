@@ -185,10 +185,11 @@
 	affect_ingest(M, alien, removed, holder)
 
 /singleton/reagent/radioactive_waste/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	M.apply_effect(25 * removed, DAMAGE_RADIATION, blocked = 0)
+	var/rad_damage = min(75, 40 * removed)
+	M.apply_effect(rad_damage, DAMAGE_RADIATION, blocked = 0)
 
 /singleton/reagent/radioactive_waste/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
-	if(amount >= 5)
+	if(amount >= 3)
 		if(!istype(T, /turf/space))
 			var/obj/effect/decal/cleanable/greenglow/glow = locate(/obj/effect/decal/cleanable/greenglow, T)
 			if(!glow)

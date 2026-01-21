@@ -279,14 +279,14 @@
 	///For when targetting a single object, will create a warp beam
 	var/datum/beam = null
 	var/max_dist = 6
-	var/obj/effect/effect/warp/small/warpeffect = null
+	var/obj/effect/warp/small/warpeffect = null
 
 /obj/effect/ebeam/warp
 	plane = WARP_EFFECT_PLANE
 	appearance_flags = DEFAULT_APPEARANCE_FLAGS | TILE_BOUND | NO_CLIENT_COLOR
 	z_flags = ZMM_IGNORE
 
-/obj/effect/effect/warp/small
+/obj/effect/warp/small
 	plane = WARP_EFFECT_PLANE
 	appearance_flags = PIXEL_SCALE | NO_CLIENT_COLOR
 	icon = 'icons/effects/96x96.dmi'
@@ -650,7 +650,7 @@
 	restricted_hardpoints = list(HARDPOINT_BACK)
 	restricted_software = list(MECH_SOFTWARE_UTILITY)
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 2)
-	var/obj/machinery/autolathe/mounted/lathe
+	var/obj/machinery/fabricator/mounted/lathe
 	module_hints = list(
 		"<b>Left Click (Target Materials):</b> Load materials into the autolathe.",
 		"<b>Alt Click (Icon):</b> Open the autolathe's UI.",
@@ -658,12 +658,12 @@
 
 /obj/item/mecha_equipment/autolathe/get_hardpoint_maptext()
 	if(lathe?.currently_printing)
-		return lathe.currently_printing.recipe.name
+		return lathe.currently_printing.target_recipe.name
 	. = ..()
 
 /obj/item/mecha_equipment/autolathe/Initialize()
 	. = ..()
-	lathe = new /obj/machinery/autolathe/mounted(src)
+	lathe = new /obj/machinery/fabricator/mounted(src)
 
 /obj/item/mecha_equipment/autolathe/installed()
 	..()

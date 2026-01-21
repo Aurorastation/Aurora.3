@@ -1061,8 +1061,11 @@
 		if(victim.chem_effects[CE_ANTIPARASITE])
 			return
 
-		if(!victim.internal_organs_by_name[BP_GREIMORIAN_EGGCLUSTER])
+		if(!victim.internal_organs_by_name[BP_GREIMORIAN_EGGCLUSTER] && prob(20))
 			var/obj/item/organ/external/affected = pick(victim.organs)
+			// Give the victim an extra chance to NOT get an eggsac in their head; reroll.
+			if(affected == BP_HEAD)
+				affected = pick(victim.organs)
 			var/obj/item/organ/internal/parasite/greimorian_eggcluster/infest = new()
 			infest.parent_organ = affected.limb_name
 			infest.replaced(victim, affected)

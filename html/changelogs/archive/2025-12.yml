@@ -250,3 +250,7 @@
   - qol: Several similar options in the tajaran loadout have been condensed into similar
       selections and the golden sun pin was made more clear.
   - rscadd: The tajaran archaeologist clothing is now job restricted.
+2025-12-31:
+  SimpleMaroon:
+  - qol: Moghesian Dionae from the Wasteland can now have no citizenship for their
+      origin, per Diona trading lore.

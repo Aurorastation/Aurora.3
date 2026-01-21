@@ -173,7 +173,8 @@ GLOBAL_LIST_EMPTY(tips_by_category)
 		"As a Paramedic, you can take special drop pouches. These let you have more room for medical equipment. You can find them in the accessories tab.",
 		"As a Paramedic, its a good idea to stop the bleeding before transportation.",
 		"As a Paramedic, you're naturally cool.",
-		"As the Psychiatrist, advertise yourself. Go talk to people. Otherwise, you'll be bored out of your mind."
+		"As the Psychiatrist, advertise yourself. Go talk to people. Otherwise, you'll be bored out of your mind.",
+		"Implanted Greimorian eggs can be removed by administering the anti-parasitic drug helmizole, or by performing surgery to remove the eggsac from the affected body part like any other organ or parasite."
 	)
 
 
@@ -303,9 +304,6 @@ GLOBAL_LIST_EMPTY(tips_by_category)
 		"As a Mercenary, you should look into purchasing a Combat Robot, as they can provide fire support, are immune to conventional stuns, and can take down most enemies.",
 		"As a Mercenary, stick together! While your equipment is robust, your fellow operatives are much better at saving your life: they can drag you away from danger while stunned and provide cover fire.",
 		"As a Mercenary, you might end up in a situation where the AI has bolted you into a room. Having some spare C4 in your pocket can save your life.",
-		"As a Monkey, you can crawl through air vents by alt+left clicking them. You must drop everything you are wearing and holding to do this, however.",
-		"As a Monkey, you can still wear a few human items, such as backpacks, gas masks and hats, and still have two free hands.",
-		"As the Malfunctioning AI, you should either order your cyborgs to dismantle the robotics console or blow it up yourself in order to protect them. Make sure to hunt down all those laptops too!",
 		"As a Revolutionary, you cannot convert a head of staff or someone who has a mindshield implant. Implants can however be surgically removed. Take control of medbay to keep control of conversions!",
 		"As a Revolutionary, cargo can be your best friend or your worst nightmare. In the best case scenario you will be able to order a limitless amount of guns and armor, in the worst case scenario security will take control and order a limitless number of loyalty implants to turn your fellow revolutionaries against you.",
 		"As a Revolutionary, your main power comes from how quickly you spread. Convert people as fast as you can and overwhelm the heads of staff before security can arm up.",
@@ -324,11 +322,11 @@ GLOBAL_LIST_EMPTY(tips_by_category)
 		"As a Death Commando you have only one course of action: RIP AND TEAR.",
 		"As a Highlander, there can be only one.",
 		"As a Loyalist, remember that you are an antagonist too!",
-		"As a Renegade, consider playing a better gamemode.",
 		"As a Vampire, you can create new vampires out of willing and less than willing crew. Mind that new vampires may decide to turn their powers against you.",
 		"As a Vampire, if you start going hungry for blood don't expect to stay hidden for long.",
 		"As a Loner, your psionic powers are a mystery to us all.",
-		"EMP or Emag the bluespace inhibitor for a whacky, wild adventure."
+		"EMP or Emag the bluespace inhibitor for a whacky, wild adventure.",
+		"If you can't afford a radioactive waste canister, stealing a uranium or radium canister and spilling some of its contents will also generate weak puddles of radioactive goo."
 	)
 
 
