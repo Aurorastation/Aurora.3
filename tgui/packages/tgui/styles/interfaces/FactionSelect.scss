@@ -1,4 +1,13 @@
+@use '../components/Divider.scss';
+
 .theme-faction_select {
+  .Divider--faction_select {
+    height: 85%;
+    align-self: center;
+    margin: 0 Divider.$spacing;
+    border-left: Divider.$thickness dashed Divider.$color;
+  }
+
   .Layout__content {
     background-image: none;
   }

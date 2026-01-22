@@ -74,7 +74,7 @@ const FactionList = (props, context) => {
 const FactionInfo = (props, context) => {
   const { act, data } = useBackend<FactionSelectData>(context);
   const currentFaction = data.factions.find(faction => faction.name === data.viewed_faction)!;
-  // Non-null assertion for `currentFaction` since it being null would be a backend problem.
+  // Non-null assertion for `currentFaction` since it being null shouldn't be handled here.
   const currentIsChosen = currentFaction.name === data.chosen_faction;
 
   return (
@@ -94,33 +94,41 @@ const FactionInfo = (props, context) => {
               {currentFaction.desc}
             </Section>
           </Flex.Item>
-          <Flex.Item>
-            <Divider vertical />
+          <Flex.Item align="center" height="100%" mt={15.5}>
+            <div class="Divider--faction_select" />
           </Flex.Item>
           <Flex.Item width="35%">
-            <Stack vertical align="center" textColor="label">
-              <Stack.Item>
-                <Box
-                  as="img"
-                  src={resolveAsset(currentFaction.logo)}
-                  height="13em"
-                  width="13em"
-                />
-              </Stack.Item>
-              <Stack.Item bold>
-                <u>Departments:</u>
-              </Stack.Item>
-              <Stack.Item>
-                {currentFaction.departments}
-              </Stack.Item>
-              <Stack.Item>
-                <Button
-                  disabled={currentIsChosen}
-                  onClick={() => act("choose_faction", { "faction": currentFaction.name })}>
-                  {currentIsChosen ? "Faction Selected" : "Select Faction"}
-                </Button>
-              </Stack.Item>
-            </Stack>
+            <Flex height="90%" direction="column" align="center" justify="space-between">
+              <Flex.Item>
+                <Stack vertical align="center" textColor="label">
+                  <Stack.Item>
+                    <Box
+                      as="img"
+                      src={resolveAsset(currentFaction.logo)}
+                      height="13em"
+                      width="13em"
+                    />
+                  </Stack.Item>
+                  <Stack.Item bold fontSize={1.25}>
+                    <u>Departments:</u>
+                  </Stack.Item>
+                  <Stack.Item>
+                    {currentFaction.departments}
+                  </Stack.Item>
+                </Stack>
+              </Flex.Item>
+              <Flex.Item>
+                  <Button
+                    width="12rem"
+                    height="5rem"
+                    textAlign="center"
+                    verticalAlignContent="middle"
+                    disabled={currentIsChosen}
+                    onClick={() => act("choose_faction", { "faction": currentFaction.name })}>
+                    {currentIsChosen ? "[Faction Selected]" : "[Select Faction]"}
+                  </Button>
+              </Flex.Item>
+            </Flex>
           </Flex.Item>
         </Flex>
       </Flex.Item>
