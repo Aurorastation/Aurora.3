@@ -7,6 +7,7 @@ import { Window } from "../layouts";
 export type FactionSelectData = {
   chosen_faction: string;
   viewed_faction: string;
+  viewed_selection_error: string;
   factions: Faction[];
   wiki_url: string;
 };
@@ -47,22 +48,21 @@ const FactionList = (props, context) => {
               fluid
               selected={faction.name === data.chosen_faction}
               color={faction.name === data.viewed_faction ? "label" : "grey"}
-              onClick={() => act("view_faction", { faction: faction.name })}>
-                <Flex align="center" justify="space-between" minWidth="300px">
-                  <Flex.Item>
-                    <Box bold fontSize={1.08}>
-                      {faction.name}
-                    </Box>
-                  </Flex.Item>
-                  <Flex.Item pt={1} pr={0.5}>
-                    <Box
-                      as="img"
-                      src={resolveAsset(faction.logo)}
-                      width="48px"
-                      height="48px"
-                    />
-                  </Flex.Item>
-                </Flex>
+              onClick={() => act("view_faction", { faction: faction.name })}
+            >
+              <Flex align="center" justify="space-between" minWidth="300px">
+                <Flex.Item bold fontSize={1.08}>
+                  {faction.name}
+                </Flex.Item>
+                <Flex.Item pt={1} pr={0.5}>
+                  <Box
+                    as="img"
+                    src={resolveAsset(faction.logo)}
+                    width="48px"
+                    height="48px"
+                  />
+                </Flex.Item>
+              </Flex>
             </Button>
           </Stack.Item>
         ))}
@@ -73,9 +73,28 @@ const FactionList = (props, context) => {
 
 const FactionInfo = (props, context) => {
   const { act, data } = useBackend<FactionSelectData>(context);
-  const currentFaction = data.factions.find(faction => faction.name === data.viewed_faction)!;
+
   // Non-null assertion for `currentFaction` since it being null shouldn't be handled here.
-  const currentIsChosen = currentFaction.name === data.chosen_faction;
+  const currentFaction = data.factions.find(faction => faction.name === data.viewed_faction)!;
+
+  const SelectButton = () => {
+    const currentIsChosen = currentFaction.name === data.chosen_faction;
+    const CanSelect = () => currentFaction.name === data.chosen_faction || !!data.viewed_selection_error;
+
+    return (
+      <Button
+        width="12em"
+        height="5em"
+        textAlign="center"
+        verticalAlignContent="middle"
+        style={{ "white-space": "normal" }}
+        disabled={CanSelect()}
+        onClick={() => act("choose_faction", { "faction": currentFaction.name })}
+      >
+        {data.viewed_selection_error ?? (currentIsChosen ? "[Faction Selected]" : "[Select Faction]")}
+      </Button>
+    );
+  };
 
   return (
     <Flex height="100%" direction="column" justify="space-between">
@@ -100,7 +119,7 @@ const FactionInfo = (props, context) => {
             <div class="Divider--faction_select" />
           </Flex.Item>
           <Flex.Item width="35%">
-            <Flex height="90%" direction="column" align="center" justify="space-between">
+            <Flex height="95%" direction="column" align="center" justify="space-between">
               <Flex.Item>
                 <Stack vertical align="center" textColor="label">
                   <Stack.Item>
@@ -122,15 +141,7 @@ const FactionInfo = (props, context) => {
                 </Stack>
               </Flex.Item>
               <Flex.Item>
-                  <Button
-                    width="12rem"
-                    height="5rem"
-                    textAlign="center"
-                    verticalAlignContent="middle"
-                    disabled={currentIsChosen}
-                    onClick={() => act("choose_faction", { "faction": currentFaction.name })}>
-                    {currentIsChosen ? "[Faction Selected]" : "[Select Faction]"}
-                  </Button>
+                <SelectButton />
               </Flex.Item>
             </Flex>
           </Flex.Item>

@@ -21,6 +21,10 @@
 	var/list/data = list()
 	data["chosen_faction"] = occupation.pref.faction
 	data["viewed_faction"] = viewed_faction
+
+	var/datum/faction/faction_datum = get_faction(viewed_faction)
+	data["viewed_selection_error"] = faction_datum.get_selection_error(occupation.pref, user)
+
 	return data
 
 /datum/tgui_module/faction_select/ui_static_data(mob/user)
@@ -47,17 +51,10 @@
 	if(.)
 		return
 
-	var/faction_name = params["faction"]
-	var/datum/faction/faction = SSjobs.name_factions[faction_name]
-
-	// Make sure any faction passed into here actually exists.
-	if(!istype(faction))
-		to_chat(usr, SPAN_WARNING("Invalid faction chosen. Resetting to [SSjobs.default_faction.name]."))
-		faction_name = SSjobs.default_faction.name
-		faction = SSjobs.name_factions[faction_name]
+	var/datum/faction/faction = get_faction(params["faction"], FALSE)
 
 	if(action == "view_faction")
-		viewed_faction = faction_name
+		viewed_faction = faction.name
 		return TRUE
 
 	if(action == "choose_faction")
@@ -77,3 +74,12 @@
 	return list(
 		get_asset_datum(/datum/asset/simple/faction_icons)
 	)
+
+/datum/tgui_module/faction_select/proc/get_faction(faction_name, quiet = TRUE)
+	var/datum/faction/faction = SSjobs.name_factions[faction_name]
+	if(!istype(faction))
+		if(!quiet)
+			to_chat(usr, SPAN_WARNING("Invalid faction chosen. Resetting to [SSjobs.default_faction.name]."))
+		return SSjobs.default_faction
+
+	return faction

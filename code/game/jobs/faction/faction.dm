@@ -61,9 +61,8 @@
 				role.blacklisted_species = J.blacklisted_species
 			. += role
 
-/datum/faction/proc/get_selection_error(datum/preferences/prefs, var/mob/user)
+/datum/faction/proc/get_selection_error(datum/preferences/prefs, mob/user)
 	if(length(allowed_species_types))
-
 		var/datum/species/S = prefs.get_species_datum()
 
 		if(!S)
@@ -73,7 +72,6 @@
 			return "Invalid species selected."
 
 	if(length(blacklisted_citizenship_types))
-
 		var/datum/citizenship/C = SSrecords.citizenships[prefs.citizenship]
 
 		if(!C)
@@ -82,12 +80,12 @@
 		if(is_type_in_typecache(C, blacklisted_citizenship_types))
 			return "Invalid nation selected."
 
-	if (!is_visible(user))
+	if(!is_visible(user))
 		return "This faction is not available to you."
 
 	return null
 
-/datum/faction/proc/can_select(datum/preferences/prefs, var/mob/user)
+/datum/faction/proc/can_select(datum/preferences/prefs, mob/user)
 	return !get_selection_error(prefs, user)
 
 /datum/faction/proc/get_logo_name()
