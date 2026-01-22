@@ -19,7 +19,7 @@ export type Faction = {
 
 export const FactionSelect = () => {
   return (
-    <Window width={900} height={645}>
+    <Window theme="faction_select" width={900} height={645}>
       <Window.Content>
         <Stack fill>
           <Stack.Item width="40%" maxWidth="350px">
