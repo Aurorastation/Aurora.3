@@ -25,7 +25,7 @@ export const FactionSelect = () => {
     <Window theme="faction_select" width={900} height={645}>
       <Window.Content>
         <Stack fill>
-          <Stack.Item width="40%" maxWidth="350px">
+          <Stack.Item width="22em">
             <FactionList />
           </Stack.Item>
           <Stack.Item grow>
@@ -48,9 +48,10 @@ const FactionList = (props, context) => {
               fluid
               selected={faction.name === data.chosen_faction}
               color={faction.name === data.viewed_faction ? "label" : "grey"}
+              style={{ "white-space": "normal" }}
               onClick={() => act("view_faction", { faction: faction.name })}
             >
-              <Flex align="center" justify="space-between" minWidth="300px">
+              <Flex align="center" justify="space-between">
                 <Flex.Item bold fontSize={1.08}>
                   {faction.name}
                 </Flex.Item>
@@ -118,7 +119,7 @@ const FactionInfo = (props, context) => {
           <Flex.Item align="center" height="100%" mt={15.5}>
             <div class="Divider--faction_select" />
           </Flex.Item>
-          <Flex.Item width="35%">
+          <Flex.Item width="15.5em">
             <Flex height="95%" direction="column" align="center" justify="space-between">
               <Flex.Item>
                 <Stack vertical align="center" textColor="label">
