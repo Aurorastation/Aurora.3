@@ -15,7 +15,7 @@ export type Faction = {
   name: string;
   desc: string;
   logo: string;
-  departments: string;
+  departments: string[];
   wiki_page: string;
 };
 
@@ -80,8 +80,10 @@ const FactionInfo = (props, context) => {
   return (
     <Flex height="100%" direction="column" justify="space-between">
       <Flex.Item>
-        <Section textAlign="center" bold fontSize={2} fontFamily="Arial Black">
-          {currentFaction.name}
+        <Section>
+          <Box my={1} textAlign="center" bold fontSize={2.1} fontFamily="Arial Black">
+            {currentFaction.name}
+          </Box>
         </Section>
       </Flex.Item>
       <Flex.Item>
@@ -112,9 +114,11 @@ const FactionInfo = (props, context) => {
                   <Stack.Item bold fontSize={1.25}>
                     <u>Departments:</u>
                   </Stack.Item>
-                  <Stack.Item>
-                    {currentFaction.departments}
-                  </Stack.Item>
+                  {currentFaction.departments.map(department => (
+                    <Stack.Item key={department} bold>
+                      {department}
+                    </Stack.Item>
+                  ))}
                 </Stack>
               </Flex.Item>
               <Flex.Item>

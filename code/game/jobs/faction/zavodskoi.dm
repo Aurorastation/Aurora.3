@@ -1,14 +1,14 @@
 /datum/faction/zavodskoi_interstellar
 	name = "Zavodskoi Interstellar"
-	description = {"<p>
+	description = {"
 	The largest weapons producer in human space, Zavodskoi Interstellar initially
 	found its place with the invention of a militarized voidsuit for use in the Interstellar War.
 	With many lucrative weapon contracts thanks to the Sol Alliance, as well as acquisitions of
 	other major armaments companies, Zavodskoi weapons can be found in the hands of nearly every
 	military force across the Orion Spur. They are the main corporation found in the Empire of
 	Dominia, and are at the forefront of weapons development technology.
-	</p>"}
-	departments = {"Engineering<br>Research<br>Security"}
+	"}
+	departments = list(DEPARTMENT_ENGINEERING, DEPARTMENT_SCIENCE, DEPARTMENT_SECURITY)
 	title_suffix = "Zavod"
 	wiki_page = "Zavodskoi_Interstellar"
 

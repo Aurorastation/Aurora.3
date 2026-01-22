@@ -2,7 +2,7 @@
 	var/name
 	var/description
 	var/title_suffix
-	var/departments
+	var/list/departments
 	var/wiki_page
 
 	var/list/allowed_role_types

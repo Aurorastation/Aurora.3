@@ -1,14 +1,14 @@
 /datum/faction/orion_express
 	name = "Orion Express"
-	description = {"<p>
+	description = {"
 	Founded in 2464, the Orion Express is a corporation designed to handle logistics for the
 	Stellar Corporate Conglomerate in the wake of the Phoron Scarcity and the sudden issues
 	the Conglomeration of the megacorporations presented. It consists of its main branch, dedicated
 	to cargo services and transport, but also features a fledgling robotics division, mainly focused
 	on industrial synthetics to aid in its logistics missions. The Orion Express is expected to become an
 	integral part of the Stellar Corporate Conglomerate's future through delivering supplies and merchandise throughout the Orion Spur.
-	</p>"}
-	departments = {"Operations<br>Service"}
+	"}
+	departments = list(DEPARTMENT_CARGO, DEPARTMENT_SERVICE)
 	title_suffix = "Orion"
 	wiki_page = "Orion_Express"
 

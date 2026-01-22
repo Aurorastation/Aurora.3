@@ -1,6 +1,6 @@
 /datum/faction/zeng_hu
 	name = "Zeng-Hu Pharmaceuticals"
-	description = {"<p>
+	description = {"
 	Zeng-Hu Pharmaceuticals, born of a merger of two major biotech companies on
 	Earth in 2032, was the first to successfully develop cryogenics in the 21st
 	century for the purposes of space travel. This development, crucial to
@@ -9,9 +9,8 @@
 	years, they were also the first mega-corporation to partner with the newly-discovered
 	Skrell, working closely with this alien species to pioneer cloning, a once
 	controversial field that is now more accepted today.
-	</p>"}
-
-	departments = {"Medical<br>Research"}
+	"}
+	departments = list(DEPARTMENT_MEDICAL, DEPARTMENT_SCIENCE)
 	title_suffix = "Zeng"
 	wiki_page = "Zeng-Hu_Pharmaceuticals"
 
