@@ -168,7 +168,7 @@
 /obj/item/reagent_containers/food/snacks/grown/messas_tear_tea
 	name = "messa's tear leaves"
 	desc = "Messa's tears are a medicinal herb found across Adhomai and its many Twin Suns churches. \
-			It's leaves, while traditionally used for treating burns, is a common choice for making traditional teas."
+			Its leaves, while traditionally used for treating burns, is a common choice for making traditional teas."
 	plantname = "mtear"
 	icon = 'icons/obj/item/reagent_containers/teaware.dmi'
 	icon_state = "messas_tear"

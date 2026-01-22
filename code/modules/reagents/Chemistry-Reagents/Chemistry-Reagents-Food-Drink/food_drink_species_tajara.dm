@@ -291,14 +291,14 @@
 /singleton/reagent/drink/tea/messa
 	name = "Messa's Tear Tea"
 	description = "Messa's tears are a medicinal herb found across Adhomai and its many Twin Suns churches. \
-					It's leaves, while traditionally used for treating burns, are a common choice for making traditional teas."
+					Its leaves, while traditionally used for treating burns, are a common choice for making traditional teas."
 	color = "#70a4a5"
 	taste_description = "bitter herbal honey tea"
 
 	glass_icon_state = "bigteacup"
 	glass_name = "cup of messa's tear tea"
 	glass_desc = "Messa's tears are a medicinal herb found across Adhomai and its many Twin Suns churches. \
-					It's leaves, while traditionally used for treating burns, are a common choice for making traditional teas."
+					Its leaves, while traditionally used for treating burns, are a common choice for making traditional teas."
 
 /singleton/reagent/drink/tea/rasnif
 	name = "Ras'nif Tea"

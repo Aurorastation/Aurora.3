@@ -1629,7 +1629,7 @@
 		/obj/item/reagent_containers/food/snacks/grown/messas_tear_tea = 12
 	)
 	desc_extended = "Messa's tears are a medicinal herb found across Adhomai and its many Twin Suns churches. \
-					It's leaves, while traditionally used for treating burns, are a common choice for making traditional teas."
+					Its leaves, while traditionally used for treating burns, are a common choice for making traditional teas."
 
 /obj/item/storage/box/unique/tea/messa/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
