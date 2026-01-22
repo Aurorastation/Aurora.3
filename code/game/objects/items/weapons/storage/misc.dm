@@ -239,7 +239,6 @@
 	icon_state = "solar_salve"
 	drop_sound = 'sound/items/drop/metal_pot.ogg'
 	pickup_sound = 'sound/items/drop/metal_pot.ogg'
-	use_sound = 'sound/items/storage/pillbottle.ogg'
 	use_sound = 'sound/items/storage/box.ogg'
 	w_class = WEIGHT_CLASS_NORMAL
 	throwforce = 2
