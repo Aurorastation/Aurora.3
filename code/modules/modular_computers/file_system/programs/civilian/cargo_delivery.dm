@@ -83,7 +83,7 @@
 				status_message = "The order is not yet shipped."
 				return TRUE
 		else
-			status_message = "Unable to process - Network Card or Cardreader Missing"
+			status_message = "Unable to process - Network Card or Card Reader Missing"
 			return TRUE
 
 	if(action == "pay")
@@ -99,7 +99,7 @@
 
 			order_details = co.get_list()
 
-			//Check if its already delivered
+			//Check if its already paid for
 			if(!order_details["needs_payment"])
 				status_message = "Unable to pay - Order has already been paid for."
 				return TRUE
@@ -140,7 +140,7 @@
 				status_message = co.set_paid(GetNameAndAssignmentFromId(id_card), usr.character_id)
 				order_details = co.get_list()
 		else
-			status_message = "Unable to process - Network Card or Cardreader Missing"
+			status_message = "Unable to process - Network Card or Card Reader Missing"
 			return TRUE
 
 
