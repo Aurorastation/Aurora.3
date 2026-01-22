@@ -20,7 +20,7 @@
 		/obj/structure/grille,
 		/turf/unsimulated/mineral/asteroid
 	)
-	footstep_sound = /singleton/sound_category/catwalk_footstep
+	footstep_sound = SFX_FOOTSTEP_CATWALK
 
 /obj/structure/lattice/assembly_hints(mob/user, distance, is_adjacent)
 	. += ..()
@@ -250,7 +250,7 @@
 	icon_state = "tatami"
 	return_amount = null
 	smoothing_flags = null
-	footstep_sound = /singleton/sound_category/carpet_footstep
+	footstep_sound = SFX_FOOTSTEP_CARPET
 
 /obj/structure/lattice/catwalk/indoor/planks
 	name = "flooring plank"
@@ -259,7 +259,7 @@
 	icon_state = "plank"
 	return_amount = null
 	smoothing_flags = null
-	footstep_sound = /singleton/sound_category/wood_footstep
+	footstep_sound = SFX_FOOTSTEP_WOOD
 
 /obj/structure/lattice/catwalk/indoor/planks/opaque
 	icon_state = "plank_dark"

@@ -4,7 +4,7 @@
 	desc = "An alien moss covers the ground."
 	icon = 'icons/turf/flooring/exoplanet/konyang.dmi'
 	icon_state = "grass"
-	footstep_sound = /singleton/sound_category/grass_footstep
+	footstep_sound = SFX_FOOTSTEP_GRASS
 
 /turf/simulated/floor/exoplanet/konyang/no_edge
 	has_edge_icon = FALSE
@@ -52,7 +52,7 @@
 	icon = 'icons/turf/flooring/exoplanet/konyang.dmi'
 	icon_state = "dirt"
 	layer = 1.99//to let the grass edges go over it, which otherwise doesnt happen due to positioning and byond layering
-	footstep_sound = /singleton/sound_category/asteroid_footstep
+	footstep_sound = SFX_FOOTSTEP_ASTEROID
 	has_edge_icon = FALSE
 
 /turf/simulated/floor/exoplanet/dirt_konyang/cave
@@ -69,6 +69,6 @@
 	desc = "Some fine, white sand."
 	icon = 'icons/turf/flooring/exoplanet/konyang/konyang_beach.dmi'
 	icon_state = "sand"
-	footstep_sound = /singleton/sound_category/asteroid_footstep
+	footstep_sound = SFX_FOOTSTEP_ASTEROID
 	smoothing_flags = SMOOTH_FALSE
 	has_edge_icon = FALSE

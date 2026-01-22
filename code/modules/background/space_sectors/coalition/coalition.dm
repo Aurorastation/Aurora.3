@@ -93,8 +93,8 @@
 	starlight_range = 2
 
 	lobby_tracks = list(
-		'sound/music/regional/xanu/xanu_rock_1.ogg',
-		'sound/music/regional/xanu/xanu_rock_2.ogg'
+		'sound/music/ingame/xanu/xanu_rock_1.ogg',
+		'sound/music/ingame/xanu/xanu_rock_2.ogg'
 	)
 
 /datum/space_sector/burzsia

@@ -418,7 +418,7 @@
 			var/empty_amount = RG.reagents.trans_to(src, RG.amount_per_transfer_from_this)
 			var/max_reagents = RG.reagents.maximum_volume
 			user.visible_message("<b>[user]</b> empties [empty_amount == max_reagents ? "all of \the [RG]" : "some of \the [RG]"] into \a [src].")
-			playsound(src.loc, /singleton/sound_category/generic_pour_sound, 10, 1)
+			playsound(src.loc, SFX_POUR, 10, 1)
 		return
 
 	// Filling/empying Syringes

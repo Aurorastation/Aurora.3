@@ -575,7 +575,7 @@
 		damtype = DAMAGE_BRUTE
 		w_class = initial(w_class)
 		welding = FALSE
-		hitsound = /singleton/sound_category/swing_hit_sound
+		hitsound = SFX_SWING_HIT
 		attack_verb = list("hit", "bludgeoned", "whacked")
 		set_processing(FALSE)
 		update_icon()
@@ -775,7 +775,7 @@
 				surgerysound = 'sound/items/surgery/hemostat.ogg'
 				tool_behaviour = TOOL_WIRECUTTER
 			if("crowbar")
-				usesound = /singleton/sound_category/crowbar_sound
+				usesound = SFX_CROWBAR
 				surgerysound = 'sound/items/surgery/retractor.ogg'
 				tool_behaviour = TOOL_CROWBAR
 			if("multitool")
@@ -937,8 +937,8 @@
 	attack_verb = list("smashed", "hammered")
 	drop_sound = 'sound/items/drop/crowbar.ogg'
 	pickup_sound = 'sound/items/pickup/crowbar.ogg'
-	usesound = /singleton/sound_category/hammer_sound
 	tool_behaviour = TOOL_HAMMER
+	usesound = SFX_HAMMER
 
 /obj/item/hammer/Initialize()
 	. = ..()

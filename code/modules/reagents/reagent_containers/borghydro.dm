@@ -194,7 +194,7 @@
 	target.reagents.add_reagent(rid, amt, temperature = temp)
 	reagent_volumes[rid] -= amt
 	to_chat(user, SPAN_NOTICE("You transfer [amt] units of [R.name] to [target]."))
-	playsound(src.loc, /singleton/sound_category/generic_pour_sound, 50, 1)
+	playsound(src.loc, SFX_POUR, 50, 1)
 	dispense()
 	return
 

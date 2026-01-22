@@ -2,7 +2,7 @@
 	name = "chemical dispenser"
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "dispenser"
-	clicksound = /singleton/sound_category/button_sound
+	clicksound = SFX_BUTTON
 	idle_power_usage = 100
 	density = TRUE
 	anchored = TRUE
