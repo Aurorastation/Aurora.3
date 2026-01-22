@@ -190,6 +190,29 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("oatmeal" = 3))
 	bitesize = 2
 
+/obj/item/reagent_containers/food/snacks/soup/zharkir
+	name = "zharkir"
+	desc = "A thick, hot, creamy dish, not unlike a chowder (and known as 'adhomian chowder' in some cultures). It is made with sarmikhir, earthenroot and various adhomian herbs, balancing sweet and savory, and served in a traditional dish - a tall bowl with grooves on the side just big enough for tajaran hands to hold it up to their mouths and warm themselves on a cold Adhomian evening."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/tajara.dmi'
+	icon_state = "zharkir"
+	is_liquid = TRUE
+	trash = /obj/item/trash/snack_bowl
+	center_of_mass = list("x"=15, "y"=9)
+	reagents_to_add = list(/singleton/reagent/drink/milk/adhomai = 5, /singleton/reagent/nutriment = 8)
+	reagent_data = list(/singleton/reagent/nutriment = list("sweet potato chowder" = 3))
+	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/soup/zharkir/update_icon()
+	var/expected_initial_reagent_volume
+	for(var/k in src.reagents_to_add)
+		expected_initial_reagent_volume += reagents_to_add[k]
+	var/percent_zharkir = round((reagents.total_volume / expected_initial_reagent_volume) * 100)
+	switch(percent_zharkir)
+		if(0 to 80)
+			icon_state = "zharkir_half"
+		if(81 to INFINITY)
+			icon_state = "zharkir"
+
 // Tajaran ingredients
 /obj/item/mollusc/clam/rasval
 	name = "ras'val clam"

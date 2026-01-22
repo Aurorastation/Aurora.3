@@ -57,6 +57,10 @@
 		new /obj/item/reagent_containers/food/drinks/carton/soymilk(src)
 		new /obj/item/reagent_containers/food/drinks/carton/cream(src)
 		new /obj/item/reagent_containers/food/condiment/soysauce(src)
+		new /obj/random/kitchen_staples(src)
+	for(var/i = 0 to 4)
+		new /obj/random/condiment(src)
+	new /obj/item/reagent_containers/food/snacks/spreads/butter(src)
 
 /obj/structure/closet/secure_closet/refrigerator/station/alt
 	name = "refrigerator"

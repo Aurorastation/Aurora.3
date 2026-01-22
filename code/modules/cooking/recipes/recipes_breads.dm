@@ -462,6 +462,13 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/blt
 
+/singleton/recipe/cucumber_sandwich
+	fruit = list("cucumber" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/breadslice,
+		/obj/item/reagent_containers/food/snacks/breadslice
+	)
+	result = /obj/item/reagent_containers/food/snacks/cucumber_sandwich
 
 //pita (these are all under bread for icon reasons)
 /singleton/recipe/pita

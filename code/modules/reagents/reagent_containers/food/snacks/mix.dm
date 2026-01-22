@@ -178,3 +178,15 @@
 	reagents_to_add = list(/singleton/reagent/nutriment = 8)
 	reagent_data = list(/singleton/reagent/nutriment = list("salad" = 2, "tomato" = 2, "bulgur" = 2, "greens" = 2))
 	bitesize = 3
+
+/obj/item/reagent_containers/food/snacks/salad/tossed_salad
+	name = "tossed salad"
+	desc = "Got some veggies? Got some dressing? Toss them all in here, call it a salad. Bam, done."
+	icon = 'icons/obj/item/reagent_containers/food/mix.dmi'
+	icon_state = "tossedsalad"
+	trash = /obj/item/trash/snack_bowl
+	filling_color = "#4a9953"
+	center_of_mass = list("x"=17, "y"=11)
+	reagents_to_add = list(/singleton/reagent/nutriment = 7, /singleton/reagent/drink/tomatojuice = 2)
+	reagent_data = list(/singleton/reagent/nutriment = list("lettuce" = 3, "tomato" = 3, "cucumber" = 2, "vinigrette" = 2))
+	bitesize = 2

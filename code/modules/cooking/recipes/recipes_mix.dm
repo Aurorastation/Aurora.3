@@ -125,3 +125,8 @@
 	result = /obj/item/reagent_containers/food/snacks/salad/jungle_salad
 	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
 
+/singleton/recipe/tossed_salad
+	fruit = list("cabbage" = 1, "tomato" = 1, "cucumber" = 1)
+	reagents = list(/singleton/reagent/sodiumchloride = 1)
+	result = /obj/item/reagent_containers/food/snacks/salad/tossed_salad
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
