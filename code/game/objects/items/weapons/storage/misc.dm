@@ -237,10 +237,11 @@
 	name = "adhomian tin"
 	desc = "A tin labeled in Siik'maas. It has a picture of an icy harbour on it."
 	icon_state = "solar_salve"
-	drop_sound = 'sound/items/drop/shovel.ogg'
-	pickup_sound = 'sound/items/pickup/shovel.ogg'
+	drop_sound = 'sound/items/drop/metal_pot.ogg'
+	pickup_sound = 'sound/items/drop/metal_pot.ogg'
 	use_sound = 'sound/items/storage/pillbottle.ogg'
-	w_class = WEIGHT_CLASS_SMALL
+	use_sound = 'sound/items/storage/box.ogg'
+	w_class = WEIGHT_CLASS_NORMAL
 	throwforce = 2
 	starts_with = list(/obj/item/clothing/mask/chewable/solar_salve = 6)
 	make_exact_fit = TRUE
