@@ -194,7 +194,7 @@
 			var/obj/P = pages[page]
 			page++
 			var/obj/A = pages[page]
-			playsound(src.loc, /singleton/sound_category/page_sound, 50, 1)
+			playsound(src.loc, SFX_PAGE_TURN, 50, 1)
 			if(A.type != P.type)
 				show_browser(usr, null, "window=[name]")
 	if(href_list["prev_page"])
@@ -202,7 +202,7 @@
 			var/obj/P = pages[page]
 			page--
 			var/obj/A = pages[page]
-			playsound(src.loc, /singleton/sound_category/page_sound, 50, 1)
+			playsound(src.loc, SFX_PAGE_TURN, 50, 1)
 			if(A.type != P.type)
 				show_browser(usr, null, "window=[name]")
 	if(href_list["remove"])
