@@ -2231,14 +2231,17 @@ All custom items with worn sprites must follow the contained sprite system: http
 		to_chat(user, SPAN_WARNING("You can't cut through the gloves."))
 		return
 
+	if(istype(target) && (target.species.flags & NO_BLOOD))
+		to_chat(user, SPAN_WARNING("You are unable to sacrifice blood."))
+		return
+
 	user.visible_message(SPAN_WARNING("[user] begins slicing open their palm with \the [src]!"))
 	if(!do_after(user, 4 SECOND, src))
 		user.visible_message(SPAN_WARNING("[user] stops slicing open their palm."))
 		return
 	user.visible_message(SPAN_WARNING("[user] slices open their palm with \the [src]!"))
 
-	if(istype(target) && !(target.species.flags & NO_BLOOD))
-		affected.status |= ORGAN_BLEEDING
+	affected.status |= ORGAN_BLEEDING
 
 	target.apply_damage(6, DAMAGE_BRUTE, target_zone, src, DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE)
 	add_blood(target)
@@ -2251,7 +2254,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 		if(U.religion == RELIGION_RASKARA || U.religion == RELIGION_RASKARA_ALT)
 			if(blood_overlay)
 				var/alist/l = alist("invite" = "2", "claim" = "3", "bind" = "4", "transform" = "5", "witness" = "6")
-				var/runetype = input(user, "What kind of ritual is to be done?", "Ritual") as null|anything in l
+				var/runetype = tgui_input_list(user, "What kind of ritual is to be done?", "Ritual", l)
 				if(runetype)
 					runetype = l[runetype]
 					create_raskariim_rune(user, runetype, get_turf(user))
