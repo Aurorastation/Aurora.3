@@ -3,7 +3,7 @@
 	name = "docking port controller"
 	var/datum/computer/file/embedded_program/airlock/docking/airlock_program
 	var/datum/computer/file/embedded_program/docking/airlock/docking_program
-	tag_secure = 1
+	tag_secure = TRUE
 
 /obj/machinery/embedded_controller/radio/airlock/docking_port/Initialize()
 	. = ..()
@@ -80,27 +80,27 @@
 	airlock_program.receive_signal(signal, receive_method, receive_param)	//pass along to subprograms
 	..(signal, receive_method, receive_param)
 
-//tell the docking port to start getting ready for docking - e.g. pressurize
+/// Tell the docking port to start getting ready for docking - e.g. pressurize
 /datum/computer/file/embedded_program/docking/airlock/prepare_for_docking()
 	airlock_program.begin_dock_cycle()
 
-//are we ready for docking?
+/// Are we ready for docking?
 /datum/computer/file/embedded_program/docking/airlock/ready_for_docking()
 	return airlock_program.done_cycling()
 
-//we are docked, open the doors or whatever.
+/// We are docked, open the doors or whatever.
 /datum/computer/file/embedded_program/docking/airlock/finish_docking()
 	airlock_program.enable_mech_regulators()
 	airlock_program.open_doors()
 
-//tell the docking port to start getting ready for undocking - e.g. close those doors.
+/// Tell the docking port to start getting ready for undocking - e.g. close those doors.
 /datum/computer/file/embedded_program/docking/airlock/prepare_for_undocking()
 	testing("[src.name] is closing doors")
 	airlock_program.stop_cycling()
 	airlock_program.close_doors()
 	airlock_program.disable_mech_regulators()
 
-//are we ready for undocking?
+/// Are we ready for undocking?
 /datum/computer/file/embedded_program/docking/airlock/ready_for_undocking()
 	var/ext_closed = airlock_program.check_exterior_door_secured()
 	var/int_closed = airlock_program.check_interior_door_secured()
