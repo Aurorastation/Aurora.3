@@ -11,6 +11,7 @@
 	</p>"}
 	departments = {"Command<br>Equipment"}
 	title_suffix = "SCC"
+	wiki_page = "Stellar_Corporate_Conglomerate"
 
 	allowed_role_types = SCC_ROLES
 

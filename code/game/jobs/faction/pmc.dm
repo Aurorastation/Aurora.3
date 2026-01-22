@@ -11,6 +11,7 @@
 	</p>"}
 	departments = {"Medical<br>Security"}
 	title_suffix = "PMCG"
+	wiki_page = "Private_Military_Contracting_Group"
 
 	allowed_role_types = PMC_ROLES
 

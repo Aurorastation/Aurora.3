@@ -13,6 +13,7 @@
 
 	departments = {"Medical<br>Research"}
 	title_suffix = "Zeng"
+	wiki_page = "Zeng-Hu_Pharmaceuticals"
 
 	allowed_role_types = ZENG_ROLES
 

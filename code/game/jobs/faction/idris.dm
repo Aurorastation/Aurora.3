@@ -11,6 +11,7 @@
 	</p>"}
 	departments = {"Security<br>Service"}
 	title_suffix = "Idris"
+	wiki_page = "Idris_Incorporated"
 
 	allowed_role_types = IDRIS_ROLES
 

@@ -10,6 +10,7 @@
 	</p>"}
 	departments = {"Operations<br>Service"}
 	title_suffix = "Orion"
+	wiki_page = "Orion_Express"
 
 	allowed_role_types = ORION_ROLES
 

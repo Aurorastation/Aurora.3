@@ -35,9 +35,11 @@
 			"name" = faction.name,
 			"desc" = faction.description,
 			"logo" = faction.get_logo_name(),
-			"departments" = faction.departments
+			"departments" = faction.departments,
+			"wiki_page" = faction.wiki_page
 		)))
 	data["factions"] = factions
+	data["wiki_url"] = GLOB.config.wikiurl
 	return data
 
 /datum/tgui_module/faction_select/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
@@ -65,6 +67,11 @@
 
 		occupation.validate_and_set_faction(faction)
 		return TRUE
+
+	if(action == "open_wiki")
+		var/client/client = usr.get_client()
+		client?.wiki(faction.wiki_page)
+		return FALSE
 
 /datum/tgui_module/faction_select/ui_assets(mob/user)
 	return list(

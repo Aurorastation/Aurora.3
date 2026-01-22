@@ -10,6 +10,7 @@
 	</p>"}
 	departments = {"Medical<br>Research<br>Service"}
 	title_suffix = "NT"
+	wiki_page = "NanoTrasen_Corporation"
 
 	is_default = TRUE
 

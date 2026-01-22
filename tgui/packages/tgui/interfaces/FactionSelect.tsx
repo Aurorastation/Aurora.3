@@ -8,14 +8,16 @@ export type FactionSelectData = {
   chosen_faction: string;
   viewed_faction: string;
   factions: Faction[];
-}
+  wiki_url: string;
+};
 
 export type Faction = {
   name: string;
   desc: string;
   logo: string;
   departments: string;
-}
+  wiki_page: string;
+};
 
 export const FactionSelect = () => {
   return (
@@ -125,7 +127,14 @@ const FactionInfo = (props, context) => {
       <Flex.Item>
         <Divider />
         <Box textAlign="center">
-          ━━ You can learn more about this faction on <a href='byond://?src=[REF(user.client)];JSlink=wiki;wiki_page=[replacetext(faction.name, " ", "_")]'>the wiki</a>. ━━
+          ━━ You can learn more about this faction on the wiki:&nbsp;
+          <Button
+            icon="arrow-up-right-from-square"
+            disabled={!currentFaction.wiki_page}
+            title={currentFaction.wiki_page ? data.wiki_url + currentFaction.wiki_page : "This faction currently has no wiki page"}
+            onClick={() => act("open_wiki", { "faction": currentFaction.name })}
+          />
+          &nbsp;━━
         </Box>
       </Flex.Item>
     </Flex>

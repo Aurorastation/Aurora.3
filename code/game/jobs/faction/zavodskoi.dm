@@ -10,6 +10,7 @@
 	</p>"}
 	departments = {"Engineering<br>Research<br>Security"}
 	title_suffix = "Zavod"
+	wiki_page = "Zavodskoi_Interstellar"
 
 	allowed_role_types = ZAVOD_ROLES
 

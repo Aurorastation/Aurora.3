@@ -12,6 +12,7 @@
 	</p>"}
 	departments = {"Engineering<br>Operations"}
 	title_suffix = "Hepht"
+	wiki_page = "Hephaestus_Industries"
 
 	allowed_role_types = HEPH_ROLES
 
