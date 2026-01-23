@@ -2,16 +2,7 @@
 import { classes } from 'common/react';
 import { resolveAsset } from '../assets';
 import { useBackend } from '../backend';
-import {
-  Box,
-  Button,
-  Divider,
-  Flex,
-  Icon,
-  LabeledList,
-  Section,
-  Stack,
-} from '../components';
+import { Box, Button, Divider, Flex, Icon, LabeledList, Section, Stack } from '../components';
 import { Window } from '../layouts';
 
 export type FactionSelectData = {
@@ -61,8 +52,7 @@ const FactionList = (props, context) => {
               selected={faction.name === data.chosen_faction}
               color={faction.name === data.viewed_faction ? 'label' : 'grey'}
               style={{ 'white-space': 'normal' }}
-              onClick={() => act('view_faction', { faction: faction.name })}
-            >
+              onClick={() => act('view_faction', { faction: faction.name })}>
               <Flex align="center" justify="space-between">
                 <Flex.Item bold fontSize={1.08}>
                   {faction.name}
@@ -107,8 +97,7 @@ const FactionInfo = (props, context) => {
             textAlign="center"
             bold
             fontSize={2.1}
-            fontFamily="Arial Black"
-          >
+            fontFamily="Arial Black">
             {currentFaction.name}
           </Box>
         </Section>
@@ -180,8 +169,7 @@ const FactionPanel = (props: { currentFaction: Faction }, context) => {
       height="100%"
       direction="column"
       align="center"
-      justify="space-between"
-    >
+      justify="space-between">
       <Flex.Item>
         <Stack vertical align="center" textColor="label">
           <Stack.Item>
@@ -218,9 +206,12 @@ const FactionPanel = (props: { currentFaction: Faction }, context) => {
               disabled={CanSelect()}
               onClick={() =>
                 act('choose_faction', { 'faction': currentFaction.name })
-              }
-            >
-              {`[${currentIsChosen ? 'Faction Selected' : (data.viewed_selection_error ?? 'Select Faction')}]`}
+              }>
+              {`[${
+                currentIsChosen
+                  ? 'Faction Selected'
+                  : data.viewed_selection_error ?? 'Select Faction'
+              }]`}
             </Button>
           </Stack.Item>
           <Stack.Item fontFamily="Tahoma" fontSize={1.05}>
