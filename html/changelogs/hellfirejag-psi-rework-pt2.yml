@@ -1,0 +1,10 @@
+author: Hellfirejag
+delete-after: True
+changes:
+  - rscadd: "Added 3 new traits (which are temporarily in the disabilities tab) related to psi-sensitivity."
+  - rscadd: "Magic powers of all kinds no longer by-default play the generic pickup and drop sounds. This includes psionic powers, which are now silent to equip."
+  - rscadd: "Canonical psionic powers and some antag psi powers are now invisible when held."
+  - rscadd: "Psi-Suppression is now a passively toggled ability which works like a stronger mindshield/mindblanker. It no longer requires you hold the power in hand."
+  - bugfix: "Psi-protection sources like Mindshield, Mindblanker, and Psi-Suppression no longer play messages when they passively hide you from Psi-Search."
+  - rscadd: "Assay no longer gives away antag status by telling you outright if someone is an antag psychic. It instead gives you hints as to the target's psi-sensitivity (which aren't conclusive of antags)."
+  - rscadd: "Overdosing on Wulumunusha now temporarily increases psi-sensitivity until the high wears off."

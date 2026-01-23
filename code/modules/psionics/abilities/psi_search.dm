@@ -32,8 +32,6 @@
 			if(H == L)
 				continue
 			if((GET_Z(H) == GET_Z(L)) && !H.is_psi_blocked(user, TRUE))
-				if(HAS_TRAIT(H, TRAIT_PSIONIC_SUPPRESSION))
-					continue
 				level_humans |= H
 				if(H.psi)
 					if(H.psi.get_rank() >= PSI_RANK_APEX)

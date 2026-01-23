@@ -476,10 +476,19 @@
 		to_chat(M, SPAN_GOOD(pick("You can almost see the currents of air as they dance around you.", "You see the colours around you beginning to bleed together.", "You feel safe and comfortable.")))
 
 /singleton/reagent/wulumunusha/overdose(mob/living/carbon/M, alien, removed = 0, scale = 1, datum/reagents/holder)
+	M.AddComponent(WuluOverdoseComponent)
 	if(!M.psi || M.check_psi_sensitivity() < PSI_RANK_SENSITIVE)
 		return
 
 	M.hallucination = max(M.hallucination, 10 * scale)	//light hallucinations that afflict the psionically sensitive.
+
+/singleton/reagent/wulumunusha/final_effect(mob/living/carbon/M, datum/reagents/holder)
+	. = ..()
+	var/wulu_overdose_comp = M.GetComponent(WuluOverdoseComponent)
+	if (!wulu_overdose_comp)
+		return
+
+	qdel(wulu_overdose_comp)
 
 /singleton/reagent/drugs/ambrosia_extract
 	name = "Ambrosia Extract"

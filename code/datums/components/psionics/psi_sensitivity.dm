@@ -11,6 +11,12 @@
 #define LowPsiSensitivityComponent /datum/component/psi_sensitivity/low
 
 /**
+ * Component that gets temporarily attached to someone who consumes excessive amounts of Wulumunusha.
+ * When the Wulumunusha high wears off, the component deletes itself.
+ */
+#define WuluOverdoseComponent /datum/component/psi_sensitivity/wulu_overdose
+
+/**
  * When attached to any datum, this component subscribes to COMSIG_PSI_CHECK_SENSITIVITY and COMSIG_PSI_MIND_POWER on behalf of its owner.
  * It provides a +2 modifier to Psi Sensitivity Checks.
  * It also cancels telepathy attempts, while spiking both owner and caster with painful interference.
@@ -26,7 +32,10 @@
 	var/sensitivity_modifier = 0
 
 /datum/component/psi_sensitivity/Initialize()
-	..()
+	. = ..()
+	if (!parent)
+		return
+
 	RegisterSignal(parent, COMSIG_PSI_CHECK_SENSITIVITY, PROC_REF(modify_sensitivity), override = TRUE)
 
 /datum/component/psi_sensitivity/Destroy()
@@ -46,6 +55,9 @@
 /datum/component/psi_sensitivity/low
 	sensitivity_modifier = -1
 
+/datum/component/psi_sensitivity/wulu_overdose
+	sensitivity_modifier = 1
+
 /// Variant of high-sensitivity that has a two-way brain damage spike.
 /datum/component/psi_sensitivity/echoes
 	sensitivity_modifier = 2
@@ -57,7 +69,10 @@
 	var/confusion_from_telepathy = 1 MINUTE
 
 /datum/component/psi_sensitivity/echoes/Initialize()
-	..()
+	. = ..()
+	if (!parent)
+		return
+
 	RegisterSignal(parent, COMSIG_PSI_MIND_POWER, PROC_REF(cancel_power_echoes), override = TRUE)
 
 /datum/component/psi_sensitivity/echoes/Destroy()
@@ -73,6 +88,7 @@
 		return
 
 	// Block the telepathic message.
+	// This is intentionally done after the wide field check, because including them in psi-search adds uncertainty to Skrell trying to validhunt.
 	*cancelled = TRUE
 
 	// SLAP THE PARENT!
