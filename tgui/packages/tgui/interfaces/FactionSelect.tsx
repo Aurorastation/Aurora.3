@@ -91,6 +91,13 @@ const FactionInfo = (props, context) => {
     (faction) => faction.name === data.viewed_faction
   )!; // Non-null assertion for `currentFaction` since if it is null, that shouldn't be handled here.
 
+  const FormatDescription = (text: string) => {
+    return text
+      .replace(/\n\t/g, ' ')
+      .replace(/<br>\s*/g, '\n')
+      .trim();
+  };
+
   return (
     <Flex height="100%" direction="column" justify="space-between">
       <Flex.Item>
@@ -112,8 +119,8 @@ const FactionInfo = (props, context) => {
       <Flex.Item grow>
         <Flex height="100%">
           <Flex.Item grow>
-            <Section fill scrollable fontSize={1.1}>
-              {currentFaction.desc}
+            <Section fill scrollable fontSize={1.1} preserveWhitespace>
+              {FormatDescription(currentFaction.desc)}
             </Section>
           </Flex.Item>
           <Flex.Item align="center" height="100%" mt={12.5}>
@@ -140,7 +147,7 @@ const FactionInfo = (props, context) => {
             title={
               currentFaction.wiki_page
                 ? data.wiki_url + currentFaction.wiki_page
-                : 'This faction currently has no wiki page'
+                : 'This faction does not have a wiki page'
             }
             onClick={() => act('open_wiki', { 'faction': currentFaction.name })}
           />

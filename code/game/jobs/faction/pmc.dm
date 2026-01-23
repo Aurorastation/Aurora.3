@@ -2,9 +2,9 @@
 	name = "Private Military Contracting Group"
 	description = {"
 	The Private Military Contracting Group is a coalition of security and medical contractors;
-	borne from the necessity of protecting the Stellar Corporate Conglomerate and its holdings.
+	borne from the necessity of protecting the Stellar Corporate Conglomerate and its holdings.<br>
 	Following the ever-growing corporate empire, mercenaries and contractors from all across the spur are deployed accordingly;
-	from mere office buildings to outposts in the Corporate Reconstruction Zone.
+	from mere office buildings to outposts in the Corporate Reconstruction Zone.<br><br>
 	Unlike the other members of the Corporate Conglomerate, the Private Military Contracting Group has few employees of its own.
 	Only some liaisons and bureaucrats work behind the scenes to hire and manage the contractors;
 	the rest of its members are part of several organizations contracted to supply the PMCG.

@@ -5,7 +5,7 @@
 	Earth in 2032, was the first to successfully develop cryogenics in the 21st
 	century for the purposes of space travel. This development, crucial to
 	interstellar colonization, helped propel them to their current position as the
-	largest pharmaceutical and medical corporation in the Orion Spur. In more recent
+	largest pharmaceutical and medical corporation in the Orion Spur.<br> In more recent
 	years, they were also the first mega-corporation to partner with the newly-discovered
 	Skrell, working closely with this alien species to pioneer cloning, a once
 	controversial field that is now more accepted today.
