@@ -9,7 +9,7 @@
 	power_use = FALSE
 	on = TRUE
 	slot_flags = 0 //No wearing desklamps
-	toggle_sound = /singleton/sound_category/switch_sound
+	toggle_sound = SFX_SWITCH
 	activation_sound = 'sound/effects/lighton.ogg'
 	light_system = MOVABLE_LIGHT
 	light_range = 3

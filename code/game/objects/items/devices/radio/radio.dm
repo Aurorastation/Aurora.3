@@ -55,7 +55,7 @@ var/global/list/default_interrogation_channels = list(
 	/// Automatically set on initialize, only update if bypass_default_internal is set to TRUE
 	var/list/internal_channels
 	/// played sound on usage
-	var/clicksound = /singleton/sound_category/button_sound
+	var/clicksound = SFX_BUTTON
 	/// volume of clicksound
 	var/clickvol = 10
 

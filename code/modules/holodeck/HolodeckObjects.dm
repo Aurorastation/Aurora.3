@@ -18,7 +18,7 @@
 	icon = 'icons/turf/flooring/carpet.dmi'
 	icon_state = "carpet"
 	initial_flooring = /singleton/flooring/carpet
-	footstep_sound = /singleton/sound_category/carpet_footstep
+	footstep_sound = SFX_FOOTSTEP_CARPET
 
 /turf/simulated/floor/holofloor/carpet/rubber
 	name = "rubber carpet"
@@ -83,7 +83,7 @@
 	initial_flooring = /singleton/flooring/reinforced
 	name = "reinforced holofloor"
 	icon_state = "reinforced"
-	footstep_sound = /singleton/sound_category/tiles_footstep
+	footstep_sound = SFX_FOOTSTEP_TILES
 
 /turf/simulated/floor/holofloor/space
 	icon = 'icons/turf/space.dmi'
@@ -109,7 +109,7 @@
 	base_icon_state = "sand"
 	base_icon = 'icons/misc/beach.dmi'
 	initial_flooring = null
-	footstep_sound = /singleton/sound_category/sand_footstep
+	footstep_sound = SFX_FOOTSTEP_SAND
 
 /turf/simulated/floor/holofloor/beach/sand
 	name = "sand"
@@ -119,13 +119,13 @@
 	icon = 'icons/misc/beach2.dmi'
 	icon_state = "sandwater"
 	base_icon_state = "sandwater"
-	footstep_sound = /singleton/sound_category/water_footstep
+	footstep_sound = SFX_FOOTSTEP_WATER
 
 /turf/simulated/floor/holofloor/beach/water
 	name = "water"
 	icon_state = "seashallow"
 	base_icon_state = "seashallow"
-	footstep_sound = /singleton/sound_category/water_footstep
+	footstep_sound = SFX_FOOTSTEP_WATER
 
 /turf/simulated/floor/holofloor/desert
 	name = "desert sand"
@@ -137,7 +137,7 @@
 	icon = 'icons/turf/flooring/asteroid.dmi'
 	base_icon = 'icons/turf/flooring/asteroid.dmi'
 	initial_flooring = null
-	footstep_sound = /singleton/sound_category/sand_footstep
+	footstep_sound = SFX_FOOTSTEP_SAND
 
 /turf/simulated/floor/holofloor/desert/Initialize()
 	. = ..()
@@ -191,7 +191,7 @@
 	return
 
 /obj/structure/window/reinforced/holowindow/shatter(var/display_message = 1)
-	playsound(src, /singleton/sound_category/glass_break_sound, 70, 1)
+	playsound(src, SFX_BREAK_GLASS, 70, 1)
 	if(display_message)
 		visible_message("[src] fades away as it shatters!")
 	qdel(src)
@@ -233,7 +233,7 @@
 
 /obj/machinery/door/window/holowindoor/shatter(var/display_message = 1)
 	src.density = 0
-	playsound(src, /singleton/sound_category/glass_break_sound, 70, 1)
+	playsound(src, SFX_BREAK_GLASS, 70, 1)
 	if(display_message)
 		visible_message("[src] fades away as it shatters!")
 	qdel(src)
@@ -330,8 +330,8 @@
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	can_embed = 0
 	drop_sound = 'sound/items/drop/sword.ogg'
-	pickup_sound = /singleton/sound_category/sword_pickup_sound
-	equip_sound = /singleton/sound_category/sword_equip_sound
+	pickup_sound = SFX_PICKUP_SWORD
+	equip_sound = SFX_EQUIP_SWORD
 
 /obj/item/holo/practicesword/holorapier
 	name = "fencing rapier"
@@ -482,6 +482,19 @@
 	meat_type = null
 	light_range = 2
 	smart_melee = TRUE
+	blood_overlay_icon = null
+	blood_type = null
+
+/mob/living/simple_animal/hostile/carp/holodeck/Initialize()
+	. = ..()
+	atom_flags |= ATOM_FLAG_NO_BLOOD
+
+/mob/living/simple_animal/hostile/carp/holodeck/handle_bleeding_timer(var/damage_inflicted)
+	return
+/mob/living/simple_animal/hostile/carp/holodeck/handle_blood(var/force_reset = FALSE)
+	return
+/mob/living/simple_animal/hostile/carp/holodeck/bullet_impact_visuals(obj/projectile/impacting_projectile, def_zone, damage, blocked)
+	return
 
 /mob/living/simple_animal/hostile/carp/holodeck/proc/set_safety(var/safe)
 	if (safe)
@@ -587,3 +600,14 @@
 /mob/living/simple_animal/cat/kitten/holodeck/death()
 	..()
 	derez()
+
+//Holo xenofauna gun
+
+/obj/item/gun/energy/mousegun/xenofauna/holo
+	projectile_type = /obj/projectile/beam/mousegun/xenofauna_holo
+	name = "holo xenofauna gun"
+	desc = "The NT \"Arodentia\" Pesti-Shock is a highly sophisticated and probably safe beamgun designed for rapid pest-control. This one is holographic and harmless to actual lifeforms."
+	max_shots = 100
+	recharge_time = 1
+	self_recharge = TRUE
+	recharge_multiplier = 5

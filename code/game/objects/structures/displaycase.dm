@@ -53,7 +53,7 @@
 		density = FALSE
 		destroyed = TRUE
 		new /obj/item/material/shard(loc)
-		playsound(src, /singleton/sound_category/glass_break_sound, 70, 1)
+		playsound(src, SFX_BREAK_GLASS, 70, 1)
 		update_icon()
 
 /obj/structure/displaycase/update_icon()
