@@ -22,7 +22,7 @@
 	occupation.on_ui_close()
 
 /datum/tgui_module/faction_select/ui_data(mob/user)
-	var/list/data = list()
+	var/list/data = alist()
 	data["chosen_faction"] = occupation.pref.faction
 
 	var/datum/faction/faction_datum = get_faction(viewed_faction, user)
@@ -33,14 +33,14 @@
 	return data
 
 /datum/tgui_module/faction_select/ui_static_data(mob/user)
-	var/list/data = list() // todo: alist
+	var/list/data = alist()
 
 	var/list/factions = list()
 	for(var/datum/faction/faction as anything in SSjobs.factions)
 		if(!faction.is_visible(user))
 			continue
 
-		factions.Add(list(list(
+		factions.Add(list(alist(
 			"name" = faction.name,
 			"desc" = faction.description,
 			"logo" = faction.get_logo_name(),
