@@ -17,6 +17,10 @@
 		ui.set_autoupdate(FALSE)
 		ui.open()
 
+/datum/tgui_module/faction_select/ui_close(mob/user)
+	. = ..()
+	occupation.on_ui_close()
+
 /datum/tgui_module/faction_select/ui_data(mob/user)
 	var/list/data = list()
 	data["chosen_faction"] = occupation.pref.faction
@@ -82,6 +86,7 @@
 	if(!istype(faction) || !faction.is_visible(user))
 		if(!quiet)
 			to_chat(usr, SPAN_WARNING("Invalid faction chosen. Resetting to [SSjobs.default_faction.name]."))
+		update_static_data(user) // Update the faction list to hopefully remove anything invalid.
 		return SSjobs.default_faction
 
 	return faction

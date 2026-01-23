@@ -307,6 +307,9 @@
 
 	return ..()
 
+/datum/category_item/player_setup_item/occupation/proc/on_ui_close()
+	faction_ui = null
+
 /datum/category_item/player_setup_item/occupation/proc/sanitize_faction()
 	if (!SSjobs.name_factions[pref.faction])
 		pref.faction = SSjobs.default_faction.name

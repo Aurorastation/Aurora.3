@@ -180,7 +180,7 @@ const FactionPanel = (props: { currentFaction: Faction }, context) => {
               disabled={CanSelect()}
               onClick={() => act("choose_faction", { "faction": currentFaction.name })}
             >
-              {`[${data.viewed_selection_error ?? (currentIsChosen ? "Faction Selected" : "Select Faction")}]`}
+              {`[${currentIsChosen ? "Faction Selected" : (data.viewed_selection_error ?? "Select Faction")}]`}
             </Button>
           </Stack.Item>
           <Stack.Item fontFamily="Tahoma" fontSize={1.05}>
