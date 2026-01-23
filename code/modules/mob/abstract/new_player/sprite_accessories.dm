@@ -3354,12 +3354,6 @@ Follow by example and make good judgement based on length which list to include 
 	length = 2
 	chatname = "ponytail"
 
-/datum/sprite_accessory/hair/taj_ears/taj_ears_beehive
-	name=  "Tajara Beehive"
-	icon_state = "hair_beehive"
-	length = 2
-	chatname = "ponytail"
-
 /datum/sprite_accessory/hair/taj_ears/taj_ears_longfringe
 	name = "Tajara Long Fringe"
 	icon_state = "hair_longfringe"
@@ -3702,12 +3696,6 @@ Follow by example and make good judgement based on length which list to include 
 /datum/sprite_accessory/hair/msai_ears/msai_ears_ponytail_zieglertail
 	name = "M'sai Ponytail, Zieglertail"
 	icon_state = "msai_ponytail_ziegler"
-	length = 2
-	chatname = "ponytail"
-
-/datum/sprite_accessory/hair/msai_ears/msai_ears_beehive
-	name = "M'sai Beehive"
-	icon_state = "msai_beehive"
 	length = 2
 	chatname = "ponytail"
 
