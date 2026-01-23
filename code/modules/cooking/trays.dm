@@ -9,6 +9,8 @@
 	name = "tray"
 	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "tray"
+	item_state = "tray"
+	contained_sprite = TRUE
 	desc = "A metal tray to lay food on."
 	throwforce = 12.0
 	force = 15

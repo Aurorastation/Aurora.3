@@ -58,4 +58,5 @@ changes:
   - rscadd: "Added cucumbers."
   - rscadd: "Re-added randomly chosen items spawning in the fridges at shift start like they did before the scarcity arc."
   - rscadd: "Added a few cucumber dishes and one Adhomian cuisine dish."
+  - rscadd: "Made it so it's visible when your character is holding a kitchen tray."
   - bugfix: "Fixed sugar tree fruit not showing up."
