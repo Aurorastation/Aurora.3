@@ -102,6 +102,11 @@
 /obj/item/clothing/mask/gas/alt,
 /turf/template_noop,
 /area/template_noop)
+"bA" = (
+/obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
+/obj/structure/reagent_dispensers/radioactive_waste,
+/turf/template_noop,
+/area/template_noop)
 "bU" = (
 /obj/vehicle/bike/motor/green,
 /turf/template_noop,
@@ -282,6 +287,10 @@
 /obj/structure/closet/masks,
 /turf/template_noop,
 /area/template_noop)
+"gV" = (
+/obj/effect/decal/cleanable/greenglow/radioactive/low,
+/turf/template_noop,
+/area/template_noop)
 "ha" = (
 /obj/structure/table/rack/no_cargo,
 /obj/structure/closet/crate/loot/contraband,
@@ -306,11 +315,6 @@
 /area/template_noop)
 "hu" = (
 /obj/vehicle/bike/motor/brown,
-/turf/template_noop,
-/area/template_noop)
-"hL" = (
-/obj/machinery/power/portgen/basic/fusion,
-/obj/effect/decal/cleanable/greenglow/radioactive/medium,
 /turf/template_noop,
 /area/template_noop)
 "hY" = (
@@ -714,11 +718,6 @@
 /obj/item/bluespace_crystal/artificial,
 /turf/template_noop,
 /area/template_noop)
-"qT" = (
-/obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
-/obj/structure/reagent_dispensers/radioactive_waste,
-/turf/template_noop,
-/area/template_noop)
 "rx" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
 /obj/machinery/media/jukebox/calliope,
@@ -1083,11 +1082,6 @@
 /obj/item/clothing/gloves/janitor/tajara,
 /obj/item/clothing/gloves/janitor/unathi,
 /obj/item/clothing/gloves/janitor/vaurca,
-/turf/template_noop,
-/area/template_noop)
-"zH" = (
-/obj/structure/reagent_dispensers/radioactive_waste/hazardous/low,
-/obj/effect/decal/cleanable/greenglow/radioactive/low,
 /turf/template_noop,
 /area/template_noop)
 "zP" = (
@@ -1476,9 +1470,9 @@
 	},
 /turf/template_noop,
 /area/template_noop)
-"Mh" = (
+"Mk" = (
 /obj/effect/decal/cleanable/greenglow/radioactive/low,
-/obj/structure/reagent_dispensers/radioactive_waste,
+/obj/structure/reagent_dispensers/radioactive_waste/hazardous/low,
 /turf/template_noop,
 /area/template_noop)
 "Ms" = (
@@ -1490,15 +1484,14 @@
 /obj/random/maintenance_junk_or_loot,
 /turf/template_noop,
 /area/template_noop)
+"MJ" = (
+/obj/machinery/power/portgen/basic/fusion,
+/obj/effect/decal/cleanable/greenglow/radioactive/medium,
+/turf/template_noop,
+/area/template_noop)
 "MQ" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
 /obj/machinery/vending/hydronutrients,
-/turf/template_noop,
-/area/template_noop)
-"MR" = (
-/obj/structure/warp_drive{
-	anchored = 0
-	},
 /turf/template_noop,
 /area/template_noop)
 "MW" = (
@@ -1616,11 +1609,6 @@
 /obj/random/action_figure,
 /turf/template_noop,
 /area/template_noop)
-"Pz" = (
-/obj/effect/decal/cleanable/greenglow/radioactive/low,
-/obj/structure/reagent_dispensers/radioactive_waste/hazardous/low,
-/turf/template_noop,
-/area/template_noop)
 "PD" = (
 /obj/machinery/food_cart,
 /turf/template_noop,
@@ -1700,10 +1688,6 @@
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/template_noop,
 /area/template_noop)
-"Rs" = (
-/obj/effect/decal/cleanable/greenglow/radioactive/low,
-/turf/template_noop,
-/area/template_noop)
 "Rz" = (
 /obj/item/storage/box/fancy/yoke/alcoholic/random,
 /obj/item/storage/box/fancy/yoke/alcoholic/random,
@@ -1716,6 +1700,11 @@
 /obj/item/rig/skrell,
 /obj/structure/table/rack/no_cargo,
 /obj/random/dirt_75,
+/turf/template_noop,
+/area/template_noop)
+"RD" = (
+/obj/structure/reagent_dispensers/radioactive_waste/hazardous/low,
+/obj/effect/decal/cleanable/greenglow/radioactive/low,
 /turf/template_noop,
 /area/template_noop)
 "RG" = (
@@ -1878,6 +1867,11 @@
 /obj/random/pizzabox,
 /turf/template_noop,
 /area/template_noop)
+"Vz" = (
+/obj/effect/decal/cleanable/greenglow/radioactive/low,
+/obj/structure/reagent_dispensers/radioactive_waste,
+/turf/template_noop,
+/area/template_noop)
 "VO" = (
 /obj/structure/table/rack/no_cargo,
 /obj/item/toy/figure/janitor,
@@ -2013,6 +2007,12 @@
 /area/template_noop)
 "Zm" = (
 /obj/machinery/portable_atmospherics/canister/empty/oxygen,
+/turf/template_noop,
+/area/template_noop)
+"ZK" = (
+/obj/structure/warp_drive{
+	anchored = 0
+	},
 /turf/template_noop,
 /area/template_noop)
 "ZM" = (
@@ -2418,7 +2418,7 @@ Gz
 sW
 uO
 Gz
-MR
+ZK
 Gz
 tG
 Gz
@@ -2692,11 +2692,11 @@ Gz
 Gz
 Gz
 sW
-zH
+RD
 xM
 NI
-Pz
-qT
+Mk
+bA
 Gz
 Gz
 Gz
@@ -2738,11 +2738,11 @@ Gz
 Gz
 Gz
 Gz
-hL
+MJ
 Gz
-Rs
+gV
 Gz
-Mh
+Vz
 Gz
 Gz
 Gz

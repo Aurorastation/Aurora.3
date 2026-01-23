@@ -35,5 +35,5 @@
 			and Moghes entirely in search of purpose elsewhere in the spur, although influence from Unathi society can certainly still be felt by them."
 	important_information = "This option is for both Dionae who were originally grown in the Wastes and Wild Dionae who somehow managed to find their way to Moghes and the Wastes."
 	possible_accents = list(ACCENT_IRONSONG, ACCENT_CRIMSONSONG, ACCENT_SANDSONG, ACCENT_WASTESONG)
-	possible_citizenships = list(CITIZENSHIP_IZWESKI, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
+	possible_citizenships = list(CITIZENSHIP_IZWESKI, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION, CITIZENSHIP_NONE)
 	possible_religions = list(RELIGION_THAKH, RELIGION_SKAKH, RELIGION_ETERNAL, RELIGION_ETERNAL_ICHOR, RELIGION_ETERNAL_IRON, RELIGION_OTHER)

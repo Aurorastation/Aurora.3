@@ -1,0 +1,119 @@
+2026-01-04:
+  MattAtlas:
+  - bugfix: The Set Odyssey Type verb now properly works, and can be used as soon
+      as the lobby starts.
+  - rscadd: Administrators can now manually change Odyssey canonicity.
+2026-01-06:
+  steviii:
+  - bugfix: Fixed the Phoron Deposit site only having south-facing navpoints.
+  - rscadd: Added coded-in navpoints to the Phoron Deposit site, instead of using
+      automatic navpoints.
+2026-01-15:
+  Batrachophreno:
+  - code_imp: Updated crates and lockers to use standalone security panel sprite overlays.
+  - refactor: Moved several container spritesheets to a dedicated folder.
+  Batrachophrenoboocosmomachia:
+  - bugfix: Removes accidental leftover world debug lines from janicarts.
+  CatsinHD:
+  - rscadd: Medical scans can be attached to rollerbeds.
+  - qol: Rollerbeds now use a radial menu for detaching vitals monitors, IVs, medical
+      scans, and changing IV transfer rate.
+  ElorgRHG:
+  - imageadd: Resprited all Tajaran consular clothing.
+  - rscadd: Added a female version of the NKA consular uniform.
+  - rscadd: Added Tajaran consular coats.
+  - rscadd: Added extended descriptions to all Tajaran consular clothing items.
+  - rscdel: Removed Tajaran consular side caps.
+  GeneralCamo:
+  - rscadd: Ported the microlathe from Bay. This is a small autolathe that can make
+      cutlery and drinking glasses.
+  - rscadd: Autolathes now make a sound when producing something.
+  - refactor: Refactored the autolathe to have its recipes handled by a subsystem,
+      in preparation for further refactors.
+  - qol: Changed the autolathe interface to show time remaining to print an item,
+      in seconds.
+  - balance: Stacks of materials printed from an autolathe, now multiply the amount
+      of time required to print the item.
+  - balance: Autolathes now use microlasers to improve efficiency. Manipulators now
+      solely increase build time.
+  - bugfix: Repaired atmos heat effect.
+  - bugfix: Repaited atmos cold effect.
+  - bugfix: Repaired gravity catapult effect.
+  - rscadd: M'sai tajara can now spawn as bridge crew
+  - bugfix: Fixed unathi and tajara bridge crew receiving human lace-up shoes.
+  Hellfirejag:
+  - rscadd: Cortical Borers can now be Jar'd
+  Jasorn:
+  - bugfix: Fixed ambrosia messages not appearing while smoking.
+  Kano:
+  - bugfix: Fixed an issue preventing the AI eye from traversing Z-levels.
+  Mynameasjeff:
+  - rscadd: Revives the long-lost Solarian Light Coilgun (credit goes to @TheDanseMacabre
+      for the assets and code)
+  - rscadd: Replaces the SSRM Recon Corvette's Grauwolf with said coilgun.
+  - rscadd: Added Valley Hale spawns for the Imperial Fleet corvette, Dominian Science
+      Ship, and the House Kazhk Privateer
+  TheGreyWolf:
+  - bugfix: The Ve'katak Phalanx Hivenet receiver now works properly again and don't
+      permit speaking outside the preset messages on the hivenet.
+  - bugfix: The Zeng-Hu Nral'malic language processor now properly doesn't allow speaking
+      in nral'malic.
+2026-01-18:
+  4000daniel1:
+  - bugfix: Fixed the holodeck combat arena not loading in when you try to load it
+      in the holodeck.
+  - rscadd: Also changed the arena's mapping and added xenofauna blasters to it.
+  Batrachophrenoboocosmomachia:
+  - rscadd: Spilled radium now generates (weakly) radioactive puddles of green goo,
+      just like Uranium.
+  - balance: Extends Greimorian eggsac incubation time by 50%.
+  - balance: Introduces a probability element to greimorian egg toxin metabolism;
+      after being injected with the reagent, each metabolism tick only has a % chance
+      to create the eggsac 'organ', meaning quick helmizole injection (or dumb luck)
+      can prevent incubation entirely.
+  - balance: Introduces clamp on spiderling generation counter to prevent RNG from
+      causing outsized impact from single eggsac rupture.
+  - balance: If the randomly chosen body part a Greimorian eggsac would infest is
+      the head, the victim will get an extra reroll of target body part to avoid the
+      associated instant death risk.
+  - balance: Consuming radioactive waste is now MUCH unhealthier. Don't eat radioactive
+      waste.
+  - qol: Updates some antagonist tips (removed old/deprecated ones, added new one.)
+  - bugfix: Removed greimorian eggsacs now dissolve into goo as intended.
+2026-01-19:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Fixes -vend animation icon_state name for ramen vending machine.
+  Mynameasjeff:
+  - bugfix: Fixes several errors on the Sol Frigate.
+  - spellcheck: Fixes several spelling errors on things related to the Sol Frigate
+  - balance: Changes the Sol Frigate's spawn weight in the Valley Hale and Badlands
+      to 1 instead of .75, on account of how many ships it has to compete with to
+      spawn.
+  TheGreyWolf:
+  - rscdel: Removed some LRP sound files.
+2026-01-20:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Fixes shield diffusers no longer diffusing targeted shield segments (used
+      for mass driver ejection paths).
+  - bugfix: Moves air alarm hidden behind D3 starboard central hallway shutters to
+      visible free spot on opposite wall.
+  - rscadd: Adds tintable window control to the Horizon's exam room.
+  - rscadd: Adds tintable window controls for both the interior and exterior windows
+      of the Horizon's recovery room.
+  - rscadd: Adds an additional light to a particularly dark corner of the Horizon's
+      d2 hard storage room.
+2026-01-23:
+  Batrachophrenoboocosmomachia:
+  - refactor: Ported Jukebox's NanoUI interface to TGUI.
+  - refactor: Ported Jukebox audio playing functionality to a component.
+  - refactor: Sound keys refactored from singletons to datums, along with larger breakout
+      of sound.dm to allow for easier SFX updates in future.
+  - code_imp: Expanded track datums to include track lengths.
+  - code_imp: Reorganized music file folders for more intuitive access.
+  - rscadd: Earphone status feedback text now includes track length.
+  - rscadd: Added autoplay functionality to earphones.
+  - bugfix: Fixed earphones' 'Previous Song' verb not sending you to the end of the
+      playlist when used while the first track is selected.
+  - bugfix: Fixed gain adjustment for 'Konyang-1' (-23 dB -> standard -9.8 dB).
+  - bugfix: Fixed y-offset of audioconsole-running overlay animation to line up with
+      the actual screen.

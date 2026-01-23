@@ -176,6 +176,9 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary
 	color = "#5b5b5b"
 
+/turf/simulated/wall/shuttle/space_ship/industrial
+	color = "#6E5B4A"
+
 //--Unique Shuttles--//
 
 /turf/simulated/wall/shuttle/unique
@@ -528,7 +531,7 @@
 	icon = 'icons/turf/shuttle.dmi'
 	icon_state = "floor"
 	initial_flooring = /singleton/flooring/shuttle
-	footstep_sound = /singleton/sound_category/plating_footstep
+	footstep_sound = SFX_FOOTSTEP_PLATING
 
 /turf/simulated/floor/shuttle/yellow
 	icon_state = "floor2"
@@ -572,7 +575,7 @@
 /turf/simulated/floor/shuttle/skrell
 	icon_state = "skrell_purple"
 	initial_flooring = /singleton/flooring/shuttle/skrell
-	footstep_sound = /singleton/sound_category/sand_footstep
+	footstep_sound = SFX_FOOTSTEP_SAND
 
 /turf/simulated/floor/shuttle/skrell/airless
 	initial_gas = null

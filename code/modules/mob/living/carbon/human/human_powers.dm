@@ -1374,15 +1374,15 @@
 			var/player_surname = player_fullname[2]
 			if(player_surname == surname || HAS_TRAIT(src, TRAIT_ORIGIN_ELECTRONIC_WARFARE))
 				LAZYADD(available_vaurca, player)
-		if(player.internal_organs_by_name[BP_AUG_LANGUAGE])
-			var/obj/item/organ/internal/augment/language/vekatak/V = player.internal_organs_by_name[BP_AUG_LANGUAGE]
+		if(player.internal_organs_by_name[BP_AUG_LANGUAGE_VEKATAK])
+			var/obj/item/organ/internal/augment/language/vekatak/V = player.internal_organs_by_name[BP_AUG_LANGUAGE_VEKATAK]
 			if(istype(V))
 				LAZYADD(available_vaurca, player)
 	var/mob/living/carbon/human/target = tgui_input_list(src, "Select a target to ban", "Hivenet Ban", available_vaurca)
 	if(!target)
 		return
 	var/obj/item/organ/internal/vaurca/neuralsocket/S = target.internal_organs_by_name[BP_NEURAL_SOCKET]
-	var/obj/item/organ/internal/augment/language/vekatak/V = target.internal_organs_by_name[BP_AUG_LANGUAGE]
+	var/obj/item/organ/internal/augment/language/vekatak/V = target.internal_organs_by_name[BP_AUG_LANGUAGE_VEKATAK]
 	var/list/target_fullname = splittext(target.name, " ")
 	var/target_surname = target_fullname[target_fullname.len]
 	if(istype(V))
@@ -1554,8 +1554,8 @@
 			var/player_surname = player_fullname[player_fullname.len]
 			if(player_surname == surname || HAS_TRAIT(src, TRAIT_ORIGIN_ELECTRONIC_WARFARE))
 				LAZYADD(available_vaurca, player)
-		if(player.internal_organs_by_name[BP_AUG_LANGUAGE])
-			var/obj/item/organ/internal/augment/language/vekatak/V = player.internal_organs_by_name[BP_AUG_LANGUAGE]
+		if(player.internal_organs_by_name[BP_AUG_LANGUAGE_VEKATAK])
+			var/obj/item/organ/internal/augment/language/vekatak/V = player.internal_organs_by_name[BP_AUG_LANGUAGE_VEKATAK]
 			if(istype(V))
 				LAZYADD(available_vaurca, player)
 
@@ -1563,7 +1563,7 @@
 	if(!target)
 		return
 	var/obj/item/organ/internal/vaurca/neuralsocket/S = target.internal_organs_by_name[BP_NEURAL_SOCKET]
-	var/obj/item/organ/internal/augment/language/vekatak/V = target.internal_organs_by_name[BP_AUG_LANGUAGE]
+	var/obj/item/organ/internal/augment/language/vekatak/V = target.internal_organs_by_name[BP_AUG_LANGUAGE_VEKATAK]
 	var/list/target_fullname = splittext(target.name, " ")
 	var/target_surname = target_fullname[target_fullname.len]
 	if(istype(V))
@@ -1647,7 +1647,7 @@
 	set category = "Hivenet"
 
 	var/obj/item/organ/internal/vaurca/neuralsocket/S = src.internal_organs_by_name[BP_NEURAL_SOCKET]
-	var/obj/item/organ/internal/augment/language/vekatak/V = src.internal_organs_by_name[BP_AUG_LANGUAGE]
+	var/obj/item/organ/internal/augment/language/vekatak/V = src.internal_organs_by_name[BP_AUG_LANGUAGE_VEKATAK]
 	if(src.stat != CONSCIOUS)
 		to_chat(src, SPAN_WARNING("You must be conscious to use this ability!"))
 		return
@@ -1738,8 +1738,8 @@
 			continue
 		if(isvaurca(player) && player.internal_organs_by_name[BP_NEURAL_SOCKET])
 			LAZYADD(available_vaurca, player)
-		if(player.internal_organs_by_name[BP_AUG_LANGUAGE])
-			var/obj/item/organ/internal/augment/language/vekatak/V = player.internal_organs_by_name[BP_AUG_LANGUAGE]
+		if(player.internal_organs_by_name[BP_AUG_LANGUAGE_VEKATAK])
+			var/obj/item/organ/internal/augment/language/vekatak/V = player.internal_organs_by_name[BP_AUG_LANGUAGE_VEKATAK]
 			if(istype(V))
 				LAZYADD(available_vaurca, player)
 	var/mob/living/carbon/human/target = tgui_input_list(src, "Select a Vaurca to observe.", "Hivenet Remote Observation", available_vaurca)
@@ -1747,7 +1747,7 @@
 		remoteview_target = null
 		reset_view(0)
 		return
-	var/obj/item/organ/internal/augment/language/vekatak/V = target.internal_organs_by_name[BP_AUG_LANGUAGE]
+	var/obj/item/organ/internal/augment/language/vekatak/V = target.internal_organs_by_name[BP_AUG_LANGUAGE_VEKATAK]
 	if(istype(V))
 		to_chat(src, SPAN_NOTICE("You extend your mind into the Hivenet, accessing [target]'s senses. Use this verb again to cancel."))
 		remoteview_target = target
@@ -1808,14 +1808,14 @@
 			var/player_surname = player_fullname[player_fullname.len]
 			if(player_surname == surname || HAS_TRAIT(src, TRAIT_ORIGIN_ELECTRONIC_WARFARE))
 				LAZYADD(available_vaurca, player)
-		if(player.internal_organs_by_name[BP_AUG_LANGUAGE])
-			var/obj/item/organ/internal/augment/language/vekatak/V = player.internal_organs_by_name[BP_AUG_LANGUAGE]
+		if(player.internal_organs_by_name[BP_AUG_LANGUAGE_VEKATAK])
+			var/obj/item/organ/internal/augment/language/vekatak/V = player.internal_organs_by_name[BP_AUG_LANGUAGE_VEKATAK]
 			if(istype(V))
 				LAZYADD(available_vaurca, player)
 	var/mob/living/carbon/human/target = tgui_input_list(src, "Select a target to shock", "Neural Shock", available_vaurca)
 	if(!target)
 		return
-	var/obj/item/organ/internal/augment/language/vekatak/V = target.internal_organs_by_name[BP_AUG_LANGUAGE]
+	var/obj/item/organ/internal/augment/language/vekatak/V = target.internal_organs_by_name[BP_AUG_LANGUAGE_VEKATAK]
 	if(istype(V))
 		to_chat(src, SPAN_WARNING("You lash out over the Hivenet, delivering a neural shock to [target]!"))
 		to_chat(target, SPAN_DANGER("You feel [src]'s will strike out at you, pain burning inside your head!"))
@@ -1922,15 +1922,15 @@
 			continue
 		if(isvaurca(player) && player.internal_organs_by_name[BP_NEURAL_SOCKET])
 			LAZYADD(available_vaurca, player)
-		if(player.internal_organs_by_name[BP_AUG_LANGUAGE])
-			var/obj/item/organ/internal/augment/language/vekatak/V = player.internal_organs_by_name[BP_AUG_LANGUAGE]
+		if(player.internal_organs_by_name[BP_AUG_LANGUAGE_VEKATAK])
+			var/obj/item/organ/internal/augment/language/vekatak/V = player.internal_organs_by_name[BP_AUG_LANGUAGE_VEKATAK]
 			if(istype(V))
 				LAZYADD(available_vaurca, player)
 	LAZYADD(available_vaurca, "Cancel")
 	var/mob/living/carbon/human/target = tgui_input_list(src, "Select a target to disrupt", "Hivenet Disrupt", available_vaurca)
 	if(!istype(target))
 		return
-	var/obj/item/organ/internal/augment/language/vekatak/V = target.internal_organs_by_name[BP_AUG_LANGUAGE]
+	var/obj/item/organ/internal/augment/language/vekatak/V = target.internal_organs_by_name[BP_AUG_LANGUAGE_VEKATAK]
 	if(istype(V))
 		if(prob(35))
 			to_chat(src, SPAN_DANGER("Your disruption attempt fails, [target]'s countermeasures repelling your assault! You can feel their defenses spring to life, tracing your location!"))
@@ -2156,7 +2156,7 @@
 	set desc = "Make a preset transmission over the Hivenet."
 	set category = "Hivenet"
 
-	var/obj/item/organ/internal/augment/language/vekatak/V = src.internal_organs_by_name[BP_AUG_LANGUAGE]
+	var/obj/item/organ/internal/augment/language/vekatak/V = src.internal_organs_by_name[BP_AUG_LANGUAGE_VEKATAK]
 	var/list/messages = list(
 		"I am operational.",
 		"I am on standby.",

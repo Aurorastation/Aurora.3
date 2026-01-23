@@ -402,8 +402,8 @@
 	icon_state = "maintenance"
 	assembly_type = /obj/structure/door_assembly/door_assembly_mai
 	paintable = AIRLOCK_PAINTABLE_MAIN | AIRLOCK_PAINTABLE_STRIPE
-	door_color = "#4d4d4d"
-	stripe_color = "#a88029"
+	door_color = "#4a4a4a"
+	stripe_color = "#ab812B"
 
 /obj/machinery/door/airlock/generic/maintenance/external//for connecting to the horizons hull, duh
 	door_frame_color = "#81838b"//Meant to connect to external scc spaceship walls like the horizon hull
@@ -1511,7 +1511,7 @@ About the new airlock wires panel:
 		cutting = TRUE
 	else if(istype(tool,/obj/item/melee/energy/blade) || istype(tool,/obj/item/melee/energy/sword))
 		cut_verb = "slicing"
-		cut_sound = /singleton/sound_category/spark_sound
+		cut_sound = SFX_SPARKS
 		cut_delay *= 1
 		cutting = TRUE
 	else if(istype(tool,/obj/item/surgery/circular_saw))

@@ -78,7 +78,7 @@
 			H.do_attack_animation(src)
 			var/damage = rand(0, 9)
 			if(!damage)
-				playsound(loc, /singleton/sound_category/punchmiss_sound, 25, 1, -1)
+				playsound(loc, SFX_PUNCH_MISS, 25, 1, -1)
 				visible_message(SPAN_DANGER("[H] has attempted to punch [src]!"))
 				return 0
 			var/obj/item/organ/external/affecting = get_organ(ran_zone(H.zone_sel.selecting))
@@ -86,7 +86,7 @@
 			if((H.mutations & HULK) || H.is_berserk())
 				damage += 5
 
-			playsound(loc, /singleton/sound_category/punch_sound, 25, 1, -1)
+			playsound(loc, SFX_PUNCH, 25, 1, -1)
 
 			visible_message(SPAN_DANGER("[H] has punched [src]!"))
 
@@ -143,7 +143,7 @@
 			LAssailant = WEAKREF(M)
 
 			H.do_attack_animation(src)
-			playsound(loc, /singleton/sound_category/grab_sound, 50, FALSE, -1)
+			playsound(loc, SFX_GRAB, 50, FALSE, -1)
 			if(H.gloves && istype(H.gloves,/obj/item/clothing/gloves/force/syndicate)) //only antag gloves can do this for now
 				G.state = GRAB_AGGRESSIVE
 				G.icon_state = "grabbed1"
@@ -450,7 +450,7 @@
 						to_chat(M, SPAN_WARNING("You cannot disarm \the [I] from \the [src], as it's attached to them!"))
 						//No return here is intentional, as it will then try to disarm other items, and/or play a failed disarm message
 
-			playsound(loc, /singleton/sound_category/punchmiss_sound, 25, 1, -1)
+			playsound(loc, SFX_PUNCH_MISS, 25, 1, -1)
 			visible_message(SPAN_DANGER("[M] attempted to disarm [src]!"))
 	return
 

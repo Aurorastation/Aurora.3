@@ -990,7 +990,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/fluff/holoconsole/attack_self(mob/user)
 	if(on && !(world.time < last_sound + sound_delay))
-		playsound(loc, /singleton/sound_category/quick_arcade, 60)
+		playsound(loc, SFX_ARCADE, 60)
 		last_sound = world.time
 		return
 	return ..()
@@ -1077,7 +1077,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 	var/obj/item/fluff/holoconsole/H = parent_console.resolve()
 	if(H?.on)
-		playsound(H.loc, /singleton/sound_category/quick_arcade, 60)
+		playsound(H.loc, SFX_ARCADE, 60)
 		last_sound = world.time
 
 /obj/item/fluff/holoconsole_controller/r // Holoconsole - Qoi Liuiq - shestrying

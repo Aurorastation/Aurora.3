@@ -276,8 +276,8 @@
 	place_verb = "onto"
 	desc = "A board for preparing food. Not chopping. I'm sorry."
 	icon_state = "board"
-	drop_sound = /singleton/sound_category/generic_drop_sound
-	pickup_sound = /singleton/sound_category/generic_pickup_sound
+	drop_sound = SFX_DROP
+	pickup_sound = SFX_PICKUP
 	appliancetype = MIX
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER // Will still react
 	volume = 15 // for things like jelly sandwiches etc

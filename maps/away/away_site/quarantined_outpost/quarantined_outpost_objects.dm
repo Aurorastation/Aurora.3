@@ -63,7 +63,7 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 	/// Did we yell at our unfortunate victim the moment we spot them? This prevents yell spams.
 	var/recently_yelled = FALSE
 	/// The mob will yell at its targets with the sound path set here. Leave as null to disable.
-	var/mob_soundblock_yell = "/singleton/sound_category/bear_loud"
+	var/mob_soundblock_yell = SFX_ANIMAL_BEAR
 	/// Changes the mobs description after death if set.
 	var/desc_after_death = "One might wonder if the evolution ever had a hand in its creation. Whatever it was, it's now dead, hopefully..."
 
@@ -736,7 +736,7 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 	var/list/areas_with_objects
 
 /obj/machinery/computer/terminal/mob_tracker/proc/categorize_trackables(mob/user)
-	playsound(get_turf(src), /singleton/sound_category/keyboard_sound, 30, TRUE)
+	playsound(get_turf(src), SFX_KEYBOARD, 30, TRUE)
 	if(cooldown_until > world.time)
 		to_chat(user, SPAN_WARNING("Terminal declines your input. Scanners are still preparing for the queries, you may try again in [time2text(cooldown_until - world.time, "mm:ss")] seconds."))
 		return
@@ -832,10 +832,10 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 
 		visible_message(SPAN_NOTICE("\The [user] starts tinkering with \the [src]..."))
 		to_chat(user, SPAN_NOTICE("You start pulsing \the [src] with \the [attacking_item], this should take a while..."))
-		playsound(get_turf(src), /singleton/sound_category/electrical_hum, 30, TRUE)
+		playsound(get_turf(src), SFX_ELECTRICAL_HUM, 30, TRUE)
 		if(do_after(user, 15 SECONDS))
 			to_chat(user, SPAN_NOTICE("With the last impulse, \the [src] comes to life!"))
-			playsound(get_turf(src), /singleton/sound_category/electrical_spark, 30, TRUE)
+			playsound(get_turf(src), SFX_ELECTRICAL_SPARK, 30, TRUE)
 			active = TRUE
 			update_icon()
 			post_activation()
@@ -888,7 +888,7 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 	used = TRUE
 	if(LAZYLEN(GLOB.quarantined_outpost_creatures)) // extraction isn't allowed without clearing the ruin
 		to_chat(user, SPAN_WARNING("\The [src] doesn't notice your input. The notice on the screen informs you about a present lockdown and quarantine protocols."))
-		playsound(get_turf(src), /singleton/sound_category/keyboard_sound, 30, TRUE)
+		playsound(get_turf(src), SFX_KEYBOARD, 30, TRUE)
 		used = FALSE
 		return
 	if(tgui_alert(user, "As you stand before \the [src] a wave doubt washes over you. This machine hasn't been maintained for a long time. This may be the only chance you have got.", "Irreversible Action!", list("Confirm", "I changed my mind")) != "Confirm")
@@ -1111,14 +1111,6 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 
 /obj/structure/filler/ex_act()
 	return
-
-/obj/structure/decor/fluff_ladder
-	name = "ladder"
-	icon = 'icons/obj/structures.dmi'
-	icon_state = "ladder01"
-
-/obj/structure/decor/fluff_ladder/up
-	icon_state = "ladder10"
 
 /*######################################
 				PAPERS

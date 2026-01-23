@@ -7,7 +7,7 @@
 	icon = 'icons/turf/desert.dmi'
 	icon_state = "desert"
 	has_resources = TRUE
-	footstep_sound = /singleton/sound_category/asteroid_footstep
+	footstep_sound = SFX_FOOTSTEP_ASTEROID
 	turf_flags = TURF_FLAG_BACKGROUND
 
 	var/diggable = 1
@@ -122,20 +122,20 @@
 	desc = "Some water shallow enough to wade through."
 	icon = 'icons/misc/beach.dmi'
 	icon_state = "seashallow"
-	footstep_sound = /singleton/sound_category/water_footstep
+	footstep_sound = SFX_FOOTSTEP_WATER
 
 /turf/simulated/floor/exoplanet/permafrost
 	name = "permafrost"
 	desc = "The ground here is frozen solid by the cold."
 	icon = 'icons/turf/flooring/snow.dmi'
 	icon_state = "permafrost"
-	footstep_sound = /singleton/sound_category/asteroid_footstep
+	footstep_sound = SFX_FOOTSTEP_ASTEROID
 
 /turf/simulated/floor/exoplanet/mineral
 	name = "sand"
 	desc = "It's coarse and gets everywhere."
 	dirt_color = "#544c31"
-	footstep_sound = /singleton/sound_category/sand_footstep
+	footstep_sound = SFX_FOOTSTEP_SAND
 
 //Concrete
 /turf/simulated/floor/exoplanet/concrete
