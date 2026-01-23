@@ -2,7 +2,7 @@
  * Component used for the Psi-Suppression power.
  * Acts like a stronger Mind-shield/Mind-Blanker until toggled off.
  */
-#define PsiSuppressionComponent /datum/component/psi_suppression
+#define PSI_SUPPRESSION_COMPONENT /datum/component/psi_suppression
 /datum/component/psi_suppression
 
 	/**

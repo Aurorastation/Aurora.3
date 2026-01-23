@@ -142,7 +142,7 @@ BROKEN_DISABILITY(right_foot, "Right Foot", BP_R_FOOT)
 	 + "For example, having the ability to distinguish the source of telepathic signals, but also taking bonus damage from anything that deals bonus damage to psychics."
 
 /datum/character_disabilities/high_psi_sensitivity/apply_self(var/mob/living/carbon/human/H)
-	H.AddComponent(HighPsiSensitivityComponent)
+	H.AddComponent(HIGH_PSI_SENSITIVITY_COMPONENT)
 
 /datum/character_disabilities/low_psi_sensitivity
 	name = "Low Psi-sensitivity"
@@ -152,7 +152,7 @@ BROKEN_DISABILITY(right_foot, "Right Foot", BP_R_FOOT)
 		+ "On the opposite end of the spectrum, anything that deals bonus damage to psychics will also deal reduced damage to you."
 
 /datum/character_disabilities/low_psi_sensitivity/apply_self(var/mob/living/carbon/human/H)
-	H.AddComponent(LowPsiSensitivityComponent)
+	H.AddComponent(LOW_PSI_SENSITIVITY_COMPONENT)
 
 /datum/character_disabilities/psi_echoes
 	name = "Psionic Echoes"
@@ -162,4 +162,4 @@ BROKEN_DISABILITY(right_foot, "Right Foot", BP_R_FOOT)
 		+ "Like with High Psi-sensitivity, you also count as psionic for a variety of effects, but take twice as much damage from psychic attacks."
 
 /datum/character_disabilities/psi_echoes/apply_self(var/mob/living/carbon/human/H)
-	H.AddComponent(PsionicEchoesComponent)
+	H.AddComponent(PSIONIC_ECHOES_COMPONENT)

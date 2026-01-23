@@ -19,7 +19,7 @@
 	if(!.)
 		return
 
-	var/suppression_comp = user.GetComponent(PsiSuppressionComponent)
+	var/suppression_comp = user.GetComponent(PSI_SUPPRESSION_COMPONENT)
 	if (suppression_comp)
 		to_chat(user, SPAN_NOTICE("You are no longer suppressing your psi-signature!"))
 		qdel(suppression_comp)
@@ -27,5 +27,5 @@
 		return
 
 	to_chat(user, SPAN_NOTICE("You are now suppressing your psi-signature!"))
-	user.AddComponent(PsiSuppressionComponent)
+	user.AddComponent(PSI_SUPPRESSION_COMPONENT)
 	qdel(src)

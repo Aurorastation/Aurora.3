@@ -2,26 +2,26 @@
  * When attached to any datum, this component subscribes to COMSIG_PSI_CHECK_SENSITIVITY on behalf of its owner.
  * It provides a +1 modifier to Psi Sensitivity Checks.
  */
-#define HighPsiSensitivityComponent /datum/component/psi_sensitivity/high
+#define HIGH_PSI_SENSITIVITY_COMPONENT /datum/component/psi_sensitivity/high
 
 /**
  * When attached to any datum, this component subscribes to COMSIG_PSI_CHECK_SENSITIVITY on behalf of its owner.
  * It provides a -1 modifier to Psi Sensitivity Checks.
  */
-#define LowPsiSensitivityComponent /datum/component/psi_sensitivity/low
+#define LOW_PSI_SENSITIVITY_COMPONENT /datum/component/psi_sensitivity/low
 
 /**
  * Component that gets temporarily attached to someone who consumes excessive amounts of Wulumunusha.
  * When the Wulumunusha high wears off, the component deletes itself.
  */
-#define WuluOverdoseComponent /datum/component/psi_sensitivity/wulu_overdose
+#define WULU_OVERDOSE_COMPONENT /datum/component/psi_sensitivity/wulu_overdose
 
 /**
  * When attached to any datum, this component subscribes to COMSIG_PSI_CHECK_SENSITIVITY and COMSIG_PSI_MIND_POWER on behalf of its owner.
  * It provides a +2 modifier to Psi Sensitivity Checks.
  * It also cancels telepathy attempts, while spiking both owner and caster with painful interference.
  */
-#define PsionicEchoesComponent /datum/component/psi_sensitivity/echoes
+#define PSIONIC_ECHOES_COMPONENT /datum/component/psi_sensitivity/echoes
 
 /datum/component/psi_sensitivity
 
