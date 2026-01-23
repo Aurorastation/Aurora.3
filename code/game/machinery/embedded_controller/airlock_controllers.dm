@@ -57,7 +57,7 @@
 /obj/machinery/embedded_controller/radio/airlock/advanced_airlock_controller/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "AirlockConsoleAdvanced", ui_x=470, ui_y=290)
+		ui = new(user, src, "AirlockConsoleAdvanced", name, ui_x=470, ui_y=290)
 		ui.open()
 
 /obj/machinery/embedded_controller/radio/airlock/advanced_airlock_controller/ui_data(mob/user)
@@ -92,7 +92,7 @@
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "AirlockConsoleStandard", ui_x=470, ui_y=290)
+		ui = new(user, src, "AirlockConsoleStandard", name, ui_x=470, ui_y=290)
 		ui.open()
 
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller/ui_data(mob/user)
@@ -134,7 +134,7 @@
 /obj/machinery/embedded_controller/radio/airlock/access_controller/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "AirlockConsoleAccess", ui_x=470, ui_y=290)
+		ui = new(user, src, "AirlockConsoleAccess", name, ui_x=470, ui_y=290)
 		ui.open()
 
 /obj/machinery/embedded_controller/radio/airlock/access_controller/ui_data(mob/user)
