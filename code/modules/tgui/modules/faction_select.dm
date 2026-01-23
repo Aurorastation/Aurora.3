@@ -36,12 +36,13 @@
 	var/list/data = alist()
 
 	var/list/factions = list()
-	for(var/datum/faction/faction as anything in SSjobs.factions)
+	for(var/datum/faction/faction as anything in sort_list(SSjobs.factions, GLOBAL_PROC_REF(cmp_faction)))
 		if(!faction.is_visible(user))
 			continue
 
 		factions.Add(list(alist(
 			"name" = faction.name,
+			"suffix" = faction.title_suffix,
 			"desc" = faction.description,
 			"logo" = faction.get_logo_name(),
 			"departments" = faction.departments,

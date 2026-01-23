@@ -4,6 +4,8 @@
 	departments = list(DEPARTMENT_COMMAND)
 	title_suffix = "SCC"
 
+	ui_priority = -INFINITY // top of the list
+
 	allowed_role_types = ADMIN_ROLES
 
 	allowed_species_types = list(

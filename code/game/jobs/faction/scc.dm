@@ -13,6 +13,8 @@
 	title_suffix = "SCC"
 	wiki_page = "Stellar_Corporate_Conglomerate"
 
+	ui_priority = -2
+
 	allowed_role_types = SCC_ROLES
 
 	allowed_species_types = list(

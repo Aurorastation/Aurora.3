@@ -24,6 +24,7 @@ export type FactionSelectData = {
 
 export type Faction = {
   name: string;
+  suffix: string;
   desc: string;
   logo: string;
   departments: string[];
@@ -55,6 +56,7 @@ const FactionList = (props, context) => {
         {data.factions.map((faction) => (
           <Stack.Item key={faction.name}>
             <Button
+              className={`faction_entry--${faction.suffix}`}
               fluid
               selected={faction.name === data.chosen_faction}
               color={faction.name === data.viewed_faction ? 'label' : 'grey'}

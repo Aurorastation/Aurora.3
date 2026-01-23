@@ -12,3 +12,5 @@
 	allowed_role_types = INDEP_ROLES
 
 	title_suffix = "INDEP"
+
+	ui_priority = INFINITY // bottom of the list

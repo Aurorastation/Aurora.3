@@ -12,6 +12,8 @@
 	title_suffix = "NT"
 	wiki_page = "NanoTrasen_Corporation"
 
+	ui_priority = -1
+
 	is_default = TRUE
 
 	job_species_blacklist = list(

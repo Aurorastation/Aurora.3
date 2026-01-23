@@ -5,6 +5,9 @@
 	var/list/departments
 	var/wiki_page
 
+	/// Number indicating the list index in the 'faction select' interface of this faction.
+	var/ui_priority
+
 	var/list/allowed_role_types
 	var/list/allowed_species_types
 	var/list/job_species_blacklist //will override the normal job species list for a member of this faction
