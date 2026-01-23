@@ -66,22 +66,22 @@
 		var/datum/species/S = prefs.get_species_datum()
 
 		if(!S)
-			return "No valid species selected."
+			return "No valid species"
 
 		if(!is_type_in_typecache(S, allowed_species_types))
-			return "Invalid species selected."
+			return "Invalid species"
 
 	if(length(blacklisted_citizenship_types))
 		var/datum/citizenship/C = SSrecords.citizenships[prefs.citizenship]
 
 		if(!C)
-			return "No valid nation selected."
+			return "No valid nation"
 
 		if(is_type_in_typecache(C, blacklisted_citizenship_types))
-			return "Invalid nation selected."
+			return "Invalid nation"
 
 	if(!is_visible(user))
-		return "This faction is not available to you."
+		return "This faction is not available to you"
 
 	return null
 
