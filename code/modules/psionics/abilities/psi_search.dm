@@ -10,6 +10,7 @@
 	name = "psionic search"
 	desc = "A psionic magnifying glass."
 	icon_state = "generic"
+	item_icons = null
 	cast_methods = CAST_USE
 	aspect = ASPECT_PSIONIC
 	cooldown = 5
@@ -30,7 +31,7 @@
 		for(var/mob/living/carbon/human/H in GLOB.human_mob_list)
 			if(H == L)
 				continue
-			if((GET_Z(H) == GET_Z(L)) && !H.is_psi_blocked(user))
+			if((GET_Z(H) == GET_Z(L)) && !H.is_psi_blocked(user, TRUE))
 				if(HAS_TRAIT(H, TRAIT_PSIONIC_SUPPRESSION))
 					continue
 				level_humans |= H

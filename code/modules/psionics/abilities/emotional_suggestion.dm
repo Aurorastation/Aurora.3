@@ -9,6 +9,7 @@
 	name = "emotional suggestion"
 	desc = "Suggest an emotion to someone."
 	icon_state = "generic"
+	item_icons = null
 	cast_methods = CAST_RANGED|CAST_MELEE
 	aspect = ASPECT_PSIONIC
 	cooldown = 10
@@ -35,12 +36,11 @@
 		to_chat(user, SPAN_WARNING("Not even a psion of your level can suggest to the dead."))
 		return
 
-	var/psi_blocked = target.is_psi_blocked(user)
+	var/psi_blocked = target.is_psi_blocked(user, FALSE)
 	if(psi_blocked)
 		to_chat(user, psi_blocked)
 		return
 
-	user.visible_message(SPAN_NOTICE("<i>[user] blinks, their eyes briefly developing an unnatural shine.</i>"))
 	var/text = tgui_input_list(user, "Which emotion would you like to suggest?", "Emotional Suggestion", list("Calm", "Happiness", "Sadness", "Fear", "Anger", "Stress", "Confusion"))
 	if(!text)
 		return
@@ -63,6 +63,7 @@
 
 	var/mob/living/carbon/human/H = target
 	if(H.check_psi_sensitivity() > 0)
+		to_chat(H, SPAN_NOTICE("<i>[user] blinks, their eyes briefly developing an unnatural shine.</i>"))
 		to_chat(H, SPAN_NOTICE("You sense [user]'s psyche link with your own, and an emotion of <b>[text]</b> washes through your mind."))
 	else
 		to_chat(H, SPAN_NOTICE("An emotion from outside your consciousness slips into your mind: <b>[text]</b>."))

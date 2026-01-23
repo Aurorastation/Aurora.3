@@ -10,6 +10,7 @@
 	name = "focus"
 	desc = "Psionic drugs? No way."
 	icon_state = "blink"
+	item_icons = null
 	cast_methods = CAST_USE
 	aspect = ASPECT_PSIONIC
 	cooldown = 50

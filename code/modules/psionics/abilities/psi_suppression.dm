@@ -9,6 +9,7 @@
 /obj/item/spell/psi_suppression
 	name = "psionic suppression"
 	icon_state = "generic"
+	item_icons = null
 	cast_methods = CAST_INNATE
 	aspect = ASPECT_PSIONIC
 	psi_cost = 5

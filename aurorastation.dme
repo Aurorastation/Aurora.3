@@ -489,6 +489,7 @@
 #include "code\datums\components\multitool\circuitboards\circuitboards.dm"
 #include "code\datums\components\overhead_emote\overhead_emote_datum.dm"
 #include "code\datums\components\overhead_emote\overhead_emote_singleton.dm"
+#include "code\datums\components\psionics\psi_sensitivity.dm"
 #include "code\datums\components\synthetic_endoskeleton\synthetic_endoskeleton.dm"
 #include "code\datums\components\turf_click\turf_hand.dm"
 #include "code\datums\elements\_element.dm"

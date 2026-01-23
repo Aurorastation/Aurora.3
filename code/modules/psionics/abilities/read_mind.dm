@@ -10,6 +10,7 @@
 	name = "read mind"
 	desc = "Rip thoughts from someone's mind."
 	icon_state = "generic"
+	item_icons = null
 	cast_methods = CAST_MELEE|CAST_USE
 	aspect = ASPECT_PSIONIC
 	cooldown = 10
@@ -33,7 +34,7 @@
 		to_chat(user, SPAN_WARNING("Not even a psion of your level can speak to the dead."))
 		return
 
-	var/psi_blocked = target.is_psi_blocked(user)
+	var/psi_blocked = target.is_psi_blocked(user, FALSE)
 	if(psi_blocked)
 		to_chat(user, psi_blocked)
 		return

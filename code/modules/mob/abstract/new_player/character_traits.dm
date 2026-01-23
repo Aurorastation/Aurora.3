@@ -133,3 +133,33 @@ BROKEN_DISABILITY(left_foot, "Left Foot", BP_L_FOOT)
 BROKEN_DISABILITY(right_foot, "Right Foot", BP_R_FOOT)
 
 #undef BROKEN_DISABILITY
+
+// Psi related traits. Not strictly disabilities, but also not positive traits either.
+/datum/character_disabilities/high_psi_sensitivity
+	name = "High Psi-sensitivity"
+	desc = "You are naturally more sensitive to psychic phenomena, roughly on par with having a psi-receiver implant." \
+	 + "Though this does not grant any psychic abilities, a character with this trait is counted as being psychic for a variety of effects." \
+	 + "For example, having the ability to distinguish the source of telepathic signals, but also taking bonus damage from anything that deals bonus damage to psychics."
+
+/datum/character_disabilities/high_psi_sensitivity/apply_self(var/mob/living/carbon/human/H)
+	H.AddComponent(HighPsiSensitivityComponent)
+
+/datum/character_disabilities/low_psi_sensitivity
+	name = "Low Psi-sensitivity"
+	desc = "Your Zona Bovinae is naturally under-developed, resulting in a lower than normal response to psychic phenomenon." \
+		+ "Characters who are already psychic with this trait don't lose their powers, but they are also no longer counted as psychic for a variety of effects." \
+		+ "For example, losing the ability to distinguish the source of telepathic signals, or taking brain damage when having their mind read." \
+		+ "On the opposite end of the spectrum, anything that deals bonus damage to psychics will also deal reduced damage to you."
+
+/datum/character_disabilities/low_psi_sensitivity/apply_self(var/mob/living/carbon/human/H)
+	H.AddComponent(LowPsiSensitivityComponent)
+
+/datum/character_disabilities/psi_echoes
+	name = "Psionic Echoes"
+	desc = "A rare condition caused by an abnormal Zona Bovinae that is exceptionally psi-sensitive beyond the capacity of the organic brain to handle." \
+		+ "Characters with this trait receive a large bonus to psi-sensitivity, twice over the bonus from having a psi-receiver implant." \
+		+ "This excessive sensitivity prevents coherent telepathy, while also causing painful psychic shock in both individuals." \
+		+ "Like with High Psi-sensitivity, you also count as psionic for a variety of effects, but take twice as much damage from psychic attacks."
+
+/datum/character_disabilities/psi_echoes/apply_self(var/mob/living/carbon/human/H)
+	H.AddComponent(PsionicEchoesComponent)

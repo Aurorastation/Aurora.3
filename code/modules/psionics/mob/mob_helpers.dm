@@ -11,13 +11,19 @@
  * Traditionally, most organic life can in some way RECEIVE psionic messages via a Zona Bovinae, though some lack it.
  * Implants, drugs, and some psi powers may temporarily block RECEIVING.
  *
+ * User should be the "Caster" of the power if possible.
+ * Wide_Field should be set to TRUE for anything calling this inside For/While loops.
+ * Basically if you're searching a list, declare it TRUE so that lethal mind blankers don't instagib you.
+ * If it's single-target, keep it FALSE.
+ *
  * This is NOT a check for "Can Receive?", if you need that go use check_psi_sensitivity().
  */
-/atom/movable/proc/is_psi_blocked(mob/user)
+/atom/movable/proc/is_psi_blocked(mob/user, var/wide_field = FALSE)
 	var/cancelled = FALSE
-	SEND_SIGNAL(src, COMSIG_PSI_MIND_POWER, user, &cancelled)
+	var/cancel_return = SPAN_WARNING("[src]'s mind is inaccessible, like hitting a brick wall.")
+	SEND_SIGNAL(src, COMSIG_PSI_MIND_POWER, user, &cancelled, &cancel_return, wide_field)
 	if(cancelled || (!has_zona_bovinae() && !has_psi_aug()))
-		return SPAN_WARNING("[src]'s mind is inaccessible, like hitting a brick wall.")
+		return cancel_return
 
 /**
  * Check the "effective psi-sensitivity" of a mob. AKA: The target's RECEIVING statistic.

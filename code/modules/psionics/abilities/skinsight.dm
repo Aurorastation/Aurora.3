@@ -11,6 +11,7 @@
 	name = "skinsight"
 	desc = "A health analyzer, but cooler."
 	icon_state = "blink"
+	item_icons = null
 	cast_methods = CAST_MELEE|CAST_USE
 	aspect = ASPECT_PSIONIC
 	cooldown = 10
