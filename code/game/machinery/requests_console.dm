@@ -266,12 +266,14 @@ GLOBAL_LIST_INIT_TYPED(allConsoles, /obj/machinery/requests_console, list())
 			if (!SQLquery)
 				SQLquery = "SELECT id, name, department FROM ss13_forms ORDER BY id"
 
-			var/DBQuery/query = GLOB.dbcon.NewQuery(SQLquery)
+			var/datum/db_query/query = SSdbcore.NewQuery(SQLquery)
 			query.Execute()
 
 			var/list/forms = list()
 			while (query.NextRow())
 				forms += list(list("id" = query.item[1], "name" = query.item[2], "department" = query.item[3]))
+
+			qdel(query)
 
 			if (!forms.len)
 				data["sql_error"] = 1
@@ -397,7 +399,7 @@ GLOBAL_LIST_INIT_TYPED(allConsoles, /obj/machinery/requests_console, list())
 			alert("Connection to the database lost. Aborting.")
 		if(!printid)
 			alert("Invalid query. Try again.")
-		var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT id, name, data FROM ss13_forms WHERE id=[printid]")
+		var/datum/db_query/query = SSdbcore.NewQuery("SELECT id, name, data FROM ss13_forms WHERE id=[printid]")
 		query.Execute()
 
 		while(query.NextRow())
@@ -415,6 +417,8 @@ GLOBAL_LIST_INIT_TYPED(allConsoles, /obj/machinery/requests_console, list())
 
 			paperstock--
 
+		qdel(query)
+
 	// Get extra information about the form.
 	if(href_list["whatis"])
 		var/whatisid = sanitizeSQL(href_list["whatis"])
@@ -423,7 +427,7 @@ GLOBAL_LIST_INIT_TYPED(allConsoles, /obj/machinery/requests_console, list())
 			alert("Connection to the database lost. Aborting.")
 		if(!whatisid)
 			alert("Invalid query. Try again.")
-		var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT id, name, department, info FROM ss13_forms WHERE id=[whatisid]")
+		var/datum/db_query/query = SSdbcore.NewQuery("SELECT id, name, department, info FROM ss13_forms WHERE id=:id",list("id"=whatisid))
 		query.Execute()
 		var/dat = "<center><b>Stellar Corporate Conglomerate Form</b><br>"
 		while(query.NextRow())
@@ -438,6 +442,7 @@ GLOBAL_LIST_INIT_TYPED(allConsoles, /obj/machinery/requests_console, list())
 			dat += "[info]"
 		dat += "</center>"
 		usr << browse(HTML_SKELETON(dat), "window=Information;size=560x240")
+		qdel(query)
 
 	// Toggle the paper bin lid.
 	if(href_list["setLid"])

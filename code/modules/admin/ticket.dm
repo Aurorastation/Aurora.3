@@ -165,22 +165,24 @@ GLOBAL_LIST_EMPTY(ticket_panels)
 	if (!establish_db_connection(GLOB.dbcon))
 		return
 
-	var/DBQuery/Q = GLOB.dbcon.NewQuery({"INSERT INTO ss13_tickets
+	var/datum/db_query/query = SSdbcore.NewQuery({"INSERT INTO ss13_tickets
 		(game_id, message_count, admin_count, admin_list, opened_by, taken_by, closed_by, response_delay, opened_at, closed_at)
-	VALUES
-		(:g_id:, :m_count:, :a_count:, :a_list:, :opened_by:, :taken_by:, :closed_by:, :delay:, :opened_at:, :closed_at:)"})
-	Q.Execute(list(
-		"g_id" = GLOB.round_id,
-		"m_count" = length(msgs),
-		"a_count" = length(assigned_admins),
-		"a_list" = json_encode(assigned_admins),
-		"opened_by" = owner,
-		"taken_by" = length(assigned_admins) ? assigned_admins[1] : null,
-		"closed_by" = closed_by,
-		"delay" = response_time || -1,
-		"opened_at" = SQLtime(opened_rt),
-		"closed_at" = SQLtime(closed_rt)
-	))
+		VALUES (:g_id, :m_count, :a_count, :a_list, :opened_by, :taken_by, :closed_by, :delay, :opened_at, :closed_at)"},
+		list(
+			"g_id" = GLOB.round_id,
+			"m_count" = length(msgs),
+			"a_count" = length(assigned_admins),
+			"a_list" = json_encode(assigned_admins),
+			"opened_by" = owner,
+			"taken_by" = length(assigned_admins) ? assigned_admins[1] : null,
+			"closed_by" = closed_by,
+			"delay" = response_time || -1,
+			"opened_at" = SQLtime(opened_rt),
+			"closed_at" = SQLtime(closed_rt)
+		),
+		TRUE
+	)
+	query.Execute()
 
 /datum/ticket/proc/append_message(m_from, m_to, msg)
 	msgs += new /datum/ticket_msg(m_from, m_to, msg)

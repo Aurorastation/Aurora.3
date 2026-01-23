@@ -620,7 +620,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 			if (!establish_db_connection(GLOB.dbcon))
 				to_chat(src, SPAN_NOTICE("Unable to connect to the database."))
 				return
-			var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT title, message FROM ss13_ccia_general_notice_list WHERE deleted_at IS NULL")
+			var/datum/db_query/query = SSdbcore.NewQuery("SELECT title, message FROM ss13_ccia_general_notice_list WHERE deleted_at IS NULL")
 			query.Execute()
 
 			var/list/template_names = list()
@@ -629,6 +629,8 @@ Traitors and the like can also be revived with the previous role mostly intact.
 			while (query.NextRow())
 				template_names += query.item[1]
 				templates[query.item[1]] = query.item[2]
+
+			qdel(query)
 
 			// Catch empty list
 			if (!templates.len)
