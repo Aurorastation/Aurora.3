@@ -504,7 +504,7 @@
 	desc = "A box of psionic receivers, which can be surgically implanted to act as a replacement for an underdeveloped or non-existent zona bovinae. This one has a large sticker on the side reading FOR RESEARCH USE ONLY."
 	color = COLOR_PURPLE_GRAY
 	illustration = "implant"
-	starts_with = list(/obj/item/organ/internal/augment/psi = 4)
+	starts_with = list(/obj/item/organ/internal/bioaug/augment/bioaug/psi = 4)
 
 /obj/item/storage/box/tethers
 	name = "box of tethering devices"

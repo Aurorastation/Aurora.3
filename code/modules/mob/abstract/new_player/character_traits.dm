@@ -138,8 +138,8 @@ BROKEN_DISABILITY(right_foot, "Right Foot", BP_R_FOOT)
 /datum/character_disabilities/high_psi_sensitivity
 	name = "High Psi-sensitivity"
 	desc = "You are naturally more sensitive to psychic phenomena, roughly on par with having a psi-receiver implant." \
-	 + "Though this does not grant any psychic abilities, a character with this trait is counted as being psychic for a variety of effects." \
-	 + "For example, having the ability to distinguish the source of telepathic signals, but also taking bonus damage from anything that deals bonus damage to psychics."
+		+ "Though this does not grant any psychic abilities, a character with this trait is counted as being psychic for a variety of effects." \
+		+ "For example, having the ability to distinguish the source of telepathic signals, but also taking bonus damage from anything that deals bonus damage to psychics."
 
 /datum/character_disabilities/high_psi_sensitivity/apply_self(var/mob/living/carbon/human/H)
 	H.AddComponent(HIGH_PSI_SENSITIVITY_COMPONENT)

@@ -3,7 +3,7 @@
 	return FALSE
 
 /mob/living/carbon/has_psi_aug()
-	var/obj/item/organ/internal/augment/psi/psiaug = internal_organs_by_name[BP_AUG_PSI]
+	var/obj/item/organ/internal/augment/bioaug/psi/psiaug = internal_organs_by_name[BP_AUG_PSI]
 	return psiaug && !psiaug.is_broken()
 
 /**
