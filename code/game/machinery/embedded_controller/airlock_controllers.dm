@@ -74,12 +74,15 @@
 
 	return data
 
-/obj/machinery/embedded_controller/radio/airlock/advanced_airlock_controller/ui_act(action, params)
+/obj/machinery/embedded_controller/radio/airlock/advanced_airlock_controller/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
 
-	program.receive_user_command(action)
+	switch(action)
+		if("command")
+			var/command_name = sanitize(params["command"])
+			program.receive_user_command(command_name)
 
 //Airlock controller for airlock control - most airlocks on the station use this
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller
@@ -100,13 +103,15 @@
 
 	return data
 
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller/ui_act(action, params)
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
 
-	program.receive_user_command(action)
-
+	switch(action)
+		if("command")
+			var/command_name = sanitize(params["command"])
+			program.receive_user_command(command_name)
 
 //Access controller for door control - used in virology and the like
 /obj/machinery/embedded_controller/radio/airlock/access_controller
@@ -141,9 +146,12 @@
 
 	return data
 
-/obj/machinery/embedded_controller/radio/airlock/access_controller/ui_act(action, params)
+/obj/machinery/embedded_controller/radio/airlock/access_controller/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
 
-	program.receive_user_command(action)
+	switch(action)
+		if("command")
+			var/command_name = sanitize(params["command"])
+			program.receive_user_command(command_name)

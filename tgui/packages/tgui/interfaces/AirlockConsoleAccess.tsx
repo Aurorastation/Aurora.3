@@ -13,7 +13,7 @@ export type AccessAirlockConsoleData = {
   processing: boolean;
 };
 
-export const AccessAirlockConsole = (props, context) => {
+export const AirlockConsoleAccess = (props, context) => {
   const { act, data } = useBackend<AccessAirlockConsoleData>(context);
 
   return (

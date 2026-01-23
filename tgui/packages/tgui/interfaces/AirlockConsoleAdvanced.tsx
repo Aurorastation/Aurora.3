@@ -13,7 +13,7 @@ export type AdvancedAirlockConsoleData = {
   secure: boolean;
 };
 
-export const AdvancedAirlockConsole = (props, context) => {
+export const AirlockConsoleAdvanced = (props, context) => {
   const { act, data } = useBackend<AdvancedAirlockConsoleData>(context);
 
   return (
@@ -113,7 +113,7 @@ export const AdvancedAirlockConsole = (props, context) => {
               icon={data.secure ? 'locked' : 'unlocked'}
               tooltip="Bolts airlock doors during cycles. Default enabled; use extreme caution if disabling."
               disabled={!data.processing}
-              color={!data.processing ? 'green' : 'red'}
+              color={!data.secure ? 'green' : 'red'}
               onClick={() => act('command', { command: 'secure' })}
             />
           </Box>
