@@ -2,14 +2,14 @@
 
 // Colours based on the companies' 'Official Colours' sections on the wiki.
 $company-colors: (
-  "SCC":   #1966b3,
-  "NT":    #14498f,
-  "Hepht": #aa6d18,
-  "Idris": #369fa1,
-  "Orion": #aa6818,
-  "PMCG":  #1a1a1a,
-  "Zavod": #8a1414,
-  "Zeng":  #b56cea,
+  'SCC': #1966b3,
+  'NT': #14498f,
+  'Hepht': #aa6d18,
+  'Idris': #369fa1,
+  'Orion': #aa6818,
+  'PMCG': #1a1a1a,
+  'Zavod': #8a1414,
+  'Zeng': #b56cea,
   // 'Independent' doesn't get a colour :(
 );
 
@@ -31,6 +31,6 @@ $company-colors: (
   @each $name, $color in $company-colors {
     .faction_entry--#{$name}:not(.Button--selected) {
       background-image: linear-gradient(to right, transparent 65%, $color);
-  }
+    }
   }
 }
