@@ -22,7 +22,7 @@
 	if(console_networks.len)
 		current_network = console_networks[1]
 
-	camera_monitor_program = new(src)
+	camera_monitor_program = new("compless")
 
 /obj/machinery/computer/security/attack_ai(var/mob/user as mob)
 	if(!ai_can_interact(user))
