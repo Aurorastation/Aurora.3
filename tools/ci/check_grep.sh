@@ -200,7 +200,7 @@ echo "Verifying no new unmanaged globals are being added" >> code_error.log
 
 UNMANAGED_GLOBAL_VARS_REGEXP='^/*var/'
 UNMANAGED_GLOBAL_VARS_COUNT=`grep -r -o --include \*.dm -P --regexp=$UNMANAGED_GLOBAL_VARS_REGEXP | wc -l`
-if [[ $UNMANAGED_GLOBAL_VARS_COUNT -ne 176 ]]; then # THE COUNT CAN ONLY BE DECREASED, NEVER INCREASED
+if [[ $UNMANAGED_GLOBAL_VARS_COUNT -ne 173 ]]; then # THE COUNT CAN ONLY BE DECREASED, NEVER INCREASED
     ERROR_COUNT=$(($ERROR_COUNT+1))
     echo "FAIL: New unmanaged global vars, found $UNMANAGED_GLOBAL_VARS_COUNT of them! Use GLOB or update the count ONLY IF YOU ARE REMOVING THEM!" >> code_error.log
 	grep -r --include \*.dm -P --regexp=$UNMANAGED_GLOBAL_VARS_REGEXP >> code_error.log
