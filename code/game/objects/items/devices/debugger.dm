@@ -10,7 +10,7 @@
 	throwforce = 5
 	throw_range = 15
 	throw_speed = 3
-	hitsound = /singleton/sound_category/switch_sound
+	hitsound = SFX_SWITCH
 
 	matter = list(MATERIAL_PLASTIC = 50, DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 20)
 	origin_tech = list(TECH_MAGNET = 1, TECH_ENGINEERING = 1)

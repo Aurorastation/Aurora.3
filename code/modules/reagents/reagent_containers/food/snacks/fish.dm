@@ -99,7 +99,7 @@
 	shell_type = /obj/item/trash/mollusc_shell/clam
 
 /obj/item/mollusc/proc/crack_shell(var/mob/user)
-	playsound(loc, /singleton/sound_category/pickaxe_sound, 40, TRUE)
+	playsound(loc, SFX_PICKAXE, 40, TRUE)
 	if(user && loc == user)
 		user.drop_from_inventory(src)
 	if(meat_type)

@@ -102,3 +102,18 @@
       of the Horizon's recovery room.
   - rscadd: Adds an additional light to a particularly dark corner of the Horizon's
       d2 hard storage room.
+2026-01-23:
+  Batrachophrenoboocosmomachia:
+  - refactor: Ported Jukebox's NanoUI interface to TGUI.
+  - refactor: Ported Jukebox audio playing functionality to a component.
+  - refactor: Sound keys refactored from singletons to datums, along with larger breakout
+      of sound.dm to allow for easier SFX updates in future.
+  - code_imp: Expanded track datums to include track lengths.
+  - code_imp: Reorganized music file folders for more intuitive access.
+  - rscadd: Earphone status feedback text now includes track length.
+  - rscadd: Added autoplay functionality to earphones.
+  - bugfix: Fixed earphones' 'Previous Song' verb not sending you to the end of the
+      playlist when used while the first track is selected.
+  - bugfix: Fixed gain adjustment for 'Konyang-1' (-23 dB -> standard -9.8 dB).
+  - bugfix: Fixed y-offset of audioconsole-running overlay animation to line up with
+      the actual screen.

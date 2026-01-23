@@ -82,7 +82,7 @@
 		return FALSE
 
 	to_chat(user, SPAN_ALERT("\The [src] ejects \the [stored_paper]."))
-	playsound(loc, 'sound/bureaucracy/paperfold.ogg', 60, 0)
+	playsound(loc, 'sound/items/bureaucracy/paperfold.ogg', 60, 0)
 	stored_paper.forceMove(target)
 	stored_paper = null
 	update_icon()
