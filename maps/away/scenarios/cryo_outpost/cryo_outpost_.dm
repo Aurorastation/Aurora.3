@@ -132,7 +132,7 @@
 	network = list(NETWORK_CRYO_OUTPOST)
 
 /obj/machinery/computer/security/terminal/cryo_outpost
-	network = list(NETWORK_CRYO_OUTPOST)
+	console_networks = list(NETWORK_CRYO_OUTPOST)
 
 /obj/item/research_slip/cryo_outpost
 	desc = "A small slip of plastic with an embedded chip. It is commonly used to store small amounts of research data. This one is covered in Zeng-Hu Pharmaceuticals logos."

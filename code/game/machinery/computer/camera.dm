@@ -1,4 +1,3 @@
-//This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:31
 /obj/machinery/computer/security
 	name = "security camera monitor"
 	desc = "Used to access the various cameras on the station."
@@ -9,17 +8,21 @@
 	var/current_network = null
 	var/obj/machinery/camera/current_camera = null
 	var/last_pic = 1.0
-	var/list/network
-	var/mapping = 0//For the overview file, interesting bit of code.
+	var/list/console_networks
+	var/mapping = 0
 	var/cache_id = 0
+	/// A currently active program running on the computer.
+	var/datum/computer_file/program/camera_monitor/camera_monitor_program
 	circuit = /obj/item/circuitboard/security
 
 /obj/machinery/computer/security/Initialize()
-	if(!network)
-		network = SSatlas.current_map.station_networks.Copy()
+	if(!console_networks)
+		console_networks = SSatlas.current_map.station_networks.Copy()
 	. = ..()
-	if(network.len)
-		current_network = network[1]
+	if(console_networks.len)
+		current_network = console_networks[1]
+
+	camera_monitor_program = new(src)
 
 /obj/machinery/computer/security/attack_ai(var/mob/user as mob)
 	if(!ai_can_interact(user))
@@ -46,32 +49,6 @@
 		return FALSE
 	return TRUE
 
-/obj/machinery/computer/security/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1)
-	if(..())
-		return
-
-	var/data[0]
-	var/list/all_networks[0]
-	for(var/nw in network)
-		all_networks.Add(list(list(
-							"tag" = nw,
-							"has_access" = can_access_network(user, get_camera_access(nw))
-							)))
-
-	data["networks"] = all_networks
-
-	if(current_network)
-		data["cameras"] = GLOB.camera_repository.cameras_in_network(current_network)
-		data["current_camera"] = current_camera ? current_camera.nano_structure() : null
-		data["current_network"] = current_network
-
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		ui = new(user, src, ui_key, "sec_camera.tmpl", "Camera Console", 900, 800)
-
-		ui.set_initial_data(data)
-		ui.open()
-
 /obj/machinery/computer/security/proc/can_access_network(var/mob/user, var/network_access)
 	// No access passed, or 0 which is considered no access requirement. Allow it.
 	if(!network_access)
@@ -79,34 +56,30 @@
 
 	return (check_camera_access(user, ACCESS_SECURITY) && GLOB.security_level >= SEC_LEVEL_BLUE) || check_camera_access(user, network_access)
 
-/obj/machinery/computer/security/Topic(href, href_list)
-	if(..())
-		return TRUE
-	if(href_list["switch_camera"])
-		var/obj/machinery/camera/C = locate(href_list["switch_camera"]) in GLOB.cameranet.cameras
-		if(!C)
+/obj/machinery/computer/security/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		if(camera_monitor_program)
+			ui = new(user, src, camera_monitor_program.tgui_id, camera_monitor_program.filedesc)
+			ui.autoupdate = camera_monitor_program.ui_auto_update
+		else
+			to_chat(usr, "Something has gone wrong; please report the circumstances in which you received this message to the GitHub issues tracker.")
 			return
-		if(!(current_network in C.network))
-			return
+		ui.open()
 
-		var/access_granted = FALSE
-		for(var/network in C.network)
-			if(can_access_network(usr, get_camera_access(network)))
-				access_granted = TRUE //We only need access to one of the networks.
-		if(!access_granted)
-			to_chat(usr, SPAN_WARNING("Access unauthorized."))
-			return
+/obj/machinery/computer/security/ui_data(mob/user)
+	var/list/data = list()
+	if(camera_monitor_program)
+		data += camera_monitor_program.ui_data(user)
+		return data
 
-		switch_to_camera(usr, C)
-		return 1
-	else if(href_list["switch_network"])
-		if(href_list["switch_network"] in network)
-			current_network = href_list["switch_network"]
-		return 1
-	else if(href_list["reset"])
-		reset_current()
-		usr.reset_view(current_camera)
-		return 1
+/obj/machinery/computer/security/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return
+
+	if(camera_monitor_program)
+		. = camera_monitor_program.ui_act(action, params, ui, state)
 
 /obj/machinery/computer/security/attack_hand(var/mob/user as mob)
 	if (!(src.z in GetConnectedZlevels(starting_z_level)))
@@ -211,7 +184,7 @@
 		SSnanoui.update_uis(src)
 
 /obj/machinery/computer/security/proc/can_access_camera(var/obj/machinery/camera/C)
-	var/list/shared_networks = src.network & C.network
+	var/list/shared_networks = src.console_networks & C.network
 	if(shared_networks.len)
 		return 1
 	return 0
@@ -245,7 +218,7 @@
 	icon_state = "wallframe"
 	icon_screen = null
 	light_range_on = 0
-	network = list(NETWORK_THUNDER)
+	console_networks = list(NETWORK_THUNDER)
 	density = 0
 	circuit = null
 	is_holographic = FALSE
@@ -275,7 +248,7 @@
 	icon_keyboard = "purple_key"
 	icon_keyboard_emis = "purple_key_mask"
 	light_color = LIGHT_COLOR_PURPLE
-	network = list("MINE")
+	console_networks = list("MINE")
 	circuit = /obj/item/circuitboard/security/mining
 
 /obj/machinery/computer/security/engineering
@@ -299,8 +272,8 @@
 	light_power_on = 1
 
 /obj/machinery/computer/security/engineering/Initialize()
-	if(!network)
-		network = GLOB.engineering_networks.Copy()
+	if(!console_networks)
+		console_networks = GLOB.engineering_networks.Copy()
 	. = ..()
 
 /obj/machinery/computer/security/nuclear
@@ -310,7 +283,7 @@
 	icon_keyboard = "red_key"
 	icon_keyboard_emis = "red_key_mask"
 	light_color = LIGHT_COLOR_RED
-	network = list(NETWORK_MERCENARY)
+	console_networks = list(NETWORK_MERCENARY)
 	circuit = null
 
 /obj/machinery/computer/security/nuclear/Initialize()
