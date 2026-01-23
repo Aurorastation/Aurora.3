@@ -1,5 +1,5 @@
 /datum/tgui_module/faction_select
-	/// todo
+	/// The 'occupation' datum of the user viewing the interface.
 	var/datum/category_item/player_setup_item/occupation/occupation
 	/// The name of the currently viewed faction.
 	var/viewed_faction

@@ -1,6 +1,7 @@
 /datum/category_item/player_setup_item/occupation
 	name = "Occupation"
 	sort_order = 1
+	/// The module datum for the faction select interface, if it's currently open.
 	var/datum/tgui_module/faction_select/faction_ui
 
 /datum/category_item/player_setup_item/occupation/load_character(var/savefile/S)
@@ -164,7 +165,7 @@
 		"<style>span.none{color: black} span.low{color: #DDD} span.med{color: yellow} span.high{color: lime} a:hover span{color: #40628a !important}</style>",
 		"<center><b>Character Faction</b><br>",
 		"<small>This will influence the jobs you can select from, and the starting equipment.</small><br>",
-		"<b><a href='byond://?src=[REF(src)];faction_preview=[html_encode(pref.faction)]'>[pref.faction]</a></b></center><br><hr>"
+		"<b><a href='byond://?src=[REF(src)];faction_select=1;'>[pref.faction]</a></b></center><br><hr>"
 	)
 
 	dat += list(
@@ -293,17 +294,11 @@
 		if(SetJob(user, href_list["set_job"]))
 			return TOPIC_REFRESH_UPDATE_PREVIEW
 
-	else if(href_list["faction_preview"])
+	else if(href_list["faction_select"])
 		if(!faction_ui)
 			faction_ui = new(src)
 		faction_ui.ui_interact(user)
-		//show_faction_menu(user, html_decode(href_list["faction_preview"]))
 		return TOPIC_NOACTION
-
-	else if(href_list["faction_select"])
-		validate_and_set_faction(html_decode(href_list["faction_select"]))
-		show_faction_menu(user, html_decode(href_list["faction_select"]))
-		return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	return ..()
 
@@ -455,59 +450,10 @@
 
 	pref.player_alt_titles.Cut()
 
-/datum/category_item/player_setup_item/occupation/proc/show_faction_menu(mob/user, selected_faction) //note : selected faction is what you choose to see, pref.faction is the actual chosen faction
-	simple_asset_ensure_is_sent(user, /datum/asset/simple/faction_icons)
-
-	var/list/dat = list("<center><h2>")
-
-	var/list/factions = list()
-	for (var/datum/faction/faction in SSjobs.factions)
-		if(!faction.is_visible(user))
-			continue
-
-		if (faction.name == selected_faction)
-			factions += "[faction.name]"
-		else
-			factions += "<a href='byond://?src=[REF(src)];faction_preview=[html_encode(faction.name)]'>[faction.name]</a>"
-
-	dat += factions.Join(" ")
-
-	var/datum/faction/faction = SSjobs.name_factions[selected_faction]
-	if(!istype(faction))
-		to_client_chat(SPAN_DANGER("Invalid faction chosen. Resetting to [SSjobs.default_faction.name]."))
-		selected_faction = SSjobs.default_faction.name
-		faction = SSjobs.name_factions[selected_faction]
-		return
-
-	dat += "</h2></center><hr/>"
-	dat += "<table padding='8px'>"
-	dat += "<tr>"
-	dat += "<td width = 500>[faction.description]</td>"
-	dat += "<td width = 200 align='center'>"
-	dat += {"<img style="height:132px;" src="[faction.get_logo_name()]">"}
-
-	dat += "<br/><b>Departments:</br></b>"
-	dat += "<small><b>[faction.departments]</b></small>"
-	dat += "</td>"
-	dat += "</tr>"
-	dat += "</table><center><hr/>"
-
-	dat += "You can learn more about this faction on <a href='byond://?src=[REF(user.client)];JSlink=wiki;wiki_page=[replacetext(faction.name, " ", "_")]'>the wiki</a>."
-
-	if (selected_faction == pref.faction)
-		dat += "<br>\[Faction selected\]"
-	else if (faction.can_select(pref,user))
-		dat += "<br>\[<a href='byond://?src=[REF(src)];faction_select=[html_encode(selected_faction)]'>Select faction</a>\]"
-	else
-		dat += "<br><span class='warning'>[faction.get_selection_error(pref, user)]</span>"
-	dat += "</center>"
-
-	user << browse(HTML_SKELETON(dat.Join()), "window=factionpreview;size=750x450")
-
 /datum/category_item/player_setup_item/occupation/proc/validate_and_set_faction(datum/faction/faction)
 	ResetJobs() // How to be horribly lazy.
 	pref.faction = faction.name
-	to_client_chat(SPAN_NOTICE("New faction chosen. Job preferences reset."))
+	to_client_chat(SPAN_NOTICE("New faction chosen! Job preferences reset."))
 
 /datum/preferences/proc/GetPlayerAltTitle(datum/job/job)
 	return player_alt_titles[job.title] || job.title
