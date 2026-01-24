@@ -1032,6 +1032,11 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 	//update damage counts
 	for(var/datum/wound/W in wounds)
+
+		if(W.damage <= 0)
+			qdel(W)
+			continue
+
 		if(W.damage_type == INJURY_TYPE_BURN)
 			burn_dam += W.damage
 		else
