@@ -41,7 +41,7 @@
 	faction = "spiders"
 	var/busy = 0
 	pass_flags = PASSTABLE
-	speed = 1.5
+	speed = 6
 	mob_size = 6
 	smart_melee = FALSE
 
@@ -107,7 +107,7 @@
 	melee_damage_upper = 20
 	armor_penetration = 15
 	venom_per_bite = 5
-	speed = 1
+	speed = 4
 	sample_data = list("Genetic markers identified as being linked with stem cell differentiaton", "Cellular biochemistry shows high metabolic capacity")
 	smart_melee = TRUE
 
@@ -124,7 +124,7 @@
 	armor_penetration = 15
 	venom_type = /singleton/reagent/perconol // mildly beneficial for organics
 	venom_per_bite = 2
-	speed = 1.5
+	speed = 5
 	sample_data = list("Genetic markers identified as being linked with stem cell differentiaton", "Cellular biochemistry geared towards creating strong electrical potential differences")
 	smart_melee = TRUE
 
@@ -143,7 +143,7 @@
 	ranged_attack_range = 4
 	venom_type = /singleton/reagent/acid/greimorian
 	venom_per_bite = 2
-	speed = 1.5
+	speed = 5
 	sample_data = list("Genetic markers identified as being linked with stem cell differentiaton", "Exocrinic acid synthesis detected")
 	smart_melee = TRUE
 
