@@ -72,7 +72,6 @@
 
 /proc/check_tool_quality(var/obj/item/tool, var/return_value, var/requires_surgery_compatibility = FALSE)
 	var/tool_behaviour = tool.tool_behaviour
-
 	if(tool_behaviour && (!requires_surgery_compatibility || tool.issurgerycompatible()))
 		return return_value
 

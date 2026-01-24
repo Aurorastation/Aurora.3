@@ -91,20 +91,13 @@
 
 /datum/construction/reversible/is_right_key(atom/used_atom) // returns index step
 	var/list/L = steps[index]
-	var/is_obj = FALSE
-	if(isobj(used_atom))
-		var/return_value = check_tool_quality(used_atom, L["key"], FORWARD)
-		if(return_value)
-			return return_value
-		is_obj = TRUE
 	var/obj/item/used_item = used_atom
 	if(istype(used_item, L["key"]) || used_item.tool_behaviour == L["key"])
 		return FORWARD //to the first step -> forward
 	else if(L["backkey"])
-		if(is_obj)
-			var/return_value = check_tool_quality(used_item, L["backkey"], BACKWARD)
-			if(return_value)
-				return return_value
+		var/return_value = check_tool_quality(used_item, L["backkey"], BACKWARD)
+		if(return_value)
+			return return_value
 		if(istype(used_item, L["backkey"]) || used_item.tool_behaviour == L["backkey"])
 			return BACKWARD //to the last step -> backwards
 	return FALSE
