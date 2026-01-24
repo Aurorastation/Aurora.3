@@ -38,11 +38,11 @@
 
 /datum/construction/proc/is_right_key(atom/used_atom) // returns current step num if used_atom is of the right type.
 	var/list/L = steps[steps.len]
-	if(isobj(used_atom))
-		var/return_value = check_tool_quality(used_atom, L["key"], steps.len)
-		if(return_value)
-			return return_value
-	if(istype(used_atom, L["key"]))
+	var/obj/item/used_item = used_atom
+	var/return_value = check_tool_quality(used_item, L["key"], steps.len)
+	if(return_value)
+		return return_value
+	if(istype(used_item, L["key"]) || used_item.tool_behaviour == L["key"])
 		return steps.len
 	return FALSE
 
@@ -50,10 +50,11 @@
 	return TRUE
 
 /datum/construction/proc/check_all_steps(atom/used_atom, mob/user) //check all steps, remove matching one.
+	var/obj/item/used_item = used_atom
 	for(var/i=1;i<=steps.len;i++)
 		var/list/L = steps[i];
-		if(istype(used_atom, L["key"]))
-			if(custom_action(i, used_atom, user))
+		if(istype(used_item, L["key"]) || used_item.tool_behaviour == L["key"])
+			if(custom_action(i, used_item, user))
 				steps[i]=null;//stupid byond list from list removal...
 				listclearnulls(steps);
 				if(!steps.len)
@@ -96,14 +97,15 @@
 		if(return_value)
 			return return_value
 		is_obj = TRUE
-	if(istype(used_atom, L["key"]))
+	var/obj/item/used_item = used_atom
+	if(istype(used_item, L["key"]) || used_item.tool_behaviour == L["key"])
 		return FORWARD //to the first step -> forward
 	else if(L["backkey"])
 		if(is_obj)
-			var/return_value = check_tool_quality(used_atom, L["backkey"], BACKWARD)
+			var/return_value = check_tool_quality(used_item, L["backkey"], BACKWARD)
 			if(return_value)
 				return return_value
-		if(istype(used_atom, L["backkey"]))
+		if(istype(used_item, L["backkey"]) || used_item.tool_behaviour == L["backkey"])
 			return BACKWARD //to the last step -> backwards
 	return FALSE
 
