@@ -2207,19 +2207,24 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/material/knife/raskariim/fluff/tulkir_knife/attack(mob/living/target_mob, mob/living/user, target_zone)
 	. = ..()
-	if(target_mob == user)
-		if (target_zone == BP_L_HAND || target_zone == BP_R_HAND)
-			ritualslice(user, target_mob, target_zone)
+	if(target_mob != user || !(target_zone == BP_L_HAND || target_zone == BP_R_HAND))
+		return
+
+	ritualslice(user, target_mob, target_zone)
 
 /obj/item/material/knife/raskariim/fluff/tulkir_knife/get_examine_text(mob/user, distance, is_adjacent, infix, suffix, get_extended)
 	. = ..()
-	if(ishuman(user))
-		var/mob/living/carbon/human/U = user
-		if(U.religion == RELIGION_RASKARA || U.religion == RELIGION_RASKARA_ALT)
-			var/raskara_text = SPAN_CULT("\The [src] is drawn from the depths of the Maggot's hoard.")
-			if(blood_overlay)
-				raskara_text += SPAN_DANGER(" The debts are being drawn.")
-			. += raskara_text
+	if(!ishuman(user))
+		return
+
+	var/mob/living/carbon/human/U = user
+	if(!(U.religion == RELIGION_RASKARA || U.religion == RELIGION_RASKARA_ALT))
+		return
+
+	var/raskara_text = SPAN_CULT("\The [src] is drawn from the depths of the Maggot's hoard.")
+	if(blood_overlay)
+		raskara_text += SPAN_DANGER(" The debts are being drawn.")
+	. += raskara_text
 
 /obj/item/material/knife/raskariim/fluff/tulkir_knife/proc/ritualslice(mob/living/user, mob/living/carbon/human/target, target_zone)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -2249,17 +2254,21 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/material/knife/raskariim/fluff/tulkir_knife/attack_self(mob/user, modifiers)
 	. = ..()
-	if(ishuman(user))
-		var/mob/living/carbon/human/U = user
-		if(U.religion == RELIGION_RASKARA || U.religion == RELIGION_RASKARA_ALT)
-			if(blood_overlay)
-				var/alist/l = alist("invite" = "2", "claim" = "3", "bind" = "4", "transform" = "5", "witness" = "6")
-				var/runetype = tgui_input_list(user, "What kind of ritual is to be done?", "Ritual", l)
-				if(runetype)
-					runetype = l[runetype]
-					create_raskariim_rune(user, runetype, get_turf(user))
-			else
-				to_chat(user, SPAN_INFO("The knife is not blooded enough to draw with."))
+	if(!ishuman(user))
+		return
+
+	var/mob/living/carbon/human/U = user
+	if(!(U.religion == RELIGION_RASKARA || U.religion == RELIGION_RASKARA_ALT))
+		return
+
+	if(blood_overlay)
+		var/alist/l = alist("invite" = "2", "claim" = "3", "bind" = "4", "transform" = "5", "witness" = "6")
+		var/runetype = tgui_input_list(user, "What kind of ritual is to be done?", "Ritual", l)
+		if(runetype)
+			runetype = l[runetype]
+			create_raskariim_rune(user, runetype, get_turf(user))
+	else
+		to_chat(user, SPAN_INFO("The knife is not blooded enough to draw with."))
 
 /obj/effect/decal/cleanable/fluff/rune
 	name = "rune"
@@ -2278,10 +2287,14 @@ All custom items with worn sprites must follow the contained sprite system: http
 		. += "This rune belongs to The Stranger."
 	else
 		. += SPAN_WARNING("A heavy smell of blood permeates the area around the arcane drawings.")
-	if(ishuman(user))
-		var/mob/living/carbon/human/U = user
-		if(U.religion == RELIGION_RASKARA || U.religion == RELIGION_RASKARA_ALT)
-			. += SPAN_CULT("\The [src] pays a debt to the King of Maggots.")
+	if(!ishuman(user))
+		return
+
+	var/mob/living/carbon/human/U = user
+	if(!(U.religion == RELIGION_RASKARA || U.religion == RELIGION_RASKARA_ALT))\
+		return
+
+	. += SPAN_CULT("\The [src] pays a debt to the King of Maggots.")
 
 /obj/item/material/knife/raskariim/fluff/tulkir_knife/proc/create_raskariim_rune(var/mob/living/carbon/human/user, var/chosen_rune, var/turf/target_turf)
 	if(user.stat || user.incapacitated())
@@ -2331,9 +2344,12 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/clothing/accessory/holster/utility/fluff/tulkir_sheath/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	if(ishuman(user))
-		var/mob/living/carbon/human/U = user
-		if(U.religion == RELIGION_RASKARA || U.religion == RELIGION_RASKARA_ALT)
-			if(holstered)
-				var/raskara_text = SPAN_CULT("\The [src] holds a treasure from the depths of the Maggot's hoard.")
-				. += raskara_text
+	if(!ishuman(user))
+		return
+
+	var/mob/living/carbon/human/U = user
+	if(!(U.religion == RELIGION_RASKARA || U.religion == RELIGION_RASKARA_ALT) || !holstered)
+		return
+
+	var/raskara_text = SPAN_CULT("\The [src] holds a treasure from the depths of the Maggot's hoard.")
+	. += raskara_text
