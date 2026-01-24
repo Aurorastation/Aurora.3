@@ -70,6 +70,8 @@
 			return FALSE
 
 		occupation.validate_and_set_faction(faction)
+		usr.client.prefs.ShowChoices(usr)
+		usr.client.prefs.update_preview_icon()
 		return TRUE
 
 	if(action == "open_wiki")
