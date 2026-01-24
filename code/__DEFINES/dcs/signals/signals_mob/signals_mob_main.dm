@@ -45,3 +45,6 @@
 
 /// From /obj/item/organ/external/take_damage. Updates the limb's colour matrix. Very laggy, so we do it on reaction to stuff.
 #define COMSIG_UPDATE_LIMB_IMAGE "update_limb_image"
+
+///from base of mob/set_stat(): (new_stat, old_stat)
+#define COMSIG_MOB_STATCHANGE "mob_statchange"

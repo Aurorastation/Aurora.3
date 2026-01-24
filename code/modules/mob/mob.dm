@@ -136,6 +136,7 @@
 	if(.)
 		stat = new_stat
 		remove_all_indicators()
+	SEND_SIGNAL(src, COMSIG_MOB_STATCHANGE, new_stat, .)
 
 /mob/show_message(msg, type, alt, alt_type)//Message, type of message (1 or 2), alternative message, alt message type (1 or 2)
 

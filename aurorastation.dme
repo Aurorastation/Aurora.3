@@ -526,7 +526,6 @@
 #include "code\datums\observation\set_invisibility.dm"
 #include "code\datums\observation\shuttle_moved.dm"
 #include "code\datums\observation\sight_set.dm"
-#include "code\datums\observation\stat_set.dm"
 #include "code\datums\observation\~cleanup.dm"
 #include "code\datums\outfits\outfit.dm"
 #include "code\datums\outfits\outfit_admin.dm"
