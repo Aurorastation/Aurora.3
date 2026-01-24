@@ -117,3 +117,9 @@
   - bugfix: Fixed gain adjustment for 'Konyang-1' (-23 dB -> standard -9.8 dB).
   - bugfix: Fixed y-offset of audioconsole-running overlay animation to line up with
       the actual screen.
+2026-01-24:
+  TheGreyWolf:
+  - bugfix: Fixes the white label on several types of boxes that shouldn't have them.
+  arrow768:
+  - server: Use the new login system to fetch the admins/groups instead of the deprecated
+      forum user api.
