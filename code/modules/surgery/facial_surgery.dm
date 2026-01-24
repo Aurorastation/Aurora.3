@@ -19,7 +19,7 @@
 
 /singleton/surgery_step/generic/prepare_face
 	allowed_tools = list(
-	/obj/item/surgery/retractor = 100,
+	TOOL_RETRACTOR = 100,
 	/obj/item/material/knife/tacknife = 75
 	)
 
@@ -50,8 +50,8 @@
 /singleton/surgery_step/generic/alter_face
 	name = "Alter Face"
 	allowed_tools = list(
-	/obj/item/surgery/hemostat = 100, 	\
-	/obj/item/stack/cable_coil = 75, 	\
+	TOOL_HEMOSTAT = 100, 	\
+	TOOL_CABLECOIL = 75, 	\
 	/obj/item/device/assembly/mousetrap = 10	//I don't know. Don't ask me. But I'm leaving it because hilarity.
 	)
 
@@ -96,7 +96,7 @@
 /singleton/surgery_step/face/cauterize
 	name = "Cauterize Face"
 	allowed_tools = list(
-	/obj/item/surgery/cautery = 100,			\
+	TOOL_CAUTERY = 100,			\
 	/obj/item/clothing/mask/smokable/cigarette = 75,	\
 	/obj/item/flame/lighter = 50,			\
 	/obj/item/weldingtool = 25
@@ -140,7 +140,7 @@
 /singleton/surgery_step/robotics/face/synthskinopen
 	name = "Retract facial incisions"
 	allowed_tools = list(
-	/obj/item/surgery/scalpel = 100,
+	TOOL_SCALPEL = 100,
 	/obj/item/material/knife = 75,
 	/obj/item/material/shard = 50
 	)
@@ -169,7 +169,7 @@
 /singleton/surgery_step/robotics/face/prepare_face
 	name = "Prepare Face"
 	allowed_tools = list(
-	/obj/item/surgery/retractor = 100,
+	TOOL_RETRACTOR = 100,
 	/obj/item/material/knife/tacknife = 75
 	)
 
@@ -197,8 +197,8 @@
 /singleton/surgery_step/robotics/face/alter_synthface
 	name = "Alter Face"
 	allowed_tools = list(
-	/obj/item/device/multitool = 100, 	\
-	/obj/item/stack/cable_coil = 75, 	\
+	TOOL_MULTITOOL = 100, 	\
+	TOOL_CABLECOIL = 75, 	\
 	/obj/item/device/assembly/mousetrap = 10	//I don't know. Don't ask me. But I'm leaving it because hilarity.
 	)
 
@@ -241,7 +241,7 @@
 /singleton/surgery_step/robotics/face/seal_face
 	name = "Seal face"
 	allowed_tools = list(
-	/obj/item/surgery/cautery = 100,			\
+	TOOL_CAUTERY = 100,			\
 	/obj/item/clothing/mask/smokable/cigarette = 75,	\
 	/obj/item/flame/lighter = 50,			\
 	/obj/item/weldingtool = 25

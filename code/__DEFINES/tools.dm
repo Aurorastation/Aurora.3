@@ -72,17 +72,8 @@
 
 /proc/check_tool_quality(var/obj/item/tool, var/return_value, var/requires_surgery_compatibility = FALSE)
 	var/tool_behaviour = tool.tool_behaviour
-	switch(tool_behaviour)
-		if(TOOL_SCREWDRIVER)
-			if(tool.tool_behaviour == TOOL_SCREWDRIVER && (!requires_surgery_compatibility || tool.issurgerycompatible()))
-				return return_value
-		if(TOOL_WRENCH)
-			if(tool.tool_behaviour == TOOL_WRENCH && (!requires_surgery_compatibility || tool.issurgerycompatible()))
-				return return_value
-		if(TOOL_CROWBAR)
-			if(tool.tool_behaviour == TOOL_CROWBAR && (!requires_surgery_compatibility || tool.issurgerycompatible()))
-				return return_value
-		if(TOOL_WIRECUTTER)
-			if(tool.tool_behaviour == TOOL_WIRECUTTER && (!requires_surgery_compatibility || tool.issurgerycompatible()))
-				return return_value
+
+	if(tool_behaviour && (!requires_surgery_compatibility || tool.issurgerycompatible()))
+		return return_value
+
 	return null

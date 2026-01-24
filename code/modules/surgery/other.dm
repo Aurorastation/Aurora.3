@@ -9,7 +9,7 @@
 	priority = 3
 	allowed_tools = list(
 	/obj/item/surgery/fix_o_vein = 100, \
-	/obj/item/stack/cable_coil = 75
+	TOOL_CABLECOIL = 75
 	)
 	can_infect = TRUE
 	blood_level = 1
@@ -55,7 +55,7 @@
 	name = "Debride Damaged Tissue"
 	priority = 4
 	allowed_tools = list(
-		/obj/item/surgery/scalpel = 100,
+		TOOL_SCALPEL = 100,
 		/obj/item/material/knife = 75,
 		/obj/item/material/shard = 50
 	)
@@ -189,7 +189,7 @@
 	priority = 2
 	allowed_tools = list(
 		/obj/item/surgery/fix_o_vein = 100, \
-		/obj/item/stack/cable_coil = 75
+		TOOL_CABLECOIL = 75
 	)
 	can_infect = TRUE
 	blood_level = 1
@@ -227,8 +227,8 @@
 /singleton/surgery_step/hardsuit
 	name = "Remove Hardsuit"
 	allowed_tools = list(
-		/obj/item/weldingtool = 80,
-		/obj/item/surgery/circular_saw = 60,
+		TOOL_WELDER = 80,
+		TOOL_SAW = 60,
 		/obj/item/gun/energy/plasmacutter = 100
 	)
 
@@ -266,7 +266,7 @@
 /singleton/surgery_step/amputate
 	name = "Amputate Limb"
 	allowed_tools = list(
-	/obj/item/surgery/circular_saw = 100,
+	TOOL_SAW = 100,
 	/obj/item/melee/energy = 100,
 	/obj/item/melee/chainsword = 100,
 	/obj/item/material/hatchet = 55

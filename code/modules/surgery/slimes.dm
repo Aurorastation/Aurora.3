@@ -12,7 +12,7 @@
 /singleton/surgery_step/slime/cut_flesh
 	name = "Open Slime"
 	allowed_tools = list(
-	/obj/item/surgery/scalpel = 100,
+	TOOL_SCALPEL = 100,
 	/obj/item/material/knife = 75,
 	/obj/item/material/shard = 50
 	)
@@ -40,7 +40,7 @@
 /singleton/surgery_step/slime/cut_innards
 	name = "Cut Innards"
 	allowed_tools = list(
-	/obj/item/surgery/scalpel = 100,
+	TOOL_SCALPEL = 100,
 	/obj/item/material/knife = 75,
 	/obj/item/material/shard = 50
 	)
@@ -68,7 +68,7 @@
 /singleton/surgery_step/slime/saw_core
 	name = "Detach Core"
 	allowed_tools = list(
-	/obj/item/surgery/circular_saw = 100, \
+	TOOL_SAW = 100, \
 	/obj/item/material/hatchet = 75
 	)
 
