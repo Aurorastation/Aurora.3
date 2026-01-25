@@ -4074,7 +4074,7 @@
 	name = "\improper Sankt Frederick flag"
 	desc = "The banner of Sankt Frederick, the steadfast breadbasket of the Solarian Wildlands."
 	desc_extended = "The banner of Sankt Frederick features a vertical tricolor of black, white, and blue, representing the planet’s rich soil, the people’s unity and perseverance, and its many lakes and rivers. At its center lies a blue escutcheon bearing a white wheat stalk, symbolizing Sankt Frederick’s agricultural heritage and its vital role in sustaining the wider Alliance."
-	icon_state = "sfk"
+	icon_state = "sankt_frederick"
 	flag_item = /obj/item/flag/sfk
 
 /obj/item/flag/sfk
