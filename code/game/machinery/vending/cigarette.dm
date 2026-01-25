@@ -3,6 +3,7 @@
  *		Low Supply
  *		Merchant Station
  *		Hacked
+ *		Horizon
  */
 
 /obj/machinery/vending/cigarette
@@ -147,6 +148,22 @@
 		/obj/item/storage/box/fancy/matches = 10,
 		/obj/item/flame/lighter/zippo = 4,
 		/obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2
+	)
+
+// The Horizon gets a basic list of products. The rest should be put in commissary stocks.
+/obj/machinery/vending/cigarette/horizon
+	products = list(
+		/obj/item/storage/box/fancy/cigarettes/rugged = 6,
+		/obj/item/storage/box/fancy/cigarettes = 8,
+		/obj/item/storage/chewables/tobacco = 8,
+		/obj/item/storage/cigfilters = 6,
+		/obj/item/storage/box/fancy/cigpaper = 6,
+		/obj/item/storage/box/fancy/matches = 10,
+		/obj/item/flame/lighter/random = 4,
+		/obj/item/spacecash/ewallet/lotto = 30,
+		/obj/item/clothing/mask/smokable/ecig/simple = 2,
+		/obj/item/reagent_containers/ecig_cartridge/med_nicotine = 10,
+		/obj/item/reagent_containers/ecig_cartridge/high_nicotine = 10
 	)
 
 /obj/item/device/vending_refill/smokes
