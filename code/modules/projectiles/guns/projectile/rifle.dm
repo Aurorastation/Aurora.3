@@ -6,9 +6,9 @@
 	item_state = "moistnugget"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	fire_sound = 'sound/weapons/gunshot/gunshot_rifle.ogg'
-	caliber = "a762"
-	ammo_type = /obj/item/ammo_casing/a762
-	magazine_type = /obj/item/ammo_magazine/boltaction
+	caliber = "6.8mm"
+	ammo_type = /obj/item/ammo_casing/a68
+	magazine_type = /obj/item/ammo_magazine/boltaction/adhomai
 	max_shells = 5
 
 	rack_sound = 'sound/weapons/riflebolt.ogg'
@@ -37,7 +37,7 @@
 
 /obj/item/gun/projectile/shotgun/pump/rifle/blank
 	desc = "A replica of a traditional Adhomian bolt action rifle. It has the seal of the Grand Romanovich Casino on its stock."
-	ammo_type = /obj/item/ammo_casing/a762/blank
+	ammo_type = /obj/item/ammo_casing/a68/blank
 
 /obj/item/gun/projectile/shotgun/pump/rifle/scope
 	name = "sniper bolt action rifle"

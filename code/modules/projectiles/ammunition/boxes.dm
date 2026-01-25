@@ -545,6 +545,15 @@ If nothing is chosen, reload sounds revert to the default, which is metal_slide_
 	ammo_type = /obj/item/ammo_casing/vintage
 	caliber = "vintage"
 
+/obj/item/ammo_magazine/boltaction/adhomai
+	name = "ammo clip (6.8mm)"
+	icon_state = "762"
+	ammo_type = /obj/item/ammo_casing/a68
+	caliber = "6.8mm"
+
+/obj/item/ammo_magazine/boltaction/adhomai/blank
+	ammo_type = /obj/item/ammo_casing/a68/blank
+
 /obj/item/ammo_magazine/d762
 	name = "magazine (7.62mm)"
 	icon_state = "SVD"
@@ -562,7 +571,7 @@ If nothing is chosen, reload sounds revert to the default, which is metal_slide_
 	name = "magazine (6.8mm)"
 	icon_state = "a68"
 	mag_type = MAGAZINE
-	caliber = "a68"
+	caliber = "6.8mm"
 	matter = list(DEFAULT_WALL_MATERIAL = 1800)
 	ammo_type = /obj/item/ammo_casing/a68/
 	max_ammo = 25

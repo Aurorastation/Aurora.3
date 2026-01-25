@@ -545,10 +545,10 @@
 	automatic rifle. Laser weapons are usually used by high-ranking soldiers or special operatives. Regardless of advances in the small arms field, artillery is the Republican army’s \
 	main weapon and pride."
 
-	load_method = MAGAZINE
-	caliber = "a68"
+	load_method = MAGAZINE|SPEEDLOADER
+	caliber = "6.8mm"
 	ammo_type = /obj/item/ammo_casing/a68
-	allowed_magazines = list(/obj/item/ammo_magazine/a68)
+	allowed_magazines = list(/obj/item/ammo_magazine/a68, /obj/item/ammo_magazine/boltaction/adhomai)
 	magazine_type = /obj/item/ammo_magazine/a68
 	max_shells = 25
 
@@ -568,6 +568,12 @@
 	..() //Placed here so in-hand sprite reflects no magazine properly.
 	icon_state = (ammo_magazine)? "tsarrayut" : "tsarrayut_nomag"
 
+/obj/item/gun/projectile/automatic/rifle/adhomian/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/ammo_magazine/boltaction/) && !ammo_magazine)
+		to_chat(user, SPAN_WARNING("\The [src] cannot be reloaded without a magazine!"))
+		return
+	..()
+
 /obj/item/gun/projectile/automatic/rifle/dpra
 	name = "adhomian assault rifle"
 	desc = "The Mrrazhak Model-1 is the newest Al'mariist automatic rifle. The Mrrazhak is notorious for its simple and reliable design; it can be fabricated and assembled without the \
@@ -579,8 +585,8 @@
 
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 
-	load_method = MAGAZINE
-	caliber = "a68"
+	load_method = MAGAZINE|SPEEDLOADER
+	caliber = "6.8mm"
 	ammo_type = /obj/item/ammo_casing/a68
 	allowed_magazines = list(/obj/item/ammo_magazine/a68)
 	magazine_type = /obj/item/ammo_magazine/a68
@@ -604,8 +610,9 @@
 
 /obj/item/gun/projectile/automatic/rifle/dpra/gold
 	name = "gold plated adhomian assault rifle"
-	desc = "The Mrrazhak Model-1 is the newest Al'mariist automatic rifle. The Mrrazhak is notorious for its simple and reliable design; it can be fabricated and assembled without the \
-	need of a specialized industry or a highly trained workforce. This one is golden plated."
+	desc = "A gold plated assault rifle hailing from the battlefields of Adhomai's Second Revolution."
+	desc_extended = "War trophies and vanity pieces are not uncommon among the troops of the Adhomian Liberation Army. Particularly wealthy and vain \
+	Rhaza-Akhran, junta leaders, were known to take imported human weapons and modify them, such as gold-plating."
 	icon = 'icons/obj/guns/golden_mrrazhak.dmi'
 
 /obj/item/gun/projectile/automatic/tommygun

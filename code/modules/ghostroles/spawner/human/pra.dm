@@ -43,7 +43,7 @@
 	id = /obj/item/card/id/syndicate
 	accessory = /obj/item/clothing/accessory/badge/hadii_card
 	belt_contents = list(
-						/obj/item/ammo_magazine/boltaction = 3,
+						/obj/item/ammo_magazine/a68 = 3,
 						/obj/item/grenade/smokebomb = 2,
 						/obj/item/plastique = 1,
 						/obj/item/gun/projectile/pistol/adhomai = 1,

@@ -17,7 +17,7 @@
 	)
 	premium = list(
 		/obj/item/gun/projectile/shotgun/pump/rifle/blank = 3,
-		/obj/item/ammo_magazine/boltaction/blank = 10,
+		/obj/item/ammo_magazine/boltaction/adhomai/blank = 10,
 		/obj/item/storage/box/fancy/cigarettes/dpra = 5,
 		/obj/item/storage/chewables/tobacco/bad = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/messa_mead = 5,

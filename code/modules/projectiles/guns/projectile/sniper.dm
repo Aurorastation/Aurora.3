@@ -189,7 +189,7 @@
 	force = 15
 	slot_flags = SLOT_BACK
 	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 3, TECH_MAGNET = 2, TECH_ILLEGAL = 5)
-	caliber = "a68"
+	caliber = "6.8mm"
 	recoil = 2
 	fire_sound = 'sound/weapons/gunshot/gunshot_svd.ogg'
 	load_method = MAGAZINE
