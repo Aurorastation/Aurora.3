@@ -264,7 +264,7 @@
 	expend()
 
 /obj/item/ammo_casing/a68
-	desc = "A R33 Tamparii bullet casing."
+	desc = "A Z33 Tamparii bullet casing."
 	caliber = "a68"
 	projectile_type = /obj/projectile/bullet/rifle/a68
 	icon_state = "rifle-casing"
@@ -276,7 +276,7 @@
 	expend()
 
 /obj/item/ammo_casing/a68/ap
-	desc = "A R33s Tamparii bullet casing."
+	desc = "A Z33r Tamparii bullet casing."
 	caliber = "a68"
 	projectile_type = /obj/projectile/bullet/rifle/a68/ap
 	icon_state = "rifle-casing"
