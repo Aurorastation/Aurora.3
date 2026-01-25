@@ -66,7 +66,9 @@
 		/obj/item/clothing/pants/highvis/red = 5,
 		/obj/item/clothing/shoes/sneakers/orange = 6,
 		/obj/item/clothing/shoes/workboots = 4,
+		/obj/item/clothing/shoes/workboots/tajara = 4,
 		/obj/item/clothing/shoes/workboots/dark = 6,
+		/obj/item/clothing/shoes/workboots/tajara/dark = 4,
 		/obj/item/clothing/shoes/workboots/toeless = 4
 	)
 	premium = list(
@@ -135,7 +137,9 @@
 		/obj/item/clothing/accessory/storage/overalls/engineer = 3,
 		/obj/item/clothing/shoes/sneakers/orange = 4,
 		/obj/item/clothing/shoes/workboots = 4,
+		/obj/item/clothing/shoes/workboots/tajara = 4,
 		/obj/item/clothing/shoes/workboots/dark = 4,
+		/obj/item/clothing/shoes/workboots/tajara/dark = 4,
 		/obj/item/clothing/shoes/workboots/toeless = 2
 	)
 	premium = list(
@@ -217,6 +221,8 @@
 		/obj/item/clothing/suit/storage/toggle/longcoat/zavodskoi = 4,
 		/obj/item/clothing/suit/storage/toggle/sec_dep_jacket = 8,
 		/obj/item/clothing/gloves/black_leather = 8,
+		/obj/item/clothing/gloves/black_leather/tajara = 3,
+		/obj/item/clothing/gloves/black_leather/unathi = 3,
 		/obj/item/clothing/mask/balaclava = 4,
 		/obj/item/clothing/head/bandana/security = 8,
 		/obj/item/clothing/head/beret/security = 4,
@@ -248,6 +254,7 @@
 		/obj/item/clothing/head/wool/zavod/alt = 4,
 		/obj/item/clothing/shoes/laceup = 2,
 		/obj/item/clothing/shoes/jackboots = 8,
+		/obj/item/clothing/shoes/jackboots/tajara = 4,
 		/obj/item/clothing/shoes/jackboots/toeless = 6
 	)
 	premium = list(
@@ -839,7 +846,9 @@
 		/obj/item/clothing/gloves/black/unathi = 3,
 		/obj/item/clothing/shoes/sneakers/black = 3,
 		/obj/item/clothing/shoes/workboots = 4,
+		/obj/item/clothing/shoes/workboots/tajara = 4,
 		/obj/item/clothing/shoes/workboots/dark = 4,
+		/obj/item/clothing/shoes/workboots/tajara/dark = 4,
 		/obj/item/clothing/shoes/workboots/toeless = 2
 	)
 	premium = list(
