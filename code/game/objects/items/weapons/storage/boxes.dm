@@ -271,6 +271,7 @@
 	desc = "A box with several compact tungsten slugs, aimed for use in gauss carbines."
 	icon_state = "ammobox"
 	item_state = "ammobox"
+	label = null
 	illustration = null
 	drop_sound = 'sound/items/drop/ammobox.ogg'
 	pickup_sound = 'sound/items/pickup/ammobox.ogg'
@@ -582,6 +583,7 @@
 	name = "unique box"
 	desc = "A unique box. How is it unique? You have no idea."
 	color = COLOR_WHITE
+	label = null
 	illustration = null
 	chewable = FALSE
 
