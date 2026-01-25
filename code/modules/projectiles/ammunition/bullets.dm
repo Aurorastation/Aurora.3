@@ -263,6 +263,26 @@
 	. = ..()
 	expend()
 
+/obj/item/ammo_casing/a68
+	desc = "A R33 Tamparii bullet casing."
+	caliber = "a68"
+	projectile_type = /obj/projectile/bullet/rifle/a68
+	icon_state = "rifle-casing"
+	spent_icon = "rifle-casing-spent"
+	max_stack = 5
+
+/obj/item/ammo_casing/a68/spent/Initialize()
+	. = ..()
+	expend()
+
+/obj/item/ammo_casing/a68/ap
+	desc = "A R33s Tamparii bullet casing."
+	caliber = "a68"
+	projectile_type = /obj/projectile/bullet/rifle/a68/ap
+	icon_state = "rifle-casing"
+	spent_icon = "rifle-casing-spent"
+	max_stack = 5
+
 /obj/item/ammo_casing/a762/blank
 	desc = "A 7.62mm blank casing."
 	projectile_type = /obj/projectile/bullet/blank

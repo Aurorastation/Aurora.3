@@ -558,6 +558,25 @@ If nothing is chosen, reload sounds revert to the default, which is metal_slide_
 /obj/item/ammo_magazine/d762/empty
 	initial_ammo = 0
 
+/obj/item/ammo_magazine/a68
+	name = "magazine (6.8mm)"
+	icon_state = "a68"
+	mag_type = MAGAZINE
+	caliber = "a68"
+	matter = list(DEFAULT_WALL_MATERIAL = 1800)
+	ammo_type = /obj/item/ammo_casing/a68/
+	max_ammo = 25
+	multiple_sprites = 1
+	insert_sound = /singleton/sound_category/rifle_slide_reload
+
+/obj/item/ammo_magazine/a68/empty
+	initial_ammo = 0
+
+/obj/item/ammo_magazine/a68/hotaki
+	icon_state = "SVD"
+	ammo_type = /obj/item/ammo_casing/a68/ap
+	max_ammo = 10
+
 // Shotguns and special //
 /obj/item/ammo_magazine/flechette
 	name = "flechette rounds"

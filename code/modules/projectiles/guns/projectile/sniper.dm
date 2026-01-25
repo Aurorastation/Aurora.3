@@ -189,14 +189,16 @@
 	force = 15
 	slot_flags = SLOT_BACK
 	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 3, TECH_MAGNET = 2, TECH_ILLEGAL = 5)
-	caliber = "a762"
+	caliber = "a68"
 	recoil = 2
 	fire_sound = 'sound/weapons/gunshot/gunshot_svd.ogg'
 	load_method = MAGAZINE
 	max_shells = 10
 
-	magazine_type = /obj/item/ammo_magazine/d762
-	allowed_magazines = list(/obj/item/ammo_magazine/d762)
+	worn_x_dimension = 48 //Uses 48x32 gun sprite
+
+	magazine_type = /obj/item/ammo_magazine/a68/hotaki
+	allowed_magazines = list(/obj/item/ammo_magazine/a68/hotaki)
 
 	accuracy = -4
 	scoped_accuracy = 3
@@ -208,11 +210,9 @@
 	fire_delay = ROF_SUPERHEAVY
 
 /obj/item/gun/projectile/dragunov/update_icon()
-	..()
-	if(ammo_magazine)
-		icon_state = "dragunov"
-	else
-		icon_state = "dragunov-empty"
+	item_state = (ammo_magazine)? "dragunov" : "dragunov_nomag"
+	..() //Placed here so in-hand sprite reflects no magazine properly.
+	icon_state = (ammo_magazine)? "dragunov" : "dragunov_nomag"
 
 /obj/item/gun/projectile/dragunov/special_check(mob/user)
 	if(!wielded)

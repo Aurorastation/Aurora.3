@@ -302,6 +302,16 @@
 	armor_penetration = 30
 	penetrating = FALSE
 
+/obj/projectile/bullet/rifle/a68
+	name = "R33 Tamparii bullet"
+	damage = 45
+	penetrating = FALSE
+
+/obj/projectile/bullet/rifle/a68/ap
+	name = "R33s Tamparii bullet"
+	damage = 30
+	penetrating = TRUE
+
 /obj/projectile/bullet/rifle/a145
 	damage = 80
 	stun = 3
