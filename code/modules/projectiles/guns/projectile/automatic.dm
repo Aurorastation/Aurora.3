@@ -608,13 +608,6 @@
 	..() //Placed here so in-hand sprite reflects no magazine properly.
 	icon_state = (ammo_magazine)? "mrrazhak" : "mrrazhak_nomag"
 
-/obj/item/gun/projectile/automatic/rifle/dpra/gold
-	name = "gold plated adhomian assault rifle"
-	desc = "A gold plated assault rifle hailing from the battlefields of Adhomai's Second Revolution."
-	desc_extended = "War trophies and vanity pieces are not uncommon among the troops of the Adhomian Liberation Army. Particularly wealthy and vain \
-	Rhaza-Akhran, junta leaders, were known to take imported human weapons and modify them, such as gold-plating."
-	icon = 'icons/obj/guns/golden_mrrazhak.dmi'
-
 /obj/item/gun/projectile/automatic/tommygun
 	name = "submachine gun"
 	desc = "An Adhomian-made submachine gun."

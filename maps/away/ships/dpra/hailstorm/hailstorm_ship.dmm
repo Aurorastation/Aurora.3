@@ -3611,7 +3611,7 @@
 	req_access = list(214);
 	name = "Personal Arms"
 	},
-/obj/item/gun/projectile/automatic/rifle/dpra/gold,
+/obj/item/gun/projectile/automatic/rifle/dpra,
 /obj/item/ammo_magazine/a68,
 /obj/item/ammo_magazine/a68,
 /obj/item/ammo_magazine/a68,

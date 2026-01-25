@@ -770,7 +770,7 @@
 	new /obj/item/gun/projectile/automatic/rifle/shorty(src)
 	new /obj/item/ammo_magazine/c762(src)
 	new /obj/item/ammo_magazine/c762(src)
-	new /obj/item/gun/projectile/automatic/rifle/dpra/gold(src)
+	new /obj/item/gun/projectile/automatic/rifle/dpra(src)
 	new /obj/item/ammo_magazine/a68(src)
 	new /obj/item/ammo_magazine/a68(src)
 	new /obj/item/storage/box/unathi_pirate(src)
