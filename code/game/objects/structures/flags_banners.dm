@@ -4086,16 +4086,16 @@
 
 /obj/item/flag/sfk/l
 	name = "\improper Sankt Frederick flag"
-	desc =  “The flag of Sankt Frederick, the steadfast breadbasket of the Solarian Wildlands.”
-	desc_extended = “The flag of Sankt Frederick features a horizontal tricolor of black, white, and blue, representing the planet’s rich soil, the people’s unity and perseverance, and its many lakes and rivers. At its center lies a blue escutcheon bearing a white wheat stalk, symbolizing Sankt Frederick’s agricultural heritage and its vital role in sustaining the wider Alliance.“
+	desc =  "The flag of Sankt Frederick, the steadfast breadbasket of the Solarian Wildlands."
+	desc_extended = "The flag of Sankt Frederick features a horizontal tricolor of black, white, and blue, representing the planet’s rich soil, the people’s unity and perseverance, and its many lakes and rivers. At its center lies a blue escutcheon bearing a white wheat stalk, symbolizing Sankt Frederick’s agricultural heritage and its vital role in sustaining the wider Alliance."
 	flag_path = "sfk"
 	flag_size = TRUE
 	flag_structure = /obj/structure/sign/flag/sfl/large
 
 /obj/structure/sign/flag/sfk/large
 	name = "\improper Sankt Frederick flag"
-	desc =  “The flag of Sankt Frederick, the steadfast breadbasket of the Solarian Wildlands.”
-	desc_extended = “The flag of Sankt Frederick features a horizontal tricolor of black, white, and blue, representing the planet’s rich soil, the people’s unity and perseverance, and its many lakes and rivers. At its center lies a blue escutcheon bearing a white wheat stalk, symbolizing Sankt Frederick’s agricultural heritage and its vital role in sustaining the wider Alliance.“
+	desc =  "The flag of Sankt Frederick, the steadfast breadbasket of the Solarian Wildlands."
+	desc_extended = "The flag of Sankt Frederick features a horizontal tricolor of black, white, and blue, representing the planet’s rich soil, the people’s unity and perseverance, and its many lakes and rivers. At its center lies a blue escutcheon bearing a white wheat stalk, symbolizing Sankt Frederick’s agricultural heritage and its vital role in sustaining the wider Alliance."
 	icon_state = "sfk_l"
 	flag_path = "sfk"
 	flag_size = TRUE
