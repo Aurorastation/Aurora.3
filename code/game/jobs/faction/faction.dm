@@ -5,7 +5,7 @@
 	var/list/departments
 	var/wiki_page
 
-	/// Number indicating the list index in the 'faction select' interface of this faction.
+	/// Number indicating the list index of this faction in the 'faction select' interface.
 	var/ui_priority
 
 	var/list/allowed_role_types
