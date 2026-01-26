@@ -2,13 +2,13 @@
 	name = T_BOARD("security camera monitor")
 	build_path = /obj/machinery/computer/security
 	req_access = list(ACCESS_SECURITY)
-	var/list/network
+	var/list/console_networks
 	var/locked = 1
 	var/emagged = 0
 
 /obj/item/circuitboard/security/Initialize()
 	. = ..()
-	network = SSatlas.current_map.station_networks
+	console_networks = SSatlas.current_map.station_networks
 
 /obj/item/circuitboard/security/engineering
 	name = T_BOARD("engineering camera monitor")
@@ -17,21 +17,21 @@
 
 /obj/item/circuitboard/security/engineering/New()
 	..()
-	network = GLOB.engineering_networks
+	console_networks = GLOB.engineering_networks
 
 /obj/item/circuitboard/security/mining
 	name = T_BOARD("mining camera monitor")
 	build_path = /obj/machinery/computer/security/mining
-	network = list("MINE")
+	console_networks = list("MINE")
 	req_access = list()
 
 /obj/item/circuitboard/security/construct(var/obj/machinery/computer/security/C)
 	if (..(C))
-		C.network = network.Copy()
+		C.console_networks = console_networks.Copy()
 
 /obj/item/circuitboard/security/deconstruct(var/obj/machinery/computer/security/C)
 	if (..(C))
-		network = C.network.Copy()
+		console_networks = C.console_networks.Copy()
 
 /obj/item/circuitboard/security/emag_act(var/remaining_charges, var/mob/user)
 	if(emagged)
@@ -56,7 +56,7 @@
 		if(locked)
 			to_chat(user, SPAN_WARNING("Circuit controls are locked."))
 			return
-		var/existing_networks = jointext(network,",")
+		var/existing_networks = jointext(console_networks,",")
 		var/input = sanitize( tgui_input_text(user, "Which networks would you like to connect this camera console circuit to? Seperate networks with a comma. No Spaces!\nFor example: SS13,Security,Secret ",
 												"Multitool-Circuitboard interface", existing_networks) )
 		if(!input)
@@ -67,5 +67,5 @@
 		if(tempnetwork.len < 1)
 			to_chat(usr, "No network found please hang up and try your call again.")
 			return
-		network = tempnetwork
+		console_networks = tempnetwork
 	return

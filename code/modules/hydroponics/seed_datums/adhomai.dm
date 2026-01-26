@@ -138,7 +138,7 @@
 	seed_type = "nfrihi"
 
 /datum/seed/sugartree
-	name = "sugar tree"
+	name = "sugartree"
 	seed_name = "sugar tree"
 	display_name = "sugar trees"
 	product_desc = "The fruit of the Sugar Tree, native to Adhomai. It is sweet and commonly used in candies."
@@ -154,13 +154,13 @@
 	SET_SEED_TRAIT(src, TRAIT_MATURATION, 9)
 	SET_SEED_TRAIT(src, TRAIT_PRODUCTION, 5)
 	SET_SEED_TRAIT(src, TRAIT_YIELD, 2)
-	SET_SEED_TRAIT(src, TRAIT_PRODUCT_ICON, "nmshaan")
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_ICON, "sugartree")
 	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#fffdf7")
 	SET_SEED_TRAIT(src, TRAIT_PLANT_COLOUR, "#31331c")
-	SET_SEED_TRAIT(src, TRAIT_PLANT_ICON, "nmshaan")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_ICON, "sugartree")
 	SET_SEED_TRAIT(src, TRAIT_IDEAL_HEAT, IDEAL_HEAT_ADHOMAI)
 	SET_SEED_TRAIT(src, TRAIT_WATER_CONSUMPTION, 4)
 	SET_SEED_TRAIT(src, TRAIT_IDEAL_LIGHT, IDEAL_LIGHT_DIM)
 
 /obj/item/seeds/sugartree
-	seed_type = "sugar tree"
+	seed_type = "sugartree"
