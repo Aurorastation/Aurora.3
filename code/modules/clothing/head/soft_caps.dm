@@ -7,6 +7,7 @@
 	item_flags = ITEM_FLAG_SHOW_FLAVOR_TEXT
 	contained_sprite = TRUE
 	var/flipped = FALSE
+	var/flippable = TRUE
 	siemens_coefficient = 0.9
 
 /obj/item/clothing/head/softcap/dropped()
@@ -20,7 +21,7 @@
 	set category = "Object.Equipped"
 	set src in usr
 
-	if(use_check_and_message(usr))
+	if(use_check_and_message(usr) || !flippable)
 		return 0
 
 	flipped = !flipped
@@ -39,6 +40,7 @@
 
 /obj/item/clothing/head/softcap/colorable/accent
 	has_accents = TRUE
+	flippable = FALSE
 
 /obj/item/clothing/head/softcap/rainbow
 	name = "rainbow cap"
