@@ -460,7 +460,7 @@
 
 	if(status_flags & GODMODE) // Godmode
 		visible_message(SPAN_NOTICE("\The [src] lands flawlessly on their legs, bending their knee to the floor. They promptly stand up."))
-		playsound(src.loc, /singleton/sound_category/swing_hit_sound, 50, 1)
+		playsound(src.loc, SFX_SWING_HIT, 50, 1)
 		return FALSE
 
 	visible_message("\The [src] falls and lands on \the [loc]!",
@@ -483,7 +483,7 @@
 			if(51 to INFINITY)
 				playsound(src.loc, 'sound/weapons/heavysmash.ogg', 100, 1)
 			else
-				playsound(src.loc, /singleton/sound_category/swing_hit_sound, 75, 1)
+				playsound(src.loc, SFX_SWING_HIT, 75, 1)
 	else
 		playsound(src.loc, 'sound/weapons/smash.ogg', 75, 1)
 
@@ -504,7 +504,7 @@
 
 	if(status_flags & GODMODE) // Godmode
 		visible_message(SPAN_NOTICE("\The [src] lands flawlessly on their legs, bending their knee to the floor. They promptly stand up."))
-		playsound(src.loc, /singleton/sound_category/swing_hit_sound, 50, 1)
+		playsound(src.loc, SFX_SWING_HIT, 50, 1)
 		return FALSE
 
 	var/combat_roll = 1
@@ -639,11 +639,11 @@
 			if(-INFINITY to 10)
 				playsound(src.loc, 'sound/weapons/bladeslice.ogg', 50, 1)
 			if(11 to 50)
-				playsound(src.loc, /singleton/sound_category/punch_sound, 75, 1)
+				playsound(src.loc, SFX_PUNCH, 75, 1)
 			if(51 to INFINITY)
 				playsound(src.loc, 'sound/weapons/heavysmash.ogg', 100, 1)
 			else
-				playsound(src.loc, /singleton/sound_category/swing_hit_sound, 75, 1)
+				playsound(src.loc, SFX_SWING_HIT, 75, 1)
 	else
 		playsound(src.loc, 'sound/weapons/smash.ogg', 75, 1)
 

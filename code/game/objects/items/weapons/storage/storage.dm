@@ -73,7 +73,7 @@
 	var/collection_mode = TRUE
 
 	///Sound played when used. null for no sound.
-	var/use_sound = /singleton/sound_category/rustle_sound
+	var/use_sound = SFX_RUSTLE
 
 	/// List of pre-filled items
 	var/list/starts_with

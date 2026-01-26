@@ -54,7 +54,7 @@
 			else
 				flick("papershredder_on", src)
 			qdel(attacking_item)
-			playsound(src.loc, 'sound/bureaucracy/papershred.ogg', 75, 1)
+			playsound(src.loc, 'sound/items/bureaucracy/papershred.ogg', 75, 1)
 			to_chat(user, SPAN_NOTICE("You shred the paper."))
 			intent_message(MACHINE_SOUND)
 			if(paperamount > max_paper)
@@ -158,7 +158,7 @@
 
 		user.visible_message(span("[class]", "[user] holds \the [P] up to \the [src], trying to burn it!"), \
 		span("[class]", "You hold \the [P] up to \the [src], burning it slowly."))
-		playsound(src.loc, 'sound/bureaucracy/paperburn.ogg', 50, 1)
+		playsound(src.loc, 'sound/items/bureaucracy/paperburn.ogg', 50, 1)
 		flick("shredp_onfire", src)
 
 		if (do_after(user, 2 SECONDS, src, DO_UNIQUE | DO_USER_CAN_MOVE))

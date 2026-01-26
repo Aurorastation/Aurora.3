@@ -118,7 +118,7 @@ GLOBAL_LIST_INIT_TYPED(all_cargo_receptacles, /obj/structure/cargo_receptacle, l
 			var/obj/structure/cargo_receptacle/selected_delivery_point = get_cargo_package_delivery_point(src)
 			if(selected_delivery_point)
 				visible_message("\The [src] beeps, \"[SPAN_NOTICE("New package available for delivery.")]\"")
-				playsound(src, /singleton/sound_category/print_sound, 50, TRUE)
+				playsound(src, SFX_PRINT, 50, TRUE)
 
 				var/obj/item/cargo_package/printed_package = new /obj/item/cargo_package/offship(get_turf(user), selected_delivery_point)
 				printed_package.pays_horizon_account = pays_horizon_account
@@ -167,7 +167,7 @@ GLOBAL_LIST_INIT_TYPED(all_cargo_receptacles, /obj/structure/cargo_receptacle, l
 	if(!found_user_account)
 		playsound(loc, 'sound/machines/buzz-sigh.ogg', 50, TRUE)
 		visible_message("\The [src] buzzes harshly, \"[SPAN_WARNING("Delivery complete! User account details not found... printing cash tip...")]\"")
-		playsound(loc, /singleton/sound_category/print_sound, 50, TRUE)
+		playsound(loc, SFX_PRINT, 50, TRUE)
 		var/obj/item/spacecash/bundle/cash_tip = new /obj/item/spacecash/bundle(loc)
 		cash_tip.worth = package.pay_amount * 0.02
 		cash_tip.update_icon()
