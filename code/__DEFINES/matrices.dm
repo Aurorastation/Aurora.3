@@ -9,6 +9,8 @@
 #define COLOR_MATRIX_SEPIATONE list(0.393,0.349,0.272,0, 0.769,0.686,0.534,0, 0.189,0.168,0.131,0, 0,0,0,1, 0,0,0,0)
 ///Grayscale
 #define COLOR_MATRIX_GRAYSCALE list(0.33,0.33,0.33,0, 0.59,0.59,0.59,0, 0.11,0.11,0.11,0, 0,0,0,1, 0,0,0,0)
+/// Noir
+#define COLOR_MATRIX_NOIR list(0.299, 0.299, 0.299, 0.587, 0.587, 0.587, 0.114, 0.114, 0.114)
 ///Polaroid colors
 #define COLOR_MATRIX_POLAROID list(1.438,-0.062,-0.062,0, -0.122,1.378,-0.122,0, -0.016,-0.016,1.483,0, 0,0,0,1, 0,0,0,0)
 /// Converts reds to blue, green to red and blue to green.

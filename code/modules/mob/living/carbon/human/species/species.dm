@@ -296,6 +296,8 @@
 	var/list/inherent_verbs
 	/// Species-specific spells.
 	var/list/inherent_spells
+	/// Generic traits tied to having the species.
+	var/list/inherent_traits = list()
 	/// Can use small items.
 	var/has_fine_manipulation = 1
 	/// The lower, the thicker the skin and better the insulation.

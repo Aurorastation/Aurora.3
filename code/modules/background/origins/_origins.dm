@@ -6,6 +6,7 @@
 	/// Format for the following list: "Characters from this origin: [list entry], [list entry]."
 	/// One list item per trait.
 	var/list/origin_traits_descriptions = list()
+	var/list/blacklisted_traits = list()
 
 /singleton/origin_item/culture
 	name = "generic culture"

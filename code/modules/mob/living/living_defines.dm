@@ -104,3 +104,6 @@
 
 	/// If true, ignores weather effects
 	var/resists_weather = FALSE
+
+	/// Lazylist of all quirks the mob has. These are not singletons
+	var/list/quirks

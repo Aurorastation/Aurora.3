@@ -1,0 +1,11 @@
+/datum/quirk/mute
+	name = "Mute"
+	desc = "For some reason you are completely unable to speak."
+	icon = FA_ICON_VOLUME_XMARK
+	value = -4
+	//mob_trait = TRAIT_MUTE
+	gain_text = SPAN_DANGER("You find yourself unable to speak!")
+	lose_text = SPAN_NOTICE("You feel a growing strength in your vocal chords.")
+	medical_record_text = "The patient is unable to use their voice in any capacity."
+	//hardcore_value = 4
+	category = CATEGORY_DISABILITY

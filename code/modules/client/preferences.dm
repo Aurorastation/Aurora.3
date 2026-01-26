@@ -140,6 +140,9 @@ GLOBAL_LIST_EMPTY_TYPED(preferences_datums, /datum/preferences)
 	//Keeps track of preferrence for not getting any wanted jobs
 	var/alternate_option = RETURN_TO_LOBBY
 
+	///Quirk list
+	var/list/all_quirks = list()
+
 	// maps each organ to either null(intact), "cyborg" or "amputated"
 	// will probably not be able to do this for head and torso ;)
 	var/list/organ_data = list()

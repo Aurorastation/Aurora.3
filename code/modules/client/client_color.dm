@@ -1,34 +1,63 @@
 /datum/client_color
+	/// Color given to the client, can be a hex color, color matrix or a filter
 	var/client_color = "" //Any client.color-valid value
+	/// The mob that owns this client_colour
+	var/mob/owner
+	/// Priority of this color, higher values are rendered above lower ones
 	var/priority = 1
-	var/override = FALSE //If set to override we will stop multiplying the moment we get here. NOTE: Priority remains, if your override is on position 4, the other 3 will still have a say.
+	/// Will this client_colour prevent ones of lower priority from being applied?
+	var/override = FALSE
 	var/disability = FALSE
+	/// If non-zero, 'update_client_color(fade_in)' will be called instead of 'update_client_color' when added.
+	var/fade_in = 0
+	/// If non-zero, 'update_client_color(fade_out)' will be called instead of 'update_client_color' when removed.
+	var/fade_out = 0
+
+/datum/client_color/New(mob/owner)
+	src.owner = owner
+
+/datum/client_color/Destroy()
+	if(!QDELETED(owner))
+		owner.client_colors -= src
+		owner.update_client_color(fade_out)
+	owner = null
+	return ..()
 
 /mob
 	var/list/client_colors = list()
 
 
+/**
+ * Add a color filter to the client
+ * new_color - client_color datum or typepath to be added
+ * source - associated source for the client color
+ * force - if TRUE, colors of the same source will be replaced even if it is of the same type
+ */
+/mob/proc/add_client_color(datum/client_color/new_color, source, force = FALSE)
+	if (QDELING(src))
+		return
 
-/*
-	Adds an instance of color_type to the mob's client_colors list
-	color_type - a typepath (subtyped from /datum/client_color)
-*/
-/mob/proc/has_client_color(color_type)
-	if(!ispath(/datum/client_color) || !LAZYLEN(client_colors))
-		return FALSE
-	for(var/thing in client_colors)
-		var/datum/client_color/col = thing
-		if(col.type == color_type)
-			return TRUE
-	return FALSE
+	if (ispath(new_color))
+		new_color = new new_color(src)
 
-/mob/proc/add_client_color(color_type, set_disability = FALSE)
-	if(!has_client_color(color_type))
-		var/datum/client_color/CC = new color_type()
-		CC.disability = set_disability
-		client_colors |= CC
-		sortTim(client_colors, GLOBAL_PROC_REF(cmp_clientcolor_priority))
-		update_client_color()
+	if (!istype(new_color))
+		CRASH("Invalid color type or datum for add_client_color: [new_color ? "[new_color] ([new_color.type])" : "null"]")
+
+	// Ensure that if a color with this source is already present, we either abort or get rid of it
+	var/datum/client_color/existing_color = get_client_color(source)
+	if (existing_color)
+		if (existing_color.type == new_color.type && !force)
+			return existing_color
+		qdel(existing_color)
+	client_colors[new_color] = source
+	update_client_color(new_color.fade_in)
+	return new_color
+
+
+/mob/proc/get_client_color(source)
+	for(var/datum/client_color/color as anything in client_colors)
+		if (client_colors[color] == source)
+			return color
 
 
 /*
@@ -36,59 +65,45 @@
 	color_type - a typepath (subtyped from /datum/client_color)
 	returns true if instance was found, false otherwise
 */
-/mob/proc/remove_client_color(color_type, remove_disability = FALSE)
-	if(!ispath(/datum/client_color))
+/mob/proc/remove_client_color(source)
+	var/datum/client_color/existing_color = get_client_color(source)
+	if (!existing_color)
 		return FALSE
+	qdel(existing_color)
+	return TRUE
 
-	var/result = FALSE
-	for(var/cc in client_colors)
-		var/datum/client_color/CC = cc
-		if(CC.type == color_type)
-			if(CC.disability && !remove_disability)
-				continue
-			result = TRUE
-			client_colors -= CC
-			qdel(CC)
-			break
-	update_client_color()
-	return result
-
-
-/*
-	Resets the mob's client.color to null, and then sets it to the highest priority
-	client_color datum, if one exists
-*/
-/mob/proc/update_client_color()
-	if(!client)
+/mob/proc/update_client_color(anim_time = 1 SECONDS, anim_easing = LINEAR_EASING)
+	if (isnull(client))
 		return
-	client.color = null
-	if(!client_colors.len)
+
+	if(!length(client_colors))
+		animate(client, color = null, time = anim_time, easing = anim_easing)
+		UNSETEMPTY(client_colors)
 		return
-	var/list/c = list(1,0,0, 0,1,0, 0,0,1) //Star at normal
-	for(var/datum/client_color/CC in client_colors)
-		//Matrix multiplication newcolor * current
-		var/list/current = c.Copy()
 
-		for(var/m = 1; m <= 3; m += 1) //For each row
-			for(var/i = 1; i <= 3; i += 1) //go over each column of the second matrix
-				var/sum = 0
-				for(var/j = 1; j <= 3; j += 1) //multiply each pair
-					sum += CC.client_color[(m-1)*3 + j] * current[(j-1)*3 + i]
+	//Sort the matrix packages by priority.
+	client_colors = sortTim(client_colors, GLOBAL_PROC_REF(cmp_filter_data_priority), TRUE)
 
-				c[(m-1)*3 + i] = sum
+	var/list/final_matrix
 
-		if(CC.override)
-			break
+	for(var/package in client_colors)
+		var/list/current_matrix = client_colors[package]["color_matrix"]
+		if(!final_matrix)
+			final_matrix = current_matrix
+		else
+			final_matrix = color_matrix_multiply(final_matrix, current_matrix)
 
-	animate(client, color = c)
+	animate(client, color = final_matrix, time = anim_time, easing = anim_easing)
 
 /datum/client_color/monochrome
-	client_color = list(0.33, 0.33, 0.33, 0.33, 0.33, 0.33, 0.33, 0.33, 0.33)
+	client_color = COLOR_MATRIX_GRAYSCALE
 	priority = 100
+	fade_in = 2 SECONDS
+	fade_out = 2 SECONDS
 
 //Similar to monochrome but shouldn't look as flat, same priority
 /datum/client_color/noir
-	client_color = list(0.299, 0.299, 0.299, 0.587, 0.587, 0.587, 0.114, 0.114, 0.114)
+	client_color = COLOR_MATRIX_NOIR
 	priority = 200
 
 /datum/client_color/thirdeye

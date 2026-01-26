@@ -215,8 +215,8 @@ GLOBAL_LIST_EMPTY(all_particles)
 
 	//Languages and species.
 	paths = subtypesof(/datum/language)
-	for(var/T in paths)
-		var/datum/language/L = new T
+	for(var/language_type in paths)
+		var/datum/language/L = new language_type
 		GLOB.all_languages[L.name] = L
 
 	for (var/language_name in GLOB.all_languages)
@@ -226,9 +226,9 @@ GLOBAL_LIST_EMPTY(all_particles)
 
 	var/rkey = 0
 	paths = subtypesof(/datum/species)
-	for(var/T in paths)
+	for(var/species_type in paths)
 		rkey++
-		var/datum/species/S = new T
+		var/datum/species/S = new species_type
 		S.race_key = rkey //Used in mob icon caching.
 		if(length(S.autohiss_basic_map) || length(S.autohiss_extra_map) || length(S.autohiss_basic_extend) || length(S.autohiss_extra_extend))
 			S.has_autohiss = TRUE

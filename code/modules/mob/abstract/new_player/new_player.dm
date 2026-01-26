@@ -301,6 +301,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 
 	equip_custom_items(character, body_only = TRUE) // Equips body-related custom items, like augments and prosthetics.
 	SSjobs.EquipAugments(character, character.client.prefs)
+	SSquirks.AssignQuirks(character, client)
 	character = SSjobs.EquipRank(character, rank, TRUE, spawning_at)					//equips the human
 	equip_custom_items(character, body_only = FALSE) // Equips all other custom items.
 

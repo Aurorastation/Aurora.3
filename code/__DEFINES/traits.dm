@@ -124,7 +124,10 @@
 #define TRAIT_SOURCE_INHERENT "t_s_inherent"
 /// cannot be removed without admin intervention
 #define ROUNDSTART_TRAIT "roundstart"
+/// Any traits granted by cultures
 #define CULTURE_TRAIT "culture"
+/// Any traits granted by quirks.
+#define QUIRK_TRAIT "quirk_trait"
 
 #define INNATE_TRAIT "innate"
 
