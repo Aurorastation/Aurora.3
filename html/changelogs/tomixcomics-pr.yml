@@ -55,8 +55,4 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Added cucumbers."
-  - rscadd: "Re-added randomly chosen items spawning in the fridges at shift start like they did before the scarcity arc."
-  - rscadd: "Added a few cucumber dishes and one Adhomian cuisine dish."
-  - rscadd: "Made it so it's visible when your character is holding a kitchen tray."
-  - bugfix: "Fixed sugar tree fruit not showing up."
+  - bugfix: "Added cucumber seeds to the seed vendors."
