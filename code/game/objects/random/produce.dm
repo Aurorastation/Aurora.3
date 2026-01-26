@@ -60,7 +60,8 @@
 		"pumpkin" = 0.1,
 		"onion" = 0.5,
 		"garlic" = 0.5,
-		"bellpepper" = 0.25
+		"bellpepper" = 0.25,
+		"cucumber" = 0.25
 	)
 
 /obj/random_produce/box/adhomai
@@ -68,7 +69,7 @@
 		"nfrihi" = 1,
 		"dirtberries" = 1,
 		"earthenroot" = 1,
-		"sugar tree" = 1,
+		"sugartree" = 1,
 		"shand" = 1,
 		"mtear" = 1
 	)
