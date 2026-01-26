@@ -123,3 +123,41 @@
   arrow768:
   - server: Use the new login system to fetch the admins/groups instead of the deprecated
       forum user api.
+2026-01-26:
+  Batrachophrenoboocosmomachia:
+  - rscadd: Re-implementation of bodytype selection in Appearance Changer with clearer
+      language.
+  - bugfix: Mechatronic fabricator no longer needs to be manually synced on round
+      start to populate all available parts.
+  - bugfix: Freebooters can now pilot their own subshuttle.
+  - bugfix: Greimorian eggs toxin can no longer infest synthetic limbs.
+  - qol: Vintage rifle mechanical feedback text has been clarified for ease of use
+      (before it wouldn't tell you how to rack it properly).
+  - rscdel: Removes pause/unpause functionality from earbuds due to general bugginess
+      in favor of play/stop.
+  CatsinHD:
+  - rscadd: Adds the Winter Quest rulebook to the loadout under the Toys category.
+  Evandorf:
+  - bugfix: Fixes the hazardous specimen airlocks in xenobotany.
+  GeneralCamo:
+  - bugfix: Added additional sanity checking to remove wounds that reach 0 or less
+      damage.
+  Hellfirejag:
+  - bugfix: Fixed Mech Sleepers & Passenger Compartments not working at all.
+  Kano:
+  - bugfix: Fixed an issue pertinent to lattice duplicate check, which was causing
+      issues in away_site_testing checks.
+  TheGreyWolf:
+  - rscadd: It is now possible for holsters to have a filled sprite. This is currently
+      not implemented anywhere.
+  - rscadd: Holsters can now have their draw descriptions modified. Currently only
+      the machete holster does it differently from ordinary holsters.
+  TheGreyWolf & Kaizr:
+  - rscadd: Commissary restocks are now supplied to operations.
+  - rscadd: It is now possible to order commissary restocks from the ordering console.
+  - rscadd: The commissary was expanded in size and the library reduced in size.
+  - rscdel: The cigarette, getmore and idris refresh machines had their stock severely
+      reduced, with idris refresh and getmore being combined into a single vending
+      machine on the Horizon.
+  - bugfix: Smartfridges sanitization was fixed.
+  - rscadd: The specialized commissary shelves can now be leaned on.
