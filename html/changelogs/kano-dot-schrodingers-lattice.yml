@@ -1,6 +1,0 @@
-author: Kano
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixed an issue pertinent to lattice duplicate check, which was causing issues in away_site_testing checks."

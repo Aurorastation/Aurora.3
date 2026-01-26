@@ -1,7 +1,0 @@
-author: TheGreyWolf
-
-delete-after: True
-
-changes:
-  - rscadd: "It is now possible for holsters to have a filled sprite. This is currently not implemented anywhere."
-  - rscadd: "Holsters can now have their draw descriptions modified. Currently only the machete holster does it differently from ordinary holsters."
