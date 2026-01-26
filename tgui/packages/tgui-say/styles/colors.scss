@@ -7,57 +7,28 @@ $lightBorder: #bbbbbb;
 $lightHover: #eaeaea;
 $scrollbar-color-multiplier: 1 !default;
 
-////////////////////////////////////////////////
-// Normal chat colors
-$say: #a4bad6;
-$radio: #1ecc43;
-$me: #5975da;
-$ooc: #cca300;
-$looc: #e362b4;
-
-////////////////////////////////////////////////
-// Subchannel chat colors
-$ai: #d65d95;
-$admin: #ffbbff;
-$binary: #1e90ff;
-$centcom: #2681a5;
-$command: #5b8deb;
-$engi: #cc7b01;
-$hive: #855d85;
-$medical: #57b8f0;
-$science: #c68cfa;
-$security: #e21111;
-$syndicate: #ac6667;
-$service: #7fc732;
-$supply: #c09141;
-$hail: #8b4cd8;
-$ent: #cfcfcf;
-$cling: #376340;
-$exped: #d6bc67;
-
 $_channel_map: (
-  'Say': $say,
-  'Comm': $radio,
-  'Radio': $radio,
-  'Me': $me,
-  'OOC': $ooc,
-  'LOOC': $looc,
-  'AI': $ai,
-  'io': $binary,
-  'Cmd': $command,
-  'Engi': $engi,
-  'Med': $medical,
-  'Sci': $science,
-  'Sec': $security,
-  'Merc': $syndicate,
-  'Synd': $syndicate,
-  'Pen': $syndicate,
-  'Svc': $service,
-  'Supp': $supply,
-  'Hail': $hail,
-  'Ent': $ent,
-  'Cling': $cling,
-  'Exped': $exped,
+  'Say': #a4bad6,
+  'Radio': #1ecc43,
+  'Me': #5975da,
+  'OOC': #cca300,
+  'LOOC': #e362b4,
+  'AI': #d65d95,
+  'Cling': #376340,
+  'Cmd': #5b8deb,
+  'Engi': #cc7b01,
+  'Ent': #cfcfcf,
+  'Exped': #d6bc67,
+  'Hail': #8b4cd8,
+  'io': #1e90ff,
+  'Med': #57b8f0,
+  'Merc': #ac6667,
+  'Pen': #ac6667,
+  'Sci': #c68cfa,
+  'Sec': #e21111,
+  'Supp': #c09141,
+  'Svc': #7fc732,
+  'Synd': #ac6667,
 );
 
 $channel_keys: map.keys($_channel_map) !default;
