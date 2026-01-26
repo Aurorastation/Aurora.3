@@ -58,7 +58,7 @@ export const SyntheticFabricator = (props, context) => {
   return (
     <Window resizable theme={data.manufacturer}>
       <Window.Content scrollable>
-        <Flex fontSize="1.2rem" fill>
+        <Flex fontSize="1.2rem" wrap>
           <Flex.Item>
             <Section
               title="Materials"
