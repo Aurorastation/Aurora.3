@@ -185,7 +185,7 @@
 	if(!ishuman(speaker))
 		return FALSE
 	var/mob/living/carbon/human/H = speaker
-	var/obj/item/organ/internal/augment/language/zeng/aug = H.internal_organs_by_name[BP_AUG_LANGUAGE]
+	var/obj/item/organ/internal/augment/language/zeng/aug = H.internal_organs_by_name[BP_AUG_LANGUAGE_ZENG]
 	if(istype(aug) && !isskrell(H))
 		to_chat(speaker, SPAN_WARNING("You are not capable of speaking Nral'malic!"))
 		return FALSE
@@ -268,7 +268,7 @@
 					to_chat(player, encrypted_msg)
 					continue
 				var/obj/item/organ/internal/vaurca/neuralsocket/listener_socket = listener_human.internal_organs_by_name[BP_NEURAL_SOCKET]
-				var/obj/item/organ/internal/augment/language/vekatak/receiver = listener_human.internal_organs_by_name[BP_AUG_LANGUAGE]
+				var/obj/item/organ/internal/augment/language/vekatak/receiver = listener_human.internal_organs_by_name[BP_AUG_LANGUAGE_VEKATAK]
 				if(listener_socket)
 					if(listener_socket.decryption_key == speaker_encryption_key)
 						to_chat(player, msg)
@@ -313,8 +313,8 @@
 		return 0
 	if(M.internal_organs_by_name[BP_NEURAL_SOCKET] && (GLOB.all_languages[LANGUAGE_VAURCA] in M.languages))
 		return 1
-	if(M.internal_organs_by_name[BP_AUG_LANGUAGE])
-		var/obj/item/organ/internal/augment/language/vekatak/V = M.internal_organs_by_name[BP_AUG_LANGUAGE]
+	if(M.internal_organs_by_name[BP_AUG_LANGUAGE_VEKATAK])
+		var/obj/item/organ/internal/augment/language/vekatak/V = M.internal_organs_by_name[BP_AUG_LANGUAGE_VEKATAK]
 		if(istype(V) && (GLOB.all_languages[LANGUAGE_VAURCA] in M.languages))
 			return 1
 	if(M.internal_organs_by_name["blackkois"])
@@ -337,7 +337,7 @@
 /datum/language/bug/check_speech_restrict(var/mob/speaker)
 	var/mob/living/carbon/human/H = speaker
 	var/obj/item/organ/internal/vaurca/neuralsocket/S = H.internal_organs_by_name[BP_NEURAL_SOCKET]
-	var/obj/item/organ/internal/augment/language/vekatak/V = H.internal_organs_by_name[BP_AUG_LANGUAGE]
+	var/obj/item/organ/internal/augment/language/vekatak/V = H.internal_organs_by_name[BP_AUG_LANGUAGE_VEKATAK]
 
 	//Black k'ois zombies don't have neural sockets but need to talk, hence check if the socket exists, or it will runtime for them
 	if(S && (S.muted || S.disrupted))

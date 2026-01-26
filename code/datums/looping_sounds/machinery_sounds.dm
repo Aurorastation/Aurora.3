@@ -115,6 +115,51 @@
 	volume = 75
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// FABRICATORS AND SUBTYPES
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/datum/looping_sound/fabricator
+	start_sound = 'sound/machines/fabricators/autolathe/autolathe_start.ogg'
+	start_length = 2.67 SECONDS
+	mid_sounds = list(
+		'sound/machines/fabricators/autolathe/autolathe_mid01.ogg' = 1,
+		'sound/machines/fabricators/autolathe/autolathe_mid02.ogg' = 1,
+		'sound/machines/fabricators/autolathe/autolathe_mid03.ogg' = 1,
+		'sound/machines/fabricators/autolathe/autolathe_mid04.ogg' = 1,
+		'sound/machines/fabricators/autolathe/autolathe_mid05.ogg' = 1,
+		'sound/machines/fabricators/autolathe/autolathe_mid06.ogg' = 1,
+		'sound/machines/fabricators/autolathe/autolathe_mid07.ogg' = 1,
+		'sound/machines/fabricators/autolathe/autolathe_mid08.ogg' = 1,
+		'sound/machines/fabricators/autolathe/autolathe_mid09.ogg' = 1,
+		'sound/machines/fabricators/autolathe/autolathe_mid10.ogg' = 1,
+		'sound/machines/fabricators/autolathe/autolathe_mid11.ogg' = 1,
+		'sound/machines/fabricators/autolathe/autolathe_mid12.ogg' = 1,
+		'sound/machines/fabricators/autolathe/autolathe_mid13.ogg' = 1,
+		'sound/machines/fabricators/autolathe/autolathe_mid14.ogg' = 1,
+		'sound/machines/fabricators/autolathe/autolathe_mid15.ogg' = 1,
+		'sound/machines/fabricators/autolathe/autolathe_mid16.ogg' = 1,
+		'sound/machines/fabricators/autolathe/autolathe_mid17.ogg' = 1,
+		'sound/machines/fabricators/autolathe/autolathe_mid18.ogg' = 1,
+		'sound/machines/fabricators/autolathe/autolathe_mid19.ogg' = 1,
+		'sound/machines/fabricators/autolathe/autolathe_mid20.ogg' = 1,
+		'sound/machines/fabricators/autolathe/autolathe_mid21.ogg' = 1,
+		'sound/machines/fabricators/autolathe/autolathe_mid22.ogg' = 1,
+	)
+	mid_length = 1 SECOND
+	end_sound = 'sound/machines/fabricators/autolathe/autolathe_end.ogg'
+	each_once = TRUE
+	in_order = TRUE
+	volume = 30
+	extra_range = MEDIUM_RANGE_SOUND_EXTRARANGE
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/datum/looping_sound/fabricator/minilathe
+	volume = 20
+	extra_range = SHORT_RANGE_SOUND_EXTRARANGE
+	ignore_walls = FALSE
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /datum/looping_sound/synth_fab
 	start_sound = 'sound/machines/synthfab/synthfab_start.ogg'
@@ -124,3 +169,4 @@
 	mid_length = 3 SECONDS
 	end_sound = 'sound/machines/synthfab/synthfab_end.ogg'
 	volume = 75
+

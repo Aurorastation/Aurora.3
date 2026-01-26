@@ -21,7 +21,7 @@
 	var/wielded = 0
 	var/force_wielded = 0
 	var/force_unwielded
-	var/wield_sound = /singleton/sound_category/generic_wield_sound
+	var/wield_sound = SFX_WIELD
 	var/unwield_sound = null
 	var/base_name
 	var/unwielded_force_divisor = 0.25
@@ -33,8 +33,8 @@
 		slot_r_hand_str = 'icons/mob/items/weapons/righthand_twohanded.dmi'
 		)
 	drop_sound = 'sound/items/drop/sword.ogg'
-	pickup_sound = /singleton/sound_category/sword_pickup_sound
-	equip_sound = /singleton/sound_category/sword_equip_sound
+	pickup_sound = SFX_PICKUP_SWORD
+	equip_sound = SFX_EQUIP_SWORD
 	hitsound = 'sound/weapons/bladeslice.ogg'
 
 /obj/item/material/twohanded/proc/wield()
@@ -96,7 +96,7 @@
 /obj/item/material/twohanded/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	if(wielded && default_parry_check(user, attacker, damage_source) && prob(parry_chance))
 		user.visible_message(SPAN_DANGER("\The [user] parries [attack_text] with \the [src]!"))
-		playsound(user.loc, /singleton/sound_category/punchmiss_sound, 50, 1)
+		playsound(user.loc, SFX_PUNCH_MISS, 50, 1)
 		return BULLET_ACT_BLOCK
 	return BULLET_ACT_HIT
 

@@ -1,7 +1,7 @@
 /obj/structure/closet
 	name = "closet"
 	desc = "It's a basic storage unit."
-	icon = 'icons/obj/closet.dmi'
+	icon = 'icons/obj/containers/closet.dmi'
 	icon_state = "generic"
 	density = TRUE
 	build_amt = 2
@@ -626,6 +626,7 @@
 			update_secure_overlays()
 
 /obj/structure/closet/proc/update_secure_overlays()
+	AddOverlays("[icon_door_overlay]securitypanel")
 	if(broken)
 		AddOverlays("[icon_door_overlay]emag")
 	else

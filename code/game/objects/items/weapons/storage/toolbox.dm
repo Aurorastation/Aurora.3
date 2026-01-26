@@ -139,7 +139,7 @@
 	if (..())
 		if (contents.len)
 			spill(3, get_turf(target_mob))
-			playsound(target_mob, /singleton/sound_category/tray_hit_sound, 100, 1)  //sound playin' again
+			playsound(target_mob, SFX_TRAY_HIT, 100, 1)  //sound playin' again
 			update_force()
 			user.visible_message(SPAN_DANGER("[user] smashes the [src] into [target_mob], causing it to break open and strew its contents across the area"))
 

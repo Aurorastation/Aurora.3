@@ -5,7 +5,7 @@
 	icon = 'icons/turf/desert.dmi'
 	icon_state = "desert"
 	dirt_color = "#ae9e66"
-	footstep_sound = /singleton/sound_category/sand_footstep
+	footstep_sound = SFX_FOOTSTEP_SAND
 
 /turf/simulated/floor/exoplanet/desert/Initialize()
 	. = ..()

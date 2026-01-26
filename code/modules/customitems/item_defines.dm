@@ -990,7 +990,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/fluff/holoconsole/attack_self(mob/user)
 	if(on && !(world.time < last_sound + sound_delay))
-		playsound(loc, /singleton/sound_category/quick_arcade, 60)
+		playsound(loc, SFX_ARCADE, 60)
 		last_sound = world.time
 		return
 	return ..()
@@ -1077,7 +1077,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 	var/obj/item/fluff/holoconsole/H = parent_console.resolve()
 	if(H?.on)
-		playsound(H.loc, /singleton/sound_category/quick_arcade, 60)
+		playsound(H.loc, SFX_ARCADE, 60)
 		last_sound = world.time
 
 /obj/item/fluff/holoconsole_controller/r // Holoconsole - Qoi Liuiq - shestrying
@@ -2188,3 +2188,168 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "shepherd_coat"
 	item_state = "shepherd_coat"
 	contained_sprite = TRUE
+
+/obj/item/material/knife/raskariim/fluff/tulkir_knife // amohdan ritual dagger - Tulkir Zarkiirran - TheGreyWolf
+	name = "amohdan ritual dagger"
+	desc = "An old amohdan heirloom dagger. The handle appears to have been repaired with parts from a mrrazhak pistol grip and the edge of the dagger has been dulled to comply with regulations, though the broken tip remains sharp, if useless for fighting."
+	desc_extended = "As hunters, priests of Mata'ke often carry daggers with them to skin their kills. These daggers are typically made of silver to emulate Mata'ke's spear and his strength. Older and more valuable daggers have been known to be shipped off-planet during the wars by opportunistic smugglers, with Zephyr Shipping Company having been accused of selling them since its establishment, despite the company vehemently opposing such accusations."
+	icon = 'icons/obj/custom_items/tulkir_knife.dmi'
+	icon_override = 'icons/obj/custom_items/tulkir_knife.dmi'
+	icon_state = "tulkir_knife"
+	item_state = "tulkir_knife"
+	slot_flags = SLOT_BELT|SLOT_HOLSTER
+	thrown_force_divisor = 0.02
+	force_divisor = 0.02 // 1.2 when wielded with hardness 60 (steel)
+	contained_sprite = TRUE
+	applies_material_colour = FALSE
+	use_material_name = FALSE
+	unbreakable = TRUE
+
+/obj/item/material/knife/raskariim/fluff/tulkir_knife/attack(mob/living/target_mob, mob/living/user, target_zone)
+	. = ..()
+	if(target_mob != user || !(target_zone == BP_L_HAND || target_zone == BP_R_HAND))
+		return
+
+	ritualslice(user, target_mob, target_zone)
+
+/obj/item/material/knife/raskariim/fluff/tulkir_knife/get_examine_text(mob/user, distance, is_adjacent, infix, suffix, get_extended)
+	. = ..()
+	if(!ishuman(user))
+		return
+
+	var/mob/living/carbon/human/U = user
+	if(!(U.religion == RELIGION_RASKARA || U.religion == RELIGION_RASKARA_ALT))
+		return
+
+	var/raskara_text = SPAN_CULT("\The [src] is drawn from the depths of the Maggot's hoard.")
+	if(blood_overlay)
+		raskara_text += SPAN_DANGER(" The debts are being drawn.")
+	. += raskara_text
+
+/obj/item/material/knife/raskariim/fluff/tulkir_knife/proc/ritualslice(mob/living/user, mob/living/carbon/human/target, target_zone)
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+
+	if(affected.is_stump())
+		to_chat(user, SPAN_WARNING("You can't cut open the palm of a hand that is gone."))
+		return
+	if(target.gloves)
+		to_chat(user, SPAN_WARNING("You can't cut through the gloves."))
+		return
+
+	if(istype(target) && (target.species.flags & NO_BLOOD))
+		to_chat(user, SPAN_WARNING("You are unable to sacrifice blood."))
+		return
+
+	user.visible_message(SPAN_WARNING("[user] begins slicing open their palm with \the [src]!"))
+	if(!do_after(user, 4 SECOND, src))
+		user.visible_message(SPAN_WARNING("[user] stops slicing open their palm."))
+		return
+	user.visible_message(SPAN_WARNING("[user] slices open their palm with \the [src]!"))
+
+	affected.status |= ORGAN_BLEEDING
+
+	target.apply_damage(6, DAMAGE_BRUTE, target_zone, src, DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE)
+	add_blood(target)
+	playsound(target.loc, 'sound/weapons/bloodyslice.ogg', 15, 1)
+
+/obj/item/material/knife/raskariim/fluff/tulkir_knife/attack_self(mob/user, modifiers)
+	. = ..()
+	if(!ishuman(user))
+		return
+
+	var/mob/living/carbon/human/U = user
+	if(!(U.religion == RELIGION_RASKARA || U.religion == RELIGION_RASKARA_ALT))
+		return
+
+	if(blood_overlay)
+		var/alist/l = alist("invite" = "2", "claim" = "3", "bind" = "4", "transform" = "5", "witness" = "6")
+		var/runetype = tgui_input_list(user, "What kind of ritual is to be done?", "Ritual", l)
+		if(runetype)
+			runetype = l[runetype]
+			create_raskariim_rune(user, runetype, get_turf(user))
+	else
+		to_chat(user, SPAN_INFO("The knife is not blooded enough to draw with."))
+
+/obj/effect/decal/cleanable/fluff/rune
+	name = "rune"
+	desc = "A strange collection of symbols drawn in blood."
+	icon = 'icons/obj/rune.dmi'
+	icon_state = "1"
+	color = COLOR_HUMAN_BLOOD
+	anchored = TRUE
+	unacidable = TRUE
+	layer = RUNE_LAYER
+	mouse_opacity = MOUSE_OPACITY_OPAQUE
+
+/obj/effect/decal/cleanable/fluff/rune/feedback_hints(mob/user, distance, is_adjacent)
+	. = ..()
+	if(iscultist(user) || isobserver(user))
+		. += "This rune belongs to The Stranger."
+	else
+		. += SPAN_WARNING("A heavy smell of blood permeates the area around the arcane drawings.")
+	if(!ishuman(user))
+		return
+
+	var/mob/living/carbon/human/U = user
+	if(!(U.religion == RELIGION_RASKARA || U.religion == RELIGION_RASKARA_ALT))\
+		return
+
+	. += SPAN_CULT("\The [src] pays a debt to the King of Maggots.")
+
+/obj/item/material/knife/raskariim/fluff/tulkir_knife/proc/create_raskariim_rune(var/mob/living/carbon/human/user, var/chosen_rune, var/turf/target_turf)
+	if(user.stat || user.incapacitated())
+		to_chat(user, SPAN_WARNING("You are in no shape to do this."))
+		return
+
+	if(locate(/obj/effect/decal/cleanable/fluff/rune) in get_turf(user))
+		to_chat(user, SPAN_WARNING("There is already a rune in this location."))
+		return
+
+	if(!target_turf)
+		target_turf = get_turf(user)
+
+	user.visible_message(SPAN_WARNING("[user] begins drawing on the floor with the blood from \the [src]!"))
+	if(!do_after(user, 4 SECOND, src))
+		user.visible_message(SPAN_WARNING("[user] stops drawing on the floor."))
+		return
+
+	// Crates a cleanable rune that looks like a cult rune to people who are neither cultists or raskariim
+	var/obj/effect/decal/cleanable/fluff/rune/R = new(target_turf)
+	user.visible_message(SPAN_CULT("[user] finishes drawing \the [R] on the floor!"),
+		SPAN_CULT("You finish drawing the markings of the King of Maggots."))
+
+	R.blood_DNA = list()
+	R.blood_DNA = src.blood_DNA
+	R.color = src.blood_color
+	R.filters = filter(type="drop_shadow", x = 1, y = 1, size = 4, color = src.blood_color)
+
+	R.icon_state = chosen_rune
+
+/obj/item/clothing/accessory/holster/utility/fluff/tulkir_sheath // amohdan dagger sheath - Tulkir Zarkiirran - TheGreyWolf
+	name = "amohdan dagger sheath"
+	desc = "A leather sheath for an amohdan dagger."
+	desc_extended = "As hunters, priests of Mata'ke often carry daggers with them to skin their kills. These daggers are typically made of silver to emulate Mata'ke's spear and his strength. Older and more valuable daggers have been known to be shipped off-planet during the wars by opportunistic smugglers, with Zephyr Shipping Company having been accused of selling them since its establishment, despite the company vehemently opposing such accusations."
+	icon = 'icons/obj/custom_items/tulkir_sheath.dmi'
+	icon_override = 'icons/obj/custom_items/tulkir_sheath.dmi'
+	icon_state = "tulkir_holster_alt"
+	item_state = "tulkir_holster_alt"
+	holster_message = "sheath"
+	draw_peace = "holding it low."
+	draw_hostile = "ready to draw blood!"
+	filled_sprite = TRUE
+	allowed_items = list(
+		/obj/item/material/knife/raskariim,
+		/obj/item/material/knife/raskariim/fluff/tulkir_knife
+	)
+
+/obj/item/clothing/accessory/holster/utility/fluff/tulkir_sheath/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(!ishuman(user))
+		return
+
+	var/mob/living/carbon/human/U = user
+	if(!(U.religion == RELIGION_RASKARA || U.religion == RELIGION_RASKARA_ALT) || !holstered)
+		return
+
+	var/raskara_text = SPAN_CULT("\The [src] holds a treasure from the depths of the Maggot's hoard.")
+	. += raskara_text

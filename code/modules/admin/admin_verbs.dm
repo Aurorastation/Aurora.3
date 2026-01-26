@@ -145,7 +145,8 @@ GLOBAL_LIST_INIT(admin_verbs_fun, list(
 	/client/proc/fab_tip,
 	/client/proc/apply_sunstate,
 	/datum/admins/proc/ccannoucment,
-	/datum/admins/proc/set_odyssey
+	/datum/admins/proc/set_odyssey,
+	/datum/admins/proc/set_odyssey_canonicity
 	))
 
 GLOBAL_LIST_INIT(admin_verbs_spawn, list(
@@ -408,6 +409,7 @@ GLOBAL_LIST_INIT(admin_verbs_hideable, list(
 	/client/proc/cmd_display_harddel_log,
 	/datum/admins/proc/ccannoucment,
 	/datum/admins/proc/set_odyssey,
+	/datum/admins/proc/set_odyssey_canonicity,
 	/client/proc/cmd_display_init_log,
 	/client/proc/cmd_generate_lag,
 	/client/proc/getruntimelog,

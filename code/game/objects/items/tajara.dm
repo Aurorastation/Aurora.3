@@ -240,3 +240,111 @@
 		/obj/item/stack/dice/tajara = 3,
 		/obj/item/stack/dice/tajara/alt = 3
 	)
+
+/obj/item/journal/winter_quest
+	name = "\improper Winter Quest rulebook"
+	desc = "A core rulebook for winter quest, a tabletop roleplaying game originating from Little Adhomai."
+	desc_extended = "The first pen-and-paper role-playing game created by a Tajara. Its rules are known to favor interpretation over dice rolls. Combat encounters are notoriously deadly and short. Since character death is common, the game has a fast character creation system. Winter Quest usually uses a fantasy world inspired by Adhomian mythology; however, other settings have been published using its rule set."
+	icon_state = "winterquest"
+	has_closed_overlay = FALSE
+	color = null
+
+/obj/item/journal/winter_quest/Initialize()
+	. = ..()
+	var/obj/item/folder/embedded/E = generate_index("Rules")
+	var/obj/item/folder/embedded/W = generate_index("Supplementals")
+	var/obj/item/paper/C = new /obj/item/paper(E)
+	C.set_content("Character Creation", "<h1>Character Creation</h1><br>Characters are perhaps the most important part of a quest. They are the vessels through which the players experience the story laid out by the Story Master. As such, character creation is simple and flexible. Remember, the Winter Forest is a dangerous place. A character may be personal, but death is around every Shaan! \
+	<br>The process of creating a character is simple. \
+	<dl><dt><b>Step 1:</b> Choose an Ethnicity<dt> \
+	<dd>M'sai, Zhan-Khazan, Hharar, or Njarir'akhran.</dd> \
+	<dt><b>Step 2:</b> Choose a Name<dt> \
+	<dt><b>Step 3:</b> Choose Archetype<dt> \
+	<dd>Hunter, Mystic, Warrior, Scholar, Outlaw, Noble, Priest, Laborer, or Frontiersman.</dd> \
+	<dt><b>Step 4:</b> Define Three Traits<dt> \
+	<dd>Examples: Strong, Clever, Loyal or Silent, Quick, Cunning.</dd> \
+	<dt><b>Step 5:</b> Define One Flaw<dt> \
+	<dd>Examples: Impulsive, Cowardly, Distrusted.</dd> \
+	<dt><b>Step 6:</b> Equipment<dt> \
+	<dd>Each character begins with one weapon, one tool, and one personal item.</dd> \
+	<dt><b>Step 7:</b> Background<dt> \
+	<dd>A one or two-sentence origin story.</dd> \
+	<dd>Example: Raska, a silent M'sai hunter, is strong, patient, and loyal, but distrusted by the village. She carries a bow, a hunting knife, and her father's Ma'ta'ke talisman.</dd><dl> \
+	<br>After a character has been made, remember to verify it with the Story Master. Once they give the all-clear, the quest can begin!")
+	var/obj/item/paper/T = new /obj/item/paper(E)
+	T.set_content("Challenges and Combat", "<h1>Challenges</h1> \
+	<br>A quest is nothing without obstacles to overcome. Throughout the quest, the Story Master will provide challenges to the progress of the questers. These challenges must be resolved through <b>resolutions</b>. These resolutions are short answers as to how the equipment, archetype, and traits of your character are capable of conquering the challenge. The other players alongside the Story Master then examine this resolution to determine whether it solves the challenge, or is incapable of besting the test. \
+	<dl> <dt><b>Story Master's Question:</b><dt> \
+	<dd>The Story Master will present a challenge, then ask '<i>How would your character conquer this challenge?</i>'</dd> \
+	<dt><b>Player's Answer:</b><dt> \
+	<dd>The player answers the Story Master with how their character's traits, equipment, and archetype would solve the challenge. Other characters may assist if permitted by the Story Master.</dd> \
+	<dt><b>Judgement:</b><dt> \
+	<dd>The other players and Story Master determine if the answer is convincing. They may ask questions to clarify. If the table thinks the answer is convincing, the player succeeds. If the answer is unconvincing or contradictory, the player fails.</dd> \
+	<dt><b>Flaws matter:</b><dt> \
+	<dd>If a character flaw is relevant to a challenge, it may override the traits of a character and automatically fail the challenge.</dd> \
+	<br><h1>Combat</h1><br> \
+	<br>No quest is complete without battles and heroism. Whether slaying bloodthirsty Ha'rron with a Kazarrhaldiye or harnessing the light of the Twin Suns, combat carries out much like any other challenge. The order of combat is determined narratively. The first character or creature to attack goes first, followed by the defender, then other characters and creatures as determined by their traits. \
+	<br><br>An attack begins with an attempt. The character or creature makes an attack, and uses their traits and weapons to explain why this attack should be successful. The defender does the same with their own traits, equipment, and environment. The other players and Story Master determine who has the advantage in the conflict. One of three outcomes may result from combat: Deathly blow, wounding blow, or shielded blow. \
+	<dl> <dt><b>First Strike:</b><dt> \
+	<dd>The initiator of combat narrates their attack, and how their traits and weapons support their action.</dd> \
+	<dt><b>Defender's Response:</b><dt> \
+	<dd>The defender uses their traits, equipment, and environment to explain how they survive the attack.</dd> \
+	<dt><b>Judgement:</b><dt> \
+	<dd>The other players and Story Master determine if the answer is convincing. They may ask questions to clarify. If the table thinks the answer is convincing, the player succeeds. If the answer is unconvincing or contradictory, the player fails.</dd> \
+	<dt><b>The Verdict:</b><dt> \
+	<dd>One of three results may occur based on how high the advantage is for one side over the other.</dd> \
+	<dd><b>Fatal Blow:</b> The defender dies.</dd> \
+	<dd><b>Wounding Blow:</b> The defender survives, but is left with a new scar or permanent injury (new flaw).</dd> \
+	<dd><b>Shielded Blow:</b> The defender survives successfully.</dd> \
+	<dt><b>Riposte:</b><dt> \
+	<dd>The defender may choose to either escape or counter attack.</dd> \
+	<dd><b>Escape:</b> The defender runs from the confrontation. This may lead to a negative effect depending on context.</dd> \
+	<dd><b>Counter Attack:</b> The defender becomes the attacker. The combat sequence resets.</dd>")
+	var/obj/item/paper/P = new /obj/item/paper(E)
+	P.set_content("Progress and Beyond the Forest", "<h1>Progress</h1> \
+	<br>Progress on a quest comes in many forms. Knuckles, items, and maybe even reputation. However, each character progresses in their own way on a quest. Following key events along one's own winter quest, certain changes in a character may occur. \
+	<dl><dt><b>Survival:</b><dt> \
+	<dd>Surviving strenuous events, and possible combat, can result in a new flaw.</dd> \
+	<dt><b>Success:</b><dt> \
+	<dd>Completing a quest or major event can result in a new trait.</dd> \
+	<dt><b>Change:</b><dt> \
+	<dd>Some story events may change a character. Replace a trait with a flaw.</dd> \
+	<br>Remember, flaws are not a bad thing. Stories are best when a character overcomes their flaws to achieve great feats. Each character is defined by their traits and flaws that show their history, their battles, and their successes or failures.  \
+	<br><h1>Beyond the Forest</h1> \
+	<br>Winter Quest was originally created to bring together players of all kinds to join in a creative and collaborative process. The setting of the Winter Forest and its fantastical denizens are not the only way to experience the joy of collaborative play. The heart of it all comes out when a collection of people get together to experience a story together. So do not limit yourself to the cold Winter Forest. The system is adaptable to all kinds of settings and play. Similarly, these rules are not law. Altering the guidelines listed above, adding new ones in, whatever the heart desires. It is in the hands of the Story Master and players to decide. So long as everyone involved agrees, the Spur is the limit. So get out there, and get questing.")
+	var/obj/item/paper/S = new /obj/item/paper(W)
+	S.set_content("Rredouane Mode and Discipline", "<h1>Rredouane Mode</h1> \
+	<br>In lieu of the narrative conflict system, the use of Suns and Moon dice can be included into standard Winter Quest play for an additional level of tension, conflict, and a little luck. All challenges and conflicts are no longer decided by table judgement, but rather the results of the dice. \
+	<br>When a challenge or conflict appears, the Story Master will determine the difficulty in besting the obstacle. This ranges from one to six dice. The player will similarly be granted a range of one to six dice based on their answer to the obstacle. The Player and Store Master then roll these dice and count any dice that land with a four or higher. Whoever has the higher number of success dice wins. In cases of a tie, an extra die is rolled until a winner is found. \
+	<dl><dt><b>Step 1:</b> The Story Master presents a challenge or conflict.<dt> \
+	<dd>Difficulty dictates the number of dice. Easy challenges have one die, but range up to 6 dice for the most difficult tasks.</dd> \
+	<dt><b>Step 2:</b> The Player is granted one to six dice based on their answer.<dt> \
+	<dd>Much like a traditional challenge or conflict, the Player may use their character's traits, equipment, and archetype to justify a higher dice count.</dd> \
+	<dt><b>Step 3:</b> The Story Master and Player roll their dice.<dt> \
+	<dd>Any die with a number four or above is counted as a success.</dd> \
+	<dt>If the Player has more successes, the character succeeds. If the Story Master has more successes, the character loses.</dt> \
+	<dt>In <b>conflicts</b>, if the defender wins by one or two successes over the attacker, they receive a <b>wounding blow</b>.</dt></dl> \
+	<br><h1>Discipline</h1><br> \
+	<br>Questing can be brutal. Sometimes it feels like the world is against a character. However, through discipline (and maybe a little faith), one can change the winds of the situation. In Winter Quest, that would take the form of Discipline. \
+	<br>Discipline is a point that is awarded by the Story Master. It is recommended to keep Discipline a rare resource handed out for especially daunting, heroic, or legendary actions. It could be used as a reward for finishing a grueling quest, and being particularly cunning in an answer. \
+	<br>Discipline operates differently when used in traditional or Rredouane modes. In traditional Winter Quest, Discipline overrules a table decision. In challenges, this converts a failure to a success or a success to a failure. During conflict, this improves the outcome by one level. A Fatal Blow becomes a Wounding Blow. A Wounding Blow becomes a Shielded Blow. When the Rredouane Mode supplement is in use, Discipline provides one extra die to the player's dice pool. \
+	<dl><dt>-Story Masters may hand out Discipline to a character.</dt> \
+	<dd>Recommended reasons are for heroic acts, cunning or creative answers, or completing major quests.</dd> \
+	<dt>-Players may use Discipline to alter the outcome of a challenge or conflict.<dt> \
+	<dd>During challenges, the result of a challenge flips.</dd>\
+	<dd>During combat, the outcome of a conflict improves by one level.</dd> \
+	<dt>-In Rredouane Mode, Discipline adds one die to a player's dice pool.</dt></dl>")
+	for(var/i = 1 to 5)
+		var/obj/item/paper/R = new /obj/item/paper(W)
+		R.set_content("Character Sheet", "<table border=1 cellspacing=0 cellpadding=3 style='border: 1px solid black;'><td><center><b>Winter Quest</b> \
+		<br><i>Character sheet</i></center><hr><b>Player:</b> <span class=\"paper_field\"></span> \
+		<br><b>Character:</b> <span class=\"paper_field\"></span> \
+		<br><b>Quest:</b> <span class=\"paper_field\"></span> \
+		<hr><b>Ethnicity:</b> <span class=\"paper_field\"></span> \
+		<br><b>Archetype:</b> <span class=\"paper_field\"></span> \
+		<br><b>Traits:</b><ul><li><span class=\"paper_field\"></span></li><li><span class=\"paper_field\"></span></li><li><span class=\"paper_field\"></span></li></ul> \
+		<b>Flaws:</b><ul><li><span class=\"paper_field\"></span></li></ul> \
+		<b>Equipment:</b><ul><li><span class=\"paper_field\"></span></li><li><span class=\"paper_field\"></span></li><li><span class=\"paper_field\"></span></li></ul> \
+		<b>Background:</b><ul><li><span class=\"paper_field\"></span></li></ul></td></tr></table> \
+		")
+	update_icon()

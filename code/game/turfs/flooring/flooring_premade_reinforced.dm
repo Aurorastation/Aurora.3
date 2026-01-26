@@ -6,7 +6,7 @@
 	icon = 'icons/turf/flooring/tiles.dmi'
 	icon_state = "reinforced"
 	initial_flooring = /singleton/flooring/reinforced
-	footstep_sound = /singleton/sound_category/plating_footstep
+	footstep_sound = SFX_FOOTSTEP_PLATING
 	tile_outline = "reinforced"
 	tile_decal_state = "reinforced_light"
 

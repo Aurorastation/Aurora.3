@@ -103,11 +103,11 @@
 	if(!running)
 		if(footstep >= 2)
 			footstep = 0
-			playsound(src, /singleton/sound_category/clown_sound, 20, 1)
+			playsound(src, SFX_FOOTSTEP_CLOWN, 20, 1)
 		else
 			footstep++
 	else
-		playsound(src, /singleton/sound_category/clown_sound, 50, 1) // Running is louder and funnier
+		playsound(src, SFX_FOOTSTEP_CLOWN, 50, 1) // Running is louder and funnier
 
 /obj/item/clothing/mask/clown
 	name = "clown mask"
@@ -133,24 +133,6 @@
 	to_chat(user, "You pick a balloon.")
 	var/obj/item/toy/balloon/color/B = new(get_turf(src))
 	user.put_in_active_hand(B)
-
-/obj/machinery/media/jukebox/calliope
-	name = "calliope"
-	desc = "A steam powered music instrument. This one is painted in bright colors."
-	icon = 'maps/away/ships/tajara/circus/circus_sprites.dmi'
-	icon_state = "calliope"
-	state_base = "calliope"
-	anchored = FALSE
-	tracks = list(
-		new/datum/track("Boolean Sisters", 'sound/music/phonograph/boolean_sisters.ogg'),
-		new/datum/track("Electro Swing", 'sound/music/phonograph/electro_swing.ogg'),
-		new/datum/track("Jazz Instrumental", 'sound/music/phonograph/jazz_instrumental.ogg'),
-		new/datum/track("Le Swing", 'sound/music/phonograph/le_swing.ogg'),
-		new/datum/track("Posin'", 'sound/music/phonograph/posin.ogg')
-	)
-
-/obj/machinery/media/jukebox/calliope/update_icon()
-	return
 
 /obj/item/dumbbell
 	name = "adhomian dumbbell"

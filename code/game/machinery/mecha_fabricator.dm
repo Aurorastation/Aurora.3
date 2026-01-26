@@ -65,6 +65,11 @@
 	limb_manufacturer = GLOB.basic_robolimb.company
 	update_categories()
 
+/// Make sure the machine starts the round properly synced.
+/obj/machinery/mecha_part_fabricator/LateInitialize()
+	. = ..()
+	sync()
+
 /obj/machinery/mecha_part_fabricator/update_icon()
 	ClearOverlays()
 	update_fab_audio()
@@ -126,7 +131,7 @@
 	. = ..()
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "SyntheticFabricator", "Synthetic Fabricator", 900, 700)
+		ui = new(user, src, "SyntheticFabricator", "Synthetic Fabricator", 1200, 800)
 		ui.open()
 
 /obj/machinery/mecha_part_fabricator/ui_data(mob/user)
