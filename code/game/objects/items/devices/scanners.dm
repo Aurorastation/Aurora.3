@@ -744,7 +744,7 @@ BREATH ANALYZER
 /obj/item/device/advanced_healthanalyzer/cyborg/print_scan(var/mob/M, var/mob/living/user)
 	var/obj/item/paper/medscan/R = new /obj/item/paper/medscan(src, connected.format_occupant_data(get_occupant_data(M)), "Scan ([M.name]) ([worldtime2text()])", M)
 	user.visible_message(SPAN_NOTICE("\The [src] beeps, printing \the [R] after a moment."))
-	playsound(user.loc, /singleton/sound_category/print_sound, 50, 1)
+	playsound(user.loc, SFX_PRINT, 50, 1)
 	R.forceMove(user.loc)
 
 /obj/item/device/advanced_healthanalyzer/proc/get_occupant_data(var/mob/living/carbon/human/H)

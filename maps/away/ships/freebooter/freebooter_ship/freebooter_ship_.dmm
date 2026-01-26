@@ -2077,9 +2077,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/forehallwayport)
 "iCP" = (
-/obj/machinery/computer/ship/helm{
-	req_access = list(203)
-	},
+/obj/machinery/computer/ship/helm,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/freebooter_shuttle)
 "iDR" = (
@@ -4385,7 +4383,7 @@
 /area/ship/freebooter_ship/foyer)
 "rfn" = (
 /obj/effect/floor_decal/corner/orange/full,
-/obj/machinery/autolathe,
+/obj/machinery/fabricator/autolathe,
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},

@@ -934,7 +934,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/autolathe,
+/obj/machinery/fabricator/autolathe,
 /turf/simulated/floor/carpet/rubber,
 /area/coc_survey_ship/engineering)
 "iR" = (

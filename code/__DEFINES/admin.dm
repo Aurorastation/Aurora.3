@@ -27,14 +27,17 @@
 #define R_ADMIN          BITFLAG(1)
 #define R_BAN            BITFLAG(2)
 #define R_FUN            BITFLAG(3)
+
 #define R_SERVER         BITFLAG(4)
 #define R_DEBUG          BITFLAG(5)
 #define R_POSSESS        BITFLAG(6)
 #define R_PERMISSIONS    BITFLAG(7)
+
 #define R_STEALTH        BITFLAG(8)
 #define R_REJUVENATE     BITFLAG(9)
 #define R_VAREDIT        BITFLAG(10)
 #define R_SOUNDS         BITFLAG(11)
+
 #define R_SPAWN          BITFLAG(12)
 #define R_MOD            BITFLAG(13)
 #define R_DEV            BITFLAG(14)

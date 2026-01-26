@@ -16,7 +16,7 @@
 	var/burning
 
 	/// Generic hit sound
-	var/hitsound = /singleton/sound_category/swing_hit_sound
+	var/hitsound = SFX_SWING_HIT
 
 	var/storage_cost
 
@@ -147,9 +147,9 @@
 	/// Sound used when equipping the item into a valid slot
 	var/equip_sound = null
 	/// Sound uses when picking the item up (into your hands)
-	var/pickup_sound = /singleton/sound_category/generic_pickup_sound
+	var/pickup_sound = SFX_PICKUP
 	/// Sound uses when dropping the item, or when its thrown.
-	var/drop_sound = /singleton/sound_category/generic_drop_sound
+	var/drop_sound = SFX_DROP
 
 	var/list/armor
 	/// How fast armor will degrade, multiplier to blocked damage to get armor damage value.

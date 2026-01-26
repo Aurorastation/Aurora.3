@@ -78,7 +78,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 	use_power = POWER_USE_OFF
 	req_access = list(ACCESS_ENGINE_EQUIP)
 	gfi_layer_rotation = GFI_ROTATION_DEFDIR
-	clicksound = /singleton/sound_category/switch_sound
+	clicksound = SFX_SWITCH
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/area/area
 	var/areastring = null

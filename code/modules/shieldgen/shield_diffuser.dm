@@ -8,8 +8,8 @@
 	icon = 'icons/obj/machinery/shielding.dmi'
 	icon_state = "fdiffuser_on"
 	use_power = POWER_USE_IDLE
-	idle_power_usage = 100
-	active_power_usage = 2000
+	idle_power_usage = 0
+	active_power_usage = 0
 	anchored = TRUE
 	density = FALSE
 	level = 1
@@ -19,20 +19,20 @@
 
 /obj/machinery/shield_diffuser/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	. += "It is [diffuser_enabled ? "diffuser_enabled" : "disabled"]."
+	. += "It is [diffuser_enabled ? "enabled" : "disabled"]."
 
 /obj/machinery/shield_diffuser/process()
 	if(stat & BROKEN)
 		return PROCESS_KILL
 
-	if(!diffuser_enabled || stat & NOPOWER)
+	if(!diffuser_enabled)
 		return
 
 	for(var/obj/effect/energy_field/S in range(diffuser_range, src))
-		S.diffuse(5)
+		S.diffuse()
 
 /obj/machinery/shield_diffuser/update_icon()
-	if(stat & NOPOWER || stat & BROKEN || !diffuser_enabled)
+	if(stat & BROKEN || !diffuser_enabled)
 		icon_state = "fdiffuser_off"
 	else
 		icon_state = "fdiffuser_on"
