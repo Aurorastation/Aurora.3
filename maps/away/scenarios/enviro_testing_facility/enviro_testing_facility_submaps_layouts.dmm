@@ -3087,9 +3087,7 @@
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/testing_dome/boris)
 "kr" = (
-/obj/machinery/autolathe{
-	hacked = 1
-	},
+/obj/machinery/fabricator/autolathe/hacked,
 /obj/machinery/alarm/north{
 	req_one_access = null
 	},
@@ -12792,7 +12790,7 @@
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/maintenance/center_east)
 "QR" = (
-/obj/machinery/autolathe,
+/obj/machinery/fabricator/autolathe,
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "QU" = (

@@ -181,7 +181,7 @@
 		//crumple dat paper
 		info = stars(info,85)
 		user.visible_message("\The [user] crumples \the [src] into a ball!", "You crumple \the [src] into a ball.")
-		playsound(src, 'sound/bureaucracy/papercrumple.ogg', 50, 1)
+		playsound(src, 'sound/items/bureaucracy/papercrumple.ogg', 50, 1)
 		icon_state = "scrap"
 		throw_range = 4 //you can now make epic paper ball hoops into the disposals (kinda dumb that you could only throw crumpled paper 1 tile) -wezzy
 		return
@@ -192,7 +192,7 @@
 			return
 		user.visible_message(SPAN_NOTICE("\The [user] carefully folds \the [src] into a plane."),
 			SPAN_NOTICE("You carefully fold \the [src] into a plane."), "\The [user] folds \the [src] into a plane.")
-		playsound(src, 'sound/bureaucracy/paperfold.ogg', 50, 1)
+		playsound(src, 'sound/items/bureaucracy/paperfold.ogg', 50, 1)
 		icon_state = "paper_plane"
 		throw_range = 8
 		old_name = name
@@ -206,7 +206,7 @@
 			return
 		user.visible_message(SPAN_NOTICE("\The [user] carefully folds \the [src] into an origami swan."),
 			SPAN_NOTICE("You carefully fold \the [src] into a swan."), "\The [user] folds \the [src] into a swan.")
-		playsound(src, 'sound/bureaucracy/paperfold.ogg', 50, 1)
+		playsound(src, 'sound/items/bureaucracy/paperfold.ogg', 50, 1)
 		icon_state = "paper_swan"
 		old_name = name
 		name = "origami swan"
@@ -215,7 +215,7 @@
 
 	if (user.a_intent == I_HELP && old_name && (icon_state == "paper_plane" || icon_state == "paper_swan"))
 		user.visible_message(SPAN_NOTICE("\The [user] unfolds \the [src]."), SPAN_NOTICE("You unfold \the [src]."), "You hear paper rustling.")
-		playsound(src, 'sound/bureaucracy/paperfold.ogg', 50, 1)
+		playsound(src, 'sound/items/bureaucracy/paperfold.ogg', 50, 1)
 		icon_state = base_state
 		throw_range = initial(throw_range)
 		name = old_name
@@ -412,7 +412,7 @@
 
 		user.visible_message("<span class='[class]'>[user] holds \the [P] up to \the [src], it looks like [user.get_pronoun("he")]'s trying to burn it!</span>", \
 		"<span class='[class]'>You hold \the [P] up to \the [src], burning it slowly.</span>")
-		playsound(src.loc, 'sound/bureaucracy/paperburn.ogg', 50, 1)
+		playsound(src.loc, 'sound/items/bureaucracy/paperburn.ogg', 50, 1)
 		if(icon_state == "scrap")
 			flick("scrap_onfire", src)
 		else
@@ -576,7 +576,7 @@
 		if(istype(i, /obj/item/pen/typewriter))
 			playsound(src, ('sound/machines/typewriter.ogg'), 40)
 		else
-			playsound(src, pick('sound/bureaucracy/pen1.ogg','sound/bureaucracy/pen2.ogg'), 20)
+			playsound(src, pick('sound/items/bureaucracy/pen1.ogg','sound/items/bureaucracy/pen2.ogg'), 20)
 
 		update_icon()
 		if(c)
@@ -702,7 +702,7 @@
 		stamped += attacking_item.type
 		AddOverlays(stampoverlay)
 
-		playsound(src, 'sound/bureaucracy/stamp.ogg', 50, 1)
+		playsound(src, 'sound/items/bureaucracy/stamp.ogg', 50, 1)
 		to_chat(user, SPAN_NOTICE("You stamp the paper with \the [attacking_item]."))
 
 	else if(attacking_item.isFlameSource())

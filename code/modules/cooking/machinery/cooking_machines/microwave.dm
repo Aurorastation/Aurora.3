@@ -202,7 +202,7 @@
 
 /obj/machinery/appliance/cooker/microwave/proc/broke()
 	spark(loc, 2, GLOB.alldirs)
-	playsound(loc, /singleton/sound_category/spark_sound, 50, 1)
+	playsound(loc, SFX_SPARKS, 50, 1)
 	if (prob(100 * break_multiplier))
 		visible_message(SPAN_WARNING("\The [src] sputters and grinds to a halt!")) //Let them know they're stupid
 		broken = WRENCH_BROKEN // Make it broken so it can't be used until fixed

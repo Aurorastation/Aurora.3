@@ -44,7 +44,7 @@
 			user.visible_message(SPAN_DANGER("\The [user] [pick(attacking_item.attack_verb)] \the [src] with \the [attacking_item]!"),
 									SPAN_NOTICE("You [pick(attacking_item.attack_verb)] \the [src] with \the [attacking_item]!"))
 			playsound(loc, attacking_item.hitsound, attacking_item.get_clamped_volume(), TRUE)
-			playsound(loc, /singleton/sound_category/wood_break_sound, 50, TRUE)
+			playsound(loc, SFX_BREAK_WOOD, 50, TRUE)
 			health -= attacking_item.force
 			if(health <= 0)
 				qdel(src)

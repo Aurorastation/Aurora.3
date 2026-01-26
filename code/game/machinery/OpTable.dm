@@ -167,7 +167,7 @@
 
 		suppressing = !suppressing
 		user.visible_message(SPAN_NOTICE("\The [user] switches [suppressing ? "on" : "off"] \the [src]'s neural suppressor."), intent_message = BUTTON_FLICK)
-		playsound(loc, /singleton/sound_category/switch_sound, 50, 1)
+		playsound(loc, SFX_SWITCH, 50, 1)
 
 /**
  * Refreshes the icon state based on the table status

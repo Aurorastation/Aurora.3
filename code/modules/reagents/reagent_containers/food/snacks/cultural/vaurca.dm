@@ -79,7 +79,7 @@
 	icon = 'icons/obj/item/reagent_containers/food/cultural/vaurca.dmi'
 	icon_state = "koiswaffles"
 	trash = /obj/item/trash/waffles
-	drop_sound = /singleton/sound_category/tray_hit_sound
+	drop_sound = SFX_TRAY_HIT
 	filling_color = "#E6E600"
 	bitesize = 8
 	reagents_to_add = list(/singleton/reagent/kois = 25, /singleton/reagent/toxin/phoron = 15)

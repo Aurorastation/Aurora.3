@@ -6,6 +6,7 @@ import { Box, Button, Input, LabeledList, NoticeBox, ProgressBar, Section, Stack
 import { Window } from '../layouts';
 
 export type AutolatheData = {
+  manufacturer: string;
   disabled: BooleanLike;
   material_efficiency: number;
   build_time: number;
@@ -33,6 +34,7 @@ type Recipe = {
   security_level: string;
   hack_only: BooleanLike;
   enabled: BooleanLike;
+  build_time: number;
 };
 
 type QueueItem = {
@@ -42,6 +44,7 @@ type QueueItem = {
   multiplier: number;
   build_time: number;
   progress: number;
+  remaining_time: number;
 };
 
 export const Autolathe = (props, context) => {
@@ -49,7 +52,7 @@ export const Autolathe = (props, context) => {
   const [tab, setTab] = useLocalState(context, 'tab', 'All');
 
   return (
-    <Window resizable theme="hephaestus" width="1000" height="700">
+    <Window resizable theme={data.manufacturer} width="1000" height="700">
       <Window.Content scrollable>
         <Stack vertical fill>
           <Stack.Item>
@@ -162,7 +165,11 @@ export const CategoryData = (props, context) => {
                         ? 'Security Level Needed: ' + recipe.security_level
                         : ''
                     }
-                    color={!recipe.enabled || recipe.can_make ? null : 'orange'}
+                    className={
+                      !recipe.enabled || recipe.can_make
+                        ? 'color-disabled'
+                        : 'color-default'
+                    }
                     backgroundColor={
                       !recipe.enabled || recipe.can_make ? '#9c0000' : null
                     }
@@ -184,8 +191,10 @@ export const CategoryData = (props, context) => {
                             [x5]
                           </Box>
                         }
-                        color={
-                          !recipe.enabled || recipe.can_make ? null : 'orange'
+                        className={
+                          !recipe.enabled || recipe.can_make
+                            ? 'color-disabled'
+                            : 'color-default'
                         }
                         backgroundColor={
                           !recipe.enabled || recipe.can_make ? '#9c0000' : null
@@ -208,8 +217,10 @@ export const CategoryData = (props, context) => {
                             [x10]
                           </Box>
                         }
-                        color={
-                          !recipe.enabled || recipe.can_make ? null : 'orange'
+                        className={
+                          !recipe.enabled || recipe.can_make
+                            ? 'color-disabled'
+                            : 'color-default'
                         }
                         backgroundColor={
                           !recipe.enabled || recipe.can_make ? '#9c0000' : null
@@ -232,8 +243,10 @@ export const CategoryData = (props, context) => {
                             [x{recipe.max_sheets}]
                           </Box>
                         }
-                        color={
-                          !recipe.enabled || recipe.can_make ? null : 'orange'
+                        className={
+                          !recipe.enabled || recipe.can_make
+                            ? 'color-disabled'
+                            : 'color-default'
                         }
                         backgroundColor={
                           !recipe.enabled || recipe.can_make ? '#9c0000' : null
@@ -258,7 +271,12 @@ export const CategoryData = (props, context) => {
                 <Table.Cell collapsing>
                   <Button
                     color="transparent"
-                    tooltip={recipe.resources}
+                    tooltip={
+                      <>
+                        <div>{recipe.resources}</div>
+                        <div>{recipe.build_time} seconds</div>
+                      </>
+                    }
                     icon="question"
                   />
                 </Table.Cell>
@@ -278,7 +296,7 @@ export const QueueData = (props, context) => {
   return (
     <Section fill title="Queue">
       <LabeledList>
-        {data.queue && data.queue.length ? (
+        {data.queue?.length ? (
           data.queue.map((queue_item) => (
             <LabeledList.Item
               key={queue_item.ref}
@@ -295,7 +313,7 @@ export const QueueData = (props, context) => {
                   ],
                   bad: [0, queue_item.build_time * 0.25],
                 }}>
-                {round(queue_item.progress, 1)} / {queue_item.build_time}
+                {queue_item.remaining_time / 10} seconds
                 <Button
                   icon="cancel"
                   color="transparent"

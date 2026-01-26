@@ -61,7 +61,7 @@
 /obj/effect/decal/cleanable/greenglow/post_sweep(var/mob/user)
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		H.apply_radiation(5)
+		H.apply_radiation(3)
 	STOP_PROCESSING(SSprocessing, src)
 
 ABSTRACT_TYPE(/obj/effect/decal/cleanable/greenglow/radioactive)

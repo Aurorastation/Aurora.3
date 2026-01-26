@@ -5,7 +5,7 @@
 /obj/structure/closet/crate
 	name = "crate"
 	desc = "A rectangular steel crate."
-	icon = 'icons/obj/crate.dmi'
+	icon = 'icons/obj/containers/crate.dmi'
 	icon_state = "crate"
 	climbable = TRUE
 	build_amt = 10
@@ -240,7 +240,6 @@
 /obj/structure/closet/crate/secure
 	name = "secure crate"
 	desc = "A secure crate."
-	icon_state = "secure_crate"
 	locked = TRUE
 	secure = TRUE
 	secure_lights = TRUE
@@ -488,12 +487,12 @@
 /obj/structure/closet/crate/secure/weapon
 	name = "weapons crate"
 	desc = "A secure weapons crate."
-	icon_state = "syndi_secure_crate"
+	icon_state = "syndi_crate"
 	icon_door_override = TRUE
 	icon_door = "syndi_crate"
 
 /obj/structure/closet/crate/secure/weapon/alt
-	icon_state = "syndi_secure_crate1"
+	icon_state = "syndi_crate1"
 	icon_door = "syndi_crate1"
 
 /obj/structure/closet/crate/secure/legion
@@ -516,8 +515,8 @@
 
 /obj/structure/closet/crate/secure/hydrosec
 	name = "secure hydroponics crate"
-	desc = "A crate with a lock on it, painted in the scheme of the station's botanists."
-	icon_state = "hydro_secure_crate"
+	desc = "A crate painted in the scheme of the station's botanists."
+	icon_state = "hydro_crate"
 	req_one_access = list(ACCESS_HYDROPONICS, ACCESS_XENOBOTANY)
 
 /obj/structure/closet/crate/secure/bin

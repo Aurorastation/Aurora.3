@@ -116,7 +116,7 @@ GLOBAL_VAR_INIT(photo_count, 0)
 		var/mob/M = user
 		if(!( istype(over, /atom/movable/screen) ))
 			return ..()
-		playsound(loc, /singleton/sound_category/rustle_sound, 50, 1, -5)
+		playsound(loc, SFX_RUSTLE, 50, 1, -5)
 		if((!( M.restrained() ) && !( M.stat ) && M.back == src))
 			switch(over.name)
 				if("right hand")
@@ -231,7 +231,7 @@ GLOBAL_VAR_INIT(photo_count, 0)
 		on = 1
 
 /obj/item/device/camera/proc/do_photo_sound()
-	playsound(loc, /singleton/sound_category/print_sound, 75, 1, -3)
+	playsound(loc, SFX_PRINT, 75, 1, -3)
 
 /obj/item/device/camera/detective
 	name = "detectives camera"

@@ -4,7 +4,7 @@
 /obj/structure/closet/walllocker
 	name = "wall locker"
 	desc = "A wall mounted storage locker."
-	icon = 'icons/obj/walllocker.dmi'
+	icon = 'icons/obj/containers/walllocker.dmi'
 	icon_state = "walllocker" //...man, how OLD is this $#!?
 	door_anim_angle = 132
 	door_anim_squish = 0.38

@@ -61,7 +61,7 @@
 	layer = STRUCTURE_LAYER
 	anchored = 1
 	density = 1
-	clicksound = /singleton/sound_category/button_sound
+	clicksound = SFX_BUTTON
 	manufacturer = "idris"
 
 	// Every vending machine has one of these.

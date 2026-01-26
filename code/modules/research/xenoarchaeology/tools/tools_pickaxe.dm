@@ -146,7 +146,7 @@
 	force = 15
 	desc = "A smaller, more precise version of the pickaxe (30 centimetre excavation depth)."
 	excavation_amount = 15
-	drill_sound = /singleton/sound_category/pickaxe_sound
+	drill_sound = SFX_PICKAXE
 	drill_verb = "clearing"
 	w_class = WEIGHT_CLASS_NORMAL
 	can_wield = 0

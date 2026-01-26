@@ -16,8 +16,6 @@
 	/// The damage suffered by the field.
 	var/damage = 0
 	var/ticks_recovering = 10
-	var/diffused_for = 0
-	var/diffused = FALSE
 	/// If strength goes is 1 or above, this is set to TRUE, this is to prevent flickering and animate being called constantly
 	var/is_strong = FALSE
 
@@ -41,7 +39,7 @@
 	return ..()
 
 /obj/effect/energy_field/proc/diffuse(var/duration)
-	diffused_for = max(duration, 0)
+	energy_field.remove_individual_field(src)
 
 /obj/effect/energy_field/attackby(obj/item/attacking_item, mob/user)
 	user.do_attack_animation(src, attacking_item)
@@ -105,27 +103,16 @@
 		damage = max(damage - energy_field.strengthen_rate, 0)
 
 /obj/effect/energy_field/proc/density_check(var/turn_on)
-	if(turn_on && !diffused)
+	if(turn_on)
 		alpha = 0
 		density = TRUE
 		mouse_opacity = MOUSE_OPACITY_ICON
 		animate(src, 2 SECONDS, alpha = 255)
-	else if(!turn_on)
+	else
 		alpha = 255
 		density = FALSE
 		mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 		animate(src, 2 SECONDS, alpha = 0)
-
-/obj/effect/energy_field/proc/diffuse_check()
-	diffused_for = max(0, diffused_for - 1)
-
-	if(diffused_for && !diffused)
-		diffused = TRUE
-		if(is_strong)
-			density_check(FALSE)
-	else if(!diffused_for && diffused)
-		diffused = FALSE
-		density_check(TRUE)
 
 /obj/effect/energy_field/proc/update_strength()
 	SIGNAL_HANDLER
@@ -141,8 +128,6 @@
 
 	if (density != old_density)
 		update_nearby_tiles()
-
-	diffuse_check()
 
 /**
  * Easy helper proc to return the shield's current health.

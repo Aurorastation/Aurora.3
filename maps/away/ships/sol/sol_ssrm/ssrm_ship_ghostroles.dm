@@ -80,6 +80,10 @@
 	spawnpoints = list("ssrm_navy_chief_petty_officer")
 	max_count = 1
 
+	outfit = /obj/outfit/admin/ssrm_navy_chief_petty_officer
+	possible_species = list(SPECIES_HUMAN)
+	allow_appearance_change = APPEARANCE_PLASTICSURGERY
+
 	assigned_role = "Sol Navy Recon Chief Petty Officer"
 	special_role = "Sol Navy Recon Chief Petty Officer"
 

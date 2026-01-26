@@ -5873,7 +5873,7 @@
 /turf/simulated/floor/tiled/slate,
 /area/enviro_testing_facility/inside/security/lobby)
 "fRC" = (
-/obj/machinery/autolathe,
+/obj/machinery/fabricator/autolathe,
 /turf/simulated/floor/carpet/rubber,
 /area/enviro_testing_facility/inside/engineering/mech_lab)
 "fRE" = (
@@ -13075,7 +13075,7 @@
 /turf/simulated/floor/plating,
 /area/enviro_testing_facility/inside/maintenance/engineering_south)
 "nkn" = (
-/obj/machinery/autolathe,
+/obj/machinery/fabricator/autolathe,
 /obj/effect/floor_decal/spline/plain{
 	dir = 6
 	},

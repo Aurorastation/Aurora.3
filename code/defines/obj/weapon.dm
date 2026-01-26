@@ -339,8 +339,8 @@
 	desc = "A white cane, used by the visually impaired."
 	icon = 'icons/obj/item/whitecane.dmi'
 	icon_state = "whitecane"
-	drop_sound =  /singleton/sound_category/generic_drop_sound
-	pickup_sound =  /singleton/sound_category/generic_pickup_sound
+	drop_sound = SFX_DROP
+	pickup_sound = SFX_PICKUP
 	extended_icon_state = "whitecane_extended"
 	extended_item_state = "whitecane"
 	retracted_icon_state = "whitecane"

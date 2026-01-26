@@ -66,7 +66,7 @@
 						"This is your directive 11. [pick("Greimorians have killed several crew.", "Boarders have taken a hostage.", "[holder] is armed and dangerous. Avoid them at all costs.", "Two black-suited individuals have taken items from the armory.")]",
 						"Please stop [pick("drawing in blood. It's unsanitary.", "killing your fellow crew. It's rude.", "[holder] at all costs.", "falling down holes.")]",
 						"[holder] disappoints us all once again.")
-			sound_to(holder, 'sound/misc/announcements/notice.ogg')
+			sound_to(holder, 'sound/ai/announcements/notice.ogg')
 			to_chat(holder, "<h2 class='alert'>Station Announcement</h2>")
 			to_chat(holder, SPAN_ALERT(pick(body)))
 			to_chat(holder, SPAN_ALERT("-[pick(hal_sender)]"))

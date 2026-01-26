@@ -42,7 +42,7 @@
 	CC.amount = 2
 	CC.update_icon()
 	src.density = FALSE
-	playsound(src, /singleton/sound_category/glass_break_sound, 70, 1)
+	playsound(src, SFX_BREAK_GLASS, 70, 1)
 	if(display_message)
 		visible_message("[src] shatters!")
 	qdel(src)
@@ -176,7 +176,7 @@
 	if (istype(attacking_item, /obj/item/melee/energy/blade))
 		if(emag_act(10, user))
 			spark(src.loc, 5)
-			playsound(src.loc, /singleton/sound_category/spark_sound, 50, 1)
+			playsound(src.loc, SFX_SPARKS, 50, 1)
 			playsound(src.loc, 'sound/weapons/blade.ogg', 50, 1)
 			visible_message(SPAN_WARNING("The glass door was sliced open by [user]!"))
 		return TRUE

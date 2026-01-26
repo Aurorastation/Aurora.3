@@ -892,7 +892,7 @@ GLOBAL_LIST_INIT_TYPED(allCasters, /obj/machinery/newscaster, list())
 					for (var/mob/O in hearers(5, src.loc))
 						O.show_message("[user.name] smashes the [src.name]!" )
 					src.isbroken=1
-					playsound(src.loc, /singleton/sound_category/glass_break_sound, 100, 1)
+					playsound(src.loc, SFX_BREAK_GLASS, 100, 1)
 				else
 					for (var/mob/O in hearers(5, src.loc))
 						O.show_message("[user.name] forcefully slams the [src.name] with the [attacking_item.name]!" )
@@ -1074,7 +1074,7 @@ GLOBAL_LIST_INIT_TYPED(allCasters, /obj/machinery/newscaster, list())
 				if(curr_page == 0) //We're at the start, get to the middle
 					src.screen=1
 			src.curr_page++
-			playsound(src.loc, /singleton/sound_category/page_sound, 50, 1)
+			playsound(src.loc, SFX_PAGE_TURN, 50, 1)
 
 		else if(href_list["prev_page"])
 			if(curr_page == 0)
@@ -1086,7 +1086,7 @@ GLOBAL_LIST_INIT_TYPED(allCasters, /obj/machinery/newscaster, list())
 				if(curr_page == src.pages+1) //we're at the end, let's go back to the middle.
 					src.screen = 1
 			src.curr_page--
-			playsound(src.loc, /singleton/sound_category/page_sound, 50, 1)
+			playsound(src.loc, SFX_PAGE_TURN, 50, 1)
 
 		if (istype(src.loc, /mob))
 			src.attack_self(src.loc)
@@ -1147,7 +1147,7 @@ GLOBAL_LIST_INIT_TYPED(allCasters, /obj/machinery/newscaster, list())
 		NEWSPAPER.news_content += FC
 	if(SSnews.wanted_issue)
 		NEWSPAPER.important_message = SSnews.wanted_issue
-	playsound(src.loc, 'sound/bureaucracy/print.ogg', 75, 1)
+	playsound(src.loc, 'sound/items/bureaucracy/print.ogg', 75, 1)
 	usr.put_in_hands(NEWSPAPER)
 	src.paper_remaining--
 	return

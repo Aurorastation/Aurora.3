@@ -170,7 +170,7 @@ GLOBAL_DATUM_INIT(captain_announcement, /datum/announcement/minor, new(do_newsca
 		ACCESS_TELEPORTER, ACCESS_EXTERNAL_AIRLOCKS
 	)
 
-	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
+	blacklisted_species = list(SPECIES_TAJARA_ZHAN, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_ATTENDANT, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
 /obj/outfit/job/bridge_crew
 	name = "Bridge Crew"
@@ -191,3 +191,9 @@ GLOBAL_DATUM_INIT(captain_announcement, /datum/announcement/minor, new(do_newsca
 	tab_pda = /obj/item/modular_computer/handheld/pda/bridge
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/bridge
 	tablet = /obj/item/modular_computer/handheld/preset/bridge
+
+	species_shoes = list(
+		SPECIES_UNATHI = /obj/item/clothing/shoes/winter/toeless,
+		SPECIES_TAJARA = /obj/item/clothing/shoes/laceup/tajara,
+		SPECIES_TAJARA_MSAI = /obj/item/clothing/shoes/laceup/tajara
+	)

@@ -128,11 +128,13 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 
 	return 0
 
+// Future low-quality heat effect
 /obj/heat
 	icon = 'icons/effects/fire.dmi'
 	icon_state = "3"
 	appearance_flags = PIXEL_SCALE | NO_CLIENT_COLOR
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	render_target = HEAT_EFFECT_PLATE_RENDER_TARGET
 
 /obj/fire
 	//Icon for fire on turfs.

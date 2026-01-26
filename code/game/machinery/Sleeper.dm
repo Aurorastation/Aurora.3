@@ -64,7 +64,7 @@
 	parts_power_usage = active_power_usage
 
 /obj/machinery/sleeper/process(seconds_per_tick)
-	if(stat & (NOPOWER|BROKEN))
+	if((stat & (NOPOWER|BROKEN)) && !interact_offline)
 		return
 
 	if(filtering)
@@ -135,7 +135,7 @@
 
 /obj/machinery/sleeper/ui_data(mob/user)
 	var/list/data = list()
-	data["power"] = stat & (NOPOWER|BROKEN) ? FALSE : TRUE
+	data["power"] = (stat & (NOPOWER|BROKEN)) && !interact_offline ? FALSE : TRUE
 
 	if(occupant)
 		data["occupant"] = TRUE
@@ -322,7 +322,7 @@
 	if(filtering)
 		toggle_filter()
 
-	if(stat & (BROKEN|NOPOWER))
+	if((stat & (BROKEN|NOPOWER)) && !interact_offline)
 		return
 
 	if(occupant)
@@ -348,7 +348,7 @@
 /obj/machinery/sleeper/proc/go_in(var/mob/M, var/mob/user)
 	if(!M)
 		return
-	if(stat & (BROKEN|NOPOWER))
+	if((stat & (BROKEN|NOPOWER)) && !interact_offline)
 		return
 	if(occupant)
 		to_chat(user, SPAN_WARNING("\The [src] is already occupied."))
@@ -402,7 +402,7 @@
 		toggle_pump()
 
 /obj/machinery/sleeper/proc/inject_chemical(var/mob/living/user, var/chemical, var/add_amount)
-	if(stat & (BROKEN|NOPOWER))
+	if((stat & (BROKEN|NOPOWER)) && !interact_offline)
 		return
 
 	if(occupant?.reagents)

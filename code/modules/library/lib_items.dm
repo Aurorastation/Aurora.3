@@ -222,7 +222,7 @@
 	if(src.dat)
 		user << browse(HTML_SKELETON("<TT><I>Penned by [author].</I></TT> <BR>" + "[dat]"), "window=book")
 		user.visible_message("[user] opens a book titled \"[src.title]\" and begins reading intently.")
-		playsound(loc, 'sound/bureaucracy/bookopen.ogg', 50, TRUE)
+		playsound(loc, 'sound/items/bureaucracy/bookopen.ogg', 50, TRUE)
 		onclose(user, "book")
 	else
 		to_chat(user, "This book is completely blank!")
@@ -305,7 +305,7 @@
 		to_chat(user, SPAN_NOTICE("You begin to carve out [title]."))
 		if(attacking_item.use_tool(src, user, 30, volume = 50))
 			to_chat(user, SPAN_NOTICE("You carve out the pages from [title]! You didn't want to read it anyway."))
-			playsound(loc, 'sound/bureaucracy/papercrumple.ogg', 50, 1)
+			playsound(loc, 'sound/items/bureaucracy/papercrumple.ogg', 50, 1)
 			new /obj/item/shreddedp(get_turf(src))
 			carved = 1
 			return

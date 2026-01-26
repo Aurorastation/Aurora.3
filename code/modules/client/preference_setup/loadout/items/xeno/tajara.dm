@@ -240,22 +240,8 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	var/list/uniform = list()
 	uniform["PRA consular uniform, female"] = /obj/item/clothing/under/tajaran/consular/female
 	uniform["DPRA consular uniform, female"] = /obj/item/clothing/under/tajaran/consular/dpra/female
+	uniform["NKA consular uniform, female"] = /obj/item/clothing/under/tajaran/consular/nka/female
 	gear_tweaks += new /datum/gear_tweak/path(uniform)
-
-/datum/gear/head/tajara_consular
-	display_name = "tajaran alternative consular hat selection"
-	description = "A selection of tajaran alternative consular hats."
-	path = /obj/item/clothing/head/tajaran/consular/side_cap
-	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
-	sort_category = "Xenowear - Tajara"
-	allowed_roles = list("Consular Officer")
-
-/datum/gear/head/tajara_consular/New()
-	..()
-	var/list/hats = list()
-	hats["PRA consular service side cap"] = /obj/item/clothing/head/tajaran/consular/side_cap
-	hats["DPRA consular service side cap"] = /obj/item/clothing/head/tajaran/consular/dpra/side_cap
-	gear_tweaks += new /datum/gear_tweak/path(hats)
 
 // Archeology set
 

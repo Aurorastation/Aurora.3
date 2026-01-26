@@ -193,7 +193,7 @@
 			reagents.trans_to_holder(R.reagents, R.chem_volume)
 			user.visible_message(SPAN_NOTICE("[user] rolls a cigarette in their hands with \the [attacking_item] and [src]."),
 								SPAN_NOTICE("You roll a cigarette in your hands with \the [attacking_item] and [src]."))
-			playsound(src, 'sound/bureaucracy/paperfold.ogg', 25, 1)
+			playsound(src, 'sound/items/bureaucracy/paperfold.ogg', 25, 1)
 			user.put_in_active_hand(R)
 			qdel(attacking_item)
 			qdel(src)

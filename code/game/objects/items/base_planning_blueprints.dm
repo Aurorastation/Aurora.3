@@ -40,7 +40,7 @@
 		anchored = FALSE
 		icon_state = "blueprints"
 
-	playsound(loc, 'sound/bureaucracy/paperfold.ogg', 50, TRUE)
+	playsound(loc, 'sound/items/bureaucracy/paperfold.ogg', 50, TRUE)
 
 /obj/item/base_planning_blueprints/attack_hand(mob/user)
 	if(folded)

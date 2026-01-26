@@ -42,7 +42,7 @@
 	shattered = TRUE
 	unlocked = TRUE
 	open = TRUE
-	playsound(user, /singleton/sound_category/glass_break_sound, 100, 1)
+	playsound(user, SFX_BREAK_GLASS, 100, 1)
 	update_icon()
 
 /obj/structure/fireaxecabinet/update_icon()

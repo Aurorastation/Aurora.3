@@ -13,7 +13,7 @@
 	ammo_type = /obj/item/ammo_casing/a357
 	magazine_type = /obj/item/ammo_magazine/a357
 	fire_sound = 'sound/weapons/gunshot/gunshot_revolver.ogg'
-	empty_sound = /singleton/sound_category/out_of_ammo_revolver
+	empty_sound = SFX_OUT_OF_AMMO_REVOLVER
 	fire_delay = ROF_RIFLE
 	var/chamber_offset = 0 //how many empty chambers in the cylinder until you hit a round
 
