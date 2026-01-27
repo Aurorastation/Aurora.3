@@ -10,6 +10,9 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 #define FIRE_LIGHT_2	4
 #define FIRE_LIGHT_3	5
 
+//The absolute minimum temperature, below which a fire will go out. In Kelvins
+#define MINIMUM_HEAT_THRESHOLD 220
+
 /turf
 
 //Some legacy definitions so fires can be started.
@@ -18,6 +21,7 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 
 
 /turf/proc/hotspot_expose(exposed_temperature, exposed_volume, soh = 0)
+	return
 
 /**
  * Create a temporary ignition source at turf. Think sparks/igniters.
@@ -26,11 +30,10 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
  *
  * * exposed_temperature - ignition source temp (K)
  * * exposed_volume - gas volume (passed to fire_act() for locs)
- * * soh - they say no one knows
  *
  * Returns boolean and/or executes create_fire(exposed_temperature).
  */
-/turf/simulated/hotspot_expose(exposed_temperature, exposed_volume, soh)
+/turf/simulated/hotspot_expose(exposed_temperature, exposed_volume)
 	if(fire_protection > world.time-300)
 		return FALSE
 	if(locate(/obj/hotspot) in src)
@@ -54,7 +57,7 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 /zone/proc/process_fire()
 	var/datum/gas_mixture/burn_gas = air.remove_ratio(GLOB.vsc.fire_consuption_rate, LAZYLEN(fire_tiles))
 
-	var/firelevel = burn_gas.zburn(src, fire_tiles, force_burn = 1, no_check = 1)
+	var/firelevel = burn_gas.zburn(src, fire_tiles, force_burn = TRUE, no_check = TRUE)
 
 	air.merge(burn_gas)
 
@@ -72,19 +75,19 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 		UNSETEMPTY(fire_tiles)
 
 	if(!LAZYLEN(fire_tiles))
-		SSair.active_fire_zones -= src
+		SSair.active_fire_zones.Remove(src)
 
 /turf/proc/create_fire(fl)
-	return 0
+	return FALSE
 
 /turf/simulated/create_fire(fl)
 
 	if(hotspot)
 		hotspot.firelevel = max(fl, hotspot.firelevel)
-		return 1
+		return TRUE
 
 	if(!zone)
-		return 1
+		return TRUE
 
 	hotspot = new(src, fl)
 	SSair.active_fire_zones |= zone
@@ -94,7 +97,9 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 		hotspot.firelevel *= max(0,1 - (extinguisher_foam.reagents.total_volume*0.04))
 		//25 units will eliminate the fire completely
 
-	return 0
+	zone.fire_tiles |= src
+
+	return FALSE
 
 // Future low-quality heat effect
 /obj/heat
@@ -126,8 +131,8 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 	if(!istype(my_tile) || !my_tile.zone)
 		if(my_tile && my_tile.hotspot == src)
 			my_tile.hotspot = null
-		RemoveFire()
-		return 1
+		qdel(src)
+		return PROCESS_KILL
 
 	var/datum/gas_mixture/air_contents = my_tile.return_air()
 
@@ -137,8 +142,6 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 		set_light(7, FIRE_LIGHT_2)
 	else
 		set_light(5, FIRE_LIGHT_1)
-
-	air_contents.adjust_gas(GAS_CO2, firelevel * 0.07)
 
 	for(var/mob/living/L in loc)
 		L.FireBurn(firelevel, air_contents.temperature, air_contents.return_pressure())  //Burn the mobs!
@@ -180,12 +183,11 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 		var/atom/movable/AM = thing
 		animate(AM, color = fire_color(air_contents.temperature), 5)
 
-/obj/hotspot/New(newLoc,fl)
-	..()
+/obj/hotspot/Initialize(mapload, fl)
+	. = ..()
 
-	if(!istype(loc, /turf))
-		qdel(src)
-		return
+	if(!isturf(loc))
+		return INITIALIZE_HINT_QDEL
 
 	set_dir(pick(GLOB.cardinals))
 
@@ -194,7 +196,7 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 	set_light(3, 1, color)
 
 	firelevel = fl
-	SSair.active_hotspots += src
+	SSair.active_hotspots.Add(src)
 
 	//If this is a turf and it can burn maybe it should be ignited too - Lingering fire effect of sorts
 	var/turf/simulated/floor/F = loc
@@ -207,18 +209,12 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 	return heat2color(temperature)
 
 /obj/hotspot/Destroy()
-	RemoveFire()
-
-	return ..()
-
-/obj/hotspot/proc/RemoveFire()
 	var/turf/T = loc
 	if (istype(T))
 		set_light(0)
-
 		T.hotspot = null
-		loc = null
-	SSair.active_hotspots -= src
+	SSair.active_hotspots.Remove(src)
+	. = ..()
 
 /turf/simulated
 	var/tmp/fire_protection = 0 //Protects newly extinguished tiles from being overrun again.
@@ -287,7 +283,7 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 
 		//if the reaction is progressing too slow then it isn't self-sustaining anymore and burns out
 		if(zone) //be less restrictive with canister and tank reactions
-			if((!gas_fuel || used_fuel <= FIRE_GAS_MIN_BURNRATE*zone.contents.len))
+			if((!gas_fuel || used_fuel <= FIRE_GAS_MIN_BURNRATE*length(zone.contents)))
 				return 0
 
 
@@ -310,6 +306,9 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 		log_subsystem_zas_debug("new temperature = [temperature]; new pressure = [return_pressure()]")
 		#endif
 
+		if (temperature < MINIMUM_HEAT_THRESHOLD)
+			firelevel = 0
+
 		return firelevel
 
 /datum/gas_mixture/proc/check_recombustability(list/fuel_objs)
@@ -322,7 +321,7 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 	if(!.)
 		return 0
 
-	if(fuel_objs && fuel_objs.len)
+	if(fuel_objs && length(fuel_objs))
 		return 1
 
 	. = 0
@@ -388,7 +387,7 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 	return max( 0, firelevel)
 
 
-/mob/living/proc/FireBurn(var/firelevel, var/last_temperature, var/pressure)
+/mob/living/proc/FireBurn(firelevel, last_temperature, pressure)
 	var/mx = 5 * firelevel/GLOB.vsc.fire_firelevel_multiplier * min(pressure / ONE_ATMOSPHERE, 1)
 	apply_damage(2.5*mx, DAMAGE_BURN)
 
@@ -397,7 +396,7 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
  * On the chopping block depending on how we feel.
  * We can decide its fate in future reworks.
  */
-/mob/living/carbon/human/FireBurn(var/firelevel, var/last_temperature, var/pressure)
+/mob/living/carbon/human/FireBurn(firelevel, last_temperature, pressure)
 	//Burns mobs due to fire. Respects heat transfer coefficients on various body parts.
 	//Due to TG reworking how fireprotection works, this is kinda less meaningful.
 
@@ -440,3 +439,5 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 #undef FIRE_LIGHT_1
 #undef FIRE_LIGHT_2
 #undef FIRE_LIGHT_3
+
+#undef MINIMUM_HEAT_THRESHOLD
