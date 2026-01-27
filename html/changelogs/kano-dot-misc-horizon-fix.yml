@@ -1,0 +1,6 @@
+author: Kano
+
+delete-after: True
+
+changes:
+  - bugfix: "Replaced some exoplanet plating turfs in Horizon with regular variant."
