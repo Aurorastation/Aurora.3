@@ -261,7 +261,7 @@
 	user.do_attack_animation(src)
 	SSplants.add_plant(src)
 
-	if(attacking_item.iswirecutter() || istype(attacking_item, /obj/item/surgery/scalpel))
+	if(attacking_item.tool_behaviour == TOOL_WIRECUTTER || istype(attacking_item, /obj/item/surgery/scalpel))
 		if(sampled)
 			to_chat(user, SPAN_WARNING("\The [src] has already been sampled recently."))
 			return

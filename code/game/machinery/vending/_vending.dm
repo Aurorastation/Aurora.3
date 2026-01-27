@@ -418,14 +418,14 @@
 
 	if (I || istype(attacking_item, /obj/item/spacecash))
 		return attack_hand(user)
-	else if(attacking_item.isscrewdriver())
+	else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		src.panel_open = !src.panel_open
 		to_chat(user, "You [src.panel_open ? "open" : "close"] the maintenance panel.")
 		ClearOverlays()
 		if(src.panel_open)
 			AddOverlays("[initial(icon_state)]-panel")
 		return TRUE
-	else if(attacking_item.ismultitool()||attacking_item.iswirecutter())
+	else if(attacking_item.tool_behaviour == TOOL_MULTITOOL||attacking_item.tool_behaviour == TOOL_WIRECUTTER)
 		if(src.panel_open)
 			return attack_hand(user)
 		return TRUE
@@ -439,7 +439,7 @@
 			to_chat(user, SPAN_NOTICE("You insert \the [attacking_item] into \the [src]."))
 		SStgui.update_uis(src)
 		return TRUE
-	else if(attacking_item.iswrench())
+	else if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(!can_move)
 			return TRUE
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)

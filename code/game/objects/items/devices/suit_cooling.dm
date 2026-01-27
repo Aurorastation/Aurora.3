@@ -179,7 +179,7 @@
 			to_chat(user, SPAN_NOTICE("You switch on \the [src]."))
 
 /obj/item/device/suit_cooling_unit/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(cover_open)
 			cover_open = FALSE
 			to_chat(user, SPAN_NOTICE("You screw the panel into place."))

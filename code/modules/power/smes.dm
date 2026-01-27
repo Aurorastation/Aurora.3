@@ -375,7 +375,7 @@
 	ui_interact(user)
 
 /obj/machinery/power/smes/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(!open_hatch)
 			if(is_badly_damaged())
 				to_chat(user, SPAN_WARNING("\The [src]'s maintenance panel is broken open!"))
@@ -398,7 +398,7 @@
 		to_chat(user, SPAN_WARNING("You need to open access hatch on [src] first!"))
 		return 0
 
-	if(attacking_item.iscoil() && !terminal && !building_terminal)
+	if(attacking_item.tool_behaviour == TOOL_CABLECOIL && !terminal && !building_terminal)
 		building_terminal = 1
 		var/obj/item/stack/cable_coil/CC = attacking_item
 		if (CC.get_amount() <= 10)
@@ -417,7 +417,7 @@
 		stat = 0
 		return 0
 
-	else if(attacking_item.iswirecutter() && terminal && !building_terminal)
+	else if(attacking_item.tool_behaviour == TOOL_WIRECUTTER && terminal && !building_terminal)
 		building_terminal = 1
 		var/turf/tempTDir = terminal.loc
 		if (istype(tempTDir))

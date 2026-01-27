@@ -61,7 +61,7 @@ GLOBAL_VAR_INIT(photo_count, 0)
 	examinate(user, src)
 
 /obj/item/photo/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.ispen())
+	if(attacking_item.tool_behaviour == TOOL_PEN)
 		var/txt = sanitize( tgui_input_text(user, "What would you like to write on the back?", "Photo Writing", max_length = 128), 128 )
 		if(loc == user && user.stat == 0)
 			scribble = txt

@@ -524,7 +524,7 @@
 	if(istype(attacking_item, /obj/item/grab))
 		var/obj/item/grab/grab = attacking_item
 		step(grab.affecting, get_dir(grab.affecting, src))
-	if (can_lay_cable() && attacking_item.iscoil())
+	if (can_lay_cable() && attacking_item.tool_behaviour == TOOL_CABLECOIL)
 		var/obj/item/stack/cable_coil/coil = attacking_item
 		coil.turf_place(src, user)
 	else
