@@ -41,7 +41,15 @@
  */
 /atom/movable/proc/check_psi_sensitivity()
 	var/effective_sensitivity = 0
+	// effective_sensitivity is being sent as a Pointer by marking it with the Ampersand (&)
+	// This means that components which have a RegisterSignal() associated with this will receive the memory address of the var/effective_sensitivity in this proc.
+	// They are then allowed to add or subtract to this proc's var directly, without needing to return a number.
+	// We have to do this with a pointer because it allows us to obtain a Sum of all psi-sensitivity modifiers.
+	// If we instead relied on a Return, we would only be able to get the modifier of the first component to respond.
 	SEND_SIGNAL(src, COMSIG_PSI_CHECK_SENSITIVITY, &effective_sensitivity)
+
+	// Pointers can be problematic if they're used to point to a value on a datum, since that can cause unintended hard deletes.
+	// Here however, their use is acceptable because the pointer will cease to exist as soon as the proc reaches this return statement.
 	return effective_sensitivity
 
 /mob/living/check_psi_sensitivity()

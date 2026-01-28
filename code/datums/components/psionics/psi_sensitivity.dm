@@ -40,6 +40,11 @@
 
 /datum/component/psi_sensitivity/proc/modify_sensitivity(var/parent, var/effective_sensitivity)
 	SIGNAL_HANDLER
+	// Earlier, SendSignal() sent effective_sensitivity as a pointer by marking it as &effective_sensitivity.
+	// That means that for this proc, we have the memory address for the original var/effective_sensitivity located in /atom/movable/proc/check_psi_sensitivity()
+	// By marking it with the asterisk (*), I'm telling the game "Actually, add directly to the original variable from /atom/movable/proc/check_psi_sensitivity()"
+	// The reason we're doing this via pointer is that this allows any number of psi_sensitivity components to touch that variable.
+	// If we did this by a Return statement, only the first component would have been allowed to touch it, and all others get ignored.
 	*effective_sensitivity += sensitivity_modifier
 
 /**
