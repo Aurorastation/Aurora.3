@@ -62,8 +62,16 @@
 			to_chat(M, "<span class='notice'>[user] psionically says to [target]:</span> [text]")
 
 	var/mob/living/carbon/human/H = target
-	if(H.check_psi_sensitivity() >= 1)
+	var/target_sensitivity = H.check_psi_sensitivity()
+	if(target_sensitivity >= 1)
+		// Augmented case for anyone with enhancements to their psi-sensitivity.
 		to_chat(H, SPAN_NOTICE("<i>[user] blinks, their eyes briefly developing an unnatural shine.</i>"))
 		to_chat(H, SPAN_CULT("<b>You instinctively sense [user] passing a thought into your mind:</b> [text]"))
-	else
+	else if (target_sensitivity >= 0)
+		// Standard case for most characters.
 		to_chat(H, SPAN_ALIEN("<b>A thought from outside your consciousness slips into your mind:</b> [text]"))
+	else
+		// Negative sensitivity case, message arrives scrambled.
+		// 25% of the message is scrambled per negative point of psi-sensitivity. Allowing fractional points.
+		var/scrambled_message = stars(text, (abs(target_sensitivity) * 25))
+		to_chat(H, SPAN_ALIEN("<b>A half-formed thought passes through your mind:</b> [scrambled_message]"))

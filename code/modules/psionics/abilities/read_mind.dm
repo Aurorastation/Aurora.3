@@ -40,8 +40,9 @@
 		return
 
 	var/safe_mode = FALSE
+	var/target_sensitivity = target.check_psi_sensitivity()
 	// Safe mode triggers if the caster's psi-sensitivity isn't 2 or more points greater than the receiver's sensitivity.
-	if(user.check_psi_sensitivity() - target.check_psi_sensitivity() < PSI_RANK_HARMONIOUS)
+	if(user.check_psi_sensitivity() - target_sensitivity < PSI_RANK_HARMONIOUS)
 		safe_mode = TRUE
 
 	user.visible_message(SPAN_WARNING("[user] lays a palm on [hit_atom]'s forehead..."))
@@ -63,7 +64,11 @@
 		to_chat(user, SPAN_NOTICE("<b>You receive nothing useful from \the [target].</b>"))
 		to_chat(target, SPAN_NOTICE("Your mind blanks out momentarily."))
 	else
-		if(safe_mode)
+		if (target_sensitivity < 0)
+			// Negative sensitivity (of target) case. Underdeveloped Zona Bovinae return a scrambled message.
+			var/scrambled_message = stars(answer, (abs(target_sensitivity) * 25))
+			to_chat(user, SPAN_NOTICE("<b>You tease a half-formed thought from [target]'s mind: <i>[scrambled_message]</i></b>"))
+		else if(safe_mode)
 			to_chat(user, SPAN_NOTICE("<b>You skim the first thoughts in [target]'s mind: <i>[answer]</i></b>"))
 		else
 			to_chat(user, SPAN_NOTICE("<b>You pry the answer to your question from [target]'s mind: <i>[answer]</i></b>"))
