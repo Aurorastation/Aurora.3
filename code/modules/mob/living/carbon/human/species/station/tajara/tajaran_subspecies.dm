@@ -157,7 +157,7 @@
 
 	injection_mod = 2
 
-	bodyfall_sound = /singleton/sound_category/bodyfall_machine_sound
+	bodyfall_sound = SFX_BODYFALL_MACHINE
 
 	has_organ = list(
 		BP_BRAIN =    /obj/item/organ/internal/brain/tajara,

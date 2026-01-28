@@ -4,7 +4,7 @@ ABSTRACT_TYPE(/obj/machinery/fabricator)
 	use_power = POWER_USE_IDLE
 	idle_power_usage = 10
 	active_power_usage = 2000
-	clicksound = /singleton/sound_category/keyboard_sound
+	clicksound = SFX_KEYBOARD
 	clickvol = 30
 	manufacturer = "hephaestus"
 
@@ -182,7 +182,7 @@ ABSTRACT_TYPE(/obj/machinery/fabricator)
 
 	if(panel_open)
 		//Don't eat multitools or wirecutters used on an open lathe.
-		if(attacking_item.ismultitool() || attacking_item.iswirecutter())
+		if(attacking_item.tool_behaviour == TOOL_MULTITOOL || attacking_item.tool_behaviour == TOOL_WIRECUTTER )
 			if(panel_open)
 				wires.interact(user)
 			else
@@ -214,7 +214,7 @@ ABSTRACT_TYPE(/obj/machinery/fabricator)
 	usr.set_machine(src)
 	add_fingerprint(usr)
 
-	playsound(src, /singleton/sound_category/keyboard_sound, 50)
+	playsound(src, SFX_KEYBOARD, 50)
 
 	if(action == "make")
 		START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)

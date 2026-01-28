@@ -546,5 +546,16 @@ STOCK_ITEM_COMMON(flagbox, 3)
 	var/type = pick(flagbox_type)
 	new type(L)
 
+STOCK_ITEM_COMMON(teatin, 3)
+	var/list/teatin_type = list(
+		/obj/item/storage/box/unique/tea,
+		/obj/item/storage/box/unique/tea/tieguanyin,
+		/obj/item/storage/box/unique/tea/jaekseol,
+		/obj/item/storage/box/unique/tea/messa,
+		/obj/item/storage/box/unique/tea/rasnif
+	)
+	var/type = pick(teatin_type)
+	new type(L)
+
 STOCK_ITEM_COMMON(nothing, 0)
 	// do nothing

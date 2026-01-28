@@ -108,7 +108,7 @@
 	..()
 
 /obj/item/device/radio/headset/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(keyslot1 || keyslot2)
 			for(var/ch_name in channels)
 				SSradio.remove_object(src, radiochannels[ch_name])
@@ -1023,6 +1023,12 @@
 
 /obj/item/device/radio/headset/wrist/command/representative
 	name = "wristbound representative radio"
+
+/obj/item/device/radio/headset/wrist/clip/command/representative
+	name = "clip-on representative radio"
+	icon_state = "clip_com"
+	item_state = "clip_com"
+	ks2type = /obj/item/device/encryptionkey/headset_com
 
 /obj/item/device/radio/headset/heads/ai_integrated //No need to care about icons, it should be hidden inside the AI anyway.
 	name = "\improper AI subspace transceiver"

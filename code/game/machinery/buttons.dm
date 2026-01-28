@@ -70,7 +70,7 @@
 	icon_state = "light[active]"
 
 /obj/machinery/button/switch/attack_hand()
-	playsound(src, /singleton/sound_category/switch_sound, 30)
+	playsound(src, SFX_BUTTON, 30)
 	intent_message(BUTTON_FLICK, 5)
 
 //alternate button with the same functionality, except has a door control sprite instead

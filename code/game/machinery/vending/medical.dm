@@ -7,6 +7,7 @@
  *		Low Supply
  *	NanoPharm Mini
  *		Low Supply
+ *	NanoPharm Mini (commissary)
  */
 
 /obj/machinery/vending/medical
@@ -205,4 +206,26 @@
 		/obj/item/storage/pill_bottle/vitamin = 2,
 		/obj/item/storage/pill_bottle/cetahydramine  = 1,
 		/obj/item/storage/pill_bottle/rmt = 1
+	)
+
+/obj/machinery/vending/wallpharm/commissary
+	random_itemcount = TRUE
+	products = list(
+		/obj/item/storage/box/mms_inhaler = 3,
+		/obj/item/storage/box/ambrosia = 3,
+		/obj/item/storage/box/reishi = 3,
+		/obj/item/storage/box/wulumunusha = 3,
+		/obj/item/storage/pill_bottle/colorspace = 3,
+		/obj/item/storage/pill_bottle/snowflake = 3,
+		/obj/item/storage/pill_bottle/psilocybin = 3,
+		/obj/item/reagent_containers/food/condiment/wulumunusha = 3,
+		/obj/item/reagent_containers/food/condiment/ambrosia = 3,
+		/obj/item/storage/pill_bottle/antidexafen = 3,
+		/obj/item/storage/pill_bottle/vitamin = 3,
+		/obj/item/storage/pill_bottle/cetahydramine  = 3,
+		/obj/item/storage/pill_bottle/caffeine = 3,
+		/obj/item/storage/pill_bottle/nicotine  = 3,
+		/obj/item/storage/pill_bottle/rmt = 3
+	)
+	prices = list(
 	)

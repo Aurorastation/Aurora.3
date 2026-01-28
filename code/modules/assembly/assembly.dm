@@ -95,7 +95,7 @@
 		if(!A.secured && !secured)
 			attach_assembly(A, user)
 			return
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(toggle_secure())
 			to_chat(user, SPAN_NOTICE("\The [src] is ready!"))
 		else

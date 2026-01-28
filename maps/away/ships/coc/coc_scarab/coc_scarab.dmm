@@ -5757,6 +5757,16 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/open/airless,
 /area/ship/coc_scarab/exterior)
+"xd" = (
+/obj/effect/floor_decal/corner_wide/dark_green/diagonal,
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 6
+	},
+/obj/machinery/media/jukebox{
+	anchored = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/coc_scarab/mess)
 "xe" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/coc_scarab/telecommunications)
@@ -10948,16 +10958,6 @@
 /obj/structure/railing/mapped,
 /turf/simulated/floor/plating,
 /area/ship/coc_scarab/thrust1)
-"Rl" = (
-/obj/effect/floor_decal/corner_wide/dark_green/diagonal,
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 6
-	},
-/obj/machinery/media/jukebox{
-	anchored = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/coc_scarab/mess)
 "Rn" = (
 /obj/effect/floor_decal/corner_wide/paleblue/full{
 	dir = 1
@@ -112979,7 +112979,7 @@ vH
 bJ
 CW
 ng
-Rl
+xd
 ht
 KA
 zD

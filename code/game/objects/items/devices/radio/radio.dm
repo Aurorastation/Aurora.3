@@ -55,7 +55,7 @@ var/global/list/default_interrogation_channels = list(
 	/// Automatically set on initialize, only update if bypass_default_internal is set to TRUE
 	var/list/internal_channels
 	/// played sound on usage
-	var/clicksound = /singleton/sound_category/button_sound
+	var/clicksound = SFX_BUTTON
 	/// volume of clicksound
 	var/clickvol = 10
 
@@ -547,7 +547,7 @@ var/global/list/default_interrogation_channels = list(
 /obj/item/device/radio/attackby(obj/item/attacking_item, mob/user)
 	..()
 	user.set_machine(src)
-	if (!( attacking_item.isscrewdriver() ))
+	if (!( attacking_item.tool_behaviour == TOOL_SCREWDRIVER ))
 		return
 	b_stat = !( b_stat )
 	if(!istype(src, /obj/item/device/radio/beacon))
@@ -602,10 +602,10 @@ var/global/list/default_interrogation_channels = list(
 /obj/item/device/radio/borg/attackby(obj/item/attacking_item, mob/user)
 //	..()
 	user.set_machine(src)
-	if (!( attacking_item.isscrewdriver() || (istype(attacking_item, /obj/item/device/encryptionkey/ ))))
+	if (!( attacking_item.tool_behaviour == TOOL_SCREWDRIVER || (istype(attacking_item, /obj/item/device/encryptionkey/ ))))
 		return
 
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(keyslot)
 
 

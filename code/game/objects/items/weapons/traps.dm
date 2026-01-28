@@ -700,7 +700,7 @@
 				return
 			capture(capturing_mob)
 
-	else if(attacking_item.iswelder())
+	else if(attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/WT = attacking_item
 		if(!WT.isOn())
 			to_chat(user, SPAN_WARNING("\The [WT] is off!"))
@@ -716,7 +716,7 @@
 				release(user)
 				qdel(src)
 
-	else if(attacking_item.isscrewdriver())
+	else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		var/turf/T = get_turf(src)
 		if(!T)
 			to_chat(user, SPAN_WARNING("There is nothing to secure \the [src] to!"))
@@ -869,7 +869,7 @@
 		..()
 
 /obj/item/trap/animal/large/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		var/turf/T = get_turf(src)
 		if(!T)
 			to_chat(user, SPAN_WARNING("There is nothing to secure \the [src] to!"))
@@ -887,7 +887,7 @@
 			user.visible_message(SPAN_NOTICE("[user] [anchored ? "" : "un" ]secures \the [src]!"),
 								SPAN_NOTICE("You [anchored ? "" : "un" ]secure \the [src]!"))
 
-	else if(attacking_item.isscrewdriver())
+	else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		// Unlike smaller traps, screwdriver shouldn't work on this.
 		return
 	else

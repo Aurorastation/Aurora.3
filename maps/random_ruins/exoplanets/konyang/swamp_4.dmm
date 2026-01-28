@@ -1,11 +1,4 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"al" = (
-/obj/effect/step_trigger/thrower{
-	tiles = 1;
-	dir = 6
-	},
-/turf/simulated/floor/exoplanet/water/konyang,
-/area/exoplanet/grass/konyang)
 "aH" = (
 /obj/structure/lattice/catwalk/indoor/planks,
 /obj/structure/rope_post,
@@ -37,6 +30,13 @@
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/konyang_swamp_4)
+"dm" = (
+/obj/effect/step_trigger/thrower{
+	tiles = 1;
+	dir = 6
+	},
+/turf/simulated/floor/exoplanet/water/konyang,
+/area/exoplanet/grass/konyang)
 "dD" = (
 /obj/structure/flora/bush/konyang_reeds,
 /turf/simulated/floor/exoplanet/konyang/wilting,
@@ -75,12 +75,6 @@
 "hM" = (
 /turf/template_noop,
 /area/space)
-"ia" = (
-/obj/effect/step_trigger/thrower{
-	tiles = 1
-	},
-/turf/simulated/floor/exoplanet/water/konyang,
-/area/exoplanet/grass/konyang)
 "if" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/reedbush,
@@ -99,10 +93,10 @@
 /mob/living/simple_animal/aquatic/fish/cod,
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/exoplanet/grass/konyang)
-"jZ" = (
+"jD" = (
 /obj/effect/step_trigger/thrower{
 	tiles = 1;
-	dir = 5
+	dir = 8
 	},
 /turf/simulated/floor/exoplanet/water/konyang,
 /area/exoplanet/grass/konyang)
@@ -110,13 +104,6 @@
 /obj/item/stack/material/wood/branch/full,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/konyang_swamp_4)
-"kY" = (
-/obj/effect/step_trigger/thrower{
-	tiles = 1;
-	dir = 9
-	},
-/turf/simulated/floor/exoplanet/water/konyang,
-/area/exoplanet/grass/konyang)
 "kZ" = (
 /obj/structure/flora/bush/konyang_reeds,
 /turf/simulated/floor/exoplanet/konyang/wilting,
@@ -133,6 +120,13 @@
 	},
 /turf/simulated/floor/exoplanet/konyang/pink,
 /area/konyang_swamp_4)
+"mX" = (
+/obj/effect/step_trigger/thrower{
+	tiles = 1;
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/water/konyang,
+/area/exoplanet/grass/konyang)
 "nA" = (
 /obj/random/dirt_75,
 /obj/structure/bed/stool/chair/folding{
@@ -140,13 +134,6 @@
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/konyang_swamp_4)
-"nU" = (
-/obj/effect/step_trigger/thrower{
-	tiles = 1;
-	dir = 1
-	},
-/turf/simulated/floor/exoplanet/water/konyang,
-/area/exoplanet/grass/konyang)
 "ot" = (
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/exoplanet/grass/konyang)
@@ -174,15 +161,6 @@
 /obj/structure/flora/rock/konyang/moss,
 /turf/simulated/floor/exoplanet/konyang,
 /area/exoplanet/grass/konyang)
-"qA" = (
-/obj/machinery/media/jukebox{
-	anchored = 1;
-	pixel_x = 20;
-	density = 0;
-	pixel_y = 2
-	},
-/turf/simulated/floor/exoplanet/dirt_konyang,
-/area/konyang_swamp_4)
 "qQ" = (
 /obj/structure/flora/rock/konyang/moss,
 /turf/simulated/floor/exoplanet/konyang/wilting,
@@ -192,10 +170,10 @@
 /obj/effect/floor_decal/konyang_flowers,
 /turf/simulated/floor/exoplanet/konyang,
 /area/konyang_swamp_4)
-"rG" = (
+"rz" = (
 /obj/effect/step_trigger/thrower{
 	tiles = 1;
-	dir = 4
+	dir = 9
 	},
 /turf/simulated/floor/exoplanet/water/konyang,
 /area/exoplanet/grass/konyang)
@@ -226,6 +204,13 @@
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/konyang_swamp_4)
+"tS" = (
+/obj/effect/step_trigger/thrower{
+	tiles = 1;
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/water/konyang,
+/area/exoplanet/grass/konyang)
 "ux" = (
 /obj/structure/rope_post{
 	dir = 4
@@ -380,13 +365,6 @@
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/konyang_swamp_4)
-"Dr" = (
-/obj/effect/step_trigger/thrower{
-	tiles = 1;
-	dir = 10
-	},
-/turf/simulated/floor/exoplanet/water/konyang,
-/area/exoplanet/grass/konyang)
 "DL" = (
 /mob/living/simple_animal/aquatic/fish,
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
@@ -416,19 +394,21 @@
 /obj/structure/flora/bush/konyang_reeds,
 /turf/simulated/floor/exoplanet/konyang,
 /area/exoplanet/grass/konyang)
-"FK" = (
-/obj/effect/step_trigger/thrower{
-	tiles = 1;
-	dir = 8
-	},
-/turf/simulated/floor/exoplanet/water/konyang,
-/area/exoplanet/grass/konyang)
 "FP" = (
 /obj/structure/table/wood/bamboo,
 /obj/item/material/twohanded/spear/steel,
 /obj/item/flame/lighter{
 	pixel_y = 8;
 	pixel_x = -6
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/konyang_swamp_4)
+"Gs" = (
+/obj/machinery/media/jukebox{
+	anchored = 1;
+	pixel_x = 20;
+	density = 0;
+	pixel_y = 2
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/konyang_swamp_4)
@@ -465,6 +445,13 @@
 /obj/structure/flora/rock/konyang/small,
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/exoplanet/konyang,
+/area/exoplanet/grass/konyang)
+"Jh" = (
+/obj/effect/step_trigger/thrower{
+	tiles = 1;
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/water/konyang,
 /area/exoplanet/grass/konyang)
 "JJ" = (
 /obj/structure/lattice/catwalk/indoor/planks,
@@ -612,6 +599,13 @@
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/konyang_swamp_4)
+"Vb" = (
+/obj/effect/step_trigger/thrower{
+	tiles = 1;
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/water/konyang,
+/area/exoplanet/grass/konyang)
 "Vx" = (
 /turf/simulated/floor/exoplanet/konyang/wilting,
 /area/konyang_swamp_4)
@@ -686,6 +680,12 @@
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/konyang_swamp_4)
+"Zs" = (
+/obj/effect/step_trigger/thrower{
+	tiles = 1
+	},
+/turf/simulated/floor/exoplanet/water/konyang,
+/area/exoplanet/grass/konyang)
 "ZG" = (
 /obj/structure/lattice/catwalk/indoor/planks/stairs{
 	dir = 4
@@ -1408,14 +1408,14 @@ cZ
 cZ
 cZ
 cZ
-FK
-FK
-FK
+jD
+jD
+jD
 cZ
 cZ
-FK
-FK
-Dr
+jD
+jD
+tS
 cZ
 cZ
 cZ
@@ -1459,19 +1459,19 @@ sF
 cZ
 cZ
 cZ
-kY
-FK
-kY
+rz
+jD
+rz
 Oz
-Dr
-FK
-FK
-kY
+tS
+jD
+jD
+rz
 Oz
-Dr
-FK
-FK
-Dr
+tS
+jD
+jD
+tS
 cZ
 cZ
 cZ
@@ -1511,8 +1511,8 @@ sF
 cZ
 cZ
 cZ
-kY
-kY
+rz
+rz
 Oz
 Oz
 Oz
@@ -1524,10 +1524,10 @@ Oz
 Oz
 Oz
 Oz
-Dr
-FK
-FK
-Dr
+tS
+jD
+jD
+tS
 cZ
 cZ
 cZ
@@ -1563,8 +1563,8 @@ sF
 cZ
 cZ
 cZ
-kY
-kY
+rz
+rz
 Oz
 Oz
 Oz
@@ -1580,8 +1580,8 @@ Oz
 Oz
 Oz
 Oz
-Dr
-Dr
+tS
+tS
 cZ
 cZ
 cZ
@@ -1615,8 +1615,8 @@ cZ
 sF
 fl
 cZ
-nU
-kY
+Vb
+rz
 Oz
 Oz
 Oz
@@ -1634,8 +1634,8 @@ Oz
 Oz
 Oz
 Oz
-Dr
-Dr
+tS
+tS
 cZ
 cZ
 cZ
@@ -1668,7 +1668,7 @@ sF
 sF
 cZ
 cZ
-nU
+Vb
 Oz
 Oz
 Oz
@@ -1688,7 +1688,7 @@ Oz
 Oz
 Oz
 Oz
-ia
+Zs
 cZ
 cZ
 cZ
@@ -1720,8 +1720,8 @@ sF
 sF
 cZ
 cZ
-nU
-kY
+Vb
+rz
 Oz
 Oz
 Oz
@@ -1741,8 +1741,8 @@ Oz
 Oz
 Oz
 Oz
-Dr
-ia
+tS
+Zs
 cZ
 cZ
 cZ
@@ -1773,7 +1773,7 @@ cZ
 sF
 cZ
 cZ
-nU
+Vb
 Oz
 Oz
 Oz
@@ -1795,8 +1795,8 @@ Oz
 Oz
 Oz
 Oz
-Dr
-ia
+tS
+Zs
 cZ
 Sw
 cZ
@@ -1826,7 +1826,7 @@ cZ
 sF
 fl
 cZ
-nU
+Vb
 Oz
 Oz
 Oz
@@ -1849,7 +1849,7 @@ Oz
 Oz
 Oz
 Oz
-ia
+Zs
 cZ
 cc
 es
@@ -1879,8 +1879,8 @@ sF
 sF
 cZ
 cZ
-nU
-jZ
+Vb
+Jh
 Oz
 Oz
 Oz
@@ -1902,7 +1902,7 @@ Oz
 Oz
 Oz
 Oz
-ia
+Zs
 cZ
 YE
 es
@@ -1933,7 +1933,7 @@ cZ
 cZ
 cZ
 cZ
-nU
+Vb
 Oz
 Oz
 Oz
@@ -1955,7 +1955,7 @@ Oz
 Oz
 Oz
 Oz
-ia
+Zs
 cZ
 Cs
 cZ
@@ -1986,8 +1986,8 @@ sF
 sF
 cZ
 cZ
-nU
-jZ
+Vb
+Jh
 Oz
 Oz
 Oz
@@ -2007,8 +2007,8 @@ Oz
 Oz
 Oz
 Oz
-al
-ia
+dm
+Zs
 cZ
 cZ
 cZ
@@ -2040,8 +2040,8 @@ sF
 sF
 jB
 cZ
-nU
-jZ
+Vb
+Jh
 Oz
 Oz
 Oz
@@ -2060,7 +2060,7 @@ Oz
 Oz
 Oz
 Oz
-ia
+Zs
 cZ
 cZ
 cZ
@@ -2094,7 +2094,7 @@ sF
 sF
 cZ
 cZ
-nU
+Vb
 Oz
 Oz
 Oz
@@ -2112,8 +2112,8 @@ Oz
 Oz
 Oz
 Oz
-al
-ia
+dm
+Zs
 cZ
 cZ
 cZ
@@ -2147,8 +2147,8 @@ sF
 sF
 sF
 cZ
-jZ
-jZ
+Jh
+Jh
 Oz
 Oz
 Oz
@@ -2165,7 +2165,7 @@ Oz
 Oz
 Oz
 Oz
-ia
+Zs
 cZ
 cZ
 cZ
@@ -2201,8 +2201,8 @@ cZ
 sF
 cZ
 cZ
-jZ
-jZ
+Jh
+Jh
 Oz
 Oz
 Oz
@@ -2217,8 +2217,8 @@ Oz
 Oz
 Oz
 Oz
-al
-ia
+dm
+Zs
 cZ
 DL
 cZ
@@ -2255,11 +2255,11 @@ cZ
 Od
 cZ
 cZ
-rG
-rG
-rG
-rG
-jZ
+mX
+mX
+mX
+mX
+Jh
 Oz
 Oz
 Oz
@@ -2268,9 +2268,9 @@ Oz
 Oz
 Oz
 Oz
-al
-rG
-al
+dm
+mX
+dm
 cZ
 cZ
 cZ
@@ -2312,16 +2312,16 @@ cZ
 cZ
 cZ
 cZ
-rG
-rG
-rG
-jZ
+mX
+mX
+mX
+Jh
 Oz
 Oz
-al
-rG
-rG
-rG
+dm
+mX
+mX
+mX
 cZ
 cZ
 cZ
@@ -2368,10 +2368,10 @@ cZ
 cZ
 cZ
 cZ
-rG
-rG
-rG
-rG
+mX
+mX
+mX
+mX
 cZ
 cZ
 cZ
@@ -2871,7 +2871,7 @@ Eu
 Eu
 jo
 bA
-qA
+Gs
 AH
 GY
 "}
