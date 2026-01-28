@@ -275,40 +275,54 @@
 	if(hallucination >= EMP_MOVE_DISRUPT && prob(30))
 		direction = pick(GLOB.cardinals)
 
-	var/do_strafe = !isnull(user.facing_dir) && (legs.turn_delay <= legs.move_delay)
-	if(!do_strafe && dir != direction)
+	// Convert keyboard inputs to Battletech-style controls.
+	switch (direction)
+		if (NORTH) // "Throttle Forwards"
+			throttle_move(user, dir)
+		if (SOUTH) // "Throttle Reverse"
+			// Get the tile in the direction we're facing.
+			throttle_move(user, angle2dir(dir2angle(dir) + 180))
+		if (EAST) // "Turn Right"
+			rotate_by_angle(user, angle2dir(dir2angle(dir) + 90))
+		if (WEST) // "Turn Left"
+			rotate_by_angle(user, angle2dir(dir2angle(dir) + 270))
+
+/mob/living/heavy_vehicle/proc/throttle_move(mob/living/user, direction)
+	// Get the tile in the direction.
+	var/turf/target_loc = get_step(src, direction)
+	if(!legs.can_move_on(loc, target_loc))
+		return
+
+	// Then send a move command
+	if(incorporeal_move)
+		if(legs && legs.mech_step_sound)
+			playsound(src.loc,legs.mech_step_sound,40,1)
 		use_cell_power(legs.power_use * CELLRATE)
-		if(legs && legs.mech_turn_sound)
-			playsound(src.loc,legs.mech_turn_sound,40,1)
-		if(world.time + legs.turn_delay > next_mecha_move)
-			next_mecha_move = world.time + legs.turn_delay
-		set_dir(direction)
-		for(var/mob/pilot in pilots)
-			pilot.set_dir(direction)
-		if(istype(hardpoints[HARDPOINT_BACK], /obj/item/mecha_equipment/shield))
-			var/obj/item/mecha_equipment/shield/S = hardpoints[HARDPOINT_BACK]
-			if(S.aura)
-				S.aura.dir = direction
-				if(S.aura.dir == NORTH)
-					S.aura.layer = MOB_LAYER
-				else
-					S.aura.layer = ABOVE_HUMAN_LAYER
-		update_icon()
+		user.client.Process_Incorpmove(direction, src)
+	else
+		Move(target_loc, direction, 0, FALSE)
 
-	if(!turn_only)
-		var/turf/target_loc = get_step(src, direction)
-		if(!legs.can_move_on(loc, target_loc))
-			return
-		if(incorporeal_move)
-			if(legs && legs.mech_step_sound)
-				playsound(src.loc,legs.mech_step_sound,40,1)
-			use_cell_power(legs.power_use * CELLRATE)
-			user.client.Process_Incorpmove(direction, src)
-		else
-			var/new_direction = do_strafe ? user.facing_dir || direction : direction
-			Move(target_loc, new_direction)
+/mob/living/heavy_vehicle/proc/rotate_by_angle(mob/living/user, direction)
+	use_cell_power(legs.power_use * CELLRATE)
+	if(legs && legs.mech_turn_sound)
+		playsound(src.loc,legs.mech_turn_sound,40,1)
+	if(world.time + legs.turn_delay > next_mecha_move)
+		next_mecha_move = world.time + legs.turn_delay
+	set_dir(direction)
+	for(var/mob/pilot in pilots)
+		pilot.set_dir(direction)
+	if(istype(hardpoints[HARDPOINT_BACK], /obj/item/mecha_equipment/shield))
+		var/obj/item/mecha_equipment/shield/S = hardpoints[HARDPOINT_BACK]
+		if(S.aura)
+			S.aura.dir = direction
+			if(S.aura.dir == NORTH)
+				S.aura.layer = MOB_LAYER
+			else
+				S.aura.layer = ABOVE_HUMAN_LAYER
+	update_icon()
+	Move(src.loc, direction, 0, TRUE)
 
-/mob/living/heavy_vehicle/Move()
+/mob/living/heavy_vehicle/Move(atom/newloc, direct, glide_size_override = 0, update_dir = TRUE)
 	. = ..()
 	if(. && !istype(loc, /turf/space))
 		if(legs)
