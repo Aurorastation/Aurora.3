@@ -44,6 +44,8 @@
 	tgui_id = "CameraMonitoring"
 	var/obj/machinery/camera/current_camera
 	var/current_network
+	/// Used for camera monitor consoles from which this interface can be launched. If it exists, only provide that console's "console_networks" networks.
+	var/obj/machinery/computer/security/camera_monitoring_console
 
 /datum/computer_file/program/camera_monitor/ui_data(mob/user)
 	var/list/data = initial_data()
@@ -52,7 +54,17 @@
 	data["current_network"] = current_network
 
 	var/list/all_networks = list()
-	for(var/network in SSatlas.current_map.station_networks)
+	var/list/available_networks = list()
+
+	// If this UI was generated from a camera monitoring console, then only that console's networks will be available...
+	if(camera_monitoring_console)
+		available_networks = camera_monitoring_console.console_networks
+
+	// ...otherwise (if it was launched from a standard modular computer), get all networks to which the user has access.
+	else
+		available_networks = SSatlas.current_map.station_networks
+
+	for(var/network in available_networks)
 		all_networks += list(
 			list(
 				"tag" = network,
