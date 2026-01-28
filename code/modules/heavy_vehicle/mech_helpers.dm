@@ -12,13 +12,14 @@
 		next_mecha_move = world.time + 3 // Just to stop them from getting spammed with messages.
 		return
 
-	if(!legs.motivator || legs.total_damage > 45)
+	if(!legs.motivator || legs.total_damage != 0 && legs.total_damage >= legs.max_damage)
 		if(user)
-			to_chat(user, SPAN_WARNING("Your motivators are damaged! You can't move!"))
+			to_chat(user, SPAN_WARNING("Your motivators are destroyed! You can't move!"))
 		next_mecha_move = world.time + 15
 		return
 
-	next_mecha_move = world.time + (incorporeal_move ? legs.move_delay / 2 : legs.move_delay)
+
+	next_mecha_move = world.time + (incorporeal_move ? legs.move_delay / 2 : legs.move_delay) + (legs.damaged_delay * (legs.total_damage / legs.max_damage))
 
 	if(maintenance_protocols)
 		if(user)

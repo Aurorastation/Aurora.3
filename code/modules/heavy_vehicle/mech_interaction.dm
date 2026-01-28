@@ -278,24 +278,29 @@
 	// Convert keyboard inputs to Battletech-style controls.
 	switch (direction)
 		if (NORTH) // "Throttle Forwards"
-			throttle_move(user, dir)
+			throttle_move(user, dir, FALSE)
 		if (SOUTH) // "Throttle Reverse"
-			// Get the tile in the direction we're facing.
-			throttle_move(user, angle2dir(dir2angle(dir) + 180))
+			throttle_move(user, angle2dir(dir2angle(dir) + 180), TRUE)
 		if (EAST) // "Turn Right"
 			rotate_by_angle(user, angle2dir(dir2angle(dir) + 90))
 		if (WEST) // "Turn Left"
 			rotate_by_angle(user, angle2dir(dir2angle(dir) + 270))
 
-/mob/living/heavy_vehicle/proc/throttle_move(mob/living/user, direction)
+/mob/living/heavy_vehicle/proc/throttle_move(mob/living/user, direction, reverse)
+	if (!legs)
+		return // LIEUTENANT DAN!!!
+
 	// Get the tile in the direction.
 	var/turf/target_loc = get_step(src, direction)
 	if(!legs.can_move_on(loc, target_loc))
 		return
 
+	if (reverse)
+		next_mecha_move += legs.reverse_delay
+
 	// Then send a move command
 	if(incorporeal_move)
-		if(legs && legs.mech_step_sound)
+		if(legs.mech_step_sound)
 			playsound(src.loc,legs.mech_step_sound,40,1)
 		use_cell_power(legs.power_use * CELLRATE)
 		user.client.Process_Incorpmove(direction, src)
@@ -306,8 +311,8 @@
 	use_cell_power(legs.power_use * CELLRATE)
 	if(legs && legs.mech_turn_sound)
 		playsound(src.loc,legs.mech_turn_sound,40,1)
-	if(world.time + legs.turn_delay > next_mecha_move)
-		next_mecha_move = world.time + legs.turn_delay
+
+	next_mecha_move += legs.turn_delay
 	set_dir(direction)
 	for(var/mob/pilot in pilots)
 		pilot.set_dir(direction)
