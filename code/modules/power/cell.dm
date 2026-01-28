@@ -143,7 +143,7 @@
 		else
 			to_chat(user, SPAN_NOTICE("You'd need both devices to be signallers for this to work."))
 		return
-	else if(attacking_item.ismultitool() && ishuman(user) && user.get_inactive_hand() == src)
+	else if(attacking_item.tool_behaviour == TOOL_MULTITOOL && ishuman(user) && user.get_inactive_hand() == src)
 		if(charge < 10)
 			to_chat(user, SPAN_WARNING("\The [src] doesn't have enough charge to produce sufficient current!"))
 			return

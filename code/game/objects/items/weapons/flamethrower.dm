@@ -106,7 +106,7 @@
 	if(use_check_and_message(user))
 		return TRUE
 
-	if(attacking_item.iswrench() && !secured)//Taking this apart
+	if(attacking_item.tool_behaviour == TOOL_WRENCH && !secured)//Taking this apart
 		var/turf/T = get_turf(src)
 		if(welding_tool)
 			welding_tool.forceMove(T)
@@ -121,7 +121,7 @@
 		qdel(src)
 		return TRUE
 
-	else if(attacking_item.isscrewdriver() && igniter && !lit)
+	else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER && igniter && !lit)
 		secured = !secured
 		to_chat(user, SPAN_NOTICE("[igniter] is now [secured ? "secured" : "unsecured"]!"))
 		update_icon()

@@ -153,14 +153,14 @@
 	src.add_fingerprint(user)
 	if(!is_on)
 		has_contents = contents_count()
-		if(attacking_item.isscrewdriver())
+		if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 			if(has_contents)
 				to_chat(user, SPAN_WARNING("Eject the items first!"))
 				return TRUE
 			else if(default_deconstruction_screwdriver(user, attacking_item))
 				update()
 				return TRUE
-		else if(attacking_item.iswelder() && panel_open)
+		else if(attacking_item.tool_behaviour == TOOL_WELDER && panel_open)
 			if(has_contents)
 				to_chat(user, SPAN_WARNING("Eject the items first!"))
 				return TRUE
@@ -1067,7 +1067,7 @@
 	if(!T.is_plating())
 		return		// prevent interaction with T-scanner revealed pipes
 	src.add_fingerprint(user)
-	if(attacking_item.iswelder())
+	if(attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/W = attacking_item
 
 		if(W.use(0,user))
@@ -1526,7 +1526,7 @@
 	if(!T.is_plating())
 		return		// prevent interaction with T-scanner revealed pipes
 	src.add_fingerprint(user)
-	if(attacking_item.iswelder())
+	if(attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/W = attacking_item
 
 		if(W.use(0,user))
@@ -1684,7 +1684,7 @@
 	if(!attacking_item || !user)
 		return
 	src.add_fingerprint(user)
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(mode==0)
 			mode=1
 			attacking_item.play_tool_sound(get_turf(src), 50)
@@ -1695,7 +1695,7 @@
 			attacking_item.play_tool_sound(get_turf(src), 50)
 			to_chat(user, "You attach the screws around the power connection.")
 			return
-	else if(attacking_item.iswelder() && mode==1)
+	else if(attacking_item.tool_behaviour == TOOL_WELDER && mode==1)
 		var/obj/item/weldingtool/W = attacking_item
 		if(W.use(0,user))
 			to_chat(user, "You start slicing the floorweld off the disposal outlet.")

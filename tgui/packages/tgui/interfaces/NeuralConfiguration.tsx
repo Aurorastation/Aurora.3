@@ -25,7 +25,8 @@ export const NeuralConfiguration = (props, context) => {
         data.neural_coherence > data.max_neural_coherence * 0.75
           ? 'spookyconsole'
           : 'scc'
-      }>
+      }
+    >
       <Window.Content scrollable>
         <Section textAlign="center" title="Neural Configuration">
           <Box textAlign="center" fontSize={1.7}>
@@ -45,11 +46,12 @@ export const NeuralConfiguration = (props, context) => {
               bold
               textColor={neuralCoherenceLabel(
                 data.neural_coherence,
-                data.max_neural_coherence
-              )}>
+                data.max_neural_coherence,
+              )}
+            >
               {describeNeuralCoherence(
                 data.neural_coherence,
-                data.max_neural_coherence
+                data.max_neural_coherence,
               )}
               .
             </Box>
@@ -118,7 +120,7 @@ export const NeuralConfiguration = (props, context) => {
 
 export const describeNeuralCoherence = (
   neuralCoherence,
-  maxNeuralCoherence = 200
+  maxNeuralCoherence = 200,
 ) => {
   if (neuralCoherence > maxNeuralCoherence * 0.8) {
     return 'F̷͈͈̥͉̀͌̓̓̀̈́̆̓͒̓̊A̷͖͔̮̯͕̖̼̜͛̄̈́̐͘̕L̶̛͎̞̪̋̎̀̎͐̐̉͆͂́̇̅͘͠L̸̢̹̘̟̈́͘͝I̵̢̢̛̪͍̭͖̝͔͉̙̱͎̼̭̝͒̅͆̾̍͛̎̀̅̐N̶̨̘̭͒͑͛͛̈̚̚͜G̶͙͖̊̍̋̔͝͝͝͠ ̷̢̖̞̣̲̠͊̊ͅȂ̸̛̹̟̻̘̭͓̣̺̱͙͎͉͖͇̲͗͐̓P̴̧̲̬̗̥͖̤̫͓̲̝͉̓͋͜Ȁ̸̹̈́̊͗̌̾́̽͑̓̕R̸̢̡͇͋̔̔̓̒͂̉̎̍̎͜T̸̡͕̥̖̳͚͓̜͇̱͚̤̮̰̔̉̒͛͌͛̀̈́̓͝ͅ';
@@ -137,7 +139,7 @@ export const describeNeuralCoherence = (
 
 export const neuralCoherenceLabel = (
   neuralCoherence,
-  maxNeuralCoherence = 200
+  maxNeuralCoherence = 200,
 ) => {
   if (neuralCoherence > maxNeuralCoherence * 0.75) {
     return 'bad';

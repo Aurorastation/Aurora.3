@@ -116,7 +116,8 @@ const BearingsSection = function (act, data) {
             y="10"
             text-anchor="middle"
             fill="white"
-            transform={'rotate(0 50 50)'}>
+            transform={'rotate(0 50 50)'}
+          >
             0
           </text>
           <text
@@ -124,7 +125,8 @@ const BearingsSection = function (act, data) {
             y="5"
             text-anchor="middle"
             fill="white"
-            transform={'rotate(45 50 50)'}>
+            transform={'rotate(45 50 50)'}
+          >
             45
           </text>
           <text
@@ -132,7 +134,8 @@ const BearingsSection = function (act, data) {
             y="10"
             text-anchor="middle"
             fill="white"
-            transform={'rotate(90 50 50)'}>
+            transform={'rotate(90 50 50)'}
+          >
             90
           </text>
           <text
@@ -140,7 +143,8 @@ const BearingsSection = function (act, data) {
             y="5"
             text-anchor="middle"
             fill="white"
-            transform={'rotate(135 50 50)'}>
+            transform={'rotate(135 50 50)'}
+          >
             135
           </text>
           <text
@@ -148,7 +152,8 @@ const BearingsSection = function (act, data) {
             y="10"
             text-anchor="middle"
             fill="white"
-            transform={'rotate(180 50 50)'}>
+            transform={'rotate(180 50 50)'}
+          >
             180
           </text>
           <text
@@ -156,7 +161,8 @@ const BearingsSection = function (act, data) {
             y="5"
             text-anchor="middle"
             fill="white"
-            transform={'rotate(225 50 50)'}>
+            transform={'rotate(225 50 50)'}
+          >
             225
           </text>
           <text
@@ -164,7 +170,8 @@ const BearingsSection = function (act, data) {
             y="10"
             text-anchor="middle"
             fill="white"
-            transform={'rotate(270 50 50)'}>
+            transform={'rotate(270 50 50)'}
+          >
             270
           </text>
           <text
@@ -172,7 +179,8 @@ const BearingsSection = function (act, data) {
             y="5"
             text-anchor="middle"
             fill="white"
-            transform={'rotate(315 50 50)'}>
+            transform={'rotate(315 50 50)'}
+          >
             315
           </text>
         </svg>

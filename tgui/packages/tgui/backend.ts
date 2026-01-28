@@ -206,7 +206,7 @@ export const backendMiddleware = (store) => {
         if (process.env.NODE_ENV !== 'production') {
           logger.log(
             'visible in',
-            perf.measure('render/finish', 'resume/finish')
+            perf.measure('render/finish', 'resume/finish'),
           );
         }
       });
@@ -303,7 +303,7 @@ type StateWithSetter<T> = [T, (nextState: T) => void];
 export const useLocalState = <T>(
   context: any,
   key: string,
-  initialState: T
+  initialState: T,
 ): StateWithSetter<T> => {
   const { store } = context;
   const state = selectBackend(store.getState());
@@ -319,7 +319,7 @@ export const useLocalState = <T>(
             typeof nextState === 'function'
               ? nextState(sharedState)
               : nextState,
-        })
+        }),
       );
     },
   ];
@@ -342,7 +342,7 @@ export const useLocalState = <T>(
 export const useSharedState = <T>(
   context: any,
   key: string,
-  initialState: T
+  initialState: T,
 ): StateWithSetter<T> => {
   const { store } = context;
   const state = selectBackend(store.getState());

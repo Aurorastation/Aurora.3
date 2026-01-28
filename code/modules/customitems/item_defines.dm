@@ -1558,7 +1558,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 			text = zippomsg
 		else if(istype(attacking_item, /obj/item/flame/lighter))
 			text = lightermsg
-		else if(attacking_item.iswelder())
+		else if(attacking_item.tool_behaviour == TOOL_WELDER)
 			text = weldermsg
 		else if(istype(attacking_item, /obj/item/device/assembly/igniter))
 			text = ignitermsg

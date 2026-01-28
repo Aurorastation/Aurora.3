@@ -28,7 +28,7 @@ export const PlayerPanel = (props, context) => {
   const [searchTerm, setSearchTerm] = useLocalState<string>(
     context,
     `searchTerm`,
-    ``
+    ``,
   );
 
   return (
@@ -48,7 +48,8 @@ export const PlayerPanel = (props, context) => {
               }}
               value={searchTerm}
             />
-          }>
+          }
+        >
           <Table>
             <Table.Row header>
               <Table.Cell>Name</Table.Cell>
@@ -70,7 +71,7 @@ export const PlayerPanel = (props, context) => {
                     .indexOf(searchTerm.toLowerCase()) > -1 ||
                   player.assigment
                     ?.toLowerCase()
-                    .indexOf(searchTerm.toLowerCase()) > -1
+                    .indexOf(searchTerm.toLowerCase()) > -1,
               )
               .map((player) => (
                 <Table.Row key={player.name}>

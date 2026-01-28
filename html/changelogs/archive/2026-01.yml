@@ -161,3 +161,41 @@
       machine on the Horizon.
   - bugfix: Smartfridges sanitization was fixed.
   - rscadd: The specialized commissary shelves can now be leaned on.
+2026-01-27:
+  Batrachophrenoboocosmomachia:
+  - code_imp: Updates telescreens/dedicated camera monitor consoles to use the Camera
+      Monitor TGUI instead of the old NanoUI version (which has been deprecated and
+      removed).
+  - bugfix: Removes duplicated telescreen from SCCV Horizon interrogation monitoring
+      compartment.
+  - bugfix: Corrects a mechatronic fabricator UI formatting issue accidentally introduced
+      by previous update.
+  Fyni:
+  - rscadd: Adds the representative clip on radio for consulars, liasons, their aides
+      and bodyguards
+  - bugfix: Makes sure the journalist gets the correct clip on radio
+  GeneralCamo:
+  - rscadd: Ported the 'Taro' hair style from Citadel SS13.
+  Hellfirejag:
+  - balance: Psionic Awakeners now provide 3 psi-shop points, so you can actually
+      buy powers.
+  SabreML:
+  - rscadd: Revamped the 'Faction Select' UI in the occupation menu of character setup.
+  - bugfix: Fixed changing species in character setup not resetting your faction if
+      it became invalid.
+  Tomixcomics:
+  - rscadd: Added cucumbers.
+  - rscadd: Re-added randomly chosen items spawning in the fridges at shift start
+      like they did before the scarcity arc.
+  - rscadd: Added a few cucumber dishes and one Adhomian cuisine dish.
+  - rscadd: Made it so it's visible when your character is holding a kitchen tray.
+  - bugfix: Fixed sugar tree fruit not showing up.
+2026-01-28:
+  Batrachophrenoboocosmomachia:
+  - refactor: Adds tool_behaviour variable to /obj/item which defines the object's
+      functionality, removing the need for iscrowbar(), iswrench() etc. procs.
+  - rscadd: Adds multiple tool-related signals.
+  GeneralCamo:
+  - code_imp: Added a unit test to generate byond defines from Font Awesome entries.
+  Kano:
+  - bugfix: Replaced some exoplanet plating turfs in Horizon with regular variant.

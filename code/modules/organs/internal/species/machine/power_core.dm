@@ -89,7 +89,7 @@
 		to_chat(owner, SPAN_MACHINE_WARNING("Power core electronics damaged. Caution. Caution."))
 
 /obj/item/organ/internal/machine/power_core/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(open)
 			open = FALSE
 			to_chat(user, SPAN_NOTICE("You screw the battery panel in place."))
@@ -97,7 +97,7 @@
 			open = TRUE
 			to_chat(user, SPAN_NOTICE("You unscrew the battery panel."))
 
-	if(attacking_item.iscrowbar())
+	if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 		if(open)
 			if(cell)
 				user.put_in_hands(cell)

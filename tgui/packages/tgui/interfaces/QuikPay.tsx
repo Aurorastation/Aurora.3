@@ -1,6 +1,12 @@
 import { BooleanLike } from '../../common/react';
 import { useBackend } from '../backend';
-import { LabeledList, Button, Input, NumberInput, Section } from '../components';
+import {
+  LabeledList,
+  Button,
+  Input,
+  NumberInput,
+  Section,
+} from '../components';
 import { Window } from '../layouts';
 
 export type PayData = {
@@ -48,7 +54,8 @@ export const QuikPay = (props, context) => {
                 />
               ) : null}
             </>
-          }>
+          }
+        >
           {data.editmode ? <AddItems /> : ''}
           {data.items.length < 1 ? 'No items available.' : <ItemWindow />}
         </Section>
@@ -103,7 +110,8 @@ export const ItemWindow = (props, context) => {
               onClick={() => act('confirm')}
             />
           </>
-        }>
+        }
+      >
         {data.buying.length < 1 ? (
           'Your shopping cart is empty.'
         ) : (
