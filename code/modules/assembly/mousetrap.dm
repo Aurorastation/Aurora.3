@@ -13,10 +13,19 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 100)
 	var/armed = FALSE
 
-/obj/item/device/assembly/mousetrap/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/device/assembly/mousetrap/Initialize()
+	..()
+
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
+
+/obj/item/device/assembly/mousetrap/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	if(armed)
-		. += "It looks like it's armed."
+		. += SPAN_NOTICE("It looks like it's armed.")
 
 /obj/item/device/assembly/mousetrap/update_icon()
 	icon_state = armed ? "mousetraparmed" : "mousetrap"
