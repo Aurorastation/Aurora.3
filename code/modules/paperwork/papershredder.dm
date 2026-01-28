@@ -21,7 +21,7 @@
 		empty_bin(user, attacking_item)
 		return
 
-	else if (attacking_item.iswrench())
+	else if (attacking_item.tool_behaviour == TOOL_WRENCH)
 		attacking_item.play_tool_sound(get_turf(src), 50)
 		anchored = !anchored
 		user.visible_message(
@@ -143,7 +143,7 @@
 			var/obj/item/flame/F = P
 			if (!F.lit)
 				return
-		else if (P.iswelder())
+		else if (P.tool_behaviour == TOOL_WELDER)
 			var/obj/item/weldingtool/F = P // NOW THAT'S WHAT I CALL RECYCLING - wezzy
 			if (!F.welding)
 				return

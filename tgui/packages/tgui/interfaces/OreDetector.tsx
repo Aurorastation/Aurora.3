@@ -43,7 +43,8 @@ export const OreDetector = (props, context) => {
                   disabled={!data.search_ores.length}
                   onClick={() => act('toggle')}
                 />
-              }>
+              }
+            >
               {get_status()}
             </LabeledList.Item>
           </LabeledList>
@@ -58,7 +59,8 @@ export const OreDetector = (props, context) => {
                   <Button onClick={() => act('select_ore', { ore_name: ore })}>
                     Toggle
                   </Button>
-                }>
+                }
+              >
                 {ore_enabled(ore) ? 'ENABLED' : 'DISABLED'}
               </LabeledList.Item>
             ))}

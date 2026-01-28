@@ -490,6 +490,11 @@ GLOBAL_LIST_INIT(valid_bloodtypes, list(
 			pref.citizenship = OO.possible_citizenships[1]
 			pref.religion = OO.possible_religions[1]
 
+			var/datum/faction/current_faction = SSjobs.name_factions[pref.faction]
+			if(!current_faction?.can_select(pref, user))
+				to_chat(user, SPAN_WARNING("[pref.faction] does not employ [mob_species.name_plural]. Resetting to [SSjobs.default_faction.name]!"))
+				pref.faction = SSjobs.default_faction.name
+
 			// Follows roughly the same way hair does above, but for gradient styles
 			var/global/list/valid_gradients = list()
 

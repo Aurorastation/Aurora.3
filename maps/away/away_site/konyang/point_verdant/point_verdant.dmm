@@ -26338,7 +26338,7 @@
 "oXt" = (
 /obj/machinery/computer/security/telescreen{
 	name = "Spec. Ops. Monitor";
-	network = list("ZeEmergencyResponseTeam");
+	console_networks = list("ZeEmergencyResponseTeam");
 	pixel_x = -8;
 	pixel_y = 24
 	},

@@ -22,7 +22,7 @@ export const Jukebox = (props, context) => {
 
   const playlist_sorted: Song[] = sortBy(playlist, [(song: Song) => song.name]);
   const song_selected: Song | undefined = playlist.find(
-    (song) => song.name === selection
+    (song) => song.name === selection,
   );
 
   return (
@@ -45,7 +45,8 @@ export const Jukebox = (props, context) => {
                 onClick={() => act('stop')}
               />
             </>
-          }>
+          }
+        >
           <LabeledList>
             <LabeledList.Item label="Track Name">
               {song_selected?.name || 'No Track Selected'}
@@ -90,7 +91,8 @@ export const Jukebox = (props, context) => {
                       : song === song_selected
                         ? 'green'
                         : ''
-                  }>
+                  }
+                >
                   {song.length}
                 </Table.Cell>
               </Table.Row>

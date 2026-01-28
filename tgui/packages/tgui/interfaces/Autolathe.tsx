@@ -2,7 +2,18 @@ import { round } from '../../common/math';
 import { BooleanLike } from '../../common/react';
 import { capitalizeAll } from '../../common/string';
 import { useBackend, useLocalState } from '../backend';
-import { Box, Button, Input, LabeledList, NoticeBox, ProgressBar, Section, Stack, Table, Tabs } from '../components';
+import {
+  Box,
+  Button,
+  Input,
+  LabeledList,
+  NoticeBox,
+  ProgressBar,
+  Section,
+  Stack,
+  Table,
+  Tabs,
+} from '../components';
 import { Window } from '../layouts';
 
 export type AutolatheData = {
@@ -65,7 +76,8 @@ export const Autolathe = (props, context) => {
                       <Box bold fontSize={1.4}>
                         {capitalizeAll(material.material)}
                       </Box>
-                    }>
+                    }
+                  >
                     <ProgressBar
                       ranges={{
                         good: [
@@ -80,7 +92,8 @@ export const Autolathe = (props, context) => {
                       }}
                       value={round(material.stored, 1)}
                       maxValue={material.max_capacity}
-                      minValue={0}>
+                      minValue={0}
+                    >
                       {material.stored} / {material.max_capacity}
                     </ProgressBar>
                   </LabeledList.Item>
@@ -96,7 +109,8 @@ export const Autolathe = (props, context) => {
                     textAlign="center"
                     selected={category === tab}
                     key={category}
-                    onClick={() => setTab(category)}>
+                    onClick={() => setTab(category)}
+                  >
                     {category}
                   </Tabs.Tab>
                 ))}
@@ -121,7 +135,7 @@ export const CategoryData = (props, context) => {
   const [searchTerm, setSearchTerm] = useLocalState<string>(
     context,
     `searchTerm`,
-    ``
+    ``,
   );
   const [amount, setAmount] = useLocalState(context, 'amount', 1);
 
@@ -140,7 +154,8 @@ export const CategoryData = (props, context) => {
           }}
           value={searchTerm}
         />
-      }>
+      }
+    >
       <Table collapsing>
         <Table.Row header>
           <Table.Cell>Recipe</Table.Cell>
@@ -148,7 +163,7 @@ export const CategoryData = (props, context) => {
         </Table.Row>
         {data.recipes
           .filter(
-            (c) => c.name?.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1
+            (c) => c.name?.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1,
           )
           .map((recipe) =>
             recipe.category === tab || tab === 'All' ? (
@@ -206,9 +221,9 @@ export const CategoryData = (props, context) => {
                           !recipe.enabled || recipe.can_make
                             ? null
                             : act('make', {
-                              multiplier: 5,
-                              recipe: recipe.recipe,
-                            })
+                                multiplier: 5,
+                                recipe: recipe.recipe,
+                              })
                         }
                       />
                       <Button
@@ -232,9 +247,9 @@ export const CategoryData = (props, context) => {
                           !recipe.enabled || recipe.can_make
                             ? null
                             : act('make', {
-                              multiplier: 10,
-                              recipe: recipe.recipe,
-                            })
+                                multiplier: 10,
+                                recipe: recipe.recipe,
+                              })
                         }
                       />
                       <Button
@@ -258,9 +273,9 @@ export const CategoryData = (props, context) => {
                           !recipe.enabled || recipe.can_make
                             ? null
                             : act('make', {
-                              multiplier: recipe.max_sheets,
-                              recipe: recipe.recipe,
-                            })
+                                multiplier: recipe.max_sheets,
+                                recipe: recipe.recipe,
+                              })
                         }
                       />
                     </>
@@ -283,7 +298,7 @@ export const CategoryData = (props, context) => {
               </Table.Row>
             ) : (
               ''
-            )
+            ),
           )}
       </Table>
     </Section>
@@ -300,7 +315,8 @@ export const QueueData = (props, context) => {
           data.queue.map((queue_item) => (
             <LabeledList.Item
               key={queue_item.ref}
-              label={capitalizeAll(queue_item.order)}>
+              label={capitalizeAll(queue_item.order)}
+            >
               <ProgressBar
                 minValue={0}
                 maxValue={queue_item.build_time}
@@ -312,7 +328,8 @@ export const QueueData = (props, context) => {
                     queue_item.build_time * 0.5,
                   ],
                   bad: [0, queue_item.build_time * 0.25],
-                }}>
+                }}
+              >
                 {queue_item.remaining_time / 10} seconds
                 <Button
                   icon="cancel"

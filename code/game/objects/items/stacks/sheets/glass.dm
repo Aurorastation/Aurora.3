@@ -142,7 +142,7 @@
 		else
 			to_chat(user, SPAN_WARNING("You need one metal sheet to finish the light tile!"))
 
-	else if(attacking_item.iswirecutter())
+	else if(attacking_item.tool_behaviour == TOOL_WIRECUTTER)
 		user.drop_from_inventory(attacking_item, get_turf(src))
 		to_chat(user, SPAN_NOTICE("You detach the wire from the [name]."))
 		playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)

@@ -1,6 +1,18 @@
 import { round } from '../../common/math';
 import { useBackend } from '../backend';
-import { AnimatedNumber, Box, Button, Flex, LabeledControls, LabeledList, NoticeBox, ProgressBar, Section, Table, Tabs } from '../components';
+import {
+  AnimatedNumber,
+  Box,
+  Button,
+  Flex,
+  LabeledControls,
+  LabeledList,
+  NoticeBox,
+  ProgressBar,
+  Section,
+  Table,
+  Tabs,
+} from '../components';
 import { Window } from '../layouts';
 
 export type FabricatorData = {
@@ -58,7 +70,7 @@ export const SyntheticFabricator = (props, context) => {
   return (
     <Window resizable theme={data.manufacturer}>
       <Window.Content scrollable>
-        <Flex fontSize="1.2rem" fill>
+        <Flex fontSize="1.2rem" wrap>
           <Flex.Item>
             <Section
               title="Materials"
@@ -70,7 +82,8 @@ export const SyntheticFabricator = (props, context) => {
                   color="green"
                   onClick={() => act('sync')}
                 />
-              }>
+              }
+            >
               <LabeledControls>
                 {data.materials.map((material) => (
                   <LabeledControls.Item
@@ -88,7 +101,8 @@ export const SyntheticFabricator = (props, context) => {
                           })
                         }
                       />
-                    }>
+                    }
+                  >
                     <ProgressBar
                       ranges={{
                         good: [
@@ -103,7 +117,8 @@ export const SyntheticFabricator = (props, context) => {
                       }}
                       value={round(material.amount, 1)}
                       maxValue={data.maximum_resource_amount}
-                      minValue={0}>
+                      minValue={0}
+                    >
                       {material.amount} / {data.maximum_resource_amount}{' '}
                     </ProgressBar>
                   </LabeledControls.Item>
@@ -132,8 +147,9 @@ export const SyntheticFabricator = (props, context) => {
                       key={category.name}
                       collapsing
                       onClick={() =>
-                        act('category', { 'category': category.name })
-                      }>
+                        act('category', { category: category.name })
+                      }
+                    >
                       {category.name}
                     </Tabs.Tab>
                   ))}

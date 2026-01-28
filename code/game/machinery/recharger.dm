@@ -59,7 +59,7 @@
 		qdel(bar)
 
 /obj/machinery/recharger/attackby(obj/item/attacking_item, mob/user)
-	if(portable && attacking_item.iswrench())
+	if(portable && attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(charging)
 			to_chat(user, SPAN_WARNING("You can't modify \the [src] while it has something charging inside."))
 			return TRUE

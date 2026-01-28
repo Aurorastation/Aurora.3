@@ -42,7 +42,7 @@
 /singleton/surgery_step/cavity/make_space
 	name = "Hollow Out Cavity"
 	allowed_tools = list(
-	/obj/item/surgery/surgicaldrill = 100,	\
+	TOOL_DRILL = 100,	\
 	/obj/item/pen = 75,	\
 	/obj/item/stack/rods = 50
 	)
@@ -73,7 +73,7 @@
 	name = "Close Cavity"
 	priority = 2
 	allowed_tools = list(
-	/obj/item/surgery/cautery = 100,			\
+	TOOL_CAUTERY = 100,			\
 	/obj/item/clothing/mask/smokable/cigarette = 75,	\
 	/obj/item/flame/lighter = 50,			\
 	/obj/item/weldingtool = 25
@@ -152,8 +152,8 @@
 /singleton/surgery_step/cavity/implant_removal
 	name = "Remove Foreign Body"
 	allowed_tools = list(
-	/obj/item/surgery/hemostat = 100,	\
-	WIRECUTTER = 75,	\
+	TOOL_HEMOSTAT = 100,	\
+	TOOL_WIRECUTTER = 75,	\
 	/obj/item/material/kitchen/utensil/fork = 20
 	)
 

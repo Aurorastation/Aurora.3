@@ -199,15 +199,15 @@ export const CultureWindow = (props, context) => {
       <Section title="Speech Bubble Type">
         {data.valid_speech_bubbles.length
           ? data.valid_speech_bubbles.map((new_speech_bubble) => (
-            <Button
-              key={new_speech_bubble}
-              content={capitalize(new_speech_bubble)}
-              selected={data.owner_speech_bubble === new_speech_bubble}
-              onClick={() =>
-                act('speech_bubble', { speech_bubble: new_speech_bubble })
-              }
-            />
-          ))
+              <Button
+                key={new_speech_bubble}
+                content={capitalize(new_speech_bubble)}
+                selected={data.owner_speech_bubble === new_speech_bubble}
+                onClick={() =>
+                  act('speech_bubble', { speech_bubble: new_speech_bubble })
+                }
+              />
+            ))
           : ''}
       </Section>
     </Section>
