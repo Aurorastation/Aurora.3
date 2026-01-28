@@ -6,6 +6,7 @@ import {
   Input,
   NumberInput,
   Section,
+  Flex,
 } from '../components';
 import { Window } from '../layouts';
 
@@ -69,55 +70,64 @@ export const ItemWindow = (props, context) => {
 
   return (
     <Section>
-      <LabeledList>
-        {data.items.map((item) => (
-          <LabeledList.Item key={item.name} label={item.name}>
-            {item.price.toFixed(2)}电 &nbsp;
-            <Button
-              content="Buy"
-              icon="calendar"
-              onClick={() => act('buy', { buying: item.name, amount: 1 })}
-            />
-            {data.editmode ? (
+      <Flex direction="row">
+        <Flex.Item grow={1}>
+          <Section title="For sale" fill>
+            <LabeledList>
+              {data.items.map((item) => (
+                <LabeledList.Item key={item.name} label={item.name}>
+                  {item.price.toFixed(2)}电 &nbsp;
+                  <Button
+                    content="Buy"
+                    icon="calendar"
+                    onClick={() => act('buy', { buying: item.name, amount: 1 })}
+                  />
+                  {data.editmode ? (
+                    <>
+                      &nbsp;
+                      <Button
+                        content="Delete"
+                        icon="trash"
+                        color="bad"
+                        onClick={() => act('remove', { removing: item.name })}
+                      />
+                    </>
+                  ) : null}
+                </LabeledList.Item>
+              ))}
+            </LabeledList>
+          </Section>
+        </Flex.Item>
+        <Flex.Item grow={1}>
+          <Section
+            fill
+            title="Cart"
+            buttons={
               <>
-                &nbsp;
+                {' '}
                 <Button
-                  content="Delete"
+                  content="Clear"
                   icon="trash"
                   color="bad"
-                  onClick={() => act('remove', { removing: item.name })}
+                  onClick={() => act('clear')}
+                />
+                <Button
+                  content="Confirm"
+                  icon="check"
+                  color={data.sum ? 'good' : ''}
+                  onClick={() => act('confirm')}
                 />
               </>
-            ) : null}
-          </LabeledList.Item>
-        ))}
-      </LabeledList>
-      <Section
-        title="Cart"
-        buttons={
-          <>
-            {' '}
-            <Button
-              content="Clear"
-              icon="trash"
-              color="bad"
-              onClick={() => act('clear')}
-            />
-            <Button
-              content="Confirm"
-              icon="check"
-              color={data.sum ? 'good' : ''}
-              onClick={() => act('confirm')}
-            />
-          </>
-        }
-      >
-        {data.buying.length < 1 ? (
-          'Your shopping cart is empty.'
-        ) : (
-          <CartWindow />
-        )}
-      </Section>
+            }
+          >
+            {data.buying.length < 1 ? (
+              'Your shopping cart is empty.'
+            ) : (
+              <CartWindow />
+            )}
+          </Section>
+        </Flex.Item>
+      </Flex>
     </Section>
   );
 };
