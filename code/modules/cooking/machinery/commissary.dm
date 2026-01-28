@@ -449,7 +449,8 @@
 		/obj/item/storage/chewables/tobacco/dyn = 3,
 		/obj/item/storage/chewables/tobacco/koko = 3,
 		/obj/item/storage/box/fancy/chewables/tobacco/nico = 3,
-		/obj/item/storage/chewables/oracle = 3
+		/obj/item/storage/chewables/oracle = 3,
+		/obj/item/storage/chewables/solar_salve = 3
 	)
 
 /obj/item/commissary_restrock/smoking_accessory
