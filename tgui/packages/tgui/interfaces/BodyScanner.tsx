@@ -432,7 +432,9 @@ export const ExternalOrganWindow = (props, context) => {
           </Table.Cell>
           <Table.Cell color={organ.wounds !== 'None' ? 'orange' : 'white'}>
             {organ.amputation ? (
-              <Box color="red" bold>(AMPUTATION REQUIRED)</Box>
+              <Box color="red" bold>
+                (AMPUTATION REQUIRED)
+              </Box>
             ) : (
               organ.wounds
             )}
