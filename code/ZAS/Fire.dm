@@ -97,7 +97,7 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 		hotspot.firelevel *= max(0,1 - (extinguisher_foam.reagents.total_volume*0.04))
 		//25 units will eliminate the fire completely
 
-	zone.fire_tiles |= src
+	LAZYOR(zone.fire_tiles, src)
 
 	return FALSE
 
