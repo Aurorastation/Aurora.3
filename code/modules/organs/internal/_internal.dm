@@ -75,7 +75,7 @@
 /obj/item/organ/internal/proc/get_scarring_results()
 	var/scar_level = get_scarring_level()
 	if(scar_level > 0.01)
-		. += "[get_wound_severity(get_scarring_level())] scarring"
+		. += "[get_wound_severity(get_scarring_level(), FALSE, FALSE)] scarring"
 
 /obj/item/organ/internal/is_usable()
 	if(robotize_type)
