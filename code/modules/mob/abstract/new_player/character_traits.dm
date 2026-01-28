@@ -153,13 +153,3 @@ BROKEN_DISABILITY(right_foot, "Right Foot", BP_R_FOOT)
 
 /datum/character_disabilities/low_psi_sensitivity/apply_self(var/mob/living/carbon/human/H)
 	H.AddComponent(LOW_PSI_SENSITIVITY_COMPONENT)
-
-/datum/character_disabilities/psi_echoes
-	name = "Psionic Echoes"
-	desc = "A rare condition caused by an abnormal Zona Bovinae that is exceptionally psi-sensitive beyond the capacity of the organic brain to handle." \
-		+ "Characters with this trait receive a large bonus to psi-sensitivity, twice over the bonus from having a psi-receiver implant." \
-		+ "This excessive sensitivity prevents coherent telepathy, while also causing painful psychic shock in both individuals." \
-		+ "Like with High Psi-sensitivity, you also count as psionic for a variety of effects, but take twice as much damage from psychic attacks."
-
-/datum/character_disabilities/psi_echoes/apply_self(var/mob/living/carbon/human/H)
-	H.AddComponent(PSIONIC_ECHOES_COMPONENT)
