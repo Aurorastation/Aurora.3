@@ -72,7 +72,8 @@ export const CargoDelivery = (props, context) => {
                       page: 'order_overview',
                       order_overview: data.order_details.order_id.toString(),
                     })
-                  }>
+                  }
+                >
                   Overview
                 </Tabs.Tab>
                 <Tabs.Tab
@@ -81,7 +82,8 @@ export const CargoDelivery = (props, context) => {
                       page: 'order_payment',
                       order_payment: data.order_details.order_id.toString(),
                     })
-                  }>
+                  }
+                >
                   Payment
                 </Tabs.Tab>
               </>
@@ -222,7 +224,7 @@ export const Payment = (props, context) => {
         <>
           <Button
             content="Account"
-            color='good'
+            color="good"
             onClick={() => act('accountselect')}
           />
           <Button
@@ -233,24 +235,21 @@ export const Payment = (props, context) => {
                   ? 'Delivered Already'
                   : 'Not Shipped'
             }
-            disabled={
-              data.order_details.status !== 'shipped'
-            }
+            disabled={data.order_details.status !== 'shipped'}
             icon="check"
             color="green"
             onClick={() => act('deliver', { deliver: 'true' })}
           />
           <Button
             content="Pay"
-            disabled={
-              !data.order_details.needs_payment
-            }
+            disabled={!data.order_details.needs_payment}
             icon="credit-card"
             color="green"
             onClick={() => act('pay', { deliver: 'true' })}
           />
         </>
-      }>
+      }
+    >
       <LabeledList>
         <LabeledList.Item label="Price">
           {data.order_details.price_customer.toFixed(2)} 电
