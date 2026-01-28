@@ -70,7 +70,8 @@ export const SyntheticFabricator = (props) => {
                   color="green"
                   onClick={() => act('sync')}
                 />
-              }>
+              }
+            >
               <LabeledControls>
                 {data.materials.map((material) => (
                   <LabeledControls.Item label= "eject" key={material.name}>
@@ -100,7 +101,8 @@ export const SyntheticFabricator = (props) => {
                       }}
                       value={round(material.amount, 1)}
                       maxValue={data.maximum_resource_amount}
-                      minValue={0}>
+                      minValue={0}
+                    >
                       {material.amount} / {data.maximum_resource_amount}{' '}
                     </ProgressBar>
                   </LabeledControls.Item>
@@ -128,8 +130,9 @@ export const SyntheticFabricator = (props) => {
                       selected={data.category === category.name}
                       key={category.name}
                       onClick={() =>
-                        act('category', { 'category': category.name })
-                      }>
+                        act('category', { category: category.name })
+                      }
+                    >
                       {category.name}
                     </Tabs.Tab>
                   ))}

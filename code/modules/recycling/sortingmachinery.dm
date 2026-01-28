@@ -54,7 +54,7 @@
 		else
 			to_chat(user, SPAN_WARNING("You need to set a destination first!"))
 
-	else if(attacking_item.ispen())
+	else if(attacking_item.tool_behaviour == TOOL_PEN)
 		switch(alert("What would you like to alter?",,"Title","Description", "Cancel"))
 			if("Title")
 				var/str = sanitizeSafe(input(usr,"Label text?","Set label",""), MAX_NAME_LEN)
@@ -169,7 +169,7 @@
 		else
 			to_chat(user, SPAN_WARNING("You need to set a destination first!"))
 
-	else if(attacking_item.ispen())
+	else if(attacking_item.tool_behaviour == TOOL_PEN)
 		switch(tgui_input_list(user, "What would you like to alter?", null, list("Title", "Description"), "Cancel"))
 			if("Title")
 				var/str = sanitizeSafe( tgui_input_text(usr, "Label text?", "Set label", "", MAX_NAME_LEN), MAX_NAME_LEN )
@@ -367,7 +367,7 @@
 		user.drop_item(attacking_item)
 		CollidedWith(attacking_item)
 
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(c_mode==0)
 			c_mode=1
 			attacking_item.play_tool_sound(get_turf(src), 50)
@@ -378,7 +378,7 @@
 			attacking_item.play_tool_sound(get_turf(src), 50)
 			to_chat(user, "You attach the screws around the power connection.")
 			return
-	else if(attacking_item.iswelder() && c_mode==1)
+	else if(attacking_item.tool_behaviour == TOOL_WELDER && c_mode==1)
 		var/obj/item/weldingtool/W = attacking_item
 		if(W.use(1,user))
 			to_chat(user, "You start slicing the floorweld off the delivery chute.")

@@ -81,13 +81,14 @@ export const IPCDiagnostics = (props) => {
             bold
             textColor={endoskeletonDamageLabel(
               data.endoskeleton_damage,
-              data.endoskeleton_max_damage
-            )}>
+              data.endoskeleton_max_damage,
+            )}
+          >
             {capitalize(
               describeEndoskeletonIntegrity(
                 data.endoskeleton_damage,
-                data.endoskeleton_max_damage
-              )
+                data.endoskeleton_max_damage,
+              ),
             )}
           </Box>
           .
@@ -102,7 +103,8 @@ export const IPCDiagnostics = (props) => {
                   <Box
                     as="span"
                     bold
-                    textColor={armorDamageLabel(armor.status)}>
+                    textColor={armorDamageLabel(armor.status)}
+                  >
                     {capitalize(armor.status)}
                   </Box>
                 </LabeledList.Item>
@@ -132,7 +134,8 @@ export const OrganDisplay = (props) => {
             <Box
               as="span"
               bold
-              textColor={organDamageLabel(organ.damage, organ.max_damage)}>
+              textColor={organDamageLabel(organ.damage, organ.max_damage)}
+            >
               {describeOrganDamage(organ.damage, organ.max_damage)}
             </Box>
             .
@@ -143,7 +146,8 @@ export const OrganDisplay = (props) => {
                 <Box
                   as="span"
                   bold
-                  textColor={damageLabel(organ.wiring_status)}>
+                  textColor={damageLabel(organ.wiring_status)}
+                >
                   {capitalize(describeIntegrity(organ.wiring_status))}
                 </Box>
               </LabeledList.Item>
@@ -151,7 +155,8 @@ export const OrganDisplay = (props) => {
                 <Box
                   as="span"
                   bold
-                  textColor={damageLabel(organ.plating_status)}>
+                  textColor={damageLabel(organ.plating_status)}
+                >
                   {capitalize(describeIntegrity(organ.plating_status))}
                 </Box>
               </LabeledList.Item>
@@ -159,7 +164,8 @@ export const OrganDisplay = (props) => {
                 <Box
                   as="span"
                   bold
-                  textColor={damageLabel(organ.electronics_status)}>
+                  textColor={damageLabel(organ.electronics_status)}
+                >
                   {capitalize(describeIntegrity(organ.electronics_status))}
                 </Box>
               </LabeledList.Item>

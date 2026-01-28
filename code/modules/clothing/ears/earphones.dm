@@ -4,8 +4,7 @@
 	Current Features:
 	- All earphones have a cartridge slot. Cartridges can be inserted by clicking an earphone, and removed via an eject_music_cartridge() verb.
 	- Inserting a cartridge will load a playlist containing /datum/tracks, where track names and sound files are loaded.
-	- Shift+Clicking will Start/Stop a playlist, creating or deleting an active sound_player token.
-	- Alt+Clicking with Pause/Unpause the current track, preserving an active sound_player token.
+	- Alt+Clicking will Start/Stop a playlist, creating or deleting an active sound_player token.
 	- attack_self will eject the music cartridge. Ejecting a music cartridge also terminates the sound_player token.
 	- Volume controllable via verb.
 
@@ -56,8 +55,7 @@
 /obj/item/clothing/ears/earphones/mechanics_hints(mob/user, distance, is_adjacent)
 	. += ..()
 	. += "Full controls can be found in the Verbs list, under <b>Object</b> tab -> <b>Earphones</b>."
-	. += "ALT-click \the [src] to quickly Pause/Resume the current track."
-	. += "SHIFT-click \the [src] to quickly Play/Stop the current playlist (this will reset the current track to the start.)"
+	. += "ALT-click \the [src] to quickly Play/Stop the current track."
 	. += "Use \the [src] while in-hand to eject the cartridge."
 
 /obj/item/clothing/ears/earphones/Destroy()
@@ -264,6 +262,8 @@
 	else
 		soundplayer_token.SetVolume(volume)
 
+/// Pain in the ass. This paused all sound in the game; when resuming, all queued sounds (bags, doors, etc.) would play at once. Not a useful enough feature to burn time on.
+/*
 /obj/item/clothing/ears/earphones/verb/pause_unpause()
 	set name = "Pause/Unpause"
 	set category = "Object.Earphones"
@@ -300,6 +300,7 @@
 				update_clothing_icon()
 		else
 			play_stop() //No soundtoken? They probably meant to use the other verb instead.
+*/
 
 /obj/item/clothing/ears/earphones/verb/next_song_verb()
 	set name = "Next Song"
@@ -335,9 +336,6 @@
 */
 
 /obj/item/clothing/ears/earphones/AltClick(mob/user)
-	pause_unpause()
-
-/obj/item/clothing/ears/earphones/ShiftClick(mob/user)
 	play_stop()
 
 /*

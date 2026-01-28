@@ -6,8 +6,24 @@
 @use 'sass:color';
 @use 'sass:meta';
 
-.theme-light:root {
-  --chat-text-color: var(--color-black);
+@use '~tgui/styles/colors.scss' with (
+  $primary: #ffffff,
+  $bg-lightness: -25%,
+  $fg-lightness: -10%,
+  $label: #3b3b3b,
+  // Makes button look actually grey due to weird maths.
+  $grey: #ffffff,
+  // Commenting out color maps will adjust all colors based on the lightness
+  // settings above, but will add extra 10KB to the theme.
+  // $fg-map-keys: (),
+   // $bg-map-keys: (),
+);
+@use '~tgui/styles/base.scss' with (
+  $color-fg: #000000,
+  $color-bg: #eeeeee,
+  $color-bg-section: #ffffff,
+  $color-bg-grad-spread: 0%
+);
 
   // Base
   --color-base: hsl(0, 0%, 93%);

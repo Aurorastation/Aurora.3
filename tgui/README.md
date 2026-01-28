@@ -132,7 +132,7 @@ Press `F12` or click the green bug to open the KitchenSink interface. This inter
 playground to test various tgui components.
 
 **Layout Debugger.**
-Press `F11` to toggle the *layout debugger*. It will show outlines of
+Press `F11` to toggle the _layout debugger_. It will show outlines of
 all tgui elements, which makes it easy to understand how everything comes
 together, and can reveal certain layout bugs which are not normally visible.
 

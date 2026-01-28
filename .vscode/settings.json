@@ -8,8 +8,10 @@
 		"source.organizeImports.biome": "explicit",
 		"source.fixAll.biome": "explicit"
 	},
+	"editor.insertSpaces": false,
 	"files.eol": "\n",
 	"files.insertFinalNewline": true,
+	"files.trimTrailingWhitespace": true,
 	"gitlens.advanced.blame.customArguments": ["-w"],
 	"[javascript][typescript][javascriptreact][typescriptreact][css][json][jsonc]": {
 		"editor.defaultFormatter": "biomejs.biome",

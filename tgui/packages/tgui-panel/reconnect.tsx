@@ -34,7 +34,9 @@ export const ReconnectButton = () => {
           location.href = `byond://${url}`;
           Byond.command('.quit');
         }}
-      />
+      >
+        Relaunch game
+      </Button>
     </>
   );
 };

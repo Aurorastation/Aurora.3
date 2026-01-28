@@ -16,9 +16,9 @@ import {
   updateHighlightSetting,
   updateSettings,
 } from './actions';
+import { selectSettings } from './selectors';
 import { FONTS_DISABLED } from './constants';
 import { setDisplayScaling } from './scaling';
-import { selectSettings } from './selectors';
 import { exportChatSettings } from './settingsImExport';
 
 let statFontTimer: NodeJS.Timeout;
@@ -60,11 +60,15 @@ function setGlobalFontSize(
   // Used solution from theme.ts
   clearInterval(statFontTimer);
   Byond.command(
-    `.output statbrowser:set_font_size ${statLinked ? fontSize : statFontSize}px`,
+    `.output statbrowser:set_font_size ${
+      statLinked ? fontSize : statFontSize
+    }px`,
   );
   statFontTimer = setTimeout(() => {
     Byond.command(
-      `.output statbrowser:set_font_size ${statLinked ? fontSize : statFontSize}px`,
+      `.output statbrowser:set_font_size ${
+        statLinked ? fontSize : statFontSize
+      }px`,
     );
   }, 1500);
 }
@@ -96,10 +100,35 @@ export function settingsMiddleware(store) {
         store.dispatch(loadSettings(settings));
       });
     }
-    if (type === exportSettings.type) {
-      const state = store.getState();
-      const settings = selectSettings(state);
-      exportChatSettings(settings, state.chat.pageById);
+    if (
+      type === updateSettings.type ||
+      type === loadSettings.type ||
+      type === addHighlightSetting.type ||
+      type === removeHighlightSetting.type ||
+      type === updateHighlightSetting.type
+    ) {
+      // Set client theme
+      const theme = payload?.theme;
+      if (theme) {
+        setClientTheme(theme);
+      }
+      // Pass action to get an updated state
+      next(action);
+
+      const settings = selectSettings(store.getState());
+
+      // Update stat panel settings
+      setStatTabsStyle(settings.statTabsStyle);
+      // Update global UI font size
+      setGlobalFontSize(
+        settings.fontSize,
+        settings.statFontSize,
+        settings.statLinked,
+      );
+      setGlobalFontFamily(settings.fontFamily);
+      updateGlobalOverrideRule();
+      // Save settings to the web storage
+      storage.set('panel-settings', settings);
       return;
     }
     if (

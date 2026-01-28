@@ -4,11 +4,11 @@
 @use '../colors.scss' with (
   $primary: #490b0b,
   $fg-map-keys: (),
-  $bg-map-keys: (),
+  $bg-map-keys: ()
 );
 @use '../base.scss' with (
   $color-bg: #350404,
-  $color-bg-grad-spread: 6%,
+  $color-bg-grad-spread: 6%
 );
 
 .theme-zavodskoi {

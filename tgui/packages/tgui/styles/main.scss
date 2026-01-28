@@ -15,9 +15,10 @@
 @include meta.load-css('~tgui-core/styles/all-atomic.scss');
 
 // Interfaces
-@include meta.load-css('./interfaces/ListInput.scss');
 @include meta.load-css('./interfaces/AlertModal.scss');
 @include meta.load-css('./interfaces/CrewManifest.scss');
+@include meta.load-css('./interfaces/FactionSelect.scss');
+@include meta.load-css('./interfaces/ListInput.scss');
 @include meta.load-css('./interfaces/PersonalCrafting.scss');
 @include meta.load-css('./interfaces/RequestManager.scss');
 

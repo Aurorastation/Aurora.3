@@ -234,28 +234,11 @@ export function TguiSay() {
     scale.current = !!data.scale;
   }
 
-  function unloadChat(): void {
-    setCurrentPrefix(null);
-    setButtonContent(channelIterator.current.current());
-    setValue('');
-  }
-
-  /** Subscribe to Byond messages */
-  useEffect(() => {
-    Byond.subscribeTo('props', handleProps);
-    Byond.subscribeTo('force', handleForceSay);
-    Byond.subscribeTo('open', handleOpen);
-  }, []);
-
-  /** Value has changed, we need to check if the size of the window is ok */
-  useEffect(() => {
-    const len = value?.length || 0;
-
-    let newSize: WindowSize;
-    if (len > LineLength.Medium) {
-      newSize = WindowSize.Large;
-    } else if (len <= LineLength.Medium && len > LineLength.Small) {
-      newSize = WindowSize.Medium;
+    if (!this.scale) {
+      window.document.body.style.setProperty(
+        'zoom',
+        `${100 / window.devicePixelRatio}%`,
+      );
     } else {
       newSize = WindowSize.Small;
     }
@@ -266,10 +249,69 @@ export function TguiSay() {
     }
   }, [value]);
 
-  const theme =
-    (lightMode && 'lightMode') ||
-    (currentPrefix && RADIO_PREFIXES[currentPrefix]) ||
-    channelIterator.current.current();
+  setValue(value: string) {
+    const textArea = this.innerRef.current;
+    if (textArea) {
+      textArea.value = value;
+    }
+  }
+
+  render() {
+    const theme =
+      (this.lightMode && 'lightMode') ||
+      (this.currentPrefix && RADIO_PREFIXES[this.currentPrefix]) ||
+      this.channelIterator.current();
+
+    return (
+      <div className={`window window-${theme} window-${this.state.size}`}>
+        <Dragzone position="top" theme={theme} />
+        <div className="center">
+          <Dragzone position="left" theme={theme} />
+          {!!theme && (
+            <button
+              className={`button button-${theme}`}
+              onClick={this.handleIncrementChannel}
+              type="button"
+            >
+              {this.state.buttonContent}
+            </button>
+          )}
+          <textarea
+            className={`textarea textarea-${theme}`}
+            maxLength={this.maxLength}
+            onInput={this.handleInput}
+            onKeyDown={this.handleKeyDown}
+            ref={this.innerRef}
+          />
+          {!!theme && (
+            <button
+              key="escape"
+              className={`button button-${theme}`}
+              onClick={this.handleClose}
+              type="submit"
+              style={{ width: '2rem', marginRight: '5px' }}
+            >
+              X
+            </button>
+          )}
+          <Dragzone position="right" theme={theme} />
+        </div>
+        <Dragzone position="bottom" theme={theme} />
+      </div>
+    );
+  }
+}
+
+const Dragzone = ({
+  theme,
+  position,
+}: {
+  readonly theme: string;
+  readonly position: string;
+}) => {
+  // Horizontal or vertical?
+  const location =
+    position === 'left' || position === 'right' ? 'vertical' : 'horizontal';
 
   return (
     <>

@@ -271,6 +271,7 @@
 	desc = "A box with several compact tungsten slugs, aimed for use in gauss carbines."
 	icon_state = "ammobox"
 	item_state = "ammobox"
+	label = null
 	illustration = null
 	drop_sound = 'sound/items/drop/ammobox.ogg'
 	pickup_sound = 'sound/items/pickup/ammobox.ogg'
@@ -582,6 +583,7 @@
 	name = "unique box"
 	desc = "A unique box. How is it unique? You have no idea."
 	color = COLOR_WHITE
+	label = null
 	illustration = null
 	chewable = FALSE
 
@@ -1426,7 +1428,7 @@
 		icon_state = "paperbag_[choice]-food"
 
 /obj/item/storage/box/unique/papersack/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.ispen())
+	if(attacking_item.tool_behaviour == TOOL_PEN)
 		if(!papersack_designs)
 			papersack_designs = sortList(list(
 			"None" = image(icon = src.icon, icon_state = "paperbag_None"),
@@ -1457,7 +1459,7 @@
 		update_icon()
 		return
 
-	else if(attacking_item.isscrewdriver())
+	else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(length(contents) == 0)
 			to_chat(user, SPAN_NOTICE("You begin poking holes in \the [src]."))
 			if(attacking_item.use_tool(src, user, 30))
@@ -1586,7 +1588,7 @@
 
 /obj/item/storage/box/unique/tea
 	name = "sencha cha-tin"
-	desc = "A tin bearing the logo of the Konyang-cha tea company. This one contains a bag of sencha, a type of green tea."
+	desc = "A tin bearing the logo of the Konyang-cha tea company. This one contains a bag of sencha, a type of green tea. Instructions are printed on the back: Steep one leaf with 25 units of hot water per cup in a teapot."
 	desc_extended = "A subsidiary of Gwok Group, the Konyang-cha tea company is the spur's foremost vendor of artisanal loose leaf tea, \
 				selling blends sourced from independent Konyanger farmers. Popular both on Konyang and off-world, it is considered a symbol of Konyang's culture."
 	icon = 'icons/obj/item/reagent_containers/teaware.dmi'
@@ -1600,25 +1602,54 @@
 		/obj/item/reagent_containers/food/snacks/grown/konyang_tea
 	)
 	starts_with = list(
-		/obj/item/reagent_containers/food/snacks/grown/konyang_tea = 7
+		/obj/item/reagent_containers/food/snacks/grown/konyang_tea = 12
 	)
 	foldable = null
 
 /obj/item/storage/box/unique/tea/tieguanyin
 	name = "tieguanyin cha-tin"
-	desc = "A tin bearing the logo of the Konyang-cha tea company. This one contains a bag of tieguanyin, a type of oolong tea."
+	desc = "A tin bearing the logo of the Konyang-cha tea company. This one contains a bag of tieguanyin, a type of oolong tea. Instructions are printed on the back: Steep one leaf with 25 units of hot water per cup in a teapot."
 	icon_state = "can_tie"
 	starts_with = list(
-		/obj/item/reagent_containers/food/snacks/grown/konyang_tea/tieguanyin = 7
+		/obj/item/reagent_containers/food/snacks/grown/konyang_tea/tieguanyin = 12
 	)
 
 /obj/item/storage/box/unique/tea/jaekseol
 	name = "jaekseol cha-tin"
-	desc = "A tin bearing the logo of the Konyang-cha tea company. This one contains a bag of jaekseol, a type of black tea."
+	desc = "A tin bearing the logo of the Konyang-cha tea company. This one contains a bag of jaekseol, a type of black tea. Instructions are printed on the back: Steep one leaf with 25 units of hot water per cup in a teapot."
 	icon_state = "can_jaek"
 	starts_with = list(
-		/obj/item/reagent_containers/food/snacks/grown/konyang_tea/jaekseol = 7
+		/obj/item/reagent_containers/food/snacks/grown/konyang_tea/jaekseol = 12
 	)
+
+
+/obj/item/storage/box/unique/tea/messa
+	name = "adhomian tin"
+	desc = "A tin labeled in Siik'maas. It is adorned by a blue sun, the symbol of the goddess Messa."
+	icon_state = "can_messa"
+	starts_with = list(
+		/obj/item/reagent_containers/food/snacks/grown/messas_tear_tea = 12
+	)
+	desc_extended = "Messa's tears are a medicinal herb found across Adhomai and its many Twin Suns churches. \
+					Its leaves, while traditionally used for treating burns, are a common choice for making traditional teas."
+
+/obj/item/storage/box/unique/tea/messa/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(GLOB.all_languages[LANGUAGE_SIIK_MAAS] in user.languages)
+		. += SPAN_NOTICE("The label says: \"Dried Messa's Tear leaves\" and then provides instructions: Steep one leaf with 25 units of hot water per cup in a teapot.")
+
+/obj/item/storage/box/unique/tea/rasnif
+	name = "ras'nif tea tin"
+	desc = "A tin with the flag of the People's Republic of Adhomai printed on it, labeled in both Siik'maas and Ceti Basic. It instructs the user to mix one packet with 25 units of hot water."
+	icon_state = "can_pra"
+	can_hold = list(
+		/obj/item/reagent_containers/food/condiment/small/packet
+	)
+	starts_with = list(
+		/obj/item/reagent_containers/food/condiment/small/packet/tea/rasnif = 12
+	)
+	desc_extended = "A herbal tea made with Hro'zamal Ras'nifs powder. \
+					Despite the popularity of its carbonated counterpart, Ras'nif tea remains a popular drink among Hro'zamal settlers."
 
 /obj/item/storage/box/telefreedom_kit
 	name = "telefreedom kit"

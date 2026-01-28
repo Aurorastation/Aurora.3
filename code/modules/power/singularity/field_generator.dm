@@ -97,7 +97,7 @@ field_generator power level display
 	if(active)
 		to_chat(user, "The [src] needs to be off.")
 		return
-	else if(attacking_item.iswrench())
+	else if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		switch(state)
 			if(0)
 				state = 1
@@ -118,7 +118,7 @@ field_generator power level display
 			if(2)
 				to_chat(user, SPAN_WARNING("The [src.name] needs to be unwelded from the floor."))
 				return
-	else if(attacking_item.iswelder())
+	else if(attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/WT = attacking_item
 		switch(state)
 			if(0)

@@ -325,7 +325,8 @@ export const QueueData = (props) => {
                     queue_item.build_time * 0.5,
                   ],
                   bad: [0, queue_item.build_time * 0.25],
-                }}>
+                }}
+              >
                 {queue_item.remaining_time / 10} seconds
                 <Button
                   icon="cancel"

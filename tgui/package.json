@@ -10,8 +10,13 @@
 		"tgui:analyze": "rspack --analyze",
 		"tgui:build": "rspack build",
 		"tgui:dev": "bun --smol packages/tgui-dev-server/index.ts",
-		"tgui:test": "bun test",
-		"tgui:tsc": "tsc"
+    "tgui:lint": "eslint packages --ext .js,.cjs,.ts,.tsx",
+    "tgui:prettier": "prettier --check .",
+    "tgui:sonar": "eslint packages --ext .js,.cjs,.ts,.tsx -c .eslintrc-sonar.yml",
+    "tgui:test": "jest --watch",
+    "tgui:test-simple": "CI=true jest --color",
+    "tgui:test-ci": "CI=true jest --color --collect-coverage",
+    "tgui:tsc": "tsc"
 	},
 	"devDependencies": {
 		"@happy-dom/global-registrator": "^17.4.7",
@@ -23,6 +28,9 @@
 		"@types/webpack-env": "^1.18.8",
 		"@types/wicg-file-system-access": "^2023.10.6",
 		"css-loader": "^7.1.2",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.10.0",
+    "prettier": "^3.1.1",
 		"sass-embedded": "^1.89.2",
 		"sass-loader": "^16.0.5",
 		"typescript": "^5.8.3"

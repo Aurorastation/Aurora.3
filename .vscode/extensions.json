@@ -12,6 +12,7 @@
       "redhat.vscode-yaml",
       "visualstudioexptteam.vscodeintellicode",
       "rome.rome",
+			"dbaeumer.vscode-eslint",
       "editorconfig.editorconfig",
 			"esbenp.prettier-vscode",
 			"biomejs.biome"

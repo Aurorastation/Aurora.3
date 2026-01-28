@@ -102,3 +102,100 @@
       of the Horizon's recovery room.
   - rscadd: Adds an additional light to a particularly dark corner of the Horizon's
       d2 hard storage room.
+2026-01-23:
+  Batrachophrenoboocosmomachia:
+  - refactor: Ported Jukebox's NanoUI interface to TGUI.
+  - refactor: Ported Jukebox audio playing functionality to a component.
+  - refactor: Sound keys refactored from singletons to datums, along with larger breakout
+      of sound.dm to allow for easier SFX updates in future.
+  - code_imp: Expanded track datums to include track lengths.
+  - code_imp: Reorganized music file folders for more intuitive access.
+  - rscadd: Earphone status feedback text now includes track length.
+  - rscadd: Added autoplay functionality to earphones.
+  - bugfix: Fixed earphones' 'Previous Song' verb not sending you to the end of the
+      playlist when used while the first track is selected.
+  - bugfix: Fixed gain adjustment for 'Konyang-1' (-23 dB -> standard -9.8 dB).
+  - bugfix: Fixed y-offset of audioconsole-running overlay animation to line up with
+      the actual screen.
+2026-01-24:
+  TheGreyWolf:
+  - bugfix: Fixes the white label on several types of boxes that shouldn't have them.
+  arrow768:
+  - server: Use the new login system to fetch the admins/groups instead of the deprecated
+      forum user api.
+2026-01-26:
+  Batrachophrenoboocosmomachia:
+  - rscadd: Re-implementation of bodytype selection in Appearance Changer with clearer
+      language.
+  - bugfix: Mechatronic fabricator no longer needs to be manually synced on round
+      start to populate all available parts.
+  - bugfix: Freebooters can now pilot their own subshuttle.
+  - bugfix: Greimorian eggs toxin can no longer infest synthetic limbs.
+  - qol: Vintage rifle mechanical feedback text has been clarified for ease of use
+      (before it wouldn't tell you how to rack it properly).
+  - rscdel: Removes pause/unpause functionality from earbuds due to general bugginess
+      in favor of play/stop.
+  CatsinHD:
+  - rscadd: Adds the Winter Quest rulebook to the loadout under the Toys category.
+  Evandorf:
+  - bugfix: Fixes the hazardous specimen airlocks in xenobotany.
+  GeneralCamo:
+  - bugfix: Added additional sanity checking to remove wounds that reach 0 or less
+      damage.
+  Hellfirejag:
+  - bugfix: Fixed Mech Sleepers & Passenger Compartments not working at all.
+  Kano:
+  - bugfix: Fixed an issue pertinent to lattice duplicate check, which was causing
+      issues in away_site_testing checks.
+  TheGreyWolf:
+  - rscadd: It is now possible for holsters to have a filled sprite. This is currently
+      not implemented anywhere.
+  - rscadd: Holsters can now have their draw descriptions modified. Currently only
+      the machete holster does it differently from ordinary holsters.
+  TheGreyWolf & Kaizr:
+  - rscadd: Commissary restocks are now supplied to operations.
+  - rscadd: It is now possible to order commissary restocks from the ordering console.
+  - rscadd: The commissary was expanded in size and the library reduced in size.
+  - rscdel: The cigarette, getmore and idris refresh machines had their stock severely
+      reduced, with idris refresh and getmore being combined into a single vending
+      machine on the Horizon.
+  - bugfix: Smartfridges sanitization was fixed.
+  - rscadd: The specialized commissary shelves can now be leaned on.
+2026-01-27:
+  Batrachophrenoboocosmomachia:
+  - code_imp: Updates telescreens/dedicated camera monitor consoles to use the Camera
+      Monitor TGUI instead of the old NanoUI version (which has been deprecated and
+      removed).
+  - bugfix: Removes duplicated telescreen from SCCV Horizon interrogation monitoring
+      compartment.
+  - bugfix: Corrects a mechatronic fabricator UI formatting issue accidentally introduced
+      by previous update.
+  Fyni:
+  - rscadd: Adds the representative clip on radio for consulars, liasons, their aides
+      and bodyguards
+  - bugfix: Makes sure the journalist gets the correct clip on radio
+  GeneralCamo:
+  - rscadd: Ported the 'Taro' hair style from Citadel SS13.
+  Hellfirejag:
+  - balance: Psionic Awakeners now provide 3 psi-shop points, so you can actually
+      buy powers.
+  SabreML:
+  - rscadd: Revamped the 'Faction Select' UI in the occupation menu of character setup.
+  - bugfix: Fixed changing species in character setup not resetting your faction if
+      it became invalid.
+  Tomixcomics:
+  - rscadd: Added cucumbers.
+  - rscadd: Re-added randomly chosen items spawning in the fridges at shift start
+      like they did before the scarcity arc.
+  - rscadd: Added a few cucumber dishes and one Adhomian cuisine dish.
+  - rscadd: Made it so it's visible when your character is holding a kitchen tray.
+  - bugfix: Fixed sugar tree fruit not showing up.
+2026-01-28:
+  Batrachophrenoboocosmomachia:
+  - refactor: Adds tool_behaviour variable to /obj/item which defines the object's
+      functionality, removing the need for iscrowbar(), iswrench() etc. procs.
+  - rscadd: Adds multiple tool-related signals.
+  GeneralCamo:
+  - code_imp: Added a unit test to generate byond defines from Font Awesome entries.
+  Kano:
+  - bugfix: Replaced some exoplanet plating turfs in Horizon with regular variant.

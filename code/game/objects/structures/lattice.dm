@@ -59,7 +59,7 @@
 
 /obj/structure/lattice/proc/check_for_duplicates()
 	for(var/obj/structure/lattice/found_lattice in get_turf(src))
-		if(found_lattice == src || istype(found_lattice, /obj/structure/lattice/ceiling))
+		if(found_lattice == src || found_lattice.type != src.type) // if the instance we're comparing is us or a different type, then it's not a duplicate
 			continue
 		return TRUE
 	return FALSE
@@ -69,7 +69,7 @@
 		var/turf/T = get_turf(src)
 		T.attackby(attacking_item, user) //BubbleWrap - hand this off to the underlying turf instead
 		return
-	if (attacking_item.iswelder())
+	if (attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/WT = attacking_item
 		if(WT.use(1, user))
 			to_chat(user, SPAN_NOTICE("Slicing lattice joints ..."))
@@ -99,13 +99,6 @@
 	. = ..()
 	AddComponent(/datum/component/large_transparency, 0, 0, 0, 0)
 
-/obj/structure/lattice/ceiling/check_for_duplicates()
-	for(var/obj/structure/lattice/ceiling/found_lattice in get_turf(src))
-		if(found_lattice == src)
-			continue
-		return TRUE
-	return FALSE
-
 /obj/structure/lattice/catwalk
 	name = "catwalk"
 	desc = "A catwalk for easier EVA maneuvering."
@@ -125,7 +118,7 @@
 	layer = CATWALK_LAYER
 
 /obj/structure/lattice/catwalk/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iswelder())
+	if(attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/WT = attacking_item
 		if(!WT.use(1, user))
 			to_chat(user, SPAN_WARNING("You need more welding fuel to complete this task."))
@@ -138,7 +131,7 @@
 			qdel(src)
 
 /obj/structure/lattice/catwalk/indoor/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(attacking_item.use_tool(src, user, 5, volume = 50))
 			anchored = !anchored
 			to_chat(user, SPAN_NOTICE("You [anchored ? "" : "un"]anchor [src]."))
@@ -165,7 +158,7 @@
 	var/damaged = FALSE
 
 /obj/structure/lattice/catwalk/indoor/grate/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iswelder() && damaged)
+	if(attacking_item.tool_behaviour == TOOL_WELDER && damaged)
 		var/obj/item/weldingtool/WT = attacking_item
 		if(attacking_item.use_tool(src, user, 5, volume = 50) && WT.use(1, user))
 			user.visible_message(

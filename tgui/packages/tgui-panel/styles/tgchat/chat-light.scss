@@ -304,7 +304,8 @@ em {
   background-color: #000;
   display: block;
 
-  text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
+  text-shadow:
+    0.05em 0 0 rgba(255, 0, 0, 0.75),
     -0.05em -0.025em 0 rgba(0, 255, 0, 0.75),
     -0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
 
@@ -318,7 +319,8 @@ em {
   background-color: #000;
   display: block;
 
-  text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
+  text-shadow:
+    0.05em 0 0 rgba(255, 0, 0, 0.75),
     -0.05em -0.025em 0 rgba(0, 255, 0, 0.75),
     -0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
 
@@ -1286,35 +1288,44 @@ $border-width-px: $border-width * 1px;
 
 @keyframes glitch {
   0% {
-    text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.85),
+    text-shadow:
+      0.05em 0 0 rgba(255, 0, 0, 0.85),
       -0.04em -0.03em 0 rgba(0, 255, 0, 0.85),
       -0.03em 0.05em 0 rgba(0, 0, 255, 0.85);
   }
   20% {
-    text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.85),
+    text-shadow:
+      0.05em 0 0 rgba(255, 0, 0, 0.85),
       -0.04em -0.03em 0 rgba(0, 255, 0, 0.85),
       -0.03em 0.05em 0 rgba(0, 0, 255, 0.85);
   }
   21% {
-    text-shadow: -0.04em -0.03em 0 rgba(255, 0, 0, 0.85),
+    text-shadow:
+      -0.04em -0.03em 0 rgba(255, 0, 0, 0.85),
       0.025em 0.025em 0 rgba(0, 255, 0, 0.85),
       -0.04em -0.04em 0 rgba(0, 0, 255, 0.85);
   }
   49% {
-    text-shadow: -0.04em -0.03em 0 rgba(255, 0, 0, 0.85),
+    text-shadow:
+      -0.04em -0.03em 0 rgba(255, 0, 0, 0.85),
       0.025em 0.025em 0 rgba(0, 255, 0, 0.85),
       -0.04em -0.04em 0 rgba(0, 0, 255, 0.85);
   }
   50% {
-    text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.85),
-      0.05em 0 0 rgba(0, 255, 0, 0.85), 0 -0.04em 0 rgba(0, 0, 255, 0.85);
+    text-shadow:
+      0.025em 0.05em 0 rgba(255, 0, 0, 0.85),
+      0.05em 0 0 rgba(0, 255, 0, 0.85),
+      0 -0.04em 0 rgba(0, 0, 255, 0.85);
   }
   99% {
-    text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.85),
-      0.05em 0 0 rgba(0, 255, 0, 0.85), 0 -0.04em 0 rgba(0, 0, 255, 0.85);
+    text-shadow:
+      0.025em 0.05em 0 rgba(255, 0, 0, 0.85),
+      0.05em 0 0 rgba(0, 255, 0, 0.85),
+      0 -0.04em 0 rgba(0, 0, 255, 0.85);
   }
   100% {
-    text-shadow: -0.03em 0 0 rgba(255, 0, 0, 0.85),
+    text-shadow:
+      -0.03em 0 0 rgba(255, 0, 0, 0.85),
       -0.03em -0.03em 0 rgba(0, 255, 0, 0.85),
       -0.03em -0.04em 0 rgba(0, 0, 255, 0.85);
   }

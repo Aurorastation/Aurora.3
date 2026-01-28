@@ -189,7 +189,7 @@
 				update_icon()
 		return
 
-	if(attacking_item.iswirecutter())
+	if(attacking_item.tool_behaviour == TOOL_WIRECUTTER)
 		if(is_wired)
 			user.visible_message(SPAN_NOTICE("[user] begin removing the barbed wire on [src]."),
 			SPAN_NOTICE("You begin removing the barbed wire on [src]."))

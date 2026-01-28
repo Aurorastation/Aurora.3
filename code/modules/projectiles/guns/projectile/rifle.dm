@@ -244,29 +244,24 @@
 /obj/item/gun/projectile/shotgun/pump/rifle/vintage/unique_action(mob/living/user as mob)
 	if(wielded)
 		pump(user)
-		return
-	else
-		if(open_bolt && has_clip)
-			if(has_clip.stored_ammo.len > 0)
-				load_ammo(has_clip, user)
-				src.ClearOverlays()
-				if(!has_clip.stored_ammo.len)
-					AddOverlays("springfield-clip-empty")
-				else if(has_clip.stored_ammo.len <= 3)
-					AddOverlays("springfield-clip-half")
-				else
-					AddOverlays("springfield-clip-full")
+	if(open_bolt && has_clip)
+		if(has_clip.stored_ammo.len > 0)
+			load_ammo(has_clip, user)
+			src.ClearOverlays()
+			if(!has_clip.stored_ammo.len)
+				AddOverlays("springfield-clip-empty")
+			else if(has_clip.stored_ammo.len <= 3)
+				AddOverlays("springfield-clip-half")
 			else
-				to_chat(user, SPAN_WARNING("There is no ammo in \the [has_clip.name]!"))
-		else if(!open_bolt)
-			to_chat(user, SPAN_WARNING("The bolt on \the [src.name] is closed!"))
+				AddOverlays("springfield-clip-full")
 		else
-			to_chat(user, SPAN_WARNING("There is no clip in \the [src.name]!"))
+			to_chat(user, SPAN_WARNING("There is no ammo in \the [has_clip.name]!"))
+	else if(!open_bolt)
+		to_chat(user, SPAN_WARNING("The bolt on \the [src.name] is closed! You'll have to grip it with both hands to rack it."))
+	else
+		to_chat(user, SPAN_WARNING("There is no clip in \the [src.name]!"))
 
 /obj/item/gun/projectile/shotgun/pump/rifle/vintage/pump(mob/M as mob)
-	if(!wielded)
-		to_chat(M, SPAN_WARNING("You cannot work \the [src]'s bolt without gripping it with both hands!"))
-		return
 	if(!open_bolt)
 		open_bolt = 1
 		icon_state = "springfield-openbolt"
@@ -280,7 +275,6 @@
 		has_clip.forceMove(get_turf(src))
 		has_clip = null
 		ClearOverlays()
-
 
 	if(chambered)//We have a shell in the chamber
 		chambered.forceMove(get_turf(src))//Eject casing

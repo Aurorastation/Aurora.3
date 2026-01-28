@@ -105,11 +105,11 @@
 	if(!check_rights(R_SERVER|R_DEV))
 		return
 
-	if (GLOB.config.use_forumuser_api)
-		update_admins_from_api(FALSE)
+	if (GLOB.config.use_authentik_api)
+		SSauth.update_admins_from_authentik(FALSE)
 
 	log_and_message_admins("manually reloaded admins.")
-	load_admins()
+	SSauth.load_admins()
 	feedback_add_details("admin_verb","RLDA") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 //todo:

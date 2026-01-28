@@ -629,7 +629,7 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 	return ..()
 
 /obj/structure/quarantined_outpost/fluff_canister/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(!locate(/obj/structure/quarantined_outpost/fluff_connector) in get_turf(src))
 			to_chat(user, SPAN_WARNING("There is no suitable port to secure \the [src]."))
 			return TRUE

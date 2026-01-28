@@ -23,7 +23,8 @@ export const CoolingUnitThermostat = (props) => {
     <Window
       theme={data.broken ? 'spookyconsole' : 'hephaestus'}
       width={400}
-      height={300}>
+      height={300}
+    >
       <Window.Content scrollable>
         {data.broken ? <Broken /> : <ThermostatWindow />}
       </Window.Content>

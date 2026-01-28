@@ -133,7 +133,8 @@ export const OccupantStatus = (props) => {
               </LabeledList.Item>
               <LabeledList.Item
                 label="Blood Alcohol Content"
-                color={bacClass(data.bac)}>
+                color={bacClass(data.bac)}
+              >
                 {data.bac}
               </LabeledList.Item>
             </LabeledList>

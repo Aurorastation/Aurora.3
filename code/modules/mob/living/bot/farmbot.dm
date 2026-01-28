@@ -416,7 +416,7 @@
 		qdel(attacking_item)
 		qdel(src)
 		return TRUE
-	else if(attacking_item.ispen())
+	else if(attacking_item.tool_behaviour == TOOL_PEN)
 		var/t = tgui_input_text(user, "Enter new robot name", name, created_name)
 		t = sanitize(t, MAX_NAME_LEN)
 		if(!t)

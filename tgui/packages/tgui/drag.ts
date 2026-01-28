@@ -120,8 +120,8 @@ export const recallWindowGeometry = async (
     fancy?: BooleanLike;
     pos?: [number, number];
     size?: [number, number];
-    locked?: BooleanLike;
-    scale?: BooleanLike;
+    locked?: boolean;
+    scale?: boolean;
   } = {},
 ) => {
   const geometry = options.fancy && (await storage.get(windowKey));
