@@ -217,6 +217,10 @@
 		return FALSE
 	return TRUE
 
+/datum/computer_file/program/camera_monitor/Destroy()
+	current_camera = null
+	camera_monitoring_console = null
+	..()
 
 // ERT Variant of the program
 /datum/computer_file/program/camera_monitor/ert
