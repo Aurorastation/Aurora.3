@@ -1,5 +1,12 @@
 import { useBackend, useLocalState } from '../backend';
-import { Button, Divider, Input, LabeledList, NumberInput, Section } from '../components';
+import {
+  Button,
+  Divider,
+  Input,
+  LabeledList,
+  NumberInput,
+  Section,
+} from '../components';
 import { Dropdown } from '../components/Dropdown';
 import { Window } from '../layouts';
 
@@ -13,27 +20,27 @@ export const NarratePanel = (props, context) => {
   const [narrateText, setNarrateText] = useLocalState(
     context,
     'narrateText',
-    ''
+    '',
   );
   const [narrateSize, setNarrateSize] = useLocalState(
     context,
     'narrateSize',
-    2
+    2,
   );
   const [narrateRange, setNarrateRange] = useLocalState(
     context,
     'narrateRange',
-    7
+    7,
   );
   const [narrateStyle, setNarrateStyle] = useLocalState(
     context,
     'textStyle',
-    'notice'
+    'notice',
   );
   const [narrateLocation, setNarrateLocation] = useLocalState(
     context,
     'narrateLocation',
-    'View'
+    'View',
   );
 
   return (
@@ -57,7 +64,8 @@ export const NarratePanel = (props, context) => {
                 })
               }
             />
-          }>
+          }
+        >
           <Input
             fluid
             strict
