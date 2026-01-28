@@ -291,7 +291,7 @@
 /obj/structure/cash_register/commissary/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "QuikPay", "Idris Quik-Pay Register", 400, 400)
+		ui = new(user, src, "QuikPay", "Idris Quik-Pay Register", 550, 550)
 		ui.open()
 
 /obj/structure/cash_register/commissary/ui_data(var/mob/user)
@@ -349,7 +349,7 @@
 				if(L["name"] == params["buying"])
 					L["amount"]++
 					return TRUE
-			buying += list(list("name" = params["buying"], "amount" = params["amount"]))
+			buying += list(list("name" = params["buying"], "amount" = params["amount"], "price" = items_to_price[params["buying"]]))
 
 		if("removal")
 			var/index = 0
