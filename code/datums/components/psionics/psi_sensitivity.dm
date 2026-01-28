@@ -1,41 +1,30 @@
 /**
- * When attached to any datum, this component subscribes to COMSIG_PSI_CHECK_SENSITIVITY on behalf of its owner.
- * It provides a +1 modifier to Psi Sensitivity Checks.
+ * The parent of all Psi-Sensitivity modifying components.
+ * Mobs/Objects with any child of this component will have their Psi-sensitivity modified by the stored amount when called to check by various psionic abilities.
+ * A Mob/Object is allowed to have any number of this component's children, but cannot have two of the same child.
+ * The mob's psi-sensitivity gets returned as the sum of all sensitivity_modifier values.
+ * If you wish to add a new source of Psi-sensitivity, simply add a new child to this component, then use AddComponent() to place it on a datum.
  */
-#define HIGH_PSI_SENSITIVITY_COMPONENT /datum/component/psi_sensitivity/high
-
-/**
- * When attached to any datum, this component subscribes to COMSIG_PSI_CHECK_SENSITIVITY on behalf of its owner.
- * It provides a -1 modifier to Psi Sensitivity Checks.
- */
-#define LOW_PSI_SENSITIVITY_COMPONENT /datum/component/psi_sensitivity/low
-
-/**
- * Component that gets temporarily attached to someone who consumes excessive amounts of Wulumunusha.
- * When the Wulumunusha high wears off, the component deletes itself.
- */
-#define WULU_OVERDOSE_COMPONENT /datum/component/psi_sensitivity/wulu_overdose
-
-/**
- * When attached to any datum, this component subscribes to COMSIG_PSI_CHECK_SENSITIVITY and COMSIG_PSI_MIND_POWER on behalf of its owner.
- * It provides a +2 modifier to Psi Sensitivity Checks.
- * It also cancels telepathy attempts, while spiking both owner and caster with painful interference.
- */
-#define PSIONIC_ECHOES_COMPONENT /datum/component/psi_sensitivity/echoes
-
 /datum/component/psi_sensitivity
 
 	/**
 	 * The amount this component will modify its owner psi_sensitivity by when they are called by psychic phenomena to check.
+	 * This var is allowed to be a floating point, as well as negative values.
 	 * See /proc/check_psi_sensitivity() for more information.
 	 */
 	var/sensitivity_modifier = 0
 
 /datum/component/psi_sensitivity/Initialize()
 	. = ..()
+	// Components have their parent set before Initialize() is triggered, so it's generally not possible for the component to be missing a parent at this stage.
+	// However, we have unit tests that will fire Initialize() against every datum to check if we checked, just in case someone down the line adds a new Initialize() call.
 	if (!parent)
 		return
 
+	// This is a fundamental pattern for Entity-Component-Systems (ECS).
+	// When this component is given to a datum via AddComponent(), such as on a player character
+	// the component tells the datum it wishes to do something when this signal happens to the datum.
+	// When SendSignal() is later activated on that character, this datum will react with its prepared proc.
 	RegisterSignal(parent, COMSIG_PSI_CHECK_SENSITIVITY, PROC_REF(modify_sensitivity), override = TRUE)
 
 /datum/component/psi_sensitivity/Destroy()
@@ -43,22 +32,47 @@
 	if (!parent)
 		return
 
+	// This is the second half of the fundamental pattern for Entity-Component-Systems (ECS)
+	// When this component is taken away from a datum via RemoveComponent(), such as from a player character
+	// The component tells the character it no longer wishes to do anything when a specific signal happens.
+	// We MUST do this for garbage collection reasons, else we'll get hard deletes.
 	UnregisterSignal(parent, COMSIG_PSI_CHECK_SENSITIVITY)
 
 /datum/component/psi_sensitivity/proc/modify_sensitivity(var/parent, var/effective_sensitivity)
 	SIGNAL_HANDLER
 	*effective_sensitivity += sensitivity_modifier
 
+/**
+ * When attached to any datum, this component subscribes to COMSIG_PSI_CHECK_SENSITIVITY on behalf of its owner.
+ * It provides a +1 modifier to Psi Sensitivity Checks.
+ */
+#define HIGH_PSI_SENSITIVITY_COMPONENT /datum/component/psi_sensitivity/high
 /datum/component/psi_sensitivity/high
 	sensitivity_modifier = 1
 
+/**
+ * When attached to any datum, this component subscribes to COMSIG_PSI_CHECK_SENSITIVITY on behalf of its owner.
+ * It provides a -1 modifier to Psi Sensitivity Checks.
+ */
+#define LOW_PSI_SENSITIVITY_COMPONENT /datum/component/psi_sensitivity/low
 /datum/component/psi_sensitivity/low
 	sensitivity_modifier = -1
 
+/**
+ * Component that gets temporarily attached to someone who consumes excessive amounts of Wulumunusha.
+ * When the Wulumunusha high wears off, the component deletes itself.
+ */
+#define WULU_OVERDOSE_COMPONENT /datum/component/psi_sensitivity/wulu_overdose
 /datum/component/psi_sensitivity/wulu_overdose
 	sensitivity_modifier = 1
 
-/// Variant of high-sensitivity that has a two-way brain damage spike.
+// Variant of high-sensitivity that has a two-way brain damage spike.
+/**
+ * When attached to any datum, this component subscribes to COMSIG_PSI_CHECK_SENSITIVITY and COMSIG_PSI_MIND_POWER on behalf of its owner.
+ * It provides a +2 modifier to Psi Sensitivity Checks.
+ * It also cancels telepathy attempts, while spiking both owner and caster with painful interference.
+ */
+#define PSIONIC_ECHOES_COMPONENT /datum/component/psi_sensitivity/echoes
 /datum/component/psi_sensitivity/echoes
 	sensitivity_modifier = 2
 
