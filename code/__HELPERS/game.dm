@@ -33,6 +33,8 @@
  * Engineering (Atmospherics) - Deck 1 - Combustion Turbine - Port Amidships, Aft
  */
 /proc/get_area_display_name(var/area/A, var/show_dept = TRUE, var/show_subdept = TRUE, var/show_deck = TRUE, var/show_location = TRUE, var/show_hidden_depts = FALSE)
+	if (!A) // Fallback case.
+		return "Unknown Area"
 	if(!is_station_area(A))
 		return A.name
 	var/horizon_deck = A.horizon_deck
