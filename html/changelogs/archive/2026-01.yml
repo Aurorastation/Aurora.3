@@ -190,3 +190,12 @@
   - rscadd: Added a few cucumber dishes and one Adhomian cuisine dish.
   - rscadd: Made it so it's visible when your character is holding a kitchen tray.
   - bugfix: Fixed sugar tree fruit not showing up.
+2026-01-28:
+  Batrachophrenoboocosmomachia:
+  - refactor: Adds tool_behaviour variable to /obj/item which defines the object's
+      functionality, removing the need for iscrowbar(), iswrench() etc. procs.
+  - rscadd: Adds multiple tool-related signals.
+  GeneralCamo:
+  - code_imp: Added a unit test to generate byond defines from Font Awesome entries.
+  Kano:
+  - bugfix: Replaced some exoplanet plating turfs in Horizon with regular variant.
