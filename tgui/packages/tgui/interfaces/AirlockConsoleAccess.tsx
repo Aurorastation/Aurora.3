@@ -24,17 +24,17 @@ export const AirlockConsoleAccess = (props, context) => {
             <LabeledList>
               <LabeledList.Item label="Exterior Door Status">
                 {data.exterior_status.state === 'open' ? (
-                    <Box>Open</Box>) : (
-                    <Box>Locked</Box>
-                )
-                }
+                  <Box>Open</Box>
+                ) : (
+                  <Box>Locked</Box>
+                )}
               </LabeledList.Item>
               <LabeledList.Item label="Interior Door Status">
                 {data.interior_status.state === 'open' ? (
-                    <Box>Open</Box>) : (
-                    <Box>Locked</Box>
-                )
-                }
+                  <Box>Open</Box>
+                ) : (
+                  <Box>Locked</Box>
+                )}
               </LabeledList.Item>
             </LabeledList>
           </Box>

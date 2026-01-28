@@ -32,12 +32,13 @@ export const AirlockConsoleAdvanced = (props, context) => {
                     }}
                     value={data.external_pressure}
                     minValue={0}
-                    maxValue={200}>
+                    maxValue={200}
+                  >
                     {data.external_pressure} kPa
                   </ProgressBar>
-                  ) : (
-                    <Box>Error - No Sensor Detected</Box>
-                  )}
+                ) : (
+                  <Box>Error - No Sensor Detected</Box>
+                )}
               </LabeledList.Item>
               <LabeledList.Item label="Chamber Pressure">
                 <ProgressBar
@@ -48,7 +49,8 @@ export const AirlockConsoleAdvanced = (props, context) => {
                   }}
                   value={data.chamber_pressure}
                   minValue={0}
-                  maxValue={200}>
+                  maxValue={200}
+                >
                   {data.chamber_pressure} kPa
                 </ProgressBar>
               </LabeledList.Item>
@@ -62,12 +64,13 @@ export const AirlockConsoleAdvanced = (props, context) => {
                     }}
                     value={data.internal_pressure}
                     minValue={0}
-                    maxValue={200}>
+                    maxValue={200}
+                  >
                     {data.internal_pressure} kPa
                   </ProgressBar>
-                  ) : (
-                    <Box>Error - No Sensor Detected</Box>
-                  )}
+                ) : (
+                  <Box>Error - No Sensor Detected</Box>
+                )}
               </LabeledList.Item>
             </LabeledList>
           </Box>
@@ -89,13 +92,13 @@ export const AirlockConsoleAdvanced = (props, context) => {
             <Button
               content="Force Exterior Door"
               icon="circle-exclamation"
-              color='yellow'
+              color="yellow"
               onClick={() => act('command', { command: 'force_ext' })}
             />
             <Button
               content="Force Interior Door"
               icon="circle-exclamation"
-              color='yellow'
+              color="yellow"
               onClick={() => act('command', { command: 'force_int' })}
             />
           </Box>

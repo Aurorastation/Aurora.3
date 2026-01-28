@@ -25,7 +25,8 @@ export const AirlockConsoleStandard = (props, context) => {
                   }}
                   value={data.chamber_pressure}
                   minValue={0}
-                  maxValue={200}>
+                  maxValue={200}
+                >
                   {data.chamber_pressure} kPa
                 </ProgressBar>
               </LabeledList.Item>
@@ -49,13 +50,13 @@ export const AirlockConsoleStandard = (props, context) => {
             <Button
               content="Force Exterior Door"
               icon="circle-exclamation"
-              color='yellow'
+              color="yellow"
               onClick={() => act('command', { command: 'force_ext' })}
             />
             <Button
               content="Force Interior Door"
               icon="circle-exclamation"
-              color='yellow'
+              color="yellow"
               onClick={() => act('command', { command: 'force_int' })}
             />
           </Box>
