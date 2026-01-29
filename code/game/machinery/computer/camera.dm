@@ -25,7 +25,7 @@
 	// Create a new camera_monitor program that can run independently of a modular computer.
 	camera_monitor_program = new("Compless")
 	// Make sure that camera_monitor knows its been generated from a dedicated console; this will define its network access.
-	camera_monitor_program.camera_monitoring_console = src
+	camera_monitor_program.monitored_networks = console_networks
 
 /obj/machinery/computer/security/Destroy()
 	if(camera_monitor_program)
