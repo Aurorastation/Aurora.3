@@ -205,6 +205,14 @@
 		'sound/weapons/genhit3.ogg'
 	)
 
+/datum/sound_effect/fire_ambience
+	key = SFX_FIRE
+	file_paths = list(
+		'sound/ambience/fire/Fire_Ambient_01.ogg',
+		'sound/ambience/fire/Fire_Ambient_02.ogg',
+		'sound/ambience/fire/Fire_Ambient_03.ogg'
+	)
+
 /datum/sound_effect/hiss_sound
 	key = SFX_HISS
 	file_paths = list(

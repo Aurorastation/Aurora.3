@@ -116,6 +116,7 @@
 #define SFX_ELECTRICAL_SPARK "electrical_sparm"
 #define SFX_EQUIP_SWORD "equip_sword"
 #define SFX_EXPLOSION "explosion"
+#define SFX_FIRE "fire"
 #define SFX_FOOTSTEP_ASTEROID "footstep_asteroid"
 #define SFX_FOOTSTEP_BLANK "footstep_blank"
 #define SFX_FOOTSTEP_CARPET "footstep_carpet"

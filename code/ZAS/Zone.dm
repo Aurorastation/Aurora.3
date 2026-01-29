@@ -45,7 +45,6 @@ Class Procs:
 	var/invalid = 0
 	var/list/contents = list()
 	var/list/fire_tiles
-	var/list/fuel_objs
 
 	var/needs_update = 0
 
@@ -72,12 +71,9 @@ Class Procs:
 	add_tile_air(turf_air)
 	T.zone = src
 	contents += T
-	if(T.fire)
-		var/obj/effect/decal/cleanable/liquid_fuel/fuel = locate() in T
+	if(T.hotspot)
 		LAZYADD(fire_tiles, T)
 		SSair.active_fire_zones |= src
-		if (fuel)
-			LAZYADD(fuel_objs, fuel)
 	T.update_graphic(air.graphic)
 
 /zone/proc/remove(turf/simulated/T)
@@ -89,9 +85,6 @@ Class Procs:
 #endif
 	contents -= T
 	LAZYREMOVE(fire_tiles, T)
-	if(T.fire)
-		var/obj/effect/decal/cleanable/liquid_fuel/fuel = locate() in T
-		LAZYREMOVE(fuel_objs, fuel)
 	T.zone = null
 	T.update_graphic(graphic_remove = air.graphic)
 	if(contents.len)

@@ -658,6 +658,7 @@
 	touch_met = 50
 	taste_description = "fiery death"
 	taste_mult = 20
+	accelerant_quality = 20
 
 /singleton/reagent/fuel/napalm/touch_turf(var/turf/T, var/amount, var/datum/reagents/holder)
 	new /obj/effect/decal/cleanable/liquid_fuel/napalm(T, amount/3)
