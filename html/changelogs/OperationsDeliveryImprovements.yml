@@ -8,4 +8,5 @@ changes:
   - bugfix: "Fixed the display of who accepted a delivery order when printing an invoice."
   - bugfix: "Prices shown on the delivery app are now correct."
   - bugfix: "The paper spawning in crates from the cargo elevator now properly show the supposed contents."
+  - rscadd: "The quikpay ui was updated."
 

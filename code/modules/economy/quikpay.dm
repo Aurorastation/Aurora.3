@@ -117,7 +117,7 @@
 /obj/item/device/quikpay/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "QuikPay", "Idris Quik-Pay", 400, 400)
+		ui = new(user, src, "QuikPay", "Idris Quik-Pay", 550, 550)
 		ui.open()
 
 /obj/item/device/quikpay/ui_data(var/mob/user)
