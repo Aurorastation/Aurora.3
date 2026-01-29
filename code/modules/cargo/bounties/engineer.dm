@@ -1,6 +1,6 @@
 /datum/bounty/item/engineer/comfy_chair
 	name = "Padded Chairs"
-	description = "%PERSONNAME is unhappy with their chair. They claim it hurts their back. Have engineers craft some alternatives and ship them out to humor them."
+	description = "Somebody on the residential decks has ordered a new armchair, please deliver it down there via the cargo elevator."
 	reward_low = 240
 	reward_high = 390
 	required_count = 4
