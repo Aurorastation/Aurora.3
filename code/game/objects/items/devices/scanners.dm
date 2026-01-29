@@ -61,10 +61,7 @@ BREATH ANALYZER
 		if (76 to 99)
 			degree = "extreme"
 		if (100 to INFINITY)
-			if(can_heal_overkill)
-				degree = "critical"
-			else
-				degree = "irreparable"
+			degree = can_heal_overkill ? "critical" : "irreparable"
 
 	if(uppercase)
 		degree = capitalize(degree)
@@ -87,10 +84,7 @@ BREATH ANALYZER
 		if (76 to 99)
 			output = "extreme"
 		if (100 to INFINITY)
-			if(can_heal_overkill)
-				output = "critical"
-			else
-				output = "irreparable"
+			output = can_heal_overkill ? "critical" : "irreparable"
 
 	if(uppercase)
 		output = capitalize(output)
