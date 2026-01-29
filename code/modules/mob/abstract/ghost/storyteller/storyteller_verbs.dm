@@ -139,8 +139,8 @@
 	set name = "Narrate Panel"
 	set category = "Storyteller"
 
-	var/datum/tgui_module/narrate_panel/NP = new /datum/tgui_module/narrate_panel(usr)
-	NP.ui_interact(usr)
+	// var/datum/tgui_module/narrate_panel/NP = new /datum/tgui_module/narrate_panel(usr)
+	// NP.ui_interact(usr)
 
 /mob/abstract/ghost/storyteller/verb/local_screen_text()
 	set name = "Local Screen Text"

@@ -19,7 +19,7 @@
 	var/list/status_pistons = list() //Status of the pistons
 
 /datum/computer_file/program/crushercontrol/ui_data(mob/user)
-	var/list/data = initial_data()
+	var/list/data = list()
 
 	status_pistons = list()
 	extending = FALSE

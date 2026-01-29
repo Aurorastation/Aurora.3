@@ -17,8 +17,12 @@ echo "SPACEMAN_DMM_VERSION=$SPACEMAN_DMM_VERSION" >> "$GITHUB_ENV"
 #node version
 export NODE_VERSION=20
 echo "NODE_VERSION=$NODE_VERSION" >> "$GITHUB_ENV"
-export NODE_VERSION_LTS=20.12.0
+export NODE_VERSION_LTS=22.11.0
 echo "NODE_VERSION_LTS=$NODE_VERSION_LTS" >> "$GITHUB_ENV"
+
+# Bun version
+export BUN_VERSION=1.2.16
+echo "BUN_VERSION=$BUN_VERSION" >> "$GITHUB_ENV"
 
 
 # Python version for mapmerge and other tools

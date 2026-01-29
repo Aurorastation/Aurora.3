@@ -1,6 +1,4 @@
-import { paginate } from 'common/collections';
-import { BooleanLike } from '../../common/react';
-import { useBackend, useLocalState } from '../backend';
+import { chunk } from 'es-toolkit';
 import {
   Box,
   Button,
@@ -9,8 +7,9 @@ import {
   Table,
   Tabs,
   Tooltip,
-} from '../components';
-import { TableCell, TableRow } from '../components/Table';
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { useBackend, useLocalState } from '../backend';
 import { Window } from '../layouts';
 
 export type SpawnerData = {
@@ -37,64 +36,58 @@ type Spawner = {
   manifest: string[];
 };
 
-const ManifestTable = function (act, spawner: Spawner) {
-  return (
-    <Table>
-      {paginate(spawner.manifest, 2).map((page) => {
-        const spawned_mob_name_1 = page[0];
-        const spawned_mob_name_2 = page[1];
+const ManifestTable = (act, spawner: Spawner) => (
+  <Table>
+    {chunk(spawner.manifest, 2).map((page) => {
+      const spawned_mob_name_1 = page[0];
+      const spawned_mob_name_2 = page[1];
 
-        const ManifestCell = function (
-          act,
-          spawner: Spawner,
-          spawned_mob_name: string,
-        ) {
-          if (spawned_mob_name) {
-            return (
-              <TableCell>
-                {' - ' + spawned_mob_name + ' '}
-                {spawner.can_jump_to ? (
-                  <Tooltip content="Follow mob">
-                    <Button
-                      content="F"
-                      onClick={() =>
-                        act('follow_manifest_entry', {
-                          spawner_id: spawner.short_name,
-                          spawned_mob_name: spawned_mob_name,
-                        })
-                      }
-                    />
-                  </Tooltip>
-                ) : (
-                  ''
-                )}
-              </TableCell>
-            );
-          } else {
-            return '';
-          }
-        };
+      const ManifestCell = (
+        act,
+        spawner: Spawner,
+        spawned_mob_name: string,
+      ) => {
+        if (spawned_mob_name) {
+          return (
+            <Table.Cell>
+              {` - ${spawned_mob_name} `}
+              {spawner.can_jump_to ? (
+                <Tooltip content="Follow mob">
+                  <Button
+                    content="F"
+                    onClick={() =>
+                      act('follow_manifest_entry', {
+                        spawner_id: spawner.short_name,
+                        spawned_mob_name: spawned_mob_name,
+                      })
+                    }
+                  />
+                </Tooltip>
+              ) : (
+                ''
+              )}
+            </Table.Cell>
+          );
+        } else {
+          return '';
+        }
+      };
 
-        return (
-          <TableRow pb={1} key={page} overflow="hidden">
-            {ManifestCell(act, spawner, spawned_mob_name_1)}
-            {ManifestCell(act, spawner, spawned_mob_name_2)}
-          </TableRow>
-        );
-      })}
-    </Table>
-  );
-};
+      return (
+        <Table.Row pb={1} key={page[0]} overflow="hidden">
+          {ManifestCell(act, spawner, spawned_mob_name_1)}
+          {ManifestCell(act, spawner, spawned_mob_name_2)}
+        </Table.Row>
+      );
+    })}
+  </Table>
+);
 
-export const GhostSpawner = (props, context) => {
-  const { act, data } = useBackend<SpawnerData>(context);
+export const GhostSpawner = (props) => {
+  const { act, data } = useBackend<SpawnerData>();
 
-  const [tab, setTab] = useLocalState(context, 'tab', 'All');
-  const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
-    `searchTerm`,
-    ``,
-  );
+  const [tab, setTab] = useLocalState('tab', 'All');
+  const [searchTerm, setSearchTerm] = useLocalState<string>(`searchTerm`, ``);
 
   const spawners = data.spawners?.filter(
     (S) => S.name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1,
@@ -112,25 +105,10 @@ export const GhostSpawner = (props, context) => {
     'yellow',
   ];
 
-  let loc_to_color: Map<string, string> = new Map();
-
-  if (spawners) {
-    paginate(
-      Array.from(
-        new Set(
-          spawners
-            .filter((s) => s.spawn_overmap_location)
-            .map((s) => s.spawn_overmap_location),
-        ),
-      ),
-      colors.length,
-    ).map((p) =>
-      p.map((l, i) => (loc_to_color[l] = colors[i % colors.length])),
-    );
-  }
+  const loc_to_color: Map<string, string> = new Map();
 
   return (
-    <Window resizable width={1000} height={700}>
+    <Window width={1000} height={700}>
       <Window.Content scrollable>
         <Section
           title="Spawners"
@@ -141,7 +119,7 @@ export const GhostSpawner = (props, context) => {
               placeholder="Search by name"
               width="40vw"
               maxLength={512}
-              onInput={(e, value) => {
+              onChange={(value) => {
                 setSearchTerm(value);
               }}
               value={searchTerm}
@@ -197,7 +175,7 @@ export const GhostSpawner = (props, context) => {
                         {spawner.manifest.length > 0 ? (
                           <Box
                             style={{
-                              'background-color': 'rgba(0, 0, 0, 0.25)',
+                              backgroundColor: 'rgba(0, 0, 0, 0.25)',
                               border: '1px solid rgba(0, 0, 0, 0.5)',
                             }}
                             mt={2}

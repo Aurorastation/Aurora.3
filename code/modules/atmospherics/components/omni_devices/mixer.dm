@@ -135,10 +135,10 @@
 
 	data = build_uidata()
 
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SStgui.try_update_ui(user, src, ui) // NANO NANOUI REPLACEME
 
 	if (!ui)
-		ui = new(user, src, ui_key, "omni_mixer.tmpl", "Omni Mixer Control", 470, 330)
+		ui = new(user, src, "UI_NAME", "UI_WINDOW_NAME") // NANO NANOUI REPLACEMEomni_mixer.tmpl", "Omni Mixer Control", 470, 330)
 		ui.set_initial_data(data)
 
 		ui.open()
@@ -206,7 +206,7 @@
 				con_lock(dir_flag(href_list["dir"]))
 
 	update_icon()
-	SSnanoui.update_uis(src)
+	SStgui.update_uis(src)
 	return
 
 /obj/machinery/atmospherics/omni/mixer/proc/switch_mode(var/port = NORTH, var/mode = ATM_NONE)

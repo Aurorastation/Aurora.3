@@ -22,7 +22,7 @@
 			human_name = H.real_name
 			if(H.ckey)
 				human_ckey = H.ckey
-		ui = new(user, src, "DamageMenu", "Damage Menu | [human_name] ([human_ckey])", 600, 600)
+		ui = new(user, src, "DamageMenu", "Damage Menu | [human_name] ([human_ckey])", 650, 750)
 	ui.open()
 
 /datum/tgui_module/damage_menu/ui_data(mob/user)

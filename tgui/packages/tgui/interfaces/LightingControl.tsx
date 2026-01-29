@@ -1,5 +1,5 @@
+import { Button, LabeledList, Section } from 'tgui-core/components';
 import { useBackend } from '../backend';
-import { Button, LabeledList, Section } from '../components';
 import { NtosWindow } from '../layouts';
 
 export type LightingData = {
@@ -7,11 +7,11 @@ export type LightingData = {
   status: string;
 };
 
-export const LightingControl = (props, context) => {
-  const { act, data } = useBackend<LightingData>(context);
+export const LightingControl = (props) => {
+  const { act, data } = useBackend<LightingData>();
 
   return (
-    <NtosWindow resizable>
+    <NtosWindow>
       <NtosWindow.Content scrollable>
         <Section
           title="Control"

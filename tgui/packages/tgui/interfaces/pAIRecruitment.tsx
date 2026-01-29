@@ -1,5 +1,5 @@
+import { BlockQuote, Box, Button, Input, Section } from 'tgui-core/components';
 import { useBackend } from '../backend';
-import { BlockQuote, Box, Button, Input, Section } from '../components';
 import { Window } from '../layouts';
 
 export type pAIData = {
@@ -9,11 +9,11 @@ export type pAIData = {
   comments: string;
 };
 
-export const pAIRecruitment = (props, context) => {
-  const { act, data } = useBackend<pAIData>(context);
+export const pAIRecruitment = (props) => {
+  const { act, data } = useBackend<pAIData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section
           title="pAI Recruitment"
@@ -37,7 +37,7 @@ export const pAIRecruitment = (props, context) => {
             <Box>
               <Input
                 value={data.name}
-                onChange={(e, value) => act('name', { name: value })}
+                onChange={(value) => act('name', { name: value })}
               />
             </Box>
           </Section>
@@ -47,10 +47,8 @@ export const pAIRecruitment = (props, context) => {
             <Box>
               <Input
                 value={data.description}
-                fluid={1}
-                onChange={(e, value) =>
-                  act('description', { description: value })
-                }
+                fluid={true}
+                onChange={(value) => act('description', { description: value })}
               />
             </Box>
           </Section>
@@ -63,8 +61,8 @@ export const pAIRecruitment = (props, context) => {
             <Box>
               <Input
                 value={data.role}
-                fluid={1}
-                onChange={(e, value) => act('role', { role: value })}
+                fluid={true}
+                onChange={(value) => act('role', { role: value })}
               />
             </Box>
           </Section>
@@ -76,8 +74,8 @@ export const pAIRecruitment = (props, context) => {
             <Box>
               <Input
                 value={data.comments}
-                fluid={1}
-                onChange={(e, value) => act('comments', { comments: value })}
+                fluid={true}
+                onChange={(value) => act('comments', { comments: value })}
               />
             </Box>
           </Section>

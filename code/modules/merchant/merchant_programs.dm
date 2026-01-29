@@ -28,7 +28,7 @@
 		return SStrade.traders[num]
 
 /datum/computer_file/program/merchant/ui_data(mob/user)
-	var/list/data = initial_data()
+	var/list/data = list()
 	var/show_trade = 0
 	var/hailed = 0
 	var/datum/trader/T

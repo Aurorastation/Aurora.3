@@ -1,5 +1,5 @@
+import { Box, Button, LabeledList, Section } from 'tgui-core/components';
 import { useBackend } from '../backend';
-import { Button, Section, Box, LabeledList } from '../components';
 import { Window } from '../layouts';
 import { MinimapView } from './common/MinimapView';
 
@@ -22,12 +22,11 @@ export type ShuttleControlConsoleMultiExploreData = {
   fuel_span: string;
 };
 
-export const ShuttleControlConsoleMultiExplore = (props, context) => {
-  const { act, data } =
-    useBackend<ShuttleControlConsoleMultiExploreData>(context);
+export const ShuttleControlConsoleMultiExplore = (props) => {
+  const { act, data } = useBackend<ShuttleControlConsoleMultiExploreData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section title="Shuttle Status">
           <Box pb={1}>{data.shuttle_status}</Box>

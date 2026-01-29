@@ -1,5 +1,5 @@
+import { Image, Input, Section, Table } from 'tgui-core/components';
 import { useBackend, useLocalState } from '../backend';
-import { Box, Input, Section, Table } from '../components';
 import { NtosWindow } from '../layouts';
 
 export type CodexData = {
@@ -13,16 +13,12 @@ type Recipe = {
   appliances: string;
 };
 
-export const CookingCodex = (props, context) => {
-  const { act, data } = useBackend<CodexData>(context);
-  const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
-    `searchTerm`,
-    ``,
-  );
+export const CookingCodex = (props) => {
+  const { act, data } = useBackend<CodexData>();
+  const [searchTerm, setSearchTerm] = useLocalState<string>(`searchTerm`, ``);
 
   return (
-    <NtosWindow resizable theme="idris">
+    <NtosWindow theme="idris">
       <NtosWindow.Content scrollable>
         <Section
           title="Codex Search"
@@ -34,7 +30,7 @@ export const CookingCodex = (props, context) => {
               placeholder="Search"
               width="40vw"
               maxLength={512}
-              onInput={(e, value) => {
+              onChange={(value) => {
                 setSearchTerm(value);
               }}
               value={searchTerm}
@@ -64,20 +60,15 @@ export const CookingCodex = (props, context) => {
               })
               .sort((a, b) => a.result.localeCompare(b.result))
               .map((recipe) => (
-                <Table.Row header className="candystripe" key={recipe}>
+                <Table.Row header className="candystripe" key={recipe.result}>
                   <Table.Cell textAlign="right" verticalAlign="middle" pl="5px">
                     {recipe.result.toLocaleLowerCase()}
                   </Table.Cell>
                   <Table.Cell>
-                    <Box
-                      as="img"
-                      m={0}
-                      src={`data:image/jpeg;base64,${recipe.result_image}`}
+                    <Image
                       width="60px"
                       height="60px"
-                      style={{
-                        '-ms-interpolation-mode': 'nearest-neighbor',
-                      }}
+                      src={`data:image/jpeg;base64,${recipe.result_image}`}
                     />
                   </Table.Cell>
                   <Table.Cell verticalAlign="middle">

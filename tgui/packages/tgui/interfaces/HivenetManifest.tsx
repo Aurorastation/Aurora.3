@@ -1,7 +1,6 @@
+import { Box, Section, Table } from 'tgui-core/components';
 import { useBackend } from '../backend';
-import { Box, Section, Table } from '../components';
 import { Window } from '../layouts';
-import { TableCell, TableRow } from '../components/Table';
 
 export type VaurcaData = {
   name: string;
@@ -17,11 +16,11 @@ export type HivenetManifestData = {
   all_vaurca: VaurcaListData[];
 };
 
-export const HivenetManifest = (props, context) => {
-  const { act, data } = useBackend<HivenetManifestData>(context);
+export const HivenetManifest = (props) => {
+  const { act, data } = useBackend<HivenetManifestData>();
 
   return (
-    <Window resizable theme="vaurca">
+    <Window theme="vaurca">
       <Window.Content scrollable>
         {Object.keys(data.all_vaurca).map((hive) => {
           const hiveData = data.all_vaurca[hive];
@@ -30,26 +29,26 @@ export const HivenetManifest = (props, context) => {
               key={hive}
               title={hive}
               textAlign="center"
-              className={'border-dept-' + hiveData.color.toLowerCase()}
+              className={`border-dept-${hiveData.color.toLowerCase()}`}
               backgroundColor="rgba(10, 10, 10, 0.7)"
             >
               <Table>
                 {hiveData.vaurca.map((vaurca) => {
                   return (
-                    <TableRow
+                    <Table.Row
                       pb={1}
                       key={vaurca.name}
                       bold={vaurca.bold}
                       overflow="hidden"
                     >
-                      <TableCell>
+                      <Table.Cell>
                         <Box fontSize="1.5rem" textAlign="center">
                           {' - '}
                           {vaurca.name}
                           {' - '}
                         </Box>
-                      </TableCell>
-                    </TableRow>
+                      </Table.Cell>
+                    </Table.Row>
                   );
                 })}
               </Table>

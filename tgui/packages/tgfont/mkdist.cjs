@@ -9,5 +9,5 @@ process.chdir(__dirname);
 
 // Silently make a dist folder
 try {
-  require('fs').mkdirSync('dist');
+  require('node:fs').mkdirSync('dist');
 } catch (err) {}

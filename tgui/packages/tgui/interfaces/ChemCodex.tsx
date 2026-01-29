@@ -1,5 +1,5 @@
+import { Input, LabeledList, NoticeBox, Section } from 'tgui-core/components';
 import { useBackend, useLocalState } from '../backend';
-import { Input, LabeledList, NoticeBox, Section } from '../components';
 import { NtosWindow } from '../layouts';
 
 export type CodexData = {
@@ -26,16 +26,12 @@ type Reagent = {
   amount: number;
 };
 
-export const ChemCodex = (props, context) => {
-  const { act, data } = useBackend<CodexData>(context);
-  const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
-    `searchTerm`,
-    ``,
-  );
+export const ChemCodex = (props) => {
+  const { act, data } = useBackend<CodexData>();
+  const [searchTerm, setSearchTerm] = useLocalState<string>(`searchTerm`, ``);
 
   return (
-    <NtosWindow resizable>
+    <NtosWindow>
       <NtosWindow.Content scrollable>
         <Section
           title="Codex Search"
@@ -47,7 +43,7 @@ export const ChemCodex = (props, context) => {
               placeholder="Search by name"
               width="40vw"
               maxLength={512}
-              onInput={(e, value) => {
+              onChange={(value) => {
                 setSearchTerm(value);
               }}
               value={searchTerm}
@@ -63,7 +59,7 @@ export const ChemCodex = (props, context) => {
           )
           .map((reaction) => (
             <Section
-              title={reaction.result.name + '(' + reaction.result.amount + 'u)'}
+              title={`${reaction.result.name}(${reaction.result.amount}u)`}
               key={reaction.result.name}
             >
               <NoticeBox>{reaction.result.description}</NoticeBox>

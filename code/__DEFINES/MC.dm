@@ -85,7 +85,8 @@
 // Subsystem init stages
 #define INITSTAGE_EARLY 1 //! Early init stuff that doesn't need to wait for mapload
 #define INITSTAGE_MAIN 2 //! Main init stage
-#define INITSTAGE_MAX 2 //! Highest initstage.
+#define INITSTAGE_LAST 3
+#define INITSTAGE_MAX 3 //! Highest initstage.
 
 #define SUBSYSTEM_DEF(X) GLOBAL_REAL(SS##X, /datum/controller/subsystem/##X);\
 /datum/controller/subsystem/##X/New(){\

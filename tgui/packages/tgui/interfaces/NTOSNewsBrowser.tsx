@@ -1,5 +1,3 @@
-import { BooleanLike } from '../../common/react';
-import { useBackend } from '../backend';
 import {
   Box,
   Button,
@@ -7,7 +5,9 @@ import {
   LabeledList,
   ProgressBar,
   Section,
-} from '../components';
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { useBackend } from '../backend';
 import { NtosWindow } from '../layouts';
 import { sanitizeText } from '../sanitize';
 
@@ -33,11 +33,11 @@ type Article = {
   archived: BooleanLike;
 };
 
-export const NTOSNewsBrowser = (props, context) => {
-  const { act, data } = useBackend<NewsData>(context);
+export const NTOSNewsBrowser = (props) => {
+  const { act, data } = useBackend<NewsData>();
 
   return (
-    <NtosWindow resizable>
+    <NtosWindow>
       <NtosWindow.Content scrollable>
         {data.message ? (
           <ErrorMessage />
@@ -51,8 +51,8 @@ export const NTOSNewsBrowser = (props, context) => {
   );
 };
 
-export const ErrorMessage = (props, context) => {
-  const { act, data } = useBackend<NewsData>(context);
+export const ErrorMessage = (props) => {
+  const { act, data } = useBackend<NewsData>();
 
   return (
     <Section
@@ -64,8 +64,8 @@ export const ErrorMessage = (props, context) => {
   );
 };
 
-export const ShowArticle = (props, context) => {
-  const { act, data } = useBackend<NewsData>(context);
+export const ShowArticle = (props) => {
+  const { act, data } = useBackend<NewsData>();
   const contentHtml = { __html: sanitizeText(data.article) };
 
   return (
@@ -78,22 +78,21 @@ export const ShowArticle = (props, context) => {
         </>
       }
     >
-      <Box dangerouslySetInnerHtml={contentHtml} />
+      {/** biome-ignore lint/security/noDangerouslySetInnerHtml: Is sanitized by DOMPurify. */}
+      <Box dangerouslySetInnerHTML={contentHtml} />
     </Section>
   );
 };
 
-export const ShowArticleList = (props, context) => {
-  const { act, data } = useBackend<NewsData>(context);
+export const ShowArticleList = (props) => {
+  const { act, data } = useBackend<NewsData>();
 
   return (
     <Section
       title="Available Articles"
       buttons={
         <Button
-          content={
-            (data.showing_archived ? 'Hide' : 'Show') + ' Archived Files'
-          }
+          content={`${data.showing_archived ? 'Hide' : 'Show'} Archived Files`}
           onClick={() => act('PRG_toggle_archived')}
         />
       }

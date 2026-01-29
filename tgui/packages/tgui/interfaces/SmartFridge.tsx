@@ -1,13 +1,13 @@
-import { BooleanLike } from '../../common/react';
-import { useBackend, useLocalState } from '../backend';
 import {
   BlockQuote,
   Box,
   Button,
+  Input,
   LabeledList,
   Section,
-  Input,
-} from '../components';
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
+import { useBackend, useLocalState } from '../backend';
 import { Window } from '../layouts';
 
 export type FridgeData = {
@@ -25,16 +25,12 @@ type Item = {
   quantity: number;
 };
 
-export const SmartFridge = (props, context) => {
-  const { act, data } = useBackend<FridgeData>(context);
-  const [searchTerm, setSearchTerm] = useLocalState<string>(
-    context,
-    `searchTerm`,
-    ``,
-  );
+export const SmartFridge = (props) => {
+  const { act, data } = useBackend<FridgeData>();
+  const [searchTerm, setSearchTerm] = useLocalState<string>(`searchTerm`, ``);
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section
           title="Storage"
@@ -43,7 +39,7 @@ export const SmartFridge = (props, context) => {
               <Input
                 selfClear
                 placeholder="Search..."
-                onInput={(e, value) => {
+                onChange={(value) => {
                   setSearchTerm(value);
                 }}
                 value={searchTerm}
@@ -60,6 +56,7 @@ export const SmartFridge = (props, context) => {
             data.locked === -1 ? (
               <BlockQuote>
                 <Box color="bad">
+                  {/** biome-ignore lint/suspicious/noCommentText: Stylistic */}
                   Sec.re ACC_** //:securi_ntdiag##or 1%($...
                 </Box>
               </BlockQuote>
@@ -80,9 +77,9 @@ export const SmartFridge = (props, context) => {
   );
 };
 
-export const ContentsWindow = (props, context) => {
-  const { act, data } = useBackend<FridgeData>(context);
-  const [searchTerm] = useLocalState<string>(context, `searchTerm`, ``);
+export const ContentsWindow = (props) => {
+  const { act, data } = useBackend<FridgeData>();
+  const [searchTerm] = useLocalState<string>(`searchTerm`, ``);
   const itemList = data.contents.filter(
     (item) =>
       item.display_name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1,

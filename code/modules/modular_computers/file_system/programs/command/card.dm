@@ -16,7 +16,7 @@
 	var/show_assignments = FALSE
 
 /datum/computer_file/program/card_mod/ui_data(mob/user)
-	var/list/data = initial_data()
+	var/list/data = list()
 
 	data["station_name"] = station_name()
 	data["assignments"] = show_assignments

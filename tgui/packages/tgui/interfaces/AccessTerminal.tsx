@@ -1,7 +1,7 @@
+import { Button, LabeledList, NoticeBox, Section } from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
 import { Window } from '../layouts';
-import { BooleanLike } from '../../common/react';
-import { Button, LabeledList, NoticeBox, Section } from '../components';
 
 export type AccessTerminalData = {
   is_card_in: BooleanLike;
@@ -13,11 +13,11 @@ export type AccessTerminalData = {
   card_accesses: number[];
 };
 
-export const AccessTerminal = (props, context) => {
-  const { act, data } = useBackend<AccessTerminalData>(context);
+export const AccessTerminal = (props) => {
+  const { act, data } = useBackend<AccessTerminalData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section
           title="Inserted ID Card"

@@ -1,6 +1,11 @@
-import { BooleanLike } from '../../common/react';
+import {
+  Button,
+  LabeledList,
+  ProgressBar,
+  Section,
+} from 'tgui-core/components';
+import type { BooleanLike } from 'tgui-core/react';
 import { useBackend } from '../backend';
-import { Button, LabeledList, ProgressBar, Section } from '../components';
 import { Window } from '../layouts';
 
 export type EngineData = {
@@ -12,11 +17,11 @@ export type EngineData = {
   tow: string;
 };
 
-export const TrainEngine = (props, context) => {
-  const { act, data } = useBackend<EngineData>(context);
+export const TrainEngine = (props) => {
+  const { act, data } = useBackend<EngineData>();
 
   return (
-    <Window resizable>
+    <Window>
       <Window.Content scrollable>
         <Section title="Status">
           <LabeledList>

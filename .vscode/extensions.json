@@ -1,12 +1,20 @@
 {
-	"recommendations": [
-		"ss13.byond",
-		"github.vscode-github-actions",
-		"github.vscode-pull-request-github",
-		"dbaeumer.vscode-eslint",
-		"vscode.typescript-language-features",
-		"redhat.vscode-yaml",
-		"esbenp.prettier-vscode",
-		"rome.rome"
-	]
+    "recommendations": [
+      "ss13.byond",
+      "gbasood.byond-dm-language-support",
+      "platymuus.dm-langclient",
+      "anturk.dmi-editor",
+      "eamodio.gitlens",
+      "github.vscode-github-actions",
+      "github.vscode-pull-request-github",
+      "stylemistake.auto-comment-blocks",
+      "vscode.typescript-language-features",
+      "redhat.vscode-yaml",
+      "visualstudioexptteam.vscodeintellicode",
+      "rome.rome",
+			"dbaeumer.vscode-eslint",
+      "editorconfig.editorconfig",
+			"esbenp.prettier-vscode",
+			"biomejs.biome"
+    ]
 }
