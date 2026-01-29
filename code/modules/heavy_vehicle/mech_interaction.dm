@@ -269,9 +269,6 @@
 /mob/living/heavy_vehicle/relaymove(mob/living/user, direction, var/turn_only = FALSE)
 	. = ..()
 
-	if(!can_move(user))
-		return
-
 	if(hallucination >= EMP_MOVE_DISRUPT && prob(30))
 		direction = pick(GLOB.cardinals)
 
@@ -289,6 +286,9 @@
 /mob/living/heavy_vehicle/proc/throttle_move(mob/living/user, direction, reverse)
 	if (!legs)
 		return // LIEUTENANT DAN!!!
+
+	if(!can_move(user))
+		return
 
 	// Get the tile in the direction.
 	var/turf/target_loc = get_step(src, direction)
@@ -308,11 +308,16 @@
 		Move(target_loc, direction, 0, FALSE)
 
 /mob/living/heavy_vehicle/proc/rotate_by_angle(mob/living/user, direction)
+	if (!legs)
+		return // LIEUTENANT DAN!!!
+
+	if(!can_turn(user))
+		return
+
 	use_cell_power(legs.power_use * CELLRATE)
 	if(legs && legs.mech_turn_sound)
 		playsound(src.loc,legs.mech_turn_sound,40,1)
 
-	next_mecha_move += legs.turn_delay
 	set_dir(direction)
 	for(var/mob/pilot in pilots)
 		pilot.set_dir(direction)
