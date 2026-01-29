@@ -66,7 +66,7 @@
 	belt_contents = list(
 						/obj/item/gun/projectile/pistol/adhomai = 1,
 						/obj/item/ammo_magazine/mc9mm = 2,
-						/obj/item/ammo_magazine/boltaction = 3,
+						/obj/item/ammo_magazine/a68 = 2,
 						/obj/item/melee/baton/stunrod = 1,
 						/obj/item/handcuffs = 1
 						)

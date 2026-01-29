@@ -289,13 +289,13 @@
 	req_access = list(209);
 	name = "ammunition cabinet (rifle)"
 	},
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/a68,
+/obj/item/ammo_magazine/a68,
+/obj/item/ammo_magazine/a68,
+/obj/item/ammo_magazine/a68,
+/obj/item/ammo_magazine/a68,
+/obj/item/ammo_magazine/a68,
+/obj/item/ammo_magazine/a68,
 /turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
