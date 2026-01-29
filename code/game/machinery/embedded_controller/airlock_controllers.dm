@@ -79,10 +79,9 @@
 	if(.)
 		return
 
-	switch(action)
-		if("command")
-			var/command_name = sanitize(params["command"])
-			program.receive_user_command(command_name)
+	if(action == "command")
+		var/command_name = sanitize(params["command"])
+		program.receive_user_command(command_name)
 
 //Airlock controller for airlock control - most airlocks on the station use this
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller
@@ -108,10 +107,9 @@
 	if(.)
 		return
 
-	switch(action)
-		if("command")
-			var/command_name = sanitize(params["command"])
-			program.receive_user_command(command_name)
+	if(action == "command")
+		var/command_name = sanitize(params["command"])
+		program.receive_user_command(command_name)
 
 //Access controller for door control - used in virology and the like
 /obj/machinery/embedded_controller/radio/airlock/access_controller
@@ -151,7 +149,6 @@
 	if(.)
 		return
 
-	switch(action)
-		if("command")
-			var/command_name = sanitize(params["command"])
-			program.receive_user_command(command_name)
+	if(action == "command")
+		var/command_name = sanitize(params["command"])
+		program.receive_user_command(command_name)
