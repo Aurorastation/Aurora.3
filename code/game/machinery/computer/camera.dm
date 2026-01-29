@@ -27,6 +27,12 @@
 	// Make sure that camera_monitor knows its been generated from a dedicated console; this will define its network access.
 	camera_monitor_program.camera_monitoring_console = src
 
+/obj/machinery/computer/security/Destroy()
+	if(camera_monitor_program)
+		camera_monitor_program = null
+
+	..()
+
 /obj/machinery/computer/security/attack_ai(var/mob/user as mob)
 	if(!ai_can_interact(user))
 		return
