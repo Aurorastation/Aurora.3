@@ -3,8 +3,22 @@
 	center_of_mass = list("x"=24, "y"=4)
 	icon_state = "loader_legs"
 	power_use = 75
+	/// Movement delay added when moving in any direction.
 	var/move_delay = 5
+
+	/// Movement delay added when turning, cumulative with move_delay.
 	var/turn_delay = 5
+
+	/// Extra movement delay added when using reverse throttle.
+	var/reverse_delay = 10
+
+	/**
+	 * Extra movement delay added based on the ratio of the legs current damage to its maximum damage.
+	 * IE: If your max is 100, and you've taken 50 damage to the legs, this delay should come out to +5.
+	 * At 0 damage, the delay from this is also 0. So it linearly scales with leg damage.
+	 */
+	var/damaged_delay = 10
+
 	var/obj/item/robot_parts/robot_component/actuator/motivator
 	var/mech_turn_sound = 'sound/mecha/mechturn.ogg'
 	var/mech_step_sound = 'sound/mecha/mechstep.ogg'
