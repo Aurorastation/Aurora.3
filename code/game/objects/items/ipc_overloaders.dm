@@ -338,6 +338,46 @@
 	to_chat(target, SPAN_NOTICE("You begin to feel safer, your surroundings no longer a beehive of potential threats..."))
 
 
+// Unregistered overloaders, may or may not have a virus...
+/obj/item/ipc_overloader/unlabeled
+	name = "basic overloader"
+	desc = "An unlabeled overloader. It still seems functional, but who knows what it would do. What is the worse that could happen?"
+	desc_extended = "An overloader is a small disposable stick drive, commonly loaded with a program designed to temporarily reconfigure an IPC's priorities or inputs."
+	effect_time = 0 // The ride never ends (unless you debugger)
+	uses = 1
+	/// Set on init, random chance for the overloader to be infected
+	var/infected = FALSE
+	/// The Sprite that will be used as the 'virus'
+	var/virus
+
+/obj/item/ipc_overloader/unlabeled/Initialize()
+	. = ..()
+	if(prob(100))
+		infected = TRUE // Uh oh...
+	return
+
+
+/obj/item/ipc_overloader/unlabeled/handle_overloader_effect(mob/living/carbon/human/target)
+	// TODO If not infected, we have it treat as if you infected some random other overloader
+	if(!infected) // Random overloader
+		// Pick random overloader that is not parent
+		var/obj/item/ipc_overloader/overloader = new(pick(subtypesof(/obj/item/ipc_overloader)))
+		return overloader.handle_overloader_effect(target)
+
+	// TODO If infected, we do some random overloader effect (look into in possible? Otherwise we just do one ourselves)
+
+
+	// TODO Funny noise + feedback message
+
+	// TODO Random delay + additional feedback (the virus hits) (bc its funny)
+	ADD_TRAIT(target, TRAIT_OVERLOADER_OD_EFFECT, TRAIT_SOURCE_OVERLOADER) //instant overdose
+	var/atom/movable/screen/virus/program = pick(typesof(/atom/movable/screen/virus))
+	target.client.screen += new program
+
+	. = ..()
+	// TODO have virus variable do something (norinori around the screen?)
+
+// TODO Proc so if debugger is used, fixes the ipc
 
 
 // STORAGE BOX
