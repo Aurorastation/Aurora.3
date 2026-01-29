@@ -2131,6 +2131,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssrm_corvette/synthroom)
+"eqW" = (
+/obj/structure/filingcabinet/chestdrawer{
+	pixel_x = -7
+	},
+/turf/template_noop,
+/area/space)
 "esV" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/table/wood,
@@ -3638,12 +3644,6 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/shuttle/ssrm_shuttle)
-"hEe" = (
-/obj/structure/filingcabinet/chestdrawer{
-	pixel_x = -7
-	},
-/turf/template_noop,
-/area/space)
 "hFs" = (
 /obj/machinery/alarm/east{
 	req_one_access = null;
@@ -8240,9 +8240,7 @@
 	},
 /obj/structure/table/wood,
 /obj/item/modular_computer/laptop/preset/civilian,
-/obj/item/card/id/ssrm_ship{
-	pixel_y = 8
-	},
+/obj/item/clothing/head/sol,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssrm_corvette/cpo_cabin)
 "sIJ" = (
@@ -49042,7 +49040,7 @@ xRX
 xRX
 xRX
 xRX
-hEe
+eqW
 xRX
 xRX
 xRX
