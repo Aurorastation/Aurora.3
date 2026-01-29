@@ -14,7 +14,7 @@
 	var/armed = FALSE
 
 /obj/item/device/assembly/mousetrap/Initialize(mapload)
-	..(mapload)
+	. = ..()
 
 	var/static/list/loc_connections = list(
 		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
