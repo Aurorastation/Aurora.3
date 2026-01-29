@@ -31,7 +31,7 @@
 	if(camera_monitor_program)
 		camera_monitor_program = null
 
-	..()
+	. = ..()
 
 /obj/machinery/computer/security/attack_ai(var/mob/user as mob)
 	if(!ai_can_interact(user))

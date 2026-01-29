@@ -223,7 +223,7 @@
 	if(camera_monitoring_console)
 		camera_monitoring_console = null
 
-	..()
+	. = ..()
 
 // ERT Variant of the program
 /datum/computer_file/program/camera_monitor/ert
