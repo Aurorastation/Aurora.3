@@ -3,7 +3,7 @@
 	return FALSE
 
 /mob/living/carbon/has_psi_aug()
-	var/obj/item/organ/internal/augment/psi/psiaug = internal_organs_by_name[BP_AUG_PSI]
+	var/obj/item/organ/internal/augment/bioaug/psi/psiaug = internal_organs_by_name[BP_AUG_PSI]
 	return psiaug && !psiaug.is_broken()
 
 /**
@@ -11,13 +11,19 @@
  * Traditionally, most organic life can in some way RECEIVE psionic messages via a Zona Bovinae, though some lack it.
  * Implants, drugs, and some psi powers may temporarily block RECEIVING.
  *
+ * User should be the "Caster" of the power if possible.
+ * Wide_Field should be set to TRUE for anything calling this inside For/While loops.
+ * Basically if you're searching a list, declare it TRUE so that lethal mind blankers don't instagib you.
+ * If it's single-target, keep it FALSE.
+ *
  * This is NOT a check for "Can Receive?", if you need that go use check_psi_sensitivity().
  */
-/atom/movable/proc/is_psi_blocked(mob/user)
+/atom/movable/proc/is_psi_blocked(mob/user, var/wide_field = FALSE)
 	var/cancelled = FALSE
-	SEND_SIGNAL(src, COMSIG_PSI_MIND_POWER, user, &cancelled)
+	var/cancel_return = SPAN_WARNING("[src]'s mind is inaccessible, like hitting a brick wall.")
+	SEND_SIGNAL(src, COMSIG_PSI_MIND_POWER, user, &cancelled, &cancel_return, wide_field)
 	if(cancelled || (!has_zona_bovinae() && !has_psi_aug()))
-		return SPAN_WARNING("[src]'s mind is inaccessible, like hitting a brick wall.")
+		return cancel_return
 
 /**
  * Check the "effective psi-sensitivity" of a mob. AKA: The target's RECEIVING statistic.
@@ -35,7 +41,15 @@
  */
 /atom/movable/proc/check_psi_sensitivity()
 	var/effective_sensitivity = 0
+	// effective_sensitivity is being sent as a Pointer by marking it with the Ampersand (&)
+	// This means that components which have a RegisterSignal() associated with this will receive the memory address of the var/effective_sensitivity in this proc.
+	// They are then allowed to add or subtract to this proc's var directly, without needing to return a number.
+	// We have to do this with a pointer because it allows us to obtain a Sum of all psi-sensitivity modifiers.
+	// If we instead relied on a Return, we would only be able to get the modifier of the first component to respond.
 	SEND_SIGNAL(src, COMSIG_PSI_CHECK_SENSITIVITY, &effective_sensitivity)
+
+	// Pointers can be problematic if they're used to point to a value on a datum, since that can cause unintended hard deletes.
+	// Here however, their use is acceptable because the pointer will cease to exist as soon as the proc reaches this return statement.
 	return effective_sensitivity
 
 /mob/living/check_psi_sensitivity()

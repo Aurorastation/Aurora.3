@@ -31,13 +31,13 @@
 	UnregisterSignal(owner, COMSIG_PSI_MIND_POWER)
 	UnregisterSignal(owner, COMSIG_PSI_CHECK_SENSITIVITY)
 
-/obj/item/organ/internal/augment/bioaug/mind_blanker/proc/cancel_power(var/implantee, var/caster, var/cancelled)
+/obj/item/organ/internal/augment/bioaug/mind_blanker/proc/cancel_power(var/implantee, var/caster, var/cancelled, var/cancel_return, var/wide_field)
 	SIGNAL_HANDLER
 	if(is_broken())
 		return
 
 	*cancelled = TRUE
-	if(implantee == caster)
+	if(wide_field || implantee == caster)
 		return
 
 	to_chat(implantee, SPAN_DANGER("Your mind wriggles as it repulses an outside thought."))
@@ -82,13 +82,13 @@
 	UnregisterSignal(owner, COMSIG_PSI_MIND_POWER)
 	UnregisterSignal(owner, COMSIG_PSI_CHECK_SENSITIVITY)
 
-/obj/item/organ/internal/augment/bioaug/mind_blanker_lethal/proc/cancel_power_lethal(var/mob/living/carbon/human/implantee, var/caster, var/cancelled)
+/obj/item/organ/internal/augment/bioaug/mind_blanker_lethal/proc/cancel_power_lethal(var/mob/living/carbon/human/implantee, var/caster, var/cancelled, var/cancel_return, var/wide_field)
 	SIGNAL_HANDLER
 	if(is_broken())
 		return
 
 	*cancelled = TRUE
-	if(implantee == caster)
+	if(wide_field || implantee == caster)
 		return
 
 	to_chat(implantee, SPAN_DANGER("Your mind wriggles as it repulses an outside thought."))
@@ -96,7 +96,7 @@
 		var/mob/living/victim = caster
 		victim.adjustBrainLoss(20)
 		victim.confused += 20
-		to_chat(victim, SPAN_DANGER("Agony lances through my mind as [implantee.name]'s mind clamps down upon me!"))
+		*cancel_return = SPAN_DANGER("Agony lances through my brain as their mind clamps down upon me!")
 
 /obj/item/organ/internal/augment/bioaug/mind_blanker_lethal/proc/modify_sensitivity(var/implantee, var/effective_sensitivity)
 	SIGNAL_HANDLER

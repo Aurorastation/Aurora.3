@@ -10,6 +10,7 @@
 	name = "assay"
 	desc = "Read someone's psionic potential."
 	icon_state = "generic"
+	item_icons = null
 	cast_methods = CAST_MELEE|CAST_INNATE
 	aspect = ASPECT_PSIONIC
 	cooldown = 10
@@ -53,7 +54,7 @@
 		to_chat(user, SPAN_WARNING("Psionic power does not flow through a dead person."))
 		return
 
-	var/psi_blocked = target.is_psi_blocked(user)
+	var/psi_blocked = target.is_psi_blocked(user, FALSE)
 	if(psi_blocked)
 		to_chat(user, psi_blocked)
 		return
@@ -61,20 +62,14 @@
 	user.visible_message(SPAN_NOTICE("[user] lays both [user.get_pronoun("his")] palms on [target]'s temples..."),
 						SPAN_NOTICE("You lay your palms on [target]'s temples and begin tracing their Nlom signature..."))
 	if(do_mob(user, target, 4 SECONDS))
-		if(!target.psi)
-			to_chat(user, SPAN_NOTICE("[target] is psionically perceptive, but nothing more: [target.get_pronoun("he")] cannot manipulate the fabric that weaves \
-										this universe."))
-		if(target.psi)
-			switch(target.psi.get_rank())
-				if(PSI_RANK_SENSITIVE)
-					to_chat(user, SPAN_NOTICE("[target] is psionically sensitive, just like your typical Skrell. They can manipulate psionics, but not to a very \
-											precise degree."))
-				if(PSI_RANK_HARMONIOUS)
-					to_chat(user, SPAN_WARNING("[target] is psionically harmonious. This isn't a feat just about anyone can manage: only those born with a certain \
-												psionic attitude among Skrell can reach this level, and with strenuous training. They are capable of using psionics \
-												with very fine precision."))
-				if(PSI_RANK_APEX)
-					to_chat(user, SPAN_DANGER("Your psionic power is dwarfed by [target]. Just like a supernova in the night sky, their signature is absolutely brilliant \
-											beyond comprehension. This is the apex of psionic power, you are sure."))
-				if(PSI_RANK_LIMITLESS)
-					to_chat(user, SPAN_DANGER("A psionic power like this shouldn't be possible... what in the Stars is going on?"))
+		var/target_psi_sensitivity = target.check_psi_sensitivity()
+
+		// Not using a switch case here because I need finer control of the domain than is permitted by TO statements.
+		if (target_psi_sensitivity < 0)
+			to_chat(user, SPAN_NOTICE("[target] has little to no ability to sense the fabric that weaves this universe."))
+		else if (target_psi_sensitivity < PSI_RANK_SENSITIVE)
+			to_chat(user, SPAN_NOTICE("[target] has only a limited perception of psionic signals, like a typical human. They can hear psionics, but have limited ability to interpret them."))
+		else if (target_psi_sensitivity < PSI_RANK_HARMONIOUS)
+			to_chat(user, SPAN_NOTICE("[target] is psionically sensitive, just like your typical skrell. They are capable of interpreting telepathic signals."))
+		else
+			to_chat(user, SPAN_NOTICE("[target] is exceptionally capable of handling and interpreting psionic messages, doing so trivially and intuitively."))
