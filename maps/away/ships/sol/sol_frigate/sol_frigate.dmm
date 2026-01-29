@@ -324,13 +324,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/sol_frigate/canteen)
-"bz" = (
-/obj/structure/bed/stool/chair/padded/beige,
-/obj/structure/weapon_rack{
-	pixel_y = 32
-	},
-/turf/simulated/floor/wood,
-/area/ship/sol_frigate/oquarters)
 "bC" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
@@ -434,6 +427,25 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/eva_storage)
+"ca" = (
+/obj/structure/table/wood,
+/obj/item/storage/box/unique/tea{
+	pixel_x = -8
+	},
+/obj/item/storage/box/unique/tea/jaekseol{
+	pixel_x = -8;
+	pixel_y = 5
+	},
+/obj/item/reagent_containers/glass/beaker/teapot{
+	pixel_y = 10
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/teacup,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/teacup,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/teacup{
+	pixel_y = -4
+	},
+/turf/simulated/floor/wood,
+/area/ship/sol_frigate/oquarters)
 "cc" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 10
@@ -763,6 +775,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/starboard_gunnery)
+"ds" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor/tiled/dark,
+/area/ship/sol_frigate/hallway_fore)
 "dt" = (
 /obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
@@ -850,15 +871,6 @@
 /obj/item/melee/ceremonial_sword,
 /turf/simulated/floor/wood,
 /area/ship/sol_frigate/captain_office)
-"dI" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/floor_decal/corner/yellow{
-	dir = 6
-	},
-/obj/machinery/door/firedoor/noid,
-/turf/simulated/floor/tiled/dark,
-/area/ship/sol_frigate/hallway_fore)
 "dK" = (
 /obj/structure/bed/stool/chair/padded,
 /turf/unsimulated/floor/wood,
@@ -1806,9 +1818,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/hallway_fore)
 "hU" = (
-/obj/structure/bed/stool/chair/padded/beige{
-	dir = 1
+/obj/structure/bed/padded,
+/obj/item/bedsheet/blue,
+/obj/structure/curtain/open,
+/obj/machinery/light{
+	dir = 8
 	},
+/obj/structure/closet/walllocker/emerglocker/west,
 /turf/simulated/floor/wood,
 /area/ship/sol_frigate/oquarters)
 "hV" = (
@@ -2595,10 +2611,11 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/effect/plastic_explosive,
-/obj/effect/plastic_explosive,
-/obj/effect/plastic_explosive,
 /obj/item/grenade,
+/obj/item/grenade,
+/obj/item/plastique,
+/obj/item/plastique,
+/obj/item/plastique,
 /obj/item/grenade,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/armoury)
@@ -3628,6 +3645,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/solfrig_shuttle)
+"pU" = (
+/obj/item/sticker/flagpole/assn{
+	pixel_x = 24
+	},
+/turf/template_noop,
+/area/space)
 "pW" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/light{
@@ -3675,6 +3698,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/armoury)
+"qc" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/sol_frigate/hallway_fore)
 "qg" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
@@ -4184,11 +4215,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/hangar)
 "sZ" = (
-/obj/item/sticker/flagpole/assn{
-	pixel_x = 24
+/obj/structure/sign/kiddieplaque{
+	name = "Solarian Navy commissioning plaque";
+	desc = "A silver-plated plaque that cites the date of the commissioning of a Cuirassier (Revised)-frigate into the Solarian Navy. The name of the shipbuilder and naval yards that helped build and bring this ship into commission. A waving Solarian flag and naval ensign is proudly stamped at the bottom.";
+	pixel_y = 32;
+	pixel_x = -3
 	},
-/turf/template_noop,
-/area/space)
+/turf/simulated/wall/shuttle/raider,
+/area/ship/sol_frigate/port_battery)
 "tc" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/cable/blue{
@@ -4297,14 +4331,6 @@
 /obj/effect/map_effect/marker/airlock/docking/Sol_frigate/shuttle_port,
 /turf/simulated/floor/plating,
 /area/ship/sol_frigate/hangar)
-"tA" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/sol_frigate/hallway_fore)
 "tB" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -4775,15 +4801,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/starboard_gunnery)
-"vi" = (
-/obj/structure/sign/kiddieplaque{
-	name = "Solarian Navy commissioning plaque";
-	desc = "A silver-plated plaque that cites the date of the commissioning of a Cuirassier (Revised)-frigate into the Solarian Navy. The name of the shipbuilder and naval yards that helped build and bring this ship into commission. A waving Solarian flag and naval ensign is proudly stamped at the bottom.";
-	pixel_y = 32;
-	pixel_x = -3
-	},
-/turf/simulated/wall/shuttle/raider,
-/area/ship/sol_frigate/port_battery)
 "vn" = (
 /obj/structure/bed/stool/chair,
 /obj/effect/floor_decal/corner/paleblue/diagonal,
@@ -4977,15 +4994,20 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/canteen)
 "wd" = (
-/obj/structure/bed/padded,
-/obj/item/bedsheet/blue,
-/obj/structure/curtain/open,
-/obj/machinery/light{
-	dir = 8
+/obj/effect/floor_decal/corner/yellow{
+	dir = 9
 	},
-/obj/structure/closet/walllocker/emerglocker/west,
-/turf/simulated/floor/wood,
-/area/ship/sol_frigate/oquarters)
+/obj/structure/cable/blue{
+	icon_state = "1-2"
+	},
+/obj/machinery/door/airlock/multi_tile/glass{
+	dir = 8;
+	name = "Midships hallway";
+	req_access = list(203)
+	},
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor/tiled/dark,
+/area/ship/sol_frigate/hallway_fore)
 "we" = (
 /turf/simulated/wall/shuttle/raider,
 /area/ship/sol_frigate/hallway_fore)
@@ -5184,6 +5206,13 @@
 "xs" = (
 /turf/simulated/floor/airless,
 /area/space)
+"xt" = (
+/obj/structure/bed/stool/chair/padded/beige,
+/obj/structure/weapon_rack{
+	pixel_y = 32
+	},
+/turf/simulated/floor/wood,
+/area/ship/sol_frigate/oquarters)
 "xy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
@@ -6530,6 +6559,12 @@
 /obj/item/device/synthesized_instrument/violin,
 /turf/simulated/floor/carpet,
 /area/ship/sol_frigate/captain_cabin)
+"DP" = (
+/obj/structure/bed/stool/chair/padded/beige{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/ship/sol_frigate/oquarters)
 "DT" = (
 /obj/machinery/vending/engineering,
 /obj/effect/floor_decal/corner/orange{
@@ -9606,21 +9641,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/safe_room)
-"RY" = (
-/obj/effect/floor_decal/corner/yellow{
-	dir = 9
-	},
-/obj/structure/cable/blue{
-	icon_state = "1-2"
-	},
-/obj/machinery/door/airlock/multi_tile/glass{
-	dir = 8;
-	name = "Midships hallway";
-	req_access = list(203)
-	},
-/obj/machinery/door/firedoor/noid,
-/turf/simulated/floor/tiled/dark,
-/area/ship/sol_frigate/hallway_fore)
 "RZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -10768,25 +10788,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/hangar)
-"Ya" = (
-/obj/structure/table/wood,
-/obj/item/storage/box/unique/tea{
-	pixel_x = -8
-	},
-/obj/item/storage/box/unique/tea/jaekseol{
-	pixel_x = -8;
-	pixel_y = 5
-	},
-/obj/item/reagent_containers/glass/beaker/teapot{
-	pixel_y = 10
-	},
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/teacup,
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/teacup,
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/teacup{
-	pixel_y = -4
-	},
-/turf/simulated/floor/wood,
-/area/ship/sol_frigate/oquarters)
 "Yc" = (
 /obj/machinery/atmospherics/unary/engine,
 /turf/simulated/floor/plating,
@@ -44044,7 +44045,7 @@ JF
 jZ
 JF
 in
-sZ
+pU
 MO
 MO
 MO
@@ -45285,11 +45286,11 @@ MG
 MG
 Fh
 MG
-wd
-QD
-bz
-Ya
 hU
+QD
+xt
+ca
+DP
 MG
 ZE
 DI
@@ -45827,7 +45828,7 @@ yt
 yt
 yt
 RZ
-tA
+qc
 Lo
 uk
 Hw
@@ -46325,7 +46326,7 @@ oW
 nt
 jH
 Hd
-RY
+wd
 bL
 GD
 Nv
@@ -46582,7 +46583,7 @@ uO
 vv
 Jp
 fO
-dI
+ds
 BO
 Ok
 lw
@@ -46869,7 +46870,7 @@ Xf
 Xf
 Xf
 Xf
-vi
+sZ
 Xf
 Xf
 bI
