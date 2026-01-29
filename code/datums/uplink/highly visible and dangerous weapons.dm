@@ -275,6 +275,16 @@
 	telecrystal_cost = 19
 	path = /obj/item/psionic_jumpstarter
 
+/datum/uplink_item/item/visible_weapons/vampiric_jumpstarter
+	name = "Vampiric Jumpstarter"
+	telecrystal_cost = 20
+	path = /obj/item/vampiric_jumpstarter
+
+/datum/uplink_item/item/visible_weapons/changeling_jumpstarter
+	name = "Changeling Jumpstarter"
+	telecrystal_cost = 20
+	path = /obj/item/changeling_jumpstarter
+
 /datum/uplink_item/item/visible_weapons/flamethrower
 	name = "Flamethrower"
 	desc = "A flamethrower, with a full canister of Phoron installed to fuel it. Handle with caution."
