@@ -9,7 +9,7 @@
 	//Special Aurora Snowflake to load in the ccia actions and persistant incidents
 	if (GLOB.config.sql_saves) // Doesnt work without db
 		//Load in the CCIA Actions
-		var/DBQuery/ccia_action_query = GLOB.dbcon.NewQuery({"SELECT
+		var/datum/db_query/ccia_action_query = SSdbcore.NewQuery({"SELECT
 			act.title,
 			act.type,
 			act.issuedby,
@@ -20,12 +20,12 @@
 			JOIN ss13_characters chr ON act_chr.char_id = chr.id
 			JOIN ss13_ccia_actions act ON act_chr.action_id = act.id
 		WHERE
-			act_chr.char_id = :char_id: AND
+			act_chr.char_id = :char_id AND
 			(act.expires_at IS NULL OR act.expires_at >= CURRENT_DATE()) AND
 				act.deleted_at IS NULL;
-		"})
-		if (!ccia_action_query.Execute(list("char_id" = pref.current_character)))
-			log_world("ERROR: Error CCIA Actions for character #[pref.current_character]. SQL error message: '[ccia_action_query.ErrorMsg()]'.")
+		"},list("char_id" = pref.current_character))
+		if (!ccia_action_query.Execute())
+			log_module_preferences("ERROR: Error CCIA Actions for character #[pref.current_character]. SQL error message: '[ccia_action_query.ErrorMsg()]'.")
 
 		while(ccia_action_query.NextRow())
 			var/list/action = list(
@@ -37,15 +37,16 @@
 				ccia_action_query.item[6]
 			)
 			pref.ccia_actions.Add(list(action))
+		qdel(ccia_action_query)
 
 		//Load in the infractions
-		var/DBQuery/char_infraction_query = GLOB.dbcon.NewQuery({"SELECT
+		var/datum/db_query/char_infraction_query = SSdbcore.NewQuery({"SELECT
 			id, char_id, UID, datetime, notes, charges, evidence, arbiters, brig_sentence, fine, felony
 		FROM ss13_character_incidents
 		WHERE
-			char_id = :char_id: AND deleted_at IS NULL
-		"})
-		char_infraction_query.Execute(list("char_id" = pref.current_character))
+			char_id = :char_id AND deleted_at IS NULL
+		"},list("char_id" = pref.current_character))
+		char_infraction_query.Execute()
 
 		while(char_infraction_query.NextRow())
 			var/datum/record/char_infraction/infraction = new()
@@ -61,6 +62,7 @@
 			infraction.fine = text2num(char_infraction_query.item[10])
 			infraction.felony = text2num(char_infraction_query.item[11])
 			pref.incidents.Add(infraction)
+		qdel(char_infraction_query)
 
 /datum/category_item/player_setup_item/other/incidents/content(mob/user)
 	var/list/dat = list(
