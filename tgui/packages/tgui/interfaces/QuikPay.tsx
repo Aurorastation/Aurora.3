@@ -8,6 +8,7 @@ import {
   Section,
   Flex,
   Table,
+  Box,
 } from '../components';
 import { Window } from '../layouts';
 
@@ -83,14 +84,15 @@ export const ItemWindow = (props, context) => {
                     {item.price.toFixed(2)}电 &nbsp;
                   </Table.Cell>
                   <Table.Cell>
-                    <Button
-                      content="Buy"
-                      icon="calendar"
-                      onClick={() =>
-                        act('buy', { buying: item.name, amount: 1 })
-                      }
-                    />
-                    {data.editmode ? (
+                    {!data.editmode ? (
+                      <Button
+                        content="Buy"
+                        icon="calendar"
+                        onClick={() =>
+                          act('buy', { buying: item.name, amount: 1 })
+                        }
+                      />
+                    ) : (
                       <>
                         &nbsp;
                         <Button
@@ -100,13 +102,14 @@ export const ItemWindow = (props, context) => {
                           onClick={() => act('remove', { removing: item.name })}
                         />
                       </>
-                    ) : null}
+                    )}
                   </Table.Cell>
                 </Table.Row>
               ))}
             </Table>
           </Section>
         </Flex.Item>
+        <Box width="1px" backgroundColor="rgba(255, 255, 255, 0.15)" mx={2} />
         <Flex.Item grow={1}>
           <Section
             fill
@@ -168,63 +171,31 @@ export const CartWindow = (props, context) => {
       <LabeledList>
         {data.buying.map((item) => (
           <Table.Row key={item.name}>
-            <Table.Cell color="label">{item.name}</Table.Cell>
-            <Table.Cell color="average">x{item.amount}</Table.Cell>
+            <Table.Cell>&nbsp;{item.name}</Table.Cell>
+            <Table.Cell>x{item.amount}</Table.Cell>
             <Table.Cell align="right">
-              <Flex justify="flex-end" align="center">
-                <Flex.Item color="average">
-                  {(item.price * item.amount).toFixed(2)}电
-                </Flex.Item>
+              <Flex justify="flex-end">
+                <Flex.Item>{(item.price * item.amount).toFixed(2)}电</Flex.Item>
                 <Flex.Item>
+                  &nbsp;
                   <Button
-                    content="Remove"
-                    icon="times"
+                    icon="trash"
                     onClick={() => act('removal', { removal: item.name })}
                   />
+                  &nbsp;
                 </Flex.Item>
               </Flex>
             </Table.Cell>
           </Table.Row>
-          // <LabeledList.Item key={item.name} label={item.name}>
-          //   x{item.amount}
-
-          // </LabeledList.Item>
         ))}
       </LabeledList>
       {data.sum ? (
-        <>
+        <Section color="average">
           The total is {data.sum.toFixed(2)}电.
           <br />
           Please swipe your id to pay.
-        </>
+        </Section>
       ) : null}
     </Section>
   );
 };
-
-{
-  /* <Table.Row key={item.name}>
-  <Table.Cell color="label">
-    {item.name}
-  </Table.Cell>
-
-  <Table.Cell align="right">
-    <Flex justify="flex-end" align="center">
-      <Flex.Item>
-        <Text color="average">
-          {item.price.toFixed(2)}电
-        </Text>
-      </Flex.Item>
-      <Flex.Item>
-        <Button
-          content="Buy"
-          icon="calendar"
-          onClick={() =>
-            act('buy', { buying: item.name, amount: 1 })
-          }
-        />
-      </Flex.Item>
-    </Flex>
-  </Table.Cell>
-</Table.Row> */
-}

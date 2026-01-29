@@ -176,7 +176,7 @@
 				if(L["name"] == params["buying"])
 					L["amount"]++
 					return TRUE
-			buying += list(list("name" = params["buying"], "amount" = params["amount"]))
+			buying += list(list("name" = params["buying"], "amount" = params["amount"], "price" = items_to_price[params["buying"]]))
 
 		if("removal")
 			var/index = 0
