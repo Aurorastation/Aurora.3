@@ -107,9 +107,8 @@
 
 /obj/item/device/assembly/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	if(distance <= 1 || loc == user)
-		if(!secured)
-			. += SPAN_NOTICE("\The [src] can be attached!")
+	if((distance <= 1 || loc == user) && !secured)
+		. += SPAN_NOTICE("\The [src] can be attached!")
 
 /obj/item/device/assembly/attack_self(mob/user)
 	if(!user)
