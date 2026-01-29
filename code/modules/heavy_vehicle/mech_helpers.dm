@@ -55,7 +55,7 @@
 		return
 
 
-	next_mecha_turn = world.time + turn_delay + (legs.damaged_delay * (legs.total_damage / legs.max_damage))
+	next_mecha_turn = world.time + legs.turn_delay + (legs.damaged_delay * (legs.total_damage / legs.max_damage))
 
 	if(maintenance_protocols)
 		if(user)
