@@ -89,6 +89,12 @@
 	path = /obj/item/storage/firstaid/adv
 	desc = "Note: doesn't come with a medical scanner."
 
+/datum/uplink_item/item/medical/nanopaste
+	name = "Nanopaste"
+	bluecrystal_cost = 1
+	path = /obj/item/stack/nanopaste
+	desc = "A tube of paste containing swarms of repair nanites. Very effective in repairing robotic machinery."
+
 /datum/uplink_item/item/medical/bloodpack
 	name = "O- blood pack"
 	bluecrystal_cost = 1
