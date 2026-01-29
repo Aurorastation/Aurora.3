@@ -199,3 +199,25 @@
   - code_imp: Added a unit test to generate byond defines from Font Awesome entries.
   Kano:
   - bugfix: Replaced some exoplanet plating turfs in Horizon with regular variant.
+2026-01-29:
+  Batrachophrenoboocosmomachia:
+  - bugfix: Fixes door permissions in bar maints, secure technical storage, hangar
+      air station, ops substation, and medical substation.
+  - bugfix: Replaces tool crate in D1 central maints with non-prefilled variant.
+  GeneralCamo:
+  - config: Replaced prettierx with prettier.
+  - config: Prettier now runs on the entire repository.
+  - config: Removed Intellicode as a recommended extensions for VSCode (Deprecated).
+  - config: Removed BYOND DM Language Support as a recommended extension for VSCode
+      (SpacemanDMM replaced this).
+  Greenjoe:
+  - rscadd: Adds two types of tajaran tea - Messa's tear and ras'nif. Tins are found
+      in the loadout and bar.
+  - rscadd: Adds solar salve. Find it in the loadout under chewing tobacco selection.
+  - rscadd: Adds a bunch of smokeables/chewables to the loot pool for random smokeables.
+  - qol: Adjusts the amount of reagents in the Konyang tea leaves to make brewing
+      easier, as well as adding instructions to the tins.
+  - rscadd: Increases the number of leaves in the Konyang tea tins from 7 to 12.
+  Hellfirejag:
+  - bugfix: Fixed a random test fail caused by GPS devices being spawned in a null
+      location.
