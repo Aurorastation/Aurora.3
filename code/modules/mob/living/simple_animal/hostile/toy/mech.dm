@@ -16,7 +16,7 @@
 	attack_emote = "raises its fist at"
 	attacktext = "smashed"
 	attack_sound = 'sound/weapons/woodenhit.ogg'
-	speed = 2
+	speed = 1
 	mob_size = MOB_MINISCULE
 	tameable = FALSE
 	destroy_surroundings = FALSE

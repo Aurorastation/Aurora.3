@@ -7,7 +7,7 @@
 	icon_living = "samak"
 	icon_dead = "samak_dead"
 	icon = 'icons/jungle.dmi'
-	speed = 2
+	speed = 1
 	maxHealth = 125
 	health = 125
 	melee_damage_lower = 5

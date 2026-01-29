@@ -22,7 +22,7 @@
 	min_n2 = 0
 	max_n2 = 0
 	minbodytemp = 0
-	speed = 4
+	speed = 1
 	emote_hear = list("emits a harsh noise")
 	emote_sounds = list(
 		'sound/effects/creatures/hivebot/synth_possessed.ogg',

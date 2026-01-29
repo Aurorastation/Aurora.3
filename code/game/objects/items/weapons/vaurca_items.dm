@@ -298,7 +298,7 @@
 	icon_state = "scout"
 	item_state = "scout"
 	desc = "Armor designed for K'laxan scouts, made of lightweight sturdy material that does not restrict movement."
-	slowdown = -1
+	slowdown = -0.2
 
 	species_restricted = list(BODYTYPE_VAURCA)
 	armor = list(

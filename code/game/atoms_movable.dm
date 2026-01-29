@@ -1,8 +1,8 @@
 /atom/movable
 	layer = OBJ_LAYER
-	glide_size = 6
+	glide_size = 8
 	animate_movement = SLIDE_STEPS
-	appearance_flags = DEFAULT_APPEARANCE_FLAGS | TILE_BOUND
+	appearance_flags = DEFAULT_APPEARANCE_FLAGS | TILE_BOUND | LONG_GLIDE
 
 	var/last_move = null
 	/// A list containing arguments for Moved().
@@ -1070,3 +1070,10 @@
 /atom/movable/proc/afterShuttleMove(obj/effect/shuttle_landmark/destination)
 	if(light)
 		update_light()
+
+/atom/movable/proc/set_glide_size(target = 8)
+	if (HAS_TRAIT(src, TRAIT_NO_GLIDE))
+		return
+	SEND_SIGNAL(src, COMSIG_MOVABLE_UPDATE_GLIDE_SIZE, target)
+	glide_size = target
+

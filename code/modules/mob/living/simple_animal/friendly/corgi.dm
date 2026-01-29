@@ -22,7 +22,7 @@
 	mob_size = 3.5
 	max_nutrition = 70	//Dogs are insatiable eating monsters. This scales with their mob size too
 	stomach_size_mult = 8
-	seek_speed = 6
+	seek_speed = 3
 	possession_candidate = 1
 	canbrush = TRUE
 	holder_type = /obj/item/holder/corgi

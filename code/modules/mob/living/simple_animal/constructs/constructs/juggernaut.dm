@@ -15,7 +15,7 @@
 	attacktext = "smashed their armored gauntlet into"
 	organ_names = list("core", "right arm", "left arm")
 	mob_size = MOB_LARGE
-	speed = 3
+	speed = 1.5
 	environment_smash = 2
 	attack_sound = 'sound/weapons/heavysmash.ogg'
 	status_flags = 0
