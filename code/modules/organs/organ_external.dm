@@ -268,6 +268,17 @@
 /obj/item/organ/external/proc/invalidate_marking_cache()
 	cached_markings = null
 
+///If the organ requires amputation, returns TRUE. Otherwise, returns FALSE
+/obj/item/organ/external/proc/CheckNeedsAmputation()
+	var/extreme_damage = FALSE
+	if(!(brute_ratio < 100))
+		extreme_damage = TRUE
+	if(!(burn_ratio < 100))
+		extreme_damage = TRUE
+	if(extreme_damage && !(limb_flags & ORGAN_HEALS_OVERKILL))
+		return TRUE // Limb took too much damage, nothing left to heal
+	return FALSE
+
 /obj/item/organ/external/attack_self(var/mob/user)
 	if(!length(contents))
 		return ..()
