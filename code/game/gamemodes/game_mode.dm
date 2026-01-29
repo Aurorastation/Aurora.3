@@ -565,7 +565,7 @@ GLOBAL_LIST_EMPTY(additional_antag_types)
 
 	for(var/mob/living/carbon/human/character in GLOB.player_list)
 		if(character.client)
-			if((character.client.prefs.economic_status == ECONOMICALLY_DESTITUTE) || (character.client.prefs.economic_status == ECONOMICALLY_RUINED)) // Discrimination.
+			if((character.client.prefs.economic_status == ECONOMICALLY_DESTITUTE) || (character.client.prefs.economic_status == ECONOMICALLY_RUINED) || (character.client.prefs.economic_status == ECONOMICALLY_BANKRUPT) || (character.client.prefs.economic_status == ECONOMICALLY_DEBT_MINOR) || (character.client.prefs.economic_status == ECONOMICALLY_DEBT_MODERATE) || (character.client.prefs.economic_status == ECONOMICALLY_DEBT_MAJOR)) // Discrimination.
 				characters += character
 			else if(character.client.prefs.economic_status == ECONOMICALLY_POOR && prob(50)) // 50% discrimination.
 				characters += character
