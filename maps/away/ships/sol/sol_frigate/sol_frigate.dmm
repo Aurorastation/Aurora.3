@@ -427,6 +427,25 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/eva_storage)
+"ca" = (
+/obj/structure/table/wood,
+/obj/item/storage/box/unique/tea{
+	pixel_x = -8
+	},
+/obj/item/storage/box/unique/tea/jaekseol{
+	pixel_x = -8;
+	pixel_y = 5
+	},
+/obj/item/reagent_containers/glass/beaker/teapot{
+	pixel_y = 10
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/teacup,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/teacup,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/teacup{
+	pixel_y = -4
+	},
+/turf/simulated/floor/wood,
+/area/ship/sol_frigate/oquarters)
 "cc" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 10
@@ -572,16 +591,7 @@
 /turf/simulated/wall/shuttle/raider,
 /area/ship/sol_frigate/sickbay)
 "cN" = (
-/obj/structure/closet,
-/obj/item/clothing/under/rank/sol/dress/subofficer,
-/obj/item/clothing/under/rank/sol/dress/subofficer,
-/obj/item/clothing/head/sol/dress/officer,
-/obj/item/clothing/head/sol/dress/officer,
-/obj/item/clothing/shoes/jackboots,
-/obj/item/clothing/shoes/jackboots,
-/obj/machinery/light{
-	dir = 4
-	},
+/obj/structure/filingcabinet/filingcabinet,
 /turf/simulated/floor/wood,
 /area/ship/sol_frigate/oquarters)
 "cO" = (
@@ -656,7 +666,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable/blue{
-	icon_state = "2-8"
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
 /area/ship/sol_frigate/hallway_fore)
@@ -765,6 +775,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/starboard_gunnery)
+"ds" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor/tiled/dark,
+/area/ship/sol_frigate/hallway_fore)
 "dt" = (
 /obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
@@ -857,9 +876,6 @@
 /turf/unsimulated/floor/wood,
 /area/ship/sol_frigate/starboard_gunnery)
 "dL" = (
-/obj/structure/cable/blue{
-	icon_state = "1-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -1233,14 +1249,16 @@
 /turf/simulated/floor/wood,
 /area/ship/sol_frigate/captain_office)
 "fq" = (
-/obj/structure/cable/blue{
-	icon_state = "4-8"
-	},
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
 /obj/machinery/light{
 	dir = 1
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/hangar)
@@ -1301,6 +1319,9 @@
 /obj/random_produce/box,
 /obj/random_produce/box,
 /obj/random_produce/box,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
 	temperature = 253.15
@@ -1803,6 +1824,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/structure/closet/walllocker/emerglocker/west,
 /turf/simulated/floor/wood,
 /area/ship/sol_frigate/oquarters)
 "hV" = (
@@ -2139,14 +2161,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/eva_storage)
 "jp" = (
-/obj/structure/cable/blue{
-	icon_state = "0-4"
-	},
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
 /obj/machinery/power/apc/north{
 	req_access = list(203)
+	},
+/obj/structure/cable/green{
+	icon_state = "0-2";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/hangar)
@@ -2473,6 +2496,10 @@
 /obj/structure/cable/blue{
 	icon_state = "2-4"
 	},
+/obj/item/mecha_equipment/mounted_system/combat/grenadesmoke{
+	pixel_y = 13
+	},
+/obj/item/mecha_equipment/mounted_system/combat/blaster,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/Exo_Bay)
 "kU" = (
@@ -2584,6 +2611,12 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/item/grenade,
+/obj/item/grenade,
+/obj/item/plastique,
+/obj/item/plastique,
+/obj/item/plastique,
+/obj/item/grenade,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/armoury)
 "lh" = (
@@ -3021,7 +3054,7 @@
 /obj/machinery/door/airlock/multi_tile/glass{
 	door_color = "#304b77";
 	req_access = list(203);
-	name = "Cargo Bay Storage"
+	name = "Midships hallway"
 	},
 /obj/machinery/door/firedoor/noid{
 	dir = 8
@@ -3281,7 +3314,7 @@
 	dir = 8
 	},
 /obj/structure/cable/blue{
-	icon_state = "1-2"
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/hallway_fore)
@@ -3425,7 +3458,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/Exo_Bay)
 "pd" = (
-/obj/structure/filingcabinet/chestdrawer,
+/obj/structure/bed/stool/chair/office/light{
+	dir = 1
+	},
 /turf/simulated/floor/wood,
 /area/ship/sol_frigate/oquarters)
 "pe" = (
@@ -3610,6 +3645,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/solfrig_shuttle)
+"pU" = (
+/obj/item/sticker/flagpole/assn{
+	pixel_x = 24
+	},
+/turf/template_noop,
+/area/space)
 "pW" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/light{
@@ -3657,6 +3698,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/armoury)
+"qc" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/sol_frigate/hallway_fore)
 "qg" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
@@ -4168,10 +4217,12 @@
 "sZ" = (
 /obj/structure/sign/kiddieplaque{
 	name = "Solarian Navy commissioning plaque";
-	desc = "A silver-plated plaque dating the date of the commissioning of a Cuirassier-Class frigate in the Solarian Navy. The name of the shipbuilder and naval yards that helped build and bring this ship into commission. A waving Solarian flag and naval ensign is proudly stamped at the bottom."
+	desc = "A silver-plated plaque that cites the date of the commissioning of a Cuirassier (Revised)-frigate into the Solarian Navy. The name of the shipbuilder and naval yards that helped build and bring this ship into commission. A waving Solarian flag and naval ensign is proudly stamped at the bottom.";
+	pixel_y = 32;
+	pixel_x = -3
 	},
 /turf/simulated/wall/shuttle/raider,
-/area/ship/sol_frigate/cic)
+/area/ship/sol_frigate/port_battery)
 "tc" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/cable/blue{
@@ -4484,8 +4535,8 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/sol_frigate/canteen)
 "uk" = (
-/obj/structure/cable/blue{
-	icon_state = "4-8"
+/obj/structure/cable/green{
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/hangar)
@@ -4509,6 +4560,7 @@
 	dir = 8;
 	level = 2
 	},
+/obj/structure/bed/stool/chair/office/light,
 /turf/simulated/floor/wood,
 /area/ship/sol_frigate/oquarters)
 "up" = (
@@ -4620,6 +4672,9 @@
 /obj/random_produce/box,
 /obj/random_produce/box,
 /obj/random_produce/box,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
 	temperature = 253.15
@@ -4939,14 +4994,18 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/canteen)
 "wd" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 9
+	},
 /obj/structure/cable/blue{
 	icon_state = "1-2"
 	},
-/obj/structure/cable/blue{
-	icon_state = "2-4"
+/obj/machinery/door/airlock/multi_tile/glass{
+	dir = 8;
+	name = "Midships hallway";
+	req_access = list(203)
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/hallway_fore)
 "we" = (
@@ -5025,7 +5084,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/armoury)
 "wE" = (
-/obj/structure/closet/walllocker/emerglocker/west,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
@@ -5100,7 +5158,7 @@
 /obj/machinery/door/airlock/multi_tile/glass{
 	door_color = "#304b77";
 	req_access = list(203);
-	name = "Cargo Bay Storage"
+	name = "Aft quarter hallway"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/starboard_gunnery)
@@ -5148,6 +5206,13 @@
 "xs" = (
 /turf/simulated/floor/airless,
 /area/space)
+"xt" = (
+/obj/structure/bed/stool/chair/padded/beige,
+/obj/structure/weapon_rack{
+	pixel_y = 32
+	},
+/turf/simulated/floor/wood,
+/area/ship/sol_frigate/oquarters)
 "xy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
@@ -5684,6 +5749,12 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
+/obj/structure/sign/kiddieplaque{
+	name = "Solarian Navy commissioning plaque";
+	desc = "A silver-plated plaque that cites the date of the commissioning of a Cuirassier (Revised)-frigate into the Solarian Navy. The name of the shipbuilder and naval yards that helped build and bring this ship into commission. A waving Solarian flag and naval ensign is proudly stamped at the bottom.";
+	pixel_y = 32;
+	pixel_x = -3
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/cic)
 "Ar" = (
@@ -5885,6 +5956,10 @@
 	req_access = list(222)
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/door/blast/shutters/open{
+	id = "SFLD";
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/ship/sol_frigate/Port_docking_port)
 "Bg" = (
@@ -6484,6 +6559,12 @@
 /obj/item/device/synthesized_instrument/violin,
 /turf/simulated/floor/carpet,
 /area/ship/sol_frigate/captain_cabin)
+"DP" = (
+/obj/structure/bed/stool/chair/padded/beige{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/ship/sol_frigate/oquarters)
 "DT" = (
 /obj/machinery/vending/engineering,
 /obj/effect/floor_decal/corner/orange{
@@ -6781,11 +6862,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/hallway_fore)
 "Fv" = (
-/obj/structure/table/wood,
-/obj/item/modular_computer/laptop,
 /obj/machinery/light{
 	dir = 4;
 	status = 2
+	},
+/obj/structure/bed/stool/chair/office/light{
+	dir = 1
 	},
 /turf/simulated/floor/wood,
 /area/ship/sol_frigate/oquarters)
@@ -7589,6 +7671,10 @@
 	req_access = list(203)
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/door/blast/shutters/open{
+	id = "SFLD";
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/ship/sol_frigate/Starboard_docking_port)
 "IZ" = (
@@ -8006,6 +8092,9 @@
 /obj/random_produce/box,
 /obj/random_produce/box,
 /obj/random_produce/box,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
+/obj/item/storage/box/large/produce,
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
 	temperature = 253.15
@@ -8178,6 +8267,11 @@
 	id = "SFLD"
 	},
 /obj/machinery/door/firedoor/noid,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/hangar)
 "Lp" = (
@@ -8476,6 +8570,10 @@
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/docking/sol_frigate/port_dock,
 /obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/door/blast/shutters/open{
+	id = "SFLD";
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/ship/sol_frigate/Port_docking_port)
 "Mo" = (
@@ -8534,7 +8632,7 @@
 /obj/structure/cable/blue{
 	icon_state = "4-8"
 	},
-/obj/machinery/portable_atmospherics/canister/empty/oxygen,
+/obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/eva_storage)
 "MO" = (
@@ -8579,6 +8677,10 @@
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/docking/sol_frigate/starboard_dock,
 /obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/door/blast/shutters/open{
+	id = "SFLD";
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/ship/sol_frigate/Starboard_docking_port)
 "MV" = (
@@ -8826,12 +8928,17 @@
 /turf/simulated/floor/plating,
 /area/ship/sol_frigate/starboard_gunnery)
 "Oi" = (
-/obj/structure/bed/stool/chair,
 /obj/machinery/power/apc/east{
 	req_access = list(203)
 	},
 /obj/structure/cable/blue{
 	icon_state = "0-8"
+	},
+/obj/structure/table/wood/maple,
+/obj/item/pen/fountain,
+/obj/item/paper_bin{
+	pixel_y = 2;
+	pixel_x = -7
 	},
 /turf/simulated/floor/wood,
 /area/ship/sol_frigate/oquarters)
@@ -8971,7 +9078,7 @@
 /obj/machinery/door/airlock/multi_tile/glass{
 	door_color = "#304b77";
 	req_access = list(203);
-	name = "Cargo Bay Storage"
+	name = "Aft quarter hallway"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/firedoor/noid,
@@ -9167,6 +9274,7 @@
 /obj/structure/cable/blue{
 	icon_state = "1-8"
 	},
+/obj/structure/table/wood/maple,
 /turf/simulated/floor/wood,
 /area/ship/sol_frigate/oquarters)
 "PN" = (
@@ -9303,7 +9411,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/engineering)
 "QD" = (
-/obj/structure/sign/flag/sol,
+/obj/item/melee/ceremonial_sword,
 /turf/simulated/wall/shuttle/raider,
 /area/ship/sol_frigate/oquarters)
 "QG" = (
@@ -9547,6 +9655,9 @@
 	icon_state = "4-8"
 	},
 /obj/structure/closet/walllocker/emerglocker/north,
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/hallway_fore)
 "Sa" = (
@@ -9584,7 +9695,7 @@
 /obj/machinery/door/airlock/multi_tile/glass{
 	door_color = "#304b77";
 	req_access = list(203);
-	name = "Cargo Bay Storage"
+	name = "Aft quarter hallway"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/starboard_gunnery)
@@ -9639,7 +9750,7 @@
 "SB" = (
 /obj/structure/table/wood,
 /obj/structure/closet/walllocker/emerglocker/west,
-/obj/item/modular_computer/laptop,
+/obj/item/modular_computer/laptop/preset,
 /turf/simulated/floor/wood,
 /area/ship/sol_frigate/captain_office)
 "SD" = (
@@ -9957,7 +10068,7 @@
 "UJ" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	dir = 8;
-	name = "Mess Hall";
+	name = "Fore quarter hallway";
 	req_access = list(203)
 	},
 /obj/machinery/door/firedoor/noid,
@@ -10766,11 +10877,16 @@
 /area/ship/sol_frigate/cic)
 "YB" = (
 /obj/structure/closet,
-/obj/item/clothing/accessory/badge/passcard/sol,
-/obj/item/clothing/accessory/badge/passcard/sol,
+/obj/item/clothing/under/rank/sol/dress/subofficer,
+/obj/item/clothing/under/rank/sol/dress/subofficer,
+/obj/item/clothing/head/sol/dress/officer,
+/obj/item/clothing/head/sol/dress/officer,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/shoes/jackboots,
 /obj/machinery/light{
-	dir = 1
+	dir = 4
 	},
+/obj/item/clothing/accessory/badge/passcard/sol,
 /turf/simulated/floor/wood,
 /area/ship/sol_frigate/oquarters)
 "YC" = (
@@ -10932,6 +11048,10 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/item/gun/projectile/automatic/rifle/sol,
+/obj/item/ammo_magazine/c762/sol,
+/obj/item/ammo_magazine/c762/sol,
+/obj/item/ammo_magazine/c762/sol,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sol_frigate/armoury)
 "Zj" = (
@@ -11069,7 +11189,7 @@
 "ZI" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	dir = 8;
-	name = "Mess Hall";
+	name = "Midships hallway";
 	req_access = list(203)
 	},
 /obj/machinery/door/firedoor/noid,
@@ -43925,7 +44045,7 @@ JF
 jZ
 JF
 in
-MO
+pU
 MO
 MO
 MO
@@ -44672,7 +44792,7 @@ lb
 ie
 ob
 AA
-sZ
+yt
 Ap
 YQ
 TS
@@ -45168,9 +45288,9 @@ Fh
 MG
 hU
 QD
-hU
-MG
-hU
+xt
+ca
+DP
 MG
 ZE
 DI
@@ -45708,7 +45828,7 @@ yt
 yt
 yt
 RZ
-PD
+qc
 Lo
 uk
 Hw
@@ -45965,7 +46085,7 @@ yt
 yt
 we
 dg
-wd
+nm
 xi
 dL
 Ta
@@ -46206,7 +46326,7 @@ oW
 nt
 jH
 Hd
-Nv
+wd
 bL
 GD
 Nv
@@ -46222,7 +46342,7 @@ Hy
 UJ
 Vn
 or
-Zz
+hl
 pK
 HF
 iJ
@@ -46463,7 +46583,7 @@ uO
 vv
 Jp
 fO
-lw
+ds
 BO
 Ok
 lw
@@ -46750,7 +46870,7 @@ Xf
 Xf
 Xf
 Xf
-Xf
+sZ
 Xf
 Xf
 bI
