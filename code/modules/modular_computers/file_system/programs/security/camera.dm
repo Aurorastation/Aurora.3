@@ -217,6 +217,14 @@
 		return FALSE
 	return TRUE
 
+/datum/computer_file/program/camera_monitor/Destroy()
+	if(current_camera)
+		current_camera = null
+	if(camera_monitoring_console)
+		camera_monitoring_console = null
+
+	..()
+
 // ERT Variant of the program
 /datum/computer_file/program/camera_monitor/ert
 	filename = "ntcammon"
