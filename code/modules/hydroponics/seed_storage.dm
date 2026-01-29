@@ -296,6 +296,7 @@
 		/obj/item/seeds/cocoapodseed = 3,
 		/obj/item/seeds/coffeeseed = 3,
 		/obj/item/seeds/cornseed = 3,
+		/obj/item/seeds/cucumberseed = 3,
 		/obj/item/seeds/cranberryseed = 2,
 		/obj/item/seeds/dirtberries = 2,
 		/obj/item/seeds/dynseed = 3,
