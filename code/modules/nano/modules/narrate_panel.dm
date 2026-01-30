@@ -8,7 +8,7 @@
 	var/list/data = list()
 	data["narrate_styles"] = list("danger", "notice", "warning", "alien", "cult")
 	data["narrate_locations"] = list("View", "Range", "Z-Level", "Global")
-	data["narrate_filters"] = list("None", "Skrell-like Psi-sensitives", "Human-like Psi-sensitives", "Silicons", "Silicons + Implants")
+	data["narrate_filters"] = list("None", "Skrell-like Psi-sensitives", "Human-like Psi-sensitives", "Silicons", "Silicons + Implants", "Hivenet")
 	return data
 
 /datum/tgui_module/narrate_panel/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
@@ -111,5 +111,10 @@
 
 					// Remove anyone not made of silicon or doesn't have a cranial implant.
 					mobs_to_message.Remove(filteree)
+			if ("Hivenet")
+				for(var/mob/filteree in filtered_list)
+					if (!filteree.languages[LANGUAGE_VAURCA])
+						mobs_to_message.Remove(filteree)
+						continue
 		for(var/mob/actor in mobs_to_message)
 			to_chat(actor, "<font size=[narrate_size]><span class='[narrate_style]'>[narrate_text]</span></font>")
