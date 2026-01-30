@@ -378,6 +378,11 @@
 	icon_state = "ala-soldatdress"
 	item_state = "ala-soldatdress"
 
+/obj/item/clothing/under/tajaran/ala/black/dress/ajic
+	name = "protective services group of the adhomai joint intelligence committee uniform"
+	desc = "A surplus Adhomai Liberation Army dress uniform. The ALA symbols have been replaced with the symbol of the Adhomai Joint Intelligence Committee."
+	starting_accessories = null
+
 /obj/item/clothing/under/tajaran/ala/black/officer
 	name = "adhomai liberation army officer uniform"
 	desc = "A military uniform issued to officers of the adhomai liberation army."
