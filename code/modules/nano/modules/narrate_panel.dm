@@ -74,13 +74,13 @@
 					// This will check for anyone who is capable of receiving and interpreting telepathic messages.
 					// It will include Skrell who don't have a mindshield or the Low Psi-sensitivity trait.
 					// It will also include characters who have Psi-receivers, the High Psi-sensitivity trait, or are under the effects of Psycho-nootropic drugs.
-					if (filteree.is_telepathy_blocked(PSI_RANK_SENSITIVE))
+					if (IS_TELEPATHY_BLOCKED(filteree, PSI_RANK_SENSITIVE))
 						mobs_to_message.Remove(filteree)
 						continue
 			if ("Human-like Psi-sensitives")
 				for(var/mob/filteree in filtered_list)
 					// This will check for anyone who has a Zona Bovina capable of hearing psionics at all.
-					if (filteree.is_telepathy_blocked(0))
+					if (IS_TELEPATHY_BLOCKED(filteree, 0))
 						mobs_to_message.Remove(filteree)
 						continue
 			if ("Silicons")
