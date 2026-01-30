@@ -100,7 +100,7 @@
 						continue
 
 
-					if (ishuman(filteree))
+					if (!ishuman(filteree))
 						// The mob in question can't have a brain at all, filter it early.
 						mobs_to_message.Remove(filteree)
 						continue
