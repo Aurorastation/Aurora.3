@@ -362,7 +362,9 @@
 
 /obj/outfit/job/diplomatic_bodyguard/nka
 	name = "NKA Diplomatic Bodyguard"
-	uniform = /obj/item/clothing/under/tajaran/fancy/alt2
+	uniform = /obj/item/clothing/under/tajaran/nka_uniform/nosheath
+	head = /obj/item/clothing/head/tajaran/nka_cap
+	shoes = /obj/item/clothing/shoes/jackboots/tajara
 	backpack_contents = list(
 		/obj/item/gun/projectile/revolver/adhomian = 1
 	)

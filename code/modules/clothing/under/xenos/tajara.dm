@@ -232,6 +232,9 @@
 	starting_accessories = list(/obj/item/clothing/accessory/storage/bayonet)
 	armor = list(MELEE = ARMOR_MELEE_SMALL)
 
+/obj/item/clothing/under/tajaran/nka_uniform/nosheath
+	starting_accessories = null
+
 /obj/item/clothing/under/tajaran/nka_uniform/commander
 	name = "imperial adhomian army officer uniform"
 	desc = "A military uniform used by the officers of the New Kingdom of Adhomai's army."
