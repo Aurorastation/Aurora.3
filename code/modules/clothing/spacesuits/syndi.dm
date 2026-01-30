@@ -15,7 +15,7 @@
 		RAD = ARMOR_RAD_MINOR
 	)
 	siemens_coefficient = 0.5
-	brightness_on = 6
+	light_range = 6
 	contained_sprite = FALSE
 
 /obj/item/clothing/suit/space/syndicate

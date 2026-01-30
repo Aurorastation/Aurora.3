@@ -35,7 +35,6 @@
 	icon_state = "base"
 
 	req_access = list(ACCESS_CAPTAIN, ACCESS_HEADS)
-	z_flags = ZMM_MANGLE_PLANES
 	/// PLEASE HOLD.
 	var/active = FALSE
 	/// The cycler won't start with a living thing inside it unless safeties are off.
@@ -245,7 +244,7 @@
 			update_icon()
 		return
 
-	else if(attacking_item.isscrewdriver())
+	else if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		panel_open = !panel_open
 		to_chat(user, SPAN_NOTICE("You [panel_open ? "open" : "close"] the maintenance panel."))
 		updateUsrDialog()

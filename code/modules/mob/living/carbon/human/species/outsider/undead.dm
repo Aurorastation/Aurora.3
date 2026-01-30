@@ -198,6 +198,7 @@
 	slowdown = 1
 
 	vision_flags = DEFAULT_SIGHT
+	default_lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_VISIBLE
 
 	reagent_tag = IS_UNDEAD
 

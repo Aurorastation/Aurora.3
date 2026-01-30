@@ -12,16 +12,16 @@
 	if(!owner)
 		return
 
-	RegisterSignal(owner, COMSIG_HEART_PUMP_EVENT, PROC_REF(stroke_risk))
-	RegisterSignal(owner, COMSIG_HEART_BLEED_EVENT, PROC_REF(reduce_bloodloss))
+	RegisterSignal(owner, COMSIG_HEART_PUMP_EVENT, PROC_REF(stroke_risk), override = TRUE)
+	RegisterSignal(owner, COMSIG_HEART_BLEED_EVENT, PROC_REF(reduce_bloodloss), override = TRUE)
 
 /obj/item/organ/internal/augment/bioaug/platelet_factories/replaced()
 	. = ..()
 	if(!owner)
 		return
 
-	RegisterSignal(owner, COMSIG_HEART_PUMP_EVENT, PROC_REF(stroke_risk))
-	RegisterSignal(owner, COMSIG_HEART_BLEED_EVENT, PROC_REF(reduce_bloodloss))
+	RegisterSignal(owner, COMSIG_HEART_PUMP_EVENT, PROC_REF(stroke_risk), override = TRUE)
+	RegisterSignal(owner, COMSIG_HEART_BLEED_EVENT, PROC_REF(reduce_bloodloss), override = TRUE)
 
 /obj/item/organ/internal/augment/bioaug/platelet_factories/removed()
 	. = ..()

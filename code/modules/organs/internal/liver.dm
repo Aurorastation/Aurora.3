@@ -76,6 +76,9 @@
 	if(!owner)
 		return
 
+	if(owner.stasis_value > 0) // Decrease the effective tickrate when in stasis.
+		seconds_per_tick /= owner.stasis_value
+
 	if(germ_level > INFECTION_LEVEL_ONE)
 		owner.notify_message(SPAN_WARNING(infection_level_one_warning), 2 MINUTES)
 	if(germ_level > INFECTION_LEVEL_TWO && prob(1))
@@ -160,6 +163,7 @@
 		return TRUE
 	return FALSE
 
+// Galatean bioaugmented liver. Dramatically enhanced over a base human liver.
 /obj/item/organ/internal/liver/boosted_liver
 	name = "boosted liver"
 	desc = "Designed primarily for diplomats or Galateans abroad, the boosted liver improves toxin filtering, giving a resistance to toxin damage. As a consequence, it makes it impossible for the user to get drunk."

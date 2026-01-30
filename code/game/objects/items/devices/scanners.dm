@@ -45,43 +45,46 @@ BREATH ANALYZER
 	health_scan_mob(user, user, mode, sound_scan = sound_scan)
 	add_fingerprint(user)
 
-/proc/get_wound_severity(var/damage_ratio, var/uppercase = FALSE) //Used for ratios.
+/// Calculates severity based on the ratios defined external limbs.
+/proc/get_wound_severity(damage_ratio, can_heal_overkill, uppercase = FALSE)
 	var/degree = "none"
 
 	switch(damage_ratio)
-		if(0.001 to 0.1)
+		if (0 to 10)
 			degree = "minor"
-		if(0.1 to 0.2)
+		if (11 to 25)
 			degree = "moderate"
-		if(0.2 to 0.4)
+		if (26 to 50)
 			degree = "significant"
-		if(0.4 to 0.6)
+		if (51 to 75)
 			degree = "severe"
-		if(0.6 to 0.8)
-			degree = "critical"
-		if(0.8 to 1)
-			degree = "fatal"
+		if (76 to 99)
+			degree = "extreme"
+		if (100 to INFINITY)
+			degree = can_heal_overkill ? "critical" : "irreparable"
 
 	if(uppercase)
 		degree = capitalize(degree)
 	return degree
 
-/proc/get_severity(amount, var/uppercase = FALSE)
+/proc/get_severity(amount, can_heal_overkill, uppercase = FALSE)
 	var/output = "none"
-	if(!amount)
-		output = "none"
-	else if(amount > 100)
-		output = "fatal"
-	else if(amount > 75)
-		output = "critical"
-	else if(amount > 50)
-		output = "severe"
-	else if(amount > 25)
-		output = "significant"
-	else if(amount > 10)
-		output = "moderate"
-	else
-		output = "minor"
+
+	switch(amount)
+		if (0)
+			output = "none"
+		if (1 to 10)
+			output = "minor"
+		if (11 to 25)
+			output = "moderate"
+		if (26 to 50)
+			output = "significant"
+		if (51 to 75)
+			output = "severe"
+		if (76 to 99)
+			output = "extreme"
+		if (100 to INFINITY)
+			output = can_heal_overkill ? "critical" : "irreparable"
 
 	if(uppercase)
 		output = capitalize(output)
@@ -741,7 +744,7 @@ BREATH ANALYZER
 /obj/item/device/advanced_healthanalyzer/cyborg/print_scan(var/mob/M, var/mob/living/user)
 	var/obj/item/paper/medscan/R = new /obj/item/paper/medscan(src, connected.format_occupant_data(get_occupant_data(M)), "Scan ([M.name]) ([worldtime2text()])", M)
 	user.visible_message(SPAN_NOTICE("\The [src] beeps, printing \the [R] after a moment."))
-	playsound(user.loc, /singleton/sound_category/print_sound, 50, 1)
+	playsound(user.loc, SFX_PRINT, 50, 1)
 	R.forceMove(user.loc)
 
 /obj/item/device/advanced_healthanalyzer/proc/get_occupant_data(var/mob/living/carbon/human/H)

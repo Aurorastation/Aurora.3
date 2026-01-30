@@ -452,11 +452,6 @@
 			use_mob.forceMove(get_step(use_mob, direct))
 			use_mob.dir = direct
 
-	// Crossed is always a bit iffy
-	for(var/obj/S in use_mob.loc)
-		if(istype(S,/obj/effect/step_trigger) || istype(S,/obj/effect/beam))
-			S.Crossed(use_mob)
-
 	var/area/A = get_area_master(use_mob)
 	if(A)
 		A.Entered(use_mob)

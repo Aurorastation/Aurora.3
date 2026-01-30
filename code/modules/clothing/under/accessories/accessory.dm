@@ -11,6 +11,8 @@
 		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/accessories.dmi'
 	)
 
+	light_system = MOVABLE_LIGHT
+
 	var/slot = ACCESSORY_SLOT_GENERIC
 
 	/// Determines how accessories will layer over eachother, with lower being beneath everything, and upper above
@@ -120,13 +122,6 @@
 /obj/item/clothing/accessory/proc/on_clothing_change(var/mob/user)
 	update_light()
 
-/obj/item/clothing/accessory/get_light_atom()
-	if(isclothing(loc))
-		if(ismob(loc.loc))
-			return loc.loc
-		return loc
-	return ..()
-
 //default attackby behaviour
 /obj/item/clothing/accessory/attackby(obj/item/attacking_item, mob/user)
 	..()
@@ -140,28 +135,32 @@
 //default attack_self behaviour
 /obj/item/clothing/accessory/attack_self(mob/user as mob)
 	if(flippable)
-		if(!flipped)
-			if(!overlay_state)
-				icon_state = "[initial(icon_state)]_flip"
-				item_state = "[initial(item_state)]_flip"
-				flipped = 1
-			else
-				overlay_state = "[overlay_state]_flip"
-				flipped = 1
-		else
-			if(!overlay_state)
-				icon_state = initial(icon_state)
-				item_state = initial(item_state)
-				flipped = 0
-			else
-				overlay_state = initial(overlay_state)
-				flipped = 0
+		flipped = !flipped
+		update_icon()
 		flip_message(user)
 		update_clothing_icon()
 		inv_overlay = null
 		accessory_mob_overlay = null
 		return
 	..()
+
+/obj/item/clothing/accessory/update_icon()
+	. = ..()
+	flip_sprite()
+
+/obj/item/clothing/accessory/proc/flip_sprite()
+	if(flipped)
+		if(!overlay_state)
+			icon_state = "[initial(icon_state)]_flip"
+			item_state = "[initial(item_state)]_flip"
+		else
+			overlay_state = "[overlay_state]_flip"
+	else
+		if(!overlay_state)
+			icon_state = initial(icon_state)
+			item_state = initial(item_state)
+		else
+			overlay_state = initial(overlay_state)
 
 /obj/item/clothing/accessory/proc/flip_message(mob/user)
 	to_chat(user, "You change \the [src] to be on your [src.flipped ? "right" : "left"] side.")
@@ -823,6 +822,24 @@
 	item_state = "legbrace"
 	drop_sound = 'sound/items/drop/gun.ogg'
 
+/obj/item/clothing/accessory/offworlder/bracer/on_attached(obj/item/clothing/S, mob/user)
+	. = ..()
+	if(!user)
+		return
+
+	RegisterSignal(user, COMSIG_GRAVITY_WEAKNESS_EVENT, PROC_REF(negate_weakness))
+
+/obj/item/clothing/accessory/offworlder/bracer/on_removed(mob/user)
+	. = ..()
+	if(!user)
+		return
+
+	UnregisterSignal(user, COMSIG_GRAVITY_WEAKNESS_EVENT)
+
+/obj/item/clothing/accessory/offworlder/bracer/proc/negate_weakness(var/equipee, var/canceled)
+	SIGNAL_HANDLER
+	*canceled = TRUE //TODO: TCJ just make this a component I can shove onto anything.
+
 /obj/item/clothing/accessory/offworlder/bracer/neckbrace
 	name = "neckbrace"
 	desc = "A lightweight polymer frame meant to brace and hold someone's neck upright comfortably."
@@ -1027,7 +1044,7 @@
 	item_state = "kneepads"
 	contained_sprite = TRUE
 	gender = PLURAL
-	slot = ACCESSORY_SLOT_GENERIC
+	slot = ACCESSORY_SLOT_PANTS
 
 /obj/item/clothing/accessory/blood_patch
 	name = "O- blood patch"
@@ -1412,14 +1429,15 @@
 /obj/item/clothing/accessory/led_collar/Initialize()
 	. = ..()
 	color = pick("#00FFFF", "#FF0000", "#FF00FF", "#FF6600", "#CC00CC")
-	set_light(MINIMUM_USEFUL_LIGHT_RANGE, 1.2, color)
+	set_light_range_power_color(MINIMUM_USEFUL_LIGHT_RANGE, 1.2, color)
+	set_light_on(TRUE)
 
 /obj/item/clothing/accessory/led_collar/attack_self(mob/user)
 	. = ..()
 	var/new_color = input(user, "Select the color of \the [src]", "LED Collar Color Selection", color) as null|color
 	if(new_color)
 		color = new_color
-		set_light(MINIMUM_USEFUL_LIGHT_RANGE, 1.2, color)
+		set_light_range_power_color(MINIMUM_USEFUL_LIGHT_RANGE, 1.2, color)
 
 /obj/item/clothing/accessory/led_collar/get_accessory_mob_overlay(var/mob/living/carbon/human/H, var/force = FALSE)
 	var/image/I = ..()

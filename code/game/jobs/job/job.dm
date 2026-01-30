@@ -157,11 +157,6 @@
 					var/obj/outfit/O = new new_outfit
 					O.pre_equip(H, TRUE)
 					O.equip(H, TRUE)
-					return
-
-	var/pre_hat_ref = H.head ? REF(H.head) : null
-	var/pre_uniform_ref = H.w_uniform ? REF(H.w_uniform) : null
-	var/pre_suit_ref = H.wear_suit ? REF(H.wear_suit) : null
 
 	pre_equip(H, TRUE)
 	. = equip(H, TRUE, FALSE, alt_title=alt_title)
@@ -169,19 +164,18 @@
 	// slightly hacky, but effectively what we're doing here is checking whether we want this preview mob to actually have the uniform we're putting onto it
 	// if not, we drop it from the inventory into nullspace, and then deleting it
 	// i don't THINK this'll make performance that much worse, considering how much we already do to equip the mob in the first place
-	// the reasoning for the ref checks is that we don't want to delete loadout uniforms, just the job ones, so we need to confirm the before and after
 
 	var/equip_preview_mob = prefs.equip_preview_mob
 
-	if(!(equip_preview_mob & EQUIP_PREVIEW_JOB_HAT) && H.head && REF(H.head) != pre_hat_ref)
+	if(!(equip_preview_mob & EQUIP_PREVIEW_JOB_HAT) && H.head)
 		H.drop_from_inventory(H.head)
 		qdel(H.head)
 
-	if(!(equip_preview_mob & EQUIP_PREVIEW_JOB_UNIFORM) && H.w_uniform && REF(H.w_uniform) != pre_uniform_ref)
+	if(!(equip_preview_mob & EQUIP_PREVIEW_JOB_UNIFORM) && H.w_uniform)
 		H.drop_from_inventory(H.w_uniform)
 		qdel(H.w_uniform)
 
-	if(!(equip_preview_mob & EQUIP_PREVIEW_JOB_SUIT) && H.wear_suit && REF(H.wear_suit) != pre_suit_ref)
+	if(!(equip_preview_mob & EQUIP_PREVIEW_JOB_SUIT) && H.wear_suit)
 		H.drop_from_inventory(H.wear_suit)
 		qdel(H.wear_suit)
 

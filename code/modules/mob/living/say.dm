@@ -248,6 +248,13 @@ var/list/channel_to_radio_key = new
 	if(!verb)
 		verb = say_quote(message, speaking, is_singing, whisper)
 
+	var/is_shouting = FALSE
+	if(speaking)
+		for(var/verb_to_check in speaking.shout_verb)
+			if(verb_to_check == verb)
+				is_shouting = TRUE
+				continue
+
 	if(is_muzzled())
 		to_chat(src, SPAN_DANGER("You're muzzled and cannot speak!"))
 		return
@@ -357,8 +364,10 @@ var/list/channel_to_radio_key = new
 	var/list/langchat_styles = list()
 	if(istype(speaking, /datum/language/noise))
 		langchat_styles = list("emote", "langchat_small")
-	if(istype(speaking, /datum/language/noise))
-		langchat_styles = list("emote", "langchat_small")
+	if(whisper)
+		langchat_styles = list("langchat_italic")
+	if(is_shouting)
+		langchat_styles = list("langchat_yell")
 
 	langchat_speech(message, get_hearers_in_view(message_range, src), speaking, additional_styles = langchat_styles)
 

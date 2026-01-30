@@ -1,9 +1,0 @@
-author: TheGreyWolf, Tomixcomics
-
-delete-after: True
-
-changes:
-  - rscadd: "The commissary now has specific storage shelves for smokes, clothes, toys and food and drinks."
-  - rscadd: "The commissary has acquired a cash register to handle transactions with."
-  - rscadd: "The quik-pay can now add items by clicking on them while unlocked."
-  - bugfix: "The quik-pay can now remove items that has been input on it."

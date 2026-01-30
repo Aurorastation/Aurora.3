@@ -338,10 +338,6 @@
 	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/phoron_deposit_shuttle)
-"lx" = (
-/obj/effect/shuttle_landmark/automatic,
-/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
-/area/mine)
 "lB" = (
 /mob/living/simple_animal/hostile/carp,
 /obj/random/dirt_75,
@@ -549,6 +545,10 @@
 	},
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
+"vn" = (
+/obj/effect/shuttle_landmark/phoron_deposit/delta,
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
+/area/mine)
 "vx" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -722,6 +722,12 @@
 	},
 /turf/simulated/floor/airless,
 /area/phoron_deposit_shuttle)
+"zI" = (
+/obj/effect/shuttle_landmark/phoron_deposit/bravo{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
+/area/mine)
 "Ae" = (
 /obj/machinery/papershredder,
 /turf/simulated/floor/tiled/dark/airless,
@@ -1162,6 +1168,12 @@
 	},
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
+"Pb" = (
+/obj/effect/shuttle_landmark/phoron_deposit/alpha{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
+/area/mine)
 "Pu" = (
 /obj/random/dirt_75,
 /obj/machinery/mining/drill,
@@ -1301,6 +1313,12 @@
 	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/phoron_deposit_shuttle)
+"Uj" = (
+/obj/effect/shuttle_landmark/phoron_deposit/charlie{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/asteroid/ash/rocky,
+/area/mine)
 "Ut" = (
 /obj/item/material/shard{
 	pixel_y = 12;
@@ -15808,7 +15826,6 @@ PH
 PH
 PH
 PH
-RT
 PH
 PH
 PH
@@ -15834,7 +15851,8 @@ PH
 PH
 PH
 PH
-XE
+PH
+PH
 PH
 PH
 PH
@@ -16076,7 +16094,6 @@ PH
 PH
 PH
 PH
-XE
 PH
 PH
 PH
@@ -16095,7 +16112,8 @@ PH
 PH
 PH
 PH
-sC
+PH
+PH
 PH
 PH
 PH
@@ -16342,7 +16360,7 @@ PH
 PH
 PH
 PH
-pB
+PH
 PH
 PH
 PH
@@ -16616,7 +16634,7 @@ PH
 PH
 PH
 PH
-XE
+PH
 PH
 PH
 PH
@@ -18629,7 +18647,7 @@ PH
 PH
 PH
 PH
-PH
+Pb
 PH
 PH
 PH
@@ -21218,7 +21236,6 @@ PH
 PH
 PH
 PH
-lx
 PH
 PH
 PH
@@ -21243,7 +21260,8 @@ PH
 PH
 PH
 PH
-pB
+PH
+PH
 PH
 PH
 PH
@@ -28671,7 +28689,7 @@ PH
 PH
 PH
 PH
-lx
+PH
 PH
 PH
 PH
@@ -34079,7 +34097,7 @@ PH
 PH
 PH
 PH
-PH
+zI
 PH
 PH
 PH
@@ -36127,7 +36145,7 @@ PH
 PH
 PH
 PH
-PH
+Uj
 PH
 PH
 PH
@@ -41522,7 +41540,7 @@ PH
 PH
 PH
 PH
-lx
+PH
 PH
 PH
 PH
@@ -48975,7 +48993,7 @@ PH
 PH
 PH
 PH
-lx
+PH
 PH
 PH
 PH
@@ -51309,7 +51327,7 @@ PH
 PH
 PH
 PH
-PH
+vn
 PH
 PH
 PH
@@ -53840,7 +53858,7 @@ PH
 PH
 PH
 PH
-RT
+PH
 PH
 PH
 PH

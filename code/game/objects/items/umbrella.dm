@@ -34,7 +34,7 @@
 			force = 1
 			sharp = FALSE
 			attack_verb = list("taps")
-			hitsound = /singleton/sound_category/punchmiss_sound
+			hitsound = SFX_PUNCH_MISS
 		else
 			to_chat(user, SPAN_NOTICE("You close up \the [src]."))
 			item_state = "umbrella_[umbrella_color]_closed"

@@ -23,7 +23,7 @@
 	projectile_type = /obj/projectile/energy/floramut
 	origin_tech = list(TECH_MATERIAL = 2, TECH_BIO = 3, TECH_POWER = 3)
 	modifystate = "floramut"
-	self_recharge = 1
+	self_recharge = TRUE
 	var/singleton/plantgene/gene = null
 
 	firemodes = list(
@@ -71,10 +71,10 @@
 	w_class = WEIGHT_CLASS_BULKY
 	max_shots = 10
 	projectile_type = /obj/projectile/meteor
-	self_recharge = 1
+	self_recharge = TRUE
 	recharge_time = 5 //Time it takes for shots to recharge (in ticks)
 	charge_meter = 0
-	can_turret = 1
+	can_turret = TRUE
 	turret_sprite_set = "meteor"
 
 /obj/item/gun/energy/meteorgun/pen
@@ -86,7 +86,7 @@
 	item_state = "pen"
 	w_class = WEIGHT_CLASS_TINY
 	slot_flags = SLOT_BELT
-	can_turret = 0
+	can_turret = FALSE
 
 
 /obj/item/gun/energy/mindflayer
@@ -98,7 +98,7 @@
 	has_item_ratio = FALSE
 	projectile_type = /obj/projectile/beam/mindflayer
 	fire_sound = 'sound/weapons/laser1.ogg'
-	can_turret = 1
+	can_turret = TRUE
 	turret_sprite_set = "xray"
 
 /obj/item/gun/energy/toxgun
@@ -112,8 +112,8 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	origin_tech = list(TECH_COMBAT = 5, TECH_PHORON = 4)
 	projectile_type = /obj/projectile/energy/phoron
-	can_turret = 1
-	turret_is_lethal = 0
+	can_turret = TRUE
+	turret_is_lethal = FALSE
 	turret_sprite_set = "net"
 
 /obj/item/gun/energy/mousegun
@@ -174,8 +174,8 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	max_shots = 4
 	fire_delay = 25
-	can_turret = 1
-	turret_is_lethal = 0
+	can_turret = TRUE
+	turret_is_lethal = FALSE
 	turret_sprite_set = "net"
 
 /obj/item/gun/energy/net/mounted
@@ -281,7 +281,7 @@
 	origin_tech = list(TECH_COMBAT = 6, TECH_PHORON = 4, TECH_POWER = 4)
 	fire_sound = 'sound/weapons/laser1.ogg'
 	slot_flags = SLOT_BACK | SLOT_HOLSTER | SLOT_BELT
-	self_recharge = 1
+	self_recharge = TRUE
 	recharge_time = 7
 	accuracy = 1
 	recoil = 1
@@ -291,7 +291,7 @@
 	burst = 1
 	burst_delay = 1
 	fire_delay = 5
-	can_turret = 1
+	can_turret = TRUE
 	turret_sprite_set = "laser"
 
 
@@ -321,7 +321,7 @@
 	armor_penetration = 40
 	atom_flags = ATOM_FLAG_NO_BLOOD
 	can_embed = 0
-	self_recharge = 1
+	self_recharge = TRUE
 	recharge_time = 2
 	needspin = FALSE
 	is_wieldable = TRUE
@@ -461,7 +461,7 @@
 	max_shots = 10
 	accuracy = 1
 	fire_delay = 1
-	can_turret = 0
+	can_turret = FALSE
 
 /obj/item/gun/energy/tesla
 	name = "tesla gun"
@@ -484,10 +484,10 @@
 
 /obj/item/gun/energy/tesla/mounted
 	name = "mounted tesla carbine"
-	self_recharge = 1
-	use_external_power = 1
+	self_recharge = TRUE
+	use_external_power = TRUE
 	recharge_time = 10
-	can_turret = 0
+	can_turret = FALSE
 
 /obj/item/gun/energy/gravity_gun
 	name = "gravity gun"
@@ -632,10 +632,10 @@
 	projectile_type = /obj/projectile/beam/xray // can't wear a hardsuit, and it's only 15 damage with a lot of AP
 	charge_cost = 100
 	max_shots = 20
-	self_recharge = 1 // bioreactor in the backpack; not entirely defenseless against EMPs
+	self_recharge = TRUE // bioreactor in the backpack; not entirely defenseless against EMPs
 	fire_delay = 35
 	burst_delay = 2
-	can_turret = 0
+	can_turret = FALSE
 
 	is_wieldable = TRUE
 

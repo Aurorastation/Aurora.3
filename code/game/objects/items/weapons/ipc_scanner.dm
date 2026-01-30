@@ -40,7 +40,7 @@
 			to_chat(user, SPAN_WARNING("You analyze \the [target_mob], but find that they're not an IPC at all!"))
 			return
 		var/mob/living/carbon/human/IPC = target_mob
-		var/obj/item/organ/internal/ipc_tag/tag = IPC.internal_organs_by_name[BP_IPCTAG]
+		var/obj/item/organ/internal/machine/ipc_tag/tag = IPC.internal_organs_by_name[BP_IPCTAG]
 		if(isnull(tag) || !tag)
 			to_chat(user, SPAN_WARNING("Error: Serial Identification Missing."))
 			return
@@ -50,7 +50,7 @@
 		to_chat(user, SPAN_NOTICE("<b>Citizenship Info:</b> [tag.citizenship_info]"))
 
 /obj/item/ipc_tag_scanner/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		wires_exposed = !wires_exposed
 		user.visible_message(SPAN_WARNING("\The [user] [wires_exposed ? "exposes the wiring" : "closes the panel"] on \the [src]."), SPAN_WARNING("You [wires_exposed ? "expose the wiring" : "close the panel"] on \the [src]."), 3)
 	else if(wires_exposed)

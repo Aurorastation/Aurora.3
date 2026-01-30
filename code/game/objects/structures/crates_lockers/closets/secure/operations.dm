@@ -73,6 +73,7 @@
 	new /obj/item/storage/belt/utility(src)
 	new /obj/item/storage/belt/utility/alt(src)
 	new /obj/item/storage/toolbox/mechanical(src)
+	new /obj/item/modular_computer/laptop/preset/supply/robotics(src)
 
 // Miner
 /obj/structure/closet/secure_closet/miner

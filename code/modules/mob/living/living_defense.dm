@@ -116,7 +116,7 @@
 		//If the projectile was blocked and it's not at point blank range, then it missed
 		if(blocked >= 100 && !hitting_projectile.point_blank)
 			src.visible_message(SPAN_NOTICE("\The [hitting_projectile] misses [src] narrowly!"))
-			playsound(src, /singleton/sound_category/bulletflyby_sound, 50, 1)
+			playsound(src, SFX_BULLET_MISS, 50, 1)
 
 		//Otherwise it hit
 		else
@@ -322,7 +322,7 @@
 					src.anchored = 1
 					src.pinned += O
 
-/mob/living/proc/embed(var/obj/O, var/def_zone=null)
+/mob/living/proc/embed(obj/O, def_zone=null, datum/wound/supplied_wound)
 	O.forceMove(src)
 	src.embedded += O
 	add_verb(src, /mob/proc/yank_out_object)

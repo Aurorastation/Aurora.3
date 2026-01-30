@@ -1,7 +1,3 @@
-#ifndef T_BOARD
-#error T_BOARD macro is not defined but we need it!
-#endif
-
 //Stuff that doesn't fit into any category goes here
 
 /obj/item/circuitboard/aicore
@@ -196,7 +192,7 @@
 							"/obj/item/stock_parts/manipulator" = 1,
 							"/obj/item/stock_parts/scanning_module" = 1)
 /obj/item/circuitboard/oxyregenerator
-	name = "circuit board (oxygen regenerator)"
+	name = T_BOARD("oxygen regenerator")
 	build_path = /obj/machinery/atmospherics/binary/oxyregenerator
 	board_type = BOARD_MACHINE
 	origin_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)

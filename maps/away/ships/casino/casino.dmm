@@ -319,7 +319,7 @@
 "be" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
-	insecure = 0;
+	features_powerloss_manual_override = 0;
 	name = "Casino Bridge";
 	dir = 1
 	},
@@ -334,7 +334,7 @@
 "bf" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
-	insecure = 0;
+	features_powerloss_manual_override = 0;
 	name = "Casino Bridge";
 	dir = 1
 	},
@@ -524,7 +524,7 @@
 /area/casino/casino_maintenance)
 "bG" = (
 /obj/machinery/door/airlock{
-	insecure = 0;
+	features_powerloss_manual_override = 0;
 	name = "Security wing";
 	dir = 4
 	},
@@ -597,7 +597,7 @@
 /area/casino/casino_security)
 "bM" = (
 /obj/machinery/door/airlock{
-	insecure = 0;
+	features_powerloss_manual_override = 0;
 	name = "Shuttle control";
 	dir = 4
 	},
@@ -920,7 +920,7 @@
 "cJ" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
-	insecure = 0;
+	features_powerloss_manual_override = 0;
 	name = "Crew toilet";
 	dir = 4
 	},
@@ -1034,7 +1034,7 @@
 "db" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
-	insecure = 0;
+	features_powerloss_manual_override = 0;
 	name = "Crew bunk room";
 	dir = 4
 	},
@@ -1152,7 +1152,7 @@
 /area/casino/casino_crew_bathroom)
 "du" = (
 /obj/machinery/door/airlock{
-	insecure = 0;
+	features_powerloss_manual_override = 0;
 	name = "Crew toilet";
 	dir = 4
 	},
@@ -1679,7 +1679,7 @@
 "ff" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
-	insecure = 0;
+	features_powerloss_manual_override = 0;
 	name = "Kitchen";
 	dir = 1
 	},
@@ -1695,7 +1695,7 @@
 /area/casino/casino_maintenance)
 "fg" = (
 /obj/machinery/door/airlock{
-	insecure = 0;
+	features_powerloss_manual_override = 0;
 	name = "Security wing";
 	dir = 1
 	},
@@ -1706,7 +1706,7 @@
 "fh" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
-	insecure = 0;
+	features_powerloss_manual_override = 0;
 	name = "Shuttle hangar";
 	dir = 1
 	},
@@ -1752,7 +1752,7 @@
 /area/casino/casino_crew_atmos)
 "fo" = (
 /obj/machinery/door/airlock{
-	insecure = 0;
+	features_powerloss_manual_override = 0;
 	name = "Main desk";
 	dir = 4
 	},
@@ -1788,7 +1788,7 @@
 /area/casino/casino_security)
 "fr" = (
 /obj/machinery/door/airlock{
-	insecure = 0;
+	features_powerloss_manual_override = 0;
 	name = "Shuttle checkpoint";
 	dir = 4
 	},
@@ -1879,7 +1879,7 @@
 "fE" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
-	insecure = 0;
+	features_powerloss_manual_override = 0;
 	name = "Kitchen";
 	dir = 1
 	},
@@ -1892,7 +1892,7 @@
 /area/casino/casino_maintenance)
 "fF" = (
 /obj/machinery/door/airlock{
-	insecure = 0;
+	features_powerloss_manual_override = 0;
 	name = "Main desk";
 	dir = 1
 	},
@@ -2052,7 +2052,7 @@
 "gd" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
-	insecure = 0;
+	features_powerloss_manual_override = 0;
 	name = "Casino";
 	dir = 1
 	},
@@ -2484,7 +2484,7 @@
 "hx" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
-	insecure = 0;
+	features_powerloss_manual_override = 0;
 	name = "Kitchen";
 	dir = 4
 	},
@@ -2618,7 +2618,7 @@
 "hT" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
-	insecure = 0;
+	features_powerloss_manual_override = 0;
 	name = "Kitchen";
 	dir = 4
 	},
@@ -2715,7 +2715,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/door/airlock{
-	insecure = 0;
+	features_powerloss_manual_override = 0;
 	name = "Solar control";
 	dir = 1
 	},
@@ -2729,7 +2729,7 @@
 "ii" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
-	insecure = 0;
+	features_powerloss_manual_override = 0;
 	name = "Atmos control";
 	dir = 1
 	},
@@ -3159,7 +3159,7 @@
 "jl" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
-	insecure = 0;
+	features_powerloss_manual_override = 0;
 	name = "Bar storage";
 	dir = 4
 	},
@@ -3195,7 +3195,7 @@
 "jo" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
-	insecure = 0;
+	features_powerloss_manual_override = 0;
 	name = "Bar";
 	dir = 4
 	},
@@ -3570,7 +3570,7 @@
 "kn" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
-	insecure = 0;
+	features_powerloss_manual_override = 0;
 	name = "Kitchen";
 	dir = 1
 	},
@@ -4050,7 +4050,7 @@
 "lt" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
-	insecure = 0;
+	features_powerloss_manual_override = 0;
 	name = "Toilet room";
 	dir = 1
 	},
@@ -4163,7 +4163,7 @@
 /area/casino/casino_patron_bathroom)
 "lS" = (
 /obj/machinery/door/airlock{
-	insecure = 0;
+	features_powerloss_manual_override = 0;
 	name = "Toilet #1";
 	dir = 4
 	},
@@ -4194,7 +4194,7 @@
 "lX" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
-	insecure = 0;
+	features_powerloss_manual_override = 0;
 	name = "Bow";
 	dir = 1
 	},
@@ -4370,7 +4370,7 @@
 /area/casino/casino_patron_bathroom)
 "mC" = (
 /obj/machinery/door/airlock{
-	insecure = 0;
+	features_powerloss_manual_override = 0;
 	name = "Toilet #2";
 	dir = 4
 	},
@@ -4419,7 +4419,7 @@
 "mL" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
-	insecure = 0;
+	features_powerloss_manual_override = 0;
 	name = "Bow";
 	dir = 1
 	},
@@ -4500,7 +4500,7 @@
 "mY" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /obj/machinery/door/airlock{
-	insecure = 0;
+	features_powerloss_manual_override = 0;
 	name = "Engines #1";
 	dir = 1
 	},
@@ -4528,7 +4528,7 @@
 "nb" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /obj/machinery/door/airlock{
-	insecure = 0;
+	features_powerloss_manual_override = 0;
 	name = "Engines #2";
 	dir = 1
 	},
@@ -5040,7 +5040,7 @@
 "zc" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
-	insecure = 0;
+	features_powerloss_manual_override = 0;
 	name = "Kitchen";
 	dir = 4
 	},

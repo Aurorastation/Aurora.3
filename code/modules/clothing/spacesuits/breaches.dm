@@ -199,7 +199,7 @@ GLOBAL_LIST_INIT(breach_burn_descriptors, list(
 			repair_breaches(DAMAGE_BURN, use_amt * repair_power, user)
 		return
 
-	else if(attacking_item.iswelder())
+	else if(attacking_item.tool_behaviour == TOOL_WELDER)
 
 		if(istype(src.loc,/mob/living))
 			to_chat(user, SPAN_WARNING("How do you intend to patch a voidsuit while someone is wearing it?"))

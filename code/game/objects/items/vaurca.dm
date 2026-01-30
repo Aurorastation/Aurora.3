@@ -147,7 +147,7 @@
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
 	use_sound = 'sound/items/storage/wrapper.ogg'
-	open_sound = /singleton/sound_category/rip_sound
+	open_sound = SFX_RIP
 	open_message = "You tear open the bag, breaking the vacuum seal."
 	make_exact_fit = TRUE
 

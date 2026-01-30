@@ -610,7 +610,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
-/obj/machinery/autolathe,
+/obj/machinery/fabricator/autolathe,
 /turf/simulated/floor/tiled/gridded,
 /area/hegemony_waypoint/atmos)
 "nm" = (

@@ -430,6 +430,7 @@
 /obj/machinery/light/skrell{
 	dir = 1
 	},
+/obj/structure/closet/secure_closet/freezer/kois/spores,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/tirakqi_smuggler/cargo)
 "ds" = (
@@ -6668,7 +6669,7 @@
 /area/ship/tirakqi_smuggler/port_hall)
 "Oy" = (
 /obj/machinery/light/skrell,
-/obj/machinery/autolathe,
+/obj/machinery/fabricator/autolathe/hacked,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/tirakqi_smuggler/engi)

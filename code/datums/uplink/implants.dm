@@ -76,6 +76,13 @@
 	desc = "An augment implanter, with a Auxiliary Heart bioaug. ONLY WORKS ON HUMANS!"
 	path = /obj/item/device/augment_implanter/auxiliary_heart
 
+/datum/uplink_item/item/implants/gravity_adaptations
+	name = "Galatean Gravity Adaptations Implanter"
+	bluecrystal_cost = 1
+	telecrystal_cost = 1
+	desc = "An augment implanter, with a Gravity Adaptations bioaug. ONLY WORKS ON OFF-WORLDERS!"
+	path = /obj/item/device/augment_implanter/gravity_adaptations
+
 /datum/uplink_item/item/implants/mind_blanker
 	name = "Galatean Mind Blanker Implanter"
 	bluecrystal_cost = 2

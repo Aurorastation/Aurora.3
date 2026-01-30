@@ -113,7 +113,6 @@
 	light_power = 0
 	light_range = 4
 	light_color = COLOR_BRIGHT_GREEN
-	light_wedge = 45
 
 /mob/living/silicon/pai/movement_delay()
 	return 0.8
@@ -140,21 +139,21 @@
 /mob/living/silicon/pai/proc/toggle_flashlight()
 	flashlight_active = !flashlight_active
 	if(flashlight_active)
-		set_light(4, 1, COLOR_BRIGHT_GREEN, angle = 45)
+		set_light(4, 1, COLOR_BRIGHT_GREEN)
 	else
 		set_light(0)
 
-/mob/living/silicon/pai/set_light(l_range, l_power, l_color, uv, angle, no_update)
+/mob/living/silicon/pai/set_light(l_range, l_power, l_color)
 	..()
 	if(istype(loc, /obj/item/holder/pai))
 		var/obj/item/holder/pai/P = loc
-		P.set_light(l_range, l_power, l_color, uv, angle, no_update)
+		P.set_light(l_range, l_power, l_color)
 
 /mob/living/silicon/pai/post_scoop()
 	..()
 	if(istype(loc, /obj/item/holder/pai))
 		var/obj/item/holder/pai/P = loc
-		P.set_light(light_range, light_power, light_color, uv_intensity, light_wedge)
+		P.set_light(light_range, light_power, light_color)
 
 /mob/living/silicon/pai/Initialize(mapload)
 	var/obj/item/device/paicard/paicard = loc

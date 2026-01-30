@@ -79,7 +79,6 @@
 	var/list/sandals = list()
 	sandals["sandals"] = /obj/item/clothing/shoes/sandals
 	sandals["rubber clogs"] = /obj/item/clothing/shoes/sandals/clogs
-	sandals["flip flops"] = /obj/item/clothing/shoes/sandals/flipflop
 	sandals["geta"] = /obj/item/clothing/shoes/sandals/geta
 	gear_tweaks += new /datum/gear_tweak/path(sandals)
 

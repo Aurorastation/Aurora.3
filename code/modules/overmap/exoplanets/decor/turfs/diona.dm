@@ -3,6 +3,6 @@
 	gender = PLURAL
 	icon = 'icons/turf/flooring/diona.dmi'
 	icon_state = "diona0"
-	footstep_sound = /singleton/sound_category/grass_footstep
+	footstep_sound = SFX_FOOTSTEP_GRASS
 	initial_flooring = /singleton/flooring/diona
 	has_resources = FALSE

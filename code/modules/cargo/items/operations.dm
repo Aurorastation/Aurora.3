@@ -581,3 +581,157 @@
 	container_type = "crate"
 	groupable = TRUE
 	spawn_amount = 1
+
+/singleton/cargo_item/cigarette_restock
+	category = "operations"
+	name = "commissary cigarette restock"
+	supplier = "getmore"
+	description = "A box full of stock for the commissary."
+	price = 200
+	items = list(
+		/obj/item/commissary_restrock
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/rollable_restock
+	category = "operations"
+	name = "commissary tobacco leaves restock"
+	supplier = "getmore"
+	description = "A box full of stock for the commissary."
+	price = 150
+	items = list(
+		/obj/item/commissary_restrock/rollable
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/chewable_restock
+	category = "operations"
+	name = "commissary chewing tobacco restock"
+	supplier = "getmore"
+	description = "A box full of stock for the commissary."
+	price = 175
+	items = list(
+		/obj/item/commissary_restrock/chewable
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/smoking_accessory_restock
+	category = "operations"
+	name = "commissary smoking accessories restock"
+	supplier = "getmore"
+	description = "A box full of stock for the commissary."
+	price = 400 // includes a bunch of lottery tickets, so it should be relatively high compared to other restocks
+	items = list(
+		/obj/item/commissary_restrock/smoking_accessory
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/electric_cig_restock
+	category = "operations"
+	name = "commissary electronic cigarette restock"
+	supplier = "getmore"
+	description = "A box full of stock for the commissary."
+	price = 225
+	items = list(
+		/obj/item/commissary_restrock/electronic_cig
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/snack_restock
+	category = "operations"
+	name = "commissary snack restock"
+	supplier = "getmore"
+	description = "A box full of stock for the commissary."
+	price = 150
+	items = list(
+		/obj/item/commissary_restrock/food
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/xeno_restock
+	category = "operations"
+	name = "commissary xeno snack restock"
+	supplier = "getmore"
+	description = "A box full of stock for the commissary."
+	price = 150
+	items = list(
+		/obj/item/commissary_restrock/food/xeno
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/candy_restock
+	category = "operations"
+	name = "commissary candy restock"
+	supplier = "getmore"
+	description = "A box full of stock for the commissary."
+	price = 150
+	items = list(
+		/obj/item/commissary_restrock/food/candy
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/microwave_restock
+	category = "operations"
+	name = "commissary microwave meal restock"
+	supplier = "getmore"
+	description = "A box full of stock for the commissary."
+	price = 150
+	items = list(
+		/obj/item/commissary_restrock/food/microwave
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/drink_restock
+	category = "operations"
+	name = "commissary drink restock"
+	supplier = "getmore"
+	description = "A box full of stock for the commissary."
+	price = 300
+	items = list(
+		/obj/item/commissary_restrock/drink
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1
+
+/singleton/cargo_item/cheap_booze_restock
+	category = "operations"
+	name = "commissary beer restock"
+	supplier = "getmore"
+	description = "A box full of stock for the commissary."
+	price = 200
+	items = list(
+		/obj/item/commissary_restrock/drink/booze_cheap
+	)
+	access = 0
+	container_type = "crate"
+	groupable = TRUE
+	spawn_amount = 1

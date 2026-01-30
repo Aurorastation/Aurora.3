@@ -1,32 +1,36 @@
 //max channel is 1024. Only go lower from here, because byond tends to pick the first available channel to play sounds on
-#define CHANNEL_LOBBYMUSIC 1024
-#define CHANNEL_ADMIN 1023
-#define CHANNEL_VOX 1022
-#define CHANNEL_JUKEBOX 1021
-#define CHANNEL_HEARTBEAT 1020 //sound channel for heartbeats
-#define CHANNEL_BOSS_MUSIC 1019
+#define CHANNEL_MASTER_VOLUME 1024
+#define CHANNEL_LOBBYMUSIC 1023
+#define CHANNEL_ADMIN 1022
+#define CHANNEL_VOX 1021
+#define CHANNEL_JUKEBOX 1020
+#define CHANNEL_HEARTBEAT 1019 //sound channel for heartbeats
 #define CHANNEL_AMBIENCE 1018
 #define CHANNEL_BUZZ 1017
-#define CHANNEL_TRAITOR 1016
-#define CHANNEL_CHARGED_SPELL 1015
-#define CHANNEL_ELEVATOR 1014
+#define CHANNEL_SOUND_EFFECTS 1016
+#define CHANNEL_SOUND_FOOTSTEPS 1015
+#define CHANNEL_WEATHER 1014
+#define CHANNEL_MACHINERY 1013
+#define CHANNEL_INSTRUMENTS 1012
+#define CHANNEL_MOB_SOUNDS 1011
 
-///Default range of a sound.
+/// Default range of a sound.
 #define SOUND_RANGE 17
 #define MEDIUM_RANGE_SOUND_EXTRARANGE -5
-///default extra range for sounds considered to be quieter
+/// Default extra range for sounds considered to be quieter
 #define SHORT_RANGE_SOUND_EXTRARANGE -9
-///The range deducted from sound range for things that are considered silent / sneaky
+/// The range deducted from sound range for things that are considered silent / sneaky
 #define SILENCED_SOUND_EXTRARANGE -11
-///Percentage of sound's range where no falloff is applied
-#define SOUND_DEFAULT_FALLOFF_DISTANCE 1 //For a normal sound this would be 1 tile of no falloff
-///The default exponent of sound falloff
+/// Percentage of sound's range where no falloff is applied
+/// For a normal sound this would be 1 tile of no falloff
+#define SOUND_DEFAULT_FALLOFF_DISTANCE 1
+/// The default exponent of sound falloff
 #define SOUND_FALLOFF_EXPONENT 6
 
 //THIS SHOULD ALWAYS BE THE LOWEST ONE!
 //KEEP IT UPDATED
 
-#define CHANNEL_HIGHEST_AVAILABLE 1015
+#define CHANNEL_HIGHEST_AVAILABLE 1011
 
 #define MAX_INSTRUMENT_CHANNELS (128 * 6)
 
@@ -83,3 +87,97 @@
 #define SOUND_AREA_LAVALAND SOUND_ENVIRONMENT_MOUNTAINS
 #define SOUND_AREA_ICEMOON SOUND_ENVIRONMENT_CAVE
 #define SOUND_AREA_WOODFLOOR SOUND_ENVIRONMENT_CITY
+
+/**
+ * List of all of our sound keys.
+ * Used with /datum/sound_effect as the key.
+ * See also 'code\game\sound\sound_keys\sound_keys.dm'
+ */
+#define SFX_ANIMAL_BEAR "animal_bear"
+#define SFX_ARCADE "arcade"
+#define SFX_BODYFALL "bodyfall"
+#define SFX_BODYFALL_MACHINE "bodyfall_machine"
+#define SFX_BODYFALL_SKRELL "bodyfall_skrell"
+#define SFX_BOTTLE_HIT_BROKEN "bottle_hit_broken"
+#define SFX_BOTTLE_HIT_INTACT "bottle_hit_intact"
+#define SFX_BREAK_CARDBOARD "break_cardboard"
+#define SFX_BREAK_GLASS "break_glass"
+#define SFX_BREAK_WOOD "break_wood"
+#define SFX_BULLET_MISS "bullet_miss"
+#define SFX_BUTTON "button"
+#define SFX_CASING_DROP "casing_drop"
+#define SFX_CASING_DROP_SHOTGUN "casing_drop_shotgun"
+#define SFX_COMPUTER_BEEP "computer_beep"
+#define SFX_COMPUTER_BOOP "computer_boop"
+#define SFX_CROWBAR "crowbar"
+#define SFX_DRILL_HIT "drill_hit"
+#define SFX_DROP "drop"
+#define SFX_ELECTRICAL_HUM "electrical_hum"
+#define SFX_ELECTRICAL_SPARK "electrical_sparm"
+#define SFX_EQUIP_SWORD "equip_sword"
+#define SFX_EXPLOSION "explosion"
+#define SFX_FOOTSTEP_ASTEROID "footstep_asteroid"
+#define SFX_FOOTSTEP_BLANK "footstep_blank"
+#define SFX_FOOTSTEP_CARPET "footstep_carpet"
+#define SFX_FOOTSTEP_CATWALK "footstep_catwalk"
+#define SFX_FOOTSTEP_CLOWN "footstep_clown"
+#define SFX_FOOTSTEP_GRASS "footstep_grass"
+#define SFX_FOOTSTEP_LAVA "footstep_lava"
+#define SFX_FOOTSTEP_PLATING "footstep_plating"
+#define SFX_FOOTSTEP_SAND "footstep_sand"
+#define SFX_FOOTSTEP_SKRELL "footstep_skrell"
+#define SFX_FOOTSTEP_SNOW "footstep_snow"
+#define SFX_FOOTSTEP_TILES "footstep_tiles"
+#define SFX_FOOTSTEP_UNATHI "footstep_unathi"
+#define SFX_FOOTSTEP_WATER "footstep_water"
+#define SFX_FOOTSTEP_WOOD "footstep_wood"
+#define SFX_FRACTURE "fracture"
+#define SFX_GLASS_CRACK "glass_crack"
+#define SFX_GRAB "grab"
+#define SFX_GUNSHOT_ANY "gunshot_any"
+#define SFX_GUNSHOT_BALLISTIC "gunshot_ballistic"
+#define SFX_GUNSHOT_ENERGY "gunshot_energy"
+#define SFX_HAMMER "hammer"
+#define SFX_HATCH_CLOSE "hatch_close"
+#define SFX_HATCH_OPEN "hatch_open"
+#define SFX_HISS "hiss"
+#define SFX_HIVEBOT_MELEE "hivebot_melee"
+#define SFX_HIVEBOT_WAIL "hivebot_wail"
+#define SFX_KEYBOARD "keyboard"
+#define SFX_OINTMENT "ointment"
+#define SFX_OUT_OF_AMMO "out_of_ammo"
+#define SFX_OUT_OF_AMMO_REVOLVER "out_of_ammo_revolver"
+#define SFX_OUT_OF_AMMO_RIFLE "out_of_ammo_rifle"
+#define SFX_OUT_OF_AMMO_SHOTGUN "out_of_ammo_shotgun"
+#define SFX_PAGE_TURN "page_turn"
+#define SFX_PICKAXE "pickaxe"
+#define SFX_PICKUP "pickup"
+#define SFX_PICKUP_SWORD "pickup_sword"
+#define SFX_POUR "pour"
+#define SFX_PRINT "print"
+#define SFX_PUMP_SHOTGUN "pump_shotgun"
+#define SFX_PUNCH "punch"
+#define SFX_PUNCH_BASSY "punch_bassy"
+#define SFX_PUNCH_MISS "punch_miss"
+#define SFX_RELOAD_HMG "reload_hmg"
+#define SFX_RELOAD_METAL_SLIDE "reload_metal_slide"
+#define SFX_RELOAD_POLYMER_SLIDE "reload_polymer_slide"
+#define SFX_RELOAD_REVOLVER "reload_revolver"
+#define SFX_RELOAD_RIFLE_SLIDE "reload_rifle_slide"
+#define SFX_RELOAD_SHOTGUN "reload_shotgun"
+#define SFX_RIP "rip"
+#define SFX_ROBOT_TALK "robot_talk"
+#define SFX_RUSTLE "rustle"
+#define SFX_SCREWDRIVER "screwdriver"
+#define SFX_SHAKER_LID_OFF "shaker_lid_off"
+#define SFX_SHAKER_SHAKING "shaker_shaking"
+#define SFX_SHOOT_GAUSS "shoot_gauss"
+#define SFX_SHOVEL "shovel"
+#define SFX_SM_CALM "sm_calm"
+#define SFX_SM_DELAM "sm_delam"
+#define SFX_SPARKS "sfx_sparks"
+#define SFX_STEAM_PIPE "steam_pipe"
+#define SFX_SWING_HIT "swing_hit"
+#define SFX_SWITCH "switch"
+#define SFX_TRAY_HIT "tray_hit"
+#define SFX_WIELD "wield"

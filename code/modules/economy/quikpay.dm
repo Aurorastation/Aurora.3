@@ -179,12 +179,14 @@
 			buying += list(list("name" = params["buying"], "amount" = params["amount"]))
 
 		if("removal")
+			var/index = 0
 			for(var/list/L in buying)
+				index++
 				if(L["name"] == params["removal"])
 					if(L["amount"] > 1)
 						L["amount"]--
 					else
-						buying -= L
+						buying.Cut(index, index+1)
 			. = TRUE
 
 		if("confirm")

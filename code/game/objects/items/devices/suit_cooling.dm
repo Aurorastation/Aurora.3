@@ -23,7 +23,7 @@
 	var/on = 0				//is it turned on?
 	var/cover_open = 0		//is the cover open?
 	var/obj/item/cell/cell
-	var/max_cooling = 12				//in degrees per second - probably don't need to mess with heat capacity here
+	var/max_cooling = 24				//in degrees per second - probably don't need to mess with heat capacity here
 	var/charge_consumption = 8.3		//charge per second at max_cooling
 	var/thermostat = T20C
 
@@ -95,7 +95,7 @@
 
 	var/charge_usage = (temp_adj/max_cooling)*charge_consumption
 
-	H.bodytemperature -= temp_adj*efficiency
+	H.bodytemperature = max(T0C, H.bodytemperature - temp_adj*efficiency)
 
 	cell.use(charge_usage)
 
@@ -179,7 +179,7 @@
 			to_chat(user, SPAN_NOTICE("You switch on \the [src]."))
 
 /obj/item/device/suit_cooling_unit/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(cover_open)
 			cover_open = FALSE
 			to_chat(user, SPAN_NOTICE("You screw the panel into place."))

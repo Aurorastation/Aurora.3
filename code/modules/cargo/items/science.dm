@@ -58,7 +58,7 @@
 	category = "science"
 	name = "neaera cube box"
 	supplier = "nanotrasen"
-	description = "Drymate brand neaera cubes, shipped from Jargon 4. Just add water!"
+	description = "Drymate brand neaera cubes, shipped from Nralakk IV. Just add water!"
 	price = 250
 	items = list(
 		/obj/item/storage/box/unique/monkeycubes/neaeracubes

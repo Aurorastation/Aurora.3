@@ -37,7 +37,8 @@ export const GPS = (props, context) => {
               <Button content="Track All" onClick={() => act('add_all')} />
               <Button content="Untrack All" onClick={() => act('clear_all')} />
             </>
-          }>
+          }
+        >
           <LabeledControls>
             <LabeledControls.Item label="Set New Tag">
               <Input

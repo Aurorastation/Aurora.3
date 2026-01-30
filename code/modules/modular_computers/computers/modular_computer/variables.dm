@@ -125,6 +125,10 @@
 	var/obj/item/computer_hardware/tesla_link/tesla_link
 	/// Personal AI, can control the device via a verb when installed
 	var/obj/item/device/paicard/personal_ai
+	/// The universal port. Allows connection from IPCs through access cables.
+	var/obj/item/computer_hardware/universal_port/universal_port
+	/// The access cable dongle. Allows the computer to have its very own access cable.
+	var/obj/item/computer_hardware/access_cable_dongle/access_cable_dongle
 	var/obj/item/computer_hardware/flashlight/flashlight
 	var/listener/listener
 

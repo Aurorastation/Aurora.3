@@ -8944,12 +8944,7 @@
 	},
 /area/headmaster_ship/dock/starboard)
 "KP" = (
-/obj/machinery/autolathe{
-	desc = "Your typical Autolathe. It appears to have much more options than your regular one, however...";
-	hacked = 1;
-	name = "Modified Autolathe";
-	req_access = list(209)
-	},
+/obj/machinery/fabricator/autolathe/hacked,
 /obj/effect/floor_decal/industrial/hatch/engineering,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full{

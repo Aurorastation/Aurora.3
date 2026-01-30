@@ -263,8 +263,8 @@
 /obj/item/storage/firstaid/sleekstab
 	name = "slimline stabilization kit"
 	desc = "A sleek and expensive looking medical kit containing a plethora of colorful autoinjectors. Read the labels!"
-	icon_state = "firstaid_multi"
-	item_state = "firstaid_multi"
+	icon_state = "sleekstab"
+	item_state = "sleekstab"
 	w_class = WEIGHT_CLASS_SMALL
 	storage_slots = 7
 	starts_with = list(

@@ -165,7 +165,7 @@
 		if(!isturf(picked)) return
 
 		spark(user, 5)
-		playsound(user.loc, /singleton/sound_category/spark_sound, 50, 1)
+		playsound(user.loc, SFX_SPARKS, 50, 1)
 
 		user.forceMove(picked)
 		return BULLET_ACT_BLOCK
@@ -216,6 +216,10 @@
 	holster.on_attached(src)	//its inside a suit, we set  this so it can be drawn from
 	QDEL_NULL(pockets)	//Tactical armor has internal holster instead of pockets, so we null this out
 	ClearOverlays()	// Remove the holster's overlay.
+
+/obj/item/clothing/suit/armor/tactical/Destroy()
+	QDEL_NULL(holster)
+	return ..()
 
 /obj/item/clothing/suit/armor/tactical/attackby(obj/item/attacking_item, mob/user)
 	..()

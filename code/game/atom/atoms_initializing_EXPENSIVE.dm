@@ -129,20 +129,15 @@
 			reagents.maximum_volume += max(LAZYACCESS(reagents_to_add, v) - REAGENTS_FREE_SPACE(reagents), 0)
 			reagents.add_reagent(v, LAZYACCESS(reagents_to_add, v), LAZYACCESS(reagent_data, v))
 
-	if(light_power && light_range)
+	if(light_system != MOVABLE_LIGHT && light_system != DIRECTIONAL_LIGHT && light_power && light_range)
 		update_light()
 
 	if(loc)
 		SEND_SIGNAL(loc, COMSIG_ATOM_INITIALIZED_ON, src) // used for large_object_transparency component
 
 	if(isturf(loc) && opacity)
-		var/turf/T = loc
-		T.has_opaque_atom = TRUE // No need to recalculate it in this case, it's guaranteed to be on afterwards anyways.
-
-	#ifdef AO_USE_LIGHTING_OPACITY
-		if(!mapload)
-			T.regenerate_ao()
-	#endif
+		var/turf/opaque_turf = loc
+		opaque_turf.directional_opacity = ALL_CARDINALS // No need to recalculate it in this case, it's guaranteed to be on afterwards anyways.
 
 	if(update_icon_on_init)
 		SSicon_update.add_to_queue(src)

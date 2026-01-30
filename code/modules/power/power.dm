@@ -105,7 +105,7 @@
 //almost never called, overwritten by all power machines but terminal and generator
 /obj/machinery/power/attackby(obj/item/attacking_item, mob/user)
 
-	if(attacking_item.iscoil())
+	if(attacking_item.tool_behaviour == TOOL_CABLECOIL)
 
 		var/obj/item/stack/cable_coil/coil = attacking_item
 

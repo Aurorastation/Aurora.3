@@ -1,4 +1,0 @@
-author: Hellfirejag
-delete-after: True
-changes:
-  - balance: "Repeat-harvestable plants now only gain the bonus yield from fertilizer once. To get bonus yield again, re-apply new fertilizer."

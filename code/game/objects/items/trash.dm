@@ -90,7 +90,7 @@
 /obj/item/trash/waffles
 	name = "square tray"
 	icon_state = "waffles"
-	drop_sound = /singleton/sound_category/tray_hit_sound
+	drop_sound = SFX_TRAY_HIT
 
 /obj/item/trash/plate
 	name = "plate"
@@ -122,7 +122,7 @@
 /obj/item/trash/tray
 	name = "tray"
 	icon_state = "tray"
-	drop_sound = /singleton/sound_category/tray_hit_sound
+	drop_sound = SFX_TRAY_HIT
 
 /obj/item/trash/candle
 	name = "candle"
@@ -159,7 +159,7 @@
 /obj/item/trash/brownies
 	name = "square tray"
 	icon_state = "brownies"
-	drop_sound = /singleton/sound_category/tray_hit_sound
+	drop_sound = SFX_TRAY_HIT
 
 /obj/item/trash/snacktray
 	name = "snacktray"
@@ -206,7 +206,7 @@
 /obj/item/trash/grease //used for generic plattered food. example is lasagna.
 	name = "square tray"
 	icon_state = "grease"
-	drop_sound = /singleton/sound_category/tray_hit_sound
+	drop_sound = SFX_TRAY_HIT
 
 /obj/item/trash/cookiesnack
 	name = "\improper Carps Ahoy! miniature cookies"
@@ -452,5 +452,6 @@
 	icon_state = "mac_trash_fiery"
 
 /obj/item/trash/algaechips
-	name = "It looks like someone left some strands of algae in it."
+	name = "empty algae chips bag"
+	desc = "It looks like someone left some strands of algae in it."
 	icon_state = "algaechips"

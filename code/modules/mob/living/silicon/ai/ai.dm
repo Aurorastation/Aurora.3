@@ -786,7 +786,7 @@ GLOBAL_LIST_INIT(ai_verbs_default, list(
 		var/obj/item/aicard/card = attacking_item
 		card.grab_ai(src, user)
 
-	else if(attacking_item.iswrench())
+	else if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(anchored)
 			user.visible_message(SPAN_NOTICE("\The [user] starts to unbolt \the [src] from the plating..."))
 			if(!attacking_item.use_tool(src, user, 40, volume = 50))

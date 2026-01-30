@@ -13,7 +13,7 @@
 		return 1
 	if(feedback)
 		if(status[1] == HUMAN_EATING_NO_MOUTH)
-			to_chat(src, "Where do you intend to put \the [food]? You don't have a mouth!")
+			to_chat(src, SPAN_NOTICE("Where do you intend to put \the [food]? You don't have a mouth!"))
 		else if(status[1] == HUMAN_EATING_BLOCKED_MOUTH)
 			to_chat(src, SPAN_WARNING("\The [status[2]] is in the way!"))
 	return 0
@@ -79,7 +79,9 @@
 		equipment_prescription = equipment_prescription || G.prescription
 		if(G.overlay)
 			equipment_overlays |= G.overlay
-		if(G.see_invisible >= 0)
+		if(G.lighting_alpha != lighting_alpha)
+			lighting_alpha = G.lighting_alpha
+		if(G.see_invisible)
 			if(equipment_see_invis)
 				equipment_see_invis = min(equipment_see_invis, G.see_invisible)
 			else
@@ -131,16 +133,24 @@
 			else
 				var/obj/item/organ/I = internal_organs_by_name[name]
 				if(I)
-					switch (status)
-						if (ORGAN_PREF_ASSISTED)
-							I.mechassist()
-						if (ORGAN_PREF_MECHANICAL)
-							if (rlimb_data[name])
-								I.robotize(rlimb_data[name])
-							else
-								I.robotize()
-						if (ORGAN_PREF_REMOVED)
-							qdel(I)
+					if(istype(I, /obj/item/organ/internal/machine))
+						var/obj/item/organ/internal/machine/machine_organ = I
+						if(length(machine_organ.possible_modifications))
+							machine_organ.get_preset_from_pref(status)
+						// If you add any more presets here, make sure to update the presets on the organ as well.
+						// Remember also that the default pref, but "default pref" is actually "the absence of any pref".
+						// We check for unique prefs and if we don't find a unique organ pref, then we default to the base type.
+					else
+						switch (status)
+							if (ORGAN_PREF_ASSISTED)
+								I.mechassist()
+							if (ORGAN_PREF_MECHANICAL)
+								if (rlimb_data[name])
+									I.robotize(rlimb_data[name])
+								else
+									I.robotize()
+							if (ORGAN_PREF_REMOVED)
+								qdel(I)
 
 	if (apply_markings)
 		for(var/N in organs_by_name)
@@ -361,7 +371,7 @@
 	return FALSE
 
 /mob/living/carbon/human/get_cell()
-	var/obj/item/organ/internal/cell/C = internal_organs_by_name[BP_CELL]
+	var/obj/item/organ/internal/machine/power_core/C = internal_organs_by_name[BP_CELL]
 	if(C)
 		return C.cell
 

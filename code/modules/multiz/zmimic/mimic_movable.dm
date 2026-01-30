@@ -74,47 +74,6 @@
 
 	return ..()
 
-/atom/movable/openspace/multiplier/proc/copy_lighting(atom/movable/lighting_overlay/LO)
-	appearance = LO
-	layer = MIMICED_LIGHTING_LAYER
-	plane = OPEN_SPACE_PLANE_END
-	set_invisibility(0)
-	if (icon_state == null)
-		blend_mode = BLEND_MULTIPLY
-		// We're using a color matrix, so just darken the colors across the board.
-		// Bay stores lights as inverted so the lighting PM can invert it for darksight, but
-		//   we don't have a plane master, so invert it again.
-		var/list/c_list = color
-		c_list[CL_MATRIX_RR] *= -SHADOWER_DARKENING_FACTOR
-		c_list[CL_MATRIX_RG] *= -SHADOWER_DARKENING_FACTOR
-		c_list[CL_MATRIX_RB] *= -SHADOWER_DARKENING_FACTOR
-		c_list[CL_MATRIX_GR] *= -SHADOWER_DARKENING_FACTOR
-		c_list[CL_MATRIX_GG] *= -SHADOWER_DARKENING_FACTOR
-		c_list[CL_MATRIX_GB] *= -SHADOWER_DARKENING_FACTOR
-		c_list[CL_MATRIX_BR] *= -SHADOWER_DARKENING_FACTOR
-		c_list[CL_MATRIX_BG] *= -SHADOWER_DARKENING_FACTOR
-		c_list[CL_MATRIX_BB] *= -SHADOWER_DARKENING_FACTOR
-		c_list[CL_MATRIX_AR] *= -SHADOWER_DARKENING_FACTOR
-		c_list[CL_MATRIX_AG] *= -SHADOWER_DARKENING_FACTOR
-		c_list[CL_MATRIX_AB] *= -SHADOWER_DARKENING_FACTOR
-		color = c_list
-	else
-		// Not a color matrix, so we just ignore the lighting values.
-		icon_state = "dark"	// this is actually just a white sprite, which is what this blending needs
-		color = list(
-			SHADOWER_DARKENING_FACTOR, 0, 0,
-			0, SHADOWER_DARKENING_FACTOR, 0,
-			0, 0, SHADOWER_DARKENING_FACTOR
-		)
-
-	var/turf/parent = loc
-	ASSERT(isturf(parent))
-	if (LAZYLEN(parent.ao_overlays_mimic))
-		overlays += parent.ao_overlays_mimic
-
-	if (bound_overlay)
-		update_above()
-
 // -- OPENSPACE OVERLAY --
 // todo: rename
 

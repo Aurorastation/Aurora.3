@@ -263,8 +263,6 @@ Then check if it's true, if true return. This will stop the normal menu appearin
 				for (var/i = 1, i <= pages, i++)
 					contracts_pages.Add(i)
 
-				for (var/a in contracts_pages)
-
 				tgui_data["contracts_pages"] = contracts_pages
 
 				if (tgui_data["contracts_current_page"] > pages)

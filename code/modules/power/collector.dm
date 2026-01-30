@@ -128,13 +128,13 @@ GLOBAL_LIST_INIT_TYPED(rad_collectors, /obj/machinery/power/rad_collector, list(
 		update_icon()
 		return TRUE
 
-	if(attacking_item.iscrowbar())
+	if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 		if(loaded_tank && !locked)
 			to_chat(user, SPAN_NOTICE("You detach and remove \the [loaded_tank.name]."))
 			eject(user)
 			return TRUE
 
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(loaded_tank)
 			USE_FEEDBACK_FAILURE("Remove the phoron tank first.")
 			return TRUE

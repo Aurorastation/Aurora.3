@@ -47,7 +47,7 @@ GLOBAL_VAR_INIT(photo_count, 0)
 
 /obj/item/photo/feedback_hints(mob/user, distance, is_adjacent)
 	. += ..()
-	if(distance <= 1)
+	if(distance <= 1 || in_slide_projector(user))
 		show(user)
 		. += SPAN_NOTICE("[picture_desc]")
 	else
@@ -61,7 +61,7 @@ GLOBAL_VAR_INIT(photo_count, 0)
 	examinate(user, src)
 
 /obj/item/photo/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.ispen())
+	if(attacking_item.tool_behaviour == TOOL_PEN)
 		var/txt = sanitize( tgui_input_text(user, "What would you like to write on the back?", "Photo Writing", max_length = 128), 128 )
 		if(loc == user && user.stat == 0)
 			scribble = txt
@@ -116,7 +116,7 @@ GLOBAL_VAR_INIT(photo_count, 0)
 		var/mob/M = user
 		if(!( istype(over, /atom/movable/screen) ))
 			return ..()
-		playsound(loc, /singleton/sound_category/rustle_sound, 50, 1, -5)
+		playsound(loc, SFX_RUSTLE, 50, 1, -5)
 		if((!( M.restrained() ) && !( M.stat ) && M.back == src))
 			switch(over.name)
 				if("right hand")
@@ -231,7 +231,7 @@ GLOBAL_VAR_INIT(photo_count, 0)
 		on = 1
 
 /obj/item/device/camera/proc/do_photo_sound()
-	playsound(loc, /singleton/sound_category/print_sound, 75, 1, -3)
+	playsound(loc, SFX_PRINT, 75, 1, -3)
 
 /obj/item/device/camera/detective
 	name = "detectives camera"
