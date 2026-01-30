@@ -69,8 +69,6 @@
 		var/list/filtered_list = mobs_to_message.Copy()
 		var/narrate_filter = params["narrate_filter"]
 		switch(narrate_filter)
-			if ("None")
-				// Do nothing. :)
 			if ("Skrell-like Psi-sensitives")
 				for(var/mob/filteree in filtered_list)
 					// This will check for anyone who is capable of receiving and interpreting telepathic messages.
