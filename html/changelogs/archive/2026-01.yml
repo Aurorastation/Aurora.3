@@ -221,3 +221,8 @@
   Hellfirejag:
   - bugfix: Fixed a random test fail caused by GPS devices being spawned in a null
       location.
+2026-01-30:
+  GeneralCamo:
+  - bugfix: Clarified that severely damaged limbs are irreparable and must be amputated.
+  - balance: The torso and head (except for dionaea) can be healed even when 'overkilled'.
+  - rscadd: The body scanner will now show if a limb must be amputated.
