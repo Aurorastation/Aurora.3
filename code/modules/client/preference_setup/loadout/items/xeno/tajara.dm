@@ -162,6 +162,7 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	coat["fine brown coat"] = /obj/item/clothing/suit/storage/tajaran/finecoat
 	coat["fine blue coat"] = /obj/item/clothing/suit/storage/tajaran/finecoat/blue
 	coat["fancy royalist jacket"] = /obj/item/clothing/suit/storage/tajaran/fancy
+	coat["adhomian hunting coat"] = /obj/item/clothing/suit/storage/tajaran/hunting
 	gear_tweaks += new /datum/gear_tweak/path(coat)
 
 /datum/gear/suit/tajaran_labcoat
@@ -766,6 +767,13 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	sort_category = "Xenowear - Tajara"
 	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/tajara_camera_film
+	display_name = "adhomian film canister"
+	description = "Spare film for the Adhomian camera."
+	path = /obj/item/device/camera_film/taj_film
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 /datum/gear/typewriter
 	display_name = "adhomian portable typewriter"
