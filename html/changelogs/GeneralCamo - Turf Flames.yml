@@ -59,3 +59,4 @@ changes:
   - balance: "Simple Mobs can now take damage from burning."
   - rscadd: "The flamethrower now works on liquid fuel (chems) instead of gasses. Several reagents now have accelerant values, determining how effective they are in a flamethrower."
   - rscadd: "Nitrogen Dioxide and Chlorine are now oxidizers."
+  - bugfix: "ZAS Hotspots (renamed from fires) no longer generate CO2 from nothing. They solely use the reaction to do this."
