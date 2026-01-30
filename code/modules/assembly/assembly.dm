@@ -96,9 +96,7 @@
 			attach_assembly(A, user)
 			return
 	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
-		if(toggle_secure())
-			to_chat(user, SPAN_NOTICE("\The [src] is ready!"))
-		else
+		if(!toggle_secure())
 			to_chat(user, SPAN_NOTICE("\The [src] can now be attached!"))
 		return
 	return ..()
@@ -107,15 +105,10 @@
 	STOP_PROCESSING(SSprocessing, src)
 	return
 
-
-/obj/item/device/assembly/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(distance <= 1 || loc == user)
-		if(secured)
-			. += "\The [src] is ready!"
-		else
-			. += "\The [src] can be attached!"
-
+/obj/item/device/assembly/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if((distance <= 1 || loc == user) && !secured)
+		. += SPAN_NOTICE("\The [src] can be attached!")
 
 /obj/item/device/assembly/attack_self(mob/user)
 	if(!user)
