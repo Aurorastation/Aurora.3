@@ -64,6 +64,12 @@
 			if("Global")
 				mobs_to_message = GLOB.player_list.Copy()
 
+		// Skip the switch if no filter was selected.
+		if (params["narrate_filter"] == "None")
+			for(var/mob/actor in mobs_to_message)
+				to_chat(actor, "<font size=[narrate_size]><span class='[narrate_style]'>[narrate_text]</span></font>")
+			return
+
 		// Create a copy of the message receivers. We have to iterate the copy of the list in order to safely remove entries from the list of message receivers.
 		// Otherwise we'll get memory exceptions.
 		var/list/filtered_list = mobs_to_message.Copy()
@@ -117,5 +123,6 @@
 					if (!(GLOB.all_languages[LANGUAGE_VAURCA] in filteree.languages))
 						mobs_to_message.Remove(filteree)
 						continue
+
 		for(var/mob/actor in mobs_to_message)
 			to_chat(actor, "<font size=[narrate_size]><span class='[narrate_style]'>[narrate_text]</span></font>")
