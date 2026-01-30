@@ -60,3 +60,10 @@
 
 /mob/living/simple_animal/is_psi_pingable()
 	return psi_pingable
+
+/**
+ * A common layered filter pattern for psionics. Helps with reducing the size of guard clauses.
+ * Includes every psionic check for RECEIVING starting with the Zona Bovina, and ending with Psi-sensitivity.
+ */
+/atom/movable/proc/is_telepathy_blocked(var/sensitivity_threshold = 0)
+	return (!has_zona_bovinae() || is_psi_blocked() || check_psi_sensitivity() < sensitivity_threshold)
