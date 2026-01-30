@@ -113,7 +113,8 @@
 					mobs_to_message.Remove(filteree)
 			if ("Hivenet")
 				for(var/mob/filteree in filtered_list)
-					if (!filteree.languages[LANGUAGE_VAURCA])
+					// Filter anyone who doesn't have the Vaurca language at all.
+					if (!(GLOB.all_languages[LANGUAGE_VAURCA] in filteree.languages))
 						mobs_to_message.Remove(filteree)
 						continue
 		for(var/mob/actor in mobs_to_message)
