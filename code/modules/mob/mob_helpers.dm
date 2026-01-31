@@ -28,7 +28,7 @@
 /proc/isMMI(A)
 	if(isbrain(A))
 		var/mob/living/carbon/brain/B = A
-		return istype(B.container, /obj/item/device/mmi)
+		return istype(B.container, /obj/item/mmi)
 
 /mob/living/bot/isSynthetic()
 	return 1

@@ -24,17 +24,17 @@
 	..()
 
 	var/list/victims = list()
-	for(var/obj/item/device/radio/radio in GLOB.listening_objects)
+	for(var/obj/item/radio/radio in GLOB.listening_objects)
 		if(radio.is_on())
 			for(var/mob/living/victim in range(radio.canhear_range, radio.loc))
 				if(isnull(victims[victim]) && victim.stat == CONSCIOUS && !isdeaf(victim))
 					victims[victim] = radio
 	for(var/thing in victims)
 		var/mob/living/victim = thing
-		var/obj/item/device/radio/source = victims[victim]
+		var/obj/item/radio/source = victims[victim]
 		do_spasm(victim, source)
 
-/datum/event/minispasm/proc/do_spasm(var/mob/living/victim, var/obj/item/device/radio/source)
+/datum/event/minispasm/proc/do_spasm(var/mob/living/victim, var/obj/item/radio/source)
 	set waitfor = 0
 	playsound(source, 'sound/effects/narsie.ogg', 75) //LOUD AS FUCK BOY
 

@@ -34,8 +34,8 @@ STOCK_ITEM_UNCOMMON(other_mat, 0.5)
 	new M(L, rand(1, 10))
 
 STOCK_ITEM_UNCOMMON(flare, 2)
-	new /obj/item/device/flashlight/flare(L)
-	new /obj/item/device/flashlight/flare(L)
+	new /obj/item/flashlight/flare(L)
+	new /obj/item/flashlight/flare(L)
 	if (prob(50))
 		new /obj/random/glowstick(L)
 
@@ -55,7 +55,7 @@ STOCK_ITEM_UNCOMMON(arrest, 1)
 	if(prob(60))
 		new /obj/item/storage/box/handcuffs(L)
 	else
-		new /obj/item/device/holowarrant(L)
+		new /obj/item/holowarrant(L)
 
 STOCK_ITEM_UNCOMMON(monkey, 2)
 	if(prob(40))
@@ -161,20 +161,20 @@ STOCK_ITEM_UNCOMMON(watch, 3)
 	new /obj/random/watches(L)
 
 STOCK_ITEM_UNCOMMON(MMI, 1.5)
-	new /obj/item/device/mmi(L)
+	new /obj/item/mmi(L)
 
 STOCK_ITEM_UNCOMMON(voidsuit, 2)
 	new /obj/random/voidsuit(L,1)
 
 STOCK_ITEM_UNCOMMON(violin, 1)
-	new /obj/item/device/synthesized_instrument/violin(L)
+	new /obj/item/synthesized_instrument/violin(L)
 
 STOCK_ITEM_UNCOMMON(atmosfiresuit, 2)
 	new /obj/item/clothing/head/hardhat/atmos(L)
 	new /obj/item/clothing/suit/fire/atmos(L)
 
 STOCK_ITEM_UNCOMMON(debugger, 2)
-	new /obj/item/device/debugger(L)
+	new /obj/item/debugger(L)
 
 STOCK_ITEM_UNCOMMON(surgerykit, 2.5)
 	new /obj/item/storage/firstaid/surgery(L)
@@ -212,13 +212,13 @@ STOCK_ITEM_UNCOMMON(robot, 2)
 
 STOCK_ITEM_UNCOMMON(headset, 2)
 	var/list/sets = list(
-		/obj/item/device/radio/headset/headset_eng = 1,
-		/obj/item/device/radio/headset/headset_rob = 0.4,
-		/obj/item/device/radio/headset/headset_med = 1,
-		/obj/item/device/radio/headset/headset_sci = 0.8,
-		/obj/item/device/radio/headset/headset_medsci = 0.4,
-		/obj/item/device/radio/headset/headset_cargo = 1,
-		/obj/item/device/radio/headset/headset_service = 1
+		/obj/item/radio/headset/headset_eng = 1,
+		/obj/item/radio/headset/headset_rob = 0.4,
+		/obj/item/radio/headset/headset_med = 1,
+		/obj/item/radio/headset/headset_sci = 0.8,
+		/obj/item/radio/headset/headset_medsci = 0.4,
+		/obj/item/radio/headset/headset_cargo = 1,
+		/obj/item/radio/headset/headset_service = 1
 	)
 
 	var/type = pickweight(sets)
@@ -231,7 +231,7 @@ STOCK_ITEM_UNCOMMON(scythe, 0.75)
 	new /obj/item/material/scythe(L)
 
 STOCK_ITEM_UNCOMMON(laserpoint, 0.75)
-	new /obj/item/device/laser_pointer(L)
+	new /obj/item/laser_pointer(L)
 
 STOCK_ITEM_UNCOMMON(manual, 2)
 	var/list/booklist = subtypesof(/obj/item/book/manual)
@@ -242,7 +242,7 @@ STOCK_ITEM_UNCOMMON(manual, 2)
 
 STOCK_ITEM_UNCOMMON(spystuff, 0.75)
 	if(prob(40))
-		new /obj/item/device/radiojammer(L)
+		new /obj/item/radiojammer(L)
 	else
 		new /obj/item/clothing/glasses/night(L)
 
@@ -286,7 +286,7 @@ STOCK_ITEM_UNCOMMON(laserscalpel, 1.3)
 	new /obj/item/surgery/scalpel/laser(L)
 
 STOCK_ITEM_UNCOMMON(electropack, 1)
-	new /obj/item/device/radio/electropack(L)
+	new /obj/item/radio/electropack(L)
 
 STOCK_ITEM_UNCOMMON(randomhide, 0.5)
 	var/obj/item/stack/material/animalhide/spawn_hide = pick(typesof(/obj/item/stack/material/animalhide))

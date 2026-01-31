@@ -68,27 +68,27 @@
 /area/scc_event_shuttle)
 "bA" = (
 /obj/structure/table/standard,
-/obj/item/device/radio/off{
+/obj/item/radio/off{
 	pixel_y = 5;
 	pixel_x = 7
 	},
-/obj/item/device/radio/off{
+/obj/item/radio/off{
 	pixel_y = 5;
 	pixel_x = 7
 	},
-/obj/item/device/radio/off{
+/obj/item/radio/off{
 	pixel_y = 5;
 	pixel_x = 7
 	},
-/obj/item/device/flashlight{
+/obj/item/flashlight{
 	pixel_y = 9;
 	pixel_x = -9
 	},
-/obj/item/device/flashlight{
+/obj/item/flashlight{
 	pixel_y = 3;
 	pixel_x = -9
 	},
-/obj/item/device/flashlight{
+/obj/item/flashlight{
 	pixel_y = -3;
 	pixel_x = -9
 	},
@@ -672,13 +672,13 @@
 /obj/item/clothing/gloves/yellow,
 /obj/item/clothing/gloves/yellow,
 /obj/item/clothing/gloves/yellow,
-/obj/item/device/geiger,
-/obj/item/device/geiger,
-/obj/item/device/geiger,
-/obj/item/device/geiger,
-/obj/item/device/geiger,
-/obj/item/device/geiger,
-/obj/item/device/geiger,
+/obj/item/geiger,
+/obj/item/geiger,
+/obj/item/geiger,
+/obj/item/geiger,
+/obj/item/geiger,
+/obj/item/geiger,
+/obj/item/geiger,
 /obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/dark,
 /area/scc_event_shuttle)
@@ -703,32 +703,32 @@
 /area/scc_event_shuttle)
 "jo" = (
 /obj/structure/table/standard,
-/obj/item/device/radio{
+/obj/item/radio{
 	pixel_x = -6;
 	pixel_y = 16
 	},
-/obj/item/device/radio{
+/obj/item/radio{
 	pixel_x = -6;
 	pixel_y = 16
 	},
-/obj/item/device/radio{
+/obj/item/radio{
 	pixel_x = 5;
 	pixel_y = 16
 	},
-/obj/item/device/radio{
+/obj/item/radio{
 	pixel_x = 5;
 	pixel_y = 16
 	},
-/obj/item/device/gps/medical{
+/obj/item/gps/medical{
 	pixel_x = -7
 	},
-/obj/item/device/gps/medical{
+/obj/item/gps/medical{
 	pixel_x = 5
 	},
-/obj/item/device/gps/medical{
+/obj/item/gps/medical{
 	pixel_x = -7
 	},
-/obj/item/device/gps/medical{
+/obj/item/gps/medical{
 	pixel_x = 5
 	},
 /obj/effect/floor_decal/spline/plain/green{
@@ -751,7 +751,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/scc_event_shuttle)
 "ka" = (
-/obj/item/device/gps/stationary{
+/obj/item/gps/stationary{
 	gpstag = "DROPSHIP"
 	},
 /turf/simulated/floor,
@@ -1045,16 +1045,16 @@
 /obj/item/clothing/accessory/armband/sec,
 /obj/item/clothing/accessory/armband/sec,
 /obj/item/clothing/accessory/armband/sec,
-/obj/item/device/hand_labeler{
+/obj/item/hand_labeler{
 	pixel_y = 14
 	},
-/obj/item/device/hand_labeler{
+/obj/item/hand_labeler{
 	pixel_y = 14
 	},
-/obj/item/device/hand_labeler{
+/obj/item/hand_labeler{
 	pixel_y = 14
 	},
-/obj/item/device/hand_labeler{
+/obj/item/hand_labeler{
 	pixel_y = 14
 	},
 /obj/item/storage/box/led_collars{
@@ -1425,12 +1425,12 @@
 	pixel_y = 9;
 	pixel_x = 8
 	},
-/obj/item/device/gps/engineering,
-/obj/item/device/gps/engineering,
-/obj/item/device/gps/engineering,
-/obj/item/device/gps/engineering,
-/obj/item/device/gps/engineering,
-/obj/item/device/gps/engineering,
+/obj/item/gps/engineering,
+/obj/item/gps/engineering,
+/obj/item/gps/engineering,
+/obj/item/gps/engineering,
+/obj/item/gps/engineering,
+/obj/item/gps/engineering,
 /obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/dark,
 /area/scc_event_shuttle)
@@ -1699,7 +1699,7 @@
 /obj/structure/table/rack/retail_shelf{
 	name = "shelves"
 	},
-/obj/item/device/flashlight/maglight{
+/obj/item/flashlight/maglight{
 	pixel_y = -9
 	},
 /obj/item/crowbar/red{
@@ -1750,110 +1750,110 @@
 	pixel_y = 5;
 	pixel_x = -4
 	},
-/obj/item/device/flashlight/maglight{
+/obj/item/flashlight/maglight{
 	pixel_y = -9
 	},
-/obj/item/device/flashlight/maglight{
+/obj/item/flashlight/maglight{
 	pixel_y = -9
 	},
-/obj/item/device/flashlight/maglight{
+/obj/item/flashlight/maglight{
 	pixel_y = -9
 	},
-/obj/item/device/flashlight/maglight{
+/obj/item/flashlight/maglight{
 	pixel_y = -9
 	},
-/obj/item/device/flashlight/maglight{
+/obj/item/flashlight/maglight{
 	pixel_y = -9
 	},
-/obj/item/device/flashlight/maglight{
+/obj/item/flashlight/maglight{
 	pixel_y = -9
 	},
-/obj/item/device/flashlight/maglight{
+/obj/item/flashlight/maglight{
 	pixel_y = -9
 	},
-/obj/item/device/flashlight/maglight{
+/obj/item/flashlight/maglight{
 	pixel_y = -9
 	},
-/obj/item/device/flashlight/maglight{
+/obj/item/flashlight/maglight{
 	pixel_y = -9
 	},
-/obj/item/device/flashlight/maglight{
+/obj/item/flashlight/maglight{
 	pixel_y = -9
 	},
-/obj/item/device/flashlight/maglight{
+/obj/item/flashlight/maglight{
 	pixel_y = -9
 	},
-/obj/item/device/gps{
+/obj/item/gps{
 	pixel_x = -3
 	},
-/obj/item/device/gps{
+/obj/item/gps{
 	pixel_x = -3
 	},
-/obj/item/device/gps{
+/obj/item/gps{
 	pixel_x = -3
 	},
-/obj/item/device/gps{
+/obj/item/gps{
 	pixel_x = -3
 	},
-/obj/item/device/gps{
+/obj/item/gps{
 	pixel_x = -3
 	},
-/obj/item/device/gps{
+/obj/item/gps{
 	pixel_x = -3
 	},
-/obj/item/device/radio/sec{
+/obj/item/radio/sec{
 	pixel_x = 7;
 	pixel_y = 5
 	},
-/obj/item/device/radio/sec{
+/obj/item/radio/sec{
 	pixel_x = 7;
 	pixel_y = 5
 	},
-/obj/item/device/radio/sec{
+/obj/item/radio/sec{
 	pixel_x = 7;
 	pixel_y = 5
 	},
-/obj/item/device/radio/sec{
+/obj/item/radio/sec{
 	pixel_x = 7;
 	pixel_y = 5
 	},
-/obj/item/device/radio/sec{
+/obj/item/radio/sec{
 	pixel_x = 7;
 	pixel_y = 5
 	},
-/obj/item/device/radio/sec{
+/obj/item/radio/sec{
 	pixel_x = 7;
 	pixel_y = 5
 	},
-/obj/item/device/radio/sec{
+/obj/item/radio/sec{
 	pixel_x = 7;
 	pixel_y = 5
 	},
-/obj/item/device/radio/sec{
+/obj/item/radio/sec{
 	pixel_x = 7;
 	pixel_y = 5
 	},
-/obj/item/device/radio/sec{
+/obj/item/radio/sec{
 	pixel_x = 7;
 	pixel_y = 5
 	},
-/obj/item/device/radio/sec{
+/obj/item/radio/sec{
 	pixel_x = 7;
 	pixel_y = 5
 	},
-/obj/item/device/radio/sec{
+/obj/item/radio/sec{
 	pixel_x = 7;
 	pixel_y = 5
 	},
-/obj/item/device/radio/sec{
+/obj/item/radio/sec{
 	pixel_x = 7;
 	pixel_y = 5
 	},
-/obj/item/device/radio/sec{
+/obj/item/radio/sec{
 	pixel_x = 7;
 	pixel_y = 5
 	},
-/obj/item/device/radio/sec{
+/obj/item/radio/sec{
 	pixel_x = 7;
 	pixel_y = 5
 	},
@@ -2325,10 +2325,10 @@
 /obj/item/clothing/head/welding,
 /obj/item/clothing/head/welding,
 /obj/item/ipc_tag_scanner,
-/obj/item/device/robotanalyzer,
-/obj/item/device/robotanalyzer,
-/obj/item/device/robotanalyzer,
-/obj/item/device/robotanalyzer,
+/obj/item/robotanalyzer,
+/obj/item/robotanalyzer,
+/obj/item/robotanalyzer,
+/obj/item/robotanalyzer,
 /obj/item/stack/cable_coil,
 /obj/item/stack/cable_coil,
 /obj/item/stack/cable_coil,
@@ -2583,10 +2583,10 @@
 /obj/item/rfd_ammo,
 /obj/item/rfd_ammo,
 /obj/item/rfd_ammo,
-/obj/item/device/paint_sprayer,
-/obj/item/device/paint_sprayer,
-/obj/item/device/paint_sprayer,
-/obj/item/device/paint_sprayer,
+/obj/item/paint_sprayer,
+/obj/item/paint_sprayer,
+/obj/item/paint_sprayer,
+/obj/item/paint_sprayer,
 /obj/item/taperoll/engineering,
 /obj/item/taperoll/engineering,
 /obj/item/taperoll/engineering,
@@ -2801,14 +2801,14 @@
 /obj/structure/table/rack/retail_shelf{
 	name = "shelves"
 	},
-/obj/item/device/gps/mining,
-/obj/item/device/gps/mining,
-/obj/item/device/gps/mining,
-/obj/item/device/gps/mining,
-/obj/item/device/gps/mining,
-/obj/item/device/gps/mining,
-/obj/item/device/gps/mining,
-/obj/item/device/gps/mining,
+/obj/item/gps/mining,
+/obj/item/gps/mining,
+/obj/item/gps/mining,
+/obj/item/gps/mining,
+/obj/item/gps/mining,
+/obj/item/gps/mining,
+/obj/item/gps/mining,
+/obj/item/gps/mining,
 /turf/simulated/floor/tiled,
 /area/scc_event_shuttle)
 "Qb" = (
@@ -3220,14 +3220,14 @@
 /obj/structure/closet/crate{
 	name = "GPS units"
 	},
-/obj/item/device/gps/science,
-/obj/item/device/gps/science,
-/obj/item/device/gps/science,
-/obj/item/device/gps/science,
-/obj/item/device/gps/science,
-/obj/item/device/gps/science,
-/obj/item/device/geiger,
-/obj/item/device/geiger,
+/obj/item/gps/science,
+/obj/item/gps/science,
+/obj/item/gps/science,
+/obj/item/gps/science,
+/obj/item/gps/science,
+/obj/item/gps/science,
+/obj/item/geiger,
+/obj/item/geiger,
 /turf/simulated/floor/tiled,
 /area/scc_event_shuttle)
 "XH" = (
@@ -3246,16 +3246,16 @@
 /area/scc_event_shuttle)
 "XS" = (
 /obj/structure/table/reinforced/steel,
-/obj/item/device/megaphone/command,
-/obj/item/device/megaphone/command,
-/obj/item/device/megaphone/command,
-/obj/item/device/megaphone/command,
-/obj/item/device/megaphone/command,
-/obj/item/device/megaphone/command,
+/obj/item/megaphone/command,
+/obj/item/megaphone/command,
+/obj/item/megaphone/command,
+/obj/item/megaphone/command,
+/obj/item/megaphone/command,
+/obj/item/megaphone/command,
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/item/device/vending_refill/encryption,
+/obj/item/vending_refill/encryption,
 /turf/simulated/floor/tiled/dark,
 /area/scc_event_shuttle)
 "XU" = (
@@ -3356,12 +3356,12 @@
 /obj/structure/closet/crate{
 	name = "observational equipment"
 	},
-/obj/item/device/camera,
-/obj/item/device/camera,
-/obj/item/device/camera,
-/obj/item/device/camera_film,
-/obj/item/device/camera_film,
-/obj/item/device/camera_film,
+/obj/item/camera,
+/obj/item/camera,
+/obj/item/camera,
+/obj/item/camera_film,
+/obj/item/camera_film,
+/obj/item/camera_film,
 /obj/item/storage/box/fancy/vials,
 /obj/item/storage/box/fancy/vials,
 /obj/item/storage/box/samplebags,

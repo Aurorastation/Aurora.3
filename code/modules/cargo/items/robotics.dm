@@ -47,7 +47,7 @@
 	description = "An IPC-grade inactivated positronic brain fresh off the factory line. These sentient, enigmatic computers are the brains of advanced synthetics across the galaxy."
 	price = 8450
 	items = list(
-		/obj/item/device/mmi/digital/posibrain
+		/obj/item/mmi/digital/posibrain
 	)
 	access = ACCESS_ROBOTICS
 	container_type = "crate"

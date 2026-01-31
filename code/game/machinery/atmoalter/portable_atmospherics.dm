@@ -140,8 +140,8 @@
 				to_chat(user, SPAN_NOTICE("Nothing happens."))
 				return TRUE
 
-	else if ((istype(attacking_item, /obj/item/device/analyzer)) && Adjacent(user))
-		var/obj/item/device/analyzer/A = attacking_item
+	else if ((istype(attacking_item, /obj/item/analyzer)) && Adjacent(user))
+		var/obj/item/analyzer/A = attacking_item
 		A.analyze_gases(src, user)
 		return TRUE
 

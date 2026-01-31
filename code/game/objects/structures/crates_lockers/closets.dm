@@ -414,8 +414,8 @@
 			user.drop_from_inventory(attacking_item,loc)
 		else
 			user.drop_item()
-	else if(istype(attacking_item, /obj/item/device/cratescanner))
-		var/obj/item/device/cratescanner/Cscanner = attacking_item
+	else if(istype(attacking_item, /obj/item/cratescanner))
+		var/obj/item/cratescanner/Cscanner = attacking_item
 		if(locked)
 			to_chat(user, SPAN_WARNING("[attacking_item] refuses to scan \the [src]. Unlock it first!"))
 			return
@@ -484,8 +484,8 @@
 				attacking_item.play_tool_sound(get_turf(src), 50)
 				wrenched = TRUE
 				anchored = TRUE
-	else if(istype(attacking_item, /obj/item/device/hand_labeler))
-		var/obj/item/device/hand_labeler/HL = attacking_item
+	else if(istype(attacking_item, /obj/item/hand_labeler))
+		var/obj/item/hand_labeler/HL = attacking_item
 		if(HL.mode == 1)
 			return
 		else
@@ -840,17 +840,17 @@
 	Contents Scanner
 ==========================
 */
-/obj/item/device/cratescanner
+/obj/item/cratescanner
 	name = "crate contents scanner"
 	desc = "A  handheld device used to scan and print a manifest of a container's contents. Does not work on locked crates, for privacy reasons."
-	icon = 'icons/obj/item/device/cratescanner.dmi'
+	icon = 'icons/obj/item/cratescanner.dmi'
 	icon_state = "cratescanner"
 	matter = list(DEFAULT_WALL_MATERIAL = 250, MATERIAL_GLASS = 140)
 	w_class = WEIGHT_CLASS_SMALL
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 
-/obj/item/device/cratescanner/proc/print_contents(targetname, targetcontents, targetloc)
+/obj/item/cratescanner/proc/print_contents(targetname, targetcontents, targetloc)
 	var/output = list()
 	var/list/outputstring
 	for(var/atom/item in targetcontents)

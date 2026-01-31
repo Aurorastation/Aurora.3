@@ -65,8 +65,8 @@
 				w.use(1)
 			return
 
-	else if(istype(attacking_item, /obj/item/device/core_sampler/))
-		var/obj/item/device/core_sampler/S = attacking_item
+	else if(istype(attacking_item, /obj/item/core_sampler/))
+		var/obj/item/core_sampler/S = attacking_item
 		S.sample_item(src, user)
 		return
 
@@ -281,7 +281,7 @@
 			if(prob(10))
 				apply_image_decorations = 1
 			if(prob(25))
-				new_item = new /obj/item/device/soulstone(src.loc)
+				new_item = new /obj/item/soulstone(src.loc)
 				new_item.icon = 'icons/obj/xenoarchaeology.dmi'
 				new_item.icon_state = icon_state
 		if(17)
@@ -291,7 +291,7 @@
 			apply_material_decorations = 0
 			apply_image_decorations = 0
 		if(18)
-			new_item = new /obj/item/device/radio/beacon(src.loc)
+			new_item = new /obj/item/radio/beacon(src.loc)
 			talkative = 0
 			new_item.icon = 'icons/obj/xenoarchaeology.dmi'
 			new_item.icon_state = "unknown[rand(1,4)]"
@@ -314,7 +314,7 @@
 		if(21)
 			//soulstone
 			apply_prefix = 0
-			new_item = new /obj/item/device/soulstone(src.loc)
+			new_item = new /obj/item/soulstone(src.loc)
 			item_type = new_item.name
 			apply_material_decorations = 0
 		if(22)

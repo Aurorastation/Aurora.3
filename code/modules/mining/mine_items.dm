@@ -675,7 +675,7 @@
 
 /**********************Jaunter**********************/
 
-/obj/item/device/wormhole_jaunter
+/obj/item/wormhole_jaunter
 	name = "wormhole jaunter"
 	desc = "A single use device harnessing outdated warp technology. The wormholes it creates are unpleasant to travel through, to say the least."
 	contained_sprite = TRUE
@@ -689,29 +689,29 @@
 	slot_flags = SLOT_BELT
 	origin_tech = list(TECH_BLUESPACE = 2, TECH_PHORON = 4, TECH_ENGINEERING = 4)
 
-/obj/item/device/wormhole_jaunter/attack_self(mob/user)
+/obj/item/wormhole_jaunter/attack_self(mob/user)
 	user.visible_message(SPAN_NOTICE("\The [user] activates \the [src]!"))
 	feedback_add_details("jaunter", "U") // user activated
 	activate(user)
 
-/obj/item/device/wormhole_jaunter/proc/turf_check(mob/user)
+/obj/item/wormhole_jaunter/proc/turf_check(mob/user)
 	var/turf/device_turf = get_turf(user)
 	if(!device_turf || device_turf.z == 0)
 		to_chat(user, SPAN_NOTICE("You're having difficulties getting \the [src] to work."))
 		return FALSE
 	return TRUE
 
-/obj/item/device/wormhole_jaunter/proc/get_destinations(mob/user)
+/obj/item/wormhole_jaunter/proc/get_destinations(mob/user)
 	var/list/destinations = list()
 
-	for(var/obj/item/device/radio/beacon/B in GLOB.teleportbeacons)
+	for(var/obj/item/radio/beacon/B in GLOB.teleportbeacons)
 		var/turf/T = get_turf(B)
 		if(is_station_level(T.z))
 			destinations += B
 
 	return destinations
 
-/obj/item/device/wormhole_jaunter/proc/activate(mob/user)
+/obj/item/wormhole_jaunter/proc/activate(mob/user)
 	if(!turf_check(user))
 		return
 
@@ -725,7 +725,7 @@
 	playsound(src,'sound/effects/sparks4.ogg', 50, 1)
 	qdel(src)
 
-/obj/item/device/wormhole_jaunter/emp_act(severity)
+/obj/item/wormhole_jaunter/emp_act(severity)
 	. = ..()
 
 	var/triggered = FALSE

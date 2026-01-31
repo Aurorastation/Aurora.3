@@ -77,8 +77,8 @@
 	desc = "A standard reinforced braincase, with spine-plugged neural socket and sensor gimbals."
 	icon_state = "head"
 	part = list(BP_HEAD)
-	var/obj/item/device/flash/left_flash = null
-	var/obj/item/device/flash/right_flash = null
+	var/obj/item/flash/left_flash = null
+	var/obj/item/flash/right_flash = null
 	var/law_manager = TRUE
 
 /obj/item/robot_parts/robot_suit
@@ -208,8 +208,8 @@
 			to_chat(user, SPAN_WARNING("You need to attach a flash to it first!"))
 		return
 
-	if(istype(attacking_item, /obj/item/device/mmi/shell))
-		var/obj/item/device/mmi/shell/M = attacking_item
+	if(istype(attacking_item, /obj/item/mmi/shell))
+		var/obj/item/mmi/shell/M = attacking_item
 		if(check_completion())
 			var/mob/living/silicon/robot/O = new /mob/living/silicon/robot/shell(get_turf(src), TRUE)
 			if(!O)
@@ -235,8 +235,8 @@
 			to_chat(user, SPAN_WARNING("\The [attacking_item] can only be inserted after everything else is installed."))
 		return
 
-	if(istype(attacking_item, /obj/item/device/mmi))
-		var/obj/item/device/mmi/M = attacking_item
+	if(istype(attacking_item, /obj/item/mmi))
+		var/obj/item/mmi/M = attacking_item
 		if(check_completion())
 			if(!isturf(loc))
 				to_chat(user, SPAN_WARNING("You can't put \the [attacking_item] in, the frame has to be standing on the ground to be perfectly precise."))
@@ -280,7 +280,7 @@
 					return
 
 				// So you cannot make a cyborg with a positronic in it.
-				if(istype(M, /obj/item/device/mmi/digital/posibrain))
+				if(istype(M, /obj/item/mmi/digital/posibrain))
 					to_chat(user, SPAN_WARNING("Positronic brains are not compatible with this kind of chassis."))
 					return
 
@@ -311,7 +311,7 @@
 				callHook("borgify", list(O))
 				O.Namepick()
 				qdel(src)
-		else if(!istype(M, /obj/item/device/mmi/digital/posibrain))
+		else if(!istype(M, /obj/item/mmi/digital/posibrain))
 			to_chat(user, SPAN_WARNING("\The [attacking_item] can only be inserted after everything else is installed."))
 		return
 
@@ -367,8 +367,8 @@
 /obj/item/robot_parts/head/attackby(obj/item/attacking_item, mob/user)
 	..()
 
-	if(istype(attacking_item, /obj/item/device/assembly/infra))
-		var/obj/item/device/assembly/S = attacking_item
+	if(istype(attacking_item, /obj/item/assembly/infra))
+		var/obj/item/assembly/S = attacking_item
 		var/obj/item/tv_assembly/A = new(user)
 		qdel(S)
 		user.put_in_hands(A)
@@ -383,10 +383,10 @@
 			to_chat(user, SPAN_NOTICE("You enable the lawing circuits on \the [src]."))
 			law_manager = TRUE
 
-	else if(istype(attacking_item, /obj/item/device/flash))
+	else if(istype(attacking_item, /obj/item/flash))
 		if(isrobot(user))
 			var/mob/living/silicon/robot/R = user
-			if(istype(R.module_active, /obj/item/device/flash))
+			if(istype(R.module_active, /obj/item/flash))
 				to_chat(user, SPAN_WARNING("You cannot detach your own flash and install it into \the [src]."))
 				return
 			else

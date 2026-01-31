@@ -24,7 +24,7 @@
 /area/adhomai_village)
 "aF" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/machinery/light/small{
 	dir = 4
 	},
@@ -209,7 +209,7 @@
 /area/adhomai_village)
 "na" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "nD" = (
@@ -874,7 +874,7 @@
 /obj/structure/table/wood,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/saddle,
-/obj/item/device/flashlight/lantern,
+/obj/item/flashlight/lantern,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_village)
 "Wa" = (

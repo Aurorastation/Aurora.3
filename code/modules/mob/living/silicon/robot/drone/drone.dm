@@ -271,7 +271,7 @@
 	SSghostroles.add_spawn_atom("matriarchmaintdrone", src)
 
 /mob/living/silicon/robot/drone/init()
-	ai_camera = new /obj/item/device/camera/siliconcam/drone_camera(src)
+	ai_camera = new /obj/item/camera/siliconcam/drone_camera(src)
 	additional_law_channels["Drone"] = ":d"
 	if(!laws)
 		laws = new law_type

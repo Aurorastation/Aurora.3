@@ -145,7 +145,7 @@
 	description = "Yes, it has your name on it!"
 	price = 12.50
 	items = list(
-		/obj/item/device/hand_labeler
+		/obj/item/hand_labeler
 	)
 	access = 0
 	container_type = "crate"
@@ -271,7 +271,7 @@
 	description = "Toner is the back bone of any space based litigation."
 	price = 125
 	items = list(
-		/obj/item/device/toner
+		/obj/item/toner
 	)
 	access = 0
 	container_type = "crate"
@@ -285,7 +285,7 @@
 	description = "A polaroid camera. 10 photos left."
 	price = 45
 	items = list(
-		/obj/item/device/camera
+		/obj/item/camera
 	)
 	access = 0
 	container_type = "crate"
@@ -299,7 +299,7 @@
 	description = "A camera film cartridge. Insert it into a camera to reload it."
 	price = 8
 	items = list(
-		/obj/item/device/camera_film
+		/obj/item/camera_film
 	)
 	access = 0
 	container_type = "crate"
@@ -327,7 +327,7 @@
 	description = "A device that can record up to an hour of dialogue and play it back. It automatically translates the content in playback."
 	price = 20
 	items = list(
-		/obj/item/device/taperecorder
+		/obj/item/taperecorder
 	)
 	access = 0
 	container_type = "crate"

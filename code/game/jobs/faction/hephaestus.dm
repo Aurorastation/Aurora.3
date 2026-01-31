@@ -155,7 +155,7 @@
 	messengerbag_faction = /obj/item/storage/backpack/messenger/heph
 
 	backpack_contents = list(
-		/obj/item/device/camera = 1,
+		/obj/item/camera = 1,
 		/obj/item/gun/energy/pistol = 1,
 		/obj/item/stamp/hephaestus = 1
 	)

@@ -85,8 +85,8 @@
 /area/point_verdant/interior/offices/kaf)
 "acZ" = (
 /obj/structure/table/steel,
-/obj/item/device/measuring_tape,
-/obj/item/device/radio/hailing{
+/obj/item/measuring_tape,
+/obj/item/radio/hailing{
 	pixel_x = 8;
 	pixel_y = 3
 	},
@@ -1591,7 +1591,7 @@
 /obj/item/storage/box/fancy/cigarettes/dromedaryco,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/item/device/flashlight,
+/obj/item/flashlight,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/hotel/basement)
 "aVK" = (
@@ -1670,7 +1670,7 @@
 "aXv" = (
 /obj/structure/table/wood,
 /obj/machinery/door/window/eastright,
-/obj/item/device/flashlight/lantern{
+/obj/item/flashlight/lantern{
 	pixel_x = 4;
 	pixel_y = -2
 	},
@@ -2143,7 +2143,7 @@
 "bky" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/device/assembly/mousetrap/armed,
+/obj/item/assembly/mousetrap/armed,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/pharmacy)
@@ -2358,7 +2358,7 @@
 /area/point_verdant/interior/police)
 "bpR" = (
 /obj/structure/table/stone/marble,
-/obj/item/device/flashlight/lamp/box{
+/obj/item/flashlight/lamp/box{
 	pixel_y = 5
 	},
 /turf/simulated/floor/wood,
@@ -2599,7 +2599,7 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "bvK" = (
-/obj/item/device/multitool,
+/obj/item/multitool,
 /turf/simulated/floor/sidewalk/dark,
 /area/point_verdant/interior/offices/kaf)
 "bvT" = (
@@ -2911,10 +2911,10 @@
 /area/point_verdant/interior/cafe)
 "bEK" = (
 /obj/structure/closet/crate,
-/obj/item/device/taperecorder,
+/obj/item/taperecorder,
 /obj/item/storage/box/fancy/donut,
-/obj/item/device/taperecorder,
-/obj/item/device/hand_labeler,
+/obj/item/taperecorder,
+/obj/item/hand_labeler,
 /turf/simulated/floor/tiled/full,
 /area/point_verdant/interior/police)
 "bEV" = (
@@ -3212,21 +3212,21 @@
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/minimart)
 "bLF" = (
-/obj/item/device/vending_refill/coffee,
+/obj/item/vending_refill/coffee,
 /obj/structure/table/rack/retail_shelf,
-/obj/item/device/vending_refill/cutlery,
-/obj/item/device/vending_refill/cola,
+/obj/item/vending_refill/cutlery,
+/obj/item/vending_refill/cola,
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/item/device/hand_labeler,
-/obj/item/device/flashlight{
+/obj/item/hand_labeler,
+/obj/item/flashlight{
 	pixel_y = 12
 	},
-/obj/item/device/measuring_tape{
+/obj/item/measuring_tape{
 	pixel_y = 2
 	},
-/obj/item/device/paicard,
+/obj/item/paicard,
 /turf/simulated/floor/lino,
 /area/point_verdant/interior/restaurant)
 "bLS" = (
@@ -3236,7 +3236,7 @@
 /area/point_verdant/interior/offices/kaf)
 "bLY" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/lava/purple{
+/obj/item/flashlight/lamp/lava/purple{
 	pixel_y = 5
 	},
 /turf/simulated/floor/carpet/darkblue,
@@ -3494,7 +3494,7 @@
 "bVP" = (
 /obj/structure/table/wood,
 /obj/structure/window/reinforced,
-/obj/item/device/flashlight/lamp/lava/green{
+/obj/item/flashlight/lamp/lava/green{
 	pixel_y = 6
 	},
 /turf/simulated/floor/wood,
@@ -3658,7 +3658,7 @@
 /obj/structure/table/reinforced/wood,
 /obj/item/material/sword/katana,
 /obj/item/material/hook,
-/obj/item/device/synthesized_instrument/guitar,
+/obj/item/synthesized_instrument/guitar,
 /obj/machinery/light/colored/decayed{
 	pixel_y = -2
 	},
@@ -3965,7 +3965,7 @@
 /area/point_verdant/interior/decrepit)
 "cks" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/green{
+/obj/item/flashlight/lamp/green{
 	pixel_y = 2
 	},
 /turf/simulated/floor/wood,
@@ -4356,7 +4356,7 @@
 /area/point_verdant/interior/robotics)
 "cwD" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /turf/simulated/floor/lino,
 /area/point_verdant/interior/police)
 "cwF" = (
@@ -4863,7 +4863,7 @@
 /area/point_verdant/outdoors)
 "cMF" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/green{
+/obj/item/flashlight/lamp/green{
 	pixel_y = 2
 	},
 /obj/structure/rod_railing{
@@ -5249,7 +5249,7 @@
 /area/point_verdant/interior/hotel)
 "cUW" = (
 /obj/structure/table/reinforced/wood,
-/obj/item/device/megaphone/stagemicrophone,
+/obj/item/megaphone/stagemicrophone,
 /turf/simulated/floor/tiled/full,
 /area/point_verdant/interior/bar)
 "cVd" = (
@@ -5301,7 +5301,7 @@
 /area/point_verdant/interior/tunnels)
 "cWF" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/green{
+/obj/item/flashlight/lamp/green{
 	pixel_y = 2
 	},
 /obj/item/material/ashtray/bronze{
@@ -5437,9 +5437,9 @@
 /obj/item/melee/baton/loaded,
 /obj/item/melee/baton/loaded,
 /obj/item/melee/baton/loaded,
-/obj/item/device/flash,
-/obj/item/device/flash,
-/obj/item/device/flash,
+/obj/item/flash,
+/obj/item/flash,
+/obj/item/flash,
 /obj/item/gun/energy/taser,
 /obj/item/gun/energy/taser,
 /obj/item/gun/energy/taser,
@@ -5771,7 +5771,7 @@
 /area/point_verdant/interior/police)
 "dhS" = (
 /obj/structure/table/wood,
-/obj/item/device/taperecorder,
+/obj/item/taperecorder,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/restaurant)
 "dhT" = (
@@ -7089,7 +7089,7 @@
 /area/point_verdant/outdoors)
 "dXL" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/green{
+/obj/item/flashlight/lamp/green{
 	pixel_y = 2
 	},
 /obj/item/material/knife/butterfly{
@@ -7306,7 +7306,7 @@
 /area/point_verdant/interior/hotel)
 "ecu" = (
 /obj/structure/table/standard,
-/obj/item/device/flashlight/lamp{
+/obj/item/flashlight/lamp{
 	pixel_x = 6;
 	pixel_y = 3
 	},
@@ -7366,13 +7366,13 @@
 /area/point_verdant/interior/parking)
 "eeJ" = (
 /obj/structure/table/standard,
-/obj/item/device/healthanalyzer{
+/obj/item/healthanalyzer{
 	pixel_y = 5
 	},
-/obj/item/device/healthanalyzer{
+/obj/item/healthanalyzer{
 	pixel_y = -1
 	},
-/obj/item/device/healthanalyzer{
+/obj/item/healthanalyzer{
 	pixel_y = -8
 	},
 /turf/simulated/floor/tiled/white,
@@ -7661,7 +7661,7 @@
 /area/point_verdant/interior/restaurant)
 "emi" = (
 /obj/structure/table/wood,
-/obj/item/device/megaphone,
+/obj/item/megaphone,
 /turf/simulated/floor/sidewalk/dark,
 /area/point_verdant/interior/offices/kaf)
 "emp" = (
@@ -7817,16 +7817,16 @@
 	},
 /obj/structure/table/standard,
 /obj/effect/floor_decal/industrial/outline/red,
-/obj/item/device/flashlight/flare{
+/obj/item/flashlight/flare{
 	pixel_y = 6
 	},
-/obj/item/device/flashlight/flare{
+/obj/item/flashlight/flare{
 	pixel_y = 6
 	},
-/obj/item/device/flashlight/flare{
+/obj/item/flashlight/flare{
 	pixel_y = 6
 	},
-/obj/item/device/flashlight/flare{
+/obj/item/flashlight/flare{
 	pixel_y = 6
 	},
 /turf/simulated/floor/tiled,
@@ -8035,10 +8035,10 @@
 /area/point_verdant/interior/tunnels)
 "etj" = (
 /obj/structure/closet/crate,
-/obj/item/device/flashlight/maglight,
-/obj/item/device/flashlight/maglight,
-/obj/item/device/flash,
-/obj/item/device/flashlight,
+/obj/item/flashlight/maglight,
+/obj/item/flashlight/maglight,
+/obj/item/flash,
+/obj/item/flashlight,
 /turf/simulated/floor/tiled/full,
 /area/point_verdant/interior/police)
 "etR" = (
@@ -8438,7 +8438,7 @@
 	pixel_x = 4;
 	pixel_y = 11
 	},
-/obj/item/device/mass_spectrometer/adv{
+/obj/item/mass_spectrometer/adv{
 	pixel_y = 7;
 	pixel_x = -5
 	},
@@ -8545,7 +8545,7 @@
 /obj/machinery/door/window/desk/southright{
 	req_access = list(219)
 	},
-/obj/item/device/flashlight/lamp/box{
+/obj/item/flashlight/lamp/box{
 	pixel_y = 5
 	},
 /turf/simulated/floor/wood,
@@ -8644,7 +8644,7 @@
 	pixel_x = -6;
 	pixel_y = 5
 	},
-/obj/item/device/flashlight/pen{
+/obj/item/flashlight/pen{
 	pixel_y = 6;
 	pixel_x = 9
 	},
@@ -8857,7 +8857,7 @@
 /area/point_verdant/outdoors)
 "eQO" = (
 /obj/structure/table/stone/marble,
-/obj/item/device/hand_labeler,
+/obj/item/hand_labeler,
 /obj/item/stack/material/cardboard{
 	amount = 10;
 	pixel_x = 1;
@@ -9280,7 +9280,7 @@
 /area/point_verdant/interior)
 "fcZ" = (
 /obj/structure/table/steel,
-/obj/item/device/flash{
+/obj/item/flash{
 	pixel_x = 9;
 	pixel_y = 11
 	},
@@ -9633,7 +9633,7 @@
 	pixel_x = -5;
 	pixel_y = 3
 	},
-/obj/item/device/flashlight/lamp/lava/cyan{
+/obj/item/flashlight/lamp/lava/cyan{
 	pixel_y = 3;
 	pixel_x = 5
 	},
@@ -9687,7 +9687,7 @@
 /area/point_verdant/interior/police)
 "foO" = (
 /obj/structure/table/standard,
-/obj/item/device/flashlight/lamp{
+/obj/item/flashlight/lamp{
 	pixel_x = -3;
 	pixel_y = 3
 	},
@@ -9898,7 +9898,7 @@
 /area/point_verdant/interior/police)
 "ftu" = (
 /obj/structure/table/wood,
-/obj/item/device/taperecorder{
+/obj/item/taperecorder{
 	pixel_x = 3;
 	pixel_y = 2
 	},
@@ -10460,7 +10460,7 @@
 /area/point_verdant/interior/shallow)
 "fKm" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/green{
+/obj/item/flashlight/lamp/green{
 	pixel_y = 8;
 	pixel_x = -4
 	},
@@ -10511,7 +10511,7 @@
 /area/point_verdant/interior)
 "fLq" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/box{
+/obj/item/flashlight/lamp/box{
 	pixel_y = 11
 	},
 /turf/simulated/floor/carpet/red,
@@ -10622,7 +10622,7 @@
 /obj/item/reagent_containers/spray/pepper{
 	pixel_x = -10
 	},
-/obj/item/device/flashlight/flare{
+/obj/item/flashlight/flare{
 	pixel_x = 6
 	},
 /obj/effect/floor_decal/corner/blue{
@@ -11015,10 +11015,10 @@
 	pixel_x = 11;
 	pixel_y = 6
 	},
-/obj/item/device/lightreplacer{
+/obj/item/lightreplacer{
 	pixel_y = 13
 	},
-/obj/item/device/price_scanner,
+/obj/item/price_scanner,
 /obj/structure/rod_railing{
 	name = "imposing rod railing"
 	},
@@ -11267,8 +11267,8 @@
 "glJ" = (
 /obj/structure/table/wood,
 /obj/item/tape_roll,
-/obj/item/device/toner,
-/obj/item/device/toner,
+/obj/item/toner,
+/obj/item/toner,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/restaurant)
 "gmm" = (
@@ -12068,7 +12068,7 @@
 /area/point_verdant/interior/offices/basement)
 "gMm" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp{
+/obj/item/flashlight/lamp{
 	pixel_x = -3;
 	pixel_y = 3
 	},
@@ -13263,7 +13263,7 @@
 /obj/item/pen/black{
 	pixel_y = 6
 	},
-/obj/item/device/hand_labeler,
+/obj/item/hand_labeler,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/bar)
 "hCA" = (
@@ -13566,7 +13566,7 @@
 /area/point_verdant/interior/parking)
 "hLy" = (
 /obj/structure/table/standard,
-/obj/item/device/hand_labeler{
+/obj/item/hand_labeler{
 	pixel_y = 10
 	},
 /obj/item/pen/reagent/hyperzine,
@@ -14024,7 +14024,7 @@
 	},
 /obj/item/tape_roll,
 /obj/structure/table/rack,
-/obj/item/device/hand_labeler,
+/obj/item/hand_labeler,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/arcade)
 "hZq" = (
@@ -14673,7 +14673,7 @@
 	pixel_x = -5
 	},
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/lava/cyan{
+/obj/item/flashlight/lamp/lava/cyan{
 	pixel_y = 3;
 	pixel_x = 5
 	},
@@ -15261,14 +15261,14 @@
 /area/point_verdant/interior/tailor)
 "iIa" = (
 /obj/structure/closet/crate,
-/obj/item/device/camera_film,
-/obj/item/device/camera_film,
-/obj/item/device/camera_film,
-/obj/item/device/camera_film,
-/obj/item/device/camera_film,
-/obj/item/device/camera_film,
-/obj/item/device/camera_film,
-/obj/item/device/camera_film,
+/obj/item/camera_film,
+/obj/item/camera_film,
+/obj/item/camera_film,
+/obj/item/camera_film,
+/obj/item/camera_film,
+/obj/item/camera_film,
+/obj/item/camera_film,
+/obj/item/camera_film,
 /turf/simulated/floor/tiled/full,
 /area/point_verdant/interior/police)
 "iIi" = (
@@ -15617,11 +15617,11 @@
 "iTn" = (
 /obj/structure/table/rack,
 /obj/item/storage/bag/circuits/basic,
-/obj/item/device/integrated_electronics/wirer{
+/obj/item/integrated_electronics/wirer{
 	pixel_x = -6;
 	pixel_y = 4
 	},
-/obj/item/device/integrated_electronics/debugger{
+/obj/item/integrated_electronics/debugger{
 	pixel_x = 6;
 	pixel_y = 4
 	},
@@ -16550,7 +16550,7 @@
 /area/point_verdant/interior/shallow)
 "juE" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp{
+/obj/item/flashlight/lamp{
 	pixel_x = -2;
 	pixel_y = 7
 	},
@@ -16618,7 +16618,7 @@
 	dir = 1
 	},
 /obj/item/pen,
-/obj/item/device/binoculars,
+/obj/item/binoculars,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/spaceport)
 "jwv" = (
@@ -16910,7 +16910,7 @@
 "jIm" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup,
-/obj/item/device/laser_pointer,
+/obj/item/laser_pointer,
 /obj/item/reagent_containers/food/drinks/cans/iced_tea{
 	pixel_x = 17;
 	pixel_y = 4
@@ -17231,7 +17231,7 @@
 /area/point_verdant/interior/hotel)
 "jQf" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/box{
+/obj/item/flashlight/lamp/box{
 	pixel_y = 5
 	},
 /turf/simulated/floor/wood,
@@ -17321,7 +17321,7 @@
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/outdoors)
 "jSm" = (
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/structure/table/wood,
 /obj/item/key/door_key{
 	pixel_x = -10
@@ -17582,7 +17582,7 @@
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/police)
 "jZl" = (
-/obj/item/device/vending_refill/coffee{
+/obj/item/vending_refill/coffee{
 	pixel_y = -15;
 	pixel_x = 2
 	},
@@ -18347,8 +18347,8 @@
 /obj/structure/table/stone/marble,
 /obj/item/stack/packageWrap,
 /obj/item/stack/packageWrap,
-/obj/item/device/destTagger,
-/obj/item/device/destTagger,
+/obj/item/destTagger,
+/obj/item/destTagger,
 /obj/item/crowbar/red{
 	pixel_x = -11
 	},
@@ -18756,7 +18756,7 @@
 /area/point_verdant/water)
 "kEC" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/green{
+/obj/item/flashlight/lamp/green{
 	pixel_y = 9
 	},
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/teacup{
@@ -19487,7 +19487,7 @@
 /area/point_verdant/outdoors)
 "lak" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/green,
+/obj/item/flashlight/lamp/green,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/restaurant)
 "laz" = (
@@ -20307,11 +20307,11 @@
 /area/point_verdant/interior/parking)
 "lAg" = (
 /obj/structure/table/glass,
-/obj/item/device/healthanalyzer{
+/obj/item/healthanalyzer{
 	pixel_x = -5;
 	pixel_y = -2
 	},
-/obj/item/device/flashlight/lamp{
+/obj/item/flashlight/lamp{
 	on = 0;
 	pixel_x = 5;
 	pixel_y = 13
@@ -20495,7 +20495,7 @@
 "lDD" = (
 /obj/structure/table/wood,
 /obj/item/folder/red,
-/obj/item/device/laser_pointer,
+/obj/item/laser_pointer,
 /turf/simulated/floor/carpet/purple,
 /area/point_verdant/interior/laundromat)
 "lDE" = (
@@ -21311,7 +21311,7 @@
 /area/point_verdant/interior/offices/kaf)
 "lYm" = (
 /obj/structure/table/steel,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/robotics)
@@ -22005,11 +22005,11 @@
 /obj/item/weldingtool/experimental,
 /obj/item/rfd/construction,
 /obj/item/rfd/construction,
-/obj/item/device/multitool{
+/obj/item/multitool{
 	pixel_y = 11;
 	pixel_x = 7
 	},
-/obj/item/device/multitool{
+/obj/item/multitool{
 	pixel_y = 11
 	},
 /obj/effect/floor_decal/industrial/outline/red,
@@ -22314,7 +22314,7 @@
 	dir = 8;
 	pixel_x = -10
 	},
-/obj/item/device/megaphone/stagemicrophone{
+/obj/item/megaphone/stagemicrophone{
 	pixel_x = 5;
 	pixel_y = -5
 	},
@@ -22346,7 +22346,7 @@
 /area/point_verdant/interior/offices/basement)
 "mGh" = (
 /obj/structure/table/wood,
-/obj/item/device/taperecorder{
+/obj/item/taperecorder{
 	pixel_x = 4;
 	pixel_y = 1
 	},
@@ -22574,9 +22574,9 @@
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
 "mMQ" = (
-/obj/item/device/magnetic_lock,
-/obj/item/device/magnetic_lock,
-/obj/item/device/magnetic_lock,
+/obj/item/magnetic_lock,
+/obj/item/magnetic_lock,
+/obj/item/magnetic_lock,
 /obj/structure/closet/crate,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/offices/basement)
@@ -22915,8 +22915,8 @@
 /area/point_verdant/outdoors)
 "mUx" = (
 /obj/structure/table/wood,
-/obj/item/device/toner,
-/obj/item/device/toner,
+/obj/item/toner,
+/obj/item/toner,
 /obj/item/storage/box/unique/donkpockets,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/tailor)
@@ -23978,7 +23978,7 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/tunnels)
 "nBC" = (
-/obj/item/device/flashlight/lamp/green{
+/obj/item/flashlight/lamp/green{
 	pixel_y = 2
 	},
 /obj/structure/table/wood,
@@ -24366,7 +24366,7 @@
 /area/point_verdant/interior/restaurant)
 "nOI" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/green{
+/obj/item/flashlight/lamp/green{
 	pixel_y = 2
 	},
 /obj/machinery/light/small{
@@ -24431,7 +24431,7 @@
 /obj/item/storage/pill_bottle/assorted{
 	pixel_x = 5
 	},
-/obj/item/device/flashlight/lamp{
+/obj/item/flashlight/lamp{
 	pixel_x = -8;
 	pixel_y = 5
 	},
@@ -24635,7 +24635,7 @@
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/interior/tunnels)
 "nXY" = (
-/obj/item/device/flashlight/lamp/green{
+/obj/item/flashlight/lamp/green{
 	pixel_y = 2
 	},
 /obj/structure/table/wood,
@@ -24932,7 +24932,7 @@
 "oko" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
 /obj/structure/table/standard,
-/obj/item/device/flashlight/lamp{
+/obj/item/flashlight/lamp{
 	pixel_x = -3;
 	pixel_y = 3
 	},
@@ -26165,7 +26165,7 @@
 "oRK" = (
 /obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/structure/table/standard,
-/obj/item/device/advanced_healthanalyzer,
+/obj/item/advanced_healthanalyzer,
 /obj/machinery/light,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/pharmacy)
@@ -26286,11 +26286,11 @@
 /area/point_verdant/outdoors)
 "oWH" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/lava/green{
+/obj/item/flashlight/lamp/lava/green{
 	pixel_y = 8;
 	pixel_x = 5
 	},
-/obj/item/device/flash{
+/obj/item/flash{
 	pixel_y = 7;
 	pixel_x = -6
 	},
@@ -26455,7 +26455,7 @@
 /area/point_verdant/interior/offices/kaf)
 "pdZ" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/box{
+/obj/item/flashlight/lamp/box{
 	pixel_y = 11;
 	pixel_x = 5
 	},
@@ -26911,7 +26911,7 @@
 /area/point_verdant/water/deep)
 "pqY" = (
 /obj/structure/table/wood,
-/obj/item/device/price_scanner,
+/obj/item/price_scanner,
 /obj/item/tape_roll,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/bar)
@@ -27089,7 +27089,7 @@
 /area/point_verdant/interior/streetvendor)
 "puZ" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/lava/purple{
+/obj/item/flashlight/lamp/lava/purple{
 	pixel_x = 5;
 	pixel_y = 4
 	},
@@ -27203,7 +27203,7 @@
 "pyO" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
 /obj/structure/table/standard,
-/obj/item/device/megaphone{
+/obj/item/megaphone{
 	pixel_x = -1;
 	pixel_y = 16
 	},
@@ -28640,7 +28640,7 @@
 /obj/item/pen{
 	pixel_x = 6
 	},
-/obj/item/device/flashlight/lamp{
+/obj/item/flashlight/lamp{
 	pixel_x = -4;
 	pixel_y = 3
 	},
@@ -28745,7 +28745,7 @@
 /area/point_verdant/outdoors)
 "qCb" = (
 /obj/structure/table/steel,
-/obj/item/device/flashlight/lamp{
+/obj/item/flashlight/lamp{
 	pixel_x = -2;
 	pixel_y = 7
 	},
@@ -29468,7 +29468,7 @@
 /area/point_verdant/interior/streetvendor)
 "qWC" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp{
+/obj/item/flashlight/lamp{
 	pixel_x = -6;
 	pixel_y = 7
 	},
@@ -29677,11 +29677,11 @@
 /obj/item/tape_roll,
 /obj/item/towel,
 /obj/item/wrench,
-/obj/item/device/paicard,
-/obj/item/device/flashlight{
+/obj/item/paicard,
+/obj/item/flashlight{
 	pixel_y = 12
 	},
-/obj/item/device/hand_labeler,
+/obj/item/hand_labeler,
 /obj/item/towel,
 /obj/item/tape_roll,
 /turf/simulated/floor/lino,
@@ -29934,11 +29934,11 @@
 /obj/structure/closet/secure_closet{
 	req_access = list(218)
 	},
-/obj/item/device/flashlight/maglight,
-/obj/item/device/flashlight/maglight,
-/obj/item/device/flashlight/maglight,
-/obj/item/device/flashlight/maglight,
-/obj/item/device/flashlight/maglight,
+/obj/item/flashlight/maglight,
+/obj/item/flashlight/maglight,
+/obj/item/flashlight/maglight,
+/obj/item/flashlight/maglight,
+/obj/item/flashlight/maglight,
 /obj/item/clothing/shoes/jackboots,
 /obj/item/clothing/shoes/jackboots,
 /obj/item/clothing/shoes/jackboots,
@@ -30220,7 +30220,7 @@
 /area/point_verdant/outdoors)
 "rsz" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp{
+/obj/item/flashlight/lamp{
 	pixel_x = -2;
 	pixel_y = 7
 	},
@@ -30621,7 +30621,7 @@
 /area/point_verdant/interior/bar)
 "rGF" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/box{
+/obj/item/flashlight/lamp/box{
 	pixel_y = 5
 	},
 /turf/simulated/floor/wood,
@@ -31343,7 +31343,7 @@
 /area/point_verdant/outdoors)
 "sfC" = (
 /obj/machinery/shipsensors/weak,
-/obj/item/device/gps/stationary{
+/obj/item/gps/stationary{
 	pixel_x = -23;
 	name = "static GPS (Air Traffic Control - Point Verdant)";
 	gpstag = "SCC-FOB"
@@ -31420,7 +31420,7 @@
 /area/point_verdant/outdoors)
 "sji" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp{
+/obj/item/flashlight/lamp{
 	pixel_x = -2;
 	pixel_y = 7
 	},
@@ -31642,7 +31642,7 @@
 "sqt" = (
 /obj/structure/table/wood,
 /obj/structure/window/reinforced,
-/obj/item/device/price_scanner,
+/obj/item/price_scanner,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/arcade)
 "sqB" = (
@@ -31740,7 +31740,7 @@
 /obj/item/pen{
 	pixel_x = 6
 	},
-/obj/item/device/flashlight/lamp{
+/obj/item/flashlight/lamp{
 	pixel_x = -4;
 	pixel_y = 3
 	},
@@ -32689,7 +32689,7 @@
 /obj/effect/floor_decal/corner_wide/white{
 	dir = 5
 	},
-/obj/item/device/radio/intercom/north,
+/obj/item/radio/intercom/north,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/offices/basement)
 "tal" = (
@@ -32697,11 +32697,11 @@
 /obj/effect/floor_decal/corner/green/diagonal{
 	dir = 4
 	},
-/obj/item/device/reagent_scanner{
+/obj/item/reagent_scanner{
 	pixel_x = 9;
 	pixel_y = 6
 	},
-/obj/item/device/mass_spectrometer{
+/obj/item/mass_spectrometer{
 	pixel_x = -6;
 	pixel_y = 6
 	},
@@ -33207,7 +33207,7 @@
 /area/point_verdant/outdoors)
 "tlv" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp{
+/obj/item/flashlight/lamp{
 	pixel_x = -3;
 	pixel_y = 3
 	},
@@ -34140,11 +34140,11 @@
 "tOV" = (
 /obj/structure/table/rack/retail_shelf,
 /obj/item/tape_roll,
-/obj/item/device/measuring_tape{
+/obj/item/measuring_tape{
 	pixel_y = 2
 	},
-/obj/item/device/hand_labeler,
-/obj/item/device/flashlight{
+/obj/item/hand_labeler,
+/obj/item/flashlight{
 	pixel_y = 12
 	},
 /turf/simulated/floor/wood,
@@ -34296,7 +34296,7 @@
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/offices)
 "tVl" = (
-/obj/item/device/flashlight/lamp/lava/green{
+/obj/item/flashlight/lamp/lava/green{
 	pixel_y = 6
 	},
 /obj/structure/table/wood,
@@ -34818,11 +34818,11 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/item/device/vending_refill/cola{
+/obj/item/vending_refill/cola{
 	pixel_y = -8
 	},
-/obj/item/device/vending_refill/coffee,
-/obj/item/device/vending_refill/snack{
+/obj/item/vending_refill/coffee,
+/obj/item/vending_refill/snack{
 	pixel_y = 8
 	},
 /turf/simulated/floor/lino/diamond,
@@ -34845,7 +34845,7 @@
 "unJ" = (
 /obj/structure/table/wood,
 /obj/structure/window/reinforced,
-/obj/item/device/flashlight/lamp{
+/obj/item/flashlight/lamp{
 	pixel_x = 3;
 	pixel_y = 11
 	},
@@ -35386,7 +35386,7 @@
 /area/point_verdant/interior/arcade)
 "uEp" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/green{
+/obj/item/flashlight/lamp/green{
 	pixel_y = 9
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -35806,7 +35806,7 @@
 /area/point_verdant/outdoors)
 "uQE" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/green{
+/obj/item/flashlight/lamp/green{
 	pixel_y = 14
 	},
 /turf/simulated/floor/carpet/lightblue,
@@ -35920,7 +35920,7 @@
 	name = "operation map";
 	pixel_y = 31
 	},
-/obj/item/device/laser_pointer/blue{
+/obj/item/laser_pointer/blue{
 	pixel_x = -12;
 	pixel_y = 5
 	},
@@ -36075,7 +36075,7 @@
 /turf/simulated/floor/concrete,
 /area/point_verdant/outdoors)
 "uXg" = (
-/obj/item/device/flashlight/lamp/box{
+/obj/item/flashlight/lamp/box{
 	pixel_y = 3
 	},
 /obj/structure/table/wood,
@@ -36255,7 +36255,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/item/device/flashlight/lamp/box{
+/obj/item/flashlight/lamp/box{
 	pixel_y = 5
 	},
 /turf/simulated/floor/tiled/white,
@@ -36346,7 +36346,7 @@
 "vcU" = (
 /obj/structure/table/steel,
 /obj/item/crowbar,
-/obj/item/device/robotanalyzer{
+/obj/item/robotanalyzer{
 	pixel_y = 8
 	},
 /turf/simulated/floor/tiled/white,
@@ -36494,7 +36494,7 @@
 "vhc" = (
 /obj/effect/decal/curb,
 /obj/structure/table/steel,
-/obj/item/device/analyzer,
+/obj/item/analyzer,
 /turf/simulated/floor/tiled/full,
 /area/point_verdant/interior/spaceport)
 "vhr" = (
@@ -37238,8 +37238,8 @@
 /area/point_verdant/interior/maint_janitorial)
 "vDC" = (
 /obj/structure/table/reinforced/wood,
-/obj/item/device/pin_extractor,
-/obj/item/device/t_scanner{
+/obj/item/pin_extractor,
+/obj/item/t_scanner{
 	pixel_x = -14
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -37443,7 +37443,7 @@
 /area/point_verdant/interior/streetvendor)
 "vHW" = (
 /obj/structure/table/reinforced/wood,
-/obj/item/device/radiojammer,
+/obj/item/radiojammer,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/newspaper{
 	pixel_x = 7
@@ -37665,7 +37665,7 @@
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/outdoors)
 "vOG" = (
-/obj/item/device/flashlight/lamp/box{
+/obj/item/flashlight/lamp/box{
 	pixel_y = 3
 	},
 /obj/structure/table/wood,
@@ -37754,7 +37754,7 @@
 /area/point_verdant/interior/shallow)
 "vRN" = (
 /obj/structure/table/steel,
-/obj/item/device/hand_labeler{
+/obj/item/hand_labeler{
 	pixel_y = 14
 	},
 /obj/item/tape_roll{
@@ -38217,7 +38217,7 @@
 /area/point_verdant/interior)
 "wih" = (
 /obj/structure/table/reinforced/wood,
-/obj/item/device/flashlight/lamp/box{
+/obj/item/flashlight/lamp/box{
 	pixel_y = 5
 	},
 /turf/simulated/floor/lino/diamond,
@@ -38580,7 +38580,7 @@
 /turf/simulated/floor/exoplanet/konyang,
 /area/point_verdant/outdoors)
 "wuQ" = (
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/structure/table/wood,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -38662,7 +38662,7 @@
 /turf/simulated/floor/tiled/full,
 /area/point_verdant/interior/police)
 "wwy" = (
-/obj/item/device/flashlight/lamp/box{
+/obj/item/flashlight/lamp/box{
 	pixel_y = 3
 	},
 /obj/structure/table/wood,
@@ -39676,7 +39676,7 @@
 /area/point_verdant/interior/maint_janitorial)
 "wZo" = (
 /obj/structure/table/rack/retail_shelf,
-/obj/item/device/flashlight/maglight{
+/obj/item/flashlight/maglight{
 	pixel_y = -7;
 	pixel_x = -2
 	},
@@ -39796,7 +39796,7 @@
 "xbG" = (
 /obj/structure/table/wood,
 /obj/item/folder/red,
-/obj/item/device/paint_sprayer,
+/obj/item/paint_sprayer,
 /obj/machinery/light/small{
 	dir = 4
 	},
@@ -40013,7 +40013,7 @@
 /area/point_verdant/outdoors)
 "xib" = (
 /obj/structure/closet/chefcloset,
-/obj/item/device/quikpay,
+/obj/item/quikpay,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/point_verdant/interior/restaurant)
@@ -40317,7 +40317,7 @@
 /area/point_verdant/interior/streetvendor)
 "xpp" = (
 /obj/structure/table/steel,
-/obj/item/device/flashlight/headlights,
+/obj/item/flashlight/headlights,
 /obj/item/cell/hyper{
 	pixel_x = -4;
 	pixel_y = -10
@@ -40492,14 +40492,14 @@
 /area/point_verdant/interior/minimart)
 "xtS" = (
 /obj/structure/table/rack,
-/obj/item/device/camera_film,
-/obj/item/device/camera_film,
-/obj/item/device/camera{
+/obj/item/camera_film,
+/obj/item/camera_film,
+/obj/item/camera{
 	desc = "A one use - polaroid camera. 30 photos left.";
 	name = "detectives camera";
 	pictures_left = 30
 	},
-/obj/item/device/camera{
+/obj/item/camera{
 	desc = "A one use - polaroid camera. 30 photos left.";
 	name = "detectives camera";
 	pictures_left = 30
@@ -41069,7 +41069,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/item/device/price_scanner,
+/obj/item/price_scanner,
 /turf/simulated/floor/wood,
 /area/point_verdant/interior/tailor)
 "xMa" = (
@@ -41954,7 +41954,7 @@
 	pixel_x = -5
 	},
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/lava/cyan{
+/obj/item/flashlight/lamp/lava/cyan{
 	pixel_y = 3;
 	pixel_x = 5
 	},

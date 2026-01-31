@@ -149,7 +149,7 @@
 /obj/item/clothing/suit/space/void/engineering,
 /obj/item/clothing/head/helmet/space/void/engineering,
 /obj/item/clothing/mask/breath,
-/obj/item/device/gps/engineering,
+/obj/item/gps/engineering,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
@@ -1133,7 +1133,7 @@
 /obj/item/clothing/suit/space/void/engineering,
 /obj/item/clothing/head/helmet/space/void/engineering,
 /obj/item/clothing/mask/breath,
-/obj/item/device/gps/engineering,
+/obj/item/gps/engineering,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
@@ -2274,7 +2274,7 @@
 	dir = 10
 	},
 /obj/structure/table/standard,
-/obj/item/device/price_scanner,
+/obj/item/price_scanner,
 /turf/simulated/floor/tiled,
 /area/merchants_guild/office)
 "EQ" = (
@@ -2992,7 +2992,7 @@
 /obj/item/clothing/suit/space/void/engineering,
 /obj/item/clothing/head/helmet/space/void/engineering,
 /obj/item/clothing/mask/breath,
-/obj/item/device/gps/engineering,
+/obj/item/gps/engineering,
 /turf/simulated/floor/tiled,
 /area/merchants_guild/eva)
 "Nj" = (
@@ -3290,7 +3290,7 @@
 	},
 /obj/structure/table/standard,
 /obj/item/stack/packageWrap,
-/obj/item/device/hand_labeler,
+/obj/item/hand_labeler,
 /turf/simulated/floor/tiled,
 /area/merchants_guild/office)
 "TT" = (
@@ -3361,7 +3361,7 @@
 /area/merchants_guild/starboardengine)
 "Uo" = (
 /obj/structure/table/standard,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/machinery/light,
 /obj/effect/floor_decal/corner/purple{
 	dir = 10
@@ -3671,7 +3671,7 @@
 /area/merchants_guild/bridge)
 "ZW" = (
 /obj/structure/table/standard,
-/obj/item/device/flashlight/lamp/green,
+/obj/item/flashlight/lamp/green,
 /turf/simulated/floor/carpet/orange,
 /area/merchants_guild/captain)
 

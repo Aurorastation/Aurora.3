@@ -119,7 +119,7 @@
 /area/phoron_deposit_shuttle)
 "da" = (
 /obj/structure/table/steel,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /turf/simulated/floor/tiled/dark/airless,
 /area/phoron_deposit_shuttle)
 "dG" = (
@@ -169,7 +169,7 @@
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "fs" = (
-/obj/item/device/flashlight/flare/glowstick/yellow,
+/obj/item/flashlight/flare/glowstick/yellow,
 /turf/simulated/floor/exoplanet/asteroid/ash/rocky,
 /area/mine)
 "fB" = (
@@ -237,7 +237,7 @@
 	pixel_y = 4;
 	pixel_x = 6
 	},
-/obj/item/device/flashlight/lamp/lava/blue{
+/obj/item/flashlight/lamp/lava/blue{
 	pixel_y = 4;
 	pixel_x = -7
 	},
@@ -821,7 +821,7 @@
 /area/mine)
 "CD" = (
 /obj/structure/table/standard,
-/obj/item/device/flashlight/lamp{
+/obj/item/flashlight/lamp{
 	pixel_y = 5;
 	pixel_x = -8
 	},
@@ -909,7 +909,7 @@
 /area/phoron_deposit_shuttle)
 "EJ" = (
 /obj/random/dirt_75,
-/obj/item/device/flashlight/flare{
+/obj/item/flashlight/flare{
 	pixel_y = 4;
 	pixel_x = -9
 	},
@@ -1246,7 +1246,7 @@
 "Sf" = (
 /obj/random/dirt_75,
 /obj/structure/table/standard,
-/obj/item/device/binoculars,
+/obj/item/binoculars,
 /turf/simulated/floor/reinforced/airless,
 /area/phoron_deposit_shuttle)
 "SE" = (
@@ -1275,7 +1275,7 @@
 /area/phoron_deposit_shuttle)
 "Tx" = (
 /obj/structure/table/standard,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /obj/machinery/light/broken{
 	dir = 4
 	},
@@ -1358,7 +1358,7 @@
 "Wt" = (
 /obj/item/ammo_casing/rifle/used,
 /obj/item/ammo_casing/rifle/used,
-/obj/item/device/gps{
+/obj/item/gps{
 	pixel_y = 12;
 	pixel_x = 3
 	},

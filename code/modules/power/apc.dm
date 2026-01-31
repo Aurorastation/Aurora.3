@@ -726,7 +726,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 				update_icon()
 
 	// DEBUGGER: Repair emagged/infected/fucked up APCs.
-	else if (istype(attacking_item, /obj/item/device/debugger))
+	else if (istype(attacking_item, /obj/item/debugger))
 		if(emagged || hacker || infected)
 			to_chat(user, SPAN_WARNING("There is a software error with the device. Attempting to fix..."))
 			if(attacking_item.use_tool(src, user, 50, volume = 50))
@@ -772,7 +772,7 @@ ABSTRACT_TYPE(/obj/machinery/power/apc)
 				return attack_hand(user)
 			if (opened == COVER_CLOSED && panel_open && \
 				attacking_item.tool_behaviour == TOOL_MULTITOOL || \
-				attacking_item.tool_behaviour == TOOL_WIRECUTTER || istype(attacking_item, /obj/item/device/assembly/signaler))
+				attacking_item.tool_behaviour == TOOL_WIRECUTTER || istype(attacking_item, /obj/item/assembly/signaler))
 				return attack_hand(user)
 			user.visible_message(SPAN_DANGER("The [name] has been hit with the [attacking_item.name] by [user.name]!"), \
 				SPAN_DANGER("You hit the [name] with your [attacking_item.name]!"), \

@@ -9,7 +9,7 @@
 			/obj/item/circuitboard/bodyscanner,
 			/obj/item/stock_parts/capacitor = 2,
 			/obj/item/stock_parts/scanning_module = 2,
-			/obj/item/device/healthanalyzer
+			/obj/item/healthanalyzer
 		)
 	idle_power_usage = 60
 	active_power_usage = 10000	//10 kW. It's a big all-body scanner.

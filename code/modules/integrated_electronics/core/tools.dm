@@ -3,7 +3,7 @@
 #define UNWIRE   "unwire"
 #define UNWIRING "unwiring"
 
-/obj/item/device/integrated_electronics/wirer
+/obj/item/integrated_electronics/wirer
 	name = "circuit wirer"
 	desc = "It's a small wiring tool, with a wire roll, electric soldering iron, wire cutter, and more in one package. \
 	The wires used are generally useful for small electronics, such as circuitboards and breadboards, as opposed to larger wires \
@@ -16,10 +16,10 @@
 	var/datum/integrated_io/selected_io
 	var/mode = WIRE
 
-/obj/item/device/integrated_electronics/wirer/update_icon()
+/obj/item/integrated_electronics/wirer/update_icon()
 	icon_state = "wirer-[mode]"
 
-/obj/item/device/integrated_electronics/wirer/proc/wire(var/datum/integrated_io/io, mob/user)
+/obj/item/integrated_electronics/wirer/proc/wire(var/datum/integrated_io/io, mob/user)
 	if(!io.holder.assembly)
 		to_chat(user, SPAN_WARNING("\The [io.holder] needs to be secured inside an assembly first."))
 		return
@@ -82,7 +82,7 @@
 											[io.name] are not connected."))
 
 
-/obj/item/device/integrated_electronics/wirer/attack_self(mob/user)
+/obj/item/integrated_electronics/wirer/attack_self(mob/user)
 	switch(mode)
 		if(WIRE)
 			mode = UNWIRE
@@ -106,7 +106,7 @@
 #undef UNWIRE
 #undef UNWIRING
 
-/obj/item/device/integrated_electronics/debugger
+/obj/item/integrated_electronics/debugger
 	name = "circuit debugger"
 	desc = "This small tool allows one working with custom machinery to directly set data to a specific pin, useful for writing \
 	settings to specific circuits, or for debugging purposes.  It can also pulse activation pins."
@@ -118,7 +118,7 @@
 	var/data_to_write = null
 	var/accepting_refs = 0
 
-/obj/item/device/integrated_electronics/debugger/attack_self(mob/user)
+/obj/item/integrated_electronics/debugger/attack_self(mob/user)
 	var/type_to_use = input("Please choose a type to use.","[src] type setting") as null|anything in list("string","number","ref", "null")
 	if(!CanInteract(user, GLOB.physical_state))
 		return
@@ -145,7 +145,7 @@
 			data_to_write = null
 			to_chat(user, SPAN_NOTICE("You set \the [src]'s memory to absolutely nothing."))
 
-/obj/item/device/integrated_electronics/debugger/afterattack(atom/target, mob/living/user, proximity)
+/obj/item/integrated_electronics/debugger/afterattack(atom/target, mob/living/user, proximity)
 	if(accepting_refs && proximity)
 		data_to_write = WEAKREF(target)
 		visible_message(SPAN_NOTICE("[user] slides [src]'s ref scanner over \the [target]."))
@@ -153,7 +153,7 @@
 		now off.</span>")
 		accepting_refs = 0
 
-/obj/item/device/integrated_electronics/debugger/proc/write_data(var/datum/integrated_io/io, mob/user)
+/obj/item/integrated_electronics/debugger/proc/write_data(var/datum/integrated_io/io, mob/user)
 	switch (io.io_type)
 		if (DATA_CHANNEL)
 			io.write_data_to_pin(data_to_write)
@@ -169,7 +169,7 @@
 
 	io.holder.interact(user) // This is to update the UI.
 
-/obj/item/device/integrated_electronics/detailer
+/obj/item/integrated_electronics/detailer
 	name = "assembly detailer"
 	desc = "A combination autopainter and flash anodizer designed to give electronic assemblies a colorful, wear-resistant finish."
 	icon = 'icons/obj/assemblies/electronic_tools.dmi'
@@ -196,17 +196,17 @@
 		"hot pink" = COLOR_ASSEMBLY_HOT_PINK
 		)
 
-/obj/item/device/integrated_electronics/detailer/Initialize()
+/obj/item/integrated_electronics/detailer/Initialize()
 	update_icon()
 	return ..()
 
-/obj/item/device/integrated_electronics/detailer/update_icon()
+/obj/item/integrated_electronics/detailer/update_icon()
 	ClearOverlays()
 	var/image/detail_overlay = image('icons/obj/assemblies/electronic_tools.dmi', "detailer-color")
 	detail_overlay.color = detail_color
 	AddOverlays(detail_overlay)
 
-/obj/item/device/integrated_electronics/detailer/attack_self(mob/user)
+/obj/item/integrated_electronics/detailer/attack_self(mob/user)
 	var/color_choice = input(user, "Select color.", "Assembly Detailer", detail_color) as null|anything in color_list
 	if(!color_choice)
 		return
@@ -225,11 +225,11 @@
 	can_hold = list(
 		/obj/item/integrated_circuit,
 		/obj/item/storage/bag/circuits/mini,
-		/obj/item/device/electronic_assembly,
-		/obj/item/device/integrated_electronics,
+		/obj/item/electronic_assembly,
+		/obj/item/integrated_electronics,
 		/obj/item/crowbar,
 		/obj/item/screwdriver,
-		/obj/item/device/multitool
+		/obj/item/multitool
 	)
 	make_exact_fit = TRUE
 
@@ -246,10 +246,10 @@
 	new /obj/item/storage/bag/circuits/mini/converter(src)
 	new /obj/item/storage/bag/circuits/mini/power(src)
 
-	new /obj/item/device/electronic_assembly(src)
-	new /obj/item/device/assembly/electronic_assembly(src)
-	new /obj/item/device/assembly/electronic_assembly(src)
-	new /obj/item/device/multitool(src)
+	new /obj/item/electronic_assembly(src)
+	new /obj/item/assembly/electronic_assembly(src)
+	new /obj/item/assembly/electronic_assembly(src)
+	new /obj/item/multitool(src)
 	new /obj/item/screwdriver(src)
 	new /obj/item/crowbar(src)
 
@@ -269,12 +269,12 @@
 	new /obj/item/storage/bag/circuits/mini/converter/all(src)
 	new /obj/item/storage/bag/circuits/mini/power/all(src)
 
-	new /obj/item/device/electronic_assembly(src)
-	new /obj/item/device/electronic_assembly/medium(src)
-	new /obj/item/device/electronic_assembly/large(src)
-	new /obj/item/device/electronic_assembly/drone(src)
-	new /obj/item/device/integrated_electronics/wirer(src)
-	new /obj/item/device/integrated_electronics/debugger(src)
+	new /obj/item/electronic_assembly(src)
+	new /obj/item/electronic_assembly/medium(src)
+	new /obj/item/electronic_assembly/large(src)
+	new /obj/item/electronic_assembly/drone(src)
+	new /obj/item/integrated_electronics/wirer(src)
+	new /obj/item/integrated_electronics/debugger(src)
 	new /obj/item/crowbar(src)
 
 /obj/item/storage/bag/circuits/mini

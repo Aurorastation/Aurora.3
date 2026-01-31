@@ -88,7 +88,7 @@
 			playsound(get_turf(H), 'sound/weapons/Egloves.ogg', 50, 1, -1)
 			return TRUE
 
-		if(istype(attacking_item, /obj/item/device/flashlight))
+		if(istype(attacking_item, /obj/item/flashlight))
 			to_chat(H, SPAN_WARNING("You direct \the [attacking_item] towards \the [src]'s eyes!"))
 			playsound(get_turf(H), 'sound/items/flashlight.ogg', 50, 1, -1)
 			H.flash_act()

@@ -1,4 +1,4 @@
-/obj/item/device/onetankbomb
+/obj/item/onetankbomb
 	name = "bomb"
 	icon = 'icons/obj/tank.dmi'
 	item_state = "assembly"
@@ -9,22 +9,22 @@
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	movable_flags = MOVABLE_FLAG_PROXMOVE
 	var/status = FALSE   // FALSE - not readied // TRUE - bomb finished with welder
-	var/obj/item/device/assembly_holder/bombassembly = null   //The first part of the bomb is an assembly holder, holding an igniter+some device
+	var/obj/item/assembly_holder/bombassembly = null   //The first part of the bomb is an assembly holder, holding an igniter+some device
 	var/obj/item/tank/bombtank = null //the second part of the bomb is a phoron tank
 
-/obj/item/device/onetankbomb/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
+/obj/item/onetankbomb/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	. = ..()
 	examinate(user, bombtank, show_extended)
 
-/obj/item/device/onetankbomb/update_icon()
+/obj/item/onetankbomb/update_icon()
 	if(bombtank)
 		icon_state = bombtank.icon_state
 	if(bombassembly)
 		AddOverlays(bombassembly)
 		AddOverlays("bomb_assembly")
 
-/obj/item/device/onetankbomb/attackby(obj/item/attacking_item, mob/user)
-	if(istype(attacking_item, /obj/item/device/analyzer))
+/obj/item/onetankbomb/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/analyzer))
 		bombtank.attackby(attacking_item, user)
 		return
 	if(!status && (attacking_item.tool_behaviour == TOOL_WRENCH || istype(attacking_item, /obj/item/wirecutters/bomb)))	//This is basically bomb assembly code inverted. apparently it works.
@@ -57,17 +57,17 @@
 	add_fingerprint(user)
 	..()
 
-/obj/item/device/onetankbomb/attack_self(mob/user) //pressing the bomb accesses its assembly
+/obj/item/onetankbomb/attack_self(mob/user) //pressing the bomb accesses its assembly
 	bombassembly.attack_self(user, TRUE)
 	add_fingerprint(user)
 	return
 
-/obj/item/device/onetankbomb/receive_signal()	//This is mainly called by the sensor through sense() to the holder, and from the holder to here.
+/obj/item/onetankbomb/receive_signal()	//This is mainly called by the sensor through sense() to the holder, and from the holder to here.
 	visible_message("[icon2html(src, viewers(get_turf(src)))] *beep* *beep*", "*beep* *beep*")
 	addtimer(CALLBACK(src, PROC_REF(delayed_explosion)), 10 SECONDS)
 
 
-/obj/item/device/onetankbomb/proc/delayed_explosion()
+/obj/item/onetankbomb/proc/delayed_explosion()
 	if(QDELETED(src))
 		return
 	if(status)
@@ -75,21 +75,21 @@
 	else
 		bombtank.release()
 
-/obj/item/device/onetankbomb/HasProximity(atom/movable/AM as mob|obj)
+/obj/item/onetankbomb/HasProximity(atom/movable/AM as mob|obj)
 	if(bombassembly)
 		bombassembly.HasProximity(AM)
 
 // ---------- Procs below are for tanks that are used exclusively in 1-tank bombs ----------
 
 /obj/item/tank/proc/bomb_assemble(W, user)	//Bomb assembly proc. This turns assembly+tank into a bomb
-	var/obj/item/device/assembly_holder/S = W
+	var/obj/item/assembly_holder/S = W
 	var/mob/M = user
 	if(!S.secured)										//Check if the assembly is secured
 		return
 	if(isigniter(S.a_left) == isigniter(S.a_right))		//Check if either part of the assembly has an igniter, but if both parts are igniters, then fuck it
 		return
 
-	var/obj/item/device/onetankbomb/R = new /obj/item/device/onetankbomb(loc)
+	var/obj/item/onetankbomb/R = new /obj/item/onetankbomb(loc)
 
 	//this is really bad code, TODO: Make it better
 	M.drop_item()			//Remove the assembly from your hands

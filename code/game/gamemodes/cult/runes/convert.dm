@@ -101,7 +101,7 @@
 
 /datum/rune/convert/proc/shard_player(var/mob/living/target, atom/movable/A)
 	converting -= target
-	var/obj/item/device/soulstone/stone = new /obj/item/device/soulstone(get_turf(A))
+	var/obj/item/soulstone/stone = new /obj/item/soulstone(get_turf(A))
 	target.death()
 	stone.transfer_human(target)
 	var/mob/living/simple_animal/shade/shade = locate() in stone

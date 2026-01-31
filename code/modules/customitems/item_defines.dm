@@ -178,7 +178,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "rex_watch"
 
 
-/obj/item/device/camera/fluff/hadley_camera //Hadley's Camera - Hadley Dawson - fekkor
+/obj/item/camera/fluff/hadley_camera //Hadley's Camera - Hadley Dawson - fekkor
 	name = "customized camera"
 	desc = "A early 2450's Sunny camera with an adjustable lens, this one has a sticker with the name \"Hadley\" on the back."
 	icon = 'icons/obj/custom_items/hadley_camera.dmi'
@@ -351,7 +351,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/device/radio/headset/fluff/resolve_headset //Antennae - Decisive Resolve - itanimulli
+/obj/item/radio/headset/fluff/resolve_headset //Antennae - Decisive Resolve - itanimulli
 	name = "antennae"
 	desc = "Collapsible spherical antennae designed to interface with an IPC."
 	icon = 'icons/obj/custom_items/resolve_items.dmi'
@@ -481,7 +481,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/device/synthesized_instrument/guitar/multi/fluff/akinyi_symphette //Holo-symphette - Akinyi Idowu - kyres1
+/obj/item/synthesized_instrument/guitar/multi/fluff/akinyi_symphette //Holo-symphette - Akinyi Idowu - kyres1
 	name = "holo-symphette"
 	desc = "A cheap, collapsible musical instrument which utilizes holographic projections to generate a rough noise. It's shaped like a small harp, and seems to be  \
 	able to be tuned to mimic several old stringed Solarian instruments with some distorted audio. It's still got its price tag sticker on it."
@@ -494,7 +494,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 	var/deployed = FALSE
 
-/obj/item/device/synthesized_instrument/guitar/multi/fluff/akinyi_symphette/update_icon()
+/obj/item/synthesized_instrument/guitar/multi/fluff/akinyi_symphette/update_icon()
 	if(deployed)
 		icon_state = "akinyi_symphette_on"
 		item_state = "akinyi_symphette_on"
@@ -502,7 +502,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 		icon_state = "akinyi_symphette"
 		item_state = "akinyi_symphette"
 
-/obj/item/device/synthesized_instrument/guitar/multi/fluff/akinyi_symphette/AltClick(var/mob/user)
+/obj/item/synthesized_instrument/guitar/multi/fluff/akinyi_symphette/AltClick(var/mob/user)
 	deployed = !deployed
 	to_chat(user, SPAN_NOTICE("You [deployed ? "expand" : "collapse"] \the [src]."))
 	update_icon()
@@ -797,7 +797,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/device/megaphone/fluff/akinyi_mic //Resonance Microphone - Akinyi Idowu - kyres1
+/obj/item/megaphone/fluff/akinyi_mic //Resonance Microphone - Akinyi Idowu - kyres1
 	name = "resonance microphone"
 	desc = "A rather costly voice amplifier disguised as a microphone. A button on the side permits the user to dial their vocal volume with ease."
 	icon = 'icons/obj/custom_items/akinyi_symphette.dmi'
@@ -818,11 +818,11 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "akinyi_stand-collapsed"
 	w_class = WEIGHT_CLASS_SMALL
 	contained_sprite = TRUE
-	var/obj/item/device/megaphone/fluff/akinyi_mic/mic
+	var/obj/item/megaphone/fluff/akinyi_mic/mic
 	var/collapsed = TRUE
 
 /obj/item/fluff/akinyi_stand/attackby(obj/item/attacking_item, mob/user, params)
-	if(istype(attacking_item, /obj/item/device/megaphone/fluff/akinyi_mic))
+	if(istype(attacking_item, /obj/item/megaphone/fluff/akinyi_mic))
 		if(!mic && !collapsed)
 			user.unEquip(attacking_item)
 			attacking_item.forceMove(src)
@@ -888,14 +888,14 @@ All custom items with worn sprites must follow the contained sprite system: http
 	storage_slots = 3
 	max_w_class = WEIGHT_CLASS_NORMAL
 	can_hold = list(
-		/obj/item/device/megaphone/fluff/akinyi_mic,
+		/obj/item/megaphone/fluff/akinyi_mic,
 		/obj/item/fluff/akinyi_stand,
-		/obj/item/device/synthesized_instrument/guitar/multi/fluff/akinyi_symphette
+		/obj/item/synthesized_instrument/guitar/multi/fluff/akinyi_symphette
 		)
 	starts_with = list(
-		/obj/item/device/megaphone/fluff/akinyi_mic = 1,
+		/obj/item/megaphone/fluff/akinyi_mic = 1,
 		/obj/item/fluff/akinyi_stand = 1,
-		/obj/item/device/synthesized_instrument/guitar/multi/fluff/akinyi_symphette = 1
+		/obj/item/synthesized_instrument/guitar/multi/fluff/akinyi_symphette = 1
 	)
 
 
@@ -1560,7 +1560,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 			text = lightermsg
 		else if(attacking_item.tool_behaviour == TOOL_WELDER)
 			text = weldermsg
-		else if(istype(attacking_item, /obj/item/device/assembly/igniter))
+		else if(istype(attacking_item, /obj/item/assembly/igniter))
 			text = ignitermsg
 		else
 			text = genericmsg
@@ -1908,14 +1908,14 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "ashkii_cloak"
 	contained_sprite = TRUE
 
-/obj/item/device/versebook/fluff/guilty_men
+/obj/item/versebook/fluff/guilty_men
 	name = "Guilty Men"
 	desc = "A leather bound book bearing a burning Coalition of Colonies flag. \"Guilty Men\" and \"How the Coalition of Colonies and its leaders failed the Frontier\" are engraved on golden plaques on either side of the flag. A controversial book published several years ago, \"Guilty Men\" is acclaimed by some as a scathing rebuke of failed Coalition policies, and their intolerable results, and condemned by others as a radical break from traditional Coalition attitudes and values. This example is worn, with its pages dog-eared and torn in numerous places, while the leather binding has begun to crack and discolor under frequent handling."
 	icon = 'icons/obj/custom_items/imogen_items.dmi'
 	icon_state = "Guilty_Men"
 	item_state = "book"
 
-/obj/item/device/versebook/fluff/guilty_men/Initialize()
+/obj/item/versebook/fluff/guilty_men/Initialize()
 	. = ..()
 	randomquip = file2list("code/modules/customitems/imogen_guiltymen.txt")
 

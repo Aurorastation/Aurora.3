@@ -76,8 +76,8 @@
 /area/exoplanet/moghes)
 "cL" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lantern,
-/obj/item/device/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
@@ -479,7 +479,7 @@
 /area/exoplanet/moghes)
 "uN" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp,
+/obj/item/flashlight/lamp,
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},

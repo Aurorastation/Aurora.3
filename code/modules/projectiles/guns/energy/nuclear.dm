@@ -337,7 +337,7 @@
 	item_state = "psipistolstun100"
 	fire_sound = 'sound/weapons/Taser.ogg'
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
-	pin = /obj/item/device/firing_pin/psionic
+	pin = /obj/item/firing_pin/psionic
 	max_shots = 10
 	fire_delay = 4
 	can_turret = FALSE
@@ -354,4 +354,4 @@
 		)
 
 /obj/item/gun/energy/fedpistol/nopsi
-	pin = /obj/item/device/firing_pin
+	pin = /obj/item/firing_pin

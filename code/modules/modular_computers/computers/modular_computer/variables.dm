@@ -124,7 +124,7 @@
 	/// Tesla Link, Allows remote charging from nearest APC.
 	var/obj/item/computer_hardware/tesla_link/tesla_link
 	/// Personal AI, can control the device via a verb when installed
-	var/obj/item/device/paicard/personal_ai
+	var/obj/item/paicard/personal_ai
 	/// The universal port. Allows connection from IPCs through access cables.
 	var/obj/item/computer_hardware/universal_port/universal_port
 	/// The access cable dongle. Allows the computer to have its very own access cable.

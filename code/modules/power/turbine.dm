@@ -60,7 +60,7 @@
 	/// This value needs to be zero. It represents seconds since the last overheat event
 	var/last_overheat = 0
 	/// Internal radio, used to alert engineers of turbine trip!
-	var/obj/item/device/radio/radio
+	var/obj/item/radio/radio
 
 	component_types = list(
 		/obj/item/stock_parts/manipulator = 6,
