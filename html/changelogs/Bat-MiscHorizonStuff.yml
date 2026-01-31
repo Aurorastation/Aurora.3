@@ -12,7 +12,7 @@ delete-after: True
 changes:
   - bugfix: "Escape pod controls now launch the correct escape pods."
   - bugfix: "Ventilation fixes for Xenobotany hazardous specimens vestibule and D2 disposals."
-  - bugfix: "Adds missing air alarm to Bar."
+  - bugfix: "Adds two missing air alarms to Bar."
   - bugfix: "Swaps mismatched D2 atmos locker room air station signs."
   - bugfix: "Fixes wiring for D3 security bathroom APC."
   - rscdel: "Removes two excess light switches from Engineering lobby."
