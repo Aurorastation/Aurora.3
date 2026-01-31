@@ -15,4 +15,5 @@ changes:
   - bugfix: "Adds two missing air alarms to Bar."
   - bugfix: "Swaps mismatched D2 atmos locker room air station signs."
   - bugfix: "Fixes wiring for D3 security bathroom APC."
+  - bugfix: "Adds missing disposal pipe segments to security meetting room."
   - rscdel: "Removes two excess light switches from Engineering lobby."
