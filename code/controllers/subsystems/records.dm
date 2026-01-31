@@ -316,7 +316,9 @@ SUBSYSTEM_DEF(records)
 			"name" = ghostrole_mob.name ? ghostrole_mob.name : "Unknown",\
 			"rank" = ghostrole_mob.mind && ghostrole_mob.mind.assigned_role \
 				? ghostrole_mob.mind.assigned_role \
-				: ishuman(ghostrole_mob) ? "Independent Spacer" : "Non-Humanoid Role",\
+				: ishuman(ghostrole_mob) \
+					? "Independent Spacer" \
+					: "Non-Humanoid Role",\
 			"active" = ghostrole_mob.stat == DEAD ? "*Deceased*" : "Active",\
 			"head" = FALSE,\
 			"ooc_role" = TRUE)
