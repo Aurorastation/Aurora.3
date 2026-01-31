@@ -348,7 +348,7 @@
 	else if(istype(attacking_item, /obj/item/borg/upgrade/))
 		to_chat(user, SPAN_WARNING("\The [src] is not compatible with \the [attacking_item]."))
 		return
-	else if(attacking_item.iscrowbar())
+	else if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 		to_chat(user, SPAN_WARNING("\The [src] is hermetically sealed. You can't open the case."))
 		return
 	else if(attacking_item.GetID() || istype(attacking_item, /obj/item/card/robot))

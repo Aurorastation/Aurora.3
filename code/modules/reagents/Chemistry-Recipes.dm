@@ -2035,7 +2035,7 @@
 	result = /singleton/reagent/alcohol/goldschlager
 	required_reagents = list(/singleton/reagent/alcohol/vodka = 10, /singleton/reagent/gold = 1)
 	mix_message = null
-	reaction_sound = /singleton/sound_category/generic_pour_sound
+	reaction_sound = SFX_POUR
 	result_amount = 10
 
 /datum/chemical_reaction/drink/patron
@@ -2057,28 +2057,28 @@
 	id = "tea"
 	result = /singleton/reagent/drink/tea
 	required_reagents = list(/singleton/reagent/nutriment/teagrounds = 1, /singleton/reagent/water = 5)
-	result_amount = 5
+	result_amount = 6
 
 /datum/chemical_reaction/drink/sencha
 	name = "Sencha"
 	id = "sencha"
 	result = /singleton/reagent/drink/tea/sencha
-	required_reagents = list(/singleton/reagent/nutriment/teagrounds/sencha = 1, /singleton/reagent/water = 9)
-	result_amount = 10
+	required_reagents = list(/singleton/reagent/nutriment/teagrounds/sencha = 1, /singleton/reagent/water = 5)
+	result_amount = 6
 
 /datum/chemical_reaction/drink/tieguanyin
 	name = "Tieguanyin"
 	id = "tieguanyin"
 	result = /singleton/reagent/drink/tea/tieguanyin
-	required_reagents = list(/singleton/reagent/nutriment/teagrounds/tieguanyin = 1, /singleton/reagent/water = 9)
-	result_amount = 10
+	required_reagents = list(/singleton/reagent/nutriment/teagrounds/tieguanyin = 1, /singleton/reagent/water = 5)
+	result_amount = 6
 
 /datum/chemical_reaction/drink/jaekseol
 	name = "jaekseol"
 	id = "jaekseol"
 	result = /singleton/reagent/drink/tea/jaekseol
-	required_reagents = list(/singleton/reagent/nutriment/teagrounds/jaekseol = 1, /singleton/reagent/water = 9)
-	result_amount = 10
+	required_reagents = list(/singleton/reagent/nutriment/teagrounds/jaekseol = 1, /singleton/reagent/water = 5)
+	result_amount = 6
 
 /datum/chemical_reaction/drink/cocatea
 	name = "Mate de Coca"
@@ -3903,6 +3903,20 @@
 	id = "tropical_icetea"
 	result = /singleton/reagent/drink/tea/tropical_icetea
 	required_reagents = list(/singleton/reagent/drink/icetea = 3, /singleton/reagent/drink/limejuice = 1, /singleton/reagent/drink/orangejuice = 1, /singleton/reagent/drink/watermelonjuice = 1)
+	result_amount = 6
+
+/datum/chemical_reaction/drink/messas_tear_tea
+	name = "Messa's Tear Tea"
+	id = "messas_tear_tea"
+	result = /singleton/reagent/drink/tea/messa
+	required_reagents = list(/singleton/reagent/nutriment/teagrounds/messa = 1, /singleton/reagent/water = 5)
+	result_amount = 6
+
+/datum/chemical_reaction/drink/rasnif
+	name = "Ras'nif Tea"
+	id = "rasnif_tea"
+	result = /singleton/reagent/drink/tea/rasnif
+	required_reagents = list(/singleton/reagent/nutriment/teagrounds/rasnif = 1, /singleton/reagent/water = 5)
 	result_amount = 6
 
 //transmutation

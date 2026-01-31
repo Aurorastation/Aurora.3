@@ -18,7 +18,7 @@
 	return fusion.get_local_network()
 
 /obj/machinery/computer/fusion/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.ismultitool())
+	if(attacking_item.tool_behaviour == TOOL_MULTITOOL)
 		var/datum/component/local_network_member/fusion = GetComponent(/datum/component/local_network_member)
 		fusion.get_new_tag(user)
 		return

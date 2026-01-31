@@ -1,6 +1,15 @@
 import { BooleanLike } from '../../common/react';
 import { useBackend } from '../backend';
-import { Box, Button, Collapsible, Divider, Flex, LabeledList, NoticeBox, Section } from '../components';
+import {
+  Box,
+  Button,
+  Collapsible,
+  Divider,
+  Flex,
+  LabeledList,
+  NoticeBox,
+  Section,
+} from '../components';
 import { NtosWindow } from '../layouts';
 
 export type IDData = {

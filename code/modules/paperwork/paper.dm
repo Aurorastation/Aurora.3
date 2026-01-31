@@ -199,7 +199,7 @@
 			return
 		user.visible_message(SPAN_NOTICE("\The [user] carefully folds \the [src] into a plane."),
 			SPAN_NOTICE("You carefully fold \the [src] into a plane."), "\The [user] folds \the [src] into a plane.")
-		playsound(src, 'sound/bureaucracy/paperfold.ogg', 50, 1)
+		playsound(src, 'sound/items/bureaucracy/paperfold.ogg', 50, 1)
 		icon_state = "paper_plane"
 		throw_range = 8
 		old_name = name
@@ -213,7 +213,7 @@
 			return
 		user.visible_message(SPAN_NOTICE("\The [user] carefully folds \the [src] into an origami swan."),
 			SPAN_NOTICE("You carefully fold \the [src] into a swan."), "\The [user] folds \the [src] into a swan.")
-		playsound(src, 'sound/bureaucracy/paperfold.ogg', 50, 1)
+		playsound(src, 'sound/items/bureaucracy/paperfold.ogg', 50, 1)
 		icon_state = "paper_swan"
 		old_name = name
 		name = "origami swan"
@@ -222,7 +222,7 @@
 
 	if (user.a_intent == I_HELP && old_name && (icon_state == "paper_plane" || icon_state == "paper_swan"))
 		user.visible_message(SPAN_NOTICE("\The [user] unfolds \the [src]."), SPAN_NOTICE("You unfold \the [src]."), "You hear paper rustling.")
-		playsound(src, 'sound/bureaucracy/paperfold.ogg', 50, 1)
+		playsound(src, 'sound/items/bureaucracy/paperfold.ogg', 50, 1)
 		icon_state = base_state
 		throw_range = initial(throw_range)
 		name = old_name
@@ -320,7 +320,7 @@
 	update_icon()
 
 /obj/item/paper/proc/get_signature(var/obj/item/pen/P, mob/user as mob)
-	if(P && P.ispen())
+	if(P && P.tool_behaviour == TOOL_PEN)
 		return P.get_signature(user)
 
 	if (user)
@@ -419,7 +419,7 @@
 
 		user.visible_message("<span class='[class]'>[user] holds \the [P] up to \the [src], it looks like [user.get_pronoun("he")]'s trying to burn it!</span>", \
 		"<span class='[class]'>You hold \the [P] up to \the [src], burning it slowly.</span>")
-		playsound(src.loc, 'sound/bureaucracy/paperburn.ogg', 50, 1)
+		playsound(src.loc, 'sound/items/bureaucracy/paperburn.ogg', 50, 1)
 		if(icon_state == "scrap")
 			flick("scrap_onfire", src)
 		else if(icon_state == "stickynote_scrap")
@@ -523,13 +523,13 @@
 			if(T.pen)
 				i = T.pen
 
-		if(!i || !i.ispen())
+		if(!i || !i.tool_behaviour == TOOL_PEN)
 			i = usr.get_inactive_hand()
 		var/obj/item/clipboard/c
 		var/iscrayon = FALSE
 		var/isfountain = FALSE
 		var/istypewriter = FALSE
-		if(!i.ispen())
+		if(!i.tool_behaviour == TOOL_PEN)
 			if(usr.back && istype(usr.back,/obj/item/rig))
 				var/obj/item/rig/r = usr.back
 				var/obj/item/rig_module/device/pen/m = locate(/obj/item/rig_module/device/pen) in r.installed_modules
@@ -672,7 +672,7 @@
 		B.amount = 2
 		B.update_icon()
 
-	else if(attacking_item.ispen())
+	else if(attacking_item.tool_behaviour == TOOL_PEN)
 		if(icon_state == "scrap")
 			to_chat(user, SPAN_WARNING("The [src] is too crumpled to write on."))
 			return
@@ -717,7 +717,7 @@
 		stamped += attacking_item.type
 		AddOverlays(stampoverlay)
 
-		playsound(src, 'sound/bureaucracy/stamp.ogg', 50, 1)
+		playsound(src, 'sound/items/bureaucracy/stamp.ogg', 50, 1)
 		to_chat(user, SPAN_NOTICE("You stamp the paper with \the [attacking_item]."))
 
 	else if(attacking_item.isFlameSource())

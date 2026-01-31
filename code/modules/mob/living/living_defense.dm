@@ -116,7 +116,7 @@
 		//If the projectile was blocked and it's not at point blank range, then it missed
 		if(blocked >= 100 && !hitting_projectile.point_blank)
 			src.visible_message(SPAN_NOTICE("\The [hitting_projectile] misses [src] narrowly!"))
-			playsound(src, /singleton/sound_category/bulletflyby_sound, 50, 1)
+			playsound(src, SFX_BULLET_MISS, 50, 1)
 
 		//Otherwise it hit
 		else

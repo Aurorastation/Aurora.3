@@ -160,10 +160,10 @@ SUBSYSTEM_DEF(explosives)
 						// If inside the blast radius + world.view - 2
 						if (dist <= closedist)
 							to_chat(M, FONT_LARGE(SPAN_WARNING("You hear the sound of a nearby explosion coming from \the [explosion_dir].")))
-							M.playsound_local(epicenter, get_sfx(/singleton/sound_category/explosion_sound), min(100, volume), vary = TRUE, falloff_distance = 5)
+							M.playsound_local(epicenter, SFX_EXPLOSION, min(100, volume), vary = TRUE, falloff_distance = 5)
 						else if (dist > closedist && dist <= extendeddist) // People with sensitive hearing get a better idea of how far it is
 							to_chat(M, FONT_LARGE(SPAN_WARNING("You hear the sound of a semi-close explosion coming from \the [explosion_dir].")))
-							M.playsound_local(epicenter, get_sfx(/singleton/sound_category/explosion_sound), min(100, volume), vary = TRUE, falloff_distance = 5)
+							M.playsound_local(epicenter, SFX_EXPLOSION, min(100, volume), vary = TRUE, falloff_distance = 5)
 						else //You hear a far explosion if you're outside the blast radius. Small bombs shouldn't be heard all over the station.
 							volume = M.playsound_local(epicenter, 'sound/effects/explosionfar.ogg', volume, vary = TRUE, falloff_distance = 1000, pressure_affected = TRUE)
 							if(volume)
@@ -323,7 +323,7 @@ SUBSYSTEM_DEF(explosives)
 
 	var/close_dist = round(power + world.view - 2, 1)
 
-	var/sound/explosion_sound = sound(get_sfx(/singleton/sound_category/explosion_sound))
+	var/sound/explosion_sound = sound(SFX_EXPLOSION)
 
 	if(power >= 100)
 		new /obj/effect/shockwave(epicenter, power / 60)

@@ -7,7 +7,7 @@
 	anchored = 1.0
 	idle_power_usage = 300
 	active_power_usage = 300
-	clicksound = /singleton/sound_category/keyboard_sound
+	clicksound = SFX_KEYBOARD
 
 	/// The path to the circuit board type. If circuit==null, the computer can't be disassembled.
 	var/circuit = null
@@ -174,7 +174,7 @@
 	return text
 
 /obj/machinery/computer/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(circuit)
 			if(attacking_item.use_tool(src, user, 20, volume = 50))
 				var/obj/structure/computerframe/A = new /obj/structure/computerframe( src.loc )

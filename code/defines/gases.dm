@@ -112,7 +112,7 @@
 	overlay_limit = 0.5
 	specific_heat = 5	// J/(mol*K)
 	molar_mass = 0.017	// kg/mol
-	flags = XGM_GAS_CONTAMINANT
+	flags = XGM_GAS_CONTAMINANT | XGM_GAS_OXIDIZER
 
 /singleton/xgm_gas/nitrogendioxide
 	id = GAS_NO2
@@ -120,6 +120,7 @@
 	desc = "A byproduct of a dozen and more critical chemical industrial processes. Pollution."
 	specific_heat = 33	// J/(mol*K)
 	molar_mass = 0.046	// kg/mol
+	flags = XGM_GAS_OXIDIZER
 
 /singleton/xgm_gas/alium
 	id = GAS_ALIEN

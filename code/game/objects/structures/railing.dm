@@ -262,7 +262,7 @@
 			return
 
 	// Dismantle
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(!can_wrench)
 			to_chat(user, SPAN_WARNING("This [src] cannot be adjusted."))
 			return
@@ -287,7 +287,7 @@
 			update_icon()
 			return
 	// Repair
-	if(attacking_item.iswelder())
+	if(attacking_item.tool_behaviour == TOOL_WELDER)
 		var/obj/item/weldingtool/F = attacking_item
 		if(F.isOn())
 			if(health >= maxhealth)
@@ -302,7 +302,7 @@
 			return
 
 	// Install
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		if(!can_screwdriver)
 			to_chat(user, SPAN_WARNING("This [src] cannot be adjusted."))
 			return

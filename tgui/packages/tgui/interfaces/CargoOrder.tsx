@@ -1,6 +1,17 @@
 import { BooleanLike } from '../../common/react';
 import { useBackend, useLocalState } from '../backend';
-import { Box, Button, Icon, LabeledList, Section, Table, Tabs, Tooltip, Stack, Input } from '../components';
+import {
+  Box,
+  Button,
+  Icon,
+  LabeledList,
+  Section,
+  Table,
+  Tabs,
+  Tooltip,
+  Stack,
+  Input,
+} from '../components';
 import { NtosWindow } from '../layouts';
 import { sanitizeText } from '../sanitize';
 
@@ -89,12 +100,14 @@ export const CargoOrder = (props, context) => {
         <Tabs fluid>
           <Tabs.Tab
             onClick={() => act('page', { page: 'main' })}
-            selected={data.page === 'main'}>
+            selected={data.page === 'main'}
+          >
             Main
           </Tabs.Tab>
           <Tabs.Tab
             onClick={() => act('page', { page: 'tracking' })}
-            selected={data.page === 'tracking'}>
+            selected={data.page === 'tracking'}
+          >
             Tracking
           </Tabs.Tab>
         </Tabs>
@@ -109,12 +122,12 @@ export const MainPage = (props, context) => {
   const [details, setDetails] = useLocalState<boolean>(
     context,
     'details',
-    false
+    false,
   );
   const [searchTerm, setSearchTerm] = useLocalState<string>(
     context,
     `searchTerm`,
-    ``
+    ``,
   );
 
   return (
@@ -185,7 +198,8 @@ export const MainPage = (props, context) => {
                 selected={data.selected_category === category.name}
                 onClick={() =>
                   act('select_category', { select_category: category.name })
-                }>
+                }
+              >
                 <Icon name={category.icon} /> {category.display_name}
               </Tabs.Tab>
             ))}
@@ -197,7 +211,7 @@ export const MainPage = (props, context) => {
           {data.category_items
             .filter(
               (c) =>
-                c.name?.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1
+                c.name?.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1,
             )
             .map((item) => (
               <Section
@@ -215,7 +229,8 @@ export const MainPage = (props, context) => {
                       act('add_item', { add_item: item.name.toString() })
                     }
                   />
-                }>
+                }
+              >
                 <Stack vertical>
                   <Stack.Item>{item.description}</Stack.Item>
                   <Stack.Item>

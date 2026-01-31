@@ -46,7 +46,7 @@ BREATH ANALYZER
 	add_fingerprint(user)
 
 /// Calculates severity based on the ratios defined external limbs.
-/proc/get_wound_severity(damage_ratio, uppercase = FALSE)
+/proc/get_wound_severity(damage_ratio, can_heal_overkill, uppercase = FALSE)
 	var/degree = "none"
 
 	switch(damage_ratio)
@@ -60,14 +60,14 @@ BREATH ANALYZER
 			degree = "severe"
 		if (76 to 99)
 			degree = "extreme"
-		if (99 to INFINITY)
-			degree = "irreparable"
+		if (100 to INFINITY)
+			degree = can_heal_overkill ? "critical" : "irreparable"
 
 	if(uppercase)
 		degree = capitalize(degree)
 	return degree
 
-/proc/get_severity(amount, uppercase = FALSE)
+/proc/get_severity(amount, can_heal_overkill, uppercase = FALSE)
 	var/output = "none"
 
 	switch(amount)
@@ -84,7 +84,7 @@ BREATH ANALYZER
 		if (76 to 99)
 			output = "extreme"
 		if (100 to INFINITY)
-			output = "irreparable"
+			output = can_heal_overkill ? "critical" : "irreparable"
 
 	if(uppercase)
 		output = capitalize(output)
@@ -744,7 +744,7 @@ BREATH ANALYZER
 /obj/item/device/advanced_healthanalyzer/cyborg/print_scan(var/mob/M, var/mob/living/user)
 	var/obj/item/paper/medscan/R = new /obj/item/paper/medscan(src, connected.format_occupant_data(get_occupant_data(M)), "Scan ([M.name]) ([worldtime2text()])", M)
 	user.visible_message(SPAN_NOTICE("\The [src] beeps, printing \the [R] after a moment."))
-	playsound(user.loc, /singleton/sound_category/print_sound, 50, 1)
+	playsound(user.loc, SFX_PRINT, 50, 1)
 	R.forceMove(user.loc)
 
 /obj/item/device/advanced_healthanalyzer/proc/get_occupant_data(var/mob/living/carbon/human/H)

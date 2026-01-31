@@ -385,7 +385,7 @@
 	for(var/mob/pilot in user_vehicle.pilots)
 		R.show_content(pilot)
 	user_vehicle.visible_message(SPAN_NOTICE("\The [src] spits out a piece of paper."))
-	playsound(user_vehicle.loc, /singleton/sound_category/print_sound, 50, 1)
+	playsound(user_vehicle.loc, SFX_PRINT, 50, 1)
 	R.forceMove(user_vehicle.loc)
 
 /obj/item/device/healthanalyzer/mech/proc/get_medical_data(var/mob/living/carbon/human/H)

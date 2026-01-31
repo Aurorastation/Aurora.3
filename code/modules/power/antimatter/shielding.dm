@@ -234,7 +234,7 @@
 	. += "To deploy, drop near an antimatter control unit or an existing deployed section and use your multitool on it."
 
 /obj/item/device/am_shielding_container/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.ismultitool() && isturf(loc))
+	if(attacking_item.tool_behaviour == TOOL_MULTITOOL && isturf(loc))
 		if(locate(/obj/machinery/am_shielding) in loc)
 			to_chat(user, SPAN_WARNING("There is already an antimatter reactor section there."))
 			return

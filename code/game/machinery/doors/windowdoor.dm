@@ -42,7 +42,7 @@
 	CC.amount = 2
 	CC.update_icon()
 	src.density = FALSE
-	playsound(src, /singleton/sound_category/glass_break_sound, 70, 1)
+	playsound(src, SFX_BREAK_GLASS, 70, 1)
 	if(display_message)
 		visible_message("[src] shatters!")
 	qdel(src)
@@ -176,13 +176,13 @@
 	if (istype(attacking_item, /obj/item/melee/energy/blade))
 		if(emag_act(10, user))
 			spark(src.loc, 5)
-			playsound(src.loc, /singleton/sound_category/spark_sound, 50, 1)
+			playsound(src.loc, SFX_SPARKS, 50, 1)
 			playsound(src.loc, 'sound/weapons/blade.ogg', 50, 1)
 			visible_message(SPAN_WARNING("The glass door was sliced open by [user]!"))
 		return TRUE
 
 	//If it's emagged, crowbar can pry electronics out.
-	if (emagged == 1 && attacking_item.iscrowbar())
+	if (emagged == 1 && attacking_item.tool_behaviour == TOOL_CROWBAR)
 		user.visible_message("[user] dismantles the windoor.", "You start to dismantle the windoor.")
 		if(attacking_item.use_tool(src, user, 60, volume = 50))
 			to_chat(user, SPAN_NOTICE("You dismantled the windoor!"))
@@ -194,7 +194,7 @@
 			qdel(src)
 		return TRUE
 
-	if(isobj(attacking_item) && attacking_item.iscrowbar() && user.a_intent == I_HELP)
+	if(isobj(attacking_item) && attacking_item.tool_behaviour == TOOL_CROWBAR && user.a_intent == I_HELP)
 		if(!operable())
 			visible_message("\The [user] forces \the [src] [density ? "open" : "closed"].")
 			if(density)

@@ -1,7 +1,14 @@
 import { round } from 'common/math';
 import { BooleanLike } from 'common/react';
 import { useBackend } from '../backend';
-import { AnimatedNumber, Box, Button, Knob, LabeledList, Section } from '../components';
+import {
+  AnimatedNumber,
+  Box,
+  Button,
+  Knob,
+  LabeledList,
+  Section,
+} from '../components';
 import { Window } from '../layouts';
 
 export type ThermostatData = {
@@ -24,7 +31,8 @@ export const CoolingUnitThermostat = (props, context) => {
       resizable
       theme={data.broken ? 'spookyconsole' : 'hephaestus'}
       width={400}
-      height={300}>
+      height={300}
+    >
       <Window.Content scrollable>
         {data.broken ? <Broken /> : <ThermostatWindow />}
       </Window.Content>

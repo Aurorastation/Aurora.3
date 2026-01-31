@@ -34,6 +34,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 10000, MATERIAL_GLASS = 5000)
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
+	tool_behaviour = TOOL_RETRACTOR
 
 /*
  * Hemostat
@@ -48,6 +49,7 @@
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
 	attack_verb = list("attacked", "pinched")
+	tool_behaviour = TOOL_HEMOSTAT
 
 /*
  * Cautery
@@ -62,6 +64,7 @@
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
 	attack_verb = list("burnt")
+	tool_behaviour = TOOL_CAUTERY
 
 /*
  * Surgical Drill
@@ -72,7 +75,7 @@
 	icon_state = "drill"
 	item_state = "drill"
 	surgerysound = 'sound/items/surgery/surgicaldrill.ogg'
-	hitsound = /singleton/sound_category/drillhit_sound
+	hitsound = SFX_DRILL_HIT
 	matter = list(DEFAULT_WALL_MATERIAL = 15000, MATERIAL_GLASS = 10000)
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	force = 22
@@ -81,6 +84,7 @@
 	attack_verb = list("drilled")
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
+	tool_behaviour = TOOL_DRILL
 
 /*
  * Scalpel
@@ -105,6 +109,7 @@
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	drop_sound = 'sound/items/drop/knife.ogg'
 	pickup_sound = 'sound/items/pickup/knife.ogg'
+	tool_behaviour = TOOL_SCALPEL
 
 /*
  * Researchable Scalpels
@@ -150,6 +155,7 @@
 	edge = TRUE
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
+	tool_behaviour = TOOL_SAW
 
 // Miscellanous
 /obj/item/surgery/bone_gel
@@ -187,6 +193,7 @@
 	throw_speed = 3
 	throw_range = 5
 	attack_verb = list("attacked", "hit", "bludgeoned")
+	tool_behaviour = TOOL_BONESET
 
 /obj/item/storage/box/fancy/tray
 	name = "surgery tray"
@@ -289,7 +296,7 @@
 /obj/item/storage/box/fancy/tray/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if(..() && contents.len)
 		spill(3, get_turf(target_mob))
-		playsound(target_mob, /singleton/sound_category/tray_hit_sound, 50, 1)  //sound playin' again
+		playsound(target_mob, SFX_TRAY_HIT, 50, 1)  //sound playin' again
 		user.visible_message(SPAN_DANGER("[user] smashes \the [src] into [target_mob], causing it to spill its contents across the area!"))
 
 /obj/item/storage/box/fancy/tray/throw_impact(atom/hit_atom)

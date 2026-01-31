@@ -787,5 +787,7 @@
 	new /obj/item/storage/box/midynhr_water(src)
 	new /obj/item/storage/box/fancy/yoke/grape_juice(src)
 	new /obj/item/storage/box/fancy/yoke/beetle_milk(src)
+	new /obj/item/storage/box/unique/tea/rasnif(src)
+	new /obj/item/storage/box/unique/tea/messa(src)
 	new /obj/item/reagent_containers/toothpaste(src)
 	new /obj/item/reagent_containers/food/drinks/flask/vacuumflask/mouthwash(src)

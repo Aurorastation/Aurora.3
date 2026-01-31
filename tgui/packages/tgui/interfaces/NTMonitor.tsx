@@ -1,6 +1,13 @@
 import { BooleanLike } from '../../common/react';
 import { useBackend } from '../backend';
-import { Box, Button, LabeledList, NoticeBox, Section, Table } from '../components';
+import {
+  Box,
+  Button,
+  LabeledList,
+  NoticeBox,
+  Section,
+  Table,
+} from '../components';
 import { NtosWindow } from '../layouts';
 
 export type MonitorData = {
@@ -104,7 +111,8 @@ export const NTMonitor = (props, context) => {
                 onClick={() => act('purgelogs')}
               />
             </>
-          }>
+          }
+        >
           <LabeledList>
             <LabeledList.Item label="Intrusion Detection">
               {data.idsstatus ? 'Enabled' : 'Disabled'}

@@ -42,7 +42,7 @@
 	shattered = TRUE
 	unlocked = TRUE
 	open = TRUE
-	playsound(user, /singleton/sound_category/glass_break_sound, 100, 1)
+	playsound(user, SFX_BREAK_GLASS, 100, 1)
 	update_icon()
 
 /obj/structure/fireaxecabinet/update_icon()
@@ -115,7 +115,7 @@
 	return ..()
 
 /obj/structure/fireaxecabinet/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.ismultitool())
+	if(attacking_item.tool_behaviour == TOOL_MULTITOOL)
 		toggle_lock(user)
 		return
 

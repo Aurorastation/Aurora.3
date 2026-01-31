@@ -75,7 +75,7 @@
 		/mob/living/carbon/human/proc/check_tag,
 		/mob/living/carbon/human/proc/tie_hair)
 
-	bodyfall_sound = /singleton/sound_category/bodyfall_sound
+	bodyfall_sound = SFX_BODYFALL
 	use_alt_hair_layer = FALSE
 
 /datum/species/machine/shell/get_species(var/reference, var/mob/living/carbon/human/H, var/records)

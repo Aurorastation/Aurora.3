@@ -339,8 +339,8 @@
 	desc = "A white cane, used by the visually impaired."
 	icon = 'icons/obj/item/whitecane.dmi'
 	icon_state = "whitecane"
-	drop_sound =  /singleton/sound_category/generic_drop_sound
-	pickup_sound =  /singleton/sound_category/generic_pickup_sound
+	drop_sound = SFX_DROP
+	pickup_sound = SFX_PICKUP
 	extended_icon_state = "whitecane_extended"
 	extended_item_state = "whitecane"
 	retracted_icon_state = "whitecane"
@@ -450,7 +450,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 50)
 
 /obj/item/module/power_control/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.ismultitool())
+	if(attacking_item.tool_behaviour == TOOL_MULTITOOL)
 		var/obj/item/circuitboard/ghettosmes/new_circuit = new /obj/item/circuitboard/ghettosmes(get_turf(src))
 		to_chat(user, SPAN_NOTICE("You modify \the [src] into a makeshift PSU circuitboard."))
 		qdel(src)
@@ -521,7 +521,7 @@
 	icon_state = "neuralbroke"
 
 /obj/item/neuralbroke/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		new /obj/item/device/encryptionkey/hivenet(user.loc)
 		attacking_item.play_tool_sound(get_turf(src), 50)
 		to_chat(user, "You bypass the fried security chip and extract the encryption key.")
