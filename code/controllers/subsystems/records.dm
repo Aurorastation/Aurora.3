@@ -289,24 +289,39 @@ SUBSYSTEM_DEF(records)
 
 		for(var/department in departments) // add them to their departments
 			var/supervisor = departments[department] & JOBROLE_SUPERVISOR
-			manifest[department][++manifest[department].len] = list("name" = name, "rank" = rank, "active" = activity_state, "head" = supervisor, "ooc_role" = FALSE)
+			manifest[department][++manifest[department].len] = list(\
+				"name" = name, \
+				"rank" = rank, \
+				"active" = activity_state, \
+				"head" = supervisor, \
+				"ooc_role" = FALSE)
 			if(supervisor) // they are a supervisor/head, put them on top
 				manifest[department].Swap(1, manifest[department].len)
 
 	// silicons are not in records, we need to add them manually
 	var/dept = DEPARTMENT_EQUIPMENT
 	for(var/mob/living/silicon/S in GLOB.player_list)
-		if(istype(S, /mob/living/silicon/robot))
+		// Case for Cyborgs
+		if(isrobot(S))
 			var/mob/living/silicon/robot/R = S
-			if(R.scrambled_codes)
-				continue
-			var/selected_module = "Default Module"
-			if(R.module)
-				selected_module = capitalize_first_letters(R.module.name)
-			manifest[dept][++manifest[dept].len] = list("name" = R.name, "rank" = selected_module, "active" = "Online", "head" = FALSE, "ooc_role" = FALSE)
-		else if(istype(S, /mob/living/silicon/ai))
+			manifest[dept][++manifest[dept].len] = list(\
+				"name" = R.name, \
+				"rank" = R.module \
+					? capitalize_first_letters(R.module.name) \
+					: "Default Module", \
+				"active" = "Online", \
+				"head" = FALSE, \
+				"ooc_role" = R.scrambled_codes)
+
+		// Case for Ship AIs
+		else if(isAI(S))
 			var/mob/living/silicon/ai/A = S
-			manifest[dept][++manifest[dept].len] = list("name" = A.name, "rank" = "Vessel Intelligence", "active" = "Online", "head" = TRUE, "ooc_role" = FALSE)
+			manifest[dept][++manifest[dept].len] = list(\
+				"name" = A.name, \
+				"rank" = "Vessel Intelligence", \
+				"active" = "Online", \
+				"head" = TRUE, \
+				"ooc_role" = FALSE)
 			manifest[dept].Swap(1, manifest[dept].len)
 
 	// Build the list of off-ships too. These will be hidden for anyone in-game.
@@ -315,8 +330,10 @@ SUBSYSTEM_DEF(records)
 		manifest[ghost_dept][++manifest[ghost_dept].len] = list(\
 			"name" = ghostrole_mob.name ? ghostrole_mob.name : "Unknown",\
 			"rank" = ghostrole_mob.mind && ghostrole_mob.mind.assigned_role \
+				/* Use the mind's role if they have one. */\
 				? ghostrole_mob.mind.assigned_role \
 				: ishuman(ghostrole_mob) \
+				/* Or a fallback if they don't. */\
 					? "Independent Spacer" \
 					: "Non-Humanoid Role",\
 			"active" = ghostrole_mob.stat == DEAD ? "*Deceased*" : "Active",\
