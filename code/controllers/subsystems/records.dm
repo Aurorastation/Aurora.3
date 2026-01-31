@@ -312,29 +312,12 @@ SUBSYSTEM_DEF(records)
 	// Build the list of off-ships too. These will be hidden for anyone in-game.
 	var/ghost_dept = DEPARTMENT_OFFSHIP
 	for (var/mob/ghostrole_mob in SSghostroles.get_ghostrole_mobs())
-		// Ignore all ghostroles that don't have a currently-connected player. We only care about factually reporting who is really playing these low-pop space adventures.
-		// This list doesn't actually rebuild when players disconnect,
-		// so if you're a dev coming here to find out why players logging out doesn't update the manifest by removing their ghostrole,
-		// then I wish you the best of luck in finding where in this repo you can insert an SSrecords.reset_manifest() call to update it.
-		if (!ghostrole_mob.client)
-			continue
-
-		// Since this is an OOC list and we want to report factually on the low-pop space adventures, we'll have a fallback for "Non-Humanoid" roles.
-		if (!ishuman(ghostrole_mob))
-			manifest[ghost_dept][++manifest[ghost_dept].len] = list(\
-			"name" = ghostrole_mob.name,\
-			"rank" = ghostrole_mob.mind && ghostrole_mob.mind.assigned_role ? ghostrole_mob.mind.assigned_role : "Non-Humanoid Role",\
-			"active" = ghostrole_mob.stat == DEAD ? "*Deceased*" : "Active",\
-			"head" = FALSE,\
-			"ooc_role" = TRUE)
-			continue
-
-		// And now we can finally put them on the manifest.
-		var/mob/living/carbon/human/real_human = ghostrole_mob
 		manifest[ghost_dept][++manifest[ghost_dept].len] = list(\
-			"name" = real_human.name,\
-			"rank" = real_human.mind && real_human.mind.assigned_role ? real_human.mind.assigned_role : "Independent Spacer",\
-			"active" = real_human.stat == DEAD ? "*Deceased*" : "Active",\
+			"name" = ghostrole_mob.name ? ghostrole_mob.name : "Unknown",\
+			"rank" = ghostrole_mob.mind && ghostrole_mob.mind.assigned_role \
+				? ghostrole_mob.mind.assigned_role \
+				: ishuman(ghostrole_mob) ? "Independent Spacer" : "Non-Humanoid Role",\
+			"active" = ghostrole_mob.stat == DEAD ? "*Deceased*" : "Active",\
 			"head" = FALSE,\
 			"ooc_role" = TRUE)
 
