@@ -284,7 +284,7 @@
 
 /obj/item/cane/maikahar
 	name = "adhomian maikahar"
-	desc = "A sturdy walking stick made from adhomian wood. The name translates roughtly to 'Stick of earth walk'."
+	desc = "A sturdy walking stick made from Adhomian wood. The name translates roughly to 'Stick of earth walk'."
 	icon = 'icons/obj/tajara_items.dmi'
 	icon_state = "maikahar"
 	item_state = "maikahar"
