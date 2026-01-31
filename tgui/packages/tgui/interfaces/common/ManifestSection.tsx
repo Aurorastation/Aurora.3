@@ -6,6 +6,7 @@ import { TableCell, TableRow } from '../../components/Table';
 type ManifestData = {
   manifest: { department: Crew[] };
   allow_follow: BooleanLike;
+  show_ooc_roles: BooleanLike;
 };
 
 type Crew = {
@@ -13,17 +14,20 @@ type Crew = {
   rank: string;
   active: string;
   head: BooleanLike;
+  ooc_role: BooleanLike;
 };
 
 export const ManifestSection = (props, context) => {
   const { act, data } = useBackend<ManifestData>(context);
   const manifest = data.manifest || {};
   const allow_follow = data.allow_follow;
+  const show_ooc_roles = data.show_ooc_roles;
   return (
     <Section>
       {Object.keys(manifest).length === 0 && 'There are no crew active.'}
       {Object.keys(manifest).map((dept) => {
         const deptCrew = manifest[dept];
+        if (dept === 'Off-ship' && !show_ooc_roles) return;
         return (
           <Section
             key={dept}
@@ -34,7 +38,8 @@ export const ManifestSection = (props, context) => {
           >
             <Table>
               {deptCrew.map((crewmate) => {
-                return (
+                return !crewmate.ooc_role ||
+                  (crewmate.ooc_role && show_ooc_roles) ? (
                   <TableRow
                     key={crewmate.name}
                     bold={crewmate.head}
@@ -82,6 +87,8 @@ export const ManifestSection = (props, context) => {
                       ''
                     )}
                   </TableRow>
+                ) : (
+                  ''
                 );
               })}
             </Table>

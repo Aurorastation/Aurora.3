@@ -233,6 +233,7 @@ SUBSYSTEM_DEF(records)
 	var/list/data = list()
 	data["manifest"] = SSrecords.get_manifest_list()
 	data["allow_follow"] = isghost(user)
+	data["show_ooc_roles"] = isabstractmob(usr)
 	return data
 
 /datum/controller/subsystem/records/proc/open_manifest_tgui(mob/user, datum/tgui/ui)
@@ -273,8 +274,8 @@ SUBSYSTEM_DEF(records)
 		return
 	manifest = DEPARTMENTS_LIST_INIT
 	for(var/datum/record/general/general_record in records)
-		var/name = sanitize(general_record.name, encode = FALSE)
-		var/rank = sanitize(general_record.rank, encode = FALSE)
+		var/name = general_record.name
+		var/rank = general_record.rank
 		var/real_rank = make_list_rank(general_record.real_rank)
 
 		var/datum/job/job = SSjobs.GetJob(real_rank)
@@ -288,7 +289,7 @@ SUBSYSTEM_DEF(records)
 
 		for(var/department in departments) // add them to their departments
 			var/supervisor = departments[department] & JOBROLE_SUPERVISOR
-			manifest[department][++manifest[department].len] = list("name" = name, "rank" = rank, "active" = activity_state, "head" = supervisor)
+			manifest[department][++manifest[department].len] = list("name" = name, "rank" = rank, "active" = activity_state, "head" = supervisor, "ooc_role" = FALSE)
 			if(supervisor) // they are a supervisor/head, put them on top
 				manifest[department].Swap(1, manifest[department].len)
 
@@ -302,11 +303,41 @@ SUBSYSTEM_DEF(records)
 			var/selected_module = "Default Module"
 			if(R.module)
 				selected_module = capitalize_first_letters(R.module.name)
-			manifest[dept][++manifest[dept].len] = list("name" = sanitize(R.name), "rank" = selected_module, "active" = "Online", "head" = FALSE)
+			manifest[dept][++manifest[dept].len] = list("name" = R.name, "rank" = selected_module, "active" = "Online", "head" = FALSE, "ooc_role" = FALSE)
 		else if(istype(S, /mob/living/silicon/ai))
 			var/mob/living/silicon/ai/A = S
-			manifest[dept][++manifest[dept].len] = list("name" = sanitize(A.name), "rank" = "Vessel Intelligence", "active" = "Online", "head" = TRUE)
+			manifest[dept][++manifest[dept].len] = list("name" = A.name, "rank" = "Vessel Intelligence", "active" = "Online", "head" = TRUE, "ooc_role" = FALSE)
 			manifest[dept].Swap(1, manifest[dept].len)
+
+	// Build the list of off-ships too. These will be hidden for anyone in-game.
+	var/ghost_dept = DEPARTMENT_OFFSHIP
+	for (var/spawner_name,spawner_value in SSghostroles.spawners)
+		if (!istype(spawner_value, /datum/ghostspawner/human))
+			continue
+		var/datum/ghostspawner/human/ghost_spawner = spawner_value
+		// Skip it if it hasn't spawned any mobs.
+		if (!length(ghost_spawner.spawned_mobs))
+			continue
+
+		// Otherwise go through its spawn list.
+		for (var/datum/weakref/nullable_spawn in ghost_spawner.spawned_mobs)
+			// Since these are weakrefs, they have to be treated the same way we would treat "Nullable" attributes in languages like C#.
+			// That means this mob potentially doesn't even exist, so we have to prove it exists first before we can use it.
+			var/possible_spawn = nullable_spawn.resolve()
+			if (!possible_spawn)
+				continue // If it doesn't hit this continue, the ref can now be treated as if it was real.
+
+			if (!ishuman(possible_spawn))
+				continue
+
+			// And now we can finally put them on the manifest.
+			var/mob/living/carbon/human/real_human = possible_spawn
+			manifest[ghost_dept][++manifest[ghost_dept].len] = list(\
+				"name" = real_human.name,\
+				"rank" = ghost_spawner.assigned_role ? ghost_spawner.assigned_role : "Independent Spacer",\
+				"active" = "Active",\
+				"head" = FALSE,\
+				"ooc_role" = TRUE)
 
 	for(var/department in manifest)
 		if(!length(manifest[department]))
@@ -314,6 +345,18 @@ SUBSYSTEM_DEF(records)
 
 	manifest_json = json_encode(manifest)
 	return manifest
+
+/datum/controller/subsystem/records/proc/add_offship_to_manifest(var/datum/ghostspawner/human/spawner, var/mob/living/carbon/human/human)
+	if(!manifest[DEPARTMENT_OFFSHIP])
+		var/list/list/new_dept = list(DEPARTMENT_OFFSHIP = list())
+		manifest += new_dept
+
+	manifest[DEPARTMENT_OFFSHIP][++manifest[DEPARTMENT_OFFSHIP].len] = list(\
+		"name" = sanitize(human.name),\
+		"rank" = spawner.assigned_role ? spawner.assigned_role : "Independent Spacer",\
+		"active" = "Active",\
+		"head" = FALSE,\
+		"ooc_role" = TRUE)
 
 /datum/controller/subsystem/records/proc/get_manifest_json()
 	if(manifest.len)
