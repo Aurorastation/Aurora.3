@@ -313,6 +313,9 @@ SUBSYSTEM_DEF(records)
 	var/ghost_dept = DEPARTMENT_OFFSHIP
 	for (var/mob/ghostrole_mob in SSghostroles.get_ghostrole_mobs())
 		// Ignore all ghostroles that don't have a currently-connected player. We only care about factually reporting who is really playing these low-pop space adventures.
+		// This list doesn't actually rebuild when players disconnect,
+		// so if you're a dev coming here to find out why players logging out doesn't update the manifest by removing their ghostrole,
+		// then I wish you the best of luck in finding where in this repo you can insert an SSrecords.reset_manifest() call to update it.
 		if (!ghostrole_mob.client)
 			continue
 
