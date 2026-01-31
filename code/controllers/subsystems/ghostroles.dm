@@ -7,7 +7,18 @@ SUBSYSTEM_DEF(ghostroles)
 		// -> type 1 -> spawnpoint 1
 		//           -> spawnpoint 2
 
-	var/list/spawners = list() //List of the available spawner datums
+	/**
+	 * List of all available spawner datums that exist in the code.
+	 * This includes spawner datums that might not currently exist anywhere in-game.
+	 */
+	var/list/spawners = list()
+
+	/**
+	 * The set of all ghostroles that have been taken by players.
+	 * As a weakref list, these are not guaranteed to factually exist, only that these did at some point exist.
+	 * The set of all mobs here should be retrieved via SSghostroles.get_ghostrole_mobs()
+	 */
+	var/list/datum/weakref/spawned_ghostrole_mobs = list()
 
 	// For special spawners that have mobile or object spawnpoints
 	var/list/spawn_types = list("Golems", "Borers")
@@ -189,7 +200,12 @@ SUBSYSTEM_DEF(ghostroles)
 			if(!S.post_spawn(M))
 				to_chat(usr, "Unable to spawn: post_spawn failed. Report this on GitHub")
 				return
-			LAZYADD(S.spawned_mobs, WEAKREF(M))
+			var/spawned_weakref = WEAKREF(M)
+			// Add the spawned mobs to this spawner's list.
+			LAZYADD(S.spawned_mobs, spawned_weakref)
+			// Then also add the spawned mob to the subsystem's list.
+			LAZYADD(spawned_ghostrole_mobs, spawned_weakref)
+			SSrecords.reset_manifest()
 			log_and_message_admins("joined as GhostRole: [S.name]", M)
 			SStgui.update_uis(src)
 			. = TRUE
@@ -269,3 +285,27 @@ SUBSYSTEM_DEF(ghostroles)
 	if(spawner_name in spawners)
 		return spawners[spawner_name]
 	return null
+
+/**
+ * Returns a /list/mob containing all mobs that were created by ghostroles and currently exist.
+ * It will also delete any mob found to be nonexistent from the list for faster future lookups.
+ */
+/datum/controller/subsystem/ghostroles/proc/get_ghostrole_mobs()
+	var/list/mob/found_mobs = list()
+	if (!length(spawned_ghostrole_mobs))
+		return found_mobs
+
+	for (var/datum/weakref/nullable_spawn in spawned_ghostrole_mobs)
+		var/possible_spawn = nullable_spawn.resolve()
+		if (!possible_spawn || !ismob(possible_spawn))
+			// Clear weakrefs from the list that are discovered to be nonexistent.
+			// So that future calls to this proc have fewer entries to enumerate over.
+			// Also do this if for whatever baffling reason a non-mob was shoved into the list.
+			qdel(nullable_spawn)
+			spawned_ghostrole_mobs.Remove(nullable_spawn)
+			continue
+
+		var/mob/found_spawn = possible_spawn
+		found_mobs.Add(found_spawn)
+
+	return found_mobs

@@ -38,8 +38,7 @@ export const ManifestSection = (props, context) => {
           >
             <Table>
               {deptCrew.map((crewmate) => {
-                return !crewmate.ooc_role ||
-                  (crewmate.ooc_role && show_ooc_roles) ? (
+                return (
                   <TableRow
                     key={crewmate.name}
                     bold={crewmate.head}
@@ -87,8 +86,6 @@ export const ManifestSection = (props, context) => {
                       ''
                     )}
                   </TableRow>
-                ) : (
-                  ''
                 );
               })}
             </Table>

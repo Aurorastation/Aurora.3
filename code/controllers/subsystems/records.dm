@@ -311,33 +311,29 @@ SUBSYSTEM_DEF(records)
 
 	// Build the list of off-ships too. These will be hidden for anyone in-game.
 	var/ghost_dept = DEPARTMENT_OFFSHIP
-	for (var/spawner_name,spawner_value in SSghostroles.spawners)
-		if (!istype(spawner_value, /datum/ghostspawner/human))
-			continue
-		var/datum/ghostspawner/human/ghost_spawner = spawner_value
-		// Skip it if it hasn't spawned any mobs.
-		if (!length(ghost_spawner.spawned_mobs))
+	for (var/mob/ghostrole_mob in SSghostroles.get_ghostrole_mobs())
+		// Ignore all ghostroles that don't have a currently-connected player. We only care about factually reporting who is really playing these low-pop space adventures.
+		if (!ghostrole_mob.client)
 			continue
 
-		// Otherwise go through its spawn list.
-		for (var/datum/weakref/nullable_spawn in ghost_spawner.spawned_mobs)
-			// Since these are weakrefs, they have to be treated the same way we would treat "Nullable" attributes in languages like C#.
-			// That means this mob potentially doesn't even exist, so we have to prove it exists first before we can use it.
-			var/possible_spawn = nullable_spawn.resolve()
-			if (!possible_spawn)
-				continue // If it doesn't hit this continue, the ref can now be treated as if it was real.
-
-			if (!ishuman(possible_spawn))
-				continue
-
-			// And now we can finally put them on the manifest.
-			var/mob/living/carbon/human/real_human = possible_spawn
+		// Since this is an OOC list and we want to report factually on the low-pop space adventures, we'll have a fallback for "Non-Humanoid" roles.
+		if (!ishuman(ghostrole_mob))
 			manifest[ghost_dept][++manifest[ghost_dept].len] = list(\
-				"name" = real_human.name,\
-				"rank" = ghost_spawner.assigned_role ? ghost_spawner.assigned_role : "Independent Spacer",\
-				"active" = "Active",\
-				"head" = FALSE,\
-				"ooc_role" = TRUE)
+			"name" = ghostrole_mob.name,\
+			"rank" = ghostrole_mob.mind && ghostrole_mob.mind.assigned_role ? ghostrole_mob.mind.assigned_role : "Non-Humanoid Role",\
+			"active" = ghostrole_mob.stat == DEAD ? "*Deceased*" : "Active",\
+			"head" = FALSE,\
+			"ooc_role" = TRUE)
+			continue
+
+		// And now we can finally put them on the manifest.
+		var/mob/living/carbon/human/real_human = ghostrole_mob
+		manifest[ghost_dept][++manifest[ghost_dept].len] = list(\
+			"name" = real_human.name,\
+			"rank" = real_human.mind && real_human.mind.assigned_role ? real_human.mind.assigned_role : "Independent Spacer",\
+			"active" = real_human.stat == DEAD ? "*Deceased*" : "Active",\
+			"head" = FALSE,\
+			"ooc_role" = TRUE)
 
 	for(var/department in manifest)
 		if(!length(manifest[department]))
@@ -345,18 +341,6 @@ SUBSYSTEM_DEF(records)
 
 	manifest_json = json_encode(manifest)
 	return manifest
-
-/datum/controller/subsystem/records/proc/add_offship_to_manifest(var/datum/ghostspawner/human/spawner, var/mob/living/carbon/human/human)
-	if(!manifest[DEPARTMENT_OFFSHIP])
-		var/list/list/new_dept = list(DEPARTMENT_OFFSHIP = list())
-		manifest += new_dept
-
-	manifest[DEPARTMENT_OFFSHIP][++manifest[DEPARTMENT_OFFSHIP].len] = list(\
-		"name" = sanitize(human.name),\
-		"rank" = spawner.assigned_role ? spawner.assigned_role : "Independent Spacer",\
-		"active" = "Active",\
-		"head" = FALSE,\
-		"ooc_role" = TRUE)
 
 /datum/controller/subsystem/records/proc/get_manifest_json()
 	if(manifest.len)

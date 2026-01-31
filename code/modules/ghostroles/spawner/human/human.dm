@@ -198,7 +198,6 @@
 	M.update_eyes()
 	M.regenerate_icons()
 	M.ghost_spawner = WEAKREF(src)
-	SSrecords.add_offship_to_manifest(src, M)
 
 	return M
 
