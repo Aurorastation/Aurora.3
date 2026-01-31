@@ -2,7 +2,7 @@
 	name = "psychokinetic crowbar"
 	icon_state = "crowbar"
 	force = 11
-	var/emulating = "crowbar"
+	tool_behaviour = TOOL_CROWBAR
 	var/list/tools = list("crowbar", "wrench", "screwdriver", "cutters")
 
 /obj/item/psychic_power/tinker/Initialize(mapload, ...)
@@ -12,18 +12,6 @@
 		var/image/radial_image = image('icons/obj/psychic_powers.dmi', tool_name)
 		new_tools[capitalize_first_letters(tool_name)] = radial_image
 	tools = new_tools
-
-/obj/item/psychic_power/tinker/iscrowbar()
-	return emulating == "crowbar"
-
-/obj/item/psychic_power/tinker/iswrench()
-	return emulating == "wrench"
-
-/obj/item/psychic_power/tinker/isscrewdriver()
-	return emulating == "screwdriver"
-
-/obj/item/psychic_power/tinker/iswirecutter()
-	return emulating == "cutters"
 
 /obj/item/psychic_power/tinker/attack_self(mob/user)
 	if(!owner || loc != owner)
@@ -38,8 +26,8 @@
 	if(!owner || loc != owner)
 		return
 
-	emulating = lowertext(choice)
-	name = "psychokinetic [emulating]"
-	icon_state = emulating
-	to_chat(owner, SPAN_NOTICE("You begin emulating \a [emulating]."))
+	tool_behaviour = lowertext(choice)
+	name = "psychokinetic [tool_behaviour]"
+	icon_state = tool_behaviour
+	to_chat(owner, SPAN_NOTICE("You begin emulating \a [tool_behaviour]."))
 	playsound(get_turf(src), 'sound/effects/psi/power_fabrication.ogg', 40, TRUE)

@@ -36,8 +36,8 @@
 	resist_mod = 1.5
 	heat_damage_per_tick = 20
 	cold_damage_per_tick = 20
-	var/poison_per_bite = 5
-	var/poison_type = /singleton/reagent/toxin
+	var/venom_per_bite = 5
+	var/venom_type = /singleton/reagent/toxin
 	faction = "spiders"
 	var/busy = 0
 	pass_flags = PASSTABLE
@@ -64,9 +64,9 @@
 	melee_damage_lower = 5
 	melee_damage_upper = 10
 	armor_penetration = 20
-	poison_per_bite = 10
+	venom_per_bite = 4
 	var/atom/cocoon_target
-	poison_type = /singleton/reagent/soporific
+	venom_type = /singleton/reagent/toxin/greimorian_eggs
 	var/fed = 0
 	sample_data = list("Genetic markers identified as being linked with stem cell differentiaton", "Cellular structures indicative of high offspring production")
 
@@ -82,9 +82,9 @@
 	melee_damage_lower = 15
 	melee_damage_upper = 20
 	armor_penetration = 30
-	poison_per_bite = 10
+	venom_per_bite = 1
 	speed = -2
-	poison_type = /singleton/reagent/soporific
+	venom_type = /singleton/reagent/toxin/greimorian_eggs
 	fed = 1
 	var/playable = TRUE
 	sample_data = list("Genetic markers identified as being linked with stem cell differentiaton", "Cellular structures indicative of high offspring production", "Tissue sample contains high neural cell content")
@@ -106,7 +106,7 @@
 	melee_damage_lower = 10
 	melee_damage_upper = 20
 	armor_penetration = 15
-	poison_per_bite = 5
+	venom_per_bite = 5
 	speed = 4
 	sample_data = list("Genetic markers identified as being linked with stem cell differentiaton", "Cellular biochemistry shows high metabolic capacity")
 	smart_melee = TRUE
@@ -122,8 +122,8 @@
 	melee_damage_lower = 5
 	melee_damage_upper = 10
 	armor_penetration = 15
-	poison_type = /singleton/reagent/perconol // mildly beneficial for organics
-	poison_per_bite = 2
+	venom_type = /singleton/reagent/perconol // mildly beneficial for organics
+	venom_per_bite = 2
 	speed = 5
 	sample_data = list("Genetic markers identified as being linked with stem cell differentiaton", "Cellular biochemistry geared towards creating strong electrical potential differences")
 	smart_melee = TRUE
@@ -141,8 +141,8 @@
 	armor_penetration = 5
 	ranged = TRUE
 	ranged_attack_range = 4
-	poison_type = /singleton/reagent/acid/greimorian
-	poison_per_bite = 2
+	venom_type = /singleton/reagent/acid/greimorian
+	venom_per_bite = 2
 	speed = 5
 	sample_data = list("Genetic markers identified as being linked with stem cell differentiaton", "Exocrinic acid synthesis detected")
 	smart_melee = TRUE
@@ -156,7 +156,7 @@
 	var/turf/target_turf = get_turf(target)
 	var/obj/effect/effect/water/chempuff/pepperspray = new /obj/effect/effect/water/chempuff(get_turf(src))
 	pepperspray.create_reagents(10)
-	pepperspray.reagents.add_reagent(poison_type, 10)
+	pepperspray.reagents.add_reagent(venom_type, 10)
 	pepperspray.set_color()
 	pepperspray.set_up(target_turf, 3, 5)
 
@@ -190,23 +190,24 @@
 		for(var/armor in armors)
 			var/datum/component/armor/armor_datum = armor
 			inject_probability -= armor_datum.armor_values[MELEE] * 1.8
-		if(prob(inject_probability))
+		if(prob(inject_probability) && !BP_IS_ROBOTIC(limb))
 			to_chat(target, SPAN_WARNING("You feel a tiny prick."))
-			target.reagents.add_reagent(poison_type, poison_per_bite)
+			target.reagents.add_reagent(venom_type, venom_per_bite)
 
-/mob/living/simple_animal/hostile/giant_spider/nurse/on_attack_mob(var/mob/hit_mob, var/obj/item/organ/external/limb)
+/mob/living/simple_animal/hostile/giant_spider/nurse/on_attack_mob(var/mob/living/carbon/human/hit_mob, var/obj/item/organ/external/limb)
 	. = ..()
-	if(ishuman(hit_mob) && istype(limb) && !BP_IS_ROBOTIC(limb) && prob(poison_per_bite))
-		var/eggs = new /obj/effect/spider/eggcluster(limb, src)
-		limb.implants += eggs
-		to_chat(hit_mob, SPAN_WARNING("\The [src] injects something into your [limb.name]!"))
+	if(istype(limb))
+		if(BP_IS_ROBOTIC(limb))
+			to_chat(hit_mob, SPAN_WARNING("\The [src] tries to inject something into your [limb.name], but fortunately it finds no living flesh!"))
+		else
+			to_chat(hit_mob, SPAN_WARNING("\The [src] injects something into your [limb.name]!"))
 
 /mob/living/simple_animal/hostile/giant_spider/emp/on_attack_mob(var/mob/hit_mob, var/obj/item/organ/external/limb)
 	. = ..()
 	if(ishuman(hit_mob))
 		var/mob/living/carbon/human/H = hit_mob
 		if(prob(20))
-			var/obj/item/organ/internal/cell/cell_holder = locate() in H.internal_organs
+			var/obj/item/organ/internal/machine/power_core/cell_holder = locate() in H.internal_organs
 			if(cell_holder)
 				var/obj/item/cell/C = cell_holder.cell
 				if(C)

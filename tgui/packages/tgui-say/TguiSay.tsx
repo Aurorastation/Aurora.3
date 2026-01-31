@@ -285,7 +285,7 @@ export class TguiSay extends Component<{}, State> {
     if (!this.scale) {
       window.document.body.style.setProperty(
         'zoom',
-        `${100 / window.devicePixelRatio}%`
+        `${100 / window.devicePixelRatio}%`,
       );
     } else {
       window.document.body.style.setProperty('zoom', '');
@@ -339,7 +339,8 @@ export class TguiSay extends Component<{}, State> {
             <button
               className={`button button-${theme}`}
               onClick={this.handleIncrementChannel}
-              type="button">
+              type="button"
+            >
               {this.state.buttonContent}
             </button>
           )}
@@ -356,7 +357,8 @@ export class TguiSay extends Component<{}, State> {
               className={`button button-${theme}`}
               onClick={this.handleClose}
               type="submit"
-              style={{ width: '2rem', marginRight: '5px' }}>
+              style={{ width: '2rem', marginRight: '5px' }}
+            >
               X
             </button>
           )}

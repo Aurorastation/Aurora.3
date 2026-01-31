@@ -152,9 +152,11 @@
 			if(!editmode)
 				to_chat(usr, SPAN_NOTICE("Device locked."))
 				return FALSE
-
-			items -= params["remove"]
-			items_to_price -= params["remove"]
+			var/index = 0
+			for(var/list/L in items)
+				index++
+				if(L["name"] == params["removing"])
+					items.Cut(index, index+1)
 			. = TRUE
 
 		if("set_new_price")
@@ -177,12 +179,14 @@
 			buying += list(list("name" = params["buying"], "amount" = params["amount"]))
 
 		if("removal")
+			var/index = 0
 			for(var/list/L in buying)
+				index++
 				if(L["name"] == params["removal"])
 					if(L["amount"] > 1)
 						L["amount"]--
 					else
-						buying -= L
+						buying.Cut(index, index+1)
 			. = TRUE
 
 		if("confirm")
@@ -214,24 +218,34 @@
 				to_chat(usr, SPAN_WARNING("Device locked."))
 				return FALSE
 
-			switch(input("What account would you like to select?", "Destination Account") as null|anything in list("Service", "Operations", "Command", "Medical", "Security", "Engineering", "Science"))
-				if("Service")
-					destinationact = "Service"
-				if("Operations")
-					destinationact = "Operations"
-				if("Command")
-					destinationact = "Command"
-				if("Medical")
-					destinationact = "Medical"
-				if("Security")
-					destinationact = "Security"
-				if("Engineering")
-					destinationact = "Engineering"
-				if("Science")
-					destinationact = "Science"
-			. = TRUE
+			var/dest = tgui_input_list(usr, "What account would you like to select?", "Destination Account", assoc_to_keys(SSeconomy.department_accounts))
+			if(!dest)
+				return FALSE
+			destinationact = dest
+			return TRUE
 
 /obj/item/device/quikpay/proc/clear_order()
 	buying.Cut()
 	sum = 0
 	receipt = ""
+
+/obj/item/device/quikpay/afterattack(atom/target, mob/user, proximity)
+	if (!proximity) return
+	if (!istype(target, /obj))
+		return
+	if (!editmode)
+		to_chat(user, SPAN_NOTICE("Unlock \the [src] to add items."))
+		return
+
+	var/obj/O = target
+	var/name_guess = O.name
+	var/price_guess = 0
+
+	price_guess = text2num(sanitizeSafe( tgui_input_text(user, "Set price for [name_guess]:", "QuikPay", 0, 10), 10))
+	if(isnull(price_guess) || price_guess == 0)
+		return
+	price_guess = max(0, round(price_guess, 0.01))
+
+	items += list(list("name" = "[name_guess]", "price" = price_guess))
+
+	to_chat(user, SPAN_NOTICE("[src]: added '[name_guess]' for [price_guess]."))

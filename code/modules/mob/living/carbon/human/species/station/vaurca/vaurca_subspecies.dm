@@ -264,6 +264,8 @@
 	total_health = 200
 	break_cuffs = TRUE
 	mob_size = 30
+	mob_weight = MOB_WEIGHT_SUPERHEAVY
+	mob_strength = MOB_STRENGTH_VERY_STRONG
 
 	speech_sounds = list('sound/voice/hiss1.ogg','sound/voice/hiss2.ogg','sound/voice/hiss3.ogg','sound/voice/hiss4.ogg')
 	speech_chance = 100
@@ -372,6 +374,8 @@
 	resist_mod = 14 //also very strong
 
 	mob_size = 28
+	mob_weight = MOB_WEIGHT_SUPERHEAVY
+	mob_strength = MOB_STRENGTH_STRONG
 	taste_sensitivity = TASTE_DULL
 	blurb = {"Type E Vaurca, otherwise known as the Bulwarks, are a new bodyform derived from the worker caste in a collaboration by the C'thur and Nralakk scientists. Originally only the C'thur had access to these behemoths, but after a short amount of time, the bodyform started appearing in the ranks of the Zo'ra and K'lax as well, causing an even more strained relationship between the Hives.<br>
 Similar to Workers, Bulwarks are generally passive, and prefer to flee a fight rather than resist. Though due to their speed, they may still choose to defend themselves should they be unable to properly escape a battle. The main exception to this is when another Vaurca is in danger. When this occurs, they tend to put themselves in between the attacker and the Vaurca, acting as a shield of sorts. They won't go out of their way to take down the attacker, but will ensure the others get away safely.<br>

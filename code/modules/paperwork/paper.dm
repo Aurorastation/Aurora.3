@@ -69,7 +69,7 @@
 		return
 	if(name != initial(name))
 		. += "It's titled '[name]'."
-	if(distance <= 1)
+	if(distance <= 1 || in_slide_projector(user))
 		show_content(user)
 	else
 		. += SPAN_NOTICE("You have to go closer if you want to read it.")
@@ -131,18 +131,6 @@
 	if(new_text)
 		free_space -= length(strip_html_properly(new_text))
 
-/obj/item/paper/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if (old_name && (icon_state == "paper_plane" || icon_state == "paper_swan"))
-		. += SPAN_NOTICE("You're going to have to unfold it before you can read it.")
-		return
-	if(name != initial(name))
-		. += "It's titled '[name]'."
-	if(distance <= 1)
-		show_content(user)
-	else
-		. += SPAN_NOTICE("You have to go closer if you want to read it.")
-
 /obj/item/paper/proc/show_content(mob/user, forceshow)
 	simple_asset_ensure_is_sent(user, /datum/asset/simple/paper)
 	var/datum/browser/paper_win = new(user, name, null, 450, 500, null, TRUE)
@@ -193,7 +181,7 @@
 		//crumple dat paper
 		info = stars(info,85)
 		user.visible_message("\The [user] crumples \the [src] into a ball!", "You crumple \the [src] into a ball.")
-		playsound(src, 'sound/bureaucracy/papercrumple.ogg', 50, 1)
+		playsound(src, 'sound/items/bureaucracy/papercrumple.ogg', 50, 1)
 		icon_state = "scrap"
 		throw_range = 4 //you can now make epic paper ball hoops into the disposals (kinda dumb that you could only throw crumpled paper 1 tile) -wezzy
 		return
@@ -204,7 +192,7 @@
 			return
 		user.visible_message(SPAN_NOTICE("\The [user] carefully folds \the [src] into a plane."),
 			SPAN_NOTICE("You carefully fold \the [src] into a plane."), "\The [user] folds \the [src] into a plane.")
-		playsound(src, 'sound/bureaucracy/paperfold.ogg', 50, 1)
+		playsound(src, 'sound/items/bureaucracy/paperfold.ogg', 50, 1)
 		icon_state = "paper_plane"
 		throw_range = 8
 		old_name = name
@@ -218,7 +206,7 @@
 			return
 		user.visible_message(SPAN_NOTICE("\The [user] carefully folds \the [src] into an origami swan."),
 			SPAN_NOTICE("You carefully fold \the [src] into a swan."), "\The [user] folds \the [src] into a swan.")
-		playsound(src, 'sound/bureaucracy/paperfold.ogg', 50, 1)
+		playsound(src, 'sound/items/bureaucracy/paperfold.ogg', 50, 1)
 		icon_state = "paper_swan"
 		old_name = name
 		name = "origami swan"
@@ -227,7 +215,7 @@
 
 	if (user.a_intent == I_HELP && old_name && (icon_state == "paper_plane" || icon_state == "paper_swan"))
 		user.visible_message(SPAN_NOTICE("\The [user] unfolds \the [src]."), SPAN_NOTICE("You unfold \the [src]."), "You hear paper rustling.")
-		playsound(src, 'sound/bureaucracy/paperfold.ogg', 50, 1)
+		playsound(src, 'sound/items/bureaucracy/paperfold.ogg', 50, 1)
 		icon_state = base_state
 		throw_range = initial(throw_range)
 		name = old_name
@@ -325,7 +313,7 @@
 	update_icon()
 
 /obj/item/paper/proc/get_signature(var/obj/item/pen/P, mob/user as mob)
-	if(P && P.ispen())
+	if(P && P.tool_behaviour == TOOL_PEN)
 		return P.get_signature(user)
 
 	if (user)
@@ -424,7 +412,7 @@
 
 		user.visible_message("<span class='[class]'>[user] holds \the [P] up to \the [src], it looks like [user.get_pronoun("he")]'s trying to burn it!</span>", \
 		"<span class='[class]'>You hold \the [P] up to \the [src], burning it slowly.</span>")
-		playsound(src.loc, 'sound/bureaucracy/paperburn.ogg', 50, 1)
+		playsound(src.loc, 'sound/items/bureaucracy/paperburn.ogg', 50, 1)
 		if(icon_state == "scrap")
 			flick("scrap_onfire", src)
 		else
@@ -526,13 +514,13 @@
 			if(T.pen)
 				i = T.pen
 
-		if(!i || !i.ispen())
+		if(!i || !i.tool_behaviour == TOOL_PEN)
 			i = usr.get_inactive_hand()
 		var/obj/item/clipboard/c
 		var/iscrayon = FALSE
 		var/isfountain = FALSE
 		var/istypewriter = FALSE
-		if(!i.ispen())
+		if(!i.tool_behaviour == TOOL_PEN)
 			if(usr.back && istype(usr.back,/obj/item/rig))
 				var/obj/item/rig/r = usr.back
 				var/obj/item/rig_module/device/pen/m = locate(/obj/item/rig_module/device/pen) in r.installed_modules
@@ -588,7 +576,7 @@
 		if(istype(i, /obj/item/pen/typewriter))
 			playsound(src, ('sound/machines/typewriter.ogg'), 40)
 		else
-			playsound(src, pick('sound/bureaucracy/pen1.ogg','sound/bureaucracy/pen2.ogg'), 20)
+			playsound(src, pick('sound/items/bureaucracy/pen1.ogg','sound/items/bureaucracy/pen2.ogg'), 20)
 
 		update_icon()
 		if(c)
@@ -669,7 +657,7 @@
 		B.amount = 2
 		B.update_icon()
 
-	else if(attacking_item.ispen())
+	else if(attacking_item.tool_behaviour == TOOL_PEN)
 		if(icon_state == "scrap")
 			to_chat(user, SPAN_WARNING("The [src] is too crumpled to write on."))
 			return
@@ -714,7 +702,7 @@
 		stamped += attacking_item.type
 		AddOverlays(stampoverlay)
 
-		playsound(src, 'sound/bureaucracy/stamp.ogg', 50, 1)
+		playsound(src, 'sound/items/bureaucracy/stamp.ogg', 50, 1)
 		to_chat(user, SPAN_NOTICE("You stamp the paper with \the [attacking_item]."))
 
 	else if(attacking_item.isFlameSource())

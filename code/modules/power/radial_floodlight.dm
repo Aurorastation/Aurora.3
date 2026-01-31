@@ -5,35 +5,38 @@
 	icon_state = "radial_floodlight"
 	anchored = FALSE
 	density = TRUE
-	active_power_usage = 800
+	light_system = MOVABLE_LIGHT
 	light_color = LIGHT_COLOR_TUNGSTEN
+	light_range = 8
+	light_power = 3
+	active_power_usage = 800 WATTS
 
 	var/on = FALSE
-	var/brightness_on = 12
 
 /obj/machinery/power/radial_floodlight/proc/toggle_active(var/force_state)
 	if(!isnull(force_state))
-		if(force_state == on)
-			return
 		on = force_state
 	else
 		on = !on
+
 	if(on)
-		set_light(brightness_on, 1)
-		START_PROCESSING(SSprocessing, src)
-	else
-		set_light(0)
-		STOP_PROCESSING(SSprocessing, src)
+		update_use_power(POWER_USE_ACTIVE)
+		START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
+		playsound(loc, 'sound/effects/lighton.ogg', 65, 1)
+
+	set_light_on(on)
 	update_icon()
 
 /obj/machinery/power/radial_floodlight/process()
 	var/actual_load = draw_power(active_power_usage)
 	if(!on || !anchored || (stat & BROKEN) || !powernet || actual_load < active_power_usage)
+		STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
+		update_use_power(POWER_USE_OFF)
 		toggle_active(FALSE)
 		return
 
 /obj/machinery/power/radial_floodlight/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		anchored = !anchored
 		user.visible_message(SPAN_NOTICE("\The [user] [anchored ? "" : "un"]secures \the [src] [anchored ? "to" : "from"] the floor."),
 							SPAN_NOTICE("You [anchored ? "" : "un"]secure \the [src] [anchored ? "to" : "from"] the floor."),

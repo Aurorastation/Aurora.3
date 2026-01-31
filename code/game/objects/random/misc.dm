@@ -1,6 +1,6 @@
 /obj/random/smokable
-	name = "random smokable"
-	desc = "This is a random smoking item."
+	name = "random smokable/chewable"
+	desc = "This is a random smoking/chewing item."
 	icon_state = "cigarettes"
 	problist = list(
 		/obj/item/storage/box/fancy/cigarettes = 30,
@@ -14,7 +14,24 @@
 		/obj/item/storage/box/fancy/cigarettes/dpra = 2,
 		/obj/item/storage/box/fancy/cigarettes/nka = 2,
 		/obj/item/storage/box/fancy/cigarettes/federation = 2,
-		/obj/item/storage/box/fancy/cigarettes/dyn = 2
+		/obj/item/storage/box/fancy/cigarettes/dyn = 2,
+		/obj/item/storage/box/fancy/cigarettes/oracle = 3,
+		/obj/item/storage/box/fancy/cigarettes/koko = 1,
+		/obj/item/storage/chewables/rollable = 3,
+		/obj/item/storage/chewables/rollable/unathi = 1,
+		/obj/item/storage/chewables/rollable/fine = 1,
+		/obj/item/storage/chewables/rollable/nico = 1,
+		/obj/item/storage/chewables/rollable/oracle = 2,
+		/obj/item/storage/chewables/rollable/vedamor = 1,
+		/obj/item/storage/chewables/tobacco/bad = 4,
+		/obj/item/storage/chewables/tobacco = 3,
+		/obj/item/storage/chewables/tobacco/fine = 2,
+		/obj/item/storage/chewables/tobacco/federation = 1,
+		/obj/item/storage/chewables/tobacco/dyn = 1,
+		/obj/item/storage/chewables/tobacco/koko = 1,
+		/obj/item/storage/chewables/oracle = 3,
+		/obj/item/storage/box/fancy/chewables/tobacco/nico = 3,
+		/obj/item/storage/chewables/solar_salve = 1
 	)
 
 /obj/random/action_figure
@@ -336,6 +353,7 @@
 		/obj/item/trash/meatsnack = 0.5,
 		/obj/item/trash/maps = 0.5,
 		/obj/item/trash/tuna = 0.5,
+		/obj/item/trash/algaechips = 0.5,
 		/obj/effect/decal/cleanable/ash = 1.5,
 		/obj/effect/decal/cleanable/dirt = 2,
 		/obj/effect/decal/cleanable/flour = 1,
@@ -508,7 +526,7 @@
 
 /obj/random/condiment
 	name = "random condiments and sauces"
-	desc = "Contains random condiments for use in the kitchen."
+	desc = "Contains random condiments for use in the galley."
 	icon_state = "condiment"
 	spawn_nothing_percentage = 10
 	problist = list(
@@ -528,8 +546,8 @@
 	)
 
 /obj/random/kitchen_staples
-	name = "random kitchen staples"
-	desc = "Contains random ingredients that are handy in the kitchen"
+	name = "random galley staples"
+	desc = "Contains random ingredients that are handy in the galley"
 	icon_state = "ingredient_bag"
 	spawn_nothing_percentage = 20
 	problist = list(
@@ -537,9 +555,9 @@
 		/obj/item/reagent_containers/food/condiment/batter = 1,
 		/obj/item/reagent_containers/food/condiment/syrup_simple = 1,
 		/obj/item/reagent_containers/food/condiment/vanilla = 1,
-		/obj/item/reagent_containers/food/condiment/rice = 1,
 		/obj/item/storage/box/fancy/food/sliced_bread = 1,
-		/obj/item/reagent_containers/food/condiment/cocoa = 1
+		/obj/item/reagent_containers/food/condiment/cocoa = 1,
+		/obj/item/reagent_containers/food/condiment/cream_cheese = 1
 	)
 
 /obj/random/maintenance_junk_or_loot

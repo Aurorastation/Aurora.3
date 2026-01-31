@@ -1996,6 +1996,14 @@
 		new /obj/item/reagent_containers/food/snacks/spreads/butter(location)
 	return
 
+/datum/chemical_reaction/cream_cheese
+	name = "Cream Cheese"
+	id = "creamcheese"
+	result = /singleton/reagent/nutriment/protein/cream_cheese
+	required_reagents = list(/singleton/reagent/drink/milk = 5, /singleton/reagent/drink/milk/cream = 5)
+	catalysts = list(/singleton/reagent/enzyme = 5)
+	result_amount = 10
+
 /*
 	Todo in future:
 		Cornmeal batter for corndogs
@@ -2027,7 +2035,7 @@
 	result = /singleton/reagent/alcohol/goldschlager
 	required_reagents = list(/singleton/reagent/alcohol/vodka = 10, /singleton/reagent/gold = 1)
 	mix_message = null
-	reaction_sound = /singleton/sound_category/generic_pour_sound
+	reaction_sound = SFX_POUR
 	result_amount = 10
 
 /datum/chemical_reaction/drink/patron
@@ -2049,28 +2057,28 @@
 	id = "tea"
 	result = /singleton/reagent/drink/tea
 	required_reagents = list(/singleton/reagent/nutriment/teagrounds = 1, /singleton/reagent/water = 5)
-	result_amount = 5
+	result_amount = 6
 
 /datum/chemical_reaction/drink/sencha
 	name = "Sencha"
 	id = "sencha"
 	result = /singleton/reagent/drink/tea/sencha
-	required_reagents = list(/singleton/reagent/nutriment/teagrounds/sencha = 1, /singleton/reagent/water = 9)
-	result_amount = 10
+	required_reagents = list(/singleton/reagent/nutriment/teagrounds/sencha = 1, /singleton/reagent/water = 5)
+	result_amount = 6
 
 /datum/chemical_reaction/drink/tieguanyin
 	name = "Tieguanyin"
 	id = "tieguanyin"
 	result = /singleton/reagent/drink/tea/tieguanyin
-	required_reagents = list(/singleton/reagent/nutriment/teagrounds/tieguanyin = 1, /singleton/reagent/water = 9)
-	result_amount = 10
+	required_reagents = list(/singleton/reagent/nutriment/teagrounds/tieguanyin = 1, /singleton/reagent/water = 5)
+	result_amount = 6
 
 /datum/chemical_reaction/drink/jaekseol
 	name = "jaekseol"
 	id = "jaekseol"
 	result = /singleton/reagent/drink/tea/jaekseol
-	required_reagents = list(/singleton/reagent/nutriment/teagrounds/jaekseol = 1, /singleton/reagent/water = 9)
-	result_amount = 10
+	required_reagents = list(/singleton/reagent/nutriment/teagrounds/jaekseol = 1, /singleton/reagent/water = 5)
+	result_amount = 6
 
 /datum/chemical_reaction/drink/cocatea
 	name = "Mate de Coca"
@@ -2822,7 +2830,6 @@
 	result = /singleton/reagent/drink/lemonade/pink
 	required_reagents = list(/singleton/reagent/drink/lemonade = 8, /singleton/reagent/drink/grenadine = 2)
 	result_amount = 10
-
 
 /datum/chemical_reaction/drink/kiraspecial
 	name = "Kira Special"
@@ -3898,6 +3905,20 @@
 	required_reagents = list(/singleton/reagent/drink/icetea = 3, /singleton/reagent/drink/limejuice = 1, /singleton/reagent/drink/orangejuice = 1, /singleton/reagent/drink/watermelonjuice = 1)
 	result_amount = 6
 
+/datum/chemical_reaction/drink/messas_tear_tea
+	name = "Messa's Tear Tea"
+	id = "messas_tear_tea"
+	result = /singleton/reagent/drink/tea/messa
+	required_reagents = list(/singleton/reagent/nutriment/teagrounds/messa = 1, /singleton/reagent/water = 5)
+	result_amount = 6
+
+/datum/chemical_reaction/drink/rasnif
+	name = "Ras'nif Tea"
+	id = "rasnif_tea"
+	result = /singleton/reagent/drink/tea/rasnif
+	required_reagents = list(/singleton/reagent/nutriment/teagrounds/rasnif = 1, /singleton/reagent/water = 5)
+	result_amount = 6
+
 //transmutation
 
 /datum/chemical_reaction/transmutation_silver
@@ -4513,6 +4534,13 @@
 	result = /singleton/reagent/alcohol/tribunal
 	required_reagents = list(/singleton/reagent/alcohol/threefold = 1, /singleton/reagent/alcohol/godhead = 1, /singleton/reagent/water/holywater = 1)
 	result_amount = 3
+
+/datum/chemical_reaction/drink/witchspirit
+	name = "witch-spirit"
+	id = "witchspirit"
+	result = /singleton/reagent/alcohol/witchspirit
+	required_reagents = list(/singleton/reagent/alcohol/wine/algae = 1, /singleton/reagent/alcohol/gin = 1, /singleton/reagent/alcohol/limoncello = 1, /singleton/reagent/alcohol/melonliquor = 1)
+	result_amount = 4
 
 //boba drinks
 

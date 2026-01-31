@@ -226,7 +226,7 @@
 		return FALSE
 
 	if(!online)
-		set_light(3, 2, LIGHT_COLOR_RED, uv = 0, angle = LIGHT_WIDE)
+		set_light(3, 2, LIGHT_COLOR_RED)
 		owner.change_eye_color(250, 130, 130)
 		owner.update_eyes()
 		online = TRUE

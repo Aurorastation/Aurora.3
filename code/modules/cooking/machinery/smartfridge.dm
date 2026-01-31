@@ -21,7 +21,7 @@
 	var/is_secure = 0
 	var/machineselect = 0
 
-	var/list/accepted_items = list(/obj/item/reagent_containers/food/snacks/grown, /obj/item/seeds)
+	var/list/accepted_items = list(/obj/item/reagent_containers/food/snacks/grown, /obj/item/seeds, /obj/item/mollusc)
 
 	var/cooling = 0 //Whether or not to vend products at the cooling temperature
 	var/heating = 0 //Whether or not to vend products at the heating temperature
@@ -30,6 +30,8 @@
 
 	// what icon overlay to use to show its contents - set to NULL if no contents.
 	var/contents_path = "-plant"
+	var/display_tiers = 3
+	var/display_tier_amt = 25
 
 	component_types = list(
 		/obj/item/circuitboard/smartfridge,
@@ -284,30 +286,27 @@
 		AddOverlays("[initial(icon_state)]-panel")
 	var/list/shown_contents = contents - component_parts
 	if(contents_path && shown_contents.len > 0)
-		var/contents_icon_state
-		switch(shown_contents.len)
-			if(1 to 25)
-				contents_icon_state = "-1"
-			if(26 to 50)
-				contents_icon_state = "-2"
-			if(50 to INFINITY)
-				contents_icon_state = "-3"
+		var/contents_icon_state = change_display(shown_contents.len - 1)
 		AddOverlays("[initial(icon_state)][contents_path][contents_icon_state]")
 	AddOverlays("[initial(icon_state)]-glass[(stat & BROKEN) ? "-broken" : ""]")
+
+/obj/machinery/smartfridge/proc/change_display(var/length)
+	var/tier = clamp((floor(length / display_tier_amt) + 1), 1, display_tiers)
+	return "-[num2text(tier)]"
 
 /*******************
 *   Item Adding
 ********************/
 
 /obj/machinery/smartfridge/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.isscrewdriver())
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
 		panel_open = !panel_open
 		user.visible_message("\The [user] [panel_open ? "opens" : "closes"] the maintenance panel of \the [src].",
 							"You [panel_open ? "open" : "close"] the maintenance panel of \the [src].")
 		update_icon()
 		return
 
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		anchored = !anchored
 		user.visible_message("\The [user] [anchored ? "secures" : "unsecures"] the bolts holding \the [src] to the floor.",
 								"You [anchored ? "secure" : "unsecure"] the bolts holding \the [src] to the floor.")
@@ -315,7 +314,7 @@
 		power_change()
 		return
 
-	if(attacking_item.ismultitool() || attacking_item.iswirecutter())
+	if(attacking_item.tool_behaviour == TOOL_MULTITOOL || attacking_item.tool_behaviour == TOOL_WIRECUTTER)
 		if(panel_open)
 			switch(input(user, "What would you like to select?", "Machine Debug Software") as null|anything in list("SmartHeater", "MegaSeed Storage", "Slime Extract Storage", "Refrigerated Chemical Storage", "Refrigerated Virus Storage", "Drink Showcase", "Drying Rack"))
 				if("SmartHeater")
@@ -429,7 +428,7 @@
 		var/K = item_quants[i]
 		var/count = item_quants[K]
 		if(count > 0)
-			items.Add(list(list("display_name" = html_encode(capitalize(K)), "vend" = i, "quantity" = count)))
+			items.Add(list(list("display_name" = capitalize(K), "vend" = i, "quantity" = count)))
 
 	if(length(items) > 0)
 		data["contents"] = items

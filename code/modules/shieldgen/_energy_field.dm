@@ -85,6 +85,13 @@
 			field += F
 
 /**
+ * Removes the field from the managed list and deletes it. Called by shield diffusion.
+ */
+/datum/energy_field/proc/remove_individual_field(var/obj/effect/energy_field/field_to_remove)
+	field.Remove(field_to_remove)
+	qdel(field_to_remove)
+
+/**
  * Adds a bunch of UI data for TGUIs with relevant field data.
  */
 /datum/energy_field/proc/add_field_ui_data(list/data)

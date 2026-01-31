@@ -110,7 +110,7 @@
 /singleton/surgery_step/generic/cut_open
 	name = "Make Incision"
 	allowed_tools = list(
-	/obj/item/surgery/scalpel = 100,
+	TOOL_SCALPEL = 100,
 	/obj/item/material/knife = 75,
 	/obj/item/material/shard = 50
 	)
@@ -155,7 +155,7 @@
 /singleton/surgery_step/generic/cut_open_vaurca
 	name = "Cut Open Vaurca"
 	allowed_tools = list(
-	/obj/item/surgery/surgicaldrill = 100,
+	TOOL_DRILL = 100,
 	/obj/item/pickaxe/ = 15
 	)
 
@@ -198,8 +198,8 @@
 /singleton/surgery_step/generic/clamp_bleeders
 	name = "Clamp Bleeders"
 	allowed_tools = list(
-	/obj/item/surgery/hemostat = 100,	\
-	/obj/item/stack/cable_coil = 75, 	\
+	TOOL_HEMOSTAT = 100,	\
+	TOOL_CABLECOIL = 75, 	\
 	/obj/item/device/assembly/mousetrap = 20
 	)
 
@@ -237,8 +237,8 @@
 /singleton/surgery_step/generic/retract_skin
 	name = "Widen Incision"
 	allowed_tools = list(
-	/obj/item/surgery/retractor = 100, 	\
-	/obj/item/crowbar = 75,	\
+	TOOL_RETRACTOR = 100, 	\
+	TOOL_CROWBAR = 75,	\
 	/obj/item/material/kitchen/utensil/fork = 50
 	)
 
@@ -299,7 +299,7 @@
 /singleton/surgery_step/generic/cauterize
 	name = "Cauterize Incision"
 	allowed_tools = list(
-	/obj/item/surgery/cautery = 100,
+	TOOL_CAUTERY = 100,
 	/obj/item/clothing/mask/smokable/cigarette = 25,
 	/obj/item/flame/lighter = 50,
 	/obj/item/weldingtool = 75

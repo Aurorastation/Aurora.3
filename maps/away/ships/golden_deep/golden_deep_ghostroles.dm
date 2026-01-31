@@ -82,7 +82,7 @@
 /obj/outfit/admin/golden_deep/post_equip(mob/living/carbon/human/H, visualsOnly)
 	if(!istype(H))
 		return
-	var/obj/item/organ/internal/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
+	var/obj/item/organ/internal/machine/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
 	if(istype(tag))
 		tag.serial_number = uppertext(dd_limittext(md5(H.real_name), 12))
 		tag.ownership_info = IPC_OWNERSHIP_PRIVATE // These are owned by the merchant.
@@ -93,7 +93,7 @@
 	if(!istype(H))
 		return
 	new /obj/item/organ/internal/augment/gustatorial/hand(H)
-	var/obj/item/organ/internal/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
+	var/obj/item/organ/internal/machine/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
 	if(istype(tag))
 		tag.serial_number = uppertext(dd_limittext(md5(H.real_name), 12))
 		tag.ownership_info = IPC_OWNERSHIP_PRIVATE // Hoplan are government owned.
@@ -103,7 +103,7 @@
 	if(!istype(H))
 		return
 	new /obj/item/organ/internal/augment/gustatorial/hand(H)
-	var/obj/item/organ/internal/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
+	var/obj/item/organ/internal/machine/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
 	if(istype(tag))
 		tag.serial_number = uppertext(dd_limittext(md5(H.real_name), 12))
 		tag.ownership_info = IPC_OWNERSHIP_SELF

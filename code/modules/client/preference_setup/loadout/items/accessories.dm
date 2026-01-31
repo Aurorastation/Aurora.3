@@ -408,10 +408,7 @@ ABSTRACT_TYPE(/datum/gear/accessory)
 	passcard["passcard, tau ceti"] = /obj/item/clothing/accessory/badge/passcard
 	passcard["passcard, sol"] = /obj/item/clothing/accessory/badge/passcard/sol
 	passcard["passcard, callisto"] = /obj/item/clothing/accessory/badge/passcard/sol/callisto
-	passcard["passcard, cytherean"] = /obj/item/clothing/accessory/badge/passcard/sol/cytherean
 	passcard["passcard, europa"] = /obj/item/clothing/accessory/badge/passcard/sol/europa
-	passcard["passcard, jintarian"] = /obj/item/clothing/accessory/badge/passcard/sol/jintarian
-	passcard["passcard, jovian"] = /obj/item/clothing/accessory/badge/passcard/sol/jupiter
 	passcard["passcard, solarian konyang"] = /obj/item/clothing/accessory/badge/passcard/sol/konyang
 	passcard["passcard, luna"] = /obj/item/clothing/accessory/badge/passcard/sol/luna
 	passcard["passcard, solarian mictlan"] = /obj/item/clothing/accessory/badge/passcard/sol/mictlan

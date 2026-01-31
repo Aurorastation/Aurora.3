@@ -55,7 +55,7 @@
 	if(!D.paralysis)
 		A.visible_message("[SPAN_BOLD("[A]")] delivers a blow to \the [SPAN_BOLD("[D]")]'s head, making [D.get_pronoun("him")] fall unconscious!")
 		A.do_attack_animation(D)
-		playsound(D.loc, /singleton/sound_category/punch_sound, 25, TRUE, MEDIUM_RANGE_SOUND_EXTRARANGE+4)
+		playsound(D.loc, SFX_PUNCH, 25, TRUE, MEDIUM_RANGE_SOUND_EXTRARANGE+4)
 		D.AdjustParalysis(5)
 	else
 		to_chat(A, SPAN_WARNING("\The [SPAN_BOLD("[D]")] is already unconscious!"))
@@ -68,7 +68,7 @@
 		return 0
 	TornadoAnimate(A)
 	A.visible_message(SPAN_WARNING("[A] sweeps [D] with their tail!"))
-	playsound(get_turf(A), /singleton/sound_category/swing_hit_sound, 50, 1, -1)
+	playsound(get_turf(A), SFX_SWING_HIT, 50, 1, -1)
 	D.apply_damage(5, DAMAGE_BRUTE)
 	D.Weaken(2)
 	return 1
@@ -90,7 +90,7 @@
 		playsound(D, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 	else
 		D.visible_message(SPAN_DANGER("[A] attempted to disarm [D]!"))
-		playsound(D, /singleton/sound_category/punchmiss_sound, 25, 1, -1)
+		playsound(D, SFX_PUNCH_MISS, 25, 1, -1)
 	return 1
 
 /datum/martial_art/kis_khan/proc/hammering_strike(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)

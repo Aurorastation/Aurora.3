@@ -574,7 +574,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/bridge)
 "cI" = (
-/obj/machinery/autolathe,
+/obj/machinery/fabricator/autolathe,
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/equipment)
 "cJ" = (

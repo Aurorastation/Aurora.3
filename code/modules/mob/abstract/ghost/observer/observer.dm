@@ -8,6 +8,7 @@
 	blinded = FALSE
 	anchored = TRUE	//  don't get pushed around
 	invisibility = INVISIBILITY_OBSERVER
+	lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
 	simulated = FALSE
 	universal_speak = TRUE
 	incorporeal_move = INCORPOREAL_GHOST
@@ -28,8 +29,6 @@
 	var/admin_ghosted = 0
 	/// If this ghost has enabled chat anonymization.
 	var/anonsay = 0
-	/// This mob's ghost image, for deleting and stuff.
-	var/image/ghostimage
 	/// If the ghost can be seen through cult shenanigans.
 	var/is_manifest = 0
 	/// Cooldown for ghost abilities, such as move_item().
@@ -42,10 +41,6 @@
 
 	set_stat(DEAD)
 
-	ghostimage = image(icon, src, icon_state)
-	SSmobs.ghost_darkness_images |= ghostimage
-	updateallghostimages()
-
 	var/turf/T
 	if (ismob(body))
 		T = get_turf(body)				//Where is the body located?
@@ -54,6 +49,7 @@
 		var/originaldesc = desc
 		var/o_transform = transform
 		set_appearance(body)
+		underlays.Cut()
 		appearance_flags = KEEP_TOGETHER
 		desc = originaldesc
 		transform = o_transform
@@ -87,15 +83,6 @@
 	if(!name)							//To prevent nameless ghosts
 		name = capitalize(pick(GLOB.first_names_male)) + " " + capitalize(pick(GLOB.last_names))
 	real_name = name
-
-/mob/abstract/ghost/observer/Destroy()
-	if (ghostimage)
-		SSmobs.ghost_darkness_images -= ghostimage
-		qdel(ghostimage)
-		ghostimage = null
-		updateallghostimages()
-
-	return ..()
 
 /mob/abstract/ghost/observer/proc/initialise_postkey(set_timers = TRUE)
 	//This function should be run after a ghost has been created and had a ckey assigned
@@ -574,47 +561,12 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 /mob/abstract/ghost/observer/can_admin_interact()
 	return check_rights(R_ADMIN, 0, src)
 
-/mob/abstract/ghost/observer/update_sight()
-	//if they are on a restricted level, then set the ghost vision for them.
-	if(on_restricted_level())
-		//On the restricted level they have the same sight as the mob
-		set_sight(sight&(~SEE_TURFS)&(~SEE_MOBS)&(~SEE_OBJS))
-		set_see_invisible(SEE_INVISIBLE_OBSERVER)
-	else
-		//Outside of the restrcited level, they have enhanced vision
-		set_sight(sight|SEE_TURFS|SEE_MOBS|SEE_OBJS)
-		set_see_invisible(SEE_INVISIBLE_LEVEL_TWO)
-
-		if (!see_darkness)
-			set_see_invisible(SEE_INVISIBLE_NOLIGHTING)
-		else
-			set_see_invisible(ghostvision ? SEE_INVISIBLE_OBSERVER : SEE_INVISIBLE_LIVING)
-
-	updateghostimages()
-
-/proc/updateallghostimages()
-	for (var/mob/abstract/ghost/observer/O in GLOB.player_list)
-		O.updateghostimages()
-
-/mob/abstract/ghost/observer/proc/updateghostimages()
-	if (!client)
-		return
-	if (see_darkness || !ghostvision)
-		client.images -= SSmobs.ghost_darkness_images
-		client.images |= SSmobs.ghost_sightless_images
-	else
-		//add images for the 60inv things ghosts can normally see when darkness is enabled so they can see them now
-		client.images -= SSmobs.ghost_sightless_images
-		client.images |= SSmobs.ghost_darkness_images
-		if (ghostimage)
-			client.images -= ghostimage //remove ourself
-
 /**
  * We use this proc to set appearance because doing so resets the plane.
  * We want the plane to stay at GHOST_PLANE to avoid weird overlaying stuff.
  */
-/mob/abstract/ghost/observer/proc/set_appearance(new_appearance)
-	appearance = new_appearance
+/mob/abstract/ghost/observer/proc/set_appearance(mob/body)
+	appearance = body.appearance
 	plane = GHOST_PLANE
 
 /mob/abstract/ghost/observer/MayRespawn(var/feedback = 0, var/respawn_type = null)

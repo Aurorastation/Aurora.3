@@ -103,7 +103,7 @@
 		A.analyze_gases(src, user)
 		return FALSE
 
-	if (!attacking_item.iswrench() && !istype(attacking_item, /obj/item/pipewrench))
+	if (attacking_item.tool_behaviour != TOOL_WRENCH && !istype(attacking_item, /obj/item/pipewrench))
 		return ..()
 	var/turf/T = src.loc
 	if (level==1 && isturf(T) && !T.is_plating())
@@ -1394,7 +1394,7 @@
 
 /obj/machinery/atmospherics/pipe/tank/hydrogen
 	name = "Pressure Tank (Hydrogen)"
-	icon_state = "hydrogen_map"
+	icon_state = "h2_map"
 
 /obj/machinery/atmospherics/pipe/tank/hydrogen/Initialize()
 	air_temporary = new
@@ -1404,7 +1404,7 @@
 	air_temporary.adjust_gas(GAS_HYDROGEN, (start_pressure)*(air_temporary.volume)/(R_IDEAL_GAS_EQUATION*air_temporary.temperature))
 
 	. = ..()
-	icon_state = "hydrogen"
+	icon_state = "h2"
 
 /obj/machinery/atmospherics/pipe/tank/nitrous_oxide
 	name = "Pressure Tank (Nitrous Oxide)"

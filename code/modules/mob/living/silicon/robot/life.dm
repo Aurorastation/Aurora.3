@@ -154,10 +154,10 @@
 		set_see_invisible(SEE_INVISIBLE_LEVEL_TWO)
 	else if((sight_mode & BORGMESON) && (sight_mode & BORGTHERM))
 		set_sight(sight|SEE_TURFS|SEE_MOBS)
-		set_see_invisible(SEE_INVISIBLE_NOLIGHTING)
+		lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE
 	else if(sight_mode & BORGMESON)
 		set_sight(sight|SEE_TURFS)
-		set_see_invisible(SEE_INVISIBLE_NOLIGHTING)
+		lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE
 	else if(sight_mode & BORGMATERIAL)
 		set_sight(sight|SEE_OBJS)
 	else if(sight_mode & BORGTHERM)

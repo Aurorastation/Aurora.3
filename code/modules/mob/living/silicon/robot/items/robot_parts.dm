@@ -8,7 +8,7 @@
 	var/list/part = null // Order of args is important for installing robolimbs.
 	var/sabotaged = 0 //Emagging limbs can have repercussions when installed as prosthetics.
 	var/model_info
-	var/linked_frame = SPECIES_IPC_UNBRANDED
+	var/linked_frame = SPECIES_IPC
 	dir = SOUTH
 
 /obj/item/robot_parts/set_dir()
@@ -255,7 +255,7 @@
 
 				var/mob/living/carbon/human/new_shell = new(get_turf(src), chest.linked_frame)
 				// replace the IPC's microbattery cell with the one that was in the robot chest
-				var/obj/item/organ/internal/cell/C = new_shell.internal_organs_by_name[BP_CELL]
+				var/obj/item/organ/internal/machine/power_core/C = new_shell.internal_organs_by_name[BP_CELL]
 				C.replace_cell(chest.cell)
 				//so people won't mess around with the chassis until it is deleted
 				forceMove(new_shell)
@@ -268,7 +268,7 @@
 					newname = L.get_random_name()
 				new_shell.real_name = newname
 				new_shell.name = new_shell.real_name
-				var/obj/item/organ/internal/mmi_holder/posibrain/P = new_shell.internal_organs_by_name[BP_BRAIN]
+				var/obj/item/organ/internal/machine/posibrain/P = new_shell.internal_organs_by_name[BP_BRAIN]
 				P.setup_brain()
 				new_shell.change_appearance(APPEARANCE_PLASTICSURGERY, new_shell)
 				qdel(src)
@@ -315,7 +315,7 @@
 			to_chat(user, SPAN_WARNING("\The [attacking_item] can only be inserted after everything else is installed."))
 		return
 
-	if(attacking_item.ispen())
+	if(attacking_item.tool_behaviour == TOOL_PEN)
 		var/t = sanitizeSafe( tgui_input_text(user, "Enter new robot name", name, created_name, MAX_NAME_LEN), MAX_NAME_LEN )
 		if(!t)
 			return
@@ -343,7 +343,7 @@
 			cell = attacking_item
 			to_chat(user, SPAN_NOTICE("You insert \the [src]."))
 		return
-	if(attacking_item.iscoil())
+	if(attacking_item.tool_behaviour == TOOL_CABLECOIL)
 		if(wires)
 			to_chat(user, SPAN_WARNING("\The [src] is already wired up correctly."))
 			return
@@ -375,7 +375,7 @@
 		to_chat(user, SPAN_NOTICE("You add the infrared sensor to the robot head."))
 		qdel(src)
 
-	else if(attacking_item.ismultitool())
+	else if(attacking_item.tool_behaviour == TOOL_MULTITOOL)
 		if(law_manager)
 			to_chat(user, SPAN_NOTICE("You disable the lawing circuits on \the [src]."))
 			law_manager = FALSE

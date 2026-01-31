@@ -259,8 +259,12 @@
 
 	var/obj/structure/stairs/staircase = locate() in target
 	var/target_dir = get_dir(mover, target)
+	// If moving laterally off a staircase...
 	if(!staircase && (target_dir != dir && target_dir != REVERSE_DIR(dir)))
-		INVOKE_ASYNC(src, PROC_REF(mob_fall), mover)
+		// And nothing blocks you from doing so...
+		if(CanPass(mover, target))
+			// Then fall over, idiot.
+			INVOKE_ASYNC(src, PROC_REF(mob_fall), mover)
 
 	return ..()
 

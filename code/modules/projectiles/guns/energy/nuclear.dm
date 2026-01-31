@@ -9,11 +9,11 @@
 	slot_flags = SLOT_BELT
 	accuracy = 1
 	max_shots = 15
-	can_turret = 1
+	can_turret = TRUE
 	secondary_projectile_type = /obj/projectile/beam
 	secondary_fire_sound = 'sound/weapons/laser1.ogg'
-	can_switch_modes = 1
-	turret_is_lethal = 0
+	can_switch_modes = TRUE
+	turret_is_lethal = FALSE
 
 	projectile_type = /obj/projectile/beam/stun
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
@@ -30,9 +30,9 @@
 
 /obj/item/gun/energy/gun/mounted
 	name = "mounted energy gun"
-	self_recharge = 1
-	use_external_power = 1
-	can_turret = 0
+	self_recharge = TRUE
+	use_external_power = TRUE
+	can_turret = FALSE
 
 /obj/item/gun/energy/gun/nuclear
 	name = "advanced energy gun"
@@ -43,7 +43,7 @@
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 5, TECH_POWER = 3)
 	slot_flags = SLOT_BELT
 	force = 18 //looks heavier than a pistol
-	self_recharge = 1
+	self_recharge = TRUE
 	modifystate = null
 	reliability = 95
 	turret_sprite_set = "nuclear"
@@ -133,12 +133,12 @@
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	max_shots = 10
 	fire_delay = 4
-	can_turret = 1
+	can_turret = TRUE
 	secondary_projectile_type = /obj/projectile/beam/pistol
 	secondary_fire_sound = 'sound/weapons/laser1.ogg'
-	can_switch_modes = 1
+	can_switch_modes = TRUE
 	turret_sprite_set = "carbine"
-	turret_is_lethal = 0
+	turret_is_lethal = FALSE
 
 	projectile_type = /obj/projectile/beam/stun
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
@@ -240,7 +240,7 @@
 	fire_delay = 5
 	secondary_projectile_type = /obj/projectile/beam/pistol/scc/weak
 	secondary_fire_sound = 'sound/weapons/energy_repeater.ogg'
-	can_switch_modes = 1
+	can_switch_modes = TRUE
 
 	projectile_type = /obj/projectile/beam/stun
 	origin_tech = list(TECH_COMBAT = 4, TECH_MAGNET = 3)
@@ -309,7 +309,7 @@
 	max_shots = 25
 	secondary_projectile_type = /obj/projectile/beam
 	secondary_fire_sound = 'sound/weapons/laser1.ogg'
-	can_switch_modes = 1
+	can_switch_modes = TRUE
 
 	projectile_type = /obj/projectile/beam/stun
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
@@ -323,10 +323,10 @@
 	has_item_ratio = FALSE
 
 /obj/item/gun/energy/gun/qukala/mounted
-	self_recharge = 1
-	use_external_power = 1
+	self_recharge = TRUE
+	use_external_power = TRUE
 	recharge_time = 10
-	can_turret = 0
+	can_turret = FALSE
 
 /obj/item/gun/energy/fedpistol
 	name = "nralakk energy pistol"

@@ -12,7 +12,7 @@
     "highlight.js": "^11.5.1",
     "inferno": "^7.4.8",
     "inferno-vnode-flags": "^7.4.8",
-    "js-yaml": "^4.1.0",
+    "js-yaml": "^4.1.1",
     "marked": "^4.2.12",
     "tgui-dev-server": "workspace:*",
     "tgui-polyfill": "workspace:*"

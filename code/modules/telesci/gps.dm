@@ -248,7 +248,23 @@ GLOBAL_LIST_EMPTY(gps_list)
 		return
 	var/area/gpsarea = get_area(src)
 	var/gps_areaname = get_area_display_name(gpsarea, TRUE, FALSE, FALSE, TRUE)
-	GLOB.gps_list[gpstag] = list("tag" = gpstag, "pos_x" = T.x, "pos_y" = T.y, "pos_z" = T.z, "area" = "[gps_areaname]", "emped" = emped, "compass_color" = compass_color)
+
+	// Sanity checking with default locations in case something isn't right with locational data.
+	// The GPS will prefer the coordinate of its turf, but if the turf is null it will try the coordinate of whoever is holding it.
+	// And if both fail, it'll default to <0,0,0> so we don't crash.
+	var/x_coord = 0
+	var/y_coord = 0
+	var/z_coord = 0
+	if (T)
+		x_coord = T.x
+		y_coord = T.y
+		z_coord = T.z
+	else if (held_by)
+		x_coord = held_by.x
+		y_coord = held_by.y
+		z_coord = held_by.z
+
+	GLOB.gps_list[gpstag] = list("tag" = gpstag, "pos_x" = x_coord, "pos_y" = y_coord, "pos_z" = z_coord, "area" = "[gps_areaname]", "emped" = emped, "compass_color" = compass_color)
 	if(check_held_by && held_by && (held_by.get_active_hand() == src || held_by.get_inactive_hand() == src))
 		update_compass(TRUE)
 

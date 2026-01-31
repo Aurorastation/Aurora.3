@@ -63,7 +63,7 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 	/// Did we yell at our unfortunate victim the moment we spot them? This prevents yell spams.
 	var/recently_yelled = FALSE
 	/// The mob will yell at its targets with the sound path set here. Leave as null to disable.
-	var/mob_soundblock_yell = "/singleton/sound_category/bear_loud"
+	var/mob_soundblock_yell = SFX_ANIMAL_BEAR
 	/// Changes the mobs description after death if set.
 	var/desc_after_death = "One might wonder if the evolution ever had a hand in its creation. Whatever it was, it's now dead, hopefully..."
 
@@ -171,6 +171,8 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 	var/language = LANGUAGE_TCB
 	/// Used for disabling some abilities for horde and a few other subtypes.
 	var/disguise_disabled = FALSE
+	/// If true, the mob will start with disguise.
+	var/starts_disguised = FALSE
 	bypass_blood_overlay = TRUE
 
 /mob/living/simple_animal/hostile/revivable/abomination/Initialize()
@@ -181,7 +183,7 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 		return
 	if(prob(40))
 		trap_split = TRUE
-	if(prob(20))
+	if(prob(20) || starts_disguised)
 		mob_in_disguise = TRUE
 		maxHealth = 400 // the mob in disguise makes it easy target for a few bullets. This should even the odds.
 		health = 400
@@ -273,12 +275,16 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 	playsound(loc, 'sound/effects/splat.ogg', 50, 1)
 	playsound(loc, 'sound/effects/creatures/siro_shriek.ogg', 60, 1)
 
+/mob/living/simple_animal/hostile/revivable/abomination/disguised
+	starts_disguised = TRUE
+
 // Lesser Abomination
 /mob/living/simple_animal/hostile/giant_spider/lesser_abomination
 	name = "lesser abomination"
 	desc = "An agile, chitinous creature."
 	icon = 'icons/mob/npc/animal.dmi'
 	icon_state = "lesser_ling"
+	icon_living = "lesser_ling"
 	tameable = FALSE
 	faction = "abominations"
 
@@ -290,8 +296,8 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 	melee_damage_lower = 5
 	melee_damage_upper = 10
 	armor_penetration = 5
-	poison_per_bite = 1
-	poison_type = /singleton/reagent/soporific // sweet, horrible dreams for its undoubting victims
+	venom_per_bite = 1
+	venom_type = /singleton/reagent/soporific // sweet, horrible dreams for its undoubting victims
 
 /mob/living/simple_animal/hostile/giant_spider/lesser_abomination/Initialize()
 	. = ..()
@@ -392,7 +398,7 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 		if(istype(target_turf, /turf/simulated/wall) && !QDELETED(src) && stat != DEAD && get_dist(src, target_turf) == 1) // we check again
 			visible_message(SPAN_DANGER("With a loud thud, \the [src] breaks down the [target_turf]!"))
 			playsound(target_turf, 'sound/effects/meteorimpact.ogg', 50, 1)
-			target_turf.ChangeTurf(/turf/simulated/floor/exoplanet/asteroid/ash/rocky)
+			target_turf.ex_act(2)
 			new /obj/effect/decal/cleanable/floor_damage/broken6(target_turf)
 		breaking_wall = FALSE
 		return
@@ -450,7 +456,7 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 		if(istype(target_turf, /turf/simulated/wall) && !QDELETED(src) && stat != DEAD && get_dist(src, target_turf) == 1) // we check again
 			visible_message(SPAN_DANGER("With a loud thud, \the [src] breaks down the [target_turf]!"))
 			playsound(target_turf, 'sound/effects/meteorimpact.ogg', 50, 1)
-			target_turf.ChangeTurf(/turf/simulated/floor/exoplanet/asteroid/ash/rocky)
+			target_turf.ex_act(2)
 			new /obj/effect/decal/cleanable/floor_damage/broken6(target_turf)
 		breaking_wall = FALSE
 		return
@@ -623,7 +629,7 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 	return ..()
 
 /obj/structure/quarantined_outpost/fluff_canister/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(!locate(/obj/structure/quarantined_outpost/fluff_connector) in get_turf(src))
 			to_chat(user, SPAN_WARNING("There is no suitable port to secure \the [src]."))
 			return TRUE
@@ -730,7 +736,7 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 	var/list/areas_with_objects
 
 /obj/machinery/computer/terminal/mob_tracker/proc/categorize_trackables(mob/user)
-	playsound(get_turf(src), /singleton/sound_category/keyboard_sound, 30, TRUE)
+	playsound(get_turf(src), SFX_KEYBOARD, 30, TRUE)
 	if(cooldown_until > world.time)
 		to_chat(user, SPAN_WARNING("Terminal declines your input. Scanners are still preparing for the queries, you may try again in [time2text(cooldown_until - world.time, "mm:ss")] seconds."))
 		return
@@ -826,10 +832,10 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 
 		visible_message(SPAN_NOTICE("\The [user] starts tinkering with \the [src]..."))
 		to_chat(user, SPAN_NOTICE("You start pulsing \the [src] with \the [attacking_item], this should take a while..."))
-		playsound(get_turf(src), /singleton/sound_category/electrical_hum, 30, TRUE)
+		playsound(get_turf(src), SFX_ELECTRICAL_HUM, 30, TRUE)
 		if(do_after(user, 15 SECONDS))
 			to_chat(user, SPAN_NOTICE("With the last impulse, \the [src] comes to life!"))
-			playsound(get_turf(src), /singleton/sound_category/electrical_spark, 30, TRUE)
+			playsound(get_turf(src), SFX_ELECTRICAL_SPARK, 30, TRUE)
 			active = TRUE
 			update_icon()
 			post_activation()
@@ -882,7 +888,7 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 	used = TRUE
 	if(LAZYLEN(GLOB.quarantined_outpost_creatures)) // extraction isn't allowed without clearing the ruin
 		to_chat(user, SPAN_WARNING("\The [src] doesn't notice your input. The notice on the screen informs you about a present lockdown and quarantine protocols."))
-		playsound(get_turf(src), /singleton/sound_category/keyboard_sound, 30, TRUE)
+		playsound(get_turf(src), SFX_KEYBOARD, 30, TRUE)
 		used = FALSE
 		return
 	if(tgui_alert(user, "As you stand before \the [src] a wave doubt washes over you. This machine hasn't been maintained for a long time. This may be the only chance you have got.", "Irreversible Action!", list("Confirm", "I changed my mind")) != "Confirm")
@@ -1105,14 +1111,6 @@ GLOBAL_LIST_EMPTY(trackables_pool)
 
 /obj/structure/filler/ex_act()
 	return
-
-/obj/structure/decor/fluff_ladder
-	name = "ladder"
-	icon = 'icons/obj/structures.dmi'
-	icon_state = "ladder01"
-
-/obj/structure/decor/fluff_ladder/up
-	icon_state = "ladder10"
 
 /*######################################
 				PAPERS

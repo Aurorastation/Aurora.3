@@ -4139,7 +4139,7 @@
 /area/shuttle/splf)
 "yg" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/autolathe,
+/obj/machinery/fabricator/autolathe,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/splf_raider/cargo_1)

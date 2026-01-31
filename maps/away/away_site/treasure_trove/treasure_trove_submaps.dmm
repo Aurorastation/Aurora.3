@@ -36,7 +36,7 @@
 "aS" = (
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/acid_remnants,
-/obj/effect/decal/cleanable/greenglow/radioactive,
+/obj/effect/decal/cleanable/greenglow/radioactive/medium,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "be" = (
@@ -105,7 +105,7 @@
 "bI" = (
 /obj/random/dirt_75,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/effect/decal/cleanable/greenglow/radioactive,
+/obj/effect/decal/cleanable/greenglow/radioactive/medium,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
@@ -314,8 +314,8 @@
 /area/trove/tunnels)
 "fE" = (
 /obj/random/dirt_75,
-/obj/structure/reagent_dispensers/radioactive_waste/hazardous,
-/obj/effect/decal/cleanable/greenglow/radioactive,
+/obj/structure/reagent_dispensers/radioactive_waste/hazardous/medium,
+/obj/effect/decal/cleanable/greenglow/radioactive/medium,
 /turf/simulated/floor/exoplanet/asphalt,
 /area/trove/tunnels)
 "fG" = (
@@ -369,7 +369,7 @@
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "gs" = (
-/obj/effect/decal/cleanable/greenglow/radioactive,
+/obj/effect/decal/cleanable/greenglow/radioactive/medium,
 /obj/effect/decal/cleanable/acid_remnants,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/cave,
@@ -912,7 +912,7 @@
 "pk" = (
 /obj/structure/reagent_dispensers/radioactive_waste,
 /obj/random/dirt_75,
-/obj/effect/decal/cleanable/greenglow/radioactive,
+/obj/effect/decal/cleanable/greenglow/radioactive/medium,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "pt" = (
@@ -1078,8 +1078,8 @@
 /area/trove/tunnels)
 "rG" = (
 /obj/random/dirt_75,
-/obj/effect/decal/cleanable/greenglow/radioactive,
-/obj/effect/decal/cleanable/greenglow/radioactive,
+/obj/effect/decal/cleanable/greenglow/radioactive/medium,
+/obj/effect/decal/cleanable/greenglow/radioactive/medium,
 /turf/simulated/floor/exoplanet/asphalt,
 /area/trove/tunnels)
 "rK" = (
@@ -1120,7 +1120,7 @@
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "sj" = (
-/obj/effect/decal/cleanable/greenglow/radioactive,
+/obj/effect/decal/cleanable/greenglow/radioactive/medium,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/asphalt,
 /area/trove/tunnels)
@@ -1199,7 +1199,7 @@
 "tg" = (
 /obj/random/dirt_75,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/effect/decal/cleanable/greenglow/radioactive,
+/obj/effect/decal/cleanable/greenglow/radioactive/medium,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "th" = (
@@ -1532,7 +1532,7 @@
 /area/trove/tunnels)
 "zE" = (
 /obj/structure/reagent_dispensers/radioactive_waste,
-/obj/effect/decal/cleanable/greenglow/radioactive,
+/obj/effect/decal/cleanable/greenglow/radioactive/medium,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
@@ -2061,7 +2061,7 @@
 /area/trove/tunnels)
 "HN" = (
 /obj/random/dirt_75,
-/obj/effect/decal/cleanable/greenglow/radioactive,
+/obj/effect/decal/cleanable/greenglow/radioactive/medium,
 /turf/simulated/floor/exoplanet/asphalt,
 /area/trove/tunnels)
 "Ia" = (
@@ -2346,8 +2346,8 @@
 /area/trove/tunnels)
 "LA" = (
 /obj/random/dirt_75,
-/obj/structure/reagent_dispensers/radioactive_waste/hazardous,
-/obj/effect/decal/cleanable/greenglow/radioactive,
+/obj/structure/reagent_dispensers/radioactive_waste/hazardous/medium,
+/obj/effect/decal/cleanable/greenglow/radioactive/medium,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "LF" = (
@@ -2549,7 +2549,7 @@
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "Oq" = (
-/obj/effect/decal/cleanable/greenglow/radioactive,
+/obj/effect/decal/cleanable/greenglow/radioactive/medium,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "Or" = (
@@ -2774,7 +2774,7 @@
 /area/trove/tunnels)
 "Tk" = (
 /obj/random/dirt_75,
-/obj/effect/decal/cleanable/greenglow/radioactive,
+/obj/effect/decal/cleanable/greenglow/radioactive/medium,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "Tl" = (
@@ -2939,7 +2939,7 @@
 "Vs" = (
 /obj/random/dirt_75,
 /obj/structure/reagent_dispensers/radioactive_waste,
-/obj/effect/decal/cleanable/greenglow/radioactive,
+/obj/effect/decal/cleanable/greenglow/radioactive/medium,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
@@ -3090,7 +3090,7 @@
 "Xe" = (
 /obj/random/dirt_75,
 /obj/structure/reagent_dispensers/radioactive_waste,
-/obj/effect/decal/cleanable/greenglow/radioactive,
+/obj/effect/decal/cleanable/greenglow/radioactive/medium,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "Xw" = (
@@ -3110,7 +3110,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/acid_remnants,
-/obj/effect/decal/cleanable/greenglow/radioactive,
+/obj/effect/decal/cleanable/greenglow/radioactive/medium,
 /turf/simulated/floor/exoplanet/basalt/cave,
 /area/trove/tunnels)
 "XH" = (

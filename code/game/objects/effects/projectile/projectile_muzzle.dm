@@ -60,7 +60,7 @@
 
 /obj/effect/projectile/muzzle/emitter
 	icon_state = "muzzle_emitter"
-	light_color = LIGHT_COLOR_GREEN
+	light_color = COLOR_SPRING_GREEN
 
 /obj/effect/projectile/muzzle/bullet
 	icon_state = "muzzle_bullet"

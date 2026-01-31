@@ -10,7 +10,7 @@
 	autoclose = FALSE
 	hashatch = FALSE
 	panel_visible_while_open = TRUE
-	insecure = FALSE
+	features_powerloss_manual_override = FALSE
 
 	var/datum/turbolift/lift
 	var/datum/turbolift_floor/floor

@@ -103,7 +103,7 @@ export const GenderWindow = (props, context) => {
   const { act, data } = useBackend<ChangerData>(context);
 
   return (
-    <Section title="Gender and Pronouns">
+    <Section title="Bodytype">
       {data.valid_genders.map((new_gender) => (
         <Button
           key={new_gender}
@@ -199,15 +199,15 @@ export const CultureWindow = (props, context) => {
       <Section title="Speech Bubble Type">
         {data.valid_speech_bubbles.length
           ? data.valid_speech_bubbles.map((new_speech_bubble) => (
-            <Button
-              key={new_speech_bubble}
-              content={capitalize(new_speech_bubble)}
-              selected={data.owner_speech_bubble === new_speech_bubble}
-              onClick={() =>
-                act('speech_bubble', { speech_bubble: new_speech_bubble })
-              }
-            />
-          ))
+              <Button
+                key={new_speech_bubble}
+                content={capitalize(new_speech_bubble)}
+                selected={data.owner_speech_bubble === new_speech_bubble}
+                onClick={() =>
+                  act('speech_bubble', { speech_bubble: new_speech_bubble })
+                }
+              />
+            ))
           : ''}
       </Section>
     </Section>

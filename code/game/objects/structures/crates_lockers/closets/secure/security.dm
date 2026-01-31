@@ -294,7 +294,6 @@
 /obj/structure/closet/secure_closet/investigator/fill()
 	//Appearance
 	new /obj/item/storage/backpack/satchel/leather/recolorable(src)
-	new /obj/item/clothing/suit/storage/toggle/labcoat(src)
 	new /obj/item/clothing/accessory/badge/investigator(src)
 	new /obj/item/clothing/mask/gas/half(src)
 	//Tools
@@ -307,6 +306,7 @@
 	new /obj/item/stamp/investigations(src)
 	new /obj/item/clothing/glasses/sunglasses/sechud/aviator(src)
 	new /obj/item/clothing/glasses/sunglasses/sechud(src)
+	new /obj/item/journal/notepad/filled/security(src)
 	//Belts
 	new /obj/item/clothing/accessory/storage/black_vest(src)
 	new /obj/item/clothing/accessory/storage/pouches/black(src)

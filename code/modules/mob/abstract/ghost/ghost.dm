@@ -1,10 +1,8 @@
 /mob/abstract/ghost
 	stat = DEAD
 
-	/// Toggle darkness.
-	var/see_darkness = FALSE
 	/// Is the ghost able to see things humans can't?
-	var/ghostvision = FALSE
+	var/ghostvision = TRUE
 	/// This variable generally controls whether a ghost has restrictions on where it can go or not (ex. if the ghost can bypass holy places).
 	var/has_ghost_restrictions = TRUE
 	/// If the ghost has antagHUD.
@@ -20,6 +18,7 @@
 	see_invisible = SEE_INVISIBLE_OBSERVER
 	add_verb(src, /mob/abstract/ghost/proc/dead_tele)
 	ghost_multitool = new(src)
+	update_sight()
 
 /mob/abstract/ghost/Destroy()
 	QDEL_NULL(ghost_multitool)
@@ -55,17 +54,22 @@
 	set name = "Toggle Darkness"
 	set category = "Ghost"
 
-	see_darkness = !see_darkness
-	update_sight()
-
-/mob/abstract/ghost/proc/update_sight()
-	set_sight(sight|SEE_TURFS|SEE_MOBS|SEE_OBJS)
-	set_see_invisible(SEE_INVISIBLE_LEVEL_TWO)
-
-	if (!see_darkness)
-		set_see_invisible(SEE_INVISIBLE_NOLIGHTING)
-	else
-		set_see_invisible(ghostvision ? SEE_INVISIBLE_OBSERVER : SEE_INVISIBLE_LIVING)
+	var/level_message
+	switch(lighting_alpha)
+		if(LIGHTING_PLANE_ALPHA_VISIBLE)
+			lighting_alpha = LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE
+			level_message = "half night vision"
+		if(LIGHTING_PLANE_ALPHA_SOMEWHAT_INVISIBLE)
+			lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE
+			level_message = "three quarters night vision"
+		if(LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE)
+			lighting_alpha = LIGHTING_PLANE_ALPHA_INVISIBLE
+			level_message = "full night vision"
+		if(LIGHTING_PLANE_ALPHA_INVISIBLE)
+			lighting_alpha = LIGHTING_PLANE_ALPHA_VISIBLE
+			level_message = "no night vision"
+	to_chat(src, SPAN_NOTICE("Night vision mode switched and saved to [level_message]."))
+	sync_lighting_plane_alpha()
 
 /mob/abstract/ghost/verb/toggle_ghostsee()
 	set name = "Toggle Ghost Vision"
@@ -150,6 +154,20 @@
 
 	to_chat(src, SPAN_NOTICE("Now following \the <b>[target]</b>."))
 	update_sight()
+
+/mob/abstract/ghost/proc/update_sight()
+	//if they are on a restricted level, then set the ghost vision for them.
+	if(on_restricted_level())
+		//On the restricted level they have the same sight as the mob
+		set_sight(sight&(~SEE_TURFS)&(~SEE_MOBS)&(~SEE_OBJS))
+	else
+		//Outside of the restrcited level, they have enhanced vision
+		set_sight(sight|SEE_TURFS|SEE_MOBS|SEE_OBJS)
+
+	if(ghostvision)
+		set_see_invisible(SEE_INVISIBLE_OBSERVER) //overmap viewing breaks if this is lower
+	else
+		set_see_invisible(SEE_INVISIBLE_LIVING)
 
 /mob/abstract/ghost/proc/on_restricted_level(var/check)
 	if(!check)

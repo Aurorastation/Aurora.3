@@ -222,7 +222,7 @@
 	)
 		set_light(0)
 		return
-	set_light(1.5, 0.7, LIGHT_COLOR_FAINT_CYAN) // blue light
+	set_light(L_WALLMOUNT_RANGE, L_WALLMOUNT_POWER, LIGHT_COLOR_FAINT_CYAN) // blue light
 
 /obj/machinery/status_display/proc/get_shuttle_timer()
 	var/timeleft = GLOB.evacuation_controller.get_eta()

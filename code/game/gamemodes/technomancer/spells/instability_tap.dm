@@ -16,7 +16,8 @@
 
 /obj/item/spell/instability_tap/New()
 	..()
-	set_light(3, 2, l_color = "#FA58F4")
+	set_light_range_power_color(3, 2, "#FA58F4")
+	set_light_on(TRUE)
 
 /obj/item/spell/instability_tap/on_use_cast(mob/user)
 	. = ..()

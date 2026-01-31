@@ -21,7 +21,7 @@ export const FollowMenu = (props, context) => {
   const [searchTerm, setSearchTerm] = useLocalState<string>(
     context,
     `searchTerm`,
-    ``
+    ``,
   );
 
   return (
@@ -41,7 +41,8 @@ export const FollowMenu = (props, context) => {
               }}
               value={searchTerm}
             />
-          }>
+          }
+        >
           {data.categories.sort().map((category) => (
             <Section title="" key={category}>
               <Collapsible open={1} title={category}>
@@ -53,7 +54,7 @@ export const FollowMenu = (props, context) => {
                         ghost.name
                           .toLowerCase()
                           .indexOf(searchTerm.toLowerCase()) > -1 &&
-                        category === ghost.category
+                        category === ghost.category,
                     )
                     .map((ghost) => (
                       <Button

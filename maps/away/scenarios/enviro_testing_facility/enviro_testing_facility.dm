@@ -95,7 +95,7 @@
 // --------------------------------------------------- misc
 
 /obj/machinery/computer/security/terminal/enviro_testing_facility
-	network = list("Env-Test Facility Zoya")
+	console_networks = list("Env-Test Facility Zoya")
 
 /obj/machinery/camera/network/enviro_testing_facility
 	network = list("Env-Test Facility Zoya")

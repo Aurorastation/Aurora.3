@@ -168,19 +168,22 @@
 	if(istype(spawned_cup) && spawned_cup.reagents)
 		spawned_cup.reagents.set_temperature(T0C + 45)
 
-/datum/gear/chatins
-	display_name = "konyang-cha tins"
-	description = "Tins of tea leaves made by Konyang-cha."
+/datum/gear/teatins
+	display_name = "tea tin selection"
+	description = "A selction of various tins of tea."
 	cost = 1
 	path = /obj/item/storage/box/unique/tea
 
-/datum/gear/chatins/New()
+/datum/gear/teatins/New()
 	..()
-	var/list/chatins = list()
-	chatins["sencha cha-tin"] = /obj/item/storage/box/unique/tea
-	chatins["tieguanyin cha-tin"] = /obj/item/storage/box/unique/tea/tieguanyin
-	chatins["jaekseol cha-tin"] = /obj/item/storage/box/unique/tea/jaekseol
-	gear_tweaks += new /datum/gear_tweak/path(chatins)
+	var/list/teatins = list()
+	teatins["sencha cha-tin"] = /obj/item/storage/box/unique/tea
+	teatins["tieguanyin cha-tin"] = /obj/item/storage/box/unique/tea/tieguanyin
+	teatins["jaekseol cha-tin"] = /obj/item/storage/box/unique/tea/jaekseol
+	teatins["messa's tear tea"] = /obj/item/storage/box/unique/tea/messa
+	teatins["ras'nif tea"] = /obj/item/storage/box/unique/tea/rasnif
+
+	gear_tweaks += new /datum/gear_tweak/path(teatins)
 
 /datum/gear/teapots
 	display_name = "teapots"
@@ -497,3 +500,24 @@
 	description = "A pack of red candles."
 	cost = 1
 	path = /obj/item/storage/box/fancy/candle_box
+
+/datum/gear/mre
+	display_name = "mre selection"
+	description = "A selection of different MREs."
+	cost = 2
+	path = /obj/item/storage/box/fancy/mre
+
+/datum/gear/mre/New()
+	..()
+	var/list/mres = list()
+	mres["meat pizza"] = /obj/item/storage/box/fancy/mre
+	mres["margherita pizza"] = /obj/item/storage/box/fancy/mre/menu2
+	mres["vegetable pizza"] = /obj/item/storage/box/fancy/mre/menu3
+	mres["hamburger"] = /obj/item/storage/box/fancy/mre/menu4
+	mres["taco"] = /obj/item/storage/box/fancy/mre/menu5
+	mres["meatbread"] = /obj/item/storage/box/fancy/mre/menu6
+	mres["salad"] = /obj/item/storage/box/fancy/mre/menu7
+	mres["hot chili"] = /obj/item/storage/box/fancy/mre/menu8
+	mres["boiled rice"] = /obj/item/storage/box/fancy/mre/menu9
+	mres["protein"] = /obj/item/storage/box/fancy/mre/menu10
+	gear_tweaks += new /datum/gear_tweak/path(mres)

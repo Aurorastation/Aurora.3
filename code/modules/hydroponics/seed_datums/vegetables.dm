@@ -280,3 +280,31 @@
 /obj/item/seeds/cabbageseed
 	seed_type = "cabbage"
 
+///////////////
+//  Cucumber  //
+///////////////
+
+/datum/seed/cucumber
+	name = "cucumber"
+	seed_name = "cucumber"
+	display_name = "cucumber plant"
+	chems = list(/singleton/reagent/nutriment = list(1,10), /singleton/reagent/water = list(3,10))
+	kitchen_tag = "cucumber"
+
+/datum/seed/cucumber/setup_traits()
+	..()
+	SET_SEED_TRAIT(src, TRAIT_HARVEST_REPEAT, 1)
+	SET_SEED_TRAIT(src, TRAIT_MATURATION, 8)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCTION, 6)
+	SET_SEED_TRAIT(src, TRAIT_YIELD, 3)
+	SET_SEED_TRAIT(src, TRAIT_POTENCY, 10)
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_ICON, "cucumber")
+	SET_SEED_TRAIT(src, TRAIT_PRODUCT_COLOUR, "#2c9b44")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_COLOUR, "#3d803b")
+	SET_SEED_TRAIT(src, TRAIT_PLANT_ICON, "vine")
+	SET_SEED_TRAIT(src, TRAIT_WATER_CONSUMPTION, 6)
+	SET_SEED_TRAIT(src, TRAIT_NUTRIENT_CONSUMPTION, 0.25)
+
+/obj/item/seeds/cucumberseed
+	seed_type = "cucumber"
+x

@@ -205,17 +205,20 @@
 	return FALSE
 
 /turf/simulated/floor/Click(location, control, params)
-	if(ishuman(usr))
-		var/mob/living/carbon/human/H = usr
+	if(ishuman(usr) || isrobot(usr))
+		var/mob/living/L = usr
 		var/list/modifiers = params2list(params)
-		var/obj/item/device/paint_sprayer/paint_sprayer = H.get_active_hand()
+		var/obj/item/device/paint_sprayer/paint_sprayer = L.get_active_hand()
 		if(istype(paint_sprayer))
-			if(!istype(H.buckled_to))
-				H.face_atom(src)
-			if(modifiers["ctrl"] && paint_sprayer.pick_color(src, H))
+			if(!istype(L.buckled_to))
+				L.face_atom(src)
+
+			if(modifiers["ctrl"] && paint_sprayer.pick_color(src, L))
 				return
-			if(modifiers["shift"] && paint_sprayer.remove_paint(src, H))
+
+			if(modifiers["shift"] && paint_sprayer.remove_paint(src, L))
 				return
+
 	. = ..()
 
 /obj/item/device/paint_sprayer/proc/pick_color(atom/A, mob/user)

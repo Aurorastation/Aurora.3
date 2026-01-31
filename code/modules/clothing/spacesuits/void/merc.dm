@@ -21,7 +21,7 @@
 	species_restricted = list(BODYTYPE_HUMAN)
 	light_overlay = "merc_voidsuit_lights"
 	camera = /obj/machinery/camera/network/mercenary
-	brightness_on = 6
+	light_range = 6
 	light_color = "#ffffff"
 
 /obj/item/clothing/suit/space/void/merc
