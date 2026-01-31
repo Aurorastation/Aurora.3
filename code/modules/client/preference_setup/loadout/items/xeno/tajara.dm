@@ -790,11 +790,11 @@ ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 	allowed_roles = list("Off-Duty Crew Member", "Passenger")
 
-/datum/gear/shillelagh
-	display_name = "shillelagh"
+/datum/gear/maikahar
+	display_name = "maikahar"
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	sort_category = "Xenowear - Tajara"
-	path = /obj/item/cane/shillelagh
+	path = /obj/item/cane/maikahar
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 // All the rest

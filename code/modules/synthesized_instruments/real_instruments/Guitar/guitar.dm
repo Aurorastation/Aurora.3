@@ -25,3 +25,9 @@
 	icon = 'icons/obj/tajara_items.dmi'
 	icon_state = "prrama"
 	item_state = "prrama"
+
+/obj/item/device/synthesized_instrument/guitar/prrama/interact(mob/user)
+	if(!istajara(user))
+		balloon_alert(user, "not a tajara!")
+		return
+	. = ..()
